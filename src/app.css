@@ -3,26 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-    /* Theme: Default */
-    /* Light: */
-    --color-primary: 16 185 129;
-    --color-accent: 99 102 241;
-    --color-surface-light: 255 255 255;
-    --color-surface-dark: 17 24 39;
-}
-
-/* Theme: Speed Trivia */
-.theme-speed-trivia {
-    --color-primary: 6 182 212;
-    --color-accent: 67 56 202;
-    --color-surface-light: 255 255 255;
-    --color-surface-dark: 51 65 85;
-}
-
 html, body {
     @apply h-screen;
 }
 body {
-    @apply bg-surface-light text-black dark:bg-surface-dark dark:text-white;
+    @apply bg-surface-100 text-black dark:bg-surface-900 dark:text-white;
 }

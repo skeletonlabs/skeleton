@@ -1,26 +1,22 @@
 const colors = require('tailwindcss/colors');
 
-// https://tailwindcss.com/docs/customizing-colors#using-css-variables
-function withOpacityValue(variable) {
-	return ({ opacityValue }) => {
-		if (opacityValue === undefined) {
-			return `rgb(var(${variable}))`
-		}
-		return `rgb(var(${variable}) / ${opacityValue})`
-	}
-}
+const themeDefault = {
+	'primary': colors.emerald,
+	'accent': colors.indigo,
+	'surface': colors.gray,
+};
+const themeSpeedTrivia = {
+	'primary': colors.cyan,
+	'accent': colors.purple,
+	'surface': colors.indigo,
+};
 
 module.exports = {
 	darkMode: 'class',
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
 		extend: {
-			colors: {
-				'primary': colors.emerald, // withOpacityValue(`--color-primary`),
-				'accent': withOpacityValue(`--color-accent`),
-				'surface-light': withOpacityValue('--color-surface-light'),
-				'surface-dark': withOpacityValue('--color-surface-dark')
-			},
+			colors: themeDefault,
 		}
 	},
 	plugins: []
