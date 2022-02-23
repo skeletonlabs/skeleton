@@ -9,8 +9,8 @@
     // Disabled
     export let disabled: boolean = false;
 
-    // Styles
-    const defaultStyles: string = 'bg-[#141414] text-white py-2 px-4 text-center rounded-lg shadow transition-all hover:bg-black active:scale-95';
+    // Styling
+    const defaultStyles: string = 'bg-[#141414] text-base text-white py-2.5 px-5 text-center rounded-lg shadow transition-all hover:bg-black active:scale-95';
     const customStyle: any = [
         filled ? 'filled' : null,
         outlined ? 'outlined' : null,
@@ -21,12 +21,13 @@
 
     // Anchors
     export let href: string = null;
+    export let target: string = null;
 </script>
 
 {#if href}
-    <a {href} class="{`${defaultStyles} ${customStyle}`}" {disabled}><slot /></a>
+    <a on:click {href} class="{`${defaultStyles} ${customStyle} ${$$props.class}`}" {target} {disabled}><slot /></a>
 {:else}
-    <button class="{`${defaultStyles} ${customStyle}`}" {disabled}><slot /></button>
+    <button on:click class="{`${defaultStyles} ${customStyle} ${$$props.class}`}" {disabled}><slot /></button>
 {/if}
 
 <style lang="postcss">
@@ -39,10 +40,10 @@
     .outlined-primary { @apply bg-primary-500/10 text-primary-500 ring-1 ring-primary-500 ring-inset hover:bg-primary-500/20; }
     .outlined-accent { @apply bg-accent-500/10 text-accent-500 ring-1 ring-accent-500 ring-inset hover:bg-accent-500/20; }
     /* Text */
-    .text { @apply bg-transparent text-surface-500 shadow-none hover:text-surface-400; }
+    .text { @apply bg-transparent text-surface-500 shadow-none hover:bg-transparent hover:text-surface-400; }
         .text:disabled { @apply bg-transparent hover:bg-transparent !important; }
-    .text-primary { @apply bg-transparent text-primary-500 shadow-none hover:text-primary-400; }
-    .text-accent { @apply bg-transparent text-accent-500 shadow-none hover:text-accent-400; }
+    .text-primary { @apply bg-transparent text-primary-500 shadow-none hover:bg-transparent hover:text-primary-400; }
+    .text-accent { @apply bg-transparent text-accent-500 shadow-none hover:bg-transparent hover:text-accent-400; }
     /* Disabled */
     button:disabled {
         @apply bg-surface-500/10 text-surface-500/70 ring-0 cursor-not-allowed hover:bg-surface-500/10 !important;

@@ -7,7 +7,7 @@ const themeDefault = {
 };
 const themeSpeedTrivia = {
 	'primary': colors.cyan,
-	'accent': colors.purple,
+	'accent': colors.fuchsia,
 	'surface': colors.indigo,
 };
 
