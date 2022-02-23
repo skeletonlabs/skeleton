@@ -11,8 +11,8 @@ describe('Button.svelte', () => {
 
     afterEach(() => cleanup())
     
-    it('updates on button click', async () => {
-        render(Button, { label: 'Button' })
+    it('Renders', async () => {
+        render(Button); // , { label: 'Button' }
     })
 
 })
