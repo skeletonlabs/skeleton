@@ -6,6 +6,7 @@
 		{href: '/', label: 'Welcome'},
 		{href: '/cards', label: 'Cards'},
 		{href: '/buttons', label: 'Buttons'},
+		{href: '/dividers', label: 'Dividers'},
 	];
 	let darkMode: boolean;
 
