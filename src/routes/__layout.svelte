@@ -42,7 +42,7 @@
 				</a>
 			</nav>
 		</div>
-		<hr class="border-t-1 border-surface-700 my-4">
+		<hr class="border-t-1 border-surface-400 my-4 dark:border-surface-600">
         <nav class="space-y-4">
 			{#each navLinks as {href,label} }
 			<a {href} class="block text-xl hover:underline-offset-1">{label}</a>

@@ -10,7 +10,6 @@
     export let disabled: boolean = false;
 
     // Styling
-    const defaultStyles: string = 'bg-[#141414] text-base text-white py-2.5 px-5 text-center rounded-lg shadow transition-all hover:bg-black active:scale-95';
     const customStyle: any = [
         filled ? 'filled' : null,
         outlined ? 'outlined' : null,
@@ -25,12 +24,15 @@
 </script>
 
 {#if href}
-    <a on:click {href} class="{`${defaultStyles} ${customStyle} ${$$props.class}`}" {target} {disabled}><slot /></a>
+    <a on:click {href} class="{`${customStyle} ${$$props.class}`}" {target} {disabled}><slot /></a>
 {:else}
-    <button on:click class="{`${defaultStyles} ${customStyle} ${$$props.class}`}" {disabled}><slot /></button>
+    <button on:click class="{`${customStyle} ${$$props.class}`}" {disabled}><slot /></button>
 {/if}
 
 <style lang="postcss">
+    button, a {
+        @apply bg-[#141414] text-base text-white py-2.5 px-5 text-center rounded-lg shadow transition-all hover:bg-black active:scale-95;
+    }
     /* Filled */
     .filled { @apply bg-surface-500 text-white hover:bg-surface-600; }
     .filled-primary { @apply bg-primary-500 hover:bg-primary-600; }
