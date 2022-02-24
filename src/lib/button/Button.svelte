@@ -40,7 +40,7 @@
         @apply bg-[#141414] text-base text-white py-2.5 px-5 text-center rounded-lg shadow transition-all hover:bg-black active:scale-95;
     }
     /* Filled */
-    .filled { @apply bg-surface-500 text-white hover:bg-surface-600; }
+    .filled { @apply bg-surface-300 text-surface-900 hover:bg-surface-400; }
     .filled-primary { @apply bg-primary-500 hover:bg-primary-600; }
     .filled-accent  { @apply bg-accent-500 hover:bg-accent-600; }
     .filled-warning  { @apply bg-warning-500 hover:bg-warning-600; }
