@@ -35,7 +35,7 @@
     <section class="basis-1/4 border-r-2 border-surface-200 h-screen overflow-auto dark:border-surface-800">
 
 		<!-- Header -->
-        <header class="flex justify-between items-center p-4">
+        <header class="flex justify-between items-center py-6 px-8">
 			<h1 class="text-4xl font-bold">
 				<span class="bg-clip-text text-transparent bg-gradient-to-br from-primary-500 to-accent-500">Skeleton UI</span>
 			</h1>
@@ -49,30 +49,30 @@
 			</nav>
 		</header>
 
-		<hr class="border-t-1 border-surface-300 my-4 dark:border-surface-700">
+		<hr class="border-t-1 border-surface-300 mb-8 dark:border-surface-700">
 
 		<!-- Header -->
-		<h3 class="text-sm text-surface-500 mx-4 mb-4">Docs</h3>
+		<h3 class="text-sm text-surface-500 mx-8 mb-4">Docs</h3>
         <nav>
 			{#each navDocs as {href,label} }
-			<a {href} class="block text-base py-2 px-4 hover:underline-offset-1 class" class:active={$page.url.pathname == href}>{label}</a>
+			<a {href} class="block text-base py-2 px-8 hover:underline-offset-1 class" class:active={$page.url.pathname == href}>{label}</a>
 			{/each}
         </nav>
 
-		<hr class="border-t-1 border-surface-300 my-4 dark:border-surface-700">
+		<hr class="border-t-1 border-surface-300 my-8 dark:border-surface-700">
 
 		<!-- Components -->
-		<h3 class="text-sm text-surface-500 mx-4 mb-4">Components</h3>
+		<h3 class="text-sm text-surface-500 mx-8 mb-4">Components</h3>
         <nav>
 			{#each navComponents as {href,label} }
-			<a {href} class="block text-base py-2 px-4 hover:underline-offset-1 class" class:active={$page.url.pathname == href}>{label}</a>
+			<a {href} class="block text-base py-2 px-8 hover:underline-offset-1 class" class:active={$page.url.pathname == href}>{label}</a>
 			{/each}
         </nav>
 
     </section>
 
     <!-- Content -->
-    <section class="basis-3/4 p-10 h-screen overflow-auto">
+    <section class="container mx-auto basis-3/4 p-8 h-screen overflow-auto">
         <slot />
     </section>
 
