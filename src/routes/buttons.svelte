@@ -16,6 +16,7 @@
         data: [
             ['primary', 'boolean', 'true | false', 'false', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit.'],
             ['accent', 'boolean', 'true | false', 'false', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit.'],
+            ['warning', 'boolean', 'true | false', 'false', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit.'],
         ],
     };
 </script>
