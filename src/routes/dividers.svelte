@@ -8,5 +8,11 @@
 </h2>
 
 <Card>
-    <Divider dashed/>
+    <h2 class="text-lg mb-4">Solid</h2>
+    <Divider style="solid"/>
+    <h2 class="text-lg mb-4">Dashed</h2>
+    <Divider style="dashed"/>
+    <h2 class="text-lg mb-4">Dotted</h2>
+    <Divider style="dotted"/>
+
 </Card>
