@@ -87,7 +87,7 @@
 </Card>
 
 <h3 class="text-2xl font-bold my-4">Usage</h3>
-<CodeBlock class="mb-4">{`import Button from '@foo/button';\n\n<Button>Button</Button>`}</CodeBlock>
+<CodeBlock class="mb-4">{`import Button from '@foo/button';\n\n<Button filled primary>Button</Button>`}</CodeBlock>
 
 <!-- Properties -->
 <h3 class="text-2xl font-bold my-4">Properties</h3>
