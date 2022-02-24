@@ -45,6 +45,7 @@
 			<Button href="http://www.google.com" target="_blank" filled>Anchor</Button>
 			<Button filled primary>Primary</Button>
 			<Button filled accent>Accent</Button>
+			<Button filled warning>Warning</Button>
 			<Button filled disabled>Disabled</Button>
 		</nav>
 	</div>
@@ -55,6 +56,7 @@
 			<Button href="http://www.google.com" target="_blank" outlined>Anchor</Button>
 			<Button outlined primary>Primary</Button>
 			<Button outlined accent>Accent</Button>
+			<Button outlined warning>Warning</Button>
 			<Button outlined disabled>Disabled</Button>
 		</nav>
 	</div>
@@ -65,6 +67,7 @@
 			<Button href="http://www.google.com" target="_blank" text>Anchor</Button>
 			<Button text primary>Primary</Button>
 			<Button text accent>Accent</Button>
+			<Button text warning>Warning</Button>
 			<Button text disabled>Disabled</Button>
 		</nav>
 	</div>
@@ -75,6 +78,7 @@
 			<Button href="http://www.google.com" target="_blank" text>&#9733;</Button>
 			<Button text primary>&#9733;</Button>
 			<Button text accent>&#9733;</Button>
+			<Button text warning>&#9733;</Button>
 			<Button text disabled>&#9733;</Button>
 		</nav>
 	</div>
