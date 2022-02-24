@@ -2,6 +2,7 @@
     export let source: any;
 </script>
 
+{#if source}
 <table>
     <thead>
         <!-- Head -->
@@ -25,6 +26,7 @@
         {/each}
     </tbody>
 </table>
+{/if}
 
 <style lang="postcss">
     table { @apply w-full rounded overflow-hidden table-auto; }

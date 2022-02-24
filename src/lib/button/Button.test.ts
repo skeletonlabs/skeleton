@@ -5,7 +5,7 @@
 import { cleanup, render } from '@testing-library/svelte'
 import { afterEach, describe, it } from 'vitest';
 
-import Button from '$lib/button/Button.svelte';
+import Button from '$lib/Button/Button.svelte';
 
 describe('Button.svelte', () => {
 

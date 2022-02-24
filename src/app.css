@@ -9,11 +9,3 @@ html, body {
 body {
     @apply bg-surface-100 text-black dark:bg-surface-900 dark:text-white;
 }
-
-/* Preformatted Code Blocks */
-pre {
-    @apply bg-[#141414] text-surface-300 py-6 px-8 outline-none;
-}
-pre code {
-    display: block;
-}

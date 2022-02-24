@@ -1,7 +1,8 @@
 <script lang="ts">
-	import Button from '$lib/button/Button.svelte';
+	import Button from '$lib/Button/Button.svelte';
 	import Card from '$lib/Card/Card.svelte';
     import DataTable from '$lib/_DataTable/DataTable.svelte';
+    import CodeBlock from '$lib/_CodeBlock/CodeBlock.svelte';
 
     const tableDisplay: any = {
         columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
@@ -86,9 +87,7 @@
 </Card>
 
 <h3 class="text-2xl font-bold my-4">Usage</h3>
-<section class="mb-4">
-    <pre contenteditable><code>{`import Button from '@foo/button';\n\n<Button>Button</Button>`}</code></pre>
-</section>
+<CodeBlock class="mb-4">{`import Button from '@foo/button';\n\n<Button>Button</Button>`}</CodeBlock>
 
 <!-- Properties -->
 <h3 class="text-2xl font-bold my-4">Properties</h3>
