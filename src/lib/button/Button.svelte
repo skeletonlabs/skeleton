@@ -1,13 +1,11 @@
 <script lang="ts">
-    // Style
+    // Display
     export let filled: boolean = false;
     export let outlined: boolean = false;
     export let text: boolean = false;
     // Colors
     export let primary: boolean = false;
     export let accent: boolean = false;
-    // Disabled
-    export let disabled: boolean = false;
 
     // Styling
     const customStyle: any = [
@@ -17,16 +15,22 @@
         primary ? 'primary' : null,
         accent ? 'accent' : null,
     ].filter(n => n).join('-');
-
-    // Anchors
-    export let href: string = null;
-    export let target: string = null;
 </script>
 
-{#if href}
-    <a on:click {href} class="{`${customStyle} ${$$props.class}`}" {target} {disabled}><slot /></a>
+{#if $$props.href}
+    <a
+        on:click
+        class="{`${customStyle} ${$$props.class}`}"
+        href={$$props.href} 
+        target={$$props.target}
+        disabled={$$props.disabled}
+    ><slot /></a>
 {:else}
-    <button on:click class="{`${customStyle} ${$$props.class}`}" {disabled}><slot /></button>
+    <button
+        on:click
+        class="{`${customStyle} ${$$props.class}`}"
+        disabled={$$props.disabled}
+    ><slot /></button>
 {/if}
 
 <style lang="postcss">
