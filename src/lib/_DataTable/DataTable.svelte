@@ -28,8 +28,8 @@
 
 <style lang="postcss">
     table { @apply w-full rounded overflow-hidden table-auto; }
-    table thead { @apply bg-gray-50 dark:bg-gray-700; }
-    table thead th { @apply py-3 px-6 text-xs font-medium text-left text-gray-700 uppercase dark:text-gray-400; }
-    table tbody tr { @apply bg-white border-t dark:bg-gray-800 dark:border-gray-700; }
-    table tbody td { @apply py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white; }
+    table thead { @apply bg-surface-50 dark:bg-surface-700; }
+    table thead th { @apply py-3 px-6 text-xs font-medium text-left text-surface-700 uppercase dark:text-surface-400; }
+    table tbody tr { @apply bg-white border-t dark:bg-surface-800 dark:border-surface-700; }
+    table tbody td { @apply py-4 px-6 text-sm font-medium text-surface-900 whitespace-nowrap dark:text-white; }
 </style>
