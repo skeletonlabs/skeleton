@@ -5,7 +5,7 @@
  import { cleanup, render } from '@testing-library/svelte'
  import { afterEach, describe, it } from 'vitest';
  
- import Divider from '$lib/divider/Divider.svelte'
+ import Divider from '$lib/Divider/Divider.svelte'
  
  describe('Divider.svelte', () => {
  
