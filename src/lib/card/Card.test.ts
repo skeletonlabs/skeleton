@@ -5,7 +5,7 @@
  import { cleanup, render } from '@testing-library/svelte'
  import { afterEach, describe, it } from 'vitest';
  
- import Card from '$lib/card/Card.svelte';
+ import Card from '$lib/Card/Card.svelte';
  
  describe('Card.svelte', () => {
  
