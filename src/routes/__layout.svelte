@@ -10,6 +10,7 @@
 	let navComponents: any[] = [
 		{href: '/cards', label: 'Cards'},
 		{href: '/buttons', label: 'Buttons'},
+		{href: '/dividers', label: 'Dividers'},
 	].sort((a, b) => (a.label > b.label) ? 1 : -1);
 	let darkMode: boolean;
 
