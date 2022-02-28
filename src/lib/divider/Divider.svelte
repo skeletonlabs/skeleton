@@ -7,18 +7,20 @@
 	export let bold: boolean = null;
 
 	const customStyle: any = [
-		type ? type : null,
 		vertical ? 'vertical' : null,
 		bold ? 'bold' : null
-    ].filter((n) => n).join(' ');
+    ].filter((n) => n).join('-');
 </script>
 
-<hr class={`${customStyle} ${$$props.class}`} />
+<hr class={`${type} ${customStyle} ${$$props.class}`} />
 
 <style lang="postcss">
 	hr { @apply border-0 border-t border-solid border-surface-500; }
+	/* Type */
 	.dashed { @apply border-dashed; }
 	.dotted { @apply border-dotted; }
+	/* Styles */
 	.bold { @apply border-t-2; }
     .vertical { @apply border-0 border-l relative h-full; }
+	.bold-vertical, .vertical-bold { @apply border-0 border-l-2 relative h-full; }
 </style>
