@@ -16,7 +16,7 @@
 <hr class={`${customStyle} ${$$props.class}`} />
 
 <style lang="postcss">
-	hr { @apply pb-4 border-0 border-t border-solid border-surface-500; }
+	hr { @apply border-0 border-t border-solid border-surface-500; }
 	.dashed { @apply border-dashed; }
 	.dotted { @apply border-dotted; }
 	.bold { @apply border-t-2; }

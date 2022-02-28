@@ -1,8 +1,10 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { browser } from '$app/env';
-
+	
 	import '../app.css';
+	
+	import Divider from '$lib/Divider/Divider.svelte';
 
 	let navDocs: any[] = [
 		{href: '/', label: 'Welcome'},
@@ -50,7 +52,7 @@
 			</nav>
 		</header>
 
-		<hr class="border-t-1 border-surface-300 mb-8 dark:border-surface-700">
+		<Divider class="mb-8" />
 
 		<!-- Header -->
 		<h3 class="text-sm text-primary-500 mx-8 mb-4">Docs</h3>
@@ -60,7 +62,7 @@
 			{/each}
         </nav>
 
-		<hr class="border-t-1 border-surface-300 my-8 dark:border-surface-700">
+		<Divider class="my-8" />
 
 		<!-- Components -->
 		<h3 class="text-sm text-primary-500 mx-8 mb-4">Components</h3>
