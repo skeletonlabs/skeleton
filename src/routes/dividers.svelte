@@ -9,15 +9,15 @@
     <h2 class="text-base font-bold mb-4">Default</h2>
     <Divider class="pb-4" />
     <h2 class="text-base font-bold mb-4">Dashed</h2>
-    <Divider class="pb-4" type="dashed"/>
+    <Divider type="dashed" class="pb-4" />
     <h2 class="text-base font-bold mb-4">Dotted</h2>
-    <Divider class="pb-4" type="dotted"/>
+    <Divider type="dotted" class="pb-4" />
     <h2 class="text-base font-bold mb-4">Bold</h2>
-    <Divider class="pb-4" bold/>
+    <Divider bold class="pb-4" />
     <h2 class="text-base font-bold mb-4">Vertical</h2>
     <div class="h-[100px] flex justify-evenly items-center">
         <div>CONTENT X</div>
-        <Divider vertical/>
+        <Divider vertical />
         <div>CONTENT Y</div>
     </div>
 </Card>

@@ -10,7 +10,7 @@
 		type ? type : null,
 		vertical ? 'vertical' : null,
 		bold ? 'bold' : null
-    ].filter((n) => n).join('-');
+    ].filter((n) => n).join(' ');
 </script>
 
 <hr class={`${customStyle} ${$$props.class}`} />
