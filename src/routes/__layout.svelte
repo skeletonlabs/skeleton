@@ -2,6 +2,8 @@
 	import { page } from '$app/stores';
 	import { browser } from '$app/env';
 	
+	import '../theme-bb.css';
+	// import '../theme-st.css';
 	import '../app.css';
 	
 	import Divider from '$lib/Divider/Divider.svelte';
