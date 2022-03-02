@@ -4,6 +4,7 @@ module.exports = {
 	darkMode: 'class',
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	plugins: [
-		require('./src/lib/colors.cjs')
+		// Utilize our Skeleton Tailwind plugin
+		require('./src/lib/tailwind.cjs')
 	]
 };

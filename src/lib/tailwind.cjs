@@ -1,3 +1,6 @@
+// Skeleton Tailwind Plugin
+// - Extends color palette to accept themeable CSS variables
+
 const plugin = require('tailwindcss/plugin');
 
 // Source: https://tailwindcss.com/docs/customizing-colors#using-css-variables
@@ -26,14 +29,9 @@ function createColorSet(colorName) {
 }
 
 module.exports = plugin(() => {}, {
-	content: [
-		// This makes Tailwind aware of the imported packages component's inline classes
-		// If node_modules not in the root URL, users may need to adjust their TW config
-		'./node_modules/@brainandbones/skeleton/**/*.{html,js,svelte,ts}'
-	],
     theme: {
 		extend: {
-			// Extend the color with the CSS variable values
+			// Extend the colors with the CSS variable values
 			// NOTE: Must be RGB to allow for TW opacity value
 			colors: {
 				'primary': createColorSet('primary'),
