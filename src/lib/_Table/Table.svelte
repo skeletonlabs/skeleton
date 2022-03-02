@@ -1,3 +1,5 @@
+<!-- NOTE: this is a temporary substitute until a DateTable component can be created -->
+
 <script lang="ts">
     export let source: any;
 </script>

@@ -12,10 +12,10 @@
     ].filter((n) => n).join('-');
 </script>
 
-<hr class={`${type} ${customStyle} ${$$props.class}`} />
+<hr class={`border-surface-300 dark:border-surface-700 ${type} ${customStyle} ${$$props.class}`} />
 
 <style lang="postcss">
-	hr { @apply border-0 border-t border-solid border-surface-500; }
+	hr { @apply border-0 border-t border-solid; }
 	/* Type */
 	.dashed { @apply border-dashed; }
 	.dotted { @apply border-dotted; }

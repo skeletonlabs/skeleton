@@ -1,7 +1,7 @@
 const plugin = require('tailwindcss/plugin');
 
 // Source: https://tailwindcss.com/docs/customizing-colors#using-css-variables
-function withOpacityValue(variable) {
+function rgbAppendOpacity(variable) {
 	return ({ opacityValue }) => {
 		if (opacityValue === undefined) {
 			return `rgb(var(${variable}))`
@@ -10,62 +10,37 @@ function withOpacityValue(variable) {
 	}
 }
 
-// Define matching color variables in your global stylesheet :root
-const skelectonColorSystem = {
-	'primary': {
-		50: withOpacityValue('--color-primary-50'),
-		100: withOpacityValue('--color-primary-100'),
-		200: withOpacityValue('--color-primary-200'),
-		300: withOpacityValue('--color-primary-300'),
-		400: withOpacityValue('--color-primary-400'),
-		500: withOpacityValue('--color-primary-500'),
-		600: withOpacityValue('--color-primary-600'),
-		700: withOpacityValue('--color-primary-700'),
-		800: withOpacityValue('--color-primary-800'),
-		900: withOpacityValue('--color-primary-900')
-	},
-	'accent': {
-		50: withOpacityValue('--color-accent-50'),
-		100: withOpacityValue('--color-accent-100'),
-		200: withOpacityValue('--color-accent-200'),
-		300: withOpacityValue('--color-accent-300'),
-		400: withOpacityValue('--color-accent-400'),
-		500: withOpacityValue('--color-accent-500'),
-		600: withOpacityValue('--color-accent-600'),
-		700: withOpacityValue('--color-accent-700'),
-		800: withOpacityValue('--color-accent-800'),
-		900: withOpacityValue('--color-accent-900')
-	},
-	'warning': {
-		50: withOpacityValue('--color-warning-50'),
-		100: withOpacityValue('--color-warning-100'),
-		200: withOpacityValue('--color-warning-200'),
-		300: withOpacityValue('--color-warning-300'),
-		400: withOpacityValue('--color-warning-400'),
-		500: withOpacityValue('--color-warning-500'),
-		600: withOpacityValue('--color-warning-600'),
-		700: withOpacityValue('--color-warning-700'),
-		800: withOpacityValue('--color-warning-800'),
-		900: withOpacityValue('--color-warning-900')
-	},
-	'surface': {
-		50: withOpacityValue('--color-surface-50'),
-		100: withOpacityValue('--color-surface-100'),
-		200: withOpacityValue('--color-surface-200'),
-		300: withOpacityValue('--color-surface-300'),
-		400: withOpacityValue('--color-surface-400'),
-		500: withOpacityValue('--color-surface-500'),
-		600: withOpacityValue('--color-surface-600'),
-		700: withOpacityValue('--color-surface-700'),
-		800: withOpacityValue('--color-surface-800'),
-		900: withOpacityValue('--color-surface-900')
-	},
-};
+function createColorSet(colorName) {
+	return {
+		50: rgbAppendOpacity(`--color-${colorName}-50`),
+		100: rgbAppendOpacity(`--color-${colorName}-100`),
+		200: rgbAppendOpacity(`--color-${colorName}-200`),
+		300: rgbAppendOpacity(`--color-${colorName}-300`),
+		400: rgbAppendOpacity(`--color-${colorName}-400`),
+		500: rgbAppendOpacity(`--color-${colorName}-500`),
+		600: rgbAppendOpacity(`--color-${colorName}-600`),
+		700: rgbAppendOpacity(`--color-${colorName}-700`),
+		800: rgbAppendOpacity(`--color-${colorName}-800`),
+		900: rgbAppendOpacity(`--color-${colorName}-900`)
+	};
+}
 
 module.exports = plugin(() => {}, {
+	content: [
+		// This makes Tailwind aware of the imported packages component's inline classes
+		// If node_modules not in the root URL, users may need to adjust their TW config
+		'./node_modules/@brainandbones/skeleton/**/*.{html,js,svelte,ts}'
+	],
     theme: {
 		extend: {
-			colors: skelectonColorSystem,
+			// Extend the color with the CSS variable values
+			// NOTE: Must be RGB to allow for TW opacity value
+			colors: {
+				'primary': createColorSet('primary'),
+				'accent': createColorSet('accent'),
+				'warning': createColorSet('warning'),
+				'surface': createColorSet('surface'),
+			},
 		}
 	},
 })

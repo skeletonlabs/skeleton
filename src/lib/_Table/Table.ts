@@ -6,12 +6,12 @@ import { cleanup, render } from '@testing-library/svelte';
 import { afterEach, describe, it } from 'vitest';
 
 // @ts-ignore
-import DataTable from '$lib/_DataTable/DataTable.svelte';
+import Table from '$lib/_Table/Table.svelte';
 
-describe('DataTable.svelte', () => {
+describe('Table.svelte', () => {
 	afterEach(() => cleanup());
 
 	it('Renders', async () => {
-		render(DataTable);
+		render(Table);
 	});
 });

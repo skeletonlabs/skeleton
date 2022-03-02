@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Button from '$lib/Button/Button.svelte';
 	import Card from '$lib/Card/Card.svelte';
-    import DataTable from '$lib/_DataTable/DataTable.svelte';
+    import Table from '$lib/_Table/Table.svelte';
     import CodeBlock from '$lib/_CodeBlock/CodeBlock.svelte';
 
     const tableDisplay: any = {
@@ -93,7 +93,7 @@
 <h3 class="text-2xl font-bold my-4">Properties</h3>
 
 <h4 class="text-xl font-bold opacity-70 my-4">Display</h4>
-<DataTable source="{tableDisplay}"></DataTable>
+<Table source="{tableDisplay}"></Table>
 
 <h4 class="text-xl font-bold opacity-70 my-4">Colors</h4>
-<DataTable source="{tableColors}"></DataTable>
+<Table source="{tableColors}"></Table>
