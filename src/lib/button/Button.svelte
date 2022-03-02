@@ -1,62 +1,73 @@
 <script lang="ts">
-    // Display
-    export let filled: boolean = false;
-    export let outlined: boolean = false;
-    export let text: boolean = false;
-    // Colors
-    export let primary: boolean = false;
-    export let accent: boolean = false;
-    export let warning: boolean = false;
+    export let display: string = '';
+    export let color: string = '';
 
-    // Styling
-    const customStyle: any = [
-        filled ? 'filled' : null,
-        outlined ? 'outlined' : null,
-        text ? 'text' : null,
-        primary ? 'primary' : null,
-        accent ? 'accent' : null,
-        warning ? 'warning' : null,
-    ].filter(n => n).join('-');
+    const styleKey: any = [display, color].filter(n => n).join('-'); // ex: 'filled-primary'
+    let cActive: string = '';
+
+    // Define Base Classes
+    const cBase = `text-base text-center py-2.5 px-5 rounded-lg transition-all active:scale-95`;
+
+    // Set Active Classes
+    switch(styleKey) {
+        // Filled
+        case('filled'):
+            cActive = `
+                bg-surface-800 text-surface-50 hover:bg-surface-900
+                dark:bg-surface-50 dark:text-surface-900 dark:hover:bg-surface-300
+            `;
+            break;
+        case('filled-primary'): cActive = `text-surface-50 bg-primary-500 hover:bg-primary-600`; break;
+        case('filled-accent'): cActive = `text-surface-50 bg-accent-500 hover:bg-accent-600`; break;
+        case('filled-warning'): cActive = `text-surface-50 bg-warning-500 hover:bg-warning-600`; break;
+        // Outlined:
+        case('outlined'):
+            cActive = `
+                bg-surface-800/10 text-surface-900 ring-1 ring-surface-900 ring-inset hover:bg-surface-900/10
+                dark:bg-surface-50/10 dark:text-surface-50 dark:ring-surface-50 dark:hover:bg-surface-300/10
+            `;
+            break;
+        case('outlined-primary'): cActive = `bg-primary-500/10 text-primary-500 ring-1 ring-primary-500 ring-inset hover:bg-primary-600/10`; break;
+        case('outlined-accent'): cActive = `bg-accent-500/10 text-accent-500 ring-1 ring-accent-500 ring-inset hover:bg-accent-600/10`; break;
+        case('outlined-warning'): cActive = `bg-warning-500/10 text-warning-500 ring-1 ring-warning-500 ring-inset hover:bg-warning-600/10`; break;
+        // Text:
+        case('text'):
+            cActive = `
+                bg-transparent text-surface-800 shadow-none hover:bg-transparent hover:text-surface-900
+                dark:text-surface-50 dark:hover:text-surface-300
+            `;
+        break;
+        case('text-primary'): cActive = `bg-transparent text-primary-500 shadow-none hover:bg-transparent hover:text-primary-600`; break;
+        case('text-accent'): cActive = `bg-transparent text-accent-500 shadow-none hover:bg-transparent hover:text-accent-600`; break;
+        case('text-warning'): cActive = `bg-transparent text-warning-500 shadow-none hover:bg-transparent hover:text-warning-600`; break;
+        // Default
+        default: cActive = `bg-black text-white`;
+    }
+
+    // Maintain the current state of styles
+    $: classes = `${cBase} ${cActive} ${$$props.class}`;
 </script>
 
 {#if $$props.href}
     <a
-        on:click
-        class="{`${customStyle} ${$$props.class}`}"
+        class="{classes}"
         href={$$props.href} 
         target={$$props.target}
         disabled={$$props.disabled}
+        on:click
+        on:mouseover
+        on:focus
     ><slot /></a>
 {:else}
     <button
-        on:click
-        class="{`${customStyle} ${$$props.class}`}"
+        class="{classes}"
         disabled={$$props.disabled}
+        on:click
+        on:mouseover
+        on:focus
     ><slot /></button>
 {/if}
 
 <style lang="postcss">
-    button, a {
-        @apply bg-[#141414] text-base text-white py-2.5 px-5 text-center rounded-lg shadow transition-all hover:bg-black active:scale-95;
-    }
-    /* Filled */
-    .filled { @apply bg-surface-300 text-surface-900 hover:bg-surface-400; }
-    .filled-primary { @apply bg-primary-500 hover:bg-primary-600; }
-    .filled-accent  { @apply bg-accent-500 hover:bg-accent-600; }
-    .filled-warning  { @apply bg-warning-500 hover:bg-warning-600; }
-    /* Outlined */
-    .outlined { @apply bg-surface-500/10 text-surface-500 ring-1 ring-surface-500 ring-inset hover:bg-surface-500/20; }
-    .outlined-primary { @apply bg-primary-500/10 text-primary-500 ring-1 ring-primary-500 ring-inset hover:bg-primary-500/20; }
-    .outlined-accent { @apply bg-accent-500/10 text-accent-500 ring-1 ring-accent-500 ring-inset hover:bg-accent-500/20; }
-    .outlined-warning { @apply bg-warning-500/10 text-warning-500 ring-1 ring-warning-500 ring-inset hover:bg-warning-500/20; }
-    /* Text */
-    .text { @apply bg-transparent text-surface-500 shadow-none hover:bg-transparent hover:text-surface-400; }
-        .text:disabled { @apply bg-transparent hover:bg-transparent !important; }
-    .text-primary { @apply bg-transparent text-primary-500 shadow-none hover:bg-transparent hover:text-primary-400; }
-    .text-accent { @apply bg-transparent text-accent-500 shadow-none hover:bg-transparent hover:text-accent-400; }
-    .text-warning { @apply bg-transparent text-warning-500 shadow-none hover:bg-transparent hover:text-warning-400; }
-    /* Disabled */
-    button:disabled {
-        @apply bg-surface-500/10 text-surface-500/70 ring-0 cursor-not-allowed hover:bg-surface-500/10 !important;
-    }
+    button:disabled { @apply opacity-10 cursor-not-allowed !important; }
 </style>

@@ -4,20 +4,11 @@
     import Table from '$lib/_Table/Table.svelte';
     import CodeBlock from '$lib/_CodeBlock/CodeBlock.svelte';
 
-    const tableDisplay: any = {
+    const tableProps: any = {
         columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
         data: [
-            ['filled', 'boolean', 'true | false', 'false', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit.'],
-            ['outlined', 'boolean', 'true | false', 'false', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit.'],
-            ['text', 'boolean', 'true | false', 'false', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit.'],
-        ],
-    };
-    const tableColors: any = {
-        columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
-        data: [
-            ['primary', 'boolean', 'true | false', 'false', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit.'],
-            ['accent', 'boolean', 'true | false', 'false', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit.'],
-            ['warning', 'boolean', 'true | false', 'false', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit.'],
+            ['display', 'string', 'filled | outlined | text', '-', 'Controls how the button displays.'],
+            ['color', 'string', 'primary | accent | warning', '-', 'Defines which color variable to use.'],
         ],
     };
 </script>
@@ -33,67 +24,58 @@
 	<div>
 		<h2 class="text-base font-bold text-center mb-4">Default</h2>
 		<nav class="flex flex-col space-y-4">
-			<Button
-				on:click={(_) => {
-					alert('Hello World');
-				}}>Default</Button
-			>
+			<Button on:click={(_)=>{alert('Clicked');}}>Button</Button>
 		</nav>
 	</div>
 	<div>
 		<h2 class="text-base font-bold text-center mb-4">Filled</h2>
 		<nav class="flex flex-col space-y-4">
-			<Button filled>Button</Button>
-			<Button href="http://www.google.com" target="_blank" filled>Anchor</Button>
-			<Button filled primary>Primary</Button>
-			<Button filled accent>Accent</Button>
-			<Button filled warning>Warning</Button>
-			<Button filled disabled>Disabled</Button>
+			<Button display="filled">Button</Button>
+			<Button href="http://www.google.com" target="_blank" display="filled">Anchor</Button>
+			<Button display="filled" color="primary">Primary</Button>
+			<Button display="filled" color="accent">Accent</Button>
+			<Button display="filled" color="warning">Warning</Button>
+			<Button display="filled" disabled>Disabled</Button>
 		</nav>
 	</div>
 	<div>
 		<h2 class="text-base font-bold text-center mb-4">Outlined</h2>
 		<nav class="flex flex-col space-y-4">
-			<Button outlined>Button</Button>
-			<Button href="http://www.google.com" target="_blank" outlined>Anchor</Button>
-			<Button outlined primary>Primary</Button>
-			<Button outlined accent>Accent</Button>
-			<Button outlined warning>Warning</Button>
-			<Button outlined disabled>Disabled</Button>
+			<Button display="outlined">Button</Button>
+			<Button href="http://www.google.com" target="_blank" display="outlined">Anchor</Button>
+			<Button display="outlined" color="primary">Primary</Button>
+			<Button display="outlined" color="accent">Accent</Button>
+			<Button display="outlined" color="warning">Warning</Button>
+			<Button display="outlined" disabled>Disabled</Button>
 		</nav>
 	</div>
 	<div>
 		<h2 class="text-base font-bold text-center mb-4">Text</h2>
 		<nav class="flex flex-col space-y-4">
-			<Button text>Button</Button>
-			<Button href="http://www.google.com" target="_blank" text>Anchor</Button>
-			<Button text primary>Primary</Button>
-			<Button text accent>Accent</Button>
-			<Button text warning>Warning</Button>
-			<Button text disabled>Disabled</Button>
+			<Button display="text">Button</Button>
+			<Button href="http://www.google.com" target="_blank" display="text">Anchor</Button>
+			<Button display="text" color="primary">Primary</Button>
+			<Button display="text" color="accent">Accent</Button>
+			<Button display="text" color="warning">Warning</Button>
+			<Button display="text" disabled>Disabled</Button>
 		</nav>
 	</div>
 	<div>
 		<h2 class="text-base font-bold text-center mb-4">Icon</h2>
 		<nav class="flex flex-col space-y-4">
-			<Button text>&#9733;</Button>
-			<Button href="http://www.google.com" target="_blank" text>&#9733;</Button>
-			<Button text primary>&#9733;</Button>
-			<Button text accent>&#9733;</Button>
-			<Button text warning>&#9733;</Button>
-			<Button text disabled>&#9733;</Button>
+			<Button display="text">&#9733;</Button>
+			<Button href="http://www.google.com" target="_blank" display="text">&#9733;</Button>
+			<Button display="text" color="primary">&#9733;</Button>
+			<Button display="text" color="accent">&#9733;</Button>
+			<Button display="text" color="warning">&#9733;</Button>
+			<Button display="text" disabled>&#9733;</Button>
 		</nav>
 	</div>
 </Card>
 
 <h3 class="text-2xl font-bold my-4">Usage</h3>
-<CodeBlock class="mb-4">{`import {Button} from '@brainandbones/skeleton';\n\n<Button filled primary>Button</Button>`}</CodeBlock>
+<CodeBlock class="mb-4">{`import {Button} from '@brainandbones/skeleton';\n\n<Button display="filled" color="primary">Primary</Button>`}</CodeBlock>
 
 <!-- Properties -->
 <h3 class="text-2xl font-bold my-4">Properties</h3>
-
-<h4 class="text-xl font-bold opacity-70 my-4">Display</h4>
-<Table source="{tableDisplay}"></Table>
-
-<h4 class="text-xl font-bold opacity-70 my-4">Colors</h4>
-<Table source="{tableColors}"></Table>
+<Table source="{tableProps}"></Table>
