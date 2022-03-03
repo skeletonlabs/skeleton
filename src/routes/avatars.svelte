@@ -15,6 +15,7 @@ const tableProps: any = {
             ['src', 'string', 'URL', '-', 'The image source to be used.'],
             ['size', 'string', 'small | medium | large | xlarge', 'medium', 'Set the size of the Avatar.'],
             ['outline', 'boolean', 'true | false', 'false', 'Use outlining.'],
+            ['interactive', 'boolean', 'true | false', 'false', 'Sets Avatar to be visually interactive.'],
         ],
     };
 
@@ -31,9 +32,26 @@ const tableProps: any = {
 <Card>
     <h2>Types</h2>
     <div class='flex justify-evenly'>
-        <Avatar size='xlarge' />
-        <Avatar size='xlarge' outlined />
-        <Avatar size='xlarge' src='https://i.pravatar.cc/512' />
+        <div class='flex flex-col text-center'>
+            
+            <Avatar size='xlarge' />
+            <p class ='mt-2'>Placeholder</p>
+        </div>
+        <div class='flex flex-col text-center'>
+            
+            <Avatar size='xlarge' outlined />
+            <p class ='mt-2'>Outlined</p>
+        </div>
+        <div class='flex flex-col text-center'>
+           
+            <Avatar size='xlarge' src='https://i.pravatar.cc/512' />
+            <p class ='mt-2'>Image</p>
+        </div>
+        <div class='flex flex-col text-center'>
+            
+            <Avatar size='xlarge' interactive src='https://i.pravatar.cc/512' />
+            <p class ='mt-2'>Interactive</p>
+        </div>
     </div>
 </Card>
 
@@ -57,7 +75,7 @@ const tableProps: any = {
 
 <!-- Usage -->
 <h3 class="text-2xl font-bold my-4">Usage</h3>
-<CodeBlock class="mb-4">{`import {Avatar} from '@brainandbones/skeleton';\n\n<Avatar rounded img="image_source_url" size="medium">`}</CodeBlock>
+<CodeBlock class="mb-4">{`import {Avatar} from '@brainandbones/skeleton';\n\n<Avatar outlined img="image_source_url" size="medium">`}</CodeBlock>
 
 <!-- Properties -->
 <h3 class="text-2xl font-bold my-4">Properties</h3>
