@@ -5,13 +5,13 @@
 import { cleanup, render } from '@testing-library/svelte';
 import { afterEach, describe, it } from 'vitest';
 
-import Divider from '$lib/Divider/Divider.svelte';
+import Logo from '$lib/LogoCloud/Logo.svelte';
 
-describe('Divider.svelte', () => {
-    
+describe('Logo.svelte', () => {
+
 	afterEach(() => cleanup());
 
 	it('Renders', async () => {
-		render(Divider);
+		render(Logo);
 	});
 });

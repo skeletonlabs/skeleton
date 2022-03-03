@@ -15,6 +15,7 @@
 		{href: '/cards', label: 'Cards'},
 		{href: '/buttons', label: 'Buttons'},
 		{href: '/dividers', label: 'Dividers'},
+		{href: '/logo-clouds', label: 'Logo Clouds'},
 	].sort((a, b) => (a.label > b.label) ? 1 : -1);
 	let darkMode: boolean;
 
