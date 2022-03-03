@@ -40,7 +40,7 @@
 </script>
 
 <!-- Avatar Component -->
-<div class="{cBase} {makeStyle()}">
+<div on:click class="{cBase} {makeStyle()}">
 	{#if src}
 		<img class="rounded-full object-contain" {src} alt="" />
 	{:else}

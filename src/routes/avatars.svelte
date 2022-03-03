@@ -5,10 +5,6 @@ import Card from "$lib/Card/Card.svelte";
 import CodeBlock from "$lib/_CodeBlock/CodeBlock.svelte";
 import Table from "$lib/_Table/Table.svelte";
 
-function allOK(){
-    console.log('AllOk')
-}
-
 const tableProps: any = {
         columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
         data: [
