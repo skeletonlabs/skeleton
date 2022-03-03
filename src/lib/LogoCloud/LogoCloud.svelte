@@ -17,7 +17,7 @@
 	};
 
     // Maintain the current state of styles
-    $: classes = `logoCloud ${cBase} ${columnConfig[childCount]} ${$$props.class}`;
+    $: classes = `${cBase} ${columnConfig[childCount]} ${$$props.class}`;
 </script>
 
 <div class={classes} bind:this={element}>
