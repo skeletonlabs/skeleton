@@ -3,7 +3,7 @@
     export let color: string = '';
 
     const styleKey: any = [display, color].filter(n => n).join('-'); // ex: 'filled-primary'
-    let cActive: string = '';
+    let cActive: string;
 
     // Define Base Classes
     const cBase = `text-base text-center py-2.5 px-5 rounded-lg transition-all active:scale-95`;

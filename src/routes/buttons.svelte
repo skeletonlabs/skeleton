@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Button from '$lib/Button/Button.svelte';
+	// Docs
 	import Card from '$lib/Card/Card.svelte';
     import Table from '$lib/_Table/Table.svelte';
     import CodeBlock from '$lib/_CodeBlock/CodeBlock.svelte';
