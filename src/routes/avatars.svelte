@@ -9,7 +9,7 @@ const tableProps: any = {
         columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
         data: [
             ['src', 'string', 'URL', '-', 'The image source to be used.'],
-            ['size', 'string', 'small | medium | large | xlarge', 'medium', 'Set the size of the Avatar.'],
+            ['size', 'string', 'sm | md | lg | xl', 'md', 'Set the size of the Avatar.'],
             ['outline', 'boolean', 'true | false', 'false', 'Use outlining.'],
             ['interactive', 'boolean', 'true | false', 'false', 'Sets Avatar to be visually interactive.'],
         ],
@@ -30,22 +30,22 @@ const tableProps: any = {
     <div class='flex justify-evenly'>
         <div class='flex flex-col text-center'>
             
-            <Avatar size='xlarge' />
+            <Avatar size='xl' />
             <p class ='mt-2'>Placeholder</p>
         </div>
         <div class='flex flex-col text-center'>
             
-            <Avatar size='xlarge' outlined />
+            <Avatar size='xl' outlined />
             <p class ='mt-2'>Outlined</p>
         </div>
         <div class='flex flex-col text-center'>
            
-            <Avatar size='xlarge' src='https://i.pravatar.cc/512' />
+            <Avatar size='xl' src='https://i.pravatar.cc/512' />
             <p class ='mt-2'>Image</p>
         </div>
         <div class='flex flex-col text-center'>
             
-            <Avatar size='xlarge' interactive src='https://i.pravatar.cc/512' />
+            <Avatar size='xl' interactive src='https://i.pravatar.cc/512' />
             <p class ='mt-2'>Interactive</p>
         </div>
     </div>
@@ -57,21 +57,21 @@ const tableProps: any = {
 <Card>
     <h2>Sizes</h2>
     <div class='flex justify-evenly items-center'>
-        <Avatar size='small' />
-        <Avatar size='medium' />
-        <Avatar size='large' />
-        <Avatar size='xlarge' />
+        <Avatar size='sm' />
+        <Avatar size='md' />
+        <Avatar size='lg' />
+        <Avatar size='xl' />
         <br>
-        <Avatar size='small' src='https://i.pravatar.cc/512' />
-        <Avatar size='medium' src='https://i.pravatar.cc/512' />
-        <Avatar size='large' src='https://i.pravatar.cc/512' />
-        <Avatar size='xlarge' src='https://i.pravatar.cc/512' />
+        <Avatar size='sm' src='https://i.pravatar.cc/512' />
+        <Avatar size='md' src='https://i.pravatar.cc/512' />
+        <Avatar size='lg' src='https://i.pravatar.cc/512' />
+        <Avatar size='xl' src='https://i.pravatar.cc/512' />
     </div>
 </Card>
 
 <!-- Usage -->
 <h3 class="text-2xl font-bold my-4">Usage</h3>
-<CodeBlock class="mb-4">{`import {Avatar} from '@brainandbones/skeleton';\n\n<Avatar outlined img="image_source_url" size="medium">`}</CodeBlock>
+<CodeBlock class="mb-4">{`import {Avatar} from '@brainandbones/skeleton';\n\n<Avatar outlined img="image_source_url" size="md">`}</CodeBlock>
 
 <!-- Properties -->
 <h3 class="text-2xl font-bold my-4">Properties</h3>
