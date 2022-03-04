@@ -46,7 +46,7 @@ const tableProps: any = {
             <p class ='mt-2'>Interactive</p>
         </div>
         <div class='flex flex-col text-center'>
-            <Avatar size='xl' filter='blur(5px);' src='https://i.pravatar.cc/512' />
+            <Avatar size='xl' filter="blur(5px)" src='https://i.pravatar.cc/512' />
             <p class ='mt-2'>Filter</p>
         </div>
     </div>
@@ -72,7 +72,7 @@ const tableProps: any = {
 
 <!-- Usage -->
 <h3 class="text-2xl font-bold my-4">Usage</h3>
-<CodeBlock class="mb-4">{`import {Avatar} from '@brainandbones/skeleton';\n\n<Avatar outlined img="image_source_url" filter='url({variable})' size="md">`}</CodeBlock>
+<CodeBlock class="mb-4">{`import {Avatar} from '@brainandbones/skeleton';\n\n<Avatar outlined img="image_source_url" filter="url({variable})" size="md">`}</CodeBlock>
 
 <!-- Properties -->
 <h3 class="text-2xl font-bold my-4">Properties</h3>
