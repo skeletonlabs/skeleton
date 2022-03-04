@@ -5,7 +5,7 @@
 	export let outlined:    boolean = false;
     export let interactive: boolean = false;
 	
-	let cBase:       		string = 'flex justify-center items-center rounded-full bg-surface-300 dark:bg-surface-700'; // Refers to the overlaying div container + alignment props
+	const cBase:       		string = 'flex justify-center items-center rounded-full bg-surface-300 dark:bg-surface-700 aspect-square'; // Refers to the overlaying div container + alignment properties
 	let style: 				string = '';
  
 	// Outlined props

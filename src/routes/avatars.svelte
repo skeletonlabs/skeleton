@@ -27,24 +27,20 @@ const tableProps: any = {
 <!-- Types -->
 <Card>
     <h2>Types</h2>
-    <div class='flex justify-evenly'>
+    <div class='flex justify-evenly lg:flex-row'>
         <div class='flex flex-col text-center'>
-            
             <Avatar size='xl' />
             <p class ='mt-2'>Placeholder</p>
         </div>
-        <div class='flex flex-col text-center'>
-            
+        <div class='flex flex-col text-center'>   
             <Avatar size='xl' outlined />
             <p class ='mt-2'>Outlined</p>
         </div>
         <div class='flex flex-col text-center'>
-           
             <Avatar size='xl' src='https://i.pravatar.cc/512' />
             <p class ='mt-2'>Image</p>
         </div>
         <div class='flex flex-col text-center'>
-            
             <Avatar size='xl' interactive src='https://i.pravatar.cc/512' />
             <p class ='mt-2'>Interactive</p>
         </div>
