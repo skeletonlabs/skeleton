@@ -12,6 +12,7 @@ const tableProps: any = {
             ['size', 'string', 'sm | md | lg | xl', 'md', 'Set the size of the Avatar.'],
             ['outline', 'boolean', 'true | false', 'false', 'Use outlining.'],
             ['interactive', 'boolean', 'true | false', 'false', 'Sets Avatar to be visually interactive.'],
+            ['filter', 'string', 'CSS Filter', '-' , 'Applies a raw CSS filter function'],
         ],
     };
 
@@ -20,7 +21,7 @@ const tableProps: any = {
 <header class="mb-4">
 	<h2 class="text-3xl font-bold mb-4">Avatars</h2>
 	<p class="text-base opacity-70">
-		Avatars .... describe here..
+		The Avatar component is used to represent 
 	</p>
 </header>
 
@@ -43,6 +44,10 @@ const tableProps: any = {
         <div class='flex flex-col text-center'>
             <Avatar size='xl' interactive src='https://i.pravatar.cc/512' />
             <p class ='mt-2'>Interactive</p>
+        </div>
+        <div class='flex flex-col text-center'>
+            <Avatar size='xl' filter='blur(5px);' src='https://i.pravatar.cc/512' />
+            <p class ='mt-2'>Filter</p>
         </div>
     </div>
 </Card>
@@ -67,7 +72,7 @@ const tableProps: any = {
 
 <!-- Usage -->
 <h3 class="text-2xl font-bold my-4">Usage</h3>
-<CodeBlock class="mb-4">{`import {Avatar} from '@brainandbones/skeleton';\n\n<Avatar outlined img="image_source_url" size="md">`}</CodeBlock>
+<CodeBlock class="mb-4">{`import {Avatar} from '@brainandbones/skeleton';\n\n<Avatar outlined img="image_source_url" filter='url({variable})' size="md">`}</CodeBlock>
 
 <!-- Properties -->
 <h3 class="text-2xl font-bold my-4">Properties</h3>
