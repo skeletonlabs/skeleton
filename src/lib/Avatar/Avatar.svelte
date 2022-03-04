@@ -1,7 +1,7 @@
 <script lang="ts">
 
 	export let src:         string = ''; // Image is defaulting to null
-	export let size:        String = 'md'; // Size for the component
+	export let size:        string = 'md'; // Size for the component
 	export let outlined:    boolean = false;
     export let interactive: boolean = false;
 	
@@ -27,7 +27,7 @@
 <!-- Avatar Component -->
 <div on:click class="{classes}">
 	{#if src}
-		<img class="rounded-full object-contain" {src} alt="" />
+		<img class="rounded-full object-contain" {src} alt="Avatar" />
 	{:else}
 		<p data-testid="placeholder">A</p>
 	{/if}
