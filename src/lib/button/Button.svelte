@@ -1,6 +1,7 @@
 <script lang="ts">
     export let display: string = '';
     export let color: string = '';
+    export let type: string = 'button';
 
     const styleKey: any = [display, color].filter(n => n).join('-'); // ex: 'filled-primary'
     let cActive: string;
@@ -62,6 +63,7 @@
     <button
         class="{classes}"
         disabled={$$props.disabled}
+        {type}
         on:click
         on:mouseover
         on:focus
