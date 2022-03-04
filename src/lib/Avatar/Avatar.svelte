@@ -34,7 +34,3 @@
 	{/if}
 </div>
 
-<style lang="postcss">
-
-</style>
-
