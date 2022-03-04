@@ -29,5 +29,4 @@ describe('Button.svelte', () => {
 		const text = screen.getByTestId('placeholder');
 		expect(text.textContent).eq('A');
 	})
-
 });
