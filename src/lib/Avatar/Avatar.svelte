@@ -5,7 +5,7 @@
     export let hover: boolean = false;
 	export let filter: string = ''; // ex: #myFilterId
 	
-	const cBase: string = 'flex text-surface-500 font-semibold justify-center items-center rounded-full bg-surface-300 dark:bg-surface-700 aspect-square';
+	const cBase: string = 'flex text-surface-500 font-semibold justify-center items-center rounded-full bg-surface-300 dark:bg-surface-700';
 	let style: string = '';
 
 	// Set Outlined
@@ -27,9 +27,9 @@
 	$: classes = `${cBase} ${style} ${$$props.class}`;
 </script>
 
-<div on:click class="{classes}">
+<div on:click class="{classes} overflow-hidden">
 	{#if src}
-	<img class="rounded-full object-contain" {src} style="filter: url({filter})" alt="Avatar" />
+	<img class="aspect-square object-cover" {src} style="filter: url({filter})" alt="Avatar" />
 	{:else}
 	<p data-testid="placeholder">A</p>
 	{/if}
