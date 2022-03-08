@@ -11,11 +11,11 @@
 
 	// Set Outlined
 	if (outlined) {
-		currentClasses += ' ring ring-2 ring-primary-600';
+		currentClasses += ' ring ring-2 ring-offset-2 ring-offset-surface-50 dark:ring-offset-surface-900 ring-primary-600';
 	}
 	// Set hover enabled
     if (hover) {
-		currentClasses += ' hover:ring hover:ring-primary-600 cursor-pointer transition-all';
+		currentClasses += ' ring-offset-2 ring-offset-surface-50 dark:ring-offset-surface-900 hover:ring hover:ring-primary-600 cursor-pointer transition-all';
 	}
 	// Set size
 	switch (size) {
