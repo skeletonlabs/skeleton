@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { onMount } from "svelte";
+
 	export let src: string = ''; // image source, default empty
 	export let size: string = ''; // sm | md | lg | xl | 2xl | 3xl
 	export let outlined: boolean = false;
@@ -27,8 +29,13 @@
 		case '3xl': currentClasses += ' w-40 h-40 text-4xl'; break;
 		default: currentClasses += 'w-full text 4-xl';
 	}
+
 	// Set Filter
 	if (filter) { currentStyles = `filter: url(${filter})`; }
+	onMount(async () => {
+		// Exclude filter style from Firefox
+        if (navigator.userAgent.indexOf('Firefox') > -1) { currentStyles = ''; };
+    });
 	
 	$: classes = `${cBase} ${currentClasses} ${$$props.class}`;
 </script>
