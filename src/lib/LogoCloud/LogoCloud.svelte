@@ -20,6 +20,6 @@
     $: classes = `${cBase} ${columnConfig[childCount]} ${$$props.class}`;
 </script>
 
-<div class={classes} bind:this={element}>
+<div class="cloud {classes}" bind:this={element}>
     <slot />
 </div>

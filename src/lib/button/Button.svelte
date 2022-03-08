@@ -50,7 +50,7 @@
 
 {#if $$props.href}
     <a
-        class="{classes}"
+        class="anchor {classes}"
         href={$$props.href} 
         target={$$props.target}
         disabled={$$props.disabled}
@@ -60,7 +60,7 @@
     ><slot /></a>
 {:else}
     <button
-        class="{classes}"
+        class="button {classes}"
         disabled={$$props.disabled}
         type={$$props.type}
         name={$$props.name}

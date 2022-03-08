@@ -33,4 +33,4 @@
     $: classes = `${cBase} ${cDisplay} ${cOrientation} ${$$props.class}`;
 </script>
 
-<hr class={classes} />
+<hr class="divider {classes}" />

@@ -30,7 +30,7 @@
 	$: classes = `${cBase} ${style} ${$$props.class}`;
 </script>
 
-<div on:click class="{classes}">
+<div on:click class="avatar {classes}">
 	{#if src}
 	<img class="w-full h-full object-cover" {src} style="filter: url({filter})" alt="Avatar" />
 	{:else}

@@ -5,7 +5,7 @@
 </script>
 
 {#if source}
-<table>
+<table class="table-basic">
     <thead>
         <!-- Head -->
         <tr>
