@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",
-		"package": "svelte-kit package",
+		"package": "npm version patch && svelte-kit package",
 		"publish": "npm publish ./package",
 		"preview": "svelte-kit preview",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
