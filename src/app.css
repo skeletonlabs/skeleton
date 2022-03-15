@@ -10,3 +10,12 @@ html, body {
 body {
     @apply font-sans bg-surface-100 text-black dark:bg-surface-900 dark:text-white;
 }
+
+/* TODO: implement proper solution */
+.dark body {
+    background-image:  
+        radial-gradient(at 32% 66%, hsla(183,55%,15%,0.33) 0, transparent 53%),  
+        radial-gradient(at 80% 20%, hsla(232,40%,22%,0.5) 0, transparent 56%),  
+        radial-gradient(at 63% 56%, hsla(182,53%,15%,0.33) 0, transparent 59%);
+    background-size: cover; background-attachment: fixed;
+}
