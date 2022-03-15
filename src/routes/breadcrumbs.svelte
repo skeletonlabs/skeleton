@@ -6,6 +6,7 @@
     import Card from "$lib/Card/Card.svelte";
     import Table from '$lib/_Table/Table.svelte';
     import CodeBlock from '$lib/_CodeBlock/CodeBlock.svelte';
+    import BreadcrumbItem from "$lib/Breadcrumb/BreadcrumbItem.svelte";
 
     const tableProps: any = {
         columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
@@ -31,17 +32,42 @@
     ]
 </script>
 
-<h2 class="text-3xl font-bold mb-4">Dividers</h2>
+<h2 class="text-3xl font-bold mb-4">Breadcrumbs</h2>
 
 <Card class="mb-4">
     <h3 class="mb-2 text-lg">Basic</h3>
     <div class="p-4">
-        <Breadcrumb items={items} />
+            <Breadcrumb separator='|'>
+                <BreadcrumbItem icon='☠️' link='/'>Home</BreadcrumbItem>
+                <BreadcrumbItem link='/404'>The Helm</BreadcrumbItem>
+                <BreadcrumbItem link='/404'>Quizzes</BreadcrumbItem>
+                <BreadcrumbItem inactive currentPage>You are here!</BreadcrumbItem>
+            </Breadcrumb>
+    </div>
+
+    <h3 class="mb-2 text-lg">TODO:</h3>
+    <div class="p-4">
+            <Breadcrumb separator='>'>
+                <BreadcrumbItem icon='☠️' link='/'>Home</BreadcrumbItem>
+                <BreadcrumbItem link='/404'>The Helm</BreadcrumbItem>
+                <BreadcrumbItem link='/404'>Quizzes</BreadcrumbItem>
+            </Breadcrumb>
     </div>
 </Card>
 
 <h3 class="text-2xl font-bold my-4">Usage</h3>
-<CodeBlock class="mb-4">{`import Breadcrumb from '@brainandbones/skeleton';\n\n<Divider weight="{4}" display="dashed" />`}</CodeBlock>
+<CodeBlock class="mb-4">
+    {
+        `import Breadcrumb from '@brainandbones/skeleton';\n
+        <Breadcrumb separator='|'>
+                <BreadcrumbItem icon='☠️' link='/'>Home</BreadcrumbItem>
+                <BreadcrumbItem link='/404'>The Helm</BreadcrumbItem>
+                <BreadcrumbItem link='/404'>Quizzes</BreadcrumbItem>
+                <BreadcrumbItem inactive currentPage>You are here!</BreadcrumbItem>
+        </Breadcrumb>
+        `}
+
+</CodeBlock>
 
 
 <!-- Properties -->
