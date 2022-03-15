@@ -33,6 +33,7 @@
 </script>
 
 <h2 class="text-3xl font-bold mb-4">Breadcrumbs</h2>
+<p class="text-base opacity-70 mb-4">Breadcrumbs allow for easy an easy peek into where in the site/section hierachy you are. It can be a useful component to display for sub-pages.</p>
 
 <Card class="mb-4">
     <h3 class="mb-2 text-lg">Basic</h3>
@@ -45,12 +46,13 @@
             </Breadcrumb>
     </div>
 
-    <h3 class="mb-2 text-lg">TODO:</h3>
+</Card>
+
+<Card class="mb-4">
+
+    <h3 class="mb-2 text-lg">Predefined List Items</h3>
     <div class="p-4">
-            <Breadcrumb separator='>'>
-                <BreadcrumbItem icon='☠️' link='/'>Home</BreadcrumbItem>
-                <BreadcrumbItem link='/404'>The Helm</BreadcrumbItem>
-                <BreadcrumbItem link='/404'>Quizzes</BreadcrumbItem>
+            <Breadcrumb items={items} separator='>'>
             </Breadcrumb>
     </div>
 </Card>
