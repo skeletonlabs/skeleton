@@ -55,21 +55,22 @@
 
     <!-- Intro -->
     <Card class="space-y-4">
-        <p class="text-base text-surface-400">Skeleton is a component library that allows you to build web apps faster using the following tools:</p>
-        <div class="flex space-x-2 justify-center items-center lg:justify-start">
-            <Button display="outlined" href="https://kit.svelte.dev/" target="_blank">Svelte</Button>
-            <span>+</span>
-            <Button display="outlined" href="https://tailwindcss.com/" target="_blank">Tailwind</Button>
+        <p class="text-base text-surface-400">Skeleton is a component library that allows you to build web apps faster using Svelte/SvelteKit and Tailwind.</p>
+        <div class="flex space-x-4 justify-center items-center lg:justify-start">
+            <Button display="outlined" href="https://kit.svelte.dev/" target="_blank">See Svelte</Button>
+            <Button display="outlined" href="https://tailwindcss.com/" target="_blank">See Tailwind</Button>
         </div>
     </Card>
 
     <Divider display="dotted" />
-
+    
     <!-- Warning -->
     <section class="bg-warning-500/10 border-warning-500 border border-dotted p-4 rounded text-center">
         <h2 class="text-warning-500 text-2xl font-bold">⚠️ Warning</h2>
         <p class="text-base text-surface-400">Skeleton is in the early stages of development. Expect bugs and missing features. Use at your own risk.</p>
     </section>
+    
+    <Divider display="dotted" />
 
     <!-- Get Started -->
     <section class="space-y-4">
@@ -104,13 +105,17 @@
         <h3 class="text-xl font-bold">Done!</h3>
         <p class="text-base text-surface-400">Begin adding any components provided by Skeleton.</p>
     </section>
-
+    
     <Divider display="dotted" />
     
     <!-- Recommendations -->
     <h2 class="text-3xl font-bold">Recommendations</h2>
     <section class="space-y-4">
-        <p class="text-base text-surface-400">TODO: add this</p>
+        <h3 class="text-xl font-bold">Official Tailwind Plugins</h3>
+        <nav class="flex flex-col space-y-2">
+            <a class="underline" href="https://tailwindcss.com/docs/typography-plugin" target="_blank">Typography</a>
+            <a class="underline" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Forms</a>
+        </nav>
     </section>
     
     <Divider display="dotted" />
