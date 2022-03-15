@@ -38,7 +38,7 @@
 <Card class="mb-4">
     <h3 class="mb-2 text-lg">Basic</h3>
     <div class="p-4">
-            <Breadcrumb separator='|'>
+            <Breadcrumb separator='>'>
                 <BreadcrumbItem icon='☠️' link='/'>Home</BreadcrumbItem>
                 <BreadcrumbItem link='/404'>The Helm</BreadcrumbItem>
                 <BreadcrumbItem link='/404'>Quizzes</BreadcrumbItem>
@@ -53,6 +53,18 @@
     <h3 class="mb-2 text-lg">Predefined List Items</h3>
     <div class="p-4">
             <Breadcrumb items={items} separator='>'>
+            </Breadcrumb>
+    </div>
+</Card>
+
+<Card class="mb-4">
+
+    <h3 class="mb-2 text-lg">SVG URL Icon</h3>
+    <div class="p-4">
+            <Breadcrumb separator='|'>
+                <BreadcrumbItem link='/' icon='https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/alphachannel.svg'>Home</BreadcrumbItem>
+                <BreadcrumbItem link='/' icon='https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/alphachannel.svg'>The Helm</BreadcrumbItem>
+                <BreadcrumbItem currentPage inactive icon='X'>You are here!</BreadcrumbItem>
             </Breadcrumb>
     </div>
 </Card>
