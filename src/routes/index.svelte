@@ -78,7 +78,7 @@
         <p class="text-base text-surface-400">View the instructions below to get started.</p>
     </section>
     <section class="space-y-4">
-        <h3 class="text-xl font-bold">Created a SvelteKit Project</h3>
+        <h3 class="text-xl font-bold">Create a SvelteKit Project</h3>
         <p class="text-base text-surface-400">See the <a class="underline" href="https://kit.svelte.dev/docs/introduction#getting-started" target="_blank">official documentation</a>.</p>
         <CodeBlock class="mb-4">{`npm init svelte@next my-app\ncd my-app\nnpm install\nnpm run dev`}</CodeBlock>
     </section>
