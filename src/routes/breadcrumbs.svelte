@@ -76,7 +76,12 @@
                     </svelte:fragment>
                     Home
                 </Crumb>
-                <Crumb link='/'>The Helm</Crumb>
+                <Crumb link='/'>
+                    <svelte:fragment slot="icon">
+                        <img src="https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/atom.svg" alt="">
+                    </svelte:fragment>
+                    The Helm
+                </Crumb>
                 <Crumb currentPage inactive icon='X'>You are here!</Crumb>
             </Breadcrumb>
     </div>

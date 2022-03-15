@@ -15,10 +15,10 @@
 
 </script>
 
-<div data-testid='crumb' class="flex justify-evenly">
+<div data-testid='crumb' class="flex justify-evenly align-middle">
     <!-- Link -->
     {#if $$slots.icon}
-    <div class='flex justify-evenly align-middle w-4'>
+    <div class='w-5 flex'>
         <slot name="icon"></slot>
     </div>
     {/if}
