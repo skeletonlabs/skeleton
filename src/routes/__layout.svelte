@@ -9,7 +9,7 @@
 	import Divider from '$lib/Divider/Divider.svelte';
 
 	let navDocs: any[] = [
-		{href: '/', label: 'Welcome'},
+		{href: '/', label: 'Intro'},
 	]
 	let navComponents: any[] = [
 		{href: '/cards', label: 'Cards'},
