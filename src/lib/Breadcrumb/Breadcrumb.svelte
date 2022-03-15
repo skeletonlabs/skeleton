@@ -17,11 +17,11 @@
     setContext('styleContext', cStyle)
 </script>
 
-<div class="flex justify-start">
+<div data-testid='breadcrumb' class="flex justify-start">
     {#if items}
         {#each items as item, i}
             <div>
-                <a class="${cStyle} ${$$props.class}" href={item.link}>{item.text}</a>
+                <a data-testid='crumb' class="${cStyle} ${$$props.class}" href={item.link}>{item.text}</a>
             </div>
             {#if i < items.length - 1}
             <div class="w-2 mr-4 ml-4 flex dark:invert opacity-20"> 
