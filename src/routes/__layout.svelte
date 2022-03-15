@@ -39,7 +39,7 @@
 <div class="flex flex-row">
 
     <!-- NavBar -->
-    <section class="basis-1/4 border-r border-surface-200 bg-surface-900/75 border-surface-50/[0.06] h-screen overflow-auto dark:border-surface-800">
+    <section class="basis-1/4 border-r border-surface-200 bg-surface-50/75 dark:bg-surface-900/75 h-screen overflow-auto dark:border-surface-800">
 
 		<!-- Header -->
         <header class="flex justify-between items-center py-6 px-8">
