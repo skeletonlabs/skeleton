@@ -6,23 +6,22 @@
     import Card from "$lib/Card/Card.svelte";
     import Table from '$lib/_Table/Table.svelte';
     import CodeBlock from '$lib/_CodeBlock/CodeBlock.svelte';
-    import BreadcrumbItem from "$lib/Breadcrumb/BreadcrumbItem.svelte";
+    import Crumb from "$lib/Breadcrumb/Crumb.svelte";
 
     const tableProps: any = {
         columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
         data: [
-            ['separator', 'string', '-', '>', 'Set a string separator'],
+            ['styling', 'string', 'basic | outlined', 'basic', 'Set styling'],
             ['items', 'Items Object', '-', '-', 'Defines the breadcrumb items']
         ],
     };
 
-    const tablePropsItem: any = {
+    const tablePropsCrumb: any = {
         columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
         data: [
-            ['text', 'string', '-', '>', 'Set a display text'],
-            ['link', 'string', '-', '>', 'Set the href link'],
-            ['icon', 'string | ?? (TODO) ', '-', '-', 'Set an icon'],
-            ['disabled', 'boolean', 'true | false', 'false', 'Set disabled'],
+            ['link', 'string', '-', '-', 'Set the link'],
+            ['currentPage', 'boolean', ' true | false', 'false', 'Set if current page (no trailing separator)'],
+            ['inactive', 'boolean ', 'true | false', 'false', 'Set the crumb to inactive (no interaction/hover)'],
         ],
     };
 
@@ -37,34 +36,53 @@
 
 <Card class="mb-4">
     <h3 class="mb-2 text-lg">Basic</h3>
-    <div class="p-4">
-            <Breadcrumb separator='>'>
-                <BreadcrumbItem icon='☠️' link='/'>Home</BreadcrumbItem>
-                <BreadcrumbItem link='/404'>The Helm</BreadcrumbItem>
-                <BreadcrumbItem link='/404'>Quizzes</BreadcrumbItem>
-                <BreadcrumbItem inactive currentPage>You are here!</BreadcrumbItem>
+    <div class="p-2">
+            <Breadcrumb>
+                <Crumb icon='☠️' link='/'>Home</Crumb>
+                <Crumb link='/404'>The Helm</Crumb>
+                <Crumb link='/404'>Quizzes</Crumb>
+                <Crumb inactive currentPage>You are here!</Crumb>
             </Breadcrumb>
     </div>
-
 </Card>
 
 <Card class="mb-4">
 
     <h3 class="mb-2 text-lg">Predefined List Items</h3>
     <div class="p-4">
-            <Breadcrumb items={items} separator='>'>
+            <Breadcrumb items={items}>
             </Breadcrumb>
     </div>
 </Card>
 
 <Card class="mb-4">
-
-    <h3 class="mb-2 text-lg">SVG URL Icon</h3>
+    <h3 class="mb-2 text-lg">Outlined Style</h3>
     <div class="p-4">
-            <Breadcrumb separator='|'>
-                <BreadcrumbItem link='/' icon='https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/alphachannel.svg'>Home</BreadcrumbItem>
-                <BreadcrumbItem link='/' icon='https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/alphachannel.svg'>The Helm</BreadcrumbItem>
-                <BreadcrumbItem currentPage inactive icon='X'>You are here!</BreadcrumbItem>
+            <Breadcrumb styling='outlined' >
+                <Crumb link='/'>Home</Crumb>
+                <Crumb link='/'>The Helm</Crumb>
+                <Crumb currentPage inactive icon='X'>You are here!</Crumb>
+            </Breadcrumb>
+    </div>
+</Card>
+
+<Card class="mb-4">
+    <h3 class="mb-2 text-lg">Crumb Icon</h3>
+    <div class="p-4">
+            <Breadcrumb styling='basic' >
+                <Crumb link='/'>
+                    <svelte:fragment slot="icon">
+                        <img src="https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/cc.svg" alt="">
+                    </svelte:fragment>
+                    Home
+                </Crumb>
+                <Crumb link='/'>
+                    <svelte:fragment slot="icon">
+                    <img src="https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/atom.svg" alt="">
+                    </svelte:fragment>
+                    The Helm
+                </Crumb>
+                <Crumb currentPage inactive icon='X'>You are here!</Crumb>
             </Breadcrumb>
     </div>
 </Card>
@@ -74,10 +92,10 @@
     {
         `import Breadcrumb from '@brainandbones/skeleton';\n
         <Breadcrumb separator='|'>
-                <BreadcrumbItem icon='☠️' link='/'>Home</BreadcrumbItem>
-                <BreadcrumbItem link='/404'>The Helm</BreadcrumbItem>
-                <BreadcrumbItem link='/404'>Quizzes</BreadcrumbItem>
-                <BreadcrumbItem inactive currentPage>You are here!</BreadcrumbItem>
+                <Crumb link='/'> <svelte:fragment> {icon} </svelte:fragment> Home </Crumb>
+                <Crumb link='/404'> The Helm </Crumb>
+                <Crumb link='/404'> Quizzes </Crumb>
+                <Crumb inactive currentPage> You are here! </Crumb>
         </Breadcrumb>
         `}
 
@@ -88,5 +106,5 @@
 <h3 class="text-2xl font-bold my-4">Properties</h3>
 <h4 class='m-2'>Breadcrumbs</h4>
 <Table source="{tableProps}"></Table>
-<h4 class='m-2'>Breadcrumb Item</h4>
-<Table source="{tablePropsItem}"></Table>
+<h4 class='m-2'>Crumb Component</h4>
+<Table source="{tablePropsCrumb}"></Table>
