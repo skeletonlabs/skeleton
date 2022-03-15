@@ -8,13 +8,13 @@
     
     export let items = null;
     export let styling = 'basic';
-    if(styling == 'outlined') { cStyle = ' ring-1 ring-surface-600 hover:ring-accent-600 rounded-sm font-medium hover:bg-surface-300 dark:hover:bg-surface-700 transition-all ease-in-out duration-300'}
+    if(styling == 'outlined') { cStyle = ' ring-1 ring-surface-600 hover:ring-primary-600 rounded-sm font-medium hover:bg-surface-300 dark:hover:bg-surface-700 transition-all ease-in-out duration-300'}
     if(styling == 'basic') { cStyle = 'hover:text-primary-700 dark:hover:text-primary-400 hover:underline font-medium'; }
     
-
     // Set the contexts to be retrieved by the slots
     setContext('seperatorContext', separator)
     setContext('styleContext', cStyle)
+
 </script>
 
 <div data-testid='breadcrumb' class="flex justify-start">

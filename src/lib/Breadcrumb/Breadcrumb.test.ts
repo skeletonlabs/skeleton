@@ -35,7 +35,4 @@ describe('Breadcrumb.svelte', () => {
         location.pathname = '/test';
         expect(location.pathname).contain(parts[0].getAttribute('href'));
     })
-    
-    it('Icon shown', async () =>{})
-    
 });
