@@ -1,23 +1,11 @@
 <script lang="ts">
+    import CodeBlock from '$lib/_CodeBlock/CodeBlock.svelte';
     import LogoCloud from "$lib/LogoCloud/LogoCloud.svelte";
     import Logo from "$lib/LogoCloud/Logo.svelte";
-    // Docs
-    import CodeBlock from '$lib/_CodeBlock/CodeBlock.svelte';
 
     const codeImport: string = `<script>import {LogoCloud, Logo} from '@brainandbones/skeleton';</\script>\n`;
-    const codeBasic: string = `
-<LogoCloud>
-    <Logo>Acme</Logo>
-</LogoCloud>
-    `.trim();
-    const codeSlotted: string = `
-<LogoCloud>
-    <Logo>
-        <svelte:fragment slot="icon">(icon)</svelte:fragment>
-        <svelte:fragment slot="label">Acme</svelte:fragment>
-    </Logo>
-</LogoCloud>
-    `.trim();
+    const codeBasic: string = `<LogoCloud>\n\t<Logo>Acme</Logo>\n</LogoCloud>`;
+    const codeSlotted: string = `<LogoCloud>\n\t<Logo>\n\t\t<svelte:fragment slot="icon">(icon)</svelte:fragment>\n\t\t<svelte:fragment slot="label">Acme</svelte:fragment>\n\t</Logo>\n</LogoCloud>`;
 </script>
 
 <div class="space-y-4">
@@ -54,6 +42,7 @@
         </LogoCloud>
     </section>
 
+    <!-- Usage -->
     <section class="space-y-4">
         <h3 class="text-2xl font-bold">Usage</h3>
         <CodeBlock language="html" code={codeImport}></CodeBlock>
