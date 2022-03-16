@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { browser } from '$app/env';
+	import { onMount } from 'svelte';
 	
-	import '../theme-bb.css';
-	// import '../theme-st.css';
+	import '../theme-bb.css'; // bb|st
 	import '../app.css';
 	
 	import Divider from '$lib/Divider/Divider.svelte';
@@ -16,7 +16,8 @@
 		{href: '/buttons', label: 'Buttons'},
 		{href: '/dividers', label: 'Dividers'},
 		{href: '/logo-clouds', label: 'Logo Clouds'},
-		{href: '/avatars', label: 'Avatars'}
+		{href: '/avatars', label: 'Avatars'},
+		{href: '/code-blocks', label: 'Code Blocks'}
 	].sort((a, b) => (a.label > b.label) ? 1 : -1);
 	let darkMode: boolean;
 
@@ -29,6 +30,11 @@
 		darkMode = !darkMode;
 		if (browser) { localStorage.setItem('theme', darkMode ? 'dark' : 'light'); }
 	}
+
+	// https://highlightjs.org/
+    import hljs from 'highlight.js';
+	import 'highlight.js/styles/github-dark.css';
+	onMount(() => hljs.highlightAll());
 </script>
 
 <svelte:head>
@@ -60,7 +66,7 @@
 		<h3 class="text-sm text-primary-500 mx-8 mb-4">Docs</h3>
         <nav>
 			{#each navDocs as {href,label} }
-			<a {href} class="block text-base py-2 px-8 hover:underline-offset-1 class" class:active={$page.url.pathname == href}>{label}</a>
+			<a {href} class="block text-base px-8 py-4 hover:underline-offset-1 class" class:active={$page.url.pathname == href}>{label}</a>
 			{/each}
         </nav>
 
@@ -70,7 +76,7 @@
 		<h3 class="text-sm text-primary-500 mx-8 mb-4">Components</h3>
         <nav>
 			{#each navComponents as {href,label} }
-			<a {href} class="block text-base py-2 px-8 hover:underline-offset-1 class" class:active={$page.url.pathname == href}>{label}</a>
+			<a {href} class="block text-base px-8 py-4 hover:underline-offset-1 class" class:active={$page.url.pathname == href}>{label}</a>
 			{/each}
         </nav>
 

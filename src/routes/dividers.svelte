@@ -15,33 +15,45 @@
     };
 </script>
 
-<h2 class="text-3xl font-bold mb-4">Dividers</h2>
+<div class="space-y-4">
 
-<Card>
-    <h2 class="text-base font-bold mb-4">Default</h2>
-    <Divider class="pb-4" />
-    <h2 class="text-base font-bold mb-4">Dashed</h2>
-    <Divider display="dashed" class="pb-4" />
-    <h2 class="text-base font-bold mb-4">Dotted</h2>
-    <Divider display="dotted" class="pb-4" />
-    <h2 class="text-base font-bold mb-4">Weight</h2>
-    <Divider weight="{2}" class="pb-4" />
-    <Divider weight="{4}" class="pb-4" />
-    <Divider weight="{8}" class="pb-4" />
-    <h2 class="text-base font-bold mb-4">Combined</h2>
-    <Divider weight="{4}" display="dashed" class="pb-4" />
-    <Divider weight="{8}" display="dotted" class="pb-4" />
-    <h2 class="text-base font-bold mb-4">Vertical</h2>
-    <div class="h-[100px] flex justify-evenly items-center">
-        <div>CONTENT X</div>
-        <Divider orientation="v" />
-        <div>CONTENT Y</div>
-    </div>
-</Card>
+    <h2 class="text-3xl font-bold">Dividers</h2>
 
-<h3 class="text-2xl font-bold my-4">Usage</h3>
-<CodeBlock class="mb-4">{`import {divider} from '@brainandbones/skeleton';\n\n<Divider weight="{4}" display="dashed" />`}</CodeBlock>
+    <Card class="space-y-4">
+        <h2 class="text-base font-bold">Default</h2>
+        <Divider />
+        <h2 class="text-base font-bold">Dashed</h2>
+        <Divider display="dashed" />
+        <h2 class="text-base font-bold">Dotted</h2>
+        <Divider display="dotted" />
+        <h2 class="text-base font-bold">Weight</h2>
+        <Divider weight="{2}" />
+        <Divider weight="{4}" />
+        <Divider weight="{8}" />
+        <h2 class="text-base font-bold">Combined</h2>
+        <Divider weight="{4}" display="dashed" />
+        <Divider weight="{8}" display="dotted" />
+        <h2 class="text-base font-bold">Vertical</h2>
+        <div class="h-[100px] flex justify-evenly items-center">
+            <div>CONTENT X</div>
+            <Divider orientation="v" />
+            <div>CONTENT Y</div>
+        </div>
+    </Card>
 
-<!-- Properties -->
-<h3 class="text-2xl font-bold my-4">Properties</h3>
-<Table source="{tableProps}"></Table>
+    <!-- Usage -->
+    <section class="space-y-4">
+        <h3 class="text-2xl font-bold">Usage</h3>
+        <CodeBlock
+            language="html"
+            code={`<script>import {divider} from '@brainandbones/skeleton';</\script>\n\n<Divider weight={4} display="dashed" />`}
+        ></CodeBlock>
+    </section>
+
+    <!-- Properties -->
+    <section class="space-y-4">
+        <h3 class="text-2xl font-bold">Properties</h3>
+        <Table source="{tableProps}"></Table>
+    </section>
+
+</div>
