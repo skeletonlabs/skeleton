@@ -1,4 +1,13 @@
-<pre
-    class="codeblock bg-[#141414] text-surface-300 py-6 px-8 outline-none {$$props.class}"
-    contenteditable
-><code class="block"><slot /></code></pre>
+<script lang="ts">
+    export let language: string = 'plaintext';
+    export let code: string = '';
+</script>
+
+{#if language && code}
+<pre class="codeblock {$$props.class}"><code class="language-{language}">{code}</code></pre>
+{/if}
+
+<style lang="postcss">
+    pre { @apply bg-black text-white; }
+    code { @apply block p-4; }
+</style>

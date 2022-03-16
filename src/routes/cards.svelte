@@ -1,17 +1,24 @@
 <script lang="ts">
     import Card from "$lib/Card/Card.svelte";
-    // Docs
     import CodeBlock from '$lib/_CodeBlock/CodeBlock.svelte';
 </script>
 
-<h2 class="text-3xl font-bold mb-4">Cards</h2>
+<div class="space-y-4">
 
-<Card><p class="text-base opacity-70">Minimal</p></Card>
+    <!-- Header -->
+    <header>
+        <h2 class="text-3xl font-bold">Cards</h2>
+    </header>
 
-<Card class="mt-4">
-    <h3 class="text-xl font-bold mb-4">Basic</h3>
-    <p class="text-base opacity-70">This is a basic example.</p>
-</Card>
+    <!-- Examples -->
+    <Card><p class="text-base text-surface-400">Minimal</p></Card>
+    <Card class="mt-4">
+        <h3 class="text-xl font-bold">Basic</h3>
+        <p class="text-base text-surface-400">This is a basic example.</p>
+    </Card>
 
-<h3 class="text-2xl font-bold my-4">Usage</h3>
-<CodeBlock class="mb-4">{`import {card} from '@brainandbones/skeleton';\n\n<Card>Hello</Card>`}</CodeBlock>
+    <!-- Usage -->
+    <h3 class="text-2xl font-bold">Usage</h3>
+    <CodeBlock language="html" code={`<script>import {card} from '@brainandbones/skeleton';</\script>\n\n<Card>Hello</Card>`}></CodeBlock>
+    
+</div>

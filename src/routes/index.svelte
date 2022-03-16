@@ -80,26 +80,26 @@
     <section class="space-y-4">
         <h3 class="text-xl font-bold">Create a SvelteKit Project</h3>
         <p class="text-base text-surface-400">See the <a class="underline" href="https://kit.svelte.dev/docs/introduction#getting-started" target="_blank">official documentation</a>.</p>
-        <CodeBlock class="mb-4">{`npm init svelte@next my-app\ncd my-app\nnpm install\nnpm run dev`}</CodeBlock>
+        <CodeBlock code={`npm init svelte@next my-app\ncd my-app\nnpm install\nnpm run dev`}></CodeBlock>
     </section>
     <section class="space-y-4">
         <h3 class="text-xl font-bold">Install Tailwind</h3>
         <p class="text-base text-surface-400"><a class="underline" href="https://github.com/svelte-add/tailwindcss" target="_blank">Svelte-Add</a> makes this quick and painless.</p>
-        <CodeBlock class="mb-4">{`npx svelte-add@latest tailwindcss`}</CodeBlock>
+        <CodeBlock code={`npx svelte-add@latest tailwindcss`}></CodeBlock>
     </section>
         <section class="space-y-4">
         <h3 class="text-xl font-bold">Install Skeleton</h3>
-        <CodeBlock class="mb-4">{`npm install --save-dev @brainandbones/skeleton`}</CodeBlock>
+        <CodeBlock code={`npm install --save-dev @brainandbones/skeleton`}></CodeBlock>
     </section>
         <section class="space-y-4">
         <h3 class="text-xl font-bold">Add Skeleton Tailwind Plugin</h3>
         <p class="text-base text-surface-400">Add the following to your <em>plugins</em> in tailwind.config.cjs.</p>
-        <CodeBlock class="mb-4">{`require('@brainandbones/skeleton/tailwind.cjs')`}</CodeBlock>
+        <CodeBlock language="js" code={`require('@brainandbones/skeleton/tailwind.cjs')`}></CodeBlock>
     </section>
     <section class="space-y-4">
         <h3 class="text-xl font-bold">Create a Theme</h3>
         <p class="text-base text-surface-400">Generate and add your CSS variable theme to your global CSS file (ex: app.css)</p>
-        <CodeBlock class="mb-4">{`TODO: add this`}</CodeBlock>
+        <CodeBlock language="css" code={`:root { /* ... */ }`}></CodeBlock>
     </section>
     <section class="space-y-4">
         <h3 class="text-xl font-bold">Done!</h3>
@@ -123,7 +123,7 @@
     <!-- Contributions -->
     <h2 class="text-3xl font-bold">Contributions</h2>
     <section class="space-y-4">
-        <p class="text-base text-surface-400">TODO: add this</p>
+        <p class="text-base text-surface-400">(TODO)</p>
     </section>
 
     <Divider display="dotted" />
