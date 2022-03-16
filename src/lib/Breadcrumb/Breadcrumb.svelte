@@ -24,7 +24,7 @@
                 <a data-testid='crumb' class="${cStyle} ${$$props.class}" href={item.link}>{item.text}</a>
             </div>
             {#if i < items.length - 1}
-            <div class="w-2 mr-4 ml-4 flex dark:invert opacity-20"> 
+            <div data-testid='separator' class="w-2 mr-4 ml-4 flex dark:invert opacity-20"> 
                 {@html separator} 
             </div>
             {/if}

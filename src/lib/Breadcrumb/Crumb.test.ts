@@ -5,7 +5,7 @@
  import { cleanup, render, screen } from '@testing-library/svelte';
  import { afterEach, describe, expect, it } from 'vitest';
  
- import Crumb from '$lib/Breadcrumb/Breadcrumb.svelte';
+ import Crumb from '$lib/Breadcrumb/Crumb.svelte';
  import { fireEvent } from '@testing-library/dom';
  
  describe('Breadcrumb.svelte', () => {
@@ -16,6 +16,12 @@
          render(Crumb);
      });
      
-     it('Icon shown', async () =>{})
+     it('Slotted Text', async () =>{
+        // TODO - Figure out nested rendering
+     })
+
+     it('Inactive', async()=>{
+        // TODO - Figure out nested rendering
+     })
      
  });
