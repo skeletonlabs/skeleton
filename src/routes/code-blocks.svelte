@@ -10,8 +10,8 @@
     const tableProps: any = {
         columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
         data: [
-            ['language', 'string', 'html|css|js|...', 'plaintext', 'Define the Highlight.js language.'],
-            ['code', 'string', '(your code)', 'null', 'Provide raw code as a <a class="underline" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals" target="_blank">Template Literal</a>.'],
+            ['language', 'string', 'html|css|js|...', 'plaintext', 'Adds a "language-{x}" class for Highlight, Prism, etc.'],
+            ['code', 'string', '-', 'null', 'Takes a <a class="underline" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals" target="_blank">Template Literal</a>. Escape as needed!'],
         ],
     };
 </script>

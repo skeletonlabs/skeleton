@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { browser } from '$app/env';
-	import { onMount } from 'svelte';
+	import { onMount, afterUpdate, beforeUpdate } from 'svelte';
 	
 	import '../theme-bb.css'; // bb|st
 	import '../app.css';
@@ -34,7 +34,8 @@
 	// https://highlightjs.org/
     import hljs from 'highlight.js';
 	import 'highlight.js/styles/github-dark.css';
-	onMount(() => hljs.highlightAll());
+	onMount(hljs.highlightAll);
+	afterUpdate(hljs.highlightAll);
 </script>
 
 <svelte:head>
