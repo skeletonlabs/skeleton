@@ -8,7 +8,7 @@
     const tableProps: any = {
         columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
         data: [
-            ['size', 'string', 'sm | md | lg | xl | 2xl -> 9xl', '4xl', 'The image source to be used.'],
+            ['size', 'string', 'sm | md | lg | xl | 2xl -> 9xl', '4xl', 'The font size to be used.'],
             ['direction', 'string', 't | b | l | r | tl | tr | bl | br', 't', 'Set the direction of the gradient. Abbreviated as tl would equal top left'],
         ],
     };
