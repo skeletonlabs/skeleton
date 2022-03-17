@@ -2,9 +2,10 @@
 
     export let direction: String = "r";
     export let size: String = "4xl";
+
     let cBase = 'lg:leading-tight font-bold';
     let spanStyle = 'bg-clip-text text-transparent from-primary-500 to-accent-500';
-    
+
     switch(size){
         case('sm'): {  cBase += ' text-sm'; break;}
         case('md'): {  cBase += ' text-md'; break;}
@@ -32,7 +33,7 @@
     }
 </script>
 
-<h2 class="{cBase} lg:leading-tight font-bold">
+<h2 class="{cBase} lg:leading-tight font-bold ${$$props.class}">
     <span class="{spanStyle}">
         <slot />
     </span>
