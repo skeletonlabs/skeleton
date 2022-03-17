@@ -20,7 +20,7 @@
 
 </script>
 
-<div data-testid='breadcrumb' class="flex justify-start">
+<div data-testid='breadcrumb' class="breadcrumb flex justify-start">
     <!-- If static list -->
     {#if items}
         {#each listItems as item, i}

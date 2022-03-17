@@ -16,7 +16,7 @@
 
 </script>
 
-<div data-testid="crumb" class="flex justify-evenly align-middle">
+<div data-testid="crumb" class="crumb flex justify-evenly align-middle">
 	<!-- Link -->
 	{#if $$slots.icon}
 		<div class="w-5 m-2 flex">

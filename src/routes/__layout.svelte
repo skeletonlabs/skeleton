@@ -18,7 +18,7 @@
 		{href: '/dividers', label: 'Dividers'},
 		{href: '/logo-clouds', label: 'Logo Clouds'},
 		{href: '/avatars', label: 'Avatars'},
-		{href: '/gradientheadings', label: 'Gradient Heading'},
+		{href: '/gradient-headings', label: 'Gradient Heading'},
 		{href: '/breadcrumbs', label: 'Breadcrumb'},
 		{href: '/code-blocks', label: 'Code Blocks'},
 	].sort((a, b) => (a.label > b.label) ? 1 : -1);
