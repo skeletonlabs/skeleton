@@ -10,6 +10,7 @@
         data: [
             ['size', 'string', 'sm | md | lg | xl | 2xl -> 9xl', '4xl', 'The font size to be used.'],
             ['direction', 'string', 't | b | l | r | tl | tr | bl | br', 't', 'Set the direction of the gradient. Abbreviated as tl would equal top left'],
+            ['bright', 'boolean', 'true | false', 'false', 'Use bright mode']
         ],
     };
 
@@ -22,13 +23,28 @@
 
 <section class="space-y-4">
 
+    <!-- Types -->
+    <h2 class="text-base font-bold">Types</h2>
+    <Card>
+        <div class='mb-2'>
+            <p class='mb-2'>Regular</p>
+            <GradientHeading direction='l'>Hello Skeleton!</GradientHeading>
+        </div>
+
+        <div class='mb-2'>
+            <p class='mb-2'>Bright</p>
+            <GradientHeading bright direction='l'>Hello Skeleton!</GradientHeading>
+        </div>
+    </Card>
+
     <!-- Sizes -->
     <h2 class="text-base font-bold">Sizes</h2>
     <Card class='flex justify-evenly items-center text-center'>
         <ul>
             <GradientHeading size='md' direction='t'>Hello Skeleton!</GradientHeading>
-            <GradientHeading size='lg' direction='t'>Hello Skeleton!</GradientHeading>
-            <GradientHeading size='2xl' direction='t'>Hello Skeleton!</GradientHeading>
+            <GradientHeading size='4xl' direction='t'>Hello Skeleton!</GradientHeading>
+            <GradientHeading size='6xl' direction='t'>Hello Skeleton!</GradientHeading>
+            <GradientHeading size='9xl' direction='t'>Hello Skeleton!</GradientHeading>
         </ul>
     </Card>
 
@@ -54,7 +70,7 @@
 
 <!-- Usage -->
 <h3 class="text-2xl font-bold my-4">Usage</h3>
-<CodeBlock class="mb-4">{`import {GradientHeading} from '@brainandbones/skeleton';\n\n<GradientHeading size='2xl' direction="l">{Text}</GradientHeading>`}</CodeBlock>
+<CodeBlock class="mb-4">{`import {GradientHeading} from '@brainandbones/skeleton';\n\n<GradientHeading bright size='2xl' direction="l">{Text}</GradientHeading>`}</CodeBlock>
 
 <!-- Properties -->
 <h3 class="text-2xl font-bold my-4">Properties</h3>

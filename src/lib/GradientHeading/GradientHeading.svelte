@@ -2,9 +2,13 @@
 
     export let direction: String = "r";
     export let size: String = "4xl";
+    export let bright: boolean = false;
 
     let cBase = 'lg:leading-tight font-bold';
-    let spanStyle = 'bg-clip-text text-transparent from-primary-500 to-accent-500';
+    let spanStyle = 'bg-clip-text text-transparent';
+
+    if(bright) { spanStyle += ' from-primary-300 to-accent-300'; }
+    else{ spanStyle += ' from-primary-500 to-accent-500'; }
 
     switch(size){
         case('sm'): {  cBase += ' text-sm'; break;}

@@ -9,11 +9,11 @@ import GradientHeading from '$lib/GradientHeading/GradientHeading.svelte';
 
 // These are used to validate that all switch cases in the component applies correctly.
 
-const defaultDirection = 'l';
-const defaultSize = '4xl';
+const defaultDirection: String = 'l';
+const defaultSize: String = '4xl';
 
-const sizes = ['sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', '7xl', '8xl'];
-const directions = ['t', 'b', 'l', 'r', 'tr', 'tl', 'br', 'bl'];
+const sizes:        String[] = ['sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', '7xl', '8xl'];
+const directions:   String[] = ['t', 'b', 'l', 'r', 'tr', 'tl', 'br', 'bl'];
 
 describe('Card.svelte', () => {
 	afterEach(() => cleanup());
