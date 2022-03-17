@@ -13,14 +13,14 @@
 		{href: '/docs/themes', label: 'Themes'},
 	]
 	let navComponents: any[] = [
-		{href: '/cards', label: 'Cards'},
-		{href: '/buttons', label: 'Buttons'},
-		{href: '/dividers', label: 'Dividers'},
-		{href: '/logo-clouds', label: 'Logo Clouds'},
-		{href: '/avatars', label: 'Avatars'},
-		{href: '/gradient-headings', label: 'Gradient Heading'},
-		{href: '/breadcrumbs', label: 'Breadcrumb'},
-		{href: '/code-blocks', label: 'Code Blocks'},
+		{href: '/components/cards', label: 'Cards'},
+		{href: '/components/buttons', label: 'Buttons'},
+		{href: '/components/dividers', label: 'Dividers'},
+		{href: '/components/logo-clouds', label: 'Logo Clouds'},
+		{href: '/components/avatars', label: 'Avatars'},
+		{href: '/components/gradient-headings', label: 'Gradient Heading'},
+		{href: '/components/breadcrumbs', label: 'Breadcrumb'},
+		{href: '/components/code-blocks', label: 'Code Blocks'},
 	].sort((a, b) => (a.label > b.label) ? 1 : -1);
 	let darkMode: boolean;
 
