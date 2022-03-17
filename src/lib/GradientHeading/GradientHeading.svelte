@@ -33,8 +33,8 @@
     }
 </script>
 
-<h2 class="{cBase} lg:leading-tight font-bold ${$$props.class}">
-    <span class="{spanStyle}">
+<h2 data-testid="gradientHeading" class="{cBase} lg:leading-tight font-bold ${$$props.class}">
+    <span data-testid='span' class="{spanStyle}">
         <slot />
     </span>
 </h2>
