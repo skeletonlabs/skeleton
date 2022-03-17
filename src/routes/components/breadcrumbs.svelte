@@ -7,8 +7,8 @@
 
     // Examples
     const items = [
-        {text: 'Home', link: '/test'},
-        {text: 'The Helm', link: ''},
+        {text: 'Home', href: '/test'},
+        {text: 'The Helm', href: ''},
     ]
 
     // Props
