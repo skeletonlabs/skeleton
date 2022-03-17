@@ -3,7 +3,7 @@
     // Docs
     import Card from "$lib/Card/Card.svelte";
     import Table from '$lib/_Table/Table.svelte';
-    import CodeBlock from '$lib/_CodeBlock/CodeBlock.svelte';
+    import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
 
     const tableProps: any = {
         columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
@@ -17,8 +17,13 @@
 
 <div class="space-y-4">
 
-    <h2 class="text-3xl font-bold">Dividers</h2>
+    <!-- Header -->
+    <header class="space-y-4">
+        <h2 class="text-3xl font-bold">Dividers</h2>
+        <p class="text-base text-surface-400">Horizontal or vertical rules for sectioning your content.</p>
+    </header>
 
+    <!-- Examples -->
     <Card class="space-y-4">
         <h2 class="text-base font-bold">Default</h2>
         <Divider />

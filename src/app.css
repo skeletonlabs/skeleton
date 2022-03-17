@@ -11,6 +11,8 @@ body {
     @apply font-sans bg-surface-100 text-black dark:bg-surface-900 dark:text-white;
 }
 
+#page a:not(.anchor) { @apply text-primary-500 underline; }
+
 /* TODO: implement proper solution */
 .dark body {
     background-image:  

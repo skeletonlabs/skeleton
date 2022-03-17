@@ -1,8 +1,7 @@
 <script lang="ts">
-
     import Avatar from "$lib/Avatar/Avatar.svelte";
     import Card from "$lib/Card/Card.svelte";
-    import CodeBlock from "$lib/_CodeBlock/CodeBlock.svelte";
+    import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
     import Table from "$lib/_Table/Table.svelte";
 
     const placeholder: string = 'https://i.pravatar.cc/160';
@@ -10,86 +9,61 @@
         columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
         data: [
             ['src', 'string', 'URL', '-', 'The image source to be used.'],
-            ['size', 'string', 'sm | md | lg | xl | 2xl | 3xl', 'full width', 'Set the size of the Avatar.'],
-            ['outline', 'boolean', 'true | false', 'false', 'Use outlining.'],
-            ['hover', 'boolean', 'true | false', 'false', 'Sets Avatar to be visually hover.'],
-            ['filter', 'string', 'SVG filter ID', '-' , `<a href='https://css-tricks.com/almanac/properties/f/filter/' target="_blank">Applies an SVG filter ID using filter: url(#id)</a>`],
+            ['size', 'string', 'sm | md | lg | xl | 2xl | 3xl', 'full width', 'Canned sizes. When not preset this will be fluid.'],
+            ['outline', 'boolean', 'true | false', 'false', 'Display a fixed outline of the primary color.'],
+            ['hover', 'boolean', 'true | false', 'false', 'Adds an outline of the primary color when hovered.'],
+            // ['filter', 'string', 'SVG filter ID', '-' , `<a href='https://css-tricks.com/almanac/properties/f/filter/' target="_blank">Applies an SVG filter ID using filter: url(#id)</a>`],
         ],
     };
-
 </script>
 
 <div class="space-y-4">
 
     <!-- Header -->
-    <header>
-        <h2 class="text-3xl font-bold mb-4">Avatars</h2>
+    <header class="space-y-4">
+        <h2 class="text-3xl font-bold">Avatars</h2>
         <p class="text-base text-surface-400">Choose from a variety for avatar sizes and styles. Include clean placeholders.</p>
     </header>
     
     <!-- Examples -->
     <section class="space-y-4">
-        <h2 class="text-base font-bold">Types</h2>
+        <h2 class="text-base font-bold">Display</h2>
         <Card>
             <div class='flex justify-evenly lg:flex-row'>
                 <div class='flex flex-col text-center'>
                     <Avatar size='xl' />
                     <p class ='mt-2'>Placeholder</p>
                 </div>
-                <div class='flex flex-col text-center'>   
-                    <Avatar size='xl' outlined />
-                    <p class ='mt-2'>Outlined</p>
-                </div>
                 <div class='flex flex-col text-center'>
                     <Avatar size='xl' src={placeholder} />
                     <p class ='mt-2'>Image</p>
+                </div>
+                <div class='flex flex-col text-center'>   
+                    <Avatar size='xl' outlined src={placeholder} />
+                    <p class ='mt-2'>Outlined</p>
                 </div>
                 <div class='flex flex-col text-center'>
                     <Avatar size='xl' hover src={placeholder} />
                     <p class ='mt-2'>Hover</p>
                 </div>
-                <div class='flex flex-col text-center'>
+                <!-- <div class='flex flex-col text-center'>
                     <Avatar size='xl' filter="blur(5px)" src={placeholder} />
                     <p class ='mt-2'>Filtered</p>
-                </div>
+                </div> -->
             </div>
         </Card>
         <!-- Sizes -->
         <h2 class="text-base font-bold">Sizes</h2>
         <Card class='flex justify-evenly items-center'>
-            <div>
-                <Avatar size='sm' />
-                <h3 class="text-small text-center mt-2">sm</h3>
-            </div>
-            <div>
-                <Avatar size='md' />
-                <h3 class="text-small text-center mt-2">md</h3>
-            </div>
-            <div>
-                <Avatar size='lg' />
-                <h3 class="text-small text-center mt-2">lg</h3>
-            </div>
-            <div>
-                <Avatar size='xl' />
-                <h3 class="text-small text-center mt-2">xl</h3>
-            </div>
-            <div>
-                <Avatar size='2xl' />
-                <h3 class="text-small text-center mt-2">2xl</h3>
-            </div>
-            <div>
-                <Avatar size='3xl' />
-                <h3 class="text-small text-center mt-2">3xl</h3>
-            </div>
+            <div><Avatar size='sm' src={placeholder} /><h3 class="text-small text-center">sm</h3></div>
+            <div><Avatar size='md' src={placeholder} /><h3 class="text-small text-center">md</h3></div>
+            <div><Avatar size='lg' src={placeholder} /><h3 class="text-small text-center">lg</h3></div>
+            <div><Avatar size='xl' src={placeholder} /><h3 class="text-small text-center">xl</h3></div>
+            <div><Avatar size='2xl' src={placeholder} /><h3 class="text-small text-center">2xl</h3></div>
+            <div><Avatar size='3xl' src={placeholder} /><h3 class="text-small text-center">3xl</h3></div>
         </Card>
-        <Card class='flex justify-evenly items-center'>
-            <Avatar size='sm' src={placeholder} />
-            <Avatar size='md' src={placeholder} />
-            <Avatar size='lg' src={placeholder} />
-            <Avatar size='xl' src={placeholder} />
-            <Avatar size='2xl' src={placeholder} />
-            <Avatar size='3xl' src={placeholder} />
-        </Card>
+        <!-- Fluid -->
+        <h2 class="text-base font-bold">Fluid</h2>
         <Card class='grid grid-cols-5 gap-4'>
             <Avatar src={`${placeholder}?img=1`} />
             <Avatar src={`${placeholder}?img=2`} />

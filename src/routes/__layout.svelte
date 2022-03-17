@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { browser } from '$app/env';
-	import { onMount, afterUpdate, beforeUpdate } from 'svelte';
+	import { onMount, afterUpdate } from 'svelte';
 	
 	import '../theme-bb.css'; // bb|st
 	import '../app.css';
@@ -10,6 +10,7 @@
 
 	let navDocs: any[] = [
 		{href: '/', label: 'Get Started'},
+		{href: '/docs/themes', label: 'Themes'},
 	]
 	let navComponents: any[] = [
 		{href: '/cards', label: 'Cards'},
@@ -63,7 +64,7 @@
 
 		<Divider class="mb-8" />
 
-		<!-- Header -->
+		<!-- Docs -->
 		<h3 class="text-sm text-primary-500 mx-8 mb-4">Docs</h3>
         <nav>
 			{#each navDocs as {href,label} }
@@ -84,7 +85,7 @@
     </section>
 
     <!-- Content -->
-    <section class="container mx-auto basis-3/4 p-8 h-screen overflow-auto">
+    <section id="page" class="container mx-auto basis-3/4 p-8 h-screen overflow-auto">
         <slot />
     </section>
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import CodeBlock from '$lib/_CodeBlock/CodeBlock.svelte';
+    import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
     import LogoCloud from "$lib/LogoCloud/LogoCloud.svelte";
     import Logo from "$lib/LogoCloud/Logo.svelte";
 
@@ -13,7 +13,7 @@
     <!-- Header -->
     <header class="space-y-4">
         <h2 class="text-3xl font-bold">Logo Clouds</h2>
-        <p class="text-base text-surface-400">Allows for 2-4 logos with optional icon and label slots.</p>
+        <p class="text-base text-surface-400">Comfortably fits 2-4 logos with optional fragement slots for icons and labels.</p>
     </header>
 
     <!-- Examples -->
