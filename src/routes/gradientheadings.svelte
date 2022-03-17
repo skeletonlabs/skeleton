@@ -8,8 +8,8 @@
     const tableProps: any = {
         columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
         data: [
-            ['src', 'string', 'URL', '-', 'The image source to be used.'],
-            ['size', 'string', 'sm | md | lg | xl | 2xl | 3xl', 'full width', 'Set the size of the Avatar.'],
+            ['size', 'string', 'sm | md | lg | xl | 2xl -> 9xl', '4xl', 'The image source to be used.'],
+            ['direction', 'string', 't | b | l | r | tl | tr | bl | br', 't', 'Set the direction of the gradient. Abbreviated as tl would equal top left'],
         ],
     };
 
@@ -17,7 +17,7 @@
 
 <header class="mb-4">
 	<h2 class="text-3xl font-bold mb-4">Gradient Heading</h2>
-	<p class="text-base opacity-70">Quickly make a gradient header. Set direction and size</p>
+	<p class="text-base opacity-70">Quickly make a gradient header with custom size and gradient direction.</p>
 </header>
 
 <section class="space-y-4">
@@ -26,22 +26,35 @@
     <h2 class="text-base font-bold">Sizes</h2>
     <Card class='flex justify-evenly items-center text-center'>
         <ul>
+            <GradientHeading size='md' direction='t'>Hello Skeleton!</GradientHeading>
+            <GradientHeading size='lg' direction='t'>Hello Skeleton!</GradientHeading>
             <GradientHeading size='2xl' direction='t'>Hello Skeleton!</GradientHeading>
-            <GradientHeading size='3xl' direction='t'>Hello Skeleton!</GradientHeading>
-            <GradientHeading size='4xl' direction='t'>Hello Skeleton!</GradientHeading>
         </ul>
     </Card>
 
     <!-- Directions -->
-    <h2 class="text-base font-bold">Direction</h2>
-    <Card class='flex justify-evenly items-center'>
-        <GradientHeading size='4xl' direction='t'>Hello Skeleton!</GradientHeading>
+    <h2 class="text-base font-bold">Direction Examples</h2>
+    <Card>
+        
+        <p class='mb-2'>Top to bottom</p>
+        <div class='p-2'>
+            <GradientHeading direction='t'>Hello Skeleton!</GradientHeading>
+        </div>
+        <p class='mb-2'>Left to right</p>
+        <div class='p-2'>
+            <GradientHeading direction='r'>Hello Skeleton!</GradientHeading>
+        </div>
+        <p class='mb-2'>Top right to bottom left</p>
+        <div class='p-2'>
+            <GradientHeading size='4xl' direction='bl'>Hello Skeleton!</GradientHeading>
+        </div>
+        
     </Card>
 </section>
 
 <!-- Usage -->
 <h3 class="text-2xl font-bold my-4">Usage</h3>
-<CodeBlock class="mb-4">{`import {Avatar} from '@brainandbones/skeleton';\n\n<Avatar outlined src="{imgSrc}" size="md" filter="{svgFilterId}">`}</CodeBlock>
+<CodeBlock class="mb-4">{`import {GradientHeading} from '@brainandbones/skeleton';\n\n<GradientHeading size='2xl' direction="l">{Text}</GradientHeading>`}</CodeBlock>
 
 <!-- Properties -->
 <h3 class="text-2xl font-bold my-4">Properties</h3>
