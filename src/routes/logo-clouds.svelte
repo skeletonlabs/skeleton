@@ -1,46 +1,55 @@
 <script lang="ts">
+    import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
     import LogoCloud from "$lib/LogoCloud/LogoCloud.svelte";
     import Logo from "$lib/LogoCloud/Logo.svelte";
-    // Docs
-    import CodeBlock from '$lib/_CodeBlock/CodeBlock.svelte';
+
+    const codeImport: string = `<script>import {LogoCloud, Logo} from '@brainandbones/skeleton';</\script>\n`;
+    const codeBasic: string = `<LogoCloud>\n\t<Logo>Acme</Logo>\n</LogoCloud>`;
+    const codeSlotted: string = `<LogoCloud>\n\t<Logo>\n\t\t<svelte:fragment slot="icon">(icon)</svelte:fragment>\n\t\t<svelte:fragment slot="label">Acme</svelte:fragment>\n\t</Logo>\n</LogoCloud>`;
 </script>
 
-<h2 class="text-3xl font-bold mb-4">Logo Clouds</h2>
-<p class="text-base opacity-70 mb-4">Allows for 2-4 logos with optional icon and label slots.</p>
+<div class="space-y-8">
 
-<LogoCloud class="mb-4">
-    <Logo>HR Solutions Co.</Logo>
-    <Logo>Acme Theaters</Logo>
-    <Logo>Cruisin' Cuisine</Logo>
-    <Logo>Arcane Security</Logo>
-</LogoCloud>
-<LogoCloud>
-    <Logo>HR Solutions Co.</Logo>
-    <Logo>Acme Theaters</Logo>
-    <Logo>Cruisin' Cuisine</Logo>
-</LogoCloud>
-<h4 class="text-xl font-bold my-4">Slotted</h4>
-<LogoCloud>
-    <Logo>
-        <svelte:fragment slot="icon">&#9733;</svelte:fragment>
-        <svelte:fragment slot="label">HR Solutions Co.</svelte:fragment>
-    </Logo>
-    <Logo>
-        <svelte:fragment slot="icon">&#9733;</svelte:fragment>
-        <svelte:fragment slot="label">Acme Theaters</svelte:fragment>
-    </Logo>
-</LogoCloud>
+    <!-- Header -->
+    <header class="space-y-4">
+        <h1>Logo Clouds</h1>
+        <p>Comfortably fits 2-4 logos with optional fragement slots for icons and labels.</p>
+    </header>
 
-<h3 class="text-2xl font-bold my-4">Usage</h3>
-<CodeBlock class="mb-4">{`
-import {LogoCloud, Logo} from '@brainandbones/skeleton';\n
-<LogoCloud>
-    <!-- Basic -->
-    <Logo>Acme</Logo>
-    <!-- Slotted -->
-    <Logo>
-        <svelte:fragment slot="icon">(icon)</svelte:fragment>
-        <svelte:fragment slot="label">Acme</svelte:fragment>
-    </Logo>
-</LogoCloud>
-`.trim()}</CodeBlock>
+    <!-- Examples -->
+    <section class="space-y-4">
+        <h4>4x</h4>
+        <LogoCloud>
+            <Logo>HR Solutions Co.</Logo>
+            <Logo>Acme Theaters</Logo>
+            <Logo>Cruisin' Cuisine</Logo>
+            <Logo>Arcane Security</Logo>
+        </LogoCloud>
+        <h4>3x</h4>
+        <LogoCloud>
+            <Logo>HR Solutions Co.</Logo>
+            <Logo>Acme Theaters</Logo>
+            <Logo>Cruisin' Cuisine</Logo>
+        </LogoCloud>
+        <h4>Fragment Slots</h4>
+        <LogoCloud>
+            <Logo>
+                <svelte:fragment slot="icon">&#9733;</svelte:fragment>
+                <svelte:fragment slot="label">HR Solutions Co.</svelte:fragment>
+            </Logo>
+            <Logo>
+                <svelte:fragment slot="icon">&#9733;</svelte:fragment>
+                <svelte:fragment slot="label">Acme Theaters</svelte:fragment>
+            </Logo>
+        </LogoCloud>
+    </section>
+
+    <!-- Usage -->
+    <section class="space-y-4">
+        <h2>Usage</h2>
+        <CodeBlock language="html" code={codeImport}></CodeBlock>
+        <CodeBlock language="html" code={codeBasic}></CodeBlock>
+        <CodeBlock language="html" code={codeSlotted}></CodeBlock>
+    </section>
+
+</div>

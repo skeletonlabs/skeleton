@@ -1,15 +1,16 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { browser } from '$app/env';
+	import { onMount, afterUpdate } from 'svelte';
 	
-	import '../theme-bb.css';
-	// import '../theme-st.css';
+	import '../theme-bb.css'; // bb|st
 	import '../app.css';
 	
 	import Divider from '$lib/Divider/Divider.svelte';
 
 	let navDocs: any[] = [
-		{href: '/', label: 'Welcome'},
+		{href: '/', label: 'Get Started'},
+		{href: '/docs/themes', label: 'Themes'},
 	]
 	let navComponents: any[] = [
 		{href: '/cards', label: 'Cards'},
@@ -17,7 +18,9 @@
 		{href: '/dividers', label: 'Dividers'},
 		{href: '/logo-clouds', label: 'Logo Clouds'},
 		{href: '/avatars', label: 'Avatars'},
-		{href: '/gradientheadings', label: 'Gradient Heading'}
+		{href: '/gradientheadings', label: 'Gradient Heading'},
+		{href: '/breadcrumbs', label: 'Breadcrumb'},
+		{href: '/code-blocks', label: 'Code Blocks'},
 	].sort((a, b) => (a.label > b.label) ? 1 : -1);
 	let darkMode: boolean;
 
@@ -30,23 +33,27 @@
 		darkMode = !darkMode;
 		if (browser) { localStorage.setItem('theme', darkMode ? 'dark' : 'light'); }
 	}
+
+	// https://highlightjs.org/
+    import hljs from 'highlight.js';
+	import 'highlight.js/styles/github-dark.css';
+	onMount(hljs.highlightAll);
+	afterUpdate(hljs.highlightAll);
 </script>
 
 <svelte:head>
-	<title>Skeleton: UI Component Library for SvelteKit</title>
+	<title>Skeleton Documentation</title>
 </svelte:head>
 
 <!-- Page Layout -->
 <div class="flex flex-row">
 
     <!-- NavBar -->
-    <section class="basis-1/4 border-r-2 border-surface-200 h-screen overflow-auto dark:border-surface-800">
+    <section class="basis-1/4 border-r border-surface-200 bg-surface-50/75 dark:bg-surface-900/75 h-screen overflow-auto dark:border-surface-800">
 
 		<!-- Header -->
         <header class="flex justify-between items-center py-6 px-8">
-			<h1 class="text-4xl font-bold">
-				<span class="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-accent-500">Skeleton UI</span>
-			</h1>
+			<h2>Skeleton</h2>
 			<nav class="flex justify-between items-center space-x-4">
 				<button on:click="{toggleDisplayMode}" class="fill-primary-500">
 					<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 512 512"><path d="M332.3 426.4c-93.13 17.75-178.5-53.63-178.5-147.6c0-54.25 29-104 76-130.9c7.375-4.125 5.45-15.12-2.8-16.62C108.7 109.4 0 200 0 320c0 106 85.76 192 191.8 192c59.25 0 113.2-26.79 148.9-71.04C346.1 434.5 340.3 424.8 332.3 426.4zM288 63.1l12.42 29.78c.6094 1.225 2.211 2.219 3.578 2.219s2.967-.9941 3.576-2.219l12.42-29.78l29.79-12.42C351 50.97 352 49.36 352 47.1c0-1.365-.9922-2.967-2.211-3.576l-29.79-12.42l-12.42-29.79c-.6094-1.227-2.209-2.217-3.576-2.217s-2.969 .9902-3.578 2.217l-12.42 29.79L258.2 44.42c-1.217 .6094-2.209 2.211-2.209 3.576c0 1.359 .9922 2.971 2.209 3.58L288 63.1zM507.6 216.9L448 192l-24.88-59.63C421.8 129.8 419 127.1 416 127.1s-5.75 1.75-7.125 4.375L384 192l-59.63 24.88C321.8 218.3 320 221 320 224s1.75 5.75 4.375 7.125L384 256l24.88 59.63C410.3 318.3 413 320 416 320s5.75-1.75 7.125-4.375L448 256l59.63-24.88C510.3 229.8 512 227 512 224S510.3 218.3 507.6 216.9z"/></svg>
@@ -59,11 +66,11 @@
 
 		<Divider class="mb-8" />
 
-		<!-- Header -->
+		<!-- Docs -->
 		<h3 class="text-sm text-primary-500 mx-8 mb-4">Docs</h3>
         <nav>
 			{#each navDocs as {href,label} }
-			<a {href} class="block text-base py-2 px-8 hover:underline-offset-1 class" class:active={$page.url.pathname == href}>{label}</a>
+			<a {href} class="block text-base px-8 py-4 hover:underline-offset-1 class" class:active={$page.url.pathname == href}>{label}</a>
 			{/each}
         </nav>
 
@@ -73,14 +80,14 @@
 		<h3 class="text-sm text-primary-500 mx-8 mb-4">Components</h3>
         <nav>
 			{#each navComponents as {href,label} }
-			<a {href} class="block text-base py-2 px-8 hover:underline-offset-1 class" class:active={$page.url.pathname == href}>{label}</a>
+			<a {href} class="block text-base px-8 py-4 hover:underline-offset-1 class" class:active={$page.url.pathname == href}>{label}</a>
 			{/each}
         </nav>
 
     </section>
 
     <!-- Content -->
-    <section class="container mx-auto basis-3/4 p-8 h-screen overflow-auto">
+    <section id="page" class="container mx-auto basis-3/4 p-8 h-screen overflow-auto">
         <slot />
     </section>
 
