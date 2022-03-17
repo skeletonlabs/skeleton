@@ -36,4 +36,4 @@ h6 { @apply text-base font-bold; }
 
 /* Page Styles */
 #page p { @apply text-base text-surface-400; }
-#page a:not(.anchor):not(.breadcrumb):not(.crumb) { @apply text-primary-500 underline; }
+#page a:not(.anchor):not(.breadcrumb a):not(.crumb a) { @apply text-primary-500 underline; }

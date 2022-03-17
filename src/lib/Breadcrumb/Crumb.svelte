@@ -8,25 +8,23 @@
 	// Set from the Breadcrumb Component
 	export let currentPage: boolean = false;
 	export let inactive: boolean = false;
-	export let link: string = '';
+	export let href: string = '';
 
     // Set inactive state
     if (outlined && inactive) { style = 'text-surface-400 font-medium pl-0';} 
     else if (inactive)                      { style = 'text-surface-400 font-medium'; }
-
 </script>
 
 <div data-testid="crumb" class="crumb flex justify-evenly align-middle">
-	<!-- Link -->
+	<!-- Slot Icon -->
 	{#if $$slots.icon}
 		<div class="w-5 m-2 flex">
 			<slot name="icon" />
 		</div>
 	{/if}
-
-	<!-- Link -->
-	{#if link}
-		<a href={link} class="${$$props.class} {style} p-2">
+	<!-- href -->
+	{#if href}
+		<a {href} class="${$$props.class} {style} p-2">
 			<slot />
 		</a>
 	{:else}
@@ -34,7 +32,6 @@
 			<slot />
 		</p>
 	{/if}
-
 	<!-- Separator -->
 	{#if !currentPage}
 		<div class="w-2 mr-4 ml-4 flex dark:invert opacity-20">

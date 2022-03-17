@@ -1,5 +1,4 @@
 <script lang="ts">
-
     import {setContext} from 'svelte';
 
     let cStyle: string = '';
@@ -9,15 +8,19 @@
     export let items: any | null = null;
     export let styling: string = 'basic';
 
-    if(styling == 'outlined') { setContext('outlined', true); cStyle = ' ring-1 ring-surface-600 hover:ring-primary-600 rounded-sm font-medium hover:bg-surface-300 dark:hover:bg-surface-700 transition-all ease-in-out duration-300'}
-    if(styling == 'basic') { cStyle = 'hover:text-primary-700 dark:hover:text-primary-400 hover:underline font-medium'; }
+    if(styling == 'outlined') {
+        setContext('outlined', true);
+        cStyle = ' ring-1 ring-surface-600 hover:ring-primary-600 rounded-sm font-medium hover:bg-surface-300 dark:hover:bg-surface-700 transition-all ease-in-out duration-300';
+    }
+    if(styling == 'basic') {
+        cStyle = 'hover:text-primary-700 dark:hover:text-primary-400 hover:underline font-medium';
+    }
     
     // Set the contexts to be retrieved by the slots
     setContext('seperatorContext', separator)
     setContext('styleContext', cStyle)
 
     $: listItems = items;
-
 </script>
 
 <div data-testid='breadcrumb' class="breadcrumb flex justify-start">
@@ -25,11 +28,11 @@
     {#if items}
         {#each listItems as item, i}
             <!-- If disabled-->
-            {#if !item.link}
+            {#if !item.href}
                 <p class='text-surface-400 font-medium'>{item.text}</p>
             {:else}
                 <div>
-                    <a data-testid='crumb' class="{cStyle} ${$$props.class}" href={item.link}>{item.text}</a>
+                    <a data-testid='crumb' class="{cStyle} ${$$props.class}" href={item.href}>{item.text}</a>
                 </div>
             {/if}
             <!-- Separator-->
@@ -39,9 +42,8 @@
             </div>
             {/if}
         {/each}
+    <!-- If Slot -->
     {:else}
-
-    <!-- If slotted child Crumb components -->
-    <slot />
+        <slot />
     {/if}
 </div>
