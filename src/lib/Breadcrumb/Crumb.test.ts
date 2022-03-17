@@ -6,7 +6,7 @@
  import { afterEach, describe, expect, it } from 'vitest';
  
  import Crumb from '$lib/Breadcrumb/Crumb.svelte';
- import { fireEvent } from '@testing-library/dom';
+
  
  describe('Breadcrumb.svelte', () => {
  
