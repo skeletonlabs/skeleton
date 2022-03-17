@@ -14,26 +14,24 @@
 	const icon: string = `&#9733;`;
 </script>
 
-<div class="space-y-4">
+<div class="space-y-8">
 
 	<!-- Header -->
 	<header class="space-y-4">
-		<h2 class="text-3xl font-bold">Buttons</h2>
-		<p class="text-base text-surface-400">
-			Buttons allow users to take actions and make choices with a single tap.
-		</p>
+		<h1>Buttons</h1>
+		<p>Buttons allow users to take actions and make choices with a single tap.</p>
 	</header>
 	
 	<!-- Examples -->
 	<Card class="flex justify-center space-x-8">
 		<section>
-			<h2 class="text-base font-bold text-center mb-4">Default</h2>
+			<h4 class="text-center mb-4">Default</h4>
 			<nav class="flex flex-col space-y-4">
 				<Button on:click={(_)=>{alert('Clicked');}}>Button</Button>
 			</nav>
 		</section>
 		<section>
-			<h2 class="text-base font-bold text-center mb-4">Filled</h2>
+			<h4 class="text-center mb-4">Filled</h4>
 			<nav class="flex flex-col space-y-4">
 				<Button display="filled">Button</Button>
 				<Button href="http://www.google.com" target="_blank" display="filled">Anchor</Button>
@@ -44,7 +42,7 @@
 			</nav>
 		</section>
 		<section>
-			<h2 class="text-base font-bold text-center mb-4">Outlined</h2>
+			<h4 class="text-center mb-4">Outlined</h4>
 			<nav class="flex flex-col space-y-4">
 				<Button display="outlined">Button</Button>
 				<Button href="http://www.google.com" target="_blank" display="outlined">Anchor</Button>
@@ -55,7 +53,7 @@
 			</nav>
 		</section>
 		<section>
-			<h2 class="text-base font-bold text-center mb-4">Text</h2>
+			<h4 class="text-center mb-4">Text</h4>
 			<nav class="flex flex-col space-y-4">
 				<Button display="text">Button</Button>
 				<Button href="http://www.google.com" target="_blank" display="text">Anchor</Button>
@@ -66,7 +64,7 @@
 			</nav>
 		</section>
 		<section>
-			<h2 class="text-base font-bold text-center mb-4">Icon</h2>
+			<h4 class="text-center mb-4">Icon</h4>
 			<nav class="flex flex-col space-y-4">
 				<Button display="text">{@html icon}</Button>
 				<Button href="http://www.google.com" target="_blank" display="text">{@html icon}</Button>
@@ -80,21 +78,21 @@
 	
 	<!-- Usage -->
 	<section class="space-y-4">
-		<h3 class="text-2xl font-bold">Usage</h3>
+		<h2>Usage</h2>
 		<CodeBlock language="javascript" code={`<script>import {Button} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
-		<h2 class="text-base font-bold">Filled + Primary</h2>
+		<h4>Filled + Primary</h4>
 		<CodeBlock language="html" code={`<Button display="filled" color="primary">Button</Button>`}></CodeBlock>
-		<h2 class="text-base font-bold">Outlined + Accent</h2>
+		<h4>Outlined + Accent</h4>
 		<CodeBlock language="html" code={`<Button display="outlined" color="accent">Button</Button>`}></CodeBlock>
-		<h2 class="text-base font-bold">Text + Warning</h2>
+		<h4>Text + Warning</h4>
 		<CodeBlock language="html" code={`<Button display="text" color="warning">Button</Button>`}></CodeBlock>
-		<h2 class="text-base font-bold">Icon + Disabled</h2>
+		<h4>Icon + Disabled</h4>
 		<CodeBlock language="html" code={`<Button display="text" disabled>${icon}</Button>`}></CodeBlock>
 	</section>
 	
 	<!-- Properties -->
 	<section class="space-y-4">
-		<h3 class="text-2xl font-bold">Properties</h3>
+		<h2>Properties</h2>
 		<Table source="{tableProps}"></Table>
 	</section>
 

@@ -58,8 +58,8 @@
         data: [
             ['Primary', '50-900', 'Your primary brand color.'],
             ['Accent', '50-900', 'An accent for offsets or supplimentary values.'],
-            ['Warning', '50-900', 'Used for warnings, alerts, and invalid inputs.'],
-            ['Surface', '50-900', 'Used for background and card elements.'],
+            ['Warning', '50-900', 'May be used for warnings, alerts, and invalid inputs.'],
+            ['Surface', '50-900', 'May be used for typography, backgrounds and card elements.'],
         ],
     };
 </script>
@@ -68,8 +68,8 @@
 
 	<!-- Header -->
 	<header class="space-y-4">
-		<h2 class="text-3xl font-bold">Themes</h2>
-		<p class="text-base text-surface-400">
+		<h1>Themes</h1>
+		<p>
 			Themes uses <a href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank">CSS variables as recommend by Tailwind</a>. In order to use <a href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank">Tailwind's background opacity scale</a>, the colors must be supplied as RGB. These have a shades ranging from 50-900 where 50 is the lightest value and 900 the darkest. Components will automatically adapt for <a href="https://tailwindcss.com/docs/dark-mode" target="_blank">Tailwind's Dark Mode</a>.
 		</p>
 	</header>
@@ -77,15 +77,15 @@
     <!-- Usage -->
     <Card class="space-y-4">
         <section class="space-y-4">
-            <h3 class="text-xl font-bold">Skeleton Tailwind Plugin</h3>
-            <p class="text-base text-surface-400">
+            <h4>Skeleton Tailwind Plugin</h4>
+            <p>
                 <a href="https://tailwindcss.com/docs/plugins#official-plugins" target="_blank">Add the Skeleton plugin to your tailwind.config.cjs</a>. This will automatically ingest and utilize your CSS variables defined in the next step.
             </p>
             <CodeBlock language="js" code={`require('@brainandbones/skeleton/tailwind.cjs')`}></CodeBlock>
         </section>
         <section class="space-y-4">
-            <h3 class="text-xl font-bold">CSS Variables</h3>
-            <p class="text-base text-surface-400">
+            <h4>CSS Variables</h4>
+            <p>
                 Customize each CSS variable to match your brand, then add this to your global CSS stylesheet (ex: app.css)
             </p>
             <CodeBlock language="css" code={codeSampleTheme}></CodeBlock>
@@ -94,8 +94,8 @@
     
     <!-- Usage -->
     <section class="space-y-4">
-        <h3 class="text-xl font-bold">Usage</h3>
-        <p class="text-base text-surface-400">Theme colors are not limited to Skeleton components, you can utilize them anywhere in your app following Tailwind conventions.</p>
+        <h3>Usage</h3>
+        <p>Theme colors are not limited to Skeleton components, you can utilize them anywhere in your app following Tailwind conventions.</p>
         <CodeBlock language="html" code={`<!-- Inlined classes -->\n<div class="bg-primary-500 text-accent-500">Colorful</div>`}></CodeBlock>
         <CodeBlock language="html" code={`<!-- Tailwind opacity scale -->\n<div class="bg-primary-500/50">Transparent</div>`}></CodeBlock>
         <CodeBlock language="css" code={`/* Using Tailwind @apply */\n.example { @apply bg-primary-500; }`}></CodeBlock>
@@ -104,8 +104,8 @@
 
     <!-- Colors -->
     <section class="space-y-4">
-        <h3 class="text-2xl font-bold">Colors</h3>
-        <p class="text-base text-surface-400">
+        <h3>Colors</h3>
+        <p>
 			Please ensure you add the following set of named colors.
 		</p>
         <Table source="{tableProps}"></Table>

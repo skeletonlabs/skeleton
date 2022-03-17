@@ -17,53 +17,36 @@
     };
 </script>
 
-<div class="space-y-4">
+<div class="space-y-8">
 
     <!-- Header -->
     <header class="space-y-4">
-        <h2 class="text-3xl font-bold">Avatars</h2>
-        <p class="text-base text-surface-400">Choose from a variety for avatar sizes and styles. Include clean placeholders.</p>
+        <h1>Avatars</h1>
+        <p>Choose from a variety for avatar sizes and styles. Include clean placeholders.</p>
     </header>
     
     <!-- Examples -->
     <section class="space-y-4">
-        <h2 class="text-base font-bold">Display</h2>
-        <Card>
-            <div class='flex justify-evenly lg:flex-row'>
-                <div class='flex flex-col text-center'>
-                    <Avatar size='xl' />
-                    <p class ='mt-2'>Placeholder</p>
-                </div>
-                <div class='flex flex-col text-center'>
-                    <Avatar size='xl' src={placeholder} />
-                    <p class ='mt-2'>Image</p>
-                </div>
-                <div class='flex flex-col text-center'>   
-                    <Avatar size='xl' outlined src={placeholder} />
-                    <p class ='mt-2'>Outlined</p>
-                </div>
-                <div class='flex flex-col text-center'>
-                    <Avatar size='xl' hover src={placeholder} />
-                    <p class ='mt-2'>Hover</p>
-                </div>
-                <!-- <div class='flex flex-col text-center'>
-                    <Avatar size='xl' filter="blur(5px)" src={placeholder} />
-                    <p class ='mt-2'>Filtered</p>
-                </div> -->
-            </div>
+        <h4>Display</h4>
+        <Card class='flex justify-evenly items-center text-center lg:flex-row'>
+            <div><Avatar size='xl' /><p class='mt-2'>Placeholder</p></div>
+            <div><Avatar size='xl' src={placeholder} /><p class='mt-2'>Image</p></div>
+            <div><Avatar size='xl' outlined src={placeholder} /><p class='mt-2'>Outlined</p></div>
+            <div><Avatar size='xl' hover src={placeholder} /><p class='mt-2'>Hover</p></div>
+            <!-- <div class='flex flex-col text-center'><Avatar size='xl' filter="blur(5px)" src={placeholder} /><p class='mt-2'>Filtered</p></div> -->
         </Card>
         <!-- Sizes -->
-        <h2 class="text-base font-bold">Sizes</h2>
-        <Card class='flex justify-evenly items-center'>
-            <div><Avatar size='sm' src={placeholder} /><h3 class="text-small text-center">sm</h3></div>
-            <div><Avatar size='md' src={placeholder} /><h3 class="text-small text-center">md</h3></div>
-            <div><Avatar size='lg' src={placeholder} /><h3 class="text-small text-center">lg</h3></div>
-            <div><Avatar size='xl' src={placeholder} /><h3 class="text-small text-center">xl</h3></div>
-            <div><Avatar size='2xl' src={placeholder} /><h3 class="text-small text-center">2xl</h3></div>
-            <div><Avatar size='3xl' src={placeholder} /><h3 class="text-small text-center">3xl</h3></div>
+        <h4>Sizes</h4>
+        <Card class='flex justify-evenly items-center text-center lg:flex-row'>
+            <div><Avatar size='sm' src={placeholder} /><p class="mt-2">sm</p></div>
+            <div><Avatar size='md' src={placeholder} /><p class="mt-2">md</p></div>
+            <div><Avatar size='lg' src={placeholder} /><p class="mt-2">lg</p></div>
+            <div><Avatar size='xl' src={placeholder} /><p class="mt-2">xl</p></div>
+            <div><Avatar size='2xl' src={placeholder} /><p class="mt-2">2xl</p></div>
+            <div><Avatar size='3xl' src={placeholder} /><p class="mt-2">3xl</p></div>
         </Card>
         <!-- Fluid -->
-        <h2 class="text-base font-bold">Fluid</h2>
+        <h4>Fluid</h4>
         <Card class='grid grid-cols-5 gap-4'>
             <Avatar src={`${placeholder}?img=1`} />
             <Avatar src={`${placeholder}?img=2`} />
@@ -75,7 +58,7 @@
     
     <!-- Usage -->
     <section class="space-y-4">
-        <h3 class="text-2xl font-bold">Usage</h3>
+        <h2>Usage</h2>
         <CodeBlock
             language="html"
             code={`<script>import {Avatar} from '@brainandbones/skeleton';</\script>\n\n<Avatar outlined src="{imgSrc}" size="md" filter="{svgFilterId}">`}
@@ -84,7 +67,7 @@
     
     <!-- Properties -->
     <section class="space-y-4">
-        <h3 class="text-2xl font-bold">Properties</h3>
+        <h2>Properties</h2>
         <Table source="{tableProps}"></Table>
     </section>
 

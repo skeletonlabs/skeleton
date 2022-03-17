@@ -9,8 +9,8 @@
 
     <!-- Warning -->
     <section class="bg-warning-500/10 border-warning-500 border-2 border-dotted p-4 rounded-full text-center flex justify-center items-center space-x-8">
-        <h2 class="text-warning-500 text-2xl font-bold">⚠️ Warning</h2>
-        <p class="text-base text-surface-400">Skeleton is in early development. Use at your own risk.</p>
+        <h2 class="text-warning-500">⚠️ Warning</h2>
+        <p>Skeleton is in early development. Use at your own risk.</p>
     </section>
 
     <!-- Header -->
@@ -60,29 +60,29 @@
             </svg>
         </div>
         <!-- Intro -->
-        <p class="text-3xl font-bold text-surface-400">Skeleton is a component library that allows you to build web apps faster utilizing <a href="https://svelte.dev/" target="_blank">Svelte</a> + <a href="https://tailwindcss.com/" target="_blank">Tailwind</a>.</p>
+        <h1>Skeleton is a component library that allows you to build web apps faster utilizing <a href="https://svelte.dev/" target="_blank">Svelte</a> + <a href="https://tailwindcss.com/" target="_blank">Tailwind</a>.</h1>
     </header>
 
     <Divider display="dotted" />
 
     <!-- Install -->
     <Card class="space-y-4">
-        <h2 class="text-3xl font-bold">Install</h2>
-        <p class="text-base text-surface-400">Follow the instructions below to get started.</p>
+        <h2>Install</h2>
+        <p>Follow the instructions below to get started.</p>
         <!-- Create SvelteKit Project -->
-        <h3 class="text-xl font-bold">Create a SvelteKit Project</h3>
-        <p class="text-base text-surface-400">See the <a href="https://kit.svelte.dev/docs/introduction#getting-started" target="_blank">official documentation</a>.</p>
+        <h4>Create a SvelteKit Project</h4>
+        <p>See the <a href="https://kit.svelte.dev/docs/introduction#getting-started" target="_blank">official documentation</a>.</p>
         <CodeBlock language="console" code={`npm init svelte@next my-app\ncd my-app\nnpm install\nnpm run dev`}></CodeBlock>
         <!-- Install Tailwind -->
-        <h3 class="text-xl font-bold">Install Tailwind</h3>
-        <p class="text-base text-surface-400"><a href="https://github.com/svelte-add/tailwindcss" target="_blank">Svelte-Add</a> makes this quick and painless.</p>
+        <h4>Install Tailwind</h4>
+        <p><a href="https://github.com/svelte-add/tailwindcss" target="_blank">Svelte-Add</a> makes this quick and painless.</p>
         <CodeBlock language="console" code={`npx svelte-add@latest tailwindcss`}></CodeBlock>
         <!-- Install Skeleton -->
-        <h3 class="text-xl font-bold">Install Skeleton</h3>
+        <h4>Install Skeleton</h4>
         <CodeBlock language="console" code={`npm install --save-dev @brainandbones/skeleton`}></CodeBlock>
         <!-- Implement Your Theme -->
-        <h3 class="text-xl font-bold">Implement Your Theme</h3>
-        <p class="text-base text-surface-400">Follow the guide linked below to create and add your own theme.</p>
+        <h4>Implement Your Theme</h4>
+        <p>Follow the guide linked below to create and add your own theme.</p>
         <Button display="filled" color="accent" href="/docs/themes">Theme Setup Guide</Button>
     </Card>
 
@@ -90,10 +90,10 @@
     
     <!-- Recommendations -->
     <section class="space-y-4">
-        <h2 class="text-3xl font-bold">Plugins and Recommendations</h2>
-        <p class="text-base text-surface-400">Below is a list of recommended plugins and tooling we recommend using alongside Skeleton.</p>
+        <h3>Plugins and Recommendations</h3>
+        <p>Below is a list of recommended plugins and tooling we recommend using alongside Skeleton.</p>
         <div class="space-y-4">
-            <h3 class="text-xl font-bold">The official Tailwind plugins</h3>
+            <h6>The official Tailwind plugins</h6>
             <nav class="flex flex-row space-x-2">
                 <Button display="filled" color="accent" href="https://tailwindcss.com/docs/typography-plugin" target="_blank">Typography</Button>
                 <Button display="filled" color="accent" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Forms</Button>
@@ -103,8 +103,8 @@
     
     <!-- Contributions -->
     <section class="space-y-4">
-        <h2 class="text-3xl font-bold">Contributions</h2>
-        <p class="text-base text-surface-400">We'll provide official instructions for contributing to Skeleton soon.</p>
+        <h3>Contributions</h3>
+        <p>We'll provide official instructions for contributing to Skeleton soon.</p>
     </section>
 
     <!-- Legal -->

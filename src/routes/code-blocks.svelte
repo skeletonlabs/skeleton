@@ -25,47 +25,47 @@ afterUpdate(hljs.highlightAll); // on route change
     };
 </script>
 
-<div class="space-y-4">
+<div class="space-y-8">
 
     <!-- Header -->
     <header class="space-y-4">
-        <h2 class="text-3xl font-bold">Code Blocks</h2>
-        <p class="text-base text-surface-400">Display blocks of raw code with optional support for syntax highlighting.</p>
+        <h1>Code Blocks</h1>
+        <p>Display blocks of raw code with optional support for syntax highlighting.</p>
     </header>
 
     <!-- Examples -->
     <Card class="space-y-4">
         <!-- HTML -->
-        <h2 class="text-base font-bold">HTML</h2>
+        <h4>HTML</h4>
         <CodeBlock language="html" code={codeHtml}></CodeBlock>
         <!-- CSS -->
-        <h2 class="text-base font-bold">CSS</h2>
+        <h4>CSS</h4>
         <CodeBlock language="css" code={codeCss}></CodeBlock>
         <!-- Typescript -->
-        <h2 class="text-base font-bold">Typescript</h2>
+        <h4>Typescript</h4>
         <CodeBlock language="typescript" code={codeJs}></CodeBlock>
     </Card>
 
     <!-- Usage -->
     <section class="space-y-4">
-        <h3 class="text-2xl font-bold">Usage</h3>
+        <h2>Usage</h2>
         <CodeBlock language="javascript" code={`<script>import {CodeBlock} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
         <CodeBlock language="html" code={`<CodeBlock language="html" code={\`<div>Meta</div>\`}></CodeBlock>`}></CodeBlock>
     </section>
 
     <!-- Syntax Highlighting -->
     <section class="space-y-4">
-        <h3 class="text-2xl font-bold">Syntax Highlighting</h3>
-        <p class="text-base text-surface-400">Syntax highlighting can be enabled by installing either <a href="https://highlightjs.org/" target="_blank">Highlight.js</a> or <a href="https://prismjs.com/" target="_blank">Prism.js</a>. Then, folow the directions below.</p>
-        <h2 class="text-base font-bold">Highlight.js</h2>
+        <h2>Syntax Highlighting</h2>
+        <p>Syntax highlighting can be enabled by installing either <a href="https://highlightjs.org/" target="_blank">Highlight.js</a> or <a href="https://prismjs.com/" target="_blank">Prism.js</a>. Then, folow the directions below.</p>
+        <h6>Highlight.js</h6>
         <CodeBlock language="typescript" code={codeUsage}></CodeBlock>
-        <h2 class="text-base font-bold">Prism.js</h2>
+        <h6>Prism.js</h6>
         <CodeBlock language="typescript" code={`...`}></CodeBlock>
     </section>
 
     <!-- Properties -->
     <section class="space-y-4">
-        <h3 class="text-2xl font-bold">Properties</h3>
+        <h2>Properties</h2>
         <Table source="{tableProps}"></Table>
     </section>
 
