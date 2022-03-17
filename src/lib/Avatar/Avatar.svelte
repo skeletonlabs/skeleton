@@ -40,7 +40,7 @@
 	$: classes = `${cBase} ${currentClasses} ${$$props.class}`;
 </script>
 
-<div on:click class="avatar {classes}">
+<div data-testid='wrapper' on:click class="avatar {classes}">
 	{#if src}
 	<img class="w-full h-full object-cover" {src} style="{currentStyles}" alt="Avatar" />
 	{:else}

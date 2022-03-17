@@ -1,6 +1,6 @@
 {
 	"name": "@brainandbones/skeleton",
-	"version": "0.0.21",
+	"version": "0.0.23",
 	"description": "A SvelteKit component library.",
 	"author": "endigo9740 <csimmons@brainandbonesllc.com>",
 	"scripts": {
@@ -27,6 +27,7 @@
 		"eslint": "^7.32.0",
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-svelte3": "^3.2.1",
+		"highlight.js": "^11.5.0",
 		"jsdom": "^19.0.0",
 		"postcss": "^8.4.5",
 		"postcss-load-config": "^3.1.1",

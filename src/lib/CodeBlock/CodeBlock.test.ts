@@ -6,7 +6,7 @@
  import { afterEach, describe, it } from 'vitest';
  
  // @ts-ignore
- import CodeBlock from '$lib/_CodeBlock/CodeBlock.svelte';
+ import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
  
  describe('CodeBlock.svelte', () => {
      afterEach(() => cleanup());

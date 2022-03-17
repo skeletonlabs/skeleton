@@ -50,7 +50,7 @@
 
 {#if $$props.href}
     <a
-        class="anchor {classes}"
+        class="anchor inline-block {classes}"
         href={$$props.href} 
         target={$$props.target}
         disabled={$$props.disabled}
