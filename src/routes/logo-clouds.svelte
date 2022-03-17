@@ -1,5 +1,5 @@
 <script lang="ts">
-    import CodeBlock from '$lib/_CodeBlock/CodeBlock.svelte';
+    import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
     import LogoCloud from "$lib/LogoCloud/LogoCloud.svelte";
     import Logo from "$lib/LogoCloud/Logo.svelte";
 
@@ -8,28 +8,30 @@
     const codeSlotted: string = `<LogoCloud>\n\t<Logo>\n\t\t<svelte:fragment slot="icon">(icon)</svelte:fragment>\n\t\t<svelte:fragment slot="label">Acme</svelte:fragment>\n\t</Logo>\n</LogoCloud>`;
 </script>
 
-<div class="space-y-4">
+<div class="space-y-8">
 
     <!-- Header -->
     <header class="space-y-4">
-        <h2 class="text-3xl font-bold">Logo Clouds</h2>
-        <p class="text-base text-surface-400">Allows for 2-4 logos with optional icon and label slots.</p>
+        <h1>Logo Clouds</h1>
+        <p>Comfortably fits 2-4 logos with optional fragement slots for icons and labels.</p>
     </header>
 
     <!-- Examples -->
     <section class="space-y-4">
+        <h4>4x</h4>
         <LogoCloud>
             <Logo>HR Solutions Co.</Logo>
             <Logo>Acme Theaters</Logo>
             <Logo>Cruisin' Cuisine</Logo>
             <Logo>Arcane Security</Logo>
         </LogoCloud>
+        <h4>3x</h4>
         <LogoCloud>
             <Logo>HR Solutions Co.</Logo>
             <Logo>Acme Theaters</Logo>
             <Logo>Cruisin' Cuisine</Logo>
         </LogoCloud>
-        <h4 class="text-xl font-bold">Slotted</h4>
+        <h4>Fragment Slots</h4>
         <LogoCloud>
             <Logo>
                 <svelte:fragment slot="icon">&#9733;</svelte:fragment>
@@ -44,7 +46,7 @@
 
     <!-- Usage -->
     <section class="space-y-4">
-        <h3 class="text-2xl font-bold">Usage</h3>
+        <h2>Usage</h2>
         <CodeBlock language="html" code={codeImport}></CodeBlock>
         <CodeBlock language="html" code={codeBasic}></CodeBlock>
         <CodeBlock language="html" code={codeSlotted}></CodeBlock>

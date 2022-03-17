@@ -11,7 +11,11 @@ body {
     @apply font-sans bg-surface-100 text-black dark:bg-surface-900 dark:text-white;
 }
 
-/* TODO: implement proper solution */
+/*
+FIXEME
+- utlize Tailwind @apply
+- create light mode mesh
+*/
 .dark body {
     background-image:  
         radial-gradient(at 32% 66%, hsla(183,55%,15%,0.33) 0, transparent 53%),  
@@ -19,3 +23,17 @@ body {
         radial-gradient(at 63% 56%, hsla(182,53%,15%,0.33) 0, transparent 59%);
     background-size: cover; background-attachment: fixed;
 }
+
+/* --- Typography --- */
+
+/* Headings */
+h1 { @apply text-4xl font-bold; }
+h2 { @apply text-3xl font-bold; }
+h3 { @apply text-2xl font-bold; }
+h4 { @apply text-xl font-bold; }
+h5 { @apply text-lg font-bold; }
+h6 { @apply text-base font-bold; }
+
+/* Page Styles */
+#page p { @apply text-base text-surface-400; }
+#page a:not(.anchor) { @apply text-primary-500 underline; }
