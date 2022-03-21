@@ -41,8 +41,8 @@
         <Card>
             <Breadcrumb>
                 <Crumb href="/">Home</Crumb>
-                <Crumb href="/404">The Helm</Crumb>
-                <Crumb href="/404">Quizzes</Crumb>
+                <Crumb href="/helm">The Helm</Crumb>
+                <Crumb href="/helm/quizzes">Quizzes</Crumb>
                 <Crumb active>You are here!</Crumb>
             </Breadcrumb>
         </Card>
@@ -68,8 +68,8 @@
         <Card>
             <Breadcrumb separator={customSeparator}>
                 <Crumb href="/">Home</Crumb>
-                <Crumb href="/404">The Helm</Crumb>
-                <Crumb href="/404">Quizzes</Crumb>
+                <Crumb href="/helm">The Helm</Crumb>
+                <Crumb href="/helm/quizzes">Quizzes</Crumb>
                 <Crumb disabled>You are here!</Crumb>
             </Breadcrumb>
         </Card>
@@ -77,7 +77,7 @@
         <Card>
             <Breadcrumb display="outlined" color="primary">
                 <Crumb href="/">Home</Crumb>
-                <Crumb href="/">The Helm</Crumb>
+                <Crumb href="/helm">The Helm</Crumb>
                 <Crumb disabled>You are here!</Crumb>
             </Breadcrumb>
         </Card>

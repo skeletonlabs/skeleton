@@ -13,7 +13,7 @@
 	let separator: string = getContext('separator');
 
 	// Styling
-	const margin = ['filled', 'outlined'].includes(display) ? 'mx-4' : 'mx-0';
+	const separatorMargin = ['filled', 'outlined'].includes(display) ? 'mx-4' : 'mx-0';
 	if (active) { color = 'primary'; }
 </script>
 
@@ -27,7 +27,7 @@
 	</Button>
 	
 	{#if !disabled && !active}
-		<div class="separator flex w-2 {margin}">{@html separator}</div>
+		<div class="separator flex w-2 {separatorMargin}">{@html separator}</div>
 	{/if}
 
 </div>
