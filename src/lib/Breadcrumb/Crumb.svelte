@@ -1,41 +1,33 @@
 <script lang="ts">
-	// Get the contexts from the parent
-	import { getContext, onMount } from 'svelte';
-	let separator: string = getContext('seperatorContext');
-	let style: string = getContext('styleContext');
-    let outlined: boolean = getContext('outlined');
+	import { getContext } from 'svelte';
+	import Button from '$lib/Button/Button.svelte';
 
-	// Set from the Breadcrumb Component
-	export let currentPage: boolean = false;
-	export let inactive: boolean = false;
+	// Props
 	export let href: string = '';
+	export let disabled: boolean = false;
+	export let active: boolean = false;
 
-    // Set inactive state
-    if (outlined && inactive) { style = 'text-surface-400 font-medium pl-0';} 
-    else if (inactive)                      { style = 'text-surface-400 font-medium'; }
+	// Context
+	let display: string = getContext('display');
+	let color: string = getContext('color');
+	let separator: string = getContext('separator');
+
+	// Styling
+	const separatorMargin = ['filled', 'outlined'].includes(display) ? 'mx-4' : 'mx-0';
+	if (active) { color = 'primary'; }
 </script>
 
-<div data-testid="crumb" class="crumb flex justify-evenly align-middle">
-	<!-- Slot Icon -->
-	{#if $$slots.icon}
-		<div class="w-5 m-2 flex">
-			<slot name="icon" />
-		</div>
+<div class="crumb-group flex items-center">
+
+	<Button {display} {color} {href} class="crumb flex items-center" data-testid="crumb" {disabled}>
+		{#if $$slots.icon}
+			<div class="w-6 mr-4"><slot name="icon" /></div>
+		{/if}
+		<slot />
+	</Button>
+	
+	{#if !disabled && !active}
+		<div class="separator flex w-2 {separatorMargin}">{@html separator}</div>
 	{/if}
-	<!-- href -->
-	{#if href}
-		<a {href} class="${$$props.class} {style} p-2">
-			<slot />
-		</a>
-	{:else}
-		<p class="${$$props.class} {style} p-2">
-			<slot />
-		</p>
-	{/if}
-	<!-- Separator -->
-	{#if !currentPage}
-		<div class="w-2 mr-4 ml-4 flex dark:invert opacity-20">
-			{@html separator}
-		</div>
-	{/if}
+
 </div>

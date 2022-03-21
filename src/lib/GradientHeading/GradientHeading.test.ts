@@ -9,6 +9,8 @@ import GradientHeading from '$lib/GradientHeading/GradientHeading.svelte';
 
 // These are used to validate that all switch cases in the component applies correctly.
 
+const from: string = 'from-primary-500';
+const to: string = 'to-accent-500';
 const defaultDirection: String = 'l';
 const defaultSize: String = '4xl';
 
@@ -23,12 +25,30 @@ describe('Card.svelte', () => {
 	});
 
 	it('Size style applied', () => {
-		sizes.forEach((item) => {
-			const instance = render(GradientHeading, { size: item });
+		sizes.forEach((size) => {
+			const instance = render(GradientHeading, { size });
 			let el = screen.getByTestId('gradientHeading');
-			expect(el.getAttribute('class').includes(`font-${item}`));
+			expect(el.getAttribute('class').includes(`font-${size}`));
 			instance.unmount();
 		});
+	});
+
+	it('Default "from" prop applied")', () => {
+		const instance = render(GradientHeading);
+		let el = screen.getByTestId('gradientHeading');
+		expect(el.getAttribute('class').includes(from));
+	});
+	
+	it('Default "to" prop applied")', () => {
+		render(GradientHeading);
+		let el = screen.getByTestId('gradientHeading');
+		expect(el.getAttribute('class').includes(to));
+	});
+
+	it('Default size applied (invalid prop)', () => {
+		const instance = render(GradientHeading, { size: '2-xl' });
+		let el = screen.getByTestId('gradientHeading');
+		expect(el.getAttribute('class').includes(`font-${defaultSize}`));
 	});
 
 	it('Default size applied (invalid prop)', () => {
