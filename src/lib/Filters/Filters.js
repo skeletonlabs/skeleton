@@ -1,16 +1,16 @@
 
-
 let style = '';
 let Filter;
 let appliedFilters = [];
 let init = false;
+
 export function filter(node, filter_name) {  
     
-
     // Disable filters using Firefox
     if(navigator.userAgent.indexOf('Firefox') > -1) { style = ''; }
     else { style =  `filter: url("#${filter_name}")`; }
     
+    // Initiate the parent container when using the action the first time
     if(!init) { 
         let elem = document.createElement('div');
         elem.setAttribute('id', 'filter-parent');
