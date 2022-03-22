@@ -66,6 +66,7 @@
         type={$$props.type}
         name={$$props.name}
         id={$$props.id}
+        data-testid={$$props['data-testid']}
         on:click
         on:mouseover
         on:focus

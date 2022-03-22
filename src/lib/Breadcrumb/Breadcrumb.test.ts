@@ -3,43 +3,40 @@
  * @vitest-environment jsdom
  */
 
-import { cleanup, render, screen } from '@testing-library/svelte';
+import { cleanup, render } from '@testing-library/svelte';
 import { afterEach, describe, expect, it } from 'vitest';
 
 import Breadcrumb from '$lib/Breadcrumb/Breadcrumb.svelte';
-
-const items = [
-    {text: 'Main', href: '/test', inactive: false},
-    {text: 'Helm', href: '/test', inactive: false},
-]
+// import Crumb from '$lib/Breadcrumb/Crumb.svelte';
 
 describe('Breadcrumb.svelte', () => {
 
-    afterEach(() => {cleanup(); localStorage.clear();});
+    afterEach(() => cleanup())
 
-    it('Renders', async () => {
-        render(Breadcrumb);
+    it('Renders without props', async () => {
+        const { getByTestId } = render(Breadcrumb);
+        expect(getByTestId('breadcrumb')).toBeTruthy();
     });
+    
+    it('Renders with props', () => {
+        const { getByTestId } = render(Breadcrumb, {
+            props: {display: 'outlined', color: 'primary', separator: '|'},
+        });
+        expect(getByTestId('breadcrumb')).toBeTruthy();
+    })
 
-    // CHRIS: disabled until further review
-    
-    // it('All paths shown', async() =>{
-    //     const instance = render(Breadcrumb, {items});
-    //     const parts = screen.getAllByTestId('breadcrumb');
-    //     expect(parts.length).eq(items.length);
-    //     expect(parts[0].innerHTML).eq(items[0].text);
+    // Test Nested Components
+    // https://sveltesociety.dev/recipes/testing-and-debugging/unit-testing-svelte-component/
+    // NOTE: Throwing error below, so disabling this test for now. We may not need to test like this.
+    /*
+        stderr | unknown test
+        <Crumb> was created with unknown prop 'Component'
+    */
+    // it('Renders nested Crumb component', () => {
+    //     const { getByTestId } = render(Crumb, {
+    //         props: { Component: render(Breadcrumb) }
+    //     });
+    //     expect(getByTestId('crumb')).toBeTruthy();
     // })
     
-    // it('Href applied', async () =>{
-    //     render(Breadcrumb, {items});
-    //     const parts = screen.getAllByTestId('breadcrumb');
-    //     expect(items[0].href).eq(parts[0].getAttribute('href'));
-    // })
-    
-    // it('Seperator applied after each', async ()=>{
-    //     render(Breadcrumb, {items});
-    //     const separator = screen.getAllByTestId('separator');
-    //     expect(separator.length).eq(items.length - 1);
-    // })
-
 });
