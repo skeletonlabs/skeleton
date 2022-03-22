@@ -8,9 +8,9 @@
 	export let active: boolean = false;
 
 	// Context
-	let display: string = getContext('display');
-	let color: string = getContext('color');
-	let separator: string = getContext('separator');
+	export let display: string = getContext('display');
+	export let color: string = getContext('color');
+	export let separator: string = getContext('separator');
 
 	// Styling
 	const separatorMargin = ['filled', 'outlined'].includes(display) ? 'mx-4' : 'mx-0';
