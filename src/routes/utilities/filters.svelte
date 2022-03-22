@@ -6,6 +6,7 @@
 
     import {filter} from "$lib/Filters/Filters";
     let placeholder = "https://i.pravatar.cc/160";
+   
 </script>
 
 <div class="space-y-8">
@@ -23,15 +24,29 @@
         <Card class="space-y-4">
            <div class='flex justify-items-start'>
                 <div class='m-2 text-center'>
-                    <p class='m-2'>Emerald</p>
-                    <img use:filter={'Emerald'} src={placeholder} alt="">
+                    <p class='m-2'>Original</p>
+                    <img src={placeholder} alt="">
                 </div>
                
                 <div class='m-2 text-center'>
-                    <p class='m-2'>Blue Night</p>
+                    <p class='m-2'>Emerald</p>
+                    <img use:filter={'Emerald'} src={placeholder} alt="">
+                </div>
+
+                <div class='m-2 text-center'>
+                    <p class='m-2'>BlueNight</p>
                     <img use:filter={'BlueNight'} src={placeholder} alt="">
                 </div>
            
+                <div class='m-2 text-center'>
+                    <p class='m-2'>(In Progress) X-Pro</p>
+                    <img use:filter={'X-Pro'} src={placeholder} alt="">
+                </div>
+
+                <div class='m-2 text-center'>
+                    <p class='m-2'>Summer84</p>
+                    <img use:filter={'Summer84'} src={placeholder} alt="">
+                </div>
            </div>
         </Card>
 
