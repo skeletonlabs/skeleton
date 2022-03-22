@@ -1,4 +1,3 @@
-
 <svg id="svg-filter" class="filter hidden">
     <!-- Emerald: `filter: url(#emerald)` -->
     <filter id="BlueNight" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">

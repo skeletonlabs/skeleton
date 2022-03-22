@@ -1,6 +1,6 @@
 <svg id="svg-filter" class="filter hidden">
     <!-- Emerald: `filter: url(#emerald)` -->
-    <filter id="X-Pro" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <filter id="XPro" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 
               <feColorMatrix
                 type="matrix"

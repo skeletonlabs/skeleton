@@ -39,8 +39,8 @@
                 </div>
            
                 <div class='m-2 text-center'>
-                    <p class='m-2'>(In Progress) X-Pro</p>
-                    <img use:filter={'X-Pro'} src={placeholder} alt="">
+                    <p class='m-2'>(In Progress) XPro</p>
+                    <img use:filter={'XPro'} src={placeholder} alt="">
                 </div>
 
                 <div class='m-2 text-center'>
