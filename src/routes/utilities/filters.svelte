@@ -22,12 +22,12 @@
         <h4>Colors</h4>
         <Card class="space-y-4">
            <div class='flex justify-items-start'>
-                <div class='m-2'>
+                <div class='m-2 text-center'>
                     <p class='m-2'>Emerald</p>
                     <img use:filter={'Emerald'} src={placeholder} alt="">
                 </div>
                
-                <div class='m-2'>
+                <div class='m-2 text-center'>
                     <p class='m-2'>Blue Night</p>
                     <img use:filter={'BlueNight'} src={placeholder} alt="">
                 </div>
