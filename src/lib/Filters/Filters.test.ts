@@ -11,7 +11,6 @@
  import BlueNight from '$lib/Filters/BlueNight.svelte';
  import XPro from '$lib/Filters/XPro.svelte';
  import Summer84 from '$lib/Filters/Summer84.svelte';
- import Avatar from '$lib/Avatar/Avatar.svelte';
  
  describe('Filter.svelte', () => {
      

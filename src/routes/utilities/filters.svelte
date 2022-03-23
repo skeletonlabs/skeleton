@@ -47,6 +47,16 @@
                     <p class='m-2'>Summer84</p>
                     <img use:filter={'Summer84'} src={placeholder} alt="">
                 </div>
+
+                <div class='m-2 text-center'>
+                    <p class='m-2'>Rustic</p>
+                    <img use:filter={'Rustic'} src={placeholder} alt="">
+                </div>
+
+                <div class='m-2 text-center'>
+                    <p class='m-2'>Nineties</p>
+                    <img use:filter={'Nineties'} src={placeholder} alt="">
+                </div>
            </div>
         </Card>
 
