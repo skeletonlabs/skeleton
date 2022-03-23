@@ -86,7 +86,7 @@
     <!-- Usage -->
     <section class="space-y-4">
         <h2>Usage</h2>
-        <CodeBlock language="javascript" code={`<script>\nimport {Breadcrumb} from '@brainandbones/skeleton';\nimport {Crumb} from '@brainandbones/skeleton';\n</\script>`}></CodeBlock>
+        <CodeBlock language="javascript" code={`<script>import {Breadcrumb, Crumb} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
         <CodeBlock language="html" code={`
 <Breadcrumb>
     <Crumb href='/'>
