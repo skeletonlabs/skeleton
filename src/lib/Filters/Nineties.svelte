@@ -1,4 +1,6 @@
-<filter id="Nineties" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="linearRGB">
+<svg id="svg-filter" class="filter hidden">
+    
+	<filter id="Nineties" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="linearRGB">
 	<feColorMatrix type="matrix" values="1 0.5 0.1 0.1 0
     0 0.9 0.2 0 0
     0 -1 3 -0.2 0
@@ -8,3 +10,4 @@
   	</feDiffuseLighting>
 	<feBlend mode="darken" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" in2="diffuseLighting" result="blend"/>
 </filter>
+</svg>

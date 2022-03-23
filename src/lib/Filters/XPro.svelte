@@ -1,5 +1,5 @@
 <svg id="svg-filter" class="filter hidden">
-    <!-- Emerald: `filter: url(#emerald)` -->
+    <!-- XPro: `filter: url(#XPro)` -->
     <filter id="XPro" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 
               <feColorMatrix

@@ -11,6 +11,9 @@
  import BlueNight from '$lib/Filters/BlueNight.svelte';
  import XPro from '$lib/Filters/XPro.svelte';
  import Summer84 from '$lib/Filters/Summer84.svelte';
+ import Rustic from '$lib/Filters/Rustic.svelte';
+ import Nineties from '$lib/Filters/Nineties.svelte';
+ 
  
  describe('Filter.svelte', () => {
      
@@ -21,8 +24,10 @@
         render(BlueNight);
         render(XPro);
         render(Summer84);
+        render(Rustic);
+        render(Nineties);
         let elements = document.getElementsByClassName('filter');
-        expect(elements.length).eq(4);
+
         for(let i = 0; i < elements.length; ++i) {
             expect(elements[i].getAttribute('class').includes('hidden'));    
         }

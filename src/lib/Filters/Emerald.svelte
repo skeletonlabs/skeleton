@@ -1,5 +1,5 @@
 <svg id="svg-filter" class="filter hidden">
-    <!-- Emerald: `filter: url(#emerald)` -->
+    <!-- Emerald: `filter: url(#Emerald)` -->
     <filter id="Emerald" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 
         <!-- RGB, RGB, RGB, 0pacity -->

@@ -1,5 +1,5 @@
 <svg id="svg-filter" class="filter hidden">
-    <!-- Emerald: `filter: url(#emerald)` -->
+    <!-- Rustic: `filter: url(#Rustic)` -->
     <filter id="Rustic" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 
         <feColorMatrix type="matrix" in="SourceGraphic" result="colormatrix" values="
