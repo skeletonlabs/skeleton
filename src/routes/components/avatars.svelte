@@ -61,7 +61,7 @@
         <h2>Usage</h2>
         <CodeBlock
             language="html"
-            code={`<script>import {Avatar} from '@brainandbones/skeleton';</\script>\n\n<Avatar outlined src="{imgSrc}" size="md" filter="{svgFilterId}">`}
+            code={`<script>import {Avatar} from '@brainandbones/skeleton';</\script>\n\n<Avatar outlined src="{imgSrc}" size="md" filter="{svgFilterId}" />`}
         ></CodeBlock>
     </section>
     
