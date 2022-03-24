@@ -21,12 +21,12 @@
     <!-- Header -->
     <header class="space-y-4">
         <h1>Progress Bar</h1>
-        <p>Allows you to implement a native <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress" target="_blank">HTML Progress</a> element, extended with Skeleton themes.</p>
+        <p>Displays an indicator showing the completion or progress of a task.</p>
+        <CodeBlock language="js" code={`<script>import {ProgressBar} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
     </header>
 
     <!-- Examples -->
     <section class="space-y-4">
-        <h4>Default</h4>
         <Card class="space-y-4">
             <ProgressBar value={50} max={100} />
         </Card>
@@ -53,12 +53,10 @@
     <!-- Usage -->
     <section class="space-y-4">
         <h2 class="text-2xl font-bold">Usage</h2>
-        <CodeBlock language="js" code={`<script>import {ProgressBar} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
         <CodeBlock language="html" code={`<ProgressBar />`}></CodeBlock>
         <CodeBlock language="html" code={`<ProgressBar label="Indeterminate" />`}></CodeBlock>
-        <CodeBlock language="html" code={`<ProgressBar label="Determinate: 25/100" value={25} max={100} />`}></CodeBlock>
-        <CodeBlock language="html" code={`<ProgressBar label="CSS Variable: primary" value={50} max={100} color="bg-primary-500" />`}></CodeBlock>
-        <CodeBlock language="html" code={`<ProgressBar label="RGB Value: White" value={75} max={100} color="255 255 255" />`}></CodeBlock>
+        <CodeBlock language="html" code={`<ProgressBar label="Determinate: 50/100" value={50} max={100} />`}></CodeBlock>
+        <CodeBlock language="html" code={`<ProgressBar label="Primary" value={50} max={100} color="bg-primary-500" />`}></CodeBlock>
         <CodeBlock language="html" code={`<ProgressBar label="Height 1" value={50} max={100} height="h-1" />`}></CodeBlock>
     </section>
 
@@ -69,3 +67,4 @@
     </section>
 
 </div>
+
