@@ -8,9 +8,10 @@
         columns: ['Prop', 'Type', 'Default', 'Description'],
         data: [
             ['label', 'string', '-', 'Set the label text.'],
-            ['max', 'number', '-', 'Describes the maximum amount the bar represents.'],
             ['value', 'number', '-', 'Specifies the amount completed.'],
-            ['color', 'string', 'var(--color-accent-500)', 'Define an RGB color or CSS variable.'],
+            ['max', 'number', '-', 'Maximum amount the bar represents.'],
+            ['color', 'string', 'bg-accent-500', 'Provide a class to set background color.'],
+            ['height', 'string', 'h-2', 'Provide a class to set height.'],
         ],
     };
 </script>
@@ -25,16 +26,27 @@
 
     <!-- Examples -->
     <section class="space-y-4">
+        <h4>Default</h4>
         <Card class="space-y-4">
             <ProgressBar value={50} max={100} />
-            <ProgressBar label="Indeterminate" />
-            <ProgressBar label="Determinate: 0/100" value={0} max={100} />
-            <ProgressBar label="Determinate: 25/100" value={25} max={100} />
         </Card>
-        <h4>Coloring</h4>
+        <h4>Labeled</h4>
         <Card class="space-y-4">
-            <ProgressBar label="CSS Variable: `var(--color-primary-500)`" value={50} max={100} color="var(--color-primary-500)" />
-            <ProgressBar label="RGB Value: `255 255 255`" value={75} max={100} color="255 255 255" />
+            <ProgressBar label="Indeterminate" />
+            <ProgressBar label="Determinate: 0%" value={0} max={100} />
+            <ProgressBar label="Determinate: 50%" value={50} max={100} />
+            <ProgressBar label="Determinate: 100%" value={100} max={100} />
+        </Card>
+        <h4>Colors</h4>
+        <Card class="space-y-4">
+            <ProgressBar label="Neutral" value={50} max={100} color="bg-surface-800 dark:bg-surface-50" />
+            <ProgressBar label="Primary" value={50} max={100} color="bg-primary-500" />
+            <ProgressBar label="Warning" value={50} max={100} color="bg-warning-500" />
+        </Card>
+        <h4>Height</h4>
+        <Card class="space-y-4">
+            <ProgressBar label="Height 1" value={50} max={100} height="h-1" />
+            <ProgressBar label="Height 10" value={80} max={100} height="h-10" />
         </Card>
     </section>
 
@@ -47,6 +59,7 @@
         <CodeBlock language="html" code={`<ProgressBar label="Determinate: 25/100" value={25} max={100} />`}></CodeBlock>
         <CodeBlock language="html" code={`<ProgressBar label="CSS Variable: primary" value={50} max={100} color="var(--color-primary-500)" />`}></CodeBlock>
         <CodeBlock language="html" code={`<ProgressBar label="RGB Value: White" value={75} max={100} color="255 255 255" />`}></CodeBlock>
+        <CodeBlock language="html" code={`<ProgressBar label="Height 1" value={50} max={100} height="h-1" />`}></CodeBlock>
     </section>
 
     <!-- Properties -->
