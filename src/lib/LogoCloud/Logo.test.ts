@@ -14,4 +14,16 @@ describe('Logo.svelte', () => {
 	it('Renders', async () => {
 		render(Logo);
 	});
+
+	it('Slotted Icon', async ()=>{		
+		// Unsure if testing slots is possible yet
+	})
+
+	it('Slotted Label', async ()=>{
+		// Unsure if testing slots is possible yet
+	})
+
+	it('Icon and label', async ()=>{
+		// Unsure if testing slots is possible yet
+	})
 });

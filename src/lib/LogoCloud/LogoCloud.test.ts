@@ -15,17 +15,4 @@ describe('LogoCloud.svelte', () => {
 	it('Renders', async () => {
 		render(LogoCloud);
 	});
-
-	it('Icon', ()=>{		
-		// Discuss with Chris S
-	})
-
-	it('Label only', ()=>{
-		// Discuss with Chris S
-	})
-
-	it('4+ content', ()=>{
-		// Discuss with Chris S	
-	})
-
 });

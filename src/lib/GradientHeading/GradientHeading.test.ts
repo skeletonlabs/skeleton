@@ -17,6 +17,8 @@ const defaultSize: String = '4xl';
 const sizes:        String[] = ['sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', '7xl', '8xl'];
 const directions:   String[] = ['t', 'b', 'l', 'r', 'tr', 'tl', 'br', 'bl'];
 
+const testid = 'gradientHeading';
+
 describe('Card.svelte', () => {
 	afterEach(() => cleanup());
 
@@ -24,51 +26,37 @@ describe('Card.svelte', () => {
 		render(GradientHeading);
 	});
 
-	it('Size style applied', () => {
-		sizes.forEach((size) => {
-			const instance = render(GradientHeading, { size });
-			let el = screen.getByTestId('gradientHeading');
-			expect(el.getAttribute('class').includes(`font-${size}`));
-			instance.unmount();
-		});
-	});
+	sizes.forEach((size) =>{
+		it(`Size: ${size} applied`, ()=>{
+			const { getByTestId } = render(GradientHeading, { size });
+			expect(getByTestId(testid).getAttribute('class').includes(`font-${size}`));
+		})
+	})
 
 	it('Default "from" prop applied")', () => {
-		const instance = render(GradientHeading);
-		let el = screen.getByTestId('gradientHeading');
-		expect(el.getAttribute('class').includes(from));
+		const {getByTestId} = render(GradientHeading);	
+		expect(getByTestId(testid).getAttribute('class').includes(from));
 	});
 	
 	it('Default "to" prop applied")', () => {
-		render(GradientHeading);
-		let el = screen.getByTestId('gradientHeading');
-		expect(el.getAttribute('class').includes(to));
+		const {getByTestId} = render(GradientHeading);	
+		expect(getByTestId(testid).getAttribute('class').includes(to));
 	});
 
 	it('Default size applied (invalid prop)', () => {
-		const instance = render(GradientHeading, { size: '2-xl' });
-		let el = screen.getByTestId('gradientHeading');
-		expect(el.getAttribute('class').includes(`font-${defaultSize}`));
+		const {getByTestId} = render(GradientHeading, { size: '2-xl' });
+		expect(getByTestId(testid).getAttribute('class').includes(`font-${defaultSize}`));
 	});
 
-	it('Default size applied (invalid prop)', () => {
-		const instance = render(GradientHeading, { size: '2-xl' });
-		let el = screen.getByTestId('gradientHeading');
-		expect(el.getAttribute('class').includes(`font-${defaultSize}`));
-	});
-
-	it('Direction applied', () => {
-		directions.forEach((item) => {
-			const instance = render(GradientHeading, { directions: item });
-			let el = screen.getByTestId('span');
-			expect(el.getAttribute('class').includes(`bg-gradient-to-${item}`));
-			instance.unmount();
-		});
-	});
+	directions.forEach((direction) =>{
+		it(`Direction: ${direction} applied`, ()=>{
+			const {getByTestId} = render(GradientHeading, { directions: direction });
+			expect(getByTestId('span').getAttribute('class').includes(`bg-gradient-to-${direction}`));
+		})
+	})
 
 	it('Default direction applied (invalid prop)', () => {
-		const instance = render(GradientHeading, { direction: 'top' });
-		let el = screen.getByTestId('span');
-		expect(el.getAttribute('class').includes(`bg-gradient-to-${defaultDirection}`));
+		const {getByTestId} = render(GradientHeading, { direction: 'top' });
+		expect(getByTestId('span').getAttribute('class').includes(`bg-gradient-to-${defaultDirection}`));
 	});
 });

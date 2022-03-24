@@ -36,7 +36,7 @@
     }
 </script>
 
-<div data-testid="gradientHeading" class="{cBase} ${$$props.class}">
+<div data-testid="gradientHeading" class="gradientHeading {cBase} ${$$props.class}">
     <span data-testid='span' class="{spanStyle}">
         <slot />
     </span>

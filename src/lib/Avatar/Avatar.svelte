@@ -5,7 +5,7 @@
 	export let size: string = ''; // sm | md | lg | xl | 2xl | 3xl
 	export let outlined: boolean = false;
     export let hover: boolean = false;
-	export let filter: string = ''; // ex: #myFilterId
+	export let filter: string = ''; // ex: #FilterId - Needs to be uppercase
 	
 	const cBase: string = 'flex aspect-square overflow-hidden text-surface-500 font-semibold justify-center items-center rounded-full bg-surface-300 dark:bg-surface-700';
 	let currentClasses: string = '';
