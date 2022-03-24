@@ -57,7 +57,7 @@
         <CodeBlock language="html" code={`<ProgressBar />`}></CodeBlock>
         <CodeBlock language="html" code={`<ProgressBar label="Indeterminate" />`}></CodeBlock>
         <CodeBlock language="html" code={`<ProgressBar label="Determinate: 25/100" value={25} max={100} />`}></CodeBlock>
-        <CodeBlock language="html" code={`<ProgressBar label="CSS Variable: primary" value={50} max={100} color="var(--color-primary-500)" />`}></CodeBlock>
+        <CodeBlock language="html" code={`<ProgressBar label="CSS Variable: primary" value={50} max={100} color="bg-primary-500" />`}></CodeBlock>
         <CodeBlock language="html" code={`<ProgressBar label="RGB Value: White" value={75} max={100} color="255 255 255" />`}></CodeBlock>
         <CodeBlock language="html" code={`<ProgressBar label="Height 1" value={50} max={100} height="h-1" />`}></CodeBlock>
     </section>
