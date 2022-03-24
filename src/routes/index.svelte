@@ -81,7 +81,7 @@
         <h4>Install Skeleton</h4>
         <CodeBlock language="console" code={`npm install --save-dev @brainandbones/skeleton`}></CodeBlock>
         <!-- Implement Your Theme -->
-        <h4>Implement Your Theme</h4>
+        <h4>Next: Implement Your Theme</h4>
         <p>Follow the guide linked below to create and add your own theme.</p>
         <Button display="filled" color="accent" href="/docs/themes">Theme Setup Guide</Button>
     </Card>
@@ -90,10 +90,10 @@
     
     <!-- Recommendations -->
     <section class="space-y-4">
-        <h3>Plugins and Recommendations</h3>
-        <p>Below is a list of recommended plugins and tooling we recommend using alongside Skeleton.</p>
+        <h3>Recommended Extensions</h3>
+        <p>Below is a list of plugins and tooling we recommend you use alongside Skeleton.</p>
         <div class="space-y-4">
-            <h6>The official Tailwind plugins</h6>
+            <h6>Official Tailwind Plugins</h6>
             <nav class="flex flex-row space-x-2">
                 <Button display="filled" color="accent" href="https://tailwindcss.com/docs/typography-plugin" target="_blank">Typography</Button>
                 <Button display="filled" color="accent" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Forms</Button>

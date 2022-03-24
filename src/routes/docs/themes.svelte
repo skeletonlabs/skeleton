@@ -59,7 +59,7 @@
             ['Primary', '50-900', 'Your primary brand color.'],
             ['Accent', '50-900', 'An accent for offsets or supplimentary values.'],
             ['Warning', '50-900', 'May be used for warnings, alerts, and invalid inputs.'],
-            ['Surface', '50-900', 'May be used for typography, backgrounds and card elements.'],
+            ['Surface', '50-900', 'May be used for backgrounds, card elements, and some typography.'],
         ],
     };
 </script>
@@ -70,23 +70,28 @@
 	<header class="space-y-4">
 		<h1>Themes</h1>
 		<p>
-			Themes uses <a href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank">CSS variables as recommend by Tailwind</a>. In order to use <a href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank">Tailwind's background opacity scale</a>, the colors must be supplied as RGB. These have a shades ranging from 50-900 where 50 is the lightest value and 900 the darkest. Components will automatically adapt for <a href="https://tailwindcss.com/docs/dark-mode" target="_blank">Tailwind's Dark Mode</a>.
+            Themes are fully compatible with Tailwind. This is accomplished using <a href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank">CSS variables with RGB color values</a> to support <a href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank">background opacity</a>. Components will also automatically adapt to <a href="https://tailwindcss.com/docs/dark-mode" target="_blank">Dark Mode</a>. Just set your theme and Skeleton will handle the rest.
 		</p>
 	</header>
 
     <!-- Usage -->
     <Card class="space-y-4">
         <section class="space-y-4">
-            <h4>Skeleton Tailwind Plugin</h4>
+            <h4>Tailwind Content</h4>
+            <p>Add the following to <a href="https://tailwindcss.com/docs/configuration" target="_blank">content</a> within tailwind.config.cjs. This ensures Tailwind is aware of Skeleton's component classes during development.</p>
+            <CodeBlock language="js" code={`'./node_modules/@brainandbones/skeleton/**/*.{html,js,svelte,ts}'`}></CodeBlock>
+        </section>
+        <section class="space-y-4">
+            <h4>Tailwind Plugin</h4>
             <p>
-                <a href="https://tailwindcss.com/docs/plugins#official-plugins" target="_blank">Add the Skeleton plugin to your tailwind.config.cjs</a>. This will automatically ingest and utilize your CSS variables defined in the next step.
+                Add the Skeleton <a href="https://tailwindcss.com/docs/plugins#official-plugins" target="_blank">plugin</a> to tailwind.config.cjs. This will automatically ingest and utilize your CSS variables defined in the next step.
             </p>
             <CodeBlock language="js" code={`require('@brainandbones/skeleton/tailwind.cjs')`}></CodeBlock>
         </section>
         <section class="space-y-4">
             <h4>CSS Variables</h4>
             <p>
-                Customize each CSS variable to match your brand, then add this to your global CSS stylesheet (ex: app.css)
+                Customize each CSS variable to match your brand, then add to your global CSS stylesheet (ex: app.css). For VS Code, we recommend the <a href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba" target="_blank">Hex-To-RGB</a> extension for fast and easy conversion.
             </p>
             <CodeBlock language="css" code={codeSampleTheme}></CodeBlock>
         </section>
@@ -95,7 +100,7 @@
     <!-- Usage -->
     <section class="space-y-4">
         <h3>Usage</h3>
-        <p>Theme colors are not limited to Skeleton components, you can utilize them anywhere in your app following Tailwind conventions.</p>
+        <p>Theme colors are not limited to Skeleton components, you can utilize them anywhere in your app following Tailwind's conventions.</p>
         <CodeBlock language="html" code={`<!-- Inlined classes -->\n<div class="bg-primary-500 text-accent-500">Colorful</div>`}></CodeBlock>
         <CodeBlock language="html" code={`<!-- Tailwind opacity scale -->\n<div class="bg-primary-500/50">Transparent</div>`}></CodeBlock>
         <CodeBlock language="css" code={`/* Using Tailwind @apply */\n.example { @apply bg-primary-500; }`}></CodeBlock>
@@ -105,9 +110,7 @@
     <!-- Colors -->
     <section class="space-y-4">
         <h3>Colors</h3>
-        <p>
-			Please ensure you add the following set of named colors.
-		</p>
+        <p>Here's what each color represents.</p>
         <Table source="{tableProps}"></Table>
     </section>
 
