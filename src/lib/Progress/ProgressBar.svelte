@@ -7,10 +7,10 @@
     export let color: string = 'bg-accent-500';
 
     // Styling
-    let cBase: string = ` w-full ${height} bg-surface-500/20 overflow-hidden rounded-full`;
+    let cBase: string = ` w-full bg-surface-500/20 overflow-hidden rounded-full`;
     
     // Reactive
-    $: classes = `${cBase} ${$$props.class}`;
+    $: classes = `${cBase} ${height} ${$$props.class}`;
     $: percentage = (100 * value) / max;
 </script>
 
