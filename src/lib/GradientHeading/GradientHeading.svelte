@@ -2,7 +2,7 @@
     export let from: string = 'from-primary-500';
     export let to: string = 'to-accent-500';
     export let direction: String = "r";
-    export let size: String = "4xl";
+    export let size: String = "4xl"; // This seems to have no effect being set..
 
     let cBase = 'lg:leading-tight font-bold';
     let spanStyle = `bg-clip-text text-transparent ${from} ${to}`;
@@ -21,6 +21,7 @@
         case('7xl'): cBase += ' text-7xl'; break;
         case('8xl'): cBase += ' text-8xl'; break;
         case('9xl'): cBase += ' text-9xl'; break;
+        default: cBase     += ' text-4xl'; break;
     }
 
     // Prop: Direction
@@ -33,6 +34,7 @@
         case('tr'): spanStyle += ' bg-gradient-to-tr'; break;
         case('bl'): spanStyle += ' bg-gradient-to-bl'; break;
         case('br'): spanStyle += ' bg-gradient-to-br'; break;
+        default: spanStyle    += ' bg-gradient-to-r'; break;
     }
 </script>
 

@@ -4,7 +4,7 @@
 </script>
 
 {#if language && code}
-<pre class="codeblock {$$props.class}"><code class="language-{language}">{code}</code></pre>
+<pre data-testid='codeblock' class="codeblock {$$props.class}"><code class="language-{language}">{code}</code></pre>
 {/if}
 
 <style lang="postcss">

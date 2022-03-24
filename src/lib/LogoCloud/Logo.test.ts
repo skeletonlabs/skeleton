@@ -1,3 +1,4 @@
+
 /**
  * @vitest-environment jsdom
  */
@@ -6,6 +7,7 @@ import { cleanup, render } from '@testing-library/svelte';
 import { afterEach, describe, it } from 'vitest';
 
 import Logo from '$lib/LogoCloud/Logo.svelte';
+import Card from '$lib/Card/Card.svelte';
 
 describe('Logo.svelte', () => {
 
@@ -15,8 +17,8 @@ describe('Logo.svelte', () => {
 		render(Logo);
 	});
 
-	it('Slotted Icon', async ()=>{		
-		// Unsure if testing slots is possible yet
+	it('Slotted Icon', async ()=>{
+		
 	})
 
 	it('Slotted Label', async ()=>{

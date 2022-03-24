@@ -46,6 +46,8 @@ describe('Card.svelte', () => {
 	it('Default size applied (invalid prop)', () => {
 		const {getByTestId} = render(GradientHeading, { size: '2-xl' });
 		expect(getByTestId(testid).getAttribute('class').includes(`font-${defaultSize}`));
+		//Unsure why the below will not work
+		//expect(getByTestId(testid).className).toContain(`font-${defaultSize}`);
 	});
 
 	directions.forEach((direction) =>{
