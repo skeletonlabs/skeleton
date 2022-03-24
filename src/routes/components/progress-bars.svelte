@@ -18,16 +18,14 @@
 
     // Usage
     $: props = {
+        determinate: true,
         label: 'Label',
         value: 50,
         max: 100,
         height: 'h-2',
+        color: 'bg-accent-500',
     };
-    $: codeBlock = `<ProgressBar label="${props.label}" value={${props.value}} max={${props.max}} height="${props.height}" />`;
-
-    // Interactions
-    function add(): void { props.value += 10; }
-    function remove(): void { props.value -= 10; }
+    $: codeBlock = `<ProgressBar label="${props.label}" value={${props.determinate ? props.value : undefined}} max={${props.max}} height="${props.height}" color="${props.color}" />`;
 </script>
 
 <div class="space-y-8">
@@ -39,32 +37,7 @@
         <CodeBlock language="js" code={`<script>import {ProgressBar} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
     </header>
 
-    <!-- Examples -->
-    <section class="space-y-4">
-        <Card class="space-y-4">
-            <ProgressBar value={50} max={100} />
-        </Card>
-        <h4>Labeled</h4>
-        <Card class="space-y-4">
-            <ProgressBar label="Indeterminate" />
-            <ProgressBar label="Determinate: 0%" value={0} max={100} />
-            <ProgressBar label="Determinate: 50%" value={50} max={100} />
-            <ProgressBar label="Determinate: 100%" value={100} max={100} />
-        </Card>
-        <h4>Colors</h4>
-        <Card class="space-y-4">
-            <ProgressBar label="Neutral" value={50} max={100} color="bg-surface-800 dark:bg-surface-50" />
-            <ProgressBar label="Primary" value={50} max={100} color="bg-primary-500" />
-            <ProgressBar label="Warning" value={50} max={100} color="bg-warning-500" />
-        </Card>
-        <h4>Height</h4>
-        <Card class="space-y-4">
-            <ProgressBar label="Height 1" value={50} max={100} height="h-1" />
-            <ProgressBar label="Height 10" value={80} max={100} height="h-10" />
-        </Card>
-    </section>
-
-     <!-- Usage (interactive) -->
+     <!-- Usage -->
      <section>
         <div class="grid grid-cols-[2fr,1fr] gap-4 mb-4">
             <!-- <div class="bg-black/50 rounded-xl flex justify-center items-center p-8"> -->
@@ -73,38 +46,40 @@
                     <svelte:component
                         this={ProgressBar}
                         label={props.label}
-                        value={props.value}
+                        value={props.determinate ? props.value : undefined}
                         max={props.max}
                         height={props.height}
+                        color={props.color}
                     />
                 </div>
             </Card>
             <Card class="space-y-4">
                 <h4>Options</h4>
-                <div class="grid grid-cols-2 gap-4">
-                    <Button display="filled" on:click={remove}>Less</Button>
-                    <Button display="filled" on:click={add}>More</Button>
+                <select name="determinate" id="determinate" bind:value={props.determinate}>
+                    <option value={true}>Determinate</option>
+                    <option value={false}>Indeterminate</option>
+                </select>
+                {#if props.determinate}
+                <div class="flex space-x-4">
+                    <input type="range" id="volume" name="volume" min="0" max={props.max} step="10" bind:value={props.value}>
+                    <p class="text-sm w-12">{props.value}%</p>
                 </div>
+                {/if}
                 <input type="text" bind:value={props.label} placeholder="Label">
                 <select name="height" id="height" bind:value={props.height}>
                     <option value={'h-2'}>Height 2</option>
                     <option value={'h-4'}>Height 4</option>
                     <option value={'h-6'}>Height 6</option>
                 </select>
+                <select name="color" id="color" bind:value={props.color}>
+                    <option value={'bg-accent-500'}>Color Accent</option>
+                    <option value={'bg-primary-500'}>Color Primary</option>
+                    <option value={'bg-warning-500'}>Color Warning</option>
+                </select>
             </Card>
         </div>
         <CodeBlock language="js" code={codeBlock}></CodeBlock>
     </section>
-
-    <!-- Usage -->
-    <!-- <section class="space-y-4">
-        <h2 class="text-2xl font-bold">Usage</h2>
-        <CodeBlock language="html" code={`<ProgressBar />`}></CodeBlock>
-        <CodeBlock language="html" code={`<ProgressBar label="Indeterminate" />`}></CodeBlock>
-        <CodeBlock language="html" code={`<ProgressBar label="Determinate: 50/100" value={50} max={100} />`}></CodeBlock>
-        <CodeBlock language="html" code={`<ProgressBar label="Primary" value={50} max={100} color="bg-primary-500" />`}></CodeBlock>
-        <CodeBlock language="html" code={`<ProgressBar label="Height 1" value={50} max={100} height="h-1" />`}></CodeBlock>
-    </section> -->
 
     <!-- Properties -->
     <section class="space-y-4">

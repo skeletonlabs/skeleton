@@ -39,4 +39,5 @@ h6 { @apply text-base font-bold; }
 #page a:not(.anchor):not(.breadcrumb a):not(.crumb a) { @apply text-primary-500 underline; }
 
 /* --- Forms --- */
-input, select { @apply bg-surface-600 text-white px-4 py-3 w-full rounded;}
+input[type="text"], select { @apply bg-surface-600 text-white px-4 py-3 w-full rounded;}
+input[type="range"] { @apply w-full; accent-color: rgba(var(--color-accent-500));}
