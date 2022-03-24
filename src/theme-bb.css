@@ -44,4 +44,6 @@
     --color-surface-700: 55 65 81;
     --color-surface-800: 31 41 55;
     --color-surface-900: 17 24 39;
+    /* Progress Bar */
+    --color-progress-bar: var(--color-primary-500);
 }

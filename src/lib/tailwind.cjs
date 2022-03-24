@@ -38,6 +38,8 @@ module.exports = plugin(() => {}, {
 				'accent': createColorSet('accent'),
 				'warning': createColorSet('warning'),
 				'surface': createColorSet('surface'),
+				// ---
+				'progress': rgbAppendOpacity('--color-progress-bar')
 			},
 		}
 	},
