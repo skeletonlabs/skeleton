@@ -14,7 +14,7 @@
     $: percentage = (100 * value) / max;
 </script>
 
-<div class="progress-group">
+<div class="progress-bar-group" data-testid="progress-bar-group">
     <!-- Label -->
     {#if label}<label for="progress" class="block text-sm mb-2">{label}</label>{/if}
     <!-- Bar -->
