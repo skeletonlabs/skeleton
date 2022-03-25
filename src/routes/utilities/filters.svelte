@@ -25,7 +25,7 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h2>Filters (beta)</h2>
-		<p>Bring life to your elements by applying a set of unique <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter" target="_blank">SVG filters</a>. Skeleton provides built-in support for a some components, such as Avatars.</p>
+		<p>Bring life to your elements by applying a set of unique <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter" target="_blank">SVG filters</a>. Skeleton provides built-in support for some components, such as Avatars.</p>
 	</header>
 
 	<!-- Examples -->
@@ -65,28 +65,28 @@
 	<section class="space-y-4">
 		<h3 class="text-2xl font-bold">Usage</h3>
         <h4>Automatic Action</h4>
-        <p>Specify the filter on the element by using an Svelte Action. A hidden element with the used filters will be added to the page automatically.</p>
+        <p>Apply a filter to any element using a Svelte Action. A hidden element containing the filter will be inserted into the page automatically.</p>
 		<CodeBlock
 			language="javascript"
 			code={`<script>import {filter} from '@brainandbones/skeleton';</\script>`}
 		/>
-		<CodeBlock language="html" code={`<img use:filter={'filterName'} src='imageSource'>`} />
+		<CodeBlock language="html" code={`<img use:filter={'BlueNight'} src='imageSource'>`} />
 		<h4>Manual Action</h4>
-        <p>Apply a filter on a element by importing the filter in a global scope, then add the filter style inline.</p>
+        <p>Apply a filter to any element using a Svelte Action. Then import and insert the filter component within your app, page, or component scope.</p>
 		<CodeBlock
 			language="javascript"
-			code={`<script>import FilterName from '@brainandbones/skeleton';</\script>`}
+			code={`<script>import {filter, BlueNight} from '@brainandbones/skeleton';</\script>`}
 		/>
 		<CodeBlock
 			language="html"
-			code={`<!-- Insert this once, in a global scope -->\n<FilterName />\n<!-- Apply the filter to any element -->\n<img style='filter: url(#FilterName)' src='imageSource'>`}
+			code={`<!-- Insert this once in scope of your filtered element -->\n<BlueNight />\n<!-- Apply the filter to any element -->\n<img use:filter={'BlueNight'} src='imageSource'>`}
 		/>
 	</section>
 
     <!-- Browser support -->
     <section class="space-y-4">
 		<h2>Browser Support</h2>
-        <p>Please note that browser support currently varies. Please follow best practices and embrace progressive enhancement for non-supported browsers.</p>
+        <p>Please note that browser support varies. Please follow best practices of progressive enhancement for non-supported browsers.</p>
         <Card class="grid grid-cols-4 gap-4">
             <div class="text-center bg-emerald-500 px-4 py-2 rounded">
                 <h6>Chrome: Full</h6>
