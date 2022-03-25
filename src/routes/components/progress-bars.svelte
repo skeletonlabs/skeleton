@@ -25,7 +25,6 @@
         height: 'h-2',
         color: 'bg-accent-500',
     };
-    $: codeBlock = `<ProgressBar label="${props.label}" value={${props.determinate ? props.value : undefined}} max={${props.max}} height="${props.height}" color="${props.color}" />`;
 </script>
 
 <div class="space-y-8">
@@ -78,7 +77,7 @@
                 </select>
             </Card>
         </div>
-        <CodeBlock language="js" code={codeBlock}></CodeBlock>
+        <CodeBlock language="js" code={`<ProgressBar label="${props.label}" value={${props.determinate ? props.value : undefined}} max={${props.max}} height="${props.height}" color="${props.color}" />`}></CodeBlock>
     </section>
 
     <!-- Properties -->
