@@ -14,5 +14,4 @@
      it('Renders', async () => {
          render(ListGroupItem);
      });
- 
  });
