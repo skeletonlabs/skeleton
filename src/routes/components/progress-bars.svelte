@@ -2,7 +2,6 @@
     import Card from "$lib/Card/Card.svelte";
     import Table from '$lib/_Table/Table.svelte';
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-    import Button from "$lib/Button/Button.svelte";
     import ProgressBar from "$lib/Progress/ProgressBar.svelte";
 
     const tableProps: any = {
@@ -77,7 +76,7 @@
                 </select>
             </Card>
         </div>
-        <CodeBlock language="js" code={`<ProgressBar label="${props.label}" value={${props.determinate ? props.value : undefined}} max={${props.max}} height="${props.height}" color="${props.color}" />`}></CodeBlock>
+        <CodeBlock language="html" code={`<ProgressBar label="${props.label}" value={${props.determinate ? props.value : undefined}} max={${props.max}} height="${props.height}" color="${props.color}" />`}></CodeBlock>
     </section>
 
     <!-- Properties -->

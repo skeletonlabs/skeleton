@@ -40,10 +40,10 @@
 	}
 
 	// Highlight.js
-    import hljs from 'highlight.js';
-	import 'highlight.js/styles/github-dark.css';
-	onMount(hljs.highlightAll);
-	afterUpdate(hljs.highlightAll);
+    // import hljs from 'highlight.js';
+	// import 'highlight.js/styles/github-dark.css';
+	// onMount(hljs.highlightAll);
+	// afterUpdate(hljs.highlightAll);
 </script>
 
 <svelte:head>
