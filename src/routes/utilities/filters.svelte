@@ -24,7 +24,7 @@
 
 	<!-- Header -->
 	<header class="space-y-4">
-		<h2>Filters</h2>
+		<h2>Filters (beta)</h2>
 		<p>Brings life to your elements by applying a set of unique <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter" target="_blank">SVG filters</a>. Skeleton provides built-in support for a some components, such as Avatars.</p>
 	</header>
 

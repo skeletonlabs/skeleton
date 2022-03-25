@@ -24,7 +24,7 @@
 		{href: '/components/code-blocks', label: 'Code Blocks'},
 	].sort((a, b) => (a.label > b.label) ? 1 : -1);
 	let navUtilities: any[] = [
-		{href: '/utilities/filters', label: 'Filters'},
+		{href: '/utilities/filters', label: 'Filters (beta)'},
 	].sort((a, b) => (a.label > b.label) ? 1 : -1);
 	
 	// Handle Light/Dark Mode
