@@ -23,6 +23,7 @@
 		{href: '/components/breadcrumbs', label: 'Breadcrumb'},
 		{href: '/components/code-blocks', label: 'Code Blocks'},
 		{href: '/components/progress-bars', label: 'Progress Bars'},
+		{href: '/components/lists', label: 'Lists'},
 	].sort((a, b) => (a.label > b.label) ? 1 : -1);
 	let navUtilities: any[] = [
 		{href: '/utilities/filters', label: 'Filters'},
