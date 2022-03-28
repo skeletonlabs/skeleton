@@ -14,7 +14,7 @@
     ]
 
     let iconItems = [
-        {label: 'Item A', icon: anchorIcon, href: ''},
+        {label: 'Item A', icon: anchorIcon, href: '/'},
         {label: 'Item B', icon: anchorIcon, href: ''},
         {label: 'Item C', icon: anchorIcon, href: ''},
         {label: 'Item D', icon: anchorIcon, href: ''},

@@ -5,6 +5,7 @@
     export let listItems: any = [];
     export let divided: boolean = false;
     export let active: boolean = false;
+    export let checkList: boolean = true;
     export let size: string = '';
     export let itemStyle = '';
     export let variant = 'nav';    // Nav, Ordered, Unordered
