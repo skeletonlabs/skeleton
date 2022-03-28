@@ -63,13 +63,13 @@
                         <div>
                             <label class="inline-flex items-center">
                                 <input type="radio" checked name="radio-display" bind:group={props.determinate} value={true} />
-                                <p class="ml-2 text-surface-300">Determinate</p>
+                                <p class="ml-2">Determinate</p>
                             </label>
                         </div>
                         <div>
                             <label class="inline-flex items-center">
                                 <input type="radio" name="radio-display" bind:group={props.determinate} value={false} />
-                                <p class="ml-2 text-surface-300">Indeterminate (no value)</p>
+                                <p class="ml-2">Indeterminate (no value)</p>
                             </label>
                         </div>
                     </div>
