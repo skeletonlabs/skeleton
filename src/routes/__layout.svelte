@@ -21,7 +21,6 @@
 		{href: '/components/avatars', label: 'Avatars'},
 		{href: '/components/gradient-headings', label: 'Gradient Heading'},
 		{href: '/components/breadcrumbs', label: 'Breadcrumb'},
-		{href: '/components/code-blocks', label: 'Code Blocks'},
 		{href: '/components/progress-bars', label: 'Progress Bars'},
 	].sort((a, b) => (a.label > b.label) ? 1 : -1);
 	let navUtilities: any[] = [
