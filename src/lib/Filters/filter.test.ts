@@ -7,11 +7,13 @@
  import { afterEach, describe, it, expect } from 'vitest';
 
  import Emerald from '$lib/Filters/svg/Emerald.svelte';
- import BlueNight from '$lib/Filters/svg/svg/BlueNight.svelte';
+ import BlueNight from '$lib/Filters/svg/BlueNight.svelte';
  import XPro from '$lib/Filters/svg/XPro.svelte';
  import Summer84 from '$lib/Filters/svg/Summer84.svelte';
  import Rustic from '$lib/Filters/svg/Rustic.svelte';
  import Nineties from '$lib/Filters/svg/Nineties.svelte';
+
+ import {filter} from '$lib/Filters/filter';
  
  describe('Filter.svelte', () => {
      
@@ -30,6 +32,10 @@
         }
     })
 
-    // it('Actions: Filter', async ()=>{})
+    it('Actions: Filter', async ()=>{
+        const elem = document.createElement('div');
+        filter(elem, 'XPro');
+        expect(elem.getAttribute('style').includes('filter: url("#Emerald")'));
+    })
 
  });

@@ -6,7 +6,7 @@
 	// import { filter } from '$lib/Filters/filter-auto';
 
     // Filters (manual)
-	import { filter, BlueNight, Emerald, Nineties, Rustic, Summer84, XPro } from '$lib/Filters/filter-manual';
+	import { filter, BlueNight, Emerald, Nineties, Rustic, Summer84, XPro } from '$lib/Filters/filter';
 
     // Avatar Placeholder
 	let placeholder = 'https://i.pravatar.cc/512';
@@ -63,15 +63,7 @@
 
 	<!-- Usage -->
 	<section class="space-y-4">
-		<h3 class="text-2xl font-bold">Usage</h3>
-        <h4>Automatic Action</h4>
-        <p>Apply a filter to any element using a Svelte Action. A hidden element containing the filter will be inserted into the page automatically.</p>
-		<CodeBlock
-			language="javascript"
-			code={`<script>import {filter} from '@brainandbones/skeleton';</\script>`}
-		/>
-		<CodeBlock language="html" code={`<img use:filter={'BlueNight'} src='imageSource'>`} />
-		<h4>Manual Action</h4>
+		<h2>Usage</h2>
         <p>Apply a filter to any element using a Svelte Action. Then import and insert the filter component within your app, page, or component scope.</p>
 		<CodeBlock
 			language="javascript"
