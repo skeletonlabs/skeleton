@@ -38,7 +38,8 @@
      <!-- Usage -->
      <section class="space-y-4">
         <h2 class="text-2xl font-bold">Usage</h2>
-        <div class="grid grid-cols-[2fr,1fr] gap-2">
+        <div class="space-y-4 lg:space-y-0 lg:grid grid-cols-[2fr,1fr] gap-2">
+            <!-- Example -->
             <Card class="bg-black space-y-4 flex justify-center items-center">
                 <div class="w-[75%]">
                     <svelte:component
@@ -51,8 +52,8 @@
                     />
                 </div>
             </Card>
+            <!-- Options -->
             <Card class="space-y-4">
-                <h4>Options</h4>
                 <label>
                     <span>Label</span>
                     <input type="text" bind:value={props.label} placeholder="Label">
