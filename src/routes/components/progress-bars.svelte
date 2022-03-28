@@ -5,13 +5,13 @@
     import ProgressBar from "$lib/Progress/ProgressBar.svelte";
 
     const tableProps: any = {
-        columns: ['Prop', 'Type', 'Default', 'Description'],
+        columns: ['Prop', 'Type', 'Default', 'Required', 'Description'],
         data: [
-            ['label', 'string', '-', 'Set the label text.'],
-            ['value', 'number', '-', 'Specifies the amount completed.'],
-            ['max', 'number', '-', 'Maximum amount the bar represents.'],
-            ['color', 'string', 'bg-accent-500', 'Provide a class to set background color.'],
-            ['height', 'string', 'h-2', 'Provide a class to set height.'],
+            ['label', 'string', '-', 'false', 'Set the label text.'],
+            ['value', 'number', '-', 'false', 'Specifies the amount completed.'],
+            ['max', 'number', '-', 'false', 'Maximum amount the bar represents.'],
+            ['color', 'string', 'bg-accent-500', 'false', 'Provide a class to set background color.'],
+            ['height', 'string', 'h-2', 'false', 'Provide a class to set height.'],
         ],
     };
 
@@ -31,13 +31,14 @@
     <!-- Header -->
     <header class="space-y-4">
         <h1>Progress Bar</h1>
-        <p>Displays an indicator showing the completion or progress of a task.</p>
+        <p>Displays an indicator showing the progress or completion of a task.</p>
         <CodeBlock language="js" code={`<script>import {ProgressBar} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
     </header>
 
      <!-- Usage -->
-     <section>
-        <div class="grid grid-cols-[2fr,1fr] gap-2 mb-2">
+     <section class="space-y-4">
+        <h2 class="text-2xl font-bold">Usage</h2>
+        <div class="grid grid-cols-[2fr,1fr] gap-2">
             <Card class="bg-black space-y-4 flex justify-center items-center">
                 <div class="w-[75%]">
                     <svelte:component
@@ -68,7 +69,7 @@
                         <div>
                             <label class="inline-flex items-center">
                                 <input type="radio" name="radio-display" bind:group={props.determinate} value={false} />
-                                <p class="ml-2 text-surface-300">Indeterminate</p>
+                                <p class="ml-2 text-surface-300">Indeterminate (no value)</p>
                             </label>
                         </div>
                     </div>
