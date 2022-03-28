@@ -15,7 +15,7 @@
 
 {#if language && code}
 <div class="codeblock {cBase} {$$props.class}" data-testid="codeblock">
-<header class="text-sm opacity-50 pb-4">{language}</header>
+<header class="text-xs opacity-50 pb-4">{language}</header>
 <pre><code class="language-{language}">{@html highlighted}</code></pre>
 </div>
 {/if}
