@@ -58,7 +58,7 @@
                     <input type="text" bind:value={props.label} placeholder="Label">
                 </label>
                 <div>
-                    <legend>Display</legend>
+                    <legend>Value</legend>
                     <div class="mt-2 space-y-2">
                         <div>
                             <label class="inline-flex items-center">
@@ -75,7 +75,6 @@
                     </div>
                 </div>
                 {#if props.determinate}
-                    <label for="amount">Fill Amount</label>
                     <div class="flex items-center space-x-4">
                         <input type="range" id="amount" name="amount" min="0" max={props.max} step="10" bind:value={props.value}>
                         <p class="text-sm w-12">{props.value}%</p>
