@@ -8,22 +8,26 @@ import { fireEvent } from '@testing-library/dom';
 
 import Button from '$lib/Button/Button.svelte';
 
+const dti = 'data-testid';
+
 describe('Button.svelte', () => {
 
     afterEach(() => cleanup())
-    
+
     it('Renders with props', async () => {
-        render(Button); // , { label: 'Button' }
+        const { getByTestId } = render(Button); // , { label: 'Button' }
+        expect( getByTestId ).toBeTruthy();
     })
 
-    it('Renders without props', async()=>{
+    it('Renders with props', async()=>{
         const { getByTestId } = render(Button, {props: { display: 'text', color: 'primary' }}); // , { label: 'Button' }
+        expect( getByTestId ).toBeTruthy();
     })
 
     it('On Click', async()=>{
         const onClick = vi.fn();
-        const instance = render(Button);
-        instance.component.$on('click', onClick);
+        const { getByTestId, component } = render(Button);
+        component.$on('click', onClick);
     	await fireEvent.click(screen.getByRole('button'));
 		expect(onClick).toBeCalled();
     })
