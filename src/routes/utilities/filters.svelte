@@ -55,10 +55,10 @@
             <h6 class="mt-2">Rustic</h6>
         </div>
         <!-- Disabled due to Chrome bug for Chris -->
-        <!-- <div class="text-center">
-            <img class="bg-surface-700 aspect-square w-full rounded-xl" src={placeholder} use:filter={'Nineties'} alt="example" />
-            <h6 class="mt-2">Nineties</h6>
-        </div> -->
+         <div class="text-center">
+            <img class="bg-surface-700 aspect-square w-full rounded-xl" src={placeholder} use:filter={'Apollo'} alt="example" />
+            <h6 class="mt-2">Apollo</h6>
+        </div>
     </Card>
 
 	<!-- Usage -->

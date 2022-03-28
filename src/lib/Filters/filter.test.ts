@@ -11,7 +11,7 @@
  import XPro from '$lib/Filters/svg/XPro.svelte';
  import Summer84 from '$lib/Filters/svg/Summer84.svelte';
  import Rustic from '$lib/Filters/svg/Rustic.svelte';
- import Nineties from '$lib/Filters/svg/Nineties.svelte';
+ import Apollo from '$lib/Filters/svg/Apollo.svelte';
 
  import {filter} from '$lib/Filters/filter';
  
@@ -25,7 +25,7 @@
         render(XPro);
         render(Summer84);
         render(Rustic);
-        render(Nineties);
+        render(Apollo);
         let elements = document.getElementsByClassName('filter');
         for(let i = 0; i < elements.length; ++i) {
             expect(elements[i].getAttribute('class').includes('hidden'));    
