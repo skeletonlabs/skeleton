@@ -1,78 +1,91 @@
 <script lang="ts">
-    export let display: string = '';
-    export let color: string = '';
-
-    const styleKey: any = [display, color].filter(n => n).join('-'); // ex: 'filled-primary'
-    let cActive: string;
+    export let variant: string = undefined;
+    export let background: string = undefined;
+    export let color: string = undefined;
+    export let ring: string = undefined;
+    export let weight: string = undefined;
+    export let rounded: string = undefined;
 
     // Define Base Classes
-    const cBase = `text-base text-center py-2.5 px-5 rounded-lg transition-all active:scale-95`;
+    let cBase: string = `inline-block text-center ring-inset pointer-cursor hover:brightness-90 transition-all active:scale-95`;
 
-    // Set Active Classes
-    switch(styleKey) {
+    // Disabled
+    if ($$props.disabled) { cBase += ' opacity-20'; }
+
+    // Variant Handler
+    function variantHandler(vBackground?: any, vColor?: any, vRing?: any, vWeight?: any, vRounded?: any): void {
+        if (variant) {
+            if (vBackground) { background = background || vBackground; }
+            if (vColor) { color = color || vColor; }
+            if (vRing) { ring = ring || vRing; }
+            if (vWeight) { weight = weight || vWeight; }
+            if (vRounded) { rounded = rounded || vRounded; }
+        }
+    }
+    switch(variant) {
+        // Text
+        case('text'):         variantHandler(null, 'text-white'); break;
+        case('text-primary'): variantHandler(null, 'text-primary-500 fill-primary-500'); break;
+        case('text-accent'):  variantHandler(null, 'text-accent-500 fill-primary-500'); break;
+        case('text-warning'): variantHandler(null, 'text-warning-500 fill-primary-500'); break;
         // Filled
-        case('filled'):
-            cActive = `
-                bg-surface-800 text-surface-50 hover:bg-surface-900
-                dark:bg-surface-50 dark:text-surface-900 dark:hover:bg-surface-300
-            `;
-            break;
-        case('filled-primary'): cActive = `text-surface-50 bg-primary-500 hover:bg-primary-600`; break;
-        case('filled-accent'): cActive = `text-surface-50 bg-accent-500 hover:bg-accent-600`; break;
-        case('filled-warning'): cActive = `text-surface-50 bg-warning-500 hover:bg-warning-600`; break;
-        // Outlined:
-        case('outlined'):
-            cActive = `
-                bg-surface-800/10 text-surface-900 ring-1 ring-surface-900 ring-inset hover:bg-surface-900/10
-                dark:bg-surface-50/10 dark:text-surface-50 dark:ring-surface-50 dark:hover:bg-surface-300/10
-            `;
-            break;
-        case('outlined-primary'): cActive = `bg-primary-500/10 text-primary-500 ring-1 ring-primary-500 ring-inset hover:bg-primary-600/10`; break;
-        case('outlined-accent'): cActive = `bg-accent-500/10 text-accent-500 ring-1 ring-accent-500 ring-inset hover:bg-accent-600/10`; break;
-        case('outlined-warning'): cActive = `bg-warning-500/10 text-warning-500 ring-1 ring-warning-500 ring-inset hover:bg-warning-600/10`; break;
-        // Text:
-        case('text'):
-            cActive = `
-                bg-transparent text-surface-800 shadow-none hover:bg-transparent hover:text-surface-900
-                dark:text-surface-50 dark:hover:text-surface-300
-            `;
-        break;
-        case('text-primary'): cActive = `bg-transparent text-primary-500 shadow-none hover:bg-transparent hover:text-primary-600`; break;
-        case('text-accent'): cActive = `bg-transparent text-accent-500 shadow-none hover:bg-transparent hover:text-accent-600`; break;
-        case('text-warning'): cActive = `bg-transparent text-warning-500 shadow-none hover:bg-transparent hover:text-warning-600`; break;
-        // Default
-        default: cActive = `bg-black text-white`;
+        case('filled'):         variantHandler('bg-surface-500'); break;
+        case('filled-primary'): variantHandler('bg-primary-500', 'text-white'); break;
+        case('filled-accent'):  variantHandler('bg-accent-500', 'text-white'); break;
+        case('filled-warning'): variantHandler('bg-warning-500', 'text-white'); break;
+        // Ring
+        case('ring'):         variantHandler(null, 'text-white', 'ring-white'); break;
+        case('ring-primary'): variantHandler(null, 'text-primary-500', 'ring-primary-500'); break;
+        case('ring-accent'):  variantHandler(null, 'text-accent-500', 'ring-accent-500'); break;
+        case('ring-warning'): variantHandler(null, 'text-warning-500', 'ring-warning-500'); break;
+        // Ghost
+        case('ghost'):         variantHandler('bg-white/10', 'text-white', 'ring-white'); break;
+        case('ghost-primary'): variantHandler('bg-primary-500/10', 'text-primary-500', 'ring-primary-500'); break;
+        case('ghost-accent'):  variantHandler('bg-accent-500/10', 'text-accent-500', 'ring-accent-500'); break;
+        case('ghost-warning'): variantHandler('bg-warning-500/10', 'text-warning-500', 'ring-warning-500'); break;
     }
 
     // Maintain the current state of styles
-    $: classes = `${cBase} ${cActive} ${$$props.class}`;
+    $: classes = [
+        cBase,
+        background,
+        color || 'text-white',
+        ring || `ring-transparent`,
+        weight || 'ring-1',
+        rounded || 'rounded-lg',
+        $$props.class
+    ].join(' ');
 </script>
 
-{#if $$props.href}
-    <a
-        class="anchor inline-block {classes}"
-        href={$$props.href} 
-        target={$$props.target}
-        disabled={$$props.disabled}
-        data-testid={$$props['data-testid']}
-        on:click
-        on:mouseover
-        on:focus
-    ><slot /></a>
-{:else}
-    <button
-        class="button {classes}"
-        disabled={$$props.disabled}
-        type={$$props.type}
-        name={$$props.name}
-        id={$$props.id}
-        data-testid={$$props['data-testid']}
-        on:click
-        on:mouseover
-        on:focus
-    ><slot /></button>
-{/if}
+<div class="comp-button {classes}">
+    {#if $$props.href}
+        <a
+            class="block py-2.5 px-5"
+            disabled={$$props.disabled}
+            href={$$props.href} 
+            target={$$props.target}
+            name={$$props.name}
+            id={$$props.id}
+            data-testid={$$props['data-testid']}
+            on:click
+            on:mouseover
+            on:focus
+        ><slot /></a>
+    {:else}
+        <button
+            class="py-2.5 px-5"
+            disabled={$$props.disabled}
+            type={$$props.type}
+            name={$$props.name}
+            id={$$props.id}
+            data-testid={$$props['data-testid']}
+            on:click
+            on:mouseover
+            on:focus
+        ><slot /></button>
+    {/if}
+</div>
 
 <style lang="postcss">
-    button:disabled { @apply opacity-50 cursor-not-allowed !important; }
+    button:disabled { @apply cursor-not-allowed !important; }
 </style>
