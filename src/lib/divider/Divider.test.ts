@@ -10,7 +10,7 @@ import Divider from '$lib/Divider/Divider.svelte';
 describe('Divider.svelte', () => {
 	afterEach(() => cleanup());
 
-	it('Renders with props (Defaults)', async () => {
+	it('Renders with props', async () => {
 		const { getByTestId } = render(Divider, {
 			props: { weight: '2', display: 'dotted', orientation: 'h' }
 		});

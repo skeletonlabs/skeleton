@@ -25,6 +25,15 @@ describe('Button.svelte', () => {
 		expect(getByTestId('wrapper')).toBeTruthy();
 	});
 
+	it('Invalid props (Defaults', async()=>{
+		const { getByTestId } = render(Avatar, {
+			props: { size: 'large', outlined: 'none', hover: 'none'}
+		});
+		expect( getByTestId('wrapper').className.includes('text-4xl'));
+		expect( getByTestId('wrapper').getAttribute('hover')).eq(null);
+		expect( getByTestId('wrapper').getAttribute('outlined')).eq(null);
+	})
+
 	it('Image shown', async () => {
 		const { getByTestId } = render(Avatar, { src: img });
 		const image = screen.getByRole('img');
@@ -39,12 +48,10 @@ describe('Button.svelte', () => {
 
 	it('On click', async () => {
 		const onClick = vi.fn();
-		const instance = render(Avatar);
-		// Set on:click to onEvent() for component.
-		instance.component.$on('click', onClick);
-		const btn = screen.getByTestId('wrapper');
-		await fireEvent.click(btn);
-		await fireEvent.click(btn);
+		const { getByTestId, component } = render(Avatar);
+		component.$on('click', onClick);
+		await fireEvent.click(getByTestId('wrapper'));
+		await fireEvent.click(getByTestId('wrapper'));
 		expect(onClick.mock.calls.length).eq(2);
 	});
 });
