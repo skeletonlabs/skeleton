@@ -9,7 +9,5 @@
                         0.200  1.0  0.200  0.000  0.000 
                         0.000  0.000  0.000  1.000  0.000">
               </feColorMatrix>
-           
-        <feBlend mode="normal" in="componentTransfer" in2="SourceGraphic" result="blend"/>
     </filter>
 </svg>

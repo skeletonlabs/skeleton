@@ -13,6 +13,8 @@
  import Rustic from '$lib/Filters/svg/Rustic.svelte';
  import Apollo from '$lib/Filters/svg/Apollo.svelte';
  import GreenFall from '$lib/Filters/svg/GreenFall.svelte';
+ import Noir from '$lib/Filters/svg/Noir.svelte';
+ import NoirLight from '$lib/Filters/svg/NoirLight.svelte';
  import {filter} from '$lib/Filters/filter';
  
  describe('Filter.svelte', () => {
@@ -28,6 +30,7 @@
         render(Rustic);
         render(Apollo);
         render(GreenFall);
+        render(NoirLight, Noir);
         let elements: HTMLCollection = document.getElementsByClassName('filter');
         for(let i = 0; i < elements.length; ++i) {
             expect(elements[i].getAttribute('class').includes('hidden'));    
