@@ -8,26 +8,23 @@
 	export let active: boolean = false;
 
 	// Context
-	export let display: string = getContext('display');
-	export let color: string = getContext('color');
+	export let variant: string = getContext('variant');
+	export let size: string = getContext('size');
 	export let separator: string = getContext('separator');
 
 	// Styling
-	const separatorMargin = ['filled', 'outlined'].includes(display) ? 'mx-4' : 'mx-0';
-	if (active) { color = 'primary'; }
+	if (active) { disabled = true; }
 </script>
 
-<div class="crumb-group flex items-center">
+<div class="crumb-group flex items-center space-x-4">
 
-	<Button {display} {color} {href} class="crumb flex items-center" data-testid="crumb" {disabled}>
-		{#if $$slots.icon}
-			<div class="w-6 mr-4"><slot name="icon" /></div>
-		{/if}
+	<Button {variant} {size} {href} class="crumb" data-testid="crumb" {disabled}>
+		{#if $$slots.lead}<slot name="lead" />{/if}
 		<slot />
 	</Button>
 	
 	{#if !disabled && !active}
-		<div class="separator flex w-2 {separatorMargin}">{@html separator}</div>
+		<div class="separator flex w-2">{@html separator}</div>
 	{/if}
 
 </div>

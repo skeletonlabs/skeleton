@@ -26,7 +26,7 @@
     };
 
 	$:props = {
-		label: 'Skeleton',
+		size: 'base',
 		background: 'bg-primary-500',
 		color: 'text-white',
 		ring: undefined,
@@ -52,43 +52,50 @@
 			<Card class="space-y-4 flex justify-center items-center">
 				<svelte:component
 					this={Button}
+					size={props.size}
 					background={props.background}
 					color={props.color}
 					ring={props.ring}
 					weight={props.weight}
 					rounded={props.rounded}
 					disabled={props.disabled}
-				>{props.label}</svelte:component>
+				>Skeleton</svelte:component>
             </Card>
 			<!-- Options -->
 			<Card class="space-y-4">
-				<!-- Label -->
+				<!-- Size -->
 				<label>
-                    <span>Label</span>
-                    <input type="text" bind:value={props.label} placeholder="Label">
+                    <span>Size</span>
+                    <select name="size" id="size" bind:value={props.size}>
+                        <option value="none">None</option>
+                        <option value="sm">sm</option>
+                        <option value="base">base</option>
+                        <option value="lg">lg</option>
+                        <option value="xl">xl</option>
+                    </select>
                 </label>
 				<!-- Background -->
 				<label>
                     <span>Background</span>
                     <select name="background" id="background" bind:value={props.background}>
                         <option value="">None</option>
-                        <option value={'bg-primary-500'}>bg-primary-500</option>
-                        <option value={'bg-accent-500'}>bg-accent-500</option>
-                        <option value={'bg-warning-500'}>bg-warning-500</option>
-                        <option value={'bg-primary-500/10'}>bg-primary-500/10</option>
-                        <option value={'bg-accent-500/10'}>bg-accent-500/10</option>
-                        <option value={'bg-warning-500/10'}>bg-warning-500/10</option>
+                        <option value="bg-primary-500">bg-primary-500</option>
+                        <option value="bg-accent-500">bg-accent-500</option>
+                        <option value="bg-warning-500">bg-warning-500</option>
+                        <option value="bg-primary-500/10">bg-primary-500/10</option>
+                        <option value="bg-accent-500/10">bg-accent-500/10</option>
+                        <option value="bg-warning-500/10">bg-warning-500/10</option>
                     </select>
                 </label>
 				<!-- Color -->
 				<label>
                     <span>Color</span>
                     <select name="color" id="color" bind:value={props.color}>
-                        <option value={'text-white'}>text-white</option>
-                        <option value={'text-black'}>text-black</option>
-                        <option value={'text-primary-500'}>text-primary-500</option>
-                        <option value={'text-accent-500'}>text-accent-500</option>
-                        <option value={'text-warning-500'}>text-warning-500</option>
+                        <option value="text-white">text-white</option>
+                        <option value="text-black">text-black</option>
+                        <option value="text-primary-500">text-primary-500</option>
+                        <option value="text-accent-500">text-accent-500</option>
+                        <option value="text-warning-500">text-warning-500</option>
                     </select>
                 </label>
 				<!-- Ring Color -->
@@ -96,11 +103,11 @@
                     <span>Ring Color</span>
                     <select name="ring" id="ring" bind:value={props.ring}>
                         <option value="">None</option>
-                        <option value={'ring-white'}>ring-white</option>
-                        <option value={'ring-black'}>ring-black</option>
-                        <option value={'ring-primary-500'}>ring-primary-500</option>
-                        <option value={'ring-accent-500'}>ring-accent-500</option>
-                        <option value={'ring-warning-500'}>ring-warning-500</option>
+                        <option value="ring-white">ring-white</option>
+                        <option value="ring-black">ring-black</option>
+                        <option value="ring-primary-500">ring-primary-500</option>
+                        <option value="ring-accent-500">ring-accent-500</option>
+                        <option value="ring-warning-500">ring-warning-500</option>
                     </select>
                 </label>
 				<!-- Ring Weight -->
@@ -108,19 +115,19 @@
                     <span>Ring Weight</span>
                     <select name="weight" id="weight" bind:value={props.weight}>
                         <option value="">None</option>
-                        <option value={'ring-1'}>ring-1</option>
-                        <option value={'ring-2'}>ring-2</option>
-                        <option value={'ring-4'}>ring-4</option>
+                        <option value="ring-1">ring-1</option>
+                        <option value="ring-2">ring-2</option>
+                        <option value="ring-4">ring-4</option>
                     </select>
                 </label>
 				<!-- Rounded -->
 				<label>
                     <span>Rounded</span>
                     <select name="rounded" id="rounded" bind:value={props.rounded}>
-                        <option value={'rounded-xs'}>rounded-xs</option>
-                        <option value={'rounded'}>rounded</option>
-                        <option value={'rounded-lg'}>rounded-lg</option>
-                        <option value={'rounded-full'}>rounded-full</option>
+                        <option value="rounded-xs">rounded-xs</option>
+                        <option value="rounded">rounded</option>
+                        <option value="rounded-lg">rounded-lg</option>
+                        <option value="rounded-full">rounded-full</option>
                     </select>
                 </label>
 				<!-- Disabled -->
@@ -132,7 +139,7 @@
 		</div>
 		<CodeBlock
 			language="html"
-			code={`<Button background="${props.background}" color="${props.color}" ring="${props.ring}" weight="${props.weight}" rounded="${props.rounded}" disabled={${props.disabled}}>${props.label}</Button>`}
+			code={`<Button size="${props.size}" background="${props.background}" color="${props.color}" ring="${props.ring}" weight="${props.weight}" rounded="${props.rounded}" disabled={${props.disabled}}>Skeleton</Button>`}
 		></CodeBlock>
 	</section>
 
