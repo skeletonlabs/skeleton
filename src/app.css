@@ -35,5 +35,52 @@ h5 { @apply text-lg font-bold; }
 h6 { @apply text-base font-bold; }
 
 /* Page Styles */
-#page p { @apply text-base text-surface-400; }
+#page p { @apply text-base text-surface-500 dark:text-surface-400; }
 #page a:not(.anchor):not(.breadcrumb a):not(.crumb a) { @apply text-primary-500 underline; }
+
+/* --- Forms --- */
+
+fieldset { @apply block; }
+
+/* Inputs */
+[type="text"],
+[type="email"],
+[type="url"],
+[type="password"],
+[type="number"],
+[type="date"],
+[type="datetime-local"], 
+[type="month"],
+[type="search"],
+[type="tel"],
+[type="time"],
+[type="week"],
+[multiple],
+textarea,
+select {
+    @apply w-full text-black bg-surface-50 border-surface-300 rounded-lg shadow-sm focus:border-accent-500 focus:ring-accent-500;
+    @apply dark:text-white dark:bg-surface-600 dark:border-surface-500;
+}
+
+/* Selectable */
+[type="checkbox"],
+[type="radio"] {
+    @apply border-surface-500 rounded text-accent-600 focus:ring-accent-500;
+}
+
+/* Invalid - https://www.bram.us/2021/01/28/form-validation-you-want-notfocusinvalid-not-invalid/ */
+input:not(:focus):not(:placeholder-shown):invalid {
+    @apply bg-warning-300 border-warning-500;
+}
+
+/* Placeholders */
+input::-moz-placeholder, textarea::-moz-placeholder { @apply text-surface-400; }
+input:-ms-input-placeholder, textarea:-ms-input-placeholder { @apply text-surface-400; }
+input::placeholder, textarea::placeholder { @apply text-surface-400; }
+
+/* Labels */
+label { @apply block; }
+label span, legend { @apply block text-surface-700 dark:text-surface-300 text-sm mb-2; }
+
+/* Accent Color - https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color */
+[type="range"] { @apply w-full accent-accent-500; }

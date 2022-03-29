@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { browser } from '$app/env';
-	import { onMount, afterUpdate } from 'svelte';
 	
+	import 'highlight.js/styles/github-dark.css'; // Highlight.js
 	import '../theme-bb.css'; // bb|st
 	import '../app.css';
 	
@@ -21,10 +21,10 @@
 		{href: '/components/avatars', label: 'Avatars'},
 		{href: '/components/gradient-headings', label: 'Gradient Heading'},
 		{href: '/components/breadcrumbs', label: 'Breadcrumb'},
-		{href: '/components/code-blocks', label: 'Code Blocks'},
+		{href: '/components/progress-bars', label: 'Progress Bars'},
 	].sort((a, b) => (a.label > b.label) ? 1 : -1);
 	let navUtilities: any[] = [
-		{href: '/utilities/filters', label: 'Filters'},
+		{href: '/utilities/filters', label: 'Filters (beta)'},
 	].sort((a, b) => (a.label > b.label) ? 1 : -1);
 	
 	// Handle Light/Dark Mode
@@ -37,12 +37,6 @@
 		darkMode = !darkMode;
 		if (browser) { localStorage.setItem('theme', darkMode ? 'dark' : 'light'); }
 	}
-
-	// Highlight.js
-    import hljs from 'highlight.js';
-	import 'highlight.js/styles/github-dark.css';
-	onMount(hljs.highlightAll);
-	afterUpdate(hljs.highlightAll);
 </script>
 
 <svelte:head>
