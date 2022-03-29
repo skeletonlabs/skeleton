@@ -1,4 +1,4 @@
-<div class="logo flex-auto text-center bg-surface-200 py-10 space-x-4 dark:bg-surface-800">
+<div data-testid='logo' class="logo flex-auto text-center bg-surface-200 py-10 space-x-4 dark:bg-surface-800">
     <!-- Default -->
     {#if !$$slots.icon && !$$slots.label}
         <slot />

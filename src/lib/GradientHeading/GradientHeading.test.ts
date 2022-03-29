@@ -17,58 +17,52 @@ const defaultSize: String = '4xl';
 const sizes:        String[] = ['sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', '7xl', '8xl'];
 const directions:   String[] = ['t', 'b', 'l', 'r', 'tr', 'tl', 'br', 'bl'];
 
+const testid = 'gradientHeading';
+
 describe('Card.svelte', () => {
 	afterEach(() => cleanup());
 
-	it('Renders', async () => {
-		render(GradientHeading);
+	it('Renders without props', async () => {
+		const {getByTestId} = render(GradientHeading);
+		expect(getByTestId(testid)).toBeTruthy();
+	});
+	// Test default color-from prop
+	it('Default "from" prop applied")', async () => {
+		const {getByTestId} = render(GradientHeading);	
+		expect(getByTestId(testid).getAttribute('class').includes(from));
+	});
+	// Test default color-to prop
+	it('Default "to" prop applied")', async () => {
+		const {getByTestId} = render(GradientHeading);	
+		expect(getByTestId(testid).getAttribute('class').includes(to));
 	});
 
-	it('Size style applied', () => {
-		sizes.forEach((size) => {
-			const instance = render(GradientHeading, { size });
-			let el = screen.getByTestId('gradientHeading');
-			expect(el.getAttribute('class').includes(`font-${size}`));
-			instance.unmount();
-		});
+	// Test that each size is implemented
+	sizes.forEach((size) =>{
+		it(`Size: ${size} applied`, async ()=>{
+			const { getByTestId } = render(GradientHeading, { size });
+			expect(getByTestId(testid).getAttribute('class').includes(`font-${size}`));
+		})
+	})
+
+	// Test that default size is applied on invalid prop
+	it('Default size applied (invalid prop)', async () => {
+		const {getByTestId} = render(GradientHeading, { size: '2-xl' });
+		expect(getByTestId(testid).getAttribute('class').includes(`font-${defaultSize}`));
+		//Unsure why the below will not work
+		//expect(getByTestId(testid).className).toContain(`font-${defaultSize}`);
 	});
 
-	it('Default "from" prop applied")', () => {
-		const instance = render(GradientHeading);
-		let el = screen.getByTestId('gradientHeading');
-		expect(el.getAttribute('class').includes(from));
-	});
-	
-	it('Default "to" prop applied")', () => {
-		render(GradientHeading);
-		let el = screen.getByTestId('gradientHeading');
-		expect(el.getAttribute('class').includes(to));
-	});
-
-	it('Default size applied (invalid prop)', () => {
-		const instance = render(GradientHeading, { size: '2-xl' });
-		let el = screen.getByTestId('gradientHeading');
-		expect(el.getAttribute('class').includes(`font-${defaultSize}`));
-	});
-
-	it('Default size applied (invalid prop)', () => {
-		const instance = render(GradientHeading, { size: '2-xl' });
-		let el = screen.getByTestId('gradientHeading');
-		expect(el.getAttribute('class').includes(`font-${defaultSize}`));
-	});
-
-	it('Direction applied', () => {
-		directions.forEach((item) => {
-			const instance = render(GradientHeading, { directions: item });
-			let el = screen.getByTestId('span');
-			expect(el.getAttribute('class').includes(`bg-gradient-to-${item}`));
-			instance.unmount();
-		});
-	});
-
-	it('Default direction applied (invalid prop)', () => {
-		const instance = render(GradientHeading, { direction: 'top' });
-		let el = screen.getByTestId('span');
-		expect(el.getAttribute('class').includes(`bg-gradient-to-${defaultDirection}`));
+	// Test that each direction is implemented
+	directions.forEach((direction) =>{
+		it(`Direction: ${direction} applied`, async ()=>{
+			const {getByTestId} = render(GradientHeading, { directions: direction });
+			expect(getByTestId('span').getAttribute('class').includes(`bg-gradient-to-${direction}`));
+		})
+	})
+	// Test that default direction is applied on invalid prop
+	it('Default direction applied (invalid prop)', async () => {
+		const {getByTestId} = render(GradientHeading, { direction: 'top' });
+		expect(getByTestId('span').getAttribute('class').includes(`bg-gradient-to-${defaultDirection}`));
 	});
 });
