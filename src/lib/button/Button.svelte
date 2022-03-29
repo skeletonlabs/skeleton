@@ -54,6 +54,7 @@
         href={$$props.href} 
         target={$$props.target}
         disabled={$$props.disabled}
+        data-testid={$$props['data-testid']}
         on:click
         on:mouseover
         on:focus
@@ -65,6 +66,7 @@
         type={$$props.type}
         name={$$props.name}
         id={$$props.id}
+        data-testid={$$props['data-testid']}
         on:click
         on:mouseover
         on:focus
@@ -72,5 +74,5 @@
 {/if}
 
 <style lang="postcss">
-    button:disabled { @apply opacity-10 cursor-not-allowed !important; }
+    button:disabled { @apply opacity-50 cursor-not-allowed !important; }
 </style>

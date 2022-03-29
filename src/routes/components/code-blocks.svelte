@@ -30,7 +30,7 @@ afterUpdate(hljs.highlightAll); // on route change
     <!-- Header -->
     <header class="space-y-4">
         <h1>Code Blocks</h1>
-        <p>Display blocks of raw code with optional support for syntax highlighting.</p>
+        <p>Display blocks of raw source code on the page.</p>
     </header>
 
     <!-- Examples -->
@@ -51,16 +51,6 @@ afterUpdate(hljs.highlightAll); // on route change
         <h2>Usage</h2>
         <CodeBlock language="javascript" code={`<script>import {CodeBlock} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
         <CodeBlock language="html" code={`<CodeBlock language="html" code={\`<div>Meta</div>\`}></CodeBlock>`}></CodeBlock>
-    </section>
-
-    <!-- Syntax Highlighting -->
-    <section class="space-y-4">
-        <h2>Syntax Highlighting</h2>
-        <p>Syntax highlighting can be enabled by installing either <a href="https://highlightjs.org/" target="_blank">Highlight.js</a> or <a href="https://prismjs.com/" target="_blank">Prism.js</a>. Then, folow the directions below.</p>
-        <h6>Highlight.js</h6>
-        <CodeBlock language="typescript" code={codeUsage}></CodeBlock>
-        <h6>Prism.js</h6>
-        <CodeBlock language="typescript" code={`...`}></CodeBlock>
     </section>
 
     <!-- Properties -->

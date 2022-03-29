@@ -35,7 +35,7 @@
     <!-- Usage -->
     <section class="space-y-4">
         <h3 class="text-2xl font-bold">Usage</h3>
-        <CodeBlock language="javascript" code={`<script>import {card} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
+        <CodeBlock language="javascript" code={`<script>import {Card} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
         <CodeBlock language="html" code={`<Card>Minimal</Card>`}></CodeBlock>
         <CodeBlock language="html" code={`<Card class="shadow-xl">Styled</Card>`}></CodeBlock>
     </section>

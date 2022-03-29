@@ -20,9 +20,7 @@
         <tr>
             <!-- Cells -->
             {#each row as cell, i}
-            <td class:opacity-50="{i > 0}">
-                {@html cell}
-            </td>
+            <td>{@html cell}</td>
             {/each}
         </tr>
         {/each}

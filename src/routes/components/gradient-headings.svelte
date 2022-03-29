@@ -7,9 +7,10 @@
     const tableProps: any = {
         columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
         data: [
-            ['size', 'string', 'sm | md | lg | xl | 2xl -> 9xl', '4xl', 'The font size to be used.'],
+            ['from', 'string', '(class name)', 'from-primary-500', 'Insert the standard Tailwind "from-" class name'],
+            ['to', 'string', '(class name)', 'to-accent-500', 'Insert the standard Tailwind "to-" class name'],
+            ['size', 'string', 'sm | md | lg | xl | 2xl | ... | 9xl', '4xl', 'The font size to be used.'],
             ['direction', 'string', 't | b | l | r | tl | tr | bl | br', 't', 'Set the direction of the gradient. Abbreviated as tl would equal top left'],
-            ['bright', 'boolean', 'true | false', 'false', 'Use bright mode']
         ],
     };
 </script>
@@ -24,28 +25,33 @@
     
     <!-- Examples -->
     <section class="space-y-4">
-        <h4>Display</h4>
-        <Card class='space-y-4'>
-            <h6>Regular</h6>
-            <GradientHeading direction='l'>Hello Skeleton!</GradientHeading>
-            <h6>Bright</h6>
-            <GradientHeading bright direction='l'>Hello Skeleton!</GradientHeading>
-        </Card>
-        <h4>Sizes</h4>
-        <Card class='space-y-4'>
-            <GradientHeading size='md' direction='t'>Hello Skeleton!</GradientHeading>
-            <GradientHeading size='4xl' direction='t'>Hello Skeleton!</GradientHeading>
-            <GradientHeading size='6xl' direction='t'>Hello Skeleton!</GradientHeading>
-            <GradientHeading size='8xl' direction='t'>Hello Skeleton!</GradientHeading>
-        </Card>
-        <h4>Direction Examples</h4>
         <Card class="space-y-4">
-            <h6>Top to bottom</h6>
-            <GradientHeading direction='t'>Hello Skeleton!</GradientHeading>
-            <h6>Left to right</h6>
-            <GradientHeading direction='r'>Hello Skeleton!</GradientHeading>
-            <h6>Top right to bottom left</h6>
-            <GradientHeading size='4xl' direction='bl'>Hello Skeleton!</GradientHeading>
+            <GradientHeading size="sm">Skeleton sm</GradientHeading>
+            <GradientHeading size="md">Skeleton md</GradientHeading>
+            <GradientHeading size="lg">Skeleton lg</GradientHeading>
+            <GradientHeading size="xl">Skeleton xl</GradientHeading>
+            <GradientHeading size="2xl">Skeleton 2xl</GradientHeading>
+            <GradientHeading size="3xl">Skeleton 3xl</GradientHeading>
+            <GradientHeading size="4xl">Skeleton 4xl</GradientHeading>
+            <GradientHeading size="5xl">Skeleton 5xl</GradientHeading>
+            <GradientHeading size="6xl">Skeleton 6xl</GradientHeading>
+            <GradientHeading size="7xl">Skeleton 7xl</GradientHeading>
+            <GradientHeading size="8xl">Skeleton 8xl</GradientHeading>
+            <GradientHeading size="9xl">Skeleton 9xl</GradientHeading>
+        </Card>
+        <h4>Gradient Directions</h4>
+        <Card class="space-y-4">
+            <h6>Top to Bottom</h6>
+            <GradientHeading direction="t">Hello Skeleton!</GradientHeading>
+            <h6>Left to Right</h6>
+            <GradientHeading direction="r">Hello Skeleton!</GradientHeading>
+            <h6>Top-Right to Bottom-Left</h6>
+            <GradientHeading size="4xl" direction="bl">Hello Skeleton!</GradientHeading>
+        </Card>
+        <h4>Colors</h4>
+        <Card class="space-y-4">
+            <h6>Rose-500 to Blue-500</h6>
+            <GradientHeading from="from-rose-500" to="to-blue-500">Hello Skeleton!</GradientHeading>
         </Card>
     </section>
     
@@ -53,7 +59,7 @@
     <section class="space-y-4">
         <h2>Usage</h2>
         <CodeBlock language="javascript" code="{`<script>import {GradientHeading} from '@brainandbones/skeleton';</\script>`}"></CodeBlock>
-        <CodeBlock language="html" code="{`<GradientHeading bright size='2xl' direction="l">{Text}</GradientHeading>`}"></CodeBlock>
+        <CodeBlock language="html" code="{`<GradientHeading from="from-rose-500" to="to-blue-500" size="6xl" direction="l">{Text}</GradientHeading>`}"></CodeBlock>
     </section>
     
     <!-- Properties -->

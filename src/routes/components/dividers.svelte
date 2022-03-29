@@ -49,7 +49,7 @@
     <!-- Usage -->
     <section class="space-y-4">
         <h2 class="text-2xl font-bold">Usage</h2>
-        <CodeBlock language="html" code={`<script>import {divider} from '@brainandbones/skeleton';</\script>\n\n<Divider weight={4} display="dashed" />`}></CodeBlock>
+        <CodeBlock language="html" code={`<script>import {Divider} from '@brainandbones/skeleton';</\script>\n\n<Divider weight={4} display="dashed" />`}></CodeBlock>
     </section>
 
     <!-- Properties -->

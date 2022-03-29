@@ -1,13 +1,21 @@
 <script lang="ts">
+    import hljs from 'highlight.js';
+    import { afterUpdate } from 'svelte';
+    
     export let language: string = 'plaintext';
     export let code: string = '';
+
+    let highlighted;
+    let cBase: string = `bg-black text-surface-50 p-4`;
+
+	afterUpdate(() => {
+        highlighted = hljs.highlight(code, { language }).value;
+    });
 </script>
 
 {#if language && code}
-<pre class="codeblock {$$props.class}"><code class="language-{language}">{code}</code></pre>
+<div class="codeblock {cBase} {$$props.class}" data-testid="codeblock">
+<header class="text-xs opacity-50 pb-4">{language}</header>
+<pre class="whitespace-normal"><code class="language-{language}">{@html highlighted}</code></pre>
+</div>
 {/if}
-
-<style lang="postcss">
-    pre { @apply bg-[#0d1117] text-[#c9d1d9]; }
-    code { @apply block p-4; }
-</style>
