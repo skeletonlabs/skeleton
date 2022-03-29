@@ -1,13 +1,11 @@
 <script lang="ts">
-    import { getContext, tick } from "svelte";
-
     export let variant: string = undefined;
     export let size: string = undefined;
-    export let background: string = getContext('background') || undefined;
-    export let color: string = getContext('color') || undefined;
+    export let background: string = undefined;
+    export let color: string = undefined;
     export let ring: string = undefined;
     export let weight: string = undefined;
-    export let rounded: string = getContext('rounded') || undefined;
+    export let rounded: string = undefined;
 
     // Base Classes
     let cBase: string = `inline-block text-center ring-inset pointer-cursor hover:brightness-90 transition-all active:scale-95`;
@@ -24,7 +22,7 @@
     }
 
     // Depending on varient key passed, sset preset prop options.
-    async function selectVariant(): Promise<void> {
+    function selectVariant(): void {
         switch(variant) {
             // Minimal
             case('minimal'):      setProps('none'); break;
@@ -49,8 +47,6 @@
             case('ghost-accent'):  setProps(null, 'bg-accent-500/10', 'text-accent-500', 'ring-accent-500'); break;
             case('ghost-warning'): setProps(null, 'bg-warning-500/10', 'text-warning-500', 'ring-warning-500'); break;
         }
-        // Tick
-        await tick();
     }
 
     // Set props based on provided values
@@ -69,8 +65,8 @@
     $: if (variant) selectVariant();
     $: classes = [
         cBase,
-        background || getContext('background'),
-        color || getContext('color') || 'text-black dark:text-white',
+        background,
+        color || 'text-black dark:text-white',
         ring || `ring-transparent`,
         weight || 'ring-1',
         rounded || 'rounded-lg',
