@@ -19,6 +19,7 @@
      
     afterEach(() => cleanup());
 
+    // Test that all filters are hidden
     it('Class hidden', async ()=>{
         render(Emerald);
         render(BlueNight);
@@ -26,14 +27,15 @@
         render(Summer84);
         render(Rustic);
         render(Apollo);
-        let elements = document.getElementsByClassName('filter');
+        let elements: HTMLCollection = document.getElementsByClassName('filter');
         for(let i = 0; i < elements.length; ++i) {
             expect(elements[i].getAttribute('class').includes('hidden'));    
         }
     })
 
+    // Test the node gets the filter url
     it('Actions: Filter', async ()=>{
-        const elem = document.createElement('div');
+        const elem: HTMLElement = document.createElement('div');
         filter(elem, 'XPro');
         expect(elem.getAttribute('style').includes('filter: url("#Emerald")'));
     })
