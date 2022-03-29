@@ -35,12 +35,11 @@
         <CodeBlock language="js" code={`<script>import {ProgressBar} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
     </header>
 
-     <!-- Usage -->
+     <!-- Sandbox -->
      <section class="space-y-4">
-        <h2 class="text-2xl font-bold">Usage</h2>
         <div class="space-y-4 lg:space-y-0 lg:grid grid-cols-[2fr,1fr] gap-2">
             <!-- Example -->
-            <Card class="bg-black space-y-4 flex justify-center items-center">
+            <Card class="space-y-4 flex justify-center items-center">
                 <div class="w-[75%]">
                     <svelte:component
                         this={ProgressBar}
@@ -54,10 +53,12 @@
             </Card>
             <!-- Options -->
             <Card class="space-y-4">
+                <!-- Label -->
                 <label>
                     <span>Label</span>
                     <input type="text" bind:value={props.label} placeholder="Label">
                 </label>
+                <!-- Value -->
                 <div>
                     <legend>Value</legend>
                     <div class="mt-2 space-y-2">
@@ -75,12 +76,14 @@
                         </div>
                     </div>
                 </div>
+                <!-- Amount -->
                 {#if props.determinate}
                     <div class="flex items-center space-x-4">
                         <input type="range" id="amount" name="amount" min="0" max={props.max} step="10" bind:value={props.value}>
                         <p class="text-sm w-12">{props.value}%</p>
                     </div>
                 {/if}
+                <!-- Height -->
                 <label>
                     <span>Height</span>
                     <select name="height" id="height" bind:value={props.height}>
@@ -89,6 +92,7 @@
                         <option value={'h-6'}>h-6</option>
                     </select>
                 </label>
+                <!-- Color -->
                 <label>
                     <span>Color</span>
                     <select name="color" id="color" bind:value={props.color}>
