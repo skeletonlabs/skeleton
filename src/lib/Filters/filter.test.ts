@@ -12,7 +12,7 @@
  import Summer84 from '$lib/Filters/svg/Summer84.svelte';
  import Rustic from '$lib/Filters/svg/Rustic.svelte';
  import Apollo from '$lib/Filters/svg/Apollo.svelte';
-
+ import GreenFall from '$lib/Filters/svg/GreenFall.svelte';
  import {filter} from '$lib/Filters/filter';
  
  describe('Filter.svelte', () => {
@@ -27,6 +27,7 @@
         render(Summer84);
         render(Rustic);
         render(Apollo);
+        render(GreenFall);
         let elements: HTMLCollection = document.getElementsByClassName('filter');
         for(let i = 0; i < elements.length; ++i) {
             expect(elements[i].getAttribute('class').includes('hidden'));    

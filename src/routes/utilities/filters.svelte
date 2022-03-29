@@ -6,7 +6,7 @@
 	// import { filter } from '$lib/Filters/filter-auto';
 
     // Filters (manual)
-	import { filter, BlueNight, Emerald, Nineties, Rustic, Summer84, XPro, TestFilter } from '$lib/Filters/filter';
+	import { filter, BlueNight, Emerald, Nineties, Rustic, Summer84, XPro, GreenFall } from '$lib/Filters/filter';
 
     // Avatar Placeholder
 	let placeholder = 'https://i.pravatar.cc/512';
@@ -21,7 +21,7 @@
     <Rustic />
     <Summer84 />
     <XPro />
-    <TestFilter />
+    <GreenFall />
 
 	<!-- Header -->
 	<header class="space-y-4">
@@ -45,7 +45,7 @@
         </div>
         <div class="text-center">
             <img class="bg-surface-700 aspect-square w-full rounded-xl" src={placeholder} use:filter={'XPro'} alt="example" />
-            <h6 class="mt-2">XPro (in-progress)</h6>
+            <h6 class="mt-2">XPro</h6>
         </div>
         <div class="text-center">
             <img class="bg-surface-700 aspect-square w-full rounded-xl" src={placeholder} use:filter={'Summer84'} alt="example" />
@@ -60,8 +60,8 @@
             <h6 class="mt-2">Apollo</h6>
         </div>
         <div class="text-center">
-            <img class="bg-surface-700 aspect-square w-full rounded-xl" src={placeholder} use:filter={'filter'} alt="example" />
-            <h6 class="mt-2">Test</h6>
+            <img class="bg-surface-700 aspect-square w-full rounded-xl" src={placeholder} use:filter={'GreenFall'} alt="example" />
+            <h6 class="mt-2">GreenFall</h6>
         </div>
     </Card>
 
