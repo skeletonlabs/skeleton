@@ -5,7 +5,7 @@
 	// Props
 	export let href: string = '';
 	export let disabled: boolean = false;
-	export let active: boolean = false;
+	export let current: boolean = false;
 
 	// Context
 	export let variant: string = getContext('variant');
@@ -13,7 +13,7 @@
 	export let separator: string = getContext('separator');
 
 	// Styling
-	if (active) { disabled = true; }
+	if (current) { disabled = true; }
 </script>
 
 <div class="crumb-group flex items-center space-x-4">
@@ -23,7 +23,7 @@
 		<slot />
 	</Button>
 	
-	{#if !disabled && !active}
+	{#if !disabled && !current}
 		<div class="separator flex w-2">{@html separator}</div>
 	{/if}
 

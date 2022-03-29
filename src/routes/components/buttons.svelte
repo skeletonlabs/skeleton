@@ -67,7 +67,7 @@
 				<label>
                     <span>Size</span>
                     <select name="size" id="size" bind:value={props.size}>
-                        <option value="none">None</option>
+                        <option value="none">none</option>
                         <option value="sm">sm</option>
                         <option value="base">base</option>
                         <option value="lg">lg</option>
@@ -78,7 +78,7 @@
 				<label>
                     <span>Background</span>
                     <select name="background" id="background" bind:value={props.background}>
-                        <option value="">None</option>
+                        <option value="">none</option>
                         <option value="bg-primary-500">bg-primary-500</option>
                         <option value="bg-accent-500">bg-accent-500</option>
                         <option value="bg-warning-500">bg-warning-500</option>
@@ -102,7 +102,7 @@
 				<label>
                     <span>Ring Color</span>
                     <select name="ring" id="ring" bind:value={props.ring}>
-                        <option value="">None</option>
+                        <option value="">none</option>
                         <option value="ring-white">ring-white</option>
                         <option value="ring-black">ring-black</option>
                         <option value="ring-primary-500">ring-primary-500</option>
@@ -114,7 +114,7 @@
 				<label>
                     <span>Ring Weight</span>
                     <select name="weight" id="weight" bind:value={props.weight}>
-                        <option value="">None</option>
+                        <option value="">none</option>
                         <option value="ring-1">ring-1</option>
                         <option value="ring-2">ring-2</option>
                         <option value="ring-4">ring-4</option>
@@ -124,6 +124,7 @@
 				<label>
                     <span>Rounded</span>
                     <select name="rounded" id="rounded" bind:value={props.rounded}>
+                        <option value="none">none</option>
                         <option value="rounded-xs">rounded-xs</option>
                         <option value="rounded">rounded</option>
                         <option value="rounded-lg">rounded-lg</option>

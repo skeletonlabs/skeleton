@@ -21,7 +21,7 @@
         data: [
             ['href', 'string', '-', '-', 'Set the anchor href.'],
             ['disabled', 'boolean ', 'true | false', 'false', 'Sets the display to disabled.'],
-            ['active', 'boolean ', 'true | false', 'false', 'Shorthand for disabled.'],
+            ['current', 'boolean ', 'true | false', 'false', 'Shorthand for disabled.'],
         ],
     };
 </script>
@@ -42,7 +42,7 @@
                 <Crumb href="/">Home</Crumb>
                 <Crumb href="/helm">The Helm</Crumb>
                 <Crumb href="/helm/quizzes">Quizzes</Crumb>
-                <Crumb active>You are here!</Crumb>
+                <Crumb current>You are here!</Crumb>
             </Breadcrumb>
         </Card>
         <h4>Icons</h4>
@@ -60,7 +60,7 @@
                     </svelte:fragment>
                     <span>The Helm</span>
                 </Crumb>
-                <Crumb active>You are here!</Crumb>
+                <Crumb current>You are here!</Crumb>
             </Breadcrumb>
         </Card>
         <h4>Separator</h4>
@@ -69,7 +69,7 @@
                 <Crumb href="/">Home</Crumb>
                 <Crumb href="/helm">The Helm</Crumb>
                 <Crumb href="/helm/quizzes">Quizzes</Crumb>
-                <Crumb active>You are here!</Crumb>
+                <Crumb current>You are here!</Crumb>
             </Breadcrumb>
         </Card>
         <h4>Variants</h4>
@@ -77,22 +77,22 @@
             <Breadcrumb variant="text">
                 <Crumb href="/">Home</Crumb>
                 <Crumb href="/helm">The Helm</Crumb>
-                <Crumb active>You are here!</Crumb>
+                <Crumb current>You are here!</Crumb>
             </Breadcrumb>
             <Breadcrumb variant="filled-accent">
                 <Crumb href="/">Home</Crumb>
                 <Crumb href="/helm">The Helm</Crumb>
-                <Crumb active>You are here!</Crumb>
+                <Crumb current>You are here!</Crumb>
             </Breadcrumb>
             <Breadcrumb variant="ring-warning">
                 <Crumb href="/">Home</Crumb>
                 <Crumb href="/helm">The Helm</Crumb>
-                <Crumb active>You are here!</Crumb>
+                <Crumb current>You are here!</Crumb>
             </Breadcrumb>
             <Breadcrumb variant="ghost-primary">
                 <Crumb href="/">Home</Crumb>
                 <Crumb href="/helm">The Helm</Crumb>
-                <Crumb active>You are here!</Crumb>
+                <Crumb current>You are here!</Crumb>
             </Breadcrumb>
         </Card>
     </section>

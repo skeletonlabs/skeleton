@@ -16,6 +16,7 @@
 	let navComponents: any[] = [
 		{href: '/components/cards', label: 'Cards'},
 		{href: '/components/buttons', label: 'Buttons'},
+		{href: '/components/button-groups', label: 'Button Groups'},
 		{href: '/components/dividers', label: 'Dividers'},
 		{href: '/components/logo-clouds', label: 'Logo Clouds'},
 		{href: '/components/avatars', label: 'Avatars'},
