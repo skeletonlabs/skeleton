@@ -8,7 +8,7 @@
     export let hover: boolean = false;
 	
 	// Classes
-	let cBase: string = 'flex aspect-square text-surface-50 font-semibold justify-center items-center rounded-full overflow-hidden bg-accent-500  transition-all';
+	let cBase: string = 'flex aspect-square text-surface-50 font-semibold justify-center items-center rounded-full overflow-hidden bg-surface-500 transition-all';
 	let cOutlined: string;
 	let cHover: string;
 	let cSize: string;
