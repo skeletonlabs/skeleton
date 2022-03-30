@@ -12,14 +12,14 @@
     const tableProps: any = {
         columns: ['Prop', 'Type', 'Default', 'Description'],
         data: [
-            ['variant', 'string', 'text', 'Matches the <a href="/components/buttons">Button</a> variant options.'],
+            ['variant', 'string', 'none', 'Matches the <a href="/components/buttons">Button</a> variant options.'],
             ['seperator', 'html', '>', 'Defines seperator. Works best with SVG.']
         ],
     };
     const tablePropsCrumb: any = {
         columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
         data: [
-            ['href', 'string', 'url', '-', 'Set the anchor href.'],
+            ['href', 'string', 'url', 'on', 'Set the anchor href.'],
             ['disabled', 'boolean ', 'true | false', 'false', 'Sets the display to disabled.'],
             ['current', 'boolean ', 'true | false', 'false', 'Shorthand for disabled.'],
         ],

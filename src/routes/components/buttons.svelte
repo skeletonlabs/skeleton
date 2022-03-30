@@ -18,10 +18,10 @@
         ],
     };
     const tableSlots: any = {
-        columns: ['Slot', 'Position', 'Description'],
+        columns: ['Name', 'Description'],
         data: [
-            ['lead', 'Left of label', 'Allows for adding a lead icon.'],
-            ['tail', 'Right of label', 'Allows for adding a trailing icon.'],
+            ['lead', 'A lead icon slot that appears left of the label.'],
+            ['tail', 'A trailing icon slot that appears right of the label.'],
         ],
     };
 
@@ -62,7 +62,7 @@
 				>Skeleton</svelte:component>
             </Card>
 			<!-- Options -->
-			<Card class="space-y-4">
+			<Card class="grid grid-cols-1 xl:grid-cols-2 gap-4">
 				<!-- Size -->
 				<label>
                     <span>Size</span>
@@ -72,6 +72,17 @@
                         <option value="base">base</option>
                         <option value="lg">lg</option>
                         <option value="xl">xl</option>
+                    </select>
+                </label>
+				<!-- Rounded -->
+				<label>
+                    <span>Rounded</span>
+                    <select name="rounded" id="rounded" bind:value={props.rounded}>
+                        <option value="none">none</option>
+                        <option value="rounded-xs">rounded-xs</option>
+                        <option value="rounded">rounded</option>
+                        <option value="rounded-lg">rounded-lg</option>
+                        <option value="rounded-full">rounded-full</option>
                     </select>
                 </label>
 				<!-- Background -->
@@ -120,17 +131,6 @@
                         <option value="ring-4">ring-4</option>
                     </select>
                 </label>
-				<!-- Rounded -->
-				<label>
-                    <span>Rounded</span>
-                    <select name="rounded" id="rounded" bind:value={props.rounded}>
-                        <option value="none">none</option>
-                        <option value="rounded-xs">rounded-xs</option>
-                        <option value="rounded">rounded</option>
-                        <option value="rounded-lg">rounded-lg</option>
-                        <option value="rounded-full">rounded-full</option>
-                    </select>
-                </label>
 				<!-- Disabled -->
 				<label class="flex items-center">
 					<input type="checkbox" bind:checked={props.disabled} />
@@ -140,7 +140,17 @@
 		</div>
 		<CodeBlock
 			language="html"
-			code={`<Button size="${props.size}" background="${props.background}" color="${props.color}" ring="${props.ring}" weight="${props.weight}" rounded="${props.rounded}" disabled={${props.disabled}}>Skeleton</Button>`}
+			code={`
+<Button
+	size="${props.size}"
+	background="${props.background || ''}"
+	color="${props.color}"
+	ring="${props.ring || ''}"
+	weight="${props.weight || ''}"
+	rounded="${props.rounded}"
+	disabled={${props.disabled}}
+>Skeleton</Button>
+			`.trim()}
 		></CodeBlock>
 	</section>
 
@@ -187,31 +197,6 @@
 			</section>
 		</Card>
 		<CodeBlock language="html" code={`<Button variant="filled-primary">Skeleton</Button>`}></CodeBlock>
-	</section>
-	
-	<!-- Arbitrary -->
-	<section class="space-y-4">
-		<h4>Arbitrary Examples</h4>
-		<Card class="flex justify-center space-x-8">
-			<section>
-				<nav class="flex flex-row space-x-4">
-					<Button color="text-orange-500" ring="ring-orange-500" rounded="rounded-full">
-						<svelte:fragment slot="lead">{@html icon}</svelte:fragment>
-						Orange
-					</Button>
-					<Button background="bg-sky-500">
-						<svelte:fragment slot="lead">
-							<svg class="fill-white inline-block" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
-						</svelte:fragment>
-						Twitter
-					</Button>
-					<Button background="bg-pink-200" color="text-red-500" rounded="rounded-xl">
-						Cancel
-						<svelte:fragment slot="tail">&#9447;</svelte:fragment>
-					</Button>
-				</nav>
-			</section>
-		</Card>
 	</section>
 	
 	<!-- Properties -->
