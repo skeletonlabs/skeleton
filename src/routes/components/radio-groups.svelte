@@ -35,12 +35,6 @@
 		<CodeBlock language="js" code={`<script>import {RadioGroup, RadioItem} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
 	</header>
 
-    <!--
-        TODO:
-        - build out docs
-        - tests!!!
-    -->
-
     <!-- Sandbox -->
 	<section class="flex space-x-4">
         <Card class="flex-auto space-y-2 text-center">

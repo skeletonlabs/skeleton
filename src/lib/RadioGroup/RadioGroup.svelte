@@ -18,6 +18,6 @@
     $: classes = `${cBase} ${$$props.class}`;
 </script>
 
-<nav class="{classes}">
+<nav class="{classes}" data-testid="radio-group">
     <slot />
 </nav>

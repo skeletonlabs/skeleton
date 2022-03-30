@@ -5,7 +5,7 @@
 	export let value: any;
     
     // Get Context - get from parent
-    let active: Writable<any> = getContext('active');
+    export let active: Writable<any> = getContext('active');
     let background: string = getContext('background') || 'bg-primary-500';
     let color: string = getContext('color') || 'text-black dark:text-white';
 
@@ -22,7 +22,7 @@
     $: classes = `${cbase} ${cActive}`;
 </script>
 
-<label class="{classes}">
+<label class="{classes}" data-testid="radio-item">
     <input class="hidden" type="radio" {value} bind:group={$active} />
     <slot />
 </label>
