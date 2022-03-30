@@ -7,10 +7,10 @@
     export let icon: string             = '';
     export let active: Writable<any>    = getContext('active');
     export let value: any               = null;
-    let multiselect                     = getContext('multiselect');
+    export let multiselect              = getContext('multiselect');
     
-    let selectable: boolean     = getContext('selectable');
-    let cStyle: string          = getContext('style');
+    export let selectable: boolean     = getContext('selectable');
+    export let cStyle: string          = getContext('style');
     let cActive: string         = '';
 
     if(selectable){
@@ -40,7 +40,7 @@
 <li>
     <!-- svelte-ignore a11y-label-has-associated-control -->
     <label>     
-            <div on:click class='listItem {classes} pl-4 flex cursor-default'>
+            <div on:click data-testid='listItem' class='listItem {classes} pl-4 flex cursor-default'>
                 <!--Icon prop-->
                 {#if icon}
                 <span class='w-6 mr-4'>{@html icon}</span>
