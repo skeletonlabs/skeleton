@@ -42,7 +42,6 @@
     setContext('active', active);
     setContext('multiselect', multiselect);
 
-
 </script>
 
 <div class='listGroup'>

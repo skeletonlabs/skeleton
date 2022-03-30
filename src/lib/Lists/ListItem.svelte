@@ -2,7 +2,6 @@
 
     import {getContext} from 'svelte';
     import type {Writable} from 'svelte/store';
-    export let href: string = '';
     export let icon: string = '';
     export let active: Writable<any> = getContext('active');
     export let value: any = null;
@@ -30,13 +29,12 @@
         $active = $active;
     }
 
-    $: classes = `${cStyle} ${cActive}`;    
-    
+    $: classes = `${cStyle} ${cActive}`;
 </script>
 
 <li>
 <label>
-    <div class='listItem cursor-default' href={href}>
+    <div class='listItem cursor-default'>
         <div on:click class='listItem {classes} pl-4 flex'>
             {#if icon}
             <span class='w-6 mr-4'>{@html icon}</span>

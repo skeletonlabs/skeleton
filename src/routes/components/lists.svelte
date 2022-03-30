@@ -1,9 +1,8 @@
-
 <script lang="ts">
     import Card from "$lib/Card/Card.svelte";
     import ListGroup from "$lib/Lists/ListGroup.svelte";
     import ListItem from "$lib/Lists/ListItem.svelte";
-    import Avatar from "$lib/Avatar/Avatar.svelte";
+    import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
     import {writable} from 'svelte/store'
     
 
@@ -63,7 +62,7 @@
         </ListGroup>
     </Card>
 
-    <h4 class='mb-4 mt-4'>Single-selection</h4>
+    <h4 class='mb-4 mt-4'>Single-selection (Persistent)</h4>
     <Card>
         <ListGroup active={selections} variant='comfortable' selectable>
             <ListItem value={'Value of A'}>Item A</ListItem>
@@ -102,5 +101,12 @@
             <ListItem icon={anchorIcon}>Item B</ListItem>
         </ListGroup>
     </Card>
+
+    <!-- Usage -->
+	<section class="space-y-4">
+		<h2>Usage</h2>
+		<CodeBlock language="javascript" code={`<script>\nimport {ListGroup, ListItem} from '@brainandbones/skeleton';\nimport {writable} from 'svelte/store';\n\nlet selections = writable([]);\n</\script>`}></CodeBlock>
+        <CodeBlock language="html" code={`<ListGroup variant='comfortable' selectable multiselect>\n<ListItem>Coffee</ListItem>\n<ListItem>Tea</ListItem> \n</ListGroup>`}></CodeBlock>
+	</section>
 
 </section>
