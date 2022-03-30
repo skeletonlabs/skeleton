@@ -17,7 +17,7 @@
 
     const placeholder: string = 'https://i.pravatar.cc/';
     $:props = {
-		initials: 'JD',
+		initials: 'SK',
 		src: placeholder,
         size: '3xl',
         outlined: false,
