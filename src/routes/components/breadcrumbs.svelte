@@ -32,6 +32,7 @@
     <heading class="space-y-4">
         <h1>Breadcrumbs</h1>
         <p>Breadcrumbs allow quick display of your navigation heirarchy. It can be a useful component for sub-pages.</p>
+        <CodeBlock language="javascript" code={`<script>import {Breadcrumb, Crumb} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
     </heading>
 
     <!-- Examples -->
@@ -133,7 +134,6 @@
     <!-- Usage -->
     <section class="space-y-4">
         <h2>Usage</h2>
-        <CodeBlock language="javascript" code={`<script>import {Breadcrumb, Crumb} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
         <CodeBlock language="html" code={`
 <Breadcrumb>
     <Crumb href='/'>

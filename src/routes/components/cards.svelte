@@ -26,6 +26,7 @@
     <header class="space-y-4">
         <h2>Cards</h2>
         <p>Container elements that wrap and seperate your content.</p>
+        <CodeBlock language="javascript" code={`<script>import {Card} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
     </header>
 
     <!-- Examples -->
@@ -62,7 +63,6 @@
     <!-- Usage -->
     <section class="space-y-4">
         <h3 class="text-2xl font-bold">Usage</h3>
-        <CodeBlock language="javascript" code={`<script>import {Card} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
         <CodeBlock language="html" code={`<Card>Minimal</Card>`}></CodeBlock>
         <CodeBlock language="html" code={`<Card background="bg-primary-500" color="text-white">Colored</Card>`}></CodeBlock>
         <CodeBlock language="html" code={`<Card class="hover:shadow-xl">Styled</Card>`}></CodeBlock>

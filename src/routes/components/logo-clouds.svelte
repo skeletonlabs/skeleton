@@ -2,10 +2,6 @@
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
     import LogoCloud from "$lib/LogoCloud/LogoCloud.svelte";
     import Logo from "$lib/LogoCloud/Logo.svelte";
-
-    const codeImport: string = `<script>import {LogoCloud, Logo} from '@brainandbones/skeleton';</\script>\n`;
-    const codeBasic: string = `<LogoCloud>\n\t<Logo>Acme</Logo>\n</LogoCloud>`;
-    const codeSlotted: string = `<LogoCloud>\n\t<Logo>\n\t\t<svelte:fragment slot="icon">(icon)</svelte:fragment>\n\t\t<svelte:fragment slot="label">Acme</svelte:fragment>\n\t</Logo>\n</LogoCloud>`;
 </script>
 
 <div class="space-y-8">
@@ -14,6 +10,7 @@
     <header class="space-y-4">
         <h1>Logo Clouds</h1>
         <p>Comfortably fits 2-4 logos with optional fragement slots for icons and labels.</p>
+        <CodeBlock language="html" code={`<script>import {LogoCloud, Logo} from '@brainandbones/skeleton';</\script>\n`}></CodeBlock>
     </header>
 
     <!-- Examples -->
@@ -47,9 +44,8 @@
     <!-- Usage -->
     <section class="space-y-4">
         <h2>Usage</h2>
-        <CodeBlock language="html" code={codeImport}></CodeBlock>
-        <CodeBlock language="html" code={codeBasic}></CodeBlock>
-        <CodeBlock language="html" code={codeSlotted}></CodeBlock>
+        <CodeBlock language="html" code={`<LogoCloud>\n\t<Logo>Acme</Logo>\n</LogoCloud>`}></CodeBlock>
+        <CodeBlock language="html" code={`<LogoCloud>\n\t<Logo>\n\t\t<svelte:fragment slot="icon">(icon)</svelte:fragment>\n\t\t<svelte:fragment slot="label">Acme</svelte:fragment>\n\t</Logo>\n</LogoCloud>`}></CodeBlock>
     </section>
 
 </div>

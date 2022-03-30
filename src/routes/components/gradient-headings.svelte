@@ -20,7 +20,8 @@
     <!-- Header -->
     <header class="space-y-4">
         <h1>Gradient Heading</h1>
-        <p >Quickly make a gradient header with custom size and gradient direction.</p>
+        <p>Quickly make a gradient header with custom size and gradient direction.</p>
+        <CodeBlock language="javascript" code="{`<script>import {GradientHeading} from '@brainandbones/skeleton';</\script>`}"></CodeBlock>
     </header>
     
     <!-- Examples -->
@@ -58,7 +59,6 @@
     <!-- Usage -->
     <section class="space-y-4">
         <h2>Usage</h2>
-        <CodeBlock language="javascript" code="{`<script>import {GradientHeading} from '@brainandbones/skeleton';</\script>`}"></CodeBlock>
         <CodeBlock language="html" code="{`<GradientHeading from="from-rose-500" to="to-blue-500" size="6xl" direction="l">{Text}</GradientHeading>`}"></CodeBlock>
     </section>
     
