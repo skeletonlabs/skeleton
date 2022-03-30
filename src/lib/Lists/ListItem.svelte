@@ -51,14 +51,15 @@
                         <slot name='icon' />
                     </div>
                 {/if}
-
+                
+                {#if selectable}
                 <!--Selectors-->
                 {#if multiselect}
                 <input class="hidden" type="checkbox" {value} on:change={processMultiselect} />
                 {:else}     
                 <input class="hidden" type="radio" {value} bind:group={$active} />
                 {/if}
-                
+                {/if}
                 <!--Text/Label-->
                 <slot />
 
