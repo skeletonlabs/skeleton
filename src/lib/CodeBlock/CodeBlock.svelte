@@ -8,6 +8,11 @@
     let highlighted;
     let cBase: string = `bg-black text-surface-50 p-4`;
 
+    function languageFormatter(lang: string): string {
+        if (lang === 'js') { return 'javascript'; }
+        return lang;
+    }
+
 	afterUpdate(() => {
         highlighted = hljs.highlight(code, { language }).value;
     });
@@ -15,7 +20,7 @@
 
 {#if language && code}
 <div class="codeblock {cBase} {$$props.class}" data-testid="codeblock">
-<header class="text-xs opacity-50 pb-4">{language}</header>
-<pre class="whitespace-normal"><code class="language-{language}">{@html highlighted}</code></pre>
+<header class="text-xs opacity-50 pb-4">{languageFormatter(language)}</header>
+<pre class="whitespace-pre-wrap text-base"><code class="language-{language}">{@html highlighted}</code></pre>
 </div>
 {/if}

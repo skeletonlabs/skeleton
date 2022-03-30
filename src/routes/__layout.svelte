@@ -22,6 +22,7 @@
 		{href: '/components/gradient-headings', label: 'Gradient Heading'},
 		{href: '/components/breadcrumbs', label: 'Breadcrumb'},
 		{href: '/components/progress-bars', label: 'Progress Bars'},
+		{href: '/components/radio-groups', label: 'Radio Groups'},
 	].sort((a, b) => (a.label > b.label) ? 1 : -1);
 	let navUtilities: any[] = [
 		{href: '/utilities/filters', label: 'Filters (beta)'},
