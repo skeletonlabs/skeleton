@@ -1,41 +1,42 @@
 <script lang='ts'>
+    import Divider from '$lib/Divider/Divider.svelte';
 
-    import Divider from "$lib/Divider/Divider.svelte";
+    export let variant = 'comfortable';
+    export let hover: boolean = false;
+    export let separate: boolean = false;
+    export let selectable: boolean = false;
 
-    export let listItems: any = [];
-    export let divided: boolean = false;
-    export let active: boolean = false;
-    export let checkList: boolean = true;
-    export let size: string = '';
-    export let itemStyle = '';
-    export let variant = 'nav';    // Nav, Ordered, Unordered
+    let element: HTMLElement;
+    import {setContext, onMount} from 'svelte';
 
-    switch(size){
-        case('comfortable'): { itemStyle += 'p-4 pl-4'; break;}
-        case('dense'): { itemStyle += 'p-3 pl-4'; break;}
-        case('compact'): { itemStyle += 'p-2 pl-4'; break;}
-        default: { itemStyle += 'p-2 pl-4'; break;}
+    // On mount,
+    if(separate){
+        onMount(()=>{
+        let childrenCount = element.childElementCount;
+        let children = element.children;
+            for(let i = 0; i < childrenCount - 1; ++i){
+                new Divider({target: children[i]});
+            }
+        })
     }
 
-    if(active) {itemStyle += ' hover:bg-surface-300 dark:hover:bg-surface-700 hover:cursor-pointer';}
-    
+    let cStyle = '';    
+
+    switch(variant){
+        case('comfortable'): { cStyle += ' pt-4 pb-4'; break;}
+        case('compact'): { cStyle += ' pt-2 pb-2'; break;}
+        case('dense'): { cStyle += ' pt-1 pb-1'; break;}
+    }
+    if(hover) {cStyle += ' dark:hover:bg-surface-700 hover:bg-surface-300 hover:cursor-pointer'}
+
+    setContext('style', cStyle);
+    setContext('selectable', selectable);
+
+
 </script>
-<div data-testid='listGroup' class='listGroup'>
-    {#each listItems as item, i}
-    <div class='listItem flex justify-start {itemStyle}'>
-        {#if item.icon}
-        <div class='w-8 mr-4'>{@html item.icon}</div>
-        {/if}
-        <span>
-            {#if item.href}
-                <a href={item.href}>{item.label}</a>
-            {:else}
-                <p>{item.label}</p>
-            {/if}
-        </span>
-    </div>
-    {#if divided && i !== listItems.length - 1}
-    <Divider />
-    {/if}
-    {/each}  
+
+<div class='listGroup'>
+    <ol bind:this={element}>
+        <slot />
+    </ol>
 </div>
