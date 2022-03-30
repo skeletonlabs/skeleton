@@ -1,25 +1,20 @@
 <script lang="ts">
-	export let items = [];
-	export let active;
+    import { setContext } from "svelte";
+
+    export let background: string = undefined;
+    export let color: string = undefined;
+
+    // Set Context - provide to children
+    setContext('background', background)
+    setContext('color', color)
 
     // Base Classes
-    let cBase: string = `inline-flex items-center rounded overflow-hidden space-x-[2px]`;
-    let cLabel: string = `bg-surface-300 dark:bg-surface-700 text-black dark:text-white fill-black dark:fill-white text-base px-5 py-2.5 cursor-pointer`;
+    let cBase: string = `radio-group inline-flex items-center rounded overflow-hidden space-x-[2px]`;
 
     // Reactive
-    $: classesBase = `${cBase} ${$$props.class}`;
-    $: classesLabel = `${cLabel}`;
+    $: classes = `${cBase} ${$$props.class}`;
 </script>
 
-<nav class="{classesBase}">
-    {#each items as { label, value }}
-        <label class="{classesLabel}" class:active={active == value}>
-            <input class="hidden" type="radio" {value} bind:group={active} />
-            {@html label}
-        </label>
-    {/each}
+<nav class="{classes}">
+    <slot />
 </nav>
-
-<style lang="postcss">
-    .active { @apply bg-primary-500; }
-</style>
