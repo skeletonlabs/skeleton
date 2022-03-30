@@ -33,7 +33,9 @@
         <Card class="flex justify-center items-center">Minimal</Card>
         <Card class="cursor-pointer transition-transform hover:-translate-y-1 hover:shadow-xl">
             <svelte:fragment slot="header">
-                <img src="https://source.unsplash.com/random/960x540" class="bg-black aspect-video w-full" alt="Post">
+                <div class="-mt-4 -mx-4">
+                    <img src="https://source.unsplash.com/random/960x540" class="bg-black aspect-video w-full" alt="Post">
+                </div>
             </svelte:fragment>
             <div class="space-y-4">
                 <h6 class="text-primary-500">Announcements</h6>

@@ -3,7 +3,7 @@
     export let color: string = undefined;
 
     // Base Classes
-    let cBase: string = `rounded-lg`;
+    let cBase: string = `p-4 rounded-lg overflow-hidden`;
 
     // Reactive
     $: classes = `${cBase} ${background} ${color}`;
@@ -12,12 +12,12 @@
 <div class="card {classes} {$$props.class}">
     <!-- Header -->
     {#if $$slots.header}
-    <header><slot name="header"></slot></header>
+    <header class="mb-4"><slot name="header"></slot></header>
     {/if}
     <!-- Body -->
-    <div class="p-4"><slot /></div>
+    <slot />
     <!-- Footer -->
     {#if $$slots.footer}
-    <footer><slot name="footer"></slot></footer>
+    <footer class="mt-4"><slot name="footer"></slot></footer>
     {/if}
 </div>
