@@ -132,7 +132,7 @@
                     </select>
                 </label>
 				<!-- Disabled -->
-				<label class="inline-flex items-center">
+				<label class="flex items-center">
 					<input type="checkbox" bind:checked={props.disabled} />
 					<p class="ml-2">Disabled</p>
 				</label>

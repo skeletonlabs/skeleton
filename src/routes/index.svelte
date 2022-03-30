@@ -7,12 +7,6 @@
 
 <div class="text-center space-y-8 lg:text-left">
 
-    <!-- Warning -->
-    <section class="bg-warning-500/10 border-warning-500 border-2 border-dotted p-4 rounded-full text-center flex justify-center items-center space-x-8">
-        <h2 class="text-warning-500">⚠️ Warning</h2>
-        <p>Skeleton is in early development. Use at your own risk.</p>
-    </section>
-
     <!-- Header -->
     <header class="flex justify-center items-center space-x-8">
         <!-- Logo -->
@@ -63,6 +57,12 @@
         <h1>Skeleton is a component library that allows you to build web apps faster utilizing <a href="https://svelte.dev/" target="_blank">Svelte</a> + <a href="https://tailwindcss.com/" target="_blank">Tailwind</a>.</h1>
     </header>
 
+    <!-- Warning -->
+    <!-- <section class="bg-warning-500/10 border-warning-500 border-2 border-dotted p-4 rounded-full text-center flex justify-center items-center space-x-8">
+        <h2 class="text-warning-500">⚠️ Warning</h2>
+        <p>Skeleton is in early development. Use at your own risk.</p>
+    </section> -->
+
     <Divider display="dotted" />
 
     <!-- Install -->
@@ -83,7 +83,7 @@
         <!-- Implement Your Theme -->
         <h4>Next: Implement Your Theme</h4>
         <p>Follow the guide linked below to create and add your own theme.</p>
-        <Button display="filled" color="accent" href="/docs/themes">Theme Setup Guide</Button>
+        <Button variant="filled-accent" href="/docs/themes">Theme Setup Guide</Button>
     </Card>
 
     <Divider />
@@ -95,11 +95,13 @@
         <div class="space-y-4">
             <h6>Official Tailwind Plugins</h6>
             <nav class="flex flex-row space-x-2">
-                <Button display="filled" color="accent" href="https://tailwindcss.com/docs/typography-plugin" target="_blank">Typography</Button>
-                <Button display="filled" color="accent" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Forms</Button>
+                <Button variant="filled-accent" href="https://tailwindcss.com/docs/typography-plugin" target="_blank">Typography</Button>
+                <Button variant="filled-accent" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Forms</Button>
             </nav>
         </div>
     </section>
+
+    <Divider />
     
     <!-- Contributions -->
     <section class="space-y-4">
@@ -107,9 +109,11 @@
         <p>We'll provide official instructions for contributing to Skeleton soon.</p>
     </section>
 
+    <Divider />
+
     <!-- Legal -->
-    <p class="text-xs text-surface-700 text-right">
-        Created <a href="https://www.brainandbonesllc.com/" target="_blank" class="text-surface-500">Brain & Bones</a>.
+    <p class="text-xs text-surface-700 text-center">
+        Created and maintained by <a href="https://www.brainandbonesllc.com/" target="_blank" class="text-surface-500">Brain & Bones</a>.
     </p>
 
 </div>

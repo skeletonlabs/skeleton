@@ -15,12 +15,12 @@ describe('Button.svelte', () => {
     afterEach(() => cleanup())
 
     it('Renders with props', async () => {
-        const { getByTestId } = render(Button); // , { label: 'Button' }
+        const { getByTestId } = render(Button);
         expect( getByTestId ).toBeTruthy();
     })
 
     it('Renders with props', async()=>{
-        const { getByTestId } = render(Button, {props: { display: 'text', color: 'primary' }}); // , { label: 'Button' }
+        const { getByTestId } = render(Button, {props: { variant: 'ghost-primary' }});
         expect( getByTestId ).toBeTruthy();
     })
 
