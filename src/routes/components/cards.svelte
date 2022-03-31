@@ -1,6 +1,6 @@
 <script lang="ts">
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-    import Table from "$lib/_Table/Table.svelte";
+    import Table from "$lib/Table/Table.svelte";
     import Avatar from "$lib/Avatar/Avatar.svelte";
     import Card from "$lib/Card/Card.svelte";
 

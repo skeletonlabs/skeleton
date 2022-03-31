@@ -2,7 +2,7 @@
     import Avatar from "$lib/Avatar/Avatar.svelte";
     import Card from "$lib/Card/Card.svelte";
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
-    import Table from "$lib/_Table/Table.svelte";
+    import Table from "$lib/Table/Table.svelte";
 
     const tableProps: any = {
         columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],

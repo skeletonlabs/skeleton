@@ -1,6 +1,6 @@
 <script lang="ts">
     import Card from "$lib/Card/Card.svelte";
-    import Table from '$lib/_Table/Table.svelte';
+    import Table from '$lib/Table/Table.svelte';
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
     import Breadcrumb from "$lib/Breadcrumb/Breadcrumb.svelte";
     import Crumb from "$lib/Breadcrumb/Crumb.svelte";

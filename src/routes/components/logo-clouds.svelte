@@ -1,7 +1,7 @@
 <script lang="ts">
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
     import LogoCloud from "$lib/LogoCloud/LogoCloud.svelte";
-    import Table from '$lib/_Table/Table.svelte';
+    import Table from '$lib/Table/Table.svelte';
     import Logo from "$lib/LogoCloud/Logo.svelte";
 
     const tableSlots: any = {

@@ -1,6 +1,6 @@
 <script lang="ts">
     import Card from "$lib/Card/Card.svelte";
-    import Table from '$lib/_Table/Table.svelte';
+    import Table from '$lib/Table/Table.svelte';
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
     import ProgressBar from "$lib/Progress/ProgressBar.svelte";
 

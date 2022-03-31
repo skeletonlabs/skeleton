@@ -2,7 +2,7 @@
     import Divider from "$lib/Divider/Divider.svelte";
     // Docs
     import Card from "$lib/Card/Card.svelte";
-    import Table from '$lib/_Table/Table.svelte';
+    import Table from '$lib/Table/Table.svelte';
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
 
     const tableProps: any = {

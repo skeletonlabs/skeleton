@@ -1,7 +1,7 @@
 <script lang="ts">
     import Card from "$lib/Card/Card.svelte";
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
-    import Table from "$lib/_Table/Table.svelte";
+    import Table from "$lib/Table/Table.svelte";
 
     const codeSampleTheme: string = `
 :root {
