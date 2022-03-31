@@ -16,7 +16,7 @@
     if(selectable){
         active.subscribe(active =>{
             // Set the active color state and override default hover color when active for both dark/light modes
-            cActive = value === active || active.includes(value) ? `bg-accent-500 dark:hover:bg-accent-500 light:hover:bg-accent-500` : '';
+            cActive = value === active || active.includes(value) ? `bg-accent-500 dark:hover:bg-accent-500 hover:bg-accent-500` : '';
         })
     }
 
