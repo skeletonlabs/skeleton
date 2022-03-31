@@ -1,7 +1,16 @@
 <script lang="ts">
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
     import LogoCloud from "$lib/LogoCloud/LogoCloud.svelte";
+    import Table from '$lib/_Table/Table.svelte';
     import Logo from "$lib/LogoCloud/Logo.svelte";
+
+    const tableSlots: any = {
+        columns: ['Name', 'Description'],
+        data: [
+            ['Icon', 'Dedicated icon slot, left of the label.'],
+            ['Label', 'Dedicated slot for adding a label.'],
+        ],
+    };
 </script>
 
 <div class="space-y-8">
@@ -28,7 +37,7 @@
             <Logo>Acme Theaters</Logo>
             <Logo>Cruisin' Cuisine</Logo>
         </LogoCloud>
-        <h4>Fragment Slots</h4>
+        <h4>Slots</h4>
         <LogoCloud>
             <Logo>
                 <svelte:fragment slot="icon">&#9733;</svelte:fragment>
@@ -48,4 +57,9 @@
         <CodeBlock language="html" code={`<LogoCloud>\n\t<Logo>\n\t\t<svelte:fragment slot="icon">(icon)</svelte:fragment>\n\t\t<svelte:fragment slot="label">Acme</svelte:fragment>\n\t</Logo>\n</LogoCloud>`}></CodeBlock>
     </section>
 
+    <!-- Slots -->
+    <section class="space-y-4">
+        <h2>Slots</h2>
+        <Table source="{tableSlots}"></Table>
+    </section>
 </div>

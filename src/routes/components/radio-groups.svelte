@@ -64,7 +64,7 @@
     <section class="space-y-4">
         <CodeBlock language="js" code={`const storeLayout = writable('horz');`}></CodeBlock>
         <CodeBlock language="html" code={`<RadioGroup active={storeLayout} background="bg-accent-500" color="text-white">\n\t<RadioItem value="horz">Horizontal</RadioItem>\n\t<RadioItem value="vert">Vertical</RadioItem>\n</RadioGroup>`}></CodeBlock>
-        <CodeBlock language="html" code={`<p>Active = {$storeLayout}</p>`}></CodeBlock>
+        <CodeBlock language="html" code={`<p>{$storeLayout}</p>`}></CodeBlock>
     </section>
 
     <!-- Properties -->

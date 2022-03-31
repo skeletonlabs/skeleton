@@ -7,10 +7,10 @@
     const tableProps: any = {
         columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
         data: [
-            ['from', 'string', '(class name)', 'from-primary-500', 'Insert the standard Tailwind "from-" class name'],
-            ['to', 'string', '(class name)', 'to-accent-500', 'Insert the standard Tailwind "to-" class name'],
+            ['from', 'string', 'class', 'from-primary-500', 'Provide a Tailwind "from-" class.'],
+            ['to', 'string', 'class', 'to-accent-500', 'Provide a Tailwind "to-" class.'],
             ['size', 'string', 'sm | md | lg | xl | 2xl | ... | 9xl', '4xl', 'The font size to be used.'],
-            ['direction', 'string', 't | b | l | r | tl | tr | bl | br', 't', 'Set the direction of the gradient. Abbreviated as tl would equal top left'],
+            ['direction', 'string', 't | b | l | r | tl | tr | bl | br', 't', 'Abbreviated direction of the gradient.'],
         ],
     };
 </script>
@@ -20,7 +20,7 @@
     <!-- Header -->
     <header class="space-y-4">
         <h1>Gradient Heading</h1>
-        <p>Quickly make a gradient header with custom size and gradient direction.</p>
+        <p>Quickly add a gradient header with customizable size and gradient direction.</p>
         <CodeBlock language="javascript" code="{`<script>import {GradientHeading} from '@brainandbones/skeleton';</\script>`}"></CodeBlock>
     </header>
     
