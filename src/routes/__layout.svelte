@@ -3,7 +3,7 @@
 	import { browser } from '$app/env';
 	
 	import 'highlight.js/styles/github-dark.css'; // Highlight.js
-	import '../theme-st.css'; // bb|st
+	import '../theme-bb.css'; // bb|st
 	import '../app.css';
 	
 	import Divider from '$lib/Divider/Divider.svelte';
