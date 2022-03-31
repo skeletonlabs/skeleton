@@ -10,6 +10,8 @@
             ['initials', 'string', 'text', 'A', 'Supply up to 2 text characters.'],
             ['src', 'string', 'url', '-', 'The image source to be displayed.'],
             ['size', 'string', 'sm | md | lg | xl | 2xl | 3xl, full', 'full', 'A variety of preset sizes, plus fluid option.'],
+            ['background', 'string', 'class', 'bg-surface-500', 'Provice a class to set background color.'],
+            ['color', 'string', 'class', 'text-white', 'Provide a classs to set text color'],
             ['outline', 'boolean', 'true | false', 'false', 'Displays a fixed outline of the primary color.'],
             ['hover', 'boolean', 'true | false', 'false', 'Adds an outline of the primary color when hovered.'],
         ],
@@ -18,8 +20,10 @@
     const placeholder: string = 'https://i.pravatar.cc/';
     $:props = {
 		initials: 'SK',
-		src: placeholder,
+		src: undefined,
         size: '3xl',
+        background: 'bg-surface-500',
+        color: undefined,
         outlined: false,
         hover: false,
 	};
@@ -30,7 +34,7 @@
     <!-- Header -->
     <header class="space-y-4">
         <h1>Avatars</h1>
-        <p>Choose from a variety for avatar sizes and styles. Include clean placeholders.</p>
+        <p>Choose from a variety for avatar sizes and styles, using either initials or images.</p>
         <CodeBlock language="js" code={`<script>import {Avatar} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
     </header>
 
@@ -41,9 +45,11 @@
 			<Card class="space-y-4 flex justify-center items-center">
 				<svelte:component
 					this={Avatar}
-					initials={props.initials}
+					initials={props.initials || 'A'}
 					src={props.src}
 					size={props.size}
+					background={props.background}
+					color={props.color}
 					outlined={props.outlined}
 					hover={props.hover}
 				></svelte:component>
@@ -60,7 +66,7 @@
                     <span>Source</span>
                     <select name="src" id="src" bind:value={props.src}>
                         <option value="">None</option>
-                        <option value={placeholder}>Placeholder</option>
+                        <option value={placeholder}>Image</option>
                     </select>
                 </label>
 				<!-- Size -->
@@ -74,6 +80,16 @@
                         <option value="xl">xl</option>
                         <option value="2xl">2xl</option>
                         <option value="3xl">3xl</option>
+                    </select>
+                </label>
+				<!-- Background -->
+				<label>
+                    <span>Background</span>
+                    <select name="background" id="background" bind:value={props.background}>
+                        <option value="bg-surface-500">Default</option>
+                        <option value="bg-primary-500">bg-primary-500</option>
+                        <option value="bg-accent-500">bg-accent-500</option>
+                        <option value="bg-warning-500">bg-warning-500</option>
                     </select>
                 </label>
 				<!-- Outlined -->
@@ -90,7 +106,7 @@
 		</div>
 		<CodeBlock
 			language="html"
-			code={`<Avatar initials="${props.initials}" src="${props.src}" size="${props.size}" outlined={${props.outlined}} hover={${props.hover}} />`}
+			code={`<Avatar initials="${props.initials || 'A'}" src="${props.src}" size="${props.size}" background="${props.background}" outlined={${props.outlined}} hover={${props.hover}} />`}
 		></CodeBlock>
 	</section>
     

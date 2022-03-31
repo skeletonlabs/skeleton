@@ -4,11 +4,13 @@
 	export let initials: string = 'A';
 	export let src: string = ''; // image source, default empty
 	export let size: string = ''; // sm | md | lg | xl | 2xl | 3xl
+	export let background: string = 'bg-surface-500';
+	export let color: string = 'text-white';
 	export let outlined: boolean = false;
     export let hover: boolean = false;
 	
 	// Classes
-	let cBase: string = 'flex aspect-square text-surface-50 font-semibold justify-center items-center rounded-full overflow-hidden bg-surface-500 transition-all';
+	let cBase: string = 'flex aspect-square text-surface-50 font-semibold justify-center items-center rounded-full overflow-hidden transition-all';
 	let cOutlined: string;
 	let cHover: string;
 	let cSize: string;
@@ -21,7 +23,7 @@
 
 	// Set Hover
 	function setHover(): void {
-		cHover = hover === true ? 'ring-offset-2 ring-offset-surface-50 dark:ring-offset-surface-900 hover:ring hover:ring-primary-600 cursor-pointer' : '';
+		cHover = hover === true ? 'ring-offset-2 ring-offset-surface-50 dark:ring-offset-surface-900 hover:ring hover:ring-black dark:hover:ring-white cursor-pointer' : '';
 	}
 
 	// Set size
@@ -43,7 +45,7 @@
 		setHover();
 		setSize();
 	});
-	$: classes = `${cBase} ${cSize} ${cOutlined} ${cHover} ${$$props.class}`;
+	$: classes = `${cBase} ${cSize} ${background} ${color} ${cOutlined} ${cHover} ${$$props.class}`;
 </script>
 
 <div data-testid='wrapper' on:click class="avatar {classes}">
