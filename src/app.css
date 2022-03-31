@@ -35,11 +35,8 @@ h5 { @apply text-lg font-bold; }
 h6 { @apply text-base font-bold; }
 
 /* Page Styles */
-#page p { @apply text-base text-surface-500 dark:text-surface-400; }
-#page a
-    :not(.comp-button a)
-    :not(.breadcrumb a)
-    :not(.crumb a) { @apply text-primary-500 underline; }
+main p { @apply text-base text-surface-500 dark:text-surface-400; }
+main a:not(.comp-button a):not(.crumb a) { @apply text-primary-500 underline; }
 
 /* --- Forms --- */
 

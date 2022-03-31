@@ -3,7 +3,7 @@
 
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
     import Card from "$lib/Card/Card.svelte";
-    import Table from "$lib/_Table/Table.svelte";
+    import Table from "$lib/Table/Table.svelte";
     import RadioGroup from "$lib/RadioGroup/RadioGroup.svelte";
     import RadioItem from "$lib/RadioGroup/RadioItem.svelte";
 
@@ -36,7 +36,7 @@
 	</header>
 
     <!-- Sandbox -->
-	<section class="flex space-x-4">
+	<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Card class="flex-auto space-y-2 text-center">
             <RadioGroup active={storeJustify}>
                 <RadioItem value={0}>
@@ -64,7 +64,7 @@
     <section class="space-y-4">
         <CodeBlock language="js" code={`const storeLayout = writable('horz');`}></CodeBlock>
         <CodeBlock language="html" code={`<RadioGroup active={storeLayout} background="bg-accent-500" color="text-white">\n\t<RadioItem value="horz">Horizontal</RadioItem>\n\t<RadioItem value="vert">Vertical</RadioItem>\n</RadioGroup>`}></CodeBlock>
-        <CodeBlock language="html" code={`<p>Active = {$storeLayout}</p>`}></CodeBlock>
+        <CodeBlock language="html" code={`<p>{$storeLayout}</p>`}></CodeBlock>
     </section>
 
     <!-- Properties -->
