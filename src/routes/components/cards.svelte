@@ -40,14 +40,14 @@
             </svelte:fragment>
             <div class="space-y-4">
                 <h6 class="text-primary-500">Announcements</h6>
-                <h4>Mixing Tailwind classes and adding body content.</h4>
+                <h4>Welcome to Skeleton</h4>
                 <article class="text-surface-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam aspernatur provident eveniet eligendi cumque consequatur tempore sint nisi sapiente. Iste beatae laboriosam iure molestias cum expedita architecto itaque quae rem.</article>
             </div>
             <svelte:fragment slot="footer">
-                <div class="flex justify-start items-center px-4 pb-4 space-x-4">
-                    <Avatar src="https://i.pravatar.cc/160" size="sm" outlined />
+                <div class="flex justify-start items-center space-x-4">
+                    <Avatar src="https://i.pravatar.cc/160?img=5" size="sm" outlined />
                     <div>
-                        <h6 class="font-bold">By Person</h6>
+                        <h6 class="font-bold">By Alex</h6>
                         <p>On October 1st, 1983</p>
                     </div>
                 </div>
