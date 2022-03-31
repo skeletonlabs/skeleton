@@ -96,8 +96,8 @@
                 <label>
                     <span>Color</span>
                     <select name="color" id="color" bind:value={props.color}>
-                        <option value={'bg-accent-500'}>bg-accent-500</option>
                         <option value={'bg-primary-500'}>bg-primary-500</option>
+                        <option value={'bg-accent-500'}>bg-accent-500</option>
                         <option value={'bg-warning-500'}>bg-warning-500</option>
                     </select>
                 </label>

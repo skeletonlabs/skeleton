@@ -54,12 +54,12 @@
     `.trim();
 
     const tableProps: any = {
-        columns: ['Color', 'Shades', 'Usage'],
+        columns: ['Swatch', 'Name', 'Class', 'Usage'],
         data: [
-            ['Primary', '50-900', 'Your primary brand color.'],
-            ['Accent', '50-900', 'An accent for offsets or supplimentary values.'],
-            ['Warning', '50-900', 'May be used for warnings, alerts, and invalid inputs.'],
-            ['Surface', '50-900', 'May be used for backgrounds, card elements, and some typography.'],
+            ['<div class="bg-primary-500 aspect-square w-4 rounded-full"></div>', 'Primary', '[x]-primary-[50-900]', 'Your primary brand color.'],
+            ['<div class="bg-accent-500 aspect-square w-4 rounded-full"></div>', 'Accent', '[x]-accent-[50-900]', 'An accent for offsets or supplimentary values.'],
+            ['<div class="bg-warning-500 aspect-square w-4 rounded-full"></div>', 'Warning', '[x]-warning-[50-900]', 'May be used for warnings, alerts, and invalid inputs.'],
+            ['<div class="bg-surface-500 aspect-square w-4 rounded-full"></div>', 'Surface', '[x]-surface-[50-900]', 'May be used for backgrounds, card elements, and some typography.'],
         ],
     };
 </script>
