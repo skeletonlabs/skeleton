@@ -3,6 +3,7 @@
     import ListGroup from "$lib/Lists/ListGroup.svelte";
     import ListItem from "$lib/Lists/ListItem.svelte";
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
+    import Table from "$lib/_Table/Table.svelte";
     import {writable} from 'svelte/store'
     
 
@@ -11,6 +12,24 @@
 
     let selections = writable('');
     let multiSelections = writable([]);
+
+    const tablePropsGroup: any = {
+        columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
+        data: [
+            ['variant', 'string', 'dense, compact, comfortable', 'compact', 'Define the height of the list item'],
+            ['separate', 'boolean', 'true | false', 'false', 'Set list items to be separated by a divider'],
+            ['selectable', 'boolean', 'true | false', 'false', 'Set a list to contain selectable items'],
+            ['multiselect', 'boolean', 'true | false', 'false', 'Set a list to contain multiple selectable items'],
+            ['active', 'writable', 'any', 'null', 'Define the svelte writable store object to contain active (selected) items'],
+        ],
+    };
+
+    const tablePropsItem: any = {
+        columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
+        data: [
+            ['icon', 'HTML', 'Any HTML element', '-', 'Define a HTML prefix to the list item, such as an icon'],
+        ],
+    };
     
 </script>
 
@@ -106,5 +125,17 @@
 		<CodeBlock language="javascript" code={`<script>\nimport {ListGroup, ListItem} from '@brainandbones/skeleton';\nimport {writable} from 'svelte/store';\n\nlet selections = writable([]);\n</\script>`}></CodeBlock>
         <CodeBlock language="html" code={`<ListGroup variant='comfortable' selectable multiselect>\n<ListItem icon={iconSrc}>Coffee</ListItem>\n<ListItem icon={iconSrc}>Tea</ListItem> \n</ListGroup>`}></CodeBlock>
 	</section>
+
+    <!-- Properties -->
+    <section class="space-y-4">
+        <h2 class="text-2xl font-bold">Properties List Group</h2>
+        <Table source="{tablePropsGroup}"></Table>
+    </section>
+
+    <!-- Properties -->
+    <section class="space-y-4">
+        <h2 class="text-2xl font-bold">Properties List Item</h2>
+        <Table source="{tablePropsItem}"></Table>
+    </section>
 
 </section>
