@@ -96,19 +96,19 @@
     <section class="space-y-4">
 		<h2>Browser Support</h2>
         <p>Please be aware that <a href="https://caniuse.com/css-filters" target="_blank">browser support</a> varies. We recommend you utilize progressive enhancement for non-supported browsers. Firefox is disabled by default.</p>
-        <Card class="grid grid-cols-4 gap-4">
-            <div class="text-center bg-emerald-500 px-4 py-2 rounded">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <Card background="bg-emerald-500" class="flex justify-center items-center px-4 min-h-[100px]">
                 <h6>Chrome: Full</h6>
-            </div>
-            <div class="text-center bg-emerald-500 px-4 py-2 rounded">
+            </Card>
+            <Card background="bg-emerald-500" class="flex justify-center items-center px-4 min-h-[100px]">
                 <h6>Edge: Full</h6>
-            </div>
-            <div class="text-center bg-orange-500 px-4 py-2 rounded">
+            </Card>
+            <Card background="bg-orange-500" class="flex justify-center items-center px-4 min-h-[100px]">
                 <h6>Safari: Partial</h6>
-            </div>
-            <div class="text-center bg-rose-500 px-4 py-2 rounded">
+            </Card>
+            <Card background="bg-rose-500" class="flex justify-center items-center px-4 min-h-[100px]">
                 <h6>Firefox: None</h6>
-            </div>
-        </Card>
+            </Card>
+        </div>
     </section>
 </div>

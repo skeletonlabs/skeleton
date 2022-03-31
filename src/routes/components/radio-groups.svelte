@@ -36,7 +36,7 @@
 	</header>
 
     <!-- Sandbox -->
-	<section class="flex space-x-4">
+	<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Card class="flex-auto space-y-2 text-center">
             <RadioGroup active={storeJustify}>
                 <RadioItem value={0}>

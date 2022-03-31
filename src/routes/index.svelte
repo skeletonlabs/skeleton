@@ -5,10 +5,10 @@
     import Divider from "$lib/Divider/Divider.svelte";
 </script>
 
-<div class="text-center space-y-8 lg:text-left">
+<div class="space-y-8 lg:text-left">
 
     <!-- Header -->
-    <header class="flex justify-center items-center space-x-8">
+    <header class="flex items-center flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-8">
         <!-- Logo -->
         <div class="bg-primary-500 bg-gradient-to-br from-primary-500 to-accent-500 p-8 rounded-2xl w-56">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.999 511.999">
@@ -54,7 +54,7 @@
             </svg>
         </div>
         <!-- Intro -->
-        <h1>Skeleton is a component library that allows you to build web apps faster utilizing <a href="https://svelte.dev/" target="_blank">Svelte</a> + <a href="https://tailwindcss.com/" target="_blank">Tailwind</a>.</h1>
+        <h2 class="text-2xl md:text-3xl lg:text-4xl">Skeleton is a component library that allows you to build web apps faster utilizing <a href="https://svelte.dev/" target="_blank">Svelte</a> + <a href="https://tailwindcss.com/" target="_blank">Tailwind</a>.</h2>
     </header>
 
     <!-- Warning -->

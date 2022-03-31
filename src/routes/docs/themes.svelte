@@ -64,7 +64,7 @@
     };
 </script>
 
-<div class="space-y-4">
+<div class="space-y-8">
 
 	<!-- Header -->
 	<header class="space-y-4">

@@ -30,33 +30,38 @@
     </header>
 
     <!-- Examples -->
-    <section class="grid grid-cols-3 gap-4">
-        <Card class="flex justify-center items-center">Minimal</Card>
-        <Card class="cursor-pointer transition-transform hover:-translate-y-1 hover:shadow-xl">
-            <svelte:fragment slot="header">
-                <div class="-mt-4 -mx-4">
-                    <img src="https://source.unsplash.com/random/960x540?skeleton" class="bg-black aspect-video w-full" alt="Post">
-                </div>
-            </svelte:fragment>
-            <div class="space-y-4">
-                <h6 class="text-primary-500">Announcements</h6>
-                <h4>Welcome to Skeleton</h4>
-                <article class="text-surface-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam aspernatur provident eveniet eligendi cumque consequatur tempore sint nisi sapiente. Iste beatae laboriosam iure molestias cum expedita architecto itaque quae rem.</article>
-            </div>
-            <svelte:fragment slot="footer">
-                <div class="flex justify-start items-center space-x-4">
-                    <Avatar src="https://i.pravatar.cc/160?img=5" size="sm" outlined />
-                    <div>
-                        <h6 class="font-bold">By Alex</h6>
-                        <p>On October 1st, 1983</p>
+    <section class="space-y-4">
+        <div class="grid md:grid-cols-2 gap-4">
+            <!-- Minimal -->
+            <Card class="flex justify-center items-center min-h-[100px]">Minimal</Card>
+            <!-- Detailed -->
+            <Card class="cursor-pointer transition-transform hover:-translate-y-1 hover:shadow-xl">
+                <svelte:fragment slot="header">
+                    <div class="-mt-4 -mx-4">
+                        <img src="https://source.unsplash.com/random/960x540?skeleton" class="bg-black aspect-video w-full" alt="Post">
                     </div>
+                </svelte:fragment>
+                <div class="space-y-4">
+                    <h6 class="text-primary-500">Announcements</h6>
+                    <h4>Welcome to Skeleton</h4>
+                    <article class="text-surface-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam aspernatur provident eveniet eligendi cumque consequatur tempore sint nisi sapiente. Iste beatae laboriosam iure molestias cum expedita architecto itaque quae rem.</article>
                 </div>
-            </svelte:fragment>
-        </Card>
-        <div class="flex flex-col space-y-4">
-            <Card background="bg-primary-500" color="text-white" class="flex-1 flex justify-center items-center">Primary</Card>
-            <Card background="bg-accent-500" color="text-white" class="flex-1 flex justify-center items-center">Accent</Card>
-            <Card background="bg-warning-500" color="text-white" class="flex-1 flex justify-center items-center">Warning</Card>
+                <svelte:fragment slot="footer">
+                    <div class="flex justify-start items-center space-x-4">
+                        <Avatar src="https://i.pravatar.cc/160?img=5" size="sm" outlined />
+                        <div>
+                            <h6 class="font-bold">By Alex</h6>
+                            <p>On October 1st, 1983</p>
+                        </div>
+                    </div>
+                </svelte:fragment>
+            </Card>
+        </div>
+        <!-- Colors -->
+        <div class="grid md:grid-cols-3 gap-4">
+            <Card background="bg-primary-500" color="text-white" class="flex-1 flex justify-center items-center min-h-[100px]">Primary</Card>
+            <Card background="bg-accent-500" color="text-white" class="flex-1 flex justify-center items-center min-h-[100px]">Accent</Card>
+            <Card background="bg-warning-500" color="text-white" class="flex-1 flex justify-center items-center min-h-[100px]">Warning</Card>
         </div>
     </section>
 

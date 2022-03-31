@@ -32,7 +32,7 @@
 
     <!-- Sandbox -->
     <section class="space-y-4">
-        <div class="space-y-4 lg:space-y-0 lg:grid grid-cols-[2fr,1fr] gap-2">
+        <div class="space-y-4 xl:space-y-0 xl:grid grid-cols-[2fr,1fr] gap-2">
             <!-- Example -->
 			<Card class="space-y-4 flex justify-center items-center">
                 <div class="w-[75%] h-[100px] flex justify-evenly items-center">

@@ -47,7 +47,7 @@
 
 	<!-- Sandbox -->
 	<section class="space-y-4">
-		<div class="space-y-4 lg:space-y-0 lg:grid grid-cols-[2fr,1fr] gap-2">
+		<div class="space-y-4 xl:space-y-0 xl:grid grid-cols-[2fr,1fr] gap-2">
 			<!-- Example -->
 			<Card class="space-y-4 flex justify-center items-center">
 				<svelte:component
@@ -62,7 +62,7 @@
 				>Skeleton</svelte:component>
             </Card>
 			<!-- Options -->
-			<Card class="grid grid-cols-1 xl:grid-cols-2 gap-4">
+			<Card class="grid grid-cols-1 2xl:grid-cols-2 gap-4">
 				<!-- Size -->
 				<label>
                     <span>Size</span>
@@ -158,43 +158,46 @@
 	<section class="space-y-4">
 		<h4>Variants</h4>
 		<p>Skeleton provides variants to quickly and easily create buttons with predefined styles.</p>
-		<Card class="flex justify-center space-x-8">
-			<section>
-				<h4 class="text-center mb-4">Text</h4>
-				<nav class="flex flex-col space-y-4">
-					<Button variant="text">text</Button>
-					<Button variant="text-primary">text-primary</Button>
-					<Button variant="text-accent">text-accent</Button>
-					<Button variant="text-warning">text-warning</Button>
-				</nav>
-			</section>
-			<section>
-				<h4 class="text-center mb-4">Filled</h4>
-				<nav class="flex flex-col space-y-4">
-					<Button variant="filled">filled</Button>
-					<Button variant="filled-primary">filled-primary</Button>
-					<Button variant="filled-accent">filled-accent</Button>
-					<Button variant="filled-warning">filled-warning</Button>
-				</nav>
-			</section>
-			<section>
-				<h4 class="text-center mb-4">Ring</h4>
-				<nav class="flex flex-col space-y-4">
-					<Button variant="ring">ring</Button>
-					<Button variant="ring-primary">ring-primary</Button>
-					<Button variant="ring-accent">ring-accent</Button>
-					<Button variant="ring-warning">ring-warning</Button>
-				</nav>
-			</section>
-			<section>
-				<h4 class="text-center mb-4">Ghost</h4>
-				<nav class="flex flex-col space-y-4">
-					<Button variant="ghost">ghost</Button>
-					<Button variant="ghost-primary">ghost-primary</Button>
-					<Button variant="ghost-accent">ghost-accent</Button>
-					<Button variant="ghost-warning">ghost-warning</Button>
-				</nav>
-			</section>
+		<!-- flex justify-center space-x-8 -->
+		<Card>
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-2xl mx-auto">
+				<section>
+					<h4 class="text-center mb-4">Text</h4>
+					<nav class="flex flex-col space-y-4">
+						<Button variant="text">text</Button>
+						<Button variant="text-primary">text-primary</Button>
+						<Button variant="text-accent">text-accent</Button>
+						<Button variant="text-warning">text-warning</Button>
+					</nav>
+				</section>
+				<section>
+					<h4 class="text-center mb-4">Filled</h4>
+					<nav class="flex flex-col space-y-4">
+						<Button variant="filled">filled</Button>
+						<Button variant="filled-primary">filled-primary</Button>
+						<Button variant="filled-accent">filled-accent</Button>
+						<Button variant="filled-warning">filled-warning</Button>
+					</nav>
+				</section>
+				<section>
+					<h4 class="text-center mb-4">Ring</h4>
+					<nav class="flex flex-col space-y-4">
+						<Button variant="ring">ring</Button>
+						<Button variant="ring-primary">ring-primary</Button>
+						<Button variant="ring-accent">ring-accent</Button>
+						<Button variant="ring-warning">ring-warning</Button>
+					</nav>
+				</section>
+				<section>
+					<h4 class="text-center mb-4">Ghost</h4>
+					<nav class="flex flex-col space-y-4">
+						<Button variant="ghost">ghost</Button>
+						<Button variant="ghost-primary">ghost-primary</Button>
+						<Button variant="ghost-accent">ghost-accent</Button>
+						<Button variant="ghost-warning">ghost-warning</Button>
+					</nav>
+				</section>
+			</div>
 		</Card>
 		<CodeBlock language="html" code={`<Button variant="filled-primary">Skeleton</Button>`}></CodeBlock>
 	</section>
