@@ -35,7 +35,7 @@
     ];
     const dispatch = createEventDispatcher();
 
-    const cBase: string = 'w-[300px] border-r border-surface-200 py-8 space-y-8 bg-surface-50 dark:bg-surface-900 h-screen overflow-y-auto dark:border-surface-800';
+    const cBase: string = 'w-[320px] border-r border-surface-200 py-8 space-y-8 bg-surface-50 dark:bg-surface-900 h-screen overflow-y-auto dark:border-surface-800';
 
     $: classes = `${cBase} ${$$props.class}`;
 </script>
@@ -51,13 +51,13 @@
     <!-- Navigation -->
     {#each navigation as {title,list}, i }
     <section class="space-y-4">
-        <h5 class="text-primary-500 px-8">{title}</h5>
+        <small class="text-sm text-primary-500 px-8">{title}</small>
         <nav>
             {#each list as {href,label} }
             <a
                 {href}
-                class="block text-base px-8 py-4 hover:underline-offset-1"
-                class:bg-primary-600={$page.url.pathname == href}
+                class="block text-base px-8 py-4 hover:bg-primary-500/10"
+                class:active={$page.url.pathname == href}
                 on:click={() => { dispatch('close') }}
             >{label}</a>
             {/each}
@@ -67,3 +67,7 @@
     {/each}
 
 </div>
+
+<style lang="postcss">
+    .active { @apply bg-primary-500 !important; }
+</style>
