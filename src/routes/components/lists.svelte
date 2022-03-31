@@ -34,7 +34,7 @@
     };
     
 </script>
-
+<div class="space-y-8">
 <!-- Header -->
 <header class="space-y-4">
     <h2>Lists</h2>
@@ -120,24 +120,25 @@
             <ListItem icon={anchorIcon}>Item B</ListItem>
         </ListGroup>
     </Card>
-
-    <!-- Usage -->
-	<section class="space-y-4">
-		<h2>Usage</h2>
-		<CodeBlock language="javascript" code={`<script>\nimport {ListGroup, ListItem} from '@brainandbones/skeleton';\nimport {writable} from 'svelte/store';\n\nlet selections = writable([]);\n</\script>`}></CodeBlock>
-        <CodeBlock language="html" code={`<ListGroup variant='comfortable' selectable multiselect>\n<ListItem icon={iconSrc}>Coffee</ListItem>\n<ListItem icon={iconSrc}>Tea</ListItem> \n</ListGroup>`}></CodeBlock>
-	</section>
-
-    <!-- Properties -->
-    <section class="space-y-4">
-        <h2 class="text-2xl font-bold">Properties List Group</h2>
-        <Table source="{tablePropsGroup}"></Table>
-    </section>
-
-    <!-- Properties -->
-    <section class="space-y-4">
-        <h2 class="text-2xl font-bold">Properties List Item</h2>
-        <Table source="{tablePropsItem}"></Table>
-    </section>
-
 </section>
+
+<!-- Usage -->
+<section class='space-y-4'>
+    <h2>Usage</h2>
+    <CodeBlock language="javascript" code={`<script>\nimport {ListGroup, ListItem} from '@brainandbones/skeleton';\nimport {writable} from 'svelte/store';\n\nlet selections = writable([]);\n</\script>`}></CodeBlock>
+    <CodeBlock language="html" code={`<ListGroup variant='comfortable' selectable multiselect>\n<ListItem icon={iconSrc}>Coffee</ListItem>\n<ListItem icon={iconSrc}>Tea</ListItem> \n</ListGroup>`}></CodeBlock>
+</section>
+
+<!-- Properties -->
+<section class='space-y-4'>
+    <h2 class="text-2xl font-bold">Properties List Group</h2>
+    <Table source="{tablePropsGroup}"></Table>
+</section>
+
+<!-- Properties -->
+<section class='space-y-4'>
+    <h2 class="text-2xl font-bold">Properties List Item</h2>
+    <Table source="{tablePropsItem}"></Table>
+</section>
+
+</div>
