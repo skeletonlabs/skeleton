@@ -27,7 +27,9 @@
     const tablePropsItem: any = {
         columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
         data: [
+            ['value', 'any', 'Any type', '-', 'Set a value for the item to be exposed through the svelte store'],
             ['icon', 'HTML', 'Any HTML element', '-', 'Define a HTML prefix to the list item, such as an icon'],
+            ['slot: icon', 'svelte:fragment', 'Any HTML element', '-', 'Add slotted content before the list item label'],
         ],
     };
     
