@@ -35,7 +35,7 @@
         <Card class="cursor-pointer transition-transform hover:-translate-y-1 hover:shadow-xl">
             <svelte:fragment slot="header">
                 <div class="-mt-4 -mx-4">
-                    <img src="https://source.unsplash.com/random/960x540" class="bg-black aspect-video w-full" alt="Post">
+                    <img src="https://source.unsplash.com/random/960x540?skeleton" class="bg-black aspect-video w-full" alt="Post">
                 </div>
             </svelte:fragment>
             <div class="space-y-4">

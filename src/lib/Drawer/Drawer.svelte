@@ -1,5 +1,6 @@
 <script lang="ts">
     import { page } from '$app/stores';
+    import { createEventDispatcher } from 'svelte';
 
     import Divider from '$lib/Divider/Divider.svelte';
 
@@ -32,13 +33,14 @@
             ],
         }
     ];
+    const dispatch = createEventDispatcher();
 
-    const cBase: string = 'flex-none w-[300px] border-r border-surface-200 py-8 space-y-8 bg-surface-50/75 dark:bg-surface-900/75 h-screen overflow-auto dark:border-surface-800';
+    const cBase: string = 'w-[300px] border-r border-surface-200 py-8 space-y-8 bg-surface-50 dark:bg-surface-900 h-screen overflow-y-auto dark:border-surface-800';
 
-    $: classes = `${cBase}`;
+    $: classes = `${cBase} ${$$props.class}`;
 </script>
 
-<div class="{classes} {$$props.class}">
+<div class="drawer {classes}">
 
     <!-- Icon -->
     {#if $$slots.header}
@@ -52,7 +54,12 @@
         <h5 class="text-primary-500 px-8">{title}</h5>
         <nav>
             {#each list as {href,label} }
-            <a {href} class="block text-base px-8 py-4 hover:underline-offset-1" class:bg-primary-600={$page.url.pathname == href}>{label}</a>
+            <a
+                {href}
+                class="block text-base px-8 py-4 hover:underline-offset-1"
+                class:bg-primary-600={$page.url.pathname == href}
+                on:click={() => { dispatch('close') }}
+            >{label}</a>
             {/each}
         </nav>
     </section>
