@@ -1,45 +1,60 @@
 <script lang="ts">
+    import { afterUpdate } from "svelte";
+
+    export let size: String = "5xl";
+    export let direction: String = "r";
     export let from: string = 'from-primary-500';
     export let to: string = 'to-accent-500';
-    export let direction: String = "r";
-    export let size: String = "4xl"; // This seems to have no effect being set..
 
     let cBase = 'lg:leading-tight font-bold';
-    let spanStyle = `bg-clip-text text-transparent ${from} ${to}`;
+    let cSize: string;
+    let cDirection: string;
 
     // Prop: Size
-    switch(size){
-        case('sm'):  cBase += ' text-sm'; break;
-        case('md'):  cBase += ' text-md'; break;
-        case('lg'):  cBase += ' text-lg'; break;
-        case('xl'):  cBase += ' text-xl'; break;
-        case('2xl'): cBase += ' text-2xl'; break;
-        case('3xl'): cBase += ' text-3xl'; break;
-        case('4xl'): cBase += ' text-4xl'; break;
-        case('5xl'): cBase += ' text-5xl'; break;
-        case('6xl'): cBase += ' text-6xl'; break;
-        case('7xl'): cBase += ' text-7xl'; break;
-        case('8xl'): cBase += ' text-8xl'; break;
-        case('9xl'): cBase += ' text-9xl'; break;
-        default: cBase     += ' text-4xl'; break;
+    function setSize(): void {
+        switch(size){
+            case('sm'):  cSize = 'text-sm'; break;
+            case('md'):  cSize = 'text-md'; break;
+            case('lg'):  cSize = 'text-lg'; break;
+            case('xl'):  cSize = 'text-xl'; break;
+            case('2xl'): cSize = 'text-2xl'; break;
+            case('3xl'): cSize = 'text-3xl'; break;
+            case('4xl'): cSize = 'text-4xl'; break;
+            case('5xl'): cSize = 'text-5xl'; break;
+            case('6xl'): cSize = 'text-6xl'; break;
+            case('7xl'): cSize = 'text-7xl'; break;
+            case('8xl'): cSize = 'text-8xl'; break;
+            case('9xl'): cSize = 'text-9xl'; break;
+            default:     cSize = 'text-4xl';
+        }
     }
 
     // Prop: Direction
-    switch(direction){
-        case('t'):  spanStyle += ' bg-gradient-to-t'; break;
-        case('b'):  spanStyle += ' bg-gradient-to-b'; break;
-        case('l'):  spanStyle += ' bg-gradient-to-l'; break;
-        case('r'):  spanStyle += ' bg-gradient-to-r'; break;
-        case('tl'): spanStyle += ' bg-gradient-to-tl'; break;
-        case('tr'): spanStyle += ' bg-gradient-to-tr'; break;
-        case('bl'): spanStyle += ' bg-gradient-to-bl'; break;
-        case('br'): spanStyle += ' bg-gradient-to-br'; break;
-        default: spanStyle    += ' bg-gradient-to-r'; break;
+    function setDirection(): void {
+        switch(direction){
+            case('t'):  cDirection = 'bg-gradient-to-t'; break;
+            case('b'):  cDirection = 'bg-gradient-to-b'; break;
+            case('l'):  cDirection = 'bg-gradient-to-l'; break;
+            case('r'):  cDirection = 'bg-gradient-to-r'; break;
+            case('tl'): cDirection = 'bg-gradient-to-tl'; break;
+            case('tr'): cDirection = 'bg-gradient-to-tr'; break;
+            case('bl'): cDirection = 'bg-gradient-to-bl'; break;
+            case('br'): cDirection = 'bg-gradient-to-br'; break;
+            default:    cDirection = 'bg-gradient-to-r';
+        }
     }
+
+    // Reactive
+    afterUpdate(() => {
+        setSize();
+        setDirection();
+    });
+    $: classes = `${cBase} ${cSize} ${from} ${to}`;
+    $: spanClasses = `${cDirection}`;
 </script>
 
-<div data-testid="gradientHeading" class="gradientHeading {cBase} ${$$props.class}">
-    <span data-testid='span' class="{spanStyle}">
+<div data-testid="gradient-heading" class="gradient-heading {classes} ${$$props.class}">
+    <span data-testid='span' class="bg-clip-text text-transparent {spanClasses}">
         <slot />
     </span>
 </div>

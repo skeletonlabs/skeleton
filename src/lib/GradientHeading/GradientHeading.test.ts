@@ -2,22 +2,22 @@
  * @vitest-environment jsdom
  */
 
-import { cleanup, render, screen } from '@testing-library/svelte';
+import { cleanup, render } from '@testing-library/svelte';
 import { afterEach, describe, it, expect } from 'vitest';
 
 import GradientHeading from '$lib/GradientHeading/GradientHeading.svelte';
 
 // These are used to validate that all switch cases in the component applies correctly.
 
+const defaultSize: String = '5xl';
+const defaultDirection: String = 'r';
 const from: string = 'from-primary-500';
 const to: string = 'to-accent-500';
-const defaultDirection: String = 'l';
-const defaultSize: String = '4xl';
 
 const sizes:        String[] = ['sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', '7xl', '8xl'];
 const directions:   String[] = ['t', 'b', 'l', 'r', 'tr', 'tl', 'br', 'bl'];
 
-const testid = 'gradientHeading';
+const testid = 'gradient-heading';
 
 describe('Card.svelte', () => {
 	afterEach(() => cleanup());
