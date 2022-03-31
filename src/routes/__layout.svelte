@@ -1,7 +1,4 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { afterNavigate, disableScrollHandling } from '$app/navigation';
-
 	import Drawer from '$lib/Drawer/Drawer.svelte';
 	import LightSwitch from '$lib/LightSwitch/LightSwitch.svelte';
 	import Button from '$lib/Button/Button.svelte';
@@ -11,20 +8,13 @@
 	import '../theme-bb.css'; // bb|st
 	import '../app.css';
 
-	// Scroll to top on route change
-	onMount(async () => { disableScrollHandling(); });
-
 	// Drawer
 	let drawerVisible: boolean = false;
 	function drawerToggle(): void { drawerVisible = !drawerVisible; }
 	function drawerClose(): void { drawerVisible = false; }
-
-	// Scroll to top on route change
-	let y: number = 0;
-	afterNavigate(() => { y = 0 });
 </script>
 
-<svelte:window bind:scrollY={y}/>
+<!-- <svelte:window bind:scrollY={y}/> -->
 <svelte:head>
 	<title>Skeleton Documentation</title>
 </svelte:head>
