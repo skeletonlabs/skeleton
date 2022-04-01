@@ -1,11 +1,12 @@
 <script lang="ts">
+    import {writable} from 'svelte/store';
+
     import Card from "$lib/Card/Card.svelte";
-    import ListGroup from "$lib/Lists/ListGroup.svelte";
-    import ListItem from "$lib/Lists/ListItem.svelte";
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
     import Table from "$lib/_Table/Table.svelte";
-    import {writable} from 'svelte/store'
-import Divider from "$lib/Divider/Divider.svelte";
+    import Divider from "$lib/Divider/Divider.svelte";
+    import ListGroup from "$lib/Lists/ListGroup.svelte";
+    import ListItem from "$lib/Lists/ListItem.svelte";
 
     let navSingle = writable('A');
     let navMultiple = writable(['A', 'B']);
@@ -30,6 +31,14 @@ import Divider from "$lib/Divider/Divider.svelte";
         data: [
             ['href', 'string', '-', `The list item's destination URL.`],
             ['value', 'any', '-', `The list item's selectable value.`],
+        ],
+    };
+
+    const slotsItems: any = {
+        columns: ['Name', 'Description'],
+        data: [
+            ['lead', 'Positioned on the left of each row item.'],
+            ['trail', 'Positioned on the right of each row item.'],
         ],
     };
     
@@ -199,6 +208,12 @@ import Divider from "$lib/Divider/Divider.svelte";
         <Table source="{tablePropsGroup}"></Table>
         <h4>(Nav) List Item</h4>
         <Table source="{tablePropsItem}"></Table>
+    </section>
+    
+    <!-- Slots -->
+    <section class='space-y-4'>
+        <h2>Slots</h2>
+        <Table source="{slotsItems}"></Table>
     </section>
 
 </div>
