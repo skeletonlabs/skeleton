@@ -10,7 +10,7 @@
     export let hover: boolean = false;
 	
 	// Classes
-	let cBase: string = 'flex aspect-square text-surface-50 font-semibold justify-center items-center rounded-full overflow-hidden transition-all';
+	let cBase: string = 'flex aspect-square text-surface-50 font-semibold justify-center items-center rounded-full overflow-hidden';
 	let cOutlined: string;
 	let cHover: string;
 	let cSize: string;

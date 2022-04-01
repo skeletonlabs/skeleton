@@ -11,7 +11,7 @@
             ['src', 'string', 'url', '-', 'The image source to be displayed.'],
             ['size', 'string', 'sm | md | lg | xl | 2xl | 3xl, full', 'full', 'A variety of preset sizes, plus fluid option.'],
             ['background', 'string', 'class', 'bg-surface-500', 'Provice a class to set background color.'],
-            ['color', 'string', 'class', 'text-white', 'Provide a classs to set text color'],
+            ['color', 'string', 'class', 'text-white', 'Provide a class to set text color.'],
             ['outline', 'boolean', 'true | false', 'false', 'Displays a fixed outline of the primary color.'],
             ['hover', 'boolean', 'true | false', 'false', 'Adds an outline of the primary color when hovered.'],
         ],
@@ -61,6 +61,16 @@
                     <span>Initials</span>
                     <input type="text" bind:value={props.initials} maxlength="2">
                 </label>
+                <!-- Background -->
+				<label>
+                    <span>Background</span>
+                    <select name="background" id="background" bind:value={props.background}>
+                        <option value="bg-surface-500">Default</option>
+                        <option value="bg-primary-500">bg-primary-500</option>
+                        <option value="bg-accent-500">bg-accent-500</option>
+                        <option value="bg-warning-500">bg-warning-500</option>
+                    </select>
+                </label>
 				<!-- Source -->
 				<label>
                     <span>Source</span>
@@ -80,16 +90,6 @@
                         <option value="xl">xl</option>
                         <option value="2xl">2xl</option>
                         <option value="3xl">3xl</option>
-                    </select>
-                </label>
-				<!-- Background -->
-				<label>
-                    <span>Background</span>
-                    <select name="background" id="background" bind:value={props.background}>
-                        <option value="bg-surface-500">Default</option>
-                        <option value="bg-primary-500">bg-primary-500</option>
-                        <option value="bg-accent-500">bg-accent-500</option>
-                        <option value="bg-warning-500">bg-warning-500</option>
                     </select>
                 </label>
 				<!-- Outlined -->

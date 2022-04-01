@@ -88,7 +88,7 @@
 		/>
 		<CodeBlock
 			language="html"
-			code={`<!-- Apply via inline style -->\n<img styled="filter: url({'BlueNight'})" {src}>`}
+			code={`<!-- Apply via inline style -->\n<img style="filter: url({'#BlueNight'})" {src}>`}
 		/>
 	</section>
 
