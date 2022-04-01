@@ -35,7 +35,7 @@ h5 { @apply text-lg font-bold; }
 h6 { @apply text-base font-bold; }
 
 /* Page Styles */
-#page p { @apply text-base text-surface-500 dark:text-surface-400; }
+#page p :not(.alert a) { @apply text-base text-surface-500 dark:text-surface-400; }
 #page a
     :not(.comp-button a)
     :not(.breadcrumb a)
