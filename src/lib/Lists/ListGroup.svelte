@@ -1,55 +1,53 @@
 <script lang='ts'>
-    import Divider from '$lib/Divider/Divider.svelte';
-    import type {Writable} from 'svelte/store'
-    import {setContext, onMount} from 'svelte';
+    import { afterUpdate, setContext } from 'svelte';
+    import type { Writable } from 'svelte/store';
 
-    // Exported props
-    export let variant = 'comfortable';
-    export let hover: boolean = false;
-    export let separate: boolean = false;
-    export let selectable: boolean = false;
-    export let multiselect: boolean = false;
-    export let active: Writable<any> = null;
+    // Props
+    export let role: string = 'ul';
+    export let active: Writable<any> = undefined;
+    export let multiple: boolean = false;
+    export let spacing: string = undefined; // comfortable | dense
+    export let accent: string = '!bg-primary-500'; // '!' required
+    export let hover: string = 'hover:bg-primary-500/10'; // 'hover:' required
 
-    // Declare element to be bound to list
-    let element: HTMLElement;
-
-    // On mount, add dividers between children if needed. Currently, no customization of dividers
-    if(separate){
-        onMount(()=>{
-        let childrenCount = element.childElementCount;
-        let children = element.children;
-            for(let i = 0; i < childrenCount - 1; ++i){
-                new Divider({target: children[i]});
-            }
-        })
-    }
-
-    // Component styling
-    let cStyle = 'mt-1 mb-1'; // Note that a minor margin top and bottom is added to seperate selectable items.   
-
-    // Add padding according to 
-    switch(variant){
-        case('comfortable'): { cStyle += ' pt-4 pb-4'; break;}
-        case('compact'): { cStyle += ' pt-2 pb-2'; break;}
-        case('dense'): { cStyle += ' pt-1 pb-1'; break;}
-        default: {cStyle += ' pt-4 pb-4'} // Default
-    }
-    // Set hover style
-    if(hover) {cStyle += ' dark:hover:bg-surface-700 hover:bg-surface-300 hover:cursor-pointer'}
-    // Set cursor on selectable items
-    if(selectable) {cStyle += ' hover:cursor-pointer'}
-
-    // Set component contexts
-    setContext('style', cStyle);
-    setContext('selectable', selectable);
+    // Context
+    setContext('role', role);
     setContext('active', active);
-    setContext('multiselect', multiselect);
+    setContext('multiple', multiple);
+    setContext('spacing', spacing);
+    setContext('accent', accent);
+    setContext('hover', hover);
 
+    // Classes
+    // const cBase: string = '';
+    let cSpacing: string = '';
+
+    // Set Spacing
+    function setSpacing(): void {
+        switch(spacing) {
+            case('comfortable'): cSpacing = 'space-y-4'; break; 
+            case('dense'):       cSpacing = 'space-y-0'; break;
+            default:             cSpacing = 'space-y-1';
+        }
+    }
+
+    // Reactive
+    afterUpdate(() => {
+        setSpacing();
+    });
+    $: classes = `${cSpacing} ${$$props.class}`;
 </script>
 
-<div class='listGroup'>
-    <ol bind:this={element}>
-        <slot />
-    </ol>
-</div>
+<!-- Description -->
+{#if role === 'dl'}
+<dl class="list-group {classes}" data-testid="list-group"><slot /></dl>
+<!-- Nav -->
+{:else if role === 'nav'}
+<nav class="list-group {classes}" data-testid="list-group"><slot /></nav>
+<!-- Ordered -->
+{:else if role === 'ol'}
+<ol class="list-group {classes}" data-testid="list-group"><slot /></ol>
+<!-- Unordered -->
+{:else}
+<ul class="list-group {classes}" data-testid="list-group"><slot /></ul>
+{/if}

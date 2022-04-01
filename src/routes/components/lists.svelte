@@ -5,140 +5,204 @@
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
     import Table from "$lib/_Table/Table.svelte";
     import {writable} from 'svelte/store'
+import Divider from "$lib/Divider/Divider.svelte";
+
+    let navSingle = writable('A');
+    let navMultiple = writable(['A', 'B']);
     
-
-    const anchorIcon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M352 176C369.7 176 384 190.3 384 208C384 225.7 369.7 240 352 240H319.1V448H339.2C351.8 472.7 370 493.1 392.2 510.2C384.3 511.4 376.2 512 368 512H208C119.6 512 48 440.4 48 352V345.9L40.97 352.1C31.6 362.3 16.4 362.3 7.029 352.1C-2.343 343.6-2.343 328.4 7.029 319L63.03 263C72.4 253.7 87.6 253.7 96.97 263L152.1 319C162.3 328.4 162.3 343.6 152.1 352.1C143.6 362.3 128.4 362.3 119 352.1L112 345.9V352C112 405 154.1 448 208 448H256V240H224C206.3 240 192 225.7 192 208C192 190.3 206.3 176 224 176H234.9C209 158.8 192 129.4 192 96C192 42.98 234.1 0 288 0C341 0 384 42.98 384 96C384 129.4 366.1 158.8 341.1 176H352zM287.1 128C305.7 128 319.1 113.7 319.1 96C319.1 78.33 305.7 64 287.1 64C270.3 64 255.1 78.33 255.1 96C255.1 113.7 270.3 128 287.1 128zM352 368C352 288.5 416.5 224 496 224C575.5 224 640 288.5 640 368C640 447.5 575.5 512 496 512C416.5 512 352 447.5 352 368zM496 464C509.3 464 520 453.3 520 440C520 426.7 509.3 416 496 416C482.7 416 472 426.7 472 440C472 453.3 482.7 464 496 464zM479.1 288V368C479.1 376.8 487.2 384 495.1 384C504.8 384 511.1 376.8 511.1 368V288C511.1 279.2 504.8 272 495.1 272C487.2 272 479.1 279.2 479.1 288z"/></svg>'
-    const heartIcon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z"/></svg>'
-
-    let selections = writable('');
-    let multiSelections = writable([]);
+    const svgHeart: string = '<svg class="fill-primary-500 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M416 400V464C416 490.5 394.5 512 368 512H320V464C320 455.2 312.8 448 304 448C295.2 448 288 455.2 288 464V512H224V464C224 455.2 216.8 448 208 448C199.2 448 192 455.2 192 464V512H144C117.5 512 96 490.5 96 464V400C96 399.6 96 399.3 96.01 398.9C37.48 357.8 0 294.7 0 224C0 100.3 114.6 0 256 0C397.4 0 512 100.3 512 224C512 294.7 474.5 357.8 415.1 398.9C415.1 399.3 416 399.6 416 400V400zM160 192C124.7 192 96 220.7 96 256C96 291.3 124.7 320 160 320C195.3 320 224 291.3 224 256C224 220.7 195.3 192 160 192zM352 320C387.3 320 416 291.3 416 256C416 220.7 387.3 192 352 192C316.7 192 288 220.7 288 256C288 291.3 316.7 320 352 320z"/></svg>';
+    const svgEllipsis: string = `<svg class="fill-surface-500 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512"><path d="M64 360C94.93 360 120 385.1 120 416C120 446.9 94.93 472 64 472C33.07 472 8 446.9 8 416C8 385.1 33.07 360 64 360zM64 200C94.93 200 120 225.1 120 256C120 286.9 94.93 312 64 312C33.07 312 8 286.9 8 256C8 225.1 33.07 200 64 200zM64 152C33.07 152 8 126.9 8 96C8 65.07 33.07 40 64 40C94.93 40 120 65.07 120 96C120 126.9 94.93 152 64 152z"/></svg>`;
 
     const tablePropsGroup: any = {
-        columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
+        columns: ['Prop', 'Type', 'Default', 'Description'],
         data: [
-            ['variant', 'string', 'dense, compact, comfortable', 'compact', 'Define the height of the list item'],
-            ['separate', 'boolean', 'true | false', 'false', 'Set list items to be separated by a divider'],
-            ['selectable', 'boolean', 'true | false', 'false', 'Set a list to contain selectable items'],
-            ['multiselect', 'boolean', 'true | false', 'false', 'Set a list to contain multiple selectable items'],
-            ['active', 'writable', 'any', 'null', 'Define the svelte writable store object to contain active (selected) items'],
+            ['role', 'string', 'ul', 'Defines the wrapping list element.'],
+            ['active', 'Writable', '-', 'Provides a data store to track active selection.'],
+            ['multiple', 'boolean', 'false', 'Declare if active is an array with multiple selection allowed.'],
+            ['spacing', 'string', '-', 'Set the spacing style.'],
+            ['hover', 'string', 'hover:bg-primary-500/10', 'Provide a background class for the hovered items.'],
+            ['accent', 'string', '!bg-primary-500', 'Provide a background class for the active highlighted item.'],
         ],
     };
 
     const tablePropsItem: any = {
-        columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
+        columns: ['Prop', 'Type', 'Default', 'Description'],
         data: [
-            ['value', 'any', 'Any type', '-', 'Set a value for the item to be exposed through the svelte store'],
-            ['icon', 'HTML', 'Any HTML element', '-', 'Define a HTML prefix to the list item, such as an icon'],
-            ['slot: icon', 'svelte:fragment', 'Any HTML element', '-', 'Add slotted content before the list item label'],
+            ['href', 'string', '-', `The list item's destination URL.`],
+            ['value', 'any', '-', `The list item's selectable value.`],
         ],
     };
     
 </script>
+
 <div class="space-y-8">
-<!-- Header -->
-<header class="space-y-4">
-    <h2>Lists</h2>
-    <p class='space-y-4'>List groups can be used to group together static lists, create an interactive list with selections, etc.. (TODO)</p>
-</header>
 
-<!-- Examples -->
-<section class="mt-6">
-    <h4 class='mb-4'>Basic Variants (Dense, Compact, Comfortable)</h4>
-    <Card class='grid grid-flow-col'>
-        <div>
-            <ListGroup variant='dense'>
-                <ListItem>Item A</ListItem>
-                <ListItem>Item B</ListItem>
-                <ListItem>Item C</ListItem>
-                <ListItem>Item D</ListItem>
-            </ListGroup>
+    <!-- Header -->
+    <header class="space-y-4">
+        <h2>Lists</h2>
+        <p class='space-y-4'>Lists are continuous, vertical indexes of text options.</p>
+        <CodeBlock language="js" code={`<script>import {ListGroup, ListItem} from '@brainandbones/skeleton';`}></CodeBlock>
+    </header>
+
+    <!-- Reference -->
+    <!-- <section class="space-y-4">
+        <h4>Reference</h4>
+        <Card class="grid grid-cols-4 gap-4">
+            <section>
+                <h4>Unordered List</h4>
+                <ul>
+                    <li>Item A</li>
+                    <li>Item B</li>
+                    <li>Item C</li>
+                </ul>
+            </section>
+            <section>
+                <h4>Ordered List</h4>
+                <ol>
+                    <li>Item A</li>
+                    <li>Item B</li>
+                    <li>Item C</li>
+                </ol>
+            </section>
+            <section>
+                <h4>Description List</h4>
+                <dl>
+                    <div>
+                        <dt>Item A</dt>
+                        <dd>Details about Item A</dd>
+                    </div>
+                    <div>
+                        <dt>Item B</dt>
+                        <dd>Details about Item B</dd>
+                    </div>
+                    <div>
+                        <dt>Item C</dt>
+                        <dd>Details about Item C</dd>
+                    </div>
+                </dl>
+            </section>
+            <section>
+                <h4>Nav List</h4>
+                <nav>
+                    <a href="/" class="block">Item A</a>
+                    <a href="/" class="block">Item B</a>
+                    <a href="/" class="block">Item C</a>
+                </nav>
+            </section>
+        </Card>
+    </section> -->
+
+    <!-- Roles -->
+    <section class="space-y-4">
+        <h4>Roles</h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <section class="space-y-4">
+                <Card class="space-y-4">
+                    <h6>Unordered</h6>
+                    <ListGroup role="ul">
+                        {#each ['A', 'B', 'C'] as v}
+                        <ListItem>
+                            <svelte:fragment slot="lead">{@html svgHeart}</svelte:fragment>
+                            Item {v}
+                            <svelte:fragment slot="trail">{@html svgEllipsis}</svelte:fragment>
+                        </ListItem>
+                        {/each}
+                    </ListGroup>
+                </Card>
+            </section>
+            <section class="space-y-4">
+                <Card class="space-y-4">
+                    <h6>Ordered</h6>
+                    <ListGroup role="ol">
+                        {#each ['A', 'B', 'C'] as v, i}
+                        <ListItem>
+                            <svelte:fragment slot="lead"><div class="circle">{i+1}.</div></svelte:fragment>
+                            Item {v}
+                        </ListItem>
+                        {/each}
+                    </ListGroup>
+                </Card>
+            </section>
+            <section class="space-y-4">
+                <Card class="space-y-4">
+                    <h6>Description</h6>
+                    <ListGroup role="dl">
+                        {#each ['A', 'B'] as v, i}
+                        <ListItem>
+                            <svelte:fragment slot="dt">Item {v}</svelte:fragment>
+                            <svelte:fragment slot="dd"><p>Description for {v}</p></svelte:fragment>
+                        </ListItem>
+                        {/each}
+                    </ListGroup>
+                </Card>
+            </section>
         </div>
-        <div>
-            <ListGroup variant='compact'>
-                <ListItem>Item A</ListItem>
-                <ListItem>Item B</ListItem>
-                <ListItem>Item C</ListItem>
-                <ListItem>Item D</ListItem>
-            </ListGroup>
+    </section>
+
+    <!-- Navigation -->
+    <section class="space-y-4">
+        <h4>Navigation</h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <section class="space-y-4">
+                <Card class="space-y-4">
+                    <h6>Anchor + Dividers + Comfortable</h6>
+                    <ListGroup role="nav" active={navSingle} spacing="comfortable">
+                        <ListItem href="/">Page A</ListItem>
+                        <Divider />
+                        <ListItem href="/">Page B</ListItem>
+                        <Divider />
+                        <ListItem href="/">Page C</ListItem>
+                    </ListGroup>
+                </Card>
+            </section>
+            <section class="space-y-4">
+                <Card class="space-y-4">
+                    <h6>Select (single)</h6>
+                    <ListGroup role="nav" active={navSingle}>
+                        <ListItem value={'A'}>Item A</ListItem>
+                        <ListItem value={'B'}>Item B</ListItem>
+                        <ListItem value={'C'}>Item C</ListItem>
+                    </ListGroup>
+                    <CodeBlock language="html" code={$navSingle}></CodeBlock>
+                </Card>
+            </section>
+            <section class="space-y-4">
+                <Card class="space-y-4">
+                    <h6>Select (multiple)</h6>
+                    <ListGroup role="nav" active={navMultiple} multiple accent="!bg-accent-500" hover="hover:bg-accent-500/10">
+                        <ListItem value={'A'}>Item A</ListItem>
+                        <ListItem value={'B'}>Item B</ListItem>
+                        <ListItem value={'C'}>Item C</ListItem>
+                    </ListGroup>
+                    <CodeBlock language="html" code={$navMultiple.join(', ')}></CodeBlock>
+                </Card>
+            </section>
         </div>
-        <div>
-            <ListGroup variant='comfortable'>
-                <ListItem>Item A</ListItem>
-                <ListItem>Item B</ListItem>
-                <ListItem>Item C</ListItem>
-                <ListItem>Item D</ListItem>
-            </ListGroup>
-        </div>
-    </Card>
+    </section>
 
-    <h4 class='mb-4 mt-4'>Separated</h4>
-    <Card>
-        <ListGroup variant='compact' separate>
-            <ListItem>Item A</ListItem>
-            <ListItem>Item B</ListItem>
-            <ListItem>Item C</ListItem>
-            <ListItem>Item D</ListItem>
-        </ListGroup>
-    </Card>
+    <!-- Usage -->
+    <section class='space-y-4'>
+        <h2>Usage</h2>
+        <CodeBlock language="html" code={`
+<ListGroup role="ul" active={store} multiple>
+    <ListItem>Item A</ListItem>
+    <ListItem>Item B</ListItem>
+    <ListItem>Item C</ListItem>
+</ListGroup>
+        `.trim()}></CodeBlock>
+    </section>
 
-    <h4 class='mb-4 mt-4'>Single-selection (Persistent)</h4>
-    <Card>
-        <ListGroup active={selections} variant='comfortable' selectable hover>
-            <ListItem value={'Value of A'}>Item A</ListItem>
-            <ListItem value={'Value of B'}>Item B</ListItem>
-            <ListItem value={'Value of C'}>Item C</ListItem>
-            <ListItem value={'Value of D'}>Item D</ListItem>
-        </ListGroup>
-        <p class='mt-2'>Selected: {$selections}</p>
-    </Card>
-
-    <h4 class='mb-4 mt-4'>Multi-selection</h4>
-    <Card>
-        <ListGroup active={multiSelections} variant='comfortable' selectable multiselect>
-            <ListItem value={'Value of A'}>Item A</ListItem>
-            <ListItem value={'Value of B'}>Item B</ListItem>
-            <ListItem value={'Value of C'}>Item C</ListItem>
-            <ListItem value={'Value of D'}>Item D</ListItem>
-        </ListGroup>
-        <p class='mt-2'>Selected: {$multiSelections}</p>
-    </Card>
-
-    <h4 class='mb-4 mt-4'>Slotted Content</h4>
-    <Card>
-        <ListGroup variant='comfortable' >
-            <ListItem><svelte:fragment slot='icon'><div class='w-6 h-6 bg-primary-500 rounded-full p-1'>{@html anchorIcon}</div></svelte:fragment>Brew some coffee..</ListItem>
-            <ListItem><svelte:fragment slot='icon'><div class='w-6 h-6 bg-primary-500 rounded-full p-1'>{@html anchorIcon}</div></svelte:fragment>Write some code..</ListItem>
-            <ListItem><svelte:fragment slot='icon'><div class='w-6 h-6 bg-primary-500 rounded-full p-1'>{@html anchorIcon}</div></svelte:fragment>Revise..</ListItem>
-            <ListItem><svelte:fragment slot='icon'><div class='w-6 h-6 bg-accent-500 rounded-full p-1'>{@html heartIcon}</div></svelte:fragment>Rinse and repeat!</ListItem>
-        </ListGroup>
-    </Card>
-
-    <h4 class='mb-4 mt-4'>Prop Icon</h4>
-    <Card>
-        <ListGroup variant='comfortable'>
-            <ListItem icon={heartIcon}>Item A</ListItem>
-            <ListItem icon={anchorIcon}>Item B</ListItem>
-        </ListGroup>
-    </Card>
-</section>
-
-<!-- Usage -->
-<section class='space-y-4'>
-    <h2>Usage</h2>
-    <CodeBlock language="javascript" code={`<script>\nimport {ListGroup, ListItem} from '@brainandbones/skeleton';\nimport {writable} from 'svelte/store';\n\nlet selections = writable([]);\n</\script>`}></CodeBlock>
-    <CodeBlock language="html" code={`<ListGroup variant='comfortable' selectable multiselect>\n<ListItem icon={iconSrc}>Coffee</ListItem>\n<ListItem icon={iconSrc}>Tea</ListItem> \n</ListGroup>`}></CodeBlock>
-</section>
-
-<!-- Properties -->
-<section class='space-y-4'>
-    <h2 class="text-2xl font-bold">Properties List Group</h2>
-    <Table source="{tablePropsGroup}"></Table>
-</section>
-
-<!-- Properties -->
-<section class='space-y-4'>
-    <h2 class="text-2xl font-bold">Properties List Item</h2>
-    <Table source="{tablePropsItem}"></Table>
-</section>
+    <!-- Properties -->
+    <section class='space-y-4'>
+        <h2>Properties</h2>
+        <h4>List Group</h4>
+        <Table source="{tablePropsGroup}"></Table>
+        <h4>(Nav) List Item</h4>
+        <Table source="{tablePropsItem}"></Table>
+    </section>
 
 </div>
+
+<style lang="postcss">
+    .circle { @apply bg-primary-500 text-xs w-7 h-7 aspect-square text-center flex justify-center items-center rounded-full; }
+</style>

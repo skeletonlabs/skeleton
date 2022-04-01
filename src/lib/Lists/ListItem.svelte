@@ -1,68 +1,128 @@
-<script lang='ts'>
+<!-- https://css-tricks.com/almanac/properties/l/list-style/ -->
 
-    import {getContext} from 'svelte';
+<script lang='ts'>
+    import {afterUpdate, getContext} from 'svelte';
     import type {Writable} from 'svelte/store';
 
-    // Exported props
-    export let icon: string             = '';
-    export let active: Writable<any>    = getContext('active');
-    export let value: any               = null;
-    export let multiselect              = getContext('multiselect');
-    
-    export let selectable: boolean     = getContext('selectable');
-    export let cStyle: string          = getContext('style');
-    let cActive: string         = '';
+    // Context
+    let role: string = getContext('role');
+    let active: Writable<any> = getContext('active');
+    let multiple: boolean = getContext('multiple');
+    let spacing: string = getContext('spacing');
+    let accent: string = getContext('accent');
+    let hover: string = getContext('hover');
 
-    if(selectable){
-        active.subscribe(active =>{
-            // Set the active color state and override default hover color when active for both dark/light modes
-            cActive = value === active || active.includes(value) ? `bg-accent-500 dark:hover:bg-accent-500 hover:bg-accent-500` : '';
-        })
+    // Classes
+    const cCompId: string = 'list-item';
+    const cBase: string = 'list-inside';
+    // - List Specific -
+    const cDescription: string = 'list-none space-y-2';
+    const cNavigation: string = `list-none ${hover} cursor-pointer px-4`;
+    // - Styling -
+    let cSpacing: string = '';
+
+    // Set Spacing
+    function setSpacing(): void {
+        switch(spacing) {
+            case('comfortable'): cSpacing = 'py-4'; break; 
+            case('dense'):       cSpacing = 'py-1'; break;
+            default:             cSpacing = 'py-3';
+        }
     }
 
-    // Process the array of items. This means the writable store on the top level page must be initialized as an array
-    // FIX ME: Use active.set instead of assigning the array to itself by the end of the statement
-    function processMultiselect(){
-        if($active.includes(value)){ 
-            let index = $active.indexOf(value); 
-            $active.splice(index, 1);
+    // Nav - Handle Selection
+    function select(v: any): void {
+        if (!v) { return; }
+        if (multiple) {
+            // Create local copy of array
+            const local: any[] = $active;
+            // If is in list, prune it
+            if(local.includes(v)){ 
+                local.splice(local.indexOf(v), 1);
+                active.set(local);
+            }
+            // If not in list, add it
+            else{
+                active.set([...local, v]);
+            }
+        } else {
+            // Update singular value
+            active.set(v);
         }
-        else{
-            $active = [...$active, value];
-        }
-        $active = $active;
     }
 
-    // Combined classes
-    $: classes = `${cStyle} ${cActive}`;
+    // Nav - Set Active
+    function setActive(value: any, active: any): string {
+        return active.includes(value) ? accent : '';
+    }
+
+    // Reactive
+    afterUpdate(() => {
+        setSpacing();
+    });
+    $: classes = `${cBase} ${cSpacing} ${$$props.class}`;
 </script>
 
-<li>
-    <!-- svelte-ignore a11y-label-has-associated-control -->
-    <label>     
-            <div on:click data-testid='listItem' class='listItem {classes} pl-4 flex cursor-default'>
-                <!--Icon prop-->
-                {#if icon}
-                <span class='w-6 mr-4'>{@html icon}</span>
-                {/if}
-                <!--Prefixed Content/Icon slot-->
-                {#if $$slots.icon}
-                    <div class='w-6 mr-4'>
-                        <slot name='icon' />
-                    </div>
-                {/if}
-                
-                {#if selectable}
-                <!--Selectors-->
-                {#if multiselect}
-                <input class="hidden" type="checkbox" {value} on:change={processMultiselect} />
-                {:else}     
-                <input class="hidden" type="radio" {value} bind:group={$active} />
-                {/if}
-                {/if}
-                <!--Text/Label-->
-                <slot />
+<!-- Description -->
+{#if role === 'dl'}
+<div class="{cCompId} {classes} {cDescription}" data-testid="list-item">
+    <dt><slot name="dt" /></dt>
+    <dd><slot name="dd" /></dd>
+</div>
 
-            </div>
-    </label>
+<!-- Nav -->
+{:else if role === 'nav'}
+<a
+    href={$$props.href}
+    on:click={() => {select($$props.value)}}
+    class="{cCompId} {classes} {cNavigation} {setActive($$props.value, $active)}"
+    data-testid="list-item"
+>
+    <div class="flex flex-row items-center space-x-4">
+        <!-- Lead -->
+        {#if $$slots.lead}
+        <div class="flex-none"><slot name="lead" /></div>
+        {/if}
+        <!-- Content -->
+        <div class="flex-1"><slot /></div>
+        <!-- Trail -->
+        {#if $$slots.trail}
+        <div class="flex-none"><slot name="trail" /></div>
+        {/if}
+    </div>
+</a>
+
+<!-- Ordered -->
+{:else if role === 'ol'}
+<li class="{cCompId} {classes}" data-testid="list-item">
+    <div class="flex flex-row items-center space-x-4">
+        <!-- Lead -->
+        {#if $$slots.lead}
+        <div class="flex-none"><slot name="lead" /></div>
+        {/if}
+        <!-- Content -->
+        <div class="flex-1"><slot /></div>
+        <!-- Trail -->
+        {#if $$slots.trail}
+        <div class="flex-none"><slot name="trail" /></div>
+        {/if}
+    </div>
 </li>
+
+<!-- Unordered -->
+{:else}
+<li class="{cCompId} {classes}" data-testid="list-item">
+    <div class="flex flex-row items-center space-x-4">
+        <!-- Lead -->
+        {#if $$slots.lead}
+        <div class="flex-none"><slot name="lead" /></div>
+        {/if}
+        <!-- Content -->
+        <div class="flex-1"><slot /></div>
+        <!-- Trail -->
+        {#if $$slots.trail}
+        <div class="flex-none"><slot name="trail" /></div>
+        {/if}
+    </div>
+</li>
+{/if}
