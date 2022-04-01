@@ -2,12 +2,12 @@
     import type { Writable } from "svelte/store";
     import { setContext } from "svelte";
 
-    export let active: Writable<any>;
+    export let selected: Writable<any>;
     export let background: string = undefined;
     export let color: string = undefined;
     
     // Set Context - provide to children
-    setContext('active', active);
+    setContext('selected', selected);
     setContext('background', background)
     setContext('color', color)
 

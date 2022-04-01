@@ -171,12 +171,13 @@
 </List>
         `.trim()}></CodeBlock>
         <h4>Nav</h4>
+        <CodeBlock language="js" code={`const storeSelected: Writable<number> = writable(1);`}></CodeBlock>
         <CodeBlock language="html" code={`
-<List role="nav" selected={store}">
+<List role="nav" selected={storeSelected}">
     <!-- Anchor -->
-    <ListItem href="/">Item B</ListItem>
+    <ListItem href="/">Link Example</ListItem>
     <!-- Selection -->
-    <ListItem value={1}>Item A</ListItem>
+    <ListItem value={1}>Selection Example 1</ListItem>
 </List>
         `.trim()}></CodeBlock>
         <h4>Styled</h4>
