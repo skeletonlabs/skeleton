@@ -5,8 +5,8 @@
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
     import Table from "$lib/_Table/Table.svelte";
     import Divider from "$lib/Divider/Divider.svelte";
-    import ListGroup from "$lib/Lists/ListGroup.svelte";
-    import ListItem from "$lib/Lists/ListItem.svelte";
+    import List from "$lib/List/List.svelte";
+    import ListItem from "$lib/List/ListItem.svelte";
 
     let navSingle: Writable<string> = writable('A');
     let navMultiple: Writable<string[]> = writable(['A', 'B']);
@@ -15,21 +15,20 @@
     const svgEllipsis: string = `<svg class="fill-surface-500 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512"><path d="M64 360C94.93 360 120 385.1 120 416C120 446.9 94.93 472 64 472C33.07 472 8 446.9 8 416C8 385.1 33.07 360 64 360zM64 200C94.93 200 120 225.1 120 256C120 286.9 94.93 312 64 312C33.07 312 8 286.9 8 256C8 225.1 33.07 200 64 200zM64 152C33.07 152 8 126.9 8 96C8 65.07 33.07 40 64 40C94.93 40 120 65.07 120 96C120 126.9 94.93 152 64 152z"/></svg>`;
 
     const tablePropsGroup: any = {
-        columns: ['Prop', 'Type', 'Default', 'Description'],
+        columns: ['Prop', 'Type', 'Values', 'Default', 'Required', 'Description'],
         data: [
-            ['role', 'string', 'ul', 'Defines the wrapping list element.'],
-            ['active', 'Writable', '-', 'Provides a data store to track active selection.'],
-            ['multiple', 'boolean', 'false', 'Declare if active is an array with multiple selection allowed.'],
-            ['spacing', 'string', '-', 'Set the spacing style.'],
-            ['hover', 'string', 'hover:bg-primary-500/10', 'Provide a background class for the hovered items.'],
-            ['accent', 'string', '!bg-primary-500', 'Provide a background class for the active highlighted item.'],
+            ['role', 'string', 'ul | ol | dl | nav', 'ul', 'false', 'Defines the semantic wrapping element.'],
+            ['selected', 'Writable', '(any)', '-', 'false', 'Provide a data store for nav list selection.'],
+            ['spacing', 'string', 'base | comfortable | dense', 'base', 'false', 'Select from one of three spacing styles.'],
+            ['hover', 'string', 'class', 'hover:bg-primary-500/10', 'false', 'Provide a hover:background class for the hovered items.'],
+            ['accent', 'string', 'class', '!bg-primary-500', 'false', 'Provide an (!important) class for the active highlighted item.'],
         ],
     };
     const tablePropsItem: any = {
         columns: ['Prop', 'Type', 'Default', 'Description'],
         data: [
             ['href', 'string', '-', `The list item's destination URL.`],
-            ['value', 'any', '-', `The list item's selectable value.`],
+            ['value', 'any', '-', `Designates the item's value for selection.`],
         ],
     };
     const slotsItems: any = {
@@ -47,7 +46,7 @@
     <header class="space-y-4">
         <h2>Lists</h2>
         <p class='space-y-4'>Lists are continuous, vertical indexes of text options.</p>
-        <CodeBlock language="js" code={`<script>import {ListGroup, ListItem} from '@brainandbones/skeleton';`}></CodeBlock>
+        <CodeBlock language="js" code={`<script>import {List, ListItem} from '@brainandbones/skeleton';`}></CodeBlock>
     </header>
 
     <!-- Roles -->
@@ -57,7 +56,7 @@
             <section class="space-y-4">
                 <Card class="space-y-4">
                     <h6>Unordered</h6>
-                    <ListGroup role="ul">
+                    <List role="ul">
                         {#each ['A', 'B', 'C'] as v}
                         <ListItem>
                             <svelte:fragment slot="lead">{@html svgHeart}</svelte:fragment>
@@ -65,33 +64,35 @@
                             <svelte:fragment slot="trail">{@html svgEllipsis}</svelte:fragment>
                         </ListItem>
                         {/each}
-                    </ListGroup>
+                    </List>
                 </Card>
             </section>
             <section class="space-y-4">
                 <Card class="space-y-4">
                     <h6>Ordered</h6>
-                    <ListGroup role="ol">
+                    <List role="ol">
                         {#each ['A', 'B', 'C'] as v, i}
                         <ListItem>
                             <svelte:fragment slot="lead"><div class="circle">{i+1}.</div></svelte:fragment>
                             Item {v}
                         </ListItem>
                         {/each}
-                    </ListGroup>
+                    </List>
                 </Card>
             </section>
             <section class="space-y-4">
                 <Card class="space-y-4">
                     <h6>Description</h6>
-                    <ListGroup role="dl">
+                    <List role="dl">
                         {#each ['A', 'B'] as v, i}
                         <ListItem>
+                            <svelte:fragment slot="lead">{@html svgHeart}</svelte:fragment>
                             <svelte:fragment slot="dt">Item {v}</svelte:fragment>
                             <svelte:fragment slot="dd"><p>Description for {v}</p></svelte:fragment>
+                            <svelte:fragment slot="trail">{@html svgEllipsis}</svelte:fragment>
                         </ListItem>
                         {/each}
-                    </ListGroup>
+                    </List>
                 </Card>
             </section>
         </div>
@@ -104,35 +105,37 @@
             <section class="space-y-4">
                 <Card class="space-y-4">
                     <h6>Anchor + Dividers + Comfortable</h6>
-                    <ListGroup role="nav" active={navSingle} spacing="comfortable">
+                    <List role="nav" spacing="comfortable">
                         <ListItem href="/">Page A</ListItem>
                         <Divider />
                         <ListItem href="/">Page B</ListItem>
                         <Divider />
                         <ListItem href="/">Page C</ListItem>
-                    </ListGroup>
+                    </List>
                 </Card>
             </section>
             <section class="space-y-4">
                 <Card class="space-y-4">
                     <h6>Select (single)</h6>
-                    <ListGroup role="nav" active={navSingle}>
+                    <List role="nav" selected={navSingle}>
                         <ListItem value={'A'}>Item A</ListItem>
                         <ListItem value={'B'}>Item B</ListItem>
                         <ListItem value={'C'}>Item C</ListItem>
-                    </ListGroup>
-                    <p>Selected: {$navSingle}</p>
+                    </List>
+                    <p class="bg-black p-4">{JSON.stringify($navSingle, null, 2)}</p>
                 </Card>
             </section>
             <section class="space-y-4">
                 <Card class="space-y-4">
                     <h6>Select (multiple)</h6>
-                    <ListGroup role="nav" active={navMultiple} multiple accent="!bg-accent-500" hover="hover:bg-accent-500/10">
+                    <List role="nav" selected={navMultiple} hover="hover:bg-accent-500/10" highlight="!bg-accent-500">
                         <ListItem value={'A'}>Item A</ListItem>
                         <ListItem value={'B'}>Item B</ListItem>
                         <ListItem value={'C'}>Item C</ListItem>
-                    </ListGroup>
-                    <p>Selected: {$navMultiple.join(', ')}</p>
+                    </List>
+                    {#if $navMultiple}
+                    <p class="bg-black p-4">{JSON.stringify($navMultiple, null, 2)}</p>
+                    {/if}
                 </Card>
             </section>
         </div>
@@ -141,12 +144,46 @@
     <!-- Usage -->
     <section class='space-y-4'>
         <h2>Usage</h2>
+        <h4>Basic</h4>
         <CodeBlock language="html" code={`
-<ListGroup role="ul" active={store} multiple>
+<List>
     <ListItem>Item A</ListItem>
     <ListItem>Item B</ListItem>
     <ListItem>Item C</ListItem>
-</ListGroup>
+</List>
+        `.trim()}></CodeBlock>
+        <h4>Slot</h4>
+        <CodeBlock language="html" code={`
+<List role="ol">
+    <ListItem>
+        <svelte:fragment slot="lead">1.</svelte:fragment>
+        Item A
+    </ListItem>
+</List>
+        `.trim()}></CodeBlock>
+        <h4>Description</h4>
+        <CodeBlock language="html" code={`
+<List role="dl">
+    <ListItem>
+        <svelte:fragment slot="dt">Item A</svelte:fragment>
+        <svelte:fragment slot="dd"><p>Description for A</p></svelte:fragment>
+    </ListItem>
+</List>
+        `.trim()}></CodeBlock>
+        <h4>Nav</h4>
+        <CodeBlock language="html" code={`
+<List role="nav" selected={store}">
+    <!-- Anchor -->
+    <ListItem href="/">Item B</ListItem>
+    <!-- Selection -->
+    <ListItem value={1}>Item A</ListItem>
+</List>
+        `.trim()}></CodeBlock>
+        <h4>Styled</h4>
+        <CodeBlock language="html" code={`
+<List spacing="dense" hover="hover:bg-accent-500/10" highlight="!bg-accent-500">
+    <ListItem>Item A</ListItem>
+</List>
         `.trim()}></CodeBlock>
     </section>
 

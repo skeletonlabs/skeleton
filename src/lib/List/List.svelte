@@ -4,18 +4,16 @@
 
     // Props
     export let role: string = 'ul';
-    export let active: Writable<any> = undefined;
-    export let multiple: boolean = false;
+    export let selected: Writable<any> = undefined;
     export let spacing: string = undefined; // comfortable | dense
-    export let accent: string = '!bg-primary-500'; // '!' required
+    export let highlight: string = '!bg-primary-500'; // '!' required
     export let hover: string = 'hover:bg-primary-500/10'; // 'hover:' required
 
     // Context
     setContext('role', role);
-    setContext('active', active);
-    setContext('multiple', multiple); // TODO: make this automatic
+    setContext('selected', selected);
     setContext('spacing', spacing);
-    setContext('accent', accent);
+    setContext('highlight', highlight);
     setContext('hover', hover);
 
     // Classes

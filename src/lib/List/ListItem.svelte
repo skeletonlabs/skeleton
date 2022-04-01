@@ -6,10 +6,9 @@
 
     // Context
     let role: string = getContext('role');
-    let active: Writable<any> = getContext('active');
-    let multiple: boolean = getContext('multiple');
+    let selected: Writable<any> = getContext('selected');
     let spacing: string = getContext('spacing');
-    let accent: string = getContext('accent');
+    let highlight: string = getContext('highlight');
     let hover: string = getContext('hover');
 
     // Classes
@@ -31,32 +30,33 @@
     }
 
     // Nav - Handle Selection
-    function select(v: any): void {
+    function onSelection(v: any): void {
         if (!v) { return; }
-        if (multiple) {
+        if (typeof($selected) === 'object') {
             // Create local copy of array
-            const local: any[] = $active;
+            const local: any[] = $selected;
             // If is in list, prune it
             if(local.includes(v)){ 
                 local.splice(local.indexOf(v), 1);
-                active.set(local);
+                selected.set(local);
             }
             // If not in list, add it
             else{
-                active.set([...local, v]);
+                selected.set([...local, v]);
             }
         } else {
             // Update singular value
-            active.set(v);
+            selected.set(v);
         }
     }
 
-    // Nav - Set Active
-    function setActive(value: any, active: any): string {
-        return active.includes(value) ? accent : '';
+    // Nav - Set selectec class tyle
+    function isSelected(value: any, selected: any): string {
+        if (!selected) { return; }
+        return selected.includes(value) ? highlight : '';
     }
 
-    // Reactive
+    // Reselected
     afterUpdate(() => {
         setSpacing();
     });
@@ -66,16 +66,29 @@
 <!-- Description -->
 {#if role === 'dl'}
 <div class="{cCompId} {classes} {cDescription}" data-testid="list-item">
-    <dt><slot name="dt" /></dt>
-    <dd><slot name="dd" /></dd>
+    <div class="flex flex-row items-center space-x-4">
+        <!-- Lead -->
+        {#if $$slots.lead}
+        <div class="flex-none"><slot name="lead" /></div>
+        {/if}
+        <!-- Content -->
+        <div class="flex-1">
+            <dt><slot name="dt" /></dt>
+            <dd><slot name="dd" /></dd>
+        </div>
+        <!-- Trail -->
+        {#if $$slots.trail}
+        <div class="flex-none"><slot name="trail" /></div>
+        {/if}
+    </div>
 </div>
 
 <!-- Nav -->
 {:else if role === 'nav'}
 <a
     href={$$props.href}
-    on:click={() => {select($$props.value)}}
-    class="{cCompId} {classes} {cNavigation} {setActive($$props.value, $active)}"
+    on:click={() => {onSelection($$props.value)}}
+    class="{cCompId} {classes} {cNavigation} {isSelected($$props.value, $selected)}"
     data-testid="list-item"
 >
     <div class="flex flex-row items-center space-x-4">

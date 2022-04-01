@@ -5,7 +5,7 @@
  import { cleanup, render, fireEvent } from '@testing-library/svelte';
  import { afterEach, describe, it, expect } from 'vitest';
  import { writable } from 'svelte/store';
- import ListItem from '$lib/Lists/ListItem.svelte'
+ import ListItem from '$lib/List/ListItem.svelte'
  
  let htmlIcon = '<button class="iconClass">Hello Test!</button>'
 
