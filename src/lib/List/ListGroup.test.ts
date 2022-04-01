@@ -5,14 +5,14 @@
  import { cleanup, render } from '@testing-library/svelte';
  import { afterEach, describe, it } from 'vitest';
  
- import ListGroup from '$lib/List/List.svelte'
+ import List from '$lib/List/List.svelte'
  
- describe('ListGroup.svelte', () => {
+ describe('List.svelte', () => {
  
      afterEach(() => cleanup());
  
      it('Renders', async () => {
-         render(ListGroup);
+         render(List);
      });
  
  });

@@ -5,11 +5,11 @@
     import type {Writable} from 'svelte/store';
 
     // Context
-    let role: string = getContext('role');
-    let selected: Writable<any> = getContext('selected');
-    let spacing: string = getContext('spacing');
-    let highlight: string = getContext('highlight');
-    let hover: string = getContext('hover');
+    export let role: string = getContext('role');
+    export let selected: Writable<any> = getContext('selected');
+    export let spacing: string = getContext('spacing');
+    export let highlight: string = getContext('highlight');
+    export let hover: string = getContext('hover');
 
     // Classes
     const cCompId: string = 'list-item';

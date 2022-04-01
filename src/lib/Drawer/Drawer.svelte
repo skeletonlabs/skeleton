@@ -21,6 +21,7 @@
                 {href: '/components/cards', label: 'Cards'},
                 {href: '/components/dividers', label: 'Dividers'},
                 {href: '/components/gradient-headings', label: 'Gradient Heading'},
+                {href: '/components/lists', label: 'Lists'},
                 {href: '/components/logo-clouds', label: 'Logo Clouds'},
                 {href: '/components/progress-bars', label: 'Progress Bars'},
                 {href: '/components/radio-groups', label: 'Radio Groups'},

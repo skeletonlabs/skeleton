@@ -3,6 +3,6 @@
     $: classes = `${cBase}`;
 </script>
 
-<div data-testid='cloud' class="{classes} {$$props.class}">
+<div data-testid='logo-cloud' class="{classes} {$$props.class}">
     <slot />
 </div>

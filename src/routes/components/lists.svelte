@@ -3,7 +3,7 @@
 
     import Card from "$lib/Card/Card.svelte";
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
-    import Table from "$lib/_Table/Table.svelte";
+    import Table from "$lib/Table/Table.svelte";
     import Divider from "$lib/Divider/Divider.svelte";
     import List from "$lib/List/List.svelte";
     import ListItem from "$lib/List/ListItem.svelte";
