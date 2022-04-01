@@ -20,8 +20,8 @@
             ['role', 'string', 'ul | ol | dl | nav', 'ul', 'false', 'Defines the semantic wrapping element.'],
             ['selected', 'Writable', '(any)', '-', 'false', 'Provide a data store for nav list selection.'],
             ['spacing', 'string', 'base | comfortable | dense', 'base', 'false', 'Select from one of three spacing styles.'],
-            ['hover', 'string', 'class', 'hover:bg-primary-500/10', 'false', 'Provide a hover:background class for the hovered items.'],
-            ['accent', 'string', 'class', '!bg-primary-500', 'false', 'Provide an (!important) class for the active highlighted item.'],
+            ['hover', 'string', 'class', 'hover:bg-primary-500/10', 'false', 'Provide a hover:background class for the hovered item(s).'],
+            ['highlight', 'string', 'class', '!bg-primary-500', 'false', 'Provide an (!important) class for the highlighted item(s).'],
         ],
     };
     const tablePropsItem: any = {
@@ -52,7 +52,7 @@
     <!-- Roles -->
     <section class="space-y-4">
         <h4>Roles</h4>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
             <section class="space-y-4">
                 <Card class="space-y-4">
                     <h6>Unordered</h6>
@@ -101,7 +101,7 @@
     <!-- Navigation -->
     <section class="space-y-4">
         <h4>Navigation</h4>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
             <section class="space-y-4">
                 <Card class="space-y-4">
                     <h6>Anchor + Dividers + Comfortable</h6>
