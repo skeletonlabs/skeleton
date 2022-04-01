@@ -163,7 +163,7 @@ import Divider from "$lib/Divider/Divider.svelte";
                         <ListItem value={'B'}>Item B</ListItem>
                         <ListItem value={'C'}>Item C</ListItem>
                     </ListGroup>
-                    <CodeBlock language="html" code={$navSingle}></CodeBlock>
+                    <p>Selected: {$navSingle}</p>
                 </Card>
             </section>
             <section class="space-y-4">
@@ -174,7 +174,7 @@ import Divider from "$lib/Divider/Divider.svelte";
                         <ListItem value={'B'}>Item B</ListItem>
                         <ListItem value={'C'}>Item C</ListItem>
                     </ListGroup>
-                    <CodeBlock language="html" code={$navMultiple.join(', ')}></CodeBlock>
+                    <p>Selected: {$navMultiple.join(', ')}</p>
                 </Card>
             </section>
         </div>
