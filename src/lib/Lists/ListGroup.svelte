@@ -13,7 +13,7 @@
     // Context
     setContext('role', role);
     setContext('active', active);
-    setContext('multiple', multiple);
+    setContext('multiple', multiple); // TODO: make this automatic
     setContext('spacing', spacing);
     setContext('accent', accent);
     setContext('hover', hover);
