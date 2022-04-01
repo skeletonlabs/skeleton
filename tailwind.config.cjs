@@ -11,7 +11,7 @@ module.exports = {
 		}
 	},
 	plugins: [
-		// Utilize our Skeleton Tailwind plugin
+		require('@tailwindcss/forms'),
 		require('./src/lib/tailwind.cjs')
 	]
 };
