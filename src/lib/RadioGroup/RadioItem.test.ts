@@ -10,20 +10,20 @@ import RadioItem from '$lib/RadioGroup/RadioItem.svelte';
 
 const testStore = writable(0);
  
-describe('Breadcrumb.svelte', () => {
+describe('RadioItem.svelte', () => {
  
     afterEach(() => cleanup())
  
     it('Renders without props', async () => {
         const { getByTestId } = render(RadioItem, {
-            props: {active: testStore}
+            props: {selected: testStore}
         });
         expect(getByTestId('radio-item')).toBeTruthy();
     });
      
     it('Renders with props', () => {
         const { getByTestId } = render(RadioItem, {
-            props: {value: 'foobar', active: testStore},
+            props: {value: 'foobar', selected: testStore},
         });
         expect(getByTestId('radio-item')).toBeTruthy();
     })

@@ -10,7 +10,7 @@ import RadioGroup from '$lib/RadioGroup/RadioGroup.svelte';
 
 const testStore = writable(0);
  
-describe('Breadcrumb.svelte', () => {
+describe('RadioGroup.svelte', () => {
  
     afterEach(() => cleanup())
  
