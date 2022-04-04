@@ -1,7 +1,7 @@
 <script lang="ts">
     import { afterUpdate } from "svelte";
 
-    export let size: String = "5xl";
+    export let size: String = "6xl";
     export let direction: String = "r";
     export let from: string = 'from-primary-500';
     export let to: string = 'to-accent-500';
@@ -49,12 +49,12 @@
         setSize();
         setDirection();
     });
-    $: classes = `${cBase} ${cSize} ${from} ${to}`;
-    $: spanClasses = `${cDirection}`;
+    $: classes = `${cBase} ${cSize}`;
+    $: spanClasses = `${from} ${to} ${cDirection}`;
 </script>
 
 <div data-testid="gradient-heading" class="gradient-heading {classes} ${$$props.class}">
-    <span data-testid='span' class="bg-clip-text text-transparent {spanClasses}">
+    <span data-testid='span' class="bg-clip-text text-transparent box-decoration-clone {spanClasses}">
         <slot />
     </span>
 </div>
