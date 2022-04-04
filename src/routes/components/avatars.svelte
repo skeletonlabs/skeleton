@@ -16,18 +16,26 @@
             ['color', 'string', 'class', 'text-white', 'Provide a class to set text color.'],
             ['outline', 'boolean', 'true | false', 'false', 'Displays a fixed outline of the primary color.'],
             ['hover', 'boolean', 'true | false', 'false', 'Adds an outline of the primary color when hovered.'],
+            ['effect', 'string', '(filter name)', 'false', 'Provide a filter name to auto-apply the filter utility action.'],
         ],
     };
 
+    function updateImage(): void {
+        props.src = undefined;
+        setTimeout(() => {
+            props.src = placeholder;
+        }, 1)
+    }
+
     $:props = {
 		initials: 'SK',
-		src: undefined,
+		src: placeholder, // undefined,
         size: '3xl',
         background: 'bg-surface-500',
         color: undefined,
         outlined: false,
         hover: false,
-        effect: undefined
+        effect: ''
 	};
 </script>
 
@@ -108,7 +116,7 @@
                 <!-- Filter -->
                 <label>
                     <span>Filter Effect</span>
-                    <select name="effect" id="effect" bind:value={props.effect}>
+                    <select name="effect" id="effect" bind:value={props.effect} on:change={updateImage}>
                         <option value="">None</option>
                         <option value="Apollo">Apollo</option>
                         <option value="BlueNight">BlueNight</option>
