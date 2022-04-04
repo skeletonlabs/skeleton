@@ -29,7 +29,7 @@
 
     $:props = {
 		initials: 'SK',
-		src: placeholder, // undefined,
+		src: undefined,
         size: '3xl',
         background: 'bg-surface-500',
         color: undefined,
