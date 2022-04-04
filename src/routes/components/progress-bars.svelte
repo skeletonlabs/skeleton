@@ -9,7 +9,7 @@
         data: [
             ['label', 'string', '-', 'false', 'Set the label text.'],
             ['value', 'number', '-', 'false', 'Specifies the amount completed.'],
-            ['max', 'number', '-', 'false', 'Maximum amount the bar represents.'],
+            ['max', 'number', '10', 'false', 'Maximum amount the bar represents.'],
             ['color', 'string', 'bg-accent-500', 'false', 'Provide a class to set background color.'],
             ['height', 'string', 'h-2', 'false', 'Provide a class to set height.'],
         ],

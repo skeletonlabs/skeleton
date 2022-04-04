@@ -4,17 +4,19 @@
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
 	import Button from '$lib/Button/Button.svelte';
 
-	const icon: string = `&#9733;`;
+	// const icon: string = `&#9733;`;
     const tableProps: any = {
         columns: ['Prop', 'Type', 'Default', 'Required', 'Description'],
         data: [
+            ['variant', 'string', '-', 'false', 'Values are illustrated in the example above. (ex: filled-primary)'],
+            ['size', 'string', 'sm | base | lg | xl', 'false', 'Defines the button size.'],
             ['background', 'string', '-', 'false', 'Provided a class to define background.'],
             ['color', 'string', 'text-black dark:text-white', 'false', 'Provide a class to define text color.'],
             ['ring', 'string', 'ring-transparent', 'false', 'Provide a class to define ring color.'],
             ['weight', 'string', 'ring-1', 'false', 'Provide a class to define ring weight.'],
             ['rounded', 'string', 'rounded-lg', 'false', 'Provide a class to define border radius.'],
-            ['href', 'string', '-', 'false', 'Converts the button to an anchor tag.'],
-            ['disabled', 'boolean', 'false', 'false', 'Disables button; not available to anchors.'],
+            ['href', 'string', '-', 'false', 'Pass through $$props value.'],
+            ['disabled', 'boolean', 'false', 'false', 'Pass through $$props value.'],
         ],
     };
     const tableSlots: any = {
