@@ -6,7 +6,7 @@ import { cleanup, render } from '@testing-library/svelte';
 import { afterEach, describe, expect, it } from 'vitest';
  
 import { writable } from 'svelte/store';
-import RadioGroup from '$lib/RadioGroup/RadioGroup.svelte';
+import RadioGroup from '$lib/Radio/RadioGroup.svelte';
 
 const testStore = writable(0);
  

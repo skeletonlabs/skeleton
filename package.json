@@ -1,12 +1,13 @@
 {
 	"name": "@brainandbones/skeleton",
-	"version": "0.0.23",
+	"version": "0.11.0",
 	"description": "A SvelteKit component library.",
 	"author": "endigo9740 <csimmons@brainandbonesllc.com>",
 	"scripts": {
 		"dev": "svelte-kit dev --port 3000",
 		"build": "svelte-kit build",
-		"package": "npm version patch && svelte-kit package",
+		"package": "svelte-kit package",
+		"patch-package": "npm version patch && svelte-kit package",
 		"publish": "npm publish ./package",
 		"preview": "svelte-kit preview",
 		"check": "svelte-check --tsconfig ./tsconfig.json",

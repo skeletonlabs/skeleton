@@ -4,8 +4,8 @@
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
     import Card from "$lib/Card/Card.svelte";
     import Table from "$lib/Table/Table.svelte";
-    import RadioGroup from "$lib/RadioGroup/RadioGroup.svelte";
-    import RadioItem from "$lib/RadioGroup/RadioItem.svelte";
+    import RadioGroup from "$lib/Radio/RadioGroup.svelte";
+    import RadioItem from "$lib/Radio/RadioItem.svelte";
 
     const storeJustify = writable(0);
     const storeLayout = writable('horz');
