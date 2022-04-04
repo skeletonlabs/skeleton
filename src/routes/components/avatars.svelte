@@ -4,6 +4,8 @@
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
     import Table from "$lib/Table/Table.svelte";
 
+    let placeholder: string = 'https://i.pravatar.cc/';
+
     const tableProps: any = {
         columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
         data: [
@@ -17,7 +19,6 @@
         ],
     };
 
-    const placeholder: string = 'https://i.pravatar.cc/';
     $:props = {
 		initials: 'SK',
 		src: undefined,
@@ -26,6 +27,7 @@
         color: undefined,
         outlined: false,
         hover: false,
+        effect: undefined
 	};
 </script>
 
@@ -52,6 +54,7 @@
 					color={props.color}
 					outlined={props.outlined}
 					hover={props.hover}
+                    effect={props.effect}
 				></svelte:component>
             </Card>
 			<!-- Options -->
@@ -102,11 +105,27 @@
 					<input type="checkbox" bind:checked={props.hover} />
 					<p class="ml-2">Hover</p>
 				</label>
+                <!-- Filter -->
+                <label>
+                    <span>Filter Effect</span>
+                    <select name="effect" id="effect" bind:value={props.effect}>
+                        <option value="">None</option>
+                        <option value="Apollo">Apollo</option>
+                        <option value="BlueNight">BlueNight</option>
+                        <option value="Emerald">Emerald</option>
+                        <option value="GreenFall">GreenFall</option>
+                        <option value="Noir">Noir</option>
+                        <option value="NoirLight">NoirLight</option>
+                        <option value="Rustic">Rustic</option>
+                        <option value="Summer84">Summer84</option>
+                        <option value="XPro">XPro</option>
+                    </select>
+                </label>
 			</Card>
 		</div>
 		<CodeBlock
 			language="html"
-			code={`<Avatar initials="${props.initials || 'A'}" src="${props.src}" size="${props.size}" background="${props.background}" outlined={${props.outlined}} hover={${props.hover}} />`}
+			code={`<Avatar initials="${props.initials || 'A'}" src="${props.src}" size="${props.size}" background="${props.background}" outlined={${props.outlined}} hover={${props.hover}} effect="${props.effect}" />`}
 		></CodeBlock>
 	</section>
     

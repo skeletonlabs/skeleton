@@ -2,6 +2,7 @@
 	import Drawer from '$lib/Drawer/Drawer.svelte';
 	import LightSwitch from '$lib/LightSwitch/LightSwitch.svelte';
 	import Button from '$lib/Button/Button.svelte';
+	import { Apollo, BlueNight, Emerald, GreenFall, Noir, NoirLight, Rustic, Summer84, XPro } from '$lib/Filters/filter';
 	
 	// Import CSS
 	import 'highlight.js/styles/github-dark.css'; // Highlight.js
@@ -18,6 +19,17 @@
 <svelte:head>
 	<title>Skeleton Documentation</title>
 </svelte:head>
+
+<!-- Filter SVG Components -->
+<Apollo />
+<BlueNight />
+<Emerald />
+<GreenFall />
+<Noir />
+<NoirLight />
+<Rustic />
+<Summer84 />
+<XPro />
 
 <!-- Page Layout -->
 <div class="flex flex-row">

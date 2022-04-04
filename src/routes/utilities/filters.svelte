@@ -1,24 +1,13 @@
 <script lang="ts">
 	import Card from '$lib/Card/Card.svelte';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import { filter, Noir, NoirLight, BlueNight, Emerald, Nineties, Rustic, Summer84, XPro, GreenFall } from '$lib/Filters/filter';
+	import { filter } from '$lib/Filters/filter';
 
     // Avatar Placeholder
 	let placeholder = 'https://i.pravatar.cc/512?img=5';
 </script>
 
 <div class="space-y-8">
-
-    <!-- Filter SVG Components -->
-    <BlueNight />
-    <Emerald />
-    <Nineties />
-    <Rustic />
-    <Summer84 />
-    <XPro />
-    <GreenFall />
-    <Noir />
-    <NoirLight />
 
 	<!-- Header -->
 	<header class="space-y-4">

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { afterUpdate } from "svelte";
+	import { filter } from "$lib/Filters/filter";
 
 	export let initials: string = 'A';
 	export let src: string = ''; // image source, default empty
@@ -8,6 +9,7 @@
 	export let color: string = 'text-white';
 	export let outlined: boolean = false;
     export let hover: boolean = false;
+	export let effect: string = undefined; // filter id name
 	
 	// Classes
 	let cBase: string = 'flex aspect-square text-surface-50 font-semibold justify-center items-center rounded-full overflow-hidden';
@@ -50,7 +52,7 @@
 
 <div data-testid='wrapper' on:click class="avatar {classes}">
 	{#if src}
-	<img class="w-full h-full object-cover" {src} alt="avatar" />
+	<img class="w-full h-full object-cover" {src} alt="avatar" use:filter={effect} />
 	{:else}
 	<span class="{cText}" data-testid="placeholder">{initials.substring(0,2).toUpperCase()}</span>
 	{/if}

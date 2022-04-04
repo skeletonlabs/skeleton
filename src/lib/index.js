@@ -15,12 +15,12 @@ export { default as RadioItem } from "./Radio/RadioItem.svelte";
 
 // Utility: Filters
 export { filter } from "./Filters/filter";
+export { default as Apollo } from "./Filters/svg/Apollo.svelte";
 export { default as BlueNight } from "./Filters/svg/BlueNight.svelte";
 export { default as Emerald } from "./Filters/svg/Emerald.svelte";
-export { default as Nineties } from "./Filters/svg/Nineties.svelte";
-export { default as Rustic } from "./Filters/svg/Rustic.svelte";
-export { default as Summer84 } from "./Filters/svg/Summer84.svelte";
-export { default as XPro } from "./Filters/svg/XPro.svelte";
 export { default as GreenFall } from "./Filters/svg/GreenFall.svelte";
 export { default as Noir } from "./Filters/svg/Noir.svelte";
 export { default as NoirLight } from "./Filters/svg/NoirLight.svelte";
+export { default as Rustic } from "./Filters/svg/Rustic.svelte";
+export { default as Summer84 } from "./Filters/svg/Summer84.svelte";
+export { default as XPro } from "./Filters/svg/XPro.svelte";
