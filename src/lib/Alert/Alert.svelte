@@ -1,17 +1,42 @@
 <script lang='ts'>
 
 export let dismissable: boolean = false;
-export let title: string = 'Subscription Required';
-export let message: string = 'This requires your attention.. Please do an action for blah blah blah... This is just a simple warning.. Nothing to be too concerned about.. Thanks and youre welcome';
+export let title: string = 'Title required..';
+export let message: string = 'Body text goes here!';
 export let actionMessage: string = 'ActionMessage';
 export let outlined: boolean = false;
 export let color: string = '';
 export let actionFunction = null;
 
+let style;
+// Set the color of the alert
+if(outlined){
+    switch(color){
+        case('primary'): { style = 'border-2 border-primary-500 bg-white-500'; break;}
+        case('accent'): { style = 'border-2 border-primary-500 bg-white-500'; break;}
+        case('warning'): { style = 'border-2 border-primary-500 bg-white-500'; break;}
+        case('error'): { style = 'border-2 border-primary-500 bg-white-500'; break;}
+        default: { style = 'border-2 border-surface-500 bg-white-500'; break;}
+    }
+}
+else{
+    switch(color){
+    case('primary'): { style = 'bg-primary-400'; break;}
+    case('accent'): { style = 'bg-accent-500'; break;}
+    case('warning'): { style = 'bg-orange-300'; break;}
+    case('error'): { style = 'bg-warning-400'; break;}
+    default: { style = 'bg-surface-200 dark:bg-surface-800'; break;}
+}
+}
+
 $: visible = true;
 $: animClass = 'alert';
-$: cBase = 'flex flex-col sm:flex-col md:flex-row lg:flex-row rounded-lg border-2 border-accent-500';
+$: cBase = 'flex flex-col sm:flex-col md:flex-row lg:flex-row rounded-lg';
+$: cStyle = style;
+$: textStyle = color && !outlined ? '!text-surface-900' : '';
 
+
+// Dismiss function - Should be callable from outside this scope
 export function dismiss(){
     animClass = 'disappear';
     setTimeout(()=>{
@@ -19,11 +44,12 @@ export function dismiss(){
     }, 450)
 }
 
-$: classes = `${color} ${cBase}`
+$: classes = `${cBase} ${animClass} ${cStyle} ${$$props.class}`
 
 </script>
+<!-- Shown if visible -->
 {#if visible}
-<div class=' alert {classes}'>
+<div class='alert {classes}'>
     {#if !$$slots.content}
         {#if $$slots.icon}
         <!-- Icon slot -->
@@ -32,9 +58,9 @@ $: classes = `${color} ${cBase}`
         </div>
         {/if}
         <!-- Title + Message -->
-        <div class='flex flex-col w-full'>
+        <div class='flex flex-col w-full {textStyle}'>
             <h5 class='m-4'>{title}</h5>
-            <p class='m-4 mt-1 mb-6 text-surface-700 dark:text-surface-200 '>{message}</p>
+            <p class='m-4 mt-1 mb-6 text-surface-700 dark:text-surface-200 {textStyle}'>{message}</p>
         </div>
     {:else}
     <!-- Slotted content -->
@@ -46,12 +72,14 @@ $: classes = `${color} ${cBase}`
     <!-- Action Buttons -->
     <div class='flex flex-row'>
         {#if dismissable}
-        <div class='flex m-8 items-center text-accent-500 dark:hover:text-surface-600 hover:text-surface-400'>
+        <!-- Dismiss -->
+        <div class='flex m-8 items-center hover:opacity-60 {textStyle}'>
             <button class='h-min'  on:click={dismiss}>Dismiss</button>
         </div>
         {/if}
         {#if actionFunction}
-        <div class='flex m-8 items-center text-accent-500 dark:hover:text-surface-600 hover:text-surface-400'>
+        <!-- Custom Action Button -->
+        <div class='flex m-8 items-center hover:opacity-60 {textStyle}'>
             <button class='h-min' on:click={actionFunction}>{actionMessage}</button>
         </div>
         {/if}

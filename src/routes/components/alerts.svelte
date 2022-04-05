@@ -1,4 +1,4 @@
-<script>
+<script lang='ts'>
     import Alert from "$lib/Alert/Alert.svelte";
     import Card from "$lib/Card/Card.svelte";
 
@@ -11,18 +11,21 @@
 
 <div class='space-y-8'>
     <h1>Alerts</h1>
+    
     <Alert dismissable actionFunction={ActionFunction}/>
-    <Alert dismissable message='You can find new features here!' title="What's new in Skeleton UI?"/>
-    <Alert dismissable title='This is an icon alert'>
+
+    <Alert outlined color='primary' dismissable message='You can find new features here!' title="What's new in Skeleton UI?"/>
+
+    <Alert color='error' dismissable title='This is an icon alert'>
         <svelte:fragment slot='icon'>{@html icon}</svelte:fragment>
     </Alert>
 
-    <Alert dismissable actionMessage='Subscribe' actionFunction={()=>{}}>
+    <Alert actionMessage='ActionMessage' actionFunction={ActionFunction}>
         <svelte:fragment slot='content'>
             <div class='m-4 w-1/2'>
-                <p class='mb-2'>Subscribe to our email list..</p>
-                <input type="text">
+                <h5 class='mb-2'>I am slotted content!</h5>
             </div>
         </svelte:fragment>
     </Alert>
+
 </div>
