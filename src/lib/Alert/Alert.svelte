@@ -1,8 +1,6 @@
 <script lang='ts'>
 import { onMount } from "svelte";
 
-
-
 export let dismissable: boolean = false;
 export let title: string = '';
 export let message: string = '';
@@ -11,25 +9,29 @@ export let outlined: boolean = false;
 export let color: string = '';
 export let actionFunction = null;
 
-let style;
+let style: string = '';
+
 // Set the color of the alert
-if(outlined){
+if(outlined) {
     switch(color){
-        case('primary'): { style = 'border-2 border-primary-500 bg-white-500'; break;}
-        case('accent'): { style = 'border-2 border-accent-500 bg-white-500'; break;}
-        case('warning'): { style = 'border-2 border-orange-500 bg-white-500'; break;}
-        case('error'): { style = 'border-2 border-warning-500 bg-white-500'; break;}
-        default: { style = 'border-2 border-surface-500 bg-white-500'; break;}
+        case('primary'):    { style = 'border-2 border-primary-500 bg-white-500'; break; }
+        case('accent'):     { style = 'border-2 border-accent-500 bg-white-500'; break; }
+        case('warning'):    { style = 'border-2 border-orange-500 bg-white-500'; break; }
+        case('error'):      { style = 'border-2 border-warning-500 bg-white-500'; break; }
+        default:            { style = 'border-2 border-surface-500 bg-white-500'; break; }
     }
 }
-else{
-    switch(color){
-    case('primary'): { style = 'bg-primary-400'; break;}
-    case('accent'): { style = 'bg-accent-500'; break;}
-    case('warning'): { style = 'bg-orange-400'; break;}
-    case('error'): { style = 'bg-warning-400'; break;}
-    default: { style = 'bg-surface-200 dark:bg-surface-800'; break;}
-}
+else {
+    switch(color) {
+    case('primary'):        { style = 'bg-primary-400'; break;}
+    case('accent'):         { style = 'bg-accent-500'; break;}
+    case('warning'):        { style = 'bg-orange-400'; break;}
+    case('error'):          { style = 'bg-warning-400'; break;}
+    default: {
+            if(!color) { style = 'bg-surface-200 dark:bg-surface-800'; break;}
+            else { style = color; }
+        }
+    }
 }
 
 $: visible = true;
@@ -38,8 +40,7 @@ $: cBase = 'flex flex-col sm:flex-col md:flex-row lg:flex-row rounded-lg';
 $: cStyle = style;
 $: textStyle = color && !outlined ? '!text-surface-900' : '';
 
-
-// Dismiss function - Should be callable from outside this scope
+// Dismiss function - Should be callable from outside this scope if needed by maybe an eventDispatch
 export function dismiss(){
     animClass = 'disappear';
     setTimeout(()=>{
@@ -56,7 +57,7 @@ $: classes = `${cBase} ${animClass} ${cStyle} ${$$props.class}`
 </script>
 <!-- Shown if visible -->
 {#if visible}
-<div class='alert {classes}'>
+<div on:click on:mouseover on:focus class='alert {classes}'>
     {#if $$slots.icon}
     <!-- Icon slot -->
     <div class='dark:fill-stone-100 fill-black m-5 w-8'>
@@ -64,30 +65,25 @@ $: classes = `${cBase} ${animClass} ${cStyle} ${$$props.class}`
     </div>
     {/if}
 
-
     <!-- Title + Message -->
     <div class='flex flex-col w-full {textStyle}'>
-
         <span class='m-4'>
-        {#if title}
-        <h5>{title}</h5>
-        {:else}
-        <slot name=title/>
-        {/if}
-
+            {#if title}
+            <h5>{title}</h5>
+            {:else}
+            <slot name=title/>
+            {/if}
         </span>
 
         <span class='m-4 mt-1 mb-6 {textStyle}'>
-        {#if message}
-        <p>{message}</p>
-        {:else}
-        <slot name=message />
-        {/if}
+            {#if message}
+            <p>{message}</p>
+            {:else}
+            <slot name=message />
+            {/if}
         </span>
 
     </div>
-
-
 
     <!-- Action Buttons -->
     <div class='flex flex-row'>
