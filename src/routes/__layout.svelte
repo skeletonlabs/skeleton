@@ -15,15 +15,8 @@
 	import '../theme-bb.css'; // bb|st
 	import '../app.css';
 
-	// Current Page Store
 	const currentPageStore: Writable<string> = writable($page.url.pathname);
-
-	// Drawer
 	const drawer: Writable<boolean> = writable(false);
-	const drawerOpen = () => { drawer.set(true); }
-	const drawerClose = () => { drawer.set(false); }
-
-	// Navigation
 	const navigation: any = [
         {
             title: 'Docs',
@@ -54,6 +47,10 @@
             ],
         }
     ];
+
+	// Drawer
+	const drawerOpen = () => { drawer.set(true); }
+	const drawerClose = () => { drawer.set(false); }
 </script>
 
 <!-- <svelte:window bind:scrollY={y}/> -->
