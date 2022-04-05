@@ -4,42 +4,46 @@ export let dismissable: boolean = false;
 export let title: string = 'Subscription Required';
 export let message: string = 'This requires your attention.. Please do an action for blah blah blah... This is just a simple warning.. Nothing to be too concerned about.. Thanks and youre welcome';
 export let actionMessage: string = 'ActionMessage';
-export let variant: string = ''; // filed, outlined
+export let outlined: boolean = false;
 export let color: string = '';
 export let actionFunction = null;
 
 $: visible = true;
 $: animClass = 'alert';
+$: cBase = 'flex flex-col sm:flex-col md:flex-row lg:flex-row rounded-lg border-2 border-accent-500';
 
 export function dismiss(){
-
     animClass = 'disappear';
     setTimeout(()=>{
             visible = false;
     }, 450)
 }
 
-$: classes = `${color}`
+$: classes = `${color} ${cBase}`
 
 </script>
 {#if visible}
-<div class=' alert {animClass} flex flex-col sm:flex-col md:flex-row lg:flex-row bg-white-500 rounded-lg border-2 border-primary-500'>
+<div class=' alert {classes}'>
     {#if !$$slots.content}
-    {#if $$slots.icon}
-    <div class='dark:fill-stone-100 fill-black m-5 w-8'>
-        <slot name='icon'/>
-    </div>
-    {/if}
-    <div class='flex flex-col w-full'>
-        <h5 class='m-4'>{title}</h5>
-        <p class='m-4 mt-1 mb-6 text-surface-700 dark:text-surface-200 '>{message}</p>
-    </div>
+        {#if $$slots.icon}
+        <!-- Icon slot -->
+        <div class='dark:fill-stone-100 fill-black m-5 w-8'>
+            <slot name='icon'/>
+        </div>
+        {/if}
+        <!-- Title + Message -->
+        <div class='flex flex-col w-full'>
+            <h5 class='m-4'>{title}</h5>
+            <p class='m-4 mt-1 mb-6 text-surface-700 dark:text-surface-200 '>{message}</p>
+        </div>
     {:else}
+    <!-- Slotted content -->
     <div class='flex flex-col w-full'>
         <slot name='content' />
     </div>
     {/if}
 
+    <!-- Action Buttons -->
     <div class='flex flex-row'>
         {#if dismissable}
         <div class='flex m-8 items-center text-accent-500 dark:hover:text-surface-600 hover:text-surface-400'>
