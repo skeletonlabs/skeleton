@@ -2,9 +2,14 @@
     import Alert from "$lib/Alert/Alert.svelte";
     import Card from "$lib/Card/Card.svelte";
 
-    let icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M144 480C64.47 480 0 415.5 0 336C0 273.2 40.17 219.8 96.2 200.1C96.07 197.4 96 194.7 96 192C96 103.6 167.6 32 256 32C315.3 32 367 64.25 394.7 112.2C409.9 101.1 428.3 96 448 96C501 96 544 138.1 544 192C544 204.2 541.7 215.8 537.6 226.6C596 238.4 640 290.1 640 352C640 422.7 582.7 480 512 480H144zM223 263C213.7 272.4 213.7 287.6 223 296.1C232.4 306.3 247.6 306.3 256.1 296.1L296 257.9V392C296 405.3 306.7 416 320 416C333.3 416 344 405.3 344 392V257.9L383 296.1C392.4 306.3 407.6 306.3 416.1 296.1C426.3 287.6 426.3 272.4 416.1 263L336.1 183C327.6 173.7 312.4 173.7 303 183L223 263z"/></svg>'
+    let icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M256 32V51.2C329 66.03 384 130.6 384 208V226.8C384 273.9 401.3 319.2 432.5 354.4L439.9 362.7C448.3 372.2 450.4 385.6 445.2 397.1C440 408.6 428.6 416 416 416H32C19.4 416 7.971 408.6 2.809 397.1C-2.353 385.6-.2883 372.2 8.084 362.7L15.5 354.4C46.74 319.2 64 273.9 64 226.8V208C64 130.6 118.1 66.03 192 51.2V32C192 14.33 206.3 0 224 0C241.7 0 256 14.33 256 32H256zM224 512C207 512 190.7 505.3 178.7 493.3C166.7 481.3 160 464.1 160 448H288C288 464.1 281.3 481.3 269.3 493.3C257.3 505.3 240.1 512 224 512z"/></svg>'
+    $: actionTitle = 'Welcome to alerts!';
+    $: actionMessage = 'Click the Action Button for action..';
+
     function ActionFunction(){
         alert('ActionFunction informed me to do this!');
+        actionTitle = 'Thanks...'
+        actionMessage = '';
     }
 
 </script>
@@ -12,20 +17,18 @@
 <div class='space-y-8'>
     <h1>Alerts</h1>
     
-    <Alert dismissable actionFunction={ActionFunction}/>
+    <Alert dismissable actionFunction={ActionFunction} title={actionTitle} message={actionMessage}/>
 
-    <Alert outlined color='primary' dismissable message='You can find new features here!' title="What's new in Skeleton UI?"/>
+    <Alert color='primary' dismissable message='You can find new features here!' title="What's new in Skeleton UI?" actionMessage='Show me' actionFunction={()=>{}}/>
 
-    <Alert color='error' dismissable title='This is an icon alert'>
+    <Alert color='error' dismissable title='This is an icon alert' message='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pharetra diam sit amet nisl suscipit adipiscing. At erat pellentesque adipiscing commodo. Ac felis donec et odio pellentesque.'>
         <svelte:fragment slot='icon'>{@html icon}</svelte:fragment>
     </Alert>
 
-    <Alert actionMessage='ActionMessage' actionFunction={ActionFunction}>
-        <svelte:fragment slot='content'>
-            <div class='m-4 w-1/2'>
-                <h5 class='mb-2'>I am slotted content!</h5>
-            </div>
-        </svelte:fragment>
+    <Alert outlined color='accent' dismissable>
+        <svelte:fragment slot='icon'>{@html icon}</svelte:fragment>
+        <svelte:fragment slot='message'>This is the slotted message</svelte:fragment>
+        <svelte:fragment slot='title'>This is the slotted title</svelte:fragment>
     </Alert>
 
 </div>

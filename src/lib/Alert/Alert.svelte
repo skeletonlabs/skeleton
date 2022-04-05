@@ -1,8 +1,11 @@
 <script lang='ts'>
+import { onMount } from "svelte";
+
+
 
 export let dismissable: boolean = false;
-export let title: string = 'Title required..';
-export let message: string = 'Body text goes here!';
+export let title: string = '';
+export let message: string = '';
 export let actionMessage: string = 'ActionMessage';
 export let outlined: boolean = false;
 export let color: string = '';
@@ -13,9 +16,9 @@ let style;
 if(outlined){
     switch(color){
         case('primary'): { style = 'border-2 border-primary-500 bg-white-500'; break;}
-        case('accent'): { style = 'border-2 border-primary-500 bg-white-500'; break;}
-        case('warning'): { style = 'border-2 border-primary-500 bg-white-500'; break;}
-        case('error'): { style = 'border-2 border-primary-500 bg-white-500'; break;}
+        case('accent'): { style = 'border-2 border-accent-500 bg-white-500'; break;}
+        case('warning'): { style = 'border-2 border-orange-500 bg-white-500'; break;}
+        case('error'): { style = 'border-2 border-warning-500 bg-white-500'; break;}
         default: { style = 'border-2 border-surface-500 bg-white-500'; break;}
     }
 }
@@ -23,7 +26,7 @@ else{
     switch(color){
     case('primary'): { style = 'bg-primary-400'; break;}
     case('accent'): { style = 'bg-accent-500'; break;}
-    case('warning'): { style = 'bg-orange-300'; break;}
+    case('warning'): { style = 'bg-orange-400'; break;}
     case('error'): { style = 'bg-warning-400'; break;}
     default: { style = 'bg-surface-200 dark:bg-surface-800'; break;}
 }
@@ -44,30 +47,47 @@ export function dismiss(){
     }, 450)
 }
 
+onMount(()=>{
+    animClass = 'appear';
+})
+
 $: classes = `${cBase} ${animClass} ${cStyle} ${$$props.class}`
 
 </script>
 <!-- Shown if visible -->
 {#if visible}
 <div class='alert {classes}'>
-    {#if !$$slots.content}
-        {#if $$slots.icon}
-        <!-- Icon slot -->
-        <div class='dark:fill-stone-100 fill-black m-5 w-8'>
-            <slot name='icon'/>
-        </div>
-        {/if}
-        <!-- Title + Message -->
-        <div class='flex flex-col w-full {textStyle}'>
-            <h5 class='m-4'>{title}</h5>
-            <p class='m-4 mt-1 mb-6 text-surface-700 dark:text-surface-200 {textStyle}'>{message}</p>
-        </div>
-    {:else}
-    <!-- Slotted content -->
-    <div class='flex flex-col w-full'>
-        <slot name='content' />
+    {#if $$slots.icon}
+    <!-- Icon slot -->
+    <div class='dark:fill-stone-100 fill-black m-5 w-8'>
+        <slot name='icon'/>
     </div>
     {/if}
+
+
+    <!-- Title + Message -->
+    <div class='flex flex-col w-full {textStyle}'>
+
+        <span class='m-4'>
+        {#if title}
+        <h5>{title}</h5>
+        {:else}
+        <slot name=title/>
+        {/if}
+
+        </span>
+
+        <span class='m-4 mt-1 mb-6 {textStyle}'>
+        {#if message}
+        <p>{message}</p>
+        {:else}
+        <slot name=message />
+        {/if}
+        </span>
+
+    </div>
+
+
 
     <!-- Action Buttons -->
     <div class='flex flex-row'>
@@ -84,6 +104,7 @@ $: classes = `${cBase} ${animClass} ${cStyle} ${$$props.class}`
         </div>
         {/if}
     </div>
+      
 </div>
 {/if}
 
@@ -91,9 +112,11 @@ $: classes = `${cBase} ${animClass} ${cStyle} ${$$props.class}`
     @keyframes appear{
         from{
             opacity: 0%;
+            -webkit-transform: scale(0.8);
         }
         to{
             opacity: 100%;
+            -webkit-transform: scale(1.0);
         }
     }
     @keyframes disappear{
@@ -104,13 +127,13 @@ $: classes = `${cBase} ${animClass} ${cStyle} ${$$props.class}`
         
         to{
             opacity: 0%;
-            -webkit-transform: scale(0.8);
+            -webkit-transform: scale(0.9);
         }
     }
 
     .alert{
         animation: appear;
-        animation-duration: 0.1s;
+        animation-duration: 0.2s;
     }
 
     .disappear{
