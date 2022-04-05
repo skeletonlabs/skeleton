@@ -45,15 +45,18 @@
                 selected.set([...local, v]);
             }
         } else {
+            console.log('foobar');
             // Update singular value
             selected.set(v);
         }
     }
 
-    // Nav - Set selectec class tyle
+    // Nav - set active class if selected
     function isSelected(value: any, selected: any): string {
         if (!selected) { return; }
-        return selected.includes(value) ? highlight : '';
+        // List match -or- single value match
+        const match: boolean = typeof(selected) === 'object' ? selected.includes(value) : selected === value;
+        return match ? highlight : '';
     }
 
     // Reselected

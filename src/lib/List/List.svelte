@@ -4,7 +4,7 @@
 
     // Props
     export let role: string = 'ul';
-    export let selected: Writable<any> = undefined;
+    export let selected: Writable<any> = undefined; // (store)
     export let spacing: string = undefined; // comfortable | dense
     export let highlight: string = '!bg-primary-500'; // '!' required
     export let hover: string = 'hover:bg-primary-500/10'; // 'hover:' required
