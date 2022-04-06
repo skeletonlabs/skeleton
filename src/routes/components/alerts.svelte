@@ -13,7 +13,11 @@
     const tableProps: any = {
         columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
         data: [
-            ['from', 'string', '(class name)', 'from-primary-500', 'Insert the standard Tailwind "from-" class name'],
+            ['color', 'string', 'primary | accent | caution | warning | tailwind class', '-', 'Set the color of the alert by predefined values or a Tailwind class'],
+            ['outlined', 'boolean', 'true | false', 'false', 'Specify if component is outlined'],
+            ['dismissable', 'boolean', 'true | false', 'false', 'Specify if the alert can be dismissed by a dismiss button'],
+            ['actionMessage', 'function', 'string', '-', 'Specify an action button'],
+            ['actionFunction', 'function', 'JavaScript function', '-', 'Sets a function for the onclick actionMessage'],
         ],
     };
 
