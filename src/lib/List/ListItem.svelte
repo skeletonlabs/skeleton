@@ -1,7 +1,7 @@
 <!-- https://css-tricks.com/almanac/properties/l/list-style/ -->
 
 <script lang='ts'>
-    import {afterUpdate, getContext} from 'svelte';
+    import {afterUpdate, getContext, createEventDispatcher} from 'svelte';
     import type {Writable} from 'svelte/store';
 
     // Context
@@ -10,6 +10,9 @@
     export let spacing: string = getContext('spacing');
     export let highlight: string = getContext('highlight');
     export let hover: string = getContext('hover');
+
+    // Event Handler
+    const dispatch = createEventDispatcher();
 
     // Classes
     const cCompId: string = 'list-item';
@@ -30,8 +33,11 @@
     }
 
     // Nav - Handle Selection
-    function onSelection(v: any): void {
+    function onSelection(event: any, v: any): void {
         if (!v) { return; }
+        // Dispatch Event
+        dispatch('click', event);
+        // Selection Handler
         if (typeof($selected) === 'object') {
             // Create local copy of array
             const local: any[] = $selected;
@@ -45,7 +51,6 @@
                 selected.set([...local, v]);
             }
         } else {
-            console.log('foobar');
             // Update singular value
             selected.set(v);
         }
@@ -90,7 +95,7 @@
 {:else if role === 'nav'}
 <a
     href={$$props.href}
-    on:click={() => {onSelection($$props.value)}}
+    on:click={(e) => {onSelection(e, $$props.value)}}
     class="{cCompId} {classes} {cNavigation} {isSelected($$props.value, $selected)}"
     data-testid="list-item"
 >
