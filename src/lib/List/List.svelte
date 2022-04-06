@@ -18,7 +18,7 @@
 
     // Classes
     // const cBase: string = '';
-    let cSpacing: string = '';
+    let cSpacing: string = 'space-y-1';
 
     // Set Spacing
     function setSpacing(): void {

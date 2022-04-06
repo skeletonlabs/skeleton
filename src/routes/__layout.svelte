@@ -33,6 +33,7 @@
                 {href: '/components/buttons', label: 'Buttons'},
                 {href: '/components/cards', label: 'Cards'},
                 {href: '/components/dividers', label: 'Dividers'},
+                {href: '/components/drawers', label: 'Drawers'},
                 {href: '/components/gradient-headings', label: 'Gradient Heading'},
                 {href: '/components/lists', label: 'Lists'},
                 {href: '/components/logo-clouds', label: 'Logo Clouds'},
@@ -92,9 +93,9 @@
 		<!-- Main -->
 		<svelte:fragment slot="main">
 			<!-- Navigation -->
-			<div class="space-y-4">
+			<div class="space-y-6">
 			{#each navigation as {title,list}, i }
-				<h6 class="text-sm text-primary-500 m-4">{title}</h6>
+				<p class="text-sm text-primary-500 m-4">{title}</p>
 				<List role="nav" selected={currentPageStore}>
 					{#each list as {href,label} }
 					<ListItem {href} value={href} on:click={drawerClose}>{label}</ListItem>

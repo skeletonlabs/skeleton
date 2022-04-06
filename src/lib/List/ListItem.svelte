@@ -18,7 +18,7 @@
     const cDescription: string = 'list-none space-y-2';
     const cNavigation: string = `list-none ${hover} cursor-pointer px-4`;
     // - Styling -
-    let cSpacing: string = '';
+    let cSpacing: string = 'py-3';
 
     // Set Spacing
     function setSpacing(): void {

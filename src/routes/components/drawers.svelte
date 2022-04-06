@@ -1,0 +1,99 @@
+<script lang="ts">
+    import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+    import Table from "$lib/Table/Table.svelte";
+    import Card from "$lib/Card/Card.svelte";
+    import Divider from '$lib/Divider/Divider.svelte';
+    import Drawer from '$lib/Drawer/Drawer.svelte';
+
+    const tableProps: any = {
+        columns: ['Prop', 'Type', 'Default', 'Required', 'Description'],
+        data: [
+            ['visible', 'writable(boolean)', '-', 'true', 'Provide a boolean store to control open/closed state.'],
+            ['fixed', 'boolean', 'false', 'false', 'Inline by default, fixed when enabled and overlays on small screens.'],
+            ['border', 'string', 'border-r border-surface-200 dark:border-surface-800', 'false', 'Provide classes to customize the border style.'],
+        ],
+    };
+    const tableSlots: any = {
+        columns: ['Name', 'Description'],
+        data: [
+            ['header', 'Reserved space for header content, such as branding.'],
+            ['main', 'Reserved space for navigation elements.'],
+            ['footer', 'Reserved space for footer content, such as legal or copyrights.'],
+        ],
+    };
+</script>
+
+<div class="space-y-8">
+
+    <!-- Header -->
+    <header class="space-y-4">
+        <h2>Drawers</h2>
+        <p>Display overlay area at any side of the screen</p>
+        <CodeBlock language="javascript" code={`<script>import {Drawer} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
+    </header>
+
+    <!-- Examples -->
+    <Card class="space-y-4">
+        <Drawer class="mx-auto">
+            <svelte:fragment slot="header">
+                <p class="p-4 text-center">(header slot)</p>
+                <Divider />
+            </svelte:fragment>
+            <svelte:fragment slot="main">
+                <p class="p-4 text-center">(main slot)</p>
+            </svelte:fragment>
+            <svelte:fragment slot="footer">
+                <Divider />
+                <p class="p-4 text-center">(footer slot)</p>
+            </svelte:fragment>
+        </Drawer>
+    </Card>
+
+    <!-- Usage -->
+    <section class="space-y-4">
+        <h3 class="text-2xl font-bold">Usage</h3>
+        <CodeBlock language="js" code={`
+const drawer: Writable<boolean> = writable(false);
+const drawerOpen = () => { drawer.set(true);
+const drawerClose = () => { drawer.set(false); }
+        `.trim()}></CodeBlock>
+        <CodeBlock language="html" code={`
+<Drawer visible={drawer}>
+    <svelte:fragment slot="header">
+        <p class="p-4 text-center">(header slot)</p>
+        <Divider />
+    </svelte:fragment>
+    <svelte:fragment slot="main">
+        <p class="p-4 text-center">(main slot)</p>
+    </svelte:fragment>
+    <svelte:fragment slot="footer">
+        <Divider />
+        <p class="p-4 text-center">(footer slot)</p>
+    </svelte:fragment>
+</Drawer>
+        `.trim()}></CodeBlock>
+    </section>
+
+    <!-- Notes -->
+    <Card class="space-y-4">
+        <h4>Notes</h4>
+        <ul class="list-disc list-inside space-y-2">
+            <li>Pair with Divider components in the header/footer to visualize segmentation.</li>
+            <li>The main slot will provide automatic overflow scroll for the Y axis.</li>
+            <li>Any slot not provided will collapse and be hidden.</li>
+        </ul>
+    </Card>
+
+    <!-- Properties -->
+	<section class="space-y-4">
+		<h2>Properties</h2>
+		<Table source="{tableProps}"></Table>
+	</section>
+	
+	<!-- Slots -->
+	<section class="space-y-4">
+		<h2>Slots</h2>
+		<Table source="{tableSlots}"></Table>
+	</section>
+    
+</div>

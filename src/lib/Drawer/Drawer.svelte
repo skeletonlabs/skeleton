@@ -3,9 +3,10 @@
 
     export let visible: Writable<boolean> = undefined;
     export let fixed: boolean = false;
+    export let border: string = 'border-r border-surface-200 dark:border-surface-800';
 
     // Base Classes
-    let cBase: string = 'flex flex-col w-[320px] h-screen bg-surface-50 dark:bg-surface-900 border-r border-surface-200 dark:border-surface-800';
+    let cBase: string = 'flex flex-col w-[320px] h-screen bg-surface-50 dark:bg-surface-900';
 
     // Set Fixed (for responsive/animated)
     if (fixed) {
@@ -15,10 +16,10 @@
     // Drawer Actions
 	const drawerClose = () => { visible.set(false); }
 
-    $: classes = `${cBase} ${$$props.class}`;
+    $: classes = `${cBase} ${border} ${$$props.class}`;
 </script>
 
-<div class="drawer {classes}" class:translate-x-0={$visible}>
+<div class="drawer {classes}" class:translate-x-0={$visible} data-testid="drawer">
 
     <!-- Header -->
     {#if $$slots.header}
