@@ -60,14 +60,14 @@ $: classes = `${cBase} ${animClass} ${cStyle} ${$$props.class}`
 <div on:click on:mouseover on:focus class='alert {classes}'>
     {#if $$slots.icon}
     <!-- Icon slot -->
-    <div class='dark:fill-stone-100 fill-black m-5 w-8'>
+    <div class='m-5 w-8'>
         <slot name='icon'/>
     </div>
     {/if}
 
     <!-- Title + Message -->
     <div class='flex flex-col w-full {textStyle}'>
-        <span class='m-4'>
+        <span class='m-4 ml-8'>
             {#if title}
             <h5>{title}</h5>
             {:else}
@@ -75,11 +75,11 @@ $: classes = `${cBase} ${animClass} ${cStyle} ${$$props.class}`
             {/if}
         </span>
 
-        <span class='m-4 mt-1 mb-6 {textStyle}'>
+        <span class='m-4 ml-8 mt-1 mb-6 {textStyle}'>
             {#if message}
             <p>{message}</p>
             {:else}
-            <slot name=message />
+            <slot name='message' />
             {/if}
         </span>
 

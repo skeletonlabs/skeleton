@@ -26,13 +26,14 @@
     </Alert>
 
     <Alert outlined color='accent' dismissable>
-        <svelte:fragment slot='icon'>{@html icon}</svelte:fragment>
         <svelte:fragment slot='message'>This is the slotted message</svelte:fragment>
         <svelte:fragment slot='title'>This is the slotted title</svelte:fragment>
     </Alert>
 
-    <Alert outlined color='primary' dismissable title='This is an icon alert' message='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pharetra diam sit amet nisl suscipit adipiscing. At erat pellentesque adipiscing commodo. Ac felis donec et odio pellentesque.'>
-        <svelte:fragment slot='icon'>{@html icon}</svelte:fragment>
+    <Alert class='rounded-none' color='bg-yellow-200/90' dismissable title='Custom color and rounding' message='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pharetra diam sit amet nisl suscipit adipiscing. At erat pellentesque adipiscing commodo. Ac felis donec et odio pellentesque.'>
+        <svelte:fragment slot='icon'>
+            {@html icon}
+        </svelte:fragment>
     </Alert>
 
 </div>
