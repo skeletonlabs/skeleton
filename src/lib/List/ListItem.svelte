@@ -42,18 +42,14 @@
             // Create local copy of array
             const local: any[] = $selected;
             // If is in list, prune it
-            if(local.includes(v)){ 
+            if (local.includes(v)) { 
                 local.splice(local.indexOf(v), 1);
                 selected.set(local);
             }
             // If not in list, add it
-            else{
-                selected.set([...local, v]);
-            }
-        } else {
-            // Update singular value
-            selected.set(v);
-        }
+            else { selected.set([...local, v]); }
+        // Update singular value
+        } else { selected.set(v); }
     }
 
     // Nav - set active class if selected
