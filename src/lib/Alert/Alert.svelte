@@ -57,7 +57,7 @@ $: classes = `${cBase} ${animClass} ${cStyle} ${$$props.class}`;
 </script>
 <!-- Shown if visible -->
 {#if visible}
-<div on:click on:mouseover on:focus class='alert {classes}'>
+<div data-testid='alert' on:click on:mouseover on:focus class='alert {classes}'>
     {#if $$slots.icon}
     <!-- Icon slot -->
     <div class='m-6 w-6 flex-row justify-center'>
@@ -68,13 +68,13 @@ $: classes = `${cBase} ${animClass} ${cStyle} ${$$props.class}`;
     <!-- Title + Message -->
     <div class='flex flex-col w-full justify-center'>
         {#if $$slots.title}
-        <div class='m-4 ml-8 mb-2 font-semibold {textStyle}'>
+        <div data-testid='title-slot' class='m-4 ml-8 mb-2 font-semibold {textStyle}'>
             <slot name=title/>
         </div>
         {/if}
 
         {#if $$slots.message}
-        <div class='m-4 ml-8 mt-0 mb-6 {textStyle}'>
+        <div data-testid='title-slot' class='m-4 ml-8 mt-0 mb-6 {textStyle}'>
             <slot name='message'/>
         </div>
         {/if}

@@ -10,9 +10,15 @@
  describe('Alert.svelte', () => {
      afterEach(() => cleanup());
  
+     it('Renders without props', async () => {
+        const { getByTestId } = render(Alert);
+		expect(getByTestId('alert')).toBeTruthy();
+     });
+
      it('Renders with props', async () => {
-        render(Alert);
-        
+        const { getByTestId } = render(Alert, 
+            {props: {dismissable: false, color: 'primary', actionMessage: 'Test', actionFunction: ()=>{}, outlined: true}});
+		expect(getByTestId('alert')).toBeTruthy();
      });
  
  });
