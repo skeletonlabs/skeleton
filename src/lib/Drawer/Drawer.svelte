@@ -7,7 +7,7 @@
     export let border: string = 'border-r border-surface-200 dark:border-surface-800';
 
     // Base Classes
-    let cBase: string = 'flex flex-col w-[320px] h-screen bg-surface-50 dark:bg-surface-900';
+    let cBase: string = 'flex flex-col w-[280px] h-screen bg-surface-50 dark:bg-surface-900';
     let cFixed: string = '';
 
     // Set Fixed and set left/right position
