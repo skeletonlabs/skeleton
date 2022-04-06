@@ -55,7 +55,7 @@
         <h3 class="text-2xl font-bold">Usage</h3>
         <CodeBlock language="js" code={`
 const drawer: Writable<boolean> = writable(false);
-const drawerOpen = () => { drawer.set(true);
+const drawerOpen = () => { drawer.set(true); }
 const drawerClose = () => { drawer.set(false); }
         `.trim()}></CodeBlock>
         <CodeBlock language="html" code={`<Button on:click={drawerOpen}>Menu</Button>`}></CodeBlock>
