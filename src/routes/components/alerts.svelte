@@ -13,13 +13,22 @@
     const tableProps: any = {
         columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
         data: [
-            ['color', 'string', 'primary | accent | caution | warning | tailwind class', '-', 'Set the color of the alert by predefined values or a Tailwind class'],
-            ['outlined', 'boolean', 'true | false', 'false', 'Specify if component is outlined'],
-            ['dismissable', 'boolean', 'true | false', 'false', 'Specify if the alert can be dismissed by a dismiss button'],
-            ['actionMessage', 'function', 'string', '-', 'Specify an action button'],
-            ['actionFunction', 'function', 'JavaScript function', '-', 'Sets a function for the onclick actionMessage'],
+            ['color', 'string', 'primary | accent | caution | warning | tailwind class', '-', 'Set the color of the alert by predefined values or a Tailwind class.'],
+            ['outlined', 'boolean', 'true | false', 'false', 'Specify if component is outlined.'],
+            ['dismissable', 'boolean', 'true | false', 'false', 'Specify if the alert can be dismissed by a dismiss button.'],
+            ['actionMessage', 'function', 'string', '-', 'Specify an action button.'],
+            ['actionFunction', 'function', 'JavaScript function', '-', 'Sets a function for the onclick actionMessage.'],
         ],
     };
+
+    const slotProps: any = {
+        columns: ['Slot', 'Description'],
+        data: [
+            ['icon', 'Specify a leading icon on the alert.'],
+            ['title', 'Specify the title of the alert.'],
+            ['message', 'Specify the body message of the alert.']
+        ]
+    }
 
     let title = 'What`s new in Skeleton?';
     let message = 'Check out the countless new features and components in the Skeleton Library.';
@@ -70,7 +79,7 @@
 
         <Card class="space-y-4">
             <h6>CustomAction</h6>
-            <Alert color='error' actionMessage='Check it out' actionFunction={()=>{window.location.href = '/'}}>
+            <Alert color='warning' actionMessage='Check it out' actionFunction={()=>{window.location.href = '/'}}>
                 <svelte:fragment slot='title'>{title}</svelte:fragment>
                 <svelte:fragment slot='message'>{message}</svelte:fragment>
             </Alert>
@@ -78,7 +87,7 @@
 
         <Card class="space-y-4">
             <h6>Icon</h6>
-            <Alert>
+            <Alert dismissable>
                 <svelte:fragment slot='icon'><span class='fill-slate-900 dark:fill-slate-300'>{@html icon}</span></svelte:fragment>
                 <svelte:fragment slot='title'>{title}</svelte:fragment>
                 <svelte:fragment slot='message'>{message}</svelte:fragment>
@@ -100,6 +109,12 @@
     <section class="space-y-4">
         <h2>Properties</h2>
         <Table source="{tableProps}"></Table>
+    </section>
+
+    <!-- Properties -->
+    <section class="space-y-4">
+        <h2>Slots</h2>
+        <Table source="{slotProps}"></Table>
     </section>
 
 </div>
