@@ -1,7 +1,7 @@
 <!-- https://css-tricks.com/almanac/properties/l/list-style/ -->
 
 <script lang='ts'>
-    import {afterUpdate, getContext} from 'svelte';
+    import {afterUpdate, getContext, createEventDispatcher} from 'svelte';
     import type {Writable} from 'svelte/store';
 
     // Context
@@ -11,6 +11,9 @@
     export let highlight: string = getContext('highlight');
     export let hover: string = getContext('hover');
 
+    // Event Handler
+    const dispatch = createEventDispatcher();
+
     // Classes
     const cCompId: string = 'list-item';
     const cBase: string = 'list-inside';
@@ -18,7 +21,7 @@
     const cDescription: string = 'list-none space-y-2';
     const cNavigation: string = `list-none ${hover} cursor-pointer px-4`;
     // - Styling -
-    let cSpacing: string = '';
+    let cSpacing: string = 'py-3';
 
     // Set Spacing
     function setSpacing(): void {
@@ -30,30 +33,31 @@
     }
 
     // Nav - Handle Selection
-    function onSelection(v: any): void {
+    function onSelection(event: any, v: any): void {
         if (!v) { return; }
+        // Dispatch Event
+        dispatch('click', event);
+        // Selection Handler
         if (typeof($selected) === 'object') {
             // Create local copy of array
             const local: any[] = $selected;
             // If is in list, prune it
-            if(local.includes(v)){ 
+            if (local.includes(v)) { 
                 local.splice(local.indexOf(v), 1);
                 selected.set(local);
             }
             // If not in list, add it
-            else{
-                selected.set([...local, v]);
-            }
-        } else {
-            // Update singular value
-            selected.set(v);
-        }
+            else { selected.set([...local, v]); }
+        // Update singular value
+        } else { selected.set(v); }
     }
 
-    // Nav - Set selectec class tyle
+    // Nav - set active class if selected
     function isSelected(value: any, selected: any): string {
         if (!selected) { return; }
-        return selected.includes(value) ? highlight : '';
+        // List match -or- single value match
+        const match: boolean = typeof(selected) === 'object' ? selected.includes(value) : selected === value;
+        return match ? highlight : '';
     }
 
     // Reselected
@@ -87,7 +91,7 @@
 {:else if role === 'nav'}
 <a
     href={$$props.href}
-    on:click={() => {onSelection($$props.value)}}
+    on:click={(e) => {onSelection(e, $$props.value)}}
     class="{cCompId} {classes} {cNavigation} {isSelected($$props.value, $selected)}"
     data-testid="list-item"
 >

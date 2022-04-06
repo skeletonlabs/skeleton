@@ -1,74 +1,51 @@
 <script lang="ts">
-    import { page } from '$app/stores';
-    import { createEventDispatcher } from 'svelte';
+    import type { Writable } from 'svelte/store';
 
-    import Divider from '$lib/Divider/Divider.svelte';
+    export let visible: Writable<boolean> = undefined;
+    export let fixed: boolean = false;
+    export let position: string = 'left'; // left|right
+    export let border: string = 'border-r border-surface-200 dark:border-surface-800';
 
-    export let navigation: any = [
-        {
-            title: 'Docs',
-            list: [
-                {href: '/', label: 'Get Started'},
-                {href: '/docs/themes', label: 'Themes'},
-            ],
-        },
-        {
-            title: 'Components',
-            list: [
-                {href: '/components/avatars', label: 'Avatars'},
-                {href: '/components/breadcrumbs', label: 'Breadcrumb'},
-                {href: '/components/buttons', label: 'Buttons'},
-                {href: '/components/cards', label: 'Cards'},
-                {href: '/components/dividers', label: 'Dividers'},
-                {href: '/components/gradient-headings', label: 'Gradient Heading'},
-                {href: '/components/lists', label: 'Lists'},
-                {href: '/components/logo-clouds', label: 'Logo Clouds'},
-                {href: '/components/progress-bars', label: 'Progress Bars'},
-                {href: '/components/radio-groups', label: 'Radio Groups'},
-            ],
-        },
-        {
-            title: 'Utilities',
-            list: [
-                {href: '/utilities/filters', label: 'Filters (beta)'},
-            ],
+    // Base Classes
+    let cBase: string = 'flex flex-col w-[280px] h-screen bg-surface-50 dark:bg-surface-900';
+    let cFixed: string = '';
+
+    // Set Fixed and set left/right position
+    if (fixed) {
+        cFixed = 'flex-none fixed lg:static top-0 z-40 shadow-2xl lg:shadow-none lg:translate-x-0 transition-transform';
+        switch(position) {
+            case('left'): cFixed += ' left-0 -translate-x-full'; break;
+            // FIXME: class conflicts with inline class binding for visible
+            // case('right'): cFixed += ' right-0 translate-x-full'; break;
         }
-    ];
-    const dispatch = createEventDispatcher();
+    }
 
-    const cBase: string = 'w-[320px] border-r border-surface-200 py-8 space-y-8 bg-surface-50 dark:bg-surface-900 h-screen overflow-y-auto dark:border-surface-800';
+    // Drawer Actions
+	const close = () => { visible.set(false); }
 
-    $: classes = `${cBase} ${$$props.class}`;
+    $: classes = `${cBase} ${cFixed} ${border} ${$$props.class}`;
 </script>
 
-<div class="drawer {classes}">
+<div class="drawer {classes}" class:translate-x-0={$visible} data-testid="drawer">
 
-    <!-- Icon -->
+    <!-- Header -->
     {#if $$slots.header}
-        <header class="mx-8"><slot name="header"></slot></header>
-        <Divider />
+    <header class="flex-none"><slot name="header"></slot></header>
     {/if}
 
-    <!-- Navigation -->
-    {#each navigation as {title,list}, i }
-    <section class="space-y-4">
-        <small class="text-sm text-primary-500 px-8">{title}</small>
-        <nav>
-            {#each list as {href,label} }
-            <a
-                {href}
-                class="block text-base px-8 py-4 hover:bg-primary-500/10"
-                class:active={$page.url.pathname == href}
-                on:click={() => { dispatch('close') }}
-            >{label}</a>
-            {/each}
-        </nav>
-    </section>
-    {#if i+1 < navigation.length}<Divider />{/if}
-    {/each}
+    <!-- Main -->
+    {#if $$slots.main}
+    <section class="flex-auto overflow-y-auto"><slot name="main"></slot></section>
+    {/if}
+
+    <!-- Footer -->
+    {#if $$slots.footer}
+    <footer class="flex-none"><slot name="footer"></slot></footer>
+    {/if}
 
 </div>
 
-<style lang="postcss">
-    .active { @apply bg-primary-500 !important; }
-</style>
+<!-- Shim -->
+{#if $visible}
+    <div class="lg:hidden fixed top-0 left-0 right-0 bottom-0 z-30 bg-white/50 dark:bg-black/50" on:click={close}></div>
+{/if}

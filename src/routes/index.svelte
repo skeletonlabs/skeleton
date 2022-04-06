@@ -109,11 +109,4 @@
         <p>We'll provide official instructions for contributing to Skeleton soon.</p>
     </section>
 
-    <Divider />
-
-    <!-- Legal -->
-    <p class="text-xs text-surface-700 text-center">
-        Created and maintained by <a href="https://www.brainandbonesllc.com/" target="_blank" class="text-surface-500">Brain & Bones</a>.
-    </p>
-
 </div>
