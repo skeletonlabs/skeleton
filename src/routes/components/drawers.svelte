@@ -10,6 +10,7 @@
         data: [
             ['visible', 'writable(boolean)', '-', 'true', 'Provide a boolean store to control open/closed state.'],
             ['fixed', 'boolean', 'false', 'false', 'Inline by default, fixed when enabled and overlays on small screens.'],
+            // ['position', 'string', 'left|right', 'false', 'Defines which side of the screen the drawer operates.'],
             ['border', 'string', 'border-r border-surface-200 dark:border-surface-800', 'false', 'Provide classes to customize the border style.'],
         ],
     };
@@ -57,6 +58,7 @@ const drawer: Writable<boolean> = writable(false);
 const drawerOpen = () => { drawer.set(true);
 const drawerClose = () => { drawer.set(false); }
         `.trim()}></CodeBlock>
+        <CodeBlock language="html" code={`<Button on:click={drawerOpen}>Menu</Button>`}></CodeBlock>
         <CodeBlock language="html" code={`
 <Drawer visible={drawer}>
     <svelte:fragment slot="header">
