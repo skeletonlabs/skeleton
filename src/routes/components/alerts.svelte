@@ -17,7 +17,7 @@
     
     <Alert dismissable actionFunction={ActionFunction} title={actionTitle} message={actionMessage}/>
 
-    <Alert color='primary' dismissable message='You can find new features here!' title="What's new in Skeleton UI?" actionMessage='Show me' actionFunction={()=>{}}/>
+    <Alert color='primary' dismissable message='You can find new features here!' title="What's new in Skeleton UI?" actionMessage='Show me' actionFunction={()=>{window.location.href = '/';}}/>
 
     <Alert color='error' dismissable title='This is an icon alert' message='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pharetra diam sit amet nisl suscipit adipiscing. At erat pellentesque adipiscing commodo. Ac felis donec et odio pellentesque.'>
         <svelte:fragment slot='icon'>{@html icon}</svelte:fragment>
@@ -28,7 +28,7 @@
         <svelte:fragment slot='title'>This is the slotted title</svelte:fragment>
     </Alert>
 
-    <Alert class='rounded-none' color='bg-yellow-200/90' dismissable title='Custom color and rounding' message='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pharetra diam sit amet nisl suscipit adipiscing. At erat pellentesque adipiscing commodo. Ac felis donec et odio pellentesque.'>
+    <Alert class='rounded-none' color='bg-yellow-200/90' dismissable title='Custom color and rounding' message='Skeleton is still in early development. Use with precautions and common sense!'>
         <svelte:fragment slot='icon'>
             {@html icon}
         </svelte:fragment>

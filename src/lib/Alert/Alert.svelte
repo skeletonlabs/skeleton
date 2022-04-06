@@ -90,13 +90,13 @@ $: classes = `${cBase} ${animClass} ${cStyle} ${$$props.class}`
         {#if dismissable}
         <!-- Dismiss -->
         <div class='flex m-8 items-center hover:opacity-60 {textStyle}'>
-            <button class='h-min'  on:click={dismiss}>Dismiss</button>
+            <button class='h-min font-semibold' on:click={dismiss}>Dismiss</button>
         </div>
         {/if}
         {#if actionFunction}
         <!-- Custom Action Button -->
-        <div class='flex m-8 items-center hover:opacity-60 {textStyle}'>
-            <button class='h-min' on:click={actionFunction}>{actionMessage}</button>
+        <div class='flex m-8 items-center hover:opacity-60 whitespace-nowrap {textStyle}'>
+            <button class='h-min font-semibold' on:click={actionFunction}>{actionMessage}</button>
         </div>
         {/if}
     </div>
@@ -127,7 +127,7 @@ $: classes = `${cBase} ${animClass} ${cStyle} ${$$props.class}`
         }
     }
 
-    .alert{
+    .appear{
         animation: appear;
         animation-duration: 0.2s;
     }
