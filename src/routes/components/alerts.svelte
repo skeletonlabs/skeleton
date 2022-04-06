@@ -8,8 +8,6 @@
 
     function ActionFunction(){
         alert('ActionFunction informed me to do this!');
-        actionTitle = 'Thanks...'
-        actionMessage = '';
     }
 
 </script>
