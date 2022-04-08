@@ -40,7 +40,7 @@
     <!-- Header -->
     <header class="space-y-4">
         <h1>Alerts</h1>
-        <p>Make alerts that stand out with different warning levels.</p>
+        <p>Make alerts that stand out with different warning levels and custom actions.</p>
     </header>
     
     <!-- Examples -->
@@ -54,7 +54,7 @@
         </Card>
 
         <Card class="space-y-4">
-            <h6>Primary</h6>
+            <h6>Filled</h6>
             <Alert color='primary'>
                 <svelte:fragment slot='title'>{title}</svelte:fragment>
                 <svelte:fragment slot='message'>{message}</svelte:fragment>
@@ -78,7 +78,7 @@
         </Card>
 
         <Card class="space-y-4">
-            <h6>CustomAction</h6>
+            <h6>Custom Action</h6>
             <Alert color='warning' actionMessage='Check it out' actionFunction={()=>{window.location.href = '/'}}>
                 <svelte:fragment slot='title'>{title}</svelte:fragment>
                 <svelte:fragment slot='message'>{message}</svelte:fragment>
@@ -86,7 +86,7 @@
         </Card>
 
         <Card class="space-y-4">
-            <h6>Icon</h6>
+            <h6>Leading Icon</h6>
             <Alert dismissable>
                 <svelte:fragment slot='icon'><span class='fill-slate-900 dark:fill-slate-300'>{@html icon}</span></svelte:fragment>
                 <svelte:fragment slot='title'>{title}</svelte:fragment>
