@@ -1,15 +1,14 @@
-<script lang='ts'>
-import { onMount } from "svelte";
+<script lang="ts">
+	import { onMount } from 'svelte';
 
-export let dismissable: boolean = false;
-export let actionMessage: string = 'ActionMessage';
-export let outlined: boolean = false;
-export let color: string = '';
-export let actionFunction = null;
-export let radius: string = 'none';
+	export let dismissable: boolean = false;
+	export let actionMessage: string = 'ActionMessage';
+	export let outlined: boolean = false;
+	export let color: string = '';
+	export let actionFunction = null;
+	export let radius: string = 'none';
 
-
-let radStyle: string = '';
+    let radStyle: string = '';
 switch(radius){
     case('none'): {radStyle = ''; break};
     case('sm'): {radStyle = 'rounded-sm'; break};
@@ -42,102 +41,109 @@ else {
     }
 }
 
-$: visible = true;
-$: animClass = 'alert';
-$: cBase = `flex flex-col sm:flex-col md:flex-col lg:flex-row ${radStyle}`;
-$: cStyle = style;
-$: textStyle = color && !outlined ? '!text-surface-900' : '';
+	$: visible = true;
+	$: animClass = 'alert';
+	$: cBase = `flex flex-col sm:flex-col md:flex-col lg:flex-row ${radStyle}`;
+	$: cStyle = style;
+	$: textStyle = color && !outlined ? '!text-surface-900' : '';
 
-// Unsure if I want to keep this, instead of just inlining it. It's just there for the animation
-// which I am also not sure if should be kept. Delete if agreeing.
-export function dismiss(){
-    animClass = 'disappear';
-    setTimeout(()=>{
-            visible = false;
-    }, 250)
-}
+	// Unsure if I want to keep this, instead of just inlining it. It's just there for the animation
+	// which I am also not sure if should be kept. I am thinking we will have a basic set of transition effects throughout
+	// the library in the future.
 
-onMount(()=>{
-    animClass = 'appear';
-})
+	export function dismiss() {
+		animClass = 'disappear';
+		setTimeout(() => {
+			visible = false;
+		}, 250);
+	}
 
-$: classes = `${cBase} ${animClass} ${cStyle} ${$$props.class}`;
+	onMount(() => {
+		animClass = 'appear';
+	});
 
+	$: classes = `${cBase} ${animClass} ${cStyle} ${$$props.class}`;
 </script>
+
 <!-- Shown if visible -->
 {#if visible}
-<div data-testid='alert' on:click on:mouseover on:focus class='alert {classes}'>
-    {#if $$slots.icon}
-    <!-- Icon slot -->
-    <div class='m-6 mb-1 mr-2 w-6 flex-row justify-center'>
-        <slot name='icon'/>
-    </div>
-    {/if}
+	<div data-testid="alert" on:click on:mouseover on:focus class="alert {classes}">
+		{#if $$slots.icon}
+			<!-- Icon slot -->
+			<div class="m-6 mb-1 mr-2 w-6 flex-row justify-center">
+				<slot name="icon" />
+			</div>
+		{/if}
 
-    <!-- Title + Message -->
-    <div class='flex flex-col w-full justify-center'>
-        {#if $$slots.title}
-        <div data-testid='title-slot' class='m-4 ml-6 mb-2 font-semibold {textStyle}'>
-            <slot name=title/>
-        </div>
-        {/if}
+		<!-- Title + Message -->
+		<div class="flex flex-col w-full justify-center">
+			{#if $$slots.title}
+				<div data-testid="title-slot" class="m-4 ml-6 mb-2 font-semibold {textStyle}">
+					<slot name="title" />
+				</div>
+			{/if}
 
-        {#if $$slots.message}
-        <div data-testid='title-slot' class='m-4 ml-6 mt-0 mb-6 {textStyle}'>
-            <slot name='message'/>
-        </div>
-        {/if}
-    </div>
+			{#if $$slots.message}
+				<div data-testid="title-slot" class="m-4 ml-6 mt-0 mb-6 {textStyle}">
+					<slot name="message" />
+				</div>
+			{/if}
+		</div>
 
-    <!-- Action Buttons -->
-    <div class='flex flex-row'>
-        {#if dismissable}
-        <!-- Dismiss -->
-        <div class='flex m-8 items-center hover:opacity-60 {textStyle}'>
-            <button data-testid='dismissBtn' class='h-min font-semibold' on:click={dismiss}>Dismiss</button>
-        </div>
-        {/if}
-        {#if actionFunction}
-        <!-- Custom Action Button -->
-        <div class='flex m-8 items-center hover:opacity-60 whitespace-nowrap {textStyle}'>
-            <button data-testid='customActionBtn' class='h-min font-semibold' on:click={actionFunction}>{actionMessage}</button>
-        </div>
-        {/if}
-    </div>
-      
-</div>
+		<!-- Action Buttons -->
+		<div class="flex flex-row">
+			{#if dismissable}
+				<!-- Dismiss -->
+				<div class="flex m-8 items-center hover:opacity-60 {textStyle}">
+					<button data-testid="dismissBtn" class="h-min font-semibold" on:click={dismiss}
+						>Dismiss</button
+					>
+				</div>
+			{/if}
+			{#if actionFunction}
+				<!-- Custom Action Button -->
+				<div class="flex m-8 items-center hover:opacity-60 whitespace-nowrap {textStyle}">
+					<button
+						data-testid="customActionBtn"
+						class="h-min font-semibold"
+						on:click={actionFunction}>{actionMessage}</button
+					>
+				</div>
+			{/if}
+		</div>
+	</div>
 {/if}
 
 <style>
-    @keyframes appear{
-        from{
-            opacity: 0%;
-            -webkit-transform: scale(0.8);
-        }
-        to{
-            opacity: 100%;
-            -webkit-transform: scale(1.0);
-        }
-    }
-    @keyframes disappear{
-        from{
-            opacity: 100%;
-            -webkit-transform: scale(1.0);
-        }
-        
-        to{
-            opacity: 0%;
-            -webkit-transform: scale(0.9);
-        }
-    }
+	@keyframes appear {
+		from {
+			opacity: 0%;
+			-webkit-transform: scale(0.8);
+		}
+		to {
+			opacity: 100%;
+			-webkit-transform: scale(1);
+		}
+	}
+	@keyframes disappear {
+		from {
+			opacity: 100%;
+			-webkit-transform: scale(1);
+		}
 
-    .appear{
-        animation: appear;
-        animation-duration: 0.1s;
-    }
+		to {
+			opacity: 0%;
+			-webkit-transform: scale(0.9);
+		}
+	}
 
-    .disappear{
-        animation: disappear;
-        animation-duration: 0.3s;
-    }
+	.appear {
+		animation: appear;
+		animation-duration: 0.1s;
+	}
+
+	.disappear {
+		animation: disappear;
+		animation-duration: 0.3s;
+	}
 </style>
