@@ -46,6 +46,38 @@
     
     <!-- Examples -->
     <section class="space-y-4">
+
+        <Card class="space-y-4">
+            <h6>Warning Levels</h6>
+            <div class='flex flex-row justify-evenly'>
+
+                <div>
+                    <h5 class='m-2'>Default</h5>
+                    <Card class='!bg-surface-300 dark:!bg-surface-900' />
+                </div>
+
+                <div>
+                    <h5 class='m-2'>Primary</h5>
+                    <Card class='!bg-primary-400' />
+                </div>
+
+                <div>
+                    <h5 class='m-2'>Accent</h5>
+                    <Card class='!bg-accent-500' />
+                </div>
+
+                <div>
+                    <h5 class='m-2'>Caution</h5>
+                    <Card class='!bg-yellow-500' />
+                </div>
+
+                <div>
+                    <h5 class='m-2'>Warning</h5>
+                    <Card class='!bg-warning-400' />
+                </div>
+            </div>
+        </Card>
+
         <Card class="space-y-4">
             <h6>Basic</h6>
             <Alert>
@@ -64,7 +96,7 @@
 
         <Card class="space-y-4">
             <h6>Outlined</h6>
-            <Alert color='accent' outlined>
+            <Alert color='caution' outlined>
                 <svelte:fragment slot='title'>{title}</svelte:fragment>
                 <svelte:fragment slot='message'>{message}</svelte:fragment>
             </Alert>

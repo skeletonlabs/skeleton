@@ -24,7 +24,7 @@ if(outlined) {
     switch(color){
         case('primary'):    { style = 'border-2 border-primary-400 bg-white-500'; break; }
         case('accent'):     { style = 'border-2 border-accent-500 bg-white-500'; break; }
-        case('caution'):    { style = 'border-2 border-yellow-300 bg-white-500'; break; }
+        case('caution'):    { style = 'border-2 border-yellow-500 bg-white-500'; break; }
         case('warning'):    { style = 'border-2 border-warning-400 bg-white-500'; break; }
         default:            { style = 'border-2 border-surface-500 bg-white-500'; break; }
     }
