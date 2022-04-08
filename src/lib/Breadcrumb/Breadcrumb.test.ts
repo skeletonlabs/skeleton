@@ -17,12 +17,12 @@ describe('Breadcrumb.svelte', () => {
         expect(getByTestId('breadcrumb')).toBeTruthy();
     });
     
-    it('Renders with props', () => {
-        const { getByTestId } = render(Breadcrumb, {
-            props: {display: 'outlined', color: 'primary', separator: '|'},
-        });
-        expect(getByTestId('breadcrumb')).toBeTruthy();
-    })
+    // it('Renders with props', () => {
+    //     const { getByTestId } = render(Breadcrumb, {
+    //         props: {display: 'outlined', color: 'primary', separator: '|'},
+    //     });
+    //     expect(getByTestId('breadcrumb')).toBeTruthy();
+    // })
 
     // Test Nested Components
     // https://sveltesociety.dev/recipes/testing-and-debugging/unit-testing-svelte-component/

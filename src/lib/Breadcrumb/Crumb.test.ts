@@ -16,15 +16,15 @@ describe('Breadcrumb.svelte', () => {
         expect(getByTestId('crumb')).toBeTruthy();
     });
      
-    it('Renders with props', async () => {
-        const { getByTestId } = render(Crumb, {href: '/', disabled: true, active: true});
-        expect(getByTestId('crumb')).toBeTruthy();
-    });
+    // it('Renders with props', async () => {
+    //     const { getByTestId } = render(Crumb, {href: '/', disabled: true, active: true});
+    //     expect(getByTestId('crumb')).toBeTruthy();
+    // });
 
-    it('Renders with custom contexts', () => {
-        const { getByTestId } = render(Crumb, {display: 'outlined', color: 'primary'});
-        expect(getByTestId('crumb').className).toContain('ring-1');
-        expect(getByTestId('crumb').className).toContain('bg-primary-500/10');
-    })
+    // it('Renders with custom contexts', () => {
+    //     const { getByTestId } = render(Crumb, {display: 'outlined', color: 'primary'});
+    //     expect(getByTestId('crumb').className).toContain('ring-1');
+    //     expect(getByTestId('crumb').className).toContain('bg-primary-500/10');
+    // })
 
 });
