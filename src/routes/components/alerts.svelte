@@ -11,13 +11,14 @@
     }
 
     const tableProps: any = {
-        columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
+        columns: ['Prop', 'Type', 'Values', 'Default', 'Required', 'Description'],
         data: [
-            ['color', 'string', 'primary | accent | caution | warning | tailwind class', '-', 'Set the color of the alert by predefined values or a Tailwind class.'],
-            ['outlined', 'boolean', 'true | false', 'false', 'Specify if component is outlined.'],
-            ['dismissable', 'boolean', 'true | false', 'false', 'Specify if the alert can be dismissed by a dismiss button.'],
-            ['actionMessage', 'function', 'string', '-', 'Specify an action button.'],
-            ['actionFunction', 'function', 'JavaScript function', '-', 'Sets a function for the onclick actionMessage.'],
+            ['color', 'string', 'primary | accent | caution | warning | tailwind class', '-', 'false' , 'Set the color of the alert by predefined values or a Tailwind class.'],
+            ['outlined', 'boolean', 'true | false', 'false','false' , 'Specify if component is outlined.'],
+            ['radius', 'string', 'none | sm | md | lg', 'lg', 'false', 'Set the rounding of the alert.'],
+            ['dismissable', 'boolean', 'true | false', 'false', 'false', 'Specify if the alert can be dismissed by a dismiss button.'],
+            ['actionMessage', 'function', 'string', '-', '-' , 'Specify an action button. Required when using actionFunction.'],
+            ['actionFunction', 'function', 'JavaScript function', '-', '-' , 'Sets a function for the onclick actionMessage. Required when using actionMessage.'],
         ],
     };
 
@@ -78,16 +79,16 @@
         </Card>
 
         <Card class="space-y-4">
-            <h6>Custom Action</h6>
-            <Alert color='warning' actionMessage='Check it out' actionFunction={()=>{window.location.href = '/'}}>
+            <h6>Custom Action + Large Rounding</h6>
+            <Alert radius='lg' color='warning' actionMessage='Check it out' actionFunction={()=>{window.location.href = '/'}}>
                 <svelte:fragment slot='title'>{title}</svelte:fragment>
                 <svelte:fragment slot='message'>{message}</svelte:fragment>
             </Alert>
         </Card>
 
         <Card class="space-y-4">
-            <h6>Leading Icon</h6>
-            <Alert dismissable>
+            <h6>Leading Icon - Large Rounding</h6>
+            <Alert radius='lg' dismissable actionMessage='Check it out' actionFunction={()=>{window.location.href = '/'}}>
                 <svelte:fragment slot='icon'><span class='fill-slate-900 dark:fill-slate-300'>{@html icon}</span></svelte:fragment>
                 <svelte:fragment slot='title'>{title}</svelte:fragment>
                 <svelte:fragment slot='message'>{message}</svelte:fragment>

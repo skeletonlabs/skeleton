@@ -6,9 +6,19 @@ export let actionMessage: string = 'ActionMessage';
 export let outlined: boolean = false;
 export let color: string = '';
 export let actionFunction = null;
+export let radius: string = 'none';
+
+
+let radStyle: string = '';
+switch(radius){
+    case('none'): {radStyle = ''; break};
+    case('sm'): {radStyle = 'rounded-sm'; break};
+    case('md'): {radStyle = 'rounded-md'; break};
+    case('lg'): {radStyle = 'rounded-lg'; break};
+    default: { radStyle = ''; break}
+}
 
 let style: string = '';
-
 // Set the color of the alert/outline to style
 if(outlined) {
     switch(color){
@@ -34,7 +44,7 @@ else {
 
 $: visible = true;
 $: animClass = 'alert';
-$: cBase = 'flex flex-col sm:flex-col md:flex-row lg:flex-row rounded-lg';
+$: cBase = `flex flex-col sm:flex-col md:flex-col lg:flex-row ${radStyle}`;
 $: cStyle = style;
 $: textStyle = color && !outlined ? '!text-surface-900' : '';
 
