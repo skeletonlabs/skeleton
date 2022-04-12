@@ -8,7 +8,7 @@
 	export let radius: string = 'rounded-lg';
 
 	let cBase = 'flex flex-col items-start lg:items-center lg:flex-row p-5 space-y-4 lg:space-y-0 lg:space-x-4';
-	$: classes = `${cBase} ${$$props.class} ${background} ${color} ${radius}`;
+	$: classes = `${cBase} ${background} ${color} ${radius} ${$$props.class}`;
 </script>
 
 {#if visible}
