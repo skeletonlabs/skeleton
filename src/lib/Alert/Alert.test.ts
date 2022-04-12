@@ -17,28 +17,8 @@
 
      it('Renders with props', async () => {
         const { getByTestId } = render(Alert, 
-            {props: {dismissable: false, color: 'primary', actionMessage: 'Test', actionFunction: ()=>{}, outlined: true}});
+            {props: {visible: true, color: 'bg-primary-500', radius: 'rounding-lg', textColor: 'text-accent-500' }});
 		expect(getByTestId('alert')).toBeTruthy();
      });
-
-     it('Custom function on action message click', async ()=>{
-        let customFunc = vi.fn();
-
-        const { getByTestId } = render(Alert, {props: {actionMessage: 'click', actionFunction: customFunc}});
-        const actionbtn = getByTestId('customActionBtn');
-        await fireEvent.click(actionbtn);
-        expect(customFunc).toBeCalledTimes(1);
-     })
-
-     it('Dismiss on click', async ()=>{
-        const { getByTestId, container } = render(Alert, {props: {dismissable: true}});
-        expect(getByTestId('dismissBtn')).toBeTruthy();
-        const dismissBtn = getByTestId('dismissBtn');
-        await fireEvent.click(dismissBtn);
-
-        // TODO: Await anim to end. If deleted, this can be left as is..
-        // Check to see if the alert class exists within the container
-        // await expect(container.getElementsByClassName('alert').length).eq(0);
-     })
  
  });
