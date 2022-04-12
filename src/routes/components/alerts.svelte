@@ -11,7 +11,7 @@
         columns: ['Prop', 'Type', 'Values', 'Default', 'Required', 'Description'],
         data: [
             ['color', 'string', 'Tailwind class', '-', 'false' , 'Set the color of the alert by a Tailwind class.'],
-            ['textColor', 'string', 'Tailwind class', 'Specify the text color'],
+            ['textColor', 'string', 'Tailwind class', '-', 'false' , 'Specify the text color'],
             ['radius', 'string', 'Tailwind class', '-', 'false', 'Set the rounding of the alert.'],
             ['visible', 'boolean', 'true | false', 'true', 'false', 'Use this prop to control visibility of the component']
         ],
