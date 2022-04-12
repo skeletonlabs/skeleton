@@ -18,12 +18,12 @@
     };
 
     const slotProps: any = {
-        columns: ['Slot', 'Description'],
+        columns: ['Slot', 'Required', 'Description'],
         data: [
-            ['lead', 'Specify a leading element on the alert, such as an icon.'],
-            ['title', 'Specify the title of the alert.'],
-            ['message', 'Specify the body message of the alert.'],
-            ['trail', 'Set trailing elements such as buttons.']
+            ['lead', 'false', 'Specify a leading element on the alert, such as an icon.'],
+            ['title','true','Specify the title of the alert.'],
+            ['message', 'false', 'Specify the body message of the alert.'],
+            ['trail', 'false', 'Set trailing elements such as buttons.']
         ]
     }
 
@@ -45,7 +45,7 @@
     <!-- Examples -->
     <section class="space-y-4">
         <Card class="space-y-4">
-            <h6>Examples</h6>
+            <h6>Title + Message + Buttons</h6>
             <Alert visible={visible}>
                 <svelte:fragment slot='title'>{title}</svelte:fragment>
                 <svelte:fragment slot='message'>{message}</svelte:fragment>
@@ -54,15 +54,15 @@
                     <Button size='sm' variant='filled'>Action</Button>
                 </svelte:fragment>
             </Alert>
-
+            <h6>Title only</h6>
             <Alert>
                 <svelte:fragment slot='title'>{title}</svelte:fragment>      
                 <svelte:fragment slot='trail'>
                     <Button size='sm' variant='filled' class='whitespace-nowrap'>Show Me</Button>
                 </svelte:fragment>
             </Alert>
-
-            <Alert color='bg-primary-500' textColor='text-surface-900' radius='rounded-lg'>
+            <h6>Custom color + leading icon</h6>
+            <Alert color='bg-primary-500' textColor='text-surface-900'>
                 <svelte:fragment slot='lead'>{@html icon}</svelte:fragment>
                 <svelte:fragment slot='title'>{title}</svelte:fragment>
                 <svelte:fragment slot='message'>{message}</svelte:fragment>      
@@ -70,7 +70,7 @@
                     <Button size='sm' variant='filled' class='whitespace-nowrap'>Show Me</Button>
                 </svelte:fragment>
             </Alert>
-
+            <h6>Rounding</h6>
             <Alert color='bg-warning-400' textColor='text-surface-900' radius='rounded-lg'>
                 <svelte:fragment slot='title'>{title}</svelte:fragment>
                 <svelte:fragment slot='message'>{message}</svelte:fragment>      
