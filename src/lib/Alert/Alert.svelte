@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 
 	export let visible: boolean = true;
 	export let color: string = 'bg-surface-300 dark:bg-surface-900';
 	export let textColor: string = '';
+	export let radius: string = '';
 
 	let cBase = 'flex flex-col sm:flex-col md:flex-col lg:flex-row'
-	$: classes = `${cBase} ${$$props.class} ${color}`;
+	$: classes = `${cBase} ${$$props.class} ${color} ${radius}`;
 
 	$: cText = `${textColor}`;
 </script>
@@ -25,17 +25,17 @@
 		<!-- Title + Message -->
 		<div class="flex flex-col w-full justify-center">
 			{#if $$slots.title && $$slots.message}
-				<div class="m-4 sm:ml-6 mb-2 font-bold text-xl {textColor}">
+				<div class="m-4 sm:ml-6 mb-2 font-bold text-xl {cText}">
 					<slot name="title" />
 				</div>
 			{:else}
-				<div class="m-4 sm:ml-6 font-bold text-md semi-bold {textColor}">
+				<div class="m-4 sm:ml-6 font-bold text-md semi-bold {cText}">
 					<slot name="title" />
 				</div>
 			{/if}
 
 			{#if $$slots.message}
-				<div class="m-4 sm:ml-6 mt-0 {textColor}">
+				<div class="m-4 sm:ml-6 mt-0 {cText}">
 					<slot name="message" />
 				</div>
 			{/if}

@@ -10,21 +10,20 @@
     const tableProps: any = {
         columns: ['Prop', 'Type', 'Values', 'Default', 'Required', 'Description'],
         data: [
-            ['color', 'string', 'primary | accent | caution | warning | tailwind class', '-', 'false' , 'Set the color of the alert by predefined values or a Tailwind class.'],
-            ['outlined', 'boolean', 'true | false', 'false','false' , 'Specify if component is outlined.'],
-            ['radius', 'string', 'none | sm | md | lg', 'lg', 'false', 'Set the rounding of the alert.'],
-            ['dismissable', 'boolean', 'true | false', 'false', 'false', 'Specify if the alert can be dismissed by a dismiss button.'],
-            ['actionMessage', 'function', 'string', '-', '-' , 'Specify an action button. Required when using actionFunction.'],
-            ['actionFunction', 'function', 'JavaScript function', '-', '-' , 'Sets a function for the onclick actionMessage. Required when using actionMessage.'],
+            ['color', 'string', 'Tailwind class', '-', 'false' , 'Set the color of the alert by a Tailwind class.'],
+            ['textColor', 'string', 'Tailwind class', 'Specify the text color'],
+            ['radius', 'string', 'Tailwind class', '-', 'false', 'Set the rounding of the alert.'],
+            ['visible', 'boolean', 'true | false', 'true', 'false', 'Use this prop to control visibility of the component']
         ],
     };
 
     const slotProps: any = {
         columns: ['Slot', 'Description'],
         data: [
-            ['icon', 'Specify a leading icon on the alert.'],
+            ['lead', 'Specify a leading icon on the alert.'],
             ['title', 'Specify the title of the alert.'],
-            ['message', 'Specify the body message of the alert.']
+            ['message', 'Specify the body message of the alert.'],
+            ['trail', 'Set trailing elements such as buttons, etc.']
         ]
     }
 
@@ -46,7 +45,7 @@
     <!-- Examples -->
     <section class="space-y-4">
         <Card class="space-y-4">
-            <h6>Basic</h6>
+            <h6>Examples</h6>
             <Alert visible={visible}>
                 <svelte:fragment slot='title'>{title}</svelte:fragment>
                 <svelte:fragment slot='message'>{message}</svelte:fragment>
@@ -57,8 +56,16 @@
             </Alert>
 
             <Alert>
+                <svelte:fragment slot='title'>{title}</svelte:fragment>      
+                <svelte:fragment slot='trail'>
+                    <Button size='sm' variant='filled' class='whitespace-nowrap'>Show Me</Button>
+                </svelte:fragment>
+            </Alert>
+
+            <Alert color='bg-primary-500' textColor='text-surface-900' radius='rounded-lg'>
+                <svelte:fragment slot='lead'>{@html icon}</svelte:fragment>
                 <svelte:fragment slot='title'>{title}</svelte:fragment>
-                
+                <svelte:fragment slot='message'>{message}</svelte:fragment>      
                 <svelte:fragment slot='trail'>
                     <Button size='sm' variant='filled' class='whitespace-nowrap'>Show Me</Button>
                 </svelte:fragment>
@@ -72,7 +79,7 @@
         <h6>Script</h6>
         <CodeBlock language="javascript" code="{`<script>import Alert from '@brainandbones/skeleton';</\script>`}"></CodeBlock>
         <h6>HTML</h6>
-        <CodeBlock language="html" code="{`<Alert color='primary' actionMessage='Go here' actionFunction={function}>\n   <svelte:fragment slot='title'>{title}</svelte:fragment> \n   <svelte:fragment slot='message'>{body}</svelte:fragment>\n</Alert>`}"></CodeBlock>
+        <CodeBlock language="html" code="{`<Alert color='bg-primary-500'>\n   <svelte:fragment slot='title'>{title}</svelte:fragment> \n   <svelte:fragment slot='message'>{body}</svelte:fragment>\n</Alert>`}"></CodeBlock>
     </section>
     
     <!-- Properties -->
