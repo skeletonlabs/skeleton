@@ -3,12 +3,9 @@
     import Card from "$lib/Card/Card.svelte";
     import Table from "$lib/_Table/Table.svelte"
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte"
+    import Button from "$lib/Button/Button.svelte";
 
-    let icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M256 32V51.2C329 66.03 384 130.6 384 208V226.8C384 273.9 401.3 319.2 432.5 354.4L439.9 362.7C448.3 372.2 450.4 385.6 445.2 397.1C440 408.6 428.6 416 416 416H32C19.4 416 7.971 408.6 2.809 397.1C-2.353 385.6-.2883 372.2 8.084 362.7L15.5 354.4C46.74 319.2 64 273.9 64 226.8V208C64 130.6 118.1 66.03 192 51.2V32C192 14.33 206.3 0 224 0C241.7 0 256 14.33 256 32H256zM224 512C207 512 190.7 505.3 178.7 493.3C166.7 481.3 160 464.1 160 448H288C288 464.1 281.3 481.3 269.3 493.3C257.3 505.3 240.1 512 224 512z"/></svg>'
-
-    function ActionFunction(){
-        alert('ActionFunction informed me to do this!');
-    }
+    let icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 400c-18 0-32-14-32-32s13.1-32 32-32c17.1 0 32 14 32 32S273.1 400 256 400zM325.1 258L280 286V288c0 13-11 24-24 24S232 301 232 288V272c0-8 4-16 12-21l57-34C308 213 312 206 312 198C312 186 301.1 176 289.1 176h-51.1C225.1 176 216 186 216 198c0 13-11 24-24 24s-24-11-24-24C168 159 199 128 237.1 128h51.1C329 128 360 159 360 198C360 222 347 245 325.1 258z"/></svg>'
 
     const tableProps: any = {
         columns: ['Prop', 'Type', 'Values', 'Default', 'Required', 'Description'],
@@ -32,7 +29,9 @@
     }
 
     let title = 'What`s new in Skeleton?';
-    let message = 'Check out the countless new features and components in the Skeleton Library.';
+    let message = 'Check out the countless new features and components in the Skeleton Library. Check out the countless new features and components in the Skeleton Library. Check out the countless new features and components in the Skeleton Library.';
+
+    $: visible = true;
 
 </script>
 
@@ -46,87 +45,25 @@
     
     <!-- Examples -->
     <section class="space-y-4">
-
-        <Card class="space-y-4">
-            <h6>Warning Levels</h6>
-            <div class='flex flex-row justify-evenly'>
-
-                <div>
-                    <h5 class='m-2'>Default</h5>
-                    <Card class='!bg-surface-300 dark:!bg-surface-900' />
-                </div>
-
-                <div>
-                    <h5 class='m-2'>Primary</h5>
-                    <Card class='!bg-primary-400' />
-                </div>
-
-                <div>
-                    <h5 class='m-2'>Accent</h5>
-                    <Card class='!bg-accent-500' />
-                </div>
-
-                <div>
-                    <h5 class='m-2'>Caution</h5>
-                    <Card class='!bg-yellow-500' />
-                </div>
-
-                <div>
-                    <h5 class='m-2'>Warning</h5>
-                    <Card class='!bg-warning-400' />
-                </div>
-            </div>
-        </Card>
-
         <Card class="space-y-4">
             <h6>Basic</h6>
+            <Alert visible={visible}>
+                <svelte:fragment slot='title'>{title}</svelte:fragment>
+                <svelte:fragment slot='message'>{message}</svelte:fragment>
+                <svelte:fragment slot='trail'>
+                    <Button size='sm' on:click={()=>{visible = false;}} variant='filled'>Dismiss</Button>
+                    <Button size='sm' variant='filled'>Action</Button>
+                </svelte:fragment>
+            </Alert>
+
             <Alert>
                 <svelte:fragment slot='title'>{title}</svelte:fragment>
-                <svelte:fragment slot='message'>{message}</svelte:fragment>
+                
+                <svelte:fragment slot='trail'>
+                    <Button size='sm' variant='filled' class='whitespace-nowrap'>Show Me</Button>
+                </svelte:fragment>
             </Alert>
         </Card>
-
-        <Card class="space-y-4">
-            <h6>Filled</h6>
-            <Alert color='primary'>
-                <svelte:fragment slot='title'>{title}</svelte:fragment>
-                <svelte:fragment slot='message'>{message}</svelte:fragment>
-            </Alert>
-        </Card>
-
-        <Card class="space-y-4">
-            <h6>Outlined</h6>
-            <Alert color='caution' outlined>
-                <svelte:fragment slot='title'>{title}</svelte:fragment>
-                <svelte:fragment slot='message'>{message}</svelte:fragment>
-            </Alert>
-        </Card>
-
-        <Card class="space-y-4">
-            <h6>Dismissable</h6>
-            <Alert color='accent' dismissable>
-                <svelte:fragment slot='title'>{title}</svelte:fragment>
-                <svelte:fragment slot='message'>{message}</svelte:fragment>
-            </Alert>
-        </Card>
-
-        <Card class="space-y-4">
-            <h6>Custom Action + Large Rounding</h6>
-            <Alert radius='lg' color='warning' actionMessage='Check it out' actionFunction={()=>{window.location.href = '/'}}>
-                <svelte:fragment slot='title'>{title}</svelte:fragment>
-                <svelte:fragment slot='message'>{message}</svelte:fragment>
-            </Alert>
-        </Card>
-
-        <Card class="space-y-4">
-            <h6>Leading Icon - Large Rounding</h6>
-            <Alert radius='lg' dismissable actionMessage='Check it out' actionFunction={()=>{window.location.href = '/'}}>
-                <svelte:fragment slot='icon'><span class='fill-slate-900 dark:fill-slate-300'>{@html icon}</span></svelte:fragment>
-                <svelte:fragment slot='title'>{title}</svelte:fragment>
-                <svelte:fragment slot='message'>{message}</svelte:fragment>
-            </Alert>
-        </Card>
-
     </section>
     
     <!-- Usage -->
