@@ -1,51 +1,42 @@
 <script lang="ts">
+	import { fade } from 'svelte/transition';
 
 	export let visible: boolean = true;
-	export let color: string = 'bg-surface-300 dark:bg-surface-900';
-	export let textColor: string = '';
-	export let radius: string = '';
+	export let duration: number = 200; // ms
+	export let background: string = 'bg-surface-500';
+	export let color: string = 'text-white';
+	export let radius: string = 'rounded-lg';
 
-	let cBase = 'flex flex-col sm:flex-col md:flex-col lg:flex-row'
-	$: classes = `${cBase} ${$$props.class} ${color} ${radius}`;
-
-	$: cText = `${textColor}`;
+	let cBase = 'flex flex-col items-start lg:items-center lg:flex-row p-5 space-y-4 lg:space-y-0 lg:space-x-4';
+	$: classes = `${cBase} ${$$props.class} ${background} ${color} ${radius}`;
 </script>
 
-<!-- Shown if visible -->
 {#if visible}
-	<div data-testid="alert" on:click on:mouseover on:focus class="alert {classes}">
+<!-- TODO: convert to <Card> -->
+<div class="alert {classes}" data-testid="alert" transition:fade={{duration}}>
+
+	<!-- Slot: Lead -->
+	{#if $$slots.lead}
+		<section class="flex justify-center items-center lg:min-w-[72px]">
+			<slot name="lead" />
+		</section>
+	{/if}
+
+	<!-- Content -->
+	<section class="flex flex-col w-full justify-center space-y-2">
+		<!-- Slot: Title -->
+		<h3><slot name="title">(REQUIRED: Title Slot)</slot></h3>
+		<!-- Slot: Message -->
+		{#if $$slots.message}
+			<p><slot name="message" /></p>
+		{/if}
+	</section>
 	
-		{#if $$slots.lead}
-			<!-- Lead slot -->
-			<div class="flex flex-col sm:self-start lg:self-center justify-center lg:w-8 sm:w-6 m-6">
-				<slot name="lead" />
-			</div>
-		{/if}
-
-		<!-- Title + Message -->
-		<div class="flex flex-col w-full justify-center">
-			{#if $$slots.title && $$slots.message}
-				<div class="m-4 sm:ml-6 mb-2 font-bold text-xl {cText}">
-					<slot name="title" />
-				</div>
-			{:else}
-				<div class="m-4 sm:ml-6 font-bold text-md semi-bold {cText}">
-					<slot name="title" />
-				</div>
-			{/if}
-
-			{#if $$slots.message}
-				<div class="m-4 sm:ml-6 mt-0 {cText}">
-					<slot name="message" />
-				</div>
-			{/if}
-		</div>
-		
-		<!-- Trailing Slot -->
-		{#if $$slots.trail}
-			<div class='flex flex-row h-min sm:justify-self-start lg:self-center space-x-4 m-4 sm:ml-6'>
-				<slot name='trail'/>
-			</div>
-		{/if}
-	</div>
+	<!-- Slot: Trail -->
+	{#if $$slots.trail}
+		<section class="flex items-center space-x-4">
+			<slot name='trail'/>
+		</section>
+	{/if}
+</div>
 {/if}
