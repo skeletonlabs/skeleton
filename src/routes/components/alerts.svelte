@@ -20,10 +20,10 @@
     const slotProps: any = {
         columns: ['Slot', 'Description'],
         data: [
-            ['lead', 'Specify a leading icon on the alert.'],
+            ['lead', 'Specify a leading element on the alert, such as an icon.'],
             ['title', 'Specify the title of the alert.'],
             ['message', 'Specify the body message of the alert.'],
-            ['trail', 'Set trailing elements such as buttons, etc.']
+            ['trail', 'Set trailing elements such as buttons.']
         ]
     }
 
