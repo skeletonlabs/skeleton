@@ -70,6 +70,11 @@
                     <Button size='sm' variant='filled' class='whitespace-nowrap'>Show Me</Button>
                 </svelte:fragment>
             </Alert>
+
+            <Alert color='bg-warning-400' textColor='text-surface-900' radius='rounded-lg'>
+                <svelte:fragment slot='title'>{title}</svelte:fragment>
+                <svelte:fragment slot='message'>{message}</svelte:fragment>      
+            </Alert>
         </Card>
     </section>
     

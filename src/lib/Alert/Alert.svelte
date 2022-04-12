@@ -16,7 +16,7 @@
 	<div data-testid="alert" on:click on:mouseover on:focus class="alert {classes}">
 	
 		{#if $$slots.lead}
-			<!-- Icon slot -->
+			<!-- Lead slot -->
 			<div class="flex flex-col sm:self-start lg:self-center justify-center lg:w-8 sm:w-6 m-6">
 				<slot name="lead" />
 			</div>
@@ -41,7 +41,7 @@
 			{/if}
 		</div>
 		
-		<!-- Action Slot -->
+		<!-- Trailing Slot -->
 		{#if $$slots.trail}
 			<div class='flex flex-row h-min sm:justify-self-start lg:self-center space-x-4 m-4 sm:ml-6'>
 				<slot name='trail'/>
