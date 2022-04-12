@@ -34,9 +34,10 @@
 
     // Nav - Handle Selection
     function onSelection(event: any, v: any): void {
-        if (!v) { return; }
         // Dispatch Event
         dispatch('click', event);
+        // Return if no value
+        if (!v) { return; }
         // Selection Handler
         if (typeof($selected) === 'object') {
             // Create local copy of array
@@ -69,7 +70,7 @@
 
 <!-- Description -->
 {#if role === 'dl'}
-<div class="{cCompId} {classes} {cDescription}" data-testid="list-item">
+<div class="{cCompId} {classes} {cDescription}" data-testid="list-item" on:click>
     <div class="flex flex-row items-center space-x-4">
         <!-- Lead -->
         {#if $$slots.lead}
@@ -111,7 +112,7 @@
 
 <!-- Ordered -->
 {:else if role === 'ol'}
-<li class="{cCompId} {classes}" data-testid="list-item">
+<li class="{cCompId} {classes}" data-testid="list-item" on:click>
     <div class="flex flex-row items-center space-x-4">
         <!-- Lead -->
         {#if $$slots.lead}
@@ -128,7 +129,7 @@
 
 <!-- Unordered -->
 {:else}
-<li class="{cCompId} {classes}" data-testid="list-item">
+<li class="{cCompId} {classes}" data-testid="list-item" on:click>
     <div class="flex flex-row items-center space-x-4">
         <!-- Lead -->
         {#if $$slots.lead}
