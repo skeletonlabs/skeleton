@@ -108,7 +108,7 @@
 
     <!-- Properties -->
     <section class="space-y-4">
-        <h2 class="text-2xl font-bold">Properties</h2>
+        <h2>Properties</h2>
         <Table source="{tableProps}"></Table>
     </section>
 
