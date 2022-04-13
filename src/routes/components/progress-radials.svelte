@@ -9,19 +9,15 @@
         data: [
             ['value', 'number', '-', 'false', 'Set the label text.'],
             ['suffix', 'string', '%', 'false', 'Overwrite the percentage sign in the caption.'],
-            ['stroke', 'number', '20', 'false', 'Scalable stroke width. Based on default element size of 256px'],
-            ['track', 'string', 'stroke-surface-300 dark:stroke-surface-700', 'false', 'Provide a class to set track color.'],
-            ['meter', 'string', 'stroke-black dark:stroke-white', 'false', 'Provide a class to set meter color.'],
+            ['stroke', 'number', '20', 'false', 'Proportional stroke width, based on default SVG viewBox size of 512px.'],
+            ['track', 'string', 'stroke-surface-300 dark:stroke-surface-700', 'false', 'Provide a class to set track fill color.'],
+            ['meter', 'string', 'stroke-black dark:stroke-white', 'false', 'Provide a class to set meter fill color.'],
             ['text', 'string', 'font-bold text-xs sm:text-sm md:text-md lg:text-lg 2xl:text-2xl', 'false', 'Provide a class to set caption text size.'],
         ],
     };
 
     // Reactive
-    $: props = {
-        value: 50,
-        max: 100,
-        step: 10,
-    };
+    $: props = { value: 50, max: 100, step: 10 };
 </script>
 
 <div class="space-y-8">
