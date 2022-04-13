@@ -15,7 +15,7 @@
             ['visible', 'boolean', 'true | false', 'true', 'false', 'Control visibility of the component.'],
             ['duration', 'number', 'milliseconds', '200', 'false', 'Control the fade in/out animation speed.'],
             ['background', 'string', 'class', 'bg-surface-500', 'false' , 'Provide a class that sets the background color.'],
-            ['color', 'string', 'class', 'text-white', 'false' , 'Provide a class that sets the text color'],
+            ['color', 'string', 'class', 'text-white', 'false' , 'Provide a class that sets the text color.'],
             ['radius', 'string', 'class', 'rounded-lg', 'false', 'Provide a class that sets the border radius.'],
         ],
     };
