@@ -5,24 +5,24 @@
 	export let value: any;
     
     // Get Context - get from parent
-    export let active: Writable<any> = getContext('active');
+    export let selected: Writable<any> = getContext('selected');
     let background: string = getContext('background') || 'bg-primary-500';
     let color: string = getContext('color') || 'text-black dark:text-white';
 
     // Classes
     let cbase: string = `radio-item fill-black dark:fill-white text-base px-5 py-2.5 cursor-pointer`;
-    let cActive: string;
+    let cSelected: string;
 
     // Store
-    active.subscribe(active => {
-        cActive = value === active ? ` ${background} ${color}` : ' bg-surface-300 dark:bg-surface-700';
+    selected.subscribe(selected => {
+        cSelected = value === selected ? ` ${background} ${color}` : ' bg-surface-300 dark:bg-surface-700';
     });
 
     // Reactive
-    $: classes = `${cbase} ${cActive}`;
+    $: classes = `${cbase} ${cSelected}`;
 </script>
 
 <label class="{classes}" data-testid="radio-item">
-    <input class="hidden" type="radio" {value} bind:group={$active} />
+    <input class="hidden" type="radio" {value} bind:group={$selected} />
     <slot />
 </label>

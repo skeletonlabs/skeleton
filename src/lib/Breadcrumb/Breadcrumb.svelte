@@ -12,6 +12,6 @@
     setContext('separator', separator);
 </script>
 
-<nav class="breadcrumb flex align-center space-x-4" data-testid='breadcrumb'>
+<nav class="breadcrumb flex align-center space-x-4 {$$props.class}" data-testid='breadcrumb'>
     <slot />
 </nav>

@@ -5,16 +5,10 @@
     import Divider from "$lib/Divider/Divider.svelte";
 </script>
 
-<div class="text-center space-y-8 lg:text-left">
-
-    <!-- Warning -->
-    <section class="bg-warning-500/10 border-warning-500 border-2 border-dotted p-4 rounded-full text-center flex justify-center items-center space-x-8">
-        <h2 class="text-warning-500">⚠️ Warning</h2>
-        <p>Skeleton is in early development. Use at your own risk.</p>
-    </section>
+<div class="space-y-8 lg:text-left">
 
     <!-- Header -->
-    <header class="flex justify-center items-center space-x-8">
+    <header class="flex items-center flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-8">
         <!-- Logo -->
         <div class="bg-primary-500 bg-gradient-to-br from-primary-500 to-accent-500 p-8 rounded-2xl w-56">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.999 511.999">
@@ -60,8 +54,14 @@
             </svg>
         </div>
         <!-- Intro -->
-        <h1>Skeleton is a component library that allows you to build web apps faster utilizing <a href="https://svelte.dev/" target="_blank">Svelte</a> + <a href="https://tailwindcss.com/" target="_blank">Tailwind</a>.</h1>
+        <h2 class="text-2xl md:text-3xl lg:text-4xl">Skeleton is a component library that allows you to build web apps faster utilizing <a href="https://svelte.dev/" target="_blank">Svelte</a> + <a href="https://tailwindcss.com/" target="_blank">Tailwind</a>.</h2>
     </header>
+
+    <!-- Warning -->
+    <!-- <section class="bg-warning-500/10 border-warning-500 border-2 border-dotted p-4 rounded-full text-center flex justify-center items-center space-x-8">
+        <h2 class="text-warning-500">⚠️ Warning</h2>
+        <p>Skeleton is in early development. Use at your own risk.</p>
+    </section> -->
 
     <Divider display="dotted" />
 
@@ -83,7 +83,7 @@
         <!-- Implement Your Theme -->
         <h4>Next: Implement Your Theme</h4>
         <p>Follow the guide linked below to create and add your own theme.</p>
-        <Button display="filled" color="accent" href="/docs/themes">Theme Setup Guide</Button>
+        <Button variant="filled-accent" href="/docs/themes">Theme Setup Guide</Button>
     </Card>
 
     <Divider />
@@ -95,21 +95,18 @@
         <div class="space-y-4">
             <h6>Official Tailwind Plugins</h6>
             <nav class="flex flex-row space-x-2">
-                <Button display="filled" color="accent" href="https://tailwindcss.com/docs/typography-plugin" target="_blank">Typography</Button>
-                <Button display="filled" color="accent" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Forms</Button>
+                <Button variant="filled-accent" href="https://tailwindcss.com/docs/typography-plugin" target="_blank">Typography</Button>
+                <Button variant="filled-accent" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Forms</Button>
             </nav>
         </div>
     </section>
+
+    <Divider />
     
     <!-- Contributions -->
     <section class="space-y-4">
         <h3>Contributions</h3>
         <p>We'll provide official instructions for contributing to Skeleton soon.</p>
     </section>
-
-    <!-- Legal -->
-    <p class="text-xs text-surface-700 text-right">
-        Created <a href="https://www.brainandbonesllc.com/" target="_blank" class="text-surface-500">Brain & Bones</a>.
-    </p>
 
 </div>

@@ -1,6 +1,6 @@
 <script lang="ts">
     import Card from "$lib/Card/Card.svelte";
-    import Table from '$lib/_Table/Table.svelte';
+    import Table from '$lib/Table/Table.svelte';
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
     import ProgressBar from "$lib/Progress/ProgressBar.svelte";
 
@@ -9,7 +9,7 @@
         data: [
             ['label', 'string', '-', 'false', 'Set the label text.'],
             ['value', 'number', '-', 'false', 'Specifies the amount completed.'],
-            ['max', 'number', '-', 'false', 'Maximum amount the bar represents.'],
+            ['max', 'number', '10', 'false', 'Maximum amount the bar represents.'],
             ['color', 'string', 'bg-accent-500', 'false', 'Provide a class to set background color.'],
             ['height', 'string', 'h-2', 'false', 'Provide a class to set height.'],
         ],
@@ -37,7 +37,7 @@
 
      <!-- Sandbox -->
      <section class="space-y-4">
-        <div class="space-y-4 lg:space-y-0 lg:grid grid-cols-[2fr,1fr] gap-2">
+        <div class="space-y-4 xl:space-y-0 xl:grid grid-cols-[2fr,1fr] gap-2">
             <!-- Example -->
             <Card class="space-y-4 flex justify-center items-center">
                 <div class="w-[75%]">
@@ -96,8 +96,8 @@
                 <label>
                     <span>Color</span>
                     <select name="color" id="color" bind:value={props.color}>
-                        <option value={'bg-accent-500'}>bg-accent-500</option>
                         <option value={'bg-primary-500'}>bg-primary-500</option>
+                        <option value={'bg-accent-500'}>bg-accent-500</option>
                         <option value={'bg-warning-500'}>bg-warning-500</option>
                     </select>
                 </label>

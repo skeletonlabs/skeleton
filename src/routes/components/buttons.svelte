@@ -1,27 +1,29 @@
 <script lang="ts">
 	import Card from '$lib/Card/Card.svelte';
-    import Table from '$lib/_Table/Table.svelte';
+    import Table from '$lib/Table/Table.svelte';
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
 	import Button from '$lib/Button/Button.svelte';
 
-	const icon: string = `&#9733;`;
+	// const icon: string = `&#9733;`;
     const tableProps: any = {
         columns: ['Prop', 'Type', 'Default', 'Required', 'Description'],
         data: [
+            ['variant', 'string', '-', 'false', 'Values are illustrated in the example above. (ex: filled-primary)'],
+            ['size', 'string', 'sm | base | lg | xl', 'false', 'Defines the button size.'],
             ['background', 'string', '-', 'false', 'Provided a class to define background.'],
             ['color', 'string', 'text-black dark:text-white', 'false', 'Provide a class to define text color.'],
             ['ring', 'string', 'ring-transparent', 'false', 'Provide a class to define ring color.'],
             ['weight', 'string', 'ring-1', 'false', 'Provide a class to define ring weight.'],
             ['rounded', 'string', 'rounded-lg', 'false', 'Provide a class to define border radius.'],
-            ['href', 'string', '-', 'false', 'Converts the button to an anchor tag.'],
-            ['disabled', 'boolean', 'false', 'false', 'Disables button; not available to anchors.'],
+            ['href', 'string', '-', 'false', 'Pass through $$props value.'],
+            ['disabled', 'boolean', 'false', 'false', 'Pass through $$props value.'],
         ],
     };
     const tableSlots: any = {
-        columns: ['Slot', 'Position', 'Description'],
+        columns: ['Name', 'Description'],
         data: [
-            ['lead', 'Left of label', 'Allows for adding a lead icon.'],
-            ['tail', 'Right of label', 'Allows for adding a trailing icon.'],
+            ['lead', 'A lead icon slot that appears left of the label.'],
+            ['tail', 'A trailing icon slot that appears right of the label.'],
         ],
     };
 
@@ -47,7 +49,7 @@
 
 	<!-- Sandbox -->
 	<section class="space-y-4">
-		<div class="space-y-4 lg:space-y-0 lg:grid grid-cols-[2fr,1fr] gap-2">
+		<div class="space-y-4 xl:space-y-0 xl:grid grid-cols-[2fr,1fr] gap-2">
 			<!-- Example -->
 			<Card class="space-y-4 flex justify-center items-center">
 				<svelte:component
@@ -62,7 +64,7 @@
 				>Skeleton</svelte:component>
             </Card>
 			<!-- Options -->
-			<Card class="space-y-4">
+			<Card class="grid grid-cols-1 2xl:grid-cols-2 gap-4">
 				<!-- Size -->
 				<label>
                     <span>Size</span>
@@ -72,6 +74,17 @@
                         <option value="base">base</option>
                         <option value="lg">lg</option>
                         <option value="xl">xl</option>
+                    </select>
+                </label>
+				<!-- Rounded -->
+				<label>
+                    <span>Rounded</span>
+                    <select name="rounded" id="rounded" bind:value={props.rounded}>
+                        <option value="none">none</option>
+                        <option value="rounded-xs">rounded-xs</option>
+                        <option value="rounded">rounded</option>
+                        <option value="rounded-lg">rounded-lg</option>
+                        <option value="rounded-full">rounded-full</option>
                     </select>
                 </label>
 				<!-- Background -->
@@ -120,19 +133,8 @@
                         <option value="ring-4">ring-4</option>
                     </select>
                 </label>
-				<!-- Rounded -->
-				<label>
-                    <span>Rounded</span>
-                    <select name="rounded" id="rounded" bind:value={props.rounded}>
-                        <option value="none">none</option>
-                        <option value="rounded-xs">rounded-xs</option>
-                        <option value="rounded">rounded</option>
-                        <option value="rounded-lg">rounded-lg</option>
-                        <option value="rounded-full">rounded-full</option>
-                    </select>
-                </label>
 				<!-- Disabled -->
-				<label class="inline-flex items-center">
+				<label class="flex items-center">
 					<input type="checkbox" bind:checked={props.disabled} />
 					<p class="ml-2">Disabled</p>
 				</label>
@@ -140,7 +142,17 @@
 		</div>
 		<CodeBlock
 			language="html"
-			code={`<Button size="${props.size}" background="${props.background}" color="${props.color}" ring="${props.ring}" weight="${props.weight}" rounded="${props.rounded}" disabled={${props.disabled}}>Skeleton</Button>`}
+			code={`
+<Button
+	size="${props.size}"
+	background="${props.background || ''}"
+	color="${props.color}"
+	ring="${props.ring || ''}"
+	weight="${props.weight || ''}"
+	rounded="${props.rounded}"
+	disabled={${props.disabled}}
+>Skeleton</Button>
+			`.trim()}
 		></CodeBlock>
 	</section>
 
@@ -148,70 +160,48 @@
 	<section class="space-y-4">
 		<h4>Variants</h4>
 		<p>Skeleton provides variants to quickly and easily create buttons with predefined styles.</p>
-		<Card class="flex justify-center space-x-8">
-			<section>
-				<h4 class="text-center mb-4">Text</h4>
-				<nav class="flex flex-col space-y-4">
-					<Button variant="text">text</Button>
-					<Button variant="text-primary">text-primary</Button>
-					<Button variant="text-accent">text-accent</Button>
-					<Button variant="text-warning">text-warning</Button>
-				</nav>
-			</section>
-			<section>
-				<h4 class="text-center mb-4">Filled</h4>
-				<nav class="flex flex-col space-y-4">
-					<Button variant="filled">filled</Button>
-					<Button variant="filled-primary">filled-primary</Button>
-					<Button variant="filled-accent">filled-accent</Button>
-					<Button variant="filled-warning">filled-warning</Button>
-				</nav>
-			</section>
-			<section>
-				<h4 class="text-center mb-4">Ring</h4>
-				<nav class="flex flex-col space-y-4">
-					<Button variant="ring">ring</Button>
-					<Button variant="ring-primary">ring-primary</Button>
-					<Button variant="ring-accent">ring-accent</Button>
-					<Button variant="ring-warning">ring-warning</Button>
-				</nav>
-			</section>
-			<section>
-				<h4 class="text-center mb-4">Ghost</h4>
-				<nav class="flex flex-col space-y-4">
-					<Button variant="ghost">ghost</Button>
-					<Button variant="ghost-primary">ghost-primary</Button>
-					<Button variant="ghost-accent">ghost-accent</Button>
-					<Button variant="ghost-warning">ghost-warning</Button>
-				</nav>
-			</section>
+		<!-- flex justify-center space-x-8 -->
+		<Card>
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-2xl mx-auto">
+				<section>
+					<h4 class="text-center mb-4">Text</h4>
+					<nav class="flex flex-col space-y-4">
+						<Button variant="text">text</Button>
+						<Button variant="text-primary">text-primary</Button>
+						<Button variant="text-accent">text-accent</Button>
+						<Button variant="text-warning">text-warning</Button>
+					</nav>
+				</section>
+				<section>
+					<h4 class="text-center mb-4">Filled</h4>
+					<nav class="flex flex-col space-y-4">
+						<Button variant="filled">filled</Button>
+						<Button variant="filled-primary">filled-primary</Button>
+						<Button variant="filled-accent">filled-accent</Button>
+						<Button variant="filled-warning">filled-warning</Button>
+					</nav>
+				</section>
+				<section>
+					<h4 class="text-center mb-4">Ring</h4>
+					<nav class="flex flex-col space-y-4">
+						<Button variant="ring">ring</Button>
+						<Button variant="ring-primary">ring-primary</Button>
+						<Button variant="ring-accent">ring-accent</Button>
+						<Button variant="ring-warning">ring-warning</Button>
+					</nav>
+				</section>
+				<section>
+					<h4 class="text-center mb-4">Ghost</h4>
+					<nav class="flex flex-col space-y-4">
+						<Button variant="ghost">ghost</Button>
+						<Button variant="ghost-primary">ghost-primary</Button>
+						<Button variant="ghost-accent">ghost-accent</Button>
+						<Button variant="ghost-warning">ghost-warning</Button>
+					</nav>
+				</section>
+			</div>
 		</Card>
 		<CodeBlock language="html" code={`<Button variant="filled-primary">Skeleton</Button>`}></CodeBlock>
-	</section>
-	
-	<!-- Arbitrary -->
-	<section class="space-y-4">
-		<h4>Arbitrary Examples</h4>
-		<Card class="flex justify-center space-x-8">
-			<section>
-				<nav class="flex flex-row space-x-4">
-					<Button color="text-orange-500" ring="ring-orange-500" rounded="rounded-full">
-						<svelte:fragment slot="lead">{@html icon}</svelte:fragment>
-						Orange
-					</Button>
-					<Button background="bg-sky-500">
-						<svelte:fragment slot="lead">
-							<svg class="fill-white inline-block" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
-						</svelte:fragment>
-						Twitter
-					</Button>
-					<Button background="bg-pink-200" color="text-red-500" rounded="rounded-xl">
-						Cancel
-						<svelte:fragment slot="tail">&#9447;</svelte:fragment>
-					</Button>
-				</nav>
-			</section>
-		</Card>
 	</section>
 	
 	<!-- Properties -->

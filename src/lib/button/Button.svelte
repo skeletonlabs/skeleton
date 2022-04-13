@@ -74,7 +74,7 @@
     ].join(' ');
 </script>
 
-<div class="comp-button {classes}" class:disabled={$$props.disabled}>
+<div class="comp-button {classes}" class:disabled={$$props.disabled} data-testid="comp-button">
     {#if $$props.href}
         <a
             class="flex justify-center items-center space-x-3 {setSize(size)}"

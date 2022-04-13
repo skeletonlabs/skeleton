@@ -1,50 +1,60 @@
 <script lang="ts">
-	import { onMount } from "svelte";
+	import { afterUpdate } from "svelte";
+	import { filter } from "$lib/Filters/filter";
 
+	export let initials: string = 'A';
 	export let src: string = ''; // image source, default empty
 	export let size: string = ''; // sm | md | lg | xl | 2xl | 3xl
+	export let background: string = 'bg-surface-500';
+	export let color: string = 'text-white';
 	export let outlined: boolean = false;
     export let hover: boolean = false;
-	export let filter: string = ''; // ex: #FilterId - Needs to be uppercase
+	export let effect: string = undefined; // filter id name
 	
-	const cBase: string = 'flex aspect-square overflow-hidden text-surface-500 font-semibold justify-center items-center rounded-full bg-surface-300 dark:bg-surface-700';
-	let currentClasses: string = '';
-	let currentStyles: string = '';
+	// Classes
+	let cBase: string = 'flex aspect-square text-surface-50 font-semibold justify-center items-center rounded-full overflow-hidden';
+	let cOutlined: string;
+	let cHover: string;
+	let cSize: string;
+	let cText: string;
 
 	// Set Outlined
-	if (outlined) {
-		currentClasses += ' ring ring-2 ring-offset-2 ring-offset-surface-50 dark:ring-offset-surface-900 ring-primary-600';
-	}
-	// Set hover enabled
-    if (hover) {
-		currentClasses += ' ring-offset-2 ring-offset-surface-50 dark:ring-offset-surface-900 hover:ring hover:ring-primary-600 cursor-pointer transition-all';
-	}
-	// Set size
-	switch (size) {
-		case 'sm': currentClasses += ' w-8 h-8 text-base'; break;
-		case 'md': currentClasses += ' w-12 h-12 text-lg'; break;
-		case 'lg': currentClasses += ' w-16 h-16 text-2xl'; break;	
-		case 'xl': currentClasses += ' w-24 h-24 text-4xl'; break;
-		case '2xl': currentClasses += ' w-32 h-32 text-4xl'; break;
-		case '3xl': currentClasses += ' w-40 h-40 text-4xl'; break;
-		default: currentClasses += 'w-full text 4-xl';
+	function setOutlined(): void {
+		cOutlined = outlined === true ? 'ring ring-2 ring-offset-2 ring-offset-surface-50 dark:ring-offset-surface-900 ring-primary-600' : '';
 	}
 
-	// Set Filter
-	if (filter) { currentStyles = `filter: url(${filter})`; }
-	onMount(async () => {
-		// Exclude filter style from Firefox
-        if (navigator.userAgent.indexOf('Firefox') > -1) { currentStyles = ''; };
-    });
-	
-	$: classes = `${cBase} ${currentClasses} ${$$props.class}`;
+	// Set Hover
+	function setHover(): void {
+		cHover = hover === true ? 'ring-offset-2 ring-offset-surface-50 dark:ring-offset-surface-900 hover:ring hover:ring-black dark:hover:ring-white cursor-pointer' : '';
+	}
+
+	// Set size
+	function setSize(): void {
+		switch (size) {
+			case 'sm':  cSize = ' w-10'; cText = 'text-base'; break;
+			case 'md':  cSize = ' w-12'; cText = 'text-lg'; break;
+			case 'lg':  cSize = ' w-16'; cText = 'text-2xl'; break;	
+			case 'xl':  cSize = ' w-24'; cText = 'text-4xl'; break;
+			case '2xl': cSize = ' w-32'; cText = 'text-5xl'; break;
+			case '3xl': cSize = ' w-40'; cText = 'text-6xl'; break;
+			default:    cSize = 'w-full max-w-[400px]'; cText = 'text-base sm:text-2xl md:text-4xl lg:text-6xl xl:text-9xl';
+		}
+	}
+
+	// Reactive
+	afterUpdate(() => {
+		setOutlined();
+		setHover();
+		setSize();
+	});
+	$: classes = `${cBase} ${cSize} ${background} ${color} ${cOutlined} ${cHover} ${$$props.class}`;
 </script>
 
 <div data-testid='wrapper' on:click class="avatar {classes}">
 	{#if src}
-	<img class="w-full h-full object-cover" {src} style="{currentStyles}" alt="Avatar" />
+	<img class="w-full h-full object-cover" {src} alt="avatar" use:filter={effect} />
 	{:else}
-	<p data-testid="placeholder">A</p>
+	<span class="{cText}" data-testid="placeholder">{initials.substring(0,2).toUpperCase()}</span>
 	{/if}
 </div>
 

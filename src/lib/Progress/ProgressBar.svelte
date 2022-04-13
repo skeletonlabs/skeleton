@@ -2,7 +2,7 @@
     // Props
     export let label: string = '';
     export let value: number = undefined;
-    export let max: number = undefined;
+    export let max: number = 10;
     export let height: string = 'h-2';
     export let color: string = 'bg-accent-500';
 
@@ -14,7 +14,7 @@
     $: percentage = (100 * value) / max;
 </script>
 
-<div class="progress-bar-group" data-testid="progress-bar-group">
+<div class="progress-bar-group w-full" data-testid="progress-bar-group">
     <!-- Label -->
     {#if label}<label for="progress" class="block text-sm mb-2">{label}</label>{/if}
     <!-- Bar -->
