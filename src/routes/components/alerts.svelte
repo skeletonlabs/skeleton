@@ -1,6 +1,6 @@
 <script lang='ts'>
     import Card from "$lib/Card/Card.svelte";
-    import Table from "$lib/_Table/Table.svelte"
+    import Table from "$lib/Table/Table.svelte"
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte"
     import Button from "$lib/Button/Button.svelte";
     import Alert from "$lib/Alert/Alert.svelte";
@@ -13,7 +13,7 @@
         columns: ['Prop', 'Type', 'Values', 'Default', 'Required', 'Description'],
         data: [
             ['visible', 'boolean', 'true | false', 'true', 'false', 'Control visibility of the component.'],
-            ['duration', 'number', 'milliseconds', '200', 'false', 'Control the fade in/out animation speed.'],
+            ['duration', 'number', 'milliseconds', '200', 'false', 'Control the fade in/out animation speed. Set 0 (zero) to disable.'],
             ['background', 'string', 'class', 'bg-surface-500', 'false' , 'Provide a class that sets the background color.'],
             ['color', 'string', 'class', 'text-white', 'false' , 'Provide a class that sets the text color.'],
             ['radius', 'string', 'class', 'rounded-lg', 'false', 'Provide a class that sets the border radius.'],
@@ -68,7 +68,7 @@
             <svelte:fragment slot="message">{message}</svelte:fragment>      
         </Alert>
         {#if visible}<h4>Customized</h4>{/if}
-        <Alert background="bg-accent-500" {visible} duration={1000}>
+        <Alert background="bg-accent-500" {visible}>
             <svelte:fragment slot="lead">{@html icon}</svelte:fragment>
             <svelte:fragment slot="title">{title}</svelte:fragment>
             <svelte:fragment slot="message">{message}</svelte:fragment>      
@@ -83,12 +83,12 @@
     <section class="space-y-4">
         <h2>Usage</h2>
         <CodeBlock language="html" code="{`
-<Alert background="bg-primary-500" {visible} duration={200}>
+<Alert background="bg-primary-500" visible={true} duration={200}>
     <svelte:fragment slot="lead">{@html icon}</svelte:fragment>
     <svelte:fragment slot="title">{title}</svelte:fragment>
     <svelte:fragment slot="message">{message}</svelte:fragment>      
     <svelte:fragment slot="trail">
-        <Button variant="filled" on:click={actionExample}>Show Me</Button>
+        <Button variant="filled" on:click={doSomething}>Show Me</Button>
     </svelte:fragment>
 </Alert>
         `.trim()}"></CodeBlock>
