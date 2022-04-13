@@ -7,7 +7,7 @@ import { afterEach, describe, expect, it } from 'vitest';
 
 import ProgressBar from '$lib/Progress/ProgressBar.svelte';
  
-describe('Breadcrumb.svelte', () => {
+describe('ProgressBar.svelte', () => {
  
     afterEach(() => cleanup())
  
