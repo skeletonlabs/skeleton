@@ -43,19 +43,18 @@
     <Card class='space-y-4'>
         <h6>Super/Subscript Position</h6>
         <div class='flex-row flex items-center'>
-            <h4>Badge</h4> <Badge class='-ml-1' background='bg-accent-200' variant='sub'>New</Badge>
-            <h4>Hello</h4> <Badge class='-ml-1' background='bg-primary-200' variant='sup'>New</Badge>
-            <Button size='sm' variant='filled-accent'>Component</Button>
-            <Badge variant='sub' class='-ml-4 -mb-4'>5k</Badge>
-            
+            <h4>Badge</h4> <Badge class='-ml-0' background='bg-accent-200' variant='sub'>New</Badge>
+            <h4>Badge</h4> <Badge class='-ml-0' background='bg-primary-200' variant='sup'>New</Badge>
         </div>
     </Card>
 
     <Card class='space-y-4'>
         <h6>Icon prop + added to components with custom margins</h6>
-        <div class='flex-row flex'>
+        <div class='flex-row flex items-center'>
             <Avatar size='md' /> <Badge class='-ml-4 -mt-4' icon variant='sup' background='bg-warning-400'>2</Badge>
             <Avatar size='md' /> <Badge class='-ml-4 -mb-4' icon variant='sub' background='bg-primary-400'>{@html icon}</Badge>
+            <Button size='sm' variant='filled-accent'>Component</Button>
+            <Badge variant='sub' class='-ml-4 -mb-4'>5k</Badge>
         </div>
     </Card>
 </div>
