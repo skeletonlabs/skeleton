@@ -61,7 +61,7 @@
     <!-- Usage -->
     <section class="space-y-4">
         <h2>Usage</h2>
-        <CodeBlock language="html" code={`<ProgressRadial value={50} stroke={20}></ProgressRadial>`}></CodeBlock>
+        <CodeBlock language="html" code={`<ProgressRadial value={50} stroke={20} meter="stroke-primary-500" track="stroke-primary-500/20"></ProgressRadial>`}></CodeBlock>
     </section>
 
     <!-- Properties -->
