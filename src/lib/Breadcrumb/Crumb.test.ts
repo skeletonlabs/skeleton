@@ -16,11 +16,6 @@ describe('Breadcrumb.svelte', () => {
         expect(getByTestId('crumb')).toBeTruthy();
     });
      
-    it('Renders with props', async () => {
-        const { getByTestId } = render(Crumb, {href: '/', disabled: true, active: true});
-        expect(getByTestId('crumb')).toBeTruthy();
-    });
-
     it('Renders with custom contexts', () => {
         const { getByTestId } = render(Crumb, {variant: 'ghost-primary'});
         expect(getByTestId('comp-button').className).toContain('ring-1');

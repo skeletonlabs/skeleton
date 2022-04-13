@@ -28,6 +28,7 @@
         {
             title: 'Components',
             list: [
+                {href: '/components/alerts', label: 'Alerts'},
                 {href: '/components/avatars', label: 'Avatars'},
                 {href: '/components/breadcrumbs', label: 'Breadcrumb'},
                 {href: '/components/buttons', label: 'Buttons'},
