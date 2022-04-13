@@ -2,7 +2,7 @@
 import { compute_rest_props } from "svelte/internal";
 
 
-	export let variant: string = '';
+	export let position: string = '';
 	export let background: string = 'bg-surface-400';
 	export let textColor: string = 'text-surface-900';
 	export let radius: string = 'rounded-lg';
@@ -15,8 +15,9 @@ import { compute_rest_props } from "svelte/internal";
 	$: cStyle = (icon) ? 'w-4 h-4 rounded-full justify-center items-center truncate p-[2px]' : 'pl-2 pr-2';
 
 </script>
+<div>
 <!--Sub-script variant-->
-{#if variant == 'sub'}
+{#if position == 'sub'}
 	<sub class="whitespace-nowrap {cBase} {cStyle} h-min">
 		{#if $$slots.lead}
 			<div class="{cLead}">
@@ -31,7 +32,7 @@ import { compute_rest_props } from "svelte/internal";
 		{/if}
 	</sub>
 <!--Super-script variant-->
-{:else if variant == 'sup'}
+{:else if position == 'sup'}
 	<sup class="whitespace-nowrap {cBase} {cStyle}">
 		{#if $$slots.lead}
 			<div class="{cLead}">
@@ -61,5 +62,6 @@ import { compute_rest_props } from "svelte/internal";
 		{/if}
 	</span>
 {/if}
+</div>
 
 
