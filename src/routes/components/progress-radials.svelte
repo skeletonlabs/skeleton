@@ -24,7 +24,7 @@
 <section class="grid grid-cols-3 gap-8">
     <Card><ProgressSpinner></ProgressSpinner></Card>
     <Card><ProgressSpinner legend={true}></ProgressSpinner></Card>
+    <Card><ProgressSpinner data={dataThree} class="animate-spin"></ProgressSpinner></Card>
     <Card><ProgressSpinner data={dataOne} legend={true}></ProgressSpinner></Card>
     <Card><ProgressSpinner data={dataTwo} legend={true}></ProgressSpinner></Card>
-    <Card><ProgressSpinner data={dataThree} class="animate-spin"></ProgressSpinner></Card>
 </section>
