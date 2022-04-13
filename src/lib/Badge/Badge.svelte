@@ -3,6 +3,7 @@
 	export let background: string = 'bg-surface-400';
 	export let textColor: string = 'text-surface-900';
 	export let radius: string = 'rounded-lg';
+	
 	$: cBase = `${background} ${textColor} ${radius} m-2 text-sm flex flex-row self-center font-semibold w-min pl-2 pr-2`;
 
 </script>
