@@ -29,6 +29,7 @@
             title: 'Components',
             list: [
                 {href: '/components/avatars', label: 'Avatars'},
+				{href: '/components/badges', label: 'Badges'},
                 {href: '/components/breadcrumbs', label: 'Breadcrumb'},
                 {href: '/components/buttons', label: 'Buttons'},
                 {href: '/components/cards', label: 'Cards'},
