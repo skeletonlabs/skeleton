@@ -45,6 +45,7 @@
                 {href: '/components/progress-bars', label: 'Progress Bars'},
                 {href: '/components/progress-radials', label: 'Progress Radial'},
                 {href: '/components/radio-groups', label: 'Radio Groups'},
+				{href: '/components/range-sliders', label: 'Range Sliders'},
             ],
         },
         {
