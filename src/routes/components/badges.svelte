@@ -35,14 +35,14 @@
     <!-- Heading -->
     <heading class="space-y-4">
         <h1>Badges</h1>
-        <p>Todo here</p>
+        <p>Display a small badge, pill, or tag.</p>
         <CodeBlock language="javascript" code={`<script>import {Badge} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
     </heading>
 
     <!-- Examples -->
     <section class="space-y-4">
         <Card class="space-y-4">      
-            <div class="flex space-x-2">
+            <div class="flex justify-center space-x-2">
                 <Badge>Skeleton</Badge>
                 <Badge background="bg-primary-500" color="text-primary-100">Skeleton</Badge>
                 <Badge background="bg-accent-500" color="text-accent-100">Skeleton</Badge>
@@ -50,7 +50,7 @@
             </div>
         </Card>
         <h4>Slots</h4>
-        <Card class="flex space-x-2">
+        <Card class="flex justify-center space-x-2">
             <Badge>
                 Complete
                 <svelte:fragment slot="lead">{@html icon}</svelte:fragment>
@@ -65,7 +65,7 @@
             </Badge>
         </Card>
         <h4>Positioning</h4>
-        <section class="grid grid-cols-3 gap-4">
+        <section class="space-y-4 md:space-y-0 md:grid md:grid-cols-3 md:gap-4">
             <Card class="flex justify-center items-center space-x-2">
                 <p>Skeleton</p>
                 <sup><Badge class="-ml-0" background="bg-primary-500">Super</Badge></sup>

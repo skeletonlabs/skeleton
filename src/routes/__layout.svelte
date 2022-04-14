@@ -104,7 +104,7 @@
 					<ListItem {href} value={href} on:click={drawerClose}>
 						<div class="flex justify-between">
 							<span>{label}</span>
-							{#if badge}<Badge background="bg-white" color="text-black">{badge}</Badge>{/if}
+							{#if badge}<Badge background="bg-surface-500">{badge}</Badge>{/if}
 						</div>
 					</ListItem>
 					{/each}
