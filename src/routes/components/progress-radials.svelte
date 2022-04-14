@@ -7,12 +7,18 @@
     const tableProps: any = {
         columns: ['Prop', 'Type', 'Default', 'Required', 'Description'],
         data: [
-            ['value', 'number', '-', 'false', 'Set the label text.'],
-            ['suffix', 'string', '%', 'false', 'Overwrite the percentage sign in the caption.'],
+            ['value', 'number', '-', 'false', 'Set the filled amount. If undefined, will show as indeterminate.'],
             ['stroke', 'number', '20', 'false', 'Proportional stroke width, based on default SVG viewBox size of 512px.'],
             ['track', 'string', 'stroke-surface-300 dark:stroke-surface-700', 'false', 'Provide a class to set track fill color.'],
             ['meter', 'string', 'stroke-black dark:stroke-white', 'false', 'Provide a class to set meter fill color.'],
-            ['text', 'string', 'font-bold text-xs sm:text-sm md:text-md lg:text-lg 2xl:text-2xl', 'false', 'Provide a class to set caption text size.'],
+            ['color', 'string', 'fill-black dark:fill-white', 'false', 'Provide a class to set the SVG text fill color.'],
+            ['fontsize', 'string', '56', 'false', 'Base pixel size for the SVG text layer.'],
+        ],
+    };
+    const tableSlots: any = {
+        columns: ['Name', 'Description'],
+        data: [
+            ['default', 'Contents render as SVG text in the middle of the element.'],
         ],
     };
 
@@ -25,14 +31,14 @@
     <!-- Header -->
     <header class="space-y-4">
         <h1>Progress Radial</h1>
-        <p>Displays an radial indicator showing the progress or completion of a task.</p>
+        <p>Displays a radial indicator showing the progress or completion of a task.</p>
         <CodeBlock language="js" code={`<script>import {ProgressRadial} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
     </header>
 
     <!-- Examples -->
     <Card class="space-y-8">
         <div class="md:max-w-[50%] lg:max-w-[33%] mx-auto space-y-8">
-            <ProgressRadial value={props.value}></ProgressRadial>
+            <ProgressRadial value={props.value}>{props.value}%</ProgressRadial>
             <input type="range" min="0" max={props.max} step={props.step} bind:value={props.value}>
         </div>
     </Card>
@@ -57,7 +63,16 @@
     <!-- Usage -->
     <section class="space-y-4">
         <h2>Usage</h2>
-        <CodeBlock language="html" code={`<ProgressRadial value={50} stroke={20} meter="stroke-primary-500" track="stroke-primary-500/20"></ProgressRadial>`}></CodeBlock>
+        <CodeBlock language="html" code={`
+<ProgressRadial
+    value={valueAmount}
+    stroke={20}
+    meter="stroke-primary-500"
+    track="stroke-primary-500/20"
+    color="fill-primary-500"
+    fontsize="24"
+>{valueAmount}%</ProgressRadial>
+`.trim()}></CodeBlock>
     </section>
 
     <!-- Properties -->
@@ -65,5 +80,11 @@
         <h2>Properties</h2>
         <Table source="{tableProps}"></Table>
     </section>
+
+    <!-- Slots -->
+	<section class="space-y-4">
+		<h2>Slots</h2>
+		<Table source="{tableSlots}"></Table>
+	</section>
 
 </div>

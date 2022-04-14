@@ -5,17 +5,16 @@
 
     // Props
     export let value: number = undefined; // %
-    export let suffix: string = '%';
     export let stroke: number = 20; // px
     // Styling
     export let track: string = 'stroke-surface-300 dark:stroke-surface-700';
     export let meter: string = 'stroke-black dark:stroke-white';
-    export let text: string = 'font-bold text-xs sm:text-sm md:text-md lg:text-lg 2xl:text-2xl';
+    export let color: string = 'fill-black dark:fill-white';
+    export let fontsize: number = 56; // px
 
     // Base Classes
     const cTrack: string = 'fill-transparent';
     const cMeter: string = 'fill-transparent transition-[stroke-dashoffset] duration-200 -rotate-90 origin-[50%_50%]';
-    const cFigCaption: string = 'absolute top-0 left-0 z-50 w-full h-full flex justify-center items-center';
 
     // Calculated Values
     const baseSize: number = 512; // px
@@ -57,11 +56,21 @@
             style:stroke-dasharray="{circumference} {circumference}"
             style:stroke-dashoffset="{dashoffset}"
         />
+        <!-- Text -->
+        <!-- https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/text-anchor -->
+        {#if $$slots.default}
+        <text
+            x="50%" y="50%"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            font-weight="bold"
+            font-size={fontsize}
+            class="{color}"
+        ><slot /></text>
+        {/if}
     </svg>
-    {#if value >= 0}
-    <figcaption class="{cFigCaption}">
-        <span class="{text}">{value}{suffix}</span>
-    </figcaption>
-    {/if}
+    <!-- {#if $$slots.default}
+    <figcaption class="{cFigCaption}"><slot /></figcaption>
+    {/if} -->
 </figure>
 
