@@ -8,6 +8,7 @@
 	import List from '$lib/List/List.svelte';
 	import ListItem from '$lib/List/ListItem.svelte';
 	import Button from '$lib/Button/Button.svelte';
+	import Badge from '$lib/Badge/Badge.svelte';
 	import { Apollo, BlueNight, Emerald, GreenFall, Noir, NoirLight, Rustic, Summer84, XPro } from '$lib/Filters/filter';
 	
 	// Import CSS
@@ -46,7 +47,7 @@
         {
             title: 'Utilities',
             list: [
-                {href: '/utilities/filters', label: 'Filters (beta)'},
+                {href: '/utilities/filters', label: 'Filters', badge: 'Beta'},
             ],
         }
     ];
@@ -95,12 +96,17 @@
 		<!-- Main -->
 		<svelte:fragment slot="main">
 			<!-- Navigation -->
-			<div class="space-y-6">
+			<div class="space-y-6 mb-10">
 			{#each navigation as {title,list}, i }
 				<p class="text-sm text-primary-500 m-4">{title}</p>
 				<List role="nav" selected={currentPageStore}>
-					{#each list as {href,label} }
-					<ListItem {href} value={href} on:click={drawerClose}>{label}</ListItem>
+					{#each list as {href,label, badge} }
+					<ListItem {href} value={href} on:click={drawerClose}>
+						<div class="flex justify-between">
+							<span>{label}</span>
+							{#if badge}<Badge background="bg-white" color="text-black">{badge}</Badge>{/if}
+						</div>
+					</ListItem>
 					{/each}
 				</List>
 				{#if i+1 < navigation.length}<Divider />{/if}

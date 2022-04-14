@@ -1,4 +1,3 @@
-
 <script lang="ts">
     import Card from "$lib/Card/Card.svelte";
     import Badge from "$lib/Badge/Badge.svelte";
@@ -7,34 +6,29 @@
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
     import Table from "$lib/Table/Table.svelte";
 
-    let icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 0C114.6 0 0 114.6 0 256c0 141.4 114.6 256 256 256s256-114.6 256-256C512 114.6 397.4 0 256 0zM384 288H205.3l49.38 49.38c12.5 12.5 12.5 32.75 0 45.25s-32.75 12.5-45.25 0L105.4 278.6C97.4 270.7 96 260.9 96 256c0-4.883 1.391-14.66 9.398-22.65l103.1-103.1c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L205.3 224H384c17.69 0 32 14.33 32 32S401.7 288 384 288z"/></svg>'
+    let icon = '<svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM371.8 211.8C382.7 200.9 382.7 183.1 371.8 172.2C360.9 161.3 343.1 161.3 332.2 172.2L224 280.4L179.8 236.2C168.9 225.3 151.1 225.3 140.2 236.2C129.3 247.1 129.3 264.9 140.2 275.8L204.2 339.8C215.1 350.7 232.9 350.7 243.8 339.8L371.8 211.8z"/></svg>';
 
     // Props
     const tableProps: any = {
         columns: ['Prop', 'Type', 'Default', 'Required' , 'Description'],
         data: [
-            ['position', 'string', '-', 'false' , 'Set the badge to be either sub or superscript.'],
-            ['background', 'class', 'bg-surface-500', 'false' , 'Set the background color.'],
-            ['textColor', 'class', 'bg-surface-900', 'false', 'Set the text color.'],
-            ['radius', 'class', 'rounded-lg', 'false', 'Set the rounding of the badge.'],
-            ['icon', 'boolean', 'false', 'false', 'Specify if badge functions as icon.'],
+            ['background', 'class', 'bg-surface-500', 'false' , 'Provide a class to set the background color.'],
+            ['color', 'class', 'text-white', 'false', 'Provide a class to set the text color.'],
+            ['fill', 'class', 'fill-white', 'false', 'Provide a class to set the fill color for SVG icons.'],
+            ['rounded', 'class', 'rounded-lg', 'false', 'Provide a class to set rounding.'],
+            ['icon', 'boolean', 'false', 'false', 'Denotes icon display, which adjusts styles.'],
         ],
     };
+    // Slots
     const tableSlots: any = {
         columns: ['Slot', 'Required', 'Description'],
         data: [
-            ['lead', 'false', 'Used for a leading element, such as an icon.'],
-            ['trail', 'false ', 'Used for a trailing element, such as a button.'],
+            ['lead', 'false', 'Define a leading element, such as an icon.'],
+            ['trail', 'false ', 'Define a trailing element, such as an icon.'],
             
         ],
     };
-
-
 </script>
-
-<div class='space-y-8'>
-    
-</div>
 
 <div class="space-y-8">
     
@@ -47,70 +41,78 @@
 
     <!-- Examples -->
     <section class="space-y-4">
-        <Card class='space-y-4'>      
-            <h6>Basic</h6>
-            <div class='flex-row flex'>
-                <Badge variant=''>Avatar</Badge>
-                <Badge background='bg-primary-200'>Button</Badge>
-                <Badge background='bg-blue-400'>Card</Badge>
-                <Badge background='bg-warning-400'>CodeBlock</Badge>
-            </div>
-       
-        </Card>
-    
-        <Card class='space-y-4'>
-            <h6>Leading slot</h6>
-            <div class='flex-row flex'>
-                <Badge variant=''>
-                    Avatar
-                    <svelte:fragment slot='lead'>{@html icon}</svelte:fragment>
-                </Badge>
+        <Card class="space-y-4">      
+            <div class="flex space-x-2">
+                <Badge>Skeleton</Badge>
+                <Badge background="bg-primary-500" color="text-primary-100">Skeleton</Badge>
+                <Badge background="bg-accent-500" color="text-accent-100">Skeleton</Badge>
+                <Badge background="bg-warning-500" color="text-primary-100">Skeleton</Badge>
             </div>
         </Card>
-    
-        <Card class='space-y-4'>
-            <h6>Trailing slot</h6>
-            <div class='flex-row flex'>
-                <Badge background='bg-yellow-400'>Badge
-                    <svelte:fragment slot='trail'>
-                        {@html icon}
-                    </svelte:fragment>
-                </Badge>
-            </div>
+        <h4>Slots</h4>
+        <Card class="flex space-x-2">
+            <Badge>
+                Complete
+                <svelte:fragment slot="lead">{@html icon}</svelte:fragment>
+            </Badge>
+            <Badge background="bg-yellow-500" color="text-yellow-900" fill="fill-yellow-900">
+                Complete
+                <svelte:fragment slot="trail">{@html icon}</svelte:fragment>
+            </Badge>
+            <Badge background="bg-pink-300" color="text-pink-900" rounded="rounded-full">
+                Favorite
+                <svelte:fragment slot="lead">❤️</svelte:fragment>
+            </Badge>
         </Card>
-    
-        <Card class='space-y-4'>
-            <h6>Super/Subscript Position</h6>
-            <div class='flex-row flex'>
-                <h4>Badge</h4> <Badge class='-ml-0' background='bg-accent-200' position='sub'>New</Badge>
-                <h4>Badge</h4> <Badge class='-ml-0' background='bg-primary-200' position='sup'>New</Badge>
-            </div>
-        </Card>
-        
-        <Card class='space-y-4'>
-            <h6>Icon prop + added to components with custom margins</h6>
-            <div class='flex items-center'>
-                <Avatar size='md' /><Badge class='-ml-4 -mt-4' icon position='sup' background='bg-warning-400'>2</Badge>
-                <Avatar size='md' /> <Badge class='-ml-4 -mb-4' icon position='sub' background='bg-primary-400'>{@html icon}</Badge>
-                <Button size='sm' variant='filled-accent'>Component</Button>
-                <Badge variant='sub' class='-ml-4 -mb-4'>5k</Badge>
-            </div>
-        </Card>
-
+        <h4>Positioning</h4>
+        <section class="grid grid-cols-3 gap-4">
+            <Card class="flex justify-center items-center space-x-2">
+                <p>Skeleton</p>
+                <sup><Badge class="-ml-0" background="bg-primary-500">Super</Badge></sup>
+            </Card>
+            <Card class="flex justify-center items-center space-x-2">
+                <p>Skeleton</p>
+                <sub><Badge class="-ml-0" background="bg-accent-500">Subscript</Badge></sub>
+            </Card>
+            <Card class="flex justify-center items-center space-x-4">
+                <div class="relative inline-block">
+                    <Badge icon background="bg-warning-500" class="absolute top-0 right-0 shadow-xl">2</Badge>
+                    <Avatar size="md" />
+                </div>
+                <div class="relative inline-block">
+                    <Badge icon background="bg-primary-500" class="absolute top-0 right-0 shadow-xl">{@html icon}</Badge>
+                    <Avatar size="md" />
+                </div>
+                <div class="relative inline-block">
+                    <Badge class="absolute -top-2 -right-4 shadow-xl">5k</Badge>
+                    <Button size="sm" variant="filled-accent">Button</Button>
+                </div>
+            </Card>
+        </section>
     </section>
 
     <!-- Usage -->
     <section class="space-y-4">
         <h2>Usage</h2>
-        <CodeBlock language="html" code={`<Badge background='bg-primary-500' textColor='text-surface-900'>{label}</Badge>`.trim()}></CodeBlock>
+        <CodeBlock language="html" code={`<Badge background="bg-primary-500">{label}</Badge>`}></CodeBlock>
+        <CodeBlock language="html" code={`
+<Badge background="bg-pink-300" color="text-pink-900" rounded="rounded-full">
+    Favorite
+    <svelte:fragment slot="lead">❤️</svelte:fragment>
+</Badge>
+        `.trim()}></CodeBlock>
     </section>
 
     <!-- Properties -->
     <section class="space-y-4">
         <h2>Properties</h2>
-        <h4>Props</h4>
         <Table source="{tableProps}"></Table>
-        <h4>Slots</h4>
+    </section>
+    
+    <!-- Slots -->
+    <section class="space-y-4">
+        <h2>Slots</h2>
         <Table source="{tableSlots}"></Table>
     </section>
+
 </div>

@@ -1,65 +1,26 @@
 <script lang="ts">
-
-	export let position: string = '';
 	export let background: string = 'bg-surface-500';
-	export let textColor: string = 'text-surface-900';
-	export let radius: string = 'rounded-lg';
+	export let color: string = 'text-white';
+	export let fill: string = 'fill-white';
+	export let rounded: string = 'rounded';
 	export let icon: boolean = false;
 	
-	$: cBase = `${background} ${textColor} ${$$props.class} ${radius} m-2 p-[2px] text-xs flex flex-row self-center font-semibold`;
-	$: cTrail = 'w-3 self-center ml-2';
-	$: cLead = 'w-3 self-center mr-2';
+	// Styles
+	let cBase: string = 'inline-flex items-center space-x-2 text-xs font-semibold';
+	cBase += icon ? ' w-[18px] h-[18px] justify-center' : ' px-1.5 py-[3px]';
+	if (icon) { rounded = 'rounded-full'; }
 
-	$: cStyle = (icon) ? 'w-4 h-4 rounded-full justify-center items-center truncate p-[2px]' : 'pl-2 pr-2';
-
+	// Responsive
+	$: classes = `${cBase} ${background} ${color} ${fill} ${rounded} ${$$props.class}`;
 </script>
-<div>
-<!--Sub-script variant-->
-{#if position == 'sub'}
-	<sub class="whitespace-nowrap {cBase} {cStyle} h-min">
-		{#if $$slots.lead}
-			<div class="{cLead}">
-				<slot name="lead" />
-			</div>
-		{/if}
-		<slot />
-		{#if $$slots.trail}
-		<div class="{cTrail}">
-			<slot name="trail" />
-		</div>
-		{/if}
-	</sub>
-<!--Super-script variant-->
-{:else if position == 'sup'}
-	<sup class="whitespace-nowrap {cBase} {cStyle}">
-		{#if $$slots.lead}
-			<div class="{cLead}">
-				<slot name="lead" />
-			</div>
-		{/if}		
-		<slot />
-		{#if $$slots.trail}
-		<div class="{cTrail}">
-			<slot name="trail" />
-		</div>
-		{/if}
-	</sup>
-<!--Regular variant-->
-{:else}
-	<span class="whitespace-nowrap {cBase} {cStyle}">
-		{#if $$slots.lead}
-			<div class="{cLead}">
-				<slot name="lead" />
-			</div>
-		{/if}
-		<slot />
-		{#if $$slots.trail}
-			<div class="{cTrail}">
-				<slot name="trail" />
-			</div>		
-		{/if}
-	</span>
-{/if}
-</div>
+
+<span class="badge {classes}">
+	<!-- Icon: Lead -->
+	{#if $$slots.lead}<div><slot name="lead" /></div>{/if}
+	<!-- Content -->
+	<div><slot /></div>
+	<!-- Icon: Trail -->
+	{#if $$slots.trail}<div><slot name="trail" /></div>{/if}
+</span>
 
 
