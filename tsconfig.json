@@ -29,7 +29,9 @@
 		"checkJs": true,
 		"paths": {
 			"$lib": ["src/lib"],
-			"$lib/*": ["src/lib/*"]
+			"$lib/*": ["src/lib/*"],
+			"$root": ["./"],
+			"$root/*": ["./*"]
 		},
 		"outDir": "package"
 	},
