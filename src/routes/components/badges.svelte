@@ -17,14 +17,14 @@
             ['background', 'class', 'bg-surface-500', 'false' , 'Set the background color.'],
             ['textColor', 'class', 'bg-surface-900', 'false', 'Set the text color.'],
             ['radius', 'class', 'rounded-lg', 'false', 'Set the rounding of the badge.'],
-            ['icon', 'boolean', 'false', 'false', 'Specify if badge functions as icon'],
+            ['icon', 'boolean', 'false', 'false', 'Specify if badge functions as icon.'],
         ],
     };
     const tableSlots: any = {
         columns: ['Slot', 'Required', 'Description'],
         data: [
-            ['lead', 'false', 'Used for a leading element, such as an icon'],
-            ['trail', 'false ', 'Used for a trailing element, such as an button'],
+            ['lead', 'false', 'Used for a leading element, such as an icon.'],
+            ['trail', 'false ', 'Used for a trailing element, such as a button.'],
             
         ],
     };

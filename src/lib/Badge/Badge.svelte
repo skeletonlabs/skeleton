@@ -1,9 +1,7 @@
 <script lang="ts">
-import { compute_rest_props } from "svelte/internal";
-
 
 	export let position: string = '';
-	export let background: string = 'bg-surface-400';
+	export let background: string = 'bg-surface-500';
 	export let textColor: string = 'text-surface-900';
 	export let radius: string = 'rounded-lg';
 	export let icon: boolean = false;
