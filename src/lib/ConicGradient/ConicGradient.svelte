@@ -3,10 +3,12 @@
 <!-- https://css-tricks.com/radial-gradient-recipes/ -->
 <!-- https://tailwindcss.com/docs/configuration#referencing-in-java-script -->
 
+<!-- Colors -->
+<!-- https://www.w3.org/wiki/CSS/Properties/color/keywords -->
+
 <script lang="ts">
 import { afterUpdate } from 'svelte';
-
-    import colors from 'tailwindcss/colors';
+    // import colors from 'tailwindcss/colors';
     
     export let data: any[] = [{label: 'Progress', swathe: {color: 'slate', weight: 500}, start: 0, end: 100}];
     export let legend: boolean = false;
@@ -22,16 +24,18 @@ import { afterUpdate } from 'svelte';
     // Generate Conic Gradient style
     function genConicGradient(): void {
         let d: any = data.map(v => {
-            // Set Color
-            let c: string;
-            switch (v.swathe.color) {
-                case('white'): c = colors.white; break;
-                case('black'): c = colors.black; break;
-                case('transparent'): c = 'transparent'; break;
-                default: c = colors[v.swathe.color][v.swathe.weight];
-            }
-            // Return mapped value
-            return `${c} ${v.start}% ${v.end}%`;
+            // -- FIXME: temporary solution ---
+            // // Set Color
+            // let c: string;
+            // switch (v.swathe.color) {
+            //     case('white'): c = colors.white; break;
+            //     case('black'): c = colors.black; break;
+            //     case('transparent'): c = 'transparent'; break;
+            //     default: c = colors[v.swathe.color][v.swathe.weight];
+            // }
+            // // Return mapped value
+            // return `${c} ${v.start}% ${v.end}%`;
+            return `${v.swathe.color} ${v.start}% ${v.end}%`;
         });
         currentCone = `conic-gradient(${d.join(', ')})`;
     }
@@ -42,7 +46,9 @@ import { afterUpdate } from 'svelte';
         currentLegent = data.map(v => {
             return {
                 label: v.label,
-                swatch: colors[v.swathe.color][v.swathe.weight],
+                // -- FIXME: temporary solution ---
+                // swatch: colors[v.swathe.color][v.swathe.weight],
+                swatch: v.swathe.color,
                 value: v.end - v.start
             };
         });
@@ -55,6 +61,8 @@ import { afterUpdate } from 'svelte';
     });
     $: classes = `${cBase} ${width} ${$$props.class}`;
 </script>
+
+<!-- <pre>{JSON.stringify(currentCone, null, 2)}</pre> -->
 
 <figure class="conic-gradient text-center space-y-4" data-testid="conic-gradient">
     <!-- Conic Shape -->

@@ -6,9 +6,9 @@
 
     // Examples
     const dataOne: any[] = [
-        {label: 'Emerald', swathe: {color: 'emerald', weight: 500}, start: 0, end: 35},
-        {label: 'Indigo', swathe: {color: 'indigo', weight: 500}, start: 35, end: 60},
-        {label: 'Rose', swathe: {color: 'rose', weight: 500}, start: 60, end: 100},
+        {label: 'Red', swathe: {color: 'red', weight: 500}, start: 0, end: 35},
+        {label: 'Green', swathe: {color: 'green', weight: 500}, start: 35, end: 60},
+        {label: 'Blue', swathe: {color: 'blue', weight: 500}, start: 60, end: 100},
     ];
     let dataTwo: any[] = [
         {label: 'Orange', swathe: {color: 'orange', weight: 500}, start: 0, end: 10},
@@ -17,7 +17,7 @@
     ];
     const dataThree: any[] = [
         {swathe: {color: 'transparent'}, start: 0, end: 25},
-        {swathe: {color: 'slate', weight: 500}, start: 75, end: 100},
+        {swathe: {color: 'white', weight: 500}, start: 75, end: 100},
     ];
 
     // Props & Slots
