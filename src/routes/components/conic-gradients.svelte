@@ -2,7 +2,7 @@
     import Card from "$lib/Card/Card.svelte";
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
     import Table from "$lib/Table/Table.svelte";
-    import ProgressSpinner from "$lib/ConicGradient/ConicGradient.svelte";
+    import ConicGradient from "$lib/ConicGradient/ConicGradient.svelte";
 
     // Examples
     const dataOne: any[] = [
@@ -47,17 +47,17 @@
     </header>
 
     <!-- Examples -->
-    <section class="grid grid-cols-3 gap-8">
-        <Card><ProgressSpinner data={dataOne} legend={true}></ProgressSpinner></Card>
+    <section class="space-y-4 md:space-y-0 md:grid md:grid-cols-3 md:gap-8">
+        <Card><ConicGradient data={dataOne} legend={true}></ConicGradient></Card>
         <Card>
-            <ProgressSpinner data={dataTwo} legend={true}>
+            <ConicGradient data={dataTwo} legend={true}>
                 <h4>Heat Map</h4>
-            </ProgressSpinner>
+            </ConicGradient>
         </Card>
         <Card class="flex justify-center items-center">
-            <ProgressSpinner data={dataThree} width="w-8" class="animate-spin">
+            <ConicGradient data={dataThree} width="w-8" class="animate-spin">
                 <small class="opacity-50">Loading</small>
-            </ProgressSpinner>
+            </ConicGradient>
         </Card>
     </section>
 
@@ -66,7 +66,7 @@
         <h3 class="text-2xl font-bold">Usage</h3>
         <p>Please note that only default Tailwind color values are currently supported, with the exception of 'white', 'black', and 'transparent'. Weight is optional for these three values.</p>
         <h4>Pie Chart</h4>
-        <CodeBlock language="html" code={`<ProgressSpinner data={dataSet} legend={true}></ProgressSpinner>`}></CodeBlock>
+        <CodeBlock language="html" code={`<ConicGradient data={dataSet} legend={true}></ConicGradient>`}></CodeBlock>
         <CodeBlock language="js" code={`
 const dataSet: any[] = [
     {label: 'Emerald', swathe: {color: 'emerald', weight: 500}, start: 0, end: 35},
@@ -76,9 +76,9 @@ const dataSet: any[] = [
         `.trim()}></CodeBlock>
         <h4>Spinner</h4>
         <CodeBlock language="html" code={`
-<ProgressSpinner data={dataSet} width="w-8" class="animate-spin">
+<ConicGradient data={dataSet} width="w-8" class="animate-spin">
     <small>Loading</small>    
-</ProgressSpinner>
+</ConicGradient>
         `.trim()}></CodeBlock>
         <CodeBlock language="js" code={`
 const dataSet: any[] = [
