@@ -14,7 +14,7 @@ import { afterUpdate } from 'svelte';
 
     // Data
     let currentCone: string;
-    let currentLegent: any[];
+    let currentLegend: any[];
 
     // Styles
     const cBase: string = 'inline-block aspect-square rounded-full';
@@ -39,7 +39,7 @@ import { afterUpdate } from 'svelte';
     // Generate Legend
     function genLegend(): any {
         if (!legend) { return; }
-        currentLegent = data.map(v => {
+        currentLegend = data.map(v => {
             return {
                 label: v.label,
                 swatch: colors[v.swathe.color][v.swathe.weight],
@@ -66,10 +66,10 @@ import { afterUpdate } from 'svelte';
     <figcaption><slot /></figcaption>
     {/if}
     <!-- Legend -->
-    {#if legend && currentLegent}
+    {#if legend && currentLegend}
     <figcaption class="text-sm">
         <ul class="space-y-4">
-            {#each currentLegent as {swatch, label, value}}
+            {#each currentLegend as {swatch, label, value}}
             <li class="flex justify-between">
                 <div class="flex space-x-4">
                     <span class="block aspect-square bg-black w-5 rounded-full mr-2" style:background={swatch} />
