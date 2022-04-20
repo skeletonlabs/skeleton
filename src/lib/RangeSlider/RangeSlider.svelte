@@ -26,7 +26,7 @@
     $: cBase = `${color} ${styleSize} ${$$props.class}`;
     $: flexStyle = showValueFront ? 'flex' : 'flex flex-row-reverse';
 
-    export let tickmarks = null;
+    export let ticklist = null;
 
 </script>
 
@@ -52,9 +52,9 @@
             {...$$restProps}  
             >
         <!--Ticks and labels-->
-            {#if tickmarks}
+            {#if ticklist}
             <div class="flex justify-between w-auto mt-2">
-                {#each tickmarks as item}
+                {#each ticklist as item}
                 <span class="text-xs text-center">
                     <div class="w-4">
                         {item}

@@ -9,9 +9,17 @@ let tickLabels = ['0','20', "40", "60", "80", "100"];
 let ticks = ["╵", "╵", "╵", "╵", "╵", "╵"];
 
 const tableProps: any = {
-        columns: ['Prop', 'Type', 'Required', 'Description'],
+        columns: ['Prop', 'Type', 'Values', 'Default', 'Required', 'Description'],
         data: [
-            ['value', 'any', 'true', 'When selected, this value will update the selected state store.'],
+            ['value', 'number','-', '0' , 'false', 'Get or set the value of the range slider'],
+            ['min', 'number', '-' , '0' , 'false', 'Set the minimum value of the slider'],
+            ['max', 'number', '-' , '10' , 'false', 'Set the maximum value of the slider'],
+            ['step', 'number', '-', '1' , 'false', 'Set the step of the slider'],
+            ['color', 'class', 'accent-{color}-{weight}', '-' , 'false', 'Specify the accent color of the slider (such as accent-{color}-500)'],
+            ['size', 'string', 'sm | md | lg', 'md', 'false', 'Specify the accent color of the slider (such as accent-{color}-500)'],
+            ['showValue', 'boolean', 'true | false', 'false', 'false' , 'Specify if value should be shown after the component'],
+            ['showValueFront', 'boolean', 'true | false', 'false' , 'false', 'Specify if value should be shown before the component'],
+            ['ticklist', 'string[]', '-', '-', 'false', 'Specify the array of strings to be shown below the component as ticks/labels'],
         ],
     };
 
@@ -62,6 +70,15 @@ const tableProps: any = {
             </Card>
         </div>
 
+        <Card class="">
+            <div class="space-y-4">
+                <h4 class="mb-4">Sizes</h4>
+                <RangeSlider color="accent-primary-400" label="Small" size="sm"/>
+                <RangeSlider color="accent-primary-400" label="Medium" size="md"/>
+                <RangeSlider color="accent-primary-400" label="Large" size="lg"/>
+            </div>
+        </Card>
+
     </section>
 
     <!-- Usage -->
@@ -73,7 +90,6 @@ const tableProps: any = {
     <!-- Properties -->
     <section class="space-y-4">
         <h2 class="text-2xl font-bold">Properties</h2>
-        <h4>Radio Item</h4>
         <Table source="{tableProps}"></Table>
     </section>
 </div>
