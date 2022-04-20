@@ -2,47 +2,78 @@
 
 import Card from "$lib/Card/Card.svelte";
 import RangeSlider from "$lib/RangeSlider/RangeSlider.svelte";
+import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
+import Table from "$lib/Table/Table.svelte";
 
 let tickLabels = ['0','20', "40", "60", "80", "100"];
 let ticks = ["╵", "╵", "╵", "╵", "╵", "╵"];
+
+const tableProps: any = {
+        columns: ['Prop', 'Type', 'Required', 'Description'],
+        data: [
+            ['value', 'any', 'true', 'When selected, this value will update the selected state store.'],
+        ],
+    };
+
 </script>
 
-<div class="space-y-4">
-    <h1>TESTING</h1>
+<div class="space-y-8">
 
-    <p>DEFAULT</p>
+	<!-- Header -->
+	<header class="space-y-4">
+		<h1>Range Slider</h1>
+		<p>TODO</p>
+		<CodeBlock language="js" code={`<script>import {RangeSlider} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
+	</header>
 
-    <section class="space-y-4">
-        <Card>
-            <RangeSlider size="md" step={1} label="Label" showValueFront>
-            </RangeSlider>
-        </Card>
+    <!-- Examples -->
+	<section class="space-y-4">
+
+        <div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
+            
+            <Card class="">
+                <h4 class="mb-4">Default</h4>
+                <RangeSlider />
+            </Card>
+            
+            <Card class="">
+                <h4 class="mb-4">Accent Color with Label</h4>
+                <RangeSlider color="accent-primary-400" label="Range"/>
+            </Card>
+          
+            <Card class="">
+                <h4 class="mb-4">Value Label</h4>
+                <RangeSlider color="accent-warning-400" label="Range" showValue/>
+            </Card>
+        
+            <Card class="">
+                <h4 class="mb-4">Tickmarks</h4>
+                <RangeSlider tickmarks={ticks} color="accent-warning-400" label="Range" showValue/>
+            </Card>
+     
+            <Card class="">
+                <h4 class="mb-4">Tick Labels</h4>
+                <RangeSlider tickmarks={tickLabels} color="accent-orange-400" max={100} label="Range" showValue/>
+            </Card>
+       
+            <Card class="">
+                <h4 class="mb-4">Disabled</h4>
+                <RangeSlider disabled tickmarks={tickLabels} color="accent-orange-400" max={100} label="Range" showValue/>
+            </Card>
+        </div>
+
     </section>
 
-    <p>Custom Color + Value After</p>
+    <!-- Usage -->
     <section class="space-y-4">
-        <Card>
-            <RangeSlider min={0} max={100} step={1} size="md" label="Label" accent="accent-pink-400">
-                
-            </RangeSlider>
-        </Card>
+        <CodeBlock language="js" code={`let ticklabels = [0, 2, 4, 6, 8, 10];\nlet value = null;`}></CodeBlock>
+        <CodeBlock language="html" code={`<RangeSlider color="accent-primary-200" min={0} max={10} step={1} tickmarks={ticklabels} showValue label="Slider" />`}></CodeBlock>
     </section>
 
-    <p>Tickmarks/tick labels</p>
+    <!-- Properties -->
     <section class="space-y-4">
-        <Card class="space-y-4">
-            <RangeSlider tickmarks={tickLabels} min={0} max={100} step={5} size="md" accent="accent-primary-400"/>
-            <RangeSlider tickmarks={ticks} min={0} max={100} step={20} size="md" accent="accent-primary-400" />
-        </Card>
+        <h2 class="text-2xl font-bold">Properties</h2>
+        <h4>Radio Item</h4>
+        <Table source="{tableProps}"></Table>
     </section>
-
-    <p>Sizes</p>
-    <section class="space-y-4">
-        <Card>
-            <RangeSlider size='sm' min={0} max={100} step={20} label="Small" accent="accent-yellow-400" showValueFront />
-            <RangeSlider size='md' min={0} max={100} step={20} label="Medium" accent="accent-orange-400" showValueFront />
-            <RangeSlider size='lg' min={0} max={100} step={20} label="Large" accent="accent-warning-400" showValueFront />
-        </Card>
-    </section>
-
 </div>

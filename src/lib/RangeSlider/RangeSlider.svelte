@@ -6,10 +6,13 @@
     export let step: number = 1;
 
     export let label: string = '';
-    export let accent: string = '';
+    export let color: string = '';
     export let size = '';
     export let showValueFront: boolean = false;
-    export let showValue: boolean = true;
+    export let showValue: boolean = false;
+
+    //Set showValue true if showValue front
+    if(showValueFront) { showValue = true; }
 
     // Sizing for the range slider track. Does not affect the thumb
     let styleSize;
@@ -20,22 +23,22 @@
         default: { styleSize = 'h-[6px]'; break;}
     }
 
-    $: cBase = `${accent} ${styleSize}`;
+    $: cBase = `${color} ${styleSize} ${$$props.class}`;
     $: flexStyle = showValueFront ? 'flex' : 'flex flex-row-reverse';
 
     export let tickmarks = null;
 
 </script>
 
-<div class="${$$props.class}">
-    <label for="">{label}</label>
+<div>
+    <label for="" class="mb-2">{label}</label>
     <div class="flex gap-2 ${flexStyle}">
         <!-- Value Label -->
         {#if showValue}
         <p class='w-8 ml-2 mr-2 self-center text-center'>{value}</p>
         {/if}
         <!-- Range Slider -->
-        <div class='rangeContainer flex self-center flex-col w-full'>
+        <div class='rangeContainer flex self-center flex-col w-full mt-2'>
             <input
             type="range"
             class="rangeSlider {cBase} rounding-full w-full" 
@@ -45,7 +48,8 @@
             max={max} 
             on:click 
             on:change 
-            on:blur  
+            on:blur
+            {...$$restProps}  
             >
         <!--Ticks and labels-->
             {#if tickmarks}
