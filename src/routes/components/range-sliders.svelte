@@ -39,38 +39,38 @@ const tableProps: any = {
 
         <div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
             
-            <Card class="">
+            <Card>
                 <h4 class="mb-4">Default</h4>
                 <RangeSlider />
             </Card>
             
-            <Card class="">
+            <Card>
                 <h4 class="mb-4">Accent Color with Label</h4>
                 <RangeSlider color="accent-primary-400" label="Range"/>
             </Card>
           
-            <Card class="">
+            <Card>
                 <h4 class="mb-4">Value Label</h4>
                 <RangeSlider color="accent-warning-400" label="Range" showValue/>
             </Card>
         
-            <Card class="">
+            <Card>
                 <h4 class="mb-4">Tickmarks</h4>
-                <RangeSlider tickmarks={ticks} color="accent-warning-400" label="Range" showValue/>
+                <RangeSlider ticklist={ticks} color="accent-warning-400" label="Range" showValue/>
             </Card>
      
-            <Card class="">
+            <Card>
                 <h4 class="mb-4">Tick Labels</h4>
-                <RangeSlider tickmarks={tickLabels} color="accent-orange-400" max={100} label="Range" showValue/>
+                <RangeSlider ticklist={tickLabels} color="accent-orange-400" max={100} label="Range" showValue/>
             </Card>
        
-            <Card class="">
+            <Card>
                 <h4 class="mb-4">Disabled</h4>
-                <RangeSlider disabled tickmarks={tickLabels} color="accent-orange-400" max={100} label="Range" showValue/>
+                <RangeSlider disabled ticklist={tickLabels} color="accent-orange-400" max={100} label="Range" showValue/>
             </Card>
         </div>
 
-        <Card class="">
+        <Card>
             <div class="space-y-4">
                 <h4 class="mb-4">Sizes</h4>
                 <RangeSlider color="accent-primary-400" label="Small" size="sm"/>
