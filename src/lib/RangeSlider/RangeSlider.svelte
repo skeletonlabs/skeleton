@@ -35,10 +35,10 @@
     <div class="flex gap-2 ${flexStyle}">
         <!-- Value Label -->
         {#if showValue}
-        <p class='w-8 ml-2 mr-2 self-center text-center'>{value}</p>
+        <p class="w-8 ml-2 mr-2 self-center text-center">{value}</p>
         {/if}
         <!-- Range Slider -->
-        <div class='rangeContainer flex self-center flex-col w-full mt-2'>
+        <div class="rangeContainer flex self-center flex-col w-full mt-2">
             <input
             type="range"
             class="rangeSlider {cBase} rounding-full w-full" 
