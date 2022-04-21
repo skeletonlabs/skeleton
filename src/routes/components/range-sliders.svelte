@@ -33,37 +33,31 @@
 
     <!-- Examples -->
 	<section class="space-y-4">
+        <Card class="space-y-4">
+            <RangeSlider value={5} />
+            <RangeSlider value={5} accent="accent-primary-500"/>
+            <RangeSlider value={5} accent="accent-warning-500"/>
+            <RangeSlider value={5} accent="accent-yellow-500"/>
+        </Card>
         <div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
             <Card class="space-y-4">
-                <h4>Default</h4>
-                <RangeSlider value={5} />
+                <RangeSlider value={5} label="Labeled"/>
             </Card>
             <Card class="space-y-4">
-                <h4>Accent Color</h4>
-                <RangeSlider value={5} accent="accent-primary-400" label="Skeleton"/>
+                <RangeSlider accent="accent-primary-500" value={5} label="Ticked" ticked/>
             </Card>
             <Card class="space-y-4">
-                <h4>Labeled</h4>
-                <RangeSlider value={5} accent="accent-warning-400" label="Skeleton"/>
+                <RangeSlider accent="accent-warning-500" max={100} value={50} step={5} label="Ticked with Steps" ticked/>
             </Card>
             <Card class="space-y-4">
-                <h4>Ticked</h4>
-                <RangeSlider value={5} accent="accent-warning-400" label="Skeleton" ticked/>
-            </Card>
-            <Card class="space-y-4">
-                <h4>Tick Labels</h4>
-                <RangeSlider max={100} value={50} step={5} accent="accent-orange-400" label="Skeleton" ticked/>
-            </Card>
-            <Card class="space-y-4">
-                <h4>Disabled</h4>
-                <RangeSlider max={100} value={50} step={5} disabled accent="accent-orange-500" label="Skeleton" ticked/>
+                <RangeSlider max={100} value={50} step={5} disabled label="Disabled" ticked/>
             </Card>
         </div>
         <Card class="space-y-4">
-            <h4>Sizes</h4>
-            <RangeSlider accent="accent-primary-400" label="Small" height="h-[2px]"/>
-            <RangeSlider accent="accent-primary-400" label="Medium" height="h-[4px]"/>
-            <RangeSlider accent="accent-primary-400" label="Large" height="h-[6px]"/>
+            <h4>Height</h4>
+            <RangeSlider label="Small" height="h-[3px]"/>
+            <RangeSlider accent="accent-primary-500" label="Medium" height="h-[6px]"/>
+            <RangeSlider accent="accent-warning-500" label="Large" height="h-[9px]"/>
         </Card>
     </section>
 
