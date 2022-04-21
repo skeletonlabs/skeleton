@@ -1,28 +1,25 @@
 <script lang="ts">
+    import Card from "$lib/Card/Card.svelte";
+    import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
+    import Table from "$lib/Table/Table.svelte";
+    import Alert from "$lib/Alert/Alert.svelte";
+    import RangeSlider from "$lib/RangeSlider/RangeSlider.svelte";
 
-import Card from "$lib/Card/Card.svelte";
-import RangeSlider from "$lib/RangeSlider/RangeSlider.svelte";
-import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
-import Table from "$lib/Table/Table.svelte";
-
-let tickLabels = ['0','20', "40", "60", "80", "100"];
-let ticks = ["╵", "╵", "╵", "╵", "╵", "╵"];
-
-const tableProps: any = {
-        columns: ['Prop', 'Type', 'Values', 'Default', 'Required', 'Description'],
+    const tableProps: any = {
+        columns: ['Prop', 'Type', 'Default', 'Required', 'Description'],
         data: [
-            ['value', 'number','-', '0' , 'false', 'Get or set the value of the range slider'],
-            ['min', 'number', '-' , '0' , 'false', 'Set the minimum value of the slider'],
-            ['max', 'number', '-' , '10' , 'false', 'Set the maximum value of the slider'],
-            ['step', 'number', '-', '1' , 'false', 'Set the step of the slider'],
-            ['color', 'class', 'accent-{color}-{weight}', '-' , 'false', 'Specify the accent color of the slider (such as accent-{color}-500)'],
-            ['size', 'string', 'sm | md | lg', 'md', 'false', 'Specify the accent color of the slider (such as accent-{color}-500)'],
-            ['showValue', 'boolean', 'true | false', 'false', 'false' , 'Specify if value should be shown after the component'],
-            ['showValueFront', 'boolean', 'true | false', 'false' , 'false', 'Specify if value should be shown before the component'],
-            ['ticklist', 'string[]', '-', '-', 'false', 'Specify the array of strings to be shown below the component as ticks/labels'],
+            ['id', 'string', '(unique id)' , 'false', 'Provide a unique input ID.'],
+            ['name', 'string', '(match id)' , 'false', 'Provide a unique input name.'],
+            ['min', 'number', '0' , 'false', 'Set the input minimum range.'],
+            ['max', 'number', '10' , 'false', 'Set the input maximum range.'],
+            ['step', 'number', '1' , 'false', 'Set the input step offset.'],
+            ['value', 'number', '0' , 'false', 'Set the current input value.'],
+            ['label', 'string', '-' , 'false', 'Provide an input label.'],
+            ['ticked', 'boolean', 'false' , 'false', 'Enable to show tickmarks.'],
+            ['accent', 'string', 'accent-accent-500' , 'false', 'Provide a class to set the input accent color.'],
+            ['height', 'string', '-' , 'false', 'Provide a class to set the input height.'],
         ],
     };
-
 </script>
 
 <div class="space-y-8">
@@ -30,62 +27,57 @@ const tableProps: any = {
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Range Slider</h1>
-		<p>TODO</p>
+		<p>Capture input from a range of values, including optional ticks.</p>
 		<CodeBlock language="js" code={`<script>import {RangeSlider} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
 	</header>
 
     <!-- Examples -->
 	<section class="space-y-4">
-
         <div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
-            
-            <Card>
-                <h4 class="mb-4">Default</h4>
-                <RangeSlider />
+            <Card class="space-y-4">
+                <h4>Default</h4>
+                <RangeSlider value={5} />
             </Card>
-            
-            <Card>
-                <h4 class="mb-4">Accent Color with Label</h4>
-                <RangeSlider color="accent-primary-400" label="Range"/>
+            <Card class="space-y-4">
+                <h4>Accent Color</h4>
+                <RangeSlider value={5} accent="accent-primary-400" label="Skeleton"/>
             </Card>
-          
-            <Card>
-                <h4 class="mb-4">Value Label</h4>
-                <RangeSlider color="accent-warning-400" label="Range" showValue/>
+            <Card class="space-y-4">
+                <h4>Labeled</h4>
+                <RangeSlider value={5} accent="accent-warning-400" label="Skeleton"/>
             </Card>
-        
-            <Card>
-                <h4 class="mb-4">Tickmarks</h4>
-                <RangeSlider ticklist={ticks} color="accent-warning-400" label="Range" showValue/>
+            <Card class="space-y-4">
+                <h4>Ticked</h4>
+                <RangeSlider value={5} accent="accent-warning-400" label="Skeleton" ticked/>
             </Card>
-     
-            <Card>
-                <h4 class="mb-4">Tick Labels</h4>
-                <RangeSlider ticklist={tickLabels} color="accent-orange-400" max={100} label="Range" showValue/>
+            <Card class="space-y-4">
+                <h4>Tick Labels</h4>
+                <RangeSlider max={100} value={50} step={5} accent="accent-orange-400" label="Skeleton" ticked/>
             </Card>
-       
-            <Card>
-                <h4 class="mb-4">Disabled</h4>
-                <RangeSlider disabled ticklist={tickLabels} color="accent-orange-400" max={100} label="Range" showValue/>
+            <Card class="space-y-4">
+                <h4>Disabled</h4>
+                <RangeSlider max={100} value={50} step={5} disabled accent="accent-orange-500" label="Skeleton" ticked/>
             </Card>
         </div>
-
-        <Card>
-            <div class="space-y-4">
-                <h4 class="mb-4">Sizes</h4>
-                <RangeSlider color="accent-primary-400" label="Small" size="sm"/>
-                <RangeSlider color="accent-primary-400" label="Medium" size="md"/>
-                <RangeSlider color="accent-primary-400" label="Large" size="lg"/>
-            </div>
+        <Card class="space-y-4">
+            <h4>Sizes</h4>
+            <RangeSlider accent="accent-primary-400" label="Small" height="h-[2px]"/>
+            <RangeSlider accent="accent-primary-400" label="Medium" height="h-[4px]"/>
+            <RangeSlider accent="accent-primary-400" label="Large" height="h-[6px]"/>
         </Card>
-
     </section>
 
     <!-- Usage -->
     <section class="space-y-4">
-        <CodeBlock language="js" code={`let ticklabels = [0, 2, 4, 6, 8, 10];\nlet value = null;`}></CodeBlock>
-        <CodeBlock language="html" code={`<RangeSlider color="accent-primary-200" min={0} max={10} step={1} tickmarks={ticklabels} showValue label="Slider" />`}></CodeBlock>
+        <CodeBlock language="html" code={`<RangeSlider label="Skeleton" max={100} value={50} step={5} accent="accent-orange-500" ticked/>`}></CodeBlock>
     </section>
+
+     <!-- Warning -->
+     <Alert visible={true} duration={0}>
+        <svelte:fragment slot="title">Cross-Browser Support</svelte:fragment>
+        <svelte:fragment slot="message">Please note that some browsers may not fully support tickmarks, which are generated using a datalist element. <a class="!text-white" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range" target="_blank">Review support on MDN.</a></svelte:fragment>      
+    </Alert>
+
 
     <!-- Properties -->
     <section class="space-y-4">

@@ -83,4 +83,4 @@ label { @apply block; }
 label span, legend { @apply block text-surface-700 dark:text-surface-300 text-sm mb-2; }
 
 /* Accent Color - https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color */
-[type="range"]:not(.rangeSlider) { @apply w-full accent-accent-500; }
+[type="range"]:not(.range-slider) { @apply w-full accent-accent-500; }

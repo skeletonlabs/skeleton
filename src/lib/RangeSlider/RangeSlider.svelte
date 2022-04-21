@@ -1,69 +1,66 @@
 <script lang="ts">
+    import { afterUpdate } from "svelte";
 
-    export let value: number = 0;
-    export let max: number = 10;
+    // Props - Generate unique component ID if none specified.
+    export let id: string = (Math.random() * 10e15).toString(16);
+    export let name: string = id;
+    // Props: Values
     export let min: number = 0;
+    export let max: number = 10;
     export let step: number = 1;
-
+    export let value: number = 0;
+    // Props: Options
     export let label: string = '';
-    export let color: string = '';
-    export let size = '';
-    export let showValueFront: boolean = false;
-    export let showValue: boolean = false;
+    export let ticked: boolean = false;
+    export let accent: string = 'accent-accent-500';
+    export let height = 'h-2';
 
-    //Set showValue true if showValue front
-    if(showValueFront) { showValue = true; }
-
-    // Sizing for the range slider track. Does not affect the thumb
-    let styleSize;
-    switch(size){
-        case('sm'): { styleSize = 'h-[2px]'; break;};
-        case('md'): { styleSize = 'h-[4px]'; break;};
-        case('lg'): { styleSize = 'h-[8px]'; break;};
-        default: { styleSize = 'h-[6px]'; break;}
+    // Styles
+    const cBase: string = 'range-slider w-full';
+    
+    // Tickmarks - generate datalist options based on min/max values
+    let tickmarks: any[]
+    function setTickmarks(): void {
+        tickmarks = Array.from({length: (max-min)+1}, (v,i) => i);
     }
 
-    $: cBase = `${color} ${styleSize} ${$$props.class}`;
-    $: flexStyle = showValueFront ? 'flex' : 'flex flex-row-reverse';
-
-    export let ticklist = null;
-
+    // Reactive
+    afterUpdate(() => {
+        if (ticked) { setTickmarks(); }
+    });
+    $: classes = `${cBase} ${accent} ${height} ${$$props.class||''}`;
 </script>
 
-<div data-testid="rangeSlider">
-    <label for="" class="mb-2">{label}</label>
-    <div class="flex gap-2 ${flexStyle}">
-        <!-- Value Label -->
-        {#if showValue}
-        <p class="w-8 ml-2 mr-2 self-center text-center">{value}</p>
-        {/if}
-        <!-- Range Slider -->
-        <div class="rangeContainer flex self-center flex-col w-full mt-2">
+<label for={id} data-testid="range-slider">
+    <span>{label}</span>
+    <div class="flex justify-center space-x-4">
+        <!-- Slider + Ticks -->
+        <div class="flex-1">
             <input
-            type="range"
-            class="rangeSlider {cBase} rounding-full w-full" 
-            step={step}
-            bind:value={value}
-            min={min}
-            max={max} 
-            on:click 
-            on:change 
-            on:blur
-            {...$$restProps}  
+                type="range"
+                {id}
+                {name}
+                class="range-slider {classes}" 
+                list="tickmarks-{id}"
+                min={min}
+                max={max} 
+                step={step}
+                bind:value={value}
+                on:click 
+                on:change 
+                on:blur
+                {...$$restProps} 
             >
-        <!--Ticks and labels-->
-            {#if ticklist}
-            <div class="flex justify-between w-auto mt-2">
-                {#each ticklist as item}
-                <span class="text-xs text-center">
-                    <div class="w-4">
-                        {item}
-                    </div>
-                </span>
+            <!-- Tickmarks -->
+            {#if ticked && tickmarks}
+            <datalist id="tickmarks-{id}">
+                {#each tickmarks as tm}
+                <option value={tm} label='{tm}'></option>
                 {/each}
-            </div>
+            </datalist>
             {/if}
         </div> 
+        <!-- Current -->
+        <div class="flex-none">{value}</div>
     </div>
-</div>
-
+</label>
