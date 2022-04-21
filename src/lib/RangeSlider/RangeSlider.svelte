@@ -13,13 +13,13 @@
     export let label: string = '';
     export let ticked: boolean = false;
     export let accent: string = 'accent-accent-500';
-    export let height = 'h-2';
+    export let height = 'h-1';
 
     // Styles
     const cBase: string = 'range-slider w-full';
     
     // Tickmarks - generate datalist options based on min/max values
-    let tickmarks: any[]
+    let tickmarks: any[];
     function setTickmarks(): void {
         tickmarks = Array.from({length: (max-min)+1}, (v,i) => i);
     }
@@ -32,7 +32,7 @@
 </script>
 
 <label for={id} data-testid="range-slider">
-    <span>{label}</span>
+    <span class="m-0">{label}</span>
     <div class="flex justify-center space-x-4">
         <!-- Slider + Ticks -->
         <div class="flex-1">
@@ -47,7 +47,7 @@
                 step={step}
                 bind:value={value}
                 on:click 
-                on:change 
+                on:change
                 on:blur
                 {...$$restProps} 
             >
@@ -61,6 +61,6 @@
             {/if}
         </div> 
         <!-- Current -->
-        <div class="flex-none">{value}</div>
+        <div class="flex-none min-w-[50px] text-center">{value}</div>
     </div>
 </label>
