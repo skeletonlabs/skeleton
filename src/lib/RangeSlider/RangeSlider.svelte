@@ -30,7 +30,7 @@
 
 </script>
 
-<div>
+<div data-testid="rangeSlider">
     <label for="" class="mb-2">{label}</label>
     <div class="flex gap-2 ${flexStyle}">
         <!-- Value Label -->
