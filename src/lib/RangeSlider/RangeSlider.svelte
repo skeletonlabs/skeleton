@@ -40,7 +40,7 @@
                 type="range"
                 {id}
                 {name}
-                class="range-slider {classes}" 
+                class={classes} 
                 list="tickmarks-{id}"
                 min={min}
                 max={max} 

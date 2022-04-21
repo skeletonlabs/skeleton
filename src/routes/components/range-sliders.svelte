@@ -75,7 +75,7 @@
 
     <!-- Usage -->
     <section class="space-y-4">
-        <CodeBlock language="html" code={`<RangeSlider label="Skeleton" max={100} bind:value={myValue} step={5} accent="accent-primary-500" ticked/>`}></CodeBlock>
+        <CodeBlock language="html" code={`<RangeSlider label="Skeleton" max={100} step={5} bind:value={myValue} accent="accent-primary-500" ticked/>`}></CodeBlock>
     </section>
 
 

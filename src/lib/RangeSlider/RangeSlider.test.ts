@@ -2,26 +2,35 @@
  * @vitest-environment jsdom
  */
 
- import { cleanup, render } from '@testing-library/svelte';
- import { afterEach, describe, it, expect } from 'vitest';
- 
- import RangeSlider from '$lib/RangeSlider/RangeSlider.svelte';
+import { cleanup, render } from '@testing-library/svelte';
+import { afterEach, describe, it, expect } from 'vitest';
 
- describe('RangeSlider.svelte', () => {
-     let ticks = ['|', '|', '|', '|']; 
-     let value;
+import RangeSlider from '$lib/RangeSlider/RangeSlider.svelte';
 
-     afterEach(() => cleanup());
- 
-     it('Renders with props', async () => {
-         const { getByTestId } = render(RangeSlider, {
-             props: { color: 'accent-primary-500', size: 'md', min: 5, max: 10, step: 1, showLabel: true, ticklist: ticks, label: 'test', value: value }
-         });
-         expect(getByTestId('rangeSlider')).toBeTruthy();
-     });
- 
-     it('Renders without props', async () => {
-         const { getByTestId } = render(RangeSlider);
-         expect(getByTestId('rangeSlider')).toBeTruthy();
-     });
- });
+const testProps: any = {
+    id: 'test1',
+    name: 'test1',
+    min: 0,
+    max: 20,
+    step: 5,
+    value: 10,
+    label: 'Testing',
+    ticked: true,
+    accent: 'bg-primary-500',
+    height: 'h-3'
+};
+
+describe('RangeSlider.svelte', () => {
+
+    afterEach(() => cleanup());
+
+    it('Renders with props', async () => {
+        const { getByTestId } = render(RangeSlider, { props: testProps });
+        expect(getByTestId('range-slider')).toBeTruthy();
+    });
+
+    it('Renders without props', async () => {
+        const { getByTestId } = render(RangeSlider);
+        expect(getByTestId('range-slider')).toBeTruthy();
+    });
+});
