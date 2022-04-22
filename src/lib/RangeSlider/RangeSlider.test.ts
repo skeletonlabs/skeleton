@@ -33,4 +33,15 @@ describe('RangeSlider.svelte', () => {
         const { getByTestId } = render(RangeSlider);
         expect(getByTestId('range-slider')).toBeTruthy();
     });
+
+    it('Ticks added', async () => {
+        const { getByTestId, container} = render(RangeSlider, {props: {ticked: true}});
+        expect( getByTestId('range-slider').getElementsByTagName('datalist')).toBeTruthy();
+    })
+    
+    it('Disabled state', async () => { 
+        const { getByTestId, container} = render(RangeSlider, {disabled: true});
+        expect(getByTestId('range-slider').getElementsByTagName('input')[0].getAttribute('disabled'));
+    })
+    
 });
