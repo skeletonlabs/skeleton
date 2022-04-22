@@ -13,12 +13,12 @@ describe('Badge.svelte', () => {
 
     it('Renders without props', async () => {
         const { getByTestId } = render(Badge);
-        expect(getByTestId('crumb')).toBeTruthy();
+        expect(getByTestId('badge')).toBeTruthy();
     });
     
     it('Renders with props', async () => {
         const { getByTestId } = render(Badge, {background: 'bg-red-500'});
-        expect(getByTestId('crumb')).toBeTruthy();
+        expect(getByTestId('badge')).toBeTruthy();
     });
 
 });

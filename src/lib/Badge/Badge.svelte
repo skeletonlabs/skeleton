@@ -14,7 +14,7 @@
 	$: classes = `${cBase} ${background} ${color} ${fill} ${rounded} ${$$props.class}`;
 </script>
 
-<span class="badge {classes}">
+<span data-testid="badge" class="badge {classes}">
 	<!-- Icon: Lead -->
 	{#if $$slots.lead}<div><slot name="lead" /></div>{/if}
 	<!-- Content -->
