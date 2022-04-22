@@ -20,7 +20,6 @@
             ['label', 'string', '-' , 'false', 'Provide an input label.'],
             ['ticked', 'boolean', 'false' , 'false', 'Enable to show tickmarks.'],
             ['accent', 'string', 'accent-accent-500' , 'false', 'Provide a class to set the input accent color.'],
-            ['height', 'string', 'h-1' , 'false', 'Provide a class to set the input height.'],
         ],
     };
 </script>
@@ -65,12 +64,6 @@
                 <RangeSlider label="Stepped" max={100} bind:value={valueB} step={5} ticked/>
             </Card>
         </div>
-        <Card class="space-y-4">
-            <h4>Height</h4>
-            <RangeSlider label="h-1" bind:value={valueA} height="h-1"/>
-            <RangeSlider label="h-3" bind:value={valueA} height="h-3"/>
-            <RangeSlider label="h-6" bind:value={valueA} height="h-6"/>
-        </Card>
     </section>
 
     <!-- Usage -->

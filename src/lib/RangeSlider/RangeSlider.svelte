@@ -13,10 +13,9 @@
     export let label: string = '';
     export let ticked: boolean = false;
     export let accent: string = 'accent-accent-500';
-    export let height = 'h-1';
 
     // Styles
-    const cBase: string = 'range-slider w-full';
+    const cBase: string = 'range-slider w-full h-2';
     
     // Tickmarks - generate datalist options based on min/max values
     let tickmarks: any[];
@@ -28,7 +27,7 @@
     afterUpdate(() => {
         if (ticked) { setTickmarks(); }
     });
-    $: classes = `${cBase} ${accent} ${height} ${$$props.class||''}`;
+    $: classes = `${cBase} ${accent} ${$$props.class||''}`;
 </script>
 
 <label for={id} data-testid="range-slider">

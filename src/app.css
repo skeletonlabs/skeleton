@@ -79,7 +79,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder { @apply text-surfac
 input::placeholder, textarea::placeholder { @apply text-surface-400; }
 
 /* Labels */
-label { @apply block; }
+label { @apply block overflow-visible; }
 label span, legend { @apply block text-surface-700 dark:text-surface-300 text-sm mb-2; }
 
 /* Accent Color - https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color */
