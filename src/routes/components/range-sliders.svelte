@@ -46,29 +46,29 @@
 	<section class="space-y-4">
         <Card class="space-y-4">
             <RangeSlider bind:value={valueA} />
-            <RangeSlider bind:value={valueA} accent="accent-primary-500"/>
-            <RangeSlider bind:value={valueA} accent="accent-warning-500"/>
-            <RangeSlider bind:value={valueA} accent="accent-yellow-500"/>
+            <RangeSlider bind:value={valueA} accent="accent-primary-500" />
+            <RangeSlider bind:value={valueA} accent="accent-warning-500" />
+            <RangeSlider bind:value={valueA} accent="accent-yellow-500" />
         </Card>
         <div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
             <Card class="space-y-4">
-                <RangeSlider label="Labeled" bind:value={valueA}/>
+                <RangeSlider label="Labeled" bind:value={valueA} />
             </Card>
             <Card class="space-y-4">
-                <RangeSlider disabled label="Disabled" bind:value={valueA}/>
+                <RangeSlider disabled label="Disabled" />
             </Card>
             <Card class="space-y-4">
-                <RangeSlider label="Ticked" bind:value={valueA} ticked/>
+                <RangeSlider label="Ticked" bind:value={valueA} ticked />
             </Card>
             <Card class="space-y-4">
-                <RangeSlider label="Stepped" max={100} bind:value={valueB} step={5} ticked/>
+                <RangeSlider label="Stepped" max={100} bind:value={valueB} step={5} ticked />
             </Card>
         </div>
     </section>
 
     <!-- Usage -->
     <section class="space-y-4">
-        <CodeBlock language="html" code={`<RangeSlider label="Skeleton" max={100} step={5} bind:value={myValue} accent="accent-primary-500" ticked/>`}></CodeBlock>
+        <CodeBlock language="html" code={`<RangeSlider label="Skeleton" max={100} step={5} bind:value={myValue} accent="accent-primary-500" ticked />`}></CodeBlock>
     </section>
 
 
