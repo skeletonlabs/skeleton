@@ -11,9 +11,9 @@ let checked = false;
 </script>
 
 <h1>TESTING</h1>
-<div>
+<div class="space-y-4">
 
-    <Card>
+    <Card class="space-y-4">
         <SliderToggle bind:checked>
         {#if checked}
         {toggleOnMes}
@@ -21,6 +21,10 @@ let checked = false;
         {toggleOffMes}
         {/if}
         </SliderToggle>
-    </Card>
+        <h4>Inner label</h4>
+        <SliderToggle onLabel="ON" offLabel="OFF" color="bg-warning-500" />
+        <h4>Disabled</h4>
+        <SliderToggle disabled color="bg-warning-500" />
     
+    </Card>
 </div>
