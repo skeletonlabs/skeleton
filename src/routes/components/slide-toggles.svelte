@@ -59,7 +59,7 @@
     <!-- Usage -->
     <section class="space-y-4">
         <h2>Usage</h2>
-        <CodeBlock language="js" code={`<script>\n  let checked;\n</script>`}></CodeBlock>
+        <CodeBlock language="js" code={`<script>\n  let checked;\n</\script>`}></CodeBlock>
         <CodeBlock language="html" code={`<SlideToggle bind:checked size="lg" color="bg-primary-500">{labelText}</SlideToggle>`}></CodeBlock>
     </section>
 
