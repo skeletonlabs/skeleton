@@ -80,10 +80,10 @@
         <!-- Install Skeleton -->
         <h4>Install Skeleton</h4>
         <CodeBlock language="console" code={`npm install --save-dev @brainandbones/skeleton`}></CodeBlock>
-        <!-- Implement Your Theme -->
-        <h4>Next: Implement Your Theme</h4>
-        <p>Follow the guide linked below to create and add your own theme.</p>
-        <Button variant="filled-accent" href="/docs/themes">Theme Setup Guide</Button>
+        <!-- Configure Tailwind -->
+        <h4>Configure Tailwind</h4>
+        <p>Follow the guide below to configure required Tailwind settings.</p>
+        <Button variant="filled-accent" href="/docs/tailwind">Next: Tailwind Guide</Button>
     </Card>
 
     <Divider />
