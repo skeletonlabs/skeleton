@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { writable, type Writable } from 'svelte/store';
+	import { afterNavigate } from '$app/navigation';
 
 	import Drawer from '$lib/Drawer/Drawer.svelte';
 	import LightSwitch from '$lib/LightSwitch/LightSwitch.svelte';
@@ -15,6 +16,7 @@
 	import 'highlight.js/styles/github-dark.css'; // Highlight.js
 	import '../theme-bb.css'; // bb|st
 	import '../app.css';
+import { onMount } from 'svelte';
 
 	const currentPageStore: Writable<string> = writable($page.url.pathname);
 	const drawer: Writable<boolean> = writable(false);
@@ -59,6 +61,9 @@
 	// Drawer
 	const drawerOpen = () => { drawer.set(true); }
 	const drawerClose = () => { drawer.set(false); }
+
+	// After route change, scroll to top;
+	afterNavigate(() => { document.querySelector('#main').scrollTop = 0; });
 </script>
 
 <!-- <svelte:window bind:scrollY={y}/> -->
@@ -125,7 +130,7 @@
 	</Drawer>
 
     <!-- Main -->
-    <main class="w-screen h-screen overflow-y-auto p-8">
+    <main id="main" class="w-screen h-screen overflow-y-auto p-8">
 
 		<div class="container mx-auto">
 
