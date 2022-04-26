@@ -11,12 +11,12 @@
     const storeTab: Writable<string> = writable('primary'); // primary | accent | warning | surface
 
     const tableProps: any = {
-    columns: ['Example', 'Name', 'Class', 'Usage'],
+    columns: ['Name', 'Class', 'Description'],
         data: [
-            ['<div class="bg-primary-500 aspect-square w-4 rounded-full"></div>', 'Primary', '[x]-primary-[50-900]', 'Your primary brand color.'],
-            ['<div class="bg-accent-500 aspect-square w-4 rounded-full"></div>', 'Accent', '[x]-accent-[50-900]', 'An accent for offsets or supplimentary values.'],
-            ['<div class="bg-warning-500 aspect-square w-4 rounded-full"></div>', 'Warning', '[x]-warning-[50-900]', 'May be used for warnings, alerts, and invalid inputs.'],
-            ['<div class="bg-surface-500 aspect-square w-4 rounded-full"></div>', 'Surface', '[x]-surface-[50-900]', 'May be used for backgrounds, card elements, and some typography.'],
+            ['Primary', '[x]-primary-[50-900]', 'Your primary brand color.'],
+            ['Accent', '[x]-accent-[50-900]', 'An accent for offsets or supplimentary values.'],
+            ['Warning', '[x]-warning-[50-900]', 'May be used for warnings, alerts, and invalid inputs.'],
+            ['Surface', '[x]-surface-[50-900]', 'May be used for backgrounds, card elements, and some typography.'],
         ],
     };
 
@@ -109,7 +109,7 @@
                 </label>
             </fieldset>
             <fieldset class="text-center">
-                <RadioGroup background="bg-accent-500" color="text-white" selected={storeTab}>
+                <RadioGroup background="bg-surface-100 dark:bg-surface-500" color="text-black dark:text-white" selected={storeTab}>
                     <RadioItem value="primary">Primary</RadioItem>
                     <RadioItem value="accent">Accent</RadioItem>
                     <RadioItem value="warning">Warning</RadioItem>
@@ -117,9 +117,18 @@
                 </RadioGroup>
             </fieldset>
             <!-- Fields -->
-            <fieldset class="space-y-4">
+            <fieldset class="space-y-6">
                 {#each weights as w}
-                <label><span>{w}</span><input type="text" bind:value={formColors[$storeTab][w]} required /></label>
+                <label for="">
+                    <div class="flex space-x-4 items-center">
+                        <div
+                            class="bg-black ring-2 ring-[grey]/10 aspect-square w-4 rounded-full"
+                            style:background={`#${formColors[$storeTab][w]}`}
+                        ></div>
+                        <p class="w-[40px] text-center">{w}</p>
+                        <input type="text" bind:value={formColors[$storeTab][w]} required />
+                    </div>
+                </label>
                 {/each}
             </fieldset>
         </form>
@@ -178,16 +187,16 @@
     <!-- Usage -->
     <section class="space-y-4">
         <h3>Usage</h3>
-        <p>Theme colors are not limited to Skeleton components. Utilize them anywhere in your app following Tailwind's conventions.</p>
+        <p>Theme colors are not limited to Skeleton components. Utilize them anywhere in your app following Tailwind's conventions. You may also mix theme with default <a href="https://tailwindcss.com/docs/customizing-colors" target="_blank">Tailwind colors</a>.</p>
         <CodeBlock language="html" code={`<!-- Inlined classes -->\n<div class="bg-primary-500 text-accent-500">Colorful</div>`}></CodeBlock>
         <CodeBlock language="html" code={`<!-- Tailwind opacity scale -->\n<div class="bg-primary-500/50">Semi-Transparent</div>`}></CodeBlock>
         <CodeBlock language="css" code={`/* Using Tailwind @apply */\n.example { @apply bg-primary-500; }`}></CodeBlock>
         <CodeBlock language="css" code={`/* Using CSS variables */\nbody { background: var(--color-surface-900); }`}></CodeBlock>
     </section>
 
-    <!-- Colors -->
+    <!-- reference -->
     <section class="space-y-4">
-        <h3>Colors</h3>
+        <h3>Reference</h3>
         <p>A reference for each color type has been provided below.</p>
         <Table source="{tableProps}"></Table>
     </section>
