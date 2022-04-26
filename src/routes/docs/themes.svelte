@@ -6,6 +6,7 @@
     import RadioGroup from "$lib/Radio/RadioGroup.svelte";
     import RadioItem from "$lib/Radio/RadioItem.svelte";
     import Table from "$lib/Table/Table.svelte";
+    import Button from "$lib/Button/Button.svelte";
 
     const weights: number[] = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
     const storeTab: Writable<string> = writable('primary'); // primary | accent | warning | surface
@@ -34,6 +35,15 @@
             return `${color.r} ${color.g} ${color.b}`;
         }
         return '(invalid)';
+    }
+
+    // Reset Visible Fields
+    function reset(): void {
+        if(confirm(`This will clear all ${$storeTab} fields. Are you sure you wish you proceed?`)) {
+            for (let i = 0; i < weights.length; i++) {
+                formColors[$storeTab][weights[i]] = '';
+            }
+        }
     }
 
     $: formColors = {
@@ -95,7 +105,7 @@
 	<header class="space-y-4">
 		<h1>Themes</h1>
         <p>
-            Skeleton themes integrate with Tailwind using <a href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank">RGB CSS custom properties</a>. This allows for <a href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank">background opacity</a> and enables support for <a href="https://tailwindcss.com/docs/dark-mode" target="_blank">dark mode</a>. Use the form below to generate a custom theme. Optionally VS Code users may also use the <a href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba" target="_blank">Hex-To-RGB extension</a> to convert colors on-the-fly.
+            Skeleton themes integrate with Tailwind using <a href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank">RGB CSS custom properties</a>. This allows for <a href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank">background opacity</a> and enables support for <a href="https://tailwindcss.com/docs/dark-mode" target="_blank">dark mode</a>. Use the form below to generate a custom theme. Optionally VS Code users may use the <a href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba" target="_blank">Hex-To-RGB extension</a> to convert colors on-the-fly.
         </p>
 	</header>
 
@@ -108,13 +118,14 @@
                     <input type="text" bind:value={formColors.name} required />
                 </label>
             </fieldset>
-            <fieldset class="text-center">
+            <fieldset class="flex justify-between">
                 <RadioGroup background="bg-surface-100 dark:bg-surface-500" color="text-black dark:text-white" selected={storeTab}>
                     <RadioItem value="primary">Primary</RadioItem>
                     <RadioItem value="accent">Accent</RadioItem>
                     <RadioItem value="warning">Warning</RadioItem>
                     <RadioItem value="surface">Surface</RadioItem>
                 </RadioGroup>
+                <Button type="button" variant="ghost" on:click={reset}>Clear</Button>
             </fieldset>
             <!-- Fields -->
             <fieldset class="space-y-6">
