@@ -96,7 +96,7 @@
             <!-- Tailwind -->
             <Card class="space-y-4 text-center">
                 <h4>Configure Tailwind</h4>
-                <p>Configure required Tailwind settings.</p>
+                <p>Configure required settings.</p>
                 <Button variant="filled-accent" href="/docs/tailwind">View Guide</Button>
             </Card>
             <!-- Themes -->
@@ -107,7 +107,7 @@
             </Card>
             <!-- Themes -->
             <Card class="space-y-4 text-center">
-                <h4>Add Components</h4>
+                <h4>Add a Component</h4>
                 <p>Add your first component.</p>
                 <Button variant="filled-accent" href="/components/buttons">Add Button</Button>
             </Card>
