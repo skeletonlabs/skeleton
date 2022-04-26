@@ -1,7 +1,7 @@
 <script lang="ts">
     import Card from "$lib/Card/Card.svelte";
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
-import SliderToggle from "$lib/SliderToggle/SliderToggle.svelte";
+    import SliderToggle from "$lib/SliderToggle/SliderToggle.svelte";
     import Table from "$lib/Table/Table.svelte";
 
     // Props
@@ -34,9 +34,6 @@ import SliderToggle from "$lib/SliderToggle/SliderToggle.svelte";
 
     <!-- Examples -->
     <section class="space-y-4">
-        <Card class="space-y-4">      
-            
-        </Card>
 
         <h4>Default</h4>
         <Card class="flex justify-center space-x-2">
@@ -60,11 +57,11 @@ import SliderToggle from "$lib/SliderToggle/SliderToggle.svelte";
 
         <h4>Sizes</h4>
         <Card class="flex justify-center space-x-2 flex items-center">
-            <SliderToggle size="xs"></SliderToggle>
-            <SliderToggle size="sm"></SliderToggle>
-            <SliderToggle size="md"></SliderToggle>
-            <SliderToggle size="lg"></SliderToggle>
-            <SliderToggle size="xl"></SliderToggle>
+            <SliderToggle offLabel='OFF' onLabel='ON' size="xs"></SliderToggle>
+            <SliderToggle offLabel='OFF' onLabel='ON' size="sm"></SliderToggle>
+            <SliderToggle offLabel='OFF' onLabel='ON' size="md"></SliderToggle>
+            <SliderToggle offLabel='OFF' onLabel='ON' size="lg"></SliderToggle>
+            <SliderToggle offLabel='OFF' onLabel='ON' size="xl"></SliderToggle>
         </Card>
 
         <h4>Outer Label (Slot)</h4>
