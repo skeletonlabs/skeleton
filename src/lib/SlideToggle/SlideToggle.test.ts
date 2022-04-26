@@ -6,7 +6,7 @@
  import { afterEach, describe, it } from 'vitest';
  
  // @ts-ignore
- import SliderToggle from '$lib/SliderToggle/SliderToggle.svelte';
+ import SliderToggle from '$lib/SlideToggle/SlideToggle.svelte';
  
  describe('SliderToggle.svelte', () => {
      afterEach(() => cleanup());
