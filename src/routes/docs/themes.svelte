@@ -47,7 +47,7 @@
     }
 
     $: formColors = {
-        name: 'Custom',
+        name: 'Skeleton',
 		primary: {
             50: 'ecfdf5',
             100: 'd1fae5',
