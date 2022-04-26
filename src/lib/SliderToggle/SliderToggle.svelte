@@ -14,6 +14,7 @@
         case('md'): {sliderSize = ['w-12', 'h-6']; textSize = 'text-[8px]'; break;}
         case('lg'): {sliderSize = ['w-16', 'h-8']; textSize = 'text-[10px]'; break;}
         case('xl'): {sliderSize = ['w-20', 'h-10']; textSize = 'text-[12px]'; break;}
+        default: {sliderSize = ['w-12', 'h-6']; textSize = 'text-[8px]'; break;}
     }
 
     $: cSwitch = `transition duration-[0.34s] ${sliderSize[0]} ${sliderSize[1]} flex relative rounded-full`
