@@ -16,7 +16,6 @@
 	import 'highlight.js/styles/github-dark.css'; // Highlight.js
 	import '../theme-bb.css'; // bb|st
 	import '../app.css';
-import { onMount } from 'svelte';
 
 	const currentPageStore: Writable<string> = writable($page.url.pathname);
 	const drawer: Writable<boolean> = writable(false);
@@ -25,6 +24,7 @@ import { onMount } from 'svelte';
             title: 'Docs',
             list: [
                 {href: '/', label: 'Get Started'},
+                {href: '/docs/tailwind', label: 'Tailwind'},
                 {href: '/docs/themes', label: 'Themes'},
             ],
         },
@@ -62,8 +62,12 @@ import { onMount } from 'svelte';
 	const drawerOpen = () => { drawer.set(true); }
 	const drawerClose = () => { drawer.set(false); }
 
-	// After route change, scroll to top;
-	afterNavigate(() => { document.querySelector('#main').scrollTop = 0; });
+	afterNavigate(() => {
+		// Scroll to top
+		document.querySelector('#main').scrollTop = 0;
+		// Update active drawer selection
+		currentPageStore.set($page.url.pathname);
+	});
 </script>
 
 <!-- <svelte:window bind:scrollY={y}/> -->

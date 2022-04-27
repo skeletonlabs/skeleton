@@ -68,7 +68,7 @@
             <svelte:fragment slot="message">{message}</svelte:fragment>      
         </Alert>
         {#if visible}<h4>Customized</h4>{/if}
-        <Alert background="bg-accent-500" {visible}>
+        <Alert background="bg-accent-500" {visible} duration={1000}>
             <svelte:fragment slot="lead">{@html icon}</svelte:fragment>
             <svelte:fragment slot="title">{title}</svelte:fragment>
             <svelte:fragment slot="message">{message}</svelte:fragment>      
