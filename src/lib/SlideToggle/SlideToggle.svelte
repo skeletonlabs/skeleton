@@ -51,5 +51,6 @@
 
 
 <style lang="postcss">
-    input:disabled + .switch .slider{ @apply bg-gray-500 cursor-not-allowed; }
+    input:disabled + .switch .slider{ @apply bg-gray-500 opacity-50 cursor-not-allowed; }
+    input:disabled + .switch { @apply opacity-80 cursor-not-allowed; }
 </style>

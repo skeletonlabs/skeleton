@@ -14,8 +14,8 @@
         ],
     };
 
-    let offMessage = 'Slide to agree to terms!';
-    let onMessage = 'Thanks for agreeing!';
+    let offMessage = 'Unchecked';
+    let onMessage = 'Checked';
     let checked;
 
 </script>
@@ -35,12 +35,12 @@
         <h4>Colors</h4>
         <Card class='flex justify-center'>
             <div class="grid grid-rows-2 grid-cols-3 gap-4">
-                <SlideToggle size='md' checked color="bg-warning-400"></SlideToggle>
-                <SlideToggle size='md' checked color="bg-primary-400"></SlideToggle>
-                <SlideToggle size='md' checked color="bg-blue-400"></SlideToggle>
-                <SlideToggle size='md' checked color="bg-orange-400"></SlideToggle>
-                <SlideToggle size='md' checked color="bg-yellow-400"></SlideToggle>
-                <SlideToggle size='md' checked color="bg-purple-400"></SlideToggle>
+                <SlideToggle size="md" checked color="bg-warning-400"></SlideToggle>
+                <SlideToggle size="md" checked color="bg-primary-400"></SlideToggle>
+                <SlideToggle size="md" checked color="bg-blue-400"></SlideToggle>
+                <SlideToggle size="md" checked color="bg-orange-400"></SlideToggle>
+                <SlideToggle size="md" checked color="bg-yellow-400"></SlideToggle>
+                <SlideToggle size="md" checked color="bg-purple-400"></SlideToggle>
             </div>    
         </Card>
 
@@ -53,8 +53,8 @@
         </Card>
 
         <h4>Label Slot</h4>
-        <Card class="flex justify-center space-x-2 flex items-center">
-            <SlideToggle size="lg" bind:checked>{checked ? `${onMessage}` : `${offMessage}`}</SlideToggle>
+        <Card class="flex space-x-2 flex justify-center">
+                <SlideToggle size="lg" bind:checked>{checked ? `${onMessage}` : `${offMessage}`}</SlideToggle>    
         </Card>
 
         <h4>Disabled</h4>
