@@ -33,13 +33,15 @@
     <section class="space-y-4">
 
         <h4>Colors</h4>
-        <Card class="flex justify-center items-center">
-            <SlideToggle size='md' checked color="bg-warning-400"></SlideToggle>
-            <SlideToggle size='md' checked color="bg-primary-400"></SlideToggle>
-            <SlideToggle size='md' checked color="bg-blue-400"></SlideToggle>
-            <SlideToggle size='md' checked color="bg-orange-400"></SlideToggle>
-            <SlideToggle size='md' checked color="bg-yellow-400"></SlideToggle>
-            <SlideToggle size='md' checked color="bg-purple-400"></SlideToggle>    
+        <Card class='flex justify-center'>
+            <div class="grid grid-rows-2 grid-cols-3 gap-4">
+                <SlideToggle size='md' checked color="bg-warning-400"></SlideToggle>
+                <SlideToggle size='md' checked color="bg-primary-400"></SlideToggle>
+                <SlideToggle size='md' checked color="bg-blue-400"></SlideToggle>
+                <SlideToggle size='md' checked color="bg-orange-400"></SlideToggle>
+                <SlideToggle size='md' checked color="bg-yellow-400"></SlideToggle>
+                <SlideToggle size='md' checked color="bg-purple-400"></SlideToggle>
+            </div>    
         </Card>
 
         <h4>Sizes</h4>
