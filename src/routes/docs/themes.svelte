@@ -198,7 +198,7 @@
     <!-- Usage -->
     <section class="space-y-4">
         <h3>Usage</h3>
-        <p>Theme colors are not limited to Skeleton components. Utilize them anywhere in your app following Tailwind's conventions. You may also mix theme with default <a href="https://tailwindcss.com/docs/customizing-colors" target="_blank">Tailwind colors</a>.</p>
+        <p>Theme colors are not limited to Skeleton components. Utilize them anywhere in your app following Tailwind's conventions. You may also mix the theme with default <a href="https://tailwindcss.com/docs/customizing-colors" target="_blank">Tailwind colors</a>.</p>
         <CodeBlock language="html" code={`<!-- Inlined classes -->\n<div class="bg-primary-500 text-accent-500">Colorful</div>`}></CodeBlock>
         <CodeBlock language="html" code={`<!-- Tailwind opacity scale -->\n<div class="bg-primary-500/50">Semi-Transparent</div>`}></CodeBlock>
         <CodeBlock language="css" code={`/* Using Tailwind @apply */\n.example { @apply bg-primary-500; }`}></CodeBlock>

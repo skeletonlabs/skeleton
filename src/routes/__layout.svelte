@@ -62,8 +62,12 @@
 	const drawerOpen = () => { drawer.set(true); }
 	const drawerClose = () => { drawer.set(false); }
 
-	// After route change, scroll to top;
-	afterNavigate(() => { document.querySelector('#main').scrollTop = 0; });
+	afterNavigate(() => {
+		// Scroll to top
+		document.querySelector('#main').scrollTop = 0;
+		// Update active drawer selection
+		currentPageStore.set($page.url.pathname);
+	});
 </script>
 
 <!-- <svelte:window bind:scrollY={y}/> -->
