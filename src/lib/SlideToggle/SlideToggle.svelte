@@ -21,7 +21,9 @@
     $: cSlider = `dark:bg-surface-200 bg-surface-100 cursor-pointer  
         w-[50%] scale-[75%] h-full rounded-full transition duration-[0.3s]
         ${checked ? 'translate-x-full' : ''}`;
-    $: cLabel = `self-center ml-4 ${switchSize[2]}`
+    
+    // Label class
+    $: cLabel = `self-center ml-4 ${switchSize[2]}`;
 
 </script>
 
