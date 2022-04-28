@@ -6,7 +6,7 @@
     export let size: string = 'lg';
 
     // Base Styles
-    const cBase: string = 'slide-toggle flex items-center space-x-4';
+    const cBaseLabel: string = 'slide-toggle flex items-center space-x-4';
     const cBaseTrack: string = 'track flex rounded-full transition duration-[200ms]';
     const cBaseThumb: string = 'thumb bg-surface-100 dark:bg-surface-200 w-[50%] h-full scale-[75%] rounded-full cursor-pointer transition duration-[200ms]';
    
@@ -41,7 +41,7 @@
     });
 
     // Reactive
-    $: classesLabel = `${cBase}`;
+    $: classesLabel = `${cBaseLabel}`;
     $: classesTrack = `${cBaseTrack} ${trackSize} ${trackAccent}`;
     $: classesThumb = `${cBaseThumb} ${thumbPos}`;
 </script>
