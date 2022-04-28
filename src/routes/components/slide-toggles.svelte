@@ -8,9 +8,9 @@
     const tableProps: any = {
         columns: ['Prop', 'Type', 'Default', 'Required' , 'Description'],
         data: [
-            ['checked', 'boolean', 'false', 'false' , 'Bind this value to track the checked state'],
+            ['checked', 'boolean', 'false', 'false' , 'Bind this value to track the checked state.'],
             ['color', 'class', 'bg-accent-500', 'false', 'Provide a class to set the active color.'],
-            ['size', 'string', 'lg', 'false', 'Provide a size with either of the values "sm", "md" or "lg"'],
+            ['size', 'string', 'lg', 'false', 'Provide a size with either of the values "sm", "md" or "lg".'],
         ],
     };
 
