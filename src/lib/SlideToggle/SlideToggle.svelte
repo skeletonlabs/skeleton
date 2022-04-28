@@ -7,10 +7,10 @@
     // Switch size
     let switchSize: any;
     switch(size){
-        case('sm'): {switchSize = ['w-12', 'h-6'];   break;}
-        case('md'): {switchSize = ['w-16', 'h-8'];   break;}
-        case('lg'): {switchSize = ['w-20', 'h-10'];  break;}
-        default:    {switchSize = ['w-16', 'h-8'];   break;}
+        case('sm'): {switchSize = ['w-12', 'h-6', 'text-xs'];   break;}
+        case('md'): {switchSize = ['w-16', 'h-8', 'text-base'];   break;}
+        case('lg'): {switchSize = ['w-20', 'h-10', 'text-base'];  break;}
+        default:    {switchSize = ['w-16', 'h-8', 'text-base'];   break;}
     }
 
     // Switch class
@@ -21,6 +21,7 @@
     $: cSlider = `dark:bg-surface-200 bg-surface-100 cursor-pointer  
         w-[50%] scale-[75%] h-full rounded-full transition duration-[0.3s]
         ${checked ? 'translate-x-full' : ''}`;
+    $: cLabel = `self-center ml-4 ${switchSize[2]}`
 
 </script>
 
@@ -43,7 +44,7 @@
 
     <!-- Slotted label -->
     {#if $$slots}
-        <div class="self-center ml-4">
+        <div class="{cLabel}">
             <slot/>
         </div>
     {/if}
