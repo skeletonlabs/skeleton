@@ -10,7 +10,7 @@
         data: [
             ['checked', 'boolean', 'false', 'false' , 'Bind this value to track the checked state'],
             ['color', 'class', 'bg-accent-500', 'false', 'Provide a class to set the active color.'],
-            ['size', 'string', 'lg', 'false', 'Set the size between the values sm, md or lg'],
+            ['size', 'string', 'lg', 'false', 'Provide a size with either of the values "sm", "md" or "lg"'],
         ],
     };
 
@@ -33,7 +33,7 @@
     <section class="space-y-4">
 
         <h4>Colors</h4>
-        <Card class='flex justify-center'>
+        <Card class="flex justify-center">
             <div class="grid grid-rows-2 grid-cols-3 gap-4">
                 <SlideToggle size="md" checked color="bg-warning-400"></SlideToggle>
                 <SlideToggle size="md" checked color="bg-primary-400"></SlideToggle>
@@ -46,7 +46,6 @@
 
         <h4>Sizes</h4>
         <Card class="flex justify-center space-x-2 flex items-center">
-
             <SlideToggle size="sm"></SlideToggle>
             <SlideToggle size="md"></SlideToggle>
             <SlideToggle size="lg"></SlideToggle>
