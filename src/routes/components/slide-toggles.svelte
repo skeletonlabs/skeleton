@@ -50,7 +50,7 @@
 
         <h4>Label Slot</h4>
         <Card class="flex space-x-2 flex justify-center">
-            <SlideToggle size="md" bind:checkedValue>
+            <SlideToggle size="md" bind:checked={checkedValue}>
                 <p class="w-[90px]">{checkedValue ? 'Checked' : 'Unchecked'}</p>
             </SlideToggle>    
         </Card>
@@ -65,8 +65,8 @@
     <!-- Usage -->
     <section class="space-y-4">
         <h2>Usage</h2>
-        <CodeBlock language="js" code={`<script lang="ts">\n  let checkedValue: boolean = false;\n</\script>`}></CodeBlock>
-        <CodeBlock language="html" code={`<SlideToggle bind:checkedValue size="lg" accent="bg-primary-500">{labelText}</SlideToggle>`}></CodeBlock>
+        <CodeBlock language="js" code={`<script lang="ts">\n\tlet checkedValue: boolean = false;\n</\script>`}></CodeBlock>
+        <CodeBlock language="html" code={`<SlideToggle bind:checked={checkedValue} size="lg" accent="bg-primary-500">{labelText}</SlideToggle>`}></CodeBlock>
     </section>
 
     <!-- Properties -->
