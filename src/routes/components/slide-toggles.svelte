@@ -4,20 +4,17 @@
     import SlideToggle from "$lib/SlideToggle/SlideToggle.svelte";
     import Table from "$lib/Table/Table.svelte";
 
+    let checkedValue: boolean = false;
+
     // Props
     const tableProps: any = {
         columns: ['Prop', 'Type', 'Default', 'Required' , 'Description'],
         data: [
             ['checked', 'boolean', 'false', 'false' , 'Bind this value to track the checked state.'],
-            ['color', 'class', 'bg-accent-500', 'false', 'Provide a class to set the active color.'],
-            ['size', 'string', 'lg', 'false', 'Provide a size with either of the values "sm", "md" or "lg".'],
+            ['accent', 'class', 'bg-accent-500', 'false', 'Provide a class to set the active color.'],
+            ['size', 'string', 'md', 'false', 'Provide a size with sm|md|lg.'],
         ],
     };
-
-    let offMessage = 'Unchecked';
-    let onMessage = 'Checked';
-    let checked;
-
 </script>
 
 <div class="space-y-8">
@@ -35,12 +32,12 @@
         <h4>Colors</h4>
         <Card class="flex justify-center">
             <div class="grid grid-rows-2 grid-cols-3 gap-4">
-                <SlideToggle size="md" checked color="bg-warning-400"></SlideToggle>
-                <SlideToggle size="md" checked color="bg-primary-400"></SlideToggle>
-                <SlideToggle size="md" checked color="bg-blue-400"></SlideToggle>
-                <SlideToggle size="md" checked color="bg-orange-400"></SlideToggle>
-                <SlideToggle size="md" checked color="bg-yellow-400"></SlideToggle>
-                <SlideToggle size="md" checked color="bg-purple-400"></SlideToggle>
+                <SlideToggle size="md" accent="bg-warning-400" checked></SlideToggle>
+                <SlideToggle size="md" accent="bg-primary-400" checked></SlideToggle>
+                <SlideToggle size="md" accent="bg-blue-400" checked></SlideToggle>
+                <SlideToggle size="md" accent="bg-orange-400" checked></SlideToggle>
+                <SlideToggle size="md" accent="bg-yellow-400" checked></SlideToggle>
+                <SlideToggle size="md" accent="bg-purple-400" checked></SlideToggle>
             </div>    
         </Card>
 
@@ -53,7 +50,9 @@
 
         <h4>Label Slot</h4>
         <Card class="flex space-x-2 flex justify-center">
-                <SlideToggle size="md" bind:checked>{checked ? `${onMessage}` : `${offMessage}`}</SlideToggle>    
+            <SlideToggle size="md" bind:checkedValue>
+                <p class="w-[90px]">{checkedValue ? 'Checked' : 'Unchecked'}</p>
+            </SlideToggle>    
         </Card>
 
         <h4>Disabled</h4>
@@ -66,8 +65,8 @@
     <!-- Usage -->
     <section class="space-y-4">
         <h2>Usage</h2>
-        <CodeBlock language="js" code={`<script>\n  let checked;\n</\script>`}></CodeBlock>
-        <CodeBlock language="html" code={`<SlideToggle bind:checked size="lg" color="bg-primary-500">{labelText}</SlideToggle>`}></CodeBlock>
+        <CodeBlock language="js" code={`<script lang="ts">\n  let checked: boolean = false;\n</\script>`}></CodeBlock>
+        <CodeBlock language="html" code={`<SlideToggle bind:checkedValue size="lg" accent="bg-primary-500">{labelText}</SlideToggle>`}></CodeBlock>
     </section>
 
     <!-- Properties -->

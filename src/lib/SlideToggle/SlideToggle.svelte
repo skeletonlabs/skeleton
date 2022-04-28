@@ -1,59 +1,76 @@
 <script lang="ts">
+    import { afterUpdate } from "svelte";
 
     export let checked: boolean = false;
-    export let color: string = 'bg-accent-500';
+    export let accent: string = 'bg-accent-500';
     export let size: string = 'lg';
+
+    // Base Styles
+    const cBase: string = 'slide-toggle flex items-center space-x-4';
+    const cBaseTrack: string = 'track flex rounded-full transition duration-[200ms]';
+    const cBaseThumb: string = 'thumb bg-surface-100 dark:bg-surface-200 w-[50%] h-full scale-[75%] rounded-full cursor-pointer transition duration-[200ms]';
    
-    // Switch size
-    let switchSize: any;
+    // Set track size
+    let trackSize: string;
     switch(size){
-        case('sm'): {switchSize = ['w-12', 'h-6', 'text-xs'];   break;}
-        case('md'): {switchSize = ['w-16', 'h-8', 'text-base'];   break;}
-        case('lg'): {switchSize = ['w-20', 'h-10', 'text-base'];  break;}
-        default:    {switchSize = ['w-16', 'h-8', 'text-base'];   break;}
+        case('sm'): trackSize = 'w-12 h-6'; break;
+        case('lg'): trackSize = 'w-20 h-10'; break;
+        default:    trackSize = 'w-16 h-8';
     }
 
-    // Switch class
-    $: cSwitch = `transition duration-[0.34s] ${switchSize[0]} ${switchSize[1]} flex rounded-full
-        ${checked ? `${color}` : 'dark:bg-surface-700 bg-surface-300 cursor-pointer'}`;
+    // Set track accent
+    let trackAccent: string;
+    function setTrackAccent(): void {
+        trackAccent = checked ? accent : 'dark:bg-surface-700 bg-surface-300 cursor-pointer';
+    }
 
-    // Slider class
-    $: cSlider = `dark:bg-surface-200 bg-surface-100 cursor-pointer  
-        w-[50%] scale-[75%] h-full rounded-full transition duration-[0.3s]
-        ${checked ? 'translate-x-full' : ''}`;
-    
-    // Label class
-    $: cLabel = `self-center ml-4 ${switchSize[2]}`;
+    // Set thumb position
+    let thumbPos: string;
+    function setThumbPosition(): void {
+        thumbPos = checked ? 'translate-x-full' : '';
+    }
 
+    // On Init
+    setTrackAccent();
+    setThumbPosition();
+
+    // On Prop Changes
+    afterUpdate(() => {
+        setTrackAccent();
+        setThumbPosition();
+    });
+
+    // Reactive
+    $: classesLabel = `${cBase}`;
+    $: classesTrack = `${cBaseTrack} ${trackSize} ${trackAccent}`;
+    $: classesThumb = `${cBaseThumb} ${thumbPos}`;
 </script>
 
-<label data-testid='slide-toggle' class='flex content-center'>
+<label class="{classesLabel} {$$props.class}" class:disabled={$$props.disabled} data-testid="slide-toggle">
+
     <!-- Input (Hidden) -->
-    <input type="checkbox" 
+    <input
+        type="checkbox" 
+        class="hidden"
         bind:checked 
-        class="${$$props.class} hidden"
         on:click
         on:mouseover
         on:focus
         on:blur
         {...$$restProps}
+        disabled={$$props.disabled}
     >
 
-    <!-- Slider -->
-    <div class="switch {cSwitch}">
-        <div class="slider {cSlider}"></div>
+    <!-- Slider Track/Thumb -->
+    <div class="{classesTrack}">
+        <div class="{classesThumb}"></div>
     </div>
 
-    <!-- Slotted label -->
-    {#if $$slots}
-        <div class="{cLabel}">
-            <slot/>
-        </div>
-    {/if}
+    <!-- Label -->
+    {#if $$slots}<slot/>{/if}
+
 </label>
 
-
 <style lang="postcss">
-    input:disabled + .switch .slider{ @apply bg-gray-500 opacity-50 cursor-not-allowed; }
-    input:disabled + .switch { @apply opacity-80 cursor-not-allowed; }
+    .disabled { @apply opacity-30 cursor-not-allowed; }
 </style>
