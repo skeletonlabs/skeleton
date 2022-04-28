@@ -24,7 +24,7 @@
 
 </script>
 
-<label class='flex content-center'>
+<label data-testid='slide-toggle' class='flex content-center'>
     <!-- Input (Hidden) -->
     <input type="checkbox" 
         bind:checked 
@@ -43,9 +43,9 @@
 
     <!-- Slotted label -->
     {#if $$slots}
-    <div class="self-center ml-4">
-        <slot/>
-    </div>
+        <div class="self-center ml-4">
+            <slot/>
+        </div>
     {/if}
 </label>
 
