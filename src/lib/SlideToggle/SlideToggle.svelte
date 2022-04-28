@@ -46,7 +46,7 @@
     $: classesThumb = `${cBaseThumb} ${thumbPos}`;
 </script>
 
-<label class="{classesLabel} {$$props.class}" class:disabled={$$props.disabled} data-testid="slide-toggle">
+<label class="{classesLabel} {$$props.class}" class:opacity-30={$$props.disabled} data-testid="slide-toggle">
 
     <!-- Input (Hidden) -->
     <input
@@ -62,15 +62,11 @@
     >
 
     <!-- Slider Track/Thumb -->
-    <div class="{classesTrack}">
-        <div class="{classesThumb}"></div>
+    <div class="{classesTrack}" class:cursor-not-allowed={$$props.disabled}>
+        <div class="{classesThumb}" class:cursor-not-allowed={$$props.disabled}></div>
     </div>
 
     <!-- Label -->
     {#if $$slots}<slot/>{/if}
 
 </label>
-
-<style lang="postcss">
-    .disabled { @apply opacity-30 cursor-not-allowed; }
-</style>
