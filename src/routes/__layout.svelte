@@ -33,7 +33,7 @@
             list: [
                 {href: '/components/alerts', label: 'Alerts'},
                 {href: '/components/avatars', label: 'Avatars'},
-				{href: '/components/badges', label: 'Badges'},
+				        {href: '/components/badges', label: 'Badges'},
                 {href: '/components/breadcrumbs', label: 'Breadcrumb'},
                 {href: '/components/buttons', label: 'Buttons'},
                 {href: '/components/cards', label: 'Cards'},
@@ -47,7 +47,8 @@
                 {href: '/components/progress-bars', label: 'Progress Bars'},
                 {href: '/components/progress-radials', label: 'Progress Radial'},
                 {href: '/components/radio-groups', label: 'Radio Groups'},
-				{href: '/components/range-sliders', label: 'Range Sliders'},
+                {href: '/components/range-sliders', label: 'Range Sliders'},
+                {href: '/components/slide-toggles', label: 'Slide Toggles'},
             ],
         },
         {
