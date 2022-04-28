@@ -65,7 +65,7 @@
     <!-- Usage -->
     <section class="space-y-4">
         <h2>Usage</h2>
-        <CodeBlock language="js" code={`<script lang="ts">\n  let checked: boolean = false;\n</\script>`}></CodeBlock>
+        <CodeBlock language="js" code={`<script lang="ts">\n  let checkedValue: boolean = false;\n</\script>`}></CodeBlock>
         <CodeBlock language="html" code={`<SlideToggle bind:checkedValue size="lg" accent="bg-primary-500">{labelText}</SlideToggle>`}></CodeBlock>
     </section>
 
