@@ -13,7 +13,7 @@
 </script>
 
 {#if visible}
-<div class="alert" transition:fade={{duration}} data-testid="alert">
+<div class="alert" transition:fade|local={{duration}} data-testid="alert">
 	<Card {background} {color} class="{classes}">
 
 		<!-- Slot: Lead -->

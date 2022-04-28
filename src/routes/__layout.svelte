@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { writable, type Writable } from 'svelte/store';
+	import { afterNavigate } from '$app/navigation';
 
 	import Drawer from '$lib/Drawer/Drawer.svelte';
 	import LightSwitch from '$lib/LightSwitch/LightSwitch.svelte';
@@ -23,6 +24,7 @@
             title: 'Docs',
             list: [
                 {href: '/', label: 'Get Started'},
+                {href: '/docs/tailwind', label: 'Tailwind'},
                 {href: '/docs/themes', label: 'Themes'},
             ],
         },
@@ -31,7 +33,7 @@
             list: [
                 {href: '/components/alerts', label: 'Alerts'},
                 {href: '/components/avatars', label: 'Avatars'},
-				{href: '/components/badges', label: 'Badges'},
+				        {href: '/components/badges', label: 'Badges'},
                 {href: '/components/breadcrumbs', label: 'Breadcrumb'},
                 {href: '/components/buttons', label: 'Buttons'},
                 {href: '/components/cards', label: 'Cards'},
@@ -45,7 +47,8 @@
                 {href: '/components/progress-bars', label: 'Progress Bars'},
                 {href: '/components/progress-radials', label: 'Progress Radial'},
                 {href: '/components/radio-groups', label: 'Radio Groups'},
-				{href: '/components/slide-toggles', label: 'Slide Toggles'},
+                {href: '/components/range-sliders', label: 'Range Sliders'},
+                {href: '/components/slide-toggles', label: 'Slide Toggles'},
             ],
         },
         {
@@ -59,6 +62,13 @@
 	// Drawer
 	const drawerOpen = () => { drawer.set(true); }
 	const drawerClose = () => { drawer.set(false); }
+
+	afterNavigate(() => {
+		// Scroll to top
+		document.querySelector('#main').scrollTop = 0;
+		// Update active drawer selection
+		currentPageStore.set($page.url.pathname);
+	});
 </script>
 
 <!-- <svelte:window bind:scrollY={y}/> -->
@@ -125,7 +135,7 @@
 	</Drawer>
 
     <!-- Main -->
-    <main class="w-screen h-screen overflow-y-auto p-8">
+    <main id="main" class="w-screen h-screen overflow-y-auto p-8">
 
 		<div class="container mx-auto">
 
