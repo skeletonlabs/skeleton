@@ -18,6 +18,8 @@ export { default as ProgressBar } from "./Progress/ProgressBar.svelte";
 export { default as ProgressRadial } from "./Progress/ProgressRadial.svelte";
 export { default as RadioGroup } from "./Radio/RadioGroup.svelte";
 export { default as RadioItem } from "./Radio/RadioItem.svelte";
+export { default as RangeSlider } from "./RangeSlider/RangeSlider.svelte";
+export { default as SlideToggle } from "./SlideToggle/SlideToggle.svelte";
 
 // Utility: Filters
 export { filter } from "./Filters/filter";
