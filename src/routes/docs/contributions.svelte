@@ -32,7 +32,7 @@
     <!-- Depedencies -->
     <section class="space-y-4">
         <h2>Depedencies</h2>
-        <p>At the time of writing this guide, Skeleton requires only SvelteKit and Tailwind as depdendencies for end users. If a new component would require an additional third party depedency, please file a Feature Request ticket on Github Issues and review with discuss with contributors before proceding.</p>
+        <p>At the time of writing this guide, Skeleton requires only SvelteKit and Tailwind as depdendencies for end users. If a new component would require an additional third party dependency, please file a Feature Request ticket on Github Issues to review and discuss it with contributors before proceeding.</p>
     </section>
 
     <Divider />
