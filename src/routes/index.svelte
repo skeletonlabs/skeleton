@@ -72,20 +72,18 @@
     <!-- Install -->
     <section class="space-y-4">
         <h2>Install</h2>
-        <Card class="space-y-4">
-            <p>Follow the instructions below to get started.</p>
-            <!-- Create SvelteKit Project -->
-            <h4>Create a SvelteKit Project</h4>
-            <p>See the <a href="https://kit.svelte.dev/docs/introduction#getting-started" target="_blank">official documentation</a>.</p>
-            <CodeBlock language="console" code={`npm init svelte@next my-app\ncd my-app\nnpm install\nnpm run dev`}></CodeBlock>
-            <!-- Install Tailwind -->
-            <h4>Install Tailwind</h4>
-            <p><a href="https://github.com/svelte-add/tailwindcss" target="_blank">Svelte-Add</a> makes this quick and painless.</p>
-            <CodeBlock language="console" code={`npx svelte-add@latest tailwindcss`}></CodeBlock>
-            <!-- Install Skeleton -->
-            <h4>Install Skeleton</h4>
-            <CodeBlock language="console" code={`npm install --save-dev @brainandbones/skeleton`}></CodeBlock>
-        </Card>
+        <p>Follow the instructions below to get started.</p>
+        <!-- Create SvelteKit Project -->
+        <h4>Create a SvelteKit Project</h4>
+        <p>See the <a href="https://kit.svelte.dev/docs/introduction#getting-started" target="_blank">official documentation</a>.</p>
+        <CodeBlock language="console" code={`npm init svelte@next my-app\ncd my-app\nnpm install\nnpm run dev`}></CodeBlock>
+        <!-- Install Tailwind -->
+        <h4>Install Tailwind</h4>
+        <p><a href="https://github.com/svelte-add/tailwindcss" target="_blank">Svelte-Add</a> makes this quick and painless.</p>
+        <CodeBlock language="console" code={`npx svelte-add@latest tailwindcss`}></CodeBlock>
+        <!-- Install Skeleton -->
+        <h4>Install Skeleton</h4>
+        <CodeBlock language="console" code={`npm install --save-dev @brainandbones/skeleton`}></CodeBlock>
     </section>
 
     <Divider />

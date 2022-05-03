@@ -13,11 +13,10 @@
 	</header>
 
     <!-- Usage -->
-    <Card class="space-y-4">
-        <section class="space-y-4">
-            <h4>Tailwind Content</h4>
-            <p>Add the following to <a href="https://tailwindcss.com/docs/configuration" target="_blank">content</a> within <strong>tailwind.config.cjs</strong>. This ensures Tailwind is aware of Skeleton's component classes within your development local server.</p>
-            <CodeBlock language="js" code={`
+    <section class="space-y-4">
+        <h4>Tailwind Content</h4>
+        <p>Add the following to <a href="https://tailwindcss.com/docs/configuration" target="_blank">content</a> within <strong>tailwind.config.cjs</strong>. This ensures Tailwind is aware of Skeleton's component classes within your development local server.</p>
+        <CodeBlock language="js" code={`
 module.exports = {
     content: [
         // ...
@@ -25,14 +24,12 @@ module.exports = {
     ],
     // ...
 }
-            `.trim()}></CodeBlock>
-        </section>
-        <section class="space-y-4">
-            <h4>Tailwind Plugin</h4>
-            <p>
-                Add the Skeleton <a href="https://tailwindcss.com/docs/plugins#official-plugins" target="_blank">plugin</a> to <strong>tailwind.config.cjs</strong>. This will automatically ingest and utilize your CSS variables defined in the next step.
-            </p>
-            <CodeBlock language="js" code={`
+        `.trim()}></CodeBlock>
+        <h4>Tailwind Plugin</h4>
+        <p>
+            Add the Skeleton <a href="https://tailwindcss.com/docs/plugins#official-plugins" target="_blank">plugin</a> to <strong>tailwind.config.cjs</strong>. This will automatically ingest and utilize your CSS variables defined in the next step.
+        </p>
+        <CodeBlock language="js" code={`
 module.exports = {
     // ...
     plugins: [
@@ -40,13 +37,12 @@ module.exports = {
         require('@brainandbones/skeleton/tailwind.cjs')
     ]
 }
-            `.trim()}></CodeBlock>
-        </section>
-    </Card>
+        `.trim()}></CodeBlock>
+    </section>
 
     <!-- Next Steps -->
     <Card class="space-y-4">
-        <h4>Generate Theme</h4>
+        <h4>Themes Guide</h4>
         <p>Follow the guide below to generate a custom theme for your project.</p>
         <Button variant="filled-accent" href="/docs/themes">Next: Themes Guide</Button>
     </Card>

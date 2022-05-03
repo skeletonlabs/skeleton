@@ -26,6 +26,7 @@
                 {href: '/', label: 'Get Started'},
                 {href: '/docs/tailwind', label: 'Tailwind'},
                 {href: '/docs/themes', label: 'Themes'},
+                {href: '/docs/contributions', label: 'Contributions'},
             ],
         },
         {
