@@ -97,7 +97,7 @@ export let rounded: string = 'rounded-xl'; // border radius
     <!-- Styles -->
     <section class="space-y-4">
         <h2>Component Styling</h2>
-        <p>Skeleton utilizes a very structured convention for handling static and dynamic Tailwind styles for components. Please read the following very carefully.</p>
+        <p>Skeleton utilizes a very structured convention for handling static and dynamic Tailwind styles for components. This is accomplished by passing Tailwind classes to the component as properties, as well as defining base structural classes within the script tag. While this may feel alien at first, it works really well in execution.</p>
         <!-- Base Classes -->
         <h4>Base Classes</h4>
         <p>Any fixed (read: structural) Tailwind classes can be defined as follows. Note the "c" is short for <strong>classes</strong>.</p>
