@@ -21,17 +21,25 @@
         <p>Please ask before starting work on any significant new features. If you're interested in creating a new feature, create a Feature Request ticket in Github Issues. This allows for open discourse and helps prevent time and effort being spent on features that will not be accepted. This includes but is not limited to: adding utilities, creating new components, or major alterations to existing work.</p>
         <h4>Branches</h4>
         <ul class="list-disc list-inside">
-            <li>Branch names should be short and semantic</li>
-            <li>New features, including components, should be prefaced with 'feat/'. (ex: <strong>feat/buttons</strong>)</li>
-            <li>If you're unsure how to name your branch, consider reaching out and asking in a any available public channel.</li>
+            <li>Branch names should be short and semantic.</li>
+            <li>New features and components should be prefixed as <strong>feat/*</strong></li>
+            <li>Bugfixes should be prefixed as <strong>bugfix/*</strong></li>
         </ul>
+    </section>
+
+    <Divider />
+
+    <!-- Depedencies -->
+    <section class="space-y-4">
+        <h2>Depedencies</h2>
+        <p>At the time of writing this, Skeleton requires only SvelteKit and Tailwind as depdendencies for end users. If a new component depends would require an additional third party depedency, please file a Feature Request ticket on Github Issues and review with core contributors before proceding.</p>
     </section>
 
     <Divider />
 
     <!-- Naming -->
     <section class="space-y-4">
-        <h2>Structure and File Naming</h2>
+        <h2>Structure and File Names</h2>
         <h4>Project Structure</h4>
         <ul class="list-disc list-inside">
             <li><strong>/lib</strong> - houses all functional components, actions, and other utilities.</li>
@@ -39,10 +47,10 @@
         </ul>
         <h4>File Naming Conventions</h4>
         <ul class="list-disc list-inside">
-            <li>Components should have a wrapping directory name. This should be singular and camel-case (ex: /LightSwitch/LightSwitch.svelte)</li>
-            <li>Components should have a singular and camel-case filename (ex: /Button/Button.svelte)</li>
-            <li>Component tests should match the component naming convention, suffixed with 'test.ts` (ex: Button.test.ts)</li>
-            <li>Documentation pages should be plural and lowercase (ex: /routes/components/buttons.svelte)</li>
+            <li>Components should have a wrapping directory name. This should be singular and camel-case (ex: /LightSwitch/...)</li>
+            <li>Components should have a singular and camel-case filename (ex: .../LightSwitch.svelte)</li>
+            <li>Component tests should match the component naming convention, suffixed with 'test.ts` (ex: LightSwitch.test.ts)</li>
+            <li>Documentation pages should be plural, all lowercase, and seperated by dashes (ex: /routes/components/radio-groups.svelte)</li>
             <li>Documentation navigation links can be singular or plural. Whatever reads best.</li>
         </ul>
         <!-- <CodeBlock language="js" code={`...`}></CodeBlock> -->
@@ -123,6 +131,7 @@ $: classesLabel = \`\${cBaseLabel}\`;
             <li>Avoid style blocks whenever possible. Going outside of Tailwind can bloat the final stylesheet size.</li>
             <li>Avoid mixing script-defined and inlined HTML Tailwind classes. This greatly affects readability of your code.</li>
             <li>Avoid switch-case statements to create shorthand property values. These prevent the use of custom or extended Tailwind classes.</li>
+            <li>Avoid embedding icons within Skeleton. We wish to keep Skeleton icon library agnostic. Instead, use a slot or consider embedding an SVG.</li>
         </ul>
     </section>
 
@@ -134,8 +143,8 @@ $: classesLabel = \`\${cBaseLabel}\`;
         <p>An example component documentation page is available under <strong>/routes/components/_template.svelte</strong>.</p>
         <h4>Navigation Links</h4>
         <p>Open <strong>/routes/__layout.svelte</strong> and modify the <strong>navigation</strong> definition to include a link to your new documentation page.</p>
-        <h4>Demos</h4>
-        <p>Interactive demos are preferred, but if it's a simple component static examples are fine. Just make sure to provide enough to show all major settings in use.</p>
+        <h4>Interactive vs Static Demos</h4>
+        <p>While interactive demos are always preferred, static demos are welcome. Just make sure to provide a variety of examples to illustrate use cases for your component.</p>
     </section>
 
     <Divider />
@@ -152,7 +161,7 @@ $: classesLabel = \`\${cBaseLabel}\`;
     <!-- Running Tests -->
     <section class="space-y-4">
         <h2>Running Tests</h2>
-        <p>Tests are handled via Vitest. Please ensure you write and run tests before submitting.</p>
+        <p>Tests are handled via Vitest. Please ensure you write and run tests before submitting a pull request.</p>
         <CodeBlock language="console" code={`npm run test`}></CodeBlock>
     </section>
 
