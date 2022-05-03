@@ -52,7 +52,7 @@
 
     <!-- Usage -->
     <section class="space-y-4">
-        <h3 class="text-2xl font-bold">Usage</h3>
+        <h2>Usage</h2>
         <CodeBlock language="js" code={`
 const drawer: Writable<boolean> = writable(false);
 const drawerOpen = () => { drawer.set(true); }

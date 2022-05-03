@@ -11,12 +11,12 @@
         data: [
             ['initials', 'string', 'text', 'A', 'Supply up to 2 text characters.'],
             ['src', 'string', 'url', '-', 'The image source to be displayed.'],
-            ['size', 'string', 'sm | md | lg | xl | 2xl | 3xl, full', 'full', 'A variety of preset sizes, plus fluid option.'],
+            ['size', 'string', 'sm | md | lg | xl | 2xl | 3xl | fluid', 'fluid', 'A variety of preset sizes, plus fluid option.'],
             ['background', 'string', 'class', 'bg-surface-500', 'Provice a class to set background color.'],
             ['color', 'string', 'class', 'text-white', 'Provide a class to set text color.'],
             ['outline', 'boolean', 'true | false', 'false', 'Displays a fixed outline of the primary color.'],
             ['hover', 'boolean', 'true | false', 'false', 'Adds an outline of the primary color when hovered.'],
-            ['effect', 'string', '(filter name)', 'false', 'Provide a filter name to auto-apply the filter utility action.'],
+            ['effect', 'string', '(filter name)', 'false', 'Provide a filter name to provide a utility filter action.'],
         ],
     };
 
@@ -94,7 +94,7 @@
 				<label>
                     <span>Size</span>
                     <select name="size" id="size" bind:value={props.size}>
-                        <option value="full">- fluid -</option>
+                        <option value="fluid">- fluid -</option>
                         <option value="sm">sm</option>
                         <option value="md">md</option>
                         <option value="lg">lg</option>

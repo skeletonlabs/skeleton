@@ -21,9 +21,15 @@
     const tablePropsCrumb: any = {
         columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
         data: [
-            ['href', 'string', 'url', 'on', 'Set the anchor href.'],
+            ['href', 'string', 'url', '-', 'Set the anchor href.'],
             ['disabled', 'boolean ', 'true | false', 'false', 'Sets the display to disabled.'],
             ['current', 'boolean ', 'true | false', 'false', 'Shorthand for disabled.'],
+        ],
+    };
+    const tableSlotsCrumb: any = {
+        columns: ['Slot', 'Description'],
+        data: [
+            ['lead', 'A leading slot intended for icons.'],
         ],
     };
 </script>
@@ -42,11 +48,11 @@
         <div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
             <div class="space-y-4">
                 <h4>Basic</h4>
-                <Card>
+                <Card class="overflow-x-auto">
                     <div class="w-full overflow-x-auto min-w-[400px]">
                         <Breadcrumb>
                             <Crumb href="/">Home</Crumb>
-                            <Crumb href="/articles">Articles</Crumb>
+                            <Crumb href="/">Articles</Crumb>
                             <Crumb current>Current</Crumb>
                         </Breadcrumb>
                     </div>
@@ -54,11 +60,11 @@
             </div>
             <div class="space-y-4">
                 <h4>Separator</h4>
-                <Card>
+                <Card class="overflow-x-auto">
                     <div class="w-full overflow-x-auto min-w-[400px]">
                         <Breadcrumb separator={customSeparator}>
                             <Crumb href="/">Home</Crumb>
-                            <Crumb href="/articles">Blog</Crumb>
+                            <Crumb href="/">Blog</Crumb>
                             <Crumb current>Current</Crumb>
                         </Breadcrumb>
                     </div>
@@ -66,7 +72,7 @@
             </div>
             <div class="space-y-4">
                 <h4>Icons</h4>
-                <Card>
+                <Card class="overflow-x-auto">
                     <div class="w-full overflow-x-auto min-w-[400px]">
                         <Breadcrumb>
                             <Crumb href="/">
@@ -86,7 +92,7 @@
             </div>
             <div class="space-y-4">
                 <h4>Mixed</h4>
-                <Card>
+                <Card class="overflow-x-auto">
                     <div class="w-full overflow-x-auto min-w-[400px]">
                         <Breadcrumb>
                             <Crumb href="/">
@@ -110,38 +116,38 @@
         </div>
         <h4>Variants</h4>
         <div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
-            <Card>
+            <Card class="overflow-x-auto">
                 <div class="w-full overflow-x-auto min-w-[400px]">
                     <Breadcrumb variant="text" class="flex justify-center">
                         <Crumb href="/">Home</Crumb>
-                        <Crumb href="/helm">The Helm</Crumb>
+                        <Crumb href="/">The Helm</Crumb>
                         <Crumb current>Current</Crumb>
                     </Breadcrumb>
                 </div>
             </Card>
-            <Card>
+            <Card class="overflow-x-auto">
                 <div class="w-full overflow-x-auto min-w-[400px]">
                     <Breadcrumb variant="filled-accent" class="flex justify-center">
                         <Crumb href="/">Home</Crumb>
-                        <Crumb href="/helm">The Helm</Crumb>
+                        <Crumb href="/">The Helm</Crumb>
                         <Crumb current>Current</Crumb>
                     </Breadcrumb>
                 </div>
             </Card>
-            <Card>
+            <Card class="overflow-x-auto">
                 <div class="w-full overflow-x-auto min-w-[400px]">
                     <Breadcrumb variant="ghost-primary" class="flex justify-center">
                         <Crumb href="/">Home</Crumb>
-                        <Crumb href="/helm">The Helm</Crumb>
+                        <Crumb href="/">The Helm</Crumb>
                         <Crumb current>Current</Crumb>
                     </Breadcrumb>
                 </div>
             </Card>
-            <Card>
+            <Card class="overflow-x-auto">
                 <div class="w-full overflow-x-auto min-w-[400px]">
                     <Breadcrumb variant="ghost-warning" class="flex justify-center">
                         <Crumb href="/">Home</Crumb>
-                        <Crumb href="/helm">The Helm</Crumb>
+                        <Crumb href="/">The Helm</Crumb>
                         <Crumb current>Current</Crumb>
                     </Breadcrumb>
                 </div>
@@ -158,7 +164,7 @@
         <svelte:fragment>{icon}</svelte:fragment>
         <span>Home</span>
     </Crumb>
-    <Crumb href='/articles'>Articles</Crumb>
+    <Crumb href='/'>Articles</Crumb>
     <Crumb disabled>Current</Crumb>
 </Breadcrumb>
         `.trim()}></CodeBlock>
@@ -171,5 +177,12 @@
         <Table source="{tableProps}"></Table>
         <h4>Crumb</h4>
         <Table source="{tablePropsCrumb}"></Table>
+    </section>
+    
+    <!-- Slots -->
+    <section class="space-y-4">
+        <h2>Slots</h2>
+        <h4>Crumb</h4>
+        <Table source="{tableSlotsCrumb}"></Table>
     </section>
 </div>
