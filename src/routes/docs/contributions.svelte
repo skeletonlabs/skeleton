@@ -32,7 +32,7 @@
     <!-- Depedencies -->
     <section class="space-y-4">
         <h2>Depedencies</h2>
-        <p>At the time of writing this, Skeleton requires only SvelteKit and Tailwind as depdendencies for end users. If a new component depends would require an additional third party depedency, please file a Feature Request ticket on Github Issues and review with core contributors before proceding.</p>
+        <p>At the time of writing this guide, Skeleton requires only SvelteKit and Tailwind as depdendencies for end users. If a new component would require an additional third party depedency, please file a Feature Request ticket on Github Issues and review with discuss with contributors before proceding.</p>
     </section>
 
     <Divider />
@@ -60,9 +60,7 @@
 
     <!-- Component -->
     <section class="space-y-4">
-        <h2>Components</h2>
-        <!-- HTML Markup -->
-        <h3>HTML Markup</h3>
+        <h2>Component Markup</h2>
         <p>Ensure any relevant events bubble up.</p>
         <CodeBlock language="html" code={`<button on:click on:mouseover>Skeleton</button>`}></CodeBlock>
         <p>Follow conventions set by existing components when naming slots. These should be short, semantic, and agnostic. Avoid names that are too specific, such as "icon".</p>
@@ -71,8 +69,14 @@
         <CodeBlock language="html" code={`<div class="bg-orange-500">Skeleton</div>`}></CodeBlock>
         <p>If you need to include all non-specified properties and attributes, use $$restProps.</p>
         <CodeBlock language="html" code={`<button {...$$restProps}>Skeleton</button>`}></CodeBlock>
-        <!-- Proprties -->
-        <h3>Properties</h3>
+    </section>
+
+    <Divider />
+    
+    <!-- Proprties -->
+    <section class="space-y-4">
+        <h2>Component Properties</h2>
+        <p>Follow these guidelines when creating component properties.</p>
         <ul class="list-disc list-inside">
             <li>Should be a single word, all lowercase, and sematic. Match Tailwind class naming conventions whenever possible.</li>
             <li>Color proprties should follow standard CSS proprty names.</li>
@@ -86,8 +90,13 @@ export let background: string = 'bg-primary-500'; // background color
 export let color: string = 'text-primary-500'; // text color
 export let rounded: string = 'rounded-xl'; // border radius
         `.trim()}></CodeBlock>
-        <!-- Styles -->
-        <h3>Styles</h3>
+    </section>
+
+    <Divider />
+
+    <!-- Styles -->
+    <section class="space-y-4">
+        <h2>Component Styling</h2>
         <p>Skeleton utilizes a very structured convention for handling static and dynamic Tailwind styles for components. Please read the following very carefully.</p>
         <!-- Base Classes -->
         <h4>Base Classes</h4>
@@ -126,7 +135,14 @@ $: classesLabel = \`\${cBaseLabel}\`;
     <label class="card-label {classesLabel}">Card</label>
 </div>
         `.trim()}></CodeBlock>
-        <h3>Pitfalls to Avoid</h3>
+    </section>
+
+    <Divider />
+
+    <!-- Pitfalls -->
+    <section class="space-y-4">
+        <h2>Component Pitfalls</h2>
+        <p>Below are a few examples of pitfalls to avoid when creating components.</p>
         <ul class="list-disc list-inside">
             <li>Avoid style blocks whenever possible. Going outside of Tailwind can bloat the final stylesheet size.</li>
             <li>Avoid mixing script-defined and inlined HTML Tailwind classes. This greatly affects readability of your code.</li>
