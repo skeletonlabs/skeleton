@@ -8,7 +8,13 @@
     export let rounded: string = undefined;
 
     // Base Classes
-    let cBase: string = `inline-block text-center ring-inset pointer-cursor hover:brightness-90 transition-all active:scale-95`;
+    let cBase: string = 'inline-block text-center ring-inset pointer-cursor hover:brightness-90';
+    let cAnimate: string = '';
+
+    // Allow animation if not disabled
+    function setAnimate(): string {
+        return $$props.disabled ? '' : 'transition-all active:scale-95';
+    }
 
     // Set Size
     function setSize(size: string): string {
@@ -65,6 +71,8 @@
     $: if (variant) selectVariant();
     $: classes = [
         cBase,
+        setAnimate(),
+        cAnimate,
         background,
         color || 'text-black dark:text-white',
         ring || `ring-transparent`,
@@ -89,7 +97,7 @@
         >
             {#if $$slots.lead}<slot name="lead"></slot>{/if}
             <slot />
-            {#if $$slots.tail}<slot name="tail"></slot>{/if}
+            {#if $$slots.trail}<slot name="trail"></slot>{/if}
         </a>
     {:else}
         <button
@@ -105,7 +113,7 @@
         >
             {#if $$slots.lead}<slot name="lead"></slot>{/if}
             <slot />
-            {#if $$slots.tail}<slot name="tail"></slot>{/if}
+            {#if $$slots.trail}<slot name="trail"></slot>{/if}
         </button>
     {/if}
 </div>

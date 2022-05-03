@@ -67,7 +67,7 @@
 
     <!-- Usage -->
     <section class="space-y-4">
-        <h3 class="text-2xl font-bold">Usage</h3>
+        <h2>Usage</h2>
         <CodeBlock language="html" code={`<Card>Minimal</Card>`}></CodeBlock>
         <CodeBlock language="html" code={`<Card background="bg-primary-500" color="text-white">Colored</Card>`}></CodeBlock>
         <CodeBlock language="html" code={`<Card class="hover:shadow-xl">Styled</Card>`}></CodeBlock>

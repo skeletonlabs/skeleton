@@ -7,8 +7,8 @@
     const tableSlots: any = {
         columns: ['Name', 'Description'],
         data: [
-            ['Icon', 'Dedicated icon slot, left of the label.'],
-            ['Label', 'Dedicated slot for adding a label.'],
+            ['icon', 'Dedicated icon slot, left of the label.'],
+            ['label', 'Dedicated slot for adding a label.'],
         ],
     };
 </script>

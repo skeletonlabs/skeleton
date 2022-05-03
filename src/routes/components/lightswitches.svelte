@@ -19,7 +19,7 @@
     <header class="space-y-4">
         <h2>Lightswitch</h2>
         <p>Allows users to toggle their preferred theme preference between light/dark/system.</p>
-        <CodeBlock language="javascript" code={`<script>import LightSwitch from "$lib/LightSwitch/LightSwitch.svelte";</\script>`}></CodeBlock>
+        <CodeBlock language="javascript" code={`<script>import {LightSwitch} from "$lib/LightSwitch/LightSwitch.svelte";</\script>`}></CodeBlock>
     </header>
 
     <!-- Examples -->
@@ -29,13 +29,13 @@
 
     <!-- Usage -->
     <section class="space-y-4">
-        <h3 class="text-2xl font-bold">Usage</h3>
+        <h2>Usage</h2>
         <CodeBlock language="html" code={`<LightSwitch origin="origin-top-left" align="left-0" />`}></CodeBlock>
     </section>
     
     <!-- Properties -->
     <section class="space-y-4">
-        <h2 class="text-2xl font-bold">Properties</h2>
+        <h2>Properties</h2>
         <Table source="{tableProps}"></Table>
     </section>
 </div>

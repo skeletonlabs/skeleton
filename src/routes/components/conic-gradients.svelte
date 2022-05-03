@@ -63,7 +63,7 @@
 
     <!-- Usage -->
     <section class="space-y-4">
-        <h3 class="text-2xl font-bold">Usage</h3>
+        <h2>Usage</h2>
         <p>Please note that only default Tailwind color values are currently supported, with the exception of 'white', 'black', and 'transparent'. Weight is optional for these three values.</p>
         <h4>Pie Chart</h4>
         <CodeBlock language="html" code={`<ConicGradient data={dataSet} legend={true}></ConicGradient>`}></CodeBlock>

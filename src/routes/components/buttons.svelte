@@ -9,8 +9,8 @@
         columns: ['Prop', 'Type', 'Default', 'Required', 'Description'],
         data: [
             ['variant', 'string', '-', 'false', 'Values are illustrated in the example above. (ex: filled-primary)'],
-            ['size', 'string', 'sm | base | lg | xl', 'false', 'Defines the button size.'],
-            ['background', 'string', '-', 'false', 'Provided a class to define background.'],
+            ['size', 'string', 'base', 'false', 'Defines the button size.'],
+            ['background', 'string', '-', 'false', 'Provide a class to define background.'],
             ['color', 'string', 'text-black dark:text-white', 'false', 'Provide a class to define text color.'],
             ['ring', 'string', 'ring-transparent', 'false', 'Provide a class to define ring color.'],
             ['weight', 'string', 'ring-1', 'false', 'Provide a class to define ring weight.'],
@@ -23,7 +23,7 @@
         columns: ['Name', 'Description'],
         data: [
             ['lead', 'A lead icon slot that appears left of the label.'],
-            ['tail', 'A trailing icon slot that appears right of the label.'],
+            ['trail', 'A trailing icon slot that appears right of the label.'],
         ],
     };
 
@@ -81,7 +81,7 @@
                     <span>Rounded</span>
                     <select name="rounded" id="rounded" bind:value={props.rounded}>
                         <option value="none">none</option>
-                        <option value="rounded-xs">rounded-xs</option>
+                        <option value="rounded-sm">rounded-sm</option>
                         <option value="rounded">rounded</option>
                         <option value="rounded-lg">rounded-lg</option>
                         <option value="rounded-full">rounded-full</option>

@@ -24,7 +24,7 @@
 	</Button>
 	
 	{#if !disabled && !current}
-		<div class="separator flex w-2">{@html separator}</div>
+		<div class="separator flex fill-surface-500 text-surface-500 w-2">{@html separator}</div>
 	{/if}
 
 </div>

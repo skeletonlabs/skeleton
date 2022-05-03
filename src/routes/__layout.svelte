@@ -73,7 +73,7 @@
 
 <!-- <svelte:window bind:scrollY={y}/> -->
 <svelte:head>
-	<title>Skeleton Documentation</title>
+	<title>Skeleton</title>
 </svelte:head>
 
 <!-- Filter SVG Components -->

@@ -84,7 +84,7 @@
                     <Avatar size="md" />
                 </div>
                 <div class="relative inline-block">
-                    <Badge class="absolute -top-2 -right-4 shadow-xl">5k</Badge>
+                    <Badge class="absolute -top-2 -right-4 shadow-xl z-10">5k</Badge>
                     <Button size="sm" variant="filled-accent">Button</Button>
                 </div>
             </Card>

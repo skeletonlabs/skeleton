@@ -9,8 +9,8 @@
         data: [
             ['size', 'string', 'text-[x]', 'text-4xl lg:text-6xl', 'Define the text size.'],
             ['direction', 'string', 'bg-gradient-to-[x]', 'bg-gradient-to-r', 'Define the gradient direction.'],
-            ['from', 'string', 'from-primary-[x]', 'from-primary-500', 'Define the "from" color.'],
-            ['to', 'string', 'from-primary-[x]', 'to-accent-500', 'Define the "to" color.'],
+            ['from', 'string', 'from-[color]-[weight]', 'from-primary-500', 'Define the "from" color.'],
+            ['to', 'string', 'to-[color]-[weight]', 'to-accent-500', 'Define the "to" color.'],
         ],
     };
 
@@ -36,7 +36,7 @@
 		<div class="space-y-4 xl:space-y-0 xl:grid grid-cols-[2fr,1fr] gap-2">
 			<!-- Example -->
 			<Card class="space-y-4">
-				<div class="w-full h-full overflow-x-auto flex justify-center items-center">
+				<div class="w-full h-full overflow-y-hidden overflow-x-auto flex justify-center items-center">
                     <svelte:component
                         this={GradientHeading}
                         size={props.size}

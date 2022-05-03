@@ -16,7 +16,7 @@
             ['duration', 'number', 'milliseconds', '200', 'false', 'Control the fade in/out animation speed. Set 0 (zero) to disable.'],
             ['background', 'string', 'class', 'bg-surface-500', 'false' , 'Provide a class that sets the background color.'],
             ['color', 'string', 'class', 'text-white', 'false' , 'Provide a class that sets the text color.'],
-            ['radius', 'string', 'class', 'rounded-lg', 'false', 'Provide a class that sets the border radius.'],
+            ['rounded', 'string', 'class', 'rounded-lg', 'false', 'Provide a class that sets the border radius.'],
         ],
     };
     const slotProps: any = {
@@ -32,7 +32,7 @@
     function toggleVisible(): void { visible = !visible; }
     function actionExample(): void { alert('Action Triggered!'); }
 
-    $: visible = true;
+    let visible = true;
 </script>
 
 <div class="space-y-8">
@@ -41,7 +41,7 @@
     <header class="space-y-4">
         <h1>Alerts</h1>
         <p>Display customizable alerts to grab attention and provide critical actions.</p>
-        <CodeBlock language="javascript" code="{`<script>import Alert from '@brainandbones/skeleton';</\script>`}"></CodeBlock>
+        <CodeBlock language="javascript" code="{`<script>import {Alert} from '@brainandbones/skeleton';</\script>`}"></CodeBlock>
     </header>
     
     <!-- Examples -->
@@ -63,7 +63,7 @@
             </svelte:fragment>
         </Alert>
         {#if visible}<h4>Rounding</h4>{/if}
-        <Alert background="bg-warning-400" radius="rounded-3xl" {visible}>
+        <Alert background="bg-warning-400" rounded="rounded-3xl" {visible}>
             <svelte:fragment slot="title">{title}</svelte:fragment>
             <svelte:fragment slot="message">{message}</svelte:fragment>      
         </Alert>

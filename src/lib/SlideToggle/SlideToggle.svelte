@@ -7,8 +7,8 @@
 
     // Base Styles
     const cBaseLabel: string = 'slide-toggle flex items-center space-x-4';
-    const cBaseTrack: string = 'track flex rounded-full transition duration-[200ms]';
-    const cBaseThumb: string = 'thumb bg-surface-100 dark:bg-surface-200 w-[50%] h-full scale-[75%] rounded-full cursor-pointer transition duration-[200ms]';
+    const cBaseTrack: string = 'track flex rounded-full transition-all duration-[200ms]';
+    const cBaseThumb: string = 'thumb bg-surface-100 dark:bg-surface-200 w-[50%] h-full scale-[0.7] rounded-full cursor-pointer transition-all duration-[200ms]';
    
     // Set track size
     let trackSize: string;
