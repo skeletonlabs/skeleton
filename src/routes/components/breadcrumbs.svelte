@@ -52,7 +52,7 @@
                     <div class="w-full overflow-x-auto min-w-[400px]">
                         <Breadcrumb>
                             <Crumb href="/">Home</Crumb>
-                            <Crumb href="/articles">Articles</Crumb>
+                            <Crumb href="/">Articles</Crumb>
                             <Crumb current>Current</Crumb>
                         </Breadcrumb>
                     </div>
@@ -64,7 +64,7 @@
                     <div class="w-full overflow-x-auto min-w-[400px]">
                         <Breadcrumb separator={customSeparator}>
                             <Crumb href="/">Home</Crumb>
-                            <Crumb href="/articles">Blog</Crumb>
+                            <Crumb href="/">Blog</Crumb>
                             <Crumb current>Current</Crumb>
                         </Breadcrumb>
                     </div>
@@ -164,7 +164,7 @@
         <svelte:fragment>{icon}</svelte:fragment>
         <span>Home</span>
     </Crumb>
-    <Crumb href='/articles'>Articles</Crumb>
+    <Crumb href='/'>Articles</Crumb>
     <Crumb disabled>Current</Crumb>
 </Breadcrumb>
         `.trim()}></CodeBlock>

@@ -19,7 +19,7 @@
     <header class="space-y-4">
         <h2>Lightswitch</h2>
         <p>Allows users to toggle their preferred theme preference between light/dark/system.</p>
-        <CodeBlock language="javascript" code={`<script>import {LightSwitch} from "$lib/LightSwitch/LightSwitch.svelte";</\script>`}></CodeBlock>
+        <CodeBlock language="javascript" code={`<script>import {LightSwitch} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
     </header>
 
     <!-- Examples -->
