@@ -65,7 +65,7 @@
         <CodeBlock language="html" code={`<button on:click on:mouseover>Skeleton</button>`}></CodeBlock>
         <p>Follow conventions set by existing components when naming slots. These should be short, semantic, and agnostic. Avoid names that are too specific, such as "icon".</p>
         <CodeBlock language="html" code={`{#if $$slots.lead}<slot name="lead" />{/if}`}></CodeBlock>
-        <p>Use caution when inlining Tailwind classes that could clashes with certain themes. Use a customizable property instead.</p>
+        <p>Use caution when inlining Tailwind classes that could clash with certain themes. Use a customizable property instead.</p>
         <CodeBlock language="html" code={`<div class="bg-orange-500">Skeleton</div>`}></CodeBlock>
         <p>If you need to include all non-specified properties and attributes, use $$restProps.</p>
         <CodeBlock language="html" code={`<button {...$$restProps}>Skeleton</button>`}></CodeBlock>
@@ -79,7 +79,7 @@
         <p>Follow these guidelines when creating component properties.</p>
         <ul class="list-disc list-inside">
             <li>Should be a single word, all lowercase, and sematic. Match Tailwind class naming conventions whenever possible.</li>
-            <li>Color proprties should follow standard CSS proprty names.</li>
+            <li>Color properties should follow standard CSS property names.</li>
             <li>Ensure Typescript type definitions are included.</li>
             <li>Pass completed Tailwind classes. Class names cannot be constructed. This does not work.</li>
             <li>Always set a relevant default value when possible.</li>
@@ -114,7 +114,7 @@ function setOutlined(): void {
     cOutlined ? 'border-2 border-primary-500' : 'border-none';
 }
         `.trim()}></CodeBlock>
-        <p>The following allows these functions to run each time a property updates. Otherwise the class logic will only be run once, on initilization.</p>
+        <p>The following allows these functions to run each time a property updates. Otherwise, the class logic will only be run once, on initialization.</p>
         <CodeBlock language="js" code={`
 // Update on Property Change
 afterUpdate(() => {
@@ -124,7 +124,7 @@ afterUpdate(() => {
         `.trim()}></CodeBlock>
         <!-- Reactive Classes -->
         <h4>Reactive Classes</h4>
-        <p>Reactive classes combined all fixed and dynamic classes. These are applied directly to each respective element.</p>
+        <p>Reactive classes combine all fixed and dynamic classes. These are applied directly to each respective element.</p>
         <CodeBlock language="js" code={`
 $: classes = \`\${cBase} \${cOutlined}\`;
 $: classesLabel = \`\${cBaseLabel}\`;
@@ -177,7 +177,7 @@ $: classesLabel = \`\${cBaseLabel}\`;
     <!-- Running Tests -->
     <section class="space-y-4">
         <h2>Running Tests</h2>
-        <p>Tests are handled via Vitest. Please ensure you write and run tests before submitting a pull request.</p>
+        <p>Tests are handled via Vitest. Please ensure you write and run tests before submitting a pull request. As the bare minimum, these tests should always include tests with and without props.</p>
         <CodeBlock language="console" code={`npm run test`}></CodeBlock>
     </section>
 
