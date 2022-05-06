@@ -13,7 +13,7 @@
     setContext('color', color);
 
     // Classes
-    const cBase: string = 'flex border-b-2 border-surface-200 dark:border-surface-700';
+    const cBase: string = 'flex border-b-2 border-surface-300 dark:border-surface-700';
 
     // Reactive Classes
     $: classes = `${cBase} ${justify}`
