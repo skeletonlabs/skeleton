@@ -7,18 +7,33 @@
     import Tab from "$lib/Tab/Tab.svelte";
     import TabGroup from "$lib/Tab/TabGroup.svelte";
 
-    let selected = writable('a');
+    let icon = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M4 3a2 2 0 100 4h12a2 2 0 100-4H4z" /><path fill-rule="evenodd" d="M3 8h14v7a2 2 0 01-2 2H5a2 2 0 01-2-2V8zm5 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" clip-rule="evenodd" /></svg>`;
+    
+    // Stores
+    let storeOne = writable('a');
+    let storeTwo = writable('a');
+    let storeThree = writable('a');
 
-    const tableProps: any = {
+    // Props and Slots
+    const tablePropsGroup: any = {
         columns: ['Prop', 'Type', 'Default', 'Required', 'Description'],
         data: [
-            ['name', '-', '-', '-', '...'],
+            ['selected', 'writable', '-', 'true', 'A svelte store to keep track of tab selection.'],
+            ['justify', 'class', 'justify-start', 'false', 'Provide a class to set the flex justification.'],
+            ['highlight', 'class', 'border-primary-500', 'false', 'Provide a class to set the highlighted border color.'],
+            ['color', 'class', 'text-primary-500', 'false', 'Provide class to set the label text color'],
+        ],
+    };
+    const tablePropsItem: any = {
+        columns: ['Prop', 'Type', 'Default', 'Required', 'Description'],
+        data: [
+            ['value', 'any', '-', 'true', 'Sets the tab group state value when selected.'],
         ],
     };
     const tableSlots: any = {
         columns: ['Name', 'Description'],
         data: [
-            ['name', '...'],
+            ['lead', 'Provides a leading slot.'],
         ],
     };
 </script>
@@ -36,51 +51,61 @@
     <section class="space-y-4">
         <!-- Left -->
         <Card class="space-y-4">
-            <TabGroup {selected}>
+            <TabGroup selected={storeOne}>
                 <Tab value="a">Tab A</Tab>
                 <Tab value="b">Tab B</Tab>
                 <Tab value="c">Tab C</Tab>
             </TabGroup>
             <div>
-                {#if $selected === 'a'}<section>Content A</section>{/if}
-                {#if $selected === 'b'}<section>Content B</section>{/if}
-                {#if $selected === 'c'}<section>Content C</section>{/if}
+                {#if $storeOne === 'a'}<section>Content A</section>{/if}
+                {#if $storeOne === 'b'}<section>Content B</section>{/if}
+                {#if $storeOne === 'c'}<section>Content C</section>{/if}
             </div>
         </Card>
         <!-- Center -->
+        <h4>Customized</h4>
         <Card class="space-y-4">
-            <TabGroup {selected} justify="justify-center" highlight="border-accent-500" color="text-accent-500" >
+            <TabGroup selected={storeTwo} justify="justify-center" highlight="border-accent-500" color="text-accent-500">
                 <Tab value="a">Tab A</Tab>
                 <Tab value="b">Tab B</Tab>
                 <Tab value="c">Tab C</Tab>
             </TabGroup>
             <div>
-                {#if $selected === 'a'}<section>Content A</section>{/if}
-                {#if $selected === 'b'}<section>Content B</section>{/if}
-                {#if $selected === 'c'}<section>Content C</section>{/if}
+                {#if $storeTwo === 'a'}<section>Content A</section>{/if}
+                {#if $storeTwo === 'b'}<section>Content B</section>{/if}
+                {#if $storeTwo === 'c'}<section>Content C</section>{/if}
             </div>
         </Card>
         <!-- Right -->
         <Card class="space-y-4">
-            <TabGroup {selected} justify="justify-end" highlight="border-warning-500" color="text-warning-500" >
-                <Tab value="a">Books</Tab>
-                <Tab value="b">Movies</Tab>
-                <Tab value="c">Television</Tab>
+            <TabGroup selected={storeThree} justify="justify-end" highlight="border-warning-500" color="text-warning-500">
+                <Tab value="a">
+                    <svelte:fragment slot="lead">{@html icon}</svelte:fragment>
+                    Books
+                </Tab>
+                <Tab value="b">
+                    <svelte:fragment slot="lead">{@html icon}</svelte:fragment>
+                    Movies
+                </Tab>
+                <Tab value="c">
+                    <svelte:fragment slot="lead">{@html icon}</svelte:fragment>
+                    Television
+                </Tab>
             </TabGroup>
             <div>
-                {#if $selected === 'a'}
+                {#if $storeThree === 'a'}
                     <section>
                         <h4>Books</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
                     </section>
                 {/if}
-                {#if $selected === 'b'}
+                {#if $storeThree === 'b'}
                     <section>
                         <h4>Movies</h4>
                         <p>Nisl nunc mi ipsum faucibus vitae aliquet nec. Ac ut consequat semper viverra nam libero justo laoreet. Nec sagittis aliquam malesuada.</p>
                     </section>
                 {/if}
-                {#if $selected === 'c'}
+                {#if $storeThree === 'c'}
                     <section>
                         <h4>Television</h4>
                         <p>Ut sem viverra aliquet eget sit. Porttitor lacus luctus accumsan tortor posuere ac ut consequat. Vulputate enim nulla aliquet porttitor.</p>
@@ -93,18 +118,34 @@
     <!-- Usage -->
     <section class="space-y-4">
         <h2>Usage</h2>
-        <CodeBlock language="html" code={`<div>UsageExample</div>`.trim()}></CodeBlock>
+        <CodeBlock language="js" code={`let storeValue = writable('a');`}></CodeBlock>
+        <CodeBlock language="html" code={`
+<TabGroup selected={storeValue} justify="justify-center" highlight="border-accent-500" color="text-accent-500">
+    <Tab value="a">Tab A</Tab>
+    <Tab value="b">Tab B</Tab>
+    <Tab value="c">Tab C</Tab>
+</TabGroup>
+<div>
+    {#if $storeTwo === 'a'}<section>Content A</section>{/if}
+    {#if $storeTwo === 'b'}<section>Content B</section>{/if}
+    {#if $storeTwo === 'c'}<section>Content C</section>{/if}
+</div>
+        `.trim()}></CodeBlock>
     </section>
 
     <!-- Properties -->
 	<section class="space-y-4">
 		<h2>Properties</h2>
-		<Table source="{tableProps}"></Table>
+        <h4>Tab Group</h4>
+		<Table source="{tablePropsGroup}"></Table>
+        <h4>Tab</h4>
+		<Table source="{tablePropsItem}"></Table>
 	</section>
 	
 	<!-- Slots -->
 	<section class="space-y-4">
 		<h2>Slots</h2>
+        <h4>Tab</h4>
 		<Table source="{tableSlots}"></Table>
 	</section>
     
