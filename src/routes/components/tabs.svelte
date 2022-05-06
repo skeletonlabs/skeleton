@@ -21,7 +21,7 @@
             ['selected', 'writable', '-', 'true', 'A svelte store to keep track of tab selection.'],
             ['justify', 'class', 'justify-start', 'false', 'Provide a class to set the flex justification.'],
             ['highlight', 'class', 'border-primary-500', 'false', 'Provide a class to set the highlighted border color.'],
-            ['color', 'class', 'text-primary-500', 'false', 'Provide class to set the label text color'],
+            ['color', 'class', 'text-primary-500', 'false', 'Provide class to set the label text color.'],
         ],
     };
     const tablePropsItem: any = {
