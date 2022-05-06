@@ -34,7 +34,7 @@
             list: [
                 {href: '/components/alerts', label: 'Alerts'},
                 {href: '/components/avatars', label: 'Avatars'},
-				        {href: '/components/badges', label: 'Badges'},
+				{href: '/components/badges', label: 'Badges'},
                 {href: '/components/breadcrumbs', label: 'Breadcrumb'},
                 {href: '/components/buttons', label: 'Buttons'},
                 {href: '/components/cards', label: 'Cards'},
@@ -45,6 +45,7 @@
                 {href: '/components/lightswitches', label: 'Lightswitch'},
                 {href: '/components/lists', label: 'Lists'},
                 {href: '/components/logo-clouds', label: 'Logo Clouds'},
+                {href: '/components/menus', label: 'Menus'},
                 {href: '/components/progress-bars', label: 'Progress Bars'},
                 {href: '/components/progress-radials', label: 'Progress Radial'},
                 {href: '/components/radio-groups', label: 'Radio Groups'},

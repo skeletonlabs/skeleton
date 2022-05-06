@@ -3,7 +3,7 @@
     export let color: string = undefined;
 
     // Base Classes
-    let cBase: string = `p-4 rounded-lg overflow-hidden`;
+    let cBase: string = `p-4 rounded-lg`; // overflow-hidden
 
     // Reactive
     $: classes = `${cBase} ${background} ${color}`;
