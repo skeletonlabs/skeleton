@@ -4,19 +4,30 @@
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
 	import Button from '$lib/Button/Button.svelte';
 
-	// const icon: string = `&#9733;`;
+	// SVG Icon
+	const svgIconSkull: string = '<svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M416 400V464C416 490.5 394.5 512 368 512H320V464C320 455.2 312.8 448 304 448C295.2 448 288 455.2 288 464V512H224V464C224 455.2 216.8 448 208 448C199.2 448 192 455.2 192 464V512H144C117.5 512 96 490.5 96 464V400C96 399.6 96 399.3 96.01 398.9C37.48 357.8 0 294.7 0 224C0 100.3 114.6 0 256 0C397.4 0 512 100.3 512 224C512 294.7 474.5 357.8 415.1 398.9C415.1 399.3 416 399.6 416 400V400zM160 192C124.7 192 96 220.7 96 256C96 291.3 124.7 320 160 320C195.3 320 224 291.3 224 256C224 220.7 195.3 192 160 192zM352 320C387.3 320 416 291.3 416 256C416 220.7 387.3 192 352 192C316.7 192 288 220.7 288 256C288 291.3 316.7 320 352 320z"/></svg>';
+
+	// Variants
+	const variantExamples: any[] = [
+		{label: 'Text', variants: ['text', 'text-primary', 'text-accent', 'text-warning']},
+		{label: 'Filled', variants: ['filled', 'filled-primary', 'filled-accent', 'filled-warning']},
+		{label: 'Ring', variants: ['ring', 'ring-primary', 'ring-accent', 'ring-warning']},
+		{label: 'Ghost', variants: ['ghost', 'ghost-primary', 'ghost-accent', 'ghost-warning']},
+	];
+
+	// Props & Slots
     const tableProps: any = {
-        columns: ['Prop', 'Type', 'Default', 'Required', 'Description'],
+        columns: ['Prop', 'Type', 'Default', 'Description'],
         data: [
-            ['variant', 'string', '-', 'false', 'Values are illustrated in the example above. (ex: filled-primary)'],
-            ['size', 'string', 'base', 'false', 'Defines the button size.'],
-            ['background', 'string', '-', 'false', 'Provide a class to define background.'],
-            ['color', 'string', 'text-black dark:text-white', 'false', 'Provide a class to define text color.'],
-            ['ring', 'string', 'ring-transparent', 'false', 'Provide a class to define ring color.'],
-            ['weight', 'string', 'ring-1', 'false', 'Provide a class to define ring weight.'],
-            ['rounded', 'string', 'rounded-lg', 'false', 'Provide a class to define border radius.'],
-            ['href', 'string', '-', 'false', 'Pass through $$props value.'],
-            ['disabled', 'boolean', 'false', 'false', 'Pass through $$props value.'],
+            ['variant', 'string', '-', 'Provides preset prop values. Overwrites all props listed below.'],
+            ['size', 'string', 'base', 'Defines the button size.'],
+            ['background', 'string', 'bg-black dark:bg-white', 'Provide a class to define background.'],
+            ['color', 'string', 'text-white dark:text-black', 'Provide a class to define text color.'],
+            ['fill', 'string', 'fill-white dark:fill-black', 'Provide a class to define SVG fill color.'],
+            ['ring', 'string', 'ring-transparent', 'Provide a class to define ring color.'],
+            ['weight', 'string', 'ring-1', 'Provide a class to define ring weight.'],
+            ['rounded', 'string', 'rounded-lg', 'Provide a class to define border radius.'],
+            ['href', 'string', '-', 'Converts to an anchor element and sets click through value.'],
         ],
     };
     const tableSlots: any = {
@@ -27,12 +38,14 @@
         ],
     };
 
+	// Interactive Example Props
 	$:props = {
 		size: 'base',
 		background: 'bg-primary-500',
 		color: 'text-white',
-		ring: undefined,
-		weight: undefined,
+		fill: 'fill-white',
+		ring: 'ring-transparent',
+		weight: 'ring-none',
 		rounded: 'rounded-lg',
 		disabled: false
 	};
@@ -57,11 +70,15 @@
 					size={props.size}
 					background={props.background}
 					color={props.color}
+					fill={props.fill}
 					ring={props.ring}
 					weight={props.weight}
 					rounded={props.rounded}
 					disabled={props.disabled}
-				>Skeleton</svelte:component>
+				>
+					<svelte:fragment slot="lead">{@html svgIconSkull}</svelte:fragment>
+					Skeleton
+				</svelte:component>
             </Card>
 			<!-- Options -->
 			<Card class="grid grid-cols-1 2xl:grid-cols-2 gap-4">
@@ -76,22 +93,22 @@
                         <option value="xl">xl</option>
                     </select>
                 </label>
-				<!-- Rounded -->
+				<!-- Fill -->
 				<label>
-                    <span>Rounded</span>
-                    <select name="rounded" id="rounded" bind:value={props.rounded}>
-                        <option value="none">none</option>
-                        <option value="rounded-sm">rounded-sm</option>
-                        <option value="rounded">rounded</option>
-                        <option value="rounded-lg">rounded-lg</option>
-                        <option value="rounded-full">rounded-full</option>
+                    <span>Fill</span>
+                    <select name="fill" id="fill" bind:value={props.fill}>
+                        <option value="fill-white">fill-white</option>
+                        <option value="fill-black">fill-black</option>
+                        <option value="fill-primary-500">fill-primary-500</option>
+                        <option value="fill-accent-500">fill-accent-500</option>
+                        <option value="fill-warning-500">fill-warning-500</option>
                     </select>
                 </label>
 				<!-- Background -->
 				<label>
                     <span>Background</span>
                     <select name="background" id="background" bind:value={props.background}>
-                        <option value="">none</option>
+                        <option value="bg-transparent">bg-transparent</option>
                         <option value="bg-primary-500">bg-primary-500</option>
                         <option value="bg-accent-500">bg-accent-500</option>
                         <option value="bg-warning-500">bg-warning-500</option>
@@ -115,7 +132,7 @@
 				<label>
                     <span>Ring Color</span>
                     <select name="ring" id="ring" bind:value={props.ring}>
-                        <option value="">none</option>
+                        <option value="ring-transparent">ring-transparent</option>
                         <option value="ring-white">ring-white</option>
                         <option value="ring-black">ring-black</option>
                         <option value="ring-primary-500">ring-primary-500</option>
@@ -127,10 +144,21 @@
 				<label>
                     <span>Ring Weight</span>
                     <select name="weight" id="weight" bind:value={props.weight}>
-                        <option value="">none</option>
+                        <option value="ring-none">ring-none</option>
                         <option value="ring-1">ring-1</option>
                         <option value="ring-2">ring-2</option>
                         <option value="ring-4">ring-4</option>
+                    </select>
+                </label>
+				<!-- Rounded -->
+				<label>
+                    <span>Rounded</span>
+                    <select name="rounded" id="rounded" bind:value={props.rounded}>
+                        <option value="none">none</option>
+                        <option value="rounded-sm">rounded-sm</option>
+                        <option value="rounded">rounded</option>
+                        <option value="rounded-lg">rounded-lg</option>
+                        <option value="rounded-full">rounded-full</option>
                     </select>
                 </label>
 				<!-- Disabled -->
@@ -151,7 +179,10 @@
 	weight="${props.weight || ''}"
 	rounded="${props.rounded}"
 	disabled={${props.disabled}}
->Skeleton</Button>
+>
+	<svelte:fragment slot="lead">(icon)</svelte:fragment>
+	Skeleton
+</Button>
 			`.trim()}
 		></CodeBlock>
 	</section>
@@ -159,49 +190,29 @@
 	<!-- Variants -->
 	<section class="space-y-4">
 		<h4>Variants</h4>
-		<p>Skeleton provides variants to quickly and easily create buttons with predefined styles.</p>
-		<!-- flex justify-center space-x-8 -->
+		<p>Skeleton provides variants to quickly and easily create buttons with predefined styles. Note these styles cannot be overwritten by individual properties.</p>
 		<Card>
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-2xl mx-auto">
+				{#each variantExamples as ve}
 				<section>
-					<h4 class="text-center mb-4">Text</h4>
+					<h4 class="text-center mb-4">{ve.label}</h4>
 					<nav class="flex flex-col space-y-4">
-						<Button variant="text">text</Button>
-						<Button variant="text-primary">text-primary</Button>
-						<Button variant="text-accent">text-accent</Button>
-						<Button variant="text-warning">text-warning</Button>
+						{#each ve.variants as v}
+						<Button variant={v}>
+							<svelte:fragment slot="lead">{@html svgIconSkull}</svelte:fragment>
+							{v}
+						</Button>
+						{/each}
 					</nav>
 				</section>
-				<section>
-					<h4 class="text-center mb-4">Filled</h4>
-					<nav class="flex flex-col space-y-4">
-						<Button variant="filled">filled</Button>
-						<Button variant="filled-primary">filled-primary</Button>
-						<Button variant="filled-accent">filled-accent</Button>
-						<Button variant="filled-warning">filled-warning</Button>
-					</nav>
-				</section>
-				<section>
-					<h4 class="text-center mb-4">Ring</h4>
-					<nav class="flex flex-col space-y-4">
-						<Button variant="ring">ring</Button>
-						<Button variant="ring-primary">ring-primary</Button>
-						<Button variant="ring-accent">ring-accent</Button>
-						<Button variant="ring-warning">ring-warning</Button>
-					</nav>
-				</section>
-				<section>
-					<h4 class="text-center mb-4">Ghost</h4>
-					<nav class="flex flex-col space-y-4">
-						<Button variant="ghost">ghost</Button>
-						<Button variant="ghost-primary">ghost-primary</Button>
-						<Button variant="ghost-accent">ghost-accent</Button>
-						<Button variant="ghost-warning">ghost-warning</Button>
-					</nav>
-				</section>
+				{/each}
 			</div>
 		</Card>
-		<CodeBlock language="html" code={`<Button variant="filled-primary">Skeleton</Button>`}></CodeBlock>
+		<CodeBlock language="html" code={`
+<Button variant="text-primary">Skeleton</Button>
+<Button variant="filled-accent">Skeleton</Button>
+<Button variant="ghost-warning">Skeleton</Button>
+		`.trim()}></CodeBlock>
 	</section>
 	
 	<!-- Properties -->

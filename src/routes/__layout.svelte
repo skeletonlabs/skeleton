@@ -61,7 +61,7 @@
     ];
 
 	// Drawer
-	const drawerOpen = () => { drawer.set(true); }
+	const drawerOpen = () => { console.log('open triggered'); drawer.set(true); }
 	const drawerClose = () => { drawer.set(false); }
 
 	afterNavigate(() => {
@@ -143,13 +143,15 @@
 			<!-- Hamburger Menu -->
 			<header class="lg:hidden flex items-center mb-8 space-x-4">
 				<Button variant="minimal" on:click={drawerOpen}>
-					<svg class="fill-black dark:fill-white" viewBox="0 0 100 60" width="24" height="24">
-						<rect width="100" height="10"></rect>
-						<rect y="30" width="100" height="10"></rect>
-						<rect y="60" width="100" height="10"></rect>
-					</svg>
+					<svelte:fragment slot="lead">
+						<svg class="fill-black dark:fill-white" viewBox="0 0 100 60" width="24" height="24">
+							<rect width="100" height="10"></rect>
+							<rect y="30" width="100" height="10"></rect>
+							<rect y="60" width="100" height="10"></rect>
+						</svg>
+					</svelte:fragment>
+					<span>Menu</span>
 				</Button>
-				<p>Menu</p>
 			</header>
 
 			<!-- Page Slot -->

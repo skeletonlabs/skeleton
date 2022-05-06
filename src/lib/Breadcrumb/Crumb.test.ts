@@ -13,7 +13,7 @@ describe('Breadcrumb.svelte', () => {
  
     it('Renders without props', async () => {
         const { getByTestId } = render(Crumb);
-        expect(getByTestId('crumb')).toBeTruthy();
+        expect(getByTestId('comp-button')).toBeTruthy();
     });
      
     it('Renders with custom contexts', () => {

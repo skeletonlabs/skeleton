@@ -8,8 +8,7 @@
 	export let current: boolean = false;
 
 	// Context
-	export let variant: string = getContext('variant');
-	export let size: string = getContext('size');
+	export let variant: string = getContext('variant') || 'minimal';
 	export let separator: string = getContext('separator');
 
 	// Styling
@@ -18,9 +17,13 @@
 
 <div class="crumb-group flex items-center space-x-4">
 
-	<Button {variant} {size} {href} class="crumb" data-testid="crumb" {disabled}>
-		{#if $$slots.lead}<slot name="lead" />{/if}
-		<slot />
+	<Button {variant} {href} {disabled} data-testid="crumb">
+		<div class="flex justify-center items-center space-x-2">
+			<!-- Slot: Lead -->
+            {#if $$slots.lead}<slot name="lead"></slot>{/if}
+			<!-- Label -->
+            <slot />
+        </div>
 	</Button>
 	
 	{#if !disabled && !current}
