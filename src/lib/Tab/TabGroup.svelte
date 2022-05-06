@@ -19,6 +19,6 @@
     $: classes = `${cBase} ${justify}`
 </script>
 
-<nav data-testid="tab-group" class="tab-group {classes}">
+<nav data-testid="tab-group" class="tab-group {classes}" {...$$restProps}>
     <slot />
 </nav>
