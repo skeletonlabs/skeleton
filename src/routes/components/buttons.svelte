@@ -23,7 +23,7 @@
             ['size', 'string', 'base', 'Defines the button size.'],
             ['background', 'string', 'bg-black dark:bg-white', 'Provide a class to define background.'],
             ['color', 'string', 'text-white dark:text-black', 'Provide a class to define text color.'],
-            ['Fill', 'string', 'fill-white dark:fill-black', 'Provide a class to define SVG fill color.'],
+            ['fill', 'string', 'fill-white dark:fill-black', 'Provide a class to define SVG fill color.'],
             ['ring', 'string', 'ring-transparent', 'Provide a class to define ring color.'],
             ['weight', 'string', 'ring-1', 'Provide a class to define ring weight.'],
             ['rounded', 'string', 'rounded-lg', 'Provide a class to define border radius.'],
