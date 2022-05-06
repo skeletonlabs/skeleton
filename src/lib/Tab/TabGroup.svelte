@@ -1,27 +1,22 @@
 <script lang="ts">
+    import type { Writable } from "svelte/store";
+    import { setContext } from "svelte";
 
-import type { Writable } from "svelte/store";
-import { setContext } from "svelte";
+    export let highlight: string = 'border-primary-500';
+    export let color: string = 'text-primary-500';
+    export let selected: Writable<any>;
+    export let justify: string = 'justify-start';
 
-export let color: string = '';
-export let text: string = '';
-export let selected: Writable<any>;
-export let justify: string = 'left';
+    // Set Context
+    setContext('highlight', highlight);
+    setContext('color', color);
+    setContext('selected', selected);
 
-let cJustify;
-switch(justify){
-    case('left'): {cJustify = 'justify-start'; break;}
-    case('center'): {cJustify = 'justify-center'; break;}
-    case('right'): {cJustify = 'justify-end'; break;}
-    default: {cJustify = '';}
-}
+    // Classes
+    const cBase: string = 'flex border-b border-surface-200 dark:border-surface-700';
 
-setContext('color', color);
-setContext('text', text);
-setContext('selected', selected);
-
-$: classes = `flex border-b-2 space-x-6 border-surface-200 dark:border-surface-700 ${cJustify}`
-
+    // Reactive Classes
+    $: classes = `${cBase} ${justify}`
 </script>
 
 <nav class="tab-group {classes}">

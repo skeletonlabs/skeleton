@@ -1,26 +1,33 @@
 <script lang="ts">
+    import type { Writable } from "svelte/store";
+    import { getContext } from "svelte";
 
-import type { Writable } from "svelte/store";
-import { getContext } from "svelte";
+    export let selected: Writable<any> = getContext('selected');
+    export let value = $selected.value;
 
-export let selected: Writable<any> = getContext('selected');
-export let value = null;
+    // Base Classes
+    const cBaseItem: string = 'list-none flex items-center border-b-[3px] space-x-2 pb-2 px-4 transition-all duration-[0.2s] hover:opacity-70';
+    const cBaseLabel: string = 'font-semibold whitespace-nowrap cursor-pointer';
 
-$: color = value == $selected ? getContext('color') : 'border-surface-200 dark:border-surface-700';
-$: textColor = value == $selected ? getContext('text') : '';
+    // Active State Styling
+    $: highlight = value == $selected ? getContext('highlight') : 'border-transparent';
+    $: textColor = value == $selected ? getContext('color') : '';
 
-$: classes = `list-none flex pb-1 space-x-2 ${color} border-b-2 -mb-[2px] items-center transition-all duration-[0.2s] hover:opacity-70`
-$: classesText = `font-semibold whitespace-nowrap`;
-
+    // Reactive Classes
+    $: classesItem = `${cBaseItem} ${textColor} ${highlight}`;
+    $: classesLabel = `${cBaseLabel}`;
 </script>
 
-<li on:click={()=>{selected.set(value)}} class='tab ${classes} {$$props.class} {textColor}'>
-    {#if $$slots.lead} 
-    <slot name="lead"/>  
-    {/if}
-    <button>
-        <span class="{classesText}">
-            <slot />
-        </span>
-    </button>
+<li
+    class="tab ${classesItem} {$$props.class}"
+    on:click={()=>{selected.set(value)}}
+    {...$$restProps}
+>
+
+    <!-- Slot: Lead -->
+    {#if $$slots.lead}<span><slot name="lead"/></span>{/if}
+    
+    <!-- Label -->
+    {#if $$slots.default}<span class="{classesLabel}"><slot /></span>{/if}
+
 </li>
