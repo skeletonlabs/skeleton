@@ -99,6 +99,7 @@
         class="comp-button {classes} {$$props.class}"
         href={$$props.href}
         {...$$restProps}
+        data-testid="comp-button"
     >
         {#if $$slots.lead}<span><slot name="lead"></slot></span>{/if}
         <span class="whitespace-nowrap"><slot /></span>
@@ -109,6 +110,7 @@
     <button
         class="comp-button {classes} {$$props.class}"
         {...$$restProps}
+        data-testid="comp-button"
     >
         {#if $$slots.lead}<span><slot name="lead"></slot></span>{/if}
         <span class="whitespace-nowrap"><slot /></span>
