@@ -43,7 +43,7 @@
     <!-- Header -->
     <header class="space-y-4">
         <h2>Tabs</h2>
-        <p>Describe the component here.</p>
+        <p>Use tabs to quickly switch between different views.</p>
         <CodeBlock language="javascript" code={`<script>import {TabGroup, Tab} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
     </header>
 
