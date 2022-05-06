@@ -13,7 +13,7 @@
     export let rounded: string = 'rounded-lg';
 
     // Base Classes
-    const cBase: string = 'inline-flex justify-center items-center space-x-2 text-center ring-inset pointer-cursor';
+    const cBase: string = 'inline-flex justify-center items-center space-x-2 text-center whitespace-nowrap ring-inset pointer-cursor';
     let cSize: string;
     let cAnimation: string;
     
@@ -45,7 +45,7 @@
     function setVariant(): void {
         switch(variant) {
             // Minimal
-            case('minimal'): setProps('none'); break;
+            case('minimal'): setProps('none', 'bg-transparent', 'text-initial', 'fill-initial', null, 'none'); break;
             // Text
             case('text'):         setProps('base', 'bg-transparent', 'text-black dark:text-white', 'fill-black dark:fill-white'); break;
             case('text-primary'): setProps('base', 'bg-transparent', 'text-primary-500', 'fill-primary-500'); break;
@@ -99,10 +99,11 @@
         class="comp-button {classes} {$$props.class}"
         href={$$props.href}
         {...$$restProps}
+        on:click
         data-testid="comp-button"
     >
         {#if $$slots.lead}<span><slot name="lead"></slot></span>{/if}
-        <span class="whitespace-nowrap"><slot /></span>
+        <span><slot /></span>
         {#if $$slots.trail}<span><slot name="trail"></slot></span>{/if}
     </a>
 {:else}
@@ -110,10 +111,11 @@
     <button
         class="comp-button {classes} {$$props.class}"
         {...$$restProps}
+        on:click
         data-testid="comp-button"
     >
         {#if $$slots.lead}<span><slot name="lead"></slot></span>{/if}
-        <span class="whitespace-nowrap"><slot /></span>
+        <span><slot /></span>
         {#if $$slots.trail}<span><slot name="trail"></slot></span>{/if}
     </button>
 {/if}
