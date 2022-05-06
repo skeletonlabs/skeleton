@@ -57,9 +57,9 @@
                 <Tab value="c">Tab C</Tab>
             </TabGroup>
             <div>
-                {#if $storeOne === 'a'}<section>Content A</section>{/if}
-                {#if $storeOne === 'b'}<section>Content B</section>{/if}
-                {#if $storeOne === 'c'}<section>Content C</section>{/if}
+                {#if $storeOne === 'a'}Content A{/if}
+                {#if $storeOne === 'b'}Content B{/if}
+                {#if $storeOne === 'c'}Content C{/if}
             </div>
         </Card>
         <!-- Center -->
@@ -71,9 +71,9 @@
                 <Tab value="c">Tab C</Tab>
             </TabGroup>
             <div>
-                {#if $storeTwo === 'a'}<section>Content A</section>{/if}
-                {#if $storeTwo === 'b'}<section>Content B</section>{/if}
-                {#if $storeTwo === 'c'}<section>Content C</section>{/if}
+                {#if $storeTwo === 'a'}Content A{/if}
+                {#if $storeTwo === 'b'}Content B{/if}
+                {#if $storeTwo === 'c'}Content C{/if}
             </div>
         </Card>
         <!-- Right -->
@@ -94,22 +94,16 @@
             </TabGroup>
             <div>
                 {#if $storeThree === 'a'}
-                    <section>
-                        <h4>Books</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                    </section>
+                    <h4>Books</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
                 {/if}
                 {#if $storeThree === 'b'}
-                    <section>
-                        <h4>Movies</h4>
-                        <p>Nisl nunc mi ipsum faucibus vitae aliquet nec. Ac ut consequat semper viverra nam libero justo laoreet. Nec sagittis aliquam malesuada.</p>
-                    </section>
+                    <h4>Movies</h4>
+                    <p>Nisl nunc mi ipsum faucibus vitae aliquet nec. Ac ut consequat semper viverra nam libero justo laoreet. Nec sagittis aliquam malesuada.</p>
                 {/if}
                 {#if $storeThree === 'c'}
-                    <section>
-                        <h4>Television</h4>
-                        <p>Ut sem viverra aliquet eget sit. Porttitor lacus luctus accumsan tortor posuere ac ut consequat. Vulputate enim nulla aliquet porttitor.</p>
-                    </section>
+                    <h4>Television</h4>
+                    <p>Ut sem viverra aliquet eget sit. Porttitor lacus luctus accumsan tortor posuere ac ut consequat. Vulputate enim nulla aliquet porttitor.</p>
                 {/if}
             </div>
         </Card>
@@ -125,11 +119,9 @@
     <Tab value="b">Tab B</Tab>
     <Tab value="c">Tab C</Tab>
 </TabGroup>
-<div>
-    {#if $storeTwo === 'a'}<section>Content A</section>{/if}
-    {#if $storeTwo === 'b'}<section>Content B</section>{/if}
-    {#if $storeTwo === 'c'}<section>Content C</section>{/if}
-</div>
+{#if $storeTwo === 'a'}Content A{/if}
+{#if $storeTwo === 'b'}Content B{/if}
+{#if $storeTwo === 'c'}Content C{/if}
         `.trim()}></CodeBlock>
     </section>
 
