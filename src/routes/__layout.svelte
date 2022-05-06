@@ -34,11 +34,11 @@
             list: [
                 {href: '/components/alerts', label: 'Alerts'},
                 {href: '/components/avatars', label: 'Avatars'},
-				        {href: '/components/badges', label: 'Badges'},
+				{href: '/components/badges', label: 'Badges'},
                 {href: '/components/breadcrumbs', label: 'Breadcrumb'},
                 {href: '/components/buttons', label: 'Buttons'},
                 {href: '/components/cards', label: 'Cards'},
-                {href: '/components/conic-gradients', label: 'Conic Gradients'},
+                // {href: '/components/conic-gradients', label: 'Conic Gradients'},
                 {href: '/components/dividers', label: 'Dividers'},
                 {href: '/components/drawers', label: 'Drawers'},
                 {href: '/components/gradient-headings', label: 'Gradient Heading'},
