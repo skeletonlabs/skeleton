@@ -3,7 +3,7 @@ export { default as Avatar } from "./Avatar/Avatar.svelte";
 export { default as Badge } from "./Badge/Badge.svelte";
 export { default as Breadcrumb } from "./Breadcrumb/Breadcrumb.svelte";
 export { default as Crumb } from "./Breadcrumb/Crumb.svelte";
-export { default as ConicGradient } from "./ConicGradient/ConicGradient.svelte";
+// export { default as ConicGradient } from "./ConicGradient/ConicGradient.svelte";
 export { default as Button } from "./Button/Button.svelte";
 export { default as Card } from "./Card/Card.svelte";
 export { default as Divider } from "./Divider/Divider.svelte";
