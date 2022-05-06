@@ -14,7 +14,7 @@ $: classesText = `font-semibold whitespace-nowrap`;
 
 </script>
 
-<li on:click={()=>{selected.set(value)}} class='tab ${classes} {$$props.class} {textColor}'>
+<li on:click={()=>{selected.set(value)}} data-testid="tab" class='tab ${classes} {$$props.class} {textColor}'>
     {#if $$slots.lead}
     <slot name="lead"/>
     {/if}

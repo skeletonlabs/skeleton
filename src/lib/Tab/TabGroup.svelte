@@ -23,6 +23,6 @@ $: classes = `flex border-b-2 space-x-6 border-surface-300 dark:border-surface-7
 
 </script>
 
-<nav class="tab-group {classes}">
+<nav data-testid="tab-group" class="tab-group {classes}">
     <slot />
 </nav>
