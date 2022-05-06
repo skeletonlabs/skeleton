@@ -50,6 +50,7 @@
                 {href: '/components/radio-groups', label: 'Radio Groups'},
                 {href: '/components/range-sliders', label: 'Range Sliders'},
                 {href: '/components/slide-toggles', label: 'Slide Toggles'},
+				{href: '/components/tabs', label: 'Tabs'},
             ],
         },
         {
