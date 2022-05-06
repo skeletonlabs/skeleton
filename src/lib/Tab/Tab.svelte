@@ -22,6 +22,7 @@
     class="tab ${classesItem} {$$props.class}"
     on:click={()=>{selected.set(value)}}
     {...$$restProps}
+    data-testid="tab"
 >
 
     <!-- Slot: Lead -->
