@@ -1,3 +1,5 @@
+<!-- TODO: add origin:auto, which auto-positions based on edge of screen -->
+
 <script lang="ts">
     import { afterUpdate } from "svelte";
     import { beforeNavigate } from "$app/navigation";
