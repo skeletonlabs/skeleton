@@ -10,13 +10,13 @@
     export let width: string = 'w-auto';
     export let whitespace: string = 'whitespace-nowrap';
     export let rounded: string = 'rounded';
-    export let duration: number = 150; // ms
+    export let duration: number = 100; // ms
 
     // Base Styles
     const cBaseTooltip: string = 'relative inline-flex justify-center items-center';
-    const cBasePopup: string = 'flex absolute z-10 whitespace-nowrap';
+    const cBasePopup: string = 'flex absolute z-10 drop-shadow';
     const cBaseMessage: string = 'text-xs px-3 py-2';
-    const cBaseArrow: string = 'h-2 w-2 -rotate-45'; // transform origin-top-left
+    const cBaseArrow: string = 'h-2 w-2 -rotate-45';
 
     // Set Position
     let cPosition: string;
@@ -29,21 +29,36 @@
         }
     }
 
+    // Set Arrow Position
+    let cArrowPosition: string;
+    function setArrowPosition(): void {
+        switch (position) {
+            case ('left'): cArrowPosition = 'translate-x-[-50%]'; break;
+            case ('right'): cArrowPosition = 'translate-x-[50%]'; break;
+            case ('bottom'): cArrowPosition = 'translate-y-[50%]'; break;
+            default: cArrowPosition = 'translate-y-[-50%]'; // top
+        }
+    }
+
     // Event Handlers
     function showTooltip(): void { visible = true; }
     function hideTooltip(): void { visible = false; }
 
     // On Init
     setPosition();
+    setArrowPosition();
 
     // After Update
-    afterUpdate(() => { setPosition(); });
+    afterUpdate(() => {
+        setPosition();
+        setArrowPosition();
+    });
 
     // Reactive Classes
     $: classesTooltip = `${cBaseTooltip}`;
     $: classesPopup = `${cBasePopup} ${cPosition}`;
     $: classesMessage = `${cBaseMessage} ${background} ${color} ${width} ${whitespace} ${rounded}`;
-    $: classesArrow = `${cBaseArrow} ${background}`;
+    $: classesArrow = `${cBaseArrow} ${cArrowPosition} ${background}`;
 </script>
 
 <div class="tooltip {classesTooltip}">
@@ -64,11 +79,3 @@
     {/if}
 
 </div>
-
-<style lang="postcss">
-    /* Position */
-    .top { @apply top-0 -translate-y-full flex-col items-center; }
-    .bottom { @apply bottom-0 translate-y-full flex-col-reverse items-center; }
-    .left { @apply left-0 -translate-x-full flex-row items-center; }
-    .right { @apply right-0 translate-x-full flex-row-reverse items-center; }
-</style>
