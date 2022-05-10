@@ -21,7 +21,7 @@
     const tableSlots: any = {
         columns: ['Name', 'Description'],
         data: [
-            ['trigger', 'The element that toggles the menu when clicked. Works best with button component.'],
+            ['trigger', 'The element that toggles the menu when clicked. Works best with a button component.'],
             ['content', 'The contents of the menu. Pairs well with styled Card and ListGroup components.'],
         ],
     };
