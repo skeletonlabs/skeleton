@@ -35,28 +35,52 @@
     </header>
 
     <!-- Examples -->
-    <Card class="flex justify-center space-x-4">
-        <!-- Default -->
-        <Tooltip>
-            <svelte:fragment slot="message">This is a basic tooltip.</svelte:fragment>
-            <svelte:fragment slot="content"><Button variant="ghost">Default</Button></svelte:fragment>
-        </Tooltip>
-        <!-- Customized -->
-        <Tooltip background="bg-accent-500" color="text-primary-200" width="w-[300px]" whitespace="whitespace-normal" rounded="rounded-xl" duration={500}>
-            <svelte:fragment slot="message">
-                <h4 class="mb-2">Hello, Skeleton 💀</h4>
-                <span class="text-xs text-white/60">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati id atque laboriosam provident eum facere, architecto veniam.</span>
-            </svelte:fragment>
-            <svelte:fragment slot="content">
-                <Button variant="ghost">Styled</Button>
-            </svelte:fragment>
-        </Tooltip>
-    </Card>
+    <section class="space-y-4">
+        <Card class="flex justify-center space-x-4">
+            <!-- Default -->
+            <section class="flex justify-center">
+                <Tooltip>
+                    <svelte:fragment slot="message">Tooltip on Top.</svelte:fragment>
+                    <svelte:fragment slot="content"><Button variant="ghost">Top</Button></svelte:fragment>
+                </Tooltip>
+            </section>
+            <section class="flex justify-center">
+                <Tooltip position="right">
+                    <svelte:fragment slot="message">Tooltip on Right.</svelte:fragment>
+                    <svelte:fragment slot="content"><Button variant="ghost">Right</Button></svelte:fragment>
+                </Tooltip>
+            </section>
+            <section class="flex justify-center">
+                <Tooltip position="bottom">
+                    <svelte:fragment slot="message">Tooltip on Bottom.</svelte:fragment>
+                    <svelte:fragment slot="content"><Button variant="ghost">Bottom</Button></svelte:fragment>
+                </Tooltip>
+            </section>
+            <section class="flex justify-center">
+                <Tooltip position="left">
+                    <svelte:fragment slot="message">Tooltip on Left.</svelte:fragment>
+                    <svelte:fragment slot="content"><Button variant="ghost">Left</Button></svelte:fragment>
+                </Tooltip>
+            </section>
+        </Card>
+        <h4>Styled</h4>
+        <Card class="flex justify-center">
+            <Tooltip background="bg-accent-500" color="text-primary-200" width="w-[300px]" whitespace="whitespace-normal" rounded="rounded-xl" duration={500}>
+                <svelte:fragment slot="message">
+                    <h4 class="mb-1">Hello, Skeleton 💀</h4>
+                    <span class="text-xs text-white/60">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati id atque laboriosam provident eum facere, architecto veniam.</span>
+                </svelte:fragment>
+                <svelte:fragment slot="content">
+                    <Button variant="ghost">Styled</Button>
+                </svelte:fragment>
+            </Tooltip>
+        </Card>
+    </section>
 
     <!-- Usage -->
     <section class="space-y-4">
         <h2>Usage</h2>
-        <CodeBlock language="html" code={`
+        <!-- <CodeBlock language="html" code={`
 <Tooltip>
     <svelte:fragment slot="message">This is a basic tooltip.</svelte:fragment>
     <svelte:fragment slot="content"><Button variant="ghost">Default</Button></svelte:fragment>
@@ -73,7 +97,7 @@
         <Button variant="ghost">Styled</Button>
     </svelte:fragment>
 </Tooltip>
-        `.trim()}></CodeBlock>
+        `.trim()}></CodeBlock> -->
     </section>
 
     <!-- Properties -->
