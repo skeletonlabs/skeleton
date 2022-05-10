@@ -12,7 +12,8 @@
             ['color', 'string', 'text-white dark:text-black', 'Provide a class to set text color.'],
             ['width', 'string', 'w-auto', 'Provide a class to set tooltip width.'],
             ['whitespace', 'string', 'whitespace-nowrap', 'Provide a class to set tooltip white-space.'],
-            ['duration', 'number', '150', 'Animation fade in/out duration in milliseconds.'],
+            ['rounded', 'string', 'rounded', 'Provide a class to set tooltip rounded styled.'],
+            ['duration', 'number', '150', 'Animation fade in/out duration in milliseconds. Set 0 (zero) to disable.'],
         ],
     };
     const tableSlots: any = {
@@ -37,23 +38,14 @@
     <Card class="flex justify-center space-x-4">
         <!-- Default -->
         <Tooltip>
-            <svelte:fragment slot="message">This is a tooltip.</svelte:fragment>
+            <svelte:fragment slot="message">This is a basic tooltip.</svelte:fragment>
             <svelte:fragment slot="content"><Button variant="ghost">Default</Button></svelte:fragment>
         </Tooltip>
-        <!-- Expanded -->
-        <Tooltip width="w-[300px]" whitespace="whitespace-normal">
+        <!-- Customized -->
+        <Tooltip background="bg-accent-500" color="text-primary-200" width="w-[300px]" whitespace="whitespace-normal" rounded="rounded-xl" duration={500}>
             <svelte:fragment slot="message">
-                <h6 class="mb-2">Expanded Tooltip</h6>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati id atque laboriosam provident eum facere, architecto veniam, sed blanditiis quibusdam, maiores laborum veritatis voluptatum repellat vitae? Cum aut sed totam.
-            </svelte:fragment>
-            <svelte:fragment slot="content">
-                <Button variant="ghost">Expanded</Button>
-            </svelte:fragment>
-        </Tooltip>
-        <!-- Styled -->
-        <Tooltip background="bg-accent-500" color="text-white">
-            <svelte:fragment slot="message">
-                <span class="text-base">Hello, Skeleton 💀</span>
+                <h4 class="mb-2">Hello, Skeleton 💀</h4>
+                <span class="text-xs text-white/60">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati id atque laboriosam provident eum facere, architecto veniam.</span>
             </svelte:fragment>
             <svelte:fragment slot="content">
                 <Button variant="ghost">Styled</Button>
@@ -66,16 +58,16 @@
         <h2>Usage</h2>
         <CodeBlock language="html" code={`
 <Tooltip>
-    <svelte:fragment slot="message">This is a tooltip.</svelte:fragment>
+    <svelte:fragment slot="message">This is a basic tooltip.</svelte:fragment>
     <svelte:fragment slot="content"><Button variant="ghost">Default</Button></svelte:fragment>
 </Tooltip>
         `.trim()}></CodeBlock>
         <h4>Customized</h4>
         <CodeBlock language="html" code={`
-<Tooltip background="bg-accent-500" color="text-white">
+<Tooltip background="bg-accent-500" color="text-primary-200" width="w-[300px]" whitespace="whitespace-normal" rounded="rounded-xl" duration={500}>
     <svelte:fragment slot="message">
-        <h6 class="mb-2">Customized</h6>
-        This is a tooltip.
+        <h6 class="mb-2">Hello, Skeleton 💀</h6>
+        <span class="text-xs text-white/60">This is a customized tooltip.</span>
     </svelte:fragment>
     <svelte:fragment slot="content">
         <Button variant="ghost">Styled</Button>
