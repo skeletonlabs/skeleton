@@ -17,7 +17,7 @@
     setContext('hover', hover);
 
     // Classes
-    // const cBase: string = '';
+    const cBase: string = 'whitespace-nowrap';
     let cSpacing: string = 'space-y-1';
 
     // Set Spacing
@@ -33,7 +33,7 @@
     afterUpdate(() => {
         setSpacing();
     });
-    $: classes = `${cSpacing} ${$$props.class}`;
+    $: classes = `${cBase} ${cSpacing} ${$$props.class}`;
 </script>
 
 <!-- Description -->
