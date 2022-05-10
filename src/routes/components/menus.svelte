@@ -13,16 +13,16 @@
         data: [
             ['select', 'boolean', 'false', 'true | false', 'When select is true, clicks inside the menu close it.'],
             ['open', 'boolean', 'false', 'true | false', 'Default menu visiblity when the component initilizes.'],
-            ['origin', 'string', 'tl', 'tl | tr | bl | br', 'Describes where the menu content anchors to the trigger element.'],
-            ['duration', 'number', '100', 'any', 'Open/close fade animation duration. Set 0 for no animation.'],
+            ['origin', 'string', 'tl (top-left)', 'tl | tr | bl | br', 'Abbreviation describing where the menu content anchors to the trigger element.'],
+            ['duration', 'number', '100', 'any', 'Open/close fade animation duration. Setting zero disables animation.'],
             ['disabled', 'boolean', 'false', 'true | false', 'Sets disabled state.'],
         ],
     };
     const tableSlots: any = {
         columns: ['Name', 'Description'],
         data: [
-            ['trigger', 'The element that toggles the menu when clicked.'],
-            ['content', 'The contents of the menu. Pairs well with Card and ListGroups.'],
+            ['trigger', 'The element that toggles the menu when clicked. Works best with button component.'],
+            ['content', 'The contents of the menu. Pairs well with styled Card and ListGroup components.'],
         ],
     };
 </script>
