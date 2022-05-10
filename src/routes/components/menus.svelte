@@ -9,13 +9,13 @@
 
     // Tables and Slots
     const tableProps: any = {
-        columns: ['Prop', 'Type', 'Default', 'Allowed', 'Description'],
+        columns: ['Prop', 'Type', 'Default', 'Values', 'Description'],
         data: [
-            ['select', 'boolean', 'false', 'true|false', 'When select is true, clicks inside the menu close it.'],
-            ['open', 'boolean', 'false', 'true|false', 'Default menu visiblity when the component initilizes.'],
-            ['origin', 'string', 'tl', 'tl|tr|bl|br', 'Sets the transform origin.'],
-            ['duration', 'number', '100', 'any', 'Open/close fade animation duration.'],
-            ['disabled', 'boolean', 'false', 'true|false', 'Sets disabled state.'],
+            ['select', 'boolean', 'false', 'true | false', 'When select is true, clicks inside the menu close it.'],
+            ['open', 'boolean', 'false', 'true | false', 'Default menu visiblity when the component initilizes.'],
+            ['origin', 'string', 'tl', 'tl | tr | bl | br', 'Describes where the menu content anchors to the trigger element.'],
+            ['duration', 'number', '100', 'any', 'Open/close fade animation duration. Set 0 for no animation.'],
+            ['disabled', 'boolean', 'false', 'true | false', 'Sets disabled state.'],
         ],
     };
     const tableSlots: any = {
@@ -75,7 +75,7 @@
     <section class="space-y-4">
         <h2>Usage</h2>
         <CodeBlock language="html" code={`
-<Menu select={false} open={false} origin="tl">
+<Menu select={false} open={false} anchor="tl">
     <!-- Slot: Trigger -->
     <Button slot="trigger" variant="filled-primary" type="button">Menu</Button>
     <!-- Slot: Content -->

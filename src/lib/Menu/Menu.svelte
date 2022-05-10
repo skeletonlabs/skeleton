@@ -2,7 +2,7 @@
 
 <script lang="ts">
     import { afterUpdate } from "svelte";
-    import { beforeNavigate } from "$app/navigation";
+    import { navigating } from "$app/stores";
     import { fade } from 'svelte/transition';
 
     export let select: boolean = false;
@@ -19,7 +19,7 @@
     const cBaseContent: string = 'absolute z-10';
     let cOrigin: string;
 
-    // Set Origin
+    // Set Content anchor position to Trigger
     function setOrigin(): void {
         switch (origin) {
             case ('tr'): cOrigin = 'origin-top-right right-0 mt-2'; break;
@@ -55,7 +55,7 @@
 
     // Lifecycle Events
     afterUpdate(() => { setOrigin(); });
-    beforeNavigate(() => { open = false; }); // close before navigate
+    if ($navigating) { open = false; } // close when navigating
 
     // Responsive Classes
     $: classesMenu = `${cBaseMenu}`;
@@ -64,17 +64,17 @@
 
 <svelte:body on:click={handleBodyClick} />
 
-<div class="menu-wrapper {classesMenu}" bind:this={elemMenu}>
+<div class="menu-wrapper {classesMenu}" data-testid="menu-wrapper" bind:this={elemMenu}>
 
     <!-- Trigger -->
-    <div class="menu-trigger" on:click={toggle}>
+    <div class="menu-trigger" on:click={toggle} data-testid="menu-trigger">
         {#if $$slots.trigger}<slot name="trigger" />{/if}
     </div>
 
     <!-- Content -->
     {#if open}
 	<div
-        role="menu" class="menu-content {classesContent}"
+        role="menu" class="menu-content {classesContent}" data-testid="menu-content"
         in:fade="{{duration}}" out:fade="{{duration}}"
     >
         {#if $$slots.content}<slot name="content" />{/if}
