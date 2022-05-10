@@ -75,7 +75,7 @@
     <section class="space-y-4">
         <h2>Usage</h2>
         <CodeBlock language="html" code={`
-<Menu select={false} open={false} anchor="tl">
+<Menu select={false} open={false} origin="tl">
     <!-- Slot: Trigger -->
     <Button slot="trigger" variant="filled-primary" type="button">Menu</Button>
     <!-- Slot: Content -->
