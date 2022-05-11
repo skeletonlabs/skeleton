@@ -2,30 +2,37 @@
 
 let active: boolean = false;
 
-let iconDown = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M192 384c-8.188 0-16.38-3.125-22.62-9.375l-160-160c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L192 306.8l137.4-137.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-160 160C208.4 380.9 200.2 384 192 384z"/></svg>`;
-let iconUp = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M352 352c-8.188 0-16.38-3.125-22.62-9.375L192 205.3l-137.4 137.4c-12.5 12.5-32.75 12.5-45.25 0s-12.5-32.75 0-45.25l160-160c12.5-12.5 32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25C368.4 348.9 360.2 352 352 352z"/></svg>`;
+let icon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M310.6 246.6l-127.1 128C176.4 380.9 168.2 384 160 384s-16.38-3.125-22.63-9.375l-127.1-128C.2244 237.5-2.516 223.7 2.438 211.8S19.07 192 32 192h255.1c12.94 0 24.62 7.781 29.58 19.75S319.8 237.5 310.6 246.6z"/></svg>`;
 
 function toggleState(){
     if(active){ active = false; }
     else { active = true; }
 }
 
-$: icon = active ? iconUp : iconDown;
+let cIcon = 'w-4 dark:fill-surface-400 fill-surface-700';
 
+$: iconState = active ? 'rotate-180' : '';
+$: cBase = `cursor-pointer font-semibold flex p-2 hover:bg-surface-300/60 dark:hover:bg-surface-700/60 space-x-2`
+$: contentState = active ? 'scale-100' : '-scale-y-0';
 </script>
-<div class="space-y-2">
-<dt on:click={toggleState} class="cursor-pointer font-semibold flex">
-    <span class="w-full"><slot name="label"/></span>
-    <span class="w-4 dark:fill-surface-400 fill-surface-700">
-        {@html icon}
-    </span>   
-</dt>
+<div class="">
+    <dt on:click={toggleState} class="{cBase}">
+        <span><slot name="lead" /></span>
+        <!-- Label Slot -->
+        <span class="w-full"><slot name="label"/></span>
 
-{#if active}
-<dd>
-    <slot name="content"/>
-</dd>
-{/if}
+        <!-- Expand Icon -->
+        <span class="w-4 flex dark:fill-surface-400 fill-surface-700 {iconState}">
+            {@html icon}
+        </span>   
+    </dt>
+
+    <!-- Content Slot -->
+    {#if active}
+        <dd class="p-4">
+            <slot name="content"/>
+        </dd>
+    {/if}
 </div>
 
 
