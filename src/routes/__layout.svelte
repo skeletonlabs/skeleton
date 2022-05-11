@@ -52,6 +52,7 @@
                 {href: '/components/range-sliders', label: 'Range Sliders'},
                 {href: '/components/slide-toggles', label: 'Slide Toggles'},
 				{href: '/components/tabs', label: 'Tabs'},
+				{href: '/components/tooltips', label: 'Tooltips'},
             ],
         },
         {
