@@ -6,14 +6,15 @@
     import Tooltip from '$lib/Tooltip/Tooltip.svelte';
 
     const tableProps: any = {
-        columns: ['Prop', 'Type', 'Default', 'Description'],
+        columns: ['Prop', 'Type', 'Default', 'Values', 'Description'],
         data: [
-            ['background', 'string', 'bg-black dark:bg-white', 'Provide a class to set background color.'],
-            ['color', 'string', 'text-white dark:text-black', 'Provide a class to set text color.'],
-            ['width', 'string', 'w-auto', 'Provide a class to set tooltip width.'],
-            ['whitespace', 'string', 'whitespace-nowrap', 'Provide a class to set tooltip white-space.'],
-            ['rounded', 'string', 'rounded', 'Provide a class to set tooltip rounded styled.'],
-            ['duration', 'number', '150', 'Animation fade in/out duration in milliseconds. Set 0 (zero) to disable.'],
+            ['position', 'string', 'top', 'top | bottom | left | right', 'The side in which the message will appear.'],
+            ['background', 'string', 'bg-black dark:bg-white', 'class', 'Provide a class to set background color.'],
+            ['color', 'string', 'text-white dark:text-black', 'class', 'Provide a class to set text color.'],
+            ['width', 'string', 'w-auto', 'class', 'Provide a class to set tooltip width.'],
+            ['whitespace', 'string', 'whitespace-nowrap', 'class', 'Provide a class to set tooltip white-space.'],
+            ['rounded', 'string', 'rounded', 'class', 'Provide a class to set tooltip rounded styled.'],
+            ['duration', 'number', '150', 'integer', 'Animation fade in/out duration in milliseconds. Set 0 (zero) to disable.'],
         ],
     };
     const tableSlots: any = {
@@ -64,15 +65,15 @@
             </section>
         </Card>
         <!-- Styled -->
-        <h4>Customized</h4>
+        <h4>Styled</h4>
         <Card class="flex justify-center">
             <Tooltip background="bg-accent-500" color="text-primary-200" width="w-[300px]" whitespace="whitespace-normal" rounded="rounded-xl" duration={0}>
                 <svelte:fragment slot="message">
                     <h4 class="mb-1">Hello, Skeleton 💀</h4>
-                    <span class="text-xs text-white/60">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati id atque laboriosam provident eum facere, architecto veniam.</span>
+                    <span class="text-xs">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati id atque laboriosam provident eum facere, architecto veniam.</span>
                 </svelte:fragment>
                 <svelte:fragment slot="content">
-                    <Button variant="ghost">Customized</Button>
+                    <Button variant="ghost-accent">Styled</Button>
                 </svelte:fragment>
             </Tooltip>
         </Card>
@@ -87,7 +88,7 @@
     <svelte:fragment slot="content"><Button variant="ghost">Default</Button></svelte:fragment>
 </Tooltip>
         `.trim()}></CodeBlock>
-        <h4>Customized</h4>
+        <h4>Styled</h4>
         <CodeBlock language="html" code={`
 <Tooltip background="bg-accent-500" color="text-primary-200" width="w-[300px]" whitespace="whitespace-normal" rounded="rounded-xl" duration={0}>
     <svelte:fragment slot="message">

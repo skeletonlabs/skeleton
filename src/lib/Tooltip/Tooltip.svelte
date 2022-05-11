@@ -61,19 +61,19 @@
     $: classesArrow = `${cBaseArrow} ${cArrowPosition} ${background}`;
 </script>
 
-<div class="tooltip {classesTooltip}">
+<div class="tooltip {classesTooltip} {$$props.class}" data-testid="tooltip">
 
     <!-- Popup -->
     {#if $$slots.message && visible}
-    <div class="popup {classesPopup}" in:fade="{{duration}}" out:fade="{{duration}}">
-        <div class="message {classesMessage}"><slot name="message" /></div>
-        <div class="arrow {classesArrow}"></div>
+    <div class="popup {classesPopup}" data-testid="popup" in:fade="{{duration}}" out:fade="{{duration}}">
+        <div class="message {classesMessage}" data-testid="message"><slot name="message" /></div>
+        <div class="arrow {classesArrow}" data-testid="arrow"></div>
     </div>
     {/if}
     
     <!-- Slot: Content -->
     {#if $$slots.content}
-    <div on:mouseenter={showTooltip} on:mouseleave={hideTooltip}>
+    <div data-testid="content" on:mouseenter={showTooltip} on:mouseleave={hideTooltip}>
         <slot name="content" />
     </div>
     {/if}

@@ -19,6 +19,7 @@ describe('Tooltip.svelte', () => {
     it('Renders with props', () => {
         const { getByTestId } = render(Tooltip, {
             props: {
+                position: 'bottom',
                 background: 'bg-green-500',
                 color: 'text-red-500',
                 width: 'w-[300px]',
