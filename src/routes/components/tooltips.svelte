@@ -13,7 +13,7 @@
             ['color', 'string', 'text-white dark:text-black', 'class', 'Provide a class to set text color.'],
             ['width', 'string', 'w-auto', 'class', 'Provide a class to set tooltip width.'],
             ['whitespace', 'string', 'whitespace-nowrap', 'class', 'Provide a class to set tooltip white-space.'],
-            ['rounded', 'string', 'rounded', 'class', 'Provide a class to set tooltip rounded styled.'],
+            ['rounded', 'string', 'rounded', 'class', 'Provide a class to set tooltip rounded style.'],
             ['duration', 'number', '150', 'integer', 'Animation fade in/out duration in milliseconds. Set 0 (zero) to disable.'],
         ],
     };
@@ -32,13 +32,16 @@
     <header class="space-y-4">
         <h2>Tooltips</h2>
         <p>Informative tooltips that render on mouse over.</p>
-        <CodeBlock language="javascript" code={`<script>import {Component} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
+        <CodeBlock language="javascript" code={`<script>import {Tooltip} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
     </header>
 
     <!-- Examples -->
-    <section class="space-y-4">
+    <Card background="bg-warning-500" class="text-center sm:hidden">
+        <span>Warning: Tooltips require a mouse over event and do not work on mobile touchscreens.</span>
+    </Card>
+    <section class="hidden sm:block space-y-4">
         <!-- Default -->
-        <Card class="flex justify-center space-x-4">
+        <Card class="flex flex-row md:flex-row justify-center space-x-4">
             <section class="flex justify-center">
                 <Tooltip>
                     <svelte:fragment slot="message">Tooltip on Top.</svelte:fragment>
