@@ -43,7 +43,7 @@ function toggleState(): void{
 
 $: iconState = activeState ? 'rotate-180' : '';
 $: cBase = `cursor-pointer font-semibold flex p-2 hover:bg-surface-300/60 dark:hover:bg-surface-700/60 space-x-2`
-$: cIcon = `${iconState} flex w-4 dark:fill-surface-400 fill-surface-700 transition-all duration-[0.4s]`;
+$: cIcon = `${iconState} flex w-3 dark:fill-surface-400 fill-surface-700 transition-all duration-[0.4s]`;
 
 </script>
 <div class="space-y-1">
