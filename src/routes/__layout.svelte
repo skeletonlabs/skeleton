@@ -32,6 +32,7 @@
         {
             title: 'Components',
             list: [
+				{href: '/components/accordions', label: 'Accordions'},
                 {href: '/components/alerts', label: 'Alerts'},
                 {href: '/components/avatars', label: 'Avatars'},
 				{href: '/components/badges', label: 'Badges'},
