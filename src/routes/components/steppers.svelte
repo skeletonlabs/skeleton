@@ -19,6 +19,8 @@
             ['max', 'number', '0', 'No', 'Sets the max number of steps.'],
             ['accent', 'string', 'bg-primary-500', 'No', 'Provide a class that sets the step accent color.'],
             ['variant', 'string', 'text', 'No', 'Provide a button variant property.'],
+            ['skip', 'boolean', 'true', 'No', 'Allows users to navigate to any step in any order.'],
+            ['disabled', 'boolean', 'false', 'No', 'Disables the forward progress button.'],
         ],
     };
     const tableSlots: any = {
@@ -53,23 +55,33 @@
         </div>
     </Card>
     <Card>
-        <Stepper {active} max={3} accent="bg-accent-500" variant="ring-accent">
-            <Button variant="filled-accent" on:click={showCompleteAlert}>Complete</Button>
+        <Stepper {active} max={3} accent="bg-accent-500" variant="ring-accent" skip={false}>
+            <svelte:fragment slot="label">Step {$active+1}</svelte:fragment>
+            <svelte:fragment slot="complete">
+                <Button variant="filled-accent" on:click={showCompleteAlert}>Complete</Button>
+            </svelte:fragment>
         </Stepper>
     </Card>
     <Card>
-        <Stepper {active} max={3} accent="bg-warning-500" variant="ghost-warning">
-            <Button variant="filled-warning" on:click={showCompleteAlert}>Complete</Button>
+        <Stepper {active} max={3} accent="bg-warning-500" variant="ghost-warning" skip={false} disabled>
+            <svelte:fragment slot="label">Step {$active+1}</svelte:fragment>
+            <svelte:fragment slot="complete">
+                <Button variant="filled-warning" on:click={showCompleteAlert}>Complete</Button>
+            </svelte:fragment>
         </Stepper>
     </Card>
 
     <!-- Usage -->
     <section class="space-y-4">
         <h2>Usage</h2>
+        <p>For best results keep the number of steps to five or less.</p>
         <CodeBlock language="js" code={`const storeActive: Writable<number> = writable(0);`}></CodeBlock>
         <CodeBlock language="html" code={`
 <Stepper {storeActive} max={3} accent="bg-primary-500" variant="ring-primary">
-    <Button variant="filled-primary" on:click={submit}>Complete</Button>
+    <svelte:fragment slot="label">Step {$storeActive+1}</svelte:fragment>
+    <svelte:fragment slot="complete">
+        <Button variant="filled-primary" on:click={onComplete}>Complete</Button>
+    </svelte:fragment>
 </Stepper>
         `.trim()}></CodeBlock>
     </section>

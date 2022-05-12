@@ -7,15 +7,24 @@
     export let accent: string = 'bg-primary-500';
     export let text: string = 'text-black dark:text-white';
     export let variant: string = 'text';
+    export let disabled: boolean = false;
+    export let skip: boolean = true;
 
     // Base Classes
-    const cBaseStepper: string = 'flex justify-between items-center';
+    const cBaseStepper: string = 'flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 space-x-0 md:space-x-4';
     const cbaseSteps: string = 'flex space-x-4 justify-center items-center';
-    const cBaseNumbers: string = 'text-sm font-bold w-8 aspect-square flex justify-center items-center rounded-full cursor-pointer';
+    const cBaseNumbers: string = 'text-sm font-bold w-6 aspect-square flex justify-center items-center rounded-full transition-all duration-200';
     const cBaseActive: string = 'text-white';
+    let cBaseInactive: string = 'bg-surface-300 dark:bg-surface-700';
 
-    // Functions
-    function setActive(i: number): any { active.set(i); }
+    // If skip true, set hover styles
+    if (skip) { cBaseInactive += ' hover:brightness-90 cursor-pointer'; }
+
+    // Functionality
+    function setActive(i: number): any {
+        if (skip === false) return;
+        active.set(i);
+    }
     function stepBack(): void { active.set($active - 1); }
     function stepNext(): void { active.set($active + 1); }
 
@@ -29,22 +38,32 @@
 <div class="stepper {classesStepper} {$$props.class}">
 
     <!-- Steps -->
-    <nav class="numbers {classesSteps}">
-        {#each Array(max) as _, i}
-        <li class="step {classesNumbers} {$active === i ? classesActive : 'bg-surface-300 dark:bg-surface-700'}" on:click={()=>{setActive(i)}}>{i + 1}</li>
-        {/each}
-    </nav>
+    <div class="flex-initial pb-[14px]">
+        <!-- Numbers -->
+        <nav class="numbers {classesSteps}">
+            {#each Array(max) as _, i}
+            <li class="step {classesNumbers} {$active === i ? classesActive : cBaseInactive}" on:click={()=>{setActive(i)}}>
+                {i + 1}
+            </li>
+            {/each}
+        </nav>
+        <!-- Line -->
+        <div class="h-1 bg-surface-300 dark:bg-surface-700 -mt-[14px]"></div>
+    </div>
+
+    <!-- Label -->
+    {#if $$slots.label}<div class="flex-auto"><slot name="label" /></div>{/if}
 
     <!-- Buttons -->
-    <div class="flex items-center space-x-4">
-        <Button {variant} on:click={stepBack} disabled={$active === 0}>Back</Button>
+    <div class="flex-initial flex items-center space-x-4">
+        <Button {variant} on:click={stepBack} disabled={$active === 0}>&larr;</Button>
         {#if ($active+1) < max}
-            <Button {variant} on:click={stepNext}>Next</Button>
+            <Button {variant} on:click={stepNext} {disabled}>&rarr;</Button>
         {:else}
-            {#if $$slots.default}
-            <slot />
+            {#if $$slots.complete}
+            <slot name="complete" />
             {:else}
-            <Button {variant} disabled>Next</Button>
+            <Button {variant} disabled>&rarr;</Button>
             {/if}
         {/if}
     </div>

@@ -10,6 +10,7 @@
     export let fill: string = 'fill-white dark:fill-black';
     export let ring: string = 'ring-transparent';
     export let weight: string = 'ring-1';
+    export let width: string = 'w-auto';
     export let rounded: string = 'rounded-lg';
 
     // Base Classes
@@ -90,7 +91,7 @@
     });
 
     // Reactive Classes
-    $: classes = `${cBase} ${cSize} ${background} ${color} ${fill} ${ring} ${weight} ${rounded} ${cAnimation}`;
+    $: classes = `${cBase} ${cSize} ${background} ${color} ${fill} ${ring} ${weight} ${width} ${rounded} ${cAnimation}`;
 </script>
 
 {#if $$props.href}
