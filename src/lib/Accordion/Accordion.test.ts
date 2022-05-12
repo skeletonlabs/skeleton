@@ -7,7 +7,6 @@
  import Accordion from '$lib/Accordion/Accordion.svelte';
  import AccordionGroup from '$lib/Accordion/AccordionGroup.svelte';
 
-
  import type { Writable } from "svelte/store";
  export let selected: Writable<any>;
 

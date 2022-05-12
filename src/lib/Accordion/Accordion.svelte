@@ -1,9 +1,7 @@
 <script lang="ts">
 
 import { getContext } from "svelte";
-import { compute_rest_props } from "svelte/internal";
 import type { Writable } from "svelte/store";
-
 import { slide } from 'svelte/transition';
 
 export let index: number = -1;

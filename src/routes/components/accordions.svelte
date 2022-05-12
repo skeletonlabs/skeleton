@@ -55,7 +55,7 @@
     <Card class="space-y-4">
         <AccordionGroup selected={activeStore}>
             <Accordion index={0}>
-                <svelte:fragment slot="label">Does Skeleton come with an accordion component?</svelte:fragment>
+                <svelte:fragment slot="label">Does Skeleton come with an Accordion component?</svelte:fragment>
                 <svelte:fragment slot="content">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 </svelte:fragment>
