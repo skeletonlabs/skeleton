@@ -33,7 +33,8 @@
     const tableSlots: any = {
         columns: ['Name', 'Description'],
         data: [
-            ['Default', 'Provide an optional submit button or complete indicator, such as an icon.'],
+            ['label', 'Provide label content next to the numeric steps. (ex: Step One)'],
+            ['complete', 'Provide an optional submit button or complete indicator, such as an icon.'],
         ],
     };
 </script>
