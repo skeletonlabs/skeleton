@@ -10,9 +10,9 @@ export let multiple: boolean = false;
 setContext('active', selected);
 setContext('multiple', multiple);
 
-$:classes = `${spacing}`;
+$:classes = `${spacing} ${$$props.classes}`;
 </script>
 
-<dl class="{classes}">
+<dl class="accordionGroup {classes}" data-testid="accordion-group">
     <slot />
 </dl>

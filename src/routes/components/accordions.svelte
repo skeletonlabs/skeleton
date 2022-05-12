@@ -3,6 +3,8 @@
     import Table from "$lib/Table/Table.svelte";
     import Card from "$lib/Card/Card.svelte";
 
+    import { writable } from "svelte/store";
+
     import AccordionGroup from '$lib/Accordion/AccordionGroup.svelte';
     import Accordion from '$lib/Accordion/Accordion.svelte';
     import Avatar from '$lib/Avatar/Avatar.svelte';
@@ -10,17 +12,27 @@
     const tableProps: any = {
         columns: ['Prop', 'Type', 'Default', 'Required', 'Description'],
         data: [
-            ['name', '-', '-', '-', '...'],
-        ],
-    };
-    const tableSlots: any = {
-        columns: ['Name', 'Description'],
-        data: [
-            ['name', '...'],
+            ['index', 'integer', '-1', 'true', 'Set the index of the accordion.'],
         ],
     };
 
-    import { writable } from "svelte/store";
+    const tablePropsGroup: any = {
+        columns: ['Prop', 'Type', 'Default', 'Required', 'Description'],
+        data: [
+            ['selected', 'any', '-', 'true', 'A svelte store that can be used to set the default opened accordions.'],
+            ['multiple', 'boolean', 'false', 'false', 'If set to true, multiple accordion elements can be active at the same time.'],
+            ['spacing', 'class', 'spacing-y-2', 'false', 'Set the spacing between accordion elements.'],
+        ],
+    };
+
+    const tableSlots: any = {
+        columns: ['Name', 'Description'],
+        data: [
+            ['lead', 'Slot for setting a lead element, such as an icon.'],
+            ['label', 'Slot for setting the label of the accordion item.'],
+            ['content', 'Slot for setting the content of the accordion item.'],
+        ],
+    };
 
     let activeStore = writable([]);
     let activeStoreB = writable([1,2]);
@@ -34,7 +46,7 @@
     <!-- Header -->
     <header class="space-y-4">
         <h2>Accordions</h2>
-        <p>Accordions are useful for expanding a section to reveal information.</p>
+        <p>Accordions are useful for storing content that can be expanded, in a compact way.</p>
         <CodeBlock language="javascript" code={`<script>import {Accordion, AccordionGroup} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
     </header>
 
@@ -50,7 +62,7 @@
             </Accordion>
 
             <Accordion index={1}>
-                <svelte:fragment slot="label">What more info do I need?</svelte:fragment>
+                <svelte:fragment slot="label">What else do I need to know to build awesome web apps?</svelte:fragment>
                 <svelte:fragment slot="content">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 </svelte:fragment>
@@ -70,14 +82,14 @@
     <Card class="space-y-4">
         <AccordionGroup multiple selected={activeStoreB}>
             <Accordion index={0}>
-                <svelte:fragment slot="label">Does Skeleton come with an accordion component?</svelte:fragment>
+                <svelte:fragment slot="label">Does Skeleton come with an Accordion component?</svelte:fragment>
                 <svelte:fragment slot="content">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 </svelte:fragment>
             </Accordion>
 
             <Accordion index={1}>
-                <svelte:fragment slot="label">What more info do I need?</svelte:fragment>
+                <svelte:fragment slot="label">What else do I need to know to build awesome web apps?</svelte:fragment>
                 <svelte:fragment slot="content">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 </svelte:fragment>
@@ -95,7 +107,7 @@
 
     <h3>Spacing and Slots</h3>
     <Card class="space-y-4">
-        <AccordionGroup spacing="space-y-0" multiple selected={activeStoreC}>
+        <AccordionGroup spacing="space-y-4" multiple selected={activeStoreC}>
             <Accordion index={0}>
                 <svelte:fragment slot="lead">{@html icon}</svelte:fragment>
                 <svelte:fragment slot="label">Label and leading slot icon</svelte:fragment>
@@ -106,7 +118,7 @@
 
             <Accordion index={1}>
                 <svelte:fragment slot="lead"><Avatar size="sm" src="https://i.pravatar.cc/" /></svelte:fragment>
-                <svelte:fragment slot="label">Comb</svelte:fragment>
+                <svelte:fragment slot="label">Avatar + Label</svelte:fragment>
                 <svelte:fragment slot="content">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 </svelte:fragment>
@@ -118,13 +130,19 @@
     <!-- Usage -->
     <section class="space-y-4">
         <h2>Usage</h2>
-        <CodeBlock language="html" code={`<div>UsageExample</div>`.trim()}></CodeBlock>
+        <CodeBlock language="html" code={`<AccordionGroup spacing="space-y-2 selected={selected} multiple">\n <Accordion index={0}>\n   <svelte:fragment slot="label">Label</svelte:fragment>\n   <svelte:fragment slot="content">Content</svelte:fragment>\n </Accordion>\n</AccordionGroup>`.trim()}></CodeBlock>
     </section>
 
     <!-- Properties -->
 	<section class="space-y-4">
-		<h2>Properties</h2>
+		<h2>Properties Accordion</h2>
 		<Table source="{tableProps}"></Table>
+	</section>
+
+    <!-- Properties -->
+	<section class="space-y-4">
+		<h2>Properties Accordion Group</h2>
+		<Table source="{tablePropsGroup}"></Table>
 	</section>
 	
 	<!-- Slots -->
