@@ -4,11 +4,12 @@
 
     export let active: Writable<number> = writable(0);
     export let max: number = 0;
+    export let skippable: boolean = true;
+    export let progressable: boolean = false;
     export let accent: string = 'bg-primary-500';
     export let text: string = 'text-black dark:text-white';
     export let variant: string = 'text';
     export let disabled: boolean = false;
-    export let skip: boolean = true;
 
     // Base Classes
     const cBaseStepper: string = 'flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 space-x-0 md:space-x-4';
@@ -17,12 +18,12 @@
     const cBaseActive: string = 'text-white';
     let cBaseInactive: string = 'bg-surface-300 dark:bg-surface-700';
 
-    // If skip true, set hover styles
-    if (skip) { cBaseInactive += ' hover:brightness-90 cursor-pointer'; }
+    // If skippable true, set hover styles
+    if (skippable) { cBaseInactive += ' hover:brightness-90 cursor-pointer'; }
 
     // Functionality
     function setActive(i: number): any {
-        if (skip === false) return;
+        if (skippable === false) return;
         active.set(i);
     }
     function stepBack(): void { active.set($active - 1); }
@@ -43,7 +44,11 @@
         <nav class="numbers {classesSteps}">
             {#each Array(max) as _, i}
             <li class="step {classesNumbers} {$active === i ? classesActive : cBaseInactive}" on:click={()=>{setActive(i)}}>
+                {#if progressable && $active > i}
+                &check;
+                {:else}
                 {i + 1}
+                {/if}
             </li>
             {/each}
         </nav>
