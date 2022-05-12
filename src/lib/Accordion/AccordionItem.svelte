@@ -40,7 +40,7 @@
     }
 
     // Reactive Classes
-    $: classesAccordian = `${cBase}`;
+    $: classesAccordian = `${cBase} ${spacing}`;
     $: classesTitle = `${cBaseTitle} ${hover}`;
         $: classesIconState = $active.includes(value) ? '-rotate-180' : '';
         $: classesIcon = `${cBaseIcon} ${classesIconState}`;
@@ -48,8 +48,7 @@
 </script>
 
 {#if value === undefined}<p class="!text-warning-500">Item missing value property.</p>{:else}
-<dl on:click class="accordion-item {classesAccordian} {$$props.class}" data-testid="accordion-item">
-    <div class="{spacing}">
+<div on:click class="accordion-item {classesAccordian} {$$props.class}" data-testid="accordion-item">
 
         <!-- Title -->
         <dt class="{classesTitle}" on:click={onToggle}>
@@ -65,9 +64,8 @@
     
         <!-- Description -->
         {#if $active.includes(value)}
-        <dd class="{classesDesc}" transition:slide><slot name="description"/></dd>
+        <dd class="{classesDesc}" transition:slide|local><slot name="description"/></dd>
         {/if}
 
     </div>
-</dl>
 {/if}
