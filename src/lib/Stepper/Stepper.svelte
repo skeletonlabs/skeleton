@@ -36,7 +36,7 @@
     $: classesActive = `${cBaseActive} ${accent}`;
 </script>
 
-<div class="stepper {classesStepper} {$$props.class}">
+<div class="stepper {classesStepper} {$$props.class}" data-testid="stepper">
 
     <!-- Steps -->
     <div class="flex-initial pb-[14px]">
