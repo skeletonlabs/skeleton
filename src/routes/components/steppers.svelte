@@ -4,18 +4,13 @@
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
     import Table from "$lib/Table/Table.svelte";
     import Card from "$lib/Card/Card.svelte";
-    import Button from '$lib/Button/Button.svelte';
-    import Divider from '$lib/Divider/Divider.svelte';
     import Stepper from '$lib/Stepper/Stepper.svelte';
+    import Step from '$lib/Stepper/Step.svelte';
 
     const active: Writable<number> = writable(0);
-    function showCompleteAlert(): void { alert('Complete was triggered!'); }
+    const lorem: string = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque vel expedita porro vero, saepe dicta repellendus facilis ab accusamus unde, tempora ut nobis eum. Veniam, architecto corrupti.';
 
-    const exampleSteps: any[] = [
-        'Step One',
-        'Step Two',
-        'Step Three',
-    ];
+    function onComplete(): void { alert('Complete was triggered!'); }
 
     // Props and Slots
     const tableProps: any = {
@@ -45,39 +40,27 @@
     <header class="space-y-4">
         <h2>Stepper</h2>
         <p>Divide content into stepped sequence.</p>
-        <CodeBlock language="javascript" code={`<script>import {Stepper} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
+        <CodeBlock language="javascript" code={`<script>import {Stepper, Step} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
     </header>
 
     <!-- Examples -->
-    <Card class="space-y-4">
-        <Stepper {active} max={exampleSteps.length}></Stepper>
-        <Divider />
-        <div class="text-center py-12">
-            {#if $active === 0}
-            <h4>{exampleSteps[$active]}</h4>
-            {:else if $active === 1}
-            <h4>{exampleSteps[$active]}</h4>
-            {:else if $active === 2}
-            <h4>{exampleSteps[$active]}</h4>
-            {/if}
-        </div>
-    </Card>
     <Card>
-        <Stepper {active} max={exampleSteps.length} accent="bg-accent-500" variant="ring-accent" skippable={false} progressable={true}>
-            <svelte:fragment slot="label">{exampleSteps[$active]}</svelte:fragment>
-            <svelte:fragment slot="complete">
-                <Button variant="filled-accent" on:click={showCompleteAlert}>Complete</Button>
-            </svelte:fragment>
-        </Stepper>
-    </Card>
-    <Card>
-        <Stepper {active} max={exampleSteps.length} accent="bg-warning-500" variant="ghost-warning" skippable={false} progressable={true} disabled={$active === 1}>
-            <svelte:fragment slot="label">
-                Step {$active+1} {$active === 1 ? '🔒' : ''}
-            </svelte:fragment>
-            <svelte:fragment slot="complete">
-                <Button variant="filled-warning" on:click={showCompleteAlert}>Complete</Button>
-            </svelte:fragment>
+        <Stepper {active} length={3}>
+            <Step index={0} disabled={false} complete={false}>
+                <svelte:fragment slot="title"><h4>Step One</h4></svelte:fragment>
+                <svelte:fragment slot="subtitle">Subtext for step one</svelte:fragment>
+                <svelte:fragment slot="content"><p>{lorem}</p></svelte:fragment>
+            </Step>
+            <Step index={1} disabled={false} complete={false}>
+                <svelte:fragment slot="title"><h4>Step Two</h4></svelte:fragment>
+                <svelte:fragment slot="subtitle">Subtext for step two</svelte:fragment>
+                <svelte:fragment slot="content"><p>{lorem}</p></svelte:fragment>
+            </Step>
+            <Step index={2} disabled={false} complete={false} on:complete={onComplete}>
+                <svelte:fragment slot="title"><h4>Step Three</h4></svelte:fragment>
+                <svelte:fragment slot="subtitle">Subtext for step three</svelte:fragment>
+                <svelte:fragment slot="content"><p>{lorem}</p></svelte:fragment>
+            </Step>
         </Stepper>
     </Card>
 
@@ -85,31 +68,20 @@
     <section class="space-y-4">
         <h2>Usage</h2>
         <p>For best user experience keep the max number of steps to five or less.</p>
-        <CodeBlock language="js" code={`const storeActive: Writable<number> = writable(0);`}></CodeBlock>
-        <CodeBlock language="html" code={`<Stepper {active} max={3}></Stepper>`.trim()}></CodeBlock>
-        <h4>Customized</h4>
-        <CodeBlock language="html" code={`
-<Stepper {active} max={3} accent="bg-primary-500" variant="ghost-primary" skippable={false} progressable={true} disabled={false}>
-    <svelte:fragment slot="label">
-        Step {$active+1}
-    </svelte:fragment>
-    <svelte:fragment slot="complete">
-        <Button variant="filled-primary" on:click={showCompleteAlert}>Complete</Button>
-    </svelte:fragment>
-</Stepper>
-        `.trim()}></CodeBlock>
+        <CodeBlock language="js" code={`const active: Writable<number> = writable(0);`}></CodeBlock>
+        <CodeBlock language="html" code={`...`.trim()}></CodeBlock>
     </section>
 
     <!-- Properties -->
 	<section class="space-y-4">
 		<h2>Properties</h2>
-		<Table source="{tableProps}"></Table>
+		<!-- <Table source="{tableProps}"></Table> -->
 	</section>
 	
 	<!-- Slots -->
 	<section class="space-y-4">
 		<h2>Slots</h2>
-		<Table source="{tableSlots}"></Table>
+		<!-- <Table source="{tableSlots}"></Table> -->
 	</section>
     
 </div>
