@@ -26,8 +26,8 @@
         columns: ['Prop', 'Type', 'Default', 'Required', 'Description'],
         data: [
             ['index', 'number', '-', 'Yes', 'Indicates the step index value. Should start with zero 0 (zero)'],
-            ['disabled', 'boolean', '-', 'No', 'When enabled, steps Next button to disabled state.'],
-            ['done', 'boolean', '-', 'No', 'When enabled, numeric step changes to checkmark indicator.'],
+            ['disabled', 'boolean', '-', 'No', 'When enabled, the Next button is disabled, preventing progress.'],
+            ['done', 'boolean', '-', 'No', 'When enabled, numeric step value changes to checkmark.'],
         ],
     };
     const tableSlotsStepper: any = {
