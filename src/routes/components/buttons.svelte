@@ -26,6 +26,7 @@
             ['fill', 'string', 'fill-white dark:fill-black', 'Provide a class to define SVG fill color.'],
             ['ring', 'string', 'ring-transparent', 'Provide a class to define ring color.'],
             ['weight', 'string', 'ring-1', 'Provide a class to define ring weight.'],
+            ['width', 'string', 'w-auto', 'Provide a class to set the button width.'],
             ['rounded', 'string', 'rounded-lg', 'Provide a class to define border radius.'],
             ['href', 'string', '-', 'Converts to an anchor element and sets click through value.'],
         ],
