@@ -1,19 +1,20 @@
 <!-- Reference: https://dribbble.com/shots/16221169-Figma-Material-Ui-components-Steppers-and-sliders -->
 
 <script lang='ts'>
-    import {createEventDispatcher, getContext} from 'svelte';
+    import { getContext } from 'svelte';
     import Button from '$lib/Button/Button.svelte';
 
     // Props
     export let index: number;
     export let disabled: boolean;
-    export let complete: boolean;
+    export let done: boolean;
 
     // Context
+    export let dispatch: any = getContext('dispatch');
     export let active: any = getContext('active');
     export let length: number = getContext('length');
-    export let accent = 'bg-primary-500';
-    export let timeline = 'bg-surface-300 dark:bg-surface-700';
+    export let accent: string = getContext('accent');
+    export let background: string = getContext('background');
 
     // Base Classes
     const cStep: string = 'flex space-x-8';
@@ -27,19 +28,17 @@
     function stepPrev(): void { active.set($active-1); }
     function stepNext(): void { active.set($active+1); }
 
-    // On Complete
-    // TODO: pass this up through the parent <Stepper> component
-    const dispatch = createEventDispatcher();
+    // On done
     function onComplete() { dispatch('complete', {}); }
 
     // Set Active Background Color
-    $: activeBg = index === $active ? `!text-white ${accent}` : timeline;
+    $: activeBg = index === $active ? `!text-white ${accent}` : background;
 
     // Reactive Classes
     $: classesStep = `${cStep}`;
     $: classesTimeline = `${cTimeline}`;
     $: classesCircle = `${cTimelineCircle} ${activeBg}`;
-    $: classesBar = `${cTimelineBar} ${timeline}`;
+    $: classesBar = `${cTimelineBar} ${background}`;
     $: classesInfo = `${cInfo}`;
     $: classesNav = `${cNav}`;
 </script>
@@ -49,7 +48,7 @@
     <!-- Timeline -->
     <div class="timeline {classesTimeline}">
         <!-- Circle -->
-        <div class="circle {classesCircle}">{@html complete ? '&check;' : index+1}</div>
+        <div class="circle {classesCircle}">{@html done ? '&check;' : index+1}</div>
         <!-- Bar -->
         {#if (index+1) < length}<div class="bar {classesBar}"></div>{/if}
     </div>
