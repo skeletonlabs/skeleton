@@ -2,8 +2,8 @@
  * @vitest-environment jsdom
  */
 
-import { cleanup, render, screen } from '@testing-library/svelte'
-import { afterEach, describe, it, vi, expect } from 'vitest';
+import { cleanup, render } from '@testing-library/svelte'
+import { afterEach, describe, it, expect } from 'vitest';
 import { writable, type Writable } from 'svelte/store';
 
 import Stepper from '$lib/Stepper/Stepper.svelte';
@@ -23,12 +23,9 @@ describe('Stepper.svelte', () => {
         const { getByTestId } = render(Stepper, {
             props: {
                 active,
-                max: 5,
-                skippable: false,
-                progressable: false,
+                length: 3,
                 accent: 'bg-green-500',
-                variant: 'text',
-                disabled: false
+                background: 'bg-surface-500',
             },
         });
         expect(getByTestId('stepper')).toBeTruthy();
