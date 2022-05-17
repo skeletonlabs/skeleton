@@ -2,23 +2,33 @@
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
     import Card from "$lib/Card/Card.svelte";
     import Button from '$lib/Button/Button.svelte';
-    import { dialogStore, type DialogAlert, type DialogConfirm, type DialogPrompt, type DialogComponent } from '$lib/Notifications/Stores';
+    import Divider from '$lib/Divider/Divider.svelte';
+    import { dialogStore, type DialogAlert, type DialogConfirm, type DialogPrompt } from '$lib/Notifications/Stores';
 
     let valueConfirm: boolean = false;
     let valuePrompt: string = 'Susan';
+    const loremText: string = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem tempora, aliquam dolore amet laudantium sed numquam cum dignissimos. Illum deleniti expedita nam architecto voluptatem quo.';
 
     // Trigger Dialog
-    function dialogAlertSingle(): void {
+    function dialogAlertBasic(): void {
         const d: DialogAlert = {
             title: 'Welcome to Skeleton.',
-            body: 'This is a standard alert dialog.',
+            body: loremText,
+        };
+        dialogStore.trigger(d);
+    }
+    function dialogAlertIcon(): void {
+        const d: DialogAlert = {
+            icon: '<svg class="w-4 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M416 400V464C416 490.5 394.5 512 368 512H320V464C320 455.2 312.8 448 304 448C295.2 448 288 455.2 288 464V512H224V464C224 455.2 216.8 448 208 448C199.2 448 192 455.2 192 464V512H144C117.5 512 96 490.5 96 464V400C96 399.6 96 399.3 96.01 398.9C37.48 357.8 0 294.7 0 224C0 100.3 114.6 0 256 0C397.4 0 512 100.3 512 224C512 294.7 474.5 357.8 415.1 398.9C415.1 399.3 416 399.6 416 400V400zM160 192C124.7 192 96 220.7 96 256C96 291.3 124.7 320 160 320C195.3 320 224 291.3 224 256C224 220.7 195.3 192 160 192zM352 320C387.3 320 416 291.3 416 256C416 220.7 387.3 192 352 192C316.7 192 288 220.7 288 256C288 291.3 316.7 320 352 320z"/></svg>',
+            title: 'Welcome to Skeleton.',
+            body: loremText,
         };
         dialogStore.trigger(d);
     }
     function dialogAlertMultiple(): void {
-        dialogStore.trigger({ title: 'Dialog One.', body: 'This is the message body for dialog one.', });
-        dialogStore.trigger({ title: 'Dialog Two.', body: 'This is the message body for dialog two.', });
-        dialogStore.trigger({ title: 'Dialog Three.', body: 'This is the message body for dialog three.', });
+        dialogStore.trigger({ title: 'Dialog One.', body: loremText });
+        dialogStore.trigger({ title: 'Dialog Two.', body: loremText });
+        dialogStore.trigger({ title: 'Dialog Three.', body: loremText });
     }
     function dialogConfirm(): void {
         const d: DialogConfirm = {
@@ -39,10 +49,26 @@
         };
         dialogStore.trigger(d);
     }
+    function dialogImage(): void {
+        const d: DialogAlert = {
+            title: 'Image Example',
+            body: 'See the embedded image below.',
+            image: 'https://i.imgur.com/5KWywzz.gif'
+        };
+        dialogStore.trigger(d);
+    }
+    function dialogHtml(): void {
+        const d: DialogAlert = {
+            title: 'HTML Example',
+            body: 'See the embedded HTML content below.',
+            html: `<div class="bg-green-500 p-4">Hello, Skeleton</div>`
+        };
+        dialogStore.trigger(d);
+    }
     function dialogComponent(): void {
-        const d: DialogComponent = {
-            title: 'Enter Name',
-            body: 'Provide your first name in the field below.',
+        const d: DialogAlert = {
+            title: 'Component Example',
+            body: 'See the embedded Svelte component below.',
             component: { element: Card, props: {background: 'bg-orange-500'}, slot: '<p class="text-center">Hello, Skeleton!</p>' }
         };
         dialogStore.trigger(d);
@@ -54,73 +80,93 @@
     <!-- Header -->
     <header class="space-y-4">
         <h2>Template</h2>
-        <p>Display an overlay notification, including options for alerts, confirmation, prompts, and more.</p>
+        <p>Generate overlay notification utilizing a dynamic queueing system.</p>
     </header>
 
     <!-- Examples -->
     <section class="space-y-4">
-        <nav class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-4">
+        <nav class="grid grid-cols-1 lg:grid-cols-2 gap-4">
             <Card class="text-center space-y-4">
                 <h4>Alert</h4>
-                <nav class="flex flex-col items-center space-y-4">
-                    <Button variant="ghost-primary" on:click={dialogAlertSingle}>Single</Button>
+                <nav class="flex justify-center space-x-4">
+                    <Button variant="ghost-primary" on:click={dialogAlertBasic}>Basic</Button>
+                    <Button variant="ghost-primary" on:click={dialogAlertIcon}>Icon</Button>
                     <Button variant="ghost-primary" on:click={dialogAlertMultiple}>Multiple</Button>
                 </nav>
             </Card>
             <Card class="text-center space-y-4">
+                <h4>Embeds</h4>
+                <nav class="flex justify-center space-x-4">
+                    <Button variant="ghost-primary" on:click={dialogImage}>Image</Button>
+                    <Button variant="ghost-primary" on:click={dialogHtml}>HTML</Button>
+                    <Button variant="ghost-primary" on:click={dialogComponent}>Component</Button>
+                </nav>
+            </Card>
+            <Card class="text-center space-y-4">
                 <h4>Confirm</h4>
-                <Button variant="ghost-primary" on:click={dialogConfirm}>Trigger</Button>
+                <Button variant="ghost-primary" on:click={dialogConfirm}>Trigger Confirm</Button>
                 <pre class="bg-black/20 p-4">Response: {JSON.stringify(valueConfirm, null, 2)}</pre>
             </Card>
             <Card class="text-center space-y-4">
                 <h4>Prompt</h4>
-                <Button variant="ghost-primary" on:click={dialogPrompt}>Trigger</Button>
+                <Button variant="ghost-primary" on:click={dialogPrompt}>Trigger Prompt</Button>
                 <pre class="bg-black/20 p-4">Response: {JSON.stringify(valuePrompt, null, 2)}</pre>
-            </Card>
-            <Card class="text-center space-y-4">
-                <h4>Component</h4>
-                <Button variant="ghost-primary" on:click={dialogComponent}>Trigger</Button>
             </Card>
         </nav>
     </section>
 
     <!-- Queue -->
-    <pre class="bg-black/20 p-4">queue: {JSON.stringify($dialogStore, null, 2)}</pre>
+    <!-- <pre class="bg-black/20 p-4">queue: {JSON.stringify($dialogStore, null, 2)}</pre> -->
+    
+    <Divider />
 
-    <!-- Dialog Component -->
+    <!-- Import Component -->
     <section class="space-y-4">
         <h2>Insert the Dialog Component</h2>
-        <p>Import and add the dialog component within global scope of your app, such as your root <strong>__layout.svelte</strong> component.</p>
+        <p>Add the following to your root <strong>__layout.svelte</strong> component.</p>
         <CodeBlock language="javascript" code={`import { Dialog } from '@brainandbones/skeleton';`}></CodeBlock>
         <CodeBlock language="html" code={`<Dialog />`.trim()}></CodeBlock>
     </section>
+
+    <Divider />
     
-    <!-- Dialog Store and Types -->
+    <!-- Store and Types -->
     <section class="space-y-4">
         <h2>Import Store and Types</h2>
-        <p>Import the Svelte data store, which allows you to manipulate the dialog queue. Additionally you may import various dialog type definitions.</p>
-        <CodeBlock language="javascript" code={`import { dialogStore, type DialogAlert, type DialogConfirm, type DialogPrompt, type DialogComponent } from '@brainandbones/skeleton';`}></CodeBlock>
+        <p>Import the Svelte data store, which allows you to manipulate the dialog queue. The store uses a first-in-first-out (FIFO) flow.</p>
+        <CodeBlock language="javascript" code={`import { dialogStore } from '@brainandbones/skeleton';`}></CodeBlock>
+        <p>You may also optionally import dialog type definitions.</p>
+        <CodeBlock language="javascript" code={`import { type DialogAlert, type DialogConfirm, type DialogPrompt } from '@brainandbones/skeleton';`}></CodeBlock>
     </section>
-    
-    <!-- Dialog Queue -->
-    <section class="space-y-4">
-        <h2>View the Queue</h2>
-        <p>You can visualize your dialog queue at any time by using the following snippet.</p>
-        <CodeBlock language="html" code={`<pre>queue: {JSON.stringify($dialogStore, null, 2)}</pre>`}></CodeBlock>
-    </section>
-    
-    <!-- Trigger -->
+
+    <Divider />
+
+    <!-- Methods -->
 	<section class="space-y-4">
-        <h2>Trigger</h2>
-        <p>The following method allows you to insert a new dialog into the dialog queue. See the defined dialog examples below.</p>
-        <CodeBlock language="javascript" code={`dialogStore.trigger(d);`}></CodeBlock>
+		<h2>Methods</h2>
+        <h4>Trigger</h4>
+        <p>The following method allows you to insert a new dialog into the dialog queue.</p>
+        <CodeBlock language="javascript" code={`dialogStore.trigger(d); // see Definitions below`}></CodeBlock>
+        <h4>Close</h4>
+        <p>Allows you to close the current dialog by pruning the visible dialog from the top of the queue.</p>
+		<CodeBlock language="javascript" code={`dialogStore.close();`}></CodeBlock>
+        <h4>Clear</h4>
+        <p>Allows you to flush the entire dialog queue, returning it to an empty state.</p>
+        <CodeBlock language="javascript" code={`dialogStore.clear();`}></CodeBlock>
+	</section>
+
+    <Divider />
+    
+    <!-- Definitions -->
+    <section class="space-y-4">
+        <h2>Definitions</h2>
         <!-- Alert -->
-		<div class="space-y-2">
+        <div class="space-y-2">
             <h4>Alert</h4>
             <p>The simplest dialog option. Note the title and body can accept HTML.</p>
             <CodeBlock language="javascript" code={`
 const d: DialogAlert = {
-    title: 'Welcome to Skeleton.',
+    title: 'Welcome to <strong>Skeleton</strong>.',
     body: 'This is a standard alert dialog.',
 };
             `.trim()}></CodeBlock>
@@ -128,7 +174,7 @@ const d: DialogAlert = {
         <!-- Confirm -->
         <div class="space-y-2">
             <h4>Confirm</h4>
-            <p>Similar to an alert, but adds a "confirm" option and returns a boolean value based on user selection.</p>
+            <p>Displays an additional "confirm" button and returns a boolean response of <em>false</em> for <strong>cancel</strong> and <em>true</em> for <strong>confirm</strong>.</p>
             <CodeBlock language="javascript" code={`
 const d: DialogConfirm = {
     type: 'confirm',
@@ -141,7 +187,7 @@ const d: DialogConfirm = {
         <!-- Prompt -->
         <div class="space-y-2">
             <h4>Prompt</h4>
-            <p>Prompts the user for a value using an input. The response returns the value the user provides.</p>
+            <p>Provides and additional input to prompt a value from the user. Returns a string value when the user taps "submit".</p>
             <CodeBlock language="javascript" code={`
 const d: DialogPrompt = {
     type: 'prompt',
@@ -152,15 +198,47 @@ const d: DialogPrompt = {
 };
             `.trim()}></CodeBlock>
         </div>
+    </section>
+
+    <Divider />
+    
+    <!-- Embeds -->
+    <section class="space-y-4">
+        <h2>Embeds</h2>
+        <p>You may optionally extend any type of dialog using the following options.</p>
+        <!-- Image -->
+        <div class="space-y-2">
+            <h4>Image</h4>
+            <p>Allows you to insert an image within content of the dialog.</p>
+            <CodeBlock language="javascript" code={`
+const d: DialogAlert = {
+    title: 'Image Example',
+    body: 'See the embedded image below.',
+    image: 'https://source.unsplash.com/random/480x320?skeleton'
+};
+            `.trim()}></CodeBlock>
+        </div>
+        <!-- HTML -->
+        <div class="space-y-2">
+            <h4>HTML</h4>
+            <p>Allows you to insert HTML markup within the content of the dialog.</p>
+            <CodeBlock language="javascript" code={`
+const d: DialogAlert = {
+    title: 'HTML Example',
+    body: 'See the embedded HTML content below.',
+    html: \`<div class="bg-green-500 p-4">Hello, Skeleton</div>\`
+};
+            `.trim()}></CodeBlock>
+        </div>
         <!-- Component -->
         <div class="space-y-2">
             <h4>Component</h4>
-            <p>Allows you to create a dialog with a dynamically component embedded within.</p>
+            <p>Allows you to insert a dynamically-generated Svelte component within the content of the dialog. Note that only default slot content is supported at this time.</p>
             <CodeBlock language="javascript" code={`
 import { Card } from '@brainandbones/skeleton';\n
-const d: DialogComponent = {
-    title: 'Enter Name',
-    body: 'Provide your first name in the field below.',
+const d: DialogAlert = {
+    title: 'Component Example',
+    body: 'See the embedded Svelte component below.',
     component: {
         element: Card,
         props: {background: 'bg-orange-500'},
@@ -169,20 +247,15 @@ const d: DialogComponent = {
 };
             `.trim()}></CodeBlock>
         </div>
-	</section>
+    </section>
+
+    <Divider />
 	
-	<!-- Close -->
-	<section class="space-y-4">
-		<h2>Close Current Dialog</h2>
-        <p>Allows you to close the current dialog by pruning the visible dialog from the top of the queue.</p>
-		<CodeBlock language="javascript" code={`dialogStore.close();`}></CodeBlock>
-	</section>
-	
-    <!-- Clear -->
-	<section class="space-y-4">
-		<h2>Clear All Dialogs</h2>
-        <p>Allows you to flush the entire dialog queue, returning it to an empty state.</p>
-		<CodeBlock language="javascript" code={`dialogStore.clear();`}></CodeBlock>
-	</section>
+    <!-- Queue -->
+    <section class="space-y-4">
+        <h2>Visualize the Queue</h2>
+        <p>If you need to debug your queue, you may visualize it using it the snippet below. Note some properties may not display, such as response.</p>
+        <CodeBlock language="html" code={`<pre>queue: {JSON.stringify($dialogStore, null, 2)}</pre>`}></CodeBlock>
+    </section>
     
 </div>

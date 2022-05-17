@@ -5,9 +5,12 @@ import { writable } from 'svelte/store';
 // Dialogs ---
 
 export interface DialogAlert {
+    icon?: string;
     title: string;
     body: string;
-    
+    image?: any;
+    component?: any;
+    html?: any;
 }
 export interface DialogConfirm extends DialogAlert {
     type: string;
@@ -17,9 +20,6 @@ export interface DialogPrompt extends DialogAlert {
     type: string;
     value: any;
     result: any;
-}
-export interface DialogComponent extends DialogAlert {
-    component: any;
 }
 
 function dialogService(): any {
