@@ -85,7 +85,7 @@
 </svelte:head>
 
 <!-- Notification Components -->
-<Dialog backdrop="bg-primary-500/50" blur="backdrop-blur-sm" card="bg-primary-500" duration={250} />
+<Dialog />
 
 <!-- Filter SVG Components -->
 <Apollo />
