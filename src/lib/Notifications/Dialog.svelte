@@ -18,7 +18,7 @@
     let dialogValue: string;
 
     // Base Classes
-    const cBaseBackdrop: string = 'absolute top-0 left-0 right-0 bottom-0 z-[999] flex justify-center items-center p-4';
+    const cBaseBackdrop: string = 'fixed top-0 left-0 right-0 bottom-0 z-[999] flex justify-center items-center p-4';
     const cBaseDialog: string = 'p-4 w-full max-w-[480px] space-y-4 rounded-xl drop-shadow';
     const cBaseHeader: string = 'flex justify-start items-center space-x-4';
     const cBaseIcon: string = 'fill-black dark:fill-white bg-primary-500/20 flex justify-center items-center w-10 mx-auto aspect-square rounded-full';
@@ -57,7 +57,7 @@
 
 {#if $dialogStore.length}
 <!-- Backdrop Shim -->
-<div class="dialog-backdrop {classesBackdrop}" on:click={onDialogClose} transition:fade|local={anim.fade}>
+<div class="dialog-backdrop {classesBackdrop} {$$props.class}" on:click={onDialogClose} transition:fade|local={anim.fade}>
 
     <!-- Dialog -->
     <div role="dialog" class="dialog {classesDialog}" on:click|preventDefault|stopPropagation transition:scale|local="{anim.scale}">

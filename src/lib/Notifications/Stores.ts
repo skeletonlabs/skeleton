@@ -44,4 +44,30 @@ function dialogService(): any {
 export const dialogStore: any = dialogService();
 
 // Toasts
-// export const toasts: Writable<any[]> = writable([]);
+
+export interface Toast {
+    message: string;
+    // label?: string;
+    // action?: any;
+}
+
+function toastService(): any {
+	const { subscribe, set, update } = writable([]);
+	return {
+		subscribe,
+        // Trigger - append to end of queue
+		trigger: (toast: any) => update(tStore => {
+            tStore.push(toast);
+            return tStore;
+        }),
+        // Close - remove first item in queue
+        close: () => update(tStore => {
+            if (tStore.length > 0) { tStore.shift(); }
+            return tStore;
+        }),
+        // Clear - remove all items from queue
+        clear: () => set([]),
+	};
+}
+
+export const toastStore: any = toastService();
