@@ -137,7 +137,8 @@
         <h2>Dialog Component</h2>
         <p>Add the following to your root <strong>__layout.svelte</strong> component.</p>
         <CodeBlock language="javascript" code={`import { Dialog } from '@brainandbones/skeleton';`}></CodeBlock>
-        <CodeBlock language="html" code={`<Dialog />`.trim()}></CodeBlock>
+        <CodeBlock language="html" code={`<Dialog backdrop="bg-primary-500/50" blur="backdrop-blur-sm" card="bg-primary-500" duration={250} />
+        `.trim()}></CodeBlock>
     </section>
 
     <!-- Properties -->
@@ -148,21 +149,11 @@
 
     <Divider />
     
-    <!-- Store and Types -->
-    <section class="space-y-4">
-        <h2>Import Store and Types</h2>
-        <p>To begin using dialogs, import the dialog store. This gives you direct access to the Dialog queue.</p>
-        <CodeBlock language="javascript" code={`import { dialogStore } from '@brainandbones/skeleton';`}></CodeBlock>
-        <p>You may also optionally import dialog type definitions.</p>
-        <CodeBlock language="javascript" code={`import { type DialogAlert, type DialogConfirm, type DialogPrompt } from '@brainandbones/skeleton';`}></CodeBlock>
-    </section>
-
-    <Divider />
-
     <!-- Methods -->
 	<section class="space-y-4">
-		<h2>Methods</h2>
-        <p>Use the following methods to manipulate the Dialog queue.</p>
+        <h2>Methods</h2>
+        <p>To begin using dialogs, import the dialog store. This allows you to manipulate the dialog queue using the following methods.</p>
+        <CodeBlock language="javascript" code={`import { dialogStore } from '@brainandbones/skeleton';`}></CodeBlock>
         <h4>Trigger</h4>
         <p>The following method allows you to insert a new dialog into the dialog queue.</p>
         <CodeBlock language="javascript" code={`dialogStore.trigger(d); // see Dialog Types below`}></CodeBlock>
@@ -179,7 +170,7 @@
     <!-- Dialog Types -->
     <section class="space-y-4">
         <h2>Dialog Types</h2>
-        <p>Provide any of these to the trigger method to see a dialog appear.</p>
+        <CodeBlock language="javascript" code={`import { type DialogAlert, type DialogConfirm, type DialogPrompt } from '@brainandbones/skeleton';`}></CodeBlock>
         <!-- Alert -->
         <div class="space-y-2">
             <h4>Alert</h4>
@@ -225,7 +216,7 @@ const d: DialogPrompt = {
     <!-- Embeds -->
     <section class="space-y-4">
         <h2>Embeds</h2>
-        <p>You may optionally extend any type of dialog with the following features.</p>
+        <p>You may optionally extend any dialog with the following features.</p>
         <!-- Image -->
         <div class="space-y-2">
             <h4>Image</h4>
@@ -275,7 +266,7 @@ const d: DialogAlert = {
     <section class="space-y-4">
         <h2>Debugging</h2>
         <h4>Log the Queue</h4>
-        <p>View the contents of the que as they change in your console. Svelte store contents are only visible for the current logged line.</p>
+        <p>Use the following to monitor the queue in your console as it updates. Note that Svelte store contents are only visible for the current logged line.</p>
         <CodeBlock language="js" code={`dialogStore.subscribe(() => { console.log($dialogStore); });`}></CodeBlock>
         <h4>Visualize the Queue</h4>
         <p>Use the following to display the queue in your UI. Note some properties may not display, such as response.</p>
