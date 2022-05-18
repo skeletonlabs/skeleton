@@ -3,13 +3,14 @@
     import Card from "$lib/Card/Card.svelte";
     import Button from '$lib/Button/Button.svelte';
     import Divider from '$lib/Divider/Divider.svelte';
+    import Table from '$lib/Table/Table.svelte';
     import { dialogStore, type DialogAlert, type DialogConfirm, type DialogPrompt } from '$lib/Notifications/Stores';
 
     let valueConfirm: boolean = false;
-    let valuePrompt: string = 'Susan';
+    let valuePrompt: string = 'Skeleton';
     const loremText: string = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem tempora, aliquam dolore amet laudantium sed numquam cum dignissimos. Illum deleniti expedita nam architecto voluptatem quo.';
 
-    // Trigger Dialog
+    // Example Dialogs
     function dialogAlertBasic(): void {
         const d: DialogAlert = {
             title: 'Welcome to Skeleton.',
@@ -19,7 +20,7 @@
     }
     function dialogAlertIcon(): void {
         const d: DialogAlert = {
-            icon: '<svg class="w-4 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M416 400V464C416 490.5 394.5 512 368 512H320V464C320 455.2 312.8 448 304 448C295.2 448 288 455.2 288 464V512H224V464C224 455.2 216.8 448 208 448C199.2 448 192 455.2 192 464V512H144C117.5 512 96 490.5 96 464V400C96 399.6 96 399.3 96.01 398.9C37.48 357.8 0 294.7 0 224C0 100.3 114.6 0 256 0C397.4 0 512 100.3 512 224C512 294.7 474.5 357.8 415.1 398.9C415.1 399.3 416 399.6 416 400V400zM160 192C124.7 192 96 220.7 96 256C96 291.3 124.7 320 160 320C195.3 320 224 291.3 224 256C224 220.7 195.3 192 160 192zM352 320C387.3 320 416 291.3 416 256C416 220.7 387.3 192 352 192C316.7 192 288 220.7 288 256C288 291.3 316.7 320 352 320z"/></svg>',
+            icon: '<svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M416 400V464C416 490.5 394.5 512 368 512H320V464C320 455.2 312.8 448 304 448C295.2 448 288 455.2 288 464V512H224V464C224 455.2 216.8 448 208 448C199.2 448 192 455.2 192 464V512H144C117.5 512 96 490.5 96 464V400C96 399.6 96 399.3 96.01 398.9C37.48 357.8 0 294.7 0 224C0 100.3 114.6 0 256 0C397.4 0 512 100.3 512 224C512 294.7 474.5 357.8 415.1 398.9C415.1 399.3 416 399.6 416 400V400zM160 192C124.7 192 96 220.7 96 256C96 291.3 124.7 320 160 320C195.3 320 224 291.3 224 256C224 220.7 195.3 192 160 192zM352 320C387.3 320 416 291.3 416 256C416 220.7 387.3 192 352 192C316.7 192 288 220.7 288 256C288 291.3 316.7 320 352 320z"/></svg>',
             title: 'Welcome to Skeleton.',
             body: loremText,
         };
@@ -73,13 +74,24 @@
         };
         dialogStore.trigger(d);
     }
+
+    // Props
+    const tablePropsGroup: any = {
+        columns: ['Prop', 'Type', 'Default', 'Required', 'Description'],
+        data: [
+            ['backdrop', 'string', 'bg-surface-400/70 dark:bg-surface-900/70', 'false', 'Provide classes to style the backdrop element.'],
+            ['blur', 'string', 'backdrop-blur-none', 'false', 'Provide a class to add a backdrop blur. (ex: backdrop-blur-sm)'],
+            ['card', 'string', 'bg-surface-50 dark:bg-surface-700', 'false', 'Provide classes to style the modal card element.'],
+            ['duration', 'number', '100', 'false', 'The animation durations. Set to zero (0) for none.'],
+        ],
+    };
 </script>
 
 <div class="space-y-8">
 
     <!-- Header -->
     <header class="space-y-4">
-        <h2>Template</h2>
+        <h2>Dialogs</h2>
         <p>Generate overlay notification utilizing a dynamic queueing system.</p>
     </header>
 
@@ -122,18 +134,24 @@
 
     <!-- Import Component -->
     <section class="space-y-4">
-        <h2>Insert the Dialog Component</h2>
+        <h2>Dialog Component</h2>
         <p>Add the following to your root <strong>__layout.svelte</strong> component.</p>
         <CodeBlock language="javascript" code={`import { Dialog } from '@brainandbones/skeleton';`}></CodeBlock>
         <CodeBlock language="html" code={`<Dialog />`.trim()}></CodeBlock>
     </section>
+
+    <!-- Properties -->
+	<section class="space-y-4">
+		<h4>Properties</h4>
+        <Table source="{tablePropsGroup}"></Table>
+	</section>
 
     <Divider />
     
     <!-- Store and Types -->
     <section class="space-y-4">
         <h2>Import Store and Types</h2>
-        <p>Import the Svelte data store, which allows you to manipulate the dialog queue. The store uses a first-in-first-out (FIFO) flow.</p>
+        <p>To begin using dialogs, import the dialog store. This gives you direct access to the Dialog queue.</p>
         <CodeBlock language="javascript" code={`import { dialogStore } from '@brainandbones/skeleton';`}></CodeBlock>
         <p>You may also optionally import dialog type definitions.</p>
         <CodeBlock language="javascript" code={`import { type DialogAlert, type DialogConfirm, type DialogPrompt } from '@brainandbones/skeleton';`}></CodeBlock>
@@ -144,9 +162,10 @@
     <!-- Methods -->
 	<section class="space-y-4">
 		<h2>Methods</h2>
+        <p>Use the following methods to manipulate the Dialog queue.</p>
         <h4>Trigger</h4>
         <p>The following method allows you to insert a new dialog into the dialog queue.</p>
-        <CodeBlock language="javascript" code={`dialogStore.trigger(d); // see Definitions below`}></CodeBlock>
+        <CodeBlock language="javascript" code={`dialogStore.trigger(d); // see Dialog Types below`}></CodeBlock>
         <h4>Close</h4>
         <p>Allows you to close the current dialog by pruning the visible dialog from the top of the queue.</p>
 		<CodeBlock language="javascript" code={`dialogStore.close();`}></CodeBlock>
@@ -157,9 +176,10 @@
 
     <Divider />
     
-    <!-- Definitions -->
+    <!-- Dialog Types -->
     <section class="space-y-4">
-        <h2>Definitions</h2>
+        <h2>Dialog Types</h2>
+        <p>Provide any of these to the trigger method to see a dialog appear.</p>
         <!-- Alert -->
         <div class="space-y-2">
             <h4>Alert</h4>
@@ -205,7 +225,7 @@ const d: DialogPrompt = {
     <!-- Embeds -->
     <section class="space-y-4">
         <h2>Embeds</h2>
-        <p>You may optionally extend any type of dialog using the following options.</p>
+        <p>You may optionally extend any type of dialog with the following features.</p>
         <!-- Image -->
         <div class="space-y-2">
             <h4>Image</h4>
@@ -253,8 +273,12 @@ const d: DialogAlert = {
 	
     <!-- Queue -->
     <section class="space-y-4">
-        <h2>Visualize the Queue</h2>
-        <p>If you need to debug your queue, you may visualize it using it the snippet below. Note some properties may not display, such as response.</p>
+        <h2>Debugging</h2>
+        <h4>Log the Queue</h4>
+        <p>View the contents of the que as they change in your console. Svelte store contents are only visible for the current logged line.</p>
+        <CodeBlock language="js" code={`dialogStore.subscribe(() => { console.log($dialogStore); });`}></CodeBlock>
+        <h4>Visualize the Queue</h4>
+        <p>Use the following to display the queue in your UI. Note some properties may not display, such as response.</p>
         <CodeBlock language="html" code={`<pre>queue: {JSON.stringify($dialogStore, null, 2)}</pre>`}></CodeBlock>
     </section>
     

@@ -5,17 +5,23 @@
     import Button from '$lib/Button/Button.svelte';
     import { dialogStore } from '$lib/Notifications/Stores';
 
+    export let backdrop: string = 'bg-surface-400/70 dark:bg-surface-900/70';
+    export let blur: string = 'backdrop-blur-none';
+    export let card: string = 'bg-surface-50 dark:bg-surface-700';
+    export let duration: number = 100;
+
     // Local Settings
     const anim: any = {
-        fade: {duration: 100},
-        scale: {duration: 100, opacity: 0, start: 0.5}
+        fade: {duration},
+        scale: {duration, opacity: 0, start: 0.5}
     };
     let dialogValue: string;
 
     // Base Classes
-    const cBaseShim: string = 'bg-surface-400/70 dark:bg-surface-900/70 absolute top-0 left-0 right-0 bottom-0 z-[999] flex justify-center items-center p-4';
-    const cBaseDialog: string = 'bg-surface-50 dark:bg-surface-700 p-4 w-full max-w-[480px] space-y-4 rounded-xl drop-shadow';
-    const cBaseIcon: string = 'bg-primary-500/20 flex justify-center items-center w-10 mx-auto aspect-square rounded-full';
+    const cBaseBackdrop: string = 'absolute top-0 left-0 right-0 bottom-0 z-[999] flex justify-center items-center p-4';
+    const cBaseDialog: string = 'p-4 w-full max-w-[480px] space-y-4 rounded-xl drop-shadow';
+    const cBaseHeader: string = 'flex justify-start items-center space-x-4';
+    const cBaseIcon: string = 'fill-black dark:fill-white bg-primary-500/20 flex justify-center items-center w-10 mx-auto aspect-square rounded-full';
     const cBaseFooter: string = 'flex justify-end space-x-4';
 
     // Functionality
@@ -42,21 +48,22 @@
     });
 
     // Reactive Classes
-    $: classesShim = `${cBaseShim}`;
-    $: classesDialog = `${cBaseDialog}`;
+    $: classesBackdrop = `${cBaseBackdrop} ${backdrop} ${blur}`;
+    $: classesDialog = `${cBaseDialog} ${card}`;
+    $: classesHeader = `${cBaseHeader}`;
     $: classesIcon = `${cBaseIcon}`;
     $: classesFooter = `${cBaseFooter}`;
 </script>
 
 {#if $dialogStore.length}
-<!-- Shim -->
-<div class="dialog-shim {classesShim}" on:click={onDialogClose} transition:fade|local={anim.fadeSettings}>
+<!-- Backdrop Shim -->
+<div class="dialog-backdrop {classesBackdrop}" on:click={onDialogClose} transition:fade|local={anim.fade}>
 
     <!-- Dialog -->
     <div role="dialog" class="dialog {classesDialog}" on:click|preventDefault|stopPropagation transition:scale|local="{anim.scale}">
 
         <!-- Header -->
-        <header class="dialog-header flex justify-start items-center space-x-4">
+        <header class="dialog-header {classesHeader}">
 
             <!-- Icon -->
             {#if $dialogStore[0].icon}
@@ -64,7 +71,7 @@
             {/if}
 
             <!-- Title -->
-            <h3 class="flex-1">{@html $dialogStore[0].title}</h3>
+            <span class="flex-1 text-xl font-bold">{@html $dialogStore[0].title}</span>
 
         </header>
 
