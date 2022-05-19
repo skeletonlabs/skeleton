@@ -262,7 +262,7 @@ const d: DialogAlert = {
 
     <Divider />
 	
-    <!-- Queue -->
+    <!-- Debugging -->
     <section class="space-y-4">
         <h2>Debugging</h2>
         <h4>Log the Queue</h4>
