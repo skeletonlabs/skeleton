@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { fly } from 'svelte/transition';
+    import { fly, fade } from 'svelte/transition';
 
     import { toastStore } from '$lib/Notifications/Stores';
     import Button from '$lib/Button/Button.svelte';
@@ -52,16 +52,16 @@
 <div class="toast {classesToast}" transition:fly|local={{y, duration}}>
 
     <!-- Message -->
-    <!--  transition:blur|local={{duration}} -->
-    <div class="toast-message {classesMessage}">{@html $toastStore[0].message}</div>
+    <div class="toast-message {classesMessage}">
+        {@html $toastStore[0].message}
+    </div>
 
     <!-- Action -->
-    <nav class="toast-actions">
-        {#if $toastStore[0].button}
-        <Button {variant} on:click={onAction}>{$toastStore[0].button.label}</Button>
-        {:else}
-        <Button {variant} on:click={onDismiss}>Dismiss</Button>
-        {/if}
+    <nav class="toast-actions space-x-2">
+        {#if $toastStore[0].button}<Button {variant} on:click={onAction}>{$toastStore[0].button.label}</Button>{/if}
+        <Button {variant} on:click={onDismiss}>
+            {@html $toastStore[0].button ? '&#10005;' : 'Dismiss'}
+        </Button>
     </nav>
     
 </div>

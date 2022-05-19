@@ -19,13 +19,13 @@
     function toastMultiple(): void {
         toastStore.trigger({message: 'This message will auto-hide after 5 seconds.'});
         toastStore.trigger({message: 'This message will remain until dismissed.', autohide: false});
-        toastStore.trigger({message: 'This message will last 10 second.', timeout: 10000});
+        toastStore.trigger({message: 'This message will last 2 second.', timeout: 2000});
     }
     function toastAction(): void {
         const t: Toast = {
             message: 'This has a special button label and action.',
             autohide: false,
-            button: { label: 'Say Hello', action: () => { alert('Hello, Skeleton'); }}
+            button: { label: 'Greeting', action: () => { alert('Hello, Skeleton'); }}
         };
         toastStore.trigger(t);
     }
@@ -85,7 +85,7 @@
         <CodeBlock language="javascript" code={`import { toastStore } from '@brainandbones/skeleton';`}></CodeBlock>
         <h4>Trigger</h4>
         <p>The following method allows you to insert a new toast into the toast queue.</p>
-        <CodeBlock language="javascript" code={`toastStore.trigger(t); // see Toast settings below`}></CodeBlock>
+        <CodeBlock language="javascript" code={`toastStore.trigger(t); // see Toast Settings below`}></CodeBlock>
         <h4>Close</h4>
         <p>Allows you to close the current toast by pruning the visible toast from the top of the queue.</p>
 		<CodeBlock language="javascript" code={`toastStore.close();`}></CodeBlock>
@@ -100,8 +100,16 @@
     <section class="space-y-4">
         <h2>Toast Settings</h2>
         <CodeBlock language="javascript" code={`import { type Toast } from '@brainandbones/skeleton';`}></CodeBlock>
-        <p>Several settings are available to a toast, including the message, auto-hide (optional) and auto-hide timeout (optional).</p>
-        <CodeBlock language="javascript" code={`const t: Toast = {message: 'Your Message Here', autohide: true, timeout: 5000};`}></CodeBlock>
+        <p>Several settings are available to a toast. These allow you to set the message, enabled/disabled auto-hide, set the autohide timeout. As well as provide an extra action button.</p>
+        <CodeBlock language="javascript" code={`
+const t: Toast = {
+    message: 'Your Message Here',
+    // Optional:
+    autohide: true, 
+    timeout: 5000,
+    button: { label: 'Greeting', action: () => { alert('Hello, Skeleton'); }}
+};
+        `.trim()}></CodeBlock>
     </section>
 
     <Divider />
