@@ -12,12 +12,12 @@ describe('LightSwitch.svelte', () => {
 
     it('Renders without props', async () => {
         const { getByTestId } = render(LightSwitch);
-        expect(getByTestId('lightswitch')).toBeTruthy();
+        expect(getByTestId('menu-wrapper')).toBeTruthy();
     });
     
     it('Renders with props', async () => {
-        const { getByTestId } = render(LightSwitch, {origin: 'origin-top-left', align: 'left-0'});
-        expect(getByTestId('lightswitch')).toBeTruthy();
+        const { getByTestId } = render(LightSwitch, {origin: 'tr'});
+        expect(getByTestId('menu-wrapper')).toBeTruthy();
     });
 });
  

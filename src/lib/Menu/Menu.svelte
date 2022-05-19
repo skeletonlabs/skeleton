@@ -64,7 +64,7 @@
 
 <svelte:body on:click={handleBodyClick} />
 
-<div class="menu-wrapper {classesMenu}" data-testid="menu-wrapper" bind:this={elemMenu}>
+<div bind:this={elemMenu} class="menu-wrapper {classesMenu} {$$props.class}" data-testid="menu-wrapper">
 
     <!-- Trigger -->
     <div class="menu-trigger" on:click={toggle} data-testid="menu-trigger">
