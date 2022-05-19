@@ -1,6 +1,7 @@
 <script lang="ts">
-	import Card from '$lib/Card/Card.svelte';
+    import Card from '$lib/Card/Card.svelte';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+    import Badge from '$lib/Badge/Badge.svelte';
 	import { filter } from '$lib/Filters/filter';
 
     // Avatar Placeholder
@@ -11,7 +12,10 @@
 
 	<!-- Header -->
 	<header class="space-y-4">
-		<h2>Filters (beta)</h2>
+        <div class="flex justify-start items-center space-x-4">
+            <h2>Filters</h2>
+            <Badge background="bg-warning-500">Experimental</Badge>
+        </div>
 		<p>Bring life to your elements by applying a set of unique <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter" target="_blank">SVG filters</a>. Skeleton provides built-in support for some components, such as Avatars.</p>
 	</header>
 

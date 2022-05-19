@@ -64,7 +64,7 @@
             list: [
 				{href: '/utilities/dialogs', label: 'Dialogs'},
 				{href: '/utilities/toasts', label: 'Toasts'},
-                {href: '/utilities/filters', label: 'Filters', badge: 'Beta'},
+                {href: '/utilities/filters', label: 'Filters', badge: 'Experimental'},
             ],
         }
     ];
@@ -123,6 +123,8 @@
 		</svelte:fragment>
 		<!-- Main -->
 		<svelte:fragment slot="main">
+			<!-- Search -->
+			<!-- <label class="p-4 pb-0"><input type="search" placeholder="Search..." bind:value={searchTerm} /></label> -->
 			<!-- Navigation -->
 			<div class="space-y-6 mb-10">
 			{#each navigation as {title,list}, i }
@@ -144,7 +146,9 @@
 		<!-- Footer -->
 		<svelte:fragment slot="footer">
 			<Divider class="opacity-30" />
-			<a href="https://www.brainandbonesllc.com/" target="_blank" class="block opacity-50 text-xs p-4">Brain & Bones</a>
+			<p class="text-xs opacity-50 p-4">
+				Powered by <a href="https://www.brainandbonesllc.com/" target="_blank" class="opacity-50">Brain & Bones</a>
+			</p>
 		</svelte:fragment>
 	</Drawer>
 
