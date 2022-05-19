@@ -46,7 +46,7 @@
     <header class="space-y-4">
         <h2>Accordions</h2>
         <p>Accordions are useful for storing descriptions that can be expanded, in a compact way.</p>
-        <CodeBlock language="javascript" code={`<script>import {AccordionGroup, AccordionItem} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
+        <CodeBlock language="javascript" code={`import {AccordionGroup, AccordionItem} from '@brainandbones/skeleton';`}></CodeBlock>
     </header>
 
     <!-- Examples -->

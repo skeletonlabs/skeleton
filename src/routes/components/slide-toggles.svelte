@@ -23,7 +23,7 @@
     <heading class="space-y-4">
         <h1>Slide Toggle</h1>
         <p>Add a slide toggle switch with custom colors and sizes to capture input from a user.</p>
-        <CodeBlock language="javascript" code={`<script>import {SlideToggle} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
+        <CodeBlock language="javascript" code={`import {SlideToggle} from '@brainandbones/skeleton';`}></CodeBlock>
     </heading>
 
     <!-- Examples -->

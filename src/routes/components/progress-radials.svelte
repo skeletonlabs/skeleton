@@ -32,7 +32,7 @@
     <header class="space-y-4">
         <h1>Progress Radial</h1>
         <p>Displays a radial indicator showing the progress or completion of a task.</p>
-        <CodeBlock language="js" code={`<script>import {ProgressRadial} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
+        <CodeBlock language="js" code={`import {ProgressRadial} from '@brainandbones/skeleton';`}></CodeBlock>
     </header>
 
     <!-- Examples -->

@@ -36,7 +36,7 @@
     <heading class="space-y-4">
         <h1>Badges</h1>
         <p>Display a small badge, pill, or tag.</p>
-        <CodeBlock language="javascript" code={`<script>import {Badge} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
+        <CodeBlock language="javascript" code={`import {Badge} from '@brainandbones/skeleton';`}></CodeBlock>
     </heading>
 
     <!-- Examples -->

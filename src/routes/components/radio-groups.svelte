@@ -32,7 +32,7 @@
 	<header class="space-y-4">
 		<h1>Radio Groups</h1>
 		<p>Capture user feedback limited to small set of options.</p>
-		<CodeBlock language="js" code={`<script>import {RadioGroup, RadioItem} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
+		<CodeBlock language="js" code={`import {RadioGroup, RadioItem} from '@brainandbones/skeleton';`}></CodeBlock>
 	</header>
 
     <!-- Sandbox -->

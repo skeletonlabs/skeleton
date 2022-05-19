@@ -32,7 +32,7 @@
     <header class="space-y-4">
         <h1>Progress Bar</h1>
         <p>Displays an indicator showing the progress or completion of a task.</p>
-        <CodeBlock language="js" code={`<script>import {ProgressBar} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
+        <CodeBlock language="js" code={`import {ProgressBar} from '@brainandbones/skeleton';`}></CodeBlock>
     </header>
 
      <!-- Sandbox -->

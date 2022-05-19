@@ -27,7 +27,7 @@
     <header class="space-y-4">
         <h1>Dividers</h1>
         <p>Horizontal or vertical rules for sectioning your content.</p>
-        <CodeBlock language="javascript" code={`<script>import {Divider} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
+        <CodeBlock language="javascript" code={`import {Divider} from '@brainandbones/skeleton';`}></CodeBlock>
     </header>
 
     <!-- Sandbox -->

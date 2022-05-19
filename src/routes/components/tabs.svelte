@@ -44,7 +44,7 @@
     <header class="space-y-4">
         <h2>Tabs</h2>
         <p>Use tabs to quickly switch between different views.</p>
-        <CodeBlock language="javascript" code={`<script>import {TabGroup, Tab} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
+        <CodeBlock language="javascript" code={`import {TabGroup, Tab} from '@brainandbones/skeleton';`}></CodeBlock>
     </header>
 
     <!-- Examples -->

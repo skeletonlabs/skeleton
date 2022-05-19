@@ -30,7 +30,7 @@
     }
 
     function toggleVisible(): void { visible = !visible; }
-    function actionExample(): void { alert('Action Triggered!'); }
+    function actionExample(): void { alert('Action button was triggered!'); }
 
     let visible = true;
 </script>
@@ -41,7 +41,7 @@
     <header class="space-y-4">
         <h1>Alerts</h1>
         <p>Display customizable alerts to grab attention and provide critical actions.</p>
-        <CodeBlock language="javascript" code="{`<script>import {Alert} from '@brainandbones/skeleton';</\script>`}"></CodeBlock>
+        <CodeBlock language="javascript" code="{`import {Alert} from '@brainandbones/skeleton';`}"></CodeBlock>
     </header>
     
     <!-- Examples -->
@@ -51,19 +51,19 @@
             <svelte:fragment slot="title">{title}</svelte:fragment>
             <svelte:fragment slot="message">{message}</svelte:fragment>
             <svelte:fragment slot="trail">
-                <Button variant="filled" on:click={actionExample}>Action</Button>
-                <Button variant="filled" on:click={toggleVisible}>Dismiss</Button>
+                <Button variant="filled" on:click={actionExample}>Show Me</Button>
+                <Button variant="ring" on:click={toggleVisible}>&#10005;</Button>
             </svelte:fragment>
         </Alert>
         {#if visible}<h4>Simple</h4>{/if}
         <Alert background="bg-primary-500" {visible}>
             <svelte:fragment slot="title">{title}</svelte:fragment>      
             <svelte:fragment slot="trail">
-                <Button variant="filled" class="whitespace-nowrap" on:click={actionExample}>Show Me</Button>
+                <Button variant="filled" on:click={actionExample}>Show Me</Button>
             </svelte:fragment>
         </Alert>
         {#if visible}<h4>Rounding</h4>{/if}
-        <Alert background="bg-warning-400" rounded="rounded-3xl" {visible}>
+        <Alert background="bg-warning-500" rounded="rounded-3xl" {visible}>
             <svelte:fragment slot="title">{title}</svelte:fragment>
             <svelte:fragment slot="message">{message}</svelte:fragment>      
         </Alert>
@@ -73,8 +73,8 @@
             <svelte:fragment slot="title">{title}</svelte:fragment>
             <svelte:fragment slot="message">{message}</svelte:fragment>      
             <svelte:fragment slot="trail">
-                <Button variant="filled" class="whitespace-nowrap" on:click={actionExample}>Show Me</Button>
-                <Button variant="filled" on:click={toggleVisible}>Dismiss</Button>
+                <Button variant="filled" on:click={actionExample}>Show Me</Button>
+                <Button variant="ring" on:click={toggleVisible}>&#10005;</Button>
             </svelte:fragment>
         </Alert>
     </Card>

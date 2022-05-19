@@ -32,7 +32,7 @@
     <header class="space-y-4">
         <h2>Tooltips</h2>
         <p>Informative tooltips that render on mouse over.</p>
-        <CodeBlock language="javascript" code={`<script>import {Tooltip} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
+        <CodeBlock language="javascript" code={`import {Tooltip} from '@brainandbones/skeleton';`}></CodeBlock>
     </header>
 
     <!-- Examples -->

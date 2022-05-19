@@ -30,7 +30,7 @@
 	<header class="space-y-4">
 		<h1>Range Slider</h1>
 		<p>Capture input from a range of values, including optional ticks.</p>
-		<CodeBlock language="js" code={`<script>import {RangeSlider} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
+		<CodeBlock language="js" code={`import {RangeSlider} from '@brainandbones/skeleton';`}></CodeBlock>
 	</header>
 
     <!-- Section -->

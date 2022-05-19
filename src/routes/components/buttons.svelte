@@ -58,7 +58,7 @@
 	<header class="space-y-4">
 		<h1>Buttons</h1>
 		<p>Buttons allow users to take actions and make choices with a single tap.</p>
-		<CodeBlock language="js" code={`<script>import {Button} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
+		<CodeBlock language="js" code={`import {Button} from '@brainandbones/skeleton';`}></CodeBlock>
 	</header>
 
 	<!-- Sandbox -->

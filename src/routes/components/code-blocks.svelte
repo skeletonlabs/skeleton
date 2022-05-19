@@ -49,7 +49,7 @@ afterUpdate(hljs.highlightAll); // on route change
     <!-- Usage -->
     <section class="space-y-4">
         <h2>Usage</h2>
-        <CodeBlock language="javascript" code={`<script>import {CodeBlock} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
+        <CodeBlock language="javascript" code={`import {CodeBlock} from '@brainandbones/skeleton';`}></CodeBlock>
         <CodeBlock language="html" code={`<CodeBlock language="html" code={\`<div>Meta</div>\`}></CodeBlock>`}></CodeBlock>
     </section>
 

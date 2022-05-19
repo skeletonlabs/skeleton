@@ -30,7 +30,7 @@
     <header class="space-y-4">
         <h2>Drawers</h2>
         <p>Display overlay area at any side of the screen</p>
-        <CodeBlock language="javascript" code={`<script>import {Drawer} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
+        <CodeBlock language="javascript" code={`import {Drawer} from '@brainandbones/skeleton';`}></CodeBlock>
     </header>
 
     <!-- Examples -->

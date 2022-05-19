@@ -69,7 +69,7 @@
         <p>Apply a filter to any element using a Svelte Action. Then import and insert the filter component within your app, page, or component scope.</p>
 		<CodeBlock
 			language="javascript"
-			code={`<script>import {filter, Emerald, BlueNight, ...} from '@brainandbones/skeleton';</\script>`}
+			code={`import {filter, Emerald, BlueNight, ...} from '@brainandbones/skeleton';`}
 		/>
 		<CodeBlock
 			language="html"

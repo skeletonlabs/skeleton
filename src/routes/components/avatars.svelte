@@ -45,7 +45,7 @@
     <header class="space-y-4">
         <h1>Avatars</h1>
         <p>Choose from a variety for avatar sizes and styles, using either initials or images.</p>
-        <CodeBlock language="js" code={`<script>import {Avatar} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
+        <CodeBlock language="js" code={`import {Avatar} from '@brainandbones/skeleton';`}></CodeBlock>
     </header>
 
     <!-- Sandbox -->
