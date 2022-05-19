@@ -17,44 +17,44 @@
 
 	<!-- Examples -->
     <Card class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-4">
-        <div class="text-center">
-            <img class="bg-surface-700 aspect-square w-full rounded-xl overflow-hidden" src={placeholder} alt="example" />
+        <div class="text-center overflow-hidden">
+            <img class="bg-surface-700 aspect-square w-full rounded-xl" src={placeholder} alt="example" />
             <h6 class="mt-2">Original</h6>
         </div>
-        <div class="text-center">
-            <img class="bg-surface-700 aspect-square w-full rounded-xl overflow-hidden" src={placeholder} use:filter={'Emerald'} alt="example" />
+        <div class="text-center overflow-hidden">
+            <img class="bg-surface-700 aspect-square w-full rounded-xl" src={placeholder} use:filter={'Emerald'} alt="example" />
             <h6 class="mt-2">Emerald</h6>
         </div>
-        <div class="text-center">
-            <img class="bg-surface-700 aspect-square w-full rounded-xl overflow-hidden" src={placeholder} use:filter={'BlueNight'} alt="example" />
+        <div class="text-center overflow-hidden">
+            <img class="bg-surface-700 aspect-square w-full rounded-xl" src={placeholder} use:filter={'BlueNight'} alt="example" />
             <h6 class="mt-2">BlueNight</h6>
         </div>
-        <div class="text-center">
-            <img class="bg-surface-700 aspect-square w-full rounded-xl overflow-hidden" src={placeholder} use:filter={'XPro'} alt="example" />
+        <div class="text-center overflow-hidden">
+            <img class="bg-surface-700 aspect-square w-full rounded-xl" src={placeholder} use:filter={'XPro'} alt="example" />
             <h6 class="mt-2">XPro</h6>
         </div>
-        <div class="text-center">
-            <img class="bg-surface-700 aspect-square w-full rounded-xl overflow-hidden" src={placeholder} use:filter={'Summer84'} alt="example" />
+        <div class="text-center overflow-hidden">
+            <img class="bg-surface-700 aspect-square w-full rounded-xl" src={placeholder} use:filter={'Summer84'} alt="example" />
             <h6 class="mt-2">Summer84</h6>
         </div>
-        <div class="text-center">
-            <img class="bg-surface-700 aspect-square w-full rounded-xl overflow-hidden" src={placeholder} use:filter={'Rustic'} alt="example" />
+        <div class="text-center overflow-hidden">
+            <img class="bg-surface-700 aspect-square w-full rounded-xl" src={placeholder} use:filter={'Rustic'} alt="example" />
             <h6 class="mt-2">Rustic</h6>
         </div>
-         <div class="text-center">
-            <img class="bg-surface-700 aspect-square w-full rounded-xl overflow-hidden" src={placeholder} use:filter={'Apollo'} alt="example" />
+         <div class="text-center overflow-hidden">
+            <img class="bg-surface-700 aspect-square w-full rounded-xl" src={placeholder} use:filter={'Apollo'} alt="example" />
             <h6 class="mt-2">Apollo</h6>
         </div>
-        <div class="text-center">
-            <img class="bg-surface-700 aspect-square w-full rounded-xl overflow-hidden" src={placeholder} use:filter={'GreenFall'} alt="example" />
+        <div class="text-center overflow-hidden">
+            <img class="bg-surface-700 aspect-square w-full rounded-xl" src={placeholder} use:filter={'GreenFall'} alt="example" />
             <h6 class="mt-2">GreenFall</h6>
         </div>
-        <div class="text-center">
-            <img class="bg-surface-700 aspect-square w-full rounded-xl overflow-hidden" src={placeholder} use:filter={'Noir'} alt="example" />
+        <div class="text-center overflow-hidden">
+            <img class="bg-surface-700 aspect-square w-full rounded-xl" src={placeholder} use:filter={'Noir'} alt="example" />
             <h6 class="mt-2">Noir</h6>
         </div>
-        <div class="text-center">
-            <img class="bg-surface-700 aspect-square w-full rounded-xl overflow-hidden" src={placeholder} use:filter={'NoirLight'} alt="example" />
+        <div class="text-center overflow-hidden">
+            <img class="bg-surface-700 aspect-square w-full rounded-xl" src={placeholder} use:filter={'NoirLight'} alt="example" />
             <h6 class="mt-2">NoirLight</h6>
         </div>
     </Card>
