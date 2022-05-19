@@ -13,17 +13,20 @@
         toastStore.trigger(t);
     }
     function toastLong(): void {
-        const t: Toast = {message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio consequuntur, blanditiis ducimus perspiciatis minima odit repellat rem iste incidunt laborum amet culpa officia maiores eum qui asperiores.'};
+        const t: Toast = {
+            message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio consequuntur, blanditiis ducimus perspiciatis minima odit repellat rem iste incidunt laborum amet culpa officia maiores eum qui asperiores.',
+            autohide: false
+        };
         toastStore.trigger(t);
     }
     function toastMultiple(): void {
-        toastStore.trigger({message: 'This message will auto-hide after 5 seconds.'});
-        toastStore.trigger({message: 'This message will remain until dismissed.', autohide: false});
-        toastStore.trigger({message: 'This message will last 2 second.', timeout: 2000});
+        toastStore.trigger({message: 'Message will auto-hide after 5 seconds.'});
+        toastStore.trigger({message: 'Message will remain until dismissed.', autohide: false});
+        toastStore.trigger({message: 'Message will last 2 second.', timeout: 2000});
     }
     function toastAction(): void {
         const t: Toast = {
-            message: 'This has a special button label and action.',
+            message: 'Message contains a unique action.',
             autohide: false,
             button: { label: 'Greeting', action: () => { alert('Hello, Skeleton'); }}
         };
