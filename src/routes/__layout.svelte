@@ -10,6 +10,8 @@
 	import ListItem from '$lib/List/ListItem.svelte';
 	import Button from '$lib/Button/Button.svelte';
 	import Badge from '$lib/Badge/Badge.svelte';
+	import Dialog from '$lib/Notifications/Dialog.svelte';
+	import Toast from '$lib/Notifications/Toast.svelte';
 	import { Apollo, BlueNight, Emerald, GreenFall, Noir, NoirLight, Rustic, Summer84, XPro } from '$lib/Filters/filter';
 	
 	// Import CSS
@@ -60,6 +62,8 @@
         {
             title: 'Utilities',
             list: [
+				{href: '/utilities/dialogs', label: 'Dialogs'},
+				{href: '/utilities/toasts', label: 'Toasts'},
                 {href: '/utilities/filters', label: 'Filters', badge: 'Beta'},
             ],
         }
@@ -81,6 +85,10 @@
 <svelte:head>
 	<title>Skeleton</title>
 </svelte:head>
+
+<!-- Notification Components -->
+<Dialog />
+<Toast />
 
 <!-- Filter SVG Components -->
 <Apollo />
