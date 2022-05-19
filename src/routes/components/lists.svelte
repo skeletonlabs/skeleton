@@ -73,7 +73,7 @@
                     <List role="ol">
                         {#each ['A', 'B', 'C'] as v, i}
                         <ListItem>
-                            <svelte:fragment slot="lead"><div class="circle">{i+1}.</div></svelte:fragment>
+                            <svelte:fragment slot="lead"><div class="circle">{i+1}</div></svelte:fragment>
                             Item {v}
                         </ListItem>
                         {/each}
@@ -104,12 +104,12 @@
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
             <section class="space-y-4">
                 <Card class="space-y-4">
-                    <h6>Anchor + Dividers + Comfortable</h6>
-                    <List role="nav" spacing="comfortable">
+                    <h6>Anchor + Dividers</h6>
+                    <List role="nav">
                         <ListItem href="/">Page A</ListItem>
-                        <Divider />
+                        <Divider class="my-4" />
                         <ListItem href="/">Page B</ListItem>
-                        <Divider />
+                        <Divider class="my-4" />
                         <ListItem href="/">Page C</ListItem>
                     </List>
                 </Card>

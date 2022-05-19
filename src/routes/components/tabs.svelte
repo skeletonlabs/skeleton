@@ -48,8 +48,7 @@
     </header>
 
     <!-- Examples -->
-    <section class="space-y-4">
-        <!-- Left -->
+    <section class="grid grid-cols-1 gap-4">
         <Card class="space-y-4">
             <TabGroup selected={storeOne}>
                 <Tab value="a">Tab A</Tab>
@@ -62,8 +61,6 @@
                 {#if $storeOne === 'c'}Content C{/if}
             </div>
         </Card>
-        <!-- Center -->
-        <h4>Customized</h4>
         <Card class="space-y-4">
             <TabGroup selected={storeTwo} justify="justify-center" highlight="border-accent-500" color="text-accent-500">
                 <Tab value="a">Tab A</Tab>
@@ -76,7 +73,6 @@
                 {#if $storeTwo === 'c'}Content C{/if}
             </div>
         </Card>
-        <!-- Right -->
         <Card class="space-y-4">
             <TabGroup selected={storeThree} justify="justify-end" highlight="border-warning-500" color="text-warning-500">
                 <Tab value="a">
@@ -119,6 +115,8 @@
     <Tab value="b">Tab B</Tab>
     <Tab value="c">Tab C</Tab>
 </TabGroup>
+        `.trim()}></CodeBlock>
+        <CodeBlock language="html" code={`
 {#if $storeTwo === 'a'}Content A{/if}
 {#if $storeTwo === 'b'}Content B{/if}
 {#if $storeTwo === 'c'}Content C{/if}

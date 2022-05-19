@@ -38,7 +38,7 @@
     });
 </script>
 
-<figure class="progress-radial relative {$$props.class}" data-testid="progress-radial">
+<figure class="progress-radial relative overflow-hidden {$$props.class}" data-testid="progress-radial">
     <svg viewBox="0 0 {baseSize} {baseSize}" class="rounded-full" class:animate-spin={value === undefined}>
         <!-- Track -->
         <circle

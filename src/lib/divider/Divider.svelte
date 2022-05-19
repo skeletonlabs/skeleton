@@ -6,7 +6,7 @@
 	export let orientation: string = 'h'; // h (horizintal) | v (vertical)
 
 	// Define Base Classes
-    const cBase = `border-surface-300 dark:border-surface-700`;
+    const cBase = `block border-surface-300 dark:border-surface-700`;
 	const cWeight = {
 		1: {v: 'border-l', h: 'border-t'},
 		2: {v: 'border-l-2', h: 'border-t-2'},
@@ -38,7 +38,7 @@
 		setVariant();
 		setOrientation();
 	});
-    $: classes = `${cBase} ${cVariant} ${cOrientation} ${$$props.class}`;
+    $: classes = `${cBase} ${cVariant} ${cOrientation}`;
 </script>
 
-<hr class="divider {classes}" data-testid='divider' />
+<hr class="divider {classes} {$$props.class}" data-testid='divider' />

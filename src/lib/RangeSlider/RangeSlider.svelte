@@ -12,7 +12,7 @@
     // Props: Options
     export let label: string = '';
     export let ticked: boolean = false;
-    export let accent: string = 'accent-accent-500';
+    export let accent: string = 'accent-primary-500';
 
     // Styles
     const cBase: string = 'range-slider w-full h-2';

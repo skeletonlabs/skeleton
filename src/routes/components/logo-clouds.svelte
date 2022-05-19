@@ -24,27 +24,24 @@
 
     <!-- Examples -->
     <section class="space-y-4">
-        <h4>4x</h4>
         <LogoCloud>
             <Logo>HR Solutions Co.</Logo>
             <Logo>Acme Theaters</Logo>
             <Logo>Cruisin' Cuisine</Logo>
             <Logo>Arcane Security</Logo>
         </LogoCloud>
-        <h4>3x</h4>
         <LogoCloud>
             <Logo>HR Solutions Co.</Logo>
             <Logo>Acme Theaters</Logo>
             <Logo>Cruisin' Cuisine</Logo>
         </LogoCloud>
-        <h4>Slots</h4>
         <LogoCloud>
             <Logo>
-                <svelte:fragment slot="icon">&#9733;</svelte:fragment>
+                <svelte:fragment slot="icon"><span>💼</span></svelte:fragment>
                 <svelte:fragment slot="label">HR Solutions Co.</svelte:fragment>
             </Logo>
             <Logo>
-                <svelte:fragment slot="icon">&#9733;</svelte:fragment>
+                <svelte:fragment slot="icon"><span>🍿</span></svelte:fragment>
                 <svelte:fragment slot="label">Acme Theaters</svelte:fragment>
             </Logo>
         </LogoCloud>

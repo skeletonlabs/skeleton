@@ -19,7 +19,7 @@
             ['value', 'number', '0' , 'false', 'Set the current input value.'],
             ['label', 'string', '-' , 'false', 'Provide an input label.'],
             ['ticked', 'boolean', 'false' , 'false', 'Enable to show tickmarks.'],
-            ['accent', 'string', 'accent-accent-500' , 'false', 'Provide a class to set the input accent color.'],
+            ['accent', 'string', 'accent-primary-500' , 'false', 'Provide a class to set the input accent color.'],
         ],
     };
 </script>
@@ -46,9 +46,8 @@
 	<section class="space-y-4">
         <Card class="space-y-4">
             <RangeSlider bind:value={valueA} />
-            <RangeSlider bind:value={valueA} accent="accent-primary-500" />
+            <RangeSlider bind:value={valueA} accent="accent-accent-500" />
             <RangeSlider bind:value={valueA} accent="accent-warning-500" />
-            <RangeSlider bind:value={valueA} accent="accent-yellow-500" />
         </Card>
         <div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
             <Card class="space-y-4">
