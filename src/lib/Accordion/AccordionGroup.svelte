@@ -2,16 +2,16 @@
     import { setContext } from "svelte/internal";
     import type { Writable } from "svelte/store";
 
+    // Props
     export let selected: Writable<any>;
-    export let spacing: string = 'space-y-4';
     export let multiple: boolean = false;
+    export let spacing: string = 'space-y-4';
 
-    setContext('active', selected);
+    // Context
+    setContext('selected', selected);
     setContext('multiple', multiple);
-
-    $:classes = `${spacing}`;
 </script>
 
-<dl class="accordian-group {classes} {$$props.classes}" data-testid="accordion-group">
+<dl class="accordian-group {spacing} {$$props.classes}" data-testid="accordion-group">
     <slot />
 </dl>

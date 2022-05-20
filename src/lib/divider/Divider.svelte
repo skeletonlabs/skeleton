@@ -1,22 +1,16 @@
 <script lang="ts">
 	import { afterUpdate } from "svelte";
 
+	// Props
 	export let weight: number = 1;
-	export let variant: string = 'solid'; // solid | dashed | dotted
-	export let orientation: string = 'h'; // h (horizintal) | v (vertical)
+	export let variant: string = 'solid';
+	export let orientation: string = 'h';
 
-	// Define Base Classes
-    const cBase = `block border-surface-300 dark:border-surface-700`;
-	const cWeight = {
-		1: {v: 'border-l', h: 'border-t'},
-		2: {v: 'border-l-2', h: 'border-t-2'},
-		4: {v: 'border-l-4', h: 'border-t-4'},
-		8: {v: 'border-l-8', h: 'border-t-8'},
-	};
-	let cVariant: string;
-	let cOrientation: string;
+	// Base Classes
+    const cBaseDivider = `block border-surface-300 dark:border-surface-700`;
 
     // Set Variant
+	let cVariant: string;
 	function setVariant(): void {
 		switch(variant) {
 			case('dashed'): cVariant = 'border-dashed'; break;
@@ -26,6 +20,13 @@
 	}
 	
 	// Set Orientation
+	const cWeight = {
+		1: {v: 'border-l', h: 'border-t'},
+		2: {v: 'border-l-2', h: 'border-t-2'},
+		4: {v: 'border-l-4', h: 'border-t-4'},
+		8: {v: 'border-l-8', h: 'border-t-8'},
+	};
+	let cOrientation: string;
 	function setOrientation(): void {
 		switch(orientation) {
 			case('v'): cOrientation = `border-0 ${cWeight[weight].v} h-full`; break;
@@ -33,12 +34,14 @@
 		}
 	}
 
-	// Reactive
+	// After Prop Updates
 	afterUpdate(() => {
 		setVariant();
 		setOrientation();
 	});
-    $: classes = `${cBase} ${cVariant} ${cOrientation}`;
+
+	// Reactive Classes
+    $: classes = `${cBaseDivider} ${cVariant} ${cOrientation}`;
 </script>
 
 <hr class="divider {classes} {$$props.class}" data-testid='divider' />

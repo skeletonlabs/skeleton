@@ -5,22 +5,28 @@
 	export let rounded: string = 'rounded';
 	export let icon: boolean = false;
 	
-	// Styles
-	let cBase: string = 'inline-flex items-center space-x-2 text-xs font-semibold';
-	cBase += icon ? ' w-[18px] h-[18px] justify-center' : ' px-1.5 py-[3px]';
+	// Base Classes
+	let cBaseBadge: string = 'inline-flex items-center space-x-2 text-xs font-semibold';
+	let cBaseIcon: string = icon ? ' w-[18px] h-[18px] justify-center' : ' px-1.5 py-[3px]';
+
+	// If icon, set rounded-full
 	if (icon) { rounded = 'rounded-full'; }
 
 	// Responsive
-	$: classes = `${cBase} ${background} ${color} ${fill} ${rounded} ${$$props.class}`;
+	$: classesBadge = `${cBaseBadge} ${cBaseIcon} ${background} ${color} ${fill} ${rounded} ${$$props.class}`;
 </script>
 
-<span data-testid="badge" class="badge {classes}">
-	<!-- Icon: Lead -->
+<span data-testid="badge" class="badge {classesBadge}">
+
+	<!-- Slot: Lead -->
 	{#if $$slots.lead}<div><slot name="lead" /></div>{/if}
+
 	<!-- Content -->
 	<div><slot /></div>
-	<!-- Icon: Trail -->
+
+	<!-- Slot: Trail -->
 	{#if $$slots.trail}<div><slot name="trail" /></div>{/if}
+
 </span>
 
 

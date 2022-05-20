@@ -7,15 +7,16 @@
     const tableProps: any = {
         columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
         data: [
-            ['size', 'string', 'text-[x]', 'text-4xl lg:text-6xl', 'Define the text size.'],
-            ['direction', 'string', 'bg-gradient-to-[x]', 'bg-gradient-to-r', 'Define the gradient direction.'],
-            ['from', 'string', 'from-[color]-[weight]', 'from-primary-500', 'Define the "from" color.'],
-            ['to', 'string', 'to-[color]-[weight]', 'to-accent-500', 'Define the "to" color.'],
+            ['tag', 'string', 'HTML text element', 'h1', 'Define the semantic element tag.'],
+            ['direction', 'string', 'bg-gradient-to-[x]', 'bg-gradient-to-r', 'Provide a class to set gradient direction.'],
+            ['from', 'string', 'from-[color]-[weight]', 'from-primary-500', 'Provide a class to set "from" color.'],
+            ['to', 'string', 'to-[color]-[weight]', 'to-accent-500', 'Provide a class to set "to" color.'],
         ],
     };
 
     $: props = {
-        size: 'text-6xl',
+        text: 'Skeleton',
+        tag: 'h1',
         direction: 'bg-gradient-to-r',
         from: 'from-primary-500',
         to: 'to-accent-500',
@@ -27,7 +28,7 @@
     <!-- Header -->
     <header class="space-y-4">
         <h1>Gradient Heading</h1>
-        <p>Generate a gradient-colored heading with customizable size and gradient direction.</p>
+        <p>Generate a gradient-colored heading with customizable tag and gradient direction.</p>
         <CodeBlock language="javascript" code="{`import { GradientHeading } from '@brainandbones/skeleton';`}"></CodeBlock>
     </header>
 
@@ -39,31 +40,30 @@
 				<div class="w-full h-full overflow-y-hidden overflow-x-auto flex justify-center items-center">
                     <svelte:component
                         this={GradientHeading}
-                        size={props.size}
+                        tag={props.tag}
                         direction={props.direction}
                         from={props.from}
                         to={props.to}
-                    >Skeleton</svelte:component>
+                    >{props.text}</svelte:component>
                 </div>
             </Card>
 			<!-- Options -->
 			<Card class="space-y-4">
-                <!-- Size -->
+                <label>
+                    <span>Text</span>
+                    <input type="text" bind:value="{props.text}" placeholder="Enter text...">
+                </label>
+                <!-- Tag -->
 				<label>
-                    <span>Size</span>
-                    <select name="size" id="size" bind:value={props.size}>
-                        <option value="text-sm">text-sm</option>
-                        <option value="text-md">text-md</option>
-                        <option value="text-lg">text-lg</option>
-                        <option value="text-xl">text-xl</option>
-                        <option value="text-2xl">text-2xl</option>
-                        <option value="text-3xl">text-3xl</option>
-                        <option value="text-4xl">text-4xl</option>
-                        <option value="text-5xl">text-5xl</option>
-                        <option value="text-6xl">text-6xl</option>
-                        <option value="text-7xl">text-7xl</option>
-                        <option value="text-8xl">text-8xl</option>
-                        <option value="text-9xl">text-9xl</option>
+                    <span>Tag</span>
+                    <select name="tag" id="tag" bind:value={props.tag}>
+                        <option value="h1">h1</option>
+                        <option value="h2">h2</option>
+                        <option value="h3">h3</option>
+                        <option value="h4">h4</option>
+                        <option value="h5">h5</option>
+                        <option value="h6">h6</option>
+                        <option value="div">div</option>
                     </select>
                 </label>
                 <!-- Direction -->
@@ -103,7 +103,7 @@
 		</div>
 		<CodeBlock
 			language="html"
-			code={`<GradientHeading size="${props.size}" direction="${props.direction}" from="${props.from}" to="${props.to}">Skeleton</GradientHeading>`}
+			code={`<GradientHeading tag="${props.tag}" direction="${props.direction}" from="${props.from}" to="${props.to}">Skeleton</GradientHeading>`}
 		></CodeBlock>
 	</section>
     

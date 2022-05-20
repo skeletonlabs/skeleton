@@ -22,7 +22,7 @@
             ['color', 'string', 'class', 'text-white', 'Provide a class to set text color.'],
             ['outline', 'boolean', 'true | false', 'false', 'Displays a fixed outline of the primary color.'],
             ['hover', 'boolean', 'true | false', 'false', 'Adds an outline of the primary color when hovered.'],
-            ['effect', 'string', '(filter name)', 'false', 'Provide a filter name to provide a utility filter action.'],
+            ['filter', 'string', 'filter name', 'false', 'Provide a filter name to provide a utility filter action.'],
         ],
     };
 
@@ -41,7 +41,7 @@
         color: undefined,
         outlined: false,
         hover: false,
-        effect: ''
+        filter: ''
 	};
 </script>
 
@@ -68,7 +68,7 @@
 					color={props.color}
 					outlined={props.outlined}
 					hover={props.hover}
-                    effect={props.effect}
+                    filter={props.filter}
 				></svelte:component>
             </Card>
 			<!-- Options -->
@@ -114,8 +114,8 @@
                 <!-- Filter -->
                 {#if $storeSrc !== undefined}
                 <label>
-                    <span>Filter Effect</span>
-                    <select name="effect" id="effect" bind:value={props.effect} on:change={updateImage}>
+                    <span>Filter</span>
+                    <select name="filter" id="filter" bind:value={props.filter} on:change={updateImage}>
                         <option value="">None</option>
                         <option value="Apollo">Apollo</option>
                         <option value="BlueNight">BlueNight</option>
@@ -137,7 +137,7 @@
 		</div>
 		<CodeBlock
 			language="html"
-			code={`<Avatar initials="${props.initials || 'A'}" ${props.src ? `src="${props.src}"` : ''} size="${props.size}" background="${props.background}" outlined={${props.outlined}} hover={${props.hover}} ${props.effect ? `effect="${props.effect}"` : ''} />`.trim()}></CodeBlock>
+			code={`<Avatar initials="${props.initials || 'A'}" ${props.src ? `src="${props.src}"` : ''} size="${props.size}" background="${props.background}" outlined={${props.outlined}} hover={${props.hover}} ${props.filter ? `filter="${props.filter}"` : ''} />`.trim()}></CodeBlock>
 	</section>
     
     <!-- Properties -->

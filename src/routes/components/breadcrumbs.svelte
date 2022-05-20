@@ -14,16 +14,14 @@
     const tableProps: any = {
         columns: ['Prop', 'Type', 'Default', 'Description'],
         data: [
-            ['variant', 'string', 'none', 'Matches the <a href="/components/buttons">Button</a> variant options.'],
             ['separator', 'string', '&rsaquo', 'Defines crumb separator. Pairs well with SVG.']
         ],
     };
     const tablePropsCrumb: any = {
         columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
         data: [
-            ['href', 'string', 'url', '-', 'Set the anchor href.'],
-            ['disabled', 'boolean ', 'true | false', 'false', 'Sets the display to disabled.'],
-            ['current', 'boolean ', 'true | false', 'false', 'Shorthand for disabled.'],
+            ['href', 'string', 'url', '-', 'Sets the anchor clickthrough link.'],
+            ['current', 'boolean ', 'true | false', 'false', 'Sets a disabled style.'],
         ],
     };
     const tableSlotsCrumb: any = {
@@ -109,45 +107,6 @@
                 </Card>
             </div>
         </div>
-        <h4>Variants</h4>
-        <div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
-            <Card class="overflow-x-auto">
-                <div class="w-full overflow-x-auto min-w-[400px]">
-                    <Breadcrumb variant="text">
-                        <Crumb href="/">Home</Crumb>
-                        <Crumb href="/">Subpage</Crumb>
-                        <Crumb current>Current</Crumb>
-                    </Breadcrumb>
-                </div>
-            </Card>
-            <Card class="overflow-x-auto">
-                <div class="w-full overflow-x-auto min-w-[400px]">
-                    <Breadcrumb variant="filled-accent">
-                        <Crumb href="/">Home</Crumb>
-                        <Crumb href="/">Subpage</Crumb>
-                        <Crumb current>Current</Crumb>
-                    </Breadcrumb>
-                </div>
-            </Card>
-            <Card class="overflow-x-auto">
-                <div class="w-full overflow-x-auto min-w-[400px]">
-                    <Breadcrumb variant="ghost-primary">
-                        <Crumb href="/">Home</Crumb>
-                        <Crumb href="/">Subpage</Crumb>
-                        <Crumb current>Current</Crumb>
-                    </Breadcrumb>
-                </div>
-            </Card>
-            <Card class="overflow-x-auto">
-                <div class="w-full overflow-x-auto min-w-[400px]">
-                    <Breadcrumb variant="ghost-warning">
-                        <Crumb href="/">Home</Crumb>
-                        <Crumb href="/">Subpage</Crumb>
-                        <Crumb current>Current</Crumb>
-                    </Breadcrumb>
-                </div>
-            </Card>
-        </div>
     </section>
 
     <!-- Usage -->
@@ -160,7 +119,7 @@
         <span>Home</span>
     </Crumb>
     <Crumb href='/'>Subpage</Crumb>
-    <Crumb disabled>Current</Crumb>
+    <Crumb current>Current</Crumb>
 </Breadcrumb>
         `.trim()}></CodeBlock>
     </section>

@@ -41,9 +41,8 @@
                 {href: '/components/breadcrumbs', label: 'Breadcrumbs'},
                 {href: '/components/buttons', label: 'Buttons'},
                 {href: '/components/cards', label: 'Cards'},
-                // {href: '/components/conic-gradients', label: 'Conic Gradients'},
+				// {href: '/components/conic-gradients', label: 'Conic Gradients'},
                 {href: '/components/dividers', label: 'Dividers'},
-                {href: '/components/drawers', label: 'Drawers'},
                 {href: '/components/gradient-headings', label: 'Gradient Headings'},
                 {href: '/components/lists', label: 'Lists'},
                 {href: '/components/logo-clouds', label: 'Logo Clouds'},
@@ -61,6 +60,8 @@
         {
 			title: 'Utilities',
             list: [
+				// {href: '/utilities/codeblocks', label: 'Codeblocks'},
+				{href: '/utilities/drawers', label: 'Drawers'},
 				{href: '/utilities/lightswitches', label: 'Lightswitch'},
 				{href: '/utilities/dialogs', label: 'Dialogs'},
 				{href: '/utilities/toasts', label: 'Toasts'},
@@ -105,7 +106,7 @@
 <div class="flex flex-row">
 
 	<!-- Drawer -->
-	<Drawer visible={drawer} fixed>
+	<Drawer visible={drawer} fixed="left">
 		<!-- Header -->
 		<svelte:fragment slot="header">
 			<div class="flex justify-between items-center p-4">
