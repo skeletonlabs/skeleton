@@ -3,12 +3,12 @@
 
     export let checked: boolean = false;
     export let accent: string = 'bg-accent-500';
-    export let size: string = 'lg';
+    export let size: string = 'md';
 
     // Base Styles
-    const cBaseLabel: string = 'slide-toggle flex items-center space-x-4';
-    const cBaseTrack: string = 'track flex rounded-full transition-all duration-[200ms] hover:brightness-90 cursor-pointer';
-    const cBaseThumb: string = 'thumb bg-surface-100 dark:bg-surface-200 w-[50%] h-full scale-[0.7] rounded-full cursor-pointer transition-all duration-[200ms]';
+    const cBaseLabel: string = '';
+    const cBaseTrack: string = 'flex rounded-full transition-all duration-[200ms] hover:brightness-90 cursor-pointer';
+    const cBaseThumb: string = 'bg-surface-100 dark:bg-surface-200 w-[50%] h-full scale-[0.7] rounded-full cursor-pointer transition-all duration-[200ms]';
    
     // Set track size
     let trackSize: string;
@@ -46,7 +46,7 @@
     $: classesThumb = `${cBaseThumb} ${thumbPos}`;
 </script>
 
-<label class="{classesLabel} {$$props.class}" class:opacity-30={$$props.disabled} data-testid="slide-toggle">
+<label class="slide-toggle {classesLabel} {$$props.class}" class:opacity-30={$$props.disabled} data-testid="slide-toggle">
 
     <!-- Input (Hidden) -->
     <input
@@ -61,12 +61,16 @@
         disabled={$$props.disabled}
     >
 
-    <!-- Slider Track/Thumb -->
-    <div class="{classesTrack}" class:cursor-not-allowed={$$props.disabled}>
-        <div class="{classesThumb}" class:cursor-not-allowed={$$props.disabled}></div>
-    </div>
+    <div class="flex items-center space-x-4">
 
-    <!-- Label -->
-    {#if $$slots}<slot/>{/if}
+        <!-- Slider Track/Thumb -->
+        <div class="track {classesTrack}" class:cursor-not-allowed={$$props.disabled}>
+            <div class="thumb {classesThumb}" class:cursor-not-allowed={$$props.disabled}></div>
+        </div>
+
+        <!-- Label -->
+        {#if $$slots}<div><slot/></div>{/if}
+
+    </div>
 
 </label>

@@ -2,6 +2,7 @@
 	import Card from '$lib/Card/Card.svelte';
     import Table from '$lib/Table/Table.svelte';
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+	import SlideToggle from '$lib/SlideToggle/SlideToggle.svelte';
 	import Button from '$lib/Button/Button.svelte';
 
 	// SVG Icon
@@ -174,10 +175,7 @@
                     </select>
                 </label>
 				<!-- Disabled -->
-				<label class="flex items-center">
-					<input type="checkbox" bind:checked={props.disabled} />
-					<p class="ml-2">Disabled</p>
-				</label>
+				<SlideToggle bind:checked={props.disabled} accent="bg-accent-500">Disabled</SlideToggle>
 			</Card>
 		</div>
 		<CodeBlock

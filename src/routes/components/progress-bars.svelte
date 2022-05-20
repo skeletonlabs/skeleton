@@ -9,6 +9,7 @@
     import ProgressBar from "$lib/Progress/ProgressBar.svelte";
 
     const storeDeterminate: Writable<boolean> = writable(true);
+    const storeHeight: Writable<string> = writable('h-2');
 
     const tableProps: any = {
         columns: ['Prop', 'Type', 'Default', 'Required', 'Description'],
@@ -27,7 +28,7 @@
         label: 'Progress Bar',
         value: 50,
         max: 100,
-        height: 'h-2',
+        height: $storeHeight,
         color: 'bg-accent-500',
     };
 </script>
@@ -80,14 +81,14 @@
                     </div>
                 {/if}
                 <!-- Height -->
-                <label>
-                    <span>Height</span>
-                    <select name="height" id="height" bind:value={props.height}>
-                        <option value={'h-2'}>h-2</option>
-                        <option value={'h-4'}>h-4</option>
-                        <option value={'h-6'}>h-6</option>
-                    </select>
-                </label>
+                <div>
+                    <legend>Height</legend>
+                    <RadioGroup selected={storeHeight} background="bg-accent-500" color="text-white" width="w-full">
+                        <RadioItem value="h-2">h-2</RadioItem>
+                        <RadioItem value="h-4">h-4</RadioItem>
+                        <RadioItem value="h-6">h-6</RadioItem>
+                    </RadioGroup>
+                </div>
                 <!-- Color -->
                 <label>
                     <span>Color</span>
