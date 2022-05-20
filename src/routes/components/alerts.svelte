@@ -41,7 +41,7 @@
     <header class="space-y-4">
         <h1>Alerts</h1>
         <p>Display customizable alerts to grab attention and provide critical actions.</p>
-        <CodeBlock language="javascript" code="{`import {Alert} from '@brainandbones/skeleton';`}"></CodeBlock>
+        <CodeBlock language="javascript" code="{`import { Alert } from '@brainandbones/skeleton';`}"></CodeBlock>
     </header>
     
     <!-- Examples -->
@@ -67,7 +67,7 @@
             <svelte:fragment slot="title">{title}</svelte:fragment>
             <svelte:fragment slot="message">{message}</svelte:fragment>      
         </Alert>
-        {#if visible}<h4>Customized</h4>{/if}
+        {#if visible}<h4>Fully Featured</h4>{/if}
         <Alert background="bg-accent-500" {visible}>
             <svelte:fragment slot="lead">{@html icon}</svelte:fragment>
             <svelte:fragment slot="title">{title}</svelte:fragment>
@@ -86,8 +86,8 @@
         <CodeBlock language="html" code="{`
 <Alert {visible}>
     <svelte:fragment slot="lead">{@html icon}</svelte:fragment>
-    <svelte:fragment slot="title">{title}</svelte:fragment>
-    <svelte:fragment slot="message">{message}</svelte:fragment>      
+    <svelte:fragment slot="title">Hello, Skeleton</svelte:fragment>
+    <svelte:fragment slot="message">A custom message here.</svelte:fragment>      
     <svelte:fragment slot="trail">
         <Button variant="filled" on:click={doSomething}>Show Me</Button>
     </svelte:fragment>

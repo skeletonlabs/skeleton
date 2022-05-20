@@ -27,8 +27,8 @@
     <!-- Header -->
     <header class="space-y-4">
         <h1>Gradient Heading</h1>
-        <p>Quickly add a gradient header with customizable size and gradient direction.</p>
-        <CodeBlock language="javascript" code="{`import {GradientHeading} from '@brainandbones/skeleton';`}"></CodeBlock>
+        <p>Generate a gradient-colored heading with customizable size and gradient direction.</p>
+        <CodeBlock language="javascript" code="{`import { GradientHeading } from '@brainandbones/skeleton';`}"></CodeBlock>
     </header>
 
     <!-- Sandbox -->

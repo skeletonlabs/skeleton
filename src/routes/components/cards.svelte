@@ -26,7 +26,7 @@
     <header class="space-y-4">
         <h2>Cards</h2>
         <p>Container elements that wrap and seperate your content.</p>
-        <CodeBlock language="javascript" code={`import {Card} from '@brainandbones/skeleton';`}></CodeBlock>
+        <CodeBlock language="javascript" code={`import { Card } from '@brainandbones/skeleton';`}></CodeBlock>
     </header>
 
     <!-- Examples -->
@@ -35,10 +35,10 @@
             <!-- Minimal -->
             <Card class="flex justify-center items-center min-h-[100px]">Minimal</Card>
             <!-- Detailed -->
-            <Card class="cursor-pointer transition-transform hover:-translate-y-1 hover:shadow-xl">
+            <Card class="cursor-pointer transition-transform hover:-translate-y-1 hover:shadow-xl overflow-hidden">
                 <svelte:fragment slot="header">
                     <div class="-mt-4 -mx-4">
-                        <img src="https://source.unsplash.com/random/960x540?skeleton" class="bg-black aspect-video w-full" alt="Post">
+                        <img src="https://source.unsplash.com/random/640x240?skeleton" class="bg-black w-full" alt="Post">
                     </div>
                 </svelte:fragment>
                 <div class="space-y-4">

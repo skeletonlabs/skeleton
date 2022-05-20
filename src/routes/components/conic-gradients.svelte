@@ -43,7 +43,7 @@
     <header class="space-y-4">
         <h1>Conic Gradient</h1>
         <p>Create conic gradient visualizations for pie charts, loading spinners, and more.</p>
-        <CodeBlock language="javascript" code={`import {ConicGradient} from '@brainandbones/skeleton';`}></CodeBlock>
+        <CodeBlock language="javascript" code={`import { ConicGradient } from '@brainandbones/skeleton';`}></CodeBlock>
     </header>
 
     <!-- Examples -->

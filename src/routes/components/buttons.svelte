@@ -48,6 +48,7 @@
 		ring: 'ring-transparent',
 		weight: 'ring-none',
 		rounded: 'rounded-lg',
+		width: 'w-auto',
 		disabled: false
 	};
 </script>
@@ -58,7 +59,7 @@
 	<header class="space-y-4">
 		<h1>Buttons</h1>
 		<p>Buttons allow users to take actions and make choices with a single tap.</p>
-		<CodeBlock language="js" code={`import {Button} from '@brainandbones/skeleton';`}></CodeBlock>
+		<CodeBlock language="js" code={`import { Button } from '@brainandbones/skeleton';`}></CodeBlock>
 	</header>
 
 	<!-- Sandbox -->
@@ -75,6 +76,7 @@
 					ring={props.ring}
 					weight={props.weight}
 					rounded={props.rounded}
+					width={props.width}
 					disabled={props.disabled}
 				>
 					<svelte:fragment slot="lead">{@html svgIconSkull}</svelte:fragment>
@@ -162,6 +164,15 @@
                         <option value="rounded-full">rounded-full</option>
                     </select>
                 </label>
+				<!-- Width -->
+				<label>
+                    <span>Width</span>
+                    <select name="width" id="width" bind:value={props.width}>
+                        <option value="w-auto">w-auto</option>
+                        <option value="w-[50%]">w-[50%]</option>
+                        <option value="w-full">w-full</option>
+                    </select>
+                </label>
 				<!-- Disabled -->
 				<label class="flex items-center">
 					<input type="checkbox" bind:checked={props.disabled} />
@@ -179,6 +190,7 @@
 	ring="${props.ring || ''}"
 	weight="${props.weight || ''}"
 	rounded="${props.rounded}"
+	width="${props.width}"
 	disabled={${props.disabled}}
 >
 	<svelte:fragment slot="lead">(icon)</svelte:fragment>
@@ -191,9 +203,9 @@
 	<!-- Variants -->
 	<section class="space-y-4">
 		<h4>Variants</h4>
-		<p>Skeleton provides variants to quickly and easily create buttons with predefined styles. Note these styles cannot be overwritten by individual properties.</p>
+		<p>Skeleton provides variants to quickly and easily create buttons with predefined styles. You may still set rounded and width properties with variants.</p>
 		<Card>
-			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-2xl mx-auto">
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 				{#each variantExamples as ve}
 				<section>
 					<h4 class="text-center mb-4">{ve.label}</h4>

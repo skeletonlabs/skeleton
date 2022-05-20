@@ -45,7 +45,7 @@
     <header class="space-y-4">
         <h1>Avatars</h1>
         <p>Choose from a variety for avatar sizes and styles, using either initials or images.</p>
-        <CodeBlock language="js" code={`import {Avatar} from '@brainandbones/skeleton';`}></CodeBlock>
+        <CodeBlock language="js" code={`import { Avatar } from '@brainandbones/skeleton';`}></CodeBlock>
     </header>
 
     <!-- Sandbox -->
@@ -133,8 +133,7 @@
 		</div>
 		<CodeBlock
 			language="html"
-			code={`<Avatar initials="${props.initials || 'A'}" src="${props.src}" size="${props.size}" background="${props.background}" outlined={${props.outlined}} hover={${props.hover}} effect="${props.effect}" />`}
-		></CodeBlock>
+			code={`<Avatar initials="${props.initials || 'A'}" ${props.src ? `src="${props.src}"` : ''} size="${props.size}" background="${props.background}" outlined={${props.outlined}} hover={${props.hover}} ${props.effect ? `effect="${props.effect}"` : ''} />`.trim()}></CodeBlock>
 	</section>
     
     <!-- Properties -->

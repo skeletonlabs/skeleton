@@ -8,8 +8,8 @@
 
 	<!-- Header -->
 	<header class="space-y-4">
-		<h1>Configure Tailwind</h1>
-        <p>Skeleton is fully compatable with Tailwind, but requires a few configuration steps. Please follow the steps below.</p>
+		<h1>Tailwind Settings</h1>
+        <p>Skeleton is fully compatable with Tailwind, but requires a couple extra steps. Please follow the instructions below.</p>
 	</header>
 
     <!-- Usage -->
@@ -41,9 +41,10 @@ module.exports = {
     </section>
 
     <!-- Next Steps -->
-    <Card class="space-y-4">
-        <h4>Themes Guide</h4>
-        <p>Follow the guide below to generate a custom theme for your project.</p>
+    <Card class="flex items-center space-x-4">
+        <div class="flex-1 space-y-4">
+            <p>Next let's follow the guide for creating a custom theme.</p>
+        </div>
         <Button variant="filled-accent" href="/docs/themes">Next: Themes Guide</Button>
     </Card>
 

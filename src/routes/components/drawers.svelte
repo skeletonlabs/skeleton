@@ -29,23 +29,23 @@
     <!-- Header -->
     <header class="space-y-4">
         <h2>Drawers</h2>
-        <p>Display overlay area at any side of the screen</p>
-        <CodeBlock language="javascript" code={`import {Drawer} from '@brainandbones/skeleton';`}></CodeBlock>
+        <p>Displays navigation bar, with optional overlay options.</p>
+        <CodeBlock language="javascript" code={`import { Drawer } from '@brainandbones/skeleton';`}></CodeBlock>
     </header>
 
     <!-- Examples -->
     <Card class="space-y-4">
         <Drawer class="mx-auto">
             <svelte:fragment slot="header">
-                <p class="p-4 text-center">(header slot)</p>
+                <p class="p-4 text-center">(header)</p>
                 <Divider />
             </svelte:fragment>
             <svelte:fragment slot="main">
-                <p class="p-4 text-center">(main slot)</p>
+                <p class="p-4 text-center">(main)</p>
             </svelte:fragment>
             <svelte:fragment slot="footer">
                 <Divider />
-                <p class="p-4 text-center">(footer slot)</p>
+                <p class="p-4 text-center">(footer)</p>
             </svelte:fragment>
         </Drawer>
     </Card>
@@ -75,16 +75,6 @@ const drawerClose = () => { drawer.set(false); }
 </Drawer>
         `.trim()}></CodeBlock>
     </section>
-
-    <!-- Notes -->
-    <Card class="space-y-4">
-        <h4>Notes</h4>
-        <ul class="list-disc list-inside space-y-2">
-            <li>Pair with Divider components in the header/footer to visualize segmentation.</li>
-            <li>The main slot will provide automatic overflow scroll for the Y axis.</li>
-            <li>Any slot not provided will collapse and be hidden.</li>
-        </ul>
-    </Card>
 
     <!-- Properties -->
 	<section class="space-y-4">

@@ -46,7 +46,7 @@
     <header class="space-y-4">
         <h2>Lists</h2>
         <p class='space-y-4'>Lists are continuous, vertical indexes of text options.</p>
-        <CodeBlock language="js" code={`import {List, ListItem} from '@brainandbones/skeleton';`}></CodeBlock>
+        <CodeBlock language="js" code={`import { List, ListItem } from '@brainandbones/skeleton';`}></CodeBlock>
     </header>
 
     <!-- Roles -->
