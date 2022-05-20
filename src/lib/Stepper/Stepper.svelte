@@ -2,13 +2,14 @@
     import { createEventDispatcher, setContext } from 'svelte';
     import { writable, type Writable } from 'svelte/store';
 
+    // Event Dispacher
+    const dispatch = createEventDispatcher();
+
     // Props
     export let active: Writable<number> = writable(0);
     export let length: number = 0;
-    export let accent = 'bg-primary-500';
-    export let background = 'bg-surface-300 dark:bg-surface-700';
-
-    const dispatch = createEventDispatcher();
+    export let accent: string = 'bg-primary-500';
+    export let background: string = 'bg-surface-300 dark:bg-surface-700';
 
     // Context
     setContext('dispatch', dispatch);
@@ -18,12 +19,9 @@
     setContext('background', background);
 
     // Base Clssses
-    const cBase: string = 'space-y-8';
-
-    // Reactive Classes
-    $: classes = `${cBase}`;
+    const cBaseStepper: string = 'space-y-8';
 </script>
 
-<div class="stepper {classes} {$$props.class}" data-testid="stepper">
+<div class="stepper {cBaseStepper} {$$props.class}" data-testid="stepper">
     <slot />
 </div>

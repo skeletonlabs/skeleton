@@ -5,29 +5,30 @@
     import Button from '$lib/Button/Button.svelte';
     import { dialogStore } from '$lib/Notifications/Stores';
 
+    // Props
     export let backdrop: string = 'bg-surface-400/70 dark:bg-surface-900/70';
     export let blur: string = 'backdrop-blur-none';
     export let card: string = 'bg-surface-50 dark:bg-surface-700';
+    export let width: string = 'max-w-[640px]';
     export let duration: number = 100;
 
     // Local Settings
-    const anim: any = {
-        fade: {duration},
-        scale: {duration, opacity: 0, start: 0.5}
-    };
     let dialogValue: string;
 
     // Base Classes
     const cBaseBackdrop: string = 'fixed top-0 left-0 right-0 bottom-0 z-[999] flex justify-center items-center p-4';
-    const cBaseDialog: string = 'p-4 w-full max-w-[480px] space-y-4 rounded-xl drop-shadow';
+    const cBaseDialog: string = 'p-4 w-full space-y-4 rounded-xl drop-shadow';
     const cBaseHeader: string = 'flex justify-start items-center space-x-4';
     const cBaseIcon: string = 'fill-black dark:fill-white bg-primary-500/20 flex justify-center items-center w-10 mx-auto aspect-square rounded-full';
+    const cBaseImage: string = 'w-full h-auto rounded-lg';
     const cBaseFooter: string = 'flex justify-end space-x-4';
 
-    // Functionality
+    // Set Result
     function setResult(v: any): void {
         if ($dialogStore[0].result) { $dialogStore[0].result(v); }
     }
+
+    // Click Handlers
     function onDialogClose(): void {
         setResult(false);
         dialogStore.close();
@@ -49,25 +50,22 @@
 
     // Reactive Classes
     $: classesBackdrop = `${cBaseBackdrop} ${backdrop} ${blur}`;
-    $: classesDialog = `${cBaseDialog} ${card}`;
-    $: classesHeader = `${cBaseHeader}`;
-    $: classesIcon = `${cBaseIcon}`;
-    $: classesFooter = `${cBaseFooter}`;
+    $: classesDialog = `${cBaseDialog} ${card} ${width}`;
 </script>
 
 {#if $dialogStore.length}
 <!-- Backdrop Shim -->
-<div class="dialog-backdrop {classesBackdrop} {$$props.class}" on:click={onDialogClose} transition:fade|local={anim.fade}>
+<div class="dialog-backdrop {classesBackdrop} {$$props.class}" on:click={onDialogClose} transition:fade|local={{duration}}>
 
     <!-- Dialog -->
-    <div role="dialog" class="dialog {classesDialog}" on:click|preventDefault|stopPropagation transition:scale|local="{anim.scale}">
+    <div role="dialog" class="dialog {classesDialog}" on:click|preventDefault|stopPropagation transition:scale|local="{{duration, opacity: 0, start: 0.5}}">
 
         <!-- Header -->
-        <header class="dialog-header {classesHeader}">
+        <header class="dialog-header {cBaseHeader}">
 
             <!-- Icon -->
             {#if $dialogStore[0].icon}
-            <div class="dialog-icon {classesIcon}">{@html $dialogStore[0].icon}</div>
+            <div class="dialog-icon {cBaseIcon}">{@html $dialogStore[0].icon}</div>
             {/if}
 
             <!-- Title -->
@@ -82,7 +80,7 @@
 
             <!-- If: image -->
             {#if $dialogStore[0].image}
-            <img src={$dialogStore[0].image} class="w-full h-auto rounded-lg" alt="Dialog" loading="lazy">
+            <img src={$dialogStore[0].image} class="dialog-image {cBaseImage}" alt="Dialog" loading="lazy">
             {/if}
             
             <!-- If: HTML -->
@@ -105,7 +103,7 @@
         </section>
 
         <!-- Footer -->
-        <footer class="dialog-footer {classesFooter}">
+        <footer class="dialog-footer {cBaseFooter}">
             <!-- Button: Cancel -->
             <Button variant="ghost" on:click={onDialogClose}>Close</Button>
             <!-- If Confirm - Button: Confirm -->

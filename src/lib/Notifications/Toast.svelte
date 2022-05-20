@@ -4,12 +4,11 @@
     import { toastStore } from '$lib/Notifications/Stores';
     import Button from '$lib/Button/Button.svelte';
 
+    // Props
     export let background: string = 'bg-primary-500';
     export let position: string = 'b'; // bottom
     export let variant: string = 'ghost';
     export let duration: number = 250;
-
-    let y: number = 100;
 
     // Base Classes
     const cBaseToast: string = 'fixed z-50 flex items-center mx-auto py-3 px-4 max-w-[480px] space-x-4 rounded-xl';
@@ -17,6 +16,7 @@
     const cBaseActions: string = 'flex-none space-x-2';
 
     // Set Position
+    let y: number = 100;
     let cPosition: string;
     switch (position) {
         // Centered
@@ -41,8 +41,6 @@
 
     // Reactive Classes
     $: classesToast = `${cBaseToast} ${background} ${cPosition}`;
-    $: classesMessage = `${cBaseMessage}`;
-    $: classesActions = `${cBaseActions}`;
 </script>
 
 {#if $toastStore.length}
@@ -50,13 +48,13 @@
 
     <!-- Message -->
     {#key $toastStore[0].message}
-    <div class="toast-message {classesMessage}" in:fade={{duration: 250}}>
+    <div class="toast-message {cBaseMessage}" in:fade={{duration: 250}}>
         {@html $toastStore[0].message}
     </div>
     {/key}
 
     <!-- Action -->
-    <nav class="toast-actions {classesActions}">
+    <nav class="toast-actions {cBaseActions}">
         {#if $toastStore[0].button}<Button {variant} on:click={onAction}>{$toastStore[0].button.label}</Button>{/if}
         <Button {variant} on:click={onDismiss}>
             {@html $toastStore[0].button ? '&#10005;' : 'Dismiss'}

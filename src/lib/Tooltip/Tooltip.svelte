@@ -2,8 +2,8 @@
     import { afterUpdate } from "svelte";
     import { fade } from 'svelte/transition';
 
-    let visible: boolean = false;
-
+    // Props
+    export let visible: boolean = false;
     export let position: string = 'top';
     export let background: string = 'bg-black dark:bg-white';
     export let color: string = 'text-white dark:text-black';
@@ -40,9 +40,9 @@
         }
     }
 
-    // Event Handlers
-    function showTooltip(): void { visible = true; }
-    function hideTooltip(): void { visible = false; }
+    // Handle mouse events
+    function onMouseEnter(): void { visible = true; } // show
+    function onMouseLeave(): void { visible = false; } // hide
 
     // On Init
     setPosition();
@@ -55,13 +55,12 @@
     });
 
     // Reactive Classes
-    $: classesTooltip = `${cBaseTooltip}`;
     $: classesPopup = `${cBasePopup} ${cPosition}`;
     $: classesMessage = `${cBaseMessage} ${background} ${color} ${width} ${whitespace} ${rounded}`;
     $: classesArrow = `${cBaseArrow} ${cArrowPosition} ${background}`;
 </script>
 
-<div class="tooltip {classesTooltip} {$$props.class}" data-testid="tooltip">
+<div class="tooltip {cBaseTooltip} {$$props.class}" data-testid="tooltip">
 
     <!-- Popup -->
     {#if $$slots.message && visible}
@@ -73,7 +72,7 @@
     
     <!-- Slot: Content -->
     {#if $$slots.content}
-    <div data-testid="content" on:mouseenter={showTooltip} on:mouseleave={hideTooltip}>
+    <div data-testid="content" on:mouseenter={onMouseEnter} on:mouseleave={onMouseLeave}>
         <slot name="content" />
     </div>
     {/if}

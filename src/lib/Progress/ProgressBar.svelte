@@ -6,25 +6,30 @@
     export let height: string = 'h-2';
     export let color: string = 'bg-accent-500';
 
-    // Styling
-    let cBase: string = ` w-full bg-surface-500/20 overflow-hidden rounded-full`;
+    // Base Classes
+    const cBaseWrapper: string = 'w-full';
+    const cBaseLabel: string = 'block text-sm mb-2';
+    const cBaseTrack: string = `w-full bg-surface-500/20 overflow-hidden rounded-full`;
+    const cBaseMeterDeterminate: string = 'h-full rounded-full';
+    const cBaseMeterIndeterminate: string = 'h-full w-full rounded-full';
     
-    // Reactive
-    $: classes = `${cBase} ${height} ${$$props.class}`;
-    $: percentage = (100 * value) / max;
+    // Fill Percent
+    $: fillPercent = (100 * value) / max;
+
+    // Reactive Classes
+    $: classesTrack = `${cBaseTrack} ${height} ${$$props.class}`;
 </script>
 
-<div class="progress-bar-group w-full" data-testid="progress-bar-group">
+<div class="progress-wrapper {cBaseWrapper}" data-testid="progress-wrapper">
     <!-- Label -->
-    {#if label}<label for="progress" class="block text-sm mb-2">{label}</label>{/if}
-    <!-- Bar -->
-    <div class="progress-bar {classes}">
+    {#if label}<label for="progress" class="progress-label {cBaseLabel}">{label}</label>{/if}
+    <!-- Track -->
+    <div class="progress-track {classesTrack}">
+        <!-- Meter - Determinate / Indeterminate -->
         {#if value >= 0}
-            <!-- Value: Determinate -->
-            <div class="progress-value {color} h-full rounded-full" style:width="{percentage}%"></div>
+        <div class="progress-meter {cBaseMeterDeterminate} {color}" style:width="{fillPercent}%"></div>
         {:else}
-            <!-- Value: Indeterminate -->
-            <div class="progress-value {color} h-full w-full rounded-full animIndeterminate"></div>
+        <div class="progress-meter {cBaseMeterIndeterminate} {color} animIndeterminate"></div>
         {/if}
     </div>
 </div>

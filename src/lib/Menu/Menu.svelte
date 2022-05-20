@@ -17,9 +17,9 @@
     // Base Classes
     const cBaseMenu: string = 'relative inline-block';
     const cBaseContent: string = 'absolute z-10';
+    
+    // Set content anchor origin
     let cOrigin: string;
-
-    // Set Content anchor position to Trigger
     function setOrigin(): void {
         switch (origin) {
             case ('tr'): cOrigin = 'origin-top-right right-0 mt-2'; break;
@@ -74,7 +74,9 @@
     <!-- Content -->
     {#if open}
 	<div
-        role="menu" class="menu-content {classesContent}" data-testid="menu-content"
+        role="menu"
+        class="menu-content {classesContent}"
+        data-testid="menu-content"
         in:fade="{{duration}}" out:fade="{{duration}}"
     >
         {#if $$slots.content}<slot name="content" />{/if}

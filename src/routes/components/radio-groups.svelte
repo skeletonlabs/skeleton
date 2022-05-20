@@ -10,12 +10,13 @@
     const storeJustify = writable(0);
     const storeLayout = writable('horz');
 
+    // Props & Slots
     const tablePropsGroup: any = {
         columns: ['Prop', 'Type', 'Values', 'Required', 'Description'],
         data: [
             ['selected', 'Writable (any)', '-', 'true', 'Pass any Svelte store to house the selected state.'],
-            ['background', 'string', '-', 'false', `Provide a class to set the selected item's background color.`],
-            ['color', 'string', '-', 'false', `Provide a class to set the selected items text color.`],
+            ['background', 'string', 'bg-primary-500', 'false', `Provide a class to set the selected item's background color.`],
+            ['color', 'string', 'text-black dark:text-white', 'false', `Provide a class to set the selected items text color.`],
             ['width', 'string', 'w-auto', 'false', `Provide a class to set group width.`],
         ],
     };

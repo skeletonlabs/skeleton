@@ -12,12 +12,9 @@
     setContext('text', text);
 
     // Base Classes
-    const cBase: string = 'flex flex-col lg:flex-row space-y-1 lg:space-y-0 lg:space-x-1 overflow-hidden rounded-xl';
-
-    // Reactive Classes
-    $: classes = `${cBase}`;
+    const cBaseCloud: string = 'flex flex-col lg:flex-row space-y-1 lg:space-y-0 lg:space-x-1 overflow-hidden rounded-xl';
 </script>
 
-<div class="{classes} {$$props.class}" data-testid="logo-cloud">
+<div class="{cBaseCloud} {$$props.class}" data-testid="logo-cloud">
     <slot />
 </div>

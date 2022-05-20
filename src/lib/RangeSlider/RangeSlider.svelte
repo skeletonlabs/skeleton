@@ -1,8 +1,6 @@
 <script lang="ts">
-    import { afterUpdate } from "svelte";
-
-    // Props - Generate unique component ID if none specified.
-    export let id: string = (Math.random() * 10e15).toString(16);
+    // Props
+    export let id: string = (Math.random() * 10e15).toString(16); // unique id
     export let name: string = id;
     // Props: Values
     export let min: number = 0;
@@ -14,32 +12,35 @@
     export let ticked: boolean = false;
     export let accent: string = 'accent-primary-500';
 
-    // Styles
-    const cBase: string = 'range-slider w-full h-2';
+    // Base Styles
+    const cBaseLabel: string = 'm-0';
+    const cBaseContent: string = 'flex justify-center space-x-4';
+    const cBaseInput: string = 'w-full h-2';
+    const cBaseValue: string = 'flex-none min-w-[50px] text-center';
     
     // Tickmarks - generate datalist options based on min/max values
     let tickmarks: any[];
-    function setTickmarks(): void {
-        tickmarks = Array.from({length: (max-min)+1}, (v,i) => i);
-    }
+    if (ticked) { tickmarks = Array.from({length: (max-min)+1}, (v,i) => i); }
 
-    // Reactive
-    afterUpdate(() => {
-        if (ticked) { setTickmarks(); }
-    });
-    $: classes = `${cBase} ${accent} ${$$props.class||''}`;
+    // Reactive Classes
+    $: classesInput = `${cBaseInput} ${accent}`;
 </script>
 
-<label for={id} data-testid="range-slider">
-    <span class="m-0">{label}</span>
-    <div class="flex justify-center space-x-4">
-        <!-- Slider + Ticks -->
+<label for={id} class="range-slider {$$props.class}" data-testid="range-slider">
+
+    <!-- Label -->
+    <span class="range-label {cBaseLabel}">{label}</span>
+
+    <!-- Content -->
+    <div class="range-content {cBaseContent}">
+
+        <!-- Input -->
         <div class="flex-1">
             <input
                 type="range"
                 {id}
                 {name}
-                class={classes} 
+                class="range-input {classesInput}"
                 list="tickmarks-{id}"
                 min={min}
                 max={max} 
@@ -50,16 +51,20 @@
                 on:blur
                 {...$$restProps} 
             >
+
             <!-- Tickmarks -->
-            {#if ticked && tickmarks}
+            {#if ticked && tickmarks.length}
             <datalist id="tickmarks-{id}">
                 {#each tickmarks as tm}
                 <option value={tm} label='{tm}'></option>
                 {/each}
             </datalist>
             {/if}
+
         </div> 
-        <!-- Current -->
-        <div class="flex-none min-w-[50px] text-center">{value}</div>
+
+        <!-- Value -->
+        <div class="range-value {cBaseValue}">{value}</div>
+
     </div>
 </label>

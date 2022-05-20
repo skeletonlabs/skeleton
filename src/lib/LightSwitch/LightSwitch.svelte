@@ -8,6 +8,7 @@
 	import ListItem from "$lib/List/ListItem.svelte";
 	import Menu from "$lib/Menu/Menu.svelte";
 
+	// Props
 	export let origin: string = 'tl';
 
 	let currentTheme: string = 'load';
@@ -46,7 +47,6 @@
 
 	// On Init
 	setThemeClass();
-
 </script>
 
 <Menu {origin} select={true} class="lightswitch {$$props.class}" data-testid="lightswitch">

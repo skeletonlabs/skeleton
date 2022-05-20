@@ -82,6 +82,7 @@
             ['backdrop', 'string', 'bg-surface-400/70 dark:bg-surface-900/70', 'false', 'Provide classes to style the backdrop element.'],
             ['blur', 'string', 'backdrop-blur-none', 'false', 'Provide a class to add a backdrop blur. (ex: backdrop-blur-sm)'],
             ['card', 'string', 'bg-surface-50 dark:bg-surface-700', 'false', 'Provide classes to style the modal card element.'],
+            ['width', 'string', 'max-w-[640px]', 'false', 'Provide classes to set max dialog width.'],
             ['duration', 'number', '100', 'false', 'The animation durations. Set to zero (0) for none.'],
         ],
     };

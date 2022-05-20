@@ -2,6 +2,7 @@
     import type { Writable } from "svelte/store";
     import { setContext } from "svelte";
 
+    // Props
     export let selected: Writable<any>;
     export let justify: string = 'justify-start';
     export let highlight: string = 'border-primary-500';
@@ -13,12 +14,12 @@
     setContext('color', color);
 
     // Classes
-    const cBase: string = 'flex border-b-2 border-surface-300 dark:border-surface-700';
+    const cBaseGroup: string = 'flex border-b-2 border-surface-300 dark:border-surface-700';
 
     // Reactive Classes
-    $: classes = `${cBase} ${justify}`
+    $: classesGroup = `${cBaseGroup} ${justify}`
 </script>
 
-<nav data-testid="tab-group" class="tab-group {classes}" {...$$restProps}>
+<nav data-testid="tab-group" class="tab-group {classesGroup}" {...$$restProps}>
     <slot />
 </nav>

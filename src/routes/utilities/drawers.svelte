@@ -10,6 +10,8 @@
         data: [
             ['visible', 'writable(boolean)', '-', 'true', 'Provide a boolean store to control open/closed state.'],
             ['fixed', 'string', 'left|right', 'false', 'Inline by default. Fixed to the left/right on mobile when specified.'],
+            ['backdrop', 'string', 'bg-white/50 dark:bg-black/50', 'false', 'Provide class to set backdrop background color.'],
+            ['background', 'string', 'bg-surface-50 dark:bg-surface-900', 'false', 'Provide class to set drawer background color.'],
             ['border', 'string', 'border-r border-surface-200 dark:border-surface-800', 'false', 'Provide classes to customize the border style.'],
         ],
     };

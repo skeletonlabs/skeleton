@@ -2,23 +2,24 @@
     import type { Writable } from "svelte/store";
     import { setContext } from "svelte";
 
+    // Props
     export let selected: Writable<any>;
-    export let background: string = undefined;
-    export let color: string = undefined;
+    export let background: string = 'bg-primary-500';
+    export let color: string = 'text-black dark:text-white';
     export let width: string = 'w-auto';
     
-    // Set Context - provide to children
+    // Context
     setContext('selected', selected);
     setContext('background', background);
     setContext('color', color);
 
     // Base Classes
-    let cBase: string = `inline-flex items-center rounded overflow-hidden space-x-[2px]`;
+    let cBaseGroup: string = `inline-flex items-center rounded overflow-hidden space-x-[2px]`;
 
     // Reactive
-    $: classes = `${cBase} ${width}`;
+    $: classesGroup = `${cBaseGroup} ${width}`;
 </script>
 
-<nav class="radio-group {classes} ${$$props.class}" data-testid="radio-group">
+<nav class="radio-group {classesGroup} ${$$props.class}" data-testid="radio-group">
     <slot />
 </nav>
