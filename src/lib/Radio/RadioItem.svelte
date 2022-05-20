@@ -10,7 +10,7 @@
     let color: string = getContext('color') || 'text-black dark:text-white';
 
     // Classes
-    let cbase: string = `radio-item fill-black dark:fill-white text-base px-5 py-2.5 cursor-pointer`;
+    let cbase: string = `flex-1 text-base fill-black dark:fill-white px-5 py-2.5 cursor-pointer text-center`;
     let cSelected: string;
 
     // Store
@@ -22,7 +22,7 @@
     $: classes = `${cbase} ${cSelected}`;
 </script>
 
-<label class="{classes}" data-testid="radio-item">
+<label class="radio-item {classes}" data-testid="radio-item">
     <input class="hidden" type="radio" {value} bind:group={$selected} />
-    <slot />
+    <div class="inline-block mx-auto"><slot /></div>
 </label>

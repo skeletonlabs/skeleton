@@ -30,17 +30,8 @@
 	<header class="space-y-4">
 		<h1>Range Slider</h1>
 		<p>Capture input from a range of values, including optional ticks.</p>
-		<CodeBlock language="js" code={`import {RangeSlider} from '@brainandbones/skeleton';`}></CodeBlock>
+		<CodeBlock language="js" code={`import { RangeSlider } from '@brainandbones/skeleton';`}></CodeBlock>
 	</header>
-
-    <!-- Section -->
-    <Card background="bg-black/10 dark:bg-black/20" class="space-y-4">
-        <div class="flex">
-            <h4 class="flex-1 text-center">Values</h4>
-            <p class="flex-1 text-center">A: {valueA}</p>
-            <p class="flex-1 text-center">B: {valueB}</p>
-        </div>
-    </Card>
 
     <!-- Examples -->
 	<section class="space-y-4">
@@ -67,6 +58,7 @@
 
     <!-- Usage -->
     <section class="space-y-4">
+        <CodeBlock language="js" code={`let myValue: number = 50;`}></CodeBlock>
         <CodeBlock language="html" code={`<RangeSlider label="Skeleton" max={100} step={5} bind:value={myValue} accent="accent-primary-500" ticked />`}></CodeBlock>
     </section>
 
@@ -80,6 +72,6 @@
     <!-- Warning: Cross-Browser -->
     <Alert background="bg-warning-500" visible={true} duration={0}>
         <svelte:fragment slot="title">Cross-Browser Support</svelte:fragment>
-        <svelte:fragment slot="message">Not all browsers may support tickmarks, which are generated using a <a class="!text-white" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range" target="_blank">native datalist element</a>. Additionally, some browsers may change the track color depending on the accent color applied, to keep contrast high.</svelte:fragment>      
+        <svelte:fragment slot="message">Skeleton utilizes <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range" target="_blank" class="!text-white">native HTML range inputs</a>. Browser support is mixed for <a class="!text-white" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range" target="_blank">native datalist element</a>, which generates tickmarks. Additionally, some browser (ex: Chrome) alter the track color to ensure contrast between the track and meter. Please keep accessibility in mind when utilize this component.</svelte:fragment>      
     </Alert>
 </div>

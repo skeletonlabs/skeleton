@@ -66,29 +66,23 @@
 	<!-- Usage -->
 	<section class="space-y-4">
 		<h2>Usage</h2>
-        <p>Apply a filter to any element using a Svelte Action. Then import and insert the filter component within your app, page, or component scope.</p>
-		<CodeBlock
-			language="javascript"
-			code={`import {filter, Emerald, BlueNight, ...} from '@brainandbones/skeleton';`}
-		/>
-		<CodeBlock
-			language="html"
-			code={`<!-- Insert this into the same scope as your filtered elements -->\n<BlueNight />`}
-		/>
-		<CodeBlock
-			language="html"
-			code={`<!-- Apply via filter -->\n<img use:filter={'BlueNight'} {src}>`}
-		/>
-		<CodeBlock
-			language="html"
-			code={`<!-- Apply via inline style -->\n<img style="filter: url({'#BlueNight'})" {src}>`}
-		/>
+        <h4>Import Filter Components</h4>
+        <p>Add within scope of your filtered element. For global access, add to your root <strong>__layout.svelte</strong> component.</p>
+		<CodeBlock language="javascript" code={`import { Emerald, BlueNight, /* ... */  } from '@brainandbones/skeleton';`} />
+		<CodeBlock language="html" code={`<BlueNight />`} />
+        <h4>Use Filter Action</h4>
+        <p>Use the following Svelte action to appply a filter to any element.</p>
+        <CodeBlock language="javascript" code={`import { filter } from '@brainandbones/skeleton';`} />
+		<CodeBlock language="html" code={`<img use:filter={'BlueNight'} {src}>`} />
+        <h4>Use Inline CSS</h4>
+        <p>Use the following to apply a filter using only inline CSS.</p>
+		<CodeBlock language="html" code={`<img style="filter: url({'#BlueNight'})" {src}>`} />
 	</section>
 
     <!-- Browser support -->
     <section class="space-y-4">
 		<h2>Browser Support</h2>
-        <p>Please be aware that <a href="https://caniuse.com/css-filters" target="_blank">browser support</a> varies. We recommend you utilize progressive enhancement for non-supported browsers. Firefox is disabled by default.</p>
+        <p>Please be aware that <a href="https://caniuse.com/css-filters" target="_blank">browser support</a> varies. We recommend you utilize progressive enhancement for non-supported browsers. Firefox is not supported.</p>
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
             <Card background="bg-emerald-500" class="flex justify-center items-center px-4 min-h-[100px]">
                 <h6>Chrome: Full</h6>

@@ -11,7 +11,7 @@
     const tableProps: any = {
         columns: ['Prop', 'Type', 'Default', 'Values', 'Description'],
         data: [
-            ['select', 'boolean', 'false', 'true | false', 'When select is true, clicks inside the menu close it.'],
+            ['select', 'boolean', 'false', 'true | false', 'When select is true, inner clicks will close the menu.'],
             ['open', 'boolean', 'false', 'true | false', 'Default menu visiblity when the component initilizes.'],
             ['origin', 'string', 'tl (top-left)', 'tl | tr | bl | br', 'Abbreviation describing where the menu content anchors to the trigger element.'],
             ['duration', 'number', '100', 'any', 'Open/close fade animation duration. Setting zero disables animation.'],
@@ -33,7 +33,7 @@
     <header class="space-y-4">
         <h2>Menu</h2>
         <p>Quick context menus provided when clicking a trigger element.</p>
-        <CodeBlock language="javascript" code={`import {Menu} from '@brainandbones/skeleton';`}></CodeBlock>
+        <CodeBlock language="javascript" code={`import { Menu } from '@brainandbones/skeleton';`}></CodeBlock>
     </header>
 
     <!-- Examples -->
@@ -41,7 +41,7 @@
         <!-- Default -->
         <Menu>
             <!-- Slot: Trigger -->
-            <Button slot="trigger" variant="filled-primary" type="button">Menu</Button>
+            <Button slot="trigger" variant="ghost-primary" type="button">Menu</Button>
             <!-- Slot: Content -->
             <Card slot="content" background="bg-surface-300 dark:bg-surface-700" class="w-[200px] p-[0px] shadow-xl overflow-hidden">
                 <List role="nav">
@@ -52,7 +52,7 @@
         </Menu>
         <!-- Select -->
         <Menu select={true} origin="tr">
-            <Button slot="trigger" variant="filled-accent" type="button">Select</Button>
+            <Button slot="trigger" variant="ghost-accent" type="button">Select</Button>
             <Card slot="content" background="bg-surface-300 dark:bg-surface-700" class="w-[200px] p-[0px] shadow-xl overflow-hidden">
                 <List role="nav">
                     <ListItem>Item 1</ListItem>
@@ -66,7 +66,7 @@
         </Menu>
         <!-- Disabled -->
         <Menu disabled>
-            <Button slot="trigger" variant="filled-warning" type="button" disabled>Disabled</Button>
+            <Button slot="trigger" variant="ghost-warning" type="button" disabled>Disabled</Button>
             <div slot="content"><!-- (will never show) --></div>
         </Menu>
     </Card>
@@ -77,7 +77,7 @@
         <CodeBlock language="html" code={`
 <Menu select={false} open={false} origin="tl">
     <!-- Slot: Trigger -->
-    <Button slot="trigger" variant="filled-primary" type="button">Menu</Button>
+    <Button slot="trigger" variant="ghost-primary" type="button">Menu</Button>
     <!-- Slot: Content -->
     <Card slot="content" background="bg-surface-300 dark:bg-surface-700" class="w-[200px] p-[0px] shadow-xl overflow-hidden">
         <List role="nav">

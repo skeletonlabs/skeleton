@@ -23,7 +23,7 @@
     <heading class="space-y-4">
         <h1>Slide Toggle</h1>
         <p>Add a slide toggle switch with custom colors and sizes to capture input from a user.</p>
-        <CodeBlock language="javascript" code={`import {SlideToggle} from '@brainandbones/skeleton';`}></CodeBlock>
+        <CodeBlock language="javascript" code={`import { SlideToggle } from '@brainandbones/skeleton';`}></CodeBlock>
     </heading>
 
     <!-- Examples -->
@@ -42,21 +42,21 @@
         </Card>
 
         <h4>Sizes</h4>
-        <Card class="flex justify-center space-x-2 flex items-center">
+        <Card class="flex justify-center items-center space-x-2">
             <SlideToggle size="sm"></SlideToggle>
             <SlideToggle size="md"></SlideToggle>
             <SlideToggle size="lg"></SlideToggle>
         </Card>
 
         <h4>Label Slot</h4>
-        <Card class="flex space-x-2 flex justify-center">
+        <Card class="flex justify-center space-x-2">
             <SlideToggle size="md" bind:checked={checkedValue}>
                 <p class="w-[90px]">{checkedValue ? 'Checked' : 'Unchecked'}</p>
             </SlideToggle>    
         </Card>
 
         <h4>Disabled</h4>
-        <Card class="flex justify-center space-x-2 flex items-center">
+        <Card class="flex justify-center items-center space-x-2">
             <SlideToggle size="lg" disabled></SlideToggle>
         </Card>
         
@@ -65,8 +65,8 @@
     <!-- Usage -->
     <section class="space-y-4">
         <h2>Usage</h2>
-        <CodeBlock language="js" code={`<script lang="ts">\n\tlet checkedValue: boolean = false;\n</\script>`}></CodeBlock>
-        <CodeBlock language="html" code={`<SlideToggle bind:checked={checkedValue} size="lg" accent="bg-primary-500">{labelText}</SlideToggle>`}></CodeBlock>
+        <CodeBlock language="typescript" code={`let myValue: boolean = false;`}></CodeBlock>
+        <CodeBlock language="html" code={`<SlideToggle bind:checked={myValue} size="lg" accent="bg-primary-500">{labelText}</SlideToggle>`}></CodeBlock>
     </section>
 
     <!-- Properties -->

@@ -5,19 +5,20 @@
     export let selected: Writable<any>;
     export let background: string = undefined;
     export let color: string = undefined;
+    export let width: string = 'w-auto';
     
     // Set Context - provide to children
     setContext('selected', selected);
-    setContext('background', background)
-    setContext('color', color)
+    setContext('background', background);
+    setContext('color', color);
 
     // Base Classes
-    let cBase: string = `radio-group inline-flex items-center rounded overflow-hidden space-x-[2px]`;
+    let cBase: string = `inline-flex items-center rounded overflow-hidden space-x-[2px]`;
 
     // Reactive
-    $: classes = `${cBase} ${$$props.class}`;
+    $: classes = `${cBase} ${width}`;
 </script>
 
-<nav class="{classes}" data-testid="radio-group">
+<nav class="radio-group {classes} ${$$props.class}" data-testid="radio-group">
     <slot />
 </nav>

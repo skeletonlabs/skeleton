@@ -50,7 +50,7 @@
     <!-- Header -->
     <header class="space-y-4">
         <h2>Toasts</h2>
-        <p>Dynamic notifications and alerts for users.</p>
+        <p>Simple notifications utilizing a dynamic queue system.</p>
     </header>
 
     <!-- Examples -->

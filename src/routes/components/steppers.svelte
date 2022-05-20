@@ -52,7 +52,7 @@
     <header class="space-y-4">
         <h2>Stepper</h2>
         <p>Divide content into sequenced steps.</p>
-        <CodeBlock language="javascript" code={`import {Stepper, Step} from '@brainandbones/skeleton';`}></CodeBlock>
+        <CodeBlock language="javascript" code={`import { Stepper, Step } from '@brainandbones/skeleton';`}></CodeBlock>
     </header>
 
     <!-- Examples -->
@@ -79,9 +79,9 @@
     <!-- Usage -->
     <section class="space-y-4">
         <h2>Usage</h2>
-        <p>For best user experience keep the max number of steps to five or less.</p>
+        <p>For best user experience keep the number of steps to a minimum. Usually five or less.</p>
         <CodeBlock language="js" code={`const active: Writable<number> = writable(0);`}></CodeBlock>
-        <CodeBlock language="js" code={`const onComplete = () => { /* Handle Complete */ }`}></CodeBlock>
+        <CodeBlock language="js" code={`const onComplete = () => { /* ... */ }`}></CodeBlock>
         <CodeBlock language="html" code={`
 <Stepper {active} length={3} on:complete={onComplete}>
     <Step index={0} disabled={false} done={false}>

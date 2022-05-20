@@ -1,8 +1,14 @@
 <script lang="ts">
+    import { writable, type Writable } from "svelte/store";
+
     import Card from "$lib/Card/Card.svelte";
     import Table from '$lib/Table/Table.svelte';
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+    import RadioGroup from "$lib/Radio/RadioGroup.svelte";
+    import RadioItem from "$lib/Radio/RadioItem.svelte";
     import ProgressBar from "$lib/Progress/ProgressBar.svelte";
+
+    const storeDeterminate: Writable<boolean> = writable(true);
 
     const tableProps: any = {
         columns: ['Prop', 'Type', 'Default', 'Required', 'Description'],
@@ -17,7 +23,7 @@
 
     // Usage
     $: props = {
-        determinate: true,
+        determinate: $storeDeterminate,
         label: 'Progress Bar',
         value: 50,
         max: 100,
@@ -32,7 +38,7 @@
     <header class="space-y-4">
         <h1>Progress Bar</h1>
         <p>Displays an indicator showing the progress or completion of a task.</p>
-        <CodeBlock language="js" code={`import {ProgressBar} from '@brainandbones/skeleton';`}></CodeBlock>
+        <CodeBlock language="js" code={`import { ProgressBar } from '@brainandbones/skeleton';`}></CodeBlock>
     </header>
 
      <!-- Sandbox -->
@@ -61,20 +67,10 @@
                 <!-- Value -->
                 <div>
                     <legend>Value</legend>
-                    <div class="mt-2 space-y-2">
-                        <div>
-                            <label class="inline-flex items-center">
-                                <input type="radio" checked name="radio-display" bind:group={props.determinate} value={true} />
-                                <p class="ml-2">Determinate</p>
-                            </label>
-                        </div>
-                        <div>
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="radio-display" bind:group={props.determinate} value={false} />
-                                <p class="ml-2">Indeterminate (no value)</p>
-                            </label>
-                        </div>
-                    </div>
+                    <RadioGroup selected={storeDeterminate} background="bg-accent-500" color="text-white" width="w-full">
+                        <RadioItem value={true}>Determinate</RadioItem>
+                        <RadioItem value={false}>Indeterminate</RadioItem>
+                    </RadioGroup>
                 </div>
                 <!-- Amount -->
                 {#if props.determinate}

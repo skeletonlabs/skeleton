@@ -7,7 +7,7 @@
     const tableProps: any = {
         columns: ['Prop', 'Type', 'Default', 'Required', 'Description'],
         data: [
-            ['value', 'number', '-', 'false', 'Set the filled amount. If undefined, will show as indeterminate.'],
+            ['value', 'number', '-', 'false', 'Set the filled amount. Remove or set undefined to show as indeterminate.'],
             ['stroke', 'number', '20', 'false', 'Proportional stroke width, based on default SVG viewBox size of 512px.'],
             ['track', 'string', 'stroke-surface-300 dark:stroke-surface-700', 'false', 'Provide a class to set track fill color.'],
             ['meter', 'string', 'stroke-black dark:stroke-white', 'false', 'Provide a class to set meter fill color.'],
@@ -32,7 +32,7 @@
     <header class="space-y-4">
         <h1>Progress Radial</h1>
         <p>Displays a radial indicator showing the progress or completion of a task.</p>
-        <CodeBlock language="js" code={`import {ProgressRadial} from '@brainandbones/skeleton';`}></CodeBlock>
+        <CodeBlock language="js" code={`import { ProgressRadial } from '@brainandbones/skeleton';`}></CodeBlock>
     </header>
 
     <!-- Examples -->
@@ -43,7 +43,10 @@
         </div>
     </Card>
     <section class="space-y-4">
-        <h4>Indeterminate</h4>
+        <div class="space-y-2">
+            <h4>Indeterminate</h4>
+            <p>Remove the value property to set to indeterminate mode.</p>
+        </div>
         <div class="grid grid-cols-4 gap-4">
             <Card class="space-y-4">
                 <ProgressRadial stroke={20}></ProgressRadial>
