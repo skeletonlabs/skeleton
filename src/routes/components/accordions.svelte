@@ -45,14 +45,13 @@
     <!-- Header -->
     <header class="space-y-4">
         <h2>Accordions</h2>
-        <p>Accordions are useful for storing descriptions that can be expanded, in a compact way.</p>
+        <p>Divide content into collapsible sections.</p>
         <CodeBlock language="javascript" code={`import {AccordionGroup, AccordionItem} from '@brainandbones/skeleton';`}></CodeBlock>
     </header>
 
     <!-- Examples -->
     <section class="space-y-4">
         <Card class="space-y-4">
-            <pre class="bg-black/20 p-4">Values: {$activeStoreA.length ? $activeStoreA : 'None'}</pre>
             <AccordionGroup selected={activeStoreA}>
                 <AccordionItem value={0}>
                     <svelte:fragment slot="title">Does Skeleton come with an Accordion component?</svelte:fragment>
@@ -73,11 +72,11 @@
                     </svelte:fragment>
                 </AccordionItem>
             </AccordionGroup>
+            <pre>Values: {$activeStoreA.length ? $activeStoreA : 'None'}</pre>
         </Card>
         <!-- Multiple -->
         <h3>Multiple</h3>
         <Card class="space-y-4">
-            <pre class="bg-black/20 p-4">Values: {$activeStoreB.length ? $activeStoreB : 'None'}</pre>
             <AccordionGroup selected={activeStoreB} multiple>
                 <AccordionItem value={0}>
                     <svelte:fragment slot="title">Does Skeleton come with an Accordion component?</svelte:fragment>
@@ -98,11 +97,11 @@
                     </svelte:fragment>
                 </AccordionItem>
             </AccordionGroup>
+            <pre>Values: {$activeStoreB.length ? $activeStoreB : 'None'}</pre>
         </Card>
         <!-- Customized -->
         <h3>Customized</h3>
         <section class="border border-surface-500/10 p-4 rounded-xl space-y-4">
-            <pre class="bg-black/20 p-4">Values: {$activeStoreC.length ? $activeStoreC : 'None'}</pre>
             <AccordionGroup selected={activeStoreC} spacing="space-y-4">
                 <AccordionItem value={0} padding="p-0" spacing="space-y-4">
                     <svelte:fragment slot="lead">
@@ -136,6 +135,7 @@
                     </svelte:fragment>
                 </AccordionItem>
             </AccordionGroup>
+            <pre>Values: {$activeStoreC.length ? $activeStoreC : 'None'}</pre>
         </section>
     </section>
 

@@ -82,8 +82,9 @@
     <!-- Usage -->
     <section class="space-y-4">
         <h2>Usage</h2>
+        <CodeBlock language="js" code="{`let visible = true;`}"></CodeBlock>
         <CodeBlock language="html" code="{`
-<Alert background="bg-primary-500" visible={true} duration={200}>
+<Alert {visible}>
     <svelte:fragment slot="lead">{@html icon}</svelte:fragment>
     <svelte:fragment slot="title">{title}</svelte:fragment>
     <svelte:fragment slot="message">{message}</svelte:fragment>      

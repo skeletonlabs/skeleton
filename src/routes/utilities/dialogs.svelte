@@ -117,18 +117,18 @@
             <Card class="text-center space-y-4">
                 <h4>Confirm</h4>
                 <Button variant="ghost-primary" on:click={dialogConfirm}>Trigger Confirm</Button>
-                <pre class="bg-black/20 p-4">Response: {JSON.stringify(valueConfirm, null, 2)}</pre>
+                <pre>Response: {JSON.stringify(valueConfirm, null, 2)}</pre>
             </Card>
             <Card class="text-center space-y-4">
                 <h4>Prompt</h4>
                 <Button variant="ghost-primary" on:click={dialogPrompt}>Trigger Prompt</Button>
-                <pre class="bg-black/20 p-4">Response: {JSON.stringify(valuePrompt, null, 2)}</pre>
+                <pre>Response: {JSON.stringify(valuePrompt, null, 2)}</pre>
             </Card>
         </nav>
     </section>
 
     <!-- Queue -->
-    <!-- <pre class="bg-black/20 p-4">queue: {JSON.stringify($dialogStore, null, 2)}</pre> -->
+    <!-- <pre>queue: {JSON.stringify($dialogStore, null, 2)}</pre> -->
     
     <Divider />
 
