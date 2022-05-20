@@ -50,43 +50,51 @@
                     <Badge background="bg-warning-500" color="text-primary-100">Skeleton</Badge>
                 </div>
             </Card>
-            <Card class="flex justify-center space-x-2">
-                <Badge>
-                    Complete
-                    <svelte:fragment slot="lead">{@html icon}</svelte:fragment>
-                </Badge>
-                <Badge background="bg-yellow-500" color="text-yellow-900" fill="fill-yellow-900">
-                    Complete
-                    <svelte:fragment slot="trail">{@html icon}</svelte:fragment>
-                </Badge>
-                <Badge background="bg-pink-300" color="text-pink-900" rounded="rounded-full">
-                    Favorite
-                    <svelte:fragment slot="lead">❤️</svelte:fragment>
-                </Badge>
+            <Card>
+                <div class="flex justify-center space-x-2">
+                    <Badge>
+                        Complete
+                        <svelte:fragment slot="lead">{@html icon}</svelte:fragment>
+                    </Badge>
+                    <Badge background="bg-yellow-500" color="text-yellow-900" fill="fill-yellow-900">
+                        Complete
+                        <svelte:fragment slot="trail">{@html icon}</svelte:fragment>
+                    </Badge>
+                    <Badge background="bg-pink-300" color="text-pink-900" rounded="rounded-full">
+                        Favorite
+                        <svelte:fragment slot="lead">❤️</svelte:fragment>
+                    </Badge>
+                </div>
             </Card>
         </section>
         <h4>Positioning</h4>
         <section class="space-y-4 md:space-y-0 md:grid md:grid-cols-3 md:gap-4">
-            <Card class="flex justify-center items-center space-x-2">
-                <p>Skeleton</p>
-                <sup><Badge class="-ml-0" background="bg-primary-500">Super</Badge></sup>
-            </Card>
-            <Card class="flex justify-center items-center space-x-2">
-                <p>Skeleton</p>
-                <sub><Badge class="-ml-0" background="bg-accent-500">Subscript</Badge></sub>
-            </Card>
-            <Card class="flex justify-center items-center space-x-4">
-                <div class="relative inline-block">
-                    <Badge icon background="bg-warning-500" class="absolute top-0 right-0 shadow-xl">2</Badge>
-                    <Avatar size="md" />
+            <Card>
+                <div class="flex justify-center items-center h-full space-x-2">
+                    <p>Skeleton</p>
+                    <sup><Badge class="-ml-0" background="bg-primary-500">Super</Badge></sup>
                 </div>
-                <div class="relative inline-block">
-                    <Badge icon background="bg-primary-500" class="absolute top-0 right-0 shadow-xl">{@html icon}</Badge>
-                    <Avatar size="md" />
+            </Card>
+            <Card>
+                <div class="flex justify-center items-center h-full space-x-2">
+                    <p>Skeleton</p>
+                    <sub><Badge class="-ml-0" background="bg-accent-500">Subscript</Badge></sub>
                 </div>
-                <div class="relative inline-block">
-                    <Badge class="absolute -top-2 -right-4 shadow-xl z-10">5k</Badge>
-                    <Button size="sm" variant="filled-accent">Button</Button>
+            </Card>
+            <Card >
+                <div class="flex justify-center items-center space-x-4">
+                    <div class="relative inline-block">
+                        <Badge icon background="bg-warning-500" class="absolute top-0 right-0 shadow-xl">2</Badge>
+                        <Avatar size="md" />
+                    </div>
+                    <div class="relative inline-block">
+                        <Badge icon background="bg-primary-500" class="absolute top-0 right-0 shadow-xl">{@html icon}</Badge>
+                        <Avatar size="md" />
+                    </div>
+                    <div class="relative inline-block">
+                        <Badge class="absolute -top-2 -right-4 shadow-xl z-10">5k</Badge>
+                        <Button size="sm" variant="filled-accent">Button</Button>
+                    </div>
                 </div>
             </Card>
         </section>
