@@ -19,11 +19,11 @@
     <Divider />
 
     <!-- Warning -->
-    <Alert background="bg-warning-500" visible={true}>
+    <Alert background="bg-warning-500" class="max-w-[560px] mx-auto">
         <svelte:fragment slot="lead">
             <svg class="w-8 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M506.3 417l-213.3-364c-16.33-28-57.54-28-73.98 0l-213.2 364C-10.59 444.9 9.849 480 42.74 480h426.6C502.1 480 522.6 445 506.3 417zM232 168c0-13.25 10.75-24 24-24S280 154.8 280 168v128c0 13.25-10.75 24-23.1 24S232 309.3 232 296V168zM256 416c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 401.9 273.4 416 256 416z"/></svg>
         </svelte:fragment>
-        <svelte:fragment slot="title">Currently available for early preview.</svelte:fragment>
+        <svelte:fragment slot="title">Currently available in early preview.</svelte:fragment>
     </Alert>
 
     <Divider />
@@ -47,6 +47,7 @@
 
     <Divider />
 
+    <!-- Next Steps -->
     <section class="space-y-4">
         <h2>Next Steps</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -73,26 +74,22 @@
 
     <Divider />
     
-    <!-- Recommendations -->
+    <!-- Next Steps -->
     <section class="space-y-4">
-        <h2>Recommended Extensions</h2>
-        <p>Below is a list of plugins and tooling we recommend you use alongside Skeleton.</p>
-        <div class="space-y-4">
-            <h6>Official Tailwind Plugins</h6>
-            <nav class="flex flex-row space-x-2">
+        <h2>Tailwind Plugins</h2>
+        <p>Official Tailwind plugins that pair well with Skeleton.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Card class="space-y-4 text-center">
+                <h4>Typography</h4>
+                <p>Typographic defaults for HTML you don't control.</p>
                 <Button variant="filled-accent" href="https://tailwindcss.com/docs/typography-plugin" target="_blank">Typography</Button>
+            </Card>
+            <Card class="space-y-4 text-center">
+                <h4>Forms</h4>
+                <p>Provides a basic reset for form elements.</p>
                 <Button variant="filled-accent" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Forms</Button>
-            </nav>
+            </Card>
         </div>
-    </section>
-
-    <Divider />
-    
-    <!-- Contributions -->
-    <section class="space-y-4">
-        <h3>Contributions</h3>
-        <p>If you're interested in contributing, please see the guide below.</p>
-        <Button variant="filled-accent" href="/docs/contributions">Contributing Guide</Button>
     </section>
 
 </div>
