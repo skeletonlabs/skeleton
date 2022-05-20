@@ -102,9 +102,9 @@
     <!-- Toast Settings -->
     <section class="space-y-4">
         <h2>Toast Settings</h2>
-        <CodeBlock language="javascript" code={`import { type Toast } from '@brainandbones/skeleton';`}></CodeBlock>
+        <CodeBlock language="typescript" code={`import { type Toast } from '@brainandbones/skeleton';`}></CodeBlock>
         <p>Several settings are available to a toast. These allow you to set the message, enabled/disabled auto-hide, set the autohide timeout. As well as provide an extra action button.</p>
-        <CodeBlock language="javascript" code={`
+        <CodeBlock language="typescript" code={`
 const t: Toast = {
     message: 'Your Message Here',
     // Optional:

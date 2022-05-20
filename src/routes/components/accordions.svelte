@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { writable } from "svelte/store";
+    import { writable, type Writable } from "svelte/store";
 
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
     import Table from "$lib/Table/Table.svelte";
@@ -9,9 +9,9 @@
     import AccordionGroup from '$lib/Accordion/AccordionGroup.svelte';
     import AccordionItem from '$lib/Accordion/AccordionItem.svelte';
 
-    let activeStoreA = writable([]);
-    let activeStoreB = writable([1,2]);
-    let activeStoreC = writable([0]);
+    let activeStoreA: Writable<number[]> = writable([]);
+    let activeStoreB: Writable<number[]> = writable([1,2]);
+    let activeStoreC: Writable<number[]> = writable([0]);
 
     const tablePropsGroup: any = {
         columns: ['Prop', 'Type', 'Default', 'Required', 'Description'],
@@ -142,7 +142,7 @@
     <!-- Usage -->
     <section class="space-y-4">
         <h2>Usage</h2>
-        <CodeBlock language="js" code={`let storeAccordion = writable([1]);`.trim()}></CodeBlock>
+        <CodeBlock language="typescript" code={`let storeAccordion: Writable<number[]> = writable([1]);`.trim()}></CodeBlock>
         <CodeBlock language="html" code={`
 <AccordionGroup selected={storeAccordion} multiple>
     <AccordionItem value={0}>

@@ -80,8 +80,8 @@
     <section class="space-y-4">
         <h2>Usage</h2>
         <p>For best user experience keep the number of steps to a minimum. Usually five or less.</p>
-        <CodeBlock language="js" code={`const active: Writable<number> = writable(0);`}></CodeBlock>
-        <CodeBlock language="js" code={`const onComplete = () => { /* ... */ }`}></CodeBlock>
+        <CodeBlock language="typescript" code={`const active: Writable<number> = writable(0);`}></CodeBlock>
+        <CodeBlock language="typescript" code={`const onComplete: any = () => { /* ... */ }`}></CodeBlock>
         <CodeBlock language="html" code={`
 <Stepper {active} length={3} on:complete={onComplete}>
     <Step index={0} disabled={false} done={false}>

@@ -58,7 +58,7 @@
 
     <!-- Usage -->
     <section class="space-y-4">
-        <CodeBlock language="js" code={`let myValue: number = 50;`}></CodeBlock>
+        <CodeBlock language="typescript" code={`let myValue: number = 50;`}></CodeBlock>
         <CodeBlock language="html" code={`<RangeSlider label="Skeleton" max={100} step={5} bind:value={myValue} accent="accent-primary-500" ticked />`}></CodeBlock>
     </section>
 

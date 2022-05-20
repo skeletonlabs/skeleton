@@ -63,7 +63,7 @@
 
     <!-- Usage -->
     <section class="space-y-4">
-        <CodeBlock language="js" code={`const storeLayout: Writable<string> = writable('horz');`}></CodeBlock>
+        <CodeBlock language="typescript" code={`const storeLayout: Writable<string> = writable('horz');`}></CodeBlock>
         <CodeBlock language="html" code={`
 <RadioGroup selected={storeLayout} background="bg-accent-500" color="text-white" width="w-auto">
     <RadioItem value="horz">Horizontal</RadioItem>

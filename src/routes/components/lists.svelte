@@ -171,7 +171,7 @@
 </List>
         `.trim()}></CodeBlock>
         <h4>Nav</h4>
-        <CodeBlock language="js" code={`const storeSelected: Writable<number> = writable(1);`}></CodeBlock>
+        <CodeBlock language="typescript" code={`const storeSelected: Writable<number> = writable(1);`}></CodeBlock>
         <CodeBlock language="html" code={`
 <List role="nav" selected={storeSelected}">
     <!-- Anchor -->

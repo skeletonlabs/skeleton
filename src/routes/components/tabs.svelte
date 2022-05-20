@@ -121,7 +121,7 @@
 </TabGroup>
         `.trim()}></CodeBlock>
         <CodeBlock language="html" code={`
-// Conditionally display content
+<!-- Conditionally display content -->
 {#if $storeTab === 'a'}Content A{/if}
 {#if $storeTab === 'b'}Content B{/if}
         `.trim()}></CodeBlock>

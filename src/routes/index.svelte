@@ -11,8 +11,8 @@
     <!-- Hero -->
     <header>
         <div class="max-w-[90%] lg:max-w-[80%] mx-auto space-y-6 py-10 md:py-[120px] text-center">
-            <h1 class="text-4xl md:text-6xl lg:text-8xl">A <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-accent-500">fully featured</span> Svelte components library.</h1>
-            <p class="text-xl">Skeleton allows you to build fast, reponsive web apps, using <a class="underline underline-offset-4 decoration-primary-500/20 decoration-dotted" href="https://svelte.dev/" target="_blank">Svelte</a> + <a class="underline underline-offset-4 decoration-primary-500/20 decoration-dotted" href="https://tailwindcss.com/" target="_blank">Tailwind</a>.</p>
+            <h1 class="text-4xl md:text-6xl lg:text-8xl">A <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-accent-500">fully featured</span> Svelte component library.</h1>
+            <p class="text-xl">Skeleton allows you to build fast, reponsive web apps using <a class="underline underline-offset-4 decoration-primary-500/20 decoration-dotted" href="https://svelte.dev/" target="_blank">Svelte</a> + <a class="underline underline-offset-4 decoration-primary-500/20 decoration-dotted" href="https://tailwindcss.com/" target="_blank">Tailwind</a>.</p>
         </div>
     </header>
 

@@ -32,7 +32,7 @@
     function toggleVisible(): void { visible = !visible; }
     function actionExample(): void { alert('Action button was triggered!'); }
 
-    let visible = true;
+    let visible: boolean = true;
 </script>
 
 <div class="space-y-8">
@@ -82,7 +82,7 @@
     <!-- Usage -->
     <section class="space-y-4">
         <h2>Usage</h2>
-        <CodeBlock language="js" code="{`let visible = true;`}"></CodeBlock>
+        <CodeBlock language="typescript" code="{`let visible: boolean = true;`}"></CodeBlock>
         <CodeBlock language="html" code="{`
 <Alert {visible}>
     <svelte:fragment slot="lead">{@html icon}</svelte:fragment>

@@ -53,10 +53,10 @@
     <!-- Usage -->
     <section class="space-y-4">
         <h2>Usage</h2>
-        <CodeBlock language="js" code={`
+        <CodeBlock language="typescript" code={`
 const drawer: Writable<boolean> = writable(false);
-const drawerOpen = () => { drawer.set(true); }
-const drawerClose = () => { drawer.set(false); }
+const drawerOpen: any = () => { drawer.set(true); }
+const drawerClose: any = () => { drawer.set(false); }
         `.trim()}></CodeBlock>
         <CodeBlock language="html" code={`<Button on:click={drawerOpen}>Menu</Button>`}></CodeBlock>
         <CodeBlock language="html" code={`
