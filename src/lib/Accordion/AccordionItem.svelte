@@ -10,8 +10,8 @@
     export let padding: string = 'p-2';
 
     // Context
-    let selected: Writable<any> = getContext('selected'); 
-    let multiple: boolean = getContext('multiple');
+    export let selected: Writable<any> = getContext('selected'); 
+    export let multiple: boolean = getContext('multiple');
 
     // Base Classes
     const cBase: string = 'space-y-4';
@@ -47,8 +47,7 @@
     $: classesDesc = `${cBaseDesc} ${padding}`;
 </script>
 
-{#if value === undefined}<p class="!text-warning-500">Item missing value property.</p>{:else}
-<div on:click class="accordion-item {classesAccordian} {$$props.class}" data-testid="accordion-item" {...$$restProps}>
+<div on:click class="accordion-item {classesAccordian} {$$props.class}" data-testid="accordion-item">
 
     <!-- Title -->
     <dt class="{classesTitle}" on:click={onToggle}>
@@ -68,4 +67,3 @@
     {/if}
 
 </div>
-{/if}

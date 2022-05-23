@@ -8,7 +8,7 @@ import { writable } from 'svelte/store';
 
 import List from '$lib/List/List.svelte'
  
-describe('ListGroupItem.svelte', () => {
+describe('List.svelte', () => {
 
     afterEach(() => cleanup());
 
@@ -41,13 +41,13 @@ describe('ListGroupItem.svelte', () => {
 
     it('Renders nav a if selected is single value', async ()=>{
         const {getByTestId} = render(List, { role:'nav', selected: writable('') });
-        const element = getByTestId('nav-item');
+        const element = getByTestId('list-group');
         expect(element).toBeTruthy();
     })
 
     it('Renders nav a if selected has multiple values', async ()=>{
         const {getByTestId} = render(List, { role:'nav', selected: writable([]) });
-        const element = getByTestId('nav-item');
+        const element = getByTestId('list-group');
         expect(element).toBeTruthy();
     })
 

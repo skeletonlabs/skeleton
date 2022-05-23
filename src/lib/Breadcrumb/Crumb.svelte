@@ -17,7 +17,7 @@
 	$: classesCurrent = current ? 'opacity-30 transition-transform active:scale-95' : '';
 </script>
 
-<div class="crumb {cBaseCrumb} {$$props.class}">
+<div class="crumb {cBaseCrumb} {$$props.class}" data-testid="crumb">
 
 	<!-- Anchor -->
 	<a {href} class="crumb-anchor {cBaseAnchor} {classesCurrent}" data-testid="crumb-anchor">
