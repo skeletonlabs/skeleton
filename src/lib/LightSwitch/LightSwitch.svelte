@@ -5,7 +5,7 @@
 
 	import Card from "$lib/Card/Card.svelte";
 	import List from "$lib/List/List.svelte";
-	import ListItem from "$lib/List/ListItem.svelte";
+	import NavItem from "$lib/List/NavItem.svelte";
 	import Menu from "$lib/Menu/Menu.svelte";
 
 	// Props
@@ -59,18 +59,18 @@
 	<!-- Menu -->
 	<Card slot="content" class="bg-surface-300 dark:bg-surface-700 p-0 overflow-hidden">
 		<List role="nav" class="fill-surface-500">
-			<ListItem on:click="{() => { selectTheme('light') }}">
+			<NavItem on:click="{() => { selectTheme('light') }}">
 				<svelte:fragment slot="lead">{@html svg.light}</svelte:fragment>
 				<span>Light</span>
-			</ListItem>
-			<ListItem on:click="{() => { selectTheme('dark') }}">
+			</NavItem>
+			<NavItem on:click="{() => { selectTheme('dark') }}">
 				<svelte:fragment slot="lead">{@html svg.dark}</svelte:fragment>
 				<span>Dark</span>
-			</ListItem>
-			<ListItem on:click="{() => { selectTheme('system') }}">
+			</NavItem>
+			<NavItem on:click="{() => { selectTheme('system') }}">
 				<svelte:fragment slot="lead">{@html svg.system}</svelte:fragment>
 				<span>System</span>
-			</ListItem>
+			</NavItem>
 		</List>
 	</Card>
 

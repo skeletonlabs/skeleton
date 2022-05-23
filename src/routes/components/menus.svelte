@@ -4,7 +4,7 @@
     import Card from "$lib/Card/Card.svelte";
     import Button from '$lib/Button/Button.svelte';
     import List from '$lib/List/List.svelte';
-    import ListItem from '$lib/List/ListItem.svelte';
+    import NavItem from '$lib/List/NavItem.svelte';
     import Menu from '$lib/Menu/Menu.svelte';
 
     // Tables and Slots
@@ -46,8 +46,8 @@
                 <!-- Slot: Content -->
                 <Card slot="content" background="bg-surface-300 dark:bg-surface-700" class="w-[200px] p-[0px] shadow-xl overflow-hidden">
                     <List role="nav">
-                        <ListItem>Item 1</ListItem>
-                        <ListItem>Item 2</ListItem>
+                        <NavItem>Item 1</NavItem>
+                        <NavItem>Item 2</NavItem>
                     </List>
                 </Card>
             </Menu>
@@ -56,12 +56,12 @@
                 <Button slot="trigger" variant="ghost-accent" type="button">Select</Button>
                 <Card slot="content" background="bg-surface-300 dark:bg-surface-700" class="w-[200px] p-[0px] shadow-xl overflow-hidden">
                     <List role="nav">
-                        <ListItem>Item 1</ListItem>
-                        <ListItem>Item 2</ListItem>
-                        <ListItem>Item 3</ListItem>
-                        <ListItem>Item 4</ListItem>
-                        <ListItem>Item 5</ListItem>
-                        <ListItem href="/">Navigate</ListItem>
+                        <NavItem>Item 1</NavItem>
+                        <NavItem>Item 2</NavItem>
+                        <NavItem>Item 3</NavItem>
+                        <NavItem>Item 4</NavItem>
+                        <NavItem>Item 5</NavItem>
+                        <NavItem href="/">Navigate</NavItem>
                     </List>
                 </Card>
             </Menu>
@@ -83,9 +83,9 @@
     <!-- Slot: Content -->
     <Card slot="content" background="bg-surface-300 dark:bg-surface-700" class="w-[200px] p-[0px] shadow-xl overflow-hidden">
         <List role="nav">
-            <ListItem>Item 1</ListItem>
-            <ListItem>Item 2</ListItem>
-            <ListItem>Item 3</ListItem>
+            <NavItem href="/">Item 1</NavItem>
+            <NavItem href="/">Item 2</NavItem>
+            <NavItem href="/">Item 3</NavItem>
         </List>
     </Card>
 </Menu>
