@@ -47,8 +47,8 @@
 <a
     href={$$props.href}
     on:click={(e) => {onSelection(e, $$props.value)}}
-    class="nav-item {classes} {cSelected($$props.value, $selected)} ${$$props.class}"
-    data-testid="nav-item"
+    class="list-item {classes} {cSelected($$props.value, $selected)} ${$$props.class}"
+    data-testid="list-item"
 >
     <div class="{cRow}">
 

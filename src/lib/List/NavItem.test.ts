@@ -13,7 +13,7 @@ describe('NavItem.svelte', () => {
 
     it('Renders without props', async () => {
         const {getByTestId} = render(NavItem);
-        expect(getByTestId('nav-item')).toBeTruthy();
+        expect(getByTestId('list-item')).toBeTruthy();
     });
 
 });
