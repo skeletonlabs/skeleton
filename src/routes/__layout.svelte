@@ -42,6 +42,7 @@
                 {href: '/components/buttons', label: 'Buttons'},
                 {href: '/components/cards', label: 'Cards'},
 				// {href: '/components/conic-gradients', label: 'Conic Gradients'},
+				{href: '/components/drawers', label: 'Drawers'},
                 {href: '/components/dividers', label: 'Dividers'},
                 {href: '/components/gradient-headings', label: 'Gradient Headings'},
                 {href: '/components/lists', label: 'Lists'},
@@ -61,7 +62,6 @@
 			title: 'Utilities',
             list: [
 				// {href: '/utilities/codeblocks', label: 'Codeblocks'},
-				{href: '/utilities/drawers', label: 'Drawers'},
 				{href: '/utilities/lightswitches', label: 'Lightswitch'},
 				{href: '/utilities/dialogs', label: 'Dialogs'},
 				{href: '/utilities/toasts', label: 'Toasts'},
