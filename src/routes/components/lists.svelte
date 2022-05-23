@@ -4,9 +4,9 @@
     import Card from "$lib/Card/Card.svelte";
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
     import Table from "$lib/Table/Table.svelte";
-    import Divider from "$lib/Divider/Divider.svelte";
     import List from "$lib/List/List.svelte";
     import ListItem from "$lib/List/ListItem.svelte";
+    import NavItem from '$lib/List/NavItem.svelte';
 
     let navSingle: Writable<string> = writable('A');
     let navMultiple: Writable<string[]> = writable(['A', 'B']);
@@ -15,20 +15,23 @@
     const svgEllipsis: string = `<svg class="fill-surface-500 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512"><path d="M64 360C94.93 360 120 385.1 120 416C120 446.9 94.93 472 64 472C33.07 472 8 446.9 8 416C8 385.1 33.07 360 64 360zM64 200C94.93 200 120 225.1 120 256C120 286.9 94.93 312 64 312C33.07 312 8 286.9 8 256C8 225.1 33.07 200 64 200zM64 152C33.07 152 8 126.9 8 96C8 65.07 33.07 40 64 40C94.93 40 120 65.07 120 96C120 126.9 94.93 152 64 152z"/></svg>`;
 
     const tablePropsGroup: any = {
-        columns: ['Prop', 'Type', 'Values', 'Default', 'Required', 'Description'],
+        columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
         data: [
-            ['role', 'string', 'ul | ol | dl | nav', 'ul', 'false', 'Defines the semantic wrapping element.'],
-            ['selected', 'Writable', '(any)', '-', 'false', 'Provide a data store for nav list selection.'],
-            ['spacing', 'string', 'base | comfortable | dense', 'base', 'false', 'Select from one of three spacing styles.'],
-            ['hover', 'string', 'class', 'hover:bg-primary-500/10', 'false', 'Provide a hover:background class for the hovered item(s).'],
-            ['highlight', 'string', 'class', '!bg-primary-500', 'false', 'Provide an (!important) class for the highlighted item(s).'],
+            ['role', 'string', 'ul | ol | dl | nav', 'ul', 'Defines the semantic wrapping element.'],
+            ['selected', 'Writable', '(any)', '-', 'Nav role only. Provide a writable store to maintain list selection.'],
+            ['hover', 'string', 'class', 'hover:bg-primary-500/10', 'Nav role only. Provide a hover:background class for the hovered item(s).'],
+            ['highlight', 'string', 'class', '!bg-primary-500', 'Nav role only. Provide an (!important) class for the highlighted item(s).'],
         ],
     };
-    const tablePropsItem: any = {
-        columns: ['Prop', 'Type', 'Default', 'Description'],
+    // const tablePropsListItem: any = {
+    //     columns: ['Prop', 'Type', 'Description'],
+    //     data: [],
+    // };
+    const tablePropsNavItem: any = {
+        columns: ['Prop', 'Type', 'Description'],
         data: [
-            ['href', 'string', '-', `The list item's destination URL.`],
-            ['value', 'any', '-', `Designates the item's value for selection.`],
+            ['href', 'string', `The list item's destination URL.`],
+            ['value', 'any', `Designates the item's value for selection.`],
         ],
     };
     const slotsItems: any = {
@@ -46,7 +49,7 @@
     <header class="space-y-4">
         <h2>Lists</h2>
         <p class='space-y-4'>Lists are continuous, vertical indexes of text options.</p>
-        <CodeBlock language="js" code={`import { List, ListItem } from '@brainandbones/skeleton';`}></CodeBlock>
+        <CodeBlock language="js" code={`import { List, ListItem, NavItem } from '@brainandbones/skeleton';`}></CodeBlock>
     </header>
 
     <!-- Roles -->
@@ -100,38 +103,36 @@
 
     <!-- Navigation -->
     <section class="space-y-4">
-        <h4>Navigation</h4>
+        <h4>Navigation and Selection</h4>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
             <section class="space-y-4">
                 <Card class="space-y-4">
-                    <h6>Anchor + Dividers</h6>
+                    <h6>Anchors</h6>
                     <List role="nav">
-                        <ListItem href="/">Page A</ListItem>
-                        <Divider class="my-4" />
-                        <ListItem href="/">Page B</ListItem>
-                        <Divider class="my-4" />
-                        <ListItem href="/">Page C</ListItem>
+                        <NavItem href="/">Page A</NavItem>
+                        <NavItem href="/">Page B</NavItem>
+                        <NavItem href="/">Page C</NavItem>
                     </List>
                 </Card>
             </section>
             <section class="space-y-4">
                 <Card class="space-y-4">
-                    <h6>Select (single)</h6>
+                    <h6>Selection (single)</h6>
                     <List role="nav" selected={navSingle}>
-                        <ListItem value={'A'}>Item A</ListItem>
-                        <ListItem value={'B'}>Item B</ListItem>
-                        <ListItem value={'C'}>Item C</ListItem>
+                        <NavItem value={'A'}>Item A</NavItem>
+                        <NavItem value={'B'}>Item B</NavItem>
+                        <NavItem value={'C'}>Item C</NavItem>
                     </List>
                     <p class="bg-black p-4">{JSON.stringify($navSingle, null, 2)}</p>
                 </Card>
             </section>
             <section class="space-y-4">
                 <Card class="space-y-4">
-                    <h6>Select (multiple)</h6>
+                    <h6>Selection (multiple)</h6>
                     <List role="nav" selected={navMultiple} hover="hover:bg-accent-500/10" highlight="!bg-accent-500">
-                        <ListItem value={'A'}>Item A</ListItem>
-                        <ListItem value={'B'}>Item B</ListItem>
-                        <ListItem value={'C'}>Item C</ListItem>
+                        <NavItem value={'A'}>Item A</NavItem>
+                        <NavItem value={'B'}>Item B</NavItem>
+                        <NavItem value={'C'}>Item C</NavItem>
                     </List>
                     {#if $navMultiple}
                     <p class="bg-black p-4">{JSON.stringify($navMultiple, null, 2)}</p>
@@ -144,7 +145,7 @@
     <!-- Usage -->
     <section class='space-y-4'>
         <h2>Usage</h2>
-        <h4>Basic</h4>
+        <p>Defaults to an unordered list with list item children.</p>
         <CodeBlock language="html" code={`
 <List>
     <ListItem>Item A</ListItem>
@@ -152,7 +153,7 @@
     <ListItem>Item C</ListItem>
 </List>
         `.trim()}></CodeBlock>
-        <h4>Slot</h4>
+        <h4>Role and Slot</h4>
         <CodeBlock language="html" code={`
 <List role="ol">
     <ListItem>
@@ -161,7 +162,7 @@
     </ListItem>
 </List>
         `.trim()}></CodeBlock>
-        <h4>Description</h4>
+        <h4>Description List</h4>
         <CodeBlock language="html" code={`
 <List role="dl">
     <ListItem>
@@ -170,20 +171,31 @@
     </ListItem>
 </List>
         `.trim()}></CodeBlock>
-        <h4>Nav</h4>
-        <CodeBlock language="typescript" code={`const storeSelected: Writable<number> = writable(1);`}></CodeBlock>
+        <h4>Navigation Lists</h4>
+        <p>Use NavItems child elements and apply href value.</p>
         <CodeBlock language="html" code={`
-<List role="nav" selected={storeSelected}">
-    <!-- Anchor -->
-    <ListItem href="/">Link Example</ListItem>
-    <!-- Selection -->
-    <ListItem value={1}>Selection Example 1</ListItem>
+<List role="nav">
+    <NavItem href="/">Link Example 1</NavItem>
+    <NavItem href="/">Link Example 2</NavItem>
 </List>
         `.trim()}></CodeBlock>
-        <h4>Styled</h4>
+        <h4>Selection Lists</h4>
+        <p>Use NavItems as child elements, create a writable to store selected state, then apply a value property to each child.</p>
+        <h6>Single Value</h6>
+        <CodeBlock language="typescript" code={`const storeSingle: Writable<number> = writable(1);`}></CodeBlock>
         <CodeBlock language="html" code={`
-<List spacing="dense" hover="hover:bg-accent-500/10" highlight="!bg-accent-500">
-    <ListItem>Item A</ListItem>
+<List role="nav" selected={storeSingle}"">
+    <NavItem value={1}>Selection Example 1</NavItem>
+    <NavItem value={2}>Selection Example 2</NavItem>
+</List>
+        `.trim()}></CodeBlock>
+        <h6>Multiple Values</h6>
+        <CodeBlock language="typescript" code={`let storeMultiple: Writable<string[]> = writable(['A', 'B']);`}></CodeBlock>
+        <CodeBlock language="html" code={`
+<List role="nav" selected={storeMultiple}" hover="hover:bg-accent-500/10" highlight="!bg-accent-500">
+    <NavItem value={'A'}>Item A</NavItem>
+    <NavItem value={'B'}>Item B</NavItem>
+    <NavItem value={'C'}>Item C</NavItem>
 </List>
         `.trim()}></CodeBlock>
     </section>
@@ -193,8 +205,11 @@
         <h2>Properties</h2>
         <h4>List Group</h4>
         <Table source="{tablePropsGroup}"></Table>
-        <h4>(Nav) List Item</h4>
-        <Table source="{tablePropsItem}"></Table>
+        <h4>List Item</h4>
+        <p>No properties available.</p>
+        <!-- <Table source="{tablePropsListItem}"></Table> -->
+        <h4>Nav Item</h4>
+        <Table source="{tablePropsNavItem}"></Table>
     </section>
     
     <!-- Slots -->

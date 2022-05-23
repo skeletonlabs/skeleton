@@ -7,7 +7,7 @@
 	import LightSwitch from '$lib/LightSwitch/LightSwitch.svelte';
 	import Divider from '$lib/Divider/Divider.svelte';
 	import List from '$lib/List/List.svelte';
-	import ListItem from '$lib/List/ListItem.svelte';
+	import NavItem from '$lib/List/NavItem.svelte';
 	import Button from '$lib/Button/Button.svelte';
 	import Badge from '$lib/Badge/Badge.svelte';
 	import Dialog from '$lib/Notifications/Dialog.svelte';
@@ -132,12 +132,12 @@
 				<p class="text-sm text-primary-500 m-4">{title}</p>
 				<List role="nav" selected={currentPageStore}>
 					{#each list as {href,label, badge} }
-					<ListItem {href} value={href} on:click={drawerClose}>
+					<NavItem {href} value={href} on:click={drawerClose}>
 						<div class="flex justify-between">
 							<span>{label}</span>
 							{#if badge}<Badge background="bg-surface-500">{badge}</Badge>{/if}
 						</div>
-					</ListItem>
+					</NavItem>
 					{/each}
 				</List>
 				{#if i+1 < navigation.length}<Divider />{/if}
