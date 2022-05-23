@@ -123,7 +123,7 @@
                         <NavItem value={'B'}>Item B</NavItem>
                         <NavItem value={'C'}>Item C</NavItem>
                     </List>
-                    <p class="bg-black p-4">{JSON.stringify($navSingle, null, 2)}</p>
+                    <pre>Selected: {$navSingle}</pre>
                 </Card>
             </section>
             <section class="space-y-4">
@@ -135,7 +135,7 @@
                         <NavItem value={'C'}>Item C</NavItem>
                     </List>
                     {#if $navMultiple}
-                    <p class="bg-black p-4">{JSON.stringify($navMultiple, null, 2)}</p>
+                    <pre>Selected: {$navMultiple}</pre>
                     {/if}
                 </Card>
             </section>
