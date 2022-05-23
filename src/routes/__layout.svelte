@@ -28,7 +28,7 @@
                 {href: '/', label: 'Get Started'},
                 {href: '/docs/tailwind', label: 'Tailwind'},
                 {href: '/docs/themes', label: 'Themes'},
-                {href: '/docs/contributions', label: 'Contributor Guide'},
+                {href: '/docs/contributions', label: 'Contributions'},
             ],
         },
         {
@@ -62,9 +62,9 @@
 			title: 'Utilities',
             list: [
 				// {href: '/utilities/codeblocks', label: 'Codeblocks'},
-				{href: '/utilities/lightswitches', label: 'Lightswitch'},
 				{href: '/utilities/dialogs', label: 'Dialogs'},
 				{href: '/utilities/toasts', label: 'Toasts'},
+				{href: '/utilities/lightswitches', label: 'Lightswitch'},
                 {href: '/utilities/filters', label: 'Filters', badge: 'Experimental'},
             ],
         }
