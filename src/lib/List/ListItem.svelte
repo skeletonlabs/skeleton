@@ -23,7 +23,7 @@
         {/if}
 
         <!-- Slot: Content -->
-        <div class="flex-1" class:space-y-2={role === 'dl'}>
+        <div class="flex-1" class:space-y-1={role === 'dl'}>
             <!-- dl -->
             {#if role === 'dl'}
             <dt><slot name="dt" /></dt>
