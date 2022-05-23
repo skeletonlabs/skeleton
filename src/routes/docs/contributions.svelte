@@ -1,15 +1,13 @@
 <script lang="ts">
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
     import Divider from "$lib/Divider/Divider.svelte";
-    import Card from "$lib/Card/Card.svelte";
-    import Button from "$lib/Button/Button.svelte";
 </script>
 
 <div class="space-y-8">
 
 	<!-- Header -->
 	<header class="space-y-4">
-		<h1>Contribution Guidelines</h1>
+		<h1>Contributor Guide</h1>
         <p>Thank you for your interest in contributing to Skeleton. We ask that you please review this document in full before submitting a pull request.</p>
 	</header>
 
@@ -85,7 +83,7 @@
             <li>Always set a relevant default value when possible.</li>
             <li>If a property is required, make sure this is documented.</li>
         </ul>
-        <CodeBlock language="js" code={`
+        <CodeBlock language="typescript" code={`
 export let background: string = 'bg-primary-500'; // background color
 export let color: string = 'text-primary-500'; // text color
 export let rounded: string = 'rounded-xl'; // border radius
@@ -101,21 +99,21 @@ export let rounded: string = 'rounded-xl'; // border radius
         <!-- Base Classes -->
         <h4>Base Classes</h4>
         <p>Any fixed (read: structural) Tailwind classes can be defined as follows. Note the "c" is short for <strong>classes</strong>.</p>
-        <CodeBlock language="js" code={`
-let cBase: string = 'bg-surface-500 p-4 rounded'; // parent element styles
+        <CodeBlock language="typescript" code={`
+let cBaseElement: string = 'bg-surface-500 p-4 rounded'; // parent element styles
 let cBaseLabel: string = 'text-base'; // base label styles
         `.trim()}></CodeBlock>
         <!-- Dynamic Classes -->
         <h4>Dynamic Classes</h4>
         <p>If you expect to set one or more styles based on the current value of a property, handle this within a function as shown below.</p>
-        <CodeBlock language="js" code={`
+        <CodeBlock language="typescript" code={`
 let cOutlined: string;
 function setOutlined(): void {
     cOutlined ? 'border-2 border-primary-500' : 'border-none';
 }
         `.trim()}></CodeBlock>
         <p>The following allows these functions to run each time a property updates. Otherwise, the class logic will only be run once, on initialization.</p>
-        <CodeBlock language="js" code={`
+        <CodeBlock language="typescript" code={`
 // Update on Property Change
 afterUpdate(() => {
     setOutlined();
@@ -125,7 +123,7 @@ afterUpdate(() => {
         <!-- Reactive Classes -->
         <h4>Reactive Classes</h4>
         <p>Reactive classes combine all fixed and dynamic classes. These are applied directly to each respective element.</p>
-        <CodeBlock language="js" code={`
+        <CodeBlock language="typescript" code={`
 $: classes = \`\${cBase} \${cOutlined}\`;
 $: classesLabel = \`\${cBaseLabel}\`;
         `.trim()}></CodeBlock>

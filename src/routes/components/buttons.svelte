@@ -2,6 +2,7 @@
 	import Card from '$lib/Card/Card.svelte';
     import Table from '$lib/Table/Table.svelte';
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+	import SlideToggle from '$lib/SlideToggle/SlideToggle.svelte';
 	import Button from '$lib/Button/Button.svelte';
 
 	// SVG Icon
@@ -48,6 +49,7 @@
 		ring: 'ring-transparent',
 		weight: 'ring-none',
 		rounded: 'rounded-lg',
+		width: 'w-auto',
 		disabled: false
 	};
 </script>
@@ -58,7 +60,7 @@
 	<header class="space-y-4">
 		<h1>Buttons</h1>
 		<p>Buttons allow users to take actions and make choices with a single tap.</p>
-		<CodeBlock language="js" code={`<script>import {Button} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
+		<CodeBlock language="js" code={`import { Button } from '@brainandbones/skeleton';`}></CodeBlock>
 	</header>
 
 	<!-- Sandbox -->
@@ -75,6 +77,7 @@
 					ring={props.ring}
 					weight={props.weight}
 					rounded={props.rounded}
+					width={props.width}
 					disabled={props.disabled}
 				>
 					<svelte:fragment slot="lead">{@html svgIconSkull}</svelte:fragment>
@@ -82,91 +85,99 @@
 				</svelte:component>
             </Card>
 			<!-- Options -->
-			<Card class="grid grid-cols-1 2xl:grid-cols-2 gap-4">
-				<!-- Size -->
-				<label>
-                    <span>Size</span>
-                    <select name="size" id="size" bind:value={props.size}>
-                        <option value="none">none</option>
-                        <option value="sm">sm</option>
-                        <option value="base">base</option>
-                        <option value="lg">lg</option>
-                        <option value="xl">xl</option>
-                    </select>
-                </label>
-				<!-- Fill -->
-				<label>
-                    <span>Fill</span>
-                    <select name="fill" id="fill" bind:value={props.fill}>
-                        <option value="fill-white">fill-white</option>
-                        <option value="fill-black">fill-black</option>
-                        <option value="fill-primary-500">fill-primary-500</option>
-                        <option value="fill-accent-500">fill-accent-500</option>
-                        <option value="fill-warning-500">fill-warning-500</option>
-                    </select>
-                </label>
-				<!-- Background -->
-				<label>
-                    <span>Background</span>
-                    <select name="background" id="background" bind:value={props.background}>
-                        <option value="bg-transparent">bg-transparent</option>
-                        <option value="bg-primary-500">bg-primary-500</option>
-                        <option value="bg-accent-500">bg-accent-500</option>
-                        <option value="bg-warning-500">bg-warning-500</option>
-                        <option value="bg-primary-500/10">bg-primary-500/10</option>
-                        <option value="bg-accent-500/10">bg-accent-500/10</option>
-                        <option value="bg-warning-500/10">bg-warning-500/10</option>
-                    </select>
-                </label>
-				<!-- Color -->
-				<label>
-                    <span>Color</span>
-                    <select name="color" id="color" bind:value={props.color}>
-                        <option value="text-white">text-white</option>
-                        <option value="text-black">text-black</option>
-                        <option value="text-primary-500">text-primary-500</option>
-                        <option value="text-accent-500">text-accent-500</option>
-                        <option value="text-warning-500">text-warning-500</option>
-                    </select>
-                </label>
-				<!-- Ring Color -->
-				<label>
-                    <span>Ring Color</span>
-                    <select name="ring" id="ring" bind:value={props.ring}>
-                        <option value="ring-transparent">ring-transparent</option>
-                        <option value="ring-white">ring-white</option>
-                        <option value="ring-black">ring-black</option>
-                        <option value="ring-primary-500">ring-primary-500</option>
-                        <option value="ring-accent-500">ring-accent-500</option>
-                        <option value="ring-warning-500">ring-warning-500</option>
-                    </select>
-                </label>
-				<!-- Ring Weight -->
-				<label>
-                    <span>Ring Weight</span>
-                    <select name="weight" id="weight" bind:value={props.weight}>
-                        <option value="ring-none">ring-none</option>
-                        <option value="ring-1">ring-1</option>
-                        <option value="ring-2">ring-2</option>
-                        <option value="ring-4">ring-4</option>
-                    </select>
-                </label>
-				<!-- Rounded -->
-				<label>
-                    <span>Rounded</span>
-                    <select name="rounded" id="rounded" bind:value={props.rounded}>
-                        <option value="none">none</option>
-                        <option value="rounded-sm">rounded-sm</option>
-                        <option value="rounded">rounded</option>
-                        <option value="rounded-lg">rounded-lg</option>
-                        <option value="rounded-full">rounded-full</option>
-                    </select>
-                </label>
-				<!-- Disabled -->
-				<label class="flex items-center">
-					<input type="checkbox" bind:checked={props.disabled} />
-					<p class="ml-2">Disabled</p>
-				</label>
+			<Card>
+				<div class="grid grid-cols-1 2xl:grid-cols-2 gap-4">
+					<!-- Size -->
+					<label>
+						<span>Size</span>
+						<select name="size" id="size" bind:value={props.size}>
+							<option value="none">none</option>
+							<option value="sm">sm</option>
+							<option value="base">base</option>
+							<option value="lg">lg</option>
+							<option value="xl">xl</option>
+						</select>
+					</label>
+					<!-- Fill -->
+					<label>
+						<span>Fill</span>
+						<select name="fill" id="fill" bind:value={props.fill}>
+							<option value="fill-white">fill-white</option>
+							<option value="fill-black">fill-black</option>
+							<option value="fill-primary-500">fill-primary-500</option>
+							<option value="fill-accent-500">fill-accent-500</option>
+							<option value="fill-warning-500">fill-warning-500</option>
+						</select>
+					</label>
+					<!-- Background -->
+					<label>
+						<span>Background</span>
+						<select name="background" id="background" bind:value={props.background}>
+							<option value="bg-transparent">bg-transparent</option>
+							<option value="bg-primary-500">bg-primary-500</option>
+							<option value="bg-accent-500">bg-accent-500</option>
+							<option value="bg-warning-500">bg-warning-500</option>
+							<option value="bg-primary-500/10">bg-primary-500/10</option>
+							<option value="bg-accent-500/10">bg-accent-500/10</option>
+							<option value="bg-warning-500/10">bg-warning-500/10</option>
+						</select>
+					</label>
+					<!-- Color -->
+					<label>
+						<span>Color</span>
+						<select name="color" id="color" bind:value={props.color}>
+							<option value="text-white">text-white</option>
+							<option value="text-black">text-black</option>
+							<option value="text-primary-500">text-primary-500</option>
+							<option value="text-accent-500">text-accent-500</option>
+							<option value="text-warning-500">text-warning-500</option>
+						</select>
+					</label>
+					<!-- Ring Color -->
+					<label>
+						<span>Ring Color</span>
+						<select name="ring" id="ring" bind:value={props.ring}>
+							<option value="ring-transparent">ring-transparent</option>
+							<option value="ring-white">ring-white</option>
+							<option value="ring-black">ring-black</option>
+							<option value="ring-primary-500">ring-primary-500</option>
+							<option value="ring-accent-500">ring-accent-500</option>
+							<option value="ring-warning-500">ring-warning-500</option>
+						</select>
+					</label>
+					<!-- Ring Weight -->
+					<label>
+						<span>Ring Weight</span>
+						<select name="weight" id="weight" bind:value={props.weight}>
+							<option value="ring-none">ring-none</option>
+							<option value="ring-1">ring-1</option>
+							<option value="ring-2">ring-2</option>
+							<option value="ring-4">ring-4</option>
+						</select>
+					</label>
+					<!-- Rounded -->
+					<label>
+						<span>Rounded</span>
+						<select name="rounded" id="rounded" bind:value={props.rounded}>
+							<option value="none">none</option>
+							<option value="rounded-sm">rounded-sm</option>
+							<option value="rounded">rounded</option>
+							<option value="rounded-lg">rounded-lg</option>
+							<option value="rounded-full">rounded-full</option>
+						</select>
+					</label>
+					<!-- Width -->
+					<label>
+						<span>Width</span>
+						<select name="width" id="width" bind:value={props.width}>
+							<option value="w-auto">w-auto</option>
+							<option value="w-[50%]">w-[50%]</option>
+							<option value="w-full">w-full</option>
+						</select>
+					</label>
+					<!-- Disabled -->
+					<SlideToggle bind:checked={props.disabled} accent="bg-accent-500">Disabled</SlideToggle>
+				</div>
 			</Card>
 		</div>
 		<CodeBlock
@@ -179,6 +190,7 @@
 	ring="${props.ring || ''}"
 	weight="${props.weight || ''}"
 	rounded="${props.rounded}"
+	width="${props.width}"
 	disabled={${props.disabled}}
 >
 	<svelte:fragment slot="lead">(icon)</svelte:fragment>
@@ -191,9 +203,9 @@
 	<!-- Variants -->
 	<section class="space-y-4">
 		<h4>Variants</h4>
-		<p>Skeleton provides variants to quickly and easily create buttons with predefined styles. Note these styles cannot be overwritten by individual properties.</p>
+		<p>Skeleton provides variants to quickly and easily create buttons with predefined styles. You may still set rounded and width properties with variants.</p>
 		<Card>
-			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-2xl mx-auto">
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 				{#each variantExamples as ve}
 				<section>
 					<h4 class="text-center mb-4">{ve.label}</h4>

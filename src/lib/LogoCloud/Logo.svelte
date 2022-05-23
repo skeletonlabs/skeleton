@@ -1,16 +1,29 @@
-<div data-testid='logo' class="logo flex-auto text-center bg-surface-200 py-10 space-x-4 dark:bg-surface-800">
+<script lang="ts">
+    import { getContext } from "svelte";
+
+    // Context
+    export let background = getContext('background');
+    export let color = getContext('color');
+    export let text = getContext('text');
+
+    // Base Classes
+    const cBaseLogo: string = 'flex-auto text-center py-10 space-x-4';
+
+    // Reactive Classes
+    $: classesLogo = `${cBaseLogo} ${background} ${color} ${text}`;
+</script>
+
+<div class="logo {classesLogo} {$$props.class}" data-testid="logo">
+
     <!-- Default -->
-    {#if !$$slots.icon && !$$slots.label}
-        <slot />
-    {/if}
+    {#if !$$slots.icon && !$$slots.label}<slot />{/if}
+
     <!-- Icon -->
-    {#if $$slots.icon}
-        <slot name="icon"></slot>
-    {/if}
+    {#if $$slots.icon}<slot name="icon"></slot>{/if}
+
     <!-- Label -->
     {#if $$slots.label}
-        <span class="text-lg">
-            <slot name="label"></slot>
-        </span>
+    <span class="text-lg"><slot name="label"></slot></span>
     {/if}
+    
 </div>

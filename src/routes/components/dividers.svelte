@@ -1,9 +1,16 @@
 <script lang="ts">
-    import Divider from "$lib/Divider/Divider.svelte";
-    // Docs
+    import { writable, type Writable } from "svelte/store";
+
     import Card from "$lib/Card/Card.svelte";
     import Table from '$lib/Table/Table.svelte';
+    import RadioGroup from "$lib/Radio/RadioGroup.svelte";
+    import RadioItem from "$lib/Radio/RadioItem.svelte";
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+    import Divider from "$lib/Divider/Divider.svelte";
+
+    const storeVariant: Writable<string> = writable('solid');
+    const storeWeight: Writable<number> = writable(2);
+    const storeOrientation: Writable<string> = writable('h');
 
     const tableProps: any = {
         columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
@@ -15,9 +22,9 @@
     };
 
     $: props = {
-        variant: 'solid',
-        weight: 1,
-        orientation: 'h'
+        variant: $storeVariant,
+        weight: $storeWeight,
+        orientation: $storeOrientation
     };
 </script>
 
@@ -27,7 +34,7 @@
     <header class="space-y-4">
         <h1>Dividers</h1>
         <p>Horizontal or vertical rules for sectioning your content.</p>
-        <CodeBlock language="javascript" code={`<script>import {Divider} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
+        <CodeBlock language="javascript" code={`import { Divider } from '@brainandbones/skeleton';`}></CodeBlock>
     </header>
 
     <!-- Sandbox -->
@@ -47,32 +54,32 @@
             <!-- Options -->
             <Card class="space-y-4">
                 <!-- Variant -->
-				<label>
-                    <span>Variant</span>
-                    <select name="variant" id="variant" bind:value={props.variant}>
-                        <option value="solid">Solid</option>
-                        <option value="dashed">Dashed</option>
-                        <option value="dotted">Dotted</option>
-                    </select>
-                </label>
+                <div>
+                    <legend>Variant</legend>
+                    <RadioGroup selected={storeVariant} background="bg-accent-500" color="text-white" width="w-full">
+                        <RadioItem value="solid">Solid</RadioItem>
+                        <RadioItem value="dashed">Dashed</RadioItem>
+                        <RadioItem value="dotted">Dotted</RadioItem>
+                    </RadioGroup>
+                </div>
                 <!-- Weight -->
-				<label>
-                    <span>Weight</span>
-                    <select name="weight" id="weight" bind:value={props.weight}>
-                        <option value={1}>1</option>
-                        <option value={2}>2</option>
-                        <option value={4}>4</option>
-                        <option value={8}>8</option>
-                    </select>
-                </label>
+                <div>
+                    <legend>Weight</legend>
+                    <RadioGroup selected={storeWeight} background="bg-accent-500" color="text-white" width="w-full">
+                        <RadioItem value={1}>1</RadioItem>
+                        <RadioItem value={2}>2</RadioItem>
+                        <RadioItem value={4}>4</RadioItem>
+                        <RadioItem value={8}>8</RadioItem>
+                    </RadioGroup>
+                </div>
                 <!-- Orientation -->
-				<label>
-                    <span>Orientation</span>
-                    <select name="orientation" id="orientation" bind:value={props.orientation}>
-                        <option value="h">Horizontal</option>
-                        <option value="v">Vertical</option>
-                    </select>
-                </label>
+                <div>
+                    <legend>Orientation</legend>
+                    <RadioGroup selected={storeOrientation} background="bg-accent-500" color="text-white" width="w-full">
+                        <RadioItem value="h">Horizontal</RadioItem>
+                        <RadioItem value="v">Vertical</RadioItem>
+                    </RadioGroup>
+                </div>
             </Card>
         </div>
         <CodeBlock language="html" code={`<Divider variant="${props.variant}" weight={${props.weight}} orientation="${props.orientation}" />`}></CodeBlock>

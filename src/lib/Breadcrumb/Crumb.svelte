@@ -1,33 +1,33 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
-	import Button from '$lib/Button/Button.svelte';
 
 	// Props
 	export let href: string = '';
-	export let disabled: boolean = false;
 	export let current: boolean = false;
 
 	// Context
-	export let variant: string = getContext('variant') || 'minimal';
 	export let separator: string = getContext('separator');
 
-	// Styling
-	if (current) { disabled = true; }
+	// Base Classes
+	const cBaseCrumb: string = 'flex items-center space-x-4';
+	const cBaseAnchor: string = 'flex justify-center items-center space-x-2';
+	const cBaseSeperator: string = 'flex fill-surface-500 text-surface-500 w-2';
+
+	// Reactive Classes
+	$: classesCurrent = current ? 'opacity-30 transition-transform active:scale-95' : '';
 </script>
 
-<div class="crumb-group flex items-center space-x-4">
+<div class="crumb {cBaseCrumb} {$$props.class}" data-testid="crumb">
 
-	<Button {variant} {href} {disabled} data-testid="crumb">
-		<div class="flex justify-center items-center space-x-2">
-			<!-- Slot: Lead -->
-            {#if $$slots.lead}<slot name="lead"></slot>{/if}
-			<!-- Label -->
-            <slot />
-        </div>
-	</Button>
+	<!-- Anchor -->
+	<a {href} class="crumb-anchor {cBaseAnchor} {classesCurrent}" data-testid="crumb-anchor">
+		{#if $$slots.lead}<slot name="lead"></slot>{/if}
+		<div><slot /></div>
+	</a>
 	
-	{#if !disabled && !current}
-		<div class="separator flex fill-surface-500 text-surface-500 w-2">{@html separator}</div>
+	<!-- Seperator -->
+	{#if !current}
+	<div class="separator {cBaseSeperator}">{@html separator}</div>
 	{/if}
 
 </div>

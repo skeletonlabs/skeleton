@@ -10,8 +10,8 @@
     export let padding: string = 'p-2';
 
     // Context
-    let active: Writable<any> = getContext('active'); 
-    let multiple: boolean = getContext('multiple');
+    export let selected: Writable<any> = getContext('selected'); 
+    export let multiple: boolean = getContext('multiple');
 
     // Base Classes
     const cBase: string = 'space-y-4';
@@ -24,30 +24,29 @@
         multiple === true ? handleMultipleToggle() : handleDefaultToggle();
     }
     function handleDefaultToggle(): void {
-        let v = $active.includes(value) ? [] : [value];
-        active.set(v);
+        let v = $selected.includes(value) ? [] : [value];
+        selected.set(v);
     }
     function handleMultipleToggle(): void {
-        let activeArr: any[] = $active;
-        if ($active.includes(value)) { 
-            let i: number = activeArr.indexOf(value);
-            activeArr.splice(i, 1);
+        let selectedArr: any[] = $selected;
+        if ($selected.includes(value)) { 
+            let i: number = selectedArr.indexOf(value);
+            selectedArr.splice(i, 1);
         } else {
-            let activeArr: any[] = $active;
-            activeArr.push(value);
+            let selectedArr: any[] = $selected;
+            selectedArr.push(value);
         }
-        active.set(activeArr);
+        selected.set(selectedArr);
     }
 
     // Reactive Classes
     $: classesAccordian = `${cBase} ${spacing}`;
     $: classesTitle = `${cBaseTitle} ${hover}`;
-        $: classesIconState = $active.includes(value) ? '-rotate-180' : '';
+        $: classesIconState = $selected.includes(value) ? '-rotate-180' : '';
         $: classesIcon = `${cBaseIcon} ${classesIconState}`;
     $: classesDesc = `${cBaseDesc} ${padding}`;
 </script>
 
-{#if value === undefined}<p class="!text-warning-500">Item missing value property.</p>{:else}
 <div on:click class="accordion-item {classesAccordian} {$$props.class}" data-testid="accordion-item">
 
     <!-- Title -->
@@ -63,9 +62,8 @@
     </dt>
 
     <!-- Description -->
-    {#if $active.includes(value)}
+    {#if $selected.includes(value)}
     <dd class="{classesDesc}" transition:slide|local><slot name="description"/></dd>
     {/if}
 
 </div>
-{/if}

@@ -13,7 +13,7 @@ describe('ProgressBar.svelte', () => {
  
     it('Renders without props', async () => {
         const { getByTestId } = render(ProgressBar);
-        expect(getByTestId('progress-bar-group')).toBeTruthy();
+        expect(getByTestId('progress-wrapper')).toBeTruthy();
     });
      
     it('Renders with props', () => {
@@ -26,7 +26,7 @@ describe('ProgressBar.svelte', () => {
                 color: 'bg-warning-500',
             },
         });
-        expect(getByTestId('progress-bar-group')).toBeTruthy();
+        expect(getByTestId('progress-wrapper')).toBeTruthy();
     })
      
 });

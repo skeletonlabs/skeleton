@@ -1,9 +1,15 @@
 <script lang="ts">
-    import Avatar from "$lib/Avatar/Avatar.svelte";
+    import { writable, type Writable } from "svelte/store";
+
     import Card from "$lib/Card/Card.svelte";
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
     import Table from "$lib/Table/Table.svelte";
+    import RadioGroup from "$lib/Radio/RadioGroup.svelte";
+    import RadioItem from "$lib/Radio/RadioItem.svelte";
+    import SlideToggle from "$lib/SlideToggle/SlideToggle.svelte";
+    import Avatar from "$lib/Avatar/Avatar.svelte";
 
+    const storeSrc: Writable<string> = writable(undefined);
     let placeholder: string = 'https://i.pravatar.cc/';
 
     const tableProps: any = {
@@ -16,7 +22,7 @@
             ['color', 'string', 'class', 'text-white', 'Provide a class to set text color.'],
             ['outline', 'boolean', 'true | false', 'false', 'Displays a fixed outline of the primary color.'],
             ['hover', 'boolean', 'true | false', 'false', 'Adds an outline of the primary color when hovered.'],
-            ['effect', 'string', '(filter name)', 'false', 'Provide a filter name to provide a utility filter action.'],
+            ['filter', 'string', 'filter name', 'false', 'Provide a filter name to provide a utility filter action.'],
         ],
     };
 
@@ -29,13 +35,13 @@
 
     $:props = {
 		initials: 'SK',
-		src: undefined,
+		src: $storeSrc,
         size: '3xl',
         background: 'bg-surface-500',
         color: undefined,
         outlined: false,
         hover: false,
-        effect: ''
+        filter: ''
 	};
 </script>
 
@@ -45,7 +51,7 @@
     <header class="space-y-4">
         <h1>Avatars</h1>
         <p>Choose from a variety for avatar sizes and styles, using either initials or images.</p>
-        <CodeBlock language="js" code={`<script>import {Avatar} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
+        <CodeBlock language="js" code={`import { Avatar } from '@brainandbones/skeleton';`}></CodeBlock>
     </header>
 
     <!-- Sandbox -->
@@ -62,11 +68,33 @@
 					color={props.color}
 					outlined={props.outlined}
 					hover={props.hover}
-                    effect={props.effect}
+                    filter={props.filter}
 				></svelte:component>
             </Card>
 			<!-- Options -->
 			<Card class="space-y-4">
+                <!-- Size -->
+				<label>
+                    <span>Size</span>
+                    <select name="size" id="size" bind:value={props.size}>
+                        <option value="fluid">- fluid -</option>
+                        <option value="sm">sm</option>
+                        <option value="md">md</option>
+                        <option value="lg">lg</option>
+                        <option value="xl">xl</option>
+                        <option value="2xl">2xl</option>
+                        <option value="3xl">3xl</option>
+                    </select>
+                </label>
+                <!-- Source -->
+                <div>
+                    <legend>Source</legend>
+                    <RadioGroup selected={storeSrc} background="bg-accent-500" color="text-white" width="w-full">
+                        <RadioItem value={undefined}>Initials</RadioItem>
+                        <RadioItem value={placeholder}>Image</RadioItem>
+                    </RadioGroup>
+                </div>
+                {#if $storeSrc === undefined}
                 <!-- Initials -->
                 <label>
                     <span>Initials</span>
@@ -82,41 +110,12 @@
                         <option value="bg-warning-500">bg-warning-500</option>
                     </select>
                 </label>
-				<!-- Source -->
-				<label>
-                    <span>Source</span>
-                    <select name="src" id="src" bind:value={props.src}>
-                        <option value="">None</option>
-                        <option value={placeholder}>Image</option>
-                    </select>
-                </label>
-				<!-- Size -->
-				<label>
-                    <span>Size</span>
-                    <select name="size" id="size" bind:value={props.size}>
-                        <option value="fluid">- fluid -</option>
-                        <option value="sm">sm</option>
-                        <option value="md">md</option>
-                        <option value="lg">lg</option>
-                        <option value="xl">xl</option>
-                        <option value="2xl">2xl</option>
-                        <option value="3xl">3xl</option>
-                    </select>
-                </label>
-				<!-- Outlined -->
-				<label class="flex items-center">
-					<input type="checkbox" bind:checked={props.outlined} />
-					<p class="ml-2">Outlined</p>
-				</label>
-				<!-- Hover -->
-				<label class="flex items-center">
-					<input type="checkbox" bind:checked={props.hover} />
-					<p class="ml-2">Hover</p>
-				</label>
+                {/if}
                 <!-- Filter -->
+                {#if $storeSrc !== undefined}
                 <label>
-                    <span>Filter Effect</span>
-                    <select name="effect" id="effect" bind:value={props.effect} on:change={updateImage}>
+                    <span>Filter</span>
+                    <select name="filter" id="filter" bind:value={props.filter} on:change={updateImage}>
                         <option value="">None</option>
                         <option value="Apollo">Apollo</option>
                         <option value="BlueNight">BlueNight</option>
@@ -129,12 +128,16 @@
                         <option value="XPro">XPro</option>
                     </select>
                 </label>
+                {/if}
+                <div class="flex space-x-4">
+                    <div class="flex-1"><SlideToggle bind:checked={props.outlined} accent="bg-accent-500">Outlined</SlideToggle></div>
+                    <div class="flex-1"><SlideToggle bind:checked={props.hover} accent="bg-accent-500">Hover</SlideToggle></div>
+                </div>
 			</Card>
 		</div>
 		<CodeBlock
 			language="html"
-			code={`<Avatar initials="${props.initials || 'A'}" src="${props.src}" size="${props.size}" background="${props.background}" outlined={${props.outlined}} hover={${props.hover}} effect="${props.effect}" />`}
-		></CodeBlock>
+			code={`<Avatar initials="${props.initials || 'A'}" ${props.src ? `src="${props.src}"` : ''} size="${props.size}" background="${props.background}" outlined={${props.outlined}} hover={${props.hover}} ${props.filter ? `filter="${props.filter}"` : ''} />`.trim()}></CodeBlock>
 	</section>
     
     <!-- Properties -->

@@ -28,33 +28,27 @@
     function stepPrev(): void { active.set($active-1); }
     function stepNext(): void { active.set($active+1); }
 
-    // On done
+    // On complete, dispatch event
     function onComplete() { dispatch('complete', {}); }
 
     // Set Active Background Color
     $: activeBg = index === $active ? `!text-white ${accent}` : background;
 
     // Reactive Classes
-    $: classesStep = `${cStep}`;
-    $: classesTimeline = `${cTimeline}`;
     $: classesCircle = `${cTimelineCircle} ${activeBg}`;
     $: classesBar = `${cTimelineBar} ${background}`;
-    $: classesInfo = `${cInfo}`;
-    $: classesNav = `${cNav}`;
 </script>
 
-<section class="step {classesStep} {$$props.class}" data-testid="step">
+<section class="step {cStep} {$$props.class}" data-testid="step">
 
     <!-- Timeline -->
-    <div class="timeline {classesTimeline}">
-        <!-- Circle -->
-        <div class="circle {classesCircle}">{@html done ? '&check;' : index+1}</div>
-        <!-- Bar -->
-        {#if (index+1) < length}<div class="bar {classesBar}"></div>{/if}
+    <div class="timeline {cTimeline}">
+        <div class="timeline-circle {classesCircle}">{@html done ? '&check;' : index+1}</div>
+        {#if (index+1) < length}<div class="timeline-bar {classesBar}"></div>{/if}
     </div>
 
     <!-- Information -->
-    <div class="info {classesInfo}">
+    <div class="info {cInfo}">
 
         <!-- Header -->
         {#if $$slots.title || $$slots.subtitle}
@@ -71,7 +65,7 @@
 
         <!-- Navigation -->
         {#if index === $active}
-        <nav class="navigation {classesNav}">
+        <nav class="navigation {cNav}">
             <Button variant="ring" on:click={stepPrev} disabled={index === 0}>Go Back</Button>
             {#if ($active+1) < length}
             <Button variant="filled" on:click={stepNext} {disabled}>Next Step &darr;</Button>

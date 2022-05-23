@@ -11,11 +11,6 @@ body {
     @apply font-sans bg-surface-100 dark:bg-surface-900 text-black dark:text-white;
 }
 
-/*
-FIXEME
-- utlize Tailwind @apply
-- create light mode mesh
-*/
 .dark body {
     background-image:  
         radial-gradient(at 32% 66%, hsla(183,55%,15%,0.33) 0, transparent 53%),  
@@ -34,9 +29,12 @@ h4 { @apply text-xl font-bold; }
 h5 { @apply text-lg font-bold; }
 h6 { @apply text-base font-bold; }
 
+/* Pre */
+pre:not(.codeblock pre) { @apply bg-surface-700 dark:bg-black/20 text-surface-50 p-4 whitespace-pre-wrap text-base overflow-x-auto rounded; }
+
 /* Page Styles */
 main p { @apply text-base text-surface-500 dark:text-surface-400; }
-main a:not(.comp-button):not(.crumb):not(.list-item) { @apply text-primary-500 underline; }
+main a:not(.comp-button):not(.crumb a):not(.list-item) { @apply text-primary-500 underline; }
 
 /* --- Forms --- */
 
@@ -83,4 +81,4 @@ label { @apply block overflow-visible; }
 label span, legend { @apply block text-surface-700 dark:text-surface-300 text-sm mb-2; }
 
 /* Accent Color - https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color */
-[type="range"]:not(.range-slider) { @apply w-full accent-accent-500; }
+[type="range"]:not(.range-input) { @apply w-full accent-accent-500; }

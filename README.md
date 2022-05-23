@@ -1,24 +1,41 @@
 # Skeleton
 
-A SvelteKit component library.
+[![Twitter Follow](https://img.shields.io/twitter/follow/brain_and_bones?style=social)](https://twitter.com/brain_and_bones)
 
-## Developing
+A component library for use with Svelte/Kit + Tailwind. Created by [Brain & Bones, LLC.](https://www.brainandbonesllc.com/)
 
-Install dependencies with `npm install` (or `pnpm install` or `yarn`), then start a development server:
+## Links
+
+- [Documentation](https://skeleton.brainandbonesllc.com/)
+- [Contributing](https://skeleton.brainandbonesllc.com/docs/contributions)
+- [Report Issues](https://github.com/Brain-Bones/skeleton/issues)
+
+---
+
+## Contributors
+
+### Get Started
+
+* Clone the project down.
+* Install depedencies with `npm install`
+* Create a new feature branch: `git checkout -b feat/*`
+* Start a dev server:
+    * `npm run dev` - start server
+    * `npm run dev -- --open` - start and open new browser window
+* Make changes, then submit a pull request when ready.
+
+### Linting
+
+Use the following command to run the linter:
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+npm run lint
 ```
 
-## Building
+### Tests
 
-To create a production version of your app:
+Use the following command to run the Vitest:
 
 ```bash
-npm run build
+npm run test
 ```
-
-You can preview the production build with `npm run preview`.

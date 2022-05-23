@@ -105,7 +105,7 @@
 	<header class="space-y-4">
 		<h1>Themes</h1>
         <p>
-            Skeleton themes integrate with Tailwind using <a href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank">RGB CSS custom properties</a>. This allows for <a href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank">background opacity</a> and enables support for <a href="https://tailwindcss.com/docs/dark-mode" target="_blank">dark mode</a>. Use the form below to generate a custom theme. Optionally VS Code users may use the <a href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba" target="_blank">Hex-To-RGB extension</a> to convert colors on-the-fly.
+            Skeleton themes integrate with Tailwind using <a href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank">RGB CSS custom properties</a>. This allows for <a href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank">background opacity</a> and enables support for <a href="https://tailwindcss.com/docs/dark-mode" target="_blank">dark mode</a>. Use the form below to generate a custom theme. Additionally, VS Code users may use the <a href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba" target="_blank">Hex-To-RGB extension</a> to convert colors on-the-fly.
         </p>
 	</header>
 
@@ -115,7 +115,7 @@
             <fieldset>
                 <label>
                     <span>Theme Name</span>
-                    <input type="text" bind:value={formColors.name} required />
+                    <input type="text" bind:value={formColors.name} placeholder="Enter theme name..." required />
                 </label>
             </fieldset>
             <fieldset class="flex justify-between">
@@ -143,10 +143,10 @@
                 {/each}
             </fieldset>
         </form>
-        <CodeBlock language="css" code={
+        <CodeBlock language="css" class="max-h-[820px] overflow-y-auto" code={
 `/* Add to your global stylesheet (ex: app.css) */
 :root {
-    /* --- ${formColors.name} Theme --- */
+    /* --- ${formColors.name ? formColors.name : 'Skeleton'} Theme --- */
     /* Primary */
     --color-primary-50: ${hexToRgb(formColors.primary[50])};
     --color-primary-100: ${hexToRgb(formColors.primary[100])};
@@ -198,9 +198,9 @@
     <!-- Usage -->
     <section class="space-y-4">
         <h3>Usage</h3>
-        <p>Theme colors are not limited to Skeleton components. Utilize them anywhere in your app following Tailwind's conventions. You may also mix the theme with default <a href="https://tailwindcss.com/docs/customizing-colors" target="_blank">Tailwind colors</a>.</p>
-        <CodeBlock language="html" code={`<!-- Inlined classes -->\n<div class="bg-primary-500 text-accent-500">Colorful</div>`}></CodeBlock>
-        <CodeBlock language="html" code={`<!-- Tailwind opacity scale -->\n<div class="bg-primary-500/50">Semi-Transparent</div>`}></CodeBlock>
+        <p>Theme colors are not limited to Skeleton components. Utilize them anywhere in your app following Tailwind's conventions. You may also mix your theme with default <a href="https://tailwindcss.com/docs/customizing-colors" target="_blank">Tailwind colors</a>.</p>
+        <CodeBlock language="html" code={`<!-- Inlined classes -->\n<div class="bg-primary-500 text-accent-500">Skeleton</div>`}></CodeBlock>
+        <CodeBlock language="html" code={`<!-- Tailwind opacity scale -->\n<div class="bg-primary-500/50">Skeleton</div>`}></CodeBlock>
         <CodeBlock language="css" code={`/* Using Tailwind @apply */\n.example { @apply bg-primary-500; }`}></CodeBlock>
         <CodeBlock language="css" code={`/* Using CSS variables */\nbody { background: var(--color-surface-900); }`}></CodeBlock>
     </section>

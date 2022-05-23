@@ -82,6 +82,7 @@
             ['backdrop', 'string', 'bg-surface-400/70 dark:bg-surface-900/70', 'false', 'Provide classes to style the backdrop element.'],
             ['blur', 'string', 'backdrop-blur-none', 'false', 'Provide a class to add a backdrop blur. (ex: backdrop-blur-sm)'],
             ['card', 'string', 'bg-surface-50 dark:bg-surface-700', 'false', 'Provide classes to style the modal card element.'],
+            ['width', 'string', 'max-w-[640px]', 'false', 'Provide classes to set max dialog width.'],
             ['duration', 'number', '100', 'false', 'The animation durations. Set to zero (0) for none.'],
         ],
     };
@@ -92,7 +93,7 @@
     <!-- Header -->
     <header class="space-y-4">
         <h2>Dialogs</h2>
-        <p>Generate overlay notification utilizing a dynamic queueing system.</p>
+        <p>High priority overlay notification utilizing a dynamic queue system.</p>
     </header>
 
     <!-- Examples -->
@@ -117,18 +118,18 @@
             <Card class="text-center space-y-4">
                 <h4>Confirm</h4>
                 <Button variant="ghost-primary" on:click={dialogConfirm}>Trigger Confirm</Button>
-                <pre class="bg-black/20 p-4">Response: {JSON.stringify(valueConfirm, null, 2)}</pre>
+                <pre>Response: {JSON.stringify(valueConfirm, null, 2)}</pre>
             </Card>
             <Card class="text-center space-y-4">
                 <h4>Prompt</h4>
                 <Button variant="ghost-primary" on:click={dialogPrompt}>Trigger Prompt</Button>
-                <pre class="bg-black/20 p-4">Response: {JSON.stringify(valuePrompt, null, 2)}</pre>
+                <pre>Response: {JSON.stringify(valuePrompt, null, 2)}</pre>
             </Card>
         </nav>
     </section>
 
     <!-- Queue -->
-    <!-- <pre class="bg-black/20 p-4">queue: {JSON.stringify($dialogStore, null, 2)}</pre> -->
+    <!-- <pre>queue: {JSON.stringify($dialogStore, null, 2)}</pre> -->
     
     <Divider />
 
@@ -136,7 +137,7 @@
     <section class="space-y-4">
         <h2>Dialog Component</h2>
         <p>Add the following to your root <strong>__layout.svelte</strong> component.</p>
-        <CodeBlock language="javascript" code={`import { Dialog } from '@brainandbones/skeleton';`}></CodeBlock>
+        <CodeBlock language="js" code={`import { Dialog } from '@brainandbones/skeleton';`}></CodeBlock>
         <CodeBlock language="html" code={`<Dialog backdrop="bg-primary-500/50" blur="backdrop-blur-sm" card="bg-primary-500" duration={250} />
         `.trim()}></CodeBlock>
     </section>
@@ -153,29 +154,29 @@
 	<section class="space-y-4">
         <h2>Methods</h2>
         <p>To begin using dialogs, import the dialog store. This allows you to manipulate the dialog queue using the following methods.</p>
-        <CodeBlock language="javascript" code={`import { dialogStore } from '@brainandbones/skeleton';`}></CodeBlock>
+        <CodeBlock language="js" code={`import { dialogStore } from '@brainandbones/skeleton';`}></CodeBlock>
         <h4>Trigger</h4>
         <p>The following method allows you to insert a new dialog into the dialog queue.</p>
-        <CodeBlock language="javascript" code={`dialogStore.trigger(d); // see Dialog Types below`}></CodeBlock>
+        <CodeBlock language="js" code={`dialogStore.trigger(d); // see Dialog Variants below`}></CodeBlock>
         <h4>Close</h4>
         <p>Allows you to close the current dialog by pruning the visible dialog from the top of the queue.</p>
-		<CodeBlock language="javascript" code={`dialogStore.close();`}></CodeBlock>
+		<CodeBlock language="js" code={`dialogStore.close();`}></CodeBlock>
         <h4>Clear</h4>
         <p>Allows you to flush the entire dialog queue, returning it to an empty state.</p>
-        <CodeBlock language="javascript" code={`dialogStore.clear();`}></CodeBlock>
+        <CodeBlock language="js" code={`dialogStore.clear();`}></CodeBlock>
 	</section>
 
     <Divider />
     
-    <!-- Dialog Types -->
+    <!-- Dialog Variants -->
     <section class="space-y-4">
-        <h2>Dialog Types</h2>
-        <CodeBlock language="javascript" code={`import { type DialogAlert, type DialogConfirm, type DialogPrompt } from '@brainandbones/skeleton';`}></CodeBlock>
+        <h2>Dialog Variants</h2>
+        <CodeBlock language="typescript" code={`import { type DialogAlert, type DialogConfirm, type DialogPrompt } from '@brainandbones/skeleton';`}></CodeBlock>
         <!-- Alert -->
         <div class="space-y-2">
             <h4>Alert</h4>
             <p>The simplest dialog option. Note the title and body can accept HTML.</p>
-            <CodeBlock language="javascript" code={`
+            <CodeBlock language="typescript" code={`
 const d: DialogAlert = {
     title: 'Welcome to <strong>Skeleton</strong>.',
     body: 'This is a standard alert dialog.',
@@ -186,7 +187,7 @@ const d: DialogAlert = {
         <div class="space-y-2">
             <h4>Confirm</h4>
             <p>Displays an additional "confirm" button and returns a boolean response of <em>false</em> for <strong>cancel</strong> and <em>true</em> for <strong>confirm</strong>.</p>
-            <CodeBlock language="javascript" code={`
+            <CodeBlock language="typescript" code={`
 const d: DialogConfirm = {
     type: 'confirm',
     title: 'Please Confirm',
@@ -199,7 +200,7 @@ const d: DialogConfirm = {
         <div class="space-y-2">
             <h4>Prompt</h4>
             <p>Provides and additional input to prompt a value from the user. Returns a string value when the user taps "submit".</p>
-            <CodeBlock language="javascript" code={`
+            <CodeBlock language="typescript" code={`
 const d: DialogPrompt = {
     type: 'prompt',
     title: 'Enter Name',
@@ -221,7 +222,7 @@ const d: DialogPrompt = {
         <div class="space-y-2">
             <h4>Image</h4>
             <p>Allows you to insert an image within content of the dialog.</p>
-            <CodeBlock language="javascript" code={`
+            <CodeBlock language="typescript" code={`
 const d: DialogAlert = {
     title: 'Image Example',
     body: 'See the embedded image below.',
@@ -233,7 +234,7 @@ const d: DialogAlert = {
         <div class="space-y-2">
             <h4>HTML</h4>
             <p>Allows you to insert HTML markup within the content of the dialog.</p>
-            <CodeBlock language="javascript" code={`
+            <CodeBlock language="typescript" code={`
 const d: DialogAlert = {
     title: 'HTML Example',
     body: 'See the embedded HTML content below.',
@@ -245,8 +246,8 @@ const d: DialogAlert = {
         <div class="space-y-2">
             <h4>Component</h4>
             <p>Allows you to insert a dynamically-generated Svelte component within the content of the dialog. Note that only default slot content is supported at this time.</p>
-            <CodeBlock language="javascript" code={`
-import { Card } from '@brainandbones/skeleton';\n
+            <CodeBlock language="js" code={`import { Card } from '@brainandbones/skeleton';`}></CodeBlock>
+            <CodeBlock language="typescript" code={`
 const d: DialogAlert = {
     title: 'Component Example',
     body: 'See the embedded Svelte component below.',

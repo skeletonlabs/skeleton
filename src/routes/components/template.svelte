@@ -23,7 +23,7 @@
     <header class="space-y-4">
         <h2>Template</h2>
         <p>Describe the component here.</p>
-        <CodeBlock language="javascript" code={`<script>import {Component} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
+        <CodeBlock language="javascript" code={`import { Component } from '@brainandbones/skeleton';`}></CodeBlock>
     </header>
 
     <!-- Examples -->

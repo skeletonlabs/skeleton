@@ -2,19 +2,23 @@
 	import { fade } from 'svelte/transition';
 	import Card from '$lib/Card/Card.svelte';
 
+	// Props
 	export let visible: boolean = true;
 	export let duration: number = 200; // ms
 	export let background: string = 'bg-surface-500';
 	export let color: string = 'text-white';
 	export let radius: string = 'rounded-lg';
 
-	let cBase = 'flex flex-col items-start lg:items-center lg:flex-row p-5 space-y-4 lg:space-y-0 lg:space-x-4';
-	$: classes = `${cBase} ${radius} ${$$props.class}`;
+	// Base Classes
+	let cBaseCard = 'flex flex-col items-start lg:items-center lg:flex-row p-5 space-y-4 lg:space-y-0 lg:space-x-4';
+
+	// Reactive Classes
+	$: classesCard = `${cBaseCard} ${radius} ${$$props.class}`;
 </script>
 
 {#if visible}
 <div class="alert" transition:fade|local={{duration}} data-testid="alert">
-	<Card {background} {color} class="{classes}">
+	<Card {background} {color} class="{classesCard}">
 
 		<!-- Slot: Lead -->
 		{#if $$slots.lead}

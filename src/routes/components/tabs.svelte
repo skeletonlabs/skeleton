@@ -44,41 +44,39 @@
     <header class="space-y-4">
         <h2>Tabs</h2>
         <p>Use tabs to quickly switch between different views.</p>
-        <CodeBlock language="javascript" code={`<script>import {TabGroup, Tab} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
+        <CodeBlock language="javascript" code={`import { TabGroup, Tab } from '@brainandbones/skeleton';`}></CodeBlock>
     </header>
 
     <!-- Examples -->
     <section class="space-y-4">
-        <!-- Left -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Card class="space-y-4">
+                <TabGroup selected={storeOne}>
+                    <Tab value="a">Tab A</Tab>
+                    <Tab value="b">Tab B</Tab>
+                    <Tab value="c">Tab C</Tab>
+                </TabGroup>
+                <div>
+                    {#if $storeOne === 'a'}Content A{/if}
+                    {#if $storeOne === 'b'}Content B{/if}
+                    {#if $storeOne === 'c'}Content C{/if}
+                </div>
+            </Card>
+            <Card class="space-y-4">
+                <TabGroup selected={storeTwo} justify="justify-end" highlight="border-accent-500" color="text-accent-500">
+                    <Tab value="a">Tab A</Tab>
+                    <Tab value="b">Tab B</Tab>
+                    <Tab value="c">Tab C</Tab>
+                </TabGroup>
+                <div>
+                    {#if $storeTwo === 'a'}Content A{/if}
+                    {#if $storeTwo === 'b'}Content B{/if}
+                    {#if $storeTwo === 'c'}Content C{/if}
+                </div>
+            </Card>
+        </div>
         <Card class="space-y-4">
-            <TabGroup selected={storeOne}>
-                <Tab value="a">Tab A</Tab>
-                <Tab value="b">Tab B</Tab>
-                <Tab value="c">Tab C</Tab>
-            </TabGroup>
-            <div>
-                {#if $storeOne === 'a'}Content A{/if}
-                {#if $storeOne === 'b'}Content B{/if}
-                {#if $storeOne === 'c'}Content C{/if}
-            </div>
-        </Card>
-        <!-- Center -->
-        <h4>Customized</h4>
-        <Card class="space-y-4">
-            <TabGroup selected={storeTwo} justify="justify-center" highlight="border-accent-500" color="text-accent-500">
-                <Tab value="a">Tab A</Tab>
-                <Tab value="b">Tab B</Tab>
-                <Tab value="c">Tab C</Tab>
-            </TabGroup>
-            <div>
-                {#if $storeTwo === 'a'}Content A{/if}
-                {#if $storeTwo === 'b'}Content B{/if}
-                {#if $storeTwo === 'c'}Content C{/if}
-            </div>
-        </Card>
-        <!-- Right -->
-        <Card class="space-y-4">
-            <TabGroup selected={storeThree} justify="justify-end" highlight="border-warning-500" color="text-warning-500">
+            <TabGroup selected={storeThree} justify="justify-center" highlight="border-warning-500" color="text-warning-500">
                 <Tab value="a">
                     <svelte:fragment slot="lead">{@html icon}</svelte:fragment>
                     Books
@@ -112,16 +110,20 @@
     <!-- Usage -->
     <section class="space-y-4">
         <h2>Usage</h2>
-        <CodeBlock language="js" code={`let storeValue = writable('a');`}></CodeBlock>
+        <CodeBlock language="js" code={`let storeTab = writable('a');`}></CodeBlock>
         <CodeBlock language="html" code={`
-<TabGroup selected={storeValue} justify="justify-center" highlight="border-accent-500" color="text-accent-500">
+<TabGroup selected={storeTab} justify="justify-center" highlight="border-accent-500" color="text-accent-500">
     <Tab value="a">Tab A</Tab>
-    <Tab value="b">Tab B</Tab>
-    <Tab value="c">Tab C</Tab>
+    <Tab value="b">
+        <svelte:fragment>{@html icon}</svelte:fragment>
+        <span>Tab B</span>
+    </Tab>
 </TabGroup>
-{#if $storeTwo === 'a'}Content A{/if}
-{#if $storeTwo === 'b'}Content B{/if}
-{#if $storeTwo === 'c'}Content C{/if}
+        `.trim()}></CodeBlock>
+        <CodeBlock language="html" code={`
+<!-- Conditionally display content -->
+{#if $storeTab === 'a'}Content A{/if}
+{#if $storeTab === 'b'}Content B{/if}
         `.trim()}></CodeBlock>
     </section>
 

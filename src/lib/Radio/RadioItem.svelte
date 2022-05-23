@@ -2,27 +2,24 @@
     import type { Writable } from "svelte/store";
     import { getContext } from "svelte";
 
+    // Props
 	export let value: any;
     
-    // Get Context - get from parent
+    // Context
     export let selected: Writable<any> = getContext('selected');
-    let background: string = getContext('background') || 'bg-primary-500';
-    let color: string = getContext('color') || 'text-black dark:text-white';
+    export let background: string = getContext('background');
+    export let color: string = getContext('color');
 
-    // Classes
-    let cbase: string = `radio-item fill-black dark:fill-white text-base px-5 py-2.5 cursor-pointer`;
-    let cSelected: string;
-
-    // Store
-    selected.subscribe(selected => {
-        cSelected = value === selected ? ` ${background} ${color}` : ' bg-surface-300 dark:bg-surface-700';
-    });
-
-    // Reactive
-    $: classes = `${cbase} ${cSelected}`;
+    // Base Classes
+    let cBaseItem: string = 'flex-1 text-base fill-black dark:fill-white px-5 py-2.5 cursor-pointer text-center';
+    let cBaseUnselected: string = 'bg-surface-300 dark:bg-surface-700';
+    
+    // Reactive Classes
+    $: cSelected = value === $selected ? ` ${background} ${color}` : cBaseUnselected;
+    $: classesItem = `${cBaseItem} ${cSelected}`;
 </script>
 
-<label class="{classes}" data-testid="radio-item">
+<label class="radio-item {classesItem}" data-testid="radio-item">
     <input class="hidden" type="radio" {value} bind:group={$selected} />
-    <slot />
+    <div class="inline-block mx-auto"><slot /></div>
 </label>

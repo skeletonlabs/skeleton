@@ -4,6 +4,7 @@
     import Avatar from "$lib/Avatar/Avatar.svelte";
     import Card from "$lib/Card/Card.svelte";
 
+    // Props and Slots
     const tableProps: any = {
         columns: ['Prop', 'Type', 'Default', 'Required', 'Description'],
         data: [
@@ -26,19 +27,26 @@
     <header class="space-y-4">
         <h2>Cards</h2>
         <p>Container elements that wrap and seperate your content.</p>
-        <CodeBlock language="javascript" code={`<script>import {Card} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
+        <CodeBlock language="javascript" code={`import { Card } from '@brainandbones/skeleton';`}></CodeBlock>
     </header>
 
     <!-- Examples -->
     <section class="space-y-4">
+        <!-- Colors -->
+        <div class="grid md:grid-cols-3 gap-4">
+            <Card background="bg-primary-500" color="text-white" class="flex-1 flex justify-center items-center min-h-[100px]">Primary</Card>
+            <Card background="bg-accent-500" color="text-white" class="flex-1 flex justify-center items-center min-h-[100px]">Accent</Card>
+            <Card background="bg-warning-500" color="text-white" class="flex-1 flex justify-center items-center min-h-[100px]">Warning</Card>
+        </div>
+        <!-- Columns -->
         <div class="grid md:grid-cols-2 gap-4">
             <!-- Minimal -->
             <Card class="flex justify-center items-center min-h-[100px]">Minimal</Card>
             <!-- Detailed -->
-            <Card class="cursor-pointer transition-transform hover:-translate-y-1 hover:shadow-xl">
+            <Card class="cursor-pointer transition-transform hover:-translate-y-1 hover:shadow-xl overflow-hidden">
                 <svelte:fragment slot="header">
                     <div class="-mt-4 -mx-4">
-                        <img src="https://source.unsplash.com/random/960x540?skeleton" class="bg-black aspect-video w-full" alt="Post">
+                        <img src="https://source.unsplash.com/random/1280x540?skeleton" class="bg-black/50 w-full aspect-[21/9]" alt="Post">
                     </div>
                 </svelte:fragment>
                 <div class="space-y-4">
@@ -51,17 +59,11 @@
                         <Avatar src="https://i.pravatar.cc/160?img=5" size="sm" outlined />
                         <div>
                             <h6 class="font-bold">By Alex</h6>
-                            <p>On October 1st, 1983</p>
+                            <p>On {new Date().toLocaleDateString()}</p>
                         </div>
                     </div>
                 </svelte:fragment>
             </Card>
-        </div>
-        <!-- Colors -->
-        <div class="grid md:grid-cols-3 gap-4">
-            <Card background="bg-primary-500" color="text-white" class="flex-1 flex justify-center items-center min-h-[100px]">Primary</Card>
-            <Card background="bg-accent-500" color="text-white" class="flex-1 flex justify-center items-center min-h-[100px]">Accent</Card>
-            <Card background="bg-warning-500" color="text-white" class="flex-1 flex justify-center items-center min-h-[100px]">Warning</Card>
         </div>
     </section>
 

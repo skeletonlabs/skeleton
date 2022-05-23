@@ -23,50 +23,47 @@
     <heading class="space-y-4">
         <h1>Slide Toggle</h1>
         <p>Add a slide toggle switch with custom colors and sizes to capture input from a user.</p>
-        <CodeBlock language="javascript" code={`<script>import {SlideToggle} from '@brainandbones/skeleton';</\script>`}></CodeBlock>
+        <CodeBlock language="javascript" code={`import { SlideToggle } from '@brainandbones/skeleton';`}></CodeBlock>
     </heading>
 
     <!-- Examples -->
     <section class="space-y-4">
-
         <h4>Colors</h4>
         <Card class="flex justify-center">
-            <div class="grid grid-rows-2 grid-cols-3 gap-4">
-                <SlideToggle size="md" accent="bg-warning-400" checked></SlideToggle>
+            <div class="grid grid-cols-3 gap-4">
                 <SlideToggle size="md" accent="bg-primary-400" checked></SlideToggle>
+                <SlideToggle size="md" accent="bg-warning-400" checked></SlideToggle>
+                <SlideToggle size="md" accent="bg-accent-400" checked></SlideToggle>
                 <SlideToggle size="md" accent="bg-blue-400" checked></SlideToggle>
                 <SlideToggle size="md" accent="bg-orange-400" checked></SlideToggle>
                 <SlideToggle size="md" accent="bg-yellow-400" checked></SlideToggle>
-                <SlideToggle size="md" accent="bg-purple-400" checked></SlideToggle>
             </div>    
         </Card>
-
         <h4>Sizes</h4>
-        <Card class="flex justify-center space-x-2 flex items-center">
-            <SlideToggle size="sm"></SlideToggle>
-            <SlideToggle size="md"></SlideToggle>
-            <SlideToggle size="lg"></SlideToggle>
+        <Card>
+            <div class="flex justify-center items-center space-x-4">
+                <SlideToggle size="sm"></SlideToggle>
+                <SlideToggle size="md"></SlideToggle>
+                <SlideToggle size="lg"></SlideToggle>
+            </div>
         </Card>
-
         <h4>Label Slot</h4>
-        <Card class="flex space-x-2 flex justify-center">
+        <Card class="text-center">
             <SlideToggle size="md" bind:checked={checkedValue}>
                 <p class="w-[90px]">{checkedValue ? 'Checked' : 'Unchecked'}</p>
             </SlideToggle>    
         </Card>
-
         <h4>Disabled</h4>
-        <Card class="flex justify-center space-x-2 flex items-center">
+        <Card class="text-center">
             <SlideToggle size="lg" disabled></SlideToggle>
         </Card>
-        
     </section>
 
     <!-- Usage -->
     <section class="space-y-4">
         <h2>Usage</h2>
-        <CodeBlock language="js" code={`<script lang="ts">\n\tlet checkedValue: boolean = false;\n</\script>`}></CodeBlock>
-        <CodeBlock language="html" code={`<SlideToggle bind:checked={checkedValue} size="lg" accent="bg-primary-500">{labelText}</SlideToggle>`}></CodeBlock>
+        <CodeBlock language="typescript" code={`let myValue: boolean = false;`}></CodeBlock>
+        <CodeBlock language="html" code={`<SlideToggle bind:checked={myValue} size="lg" accent="bg-primary-500">{labelText}</SlideToggle>`}></CodeBlock>
     </section>
 
     <!-- Properties -->
