@@ -1,10 +1,3 @@
-<!--
-TODO:
-- Search - DONE
-- Sort - DONE
-- Pagination
--->
-
 <script lang="ts">
     import { afterUpdate } from "svelte";
 
@@ -17,9 +10,11 @@ TODO:
 
     // Local
     let filteredSource: any[] = source;
-    let sorted: any = {by: sort, prior: ''};
 
     // Base Classes
+    const cBase: string = 'space-y-4';
+    const cBaseHeader: string = '';
+    const cBaseFooter: string = '';
     const cBaseWrapper: string = 'overflow-y-auto w-full';
     const cBaseTable: string = 'w-full rounded overflow-hidden table-auto';
     // ---
@@ -34,129 +29,141 @@ TODO:
     const cBaseFoot: string = '';
 
     function findColumnKeyByIndex(i: number): string {
-        if (!source.length) return; 
+        if (!source.length) return;
         return Object.keys(source[0])[i];
     }
 
     // Search Handler
     function searchHandler(): void {
+        console.log('searchHandler() triggered');
         if (!source.length) return;
-        if (search === undefined) { filteredSource = source; return; }
+        if (search === undefined) { search = ''; }
         filteredSource = source.filter(row => {
             const matchCondition: boolean = JSON.stringify(Object.values(row)).toLowerCase().includes(search.toLowerCase());
             if (matchCondition) { return row; }
         });
     }
 
-    // Sort Handler - https://www.javascripttutorial.net/javascript-array-sort/
+    // Sort Handler
+    // https://www.javascripttutorial.net/javascript-array-sort/
     function sortHandler(column: string): void {
         if (!source.length) return; 
-        sorted.by = column;
-        filteredSource = filteredSource.sort((x, y) => {
-            // Sort ASC
-            switch (typeof x[sorted.by]) {
-                case ('number'):
-                    return x[sorted.by] - y[sorted.by];
-                default:
-                    let a = x[sorted.by].toString().toUpperCase(),
-                        b = y[sorted.by].toString().toUpperCase();
-                    return a == b ? 0 : a > b ? 1 : -1;
-            }
-            // TODO: add DESC toggle sort
-        });
+        // ---  TODO: add toggle sort ---
+        sortAscending(column);
+        // --- / ---
     }
+
+        function sortAscending(key: string): void {
+            console.log('sortAsc', key);
+            if (typeof filteredSource[0][key] === 'number') {
+                filteredSource.sort((x, y) => x[key] - y[key]);
+                return;
+            } else {
+                filteredSource.sort((x, y) => {
+                    let a = x[key].toString().toUpperCase(),
+                        b = y[key].toString().toUpperCase();
+                    return a == b ? 0 : a > b ? 1 : -1;
+                });
+            }
+        }
 
     // Selection Handlers
     function onHeadSelect(headIndex: number): void {
         if (!source.length) return; 
-        sortHandler(findColumnKeyByIndex(headIndex));
+        sort = findColumnKeyByIndex(headIndex); // triggers afterUpdate()
     }
     function onRowSelect(row: Object): void {
         // TODO: dispatch on:select event
         console.log(row);
     }
 
-    // On Onit
-    searchHandler();
-    sortHandler(sorted.by);
-
     // After Prop Update
     afterUpdate(() => {
         searchHandler();
-        sortHandler(sorted.by);
+        sortHandler(sort);
     })
 </script>
 
+
 {#if debug === false}
 
-<!-- Header -->
-{#if $$slots.header}
-<header class="table-header"><slot name="header" /></header>
-{/if}
+<div class="data-table {cBase}">
 
-<!-- Wrapper -->
-<div class="table-wrapper {cBaseWrapper}">
+    <!-- Header -->
+    {#if $$slots.header}
+    <header class="table-header {cBaseHeader}"><slot name="header" /></header>
+    {/if}
 
-    <!-- Table -->
-    <table class="table {cBaseTable}">
+    <!-- Wrapper -->
+    <div class="table-wrapper {cBaseWrapper}">
 
-        <!-- Head -->
-        <thead class="table-head {cBaseHead}">
+        <!-- Table -->
+        <table class="table {cBaseTable}">
+
             <!-- Head -->
-            <tr class="table-head-row {cBaseHeadRow}">
-                {#each headings as head, i}
-                <th class="table-head-col {cBaseHeadCol}" scope="col" on:click={() => { onHeadSelect(i) }}>
-                    {@html head}
-                    <span class="inline-block w-4 text-center ml-1 opacity-50">
-                        {#if findColumnKeyByIndex(i) === sorted.by}&darr;{/if}
-                    </span>
-                </th>
+            <thead class="table-head {cBaseHead}">
+                <!-- Head -->
+                <tr class="table-head-row {cBaseHeadRow}">
+                    {#each headings as head, i}
+                    <th class="table-head-col {cBaseHeadCol}" scope="col" on:click={() => { onHeadSelect(i) }}>
+                        {@html head}
+                        <span class="inline-block w-4 text-center ml-1 opacity-50">
+                            {#if findColumnKeyByIndex(i) === sort}&darr;{/if}
+                        </span>
+                    </th>
+                    {/each}
+                </tr>
+            </thead>
+
+            <!-- Body -->
+            {#if source.length > 0}
+
+            <!-- Populated State -->
+            <tbody class="table-body {cBaseBody}">
+                {#each filteredSource as row, i}
+                <tr class="table-body-row {cBaseBodyRow}" on:click={() => { onRowSelect(row) }}>
+                    {#each Object.values(row) as cell}
+                    <td class="table-body-col {cBaseBodyCol}">{@html cell}</td>
+                    {/each}
+                </tr>
                 {/each}
-            </tr>
-        </thead>
+            </tbody>
 
-        <!-- Body -->
-        {#if source.length > 0}
+            {:else}
 
-        <!-- Populated State -->
-        <tbody class="table-body {cBaseBody}">
-            {#each filteredSource as row, i}
-            <tr class="table-body-row {cBaseBodyRow}" on:click={() => { onRowSelect(row) }}>
-                {#each Object.values(row) as cell}
-                <td class="table-body-col {cBaseBodyCol}">{@html cell}</td>
-                {/each}
-            </tr>
-            {/each}
-        </tbody>
+            <!-- Empty State -->
+            <tbody>
+                <tr>
+                    <td colspan={headings.length} class="text-center pt-4 px-4 opacity-50">
+                        {#if $$slots.empty}<slot name="empty" />{:else}No results available.{/if}
+                    </td>
+                </tr>
+            </tbody>
 
-        {:else}
+            {/if}
 
-        <!-- Empty State -->
-        <tbody>
-            <tr>
-                <td colspan={headings.length} class="text-center pt-4 px-4 opacity-50">
-                    {#if $$slots.empty}<slot name="empty" />{:else}No results available.{/if}
-                </td>
-            </tr>
-        </tbody>
+            <!-- Foot -->
+            {#if $$slots.tfoot}
+            <tfoot class="tBaseFoot {cBaseFoot}">
+                <tr><td colspan={headings.length} class="pt-4"><slot name="tfoot" /></td></tr>
+            </tfoot>
+            {/if}
 
-        {/if}
+        </table>
 
-        <!-- Foot -->
-        {#if $$slots.tfoot}
-        <tfoot class="tBaseFoot {cBaseFoot}">
-            <tr><td colspan={headings.length} class="pt-4"><slot name="tfoot" /></td></tr>
-        </tfoot>
-        {/if}
+    </div>
 
-    </table>
+    <!-- Footer -->
+    {#if $$slots.footer}
+    <footer class="table-footer {cBaseFooter}"><slot name="footer" /></footer>
+    {/if}
 
 </div>
 
 {:else}
 
 <pre>search: {search}</pre>
-<pre>sorted: {JSON.stringify(sorted, null, 2)}</pre>
+<pre>sort: {JSON.stringify(sort, null, 2)}</pre>
 <pre>headings: {JSON.stringify(headings, null, 2)}</pre>
 <pre>filteredSource: {JSON.stringify(filteredSource, null, 2)}</pre>
 <pre>source: {JSON.stringify(source, null, 2)}</pre>

@@ -13,7 +13,7 @@
         {position: 39, mass: 88.906, symbol: 'Y', name: 'Yttrium'},
         {position: 56, mass: 137.33, symbol: 'Ba', name: 'Barium'},
         {position: 58, mass: 140.12, symbol: 'Ce', name: 'Cerium'}
-    ]
+    ];
 </script>
 
 <div class="space-y-8">
@@ -29,13 +29,13 @@
     <Card>
         <DataTable {headings} {source} {search} {sort}>
             <svelte:fragment slot="header">
-                <input type="text" bind:value={search} placeholder="Search...">
+                <input type="search" placeholder="Search..." bind:value={search}>
             </svelte:fragment>
             <svelte:fragment slot="empty">
                 <p>Nothing to see here, folks!</p>
             </svelte:fragment>
-            <!-- <svelte:fragment slot="tfoot">
-                <div class="text-center">(footer)</div>
+            <!-- <svelte:fragment slot="footer">
+                <p class="text-center">(pagination)</p>
             </svelte:fragment> -->
         </DataTable>
     </Card>
