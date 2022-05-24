@@ -1,5 +1,6 @@
 <script lang="ts">
     import { afterUpdate, createEventDispatcher } from "svelte";
+    import { sortTableAscending } from "./DataTableService";
 
     // Event Handler
     const dispatch = createEventDispatcher();
@@ -10,6 +11,9 @@
     export let search: any = '';
     export let sort: string = '';
     export let select: boolean = false;
+    // Props: Design
+    export let hover: string = 'hover:bg-primary-500/10 cursor-pointer';
+    // Props: Dev
     export let debug: boolean = false;
 
     // Local
@@ -17,21 +21,17 @@
 
     // Base Classes
     const cBase: string = 'space-y-4';
-    const cBaseHeader: string = '';
-    const cBaseFooter: string = '';
     const cBaseWrapper: string = 'overflow-x-auto w-full';
-    const cBaseTable: string = 'w-full rounded overflow-hidden table-auto';
-    const cBaseLoading: string = 'text-center p-4 rounded-lg';
+    const cBaseTable: string = 'w-full rounded-lg overflow-hidden table-auto';
+    const cBaseLoading: string = 'text-center p-4 rounded-lg opacity-30';
     // ---
     const cBaseHead: string = 'bg-surface-50 dark:bg-surface-700';
-    const cBaseHeadRow: string = '';
-    const cBaseHeadCol: string = 'py-4 px-6 text-xs font-medium text-left text-surface-900 dark:text-surface-50 cursor-pointer whitespace-nowrap';
+    const cBaseHeadRow: string = 'capitalize text-xs font-medium text-left text-surface-900 dark:text-surface-50';
+    const cBaseHeadCol: string = 'p-3 whitespace-nowrap cursor-pointer';
     // ---
     const cBaseBody: string = '';
-    const cBaseBodyRow: string = 'border-t border-surface-500/30 even:bg-surface-500/[5%]'; // space-x-1
-    const cBaseBodyCol: string = 'py-4 px-6 text-sm font-medium text-surface-900 whitespace-nowrap md:whitespace-normal dark:text-white';
-    // ---
-    const cBaseFoot: string = '';
+    const cBaseBodyRow: string = 'border-t border-surface-500/30 even:bg-surface-500/[5%]';
+    const cBaseBodyCol: string = 'p-3 text-sm font-medium text-surface-900 whitespace-nowrap md:whitespace-normal dark:text-white';
 
     // Lookup Column Key
     function findColumnKeyByIndex(i: number): string {
@@ -53,23 +53,8 @@
     // https://www.javascripttutorial.net/javascript-array-sort/
     function sortHandler(column: string): void {
         if (!source.length || !filteredSource.length || !sort) return; 
-        // ---  TODO: add toggle sort ---
-        sortAscending(column);
-        // --- / ---
+        sortTableAscending(filteredSource, column);
     }
-
-        function sortAscending(key: string): void {
-            if (typeof filteredSource[0][key] === 'number') {
-                filteredSource.sort((x, y) => x[key] - y[key]);
-                return;
-            } else {
-                filteredSource.sort((x, y) => {
-                    let a = String(x[key]).toUpperCase(),
-                        b = String(y[key]).toUpperCase();
-                    return a == b ? 0 : a > b ? 1 : -1;
-                });
-            }
-        }
 
     // Selection Handlers
     function onHeadSelect(headIndex: number): void {
@@ -90,18 +75,15 @@
     })
 
     // Reactive Classes
-    $: cRowSelectable = select ? 'hover:bg-primary-500/10 cursor-pointer' : '';
-    $: classesBodyRoll = `${cBaseBodyRow} ${cRowSelectable}`;
+    $: cRowHover = select ? hover : '';
+    $: classesBodyRoll = `${cBaseBodyRow} ${cRowHover}`;
 </script>
 
-
-<div class="data-table {cBase}">
+<div class="data-table {cBase} {$$props.class}" data-testid="data-table">
     {#if source.length > 0}
 
         <!-- Header -->
-        {#if $$slots.header}
-        <header class="table-header {cBaseHeader}"><slot name="header" /></header>
-        {/if}
+        {#if $$slots.header}<header class="table-header"><slot name="header" /></header>{/if}
 
         <!-- Wrapper -->
         <div class="table-wrapper {cBaseWrapper}">
@@ -116,7 +98,7 @@
                         {#each headings as head, i}
                         <th class="table-head-col {cBaseHeadCol}" scope="col" on:click={() => { onHeadSelect(i) }}>
                             {@html head}
-                            <span class="inline-block w-4 text-center ml-1 opacity-50">
+                            <span class="inline-block w-3 text-center ml-1 opacity-50">
                                 {#if findColumnKeyByIndex(i) === sort}&darr;{/if}
                             </span>
                         </th>
@@ -125,9 +107,9 @@
                 </thead>
 
                 <!-- Body -->
-                {#if filteredSource.length > 0}
-                    <!-- Filtered Results -->
-                    <tbody class="table-body {cBaseBody}">
+                <tbody class="table-body {cBaseBody}">
+                    {#if filteredSource.length > 0}
+
                         {#each filteredSource as row, i}
                         <tr class="table-body-row {classesBodyRoll}" on:click={() => { onRowSelect(row) }}>
                             {#each Object.values(row) as cell}
@@ -135,34 +117,28 @@
                             {/each}
                         </tr>
                         {/each}
-                    </tbody>
-                {:else}
-                    <!-- No Search Results -->
-                    <tbody class="table-body {cBaseBody}">
-                        <tr><td colspan={headings.length} class="pt-4 text-center opacity-50">No results for "<strong>{search}</strong>"</td></tr>
-                    </tbody>
-                {/if}
 
-                <!-- Foot -->
-                {#if $$slots.tfoot}
-                <tfoot class="tBaseFoot {cBaseFoot}">
-                    <tr><td colspan={headings.length} class="pt-4"><slot name="tfoot" /></td></tr>
-                </tfoot>
-                {/if}
+                    {:else}
+
+                        <!-- No Search Results -->
+                        <tr><td colspan={headings.length} class="pt-4 text-center">
+                            <span>"<strong>{search}</strong>" was not found</span>
+                        </td></tr>
+
+                    {/if}
+                </tbody>
 
             </table>
 
         </div>
 
         <!-- Footer -->
-        {#if $$slots.footer}
-        <footer class="table-footer {cBaseFooter}"><slot name="footer" /></footer>
-        {/if}
+        {#if $$slots.footer}<footer class="table-footer"><slot name="footer" /></footer>{/if}
 
     {:else}
 
         <!-- Loading -->
-        {#if $$slots.loading}<slot name="loading" />{:else} <div class="{cBaseLoading}">Loading...</div>{/if}
+        {#if $$slots.loading}<slot name="loading" />{:else}<div class="{cBaseLoading}">Loading...</div>{/if}
 
     {/if}
 </div>
