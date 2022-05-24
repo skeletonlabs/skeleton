@@ -1,11 +1,15 @@
 <script lang="ts">
-    import { afterUpdate } from "svelte";
+    import { afterUpdate, createEventDispatcher } from "svelte";
+
+    // Event Handler
+    const dispatch = createEventDispatcher();
 
     // Props
     export let headings: any[];
     export let source: any[];
-    export let search: any;
-    export let sort: string;
+    export let search: any = '';
+    export let sort: string = '';
+    export let select: boolean = false;
     export let debug: boolean = false;
 
     // Local
@@ -23,7 +27,7 @@
     const cBaseHeadCol: string = 'py-4 px-6 text-xs font-medium text-left text-surface-900 dark:text-surface-50 cursor-pointer';
     // ---
     const cBaseBody: string = '';
-    const cBaseBodyRow: string = 'border-t border-surface-500/30 even:bg-surface-500/[5%] hover:bg-surface-500/20';
+    const cBaseBodyRow: string = 'border-t border-surface-500/30 even:bg-surface-500/[5%]';
     const cBaseBodyCol: string = 'py-4 px-6 text-sm font-medium text-surface-900 whitespace-nowrap dark:text-white';
     // ---
     const cBaseFoot: string = '';
@@ -35,7 +39,6 @@
 
     // Search Handler
     function searchHandler(): void {
-        console.log('searchHandler() triggered');
         if (!source.length) return;
         if (search === undefined) { search = ''; }
         filteredSource = source.filter(row => {
@@ -48,13 +51,13 @@
     // https://www.javascripttutorial.net/javascript-array-sort/
     function sortHandler(column: string): void {
         if (!source.length) return; 
+        if (Object.keys(source[0]).includes(sort) !== true) return;
         // ---  TODO: add toggle sort ---
         sortAscending(column);
         // --- / ---
     }
 
         function sortAscending(key: string): void {
-            console.log('sortAsc', key);
             if (typeof filteredSource[0][key] === 'number') {
                 filteredSource.sort((x, y) => x[key] - y[key]);
                 return;
@@ -69,12 +72,14 @@
 
     // Selection Handlers
     function onHeadSelect(headIndex: number): void {
-        if (!source.length) return; 
+        if (!source.length) return;
+        if (Object.keys(source[0]).includes(sort) !== true) return;
         sort = findColumnKeyByIndex(headIndex); // triggers afterUpdate()
+        dispatch('sort', sort);
     }
     function onRowSelect(row: Object): void {
-        // TODO: dispatch on:select event
-        console.log(row);
+        if (!select) return;
+        dispatch('select', row);
     }
 
     // After Prop Update
@@ -82,6 +87,10 @@
         searchHandler();
         sortHandler(sort);
     })
+
+    // Reactive Classes
+    $: cRowSelectable = select ? 'hover:bg-primary-500/10 cursor-pointer' : '';
+    $: classesBodyRoll = `${cBaseBodyRow} ${cRowSelectable}`;
 </script>
 
 
@@ -121,7 +130,7 @@
             <!-- Populated State -->
             <tbody class="table-body {cBaseBody}">
                 {#each filteredSource as row, i}
-                <tr class="table-body-row {cBaseBodyRow}" on:click={() => { onRowSelect(row) }}>
+                <tr class="table-body-row {classesBodyRoll}" on:click={() => { onRowSelect(row) }}>
                     {#each Object.values(row) as cell}
                     <td class="table-body-col {cBaseBodyCol}">{@html cell}</td>
                     {/each}

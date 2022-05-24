@@ -14,6 +14,14 @@
         {position: 56, mass: 137.33, symbol: 'Ba', name: 'Barium'},
         {position: 58, mass: 140.12, symbol: 'Ce', name: 'Cerium'}
     ];
+
+    // Row Selection
+    let rowSelection: any;
+    function onSelect(event: any): void { rowSelection = event.detail; }
+
+    // Sort
+    let sortSelection: any;
+    function onSort(event: any): void { sortSelection = event.detail; };
 </script>
 
 <div class="space-y-8">
@@ -26,8 +34,8 @@
     </header>
 
     <!-- Examples -->
-    <Card>
-        <DataTable {headings} {source} {search} {sort}>
+    <Card class="space-y-4">
+        <DataTable {headings} {search} {sort} {source} select on:select={onSelect} on:sort={onSort}>
             <svelte:fragment slot="header">
                 <input type="search" placeholder="Search..." bind:value={search}>
             </svelte:fragment>
@@ -38,6 +46,8 @@
                 <p class="text-center">(pagination)</p>
             </svelte:fragment> -->
         </DataTable>
+        <!-- <pre>sorted: {sortSelection ? JSON.stringify(sortSelection, null, 2) : sort}</pre> -->
+        <!-- <pre>selected: {rowSelection ? JSON.stringify(rowSelection, null, 2) : 'None'}</pre> -->
     </Card>
 
     <!-- Usage -->
