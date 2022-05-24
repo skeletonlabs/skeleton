@@ -42,6 +42,7 @@
                 {href: '/components/buttons', label: 'Buttons'},
                 {href: '/components/cards', label: 'Cards'},
 				// {href: '/components/conic-gradients', label: 'Conic Gradients'},
+				{href: '/components/data-tables', label: 'Data Tables'},
 				{href: '/components/drawers', label: 'Drawers'},
                 {href: '/components/dividers', label: 'Dividers'},
                 {href: '/components/gradient-headings', label: 'Gradient Headings'},
