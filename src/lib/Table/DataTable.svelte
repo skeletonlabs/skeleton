@@ -5,8 +5,8 @@
     const dispatch = createEventDispatcher();
 
     // Props
-    export let headings: any[];
-    export let source: any[];
+    export let headings: any[] = [];
+    export let source: any[] = [];
     export let search: any = '';
     export let sort: string = '';
     export let select: boolean = false;
@@ -19,19 +19,21 @@
     const cBase: string = 'space-y-4';
     const cBaseHeader: string = '';
     const cBaseFooter: string = '';
-    const cBaseWrapper: string = 'overflow-y-auto w-full';
+    const cBaseWrapper: string = 'overflow-x-auto w-full';
     const cBaseTable: string = 'w-full rounded overflow-hidden table-auto';
+    const cBaseLoading: string = 'text-center p-4 rounded-lg';
     // ---
     const cBaseHead: string = 'bg-surface-50 dark:bg-surface-700';
     const cBaseHeadRow: string = '';
-    const cBaseHeadCol: string = 'py-4 px-6 text-xs font-medium text-left text-surface-900 dark:text-surface-50 cursor-pointer';
+    const cBaseHeadCol: string = 'py-4 px-6 text-xs font-medium text-left text-surface-900 dark:text-surface-50 cursor-pointer whitespace-nowrap';
     // ---
     const cBaseBody: string = '';
-    const cBaseBodyRow: string = 'border-t border-surface-500/30 even:bg-surface-500/[5%]';
-    const cBaseBodyCol: string = 'py-4 px-6 text-sm font-medium text-surface-900 whitespace-nowrap dark:text-white';
+    const cBaseBodyRow: string = 'border-t border-surface-500/30 even:bg-surface-500/[5%]'; // space-x-1
+    const cBaseBodyCol: string = 'py-4 px-6 text-sm font-medium text-surface-900 whitespace-nowrap md:whitespace-normal dark:text-white';
     // ---
     const cBaseFoot: string = '';
 
+    // Lookup Column Key
     function findColumnKeyByIndex(i: number): string {
         if (!source.length) return;
         return Object.keys(source[0])[i];
@@ -50,8 +52,7 @@
     // Sort Handler
     // https://www.javascripttutorial.net/javascript-array-sort/
     function sortHandler(column: string): void {
-        if (!source.length) return; 
-        if (Object.keys(source[0]).includes(sort) !== true) return;
+        if (!source.length || !filteredSource.length || !sort) return; 
         // ---  TODO: add toggle sort ---
         sortAscending(column);
         // --- / ---
@@ -63,8 +64,8 @@
                 return;
             } else {
                 filteredSource.sort((x, y) => {
-                    let a = x[key].toString().toUpperCase(),
-                        b = y[key].toString().toUpperCase();
+                    let a = String(x[key]).toUpperCase(),
+                        b = String(y[key]).toUpperCase();
                     return a == b ? 0 : a > b ? 1 : -1;
                 });
             }
@@ -94,87 +95,82 @@
 </script>
 
 
-{#if debug === false}
-
 <div class="data-table {cBase}">
+    {#if source.length > 0}
 
-    <!-- Header -->
-    {#if $$slots.header}
-    <header class="table-header {cBaseHeader}"><slot name="header" /></header>
-    {/if}
+        <!-- Header -->
+        {#if $$slots.header}
+        <header class="table-header {cBaseHeader}"><slot name="header" /></header>
+        {/if}
 
-    <!-- Wrapper -->
-    <div class="table-wrapper {cBaseWrapper}">
+        <!-- Wrapper -->
+        <div class="table-wrapper {cBaseWrapper}">
 
-        <!-- Table -->
-        <table class="table {cBaseTable}">
+            <!-- Table -->
+            <table class="table {cBaseTable}">
 
-            <!-- Head -->
-            <thead class="table-head {cBaseHead}">
                 <!-- Head -->
-                <tr class="table-head-row {cBaseHeadRow}">
-                    {#each headings as head, i}
-                    <th class="table-head-col {cBaseHeadCol}" scope="col" on:click={() => { onHeadSelect(i) }}>
-                        {@html head}
-                        <span class="inline-block w-4 text-center ml-1 opacity-50">
-                            {#if findColumnKeyByIndex(i) === sort}&darr;{/if}
-                        </span>
-                    </th>
-                    {/each}
-                </tr>
-            </thead>
+                <thead class="table-head {cBaseHead}">
+                    <!-- Head -->
+                    <tr class="table-head-row {cBaseHeadRow}">
+                        {#each headings as head, i}
+                        <th class="table-head-col {cBaseHeadCol}" scope="col" on:click={() => { onHeadSelect(i) }}>
+                            {@html head}
+                            <span class="inline-block w-4 text-center ml-1 opacity-50">
+                                {#if findColumnKeyByIndex(i) === sort}&darr;{/if}
+                            </span>
+                        </th>
+                        {/each}
+                    </tr>
+                </thead>
 
-            <!-- Body -->
-            {#if source.length > 0}
+                <!-- Body -->
+                {#if filteredSource.length > 0}
+                    <!-- Filtered Results -->
+                    <tbody class="table-body {cBaseBody}">
+                        {#each filteredSource as row, i}
+                        <tr class="table-body-row {classesBodyRoll}" on:click={() => { onRowSelect(row) }}>
+                            {#each Object.values(row) as cell}
+                            <td class="table-body-col {cBaseBodyCol}">{@html cell}</td>
+                            {/each}
+                        </tr>
+                        {/each}
+                    </tbody>
+                {:else}
+                    <!-- No Search Results -->
+                    <tbody class="table-body {cBaseBody}">
+                        <tr><td colspan={headings.length} class="pt-4 text-center opacity-50">No results for "<strong>{search}</strong>"</td></tr>
+                    </tbody>
+                {/if}
 
-            <!-- Populated State -->
-            <tbody class="table-body {cBaseBody}">
-                {#each filteredSource as row, i}
-                <tr class="table-body-row {classesBodyRoll}" on:click={() => { onRowSelect(row) }}>
-                    {#each Object.values(row) as cell}
-                    <td class="table-body-col {cBaseBodyCol}">{@html cell}</td>
-                    {/each}
-                </tr>
-                {/each}
-            </tbody>
+                <!-- Foot -->
+                {#if $$slots.tfoot}
+                <tfoot class="tBaseFoot {cBaseFoot}">
+                    <tr><td colspan={headings.length} class="pt-4"><slot name="tfoot" /></td></tr>
+                </tfoot>
+                {/if}
 
-            {:else}
+            </table>
 
-            <!-- Empty State -->
-            <tbody>
-                <tr>
-                    <td colspan={headings.length} class="text-center pt-4 px-4 opacity-50">
-                        {#if $$slots.empty}<slot name="empty" />{:else}No results available.{/if}
-                    </td>
-                </tr>
-            </tbody>
+        </div>
 
-            {/if}
+        <!-- Footer -->
+        {#if $$slots.footer}
+        <footer class="table-footer {cBaseFooter}"><slot name="footer" /></footer>
+        {/if}
 
-            <!-- Foot -->
-            {#if $$slots.tfoot}
-            <tfoot class="tBaseFoot {cBaseFoot}">
-                <tr><td colspan={headings.length} class="pt-4"><slot name="tfoot" /></td></tr>
-            </tfoot>
-            {/if}
+    {:else}
 
-        </table>
+        <!-- Loading -->
+        {#if $$slots.loading}<slot name="loading" />{:else} <div class="{cBaseLoading}">Loading...</div>{/if}
 
-    </div>
-
-    <!-- Footer -->
-    {#if $$slots.footer}
-    <footer class="table-footer {cBaseFooter}"><slot name="footer" /></footer>
     {/if}
-
 </div>
 
-{:else}
-
+{#if debug}
 <pre>search: {search}</pre>
 <pre>sort: {JSON.stringify(sort, null, 2)}</pre>
 <pre>headings: {JSON.stringify(headings, null, 2)}</pre>
 <pre>filteredSource: {JSON.stringify(filteredSource, null, 2)}</pre>
 <pre>source: {JSON.stringify(source, null, 2)}</pre>
-
 {/if}
