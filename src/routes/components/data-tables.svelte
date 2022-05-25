@@ -24,13 +24,13 @@
     };
 
     // Server Table
-    const tableServer = { search: undefined, sort: undefined, headings: undefined, count: 0 };
+    const tableServer = { search: undefined, source: undefined, sort: undefined, headings: undefined, count: 0 };
     async function getTableSource(): Promise<any> {
 		const http = await fetch('https://jsonplaceholder.typicode.com/user/1/posts');
 		const res = await http.json();
         tableServer.headings = Object.keys(res[0]);
         tableServer.sort = 'userId';
-        tableServer.count = res.length;
+        tableServer.source = res;
 		if (http.ok) { return res; } else { throw new Error(res); }
 	}
     let tablePromise: Promise<any> = getTableSource();
@@ -55,22 +55,21 @@
         <Card>
             <DataTable
                 headings={tableLocal.headings}
-                source={tableLocal.source}
+                bind:source={tableLocal.source}
                 search={tableLocal.search}
                 sort={tableLocal.sort}
-                bind:count={tableLocal.count}
                 interactive
                 on:sorted={onSort}
                 on:selected={onSelect}
             >
                 <svelte:fragment slot="header"><input type="search" placeholder="Search..." bind:value={tableLocal.search}></svelte:fragment>
-                <svelte:fragment slot="footer"><small class="text-xs opacity-50">{tableLocal.count || 0} Elements</small></svelte:fragment>
+                <svelte:fragment slot="footer"><small class="text-xs opacity-50">{tableLocal.source.length} Elements</small></svelte:fragment>
             </DataTable>
         </Card>
         <h4>Async</h4>
         <Card>
             {#await tablePromise}
-                <p>Loading...</p>
+                <p class="text-center">Loading...</p>
             {:then response}
                 <DataTable
                     headings={tableServer.headings}
@@ -85,7 +84,7 @@
                     <svelte:fragment slot="footer"><small class="text-xs opacity-50">{tableServer.count} Posts</small></svelte:fragment>
                 </DataTable>
             {:catch error}
-                <p style="text-warning-500">{error.message}</p>
+                <p style="text-center text-warning-500">{error.message}</p>
             {/await}
         </Card>
     </section>

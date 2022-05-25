@@ -1,6 +1,8 @@
 <script lang="ts">
-    import { createEventDispatcher, onMount } from "svelte";
+    import { createEventDispatcher } from "svelte";
     import { sortAscNumber, sortDescNumber, sortAscString, sortDescString } from "./DataTableService";
+
+    const dispatch = createEventDispatcher();
 
     // Props
     export let headings: any[] = [];
@@ -14,8 +16,7 @@
     export let hover: string = 'hover:bg-primary-500/10';
 
     // Local
-    const dispatch = createEventDispatcher();
-    let sourceUnfiltered: any[] = [...source];
+    let sourceUnfiltered: any[] = [...source]; // clone
     let sorted: any = {by: sort, asc: false};
 
     // Base Classes
@@ -48,15 +49,18 @@
     // Sort
     function localSort(column: string): void {
         if (!source.length) return;
+        // If same column, toggle asc/desc
         if (column === sorted.by) {
             sorted.asc = !sorted.asc;
             sorted.asc ? sortAsc(column) : sortDesc(column);
+        // If new column, sort asc
         } else {
             sorted.asc = true;
             sortAsc(column);
         }
+        // Update states
         sorted.by = column;
-        updateCount();
+        count = source.length;
     }
 
         function sortAsc(key: string): void {
@@ -74,11 +78,8 @@
             const match: boolean = JSON.stringify(Object.values(row)).toLowerCase().includes(search.toLowerCase());
             if (match) return row;
         });
-        updateCount();
+        count = source.length;
     }
-
-    // Count
-    function updateCount(): void { count = source.length; }
 
     // On Prop Change
     $: if (sort) { localSort(sort); }
