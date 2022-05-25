@@ -11,16 +11,26 @@ export function mapTableSource(keys: any[], object: any[]): any[] {
     });
 }
 
-// Sorts multi-dimensional array in ascending order by provided key
-export function sortTableAscending(arr: any[], key: string): void {
-    if (typeof arr[0][key] === 'number') {
-        arr.sort((x, y) => x[key] - y[key]);
-        return;
-    } else {
-        arr.sort((x, y) => {
-            let a = String(x[key]).toUpperCase(),
-                b = String(y[key]).toUpperCase();
-            return a == b ? 0 : a > b ? 1 : -1;
-        });
-    }
+export function sortAscNumber(arr: any[], key: string): any[] {
+    return arr.sort((x, y) => x[key] - y[key]);
+}
+
+export function sortDescNumber(arr: any[], key: string): any[] {
+    return arr.sort((x, y) => y[key] - x[key]);
+}
+
+export function sortAscString(arr: any[], key: any): any[] {
+    return arr.sort((x, y) => {
+        let a = String(x[key]).toUpperCase(),
+            b = String(y[key]).toUpperCase();
+        return a == b ? 0 : a > b ? 1 : -1;
+    });
+}
+
+export function sortDescString(arr: any[], key: any): any[] {
+    return arr.sort((x, y) => {
+        let a = String(x[key]).toUpperCase(),
+            b = String(y[key]).toUpperCase();
+        return a == b ? 0 : a > b ? -1 : 1;
+    });
 }
