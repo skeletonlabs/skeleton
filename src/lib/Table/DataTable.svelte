@@ -27,7 +27,7 @@
     // ---
     const cBaseHead: string = 'bg-surface-50 dark:bg-surface-700';
     const cBaseHeadRow: string = 'capitalize text-xs font-medium text-left text-surface-900 dark:text-surface-50';
-    const cBaseHeadCol: string = 'p-3 whitespace-nowrap cursor-pointer';
+    const cBaseHeadCol: string = 'p-3 py-4 whitespace-nowrap cursor-pointer';
     // ---
     const cBaseBody: string = '';
     const cBaseBodyRow: string = 'border-t border-surface-500/30 even:bg-surface-500/[5%]';
@@ -113,7 +113,9 @@
                     <th class="table-head-col {cBaseHeadCol}" scope="col" on:click={() => { onHeadSelect(i) }}>
                         {@html head}
                         <span class="inline-block w-3 text-center ml-1 opacity-50">
-                            {#if headKeyByIndex(i) === sorted.by}&darr;{/if}
+                            {#if headKeyByIndex(i) === sorted.by}
+                                {@html sorted.asc ? '&darr;' : '&uarr;'}
+                            {/if}
                         </span>
                     </th>
                     {/each}
