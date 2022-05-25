@@ -1,6 +1,7 @@
-// Data Table Service
+// === Data Table Service ===
 
-// Maps object by provided keys
+// Data Mapping ---
+
 export function mapTableSource(keys: any[], object: any[]): any[] {
     return object.map(origRow => {
         const mappedRow: any = {};
@@ -10,6 +11,8 @@ export function mapTableSource(keys: any[], object: any[]): any[] {
         return mappedRow;
     });
 }
+
+// Sort Handlers ---
 
 export function sortAscNumber(arr: any[], key: string): any[] {
     return arr.sort((x, y) => x[key] - y[key]);

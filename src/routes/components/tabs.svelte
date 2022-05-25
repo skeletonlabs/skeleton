@@ -110,7 +110,7 @@
     <!-- Usage -->
     <section class="space-y-4">
         <h2>Usage</h2>
-        <CodeBlock language="js" code={`let storeTab = writable('a');`}></CodeBlock>
+        <CodeBlock language="typescript" code={`let storeTab: Writable<string> = writable('a');`}></CodeBlock>
         <CodeBlock language="html" code={`
 <TabGroup selected={storeTab} justify="justify-center" highlight="border-accent-500" color="text-accent-500">
     <Tab value="a">Tab A</Tab>

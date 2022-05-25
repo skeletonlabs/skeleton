@@ -11,7 +11,7 @@
     export let sort: string = '';
     export let count: number = source.length;
     export let interactive: boolean = false;
-    export let server: boolean = false;
+    export let async: boolean = false;
     // Props: Design
     export let hover: string = 'hover:bg-primary-500/10';
 
@@ -22,7 +22,8 @@
     // Base Classes
     const cBase: string = 'space-y-4';
     const cBaseWrapper: string = 'overflow-x-auto w-full';
-    const cBaseTable: string = 'w-full rounded-lg overflow-hidden table-auto';
+    const cBaseTable: string = 'bg-surface-200 dark:bg-surface-800 w-full rounded-lg overflow-hidden table-auto ring-[1px] ring-white/10 ring-inset';
+    const cBaseEmpty: string = 'p-4 text-center';
     // ---
     const cBaseHead: string = 'bg-surface-50 dark:bg-surface-700';
     const cBaseHeadRow: string = 'capitalize text-xs font-medium text-left text-surface-900 dark:text-surface-50';
@@ -39,7 +40,7 @@
     function onHeadSelect(i: number) {
         const column: string = headKeyByIndex(i);
         dispatch('sorted', column);
-        server ? sorted.by = column : localSort(column);
+        async ? sorted.by = column : localSort(column);
     }
 
     function onRowSelect(r: Object) {
@@ -60,7 +61,7 @@
         }
         // Update states
         sorted.by = column;
-        count = source.length;
+        updateRowCount();
     }
 
         function sortAsc(key: string): void {
@@ -73,13 +74,16 @@
 
     // Search
     function localSearch(): void {
-        if (server) return;
+        if (async) return;
         source = sourceUnfiltered.filter(row => {
             const match: boolean = JSON.stringify(Object.values(row)).toLowerCase().includes(search.toLowerCase());
             if (match) return row;
         });
-        count = source.length;
+        updateRowCount();
     }
+
+    // Count
+    function updateRowCount(): void { count = source.length;  }
 
     // On Prop Change
     $: if (sort) { localSort(sort); }
@@ -130,8 +134,10 @@
 
                 {:else}
 
-                    <!-- No Search Results -->
-                    <tr><td colspan={headings.length} class="pt-4 text-center">No results to display.</td></tr>
+                    <!-- Empty -->
+                    <tr><td colspan={headings.length} class="table-empty {cBaseEmpty}">
+                        {#if $$slots.empty}<slot name="empty" />{:else}No results available.{/if}
+                    </td></tr>
 
                 {/if}
             </tbody>
