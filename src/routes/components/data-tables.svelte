@@ -50,13 +50,21 @@
         headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
         source: [
             {prop: 'headings', type: 'any[]', default: '[]', req: '&check;', desc: 'Define the table head column labels.'},
-            {prop: 'source', type: 'any[]', default: '[]', req: '&check;', desc: 'Provide the table source data.'},
+            {prop: 'source', type: 'any[]', default: '[]', req: '&check;', desc: 'Provide the table source data. This is reactive for local data.'},
             {prop: 'async', type: 'boolean', default: 'false', req: '-', desc: 'When enabled, allows for server-side search/sort instead of local.'},
             {prop: 'search', type: 'any', default: '-', req: '-', desc: 'Provides fuzzy search for the provided value. This is reactive.'},
             {prop: 'sort', type: 'string', default: '-', req: '-', desc: 'Defines the current sort key value. This is reactive.'},
             {prop: 'count', type: 'number', default: '(source length)', req: '-', desc: 'If server enabled, provides count of filtered results. Useful for pagination.'},
             {prop: 'interactive', type: 'boolean', default: 'false', req: '-', desc: 'Enables row hover styles and selection event.'},
-            {prop: 'hover', type: 'string', default: 'hover:bg-primary-500/10', req: '-', desc: 'When interactive enabled, provide a class to set the row hover style.'},
+        ],
+    }
+    const tablePropStyles: any = {
+        headings: ['Prop', 'Type', 'Default', 'Description'],
+        source: [
+            {prop: 'header', type: 'string', default: 'bg-surface-50 dark:bg-surface-700', desc: 'Provide a class to set the table header background color.'},
+            {prop: 'body', type: 'string', default: 'bg-surface-200 dark:bg-surface-800', desc: 'Provide a class to set the table body background color.'},
+            {prop: 'text', type: 'string', default: 'text-sm', desc: 'Provide a class to set the table text size.'},
+            {prop: 'hover', type: 'string', default: 'hover:bg-primary-500/10', desc: 'When interactive enabled, set the row hover color.'},
         ],
     }
 
@@ -99,6 +107,12 @@
         {#if $tabExample === 'async'}<p>Render a table using asycronous data, usually obtained via an HTTP network call. Example data provided by <a href="https://jsonplaceholder.typicode.com/" target="_blank">JSON Placeholder</a></p>{/if}
         <Card class="space-y-4">
             <!-- Tab: Local -->
+            <!--
+                header="bg-green-500"
+                body="bg-green-700"
+                text="text-lg"
+                hover="hover:bg-sky-500/50"
+            -->
             {#if $tabExample === 'local'}
                 <DataTable
                     headings={tableLocal.headings}
@@ -223,6 +237,7 @@ function onSelect(event: any): void { console.log('event:onSelect', event.detail
 	<section class="space-y-4">
 		<h2>Properties</h2>
 		<DataTable headings={tableProps.headings} source={tableProps.source} ></DataTable>
+		<DataTable headings={tablePropStyles.headings} source={tablePropStyles.source} ></DataTable>
 	</section>
     
     <!-- Events -->

@@ -13,6 +13,9 @@
     export let interactive: boolean = false;
     export let async: boolean = false;
     // Props: Design
+    export let header: string = 'bg-surface-50 dark:bg-surface-700';
+    export let body: string = 'bg-surface-200 dark:bg-surface-800';
+    export let text: string = 'text-sm';
     export let hover: string = 'hover:bg-primary-500/10';
 
     // Local
@@ -21,17 +24,17 @@
 
     // Base Classes
     const cBase: string = 'space-y-4';
-    const cBaseWrapper: string = 'overflow-x-auto w-full';
-    const cBaseTable: string = 'bg-surface-200 dark:bg-surface-800 w-full rounded-lg overflow-hidden table-auto ring-[1px] ring-white/10 ring-inset';
+    const cBaseWrapper: string = 'overflow-x-auto w-full rounded-lg border-[1px] border-surface-500/10 border-inset';
+    const cBaseTable: string = 'w-full overflow-hidden table-auto';
     const cBaseEmpty: string = 'p-4 text-center';
     // ---
-    const cBaseHead: string = 'bg-surface-50 dark:bg-surface-700';
-    const cBaseHeadRow: string = 'capitalize text-xs font-medium text-left text-surface-900 dark:text-surface-50';
+    const cBaseHead: string = '';
+    const cBaseHeadRow: string = 'capitalize font-medium text-left text-surface-900 dark:text-surface-50';
     const cBaseHeadCol: string = 'p-3 py-4 whitespace-nowrap cursor-pointer';
     // ---
     const cBaseBody: string = '';
-    const cBaseBodyRow: string = 'border-t border-surface-500/30 even:bg-surface-500/[5%]';
-    const cBaseBodyCol: string = 'p-3 text-sm font-medium text-surface-900 whitespace-nowrap md:whitespace-normal dark:text-white';
+    const cBaseBodyRow: string = 'border-t border-surface-500/10 even:bg-black/[4%]';
+    const cBaseBodyCol: string = 'p-3 font-medium text-surface-900 whitespace-nowrap md:whitespace-normal dark:text-white';
 
     function headKeyByIndex(i: number): string {
         return Object.keys(source[0])[i];
@@ -90,6 +93,9 @@
     $: if (search || search === '') { localSearch(); }
 
     // Reactive Classes
+    $: classesTable = `${cBaseTable} ${text}`;
+    $: classesHeader = `${cBaseHead} ${header}`;
+    $: classesBody = `${cBaseBody} ${body}`;
     $: cRowInteractive = interactive ? `${hover} cursor-pointer` : '';
     $: classesBodyRoll = `${cBaseBodyRow} ${cRowInteractive}`;
 </script>
@@ -103,10 +109,10 @@
     <div class="table-wrapper {cBaseWrapper}">
 
         <!-- Table -->
-        <table class="table {cBaseTable}">
+        <table class="table {classesTable}">
 
             <!-- Head -->
-            <thead class="table-head {cBaseHead}">
+            <thead class="table-head {classesHeader}">
                 <!-- Head -->
                 <tr class="table-head-row {cBaseHeadRow}">
                     {#each headings as head, i}
@@ -123,7 +129,7 @@
             </thead>
 
             <!-- Body -->
-            <tbody class="table-body {cBaseBody}">
+            <tbody class="table-body {classesBody}">
                 {#if source.length > 0}
 
                     {#each source as row, i}
