@@ -82,7 +82,7 @@
         headings: ['Name', 'Description'],
         source: [
             {name: 'header', desc: 'Dislays above the table. Useful for embedding filter and search inputs.'},
-            {name: 'empty', desc: 'Displays in place of the table when there are no items to display.'},
+            {name: 'empty', desc: 'Displays placeholder message when the table contents are empty. Includes a default message.'},
             {name: 'footer', desc: 'Displays below the table. Useful for embedding page count, pagination, etc.'},
         ],
     }
@@ -124,7 +124,7 @@
                     on:selected={onSelect}
                 >
                     <svelte:fragment slot="header"><input type="search" placeholder="Search..." bind:value={tableLocal.search}></svelte:fragment>
-                    <svelte:fragment slot="footer"><small class="text-xs opacity-50">{tableLocal.source.length} Items</small></svelte:fragment>
+                    <svelte:fragment slot="footer"><pre class="text-center">Count: {tableLocal.source.length} Items</pre></svelte:fragment>
                 </DataTable>
             {/if}
             <!-- Tab: Async -->
@@ -143,7 +143,7 @@
                         on:selected={onSelect}
                     >
                         <svelte:fragment slot="header"><input type="search" placeholder="Search..." bind:value={tableServer.search}></svelte:fragment>
-                        <svelte:fragment slot="footer"><small class="text-xs opacity-50">{tableServer.count} Posts</small></svelte:fragment>
+                        <svelte:fragment slot="footer"><pre class="text-center">Count: {tableServer.count} Posts</pre></svelte:fragment>
                     </DataTable>
                 {:catch error}
                     <p style="text-center text-warning-500">{error.message}</p>
@@ -157,6 +157,18 @@
         <h2>Usage</h2>
         <!-- Tab: Local -->
         {#if $tabExample === 'local'}
+            <CodeBlock language="typescript" code={`
+const headings: string[] = ['Positions', 'Name', 'Mass', 'Symbol'];
+const source: any[] = [
+    {position: 6, mass: 12.011, symbol: 'C', name: 'Carbon'},
+    {position: 7, mass: 14.007, symbol: 'N', name: 'Nitrogen'},
+];
+            `.trim()}></CodeBlock>
+            <CodeBlock language="html" code={`
+<DataTable {headings} {source}></DataTable>
+            `.trim()}></CodeBlock>
+            <h4>Fully Featured</h4>
+            <p>The example below includes search, sort, and item count. Note that source is binding to provide item count.</p>
             <CodeBlock language="typescript" code={`
 const tableLocal: any = {
     search: undefined,
@@ -182,7 +194,7 @@ const tableLocal: any = {
     on:selected={onSelect}
 >
     <svelte:fragment slot="header"><input type="search" placeholder="Search..." bind:value={tableLocal.search}></svelte:fragment>
-    <svelte:fragment slot="footer"><small class="text-xs opacity-50">{tableLocal.source.length} Items</small></svelte:fragment>
+    <svelte:fragment slot="footer">{tableLocal.source.length} Items</svelte:fragment>
 </DataTable>
             `.trim()}></CodeBlock>
         {/if}
@@ -219,14 +231,14 @@ let tablePromise: Promise<any> = getTableSource();
         on:selected={onSelect}
     >
         <svelte:fragment slot="header"><input type="search" placeholder="Search..." bind:value={tableServer.search}></svelte:fragment>
-        <svelte:fragment slot="footer"><small class="text-xs opacity-50">{tableServer.count} Posts</small></svelte:fragment>
+        <svelte:fragment slot="footer">{tableServer.count} Posts</svelte:fragment>
     </DataTable>
 {:catch error}
     <p style="text-center text-warning-500">{error.message}</p>
 {/await}
             `.trim()}></CodeBlock>
         {/if}
-            <p>Below are example event handlers.</p>
+            <p>Example event handlers for sort and selection. These are enabled for the demos shown at the top of the page. View your browser's console log.</p>
             <CodeBlock language="typescript" code={`
 function onSort(event: any): void { console.log('event:onSort', event.detail); }
 function onSelect(event: any): void { console.log('event:onSelect', event.detail); }
