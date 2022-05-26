@@ -1,3 +1,5 @@
+<!-- NOTE: copy this template to start a new doc section -->
+
 <script lang="ts">
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
     import Table from "$lib/Table/Table.svelte";
