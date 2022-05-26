@@ -2,7 +2,7 @@
     import { writable, type Writable } from "svelte/store";
 
     import Card from "$lib/Card/Card.svelte";
-    import Table from '$lib/Table/Table.svelte';
+    import DataTable from "$lib/Table/DataTable.svelte";
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
     import RadioGroup from "$lib/Radio/RadioGroup.svelte";
     import RadioItem from "$lib/Radio/RadioItem.svelte";
@@ -12,8 +12,8 @@
     const storeHeight: Writable<string> = writable('h-2');
 
     const tableProps: any = {
-        columns: ['Prop', 'Type', 'Default', 'Required', 'Description'],
-        data: [
+        headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
+        source: [
             ['label', 'string', '-', 'false', 'Set the label text.'],
             ['value', 'number', '-', 'false', 'Specifies the amount completed.'],
             ['max', 'number', '10', 'false', 'Maximum amount the bar represents.'],
@@ -106,7 +106,7 @@
     <!-- Properties -->
     <section class="space-y-4">
         <h2>Properties</h2>
-        <Table source="{tableProps}"></Table>
+        <DataTable headings="{tableProps.headings}" source="{tableProps.source}"></DataTable>
     </section>
 
 </div>

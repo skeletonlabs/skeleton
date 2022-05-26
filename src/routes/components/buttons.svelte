@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Card from '$lib/Card/Card.svelte';
-    import Table from '$lib/Table/Table.svelte';
+    import DataTable from "$lib/Table/DataTable.svelte";
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
 	import SlideToggle from '$lib/SlideToggle/SlideToggle.svelte';
 	import Button from '$lib/Button/Button.svelte';
@@ -18,8 +18,8 @@
 
 	// Props & Slots
     const tableProps: any = {
-        columns: ['Prop', 'Type', 'Default', 'Description'],
-        data: [
+        headings: ['Prop', 'Type', 'Default', 'Description'],
+        source: [
             ['variant', 'string', '-', 'Provides preset prop values. Overwrites all props listed below.'],
             ['size', 'string', 'base', 'Defines the button size.'],
             ['background', 'string', 'bg-black dark:bg-white', 'Provide a class to define background.'],
@@ -33,8 +33,8 @@
         ],
     };
     const tableSlots: any = {
-        columns: ['Name', 'Description'],
-        data: [
+        headings: ['Name', 'Description'],
+        source: [
             ['lead', 'A lead icon slot that appears left of the label.'],
             ['trail', 'A trailing icon slot that appears right of the label.'],
         ],
@@ -231,13 +231,13 @@
 	<!-- Properties -->
 	<section class="space-y-4">
 		<h2>Properties</h2>
-		<Table source="{tableProps}"></Table>
+		<DataTable headings="{tableProps.headings}" source="{tableProps.source}"></DataTable>
 	</section>
 	
 	<!-- Slots -->
 	<section class="space-y-4">
 		<h2>Slots</h2>
-		<Table source="{tableSlots}"></Table>
+		<DataTable headings="{tableSlots.headings}" source="{tableSlots.source}"></DataTable>
 	</section>
 
 </div>

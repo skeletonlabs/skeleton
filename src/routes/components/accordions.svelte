@@ -2,7 +2,7 @@
     import { writable, type Writable } from "svelte/store";
 
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-    import Table from "$lib/Table/Table.svelte";
+    import DataTable from "$lib/Table/DataTable.svelte";
     import Card from "$lib/Card/Card.svelte";
     import Avatar from '$lib/Avatar/Avatar.svelte';
 
@@ -14,16 +14,16 @@
     let activeStoreC: Writable<number[]> = writable([0]);
 
     const tablePropsGroup: any = {
-        columns: ['Prop', 'Type', 'Default', 'Required', 'Description'],
-        data: [
+        headings: ['Prop', 'Type', 'Value', 'Required', 'Description'],
+        source: [
             ['selected', 'any', '-', 'true', 'A svelte store that can be used to set the default opened accordions.'],
             ['multiple', 'boolean', 'false', 'false', 'If set to true, multiple accordion elements can be active at the same time.'],
             ['spacing', 'class', 'spacing-y-2', 'false', 'Set the spacing between accordion elements.'],
         ],
     };
     const tablePropsItem: any = {
-        columns: ['Prop', 'Type', 'Default', 'Required', 'Description'],
-        data: [
+        headings: ['Prop', 'Type', 'Value', 'Required', 'Description'],
+        source: [
             ['value', 'integer', '-', 'true', 'Set the selection value for the item, typically an index.'],
             ['hover', 'string', 'hover:bg-primary-500/10', 'false', 'Provide a style to set the hover color.'],
             ['spacing', 'string', 'space-y-0', 'false', 'Provide a style to set title and description vertical spacing.'],
@@ -31,8 +31,8 @@
         ],
     };
     const tableSlots: any = {
-        columns: ['Name', 'Description'],
-        data: [
+        headings: ['Name', 'Description'],
+        source: [
             ['lead', 'Optonal slot for providing a lead element, such as an icon.'],
             ['title', 'Required slot for providing the title content of the accordion item.'],
             ['description', 'Required slot for providing the description content of the accordion item.'],
@@ -165,15 +165,15 @@
 	<section class="space-y-4">
 		<h2>Properties</h2>
         <h4>Group</h4>
-        <Table source="{tablePropsGroup}"></Table>
+        <DataTable headings="{tablePropsGroup.headings}" source="{tablePropsGroup.source}"></DataTable>
         <h4>Item</h4>
-		<Table source="{tablePropsItem}"></Table>
+		<DataTable headings="{tablePropsItem.headings}" source="{tablePropsItem.source}"></DataTable>
 	</section>
 	
 	<!-- Slots -->
 	<section class="space-y-4">
 		<h2>Slots</h2>
-		<Table source="{tableSlots}"></Table>
+		<DataTable headings="{tableSlots.headings}" source="{tableSlots.source}"></DataTable>
 	</section>
     
 </div>

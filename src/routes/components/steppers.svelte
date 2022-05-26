@@ -2,7 +2,7 @@
     import { writable, type Writable } from 'svelte/store';
 
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-    import Table from "$lib/Table/Table.svelte";
+    import DataTable from "$lib/Table/DataTable.svelte";
     import Card from "$lib/Card/Card.svelte";
     import Stepper from '$lib/Stepper/Stepper.svelte';
     import Step from '$lib/Stepper/Step.svelte';
@@ -13,8 +13,8 @@
 
     // Props and Slots
     const tablePropsStepper: any = {
-        columns: ['Prop', 'Type', 'Default', 'Required', 'Description'],
-        data: [
+        headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
+        source: [
             ['active', 'Writable<number>', 'writable(0)', 'Yes', 'Provide a writable that stores the active step index state.'],
             ['length', 'number', '0', 'Yes', 'Informs the component of the total number of steps.'],
             ['complete', 'event', '-', 'No', 'Triggers when the final step Complete button is pressed.'],
@@ -23,22 +23,22 @@
         ],
     };
     const tablePropsStep: any = {
-        columns: ['Prop', 'Type', 'Default', 'Required', 'Description'],
-        data: [
+        headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
+        source: [
             ['index', 'number', '-', 'Yes', 'Indicates the step index value. Should start with zero 0 (zero)'],
             ['disabled', 'boolean', '-', 'No', 'When enabled, the Next button is disabled, preventing progress.'],
             ['done', 'boolean', '-', 'No', 'When enabled, numeric step value changes to checkmark.'],
         ],
     };
     const tableSlotsStepper: any = {
-        columns: ['Name', 'Description'],
-        data: [
+        headings: ['Name', 'Description'],
+        source: [
             ['default', 'Used to provide all step components.'],
         ],
     };
     const tableSlotsStep: any = {
-        columns: ['Name', 'Description'],
-        data: [
+        headings: ['Name', 'Description'],
+        source: [
             ['title', 'Optionally provide the title for the step here.'],
             ['subtitle', 'Optionally provide the subtitle for the step here.'],
             ['content', 'Provide the content for the step. This can be text, a form, etc.'],
@@ -102,18 +102,18 @@
 	<section class="space-y-4">
 		<h2>Properties</h2>
         <h4>Stepper</h4>
-		<Table source="{tablePropsStepper}"></Table>
+        <DataTable headings="{tablePropsStepper.headings}" source="{tablePropsStepper.source}"></DataTable>
         <h4>Step</h4>
-		<Table source="{tablePropsStep}"></Table>
+        <DataTable headings="{tablePropsStep.headings}" source="{tablePropsStep.source}"></DataTable>
 	</section>
 	
 	<!-- Slots -->
 	<section class="space-y-4">
 		<h2>Slots</h2>
         <h4>Stepper</h4>
-		<Table source="{tableSlotsStepper}"></Table>
+        <DataTable headings="{tableSlotsStepper.headings}" source="{tableSlotsStepper.source}"></DataTable>
         <h4>Step</h4>
-		<Table source="{tableSlotsStep}"></Table>
+        <DataTable headings="{tableSlotsStep.headings}" source="{tableSlotsStep.source}"></DataTable>
 	</section>
     
 </div>

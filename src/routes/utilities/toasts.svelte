@@ -3,7 +3,7 @@
     import Button from '$lib/Button/Button.svelte';
     import Card from "$lib/Card/Card.svelte";
     import Divider from '$lib/Divider/Divider.svelte';
-    import Table from '$lib/Table/Table.svelte';
+    import DataTable from "$lib/Table/DataTable.svelte";
 
     import { toastStore, type Toast } from '$lib/Notifications/Stores';
 
@@ -35,8 +35,8 @@
 
     // Props
     const tableProps: any = {
-        columns: ['Prop', 'Type', 'Default', 'Values', 'Description'],
-        data: [
+        headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
+        source: [
             ['background', 'string', 'bg-primary-500', 'class', 'Provide a class to set background color.'],
             ['position', 'string', 'b', 't | b | tr | tl | bl | br', 'Set top/bottom/left/right positioning.'],
             ['variant', 'string', 'ghost', 'value', 'Set the dismiss button variant style.'],
@@ -76,7 +76,7 @@
     <!-- Properties -->
 	<section class="space-y-4">
 		<h4>Properties</h4>
-        <Table source="{tableProps}"></Table>
+        <DataTable headings="{tableProps.headings}" source="{tableProps.source}"></DataTable>
 	</section>
 
     <Divider />

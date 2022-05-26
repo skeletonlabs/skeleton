@@ -2,14 +2,14 @@
     import Card from "$lib/Card/Card.svelte";
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
     import SlideToggle from "$lib/SlideToggle/SlideToggle.svelte";
-    import Table from "$lib/Table/Table.svelte";
+    import DataTable from "$lib/Table/DataTable.svelte";
 
     let checkedValue: boolean = false;
 
     // Props
     const tableProps: any = {
-        columns: ['Prop', 'Type', 'Default', 'Required' , 'Description'],
-        data: [
+        headings: ['Prop', 'Type', 'Default', 'Required' , 'Description'],
+        source: [
             ['checked', 'boolean', 'false', 'false' , 'Bind this value to track the checked state.'],
             ['accent', 'class', 'bg-accent-500', 'false', 'Provide a class to set the active color.'],
             ['size', 'string', 'md', 'false', 'Provide a size with sm|md|lg.'],
@@ -69,7 +69,7 @@
     <!-- Properties -->
     <section class="space-y-4">
         <h2>Properties</h2>
-        <Table source="{tableProps}"></Table>
+        <DataTable headings="{tableProps.headings}" source="{tableProps.source}"></DataTable>
     </section>
 
 </div>

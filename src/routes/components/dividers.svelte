@@ -2,7 +2,7 @@
     import { writable, type Writable } from "svelte/store";
 
     import Card from "$lib/Card/Card.svelte";
-    import Table from '$lib/Table/Table.svelte';
+    import DataTable from "$lib/Table/DataTable.svelte";
     import RadioGroup from "$lib/Radio/RadioGroup.svelte";
     import RadioItem from "$lib/Radio/RadioItem.svelte";
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
@@ -13,8 +13,8 @@
     const storeOrientation: Writable<string> = writable('h');
 
     const tableProps: any = {
-        columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
-        data: [
+        headings: ['Prop', 'Type', 'Values', 'Default', 'Description'],
+        source: [
             ['variant', 'string', 'solid | dashed | dotted', 'solid', 'Visual style.'],
             ['weight', 'number', '1, 2, 4, 8', '1', 'Define the thickness.'],
             ['orientation', 'string', 'h | v', 'h', 'Horizontal or vertical.'],
@@ -88,7 +88,7 @@
     <!-- Properties -->
     <section class="space-y-4">
         <h2>Properties</h2>
-        <Table source="{tableProps}"></Table>
+        <DataTable headings="{tableProps.headings}" source="{tableProps.source}"></DataTable>
     </section>
 
 </div>

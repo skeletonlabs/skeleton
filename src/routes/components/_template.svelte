@@ -1,20 +1,18 @@
-<!-- NOTE: copy this template to start a new doc section -->
-
 <script lang="ts">
-    import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-    import Table from "$lib/Table/Table.svelte";
     import Card from "$lib/Card/Card.svelte";
+    import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+    import DataTable from "$lib/Table/DataTable.svelte";
 
     const tableProps: any = {
-        columns: ['Prop', 'Type', 'Default', 'Required', 'Description'],
-        data: [
-            ['name', '-', '-', '-', '...'],
+        headings: ['Prop', 'Type', 'Default', 'Values', 'Required', 'Description'],
+        source: [
+            ['name', '-', '-', '-', '-', '...']
         ],
     };
     const tableSlots: any = {
-        columns: ['Name', 'Description'],
-        data: [
-            ['name', '...'],
+        headings: ['Name', 'Description'],
+        source: [
+            ['name', '...']
         ],
     };
 </script>
@@ -42,13 +40,13 @@
     <!-- Properties -->
 	<section class="space-y-4">
 		<h2>Properties</h2>
-		<Table source="{tableProps}"></Table>
+		<DataTable headings="{tableProps.headings}" source="{tableProps.source}"></DataTable>
 	</section>
 	
 	<!-- Slots -->
 	<section class="space-y-4">
 		<h2>Slots</h2>
-		<Table source="{tableSlots}"></Table>
+		<DataTable headings="{tableSlots.headings}" source="{tableSlots.source}"></DataTable>
 	</section>
     
 </div>

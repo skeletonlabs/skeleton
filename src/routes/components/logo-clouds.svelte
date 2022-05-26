@@ -1,28 +1,28 @@
 <script lang="ts">
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
     import LogoCloud from "$lib/LogoCloud/LogoCloud.svelte";
-    import Table from '$lib/Table/Table.svelte';
+    import DataTable from "$lib/Table/DataTable.svelte";
     import Logo from "$lib/LogoCloud/Logo.svelte";
 
     const tablePropsCloud: any = {
-        columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
-        data: [
+        headings: ['Prop', 'Type', 'Values', 'Default', 'Description'],
+        source: [
             ['background', 'string', 'class', 'bg-surface-200 dark:bg-surface-800', 'Provide a class to set background color.'],
             ['color', 'string', 'class', 'text-black dark:text-white', 'Provide a class to set text color.'],
             ['text', 'string', 'class', 'text-base font-bold', 'Provide a class to set text styles.'],
         ],
     };
     const tablePropsLogo: any = {
-        columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
-        data: [
+        headings: ['Prop', 'Type', 'Values', 'Default', 'Description'],
+        source: [
             ['background', 'string', 'class', 'bg-surface-200 dark:bg-surface-800', 'Provide a class to override background color.'],
             ['color', 'string', 'class', 'text-black dark:text-white', 'Provide a class to override text color.'],
             ['text', 'string', 'class', 'text-base font-bold', 'Provide a class to override text styles.'],
         ],
     };
     const tableSlots: any = {
-        columns: ['Name', 'Description'],
-        data: [
+        headings: ['Name', 'Description'],
+        source: [
             ['icon', 'Dedicated icon slot, left of the label.'],
             ['label', 'Dedicated slot for adding a label.'],
         ],
@@ -74,14 +74,14 @@
     <section class="space-y-4">
         <h2>Properties</h2>
         <h4>Logo Cloud</h4>
-        <Table source="{tablePropsCloud}"></Table>
+        <DataTable headings="{tablePropsCloud.headings}" source="{tablePropsCloud.source}"></DataTable>
         <h4>Logo</h4>
-        <Table source="{tablePropsLogo}"></Table>
+        <DataTable headings="{tablePropsLogo.headings}" source="{tablePropsLogo.source}"></DataTable>
     </section>
 
     <!-- Slots -->
     <section class="space-y-4">
         <h2>Slots</h2>
-        <Table source="{tableSlots}"></Table>
+        <DataTable headings="{tableSlots.headings}" source="{tableSlots.source}"></DataTable>
     </section>
 </div>

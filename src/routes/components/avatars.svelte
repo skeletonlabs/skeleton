@@ -3,7 +3,7 @@
 
     import Card from "$lib/Card/Card.svelte";
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
-    import Table from "$lib/Table/Table.svelte";
+    import DataTable from "$lib/Table/DataTable.svelte";
     import RadioGroup from "$lib/Radio/RadioGroup.svelte";
     import RadioItem from "$lib/Radio/RadioItem.svelte";
     import SlideToggle from "$lib/SlideToggle/SlideToggle.svelte";
@@ -13,8 +13,8 @@
     let placeholder: string = 'https://i.pravatar.cc/';
 
     const tableProps: any = {
-        columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
-        data: [
+        headings: ['Prop', 'Type', 'Values', 'Default', 'Description'],
+        source: [
             ['initials', 'string', 'text', 'A', 'Supply up to 2 text characters.'],
             ['src', 'string', 'url', '-', 'The image source to be displayed.'],
             ['size', 'string', 'sm | md | lg | xl | 2xl | 3xl | fluid', 'fluid', 'A variety of preset sizes, plus fluid option.'],
@@ -143,7 +143,7 @@
     <!-- Properties -->
     <section class="space-y-4">
         <h2>Properties</h2>
-        <Table source="{tableProps}"></Table>
+        <DataTable headings="{tableProps.headings}" source="{tableProps.source}"></DataTable>
     </section>
 
 </div>

@@ -1,7 +1,7 @@
 <script lang="ts">
     import Card from "$lib/Card/Card.svelte";
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
-    import Table from "$lib/Table/Table.svelte";
+    import DataTable from "$lib/Table/DataTable.svelte";
     import Alert from "$lib/Alert/Alert.svelte";
     import RangeSlider from "$lib/RangeSlider/RangeSlider.svelte";
 
@@ -9,8 +9,8 @@
     let valueB: number = 50;
 
     const tableProps: any = {
-        columns: ['Prop', 'Type', 'Default', 'Required', 'Description'],
-        data: [
+        headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
+        source: [
             ['id', 'string', '(unique id)' , 'false', 'Provide a unique input ID.'],
             ['name', 'string', '(match id)' , 'false', 'Provide a unique input name.'],
             ['min', 'number', '0' , 'false', 'Set the input minimum range.'],
@@ -66,7 +66,7 @@
     <!-- Properties -->
     <section class="space-y-4">
         <h2 class="text-2xl font-bold">Properties</h2>
-        <Table source="{tableProps}"></Table>
+        <DataTable headings="{tableProps.headings}" source="{tableProps.source}"></DataTable>
     </section>
 
     <!-- Warning: Cross-Browser -->

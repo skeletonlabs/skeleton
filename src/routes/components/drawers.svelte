@@ -1,13 +1,13 @@
 <script lang="ts">
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-    import Table from "$lib/Table/Table.svelte";
+    import DataTable from "$lib/Table/DataTable.svelte";
     import Card from "$lib/Card/Card.svelte";
     import Divider from '$lib/Divider/Divider.svelte';
     import Drawer from '$lib/Drawer/Drawer.svelte';
 
     const tableProps: any = {
-        columns: ['Prop', 'Type', 'Default', 'Required', 'Description'],
-        data: [
+        headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
+        source: [
             ['visible', 'writable(boolean)', '-', 'true', 'Provide a boolean store to control open/closed state.'],
             ['fixed', 'string', 'left|right', 'false', 'Inline by default. Fixed to the left/right on mobile when specified.'],
             ['backdrop', 'string', 'bg-white/50 dark:bg-black/50', 'false', 'Provide class to set backdrop background color.'],
@@ -16,8 +16,8 @@
         ],
     };
     const tableSlots: any = {
-        columns: ['Name', 'Description'],
-        data: [
+        headings: ['Name', 'Description'],
+        source: [
             ['header', 'Reserved space for header content, such as branding.'],
             ['main', 'Reserved space for navigation elements.'],
             ['footer', 'Reserved space for footer content, such as legal or copyrights.'],
@@ -82,13 +82,13 @@ const drawerClose: any = () => { drawer.set(false); }
     <!-- Properties -->
     <section class="space-y-4">
         <h2>Properties</h2>
-        <Table source="{tableProps}"></Table>
+        <DataTable headings="{tableProps.headings}" source="{tableProps.source}"></DataTable>
     </section>
     
     <!-- Slots -->
     <section class="space-y-4">
         <h2>Slots</h2>
-        <Table source="{tableSlots}"></Table>
+        <DataTable headings="{tableSlots.headings}" source="{tableSlots.source}"></DataTable>
     </section>
 
 </section>

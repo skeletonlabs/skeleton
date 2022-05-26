@@ -1,6 +1,6 @@
 <script lang='ts'>
     import Card from "$lib/Card/Card.svelte";
-    import Table from "$lib/Table/Table.svelte"
+    import DataTable from "$lib/Table/DataTable.svelte";
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte"
     import Button from "$lib/Button/Button.svelte";
     import Alert from "$lib/Alert/Alert.svelte";
@@ -10,8 +10,8 @@
     let message = 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi, cupiditate eveniet in neque magnam quos ad cumque quae numquam voluptatum magni atque vitae dolore voluptatibus aliquam tempora! Animi, nihil quo.';
 
     const tableProps: any = {
-        columns: ['Prop', 'Type', 'Values', 'Default', 'Required', 'Description'],
-        data: [
+        headings: ['Prop', 'Type', 'Values', 'Default', 'Required', 'Description'],
+        source: [
             ['visible', 'boolean', 'true | false', 'true', 'false', 'Control visibility of the component.'],
             ['duration', 'number', 'milliseconds', '200', 'false', 'Control the fade in/out animation speed. Set 0 (zero) to disable.'],
             ['background', 'string', 'class', 'bg-surface-500', 'false' , 'Provide a class that sets the background color.'],
@@ -19,9 +19,9 @@
             ['rounded', 'string', 'class', 'rounded-lg', 'false', 'Provide a class that sets the border radius.'],
         ],
     };
-    const slotProps: any = {
-        columns: ['Slot', 'Required', 'Description'],
-        data: [
+    const tableSlots: any = {
+        headings: ['Slot', 'Required', 'Description'],
+        source: [
             ['lead', 'false', 'Specify a leading position element, such as an icon.'],
             ['title','true', 'Specify the title of the alert.'],
             ['message', 'false', 'Specify the body message of the alert.'],
@@ -98,13 +98,13 @@
     <!-- Properties -->
     <section class="space-y-4">
         <h2>Properties</h2>
-        <Table source="{tableProps}"></Table>
+        <DataTable headings="{tableProps.headings}" source="{tableProps.source}"></DataTable>
     </section>
 
     <!-- Properties -->
     <section class="space-y-4">
         <h2>Slots</h2>
-        <Table source="{slotProps}"></Table>
+        <DataTable headings="{tableSlots.headings}" source="{tableSlots.source}"></DataTable>
     </section>
 
 </div>

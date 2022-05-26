@@ -1,6 +1,6 @@
 <script lang="ts">
     import Card from "$lib/Card/Card.svelte";
-    import Table from '$lib/Table/Table.svelte';
+    import DataTable from "$lib/Table/DataTable.svelte";
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
     import Breadcrumb from "$lib/Breadcrumb/Breadcrumb.svelte";
     import Crumb from "$lib/Breadcrumb/Crumb.svelte";
@@ -12,21 +12,21 @@
 
     // Props
     const tableProps: any = {
-        columns: ['Prop', 'Type', 'Default', 'Description'],
-        data: [
+        headings: ['Prop', 'Type', 'Default', 'Description'],
+        source: [
             ['separator', 'string', '&rsaquo', 'Defines crumb separator. Pairs well with SVG.']
         ],
     };
     const tablePropsCrumb: any = {
-        columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
-        data: [
+        headings: ['Prop', 'Type', 'Values', 'Default', 'Description'],
+        source: [
             ['href', 'string', 'url', '-', 'Sets the anchor clickthrough link.'],
             ['current', 'boolean ', 'true | false', 'false', 'Sets a disabled style.'],
         ],
     };
     const tableSlotsCrumb: any = {
-        columns: ['Slot', 'Description'],
-        data: [
+        headings: ['Slot', 'Description'],
+        source: [
             ['lead', 'A leading slot intended for icons.'],
         ],
     };
@@ -128,15 +128,15 @@
     <section class="space-y-4">
         <h2>Properties</h2>
         <h4>Breadcrumb</h4>
-        <Table source="{tableProps}"></Table>
+        <DataTable headings="{tableProps.headings}" source="{tableProps.source}"></DataTable>
         <h4>Crumb</h4>
-        <Table source="{tablePropsCrumb}"></Table>
+        <DataTable headings="{tablePropsCrumb.headings}" source="{tablePropsCrumb.source}"></DataTable>
     </section>
     
     <!-- Slots -->
     <section class="space-y-4">
         <h2>Slots</h2>
         <h4>Crumb</h4>
-        <Table source="{tableSlotsCrumb}"></Table>
+        <DataTable headings="{tableSlotsCrumb.headings}" source="{tableSlotsCrumb.source}"></DataTable>
     </section>
 </div>

@@ -1,12 +1,12 @@
 <script lang="ts">
     import Card from "$lib/Card/Card.svelte";
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
-    import Table from "$lib/Table/Table.svelte";
+    import DataTable from "$lib/Table/DataTable.svelte";
     import ProgressRadial from "$lib/Progress/ProgressRadial.svelte";
 
     const tableProps: any = {
-        columns: ['Prop', 'Type', 'Default', 'Required', 'Description'],
-        data: [
+        headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
+        source: [
             ['value', 'number', '-', 'false', 'Set the filled amount. Remove or set undefined to show as indeterminate.'],
             ['stroke', 'number', '20', 'false', 'Proportional stroke width, based on default SVG viewBox size of 512px.'],
             ['track', 'string', 'stroke-surface-300 dark:stroke-surface-700', 'false', 'Provide a class to set track fill color.'],
@@ -16,8 +16,8 @@
         ],
     };
     const tableSlots: any = {
-        columns: ['Name', 'Description'],
-        data: [
+        headings: ['Name', 'Description'],
+        source: [
             ['default', 'Contents render as SVG text in the middle of the element.'],
         ],
     };
@@ -81,13 +81,13 @@
     <!-- Properties -->
     <section class="space-y-4">
         <h2>Properties</h2>
-        <Table source="{tableProps}"></Table>
+        <DataTable headings="{tableProps.headings}" source="{tableProps.source}"></DataTable>
     </section>
 
     <!-- Slots -->
 	<section class="space-y-4">
 		<h2>Slots</h2>
-		<Table source="{tableSlots}"></Table>
+        <DataTable headings="{tableSlots.headings}" source="{tableSlots.source}"></DataTable>
 	</section>
 
 </div>

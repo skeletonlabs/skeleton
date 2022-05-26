@@ -3,7 +3,7 @@
     import Card from "$lib/Card/Card.svelte";
     import Button from '$lib/Button/Button.svelte';
     import Divider from '$lib/Divider/Divider.svelte';
-    import Table from '$lib/Table/Table.svelte';
+    import DataTable from "$lib/Table/DataTable.svelte";
     import { dialogStore, type DialogAlert, type DialogConfirm, type DialogPrompt } from '$lib/Notifications/Stores';
 
     let valueConfirm: boolean = false;
@@ -76,9 +76,9 @@
     }
 
     // Props
-    const tablePropsGroup: any = {
-        columns: ['Prop', 'Type', 'Default', 'Required', 'Description'],
-        data: [
+    const tableProps: any = {
+        headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
+        source: [
             ['backdrop', 'string', 'bg-surface-400/70 dark:bg-surface-900/70', 'false', 'Provide classes to style the backdrop element.'],
             ['blur', 'string', 'backdrop-blur-none', 'false', 'Provide a class to add a backdrop blur. (ex: backdrop-blur-sm)'],
             ['card', 'string', 'bg-surface-50 dark:bg-surface-700', 'false', 'Provide classes to style the modal card element.'],
@@ -145,7 +145,7 @@
     <!-- Properties -->
 	<section class="space-y-4">
 		<h4>Properties</h4>
-        <Table source="{tablePropsGroup}"></Table>
+        <DataTable headings="{tableProps.headings}" source="{tableProps.source}"></DataTable>
 	</section>
 
     <Divider />
