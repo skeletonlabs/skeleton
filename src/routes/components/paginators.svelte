@@ -28,10 +28,10 @@
         page.offset*page.limit+page.limit
     );
     const page: any = {
-        amounts: [1,2,5,content.source.length],
-        limit: 5,
         offset: 0,
-        size: content.source.length
+        limit: 5,
+        size: content.source.length,
+        amounts: [1,2,5,content.source.length],
     };
 
     // Event Handlers
@@ -40,22 +40,22 @@
 
     // Props
     const tableProps: any = {
-        headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
+        headings: ['Prop', 'Type', 'Default', 'Description'],
         source: [
-            {prop: 'amounts', type: 'number[]', default: '[1,5,10,50,100]', req: '-', desc: 'List of possible amounts of items users can select.'},
-            {prop: 'limit', type: 'number', default: '5', req: '&check;', desc: 'Limit how many items per page.'},
-            {prop: 'offset', type: 'number', default: '0', req: '&check;', desc: 'The starting item starting index.'},
-            {prop: 'size', type: 'number', default: '10', req: '&check;', desc: 'A count of the total number of items available.'},
+            {prop: 'offset', type: 'number', default: '0', desc: 'Index of the first list item to display.'},
+            {prop: 'limit', type: 'number', default: '5', desc: 'Current number of items to display.'},
+            {prop: 'size', type: 'number', default: '10', desc: 'The total count of items being paginated.'},
+            {prop: 'amounts', type: 'number[]', default: '[1,5,10,50,100]', desc: 'List of amounts for the select input.'},
         ],
     };
     const tablePropsDesign: any = {
         headings: ['Prop', 'Type', 'Default', 'Description'],
         source: [
-            {prop: 'justify', type: 'string', default: 'justify-between', desc: 'Provide a class to set justification.'},
+            {prop: 'justify', type: 'string', default: 'justify-between', desc: 'Provide a class to set flexbox justification.'},
             {prop: 'text', type: 'string', default: 'text-xs', desc: 'Provide a class to style page context text.'},
             {prop: 'select', type: 'string', default: '-', desc: 'Provide one or more classes to style the amounts select element.'},
-            {prop: 'variant', type: 'string', default: 'filled-primary', desc: 'Provide button variant reference. See button documentation for all options.'},
-            {prop: 'rounded', type: 'string', default: '-', desc: 'Provide a class to set the button rounding style.'},
+            {prop: 'variant', type: 'string', default: 'filled-primary', desc: 'Provide a <a href="/components/buttons">button variant</a> option.'},
+            {prop: 'rounded', type: 'string', default: '-', desc: 'Provide a class to overwrite the button rounding style.'},
         ],
     };
 
@@ -63,8 +63,8 @@
     const tableEvents: any = {
         headings: ['Name', 'Description'],
         source: [
-            {name: 'amount', desc: 'Fires when the amount selection changes. Provides the new amount value.'},
-            {name: 'page', desc: 'Fires when the next/back buttons are pressed. Provides the new item index offset.'},
+            {name: 'amount', desc: 'Fires when the amount selection changes. Provides the selected amount value.'},
+            {name: 'page', desc: 'Fires when the next/back buttons are pressed. Provides the new offset value.'},
         ],
     }
 </script>
@@ -84,14 +84,14 @@
             <List>
                 {#each contentSliced as e, i}
                 <ListItem>{e.name}</ListItem>
-                {#if i < contentSliced.limit-1}<Divider />{/if}
+                <Divider />
                 {/each}
             </List>
             <Paginator
-                bind:amounts={page.amounts}
-                bind:limit={page.limit}
                 bind:offset={page.offset}
+                bind:limit={page.limit}
                 bind:size={page.size}
+                bind:amounts={page.amounts}
                 on:page={onPageChange}
                 on:amount={onAmountChange}
             ></Paginator>
@@ -99,10 +99,10 @@
         <Card>
             <DataTable headings={content.headings} source={contentSliced}></DataTable>
             <Paginator
-                bind:amounts={page.amounts}
-                bind:limit={page.limit}
                 bind:offset={page.offset}
+                bind:limit={page.limit}
                 bind:size={page.size}
+                bind:amounts={page.amounts}
                 on:page={onPageChange}
                 on:amount={onAmountChange}
             ></Paginator>
@@ -114,10 +114,10 @@
         <h2>Usage</h2>
         <CodeBlock language="typescript" code={`
 const page: any = {
-    amounts: [1,2,5,10],
-    limit: 5,
     offset: 0,
+    limit: 5,
     size: source.length
+    amounts: [1,2,5,10],
 };
         `.trim()}></CodeBlock>
         <CodeBlock language="typescript" code={`
@@ -126,13 +126,29 @@ function onAmountChange(e: any): void { console.log('event:amount', e.detail); }
         `.trim()}></CodeBlock>
         <CodeBlock language="html" code={`
 <Paginator
-    bind:amounts={page.amounts}
-    bind:limit={page.limit}
     bind:offset={page.offset}
+    bind:limit={page.limit}
     bind:size={page.size}
+    bind:amounts={page.amounts}
     on:page={onPageChange}
     on:amount={onAmountChange}
 ></Paginator>
+        `.trim()}></CodeBlock>
+        <h4>Utilizing Pagination</h4>
+        <p>Once your paginator component is setup you'll need to limit your content. See a minimal example below using the Javascript slice method.</p>
+        <CodeBlock language="typescript" code={`const source: any[] = [ /* ... */ ]`.trim()}></CodeBlock>
+        <CodeBlock language="typescript" code={`
+$: sourcePaginated = source.slice(
+    page.offset * page.limit, // index of the first item
+    page.offset * page.limit + page.limit // index of the last item
+);
+        `.trim()}></CodeBlock>
+        <CodeBlock language="html" code={`
+<ul>
+    {#each sourcePaginated as row}
+    <li>{row}</li>
+    {/each}
+</ul>
         `.trim()}></CodeBlock>
     </section>
 

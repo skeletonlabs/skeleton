@@ -5,10 +5,10 @@
     const dispatch = createEventDispatcher();
 
     // Props
-    export let amounts: number[] = [1,5,10,50,100];
-    export let limit: number = 5;
     export let offset: number = 0;
+    export let limit: number = 5;
     export let size: number = 10;
+    export let amounts: number[] = [1,5,10,50,100];
     // Props: Design
     export let justify: string = 'justify-between';
     export let text: string = 'text-xs';
@@ -37,7 +37,7 @@
 
         <!-- Amounts -->
         <select bind:value={limit} on:change={onChangeLength} class="{select}">
-            {#each amounts as amount}<option value={amount}>{amount} Items</option>{/each}
+            {#each amounts as amount}<option value={amount}>Show {amount}</option>{/each}
         </select>
 
         <!-- Context -->
