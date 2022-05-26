@@ -10,7 +10,7 @@
     export let track: string = 'stroke-surface-300 dark:stroke-surface-700';
     export let meter: string = 'stroke-black dark:stroke-white';
     export let color: string = 'fill-black dark:fill-white';
-    export let fontsize: number = 56; // px
+    export let font: number = 56; // px
 
     // Base Classes
     const cBaseTrack: string = 'fill-transparent';
@@ -68,7 +68,7 @@
             text-anchor="middle"
             dominant-baseline="middle"
             font-weight="bold"
-            font-size={fontsize}
+            font-size={font}
             class="{color}"
         ><slot /></text>
         {/if}

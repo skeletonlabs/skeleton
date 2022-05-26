@@ -1,6 +1,6 @@
 <script lang="ts">
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-    import Table from "$lib/Table/Table.svelte";
+    import DataTable from "$lib/Table/DataTable.svelte";
     import Card from "$lib/Card/Card.svelte";
     import Button from '$lib/Button/Button.svelte';
     import List from '$lib/List/List.svelte';
@@ -9,20 +9,20 @@
 
     // Tables and Slots
     const tableProps: any = {
-        columns: ['Prop', 'Type', 'Default', 'Values', 'Description'],
-        data: [
-            ['select', 'boolean', 'false', 'true | false', 'When select is true, inner clicks will close the menu.'],
-            ['open', 'boolean', 'false', 'true | false', 'Default menu visiblity when the component initilizes.'],
+        headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
+        source: [
+            ['select', 'boolean', 'false', 'true | false', 'When enabled, clicks within the menu will close it.'],
+            ['open', 'boolean', 'false', 'true | false', 'Sets menu visibility.'],
             ['origin', 'string', 'tl (top-left)', 'tl | tr | bl | br', 'Abbreviation describing where the menu content anchors to the trigger element.'],
-            ['duration', 'number', '100', 'any', 'Open/close fade animation duration. Setting zero disables animation.'],
-            ['disabled', 'boolean', 'false', 'true | false', 'Sets disabled state.'],
+            ['duration', 'number', '100', 'integer', 'Open/close fade animation duration. Setting 0 (zero) disables animation.'],
+            ['disabled', 'boolean', 'false', 'true | false', 'Sets menu to disabled state.'],
         ],
     };
     const tableSlots: any = {
-        columns: ['Name', 'Description'],
-        data: [
-            ['trigger', 'The element that toggles the menu when clicked. Works best with a button component.'],
-            ['content', 'The contents of the menu. Pairs well with styled Card and ListGroup components.'],
+        headings: ['Name', 'Description'],
+        source: [
+            ['trigger', 'The element that toggles the menu when clicked. Pairs well with a button component.'],
+            ['content', 'The contents of the menu. Pairs well with styled Card and List.'],
         ],
     };
 </script>
@@ -95,13 +95,13 @@
     <!-- Properties -->
 	<section class="space-y-4">
 		<h2>Properties</h2>
-		<Table source="{tableProps}"></Table>
+        <DataTable headings="{tableProps.headings}" source="{tableProps.source}"></DataTable>
 	</section>
 	
 	<!-- Slots -->
 	<section class="space-y-4">
 		<h2>Slots</h2>
-		<Table source="{tableSlots}"></Table>
+        <DataTable headings="{tableSlots.headings}" source="{tableSlots.source}"></DataTable>
 	</section>
     
 </div>

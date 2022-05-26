@@ -49,13 +49,13 @@
     const tableProps: any = {
         headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
         source: [
-            {prop: 'headings', type: 'any[]', default: '[]', req: '&check;', desc: 'Define the table head column labels.'},
-            {prop: 'source', type: 'any[]', default: '[]', req: '&check;', desc: 'Provide the table source data. This is reactive for local data.'},
-            {prop: 'async', type: 'boolean', default: 'false', req: '-', desc: 'When enabled, allows for server-side search/sort instead of local.'},
-            {prop: 'search', type: 'any', default: '-', req: '-', desc: 'Provides fuzzy search for the provided value. This is reactive.'},
-            {prop: 'sort', type: 'string', default: '-', req: '-', desc: 'Defines the current sort key value. This is reactive.'},
-            {prop: 'count', type: 'number', default: '(source length)', req: '-', desc: 'If server enabled, provides count of filtered results. Useful for pagination.'},
-            {prop: 'interactive', type: 'boolean', default: 'false', req: '-', desc: 'Enables row hover styles and selection event.'},
+            {prop: 'headings', type: 'string[]', default: '[]', req: '&check;', desc: 'Provide a list of table headings.'},
+            {prop: 'source', type: 'any[]', default: '[]', req: '&check;', desc: 'Provide the table body content.'},
+            {prop: 'async', type: 'boolean', default: 'false', req: '-', desc: 'Disables search/sort within the component, allowing for server-side pagination.'},
+            {prop: 'search', type: 'any', default: '-', req: '-', desc: 'Provide a term for local fuzzy search within the compoonent.'},
+            {prop: 'sort', type: 'string', default: '-', req: '-', desc: 'Defines the sort key value.'},
+            {prop: 'count', type: 'number', default: '(source length)', req: '-', desc: 'When using async mode, use this to get a count of rows.'},
+            {prop: 'interactive', type: 'boolean', default: 'false', req: '-', desc: 'Enables row hover and selection features.'},
         ],
     }
     const tablePropStyles: any = {
@@ -64,7 +64,7 @@
             {prop: 'header', type: 'string', default: 'bg-surface-50 dark:bg-surface-700', desc: 'Provide a class to set the table header background color.'},
             {prop: 'body', type: 'string', default: 'bg-surface-200 dark:bg-surface-800', desc: 'Provide a class to set the table body background color.'},
             {prop: 'text', type: 'string', default: 'text-sm', desc: 'Provide a class to set the table text size.'},
-            {prop: 'hover', type: 'string', default: 'hover:bg-primary-500/10', desc: 'When interactive enabled, set the row hover color.'},
+            {prop: 'hover', type: 'string', default: 'hover:bg-primary-500/10', desc: 'Provide a class to set the hover background color.'},
         ],
     }
 
@@ -73,7 +73,7 @@
         headings: ['Name', 'Description'],
         source: [
             {name: 'sorted', desc: 'Fires when a table heading is selected for sorting. Contains a key name reference.'},
-            {name: 'selected', desc: 'If interactive enabled, fires when a row is selected. Contains the complete row object.'},
+            {name: 'selected', desc: 'If interactive enabled, fires when a row is selected. Contains the complete row data.'},
         ],
     }
 
@@ -81,9 +81,9 @@
     const tableSlots: any = {
         headings: ['Name', 'Description'],
         source: [
-            {name: 'header', desc: 'Dislays above the table. Useful for embedding filter and search inputs.'},
-            {name: 'empty', desc: 'Displays placeholder message when the table contents are empty. Includes a default message.'},
-            {name: 'footer', desc: 'Displays below the table. Useful for embedding page count, pagination, etc.'},
+            {name: 'header', desc: 'Dislays above the table. Useful for embedding search and filter inputs.'},
+            {name: 'empty', desc: 'Overrides the default "no results found" message when the table is empty.'},
+            {name: 'footer', desc: 'Displays below the table. Useful for embedding pagination.'},
         ],
     }
 </script>

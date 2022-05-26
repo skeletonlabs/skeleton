@@ -1,13 +1,13 @@
 <script lang="ts">
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
     import Card from "$lib/Card/Card.svelte";
-    import Table from '$lib/Table/Table.svelte';
+    import DataTable from "$lib/Table/DataTable.svelte";
     import LightSwitch from "$lib/LightSwitch/LightSwitch.svelte";
 
     const tableProps: any = {
-        columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
-        data: [
-            ['origin', 'string', 'tl | tr | bl | br', 'tl', 'Set the menu origin position.'],
+        headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
+        source: [
+            ['origin', 'string', 'tl', 'tl | tr | bl | br', 'Set the <a href="/components/menus">menu</a> origin position.'],
         ],
     };
 </script>
@@ -38,6 +38,6 @@
     <!-- Properties -->
     <section class="space-y-4">
         <h2>Properties</h2>
-        <Table source="{tableProps}"></Table>
+        <DataTable headings="{tableProps.headings}" source="{tableProps.source}"></DataTable>
     </section>
 </div>

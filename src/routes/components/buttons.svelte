@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Card from '$lib/Card/Card.svelte';
-    import Table from '$lib/Table/Table.svelte';
+    import DataTable from "$lib/Table/DataTable.svelte";
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
 	import SlideToggle from '$lib/SlideToggle/SlideToggle.svelte';
 	import Button from '$lib/Button/Button.svelte';
@@ -18,25 +18,25 @@
 
 	// Props & Slots
     const tableProps: any = {
-        columns: ['Prop', 'Type', 'Default', 'Description'],
-        data: [
-            ['variant', 'string', '-', 'Provides preset prop values. Overwrites all props listed below.'],
-            ['size', 'string', 'base', 'Defines the button size.'],
-            ['background', 'string', 'bg-black dark:bg-white', 'Provide a class to define background.'],
-            ['color', 'string', 'text-white dark:text-black', 'Provide a class to define text color.'],
-            ['fill', 'string', 'fill-white dark:fill-black', 'Provide a class to define SVG fill color.'],
-            ['ring', 'string', 'ring-transparent', 'Provide a class to define ring color.'],
-            ['weight', 'string', 'ring-1', 'Provide a class to define ring weight.'],
-            ['width', 'string', 'w-auto', 'Provide a class to set the button width.'],
-            ['rounded', 'string', 'rounded-lg', 'Provide a class to define border radius.'],
-            ['href', 'string', '-', 'Converts to an anchor element and sets click through value.'],
+        headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
+        source: [
+            ['variant', 'string', '-', '(see above)', 'Provides preset prop values. Overwrites all props but width, rounded, and href.'],
+            ['size', 'string', 'base', 'none | sm | base | lg | xl', 'Scales the button to various sizes.'],
+            ['background', 'string', 'bg-black dark:bg-white', 'class', 'Provide a class to define background.'],
+            ['color', 'string', 'text-white dark:text-black', 'class', 'Provide a class to define text color.'],
+            ['fill', 'string', 'fill-white dark:fill-black', 'class', 'Provide a class to define SVG fill color.'],
+            ['ring', 'string', 'ring-transparent', 'class', 'Provide a class to define ring color.'],
+            ['weight', 'string', 'ring-1', 'class', 'Provide a class to define ring weight.'],
+            ['width', 'string', 'w-auto', 'class', 'Provide a class to set the button width.'],
+            ['rounded', 'string', 'rounded-lg', 'class', 'Provide a class to define border radius.'],
+            ['href', 'string', '-', 'link', 'Converts to an anchor element and sets click through value.'],
         ],
     };
     const tableSlots: any = {
-        columns: ['Name', 'Description'],
-        data: [
-            ['lead', 'A lead icon slot that appears left of the label.'],
-            ['trail', 'A trailing icon slot that appears right of the label.'],
+        headings: ['Name', 'Description'],
+        source: [
+            ['lead', 'A leading slot position left of the content, which can be used for icons.'],
+            ['trail', 'A leading slot position right of the content, which can be used for icons.'],
         ],
     };
 
@@ -231,13 +231,13 @@
 	<!-- Properties -->
 	<section class="space-y-4">
 		<h2>Properties</h2>
-		<Table source="{tableProps}"></Table>
+		<DataTable headings="{tableProps.headings}" source="{tableProps.source}"></DataTable>
 	</section>
 	
 	<!-- Slots -->
 	<section class="space-y-4">
 		<h2>Slots</h2>
-		<Table source="{tableSlots}"></Table>
+		<DataTable headings="{tableSlots.headings}" source="{tableSlots.source}"></DataTable>
 	</section>
 
 </div>

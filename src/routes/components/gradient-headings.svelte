@@ -2,15 +2,15 @@
     import GradientHeading from "$lib/GradientHeading/GradientHeading.svelte";
     import Card from "$lib/Card/Card.svelte";
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
-    import Table from "$lib/Table/Table.svelte";
+    import DataTable from "$lib/Table/DataTable.svelte";
 
     const tableProps: any = {
-        columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
-        data: [
-            ['tag', 'string', 'HTML text element', 'h1', 'Define the semantic element tag.'],
-            ['direction', 'string', 'bg-gradient-to-[x]', 'bg-gradient-to-r', 'Provide a class to set gradient direction.'],
-            ['from', 'string', 'from-[color]-[weight]', 'from-primary-500', 'Provide a class to set "from" color.'],
-            ['to', 'string', 'to-[color]-[weight]', 'to-accent-500', 'Provide a class to set "to" color.'],
+        headings: ['Prop', 'Type', 'Default', 'Description'],
+        source: [
+            ['tag', 'string', 'h1', 'Define the semantic element tag.'],
+            ['direction', 'string', 'bg-gradient-to-r', 'Provide a class to set gradient direction.'],
+            ['from', 'string', 'from-primary-500', 'Provide a class to set "from" gradient color.'],
+            ['to', 'string', 'to-accent-500', 'Provide a class to set "to" gradient color.'],
         ],
     };
 
@@ -110,7 +110,7 @@
     <!-- Properties -->
     <section class="space-y-4">
         <h2>Properties</h2>
-        <Table source="{tableProps}"></Table>
+        <DataTable headings="{tableProps.headings}" source="{tableProps.source}"></DataTable>
     </section>
 
 </div>

@@ -1,22 +1,22 @@
 <script lang="ts">
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-    import Table from "$lib/Table/Table.svelte";
+    import DataTable from "$lib/Table/DataTable.svelte";
     import Avatar from "$lib/Avatar/Avatar.svelte";
     import Card from "$lib/Card/Card.svelte";
 
     // Props and Slots
     const tableProps: any = {
-        columns: ['Prop', 'Type', 'Default', 'Required', 'Description'],
-        data: [
-            ['background', 'string', 'bg-surface-200 dark:bg-surface-800', 'false', 'Provided a class to define background.'],
-            ['color', 'string', '-', 'false', 'Provide a class to define text color.'],
+        headings: ['Prop', 'Type', 'Default', 'Description'],
+        source: [
+            ['background', 'string', 'bg-surface-200 dark:bg-surface-800', 'Provided a class to set background color.'],
+            ['color', 'string', '-', 'Provide a class to set text color.'],
         ],
     };
     const tableSlots: any = {
-        columns: ['Name', 'Description'],
-        data: [
-            ['header', 'Reserved space for header content, such as an image.'],
-            ['footer', 'Reserved space for footer content, such as a byline.'],
+        headings: ['Name', 'Description'],
+        source: [
+            ['header', 'Provide header content, such as an image.'],
+            ['footer', 'Provide footer content, such as a byline.'],
         ],
     };
 </script>
@@ -78,13 +78,13 @@
     <!-- Properties -->
 	<section class="space-y-4">
 		<h2>Properties</h2>
-		<Table source="{tableProps}"></Table>
+        <DataTable headings="{tableProps.headings}" source="{tableProps.source}"></DataTable>
 	</section>
 	
 	<!-- Slots -->
 	<section class="space-y-4">
 		<h2>Slots</h2>
-		<Table source="{tableSlots}"></Table>
+        <DataTable headings="{tableSlots.headings}" source="{tableSlots.source}"></DataTable>
 	</section>
     
 </div>

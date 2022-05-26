@@ -30,7 +30,7 @@
     // ---
     const cBaseHead: string = '';
     const cBaseHeadRow: string = 'capitalize font-medium text-left text-surface-900 dark:text-surface-50';
-    const cBaseHeadCol: string = 'p-3 py-4 whitespace-nowrap cursor-pointer';
+    const cBaseHeadCol: string = `p-3 py-4 whitespace-nowrap cursor-pointer`;
     // ---
     const cBaseBody: string = '';
     const cBaseBodyRow: string = 'border-t border-surface-500/10 even:bg-black/[4%]';
@@ -95,6 +95,7 @@
     // Reactive Classes
     $: classesTable = `${cBaseTable} ${text}`;
     $: classesHeader = `${cBaseHead} ${header}`;
+    $: classesHeadCol = `${cBaseHeadCol} ${hover}`;
     $: classesBody = `${cBaseBody} ${body}`;
     $: cRowInteractive = interactive ? `${hover} cursor-pointer` : '';
     $: classesBodyRoll = `${cBaseBodyRow} ${cRowInteractive}`;
@@ -116,7 +117,7 @@
                 <!-- Head -->
                 <tr class="table-head-row {cBaseHeadRow}">
                     {#each headings as head, i}
-                    <th class="table-head-col {cBaseHeadCol}" scope="col" on:click={() => { onHeadSelect(i) }}>
+                    <th class="table-head-col {classesHeadCol}" scope="col" on:click={() => { onHeadSelect(i) }}>
                         {@html head}
                         <span class="inline-block w-3 text-center ml-1 opacity-50">
                             {#if headKeyByIndex(i) === sorted.by}

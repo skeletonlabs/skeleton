@@ -2,7 +2,7 @@
     import { writable } from 'svelte/store';
 
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-    import Table from "$lib/Table/Table.svelte";
+    import DataTable from "$lib/Table/DataTable.svelte";
     import Card from "$lib/Card/Card.svelte";
     import Tab from "$lib/Tab/Tab.svelte";
     import TabGroup from "$lib/Tab/TabGroup.svelte";
@@ -16,24 +16,24 @@
 
     // Props and Slots
     const tablePropsGroup: any = {
-        columns: ['Prop', 'Type', 'Default', 'Required', 'Description'],
-        data: [
-            ['selected', 'writable', '-', 'true', 'A svelte store to keep track of tab selection.'],
-            ['justify', 'class', 'justify-start', 'false', 'Provide a class to set the flex justification.'],
-            ['highlight', 'class', 'border-primary-500', 'false', 'Provide a class to set the highlighted border color.'],
-            ['color', 'class', 'text-primary-500', 'false', 'Provide class to set the label text color.'],
+        headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
+        source: [
+            ['selected', 'Writable', '-', '&check;', 'A svelte store to keep track of tab selection.'],
+            ['justify', 'string', 'justify-start', '-', 'Provide a class to set the flexbox justification.'],
+            ['highlight', 'string', 'border-primary-500', '-', 'Provide a class to set the highlighted border color.'],
+            ['color', 'string', 'text-primary-500', '-', 'Provide class to set text color.'],
         ],
     };
     const tablePropsItem: any = {
-        columns: ['Prop', 'Type', 'Default', 'Required', 'Description'],
-        data: [
-            ['value', 'any', '-', 'true', 'Sets the tab group state value when selected.'],
+        headings: ['Prop', 'Type', 'Description'],
+        source: [
+            ['value', 'any', 'The value of each tab.'],
         ],
     };
     const tableSlots: any = {
-        columns: ['Name', 'Description'],
-        data: [
-            ['lead', 'Provides a leading slot.'],
+        headings: ['Name', 'Description'],
+        source: [
+            ['lead', 'Provides a leading position, which can be used for icons.'],
         ],
     };
 </script>
@@ -131,16 +131,16 @@
 	<section class="space-y-4">
 		<h2>Properties</h2>
         <h4>Tab Group</h4>
-		<Table source="{tablePropsGroup}"></Table>
+        <DataTable headings="{tablePropsGroup.headings}" source="{tablePropsGroup.source}"></DataTable>
         <h4>Tab</h4>
-		<Table source="{tablePropsItem}"></Table>
+        <DataTable headings="{tablePropsItem.headings}" source="{tablePropsItem.source}"></DataTable>
 	</section>
 	
 	<!-- Slots -->
 	<section class="space-y-4">
 		<h2>Slots</h2>
         <h4>Tab</h4>
-		<Table source="{tableSlots}"></Table>
+        <DataTable headings="{tableSlots.headings}" source="{tableSlots.source}"></DataTable>
 	</section>
     
 </div>

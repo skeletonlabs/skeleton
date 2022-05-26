@@ -1,11 +1,11 @@
 <script lang="ts">
     import Card from "$lib/Card/Card.svelte";
-    import Table from "$lib/Table/Table.svelte";
+    import DataTable from "$lib/Table/DataTable.svelte";
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
 
     const tableProps: any = {
-        columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
-        data: [
+        headings: ['Prop', 'Type', 'Values', 'Default', 'Description'],
+        source: [
             ['language', 'string', 'html | css | js | ...', 'plaintext', 'Define a language alias: <a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md" target="_blank">Highlight.js</a>'],
             ['code', 'string', '-', '-', 'Takes a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals" target="_blank">Template Literal</a>. Be sure to escape as needed.'],
         ],
@@ -43,7 +43,7 @@
     <!-- Properties -->
     <section class="space-y-4">
         <h2>Properties</h2>
-        <Table source="{tableProps}"></Table>
+        <DataTable headings="{tableProps.headings}" source="{tableProps.source}"></DataTable>
     </section>
 
 </div>

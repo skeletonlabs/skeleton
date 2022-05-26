@@ -5,19 +5,19 @@
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
     import RadioGroup from "$lib/Radio/RadioGroup.svelte";
     import RadioItem from "$lib/Radio/RadioItem.svelte";
-    import Table from "$lib/Table/Table.svelte";
+    import DataTable from "$lib/Table/DataTable.svelte";
     import Button from "$lib/Button/Button.svelte";
 
     const weights: number[] = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
     const storeTab: Writable<string> = writable('primary'); // primary | accent | warning | surface
 
     const tableProps: any = {
-    columns: ['Name', 'Class', 'Description'],
-        data: [
-            ['Primary', '[x]-primary-[50-900]', 'Your primary brand color.'],
-            ['Accent', '[x]-accent-[50-900]', 'An accent for offsets or supplimentary values.'],
-            ['Warning', '[x]-warning-[50-900]', 'May be used for warnings, alerts, and invalid inputs.'],
-            ['Surface', '[x]-surface-[50-900]', 'May be used for backgrounds, card elements, and some typography.'],
+        headings: ['Name', 'Class', 'Description'],
+        source: [
+            {n: 'Primary', c:'[x]-primary-[50-900]', d:'Your primary brand color.'},
+            {n: 'Accent', c:'[x]-accent-[50-900]', d:'An accent for offsets or supplimentary values.'},
+            {n: 'Warning', c:'[x]-warning-[50-900]', d:'May be used for warnings, alerts, and invalid inputs.'},
+            {n: 'Surface', c:'[x]-surface-[50-900]', d:'May be used for backgrounds, card elements, and some typography.'},
         ],
     };
 
@@ -209,6 +209,6 @@
     <section class="space-y-4">
         <h3>Reference</h3>
         <p>A reference for each color type has been provided below.</p>
-        <Table source="{tableProps}"></Table>
+        <DataTable headings={tableProps.headings} source="{tableProps.source}"></DataTable>
     </section>
 </div>

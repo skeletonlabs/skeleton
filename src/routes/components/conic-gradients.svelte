@@ -1,7 +1,7 @@
 <script lang="ts">
     import Card from "$lib/Card/Card.svelte";
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
-    import Table from "$lib/Table/Table.svelte";
+    import DataTable from "$lib/Table/DataTable.svelte";
     import ConicGradient from "$lib/ConicGradient/ConicGradient.svelte";
 
     // Examples
@@ -22,16 +22,16 @@
 
     // Props & Slots
     const tableProps: any = {
-        columns: ['Prop', 'Type', 'Default', 'Required', 'Description'],
-        data: [
+        headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
+        source: [
             ['data', 'any[]', '(filled 100%)', 'true', 'Provide your data set.'],
             ['legend', 'boolean', 'false', 'false', 'Enables a simple pie chart legend.'],
             ['width', 'string', 'w-full', 'false', 'Provided a class to define the width.'],
         ],
     };
     const tableSlots: any = {
-        columns: ['Name', 'Description'],
-        data: [
+        headings: ['Name', 'Description'],
+        source: [
             ['default', 'Allows you to define a label, description, or other suplimentary information.'],
         ],
     };
@@ -91,13 +91,13 @@ const dataSet: any[] = [
     <!-- Properties -->
 	<section class="space-y-4">
 		<h2>Properties</h2>
-		<Table source="{tableProps}"></Table>
+        <DataTable headings="{tableProps.headings}" source="{tableProps.source}"></DataTable>
 	</section>
 	
 	<!-- Slots -->
 	<section class="space-y-4">
 		<h2>Slots</h2>
-		<Table source="{tableSlots}"></Table>
+        <DataTable headings="{tableSlots.headings}" source="{tableSlots.source}"></DataTable>
 	</section>
 
 </div>

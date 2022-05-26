@@ -1,28 +1,28 @@
 <script lang="ts">
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-    import Table from "$lib/Table/Table.svelte";
+    import DataTable from "$lib/Table/DataTable.svelte";
     import Card from "$lib/Card/Card.svelte";
     import Button from '$lib/Button/Button.svelte';
-    import { Alert } from '$lib';
+    import Alert from '$lib/Alert/Alert.svelte';
     import Tooltip from '$lib/Tooltip/Tooltip.svelte';
 
     const tableProps: any = {
-        columns: ['Prop', 'Type', 'Default', 'Values', 'Description'],
-        data: [
-            ['position', 'string', 'top', 'top | bottom | left | right', 'The side in which the message will appear.'],
+        headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
+        source: [
+            ['position', 'string', 'top', 'top | bottom | left | right', 'Designates where the tooltip will appear.'],
             ['background', 'string', 'bg-black dark:bg-white', 'class', 'Provide a class to set background color.'],
             ['color', 'string', 'text-white dark:text-black', 'class', 'Provide a class to set text color.'],
-            ['width', 'string', 'w-auto', 'class', 'Provide a class to set tooltip width.'],
-            ['whitespace', 'string', 'whitespace-nowrap', 'class', 'Provide a class to set tooltip white-space.'],
-            ['rounded', 'string', 'rounded', 'class', 'Provide a class to set tooltip rounded style.'],
-            ['duration', 'number', '150', 'integer', 'Animation fade in/out duration in milliseconds. Set 0 (zero) to disable.'],
+            ['width', 'string', 'w-auto', 'class', 'Provide a class to set width.'],
+            ['whitespace', 'string', 'whitespace-nowrap', 'class', 'Provide a class to set white-space.'],
+            ['rounded', 'string', 'rounded', 'class', 'Provide a class to set rounding style.'],
+            ['duration', 'number', '150', 'number', 'Animation fade in/out duration in milliseconds. Set 0 (zero) to disable.'],
         ],
     };
     const tableSlots: any = {
-        columns: ['Name', 'Description'],
-        data: [
-            ['message', 'The tooltip message. Supports full markup.'],
-            ['content', 'The content that will trigger the tooltip.'],
+        headings: ['Name', 'Description'],
+        source: [
+            ['content', 'The element that will trigger the tooltip when hovered.'],
+            ['message', 'The contents of the tooltip.'],
         ],
     };
 </script>
@@ -106,13 +106,13 @@
     <!-- Properties -->
 	<section class="space-y-4">
 		<h2>Properties</h2>
-		<Table source="{tableProps}"></Table>
+        <DataTable headings="{tableProps.headings}" source="{tableProps.source}"></DataTable>
 	</section>
 	
 	<!-- Slots -->
 	<section class="space-y-4">
 		<h2>Slots</h2>
-		<Table source="{tableSlots}"></Table>
+        <DataTable headings="{tableSlots.headings}" source="{tableSlots.source}"></DataTable>
 	</section>
     
 </div>

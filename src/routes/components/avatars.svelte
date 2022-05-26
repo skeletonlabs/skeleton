@@ -3,7 +3,7 @@
 
     import Card from "$lib/Card/Card.svelte";
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
-    import Table from "$lib/Table/Table.svelte";
+    import DataTable from "$lib/Table/DataTable.svelte";
     import RadioGroup from "$lib/Radio/RadioGroup.svelte";
     import RadioItem from "$lib/Radio/RadioItem.svelte";
     import SlideToggle from "$lib/SlideToggle/SlideToggle.svelte";
@@ -13,16 +13,16 @@
     let placeholder: string = 'https://i.pravatar.cc/';
 
     const tableProps: any = {
-        columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
-        data: [
-            ['initials', 'string', 'text', 'A', 'Supply up to 2 text characters.'],
-            ['src', 'string', 'url', '-', 'The image source to be displayed.'],
-            ['size', 'string', 'sm | md | lg | xl | 2xl | 3xl | fluid', 'fluid', 'A variety of preset sizes, plus fluid option.'],
-            ['background', 'string', 'class', 'bg-surface-500', 'Provice a class to set background color.'],
-            ['color', 'string', 'class', 'text-white', 'Provide a class to set text color.'],
-            ['outline', 'boolean', 'true | false', 'false', 'Displays a fixed outline of the primary color.'],
-            ['hover', 'boolean', 'true | false', 'false', 'Adds an outline of the primary color when hovered.'],
-            ['filter', 'string', 'filter name', 'false', 'Provide a filter name to provide a utility filter action.'],
+        headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
+        source: [
+            ['initials', 'string', 'A', 'text', 'Provide up to two text characters.'],
+            ['src', 'string', 'url', '-', 'The image source to display.'],
+            ['size', 'string', 'fluid', 'sm | md | lg | xl | 2xl | 3xl | fluid', 'Sets the circle and text sizing.'],
+            ['background', 'string', 'bg-surface-500', 'class', 'Provide a class to set background color.'],
+            ['color', 'string', 'text-white', 'class', 'Provide a class to set text color.'],
+            ['outline', 'boolean', 'false', 'true | false', 'Displays an outline of the primary color.'],
+            ['hover', 'boolean', 'false', 'true | false', 'Displays and outline when hovering the avatar.'],
+            ['filter', 'string', 'false', 'filter reference', 'Enables a visual <a href="/utilities/filters">Filter</a>.'],
         ],
     };
 
@@ -143,7 +143,7 @@
     <!-- Properties -->
     <section class="space-y-4">
         <h2>Properties</h2>
-        <Table source="{tableProps}"></Table>
+        <DataTable headings="{tableProps.headings}" source="{tableProps.source}"></DataTable>
     </section>
 
 </div>

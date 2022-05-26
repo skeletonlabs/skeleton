@@ -3,7 +3,7 @@
 
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
     import Card from "$lib/Card/Card.svelte";
-    import Table from "$lib/Table/Table.svelte";
+    import DataTable from "$lib/Table/DataTable.svelte";
     import RadioGroup from "$lib/Radio/RadioGroup.svelte";
     import RadioItem from "$lib/Radio/RadioItem.svelte";
 
@@ -12,18 +12,18 @@
 
     // Props & Slots
     const tablePropsGroup: any = {
-        columns: ['Prop', 'Type', 'Values', 'Required', 'Description'],
-        data: [
-            ['selected', 'Writable (any)', '-', 'true', 'Pass any Svelte store to house the selected state.'],
-            ['background', 'string', 'bg-primary-500', 'false', `Provide a class to set the selected item's background color.`],
-            ['color', 'string', 'text-black dark:text-white', 'false', `Provide a class to set the selected items text color.`],
-            ['width', 'string', 'w-auto', 'false', `Provide a class to set group width.`],
+        headings: ['Prop', 'Type', 'Values', 'Required', 'Description'],
+        source: [
+            ['selected', 'Writable', 'any', '&check;', 'Provide a Svelte writable to store the selected state value.'],
+            ['background', 'string', 'bg-primary-500', '-', `Provide a class to set the selected item background color.`],
+            ['color', 'string', 'text-black dark:text-white', '-', `Provide a class to set the selected item text color.`],
+            ['width', 'string', 'w-auto', '-', `Provide a class to set the width.`],
         ],
     };
     const tablePropsItem: any = {
-        columns: ['Prop', 'Type', 'Required', 'Description'],
-        data: [
-            ['value', 'any', 'true', 'When selected, this value will update the selected state store.'],
+        headings: ['Prop', 'Type', 'Description'],
+        source: [
+            ['value', 'any', `The item's selection value.`],
         ],
     };
 </script>
@@ -78,9 +78,9 @@
     <section class="space-y-4">
         <h2 class="text-2xl font-bold">Properties</h2>
         <h4>Radio Group</h4>
-        <Table source="{tablePropsGroup}"></Table>
+        <DataTable headings="{tablePropsGroup.headings}" source="{tablePropsGroup.source}"></DataTable>
         <h4>Radio Item</h4>
-        <Table source="{tablePropsItem}"></Table>
+        <DataTable headings="{tablePropsItem.headings}" source="{tablePropsItem.source}"></DataTable>
     </section>
 </div>
 

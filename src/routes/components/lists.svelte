@@ -3,7 +3,7 @@
 
     import Card from "$lib/Card/Card.svelte";
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
-    import Table from "$lib/Table/Table.svelte";
+    import DataTable from "$lib/Table/DataTable.svelte";
     import List from "$lib/List/List.svelte";
     import ListItem from "$lib/List/ListItem.svelte";
     import NavItem from '$lib/List/NavItem.svelte';
@@ -15,28 +15,24 @@
     const svgEllipsis: string = `<svg class="fill-surface-500 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512"><path d="M64 360C94.93 360 120 385.1 120 416C120 446.9 94.93 472 64 472C33.07 472 8 446.9 8 416C8 385.1 33.07 360 64 360zM64 200C94.93 200 120 225.1 120 256C120 286.9 94.93 312 64 312C33.07 312 8 286.9 8 256C8 225.1 33.07 200 64 200zM64 152C33.07 152 8 126.9 8 96C8 65.07 33.07 40 64 40C94.93 40 120 65.07 120 96C120 126.9 94.93 152 64 152z"/></svg>`;
 
     const tablePropsGroup: any = {
-        columns: ['Prop', 'Type', 'Values', 'Default', 'Description'],
-        data: [
-            ['role', 'string', 'ul | ol | dl | nav', 'ul', 'Defines the semantic wrapping element.'],
-            ['selected', 'Writable', '(any)', '-', 'Nav role only. Provide a writable store to maintain list selection.'],
-            ['hover', 'string', 'class', 'hover:bg-primary-500/10', 'Nav role only. Provide a hover:background class for the hovered item(s).'],
-            ['highlight', 'string', 'class', '!bg-primary-500', 'Nav role only. Provide an (!important) class for the highlighted item(s).'],
+        headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
+        source: [
+            ['role', 'string', 'ul', 'ul | ol | dl | nav', , 'Defines the semantic wrapping element.'],
+            ['selected', 'Writable', '-', 'any', 'Nav role only. Provide a writable store to maintain list selection.'],
+            ['hover', 'string', 'hover:bg-primary-500/10', 'class', 'Nav role only. Provide a class to set hover background color.'],
+            ['highlight', 'string', '!bg-primary-500', 'class', 'Nav role only. Provide a class for highlighted rows. Note this must be use (!) for important.'],
         ],
     };
-    // const tablePropsListItem: any = {
-    //     columns: ['Prop', 'Type', 'Description'],
-    //     data: [],
-    // };
     const tablePropsNavItem: any = {
-        columns: ['Prop', 'Type', 'Description'],
-        data: [
-            ['href', 'string', `The list item's destination URL.`],
-            ['value', 'any', `Designates the item's value for selection.`],
+        headings: ['Prop', 'Type', 'Description'],
+        source: [
+            ['href', 'string', `Optionally provide an anchor href link value.`],
+            ['value', 'any', `Optionally provide a list value such as a key or index.`],
         ],
     };
     const slotsItems: any = {
-        columns: ['Name', 'Description'],
-        data: [
+        headings: ['Name', 'Description'],
+        source: [
             ['lead', 'Positioned on the left of each row item.'],
             ['trail', 'Positioned on the right of each row item.'],
         ],
@@ -204,18 +200,15 @@
     <section class='space-y-4'>
         <h2>Properties</h2>
         <h4>List Group</h4>
-        <Table source="{tablePropsGroup}"></Table>
-        <h4>List Item</h4>
-        <p>No properties available.</p>
-        <!-- <Table source="{tablePropsListItem}"></Table> -->
+        <DataTable headings="{tablePropsGroup.headings}" source="{tablePropsGroup.source}"></DataTable>
         <h4>Nav Item</h4>
-        <Table source="{tablePropsNavItem}"></Table>
+        <DataTable headings="{tablePropsNavItem.headings}" source="{tablePropsNavItem.source}"></DataTable>
     </section>
     
     <!-- Slots -->
     <section class='space-y-4'>
         <h2>Slots</h2>
-        <Table source="{slotsItems}"></Table>
+        <DataTable headings="{slotsItems.headings}" source="{slotsItems.source}"></DataTable>
     </section>
 
 </div>

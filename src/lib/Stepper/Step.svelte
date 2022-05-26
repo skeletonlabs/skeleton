@@ -6,8 +6,8 @@
 
     // Props
     export let index: number;
-    export let disabled: boolean;
-    export let done: boolean;
+    export let disabled: boolean = false;
+    export let done: boolean = false;
 
     // Context
     export let dispatch: any = getContext('dispatch');
