@@ -155,11 +155,11 @@
         </TabGroup>
         <!-- Tab: Local -->
         {#if $tabExample === 'local'}
-        <p>Ensure your heading and source data are defined in the same order left-to-right.</p>
+        <p>Ensure your heading and source keys are defined in the same order left-to-right. Note that source values support stringified HTML.</p>
             <CodeBlock language="typescript" code={`
 const headings: string[] = ['Positions', 'Name', 'Weight', 'Symbol'];
 const source: any[] = [
-    { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
+    { position: 1, name: '<strong class="text-red">Hydrogen</strong>', weight: 1.0079, symbol: 'H' },
     { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
     { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
 ];

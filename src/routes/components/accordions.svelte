@@ -75,7 +75,7 @@
             <pre>Values: {$activeStoreA.length ? $activeStoreA : 'None'}</pre>
         </Card>
         <!-- Multiple -->
-        <h3>Multiple</h3>
+        <h4>Multiple</h4>
         <Card class="space-y-4">
             <AccordionGroup selected={activeStoreB} multiple>
                 <AccordionItem value={0}>
@@ -100,7 +100,7 @@
             <pre>Values: {$activeStoreB.length ? $activeStoreB : 'None'}</pre>
         </Card>
         <!-- Customized -->
-        <h3>Customized</h3>
+        <h4>Customized</h4>
         <section class="border border-surface-500/10 p-4 rounded-xl space-y-4">
             <AccordionGroup selected={activeStoreC} spacing="space-y-4">
                 <AccordionItem value={0} padding="p-0" spacing="space-y-4">
