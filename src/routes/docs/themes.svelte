@@ -205,10 +205,26 @@
         <CodeBlock language="css" code={`/* Using CSS variables */\nbody { background: var(--color-surface-900); }`}></CodeBlock>
     </section>
 
-    <!-- reference -->
+    <!-- Reference -->
     <section class="space-y-4">
         <h3>Reference</h3>
         <p>A reference for each color type has been provided below.</p>
         <DataTable headings={tableProps.headings} source="{tableProps.source}"></DataTable>
     </section>
+
+    <!-- Global Styles -->
+    <section class="space-y-4">
+        <h3>Global Styles</h3>
+        <p>In additional to your theme, you'll want to set a global styles. You can view the stylesheet used for for this very site directly on Github.</p>
+        <Button variant="filled-accent" href="https://github.com/Brain-Bones/skeleton/blob/master/src/app.css" target="_blank">View Stylesheet on Github</Button>
+        <p>A few items of note:</p>
+        <ul class="list-disc list-inside">
+            <li>We define our global styles into several sections, including HTML/body styles, Typography, and Forms.</li>
+            <li>We utilize <a href="https://tailwindcss.com/docs/reusing-styles#extracting-classes-with-apply" target="_blank">Tailwind @apply</a> to define most styles.</li>
+            <li>We utilizethe CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:not" target="_blank">:not</a> pseudo-class to exclude affecting component styling.</li>
+            <li>We utilize the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Tailwind Forms plugin</a>. See Tailwind's tutorial video below if you need help overwriting styles.</li>
+        </ul>
+        <iframe class="w-full max-w-[960px] aspect-video" src="https://www.youtube-nocookie.com/embed/pONeWAzDsQg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </section>
+
 </div>
