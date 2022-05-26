@@ -77,13 +77,13 @@
 				<label>
                     <span>Size</span>
                     <select name="size" id="size" bind:value={props.size}>
-                        <option value="fluid">- fluid -</option>
                         <option value="sm">sm</option>
                         <option value="md">md</option>
                         <option value="lg">lg</option>
                         <option value="xl">xl</option>
                         <option value="2xl">2xl</option>
                         <option value="3xl">3xl</option>
+                        <option value="full">full</option>
                     </select>
                 </label>
                 <!-- Source -->

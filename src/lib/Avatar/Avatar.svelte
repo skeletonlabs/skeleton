@@ -5,7 +5,7 @@
 	// Props
 	export let initials: string = 'A';
 	export let src: string = undefined;
-	export let size: string = 'fluid';
+	export let size: string = 'full';
 	export let background: string = 'bg-surface-500';
 	export let color: string = 'text-white';
 	export let outlined: boolean = false;
@@ -25,10 +25,7 @@
 			case 'xl':  cSize = 'w-24'; cText = 'text-4xl'; break;
 			case '2xl': cSize = 'w-32'; cText = 'text-5xl'; break;
 			case '3xl': cSize = 'w-40'; cText = 'text-6xl'; break;
-			case 'fluid':
-					cSize = 'w-full max-w-[400px]';
-					cText = 'text-base sm:text-2xl md:text-4xl lg:text-6xl xl:text-9xl';
-					break;
+			case 'full': cSize = 'w-full max-w-[400px]'; cText = 'text-base sm:text-2xl md:text-4xl lg:text-6xl xl:text-9xl'; break;
 		}
 	}
 
