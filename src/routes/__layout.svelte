@@ -49,6 +49,7 @@
                 {href: '/components/lists', label: 'Lists'},
                 {href: '/components/logo-clouds', label: 'Logo Clouds'},
                 {href: '/components/menus', label: 'Menus'},
+                {href: '/components/paginators', label: 'Paginators'},
                 {href: '/components/progress-bars', label: 'Progress Bars'},
                 {href: '/components/progress-radials', label: 'Progress Radials'},
                 {href: '/components/radio-groups', label: 'Radio Groups'},

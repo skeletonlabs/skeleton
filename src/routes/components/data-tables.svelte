@@ -157,11 +157,13 @@
         <h2>Usage</h2>
         <!-- Tab: Local -->
         {#if $tabExample === 'local'}
+        <p>Ensure your heading and source data are defined in the same order left-to-right.</p>
             <CodeBlock language="typescript" code={`
-const headings: string[] = ['Positions', 'Name', 'Mass', 'Symbol'];
+const headings: string[] = ['Positions', 'Name', 'Weight', 'Symbol'];
 const source: any[] = [
-    {position: 6, mass: 12.011, symbol: 'C', name: 'Carbon'},
-    {position: 7, mass: 14.007, symbol: 'N', name: 'Nitrogen'},
+    { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
+    { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
+    { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
 ];
             `.trim()}></CodeBlock>
             <CodeBlock language="html" code={`
@@ -173,13 +175,18 @@ const source: any[] = [
 const tableLocal: any = {
     search: undefined,
     sort: 'position',
-    headings: ['Positions', 'Name', 'Mass', 'Symbol'],
+    headings: ['Positions', 'Name', 'Weight', 'Symbol'],
     source: [
-        {position: 6, mass: 12.011, symbol: 'C', name: 'Carbon'},
-        {position: 7, mass: 14.007, symbol: 'N', name: 'Nitrogen'},
-        {position: 39, mass: 88.906, symbol: 'Y', name: 'Yttrium'},
-        {position: 56, mass: 137.33, symbol: 'Ba', name: 'Barium'},
-        {position: 58, mass: 140.12, symbol: 'Ce', name: 'Cerium'}
+        { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
+        { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
+        { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
+        { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
+        { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
+        { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
+        { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
+        { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
+        { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
+        { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
     ]
 };
             `.trim()}></CodeBlock>
