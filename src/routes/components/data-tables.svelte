@@ -103,16 +103,10 @@
             <Tab value="local">Local</Tab>
             <Tab value="async">Async</Tab>
         </TabGroup>
-        {#if $tabExample === 'local'}<p>Render a table using simple local data.</p>{/if}
-        {#if $tabExample === 'async'}<p>Render a table using asycronous data, usually obtained via an HTTP network call. Example data provided by <a href="https://jsonplaceholder.typicode.com/" target="_blank">JSON Placeholder</a></p>{/if}
+        {#if $tabExample === 'local'}<p>Render a table using data fully available client-side.</p>{/if}
+        {#if $tabExample === 'async'}<p>Render a table using asycronous data, such as an HTTP call to an API. The example below fetches data from <a href="https://jsonplaceholder.typicode.com/" target="_blank">JSON Placeholder</a></p>{/if}
         <Card class="space-y-4">
             <!-- Tab: Local -->
-            <!--
-                header="bg-green-500"
-                body="bg-green-700"
-                text="text-lg"
-                hover="hover:bg-sky-500/50"
-            -->
             {#if $tabExample === 'local'}
                 <DataTable
                     headings={tableLocal.headings}
@@ -155,6 +149,10 @@
     <!-- Usage -->
     <section class="space-y-4">
         <h2>Usage</h2>
+        <TabGroup selected={tabExample}>
+            <Tab value="local">Local</Tab>
+            <Tab value="async">Async</Tab>
+        </TabGroup>
         <!-- Tab: Local -->
         {#if $tabExample === 'local'}
         <p>Ensure your heading and source data are defined in the same order left-to-right.</p>
@@ -244,8 +242,19 @@ let tablePromise: Promise<any> = getTableSource();
     <p style="text-center text-warning-500">{error.message}</p>
 {/await}
             `.trim()}></CodeBlock>
+            <p>If you prefer to use server-side search and sort, enable the 'async' property. This disables local search and sort within the component.</p>
+            <CodeBlock language="html" code={`
+<!-- (await/then) -->
+<DataTable
+    headings={tableServer.headings}
+    source={response}
+    bind:count={tableServer.count}
+    async
+></DataTable>
+<!-- (error) -->
+            `.trim()}></CodeBlock>
         {/if}
-            <p>Example event handlers for sort and selection. These are enabled for the demos shown at the top of the page. View your browser's console log.</p>
+            <p>Handle events for sort and row selection. These are enabled for the demos at the top of the page. View your browser's console log during interaction.</p>
             <CodeBlock language="typescript" code={`
 function onSort(event: any): void { console.log('event:onSort', event.detail); }
 function onSelect(event: any): void { console.log('event:onSelect', event.detail); }
