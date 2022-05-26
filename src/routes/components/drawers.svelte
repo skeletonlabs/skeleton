@@ -8,11 +8,11 @@
     const tableProps: any = {
         headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
         source: [
-            ['visible', 'writable(boolean)', '-', 'true', 'Provide a boolean store to control open/closed state.'],
-            ['fixed', 'string', 'left|right', 'false', 'Inline by default. Fixed to the left/right on mobile when specified.'],
-            ['backdrop', 'string', 'bg-white/50 dark:bg-black/50', 'false', 'Provide class to set backdrop background color.'],
-            ['background', 'string', 'bg-surface-50 dark:bg-surface-900', 'false', 'Provide class to set drawer background color.'],
-            ['border', 'string', 'border-r border-surface-200 dark:border-surface-800', 'false', 'Provide classes to customize the border style.'],
+            ['visible', 'Writable(boolean)', '-', '&check;', 'Provide a boolean store to control open/closed state.'],
+            ['fixed', 'string', 'undefined | left | right', '-', 'When undefined shows inline. Fixed to the left/right on mobile when specified.'],
+            ['background', 'string', 'bg-surface-50 dark:bg-surface-900', '-', 'Provide class to set drawer background color.'],
+            ['border', 'string', 'border-r border-surface-200 dark:border-surface-800', '-', 'Provide classes to customize the border style.'],
+            ['backdrop', 'string', 'bg-white/50 dark:bg-black/50', '-', 'Provide class to set backdrop background color.'],
         ],
     };
     const tableSlots: any = {
@@ -20,7 +20,7 @@
         source: [
             ['header', 'Reserved space for header content, such as branding.'],
             ['main', 'Reserved space for navigation elements.'],
-            ['footer', 'Reserved space for footer content, such as legal or copyrights.'],
+            ['footer', 'Reserved space for footer content, such as legal links or copyright info.'],
         ],
     };
 </script>

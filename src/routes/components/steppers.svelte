@@ -15,33 +15,42 @@
     const tablePropsStepper: any = {
         headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
         source: [
-            ['active', 'Writable<number>', 'writable(0)', 'Yes', 'Provide a writable that stores the active step index state.'],
-            ['length', 'number', '0', 'Yes', 'Informs the component of the total number of steps.'],
-            ['complete', 'event', '-', 'No', 'Triggers when the final step Complete button is pressed.'],
-            ['accent', 'string', 'bg-primary-500', 'No', 'Provide a class that sets the highlighted step background color.'],
-            ['background', 'string', 'bg-surface-300 dark:bg-surface-700', 'No', 'Provide a class that sets timeline background color.'],
+            ['active', 'Writable<number>', '0 (zero)', '&check;', 'Provide a Svelte Writable that stores the active step state.'],
+            ['length', 'number', '0 (zero)', '&check;', 'Informs the component of the total number of steps.'],
+            ['accent', 'string', 'bg-primary-500', '-', 'Provide a class that sets the current step numeral background color.'],
+            ['background', 'string', 'bg-surface-300 dark:bg-surface-700', '-', 'Provide a class that sets timeline background color.'],
         ],
     };
     const tablePropsStep: any = {
         headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
         source: [
-            ['index', 'number', '-', 'Yes', 'Indicates the step index value. Should start with zero 0 (zero)'],
-            ['disabled', 'boolean', '-', 'No', 'When enabled, the Next button is disabled, preventing progress.'],
-            ['done', 'boolean', '-', 'No', 'When enabled, numeric step value changes to checkmark.'],
+            ['index', 'number', '-', '&check;', 'Indicates the step index value. Should start with zero 0 (zero)'],
+            ['disabled', 'boolean', 'false', '-', 'When enabled, the Next button is disabled. This prevents progress.'],
+            ['done', 'boolean', 'false', '-', 'When enabled, numeric step value changes to checkmark.'],
         ],
     };
+
+    // Slots
     const tableSlotsStepper: any = {
         headings: ['Name', 'Description'],
         source: [
-            ['default', 'Used to provide all step components.'],
+            ['default', 'Accepts a set of steps to display.'],
         ],
     };
     const tableSlotsStep: any = {
         headings: ['Name', 'Description'],
         source: [
-            ['title', 'Optionally provide the title for the step here.'],
-            ['subtitle', 'Optionally provide the subtitle for the step here.'],
-            ['content', 'Provide the content for the step. This can be text, a form, etc.'],
+            ['title', 'Optionally provide the title for the step.'],
+            ['subtitle', 'Optionally provide the subtitle for the step.'],
+            ['content', 'Provide the content for the step.'],
+        ],
+    };
+
+    // Events
+    const tableEvents: any = {
+        headings: ['Prop', 'Description'],
+        source: [
+            ['complete', `Triggers when the final step's <em>Complete</em> button is pressed.`],
         ],
     };
 </script>
@@ -107,13 +116,20 @@
         <DataTable headings="{tablePropsStep.headings}" source="{tablePropsStep.source}"></DataTable>
 	</section>
 	
-	<!-- Slots -->
+    <!-- Slots -->
 	<section class="space-y-4">
 		<h2>Slots</h2>
         <h4>Stepper</h4>
         <DataTable headings="{tableSlotsStepper.headings}" source="{tableSlotsStepper.source}"></DataTable>
         <h4>Step</h4>
         <DataTable headings="{tableSlotsStep.headings}" source="{tableSlotsStep.source}"></DataTable>
+	</section>
+
+    <!-- Events -->
+	<section class="space-y-4">
+		<h2>Events</h2>
+        <h4>Stepper</h4>
+        <DataTable headings="{tableEvents.headings}" source="{tableEvents.source}"></DataTable>
 	</section>
     
 </div>

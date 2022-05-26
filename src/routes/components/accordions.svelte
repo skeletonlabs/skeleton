@@ -14,28 +14,28 @@
     let activeStoreC: Writable<number[]> = writable([0]);
 
     const tablePropsGroup: any = {
-        headings: ['Prop', 'Type', 'Value', 'Required', 'Description'],
+        headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
         source: [
-            ['selected', 'any', '-', 'true', 'A svelte store that can be used to set the default opened accordions.'],
-            ['multiple', 'boolean', 'false', 'false', 'If set to true, multiple accordion elements can be active at the same time.'],
-            ['spacing', 'class', 'spacing-y-2', 'false', 'Set the spacing between accordion elements.'],
+            ['selected', 'Writable', '-', '&check;', 'A Svelte Writable that stores the default item value.'],
+            ['multiple', 'boolean', 'false', '-', 'When enabled, allows for multiple items to be open at once.'],
+            ['spacing', 'class', 'spacing-y-2', '-', 'Provide a class to set spacing between item rows.'],
         ],
     };
     const tablePropsItem: any = {
-        headings: ['Prop', 'Type', 'Value', 'Required', 'Description'],
+        headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
         source: [
-            ['value', 'integer', '-', 'true', 'Set the selection value for the item, typically an index.'],
-            ['hover', 'string', 'hover:bg-primary-500/10', 'false', 'Provide a style to set the hover color.'],
-            ['spacing', 'string', 'space-y-0', 'false', 'Provide a style to set title and description vertical spacing.'],
-            ['padding', 'string', 'p-2', 'false', 'Provide a style to set the description padding.'],
+            ['value', 'number', '-', '&check;', 'Represents the items value. Works best with index value.'],
+            ['hover', 'string', 'hover:bg-primary-500/10', '-', 'Provide a class to set the hover background color.'],
+            ['spacing', 'string', 'space-y-0', '-', 'Provide a class to set spacing between title and description elements.'],
+            ['padding', 'string', 'p-2', '-', 'Provide a class to set the item padding.'],
         ],
     };
     const tableSlots: any = {
-        headings: ['Name', 'Description'],
+        headings: ['Name', 'Required', 'Description'],
         source: [
-            ['lead', 'Optonal slot for providing a lead element, such as an icon.'],
-            ['title', 'Required slot for providing the title content of the accordion item.'],
-            ['description', 'Required slot for providing the description content of the accordion item.'],
+            ['lead', '-', 'Allows for an optional leading element, such as an icon.'],
+            ['title', '&check;', 'Provide the title content of each item.'],
+            ['description', '&check;', 'Provide the description content of each item.'],
         ],
     };
 </script>

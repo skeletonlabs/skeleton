@@ -5,12 +5,12 @@
     import DataTable from "$lib/Table/DataTable.svelte";
 
     const tableProps: any = {
-        headings: ['Prop', 'Type', 'Values', 'Default', 'Description'],
+        headings: ['Prop', 'Type', 'Default', 'Description'],
         source: [
-            ['tag', 'string', 'HTML text element', 'h1', 'Define the semantic element tag.'],
-            ['direction', 'string', 'bg-gradient-to-[x]', 'bg-gradient-to-r', 'Provide a class to set gradient direction.'],
-            ['from', 'string', 'from-[color]-[weight]', 'from-primary-500', 'Provide a class to set "from" color.'],
-            ['to', 'string', 'to-[color]-[weight]', 'to-accent-500', 'Provide a class to set "to" color.'],
+            ['tag', 'string', 'h1', 'Define the semantic element tag.'],
+            ['direction', 'string', 'bg-gradient-to-r', 'Provide a class to set gradient direction.'],
+            ['from', 'string', 'from-primary-500', 'Provide a class to set "from" gradient color.'],
+            ['to', 'string', 'to-accent-500', 'Provide a class to set "to" gradient color.'],
         ],
     };
 

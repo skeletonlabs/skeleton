@@ -18,22 +18,22 @@
     const tablePropsGroup: any = {
         headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
         source: [
-            ['selected', 'writable', '-', 'true', 'A svelte store to keep track of tab selection.'],
-            ['justify', 'class', 'justify-start', 'false', 'Provide a class to set the flex justification.'],
-            ['highlight', 'class', 'border-primary-500', 'false', 'Provide a class to set the highlighted border color.'],
-            ['color', 'class', 'text-primary-500', 'false', 'Provide class to set the label text color.'],
+            ['selected', 'Writable', '-', '&check;', 'A svelte store to keep track of tab selection.'],
+            ['justify', 'string', 'justify-start', '-', 'Provide a class to set the flexbox justification.'],
+            ['highlight', 'string', 'border-primary-500', '-', 'Provide a class to set the highlighted border color.'],
+            ['color', 'string', 'text-primary-500', '-', 'Provide class to set text color.'],
         ],
     };
     const tablePropsItem: any = {
-        headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
+        headings: ['Prop', 'Type', 'Description'],
         source: [
-            ['value', 'any', '-', 'true', 'Sets the tab group state value when selected.'],
+            ['value', 'any', 'The value of each tab.'],
         ],
     };
     const tableSlots: any = {
         headings: ['Name', 'Description'],
         source: [
-            ['lead', 'Provides a leading slot.'],
+            ['lead', 'Provides a leading position, which can be used for icons.'],
         ],
     };
 </script>

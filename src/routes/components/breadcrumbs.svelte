@@ -5,8 +5,6 @@
     import Breadcrumb from "$lib/Breadcrumb/Breadcrumb.svelte";
     import Crumb from "$lib/Breadcrumb/Crumb.svelte";
 
-    // separator
-
     // Examples
     const customSeparator: string = `<span class="text-surface-500">/</span>`;
 
@@ -14,14 +12,14 @@
     const tableProps: any = {
         headings: ['Prop', 'Type', 'Default', 'Description'],
         source: [
-            ['separator', 'string', '&rsaquo', 'Defines crumb separator. Pairs well with SVG.']
+            ['separator', 'string', '&rsaquo (unicode)', 'Defines the crumb seperator. Supports SVG icons.']
         ],
     };
     const tablePropsCrumb: any = {
-        headings: ['Prop', 'Type', 'Values', 'Default', 'Description'],
+        headings: ['Prop', 'Type', 'Default', 'Description'],
         source: [
-            ['href', 'string', 'url', '-', 'Sets the anchor clickthrough link.'],
-            ['current', 'boolean ', 'true | false', 'false', 'Sets a disabled style.'],
+            ['href', 'string', '-', 'Optionally provide an anchor href value.'],
+            ['current', 'boolean ', 'false', 'Sets the crumb to a disabled mode.'],
         ],
     };
     const tableSlotsCrumb: any = {

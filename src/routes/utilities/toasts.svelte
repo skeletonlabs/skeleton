@@ -39,8 +39,8 @@
         source: [
             ['background', 'string', 'bg-primary-500', 'class', 'Provide a class to set background color.'],
             ['position', 'string', 'b', 't | b | tr | tl | bl | br', 'Set top/bottom/left/right positioning.'],
-            ['variant', 'string', 'ghost', 'value', 'Set the dismiss button variant style.'],
-            ['duration', 'number', '100', 'integer', 'The duration of the fly in/out animation. Not to be confused with toast timeout.'],
+            ['variant', 'string', 'ghost', 'variant reference', 'Provide a <a href="/components/buttons">button variant</a> reference.'],
+            ['duration', 'number', '100', 'integer', 'The duration of the fly in/out animation.'],
         ],
     };
 </script>

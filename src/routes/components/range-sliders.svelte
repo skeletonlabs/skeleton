@@ -9,17 +9,17 @@
     let valueB: number = 50;
 
     const tableProps: any = {
-        headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
+        headings: ['Prop', 'Type', 'Default', 'Description'],
         source: [
-            ['id', 'string', '(unique id)' , 'false', 'Provide a unique input ID.'],
-            ['name', 'string', '(match id)' , 'false', 'Provide a unique input name.'],
-            ['min', 'number', '0' , 'false', 'Set the input minimum range.'],
-            ['max', 'number', '10' , 'false', 'Set the input maximum range.'],
-            ['step', 'number', '1' , 'false', 'Set the input step offset.'],
-            ['value', 'number', '0' , 'false', 'Set the current input value.'],
-            ['label', 'string', '-' , 'false', 'Provide an input label.'],
-            ['ticked', 'boolean', 'false' , 'false', 'Enable to show tickmarks.'],
-            ['accent', 'string', 'accent-primary-500' , 'false', 'Provide a class to set the input accent color.'],
+            ['label', 'string', '-' , 'Provide an optional input label.'],
+            ['id', 'string', '(unique id)' , 'Provide a unique input id.'],
+            ['name', 'string', '(matchs id)' , 'Provide a unique input name.'],
+            ['min', 'number', '0' , 'Set the input minimum range.'],
+            ['max', 'number', '10' , 'Set the input maximum range.'],
+            ['step', 'number', '1' , 'Set the input step offset.'],
+            ['value', 'number', '0' , 'Set the input value.'],
+            ['ticked', 'boolean', 'false', 'Enables tickmarks. See browser support below.'],
+            ['accent', 'string', 'accent-primary-500' , 'Provide a class to set the input accent color.'],
         ],
     };
 </script>
@@ -68,10 +68,11 @@
         <h2 class="text-2xl font-bold">Properties</h2>
         <DataTable headings="{tableProps.headings}" source="{tableProps.source}"></DataTable>
     </section>
+    
+    <!-- Support -->
+    <section class="space-y-4">
+        <h2 class="text-2xl font-bold">Browser Support</h2>
+        <p>Skeleton utilizes <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range" target="_blank">native HTML range inputs</a>. Browser support is mixed for <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range" target="_blank">native datalist element</a>, which are used to generate tickmarks. Additionally, some browser (ex: Chrome) alter the track color to ensure contrast between the track and meter. Please keep accessibility in mind when utilizing this component.</p>
+    </section>
 
-    <!-- Warning: Cross-Browser -->
-    <Alert background="bg-warning-500" visible={true} duration={0}>
-        <svelte:fragment slot="title">Cross-Browser Support</svelte:fragment>
-        <svelte:fragment slot="message">Skeleton utilizes <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range" target="_blank" class="!text-white">native HTML range inputs</a>. Browser support is mixed for <a class="!text-white" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range" target="_blank">native datalist element</a>, which generates tickmarks. Additionally, some browser (ex: Chrome) alter the track color to ensure contrast between the track and meter. Please keep accessibility in mind when utilize this component.</svelte:fragment>      
-    </Alert>
 </div>

@@ -5,25 +5,25 @@
     import Logo from "$lib/LogoCloud/Logo.svelte";
 
     const tablePropsCloud: any = {
-        headings: ['Prop', 'Type', 'Values', 'Default', 'Description'],
+        headings: ['Prop', 'Type', 'Default', 'Description'],
         source: [
-            ['background', 'string', 'class', 'bg-surface-200 dark:bg-surface-800', 'Provide a class to set background color.'],
-            ['color', 'string', 'class', 'text-black dark:text-white', 'Provide a class to set text color.'],
-            ['text', 'string', 'class', 'text-base font-bold', 'Provide a class to set text styles.'],
+            ['background', 'string', 'bg-surface-200 dark:bg-surface-800', 'Provide a class to set background color.'],
+            ['color', 'string', 'text-black dark:text-white', 'Provide a class to set text color.'],
+            ['text', 'string', 'text-base font-bold', 'Provide a class to set text styling.'],
         ],
     };
     const tablePropsLogo: any = {
-        headings: ['Prop', 'Type', 'Values', 'Default', 'Description'],
+        headings: ['Prop', 'Type', 'Default', 'Description'],
         source: [
-            ['background', 'string', 'class', 'bg-surface-200 dark:bg-surface-800', 'Provide a class to override background color.'],
-            ['color', 'string', 'class', 'text-black dark:text-white', 'Provide a class to override text color.'],
-            ['text', 'string', 'class', 'text-base font-bold', 'Provide a class to override text styles.'],
+            ['background', 'string', 'bg-surface-200 dark:bg-surface-800', 'Provide a class to override background color.'],
+            ['color', 'string', 'text-black dark:text-white', 'Provide a class to override text color.'],
+            ['text', 'string', 'text-base font-bold', 'Provide a class to override text styling.'],
         ],
     };
     const tableSlots: any = {
         headings: ['Name', 'Description'],
         source: [
-            ['icon', 'Dedicated icon slot, left of the label.'],
+            ['lead', 'Dedicated leading slot, left of the label.'],
             ['label', 'Dedicated slot for adding a label.'],
         ],
     };
@@ -53,11 +53,11 @@
         </LogoCloud>
         <LogoCloud>
             <Logo>
-                <svelte:fragment slot="icon"><span>💼</span></svelte:fragment>
+                <svelte:fragment slot="lead"><span>💼</span></svelte:fragment>
                 <svelte:fragment slot="label">HR Solutions Co.</svelte:fragment>
             </Logo>
             <Logo>
-                <svelte:fragment slot="icon"><span>🍿</span></svelte:fragment>
+                <svelte:fragment slot="lead"><span>🍿</span></svelte:fragment>
                 <svelte:fragment slot="label">Acme Theaters</svelte:fragment>
             </Logo>
         </LogoCloud>
@@ -67,7 +67,7 @@
     <section class="space-y-4">
         <h2>Usage</h2>
         <CodeBlock language="html" code={`<LogoCloud>\n\t<Logo>Skeleton</Logo>\n</LogoCloud>`}></CodeBlock>
-        <CodeBlock language="html" code={`<LogoCloud>\n\t<Logo>\n\t\t<svelte:fragment slot="icon">{@html icon}</svelte:fragment>\n\t\t<svelte:fragment slot="label">Skeleton</svelte:fragment>\n\t</Logo>\n</LogoCloud>`}></CodeBlock>
+        <CodeBlock language="html" code={`<LogoCloud>\n\t<Logo>\n\t\t<svelte:fragment slot="lead">{@html icon}</svelte:fragment>\n\t\t<svelte:fragment slot="label">Skeleton</svelte:fragment>\n\t</Logo>\n</LogoCloud>`}></CodeBlock>
     </section>
 
     <!-- Properties -->

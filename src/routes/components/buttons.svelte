@@ -18,25 +18,25 @@
 
 	// Props & Slots
     const tableProps: any = {
-        headings: ['Prop', 'Type', 'Default', 'Description'],
+        headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
         source: [
-            ['variant', 'string', '-', 'Provides preset prop values. Overwrites all props listed below.'],
-            ['size', 'string', 'base', 'Defines the button size.'],
-            ['background', 'string', 'bg-black dark:bg-white', 'Provide a class to define background.'],
-            ['color', 'string', 'text-white dark:text-black', 'Provide a class to define text color.'],
-            ['fill', 'string', 'fill-white dark:fill-black', 'Provide a class to define SVG fill color.'],
-            ['ring', 'string', 'ring-transparent', 'Provide a class to define ring color.'],
-            ['weight', 'string', 'ring-1', 'Provide a class to define ring weight.'],
-            ['width', 'string', 'w-auto', 'Provide a class to set the button width.'],
-            ['rounded', 'string', 'rounded-lg', 'Provide a class to define border radius.'],
-            ['href', 'string', '-', 'Converts to an anchor element and sets click through value.'],
+            ['variant', 'string', '-', '(see above)', 'Provides preset prop values. Overwrites all props but width, rounded, and href.'],
+            ['size', 'string', 'base', 'none | sm | base | lg | xl', 'Scales the button to various sizes.'],
+            ['background', 'string', 'bg-black dark:bg-white', 'class', 'Provide a class to define background.'],
+            ['color', 'string', 'text-white dark:text-black', 'class', 'Provide a class to define text color.'],
+            ['fill', 'string', 'fill-white dark:fill-black', 'class', 'Provide a class to define SVG fill color.'],
+            ['ring', 'string', 'ring-transparent', 'class', 'Provide a class to define ring color.'],
+            ['weight', 'string', 'ring-1', 'class', 'Provide a class to define ring weight.'],
+            ['width', 'string', 'w-auto', 'class', 'Provide a class to set the button width.'],
+            ['rounded', 'string', 'rounded-lg', 'class', 'Provide a class to define border radius.'],
+            ['href', 'string', '-', 'link', 'Converts to an anchor element and sets click through value.'],
         ],
     };
     const tableSlots: any = {
         headings: ['Name', 'Description'],
         source: [
-            ['lead', 'A lead icon slot that appears left of the label.'],
-            ['trail', 'A trailing icon slot that appears right of the label.'],
+            ['lead', 'A leading slot position left of the content, which can be used for icons.'],
+            ['trail', 'A leading slot position right of the content, which can be used for icons.'],
         ],
     };
 

@@ -5,9 +5,9 @@
     import LightSwitch from "$lib/LightSwitch/LightSwitch.svelte";
 
     const tableProps: any = {
-        headings: ['Prop', 'Type', 'Values', 'Default', 'Description'],
+        headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
         source: [
-            ['origin', 'string', 'tl | tr | bl | br', 'tl', 'Set the menu origin position.'],
+            ['origin', 'string', 'tl', 'tl | tr | bl | br', 'Set the <a href="/components/menus">menu</a> origin position.'],
         ],
     };
 </script>

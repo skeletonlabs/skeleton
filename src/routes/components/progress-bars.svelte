@@ -12,13 +12,13 @@
     const storeHeight: Writable<string> = writable('h-2');
 
     const tableProps: any = {
-        headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
+        headings: ['Prop', 'Type', 'Default', 'Description'],
         source: [
-            ['label', 'string', '-', 'false', 'Set the label text.'],
-            ['value', 'number', '-', 'false', 'Specifies the amount completed.'],
-            ['max', 'number', '10', 'false', 'Maximum amount the bar represents.'],
-            ['color', 'string', 'bg-accent-500', 'false', 'Provide a class to set background color.'],
-            ['height', 'string', 'h-2', 'false', 'Provide a class to set height.'],
+            ['label', 'string', '-', 'Set the label text.'],
+            ['value', 'number', '-', 'Specifies the amount completed. Shows as indeterminate when undefined.'],
+            ['max', 'number', '10', 'Maximum amount the bar represents.'],
+            ['color', 'string', 'bg-accent-500', 'Provide a class to set meter background color.'],
+            ['height', 'string', 'h-2', 'Provide a class to set track height.'],
         ],
     };
 

@@ -14,16 +14,16 @@
     const tablePropsGroup: any = {
         headings: ['Prop', 'Type', 'Values', 'Required', 'Description'],
         source: [
-            ['selected', 'Writable (any)', '-', 'true', 'Pass any Svelte store to house the selected state.'],
-            ['background', 'string', 'bg-primary-500', 'false', `Provide a class to set the selected item's background color.`],
-            ['color', 'string', 'text-black dark:text-white', 'false', `Provide a class to set the selected items text color.`],
-            ['width', 'string', 'w-auto', 'false', `Provide a class to set group width.`],
+            ['selected', 'Writable', 'any', '&check;', 'Provide a Svelte writable to store the selected state value.'],
+            ['background', 'string', 'bg-primary-500', '-', `Provide a class to set the selected item background color.`],
+            ['color', 'string', 'text-black dark:text-white', '-', `Provide a class to set the selected item text color.`],
+            ['width', 'string', 'w-auto', '-', `Provide a class to set the width.`],
         ],
     };
     const tablePropsItem: any = {
-        headings: ['Prop', 'Type', 'Required', 'Description'],
+        headings: ['Prop', 'Type', 'Description'],
         source: [
-            ['value', 'any', 'true', 'When selected, this value will update the selected state store.'],
+            ['value', 'any', `The item's selection value.`],
         ],
     };
 </script>

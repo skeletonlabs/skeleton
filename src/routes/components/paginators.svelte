@@ -44,8 +44,8 @@
         source: [
             {prop: 'offset', type: 'number', default: '0', desc: 'Index of the first list item to display.'},
             {prop: 'limit', type: 'number', default: '5', desc: 'Current number of items to display.'},
-            {prop: 'size', type: 'number', default: '10', desc: 'The total count of items being paginated.'},
-            {prop: 'amounts', type: 'number[]', default: '[1,5,10,50,100]', desc: 'List of amounts for the select input.'},
+            {prop: 'size', type: 'number', default: '10', desc: 'The total size (length) of your source content.'},
+            {prop: 'amounts', type: '<code>number[]</code>', default: '[1,5,10,50,100]', desc: 'List of amounts available to the select input.'},
         ],
     };
     const tablePropsDesign: any = {
@@ -63,7 +63,7 @@
     const tableEvents: any = {
         headings: ['Name', 'Description'],
         source: [
-            {name: 'amount', desc: 'Fires when the amount selection changes. Provides the selected amount value.'},
+            {name: 'amount', desc: 'Fires when the amount selection input changes. Provides the selected amount value.'},
             {name: 'page', desc: 'Fires when the next/back buttons are pressed. Provides the new offset value.'},
         ],
     }

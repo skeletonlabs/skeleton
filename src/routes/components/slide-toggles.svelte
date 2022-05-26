@@ -8,11 +8,11 @@
 
     // Props
     const tableProps: any = {
-        headings: ['Prop', 'Type', 'Default', 'Required' , 'Description'],
+        headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
         source: [
-            ['checked', 'boolean', 'false', 'false' , 'Bind this value to track the checked state.'],
-            ['accent', 'class', 'bg-accent-500', 'false', 'Provide a class to set the active color.'],
-            ['size', 'string', 'md', 'false', 'Provide a size with sm|md|lg.'],
+            ['checked', 'boolean', 'false', 'true | false', 'The checked state of the input element.'],
+            ['accent', 'string', 'bg-accent-500', 'class', 'Provide a class to set the checked state color.'],
+            ['size', 'string', 'md', 'sm | md | lg', 'Sets the size of the component.'],
         ],
     };
 </script>

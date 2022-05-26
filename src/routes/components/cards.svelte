@@ -6,17 +6,17 @@
 
     // Props and Slots
     const tableProps: any = {
-        headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
+        headings: ['Prop', 'Type', 'Default', 'Description'],
         source: [
-            ['background', 'string', 'bg-surface-200 dark:bg-surface-800', 'false', 'Provided a class to define background.'],
-            ['color', 'string', '-', 'false', 'Provide a class to define text color.'],
+            ['background', 'string', 'bg-surface-200 dark:bg-surface-800', 'Provided a class to set background color.'],
+            ['color', 'string', '-', 'Provide a class to set text color.'],
         ],
     };
     const tableSlots: any = {
         headings: ['Name', 'Description'],
         source: [
-            ['header', 'Reserved space for header content, such as an image.'],
-            ['footer', 'Reserved space for footer content, such as a byline.'],
+            ['header', 'Provide header content, such as an image.'],
+            ['footer', 'Provide footer content, such as a byline.'],
         ],
     };
 </script>

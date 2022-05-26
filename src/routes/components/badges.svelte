@@ -10,21 +10,21 @@
 
     // Props
     const tableProps: any = {
-        headings: ['Prop', 'Type', 'Default', 'Required' , 'Description'],
+        headings: ['Prop', 'Type', 'Default', 'Description'],
         source: [
-            ['background', 'class', 'bg-surface-500', 'false' , 'Provide a class to set the background color.'],
-            ['color', 'class', 'text-white', 'false', 'Provide a class to set the text color.'],
-            ['fill', 'class', 'fill-white', 'false', 'Provide a class to set the fill color for SVG icons.'],
-            ['rounded', 'class', 'rounded-lg', 'false', 'Provide a class to set rounding.'],
-            ['icon', 'boolean', 'false', 'false', 'Denotes icon display, which adjusts styles.'],
+            ['icon', 'boolean', 'false', 'Adjusts styling to accommodate icons.'],
+            ['background', 'class', 'bg-surface-500' , 'Provide a class to set the background color.'],
+            ['color', 'class', 'text-white', 'Provide a class to set the text color.'],
+            ['fill', 'class', 'fill-white', 'Provide a class to set the fill color for SVG icons.'],
+            ['rounded', 'class', 'rounded-lg', 'Provide a class to set rounding style.'],
         ],
     };
     // Slots
     const tableSlots: any = {
-        headings: ['Slot', 'Required', 'Description'],
+        headings: ['Slot', 'Description'],
         source: [
-            ['lead', 'false', 'Define a leading element, such as an icon.'],
-            ['trail', 'false ', 'Define a trailing element, such as an icon.'],
+            ['lead', 'Define a leading element, such as an icon.'],
+            ['trail', 'Define a trailing element, such as an icon.'],
             
         ],
     };

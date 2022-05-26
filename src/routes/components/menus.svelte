@@ -11,18 +11,18 @@
     const tableProps: any = {
         headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
         source: [
-            ['select', 'boolean', 'false', 'true | false', 'When select is true, inner clicks will close the menu.'],
-            ['open', 'boolean', 'false', 'true | false', 'Default menu visiblity when the component initilizes.'],
+            ['select', 'boolean', 'false', 'true | false', 'When enabled, clicks within the menu will close it.'],
+            ['open', 'boolean', 'false', 'true | false', 'Sets menu visibility.'],
             ['origin', 'string', 'tl (top-left)', 'tl | tr | bl | br', 'Abbreviation describing where the menu content anchors to the trigger element.'],
-            ['duration', 'number', '100', 'any', 'Open/close fade animation duration. Setting zero disables animation.'],
-            ['disabled', 'boolean', 'false', 'true | false', 'Sets disabled state.'],
+            ['duration', 'number', '100', 'integer', 'Open/close fade animation duration. Setting 0 (zero) disables animation.'],
+            ['disabled', 'boolean', 'false', 'true | false', 'Sets menu to disabled state.'],
         ],
     };
     const tableSlots: any = {
         headings: ['Name', 'Description'],
         source: [
-            ['trigger', 'The element that toggles the menu when clicked. Works best with a button component.'],
-            ['content', 'The contents of the menu. Pairs well with styled Card and ListGroup components.'],
+            ['trigger', 'The element that toggles the menu when clicked. Pairs well with a button component.'],
+            ['content', 'The contents of the menu. Pairs well with styled Card and List.'],
         ],
     };
 </script>

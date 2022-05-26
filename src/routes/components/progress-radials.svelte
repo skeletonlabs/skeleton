@@ -5,20 +5,20 @@
     import ProgressRadial from "$lib/Progress/ProgressRadial.svelte";
 
     const tableProps: any = {
-        headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
+        headings: ['Prop', 'Type', 'Default', 'Description'],
         source: [
-            ['value', 'number', '-', 'false', 'Set the filled amount. Remove or set undefined to show as indeterminate.'],
-            ['stroke', 'number', '20', 'false', 'Proportional stroke width, based on default SVG viewBox size of 512px.'],
-            ['track', 'string', 'stroke-surface-300 dark:stroke-surface-700', 'false', 'Provide a class to set track fill color.'],
-            ['meter', 'string', 'stroke-black dark:stroke-white', 'false', 'Provide a class to set meter fill color.'],
-            ['color', 'string', 'fill-black dark:fill-white', 'false', 'Provide a class to set the SVG text fill color.'],
-            ['fontsize', 'string', '56', 'false', 'Base pixel size for the SVG text layer.'],
+            ['value', 'number', '-', 'Set the meter fill amount. Shows as indeterminate when set undefined.'],
+            ['stroke', 'number', '20', 'Sets the base stroke width. Scales responsively.'],
+            ['meter', 'string', 'stroke-black dark:stroke-white', 'Provide a class to set meter color.'],
+            ['track', 'string', 'stroke-surface-300 dark:stroke-surface-700', 'Provide a class to set track color.'],
+            ['color', 'string', 'fill-black dark:fill-white', 'Provide a class to set the SVG text fill color.'],
+            ['font', 'string', '56', 'Sets the base font size. Scales responsively.'],
         ],
     };
     const tableSlots: any = {
         headings: ['Name', 'Description'],
         source: [
-            ['default', 'Contents render as SVG text in the middle of the element.'],
+            ['default', 'Text content is render as SVG text in the center of the element.'],
         ],
     };
 
@@ -73,7 +73,7 @@
     meter="stroke-primary-500"
     track="stroke-primary-500/20"
     color="fill-primary-500"
-    fontsize="24"
+    font="24"
 >{valueAmount}%</ProgressRadial>
 `.trim()}></CodeBlock>
     </section>

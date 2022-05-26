@@ -15,15 +15,13 @@
 
 <div class="logo {classesLogo} {$$props.class}" data-testid="logo">
 
+    <!-- Slot: lead -->
+    {#if $$slots.lead}<slot name="lead"></slot>{/if}
+
+    <!-- Slot: Label -->
+    {#if $$slots.label}<span class="text-lg"><slot name="label"></slot></span>{/if}
+
     <!-- Default -->
-    {#if !$$slots.icon && !$$slots.label}<slot />{/if}
-
-    <!-- Icon -->
-    {#if $$slots.icon}<slot name="icon"></slot>{/if}
-
-    <!-- Label -->
-    {#if $$slots.label}
-    <span class="text-lg"><slot name="label"></slot></span>
-    {/if}
+    {#if !$$slots.lead && !$$slots.label}<slot />{/if}
     
 </div>

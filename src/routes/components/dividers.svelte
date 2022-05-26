@@ -13,11 +13,11 @@
     const storeOrientation: Writable<string> = writable('h');
 
     const tableProps: any = {
-        headings: ['Prop', 'Type', 'Values', 'Default', 'Description'],
+        headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
         source: [
-            ['variant', 'string', 'solid | dashed | dotted', 'solid', 'Visual style.'],
-            ['weight', 'number', '1, 2, 4, 8', '1', 'Define the thickness.'],
-            ['orientation', 'string', 'h | v', 'h', 'Horizontal or vertical.'],
+            ['variant', 'string', 'solid', 'solid | dashed | dotted', 'Defines the visual display styling.'],
+            ['weight', 'number', '1', '1 | 2 | 4 | 8', 'Defines the thickness of the divider.'],
+            ['orientation', 'string', 'h', 'h | v', 'Switches between horizontal/vertical layout.'],
         ],
     };
 

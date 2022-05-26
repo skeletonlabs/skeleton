@@ -9,20 +9,20 @@
     const tableProps: any = {
         headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
         source: [
-            ['position', 'string', 'top', 'top | bottom | left | right', 'The side in which the message will appear.'],
+            ['position', 'string', 'top', 'top | bottom | left | right', 'Designates where the tooltip will appear.'],
             ['background', 'string', 'bg-black dark:bg-white', 'class', 'Provide a class to set background color.'],
             ['color', 'string', 'text-white dark:text-black', 'class', 'Provide a class to set text color.'],
-            ['width', 'string', 'w-auto', 'class', 'Provide a class to set tooltip width.'],
-            ['whitespace', 'string', 'whitespace-nowrap', 'class', 'Provide a class to set tooltip white-space.'],
-            ['rounded', 'string', 'rounded', 'class', 'Provide a class to set tooltip rounded style.'],
-            ['duration', 'number', '150', 'integer', 'Animation fade in/out duration in milliseconds. Set 0 (zero) to disable.'],
+            ['width', 'string', 'w-auto', 'class', 'Provide a class to set width.'],
+            ['whitespace', 'string', 'whitespace-nowrap', 'class', 'Provide a class to set white-space.'],
+            ['rounded', 'string', 'rounded', 'class', 'Provide a class to set rounding style.'],
+            ['duration', 'number', '150', 'number', 'Animation fade in/out duration in milliseconds. Set 0 (zero) to disable.'],
         ],
     };
     const tableSlots: any = {
         headings: ['Name', 'Description'],
         source: [
-            ['message', 'The tooltip message. Supports full markup.'],
-            ['content', 'The content that will trigger the tooltip.'],
+            ['content', 'The element that will trigger the tooltip when hovered.'],
+            ['message', 'The contents of the tooltip.'],
         ],
     };
 </script>
