@@ -36,16 +36,14 @@
     <section class="space-y-4">
 		<div class="space-y-4 xl:space-y-0 xl:grid grid-cols-[2fr,1fr] gap-2">
 			<!-- Example -->
-			<Card class="space-y-4">
-				<div class="w-full h-full overflow-y-hidden overflow-x-auto flex justify-center items-center">
-                    <svelte:component
-                        this={GradientHeading}
-                        tag={props.tag}
-                        direction={props.direction}
-                        from={props.from}
-                        to={props.to}
-                    >{props.text}</svelte:component>
-                </div>
+			<Card class="space-y-4 flex justify-center items-center">
+                <svelte:component
+                    this={GradientHeading}
+                    tag={props.tag}
+                    direction={props.direction}
+                    from={props.from}
+                    to={props.to}
+                >{props.text}</svelte:component>
             </Card>
 			<!-- Options -->
 			<Card class="space-y-4">

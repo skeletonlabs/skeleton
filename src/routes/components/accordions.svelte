@@ -44,7 +44,7 @@
 
     <!-- Header -->
     <header class="space-y-4">
-        <h2>Accordions</h2>
+        <h1>Accordions</h1>
         <p>Divide content into collapsible sections.</p>
         <CodeBlock language="javascript" code={`import { AccordionGroup, AccordionItem } from '@brainandbones/skeleton';`}></CodeBlock>
     </header>

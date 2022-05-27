@@ -92,7 +92,7 @@
 
     <!-- Header -->
     <header class="space-y-4">
-        <h2>Dialogs</h2>
+        <h1>Dialogs</h1>
         <p>High priority overlay notification utilizing a dynamic queue system.</p>
     </header>
 

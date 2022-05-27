@@ -112,7 +112,7 @@
 		<!-- Header -->
 		<svelte:fragment slot="header">
 			<div class="flex justify-between items-center p-4">
-				<a href="/"><h1 class="text-[26px] uppercase">Skeleton</h1></a>
+				<a href="/" class="text-[26px] font-bold uppercase">Skeleton</a>
 				<nav class="flex justify-between items-center space-x-6">
 					<!-- Github -->
 					<a href="https://github.com/Brain-Bones/skeleton" target="_blank" class="fill-surface-500">

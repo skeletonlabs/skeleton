@@ -49,7 +49,7 @@
 
     <!-- Header -->
     <header class="space-y-4">
-        <h2>Toasts</h2>
+        <h1>Toasts</h1>
         <p>Simple notifications utilizing a dynamic queue system.</p>
     </header>
 

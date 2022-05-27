@@ -73,7 +73,7 @@
 
     <!-- Header -->
     <header class="space-y-4">
-        <h2>Paginators</h2>
+        <h1>Paginators</h1>
         <p>Navigate between multiple pages of content.</p>
         <CodeBlock language="javascript" code={`import { Paginator } from '@brainandbones/skeleton';`}></CodeBlock>
     </header>

@@ -7,7 +7,7 @@
 
 	<!-- Header -->
 	<header class="space-y-4">
-		<h1>Contributor Guide</h1>
+		<h1>Contributions</h1>
         <p>Thank you for your interest in contributing to Skeleton. We ask that you please review this document in full before submitting a pull request.</p>
 	</header>
 

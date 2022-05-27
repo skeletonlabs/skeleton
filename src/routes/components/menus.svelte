@@ -31,7 +31,7 @@
 
     <!-- Header -->
     <header class="space-y-4">
-        <h2>Menu</h2>
+        <h1>Menu</h1>
         <p>Quick context menus provided when clicking a trigger element.</p>
         <CodeBlock language="javascript" code={`import { Menu } from '@brainandbones/skeleton';`}></CodeBlock>
     </header>

@@ -16,7 +16,7 @@
 
     <!-- Header -->
     <header class="space-y-4">
-        <h2>Lightswitch</h2>
+        <h1>Lightswitch</h1>
         <p>Allows users to toggle their preferred theme preference between light/dark/system.</p>
         <CodeBlock language="javascript" code={`import { LightSwitch } from '@brainandbones/skeleton';`}></CodeBlock>
     </header>

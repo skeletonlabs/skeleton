@@ -31,7 +31,7 @@
 
     <!-- Header -->
     <header class="space-y-4">
-        <h2>Tooltips</h2>
+        <h1>Tooltips</h1>
         <p>Informative tooltips that render on mouse over.</p>
         <CodeBlock language="javascript" code={`import { Tooltip } from '@brainandbones/skeleton';`}></CodeBlock>
     </header>

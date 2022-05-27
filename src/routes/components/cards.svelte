@@ -25,7 +25,7 @@
 
     <!-- Header -->
     <header class="space-y-4">
-        <h2>Cards</h2>
+        <h1>Cards</h1>
         <p>Container elements that wrap and seperate your content.</p>
         <CodeBlock language="javascript" code={`import { Card } from '@brainandbones/skeleton';`}></CodeBlock>
     </header>

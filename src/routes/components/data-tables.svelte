@@ -92,7 +92,7 @@
 
     <!-- Header -->
     <header class="space-y-4">
-        <h2>Data Tables</h2>
+        <h1>Data Tables</h1>
         <p>Interactive table with support for search, sort, and pagination.</p>
         <CodeBlock language="javascript" code={`import { DataTable } from '@brainandbones/skeleton';`}></CodeBlock>
     </header>

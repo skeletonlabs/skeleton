@@ -59,7 +59,7 @@
 
     <!-- Header -->
     <header class="space-y-4">
-        <h2>Stepper</h2>
+        <h1>Stepper</h1>
         <p>Divide content into sequenced steps.</p>
         <CodeBlock language="javascript" code={`import { Stepper, Step } from '@brainandbones/skeleton';`}></CodeBlock>
     </header>

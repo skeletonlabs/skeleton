@@ -13,7 +13,7 @@
 	<!-- Header -->
 	<header class="space-y-4">
         <div class="flex justify-start items-center space-x-4">
-            <h2>Filters</h2>
+            <h1>Filters</h1>
             <Badge background="bg-warning-500">Experimental</Badge>
         </div>
 		<p>Bring life to your elements by applying a set of unique <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter" target="_blank">SVG filters</a>. Skeleton provides built-in support for some components, such as Avatars.</p>
