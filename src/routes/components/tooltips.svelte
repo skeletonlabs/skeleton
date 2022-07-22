@@ -32,14 +32,14 @@
     <!-- Header -->
     <header class="space-y-4">
         <h1>Tooltips</h1>
-        <p>Informative tooltips that render on mouse over.</p>
+        <p>Informative tooltips that render on mouse over. Note that tooltips are not supported on mobile.</p>
         <CodeBlock language="javascript" code={`import { Tooltip } from '@brainandbones/skeleton';`}></CodeBlock>
     </header>
 
     <!-- Examples -->
     <Alert background="bg-warning-500" class="sm:hidden">
         <svelte:fragment slot="title">Warning</svelte:fragment>
-        <svelte:fragment slot="message">Tooltips require hover mouse events. They should not be used for mobile.</svelte:fragment>
+        <svelte:fragment slot="message">Tooltips require mouse hover events. They are not available for use on mobile.</svelte:fragment>
     </Alert>
     <section class="hidden sm:block space-y-4">
         <!-- Default -->

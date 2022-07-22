@@ -17,7 +17,7 @@
     <!-- Header -->
     <header class="space-y-4">
         <h1>Lightswitch</h1>
-        <p>Allows users to toggle their preferred theme preference between light/dark/system.</p>
+        <p>Allows users to toggle their preferred theme preference between light, dark, and system. This uses <a href="https://tailwindcss.com/docs/dark-mode" target="_blank">Tailwind's dark mode</a> feature.</p>
         <CodeBlock language="javascript" code={`import { LightSwitch } from '@brainandbones/skeleton';`}></CodeBlock>
     </header>
 
@@ -32,7 +32,7 @@
         <CodeBlock language="html" code={`<LightSwitch origin="tl" />`}></CodeBlock>
         <p>Toggles a dark class on the HTML tag.</p>
         <CodeBlock language="html" code={`<html class="dark">`}></CodeBlock>
-        <p>See Tailwind's instructions for utilizing <a href="https://tailwindcss.com/docs/dark-mode" target="_blank">dark mode</a> withing your application.</p>
+        <p>Please follow Tailwind's instructions for utilizing <a href="https://tailwindcss.com/docs/dark-mode" target="_blank">dark mode</a> withing your application.</p>
     </section>
     
     <!-- Properties -->

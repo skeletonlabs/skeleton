@@ -16,7 +16,7 @@
             <h1>Filters</h1>
             <Badge background="bg-warning-500">Experimental</Badge>
         </div>
-		<p>Bring life to your elements by applying a set of unique <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter" target="_blank">SVG filters</a>. Skeleton provides built-in support for some components, such as Avatars.</p>
+		<p>Bring life to your elements by applying a set of unique <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter" target="_blank">SVG filters</a>. Skeleton provides built-in support for filters within certain components, such as Avatars.</p>
 	</header>
 
 	<!-- Examples -->
@@ -73,7 +73,7 @@
 		<CodeBlock language="javascript" code={`import { Emerald, BlueNight, /* ... */  } from '@brainandbones/skeleton';`} />
 		<CodeBlock language="html" code={`<BlueNight />`} />
         <h4>Use Filter Action</h4>
-        <p>Use the following Svelte action to appply a filter to any element.</p>
+        <p>Use the following <a href="https://svelte.dev/tutorial/actions" target="_blank">Svelte action</a> to appply a filter to any element.</p>
         <CodeBlock language="javascript" code={`import { filter } from '@brainandbones/skeleton';`} />
 		<CodeBlock language="html" code={`<img use:filter={'BlueNight'} {src}>`} />
         <h4>Use Inline CSS</h4>

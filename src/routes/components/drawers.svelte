@@ -30,7 +30,7 @@
     <!-- Header -->
     <header class="space-y-4">
         <h1>Drawers</h1>
-        <p>Displays navigation bar, with optional overlay options.</p>
+        <p>Displays a navigation menu, including optional overlay options.</p>
         <CodeBlock language="javascript" code={`import { Drawer } from '@brainandbones/skeleton';`}></CodeBlock>
     </header>
 

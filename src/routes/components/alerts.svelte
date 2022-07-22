@@ -40,7 +40,7 @@
     <!-- Header -->
     <header class="space-y-4">
         <h1>Alerts</h1>
-        <p>Display customizable alerts to grab attention and provide critical actions.</p>
+        <p>Display customizable alerts to garner attention and provide critical actions.</p>
         <CodeBlock language="javascript" code="{`import { Alert } from '@brainandbones/skeleton';`}"></CodeBlock>
     </header>
     
