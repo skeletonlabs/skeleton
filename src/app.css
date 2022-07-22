@@ -13,6 +13,11 @@ body { @apply font-sans bg-surface-100 dark:bg-surface-900 text-black dark:text-
     background-size: cover; background-attachment: fixed;
 }
 
+/* Scrollbars (webkit) */
+::-webkit-scrollbar { @apply w-2; }
+::-webkit-scrollbar-track { @apply bg-white/20 dark:bg-black/20; }
+::-webkit-scrollbar-thumb { @apply rounded-full bg-surface-300 dark:bg-surface-700; }
+
 /* --- Typography --- */
 
 /* Headings */

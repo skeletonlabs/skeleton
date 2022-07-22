@@ -1,13 +1,13 @@
 # Skeleton
 
-[![Twitter Follow](https://img.shields.io/twitter/follow/brain_and_bones?style=social)](https://twitter.com/brain_and_bones)
+A fully featured UI component library for use with Svelte + Tailwind. Created by [Brain & Bones, LLC.](https://www.brainandbonesllc.com/) and managed by individuals such as [Chris Simmons](https://github.com/endigo9740) and [Thomas Jespersen](https://github.com/thomasbjespersen).
 
-A component library for use with Svelte/Kit + Tailwind. Created by [Brain & Bones, LLC.](https://www.brainandbonesllc.com/)
+---
 
 ## Links
 
 - [Documentation](https://skeleton.brainandbonesllc.com/)
-- [Contributing](https://skeleton.brainandbonesllc.com/docs/contributions)
+- [Contribution Guide](https://skeleton.brainandbonesllc.com/docs/contributions)
 - [Report Issues](https://github.com/Brain-Bones/skeleton/issues)
 
 ---
@@ -16,9 +16,11 @@ A component library for use with Svelte/Kit + Tailwind. Created by [Brain & Bone
 
 ### Get Started
 
-* Clone the project down.
+> Ensure you've read the [contribution guide](https://skeleton.brainandbonesllc.com/docs/contributions) before you proceed.
+
+* Clone the Skeleton project to your local machine.
 * Install depedencies with `npm install`
-* Create a new feature branch: `git checkout -b feat/*`
+* Create a new feature branch: `git checkout -b {branchName}`
 * Start a dev server:
     * `npm run dev` - start server
     * `npm run dev -- --open` - start and open new browser window

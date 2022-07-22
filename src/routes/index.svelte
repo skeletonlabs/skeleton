@@ -3,7 +3,6 @@
     import Button from "$lib/Button/Button.svelte";
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
     import Divider from "$lib/Divider/Divider.svelte";
-    import Alert from "$lib/Alert/Alert.svelte";
 </script>
 
 <div class="space-y-8 lg:text-left">
@@ -11,25 +10,26 @@
     <!-- Hero -->
     <header>
         <div class="max-w-[90%] lg:max-w-[80%] mx-auto space-y-6 py-10 md:py-[120px] text-center">
-            <h1 class="text-4xl md:text-6xl lg:text-8xl">A <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-accent-500">fully featured</span> Svelte component library.</h1>
-            <p class="text-xl">Skeleton allows you to build fast, reponsive web apps using <a href="https://svelte.dev/" target="_blank">Svelte</a> + <a href="https://tailwindcss.com/" target="_blank">Tailwind</a>.</p>
+            <h1 class="text-4xl md:text-6xl lg:text-8xl">A <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-accent-500">fully featured</span> Svelte UI component library.</h1>
+            <p class="text-xl">Skeleton allows you to build fast, responsive web apps using <a href="https://svelte.dev/" target="_blank">Svelte</a> + <a href="https://tailwindcss.com/" target="_blank">Tailwind</a>.</p>
+            <nav class="space-x-2">
+                <Button variant="filled-primary" size="xl" href="#getStarted">Get Started</Button>
+                <Button variant="ghost" size="xl" href="https://github.com/Brain-Bones/skeleton" target="_blank">Github</Button>
+            </nav>
         </div>
     </header>
-
+    
     <Divider />
 
-    <!-- Warning -->
-    <Alert background="bg-warning-500" class="max-w-[590px] mx-auto">
-        <svelte:fragment slot="lead">
-            <svg class="w-8 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M506.3 417l-213.3-364c-16.33-28-57.54-28-73.98 0l-213.2 364C-10.59 444.9 9.849 480 42.74 480h426.6C502.1 480 522.6 445 506.3 417zM232 168c0-13.25 10.75-24 24-24S280 154.8 280 168v128c0 13.25-10.75 24-23.1 24S232 309.3 232 296V168zM256 416c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 401.9 273.4 416 256 416z"/></svg>
-        </svelte:fragment>
-        <svelte:fragment slot="title">Skeleton is currently in limited access.</svelte:fragment>
-    </Alert>
+    <!-- Early Access Message -->
+    <section class="bg-accent-500/20 border-l-2 border-l-green-500 p-4">
+        <p>Skeleton is currently available in early access. If you experience bugs or would like to request a feature, please <a href="https://github.com/Brain-Bones/skeleton/issues" target="_blank">create an issue on Github</a>.</p>
+    </section>
 
     <Divider />
 
     <!-- Install -->
-    <section class="space-y-4">
+    <section id="getStarted" class="space-y-4">
         <h2>Install</h2>
         <p>Follow the instructions below to get started.</p>
         <!-- Create SvelteKit Project -->
@@ -42,7 +42,7 @@
         <CodeBlock language="console" code={`npx svelte-add@latest tailwindcss`}></CodeBlock>
         <!-- Install Skeleton -->
         <h4>Install Skeleton</h4>
-        <CodeBlock language="console" code={`npm install @brainandbones/skeleton`}></CodeBlock>
+        <CodeBlock language="console" code={`npm i @brainandbones/skeleton --save-dev`}></CodeBlock>
     </section>
 
     <Divider />
@@ -50,17 +50,18 @@
     <!-- Next Steps -->
     <section class="space-y-4">
         <h2>Next Steps</h2>
+        <p>It's recommended to follow these steps in the provided order.</p>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <!-- Tailwind -->
             <Card class="space-y-4 text-center">
                 <h4>Configure Tailwind</h4>
-                <p>Configure required settings.</p>
+                <p>Add the required plugin and settings.</p>
                 <Button variant="filled-accent" href="/docs/tailwind">View Guide</Button>
             </Card>
             <!-- Themes -->
             <Card class="space-y-4 text-center">
                 <h4>Create a Theme</h4>
-                <p>Generate a custom theme.</p>
+                <p>Generate your project's custom theme.</p>
                 <Button variant="filled-accent" href="/docs/themes">View Guide</Button>
             </Card>
             <!-- Themes -->
@@ -68,26 +69,6 @@
                 <h4>Add a Component</h4>
                 <p>Add your first component.</p>
                 <Button variant="filled-accent" href="/components/buttons">Add Button</Button>
-            </Card>
-        </div>
-    </section>
-
-    <Divider />
-    
-    <!-- Next Steps -->
-    <section class="space-y-4">
-        <h2>Tailwind Plugins</h2>
-        <p>Official Tailwind plugins that pair well with Skeleton.</p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Card class="space-y-4 text-center">
-                <h4>Typography</h4>
-                <p>Typographic defaults for HTML you don't control.</p>
-                <Button variant="filled-accent" href="https://tailwindcss.com/docs/typography-plugin" target="_blank">Typography</Button>
-            </Card>
-            <Card class="space-y-4 text-center">
-                <h4>Forms</h4>
-                <p>Provides a basic reset for form elements.</p>
-                <Button variant="filled-accent" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Forms</Button>
             </Card>
         </div>
     </section>

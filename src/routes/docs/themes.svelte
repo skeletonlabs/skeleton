@@ -15,7 +15,7 @@
     const tableProps: any = {
         headings: ['Name', 'Class', 'Description'],
         source: [
-            {n: 'Primary', c:'[x]-primary-[50-900]', d:'Your primary brand color.'},
+            {n: 'Primary', c:'[x]-primary-[50-900]', d:'Typically your primary brand color.'},
             {n: 'Accent', c:'[x]-accent-[50-900]', d:'An accent for offsets or supplimentary values.'},
             {n: 'Warning', c:'[x]-warning-[50-900]', d:'May be used for warnings, alerts, and invalid inputs.'},
             {n: 'Surface', c:'[x]-surface-[50-900]', d:'May be used for backgrounds, card elements, and some typography.'},
@@ -106,8 +106,9 @@
 	<header class="space-y-4">
 		<h1>Themes</h1>
         <p>
-            Skeleton themes integrate with Tailwind using <a href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank">RGB CSS custom properties</a>. This allows for <a href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank">background opacity</a> and enables support for <a href="https://tailwindcss.com/docs/dark-mode" target="_blank">dark mode</a>. Use the form below to generate a custom theme. Additionally, VS Code users may use the <a href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba" target="_blank">Hex-To-RGB extension</a> to convert colors on-the-fly.
+            Skeleton themes integrate with Tailwind using <a href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank">RGB CSS custom properties</a> to define each theme color. This enables the use of <a href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank">background opacity</a> as well as support for <a href="https://tailwindcss.com/docs/dark-mode" target="_blank">dark mode</a>. VS Code users may use the <a href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba" target="_blank">Hex-To-RGB extension</a> to convert colors on-the-fly. Otherwise utilize the handy conversion form provided below.
         </p>
+        <p>If you would like to get started right away, feel free to use the default Skeleton theme as is.</p>
 	</header>
 
     <!-- Form -->
@@ -196,20 +197,33 @@
         ></CodeBlock>
     </Card>
 
+    <Divider />
+
+    <!-- Import Theme -->
+    <section class="space-y-4">
+        <h3>Save and Import Theme</h3>
+        <p>Save your theme to it's own css file such as <em>/src/my-awesome-theme.css</em>. Then, import the theme into your layout. For most projects, this can be handled within your default SvelteKit <em>__layout.svelte</em> component. Ensure your custom theme is imported before your global stylesheet.</p>
+        <CodeBlock language="typescript" code={`import '../my-awesome-theme.css';\nimport '../app.css';`}></CodeBlock>
+    </section>
+
+    <Divider />
+
     <!-- Usage -->
     <section class="space-y-4">
         <h3>Usage</h3>
-        <p>Theme colors are not limited to Skeleton components. Utilize them anywhere in your app following Tailwind's conventions. You may also mix your theme with default <a href="https://tailwindcss.com/docs/customizing-colors" target="_blank">Tailwind colors</a>.</p>
+        <p>Theme colors are not limited to Skeleton components. You can utilize them anywhere within your app following Tailwind's standard conventions. Feel free to mix or extend them with <a href="https://tailwindcss.com/docs/customizing-colors" target="_blank">Tailwind's default color palette</a>.</p>
         <CodeBlock language="html" code={`<!-- Inlined classes -->\n<div class="bg-primary-500 text-accent-500">Skeleton</div>`}></CodeBlock>
         <CodeBlock language="html" code={`<!-- Tailwind opacity scale -->\n<div class="bg-primary-500/50">Skeleton</div>`}></CodeBlock>
         <CodeBlock language="css" code={`/* Using Tailwind @apply */\n.example { @apply bg-primary-500; }`}></CodeBlock>
-        <CodeBlock language="css" code={`/* Using CSS variables */\nbody { background: var(--color-surface-900); }`}></CodeBlock>
+        <CodeBlock language="css" code={`/* Using CSS custom properties */\nbody { background: var(--color-surface-900); }`}></CodeBlock>
     </section>
+
+    <Divider />
 
     <!-- Reference -->
     <section class="space-y-4">
         <h3>Reference</h3>
-        <p>A reference for each color type has been provided below.</p>
+        <p>A loose reference for what each color should represent within your project.</p>
         <DataTable headings={tableProps.headings} source="{tableProps.source}"></DataTable>
     </section>
 
@@ -217,17 +231,26 @@
 
     <!-- Global Styles -->
     <section class="space-y-4">
-        <h1>Global Styles</h1>
-        <p>We've provided the Skeleton documentation website stylesheet on Github for reference when adding global styles. See the link below.</p>
+        <h3>Handling Global Styles</h3>
+        <p>Since Skeleton and the documentation site are open source, you may reference how we implemented this site's global stylesheets here:</p>
         <Button variant="filled-accent" href="https://github.com/Brain-Bones/skeleton/blob/master/src/app.css" target="_blank">View Stylesheet on Github</Button>
-        <p>A few items of note:</p>
         <ul class="list-disc list-inside">
-            <li>We define our global styles in several sections, including: HTML/body, Typography, and Forms.</li>
-            <li>We utilize <a href="https://tailwindcss.com/docs/reusing-styles#extracting-classes-with-apply" target="_blank">Tailwind @apply</a> to define most styles.</li>
-            <li>We utilize the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:not" target="_blank">CSS :not pseudo-class</a> to exclude and prevent affecting component styling.</li>
-            <li>We utilize the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Tailwind Forms plugin</a>. See Tailwind's tutorial video below if you need help overwriting input styles.</li>
+            <li>We segment our styles into several groups, including: elements, typography, forms, etc.</li>
+            <li>We utilize <a href="https://tailwindcss.com/docs/reusing-styles#extracting-classes-with-apply" target="_blank">Tailwind @apply</a> to define styles whenever possible.</li>
+            <li>We utilize the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:not" target="_blank">CSS :not pseudo-class</a> to create global styles, but exclude and avoid overwriting component styling.</li>
+            <li>We utilize the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Tailwind Forms plugin</a>. See Tailwind's tutorial below to understand how this works.</li>
         </ul>
         <iframe class="w-full max-w-[960px] aspect-video" src="https://www.youtube-nocookie.com/embed/pONeWAzDsQg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </section>
+
+    <Divider />
+
+    <!-- Next Steps -->
+    <Card class="flex justify-between items-center space-x-4 space-y-0">
+        <div class="flex-1 space-y-4">
+            <p>Next, let's add our first component!</p>
+        </div>
+        <Button variant="filled-accent" href="/components/buttons">Add a Component</Button>
+    </Card>
 
 </div>
