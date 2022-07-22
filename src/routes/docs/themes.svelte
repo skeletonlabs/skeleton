@@ -146,8 +146,7 @@
             </fieldset>
         </form>
         <CodeBlock language="css" class="max-h-[820px] overflow-y-auto" code={
-`/* Add to your global stylesheet (ex: app.css) */
-:root {
+`:root {
     /* --- ${formColors.name ? formColors.name : 'Skeleton'} Theme --- */
     /* Primary */
     --color-primary-50: ${hexToRgb(formColors.primary[50])};
@@ -202,8 +201,8 @@
     <!-- Import Theme -->
     <section class="space-y-4">
         <h3>Save and Import Theme</h3>
-        <p>Save your theme to it's own css file such as <em>/src/my-awesome-theme.css</em>. Then, import the theme into your layout. For most projects, this can be handled within your default SvelteKit <em>__layout.svelte</em> component. Ensure your custom theme is imported before your global stylesheet.</p>
-        <CodeBlock language="typescript" code={`import '../my-awesome-theme.css';\nimport '../app.css';`}></CodeBlock>
+        <p>Save your theme to it's own file, such as <em>/src/theme.css</em>, then import this into your layout. For most projects, this can be handled within your default SvelteKit <em>__layout.svelte</em> component. Ensure your custom theme is imported before your global stylesheet.</p>
+        <CodeBlock language="typescript" code={`import '../theme.css';\nimport '../app.css';`}></CodeBlock>
     </section>
 
     <Divider />
@@ -248,7 +247,7 @@
     <!-- Next Steps -->
     <Card class="flex justify-between items-center space-x-4 space-y-0">
         <div class="flex-1 space-y-4">
-            <p>Next, let's add our first component!</p>
+            <p>Next, let's follow the documentation to add our first component.</p>
         </div>
         <Button variant="filled-accent" href="/components/buttons">Add a Component</Button>
     </Card>

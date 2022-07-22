@@ -11,7 +11,7 @@
     <header>
         <div class="max-w-[90%] lg:max-w-[80%] mx-auto space-y-6 py-10 md:py-[120px] text-center">
             <h1 class="text-4xl md:text-6xl lg:text-8xl">A <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-accent-500">fully featured</span> Svelte UI component library.</h1>
-            <p class="text-xl">Skeleton allows you to build fast, responsive web apps using <a href="https://svelte.dev/" target="_blank">Svelte</a> + <a href="https://tailwindcss.com/" target="_blank">Tailwind</a>.</p>
+            <p class="text-xl">Skeleton allows you to build fast and responsive web interfaces using <a href="https://svelte.dev/" target="_blank">Svelte</a> + <a href="https://tailwindcss.com/" target="_blank">Tailwind</a>.</p>
             <nav class="space-x-2">
                 <Button variant="filled-primary" size="xl" href="#getStarted">Get Started</Button>
                 <Button variant="ghost" size="xl" href="https://github.com/Brain-Bones/skeleton" target="_blank">Github</Button>

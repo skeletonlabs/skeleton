@@ -46,7 +46,7 @@ module.exports = {
     <!-- Plugins -->
     <section class="space-y-4">
         <h2>Tailwind Plugins</h2>
-        <p>The following official Tailwind plugins pair well with Skeleton.</p>
+        <p>Skeleton pairs well with any of the official Tailwind plugins. Including these is completely optional.</p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Card class="space-y-4 text-center">
                 <h4>Typography</h4>
