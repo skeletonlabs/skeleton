@@ -2,15 +2,11 @@
 
 A fully featured UI component library for use with Svelte + Tailwind. Created by [Brain & Bones, LLC](https://www.brainandbonesllc.com/) and maintained by individuals such as [Chris Simmons](https://github.com/endigo9740) and [Thomas Jespersen](https://github.com/thomasbjespersen).
 
----
-
 ## Links
 
 - [Documentation](https://skeleton.brainandbonesllc.com/)
 - [Contribution Guide](https://skeleton.brainandbonesllc.com/docs/contributions)
 - [Report Issues](https://github.com/Brain-Bones/skeleton/issues)
-
----
 
 ## Contributors
 
