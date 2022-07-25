@@ -23,11 +23,17 @@
 	const drawer: Writable<boolean> = writable(false);
 	const navigation: any = [
         {
-            title: 'Docs',
+            title: 'Guides',
             list: [
                 {href: '/', label: 'Get Started'},
-                {href: '/docs/tailwind', label: 'Tailwind'},
-                {href: '/docs/themes', label: 'Themes'},
+                {href: '/guides/tailwind', label: 'Tailwind'},
+                {href: '/guides/themes', label: 'Themes'},
+            ],
+        },
+        {
+            title: 'Docs',
+            list: [
+                {href: '/docs/why', label: 'Why Skeleton'},
                 {href: '/docs/contributions', label: 'Contributions'},
             ],
         },
