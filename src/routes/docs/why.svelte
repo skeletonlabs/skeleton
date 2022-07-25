@@ -7,7 +7,7 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Why Skeleton</h1>
-        <p>See below to learn more about what Skeleton is, and what provides it solves.</p>
+        <p>See below to learn more about what Skeleton is, and what problems it solves.</p>
 	</header>
 
     <Divider />
