@@ -56,13 +56,13 @@
             <Card class="space-y-4 text-center">
                 <h4>Configure Tailwind</h4>
                 <p>Add the required plugin and settings.</p>
-                <Button variant="filled-accent" href="/docs/tailwind">View Guide</Button>
+                <Button variant="filled-accent" href="/guides/tailwind">View Guide</Button>
             </Card>
             <!-- Themes -->
             <Card class="space-y-4 text-center">
                 <h4>Create a Theme</h4>
                 <p>Generate your project's custom theme.</p>
-                <Button variant="filled-accent" href="/docs/themes">View Guide</Button>
+                <Button variant="filled-accent" href="/guides/themes">View Guide</Button>
             </Card>
             <!-- Themes -->
             <Card class="space-y-4 text-center">

@@ -76,7 +76,7 @@ module.exports = {
     <!-- Next Steps -->
     <Card class="flex justify-between items-center space-x-4 space-y-0">
         <p>Next, let's follow the guide for creating a custom theme.</p>
-        <Button variant="filled-accent" href="/docs/themes">Create a Theme</Button>
+        <Button variant="filled-accent" href="/guides/themes">Create a Theme</Button>
     </Card>
 
 </div>
