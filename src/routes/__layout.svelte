@@ -157,9 +157,10 @@
 		<!-- Footer -->
 		<svelte:fragment slot="footer">
 			<Divider class="opacity-30" />
-			<p class="text-xs opacity-50 p-4">
-				Powered by <a href="https://www.brainandbonesllc.com/" target="_blank" class="opacity-50">Brain & Bones</a>
-			</p>
+			<div class="text-xs opacity-50 p-4 flex justify-between">
+				<a href="https://www.brainandbonesllc.com/" target="_blank" class="opacity-50">Brain & Bones</a>
+				<a href="https://github.com/Brain-Bones/skeleton/blob/master/LICENSE" target="_blank" class="opacity-50">MIT License</a>
+			</div>
 		</svelte:fragment>
 	</Drawer>
 
