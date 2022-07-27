@@ -13,14 +13,6 @@
 
     <Divider />
 
-    <!-- TEST -->
-    <section class="space-x-2">
-        <Button type="submit" background="bg-primary-500">Normal</Button>
-        <Button type="submit" background="bg-primary-500" class="text-3xl px-10 py-5">Beeg</Button>
-    </section>
-
-    <Divider />
-
     <!-- xxx -->
     <section class="space-y-4">
         <h2>What is Skeleton?</h2>
