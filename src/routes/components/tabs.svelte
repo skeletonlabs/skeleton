@@ -19,7 +19,7 @@
         headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
         source: [
             ['selected', 'Writable', '-', '&check;', 'A svelte store to keep track of tab selection.'],
-            ['justify', 'string', 'justify-start', '-', 'Provide a class to set the flexbox justification.'],
+            ['justify', 'string', 'justify-start', '-', `Provide a class to set the flex justification. 'justify-start' is best small screens.`],
             ['highlight', 'string', 'border-primary-500', '-', 'Provide a class to set the highlighted border color.'],
             ['color', 'string', 'text-primary-500', '-', 'Provide class to set text color.'],
         ],
@@ -63,7 +63,7 @@
                 </div>
             </Card>
             <Card class="space-y-4">
-                <TabGroup selected={storeTwo} justify="justify-end" highlight="border-accent-500" color="text-accent-500">
+                <TabGroup selected={storeTwo} justify="justify-start md:justify-end" highlight="border-accent-500" color="text-accent-500">
                     <Tab value="a">Tab A</Tab>
                     <Tab value="b">Tab B</Tab>
                     <Tab value="c">Tab C</Tab>
@@ -76,7 +76,7 @@
             </Card>
         </div>
         <Card class="space-y-4">
-            <TabGroup selected={storeThree} justify="justify-center" highlight="border-warning-500" color="text-warning-500">
+            <TabGroup selected={storeThree} justify="justify-start md:justify-center" highlight="border-warning-500" color="text-warning-500">
                 <Tab value="a">
                     <svelte:fragment slot="lead">{@html icon}</svelte:fragment>
                     Books
@@ -112,7 +112,7 @@
         <h2>Usage</h2>
         <CodeBlock language="typescript" code={`let storeTab: Writable<string> = writable('a');`}></CodeBlock>
         <CodeBlock language="html" code={`
-<TabGroup selected={storeTab} justify="justify-center" highlight="border-accent-500" color="text-accent-500">
+<TabGroup selected={storeTab} justify="justify-start md:justify-center" highlight="border-accent-500" color="text-accent-500">
     <Tab value="a">Tab A</Tab>
     <Tab value="b">
         <svelte:fragment>{@html icon}</svelte:fragment>

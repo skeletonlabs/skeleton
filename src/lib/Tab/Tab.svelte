@@ -7,7 +7,7 @@
     export let value = $selected.value;
 
     // Base Classes
-    const cBaseItem: string = 'list-none flex items-center border-b-2 -mb-[2px] pb-2 px-4 space-x-2 hover:opacity-70 cursor-pointer';
+    const cBaseItem: string = 'list-none flex items-center border-b-2 pb-2 px-4 space-x-2 hover:opacity-70 cursor-pointer';
     const cBaseLabel: string = 'font-semibold whitespace-nowrap';
 
     // Reactive Classes
