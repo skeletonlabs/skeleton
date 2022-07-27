@@ -5,7 +5,12 @@ import { configDefaults } from 'vitest/config'
 const config = {
 	plugins: [sveltekit()],
     test: {
-        exclude: [...configDefaults.exclude, './package', './build']
+        exclude: [
+            ...configDefaults.exclude,
+            '**/package/**',
+            '**/build/**'
+        ],
+        // setupFiles: []
     }
 };
 
