@@ -1,7 +1,6 @@
 <script lang="ts">
     import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
     import Card from "$lib/Card/Card.svelte";
-    import DataTable from "$lib/Table/DataTable.svelte";
     import LightSwitch from "$lib/LightSwitch/LightSwitch.svelte";
 </script>
 
@@ -23,9 +22,9 @@
     <section class="space-y-4">
         <h2>Usage</h2>
         <CodeBlock language="html" code={`<LightSwitch select={true} open={false} origin="tl" />`}></CodeBlock>
-        <p>Toggles a dark class on the HTML tag.</p>
+        <p>This modifies the class on your document's HTML tag.</p>
         <CodeBlock language="html" code={`<html class="dark">`}></CodeBlock>
-        <p>Please follow Tailwind's instructions for utilizing <a href="https://tailwindcss.com/docs/dark-mode" target="_blank">dark mode</a> withing your application.</p>
+        <p>Please refer to Tailwind's official instructions to setup and configure your project for <a href="https://tailwindcss.com/docs/dark-mode" target="_blank">dark mode</a>.</p>
     </section>
     
     <!-- Properties -->

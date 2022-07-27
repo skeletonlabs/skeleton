@@ -51,22 +51,22 @@ module.exports = {
             <Card class="space-y-4 text-center">
                 <h4>Typography</h4>
                 <p>Typographic defaults for HTML you don't control.</p>
-                <Button variant="filled-accent" href="https://tailwindcss.com/docs/typography-plugin" target="_blank">Typography</Button>
+                <Button variant="filled-accent" href="https://tailwindcss.com/docs/typography-plugin" target="_blank">View Plugin</Button>
             </Card>
             <Card class="space-y-4 text-center">
                 <h4>Forms</h4>
                 <p>Provides a basic reset for form elements.</p>
-                <Button variant="filled-accent" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Forms</Button>
+                <Button variant="filled-accent" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">View Plugin</Button>
             </Card>
             <Card class="space-y-4 text-center">
                 <h4>Aspect Ratio</h4>
                 <p>Provides a composable API for giving elements a fixed aspect ratio.</p>
-                <Button variant="filled-accent" href="https://github.com/tailwindlabs/tailwindcss-aspect-ratio" target="_blank">Aspect Ratio</Button>
+                <Button variant="filled-accent" href="https://github.com/tailwindlabs/tailwindcss-aspect-ratio" target="_blank">View Plugin</Button>
             </Card>
             <Card class="space-y-4 text-center">
                 <h4>Line Clamp</h4>
                 <p>Provides utilities for visually truncating text after a fixed number of lines.</p>
-                <Button variant="filled-accent" href="https://github.com/tailwindlabs/tailwindcss-line-clamp" target="_blank">Forms</Button>
+                <Button variant="filled-accent" href="https://github.com/tailwindlabs/tailwindcss-line-clamp" target="_blank">View Plugin</Button>
             </Card>
         </div>
     </section>
