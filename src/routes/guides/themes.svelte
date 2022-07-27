@@ -228,28 +228,12 @@
 
     <Divider />
 
-    <!-- Global Styles -->
-    <section class="space-y-4">
-        <h3>Handling Global Styles</h3>
-        <p>Since Skeleton and the documentation site are open source, you may reference how we implemented this site's global stylesheets here:</p>
-        <Button variant="filled-accent" href="https://github.com/Brain-Bones/skeleton/blob/master/src/app.css" target="_blank">View Stylesheet on Github</Button>
-        <ul class="list-disc list-inside">
-            <li>We segment our styles into several groups, including: elements, typography, forms, etc.</li>
-            <li>We utilize <a href="https://tailwindcss.com/docs/reusing-styles#extracting-classes-with-apply" target="_blank">Tailwind @apply</a> to define styles whenever possible.</li>
-            <li>We utilize the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:not" target="_blank">CSS :not pseudo-class</a> to create global styles, but exclude and avoid overwriting component styling.</li>
-            <li>We utilize the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Tailwind Forms plugin</a>. See Tailwind's tutorial below to understand how this works.</li>
-        </ul>
-        <iframe class="w-full max-w-[960px] aspect-video" src="https://www.youtube-nocookie.com/embed/pONeWAzDsQg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </section>
-
-    <Divider />
-
     <!-- Next Steps -->
     <Card class="flex justify-between items-center space-x-4 space-y-0">
         <div class="flex-1 space-y-4">
-            <p>Next, let's follow the documentation to add our first component.</p>
+            <p>Next, let's learn the recommended practices for handling global CSS styles.</p>
         </div>
-        <Button variant="filled-accent" href="/components/buttons">Add a Component</Button>
+        <Button variant="filled-accent" href="/guides/global-styles">Global Styles</Button>
     </Card>
 
 </div>
