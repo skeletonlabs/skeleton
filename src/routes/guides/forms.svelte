@@ -14,8 +14,8 @@
             Forms
             <Badge background="bg-accent-500" class="-translate-y-3">Optional</Badge>
         </h1>
-        <p>If you have experience with other UI component libraries, you may expect Skeleton to support components replacements for form inputs, select, checkboxes, and similar. However, this is not the case. The Skeleton team take the stance that this is generally a bad practice.</p>
-        <p>Wrapping inputs within a component tends to hurt accessbility, limit error handling and validation, and make it much more difficult to customize inline attributes. While also dramatically impacting your ability to customize and style each element.</p>
+        <p>If you have experience with other UI component libraries, you may expect Skeleton to provide dedicated components for form inputs, select, checkboxes, and similar. However, this is not the case. The Skeleton team take the stance that this is generally a bad practice.</p>
+        <p>Wrapping inputs within a component tends to hurt accessbility, limit error handling and validation, and make it much more difficult to customize inline attributes. While also dramatically impacting your ability to customize and style each input.</p>
         <p>However, given Skeleton's tight integration with Tailwind, an elgant solution is available via the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">official Tailwind Forms plugin</a>. This provides a no-nonsense approach to applying clean and modern styling to <em>most</em> inputs. Tailwind provides an example page to <a href="https://tailwindcss-forms.vercel.app/kitchen-sink.html" target="_blank">preview the default styles here</a>.</p>
 	</header>
 
@@ -40,7 +40,7 @@ module.exports = {
     ],
 }
         `.trim()}></CodeBlock>
-        <p>Implement any style overrides within <em>app.css</em>. Use the styles below as a starting point. These styles take advantage of your theme colors.</p>
+        <p>Implement any style overrides within your global <em>app.css</em>. Feel free to use the styles below as a starting point. These take advantage of your theme colors.</p>
         <CodeBlock language="css" code={`
 fieldset { @apply block; }
 
