@@ -178,7 +178,7 @@ $: classesLabel = \`\${cBaseLabel}\`; // child element
     <!-- Running Tests -->
     <section class="space-y-4">
         <h2>Running Tests</h2>
-        <p>Tests are handled via <a href="https://vitest.dev/" target="_blank">Vitest</a>. This uses a lot of the same conventions and syntax as Jest. Please ensure you write and run tests before submitting a pull request. Bare minimum, these tests should include tests with and without props. Pull requests for improving existing tests are as welcome!</p>
+        <p>Tests are handled via <a href="https://vitest.dev/" target="_blank">Vitest</a>, which uses similar conventions and syntax to Jest. Please ensure you write and run tests before submitting a pull request. Bare minimum, these tests should include test components various configurations of your component properties.</p>
         <CodeBlock language="console" code={`npm run test`}></CodeBlock>
     </section>
 
