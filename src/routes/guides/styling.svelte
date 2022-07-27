@@ -21,7 +21,6 @@
         <h4>Best Practices</h4>
         <p>Here's a few best practices guidelines we recommend you follow:</p>
         <ul class="list-disc list-inside">
-            <li>Segment our styles into several groups, including: elements, typography, forms, etc.</li>
             <li>Utilize <a href="https://tailwindcss.com/docs/reusing-styles#extracting-classes-with-apply" target="_blank">Tailwind @apply</a> to define and implement styles whenever possible.</li>
             <li>Utilize the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:not" target="_blank">CSS :not pseudo-class</a> to create global styles that exclude and avoid overwriting inherit component styles.</li>
             <li>Utilize the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Tailwind Forms plugin</a> to handle form input styling. View our <a href="/guides/forms">Forms guide</a> for more details.</li>
