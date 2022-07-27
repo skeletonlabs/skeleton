@@ -1,6 +1,5 @@
 <script lang="ts">
     import Divider from "$lib/Divider/Divider.svelte";
-    import Button from "$lib/Button/Button.svelte";
 </script>
 
 <div class="space-y-8">

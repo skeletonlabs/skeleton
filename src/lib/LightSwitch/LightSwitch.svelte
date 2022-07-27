@@ -8,8 +8,11 @@
 	import NavItem from "$lib/List/NavItem.svelte";
 	import Menu from "$lib/Menu/Menu.svelte";
 
-	// Props
-	export let origin: string = 'tl';
+	export let select: boolean = true;
+	export let open: boolean = false;
+    export let origin: string = 'tl'; // tl | tr | bl | br
+    export let duration: number = 100; // ms
+    export let disabled: boolean = false;
 
 	let currentTheme: string = 'load';
 	let svg: any = {
@@ -49,7 +52,7 @@
 	setThemeClass();
 </script>
 
-<Menu {origin} select={true} class="lightswitch {$$props.class}" data-testid="lightswitch">
+<Menu {select} {open} {origin} {duration} {disabled} class="lightswitch {$$props.class}" data-testid="lightswitch">
 
 	<!-- Switcher -->
 	<div slot="trigger" class="fill-surface-500 cursor-pointer">
