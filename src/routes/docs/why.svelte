@@ -1,5 +1,6 @@
 <script lang="ts">
     import Divider from "$lib/Divider/Divider.svelte";
+    import Button from "$lib/Button/Button.svelte";
 </script>
 
 <div class="space-y-8">
@@ -9,6 +10,14 @@
 		<h1>Why Skeleton</h1>
         <p>See below to learn more about what Skeleton is, and what problems it solves.</p>
 	</header>
+
+    <Divider />
+
+    <!-- TEST -->
+    <section class="space-x-2">
+        <Button type="submit" background="bg-primary-500">Normal</Button>
+        <Button type="submit" background="bg-primary-500" class="text-3xl px-10 py-5">Beeg</Button>
+    </section>
 
     <Divider />
 

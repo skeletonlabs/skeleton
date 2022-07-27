@@ -17,7 +17,10 @@
     const cBaseGroup: string = 'flex border-b-2 border-surface-300 dark:border-surface-700';
 
     // Reactive Classes
-    $: classesGroup = `${cBaseGroup} ${justify}`
+    $: classesGroup = `${cBaseGroup} ${justify}`;
+
+    // Prevents conflict with $$props.class
+    delete $$restProps.class;
 </script>
 
 <nav data-testid="tab-group" class="tab-group {classesGroup}" {...$$restProps}>

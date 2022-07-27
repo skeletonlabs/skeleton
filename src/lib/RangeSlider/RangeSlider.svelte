@@ -24,6 +24,9 @@
 
     // Reactive Classes
     $: classesInput = `${cBaseInput} ${accent}`;
+
+    // Prevents conflict with $$props.class
+    delete $$restProps.class;
 </script>
 
 <label for={id} class="range-slider {$$props.class}" data-testid="range-slider">

@@ -87,15 +87,18 @@
     // Reactive Classes
     $: cDisabled = $$props.disabled ? '!opacity-30 !cursor-not-allowed' : 'hover:brightness-90 transition-transform active:scale-95';
     $: classesButton = `${cBaseButton} ${cSize} ${background} ${color} ${fill} ${ring} ${weight} ${width} ${rounded} ${cDisabled}`;
+
+    // Prevents conflict with $$props.class
+    delete $$restProps.class;
 </script>
 
 <svelte:element
     this={tag}
-    {href}
     class="comp-button {classesButton} {$$props.class}"
+    {href}
     data-testid="comp-button"
-    {...$$restProps}
     on:click
+    {...$$restProps}
 >
     {#if $$slots.lead}<span><slot name="lead"></slot></span>{/if}
     <span><slot /></span>

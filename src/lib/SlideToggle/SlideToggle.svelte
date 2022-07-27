@@ -24,6 +24,9 @@
     // Reactive Classes
     $: classesTrack = `${cBaseTrack} ${trackSize} ${cTrackAccent}`;
     $: classesThumb = `${cBaseThumb} ${cThumbBackground} ${cThumbPos}`;
+
+    // Prevents conflict with $$props.class
+    delete $$restProps.class;
 </script>
 
 <label class="slide-toggl {cBaseLabel} {$$props.class}" class:opacity-30={$$props.disabled} data-testid="slide-toggle">

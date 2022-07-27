@@ -30,6 +30,7 @@
             ['width', 'string', 'w-auto', 'class', 'Provide a class to set the button width.'],
             ['rounded', 'string', 'rounded-lg', 'class', 'Provide a class to define border radius.'],
             ['href', 'string', '-', 'link', 'Converts to an anchor element and sets click through value.'],
+            ['type', 'string', '-', 'button | submit | reset', 'Allows you to define a button type.'],
         ],
     };
     const tableSlots: any = {
