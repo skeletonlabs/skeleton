@@ -28,7 +28,7 @@
                 {href: '/', label: 'Get Started'},
                 {href: '/guides/tailwind', label: 'Tailwind'},
                 {href: '/guides/themes', label: 'Themes'},
-                {href: '/guides/styles', label: 'Styling'},
+                {href: '/guides/styling', label: 'Styling'},
                 {href: '/guides/forms', label: 'Forms'},
             ],
         },

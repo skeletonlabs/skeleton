@@ -12,7 +12,7 @@
 	<header class="space-y-4">
 		<h1>
             Forms
-            <sup><Badge background="bg-accent-500">Optional</Badge></sup>
+            <Badge background="bg-accent-500" class="-translate-y-3">Optional</Badge>
         </h1>
         <p>If you have experience with other UI component libraries, you may expect Skeleton to support components replacements for form inputs, select, checkboxes, and similar. However, this is not the case. The Skeleton team take the stance that this is generally a bad practice.</p>
         <p>Wrapping inputs within a component tends to hurt accessbility, limit error handling and validation, and make it much more difficult to customize inline attributes. While also dramatically impacting your ability to customize and style each element.</p>
@@ -120,7 +120,7 @@ input::placeholder, textarea::placeholder { @apply text-surface-400; }
     <!-- Next Steps -->
     <Card class="flex justify-between items-center space-x-4 space-y-0">
         <div class="flex-1 space-y-4">
-            <p>Next, let's follow the documentation to add our first component.</p>
+            <p>Finally, let's follow the documentation to add our first component.</p>
         </div>
         <Button variant="filled-accent" href="/components/buttons">Add a Component</Button>
     </Card>

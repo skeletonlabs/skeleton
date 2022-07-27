@@ -52,7 +52,7 @@
         <div class="flex-1 space-y-4">
             <p>Next, let's follow the documentation implement and utilize form inputs.</p>
         </div>
-        <Button variant="filled-accent" href="/guides/forms">Using Forms</Button>
+        <Button variant="filled-accent" href="/guides/forms">Handling Forms</Button>
     </Card>
 
 </div>

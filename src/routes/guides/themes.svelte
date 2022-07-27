@@ -231,9 +231,9 @@
     <!-- Next Steps -->
     <Card class="flex justify-between items-center space-x-4 space-y-0">
         <div class="flex-1 space-y-4">
-            <p>Next, let's learn the recommended practices for handling global CSS styles.</p>
+            <p>Next, let's review best practices for adding global and per component styles.</p>
         </div>
-        <Button variant="filled-accent" href="/guides/global-styles">Global Styles</Button>
+        <Button variant="filled-accent" href="/guides/styling">Add Styling</Button>
     </Card>
 
 </div>

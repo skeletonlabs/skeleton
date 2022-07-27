@@ -48,29 +48,11 @@
     <Divider />
 
     <!-- Next Steps -->
-    <section class="space-y-4">
-        <h2>Next Steps</h2>
-        <p>It's recommended to follow these steps in the provided order.</p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <!-- Tailwind -->
-            <Card class="space-y-4 text-center">
-                <h4>Configure Tailwind</h4>
-                <p>Add the required plugin and settings.</p>
-                <Button variant="filled-accent" href="/guides/tailwind">View Guide</Button>
-            </Card>
-            <!-- Themes -->
-            <Card class="space-y-4 text-center">
-                <h4>Create a Theme</h4>
-                <p>Generate your project's custom theme.</p>
-                <Button variant="filled-accent" href="/guides/themes">View Guide</Button>
-            </Card>
-            <!-- Themes -->
-            <Card class="space-y-4 text-center">
-                <h4>Add a Component</h4>
-                <p>Add your first component.</p>
-                <Button variant="filled-accent" href="/components/buttons">Add Button</Button>
-            </Card>
+    <Card class="flex justify-between items-center space-x-4 space-y-0">
+        <div class="flex-1 space-y-4">
+            <p>Next, let's provide some basic Tailwind configuration settings.</p>
         </div>
-    </section>
+        <Button variant="filled-accent" href="/guides/tailwind">Configure Tailwind</Button>
+    </Card>
 
 </div>
