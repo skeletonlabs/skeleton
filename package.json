@@ -47,5 +47,8 @@
 		"vitest": "^0.19.1",
 		"vitest-svelte-kit": "^0.0.6"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"palettey": "^1.0.2"
+	}
 }

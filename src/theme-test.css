@@ -1,0 +1,54 @@
+/*
+    primary: #06b6d4
+    accent: #3b82f6
+    warning: #ec4899
+    surface: #64748b
+*/
+
+:root {
+	/* --- Skeleton Theme --- */
+	/* primary */
+	--color-primary-50: 210 247 254;
+	--color-primary-100: 156 238 252;
+	--color-primary-200: 86 226 250;
+	--color-primary-300: 7 208 243;
+	--color-primary-400: 6 182 212;
+	--color-primary-500: 6 169 198;
+	--color-primary-600: 5 148 174;
+	--color-primary-700: 4 131 154;
+	--color-primary-800: 4 106 124;
+	--color-primary-900: 3 89 104;
+	/* accent */
+	--color-accent-50: 231 240 254;
+	--color-accent-100: 196 218 252;
+	--color-accent-200: 162 196 251;
+	--color-accent-300: 118 168 249;
+	--color-accent-400: 59 130 246;
+	--color-accent-500: 40 119 245;
+	--color-accent-600: 11 100 244;
+	--color-accent-700: 10 88 215;
+	--color-accent-800: 9 78 190;
+	--color-accent-900: 8 68 166;
+	/* warning */
+	--color-warning-50: 253 232 242;
+	--color-warning-100: 250 204 227;
+	--color-warning-200: 247 176 212;
+	--color-warning-300: 243 135 189;
+	--color-warning-400: 236 72 153;
+	--color-warning-500: 233 42 138;
+	--color-warning-600: 217 23 120;
+	--color-warning-700: 194 20 107;
+	--color-warning-800: 162 17 89;
+	--color-warning-900: 148 15 82;
+	/* surface */
+	--color-surface-50: 231 234 238;
+	--color-surface-100: 208 213 221;
+	--color-surface-200: 178 187 200;
+	--color-surface-300: 145 158 176;
+	--color-surface-400: 100 116 139;
+	--color-surface-500: 94 109 130;
+	--color-surface-600: 85 99 119;
+	--color-surface-700: 77 89 107;
+	--color-surface-800: 66 77 92;
+	--color-surface-900: 60 69 83;
+}
