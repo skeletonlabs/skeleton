@@ -49,28 +49,13 @@
 
     // Creates a hex shade palette from a singular hex value
     function generateHexShades(key: string): void {
-        let pallete = createPalleteFromColor(key, pruneHash(formValues[key]), {
+        hexShades[key] = createPalleteFromColor(key, pruneHash(formValues[key]), {
             useLightness: false,
             h: 0, s: 0,
-            lMin: 100, lMax: 5,
+            lMin: 5, lMax: 100,
         })[key];
-        // Fix the palette order
-        pallete = fixPalleteOrder(pallete);
-        // Set Palette
-        hexShades[key] = pallete;
         // Generate RGB shades
         generateRgbaShades(key);
-    }
-
-    // TODO: report to library author, submit a fix as pull request
-    // Fix for palettey package incorrectly generating color order as `dark-light` instead of `light-dark`
-    function fixPalleteOrder(p: any,): any {
-        const fixedPallete = {};
-        const swatches: number[] = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
-        Object.values(p).reverse().forEach((hex: string, i: number) => {
-            fixedPallete[swatches[i]+''] = hex;
-        });
-        return fixedPallete;
     }
 
     // Generate a set of RGB shades from Hex shades
