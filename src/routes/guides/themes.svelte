@@ -31,15 +31,27 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Themes</h1>
-        <p>Skeleton themes integrate with Tailwind using <a href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank">CSS custom properties</a> converted RGB values. This enables the use of <a href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank">background opacity</a> as well as support for <a href="https://tailwindcss.com/docs/dark-mode" target="_blank">dark mode</a>. See the instructions below to get started.</p>
+        <p>Skeleton themes integrate with Tailwind using <a href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank">CSS custom properties</a> converted RGB values. This enables the use of <a href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank">background opacity</a> as well as support for <a href="https://tailwindcss.com/docs/dark-mode" target="_blank">dark mode</a>. Components intellegently implement the theme palette. Follow the instructions below to generate and implement a theme for your project.</p>
 	</header>
+
+    <Divider />
+
+    <!-- Presets -->
+    <section class="space-y-4">
+        <h2>Presets</h2>
+        <p>We've provided a handful of preset themes. To use these, copy the CSS, then follow the <strong>Save and Import</strong> instructions below.</p>
+        <ul class="list-inside list-disc">
+            <li><a href="https://github.com/Brain-Bones/skeleton/blob/master/src/theme-skeleton.css" target="_blank">Skeleton</a> - the default theme shown on this documentation website.</li>
+            <li><a href="https://github.com/Brain-Bones/skeleton/blob/master/src/theme-space.css" target="_blank">Space</a> - a fun and colorful theme on a neutral brackground.</li>
+        </ul>
+    </section>
 
     <Divider />
 
     <!-- Theme Generator Form -->
     <section class="space-y-4">
         <h2>Generator</h2>
-        <p>Use the form below to quickly and easly generate a custom theme. Each color you provide represents swatch 500 (ex: bg-primary-500).</p>
+        <p>Use the form below to generate a custom theme. Each provided color represents swatch 500 (ex: bg-primary-500).</p>
         <Card class="space-y-4">
             <header class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
                 <RadioGroup selected={storeLayout}>
@@ -54,7 +66,7 @@
             {#if $storeLayout === 'custom'}<ThemeGenCustom />{/if}
         </Card>
         <h4>Advanced Curation</h4>
-        <p>To curate or adjust your theme's palette, we recommend using either the <a href="https://tailwindcss.com/docs/customizing-colors" target="_blank">default Tailwind colors</a> or this <a href="https://tailwind.simeongriggs.dev/blue/3B82F6" target="_blank">Palette Generator</a>. Just make sure you convert from Hex -> RGB. The <a href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba" target="_blank">Hex-To-RGB VS Code extension</a> can be used to convert a set of colors in bulk when using multi-select.</p>
+        <p>To curate or adjust your theme's palette, we recommend this <a href="https://tailwind.simeongriggs.dev/blue/3B82F6" target="_blank">Palette Generator</a>. The <a href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba" target="_blank">Hex-To-RGB VS Code extension</a> can be used to convert colors from Hex -> RGB.</p>
     </section>
 
     <Divider />
@@ -62,7 +74,7 @@
     <!-- Import Theme -->
     <section class="space-y-4">
         <h3>Save and Import</h3>
-        <p>Save your theme to it's own file, such as <em>/src/theme.css</em>, then import this into your layout. For most projects, this can be handled within your default SvelteKit <em>__layout.svelte</em> component. Ensure your custom theme is imported before your global stylesheet.</p>
+        <p>Save your theme to it's own file, such as <em>/src/theme.css</em>, then import this into your layout. For SvelteKit projects this can be handled within the <em>__layout.svelte</em> component. Ensure your custom theme is imported before your global stylesheet as shown.</p>
         <CodeBlock language="typescript" code={`import '../theme.css';\nimport '../app.css';`}></CodeBlock>
     </section>
 

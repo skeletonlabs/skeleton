@@ -1,7 +1,6 @@
 <script lang="ts">
     import { tailwindColors } from "./colors";
 
-    import Card from "$lib/Card/Card.svelte";
     import Swatches from "./Swatches.svelte";
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
 
@@ -34,7 +33,7 @@
         Object.entries(rgbShades).forEach((set: any, i: number) => {
             const [colorName, shades] = set;
             // Add Comment Row
-            css += `${i === 0 ? `\t/* --- Theme --- */\n` : '\n'}\t/* ${colorName} (${formValues[colorName]}) */`;
+            css += `${i === 0 ? `\t/* --- Tailwind Theme --- */\n` : '\n'}\t/* ${colorName} (${formValues[colorName]}) */`;
             // Per each entry, add custom property key/value row
             Object.entries(shades).forEach((shade) => {
                 const [shadeKey, shadeValue] = shade;

@@ -66,7 +66,7 @@
         Object.entries(rgbShades).forEach((set: any, i: number) => {
             const [colorName, shades] = set;
             // Add Comment Row
-            css += `${i === 0 ? `\t/* --- Theme --- */\n` : '\n'}\t/* ${colorName} (${formValues[colorName]}) */`;
+            css += `${i === 0 ? `\t/* --- Custom Theme --- */\n` : '\n'}\t/* ${colorName} (${formValues[colorName]}) */`;
             // Per each entry, add custom property key/value row
             Object.entries(shades).forEach((shade) => {
                 const [shadeKey, shadeValue] = shade;

@@ -2,8 +2,6 @@
     export let palette: string;
     const labels: number[] = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
     function objValuesToArry(obj: any): any[] { return Object.values(obj); }
-
-    console.log(palette);
 </script>
 
 <div class="mt-2 grid grid-cols-10 gap-1">
