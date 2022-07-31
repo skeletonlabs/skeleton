@@ -1,10 +1,18 @@
 <script lang="ts">
+    import { writable, type Writable } from "svelte/store";
+
     import Card from "$lib/Card/Card.svelte";
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
     import DataTable from "$lib/Table/DataTable.svelte";
     import Button from "$lib/Button/Button.svelte";
     import Divider from "$lib/Divider/Divider.svelte";
-    import ThemeGenerator from "$lib/ThemeGenerator/ThemeGenerator.svelte";
+    import RadioGroup from "$lib/Radio/RadioGroup.svelte";
+    import RadioItem from "$lib/Radio/RadioItem.svelte";
+    import ThemeGenTailwind from "$lib/ThemeGenerator/ThemeGenTailwind.svelte";
+    import ThemeGenCustom from "$lib/ThemeGenerator/ThemeGenCustom.svelte";
+
+    // Stores
+    const storeLayout: Writable<string> = writable('tailwind');
 
     // Tables
     const tableProps: any = {
@@ -32,9 +40,21 @@
     <section class="space-y-4">
         <h2>Generator</h2>
         <p>Use the form below to quickly and easly generate a custom theme. Each color you provide represents swatch 500 (ex: bg-primary-500).</p>
-        <ThemeGenerator />
+        <Card class="space-y-4">
+            <header class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+                <RadioGroup selected={storeLayout}>
+                    <RadioItem value="tailwind">Tailwind</RadioItem>
+                    <RadioItem value="custom">Custom</RadioItem>
+                </RadioGroup>
+                {#if $storeLayout === 'tailwind'}<p>Create a theme using Tailwind's curated color palette. Recommended for best results. </p>{/if}
+                {#if $storeLayout === 'custom'}<p>Create a theme using custom hex colors. Recommended for advance users only.</p>{/if}
+            </header>
+            <Divider />
+            {#if $storeLayout === 'tailwind'}<ThemeGenTailwind />{/if}
+            {#if $storeLayout === 'custom'}<ThemeGenCustom />{/if}
+        </Card>
         <h4>Advanced Curation</h4>
-        <p>If you would like additional control when curating your theme's color palette, we recommend using either the <a href="https://tailwindcss.com/docs/customizing-colors" target="_blank">default Tailwind colors</a> or this <a href="https://tailwind.simeongriggs.dev/blue/3B82F6" target="_blank">Palette Generator</a>. Just make sure you convert from Hex -> RGB. The <a href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba" target="_blank">Hex-To-RGB VS Code extension</a> can be used to convert a set of colors in bulk when using multi-select.</p>
+        <p>To curate or adjust your theme's palette, we recommend using either the <a href="https://tailwindcss.com/docs/customizing-colors" target="_blank">default Tailwind colors</a> or this <a href="https://tailwind.simeongriggs.dev/blue/3B82F6" target="_blank">Palette Generator</a>. Just make sure you convert from Hex -> RGB. The <a href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba" target="_blank">Hex-To-RGB VS Code extension</a> can be used to convert a set of colors in bulk when using multi-select.</p>
     </section>
 
     <Divider />
