@@ -16,7 +16,7 @@
 	
 	// Import CSS
 	import 'highlight.js/styles/github-dark.css'; // Highlight.js
-	import '../theme-skeleton.css'; // skeleton|space|test
+	import '../themes/theme-skeleton.css'; // skeleton|rocket|modern|seafoam|vintage|sahara|test
 	import '../app.css';
 
 	const currentPageStore: Writable<string> = writable($page.url.pathname);

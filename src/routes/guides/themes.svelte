@@ -14,6 +14,17 @@
     // Stores
     const storeLayout: Writable<string> = writable('tailwind');
 
+    // Presets
+    const presetUrl: string = 'https://github.com/Brain-Bones/skeleton/blob/master/src/themes';
+    const presets: any[] = [
+        { name: 'Skeleton', colors: ['#10b981', '#6366f1', '#f43f5e'], surface: '#111827', url: `${presetUrl}/theme-skeleton.css` },
+        { name: 'Rocket', colors: ['#06b6d4', '#3b82f6', '#ec4899'], surface: '#3c4553', url: `${presetUrl}/theme-rocket.css` },
+        { name: 'Vintage', colors: ['#f59e0b', '#22c55e', '#ef4444'], surface: '#1c1917', url: `${presetUrl}/theme-vintage.css` },
+        { name: 'Modern', colors: ['#ec4899', '#06b6d4', '#eab308'], surface: '#312e81', url: `${presetUrl}/theme-modern.css` },
+        { name: 'Sahara', colors: ['#facc15', '#fb923c', '#14b8a6'], surface: '#881337', url: `${presetUrl}/theme-sahara.css` },
+        { name: 'Seafoam', colors: ['#14b8a6', '#8b5cf6', '#f59e0b'], surface: '#0c4a6e', url: `${presetUrl}/theme-seafoam.css` },
+    ];
+
     // Tables
     const tableProps: any = {
         headings: ['Name', 'Class', 'Description'],
@@ -31,7 +42,7 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Themes</h1>
-        <p>Skeleton themes integrate with Tailwind using <a href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank">CSS custom properties</a> converted RGB values. This enables the use of <a href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank">background opacity</a> as well as support for <a href="https://tailwindcss.com/docs/dark-mode" target="_blank">dark mode</a>. Components intellegently implement the theme palette. Follow the instructions below to generate and implement a theme for your project.</p>
+        <p>Skeleton themes integrate with Tailwind using <a href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank">CSS custom properties</a> converted RGB values. This enables the use of <a href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank">background opacity</a> as well as support for <a href="https://tailwindcss.com/docs/dark-mode" target="_blank">dark mode</a>. Components intellegently implement each color from the theme's palette. Follow the instruction below to get started.</p>
 	</header>
 
     <Divider />
@@ -39,11 +50,19 @@
     <!-- Presets -->
     <section class="space-y-4">
         <h2>Presets</h2>
-        <p>We've provided a handful of preset themes. To use these, copy the CSS, then follow the <strong>Save and Import</strong> instructions below.</p>
-        <ul class="list-inside list-disc">
-            <li><a href="https://github.com/Brain-Bones/skeleton/blob/master/src/theme-skeleton.css" target="_blank">Skeleton</a> - the default theme shown on this documentation website.</li>
-            <li><a href="https://github.com/Brain-Bones/skeleton/blob/master/src/theme-space.css" target="_blank">Space</a> - a fun and colorful theme on a neutral brackground.</li>
-        </ul>
+        <p>A handful of curated themes are available. Select a theme, copy the CSS, then follow the <strong>Save and Import</strong> instructions below.</p>
+        <nav class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {#each presets as preset}
+            <a href={preset.url} class="theme-set" style:background={preset.surface} target="_blank">
+                <span>{preset.name}</span>
+                <ul class="grid grid-cols-3 gap-2">
+                    {#each preset.colors as color}
+                    <li class="aspect-square w-4 rounded-full" style:background={color}></li>
+                    {/each}
+                </ul>
+            </a>
+            {/each}
+        </nav>
     </section>
 
     <Divider />
@@ -51,22 +70,21 @@
     <!-- Theme Generator Form -->
     <section class="space-y-4">
         <h2>Generator</h2>
-        <p>Use the form below to generate a custom theme. Each provided color represents swatch 500 (ex: bg-primary-500).</p>
-        <Card class="space-y-4">
+        <p>To create your own theme, use the form below. Each color represents swatch 500 (ex: bg-primary-500).</p>
+        <Card class="!bg-neutral-800 space-y-4">
             <header class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
                 <RadioGroup selected={storeLayout}>
                     <RadioItem value="tailwind">Tailwind</RadioItem>
                     <RadioItem value="custom">Custom</RadioItem>
                 </RadioGroup>
-                {#if $storeLayout === 'tailwind'}<p>Create a theme using Tailwind's curated color palette. Recommended for best results. </p>{/if}
-                {#if $storeLayout === 'custom'}<p>Create a theme using custom hex colors. Recommended for advance users only.</p>{/if}
+                {#if $storeLayout === 'tailwind'}<p>Create a theme using <a href="https://tailwindcss.com/docs/customizing-colors" target="_blank">Tailwind's color palette</a>. This typically provides the best results.</p>{/if}
+                {#if $storeLayout === 'custom'}<p>For advanced users, enter any arbitrary hex color values to generate a unique theme.</p>{/if}
             </header>
             <Divider />
             {#if $storeLayout === 'tailwind'}<ThemeGenTailwind />{/if}
             {#if $storeLayout === 'custom'}<ThemeGenCustom />{/if}
         </Card>
-        <h4>Advanced Curation</h4>
-        <p>To curate or adjust your theme's palette, we recommend this <a href="https://tailwind.simeongriggs.dev/blue/3B82F6" target="_blank">Palette Generator</a>. The <a href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba" target="_blank">Hex-To-RGB VS Code extension</a> can be used to convert colors from Hex -> RGB.</p>
+        <p>To fully curate or refine a theme's palette, we recommend using <a href="https://tailwind.simeongriggs.dev/blue/3B82F6" target="_blank">Palette Generator</a>. The <a href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba" target="_blank">Hex-To-RGB VS Code extension</a> can convert colors from Hex &rarr; RGB in bulk.</p>
     </section>
 
     <Divider />
@@ -110,3 +128,9 @@
     </Card>
 
 </div>
+
+<style lang="postcss">
+    .theme-set {
+        @apply p-4 !no-underline !text-white flex justify-between items-center border border-white/10 hover:border-white/50 rounded shadow;
+    }
+</style>
