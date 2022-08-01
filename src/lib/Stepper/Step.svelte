@@ -17,7 +17,7 @@
     export let background: string = getContext('background');
 
     // Base Classes
-    const cStep: string = 'flex space-x-8';
+    const cStep: string = 'flex space-x-4';
     const cTimeline: string = 'text-center';
     const cTimelineCircle: string = 'font-bold w-8 aspect-square flex justify-center items-center rounded-full';
     const cTimelineBar: string = 'h-full w-1 mx-auto';
@@ -66,9 +66,9 @@
         <!-- Navigation -->
         {#if index === $active}
         <nav class="navigation {cNav}">
-            <Button variant="ring" on:click={stepPrev} disabled={index === 0}>Go Back</Button>
+            <Button variant="ring" on:click={stepPrev} disabled={index === 0}>Back</Button>
             {#if ($active+1) < length}
-            <Button variant="filled" on:click={stepNext} {disabled}>Next Step &darr;</Button>
+            <Button variant="filled" on:click={stepNext} {disabled}>Next &darr;</Button>
             {:else}
             <Button variant="filled-primary" on:click={onComplete} {disabled}>Complete</Button>
             {/if}
