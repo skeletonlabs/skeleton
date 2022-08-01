@@ -11,7 +11,7 @@
     const href: any = $$props.href ? `href="${$$props.href}"` : undefined;
 
     // Base Classes
-    const cBaseLogo: string = 'flex-auto text-center py-10 space-x-4 !text-black dark:!text-white !no-underline';
+    const cBaseLogo: string = 'flex-auto text-center py-10 space-x-4 hover:brightness-110';
 
     // Reactive Classes
     $: classesLogo = `${cBaseLogo} ${background} ${color} ${text}`;
