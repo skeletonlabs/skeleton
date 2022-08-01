@@ -117,6 +117,7 @@
 
 	<!-- Drawer -->
 	<Drawer visible={drawer} fixed="left">
+
 		<!-- Header -->
 		<svelte:fragment slot="header">
 			<div class="flex justify-between items-center p-4">
@@ -132,11 +133,9 @@
 			</div>
 			<Divider />
 		</svelte:fragment>
+
 		<!-- Main -->
 		<svelte:fragment slot="main">
-			<!-- Search -->
-			<!-- <label class="p-4 pb-0"><input type="search" placeholder="Search..." bind:value={searchTerm} /></label> -->
-			<!-- Navigation -->
 			<div class="space-y-6 mb-10">
 			{#each navigation as {title,list}, i }
 				<p class="text-sm text-primary-500 m-4">{title}</p>
@@ -154,6 +153,7 @@
 			{/each}
 			</div>
 		</svelte:fragment>
+
 		<!-- Footer -->
 		<svelte:fragment slot="footer">
 			<Divider class="opacity-30" />
@@ -162,30 +162,31 @@
 				<a href="https://github.com/Brain-Bones/skeleton/blob/master/LICENSE" target="_blank" class="opacity-50">MIT License</a>
 			</div>
 		</svelte:fragment>
+
 	</Drawer>
 
     <!-- Main -->
-    <main id="main" class="w-screen h-screen overflow-y-auto p-8">
+    <main id="main" class="w-screen h-screen overflow-y-auto">
 
-		<div class="container mx-auto">
-
+		<header class="lg:hidden flex p-8 space-x-4">
+			
 			<!-- Hamburger Menu -->
-			<header class="lg:hidden flex items-center mb-8 space-x-4">
-				<Button variant="minimal" on:click={drawerOpen}>
-					<svelte:fragment slot="lead">
-						<svg class="fill-black dark:fill-white" viewBox="0 0 100 60" width="24" height="24">
-							<rect width="100" height="10"></rect>
-							<rect y="30" width="100" height="10"></rect>
-							<rect y="60" width="100" height="10"></rect>
-						</svg>
-					</svelte:fragment>
-					<span>Menu</span>
-				</Button>
-			</header>
+			<Button variant="minimal" on:click={drawerOpen}>
+				<svelte:fragment slot="lead">
+					<svg class="fill-surface-500 -translate-y-[2px]" viewBox="0 0 100 60" width="24" height="24">
+						<rect width="100" height="10"></rect>
+						<rect y="30" width="100" height="10"></rect>
+						<rect y="60" width="100" height="10"></rect>
+					</svg>
+				</svelte:fragment>
+				<span class="text-surface-500 font-bold">Menu</span>
+			</Button>
 
-			<!-- Page Slot -->
+		</header>
+
+		<!-- Page Slot -->
+		<div class="container mx-auto p-8">
 			<slot />
-
 		</div>
 
     </main>

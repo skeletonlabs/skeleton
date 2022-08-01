@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body { @apply h-screen; }
+html, body { @apply h-screen overflow-hidden; }
 body { @apply font-sans bg-surface-100 dark:bg-surface-900 text-black dark:text-white; }
 
 .dark body {
