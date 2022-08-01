@@ -67,7 +67,7 @@
         <CodeBlock language="html" code={`{#if $$slots.lead}<slot name="lead" />{/if}`}></CodeBlock>
         <p>Use caution when inlining Tailwind classes that could clash with certain themes. Use a customizable property instead.</p>
         <CodeBlock language="html" code={`<!-- Avoid This -->\n<div class="bg-orange-500">Skeleton</div> /`}></CodeBlock>
-        <p>If you need to include all non-specified properties and attributes, use Svelte's $$restProps. Just be sure to resolve conflicts with $$props.class. This can typically be done by deleting the class key from the $$restProps. The function ensures this updates any time the component attributes change.</p>
+        <p>If you need to include miscellaneous attributes that were not defined as props, use Svelte's $$restProps. Be careful though, when this updates it tends to overwrite the element's <em>class</em> attribute. To avoid this, delete the <em>class</em> key from $$restProps. The function provided below can handle this on both init and after any form of attribute updates.</p>
         <CodeBlock language="js" code={`
 function prunedRestProps(): any {
     delete $$restProps.class;
