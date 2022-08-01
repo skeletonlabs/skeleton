@@ -99,30 +99,72 @@
     <!-- Examples -->
     <section class="space-y-4">
         <nav class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            <Card class="text-center space-y-4">
-                <h4>Alert</h4>
-                <nav class="flex justify-center space-x-4">
-                    <Button variant="ghost-primary" on:click={dialogAlertBasic}>Basic</Button>
-                    <Button variant="ghost-primary" on:click={dialogAlertIcon}>Icon</Button>
-                    <Button variant="ghost-primary" on:click={dialogAlertMultiple}>Multiple</Button>
-                </nav>
+            <Card class="grid grid-cols-1 gap-4">
+                <h4>Alerts</h4>
+                <div class="flex justify-between items-center space-x-4">
+                    <div>
+                        <h6>Basic</h6>
+                        <p>The simplest form of a dialog.</p>
+                    </div>
+                    <Button variant="ghost-primary" on:click={dialogAlertBasic}>Trigger</Button>
+                </div>
+                <div class="flex justify-between items-center space-x-4">
+                    <div>
+                        <h6>Icon</h6>
+                        <p>Shown with an optional icon.</p>
+                    </div>
+                    <Button variant="ghost-primary" on:click={dialogAlertIcon}>Trigger</Button>
+                </div>
+                <div class="flex justify-between items-center space-x-4">
+                    <div>
+                        <h6>Multiple</h6>
+                        <p>Queues a set of three dialogs.</p>
+                    </div>
+                    <Button variant="ghost-primary" on:click={dialogAlertMultiple}>Trigger</Button>
+                </div>
             </Card>
-            <Card class="text-center space-y-4">
+            <Card class="grid grid-cols-1 gap-4">
                 <h4>Embeds</h4>
-                <nav class="flex justify-center space-x-4">
-                    <Button variant="ghost-primary" on:click={dialogImage}>Image</Button>
-                    <Button variant="ghost-primary" on:click={dialogHtml}>HTML</Button>
-                    <Button variant="ghost-primary" on:click={dialogComponent}>Component</Button>
-                </nav>
+                <div class="flex justify-between items-center space-x-4">
+                    <div>
+                        <h6>Image</h6>
+                        <p>Includes an embedded image.</p>
+                    </div>
+                    <Button variant="ghost-primary" on:click={dialogImage}>Trigger</Button>
+                </div>
+                <div class="flex justify-between items-center space-x-4">
+                    <div>
+                        <h6>HTML</h6>
+                        <p>Displays embedded an styled HTML markup.</p>
+                    </div>
+                    <Button variant="ghost-primary" on:click={dialogHtml}>Trigger</Button>
+                </div>
+                <div class="flex justify-between items-center space-x-4">
+                    <div>
+                        <h6>Component</h6>
+                        <p>Embeds and entire component.</p>
+                    </div>
+                    <Button variant="ghost-primary" on:click={dialogComponent}>Trigger</Button>
+                </div>
             </Card>
-            <Card class="text-center space-y-4">
-                <h4>Confirm</h4>
-                <Button variant="ghost-primary" on:click={dialogConfirm}>Trigger Confirm</Button>
+            <Card>
+                <div class="flex justify-between items-center space-x-4">
+                    <div class="space-y-2">
+                        <h4>Confirm</h4>
+                        <p>Dialog with confirm options. Response shown below.</p>
+                    </div>
+                    <Button variant="ghost-primary" on:click={dialogConfirm}>Trigger</Button>
+                </div>
                 <pre>Response: {JSON.stringify(valueConfirm, null, 2)}</pre>
             </Card>
-            <Card class="text-center space-y-4">
-                <h4>Prompt</h4>
-                <Button variant="ghost-primary" on:click={dialogPrompt}>Trigger Prompt</Button>
+            <Card class="space-y-4">
+                <div class="flex justify-between items-center space-x-4">
+                    <div class="space-y-2">
+                        <h4>Prompt</h4>
+                        <p>Prompts the user to input a value. Response shown below.</p>
+                    </div>
+                    <Button variant="ghost-primary" on:click={dialogPrompt}>Trigger</Button>
+                </div>
                 <pre>Response: {JSON.stringify(valuePrompt, null, 2)}</pre>
             </Card>
         </nav>
