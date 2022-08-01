@@ -1,5 +1,5 @@
-[![npm version](https://img.shields.io/npm/v/@brainandbones/skeleton?logo=npm)](https://www.npmjs.com/package/@brainandbones/skeleton)
-[![Chat](https://img.shields.io/discord/1003691521280856084?label=chat&logo=discord)](https://discord.gg/SdysnXcB)
+[![npm version](https://img.shields.io/npm/v/@brainandbones/skeleton?logo=npm&color=cb3837)](https://www.npmjs.com/package/@brainandbones/skeleton)
+[![Chat](https://img.shields.io/discord/1003691521280856084?label=chat&logo=discord&color=7289da)](https://discord.gg/SdysnXcB)
 [![Twitter Follow](https://img.shields.io/twitter/follow/SkeletonUI?style=social)](https://twitter.com/SkeletonUI)
 [![license](https://img.shields.io/badge/license-MIT-%23bada55)](https://github.com/Brain-Bones/skeleton/blob/master/LICENSE)
 
@@ -7,9 +7,13 @@
 
 https://skeleton.brainandbonesllc.com/
 
-A fully featured UI component library for use with Svelte + Tailwind. Created by [Brain & Bones, LLC](https://www.brainandbonesllc.com/). The primary maintainers include [Chris Simmons](https://github.com/endigo9740) and [Thomas Jespersen](https://github.com/thomasbjespersen).
+A fully featured Svelte UI component library. Skeleton allows you to build fast and responsive web interfaces using Svelte + Tailwind.
 
-## Links
+## Sponsors & Donation
+
+> (coming soon...)
+
+## Useful Links
 
 - [Documentation](https://skeleton.brainandbonesllc.com/)
 - [Contribution Guide](https://skeleton.brainandbonesllc.com/docs/contributions)
@@ -20,11 +24,13 @@ A fully featured UI component library for use with Svelte + Tailwind. Created by
 - [Join the Discord](https://discord.gg/SdysnXcB)
 - [Follow on Twitter](https://twitter.com/SkeletonUI)
 
-## Contributors
+## Developement
 
-### Get Started
+### Contributions
 
-> Ensure you've read the [contribution guide](https://skeleton.brainandbonesllc.com/docs/contributions) before you proceed.
+Ensure you've read the [contribution guide](https://skeleton.brainandbonesllc.com/docs/contributions) before you proceed. Pull requests are highly encouraged. [Pick an open issue](https://github.com/Brain-Bones/skeleton/issues) and help us out!
+
+### Install
 
 * Clone the Skeleton project to your local machine.
 * Install depedencies with `npm install`
@@ -49,3 +55,12 @@ Use the following command to run the Vitest:
 ```bash
 npm run test
 ```
+
+## Core Maintainers
+
+* [Chris Simmons](https://github.com/endigo9740)
+* [Thomas Jespersen](https://github.com/thomasbjespersen)
+
+---
+
+Created by [Brain & Bones, LLC](https://www.brainandbonesllc.com/).
