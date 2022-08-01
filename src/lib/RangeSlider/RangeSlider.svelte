@@ -25,8 +25,11 @@
     // Reactive Classes
     $: classesInput = `${cBaseInput} ${accent}`;
 
-    // Prevents conflict with $$props.class
-    delete $$restProps.class;
+    // Prune $$restProps to avoid overwriting $$props.class
+    function prunedRestProps(): any {
+        delete $$restProps.class;
+        return $$restProps;
+    }
 </script>
 
 <label for={id} class="range-slider {$$props.class}" data-testid="range-slider">
@@ -52,7 +55,7 @@
                 on:click 
                 on:change
                 on:blur
-                {...$$restProps} 
+                {...prunedRestProps()}
             >
 
             <!-- Tickmarks -->

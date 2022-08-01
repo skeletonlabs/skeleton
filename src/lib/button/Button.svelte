@@ -82,14 +82,19 @@
     afterUpdate(() => {
         setSize();
         setVariant();
+
+        console.log('change');
     });
 
     // Reactive Classes
     $: cDisabled = $$props.disabled ? '!opacity-30 !cursor-not-allowed' : 'hover:brightness-90 transition-transform active:scale-95';
     $: classesButton = `${cBaseButton} ${cSize} ${background} ${color} ${fill} ${ring} ${weight} ${width} ${rounded} ${cDisabled}`;
-
-    // Prevents conflict with $$props.class
-    delete $$restProps.class;
+    
+    // Prune $$restProps to avoid overwriting $$props.class
+    function prunedRestProps(): any {
+        delete $$restProps.class;
+        return $$restProps;
+    }
 </script>
 
 <svelte:element
@@ -98,8 +103,9 @@
     {href}
     data-testid="comp-button"
     on:click
-    {...$$restProps}
+    {...prunedRestProps()}
 >
+    <!-- {...$$restProps} -->
     {#if $$slots.lead}<span><slot name="lead"></slot></span>{/if}
     <span><slot /></span>
     {#if $$slots.trail}<span><slot name="trail"></slot></span>{/if}
