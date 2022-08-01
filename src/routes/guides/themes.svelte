@@ -120,10 +120,8 @@
     <Divider />
 
     <!-- Next Steps -->
-    <Card class="flex justify-between items-center space-x-4 space-y-0">
-        <div class="flex-1 space-y-4">
-            <p>Next, let's review best practices for adding global and per component styles.</p>
-        </div>
+    <Card class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+        <p>Next, let's review best practices for adding global and per component styles.</p>
         <Button variant="filled-accent" href="/guides/styling">Add Styling</Button>
     </Card>
 

@@ -118,10 +118,8 @@ input::placeholder, textarea::placeholder { @apply text-surface-400; }
     <Divider />
 
     <!-- Next Steps -->
-    <Card class="flex justify-between items-center space-x-4 space-y-0">
-        <div class="flex-1 space-y-4">
-            <p>Finally, let's follow the documentation to add our first component.</p>
-        </div>
+    <Card class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+        <p>Finally, let's add our first component.</p>
         <Button variant="filled-accent" href="/components/buttons">Add a Component</Button>
     </Card>
 

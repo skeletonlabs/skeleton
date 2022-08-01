@@ -74,8 +74,8 @@ module.exports = {
     <Divider />
 
     <!-- Next Steps -->
-    <Card class="flex justify-between items-center space-x-4 space-y-0">
-        <p>Next, let's follow the guide for creating a custom theme.</p>
+    <Card class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+        <p>Next, let's setup our theme.</p>
         <Button variant="filled-accent" href="/guides/themes">Create a Theme</Button>
     </Card>
 
