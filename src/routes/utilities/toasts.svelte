@@ -5,15 +5,15 @@
     import Divider from '$lib/Divider/Divider.svelte';
     import DataTable from "$lib/Table/DataTable.svelte";
 
-    import { toastStore, type Toast } from '$lib/Notifications/Stores';
+    import { toastStore, type ToastMessage } from '$lib/Notifications/Stores';
 
     // Trigger Examples
     function toastBasic(): void {
-        const t: Toast = {message: 'Hello and welcome to Skeleton.'};
+        const t: ToastMessage = {message: 'Hello and welcome to Skeleton.'};
         toastStore.trigger(t);
     }
     function toastLong(): void {
-        const t: Toast = {
+        const t: ToastMessage = {
             message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio consequuntur, blanditiis ducimus perspiciatis minima odit repellat rem iste incidunt laborum amet culpa officia maiores eum qui asperiores.',
             autohide: false
         };
@@ -25,7 +25,7 @@
         toastStore.trigger({message: 'Message will last 2 second.', timeout: 2000});
     }
     function toastAction(): void {
-        const t: Toast = {
+        const t: ToastMessage = {
             message: 'Message contains a unique action.',
             autohide: false,
             button: { label: 'Greeting', action: () => { alert('Hello, Skeleton'); }}
@@ -102,10 +102,10 @@
     <!-- Toast Settings -->
     <section class="space-y-4">
         <h2>Toast Settings</h2>
-        <CodeBlock language="typescript" code={`import { type Toast } from '@brainandbones/skeleton';`}></CodeBlock>
+        <CodeBlock language="typescript" code={`import { type ToastMessage } from '@brainandbones/skeleton';`}></CodeBlock>
         <p>Several settings are available to a toast. These allow you to set the message, enabled/disabled auto-hide, set the autohide timeout. As well as provide an extra action button.</p>
         <CodeBlock language="typescript" code={`
-const t: Toast = {
+const t: ToastMessage = {
     message: 'Your Message Here',
     // Optional:
     autohide: true, 

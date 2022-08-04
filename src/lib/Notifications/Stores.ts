@@ -45,7 +45,7 @@ export const dialogStore: any = dialogService();
 
 // Toasts ---
 
-export interface Toast {
+export interface ToastMessage {
     message: string;
     autohide?: boolean,
     timeout?: number;
