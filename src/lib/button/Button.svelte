@@ -82,8 +82,6 @@
     afterUpdate(() => {
         setSize();
         setVariant();
-
-        console.log('change');
     });
 
     // Reactive Classes

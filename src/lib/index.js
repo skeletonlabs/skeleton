@@ -48,7 +48,7 @@ export { default as Summer84 } from "./Filters/svg/Summer84.svelte";
 export { default as XPro } from "./Filters/svg/XPro.svelte";
 
 // Notifications
-export { DialogAlert, DialogConfirm, DialogPrompt, dialogStore } from "./Notifications/Stores";
+export { dialogStore } from "./Notifications/Stores";
 export { default as Dialog } from "./Notifications/Dialog.svelte";
-export { ToastMessage, toastStore } from "./Notifications/Stores";
+export { toastStore } from "./Notifications/Stores";
 export { default as Toast } from "./Notifications/Toast.svelte";
