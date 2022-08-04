@@ -50,7 +50,7 @@
     <!-- Presets -->
     <section class="space-y-4">
         <h2>Presets</h2>
-        <p>A handful of curated themes are available. Select a theme, copy the CSS, then follow the <strong>Save and Import</strong> instructions below.</p>
+        <p>A handful of curated themes are available. Select a theme, copy the CSS, then follow the <em>Save and Import</em> instructions below.</p>
         <nav class="grid grid-cols-1 md:grid-cols-3 gap-4">
             {#each presets as preset}
             <a href={preset.url} class="theme-set" style:background={preset.surface} target="_blank">
@@ -92,7 +92,7 @@
     <!-- Import Theme -->
     <section class="space-y-4">
         <h3>Save and Import</h3>
-        <p>Save your theme to it's own file, such as <em>/src/theme.css</em>, then import this into your layout. For SvelteKit projects this can be handled within the <em>__layout.svelte</em> component. Ensure your custom theme is imported before your global stylesheet as shown.</p>
+        <p>Save your theme to it's own file, such as <code>/src/theme.css</code>, then import this into your layout. For SvelteKit projects this can be handled within the <code>__layout.svelte</code> component. Ensure your custom theme is imported before your global stylesheet as shown.</p>
         <CodeBlock language="typescript" code={`import '../theme.css';\nimport '../app.css';`}></CodeBlock>
     </section>
 

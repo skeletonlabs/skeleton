@@ -69,7 +69,7 @@
 	<section class="space-y-4">
 		<h2>Usage</h2>
         <h4>Import Filter Components</h4>
-        <p>Add within scope of your filtered element. For global access, add to your root <strong>__layout.svelte</strong> component.</p>
+        <p>Add within scope of your filtered element. For global access, add to your root <code>__layout.svelte</code> component.</p>
 		<CodeBlock language="javascript" code={`import { Emerald, BlueNight, /* ... */  } from '@brainandbones/skeleton';`} />
 		<CodeBlock language="html" code={`<BlueNight />`} />
         <h4>Use Filter Action</h4>

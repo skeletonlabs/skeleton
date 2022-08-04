@@ -30,7 +30,7 @@
         </Card>
         <p>Install the plugin via NPM or similar package manager.</p>
         <CodeBlock language="console" code={`npm install -D @tailwindcss/forms`}></CodeBlock>
-        <p>Add the <a href="https://tailwindcss.com/docs/plugins" target="_blank">plugin</a> to your <em>tailwind.config.cjs</em></p>
+        <p>Add the <a href="https://tailwindcss.com/docs/plugins" target="_blank">plugin</a> to your <code>tailwind.config.cjs</code></p>
         <CodeBlock language="js" code={`
 module.exports = {
     // ...
@@ -40,7 +40,7 @@ module.exports = {
     ],
 }
         `.trim()}></CodeBlock>
-        <p>Implement any style overrides within your global <em>app.css</em>. Feel free to use the styles below as a starting point. These take advantage of your theme colors.</p>
+        <p>Implement any style overrides within your global <code>app.css</code>. Feel free to use the styles below as a starting point. These take advantage of your theme colors.</p>
         <CodeBlock language="css" code={`
 fieldset { @apply block; }
 
@@ -87,7 +87,7 @@ input::placeholder, textarea::placeholder { @apply text-surface-400; }
 /* Accent Color - https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color */
 [type="range"]:not(.range-input) { @apply w-full accent-accent-500; }
         `.trim()}></CodeBlock>
-        <p>Finally, implement your form elements using standard markup and Svelte directives. Note the examples below use a <em>span</em> element for label text.</p>
+        <p>Finally, implement your form elements using standard markup and Svelte directives. Note the examples below use a <code>&lt;span&gt;</code> element for label text.</p>
         <CodeBlock language="html" code={`
 <label for="name">
     <span>Name</span>

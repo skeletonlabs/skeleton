@@ -32,14 +32,14 @@
     <!-- Per Component Styles -->
     <section class="space-y-4">
         <h2>Per Component Styles</h2>
-        <p>Skeleton components are automatically inherit and utlize each theme color value. However, there may be cases where you want to overwrite or extend the styling on a single component. To do this, simply add a <em>class</em> attribute to any component. You can then apply any valid CSS or Tailwind class as expected.</p>
+        <p>Skeleton components are automatically inherit and utlize each theme color value. However, there may be cases where you want to overwrite or extend the styling on a single component. To do this, simply add a <code>class</code> attribute to any component. You can then apply any valid CSS or Tailwind class as expected.</p>
         <CodeBlock language="html" code={`
 <Button variant="filled-primary">Standard</Button>
 <Button variant="filled-primary" class="text-3xl px-10 py-5">Big</Button>
         `.trim()}></CodeBlock>
-        <p>When overwriting inherit styles, you may need to mark the styles as <em>!important</em>. Tailwind uses a leading exclamation mark to handle this.</p>
+        <p>When overwriting inherit styles, you may need to mark the styles as <code>!important</code>. Tailwind uses a leading exclamation mark to handle this.</p>
         <CodeBlock language="html" code={`<Button class="!p-10">Big</Button>`}></CodeBlock>
-        <p>Keep in mind that components are a single line HTML element and represent and contain a set of HTML elements within. This means you should be mindful of your target, as the <em>class</em> attribute is only applied to the top-most parent element. In rare cases you may need to generate a chained class definition, though we recommend using this technique sparingly.</p>
+        <p>Keep in mind that components are a single line HTML element and represent and contain a set of HTML elements within. This means you should be mindful of your target, as the <code>class</code> attribute is only applied to the top-most parent element. In rare cases you may need to generate a chained class definition, though we recommend using this technique sparingly.</p>
         <CodeBlock language="css" code={`.my-custom-class .menu-content { @apply bg-red-500; }`}></CodeBlock>
         <CodeBlock language="html" code={`<Menu class="my-custom-class">...</Menu>`}></CodeBlock>
     </section>

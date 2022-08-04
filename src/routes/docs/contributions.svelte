@@ -20,10 +20,10 @@
         <h4>Branch Naming Conventions</h4>
         <ul class="list-disc list-inside">
             <li>Branch names should be short and semantic.</li>
-            <li>Documentation updates should be prefixed as <strong>docs/*</strong></li>
-            <li>New features and components should be prefixed as <strong>feat/*</strong></li>
-            <li>Bugfixes should be prefixed as <strong>bugfix/*</strong></li>
-            <li>New or improved test cases should be prefixed as <strong>tests/*</strong></li>
+            <li>Documentation updates should be prefixed as <code>docs/*</code></li>
+            <li>New features and components should be prefixed as <code>feat/*</code></li>
+            <li>Bugfixes should be prefixed as <code>bugfix/*</code></li>
+            <li>New or improved test cases should be prefixed as <code>tests/*</code></li>
         </ul>
     </section>
 
@@ -42,16 +42,16 @@
         <h2>Structure and Conventions</h2>
         <h4>Project Structure</h4>
         <ul class="list-disc list-inside">
-            <li><strong>/lib</strong> - houses all functional components, actions, and other utilities.</li>
-            <li><strong>/routes</strong> - the public facing documentation site.</li>
+            <li><code>/lib</code> - houses all functional components, actions, and other utilities.</li>
+            <li><code>/routes</code> - the public facing documentation site.</li>
         </ul>
         <h4>Naming Conventions</h4>
         <ul class="list-disc list-inside">
-            <li>Components should be wrapped in a matching directory. This should be singular and camel-case (ex: /LightSwitch/...)</li>
-            <li>Components should have a singular and camel-case filename (ex: .../LightSwitch.svelte)</li>
-            <li>Component tests should match the component naming convention, suffixed with '*.test.ts` (ex: LightSwitch.test.ts)</li>
-            <li>Documentation pages should be plural, all lowercase, and seperated by dashes (ex: /routes/components/radio-groups.svelte)</li>
-            <li>Documentation nav links should match the routing convention, with the plural form of the component (ex: Radio Groups)</li>
+            <li>Components should be wrapped in a matching directory. This should be singular and camel-case (ex: <code>/LightSwitch/...</code>)</li>
+            <li>Components should have a singular and camel-case filename (ex: <code>.../LightSwitch.svelte</code>)</li>
+            <li>Component tests should match the component naming convention, suffixed with <code>'*.test.ts`</code> (ex: <code>LightSwitch.test.ts</code>)</li>
+            <li>Documentation pages should be plural, all lowercase, and seperated by dashes (ex: <code>/routes/components/radio-groups.svelte</code>)</li>
+            <li>Documentation nav links should match the routing convention, with the plural form of the component (ex: <code>Radio Groups</code>)</li>
         </ul>
         <!-- <CodeBlock language="js" code={`...`}></CodeBlock> -->
     </section>
@@ -63,11 +63,11 @@
         <h2>Component Markup</h2>
         <p>Ensure any relevant events bubble via <a href="https://svelte.dev/tutorial/dom-event-forwarding" target="_blank">event forwarding</a>.</p>
         <CodeBlock language="html" code={`<button on:click on:mouseover>Skeleton</button>`}></CodeBlock>
-        <p>Follow conventions set by existing components when naming slots. These should be short, semantic, and agnostic. Avoid names that are too specific, such as "icon".</p>
+        <p>Follow conventions set by existing components when naming slots. These should be short, semantic, and agnostic. Avoid names that are too specific, such as <code>name="icon"</code>.</p>
         <CodeBlock language="html" code={`{#if $$slots.lead}<slot name="lead" />{/if}`}></CodeBlock>
         <p>Use caution when inlining Tailwind classes that could clash with certain themes. Use a customizable property instead.</p>
         <CodeBlock language="html" code={`<!-- Avoid This -->\n<div class="bg-orange-500">Skeleton</div> /`}></CodeBlock>
-        <p>If you need to include miscellaneous attributes that were not defined as props, use Svelte's $$restProps. Be careful though, when this updates it tends to overwrite the element's <em>class</em> attribute. To avoid this, delete the <em>class</em> key from $$restProps. The function provided below can handle this on both init and after any form of attribute updates.</p>
+        <p>If you need to include miscellaneous attributes that were not defined as props, use Svelte's <code>$$restProps</code>. Be careful though, when this updates it tends to overwrite the element's <code>class</code> attribute. To avoid this, delete the <code>class</code> key from <code>$$restProps</code>. The function provided below can handle this on both init and after any form of attribute updates.</p>
         <CodeBlock language="js" code={`
 function prunedRestProps(): any {
     delete $$restProps.class;
@@ -135,7 +135,7 @@ afterUpdate(() => {
 $: classesCard = \`\${cBase} \${cOutlined}\`; // parent element
 $: classesLabel = \`\${cBaseLabel}\`; // child element
         `.trim()}></CodeBlock>
-        <p>Apply the reactive classes as follows. Make sure to also include <strong>$$props.classes</strong> as a pass-through for additional classes. Note that the first class acts as a unique identifier for the element, which is useful for testing.</p>
+        <p>Apply the reactive classes as follows. Make sure to also include <code>$$props.classes</code> as a pass-through for additional classes. Note that the first class acts as a unique identifier for the element, which is useful for testing.</p>
         <CodeBlock language="html" code={`
 <div class="card {classesCard} {$$props.classes}">
     <label class="card-label {classesLabel}">My Label</label>
@@ -162,9 +162,9 @@ $: classesLabel = \`\${cBaseLabel}\`; // child element
     <!-- Documentation -->
     <section class="space-y-4">
         <h2>Documentation</h2>
-        <p>An example component documentation page is available under <strong>/routes/components/_template.svelte</strong>.</p>
+        <p>An example component documentation page is available under <code>/routes/components/_template.svelte</code>. This template is a great starting place for utilities as well.</p>
         <h4>Navigation Links</h4>
-        <p>Open <strong>/routes/__layout.svelte</strong> and modify the <strong>navigation</strong> definition to include a link to your new documentation page.</p>
+        <p>Open <code>/routes/__layout.svelte</code> and modify the contents of <code>navigation</code> definition to include a link to your new documentation page.</p>
         <h4>Interactive vs Static Demos</h4>
         <p>While interactive demos are preferred, static demos are welcome. Just make sure to provide a variety of examples to illustrate use cases and feature set your component. If you need help adding an interactive demo, please reach out to any core contributor on the team.</p>
     </section>

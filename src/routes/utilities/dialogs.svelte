@@ -178,7 +178,7 @@
     <!-- Import Component -->
     <section class="space-y-4">
         <h2>Dialog Component</h2>
-        <p>Add the following to your root <strong>__layout.svelte</strong> component.</p>
+        <p>Add the following to your root <code>__layout.svelte</code> component.</p>
         <CodeBlock language="js" code={`import { Dialog } from '@brainandbones/skeleton';`}></CodeBlock>
         <CodeBlock language="html" code={`<Dialog backdrop="bg-primary-500/50" blur="backdrop-blur-sm" card="bg-primary-500" duration={250} />
         `.trim()}></CodeBlock>
@@ -228,7 +228,7 @@ const d: DialogAlert = {
         <!-- Confirm -->
         <div class="space-y-2">
             <h4>Confirm</h4>
-            <p>Displays an additional "confirm" button and returns a boolean response of <em>false</em> for <strong>cancel</strong> and <em>true</em> for <strong>confirm</strong>.</p>
+            <p>Displays an additional "confirm" button and returns a boolean response of <code>false</code> for <em>cancel</em> and <code>true</code> for <em>confirm</em>.</p>
             <CodeBlock language="typescript" code={`
 const d: DialogConfirm = {
     type: 'confirm',
@@ -241,7 +241,7 @@ const d: DialogConfirm = {
         <!-- Prompt -->
         <div class="space-y-2">
             <h4>Prompt</h4>
-            <p>Provides and additional input to prompt a value from the user. Returns a string value when the user taps "submit".</p>
+            <p>Provides and additional input to prompt a value from the user. Returns a string value when the user taps <em>submit</em>.</p>
             <CodeBlock language="typescript" code={`
 const d: DialogPrompt = {
     type: 'prompt',

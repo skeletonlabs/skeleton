@@ -30,6 +30,6 @@
     <!-- Properties -->
     <section class="space-y-4">
         <h2>Properties</h2>
-        <p>Allows access to all <a href="/components/menus">Menu component properties</a>, but defaults to <em>select: true</em>.</p>
+        <p>Allows access to all <a href="/components/menus">Menu component properties</a>, but defaults to <code>select: true</code>.</p>
     </section>
 </div>

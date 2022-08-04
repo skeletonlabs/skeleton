@@ -68,7 +68,7 @@
     <!-- Import Component -->
     <section class="space-y-4">
         <h2>Dialog Component</h2>
-        <p>Add the following to your root <strong>__layout.svelte</strong> component.</p>
+        <p>Add the following to your root <code>__layout.svelte</code> component.</p>
         <CodeBlock language="javascript" code={`import { Toasts } from '@brainandbones/skeleton';`}></CodeBlock>
         <CodeBlock language="html" code={`<Toasts background="bg-accent-500" position="tr" variant="filled" duration={250} />`.trim()}></CodeBlock>
     </section>

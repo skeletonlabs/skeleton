@@ -16,7 +16,7 @@
     <!-- Usage -->
     <section class="space-y-4">
         <h4>Update Content</h4>
-        <p>Add the following to <a href="https://tailwindcss.com/docs/configuration" target="_blank">content</a> within <strong>tailwind.config.cjs</strong>. This ensures Tailwind is aware of Skeleton's component classes within your local development server.</p>
+        <p>Add the following to <a href="https://tailwindcss.com/docs/configuration" target="_blank">content</a> within <code>tailwind.config.cjs</code>. This ensures Tailwind is aware of Skeleton's component classes within your local development server.</p>
         <CodeBlock language="js" code={`
 module.exports = {
     content: [
@@ -28,7 +28,7 @@ module.exports = {
         `.trim()}></CodeBlock>
         <h4>Add the Skeleton Plugin</h4>
         <p>
-            Add the Skeleton <a href="https://tailwindcss.com/docs/plugins#official-plugins" target="_blank">plugin</a> to <strong>tailwind.config.cjs</strong>. This will automatically ingest and utilize your CSS variables defined in your theme.
+            Add the Skeleton <a href="https://tailwindcss.com/docs/plugins#official-plugins" target="_blank">plugin</a> to <code>tailwind.config.cjs</code>. This will automatically ingest and utilize your CSS variables defined in your theme.
         </p>
         <CodeBlock language="js" code={`
 module.exports = {
