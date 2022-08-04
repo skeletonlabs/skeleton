@@ -30,5 +30,17 @@ describe.skip('Menu.svelte', () => {
         });
         expect(getByTestId('menu-wrapper')).toBeTruthy();
     })
+
+    it('Renders with default origin (auto)', () => {
+        const { getByTestId } = render(Menu, {
+            props: {
+                select: true,
+                open: false,
+                duration: 250,
+                disabled: false,
+            },
+        });
+        expect(getByTestId('menu-wrapper')).toBeTruthy();
+    })
      
 });
