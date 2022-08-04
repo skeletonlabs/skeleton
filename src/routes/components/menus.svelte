@@ -13,7 +13,7 @@
         source: [
             ['select', 'boolean', 'false', 'true | false', 'When enabled, clicks within the menu will close it.'],
             ['open', 'boolean', 'false', 'true | false', 'Sets menu visibility.'],
-            ['origin', 'string', 'tl (top-left)', 'tl | tr | bl | br', 'Abbreviation describing where the menu content anchors to the trigger element.'],
+            ['origin', 'string', 'auto', 'auto | tl | tr | bl | br', 'Abbreviation describing where the menu content anchors to the trigger element.'],
             ['duration', 'number', '100', 'integer', 'Open/close fade animation duration. Setting 0 (zero) disables animation.'],
             ['disabled', 'boolean', 'false', 'true | false', 'Sets menu to disabled state.'],
         ],
@@ -52,7 +52,7 @@
                 </Card>
             </Menu>
             <!-- Select -->
-            <Menu select={true} origin="tr">
+            <Menu origin="tr" select={true}>
                 <Button slot="trigger" variant="ghost-accent" type="button">Select</Button>
                 <Card slot="content" background="bg-surface-300 dark:bg-surface-700" class="w-[200px] p-[0px] shadow-xl overflow-hidden">
                     <List role="nav">
@@ -90,6 +90,13 @@
     </Card>
 </Menu>
         `.trim()}></CodeBlock>
+    </section>
+
+
+    <!-- Notes -->
+    <section class="space-y-4">
+        <h4>Auto Origin Positioning</h4>
+        <p>The menu's default origin is <em>auto</em>. This will attempt to keep the menu visible on-screen at all times. Specifically on window resize or if the parent element is scrolled.</p>
     </section>
 
     <!-- Properties -->
