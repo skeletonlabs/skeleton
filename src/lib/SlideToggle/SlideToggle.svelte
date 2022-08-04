@@ -25,8 +25,11 @@
     $: classesTrack = `${cBaseTrack} ${trackSize} ${cTrackAccent}`;
     $: classesThumb = `${cBaseThumb} ${cThumbBackground} ${cThumbPos}`;
 
-    // Prevents conflict with $$props.class
-    delete $$restProps.class;
+    // Prune $$restProps to avoid overwriting $$props.class
+    function prunedRestProps(): any {
+        delete $$restProps.class;
+        return $$restProps;
+    }
 </script>
 
 <label class="slide-toggl {cBaseLabel} {$$props.class}" class:opacity-30={$$props.disabled} data-testid="slide-toggle">
@@ -40,7 +43,7 @@
         on:mouseover
         on:focus
         on:blur
-        {...$$restProps}
+        {...prunedRestProps()}
         disabled={$$props.disabled}
     >
 

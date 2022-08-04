@@ -18,7 +18,8 @@
     export let rounded: string = undefined;
 
     // Base Classes
-    const cBasePaginator: string = 'flex items-center space-x-4';
+    // const cBasePaginator: string = 'flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4';
+    const cBasePaginator: string = 'flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4';
     const cBaseText: string = 'opacity-60 whitespace-nowrap';
 
     // Functionality
@@ -33,19 +34,17 @@
 
 <div class="paginator {classesPaginator} {$$props.class}" data-testid="paginator">
     
-    <div class="flex items-center space-x-4">
-
-        <!-- Amounts -->
+    <!-- Select Amount -->
+    <div class="w-full md:w-auto">
         <select bind:value={limit} on:change={onChangeLength} class="{select}">
             {#each amounts as amount}<option value={amount}>Show {amount}</option>{/each}
         </select>
-
-        <!-- Context -->
-        <div class="{classesText}">{offset*limit+1} to {offset*limit+limit} of <strong>{size}</strong></div>
-
     </div>
 
-    <!-- Controls -->
+    <!-- Context Text -->
+    <div class="{classesText}">{offset*limit+1} to {offset*limit+limit} of <strong>{size}</strong></div>
+
+    <!-- Arrows -->
     <div class="space-x-2">
         <Button {variant} {rounded} on:click={onPrev} disabled={offset===0}>&larr;</Button>
         <Button {variant} {rounded} on:click={onNext} disabled={(offset+1)*limit >= size}>&rarr;</Button>

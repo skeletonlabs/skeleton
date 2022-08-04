@@ -16,11 +16,14 @@
     // Reactive Classes
     $: classesLogo = `${cBaseLogo} ${background} ${color} ${text}`;
 
-    // Prevents conflict with $$props.class
-    delete $$restProps.class;
+    // Prune $$restProps to avoid overwriting $$props.class
+    function prunedRestProps(): any {
+        delete $$restProps.class;
+        return $$restProps;
+    }
 </script>
 
-<svelte:element this={tag} class="logo {classesLogo} {$$props.class}" data-testid="logo" {...$$restProps}>
+<svelte:element this={tag} class="logo {classesLogo} {$$props.class}" data-testid="logo" {...prunedRestProps()}>
 
     <!-- Slot: lead -->
     {#if $$slots.lead}<slot name="lead"></slot>{/if}

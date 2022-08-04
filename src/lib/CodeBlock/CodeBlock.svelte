@@ -18,7 +18,7 @@
 <div class="codeblock {cBaseBlock} {$$props.class}" data-testid="codeblock">
 <header class="{cBaseHeader}">{languageFormatter(language)}</header>
 <pre class="whitespace-pre-wrap text-base overflow-x-auto">
-<code class="language-{language} outline-none" contenteditable>{@html hljs.highlight(code, { language }).value || code}</code>
+<code class="language-{language} outline-none" contenteditable spellcheck="false">{@html hljs.highlight(code, { language }).value || code}</code>
 </pre>
 </div>
 {/if}

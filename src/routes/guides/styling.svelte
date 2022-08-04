@@ -48,9 +48,7 @@
 
     <!-- Next Steps -->
     <Card class="flex justify-between items-center space-x-4 space-y-0">
-        <div class="flex-1 space-y-4">
-            <p>Next, let's follow the documentation implement and utilize form inputs.</p>
-        </div>
+        <p>Next, let's review how to handle forms and inputs.</p>
         <Button variant="filled-accent" href="/guides/forms">Handling Forms</Button>
     </Card>
 

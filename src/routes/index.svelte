@@ -69,10 +69,8 @@
     <Divider />
 
     <!-- Next Steps -->
-    <Card class="flex justify-between items-center space-x-4 space-y-0">
-        <div class="flex-1 space-y-4">
-            <p>Next, let's provide some basic Tailwind configuration settings.</p>
-        </div>
+    <Card class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+        <p>Next, configre the Skeleton plugin and settings for Tailwind.</p>
         <Button variant="filled-accent" href="/guides/tailwind">Configure Tailwind</Button>
     </Card>
 
