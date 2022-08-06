@@ -6,8 +6,8 @@
     const tableProps: any = {
         headings: ['Prop', 'Type', 'Values', 'Default', 'Description'],
         source: [
-            ['language', 'string', 'html | css | js | ...', 'plaintext', 'Define a language alias: <a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md" target="_blank">Highlight.js</a>'],
-            ['code', 'string', '-', '-', 'Takes a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals" target="_blank">Template Literal</a>. Be sure to escape as needed.'],
+            ['language', 'string', 'html | css | js | ...', 'plaintext', 'Sets a language alias: <a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md" target="_blank">Highlight.js</a>'],
+            ['code', 'string', '-', '-', 'Takes a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals" target="_blank">Template Literal</a>. Be mindful to escape as needed.'],
         ],
     };
 </script>
@@ -17,7 +17,7 @@
     <!-- Header -->
     <header class="space-y-4">
         <h1>Code Blocks</h1>
-        <p>Display blocks of raw source code on the page.</p>
+        <p>Displays preformatted source code, with built-in support for <a href="https://highlightjs.org/" target="_blank">Highlight.js</a>.</p>
         <CodeBlock language="javascript" code={`import { CodeBlock } from '@brainandbones/skeleton';`}></CodeBlock>
     </header>
 
@@ -31,13 +31,14 @@
     <!-- Usage -->
     <section class="space-y-4">
         <h2>Usage</h2>
-        <p>Codeblocks require <a href="https://highlightjs.org/" target="_blank">Highlight.js</a> to be installed as depedency.</p>
-        <h4>Define Highlight.js Theme</h4>
-        <p>Add the following to your root <strong>__layout.svelte</strong> component to define a Highlight.js theme.</p>
+        <p>You must install <a href="https://highlightjs.org/" target="_blank">Highlight.js</a> as a depedency within your project.</p>
+        <CodeBlock language="console" code={`npm install highlight.js --save-dev`}></CodeBlock>
+        <h4>Add a Theme</h4>
+        <p>Implement a <a href="https://github.com/highlightjs/highlight.js/tree/main/src/styles" target="_blank">Highlight.js CSS theme</a> in your project's root <code>__layout.svelte</code> component.</p>
         <CodeBlock language="js" code={`import 'highlight.js/styles/github-dark.css';`}></CodeBlock>
-        <h4>Insert Codeblock</h4>
-        <p>Add the following anywhere you want to display a codeblock.</p>
-        <CodeBlock language="html" code={'<CodeBlock language="html" code={\`<div>This is meta</div>\`}></CodeBlock>'}></CodeBlock>
+        <h4>Insert a Codeblock</h4>
+        <p>Add the following anywhere you wish to display a codeblock. See the <em>properties</em> documentation below.</p>
+        <CodeBlock code={'<CodeBlock language="html" code={\`<div>This is meta</div>\`}></CodeBlock>'}></CodeBlock>
     </section>
 
     <!-- Properties -->

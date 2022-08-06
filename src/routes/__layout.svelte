@@ -71,7 +71,7 @@
         {
 			title: 'Utilities',
             list: [
-				// {href: '/utilities/codeblocks', label: 'Codeblocks'},
+				{href: '/utilities/codeblocks', label: 'Code Blocks'},
 				{href: '/utilities/dialogs', label: 'Dialogs'},
 				{href: '/utilities/toasts', label: 'Toasts'},
 				{href: '/utilities/lightswitches', label: 'Lightswitch'},
