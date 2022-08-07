@@ -70,7 +70,7 @@
 
     <!-- Next Steps -->
     <Card class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-        <p>Next, configre the Skeleton plugin and settings for Tailwind.</p>
+        <p>Next, configure the Skeleton plugin and settings for Tailwind.</p>
         <Button variant="filled-accent" href="/guides/tailwind">Configure Tailwind</Button>
     </Card>
 

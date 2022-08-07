@@ -10,7 +10,7 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Tailwind Settings</h1>
-        <p>Skeleton is fully compatable with <a href="https://tailwindcss.com/" target="_blank">Tailwind</a>, but requires a couple extra steps to ensure everything works.</p>
+        <p>Skeleton is fully compatible with <a href="https://tailwindcss.com/" target="_blank">Tailwind</a>, but requires a couple extra steps to ensure everything works.</p>
 	</header>
 
     <!-- Usage -->

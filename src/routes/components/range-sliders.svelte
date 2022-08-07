@@ -13,12 +13,12 @@
         source: [
             ['label', 'string', '-' , 'Provide an optional input label.'],
             ['id', 'string', '(unique id)' , 'Provide a unique input id.'],
-            ['name', 'string', '(matchs id)' , 'Provide a unique input name.'],
+            ['name', 'string', '(matches id)' , 'Provide a unique input name.'],
             ['min', 'number', '0' , 'Set the input minimum range.'],
             ['max', 'number', '10' , 'Set the input maximum range.'],
             ['step', 'number', '1' , 'Set the input step offset.'],
             ['value', 'number', '0' , 'Set the input value.'],
-            ['ticked', 'boolean', 'false', 'Enables tickmarks. See browser support below.'],
+            ['ticked', 'boolean', 'false', 'Enables tick marks. See browser support below.'],
             ['accent', 'string', 'accent-primary-500' , 'Provide a class to set the input accent color.'],
         ],
     };

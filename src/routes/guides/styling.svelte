@@ -32,7 +32,7 @@
     <!-- Per Component Styles -->
     <section class="space-y-4">
         <h2>Per Component Styles</h2>
-        <p>Skeleton components are automatically inherit and utlize each theme color value. However, there may be cases where you want to overwrite or extend the styling on a single component. To do this, simply add a <code>class</code> attribute to any component. You can then apply any valid CSS or Tailwind class as expected.</p>
+        <p>Skeleton components are automatically inherit and utilize each theme color value. However, there may be cases where you want to overwrite or extend the styling on a single component. To do this, simply add a <code>class</code> attribute to any component. You can then apply any valid CSS or Tailwind class as expected.</p>
         <CodeBlock language="html" code={`
 <Button variant="filled-primary">Standard</Button>
 <Button variant="filled-primary" class="text-3xl px-10 py-5">Big</Button>
