@@ -35,7 +35,7 @@
     <!-- Header -->
     <header class="space-y-4">
         <h1>Logo Clouds</h1>
-        <p>Comfortably fits 2-4 logos with optional fragement slots for icons and labels.</p>
+        <p>Comfortably fits 2-4 logos with optional fragment slots for icons and labels.</p>
         <CodeBlock language="js" code={`import { LogoCloud, Logo } from '@brainandbones/skeleton';`}></CodeBlock>
     </header>
 

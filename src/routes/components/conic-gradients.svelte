@@ -32,7 +32,7 @@
     const tableSlots: any = {
         headings: ['Name', 'Description'],
         source: [
-            ['default', 'Allows you to define a label, description, or other suplimentary information.'],
+            ['default', 'Allows you to define a label, description, or other supplementary information.'],
         ],
     };
 </script>

@@ -29,10 +29,10 @@
 
     <Divider />
 
-    <!-- Depedencies -->
+    <!-- Dependencies -->
     <section class="space-y-4">
-        <h2>Depedencies</h2>
-        <p>Skeleton currently requires only Svelte, Sveltekit, and Tailwind as depdendencies for end users. The goal is to keep the project as lean as possible. Please been leery of introducing new depedencies. However, don't be afraid to discuss proposed additions with contributors before proceeding. We just want what's best for users!</p>
+        <h2>Dependencies</h2>
+        <p>Skeleton currently requires only Svelte, Sveltekit, and Tailwind as dependencies for end users. The goal is to keep the project as lean as possible. Please been leery of introducing new dependencies. However, don't be afraid to discuss proposed additions with contributors before proceeding. We just want what's best for users!</p>
     </section>
 
     <Divider />
@@ -50,7 +50,7 @@
             <li>Components should be wrapped in a matching directory. This should be singular and camel-case (ex: <code>/LightSwitch/...</code>)</li>
             <li>Components should have a singular and camel-case filename (ex: <code>.../LightSwitch.svelte</code>)</li>
             <li>Component tests should match the component naming convention, suffixed with <code>'*.test.ts`</code> (ex: <code>LightSwitch.test.ts</code>)</li>
-            <li>Documentation pages should be plural, all lowercase, and seperated by dashes (ex: <code>/routes/components/radio-groups.svelte</code>)</li>
+            <li>Documentation pages should be plural, all lowercase, and separated by dashes (ex: <code>/routes/components/radio-groups.svelte</code>)</li>
             <li>Documentation nav links should match the routing convention, with the plural form of the component (ex: <code>Radio Groups</code>)</li>
         </ul>
         <!-- <CodeBlock language="js" code={`...`}></CodeBlock> -->
@@ -78,12 +78,12 @@ function prunedRestProps(): any {
 
     <Divider />
     
-    <!-- Proprties -->
+    <!-- Properties -->
     <section class="space-y-4">
         <h2>Component Properties</h2>
         <p>Follow these guidelines when creating component properties.</p>
         <ul class="list-disc list-inside">
-            <li>Should be a single word, all lowercase, and sematic. Match Tailwind class naming conventions whenever possible.</li>
+            <li>Should be a single word, all lowercase, and semantic. Match Tailwind class naming conventions whenever possible.</li>
             <li>Color properties should follow standard CSS property names.</li>
             <li>Ensure Typescript type definitions are included.</li>
             <li>Always pass full Tailwind classes. Class names cannot be constructed dynamically. Tailwind does not support this.</li>
@@ -151,7 +151,7 @@ $: classesLabel = \`\${cBaseLabel}\`; // child element
         <p>Below are a few pitfalls we've encountered when creating Skeleton. Do your best to avoid these whenever possible.</p>
         <ul class="list-disc list-inside">
             <li>As a best practice, avoid style blocks. Going outside of Tailwind can increase the final stylesheet size.</li>
-            <li>Do not mix script-defined and inline Tailwind classes. This is a convention that aids readabilty if the code.</li>
+            <li>Do not mix script-defined and inline Tailwind classes. This is a convention that aids readability of the code.</li>
             <li>Avoid switch-case statements to create shorthand property values. This makes it harder for devs to overwrite and extend styling.</li>
             <li>We wish to keep Skeleton icon library agnostic, so use embedded SVG icons instead.</li>
         </ul>

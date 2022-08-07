@@ -17,7 +17,7 @@
     <!-- Header -->
     <header class="space-y-4">
         <h1>Code Blocks</h1>
-        <p>Displays preformatted source code, with built-in support for <a href="https://highlightjs.org/" target="_blank">Highlight.js</a>.</p>
+        <p>Displays pre-formatted source code, with built-in support for <a href="https://highlightjs.org/" target="_blank">Highlight.js</a>.</p>
         <CodeBlock language="javascript" code={`import { CodeBlock } from '@brainandbones/skeleton';`}></CodeBlock>
     </header>
 
@@ -31,7 +31,7 @@
     <!-- Usage -->
     <section class="space-y-4">
         <h2>Usage</h2>
-        <p>You must install <a href="https://highlightjs.org/" target="_blank">Highlight.js</a> as a depedency within your project.</p>
+        <p>You must install <a href="https://highlightjs.org/" target="_blank">Highlight.js</a> as a dependency within your project.</p>
         <CodeBlock language="console" code={`npm install highlight.js --save-dev`}></CodeBlock>
         <h4>Add a Theme</h4>
         <p>Implement a <a href="https://github.com/highlightjs/highlight.js/tree/main/src/styles" target="_blank">Highlight.js CSS theme</a> in your project's root <code>__layout.svelte</code> component.</p>

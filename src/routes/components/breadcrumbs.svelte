@@ -35,7 +35,7 @@
     <!-- Heading -->
     <heading class="space-y-4">
         <h1>Breadcrumbs</h1>
-        <p>Allows display of navigation heirarchy.</p>
+        <p>Allows display of navigation hierarchy.</p>
         <CodeBlock language="javascript" code={`import { Breadcrumb, Crumb } from '@brainandbones/skeleton';`}></CodeBlock>
     </heading>
 
