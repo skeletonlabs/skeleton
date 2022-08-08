@@ -1,32 +1,55 @@
-<!-- TODO: add origin:auto, which auto-positions based on edge of screen -->
-
 <script lang="ts">
-    import { afterUpdate } from "svelte";
+    import { onMount, afterUpdate } from "svelte";
     import { navigating } from "$app/stores";
     import { fade } from 'svelte/transition';
 
     export let select: boolean = false;
 	export let open: boolean = false;
-    export let origin: string = 'tl'; // tl | tr | bl | br
+    export let origin: string = 'auto'; // auto | tl | tr | bl | br
     export let duration: number = 100; // ms
     export let disabled: boolean = false;
 
     // DOM Elements
     let elemMenu: HTMLElement;
-
+    
     // Base Classes
     const cBaseMenu: string = 'relative inline-block';
     const cBaseContent: string = 'absolute z-10';
-    
+
+    // Persist `origin: auto` state
+    let autoOriginMode: boolean = origin === 'auto' ? true : false;
+
     // Set content anchor origin
     let cOrigin: string;
     function setOrigin(): void {
         switch (origin) {
+            case ('tl'): cOrigin = 'origin-top-left left-0 mt-2'; break;
             case ('tr'): cOrigin = 'origin-top-right right-0 mt-2'; break;
             case ('bl'): cOrigin = 'origin-bottom-left top-[-5px] left-0 -translate-y-full'; break;
             case ('br'): cOrigin = 'origin-bottom-right top-[-5px] right-0 -translate-y-full'; break;
-            default: cOrigin = 'origin-top-left left-0 mt-2'; // tl
+            default: setAutoOrigin(); break;
         }
+    }
+    setOrigin(); // on init
+    
+    // Auto-update origin based on viewport position
+    function setAutoOrigin(): void {
+        if (!elemMenu) return;
+        // Get the Menu's bounds
+        let elemMenuBounds = elemMenu.getBoundingClientRect();
+        // Set verticle and horizontal values
+        let vert: string = elemMenuBounds.y < (window.innerHeight/2) ? 't' : 'b'; // top/bottom
+        let horz: string = elemMenuBounds.x < (window.innerWidth/2) ? 'l' : 'r'; // left/right
+        // Update origin styles
+        origin = `${vert}${horz}`;
+        setOrigin();
+    }
+
+    // Searches for the first parent node that can scroll
+    // https://thewebdev.info/2021/06/27/how-to-find-the-first-scrollable-parent-element-with-javascript/
+    function getFirstScrollableParent(node): any {
+        if (node === null) { return null; }
+        return node.scrollHeight > node.clientHeight ? node : getFirstScrollableParent(node.parentNode);
     }
 
     // Toggle Visibility
@@ -54,7 +77,16 @@
     }
 
     // Lifecycle Events
-    afterUpdate(() => { setOrigin(); });
+    onMount(() => {
+        // If auto-origin enabled, add event listeners
+        if (autoOriginMode === true) {
+            // Event: Window Resize
+            window.addEventListener('resize', setAutoOrigin);
+            // Event: Parent Scroll
+            const scrollParent = getFirstScrollableParent(elemMenu)
+            scrollParent.addEventListener('scroll', setAutoOrigin);
+        }
+	});
     if ($navigating) { open = false; } // close when navigating
 
     // Responsive Classes

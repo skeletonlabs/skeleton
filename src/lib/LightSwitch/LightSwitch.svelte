@@ -10,7 +10,7 @@
 
 	export let select: boolean = true;
 	export let open: boolean = false;
-    export let origin: string = 'tl'; // tl | tr | bl | br
+    export let origin: string = 'auto'; // tl | tr | bl | br
     export let duration: number = 100; // ms
     export let disabled: boolean = false;
 
