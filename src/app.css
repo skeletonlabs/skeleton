@@ -40,6 +40,9 @@ h4 { @apply text-xl md:text-2xl font-bold; }
 h5 { @apply text-lg md:text-xl font-bold; }
 h6 { @apply text-base md:text-lg font-bold; }
 
+/* Blockquote */
+blockquote { @apply border-l-2 border-l-accent-500 pl-2 text-base text-surface-500 dark:text-surface-400; }
+
 /* Code */
 pre:not(.codeblock pre) { @apply bg-surface-700 dark:bg-black/20 text-surface-50 p-4 whitespace-pre-wrap text-base overflow-x-auto rounded; }
 code:not(.codeblock code) { @apply bg-surface-500/30 text-black dark:text-white text-xs py-1 px-2 rounded; }
