@@ -163,7 +163,7 @@
             <a href="https://www.w3.org/WAI/ARIA/apg/example-index/accordion/accordion" target="_blank">ARIA Guidelines</a>
         </div>
 		<DataTable headings="{tableA11yItem.headings}" source="{tableA11yItem.source}"></DataTable>
-        <p class="text-sm">Note is <code>detail</code> element does not natively support animation (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details" target="_blank">via MDN</a>)</p>
+        <p class="text-sm">Note the <code>detail</code> element does not natively support animation (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details" target="_blank">via MDN</a>)</p>
         <!-- <blockquote>"There's no built-in way to animate the transition between open and closed."</blockquote> -->
 	</section>
     

@@ -1,14 +1,14 @@
 <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details -->
 
 <script lang="ts">
-    // A11y
-    export let summaryId: string = undefined;
-    export let contentId: string = undefined;
-
+    
     // Props
     export let open: boolean = false;
     export let hover: string = 'hover:bg-primary-500/10';
     export let spacing: string = 'space-y-2';
+    // A11y
+    export let summaryId: string = undefined;
+    export let contentId: string = undefined;
 
     // Base Classes
     const cBaseDetails: string = '';
@@ -39,7 +39,6 @@
     </summary>
 
     <!-- Content -->
-    <!-- transition:slide|local -->
     <div id={contentId} role="region" aria-labelledby={summaryId} class="{classesDesc}">
         <slot name="content"/>
     </div>
