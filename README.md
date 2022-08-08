@@ -9,9 +9,9 @@ https://skeleton.brainandbonesllc.com/
 
 A fully featured Svelte UI component library. Skeleton allows you to build fast and responsive web interfaces using Svelte + Tailwind.
 
-## Sponsors & Donation
+## Sponsorship
 
-> (coming soon...)
+* [Github Sponsors](https://github.com/sponsors/Brain-Bones)
 
 ## Useful Links
 
