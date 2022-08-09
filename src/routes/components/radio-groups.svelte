@@ -33,7 +33,7 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Radio Groups</h1>
-		<p>Capture user feedback limited to small set of options.</p>
+		<p>Capture user feedback limited to a small set of options.</p>
 		<CodeBlock language="js" code={`import { RadioGroup, RadioItem } from '@brainandbones/skeleton';`}></CodeBlock>
 	</header>
 
@@ -64,7 +64,8 @@
 
     <!-- Usage -->
     <section class="space-y-4">
-        <CodeBlock language="typescript" code={`const storeLayout: Writable<string> = writable('horz');`}></CodeBlock>
+        <CodeBlock language="typescript" code={`import type { Writable } from "svelte/store";
+const storeLayout: Writable<string> = writable('horz');`}></CodeBlock>
         <CodeBlock language="html" code={`
 <RadioGroup selected={storeLayout} background="bg-accent-500" color="text-white" width="w-auto">
     <RadioItem value="horz">Horizontal</RadioItem>
