@@ -36,6 +36,12 @@
             ['lead', 'Provides a leading position, which can be used for icons.'],
         ],
     };
+    const tableA11y: any = {
+        headings: ['Prop', 'Type', 'Required', 'Description'],
+        source: [
+            ['label', 'string', '-', `Defines a semantic label for the list.`],
+        ],
+    };
 </script>
 
 <div class="space-y-8">
@@ -141,6 +147,16 @@
 		<h2>Slots</h2>
         <h4>Tab</h4>
         <DataTable headings="{tableSlots.headings}" source="{tableSlots.source}"></DataTable>
+	</section>
+
+    <!-- Accessibility -->
+	<section class="space-y-4">
+		<h2>Accessibility</h2>
+        <div class="flex justify-between items-center">
+            <h4>Tab</h4>
+            <a href="https://www.w3.org/WAI/ARIA/apg/patterns/tabpanel/" target="_blank">ARIA Guidelines</a>
+        </div>
+		<DataTable headings="{tableA11y.headings}" source="{tableA11y.source}"></DataTable>
 	</section>
     
 </div>
