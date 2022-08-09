@@ -11,6 +11,7 @@
     export let weight: string = 'ring-1';
     export let width: string = 'w-auto';
     export let rounded: string = 'rounded-lg';
+	export let hidden: boolean = false;
 
     // Set tag and href values
     const tag: string = $$props.href ? 'a' : 'button';
@@ -97,8 +98,9 @@
 
 <svelte:element
     this={tag}
-    class="comp-button {classesButton} {$$props.class}"
+	class="comp-button {classesButton} {$$props.class ? $$props.class : ''}"
     {href}
+	class:hidden={hidden}
     data-testid="comp-button"
     on:click
     {...prunedRestProps()}
