@@ -26,6 +26,18 @@
             ['value', 'any', `The item's selection value.`],
         ],
     };
+    const tableA11yGroup: any = {
+        headings: ['Prop', 'Required', 'Description'],
+        source: [
+            ['label', '-', `Defines a semantic label for the list.`],
+        ],
+    };
+    const tableA11yItem: any = {
+        headings: ['Prop', 'Required', 'Description'],
+        source: [
+            ['label', '-', `Defines a semantic label for the list.`],
+        ],
+    };
 </script>
 
 <div class="space-y-8">
@@ -82,6 +94,19 @@
         <h4>Radio Item</h4>
         <DataTable headings="{tablePropsItem.headings}" source="{tablePropsItem.source}"></DataTable>
     </section>
+
+    <!-- Accessibility -->
+	<section class="space-y-4">
+        <div class="flex justify-between items-center">
+            <h2>Accessibility</h2>
+            <a href="https://www.w3.org/WAI/ARIA/apg/patterns/radiobutton/" target="_blank">ARIA Guidelines</a>
+        </div>
+		<h4>Group</h4>
+		<DataTable headings="{tableA11yGroup.headings}" source="{tableA11yGroup.source}"></DataTable>
+		<h4>Item</h4>
+		<DataTable headings="{tableA11yItem.headings}" source="{tableA11yItem.source}"></DataTable>
+	</section>
+    
 </div>
 
 <style lang="postcss">

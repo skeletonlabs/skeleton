@@ -7,6 +7,8 @@
     export let background: string = 'bg-primary-500';
     export let color: string = 'text-black dark:text-white';
     export let width: string = 'w-auto';
+    // A11y
+    export let label: string = 'radiogroup';
     
     // Context
     setContext('selected', selected);
@@ -20,6 +22,6 @@
     $: classesGroup = `${cBaseGroup} ${width}`;
 </script>
 
-<nav class="radio-group {classesGroup} ${$$props.class}" data-testid="radio-group">
+<nav class="radio-group {classesGroup} ${$$props.class}" data-testid="radio-group" role="radiogroup" aria-label={label} tabindex="-1">
     <slot />
 </nav>

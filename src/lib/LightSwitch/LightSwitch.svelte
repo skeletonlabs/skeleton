@@ -23,7 +23,7 @@
 	}
   
 	// Select a theme
-	function onKeyUp(event: any, t: any): void {
+	function onKeyDown(event: any, t: any): void {
         if (['Enter', 'Space'].includes(event.detail.code)) {
             event.preventDefault();
             selectTheme(t);
@@ -77,21 +77,21 @@
 		<List tag="nav" class="fill-surface-500">
 			<NavItem
 				on:click="{() => { selectTheme('light') }}"
-				on:keyup="{(e) => { onKeyUp(e, 'light') }}"
+				on:keydown="{(e) => { onKeyDown(e, 'light') }}"
 			>
 				<svelte:fragment slot="lead">{@html svg.light}</svelte:fragment>
 				<span>Light</span>
 			</NavItem>
 			<NavItem
 				on:click="{() => { selectTheme('dark') }}"
-				on:keyup="{(e) => { onKeyUp(e, 'dark') }}"
+				on:keydown="{(e) => { onKeyDown(e, 'dark') }}"
 			>
 				<svelte:fragment slot="lead">{@html svg.dark}</svelte:fragment>
 				<span>Dark</span>
 			</NavItem>
 			<NavItem
 				on:click="{() => { selectTheme('system') }}"
-				on:keyup="{(e) => { onKeyUp(e, 'system') }}"
+				on:keydown="{(e) => { onKeyDown(e, 'system') }}"
 			>
 				<svelte:fragment slot="lead">{@html svg.system}</svelte:fragment>
 				<span>System</span>

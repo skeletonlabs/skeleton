@@ -19,11 +19,11 @@
         dispatch('click', event);
         onSelection(v);
     }
-    function onKeyUp(event: any, v: any): void {
+    function onKeyDown(event: any): void {
         if (['Enter', 'Space'].includes(event.code)) {
             event.preventDefault();
-            dispatch('keydown', event);
-            onSelection(v);
+            dispatch('keyup', event);
+            event.target.click();
         }
     }
     function onSelection(v: any): void {
@@ -57,7 +57,7 @@
 <a
     href={$$props.href}
     on:click={(e) => {onClick(e, $$props.value)}}
-    on:keyup={(e) => {onKeyUp(e, $$props.value)}}
+    on:keydown={onKeyDown}
     class="list-item {classes} {cSelected($$props.value, $selected)} ${$$props.class}"
     data-testid="list-item"
     role="menuitem"

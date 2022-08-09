@@ -41,7 +41,7 @@
             ['trail', 'A leading slot position right of the content, which can be used for icons.'],
         ],
     };
-	const tableA11yItem: any = {
+	const tableA11y: any = {
         headings: ['Prop', 'Required', 'Description'],
         source: [
             ['label', '-', `Provides an <a href="https://w3c.github.io/aria/#aria-label" target="_blank">ARIA label</a>. Recommended for icon buttons.`],
@@ -257,7 +257,7 @@
             <h2>Accessibility</h2>
             <a href="https://www.w3.org/WAI/ARIA/apg/patterns/button/" target="_blank">ARIA Guidelines</a>
         </div>
-		<DataTable headings="{tableA11yItem.headings}" source="{tableA11yItem.source}"></DataTable>
+		<DataTable headings="{tableA11y.headings}" source="{tableA11y.source}"></DataTable>
 	</section>
 
 </div>

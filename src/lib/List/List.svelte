@@ -8,7 +8,7 @@
     export let highlight: string = '!bg-primary-500'; // '!' required
     export let hover: string = 'hover:bg-primary-500/10'; // 'hover:' required
     // A11y
-    export let label: string = undefined;
+    export let label: string = 'list';
 
     // Context
     setContext('parentTag', tag);

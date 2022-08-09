@@ -12,7 +12,7 @@
     export let width: string = 'w-auto';
     export let rounded: string = 'rounded-lg';
     // A11y
-    export let label: string = undefined;
+    export let label: string = 'button';
     export let describedby: string = undefined;
 
     // Set tag and href values
