@@ -11,9 +11,13 @@
     export let weight: string = 'ring-1';
     export let width: string = 'w-auto';
     export let rounded: string = 'rounded-lg';
+    // A11y
+    export let label: string = undefined;
+    export let describedby: string = undefined;
 
     // Set tag and href values
     const tag: string = $$props.href ? 'a' : 'button';
+    const role: string = $$props.href ? 'link' : 'button';
     const href: any = $$props.href ? `href="${$$props.href}"` : undefined;
 
     // Base Classes
@@ -102,6 +106,11 @@
     data-testid="comp-button"
     on:click
     {...prunedRestProps()}
+    {role}
+    tabindex="0"
+    aria-label={label}
+    aria-describedby={describedby}
+    aria-disabled={$$props.disabled}
 >
     <!-- {...$$restProps} -->
     {#if $$slots.lead}<span><slot name="lead"></slot></span>{/if}
