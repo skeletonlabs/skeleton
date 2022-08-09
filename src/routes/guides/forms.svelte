@@ -14,8 +14,8 @@
             Forms
             <Badge background="bg-accent-500" class="-translate-y-3">Optional</Badge>
         </h1>
-        <p>If you have experience with other UI component libraries, you may expect Skeleton to provide dedicated components for form inputs, select, checkboxes, and similar. However, this is not the case. The Skeleton team take the stance that this is generally a bad practice.</p>
-        <p>Wrapping inputs within a component tends to hurt accessibility, limit error handling and validation, and make it much more difficult to customize inline attributes. While also dramatically impacting your ability to customize and style each input.</p>
+        <p>If you have experience with other UI component libraries, you may expect Skeleton to provide dedicated components for form inputs, select, checkboxes, and similar. However, this is not the case. The Skeleton team takes the stance that this is generally a bad practice.</p>
+        <p>Wrapping inputs within a component tends to hurt accessibility, limit error handling and validation, and makes it much more difficult to customize inline attributes. While also dramatically impacting your ability to customize and style each input.</p>
         <p>However, given Skeleton's tight integration with Tailwind, an elegant solution is available via the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">official Tailwind Forms plugin</a>. This provides a no-nonsense approach to applying clean and modern styling to <em>most</em> inputs. Tailwind provides an example page to <a href="https://tailwindcss-forms.vercel.app/kitchen-sink.html" target="_blank">preview the default styles here</a>.</p>
 	</header>
 

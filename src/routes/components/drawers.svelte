@@ -57,6 +57,7 @@
     <section class="space-y-4">
         <h2>Usage</h2>
         <CodeBlock language="typescript" code={`
+import type { Writable } from 'svelte/store';
 const drawer: Writable<boolean> = writable(false);
 const drawerOpen: any = () => { drawer.set(true); }
 const drawerClose: any = () => { drawer.set(false); }

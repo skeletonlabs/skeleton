@@ -222,8 +222,9 @@
 			</div>
 		</Card>
 		<CodeBlock language="html" code={`
-<Button variant="text-primary">Skeleton</Button>
-<Button variant="filled-accent">Skeleton</Button>
+<Button variant="text">Skeleton</Button>
+<Button variant="filled-primary">Skeleton</Button>
+<Button variant="ring-accent">Skeleton</Button>
 <Button variant="ghost-warning">Skeleton</Button>
 		`.trim()}></CodeBlock>
 	</section>
