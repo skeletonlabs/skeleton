@@ -13,7 +13,7 @@
     let elemMenu: HTMLElement;
     
     // Base Classes
-    const cBaseMenu: string = 'relative inline-block';
+    const cBaseMenu: string = 'relative inline-block space-y-[2px]';
     const cBaseContent: string = 'absolute z-10';
 
     // Persist `origin: auto` state
@@ -99,7 +99,7 @@
 <div bind:this={elemMenu} class="menu-wrapper {classesMenu} {$$props.class}" data-testid="menu-wrapper">
 
     <!-- Trigger -->
-    <div class="menu-trigger" on:click={toggle} data-testid="menu-trigger">
+    <div class="menu-trigger" on:click={toggle} data-testid="menu-trigger" aria-haspopup="true" aria-expanded={open}>
         {#if $$slots.trigger}<slot name="trigger" />{/if}
     </div>
 

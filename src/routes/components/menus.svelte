@@ -45,7 +45,7 @@
                 <Button slot="trigger" variant="ghost-primary" type="button">Menu</Button>
                 <!-- Slot: Content -->
                 <Card slot="content" background="bg-surface-300 dark:bg-surface-700" class="w-[200px] p-[0px] shadow-xl overflow-hidden">
-                    <List role="nav">
+                    <List tag="nav">
                         <NavItem>Item 1</NavItem>
                         <NavItem>Item 2</NavItem>
                     </List>
@@ -55,7 +55,7 @@
             <Menu origin="tr" select={true}>
                 <Button slot="trigger" variant="ghost-accent" type="button">Select</Button>
                 <Card slot="content" background="bg-surface-300 dark:bg-surface-700" class="w-[200px] p-[0px] shadow-xl overflow-hidden">
-                    <List role="nav">
+                    <List tag="nav">
                         <NavItem>Item 1</NavItem>
                         <NavItem>Item 2</NavItem>
                         <NavItem>Item 3</NavItem>
@@ -82,7 +82,7 @@
     <Button slot="trigger" variant="ghost-primary" type="button">Menu</Button>
     <!-- Slot: Content -->
     <Card slot="content" background="bg-surface-300 dark:bg-surface-700" class="w-[200px] p-[0px] shadow-xl overflow-hidden">
-        <List role="nav">
+        <List tag="nav">
             <NavItem href="/">Item 1</NavItem>
             <NavItem href="/">Item 2</NavItem>
             <NavItem href="/">Item 3</NavItem>

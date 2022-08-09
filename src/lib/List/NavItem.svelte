@@ -14,9 +14,19 @@
     const cBase: string = 'list-none py-3 px-4 cursor-pointer';
     const cRow: string = 'flex flex-row items-center space-x-4';
 
-    // Nav - Handle Selection
-    function onSelection(event: any, v: any): void {
+    // Handle Input Selection
+    function onClick(event: any, v: any): void {
         dispatch('click', event);
+        onSelection(v);
+    }
+    function onKeyUp(event: any, v: any): void {
+        if (['Enter', 'Space'].includes(event.code)) {
+            event.preventDefault();
+            dispatch('keydown', event);
+            onSelection(v);
+        }
+    }
+    function onSelection(v: any): void {
         if (!v) { return; }
         if (typeof($selected) === 'object') {
             const local: any[] = $selected;
@@ -46,9 +56,12 @@
 
 <a
     href={$$props.href}
-    on:click={(e) => {onSelection(e, $$props.value)}}
+    on:click={(e) => {onClick(e, $$props.value)}}
+    on:keyup={(e) => {onKeyUp(e, $$props.value)}}
     class="list-item {classes} {cSelected($$props.value, $selected)} ${$$props.class}"
     data-testid="list-item"
+    role="menuitem"
+    tabindex="0"
 >
     <div class="{cRow}">
 
