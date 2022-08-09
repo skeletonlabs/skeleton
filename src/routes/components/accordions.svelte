@@ -116,22 +116,16 @@
         <CodeBlock language="html" code={`
 <AccordionGroup>
     <AccordionItem open>
-        <svelte:fragment slot="summary">Does Skeleton come with an Accordion component?</svelte:fragment>
-        <svelte:fragment slot="content">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis eaque nam deleniti rem incidunt.</p>
-        </svelte:fragment>
+        <svelte:fragment slot="summary">Summary 1</svelte:fragment>
+        <svelte:fragment slot="content"><p>Content 1</p></svelte:fragment>
     </AccordionItem>
     <AccordionItem>
-        <svelte:fragment slot="summary">What else do I need to know to build awesome web apps?</svelte:fragment>
-        <svelte:fragment slot="content">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis eaque nam deleniti rem incidunt.</p>
-        </svelte:fragment>
+        <svelte:fragment slot="summary">Summary 2</svelte:fragment>
+        <svelte:fragment slot="content"><p>Content 2</p></svelte:fragment>
     </AccordionItem>
     <AccordionItem>
-        <svelte:fragment slot="summary">What is the weather like today?</svelte:fragment>
-        <svelte:fragment slot="content">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis eaque nam deleniti rem incidunt.</p>
-        </svelte:fragment>
+        <svelte:fragment slot="summary">Summary 3</svelte:fragment>
+        <svelte:fragment slot="content"><p>Content 3</p></svelte:fragment>
     </AccordionItem>
 </AccordionGroup>
 `.trim()}></CodeBlock>
