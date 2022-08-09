@@ -1,14 +1,20 @@
 <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details -->
 
+<script context="module">
+	let uniqueIndex = 0;
+</script>
 <script lang="ts">
+
+    // Used to generate a Unique ID
+    uniqueIndex++;
     
     // Props
     export let open: boolean = false;
     export let hover: string = 'hover:bg-primary-500/10';
     export let spacing: string = 'space-y-2';
     // A11y
-    export let summaryId: string = undefined;
-    export let contentId: string = undefined;
+    export let summaryId: string = `accordian-summary-${uniqueIndex}`;
+    export let contentId: string = `accordian-summary-${uniqueIndex}`;
 
     // Base Classes
     const cBaseDetails: string = '';
