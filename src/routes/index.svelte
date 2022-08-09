@@ -56,7 +56,7 @@
         <!-- Create SvelteKit Project -->
         <h4>Create a SvelteKit Project</h4>
         <p>See the <a href="https://kit.svelte.dev/docs/introduction#getting-started" target="_blank">official documentation</a>.</p>
-        <CodeBlock language="console" code={`npm init svelte@next my-app\ncd my-app\nnpm install\nnpm run dev`}></CodeBlock>
+        <CodeBlock language="console" code={`npm create svelte@latest my-app\ncd my-app\nnpm install\nnpm run dev`}></CodeBlock>
         <!-- Install Tailwind -->
         <h4>Install Tailwind</h4>
         <p><a href="https://github.com/svelte-add/tailwindcss" target="_blank">Svelte-Add</a> makes this quick and painless.</p>
