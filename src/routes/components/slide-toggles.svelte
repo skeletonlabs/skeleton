@@ -6,13 +6,19 @@
 
     let checkedValue: boolean = false;
 
-    // Props
+    // Tables
     const tableProps: any = {
         headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
         source: [
             ['checked', 'boolean', 'false', 'true | false', 'The checked state of the input element.'],
             ['accent', 'string', 'bg-accent-500', 'class', 'Provide a class to set the checked state color.'],
             ['size', 'string', 'md', 'sm | md | lg', 'Sets the size of the component.'],
+        ],
+    };
+    const tableA11y: any = {
+        headings: ['Prop', 'Required', 'Description'],
+        source: [
+            ['label', '-', `Provide a semantic label.`],
         ],
     };
 </script>
@@ -71,5 +77,14 @@
         <h2>Properties</h2>
         <DataTable headings="{tableProps.headings}" source="{tableProps.source}"></DataTable>
     </section>
+
+    <!-- Accessibility -->
+	<section class="space-y-4">
+        <div class="flex justify-between items-center">
+            <h2>Accessibility</h2>
+            <a href="https://www.w3.org/WAI/ARIA/apg/patterns/switch/" target="_blank">ARIA Guidelines</a>
+        </div>
+		<DataTable headings="{tableA11y.headings}" source="{tableA11y.source}"></DataTable>
+	</section>
 
 </div>

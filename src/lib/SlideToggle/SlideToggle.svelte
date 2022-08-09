@@ -1,7 +1,15 @@
 <script lang="ts">
+    import { createEventDispatcher } from "svelte/internal";
+
+    // Event Handler
+    const dispatch = createEventDispatcher();
+
+    // Props
     export let checked: boolean = false;
     export let accent: string = 'bg-accent-500';
     export let size: string = 'md';
+    // A11y
+    export let label: string = 'switch';
 
     // Base Styles
     const cBaseLabel: string = 'inline-block';
@@ -14,6 +22,16 @@
         case('sm'): trackSize = 'w-12 h-6'; break;
         case('lg'): trackSize = 'w-20 h-10'; break;
         default:    trackSize = 'w-16 h-8';
+    }
+
+    // A11y Input Handlers
+    function onKeyDown(event: any): void {
+        // Enter/Space to toggle element
+        if (['Enter', 'Space'].includes(event.code)) {
+            event.preventDefault();
+            dispatch('keyup', event);
+            event.target.click();
+        }
     }
 
     // Interactive
@@ -32,7 +50,18 @@
     }
 </script>
 
-<label class="slide-toggl {cBaseLabel} {$$props.class}" class:opacity-30={$$props.disabled} data-testid="slide-toggle">
+<label
+    class="slide-toggl
+    {cBaseLabel}
+    {$$props.class}"
+    class:opacity-30={$$props.disabled}
+    data-testid="slide-toggle"
+    on:keydown={onKeyDown}
+    role="switch"
+    {label}
+    aria-checked={checked}
+    tabindex="0"
+>
 
     <!-- Input (Hidden) -->
     <input
