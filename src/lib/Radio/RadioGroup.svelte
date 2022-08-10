@@ -22,6 +22,6 @@
     $: classesGroup = `${cBaseGroup} ${width}`;
 </script>
 
-<nav class="radio-group {classesGroup} ${$$props.class}" data-testid="radio-group" role="radiogroup" aria-label={label} tabindex="-1">
+<nav class="radio-group {classesGroup} ${$$props.class}" data-testid="radio-group" role="radiogroup" aria-label={label}>
     <slot />
 </nav>

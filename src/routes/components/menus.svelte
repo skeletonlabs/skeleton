@@ -96,7 +96,7 @@
     <!-- Notes -->
     <section class="space-y-4">
         <h4>Auto Origin Positioning</h4>
-        <p>The menu defaults to <code>origin: "auto"</code>. This will attempt to keep the menu visible on-screen at all times. Specifically on window resize or if the parent element is scrolled.</p>
+        <p>The menu defaults to <code>origin: "auto"</code>. This will attempt to keep the menu visible on-screen at all times. Specifically on window resize or when the parent element is scrolled.</p>
     </section>
 
     <!-- Properties -->
@@ -109,6 +109,19 @@
 	<section class="space-y-4">
 		<h2>Slots</h2>
         <DataTable headings="{tableSlots.headings}" source="{tableSlots.source}"></DataTable>
+	</section>
+
+    <!-- Accessibility -->
+	<section class="space-y-4">
+        <div class="flex justify-between items-end">
+            <h2>Accessibility</h2>
+            <nav class="flex space-x-4">
+                <span>ARIA</span>
+                <a href="https://www.w3.org/WAI/ARIA/apg/patterns/menu/" target="_blank">Menu</a>
+                <a href="https://www.w3.org/WAI/ARIA/apg/patterns/menubutton/" target="_blank">Button</a>
+            </nav>
+        </div>
+        <p>Note that most accessibility features should be handle with the <a href="/components/list">List component</a>.</p>
 	</section>
     
 </div>

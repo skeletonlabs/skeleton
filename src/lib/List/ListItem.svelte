@@ -3,6 +3,10 @@
 <script lang='ts'>
     import {getContext} from 'svelte';
 
+    // A11y
+    export let role: string = 'listitem';
+    export let label: string = undefined;
+
     // Context
     export let parentTag: string = getContext('parentTag');
 
@@ -14,7 +18,15 @@
     const cRow: string = 'flex flex-row items-center space-x-4';
 </script>
 
-<svelte:element this={tag} class="list-item {cBase} {$$props.class}" data-testid="list-item" on:click role="menuitem" tabindex="0">
+<svelte:element
+    this={tag}
+    class="list-item {cBase} {$$props.class}"
+    data-testid="list-item"
+    on:click
+    {role}
+    aria-label={label}
+    tabindex="0"
+>
     <div class="{cRow}">
 
         <!-- Slot: Lead -->

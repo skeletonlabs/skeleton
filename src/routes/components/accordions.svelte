@@ -10,6 +10,7 @@
     const tablePropsGroup: any = {
         headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
         source: [
+            ['collapse', 'boolean', 'true', '-', 'When TRUE, only one item will show at a time.'],
             ['spacing', 'class', 'spacing-y-2', '-', 'Provide a class to set spacing between item rows.'],
         ],
     };

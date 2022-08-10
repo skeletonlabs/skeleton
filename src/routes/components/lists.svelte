@@ -37,10 +37,20 @@
             ['trail', 'Positioned on the right of each row item.'],
         ],
     };
-    const tableA11yItem: any = {
-        headings: ['Prop', 'Type', 'Required', 'Description'],
+    const tableA11yList: any = {
+        headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
         source: [
-            ['label', 'string', '-', `Defines a semantic label for the list.`],
+            ['role', 'string', 'list', 'list | menu', `Define the ARIA role.`],
+            ['labelledby', 'string', '-', '-', `ID of the element that labels this this.`],
+        ],
+    };
+    const tableA11yItem: any = {
+        headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
+        source: [
+            ['role', 'string', 'listitem', 'listitem | menuitem', `Define the ARIA role.`],
+            ['label', 'string', '-', '-', `Define a semantic ARIA label.`],
+            ['setsize', 'number', '-', '-', `Nav Item only. Define the ARIA setsize value.`],
+            ['posinset ', 'number', '-', '-', `Nav Item only. Define the ARIA posinset value.`],
         ],
     };
 </script>
@@ -219,11 +229,17 @@
 
     <!-- Accessibility -->
 	<section class="space-y-4">
-        <h2>Accessibility</h2>
-        <div class="flex justify-between items-center">
-            <h4>List</h4>
-            <a href="https://www.w3.org/WAI/ARIA/apg/patterns/menu/" target="_blank">ARIA Guidelines</a>
+        <div class="flex justify-between items-end">
+            <h2>Accessibility</h2>
+            <nav class="flex space-x-4">
+                <span>ARIA</span>
+                <a href="https://www.w3.org/WAI/ARIA/apg/patterns/listbox/" target="_blank">Listbox</a>
+                <a href="https://www.w3.org/WAI/ARIA/apg/patterns/menu/" target="_blank">Menu</a>
+            </nav>
         </div>
+        <h4>List</h4>
+		<DataTable headings="{tableA11yList.headings}" source="{tableA11yList.source}"></DataTable>
+        <h4>Items</h4>
 		<DataTable headings="{tableA11yItem.headings}" source="{tableA11yItem.source}"></DataTable>
 	</section>
 

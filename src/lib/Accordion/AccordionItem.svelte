@@ -1,20 +1,17 @@
-<!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details -->
-
 <script context="module">
-	let uniqueIndex = 0;
+    // Generate Unique IDs for ARIA labels
+	let uniqueId = 0;
 </script>
 <script lang="ts">
+    uniqueId++;
 
-    // Used to generate a Unique ID
-    uniqueIndex++;
-    
     // Props
     export let open: boolean = false;
     export let hover: string = 'hover:bg-primary-500/10';
     export let spacing: string = 'space-y-2';
     // A11y
-    export let summaryId: string = `accordian-summary-${uniqueIndex}`;
-    export let contentId: string = `accordian-summary-${uniqueIndex}`;
+    export let summaryId: string = `accordian-summary-${uniqueId}`;
+    export let contentId: string = `accordian-summary-${uniqueId}`;
 
     // Base Classes
     const cBaseDetails: string = '';
@@ -33,11 +30,11 @@
 <details bind:open={open} class="accordion-item {classesDetails} {$$props.class}" data-testid="accordion-item">
 
     <!-- Summary -->
-    <summary id={summaryId} class="{classesSummary}" aria-expanded={open} aria-controls={contentId}>
+    <summary id={summaryId} class="{classesSummary}" role="heading" aria-expanded={open} aria-controls={contentId}>
         <!-- Slot: Lead -->
         {#if $$slots.lead}<div><slot name="lead"/></div>{/if}
         <!-- Slot: Text -->
-        <div class="flex-auto"><slot name="summary"/></div>
+        <div class="flex-auto" role="button"><slot name="summary"/></div>
         <!-- Caret -->
         <div class="{classesIcon}">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M192 384c-8.188 0-16.38-3.125-22.62-9.375l-160-160c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L192 306.8l137.4-137.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-160 160C208.4 380.9 200.2 384 192 384z"/></svg>

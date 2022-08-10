@@ -36,10 +36,17 @@
             ['lead', 'Provides a leading position, which can be used for icons.'],
         ],
     };
-    const tableA11y: any = {
+    const tableA11yGroup: any = {
         headings: ['Prop', 'Type', 'Required', 'Description'],
         source: [
-            ['label', 'string', '-', `Defines a semantic label for the list.`],
+            ['labeledby', 'string', '-', `Provide the ID of the element that describes the group.`],
+            ['label', 'string', '-', `Defines a semantic label for the group.`],
+        ],
+    };
+    const tableA11yTab: any = {
+        headings: ['Prop', 'Type', 'Required', 'Description'],
+        source: [
+            ['label', 'string', '-', `Defines a semantic label for the tab.`],
         ],
     };
 </script>
@@ -151,12 +158,14 @@
 
     <!-- Accessibility -->
 	<section class="space-y-4">
-		<h2>Accessibility</h2>
         <div class="flex justify-between items-center">
-            <h4>Tab</h4>
+            <h2>Accessibility</h2>
             <a href="https://www.w3.org/WAI/ARIA/apg/patterns/tabpanel/" target="_blank">ARIA Guidelines</a>
         </div>
-		<DataTable headings="{tableA11y.headings}" source="{tableA11y.source}"></DataTable>
+        <h4>Tab Group</h4>
+		<DataTable headings="{tableA11yGroup.headings}" source="{tableA11yGroup.source}"></DataTable>
+        <h4>Tab</h4>
+		<DataTable headings="{tableA11yTab.headings}" source="{tableA11yTab.source}"></DataTable>
 	</section>
     
 </div>

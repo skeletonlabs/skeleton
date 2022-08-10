@@ -6,6 +6,7 @@ import { cleanup, render, screen } from '@testing-library/svelte'
 import { afterEach, describe, it, vi, expect } from 'vitest';
 import { fireEvent } from '@testing-library/dom';
 
+/* @ts-ignore */
 import Button from '$lib/Button/Button.svelte';
 
 const dti = 'data-testid';

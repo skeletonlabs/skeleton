@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { onMount, afterUpdate } from "svelte";
+    import { onMount } from "svelte";
     import { navigating } from "$app/stores";
     import { fade } from 'svelte/transition';
 
@@ -9,22 +9,19 @@
     export let duration: number = 100; // ms
     export let disabled: boolean = false;
 
-    // DOM Elements
     let elemMenu: HTMLElement;
+    let autoOriginMode: boolean = origin === 'auto' ? true : false; // Persist `origin: auto` state
     
     // Base Classes
-    const cBaseMenu: string = 'relative inline-block space-y-[2px]';
+    const cBaseMenu: string = 'relative inline-block';
     const cBaseContent: string = 'absolute z-10';
-
-    // Persist `origin: auto` state
-    let autoOriginMode: boolean = origin === 'auto' ? true : false;
 
     // Set content anchor origin
     let cOrigin: string;
     function setOrigin(): void {
         switch (origin) {
-            case ('tl'): cOrigin = 'origin-top-left left-0 mt-2'; break;
-            case ('tr'): cOrigin = 'origin-top-right right-0 mt-2'; break;
+            case ('tl'): cOrigin = 'origin-top-left left-0 mt-0'; break;
+            case ('tr'): cOrigin = 'origin-top-right right-0 mt-0'; break;
             case ('bl'): cOrigin = 'origin-bottom-left top-[-5px] left-0 -translate-y-full'; break;
             case ('br'): cOrigin = 'origin-bottom-right top-[-5px] right-0 -translate-y-full'; break;
             default: setAutoOrigin(); break;
@@ -76,8 +73,15 @@
         }
     }
 
+    // A11y Input Handler
+    function onKeyDown(event: any): void {
+        if (open && event.code === 'Escape') { toggle(); }
+    }
+
     // Lifecycle Events
     onMount(() => {
+        // Event: Window Keydown (ESC)
+        window.addEventListener('keydown', onKeyDown);
         // If auto-origin enabled, add event listeners
         if (autoOriginMode === true) {
             // Event: Window Resize
@@ -98,12 +102,13 @@
 
 <div bind:this={elemMenu} class="menu-wrapper {classesMenu} {$$props.class}" data-testid="menu-wrapper">
 
-    <!-- Trigger -->
+    <!-- Trigger Button -->
     <div class="menu-trigger" on:click={toggle} data-testid="menu-trigger" aria-haspopup="true" aria-expanded={open}>
         {#if $$slots.trigger}<slot name="trigger" />{/if}
     </div>
 
     <!-- Content -->
+    <!-- NOTE: most A11y settings are built into List/ListItem/NavItem -->
     {#if open}
 	<div
         role="menu"

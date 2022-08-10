@@ -7,6 +7,9 @@
     export let justify: string = 'justify-start';
     export let highlight: string = 'border-primary-500';
     export let color: string = 'text-primary-500';
+    // A11y
+    export let labeledby: string = undefined;
+    export let label: string = undefined;
 
     // Set Context
     setContext('selected', selected);
@@ -32,6 +35,6 @@
     $: classesGroup = `${cBaseGroup} ${justify}`;
 </script>
 
-<nav bind:this={elemTabGroup} data-testid="tab-group" class="tab-group {classesGroup}" role="tablist">
+<nav bind:this={elemTabGroup} data-testid="tab-group" class="tab-group {classesGroup}" role="tablist" aria-labelledby={labeledby} aria-label={label}>
     <slot />
 </nav>
