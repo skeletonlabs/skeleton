@@ -44,8 +44,8 @@
 	const tableA11y: any = {
         headings: ['Prop', 'Required', 'Description'],
         source: [
-            ['label', '-', `Provides an <a href="https://w3c.github.io/aria/#aria-label" target="_blank">ARIA label</a>. Recommended for icon buttons.`],
-            ['describedby', '-', `Provides an <a href="https://w3c.github.io/aria/#aria-describedby" target="_blank">ARIA description</a>.`],
+            ['label', '-', `A semantic ARIA label.`],
+            ['describedby', '-', `Provide the ID of the element describing the button.`],
         ],
     };
 
