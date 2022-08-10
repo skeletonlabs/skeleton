@@ -86,6 +86,15 @@
             {name: 'footer', desc: 'Displays below the table. Useful for embedding pagination.'},
         ],
     }
+
+    // A11y
+    const tableA11y: any = {
+        headings: ['Prop', 'Required', 'Description'],
+        source: [
+            ['labelledby', '-', `Provide the ID of the element that labels the table.`],
+            ['describedby', '-', `Provide the ID of the element that describes the table.`],
+        ],
+    };
 </script>
 
 <div class="space-y-8">
@@ -261,6 +270,9 @@ function onSelect(event: any): void { console.log('event:onSelect', event.detail
             `.trim()}></CodeBlock>
     </section>
 
+    <!-- Extras -->
+	<!-- TODO: document the table service -->
+
     <!-- Properties -->
 	<section class="space-y-4">
 		<h2>Properties</h2>
@@ -280,7 +292,13 @@ function onSelect(event: any): void { console.log('event:onSelect', event.detail
 		<DataTable headings={tableSlots.headings} source={tableSlots.source} ></DataTable>
 	</section>
     
-    <!-- Extras -->
-	<!-- TODO: document the table service -->
+    <!-- Accessibility -->
+	<section class="space-y-4">
+        <div class="flex justify-between items-center">
+            <h2>Accessibility</h2>
+            <a href="https://www.w3.org/WAI/ARIA/apg/patterns/grid/" target="_blank">ARIA Guidelines</a>
+        </div>
+		<DataTable headings="{tableA11y.headings}" source="{tableA11y.source}"></DataTable>
+	</section>
 	
 </div>

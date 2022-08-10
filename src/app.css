@@ -14,6 +14,12 @@ body { @apply font-sans bg-surface-100 dark:bg-surface-900 text-black dark:text-
     background-size: cover; background-attachment: fixed;
 }
 
+/* --- Focus --- */
+
+*:focus-visible {
+    @apply outline-none ring-2 ring-primary-300 ring-inset;
+}
+
 /* --- Scrollbars --- */
 
 /* Scrollbars (webkit) */
