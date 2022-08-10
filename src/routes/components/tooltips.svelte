@@ -114,5 +114,11 @@
 		<h2>Slots</h2>
         <DataTable headings="{tableSlots.headings}" source="{tableSlots.source}"></DataTable>
 	</section>
+
+    <!-- Accessibility -->
+    <section class="space-y-4">
+        <h2>Accessibility</h2>
+        <p>Note the the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/" target="_blank">ARIA Guidelines</a> are a <a href="https://github.com/w3c/aria-practices/issues/128" target="_blank">work-in-progress</a> and subject to change over time.</p>
+    </section>
     
 </div>

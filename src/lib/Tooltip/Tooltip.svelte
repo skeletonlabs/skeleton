@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { afterUpdate } from "svelte";
+    import { onMount, afterUpdate } from "svelte";
     import { fade } from 'svelte/transition';
 
     // Props
@@ -28,6 +28,7 @@
             default: cPosition = 'top-0 -translate-y-full flex-col items-center'; // top
         }
     }
+    setPosition(); // init
 
     // Set Arrow Position
     let cArrowPosition: string;
@@ -39,16 +40,22 @@
             default: cArrowPosition = 'translate-y-[-50%]'; // top
         }
     }
+    setArrowPosition(); // init
+
+    // A11y Input Handler
+    function onKeyDown(event: any): void {
+        if (open && event.code === 'Escape') { visible = false; }
+    }
 
     // Handle mouse events
     function onMouseEnter(): void { visible = true; } // show
     function onMouseLeave(): void { visible = false; } // hide
 
-    // On Init
-    setPosition();
-    setArrowPosition();
-
-    // After Update
+    // Lifecycle
+    onMount(() => {
+        // Event: Window Keydown (ESC)
+        window.addEventListener('keydown', onKeyDown);
+	});
     afterUpdate(() => {
         setPosition();
         setArrowPosition();
@@ -60,7 +67,7 @@
     $: classesArrow = `${cBaseArrow} ${cArrowPosition} ${background}`;
 </script>
 
-<div class="tooltip {cBaseTooltip} {$$props.class}" data-testid="tooltip">
+<div class="tooltip {cBaseTooltip} {$$props.class}" data-testid="tooltip" role="tooltip">
 
     <!-- Popup -->
     {#if $$slots.message && visible}
