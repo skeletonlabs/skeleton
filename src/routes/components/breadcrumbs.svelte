@@ -28,6 +28,12 @@
             ['lead', 'A leading slot intended for icons.'],
         ],
     };
+    const tableA11y: any = {
+        headings: ['Prop', 'Default', 'Description'],
+        source: [
+            ['label', '-', `A semantic ARIA label.`],
+        ],
+    };
 </script>
 
 <div class="space-y-8">
@@ -137,4 +143,15 @@
         <h4>Crumb</h4>
         <DataTable headings="{tableSlotsCrumb.headings}" source="{tableSlotsCrumb.source}"></DataTable>
     </section>
+
+    <!-- Accessibility -->
+	<section class="space-y-4">
+        <div class="flex justify-between items-center">
+            <h2>Accessibility</h2>
+            <a href="https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/" target="_blank">ARIA Guidelines</a>
+        </div>
+        <h4>Breadcrumb</h4>
+		<DataTable headings="{tableA11y.headings}" source="{tableA11y.source}"></DataTable>
+	</section>
+
 </div>
