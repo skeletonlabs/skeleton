@@ -4,6 +4,7 @@
     import DataTable from "$lib/Table/DataTable.svelte";
     import ProgressRadial from "$lib/Progress/ProgressRadial.svelte";
 
+    // Tables
     const tableProps: any = {
         headings: ['Prop', 'Type', 'Default', 'Description'],
         source: [
@@ -19,6 +20,12 @@
         headings: ['Name', 'Description'],
         source: [
             ['default', 'Text content is render as SVG text in the center of the element.'],
+        ],
+    };
+    const tableA11y: any = {
+        headings: ['Prop', 'Required', 'Description'],
+        source: [
+            ['label', '-', `A semantic ARIA label.`],
         ],
     };
 
@@ -88,6 +95,15 @@
 	<section class="space-y-4">
 		<h2>Slots</h2>
         <DataTable headings="{tableSlots.headings}" source="{tableSlots.source}"></DataTable>
+	</section>
+
+    <!-- Accessibility -->
+	<section class="space-y-4">
+        <div class="flex justify-between items-center">
+            <h2>Accessibility</h2>
+            <a href="https://www.w3.org/WAI/ARIA/apg/patterns/meter/" target="_blank">ARIA Guidelines</a>
+        </div>
+		<DataTable headings="{tableA11y.headings}" source="{tableA11y.source}"></DataTable>
 	</section>
 
 </div>

@@ -11,6 +11,8 @@
     export let meter: string = 'stroke-black dark:stroke-white';
     export let color: string = 'fill-black dark:fill-white';
     export let font: number = 56; // px
+    // Ally
+    export let label: string = undefined;
 
     // Base Classes
     const cBaseTrack: string = 'fill-transparent';
@@ -38,7 +40,15 @@
     });
 </script>
 
-<figure class="progress-radial relative overflow-hidden {$$props.class}" data-testid="progress-radial">
+<figure
+    class="progress-radial relative overflow-hidden {$$props.class}"
+    data-testid="progress-radial"
+    aria-label={label}
+    aria-valuenow={value}
+    aria-valuetext={value ? `${value}%` : 'Indeterminate Spinner'}
+    aria-valuemin={0}
+    aria-valuemax={100}
+>
 
     <!-- Draw SVG -->
     <svg viewBox="0 0 {baseSize} {baseSize}" class="rounded-full" class:animate-spin={value === undefined}>
