@@ -91,4 +91,10 @@
         <DataTable headings="{tableProps.headings}" source="{tableProps.source}"></DataTable>
     </section>
 
+    <!-- Accessibility -->
+    <section class="space-y-4">
+        <h2>Accessibility</h2>
+        <p>Uses a horizontal rule <code>hr</code> tag, which has an inherit <code>role="seperator"</code>.</p>
+    </section>
+
 </div>

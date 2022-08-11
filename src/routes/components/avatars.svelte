@@ -17,7 +17,7 @@
         source: [
             ['initials', 'string', 'A', 'text', 'Provide up to two text characters.'],
             ['src', 'string', 'url', '-', 'The image source to display.'],
-            ['size', 'string', 'fluid', 'sm | md | lg | xl | 2xl | 3xl | fluid', 'Sets the circle and text sizing.'],
+            ['size', 'string', 'sm', 'sm | md | lg | xl | 2xl | 3xl | fluid', 'Sets the circle and text sizing.'],
             ['background', 'string', 'bg-surface-500', 'class', 'Provide a class to set background color.'],
             ['color', 'string', 'text-white', 'class', 'Provide a class to set text color.'],
             ['outline', 'boolean', 'false', 'true | false', 'Displays an outline of the primary color.'],
@@ -144,6 +144,12 @@
     <section class="space-y-4">
         <h2>Properties</h2>
         <DataTable headings="{tableProps.headings}" source="{tableProps.source}"></DataTable>
+    </section>
+
+    <!-- Accessibility -->
+    <section class="space-y-4">
+        <h2>Accessibility</h2>
+        <p>You many apply an <code>alt</code> tag, which is appended to the image element.</p>
     </section>
 
 </div>

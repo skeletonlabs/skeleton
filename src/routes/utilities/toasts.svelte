@@ -127,5 +127,11 @@ const t: ToastMessage = {
         <p>Use the following to display the queue in your UI.</p>
         <CodeBlock language="html" code={`<pre>queue: {JSON.stringify($toastStore, null, 2)}</pre>`}></CodeBlock>
     </section>
+
+    <!-- Accessibility -->
+    <section class="space-y-4">
+        <h2>Accessibility</h2>
+        <p>Meets all alert requirements for the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/alert/" target="_blank">ARIA Guidelines</a>.</p>
+    </section>
     
 </div>

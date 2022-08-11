@@ -107,4 +107,10 @@
         <DataTable headings="{tableSlots.headings}" source="{tableSlots.source}"></DataTable>
     </section>
 
+    <!-- Accessibility -->
+    <section class="space-y-4">
+        <h2>Accessibility</h2>
+        <p>Makes use of <code>role="alert"</code> and <code>aria-live="polite"</code>.</p>
+    </section>
+
 </div>

@@ -315,5 +315,11 @@ const d: DialogAlert = {
         <p>Use the following to display the queue in your UI. Note some properties may not display, such as response.</p>
         <CodeBlock language="html" code={`<pre>queue: {JSON.stringify($dialogStore, null, 2)}</pre>`}></CodeBlock>
     </section>
+
+    <!-- Accessibility -->
+    <section class="space-y-4">
+        <h2>Accessibility</h2>
+        <p>Meets all dialog requirements for the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/" target="_blank">ARIA Guidelines</a>.</p>
+    </section>
     
 </div>

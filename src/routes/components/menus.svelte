@@ -121,7 +121,7 @@
                 <a href="https://www.w3.org/WAI/ARIA/apg/patterns/menubutton/" target="_blank">Button</a>
             </nav>
         </div>
-        <p>Note that most accessibility features should be handle with the <a href="/components/list">List component</a>.</p>
+        <p>See the <a href="/components/list">List component</a> accessibility options if you wish to embed a List within your Menu.</p>
 	</section>
     
 </div>

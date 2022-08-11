@@ -43,6 +43,7 @@
 <figure
     class="progress-radial relative overflow-hidden {$$props.class}"
     data-testid="progress-radial"
+    role="meter"
     aria-label={label}
     aria-valuenow={value}
     aria-valuetext={value ? `${value}%` : 'Indeterminate Spinner'}

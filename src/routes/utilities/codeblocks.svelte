@@ -8,6 +8,7 @@
         source: [
             ['language', 'string', 'html | css | js | ...', 'plaintext', 'Sets a language alias: <a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md" target="_blank">Highlight.js</a>'],
             ['code', 'string', '-', '-', 'Takes a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals" target="_blank">Template Literal</a>. Be mindful to escape as needed.'],
+            ['background', 'string', '(class)', 'bg-neutral-900', 'Provide a CSS class to define the background color.'],
         ],
     };
 </script>
@@ -46,5 +47,11 @@
         <h2>Properties</h2>
         <DataTable headings="{tableProps.headings}" source="{tableProps.source}"></DataTable>
     </section>
+
+    <!-- Accessibility -->
+	<section class="space-y-4">
+        <h2>Accessibility</h2>
+        <p>Uses <code>pre-wrap</code> by default to support keyboard-only navigation. Be mindful of color contrast ratios when customizing theme and background color.</p>
+	</section>
 
 </div>

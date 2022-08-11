@@ -237,6 +237,7 @@
                 <a href="https://www.w3.org/WAI/ARIA/apg/patterns/menu/" target="_blank">Menu</a>
             </nav>
         </div>
+        <p>Defaults to a <code>listbox</code> role, but we advise overwriting the appropriate prop values below if you wish to embed within a Menu component.</p>
         <h4>List</h4>
 		<DataTable headings="{tableA11yList.headings}" source="{tableA11yList.source}"></DataTable>
         <h4>Items</h4>

@@ -85,4 +85,11 @@
         <h2>Slots</h2>
         <DataTable headings="{tableSlots.headings}" source="{tableSlots.source}"></DataTable>
     </section>
+
+    <!-- Accessibility -->
+    <section class="space-y-4">
+        <h2>Accessibility</h2>
+        <p>Make sure to apply appropriate <code>alt</code> tags to your logo icons and images.</p>
+    </section>
+
 </div>
