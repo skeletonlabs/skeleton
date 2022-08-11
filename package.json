@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "vite dev --port 3000",
 		"build": "vite build",
-		"package": "svelte-kit package",
+		"package": "svelte-kit package && sh scripts/append-types.sh",
 		"patch-package": "npm version patch && svelte-kit package",
 		"publish": "npm publish ./package",
 		"preview": "vite preview",
