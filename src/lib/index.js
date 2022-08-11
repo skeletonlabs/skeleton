@@ -1,5 +1,3 @@
-// @ts-nocheck
-
 // Components ---
 
 export { default as AccordionGroup } from "./Accordion/AccordionGroup.svelte";
