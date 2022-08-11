@@ -1,4 +1,4 @@
-<svg id="svg-filter" class="filter hidden">
+<svg id="svg-filter-summer84" class="filter hidden">
     <!-- Summer84: `filter: url(#Summer84)` -->
     <filter id="Summer84" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 

@@ -61,9 +61,9 @@
 	<button
 		slot="trigger"
 		type="button"
-		class="fill-surface-500 cursor-pointer translate-y-[2px]"
+		class="fill-black dark:fill-white cursor-pointer translate-y-[2px]"
 		aria-label="lightswitch"
-		aria-describedby="Toggles dark mode."
+		aria-roledescription="Toggles dark mode."
 		aria-disabled={disabled}
 	>
 		{@html svg[currentTheme]}

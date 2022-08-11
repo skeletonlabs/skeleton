@@ -1,4 +1,4 @@
-<svg id="svg-filter" class="filter hidden">
+<svg id="svg-filter-bluenight" class="filter hidden">
     <!-- BlueNight: `filter: url(#BlueNight)` -->
     <filter id="BlueNight" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 

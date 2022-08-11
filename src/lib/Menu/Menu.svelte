@@ -103,7 +103,8 @@
 <div bind:this={elemMenu} class="menu-wrapper {classesMenu} {$$props.class}" data-testid="menu-wrapper">
 
     <!-- Trigger Button -->
-    <div class="menu-trigger" on:click={toggle} data-testid="menu-trigger" aria-haspopup="true" aria-expanded={open}>
+    <!-- REMOVED: role="button" aria-haspopup="true" aria-expanded={open} -->
+    <div class="menu-trigger" on:click={toggle} data-testid="menu-trigger">
         {#if $$slots.trigger}<slot name="trigger" />{/if}
     </div>
 

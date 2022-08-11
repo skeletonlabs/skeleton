@@ -1,4 +1,4 @@
-<svg id="svg-filter" class="filter hidden">
+<svg id="svg-filter-apollo" class="filter hidden">
     <!-- Apollo: `filter: url(#Apollo)` -->
     <filter id="Apollo" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 
