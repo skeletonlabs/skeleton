@@ -1,5 +1,5 @@
 [![npm version](https://img.shields.io/npm/v/@brainandbones/skeleton?logo=npm&color=cb3837)](https://www.npmjs.com/package/@brainandbones/skeleton)
-[![Chat](https://img.shields.io/discord/1003691521280856084?label=chat&logo=discord&color=7289da)](https://discord.gg/SdysnXcB)
+[![Chat](https://img.shields.io/discord/1003691521280856084?label=chat&logo=discord&color=7289da)](https://discord.gg/EXqV7W8MtY)
 [![Twitter Follow](https://img.shields.io/twitter/follow/SkeletonUI?style=social)](https://twitter.com/SkeletonUI)
 [![license](https://img.shields.io/badge/license-MIT-%23bada55)](https://github.com/Brain-Bones/skeleton/blob/master/LICENSE)
 
@@ -21,10 +21,10 @@ A fully featured Svelte UI component library. Skeleton allows you to build fast 
 
 ## Community
 
-- [Join the Discord](https://discord.gg/SdysnXcB)
+- [Join the Discord](https://discord.gg/EXqV7W8MtY)
 - [Follow on Twitter](https://twitter.com/SkeletonUI)
 
-## Developement
+## Development
 
 ### Contributions
 
@@ -33,7 +33,7 @@ Ensure you've read the [contribution guide](https://skeleton.brainandbonesllc.co
 ### Install
 
 * Clone the Skeleton project to your local machine.
-* Install depedencies with `npm install`
+* Install dependencies with `npm install`
 * Create a new feature branch: `git checkout -b {branchName}`
 * Start a dev server:
     * `npm run dev` - start server
