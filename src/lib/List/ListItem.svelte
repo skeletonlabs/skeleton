@@ -28,15 +28,16 @@
 
     // A11y Input Handler
     function onKeyDown(event: any): void {
+        dispatch('keydown', event);
         if (['Enter', 'Space'].includes(event.code)) {
             event.preventDefault();
-            dispatch('keydown', event);
             parentTag === 'nav' ? elemItem.querySelector('a').click() : elemItem.click();
         }
     }
 
     // Input Handler
-    function onClickHandler(): void {
+    function onClickHandler(event: any): void {
+        dispatch('click', event);
         if (!$selected || !$$props.value) { return; }
         typeof($selected) === 'object' ? handleMultiSelect() : handleSingleSelect();
     }
