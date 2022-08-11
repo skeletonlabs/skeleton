@@ -44,7 +44,7 @@
 </script>
 
 {#if $toastStore.length}
-<div class="toast {classesToast}" transition:fly|local={{y, duration}}>
+<div class="toast {classesToast}" transition:fly|local={{y, duration}} role="alert" aria-live="polite">
 
     <!-- Message -->
     {#key $toastStore[0].message}
