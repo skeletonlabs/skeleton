@@ -17,7 +17,7 @@
 </script>
 
 {#if visible}
-<div class="alert" transition:fade|local={{duration}} data-testid="alert">
+<div class="alert" transition:fade|local={{duration}} data-testid="alert" role="alert" aria-live="polite">
 	<Card {background} {color} class="{classesCard}">
 
 		<!-- Slot: Lead -->

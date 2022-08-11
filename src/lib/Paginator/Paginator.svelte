@@ -32,7 +32,7 @@
     $: classesText = `${cBaseText} ${text}`;
 </script>
 
-<div class="paginator {classesPaginator} {$$props.class}" data-testid="paginator">
+<nav class="paginator {classesPaginator} {$$props.class}" data-testid="paginator">
     
     <!-- Select Amount -->
     <div class="w-full md:w-auto">
@@ -50,4 +50,4 @@
         <Button {variant} {rounded} on:click={onNext} disabled={(offset+1)*limit >= size}>&rarr;</Button>
     </div>
 
-</div>
+</nav>
