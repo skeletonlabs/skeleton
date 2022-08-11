@@ -6,7 +6,7 @@
 
 	import Card from "$lib/Card/Card.svelte";
 	import List from "$lib/List/List.svelte";
-	import NavItem from "$lib/List/NavItem.svelte";
+	import ListItem from "$lib/List/ListItem.svelte";
 	import Menu from "$lib/Menu/Menu.svelte";
 
 	export let select: boolean = true;
@@ -72,27 +72,27 @@
 	<!-- Menu -->
 	<Card slot="content" class="bg-surface-300 dark:bg-surface-700 p-0 overflow-hidden">
 		<List tag="nav" class="fill-surface-500">
-			<NavItem
+			<ListItem
 				on:click="{() => { selectTheme('light') }}"
 				on:keydown="{(e) => { onKeyDown(e, 'light') }}"
 			>
 				<svelte:fragment slot="lead">{@html svg.light}</svelte:fragment>
 				<span>Light</span>
-			</NavItem>
-			<NavItem
+			</ListItem>
+			<ListItem
 				on:click="{() => { selectTheme('dark') }}"
 				on:keydown="{(e) => { onKeyDown(e, 'dark') }}"
 			>
 				<svelte:fragment slot="lead">{@html svg.dark}</svelte:fragment>
 				<span>Dark</span>
-			</NavItem>
-			<NavItem
+			</ListItem>
+			<ListItem
 				on:click="{() => { selectTheme('system') }}"
 				on:keydown="{(e) => { onKeyDown(e, 'system') }}"
 			>
 				<svelte:fragment slot="lead">{@html svg.system}</svelte:fragment>
 				<span>System</span>
-			</NavItem>
+			</ListItem>
 		</List>
 	</Card>
 

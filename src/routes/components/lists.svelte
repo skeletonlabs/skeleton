@@ -6,7 +6,6 @@
     import DataTable from "$lib/Table/DataTable.svelte";
     import List from "$lib/List/List.svelte";
     import ListItem from "$lib/List/ListItem.svelte";
-    import NavItem from '$lib/List/NavItem.svelte';
 
     let navSingle: Writable<string> = writable('A');
     let navMultiple: Writable<string[]> = writable(['A', 'B']);
@@ -23,11 +22,11 @@
             ['highlight', 'string', '!bg-primary-500', 'class', 'Nav tag only. Provide a class for highlighted rows. Note this must be use (!) for important.'],
         ],
     };
-    const tablePropsNavItem: any = {
+    const tablePropsItems: any = {
         headings: ['Prop', 'Type', 'Description'],
         source: [
-            ['href', 'string', `Optionally provide an anchor href link value.`],
-            ['value', 'any', `Optionally provide a list value such as a key or index.`],
+            ['href', 'string', `To create a link, provide an anchor tag.`],
+            ['value', 'any', `To create a section item, provide a value.`],
         ],
     };
     const slotsItems: any = {
@@ -38,19 +37,17 @@
         ],
     };
     const tableA11yList: any = {
-        headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
+        headings: ['Prop', 'Type', 'Default', 'Description'],
         source: [
-            ['role', 'string', 'list', 'list | menu', `Define the ARIA role.`],
-            ['labelledby', 'string', '-', '-', `ID of the element that labels this this.`],
+            ['label', 'string', '-', `Define a semantic ARIA label.`],
+            ['labelledby', 'string', '-', `ID of the element that labels this this.`],
         ],
     };
     const tableA11yItem: any = {
-        headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
+        headings: ['Prop', 'Type', 'Default', 'Description'],
         source: [
-            ['role', 'string', 'listitem', 'listitem | menuitem', `Define the ARIA role.`],
-            ['label', 'string', '-', '-', `Define a semantic ARIA label.`],
-            ['setsize', 'number', '-', '-', `Nav Item only. Define the ARIA setsize value.`],
-            ['posinset ', 'number', '-', '-', `Nav Item only. Define the ARIA posinset value.`],
+            ['setsize', 'number', '-', `Nav Item only. Define the ARIA setsize value.`],
+            ['posinset ', 'number', '-', `Nav Item only. Define the ARIA posinset value.`],
         ],
     };
 </script>
@@ -61,13 +58,12 @@
     <header class="space-y-4">
         <h1>Lists</h1>
         <p class='space-y-4'>Lists are continuous, vertical indexes of text options.</p>
-        <CodeBlock language="js" code={`import { List, ListItem, NavItem } from '@brainandbones/skeleton';`}></CodeBlock>
+        <CodeBlock language="js" code={`import { List, ListItem } from '@brainandbones/skeleton';`}></CodeBlock>
     </header>
 
     <!-- Variations -->
     <section class="space-y-4">
-        <h4>Variations</h4>
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-4">
             <section class="space-y-4">
                 <Card class="space-y-4">
                     <h6>Unordered</h6>
@@ -110,45 +106,43 @@
                     </List>
                 </Card>
             </section>
-        </div>
-    </section>
-
-    <!-- Navigation -->
-    <section class="space-y-4">
-        <h4>Navigation and Selection</h4>
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
             <section class="space-y-4">
                 <Card class="space-y-4">
                     <h6>Anchors</h6>
                     <List tag="nav">
-                        <NavItem href="/" tabindex={0}>Page A</NavItem>
-                        <NavItem href="/" tabindex={1}>Page B</NavItem>
-                        <NavItem href="/" tabindex={2}>Page C</NavItem>
+                        <ListItem href="/">Page A</ListItem>
+                        <ListItem href="/">Page B</ListItem>
+                        <ListItem href="/">Page C</ListItem>
                     </List>
                 </Card>
             </section>
+        </div>
+    </section>
+
+    <!-- Selection Listbox -->
+    <section class="space-y-4">
+        <h4>Selection Listbox</h4>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
             <section class="space-y-4">
                 <Card class="space-y-4">
-                    <h6>Selection (single)</h6>
+                    <h6>Single</h6>
                     <List tag="nav" selected={navSingle}>
-                        <NavItem value={'A'} tabindex={0}>Item A</NavItem>
-                        <NavItem value={'B'} tabindex={1}>Item B</NavItem>
-                        <NavItem value={'C'} tabindex={2}>Item C</NavItem>
+                        <ListItem value={'A'}>Item A</ListItem>
+                        <ListItem value={'B'}>Item B</ListItem>
+                        <ListItem value={'C'}>Item C</ListItem>
                     </List>
                     <pre>Selected: {$navSingle}</pre>
                 </Card>
             </section>
             <section class="space-y-4">
                 <Card class="space-y-4">
-                    <h6>Selection (multiple)</h6>
+                    <h6>Multiple</h6>
                     <List tag="nav" selected={navMultiple} hover="hover:bg-accent-500/10" highlight="!bg-accent-500">
-                        <NavItem value={'A'} tabindex={0}>Item A</NavItem>
-                        <NavItem value={'B'} tabindex={1}>Item B</NavItem>
-                        <NavItem value={'C'} tabindex={2}>Item C</NavItem>
+                        <ListItem value={'A'}>Item A</ListItem>
+                        <ListItem value={'B'}>Item B</ListItem>
+                        <ListItem value={'C'}>Item C</ListItem>
                     </List>
-                    {#if $navMultiple}
                     <pre>Selected: {$navMultiple}</pre>
-                    {/if}
                 </Card>
             </section>
         </div>
@@ -184,30 +178,29 @@
 </List>
         `.trim()}></CodeBlock>
         <h4>Navigation Lists</h4>
-        <p>Use NavItems child elements and apply href value.</p>
         <CodeBlock language="html" code={`
 <List tag="nav">
-    <NavItem href="/">Link Example 1</NavItem>
-    <NavItem href="/">Link Example 2</NavItem>
+    <ListItem href="/">Link Example 1</ListItem>
+    <ListItem href="/">Link Example 2</ListItem>
 </List>
         `.trim()}></CodeBlock>
-        <h4>Selection Lists</h4>
-        <p>Use NavItems as child elements, create a writable to store selected state, then apply a value property to each child.</p>
+        <h4>Selection Listbox</h4>
+        <p>Define a writable to store to house the selection state, then apply a value property to each child.</p>
         <h6>Single Value</h6>
         <CodeBlock language="typescript" code={`const storeSingle: Writable<number> = writable(1);`}></CodeBlock>
         <CodeBlock language="html" code={`
 <List tag="nav" selected={storeSingle}"">
-    <NavItem value={1}>Selection Example 1</NavItem>
-    <NavItem value={2}>Selection Example 2</NavItem>
+    <ListItem value={1}>Selection Example 1</ListItem>
+    <ListItem value={2}>Selection Example 2</ListItem>
 </List>
         `.trim()}></CodeBlock>
         <h6>Multiple Values</h6>
-        <CodeBlock language="typescript" code={`let storeMultiple: Writable<string[]> = writable(['A', 'B']);`}></CodeBlock>
+        <CodeBlock language="typescript" code={`let storeMultiple: Writable<any[]> = writable(['A', 'B']);`}></CodeBlock>
         <CodeBlock language="html" code={`
-<List tag="nav" selected={storeMultiple}" hover="hover:bg-accent-500/10" highlight="!bg-accent-500">
-    <NavItem value={'A'}>Item A</NavItem>
-    <NavItem value={'B'}>Item B</NavItem>
-    <NavItem value={'C'}>Item C</NavItem>
+<List tag="nav" selected={storeMultiple}">
+    <ListItem value={'A'}>Item A</ListItem>
+    <ListItem value={'B'}>Item B</ListItem>
+    <ListItem value={'C'}>Item C</ListItem>
 </List>
         `.trim()}></CodeBlock>
     </section>
@@ -218,7 +211,7 @@
         <h4>List Group</h4>
         <DataTable headings="{tablePropsGroup.headings}" source="{tablePropsGroup.source}"></DataTable>
         <h4>Nav Item</h4>
-        <DataTable headings="{tablePropsNavItem.headings}" source="{tablePropsNavItem.source}"></DataTable>
+        <DataTable headings="{tablePropsItems.headings}" source="{tablePropsItems.source}"></DataTable>
     </section>
     
     <!-- Slots -->
@@ -231,13 +224,8 @@
 	<section class="space-y-4">
         <div class="flex justify-between items-end">
             <h2>Accessibility</h2>
-            <nav class="flex space-x-4">
-                <span>ARIA</span>
-                <a href="https://www.w3.org/WAI/ARIA/apg/patterns/listbox/" target="_blank">Listbox</a>
-                <a href="https://www.w3.org/WAI/ARIA/apg/patterns/menu/" target="_blank">Menu</a>
-            </nav>
+            <a href="https://www.w3.org/WAI/ARIA/apg/patterns/listbox/" target="_blank">ARIA Guidelines</a>
         </div>
-        <p>Defaults to a <code>listbox</code> role, but we advise overwriting the appropriate prop values below if you wish to embed within a Menu component.</p>
         <h4>List</h4>
 		<DataTable headings="{tableA11yList.headings}" source="{tableA11yList.source}"></DataTable>
         <h4>Items</h4>

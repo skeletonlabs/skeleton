@@ -109,7 +109,7 @@
     </div>
 
     <!-- Content -->
-    <!-- NOTE: most A11y settings are built into List/ListItem/NavItem -->
+    <!-- NOTE: most A11y settings are built into List/ListItem -->
     {#if open}
 	<div
         role="menu"
