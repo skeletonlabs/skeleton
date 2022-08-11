@@ -16,8 +16,8 @@ body { @apply font-sans bg-surface-100 dark:bg-surface-900 text-black dark:text-
 
 /* --- Focus --- */
 
-*:focus-visible {
-    @apply outline-none ring-2 ring-primary-300 ring-inset;
+*:focus-visible:not(.codeblock code) {
+    @apply outline-none ring-2 ring-black dark:ring-white ring-inset shadow-xl;
 }
 
 /* --- Scrollbars --- */

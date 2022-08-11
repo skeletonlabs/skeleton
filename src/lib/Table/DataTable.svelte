@@ -94,25 +94,22 @@
 
     // A11y Input Handler
     function onKeyDown(event: any): void {
-        console.log(event.code);
         // Arrow Keys
         const hotKeys: string[] = ['ArrowRight', 'ArrowUp', 'ArrowLeft', 'ArrowDown', 'Home', 'End'];
         if (hotKeys.includes(event.code)) {
             event.preventDefault();
             switch (event.code) {
-                case ('ArrowUp'):    setActiveCell(event, 0, -1); break;
-                case ('ArrowDown'):  setActiveCell(event, 0, 1); break;
-                case ('ArrowLeft'):  setActiveCell(event, -1, 0); break;
-                case ('ArrowRight'): setActiveCell(event, 1, 0); break;
-                case ('Home'):       console.log('pressed:home'); break;
-                case ('PageUp'):     console.log('pressed:home'); break;
-                case ('End'):        console.log('pressed:end'); break;
-                case ('pageDown'):   console.log('pressed:end'); break;
+                case ('ArrowUp'):    setActiveCell(0, -1); break;
+                case ('ArrowDown'):  setActiveCell(0, 1); break;
+                case ('ArrowLeft'):  setActiveCell(-1, 0); break;
+                case ('ArrowRight'): setActiveCell(1, 0); break;
+                case ('Home'):       jumpToFirstColumn(); break;
+                case ('End'):        jumpToLastColumn(); break;
                 default: break;
             }
         }
     }
-    function setActiveCell(event: any, x: number, y: number): void {
+    function setActiveCell(x: number, y: number): void {
         // Focused Element
         const focusedElem: any = document.activeElement;
         const focusedElemRowIndex: number = parseInt(focusedElem.parentElement.ariaRowIndex);
@@ -123,6 +120,22 @@
             const targetColElement: HTMLElement = targetRowElement.querySelector(`[aria-colindex="${focusedElemColIndex + x}"]`);
             if (targetColElement !== null) { targetColElement.focus(); }
         }
+    }
+    function getTargetElem(): any {
+        // Focused Element
+        const focusedElem: any = document.activeElement;
+        const focusedElemRowIndex: number = parseInt(focusedElem.parentElement.ariaRowIndex);
+        // Return Target Element
+        return elemTable.querySelector(`[aria-rowindex="${focusedElemRowIndex}"]`);
+    }
+    function jumpToFirstColumn(): void {
+        const targetRowElement: any = getTargetElem();
+        targetRowElement.firstChild.focus();
+    }
+    function jumpToLastColumn(): void {
+        const targetRowElement: any = getTargetElem();
+        const lastIndex: number = targetRowElement.children.length - 1;
+        targetRowElement.children[lastIndex].focus();
     }
 
     // On Prop Change
