@@ -1,17 +1,11 @@
-<script context="module">
-    // Generate Unique IDs for ARIA labels
-	let uniqueId = 0;
-</script>
 <script lang="ts">
-    uniqueId++;
-
     // Props
     export let open: boolean = false;
     export let hover: string = 'hover:bg-primary-500/10';
     export let spacing: string = 'space-y-2';
     // A11y
-    export let summaryId: string = `accordian-summary-${uniqueId}`;
-    export let contentId: string = `accordian-summary-${uniqueId}`;
+    export let summaryId: string = undefined;
+    export let contentId: string = undefined;
 
     // Base Classes
     const cBaseDetails: string = '';
@@ -30,7 +24,7 @@
 <details bind:open={open} class="accordion-item {classesDetails} {$$props.class}" data-testid="accordion-item">
 
     <!-- Summary -->
-    <summary id={summaryId} class="{classesSummary}" role="heading" aria-expanded={open} aria-controls={contentId}>
+    <summary id={summaryId} class="{classesSummary}" aria-expanded={open} aria-controls={contentId}>
         <!-- Slot: Lead -->
         {#if $$slots.lead}<div><slot name="lead"/></div>{/if}
         <!-- Slot: Text -->

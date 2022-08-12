@@ -181,7 +181,6 @@
                         scope="col"
                         on:click={() => { onHeadSelect(i) }}
                         role="columnheader"
-                        aria-sort={headKeyByIndex(i) === sorted.by ? sorted.by : undefined}
                     >
                         {@html head}
                         <span class="inline-block w-3 text-center ml-1 opacity-50">
@@ -202,13 +201,13 @@
                     <tr
                         class="table-body-row {classesBodyRoll}"
                         on:click={() => { onRowSelect(row) }}
-                        aria-rowindex={rowIndex}
+                        aria-rowindex={rowIndex+1}
                     >
                         {#each Object.values(row) as cell, colIndex}
                         <td
                             class="table-body-col {cBaseBodyCol}"
                             role="gridcell"
-                            aria-colindex={colIndex}
+                            aria-colindex={colIndex+1}
                             tabindex={colIndex === 0 ? 0 : -1}
                         >{@html cell}</td>
                         {/each}

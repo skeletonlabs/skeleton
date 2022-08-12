@@ -31,6 +31,7 @@
     $: classesLabel = `${cBaseLabel}`;
 </script>
 
+<!-- REMOVED: aria-checked={isSelected} -->
 <li
     class="tab
     ${classesItem}
@@ -39,7 +40,6 @@
     data-testid="tab"
     on:keydown={onKeyDown}
     role="tab"
-    aria-checked={isSelected}
     tabindex="0"
 >
 
