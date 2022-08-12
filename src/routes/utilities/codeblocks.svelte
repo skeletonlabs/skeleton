@@ -31,8 +31,7 @@
     <!-- Usage -->
     <section class="space-y-4">
         <h2>Usage</h2>
-        <p>You must install <a href="https://highlightjs.org/" target="_blank">Highlight.js</a> as a dependency within your project.</p>
-        <CodeBlock language="console" code={`npm install highlight.js --save-dev`}></CodeBlock>
+        <p>Please note that Skeleton will install <a href="https://highlightjs.org/" target="_blank">Highlight.js</a> as a dependency for this.</p>
         <h4>Add a Theme</h4>
         <p>Implement a <a href="https://github.com/highlightjs/highlight.js/tree/main/src/styles" target="_blank">Highlight.js CSS theme</a> in your project's root <code>__layout.svelte</code> component.</p>
         <CodeBlock language="js" code={`import 'highlight.js/styles/github-dark.css';`}></CodeBlock>

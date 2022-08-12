@@ -30,7 +30,6 @@
 		"eslint": "^7.32.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte3": "^3.4.1",
-		"highlight.js": "^11.5.1",
 		"jsdom": "^19.0.0",
 		"palettey": "^1.0.2",
 		"postcss": "^8.4.14",
@@ -49,5 +48,8 @@
 		"vitest-svelte-kit": "^0.0.6"
 	},
 	"type": "module",
-	"types": "index.d.ts"
+	"types": "index.d.ts",
+	"dependencies": {
+		"highlight.js": "^11.6.0"
+	}
 }
