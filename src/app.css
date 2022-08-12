@@ -57,7 +57,7 @@ code:not(.codeblock code) { @apply bg-surface-500/30 text-black dark:text-white 
 
 /* Page Styles */
 main p { @apply text-base text-surface-500 dark:text-surface-400; }
-main a:not(.comp-button):not(.crumb a):not(.list-row a):not(.logo) {
+main a:not(.comp-button):not(.crumb a):not(.list-row):not(.logo):not(.drawer a) {
     @apply text-primary-500 underline underline-offset-4 decoration-primary-500/20 decoration-dotted;
 }
 

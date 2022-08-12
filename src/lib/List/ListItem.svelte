@@ -23,8 +23,16 @@
 
     // Local
     let elemItem: HTMLElement;
-    let tag: string = parentTag === 'dl' ? 'div' : 'li';
+    let tag: string = 'li';
     let role: string = parentTag === 'nav' ? 'option' : undefined;
+
+    // Set Wrapping Tag
+    //  = parentTag === 'dl' ? 'div' : 'li';
+    switch (parentTag) {
+        case ('dl'): tag = 'div'; break;
+        case ('nav'): tag = 'a'; break;
+        default: break;
+    }
 
     // A11y Input Handler
     function onKeyDown(event: any): void {
@@ -74,11 +82,14 @@
 <svelte:element
     bind:this={elemItem}
     this={tag}
+    href={$$props.href}
     class={classesBase}
     data-testid="list-row"
     on:click={onClickHandler}
     on:keydown={onKeyDown}
     {role}
+    aria-setsize={setsize}
+    aria-posinset={posinset}
     tabindex="0"
 >
 
@@ -88,24 +99,14 @@
     {/if}
 
     <!-- Slot: Content -->
-    {#if parentTag === 'nav'}
-        <a
-            href={$$props.href}
-            class="flex-1 block"
-            aria-setsize={setsize}
-            aria-posinset={posinset}>
+    <div class="flex-1">
+        {#if parentTag === 'dl'}
+            <dt><slot name="dt" /></dt>
+            <dd><slot name="dd" /></dd>
+        {:else}
             <slot />
-        </a>
-    {:else}
-        <div class="flex-1">
-            {#if parentTag === 'dl'}
-                <dt><slot name="dt" /></dt>
-                <dd><slot name="dd" /></dd>
-            {:else}
-                <slot />
-            {/if}
-        </div>
-    {/if}
+        {/if}
+    </div>
 
     <!-- Slot: Trail -->
     {#if $$slots.trail}

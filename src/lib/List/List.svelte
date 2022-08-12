@@ -8,6 +8,7 @@
     export let highlight: string = '!bg-primary-500'; // '!' required
     export let hover: string = 'hover:bg-primary-500/10'; // 'hover:' required
     // A11y
+    export let title: string = undefined;
     export let label: string = undefined;
     export let labelledby: string = undefined;
 
@@ -45,6 +46,7 @@
     class={classes}
     data-testid="list-group"
     on:keydown={onKeyDown}
+    {title}
 >
 
     <!-- Wrap <nav> (listbox) to meet ARIA spec requirements -->
