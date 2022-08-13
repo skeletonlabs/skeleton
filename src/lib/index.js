@@ -21,6 +21,7 @@ export { default as ListItem } from "./List/ListItem.svelte";
 export { default as LogoCloud } from "./LogoCloud/LogoCloud.svelte";
 export { default as Logo } from "./LogoCloud/Logo.svelte";
 export { default as Menu } from "./Menu/Menu.svelte";
+export { default as NavItem } from "./List/NavItem.svelte";
 export { default as Paginator } from "./Paginator/Paginator.svelte";
 export { default as ProgressBar } from "./Progress/ProgressBar.svelte";
 export { default as ProgressRadial } from "./Progress/ProgressRadial.svelte";
