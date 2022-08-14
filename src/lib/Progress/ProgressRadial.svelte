@@ -45,7 +45,7 @@
     data-testid="progress-radial"
     role="meter"
     aria-label={label}
-    aria-valuenow={value}
+    aria-valuenow={value || 0}
     aria-valuetext={value ? `${value}%` : 'Indeterminate Spinner'}
     aria-valuemin={0}
     aria-valuemax={100}

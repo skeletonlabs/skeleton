@@ -34,10 +34,10 @@
         <h2>Usage</h2>
         <p>You must install <a href="https://highlightjs.org/" target="_blank">Highlight.js</a> as a dependency within your project.</p>
         <CodeBlock language="console" code={`npm install highlight.js --save-dev`}></CodeBlock>
-        <h4>Add a Theme</h4>
+        <h3>Add a Theme</h3>
         <p>Implement a <a href="https://github.com/highlightjs/highlight.js/tree/main/src/styles" target="_blank">Highlight.js CSS theme</a> in your project's root <code>__layout.svelte</code> component.</p>
         <CodeBlock language="js" code={`import 'highlight.js/styles/github-dark.css';`}></CodeBlock>
-        <h4>Insert a Codeblock</h4>
+        <h3>Insert a Codeblock</h3>
         <p>Add the following anywhere you wish to display a codeblock. See the <em>properties</em> documentation below.</p>
         <CodeBlock code={'<CodeBlock language="html" code={\`<div>This is meta</div>\`}></CodeBlock>'}></CodeBlock>
     </section>

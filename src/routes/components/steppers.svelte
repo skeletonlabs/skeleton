@@ -94,7 +94,7 @@
         <CodeBlock language="html" code={`
 <Stepper {active} length={3} on:complete={onComplete}>
     <Step index={0} disabled={false} done={false}>
-        <svelte:fragment slot="title"><h4>Step One</h4></svelte:fragment>
+        <svelte:fragment slot="title">Step One</svelte:fragment>
         <svelte:fragment slot="subtitle">Subtext for step one</svelte:fragment>
         <svelte:fragment slot="content">The content of step one.</svelte:fragment>
     </Step>
@@ -110,25 +110,25 @@
     <!-- Properties -->
 	<section class="space-y-4">
 		<h2>Properties</h2>
-        <h4>Stepper</h4>
+        <h3>Stepper</h3>
         <DataTable headings="{tablePropsStepper.headings}" source="{tablePropsStepper.source}"></DataTable>
-        <h4>Step</h4>
+        <h3>Step</h3>
         <DataTable headings="{tablePropsStep.headings}" source="{tablePropsStep.source}"></DataTable>
 	</section>
 	
     <!-- Slots -->
 	<section class="space-y-4">
 		<h2>Slots</h2>
-        <h4>Stepper</h4>
+        <h3>Stepper</h3>
         <DataTable headings="{tableSlotsStepper.headings}" source="{tableSlotsStepper.source}"></DataTable>
-        <h4>Step</h4>
+        <h3>Step</h3>
         <DataTable headings="{tableSlotsStep.headings}" source="{tableSlotsStep.source}"></DataTable>
 	</section>
 
     <!-- Events -->
 	<section class="space-y-4">
 		<h2>Events</h2>
-        <h4>Stepper</h4>
+        <h3>Stepper</h3>
         <DataTable headings="{tableEvents.headings}" source="{tableEvents.source}"></DataTable>
 	</section>
     

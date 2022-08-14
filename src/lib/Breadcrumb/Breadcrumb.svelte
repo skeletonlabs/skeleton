@@ -13,6 +13,6 @@
     setContext('separator', separator);
 </script>
 
-<nav class="breadcrumb {cBaseBreadcrumb} {$$props.class}" data-testid="breadcrumb" aria-label={label}>
+<div class="breadcrumb {cBaseBreadcrumb} {$$props.class}" data-testid="breadcrumb" aria-label={label}>
     <slot />
-</nav>
+</div>

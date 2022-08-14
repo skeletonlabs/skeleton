@@ -176,7 +176,7 @@ const source: any[] = [
             <CodeBlock language="html" code={`
 <DataTable {headings} {source}></DataTable>
             `.trim()}></CodeBlock>
-            <h4>Fully Featured</h4>
+            <h3>Fully Featured</h3>
             <p>The example below includes search, sort, and item count. Note that source is binding to provide item count.</p>
             <CodeBlock language="typescript" code={`
 const tableLocal: any = {

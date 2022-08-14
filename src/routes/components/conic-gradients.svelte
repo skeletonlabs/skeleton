@@ -51,7 +51,7 @@
         <Card><ConicGradient data={dataOne} legend={true}></ConicGradient></Card>
         <Card>
             <ConicGradient data={dataTwo} legend={true}>
-                <h4>Heat Map</h4>
+                <h3>Heat Map</h3>
             </ConicGradient>
         </Card>
         <Card class="flex justify-center items-center">
@@ -65,7 +65,7 @@
     <section class="space-y-4">
         <h2>Usage</h2>
         <p>Please note that only default Tailwind color values are currently supported, with the exception of 'white', 'black', and 'transparent'. Weight is optional for these three values.</p>
-        <h4>Pie Chart</h4>
+        <h3>Pie Chart</h3>
         <CodeBlock language="html" code={`<ConicGradient data={dataSet} legend={true}></ConicGradient>`}></CodeBlock>
         <CodeBlock language="js" code={`
 const dataSet: any[] = [
@@ -74,7 +74,7 @@ const dataSet: any[] = [
     {label: 'Rose', swathe: {color: 'rose', weight: 500}, start: 60, end: 100},
 ];
         `.trim()}></CodeBlock>
-        <h4>Spinner</h4>
+        <h3>Spinner</h3>
         <CodeBlock language="html" code={`
 <ConicGradient data={dataSet} width="w-8" class="animate-spin">
     <small>Loading</small>    

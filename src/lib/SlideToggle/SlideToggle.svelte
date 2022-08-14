@@ -9,7 +9,7 @@
     export let accent: string = 'bg-accent-500';
     export let size: string = 'md';
     // A11y
-    export let label: string = 'switch';
+    export let label: string = undefined;
 
     // Base Styles
     const cBaseLabel: string = 'inline-block';
@@ -50,15 +50,14 @@
     }
 </script>
 
-<label
-    class="slide-toggl
-    {cBaseLabel}
-    {$$props.class}"
+<div
+    id={label}
+    class="slide-toggle {cBaseLabel} {$$props.class}"
     class:opacity-30={$$props.disabled}
     data-testid="slide-toggle"
     on:keydown={onKeyDown}
     role="switch"
-    {label}
+    aria-label={label}
     aria-checked={checked}
     tabindex="0"
 >
@@ -84,8 +83,8 @@
         </div>
 
         <!-- Label -->
-        {#if $$slots.default}<div><slot/></div>{/if}
+        {#if $$slots.default}<label for={label}><slot/></label>{/if}
 
     </div>
 
-</label>
+</div>

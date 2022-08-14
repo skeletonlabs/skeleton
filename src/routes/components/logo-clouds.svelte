@@ -74,9 +74,9 @@
     <!-- Properties -->
     <section class="space-y-4">
         <h2>Properties</h2>
-        <h4>Logo Cloud</h4>
+        <h3>Logo Cloud</h3>
         <DataTable headings="{tablePropsCloud.headings}" source="{tablePropsCloud.source}"></DataTable>
-        <h4>Logo</h4>
+        <h3>Logo</h3>
         <DataTable headings="{tablePropsLogo.headings}" source="{tablePropsLogo.source}"></DataTable>
     </section>
 

@@ -34,34 +34,34 @@
 
     <!-- Examples -->
     <section class="space-y-4">
-        <h4>Colors</h4>
+        <h3>Colors</h3>
         <Card class="flex justify-center">
             <div class="grid grid-cols-3 gap-4">
-                <SlideToggle size="md" accent="bg-primary-400" checked></SlideToggle>
-                <SlideToggle size="md" accent="bg-warning-400" checked></SlideToggle>
-                <SlideToggle size="md" accent="bg-accent-400" checked></SlideToggle>
-                <SlideToggle size="md" accent="bg-blue-400" checked></SlideToggle>
-                <SlideToggle size="md" accent="bg-orange-400" checked></SlideToggle>
-                <SlideToggle size="md" accent="bg-yellow-400" checked></SlideToggle>
+                <SlideToggle size="md" accent="bg-primary-400" checked label="Toggle Green"></SlideToggle>
+                <SlideToggle size="md" accent="bg-warning-400" checked label="Toggle Warning"></SlideToggle>
+                <SlideToggle size="md" accent="bg-accent-400" checked label="Toggle Purple"></SlideToggle>
+                <SlideToggle size="md" accent="bg-blue-400" checked label="Toggle Blue"></SlideToggle>
+                <SlideToggle size="md" accent="bg-orange-400" checked label="Toggle Orange"></SlideToggle>
+                <SlideToggle size="md" accent="bg-yellow-400" checked label="Toggle Yellow"></SlideToggle>
             </div>    
         </Card>
-        <h4>Sizes</h4>
+        <h3>Sizes</h3>
         <Card>
             <div class="flex justify-center items-center space-x-4">
-                <SlideToggle size="sm"></SlideToggle>
-                <SlideToggle size="md"></SlideToggle>
-                <SlideToggle size="lg"></SlideToggle>
+                <SlideToggle size="sm" label="Toggle Small"></SlideToggle>
+                <SlideToggle size="md" label="Toggle Medium"></SlideToggle>
+                <SlideToggle size="lg" label="Toggle Large"></SlideToggle>
             </div>
         </Card>
-        <h4>Label Slot</h4>
+        <h3>Label Slot</h3>
         <Card class="text-center">
             <SlideToggle size="md" bind:checked={checkedValue}>
                 <p class="w-[90px]">{checkedValue ? 'Checked' : 'Unchecked'}</p>
             </SlideToggle>    
         </Card>
-        <h4>Disabled</h4>
+        <h3>Disabled</h3>
         <Card class="text-center">
-            <SlideToggle size="lg" disabled></SlideToggle>
+            <SlideToggle size="lg" disabled label="Toggle Disabled"></SlideToggle>
         </Card>
     </section>
 

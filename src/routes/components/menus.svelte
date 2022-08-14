@@ -95,7 +95,7 @@
 
     <!-- Notes -->
     <section class="space-y-4">
-        <h4>Auto Origin Positioning</h4>
+        <h3>Auto Origin Positioning</h3>
         <p>The menu defaults to <code>origin: "auto"</code>. This will attempt to keep the menu visible on-screen at all times. Specifically on window resize or when the parent element is scrolled.</p>
     </section>
 

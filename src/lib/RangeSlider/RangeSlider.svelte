@@ -54,9 +54,8 @@
     }
 </script>
 
-<label
-    for={id}
-    class="range-slider {$$props.class}"
+<div
+    class="range-slider {$$props.class||''}"
     data-testid="range-slider"
     on:keydown={onKeyDown}
     role="slider"
@@ -67,7 +66,7 @@
 >
 
     <!-- Label -->
-    <span class="range-label {cBaseLabel}">{label}</span>
+    <label class="range-label {cBaseLabel}" for={id}>{label}</label>
 
     <!-- Content -->
     <div class="range-content {cBaseContent}">
@@ -102,7 +101,7 @@
         </div> 
 
         <!-- Value -->
-        <div class="range-value {cBaseValue}">{value}</div>
+        <span class="range-value {cBaseValue}">{value}</span>
 
     </div>
-</label>
+</div>

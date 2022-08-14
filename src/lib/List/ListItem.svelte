@@ -18,7 +18,8 @@
     export let hover: string = getContext('hover');
 
     // Base Classes
-    const cBase: string = 'list-none px-4 py-3 flex flex-row items-center space-x-4';
+    const cBase: string = 'list-none px-4 py-3';
+    const cRowFlex: string = 'flex flex-row items-center space-x-4';
     const cItemHover: string = `${hover} cursor-pointer`;
 
     // Local
@@ -76,7 +77,8 @@
     // Reactive Clases
     $: classesHighlight = isSelected() ? highlight : '';
     $: classesHover = parentTag === 'nav' ? cItemHover : '';
-    $: classesBase = `list-row ${cBase} ${classesHover} ${classesHighlight}`;
+    $: classesRowFlex = parentTag !== 'dl' ? cRowFlex : '';
+    $: classesBase = `list-row ${cBase} ${classesRowFlex} ${classesHover} ${classesHighlight}`;
 </script>
 
 <svelte:element
@@ -93,24 +95,25 @@
     tabindex="0"
 >
 
-    <!-- Slot: Lead -->
-    {#if $$slots.lead}
-    <div class="flex-none"><slot name="lead" /></div>
-    {/if}
+    {#if parentTag === 'dl'}
+    
+        <dt><slot name="dt" /></dt>
+        <dd><slot name="dd" /></dd>
 
-    <!-- Slot: Content -->
-    <div class="flex-1">
-        {#if parentTag === 'dl'}
-            <dt><slot name="dt" /></dt>
-            <dd><slot name="dd" /></dd>
-        {:else}
-            <slot />
+    {:else}
+        <!-- Slot: Lead -->
+        {#if $$slots.lead}
+        <div class="flex-none"><slot name="lead" /></div>
         {/if}
-    </div>
 
-    <!-- Slot: Trail -->
-    {#if $$slots.trail}
-    <div class="flex-none"><slot name="trail" /></div>
+        <!-- Slot: Content -->
+        <div class="flex-1"><slot /></div>
+
+        <!-- Slot: Trail -->
+        {#if $$slots.trail}
+        <div class="flex-none"><slot name="trail" /></div>
+        {/if}
+        
     {/if}
 
 </svelte:element>

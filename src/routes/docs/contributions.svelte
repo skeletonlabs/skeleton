@@ -17,7 +17,7 @@
     <section class="space-y-4">
         <h2>Pull Requests</h2>
         <p>As a common courtesy, please ask before starting work on any significant new features. If you're interested in creating a new feature, create a feature request ticket in <a href="https://github.com/Brain-Bones/skeleton/issues" target="_blank">Github Issues</a>. This allows for open discourse and may help prevent redudant work. This includes but is not limited to: creating new components, adding new utility features, or major alterations to existing work.</p>
-        <h4>Branch Naming Conventions</h4>
+        <h3>Branch Naming Conventions</h3>
         <ul class="list-disc list-inside">
             <li>Branch names should be short and semantic.</li>
             <li>Documentation updates should be prefixed as <code>docs/*</code></li>
@@ -40,12 +40,12 @@
     <!-- Naming -->
     <section class="space-y-4">
         <h2>Structure and Conventions</h2>
-        <h4>Project Structure</h4>
+        <h3>Project Structure</h3>
         <ul class="list-disc list-inside">
             <li><code>/lib</code> - houses all functional components, actions, and other utilities.</li>
             <li><code>/routes</code> - the public facing documentation site.</li>
         </ul>
-        <h4>Naming Conventions</h4>
+        <h3>Naming Conventions</h3>
         <ul class="list-disc list-inside">
             <li>Components should be wrapped in a matching directory. This should be singular and camel-case (ex: <code>/LightSwitch/...</code>)</li>
             <li>Components should have a singular and camel-case filename (ex: <code>.../LightSwitch.svelte</code>)</li>
@@ -104,14 +104,14 @@ export let rounded: string = 'rounded-xl'; // border radius
         <h2>Component Styling</h2>
         <p>Skeleton utilizes a structured convention for handling static and dynamic Tailwind styles for components. This is accomplished by passing Tailwind classes to the component as properties, as well as defining base structural classes within the script tag. While this may feel odd at first, it works really well in execution.</p>
         <!-- Base Classes -->
-        <h4>Base Classes</h4>
+        <h3>Base Classes</h3>
         <p>Any core or structural Tailwind classes can be defined as follows. Note the "c" is short for <strong>classes</strong>.</p>
         <CodeBlock language="typescript" code={`
 let cBaseElement: string = 'bg-surface-500 p-4 rounded'; // parent element styles
 let cBaseLabel: string = 'text-base'; // base label styles
         `.trim()}></CodeBlock>
         <!-- Dynamic Classes -->
-        <h4>Dynamic Classes</h4>
+        <h3>Dynamic Classes</h3>
         <p>If you expect to set one or more styles based on the current value of a property, handle this within a function as shown below.</p>
         <CodeBlock language="typescript" code={`
 export let outlined: boolean;
@@ -129,7 +129,7 @@ afterUpdate(() => {
 });
         `.trim()}></CodeBlock>
         <!-- Reactive Classes -->
-        <h4>Reactive Classes</h4>
+        <h3>Reactive Classes</h3>
         <p>Reactive classes combine all base and dynamic classes. These are applied to each respective element.</p>
         <CodeBlock language="typescript" code={`
 $: classesCard = \`\${cBase} \${cOutlined}\`; // parent element
@@ -163,9 +163,9 @@ $: classesLabel = \`\${cBaseLabel}\`; // child element
     <section class="space-y-4">
         <h2>Documentation</h2>
         <p>An example component documentation page is available under <code>/routes/components/_template.svelte</code>. This template is a great starting place for utilities as well.</p>
-        <h4>Navigation Links</h4>
+        <h3>Navigation Links</h3>
         <p>Open <code>/routes/__layout.svelte</code> and modify the contents of <code>navigation</code> definition to include a link to your new documentation page.</p>
-        <h4>Interactive vs Static Demos</h4>
+        <h3>Interactive vs Static Demos</h3>
         <p>While interactive demos are preferred, static demos are welcome. Just make sure to provide a variety of examples to illustrate use cases and feature set your component. If you need help adding an interactive demo, please reach out to any core contributor on the team.</p>
     </section>
 

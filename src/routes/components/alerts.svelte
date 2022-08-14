@@ -55,19 +55,19 @@
                 <Button variant="ring" on:click={toggleVisible}>&#10005;</Button>
             </svelte:fragment>
         </Alert>
-        {#if visible}<h4>Simple</h4>{/if}
+        {#if visible}<h3>Simple</h3>{/if}
         <Alert background="bg-primary-500" {visible}>
             <svelte:fragment slot="title">{title}</svelte:fragment>      
             <svelte:fragment slot="trail">
                 <Button variant="filled" on:click={actionExample}>Show Me</Button>
             </svelte:fragment>
         </Alert>
-        {#if visible}<h4>Rounding</h4>{/if}
+        {#if visible}<h3>Rounding</h3>{/if}
         <Alert background="bg-warning-500" rounded="rounded-3xl" {visible}>
             <svelte:fragment slot="title">{title}</svelte:fragment>
             <svelte:fragment slot="message">{message}</svelte:fragment>      
         </Alert>
-        {#if visible}<h4>Fully Featured</h4>{/if}
+        {#if visible}<h3>Fully Featured</h3>{/if}
         <Alert background="bg-accent-500" {visible}>
             <svelte:fragment slot="lead">{@html icon}</svelte:fragment>
             <svelte:fragment slot="title">{title}</svelte:fragment>

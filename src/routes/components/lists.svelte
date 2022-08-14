@@ -97,10 +97,8 @@
                     <List tag="dl">
                         {#each ['A', 'B'] as v, i}
                         <ListItem tabindex={i}>
-                            <svelte:fragment slot="lead">{@html svgHeart}</svelte:fragment>
                             <svelte:fragment slot="dt">Item {v}</svelte:fragment>
                             <svelte:fragment slot="dd"><p>Description for {v}</p></svelte:fragment>
-                            <svelte:fragment slot="trail">{@html svgEllipsis}</svelte:fragment>
                         </ListItem>
                         {/each}
                     </List>
@@ -109,7 +107,7 @@
             <section class="space-y-4">
                 <Card class="space-y-4">
                     <h6>Anchors</h6>
-                    <List tag="nav">
+                    <List tag="nav" label="Anchor List Example">
                         <ListItem href="/">Page A</ListItem>
                         <ListItem href="/">Page B</ListItem>
                         <ListItem href="/">Page C</ListItem>
@@ -121,12 +119,12 @@
 
     <!-- Selection Listbox -->
     <section class="space-y-4">
-        <h4>Selection Listbox</h4>
+        <h3>Selection Listbox</h3>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
             <section class="space-y-4">
                 <Card class="space-y-4">
                     <h6>Single</h6>
-                    <List tag="nav" selected={navSingle}>
+                    <List tag="nav" selected={navSingle} label="Single Selection">
                         <ListItem value={'A'}>Item A</ListItem>
                         <ListItem value={'B'}>Item B</ListItem>
                         <ListItem value={'C'}>Item C</ListItem>
@@ -137,7 +135,7 @@
             <section class="space-y-4">
                 <Card class="space-y-4">
                     <h6>Multiple</h6>
-                    <List tag="nav" selected={navMultiple} hover="hover:bg-accent-500/10" highlight="!bg-accent-500">
+                    <List tag="nav" selected={navMultiple} label="Multi-Selection" hover="hover:bg-accent-500/10" highlight="!bg-accent-500">
                         <ListItem value={'A'}>Item A</ListItem>
                         <ListItem value={'B'}>Item B</ListItem>
                         <ListItem value={'C'}>Item C</ListItem>
@@ -159,7 +157,7 @@
     <ListItem>Item C</ListItem>
 </List>
         `.trim()}></CodeBlock>
-        <h4>Role and Slot</h4>
+        <h3>Role and Slot</h3>
         <CodeBlock language="html" code={`
 <List tag="ol">
     <ListItem>
@@ -168,7 +166,7 @@
     </ListItem>
 </List>
         `.trim()}></CodeBlock>
-        <h4>Description List</h4>
+        <h3>Description List</h3>
         <CodeBlock language="html" code={`
 <List tag="dl">
     <ListItem>
@@ -177,14 +175,14 @@
     </ListItem>
 </List>
         `.trim()}></CodeBlock>
-        <h4>Navigation Lists</h4>
+        <h3>Navigation Lists</h3>
         <CodeBlock language="html" code={`
 <List tag="nav">
     <ListItem href="/">Link Example 1</ListItem>
     <ListItem href="/">Link Example 2</ListItem>
 </List>
         `.trim()}></CodeBlock>
-        <h4>Selection Listbox</h4>
+        <h3>Selection Listbox</h3>
         <p>Define a writable to store to house the selection state, then apply a value property to each child.</p>
         <h6>Single Value</h6>
         <CodeBlock language="typescript" code={`const storeSingle: Writable<number> = writable(1);`}></CodeBlock>
@@ -208,9 +206,9 @@
     <!-- Properties -->
     <section class='space-y-4'>
         <h2>Properties</h2>
-        <h4>List Group</h4>
+        <h3>List Group</h3>
         <DataTable headings="{tablePropsGroup.headings}" source="{tablePropsGroup.source}"></DataTable>
-        <h4>Nav Item</h4>
+        <h3>Nav Item</h3>
         <DataTable headings="{tablePropsItems.headings}" source="{tablePropsItems.source}"></DataTable>
     </section>
     
@@ -226,9 +224,9 @@
             <h2>Accessibility</h2>
             <a href="https://www.w3.org/WAI/ARIA/apg/patterns/listbox/" target="_blank">ARIA Guidelines</a>
         </div>
-        <h4>List</h4>
+        <h3>List</h3>
 		<DataTable headings="{tableA11yList.headings}" source="{tableA11yList.source}"></DataTable>
-        <h4>Items</h4>
+        <h3>Items</h3>
 		<DataTable headings="{tableA11yItem.headings}" source="{tableA11yItem.source}"></DataTable>
 	</section>
 

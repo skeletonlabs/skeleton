@@ -13,7 +13,7 @@
     <section class="bg-accent-500/10 border-l-2 border-l-green-500 p-4 flex justify-between items-center space-x-4">
         <p class="!text-white">
             <span class="mr-2">🚧</span>
-            Skeleton is available as a public beta. Expect updates prior to v1.0. If you experience issues please let us know.
+            Skeleton is available as a public beta. Expect breaking changes prior to v1.0. If you encounter issues please report them on GitHub.
         </p>
         <Button variant="ghost" href="https://github.com/Brain-Bones/skeleton/issues">Report Issue</Button>
     </section>
@@ -58,15 +58,15 @@
         <h2>Install</h2>
         <p>Follow the instructions below to get started.</p>
         <!-- Create SvelteKit Project -->
-        <h4>Create a SvelteKit Project</h4>
+        <h3>Create a SvelteKit Project</h3>
         <p>See the <a href="https://kit.svelte.dev/docs/introduction#getting-started" target="_blank">official documentation</a>.</p>
         <CodeBlock language="console" code={`npm init svelte@next my-app\ncd my-app\nnpm install\nnpm run dev`}></CodeBlock>
         <!-- Install Tailwind -->
-        <h4>Install Tailwind</h4>
+        <h3>Install Tailwind</h3>
         <p><a href="https://github.com/svelte-add/tailwindcss" target="_blank">Svelte-Add</a> makes this quick and painless.</p>
         <CodeBlock language="console" code={`npx svelte-add@latest tailwindcss`}></CodeBlock>
         <!-- Install Skeleton -->
-        <h4>Install Skeleton</h4>
+        <h3>Install Skeleton</h3>
         <CodeBlock language="console" code={`npm i @brainandbones/skeleton --save-dev`}></CodeBlock>
     </section>
 

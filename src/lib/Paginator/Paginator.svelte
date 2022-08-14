@@ -32,14 +32,14 @@
     $: classesText = `${cBaseText} ${text}`;
 </script>
 
-<nav class="paginator {classesPaginator} {$$props.class}" data-testid="paginator">
+<div class="paginator {classesPaginator} {$$props.class}" data-testid="paginator">
     
     <!-- Select Amount -->
-    <div class="w-full md:w-auto">
-        <select bind:value={limit} on:change={onChangeLength} class="{select}">
+    <label class="w-full md:w-auto">
+        <select bind:value={limit} on:change={onChangeLength} class="{select}" aria-label="Select Amount">
             {#each amounts as amount}<option value={amount}>Show {amount}</option>{/each}
         </select>
-    </div>
+    </label>
 
     <!-- Context Text -->
     <div class="{classesText}">{offset*limit+1} to {offset*limit+limit} of <strong>{size}</strong></div>
@@ -50,4 +50,4 @@
         <Button {variant} {rounded} on:click={onNext} disabled={(offset+1)*limit >= size}>&rarr;</Button>
     </div>
 
-</nav>
+</div>

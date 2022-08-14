@@ -36,7 +36,8 @@
     $: classesItem = `${cBaseItem} ${cSelected} ${cBaseHover}`;
 </script>
 
-<label
+<div
+    id={label}
     class="radio-item {classesItem}"
     data-testid="radio-item"
     on:keydown={onKeyDown}
@@ -46,5 +47,5 @@
     tabindex="0"
 >
     <input class="hidden" type="radio" {value} bind:group={$selected} />
-    <div class="inline-block mx-auto" ><slot /></div>
-</label>
+    <label class="inline-block mx-auto" for={label}><slot /></label>
+</div>

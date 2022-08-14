@@ -17,7 +17,7 @@
     // Presets
     const presetUrl: string = 'https://github.com/Brain-Bones/skeleton/blob/master/src/themes';
     const presets: any[] = [
-        { name: 'Skeleton', colors: ['#10b981', '#6366f1', '#f43f5e'], surface: '#111827', url: `${presetUrl}/theme-skeleton.css` },
+        { name: 'Default', colors: ['#10b981', '#6366f1', '#f43f5e'], surface: '#111827', url: `${presetUrl}/theme-skeleton.css` },
         { name: 'Rocket', colors: ['#06b6d4', '#3b82f6', '#ec4899'], surface: '#3c4553', url: `${presetUrl}/theme-rocket.css` },
         { name: 'Vintage', colors: ['#f59e0b', '#22c55e', '#ef4444'], surface: '#1c1917', url: `${presetUrl}/theme-vintage.css` },
         { name: 'Modern', colors: ['#ec4899', '#06b6d4', '#eab308'], surface: '#312e81', url: `${presetUrl}/theme-modern.css` },
@@ -91,7 +91,7 @@
 
     <!-- Import Theme -->
     <section class="space-y-4">
-        <h4>Save and Import</h4>
+        <h3>Save and Import</h3>
         <p>Save your theme to it's own file, such as <code>/src/theme.css</code>, then import this into your layout. For SvelteKit projects this can be handled within the <code>__layout.svelte</code> component. Ensure your custom theme is imported before your global stylesheet as shown.</p>
         <CodeBlock language="typescript" code={`import '../theme.css';\nimport '../app.css';`}></CodeBlock>
     </section>
@@ -100,7 +100,7 @@
 
     <!-- Usage -->
     <section class="space-y-4">
-        <h4>Usage</h4>
+        <h3>Usage</h3>
         <p>Theme colors are not limited to Skeleton components. You can utilize them anywhere within your app following Tailwind's standard conventions. Feel free to mix or extend them with <a href="https://tailwindcss.com/docs/customizing-colors" target="_blank">Tailwind's default color palette</a>.</p>
         <CodeBlock language="html" code={`<!-- Inlined classes -->\n<div class="bg-primary-500 text-accent-500">Skeleton</div>`}></CodeBlock>
         <CodeBlock language="html" code={`<!-- Tailwind opacity scale -->\n<div class="bg-primary-500/50">Skeleton</div>`}></CodeBlock>
@@ -112,7 +112,7 @@
 
     <!-- Reference -->
     <section class="space-y-4">
-        <h4>Reference</h4>
+        <h3>Reference</h3>
         <p>A loose reference for what each color should represent within your project.</p>
         <DataTable headings={tableProps.headings} source="{tableProps.source}"></DataTable>
     </section>

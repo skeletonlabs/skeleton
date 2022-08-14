@@ -213,21 +213,21 @@
 
 	<!-- Variants -->
 	<section class="space-y-4">
-		<h4>Variants</h4>
+		<h3>Variants</h3>
 		<p>Skeleton provides variants to quickly and easily create buttons with predefined styles. You may still set rounded and width properties with variants.</p>
 		<Card>
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 				{#each variantExamples as ve}
 				<section>
-					<h4 class="text-center mb-4">{ve.label}</h4>
-					<nav class="flex flex-col space-y-4">
+					<h3 class="text-center mb-4">{ve.label}</h3>
+					<div class="flex flex-col space-y-4">
 						{#each ve.variants as v}
 						<Button variant={v}>
 							<svelte:fragment slot="lead">{@html svgIconSkull}</svelte:fragment>
 							{v}
 						</Button>
 						{/each}
-					</nav>
+					</div>
 				</section>
 				{/each}
 			</div>

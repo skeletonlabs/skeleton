@@ -76,7 +76,7 @@
                 <!-- Amount -->
                 {#if props.determinate}
                     <div class="flex items-center space-x-4">
-                        <input type="range" id="amount" name="amount" min="0" max={props.max} step="10" bind:value={props.value}>
+                        <input type="range" id="amount" name="amount" min="0" max={props.max} step="10" bind:value={props.value} aria-label="Value Amount">
                         <p class="text-sm w-12">{props.value}%</p>
                     </div>
                 {/if}

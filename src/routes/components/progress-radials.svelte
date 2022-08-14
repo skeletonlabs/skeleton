@@ -46,12 +46,12 @@
     <Card class="space-y-8">
         <div class="md:max-w-[50%] lg:max-w-[33%] mx-auto space-y-8">
             <ProgressRadial value={props.value}>{props.value}%</ProgressRadial>
-            <input type="range" min="0" max={props.max} step={props.step} bind:value={props.value}>
+            <input type="range" min="0" max={props.max} step={props.step} bind:value={props.value} aria-label="Example Radial Value">
         </div>
     </Card>
     <section class="space-y-4">
         <div class="space-y-2">
-            <h4>Indeterminate</h4>
+            <h3>Indeterminate</h3>
             <p>Remove the value property to set to indeterminate mode.</p>
         </div>
         <div class="grid grid-cols-4 gap-4">

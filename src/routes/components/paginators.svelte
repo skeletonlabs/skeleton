@@ -84,7 +84,6 @@
             <List>
                 {#each contentSliced as e, i}
                 <ListItem>{e.name}</ListItem>
-                <Divider />
                 {/each}
             </List>
             <Paginator
@@ -134,7 +133,7 @@ function onAmountChange(e: any): void { console.log('event:amount', e.detail); }
     on:amount={onAmountChange}
 ></Paginator>
         `.trim()}></CodeBlock>
-        <h4>Utilizing Pagination</h4>
+        <h3>Utilizing Pagination</h3>
         <p>Once your paginator component is setup you'll need to limit your content. This can be accomplished with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice" target="_blank">slice</a>. See a minimal example below using the Javascript slice method.</p>
         <CodeBlock language="typescript" code={`const source: any[] = [ /* an array of objects */ ]`.trim()}></CodeBlock>
         <CodeBlock language="typescript" code={`
