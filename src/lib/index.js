@@ -15,7 +15,7 @@ export { default as CodeBlock } from "./CodeBlock/CodeBlock.svelte";
 export { default as Divider } from "./Divider/Divider.svelte";
 export { default as Drawer } from "./Drawer/Drawer.svelte";
 export { default as GradientHeading } from "./GradientHeading/GradientHeading.svelte";
-export { default as LightSwitch } from "./LightSwitch/LightSwitch.svelte";
+export { default as ThemeSwitcher } from "./ThemeSwitcher/ThemeSwitcher.svelte";
 export { default as List } from "./List/List.svelte";
 export { default as ListItem } from "./List/ListItem.svelte";
 export { default as LogoCloud } from "./LogoCloud/LogoCloud.svelte";
