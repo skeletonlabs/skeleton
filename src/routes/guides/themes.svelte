@@ -15,7 +15,7 @@
     const storeLayout: Writable<string> = writable('tailwind');
 
     // Presets
-    import presets from "$lib/ThemeSwitcher/Themes"
+    import presets from "../Themes"
 
     // Tables
     const tableProps: any = {
