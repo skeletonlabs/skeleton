@@ -47,9 +47,9 @@
         </ul>
         <h4>Naming Conventions</h4>
         <ul class="list-disc list-inside">
-            <li>Components should be wrapped in a matching directory. This should be singular and camel-case (ex: <code>/LightSwitch/...</code>)</li>
-            <li>Components should have a singular and camel-case filename (ex: <code>.../LightSwitch.svelte</code>)</li>
-            <li>Component tests should match the component naming convention, suffixed with <code>'*.test.ts`</code> (ex: <code>LightSwitch.test.ts</code>)</li>
+            <li>Components should be wrapped in a matching directory. This should be singular and camel-case (ex: <code>/ThemeSwitcher/...</code>)</li>
+            <li>Components should have a singular and camel-case filename (ex: <code>.../ThemeSwitcher.svelte</code>)</li>
+            <li>Component tests should match the component naming convention, suffixed with <code>'*.test.ts`</code> (ex: <code>ThemeSwitcher.test.ts</code>)</li>
             <li>Documentation pages should be plural, all lowercase, and separated by dashes (ex: <code>/routes/components/radio-groups.svelte</code>)</li>
             <li>Documentation nav links should match the routing convention, with the plural form of the component (ex: <code>Radio Groups</code>)</li>
         </ul>
