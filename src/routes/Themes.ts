@@ -1,4 +1,4 @@
-const presetUrl: string = 'https://github.com/Brain-Bones/skeleton/blob/master/src/themes';
+const presetUrl: string = 'https://github.com/Brain-Bones/skeleton/blob/theme-modifier/static/themes/';
 const presets: { name: string; colors: string[]; surface: string; url: string; }[] = [
     { name: 'Skeleton', colors: ['#10b981', '#6366f1', '#f43f5e'], surface: '#111827', url: `${presetUrl}/theme-skeleton.css` },
     { name: 'Rocket', colors: ['#06b6d4', '#3b82f6', '#ec4899'], surface: '#3c4553', url: `${presetUrl}/theme-rocket.css` },
