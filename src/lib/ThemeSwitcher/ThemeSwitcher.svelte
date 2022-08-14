@@ -8,7 +8,6 @@
 	import SlideToggle from "$lib/SlideToggle/SlideToggle.svelte";
 	import Menu from "$lib/Menu/Menu.svelte";
 
-	import themes from "./Themes"
 	import { themeController as selectedTheme, isDarkTheme } from "$lib/stores"
 
 	export let select: boolean = false;
@@ -16,6 +15,7 @@
     export let origin: string = 'auto'; // tl | tr | bl | br
     export let duration: number = 100; // ms
     export let disabled: boolean = false;
+	export let variants: { name: string; colors: string[]; surface: string; url: string; }[] = []
 
 	let currentTheme: string = 'icon';
 	let svg: any = {
@@ -29,7 +29,7 @@
 	// Select a theme
 	function selectTheme(t: string): void {
 		if (browser) {
-			const avalibleThemes = [...themes.map(theme => theme.name)]
+			const avalibleThemes = [...variants.map(theme => theme.name)]
 			console.log(avalibleThemes)
 
 			if (avalibleThemes.includes(t)) {
@@ -39,6 +39,8 @@
 			}
 		}
 	}
+
+	console.log(variants)
 </script>
 
 <Menu {select} {open} {origin} {duration} {disabled} class="themeswitcher {$$props.class}" data-testid="themeswitcher">
@@ -56,19 +58,23 @@
 				<SlideToggle bind:checked={$isDarkTheme} size="sm" class="mx-2" accent="bg-surface-400" />
 				<span>{@html svg.dark}</span>
 			</div>
+
+			{#if variants.length >= 0}
+				<div class="grid">
+					{#each variants as preset}
+						<span href="#{preset.name}" class="theme-set" style:background={preset.surface} on:click={() => selectTheme(preset.name)}>
+							<span>{preset.name}</span>
+							<ul class="grid grid-cols-3 gap-2 mt-1">
+								{#each preset.colors as color}
+									<li class="aspect-square w-4 rounded-full m-auto" style:background={color}></li>
+								{/each}
+							</ul>
+						</span>
+					{/each}
+				</div>
+			{/if}
 			
-			<div class="grid">
-				{#each themes as preset}
-					<span href="#{preset.name}" class="theme-set" style:background={preset.surface} on:click={() => selectTheme(preset.name)}>
-						<span>{preset.name}</span>
-						<ul class="grid grid-cols-3 gap-2 mt-1">
-							{#each preset.colors as color}
-								<li class="aspect-square w-4 rounded-full m-auto" style:background={color}></li>
-							{/each}
-						</ul>
-					</span>
-				{/each}
-			</div>
+			
 		
 		</List>
 	</Card>
