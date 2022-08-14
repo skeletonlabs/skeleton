@@ -20,6 +20,6 @@
     $: classesGroup = `${cBaseGroup} ${justify}`;
 </script>
 
-<nav data-testid="tab-group" class="tab-group {classesGroup}">
+<nav data-testid="tab-group" class="tab-group {classesGroup} {$$props.class||''}">
     <slot />
 </nav>

@@ -8,11 +8,15 @@
     import Divider from "$lib/Divider/Divider.svelte";
     import RadioGroup from "$lib/Radio/RadioGroup.svelte";
     import RadioItem from "$lib/Radio/RadioItem.svelte";
+    import TabGroup from "$lib/Tab/TabGroup.svelte";
+    import Tab from "$lib/Tab/Tab.svelte";
+
     import ThemeGenTailwind from "$lib/ThemeGenerator/ThemeGenTailwind.svelte";
     import ThemeGenCustom from "$lib/ThemeGenerator/ThemeGenCustom.svelte";
 
     // Stores
     const storeLayout: Writable<string> = writable('tailwind');
+    let storeTabFramework: Writable<string> = writable('sveltekit');
 
     // Presets
     const presetUrl: string = 'https://github.com/Brain-Bones/skeleton/blob/master/src/themes';
@@ -92,8 +96,24 @@
     <!-- Import Theme -->
     <section class="space-y-4">
         <h3>Save and Import</h3>
-        <p>Save your theme to it's own file, such as <code>/src/theme.css</code>, then import this into your layout. For SvelteKit projects this can be handled within the <code>__layout.svelte</code> component. Ensure your custom theme is imported before your global stylesheet as shown.</p>
-        <CodeBlock language="typescript" code={`import '../theme.css';\nimport '../app.css';`}></CodeBlock>
+        <p>Select your framework of choice and follow the instructions below.</p>
+        <TabGroup selected={storeTabFramework}>
+            <Tab value="sveltekit">SvelteKit</Tab>
+            <Tab value="vite">Vite (Svelte)</Tab>
+            <Tab value="other">Other</Tab>
+        </TabGroup>
+        <!-- Framework: SvelteKit -->
+        {#if $storeTabFramework === 'sveltekit'}
+        <p>Create a new file and save your CSS theme in <code>/src/theme.css</code>, then import this in your <code>__layout.svelte</code> component.</p>
+        <CodeBlock language="typescript" code={`import '../theme.css'; // <--\nimport '../app.css';\n//..`}></CodeBlock>
+        <!-- Framework: Vite (Svelte) -->
+        {:else if $storeTabFramework === 'vite'}
+        <p>Create a new file and save your CSS theme in <code>/src/theme.css</code>, then import this in <code>/src/main.js</code>.</p>
+        <CodeBlock language="typescript" code={`import '../theme.css'; // <--\nimport '../app.css';\n//..`}></CodeBlock>
+        <!-- Framework:Other -->
+        {:else if $storeTabFramework === 'other'}
+        <p>Official instructions for Astro, Routify, and more will be made available soon. Please reference your framework's documentation for recommendations on housing and importing additional CSS files. You can also consider embedding this at the top of your global CSS stylesheet, directly after the Tailwind import statements.</p>
+        {/if}
     </section>
 
     <Divider />

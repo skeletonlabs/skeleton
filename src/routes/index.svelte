@@ -1,10 +1,17 @@
 <script lang="ts">
+    import { writable, type Writable } from "svelte/store";
+
+    import Alert from "$lib/Alert/Alert.svelte";
     import Card from "$lib/Card/Card.svelte";
     import Button from "$lib/Button/Button.svelte";
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
     import Divider from "$lib/Divider/Divider.svelte";
     import LogoCloud from "$lib/LogoCloud/LogoCloud.svelte";
     import Logo from "$lib/LogoCloud/Logo.svelte";
+    import TabGroup from "$lib/Tab/TabGroup.svelte";
+    import Tab from "$lib/Tab/Tab.svelte";
+
+    let storeTabFramework: Writable<string> = writable('sveltekit');
 </script>
 
 <div class="space-y-8 lg:text-left">
@@ -52,25 +59,62 @@
     <!-- Install -->
     <section id="getStarted" class="space-y-4">
         <h2>Install</h2>
-        <p>Follow the instructions below to get started.</p>
-        <!-- Create SvelteKit Project -->
-        <h4>Create a SvelteKit Project</h4>
-        <p>See the <a href="https://kit.svelte.dev/docs/introduction#getting-started" target="_blank">official documentation</a>.</p>
-        <CodeBlock language="console" code={`npm create svelte@latest my-app\ncd my-app\nnpm install\nnpm run dev`}></CodeBlock>
+        <p>Select your app framework of choice, then follow the instructions below.</p>
+
+        <TabGroup selected={storeTabFramework}>
+            <Tab value="sveltekit">SvelteKit</Tab>
+            <Tab value="vite">Vite (Svelte)</Tab>
+            <Tab value="other">Other</Tab>
+        </TabGroup>
+
+        <!-- Framework: SvelteKit -->
+        {#if $storeTabFramework === 'sveltekit'}
+            <h4>Scaffold a SvelteKit Project</h4>
+            <p>Make sure you check the <a href="https://kit.svelte.dev/docs/introduction#getting-started" target="_blank">official documentation</a> for the most up to date instructions.</p>
+            <CodeBlock language="console" code={`npm create svelte@latest my-app\ncd my-app\nnpm install\nnpm run dev`}></CodeBlock>
+        <!-- Framework: Vite (Svelte) -->
+        {:else if $storeTabFramework === 'vite'}
+            <h4>Scaffold a Vite (Svelte) Project</h4>
+            <p>Make sure you check the <a href="https://vitejs.dev/guide/#scaffolding-your-first-vite-project" target="_blank">official documentation</a> for the most up to date instructions.</p>
+            <CodeBlock language="console" code={`
+# npm 6.x
+npm create vite@latest my-vite-skeleton-app --template svelte-ts
+
+# npm 7+, extra double-dash is needed:
+npm create vite@latest my-vite-skeleton-app -- --template svelte-ts
+
+cd vite-skeleton-app
+npm install
+npm run dev
+            `.trim()}></CodeBlock>
+        <!-- Framework:Other -->
+        {:else if $storeTabFramework === 'other'}
+            <Alert background="bg-warning-500">
+                <svelte:fragment slot="title">More Coming Soon...</svelte:fragment>
+                <svelte:fragment slot="message">Official instructions for Astro, Routify, and more will be made available soon.</svelte:fragment>      
+            </Alert>
+        {/if}
+
         <!-- Install Tailwind -->
+        {#if ['sveltekit', 'vite'].includes($storeTabFramework)}
         <h4>Install Tailwind</h4>
-        <p><a href="https://github.com/svelte-add/tailwindcss" target="_blank">Svelte-Add</a> makes this quick and painless.</p>
-        <CodeBlock language="console" code={`npx svelte-add@latest tailwindcss`}></CodeBlock>
+        <p><a href="https://github.com/svelte-add/tailwindcss" target="_blank">Svelte-Add</a> makes installation a trivia process.</p>
+        <CodeBlock language="console" code={`npx svelte-add@latest tailwindcss\nnpm install`}></CodeBlock>
+        {/if}
+
         <!-- Install Skeleton -->
+        {#if ['sveltekit', 'vite'].includes($storeTabFramework)}
         <h4>Install Skeleton</h4>
+        <p>Install the core Skeleton library from <a href="https://www.npmjs.com/package/@brainandbones/skeleton" target="_blank">NPM</a>.</p>
         <CodeBlock language="console" code={`npm i @brainandbones/skeleton --save-dev`}></CodeBlock>
+        {/if}
     </section>
 
     <Divider />
 
     <!-- Next Steps -->
     <Card class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-        <p>Next, configure the Skeleton plugin and settings for Tailwind.</p>
+        <p>Next, configure the Skeleton plugin and other settings for Tailwind.</p>
         <Button variant="filled-accent" href="/guides/tailwind">Configure Tailwind</Button>
     </Card>
 

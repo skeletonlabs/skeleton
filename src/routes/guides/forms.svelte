@@ -40,7 +40,7 @@ module.exports = {
     ],
 }
         `.trim()}></CodeBlock>
-        <p>Implement any style overrides within your global <code>app.css</code>. Feel free to use the styles below as a starting point. These take advantage of your theme colors.</p>
+        <p>Implement style overrides within your app's global stylesheet (ex: <code>app.css</code> for SvelteKit). The boilderplate styles below will take advantage of your theme colors.</p>
         <CodeBlock language="css" code={`
 fieldset { @apply block; }
 

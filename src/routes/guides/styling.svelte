@@ -18,11 +18,13 @@
         <h2>Global Styles</h2>
         <p>Click the button below to reference how we setup the global stylesheet for this site, which was built using SvelteKit + Skeleton.</p>
         <Button variant="filled-accent" href="https://github.com/Brain-Bones/skeleton/blob/master/src/app.css" target="_blank">View Stylesheet Example</Button>
+        <p>Here's a bare minimum example you can add to your project's globaly stylesheet:</p>
+        <CodeBlock language="css" code={`body { @apply bg-surface-100 dark:bg-surface-900 text-black dark:text-white p-4; }`}></CodeBlock>
         <h4>Best Practices</h4>
         <p>Here's a few best practices guidelines we recommend you follow:</p>
         <ul class="list-disc list-inside">
             <li>Utilize <a href="https://tailwindcss.com/docs/reusing-styles#extracting-classes-with-apply" target="_blank">Tailwind @apply</a> to define and implement styles whenever possible.</li>
-            <li>Utilize the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:not" target="_blank">CSS :not pseudo-class</a> to create global styles that exclude and avoid overwriting inherit component styles.</li>
+            <li>Utilize the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:not" target="_blank">CSS :not pseudo-class</a> to exclude and avoid overwriting each component's inherit styles.</li>
             <li>Utilize the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Tailwind Forms plugin</a> to handle form input styling. View our <a href="/guides/forms">Forms guide</a> for more details.</li>
         </ul>
     </section>
