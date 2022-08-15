@@ -15,7 +15,7 @@
 	import { Apollo, BlueNight, Emerald, GreenFall, Noir, NoirLight, Rustic, Summer84, XPro } from '$lib/Filters/filter';
 	
 	// Import CSS
-	import 'highlight.js/styles/github-dark.css'; // Highlight.js
+	import '@highlightjs/cdn-assets/styles/github-dark.min.css'; // Highlight.js
 	import '../themes/theme-skeleton.css'; // skeleton|rocket|modern|seafoam|vintage|sahara|test
 	import '../app.css';
 

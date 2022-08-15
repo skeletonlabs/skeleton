@@ -1,5 +1,5 @@
 <script lang="ts">
-    import highlight from '@highlightjs/cdn-assets/es/core';
+    import highlight from '@highlightjs/cdn-assets/highlight';
     
     export let language: string = 'plaintext';
     export let code: string = '';
