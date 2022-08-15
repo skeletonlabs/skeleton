@@ -50,7 +50,7 @@
     }
 </script>
 
-<div
+<label
     id={label}
     class="slide-toggle {cBaseLabel} {$$props.class}"
     class:opacity-30={$$props.disabled}
@@ -83,8 +83,8 @@
         </div>
 
         <!-- Label -->
-        {#if $$slots.default}<label for={label}><slot/></label>{/if}
+        {#if $$slots.default}<div><slot/></div>{/if}
 
     </div>
 
-</div>
+</label>

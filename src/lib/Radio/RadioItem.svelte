@@ -36,7 +36,7 @@
     $: classesItem = `${cBaseItem} ${cSelected} ${cBaseHover}`;
 </script>
 
-<div
+<label
     id={label}
     class="radio-item {classesItem}"
     data-testid="radio-item"
@@ -45,7 +45,8 @@
     aria-checked={isChecked}
     aria-label={label}
     tabindex="0"
+    for={label}
 >
     <input class="hidden" type="radio" {value} bind:group={$selected} />
-    <label class="inline-block mx-auto" for={label}><slot /></label>
-</div>
+    <div class="inline-block mx-auto"><slot /></div>
+</label>
