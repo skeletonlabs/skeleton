@@ -114,7 +114,7 @@
     <!-- Accessibility -->
     <section class="space-y-4">
         <h2>Accessibility</h2>
-        <p>You are advised to use semantic heading tags (H1-H6). Has an explicit ARAI attribute of <code>role="heading"</code>.</p>
+        <p>You are advised to use semantic heading tags (H1-H6). Has an explicit ARIA attribute of <code>role="heading"</code>.</p>
     </section>
 
 </div>
