@@ -50,7 +50,7 @@
     }
 </script>
 
-<label
+<div
     id={label}
     class="slide-toggle {cBaseLabel} {$$props.class}"
     class:opacity-30={$$props.disabled}
@@ -61,30 +61,33 @@
     aria-checked={checked}
     tabindex="0"
 >
+    <!-- Keep this, it triggers click/toggle event -->
+    <label>
 
-    <!-- Input (Hidden) -->
-    <input
-        type="checkbox" 
-        class="hidden"
-        bind:checked 
-        on:click
-        on:mouseover
-        on:focus
-        on:blur
-        {...prunedRestProps()}
-        disabled={$$props.disabled}
-    >
+        <!-- Input (Hidden) -->
+        <input
+            type="checkbox" 
+            class="hidden"
+            bind:checked 
+            on:click
+            on:mouseover
+            on:focus
+            on:blur
+            {...prunedRestProps()}
+            disabled={$$props.disabled}
+        >
 
-    <div class="flex items-center space-x-4">
+        <div class="flex items-center space-x-4">
 
-        <!-- Slider Track/Thumb -->
-        <div class="track {classesTrack}" class:cursor-not-allowed={$$props.disabled}>
-            <div class="thumb {classesThumb}" class:cursor-not-allowed={$$props.disabled}></div>
+            <!-- Slider Track/Thumb -->
+            <div class="track {classesTrack}" class:cursor-not-allowed={$$props.disabled}>
+                <div class="thumb {classesThumb}" class:cursor-not-allowed={$$props.disabled}></div>
+            </div>
+
+            <!-- Label -->
+            {#if $$slots.default}<div><slot/></div>{/if}
+
         </div>
 
-        <!-- Label -->
-        {#if $$slots.default}<div><slot/></div>{/if}
-
-    </div>
-
-</label>
+    </label>
+</div>

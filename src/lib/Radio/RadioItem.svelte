@@ -16,7 +16,7 @@
     export let color: string = getContext('color');
 
     // Base Classes
-    let cBaseItem: string = 'flex-1 text-base fill-black dark:fill-white px-5 py-2.5 cursor-pointer text-center';
+    let cBaseItem: string = 'flex-1 text-base fill-black dark:fill-white cursor-pointer text-center';
     let cBaseUnselected: string = 'bg-surface-300 dark:bg-surface-700';
     let cBaseHover: string = 'hover:brightness-110';
 
@@ -36,7 +36,7 @@
     $: classesItem = `${cBaseItem} ${cSelected} ${cBaseHover}`;
 </script>
 
-<label
+<div
     id={label}
     class="radio-item {classesItem}"
     data-testid="radio-item"
@@ -45,8 +45,9 @@
     aria-checked={isChecked}
     aria-label={label}
     tabindex="0"
-    for={label}
 >
-    <input class="hidden" type="radio" {value} bind:group={$selected} />
-    <div class="inline-block mx-auto"><slot /></div>
-</label>
+    <label class="px-5 py-2.5">
+        <input class="hidden" type="radio" {value} bind:group={$selected} />
+        <div class="inline-block mx-auto"><slot /></div>
+    </label>
+</div>
