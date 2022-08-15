@@ -50,6 +50,6 @@
 	"type": "module",
 	"types": "index.d.ts",
 	"dependencies": {
-		"highlight.js": "^11.6.0"
+		"@highlightjs/cdn-assets": "^11.6.0"
 	}
 }

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import hljs from 'highlight.js';
+    import highlight from '@highlightjs/cdn-assets/es/core';
     
     export let language: string = 'plaintext';
     export let code: string = '';
@@ -18,7 +18,7 @@
 <div class="codeblock {cBaseBlock} {$$props.class}" data-testid="codeblock">
 <header class="{cBaseHeader}">{languageFormatter(language)}</header>
 <pre class="whitespace-pre-wrap text-base overflow-x-auto">
-<code class="language-{language} outline-none" contenteditable spellcheck="false">{@html hljs.highlight(code, { language }).value || code}</code>
+<code class="language-{language} outline-none" contenteditable spellcheck="false">{@html highlight.highlight(code, { language }).value || code}</code>
 </pre>
 </div>
 {/if}
