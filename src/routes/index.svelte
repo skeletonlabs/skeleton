@@ -64,18 +64,16 @@
         <TabGroup selected={storeTabFramework}>
             <Tab value="sveltekit">SvelteKit</Tab>
             <Tab value="vite">Vite (Svelte)</Tab>
-            <Tab value="other">Other</Tab>
+            <Tab value="astro">Astro</Tab>
         </TabGroup>
 
         <!-- Framework: SvelteKit -->
         {#if $storeTabFramework === 'sveltekit'}
-            <h4>Scaffold a SvelteKit Project</h4>
-            <p>Make sure you check the <a href="https://kit.svelte.dev/docs/introduction#getting-started" target="_blank">official documentation</a> for the most up to date instructions.</p>
+            <p>Make sure you check the <a href="https://kit.svelte.dev/docs/introduction#getting-started" target="_blank">official documentation</a> for the latest instruction.</p>
             <CodeBlock language="console" code={`npm create svelte@latest my-app\ncd my-app\nnpm install\nnpm run dev`}></CodeBlock>
         <!-- Framework: Vite (Svelte) -->
         {:else if $storeTabFramework === 'vite'}
-            <h4>Scaffold a Vite (Svelte) Project</h4>
-            <p>Make sure you check the <a href="https://vitejs.dev/guide/#scaffolding-your-first-vite-project" target="_blank">official documentation</a> for the most up to date instructions.</p>
+            <p>Make sure you check the <a href="https://vitejs.dev/guide/#scaffolding-your-first-vite-project" target="_blank">official documentation</a> for the latest instruction.</p>
             <CodeBlock language="console" code={`
 # npm 6.x
 npm create vite@latest my-vite-skeleton-app --template svelte-ts
@@ -87,27 +85,41 @@ cd vite-skeleton-app
 npm install
 npm run dev
             `.trim()}></CodeBlock>
-        <!-- Framework:Other -->
-        {:else if $storeTabFramework === 'other'}
-            <Alert background="bg-warning-500">
-                <svelte:fragment slot="title">More Coming Soon...</svelte:fragment>
-                <svelte:fragment slot="message">Official instructions for Astro, Routify, and more will be made available soon.</svelte:fragment>      
-            </Alert>
+        <!-- Framework: Astro -->
+        {:else if $storeTabFramework === 'astro'}
+            <p>Make sure you check the <a href="https://docs.astro.build/en/install/auto/" target="_blank">official documentation</a> for the most up to date instructions.</p>
+            <CodeBlock language="console" code={`
+npm create astro@latest
+    - Name: (ex: "my-astro-skeleton-app")
+    - Template: empty project
+    - Install Deps: y
+    - Init Git: y (Optional)
+    - Typescript: Strict (Recommended)
+cd my-astro-skeleton-app
+npm run dev
+            `.trim()}></CodeBlock>
+            <!-- Integrations -->
+            <h3>Integrate Svelte and Tailwind</h3>
+            <p>Via <a href="https://docs.astro.build/en/guides/integrations-guide/svelte/" target="_blank">@astrojs/svelte</a></p>
+            <CodeBlock language="console" code={`npx astro add svelte`}></CodeBlock>
+            <p>Via  <a href="https://docs.astro.build/en/guides/integrations-guide/tailwind/" target="_blank">@astrojs/tailwind</a></p>
+            <CodeBlock language="console" code={`npx astro add tailwind`}></CodeBlock>
+            <!-- More -->
+            <h3>Additional Support</h3>
+            <p>Once you've completed installation of Skeleton and configured all required Tailwind and Theme settings, we recommend reviewing the dedicated <a href="/guides/astro">Astro guide</a>. This provides a walkthrough for scaffolding an Astro app and explains how to use Skeleton components within <a href="https://docs.astro.build/en/concepts/islands/" target="_blank">Astro's islands architecture</a>.</p>
         {/if}
 
         <!-- Install Tailwind -->
         {#if ['sveltekit', 'vite'].includes($storeTabFramework)}
-        <h4>Install Tailwind</h4>
+        <h3>Install Tailwind</h3>
         <p><a href="https://github.com/svelte-add/tailwindcss" target="_blank">Svelte-Add</a> makes installation a trivia process.</p>
         <CodeBlock language="console" code={`npx svelte-add@latest tailwindcss\nnpm install`}></CodeBlock>
         {/if}
 
         <!-- Install Skeleton -->
-        {#if ['sveltekit', 'vite'].includes($storeTabFramework)}
-        <h4>Install Skeleton</h4>
+        <h3>Install Skeleton</h3>
         <p>Install the core Skeleton library from <a href="https://www.npmjs.com/package/@brainandbones/skeleton" target="_blank">NPM</a>.</p>
         <CodeBlock language="console" code={`npm i @brainandbones/skeleton --save-dev`}></CodeBlock>
-        {/if}
     </section>
 
     <Divider />

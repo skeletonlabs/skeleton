@@ -21,7 +21,7 @@
 module.exports = {
     content: [
         // ...
-        './node_modules/@brainandbones/skeleton/**/*.{html,js,svelte,ts}'
+        "./node_modules/@brainandbones/skeleton/**/*.{html,js,svelte,ts}"
     ],
     // ...
 }
@@ -35,7 +35,7 @@ module.exports = {
     // ...
     plugins: [
         // ...
-        require('@brainandbones/skeleton/tailwind.cjs')
+        require("@brainandbones/skeleton/tailwind.cjs")
     ]
 }
         `.trim()}></CodeBlock>

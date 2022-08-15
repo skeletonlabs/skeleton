@@ -100,7 +100,7 @@
         <TabGroup selected={storeTabFramework}>
             <Tab value="sveltekit">SvelteKit</Tab>
             <Tab value="vite">Vite (Svelte)</Tab>
-            <Tab value="other">Other</Tab>
+            <Tab value="astro">Astro</Tab>
         </TabGroup>
         <!-- Framework: SvelteKit -->
         {#if $storeTabFramework === 'sveltekit'}
@@ -111,8 +111,11 @@
         <p>Create a new file and save your CSS theme in <code>/src/theme.css</code>, then import this in <code>/src/main.js</code>.</p>
         <CodeBlock language="typescript" code={`import '../theme.css'; // <--\nimport '../app.css';\n//..`}></CodeBlock>
         <!-- Framework:Other -->
-        {:else if $storeTabFramework === 'other'}
-        <p>Official instructions for Astro, Routify, and more will be made available soon. Please reference your framework's documentation for recommendations on housing and importing additional CSS files. You can also consider embedding this at the top of your global CSS stylesheet, directly after the Tailwind import statements.</p>
+        {:else if $storeTabFramework === 'astro'}
+        <p>Add <code>/src/styles/theme.css</code> to house your Skeleton theme CSS.</p>
+        <p>Add <code>/src/styles/base.css</code> to define @tailwind directives and house global styles:</p>
+        <CodeBlock language="css" code={`@tailwind base;\n@tailwind components;\n@tailwind utilities;`}></CodeBlock>
+        <p>We'll implement a layout in the <a href="/guides/astro">Astro guide</a> to make use of these stylesheets.</p>
         {/if}
     </section>
 
