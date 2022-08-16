@@ -92,11 +92,6 @@
 	});
 </script>
 
-<!-- <svelte:window bind:scrollY={y}/> -->
-<svelte:head>
-	<title>Skeleton</title>
-</svelte:head>
-
 <!-- Notification Components -->
 <Dialog />
 <Toast />
