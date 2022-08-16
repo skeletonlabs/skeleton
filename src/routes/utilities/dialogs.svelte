@@ -179,10 +179,6 @@
     <section class="space-y-4">
         <h2>Dialog Component</h2>
         <p>Add the following to your app's root component:</p>
-        <ul class="list-disc list-inside space-y-2">
-            <li>SvelteKit: <code>/src/routes/__layout.svelte</code></li>
-            <li>Vite: <code>/src/main.ts</code></li>
-        </ul>
         <CodeBlock language="js" code={`import { Dialog } from '@brainandbones/skeleton';`}></CodeBlock>
         <CodeBlock language="html" code={`<Dialog backdrop="bg-primary-500/50" blur="backdrop-blur-sm" card="bg-primary-500" duration={250} />
         `.trim()}></CodeBlock>

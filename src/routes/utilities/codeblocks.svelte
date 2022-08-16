@@ -33,11 +33,7 @@
         <h2>Usage</h2>
         <p>Please note that Skeleton will install <a href="https://highlightjs.org/" target="_blank">Highlight.js</a> as a dependency for this.</p>
         <h4>Add a Theme</h4>
-        <p>Implement a <a href="https://github.com/highlightjs/highlight.js/tree/main/src/styles" target="_blank">Highlight.js CSS theme</a>. Add the following to your app's root component:</p>
-        <ul class="list-disc list-inside space-y-2">
-            <li>SvelteKit: <code>/src/routes/__layout.svelte</code></li>
-            <li>Vite: <code>/src/main.ts</code></li>
-        </ul>
+        <p>Implement a <a href="https://github.com/highlightjs/highlight.js/tree/main/src/styles" target="_blank">Highlight.js CSS theme</a>. Add the following to your app's root component, before your theme and global stylesheet import.</p>
         <CodeBlock language="js" code={`import 'highlight.js/styles/github-dark.css';`}></CodeBlock>
         <h4>Insert a Codeblock</h4>
         <p>Add the following anywhere you wish to display a codeblock. See the <em>properties</em> documentation below.</p>

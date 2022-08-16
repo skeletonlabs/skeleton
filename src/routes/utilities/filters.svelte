@@ -70,10 +70,6 @@
 		<h2>Usage</h2>
         <h4>Import Filter Components</h4>
         <p>Add within scope of your filtered element. For global access, add the following to your app's root component:</p>
-        <ul class="list-disc list-inside space-y-2">
-            <li>SvelteKit: <code>/src/routes/__layout.svelte</code></li>
-            <li>Vite: <code>/src/main.ts</code></li>
-        </ul>
 		<CodeBlock language="javascript" code={`import { Emerald, BlueNight, /* ... */  } from '@brainandbones/skeleton';`} />
 		<CodeBlock language="html" code={`<BlueNight />`} />
         <h4>Use Filter Action</h4>

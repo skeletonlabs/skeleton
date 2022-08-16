@@ -1,5 +1,6 @@
 <script lang="ts">
     import { writable, type Writable } from "svelte/store";
+    import { storeFramework } from "../stores";
 
     import Card from "$lib/Card/Card.svelte";
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
@@ -15,8 +16,7 @@
     import ThemeGenCustom from "$lib/ThemeGenerator/ThemeGenCustom.svelte";
 
     // Stores
-    const storeLayout: Writable<string> = writable('tailwind');
-    let storeTabFramework: Writable<string> = writable('sveltekit');
+    const storeGenerator: Writable<string> = writable('tailwind');
 
     // Presets
     const presetUrl: string = 'https://github.com/Brain-Bones/skeleton/blob/master/src/themes';
@@ -58,7 +58,7 @@
         <nav class="grid grid-cols-1 md:grid-cols-3 gap-4">
             {#each presets as preset}
             <a href={preset.url} class="theme-set" style:background={preset.surface} target="_blank">
-                <span>{preset.name}</span>
+                <span class="text-sm">{preset.name}</span>
                 <ul class="grid grid-cols-3 gap-2">
                     {#each preset.colors as color}
                     <li class="aspect-square w-4 rounded-full" style:background={color}></li>
@@ -75,18 +75,18 @@
     <section class="space-y-4">
         <h2>Generator</h2>
         <p>To create your own theme, use the form below. Each color represents swatch 500 (ex: bg-primary-500).</p>
-        <Card class="!bg-neutral-800 space-y-4">
+        <Card class="!bg-neutral-900 space-y-4">
             <header class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-                <RadioGroup selected={storeLayout}>
+                <RadioGroup selected={storeGenerator}>
                     <RadioItem value="tailwind">Tailwind</RadioItem>
                     <RadioItem value="custom">Custom</RadioItem>
                 </RadioGroup>
-                {#if $storeLayout === 'tailwind'}<p>Create a theme using <a href="https://tailwindcss.com/docs/customizing-colors" target="_blank">Tailwind's color palette</a>. This typically provides the best results.</p>{/if}
-                {#if $storeLayout === 'custom'}<p>For advanced users, enter any arbitrary hex color values to generate a unique theme.</p>{/if}
+                {#if $storeGenerator === 'tailwind'}<p>Create a theme using <a href="https://tailwindcss.com/docs/customizing-colors" target="_blank">Tailwind's color palette</a>. This typically provides the best results.</p>{/if}
+                {#if $storeGenerator === 'custom'}<p>For advanced users, enter any arbitrary hex color values to generate a unique theme.</p>{/if}
             </header>
             <Divider />
-            {#if $storeLayout === 'tailwind'}<ThemeGenTailwind />{/if}
-            {#if $storeLayout === 'custom'}<ThemeGenCustom />{/if}
+            {#if $storeGenerator === 'tailwind'}<ThemeGenTailwind />{/if}
+            {#if $storeGenerator === 'custom'}<ThemeGenCustom />{/if}
         </Card>
         <p>To fully curate or refine a theme's palette, we recommend using <a href="https://tailwind.simeongriggs.dev/blue/3B82F6" target="_blank">Palette Generator</a>. The <a href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba" target="_blank">Hex-To-RGB VS Code extension</a> can convert colors from Hex &rarr; RGB in bulk.</p>
     </section>
@@ -97,21 +97,21 @@
     <section class="space-y-4">
         <h3>Save and Import</h3>
         <p>Select your framework of choice and follow the instructions below.</p>
-        <TabGroup selected={storeTabFramework}>
+        <TabGroup selected={storeFramework}>
             <Tab value="sveltekit">SvelteKit</Tab>
             <Tab value="vite">Vite (Svelte)</Tab>
             <Tab value="astro">Astro</Tab>
         </TabGroup>
         <!-- Framework: SvelteKit -->
-        {#if $storeTabFramework === 'sveltekit'}
+        {#if $storeFramework === 'sveltekit'}
         <p>Create a new file and save your CSS theme in <code>/src/theme.css</code>, then import this in your <code>__layout.svelte</code> component.</p>
         <CodeBlock language="typescript" code={`import '../theme.css'; // <--\nimport '../app.css';\n//..`}></CodeBlock>
         <!-- Framework: Vite (Svelte) -->
-        {:else if $storeTabFramework === 'vite'}
+        {:else if $storeFramework === 'vite'}
         <p>Create a new file and save your CSS theme in <code>/src/theme.css</code>, then import this in <code>/src/main.js</code>.</p>
         <CodeBlock language="typescript" code={`import '../theme.css'; // <--\nimport '../app.css';\n//..`}></CodeBlock>
-        <!-- Framework:Other -->
-        {:else if $storeTabFramework === 'astro'}
+        <!-- Framework: Astro -->
+        {:else if $storeFramework === 'astro'}
         <p>Add <code>/src/styles/theme.css</code> to house your Skeleton theme CSS.</p>
         <p>Add <code>/src/styles/base.css</code> to define @tailwind directives and house global styles:</p>
         <CodeBlock language="css" code={`@tailwind base;\n@tailwind components;\n@tailwind utilities;`}></CodeBlock>
@@ -144,8 +144,8 @@
 
     <!-- Next Steps -->
     <Card class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-        <p>Next, let's review best practices for adding global and per component styles.</p>
-        <Button variant="filled-accent" href="/guides/styling">Add Styling</Button>
+        <p>Next, let's review best practices for handling CSS styles and overrides.</p>
+        <Button variant="filled-accent" href="/guides/styling">Handling Styles</Button>
     </Card>
 
 </div>

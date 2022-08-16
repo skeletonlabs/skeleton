@@ -1,9 +1,13 @@
 <script lang="ts">
+    import { storeFramework } from "../stores";
+    
+    import Badge from "$lib/Badge/Badge.svelte";
     import Card from "$lib/Card/Card.svelte";
+    import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
     import Button from "$lib/Button/Button.svelte";
     import Divider from "$lib/Divider/Divider.svelte";
-    import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
-    import Badge from "$lib/Badge/Badge.svelte";
+    import TabGroup from "$lib/Tab/TabGroup.svelte";
+    import Tab from "$lib/Tab/Tab.svelte";
 </script>
 
 <div class="space-y-8">
@@ -24,7 +28,7 @@
     <!-- Forms and Input Styles -->
     <section class="space-y-4">
         <h2>Tailwind Forms Plugin</h2>
-        <p>To get started, check out Tailwind's official YouTube video tutorial, as well as the step-by-step guide provided below.</p>
+        <p>To get started, check out Tailwind's official YouTube video tutorial, or follow the step-by-step guide provided below.</p>
         <Card>
             <iframe class="w-full max-w-[800px] mx-auto aspect-video" src="https://www.youtube-nocookie.com/embed/pONeWAzDsQg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </Card>
@@ -40,13 +44,21 @@ module.exports = {
     ],
 }
         `.trim()}></CodeBlock>
-        <p>Implement style overrides within your app's global stylesheet (ex: <code>app.css</code> for SvelteKit). The boilderplate styles below will take advantage of your theme colors.</p>
+        <TabGroup selected={storeFramework}>
+            <Tab value="sveltekit">SvelteKit</Tab>
+            <Tab value="vite">Vite (Svelte)</Tab>
+            <Tab value="astro">Astro</Tab>
+        </TabGroup>
+        <!-- Framework: SvelteKit | Vite (Svelte) -->
+        {#if $storeFramework === 'sveltekit' || $storeFramework === 'vite'}
+        <p>Your global stylesheet is located in <code>/src/app.css</code>.</p>
+        <!-- Framework: Astro -->
+        {:else if $storeFramework === 'astro'}
+        <p>Your global stylesheet is located in <code>/src/styles/base.css</code>.</p>
+        {/if}
+        <p>Apply the boilerplate in your global stylesheet. These will adhere to your theme colors.</p>
         <CodeBlock language="css" code={`
 fieldset { @apply block; }
-
-/* Labels */
-label { @apply block overflow-visible; }
-label span, legend { @apply block text-surface-700 dark:text-surface-300 text-sm mb-2; }
 
 /* Inputs */
 [type="text"],
@@ -84,6 +96,10 @@ input::-moz-placeholder, textarea::-moz-placeholder { @apply text-surface-400; }
 input:-ms-input-placeholder, textarea:-ms-input-placeholder { @apply text-surface-400; }
 input::placeholder, textarea::placeholder { @apply text-surface-400; }
 
+/* Labels */
+label { @apply block overflow-visible; }
+label span, legend { @apply block text-surface-700 dark:text-surface-300 text-sm mb-2; }
+
 /* Accent Color - https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color */
 [type="range"]:not(.range-input) { @apply w-full accent-accent-500; }
         `.trim()}></CodeBlock>
@@ -112,7 +128,7 @@ input::placeholder, textarea::placeholder { @apply text-surface-400; }
     <!-- Non-Supported -->
     <section class="space-y-4">
         <h2>Non-Supported Inputs</h2>
-        <p>While the Tailwind Forms plugin covers most common inputs, there are a few <a href="https://tailwindcss-forms.vercel.app/kitchen-sink.html" target="_blank">exceptions</a> (see page bottom). However, Skeleton provides a robust <a href="/components/range-sliders">Range Slider</a> alternative, as well as non-native components for <a href="/components/slide-toggles">Slide Toggles</a> and <a href="/components/radio-groups">Radio Groups</a>. Expect to see more of these in the future.</p>
+        <p>While the Tailwind Forms plugin covers most common inputs, there are a few <a href="https://tailwindcss-forms.vercel.app/kitchen-sink.html" target="_blank">exceptions</a> (see page bottom). However, Skeleton provides a robust <a href="/components/range-sliders">Range Slider</a> alternative, as well as custom components for <a href="/components/slide-toggles">Slide Toggles</a> and <a href="/components/radio-groups">Radio Groups</a>. Expect to see more of these in the future.</p>
     </section>
 
     <Divider />

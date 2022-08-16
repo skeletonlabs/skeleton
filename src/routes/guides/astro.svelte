@@ -11,18 +11,22 @@
 	<header class="space-y-4">
 		<div class="flex justify-between items-center">
             <h1>Astro</h1>
-            <Button variant="ghost" href="https://docs.astro.build/en/getting-started/" target="_blank">Official Docs</Button>
+            <nav class="flex space-x-4">
+                <Button variant="filled-primary" href="https://astro.build/" target="_blank">What's Astro?</Button>
+                <Button variant="ghost" href="https://docs.astro.build/en/getting-started/" target="_blank">Docs</Button>
+            </nav>
         </div>
-        <p>Follow the guide to get started using Skeleton within an Astro app. We recommend the guides for <a href="/guides/tailwind">Tailwind</a>, <a href="/guides/themes">Themes</a>, and <a href="/guides/styling">Styling</a> before you proceed.</p>
+        <p>Skeleton now officially supports the Astro web framework. We've provided a guide below to get started.</p>
 	</header>
-
+    
     <Divider />
     
-    <!-- Scaffold -->
+    <!-- Setup -->
     <section class="space-y-4">
         <h2>Setup</h2>
+        <p>Follow the guide below to begin using Skeleton within an Astro app. Make sure you've read the <a href="/guides/tailwind">Tailwind</a>, <a href="/guides/themes">Themes</a>, and <a href="/guides/styling">Styling</a> guides before you proceed.</p>
         <h4>Generate a Layout</h4>
-        <p>Create an <a href="https://docs.astro.build/en/core-concepts/layouts/" target="_blank">Astro Layout</a> in <code>/src/layouts/BasicLayout.astro</code>. See the <em>Save and Import</em> section for <a href="/guides/styling">Styling</a> if you have not yet generated <strong>theme</strong> and <strong>base</strong> stylesheets.</p>
+        <p>Create a new <a href="https://docs.astro.build/en/core-concepts/layouts/" target="_blank">Astro Layout</a> in <code>/src/layouts/BasicLayout.astro</code>, then add the following:</p>
         <CodeBlock language="html" code={`
 ---
 import '../styles/theme.css';
@@ -41,8 +45,8 @@ import '../styles/base.css';
 </html>
         `.trim()}></CodeBlock>
         <!-- Implement Layout -->
-        <h4>Add Layout to Pages</h4>
-        <p>Replace the contents of <code>/src/pages/index.astro</code> with the following. This allows our pages to use our new reusable layout.</p>
+        <h4>Use Layouts in Pages</h4>
+        <p>You can then update your homepage <code>/src/pages/index.astro</code> with the following code to apply your new layout:</p>
         <CodeBlock language="html" code={`
 ---
 import BasicLayout from '../layouts/BasicLayout.astro';
@@ -57,8 +61,8 @@ import BasicLayout from '../layouts/BasicLayout.astro';
 
     <!-- Scaffold -->
     <section class="space-y-4">
-        <h2>Handling Components</h2>
-        <h4>Static Components</h4>
+        <h2>Components</h2>
+        <h4>Static</h4>
         <p>For static Skeleton components that do not require Javascript logic or functionality, we add these directly into any Astro component.</p>
         <CodeBlock language="html" code={`
 ---
@@ -75,14 +79,12 @@ import { LogoCloud, Logo } from '@brainandbones/skeleton';
     </LogoCloud>
 </BasicLayout>
         `.trim()}></CodeBlock>
-        <h4>Component Hydration</h4>
+        <h4>Hydration</h4>
         <p>For Skeleton components that make use of reactive Svelte features, such as the <code>on:click</code> directive, Writable Stores, or Actions, you'll need to setup a dedicated Svelte wrapper component. For this example we'll create <code>/src/components/WrapperExample.svelte</code>:</p>
         <CodeBlock language="html" code={`
 \<script\>
-    function doSomething(): void {
-        console.log('Hello, Skeleton');
-    }
-\<\/script\>
+    function doSomething(): void {  console.log('Hello, Skeleton'); }
+\<\/script\>\n
 <Button variant="filled-primary" on:click={() => { triggerDialog() }}>Trigger Dialog</Button>
         `.trim()}></CodeBlock>
         <p>Then, implement within the Astro homepage component at <code>/src/pages/index.astro</code>:</p>
@@ -102,10 +104,10 @@ import WrapperExample from '../components/WrapperExample.svelte';
 
     <!-- Official Docs -->
     <Card class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-        <p>For more help with Astro, visit their community Discord or official documentation.</p>
+        <p>If you need more help with Astro, try their official Discord or documentation.</p>
         <div class="space-x-2">
-            <Button variant="filled-accent" href="https://astro.build/chat" target="_blank">Discord</Button>
-            <Button variant="filled-accent" href="https://docs.astro.build/en/getting-started/" target="_blank">Documentation</Button>
+            <Button variant="ghost" href="https://astro.build/chat" target="_blank">Discord</Button>
+            <Button variant="ghost" href="https://docs.astro.build/en/getting-started/" target="_blank">Docs</Button>
         </div>
     </Card>
 

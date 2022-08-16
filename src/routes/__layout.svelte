@@ -145,7 +145,7 @@
 					<NavItem {href} value={href} on:click={drawerClose}>
 						<div class="flex justify-between">
 							<span>{label}</span>
-							{#if badge}<Badge background="bg-surface-500">{badge}</Badge>{/if}
+							{#if badge}<Badge background="bg-accent-500 dark/bg-accent-500/30">{badge}</Badge>{/if}
 						</div>
 					</NavItem>
 					{/each}
