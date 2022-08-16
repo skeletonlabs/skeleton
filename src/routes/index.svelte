@@ -108,7 +108,7 @@ npm run dev
             <CodeBlock language="console" code={`npx astro add tailwind`}></CodeBlock>
             <!-- More -->
             <h3>Astro Guide</h3>
-            <p>Once setup of Skeleton is complete, we recommend trying our the dedicated <a href="/guides/astro">Astro guide</a>. This provides a simple walkthrough for scaffolding an Astro app and explains how to properly implement Skeleton components within Astro's <a href="https://docs.astro.build/en/concepts/islands/" target="_blank">islands architecture</a>.</p>
+            <p>Once setup of Skeleton is complete, we recommend trying our the dedicated <a href="/guides/astro">Astro guide</a>. This guide provides a walkthrough for scaffolding a simple Astro application, as well as explaining how to take advantage of Skeleton components within Astro's <a href="https://docs.astro.build/en/concepts/islands/" target="_blank">islands architecture</a>.</p>
         {/if}
     </section>
 
