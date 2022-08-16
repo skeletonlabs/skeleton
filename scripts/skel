@@ -9,8 +9,8 @@ npm init @svelte-add/kit@latest $1 -y -- --with typescript+eslint+prettier+tailw
 cd $1/
 echo "$( jq '.devDependencies += {"@brainandbones/skeleton":"*"}' package.json )" > package.json
 cat <<EOT > tailwind.config.cjs
-//const typography = require('@tailwindcss/typography');
-//const forms = require('@tailwindcss/forms');
+//const typography = require('@tailwindcss/typography'); //add to plugins array 
+//const forms = require('@tailwindcss/forms'); //add to plugins array
 const skeleton = require('@brainandbones/skeleton/tailwind.cjs');
 
 const config = {
@@ -20,7 +20,7 @@ const config = {
 		extend: {}
 	},
 
-	plugins: [forms, skeleton]
+	plugins: [skeleton]
 };
 
 module.exports = config;
