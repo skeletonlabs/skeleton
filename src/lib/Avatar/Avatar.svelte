@@ -13,7 +13,7 @@
 	export let filter: string = undefined; // filter id
 	
 	// Base Classes
-	let cBase: string = 'flex aspect-square text-surface-50 font-semibold justify-center items-center rounded-full overflow-hidden';
+	let cBase: string = 'flex aspect-square text-surface-50 font-semibold justify-center items-center rounded-full overflow-hidden isolate';
 	let cSize: string, cText: string;
 
 	// Set Size
@@ -40,7 +40,7 @@
 
 <div data-testid='wrapper' on:click class="avatar {classesAvatar}">
 	{#if src}
-	<img class="w-full h-full object-cover" {src} alt="avatar" use:f.filter={filter} />
+	<img class="w-full h-full" {src} alt="avatar" use:f.filter={filter} />
 	{:else}
 	<span class="{cText}" data-testid="placeholder">{initials.substring(0,2).toUpperCase()}</span>
 	{/if}
