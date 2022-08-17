@@ -4,7 +4,7 @@
 	"description": "A SvelteKit component library.",
 	"author": "endigo9740 <csimmons@brainandbonesllc.com>",
 	"scripts": {
-		"dev": "vite dev --port 3000",
+		"dev": "vite dev",
 		"build": "vite build",
 		"package": "svelte-kit package",
 		"patch-package": "npm version patch && svelte-kit package",
