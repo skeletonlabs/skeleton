@@ -49,7 +49,7 @@
                 {href: '/components/breadcrumbs', label: 'Breadcrumbs'},
                 {href: '/components/buttons', label: 'Buttons'},
                 {href: '/components/cards', label: 'Cards'},
-				// {href: '/components/conic-gradients', label: 'Conic Gradients'},
+				// {href: '/components/conic-gradients', label: 'Conic Gradients'}, // keep disabled until further notice
 				{href: '/components/data-tables', label: 'Data Tables'},
                 {href: '/components/dividers', label: 'Dividers'},
 				{href: '/components/drawers', label: 'Drawers'},
@@ -71,7 +71,7 @@
         {
 			title: 'Utilities',
             list: [
-				{href: '/utilities/codeblocks', label: 'Code Blocks'},
+				// {href: '/utilities/codeblocks', label: 'Code Blocks'}, // keep disabled until further notice
 				{href: '/utilities/dialogs', label: 'Dialogs'},
 				{href: '/utilities/toasts', label: 'Toasts'},
 				{href: '/utilities/lightswitches', label: 'Lightswitch'},
@@ -91,11 +91,6 @@
 		currentPageStore.set($page.url.pathname);
 	});
 </script>
-
-<!-- <svelte:window bind:scrollY={y}/> -->
-<svelte:head>
-	<title>Skeleton</title>
-</svelte:head>
 
 <!-- Notification Components -->
 <Dialog />

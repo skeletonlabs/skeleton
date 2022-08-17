@@ -17,12 +17,12 @@
         source: [
             ['initials', 'string', 'A', 'text', 'Provide up to two text characters.'],
             ['src', 'string', 'url', '-', 'The image source to display.'],
-            ['size', 'string', 'sm', 'sm | md | lg | xl | 2xl | 3xl | fluid', 'Sets the circle and text sizing.'],
-            ['background', 'string', 'bg-surface-500', 'class', 'Provide a class to set background color.'],
+            ['size', 'string', 'full', 'sm | md | lg | xl | 2xl | 3xl | full', 'Sets the circle and text sizing.'],
+            ['background', 'string', 'bg-surface-500', 'class', 'Provide a class to set background color. Only works with initials'],
             ['color', 'string', 'text-white', 'class', 'Provide a class to set text color.'],
-            ['outline', 'boolean', 'false', 'true | false', 'Displays an outline of the primary color.'],
+            ['outlined', 'boolean', 'false', 'true | false', 'Displays an outline of the primary color.'],
             ['hover', 'boolean', 'false', 'true | false', 'Displays and outline when hovering the avatar.'],
-            ['filter', 'string', 'false', 'filter reference', 'Enables a visual <a href="/utilities/filters">Filter</a>.'],
+            ['filter', 'string', 'false', 'filter reference', 'Enables a visual <a href="/utilities/filters">Filter</a>. Only works with src.'],
         ],
     };
 
@@ -137,7 +137,7 @@
 		</div>
 		<CodeBlock
 			language="html"
-			code={`<Avatar initials="${props.initials || 'A'}" ${props.src ? `src="${props.src}"` : ''} size="${props.size}" background="${props.background}" outlined={${props.outlined}} hover={${props.hover}} ${props.filter ? `filter="${props.filter}"` : ''} />`.trim()}></CodeBlock>
+			code={`<Avatar initials="${props.initials || 'A'}" ${props.src ? `src="${props.src}"` : ''} size="${props.size}" background="${props.background}" outlined={${props.outlined}} hover={${props.hover}} ${props.filter ? `filter="${props.filter}"` : ''}/>`.trim()}></CodeBlock>
 	</section>
     
     <!-- Properties -->

@@ -57,28 +57,32 @@
     <section class="space-y-4">
         <h2>Usage</h2>
         <CodeBlock language="typescript" code={`
+import { writable, type Writable } from 'svelte/store';
+import { Drawer, Button } from '@brainandbones/skeleton';
 const drawer: Writable<boolean> = writable(false);
-const drawerOpen: any = () => { drawer.set(true); }
-const drawerClose: any = () => { drawer.set(false); }
+const drawerOpen: any = () => {drawer.set(true);};
+const drawerClose: any = () => {drawer.set(false);};
         `.trim()}></CodeBlock>
-        <CodeBlock language="html" code={`<Button on:click={drawerOpen}>Menu</Button>`}></CodeBlock>
         <CodeBlock language="html" code={`
-<Drawer visible={drawer}>
-<svelte:fragment slot="header">
-    <p class="p-4 text-center">(header slot)</p>
-    <Divider />
-</svelte:fragment>
-<svelte:fragment slot="main">
-    <p class="p-4 text-center">(main slot)</p>
-</svelte:fragment>
-<svelte:fragment slot="footer">
-    <Divider />
-    <p class="p-4 text-center">(footer slot)</p>
-</svelte:fragment>
-</Drawer>
+<div class="flex">
+	<Drawer visible={drawer} fixed="left">
+		<svelte:fragment slot="header">
+			<p class="p-4 text-center">(header slot)</p>
+		</svelte:fragment>
+		<svelte:fragment slot="main">
+			<p class="p-4 text-center">(main slot)</p>
+		</svelte:fragment>
+		<svelte:fragment slot="footer">
+			<p class="p-4 text-center">(footer slot)</p>
+		</svelte:fragment>
+	</Drawer>
+	<div class="w-screen h-screen">
+		<Button on:click={drawerOpen} class="lg:hidden">Show Menu</Button>
+	</div>
+</div>
         `.trim()}></CodeBlock>
     </section>
-
+	<p>Note: you need to shrink the window to below the lg: break point for the button to show.</p>
     <!-- Properties -->
     <section class="space-y-4">
         <h2>Properties</h2>

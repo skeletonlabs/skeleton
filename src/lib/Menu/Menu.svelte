@@ -1,6 +1,5 @@
 <script lang="ts">
-    import { onMount } from "svelte";
-    import { navigating } from "$app/stores";
+    import { onDestroy, onMount } from "svelte";
     import { fade } from 'svelte/transition';
 
     export let select: boolean = false;
@@ -91,7 +90,11 @@
             scrollParent.addEventListener('scroll', setAutoOrigin);
         }
 	});
-    if ($navigating) { open = false; } // close when navigating
+
+    onDestroy(() => {
+        // close when navigating
+        open = false;
+    });
 
     // Responsive Classes
     $: classesMenu = `${cBaseMenu}`;

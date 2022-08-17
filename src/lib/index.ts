@@ -11,7 +11,7 @@ export { default as Breadcrumb } from "./Breadcrumb/Breadcrumb.svelte";
 export { default as Crumb } from "./Breadcrumb/Crumb.svelte";
 export { default as Button } from "./Button/Button.svelte";
 export { default as Card } from "./Card/Card.svelte";
-export { default as CodeBlock } from "./CodeBlock/CodeBlock.svelte";
+// export { default as CodeBlock } from "./CodeBlock/CodeBlock.svelte"; // keep disabled until further notice
 export { default as Divider } from "./Divider/Divider.svelte";
 export { default as Drawer } from "./Drawer/Drawer.svelte";
 export { default as GradientHeading } from "./GradientHeading/GradientHeading.svelte";
@@ -53,3 +53,7 @@ export { dialogStore } from "./Notifications/Stores";
 export { default as Dialog } from "./Notifications/Dialog.svelte";
 export { toastStore } from "./Notifications/Stores";
 export { default as Toast } from "./Notifications/Toast.svelte";
+
+// Typescript Interfaces (read: custom types)
+export { type DialogAlert, type DialogConfirm, type DialogPrompt } from "./Notifications/Stores";
+export { type ToastMessage } from "./Notifications/Stores";

@@ -1,8 +1,8 @@
 <!-- https://tailwindcss.com/docs/dark-mode -->
 
 <script lang="ts">
-    import { browser } from "$app/env";
 	import { svg } from "$lib/icons";
+	import { onMount } from "svelte";
 
 	import Card from "$lib/Card/Card.svelte";
 	import List from "$lib/List/List.svelte";
@@ -14,6 +14,13 @@
     export let origin: string = 'auto'; // tl | tr | bl | br
     export let duration: number = 100; // ms
     export let disabled: boolean = false;
+
+    let browser: boolean = false;
+    onMount(() =>{
+        // lifecycle functions don't run during SSR
+        browser = true
+        setThemeClass();
+    });
 
 	let currentTheme: string = 'load';
   

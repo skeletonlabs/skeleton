@@ -16,7 +16,7 @@
             ['duration', 'number', '200', 'Set fade in/out animation speed. Set 0 (zero) to disable.'],
             ['background', 'string', 'bg-surface-500',  'Provide a class to set background color.'],
             ['color', 'string', 'text-white',  'Provide a class to set text color.'],
-            ['rounded', 'string', 'rounded-lg', 'Provide a class to set border radius.'],
+            ['radius', 'string', 'rounded-lg', 'Provide a class to set border radius.'],
         ],
     };
     const tableSlots: any = {
@@ -82,14 +82,16 @@
     <!-- Usage -->
     <section class="space-y-4">
         <h2>Usage</h2>
-        <CodeBlock language="typescript" code="{`let visible: boolean = true;`}"></CodeBlock>
+        <CodeBlock language="typescript" code="{`
+let visible: boolean = true;
+function actionExample(): void { alert('Action button was triggered!'); }`}"></CodeBlock>
         <CodeBlock language="html" code="{`
 <Alert {visible}>
     <svelte:fragment slot="lead">{@html icon}</svelte:fragment>
     <svelte:fragment slot="title">Hello, Skeleton</svelte:fragment>
     <svelte:fragment slot="message">A custom message here.</svelte:fragment>      
     <svelte:fragment slot="trail">
-        <Button variant="filled" on:click={doSomething}>Show Me</Button>
+        <Button variant="filled" on:click={actionExample}>Show Me</Button>
     </svelte:fragment>
 </Alert>
         `.trim()}"></CodeBlock>

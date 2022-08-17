@@ -213,7 +213,7 @@
     <!-- Dialog Variants -->
     <section class="space-y-4">
         <h2>Dialog Variants</h2>
-        <CodeBlock language="typescript" code={`import type { DialogAlert, DialogConfirm, DialogPrompt } from '@brainandbones/skeleton/Notifications/Stores';`}></CodeBlock>
+        <CodeBlock language="typescript" code={`import type { DialogAlert, DialogConfirm, DialogPrompt } from '@brainandbones/skeleton';`}></CodeBlock>
         <!-- Alert -->
         <div class="space-y-2">
             <h3>Alert</h3>

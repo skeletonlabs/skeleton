@@ -13,7 +13,7 @@
 	export let filter: string = undefined; // filter id
 	
 	// Base Classes
-	let cBase: string = 'flex aspect-square text-surface-50 font-semibold justify-center items-center rounded-full overflow-hidden';
+	let cBase: string = 'flex aspect-square text-surface-50 font-semibold justify-center items-center rounded-full overflow-hidden isolate';
 	let cSize: string, cText: string;
 
 	// Set Size
