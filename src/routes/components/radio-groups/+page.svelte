@@ -14,27 +14,9 @@
 	const tablePropsGroup: any = {
 		headings: ['Prop', 'Type', 'Values', 'Required', 'Description'],
 		source: [
-			[
-				'selected',
-				'Writable',
-				'any',
-				'&check;',
-				'Provide a Svelte writable to store the selected state value.'
-			],
-			[
-				'background',
-				'string',
-				'bg-primary-500',
-				'-',
-				`Provide a class to set the selected item background color.`
-			],
-			[
-				'color',
-				'string',
-				'text-black dark:text-white',
-				'-',
-				`Provide a class to set the selected item text color.`
-			],
+			['selected', 'Writable', 'any', '&check;', 'Provide a Svelte writable to store the selected state value.'],
+			['background', 'string', 'bg-primary-500', '-', `Provide a class to set the selected item background color.`],
+			['color', 'string', 'text-black dark:text-white', '-', `Provide a class to set the selected item text color.`],
 			['width', 'string', 'w-auto', '-', `Provide a class to set the width.`]
 		]
 	};
@@ -57,10 +39,7 @@
 	<header class="space-y-4">
 		<h1>Radio Groups</h1>
 		<p>Capture user feedback limited to a small set of options.</p>
-		<CodeBlock
-			language="js"
-			code={`import { RadioGroup, RadioItem } from '@brainandbones/skeleton';`}
-		/>
+		<CodeBlock language="js" code={`import { RadioGroup, RadioItem } from '@brainandbones/skeleton';`} />
 	</header>
 
 	<!-- Examples -->
@@ -132,9 +111,7 @@ const storeLayout: Writable<string> = writable('horz');`}
 	<section class="space-y-4">
 		<div class="flex justify-between items-center">
 			<h2>Accessibility</h2>
-			<a href="https://www.w3.org/WAI/ARIA/apg/patterns/radiobutton/" target="_blank"
-				>ARIA Guidelines</a
-			>
+			<a href="https://www.w3.org/WAI/ARIA/apg/patterns/radiobutton/" target="_blank">ARIA Guidelines</a>
 		</div>
 		<h3>Radio Group</h3>
 		<DataTable headings={tableA11yGroup.headings} source={tableA11yGroup.source} />

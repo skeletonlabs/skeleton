@@ -8,12 +8,7 @@
 	const tableProps: any = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
-			[
-				'background',
-				'string',
-				'bg-surface-200 dark:bg-surface-800',
-				'Provided a class to set background color.'
-			],
+			['background', 'string', 'bg-surface-200 dark:bg-surface-800', 'Provided a class to set background color.'],
 			['color', 'string', '-', 'Provide a class to set text color.']
 		]
 	};
@@ -38,46 +33,27 @@
 	<section class="space-y-4">
 		<!-- Colors -->
 		<div class="grid md:grid-cols-3 gap-4">
-			<Card
-				background="bg-primary-500"
-				color="text-white"
-				class="flex-1 flex justify-center items-center min-h-[100px]">Primary</Card
-			>
-			<Card
-				background="bg-accent-500"
-				color="text-white"
-				class="flex-1 flex justify-center items-center min-h-[100px]">Accent</Card
-			>
-			<Card
-				background="bg-warning-500"
-				color="text-white"
-				class="flex-1 flex justify-center items-center min-h-[100px]">Warning</Card
-			>
+			<Card background="bg-primary-500" color="text-white" class="flex-1 flex justify-center items-center min-h-[100px]">Primary</Card>
+			<Card background="bg-accent-500" color="text-white" class="flex-1 flex justify-center items-center min-h-[100px]">Accent</Card>
+			<Card background="bg-warning-500" color="text-white" class="flex-1 flex justify-center items-center min-h-[100px]">Warning</Card>
 		</div>
 		<!-- Columns -->
 		<div class="grid md:grid-cols-2 gap-4">
 			<!-- Minimal -->
 			<Card class="flex justify-center items-center min-h-[100px]">Minimal</Card>
 			<!-- Detailed -->
-			<Card
-				class="cursor-pointer transition-transform hover:-translate-y-1 hover:shadow-xl overflow-hidden"
-			>
+			<Card class="cursor-pointer transition-transform hover:-translate-y-1 hover:shadow-xl overflow-hidden">
 				<svelte:fragment slot="header">
 					<div class="-mt-4 -mx-4">
-						<img
-							src="https://source.unsplash.com/random/1280x540?skeleton"
-							class="bg-black/50 w-full aspect-[21/9]"
-							alt="Post"
-						/>
+						<img src="https://source.unsplash.com/random/1280x540?skeleton" class="bg-black/50 w-full aspect-[21/9]" alt="Post" />
 					</div>
 				</svelte:fragment>
 				<div class="space-y-4">
 					<h6 class="text-primary-500">Announcements</h6>
 					<h3>Welcome to Skeleton</h3>
 					<article class="text-surface-400">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam aspernatur provident
-						eveniet eligendi cumque consequatur tempore sint nisi sapiente. Iste beatae laboriosam
-						iure molestias cum expedita architecto itaque quae rem.
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam aspernatur provident eveniet eligendi cumque consequatur tempore sint nisi sapiente. Iste beatae laboriosam iure molestias
+						cum expedita architecto itaque quae rem.
 					</article>
 				</div>
 				<svelte:fragment slot="footer">
@@ -97,10 +73,7 @@
 	<section class="space-y-4">
 		<h2>Usage</h2>
 		<CodeBlock language="html" code={`<Card>Minimal</Card>`} />
-		<CodeBlock
-			language="html"
-			code={`<Card background="bg-primary-500" color="text-white">Colored</Card>`}
-		/>
+		<CodeBlock language="html" code={`<Card background="bg-primary-500" color="text-white">Colored</Card>`} />
 		<CodeBlock language="html" code={`<Card class="hover:shadow-xl">Styled</Card>`} />
 	</section>
 

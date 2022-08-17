@@ -8,9 +8,7 @@
 	import { afterUpdate } from 'svelte';
 	// import colors from 'tailwindcss/colors';
 
-	export let data: any[] = [
-		{ label: 'Progress', swathe: { color: 'slate', weight: 500 }, start: 0, end: 100 }
-	];
+	export let data: any[] = [{ label: 'Progress', swathe: { color: 'slate', weight: 500 }, start: 0, end: 100 }];
 	export let legend: boolean = false;
 	export let width: string = 'w-full';
 
@@ -80,10 +78,7 @@
 				{#each currentLegend as { swatch, label, value }}
 					<li class="flex justify-between">
 						<div class="flex space-x-4">
-							<span
-								class="block aspect-square bg-black w-5 rounded-full mr-2"
-								style:background={swatch}
-							/>
+							<span class="block aspect-square bg-black w-5 rounded-full mr-2" style:background={swatch} />
 							<strong>{label}</strong>
 						</div>
 						<span>{value}%</span>

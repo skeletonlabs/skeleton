@@ -13,10 +13,8 @@
 
 	// Base Styles
 	const cBaseLabel: string = 'inline-block';
-	const cBaseTrack: string =
-		'flex rounded-full transition-all duration-[200ms] hover:brightness-90 cursor-pointer';
-	const cBaseThumb: string =
-		'w-[50%] h-full scale-[0.7] rounded-full cursor-pointer transition-all duration-[200ms] shadow-lg';
+	const cBaseTrack: string = 'flex rounded-full transition-all duration-[200ms] hover:brightness-90 cursor-pointer';
+	const cBaseThumb: string = 'w-[50%] h-full scale-[0.7] rounded-full cursor-pointer transition-all duration-[200ms] shadow-lg';
 
 	// Set track size
 	let trackSize: string;
@@ -71,17 +69,7 @@
 	<!-- Keep this, it triggers click/toggle event -->
 	<label>
 		<!-- Input (Hidden) -->
-		<input
-			type="checkbox"
-			class="hidden"
-			bind:checked
-			on:click
-			on:mouseover
-			on:focus
-			on:blur
-			{...prunedRestProps()}
-			disabled={$$props.disabled}
-		/>
+		<input type="checkbox" class="hidden" bind:checked on:click on:mouseover on:focus on:blur {...prunedRestProps()} disabled={$$props.disabled} />
 
 		<div class="flex items-center space-x-4">
 			<!-- Slider Track/Thumb -->

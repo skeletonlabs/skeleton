@@ -8,26 +8,11 @@
 	const tableProps: any = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
-			[
-				'value',
-				'number',
-				'-',
-				'Set the meter fill amount. Shows as indeterminate when set undefined.'
-			],
+			['value', 'number', '-', 'Set the meter fill amount. Shows as indeterminate when set undefined.'],
 			['stroke', 'number', '20', 'Sets the base stroke width. Scales responsively.'],
 			['meter', 'string', 'stroke-black dark:stroke-white', 'Provide a class to set meter color.'],
-			[
-				'track',
-				'string',
-				'stroke-surface-300 dark:stroke-surface-700',
-				'Provide a class to set track color.'
-			],
-			[
-				'color',
-				'string',
-				'fill-black dark:fill-white',
-				'Provide a class to set the SVG text fill color.'
-			],
+			['track', 'string', 'stroke-surface-300 dark:stroke-surface-700', 'Provide a class to set track color.'],
+			['color', 'string', 'fill-black dark:fill-white', 'Provide a class to set the SVG text fill color.'],
 			['font', 'string', '56', 'Sets the base font size. Scales responsively.']
 		]
 	};
@@ -56,14 +41,7 @@
 	<Card class="space-y-8">
 		<div class="md:max-w-[50%] lg:max-w-[33%] mx-auto space-y-8">
 			<ProgressRadial value={props.value}>{props.value}%</ProgressRadial>
-			<input
-				type="range"
-				min="0"
-				max={props.max}
-				step={props.step}
-				bind:value={props.value}
-				aria-label="Example Radial Value"
-			/>
+			<input type="range" min="0" max={props.max} step={props.step} bind:value={props.value} aria-label="Example Radial Value" />
 		</div>
 	</Card>
 	<section class="space-y-4">

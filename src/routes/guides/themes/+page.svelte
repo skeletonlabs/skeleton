@@ -88,18 +88,12 @@
 	<header class="space-y-4">
 		<h1>Themes</h1>
 		<p>
-			Skeleton themes integrate with Tailwind using <a
-				href="https://tailwindcss.com/docs/customizing-colors#using-css-variables"
-				target="_blank">CSS custom properties</a
-			>
+			Skeleton themes integrate with Tailwind using <a href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank">CSS custom properties</a>
 			converted to RGB values. This enables the use of
-			<a href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank"
-				>background opacity</a
-			>
+			<a href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank">background opacity</a>
 			as well as support for
-			<a href="https://tailwindcss.com/docs/dark-mode" target="_blank">dark mode</a>. Components
-			intelligently implement each color from the theme's palette. Follow the instructions below to
-			get started.
+			<a href="https://tailwindcss.com/docs/dark-mode" target="_blank">dark mode</a>. Components intelligently implement each color from the theme's palette. Follow the instructions below to get
+			started.
 		</p>
 	</header>
 
@@ -109,9 +103,7 @@
 	<section class="space-y-4">
 		<h2>Presets</h2>
 		<p>
-			A handful of curated themes are available. Select a theme, copy the CSS, then follow the <em
-				>Save and Import</em
-			> instructions below.
+			A handful of curated themes are available. Select a theme, copy the CSS, then follow the <em>Save and Import</em> instructions below.
 		</p>
 		<nav class="grid grid-cols-1 md:grid-cols-3 gap-4">
 			{#each presets as preset}
@@ -132,41 +124,25 @@
 	<!-- Theme Generator Form -->
 	<section class="space-y-4">
 		<h2>Generator</h2>
-		<p>
-			To create your own theme, use the form below. Each color represents swatch 500 (ex:
-			bg-primary-500).
-		</p>
+		<p>To create your own theme, use the form below. Each color represents swatch 500 (ex: bg-primary-500).</p>
 		<Card class="!bg-neutral-900 space-y-4">
-			<header
-				class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4"
-			>
+			<header class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 				<RadioGroup selected={storeGenerator}>
 					<RadioItem value="tailwind">Tailwind</RadioItem>
 					<RadioItem value="custom">Custom</RadioItem>
 				</RadioGroup>
 				{#if $storeGenerator === 'tailwind'}<p>
-						Create a theme using <a
-							href="https://tailwindcss.com/docs/customizing-colors"
-							target="_blank">Tailwind's color palette</a
-						>. This typically provides the best results.
+						Create a theme using <a href="https://tailwindcss.com/docs/customizing-colors" target="_blank">Tailwind's color palette</a>. This typically provides the best results.
 					</p>{/if}
-				{#if $storeGenerator === 'custom'}<p>
-						For advanced users, enter any arbitrary hex color values to generate a unique theme.
-					</p>{/if}
+				{#if $storeGenerator === 'custom'}<p>For advanced users, enter any arbitrary hex color values to generate a unique theme.</p>{/if}
 			</header>
 			<Divider />
 			{#if $storeGenerator === 'tailwind'}<ThemeGenTailwind />{/if}
 			{#if $storeGenerator === 'custom'}<ThemeGenCustom />{/if}
 		</Card>
 		<p>
-			To fully curate or refine a theme's palette, we recommend using <a
-				href="https://tailwind.simeongriggs.dev/blue/3B82F6"
-				target="_blank">Palette Generator</a
-			>. The
-			<a
-				href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba"
-				target="_blank">Hex-To-RGB VS Code extension</a
-			> can convert colors from Hex &rarr; RGB in bulk.
+			To fully curate or refine a theme's palette, we recommend using <a href="https://tailwind.simeongriggs.dev/blue/3B82F6" target="_blank">Palette Generator</a>. The
+			<a href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba" target="_blank">Hex-To-RGB VS Code extension</a> can convert colors from Hex &rarr; RGB in bulk.
 		</p>
 	</section>
 
@@ -184,36 +160,24 @@
 		<!-- Framework: SvelteKit -->
 		{#if $storeFramework === 'sveltekit'}
 			<p>
-				Create a new file and save your CSS theme in <code>/src/theme.css</code>, then import this
-				in your <code>__layout.svelte</code> component.
+				Create a new file and save your CSS theme in <code>/src/theme.css</code>, then import this in your <code>__layout.svelte</code> component.
 			</p>
-			<CodeBlock
-				language="typescript"
-				code={`import '../theme.css'; // <--\nimport '../app.css';\n//..`}
-			/>
+			<CodeBlock language="typescript" code={`import '../theme.css'; // <--\nimport '../app.css';\n//..`} />
 			<!-- Framework: Vite (Svelte) -->
 		{:else if $storeFramework === 'vite'}
 			<p>
-				Create a new file and save your CSS theme in <code>/src/theme.css</code>, then import this
-				in <code>/src/main.js</code>.
+				Create a new file and save your CSS theme in <code>/src/theme.css</code>, then import this in <code>/src/main.js</code>.
 			</p>
-			<CodeBlock
-				language="typescript"
-				code={`import '../theme.css'; // <--\nimport '../app.css';\n//..`}
-			/>
+			<CodeBlock language="typescript" code={`import '../theme.css'; // <--\nimport '../app.css';\n//..`} />
 			<!-- Framework: Astro -->
 		{:else if $storeFramework === 'astro'}
 			<p>Add <code>/src/styles/theme.css</code> to house your Skeleton theme CSS.</p>
 			<p>
 				Add <code>/src/styles/base.css</code> to define @tailwind directives and house global styles:
 			</p>
-			<CodeBlock
-				language="css"
-				code={`@tailwind base;\n@tailwind components;\n@tailwind utilities;`}
-			/>
+			<CodeBlock language="css" code={`@tailwind base;\n@tailwind components;\n@tailwind utilities;`} />
 			<p>
-				We'll implement a layout in the <a href="/guides/astro">Astro guide</a> to make use of these
-				stylesheets.
+				We'll implement a layout in the <a href="/guides/astro">Astro guide</a> to make use of these stylesheets.
 			</p>
 		{/if}
 	</section>
@@ -224,28 +188,15 @@
 	<section class="space-y-4">
 		<h3>Usage</h3>
 		<p>
-			Theme colors are not limited to Skeleton components. You can utilize them anywhere within your
-			app following Tailwind's standard conventions. Feel free to mix or extend them with <a
+			Theme colors are not limited to Skeleton components. You can utilize them anywhere within your app following Tailwind's standard conventions. Feel free to mix or extend them with <a
 				href="https://tailwindcss.com/docs/customizing-colors"
 				target="_blank">Tailwind's default color palette</a
 			>.
 		</p>
-		<CodeBlock
-			language="html"
-			code={`<!-- Inlined classes -->\n<div class="bg-primary-500 text-accent-500">Skeleton</div>`}
-		/>
-		<CodeBlock
-			language="html"
-			code={`<!-- Tailwind opacity scale -->\n<div class="bg-primary-500/50">Skeleton</div>`}
-		/>
-		<CodeBlock
-			language="css"
-			code={`/* Using Tailwind @apply */\n.example { @apply bg-primary-500; }`}
-		/>
-		<CodeBlock
-			language="css"
-			code={`/* Using CSS custom properties */\nbody { background: var(--color-surface-900); }`}
-		/>
+		<CodeBlock language="html" code={`<!-- Inlined classes -->\n<div class="bg-primary-500 text-accent-500">Skeleton</div>`} />
+		<CodeBlock language="html" code={`<!-- Tailwind opacity scale -->\n<div class="bg-primary-500/50">Skeleton</div>`} />
+		<CodeBlock language="css" code={`/* Using Tailwind @apply */\n.example { @apply bg-primary-500; }`} />
+		<CodeBlock language="css" code={`/* Using CSS custom properties */\nbody { background: var(--color-surface-900); }`} />
 	</section>
 
 	<Divider />
@@ -260,9 +211,7 @@
 	<Divider />
 
 	<!-- Next Steps -->
-	<Card
-		class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4"
-	>
+	<Card class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<p>Next, let's review best practices for handling CSS styles and overrides.</p>
 		<Button variant="filled-accent" href="/guides/styling">Handling Styles</Button>
 	</Card>

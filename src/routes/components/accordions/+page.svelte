@@ -14,26 +14,15 @@
 			['spacing', 'class', 'spacing-y-2', '-', 'Provide a class to set spacing between item rows.']
 		]
 	};
+	// prettier-ignore
 	const tablePropsItem: any = {
-		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
-		source: [
-			['open', 'boolean', 'false', '-', `Use this to define which item is open on page load.`],
-			[
-				'hover',
-				'string',
-				'hover:bg-primary-500/10',
-				'-',
-				'Provide a class to set the hover background color.'
-			],
-			[
-				'spacing',
-				'string',
-				'space-y-0',
-				'-',
-				'Provide a class to set spacing between title and description elements.'
-			]
-		]
-	};
+        headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
+        source: [
+            ['open', 'boolean', 'false', '-', `Use this to define which item is open on page load.`],
+            ['hover', 'string', 'hover:bg-primary-500/10', '-', 'Provide a class to set the hover background color.'],
+            ['spacing', 'string', 'space-y-0', '-', 'Provide a class to set spacing between title and description elements.'],
+        ],
+    };
 	const tableSlots: any = {
 		headings: ['Name', 'Required', 'Description'],
 		source: [

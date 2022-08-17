@@ -119,11 +119,7 @@
 
 <svelte:body on:click={handleBodyClick} />
 
-<div
-	bind:this={elemMenu}
-	class="menu-wrapper {classesMenu} {$$props.class}"
-	data-testid="menu-wrapper"
->
+<div bind:this={elemMenu} class="menu-wrapper {classesMenu} {$$props.class}" data-testid="menu-wrapper">
 	<!-- Trigger Button -->
 	<!-- REMOVED: role="button" aria-haspopup="true" aria-expanded={open} -->
 	<div class="menu-trigger" on:click={toggle} data-testid="menu-trigger">
@@ -133,13 +129,7 @@
 	<!-- Content -->
 	<!-- NOTE: most A11y settings are built into List/ListItem -->
 	{#if open}
-		<div
-			role="menu"
-			class="menu-content {classesContent}"
-			data-testid="menu-content"
-			in:fade={{ duration }}
-			out:fade={{ duration }}
-		>
+		<div role="menu" class="menu-content {classesContent}" data-testid="menu-content" in:fade={{ duration }} out:fade={{ duration }}>
 			{#if $$slots.content}<slot name="content" />{/if}
 		</div>
 	{/if}

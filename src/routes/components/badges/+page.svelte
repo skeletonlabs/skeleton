@@ -83,15 +83,11 @@
 			<Card>
 				<div class="flex justify-center items-center space-x-4">
 					<div class="relative inline-block">
-						<Badge icon background="bg-warning-500" class="absolute top-0 right-0 shadow-xl"
-							>2</Badge
-						>
+						<Badge icon background="bg-warning-500" class="absolute top-0 right-0 shadow-xl">2</Badge>
 						<Avatar size="md" />
 					</div>
 					<div class="relative inline-block">
-						<Badge icon background="bg-primary-500" class="absolute top-0 right-0 shadow-xl"
-							>{@html icon}</Badge
-						>
+						<Badge icon background="bg-primary-500" class="absolute top-0 right-0 shadow-xl">{@html icon}</Badge>
 						<Avatar size="md" />
 					</div>
 					<div class="relative inline-block">

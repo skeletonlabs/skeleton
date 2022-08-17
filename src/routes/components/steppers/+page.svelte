@@ -18,53 +18,17 @@
 	const tablePropsStepper: any = {
 		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
 		source: [
-			[
-				'active',
-				'Writable<number>',
-				'0 (zero)',
-				'&check;',
-				'Provide a Svelte Writable that stores the active step state.'
-			],
-			[
-				'length',
-				'number',
-				'0 (zero)',
-				'&check;',
-				'Informs the component of the total number of steps.'
-			],
-			[
-				'accent',
-				'string',
-				'bg-primary-500',
-				'-',
-				'Provide a class that sets the current step numeral background color.'
-			],
-			[
-				'background',
-				'string',
-				'bg-surface-300 dark:bg-surface-700',
-				'-',
-				'Provide a class that sets timeline background color.'
-			]
+			['active', 'Writable<number>', '0 (zero)', '&check;', 'Provide a Svelte Writable that stores the active step state.'],
+			['length', 'number', '0 (zero)', '&check;', 'Informs the component of the total number of steps.'],
+			['accent', 'string', 'bg-primary-500', '-', 'Provide a class that sets the current step numeral background color.'],
+			['background', 'string', 'bg-surface-300 dark:bg-surface-700', '-', 'Provide a class that sets timeline background color.']
 		]
 	};
 	const tablePropsStep: any = {
 		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
 		source: [
-			[
-				'index',
-				'number',
-				'-',
-				'&check;',
-				'Indicates the step index value. Should start with zero 0 (zero)'
-			],
-			[
-				'disabled',
-				'boolean',
-				'false',
-				'-',
-				'When enabled, the Next button is disabled. This prevents progress.'
-			],
+			['index', 'number', '-', '&check;', 'Indicates the step index value. Should start with zero 0 (zero)'],
+			['disabled', 'boolean', 'false', '-', 'When enabled, the Next button is disabled. This prevents progress.'],
 			['done', 'boolean', 'false', '-', 'When enabled, numeric step value changes to checkmark.']
 		]
 	};
@@ -95,10 +59,7 @@
 	<header class="space-y-4">
 		<h1>Stepper</h1>
 		<p>Divide content into sequenced steps.</p>
-		<CodeBlock
-			language="javascript"
-			code={`import { Stepper, Step } from '@brainandbones/skeleton';`}
-		/>
+		<CodeBlock language="javascript" code={`import { Stepper, Step } from '@brainandbones/skeleton';`} />
 	</header>
 
 	<!-- Examples -->

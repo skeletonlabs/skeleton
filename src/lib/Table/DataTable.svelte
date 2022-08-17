@@ -28,20 +28,17 @@
 
 	// Base Classes
 	const cBase: string = 'space-y-4';
-	const cBaseWrapper: string =
-		'overflow-x-auto w-full rounded-lg border-[1px] border-surface-500/10 border-inset';
+	const cBaseWrapper: string = 'overflow-x-auto w-full rounded-lg border-[1px] border-surface-500/10 border-inset';
 	const cBaseTable: string = 'w-full overflow-hidden table-auto';
 	const cBaseEmpty: string = 'p-4 text-center';
 	// ---
 	const cBaseHead: string = '';
-	const cBaseHeadRow: string =
-		'capitalize font-medium text-left text-surface-900 dark:text-surface-50';
+	const cBaseHeadRow: string = 'capitalize font-medium text-left text-surface-900 dark:text-surface-50';
 	const cBaseHeadCol: string = `p-3 py-4 whitespace-nowrap cursor-pointer`;
 	// ---
 	const cBaseBody: string = '';
 	const cBaseBodyRow: string = 'border-t border-surface-500/10 even:bg-black/[4%]';
-	const cBaseBodyCol: string =
-		'p-3 font-medium text-surface-900 whitespace-nowrap md:whitespace-normal dark:text-white';
+	const cBaseBodyCol: string = 'p-3 font-medium text-surface-900 whitespace-nowrap md:whitespace-normal dark:text-white';
 
 	function headKeyByIndex(i: number): string {
 		return Object.keys(source[0])[i];
@@ -77,24 +74,18 @@
 	}
 
 	function sortAsc(key: string): void {
-		source =
-			typeof source[0][key] === 'number' ? sortAscNumber(source, key) : sortAscString(source, key);
+		source = typeof source[0][key] === 'number' ? sortAscNumber(source, key) : sortAscString(source, key);
 	}
 
 	function sortDesc(key: string): void {
-		source =
-			typeof source[0][key] === 'number'
-				? sortDescNumber(source, key)
-				: sortDescString(source, key);
+		source = typeof source[0][key] === 'number' ? sortDescNumber(source, key) : sortDescString(source, key);
 	}
 
 	// Search
 	function localSearch(): void {
 		if (async) return;
 		source = sourceUnfiltered.filter((row) => {
-			const match: boolean = JSON.stringify(Object.values(row))
-				.toLowerCase()
-				.includes(search.toLowerCase());
+			const match: boolean = JSON.stringify(Object.values(row)).toLowerCase().includes(search.toLowerCase());
 			if (match) return row;
 		});
 		updateRowCount();
@@ -141,13 +132,9 @@
 		const focusedElemRowIndex: number = parseInt(focusedElem.parentElement.ariaRowIndex);
 		const focusedElemColIndex: number = parseInt(focusedElem.ariaColIndex);
 		// Target Element
-		const targetRowElement: HTMLElement = elemTable.querySelector(
-			`[aria-rowindex="${focusedElemRowIndex + y}"]`
-		);
+		const targetRowElement: HTMLElement = elemTable.querySelector(`[aria-rowindex="${focusedElemRowIndex + y}"]`);
 		if (targetRowElement !== null) {
-			const targetColElement: HTMLElement = targetRowElement.querySelector(
-				`[aria-colindex="${focusedElemColIndex + x}"]`
-			);
+			const targetColElement: HTMLElement = targetRowElement.querySelector(`[aria-colindex="${focusedElemColIndex + x}"]`);
 			if (targetColElement !== null) {
 				targetColElement.focus();
 			}
@@ -240,12 +227,7 @@
 							aria-rowindex={rowIndex + 1}
 						>
 							{#each Object.values(row) as cell, colIndex}
-								<td
-									class="table-body-col {cBaseBodyCol}"
-									role="gridcell"
-									aria-colindex={colIndex + 1}
-									tabindex={colIndex === 0 ? 0 : -1}>{@html cell}</td
-								>
+								<td class="table-body-col {cBaseBodyCol}" role="gridcell" aria-colindex={colIndex + 1} tabindex={colIndex === 0 ? 0 : -1}>{@html cell}</td>
 							{/each}
 						</tr>
 					{/each}

@@ -19,20 +19,8 @@
 		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
 		source: [
 			['selected', 'Writable', '-', '&check;', 'A svelte store to keep track of tab selection.'],
-			[
-				'justify',
-				'string',
-				'justify-start',
-				'-',
-				`Provide a class to set the flex justification. 'justify-start' is best small screens.`
-			],
-			[
-				'highlight',
-				'string',
-				'border-primary-500',
-				'-',
-				'Provide a class to set the highlighted border color.'
-			],
+			['justify', 'string', 'justify-start', '-', `Provide a class to set the flex justification. 'justify-start' is best small screens.`],
+			['highlight', 'string', 'border-primary-500', '-', 'Provide a class to set the highlighted border color.'],
 			['color', 'string', 'text-primary-500', '-', 'Provide class to set text color.']
 		]
 	};
@@ -62,10 +50,7 @@
 	<header class="space-y-4">
 		<h1>Tabs</h1>
 		<p>Use tabs to quickly switch between different views.</p>
-		<CodeBlock
-			language="javascript"
-			code={`import { TabGroup, Tab } from '@brainandbones/skeleton';`}
-		/>
+		<CodeBlock language="javascript" code={`import { TabGroup, Tab } from '@brainandbones/skeleton';`} />
 	</header>
 
 	<!-- Examples -->
@@ -84,12 +69,7 @@
 				</div>
 			</Card>
 			<Card class="space-y-4">
-				<TabGroup
-					selected={storeTwo}
-					justify="justify-start md:justify-end"
-					highlight="border-accent-500"
-					color="text-accent-500"
-				>
+				<TabGroup selected={storeTwo} justify="justify-start md:justify-end" highlight="border-accent-500" color="text-accent-500">
 					<Tab value="a">Tab A</Tab>
 					<Tab value="b">Tab B</Tab>
 					<Tab value="c">Tab C</Tab>
@@ -102,12 +82,7 @@
 			</Card>
 		</div>
 		<Card class="space-y-4">
-			<TabGroup
-				selected={storeThree}
-				justify="justify-start md:justify-center"
-				highlight="border-warning-500"
-				color="text-warning-500"
-			>
+			<TabGroup selected={storeThree} justify="justify-start md:justify-center" highlight="border-warning-500" color="text-warning-500">
 				<Tab value="a">
 					<svelte:fragment slot="lead">{@html icon}</svelte:fragment>
 					Books
@@ -124,24 +99,15 @@
 			<div>
 				{#if $storeThree === 'a'}
 					<h3>Books</h3>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-						incididunt ut labore et dolore magna aliqua.
-					</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 				{/if}
 				{#if $storeThree === 'b'}
 					<h3>Movies</h3>
-					<p>
-						Nisl nunc mi ipsum faucibus vitae aliquet nec. Ac ut consequat semper viverra nam libero
-						justo laoreet. Nec sagittis aliquam malesuada.
-					</p>
+					<p>Nisl nunc mi ipsum faucibus vitae aliquet nec. Ac ut consequat semper viverra nam libero justo laoreet. Nec sagittis aliquam malesuada.</p>
 				{/if}
 				{#if $storeThree === 'c'}
 					<h3>Television</h3>
-					<p>
-						Ut sem viverra aliquet eget sit. Porttitor lacus luctus accumsan tortor posuere ac ut
-						consequat. Vulputate enim nulla aliquet porttitor.
-					</p>
+					<p>Ut sem viverra aliquet eget sit. Porttitor lacus luctus accumsan tortor posuere ac ut consequat. Vulputate enim nulla aliquet porttitor.</p>
 				{/if}
 			</div>
 		</Card>
@@ -197,9 +163,7 @@ let storeTab: Writable<string> = writable('a');`}
 	<section class="space-y-4">
 		<div class="flex justify-between items-center">
 			<h2>Accessibility</h2>
-			<a href="https://www.w3.org/WAI/ARIA/apg/patterns/tabpanel/" target="_blank"
-				>ARIA Guidelines</a
-			>
+			<a href="https://www.w3.org/WAI/ARIA/apg/patterns/tabpanel/" target="_blank">ARIA Guidelines</a>
 		</div>
 		<h3>Tab Group</h3>
 		<DataTable headings={tableA11yGroup.headings} source={tableA11yGroup.source} />

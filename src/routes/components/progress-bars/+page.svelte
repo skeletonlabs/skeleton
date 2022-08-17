@@ -15,12 +15,7 @@
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['label', 'string', '-', 'Set the label text.'],
-			[
-				'value',
-				'number',
-				'-',
-				'Specifies the amount completed. Shows as indeterminate when undefined.'
-			],
+			['value', 'number', '-', 'Specifies the amount completed. Shows as indeterminate when undefined.'],
 			['max', 'number', '10', 'Maximum amount the bar represents.'],
 			['color', 'string', 'bg-accent-500', 'Provide a class to set meter background color.'],
 			['height', 'string', 'h-2', 'Provide a class to set track height.']
@@ -52,14 +47,7 @@
 			<!-- Example -->
 			<Card class="space-y-4 flex justify-center items-center">
 				<div class="w-[75%]">
-					<svelte:component
-						this={ProgressBar}
-						label={props.label}
-						value={props.determinate ? props.value : undefined}
-						max={props.max}
-						height={props.height}
-						color={props.color}
-					/>
+					<svelte:component this={ProgressBar} label={props.label} value={props.determinate ? props.value : undefined} max={props.max} height={props.height} color={props.color} />
 				</div>
 			</Card>
 			<!-- Options -->
@@ -72,12 +60,7 @@
 				<!-- Value -->
 				<div>
 					<legend>Value</legend>
-					<RadioGroup
-						selected={storeDeterminate}
-						background="bg-accent-500"
-						color="text-white"
-						width="w-full"
-					>
+					<RadioGroup selected={storeDeterminate} background="bg-accent-500" color="text-white" width="w-full">
 						<RadioItem value={true}>Determinate</RadioItem>
 						<RadioItem value={false}>Indeterminate</RadioItem>
 					</RadioGroup>
@@ -85,28 +68,14 @@
 				<!-- Amount -->
 				{#if props.determinate}
 					<div class="flex items-center space-x-4">
-						<input
-							type="range"
-							id="amount"
-							name="amount"
-							min="0"
-							max={props.max}
-							step="10"
-							bind:value={props.value}
-							aria-label="Value Amount"
-						/>
+						<input type="range" id="amount" name="amount" min="0" max={props.max} step="10" bind:value={props.value} aria-label="Value Amount" />
 						<p class="text-sm w-12">{props.value}%</p>
 					</div>
 				{/if}
 				<!-- Height -->
 				<div>
 					<legend>Height</legend>
-					<RadioGroup
-						selected={storeHeight}
-						background="bg-accent-500"
-						color="text-white"
-						width="w-full"
-					>
+					<RadioGroup selected={storeHeight} background="bg-accent-500" color="text-white" width="w-full">
 						<RadioItem value="h-2">h-2</RadioItem>
 						<RadioItem value="h-4">h-4</RadioItem>
 						<RadioItem value="h-6">h-6</RadioItem>
@@ -125,9 +94,7 @@
 		</div>
 		<CodeBlock
 			language="html"
-			code={`<ProgressBar label="${props.label}" ${
-				props.determinate ? `value={${props.value}}` : ''
-			} max={${props.max}} height="${props.height}" color="${props.color}" />`}
+			code={`<ProgressBar label="${props.label}" ${props.determinate ? `value={${props.value}}` : ''} max={${props.max}} height="${props.height}" color="${props.color}" />`}
 		/>
 	</section>
 

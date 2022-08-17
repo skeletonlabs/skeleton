@@ -13,10 +13,7 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Styling</h1>
-		<p>
-			Below we'll review best practices for global styles, as well as how to override and adjust
-			individual component styling.
-		</p>
+		<p>Below we'll review best practices for global styles, as well as how to override and adjust individual component styling.</p>
 	</header>
 
 	<Divider />
@@ -38,31 +35,19 @@
 		{/if}
 		<p>
 			You can try the <code>body</code> style below or review the global stylesheet for
-			<a href="https://github.com/Brain-Bones/skeleton/blob/master/src/app.css" target="_blank"
-				>this documentation site</a
-			>.
+			<a href="https://github.com/Brain-Bones/skeleton/blob/master/src/app.css" target="_blank">this documentation site</a>.
 		</p>
-		<CodeBlock
-			language="css"
-			code={`body { @apply bg-surface-100 dark:bg-surface-900 text-black dark:text-white p-4; }`}
-		/>
+		<CodeBlock language="css" code={`body { @apply bg-surface-100 dark:bg-surface-900 text-black dark:text-white p-4; }`} />
 		<p>Here's a few suggested best practices when creating global styles:</p>
 		<ul class="list-disc list-inside">
 			<li>
-				Utilize <a
-					href="https://tailwindcss.com/docs/reusing-styles#extracting-classes-with-apply"
-					target="_blank">Tailwind @apply</a
-				> to define and implement styles whenever possible.
+				Utilize <a href="https://tailwindcss.com/docs/reusing-styles#extracting-classes-with-apply" target="_blank">Tailwind @apply</a> to define and implement styles whenever possible.
 			</li>
 			<li>
-				Utilize the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:not" target="_blank"
-					>CSS :not pseudo-class</a
-				> to exclude and avoid overwriting each component's inherit styles.
+				Utilize the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:not" target="_blank">CSS :not pseudo-class</a> to exclude and avoid overwriting each component's inherit styles.
 			</li>
 			<li>
-				Utilize the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank"
-					>Tailwind Forms plugin</a
-				>
+				Utilize the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Tailwind Forms plugin</a>
 				to handle form input styling. View our <a href="/guides/forms">Forms guide</a> for more details.
 			</li>
 		</ul>
@@ -74,10 +59,8 @@
 	<section class="space-y-4">
 		<h2>Per Component Styles</h2>
 		<p>
-			Skeleton components automatically inherit and utilize each theme color value. However, there
-			may be cases where you want to overwrite or extend the styling on a single component. To do
-			this, simply add a <code>class</code> attribute to any component. You can then apply any valid
-			CSS or Tailwind class as expected.
+			Skeleton components automatically inherit and utilize each theme color value. However, there may be cases where you want to overwrite or extend the styling on a single component. To do this,
+			simply add a <code>class</code> attribute to any component. You can then apply any valid CSS or Tailwind class as expected.
 		</p>
 		<CodeBlock
 			language="html"
@@ -87,16 +70,12 @@
         `.trim()}
 		/>
 		<p>
-			When overwriting inherited styles, you may need to mark the styles as <code>!important</code>.
-			Tailwind uses a leading exclamation mark to handle this.
+			When overwriting inherited styles, you may need to mark the styles as <code>!important</code>. Tailwind uses a leading exclamation mark to handle this.
 		</p>
 		<CodeBlock language="html" code={`<Button class="!p-10">Big</Button>`} />
 		<p>
-			Keep in mind that components are a single line HTML element and represent and contain a set of
-			HTML elements within. This means you should be mindful of your target, as the <code
-				>class</code
-			> attribute is only applied to the top-most parent element. In rare cases you may need to generate
-			a chained class definition, though we recommend using this technique sparingly.
+			Keep in mind that components are a single line HTML element and represent and contain a set of HTML elements within. This means you should be mindful of your target, as the <code>class</code> attribute
+			is only applied to the top-most parent element. In rare cases you may need to generate a chained class definition, though we recommend using this technique sparingly.
 		</p>
 		<CodeBlock language="css" code={`.my-custom-class .menu-content { @apply bg-red-500; }`} />
 		<CodeBlock language="html" code={`<Menu class="my-custom-class">...</Menu>`} />

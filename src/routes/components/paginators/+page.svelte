@@ -23,10 +23,7 @@
 			{ position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' }
 		]
 	};
-	$: contentSliced = content.source.slice(
-		page.offset * page.limit,
-		page.offset * page.limit + page.limit
-	);
+	$: contentSliced = content.source.slice(page.offset * page.limit, page.offset * page.limit + page.limit);
 	const page: any = {
 		offset: 0,
 		limit: 5,
@@ -124,10 +121,7 @@
 	<header class="space-y-4">
 		<h1>Paginators</h1>
 		<p>Navigate between multiple pages of content.</p>
-		<CodeBlock
-			language="javascript"
-			code={`import { Paginator } from '@brainandbones/skeleton';`}
-		/>
+		<CodeBlock language="javascript" code={`import { Paginator } from '@brainandbones/skeleton';`} />
 	</header>
 
 	<!-- Examples -->
@@ -138,25 +132,11 @@
 					<ListItem>{e.name}</ListItem>
 				{/each}
 			</List>
-			<Paginator
-				bind:offset={page.offset}
-				bind:limit={page.limit}
-				bind:size={page.size}
-				bind:amounts={page.amounts}
-				on:page={onPageChange}
-				on:amount={onAmountChange}
-			/>
+			<Paginator bind:offset={page.offset} bind:limit={page.limit} bind:size={page.size} bind:amounts={page.amounts} on:page={onPageChange} on:amount={onAmountChange} />
 		</Card>
 		<Card>
 			<DataTable headings={content.headings} source={contentSliced} />
-			<Paginator
-				bind:offset={page.offset}
-				bind:limit={page.limit}
-				bind:size={page.size}
-				bind:amounts={page.amounts}
-				on:page={onPageChange}
-				on:amount={onAmountChange}
-			/>
+			<Paginator bind:offset={page.offset} bind:limit={page.limit} bind:size={page.size} bind:amounts={page.amounts} on:page={onPageChange} on:amount={onAmountChange} />
 		</Card>
 	</section>
 
@@ -196,16 +176,12 @@ function onAmountChange(e: any): void { console.log('event:amount', e.detail); }
 		/>
 		<h3>Utilizing Pagination</h3>
 		<p>
-			Once your paginator component is setup you'll need to limit your content. This can be
-			accomplished with <a
+			Once your paginator component is setup you'll need to limit your content. This can be accomplished with <a
 				href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice"
 				target="_blank">slice</a
 			>. See a minimal example below using the Javascript slice method.
 		</p>
-		<CodeBlock
-			language="typescript"
-			code={`const source: any[] = [ /* an array of objects */ ]`.trim()}
-		/>
+		<CodeBlock language="typescript" code={`const source: any[] = [ /* an array of objects */ ]`.trim()} />
 		<CodeBlock
 			language="typescript"
 			code={`

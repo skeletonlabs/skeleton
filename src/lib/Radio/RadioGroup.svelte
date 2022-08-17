@@ -22,11 +22,6 @@
 	$: classesGroup = `${cBaseGroup} ${width}`;
 </script>
 
-<div
-	class="radio-group {classesGroup} {$$props.class || ''}"
-	data-testid="radio-group"
-	role="radiogroup"
-	aria-label={label}
->
+<div class="radio-group {classesGroup} {$$props.class || ''}" data-testid="radio-group" role="radiogroup" aria-label={label}>
 	<slot />
 </div>

@@ -48,8 +48,6 @@ describe('Card.svelte', () => {
 	// Test that default direction is applied on invalid prop
 	it('Default direction applied (invalid prop)', async () => {
 		const { getByTestId } = render(GradientHeading, { tag: 'h1', direction: 'bg-gradient-to-r' });
-		expect(
-			getByTestId(testid).getAttribute('class').includes(`bg-gradient-to-${defaultDirection}`)
-		);
+		expect(getByTestId(testid).getAttribute('class').includes(`bg-gradient-to-${defaultDirection}`));
 	});
 });

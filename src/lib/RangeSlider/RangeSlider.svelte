@@ -81,16 +81,7 @@
 	}
 </script>
 
-<div
-	class="range-slider {$$props.class || ''}"
-	data-testid="range-slider"
-	on:keydown={onKeyDown}
-	role="slider"
-	aria-label={label}
-	aria-valuenow={value}
-	aria-valuemin={min}
-	aria-valuemax={max}
->
+<div class="range-slider {$$props.class || ''}" data-testid="range-slider" on:keydown={onKeyDown} role="slider" aria-label={label} aria-valuenow={value} aria-valuemin={min} aria-valuemax={max}>
 	<!-- Label -->
 	<label class="range-label {cBaseLabel}" for={id}>{label}</label>
 
@@ -98,21 +89,7 @@
 	<div class="range-content {cBaseContent}">
 		<!-- Input -->
 		<div class="flex-1">
-			<input
-				type="range"
-				{id}
-				{name}
-				class="range-input {classesInput}"
-				list="tickmarks-{id}"
-				{min}
-				{max}
-				{step}
-				bind:value
-				on:click
-				on:change
-				on:blur
-				{...prunedRestProps()}
-			/>
+			<input type="range" {id} {name} class="range-input {classesInput}" list="tickmarks-{id}" {min} {max} {step} bind:value on:click on:change on:blur {...prunedRestProps()} />
 
 			<!-- Tickmarks -->
 			{#if ticked && tickmarks.length}

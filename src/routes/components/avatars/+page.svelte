@@ -17,36 +17,12 @@
 		source: [
 			['initials', 'string', 'A', 'text', 'Provide up to two text characters.'],
 			['src', 'string', 'url', '-', 'The image source to display.'],
-			[
-				'size',
-				'string',
-				'full',
-				'sm | md | lg | xl | 2xl | 3xl | full',
-				'Sets the circle and text sizing.'
-			],
-			[
-				'background',
-				'string',
-				'bg-surface-500',
-				'class',
-				'Provide a class to set background color. Only works with initials'
-			],
+			['size', 'string', 'full', 'sm | md | lg | xl | 2xl | 3xl | full', 'Sets the circle and text sizing.'],
+			['background', 'string', 'bg-surface-500', 'class', 'Provide a class to set background color. Only works with initials'],
 			['color', 'string', 'text-white', 'class', 'Provide a class to set text color.'],
 			['outlined', 'boolean', 'false', 'true | false', 'Displays an outline of the primary color.'],
-			[
-				'hover',
-				'boolean',
-				'false',
-				'true | false',
-				'Displays and outline when hovering the avatar.'
-			],
-			[
-				'filter',
-				'string',
-				'false',
-				'filter reference',
-				'Enables a visual <a href="/utilities/filters">Filter</a>. Only works with src.'
-			]
+			['hover', 'boolean', 'false', 'true | false', 'Displays and outline when hovering the avatar.'],
+			['filter', 'string', 'false', 'filter reference', 'Enables a visual <a href="/utilities/filters">Filter</a>. Only works with src.']
 		]
 	};
 
@@ -112,12 +88,7 @@
 				<!-- Source -->
 				<div>
 					<legend>Source</legend>
-					<RadioGroup
-						selected={storeSrc}
-						background="bg-accent-500"
-						color="text-white"
-						width="w-full"
-					>
+					<RadioGroup selected={storeSrc} background="bg-accent-500" color="text-white" width="w-full">
 						<RadioItem value={undefined}>Initials</RadioItem>
 						<RadioItem value={placeholder}>Image</RadioItem>
 					</RadioGroup>
@@ -169,9 +140,7 @@
 		</div>
 		<CodeBlock
 			language="html"
-			code={`<Avatar initials="${props.initials || 'A'}" ${
-				props.src ? `src="${props.src}"` : ''
-			} size="${props.size}" background="${props.background}" outlined={${props.outlined}} hover={${
+			code={`<Avatar initials="${props.initials || 'A'}" ${props.src ? `src="${props.src}"` : ''} size="${props.size}" background="${props.background}" outlined={${props.outlined}} hover={${
 				props.hover
 			}} ${props.filter ? `filter="${props.filter}"` : ''}/>`.trim()}
 		/>

@@ -18,24 +18,19 @@
 			<Badge background="bg-accent-500" class="-translate-y-3">Optional</Badge>
 		</h1>
 		<p>
-			If you have experience with other UI component libraries, you may expect Skeleton to provide
-			dedicated components for form inputs, select, checkboxes, and similar. However, this is not
-			the case. The Skeleton team takes the stance that this is generally a bad practice.
+			If you have experience with other UI component libraries, you may expect Skeleton to provide dedicated components for form inputs, select, checkboxes, and similar. However, this is not the case.
+			The Skeleton team takes the stance that this is generally a bad practice.
 		</p>
 		<p>
-			Wrapping inputs within a component tends to hurt accessibility, limit error handling and
-			validation, and makes it much more difficult to customize inline attributes. While also
-			dramatically impacting your ability to customize and style each input.
+			Wrapping inputs within a component tends to hurt accessibility, limit error handling and validation, and makes it much more difficult to customize inline attributes. While also dramatically
+			impacting your ability to customize and style each input.
 		</p>
 		<p>
-			However, given Skeleton's tight integration with Tailwind, an elegant solution is available
-			via the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank"
+			However, given Skeleton's tight integration with Tailwind, an elegant solution is available via the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank"
 				>official Tailwind Forms plugin</a
 			>. This provides a no-nonsense approach to applying clean and modern styling to <em>most</em>
 			inputs. Tailwind provides an example page to
-			<a href="https://tailwindcss-forms.vercel.app/kitchen-sink.html" target="_blank"
-				>preview the default styles here</a
-			>.
+			<a href="https://tailwindcss-forms.vercel.app/kitchen-sink.html" target="_blank">preview the default styles here</a>.
 		</p>
 	</header>
 
@@ -44,10 +39,7 @@
 	<!-- Forms and Input Styles -->
 	<section class="space-y-4">
 		<h2>Tailwind Forms Plugin</h2>
-		<p>
-			To get started, check out Tailwind's official YouTube video tutorial, or follow the
-			step-by-step guide provided below.
-		</p>
+		<p>To get started, check out Tailwind's official YouTube video tutorial, or follow the step-by-step guide provided below.</p>
 		<Card>
 			<iframe
 				class="w-full max-w-[800px] mx-auto aspect-video"
@@ -139,8 +131,7 @@ label span, legend { @apply block text-surface-700 dark:text-surface-300 text-sm
         `.trim()}
 		/>
 		<p>
-			Finally, implement your form elements using standard markup and Svelte directives. Note the
-			examples below use a <code>&lt;span&gt;</code> element for label text.
+			Finally, implement your form elements using standard markup and Svelte directives. Note the examples below use a <code>&lt;span&gt;</code> element for label text.
 		</p>
 		<CodeBlock
 			language="html"
@@ -172,25 +163,19 @@ label span, legend { @apply block text-surface-700 dark:text-surface-300 text-sm
 	<section class="space-y-4">
 		<h2>Non-Supported Inputs</h2>
 		<p>
-			While the Tailwind Forms plugin covers most common inputs, there are a few <a
-				href="https://tailwindcss-forms.vercel.app/kitchen-sink.html"
-				target="_blank">exceptions</a
-			>
+			While the Tailwind Forms plugin covers most common inputs, there are a few <a href="https://tailwindcss-forms.vercel.app/kitchen-sink.html" target="_blank">exceptions</a>
 			(see page bottom). However, Skeleton provides a robust
 			<a href="/components/range-sliders">Range Slider</a>
 			alternative, as well as custom components for
 			<a href="/components/slide-toggles">Slide Toggles</a>
-			and <a href="/components/radio-groups">Radio Groups</a>. Expect to see more of these in the
-			future.
+			and <a href="/components/radio-groups">Radio Groups</a>. Expect to see more of these in the future.
 		</p>
 	</section>
 
 	<Divider />
 
 	<!-- Next Steps -->
-	<Card
-		class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4"
-	>
+	<Card class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<p>Finally, let's add our first component.</p>
 		<Button variant="filled-accent" href="/components/buttons">Add a Component</Button>
 	</Card>

@@ -18,8 +18,7 @@
 	// Base Classes
 	const cStep: string = 'flex space-x-4';
 	const cTimeline: string = 'text-center';
-	const cTimelineCircle: string =
-		'font-bold w-8 aspect-square flex justify-center items-center rounded-full';
+	const cTimelineCircle: string = 'font-bold w-8 aspect-square flex justify-center items-center rounded-full';
 	const cTimelineBar: string = 'h-full w-1 mx-auto';
 	const cInfo: string = 'space-y-4';
 	const cNav: string = 'flex space-x-4';

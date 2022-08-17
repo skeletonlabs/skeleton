@@ -11,14 +11,7 @@
 	// Props
 	const tableProps: any = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
-		source: [
-			[
-				'separator',
-				'string',
-				'&rsaquo (unicode)',
-				'Defines the crumb seperator. Supports SVG icons.'
-			]
-		]
+		source: [['separator', 'string', '&rsaquo (unicode)', 'Defines the crumb seperator. Supports SVG icons.']]
 	};
 	const tablePropsCrumb: any = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
@@ -42,10 +35,7 @@
 	<heading class="space-y-4">
 		<h1>Breadcrumbs</h1>
 		<p>Allows display of navigation hierarchy.</p>
-		<CodeBlock
-			language="javascript"
-			code={`import { Breadcrumb, Crumb } from '@brainandbones/skeleton';`}
-		/>
+		<CodeBlock language="javascript" code={`import { Breadcrumb, Crumb } from '@brainandbones/skeleton';`} />
 	</heading>
 
 	<!-- Examples -->
@@ -178,9 +168,7 @@
 	<section class="space-y-4">
 		<div class="flex justify-between items-center">
 			<h2>Accessibility</h2>
-			<a href="https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/" target="_blank"
-				>ARIA Guidelines</a
-			>
+			<a href="https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/" target="_blank">ARIA Guidelines</a>
 		</div>
 		<h3>Breadcrumb</h3>
 		<DataTable headings={tableA11y.headings} source={tableA11y.source} />

@@ -1,11 +1,6 @@
 <svg id="svg-filter-bluenight" class="filter hidden">
 	<!-- BlueNight: `filter: url(#BlueNight)` -->
-	<filter
-		id="BlueNight"
-		filterUnits="objectBoundingBox"
-		primitiveUnits="userSpaceOnUse"
-		color-interpolation-filters="sRGB"
-	>
+	<filter id="BlueNight" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 		<feColorMatrix
 			type="matrix"
 			values=" 1.000  0.000  0.000  0.000  0.000 

@@ -4,12 +4,7 @@
 	import Button from '$lib/Button/Button.svelte';
 	import Divider from '$lib/Divider/Divider.svelte';
 	import DataTable from '$lib/Table/DataTable.svelte';
-	import {
-		dialogStore,
-		type DialogAlert,
-		type DialogConfirm,
-		type DialogPrompt
-	} from '$lib/Notifications/Stores';
+	import { dialogStore, type DialogAlert, type DialogConfirm, type DialogPrompt } from '$lib/Notifications/Stores';
 
 	let valueConfirm: boolean = false;
 	let valuePrompt: string = 'Skeleton';
@@ -95,19 +90,9 @@
 	const tableProps: any = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
-			[
-				'backdrop',
-				'string',
-				'bg-surface-400/70 dark:bg-surface-900/70',
-				'Provide classes to set the backdrop background color.'
-			],
+			['backdrop', 'string', 'bg-surface-400/70 dark:bg-surface-900/70', 'Provide classes to set the backdrop background color.'],
 			['blur', 'string', 'backdrop-blur-none', 'Provide a class to add a backdrop blur.'],
-			[
-				'card',
-				'string',
-				'bg-surface-50 dark:bg-surface-700',
-				'Provide classes to set the modal card element.'
-			],
+			['card', 'string', 'bg-surface-50 dark:bg-surface-700', 'Provide classes to set the modal card element.'],
 			['width', 'string', 'max-w-[640px]', 'Provide classes to set max modal width.'],
 			['duration', 'number', '100', 'The animation in/out durations. Set to zero (0) for none.']
 		]
@@ -223,19 +208,13 @@
 	<!-- Methods -->
 	<section class="space-y-4">
 		<h2>Methods</h2>
-		<p>
-			To begin using dialogs, import the dialog store. This allows you to manipulate the dialog
-			queue using the following methods.
-		</p>
+		<p>To begin using dialogs, import the dialog store. This allows you to manipulate the dialog queue using the following methods.</p>
 		<CodeBlock language="js" code={`import { dialogStore } from '@brainandbones/skeleton';`} />
 		<h3>Trigger</h3>
 		<p>The following method allows you to insert a new dialog into the dialog queue.</p>
 		<CodeBlock language="js" code={`dialogStore.trigger(d); // see Dialog Variants below`} />
 		<h3>Close</h3>
-		<p>
-			Allows you to close the current dialog by pruning the visible dialog from the top of the
-			queue.
-		</p>
+		<p>Allows you to close the current dialog by pruning the visible dialog from the top of the queue.</p>
 		<CodeBlock language="js" code={`dialogStore.close();`} />
 		<h3>Clear</h3>
 		<p>Allows you to flush the entire dialog queue, returning it to an empty state.</p>
@@ -247,10 +226,7 @@
 	<!-- Dialog Variants -->
 	<section class="space-y-4">
 		<h2>Dialog Variants</h2>
-		<CodeBlock
-			language="typescript"
-			code={`import type { DialogAlert, DialogConfirm, DialogPrompt } from '@brainandbones/skeleton';`}
-		/>
+		<CodeBlock language="typescript" code={`import type { DialogAlert, DialogConfirm, DialogPrompt } from '@brainandbones/skeleton';`} />
 		<!-- Alert -->
 		<div class="space-y-2">
 			<h3>Alert</h3>
@@ -288,8 +264,7 @@ const d: DialogConfirm = {
 		<div class="space-y-2">
 			<h3>Prompt</h3>
 			<p>
-				Provides and additional input to prompt a value from the user. Returns a string value when
-				the user taps <em>submit</em>.
+				Provides and additional input to prompt a value from the user. Returns a string value when the user taps <em>submit</em>.
 			</p>
 			<CodeBlock
 				language="typescript"
@@ -345,10 +320,7 @@ const d: DialogAlert = {
 		<!-- Component -->
 		<div class="space-y-2">
 			<h3>Component</h3>
-			<p>
-				Allows you to insert a dynamically-generated Svelte component within the content of the
-				dialog. Note that only default slot content is supported at this time.
-			</p>
+			<p>Allows you to insert a dynamically-generated Svelte component within the content of the dialog. Note that only default slot content is supported at this time.</p>
 			<CodeBlock language="js" code={`import { Card } from '@brainandbones/skeleton';`} />
 			<CodeBlock
 				language="typescript"
@@ -373,19 +345,10 @@ const d: DialogAlert = {
 	<section class="space-y-4">
 		<h2>Debugging</h2>
 		<h3>Log the Queue</h3>
-		<p>
-			Use the following to monitor the queue in your console as it updates. Note that Svelte store
-			contents are only visible for the current logged line.
-		</p>
-		<CodeBlock
-			language="js"
-			code={`dialogStore.subscribe(() => { console.log($dialogStore); });`}
-		/>
+		<p>Use the following to monitor the queue in your console as it updates. Note that Svelte store contents are only visible for the current logged line.</p>
+		<CodeBlock language="js" code={`dialogStore.subscribe(() => { console.log($dialogStore); });`} />
 		<h3>Visualize the Queue</h3>
-		<p>
-			Use the following to display the queue in your UI. Note some properties may not display, such
-			as response.
-		</p>
+		<p>Use the following to display the queue in your UI. Note some properties may not display, such as response.</p>
 		<CodeBlock language="html" code={`<pre>queue: {JSON.stringify($dialogStore, null, 2)}</pre>`} />
 	</section>
 
@@ -393,10 +356,7 @@ const d: DialogAlert = {
 	<section class="space-y-4">
 		<h2>Accessibility</h2>
 		<p>
-			Meets all dialog requirements for the <a
-				href="https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/"
-				target="_blank">ARIA Guidelines</a
-			>.
+			Meets all dialog requirements for the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/" target="_blank">ARIA Guidelines</a>.
 		</p>
 	</section>
 </div>

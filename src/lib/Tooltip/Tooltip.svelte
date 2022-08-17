@@ -90,12 +90,7 @@
 <div class="tooltip {cBaseTooltip} {$$props.class}" data-testid="tooltip" role="tooltip">
 	<!-- Popup -->
 	{#if $$slots.message && visible}
-		<div
-			class="popup {classesPopup}"
-			data-testid="popup"
-			in:fade={{ duration }}
-			out:fade={{ duration }}
-		>
+		<div class="popup {classesPopup}" data-testid="popup" in:fade={{ duration }} out:fade={{ duration }}>
 			<div class="message {classesMessage}" data-testid="message"><slot name="message" /></div>
 			<div class="arrow {classesArrow}" data-testid="arrow" />
 		</div>

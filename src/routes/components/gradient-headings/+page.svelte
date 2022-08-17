@@ -28,10 +28,7 @@
 	<header class="space-y-4">
 		<h1>Gradient Heading</h1>
 		<p>Generate a gradient-colored heading with customizable tag and gradient direction.</p>
-		<CodeBlock
-			language="javascript"
-			code={`import { GradientHeading } from '@brainandbones/skeleton';`}
-		/>
+		<CodeBlock language="javascript" code={`import { GradientHeading } from '@brainandbones/skeleton';`} />
 	</header>
 
 	<!-- Sandbox -->
@@ -39,13 +36,7 @@
 		<div class="space-y-4 xl:space-y-0 xl:grid grid-cols-[2fr,1fr] gap-2">
 			<!-- Example -->
 			<Card class="space-y-4 flex justify-center items-center">
-				<svelte:component
-					this={GradientHeading}
-					tag={props.tag}
-					direction={props.direction}
-					from={props.from}
-					to={props.to}>{props.text}</svelte:component
-				>
+				<svelte:component this={GradientHeading} tag={props.tag} direction={props.direction} from={props.from} to={props.to}>{props.text}</svelte:component>
 			</Card>
 			<!-- Options -->
 			<Card class="space-y-4">
@@ -101,10 +92,7 @@
 				</label>
 			</Card>
 		</div>
-		<CodeBlock
-			language="html"
-			code={`<GradientHeading tag="${props.tag}" direction="${props.direction}" from="${props.from}" to="${props.to}">Skeleton</GradientHeading>`}
-		/>
+		<CodeBlock language="html" code={`<GradientHeading tag="${props.tag}" direction="${props.direction}" from="${props.from}" to="${props.to}">Skeleton</GradientHeading>`} />
 	</section>
 
 	<!-- Properties -->
@@ -117,9 +105,7 @@
 	<section class="space-y-4">
 		<h2>Accessibility</h2>
 		<p>
-			You are advised to use semantic heading tags (H1-H6). Has an explicit ARIA attribute of <code
-				>role="heading"</code
-			>.
+			You are advised to use semantic heading tags (H1-H6). Has an explicit ARIA attribute of <code>role="heading"</code>.
 		</p>
 	</section>
 </div>

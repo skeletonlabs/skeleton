@@ -62,10 +62,7 @@
 	<!-- Usage -->
 	<section class="space-y-4">
 		<CodeBlock language="typescript" code={`let myValue: number = 50;`} />
-		<CodeBlock
-			language="html"
-			code={`<RangeSlider label="Skeleton" max={100} step={5} bind:value={myValue} accent="accent-primary-500" ticked />`}
-		/>
+		<CodeBlock language="html" code={`<RangeSlider label="Skeleton" max={100} step={5} bind:value={myValue} accent="accent-primary-500" ticked />`} />
 	</section>
 
 	<!-- Properties -->
@@ -87,16 +84,9 @@
 	<section class="space-y-4">
 		<h2 class="text-2xl font-bold">Browser Support</h2>
 		<p>
-			Skeleton utilizes <a
-				href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range"
-				target="_blank">native HTML range inputs</a
-			>. Browser support is mixed for
-			<a
-				href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range"
-				target="_blank">native datalist element</a
-			>, which are used to generate tickmarks. Additionally, some browsers (such as Chrome) alter
-			the track color to ensure contrast between the track and meter. Please keep accessibility in
-			mind when utilizing this component.
+			Skeleton utilizes <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range" target="_blank">native HTML range inputs</a>. Browser support is mixed for
+			<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range" target="_blank">native datalist element</a>, which are used to generate tickmarks. Additionally, some browsers
+			(such as Chrome) alter the track color to ensure contrast between the track and meter. Please keep accessibility in mind when utilizing this component.
 		</p>
 	</section>
 </div>

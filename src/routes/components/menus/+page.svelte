@@ -11,38 +11,17 @@
 	const tableProps: any = {
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
 		source: [
-			[
-				'select',
-				'boolean',
-				'false',
-				'true | false',
-				'When enabled, clicks within the menu will close it.'
-			],
+			['select', 'boolean', 'false', 'true | false', 'When enabled, clicks within the menu will close it.'],
 			['open', 'boolean', 'false', 'true | false', 'Sets menu visibility.'],
-			[
-				'origin',
-				'string',
-				'auto',
-				'auto | tl | tr | bl | br',
-				'Abbreviation describing where the menu content anchors to the trigger element.'
-			],
-			[
-				'duration',
-				'number',
-				'100',
-				'integer',
-				'Open/close fade animation duration. Setting 0 (zero) disables animation.'
-			],
+			['origin', 'string', 'auto', 'auto | tl | tr | bl | br', 'Abbreviation describing where the menu content anchors to the trigger element.'],
+			['duration', 'number', '100', 'integer', 'Open/close fade animation duration. Setting 0 (zero) disables animation.'],
 			['disabled', 'boolean', 'false', 'true | false', 'Sets menu to disabled state.']
 		]
 	};
 	const tableSlots: any = {
 		headings: ['Name', 'Description'],
 		source: [
-			[
-				'trigger',
-				'The element that toggles the menu when clicked. Pairs well with a button component.'
-			],
+			['trigger', 'The element that toggles the menu when clicked. Pairs well with a button component.'],
 			['content', 'The contents of the menu. Pairs well with styled Card and List.']
 		]
 	};
@@ -64,11 +43,7 @@
 				<!-- Slot: Trigger -->
 				<Button slot="trigger" variant="ghost-primary" type="button">Menu</Button>
 				<!-- Slot: Content -->
-				<Card
-					slot="content"
-					background="bg-surface-300 dark:bg-surface-700"
-					class="w-[200px] p-[0px] shadow-xl overflow-hidden"
-				>
+				<Card slot="content" background="bg-surface-300 dark:bg-surface-700" class="w-[200px] p-[0px] shadow-xl overflow-hidden">
 					<List tag="nav">
 						<ListItem>Item 1</ListItem>
 						<ListItem>Item 2</ListItem>
@@ -78,11 +53,7 @@
 			<!-- Select -->
 			<Menu origin="tr" select={true}>
 				<Button slot="trigger" variant="ghost-accent" type="button">Select</Button>
-				<Card
-					slot="content"
-					background="bg-surface-300 dark:bg-surface-700"
-					class="w-[200px] p-[0px] shadow-xl overflow-hidden"
-				>
+				<Card slot="content" background="bg-surface-300 dark:bg-surface-700" class="w-[200px] p-[0px] shadow-xl overflow-hidden">
 					<List tag="nav">
 						<ListItem>Item 1</ListItem>
 						<ListItem>Item 2</ListItem>
@@ -127,8 +98,7 @@
 	<section class="space-y-4">
 		<h3>Auto Origin Positioning</h3>
 		<p>
-			The menu defaults to <code>origin: "auto"</code>. This will attempt to keep the menu visible
-			on-screen at all times. Specifically on window resize or when the parent element is scrolled.
+			The menu defaults to <code>origin: "auto"</code>. This will attempt to keep the menu visible on-screen at all times. Specifically on window resize or when the parent element is scrolled.
 		</p>
 	</section>
 
@@ -155,8 +125,7 @@
 			</nav>
 		</div>
 		<p>
-			See the <a href="/components/list">List component</a> accessibility options if you wish to embed
-			a List within your Menu.
+			See the <a href="/components/list">List component</a> accessibility options if you wish to embed a List within your Menu.
 		</p>
 	</section>
 </div>

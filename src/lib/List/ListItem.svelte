@@ -77,9 +77,7 @@
 	// Reactive Selection State
 	$: isSelected = () => {
 		if ($selected && $$props.value) {
-			return typeof $selected === 'object'
-				? $selected.includes($$props.value)
-				: $selected === $$props.value;
+			return typeof $selected === 'object' ? $selected.includes($$props.value) : $selected === $$props.value;
 		}
 		return false;
 	};

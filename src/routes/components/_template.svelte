@@ -18,10 +18,7 @@
 	<header class="space-y-4">
 		<h1>Template</h1>
 		<p>Describe the component here.</p>
-		<CodeBlock
-			language="javascript"
-			code={`import { Component } from '@brainandbones/skeleton';`}
-		/>
+		<CodeBlock language="javascript" code={`import { Component } from '@brainandbones/skeleton';`} />
 	</header>
 
 	<!-- Examples -->

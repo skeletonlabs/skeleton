@@ -44,23 +44,10 @@
 	$: classes = `list-group ${cBase} ${cSpacing} ${$$props.class || ''}`;
 </script>
 
-<svelte:element
-	this={tag}
-	bind:this={elemList}
-	class={classes}
-	data-testid="list-group"
-	on:keydown={onKeyDown}
-	{title}
->
+<svelte:element this={tag} bind:this={elemList} class={classes} data-testid="list-group" on:keydown={onKeyDown} {title}>
 	<!-- Wrap <nav> (listbox) to meet ARIA spec requirements -->
 	{#if tag === 'nav'}
-		<ul
-			class={cSpacing}
-			role="listbox"
-			aria-label={label}
-			aria-labelledby={labelledby}
-			aria-multiselectable={Array.isArray($selected)}
-		>
+		<ul class={cSpacing} role="listbox" aria-label={label} aria-labelledby={labelledby} aria-multiselectable={Array.isArray($selected)}>
 			<slot />
 		</ul>
 	{:else}

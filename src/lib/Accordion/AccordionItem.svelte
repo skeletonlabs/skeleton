@@ -10,8 +10,7 @@
 	// Base Classes
 	const cBaseDetails: string = '';
 	const cBaseSummary: string = 'flex items-center space-x-4 px-4 py-2 cursor-pointer rounded';
-	const cBaseIcon: string =
-		'flex justify-center items-center w-3 fill-black dark:fill-white transition-all duration-[100ms]';
+	const cBaseIcon: string = 'flex justify-center items-center w-3 fill-black dark:fill-white transition-all duration-[100ms]';
 	const cBaseDesc: string = 'px-4 py-2';
 
 	// Reactive Classes
@@ -22,11 +21,7 @@
 	$: classesDesc = `${cBaseDesc}`;
 </script>
 
-<details
-	bind:open
-	class="accordion-item {classesDetails} {$$props.class}"
-	data-testid="accordion-item"
->
+<details bind:open class="accordion-item {classesDetails} {$$props.class}" data-testid="accordion-item">
 	<!-- Summary -->
 	<summary id={summaryId} class={classesSummary} aria-expanded={open} aria-controls={contentId}>
 		<!-- Slot: Lead -->

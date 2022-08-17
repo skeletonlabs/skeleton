@@ -91,9 +91,7 @@
 		Object.entries(rgbShades).forEach((set: any, i: number) => {
 			const [colorName, shades] = set;
 			// Add Comment Row
-			css += `${i === 0 ? `\t/* --- Custom Theme --- */\n` : '\n'}\t/* ${colorName} (${
-				formValues[colorName]
-			}) */`;
+			css += `${i === 0 ? `\t/* --- Custom Theme --- */\n` : '\n'}\t/* ${colorName} (${formValues[colorName]}) */`;
 			// Per each entry, add custom property key/value row
 			Object.entries(shades).forEach((shade) => {
 				const [shadeKey, shadeValue] = shade;
@@ -121,48 +119,28 @@
 		<!-- Primary -->
 		<label class="flex-1" for="primary">
 			<span>Primary</span>
-			<input
-				type="text"
-				placeholder="#FFFFFF"
-				bind:value={formValues.primary}
-				on:keyup={processPrimary}
-			/>
+			<input type="text" placeholder="#FFFFFF" bind:value={formValues.primary} on:keyup={processPrimary} />
 			<Swatches palette={hexShades.primary} />
 		</label>
 
 		<!-- Accent -->
 		<label class="flex-1" for="accent">
 			<span>Accent</span>
-			<input
-				type="text"
-				placeholder="#FFFFFF"
-				bind:value={formValues.accent}
-				on:keyup={processAccent}
-			/>
+			<input type="text" placeholder="#FFFFFF" bind:value={formValues.accent} on:keyup={processAccent} />
 			<Swatches palette={hexShades.accent} />
 		</label>
 
 		<!-- Warning -->
 		<label class="flex-1" for="warning">
 			<span>Warning</span>
-			<input
-				type="text"
-				placeholder="#FFFFFF"
-				bind:value={formValues.warning}
-				on:keyup={processWarning}
-			/>
+			<input type="text" placeholder="#FFFFFF" bind:value={formValues.warning} on:keyup={processWarning} />
 			<Swatches palette={hexShades.warning} />
 		</label>
 
 		<!-- Surface -->
 		<label class="flex-1" for="surface">
 			<span>Surface</span>
-			<input
-				type="text"
-				placeholder="#FFFFFF"
-				bind:value={formValues.surface}
-				on:keyup={processSurface}
-			/>
+			<input type="text" placeholder="#FFFFFF" bind:value={formValues.surface} on:keyup={processSurface} />
 			<Swatches palette={hexShades.surface} />
 		</label>
 	</fieldset>

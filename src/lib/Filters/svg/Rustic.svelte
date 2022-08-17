@@ -1,11 +1,6 @@
 <svg id="svg-filter-rustic" class="filter hidden">
 	<!-- Rustic: `filter: url(#Rustic)` -->
-	<filter
-		id="Rustic"
-		filterUnits="objectBoundingBox"
-		primitiveUnits="userSpaceOnUse"
-		color-interpolation-filters="sRGB"
-	>
+	<filter id="Rustic" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 		<feColorMatrix
 			type="matrix"
 			in="SourceGraphic"

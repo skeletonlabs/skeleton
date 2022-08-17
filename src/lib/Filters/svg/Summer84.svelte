@@ -1,11 +1,6 @@
 <svg id="svg-filter-summer84" class="filter hidden">
 	<!-- Summer84: `filter: url(#Summer84)` -->
-	<filter
-		id="Summer84"
-		filterUnits="objectBoundingBox"
-		primitiveUnits="userSpaceOnUse"
-		color-interpolation-filters="sRGB"
-	>
+	<filter id="Summer84" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 		<feColorMatrix
 			type="matrix"
 			values=" 1.300  0.200  0.000  0.000  0.000 

@@ -25,41 +25,11 @@
 	const tableProps: any = {
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
 		source: [
-			[
-				'variant',
-				'string',
-				'-',
-				'(see above)',
-				'Provides preset prop values. Overwrites all props but width, rounded, and href.'
-			],
-			[
-				'size',
-				'string',
-				'base',
-				'none | sm | base | lg | xl',
-				'Scales the button to various sizes.'
-			],
-			[
-				'background',
-				'string',
-				'bg-black dark:bg-white',
-				'class',
-				'Provide a class to define background.'
-			],
-			[
-				'color',
-				'string',
-				'text-white dark:text-black',
-				'class',
-				'Provide a class to define text color.'
-			],
-			[
-				'fill',
-				'string',
-				'fill-white dark:fill-black',
-				'class',
-				'Provide a class to define SVG fill color.'
-			],
+			['variant', 'string', '-', '(see above)', 'Provides preset prop values. Overwrites all props but width, rounded, and href.'],
+			['size', 'string', 'base', 'none | sm | base | lg | xl', 'Scales the button to various sizes.'],
+			['background', 'string', 'bg-black dark:bg-white', 'class', 'Provide a class to define background.'],
+			['color', 'string', 'text-white dark:text-black', 'class', 'Provide a class to define text color.'],
+			['fill', 'string', 'fill-white dark:fill-black', 'class', 'Provide a class to define SVG fill color.'],
 			['ring', 'string', 'ring-transparent', 'class', 'Provide a class to define ring color.'],
 			['weight', 'string', 'ring-1', 'class', 'Provide a class to define ring weight.'],
 			['width', 'string', 'w-auto', 'class', 'Provide a class to set the button width.'],
@@ -246,10 +216,7 @@
 	<!-- Variants -->
 	<section class="space-y-4">
 		<h3>Variants</h3>
-		<p>
-			Skeleton provides variants to quickly and easily create buttons with predefined styles. You
-			may still set rounded and width properties with variants.
-		</p>
+		<p>Skeleton provides variants to quickly and easily create buttons with predefined styles. You may still set rounded and width properties with variants.</p>
 		<Card>
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 				{#each variantExamples as ve}

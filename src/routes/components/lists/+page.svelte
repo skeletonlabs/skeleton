@@ -18,27 +18,9 @@
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
 		source: [
 			['tag', 'string', 'ul', 'ul | ol | dl | nav', , 'Defines the semantic wrapping element.'],
-			[
-				'selected',
-				'Writable',
-				'-',
-				'any',
-				'Nav tag only. Provide a writable store to maintain list selection.'
-			],
-			[
-				'hover',
-				'string',
-				'hover:bg-primary-500/10',
-				'class',
-				'Nav tag only. Provide a class to set hover background color.'
-			],
-			[
-				'highlight',
-				'string',
-				'!bg-primary-500',
-				'class',
-				'Nav tag only. Provide a class for highlighted rows. Note this must be use (!) for important.'
-			]
+			['selected', 'Writable', '-', 'any', 'Nav tag only. Provide a writable store to maintain list selection.'],
+			['hover', 'string', 'hover:bg-primary-500/10', 'class', 'Nav tag only. Provide a class to set hover background color.'],
+			['highlight', 'string', '!bg-primary-500', 'class', 'Nav tag only. Provide a class for highlighted rows. Note this must be use (!) for important.']
 		]
 	};
 	const tablePropsItems: any = {
@@ -153,13 +135,7 @@
 			<section class="space-y-4">
 				<Card class="space-y-4">
 					<h6>Multiple</h6>
-					<List
-						tag="nav"
-						selected={navMultiple}
-						label="Multi-Selection"
-						hover="hover:bg-accent-500/10"
-						highlight="!bg-accent-500"
-					>
+					<List tag="nav" selected={navMultiple} label="Multi-Selection" hover="hover:bg-accent-500/10" highlight="!bg-accent-500">
 						<ListItem value={'A'}>Item A</ListItem>
 						<ListItem value={'B'}>Item B</ListItem>
 						<ListItem value={'C'}>Item C</ListItem>
@@ -219,10 +195,7 @@
         `.trim()}
 		/>
 		<h3>Selection Listbox</h3>
-		<p>
-			Define a writable to store to house the selection state, then apply a value property to each
-			child.
-		</p>
+		<p>Define a writable to store to house the selection state, then apply a value property to each child.</p>
 		<h6>Single Value</h6>
 		<CodeBlock language="typescript" code={`const storeSingle: Writable<number> = writable(1);`} />
 		<CodeBlock
@@ -235,10 +208,7 @@
         `.trim()}
 		/>
 		<h6>Multiple Values</h6>
-		<CodeBlock
-			language="typescript"
-			code={`let storeMultiple: Writable<any[]> = writable(['A', 'B']);`}
-		/>
+		<CodeBlock language="typescript" code={`let storeMultiple: Writable<any[]> = writable(['A', 'B']);`} />
 		<CodeBlock
 			language="html"
 			code={`
@@ -270,8 +240,7 @@
 	<section class="space-y-4">
 		<div class="flex justify-between items-end">
 			<h2>Accessibility</h2>
-			<a href="https://www.w3.org/WAI/ARIA/apg/patterns/listbox/" target="_blank">ARIA Guidelines</a
-			>
+			<a href="https://www.w3.org/WAI/ARIA/apg/patterns/listbox/" target="_blank">ARIA Guidelines</a>
 		</div>
 		<h3>List</h3>
 		<DataTable headings={tableA11yList.headings} source={tableA11yList.source} />

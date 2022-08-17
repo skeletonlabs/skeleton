@@ -11,8 +11,7 @@
 	export let duration: number = 250;
 
 	// Base Classes
-	const cBaseToast: string =
-		'fixed z-50 flex items-center mx-auto py-3 px-4 max-w-[480px] space-x-4 rounded-xl';
+	const cBaseToast: string = 'fixed z-50 flex items-center mx-auto py-3 px-4 max-w-[480px] space-x-4 rounded-xl';
 	const cBaseMessage: string = 'flex-1 text-base';
 	const cBaseActions: string = 'flex-none space-x-2';
 
@@ -20,7 +19,7 @@
 	let y: number = 100;
 	let cPosition: string;
 	// prettier-ignore
-    switch (position) {
+	switch (position) {
         // Centered
         case('t'): cPosition = 'left-4 right-4 top-4'; y = -100; break;
         case('b'): cPosition = 'left-4 right-4 bottom-4'; break;
@@ -46,12 +45,7 @@
 </script>
 
 {#if $toastStore.length}
-	<div
-		class="toast {classesToast}"
-		transition:fly|local={{ y, duration }}
-		role="alert"
-		aria-live="polite"
-	>
+	<div class="toast {classesToast}" transition:fly|local={{ y, duration }} role="alert" aria-live="polite">
 		<!-- Message -->
 		{#key $toastStore[0].message}
 			<div class="toast-message {cBaseMessage}" in:fade={{ duration: 250 }}>
@@ -61,9 +55,7 @@
 
 		<!-- Action -->
 		<div class="toast-actions {cBaseActions}">
-			{#if $toastStore[0].button}<Button {variant} on:click={onAction}
-					>{$toastStore[0].button.label}</Button
-				>{/if}
+			{#if $toastStore[0].button}<Button {variant} on:click={onAction}>{$toastStore[0].button.label}</Button>{/if}
 			<Button {variant} on:click={onDismiss}>
 				{@html $toastStore[0].button ? '&#10005;' : 'Dismiss'}
 			</Button>

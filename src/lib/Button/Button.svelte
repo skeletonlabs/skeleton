@@ -21,8 +21,7 @@
 	const role: string = $$props.href ? 'link' : 'button';
 
 	// Base Classes
-	const cBaseButton: string =
-		'inline-flex justify-center items-center space-x-2 text-center whitespace-nowrap ring-inset pointer-cursor';
+	const cBaseButton: string = 'inline-flex justify-center items-center space-x-2 text-center whitespace-nowrap ring-inset pointer-cursor';
 
 	// Set Size
 	let cSize: string;
@@ -94,9 +93,7 @@
 	});
 
 	// Reactive Classes
-	$: cDisabled = $$props.disabled
-		? '!opacity-30 !cursor-not-allowed'
-		: 'hover:brightness-110 transition-transform active:scale-95';
+	$: cDisabled = $$props.disabled ? '!opacity-30 !cursor-not-allowed' : 'hover:brightness-110 transition-transform active:scale-95';
 	$: classesButton = `${cBaseButton} ${cSize} ${background} ${color} ${fill} ${ring} ${weight} ${width} ${rounded} ${cDisabled}`;
 
 	// Prune $$restProps to avoid overwriting $$props.class

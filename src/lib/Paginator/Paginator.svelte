@@ -19,8 +19,7 @@
 
 	// Base Classes
 	// const cBasePaginator: string = 'flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4';
-	const cBasePaginator: string =
-		'flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4';
+	const cBasePaginator: string = 'flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4';
 	const cBaseText: string = 'opacity-60 whitespace-nowrap';
 
 	// Functionality
@@ -58,8 +57,6 @@
 	<!-- Arrows -->
 	<div class="space-x-2">
 		<Button {variant} {rounded} on:click={onPrev} disabled={offset === 0}>&larr;</Button>
-		<Button {variant} {rounded} on:click={onNext} disabled={(offset + 1) * limit >= size}
-			>&rarr;</Button
-		>
+		<Button {variant} {rounded} on:click={onNext} disabled={(offset + 1) * limit >= size}>&rarr;</Button>
 	</div>
 </div>

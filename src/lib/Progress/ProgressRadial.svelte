@@ -14,8 +14,7 @@
 
 	// Base Classes
 	const cBaseTrack: string = 'fill-transparent';
-	const cBaseMeter: string =
-		'fill-transparent transition-[stroke-dashoffset] duration-200 -rotate-90 origin-[50%_50%]';
+	const cBaseMeter: string = 'fill-transparent transition-[stroke-dashoffset] duration-200 -rotate-90 origin-[50%_50%]';
 
 	// Calculated Values
 	const baseSize: number = 512; // px
@@ -52,19 +51,9 @@
 	aria-valuemax={100}
 >
 	<!-- Draw SVG -->
-	<svg
-		viewBox="0 0 {baseSize} {baseSize}"
-		class="rounded-full"
-		class:animate-spin={value === undefined}
-	>
+	<svg viewBox="0 0 {baseSize} {baseSize}" class="rounded-full" class:animate-spin={value === undefined}>
 		<!-- Track -->
-		<circle
-			class="progress-track {cBaseTrack} {track}"
-			stroke-width={stroke}
-			r={baseSize / 2}
-			cx="50%"
-			cy="50%"
-		/>
+		<circle class="progress-track {cBaseTrack} {track}" stroke-width={stroke} r={baseSize / 2} cx="50%" cy="50%" />
 
 		<!-- Meter -->
 		<circle
@@ -80,15 +69,7 @@
 
 		<!-- Center Text -->
 		{#if value >= 0 && $$slots.default}
-			<text
-				x="50%"
-				y="50%"
-				text-anchor="middle"
-				dominant-baseline="middle"
-				font-weight="bold"
-				font-size={font}
-				class={color}><slot /></text
-			>
+			<text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-weight="bold" font-size={font} class={color}><slot /></text>
 		{/if}
 	</svg>
 </figure>

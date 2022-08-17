@@ -11,13 +11,7 @@
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
 		source: [
 			['checked', 'boolean', 'false', 'true | false', 'The checked state of the input element.'],
-			[
-				'accent',
-				'string',
-				'bg-accent-500',
-				'class',
-				'Provide a class to set the checked state color.'
-			],
+			['accent', 'string', 'bg-accent-500', 'class', 'Provide a class to set the checked state color.'],
 			['size', 'string', 'md', 'sm | md | lg', 'Sets the size of the component.']
 		]
 	};
@@ -32,10 +26,7 @@
 	<heading class="space-y-4">
 		<h1>Slide Toggle</h1>
 		<p>Add a slide toggle switch with custom colors and sizes to capture input from a user.</p>
-		<CodeBlock
-			language="javascript"
-			code={`import { SlideToggle } from '@brainandbones/skeleton';`}
-		/>
+		<CodeBlock language="javascript" code={`import { SlideToggle } from '@brainandbones/skeleton';`} />
 	</heading>
 
 	<!-- Examples -->
@@ -75,10 +66,7 @@
 	<section class="space-y-4">
 		<h2>Usage</h2>
 		<CodeBlock language="typescript" code={`let myValue: boolean = false;`} />
-		<CodeBlock
-			language="html"
-			code={`<SlideToggle bind:checked={myValue} size="lg" accent="bg-primary-500">{labelText}</SlideToggle>`}
-		/>
+		<CodeBlock language="html" code={`<SlideToggle bind:checked={myValue} size="lg" accent="bg-primary-500">{labelText}</SlideToggle>`} />
 	</section>
 
 	<!-- Properties -->

@@ -47,12 +47,7 @@
 	function setThemeClass(): void {
 		if (browser) {
 			// dark / light
-			if (
-				localStorage.theme === 'dark' ||
-				(!('theme' in localStorage) &&
-					window.hasOwnProperty('matchMedia') &&
-					window.matchMedia('(prefers-color-scheme: dark)').matches)
-			) {
+			if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.hasOwnProperty('matchMedia') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
 				document.documentElement.classList.add('dark');
 				currentTheme = 'dark';
 			} else {
@@ -66,24 +61,9 @@
 	setThemeClass();
 </script>
 
-<Menu
-	{select}
-	{open}
-	{origin}
-	{duration}
-	{disabled}
-	class="lightswitch {$$props.class}"
-	data-testid="lightswitch"
->
+<Menu {select} {open} {origin} {duration} {disabled} class="lightswitch {$$props.class}" data-testid="lightswitch">
 	<!-- Switcher -->
-	<button
-		slot="trigger"
-		type="button"
-		class="fill-black dark:fill-white cursor-pointer translate-y-[2px]"
-		aria-label="lightswitch"
-		aria-roledescription="Toggles dark mode."
-		aria-disabled={disabled}
-	>
+	<button slot="trigger" type="button" class="fill-black dark:fill-white cursor-pointer translate-y-[2px]" aria-label="lightswitch" aria-roledescription="Toggles dark mode." aria-disabled={disabled}>
 		{@html svg[currentTheme]}
 	</button>
 

@@ -17,12 +17,10 @@
 	let dialogValue: string;
 
 	// Base Classes
-	const cBaseBackdrop: string =
-		'fixed top-0 left-0 right-0 bottom-0 z-[999] flex justify-center items-center p-4 backdrop-blur-sm';
+	const cBaseBackdrop: string = 'fixed top-0 left-0 right-0 bottom-0 z-[999] flex justify-center items-center p-4 backdrop-blur-sm';
 	const cBaseDialog: string = 'p-4 w-full space-y-4 rounded-xl drop-shadow';
 	const cBaseHeader: string = 'flex justify-start items-center space-x-4';
-	const cBaseIcon: string =
-		'fill-black dark:fill-white bg-primary-500/20 flex justify-center items-center w-10 mx-auto aspect-square rounded-full';
+	const cBaseIcon: string = 'fill-black dark:fill-white bg-primary-500/20 flex justify-center items-center w-10 mx-auto aspect-square rounded-full';
 	const cBaseImage: string = 'w-full h-auto rounded-lg';
 	const cBaseFooter: string = 'flex justify-end space-x-4';
 
@@ -54,8 +52,7 @@
 			// Focus on first valid modal element
 			setTimeout(() => {
 				if (elemModal !== null) {
-					const elemWhitelist: string =
-						'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])';
+					const elemWhitelist: string = 'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])';
 					const focusableElems: any = elemModal.querySelectorAll(elemWhitelist);
 					if (focusableElems !== null) {
 						focusableElems[0].focus();
@@ -83,12 +80,7 @@
 
 {#if $dialogStore.length}
 	<!-- Backdrop Shim -->
-	<div
-		class="dialog-backdrop {classesBackdrop} {$$props.class}"
-		on:click={onDialogClose}
-		on:keydown={onKeyPress}
-		transition:fade|local={{ duration }}
-	>
+	<div class="dialog-backdrop {classesBackdrop} {$$props.class}" on:click={onDialogClose} on:keydown={onKeyPress} transition:fade|local={{ duration }}>
 		<!-- Dialog -->
 		<div
 			bind:this={elemModal}
@@ -116,12 +108,7 @@
 
 				<!-- If: image -->
 				{#if $dialogStore[0].image}
-					<img
-						src={$dialogStore[0].image}
-						class="dialog-image {cBaseImage}"
-						alt="Dialog"
-						loading="lazy"
-					/>
+					<img src={$dialogStore[0].image} class="dialog-image {cBaseImage}" alt="Dialog" loading="lazy" />
 				{/if}
 
 				<!-- If: HTML -->
@@ -131,10 +118,7 @@
 
 				<!-- If: Component -->
 				{#if $dialogStore[0].component}
-					<svelte:component
-						this={$dialogStore[0].component.element}
-						{...$dialogStore[0].component.props}
-					>
+					<svelte:component this={$dialogStore[0].component.element} {...$dialogStore[0].component.props}>
 						{@html $dialogStore[0].component.slot}
 					</svelte:component>
 				{/if}
@@ -150,15 +134,9 @@
 				<!-- Button: Cancel -->
 				<Button variant="ghost" on:click={onDialogClose}>Close</Button>
 				<!-- If Confirm - Button: Confirm -->
-				{#if $dialogStore[0].type === 'confirm'}<Button
-						variant="filled-primary"
-						on:click={onDialogConfirmSubmit}>Confirm</Button
-					>{/if}
+				{#if $dialogStore[0].type === 'confirm'}<Button variant="filled-primary" on:click={onDialogConfirmSubmit}>Confirm</Button>{/if}
 				<!-- If Promopt - Button: Submit -->
-				{#if $dialogStore[0].type === 'prompt'}<Button
-						variant="filled-primary"
-						on:click={onDialogPromptSubmit}>Submit</Button
-					>{/if}
+				{#if $dialogStore[0].type === 'prompt'}<Button variant="filled-primary" on:click={onDialogPromptSubmit}>Submit</Button>{/if}
 			</footer>
 		</div>
 	</div>

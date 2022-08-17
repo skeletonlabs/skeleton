@@ -15,13 +15,7 @@
 	const tableProps: any = {
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
 		source: [
-			[
-				'variant',
-				'string',
-				'solid',
-				'solid | dashed | dotted',
-				'Defines the visual display styling.'
-			],
+			['variant', 'string', 'solid', 'solid | dashed | dotted', 'Defines the visual display styling.'],
 			['weight', 'number', '1', '1 | 2 | 4 | 8', 'Defines the thickness of the divider.'],
 			['orientation', 'string', 'h', 'h | v', 'Switches between horizontal/vertical layout.']
 		]
@@ -48,12 +42,7 @@
 			<!-- Example -->
 			<Card class="space-y-4 flex justify-center items-center">
 				<div class="w-[75%] h-[100px] flex justify-evenly items-center">
-					<svelte:component
-						this={Divider}
-						variant={props.variant}
-						weight={props.weight}
-						orientation={props.orientation}
-					/>
+					<svelte:component this={Divider} variant={props.variant} weight={props.weight} orientation={props.orientation} />
 				</div>
 			</Card>
 			<!-- Options -->
@@ -61,12 +50,7 @@
 				<!-- Variant -->
 				<div>
 					<legend>Variant</legend>
-					<RadioGroup
-						selected={storeVariant}
-						background="bg-accent-500"
-						color="text-white"
-						width="w-full"
-					>
+					<RadioGroup selected={storeVariant} background="bg-accent-500" color="text-white" width="w-full">
 						<RadioItem value="solid">Solid</RadioItem>
 						<RadioItem value="dashed">Dashed</RadioItem>
 						<RadioItem value="dotted">Dotted</RadioItem>
@@ -75,12 +59,7 @@
 				<!-- Weight -->
 				<div>
 					<legend>Weight</legend>
-					<RadioGroup
-						selected={storeWeight}
-						background="bg-accent-500"
-						color="text-white"
-						width="w-full"
-					>
+					<RadioGroup selected={storeWeight} background="bg-accent-500" color="text-white" width="w-full">
 						<RadioItem value={1}>1</RadioItem>
 						<RadioItem value={2}>2</RadioItem>
 						<RadioItem value={4}>4</RadioItem>
@@ -90,22 +69,14 @@
 				<!-- Orientation -->
 				<div>
 					<legend>Orientation</legend>
-					<RadioGroup
-						selected={storeOrientation}
-						background="bg-accent-500"
-						color="text-white"
-						width="w-full"
-					>
+					<RadioGroup selected={storeOrientation} background="bg-accent-500" color="text-white" width="w-full">
 						<RadioItem value="h">Horizontal</RadioItem>
 						<RadioItem value="v">Vertical</RadioItem>
 					</RadioGroup>
 				</div>
 			</Card>
 		</div>
-		<CodeBlock
-			language="html"
-			code={`<Divider variant="${props.variant}" weight={${props.weight}} orientation="${props.orientation}" />`}
-		/>
+		<CodeBlock language="html" code={`<Divider variant="${props.variant}" weight={${props.weight}} orientation="${props.orientation}" />`} />
 	</section>
 
 	<!-- Properties -->

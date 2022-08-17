@@ -17,8 +17,7 @@
 	let cFixed: string;
 	let cPosition: string;
 	if (fixed !== undefined) {
-		cFixed =
-			'flex-none fixed lg:static top-0 z-40 shadow-2xl lg:shadow-none lg:translate-x-0 transition-transform';
+		cFixed = 'flex-none fixed lg:static top-0 z-40 shadow-2xl lg:shadow-none lg:translate-x-0 transition-transform';
 		switch (fixed) {
 			case 'left':
 				cPosition = 'left-0 -translate-x-full';
@@ -39,11 +38,7 @@
 	$: classesBackdrop = `${cBaseBackdrop} ${backdrop}`;
 </script>
 
-<div
-	class="drawer {classesDrawer} {$$props.class}"
-	class:translate-x-0={$visible}
-	data-testid="drawer"
->
+<div class="drawer {classesDrawer} {$$props.class}" class:translate-x-0={$visible} data-testid="drawer">
 	<!-- Header -->
 	{#if $$slots.header}
 		<header class="flex-none"><slot name="header" /></header>
@@ -62,9 +57,5 @@
 
 <!-- Backdrop -->
 {#if $visible}
-	<div
-		class="drawer-backdrop {classesBackdrop}"
-		on:click={onBackdropClick}
-		transition:fade|local={{ duration: 250 }}
-	/>
+	<div class="drawer-backdrop {classesBackdrop}" on:click={onBackdropClick} transition:fade|local={{ duration: 250 }} />
 {/if}

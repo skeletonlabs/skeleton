@@ -178,10 +178,7 @@
 	<header class="space-y-4">
 		<h1>Data Tables</h1>
 		<p>Interactive table with support for search, sort, and pagination.</p>
-		<CodeBlock
-			language="javascript"
-			code={`import { DataTable } from '@brainandbones/skeleton';`}
-		/>
+		<CodeBlock language="javascript" code={`import { DataTable } from '@brainandbones/skeleton';`} />
 	</header>
 
 	<!-- Examples -->
@@ -192,33 +189,14 @@
 		</TabGroup>
 		{#if $tabExample === 'local'}<p>Render a table using data fully available client-side.</p>{/if}
 		{#if $tabExample === 'async'}<p>
-				Render a table using asycronous data, such as an HTTP call to an API. The example below
-				fetches data from <a href="https://jsonplaceholder.typicode.com/" target="_blank"
-					>JSON Placeholder</a
-				>
+				Render a table using asycronous data, such as an HTTP call to an API. The example below fetches data from <a href="https://jsonplaceholder.typicode.com/" target="_blank">JSON Placeholder</a>
 			</p>{/if}
 		<Card class="space-y-4">
 			<!-- Tab: Local -->
 			{#if $tabExample === 'local'}
-				<DataTable
-					headings={tableLocal.headings}
-					bind:source={tableLocal.source}
-					search={tableLocal.search}
-					sort={tableLocal.sort}
-					interactive
-					on:sorted={onSort}
-					on:selected={onSelect}
-				>
-					<svelte:fragment slot="header"
-						><input
-							type="search"
-							placeholder="Search..."
-							bind:value={tableLocal.search}
-						/></svelte:fragment
-					>
-					<svelte:fragment slot="footer"
-						><pre class="text-center">Count: {tableLocal.source.length} Items</pre></svelte:fragment
-					>
+				<DataTable headings={tableLocal.headings} bind:source={tableLocal.source} search={tableLocal.search} sort={tableLocal.sort} interactive on:sorted={onSort} on:selected={onSelect}>
+					<svelte:fragment slot="header"><input type="search" placeholder="Search..." bind:value={tableLocal.search} /></svelte:fragment>
+					<svelte:fragment slot="footer"><pre class="text-center">Count: {tableLocal.source.length} Items</pre></svelte:fragment>
 				</DataTable>
 			{/if}
 			<!-- Tab: Async -->
@@ -236,16 +214,8 @@
 						on:sorted={onSort}
 						on:selected={onSelect}
 					>
-						<svelte:fragment slot="header"
-							><input
-								type="search"
-								placeholder="Search..."
-								bind:value={tableServer.search}
-							/></svelte:fragment
-						>
-						<svelte:fragment slot="footer"
-							><pre class="text-center">Count: {tableServer.count} Posts</pre></svelte:fragment
-						>
+						<svelte:fragment slot="header"><input type="search" placeholder="Search..." bind:value={tableServer.search} /></svelte:fragment>
+						<svelte:fragment slot="footer"><pre class="text-center">Count: {tableServer.count} Posts</pre></svelte:fragment>
 					</DataTable>
 				{:catch error}
 					<p style="text-center text-warning-500">{error.message}</p>
@@ -263,10 +233,7 @@
 		</TabGroup>
 		<!-- Tab: Local -->
 		{#if $tabExample === 'local'}
-			<p>
-				Ensure your heading and source keys are defined in the same order left-to-right. Note that
-				source values support stringified HTML.
-			</p>
+			<p>Ensure your heading and source keys are defined in the same order left-to-right. Note that source values support stringified HTML.</p>
 			<CodeBlock
 				language="typescript"
 				code={`
@@ -285,10 +252,7 @@ const source: any[] = [
             `.trim()}
 			/>
 			<h3>Fully Featured</h3>
-			<p>
-				The example below includes search, sort, and item count. Note that source is binding to
-				provide item count.
-			</p>
+			<p>The example below includes search, sort, and item count. Note that source is binding to provide item count.</p>
 			<CodeBlock
 				language="typescript"
 				code={`
@@ -352,10 +316,7 @@ async function getTableSource(): Promise<any> {
 let tablePromise: Promise<any> = getTableSource();
             `.trim()}
 			/>
-			<p>
-				Use Svelte await blocks to handle loading, complete, and error states. Please ensure you
-				bind 'count' to handle item count.
-			</p>
+			<p>Use Svelte await blocks to handle loading, complete, and error states. Please ensure you bind 'count' to handle item count.</p>
 			<CodeBlock
 				language="html"
 				code={`
@@ -380,10 +341,7 @@ let tablePromise: Promise<any> = getTableSource();
 {/await}
             `.trim()}
 			/>
-			<p>
-				If you prefer to use server-side search and sort, enable the 'async' property. This disables
-				local search and sort within the component.
-			</p>
+			<p>If you prefer to use server-side search and sort, enable the 'async' property. This disables local search and sort within the component.</p>
 			<CodeBlock
 				language="html"
 				code={`
@@ -398,10 +356,7 @@ let tablePromise: Promise<any> = getTableSource();
             `.trim()}
 			/>
 		{/if}
-		<p>
-			Handle events for sort and row selection. These are enabled for the demos at the top of the
-			page. View your browser's console log during interaction.
-		</p>
+		<p>Handle events for sort and row selection. These are enabled for the demos at the top of the page. View your browser's console log during interaction.</p>
 		<CodeBlock
 			language="typescript"
 			code={`

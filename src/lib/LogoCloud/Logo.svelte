@@ -23,12 +23,7 @@
 	}
 </script>
 
-<svelte:element
-	this={tag}
-	class="logo {classesLogo} {$$props.class}"
-	data-testid="logo"
-	{...prunedRestProps()}
->
+<svelte:element this={tag} class="logo {classesLogo} {$$props.class}" data-testid="logo" {...prunedRestProps()}>
 	<!-- Slot: lead -->
 	{#if $$slots.lead}<slot name="lead" />{/if}
 

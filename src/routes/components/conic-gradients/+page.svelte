@@ -31,9 +31,7 @@
 	};
 	const tableSlots: any = {
 		headings: ['Name', 'Description'],
-		source: [
-			['default', 'Allows you to define a label, description, or other supplementary information.']
-		]
+		source: [['default', 'Allows you to define a label, description, or other supplementary information.']]
 	};
 </script>
 
@@ -42,10 +40,7 @@
 	<header class="space-y-4">
 		<h1>Conic Gradient</h1>
 		<p>Create conic gradient visualizations for pie charts, loading spinners, and more.</p>
-		<CodeBlock
-			language="javascript"
-			code={`import { ConicGradient } from '@brainandbones/skeleton';`}
-		/>
+		<CodeBlock language="javascript" code={`import { ConicGradient } from '@brainandbones/skeleton';`} />
 	</header>
 
 	<!-- Examples -->
@@ -66,15 +61,9 @@
 	<!-- Usage -->
 	<section class="space-y-4">
 		<h2>Usage</h2>
-		<p>
-			Please note that only default Tailwind color values are currently supported, with the
-			exception of 'white', 'black', and 'transparent'. Weight is optional for these three values.
-		</p>
+		<p>Please note that only default Tailwind color values are currently supported, with the exception of 'white', 'black', and 'transparent'. Weight is optional for these three values.</p>
 		<h3>Pie Chart</h3>
-		<CodeBlock
-			language="html"
-			code={`<ConicGradient data={dataSet} legend={true}></ConicGradient>`}
-		/>
+		<CodeBlock language="html" code={`<ConicGradient data={dataSet} legend={true}></ConicGradient>`} />
 		<CodeBlock
 			language="js"
 			code={`

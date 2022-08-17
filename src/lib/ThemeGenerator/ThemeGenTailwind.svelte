@@ -41,9 +41,7 @@
 		Object.entries(rgbShades).forEach((set: any, i: number) => {
 			const [colorName, shades] = set;
 			// Add Comment Row
-			css += `${i === 0 ? `\t/* --- Tailwind Theme --- */\n` : '\n'}\t/* ${colorName} (${
-				formValues[colorName]
-			}) */`;
+			css += `${i === 0 ? `\t/* --- Tailwind Theme --- */\n` : '\n'}\t/* ${colorName} (${formValues[colorName]}) */`;
 			// Per each entry, add custom property key/value row
 			Object.entries(shades).forEach((shade) => {
 				const [shadeKey, shadeValue] = shade;
@@ -71,12 +69,7 @@
 		<!-- Primary -->
 		<label>
 			<span>Primary</span>
-			<select
-				name="primary"
-				id="primary"
-				bind:value={formValues.primary}
-				on:change={processPrimary}
-			>
+			<select name="primary" id="primary" bind:value={formValues.primary} on:change={processPrimary}>
 				{#each colorLabels as l}<option value={l}>{l}</option>{/each}
 			</select>
 			<Swatches palette={rgbShades.primary} />
@@ -94,12 +87,7 @@
 		<!-- Warning -->
 		<label>
 			<span>Warning</span>
-			<select
-				name="warning"
-				id="warning"
-				bind:value={formValues.warning}
-				on:change={processWarning}
-			>
+			<select name="warning" id="warning" bind:value={formValues.warning} on:change={processWarning}>
 				{#each colorLabels as l}<option value={l}>{l}</option>{/each}
 			</select>
 			<Swatches palette={rgbShades.warning} />
@@ -108,12 +96,7 @@
 		<!-- Surface -->
 		<label>
 			<span>Surface</span>
-			<select
-				name="surface"
-				id="surface"
-				bind:value={formValues.surface}
-				on:change={processSurface}
-			>
+			<select name="surface" id="surface" bind:value={formValues.surface} on:change={processSurface}>
 				{#each colorLabels as l}<option value={l}>{l}</option>{/each}
 			</select>
 			<Swatches palette={rgbShades.surface} />

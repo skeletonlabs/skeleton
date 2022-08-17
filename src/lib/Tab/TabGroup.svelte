@@ -17,8 +17,7 @@
 	setContext('color', color);
 
 	// Classes
-	const cBaseGroup: string =
-		'hide-scrollbar overflow-x-auto flex border-b-2 border-surface-300 dark:border-surface-700';
+	const cBaseGroup: string = 'hide-scrollbar overflow-x-auto flex border-b-2 border-surface-300 dark:border-surface-700';
 
 	// Handle Home/End Input
 	let elemTabGroup: HTMLElement;
@@ -40,13 +39,6 @@
 	$: classesGroup = `${cBaseGroup} ${justify} ${$$props.class || ''}`;
 </script>
 
-<nav
-	bind:this={elemTabGroup}
-	data-testid="tab-group"
-	class="tab-group {classesGroup}"
-	role="tablist"
-	aria-labelledby={labeledby}
-	aria-label={label}
->
+<nav bind:this={elemTabGroup} data-testid="tab-group" class="tab-group {classesGroup}" role="tablist" aria-labelledby={labeledby} aria-label={label}>
 	<slot />
 </nav>
