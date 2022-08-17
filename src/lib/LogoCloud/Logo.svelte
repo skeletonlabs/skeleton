@@ -1,37 +1,40 @@
 <script lang="ts">
-    import { getContext } from "svelte";
+	import { getContext } from 'svelte';
 
-    // Context
-    export let background = getContext('background');
-    export let color = getContext('color');
-    export let text = getContext('text');
-    
-    // Set tag and href values
-    const tag: string = $$props.href ? 'a' : 'div';
-    const href: any = $$props.href ? `href="${$$props.href}"` : undefined;
+	// Context
+	export let background = getContext('background');
+	export let color = getContext('color');
+	export let text = getContext('text');
 
-    // Base Classes
-    const cBaseLogo: string = 'flex-auto text-center py-10 space-x-4 hover:brightness-110';
+	// Set tag and href values
+	const tag: string = $$props.href ? 'a' : 'div';
+	const href: any = $$props.href ? `href="${$$props.href}"` : undefined;
 
-    // Reactive Classes
-    $: classesLogo = `${cBaseLogo} ${background} ${color} ${text}`;
+	// Base Classes
+	const cBaseLogo: string = 'flex-auto text-center py-10 space-x-4 hover:brightness-110';
 
-    // Prune $$restProps to avoid overwriting $$props.class
-    function prunedRestProps(): any {
-        delete $$restProps.class;
-        return $$restProps;
-    }
+	// Reactive Classes
+	$: classesLogo = `${cBaseLogo} ${background} ${color} ${text}`;
+
+	// Prune $$restProps to avoid overwriting $$props.class
+	function prunedRestProps(): any {
+		delete $$restProps.class;
+		return $$restProps;
+	}
 </script>
 
-<svelte:element this={tag} class="logo {classesLogo} {$$props.class}" data-testid="logo" {...prunedRestProps()}>
+<svelte:element
+	this={tag}
+	class="logo {classesLogo} {$$props.class}"
+	data-testid="logo"
+	{...prunedRestProps()}
+>
+	<!-- Slot: lead -->
+	{#if $$slots.lead}<slot name="lead" />{/if}
 
-    <!-- Slot: lead -->
-    {#if $$slots.lead}<slot name="lead"></slot>{/if}
+	<!-- Slot: Label -->
+	{#if $$slots.label}<span class="text-lg"><slot name="label" /></span>{/if}
 
-    <!-- Slot: Label -->
-    {#if $$slots.label}<span class="text-lg"><slot name="label"></slot></span>{/if}
-
-    <!-- Default -->
-    {#if !$$slots.lead && !$$slots.label}<slot />{/if}
-    
+	<!-- Default -->
+	{#if !$$slots.lead && !$$slots.label}<slot />{/if}
 </svelte:element>

@@ -17,9 +17,9 @@ const config = {
 			// default options are shown
 			pages: 'build',
 			assets: 'build',
-			fallback:'index.html', // index.html (SPA) | null (SSR)
+			fallback: 'index.html', // index.html (SPA) | null (SSR)
 			precompress: false
-		}),
+		})
 		// vite: { ...moved to vite.config.js... }
 	}
 };
