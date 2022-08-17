@@ -18,36 +18,16 @@
 	let cSize: string, cText: string;
 
 	// Set Size
+	// prettier-ignore
 	function setSize(): void {
 		switch (size) {
-			case 'sm':
-				cSize = 'w-10';
-				cText = 'text-base';
-				break;
-			case 'md':
-				cSize = 'w-12';
-				cText = 'text-lg';
-				break;
-			case 'lg':
-				cSize = 'w-16';
-				cText = 'text-2xl';
-				break;
-			case 'xl':
-				cSize = 'w-24';
-				cText = 'text-4xl';
-				break;
-			case '2xl':
-				cSize = 'w-32';
-				cText = 'text-5xl';
-				break;
-			case '3xl':
-				cSize = 'w-40';
-				cText = 'text-6xl';
-				break;
-			case 'full':
-				cSize = 'w-full max-w-[400px]';
-				cText = 'text-base sm:text-2xl md:text-4xl lg:text-6xl xl:text-9xl';
-				break;
+			case 'sm':  cSize = 'w-10'; cText = 'text-base'; break;
+			case 'md':  cSize = 'w-12'; cText = 'text-lg'; break;
+			case 'lg':  cSize = 'w-16'; cText = 'text-2xl'; break;	
+			case 'xl':  cSize = 'w-24'; cText = 'text-4xl'; break;
+			case '2xl': cSize = 'w-32'; cText = 'text-5xl'; break;
+			case '3xl': cSize = 'w-40'; cText = 'text-6xl'; break;
+			case 'full': cSize = 'w-full max-w-[400px]'; cText = 'text-base sm:text-2xl md:text-4xl lg:text-6xl xl:text-9xl'; break;
 		}
 	}
 

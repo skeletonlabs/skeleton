@@ -25,115 +25,63 @@
 		'inline-flex justify-center items-center space-x-2 text-center whitespace-nowrap ring-inset pointer-cursor';
 
 	// Set Size
-	let cSize: string;
-	function setSize(): void {
-		switch (size) {
-			case 'none':
-				cSize = 'text-base';
-				break;
-			case 'sm':
-				cSize = 'text-sm px-3 py-2';
-				break;
-			case 'lg':
-				cSize = 'text-lg px-6 py-3';
-				break;
-			case 'xl':
-				cSize = 'text-xl px-7 py-3.5';
-				break;
-			default:
-				cSize = 'text-base px-5 py-2.5'; // base
-		}
-	}
+	// prettier-ignore
+    let cSize: string;
+    function setSize(): void {
+        switch(size) {
+            case('none'): cSize = 'text-base'; break;
+            case('sm'):   cSize = 'text-sm px-3 py-2'; break;
+            case('lg'):   cSize = 'text-lg px-6 py-3'; break;
+            case('xl'):   cSize = 'text-xl px-7 py-3.5'; break;
+            default:      cSize = 'text-base px-5 py-2.5'; // base
+        }
+    }
 
 	// Set Variant Styles
-	// TODO: refactor and improve this
-	function setProps(
-		vBackground?: string,
-		vColor?: string,
-		vFill?: string,
-		vRing?: string,
-		vWeight?: string,
-		vSize?: string
-	): void {
-		if (variant) {
-			if (vSize) size = vSize;
-			if (vBackground) background = vBackground;
-			if (vColor) color = vColor;
-			if (vFill) fill = vFill;
-			if (vRing) ring = vRing;
-			if (vWeight) weight = vWeight;
-		}
-	}
-	function setVariant(): void {
-		switch (variant) {
-			// Minimal
-			case 'minimal':
-				setProps('bg-transparent', 'text-initial', 'fill-initial', null, 'none', 'none');
-				break;
-			// Text
-			case 'text':
-				setProps('bg-transparent', 'text-black dark:text-white', 'fill-black dark:fill-white');
-				break;
-			case 'text-primary':
-				setProps('bg-transparent', 'text-primary-500', 'fill-primary-500');
-				break;
-			case 'text-accent':
-				setProps('bg-transparent', 'text-accent-500', 'fill-accent-500');
-				break;
-			case 'text-warning':
-				setProps('bg-transparent', 'text-warning-500', 'fill-warning-500');
-				break;
-			// Filled
-			case 'filled':
-				setProps(null, null, null);
-				break;
-			case 'filled-primary':
-				setProps('bg-primary-500', 'text-white', 'fill-white');
-				break;
-			case 'filled-accent':
-				setProps('bg-accent-500', 'text-white', 'fill-white');
-				break;
-			case 'filled-warning':
-				setProps('bg-warning-500', 'text-white', 'fill-white');
-				break;
-			// Ring
-			case 'ring':
-				setProps(
-					'bg-transparent',
-					'text-black dark:text-white',
-					'fill-black dark:fill-white',
-					'ring-black dark:ring-white'
-				);
-				break;
-			case 'ring-primary':
-				setProps('bg-transparent', 'text-primary-500', 'fill-primary-500', 'ring-primary-500');
-				break;
-			case 'ring-accent':
-				setProps('bg-transparent', 'text-accent-500', 'fill-accent-500', 'ring-accent-500');
-				break;
-			case 'ring-warning':
-				setProps('bg-transparent', 'text-warning-500', 'fill-warning-500', 'ring-warning-500');
-				break;
-			// Ghost
-			case 'ghost':
-				setProps(
-					'bg-black/10 dark:bg-white/10',
-					'text-black dark:text-white',
-					'fill-black dark:fill-white',
-					'ring-black dark:ring-white'
-				);
-				break;
-			case 'ghost-primary':
-				setProps('bg-primary-500/10', 'text-primary-500', 'fill-primary-500', 'ring-primary-500');
-				break;
-			case 'ghost-accent':
-				setProps('bg-accent-500/10', 'text-accent-500', 'fill-accent-500', 'ring-accent-500');
-				break;
-			case 'ghost-warning':
-				setProps('bg-warning-500/10', 'text-warning-500', 'fill-warning-500', 'ring-warning-500');
-				break;
-		}
-	}
+    // TODO: refactor and improve this
+	// prettier-ignore
+    function setProps(vBackground?: string, vColor?: string, vFill?: string, vRing?: string, vWeight?: string, vSize?: string): void {
+        if (variant) {
+            if (vSize) size = vSize;
+            if (vBackground) background = vBackground;
+            if (vColor) color = vColor;
+            if (vFill) fill = vFill;
+            if (vRing) ring = vRing;
+            if (vWeight) weight = vWeight;
+        }
+    }
+
+	// prettier-ignore
+    function setVariant(): void {
+        switch(variant) {
+            // Minimal
+            case('minimal'): setProps('bg-transparent', 'text-initial', 'fill-initial', null, 'none', 'none'); break;
+            // Text
+            case('text'):         setProps('bg-transparent', 'text-black dark:text-white', 'fill-black dark:fill-white'); break;
+            case('text-primary'): setProps('bg-transparent', 'text-primary-500', 'fill-primary-500'); break;
+            case('text-accent'):  setProps('bg-transparent', 'text-accent-500', 'fill-accent-500'); break;
+            case('text-warning'): setProps('bg-transparent', 'text-warning-500', 'fill-warning-500'); break;
+            // Filled
+            case('filled'):         setProps(null, null, null); break;
+            case('filled-primary'): setProps('bg-primary-500', 'text-white', 'fill-white'); break;
+            case('filled-accent'):  setProps('bg-accent-500', 'text-white', 'fill-white'); break;
+            case('filled-warning'): setProps('bg-warning-500', 'text-white', 'fill-white'); break;
+            // Ring
+            case('ring'):         setProps(
+                'bg-transparent', 'text-black dark:text-white', 'fill-black dark:fill-white', 'ring-black dark:ring-white'
+            ); break;
+            case('ring-primary'): setProps('bg-transparent', 'text-primary-500', 'fill-primary-500', 'ring-primary-500'); break;
+            case('ring-accent'):  setProps('bg-transparent', 'text-accent-500', 'fill-accent-500', 'ring-accent-500'); break;
+            case('ring-warning'): setProps('bg-transparent', 'text-warning-500', 'fill-warning-500', 'ring-warning-500'); break;
+            // Ghost
+            case('ghost'):         setProps(
+                'bg-black/10 dark:bg-white/10', 'text-black dark:text-white', 'fill-black dark:fill-white', 'ring-black dark:ring-white'
+            ); break;
+            case('ghost-primary'): setProps('bg-primary-500/10', 'text-primary-500', 'fill-primary-500', 'ring-primary-500'); break;
+            case('ghost-accent'):  setProps('bg-accent-500/10', 'text-accent-500', 'fill-accent-500', 'ring-accent-500'); break;
+            case('ghost-warning'): setProps('bg-warning-500/10', 'text-warning-500', 'fill-warning-500', 'ring-warning-500'); break;
+        }
+    }
 
 	// On Init
 	setSize();
