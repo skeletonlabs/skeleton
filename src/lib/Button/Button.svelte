@@ -25,9 +25,9 @@
 		'inline-flex justify-center items-center space-x-2 text-center whitespace-nowrap ring-inset pointer-cursor';
 
 	// Set Size
-    let cSize: string;
+	let cSize: string;
 	// prettier-ignore
-    function setSize(): void {
+	function setSize(): void {
         switch(size) {
             case('none'): cSize = 'text-base'; break;
             case('sm'):   cSize = 'text-sm px-3 py-2'; break;
@@ -38,9 +38,9 @@
     }
 
 	// Set Variant Styles
-    // TODO: refactor and improve this
+	// TODO: refactor and improve this
 	// prettier-ignore
-    function setProps(vBackground?: string, vColor?: string, vFill?: string, vRing?: string, vWeight?: string, vSize?: string): void {
+	function setProps(vBackground?: string, vColor?: string, vFill?: string, vRing?: string, vWeight?: string, vSize?: string): void {
         if (variant) {
             if (vSize) size = vSize;
             if (vBackground) background = vBackground;
@@ -52,7 +52,7 @@
     }
 
 	// prettier-ignore
-    function setVariant(): void {
+	function setVariant(): void {
         switch(variant) {
             // Minimal
             case('minimal'): setProps('bg-transparent', 'text-initial', 'fill-initial', null, 'none', 'none'); break;
