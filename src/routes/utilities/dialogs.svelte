@@ -178,7 +178,7 @@
     <!-- Import Component -->
     <section class="space-y-4">
         <h2>Dialog Component</h2>
-        <p>Add the following to your root <code>__layout.svelte</code> component.</p>
+        <p>Add the following to your app's root component:</p>
         <CodeBlock language="js" code={`import { Dialog } from '@brainandbones/skeleton';`}></CodeBlock>
         <CodeBlock language="html" code={`<Dialog backdrop="bg-primary-500/50" blur="backdrop-blur-sm" card="bg-primary-500" duration={250} />
         `.trim()}></CodeBlock>

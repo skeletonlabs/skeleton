@@ -1,8 +1,12 @@
 <script lang="ts">
+    import { storeFramework } from "../stores";
+
     import Card from "$lib/Card/Card.svelte";
     import Button from "$lib/Button/Button.svelte";
     import Divider from "$lib/Divider/Divider.svelte";
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
+    import TabGroup from "$lib/Tab/TabGroup.svelte";
+    import Tab from "$lib/Tab/Tab.svelte";
 </script>
 
 <div class="space-y-8">
@@ -13,16 +17,29 @@
         <p>Below we'll review best practices for global styles, as well as how to override and adjust individual component styling.</p>
 	</header>
 
+    <Divider />
+
     <!-- Global Styles -->
     <section class="space-y-4">
         <h2>Global Styles</h2>
-        <p>Click the button below to reference how we setup the global stylesheet for this site, which was built using SvelteKit + Skeleton.</p>
-        <Button variant="filled-accent" href="https://github.com/Brain-Bones/skeleton/blob/master/src/app.css" target="_blank">View Stylesheet Example</Button>
-        <h3>Best Practices</h3>
-        <p>Here's a few best practices guidelines we recommend you follow:</p>
+        <TabGroup selected={storeFramework}>
+            <Tab value="sveltekit">SvelteKit</Tab>
+            <Tab value="vite">Vite (Svelte)</Tab>
+            <Tab value="astro">Astro</Tab>
+        </TabGroup>
+        <!-- Framework: SvelteKit | Vite (Svelte) -->
+        {#if $storeFramework === 'sveltekit' || $storeFramework === 'vite'}
+        <p>Your global stylesheet is located in <code>/src/app.css</code>.</p>
+        <!-- Framework: Astro -->
+        {:else if $storeFramework === 'astro'}
+        <p>Your global stylesheet is located in <code>/src/styles/base.css</code>.</p>
+        {/if}
+        <p>You can try the <code>body</code> style below or review the global stylesheet for <a href="https://github.com/Brain-Bones/skeleton/blob/master/src/app.css" target="_blank">this documentation site</a>.</p>
+        <CodeBlock language="css" code={`body { @apply bg-surface-100 dark:bg-surface-900 text-black dark:text-white p-4; }`}></CodeBlock>
+        <p>Here's a few suggested best practices when creating global styles:</p>
         <ul class="list-disc list-inside">
             <li>Utilize <a href="https://tailwindcss.com/docs/reusing-styles#extracting-classes-with-apply" target="_blank">Tailwind @apply</a> to define and implement styles whenever possible.</li>
-            <li>Utilize the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:not" target="_blank">CSS :not pseudo-class</a> to create global styles that exclude and avoid overwriting inherit component styles.</li>
+            <li>Utilize the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:not" target="_blank">CSS :not pseudo-class</a> to exclude and avoid overwriting each component's inherit styles.</li>
             <li>Utilize the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Tailwind Forms plugin</a> to handle form input styling. View our <a href="/guides/forms">Forms guide</a> for more details.</li>
         </ul>
     </section>
