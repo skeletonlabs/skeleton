@@ -18,22 +18,13 @@
 	// Set content anchor origin
 	let cOrigin: string;
 	function setOrigin(): void {
+		// prettier-ignore
 		switch (origin) {
-			case 'tl':
-				cOrigin = 'origin-top-left left-0 mt-0';
-				break;
-			case 'tr':
-				cOrigin = 'origin-top-right right-0 mt-0';
-				break;
-			case 'bl':
-				cOrigin = 'origin-bottom-left top-[-5px] left-0 -translate-y-full';
-				break;
-			case 'br':
-				cOrigin = 'origin-bottom-right top-[-5px] right-0 -translate-y-full';
-				break;
-			default:
-				setAutoOrigin();
-				break;
+			case 'tl': cOrigin = 'origin-top-left left-0 mt-0'; break;
+			case 'tr': cOrigin = 'origin-top-right right-0 mt-0'; break;
+			case 'bl': cOrigin = 'origin-bottom-left top-[-5px] left-0 -translate-y-full'; break;
+			case 'br': cOrigin = 'origin-bottom-right top-[-5px] right-0 -translate-y-full'; break;
+			default: setAutoOrigin(); break;
 		}
 	}
 	setOrigin(); // on init
@@ -72,7 +63,6 @@
 	// Handle click on <body> element
 	// Source: https://svelte.dev/repl/0ace7a508bd843b798ae599940a91783?version=3.16.7
 	function handleBodyClick(event: any): void {
-		// If menu not open, exit
 		if (!open) return;
 		// If click is outside menu, close menu
 		if (elemMenu && !elemMenu.contains(event.target) && !event.defaultPrevented) {
@@ -108,7 +98,7 @@
 	});
 
 	onDestroy(() => {
-		// close when navigating
+		// Close when navigating away
 		open = false;
 	});
 
@@ -121,13 +111,11 @@
 
 <div bind:this={elemMenu} class="menu-wrapper {classesMenu} {$$props.class}" data-testid="menu-wrapper">
 	<!-- Trigger Button -->
-	<!-- REMOVED: role="button" aria-haspopup="true" aria-expanded={open} -->
 	<div class="menu-trigger" on:click={toggle} data-testid="menu-trigger">
 		{#if $$slots.trigger}<slot name="trigger" />{/if}
 	</div>
 
 	<!-- Content -->
-	<!-- NOTE: most A11y settings are built into List/ListItem -->
 	{#if open}
 		<div role="menu" class="menu-content {classesContent}" data-testid="menu-content" in:fade={{ duration }} out:fade={{ duration }}>
 			{#if $$slots.content}<slot name="content" />{/if}
