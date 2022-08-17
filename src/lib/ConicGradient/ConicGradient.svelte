@@ -66,7 +66,6 @@
 
 <!-- Colors -->
 
-
 <!-- <pre>{JSON.stringify(currentCone, null, 2)}</pre> -->
 
 <figure class="conic-gradient text-center space-y-4" data-testid="conic-gradient">
