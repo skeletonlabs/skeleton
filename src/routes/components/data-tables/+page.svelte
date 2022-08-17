@@ -55,7 +55,7 @@
 
 	// Props
 	// prettier-ignore
-    const tableProps: any = {
+	const tableProps: any = {
         headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
         source: [
             {prop: 'headings', type: 'string[]', default: '[]', req: '&check;', desc: 'Provide a list of table headings.'},
@@ -68,7 +68,7 @@
         ],
     }
 	// prettier-ignore
-    const tablePropStyles: any = {
+	const tablePropStyles: any = {
         headings: ['Prop', 'Type', 'Default', 'Description'],
         source: [
             {prop: 'header', type: 'string', default: 'bg-surface-50 dark:bg-surface-700', desc: 'Provide a class to set the table header background color.'},

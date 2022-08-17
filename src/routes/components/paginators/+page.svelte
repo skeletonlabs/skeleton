@@ -41,7 +41,7 @@
 
 	// Props
 	// prettier-ignore
-    const tableProps: any = {
+	const tableProps: any = {
         headings: ['Prop', 'Type', 'Default', 'Description'],
         source: [
             {prop: 'offset', type: 'number', default: '0', desc: 'Index of the first list item to display.'},
@@ -51,7 +51,7 @@
         ],
     };
 	// prettier-ignore
-    const tablePropsDesign: any = {
+	const tablePropsDesign: any = {
         headings: ['Prop', 'Type', 'Default', 'Description'],
         source: [
             {prop: 'justify', type: 'string', default: 'justify-between', desc: 'Provide a class to set flexbox justification.'},
