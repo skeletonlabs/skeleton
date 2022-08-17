@@ -36,6 +36,19 @@
             ['lead', 'Provides a leading position, which can be used for icons.'],
         ],
     };
+    const tableA11yGroup: any = {
+        headings: ['Prop', 'Type', 'Required', 'Description'],
+        source: [
+            ['labeledby', 'string', '-', `Provide the ID of the element that describes the group.`],
+            ['label', 'string', '-', `Defines a semantic label for the group.`],
+        ],
+    };
+    const tableA11yTab: any = {
+        headings: ['Prop', 'Type', 'Required', 'Description'],
+        source: [
+            ['label', 'string', '-', `Defines a semantic label for the tab.`],
+        ],
+    };
 </script>
 
 <div class="space-y-8">
@@ -92,15 +105,15 @@
             </TabGroup>
             <div>
                 {#if $storeThree === 'a'}
-                    <h4>Books</h4>
+                    <h3>Books</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
                 {/if}
                 {#if $storeThree === 'b'}
-                    <h4>Movies</h4>
+                    <h3>Movies</h3>
                     <p>Nisl nunc mi ipsum faucibus vitae aliquet nec. Ac ut consequat semper viverra nam libero justo laoreet. Nec sagittis aliquam malesuada.</p>
                 {/if}
                 {#if $storeThree === 'c'}
-                    <h4>Television</h4>
+                    <h3>Television</h3>
                     <p>Ut sem viverra aliquet eget sit. Porttitor lacus luctus accumsan tortor posuere ac ut consequat. Vulputate enim nulla aliquet porttitor.</p>
                 {/if}
             </div>
@@ -131,17 +144,29 @@ let storeTab: Writable<string> = writable('a');`}></CodeBlock>
     <!-- Properties -->
 	<section class="space-y-4">
 		<h2>Properties</h2>
-        <h4>Tab Group</h4>
+        <h3>Tab Group</h3>
         <DataTable headings="{tablePropsGroup.headings}" source="{tablePropsGroup.source}"></DataTable>
-        <h4>Tab</h4>
+        <h3>Tab</h3>
         <DataTable headings="{tablePropsItem.headings}" source="{tablePropsItem.source}"></DataTable>
 	</section>
 	
 	<!-- Slots -->
 	<section class="space-y-4">
 		<h2>Slots</h2>
-        <h4>Tab</h4>
+        <h3>Tab</h3>
         <DataTable headings="{tableSlots.headings}" source="{tableSlots.source}"></DataTable>
+	</section>
+
+    <!-- Accessibility -->
+	<section class="space-y-4">
+        <div class="flex justify-between items-center">
+            <h2>Accessibility</h2>
+            <a href="https://www.w3.org/WAI/ARIA/apg/patterns/tabpanel/" target="_blank">ARIA Guidelines</a>
+        </div>
+        <h3>Tab Group</h3>
+		<DataTable headings="{tableA11yGroup.headings}" source="{tableA11yGroup.source}"></DataTable>
+        <h3>Tab</h3>
+		<DataTable headings="{tableA11yTab.headings}" source="{tableA11yTab.source}"></DataTable>
 	</section>
     
 </div>

@@ -51,7 +51,7 @@
                 </svelte:fragment>
                 <div class="space-y-4">
                     <h6 class="text-primary-500">Announcements</h6>
-                    <h4>Welcome to Skeleton</h4>
+                    <h3>Welcome to Skeleton</h3>
                     <article class="text-surface-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam aspernatur provident eveniet eligendi cumque consequatur tempore sint nisi sapiente. Iste beatae laboriosam iure molestias cum expedita architecto itaque quae rem.</article>
                 </div>
                 <svelte:fragment slot="footer">

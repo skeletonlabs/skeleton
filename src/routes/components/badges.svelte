@@ -67,7 +67,7 @@
                 </div>
             </Card>
         </section>
-        <h4>Positioning</h4>
+        <h3>Positioning</h3>
         <section class="space-y-4 md:space-y-0 md:grid md:grid-cols-3 md:gap-4">
             <Card>
                 <div class="flex justify-center items-center h-full space-x-2">

@@ -14,8 +14,12 @@
 <div class="space-y-8 lg:text-left">
 
     <!-- Early Access Message -->
-    <section class="bg-accent-500/20 border-l-2 border-l-green-500 p-4 text-center">
-        <p>Skeleton is currently early access. If you experience bugs or would like to request a feature, please <a href="https://github.com/Brain-Bones/skeleton/issues" target="_blank">create an issue on Github</a>.</p>
+    <section class="bg-accent-500/10 border-l-2 border-l-green-500 p-4 flex justify-between items-center space-x-4">
+        <p class="!text-white">
+            <span class="mr-2">🚧</span>
+            Skeleton is available as a public beta. Expect breaking changes prior to v1.0. If you encounter issues please report them on GitHub.
+        </p>
+        <Button variant="ghost" href="https://github.com/Brain-Bones/skeleton/issues">Report Issue</Button>
     </section>
 
     <!-- Hero -->

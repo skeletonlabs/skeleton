@@ -4,7 +4,7 @@
     import Card from "$lib/Card/Card.svelte";
     import Button from '$lib/Button/Button.svelte';
     import List from '$lib/List/List.svelte';
-    import NavItem from '$lib/List/NavItem.svelte';
+    import ListItem from '$lib/List/ListItem.svelte';
     import Menu from '$lib/Menu/Menu.svelte';
 
     // Tables and Slots
@@ -45,9 +45,9 @@
                 <Button slot="trigger" variant="ghost-primary" type="button">Menu</Button>
                 <!-- Slot: Content -->
                 <Card slot="content" background="bg-surface-300 dark:bg-surface-700" class="w-[200px] p-[0px] shadow-xl overflow-hidden">
-                    <List role="nav">
-                        <NavItem>Item 1</NavItem>
-                        <NavItem>Item 2</NavItem>
+                    <List tag="nav">
+                        <ListItem>Item 1</ListItem>
+                        <ListItem>Item 2</ListItem>
                     </List>
                 </Card>
             </Menu>
@@ -55,13 +55,13 @@
             <Menu origin="tr" select={true}>
                 <Button slot="trigger" variant="ghost-accent" type="button">Select</Button>
                 <Card slot="content" background="bg-surface-300 dark:bg-surface-700" class="w-[200px] p-[0px] shadow-xl overflow-hidden">
-                    <List role="nav">
-                        <NavItem>Item 1</NavItem>
-                        <NavItem>Item 2</NavItem>
-                        <NavItem>Item 3</NavItem>
-                        <NavItem>Item 4</NavItem>
-                        <NavItem>Item 5</NavItem>
-                        <NavItem href="/">Navigate</NavItem>
+                    <List tag="nav">
+                        <ListItem>Item 1</ListItem>
+                        <ListItem>Item 2</ListItem>
+                        <ListItem>Item 3</ListItem>
+                        <ListItem>Item 4</ListItem>
+                        <ListItem>Item 5</ListItem>
+                        <ListItem href="/">Navigate</ListItem>
                     </List>
                 </Card>
             </Menu>
@@ -82,10 +82,10 @@
     <Button slot="trigger" variant="ghost-primary" type="button">Menu</Button>
     <!-- Slot: Content -->
     <Card slot="content" background="bg-surface-300 dark:bg-surface-700" class="w-[200px] p-[0px] shadow-xl overflow-hidden">
-        <List role="nav">
-            <NavItem href="/">Item 1</NavItem>
-            <NavItem href="/">Item 2</NavItem>
-            <NavItem href="/">Item 3</NavItem>
+        <List tag="nav">
+            <ListItem href="/">Item 1</ListItem>
+            <ListItem href="/">Item 2</ListItem>
+            <ListItem href="/">Item 3</ListItem>
         </List>
     </Card>
 </Menu>
@@ -95,8 +95,8 @@
 
     <!-- Notes -->
     <section class="space-y-4">
-        <h4>Auto Origin Positioning</h4>
-        <p>The menu defaults to <code>origin: "auto"</code>. This will attempt to keep the menu visible on-screen at all times. Specifically on window resize or if the parent element is scrolled.</p>
+        <h3>Auto Origin Positioning</h3>
+        <p>The menu defaults to <code>origin: "auto"</code>. This will attempt to keep the menu visible on-screen at all times. Specifically on window resize or when the parent element is scrolled.</p>
     </section>
 
     <!-- Properties -->
@@ -109,6 +109,19 @@
 	<section class="space-y-4">
 		<h2>Slots</h2>
         <DataTable headings="{tableSlots.headings}" source="{tableSlots.source}"></DataTable>
+	</section>
+
+    <!-- Accessibility -->
+	<section class="space-y-4">
+        <div class="flex justify-between items-end">
+            <h2>Accessibility</h2>
+            <nav class="flex space-x-4">
+                <span>ARIA</span>
+                <a href="https://www.w3.org/WAI/ARIA/apg/patterns/menu/" target="_blank">Menu</a>
+                <a href="https://www.w3.org/WAI/ARIA/apg/patterns/menubutton/" target="_blank">Button</a>
+            </nav>
+        </div>
+        <p>See the <a href="/components/list">List component</a> accessibility options if you wish to embed a List within your Menu.</p>
 	</section>
     
 </div>

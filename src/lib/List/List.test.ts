@@ -6,6 +6,7 @@ import { cleanup, render } from '@testing-library/svelte';
 import { afterEach, describe, it, expect } from 'vitest';
 import { writable } from 'svelte/store';
 
+// @ts-ignore
 import List from '$lib/List/List.svelte'
  
 describe('List.svelte', () => {

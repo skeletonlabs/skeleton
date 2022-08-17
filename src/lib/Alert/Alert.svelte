@@ -17,7 +17,7 @@
 </script>
 
 {#if visible}
-<div class="alert" transition:fade|local={{duration}} data-testid="alert">
+<div class="alert" transition:fade|local={{duration}} data-testid="alert" role="alert" aria-live="polite">
 	<Card {background} {color} class="{classesCard}">
 
 		<!-- Slot: Lead -->
@@ -30,7 +30,7 @@
 		<!-- Content -->
 		<section class="flex flex-col w-full justify-center space-y-2">
 			<!-- Slot: Title -->
-			<h4><slot name="title">(REQUIRED: Title Slot)</slot></h4>
+			<h3><slot name="title">(REQUIRED: Title Slot)</slot></h3>
 			<!-- Slot: Message -->
 			{#if $$slots.message}
 				<div class="{color} opacity-70"><slot name="message" /></div>

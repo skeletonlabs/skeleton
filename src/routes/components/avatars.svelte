@@ -146,4 +146,10 @@
         <DataTable headings="{tableProps.headings}" source="{tableProps.source}"></DataTable>
     </section>
 
+    <!-- Accessibility -->
+    <section class="space-y-4">
+        <h2>Accessibility</h2>
+        <p>You many apply an <code>alt</code> tag, which is appended to the image element.</p>
+    </section>
+
 </div>

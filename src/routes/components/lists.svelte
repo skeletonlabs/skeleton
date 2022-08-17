@@ -6,7 +6,6 @@
     import DataTable from "$lib/Table/DataTable.svelte";
     import List from "$lib/List/List.svelte";
     import ListItem from "$lib/List/ListItem.svelte";
-    import NavItem from '$lib/List/NavItem.svelte';
 
     let navSingle: Writable<string> = writable('A');
     let navMultiple: Writable<string[]> = writable(['A', 'B']);
@@ -17,17 +16,17 @@
     const tablePropsGroup: any = {
         headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
         source: [
-            ['role', 'string', 'ul', 'ul | ol | dl | nav', , 'Defines the semantic wrapping element.'],
-            ['selected', 'Writable', '-', 'any', 'Nav role only. Provide a writable store to maintain list selection.'],
-            ['hover', 'string', 'hover:bg-primary-500/10', 'class', 'Nav role only. Provide a class to set hover background color.'],
-            ['highlight', 'string', '!bg-primary-500', 'class', 'Nav role only. Provide a class for highlighted rows. Note this must be use (!) for important.'],
+            ['tag', 'string', 'ul', 'ul | ol | dl | nav', , 'Defines the semantic wrapping element.'],
+            ['selected', 'Writable', '-', 'any', 'Nav tag only. Provide a writable store to maintain list selection.'],
+            ['hover', 'string', 'hover:bg-primary-500/10', 'class', 'Nav tag only. Provide a class to set hover background color.'],
+            ['highlight', 'string', '!bg-primary-500', 'class', 'Nav tag only. Provide a class for highlighted rows. Note this must be use (!) for important.'],
         ],
     };
-    const tablePropsNavItem: any = {
+    const tablePropsItems: any = {
         headings: ['Prop', 'Type', 'Description'],
         source: [
-            ['href', 'string', `Optionally provide an anchor href link value.`],
-            ['value', 'any', `Optionally provide a list value such as a key or index.`],
+            ['href', 'string', `To create a link, provide an anchor tag.`],
+            ['value', 'any', `To create a section item, provide a value.`],
         ],
     };
     const slotsItems: any = {
@@ -35,6 +34,20 @@
         source: [
             ['lead', 'Positioned on the left of each row item.'],
             ['trail', 'Positioned on the right of each row item.'],
+        ],
+    };
+    const tableA11yList: any = {
+        headings: ['Prop', 'Type', 'Default', 'Description'],
+        source: [
+            ['label', 'string', '-', `Define a semantic ARIA label.`],
+            ['labelledby', 'string', '-', `ID of the element that labels this this.`],
+        ],
+    };
+    const tableA11yItem: any = {
+        headings: ['Prop', 'Type', 'Default', 'Description'],
+        source: [
+            ['setsize', 'number', '-', `Nav Item only. Define the ARIA setsize value.`],
+            ['posinset ', 'number', '-', `Nav Item only. Define the ARIA posinset value.`],
         ],
     };
 </script>
@@ -45,19 +58,18 @@
     <header class="space-y-4">
         <h1>Lists</h1>
         <p class='space-y-4'>Lists are continuous, vertical indexes of text options.</p>
-        <CodeBlock language="js" code={`import { List, ListItem, NavItem } from '@brainandbones/skeleton';`}></CodeBlock>
+        <CodeBlock language="js" code={`import { List, ListItem } from '@brainandbones/skeleton';`}></CodeBlock>
     </header>
 
-    <!-- Roles -->
+    <!-- Variations -->
     <section class="space-y-4">
-        <h4>Roles</h4>
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-4">
             <section class="space-y-4">
                 <Card class="space-y-4">
                     <h6>Unordered</h6>
-                    <List role="ul">
-                        {#each ['A', 'B', 'C'] as v}
-                        <ListItem>
+                    <List tag="ul">
+                        {#each ['A', 'B', 'C'] as v, i}
+                        <ListItem tabindex={i}>
                             <svelte:fragment slot="lead">{@html svgHeart}</svelte:fragment>
                             Item {v}
                             <svelte:fragment slot="trail">{@html svgEllipsis}</svelte:fragment>
@@ -69,9 +81,9 @@
             <section class="space-y-4">
                 <Card class="space-y-4">
                     <h6>Ordered</h6>
-                    <List role="ol">
+                    <List tag="ol">
                         {#each ['A', 'B', 'C'] as v, i}
-                        <ListItem>
+                        <ListItem tabindex={i}>
                             <svelte:fragment slot="lead"><div class="circle">{i+1}</div></svelte:fragment>
                             Item {v}
                         </ListItem>
@@ -82,57 +94,53 @@
             <section class="space-y-4">
                 <Card class="space-y-4">
                     <h6>Description</h6>
-                    <List role="dl">
+                    <List tag="dl">
                         {#each ['A', 'B'] as v, i}
-                        <ListItem>
-                            <svelte:fragment slot="lead">{@html svgHeart}</svelte:fragment>
+                        <ListItem tabindex={i}>
                             <svelte:fragment slot="dt">Item {v}</svelte:fragment>
                             <svelte:fragment slot="dd"><p>Description for {v}</p></svelte:fragment>
-                            <svelte:fragment slot="trail">{@html svgEllipsis}</svelte:fragment>
                         </ListItem>
                         {/each}
+                    </List>
+                </Card>
+            </section>
+            <section class="space-y-4">
+                <Card class="space-y-4">
+                    <h6>Anchors</h6>
+                    <List tag="nav" label="Anchor List Example">
+                        <ListItem href="/">Page A</ListItem>
+                        <ListItem href="/">Page B</ListItem>
+                        <ListItem href="/">Page C</ListItem>
                     </List>
                 </Card>
             </section>
         </div>
     </section>
 
-    <!-- Navigation -->
+    <!-- Selection Listbox -->
     <section class="space-y-4">
-        <h4>Navigation and Selection</h4>
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <h3>Selection Listbox</h3>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
             <section class="space-y-4">
                 <Card class="space-y-4">
-                    <h6>Anchors</h6>
-                    <List role="nav">
-                        <NavItem href="/">Page A</NavItem>
-                        <NavItem href="/">Page B</NavItem>
-                        <NavItem href="/">Page C</NavItem>
-                    </List>
-                </Card>
-            </section>
-            <section class="space-y-4">
-                <Card class="space-y-4">
-                    <h6>Selection (single)</h6>
-                    <List role="nav" selected={navSingle}>
-                        <NavItem value={'A'}>Item A</NavItem>
-                        <NavItem value={'B'}>Item B</NavItem>
-                        <NavItem value={'C'}>Item C</NavItem>
+                    <h6>Single</h6>
+                    <List tag="nav" selected={navSingle} label="Single Selection">
+                        <ListItem value={'A'}>Item A</ListItem>
+                        <ListItem value={'B'}>Item B</ListItem>
+                        <ListItem value={'C'}>Item C</ListItem>
                     </List>
                     <pre>Selected: {$navSingle}</pre>
                 </Card>
             </section>
             <section class="space-y-4">
                 <Card class="space-y-4">
-                    <h6>Selection (multiple)</h6>
-                    <List role="nav" selected={navMultiple} hover="hover:bg-accent-500/10" highlight="!bg-accent-500">
-                        <NavItem value={'A'}>Item A</NavItem>
-                        <NavItem value={'B'}>Item B</NavItem>
-                        <NavItem value={'C'}>Item C</NavItem>
+                    <h6>Multiple</h6>
+                    <List tag="nav" selected={navMultiple} label="Multi-Selection" hover="hover:bg-accent-500/10" highlight="!bg-accent-500">
+                        <ListItem value={'A'}>Item A</ListItem>
+                        <ListItem value={'B'}>Item B</ListItem>
+                        <ListItem value={'C'}>Item C</ListItem>
                     </List>
-                    {#if $navMultiple}
                     <pre>Selected: {$navMultiple}</pre>
-                    {/if}
                 </Card>
             </section>
         </div>
@@ -149,49 +157,48 @@
     <ListItem>Item C</ListItem>
 </List>
         `.trim()}></CodeBlock>
-        <h4>Role and Slot</h4>
+        <h3>Role and Slot</h3>
         <CodeBlock language="html" code={`
-<List role="ol">
+<List tag="ol">
     <ListItem>
         <svelte:fragment slot="lead">1.</svelte:fragment>
         Item A
     </ListItem>
 </List>
         `.trim()}></CodeBlock>
-        <h4>Description List</h4>
+        <h3>Description List</h3>
         <CodeBlock language="html" code={`
-<List role="dl">
+<List tag="dl">
     <ListItem>
         <svelte:fragment slot="dt">Item A</svelte:fragment>
         <svelte:fragment slot="dd"><p>Description for A</p></svelte:fragment>
     </ListItem>
 </List>
         `.trim()}></CodeBlock>
-        <h4>Navigation Lists</h4>
-        <p>Use NavItems child elements and apply href value.</p>
+        <h3>Navigation Lists</h3>
         <CodeBlock language="html" code={`
-<List role="nav">
-    <NavItem href="/">Link Example 1</NavItem>
-    <NavItem href="/">Link Example 2</NavItem>
+<List tag="nav">
+    <ListItem href="/">Link Example 1</ListItem>
+    <ListItem href="/">Link Example 2</ListItem>
 </List>
         `.trim()}></CodeBlock>
-        <h4>Selection Lists</h4>
-        <p>Use NavItems as child elements, create a writable to store selected state, then apply a value property to each child.</p>
+        <h3>Selection Listbox</h3>
+        <p>Define a writable to store to house the selection state, then apply a value property to each child.</p>
         <h6>Single Value</h6>
         <CodeBlock language="typescript" code={`const storeSingle: Writable<number> = writable(1);`}></CodeBlock>
         <CodeBlock language="html" code={`
-<List role="nav" selected={storeSingle}"">
-    <NavItem value={1}>Selection Example 1</NavItem>
-    <NavItem value={2}>Selection Example 2</NavItem>
+<List tag="nav" selected={storeSingle}"">
+    <ListItem value={1}>Selection Example 1</ListItem>
+    <ListItem value={2}>Selection Example 2</ListItem>
 </List>
         `.trim()}></CodeBlock>
         <h6>Multiple Values</h6>
-        <CodeBlock language="typescript" code={`let storeMultiple: Writable<string[]> = writable(['A', 'B']);`}></CodeBlock>
+        <CodeBlock language="typescript" code={`let storeMultiple: Writable<any[]> = writable(['A', 'B']);`}></CodeBlock>
         <CodeBlock language="html" code={`
-<List role="nav" selected={storeMultiple}" hover="hover:bg-accent-500/10" highlight="!bg-accent-500">
-    <NavItem value={'A'}>Item A</NavItem>
-    <NavItem value={'B'}>Item B</NavItem>
-    <NavItem value={'C'}>Item C</NavItem>
+<List tag="nav" selected={storeMultiple}">
+    <ListItem value={'A'}>Item A</ListItem>
+    <ListItem value={'B'}>Item B</ListItem>
+    <ListItem value={'C'}>Item C</ListItem>
 </List>
         `.trim()}></CodeBlock>
     </section>
@@ -199,10 +206,10 @@
     <!-- Properties -->
     <section class='space-y-4'>
         <h2>Properties</h2>
-        <h4>List Group</h4>
+        <h3>List Group</h3>
         <DataTable headings="{tablePropsGroup.headings}" source="{tablePropsGroup.source}"></DataTable>
-        <h4>Nav Item</h4>
-        <DataTable headings="{tablePropsNavItem.headings}" source="{tablePropsNavItem.source}"></DataTable>
+        <h3>Nav Item</h3>
+        <DataTable headings="{tablePropsItems.headings}" source="{tablePropsItems.source}"></DataTable>
     </section>
     
     <!-- Slots -->
@@ -210,6 +217,18 @@
         <h2>Slots</h2>
         <DataTable headings="{slotsItems.headings}" source="{slotsItems.source}"></DataTable>
     </section>
+
+    <!-- Accessibility -->
+	<section class="space-y-4">
+        <div class="flex justify-between items-end">
+            <h2>Accessibility</h2>
+            <a href="https://www.w3.org/WAI/ARIA/apg/patterns/listbox/" target="_blank">ARIA Guidelines</a>
+        </div>
+        <h3>List</h3>
+		<DataTable headings="{tableA11yList.headings}" source="{tableA11yList.source}"></DataTable>
+        <h3>Items</h3>
+		<DataTable headings="{tableA11yItem.headings}" source="{tableA11yItem.source}"></DataTable>
+	</section>
 
 </div>
 
