@@ -40,65 +40,27 @@
 	}
 
 	// Props
-	const tableProps: any = {
-		headings: ['Prop', 'Type', 'Default', 'Description'],
-		source: [
-			{
-				prop: 'offset',
-				type: 'number',
-				default: '0',
-				desc: 'Index of the first list item to display.'
-			},
-			{ prop: 'limit', type: 'number', default: '5', desc: 'Current number of items to display.' },
-			{
-				prop: 'size',
-				type: 'number',
-				default: '10',
-				desc: 'The total size (length) of your source content.'
-			},
-			{
-				prop: 'amounts',
-				type: '<code>number[]</code>',
-				default: '[1,5,10,50,100]',
-				desc: 'List of amounts available to the select input.'
-			}
-		]
-	};
-	const tablePropsDesign: any = {
-		headings: ['Prop', 'Type', 'Default', 'Description'],
-		source: [
-			{
-				prop: 'justify',
-				type: 'string',
-				default: 'justify-between',
-				desc: 'Provide a class to set flexbox justification.'
-			},
-			{
-				prop: 'text',
-				type: 'string',
-				default: 'text-xs',
-				desc: 'Provide a class to style page context text.'
-			},
-			{
-				prop: 'select',
-				type: 'string',
-				default: '-',
-				desc: 'Provide one or more classes to style the amounts select element.'
-			},
-			{
-				prop: 'variant',
-				type: 'string',
-				default: 'filled-primary',
-				desc: 'Provide a <a href="/components/buttons">button variant</a> option.'
-			},
-			{
-				prop: 'rounded',
-				type: 'string',
-				default: '-',
-				desc: 'Provide a class to overwrite the button rounding style.'
-			}
-		]
-	};
+	// prettier-ignore
+    const tableProps: any = {
+        headings: ['Prop', 'Type', 'Default', 'Description'],
+        source: [
+            {prop: 'offset', type: 'number', default: '0', desc: 'Index of the first list item to display.'},
+            {prop: 'limit', type: 'number', default: '5', desc: 'Current number of items to display.'},
+            {prop: 'size', type: 'number', default: '10', desc: 'The total size (length) of your source content.'},
+            {prop: 'amounts', type: '<code>number[]</code>', default: '[1,5,10,50,100]', desc: 'List of amounts available to the select input.'},
+        ],
+    };
+	// prettier-ignore
+    const tablePropsDesign: any = {
+        headings: ['Prop', 'Type', 'Default', 'Description'],
+        source: [
+            {prop: 'justify', type: 'string', default: 'justify-between', desc: 'Provide a class to set flexbox justification.'},
+            {prop: 'text', type: 'string', default: 'text-xs', desc: 'Provide a class to style page context text.'},
+            {prop: 'select', type: 'string', default: '-', desc: 'Provide one or more classes to style the amounts select element.'},
+            {prop: 'variant', type: 'string', default: 'filled-primary', desc: 'Provide a <a href="/components/buttons">button variant</a> option.'},
+            {prop: 'rounded', type: 'string', default: '-', desc: 'Provide a class to overwrite the button rounding style.'},
+        ],
+    };
 
 	// Events
 	const tableEvents: any = {
