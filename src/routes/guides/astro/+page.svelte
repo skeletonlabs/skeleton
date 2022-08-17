@@ -123,8 +123,8 @@ import { LogoCloud, Logo } from '@brainandbones/skeleton';
 			For Skeleton components that make use of reactive Svelte features, such as the <code
 				>on:click</code
 			>
-			directive, Writable Stores, or Actions, you'll need to setup a dedicated Svelte wrapper
-			component. For this example we'll create <code>/src/components/WrapperExample.svelte</code>:
+			directive, Writable Stores, or Actions, you'll need to setup a dedicated Svelte wrapper component.
+			For this example we'll create <code>/src/components/WrapperExample.svelte</code>:
 		</p>
 		<CodeBlock
 			language="html"

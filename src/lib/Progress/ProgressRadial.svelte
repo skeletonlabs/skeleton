@@ -41,7 +41,6 @@
 
 <!-- https://css-tricks.com/building-progress-ring-quickly/ -->
 
-
 <figure
 	class="progress-radial relative overflow-hidden {$$props.class}"
 	data-testid="progress-radial"
