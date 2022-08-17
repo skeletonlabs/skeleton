@@ -1,24 +1,25 @@
 <script lang="ts">
-    import { fly, fade } from 'svelte/transition';
+	import { fly, fade } from 'svelte/transition';
 
-    import { toastStore } from '$lib/Notifications/Stores';
-    import Button from '$lib/Button/Button.svelte';
+	import { toastStore } from '$lib/Notifications/Stores';
+	import Button from '$lib/Button/Button.svelte';
 
-    // Props
-    export let background: string = 'bg-primary-500';
-    export let position: string = 'b'; // bottom
-    export let variant: string = 'ghost';
-    export let duration: number = 250;
+	// Props
+	export let background: string = 'bg-primary-500';
+	export let position: string = 'b'; // bottom
+	export let variant: string = 'ghost';
+	export let duration: number = 250;
 
-    // Base Classes
-    const cBaseToast: string = 'fixed z-50 flex items-center mx-auto py-3 px-4 max-w-[480px] space-x-4 rounded-xl';
-    const cBaseMessage: string = 'flex-1 text-base';
-    const cBaseActions: string = 'flex-none space-x-2';
+	// Base Classes
+	const cBaseToast: string = 'fixed z-50 flex items-center mx-auto py-3 px-4 max-w-[480px] space-x-4 rounded-xl';
+	const cBaseMessage: string = 'flex-1 text-base';
+	const cBaseActions: string = 'flex-none space-x-2';
 
-    // Set Position
-    let y: number = 100;
-    let cPosition: string;
-    switch (position) {
+	// Set Position
+	let y: number = 100;
+	let cPosition: string;
+	// prettier-ignore
+	switch (position) {
         // Centered
         case('t'): cPosition = 'left-4 right-4 top-4'; y = -100; break;
         case('b'): cPosition = 'left-4 right-4 bottom-4'; break;
@@ -30,36 +31,34 @@
         default: cPosition = 'left-4 right-4 bottom-4';
     }
 
-    // Functionality
-    function onAction(): void {
-        $toastStore[0].button.action();
-        toastStore.close();
-    }
-    function onDismiss(): void {
-        toastStore.close();
-    }
+	// Functionality
+	function onAction(): void {
+		$toastStore[0].button.action();
+		toastStore.close();
+	}
+	function onDismiss(): void {
+		toastStore.close();
+	}
 
-    // Reactive Classes
-    $: classesToast = `${cBaseToast} ${background} ${cPosition}`;
+	// Reactive Classes
+	$: classesToast = `${cBaseToast} ${background} ${cPosition}`;
 </script>
 
 {#if $toastStore.length}
-<div class="toast {classesToast}" transition:fly|local={{y, duration}} role="alert" aria-live="polite">
+	<div class="toast {classesToast}" transition:fly|local={{ y, duration }} role="alert" aria-live="polite">
+		<!-- Message -->
+		{#key $toastStore[0].message}
+			<div class="toast-message {cBaseMessage}" in:fade={{ duration: 250 }}>
+				{@html $toastStore[0].message}
+			</div>
+		{/key}
 
-    <!-- Message -->
-    {#key $toastStore[0].message}
-    <div class="toast-message {cBaseMessage}" in:fade={{duration: 250}}>
-        {@html $toastStore[0].message}
-    </div>
-    {/key}
-
-    <!-- Action -->
-    <div class="toast-actions {cBaseActions}">
-        {#if $toastStore[0].button}<Button {variant} on:click={onAction}>{$toastStore[0].button.label}</Button>{/if}
-        <Button {variant} on:click={onDismiss}>
-            {@html $toastStore[0].button ? '&#10005;' : 'Dismiss'}
-        </Button>
-    </div>
-    
-</div>
+		<!-- Action -->
+		<div class="toast-actions {cBaseActions}">
+			{#if $toastStore[0].button}<Button {variant} on:click={onAction}>{$toastStore[0].button.label}</Button>{/if}
+			<Button {variant} on:click={onDismiss}>
+				{@html $toastStore[0].button ? '&#10005;' : 'Dismiss'}
+			</Button>
+		</div>
+	</div>
 {/if}
