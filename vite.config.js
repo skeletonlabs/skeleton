@@ -1,5 +1,5 @@
 import { sveltekit } from '@sveltejs/kit/vite';
-import { configDefaults } from 'vitest/config'
+import { configDefaults } from 'vitest/config';
 
 /** @type {import('vite').UserConfig} */
 const config = {
@@ -11,7 +11,7 @@ const config = {
             '**/build/**'
         ],
         // setupFiles: []
-    }
+	}
 };
 
 export default config;
