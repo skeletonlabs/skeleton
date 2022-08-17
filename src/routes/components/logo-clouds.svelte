@@ -74,9 +74,9 @@
     <!-- Properties -->
     <section class="space-y-4">
         <h2>Properties</h2>
-        <h4>Logo Cloud</h4>
+        <h3>Logo Cloud</h3>
         <DataTable headings="{tablePropsCloud.headings}" source="{tablePropsCloud.source}"></DataTable>
-        <h4>Logo</h4>
+        <h3>Logo</h3>
         <DataTable headings="{tablePropsLogo.headings}" source="{tablePropsLogo.source}"></DataTable>
     </section>
 
@@ -85,4 +85,11 @@
         <h2>Slots</h2>
         <DataTable headings="{tableSlots.headings}" source="{tableSlots.source}"></DataTable>
     </section>
+
+    <!-- Accessibility -->
+    <section class="space-y-4">
+        <h2>Accessibility</h2>
+        <p>Make sure to apply appropriate <code>alt</code> tags to your logo icons and images.</p>
+    </section>
+
 </div>

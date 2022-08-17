@@ -76,7 +76,7 @@
                 <!-- Amount -->
                 {#if props.determinate}
                     <div class="flex items-center space-x-4">
-                        <input type="range" id="amount" name="amount" min="0" max={props.max} step="10" bind:value={props.value}>
+                        <input type="range" id="amount" name="amount" min="0" max={props.max} step="10" bind:value={props.value} aria-label="Value Amount">
                         <p class="text-sm w-12">{props.value}%</p>
                     </div>
                 {/if}
@@ -107,6 +107,12 @@
     <section class="space-y-4">
         <h2>Properties</h2>
         <DataTable headings="{tableProps.headings}" source="{tableProps.source}"></DataTable>
+    </section>
+
+    <!-- Accessibility -->
+    <section class="space-y-4">
+        <h2>Accessibility</h2>
+        <p>This component is treated as a <em>Meter</em>. View the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/meter/" target="_blank">ARIA Guidelines</a>.</p>
     </section>
 
 </div>

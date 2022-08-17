@@ -24,43 +24,43 @@
         <div class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-4">
             <section class="text-center overflow-hidden">
                 <img class="bg-surface-700 aspect-square w-full rounded-xl" src={placeholder} alt="example" />
-                <h6 class="mt-2">Original</h6>
+                <div class="mt-2">Original</div>
             </section>
             <section class="text-center overflow-hidden">
                 <img class="bg-surface-700 aspect-square w-full rounded-xl" src={placeholder} use:filter={'Emerald'} alt="example" />
-                <h6 class="mt-2">Emerald</h6>
+                <div class="mt-2">Emerald</div>
             </section>
             <section class="text-center overflow-hidden">
                 <img class="bg-surface-700 aspect-square w-full rounded-xl" src={placeholder} use:filter={'BlueNight'} alt="example" />
-                <h6 class="mt-2">BlueNight</h6>
+                <div class="mt-2">BlueNight</div>
             </section>
             <section class="text-center overflow-hidden">
                 <img class="bg-surface-700 aspect-square w-full rounded-xl" src={placeholder} use:filter={'XPro'} alt="example" />
-                <h6 class="mt-2">XPro</h6>
+                <div class="mt-2">XPro</div>
             </section>
             <section class="text-center overflow-hidden">
                 <img class="bg-surface-700 aspect-square w-full rounded-xl" src={placeholder} use:filter={'Summer84'} alt="example" />
-                <h6 class="mt-2">Summer84</h6>
+                <div class="mt-2">Summer84</div>
             </section>
             <section class="text-center overflow-hidden">
                 <img class="bg-surface-700 aspect-square w-full rounded-xl" src={placeholder} use:filter={'Rustic'} alt="example" />
-                <h6 class="mt-2">Rustic</h6>
+                <div class="mt-2">Rustic</div>
             </section>
             <section class="text-center overflow-hidden">
                 <img class="bg-surface-700 aspect-square w-full rounded-xl" src={placeholder} use:filter={'Apollo'} alt="example" />
-                <h6 class="mt-2">Apollo</h6>
+                <div class="mt-2">Apollo</div>
             </section>
             <section class="text-center overflow-hidden">
                 <img class="bg-surface-700 aspect-square w-full rounded-xl" src={placeholder} use:filter={'GreenFall'} alt="example" />
-                <h6 class="mt-2">GreenFall</h6>
+                <div class="mt-2">GreenFall</div>
             </section>
             <section class="text-center overflow-hidden">
                 <img class="bg-surface-700 aspect-square w-full rounded-xl" src={placeholder} use:filter={'Noir'} alt="example" />
-                <h6 class="mt-2">Noir</h6>
+                <div class="mt-2">Noir</div>
             </section>
             <section class="text-center overflow-hidden">
                 <img class="bg-surface-700 aspect-square w-full rounded-xl" src={placeholder} use:filter={'NoirLight'} alt="example" />
-                <h6 class="mt-2">NoirLight</h6>
+                <div class="mt-2">NoirLight</div>
             </section>
         </div>
     </Card>
@@ -68,15 +68,15 @@
 	<!-- Usage -->
 	<section class="space-y-4">
 		<h2>Usage</h2>
-        <h4>Import Filter Components</h4>
+        <h3>Import Filter Components</h3>
         <p>Add within scope of your filtered element. For global access, add to your root <code>__layout.svelte</code> component.</p>
 		<CodeBlock language="javascript" code={`import { Emerald, BlueNight, /* ... */  } from '@brainandbones/skeleton';`} />
 		<CodeBlock language="html" code={`<BlueNight />`} />
-        <h4>Use Filter Action</h4>
+        <h3>Use Filter Action</h3>
         <p>Use the following <a href="https://svelte.dev/tutorial/actions" target="_blank">Svelte action</a> to apply a filter to any element.</p>
         <CodeBlock language="javascript" code={`import { filter } from '@brainandbones/skeleton';`} />
 		<CodeBlock language="html" code={`<img use:filter={'BlueNight'} {src}>`} />
-        <h4>Use Inline CSS</h4>
+        <h3>Use Inline CSS</h3>
         <p>Use the following to apply a filter using only inline CSS.</p>
 		<CodeBlock language="html" code={`<img style="filter: url({'#BlueNight'})" {src}>`} />
 	</section>

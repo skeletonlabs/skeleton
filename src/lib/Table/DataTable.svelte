@@ -17,8 +17,12 @@
     export let body: string = 'bg-surface-200 dark:bg-surface-800';
     export let text: string = 'text-sm';
     export let hover: string = 'hover:bg-primary-500/10';
+    // A11y
+    export let labelledby: string = undefined;
+    export let describedby: string = undefined;
 
     // Local
+    let elemTable: HTMLElement;
     let sourceUnfiltered: any[] = [...source]; // clone
     let sorted: any = {by: sort, asc: false};
 
@@ -88,6 +92,52 @@
     // Count
     function updateRowCount(): void { count = source.length;  }
 
+    // A11y Input Handler
+    function onKeyDown(event: any): void {
+        // Arrow Keys
+        const hotKeys: string[] = ['ArrowRight', 'ArrowUp', 'ArrowLeft', 'ArrowDown', 'Home', 'End'];
+        if (hotKeys.includes(event.code)) {
+            event.preventDefault();
+            switch (event.code) {
+                case ('ArrowUp'):    setActiveCell(0, -1); break;
+                case ('ArrowDown'):  setActiveCell(0, 1); break;
+                case ('ArrowLeft'):  setActiveCell(-1, 0); break;
+                case ('ArrowRight'): setActiveCell(1, 0); break;
+                case ('Home'):       jumpToFirstColumn(); break;
+                case ('End'):        jumpToLastColumn(); break;
+                default: break;
+            }
+        }
+    }
+    function setActiveCell(x: number, y: number): void {
+        // Focused Element
+        const focusedElem: any = document.activeElement;
+        const focusedElemRowIndex: number = parseInt(focusedElem.parentElement.ariaRowIndex);
+        const focusedElemColIndex: number = parseInt(focusedElem.ariaColIndex);
+        // Target Element
+        const targetRowElement: HTMLElement = elemTable.querySelector(`[aria-rowindex="${focusedElemRowIndex + y}"]`);
+        if (targetRowElement !== null) {
+            const targetColElement: HTMLElement = targetRowElement.querySelector(`[aria-colindex="${focusedElemColIndex + x}"]`);
+            if (targetColElement !== null) { targetColElement.focus(); }
+        }
+    }
+    function getTargetElem(): any {
+        // Focused Element
+        const focusedElem: any = document.activeElement;
+        const focusedElemRowIndex: number = parseInt(focusedElem.parentElement.ariaRowIndex);
+        // Return Target Element
+        return elemTable.querySelector(`[aria-rowindex="${focusedElemRowIndex}"]`);
+    }
+    function jumpToFirstColumn(): void {
+        const targetRowElement: any = getTargetElem();
+        targetRowElement.firstChild.focus();
+    }
+    function jumpToLastColumn(): void {
+        const targetRowElement: any = getTargetElem();
+        const lastIndex: number = targetRowElement.children.length - 1;
+        targetRowElement.children[lastIndex].focus();
+    }
+
     // On Prop Change
     $: if (sort) { localSort(sort); }
     $: if (search || search === '') { localSearch(); }
@@ -110,14 +160,28 @@
     <div class="table-wrapper {cBaseWrapper}">
 
         <!-- Table -->
-        <table class="table {classesTable}">
+        <table
+            bind:this={elemTable}
+            class="table {classesTable}"
+            on:keydown={onKeyDown}
+            role="grid"
+            aria-labelledby={labelledby}
+            aria-describedby={describedby}
+            aria-colcount={headings.length}
+            aria-rowcount={source.length}
+        >
 
             <!-- Head -->
             <thead class="table-head {classesHeader}">
                 <!-- Head -->
                 <tr class="table-head-row {cBaseHeadRow}">
                     {#each headings as head, i}
-                    <th class="table-head-col {classesHeadCol}" scope="col" on:click={() => { onHeadSelect(i) }}>
+                    <th
+                        class="table-head-col {classesHeadCol}"
+                        scope="col"
+                        on:click={() => { onHeadSelect(i) }}
+                        role="columnheader"
+                    >
                         {@html head}
                         <span class="inline-block w-3 text-center ml-1 opacity-50">
                             {#if headKeyByIndex(i) === sorted.by}
@@ -133,10 +197,19 @@
             <tbody class="table-body {classesBody}">
                 {#if source.length > 0}
 
-                    {#each source as row, i}
-                    <tr class="table-body-row {classesBodyRoll}" on:click={() => { onRowSelect(row) }}>
-                        {#each Object.values(row) as cell}
-                        <td class="table-body-col {cBaseBodyCol}">{@html cell}</td>
+                    {#each source as row, rowIndex}
+                    <tr
+                        class="table-body-row {classesBodyRoll}"
+                        on:click={() => { onRowSelect(row) }}
+                        aria-rowindex={rowIndex+1}
+                    >
+                        {#each Object.values(row) as cell, colIndex}
+                        <td
+                            class="table-body-col {cBaseBodyCol}"
+                            role="gridcell"
+                            aria-colindex={colIndex+1}
+                            tabindex={colIndex === 0 ? 0 : -1}
+                        >{@html cell}</td>
                         {/each}
                     </tr>
                     {/each}

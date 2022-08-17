@@ -22,6 +22,28 @@
     let tickmarks: any[];
     if (ticked) { tickmarks = Array.from({length: (max-min)+1}, (v,i) => i); }
 
+    // A11y Input Handler
+    function onKeyDown(event: any): void {
+        // Arrow Keys
+        const hotKeys: string[] = ['ArrowRight', 'ArrowUp', 'ArrowLeft', 'ArrowDown', 'Home', 'End'];
+        if (hotKeys.includes(event.code)) {
+            event.preventDefault();
+            switch (event.code) {
+                case ('ArrowRight'): valueIncrease(); break;
+                case ('ArrowUp'):    valueIncrease(); break;
+                case ('ArrowLeft'):  valueDecrease(); break;
+                case ('ArrowDown'):  valueDecrease(); break;
+                case ('Home'):       valueMin(); break;
+                case ('End'):        valueMax(); break;
+                default: break;
+            }
+        }
+    }
+    function valueIncrease(): void { if ((value + step) <= max) { value += step }; }
+    function valueDecrease(): void { if ((value - step) >= min) { value -= step }; }
+    function valueMin(): void { value = min; }
+    function valueMax(): void { value = max; }
+
     // Reactive Classes
     $: classesInput = `${cBaseInput} ${accent}`;
 
@@ -32,10 +54,19 @@
     }
 </script>
 
-<label for={id} class="range-slider {$$props.class}" data-testid="range-slider">
+<div
+    class="range-slider {$$props.class||''}"
+    data-testid="range-slider"
+    on:keydown={onKeyDown}
+    role="slider"
+    aria-label={label}
+    aria-valuenow={value}
+    aria-valuemin={min}
+    aria-valuemax={max}
+>
 
     <!-- Label -->
-    <span class="range-label {cBaseLabel}">{label}</span>
+    <label class="range-label {cBaseLabel}" for={id}>{label}</label>
 
     <!-- Content -->
     <div class="range-content {cBaseContent}">
@@ -70,7 +101,7 @@
         </div> 
 
         <!-- Value -->
-        <div class="range-value {cBaseValue}">{value}</div>
+        <span class="range-value {cBaseValue}">{value}</span>
 
     </div>
-</label>
+</div>

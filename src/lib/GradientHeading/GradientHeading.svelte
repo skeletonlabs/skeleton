@@ -11,7 +11,7 @@
     $: classesWrapper = `${cBaseHeading} ${direction} ${from} ${to}`;
 </script>
 
-<svelte:element this={tag} class="gradient-heading {$$props.class}" data-testid="gradient-heading">
+<svelte:element this={tag} class="gradient-heading {$$props.class}" data-testid="gradient-heading" role="heading">
     <span class="{classesWrapper}">
         <slot />
     </span>

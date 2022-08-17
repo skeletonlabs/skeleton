@@ -4,6 +4,7 @@
     import DataTable from "$lib/Table/DataTable.svelte";
     import ProgressRadial from "$lib/Progress/ProgressRadial.svelte";
 
+    // Tables
     const tableProps: any = {
         headings: ['Prop', 'Type', 'Default', 'Description'],
         source: [
@@ -19,6 +20,12 @@
         headings: ['Name', 'Description'],
         source: [
             ['default', 'Text content is render as SVG text in the center of the element.'],
+        ],
+    };
+    const tableA11y: any = {
+        headings: ['Prop', 'Required', 'Description'],
+        source: [
+            ['label', '-', `A semantic ARIA label.`],
         ],
     };
 
@@ -39,12 +46,12 @@
     <Card class="space-y-8">
         <div class="md:max-w-[50%] lg:max-w-[33%] mx-auto space-y-8">
             <ProgressRadial value={props.value}>{props.value}%</ProgressRadial>
-            <input type="range" min="0" max={props.max} step={props.step} bind:value={props.value}>
+            <input type="range" min="0" max={props.max} step={props.step} bind:value={props.value} aria-label="Example Radial Value">
         </div>
     </Card>
     <section class="space-y-4">
         <div class="space-y-2">
-            <h4>Indeterminate</h4>
+            <h3>Indeterminate</h3>
             <p>Remove the value property to set to indeterminate mode.</p>
         </div>
         <div class="grid grid-cols-4 gap-4">
@@ -88,6 +95,15 @@
 	<section class="space-y-4">
 		<h2>Slots</h2>
         <DataTable headings="{tableSlots.headings}" source="{tableSlots.source}"></DataTable>
+	</section>
+
+    <!-- Accessibility -->
+	<section class="space-y-4">
+        <div class="flex justify-between items-center">
+            <h2>Accessibility</h2>
+            <a href="https://www.w3.org/WAI/ARIA/apg/patterns/meter/" target="_blank">ARIA Guidelines</a>
+        </div>
+		<DataTable headings="{tableA11y.headings}" source="{tableA11y.source}"></DataTable>
 	</section>
 
 </div>

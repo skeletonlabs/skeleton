@@ -100,7 +100,7 @@
     <section class="space-y-4">
         <nav class="grid grid-cols-1 lg:grid-cols-2 gap-4">
             <Card class="grid grid-cols-1 gap-4">
-                <h4>Alerts</h4>
+                <h3>Alerts</h3>
                 <div class="flex justify-between items-center space-x-4">
                     <div>
                         <h6>Basic</h6>
@@ -124,7 +124,7 @@
                 </div>
             </Card>
             <Card class="grid grid-cols-1 gap-4">
-                <h4>Embeds</h4>
+                <h3>Embeds</h3>
                 <div class="flex justify-between items-center space-x-4">
                     <div>
                         <h6>Image</h6>
@@ -150,7 +150,7 @@
             <Card>
                 <div class="flex justify-between items-center space-x-4">
                     <div class="space-y-2">
-                        <h4>Confirm</h4>
+                        <h3>Confirm</h3>
                         <p>Dialog with confirm options. Response shown below.</p>
                     </div>
                     <Button variant="ghost-primary" on:click={dialogConfirm}>Trigger</Button>
@@ -160,7 +160,7 @@
             <Card class="space-y-4">
                 <div class="flex justify-between items-center space-x-4">
                     <div class="space-y-2">
-                        <h4>Prompt</h4>
+                        <h3>Prompt</h3>
                         <p>Prompts the user to input a value. Response shown below.</p>
                     </div>
                     <Button variant="ghost-primary" on:click={dialogPrompt}>Trigger</Button>
@@ -186,7 +186,7 @@
 
     <!-- Properties -->
 	<section class="space-y-4">
-		<h4>Properties</h4>
+		<h3>Properties</h3>
         <DataTable headings="{tableProps.headings}" source="{tableProps.source}"></DataTable>
 	</section>
 
@@ -197,13 +197,13 @@
         <h2>Methods</h2>
         <p>To begin using dialogs, import the dialog store. This allows you to manipulate the dialog queue using the following methods.</p>
         <CodeBlock language="js" code={`import { dialogStore } from '@brainandbones/skeleton';`}></CodeBlock>
-        <h4>Trigger</h4>
+        <h3>Trigger</h3>
         <p>The following method allows you to insert a new dialog into the dialog queue.</p>
         <CodeBlock language="js" code={`dialogStore.trigger(d); // see Dialog Variants below`}></CodeBlock>
-        <h4>Close</h4>
+        <h3>Close</h3>
         <p>Allows you to close the current dialog by pruning the visible dialog from the top of the queue.</p>
 		<CodeBlock language="js" code={`dialogStore.close();`}></CodeBlock>
-        <h4>Clear</h4>
+        <h3>Clear</h3>
         <p>Allows you to flush the entire dialog queue, returning it to an empty state.</p>
         <CodeBlock language="js" code={`dialogStore.clear();`}></CodeBlock>
 	</section>
@@ -216,7 +216,7 @@
         <CodeBlock language="typescript" code={`import type { DialogAlert, DialogConfirm, DialogPrompt } from '@brainandbones/skeleton';`}></CodeBlock>
         <!-- Alert -->
         <div class="space-y-2">
-            <h4>Alert</h4>
+            <h3>Alert</h3>
             <p>The simplest dialog option. Note the title and body can accept HTML.</p>
             <CodeBlock language="typescript" code={`
 const d: DialogAlert = {
@@ -227,7 +227,7 @@ const d: DialogAlert = {
         </div>
         <!-- Confirm -->
         <div class="space-y-2">
-            <h4>Confirm</h4>
+            <h3>Confirm</h3>
             <p>Displays an additional "confirm" button and returns a boolean response of <code>false</code> for <em>cancel</em> and <code>true</code> for <em>confirm</em>.</p>
             <CodeBlock language="typescript" code={`
 const d: DialogConfirm = {
@@ -240,7 +240,7 @@ const d: DialogConfirm = {
         </div>
         <!-- Prompt -->
         <div class="space-y-2">
-            <h4>Prompt</h4>
+            <h3>Prompt</h3>
             <p>Provides and additional input to prompt a value from the user. Returns a string value when the user taps <em>submit</em>.</p>
             <CodeBlock language="typescript" code={`
 const d: DialogPrompt = {
@@ -262,7 +262,7 @@ const d: DialogPrompt = {
         <p>You may optionally extend any dialog with the following features.</p>
         <!-- Image -->
         <div class="space-y-2">
-            <h4>Image</h4>
+            <h3>Image</h3>
             <p>Allows you to insert an image within content of the dialog.</p>
             <CodeBlock language="typescript" code={`
 const d: DialogAlert = {
@@ -274,7 +274,7 @@ const d: DialogAlert = {
         </div>
         <!-- HTML -->
         <div class="space-y-2">
-            <h4>HTML</h4>
+            <h3>HTML</h3>
             <p>Allows you to insert HTML markup within the content of the dialog.</p>
             <CodeBlock language="typescript" code={`
 const d: DialogAlert = {
@@ -286,7 +286,7 @@ const d: DialogAlert = {
         </div>
         <!-- Component -->
         <div class="space-y-2">
-            <h4>Component</h4>
+            <h3>Component</h3>
             <p>Allows you to insert a dynamically-generated Svelte component within the content of the dialog. Note that only default slot content is supported at this time.</p>
             <CodeBlock language="js" code={`import { Card } from '@brainandbones/skeleton';`}></CodeBlock>
             <CodeBlock language="typescript" code={`
@@ -308,12 +308,18 @@ const d: DialogAlert = {
     <!-- Debugging -->
     <section class="space-y-4">
         <h2>Debugging</h2>
-        <h4>Log the Queue</h4>
+        <h3>Log the Queue</h3>
         <p>Use the following to monitor the queue in your console as it updates. Note that Svelte store contents are only visible for the current logged line.</p>
         <CodeBlock language="js" code={`dialogStore.subscribe(() => { console.log($dialogStore); });`}></CodeBlock>
-        <h4>Visualize the Queue</h4>
+        <h3>Visualize the Queue</h3>
         <p>Use the following to display the queue in your UI. Note some properties may not display, such as response.</p>
         <CodeBlock language="html" code={`<pre>queue: {JSON.stringify($dialogStore, null, 2)}</pre>`}></CodeBlock>
+    </section>
+
+    <!-- Accessibility -->
+    <section class="space-y-4">
+        <h2>Accessibility</h2>
+        <p>Meets all dialog requirements for the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/" target="_blank">ARIA Guidelines</a>.</p>
     </section>
     
 </div>

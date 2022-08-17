@@ -18,7 +18,7 @@
         <h2>Global Styles</h2>
         <p>Click the button below to reference how we setup the global stylesheet for this site, which was built using SvelteKit + Skeleton.</p>
         <Button variant="filled-accent" href="https://github.com/Brain-Bones/skeleton/blob/master/src/app.css" target="_blank">View Stylesheet Example</Button>
-        <h4>Best Practices</h4>
+        <h3>Best Practices</h3>
         <p>Here's a few best practices guidelines we recommend you follow:</p>
         <ul class="list-disc list-inside">
             <li>Utilize <a href="https://tailwindcss.com/docs/reusing-styles#extracting-classes-with-apply" target="_blank">Tailwind @apply</a> to define and implement styles whenever possible.</li>

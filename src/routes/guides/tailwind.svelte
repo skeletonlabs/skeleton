@@ -15,7 +15,7 @@
 
     <!-- Usage -->
     <section class="space-y-4">
-        <h4>Update Content</h4>
+        <h3>Update Content</h3>
         <p>Add the following to <a href="https://tailwindcss.com/docs/configuration" target="_blank">content</a> within <code>tailwind.config.cjs</code>. This ensures Tailwind is aware of Skeleton's component classes within your local development server.</p>
         <CodeBlock language="js" code={`
 module.exports = {
@@ -26,7 +26,7 @@ module.exports = {
     // ...
 }
         `.trim()}></CodeBlock>
-        <h4>Add the Skeleton Plugin</h4>
+        <h3>Add the Skeleton Plugin</h3>
         <p>
             Add the Skeleton <a href="https://tailwindcss.com/docs/plugins#official-plugins" target="_blank">plugin</a> to <code>tailwind.config.cjs</code>. This will automatically ingest and utilize your CSS variables defined in your theme.
         </p>
@@ -49,24 +49,24 @@ module.exports = {
         <p>Skeleton pairs well with any of the official Tailwind plugins. Including these is completely optional.</p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Card class="space-y-4 text-center">
-                <h4>Typography</h4>
+                <h3>Typography</h3>
                 <p>Typographic defaults for HTML you don't control.</p>
-                <Button variant="filled-accent" href="https://tailwindcss.com/docs/typography-plugin" target="_blank">View Plugin</Button>
+                <Button variant="filled-accent" href="https://tailwindcss.com/docs/typography-plugin" target="_blank">View Typography</Button>
             </Card>
             <Card class="space-y-4 text-center">
-                <h4>Forms</h4>
+                <h3>Forms</h3>
                 <p>Provides a basic reset for form elements.</p>
-                <Button variant="filled-accent" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">View Plugin</Button>
+                <Button variant="filled-accent" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">View Forms</Button>
             </Card>
             <Card class="space-y-4 text-center">
-                <h4>Aspect Ratio</h4>
+                <h3>Aspect Ratio</h3>
                 <p>Provides a composable API for giving elements a fixed aspect ratio.</p>
-                <Button variant="filled-accent" href="https://github.com/tailwindlabs/tailwindcss-aspect-ratio" target="_blank">View Plugin</Button>
+                <Button variant="filled-accent" href="https://github.com/tailwindlabs/tailwindcss-aspect-ratio" target="_blank">View Aspect Ratio</Button>
             </Card>
             <Card class="space-y-4 text-center">
-                <h4>Line Clamp</h4>
+                <h3>Line Clamp</h3>
                 <p>Provides utilities for visually truncating text after a fixed number of lines.</p>
-                <Button variant="filled-accent" href="https://github.com/tailwindlabs/tailwindcss-line-clamp" target="_blank">View Plugin</Button>
+                <Button variant="filled-accent" href="https://github.com/tailwindlabs/tailwindcss-line-clamp" target="_blank">View Line Clamp</Button>
             </Card>
         </div>
     </section>

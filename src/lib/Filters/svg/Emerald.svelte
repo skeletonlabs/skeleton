@@ -1,4 +1,4 @@
-<svg id="svg-filter" class="filter hidden">
+<svg id="svg-filter-emerald" class="filter hidden">
     <!-- Emerald: `filter: url(#Emerald)` -->
     <filter id="Emerald" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 

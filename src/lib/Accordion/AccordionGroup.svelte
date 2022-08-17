@@ -1,17 +1,30 @@
 <script lang="ts">
-    import { setContext } from "svelte/internal";
-    import type { Writable } from "svelte/store";
+    import { onMount } from "svelte";
 
     // Props
-    export let selected: Writable<any>;
-    export let multiple: boolean = false;
+    export let collapse: boolean = true;
     export let spacing: string = 'space-y-4';
 
-    // Context
-    setContext('selected', selected);
-    setContext('multiple', multiple);
+    let elemAccordian: HTMLElement;
+
+    // Lifecycle
+    onMount(() => {
+
+        if (collapse) {
+            // Ensure only one detail element is open at a time
+            // https://nikitahl.com/native-html-accordion
+            const details = Array.from(elemAccordian.querySelectorAll('details'));
+            details.forEach((detail) => {
+                detail.addEventListener('click', (e: any) => {
+                    const active = details.find(d => d.open)
+                    if (!e.currentTarget.open && active) { active.open = false; }
+                });
+            });
+        }
+
+    });
 </script>
 
-<dl class="accordian-group {spacing} {$$props.classes}" data-testid="accordion-group">
+<div bind:this={elemAccordian} class="accordian-group {spacing} {$$props.classes}" data-testid="accordion-group">
     <slot />
-</dl>
+</div>

@@ -2,12 +2,12 @@
     import Card from "$lib/Card/Card.svelte";
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
     import DataTable from "$lib/Table/DataTable.svelte";
-    import Alert from "$lib/Alert/Alert.svelte";
     import RangeSlider from "$lib/RangeSlider/RangeSlider.svelte";
 
     let valueA: number = 5;
     let valueB: number = 50;
 
+    // Tables
     const tableProps: any = {
         headings: ['Prop', 'Type', 'Default', 'Description'],
         source: [
@@ -20,6 +20,12 @@
             ['value', 'number', '0' , 'Set the input value.'],
             ['ticked', 'boolean', 'false', 'Enables tick marks. See browser support below.'],
             ['accent', 'string', 'accent-primary-500' , 'Provide a class to set the input accent color.'],
+        ],
+    };
+    const tableA11y: any = {
+        headings: ['Prop', 'Required', 'Description'],
+        source: [
+            ['label', '-', `A semantic ARIA label.`],
         ],
     };
 </script>
@@ -36,16 +42,16 @@
     <!-- Examples -->
 	<section class="space-y-4">
         <Card class="space-y-4">
-            <RangeSlider bind:value={valueA} />
-            <RangeSlider bind:value={valueA} accent="accent-accent-500" />
-            <RangeSlider bind:value={valueA} accent="accent-warning-500" />
+            <RangeSlider bind:value={valueA} label="Big Slider Example 1"/>
+            <RangeSlider bind:value={valueA} accent="accent-accent-500" label="Big Slider Example 2" />
+            <RangeSlider bind:value={valueA} accent="accent-warning-500" label="Big Slider Example 3" />
         </Card>
         <div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
             <Card class="space-y-4">
                 <RangeSlider label="Labeled" bind:value={valueA} />
             </Card>
             <Card class="space-y-4">
-                <RangeSlider disabled label="Disabled" />
+                <RangeSlider label="Disabled" disabled />
             </Card>
             <Card class="space-y-4">
                 <RangeSlider label="Ticked" bind:value={valueA} ticked />
@@ -69,6 +75,15 @@
         <DataTable headings="{tableProps.headings}" source="{tableProps.source}"></DataTable>
     </section>
     
+    <!-- Accessibility -->
+	<section class="space-y-4">
+        <div class="flex justify-between items-center">
+            <h2>Accessibility</h2>
+            <a href="https://www.w3.org/WAI/ARIA/apg/patterns/slider/" target="_blank">ARIA Guidelines</a>
+        </div>
+		<DataTable headings="{tableA11y.headings}" source="{tableA11y.source}"></DataTable>
+	</section>
+
     <!-- Support -->
     <section class="space-y-4">
         <h2 class="text-2xl font-bold">Browser Support</h2>

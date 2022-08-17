@@ -44,7 +44,7 @@
 </script>
 
 {#if $toastStore.length}
-<div class="toast {classesToast}" transition:fly|local={{y, duration}}>
+<div class="toast {classesToast}" transition:fly|local={{y, duration}} role="alert" aria-live="polite">
 
     <!-- Message -->
     {#key $toastStore[0].message}
@@ -54,12 +54,12 @@
     {/key}
 
     <!-- Action -->
-    <nav class="toast-actions {cBaseActions}">
+    <div class="toast-actions {cBaseActions}">
         {#if $toastStore[0].button}<Button {variant} on:click={onAction}>{$toastStore[0].button.label}</Button>{/if}
         <Button {variant} on:click={onDismiss}>
             {@html $toastStore[0].button ? '&#10005;' : 'Dismiss'}
         </Button>
-    </nav>
+    </div>
     
 </div>
 {/if}

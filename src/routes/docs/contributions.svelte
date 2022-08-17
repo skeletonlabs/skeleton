@@ -161,14 +161,14 @@ export let rounded: string = 'rounded-xl'; // border radius
         <h2>Component Styling</h2>
         <p>Skeleton utilizes a strict paradigm for handling static and dynamic Tailwind styles for components. This is accomplished by passing Tailwind classes to the component as props, as well as defining base structural classes within the component's script tag. While this may feel odd at first, you'll find it works really well in execution.</p>
         <!-- Base Classes -->
-        <h4>Base Classes</h4>
+        <h3>Base Classes</h3>
         <p>Any core or structural Tailwind classes can be defined as follows. Note the "c" is short for <strong>classes</strong>.</p>
         <CodeBlock language="typescript" code={`
 let cBaseElement: string = 'bg-surface-500 p-4 rounded'; // parent element styles
 let cBaseLabel: string = 'text-base'; // base label styles
         `.trim()}></CodeBlock>
         <!-- Dynamic Classes -->
-        <h4>Dynamic Classes</h4>
+        <h3>Dynamic Classes</h3>
         <p>If you expect to set one or more styles based on the current value of a property, handle this within a function as shown below.</p>
         <CodeBlock language="typescript" code={`
 export let outlined: boolean;

@@ -20,7 +20,7 @@
 <div class="crumb {cBaseCrumb} {$$props.class}" data-testid="crumb">
 
 	<!-- Anchor -->
-	<a {href} class="crumb-anchor {cBaseAnchor} {classesCurrent}" data-testid="crumb-anchor">
+	<a {href} class="crumb-anchor {cBaseAnchor} {classesCurrent}" data-testid="crumb-anchor" aria-current={current ? 'page' : undefined}>
 		{#if $$slots.lead}<slot name="lead"></slot>{/if}
 		<div><slot /></div>
 	</a>
