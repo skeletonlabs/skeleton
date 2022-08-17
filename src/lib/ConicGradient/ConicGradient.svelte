@@ -1,4 +1,9 @@
-<!-- https://www.w3.org/wiki/CSS/Properties/color/keywords -->
+<!-- 
+ https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/conic-gradient
+ https://www.sitepoint.com/create-css-conic-gradients-pie-charts/
+ https://css-tricks.com/radial-gradient-recipes/ 
+ https://tailwindcss.com/docs/configuration#referencing-in-java-script
+ -->
 <script lang="ts">
 	import { afterUpdate } from 'svelte';
 	// import colors from 'tailwindcss/colors';
@@ -58,15 +63,6 @@
 	});
 	$: classes = `${cBase} ${width} ${$$props.class}`;
 </script>
-
-<!-- https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/conic-gradient -->
-<!-- https://www.sitepoint.com/create-css-conic-gradients-pie-charts/ -->
-<!-- https://css-tricks.com/radial-gradient-recipes/ -->
-<!-- https://tailwindcss.com/docs/configuration#referencing-in-java-script -->
-
-<!-- Colors -->
-
-<!-- <pre>{JSON.stringify(currentCone, null, 2)}</pre> -->
 
 <figure class="conic-gradient text-center space-y-4" data-testid="conic-gradient">
 	<!-- Conic Shape -->

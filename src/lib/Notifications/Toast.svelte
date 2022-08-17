@@ -19,33 +19,18 @@
 	// Set Position
 	let y: number = 100;
 	let cPosition: string;
-	switch (position) {
-		// Centered
-		case 't':
-			cPosition = 'left-4 right-4 top-4';
-			y = -100;
-			break;
-		case 'b':
-			cPosition = 'left-4 right-4 bottom-4';
-			break;
-		// Corners
-		case 'tr':
-			cPosition = 'top-4 right-4 ml-4';
-			y = -100;
-			break;
-		case 'tl':
-			cPosition = 'top-4 left-4 mr-4';
-			y = -100;
-			break;
-		case 'br':
-			cPosition = 'bottom-4 right-4 ml-4';
-			break;
-		case 'bl':
-			cPosition = 'bottom-4 left-4 mr-4';
-			break;
-		default:
-			cPosition = 'left-4 right-4 bottom-4';
-	}
+	// prettier-ignore
+    switch (position) {
+        // Centered
+        case('t'): cPosition = 'left-4 right-4 top-4'; y = -100; break;
+        case('b'): cPosition = 'left-4 right-4 bottom-4'; break;
+        // Corners
+        case ('tr'): cPosition = 'top-4 right-4 ml-4'; y = -100; break;
+        case ('tl'): cPosition = 'top-4 left-4 mr-4'; y = -100; break;
+        case ('br'): cPosition = 'bottom-4 right-4 ml-4'; break;
+        case ('bl'): cPosition = 'bottom-4 left-4 mr-4'; break;
+        default: cPosition = 'left-4 right-4 bottom-4';
+    }
 
 	// Functionality
 	function onAction(): void {
