@@ -45,10 +45,7 @@
 	<header class="space-y-4">
 		<h1>Accordions</h1>
 		<p>Divide content into collapsible sections.</p>
-		<CodeBlock
-			language="javascript"
-			code={`import { AccordionGroup, AccordionItem } from '@brainandbones/skeleton';`}
-		/>
+		<CodeBlock language="javascript" code={`import { AccordionGroup, AccordionItem } from '@brainandbones/skeleton';`} />
 	</header>
 
 	<!-- Examples -->
@@ -56,34 +53,21 @@
 		<Card class="space-y-4">
 			<AccordionGroup>
 				<AccordionItem open>
-					<svelte:fragment slot="summary"
-						>Does Skeleton come with an Accordion component?</svelte:fragment
-					>
+					<svelte:fragment slot="summary">Does Skeleton come with an Accordion component?</svelte:fragment>
 					<svelte:fragment slot="content">
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis eaque nam
-							deleniti rem incidunt.
-						</p>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis eaque nam deleniti rem incidunt.</p>
 					</svelte:fragment>
 				</AccordionItem>
 				<AccordionItem>
-					<svelte:fragment slot="summary"
-						>What else do I need to know to build awesome web apps?</svelte:fragment
-					>
+					<svelte:fragment slot="summary">What else do I need to know to build awesome web apps?</svelte:fragment>
 					<svelte:fragment slot="content">
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis eaque nam
-							deleniti rem incidunt.
-						</p>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis eaque nam deleniti rem incidunt.</p>
 					</svelte:fragment>
 				</AccordionItem>
 				<AccordionItem>
 					<svelte:fragment slot="summary">What is the weather like today?</svelte:fragment>
 					<svelte:fragment slot="content">
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis eaque nam
-							deleniti rem incidunt.
-						</p>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis eaque nam deleniti rem incidunt.</p>
 					</svelte:fragment>
 				</AccordionItem>
 			</AccordionGroup>
@@ -109,9 +93,7 @@
 					</svelte:fragment>
 				</AccordionItem>
 				<AccordionItem spacing="space-y-4">
-					<svelte:fragment slot="lead"
-						><Avatar size="sm" src="https://i.pravatar.cc/" /></svelte:fragment
-					>
+					<svelte:fragment slot="lead"><Avatar size="sm" src="https://i.pravatar.cc/" /></svelte:fragment>
 					<svelte:fragment slot="summary">
 						<h3>Avatar and Heading</h3>
 					</svelte:fragment>
@@ -184,9 +166,7 @@ let storeAccordion: Writable<number[]> = writable([1]);`.trim()}
 		<h2>Accessibility</h2>
 		<div class="flex justify-between items-center">
 			<h3>Item</h3>
-			<a href="https://www.w3.org/WAI/ARIA/apg/example-index/accordion/accordion" target="_blank"
-				>ARIA Guidelines</a
-			>
+			<a href="https://www.w3.org/WAI/ARIA/apg/example-index/accordion/accordion" target="_blank">ARIA Guidelines</a>
 		</div>
 		<DataTable headings={tableA11yItem.headings} source={tableA11yItem.source} />
 	</section>
