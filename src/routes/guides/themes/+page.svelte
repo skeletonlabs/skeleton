@@ -2,16 +2,8 @@
 	import { writable, type Writable } from 'svelte/store';
 	import { storeFramework } from '../../stores';
 
-	import Card from '$lib/Card/Card.svelte';
+	import { DataTable, Card, Divider, Button, RadioGroup, RadioItem, TabGroup, Tab } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import DataTable from '$lib/Table/DataTable.svelte';
-	import Button from '$lib/Button/Button.svelte';
-	import Divider from '$lib/Divider/Divider.svelte';
-	import RadioGroup from '$lib/Radio/RadioGroup.svelte';
-	import RadioItem from '$lib/Radio/RadioItem.svelte';
-	import TabGroup from '$lib/Tab/TabGroup.svelte';
-	import Tab from '$lib/Tab/Tab.svelte';
-
 	import ThemeGenTailwind from '$lib/ThemeGenerator/ThemeGenTailwind.svelte';
 	import ThemeGenCustom from '$lib/ThemeGenerator/ThemeGenCustom.svelte';
 
@@ -20,67 +12,27 @@
 
 	// Presets
 	const presetUrl: string = 'https://github.com/Brain-Bones/skeleton/blob/master/src/themes';
+	// prettier-ignore
 	const presets: any[] = [
-		{
-			name: 'Default',
-			colors: ['#10b981', '#6366f1', '#f43f5e'],
-			surface: '#111827',
-			url: `${presetUrl}/theme-skeleton.css`
-		},
-		{
-			name: 'Rocket',
-			colors: ['#06b6d4', '#3b82f6', '#ec4899'],
-			surface: '#3c4553',
-			url: `${presetUrl}/theme-rocket.css`
-		},
-		{
-			name: 'Vintage',
-			colors: ['#f59e0b', '#22c55e', '#ef4444'],
-			surface: '#1c1917',
-			url: `${presetUrl}/theme-vintage.css`
-		},
-		{
-			name: 'Modern',
-			colors: ['#ec4899', '#06b6d4', '#eab308'],
-			surface: '#312e81',
-			url: `${presetUrl}/theme-modern.css`
-		},
-		{
-			name: 'Sahara',
-			colors: ['#facc15', '#fb923c', '#14b8a6'],
-			surface: '#881337',
-			url: `${presetUrl}/theme-sahara.css`
-		},
-		{
-			name: 'Seafoam',
-			colors: ['#14b8a6', '#8b5cf6', '#f59e0b'],
-			surface: '#0c4a6e',
-			url: `${presetUrl}/theme-seafoam.css`
-		}
-	];
+        { name: 'Skeleton', colors: ['#10b981', '#6366f1', '#f43f5e'], surface: '#111827', url: `${presetUrl}/theme-skeleton.css` },
+        { name: 'Rocket', colors: ['#06b6d4', '#3b82f6', '#ec4899'], surface: '#3c4553', url: `${presetUrl}/theme-rocket.css` },
+        { name: 'Vintage', colors: ['#f59e0b', '#22c55e', '#ef4444'], surface: '#1c1917', url: `${presetUrl}/theme-vintage.css` },
+        { name: 'Modern', colors: ['#ec4899', '#06b6d4', '#eab308'], surface: '#312e81', url: `${presetUrl}/theme-modern.css` },
+        { name: 'Sahara', colors: ['#facc15', '#fb923c', '#14b8a6'], surface: '#881337', url: `${presetUrl}/theme-sahara.css` },
+        { name: 'Seafoam', colors: ['#14b8a6', '#8b5cf6', '#f59e0b'], surface: '#0c4a6e', url: `${presetUrl}/theme-seafoam.css` },
+    ];
 
 	// Tables
+	// prettier-ignore
 	const tableProps: any = {
-		headings: ['Name', 'Class', 'Description'],
-		source: [
-			{ n: 'Primary', c: '[x]-primary-[50-900]', d: 'Typically your primary brand color.' },
-			{
-				n: 'Accent',
-				c: '[x]-accent-[50-900]',
-				d: 'An accent for offsets or supplementary values.'
-			},
-			{
-				n: 'Warning',
-				c: '[x]-warning-[50-900]',
-				d: 'May be used for warnings, alerts, and invalid inputs.'
-			},
-			{
-				n: 'Surface',
-				c: '[x]-surface-[50-900]',
-				d: 'May be used for backgrounds, card elements, and some typography.'
-			}
-		]
-	};
+        headings: ['Name', 'Class', 'Description'],
+        source: [
+            {n: 'Primary', c:'[x]-primary-[50-900]', d:'Typically your primary brand color.'},
+            {n: 'Accent', c:'[x]-accent-[50-900]', d:'An accent for offsets or supplementary values.'},
+            {n: 'Warning', c:'[x]-warning-[50-900]', d:'May be used for warnings, alerts, and invalid inputs.'},
+            {n: 'Surface', c:'[x]-surface-[50-900]', d:'May be used for backgrounds, card elements, and some typography.'},
+        ],
+    };
 </script>
 
 <div class="space-y-8">
@@ -160,9 +112,9 @@
 		<!-- Framework: SvelteKit -->
 		{#if $storeFramework === 'sveltekit'}
 			<p>
-				Create a new file and save your CSS theme in <code>/src/theme.css</code>, then import this in your <code>__layout.svelte</code> component.
+				Create a new file and save your CSS theme in <code>src/theme.postcss</code>, then import this in your <code>src/routes/+layout.svelte</code> component.
 			</p>
-			<CodeBlock language="typescript" code={`import '../theme.css'; // <--\nimport '../app.css';\n//..`} />
+			<CodeBlock language="typescript" code={`import '../theme.postcss'; // <--\nimport '../app.postcss';\n//..`} />
 			<!-- Framework: Vite (Svelte) -->
 		{:else if $storeFramework === 'vite'}
 			<p>

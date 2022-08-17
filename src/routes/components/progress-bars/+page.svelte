@@ -1,12 +1,7 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
-
-	import Card from '$lib/Card/Card.svelte';
-	import DataTable from '$lib/Table/DataTable.svelte';
+	import { DataTable, Card, RadioGroup, RadioItem, ProgressBar } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import RadioGroup from '$lib/Radio/RadioGroup.svelte';
-	import RadioItem from '$lib/Radio/RadioItem.svelte';
-	import ProgressBar from '$lib/Progress/ProgressBar.svelte';
 
 	const storeDeterminate: Writable<boolean> = writable(true);
 	const storeHeight: Writable<string> = writable('h-2');

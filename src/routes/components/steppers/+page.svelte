@@ -1,11 +1,7 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
-
+	import { DataTable, Card, Stepper, Step } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import DataTable from '$lib/Table/DataTable.svelte';
-	import Card from '$lib/Card/Card.svelte';
-	import Stepper from '$lib/Stepper/Stepper.svelte';
-	import Step from '$lib/Stepper/Step.svelte';
 
 	const active: Writable<number> = writable(0);
 	const lorem: string =

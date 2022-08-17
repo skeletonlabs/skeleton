@@ -1,9 +1,6 @@
 <script lang="ts">
-	import Card from '$lib/Card/Card.svelte';
-	import DataTable from '$lib/Table/DataTable.svelte';
+	import { DataTable, Card, Breadcrumb, Crumb } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import Breadcrumb from '$lib/Breadcrumb/Breadcrumb.svelte';
-	import Crumb from '$lib/Breadcrumb/Crumb.svelte';
 
 	// Examples
 	const customSeparator: string = `<span class="text-surface-500">/</span>`;

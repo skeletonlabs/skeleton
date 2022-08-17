@@ -1,11 +1,6 @@
 <script lang="ts">
+	import { DataTable, Card, List, ListItem, Paginator } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import Card from '$lib/Card/Card.svelte';
-	import List from '$lib/List/List.svelte';
-	import ListItem from '$lib/List/ListItem.svelte';
-	import Divider from '$lib/Divider/Divider.svelte';
-	import DataTable from '$lib/Table/DataTable.svelte';
-	import Paginator from '$lib/Paginator/Paginator.svelte';
 
 	// Content
 	const content: any = {

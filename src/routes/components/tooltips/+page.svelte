@@ -1,10 +1,6 @@
 <script lang="ts">
+	import { DataTable, Card, Alert, Button, Tooltip } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import DataTable from '$lib/Table/DataTable.svelte';
-	import Card from '$lib/Card/Card.svelte';
-	import Button from '$lib/Button/Button.svelte';
-	import Alert from '$lib/Alert/Alert.svelte';
-	import Tooltip from '$lib/Tooltip/Tooltip.svelte';
 
 	const tableProps: any = {
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],

@@ -1,9 +1,6 @@
 <script lang="ts">
+	import { Card, Button, Divider, DataTable } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import Card from '$lib/Card/Card.svelte';
-	import Button from '$lib/Button/Button.svelte';
-	import Divider from '$lib/Divider/Divider.svelte';
-	import DataTable from '$lib/Table/DataTable.svelte';
 	import { dialogStore, type DialogAlert, type DialogConfirm, type DialogPrompt } from '$lib/Notifications/Stores';
 
 	let valueConfirm: boolean = false;

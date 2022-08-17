@@ -1,11 +1,7 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
-
-	import Card from '$lib/Card/Card.svelte';
+	import { DataTable, Card, List, ListItem } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import DataTable from '$lib/Table/DataTable.svelte';
-	import List from '$lib/List/List.svelte';
-	import ListItem from '$lib/List/ListItem.svelte';
 
 	let navSingle: Writable<string> = writable('A');
 	let navMultiple: Writable<string[]> = writable(['A', 'B']);

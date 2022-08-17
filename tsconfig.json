@@ -33,7 +33,8 @@
 			"$lib": ["src/lib"],
 			"$lib/*": ["src/lib/*"],
 			"$root": ["./"],
-			"$root/*": ["./*"]
+			"$root/*": ["./*"],
+			"@brainandbones/skeleton": ["src/lib/index.ts"]
 		},
 		"outDir": "package"
 	},

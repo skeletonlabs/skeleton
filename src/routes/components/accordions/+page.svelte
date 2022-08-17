@@ -1,11 +1,6 @@
 <script lang="ts">
+	import { DataTable, Card, Avatar, AccordionGroup, AccordionItem } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import DataTable from '$lib/Table/DataTable.svelte';
-	import Card from '$lib/Card/Card.svelte';
-	import Avatar from '$lib/Avatar/Avatar.svelte';
-
-	import AccordionGroup from '$lib/Accordion/AccordionGroup.svelte';
-	import AccordionItem from '$lib/Accordion/AccordionItem.svelte';
 
 	const tablePropsGroup: any = {
 		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],

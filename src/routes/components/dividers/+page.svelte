@@ -1,12 +1,7 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
-
-	import Card from '$lib/Card/Card.svelte';
-	import DataTable from '$lib/Table/DataTable.svelte';
-	import RadioGroup from '$lib/Radio/RadioGroup.svelte';
-	import RadioItem from '$lib/Radio/RadioItem.svelte';
+	import { DataTable, Card, RadioGroup, RadioItem, Divider } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import Divider from '$lib/Divider/Divider.svelte';
 
 	const storeVariant: Writable<string> = writable('solid');
 	const storeWeight: Writable<number> = writable(2);

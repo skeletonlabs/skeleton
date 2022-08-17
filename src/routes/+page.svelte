@@ -1,14 +1,7 @@
 <script lang="ts">
 	import { storeFramework } from './stores';
-
-	import Card from '$lib/Card/Card.svelte';
-	import Button from '$lib/Button/Button.svelte';
+	import { Card, LogoCloud, Divider, Logo, Button, TabGroup, Tab } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import Divider from '$lib/Divider/Divider.svelte';
-	import LogoCloud from '$lib/LogoCloud/LogoCloud.svelte';
-	import Logo from '$lib/LogoCloud/Logo.svelte';
-	import TabGroup from '$lib/Tab/TabGroup.svelte';
-	import Tab from '$lib/Tab/Tab.svelte';
 </script>
 
 <div class="space-y-8 lg:text-left">
@@ -111,15 +104,9 @@ npm run dev
 			</p>
 			<CodeBlock
 				language="console"
-				code={`
-# npm 6.x
-npm create vite@latest vite-skeleton-app --template svelte-ts
-
-# npm 7+, extra double-dash is needed:
-npm create vite@latest vite-skeleton-app -- --template svelte-ts
-            `.trim()}
+				code={`npm create vite@latest my-app -- --template svelte-ts`.trim()}
 			/>
-			<CodeBlock language="console" code={`cd vite-skeleton-app\nnpm install\nnpm run dev`} />
+			<CodeBlock language="console" code={`cd my-app\nnpm install\nnpm run dev`} />
 			<!-- Framework: Astro -->
 		{:else if $storeFramework === 'astro'}
 			<p>
@@ -139,17 +126,17 @@ npm run dev
 			<!-- Integrations -->
 			<h3>Integrations</h3>
 			<p>
-				Svelte via <a href="https://docs.astro.build/en/guides/integrations-guide/svelte/" target="_blank">@astrojs/svelte</a>
+				Add Svelte integration via <a href="https://docs.astro.build/en/guides/integrations-guide/svelte/" target="_blank">@astrojs/svelte</a>
 			</p>
 			<CodeBlock language="console" code={`npx astro add svelte`} />
 			<p>
-				Tailwind via <a href="https://docs.astro.build/en/guides/integrations-guide/tailwind/" target="_blank">@astrojs/tailwind</a>
+				Add Tailwind integration via <a href="https://docs.astro.build/en/guides/integrations-guide/tailwind/" target="_blank">@astrojs/tailwind</a>
 			</p>
 			<CodeBlock language="console" code={`npx astro add tailwind`} />
 			<!-- More -->
 			<h3>Astro Guide</h3>
 			<p>
-				Once setup of Skeleton is complete, we recommend trying our the dedicated <a href="/guides/astro">Astro guide</a>. This guide provides a walkthrough for scaffolding a simple Astro application,
+				Once the setup of Skeleton is complete, we recommend trying out the dedicated <a href="/guides/astro">Astro guide</a>. This guide provides a walkthrough for scaffolding a simple Astro application,
 				as well as explaining how to take advantage of Skeleton components within Astro's
 				<a href="https://docs.astro.build/en/concepts/islands/" target="_blank">islands architecture</a>.
 			</p>
@@ -161,7 +148,7 @@ npm run dev
 		<section class="space-y-4">
 			<h3>Install Tailwind</h3>
 			<p>
-				<a href="https://github.com/svelte-add/tailwindcss" target="_blank">Svelte-Add</a> makes installation a trivia process.
+				<a href="https://github.com/svelte-add/tailwindcss" target="_blank">Svelte-Add</a> makes installation a trivial process.
 			</p>
 			<CodeBlock language="console" code={`npx svelte-add@latest tailwindcss\nnpm install`} />
 		</section>

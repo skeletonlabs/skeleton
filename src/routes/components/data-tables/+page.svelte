@@ -2,11 +2,8 @@
 	import { mapTableSource } from '$lib/Table/DataTableService';
 	import { writable, type Writable } from 'svelte/store';
 
+	import { DataTable, Card, TabGroup, Tab } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import Card from '$lib/Card/Card.svelte';
-	import TabGroup from '$lib/Tab/TabGroup.svelte';
-	import Tab from '$lib/Tab/Tab.svelte';
-	import DataTable from '$lib/Table/DataTable.svelte';
 
 	let tabExample: Writable<string> = writable('local');
 

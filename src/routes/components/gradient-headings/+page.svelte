@@ -1,8 +1,6 @@
 <script lang="ts">
-	import GradientHeading from '$lib/GradientHeading/GradientHeading.svelte';
-	import Card from '$lib/Card/Card.svelte';
+	import { DataTable, Card, GradientHeading, Button } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import DataTable from '$lib/Table/DataTable.svelte';
 
 	const tableProps: any = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],

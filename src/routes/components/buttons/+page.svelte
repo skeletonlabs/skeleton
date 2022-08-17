@@ -1,9 +1,6 @@
 <script lang="ts">
-	import Card from '$lib/Card/Card.svelte';
-	import DataTable from '$lib/Table/DataTable.svelte';
+	import { DataTable, Card, Button, SlideToggle } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import SlideToggle from '$lib/SlideToggle/SlideToggle.svelte';
-	import Button from '$lib/Button/Button.svelte';
 
 	function onClickHandler(): void {
 		console.log('Button was clicked!');

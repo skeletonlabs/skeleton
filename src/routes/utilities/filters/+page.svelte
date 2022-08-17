@@ -1,8 +1,6 @@
 <script lang="ts">
-	import Card from '$lib/Card/Card.svelte';
+	import { Card, Badge, filter } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import Badge from '$lib/Badge/Badge.svelte';
-	import { filter } from '$lib/Filters/filter';
 
 	// Avatar Placeholder
 	let placeholder = 'https://i.pravatar.cc/512?img=5';

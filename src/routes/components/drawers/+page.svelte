@@ -1,9 +1,6 @@
 <script lang="ts">
+	import { DataTable, Card, Divider, Drawer } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import DataTable from '$lib/Table/DataTable.svelte';
-	import Card from '$lib/Card/Card.svelte';
-	import Divider from '$lib/Divider/Divider.svelte';
-	import Drawer from '$lib/Drawer/Drawer.svelte';
 
 	const tableProps: any = {
 		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
