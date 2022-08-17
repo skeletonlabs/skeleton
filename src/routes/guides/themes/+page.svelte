@@ -1,6 +1,6 @@
 <script lang="ts">
     import { writable, type Writable } from "svelte/store";
-    import { storeFramework } from "../stores";
+    import { storeFramework } from "../../stores";
 
     import Card from "$lib/Card/Card.svelte";
     import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";

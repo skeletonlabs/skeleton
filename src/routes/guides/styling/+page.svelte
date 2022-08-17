@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { storeFramework } from "../stores";
+    import { storeFramework } from "../../stores";
 
     import Card from "$lib/Card/Card.svelte";
     import Button from "$lib/Button/Button.svelte";
