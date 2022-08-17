@@ -54,83 +54,29 @@
 	}
 
 	// Props
-	const tableProps: any = {
-		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
-		source: [
-			{
-				prop: 'headings',
-				type: 'string[]',
-				default: '[]',
-				req: '&check;',
-				desc: 'Provide a list of table headings.'
-			},
-			{
-				prop: 'source',
-				type: 'any[]',
-				default: '[]',
-				req: '&check;',
-				desc: 'Provide the table body content.'
-			},
-			{
-				prop: 'async',
-				type: 'boolean',
-				default: 'false',
-				req: '-',
-				desc: 'Disables search/sort within the component, allowing for server-side pagination.'
-			},
-			{
-				prop: 'search',
-				type: 'any',
-				default: '-',
-				req: '-',
-				desc: 'Provide a term for local fuzzy search within the compoonent.'
-			},
-			{ prop: 'sort', type: 'string', default: '-', req: '-', desc: 'Defines the sort key value.' },
-			{
-				prop: 'count',
-				type: 'number',
-				default: '(source length)',
-				req: '-',
-				desc: 'When using async mode, use this to get a count of rows.'
-			},
-			{
-				prop: 'interactive',
-				type: 'boolean',
-				default: 'false',
-				req: '-',
-				desc: 'Enables row hover and selection features.'
-			}
-		]
-	};
-	const tablePropStyles: any = {
-		headings: ['Prop', 'Type', 'Default', 'Description'],
-		source: [
-			{
-				prop: 'header',
-				type: 'string',
-				default: 'bg-surface-50 dark:bg-surface-700',
-				desc: 'Provide a class to set the table header background color.'
-			},
-			{
-				prop: 'body',
-				type: 'string',
-				default: 'bg-surface-200 dark:bg-surface-800',
-				desc: 'Provide a class to set the table body background color.'
-			},
-			{
-				prop: 'text',
-				type: 'string',
-				default: 'text-sm',
-				desc: 'Provide a class to set the table text size.'
-			},
-			{
-				prop: 'hover',
-				type: 'string',
-				default: 'hover:bg-primary-500/10',
-				desc: 'Provide a class to set the hover background color.'
-			}
-		]
-	};
+	// prettier-ignore
+    const tableProps: any = {
+        headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
+        source: [
+            {prop: 'headings', type: 'string[]', default: '[]', req: '&check;', desc: 'Provide a list of table headings.'},
+            {prop: 'source', type: 'any[]', default: '[]', req: '&check;', desc: 'Provide the table body content.'},
+            {prop: 'async', type: 'boolean', default: 'false', req: '-', desc: 'Disables search/sort within the component, allowing for server-side pagination.'},
+            {prop: 'search', type: 'any', default: '-', req: '-', desc: 'Provide a term for local fuzzy search within the compoonent.'},
+            {prop: 'sort', type: 'string', default: '-', req: '-', desc: 'Defines the sort key value.'},
+            {prop: 'count', type: 'number', default: '(source length)', req: '-', desc: 'When using async mode, use this to get a count of rows.'},
+            {prop: 'interactive', type: 'boolean', default: 'false', req: '-', desc: 'Enables row hover and selection features.'},
+        ],
+    }
+	// prettier-ignore
+    const tablePropStyles: any = {
+        headings: ['Prop', 'Type', 'Default', 'Description'],
+        source: [
+            {prop: 'header', type: 'string', default: 'bg-surface-50 dark:bg-surface-700', desc: 'Provide a class to set the table header background color.'},
+            {prop: 'body', type: 'string', default: 'bg-surface-200 dark:bg-surface-800', desc: 'Provide a class to set the table body background color.'},
+            {prop: 'text', type: 'string', default: 'text-sm', desc: 'Provide a class to set the table text size.'},
+            {prop: 'hover', type: 'string', default: 'hover:bg-primary-500/10', desc: 'Provide a class to set the hover background color.'},
+        ],
+    }
 
 	// Events
 	const tableEvents: any = {
