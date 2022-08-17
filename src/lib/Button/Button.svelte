@@ -25,8 +25,8 @@
 		'inline-flex justify-center items-center space-x-2 text-center whitespace-nowrap ring-inset pointer-cursor';
 
 	// Set Size
-	// prettier-ignore
     let cSize: string;
+	// prettier-ignore
     function setSize(): void {
         switch(size) {
             case('none'): cSize = 'text-base'; break;
