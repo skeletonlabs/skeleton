@@ -1,115 +1,150 @@
 <script lang="ts">
-    import { writable } from "svelte/store";
+	import { writable } from 'svelte/store';
 
-    import CodeBlock from "$lib/CodeBlock/CodeBlock.svelte";
-    import Card from "$lib/Card/Card.svelte";
-    import DataTable from "$lib/Table/DataTable.svelte";
-    import RadioGroup from "$lib/Radio/RadioGroup.svelte";
-    import RadioItem from "$lib/Radio/RadioItem.svelte";
+	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+	import Card from '$lib/Card/Card.svelte';
+	import DataTable from '$lib/Table/DataTable.svelte';
+	import RadioGroup from '$lib/Radio/RadioGroup.svelte';
+	import RadioItem from '$lib/Radio/RadioItem.svelte';
 
-    const storeJustify = writable(0);
-    const storeLayout = writable('horz');
+	const storeJustify = writable(0);
+	const storeLayout = writable('horz');
 
-    // Props & Slots
-    const tablePropsGroup: any = {
-        headings: ['Prop', 'Type', 'Values', 'Required', 'Description'],
-        source: [
-            ['selected', 'Writable', 'any', '&check;', 'Provide a Svelte writable to store the selected state value.'],
-            ['background', 'string', 'bg-primary-500', '-', `Provide a class to set the selected item background color.`],
-            ['color', 'string', 'text-black dark:text-white', '-', `Provide a class to set the selected item text color.`],
-            ['width', 'string', 'w-auto', '-', `Provide a class to set the width.`],
-        ],
-    };
-    const tablePropsItem: any = {
-        headings: ['Prop', 'Type', 'Description'],
-        source: [
-            ['value', 'any', `The item's selection value.`],
-        ],
-    };
-    const tableA11yGroup: any = {
-        headings: ['Prop', 'Required', 'Description'],
-        source: [
-            ['label', '-', `Defines a semantic ARIA label.`],
-        ],
-    };
-    const tableA11yItem: any = {
-        headings: ['Prop', 'Required', 'Description'],
-        source: [
-            ['label', '-', `Defines a semantic ARIA label.`],
-        ],
-    };
+	// Props & Slots
+	const tablePropsGroup: any = {
+		headings: ['Prop', 'Type', 'Values', 'Required', 'Description'],
+		source: [
+			[
+				'selected',
+				'Writable',
+				'any',
+				'&check;',
+				'Provide a Svelte writable to store the selected state value.'
+			],
+			[
+				'background',
+				'string',
+				'bg-primary-500',
+				'-',
+				`Provide a class to set the selected item background color.`
+			],
+			[
+				'color',
+				'string',
+				'text-black dark:text-white',
+				'-',
+				`Provide a class to set the selected item text color.`
+			],
+			['width', 'string', 'w-auto', '-', `Provide a class to set the width.`]
+		]
+	};
+	const tablePropsItem: any = {
+		headings: ['Prop', 'Type', 'Description'],
+		source: [['value', 'any', `The item's selection value.`]]
+	};
+	const tableA11yGroup: any = {
+		headings: ['Prop', 'Required', 'Description'],
+		source: [['label', '-', `Defines a semantic ARIA label.`]]
+	};
+	const tableA11yItem: any = {
+		headings: ['Prop', 'Required', 'Description'],
+		source: [['label', '-', `Defines a semantic ARIA label.`]]
+	};
 </script>
 
 <div class="space-y-8">
-
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Radio Groups</h1>
 		<p>Capture user feedback limited to a small set of options.</p>
-		<CodeBlock language="js" code={`import { RadioGroup, RadioItem } from '@brainandbones/skeleton';`}></CodeBlock>
+		<CodeBlock
+			language="js"
+			code={`import { RadioGroup, RadioItem } from '@brainandbones/skeleton';`}
+		/>
 	</header>
 
-    <!-- Examples -->
+	<!-- Examples -->
 	<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <Card class="flex-auto space-y-4 text-center">
-            <RadioGroup selected={storeJustify}>
-                <RadioItem value={0} label="Align Left">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M256 96H32C14.33 96 0 81.67 0 64C0 46.33 14.33 32 32 32H256C273.7 32 288 46.33 288 64C288 81.67 273.7 96 256 96zM256 352H32C14.33 352 0 337.7 0 320C0 302.3 14.33 288 32 288H256C273.7 288 288 302.3 288 320C288 337.7 273.7 352 256 352zM0 192C0 174.3 14.33 160 32 160H416C433.7 160 448 174.3 448 192C448 209.7 433.7 224 416 224H32C14.33 224 0 209.7 0 192zM416 480H32C14.33 480 0 465.7 0 448C0 430.3 14.33 416 32 416H416C433.7 416 448 430.3 448 448C448 465.7 433.7 480 416 480z"/></svg>
-                </RadioItem>
-                <RadioItem value={1} label="Align Middle">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M320 96H128C110.3 96 96 81.67 96 64C96 46.33 110.3 32 128 32H320C337.7 32 352 46.33 352 64C352 81.67 337.7 96 320 96zM416 224H32C14.33 224 0 209.7 0 192C0 174.3 14.33 160 32 160H416C433.7 160 448 174.3 448 192C448 209.7 433.7 224 416 224zM0 448C0 430.3 14.33 416 32 416H416C433.7 416 448 430.3 448 448C448 465.7 433.7 480 416 480H32C14.33 480 0 465.7 0 448zM320 352H128C110.3 352 96 337.7 96 320C96 302.3 110.3 288 128 288H320C337.7 288 352 302.3 352 320C352 337.7 337.7 352 320 352z"/></svg>
-                </RadioItem>
-                <RadioItem value={2} label="Align Right">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 96H192C174.3 96 160 81.67 160 64C160 46.33 174.3 32 192 32H416C433.7 32 448 46.33 448 64C448 81.67 433.7 96 416 96zM416 352H192C174.3 352 160 337.7 160 320C160 302.3 174.3 288 192 288H416C433.7 288 448 302.3 448 320C448 337.7 433.7 352 416 352zM0 192C0 174.3 14.33 160 32 160H416C433.7 160 448 174.3 448 192C448 209.7 433.7 224 416 224H32C14.33 224 0 209.7 0 192zM416 480H32C14.33 480 0 465.7 0 448C0 430.3 14.33 416 32 416H416C433.7 416 448 430.3 448 448C448 465.7 433.7 480 416 480z"/></svg>
-                </RadioItem>
-            </RadioGroup>
-            <pre>selected = {$storeJustify}</pre>
-        </Card>
-        <Card class="flex-auto space-y-4 text-center">
-            <RadioGroup background="bg-accent-500" color="text-white" selected={storeLayout}>
-                <RadioItem value="horz">Horizontal</RadioItem>
-                <RadioItem value="vert">Vertical</RadioItem>
-            </RadioGroup>
-            <pre>selected = {$storeLayout}</pre>
-        </Card>
-    </section>
+		<Card class="flex-auto space-y-4 text-center">
+			<RadioGroup selected={storeJustify}>
+				<RadioItem value={0} label="Align Left">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+						><path
+							d="M256 96H32C14.33 96 0 81.67 0 64C0 46.33 14.33 32 32 32H256C273.7 32 288 46.33 288 64C288 81.67 273.7 96 256 96zM256 352H32C14.33 352 0 337.7 0 320C0 302.3 14.33 288 32 288H256C273.7 288 288 302.3 288 320C288 337.7 273.7 352 256 352zM0 192C0 174.3 14.33 160 32 160H416C433.7 160 448 174.3 448 192C448 209.7 433.7 224 416 224H32C14.33 224 0 209.7 0 192zM416 480H32C14.33 480 0 465.7 0 448C0 430.3 14.33 416 32 416H416C433.7 416 448 430.3 448 448C448 465.7 433.7 480 416 480z"
+						/></svg
+					>
+				</RadioItem>
+				<RadioItem value={1} label="Align Middle">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+						><path
+							d="M320 96H128C110.3 96 96 81.67 96 64C96 46.33 110.3 32 128 32H320C337.7 32 352 46.33 352 64C352 81.67 337.7 96 320 96zM416 224H32C14.33 224 0 209.7 0 192C0 174.3 14.33 160 32 160H416C433.7 160 448 174.3 448 192C448 209.7 433.7 224 416 224zM0 448C0 430.3 14.33 416 32 416H416C433.7 416 448 430.3 448 448C448 465.7 433.7 480 416 480H32C14.33 480 0 465.7 0 448zM320 352H128C110.3 352 96 337.7 96 320C96 302.3 110.3 288 128 288H320C337.7 288 352 302.3 352 320C352 337.7 337.7 352 320 352z"
+						/></svg
+					>
+				</RadioItem>
+				<RadioItem value={2} label="Align Right">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+						><path
+							d="M416 96H192C174.3 96 160 81.67 160 64C160 46.33 174.3 32 192 32H416C433.7 32 448 46.33 448 64C448 81.67 433.7 96 416 96zM416 352H192C174.3 352 160 337.7 160 320C160 302.3 174.3 288 192 288H416C433.7 288 448 302.3 448 320C448 337.7 433.7 352 416 352zM0 192C0 174.3 14.33 160 32 160H416C433.7 160 448 174.3 448 192C448 209.7 433.7 224 416 224H32C14.33 224 0 209.7 0 192zM416 480H32C14.33 480 0 465.7 0 448C0 430.3 14.33 416 32 416H416C433.7 416 448 430.3 448 448C448 465.7 433.7 480 416 480z"
+						/></svg
+					>
+				</RadioItem>
+			</RadioGroup>
+			<pre>selected = {$storeJustify}</pre>
+		</Card>
+		<Card class="flex-auto space-y-4 text-center">
+			<RadioGroup background="bg-accent-500" color="text-white" selected={storeLayout}>
+				<RadioItem value="horz">Horizontal</RadioItem>
+				<RadioItem value="vert">Vertical</RadioItem>
+			</RadioGroup>
+			<pre>selected = {$storeLayout}</pre>
+		</Card>
+	</section>
 
-    <!-- Usage -->
-    <section class="space-y-4">
-        <CodeBlock language="typescript" code={`import type { Writable } from "svelte/store";
-const storeLayout: Writable<string> = writable('horz');`}></CodeBlock>
-        <CodeBlock language="html" code={`
+	<!-- Usage -->
+	<section class="space-y-4">
+		<CodeBlock
+			language="typescript"
+			code={`import type { Writable } from "svelte/store";
+const storeLayout: Writable<string> = writable('horz');`}
+		/>
+		<CodeBlock
+			language="html"
+			code={`
 <RadioGroup selected={storeLayout} background="bg-accent-500" color="text-white" width="w-auto">
     <RadioItem value="horz">Horizontal</RadioItem>
     <RadioItem value="vert">Vertical</RadioItem>
 </RadioGroup>
-        `.trim()}></CodeBlock>
-        <CodeBlock language="html" code={`<pre>{$storeLayout}</pre>`}></CodeBlock>
-    </section>
-
-    <!-- Properties -->
-    <section class="space-y-4">
-        <h2 class="text-2xl font-bold">Properties</h2>
-        <h3>Radio Group</h3>
-        <DataTable headings="{tablePropsGroup.headings}" source="{tablePropsGroup.source}"></DataTable>
-        <h3>Radio Item</h3>
-        <DataTable headings="{tablePropsItem.headings}" source="{tablePropsItem.source}"></DataTable>
-    </section>
-
-    <!-- Accessibility -->
-	<section class="space-y-4">
-        <div class="flex justify-between items-center">
-            <h2>Accessibility</h2>
-            <a href="https://www.w3.org/WAI/ARIA/apg/patterns/radiobutton/" target="_blank">ARIA Guidelines</a>
-        </div>
-		<h3>Radio Group</h3>
-		<DataTable headings="{tableA11yGroup.headings}" source="{tableA11yGroup.source}"></DataTable>
-		<h3>Radio Item</h3>
-		<DataTable headings="{tableA11yItem.headings}" source="{tableA11yItem.source}"></DataTable>
+        `.trim()}
+		/>
+		<CodeBlock language="html" code={`<pre>{$storeLayout}</pre>`} />
 	</section>
-    
+
+	<!-- Properties -->
+	<section class="space-y-4">
+		<h2 class="text-2xl font-bold">Properties</h2>
+		<h3>Radio Group</h3>
+		<DataTable headings={tablePropsGroup.headings} source={tablePropsGroup.source} />
+		<h3>Radio Item</h3>
+		<DataTable headings={tablePropsItem.headings} source={tablePropsItem.source} />
+	</section>
+
+	<!-- Accessibility -->
+	<section class="space-y-4">
+		<div class="flex justify-between items-center">
+			<h2>Accessibility</h2>
+			<a href="https://www.w3.org/WAI/ARIA/apg/patterns/radiobutton/" target="_blank"
+				>ARIA Guidelines</a
+			>
+		</div>
+		<h3>Radio Group</h3>
+		<DataTable headings={tableA11yGroup.headings} source={tableA11yGroup.source} />
+		<h3>Radio Item</h3>
+		<DataTable headings={tableA11yItem.headings} source={tableA11yItem.source} />
+	</section>
 </div>
 
 <style lang="postcss">
-    svg { @apply h-[24px] fill-white; }
+	svg {
+		@apply h-[24px] fill-white;
+	}
 </style>

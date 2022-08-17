@@ -20,7 +20,7 @@ describe('Divider.svelte', () => {
 	it('Renders without props (Defaults)', async () => {
 		const { getByTestId } = render(Divider);
 		expect(getByTestId('divider')).toBeTruthy();
-		expect(getByTestId('divider').className).toContain('border-solid')
-		expect(getByTestId('divider').className).toContain('border-t')
+		expect(getByTestId('divider').className).toContain('border-solid');
+		expect(getByTestId('divider').className).toContain('border-t');
 	});
 });

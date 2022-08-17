@@ -14,5 +14,4 @@ describe('LogoCloud.svelte', () => {
 		const { getByTestId } = render(LogoCloud);
 		expect(getByTestId('logo-cloud')).toBeTruthy();
 	});
-
 });

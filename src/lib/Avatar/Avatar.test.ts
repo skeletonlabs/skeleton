@@ -25,14 +25,14 @@ describe('Button.svelte', () => {
 		expect(getByTestId('wrapper')).toBeTruthy();
 	});
 
-	it('Invalid props (Defaults', async()=>{
+	it('Invalid props (Defaults', async () => {
 		const { getByTestId } = render(Avatar, {
-			props: { size: 'large', outlined: 'none', hover: 'none'}
+			props: { size: 'large', outlined: 'none', hover: 'none' }
 		});
-		expect( getByTestId('wrapper').className.includes('text-4xl'));
-		expect( getByTestId('wrapper').getAttribute('hover')).eq(null);
-		expect( getByTestId('wrapper').getAttribute('outlined')).eq(null);
-	})
+		expect(getByTestId('wrapper').className.includes('text-4xl'));
+		expect(getByTestId('wrapper').getAttribute('hover')).eq(null);
+		expect(getByTestId('wrapper').getAttribute('outlined')).eq(null);
+	});
 
 	it('Image shown', async () => {
 		const { getByTestId } = render(Avatar, { src: img });

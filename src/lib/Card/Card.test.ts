@@ -14,7 +14,5 @@ describe('Card.svelte', () => {
 		render(Card);
 	});
 
-	it('Renders with props', async () => {
-        
-    });
+	it('Renders with props', async () => {});
 });

@@ -7,10 +7,10 @@ const plugin = require('tailwindcss/plugin');
 function rgbAppendOpacity(variable) {
 	return ({ opacityValue }) => {
 		if (opacityValue === undefined) {
-			return `rgb(var(${variable}))`
+			return `rgb(var(${variable}))`;
 		}
-		return `rgb(var(${variable}) / ${opacityValue})`
-	}
+		return `rgb(var(${variable}) / ${opacityValue})`;
+	};
 }
 
 function createColorSet(colorName) {
@@ -29,16 +29,16 @@ function createColorSet(colorName) {
 }
 
 module.exports = plugin(() => {}, {
-    theme: {
+	theme: {
 		extend: {
 			// Extend the colors with the CSS variable values
 			// NOTE: Must be RGB to allow for TW opacity value
 			colors: {
-				'primary': createColorSet('primary'),
-				'accent': createColorSet('accent'),
-				'warning': createColorSet('warning'),
-				'surface': createColorSet('surface'),
-			},
+				primary: createColorSet('primary'),
+				accent: createColorSet('accent'),
+				warning: createColorSet('warning'),
+				surface: createColorSet('surface')
+			}
 		}
-	},
-})
+	}
+});
