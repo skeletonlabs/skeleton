@@ -123,13 +123,13 @@
 			<CodeBlock language="typescript" code={`import '../theme.css'; // <--\nimport '../app.css';\n//..`} />
 			<!-- Framework: Astro -->
 		{:else if $storeFramework === 'astro'}
-			<p>Add <code>/src/styles/theme.css</code> to house your Skeleton theme CSS.</p>
+			<p>Add <code>/src/styles/theme.css</code> to house the Skeleton theme CSS.</p>
 			<p>
-				Add <code>/src/styles/base.css</code> to define @tailwind directives and house global styles:
+				Add <code>/src/styles/base.css</code> to house global styles and define the following @tailwind directives:
 			</p>
 			<CodeBlock language="css" code={`@tailwind base;\n@tailwind components;\n@tailwind utilities;`} />
 			<p>
-				We'll implement a layout in the <a href="/guides/astro">Astro guide</a> to make use of these stylesheets.
+				Note that we'll implement these new stylesheets into a layout in the <a href="/guides/astro">Astro guide</a>.
 			</p>
 		{/if}
 	</section>

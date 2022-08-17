@@ -9,7 +9,7 @@
 	// Import CSS
 	import 'highlight.js/styles/github-dark.css'; // Highlight.js
 	import '../themes/theme-skeleton.css'; // skeleton|rocket|modern|seafoam|vintage|sahara|test
-	import '../app.css';
+	import '../app.postcss';
 
 	const currentPageStore: Writable<string> = writable($page.url.pathname);
 	const drawer: Writable<boolean> = writable(false);

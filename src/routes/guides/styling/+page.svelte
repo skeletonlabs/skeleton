@@ -22,24 +22,26 @@
 			<Tab value="astro">Astro</Tab>
 		</TabGroup>
 		<!-- Framework: SvelteKit | Vite (Svelte) -->
-		{#if $storeFramework === 'sveltekit' || $storeFramework === 'vite'}
+		{#if $storeFramework === 'sveltekit'}
+			<p>Your global stylesheet is located in <code>/src/app.postcss</code>.</p>
+		{:else if $storeFramework === 'vite'}
 			<p>Your global stylesheet is located in <code>/src/app.css</code>.</p>
-			<!-- Framework: Astro -->
+		<!-- Framework: Astro -->
 		{:else if $storeFramework === 'astro'}
 			<p>Your global stylesheet is located in <code>/src/styles/base.css</code>.</p>
 		{/if}
 		<p>
-			You can try the <code>body</code> style below or review the global stylesheet for
+			Use the basic <code>body</code> style below to get started. For a real world example, review how we implemented global styles for
 			<a href="https://github.com/Brain-Bones/skeleton/blob/master/src/app.css" target="_blank">this documentation site</a>.
 		</p>
 		<CodeBlock language="css" code={`body { @apply bg-surface-100 dark:bg-surface-900 text-black dark:text-white p-4; }`} />
-		<p>Here's a few suggested best practices when creating global styles:</p>
-		<ul class="list-disc list-inside">
+		<p>Here's a few suggested best practices to follow when creating global styles:</p>
+		<ul class="list-disc list-inside space-y-1">
 			<li>
-				Utilize <a href="https://tailwindcss.com/docs/reusing-styles#extracting-classes-with-apply" target="_blank">Tailwind @apply</a> to define and implement styles whenever possible.
+				One of the best uses for <a href="https://tailwindcss.com/docs/reusing-styles#extracting-classes-with-apply" target="_blank">Tailwind @apply</a> is when defining global styles. Just be leery of using this elsewhere.
 			</li>
 			<li>
-				Utilize the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:not" target="_blank">CSS :not pseudo-class</a> to exclude and avoid overwriting each component's inherit styles.
+				Utilize the CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:not" target="_blank">:not pseudo-class</a> to exclude and avoid overwriting Skeleton component's inherit styles.
 			</li>
 			<li>
 				Utilize the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Tailwind Forms plugin</a>

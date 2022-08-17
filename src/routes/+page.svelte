@@ -84,7 +84,7 @@
 		<!-- Framework: SvelteKit -->
 		{#if $storeFramework === 'sveltekit'}
 			<p>
-				View the <a href="https://kit.svelte.dev/docs/introduction#getting-started" target="_blank">official documentation</a>
+				View the <a href="https://kit.svelte.dev/docs/introduction#getting-started" target="_blank">official documentation.</a>
 			</p>
 			<CodeBlock
 				language="console"
@@ -102,11 +102,7 @@ npm run dev
 			<p>
 				View the <a href="https://vitejs.dev/guide/#scaffolding-your-first-vite-project" target="_blank">official documentation</a>.
 			</p>
-			<CodeBlock
-				language="console"
-				code={`npm create vite@latest my-app -- --template svelte-ts`.trim()}
-			/>
-			<CodeBlock language="console" code={`cd my-app\nnpm install\nnpm run dev`} />
+			<CodeBlock language="console" code={`npm create vite@latest my-app -- --template svelte-ts\ncd my-app\nnpm install\nnpm run dev`} />
 			<!-- Framework: Astro -->
 		{:else if $storeFramework === 'astro'}
 			<p>

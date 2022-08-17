@@ -13,20 +13,12 @@
 				<Button variant="ghost" href="https://docs.astro.build/en/getting-started/" target="_blank">Docs</Button>
 			</nav>
 		</div>
+		<p>Skeleton now officially supports the Astro web framework. This guide provides a walkthrough for scaffolding a simple Astro application.</p>
 		<p>
-			Skeleton now officially supports the Astro web framework. This guide provides a walkthrough for scaffolding a simple Astro application, as well as explaining how to take advantage of Skeleton
-			components within Astro's <a href="https://docs.astro.build/en/concepts/islands/" target="_blank">islands architecture</a>.
-		</p>
-	</header>
-
-	<Divider />
-
-	<section>
-		<p>
-			Make sure you've read through <a href="/guides/tailwind">Tailwind</a>,
+			<strong>IMPORTANT:</strong> Make sure you've read through <a href="/guides/tailwind">Tailwind</a>,
 			<a href="/guides/themes">Themes</a>, and <a href="/guides/styling">Styling</a> guides before you proceed.
 		</p>
-	</section>
+	</header>
 
 	<Divider />
 
@@ -61,7 +53,7 @@ import '../styles/base.css';
 		<!-- Implement Layout -->
 		<h4>Use Layouts in Pages</h4>
 		<p>
-			You can then update your homepage <code>/src/pages/index.astro</code> with the following code to apply your new layout:
+			You can then apply this layout to any page. Let's do this for our homepage in <code>/src/pages/index.astro</code>.
 		</p>
 		<CodeBlock
 			language="html"
@@ -81,8 +73,9 @@ import BasicLayout from '../layouts/BasicLayout.astro';
 	<!-- Scaffold -->
 	<section class="space-y-4">
 		<h2>Components</h2>
+		<p>Let's review how to implement Skeleton components while taking advantage of <a href="https://docs.astro.build/en/concepts/islands/" target="_blank">Astro's islands architecture</a>.</p>
 		<h4>Static</h4>
-		<p>For simple Skeleton components that do not require JavaScript logic or functionality, we can import and use the components directly:</p>
+		<p>For simple Skeleton components that do not require JavaScript logic or functionality, we can simply import and use those components directly:</p>
 		<CodeBlock
 			language="html"
 			code={`
@@ -104,19 +97,19 @@ import { LogoCloud, Logo } from '@brainandbones/skeleton';
 		<h4>Dynamic</h4>
 		<p>
 			For Skeleton components that make use of reactive Svelte features, such as the <code>on:click</code>
-			directive, Writable Stores, or Actions, you'll need to setup a dedicated Svelte wrapper component. For this example we'll create <code>/src/components/WrapperExample.svelte</code>:
+			directive, Writable Stores, or Actions, or similiar, you'll need to setup a dedicated Svelte wrapper component, then hydrate the wrapper component. For this example we'll create <code>/src/components/WrapperExample.svelte</code>:
 		</p>
 		<CodeBlock
 			language="html"
 			code={`
 \<script\>
-    function doSomething(): void {  console.log('Hello, Skeleton'); }
+    function triggerMessage(): void {  console.log('Hello, Skeleton'); }
 \<\/script\>\n
-<Button variant="filled-primary" on:click={() => { triggerDialog() }}>Trigger Dialog</Button>
+<Button variant="filled-primary" on:click={() => { triggerMessage() }}>Trigger</Button>
         `.trim()}
 		/>
 		<p>
-			Then, implement within the Astro homepage component at <code>/src/pages/index.astro</code>:
+			Then, implement this wrapper component within your homepage component at <code>/src/pages/index.astro</code>:
 		</p>
 		<CodeBlock
 			language="html"
@@ -131,9 +124,9 @@ import WrapperExample from '../components/WrapperExample.svelte';
         `.trim()}
 		/>
 		<p>
-			Make sure to hydrate the component using <a href="https://docs.astro.build/en/reference/directives-reference/#client-directives" target="_blank">Astro's Client Directives</a>. We opted for
-			<code>client:visible</code>, which loads and hydrates the component JavaScript when it enteres the user’s viewport. If we had failed to do this, then the
-			<code>doSomething()</code> method would not operate.
+			The trick is to make sure to hydrate the component using <a href="https://docs.astro.build/en/reference/directives-reference/#client-directives" target="_blank">Astro's Client Directives</a>. We opted for
+			<code>client:visible</code>, which loads and hydrates the component JavaScript component only when it enteres the user’s viewport. If we had failed to do this, the
+			<code>triggerMessage()</code> method would not function.
 		</p>
 	</section>
 

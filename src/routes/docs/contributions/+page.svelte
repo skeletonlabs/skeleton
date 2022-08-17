@@ -3,10 +3,10 @@
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
 
 	const tableBranches: any = {
-		headings: ['Branch', 'Description', 'Accepts PRs'],
+		headings: ['Branch', 'PRs Allowed', 'Description'],
 		source: [
-			['<code>master</code>', 'Represents the mainline production branch. Pull requests sent to this branch will be rejected.', 'No'],
-			['<code>dev</code>', 'When submitting a pull request, please <u>target this branch</u>.', 'Yes']
+			['<code>master</code>', 'No', 'Represents the mainline production branch. Pull requests sent to this branch will be rejected.'],
+			['<code>dev</code>', 'Yes', 'When submitting a pull request, please <u>target this branch</u>. PRs to other branches will be rejected.']
 		]
 	};
 	const tableBranchConventions: any = {
@@ -65,7 +65,7 @@
 			Workflow
 			<Badge background="bg-warning-500" class="-translate-y-2">Important</Badge>
 		</h2>
-		<p>Avoid going rogue and commiting changes without prior discuss. Open-source is most successful when we all work together.</p>
+		<p>Avoid going rogue and commiting changes without prior discussion. Open-source is most successful when we all work together.</p>
 		<ol class="list-decimal list-inside">
 			<li>
 				<a href="https://github.com/Brain-Bones/skeleton/issues" target="_blank">Select an issue</a>
@@ -83,7 +83,7 @@
 		</ol>
 		<p>
 			The overwhelming majority of rejected pull requests come from unrequested submissions that do not meet the requirements for a feature or otherwise conflict with other ongoing efforts. To avoid
-			rejection, be a team player, don't try and be a hero!
+			rejection, be a team player, don't try to be a hero!
 		</p>
 	</section>
 
@@ -96,7 +96,7 @@
 			As a common courtesy, please reach out to contributors before you start work on new features. If you're interested in creating a new feature, create a ticket on <a
 				href="https://github.com/Brain-Bones/skeleton/issues"
 				target="_blank">Github Issues</a
-			>. This allows for open discourse and may help prevent redudant work. This includes but is not limited to: creating new components, adding new utilities, or alterations to existing work.
+			>. This allows for open discourse and may help prevent redundant work. This includes but is not limited to: creating new components, adding new utilities, or alterations to existing work.
 		</p>
 		<h4>Git Branches</h4>
 		<DataTable headings={tableBranches.headings} source={tableBranches.source} />
@@ -111,7 +111,7 @@
 	<section class="space-y-4">
 		<h2>Dependencies</h2>
 		<p>
-			Skeleton aims to keep depedencies to as few as possible to keep the project lean. Please be leery of introducing new dependencies. However, don't be afraid to discuss additions you would like to
+			Skeleton aims to keep dependencies to as few as possible to keep the project lean. Please be leery of introducing new dependencies. However, don't be afraid to discuss additions you would like to
 			propose with core contributors before proceeding. We just want what's best for end users!
 		</p>
 	</section>
@@ -133,7 +133,7 @@
 				(ex: <code>LightSwitch.test.ts</code>)
 			</li>
 			<li>
-				Documentation pages represent a URL and should be plural, all lowercase, and separated by dashes (ex: <code>/routes/components/radio-groups.svelte</code>)
+				Documentation pages represent a URL and should be plural, all lowercase, and separated by dashes (ex: <code>/routes/components/radio-groups/+page.svelte</code>)
 			</li>
 			<li>
 				Documentation anchor labels should be capitalized and and plural form (ex: <code>Radio Groups</code>)
@@ -294,11 +294,11 @@ $: classesLabel = \`\${cBaseLabel}\`; // child element
 	<section class="space-y-4">
 		<h2>Updating Documentation</h2>
 		<p>
-			A boilerplate template for documentation pages is available under <code>/routes/components/_template.svelte</code>.
+			A boilerplate template for documentation pages is available under <code>/routes/components/template/+page.svelte</code>.
 		</p>
 		<h4>Update Site Navigation</h4>
 		<p>
-			Open <code>/routes/__layout.svelte</code> and modify the contents of <code>navigation</code> definition to link to any documentation pages you add.
+			Open <code>/routes/+layout.svelte</code> and modify the contents of <code>const navigation</code> to link to any documentation pages you add.
 		</p>
 		<h4>Interactive vs Static Demos</h4>
 		<p>
