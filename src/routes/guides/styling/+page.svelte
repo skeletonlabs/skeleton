@@ -1,12 +1,7 @@
 <script lang="ts">
 	import { storeFramework } from '../../stores';
-
-	import Card from '$lib/Card/Card.svelte';
-	import Button from '$lib/Button/Button.svelte';
-	import Divider from '$lib/Divider/Divider.svelte';
+	import { Card, Button, Divider, TabGroup, Tab } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import TabGroup from '$lib/Tab/TabGroup.svelte';
-	import Tab from '$lib/Tab/Tab.svelte';
 </script>
 
 <div class="space-y-8">

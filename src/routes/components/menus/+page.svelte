@@ -1,11 +1,6 @@
 <script lang="ts">
+	import { DataTable, Card, Button, List, ListItem, Menu } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import DataTable from '$lib/Table/DataTable.svelte';
-	import Card from '$lib/Card/Card.svelte';
-	import Button from '$lib/Button/Button.svelte';
-	import List from '$lib/List/List.svelte';
-	import ListItem from '$lib/List/ListItem.svelte';
-	import Menu from '$lib/Menu/Menu.svelte';
 
 	// Tables and Slots
 	const tableProps: any = {

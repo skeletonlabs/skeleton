@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Divider from '$lib/Divider/Divider.svelte';
+	import { Divider } from '@brainandbones/skeleton';
 </script>
 
 <div class="space-y-8">

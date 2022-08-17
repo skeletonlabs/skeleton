@@ -1,8 +1,6 @@
 <script lang="ts">
-	import Badge from '$lib/Badge/Badge.svelte';
+	import { DataTable, Badge, Divider } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import Divider from '$lib/Divider/Divider.svelte';
-	import DataTable from '$lib/Table/DataTable.svelte';
 
 	const tableBranches: any = {
 		headings: ['Branch', 'Description', 'Accepts PRs'],

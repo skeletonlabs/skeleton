@@ -1,11 +1,7 @@
 <script lang="ts">
 	import { writable } from 'svelte/store';
-
+	import { DataTable, Card, RadioGroup, RadioItem } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import Card from '$lib/Card/Card.svelte';
-	import DataTable from '$lib/Table/DataTable.svelte';
-	import RadioGroup from '$lib/Radio/RadioGroup.svelte';
-	import RadioItem from '$lib/Radio/RadioItem.svelte';
 
 	const storeJustify = writable(0);
 	const storeLayout = writable('horz');

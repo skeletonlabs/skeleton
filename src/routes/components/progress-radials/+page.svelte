@@ -1,8 +1,6 @@
 <script lang="ts">
-	import Card from '$lib/Card/Card.svelte';
+	import { DataTable, Card, ProgressRadial } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import DataTable from '$lib/Table/DataTable.svelte';
-	import ProgressRadial from '$lib/Progress/ProgressRadial.svelte';
 
 	// Tables
 	const tableProps: any = {

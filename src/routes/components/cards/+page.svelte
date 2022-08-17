@@ -1,8 +1,6 @@
 <script lang="ts">
+	import { DataTable, Card, Avatar } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import DataTable from '$lib/Table/DataTable.svelte';
-	import Avatar from '$lib/Avatar/Avatar.svelte';
-	import Card from '$lib/Card/Card.svelte';
 
 	// Props and Slots
 	const tableProps: any = {

@@ -1,7 +1,6 @@
 <script lang="ts">
-	import Card from '$lib/Card/Card.svelte';
+	import { DataTable, Card } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import DataTable from '$lib/Table/DataTable.svelte';
 	import ConicGradient from '$lib/ConicGradient/ConicGradient.svelte';
 
 	// Examples

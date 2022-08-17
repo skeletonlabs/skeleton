@@ -3,16 +3,8 @@
 	import { writable, type Writable } from 'svelte/store';
 	import { afterNavigate } from '$app/navigation';
 
-	import Drawer from '$lib/Drawer/Drawer.svelte';
-	import LightSwitch from '$lib/LightSwitch/LightSwitch.svelte';
-	import Divider from '$lib/Divider/Divider.svelte';
-	import List from '$lib/List/List.svelte';
-	import ListItem from '$lib/List/ListItem.svelte';
-	import Button from '$lib/Button/Button.svelte';
-	import Badge from '$lib/Badge/Badge.svelte';
-	import Dialog from '$lib/Notifications/Dialog.svelte';
-	import Toast from '$lib/Notifications/Toast.svelte';
-	import { Apollo, BlueNight, Emerald, GreenFall, Noir, NoirLight, Rustic, Summer84, XPro } from '$lib/Filters/filter';
+	import { Drawer, LightSwitch, Divider, List, ListItem, Button, Badge, Dialog, Toast } from '@brainandbones/skeleton';
+	import { Apollo, BlueNight, Emerald, GreenFall, Noir, NoirLight, Rustic, Summer84, XPro } from '@brainandbones/skeleton';
 
 	// Import CSS
 	import 'highlight.js/styles/github-dark.css'; // Highlight.js

@@ -1,7 +1,6 @@
 <script lang="ts">
+	import { Card, LightSwitch } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import Card from '$lib/Card/Card.svelte';
-	import LightSwitch from '$lib/LightSwitch/LightSwitch.svelte';
 </script>
 
 <div class="space-y-8">

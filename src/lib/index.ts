@@ -28,6 +28,7 @@ export { default as RadioGroup } from './Radio/RadioGroup.svelte';
 export { default as RadioItem } from './Radio/RadioItem.svelte';
 export { default as RangeSlider } from './RangeSlider/RangeSlider.svelte';
 export { default as SlideToggle } from './SlideToggle/SlideToggle.svelte';
+export { default as Step } from './Stepper/Step.svelte';
 export { default as Stepper } from './Stepper/Stepper.svelte';
 export { default as TabGroup } from './Tab/TabGroup.svelte';
 export { default as Tab } from './Tab/Tab.svelte';

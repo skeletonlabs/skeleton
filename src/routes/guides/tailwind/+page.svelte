@@ -1,8 +1,6 @@
 <script lang="ts">
-	import Card from '$lib/Card/Card.svelte';
+	import { Divider, Card, Button } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import Button from '$lib/Button/Button.svelte';
-	import Divider from '$lib/Divider/Divider.svelte';
 </script>
 
 <div class="space-y-8">
