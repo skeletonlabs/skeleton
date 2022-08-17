@@ -112,9 +112,9 @@
 		<!-- Framework: SvelteKit -->
 		{#if $storeFramework === 'sveltekit'}
 			<p>
-				Create a new file and save your CSS theme in <code>/src/theme.css</code>, then import this in your <code>__layout.svelte</code> component.
+				Create a new file and save your CSS theme in <code>src/theme.postcss</code>, then import this in your <code>src/routes/+layout.svelte</code> component.
 			</p>
-			<CodeBlock language="typescript" code={`import '../theme.css'; // <--\nimport '../app.css';\n//..`} />
+			<CodeBlock language="typescript" code={`import '../theme.postcss'; // <--\nimport '../app.postcss';\n//..`} />
 			<!-- Framework: Vite (Svelte) -->
 		{:else if $storeFramework === 'vite'}
 			<p>
