@@ -82,7 +82,7 @@
 					<List tag="ol">
 						{#each ['A', 'B', 'C'] as v, i}
 							<ListItem tabindex={i}>
-								<svelte:fragment slot="lead"><div class="circle font-bold">{i + 1}</div></svelte:fragment>
+								<svelte:fragment slot="lead"><div class="circle font-bold text-white">{i + 1}</div></svelte:fragment>
 								Item {v}
 							</ListItem>
 						{/each}

@@ -89,7 +89,7 @@
 				>
 					<svelte:fragment slot="lead">
 						<!-- {@html svgIconSkull} -->
-						<SvgIcon name="skull" width="w-4" height="h-4" class="!block" />
+						<SvgIcon name="skull" fill="fill-white/60" width="w-4" height="h-4" class="!block" />
 					</svelte:fragment>
 					Skeleton
 				</svelte:component>

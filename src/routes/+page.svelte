@@ -7,11 +7,11 @@
 
 <div class="space-y-8 lg:text-left">
 	<!-- Early Access Message -->
-	<section class="bg-accent-500/10 border-l-2 border-l-green-500 p-4 flex justify-between items-center space-x-4">
-		<p class="!text-white">
+	<section class="bg-accent-500/30 border-l-2 border-l-accent-500 p-4 flex justify-between items-center space-x-4">
+		<span class="text-base">
 			<span class="mr-2">🚧</span>
 			Skeleton is available as a public beta. Expect breaking changes prior to v1.0. If you encounter issues please report them on GitHub.
-		</p>
+		</span>
 		<Button variant="ghost" href="https://github.com/Brain-Bones/skeleton/issues">Report Issue</Button>
 	</section>
 

@@ -77,7 +77,7 @@
 	<section class="space-y-4">
 		<h2>Generator</h2>
 		<p>To create your own theme, use the form below. Each color represents swatch 500 (ex: bg-primary-500).</p>
-		<Card class="!bg-neutral-900 space-y-4">
+		<Card class="bg-neutral-200 dark:bg-neutral-900 space-y-4">
 			<header class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 				<RadioGroup selected={storeGenerator}>
 					<RadioItem value="tailwind">Tailwind</RadioItem>

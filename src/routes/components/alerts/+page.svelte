@@ -71,7 +71,7 @@
 		{#if visible}<h3>Fully Featured</h3>{/if}
 		<Alert background="bg-accent-500" {visible}>
 			<svelte:fragment slot="lead">
-				<SvgIcon name="circle-question" width="w-10" height="w-10" />
+				<SvgIcon name="circle-question" width="w-10" height="w-10" fill="fill-white/50" />
 			</svelte:fragment>
 			<svelte:fragment slot="title">{title}</svelte:fragment>
 			<svelte:fragment slot="message">{message}</svelte:fragment>

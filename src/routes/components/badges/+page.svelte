@@ -48,7 +48,7 @@
 					<Badge>
 						Complete
 						<svelte:fragment slot="lead">
-							<SvgIcon name="circle-check" width="w-3" height="w-3" class="!block" />
+							<SvgIcon name="circle-check" width="w-3" height="w-3" fill="fill-white/50" class="!block" />
 						</svelte:fragment>
 					</Badge>
 					<Badge background="bg-yellow-500" color="text-yellow-900" fill="fill-yellow-900">
@@ -86,7 +86,7 @@
 					</div>
 					<div class="relative inline-block">
 						<Badge icon background="bg-warning-500" class="absolute top-0 right-0 z-10 shadow-xl">
-							<SvgIcon name="heart" width="w-3" height="w-3" class="!block" />
+							<SvgIcon name="heart" width="w-3" height="w-3" fill="fill-white" class="!block" />
 						</Badge>
 						<Avatar size="md" />
 					</div>
