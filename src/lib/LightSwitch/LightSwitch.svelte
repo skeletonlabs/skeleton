@@ -1,6 +1,7 @@
 <!-- https://tailwindcss.com/docs/dark-mode -->
 <script context="module" lang="ts">
 	import { writable, type Writable } from 'svelte/store';
+	import SvgIcon from '$lib/SvgIcon/SvgIcon.svelte';
 
 	// Share checked state between all component instances
 	const checked: Writable<boolean> = writable(false); // false:light | true:dark
@@ -8,7 +9,6 @@
 
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { svg } from '$lib/icons';
 
 	// Local
 	let lsDefinedMode: string;
@@ -62,8 +62,6 @@
 		lsDefinedMode === undefined ? setPreferredScheme() : setDefinedMode();
 	});
 
-	// Reactive State
-	$: currentIcon = $checked ? svg.dark : svg.light;
 	// Reactive Classses
 	$: classesPosition = $checked ? 'translate-x-full' : 'translate-x-0';
 	$: classesThumbBg = $checked ? 'fill-neutral-100 bg-neutral-900' : 'fill-neutral-900 bg-neutral-100';
@@ -84,7 +82,7 @@
 >
 	<!-- Thumb -->
 	<div class="lightswitch-thumb {classesThumb}">
-		<!-- Icon -->
-		<i class="lightswitch-icon {cIcon}">{@html currentIcon}</i>
+		<!-- SVG Icon -->
+		<SvgIcon name={$checked === false ? 'sun' : 'moon'} class="lightswitch-icon {cIcon}" />
 	</div>
 </div>

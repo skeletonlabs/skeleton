@@ -16,7 +16,7 @@
 	export let color: string = getContext('color');
 
 	// Base Classes
-	let cBaseItem: string = 'flex-1 text-base fill-black dark:fill-white cursor-pointer text-center';
+	let cBaseItem: string = 'flex-1 text-base text-center fill-black dark:fill-white';
 	let cBaseUnselected: string = 'bg-surface-300 dark:bg-surface-700';
 	let cBaseHover: string = 'hover:brightness-110';
 
@@ -37,7 +37,7 @@
 </script>
 
 <div id={label} class="radio-item {classesItem}" data-testid="radio-item" on:keydown={onKeyDown} role="radio" aria-checked={isChecked} aria-label={label} tabindex="0">
-	<label class="px-5 py-2.5">
+	<label class="px-5 py-2.5 cursor-pointer">
 		<input class="hidden" type="radio" {value} bind:group={$selected} />
 		<div class="inline-block mx-auto"><slot /></div>
 	</label>

@@ -1,4 +1,6 @@
 <script lang="ts">
+	import SvgIcon from '$lib/SvgIcon/SvgIcon.svelte';
+
 	// Props
 	export let open: boolean = false;
 	export let hover: string = 'hover:bg-primary-500/10';
@@ -30,11 +32,7 @@
 		<div class="flex-auto" role="button"><slot name="summary" /></div>
 		<!-- Caret -->
 		<div class={classesIcon}>
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"
-				><path
-					d="M192 384c-8.188 0-16.38-3.125-22.62-9.375l-160-160c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L192 306.8l137.4-137.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-160 160C208.4 380.9 200.2 384 192 384z"
-				/></svg
-			>
+			<SvgIcon name="angle-down" class="opacity-50" />
 		</div>
 	</summary>
 

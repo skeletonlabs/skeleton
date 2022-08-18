@@ -1,9 +1,7 @@
 <script lang="ts">
 	import { DataTable, Card, Button, Badge, Avatar } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-
-	let icon =
-		'<svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM371.8 211.8C382.7 200.9 382.7 183.1 371.8 172.2C360.9 161.3 343.1 161.3 332.2 172.2L224 280.4L179.8 236.2C168.9 225.3 151.1 225.3 140.2 236.2C129.3 247.1 129.3 264.9 140.2 275.8L204.2 339.8C215.1 350.7 232.9 350.7 243.8 339.8L371.8 211.8z"/></svg>';
+	import SvgIcon from '$lib/SvgIcon/SvgIcon.svelte';
 
 	// Props
 	const tableProps: any = {
@@ -49,11 +47,15 @@
 				<div class="flex justify-center space-x-2">
 					<Badge>
 						Complete
-						<svelte:fragment slot="lead">{@html icon}</svelte:fragment>
+						<svelte:fragment slot="lead">
+							<SvgIcon name="circle-check" width="w-3" height="w-3" class="!block" />
+						</svelte:fragment>
 					</Badge>
 					<Badge background="bg-yellow-500" color="text-yellow-900" fill="fill-yellow-900">
 						Complete
-						<svelte:fragment slot="trail">{@html icon}</svelte:fragment>
+						<svelte:fragment slot="trail">
+							<SvgIcon name="circle-check" width="w-3" height="w-3" fill="fill-yellow-900" class="!block" />
+						</svelte:fragment>
 					</Badge>
 					<Badge background="bg-pink-300" color="text-pink-900" rounded="rounded-full">
 						Favorite
@@ -79,15 +81,17 @@
 			<Card>
 				<div class="flex justify-center items-center space-x-4">
 					<div class="relative inline-block">
-						<Badge icon background="bg-warning-500" class="absolute top-0 right-0 shadow-xl">2</Badge>
+						<Badge icon background="bg-primary-500" class="absolute top-0 right-0 z-10 shadow-xl">2</Badge>
 						<Avatar size="md" />
 					</div>
 					<div class="relative inline-block">
-						<Badge icon background="bg-primary-500" class="absolute top-0 right-0 shadow-xl">{@html icon}</Badge>
+						<Badge icon background="bg-warning-500" class="absolute top-0 right-0 z-10 shadow-xl">
+							<SvgIcon name="heart" width="w-3" height="w-3" class="!block" />
+						</Badge>
 						<Avatar size="md" />
 					</div>
 					<div class="relative inline-block">
-						<Badge class="absolute -top-2 -right-4 shadow-xl z-10">5k</Badge>
+						<Badge class="absolute -top-2 -right-4 z-10 shadow-xl">5k</Badge>
 						<Button size="sm" variant="filled-accent">Button</Button>
 					</div>
 				</div>
