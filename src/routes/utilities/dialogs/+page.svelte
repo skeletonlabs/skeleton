@@ -2,6 +2,7 @@
 	import { Card, Button, Divider, DataTable } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
 	import { dialogStore, type DialogAlert, type DialogConfirm, type DialogPrompt } from '$lib/Notifications/Stores';
+	import Skeleton from '$lib/svg/Skeleton.svelte';
 
 	let valueConfirm: boolean = false;
 	let valuePrompt: string = 'Skeleton';

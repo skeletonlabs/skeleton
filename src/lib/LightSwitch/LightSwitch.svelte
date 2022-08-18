@@ -8,7 +8,8 @@
 
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { svg } from '$lib/icons';
+	import Lightswitchlight from '$lib/svg/Lightswitch.light.svelte';
+	import Lightswitchdark from '$lib/svg/Lightswitch.dark.svelte';
 
 	// Local
 	let lsDefinedMode: string;
@@ -63,7 +64,7 @@
 	});
 
 	// Reactive State
-	$: currentIcon = $checked ? svg.dark : svg.light;
+	$: currentIcon = $checked ? Lightswitchdark : Lightswitchlight;
 	// Reactive Classses
 	$: classesPosition = $checked ? 'translate-x-full' : 'translate-x-0';
 	$: classesThumbBg = $checked ? 'fill-neutral-100 bg-neutral-900' : 'fill-neutral-900 bg-neutral-100';
@@ -85,6 +86,6 @@
 	<!-- Thumb -->
 	<div class="lightswitch-thumb {classesThumb}">
 		<!-- Icon -->
-		<i class="lightswitch-icon {cIcon}">{@html currentIcon}</i>
+		<i class="lightswitch-icon {cIcon}"><svelte:component this={currentIcon}/></i>
 	</div>
 </div>
