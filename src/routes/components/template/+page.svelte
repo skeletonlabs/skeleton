@@ -4,11 +4,23 @@
 
 	const tableProps: any = {
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Required', 'Description'],
-		source: [['name', '-', '-', '-', '-', '...']]
+		source: [
+			['name', '-', '-', '-', '&check;', '...'],
+			['name', '-', '-', '-', '-', '...'],
+		]
 	};
 	const tableSlots: any = {
 		headings: ['Name', 'Description'],
-		source: [['name', '...']]
+		source: [
+			['name', '...'],
+		]
+	};
+	const tableA11y: any = {
+		headings: ['Prop', 'Type', 'Default', 'Values', 'Required', 'Description'],
+		source: [
+			['name', '-', '-', '-', '&check;', '...'],
+			['name', '-', '-', '-', '-', '...'],
+		]
 	};
 </script>
 
@@ -41,5 +53,14 @@
 	<section class="space-y-4">
 		<h2>Slots</h2>
 		<DataTable headings={tableSlots.headings} source={tableSlots.source} />
+	</section>
+	
+	<!-- Accessibility -->
+	<section class="space-y-4">
+		<div class="flex justify-between items-center">
+			<h2>Accessibility</h2>
+			<a href="https://www.w3.org/WAI/ARIA/apg/patterns/" target="_blank">ARIA Guidelines</a>
+		</div>
+		<DataTable headings={tableA11y.headings} source={tableA11y.source} />
 	</section>
 </div>

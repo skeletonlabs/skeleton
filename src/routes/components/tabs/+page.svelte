@@ -2,8 +2,7 @@
 	import { writable } from 'svelte/store';
 	import { DataTable, Card, Tab, TabGroup } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-
-	let icon = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M4 3a2 2 0 100 4h12a2 2 0 100-4H4z" /><path fill-rule="evenodd" d="M3 8h14v7a2 2 0 01-2 2H5a2 2 0 01-2-2V8zm5 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" clip-rule="evenodd" /></svg>`;
+	import SvgIcon from '$lib/SvgIcon/SvgIcon.svelte';
 
 	// Stores
 	let storeOne = writable('a');
@@ -80,15 +79,21 @@
 		<Card class="space-y-4">
 			<TabGroup selected={storeThree} justify="justify-start md:justify-center" highlight="border-warning-500" color="text-warning-500">
 				<Tab value="a">
-					<svelte:fragment slot="lead">{@html icon}</svelte:fragment>
+					<svelte:fragment slot="lead">
+						<SvgIcon name="book" class="!block" />
+					</svelte:fragment>
 					Books
 				</Tab>
 				<Tab value="b">
-					<svelte:fragment slot="lead">{@html icon}</svelte:fragment>
+					<svelte:fragment slot="lead">
+						<SvgIcon name="clapperboard" class="!block" />
+					</svelte:fragment>
 					Movies
 				</Tab>
 				<Tab value="c">
-					<svelte:fragment slot="lead">{@html icon}</svelte:fragment>
+					<svelte:fragment slot="lead">
+						<SvgIcon name="tv" class="!block" />
+					</svelte:fragment>
 					Television
 				</Tab>
 			</TabGroup>
