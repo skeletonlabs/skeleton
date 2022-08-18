@@ -67,10 +67,10 @@
 
 	<!-- Import Component -->
 	<section class="space-y-4">
-		<h2>Dialog Component</h2>
-		<p>Add the following to your app's root component:</p>
-		<CodeBlock language="javascript" code={`import { Toasts } from '@brainandbones/skeleton';`} />
-		<CodeBlock language="html" code={`<Toasts background="bg-accent-500" position="tr" variant="filled" duration={250} />`.trim()} />
+		<h2>Toast Component</h2>
+		<p>Add the following to your app's root layout so that the component stays in scope for whenever you might trigger it:</p>
+		<CodeBlock language="javascript" code={`import { Toast } from '@brainandbones/skeleton';`} />
+		<CodeBlock language="html" code={`<Toast background="bg-accent-500" position="tr" variant="filled" duration={250} />`.trim()} />
 	</section>
 
 	<!-- Properties -->
