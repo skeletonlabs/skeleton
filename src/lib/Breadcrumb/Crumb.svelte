@@ -18,16 +18,14 @@
 </script>
 
 <div class="crumb {cBaseCrumb} {$$props.class}" data-testid="crumb">
-
 	<!-- Anchor -->
-	<a {href} class="crumb-anchor {cBaseAnchor} {classesCurrent}" data-testid="crumb-anchor">
-		{#if $$slots.lead}<slot name="lead"></slot>{/if}
+	<a {href} class="crumb-anchor {cBaseAnchor} {classesCurrent}" data-testid="crumb-anchor" aria-current={current ? 'page' : undefined}>
+		{#if $$slots.lead}<slot name="lead" />{/if}
 		<div><slot /></div>
 	</a>
-	
+
 	<!-- Seperator -->
 	{#if !current}
-	<div class="separator {cBaseSeperator}">{@html separator}</div>
+		<div class="separator {cBaseSeperator}">{@html separator}</div>
 	{/if}
-
 </div>

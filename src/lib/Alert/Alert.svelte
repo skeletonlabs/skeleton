@@ -17,32 +17,31 @@
 </script>
 
 {#if visible}
-<div class="alert" transition:fade|local={{duration}} data-testid="alert">
-	<Card {background} {color} class="{classesCard}">
-
-		<!-- Slot: Lead -->
-		{#if $$slots.lead}
-			<section class="flex justify-center items-center lg:min-w-[72px]">
-				<slot name="lead" />
-			</section>
-		{/if}
-
-		<!-- Content -->
-		<section class="flex flex-col w-full justify-center space-y-2">
-			<!-- Slot: Title -->
-			<h4><slot name="title">(REQUIRED: Title Slot)</slot></h4>
-			<!-- Slot: Message -->
-			{#if $$slots.message}
-				<div class="{color} opacity-70"><slot name="message" /></div>
+	<div class="alert" transition:fade|local={{ duration }} data-testid="alert" role="alert" aria-live="polite">
+		<Card {background} {color} class={classesCard}>
+			<!-- Slot: Lead -->
+			{#if $$slots.lead}
+				<section class="flex justify-center items-center lg:min-w-[72px]">
+					<slot name="lead" />
+				</section>
 			{/if}
-		</section>
-		
-		<!-- Slot: Trail -->
-		{#if $$slots.trail}
-			<section class="flex items-center space-x-4">
-				<slot name='trail'/>
+
+			<!-- Content -->
+			<section class="flex flex-col w-full justify-center space-y-2">
+				<!-- Slot: Title -->
+				<h3><slot name="title">(REQUIRED: Title Slot)</slot></h3>
+				<!-- Slot: Message -->
+				{#if $$slots.message}
+					<div class="{color} opacity-70"><slot name="message" /></div>
+				{/if}
 			</section>
-		{/if}
-	</Card>
-</div>
+
+			<!-- Slot: Trail -->
+			{#if $$slots.trail}
+				<section class="flex items-center space-x-4">
+					<slot name="trail" />
+				</section>
+			{/if}
+		</Card>
+	</div>
 {/if}

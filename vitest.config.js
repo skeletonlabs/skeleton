@@ -1,3 +1,8 @@
-import { extractFromSvelteConfig } from "vitest-svelte-kit"
+import { sveltekit } from '@sveltejs/kit/vite';
 
-export default extractFromSvelteConfig()
+/** @type {import('vite').UserConfig} */
+const config = {
+	plugins: [sveltekit()]
+};
+
+export default config;

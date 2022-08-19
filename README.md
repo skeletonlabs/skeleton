@@ -11,7 +11,7 @@ A fully featured Svelte UI component library. Skeleton allows you to build fast 
 
 ## Sponsorship
 
-* [Github Sponsors](https://github.com/sponsors/Brain-Bones)
+- [Github Sponsors](https://github.com/sponsors/Brain-Bones)
 
 ## Useful Links
 
@@ -32,13 +32,13 @@ Ensure you've read the [contribution guide](https://skeleton.brainandbonesllc.co
 
 ### Install
 
-* Clone the Skeleton project to your local machine.
-* Install dependencies with `npm install`
-* Create a new feature branch: `git checkout -b {branchName}`
-* Start a dev server:
-    * `npm run dev` - start server
-    * `npm run dev -- --open` - start and open new browser window
-* Make changes, then submit a pull request when ready.
+- Clone the Skeleton project to your local machine.
+- Install dependencies with `npm install`
+- Create a new feature branch: `git checkout -b {branchName}`
+- Start a dev server:
+  - `npm run dev` - start server
+  - `npm run dev -- --open` - start and open new browser window
+- Make changes, then submit a pull request when ready.
 
 ### Linting
 
@@ -58,8 +58,8 @@ npm run test
 
 ## Core Maintainers
 
-* [Chris Simmons](https://github.com/endigo9740)
-* [Thomas Jespersen](https://github.com/thomasbjespersen)
+- [Chris Simmons](https://github.com/endigo9740)
+- [Thomas Jespersen](https://github.com/thomasbjespersen)
 
 ---
 

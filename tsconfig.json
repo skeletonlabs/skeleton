@@ -1,4 +1,5 @@
 {
+	"extends": "./.svelte-kit/tsconfig.json",
 	"compilerOptions": {
 		"declaration": true,
 		"moduleResolution": "node",
@@ -32,7 +33,8 @@
 			"$lib": ["src/lib"],
 			"$lib/*": ["src/lib/*"],
 			"$root": ["./"],
-			"$root/*": ["./*"]
+			"$root/*": ["./*"],
+			"@brainandbones/skeleton": ["src/lib/index.ts"]
 		},
 		"outDir": "package"
 	},

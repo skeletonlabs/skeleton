@@ -1,69 +1,43 @@
 <script lang="ts">
-    import { getContext } from "svelte";
-    import { slide } from 'svelte/transition';
-    import type { Writable } from "svelte/store";
+	import SvgIcon from '$lib/SvgIcon/SvgIcon.svelte';
 
-    // Props
-    export let value: number = undefined;
-    export let hover: string = 'hover:bg-primary-500/10';
-    export let spacing: string = 'space-y-0';
-    export let padding: string = 'p-2';
+	// Props
+	export let open: boolean = false;
+	export let hover: string = 'hover:bg-primary-500/10';
+	export let spacing: string = 'space-y-2';
+	// A11y
+	export let summaryId: string = undefined;
+	export let contentId: string = undefined;
 
-    // Context
-    export let selected: Writable<any> = getContext('selected'); 
-    export let multiple: boolean = getContext('multiple');
+	// Base Classes
+	const cBaseDetails: string = '';
+	const cBaseSummary: string = 'flex items-center space-x-4 px-4 py-2 cursor-pointer rounded';
+	const cBaseIcon: string = 'flex justify-center items-center w-3 fill-black dark:fill-white transition-all duration-[100ms]';
+	const cBaseDesc: string = 'px-4 py-2';
 
-    // Base Classes
-    const cBase: string = 'space-y-4';
-    const cBaseTitle: string = 'flex items-center space-x-4 p-2 cursor-pointer rounded';
-    const cBaseIcon: string = 'flex justify-center items-center w-3 fill-black dark:fill-white transition-all duration-[250ms]';
-    const cBaseDesc: string = '';
-
-    // Toggle Handler
-    function onToggle(): void{
-        multiple === true ? handleMultipleToggle() : handleDefaultToggle();
-    }
-    function handleDefaultToggle(): void {
-        let v = $selected.includes(value) ? [] : [value];
-        selected.set(v);
-    }
-    function handleMultipleToggle(): void {
-        let selectedArr: any[] = $selected;
-        if ($selected.includes(value)) { 
-            let i: number = selectedArr.indexOf(value);
-            selectedArr.splice(i, 1);
-        } else {
-            let selectedArr: any[] = $selected;
-            selectedArr.push(value);
-        }
-        selected.set(selectedArr);
-    }
-
-    // Reactive Classes
-    $: classesAccordian = `${cBase} ${spacing}`;
-    $: classesTitle = `${cBaseTitle} ${hover}`;
-        $: classesIconState = $selected.includes(value) ? '-rotate-180' : '';
-        $: classesIcon = `${cBaseIcon} ${classesIconState}`;
-    $: classesDesc = `${cBaseDesc} ${padding}`;
+	// Reactive Classes
+	$: classesDetails = `${cBaseDetails} ${spacing}`;
+	$: classesSummary = `${cBaseSummary} ${hover}`;
+	$: classesIconState = open ? '-rotate-180' : '';
+	$: classesIcon = `${cBaseIcon} ${classesIconState}`;
+	$: classesDesc = `${cBaseDesc}`;
 </script>
 
-<div on:click class="accordion-item {classesAccordian} {$$props.class}" data-testid="accordion-item">
+<details bind:open class="accordion-item {classesDetails} {$$props.class}" data-testid="accordion-item">
+	<!-- Summary -->
+	<summary id={summaryId} class={classesSummary} aria-expanded={open} aria-controls={contentId}>
+		<!-- Slot: Lead -->
+		{#if $$slots.lead}<div><slot name="lead" /></div>{/if}
+		<!-- Slot: Text -->
+		<div class="flex-auto" role="button"><slot name="summary" /></div>
+		<!-- Caret -->
+		<div class={classesIcon}>
+			<SvgIcon name="angle-down" class="opacity-50" />
+		</div>
+	</summary>
 
-    <!-- Title -->
-    <dt class="{classesTitle}" on:click={onToggle}>
-        <!-- Slot: Lead -->
-        {#if $$slots.lead}<div><slot name="lead"/></div>{/if}
-        <!-- Slot: Title -->
-        <div class="flex-auto"><slot name="title"/></div>
-        <!-- Caret -->
-        <div class="{classesIcon}">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M192 384c-8.188 0-16.38-3.125-22.62-9.375l-160-160c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L192 306.8l137.4-137.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-160 160C208.4 380.9 200.2 384 192 384z"/></svg>
-        </div>
-    </dt>
-
-    <!-- Description -->
-    {#if $selected.includes(value)}
-    <dd class="{classesDesc}" transition:slide|local><slot name="description"/></dd>
-    {/if}
-
-</div>
+	<!-- Content -->
+	<div id={contentId} role="region" aria-labelledby={summaryId} class={classesDesc}>
+		<slot name="content" />
+	</div>
+</details>

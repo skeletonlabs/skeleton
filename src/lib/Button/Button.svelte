@@ -1,27 +1,32 @@
 <script lang="ts">
-    import { afterUpdate } from "svelte";
+	import { afterUpdate } from 'svelte';
 
-    // Props
-    export let variant: string = undefined;
-    export let size: string = 'base';
-    export let background: string = 'bg-black dark:bg-white';
-    export let color: string = 'text-white dark:text-black';
-    export let fill: string = 'fill-white dark:fill-black';
-    export let ring: string = 'ring-transparent';
-    export let weight: string = 'ring-1';
-    export let width: string = 'w-auto';
-    export let rounded: string = 'rounded-lg';
+	// Props
+	export let variant: string = undefined;
+	export let size: string = 'base';
+	export let background: string = 'bg-black dark:bg-white';
+	export let color: string = 'text-white dark:text-black';
+	export let fill: string = 'fill-white dark:fill-black';
+	export let ring: string = 'ring-transparent';
+	export let weight: string = 'ring-1';
+	export let width: string = 'w-auto';
+	export let rounded: string = 'rounded-lg';
+	// A11y
+	export let label: string = undefined;
+	export let describedby: string = undefined;
 
-    // Set tag and href values
-    const tag: string = $$props.href ? 'a' : 'button';
-    const href: any = $$props.href ? `href="${$$props.href}"` : undefined;
+	// Set tag and href values
+	const tag: string = $$props.href ? 'a' : 'button';
+	const href: any = $$props.href ? `href="${$$props.href}"` : undefined;
+	const role: string = $$props.href ? 'link' : 'button';
 
-    // Base Classes
-    const cBaseButton: string = 'inline-flex justify-center items-center space-x-2 text-center whitespace-nowrap ring-inset pointer-cursor';
-    
-    // Set Size
-    let cSize: string;
-    function setSize(): void {
+	// Base Classes
+	const cBaseButton: string = 'inline-flex justify-center items-center space-x-2 text-center whitespace-nowrap ring-inset pointer-cursor';
+
+	// Set Size
+	let cSize: string;
+	// prettier-ignore
+	function setSize(): void {
         switch(size) {
             case('none'): cSize = 'text-base'; break;
             case('sm'):   cSize = 'text-sm px-3 py-2'; break;
@@ -31,9 +36,10 @@
         }
     }
 
-    // Set Variant Styles
-    // TODO: refactor and improve this
-    function setProps(vBackground?: string, vColor?: string, vFill?: string, vRing?: string, vWeight?: string, vSize?: string): void {
+	// Set Variant Styles
+	// TODO: refactor and improve this
+	// prettier-ignore
+	function setProps(vBackground?: string, vColor?: string, vFill?: string, vRing?: string, vWeight?: string, vSize?: string): void {
         if (variant) {
             if (vSize) size = vSize;
             if (vBackground) background = vBackground;
@@ -43,7 +49,9 @@
             if (vWeight) weight = vWeight;
         }
     }
-    function setVariant(): void {
+
+	// prettier-ignore
+	function setVariant(): void {
         switch(variant) {
             // Minimal
             case('minimal'): setProps('bg-transparent', 'text-initial', 'fill-initial', null, 'none', 'none'); break;
@@ -74,38 +82,42 @@
         }
     }
 
-    // On Init
-    setSize();
-    setVariant();
+	// On Init
+	setSize();
+	setVariant();
 
-    // After Update
-    afterUpdate(() => {
-        setSize();
-        setVariant();
-    });
+	// After Update
+	afterUpdate(() => {
+		setSize();
+		setVariant();
+	});
 
-    // Reactive Classes
-    $: cDisabled = $$props.disabled ? '!opacity-30 !cursor-not-allowed' : 'hover:brightness-90 transition-transform active:scale-95';
-    $: classesButton = `${cBaseButton} ${cSize} ${background} ${color} ${fill} ${ring} ${weight} ${width} ${rounded} ${cDisabled}`;
-    
-    // Prune $$restProps to avoid overwriting $$props.class
-    function prunedRestProps(): any {
-        delete $$restProps.class;
-        return $$restProps;
-    }
+	// Reactive Classes
+	$: cDisabled = $$props.disabled ? '!opacity-30 !cursor-not-allowed' : 'hover:brightness-110 transition-transform active:scale-95';
+	$: classesButton = `${cBaseButton} ${cSize} ${background} ${color} ${fill} ${ring} ${weight} ${width} ${rounded} ${cDisabled}`;
+
+	// Prune $$restProps to avoid overwriting $$props.class
+	function prunedRestProps(): any {
+		delete $$restProps.class;
+		return $$restProps;
+	}
 </script>
 
 <svelte:element
-    this={tag}
-    class="comp-button {classesButton} {$$props.class}"
-    {href}
-    data-testid="comp-button"
-    on:click
-    {...prunedRestProps()}
+	this={tag}
+	class="comp-button {classesButton} {$$props.class}"
+	{href}
+	data-testid="comp-button"
+	on:click
+	{...prunedRestProps()}
+	{role}
+	tabindex="0"
+	aria-label={label}
+	aria-describedby={describedby}
+	aria-disabled={$$props.disabled}
 >
-    <!-- {...$$restProps} -->
-    {#if $$slots.lead}<span><slot name="lead"></slot></span>{/if}
-    <span><slot /></span>
-    {#if $$slots.trail}<span><slot name="trail"></slot></span>{/if}
+	<!-- {...$$restProps} -->
+	{#if $$slots.lead}<span><slot name="lead" /></span>{/if}
+	<span><slot /></span>
+	{#if $$slots.trail}<span><slot name="trail" /></span>{/if}
 </svelte:element>
-

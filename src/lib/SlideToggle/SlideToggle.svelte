@@ -1,62 +1,84 @@
 <script lang="ts">
-    export let checked: boolean = false;
-    export let accent: string = 'bg-accent-500';
-    export let size: string = 'md';
+	import { createEventDispatcher } from 'svelte/internal';
 
-    // Base Styles
-    const cBaseLabel: string = 'inline-block';
-    const cBaseTrack: string = 'flex rounded-full transition-all duration-[200ms] hover:brightness-90 cursor-pointer';
-    const cBaseThumb: string = 'w-[50%] h-full scale-[0.7] rounded-full cursor-pointer transition-all duration-[200ms] shadow-lg';
-   
-    // Set track size
-    let trackSize: string;
-    switch(size){
-        case('sm'): trackSize = 'w-12 h-6'; break;
-        case('lg'): trackSize = 'w-20 h-10'; break;
-        default:    trackSize = 'w-16 h-8';
-    }
+	// Event Handler
+	const dispatch = createEventDispatcher();
 
-    // Interactive
-    $: cTrackAccent = checked ? accent : 'bg-surface-400 dark:bg-surface-700 cursor-pointer';
-    $: cThumbBackground = checked ? 'bg-white' : 'bg-white/50';
-    $: cThumbPos = checked ? 'translate-x-full' : '';
+	// Props
+	export let checked: boolean = false;
+	export let accent: string = 'bg-accent-500';
+	export let size: string = 'md';
+	// A11y
+	export let label: string = undefined;
 
-    // Reactive Classes
-    $: classesTrack = `${cBaseTrack} ${trackSize} ${cTrackAccent}`;
-    $: classesThumb = `${cBaseThumb} ${cThumbBackground} ${cThumbPos}`;
+	// Base Styles
+	const cBaseLabel: string = 'inline-block';
+	const cBaseTrack: string = 'flex rounded-full transition-all duration-[200ms] hover:brightness-90 cursor-pointer';
+	const cBaseThumb: string = 'w-[50%] h-full scale-[0.7] rounded-full cursor-pointer transition-all duration-[200ms] shadow-lg';
 
-    // Prune $$restProps to avoid overwriting $$props.class
-    function prunedRestProps(): any {
-        delete $$restProps.class;
-        return $$restProps;
-    }
+	// Set track size
+	let trackSize: string;
+	switch (size) {
+		case 'sm':
+			trackSize = 'w-12 h-6';
+			break;
+		case 'lg':
+			trackSize = 'w-20 h-10';
+			break;
+		default:
+			trackSize = 'w-16 h-8';
+	}
+
+	// A11y Input Handlers
+	function onKeyDown(event: any): void {
+		// Enter/Space to toggle element
+		if (['Enter', 'Space'].includes(event.code)) {
+			event.preventDefault();
+			dispatch('keyup', event);
+			event.target.click();
+		}
+	}
+
+	// Interactive
+	$: cTrackAccent = checked ? accent : 'bg-surface-400 dark:bg-surface-700 cursor-pointer';
+	$: cThumbBackground = checked ? 'bg-white' : 'bg-white/50';
+	$: cThumbPos = checked ? 'translate-x-full' : '';
+
+	// Reactive Classes
+	$: classesTrack = `${cBaseTrack} ${trackSize} ${cTrackAccent}`;
+	$: classesThumb = `${cBaseThumb} ${cThumbBackground} ${cThumbPos}`;
+
+	// Prune $$restProps to avoid overwriting $$props.class
+	function prunedRestProps(): any {
+		delete $$restProps.class;
+		return $$restProps;
+	}
 </script>
 
-<label class="slide-toggl {cBaseLabel} {$$props.class}" class:opacity-30={$$props.disabled} data-testid="slide-toggle">
+<div
+	id={label}
+	class="slide-toggle {cBaseLabel} {$$props.class}"
+	class:opacity-30={$$props.disabled}
+	data-testid="slide-toggle"
+	on:keydown={onKeyDown}
+	role="switch"
+	aria-label={label}
+	aria-checked={checked}
+	tabindex="0"
+>
+	<!-- Keep this, it triggers click/toggle event -->
+	<label>
+		<!-- Input (Hidden) -->
+		<input type="checkbox" class="hidden" bind:checked on:click on:mouseover on:focus on:blur {...prunedRestProps()} disabled={$$props.disabled} />
 
-    <!-- Input (Hidden) -->
-    <input
-        type="checkbox" 
-        class="hidden"
-        bind:checked 
-        on:click
-        on:mouseover
-        on:focus
-        on:blur
-        {...prunedRestProps()}
-        disabled={$$props.disabled}
-    >
+		<div class="flex items-center space-x-4">
+			<!-- Slider Track/Thumb -->
+			<div class="track {classesTrack}" class:cursor-not-allowed={$$props.disabled}>
+				<div class="thumb {classesThumb}" class:cursor-not-allowed={$$props.disabled} />
+			</div>
 
-    <div class="flex items-center space-x-4">
-
-        <!-- Slider Track/Thumb -->
-        <div class="track {classesTrack}" class:cursor-not-allowed={$$props.disabled}>
-            <div class="thumb {classesThumb}" class:cursor-not-allowed={$$props.disabled}></div>
-        </div>
-
-        <!-- Label -->
-        {#if $$slots.default}<div><slot/></div>{/if}
-
-    </div>
-
-</label>
+			<!-- Label -->
+			{#if $$slots.default}<div><slot /></div>{/if}
+		</div>
+	</label>
+</div>
