@@ -1,6 +1,13 @@
 <script lang="ts">
 	import { Card, Divider, Button } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+
+	const dynamicSvelteWrapperSnippet: string = `
+\<script lang="ts"\>
+    function triggerMessage(): void { console.log('Hello, Skeleton'); }
+\<\/script\>\n
+<Button variant="filled-primary" on:click={() => { triggerMessage() }}>Trigger</Button>
+        `.trim();
 </script>
 
 <div class="space-y-8">
@@ -101,12 +108,7 @@ import { LogoCloud, Logo } from '@brainandbones/skeleton';
 		</p>
 		<CodeBlock
 			language="html"
-			code={`
-\<script\>
-    function triggerMessage(): void {  console.log('Hello, Skeleton'); }
-\<\/script\>\n
-<Button variant="filled-primary" on:click={() => { triggerMessage() }}>Trigger</Button>
-        `.trim()}
+			code={dynamicSvelteWrapperSnippet}
 		/>
 		<p>
 			Then, implement this wrapper component within your homepage component at <code>/src/pages/index.astro</code>:
