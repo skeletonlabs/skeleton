@@ -23,7 +23,7 @@
 				{ href: '/guides/themes', label: 'Themes' },
 				{ href: '/guides/styling', label: 'Styling' },
 				{ href: '/guides/forms', label: 'Forms' },
-				{ href: '/guides/astro', label: 'Astro' }
+				{ href: '/guides/astro', label: 'Usage with Astro' }
 			]
 		},
 		{
