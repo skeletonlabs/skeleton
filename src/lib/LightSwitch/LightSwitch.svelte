@@ -14,7 +14,7 @@
 	let lsDefinedMode: string;
 
 	// Base Classes
-	const cTrack: string = 'inline-block bg-surface-500/50 w-12 h-6 rounded-full cursor-pointer transition-all duration-[100ms]';
+	const cTrack: string = 'inline-block bg-surface-500/50 w-12 h-6 rounded-full cursor-pointer transition-all duration-[100ms] hover:brightness-110';
 	const cThumb: string = 'w-6 h-6 flex justify-center items-center rounded-full shadow-lg transition-all duration-[100ms] scale-90';
 	const cIcon: string = 'block w-4 h-4';
 

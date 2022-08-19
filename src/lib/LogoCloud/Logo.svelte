@@ -11,10 +11,11 @@
 	const href: any = $$props.href ? `href="${$$props.href}"` : undefined;
 
 	// Base Classes
-	const cBaseLogo: string = 'flex-auto text-center py-10 space-x-4 hover:brightness-110';
+	const cBaseLogo: string = 'flex-auto text-center py-10 space-x-4';
 
 	// Reactive Classes
-	$: classesLogo = `${cBaseLogo} ${background} ${color} ${text}`;
+	$: classesHover = $$props.href ? 'hover:brightness-110' : '';
+	$: classesLogo = `${cBaseLogo} ${classesHover} ${background} ${color} ${text}`;
 
 	// Prune $$restProps to avoid overwriting $$props.class
 	function prunedRestProps(): any {

@@ -118,7 +118,7 @@
 				<div class="flex justify-between items-center space-x-4">
 					<!-- Github -->
 					<a href="https://github.com/Brain-Bones/skeleton" target="_blank" aria-label="GitHub">
-						<SvgIcon name="github" />
+						<SvgIcon name="github" class="opacity-80 hover:opacity-100" />
 					</a>
 					<!-- Light Switch -->
 					<LightSwitch origin="tr" />
