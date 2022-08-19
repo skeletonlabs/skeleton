@@ -13,7 +13,7 @@
 
 	// Base Styles
 	const cBaseLabel: string = 'inline-block';
-	const cBaseTrack: string = 'flex rounded-full transition-all duration-[200ms] hover:brightness-90 cursor-pointer';
+	const cBaseTrack: string = 'flex rounded-full transition-all duration-[200ms] hover:brightness-110 cursor-pointer';
 	const cBaseThumb: string = 'w-[50%] h-full scale-[0.7] rounded-full cursor-pointer transition-all duration-[200ms] shadow-lg';
 
 	// Set track size

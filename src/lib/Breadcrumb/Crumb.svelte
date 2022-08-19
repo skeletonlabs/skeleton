@@ -14,7 +14,7 @@
 	const cBaseSeperator: string = 'flex fill-surface-500 text-surface-500 w-2';
 
 	// Reactive Classes
-	$: classesCurrent = current ? 'opacity-30 transition-transform active:scale-95' : '';
+	$: classesCurrent = current ? 'opacity-30 transition-transform active:scale-95 cursor-auto' : '';
 </script>
 
 <div class="crumb {cBaseCrumb} {$$props.class}" data-testid="crumb">
