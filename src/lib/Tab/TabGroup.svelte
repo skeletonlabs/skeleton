@@ -5,7 +5,8 @@
 	// Props
 	export let selected: Writable<any>;
 	export let justify: string = 'justify-start';
-	export let highlight: string = 'border-primary-500';
+	export let border: string = 'border-primary-500';
+	export let fill: string = 'fill-primary-500';
 	export let color: string = 'text-primary-500';
 	// A11y
 	export let labeledby: string = undefined;
@@ -13,11 +14,12 @@
 
 	// Set Context
 	setContext('selected', selected);
-	setContext('highlight', highlight);
+	setContext('border', border);
+	setContext('fill', fill);
 	setContext('color', color);
 
 	// Classes
-	const cBaseGroup: string = 'hide-scrollbar overflow-x-auto flex border-b-2 border-surface-300 dark:border-surface-700';
+	const cBaseGroup: string = 'hide-scrollbar overflow-x-auto flex border-b border-surface-300 border-inset dark:border-surface-700';
 
 	// Handle Home/End Input
 	let elemTabGroup: HTMLElement;
@@ -36,7 +38,7 @@
 	});
 
 	// Reactive Classes
-	$: classesGroup = `${cBaseGroup} ${justify} ${$$props.class || ''}`;
+	$: classesGroup = `${cBaseGroup} ${justify} ${$$props.class||''}`;
 </script>
 
 <nav bind:this={elemTabGroup} data-testid="tab-group" class="tab-group {classesGroup}" role="tablist" aria-labelledby={labeledby} aria-label={label}>
