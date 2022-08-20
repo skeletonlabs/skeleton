@@ -5,7 +5,6 @@
 import { cleanup, render } from '@testing-library/svelte';
 import { afterEach, describe, it, expect } from 'vitest';
 
-// @ts-ignore
 import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
 
 describe('CodeBlock.svelte', () => {
@@ -20,8 +19,8 @@ describe('CodeBlock.svelte', () => {
 	// I am unsure if this should pass or fail. Should a user be able to create an empty code block as a placeholder,
 	// or is the code needed?
 
-	//  it('Renders without props (Default)', async ()=>{
-	//     const {getByTestId} = render(CodeBlock);
-	//     expect(getByTestId('codeblock')).toBeTruthy();
-	//  })
+	it('Renders without props (Default)', async () => {
+		const { getByTestId } = render(CodeBlock);
+		expect(getByTestId('codeblock')).toBeTruthy();
+	});
 });
