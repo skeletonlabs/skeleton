@@ -7,10 +7,16 @@
 	import { Apollo, BlueNight, Emerald, GreenFall, Noir, NoirLight, Rustic, Summer84, XPro } from '@brainandbones/skeleton';
 	import SvgIcon from '$lib/SvgIcon/SvgIcon.svelte';
 
-	// Import CSS
+	// Highlight.js Theme
 	import 'highlight.js/styles/github-dark.css'; // Highlight.js
-	import '../themes/theme-skeleton.css'; // skeleton|rocket|modern|seafoam|vintage|sahara|test
+
+	// Project CSS
+	// Available themes: skeleton|rocket|modern|seafoam|vintage|sahara|test
+	import '$lib/styles/themes/theme-skeleton.css';
 	import '../app.postcss';
+	import '$lib/styles/core.css';
+	import '$lib/styles/typography.css';
+	import '$lib/styles/forms.css';
 
 	const currentPageStore: Writable<string> = writable($page.url.pathname);
 	const drawer: Writable<boolean> = writable(false);

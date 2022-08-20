@@ -1,7 +1,30 @@
 <script lang="ts">
 	import { storeFramework } from '../../stores';
-	import { Card, Button, Divider, TabGroup, Tab } from '@brainandbones/skeleton';
+	import { Card, Button, DataTable, Divider, TabGroup, Tab } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+
+	// Tables
+	const ghLibPathMaster: string = 'https://github.com/Brain-Bones/skeleton/tree/master/src/lib'; // master branch
+	const tableStyleAddons: any = {
+		headings: ['Stylesheet', 'Source', 'Description'],
+		source: [
+			[
+				'<code>core.css</code>',
+				`<a href="${ghLibPathMaster}/styles/core.css" target="_blank">View</a>`,
+				'Styless body elements, scrollbars, code blocks, and more.',
+			],
+			[
+				'<code>typography.css</code>',
+				`<a href="${ghLibPathMaster}/styles/typography.css" target="_blank">View</a>`,
+				'Styles headings, paragraph and anchors within the main element, and more.',
+			],
+			[
+				'<code>forms.css</code>',
+				`<a href="${ghLibPathMaster}/styles/forms.css" target="_blank">View</a>`,
+				'For use with the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Tailwind Forms plugin</a> detailed in <a href="/guides/forms">Forms</a>.',
+			],
+		]
+	};
 </script>
 
 <div class="space-y-8">
@@ -16,27 +39,11 @@
 	<!-- Global Styles -->
 	<section class="space-y-4">
 		<h2>Global Styles</h2>
-		<TabGroup selected={storeFramework}>
-			<Tab value="sveltekit">SvelteKit</Tab>
-			<Tab value="vite">Vite (Svelte)</Tab>
-			<Tab value="astro">Astro</Tab>
-		</TabGroup>
-		<!-- Framework: SvelteKit | Vite (Svelte) -->
-		{#if $storeFramework === 'sveltekit'}
-			<p>Your global stylesheet is located in <code>/src/app.postcss</code>.</p>
-		{:else if $storeFramework === 'vite'}
-			<p>Your global stylesheet is located in <code>/src/app.css</code>.</p>
-			<!-- Framework: Astro -->
-		{:else if $storeFramework === 'astro'}
-			<p>Your global stylesheet is located in <code>/src/styles/base.css</code>.</p>
-		{/if}
-		<p>
-			Use the basic <code>body</code> style below to get started. For a real world example, review how we implemented global styles for
-			<a href="https://github.com/Brain-Bones/skeleton/blob/master/src/app.css" target="_blank">this documentation site</a>.
-		</p>
-		<CodeBlock language="css" code={`body { @apply bg-surface-100 dark:bg-surface-900 text-black dark:text-white p-4; }`} />
 		<p>Here's a few suggested best practices to follow when creating global styles:</p>
 		<ul class="list-disc list-inside space-y-1">
+			<li>
+				Ensure you wrap your core page elements within a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main" target="_blank">main element</a>, to target page-specific styling.
+			
 			<li>
 				One of the best uses for <a href="https://tailwindcss.com/docs/reusing-styles#extracting-classes-with-apply" target="_blank">Tailwind @apply</a> is when defining global styles. Just be leery of
 				using this elsewhere.
@@ -49,6 +56,32 @@
 				to handle form input styling. View our <a href="/guides/forms">Forms guide</a> for more details.
 			</li>
 		</ul>
+	</section>
+
+	<Divider />
+
+	<!-- Add-Ons -->
+	<section class="space-y-4">
+		<h2>Stylesheet Add-Ons</h2>
+		<p>Below are a set of optional stylesheets that work in unison with your Skeleton theme.</p>
+		<TabGroup selected={storeFramework}>
+			<Tab value="sveltekit">SvelteKit</Tab>
+			<Tab value="vite">Vite (Svelte)</Tab>
+			<Tab value="astro">Astro</Tab>
+		</TabGroup>
+		<!-- Framework: SvelteKit | Vite (Svelte) -->
+		{#if $storeFramework === 'sveltekit'}
+			<p>Import all desired CSS add-ons after your global stylesheet in <code>/src/routes/+layout.svelte</code>.</p>
+			<CodeBlock language="typescript" code={`import '../app.postcss';\nimport '@brainandbones/skeleton/styles/{stylehsheet}'; // ex: core.css`} />
+		{:else if $storeFramework === 'vite'}
+			<p>Import all desired CSS add-ons after your global stylesheet in <code>/src/main.js</code>.</p>
+			<CodeBlock language="typescript" code={`import '../app.css';\nimport '@brainandbones/skeleton/styles/{stylehsheet}'; // ex: core.css`} />
+			<!-- Framework: Astro -->
+		{:else if $storeFramework === 'astro'}
+			<p>Import all desired CSS add-ons after your global stylesheet in <code>/src/layouts/LayoutBasic.astro</code>.</p>
+			<CodeBlock language="typescript" code={`import '../styles/base.css';\nimport '@brainandbones/skeleton/styles/{stylehsheet}'; // ex: core.css`} />
+		{/if}
+		<DataTable headings={tableStyleAddons.headings} source={tableStyleAddons.source} />
 	</section>
 
 	<Divider />

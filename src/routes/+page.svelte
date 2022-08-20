@@ -95,9 +95,7 @@ npm run dev
 			<!-- Framework: Astro -->
 		{:else if $storeFramework === 'astro'}
 			<p>
-				View the <a href="https://docs.astro.build/en/install/auto/" target="_blank">official documentation</a>. Once setup of Skeleton is complete, please read the dedicated
-				<a href="/guides/astro">Astro guide</a>. This provides a walkthrough for scaffolding a simple Astro application, as well as explaining how to take advantage of Skeleton components within
-				<a href="https://docs.astro.build/en/concepts/islands/" target="_blank"> Astro's islands architecture</a>.
+				View the <a href="https://docs.astro.build/en/install/auto/" target="_blank">official documentation</a>. Once setup of Skeleton is complete, please read the dedicated <a href="/guides/astro">Usage with Astro</a> guide.
 			</p>
 			<CodeBlock
 				language="console"
@@ -110,16 +108,20 @@ cd astro-skeleton-app
 npm run dev
             `.trim()}
 			/>
-			<!-- Integrations -->
-			<h3>Integrations</h3>
+			<!-- Svelte -->
+			<h3>Install Svelte</h3>
 			<p>
 				Add Svelte integration via <a href="https://docs.astro.build/en/guides/integrations-guide/svelte/" target="_blank">@astrojs/svelte</a>
 			</p>
 			<CodeBlock language="console" code={`npx astro add svelte`} />
+			<!-- Tailwind -->
+			<h3>Install Tailwind</h3>
 			<p>
 				Add Tailwind integration via <a href="https://docs.astro.build/en/guides/integrations-guide/tailwind/" target="_blank">@astrojs/tailwind</a>
 			</p>
 			<CodeBlock language="console" code={`npx astro add tailwind`} />
+			<p>Add <code>/src/styles/base.css</code> to house global styles and define the following @tailwind directives:</p>
+			<CodeBlock language="css" code={`@tailwind base;\n@tailwind components;\n@tailwind utilities;`} />
 		{/if}
 	</section>
 

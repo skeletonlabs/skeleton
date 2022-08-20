@@ -35,13 +35,12 @@
 		<h4>Generate a Layout</h4>
 		<p>
 			Create a new <a href="https://docs.astro.build/en/core-concepts/layouts/" target="_blank">Astro Layout</a>
-			in <code>/src/layouts/BasicLayout.astro</code>, then add the following:
+			in <code>/src/layouts/LayoutBasic.astro</code>, then add the following:
 		</p>
 		<CodeBlock
 			language="html"
 			code={`
 ---
-import '../styles/theme.css';
 import '../styles/base.css';
 ---
 <html lang="en">
@@ -66,11 +65,11 @@ import '../styles/base.css';
 			language="html"
 			code={`
 ---
-import BasicLayout from '../layouts/BasicLayout.astro';
+import LayoutBasic from '../layouts/LayoutBasic.astro';
 ---
-<BasicLayout>
+<LayoutBasic>
     <h1>Hello Skeleton</h1>
-</BasicLayout>
+</LayoutBasic>
             `.trim()}
 		/>
 	</section>
@@ -90,7 +89,7 @@ import BasicLayout from '../layouts/BasicLayout.astro';
 // ...
 import { LogoCloud, Logo } from '@brainandbones/skeleton';
 ---
-<BasicLayout>
+<LayoutBasic>
     <!-- ... -->
     <LogoCloud>
         <Logo>
@@ -98,7 +97,7 @@ import { LogoCloud, Logo } from '@brainandbones/skeleton';
             <svelte:fragment slot="label">Skeleton</svelte:fragment>
         </Logo>
     </LogoCloud>
-</BasicLayout>
+</LayoutBasic>
         `.trim()}
 		/>
 		<h4>Dynamic</h4>
@@ -118,9 +117,9 @@ import { LogoCloud, Logo } from '@brainandbones/skeleton';
 // ...
 import WrapperExample from '../components/WrapperExample.svelte';
 ---
-<BasicLayout>
+<LayoutBasic>
     <WrapperExample client:visible></WrapperExample>
-</BasicLayout>
+</LayoutBasic>
         `.trim()}
 		/>
 		<p>

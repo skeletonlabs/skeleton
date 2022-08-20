@@ -16,7 +16,7 @@
 	export let color: string = getContext('color');
 
 	// Base Classes
-	let cBaseItem: string = 'flex-1 text-base text-center fill-black dark:fill-white';
+	let cBaseItem: string = 'flex-1 text-base text-center fill-black dark:fill-white whitespace-nowrap';
 	let cBaseUnselected: string = 'bg-surface-300 dark:bg-surface-700';
 	let cBaseHover: string = 'hover:brightness-110';
 
