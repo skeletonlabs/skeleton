@@ -6,20 +6,18 @@
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Required', 'Description'],
 		source: [
 			['name', '-', '-', '-', '&check;', '...'],
-			['name', '-', '-', '-', '-', '...'],
+			['name', '-', '-', '-', '-', '...']
 		]
 	};
 	const tableSlots: any = {
 		headings: ['Name', 'Description'],
-		source: [
-			['name', '...'],
-		]
+		source: [['name', '...']]
 	};
 	const tableA11y: any = {
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Required', 'Description'],
 		source: [
 			['name', '-', '-', '-', '&check;', '...'],
-			['name', '-', '-', '-', '-', '...'],
+			['name', '-', '-', '-', '-', '...']
 		]
 	};
 </script>
@@ -54,7 +52,7 @@
 		<h2>Slots</h2>
 		<DataTable headings={tableSlots.headings} source={tableSlots.source} />
 	</section>
-	
+
 	<!-- Accessibility -->
 	<section class="space-y-4">
 		<div class="flex justify-between items-center">

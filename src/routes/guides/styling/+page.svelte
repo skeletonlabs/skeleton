@@ -26,7 +26,7 @@
 			<p>Your global stylesheet is located in <code>/src/app.postcss</code>.</p>
 		{:else if $storeFramework === 'vite'}
 			<p>Your global stylesheet is located in <code>/src/app.css</code>.</p>
-		<!-- Framework: Astro -->
+			<!-- Framework: Astro -->
 		{:else if $storeFramework === 'astro'}
 			<p>Your global stylesheet is located in <code>/src/styles/base.css</code>.</p>
 		{/if}
@@ -38,7 +38,8 @@
 		<p>Here's a few suggested best practices to follow when creating global styles:</p>
 		<ul class="list-disc list-inside space-y-1">
 			<li>
-				One of the best uses for <a href="https://tailwindcss.com/docs/reusing-styles#extracting-classes-with-apply" target="_blank">Tailwind @apply</a> is when defining global styles. Just be leery of using this elsewhere.
+				One of the best uses for <a href="https://tailwindcss.com/docs/reusing-styles#extracting-classes-with-apply" target="_blank">Tailwind @apply</a> is when defining global styles. Just be leery of
+				using this elsewhere.
 			</li>
 			<li>
 				Utilize the CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:not" target="_blank">:not pseudo-class</a> to exclude and avoid overwriting Skeleton component's inherit styles.

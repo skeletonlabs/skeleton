@@ -34,8 +34,10 @@
 </script>
 
 <li
-	class="tab ${classesBase} {$$props.class||''}"
-	on:click={() => { selected.set(value); }}
+	class="tab ${classesBase} {$$props.class || ''}"
+	on:click={() => {
+		selected.set(value);
+	}}
 	data-testid="tab"
 	on:keydown={onKeyDown}
 	role="tab"

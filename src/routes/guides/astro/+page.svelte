@@ -104,12 +104,10 @@ import { LogoCloud, Logo } from '@brainandbones/skeleton';
 		<h4>Dynamic</h4>
 		<p>
 			For Skeleton components that make use of reactive Svelte features, such as the <code>on:click</code>
-			directive, Writable Stores, or Actions, or similiar, you'll need to setup a dedicated Svelte wrapper component, then hydrate the wrapper component. For this example we'll create <code>/src/components/WrapperExample.svelte</code>:
+			directive, Writable Stores, or Actions, or similiar, you'll need to setup a dedicated Svelte wrapper component, then hydrate the wrapper component. For this example we'll create
+			<code>/src/components/WrapperExample.svelte</code>:
 		</p>
-		<CodeBlock
-			language="html"
-			code={dynamicSvelteWrapperSnippet}
-		/>
+		<CodeBlock language="html" code={dynamicSvelteWrapperSnippet} />
 		<p>
 			Then, implement this wrapper component within your homepage component at <code>/src/pages/index.astro</code>:
 		</p>
@@ -126,7 +124,8 @@ import WrapperExample from '../components/WrapperExample.svelte';
         `.trim()}
 		/>
 		<p>
-			The trick is to make sure to hydrate the component using <a href="https://docs.astro.build/en/reference/directives-reference/#client-directives" target="_blank">Astro's Client Directives</a>. We opted for
+			The trick is to make sure to hydrate the component using <a href="https://docs.astro.build/en/reference/directives-reference/#client-directives" target="_blank">Astro's Client Directives</a>. We
+			opted for
 			<code>client:visible</code>, which loads and hydrates the component JavaScript component only when it enteres the user’s viewport. If we had failed to do this, the
 			<code>triggerMessage()</code> method would not function.
 		</p>
