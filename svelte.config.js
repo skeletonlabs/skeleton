@@ -19,8 +19,13 @@ const config = {
 			assets: 'build',
 			fallback: 'index.html', // index.html (SPA) | null (SSR)
 			precompress: false
-		})
-		// vite: { ...moved to vite.config.js... }
+		}),
+		package: {
+			// strip test files from packaging
+			files: (filepath) => {
+				return filepath.indexOf('test') == -1 ? true : false
+			}
+		}
 	}
 };
 
