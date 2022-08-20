@@ -5,7 +5,6 @@
 	export let language: string = 'plaintext';
 	export let code: string = '';
 	export let background: string = 'bg-neutral-900';
-	export let editable: boolean = false;
 
 	// Base Classes
 	let cBaseBlock: string = `text-surface-50 p-4 rounded`;
@@ -20,5 +19,5 @@
 <div class="codeblock {classesBlock} {$$props.class}" data-testid="codeblock">
 	<header class={cBaseHeader}>{language}</header>
 	<!-- prettier-ignore -->
-	<pre class="whitespace-pre-wrap break-all text-sm"><code class="language-{language} outline-none" contenteditable={editable} spellcheck="false">{@html Prism.highlight(code, Prism.languages[language], language) || code}</code></pre>
+	<pre class="whitespace-pre-wrap break-all text-sm"><code class="language-{language} outline-none" contenteditable={$$props.contenteditable} spellcheck="false">{@html Prism.highlight(code, Prism.languages[language], language) || code}</code></pre>
 </div>

@@ -111,8 +111,8 @@
 	<section class="space-y-4">
 		<h2>Dependencies</h2>
 		<p>
-			Skeleton aims to keep dependencies to as few as possible to keep the project lean. Please be leery of introducing new dependencies. However, don't be afraid to discuss additions you would like to
-			propose with core contributors before proceeding. We just want what's best for end users!
+			Skeleton aims to keep dependencies to as few as possible to keep the project lean. Please be leery of introducing new dependencies. However, don't be afraid to discuss additions you would like
+			to propose with core contributors before proceeding. We just want what's best for end users!
 		</p>
 	</section>
 
@@ -313,7 +313,7 @@ $: classesLabel = \`\${cBaseLabel}\`; // child element
 	<section class="space-y-4">
 		<h2>Linting</h2>
 		<p>Code linting is handled via <a href="https://prettier.io/" target="_blank">Prettier</a>.</p>
-		<CodeBlock language="console" code={`npm run lint`} />
+		<CodeBlock language="shell" code={`npm run lint`} />
 	</section>
 
 	<Divider />
@@ -325,6 +325,6 @@ $: classesLabel = \`\${cBaseLabel}\`; // child element
 			Tests are handled via <a href="https://vitest.dev/" target="_blank">Vitest</a>, which uses similar conventions and syntax to Jest. Please ensure you write and run tests before submitting a pull
 			request. Bare minimum, these tests should test components with the minimal and maximum available prop changes.
 		</p>
-		<CodeBlock language="console" code={`npm run test`} />
+		<CodeBlock language="shell" code={`npm run test`} />
 	</section>
 </div>

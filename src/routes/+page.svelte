@@ -76,7 +76,7 @@
 				View the <a href="https://kit.svelte.dev/docs/introduction#getting-started" target="_blank">official documentation.</a>
 			</p>
 			<CodeBlock
-				language="console"
+				language="shell"
 				code={`
 npm create svelte@latest sveltekit-skeleton-app
   - Create a barebones project
@@ -91,15 +91,16 @@ npm run dev
 			<p>
 				View the <a href="https://vitejs.dev/guide/#scaffolding-your-first-vite-project" target="_blank">official documentation</a>.
 			</p>
-			<CodeBlock language="console" code={`npm create vite@latest my-app -- --template svelte-ts\ncd my-app\nnpm install\nnpm run dev`} />
+			<CodeBlock language="shell" code={`npm create vite@latest my-app -- --template svelte-ts\ncd my-app\nnpm install\nnpm run dev`} />
 			<!-- Framework: Astro -->
 		{:else if $storeFramework === 'astro'}
 			<p>
-				View the <a href="https://docs.astro.build/en/install/auto/" target="_blank">official documentation</a>. Once setup of Skeleton is complete, please read the dedicated <a href="/guides/astro">Astro guide</a>. This provides a walkthrough for scaffolding a simple Astro application, as well as explaining how to take advantage of Skeleton components within 
+				View the <a href="https://docs.astro.build/en/install/auto/" target="_blank">official documentation</a>. Once setup of Skeleton is complete, please read the dedicated
+				<a href="/guides/astro">Astro guide</a>. This provides a walkthrough for scaffolding a simple Astro application, as well as explaining how to take advantage of Skeleton components within
 				<a href="https://docs.astro.build/en/concepts/islands/" target="_blank"> Astro's islands architecture</a>.
 			</p>
 			<CodeBlock
-				language="console"
+				language="shell"
 				code={`
 npm create astro@latest astro-skeleton-app
   - Create an empty project
@@ -114,11 +115,11 @@ npm run dev
 			<p>
 				Add Svelte integration via <a href="https://docs.astro.build/en/guides/integrations-guide/svelte/" target="_blank">@astrojs/svelte</a>
 			</p>
-			<CodeBlock language="console" code={`npx astro add svelte`} />
+			<CodeBlock language="shell" code={`npx astro add svelte`} />
 			<p>
 				Add Tailwind integration via <a href="https://docs.astro.build/en/guides/integrations-guide/tailwind/" target="_blank">@astrojs/tailwind</a>
 			</p>
-			<CodeBlock language="console" code={`npx astro add tailwind`} />
+			<CodeBlock language="shell" code={`npx astro add tailwind`} />
 		{/if}
 	</section>
 
@@ -129,7 +130,7 @@ npm run dev
 			<p>
 				<a href="https://github.com/svelte-add/tailwindcss" target="_blank">Svelte-Add</a> makes installation a trivial process.
 			</p>
-			<CodeBlock language="console" code={`npx svelte-add@latest tailwindcss\nnpm install`} />
+			<CodeBlock language="shell" code={`npx svelte-add@latest tailwindcss\nnpm install`} />
 		</section>
 	{/if}
 
@@ -139,7 +140,7 @@ npm run dev
 		<p>
 			Install the core Skeleton package from <a href="https://www.npmjs.com/package/@brainandbones/skeleton" target="_blank">NPM</a>.
 		</p>
-		<CodeBlock language="console" code={`npm i @brainandbones/skeleton --save-dev`} />
+		<CodeBlock language="shell" code={`npm i @brainandbones/skeleton --save-dev`} />
 	</section>
 
 	<Divider />

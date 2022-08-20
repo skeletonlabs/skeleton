@@ -8,7 +8,7 @@
 	import SvgIcon from '$lib/SvgIcon/SvgIcon.svelte';
 
 	// Import CSS
-	import 'highlight.js/styles/github-dark.css'; // Highlight.js
+	import 'prismjs/themes/prism-okaidia.css'; // Highlight.js
 	import '../themes/theme-skeleton.css'; // skeleton|rocket|modern|seafoam|vintage|sahara|test
 	import '../app.postcss';
 
@@ -66,7 +66,7 @@
 		{
 			title: 'Utilities',
 			list: [
-				// {href: '/utilities/codeblocks', label: 'Code Blocks'}, // keep disabled until further notice
+				{ href: '/utilities/codeblocks', label: 'Code Blocks' }, // keep disabled until further notice
 				{ href: '/utilities/dialogs', label: 'Dialogs' },
 				{ href: '/utilities/toasts', label: 'Toasts' },
 				{ href: '/utilities/lightswitches', label: 'Lightswitch' },

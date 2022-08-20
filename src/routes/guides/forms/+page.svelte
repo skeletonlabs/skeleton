@@ -45,7 +45,7 @@
 			/>
 		</Card>
 		<p>Install the plugin via NPM or similar package manager.</p>
-		<CodeBlock language="console" code={`npm install -D @tailwindcss/forms`} />
+		<CodeBlock language="shell" code={`npm install -D @tailwindcss/forms`} />
 		<p>
 			Add the <a href="https://tailwindcss.com/docs/plugins" target="_blank">plugin</a> to your
 			<code>tailwind.config.cjs</code>
