@@ -111,8 +111,8 @@
 	<section class="space-y-4">
 		<h2>Dependencies</h2>
 		<p>
-			Skeleton aims to keep dependencies to as few as possible to keep the project lean. Please be leery of introducing new dependencies. However, don't be afraid to discuss additions you would like to
-			propose with core contributors before proceeding. We just want what's best for end users!
+			Skeleton aims to keep dependencies to as few as possible to keep the project lean. Please be leery of introducing new dependencies. However, don't be afraid to discuss additions you would like
+			to propose with core contributors before proceeding. We just want what's best for end users!
 		</p>
 	</section>
 

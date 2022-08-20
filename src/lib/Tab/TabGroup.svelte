@@ -38,7 +38,7 @@
 	});
 
 	// Reactive Classes
-	$: classesGroup = `${cBaseGroup} ${justify} ${$$props.class||''}`;
+	$: classesGroup = `${cBaseGroup} ${justify} ${$$props.class || ''}`;
 </script>
 
 <nav bind:this={elemTabGroup} data-testid="tab-group" class="tab-group {classesGroup}" role="tablist" aria-labelledby={labeledby} aria-label={label}>

@@ -95,7 +95,8 @@ npm run dev
 			<!-- Framework: Astro -->
 		{:else if $storeFramework === 'astro'}
 			<p>
-				View the <a href="https://docs.astro.build/en/install/auto/" target="_blank">official documentation</a>. Once setup of Skeleton is complete, please read the dedicated <a href="/guides/astro">Astro guide</a>. This provides a walkthrough for scaffolding a simple Astro application, as well as explaining how to take advantage of Skeleton components within 
+				View the <a href="https://docs.astro.build/en/install/auto/" target="_blank">official documentation</a>. Once setup of Skeleton is complete, please read the dedicated
+				<a href="/guides/astro">Astro guide</a>. This provides a walkthrough for scaffolding a simple Astro application, as well as explaining how to take advantage of Skeleton components within
 				<a href="https://docs.astro.build/en/concepts/islands/" target="_blank"> Astro's islands architecture</a>.
 			</p>
 			<CodeBlock

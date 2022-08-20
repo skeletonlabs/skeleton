@@ -104,4 +104,3 @@ const storeLayout: Writable<string> = writable('horz');`}
 		<DataTable headings={tableA11yItem.headings} source={tableA11yItem.source} />
 	</section>
 </div>
-
