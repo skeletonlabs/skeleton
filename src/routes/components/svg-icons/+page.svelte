@@ -26,7 +26,7 @@
 		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
 		source: [
 			['title', 'string', '-', '-', 'Set the title element value embedded within the SVG.'],
-			['tabIndex', 'number', '-1', '-', 'Provide a tab index value.']
+			['tabindex', 'number', '-1', '-', 'Provide a tab index value.']
 		]
 	};
 </script>
