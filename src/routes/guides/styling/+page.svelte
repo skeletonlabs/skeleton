@@ -21,7 +21,7 @@
 			[
 				'<code>forms.css</code>',
 				`<a href="${ghLibPathMaster}/styles/forms.css" target="_blank">View</a>`,
-				'For use with the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Tailwind Forms plugin</a> detailed in <a href="/guides/forms">Forms</a>.',
+				'Only recommended for use with the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Tailwind Forms</a> plugin. See the <a href="/guides/forms">Forms</a> guide for details.',
 			],
 		]
 	};
@@ -72,15 +72,16 @@
 		<!-- Framework: SvelteKit | Vite (Svelte) -->
 		{#if $storeFramework === 'sveltekit'}
 			<p>Import all desired CSS add-ons after your global stylesheet in <code>/src/routes/+layout.svelte</code>.</p>
-			<CodeBlock language="typescript" code={`import '../app.postcss';\nimport '@brainandbones/skeleton/styles/{stylehsheet}'; // ex: core.css`} />
+			<CodeBlock language="typescript" code={`import '../app.postcss';\nimport '@brainandbones/skeleton/styles/{stylehsheet}.css'; // ex: core.css`} />
 		{:else if $storeFramework === 'vite'}
 			<p>Import all desired CSS add-ons after your global stylesheet in <code>/src/main.js</code>.</p>
-			<CodeBlock language="typescript" code={`import '../app.css';\nimport '@brainandbones/skeleton/styles/{stylehsheet}'; // ex: core.css`} />
+			<CodeBlock language="typescript" code={`import '../app.css';\nimport '@brainandbones/skeleton/styles/{stylehsheet}.css'; // ex: core.css`} />
 			<!-- Framework: Astro -->
 		{:else if $storeFramework === 'astro'}
 			<p>Import all desired CSS add-ons after your global stylesheet in <code>/src/layouts/LayoutBasic.astro</code>.</p>
-			<CodeBlock language="typescript" code={`import '../styles/base.css';\nimport '@brainandbones/skeleton/styles/{stylehsheet}'; // ex: core.css`} />
+			<CodeBlock language="typescript" code={`import '../styles/base.css';\nimport '@brainandbones/skeleton/styles/{stylehsheet}.css'; // ex: core.css`} />
 		{/if}
+		<p>Be sure to pass the appropriate stylesheet filename as follows.</p>
 		<DataTable headings={tableStyleAddons.headings} source={tableStyleAddons.source} />
 	</section>
 

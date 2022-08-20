@@ -50,14 +50,14 @@
 
 	<RadioGroup selected={storeThemeGuide}>
 		<RadioItem value="presets">Preset Themes</RadioItem>
-		<RadioItem value="generator">Custom Themes</RadioItem>
+		<RadioItem value="generator">Create a Theme</RadioItem>
 	</RadioGroup>
 
 	{#if $storeThemeGuide === 'presets'}
 		
 		<!-- Presets -->
 		<section class="space-y-4">
-			<p>Skeleton comes with a handful of curated preset themes out of the box.</p>
+			<p>Skeleton provides a set of curated themes out of the box. Use these to get started quickly.</p>
 			<TabGroup selected={storeFramework}>
 				<Tab value="sveltekit">SvelteKit</Tab>
 				<Tab value="vite">Vite (Svelte)</Tab>
@@ -77,6 +77,7 @@
 				<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/styles/themes/theme-{name}.css'; // <--\nimport '../styles/base.css';`} />
 			{/if}
 			<!-- Preset Previews -->
+			<p>Be sure to set <em>name</em> in <code>theme-(name).css</code> to one of the following values.</p>
 			<nav class="grid grid-cols-1 md:grid-cols-3 gap-4">
 				{#each presets as preset}
 					<a href={preset.url} class="theme-set" style:background={preset.surface} target="_blank">
@@ -95,7 +96,7 @@
 
 		<!-- Theme Generator Form -->
 		<section class="space-y-4">
-			<p>To create your own theme, use the form below. Each color represents swatch 500 (ex: bg-primary-500).</p>
+			<p>Use the form below to craft a custom theme. Each provided color represents swatch 500 (ex: <code>bg-primary-500</code>).</p>
 			<TabGroup selected={storeFramework}>
 				<Tab value="sveltekit">SvelteKit</Tab>
 				<Tab value="vite">Vite (Svelte)</Tab>
@@ -122,7 +123,7 @@
 				{#if $storeGenerator === 'tailwind'}<p>
 						Create a theme using <a href="https://tailwindcss.com/docs/customizing-colors" target="_blank">Tailwind's color palette</a>. This typically provides the best results.
 					</p>{/if}
-				{#if $storeGenerator === 'custom'}<p>For advanced users, enter any arbitrary hex color values to generate a unique theme.</p>{/if}
+				{#if $storeGenerator === 'custom'}<p>For advanced users, enter any arbitrary hex color values to generate a completely unique theme.</p>{/if}
 				{#if $storeGenerator === 'tailwind'}<ThemeGenTailwind />{/if}
 				{#if $storeGenerator === 'custom'}<ThemeGenCustom />{/if}
 			</Card>
