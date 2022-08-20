@@ -50,6 +50,6 @@
 	"type": "module",
 	"types": "index.d.ts",
 	"dependencies": {
-		"highlight.js": "^11.6.0"
+		"prismjs": "^1.28.0"
 	}
 }
