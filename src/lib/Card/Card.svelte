@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let background: string = 'bg-surface-200 dark:bg-surface-800 space-y-4';
-	export let color: string = undefined;
+	export let color: string | undefined = undefined;
 
 	// Base Classes
 	let cBaseCard: string = `p-4 rounded-lg`;

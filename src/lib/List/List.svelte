@@ -1,16 +1,16 @@
 <script lang="ts">
 	import { setContext } from 'svelte';
-	import type { Writable } from 'svelte/store';
+	import { writable, type Writable } from 'svelte/store';
 
 	// Props
 	export let tag: string = 'ul';
-	export let selected: Writable<any> = undefined; // (store)
+	export let selected: Writable<any> = writable(undefined); // (store)
 	export let highlight: string = '!bg-primary-500'; // '!' required
 	export let hover: string = 'hover:bg-primary-500/10'; // 'hover:' required
 	// A11y
-	export let title: string = undefined;
-	export let label: string = undefined;
-	export let labelledby: string = undefined;
+	export let title: string | undefined = undefined;
+	export let label: string | undefined = undefined;
+	export let labelledby: string | undefined = undefined;
 
 	// Context
 	setContext('parentTag', tag);

@@ -4,6 +4,7 @@
 	import Swatches from './Swatches.svelte';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
 
+	const twColors: any = tailwindColors;
 	const colorLabels: any[] = Object.keys(tailwindColors);
 	const formValues: any = {
 		primary: 'emerald',
@@ -31,19 +32,19 @@
 
 	// Set rgb shades based on selection
 	function setRgbShades(key: string, selectionKey: string): void {
-		rgbShades[key] = tailwindColors[selectionKey];
-		generateCssSnippet(key);
+		rgbShades[key] = twColors[selectionKey];
+		generateCssSnippet();
 	}
 
 	// Generates the CSS snippet
-	function generateCssSnippet(key: string): void {
+	function generateCssSnippet(): void {
 		let css: string = '';
 		Object.entries(rgbShades).forEach((set: any, i: number) => {
 			const [colorName, shades] = set;
 			// Add Comment Row
 			css += `${i === 0 ? `\t/* --- Tailwind Theme --- */\n` : '\n'}\t/* ${colorName} (${formValues[colorName]}) */`;
 			// Per each entry, add custom property key/value row
-			Object.entries(shades).forEach((shade) => {
+			Object.entries(shades).forEach((shade: any) => {
 				const [shadeKey, shadeValue] = shade;
 				css += `\n\t--color-${colorName}-${shadeKey}: ${shadeValue['rgb']};`;
 			});

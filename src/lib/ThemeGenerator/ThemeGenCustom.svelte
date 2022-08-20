@@ -24,7 +24,7 @@
 
 	// Hex -> RGB
 	// Source: https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
-	function hexToRgb(hex): string {
+	function hexToRgb(hex: any): string {
 		hex = pruneHash(hex);
 		const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
 		if (result) {

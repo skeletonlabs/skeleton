@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { DataTable, Card, GradientHeading, Button } from '@brainandbones/skeleton';
+	import { DataTable, Card, GradientHeading } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
 
 	const tableProps: any = {

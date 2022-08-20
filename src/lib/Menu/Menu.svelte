@@ -44,7 +44,7 @@
 
 	// Searches for the first parent node that can scroll
 	// https://thewebdev.info/2021/06/27/how-to-find-the-first-scrollable-parent-element-with-javascript/
-	function getFirstScrollableParent(node): any {
+	function getFirstScrollableParent(node: any): any {
 		if (node === null) {
 			return null;
 		}

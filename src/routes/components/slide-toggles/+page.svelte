@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { DataTable, Card, SlideToggle, Button } from '@brainandbones/skeleton';
+	import { DataTable, Card, SlideToggle } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
 
 	let checkedValue: boolean = false;

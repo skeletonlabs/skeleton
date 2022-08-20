@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
-	import type { Writable } from 'svelte/store';
+	import { writable, type Writable } from 'svelte/store';
 
 	// Props
-	export let visible: Writable<boolean> = undefined;
-	export let fixed: string = undefined;
+	export let visible: Writable<boolean> = writable(false);
+	export let fixed: string | undefined = undefined;
 	export let backdrop: string = 'bg-white/50 dark:bg-black/50';
 	export let background: string = 'bg-surface-50 dark:bg-surface-900';
 	export let border: string = 'border-r border-surface-200 dark:border-surface-800';

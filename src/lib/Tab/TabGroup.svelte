@@ -9,8 +9,8 @@
 	export let fill: string = 'fill-primary-500';
 	export let color: string = 'text-primary-500';
 	// A11y
-	export let labeledby: string = undefined;
-	export let label: string = undefined;
+	export let labeledby: string | undefined = undefined;
+	export let label: string | undefined = undefined;
 
 	// Set Context
 	setContext('selected', selected);

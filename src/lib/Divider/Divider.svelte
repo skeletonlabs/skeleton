@@ -25,7 +25,7 @@
 	}
 
 	// Set Orientation
-	const cWeight = {
+	const cWeight: any = {
 		1: { v: 'border-l', h: 'border-t' },
 		2: { v: 'border-l-2', h: 'border-t-2' },
 		4: { v: 'border-l-4', h: 'border-t-4' },

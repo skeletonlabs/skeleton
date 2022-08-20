@@ -58,7 +58,7 @@
 
 	// A11y Input Handler
 	function onKeyDown(event: any): void {
-		if (open && event.code === 'Escape') {
+		if (visible && event.code === 'Escape') {
 			visible = false;
 		}
 	}

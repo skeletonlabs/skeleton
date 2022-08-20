@@ -1,7 +1,7 @@
 <script lang="ts">
 	// Props
 	export let label: string = '';
-	export let value: number = undefined;
+	export let value: number | undefined = undefined;
 	export let max: number = 10;
 	export let height: string = 'h-2';
 	export let color: string = 'bg-accent-500';
@@ -14,7 +14,7 @@
 	const cBaseMeterIndeterminate: string = 'h-full w-full rounded-full';
 
 	// Fill Percent
-	$: fillPercent = (100 * value) / max;
+	$: fillPercent = value ? (100 * value) / max : 0;
 
 	// Reactive Classes
 	$: classesTrack = `${cBaseTrack} ${height} ${$$props.class}`;
@@ -26,7 +26,7 @@
 	<!-- Track -->
 	<div class="progress-track {classesTrack}">
 		<!-- Meter - Determinate / Indeterminate -->
-		{#if value >= 0}
+		{#if value !== undefined && value >= 0}
 			<div class="progress-meter {cBaseMeterDeterminate} {color}" style:width="{fillPercent}%" />
 		{:else}
 			<div class="progress-meter {cBaseMeterIndeterminate} {color} animIndeterminate" />

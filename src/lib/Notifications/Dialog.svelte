@@ -46,7 +46,7 @@
 	}
 
 	// Subscribe to dialog updates
-	dialogStore.subscribe((dArr) => {
+	dialogStore.subscribe((dArr: any) => {
 		// Dialog quey updated and includes a value
 		if (dArr.length) {
 			// Focus on first valid modal element

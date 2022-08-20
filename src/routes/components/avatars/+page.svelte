@@ -3,7 +3,7 @@
 	import { DataTable, Card, RadioGroup, RadioItem, SlideToggle, Avatar } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
 
-	const storeSrc: Writable<string> = writable(undefined);
+	const storeSrc: Writable<string|undefined> = writable(undefined);
 	let placeholder: string = 'https://i.pravatar.cc/';
 
 	const tableProps: any = {

@@ -2,7 +2,7 @@
 	"extends": "./.svelte-kit/tsconfig.json",
 	"compilerOptions": {
 		"declaration": true,
-		"moduleResolution": "NodeNext",
+		// "moduleResolution": "NodeNext", // causing issues, disabling for now (ex: SvgIcon component)
 		"module": "es2020",
 		"lib": ["es2020", "DOM"],
 		"target": "es2020",

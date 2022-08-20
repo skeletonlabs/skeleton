@@ -12,10 +12,10 @@
 	// Props: Design
 	export let justify: string = 'justify-between';
 	export let text: string = 'text-xs';
-	export let select: string = undefined;
+	export let select: string | undefined = undefined;
 	// Props: Button
 	export let variant: string = 'filled-primary';
-	export let rounded: string = undefined;
+	export let rounded: string | undefined = undefined;
 
 	// Base Classes
 	// const cBasePaginator: string = 'flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4';

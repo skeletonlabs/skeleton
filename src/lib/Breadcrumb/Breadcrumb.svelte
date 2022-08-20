@@ -4,7 +4,7 @@
 	// Props
 	export let separator: string = `&rsaquo;`;
 	// A11y
-	export let label: string = undefined;
+	export let label: string | undefined = undefined;
 
 	// Base Classes
 	const cBaseBreadcrumb: string = 'flex align-center space-x-4';

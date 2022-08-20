@@ -6,8 +6,8 @@
 	export let hover: string = 'hover:bg-primary-500/10';
 	export let spacing: string = 'space-y-2';
 	// A11y
-	export let summaryId: string = undefined;
-	export let contentId: string = undefined;
+	export let summaryId: string | undefined = undefined;
+	export let contentId: string | undefined = undefined;
 
 	// Base Classes
 	const cBaseDetails: string = '';

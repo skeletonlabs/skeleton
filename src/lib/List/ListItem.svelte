@@ -8,8 +8,8 @@
 	// Props
 	// NOTE: 'value' is handled by $$props.value
 	// A11y
-	export let setsize: number = undefined;
-	export let posinset: number = undefined;
+	export let setsize: number | undefined = undefined;
+	export let posinset: number | undefined = undefined;
 
 	// Context
 	export let parentTag: string = getContext('parentTag');
@@ -25,7 +25,7 @@
 	// Local
 	let elemItem: HTMLElement;
 	let tag: string = 'li';
-	let role: string = parentTag === 'nav' ? 'option' : undefined;
+	let role: string | undefined = parentTag === 'nav' ? 'option' : undefined;
 
 	// Set Wrapping Tag
 	//  = parentTag === 'dl' ? 'div' : 'li';

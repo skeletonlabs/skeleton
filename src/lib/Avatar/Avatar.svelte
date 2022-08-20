@@ -4,13 +4,13 @@
 
 	// Props
 	export let initials: string = 'A';
-	export let src: string = undefined;
+	export let src: string | undefined = undefined;
 	export let size: string = 'sm';
 	export let background: string = 'bg-surface-500';
 	export let color: string = 'text-white';
 	export let outlined: boolean = false;
 	export let hover: boolean = false;
-	export let filter: string = undefined; // filter id
+	export let filter: string | undefined = undefined; // filter id
 
 	// Base Classes
 	let cBase: string = 'flex aspect-square text-surface-50 font-semibold justify-center items-center rounded-full overflow-hidden isolate';

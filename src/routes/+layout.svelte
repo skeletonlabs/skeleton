@@ -86,7 +86,8 @@
 
 	afterNavigate(() => {
 		// Scroll to top
-		document.querySelector('#main').scrollTop = 0;
+		const elemMain = document.querySelector('#main');
+		if (elemMain !== null) { elemMain.scrollTop = 0; }
 		// Update active drawer selection
 		currentPageStore.set($page.url.pathname);
 	});

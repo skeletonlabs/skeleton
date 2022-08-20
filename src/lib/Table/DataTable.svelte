@@ -18,8 +18,8 @@
 	export let text: string = 'text-sm';
 	export let hover: string = 'hover:bg-primary-500/10';
 	// A11y
-	export let labelledby: string = undefined;
-	export let describedby: string = undefined;
+	export let labelledby: string | undefined = undefined;
+	export let describedby: string | undefined = undefined;
 
 	// Local
 	let elemTable: HTMLElement;
@@ -132,9 +132,9 @@
 		const focusedElemRowIndex: number = parseInt(focusedElem.parentElement.ariaRowIndex);
 		const focusedElemColIndex: number = parseInt(focusedElem.ariaColIndex);
 		// Target Element
-		const targetRowElement: HTMLElement = elemTable.querySelector(`[aria-rowindex="${focusedElemRowIndex + y}"]`);
+		const targetRowElement: HTMLElement | null = elemTable.querySelector(`[aria-rowindex="${focusedElemRowIndex + y}"]`);
 		if (targetRowElement !== null) {
-			const targetColElement: HTMLElement = targetRowElement.querySelector(`[aria-colindex="${focusedElemColIndex + x}"]`);
+			const targetColElement: HTMLElement | null = targetRowElement.querySelector(`[aria-colindex="${focusedElemColIndex + x}"]`);
 			if (targetColElement !== null) {
 				targetColElement.focus();
 			}
