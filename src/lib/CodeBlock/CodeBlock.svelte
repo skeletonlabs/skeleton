@@ -19,5 +19,5 @@
 <div class="codeblock {classesBlock} {$$props.class}" data-testid="codeblock">
 	<header class={cBaseHeader}>{language}</header>
 	<!-- prettier-ignore -->
-	<pre class="whitespace-pre-wrap break-all text-sm"><code class="language-{language} outline-none" contenteditable={$$props.contenteditable} spellcheck="false">{@html Prism.highlight(code, Prism.languages[language], language) || code}</code></pre>
+	<pre class="whitespace-pre-wrap break-all text-sm"><code class=" outline-none" contenteditable={$$props.contenteditable} spellcheck="false">{@html Prism.highlight(code, Prism.languages[language], language) || code}</code></pre>
 </div>
