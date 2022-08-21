@@ -13,6 +13,7 @@
 	// Available themes: skeleton|rocket|modern|seafoam|vintage|sahara|test
 	import '$lib/styles/themes/theme-skeleton.css';
 	// Skeleton Add-On Stylesheets
+	import '$lib/styles/tailwind.css';
 	import '$lib/styles/core.css';
 	import '$lib/styles/typography.css';
 	import '$lib/styles/forms.css';

@@ -1,13 +1,3 @@
-/*
-The Tailwind Directives most proceed everything else.
-Remove these from your global CSS file if you implement this.
-These should not be implemented twice in one project.
-*/
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 /* --- Skeleton: Core --- */
 
 body {
