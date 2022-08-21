@@ -49,8 +49,5 @@
 		"vitest": "^0.19.1"
 	},
 	"type": "module",
-	"types": "index.d.ts",
-	"dependencies": {
-		"highlight.js": "^11.6.0"
-	}
+	"types": "index.d.ts"
 }

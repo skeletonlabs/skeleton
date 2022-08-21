@@ -1,4 +1,9 @@
 <script lang="ts">
+	import hljs from 'highlight.js';
+	import 'highlight.js/styles/github-dark.css';
+	import { storeHighlightJs } from '$lib/CodeBlock/stores';
+	storeHighlightJs.set(hljs);
+
 	import { page } from '$app/stores';
 	import { writable, type Writable } from 'svelte/store';
 	import { afterNavigate } from '$app/navigation';
@@ -6,9 +11,8 @@
 	import { Drawer, LightSwitch, Divider, List, ListItem, Button, Badge, Dialog, Toast } from '@brainandbones/skeleton';
 	import { Apollo, BlueNight, Emerald, GreenFall, Noir, NoirLight, Rustic, Summer84, XPro } from '@brainandbones/skeleton';
 	import SvgIcon from '$lib/SvgIcon/SvgIcon.svelte';
-
+	
 	// Import CSS
-	import 'highlight.js/styles/github-dark.css'; // Highlight.js
 	import '../themes/theme-skeleton.css'; // skeleton|rocket|modern|seafoam|vintage|sahara|test
 	import '../app.postcss';
 
@@ -66,7 +70,7 @@
 		{
 			title: 'Utilities',
 			list: [
-				// {href: '/utilities/codeblocks', label: 'Code Blocks'}, // keep disabled until further notice
+				{href: '/utilities/codeblocks', label: 'Code Blocks'},
 				{ href: '/utilities/dialogs', label: 'Dialogs' },
 				{ href: '/utilities/toasts', label: 'Toasts' },
 				{ href: '/utilities/lightswitches', label: 'Lightswitch' },
@@ -84,6 +88,7 @@
 		drawer.set(false);
 	};
 
+	// Lifecycle Events
 	afterNavigate(() => {
 		// Scroll to top
 		const elemMain = document.querySelector('#main');

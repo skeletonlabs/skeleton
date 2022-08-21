@@ -1,5 +1,8 @@
+<!-- NOTE: don't allow linting on this page as pre/code tags are particular about whitespace -->
+<!-- prettier-ignore-start -->
+
 <script lang="ts">
-	import hljs from 'highlight.js';
+	import { storeHighlightJs } from '$lib/CodeBlock/stores';
 
 	export let language: string = 'plaintext';
 	export let code: string = '';
@@ -9,21 +12,29 @@
 	let cBaseBlock: string = `text-surface-50 p-4 rounded`;
 	let cBaseHeader: string = 'text-xs opacity-50 pb-2';
 
+	// Allow shorthand 'js' alias for Javascript
 	function languageFormatter(lang: string): string {
-		if (lang === 'js') {
-			return 'javascript';
-		}
+		if (lang === 'js') { return 'javascript'; }
 		return lang;
 	}
+
+	// Trigger syntax highlighting if highlight.js is available
+	function highlight(): void {
+		if ($storeHighlightJs === undefined) return;
+		// Apply Highlight.js syntaxt highlighting
+		code = $storeHighlightJs.highlight(code, { language }).value;
+	}
+	highlight();
 
 	// Reactive Classes
 	$: classesBlock = `${cBaseBlock} ${background}`;
 </script>
 
 {#if language && code}
-	<div class="codeblock {classesBlock} {$$props.class}" data-testid="codeblock">
-		<header class={cBaseHeader}>{languageFormatter(language)}</header>
-		<!-- prettier-ignore -->
-		<pre class="whitespace-pre-wrap break-all text-sm"><code class="language-{language} outline-none" contenteditable spellcheck="false">{@html hljs.highlight(code, { language }).value || code}</code></pre>
-	</div>
+<div class="codeblock {classesBlock} {$$props.class}" data-testid="codeblock">
+<header class={cBaseHeader}>{languageFormatter(language)}</header>
+<pre class="whitespace-pre-wrap break-all text-sm"><code class="language-{language} outline-none" contenteditable spellcheck="false">{@html code}</code></pre>
+</div>
 {/if}
+
+<!-- prettier-ignore-end -->
