@@ -20,3 +20,14 @@ main p {
 main a:not(.comp-button):not(.crumb a):not(.list-row):not(.logo):not(.drawer a) {
 	@apply text-primary-500 underline underline-offset-4 decoration-primary-500/20 decoration-dotted ;
 }
+
+/* --- Pre and Code --- */
+/* For use outside of Skeleton's CodeBlock component */
+
+pre:not(.codeblock pre) {
+	@apply bg-surface-700 dark:bg-black/20 text-surface-50 p-4 whitespace-pre-wrap text-base overflow-x-auto rounded;
+}
+
+code:not(.codeblock code) {
+	@apply bg-surface-500/30 text-black dark:text-white text-xs py-1 px-2 rounded;
+}

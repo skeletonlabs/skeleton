@@ -9,14 +9,15 @@
 
 	// Highlight.js Theme
 	import 'highlight.js/styles/github-dark.css'; // Highlight.js
-
-	// Project CSS
+	// Skeleton Theme
 	// Available themes: skeleton|rocket|modern|seafoam|vintage|sahara|test
 	import '$lib/styles/themes/theme-skeleton.css';
-	import '../app.postcss';
+	// Skeleton Add-On Stylesheets
 	import '$lib/styles/core.css';
 	import '$lib/styles/typography.css';
 	import '$lib/styles/forms.css';
+	// Global Stylesheets
+	import '../app.postcss';
 
 	const currentPageStore: Writable<string> = writable($page.url.pathname);
 	const drawer: Writable<boolean> = writable(false);

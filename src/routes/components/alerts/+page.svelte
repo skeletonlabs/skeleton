@@ -21,7 +21,7 @@
 		headings: ['Slot', 'Required', 'Description'],
 		source: [
 			['lead', '-', 'Provide a leading element, such as an icon.'],
-			['title', '&check;', 'Provide the title of the alert.'],
+			['title', '-', 'Provide the title of the alert.'],
 			['message', '-', 'Provide the message of the alert.'],
 			['trail', '-', 'Provide a trailing elements, such as buttons.']
 		]

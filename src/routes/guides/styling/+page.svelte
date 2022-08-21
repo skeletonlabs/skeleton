@@ -2,6 +2,7 @@
 	import { storeFramework } from '../../stores';
 	import { Card, Button, DataTable, Divider, TabGroup, Tab } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+import Alert from '$lib/Alert/Alert.svelte';
 
 	// Tables
 	const ghLibPathMaster: string = 'https://github.com/Brain-Bones/skeleton/tree/master/src/lib'; // master branch
@@ -11,12 +12,12 @@
 			[
 				'<code>core.css</code>',
 				`<a href="${ghLibPathMaster}/styles/core.css" target="_blank">View</a>`,
-				'Styless body elements, scrollbars, code blocks, and more.',
+				'Includes <a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank">@tailwind directives</a> and styles body elements, scrollbars, and more.',
 			],
 			[
 				'<code>typography.css</code>',
 				`<a href="${ghLibPathMaster}/styles/typography.css" target="_blank">View</a>`,
-				'Styles headings, paragraph and anchors within the main element, and more.',
+				'Styles headings, paragraph, anchors, pre, code, and more.',
 			],
 			[
 				'<code>forms.css</code>',
@@ -64,6 +65,14 @@
 	<section class="space-y-4">
 		<h2>Stylesheet Add-Ons</h2>
 		<p>Below are a set of optional stylesheets that work in unison with your Skeleton theme.</p>
+		<Alert background="bg-accent-500/30">
+			<svelte:fragment slot="message">
+				Note that you only need to import @tailwind directives once per project, drop these from global stylesheet if you use <code>core.css</code>.
+			</svelte:fragment>
+			<svelte:fragment slot="trail">
+			<Button variant="filled" href="https://tailwindcss.com/docs/functions-and-directives" target="_blank">Directives Docs</Button>
+		</svelte:fragment>
+		</Alert>
 		<TabGroup selected={storeFramework}>
 			<Tab value="sveltekit">SvelteKit</Tab>
 			<Tab value="vite">Vite (Svelte)</Tab>
@@ -71,15 +80,15 @@
 		</TabGroup>
 		<!-- Framework: SvelteKit | Vite (Svelte) -->
 		{#if $storeFramework === 'sveltekit'}
-			<p>Import all desired CSS add-ons after your global stylesheet in <code>/src/routes/+layout.svelte</code>.</p>
-			<CodeBlock language="typescript" code={`import '../app.postcss';\nimport '@brainandbones/skeleton/styles/{stylehsheet}.css'; // ex: core.css`} />
+			<p>Import all desired CSS add-ons directly above your global stylesheet in <code>/src/routes/+layout.svelte</code>.</p>
+			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/styles/{stylehsheet}.css'; // ex: core.css\nimport '../app.postcss';`} />
 		{:else if $storeFramework === 'vite'}
-			<p>Import all desired CSS add-ons after your global stylesheet in <code>/src/main.js</code>.</p>
-			<CodeBlock language="typescript" code={`import '../app.css';\nimport '@brainandbones/skeleton/styles/{stylehsheet}.css'; // ex: core.css`} />
+			<p>Import all desired CSS add-ons directly above your global stylesheet in <code>/src/main.js</code>.</p>
+			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/styles/{stylehsheet}.css'; // ex: core.css\nimport '../app.css';`} />
 			<!-- Framework: Astro -->
 		{:else if $storeFramework === 'astro'}
-			<p>Import all desired CSS add-ons after your global stylesheet in <code>/src/layouts/LayoutBasic.astro</code>.</p>
-			<CodeBlock language="typescript" code={`import '../styles/base.css';\nimport '@brainandbones/skeleton/styles/{stylehsheet}.css'; // ex: core.css`} />
+			<p>Import all desired CSS add-ons directly above your global stylesheet in <code>/src/layouts/LayoutBasic.astro</code>.</p>
+			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/styles/{stylehsheet}.css'; // ex: core.css\nimport '../styles/base.css';`} />
 		{/if}
 		<p>Be sure to pass the appropriate stylesheet filename as follows.</p>
 		<DataTable headings={tableStyleAddons.headings} source={tableStyleAddons.source} />

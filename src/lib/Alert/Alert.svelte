@@ -29,7 +29,7 @@
 			<!-- Content -->
 			<section class="flex flex-col w-full justify-center space-y-2">
 				<!-- Slot: Title -->
-				<h3><slot name="title">(REQUIRED: Title Slot)</slot></h3>
+				{#if $$slots.title}<h3><slot name="title"></slot></h3>{/if}
 				<!-- Slot: Message -->
 				{#if $$slots.message}
 					<div class="{color} opacity-70"><slot name="message" /></div>

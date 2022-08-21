@@ -39,7 +39,7 @@
 	// Set Variant Styles
 	// TODO: refactor and improve this
 	// prettier-ignore
-	function setProps(vBackground?: string, vColor?: string, vFill?: string, vRing?: string, vWeight?: string, vSize?: string): void {
+	function setProps(vBackground?: string|null, vColor?: string|null, vFill?: string|null, vRing?: string|null, vWeight?: string|null, vSize?: string|null): void {
         if (variant) {
             if (vSize) size = vSize;
             if (vBackground) background = vBackground;

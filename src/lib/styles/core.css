@@ -1,20 +1,21 @@
+/*
+The Tailwind Directives most proceed everything else.
+Remove these from your global CSS file if you implement this.
+These should not be implemented twice in one project.
+*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* --- Skeleton: Core --- */
 
 body {
     @apply font-sans bg-surface-100 dark:bg-surface-900 text-black dark:text-white;
 }
 
-.dark body {
-	/* Via: https://csshero.org/mesher/ */
-	background-image: radial-gradient(at 32% 66%, hsla(183, 55%, 15%, 0.33) 0, transparent 53%), radial-gradient(at 80% 20%, hsla(232, 40%, 22%, 0.5) 0, transparent 56%),
-		radial-gradient(at 63% 56%, hsla(182, 53%, 15%, 0.33) 0, transparent 59%);
-	background-size: cover;
-	background-attachment: fixed;
-}
-
 /* --- Scrollbars --- */
 
-/* Scrollbars (webkit) */
 ::-webkit-scrollbar {
 	@apply w-2;
 }
@@ -32,14 +33,4 @@ body {
 .hide-scrollbar {
 	-ms-overflow-style: none; /* IE/Edge */
 	scrollbar-width: none; /* Firefox */
-}
-
-/* --- Code Blocks --- */
-
-/* Code */
-pre:not(.codeblock pre) {
-	@apply bg-surface-700 dark:bg-black/20 text-surface-50 p-4 whitespace-pre-wrap text-base overflow-x-auto rounded;
-}
-code:not(.codeblock code) {
-	@apply bg-surface-500/30 text-black dark:text-white text-xs py-1 px-2 rounded;
 }
