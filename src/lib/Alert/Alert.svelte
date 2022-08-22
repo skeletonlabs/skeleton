@@ -5,43 +5,45 @@
 	// Props
 	export let visible: boolean = true;
 	export let duration: number = 200; // ms
-	export let background: string = 'bg-surface-500';
-	export let color: string = 'text-white';
-	export let radius: string = 'rounded-lg';
+	export let background: string = 'bg-accent-500/30';
+	export let border: string = 'border-l-accent-500';
+	export let color: string|undefined = undefined;
+	export let radius: string = '';
 
 	// Base Classes
-	let cBaseCard = 'flex flex-col items-start lg:items-center lg:flex-row p-5 space-y-4 lg:space-y-0 lg:space-x-4';
+	let cBaseCard: string = 'border-l-4 flex flex-col items-start lg:items-center lg:flex-row p-5 space-y-4 lg:space-y-0 lg:space-x-4';
+	let cLead: string = 'flex justify-center items-center';
+	let cContent: string = 'flex flex-col w-full justify-center space-y-2';
+	let cTail: string = 'flex items-center space-x-4';
 
 	// Reactive Classes
-	$: classesCard = `${cBaseCard} ${radius} ${$$props.class}`;
+	$: classesCard = `${cBaseCard} ${background} ${border} ${color} ${radius} ${$$props.class}`;
 </script>
 
 {#if visible}
-	<div class="alert" transition:fade|local={{ duration }} data-testid="alert" role="alert" aria-live="polite">
-		<Card {background} {color} class={classesCard}>
-			<!-- Slot: Lead -->
-			{#if $$slots.lead}
-				<section class="flex justify-center items-center lg:min-w-[72px]">
-					<slot name="lead" />
-				</section>
-			{/if}
-
-			<!-- Content -->
-			<section class="flex flex-col w-full justify-center space-y-2">
-				<!-- Slot: Title -->
-				<h3><slot name="title">(REQUIRED: Title Slot)</slot></h3>
-				<!-- Slot: Message -->
-				{#if $$slots.message}
-					<div class="{color} opacity-70"><slot name="message" /></div>
-				{/if}
+	<div class="alert {classesCard}" transition:fade|local={{ duration }} data-testid="alert" role="alert" aria-live="polite">
+		<!-- Slot: Lead -->
+		{#if $$slots.lead}
+			<section class="{cLead}">
+				<slot name="lead" />
 			</section>
+		{/if}
 
-			<!-- Slot: Trail -->
-			{#if $$slots.trail}
-				<section class="flex items-center space-x-4">
-					<slot name="trail" />
-				</section>
+		<!-- Content -->
+		<section class="{cContent}">
+			<!-- Slot: Title -->
+			{#if $$slots.title}<h3><slot name="title"></slot></h3>{/if}
+			<!-- Slot: Message -->
+			{#if $$slots.message}
+				<div class="{color} opacity-70"><slot name="message" /></div>
 			{/if}
-		</Card>
+		</section>
+
+		<!-- Slot: Trail -->
+		{#if $$slots.trail}
+			<section class="{cTail}">
+				<slot name="trail" />
+			</section>
+		{/if}
 	</div>
 {/if}

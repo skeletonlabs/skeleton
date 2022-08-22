@@ -1,19 +1,20 @@
 <script lang="ts">
 	import { storeFramework } from './stores';
-	import { Card, LogoCloud, Divider, Logo, Button, TabGroup, Tab } from '@brainandbones/skeleton';
+	import { Alert, Card, LogoCloud, Divider, Logo, Button, TabGroup, Tab } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
 	import SvgIcon from '$lib/SvgIcon/SvgIcon.svelte';
 </script>
 
 <div class="space-y-8 lg:text-left">
-	<!-- Early Access Message -->
-	<section class="bg-accent-500/30 border-l-2 border-l-accent-500 p-4 flex justify-between items-center space-x-4">
-		<span class="text-base">
-			<span class="mr-2">🚧</span>
-			Skeleton is available as a public beta. Expect breaking changes prior to v1.0. If you encounter issues please report them on GitHub.
-		</span>
-		<Button variant="ghost" href="https://github.com/Brain-Bones/skeleton/issues">Report Issue</Button>
-	</section>
+	<!-- Beta Alert -->
+	<Alert>
+		<svelte:fragment slot="lead">🚧</svelte:fragment>
+		<svelte:fragment slot="message">
+			Skeleton is available as a public beta. Expect breaking changes prior to v1.0. If you encounter issues please report them on GitHub.</svelte:fragment>
+		<svelte:fragment slot="trail">
+			<Button variant="ghost" href="https://github.com/Brain-Bones/skeleton/issues">Report Issue</Button>
+		</svelte:fragment>
+	</Alert>
 
 	<!-- Hero -->
 	<header>
