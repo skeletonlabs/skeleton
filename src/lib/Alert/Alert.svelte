@@ -35,7 +35,7 @@
 			{#if $$slots.title}<h3><slot name="title"></slot></h3>{/if}
 			<!-- Slot: Message -->
 			{#if $$slots.message}
-				<div class="{color} opacity-70"><slot name="message" /></div>
+				<div class="{color}"><slot name="message" /></div>
 			{/if}
 		</section>
 
