@@ -28,16 +28,11 @@
 	let role: string | undefined = parentTag === 'nav' ? 'option' : undefined;
 
 	// Set Wrapping Tag
-	//  = parentTag === 'dl' ? 'div' : 'li';
+	// prettier-ignore
 	switch (parentTag) {
-		case 'dl':
-			tag = 'div';
-			break;
-		case 'nav':
-			tag = 'a';
-			break;
-		default:
-			break;
+		case 'dl': tag = 'div'; break;
+		case 'nav': tag = 'a'; break;
+		default: break;
 	}
 
 	// A11y Input Handler
@@ -45,7 +40,7 @@
 		dispatch('keydown', event);
 		if (['Enter', 'Space'].includes(event.code)) {
 			event.preventDefault();
-			parentTag === 'nav' ? elemItem.querySelector('a').click() : elemItem.click();
+			if (parentTag === 'nav') { elemItem.click(); }
 		}
 	}
 
