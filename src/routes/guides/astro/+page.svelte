@@ -5,10 +5,10 @@
 	const dynamicSvelteWrapperSnippet: string = `
 \<script lang="ts"\>
 	import { Button } from '@brainandbones/skeleton';
-    function triggerMessage(): void { console.log('Hello, Skeleton'); }
+	function triggerMessage(): void { console.log('Hello, Skeleton'); }
 \<\/script\>\n
 <Button variant="filled-primary" on:click={() => { triggerMessage() }}>Trigger</Button>
-        `.trim();
+`.trim();
 </script>
 
 <div class="space-y-8">
@@ -56,7 +56,7 @@ import '../styles/base.css';
     <slot />
 </body>
 </html>
-        `.trim()}
+`.trim()}
 		/>
 		<!-- Implement Layout -->
 		<h4>Use Layouts in Pages</h4>
@@ -124,7 +124,7 @@ import WrapperExample from '../components/WrapperExample.svelte';
     <h1>Hello Skeleton</h1>
 	<WrapperExample client:visible></WrapperExample>
 </BasicLayout>
-        `.trim()}
+`.trim()}
 		/>
 		<p>
 			The trick with the dynamic component, is to hydrate it using <a href="https://docs.astro.build/en/reference/directives-reference/#client-directives" target="_blank">Astro's Client Directives</a>.
