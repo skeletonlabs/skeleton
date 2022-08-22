@@ -109,7 +109,7 @@ import { LogoCloud, Logo } from '@brainandbones/skeleton';
 		</p>
 		<CodeBlock language="html" code={dynamicSvelteWrapperSnippet} />
 		<p>
-			Then, implement this wrapper component within your homepage component at <code>/src/pages/index.astro</code>:
+			Now we can display both components on the home page at <code>/src/pages/index.astro</code>:
 		</p>
 		<CodeBlock
 			language="html"
@@ -127,7 +127,7 @@ import WrapperExample from '../components/WrapperExample.svelte';
         `.trim()}
 		/>
 		<p>
-			The trick is to make sure to hydrate the component using <a href="https://docs.astro.build/en/reference/directives-reference/#client-directives" target="_blank">Astro's Client Directives</a>. We
+			The trick with the dynamic component is to hydrate it using <a href="https://docs.astro.build/en/reference/directives-reference/#client-directives" target="_blank">Astro's Client Directives</a>. We
 			opted for
 			<code>client:visible</code>, which loads and hydrates the JavaScript component only when it enters the user’s viewport. If we did not do this, the
 			<code>triggerMessage()</code> method would not function.  You can see the output in the console of your web browser.
