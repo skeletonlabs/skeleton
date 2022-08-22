@@ -4,6 +4,7 @@
 
 	const dynamicSvelteWrapperSnippet: string = `
 \<script lang="ts"\>
+	import { Button } from '@brainandbones/skeleton';
     function triggerMessage(): void { console.log('Hello, Skeleton'); }
 \<\/script\>\n
 <Button variant="filled-primary" on:click={() => { triggerMessage() }}>Trigger</Button>
@@ -82,16 +83,15 @@ import BasicLayout from '../layouts/BasicLayout.astro';
 		<h2>Components</h2>
 		<p>Let's review how to implement Skeleton components while taking advantage of <a href="https://docs.astro.build/en/concepts/islands/" target="_blank">Astro's islands architecture</a>.</p>
 		<h4>Static</h4>
-		<p>For simple Skeleton components that do not require JavaScript logic or functionality, we can simply import and use those components directly:</p>
+		<p>For simple Skeleton components that do not require JavaScript logic or functionality, we can simply import and use those components directly. We can add the following to <code>src/components/Logo.astro</code>:</p>
 		<CodeBlock
 			language="html"
 			code={`
 ---
-// ...
+import BasicLayout from '../layouts/BasicLayout.astro';
 import { LogoCloud, Logo } from '@brainandbones/skeleton';
 ---
 <BasicLayout>
-    <!-- ... -->
     <LogoCloud>
         <Logo>
             <svelte:fragment slot="lead">💀</svelte:fragment>
@@ -115,19 +115,22 @@ import { LogoCloud, Logo } from '@brainandbones/skeleton';
 			language="html"
 			code={`
 ---
-// ...
+import BasicLayout from '../layouts/BasicLayout.astro';
+import Logo from '../components/Logo.astro';
 import WrapperExample from '../components/WrapperExample.svelte';
 ---
 <BasicLayout>
-    <WrapperExample client:visible></WrapperExample>
+    <h1>Hello Skeleton</h1>
+	<Logo />
+	<WrapperExample client:visible></WrapperExample>
 </BasicLayout>
         `.trim()}
 		/>
 		<p>
 			The trick is to make sure to hydrate the component using <a href="https://docs.astro.build/en/reference/directives-reference/#client-directives" target="_blank">Astro's Client Directives</a>. We
 			opted for
-			<code>client:visible</code>, which loads and hydrates the component JavaScript component only when it enteres the user’s viewport. If we had failed to do this, the
-			<code>triggerMessage()</code> method would not function.
+			<code>client:visible</code>, which loads and hydrates the JavaScript component only when it enters the user’s viewport. If we did not do this, the
+			<code>triggerMessage()</code> method would not function.  You can see the output in the console of your web browser.
 		</p>
 	</section>
 
