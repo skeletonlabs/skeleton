@@ -4,10 +4,11 @@
 
 	const dynamicSvelteWrapperSnippet: string = `
 \<script lang="ts"\>
-    function triggerMessage(): void { console.log('Hello, Skeleton'); }
+	import { Button } from '@brainandbones/skeleton';
+	function triggerMessage(): void { console.log('Hello, Skeleton'); }
 \<\/script\>\n
 <Button variant="filled-primary" on:click={() => { triggerMessage() }}>Trigger</Button>
-        `.trim();
+`.trim();
 </script>
 
 <div class="space-y-8">
@@ -55,7 +56,7 @@ import '../styles/base.css';
     <slot />
 </body>
 </html>
-        `.trim()}
+`.trim()}
 		/>
 		<!-- Implement Layout -->
 		<h4>Use Layouts in Pages</h4>
@@ -71,7 +72,7 @@ import BasicLayout from '../layouts/BasicLayout.astro';
 <BasicLayout>
     <h1>Hello Skeleton</h1>
 </BasicLayout>
-            `.trim()}
+`.trim()}
 		/>
 	</section>
 
@@ -82,16 +83,17 @@ import BasicLayout from '../layouts/BasicLayout.astro';
 		<h2>Components</h2>
 		<p>Let's review how to implement Skeleton components while taking advantage of <a href="https://docs.astro.build/en/concepts/islands/" target="_blank">Astro's islands architecture</a>.</p>
 		<h4>Static</h4>
-		<p>For simple Skeleton components that do not require JavaScript logic or functionality, we can simply import and use those components directly:</p>
+		<p>
+			For simple Skeleton components that do not require JavaScript logic or functionality, we can simply import and use those components directly in the homepage <code>/src/pages/index.astro</code>:
+		</p>
 		<CodeBlock
 			language="html"
 			code={`
 ---
-// ...
+import BasicLayout from '../layouts/BasicLayout.astro';
 import { LogoCloud, Logo } from '@brainandbones/skeleton';
 ---
 <BasicLayout>
-    <!-- ... -->
     <LogoCloud>
         <Logo>
             <svelte:fragment slot="lead">💀</svelte:fragment>
@@ -99,35 +101,36 @@ import { LogoCloud, Logo } from '@brainandbones/skeleton';
         </Logo>
     </LogoCloud>
 </BasicLayout>
-        `.trim()}
+`.trim()}
 		/>
 		<h4>Dynamic</h4>
 		<p>
 			For Skeleton components that make use of reactive Svelte features, such as the <code>on:click</code>
-			directive, Writable Stores, or Actions, or similiar, you'll need to setup a dedicated Svelte wrapper component, then hydrate the wrapper component. For this example we'll create
+			directive, Writable Stores, Actions, or similiar, you'll need to setup a dedicated Svelte wrapper component, then hydrate the wrapper component. For this example we'll create
 			<code>/src/components/WrapperExample.svelte</code>:
 		</p>
 		<CodeBlock language="html" code={dynamicSvelteWrapperSnippet} />
 		<p>
-			Then, implement this wrapper component within your homepage component at <code>/src/pages/index.astro</code>:
+			Now we can display it on the home page <code>/src/pages/index.astro</code>:
 		</p>
 		<CodeBlock
 			language="html"
 			code={`
 ---
-// ...
+import BasicLayout from '../layouts/BasicLayout.astro';
 import WrapperExample from '../components/WrapperExample.svelte';
 ---
 <BasicLayout>
-    <WrapperExample client:visible></WrapperExample>
+    <h1>Hello Skeleton</h1>
+	<WrapperExample client:visible></WrapperExample>
 </BasicLayout>
-        `.trim()}
+`.trim()}
 		/>
 		<p>
-			The trick is to make sure to hydrate the component using <a href="https://docs.astro.build/en/reference/directives-reference/#client-directives" target="_blank">Astro's Client Directives</a>. We
-			opted for
-			<code>client:visible</code>, which loads and hydrates the component JavaScript component only when it enteres the user’s viewport. If we had failed to do this, the
-			<code>triggerMessage()</code> method would not function.
+			The trick with the dynamic component, is to hydrate it using <a href="https://docs.astro.build/en/reference/directives-reference/#client-directives" target="_blank">Astro's Client Directives</a>.
+			We opted for
+			<code>client:visible</code>, which loads and hydrates the JavaScript component only when it enters the user’s viewport. If we did not do this, the
+			<code>triggerMessage()</code> method would not function. You can see the output in the console of your web browser.
 		</p>
 	</section>
 
