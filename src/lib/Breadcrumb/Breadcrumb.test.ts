@@ -12,7 +12,10 @@ describe('Breadcrumb.svelte', () => {
 
 	it('Renders with all props', () => {
 	    const { getByTestId } = render(Breadcrumb, {
-	        props: {display: 'outlined', color: 'primary', separator: '|'},
+	        props: {
+				separator: '|',
+				label: 'Test Divider'
+			},
 	    });
 	    expect(getByTestId('breadcrumb')).toBeTruthy();
 	});

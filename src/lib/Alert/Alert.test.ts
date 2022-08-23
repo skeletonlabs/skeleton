@@ -14,9 +14,10 @@ describe('Alert.svelte', () => {
 		const { getByTestId } = render(Alert, {
 			props: {
 				visible: true,
-				color: 'bg-primary-500',
-				radius: 'rounding-lg',
-				textColor: 'text-accent-500'
+				duration: 100,
+				background: 'bg-primary-500',
+				color: 'text-accent-500',
+				radius: 'rounded'
 			}
 		});
 		expect(getByTestId('alert')).toBeTruthy();

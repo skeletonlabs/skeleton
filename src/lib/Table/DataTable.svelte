@@ -102,27 +102,15 @@
 		const hotKeys: string[] = ['ArrowRight', 'ArrowUp', 'ArrowLeft', 'ArrowDown', 'Home', 'End'];
 		if (hotKeys.includes(event.code)) {
 			event.preventDefault();
+			// prettier-ignore
 			switch (event.code) {
-				case 'ArrowUp':
-					setActiveCell(0, -1);
-					break;
-				case 'ArrowDown':
-					setActiveCell(0, 1);
-					break;
-				case 'ArrowLeft':
-					setActiveCell(-1, 0);
-					break;
-				case 'ArrowRight':
-					setActiveCell(1, 0);
-					break;
-				case 'Home':
-					jumpToFirstColumn();
-					break;
-				case 'End':
-					jumpToLastColumn();
-					break;
-				default:
-					break;
+				case 'ArrowUp': setActiveCell(0, -1); break;
+				case 'ArrowDown': setActiveCell(0, 1); break;
+				case 'ArrowLeft': setActiveCell(-1, 0); break;
+				case 'ArrowRight': setActiveCell(1, 0); break;
+				case 'Home': jumpToFirstColumn(); break;
+				case 'End': jumpToLastColumn(); break;
+				default: break;
 			}
 		}
 	}

@@ -3,14 +3,14 @@
 	import { afterUpdate } from 'svelte';
 
 	// Props
-	export let value: number = undefined; // %
+	export let value: number|undefined = undefined; // %
 	export let stroke: number = 20; // px
 	export let track: string = 'stroke-surface-300 dark:stroke-surface-700';
 	export let meter: string = 'stroke-black dark:stroke-white';
 	export let color: string = 'fill-black dark:fill-white';
 	export let font: number = 56; // px
 	// Ally
-	export let label: string = undefined;
+	export let label: string|undefined = undefined;
 
 	// Base Classes
 	const cBaseTrack: string = 'fill-transparent';
@@ -23,7 +23,7 @@
 	let dashoffset: number;
 
 	// Set Progress Amount
-	function setProgress(percent) {
+	function setProgress(percent: any) {
 		circumference = radius * 2 * Math.PI;
 		dashoffset = circumference - (percent / 100) * circumference;
 	}

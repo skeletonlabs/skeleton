@@ -6,13 +6,11 @@ import { writable } from 'svelte/store';
 // @ts-ignore
 import RadioGroup from '$lib/Radio/RadioGroup.svelte';
 
-const testStore = writable(0);
-
 describe('RadioGroup.svelte', () => {
 	it('Renders with minimal props', async () => {
 		const { getByTestId } = render(RadioGroup, {
 			props: {
-				selected: testStore,
+				selected: writable(0),
 			}
 		});
 		expect(getByTestId('radio-group')).toBeTruthy();
@@ -21,9 +19,10 @@ describe('RadioGroup.svelte', () => {
 	it('Renders with all props', () => {
 		const { getByTestId } = render(RadioGroup, {
 			props: {
-				selected: testStore,
+				selected: writable(0),
 				background: 'bg-warning-500',
-				color: 'text-white'
+				color: 'text-white',
+				width: 'w-auto',
 			}
 		});
 		expect(getByTestId('radio-group')).toBeTruthy();

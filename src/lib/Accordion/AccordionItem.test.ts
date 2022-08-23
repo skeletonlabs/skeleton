@@ -4,9 +4,6 @@ import { describe, it, expect } from 'vitest';
 // @ts-ignore
 import AccordionItem from '$lib/Accordion/AccordionItem.svelte';
 
-import { writable, type Writable } from 'svelte/store';
-export let selected: Writable<number[]> = writable([1]);
-
 describe('AccordionItem.svelte', () => {
 	it('Renders with minimal props', async () => {
 		const { getByTestId } = render(AccordionItem);
@@ -22,5 +19,9 @@ describe('AccordionItem.svelte', () => {
 			contentId: 'testContent1'
 		});
 		expect(getByTestId('accordion-item')).toBeTruthy();
+		expect(getByTestId('accordion-item').className).to.contain('space-y-2');
+		expect(getByTestId('accordion-item').querySelector('summary')?.className).to.contain('bg-green-500/50');
+		expect(getByTestId('accordion-item').querySelector('#testSummary1')).toBeTruthy();
+		expect(getByTestId('accordion-item').querySelector('#testContent1')).toBeTruthy();
 	});
 });

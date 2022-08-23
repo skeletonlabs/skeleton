@@ -30,27 +30,15 @@
 		const hotKeys: string[] = ['ArrowRight', 'ArrowUp', 'ArrowLeft', 'ArrowDown', 'Home', 'End'];
 		if (hotKeys.includes(event.code)) {
 			event.preventDefault();
+			// prettier-ignore
 			switch (event.code) {
-				case 'ArrowRight':
-					valueIncrease();
-					break;
-				case 'ArrowUp':
-					valueIncrease();
-					break;
-				case 'ArrowLeft':
-					valueDecrease();
-					break;
-				case 'ArrowDown':
-					valueDecrease();
-					break;
-				case 'Home':
-					valueMin();
-					break;
-				case 'End':
-					valueMax();
-					break;
-				default:
-					break;
+				case 'ArrowRight': valueIncrease(); break;
+				case 'ArrowUp': valueIncrease(); break;
+				case 'ArrowLeft': valueDecrease(); break;
+				case 'ArrowDown': valueDecrease(); break;
+				case 'Home': valueMin(); break;
+				case 'End': valueMax(); break;
+				default: break;
 			}
 		}
 	}

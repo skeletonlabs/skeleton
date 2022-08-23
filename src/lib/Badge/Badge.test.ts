@@ -11,7 +11,15 @@ describe('Badge.svelte', () => {
 	});
 
 	it('Renders with all props', async () => {
-		const { getByTestId } = render(Badge, { background: 'bg-red-500' });
+		const { getByTestId } = render(Badge, {
+			props: {
+				background: 'bg-red-500',
+				color: 'text-white',
+				fill: 'fill-white',
+				rounded: 'rounded',
+				icon: false,
+			}
+		});
 		expect(getByTestId('badge')).toBeTruthy();
 	});
 });

@@ -11,7 +11,16 @@ describe('Crumb.svelte', () => {
 	});
 
 	it('Renders with all props', () => {
-		const { getByTestId } = render(Crumb, { href: '/', current: true });
+		const { getByTestId } = render(Crumb, {
+			props: {
+				href: '/foobar',
+				current: false,
+				separator: '|'
+			}
+		});
 		expect(getByTestId('crumb')).toBeTruthy();
+		expect(getByTestId('crumb').querySelector('a')?.href).to.contain('/foobar');
+		expect(getByTestId('crumb').querySelector('.separator')).toBeTruthy();
+		expect(getByTestId('crumb').querySelector('.separator')?.textContent).eq('|');
 	});
 });
