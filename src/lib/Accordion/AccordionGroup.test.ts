@@ -5,12 +5,12 @@ import { describe, it, expect } from 'vitest';
 import AccordionGroup from '$lib/Accordion/AccordionGroup.svelte';
 
 describe('Accordion.svelte', () => {
-	it('Renders without props', async () => {
+	it('Renders with minimal props', async () => {
 		const { getByTestId } = render(AccordionGroup);
 		expect(getByTestId('accordion-group')).toBeTruthy();
 	});
 
-	it('Renders with props', async () => {
+	it('Renders with all props', async () => {
 		const { getByTestId } = render(AccordionGroup, { spacing: 'space-y-4' });
 		expect(getByTestId('accordion-group')).toBeTruthy();
 	});

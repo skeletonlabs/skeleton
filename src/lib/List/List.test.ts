@@ -7,7 +7,7 @@ import { writable } from 'svelte/store';
 import List from '$lib/List/List.svelte';
 
 describe('List.svelte', () => {
-	it('Renders without props', async () => {
+	it('Renders with minimal props', async () => {
 		const { getByTestId } = render(List);
 		expect(getByTestId('list-group')).toBeTruthy();
 	});

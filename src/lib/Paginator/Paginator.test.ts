@@ -10,12 +10,12 @@ let size: number = 100;
 let amounts: number[] = [1, 5, 10, 50, 100];
 
 describe('Paginator.svelte', () => {
-	it('Renders with props', async () => {
+	it('Renders with all props', async () => {
 		const { getByTestId } = render(Paginator);
 		expect(getByTestId('paginator')).toBeTruthy();
 	});
 
-	it('Renders with props', async () => {
+	it('Renders with all props', async () => {
 		const { getByTestId } = render(Paginator, {
 			props: {
 				offset,

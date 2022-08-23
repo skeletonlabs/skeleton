@@ -5,7 +5,7 @@ import { describe, it, expect } from 'vitest';
 import Tab from '$lib/Tab/Tab.svelte';
 
 describe('Tab.svelte', () => {
-	it('Renders without props', async () => {
+	it('Renders with minimal props', async () => {
 		const { getByTestId } = render(Tab, { props: { value: 'test' } });
 		expect(getByTestId('tab')).toBeTruthy();
 	});

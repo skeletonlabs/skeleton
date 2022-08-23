@@ -8,12 +8,12 @@ import { fireEvent } from '@testing-library/dom';
 describe('Button.svelte', () => {
 	let img = 'https://i.pravatar.cc/512';
 
-	it('Renders with props', async () => {
+	it('Renders with all props', async () => {
 		const { getByTestId } = render(Avatar);
 		expect(getByTestId('wrapper')).toBeTruthy();
 	});
 
-	it('Renders without props', async () => {
+	it('Renders with minimal props', async () => {
 		const { getByTestId } = render(Avatar, {
 			props: { src: 'img', size: 'lg', outlined: true, hover: true, filter: '#Emerald' }
 		});

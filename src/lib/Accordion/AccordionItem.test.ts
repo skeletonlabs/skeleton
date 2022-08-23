@@ -8,12 +8,12 @@ import { writable, type Writable } from 'svelte/store';
 export let selected: Writable<number[]> = writable([1]);
 
 describe('AccordionItem.svelte', () => {
-	it('Renders without props', async () => {
+	it('Renders with minimal props', async () => {
 		const { getByTestId } = render(AccordionItem);
 		expect(getByTestId('accordion-item')).toBeTruthy();
 	});
 
-	it('Renders with props', async () => {
+	it('Renders with all props', async () => {
 		const { getByTestId } = render(AccordionItem, {
 			open: true,
 			hover: 'bg-green-500/50',

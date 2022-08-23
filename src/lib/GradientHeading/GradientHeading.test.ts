@@ -14,7 +14,7 @@ describe('Card.svelte', () => {
 	// NOTE: handling destructuring types:
 	// https://daily-dev-tips.com/posts/object-destructuring-in-typescript/
 	
-	it('Renders without props', async () => {
+	it('Renders with minimal props', async () => {
 		const { getByTestId }: { getByTestId: any } = render(GradientHeading, { tag: 'h1' });
 		expect(getByTestId(testid)).toBeTruthy();
 	});

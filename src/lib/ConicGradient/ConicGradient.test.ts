@@ -5,12 +5,12 @@ import { describe, it, expect } from 'vitest';
 import ConicGradient from '$lib/ConicGradient/ConicGradient.svelte';
 
 describe('ConicGradient.svelte', () => {
-	it('Renders without props', async () => {
+	it('Renders with minimal props', async () => {
 		const { getByTestId } = render(ConicGradient);
 		expect(getByTestId('conic-gradient')).toBeTruthy();
 	});
 
-	it('Renders with props', () => {
+	it('Renders with all props', () => {
 		const { getByTestId } = render(ConicGradient, {
 			props: {
 				data: [

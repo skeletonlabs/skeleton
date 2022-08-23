@@ -5,7 +5,7 @@ import { describe, it, expect } from 'vitest';
 import ListItem from '$lib/List/ListItem.svelte';
 
 describe('ListItem.svelte', () => {
-	it('Renders without props', async () => {
+	it('Renders with minimal props', async () => {
 		const { getByTestId } = render(ListItem);
 		expect(getByTestId('list-row')).toBeTruthy();
 	});

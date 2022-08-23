@@ -5,7 +5,7 @@ import { describe, it, expect } from 'vitest';
 import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
 
 describe('CodeBlock.svelte', () => {
-	it('Renders with props', async () => {
+	it('Renders with all props', async () => {
 		const { getByTestId } = render(CodeBlock, { props: { language: 'html', code: '<div></div>' } });
 		expect(getByTestId('codeblock')).toBeTruthy();
 	});
@@ -14,7 +14,7 @@ describe('CodeBlock.svelte', () => {
 	// I am unsure if this should pass or fail. Should a user be able to create an empty code block as a placeholder,
 	// or is the code needed?
 
-	//  it('Renders without props (Default)', async ()=>{
+	//  it('Renders with minimal props (Default)', async ()=>{
 	//     const {getByTestId} = render(CodeBlock);
 	//     expect(getByTestId('codeblock')).toBeTruthy();
 	//  })

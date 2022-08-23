@@ -9,12 +9,12 @@ import Stepper from '$lib/Stepper/Stepper.svelte';
 export let active: Writable<number> = writable(0);
 
 describe('Stepper.svelte', () => {
-	it('Renders without props', async () => {
+	it('Renders with minimal props', async () => {
 		const { getByTestId } = render(Stepper);
 		expect(getByTestId('stepper')).toBeTruthy();
 	});
 
-	it('Renders with props', () => {
+	it('Renders with all props', () => {
 		const { getByTestId } = render(Stepper, {
 			props: {
 				active,

@@ -18,12 +18,12 @@ const testProps: any = {
 };
 
 describe('RangeSlider.svelte', () => {
-	it('Renders with props', async () => {
+	it('Renders with all props', async () => {
 		const { getByTestId } = render(RangeSlider, { props: testProps });
 		expect(getByTestId('range-slider')).toBeTruthy();
 	});
 
-	it('Renders without props', async () => {
+	it('Renders with minimal props', async () => {
 		const { getByTestId } = render(RangeSlider);
 		expect(getByTestId('range-slider')).toBeTruthy();
 	});

@@ -5,12 +5,12 @@ import { describe, it, expect } from 'vitest';
 import Tooltip from '$lib/Tooltip/Tooltip.svelte';
 
 describe('Tooltip.svelte', () => {
-	it('Renders without props', async () => {
+	it('Renders with minimal props', async () => {
 		const { getByTestId } = render(Tooltip);
 		expect(getByTestId('tooltip')).toBeTruthy();
 	});
 
-	it('Renders with props', () => {
+	it('Renders with all props', () => {
 		const { getByTestId } = render(Tooltip, {
 			props: {
 				position: 'bottom',

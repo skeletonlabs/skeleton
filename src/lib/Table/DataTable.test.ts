@@ -12,12 +12,12 @@ export let source: any[] = [
 ];
 
 describe('DataTable.svelte', () => {
-	it('Renders with props', async () => {
+	it('Renders with all props', async () => {
 		const { getByTestId } = render(DataTable);
 		expect(getByTestId('data-table')).toBeTruthy();
 	});
 
-	it('Renders with props', async () => {
+	it('Renders with all props', async () => {
 		const { getByTestId } = render(DataTable, {
 			props: {
 				headings,

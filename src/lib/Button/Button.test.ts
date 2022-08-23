@@ -6,12 +6,12 @@ import { fireEvent } from '@testing-library/dom';
 import Button from '$lib/Button/Button.svelte';
 
 describe('Button.svelte', () => {
-	it('Renders with props', async () => {
+	it('Renders with all props', async () => {
 		const { getByTestId } = render(Button);
 		expect(getByTestId).toBeTruthy();
 	});
 
-	it('Renders with props', async () => {
+	it('Renders with all props', async () => {
 		const { getByTestId } = render(Button, { props: { variant: 'ghost-primary' } });
 		expect(getByTestId).toBeTruthy();
 	});

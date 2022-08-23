@@ -5,12 +5,12 @@ import { describe, it, expect } from 'vitest';
 import Crumb from '$lib/Breadcrumb/Crumb.svelte';
 
 describe('Crumb.svelte', () => {
-	it('Renders without props', async () => {
+	it('Renders with minimal props', async () => {
 		const { getByTestId } = render(Crumb);
 		expect(getByTestId('crumb')).toBeTruthy();
 	});
 
-	it('Renders with props', () => {
+	it('Renders with all props', () => {
 		const { getByTestId } = render(Crumb, { href: '/', current: true });
 		expect(getByTestId('crumb')).toBeTruthy();
 	});
