@@ -1,16 +1,12 @@
-/**
- * @vitest-environment jsdom
- */
+import { render } from '@testing-library/svelte';
+import { describe, it, expect } from 'vitest';
 
 import { writable } from 'svelte/store';
-import { cleanup, render } from '@testing-library/svelte';
-import { afterEach, describe, it, expect } from 'vitest';
 
+// @ts-ignore
 import Drawer from '$lib/Drawer/Drawer.svelte';
 
 describe('Drawer.svelte', () => {
-	afterEach(() => cleanup());
-
 	it('Renders with props', async () => {
 		const { getByTestId } = render(Drawer, {
 			props: { fixed: true, visible: writable(false) }

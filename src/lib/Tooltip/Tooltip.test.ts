@@ -1,15 +1,10 @@
-/**
- * @vitest-environment jsdom
- */
+import { render } from '@testing-library/svelte';
+import { describe, it, expect } from 'vitest';
 
-import { cleanup, render } from '@testing-library/svelte';
-import { afterEach, describe, expect, it } from 'vitest';
-
+// @ts-ignore
 import Tooltip from '$lib/Tooltip/Tooltip.svelte';
 
 describe('Tooltip.svelte', () => {
-	afterEach(() => cleanup());
-
 	it('Renders without props', async () => {
 		const { getByTestId } = render(Tooltip);
 		expect(getByTestId('tooltip')).toBeTruthy();

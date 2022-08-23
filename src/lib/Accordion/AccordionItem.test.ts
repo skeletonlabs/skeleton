@@ -1,21 +1,13 @@
-/**
- * @vitest-environment jsdom
- */
+import { render } from '@testing-library/svelte';
+import { describe, it, expect } from 'vitest';
 
-import { cleanup, render } from '@testing-library/svelte';
-import { afterEach, describe, expect, it } from 'vitest';
-
-/* @ts-ignore */
+// @ts-ignore
 import AccordionItem from '$lib/Accordion/AccordionItem.svelte';
 
 import { writable, type Writable } from 'svelte/store';
 export let selected: Writable<number[]> = writable([1]);
 
 describe('AccordionItem.svelte', () => {
-	afterEach(() => cleanup());
-
-	it('placeholder', async () => {});
-
 	it('Renders without props', async () => {
 		const { getByTestId } = render(AccordionItem);
 		expect(getByTestId('accordion-item')).toBeTruthy();

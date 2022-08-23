@@ -1,10 +1,7 @@
-/**
- * @vitest-environment jsdom
- */
+import { render } from '@testing-library/svelte';
+import { describe, it, expect } from 'vitest';
 
-import { cleanup, render } from '@testing-library/svelte';
-import { afterEach, describe, it, expect } from 'vitest';
-
+// @ts-ignore
 import RangeSlider from '$lib/RangeSlider/RangeSlider.svelte';
 
 const testProps: any = {
@@ -21,8 +18,6 @@ const testProps: any = {
 };
 
 describe('RangeSlider.svelte', () => {
-	afterEach(() => cleanup());
-
 	it('Renders with props', async () => {
 		const { getByTestId } = render(RangeSlider, { props: testProps });
 		expect(getByTestId('range-slider')).toBeTruthy();

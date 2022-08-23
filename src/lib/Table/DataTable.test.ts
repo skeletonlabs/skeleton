@@ -1,10 +1,7 @@
-/**
- * @vitest-environment jsdom
- */
+import { render } from '@testing-library/svelte';
+import { describe, it, expect } from 'vitest';
 
-import { cleanup, render } from '@testing-library/svelte';
-import { afterEach, describe, it, expect } from 'vitest';
-
+// @ts-ignore
 import DataTable from '$lib/Table/DataTable.svelte';
 
 export let headings: any[] = ['Foo', 'Bar'];
@@ -15,8 +12,6 @@ export let source: any[] = [
 ];
 
 describe('DataTable.svelte', () => {
-	afterEach(() => cleanup());
-
 	it('Renders with props', async () => {
 		const { getByTestId } = render(DataTable);
 		expect(getByTestId('data-table')).toBeTruthy();

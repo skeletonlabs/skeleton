@@ -1,17 +1,10 @@
-/**
- * @vitest-environment jsdom
- */
-
-import { cleanup, render } from '@testing-library/svelte';
-import { afterEach, describe, expect, it } from 'vitest';
+import { render } from '@testing-library/svelte';
+import { describe, it, expect } from 'vitest';
 
 // @ts-ignore
 import Menu from '$lib/Menu/Menu.svelte';
 
-// FIXME: skipped, resolve error window.matchMedia is not a function
 describe.skip('Menu.svelte', () => {
-	afterEach(() => cleanup());
-
 	it('Renders without props', async () => {
 		const { getByTestId } = render(Menu);
 		expect(getByTestId('menu-wrapper')).toBeTruthy();

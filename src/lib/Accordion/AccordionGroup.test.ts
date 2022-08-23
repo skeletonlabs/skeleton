@@ -1,17 +1,10 @@
-import { writable } from 'svelte/store';
-/**
- * @vitest-environment jsdom
- */
+import { render } from '@testing-library/svelte';
+import { describe, it, expect } from 'vitest';
 
-import { cleanup, render } from '@testing-library/svelte';
-import { afterEach, describe, expect, it } from 'vitest';
-
-/* @ts-ignore */
+// @ts-ignore
 import AccordionGroup from '$lib/Accordion/AccordionGroup.svelte';
 
 describe('Accordion.svelte', () => {
-	afterEach(() => cleanup());
-
 	it('Renders without props', async () => {
 		const { getByTestId } = render(AccordionGroup);
 		expect(getByTestId('accordion-group')).toBeTruthy();

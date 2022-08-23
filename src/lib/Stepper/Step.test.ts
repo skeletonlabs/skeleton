@@ -1,15 +1,10 @@
-/**
- * @vitest-environment jsdom
- */
+import { render } from '@testing-library/svelte';
+import { describe, it, expect } from 'vitest';
 
-import { cleanup, render } from '@testing-library/svelte';
-import { afterEach, describe, it, expect } from 'vitest';
-
+// @ts-ignore
 import Step from '$lib/Stepper/Step.svelte';
 
 describe('Step.svelte', () => {
-	afterEach(() => cleanup());
-
 	it('Renders without props', async () => {
 		const { getByTestId } = render(Step);
 		expect(getByTestId('step')).toBeTruthy();
