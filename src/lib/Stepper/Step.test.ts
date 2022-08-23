@@ -5,12 +5,16 @@ import { describe, it, expect } from 'vitest';
 import Step from '$lib/Stepper/Step.svelte';
 
 describe('Step.svelte', () => {
-	it('Renders without props', async () => {
-		const { getByTestId } = render(Step);
+	it('Renders with mininal props', async () => {
+		const { getByTestId } = render(Step, {
+			props: {
+				index: 0,
+			}
+		});
 		expect(getByTestId('step')).toBeTruthy();
 	});
 
-	it('Renders with props', () => {
+	it('Renders with all props', () => {
 		const { getByTestId } = render(Step, {
 			props: {
 				index: 0,

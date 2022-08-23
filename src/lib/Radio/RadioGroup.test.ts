@@ -9,14 +9,22 @@ import RadioGroup from '$lib/Radio/RadioGroup.svelte';
 const testStore = writable(0);
 
 describe('RadioGroup.svelte', () => {
-	it('Renders without props', async () => {
-		const { getByTestId } = render(RadioGroup);
+	it('Renders with minimal props', async () => {
+		const { getByTestId } = render(RadioGroup, {
+			props: {
+				selected: testStore,
+			}
+		});
 		expect(getByTestId('radio-group')).toBeTruthy();
 	});
 
-	it('Renders with props', () => {
+	it('Renders with all props', () => {
 		const { getByTestId } = render(RadioGroup, {
-			props: { active: testStore, background: 'bg-warning-500', color: 'text-white' }
+			props: {
+				selected: testStore,
+				background: 'bg-warning-500',
+				color: 'text-white'
+			}
 		});
 		expect(getByTestId('radio-group')).toBeTruthy();
 	});
