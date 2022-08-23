@@ -18,13 +18,10 @@
 	let cPosition: string;
 	if (fixed !== undefined) {
 		cFixed = 'flex-none fixed lg:static top-0 z-40 shadow-2xl lg:shadow-none lg:translate-x-0 transition-transform';
+		// prettier-ignore
 		switch (fixed) {
-			case 'left':
-				cPosition = 'left-0 -translate-x-full';
-				break;
-			case 'right':
-				cPosition = 'right-0 translate-x-full';
-				break;
+			case 'left': cPosition = 'left-0 -translate-x-full'; break;
+			case 'right': cPosition = 'right-0 translate-x-full'; break;
 		}
 	}
 

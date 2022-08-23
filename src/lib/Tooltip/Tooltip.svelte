@@ -21,18 +21,12 @@
 	// Set Position
 	let cPosition: string;
 	function setPosition(): void {
+		// prettier-ignore
 		switch (position) {
-			case 'left':
-				cPosition = 'left-0 -translate-x-full flex-row items-center';
-				break;
-			case 'right':
-				cPosition = 'right-0 translate-x-full flex-row-reverse items-center';
-				break;
-			case 'bottom':
-				cPosition = 'bottom-0 translate-y-full flex-col-reverse items-center';
-				break;
-			default:
-				cPosition = 'top-0 -translate-y-full flex-col items-center'; // top
+			case 'left': cPosition = 'left-0 -translate-x-full flex-row items-center'; break;
+			case 'right': cPosition = 'right-0 translate-x-full flex-row-reverse items-center'; break;
+			case 'bottom': cPosition = 'bottom-0 translate-y-full flex-col-reverse items-center'; break;
+			default: cPosition = 'top-0 -translate-y-full flex-col items-center'; // top
 		}
 	}
 	setPosition(); // init
@@ -40,18 +34,12 @@
 	// Set Arrow Position
 	let cArrowPosition: string;
 	function setArrowPosition(): void {
+		// prettier-ignore
 		switch (position) {
-			case 'left':
-				cArrowPosition = 'translate-x-[-50%]';
-				break;
-			case 'right':
-				cArrowPosition = 'translate-x-[50%]';
-				break;
-			case 'bottom':
-				cArrowPosition = 'translate-y-[50%]';
-				break;
-			default:
-				cArrowPosition = 'translate-y-[-50%]'; // top
+			case 'left': cArrowPosition = 'translate-x-[-50%]'; break;
+			case 'right': cArrowPosition = 'translate-x-[50%]'; break;
+			case 'bottom': cArrowPosition = 'translate-y-[50%]'; break;
+			default: cArrowPosition = 'translate-y-[-50%]'; // top
 		}
 	}
 	setArrowPosition(); // init

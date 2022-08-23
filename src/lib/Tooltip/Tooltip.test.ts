@@ -5,21 +5,22 @@ import { describe, it, expect } from 'vitest';
 import Tooltip from '$lib/Tooltip/Tooltip.svelte';
 
 describe('Tooltip.svelte', () => {
-	it('Renders without props', async () => {
+	it('Renders with minimal props', async () => {
 		const { getByTestId } = render(Tooltip);
 		expect(getByTestId('tooltip')).toBeTruthy();
 	});
 
-	it('Renders with props', () => {
+	it('Renders with all props', () => {
 		const { getByTestId } = render(Tooltip, {
 			props: {
-				position: 'bottom',
-				background: 'bg-green-500',
-				color: 'text-red-500',
-				width: 'w-[300px]',
-				whitespace: 'whitespace-normal',
-				rounded: 'rounded-xl',
-				duration: 500
+				visible: true,
+				position: 'top',
+				background: 'bg-black dark:bg-white',
+				color: 'text-white dark:text-black',
+				width: 'w-auto',
+				whitespace: 'whitespace-nowrap',
+				rounded: 'rounded',
+				duration: 100,
 			}
 		});
 		expect(getByTestId('tooltip')).toBeTruthy();

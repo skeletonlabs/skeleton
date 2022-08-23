@@ -2,8 +2,8 @@
 	import { afterUpdate } from 'svelte';
 
 	// Props
-	export let weight: number = 1;
 	export let variant: string = 'solid';
+	export let weight: number = 1;
 	export let orientation: string = 'h';
 
 	// Base Classes
@@ -12,15 +12,11 @@
 	// Set Variant
 	let cVariant: string;
 	function setVariant(): void {
+		// prettier-ignore
 		switch (variant) {
-			case 'dashed':
-				cVariant = 'border-dashed';
-				break;
-			case 'dotted':
-				cVariant = 'border-dotted';
-				break;
-			default:
-				cVariant = 'border-solid';
+			case 'dashed': cVariant = 'border-dashed'; break;
+			case 'dotted': cVariant = 'border-dotted'; break;
+			default: cVariant = 'border-solid';
 		}
 	}
 
@@ -33,12 +29,10 @@
 	};
 	let cOrientation: string;
 	function setOrientation(): void {
+		// prettier-iignore
 		switch (orientation) {
-			case 'v':
-				cOrientation = `border-0 ${cWeight[weight].v} h-full`;
-				break;
-			default:
-				cOrientation = `border-0 ${cWeight[weight].h} border-t w-full`;
+			case 'v': cOrientation = `border-0 ${cWeight[weight].v} h-full`; break;
+			default: cOrientation = `border-0 ${cWeight[weight].h} border-t w-full`;
 		}
 	}
 

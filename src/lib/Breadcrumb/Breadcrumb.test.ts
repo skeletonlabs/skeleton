@@ -5,14 +5,17 @@ import { describe, it, expect } from 'vitest';
 import Breadcrumb from '$lib/Breadcrumb/Breadcrumb.svelte';
 
 describe('Breadcrumb.svelte', () => {
-	it('Renders without props', async () => {
+	it('Renders with minimal props', async () => {
 		const { getByTestId } = render(Breadcrumb);
 		expect(getByTestId('breadcrumb')).toBeTruthy();
 	});
 
-	it('Renders with props', () => {
+	it('Renders with all props', () => {
 	    const { getByTestId } = render(Breadcrumb, {
-	        props: {display: 'outlined', color: 'primary', separator: '|'},
+	        props: {
+				separator: '|',
+				label: 'Test Divider'
+			},
 	    });
 	    expect(getByTestId('breadcrumb')).toBeTruthy();
 	});

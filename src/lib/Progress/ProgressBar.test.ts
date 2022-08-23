@@ -5,12 +5,12 @@ import { describe, it, expect } from 'vitest';
 import ProgressBar from '$lib/Progress/ProgressBar.svelte';
 
 describe('ProgressBar.svelte', () => {
-	it('Renders without props', async () => {
+	it('Renders with minimal props', async () => {
 		const { getByTestId } = render(ProgressBar);
 		expect(getByTestId('progress-wrapper')).toBeTruthy();
 	});
 
-	it('Renders with props', () => {
+	it('Renders with all props', () => {
 		const { getByTestId } = render(ProgressBar, {
 			props: {
 				label: 'Test',

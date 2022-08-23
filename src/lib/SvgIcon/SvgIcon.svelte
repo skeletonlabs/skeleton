@@ -26,9 +26,10 @@
     xmlns="http://www.w3.org/2000/svg"
     {x} {y}
     {viewBox}
-    class="{classesBase} {$$props.class||''}"
+    class="svg-icon {classesBase} {$$props.class||''}"
     focusable="false"
     {tabindex}
+	data-testid="svg-icon"
 >
     {#if title}<title>{title}</title>{/if}
     {#if $$slots.default}

@@ -3,7 +3,7 @@
 	import { writable, type Writable } from 'svelte/store';
 
 	// Props
-	export let tag: string = 'ul';
+	export let tag: string = 'ul'; // ul | ol | dl | nav
 	export let selected: Writable<any> = writable(undefined); // (store)
 	export let highlight: string = '!bg-primary-500'; // '!' required
 	export let hover: string = 'hover:bg-primary-500/10'; // 'hover:' required
