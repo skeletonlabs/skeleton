@@ -1,19 +1,11 @@
-/**
- * @vitest-environment jsdom
- */
-
-import { cleanup, render, screen } from '@testing-library/svelte';
-import { afterEach, describe, it, vi, expect } from 'vitest';
+import { render, screen } from '@testing-library/svelte';
+import { describe, it, expect, vi } from 'vitest';
 import { fireEvent } from '@testing-library/dom';
 
-/* @ts-ignore */
+// @ts-ignore
 import Button from '$lib/Button/Button.svelte';
 
-const dti = 'data-testid';
-
 describe('Button.svelte', () => {
-	afterEach(() => cleanup());
-
 	it('Renders with props', async () => {
 		const { getByTestId } = render(Button);
 		expect(getByTestId).toBeTruthy();

@@ -1,18 +1,14 @@
-/**
- * @vitest-environment jsdom
- */
-
-import { cleanup, render } from '@testing-library/svelte';
-import { afterEach, describe, expect, it } from 'vitest';
+import { render } from '@testing-library/svelte';
+import { describe, it, expect } from 'vitest';
 
 import { writable } from 'svelte/store';
+
+// @ts-ignore
 import RadioItem from '$lib/Radio/RadioItem.svelte';
 
 const testStore = writable(0);
 
 describe('RadioItem.svelte', () => {
-	afterEach(() => cleanup());
-
 	it('Renders without props', async () => {
 		const { getByTestId } = render(RadioItem, {
 			props: { selected: testStore }

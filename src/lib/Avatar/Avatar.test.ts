@@ -1,16 +1,11 @@
-/**
- * @vitest-environment jsdom
- */
+import { render, screen, } from '@testing-library/svelte';
+import { describe, it, expect, vi } from 'vitest';
 
-import { cleanup, render, screen } from '@testing-library/svelte';
-import { afterEach, describe, expect, it, vi } from 'vitest';
-
+// @ts-ignore
 import Avatar from '$lib/Avatar/Avatar.svelte';
 import { fireEvent } from '@testing-library/dom';
 
 describe('Button.svelte', () => {
-	afterEach(() => cleanup());
-
 	let img = 'https://i.pravatar.cc/512';
 
 	it('Renders with props', async () => {

@@ -1,18 +1,13 @@
-/**
- * @vitest-environment jsdom
- */
+import { render } from '@testing-library/svelte';
+import { describe, it, expect } from 'vitest';
 
-import { cleanup, render } from '@testing-library/svelte';
-import { afterEach, describe, it } from 'vitest';
-
+// @ts-ignore
 import Card from '$lib/Card/Card.svelte';
 
 describe('Card.svelte', () => {
-	afterEach(() => cleanup());
-
 	it('Renders', async () => {
 		render(Card);
 	});
 
-	it('Renders with props', async () => {});
+	// it('Renders with props', async () => {});
 });

@@ -1,15 +1,10 @@
-/**
- * @vitest-environment jsdom
- */
+import { render } from '@testing-library/svelte';
+import { describe, it, expect } from 'vitest';
 
-import { cleanup, render } from '@testing-library/svelte';
-import { afterEach, describe, it, expect } from 'vitest';
-
+// @ts-ignore
 import TabGroup from '$lib/Tab/TabGroup.svelte';
 
 describe('TabGroup.svelte', () => {
-	afterEach(() => cleanup());
-
 	it('Renders without props', async () => {
 		const { getByTestId } = render(TabGroup);
 		expect(getByTestId('tab-group')).toBeTruthy();

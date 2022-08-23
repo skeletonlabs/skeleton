@@ -1,15 +1,10 @@
-/**
- * @vitest-environment jsdom
- */
+import { render } from '@testing-library/svelte';
+import { describe, it, expect } from 'vitest';
 
-import { cleanup, render, screen } from '@testing-library/svelte';
-import { afterEach, describe, expect, it, test, vi } from 'vitest';
+// @ts-ignore
 import Alert from '$lib/Alert/Alert.svelte';
-import { fireEvent } from '@testing-library/dom';
 
 describe('Alert.svelte', () => {
-	afterEach(() => cleanup());
-
 	it('Renders without props', async () => {
 		const { getByTestId } = render(Alert);
 		expect(getByTestId('alert')).toBeTruthy();

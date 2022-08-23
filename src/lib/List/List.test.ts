@@ -1,17 +1,12 @@
-/**
- * @vitest-environment jsdom
- */
+import { render } from '@testing-library/svelte';
+import { describe, it, expect } from 'vitest';
 
-import { cleanup, render } from '@testing-library/svelte';
-import { afterEach, describe, it, expect } from 'vitest';
 import { writable } from 'svelte/store';
 
 // @ts-ignore
 import List from '$lib/List/List.svelte';
 
 describe('List.svelte', () => {
-	afterEach(() => cleanup());
-
 	it('Renders without props', async () => {
 		const { getByTestId } = render(List);
 		expect(getByTestId('list-group')).toBeTruthy();
