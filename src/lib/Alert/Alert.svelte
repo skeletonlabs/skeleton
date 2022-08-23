@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
-	import Card from '$lib/Card/Card.svelte';
 
 	// Props
 	export let visible: boolean = true;

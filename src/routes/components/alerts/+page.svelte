@@ -24,7 +24,7 @@
 			['lead', 'Provide a leading element, such as an icon.'],
 			['title', 'Provide the title of the alert.'],
 			['message', 'Provide the message of the alert.'],
-			['trail', 'Provide a trailing elements, such as buttons.']
+			['trail', 'Provide a trailing element, such as buttons.']
 		]
 	};
 
