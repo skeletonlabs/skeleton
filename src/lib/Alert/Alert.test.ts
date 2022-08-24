@@ -1,24 +1,25 @@
-/**
- * @vitest-environment jsdom
- */
+import { render } from '@testing-library/svelte';
+import { describe, it, expect } from 'vitest';
 
- import { cleanup, render, screen } from '@testing-library/svelte';
- import { afterEach, describe, expect, it, test, vi } from 'vitest';
- import Alert from '$lib/Alert/Alert.svelte';
- import { fireEvent } from '@testing-library/dom';
- 
- describe('Alert.svelte', () => {
-     afterEach(() => cleanup());
- 
-     it('Renders without props', async () => {
-        const { getByTestId } = render(Alert);
-		expect(getByTestId('alert')).toBeTruthy();
-     });
+// @ts-ignore
+import Alert from '$lib/Alert/Alert.svelte';
 
-     it('Renders with props', async () => {
-        const { getByTestId } = render(Alert, 
-            {props: {visible: true, color: 'bg-primary-500', radius: 'rounding-lg', textColor: 'text-accent-500' }});
+describe('Alert.svelte', () => {
+	it('Renders with minimal props', async () => {
+		const { getByTestId } = render(Alert);
 		expect(getByTestId('alert')).toBeTruthy();
-     });
- 
- });
+	});
+
+	it('Renders with all props', async () => {
+		const { getByTestId } = render(Alert, {
+			props: {
+				visible: true,
+				duration: 100,
+				background: 'bg-primary-500',
+				color: 'text-accent-500',
+				radius: 'rounded'
+			}
+		});
+		expect(getByTestId('alert')).toBeTruthy();
+	});
+});

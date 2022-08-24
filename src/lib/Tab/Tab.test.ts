@@ -1,20 +1,26 @@
+import { render } from '@testing-library/svelte';
+import { describe, it, expect } from 'vitest';
 
-/**
- * @vitest-environment jsdom
- */
+import { writable } from 'svelte/store';
 
-import { cleanup, render } from '@testing-library/svelte';
-import { afterEach, describe, it, expect } from 'vitest';
-
-import Tab from '$lib/Tab/Tab.svelte'
+// @ts-ignore
+import Tab from '$lib/Tab/Tab.svelte';
 
 describe('Tab.svelte', () => {
+	it('Renders with minimal props', async () => {
+		const { getByTestId } = render(Tab, { props: { value: 'test' } });
+		expect(getByTestId('tab')).toBeTruthy();
+	});
 
-    afterEach(() => cleanup());
-
-    it('Renders without props', async () => {
-        const { getByTestId } = render(Tab, {props: {value: 'test'}});
-        expect(getByTestId('tab')).toBeTruthy();
-    });
-
+	it('Renders with all props', async () => {
+		const { getByTestId } = render(Tab, {
+			props: {
+				selected: writable(0),
+				border: 'border-primary-500',
+				fill: 'fill-primary-500',
+				color: 'text-primary-500',
+			}
+		});
+		expect(getByTestId('tab')).toBeTruthy();
+	});
 });
