@@ -12,18 +12,19 @@
 		source: [
 			['visible', 'boolean', 'true', 'Control visibility of the alert.'],
 			['duration', 'number', '200', 'Set fade in/out animation speed. Set 0 (zero) to disable.'],
-			['background', 'string', 'bg-surface-500', 'Provide a class to set background color.'],
-			['color', 'string', 'text-white', 'Provide a class to set text color.'],
-			['radius', 'string', 'rounded-lg', 'Provide a class to set border radius.']
+			['background', 'string', 'bg-accent-500/30', 'Provide a class to set background color.'],
+			['border', 'string', 'border-l-accent-500', 'Provide a class to set border styles.'],
+			['color', 'string', '-', 'Provide a class to set text color.'],
+			['radius', 'string', '-', 'Provide a class to set border radius.']
 		]
 	};
 	const tableSlots: any = {
-		headings: ['Slot', 'Required', 'Description'],
+		headings: ['Slot', 'Description'],
 		source: [
-			['lead', '-', 'Provide a leading element, such as an icon.'],
-			['title', '&check;', 'Provide the title of the alert.'],
-			['message', '-', 'Provide the message of the alert.'],
-			['trail', '-', 'Provide a trailing elements, such as buttons.']
+			['lead', 'Provide a leading element, such as an icon.'],
+			['title', 'Provide the title of the alert.'],
+			['message', 'Provide the message of the alert.'],
+			['trail', 'Provide a trailing element, such as buttons.']
 		]
 	};
 
@@ -47,37 +48,28 @@
 
 	<!-- Examples -->
 	<Card class="space-y-4">
-		{#if !visible}<Button variant="ghost" on:click={toggleVisible}>Enable Alerts</Button>{/if}
+		{#if !visible}<Button variant="ghost" on:click={toggleVisible}>Show Alerts</Button>{/if}
 		<Alert {visible}>
-			<svelte:fragment slot="title">{title}</svelte:fragment>
-			<svelte:fragment slot="message">{message}</svelte:fragment>
-			<svelte:fragment slot="trail">
-				<Button variant="filled" on:click={actionExample}>Show Me</Button>
-				<Button variant="ring" on:click={toggleVisible}>&#10005;</Button>
-			</svelte:fragment>
-		</Alert>
-		{#if visible}<h3>Simple</h3>{/if}
-		<Alert background="bg-primary-500" {visible}>
-			<svelte:fragment slot="title">{title}</svelte:fragment>
-			<svelte:fragment slot="trail">
-				<Button variant="filled" on:click={actionExample}>Show Me</Button>
-			</svelte:fragment>
-		</Alert>
-		{#if visible}<h3>Rounding</h3>{/if}
-		<Alert background="bg-warning-500" rounded="rounded-3xl" {visible}>
-			<svelte:fragment slot="title">{title}</svelte:fragment>
-			<svelte:fragment slot="message">{message}</svelte:fragment>
-		</Alert>
-		{#if visible}<h3>Fully Featured</h3>{/if}
-		<Alert background="bg-accent-500" {visible}>
 			<svelte:fragment slot="lead">
-				<SvgIcon name="circle-question" width="w-10" height="w-10" fill="fill-white/50" />
+				<span class="text-4xl">⚠️</span>
 			</svelte:fragment>
 			<svelte:fragment slot="title">{title}</svelte:fragment>
 			<svelte:fragment slot="message">{message}</svelte:fragment>
 			<svelte:fragment slot="trail">
-				<Button variant="filled" on:click={actionExample}>Show Me</Button>
-				<Button variant="ring" on:click={toggleVisible}>&#10005;</Button>
+				<Button variant="filled-accent" on:click={actionExample}>View More</Button>
+				<Button variant="ghost-accent" on:click={toggleVisible}>&#10005;</Button>
+			</svelte:fragment>
+		</Alert>
+		<Alert background="bg-primary-500/30" border="border-primary-500" {visible}>
+			<svelte:fragment slot="title">{title}</svelte:fragment>
+			<svelte:fragment slot="trail">
+				<Button variant="filled-primary" on:click={actionExample}>View More</Button>
+			</svelte:fragment>
+		</Alert>
+		<Alert background="bg-warning-500/30" border="border-warning-500" rounded="rounded-3xl" {visible}>
+			<svelte:fragment slot="message">{message}</svelte:fragment>
+			<svelte:fragment slot="trail">
+				<Button variant="ghost" on:click={toggleVisible}>&#10005;</Button>
 			</svelte:fragment>
 		</Alert>
 	</Card>
