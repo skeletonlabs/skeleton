@@ -30,6 +30,7 @@
 			title: 'Docs',
 			list: [
 				{ href: '/docs/why', label: 'Why Skeleton' },
+				{ href: '/docs/comparisons', label: 'Comparisons' },
 				{ href: '/docs/contributions', label: 'Contributions' }
 			]
 		},
