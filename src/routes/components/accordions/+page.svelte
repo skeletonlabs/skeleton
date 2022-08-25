@@ -111,12 +111,6 @@
 	<section class="space-y-4">
 		<h2>Usage</h2>
 		<CodeBlock
-			language="typescript"
-			code={`
-import { writable, type Writable } from "svelte/store";
-let storeAccordion: Writable<number[]> = writable([1]);`.trim()}
-		/>
-		<CodeBlock
 			language="html"
 			code={`
 <AccordionGroup>
