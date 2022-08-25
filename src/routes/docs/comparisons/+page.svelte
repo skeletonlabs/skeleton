@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { Divider } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+	import AccordionGroup from '$lib/Accordion/AccordionGroup.svelte';
+	import AccordionItem from '$lib/Accordion/AccordionItem.svelte';
 </script>
 
 <div class="space-y-8">
@@ -28,29 +30,44 @@
 		<h2>Flowbite</h2>
         <p><a href="https://flowbite.com/" target="_blank">https://flowbite.com/</a></p>
 		<p>
-			Flowbite occupies a similar space to Daisy UI, providing a turkey set of HTML/CSS components built with Tailwind. However, Flowbite provides a unique and opinionated design aesthetic. Flowbite also provides framework-specific variations, such as <a href="https://flowbite-svelte.com/" target="_blank">Flowbite Svelte</a>. Similar to Daisy, you’ll find it relatively simple to tailor a Flowbite component to work within your existing Tailwind design system. In fact, it’s possible to pair Flowbite with Skeleton, allowing you to mix and match and choose the best of both worlds. While still adapting to the Skeleton theming system. Here’s how that works:
+			Flowbite provides a set of turnkey HTML/CSS components built with Tailwind’s utility class system. Unlike other libraries, Flowbite focuses on a singular and opinionated design aesthetic. Flowbite is a general purpose library, which means it can be used within any framework, but also provides framework-specific variations like <a href="https://flowbite-svelte.com/" target="_blank">Flowbite Svelte</a>. It’s relatively simple to tailor a Flowbite component to work within an existing Tailwind design system. In fact, it’s even possible to pair Flowbite with Skeleton, allowing you to mix and match components, while taking advantage of Skeleton’s theme system. See our guide below.
 		</p>
-		<p>For example, let's see how to integrate the <a href="https://flowbite.com/docs/components/card/" target="_blank">Flowbite card component</a>.</p>
-		<CodeBlock language="html" code={`
-<!-- Original Flowbite Component -->
-<a href="/page" class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Flowbite Version</h5>
-    <p class="font-normal text-gray-700 dark:text-gray-400">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+		<AccordionGroup>
+			<AccordionItem class="border border-surface-500/20 rounded">
+				<svelte:fragment slot="summary">
+					<h4>How to integrate Skeleton and Flowbite.</h4>
+				</svelte:fragment>
+				<svelte:fragment slot="content">
+					<div class="space-y-4 pb-3">
+						<p>Let's integrate a <a href="https://flowbite.com/docs/components/card/" target="_blank">Flowbite Card</a>. Here's the default markup:</p>
+						<CodeBlock language="html" code={`
+<a href="#" class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+	<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Flowbite Version</h5>
+	<p class="font-normal text-gray-700 dark:text-gray-400">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
 </a>
-		`.trim()} />
-		<p>By changing the color class <code>bg-gray-X</code> &rarr; <code>bg-surface-X</code> and applying <code>!no-outline</code> we get a version that works with Skeleton's theme and light/dark modes.</p>
-		<CodeBlock language="html" code={`
-<!-- Converted Component -->
-<a href="/page" class="block p-6 max-w-sm bg-white rounded-lg border border-surface-200 shadow-md hover:bg-surface-100 dark:bg-surface-800 dark:border-surface-700 dark:hover:bg-surface-700 !no-underline">
-    <h5 class="mb-2 text-2xl font-bold tracking-tight text-surface-900 dark:text-white">Skeleton Version</h5>
-    <p class="font-normal text-surface-700 dark:text-surface-400">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+						`.trim()} />
+						<p>We make several small adjustements to take advantage of Skeleton's styles and theme system:</p>
+						<ul class="list-disc list-inside opacity-60">
+							<li>Replaced all instances of the <code>bg-gray-X</code> class with <code>bg-surface-X</code>.</li>
+							<li>Added a <code>!no-outline</code> class to prevent text underlines.</li>
+							<li>Modified the the heading to be an H2 and dropped <code>text-2xl font-bold</code> classes.</li>
+							<li>Bumped <code>max-w-sm</code> up to <code>max-w-lg</code> to fit our content width.</li>
+						</ul>
+						<CodeBlock language="html" code={`
+<a href="#" class="block p-6 max-w-lg bg-white rounded-lg border border-surface-200 shadow-md hover:bg-surface-100 dark:bg-surface-800 dark:border-surface-700 dark:hover:bg-surface-700 !no-underline">
+	<h2 class="mb-2 tracking-tight text-surface-900 dark:text-white">Flowbite + Skeleton = ❤️</h2>
+	<p class="font-normal text-surface-700 dark:text-surface-400">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
 </a>
-		`.trim()} />
-		<p>We've removed the <code>max-w-sm</code> class to take advantage of the space, but here's the final result.</p>
-		<a href="/page" class="block p-6 bg-white rounded-lg border border-surface-200 shadow-md hover:bg-surface-100 dark:bg-surface-800 dark:border-surface-700 dark:hover:bg-surface-700 !no-underline">
-			<h5 class="mb-2 text-2xl font-bold tracking-tight text-surface-900 dark:text-white">Flowbite + Skeleton = ❤️</h5>
-			<p class="font-normal text-surface-700 dark:text-surface-400">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-		</a>
+						`.trim()} />
+						<p>Here's the final result. Try toggling dark mode on/off to see how it adapts.</p>
+						<a href="/docs/comparisons" class="block p-6 max-w-lg bg-white rounded-lg border border-surface-200 shadow-md hover:bg-surface-100 dark:bg-surface-800 dark:border-surface-700 dark:hover:bg-surface-700 !no-underline">
+							<h2 class="mb-2 tracking-tight text-surface-900 dark:text-white">Skeleton + Flowbite = ❤️</h2>
+							<p class="font-normal text-surface-700 dark:text-surface-400">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+						</a>
+					</div>
+				</svelte:fragment>
+			</AccordionItem>
+		</AccordionGroup>
 	</section>
 
 	<Divider />
@@ -60,7 +77,7 @@
 		<h2>Daisy UI</h2>
         <p><a href="https://daisyui.com/" target="_blank">https://daisyui.com/</a></p>
 		<p>
-			Daisy can be compared to Skeleton due to our shared use of Tailwind CSS, vast array of components, and highly customizable theme systems. Unfortunately Daisy themes rely on hex color values which <a href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank">prevents the use of the opacity modifier syntax</a>. Likewise Daisy opts to forgo the biggest benefit of Tailwind - the deeply extensible utility class system. Instead relying on <code>@apply</code> to generate canned style sets. An approach that <a href="https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction" target="_blank">goes against Tailwind’s own recommendation</a>. Skeleton, on the other hand, treats utility classes as first class citizens, providing hooks to set and override particular Tailwind classes throughout each component. Skeleton components also accept arbitrary classes allowing customization top to bottom. However, it’s worth noting that Daisy is a general purpose library available to any framework, while Skeleton focuses purely on Svelte.
+			Daisy can be compared to Skeleton due to our shared use of Tailwind CSS and highly customizable theme systems. Unfortunately Daisy themes rely on hex color values which <a href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank">prevents the use of the opacity modifier syntax</a>. Likewise Daisy opts to forgo the biggest benefit of Tailwind - the deeply extensible utility class system. Instead relying on <a href="https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction" target="_blank">@apply</a> to generate canned style sets. On the other hand, Skeleton treats utility classes as first class citizens, providing hooks to set and override Tailwind classes within each component. Skeleton components also accept arbitrary classes allowing full customization top to bottom. However, it’s worth noting that Daisy is a general purpose library available to any framework, while Skeleton focuses purely on Svelte.
 		</p>
 	</section>
 
