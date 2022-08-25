@@ -59,7 +59,7 @@
 	<p class="font-normal text-surface-700 dark:text-surface-400">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
 </a>
 						`.trim()} />
-						<p>Here's the final result. Try toggling dark mode on/off to see how it adapts.</p>
+						<p>Here's the final result. Try toggling dark mode on/off to see how the card style adapts.</p>
 						<a href="/docs/comparisons" class="block p-6 max-w-lg bg-white rounded-lg border border-surface-200 shadow-md hover:bg-surface-100 dark:bg-surface-800 dark:border-surface-700 dark:hover:bg-surface-700 !no-underline">
 							<h2 class="mb-2 tracking-tight text-surface-900 dark:text-white">Skeleton + Flowbite = ❤️</h2>
 							<p class="font-normal text-surface-700 dark:text-surface-400">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
