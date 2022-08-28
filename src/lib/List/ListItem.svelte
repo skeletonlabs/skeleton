@@ -80,7 +80,7 @@
 	$: classesHighlight = isSelected() ? highlight : '';
 	$: classesHover = parentTag === 'nav' ? cItemHover : '';
 	$: classesRowFlex = parentTag !== 'dl' ? cRowFlex : '';
-	$: classesBase = `list-row ${cBase} ${classesRowFlex} ${classesHover} ${classesHighlight}`;
+	$: classesBase = `list-row ${cBase} ${classesRowFlex} ${classesHover} ${classesHighlight} ${$$props.class || ''}`;
 </script>
 
 <svelte:element
