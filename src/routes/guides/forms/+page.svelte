@@ -67,10 +67,13 @@ module.exports = {
 			<Tab value="vite">Vite (Svelte)</Tab>
 			<Tab value="astro">Astro</Tab>
 		</TabGroup>
-		<!-- Framework: SvelteKit | Vite (Svelte) -->
-		{#if $storeFramework === 'sveltekit' || $storeFramework === 'vite'}
+		<!-- Framework: SvelteKit -->
+		{#if $storeFramework === 'sveltekit'}
+			<p>Your global stylesheet is located in <code>/src/app.postcss</code>.</p>
+		<!-- Vite (Svelte) -->
+		{:else if $storeFramework === 'vite'}
 			<p>Your global stylesheet is located in <code>/src/app.css</code>.</p>
-			<!-- Framework: Astro -->
+		<!-- Framework: Astro -->
 		{:else if $storeFramework === 'astro'}
 			<p>Your global stylesheet is located in <code>/src/styles/base.css</code>.</p>
 		{/if}
