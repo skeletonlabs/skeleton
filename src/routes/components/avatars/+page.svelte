@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
 	import { DataTable, Card, RadioGroup, RadioItem, SlideToggle, Avatar } from '@brainandbones/skeleton';
+	import { Apollo, BlueNight, Emerald, GreenFall, Noir, NoirLight, Rustic, Summer84, XPro } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
 
 	const storeSrc: Writable<string|undefined> = writable(undefined);
@@ -38,6 +39,17 @@
 		filter: ''
 	};
 </script>
+
+<!-- Filter SVG Components - NOTE: Keep these localized -->
+<Apollo />
+<BlueNight />
+<Emerald />
+<GreenFall />
+<Noir />
+<NoirLight />
+<Rustic />
+<Summer84 />
+<XPro />
 
 <div class="space-y-8">
 	<!-- Header -->

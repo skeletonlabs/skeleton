@@ -4,8 +4,8 @@
 
 	import { DataTable, Card, Divider, Button, RadioGroup, RadioItem, TabGroup, Tab } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import ThemeGenTailwind from '$lib/ThemeGenerator/ThemeGenTailwind.svelte';
-	import ThemeGenCustom from '$lib/ThemeGenerator/ThemeGenCustom.svelte';
+	import ThemeGenTailwind from '$lib/_documentation/ThemeGenerator/ThemeGenTailwind.svelte';
+	import ThemeGenCustom from '$lib/_documentation/ThemeGenerator/ThemeGenCustom.svelte';
 
 	// Stores
 	const storeThemeGuide: Writable<string> = writable('presets');

@@ -1,10 +1,22 @@
 <script lang="ts">
 	import { Card, Badge, filter } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+	import { Apollo, BlueNight, Emerald, GreenFall, Noir, NoirLight, Rustic, Summer84, XPro } from '@brainandbones/skeleton';
 
 	// Avatar Placeholder
 	let placeholder = 'https://i.pravatar.cc/512?img=5';
 </script>
+
+<!-- Filter SVG Components - NOTE: Keep these localized -->
+<Apollo />
+<BlueNight />
+<Emerald />
+<GreenFall />
+<Noir />
+<NoirLight />
+<Rustic />
+<Summer84 />
+<XPro />
 
 <div class="space-y-8">
 	<!-- Header -->
