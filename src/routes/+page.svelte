@@ -1,5 +1,8 @@
 <script lang="ts">
 
+	// Data from +page.server.ts
+	// export let data: any;
+
 	// Components
 	import Alert from '$lib/Alert/Alert.svelte';
 	import Avatar from '$lib/Avatar/Avatar.svelte';
@@ -35,7 +38,7 @@
 				<h2 class="text-4xl md:text-6xl lg:text-8xl">A fully featured Svelte component library.</h2>
 				<p class="text-xl">
 					Skeleton allows you to build fast and reactive web UI using the power of <a href="https://svelte.dev/" target="_blank">Svelte</a>
-					+ <a href="https://tailwindcss.com/" target="_blank">Tailwind</a>.
+					+ <a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a>.
 				</p>
 				<nav class="flex space-x-4">
 					<Button variant="filled-primary" href="/guides/get-started">Get Started</Button>
@@ -48,32 +51,32 @@
 		<!-- Features -->
 		<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 			<Card>
-				<div class="bg-surface-500/20 w-10 aspect-square flex justify-center items-center rounded-lg">
-					<SvgIcon name="skull" />
+				<div class="bg-[#ff3e00] w-14 aspect-square flex justify-center items-center rounded-lg">
+					<SvgIcon name="svelte" fill="fill-white" width="w-10" height="h-10" />
 				</div>
 				<h6>Svelte Integration</h6>
-				<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit ea ab possimus reprehenderit dolorem quia veritatis.</p>
+				<p>Plug and play anywhere Svelte is supported, including SvelteKit, Vite, and Astro projects.</p>
 			</Card>
 			<Card>
-				<div class="bg-surface-500/20 w-10 aspect-square flex justify-center items-center rounded-lg">
-					<SvgIcon name="skull" />
+				<div class="bg-sky-500 w-14 aspect-square flex justify-center items-center rounded-lg">
+					<SvgIcon name="tailwind" fill="fill-white" width="w-10" height="h-10" />
 				</div>
-				<h6>Tailwind Integration</h6>
-				<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit ea ab possimus reprehenderit dolorem quia veritatis.</p>
+				<h6>Tailwind CSS Integration</h6>
+				<p>Fits right into your design system. Custom all aspects of components use utility classes.</p>
 			</Card>
 			<Card>
-				<div class="bg-surface-500/20 w-10 aspect-square flex justify-center items-center rounded-lg">
-					<SvgIcon name="skull" />
+				<div class="bg-primary-500 w-14 aspect-square flex justify-center items-center rounded-lg">
+					<SvgIcon name="swatchbook" fill="fill-white" width="w-8" height="h-8" />
 				</div>
 				<h6>Dynamic Themes</h6>
-				<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit ea ab possimus reprehenderit dolorem quia veritatis.</p>
+				<p>Choose from a number of currated themes or quickly create your own.</p>
 			</Card>
 			<Card>
-				<div class="bg-surface-500/20 w-10 aspect-square flex justify-center items-center rounded-lg">
-					<SvgIcon name="skull" />
+				<div class="bg-accent-500 w-14 aspect-square flex justify-center items-center rounded-lg">
+					<SvgIcon name="screwdriver" fill="fill-white" width="w-8" height="h-8" />
 				</div>
 				<h6>Powerful Utilities</h6>
-				<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit ea ab possimus reprehenderit dolorem quia veritatis.</p>
+				<p>A complete toolkit for web apps, including layouts, dialogs, code blocks, and more.</p>
 			</Card>
 		</section>
 
@@ -114,14 +117,16 @@
 
 		<!-- Contributors -->
 		<section class="text-center space-y-6">
+			<!-- <pre>{JSON.stringify(data.contributors, null, 2)}</pre> -->
+
 			<h4>Contributors</h4>
 			<div class="flex flex-wrap justify-center space-x-4">
-				<Avatar src="https://i.pravatar.cc/" size="lg" hover class="m-2" />
-				<Avatar src="https://i.pravatar.cc/" size="lg" hover class="m-2" />
-				<Avatar src="https://i.pravatar.cc/" size="lg" hover class="m-2" />
-				<Avatar src="https://i.pravatar.cc/" size="lg" hover class="m-2" />
-				<Avatar src="https://i.pravatar.cc/" size="lg" hover class="m-2" />
-				<Avatar src="https://i.pravatar.cc/" size="lg" hover class="m-2" />
+				<Avatar src="https://avatars.githubusercontent.com/u/10255430?v=4" size="lg" hover class="m-2" />
+				<Avatar src="https://avatars.githubusercontent.com/u/10255430?v=4" size="lg" hover class="m-2" />
+				<Avatar src="https://avatars.githubusercontent.com/u/10255430?v=4" size="lg" hover class="m-2" />
+				<Avatar src="https://avatars.githubusercontent.com/u/10255430?v=4" size="lg" hover class="m-2" />
+				<Avatar src="https://avatars.githubusercontent.com/u/10255430?v=4" size="lg" hover class="m-2" />
+				<Avatar src="https://avatars.githubusercontent.com/u/10255430?v=4" size="lg" hover class="m-2" />
 			</div>
 			<Button variant="ghost" href="https://discord.gg/EXqV7W8MtY" target="_blank">Join the Community!</Button>
 		</section>
@@ -131,7 +136,7 @@
 			<h4>Sponsors</h4>
 			<div class="flex flex-wrap justify-center space-x-4">
 				<a href="https://www.brainandbonesllc.com/" target="_blank" class="opacity-90 hover:opacity-100">
-					<SvgIcon name="skull" width="w-20" height="h-20" />
+					<img src="https://www.brainandbonesllc.com/svg/logo.svg" alt="Brain & Bones">
 				</a>
 			</div>
 			<Button variant="ghost" href="https://github.com/sponsors/Brain-Bones" target="_blank">Become a Sponsor</Button>
