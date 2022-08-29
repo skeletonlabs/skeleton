@@ -45,7 +45,7 @@
 </script>
 
 {#if $toastStore.length}
-	<div class="toast {classesToast}" transition:fly|local={{ y, duration }} role="alert" aria-live="polite">
+	<div class="toast {classesToast}" transition:fly|local={{ y, duration }} data-testid="toast" role="alert" aria-live="polite">
 		<!-- Message -->
 		{#key $toastStore[0].message}
 			<div class="toast-message {cBaseMessage}" in:fade={{ duration: 250 }}>

@@ -11,11 +11,9 @@ export { default as Breadcrumb } from './Breadcrumb/Breadcrumb.svelte';
 export { default as Crumb } from './Breadcrumb/Crumb.svelte';
 export { default as Button } from './Button/Button.svelte';
 export { default as Card } from './Card/Card.svelte';
-// export { default as CodeBlock } from "./CodeBlock/CodeBlock.svelte"; // keep disabled until further notice
 export { default as Divider } from './Divider/Divider.svelte';
 export { default as Drawer } from './Drawer/Drawer.svelte';
 export { default as GradientHeading } from './GradientHeading/GradientHeading.svelte';
-export { default as LightSwitch } from './LightSwitch/LightSwitch.svelte';
 export { default as List } from './List/List.svelte';
 export { default as ListItem } from './List/ListItem.svelte';
 export { default as LogoCloud } from './LogoCloud/LogoCloud.svelte';
@@ -36,6 +34,13 @@ export { default as DataTable } from './Table/DataTable.svelte';
 export { default as Tooltip } from './Tooltip/Tooltip.svelte';
 
 // Utilities ---
+
+// LightSwitch
+export { default as LightSwitch } from './LightSwitch/LightSwitch.svelte';
+
+// CodeBlock
+export { storeHighlightJs } from './CodeBlock/stores';
+export { default as CodeBlock } from "./CodeBlock/CodeBlock.svelte";
 
 // Filters
 export { filter } from './Filters/filter';

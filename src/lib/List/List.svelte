@@ -3,10 +3,11 @@
 	import { writable, type Writable } from 'svelte/store';
 
 	// Props
-	export let tag: string = 'ul';
+	export let tag: string = 'ul'; // ul | ol | dl | nav
 	export let selected: Writable<any> = writable(undefined); // (store)
 	export let highlight: string = '!bg-primary-500'; // '!' required
 	export let hover: string = 'hover:bg-primary-500/10'; // 'hover:' required
+	export let space: string = 'space-y-1';
 	// A11y
 	export let title: string | undefined = undefined;
 	export let label: string | undefined = undefined;
@@ -20,7 +21,6 @@
 
 	// Classes
 	const cBase: string = 'whitespace-nowrap';
-	const cSpacing: string = 'space-y-1';
 
 	// Local
 	let elemList: HTMLElement;
@@ -41,13 +41,13 @@
 	}
 
 	// Reactive Classes
-	$: classes = `list-group ${cBase} ${cSpacing} ${$$props.class || ''}`;
+	$: classes = `list-group ${cBase} ${space} ${$$props.class || ''}`;
 </script>
 
 <svelte:element this={tag} bind:this={elemList} class={classes} data-testid="list-group" on:keydown={onKeyDown} {title}>
 	<!-- Wrap <nav> (listbox) to meet ARIA spec requirements -->
 	{#if tag === 'nav'}
-		<ul class={cSpacing} role="listbox" aria-label={label} aria-labelledby={labelledby} aria-multiselectable={Array.isArray($selected)}>
+		<ul class={space} role="listbox" aria-label={label} aria-labelledby={labelledby} aria-multiselectable={Array.isArray($selected)}>
 			<slot />
 		</ul>
 	{:else}

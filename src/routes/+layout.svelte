@@ -1,4 +1,9 @@
 <script lang="ts">
+	import hljs from 'highlight.js';
+	import 'highlight.js/styles/github-dark.css';
+	import { storeHighlightJs } from '$lib/CodeBlock/stores';
+	storeHighlightJs.set(hljs);
+
 	import { page } from '$app/stores';
 	import { writable, type Writable } from 'svelte/store';
 	import { afterNavigate } from '$app/navigation';
@@ -7,8 +12,6 @@
 	import { Apollo, BlueNight, Emerald, GreenFall, Noir, NoirLight, Rustic, Summer84, XPro } from '@brainandbones/skeleton';
 	import SvgIcon from '$lib/SvgIcon/SvgIcon.svelte';
 
-	// Highlight.js Theme
-	import 'highlight.js/styles/github-dark.css'; // Highlight.js
 	// Skeleton Theme
 	// Available themes: skeleton|rocket|modern|seafoam|vintage|sahara|test
 	import '$lib/styles/themes/theme-skeleton.css';
@@ -38,6 +41,7 @@
 			title: 'Docs',
 			list: [
 				{ href: '/docs/why', label: 'Why Skeleton' },
+				{ href: '/docs/comparisons', label: 'Comparisons' },
 				{ href: '/docs/contributions', label: 'Contributions' }
 			]
 		},
@@ -74,7 +78,7 @@
 		{
 			title: 'Utilities',
 			list: [
-				// {href: '/utilities/codeblocks', label: 'Code Blocks'}, // keep disabled until further notice
+				{href: '/utilities/codeblocks', label: 'Code Blocks'},
 				{ href: '/utilities/dialogs', label: 'Dialogs' },
 				{ href: '/utilities/toasts', label: 'Toasts' },
 				{ href: '/utilities/lightswitches', label: 'Lightswitch' },
@@ -92,6 +96,7 @@
 		drawer.set(false);
 	};
 
+	// Lifecycle Events
 	afterNavigate(() => {
 		// Scroll to top
 		const elemMain = document.querySelector('#main');

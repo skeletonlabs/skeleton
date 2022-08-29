@@ -9,7 +9,7 @@
 	$: classesCard = `${cBaseCard} ${background} ${color}`;
 </script>
 
-<div class="card {classesCard} {$$props.class}">
+<div class="card {classesCard} {$$props.class}" data-testid="card">
 	<!-- Header -->
 	{#if $$slots.header}
 		<header><slot name="header" /></header>

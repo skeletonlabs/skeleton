@@ -4,16 +4,19 @@ import path from 'path';
 
 /** @type {import('vite').UserConfig} */
 const config = {
-	plugins: [sveltekit()],
-	test: {
-		exclude: [...configDefaults.exclude, '**/package/**', '**/build/**']
-		// setupFiles: []
-	},
+	plugins: [
+		sveltekit({ hot: !process.env.VITEST }),
+	],
 	resolve: {
 		alias: {
 			'@brainandbones/skeleton': path.resolve('./src/lib/index.ts')
 		}
-	}
+	},
+	test: {
+		globals: true,
+		environment: 'jsdom',
+		exclude: [...configDefaults.exclude, '**/package/**', '**/build/**']
+	},
 };
 
 export default config;

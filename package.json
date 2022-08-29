@@ -1,6 +1,6 @@
 {
 	"name": "@brainandbones/skeleton",
-	"version": "0.30.6",
+	"version": "0.32.19",
 	"description": "A SvelteKit component library.",
 	"author": "endigo9740 <csimmons@brainandbonesllc.com>",
 	"scripts": {
@@ -49,8 +49,5 @@
 		"vitest": "^0.19.1"
 	},
 	"type": "module",
-	"types": "index.d.ts",
-	"dependencies": {
-		"highlight.js": "^11.6.0"
-	}
+	"types": "index.d.ts"
 }

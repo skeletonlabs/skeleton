@@ -16,7 +16,9 @@
 		source: [
 			['open', 'boolean', 'false', '-', `Use this to define which item is open on page load.`],
 			['hover', 'string', 'hover:bg-primary-500/10', '-', 'Provide a class to set the hover background color.'],
-			['spacing', 'string', 'space-y-0', '-', 'Provide a class to set spacing between title and description elements.']
+			['spacing', 'string', 'space-y-0', '-', 'Provide a class to set spacing between title and description elements.'],
+			['padding', 'string', 'px-4 py-2', '-', 'Provide a class to set padding for summary and content regions.'],
+			['rounded', 'string', 'rounded', '-', 'Provide a class to set summary border radius.'],
 		]
 	};
 	const tableSlots: any = {
@@ -110,12 +112,6 @@
 	<!-- Usage -->
 	<section class="space-y-4">
 		<h2>Usage</h2>
-		<CodeBlock
-			language="typescript"
-			code={`
-import { writable, type Writable } from "svelte/store";
-let storeAccordion: Writable<number[]> = writable([1]);`.trim()}
-		/>
 		<CodeBlock
 			language="html"
 			code={`

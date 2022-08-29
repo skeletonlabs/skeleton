@@ -1,21 +1,16 @@
-/**
- * @vitest-environment jsdom
- */
+import { render } from '@testing-library/svelte';
+import { describe, it, expect } from 'vitest';
 
-import { cleanup, render } from '@testing-library/svelte';
-import { afterEach, describe, expect, it } from 'vitest';
-
+// @ts-ignore
 import ConicGradient from '$lib/ConicGradient/ConicGradient.svelte';
 
 describe('ConicGradient.svelte', () => {
-	afterEach(() => cleanup());
-
-	it('Renders without props', async () => {
+	it('Renders with minimal props', async () => {
 		const { getByTestId } = render(ConicGradient);
 		expect(getByTestId('conic-gradient')).toBeTruthy();
 	});
 
-	it('Renders with props', () => {
+	it('Renders with all props', () => {
 		const { getByTestId } = render(ConicGradient, {
 			props: {
 				data: [

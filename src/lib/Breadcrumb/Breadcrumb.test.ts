@@ -1,39 +1,22 @@
-/**
- * @vitest-environment jsdom
- */
+import { render } from '@testing-library/svelte';
+import { describe, it, expect } from 'vitest';
 
-import { cleanup, render } from '@testing-library/svelte';
-import { afterEach, describe, expect, it } from 'vitest';
-
+// @ts-ignore
 import Breadcrumb from '$lib/Breadcrumb/Breadcrumb.svelte';
-// import Crumb from '$lib/Breadcrumb/Crumb.svelte';
 
 describe('Breadcrumb.svelte', () => {
-	afterEach(() => cleanup());
-
-	it('Renders without props', async () => {
+	it('Renders with minimal props', async () => {
 		const { getByTestId } = render(Breadcrumb);
 		expect(getByTestId('breadcrumb')).toBeTruthy();
 	});
 
-	// it('Renders with props', () => {
-	//     const { getByTestId } = render(Breadcrumb, {
-	//         props: {display: 'outlined', color: 'primary', separator: '|'},
-	//     });
-	//     expect(getByTestId('breadcrumb')).toBeTruthy();
-	// })
-
-	// Test Nested Components
-	// https://sveltesociety.dev/recipes/testing-and-debugging/unit-testing-svelte-component/
-	// NOTE: Throwing error below, so disabling this test for now. We may not need to test like this.
-	/*
-        stderr | unknown test
-        <Crumb> was created with unknown prop 'Component'
-    */
-	// it('Renders nested Crumb component', () => {
-	//     const { getByTestId } = render(Crumb, {
-	//         props: { Component: render(Breadcrumb) }
-	//     });
-	//     expect(getByTestId('crumb')).toBeTruthy();
-	// })
+	it('Renders with all props', () => {
+	    const { getByTestId } = render(Breadcrumb, {
+	        props: {
+				separator: '|',
+				label: 'Test Divider'
+			},
+	    });
+	    expect(getByTestId('breadcrumb')).toBeTruthy();
+	});
 });
