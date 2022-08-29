@@ -4,15 +4,16 @@
 	import { storeHighlightJs } from '$lib/CodeBlock/stores';
 	storeHighlightJs.set(hljs);
 
-	import { writable, type Writable } from 'svelte/store';
 	import { afterNavigate } from '$app/navigation';
 
-	import { Button, Dialog, Toast } from '@brainandbones/skeleton';
-	import NavDrawer from '$lib/_documentation/NavDrawer/NavDrawer.svelte';
-	import SvgIcon from '$lib/SvgIcon/SvgIcon.svelte';
+	import { Dialog, Toast } from '@brainandbones/skeleton';
+	import AppShell from '$lib/AppShell/AppShell.svelte';
+	import AppBar from '$lib/AppBar/AppBar.svelte';
+	
+	import SkeletonDrawer from '$lib/_documentation/SkeletonDrawer/SkeletonDrawer.svelte';
+	import SkeletonFooter from '$lib/_documentation/SkeletonFooter/SkeletonFooter.svelte';
 
-	// Skeleton Theme
-	// Available themes: skeleton|rocket|modern|seafoam|vintage|sahara|test
+	// Skeleton Theme: skeleton|rocket|modern|seafoam|vintage|sahara|test
 	import '$lib/styles/themes/theme-skeleton.css';
 	// Skeleton Add-On Stylesheets
 	import '$lib/styles/tailwind.css';
@@ -22,14 +23,10 @@
 	// Global Stylesheets
 	import '../app.postcss';
 
-	// Drawer
-	const drawer: Writable<boolean> = writable(false);
-	const drawerOpen = () => { drawer.set(true); };
-
 	// Lifecycle Events
 	afterNavigate(() => {
-		// Scroll to top of page content
-		const elemMain = document.querySelector('#page-content');
+		// Scroll to top of main page content
+		const elemMain = document.querySelector('main');
 		if (elemMain !== null) { elemMain.scrollTop = 0; }
 	});
 </script>
@@ -37,31 +34,24 @@
 <Dialog />
 <Toast />
 
-<!-- Page Layout -->
-<main class="flex flex-row">
+<AppShell>
 
-	<!-- Drawer -->
-	<NavDrawer visible={drawer} />
+	<!-- Sidebar (Left) -->
+	<svelte:fragment slot="sidebarLeft">
+		<SkeletonDrawer />
+	</svelte:fragment>
 
-	<!-- Page Content -->
-	<div id="page-content" class="w-screen h-screen overflow-y-auto">
+	<!-- Page: Header -->
+	<svelte:fragment slot="header">
+		<AppBar />
+	</svelte:fragment>
 
-		<!-- Mobile-Only Header -->
-		<header class="lg:hidden flex p-8 space-x-4">
-			<!-- Hamburger Menu -->
-			<Button variant="minimal" on:click={drawerOpen}>
-				<svelte:fragment slot="lead">
-					<SvgIcon name="bars" width="w-6" height="h-6" class="!block opacity-50" />
-				</svelte:fragment>
-				<span class="text-surface-500 font-bold">Menu</span>
-			</Button>
-		</header>
+	<!-- Page: Content -->
+	<slot />
 
-		<!-- Page Slot -->
-		<div class="container mx-auto p-8">
-			<slot />
-		</div>
+	<!-- Page: Footer -->
+	<svelte:fragment slot="footer">
+		<SkeletonFooter />
+	</svelte:fragment>
 
-	</div>
-
-</main>
+</AppShell>

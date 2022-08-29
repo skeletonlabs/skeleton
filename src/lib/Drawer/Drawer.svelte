@@ -43,7 +43,8 @@
 
 	<!-- Main -->
 	{#if $$slots.main}
-		<section class="flex-auto overflow-y-auto"><slot name="main" /></section>
+		<!-- overflow-y-auto -->
+		<section class="flex-auto"><slot name="main" /></section>
 	{/if}
 
 	<!-- Footer -->
