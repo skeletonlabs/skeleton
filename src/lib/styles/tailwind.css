@@ -1,0 +1,10 @@
+/*
+Tailwind directives should only be included ONCE per project.
+These directives should proceed all Skeleton add-on styles.
+Remove these from your global CSS file if you use this add-on.
+*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;

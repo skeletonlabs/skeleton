@@ -36,13 +36,12 @@
 		<h4>Generate a Layout</h4>
 		<p>
 			Create a new <a href="https://docs.astro.build/en/core-concepts/layouts/" target="_blank">Astro Layout</a>
-			in <code>/src/layouts/BasicLayout.astro</code>, then add the following:
+			in <code>/src/layouts/LayoutBasic.astro</code>, then add the following:
 		</p>
 		<CodeBlock
 			language="html"
 			code={`
 ---
-import '../styles/theme.css';
 import '../styles/base.css';
 ---
 <html lang="en">
@@ -67,12 +66,12 @@ import '../styles/base.css';
 			language="html"
 			code={`
 ---
-import BasicLayout from '../layouts/BasicLayout.astro';
+import LayoutBasic from '../layouts/LayoutBasic.astro';
 ---
-<BasicLayout>
+<LayoutBasic>
     <h1>Hello Skeleton</h1>
-</BasicLayout>
-`.trim()}
+</LayoutBasic>
+            `.trim()}
 		/>
 	</section>
 
@@ -90,18 +89,18 @@ import BasicLayout from '../layouts/BasicLayout.astro';
 			language="html"
 			code={`
 ---
-import BasicLayout from '../layouts/BasicLayout.astro';
+import LayoutBasic from '../layouts/LayoutBasic.astro';
 import { LogoCloud, Logo } from '@brainandbones/skeleton';
 ---
-<BasicLayout>
+<LayoutBasic>
     <LogoCloud>
         <Logo>
             <svelte:fragment slot="lead">💀</svelte:fragment>
             <svelte:fragment slot="label">Skeleton</svelte:fragment>
         </Logo>
     </LogoCloud>
-</BasicLayout>
-`.trim()}
+</LayoutBasic>
+        `.trim()}
 		/>
 		<h4>Dynamic</h4>
 		<p>
@@ -117,14 +116,13 @@ import { LogoCloud, Logo } from '@brainandbones/skeleton';
 			language="html"
 			code={`
 ---
-import BasicLayout from '../layouts/BasicLayout.astro';
+import LayoutBasic from '../layouts/LayoutBasic.astro';
 import WrapperExample from '../components/WrapperExample.svelte';
 ---
-<BasicLayout>
-    <h1>Hello Skeleton</h1>
-	<WrapperExample client:visible></WrapperExample>
-</BasicLayout>
-`.trim()}
+<LayoutBasic>
+    <WrapperExample client:visible></WrapperExample>
+</LayoutBasic>
+        `.trim()}
 		/>
 		<p>
 			The trick with the dynamic component, is to hydrate it using <a href="https://docs.astro.build/en/reference/directives-reference/#client-directives" target="_blank">Astro's Client Directives</a>.

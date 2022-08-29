@@ -11,9 +11,16 @@
 	import { Drawer, LightSwitch, Divider, List, ListItem, Button, Badge, Dialog, Toast } from '@brainandbones/skeleton';
 	import { Apollo, BlueNight, Emerald, GreenFall, Noir, NoirLight, Rustic, Summer84, XPro } from '@brainandbones/skeleton';
 	import SvgIcon from '$lib/SvgIcon/SvgIcon.svelte';
-	
-	// Import CSS
-	import '../themes/theme-skeleton.css'; // skeleton|rocket|modern|seafoam|vintage|sahara|test
+
+	// Skeleton Theme
+	// Available themes: skeleton|rocket|modern|seafoam|vintage|sahara|test
+	import '$lib/styles/themes/theme-skeleton.css';
+	// Skeleton Add-On Stylesheets
+	import '$lib/styles/tailwind.css';
+	import '$lib/styles/core.css';
+	import '$lib/styles/typography.css';
+	import '$lib/styles/forms.css';
+	// Global Stylesheets
 	import '../app.postcss';
 
 	const currentPageStore: Writable<string> = writable($page.url.pathname);

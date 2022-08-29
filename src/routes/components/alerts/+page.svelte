@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { DataTable, Card, Alert, Button } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import SvgIcon from '$lib/SvgIcon/SvgIcon.svelte';
 
 	let title = `What's New in Skeleton?`;
 	let message =
@@ -24,7 +23,7 @@
 			['lead', 'Provide a leading element, such as an icon.'],
 			['title', 'Provide the title of the alert.'],
 			['message', 'Provide the message of the alert.'],
-			['trail', 'Provide a trailing element, such as buttons.']
+			['trail', 'Provide a trailing element, such as a button.']
 		]
 	};
 

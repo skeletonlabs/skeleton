@@ -33,7 +33,7 @@
 	<!-- Forms and Input Styles -->
 	<section class="space-y-4">
 		<h2>Tailwind Forms Plugin</h2>
-		<p>To get started, check out Tailwind's official YouTube video tutorial, or follow the step-by-step guide provided below.</p>
+		<p>If you use form elements in your project, check out Tailwind's official YouTube video tutorial, or follow our step-by-step guide below.</p>
 		<Card>
 			<iframe
 				class="w-full max-w-[800px] mx-auto aspect-video"
@@ -62,6 +62,7 @@ module.exports = {
 }
         `.trim()}
 		/>
+		<p>We provide simple stylesheet add-on that allows form elements to adapta to your Skeleton theme.</p>
 		<TabGroup selected={storeFramework}>
 			<Tab value="sveltekit">SvelteKit</Tab>
 			<Tab value="vite">Vite (Svelte)</Tab>
@@ -69,67 +70,18 @@ module.exports = {
 		</TabGroup>
 		<!-- Framework: SvelteKit -->
 		{#if $storeFramework === 'sveltekit'}
-			<p>Your global stylesheet is located in <code>/src/app.postcss</code>.</p>
-		<!-- Vite (Svelte) -->
+			<p>Import form element styles after your global stylesheet in <code>/src/routes/+layout.svelte</code>.</p>
+			<CodeBlock language="typescript" code={`import '../app.postcss';\nimport '@brainandbones/skeleton/styles/forms.css'; // <--`} />
+		<!-- Framework: Vite (Svelte) -->
 		{:else if $storeFramework === 'vite'}
-			<p>Your global stylesheet is located in <code>/src/app.css</code>.</p>
+			<p>Import form element styles after your global stylesheet in <code>/src/main.js</code>.</p>
+			<CodeBlock language="typescript" code={`import '../app.css';\nimport '@brainandbones/skeleton/styles/forms.css'; // <--`} />
 		<!-- Framework: Astro -->
 		{:else if $storeFramework === 'astro'}
-			<p>Your global stylesheet is located in <code>/src/styles/base.css</code>.</p>
+			<p>Import form element styles after your global stylesheet in <code>/src/layouts/LayoutBasic.astro</code>.</p>
+			<CodeBlock language="typescript" code={`import '../styles/base.css';\nimport '@brainandbones/skeleton/styles/forms.css'; // <--`} />
 		{/if}
-		<p>Apply the boilerplate in your global stylesheet. These will adhere to your theme colors.</p>
-		<CodeBlock
-			language="css"
-			code={`
-fieldset { @apply block; }
-
-/* Inputs */
-[type="text"],
-[type="email"],
-[type="url"],
-[type="password"],
-[type="number"],
-[type="date"],
-[type="datetime-local"], 
-[type="month"],
-[type="search"],
-[type="tel"],
-[type="time"],
-[type="week"],
-[multiple],
-textarea,
-select {
-    @apply w-full text-black bg-surface-50 border-surface-300 rounded-lg shadow-sm focus:border-accent-500 focus:ring-accent-500;
-    @apply dark:text-white dark:bg-surface-600 dark:border-surface-500;
-}
-
-/* Selectable */
-[type="checkbox"],
-[type="radio"] {
-    @apply border-surface-500 rounded text-accent-600 focus:ring-accent-500;
-}
-
-/* Invalid - https://www.bram.us/2021/01/28/form-validation-you-want-notfocusinvalid-not-invalid/ */
-input:not(:focus):not(:placeholder-shown):invalid {
-    @apply bg-warning-300 border-warning-500;
-}
-
-/* Placeholders */
-input::-moz-placeholder, textarea::-moz-placeholder { @apply text-surface-400; }
-input:-ms-input-placeholder, textarea:-ms-input-placeholder { @apply text-surface-400; }
-input::placeholder, textarea::placeholder { @apply text-surface-400; }
-
-/* Labels */
-label { @apply block overflow-visible; }
-label span, legend { @apply block text-surface-700 dark:text-surface-300 text-sm mb-2; }
-
-/* Accent Color - https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color */
-[type="range"]:not(.range-input) { @apply w-full accent-accent-500; }
-        `.trim()}
-		/>
-		<p>
-			Finally, implement your form elements using standard markup and Svelte directives. Note the examples below use a <code>&lt;span&gt;</code> element for label text.
-		</p>
+		<p>Finally, implement your form elements using standard HTML markup.</p>
 		<CodeBlock
 			language="html"
 			code={`
