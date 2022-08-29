@@ -1,3 +1,5 @@
+<!-- Layout: (root) -->
+
 <script lang="ts">
 	import hljs from 'highlight.js';
 	import 'highlight.js/styles/github-dark.css';
@@ -6,15 +8,10 @@
 
 	import { afterNavigate } from '$app/navigation';
 
-	// Components
-	import AppShell from '$lib/AppShell/AppShell.svelte';
-	import AppBar from '$lib/AppBar/AppBar.svelte';
+	// Components & Utilities
 	import Dialog from '$lib/Notifications/Dialog.svelte';
 	import Toast from '$lib/Notifications/Toast.svelte';
-
-	// Doc Components 
-	import SkeletonDrawer from '$lib/_documentation/SkeletonDrawer/SkeletonDrawer.svelte';
-	import SkeletonFooter from '$lib/_documentation/SkeletonFooter/SkeletonFooter.svelte';
+    import AppBar from '$lib/AppBar/AppBar.svelte';
 
 	// Skeleton Theme: skeleton|rocket|modern|seafoam|vintage|sahara|test
 	import '$lib/styles/themes/theme-skeleton.css';
@@ -32,29 +29,24 @@
 		const elemMain = document.querySelector('main');
 		if (elemMain !== null) { elemMain.scrollTop = 0; }
 	});
+
+    // Base Classes
+    const cBaseLayout: string = 'w-screen h-screen overflow-hidden flex flex-col';
 </script>
 
 <Dialog />
 <Toast />
 
-<AppShell>
+<div class="{cBaseLayout}">
 
-	<!-- Sidebar (Left) -->
-	<svelte:fragment slot="sidebarLeft">
-		<SkeletonDrawer />
-	</svelte:fragment>
+    <!-- App Bar -->
+    <header class="flex-none">
+        <AppBar />
+    </header>
 
-	<!-- Page: Header -->
-	<svelte:fragment slot="header">
-		<AppBar />
-	</svelte:fragment>
+    <!-- Page -->
+    <div class="flex-1 overflow-hidden">
+        <slot />
+    </div>
 
-	<!-- Page: Content -->
-	<slot />
-
-	<!-- Page: Footer -->
-	<svelte:fragment slot="footer">
-		<SkeletonFooter />
-	</svelte:fragment>
-
-</AppShell>
+</div>

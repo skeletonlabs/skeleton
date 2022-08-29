@@ -1,12 +1,20 @@
 <script lang="ts">
-	import { storeFramework } from './stores';
-	import { Alert, Card, LogoCloud, Divider, Logo, Button, TabGroup, Tab } from '@brainandbones/skeleton';
-	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+
+	// Components
+	import Alert from '$lib/Alert/Alert.svelte';
+	import Avatar from '$lib/Avatar/Avatar.svelte';
+	import Card from '$lib/Card/Card.svelte';
+	import Button from '$lib/Button/Button.svelte';
 	import SvgIcon from '$lib/SvgIcon/SvgIcon.svelte';
+
+	// Doc Component
+	import SkeletonFooter from '$lib/_documentation/SkeletonFooter/SkeletonFooter.svelte';
+
 </script>
 
-<div class="space-y-8 lg:text-left">
-	<!-- Beta Alert -->
+<main class="w-full h-full !overflow-y-scroll">
+
+	<!-- Alert: Beta -->
 	<Alert>
 		<svelte:fragment slot="lead">🚧</svelte:fragment>
 		<svelte:fragment slot="message">
@@ -16,141 +24,122 @@
 		</svelte:fragment>
 	</Alert>
 
-	<!-- Hero -->
-	<header>
-		<div class="max-w-[90%] lg:max-w-[80%] mx-auto space-y-6 py-10 md:py-20">
-			<h1 class="text-3xl md:text-5xl lg:text-6xl">
-				<span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-accent-500">Skeleton</span>
-			</h1>
-			<h2 class="text-4xl md:text-6xl lg:text-7xl">A fully featured Svelte component library.</h2>
-			<p class="text-xl">
-				Skeleton allows you to build fast and reactive web UI using the power of <a href="https://svelte.dev/" target="_blank">Svelte</a>
-				+ <a href="https://tailwindcss.com/" target="_blank">Tailwind</a>.
-			</p>
-			<nav class="flex space-x-4">
-				<Button variant="filled-primary" href="#getStarted">Get Started</Button>
-				<Button variant="ghost" href="/docs/why">Why Skeleton</Button>
-			</nav>
-		</div>
-	</header>
+	<div class="container max-w-[1200px] mx-auto px-4 py-4 md:py-20 space-y-20">
 
-	<LogoCloud>
-		<Logo href="https://github.com/Brain-Bones/skeleton" target="_blank">
-			<svelte:fragment slot="lead">
-				<SvgIcon name="github" width="w-8" height="h-8" class="opacity-50" />
-			</svelte:fragment>
-			<svelte:fragment slot="label">Github</svelte:fragment>
-		</Logo>
-		<Logo href="https://discord.gg/EXqV7W8MtY" target="_blank">
-			<svelte:fragment slot="lead">
-				<SvgIcon name="discord" width="w-8" height="h-8" class="opacity-50" viewBox="0 0 640 512" />
-			</svelte:fragment>
-			<svelte:fragment slot="label">Discord</svelte:fragment>
-		</Logo>
-		<Logo href="https://twitter.com/SkeletonUI" target="_blank">
-			<svelte:fragment slot="lead">
-				<SvgIcon name="twitter" width="w-8" height="h-8" class="opacity-50" />
-			</svelte:fragment>
-			<svelte:fragment slot="label">Twitter</svelte:fragment>
-		</Logo>
-	</LogoCloud>
+		<!-- Hero -->
+		<header>
+			<div class="space-y-6">
+				<h1 class="text-3xl md:text-5xl lg:text-6xl">
+					<span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-accent-500">Skeleton</span>
+				</h1>
+				<h2 class="text-4xl md:text-6xl lg:text-8xl">A fully featured Svelte component library.</h2>
+				<p class="text-xl">
+					Skeleton allows you to build fast and reactive web UI using the power of <a href="https://svelte.dev/" target="_blank">Svelte</a>
+					+ <a href="https://tailwindcss.com/" target="_blank">Tailwind</a>.
+				</p>
+				<nav class="flex space-x-4">
+					<Button variant="filled-primary" href="/guides/get-started">Get Started</Button>
+					<Button variant="ghost" href="/docs/why">Why Skeleton</Button>
+					<Button variant="ghost" href="https://github.com/Brain-Bones/skeleton" target="_blank">Github</Button>
+				</nav>
+			</div>
+		</header>
 
-	<Divider />
-
-	<!-- Install -->
-	<section id="getStarted" class="space-y-4">
-		<h2>Get Started</h2>
-		<p>
-			Select your app framework of choice, then follow steps below. During this process you'll scaffold a project, install the Skeleton package, install and configure Tailwind, as well as implement a
-			custom theme. Make sure to follow each guide carefully.
-		</p>
-
-		<TabGroup selected={storeFramework} class="pt-4">
-			<Tab value="sveltekit">SvelteKit</Tab>
-			<Tab value="vite">Vite (Svelte)</Tab>
-			<Tab value="astro">Astro</Tab>
-		</TabGroup>
-
-		<!-- Framework: SvelteKit -->
-		{#if $storeFramework === 'sveltekit'}
-			<p>
-				View the <a href="https://kit.svelte.dev/docs/introduction#getting-started" target="_blank">official documentation.</a>
-			</p>
-			<CodeBlock
-				language="console"
-				code={`
-npm create svelte@latest sveltekit-skeleton-app
-  - Create a barebones project
-  - Enable Typescript
-cd sveltekit-skeleton-app
-npm install
-npm run dev
-            `.trim()}
-			/>
-			<!-- Framework: Vite (Svelte) -->
-		{:else if $storeFramework === 'vite'}
-			<p>
-				View the <a href="https://vitejs.dev/guide/#scaffolding-your-first-vite-project" target="_blank">official documentation</a>.
-			</p>
-			<CodeBlock language="console" code={`npm create vite@latest my-app -- --template svelte-ts\ncd my-app\nnpm install\nnpm run dev`} />
-			<!-- Framework: Astro -->
-		{:else if $storeFramework === 'astro'}
-			<p>
-				View the <a href="https://docs.astro.build/en/install/auto/" target="_blank">official documentation</a>. Once setup of Skeleton is complete, please read the dedicated <a href="/guides/astro">Usage with Astro</a> guide.
-			</p>
-			<CodeBlock
-				language="console"
-				code={`
-npm create astro@latest astro-skeleton-app
-  - Create an empty project
-  - Install all depedencies
-  - Use 'Typescript: Strict'
-cd astro-skeleton-app
-npm run dev
-            `.trim()}
-			/>
-			<!-- Svelte -->
-			<h3>Install Svelte</h3>
-			<p>
-				Add Svelte integration via <a href="https://docs.astro.build/en/guides/integrations-guide/svelte/" target="_blank">@astrojs/svelte</a>
-			</p>
-			<CodeBlock language="console" code={`npx astro add svelte`} />
-			<!-- Tailwind -->
-			<h3>Install Tailwind</h3>
-			<p>
-				Add Tailwind integration via <a href="https://docs.astro.build/en/guides/integrations-guide/tailwind/" target="_blank">@astrojs/tailwind</a>
-			</p>
-			<CodeBlock language="console" code={`npx astro add tailwind`} />
-			<p>Add <code>/src/styles/base.css</code> to house global styles and define the following @tailwind directives:</p>
-			<CodeBlock language="css" code={`@tailwind base;\n@tailwind components;\n@tailwind utilities;`} />
-		{/if}
-	</section>
-
-	<!-- Install Tailwind -->
-	{#if ['sveltekit', 'vite'].includes($storeFramework)}
-		<section class="space-y-4">
-			<h3>Install Tailwind</h3>
-			<p>
-				<a href="https://github.com/svelte-add/tailwindcss" target="_blank">Svelte-Add</a> makes installation a trivial process.
-			</p>
-			<CodeBlock language="console" code={`npx svelte-add@latest tailwindcss\nnpm install`} />
+		<!-- Features -->
+		<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+			<Card>
+				<div class="bg-surface-500/50 w-10 aspect-square flex justify-center items-center rounded-lg">
+					<SvgIcon name="skull" />
+				</div>
+				<h6>Svelte Integration</h6>
+				<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit ea ab possimus reprehenderit dolorem quia veritatis.</p>
+			</Card>
+			<Card>
+				<div class="bg-surface-500/50 w-10 aspect-square flex justify-center items-center rounded-lg">
+					<SvgIcon name="skull" />
+				</div>
+				<h6>Tailwind Integration</h6>
+				<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit ea ab possimus reprehenderit dolorem quia veritatis.</p>
+			</Card>
+			<Card>
+				<div class="bg-surface-500/50 w-10 aspect-square flex justify-center items-center rounded-lg">
+					<SvgIcon name="skull" />
+				</div>
+				<h6>Dynamic Themes</h6>
+				<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit ea ab possimus reprehenderit dolorem quia veritatis.</p>
+			</Card>
+			<Card>
+				<div class="bg-surface-500/50 w-10 aspect-square flex justify-center items-center rounded-lg">
+					<SvgIcon name="skull" />
+				</div>
+				<h6>Powerful Utilities</h6>
+				<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit ea ab possimus reprehenderit dolorem quia veritatis.</p>
+			</Card>
 		</section>
-	{/if}
 
-	<!-- Install Skeleton -->
-	<section class="space-y-4">
-		<h3>Install Skeleton</h3>
-		<p>
-			Install the core Skeleton package from <a href="https://www.npmjs.com/package/@brainandbones/skeleton" target="_blank">NPM</a>.
-		</p>
-		<CodeBlock language="console" code={`npm i @brainandbones/skeleton --save-dev`} />
-	</section>
+		<!-- Meet The Team -->
+		<section class="text-center space-y-6">
+			<h4>Meet The Team</h4>
+			<section class="grid grid-cols-1 md:grid-cols-3 gap-4">
+				<Card class="text-center">
+					<Avatar src="https://avatars.githubusercontent.com/u/1509726?v=4" size="xl" outlined hover class="mx-auto" />
+					<h6>Chris Simmons</h6>
+					<p>Co-creator and primary contributor to the Skeleton project.</p>
+					<div class="flex justify-center space-x-4">
+						<a href="https://github.com/endigo9740" target="_blank"><SvgIcon name="github" /></a>
+						<a href="https://twitter.com/endigodesign" target="_blank"><SvgIcon name="twitter" /></a>
+						<a href="https://www.linkedin.com/in/chris-simmons-8a523a23/" target="_blank"><SvgIcon /></a>
+					</div>
+				</Card>
+				<Card class="text-center">
+					<Avatar src="https://avatars.githubusercontent.com/u/52718757?v=4" size="xl" outlined hover class="mx-auto" />
+					<h6>Thomas Jespersen</h6>
+					<p>Co-creator and primary contributor to the Skeleton project.</p>
+					<div class="flex justify-center space-x-4">
+						<a href="/xxx" target="_blank"><SvgIcon name="github" /></a>
+						<a href="/yyy" target="_blank"><SvgIcon name="twitter" /></a>
+						<a href="/zzz" target="_blank"><SvgIcon /></a>
+					</div>
+				</Card>
+				<Card class="text-center">
+					<Avatar src="https://avatars.githubusercontent.com/u/10255430?v=4" size="xl" outlined hover class="mx-auto" />
+					<h6>Trey Weir</h6>
+					<p>Co-founder of <a href="https://www.brainandbonesllc.com/" target="_blank">Brain & Bones</a> and project sponsor.</p>
+					<div class="flex justify-center space-x-4">
+						<a href="/zzz" target="_blank"><SvgIcon /></a>
+					</div>
+				</Card>
+			</section>
+		</section>
 
-	<Divider />
+		<!-- Contributors -->
+		<section class="text-center space-y-6">
+			<h4>Contributors</h4>
+			<div class="flex flex-wrap justify-center space-x-4">
+				<Avatar src="https://i.pravatar.cc/" size="lg" hover class="m-2" />
+				<Avatar src="https://i.pravatar.cc/" size="lg" hover class="m-2" />
+				<Avatar src="https://i.pravatar.cc/" size="lg" hover class="m-2" />
+				<Avatar src="https://i.pravatar.cc/" size="lg" hover class="m-2" />
+				<Avatar src="https://i.pravatar.cc/" size="lg" hover class="m-2" />
+				<Avatar src="https://i.pravatar.cc/" size="lg" hover class="m-2" />
+			</div>
+			<Button variant="ghost" href="https://discord.gg/EXqV7W8MtY" target="_blank">Join the Community!</Button>
+		</section>
 
-	<!-- Next Steps -->
-	<Card class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-		<p>Next, let's configure Tailwind to work with Skeleton.</p>
-		<Button variant="filled-accent" href="/guides/tailwind">Configure Tailwind</Button>
-	</Card>
-</div>
+		<!-- Sponsors -->
+		<section class="text-center space-y-8">
+			<h4>Sponsors</h4>
+			<div class="flex flex-wrap justify-center space-x-4">
+				<a href="https://www.brainandbonesllc.com/" target="_blank" class="opacity-90 hover:opacity-100">
+					<SvgIcon name="skull" width="w-20" height="h-20" />
+				</a>
+			</div>
+			<Button variant="ghost" href="https://github.com/sponsors/Brain-Bones" target="_blank">Become a Sponsor</Button>
+		</section>
+
+	</div>
+	
+	<!-- Page Footer -->
+	<SkeletonFooter />
+
+</main>

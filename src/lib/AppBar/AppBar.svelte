@@ -19,7 +19,11 @@
         <Button variant="minimal" on:click={drawerOpen} class="md:hidden mr-4">
             <SvgIcon name="bars" width="w-6" height="h-6" class="!block opacity-50" />
         </Button>
-        <!-- Logo -->
+        <!-- Icon -->
+        <div class="bg-surface-500/20 w-8 aspect-square flex justify-center items-center rounded-full mr-3">
+            <SvgIcon name="skull" width="w-4" height="h-4" />
+        </div>
+        <!-- Skeleton -->
         <a href="/" class="text-[26px] font-bold uppercase">Skeleton</a>
     </div>
 

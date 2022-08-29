@@ -7,7 +7,7 @@ export const navigation: any = [
     {
         title: 'Guides',
         list: [
-            { href: '/', label: 'Get Started' },
+            { href: '/guides/get-started', label: 'Get Started' },
             { href: '/guides/tailwind', label: 'Tailwind Settings' },
             { href: '/guides/themes', label: 'Themes' },
             { href: '/guides/styling', label: 'Styling' },
