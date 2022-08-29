@@ -6,10 +6,13 @@
 
 	import { afterNavigate } from '$app/navigation';
 
-	import { Dialog, Toast } from '@brainandbones/skeleton';
+	// Components
 	import AppShell from '$lib/AppShell/AppShell.svelte';
 	import AppBar from '$lib/AppBar/AppBar.svelte';
-	
+	import Dialog from '$lib/Notifications/Dialog.svelte';
+	import Toast from '$lib/Notifications/Toast.svelte';
+
+	// Doc Components 
 	import SkeletonDrawer from '$lib/_documentation/SkeletonDrawer/SkeletonDrawer.svelte';
 	import SkeletonFooter from '$lib/_documentation/SkeletonFooter/SkeletonFooter.svelte';
 
