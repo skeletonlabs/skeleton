@@ -11,7 +11,9 @@
 	// Components & Utilities
 	import Dialog from '$lib/Notifications/Dialog.svelte';
 	import Toast from '$lib/Notifications/Toast.svelte';
-    import AppBar from '$lib/AppBar/AppBar.svelte';
+
+    // Doc Components
+    import SkeletonAppBar from '$lib/_documentation/SkeletonAppBar/SkeletonAppBar.svelte';
 
 	// Skeleton Theme: skeleton|rocket|modern|seafoam|vintage|sahara|test
 	import '$lib/styles/themes/theme-skeleton.css';
@@ -41,7 +43,7 @@
 
     <!-- App Bar -->
     <header class="flex-none">
-        <AppBar />
+        <SkeletonAppBar />
     </header>
 
     <!-- Page -->
