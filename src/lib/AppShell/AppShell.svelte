@@ -1,32 +1,28 @@
 <script lang="ts">
-
-    // Props
-    export let page: string = 'container mx-auto p-4';
-
     // Base Classes
-    const cBaseAppShell: string = 'w-screen h-screen overflow-hidden flex overflow-hidden';
-    const cBaseContent: string = 'flex-1 overflow-y-auto';
-    const cBaseSidebarLeft: string = 'flex-none w-0 lg:w-[280px] overflow-x-hidden overflow-y-auto';
-    const cBaseSidebarRight: string = 'flex-none w-0 lg:w-[280px] overflow-x-hidden overflow-y-auto';
+    const cBaseAppShell: string = 'w-full h-full flex overflow-hidden';
+    const cPage: string = 'container mx-auto space-y-10 flex-1 overflow-x-hidden overflow-y-auto';
+    const cSidebarLeft: string = 'flex-none w-0 lg:w-[280px] overflow-x-hidden overflow-y-auto';
+    const cSidebarRight: string = 'flex-none w-0 lg:w-[280px] overflow-x-hidden overflow-y-auto';
 </script>
 
 <div id="appShell" class="{cBaseAppShell}">
 
     <!-- Slot: Sidebar (left) -->
     {#if $$slots.sidebarLeft}
-    <div class="sidebar-left {cBaseSidebarLeft}"><slot name="sidebarLeft"></slot></div>
+    <aside class="sidebar-left {cSidebarLeft}"><slot name="sidebarLeft"></slot></aside>
     {/if}
 
     <!-- Slot: Main -->
-    <div class="page {cBaseContent}">
+    <div class="page {cPage}">
 
         <!-- Page Header -->
         {#if $$slots.header}
         <header id="page-header"><slot name="header">(slot:header)</slot></header>
         {/if}
 
-        <!-- Page -->
-        <main class="{page}"><slot /></main>
+        <!-- Page Content -->
+        <div id="page-content" class="p-4 md:p-10"><slot /></div>
 
         <!-- Page Footer -->
         {#if $$slots.footer}
@@ -37,7 +33,7 @@
 
     <!-- Slot: Sidebar (right) -->
     {#if $$slots.sidebarRight}
-    <div class="sidebar-right bg-blue-500 {cBaseSidebarRight}"><slot name="sidebarRight"></slot></div>
+    <aside class="sidebar-right bg-blue-500 {cSidebarRight}"><slot name="sidebarRight"></slot></aside>
     {/if}
 
 </div>

@@ -27,28 +27,28 @@
 
 	// Lifecycle Events
 	afterNavigate(() => {
-		// Scroll to top of main page content
-		const elemMain = document.querySelector('main');
-		if (elemMain !== null) { elemMain.scrollTop = 0; }
+		// Scroll to top
+		const elemPageContent = document.querySelector('#page-content');
+		if (elemPageContent !== null) { elemPageContent.scrollTop = 0; }
 	});
 
     // Base Classes
-    const cBaseLayout: string = 'w-screen h-screen overflow-hidden flex flex-col';
+    const cLayoutRoot: string = 'w-screen h-screen overflow-hidden flex flex-col';
 </script>
 
 <Dialog />
 <Toast />
 
-<div class="{cBaseLayout}">
+<main id="layout-root" class="{cLayoutRoot}">
 
-    <!-- App Bar -->
+    <!-- Root Layout Header -->
     <header class="flex-none">
         <SkeletonAppBar />
     </header>
 
-    <!-- Page -->
-    <div class="flex-1 overflow-hidden">
+    <!-- Root Layout Page -->
+    <div class="flex-auto overflow-hidden">
         <slot />
     </div>
 
-</div>
+</main>

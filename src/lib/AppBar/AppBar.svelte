@@ -15,7 +15,7 @@
     $: classesBase = `${cBase} ${background} ${border} ${padding} ${space}`;
 </script>
 
-<div class="{classesBase} {$$props.class||''}">
+<div class="app-bar {classesBase} {$$props.class||''}">
 
     <!-- Slot: lead -->
     {#if $$slots.lead}

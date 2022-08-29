@@ -14,11 +14,10 @@ blockquote {
 }
 
 /* Page Styles */
-main p {
+p {
 	@apply text-base text-surface-500 dark:text-surface-400;
 }
-main a:not(.comp-button):not(.crumb a):not(.list-row):not(.logo):not(.drawer a),
-#page-footer a {
+a:not(.comp-button):not(.crumb a):not(.list-row):not(.drawer a):not(.app-bar a) {
 	@apply text-primary-500 underline underline-offset-4 decoration-primary-500/20 decoration-dotted ;
 }
 

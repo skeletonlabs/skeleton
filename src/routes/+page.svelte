@@ -48,28 +48,28 @@
 		<!-- Features -->
 		<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 			<Card>
-				<div class="bg-surface-500/50 w-10 aspect-square flex justify-center items-center rounded-lg">
+				<div class="bg-surface-500/20 w-10 aspect-square flex justify-center items-center rounded-lg">
 					<SvgIcon name="skull" />
 				</div>
 				<h6>Svelte Integration</h6>
 				<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit ea ab possimus reprehenderit dolorem quia veritatis.</p>
 			</Card>
 			<Card>
-				<div class="bg-surface-500/50 w-10 aspect-square flex justify-center items-center rounded-lg">
+				<div class="bg-surface-500/20 w-10 aspect-square flex justify-center items-center rounded-lg">
 					<SvgIcon name="skull" />
 				</div>
 				<h6>Tailwind Integration</h6>
 				<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit ea ab possimus reprehenderit dolorem quia veritatis.</p>
 			</Card>
 			<Card>
-				<div class="bg-surface-500/50 w-10 aspect-square flex justify-center items-center rounded-lg">
+				<div class="bg-surface-500/20 w-10 aspect-square flex justify-center items-center rounded-lg">
 					<SvgIcon name="skull" />
 				</div>
 				<h6>Dynamic Themes</h6>
 				<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit ea ab possimus reprehenderit dolorem quia veritatis.</p>
 			</Card>
 			<Card>
-				<div class="bg-surface-500/50 w-10 aspect-square flex justify-center items-center rounded-lg">
+				<div class="bg-surface-500/20 w-10 aspect-square flex justify-center items-center rounded-lg">
 					<SvgIcon name="skull" />
 				</div>
 				<h6>Powerful Utilities</h6>
