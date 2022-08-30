@@ -8,6 +8,8 @@
 	export let border: string = 'border-primary-500';
 	export let fill: string = 'fill-primary-500';
 	export let color: string = 'text-primary-500';
+	export let style: string = '';
+	
 	// A11y
 	export let labeledby: string | undefined = undefined;
 	export let label: string | undefined = undefined;
@@ -17,6 +19,7 @@
 	setContext('border', border);
 	setContext('fill', fill);
 	setContext('color', color);
+	setContext('style', style);
 
 	// Classes
 	const cBaseGroup: string = 'hide-scrollbar overflow-x-auto flex border-b border-surface-300 border-inset dark:border-surface-700';

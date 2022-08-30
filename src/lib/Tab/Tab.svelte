@@ -7,6 +7,7 @@
 	export let border: string = getContext('border');
 	export let fill: string = getContext('fill');
 	export let color: string = getContext('color');
+	export let style: string = getContext('style')
 
 	// Props
 	export let value: any = $selected.value;
@@ -26,10 +27,17 @@
 		}
 	}
 
+	function getStyleClass(style: string) {
+		if (style === 'pill') {
+			return `py-2 px-5 rounded-full duration-300`
+		}
+		return ''
+	}
+
 	// Reactive Classes
 	$: isSelected = value == $selected;
 	$: cHighlight = isSelected ? `${border} ${color} opacity-100` : 'border-transparent';
-	$: classesBase = `${cBase} ${cHighlight}`;
+	$: classesBase = `${cBase} ${cHighlight} ${getStyleClass(style)}`;
 	$: classesIcon = isSelected ? fill : 'fill-surface-500';
 </script>
 
