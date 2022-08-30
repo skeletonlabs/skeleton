@@ -6,14 +6,18 @@
 	import { storeHighlightJs } from '$lib/CodeBlock/stores';
 	storeHighlightJs.set(hljs);
 
+	import { page } from '$app/stores';
 	import { afterNavigate } from '$app/navigation';
 
 	// Components & Utilities
+	import AppShell from '$lib/AppShell/AppShell.svelte';
 	import Dialog from '$lib/Notifications/Dialog.svelte';
 	import Toast from '$lib/Notifications/Toast.svelte';
 
-    // Doc Components
-    import SkeletonAppBar from '$lib/_documentation/SkeletonAppBar/SkeletonAppBar.svelte';
+	// Doc Components 
+	import SkeletonAppBar from '$lib/_documentation/SkeletonAppBar/SkeletonAppBar.svelte';
+	import SkeletonDrawer from '$lib/_documentation/SkeletonDrawer/SkeletonDrawer.svelte';
+	import SkeletonFooter from '$lib/_documentation/SkeletonFooter/SkeletonFooter.svelte';
 
 	// Skeleton Theme: skeleton|rocket|modern|seafoam|vintage|sahara|test
 	import '$lib/styles/themes/theme-skeleton.css';
@@ -32,23 +36,31 @@
 		if (elemPageContent !== null) { elemPageContent.scrollTop = 0; }
 	});
 
-    // Base Classes
-    const cLayoutRoot: string = 'w-screen h-screen overflow-hidden flex flex-col';
+	// Disable left sidebar on homepage
+	$: sidebarLeftWidth = $page.url.pathname === '/' ? 'w-0' : 'lg:w-[280px]';
 </script>
 
 <Dialog />
 <Toast />
 
-<main id="layout-root" class="{cLayoutRoot}">
+<AppShell {sidebarLeftWidth}>
 
-    <!-- Root Layout Header -->
-    <header class="flex-none">
-        <SkeletonAppBar />
-    </header>
+	<!-- Header -->
+	<svelte:fragment slot="header">
+		<SkeletonAppBar />
+	</svelte:fragment>
 
-    <!-- Root Layout Page -->
-    <div class="flex-auto overflow-hidden">
-        <slot />
-    </div>
+	<!-- Sidebar (Left) -->
+	<svelte:fragment slot="sidebarLeft">
+		<SkeletonDrawer />
+	</svelte:fragment>
 
-</main>
+	<!-- Page: Content -->
+	<slot />
+
+	<!-- Page: Footer -->
+	<svelte:fragment slot="pageFooter">
+		<SkeletonFooter />
+	</svelte:fragment>
+
+</AppShell>

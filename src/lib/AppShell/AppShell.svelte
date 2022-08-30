@@ -1,39 +1,58 @@
 <script lang="ts">
+    // Props
+    export let sidebarLeftWidth: string = 'w-0'; // lg:w-[280px]
+    export let sidebarRightWidth: string = 'w-0';
+
     // Base Classes
-    const cBaseAppShell: string = 'w-full h-full flex overflow-hidden';
-    const cPage: string = 'container mx-auto space-y-10 flex-1 overflow-x-hidden overflow-y-auto';
-    const cSidebarLeft: string = 'flex-none w-0 lg:w-[280px] overflow-x-hidden overflow-y-auto';
-    const cSidebarRight: string = 'flex-none w-0 lg:w-[280px] overflow-x-hidden overflow-y-auto';
+    const cBaseAppShell: string = 'w-full h-full flex flex-col overflow-hidden';
+    const cContentArea: string = 'w-full h-full flex overflow-hidden';
+    const cPage: string = 'flex-1 overflow-x-hidden overflow-y-auto'; // container mx-auto space-y-10 // p-4 md:p-10
+    const cSidebarLeft: string = 'flex-none overflow-x-hidden overflow-y-auto';
+    const cSidebarRight: string = 'flex-none overflow-x-hidden overflow-y-auto';
+
+    // Reactive Classes
+    $: classesSidebarLeft = `${cSidebarLeft} ${sidebarLeftWidth}`;
+    $: classesSidebarRight = `${cSidebarRight} ${sidebarRightWidth}`;
 </script>
 
-<div id="appShell" class="{cBaseAppShell}">
+<main id="appShell" class="{cBaseAppShell}">
 
-    <!-- Slot: Sidebar (left) -->
-    {#if $$slots.sidebarLeft}
-    <aside class="sidebar-left {cSidebarLeft}"><slot name="sidebarLeft"></slot></aside>
+    <!-- Slot: Header -->
+    {#if $$slots.header}
+    <header class="flex-none"><slot name="header"></slot></header>
     {/if}
 
-    <!-- Slot: Main -->
-    <div class="page {cPage}">
+    <!-- Content Area -->
+    <div class="flex-auto {cContentArea}">
 
-        <!-- Page Header -->
-        {#if $$slots.header}
-        <header id="page-header"><slot name="header">(slot:header)</slot></header>
+        <!-- Slot: Sidebar (left) -->
+        {#if $$slots.sidebarLeft}
+        <aside class="sidebar-left {classesSidebarLeft}"><slot name="sidebarLeft"></slot></aside>
         {/if}
 
-        <!-- Page Content -->
-        <div id="page-content" class="p-4 md:p-10"><slot /></div>
+        <!-- Page -->
+        <div class="page {cPage}">
 
-        <!-- Page Footer -->
-        {#if $$slots.footer}
-        <footer id="page-footer"><slot name="footer">(slot:footer)</slot></footer>
+            <!-- Slot: Page Header -->
+            {#if $$slots.pageHeader}
+            <header id="page-header"><slot name="pageHeader">(slot:header)</slot></header>
+            {/if}
+
+            <!-- Slot: Page Content (default) -->
+            <div id="page-content"><slot /></div>
+
+            <!-- Slot: Page Footer -->
+            {#if $$slots.pageFooter}
+            <footer id="page-footer"><slot name="pageFooter">(slot:footer)</slot></footer>
+            {/if}
+
+        </div>
+
+        <!-- Slot: Sidebar (right) -->
+        {#if $$slots.sidebarRight}
+        <aside class="sidebar-right {classesSidebarRight}"><slot name="sidebarRight"></slot></aside>
         {/if}
 
     </div>
 
-    <!-- Slot: Sidebar (right) -->
-    {#if $$slots.sidebarRight}
-    <aside class="sidebar-right bg-blue-500 {cSidebarRight}"><slot name="sidebarRight"></slot></aside>
-    {/if}
-
-</div>
+</main>

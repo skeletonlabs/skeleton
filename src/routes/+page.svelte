@@ -10,12 +10,10 @@
 	import Button from '$lib/Button/Button.svelte';
 	import SvgIcon from '$lib/SvgIcon/SvgIcon.svelte';
 
-	// Doc Component
-	import SkeletonFooter from '$lib/_documentation/SkeletonFooter/SkeletonFooter.svelte';
 
 </script>
 
-<main class="w-full h-full !overflow-y-scroll">
+<div>
 
 	<!-- Alert: Beta -->
 	<Alert>
@@ -144,7 +142,5 @@
 
 	</div>
 	
-	<!-- Page Footer -->
-	<SkeletonFooter />
 
-</main>
+</div>
