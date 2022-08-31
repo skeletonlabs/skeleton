@@ -82,9 +82,9 @@ const storeDrawer: Writable<boolean> = writable(false);
         `.trim()}
 		/>
 		<p>To open the drawer, set the store value to <code>true</code>.</p>
-		<CodeBlock language="typescript" code={`const drawerOpen: any = () => {storeDrawer.set(true);};`} />
+		<CodeBlock language="typescript" code={`const drawerOpen: any = () => { storeDrawer.set(true) };`} />
 		<p>To close the drawer, set the store value to <code>false</code>.</p>
-		<CodeBlock language="typescript" code={`const drawerClose: any = () => {storeDrawer.set(false);};`} />
+		<CodeBlock language="typescript" code={`const drawerClose: any = () => { storeDrawer.set(false) };`} />
 		<p>Create your trigger actions. Not that backdrops can be inheritely closed by clicking on the backdrop or by tapping <em>ESC</em> on your keyboard.</p>
 		<CodeBlock language="html" code={`<Button variant="filled-primary" on:click={drawerOpen}>Open</Button>`} />
 		<CodeBlock language="html" code={`<Button variant="filled-primary" on:click={drawerClose}>Close</Button>`} />
