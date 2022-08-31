@@ -1,7 +1,7 @@
 <script lang="ts">
     // Props
-    export let sidebarLeftWidth: string = 'w-0'; // lg:w-[280px]
-    export let sidebarRightWidth: string = 'w-0';
+    export let sidebarLeftWidth: string = 'w-auto';
+    export let sidebarRightWidth: string = 'w-auto';
 
     // Base Classes
     const cBaseAppShell: string = 'w-full h-full flex flex-col overflow-hidden';
