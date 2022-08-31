@@ -43,7 +43,7 @@
 	});
 
 	// Disable left sidebar on homepage
-	$: sidebarLeftWidth = $storeCurrentUrl === '/' ? 'w-0' : 'lg:w-auto';
+	$: sidebarLeftWidth = $page.url.pathname === '/' ? 'w-0' : 'lg:w-auto';
 </script>
 
 <!-- Overlays -->

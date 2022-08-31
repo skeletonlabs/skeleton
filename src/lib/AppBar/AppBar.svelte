@@ -2,7 +2,7 @@
     // Props
     export let background: string|undefined = undefined;
     export let border: string = 'border-b border-b-surface-500/10 dark:border-b-surface-700';
-    export let padding: string = 'p-4';
+    export let padding: string = 'px-4 py-4 md:py-6';
     export let space: string = 'space-x-4';
 
     // Base Classes
