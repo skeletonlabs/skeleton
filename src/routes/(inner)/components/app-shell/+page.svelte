@@ -6,20 +6,18 @@
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Required', 'Description'],
 		source: [
 			['name', '-', '-', '-', '&check;', '...'],
-			['name', '-', '-', '-', '-', '...'],
+			['name', '-', '-', '-', '-', '...']
 		]
 	};
 	const tableSlots: any = {
 		headings: ['Name', 'Description'],
-		source: [
-			['name', '...'],
-		]
+		source: [['name', '...']]
 	};
 	const tableA11y: any = {
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Required', 'Description'],
 		source: [
 			['name', '-', '-', '-', '&check;', '...'],
-			['name', '-', '-', '-', '-', '...'],
+			['name', '-', '-', '-', '-', '...']
 		]
 	};
 </script>
@@ -27,7 +25,7 @@
 <div class="space-y-8">
 	<!-- Header -->
 	<header class="space-y-4">
-		<h1>Template</h1>
+		<h1>App Shell</h1>
 		<p>Describe the component here.</p>
 		<CodeBlock language="javascript" code={`import { Component } from '@brainandbones/skeleton';`} />
 	</header>

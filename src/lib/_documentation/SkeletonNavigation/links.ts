@@ -25,6 +25,8 @@ export const menuNavLinks: any = [
         list: [
             { href: '/components/accordions', label: 'Accordions' },
             { href: '/components/alerts', label: 'Alerts' },
+            { href: '/components/app-bar', label: 'App Bar' },
+            { href: '/components/app-shell', label: 'App Shell' },
             { href: '/components/avatars', label: 'Avatars' },
             { href: '/components/badges', label: 'Badges' },
             { href: '/components/breadcrumbs', label: 'Breadcrumbs' },

@@ -10,7 +10,7 @@
     function drawerOpen(): void { storeMobileDrawer.set(true); };
 </script>
 
-<AppBar>
+<AppBar border="border-b border-b-surface-300 dark:border-b-surface-900">
 
     <!-- Branding -->
     <svelte:fragment slot="lead">
