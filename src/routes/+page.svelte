@@ -1,7 +1,7 @@
 <script lang="ts">
-
-	// Data from +page.server.ts
+	// Deconstruct data from +page.server.ts
 	// export let data: any;
+	// const { contributors }: { contributors: any[]} = data;
 
 	// Components
 	import Alert from '$lib/Alert/Alert.svelte';
@@ -10,7 +10,13 @@
 	import Button from '$lib/Button/Button.svelte';
 	import SvgIcon from '$lib/SvgIcon/SvgIcon.svelte';
 
-
+	// Fetch Contributors
+	async function getContributors(): Promise<any> {
+		const http = await fetch('https://api.github.com/repos/Brain-Bones/skeleton/contributors');
+		const res = await http.json();
+		if (http.ok) { return res; } else { throw new Error(res); }
+	}
+	let contributors: Promise<any> = getContributors();
 </script>
 
 <div>
@@ -115,18 +121,19 @@
 
 		<!-- Contributors -->
 		<section class="text-center space-y-6">
-			<!-- <pre>{JSON.stringify(data.contributors, null, 2)}</pre> -->
-
 			<h2>Contributors</h2>
 			<div class="flex flex-wrap justify-center space-x-4">
-				<Avatar src="https://avatars.githubusercontent.com/u/10255430?v=4" size="lg" hover class="m-2" />
-				<Avatar src="https://avatars.githubusercontent.com/u/10255430?v=4" size="lg" hover class="m-2" />
-				<Avatar src="https://avatars.githubusercontent.com/u/10255430?v=4" size="lg" hover class="m-2" />
-				<Avatar src="https://avatars.githubusercontent.com/u/10255430?v=4" size="lg" hover class="m-2" />
-				<Avatar src="https://avatars.githubusercontent.com/u/10255430?v=4" size="lg" hover class="m-2" />
-				<Avatar src="https://avatars.githubusercontent.com/u/10255430?v=4" size="lg" hover class="m-2" />
+				{#await contributors}
+					<p>Loading contributors...</p>
+				{:then response}
+					{#each response as c}
+						<a href={c.html_url} target="_blank" title={c.login}>
+							<Avatar src={c.avatar_url} size="lg" shadow="shadow-lg" hover class="m-2" />
+						</a>
+					{/each}
+				{/await}
 			</div>
-			<Button variant="ghost" href="https://discord.gg/EXqV7W8MtY" target="_blank">Join the Community!</Button>
+			<Button variant="ghost" href="/docs/contributions">View Contributor Guide</Button>
 		</section>
 
 		<!-- Sponsors -->
