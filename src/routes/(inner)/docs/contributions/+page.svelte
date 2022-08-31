@@ -294,11 +294,11 @@ $: classesLabel = \`\${cBaseLabel}\`; // child element
 	<section class="space-y-4">
 		<h2>Updating Documentation</h2>
 		<p>
-			A boilerplate template for documentation pages is available under <code>/routes/components/template/+page.svelte</code>.
+			A boilerplate template for documentation pages is available under <code>/src/routes/components/(inner)/template/+page.svelte</code>.
 		</p>
 		<h4>Update Site Navigation</h4>
 		<p>
-			Open <code>/routes/+layout.svelte</code> and modify the contents of <code>const navigation</code> to link to any documentation pages you add.
+			Open <code>/src/lib/_documentation/SkeletonNavigation/links.ts</code> and document the new links under the appropriate section.
 		</p>
 		<h4>Interactive vs Static Demos</h4>
 		<p>
@@ -309,18 +309,19 @@ $: classesLabel = \`\${cBaseLabel}\`; // child element
 
 	<Divider />
 
-	<!-- Linting -->
+	<!-- Code Formatting -->
 	<section class="space-y-4">
-		<h2>Linting</h2>
-		<p>Code linting is handled via <a href="https://prettier.io/" target="_blank">Prettier</a>.</p>
+		<h2>Code Linting &amp; Formatting</h2>
+		<p>This is is handled via <a href="https://prettier.io/" target="_blank">Prettier</a>.</p>
 		<CodeBlock language="console" code={`npm run lint`} />
+		<CodeBlock language="console" code={`npm run format`} />
 	</section>
 
 	<Divider />
 
-	<!-- Running Tests -->
+	<!-- Automated Tests -->
 	<section class="space-y-4">
-		<h2>Running Tests</h2>
+		<h2>Automated Tests</h2>
 		<p>
 			Tests are handled via <a href="https://vitest.dev/" target="_blank">Vitest</a>, which uses similar conventions and syntax to Jest. Please ensure you write and run tests before submitting a pull
 			request. Bare minimum, these tests should test components with the minimal and maximum available prop changes.
