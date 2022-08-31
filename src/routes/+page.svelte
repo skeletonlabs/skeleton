@@ -49,32 +49,32 @@
 		<!-- Features -->
 		<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 			<Card>
-				<div class="bg-[#ff3e00] w-14 aspect-square flex justify-center items-center rounded-lg">
+				<div class="bg-[#ff3e00] w-14 aspect-square flex justify-center items-center rounded-lg shadow">
 					<SvgIcon name="svelte" fill="fill-white" width="w-10" height="h-10" />
 				</div>
 				<h6>Svelte Integration</h6>
-				<p>Plug and play anywhere Svelte is supported, including SvelteKit, Vite, and Astro projects.</p>
+				<p>Plug-and-play support for any kind of Svelte project, including official instruction for <a href="https://kit.svelte.dev/" target="_blank">SvelteKit</a>, <a href="https://vitejs.dev/" target="_blank">Vite</a>, and <a href="https://astro.build/" target="_blank">Astro</a>.</p>
 			</Card>
 			<Card>
-				<div class="bg-sky-500 w-14 aspect-square flex justify-center items-center rounded-lg">
+				<div class="bg-sky-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
 					<SvgIcon name="tailwind" fill="fill-white" width="w-10" height="h-10" />
 				</div>
 				<h6>Tailwind CSS Integration</h6>
-				<p>Fits right into your design system. Custom all aspects of components use utility classes.</p>
+				<p>Integrates into your Tailwind design system using utility classes to customize components.</p>
 			</Card>
 			<Card>
-				<div class="bg-primary-500 w-14 aspect-square flex justify-center items-center rounded-lg">
+				<div class="bg-primary-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
 					<SvgIcon name="swatchbook" fill="fill-white" width="w-8" height="h-8" />
 				</div>
 				<h6>Dynamic Themes</h6>
-				<p>Choose from a number of currated themes or quickly create your own.</p>
+				<p>Choose from a library of hand crafted preset themes or quickly create your own in seconds.</p>
 			</Card>
 			<Card>
-				<div class="bg-accent-500 w-14 aspect-square flex justify-center items-center rounded-lg">
+				<div class="bg-accent-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
 					<SvgIcon name="screwdriver" fill="fill-white" width="w-8" height="h-8" />
 				</div>
 				<h6>Powerful Utilities</h6>
-				<p>A complete toolkit for web apps, including layouts, dialogs, code blocks, and more.</p>
+				<p>Provides complete toolkit for building web apps, including layouts, dialogs, and more.</p>
 			</Card>
 		</section>
 
@@ -83,31 +83,31 @@
 			<h2>Meet The Team</h2>
 			<section class="grid grid-cols-1 md:grid-cols-3 gap-4">
 				<Card class="text-center">
-					<Avatar src="https://avatars.githubusercontent.com/u/1509726?v=4" size="xl" outlined hover class="mx-auto" />
+					<Avatar src="https://avatars.githubusercontent.com/u/1509726?v=4" size="xl" outlined class="mx-auto" />
 					<h5>Chris Simmons</h5>
-					<p>Co-creator and primary contributor to the Skeleton project.</p>
+					<p>Co-founder and core contributor.</p>
 					<div class="flex justify-center space-x-4">
 						<a href="https://github.com/endigo9740" target="_blank"><SvgIcon name="github" /></a>
 						<a href="https://twitter.com/endigodesign" target="_blank"><SvgIcon name="twitter" /></a>
-						<a href="https://www.linkedin.com/in/chris-simmons-8a523a23/" target="_blank"><SvgIcon /></a>
+						<a href="https://www.linkedin.com/in/chris-simmons-8a523a23/" target="_blank"><SvgIcon name="linkedin" /></a>
 					</div>
 				</Card>
 				<Card class="text-center">
-					<Avatar src="https://avatars.githubusercontent.com/u/52718757?v=4" size="xl" outlined hover class="mx-auto" />
+					<Avatar src="https://avatars.githubusercontent.com/u/52718757?v=4" size="xl" outlined class="mx-auto" />
 					<h5>Thomas Jespersen</h5>
-					<p>Co-creator and primary contributor to the Skeleton project.</p>
+					<p>Co-founder and core contributor.</p>
 					<div class="flex justify-center space-x-4">
-						<a href="/xxx" target="_blank"><SvgIcon name="github" /></a>
-						<a href="/yyy" target="_blank"><SvgIcon name="twitter" /></a>
-						<a href="/zzz" target="_blank"><SvgIcon /></a>
+						<a href="https://github.com/thomasbjespersen" target="_blank"><SvgIcon name="github" /></a>
+						<a href="https://www.linkedin.com/in/thomas-jespersen-b77132202/" target="_blank"><SvgIcon name="linkedin" /></a>
 					</div>
 				</Card>
 				<Card class="text-center">
-					<Avatar src="https://avatars.githubusercontent.com/u/10255430?v=4" size="xl" outlined hover class="mx-auto" />
+					<Avatar src="https://avatars.githubusercontent.com/u/10255430?v=4" size="xl" outlined class="mx-auto" />
 					<h5>Trey Weir</h5>
-					<p>Co-founder of <a href="https://www.brainandbonesllc.com/" target="_blank">Brain & Bones</a> and project sponsor.</p>
+					<p>Founder of <a href="https://www.brainandbonesllc.com/" target="_blank">Brain & Bones</a>. Core member.</p>
 					<div class="flex justify-center space-x-4">
-						<a href="/zzz" target="_blank"><SvgIcon /></a>
+						<a href="https://twitter.com/brain_and_bones" target="_blank"><SvgIcon name="twitter" /></a>
+						<a href="https://www.linkedin.com/company/brainandbones/" target="_blank"><SvgIcon name="linkedin" /></a>
 					</div>
 				</Card>
 			</section>
