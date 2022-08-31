@@ -15,12 +15,12 @@
     }
 </script>
 
-<div class="{$$props.class||''}">
+<div class="mb-8 {$$props.class||''}">
 
     {#each menuNavLinks as { title, list }, i}
 
         <!-- Title -->
-        <div class="text-sm text-primary-500 p-4">{title}</div>
+        <div class="text-primary-500 text-sm font-bold uppercase p-4">{title}</div>
 
         <!-- List -->
         <List tag="nav" selected={storeCurrentUrl} {title} label={title}>
@@ -35,7 +35,7 @@
         </List>
 
         <!-- Divider -->
-        {#if i + 1 < menuNavLinks.length}<Divider class="my-4" />{/if}
+        {#if i + 1 < menuNavLinks.length}<Divider class="my-4 opacity-30" />{/if}
         
     {/each}
 </div>

@@ -16,7 +16,7 @@
     <svelte:fragment slot="lead">
         <!-- Drawer Menu -->
         <div on:click={drawerOpen} class="md:hidden mr-4 p-1 cursor-pointer">
-            <SvgIcon name="bars" width="w-6" height="h-6" fill="fill-white/50 hover:fill-white" on:click={drawerOpen} />
+            <SvgIcon name="bars" width="w-6" height="h-6" fill="fill-black dark:fill-white" on:click={drawerOpen} />
         </div>
         <!-- Skeleton -->
         <a href="/" class="text-[26px] font-bold uppercase mr-4" title="Return to Homepage">Skeleton</a>
