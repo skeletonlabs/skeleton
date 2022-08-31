@@ -39,6 +39,13 @@
 			['margin', 'string', '-', 'Provide classes to set margins.'],
 		]
 	};
+	const tableA11y: any = {
+		headings: ['Prop', 'Type', 'Default', 'Description'],
+		source: [
+			['labelledby', 'string', '-', 'Provide the ID of the element labeling the drawer.'],
+			['describedby', 'string', '-', 'Provide the ID of the element describing the drawer.'],
+		]
+	};
 	const tableSlots: any = {
 		headings: ['Name', 'Description'],
 		source: [
@@ -110,5 +117,14 @@ const storeDrawer: Writable<boolean> = writable(false);
 	<section class="space-y-4">
 		<h2>Slots</h2>
 		<DataTable headings={tableSlots.headings} source={tableSlots.source} />
+	</section>
+
+	<!-- Accessibility -->
+	<section class="space-y-4">
+		<div class="flex justify-between items-center">
+			<h2>Accessibility</h2>
+			<a href="https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/" target="_blank">ARIA Guidelines</a>
+		</div>
+		<DataTable headings={tableA11y.headings} source={tableA11y.source} />
 	</section>
 </section>

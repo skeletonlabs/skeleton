@@ -9,15 +9,18 @@
 	export let duration: number = 150;
 	// Props (backdrop)
 	export let bgBackdrop: string = 'bg-surface-400/70 dark:bg-surface-900/70';
-	export let display: string = '';
+	export let display: string|undefined = undefined;
 	export let blur: string = 'backdrop-blur-sm';
 	// Props (drawer)
 	export let bgDrawer: string = 'bg-surface-100 dark:bg-surface-800';
-	export let border: string = '';
-	export let rounded: string = '';
-	export let width: string = '';
-	export let height: string = '';
-	export let margin: string = '';
+	export let border: string|undefined = undefined;
+	export let rounded: string|undefined = undefined;
+	export let width: string|undefined = undefined;
+	export let height: string|undefined = undefined;
+	export let margin: string|undefined = undefined;
+	// Props (a11y)
+	export let labelledby: string|undefined = undefined;
+	export let describedby: string|undefined = undefined;
 	
 	// Base Classes
 	const cBaseBackdrop: string = 'fixed top-0 left-0 right-0 bottom-0 z-40 flex';
@@ -47,15 +50,19 @@
 		}
 	}
 
-	// Backdrop Click handler
+	// Input Handlers
 	function onClickBackdrop(e: any): void {
 		// Limit to only backdrop element
-		if (e.target === elemBackdrop) { open.set(false);  }
+		if (e.target === elemBackdrop) { close();  }
+	}
+	function onKeydownWindow(e: any): void {
+		if (!$open) return;
+		if (e.code === 'Escape') { close(); } 
 	}
 
-	// Input Handler
-	function inputHandler(e: any): void {
-		console.log(e);
+	// Close
+	function close(): void {
+		open.set(false);
 	}
 
 	// Lifecycle
@@ -63,11 +70,13 @@
 	afterUpdate(() => { setAnimParams(); });
 
 	// Reactive
-	$: classesWidth = width !== '' ? width : animParams.width;
-	$: classesHeight = height !== '' ? height : animParams.height;
+	$: classesWidth = width ? width : animParams.width;
+	$: classesHeight = height ? height : animParams.height;
 	$: classesBackdrop = `${cBaseBackdrop} ${animParams.backdrop} ${bgBackdrop} ${display} ${blur}`;
 	$: classesDrawer = `${cBaseDrawer} ${classesWidth} ${classesHeight} ${bgDrawer} ${border} ${margin} ${rounded}`;
 </script>
+
+<svelte:window on:keydown={onKeydownWindow} />
 
 {#if $open}
 <!-- Backdrop -->
@@ -76,7 +85,6 @@
 	class="drawer-backdrop {classesBackdrop} {$$props.class||''}"
 	data-testid="drawer-backdrop"
 	on:click={(e) => { onClickBackdrop(e) }}
-	on:keydown={inputHandler}
 	transition:fade|local={{ duration }}
 >
 	<!-- Drawer -->
@@ -84,6 +92,10 @@
 		class="drawer {classesDrawer} {$$props.class}"
 		data-testid="drawer"
 		transition:fly|local={{ x: animParams.x, y: animParams.y, duration }}
+		role="dialog"
+		aria-modal="true"
+		aria-labelledby={labelledby}
+       	aria-describedby={describedby}
 	>
 		<!-- Slot: Default -->
 		<slot />
