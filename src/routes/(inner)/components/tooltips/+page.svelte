@@ -51,7 +51,7 @@
 					<svelte:fragment slot="message">Tooltip on Left.</svelte:fragment>
 					<svelte:fragment slot="content"><Button variant="ghost" width="w-[90px]">Left</Button></svelte:fragment>
 				</Tooltip>
-				<Card class="flex justify-center">
+				<div class="flex justify-center p-1">
 					<Tooltip background="bg-accent-500" color="text-primary-200" width="w-[300px]" whitespace="whitespace-normal" rounded="rounded-xl" duration={0}>
 						<svelte:fragment slot="message">
 							<h3 class="mb-1">Hello, Skeleton 💀</h3>
@@ -61,7 +61,7 @@
 							<Button variant="ghost-accent" width="w-[90px]">Styled</Button>
 						</svelte:fragment>
 					</Tooltip>
-				</Card>
+				</div>
 				<Tooltip position="right">
 					<svelte:fragment slot="message">Tooltip on Right.</svelte:fragment>
 					<svelte:fragment slot="content"><Button variant="ghost" width="w-[90px]">Right</Button></svelte:fragment>
