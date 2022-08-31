@@ -15,7 +15,7 @@
     <!-- Branding -->
     <svelte:fragment slot="lead">
         <!-- Drawer Menu -->
-        <div on:click={drawerOpen} class="md:hidden mr-4 p-1 cursor-pointer">
+        <div on:click={drawerOpen} class="lg:hidden mr-4 p-1 cursor-pointer">
             <SvgIcon name="bars" width="w-6" height="h-6" fill="fill-black dark:fill-white" on:click={drawerOpen} />
         </div>
         <!-- Skeleton -->

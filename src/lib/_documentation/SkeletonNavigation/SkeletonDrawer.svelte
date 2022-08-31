@@ -1,13 +1,9 @@
 <script lang="ts">
     import Drawer from "$lib/Drawer/Drawer.svelte";
-
-    // SideBar
     import SkeletonSidebar from "./SkeletonSidebar.svelte";
-
-    // Stores
     import { storeMobileDrawer } from "$lib/_documentation/stores";
 </script>
 
-<Drawer open={storeMobileDrawer}>
+<Drawer open={storeMobileDrawer} display="lg:hidden">
     <SkeletonSidebar embedded={true} />
 </Drawer>

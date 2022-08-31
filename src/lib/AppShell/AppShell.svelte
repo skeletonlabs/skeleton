@@ -6,7 +6,7 @@
     // Base Classes
     const cBaseAppShell: string = 'w-full h-full flex flex-col overflow-hidden';
     const cContentArea: string = 'w-full h-full flex overflow-hidden';
-    const cPage: string = 'flex-1 overflow-x-hidden overflow-y-auto'; // container mx-auto space-y-10 // p-4 md:p-10
+    const cPage: string = 'flex-1 overflow-x-hidden overflow-y-auto';
     const cSidebarLeft: string = 'flex-none overflow-x-hidden overflow-y-auto';
     const cSidebarRight: string = 'flex-none overflow-x-hidden overflow-y-auto';
 
