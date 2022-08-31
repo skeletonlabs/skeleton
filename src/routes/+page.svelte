@@ -143,8 +143,11 @@
 		<section class="text-center space-y-8">
 			<h2>Sponsors</h2>
 			<div class="flex flex-wrap justify-center space-x-4">
-				<a href="https://www.brainandbonesllc.com/" target="_blank" class="opacity-90 hover:opacity-100">
-					<img src="https://www.brainandbonesllc.com/svg/logo.svg" alt="Brain & Bones">
+				<a href="https://www.brainandbonesllc.com/" target="_blank" class="opacity-90 hover:opacity-100 !no-underline">
+					<Card background="bg-surface-500/10" class="border border-surface-500/30 p-6 text-center space-y-4">
+						<img src="https://www.brainandbonesllc.com/svg/logo.svg" alt="Brain & Bones" class="invert dark:invert-0">
+						<p class="text-xs">Brain & Bones</p>
+					</Card>
 				</a>
 			</div>
 			<Button variant="ghost" href="https://github.com/sponsors/Brain-Bones" target="_blank">
