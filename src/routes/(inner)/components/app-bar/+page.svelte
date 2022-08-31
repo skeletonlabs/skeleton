@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { DataTable, Card } from '@brainandbones/skeleton';
+	import DataTable from '$lib/Table/DataTable.svelte';
 	import AppBar from '$lib/AppBar/AppBar.svelte';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
 	import SvgIcon from '$lib/SvgIcon/SvgIcon.svelte';
@@ -35,7 +35,7 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>App Bar</h1>
-		<p>Describe the component here.</p>
+		<p>Top bar header element. Pairs well with the <a href="/components/app-shell">App Shell</a>.</p>
 		<CodeBlock language="javascript" code={`import { AppBar } from '@brainandbones/skeleton';`} />
 	</header>
 

@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { DataTable, Card } from '@brainandbones/skeleton';
+	import DataTable from '$lib/Table/DataTable.svelte';
+	import Card  from '$lib/Card/Card.svelte';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
 
 	const tableProps: any = {

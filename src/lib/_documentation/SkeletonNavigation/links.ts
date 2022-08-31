@@ -23,10 +23,10 @@ export const menuNavLinks: any = [
     {
         title: 'Components',
         list: [
+            { href: '/components/app-shell', label: 'App Shell' },
+            { href: '/components/app-bar', label: 'App Bar' },
             { href: '/components/accordions', label: 'Accordions' },
             { href: '/components/alerts', label: 'Alerts' },
-            { href: '/components/app-bar', label: 'App Bar' },
-            { href: '/components/app-shell', label: 'App Shell' },
             { href: '/components/avatars', label: 'Avatars' },
             { href: '/components/badges', label: 'Badges' },
             { href: '/components/breadcrumbs', label: 'Breadcrumbs' },
