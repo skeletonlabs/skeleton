@@ -19,7 +19,7 @@
             <SvgIcon name="bars" width="w-6" height="h-6" fill="fill-black dark:fill-white" on:click={drawerOpen} />
         </div>
         <!-- Skeleton -->
-        <a href="/" class="text-[26px] font-bold uppercase mr-4" title="Return to Homepage">Skeleton</a>
+        <a href="/" class="hidden sm:text-base md:text-[26px] font-bold uppercase mr-4" title="Return to Homepage">Skeleton</a>
     </svelte:fragment>
     
     <!-- Navigation -->

@@ -80,11 +80,11 @@
 
 		<!-- Meet The Team -->
 		<section class="text-center space-y-6">
-			<h4>Meet The Team</h4>
+			<h2>Meet The Team</h2>
 			<section class="grid grid-cols-1 md:grid-cols-3 gap-4">
 				<Card class="text-center">
 					<Avatar src="https://avatars.githubusercontent.com/u/1509726?v=4" size="xl" outlined hover class="mx-auto" />
-					<h6>Chris Simmons</h6>
+					<h5>Chris Simmons</h5>
 					<p>Co-creator and primary contributor to the Skeleton project.</p>
 					<div class="flex justify-center space-x-4">
 						<a href="https://github.com/endigo9740" target="_blank"><SvgIcon name="github" /></a>
@@ -94,7 +94,7 @@
 				</Card>
 				<Card class="text-center">
 					<Avatar src="https://avatars.githubusercontent.com/u/52718757?v=4" size="xl" outlined hover class="mx-auto" />
-					<h6>Thomas Jespersen</h6>
+					<h5>Thomas Jespersen</h5>
 					<p>Co-creator and primary contributor to the Skeleton project.</p>
 					<div class="flex justify-center space-x-4">
 						<a href="/xxx" target="_blank"><SvgIcon name="github" /></a>
@@ -104,7 +104,7 @@
 				</Card>
 				<Card class="text-center">
 					<Avatar src="https://avatars.githubusercontent.com/u/10255430?v=4" size="xl" outlined hover class="mx-auto" />
-					<h6>Trey Weir</h6>
+					<h5>Trey Weir</h5>
 					<p>Co-founder of <a href="https://www.brainandbonesllc.com/" target="_blank">Brain & Bones</a> and project sponsor.</p>
 					<div class="flex justify-center space-x-4">
 						<a href="/zzz" target="_blank"><SvgIcon /></a>
@@ -117,7 +117,7 @@
 		<section class="text-center space-y-6">
 			<!-- <pre>{JSON.stringify(data.contributors, null, 2)}</pre> -->
 
-			<h4>Contributors</h4>
+			<h2>Contributors</h2>
 			<div class="flex flex-wrap justify-center space-x-4">
 				<Avatar src="https://avatars.githubusercontent.com/u/10255430?v=4" size="lg" hover class="m-2" />
 				<Avatar src="https://avatars.githubusercontent.com/u/10255430?v=4" size="lg" hover class="m-2" />
@@ -131,7 +131,7 @@
 
 		<!-- Sponsors -->
 		<section class="text-center space-y-8">
-			<h4>Sponsors</h4>
+			<h2>Sponsors</h2>
 			<div class="flex flex-wrap justify-center space-x-4">
 				<a href="https://www.brainandbonesllc.com/" target="_blank" class="opacity-90 hover:opacity-100">
 					<img src="https://www.brainandbonesllc.com/svg/logo.svg" alt="Brain & Bones">
