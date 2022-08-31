@@ -101,16 +101,12 @@
 		<dd><slot name="dd" /></dd>
 	{:else}
 		<!-- Slot: Lead -->
-		{#if $$slots.lead}
-			<div class="flex-none"><slot name="lead" /></div>
-		{/if}
+		{#if $$slots.lead}<slot name="lead" />{/if}
 
 		<!-- Slot: Content -->
 		<div class="flex-1"><slot /></div>
 
 		<!-- Slot: Trail -->
-		{#if $$slots.trail}
-			<div class="flex-none"><slot name="trail" /></div>
-		{/if}
+		{#if $$slots.trail}<slot name="trail" />{/if}
 	{/if}
 </svelte:element>

@@ -4,12 +4,12 @@ export const menuNavLinks: any = [
     {
         title: 'Guides',
         list: [
-            { href: '/guides/get-started', label: 'Get Started' },
-            { href: '/guides/tailwind', label: 'Tailwind Settings' },
-            { href: '/guides/themes', label: 'Themes' },
-            { href: '/guides/styling', label: 'Styling' },
-            { href: '/guides/forms', label: 'Forms' },
-            { href: '/guides/astro', label: 'Usage with Astro' }
+            { href: '/guides/get-started', label: 'Get Started', icon: 'circle-check' },
+            { href: '/guides/tailwind', label: 'Tailwind Settings', icon: 'tailwind' },
+            { href: '/guides/themes', label: 'Themes', icon: 'swatchbook' },
+            { href: '/guides/styling', label: 'Styling', icon: 'pen-ruler' },
+            { href: '/guides/forms', label: 'Forms', icon: 'keyboard' },
+            { href: '/guides/astro', label: 'Usage with Astro', icon: 'rocket' }
         ]
     },
     {

@@ -1,8 +1,7 @@
 <script lang="ts">
     import { Badge, List, ListItem, Divider } from '@brainandbones/skeleton';
-    // Stores
+    import SvgIcon from '$lib/SvgIcon/SvgIcon.svelte';
     import { storeCurrentUrl, storeMobileDrawer } from '$lib/_documentation/stores';   
-    // Nav Links
     import { menuNavLinks } from './links';
 
     // Props
@@ -24,12 +23,22 @@
 
         <!-- List -->
         <List tag="nav" selected={storeCurrentUrl} {title} label={title}>
-            {#each list as { href, label, badge }}
+            {#each list as { href, label, badge, icon }}
                 <ListItem {href} value={href} on:click={onListItemClick}>
-                    <div class="flex justify-between">
-                        <span>{label}</span>
+                    <!-- Icon -->
+                    <svelte:fragment slot="lead">
+                        {#if icon}
+                        <div class="bg-accent-500 w-7 h-7 flex justify-center items-center rounded shadow">
+                            <SvgIcon name={icon} width="w-4" fill="fill-white" height="h-10" />
+                        </div>
+                        {/if}
+                    </svelte:fragment>
+                    <!-- Label -->
+                    <span>{label}</span>
+                    <!-- Badge -->
+                    <svelte:fragment slot="trail">
                         {#if badge}<Badge background="bg-accent-500 dark/bg-accent-500/30">{badge}</Badge>{/if}
-                    </div>
+                    </svelte:fragment>
                 </ListItem>
             {/each}
         </List>
