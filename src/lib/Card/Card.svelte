@@ -3,7 +3,7 @@
 	export let color: string | undefined = undefined;
 
 	// Base Classes
-	let cBaseCard: string = `p-4 rounded-lg`;
+	let cBaseCard: string = `border border-surface-500/10 p-4 rounded-lg`;
 
 	// Reactive
 	$: classesCard = `${cBaseCard} ${background} ${color}`;

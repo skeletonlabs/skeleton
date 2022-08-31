@@ -55,7 +55,7 @@
 		<!-- Features -->
 		<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 			<Card>
-				<div class="bg-[#ff3e00] w-14 aspect-square flex justify-center items-center rounded-lg shadow">
+				<div class="bg-orange-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
 					<SvgIcon name="svelte" fill="fill-white" width="w-10" height="h-10" />
 				</div>
 				<h6>Svelte Integration</h6>
