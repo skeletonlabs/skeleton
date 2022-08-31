@@ -1,5 +1,9 @@
 <script lang="ts">
+    // @ts-ignore
+    const pkg = __PACKAGE__;
+
     import AppBar from '$lib/AppBar/AppBar.svelte';
+    import Badge from '$lib/Badge/Badge.svelte';
     import LightSwitch from '$lib/LightSwitch/LightSwitch.svelte';
     import SvgIcon from '$lib/SvgIcon/SvgIcon.svelte';
 
@@ -15,18 +19,22 @@
     <!-- Branding -->
     <svelte:fragment slot="lead">
         <!-- Drawer Menu -->
-        <div on:click={drawerOpen} class="lg:hidden mr-4 p-1 cursor-pointer">
+        <div on:click={drawerOpen} class="lg:hidden mr-2 p-1 cursor-pointer">
             <SvgIcon name="bars" width="w-6" height="h-6" fill="fill-black dark:fill-white" on:click={drawerOpen} />
         </div>
         <!-- Skeleton -->
-        <a href="/" class="hidden sm:block sm:text-base md:text-[26px] font-bold uppercase mr-4" title="Return to Homepage">Skeleton</a>
+        <a href="/" class="text-sm sm:text-lg md:text-3xl font-bold uppercase mr-4" title="Return to Homepage">Skeleton</a>
+        <!-- Badge -->
+        <a class="hidden sm:block" href="https://github.com/Brain-Bones/skeleton/releases" target="_blank">
+            <Badge background="bg-surface-500/20" color="text-black dark:text-white">v{pkg.version}</Badge>
+        </a>
     </svelte:fragment>
     
     <!-- Navigation -->
     <svelte:fragment slot="trail">
 
          <!-- Links -->
-         <section class="hidden md:flex space-x-4 spacer-line">
+         <section class="hidden lg:flex space-x-4 spacer-line">
             <a href="/guides/get-started" class="navlink" aria-label="Docs">Docs</a>
             <a href="/docs/why" class="navlink" aria-label="Guides">Guides</a>
             <a href="/components/app-shell" class="navlink" aria-label="Components">Components</a>

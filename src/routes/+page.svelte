@@ -31,7 +31,7 @@
 		</svelte:fragment>
 	</Alert>
 
-	<div class="container max-w-[1200px] mx-auto px-4 py-4 md:py-20 space-y-20">
+	<div class="container max-w-[1200px] mx-auto px-4 py-10 md:py-20 space-y-20">
 
 		<!-- Hero -->
 		<header>
@@ -133,7 +133,10 @@
 					{/each}
 				{/await}
 			</div>
-			<Button variant="ghost" href="/docs/contributions">View Contributor Guide</Button>
+			<Button variant="ghost" href="/docs/contributions">
+				How to Contribute
+				<svelte:fragment slot="trail">&rarr;</svelte:fragment>
+			</Button>
 		</section>
 
 		<!-- Sponsors -->
@@ -144,7 +147,10 @@
 					<img src="https://www.brainandbonesllc.com/svg/logo.svg" alt="Brain & Bones">
 				</a>
 			</div>
-			<Button variant="ghost" href="https://github.com/sponsors/Brain-Bones" target="_blank">Become a Sponsor</Button>
+			<Button variant="ghost" href="https://github.com/sponsors/Brain-Bones" target="_blank">
+				Become a Sponsor
+				<svelte:fragment slot="trail">&rarr;</svelte:fragment>
+			</Button>
 		</section>
 
 	</div>
