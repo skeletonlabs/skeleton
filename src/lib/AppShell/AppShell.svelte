@@ -15,7 +15,7 @@
     $: classesSidebarRight = `${cSidebarRight} ${sidebarRightWidth}`;
 </script>
 
-<main id="appShell" class="{cBaseAppShell}">
+<main id="appShell" class="{cBaseAppShell}" data-testid="app-shell">
 
     <!-- Slot: Header -->
     {#if $$slots.header}
