@@ -1,13 +1,13 @@
 <script lang="ts">
     import AppBar from '$lib/AppBar/AppBar.svelte';
-    import Button from '$lib/Button/Button.svelte';
     import LightSwitch from '$lib/LightSwitch/LightSwitch.svelte';
     import SvgIcon from '$lib/SvgIcon/SvgIcon.svelte';
 
-    import { storeNavDrawer } from '$lib/_documentation/SkeletonDrawer/navigation';
+    // Stores
+    import { storeMobileDrawer } from '$lib/_documentation/stores';
 
     // Drawer Handler
-    function drawerOpen(): void { storeNavDrawer.set(true); };
+    function drawerOpen(): void { storeMobileDrawer.set(true); };
 </script>
 
 <AppBar>
@@ -15,15 +15,11 @@
     <!-- Branding -->
     <svelte:fragment slot="lead">
         <!-- Drawer Menu -->
-        <Button variant="minimal" on:click={drawerOpen} class="md:hidden mr-4">
-            <SvgIcon name="bars" width="w-6" height="h-6" class="!block opacity-50" />
-        </Button>
-        <!-- Icon -->
-        <div class="bg-surface-500/20 w-8 aspect-square flex justify-center items-center rounded-full mr-3">
-            <SvgIcon name="skull" width="w-4" height="h-4" />
+        <div on:click={drawerOpen} class="md:hidden mr-4 p-1 cursor-pointer">
+            <SvgIcon name="bars" width="w-6" height="h-6" fill="fill-white/50 hover:fill-white" on:click={drawerOpen} />
         </div>
         <!-- Skeleton -->
-        <a href="/" class="hidden md:block text-[26px] font-bold uppercase mr-4">Skeleton</a>
+        <a href="/" class="text-[26px] font-bold uppercase mr-4" title="Return to Homepage">Skeleton</a>
     </svelte:fragment>
     
     <!-- Navigation -->

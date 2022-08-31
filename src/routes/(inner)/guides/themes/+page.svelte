@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
-	import { storeFramework } from '../../stores';
+	import { storeFramework } from '$lib/_documentation/stores';
 
 	import { DataTable, Card, Divider, Button, RadioGroup, RadioItem, TabGroup, Tab } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';

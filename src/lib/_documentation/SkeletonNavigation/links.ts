@@ -1,9 +1,6 @@
-// Nav Drawer Store
-import { writable, type Writable } from 'svelte/store';
-export const storeNavDrawer: Writable<boolean> = writable(false);
+// Menu Navigation Links
 
-// Configurate Drawer Navigation Links
-export const navigation: any = [
+export const menuNavLinks: any = [
     {
         title: 'Guides',
         list: [

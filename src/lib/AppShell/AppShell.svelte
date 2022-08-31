@@ -31,7 +31,7 @@
         {/if}
 
         <!-- Page -->
-        <div class="page {cPage}">
+        <div id="page" class="{cPage}">
 
             <!-- Slot: Page Header -->
             {#if $$slots.pageHeader}
