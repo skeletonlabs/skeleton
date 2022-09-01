@@ -76,7 +76,7 @@
 				Leave a comment, join the <a href="https://github.com/Brain-Bones/skeleton/discussions/79" target="_blank">roadmap discussion</a>, or notify core contributors on Discord.
 			</li>
 			<li>Review with other contributors to define the requirements before you begin. This is critical!</li>
-			<li>Create a branch using the conventions defined in the sections below.</li>
+			<li>Create a feature branch based on the <code>dev</code> branch, follow conventions defined in the sections below.</li>
 			<li>Make all changes, then run automated tests to ensure no regressions were introduced.</li>
 			<li>When ready, submit a pull request to begin the code review process.</li>
 			<li>If your PR meets all requirements it <u>will</u> be merged!</li>

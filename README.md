@@ -34,7 +34,8 @@ Please read the [contribution guide](https://skeleton.brainandbonesllc.com/docs/
 
 - Clone the Skeleton project to your local machine.
 - Install dependencies with `npm install`
-- Create a new feature branch: `git checkout -b {branchName}`
+- Switch to the Dev branch: `git checkout dev`
+- Create a new feature branch based on Dev: `git checkout -b {branchName}`
 - Start a dev server:
   - `npm run dev` - start server
   - `npm run dev -- --open` - start and open new browser window
