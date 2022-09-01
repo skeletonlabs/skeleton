@@ -71,15 +71,15 @@ module.exports = {
 		<!-- Framework: SvelteKit -->
 		{#if $storeFramework === 'sveltekit'}
 			<p>Import form element styles after your global stylesheet in <code>/src/routes/+layout.svelte</code>.</p>
-			<CodeBlock language="typescript" code={`import '../app.postcss';\nimport '@brainandbones/skeleton/styles/forms.css'; // <--`} />
+			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/styles/forms.css'; // <--\nimport '../app.postcss';`} />
 		<!-- Framework: Vite (Svelte) -->
 		{:else if $storeFramework === 'vite'}
 			<p>Import form element styles after your global stylesheet in <code>/src/main.js</code>.</p>
-			<CodeBlock language="typescript" code={`import '../app.css';\nimport '@brainandbones/skeleton/styles/forms.css'; // <--`} />
+			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/styles/forms.css'; // <--\nimport '../app.css';`} />
 		<!-- Framework: Astro -->
 		{:else if $storeFramework === 'astro'}
 			<p>Import form element styles after your global stylesheet in <code>/src/layouts/LayoutBasic.astro</code>.</p>
-			<CodeBlock language="typescript" code={`import '../styles/base.css';\nimport '@brainandbones/skeleton/styles/forms.css'; // <--`} />
+			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/styles/forms.css'; // <--\nimport '../styles/base.css';`} />
 		{/if}
 		<p>Finally, implement your form elements using standard HTML markup.</p>
 		<CodeBlock
