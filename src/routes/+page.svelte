@@ -59,14 +59,14 @@
 					<SvgIcon name="svelte" fill="fill-white" width="w-10" height="h-10" />
 				</div>
 				<h6>Svelte Integration</h6>
-				<p>Plug-and-play support for any kind of Svelte project, including official instruction for <a href="https://kit.svelte.dev/" target="_blank">SvelteKit</a>, <a href="https://vitejs.dev/" target="_blank">Vite</a>, and <a href="https://astro.build/" target="_blank">Astro</a>.</p>
+				<p>Support for any Svelte project, with official instruction for <a href="https://kit.svelte.dev/" target="_blank">SvelteKit</a>, <a href="https://vitejs.dev/" target="_blank">Vite</a>, and <a href="https://astro.build/" target="_blank">Astro</a>.</p>
 			</Card>
 			<Card>
 				<div class="bg-sky-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
 					<SvgIcon name="tailwind" fill="fill-white" width="w-10" height="h-10" />
 				</div>
 				<h6>Tailwind CSS Integration</h6>
-				<p>Integrates into your Tailwind design system using utility classes to customize components.</p>
+				<p>Customize components with utility classes. Integrates with your Tailwind design system.</p>
 			</Card>
 			<Card>
 				<div class="bg-primary-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
@@ -80,7 +80,7 @@
 					<SvgIcon name="screwdriver" fill="fill-white" width="w-8" height="h-8" />
 				</div>
 				<h6>Powerful Utilities</h6>
-				<p>Provides complete toolkit for building web apps, including layouts, dialogs, and more.</p>
+				<p>Provides complete toolkit for building modern web apps, with layouts, dialogs, and more.</p>
 			</Card>
 		</section>
 
@@ -110,7 +110,7 @@
 				<Card class="text-center">
 					<Avatar src="https://avatars.githubusercontent.com/u/10255430?v=4" size="xl" outlined class="mx-auto" />
 					<h5>Trey Weir</h5>
-					<p>Founder of <a href="https://www.brainandbonesllc.com/" target="_blank">Brain & Bones</a>. Core member.</p>
+					<p>Core member and founder of <a href="https://www.brainandbonesllc.com/" target="_blank">Brain & Bones</a></p>
 					<div class="flex justify-center space-x-4">
 						<a href="https://twitter.com/brain_and_bones" target="_blank"><SvgIcon name="twitter" /></a>
 						<a href="https://www.linkedin.com/company/brainandbones/" target="_blank"><SvgIcon name="linkedin" /></a>

@@ -2,7 +2,7 @@
 
 export const menuNavLinks: any = [
     {
-        title: 'Guides',
+        title: 'Start Here',
         list: [
             { href: '/guides/get-started', label: 'Get Started', icon: 'circle-check' },
             { href: '/guides/tailwind', label: 'Tailwind Settings', icon: 'tailwind' },

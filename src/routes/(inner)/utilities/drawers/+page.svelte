@@ -15,7 +15,7 @@
 	const tableProps: any = {
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Required', 'Description'],
 		source: [
-			['open', 'Writable(boolean)', 'writable(false)', 'boolean', '&check;', 'Provide a store to manage open/closed state.'],
+			['open', 'Writable(boolean)', 'writable(false)', 'boolean', '&check;', 'Provide a store to manage visible state.'],
 			['position', 'string', 'left', 'left | right | top | bottom', '-', 'Set the anchor position.'],
 			['duration', 'number', '150', 'milliseconds', '-', 'Define the Svelte transition animation duration.'],
 		]
@@ -23,7 +23,7 @@
 	const tablePropsBackdrop: any = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
-			['bgBackdrop', 'string', 'bg-surface-400/70 dark:bg-surface-900/70', 'Provide classes to set the background color'],
+			['bgBackdrop', 'string', 'bg-surface-400/70 dark:bg-surface-900/70', 'Provide classes to set the backdrop background color'],
 			['display', 'string', '-', 'Provide a class to set the display (ex: <code>lg:hidden</code>)'],
 			['blur', 'string', 'backdrop-blur-sm', 'Provide a class to set the blur style.'],
 		]
@@ -31,25 +31,25 @@
 	const tablePropsDrawer: any = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
-			['bgDrawer', 'string', 'bg-surface-100 dark:bg-surface-800', 'Provide classes to set the background color.'],
+			['bgDrawer', 'string', 'bg-surface-100 dark:bg-surface-800', 'Provide a class to set the drawer background color.'],
 			['border', 'string', '-', 'Provide a class to set border color.'],
 			['rounded', 'string', '-', 'Provide a class to set border radius.'],
-			['width', 'string', '-', 'Provide a class to set width.'],
-			['height', 'string', '-', 'Provide a class to set height.'],
+			['width', 'string', '(based on position)', 'Provide a class to override the width.'],
+			['height', 'string', '(based on position)', 'Provide a class to override the height.'],
 			['margin', 'string', '-', 'Provide classes to set margins.'],
-		]
-	};
-	const tableA11y: any = {
-		headings: ['Prop', 'Type', 'Default', 'Description'],
-		source: [
-			['labelledby', 'string', '-', 'Provide the ID of the element labeling the drawer.'],
-			['describedby', 'string', '-', 'Provide the ID of the element describing the drawer.'],
 		]
 	};
 	const tableSlots: any = {
 		headings: ['Name', 'Description'],
 		source: [
-			['default', 'Pass content through the default slot'],
+			['default', 'Provide your Drawer content here.'],
+		]
+	};
+	const tableA11y: any = {
+		headings: ['Prop', 'Type', 'Default', 'Description'],
+		source: [
+			['labelledby', 'string', '-', 'Provide an ID of the element labeling the drawer.'],
+			['describedby', 'string', '-', 'Provide an ID of the element describing the drawer.'],
 		]
 	};
 </script>
@@ -58,7 +58,7 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Drawers</h1>
-		<p>Displays an overlay attached to any side of the screen.</p>
+		<p>Displays an overlay panel that attaches to any side of the screen.</p>
 		<CodeBlock language="javascript" code={`import { Drawer } from '@brainandbones/skeleton';`} />
 	</header>
 
@@ -67,7 +67,10 @@
 		<div class="w-0 h-0">
 			<Drawer open={storeDrawer} {position}>
 				<div class="w-full h-full flex justify-center items-center">
-					<h4>Drawer position: <span class="capitalize">{position}</span></h4>
+					<div class="text-center">
+						<h4>Drawer: <span class="capitalize">{position}</span></h4>
+						<p>Tap outside the drawer to close.</p>
+					</div>
 				</div>
 			</Drawer>
 		</div>
@@ -82,26 +85,29 @@
 	<!-- Usage -->
 	<section class="space-y-4">
 		<h2>Usage</h2>
-		<p>Create a Svelte writable store to manage the <code>open</code> state of the drawer.</p>
+		<p>Create a <a href="https://svelte.dev/tutorial/writable-stores" target="_blank">Svelte writable store</a> to manage the state of the drawer.</p>
 		<CodeBlock language="typescript" code={`
 import { writable, type Writable } from 'svelte/store';
 const storeDrawer: Writable<boolean> = writable(false);
-        `.trim()}
-		/>
-		<p>To open the drawer, set the store value to <code>true</code>.</p>
-		<CodeBlock language="typescript" code={`const drawerOpen: any = () => { storeDrawer.set(true) };`} />
-		<p>To close the drawer, set the store value to <code>false</code>.</p>
-		<CodeBlock language="typescript" code={`const drawerClose: any = () => { storeDrawer.set(false) };`} />
-		<p>Create your trigger actions. Not that backdrops can be inheritely closed by clicking on the backdrop or by tapping <em>ESC</em> on your keyboard.</p>
-		<CodeBlock language="html" code={`<Button variant="filled-primary" on:click={drawerOpen}>Open</Button>`} />
-		<CodeBlock language="html" code={`<Button variant="filled-primary" on:click={drawerClose}>Close</Button>`} />
-		<p>Implement the Drawer component.</p>
+        `.trim()} />
+		<p>Implement the Drawer component, passing the store reference. For best results implement in your app's root layout for global scope.</p>
 		<CodeBlock language="html" code={`
 <Drawer open={storeDrawer} position="left">
 	(contents)
 </Drawer>
         `.trim()} />
-		<p>For best results implement it in your root layout, then inject your store as needed. This will allow for global scope throughout your project.</p>
+		<p>Set the store value to <code>true</code> or <code>false</code> to open or close the Drawer.</p>
+		<CodeBlock language="typescript" code={`const drawerOpen: any = () => { storeDrawer.set(true) };`} />
+		<CodeBlock language="typescript" code={`const drawerClose: any = () => { storeDrawer.set(false) };`} />
+		<p>Implement the trigger methods on any interactive element. Note that you can always close the Drawer by tapping the backdrop or pressing <em>ESC</em> on your keyboard.</p>
+		<CodeBlock language="html" code={`<Button variant="filled-primary" on:click={drawerOpen}>Open</Button>`} />
+		<CodeBlock language="html" code={`<Button variant="filled-primary" on:click={drawerClose}>Close</Button>`} />
+		<h2>Pairing with App Shell</h2>
+		<p>Place the Drawer above and outside the App Shell in your root layout. This will prevent content shifting as the drawer opens.</p>
+		<CodeBlock language="html" code={`
+<Drawer></Drawer>
+<AppShell></AppShell>
+		`.trim()} />
 	</section>
 	<!-- Properties -->
 	<section class="space-y-4">

@@ -7,19 +7,19 @@
 	const tableProps: any = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
-			['background', 'string', 'bg-surface-100 dark:bg-surface-800', 'Provide classes to set background color.'],
+			['background', 'string', 'bg-surface-100 dark:bg-surface-800', 'Provide a class to set background color.'],
 			['border', 'string', '-', 'Provide a class to set border styles.'],
 			['padding', 'string', 'px-4 py-4 md:py-6', 'Provide a class to set padding.'],
-			['shadow', 'string', 'shadow-xl', 'Provide a class to set box shadow.'],
-			['space', 'string', 'space-x-4', 'Provide a class to set spacing.'],
+			['shadow', 'string', 'shadow-xl', 'Provide a class to define a box shadow.'],
+			['space', 'string', 'space-x-4', 'Provide a class to set horizontal spacing.'],
 		]
 	};
 	const tableSlots: any = {
 		headings: ['Name', 'Description'],
 		source: [
-			['lead', 'Provide leading items, such as a logo branding.'],
-			['default', 'Provide center items, such as a search element.'],
-			['trail', 'Provide trailing items, such as a navigation and links.'],
+			['default', 'Provide items that reside in the center, such as a search element.'],
+			['lead', 'Provide leading items, such as a branding logo or page header.'],
+			['trail', 'Provide trailing items, such as a navigation links.'],
 		]
 	};
 	const tableA11y: any = {
@@ -35,7 +35,7 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>App Bar</h1>
-		<p>Top bar header element. Pairs well with the <a href="/components/app-shell">App Shell</a>.</p>
+		<p>Header element for the top of your layout. Pairs well with the <a href="/components/app-shell">App Shell</a>.</p>
 		<CodeBlock language="javascript" code={`import { AppBar } from '@brainandbones/skeleton';`} />
 	</header>
 
@@ -57,9 +57,9 @@
 		<h2>Usage</h2>
 		<CodeBlock language="html" code={`
 <AppBar>
-	<svelte:fragment slot="lead">(lead)</svelte:fragment>
-	(content)
-	<svelte:fragment slot="trail">(trail)</svelte:fragment>
+	<svelte:fragment slot="lead">(branding)</svelte:fragment>
+	(search)
+	<svelte:fragment slot="trail">(navigation)</svelte:fragment>
 </AppBar>
 		`.trim()} />
 	</section>
