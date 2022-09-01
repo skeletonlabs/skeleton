@@ -4,6 +4,8 @@
 
 export { default as AccordionGroup } from './Accordion/AccordionGroup.svelte';
 export { default as AccordionItem } from './Accordion/AccordionItem.svelte';
+export { default as AppBar } from './AppBar/AppBar.svelte';
+export { default as AppShell } from './AppShell/AppShell.svelte';
 export { default as Alert } from './Alert/Alert.svelte';
 export { default as Avatar } from './Avatar/Avatar.svelte';
 export { default as Badge } from './Badge/Badge.svelte';

@@ -1,0 +1,43 @@
+<script lang="ts">
+    // Props
+    export let background: string = 'bg-surface-100 dark:bg-surface-800';
+    export let border: string = '';
+    export let padding: string = 'px-4 py-4 md:py-6';
+    export let shadow: string = 'shadow-xl';
+    export let space: string = 'space-x-4';
+    // Props (a11y)
+    export let label: string|undefined = undefined;
+    export let labelledby: string|undefined = undefined;
+
+    // Base Classes
+    const cBase: string = 'flex items-center';
+    const cLead: string = 'flex-none flex justify-between items-center';
+    const cCenter: string = 'flex-auto';
+    const cTrail: string = 'flex-none flex items-center space-x-4';
+
+    // Reactive Classes
+    $: classesBase = `${cBase} ${background} ${border} ${padding} ${shadow} ${space}`;
+</script>
+
+<div
+    class="app-bar {classesBase} {$$props.class||''}"
+    data-testid="app-bar"
+    role="toolbar"
+    aria-label={label}
+    aria-labelledby={labelledby}
+>
+
+    <!-- Slot: lead -->
+    {#if $$slots.lead}
+    <div class="appbar-lead {cLead}"><slot name="lead"></slot></div>
+    {/if}
+
+    <!-- Slot: center -->
+    <div class="appbar-center {cCenter}"><slot /></div>
+
+    <!-- Slot: trail -->
+    {#if $$slots.trail}
+    <div class="appbar-trail {cTrail}"><slot name="trail"></slot></div>
+    {/if}
+
+</div>

@@ -28,7 +28,7 @@ A fully featured Svelte UI component library. Skeleton allows you to build fast 
 
 ### Contributions
 
-Ensure you've read the [contribution guide](https://skeleton.brainandbonesllc.com/docs/contributions) before you proceed. Pull requests are highly encouraged. [Pick an open issue](https://github.com/Brain-Bones/skeleton/issues) and help us out!
+Please read the [contribution guide](https://skeleton.brainandbonesllc.com/docs/contributions) before you begin. Pull requests are highly encouraged. [Pick an open issue](https://github.com/Brain-Bones/skeleton/issues) and help us out!
 
 ### Install
 
@@ -40,22 +40,6 @@ Ensure you've read the [contribution guide](https://skeleton.brainandbonesllc.co
   - `npm run dev -- --open` - start and open new browser window
 - Make changes, then submit a pull request when ready.
 
-### Linting
-
-Use the following command to run the linter:
-
-```bash
-npm run lint
-```
-
-### Tests
-
-Use the following command to run the Vitest:
-
-```bash
-npm run test
-```
-
 ## Core Maintainers
 
 - [Chris Simmons](https://github.com/endigo9740)
@@ -63,4 +47,4 @@ npm run test
 
 ---
 
-Created by [Brain & Bones, LLC](https://www.brainandbonesllc.com/).
+Founded by [Brain & Bones, LLC](https://www.brainandbonesllc.com/).

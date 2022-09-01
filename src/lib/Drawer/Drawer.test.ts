@@ -1,27 +1,23 @@
 import { render } from '@testing-library/svelte';
 import { describe, it, expect } from 'vitest';
 
-import { writable } from 'svelte/store';
+import { writable, type Writable } from 'svelte/store';
 
 // @ts-ignore
 import Drawer from '$lib/Drawer/Drawer.svelte';
 
+const storeTest: Writable<boolean> = writable(true);
+
 describe('Drawer.svelte', () => {
-	it('Renders with minimal props', async () => {
-		const { getByTestId } = render(Drawer);
+
+	it('Renders when draw opened', async () => {
+		const { getByTestId } = render(Drawer, {
+			props: {
+				open: storeTest
+			}
+		});
+		expect(getByTestId('drawer-backdrop')).toBeTruthy();
 		expect(getByTestId('drawer')).toBeTruthy();
 	});
 
-	it('Renders with all props', async () => {
-		const { getByTestId } = render(Drawer, {
-			props: {
-				visible: writable(true),
-				fixed: 'left',
-				backdrop: 'bg-primary-900/50',
-				background: 'bg-primary-500',
-				border: 'border-r border-primary-500',
-			}
-		});
-		expect(getByTestId('drawer')).toBeTruthy();
-	});
 });
