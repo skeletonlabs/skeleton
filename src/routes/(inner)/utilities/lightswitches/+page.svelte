@@ -15,7 +15,7 @@
 	</header>
 
 	<!-- Examples -->
-	<Card class="text-center py-10 overflow-visible">
+	<Card body="flex justify-center items-center py-8">
 		<LightSwitch />
 	</Card>
 

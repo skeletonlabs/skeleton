@@ -36,24 +36,16 @@
 
 	<!-- Examples -->
 	<section class="space-y-4">
-		<Card class="space-y-4">
+		<Card body="space-y-4">
 			<RangeSlider bind:value={valueA} label="Big Slider Example 1" />
 			<RangeSlider bind:value={valueA} accent="accent-accent-500" label="Big Slider Example 2" />
 			<RangeSlider bind:value={valueA} accent="accent-warning-500" label="Big Slider Example 3" />
 		</Card>
 		<div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
-			<Card class="space-y-4">
-				<RangeSlider label="Labeled" bind:value={valueA} />
-			</Card>
-			<Card class="space-y-4">
-				<RangeSlider label="Disabled" disabled />
-			</Card>
-			<Card class="space-y-4">
-				<RangeSlider label="Ticked" bind:value={valueA} ticked />
-			</Card>
-			<Card class="space-y-4">
-				<RangeSlider label="Stepped" max={100} bind:value={valueB} step={5} ticked />
-			</Card>
+			<Card><RangeSlider label="Labeled" bind:value={valueA} /></Card>
+			<Card><RangeSlider label="Disabled" disabled /></Card>
+			<Card><RangeSlider label="Ticked" bind:value={valueA} ticked /></Card>
+			<Card><RangeSlider label="Stepped" max={100} bind:value={valueB} step={5} ticked /></Card>
 		</div>
 	</section>
 

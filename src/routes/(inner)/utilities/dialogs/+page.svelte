@@ -106,7 +106,7 @@
 	<!-- Examples -->
 	<section class="space-y-4">
 		<nav class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-			<Card class="grid grid-cols-1 gap-4">
+			<Card body="grid grid-cols-1 gap-4">
 				<h3>Alerts</h3>
 				<div class="flex justify-between items-center space-x-4">
 					<div>
@@ -130,7 +130,7 @@
 					<Button variant="ghost-primary" on:click={dialogAlertMultiple}>Trigger</Button>
 				</div>
 			</Card>
-			<Card class="grid grid-cols-1 gap-4">
+			<Card body="grid grid-cols-1 gap-4">
 				<h3>Embeds</h3>
 				<div class="flex justify-between items-center space-x-4">
 					<div>
@@ -154,7 +154,7 @@
 					<Button variant="ghost-primary" on:click={dialogComponent}>Trigger</Button>
 				</div>
 			</Card>
-			<Card>
+			<Card body="space-y-4">
 				<div class="flex justify-between items-center space-x-4">
 					<div class="space-y-2">
 						<h3>Confirm</h3>
@@ -164,7 +164,7 @@
 				</div>
 				<pre>Response: {JSON.stringify(valueConfirm, null, 2)}</pre>
 			</Card>
-			<Card class="space-y-4">
+			<Card body="space-y-4">
 				<div class="flex justify-between items-center space-x-4">
 					<div class="space-y-2">
 						<h3>Prompt</h3>

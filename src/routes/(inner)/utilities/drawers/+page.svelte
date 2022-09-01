@@ -63,7 +63,7 @@
 	</header>
 
 	<!-- Examples -->
-	<Card class="space-y-0">
+	<Card>
 		<div class="w-0 h-0">
 			<Drawer open={storeDrawer} {position}>
 				<div class="w-full h-full flex justify-center items-center">

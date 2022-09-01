@@ -115,11 +115,13 @@
 				<p>Create and add your theme into <code>/src/styles/theme.css</code>, then import into <code>/src/layouts/LayoutBasic.astro</code>.</p>
 				<CodeBlock language="typescript" code={`import '../styles/theme.css'; // <--\nimport '../styles/base.css';`} />
 			{/if}
-			<Card class="space-y-4">
-				<TabGroup selected={storeGenerator}>
-					<Tab value="tailwind">Tailwind Colors</Tab>
-					<Tab value="custom">Hex Color Values</Tab>
-				</TabGroup>
+			<Card>
+				<svelte:fragment slot="header">
+					<TabGroup selected={storeGenerator}>
+						<Tab value="tailwind">Tailwind Colors</Tab>
+						<Tab value="custom">Hex Color Values</Tab>
+					</TabGroup>
+				</svelte:fragment>
 				{#if $storeGenerator === 'tailwind'}<p>
 						Create a theme using <a href="https://tailwindcss.com/docs/customizing-colors" target="_blank">Tailwind's color palette</a>. This typically provides the best results.
 					</p>{/if}
@@ -161,7 +163,7 @@
 	<Divider />
 
 	<!-- Next Steps -->
-	<Card class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+	<Card body="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<p>Next, let's review best practices for handling CSS styles and overrides.</p>
 		<Button variant="filled-accent" href="/guides/styling">Handling Styles</Button>
 	</Card>

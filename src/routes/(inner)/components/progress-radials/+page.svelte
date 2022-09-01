@@ -36,7 +36,7 @@
 	</header>
 
 	<!-- Examples -->
-	<Card class="space-y-8">
+	<Card>
 		<div class="md:max-w-[50%] lg:max-w-[33%] mx-auto space-y-8">
 			<ProgressRadial value={props.value}>{props.value}%</ProgressRadial>
 			<input type="range" min="0" max={props.max} step={props.step} bind:value={props.value} aria-label="Example Radial Value" />

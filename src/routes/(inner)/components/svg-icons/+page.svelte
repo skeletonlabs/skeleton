@@ -43,7 +43,7 @@
 	<!-- Examples -->
 	<section class="grid grid-cols-4 md:grid-cols-7 gap-4">
 		{#each iconKeys as name}
-			<Card class="text-center">
+			<Card body="space-y-2 text-center">
 				<SvgIcon {name} />
 				<p class="text-xs">{name}</p>
 			</Card>

@@ -40,13 +40,13 @@
 	<section class="space-y-4">
 		<div class="space-y-4 xl:space-y-0 xl:grid grid-cols-[2fr,1fr] gap-2">
 			<!-- Example -->
-			<Card class="space-y-4 flex justify-center items-center">
+			<Card body="h-full flex justify-center items-center">
 				<div class="w-[75%]">
 					<svelte:component this={ProgressBar} label={props.label} value={props.determinate ? props.value : undefined} max={props.max} height={props.height} color={props.color} />
 				</div>
 			</Card>
 			<!-- Options -->
-			<Card class="space-y-4">
+			<Card body="space-y-4">
 				<!-- Label -->
 				<label>
 					<span>Label</span>

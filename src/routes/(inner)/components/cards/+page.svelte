@@ -7,12 +7,27 @@
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['background', 'string', 'bg-surface-200 dark:bg-surface-800', 'Provided a class to set background color.'],
-			['color', 'string', '-', 'Provide a class to set text color.']
+			['color', 'string', '-', 'Provide a class to set text color.'],
+			['padding', 'string', 'p-4', 'Provide a class to padding style.'],
+			['space', 'string', 'space-y-4', 'Provide a class to adjust header/body/footer spacing.'],
+			['ringSize', 'string', 'ring-[1px]', 'Provide a class set outline size.'],
+			['ringColor', 'string', 'ring-black/5 dark:ring-white/5', 'Provide a class set outline color.'],
+			['ringInset', 'string', 'ring-inset', 'Provide a class set outline inset style.'],
+			['rounded', 'string', 'rounded-lg', 'Provide a class set border radius style.'],
+		]
+	};
+	const tablePropsSlots: any = {
+		headings: ['Prop', 'Type', 'Default', 'Description'],
+		source: [
+			['header', 'string', '-', 'Provide classes for the card\'s header slot.'],
+			['body', 'string', '-', 'Provide classes for the card\'s body slot.'],
+			['footer', 'string', '-', 'Provide classes for the card\'s footer slot.'],
 		]
 	};
 	const tableSlots: any = {
 		headings: ['Name', 'Description'],
 		source: [
+			['default', 'Provide body content here.'],
 			['header', 'Provide header content, such as an image.'],
 			['footer', 'Provide footer content, such as a byline.']
 		]
@@ -73,12 +88,20 @@
 		<CodeBlock language="html" code={`<Card>Minimal</Card>`} />
 		<CodeBlock language="html" code={`<Card background="bg-primary-500" color="text-white">Colored</Card>`} />
 		<CodeBlock language="html" code={`<Card class="hover:shadow-xl">Styled</Card>`} />
+		<CodeBlock language="html" code={`
+<Card header="bg-red-500" body="bg-green-500" footer="bg-blue-500" space="space-y-1">
+	<svelte:fragment slot="header">(header)</svelte:fragment>
+	(body)
+	<svelte:fragment slot="footer">(footer)</svelte:fragment>
+</Card>
+		`.trim()} />
 	</section>
 
 	<!-- Properties -->
 	<section class="space-y-4">
 		<h2>Properties</h2>
 		<DataTable headings={tableProps.headings} source={tableProps.source} />
+		<DataTable headings={tablePropsSlots.headings} source={tablePropsSlots.source} />
 	</section>
 
 	<!-- Slots -->

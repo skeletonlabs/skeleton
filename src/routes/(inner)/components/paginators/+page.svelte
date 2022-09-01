@@ -83,7 +83,7 @@
 
 	<!-- Examples -->
 	<section class="space-y-4">
-		<Card class="space-y-4">
+		<Card body="space-y-4">
 			<List>
 				{#each contentSliced as e, i}
 					<ListItem>{e.name}</ListItem>
@@ -91,7 +91,7 @@
 			</List>
 			<Paginator bind:offset={page.offset} bind:limit={page.limit} bind:size={page.size} bind:amounts={page.amounts} on:page={onPageChange} on:amount={onAmountChange} />
 		</Card>
-		<Card>
+		<Card body="space-y-4">
 			<DataTable headings={content.headings} source={contentSliced} />
 			<Paginator bind:offset={page.offset} bind:limit={page.limit} bind:size={page.size} bind:amounts={page.amounts} on:page={onPageChange} on:amount={onAmountChange} />
 		</Card>
