@@ -13,7 +13,7 @@
 
 	// Base Classes
 	const cBaseDetails: string = '';
-	const cBaseSummary: string = 'flex items-center space-x-4 cursor-pointer';
+	const cBaseSummary: string = 'list-none flex items-center space-x-4 cursor-pointer';
 	const cBaseIcon: string = 'flex justify-center items-center w-3 fill-black dark:fill-white transition-all duration-[100ms]';
 
 	// Reactive Classes
@@ -42,3 +42,9 @@
 		<slot name="content" />
 	</div>
 </details>
+
+<style>
+	/* Hide the left-hande arrows for details/summary  */
+	/* Note: let's keep this localized in case users want the arrows elsewhere */
+	details summary::-webkit-details-marker { display: none; }
+</style>
