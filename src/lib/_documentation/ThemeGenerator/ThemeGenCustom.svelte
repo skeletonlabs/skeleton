@@ -1,7 +1,8 @@
 <script lang="ts">
-	// https://github.com/bartbergmans/Palettey
-	import { createPalleteFromColor } from 'palettey';
+	// https://github.com/bobthered/tailwindcss-palette-generator
+	import paletteGenerator from '@bobthered/tailwindcss-palette-generator';
 
+	// Components
 	import Swatches from './Swatches.svelte';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
 
@@ -38,7 +39,7 @@
 		return '(invalid)';
 	}
 
-	// Process ---
+	// Process
 
 	// Process each input individually if valid hex color string
 	function processPrimary(): void {
@@ -64,13 +65,10 @@
 
 	// Creates a hex shade palette from a singular hex value
 	function generateHexShades(key: string): void {
-		hexShades[key] = createPalleteFromColor(key, pruneHash(formValues[key]), {
-			useLightness: false,
-			h: 0,
-			s: 0,
-			lMin: 5,
-			lMax: 100
-		})[key];
+		// Use paletteGenerator
+		const p: any = paletteGenerator({ names: [key], colors: [formValues[key]], });
+		delete p[key][950]; // drop swatch 950
+		hexShades[key] = p[key];
 		// Generate RGB shades
 		generateRgbShades(key);
 	}

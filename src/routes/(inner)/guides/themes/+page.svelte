@@ -8,7 +8,7 @@
 	import ThemeGenCustom from '$lib/_documentation/ThemeGenerator/ThemeGenCustom.svelte';
 
 	// Stores
-	const storeGenerator: Writable<string> = writable('hex'); // tailwind | hex
+	const storeGenerator: Writable<string> = writable('tailwind'); // tailwind | hex
 
 	// Presets
 	const presetUrl: string = 'https://github.com/Brain-Bones/skeleton/blob/master/src/themes';
