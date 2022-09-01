@@ -119,41 +119,46 @@
 			</section>
 		</section>
 
-		<!-- Contributors -->
-		<section class="text-center space-y-6">
-			<h2>Contributors</h2>
-			<div class="flex flex-wrap justify-center space-x-4">
-				{#await contributors}
-					<p>Loading contributors...</p>
-				{:then response}
-					{#each response as c}
-						<a href={c.html_url} target="_blank" title={c.login}>
-							<Avatar src={c.avatar_url} size="lg" shadow="shadow-lg" hover class="m-2" />
-						</a>
-					{/each}
-				{/await}
-			</div>
-			<Button variant="ghost" href="/docs/contributions">
-				How to Contribute
-				<svelte:fragment slot="trail">&rarr;</svelte:fragment>
-			</Button>
-		</section>
+		<!-- Shoutouts -->
+		<section class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20">
 
-		<!-- Sponsors -->
-		<section class="text-center space-y-8">
-			<h2>Sponsors</h2>
-			<div class="flex flex-wrap justify-center space-x-4">
-				<a href="https://www.brainandbonesllc.com/" target="_blank" class="opacity-90 hover:opacity-100 !no-underline">
-					<Card body="space-y-4" background="bg-surface-500/10" class="border border-surface-500/30 p-6 text-center space-y-4">
-						<img src="https://www.brainandbonesllc.com/svg/logo.svg" alt="Brain & Bones" class="invert dark:invert-0">
-						<p class="text-xs">Brain & Bones</p>
-					</Card>
-				</a>
+			<!-- Sponsors -->
+			<div class="text-center space-y-8">
+				<h2>Sponsors</h2>
+				<div class="flex flex-wrap justify-center space-x-4">
+					<a href="https://www.brainandbonesllc.com/" target="_blank" class="opacity-90 hover:opacity-100 !no-underline">
+						<Card border="border border-surface-500/30" body="flex flex-col items-center space-y-4">
+							<img src="https://www.brainandbonesllc.com/svg/logo.svg" alt="Brain & Bones" class="h-[32px] invert dark:invert-0">
+							<p class="text-sm">Brain & Bones</p>
+						</Card>
+					</a>
+				</div>
+				<Button variant="ghost" href="https://github.com/sponsors/Brain-Bones" target="_blank">
+					Become a Sponsor
+					<svelte:fragment slot="trail">&rarr;</svelte:fragment>
+				</Button>
 			</div>
-			<Button variant="ghost" href="https://github.com/sponsors/Brain-Bones" target="_blank">
-				Become a Sponsor
-				<svelte:fragment slot="trail">&rarr;</svelte:fragment>
-			</Button>
+
+			<!-- Contributors -->
+			<div class="text-center space-y-6">
+				<h2>Contributors</h2>
+				<div class="flex flex-wrap justify-center space-x-2">
+					{#await contributors}
+						<p>Loading contributors...</p>
+					{:then response}
+						{#each response as c}
+							<a href={c.html_url} target="_blank" title={c.login}>
+								<Avatar src={c.avatar_url} size="lg" shadow="shadow-lg" hover class="m-2" />
+							</a>
+						{/each}
+					{/await}
+				</div>
+				<Button variant="ghost" href="/docs/contributions">
+					How to Contribute
+					<svelte:fragment slot="trail">&rarr;</svelte:fragment>
+				</Button>
+			</div>
+
 		</section>
 
 	</div>
