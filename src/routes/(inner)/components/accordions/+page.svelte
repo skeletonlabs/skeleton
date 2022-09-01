@@ -48,7 +48,7 @@
 
 	<!-- Examples -->
 	<section class="space-y-4">
-		<Card class="space-y-4">
+		<Card>
 			<AccordionGroup>
 				<AccordionItem open>
 					<svelte:fragment slot="summary">Does Skeleton come with an Accordion component?</svelte:fragment>

@@ -24,7 +24,7 @@
 	</header>
 
 	<!-- Examples -->
-	<Card class="space-y-4">
+	<Card body="space-y-4">
 		<CodeBlock language="html" code={`<p>Hello Skeleton<p>`} />
 		<CodeBlock language="css" code={`.skeleton { color: #bada55; }`} />
 		<CodeBlock language="typescript" code={`const skeleton: string = 'awesome';`} />

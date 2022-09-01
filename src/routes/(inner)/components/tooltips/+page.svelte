@@ -39,7 +39,7 @@
 	</Alert>
 	<section class="hidden sm:block space-y-4">
 		<!-- Default -->
-		<Card class="flex flex-col space-y-2">
+		<Card body="flex flex-col space-y-2">
 			<section class="flex justify-center">
 				<Tooltip>
 					<svelte:fragment slot="message">Tooltip on Top.</svelte:fragment>

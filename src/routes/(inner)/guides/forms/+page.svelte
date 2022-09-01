@@ -124,7 +124,7 @@ module.exports = {
 	<Divider />
 
 	<!-- Next Steps -->
-	<Card class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+	<Card body="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<p>Finally, let's add our first component.</p>
 		<Button variant="filled-accent" href="/components/buttons">Add a Component</Button>
 	</Card>

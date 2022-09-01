@@ -31,40 +31,38 @@
 	</header>
 
 	<!-- Examples -->
-	<Card>
-		<div class="flex justify-center space-x-4">
-			<!-- Default -->
-			<Menu>
-				<!-- Slot: Trigger -->
-				<Button slot="trigger" variant="ghost-primary" type="button">Menu</Button>
-				<!-- Slot: Content -->
-				<Card slot="content" background="bg-surface-300 dark:bg-surface-700" class="w-[200px] p-[0px] shadow-xl overflow-hidden">
-					<List tag="nav">
-						<ListItem>Item 1</ListItem>
-						<ListItem>Item 2</ListItem>
-					</List>
-				</Card>
-			</Menu>
-			<!-- Select -->
-			<Menu origin="tr" select={true}>
-				<Button slot="trigger" variant="ghost-accent" type="button">Select</Button>
-				<Card slot="content" background="bg-surface-300 dark:bg-surface-700" class="w-[200px] p-[0px] shadow-xl overflow-hidden">
-					<List tag="nav">
-						<ListItem>Item 1</ListItem>
-						<ListItem>Item 2</ListItem>
-						<ListItem>Item 3</ListItem>
-						<ListItem>Item 4</ListItem>
-						<ListItem>Item 5</ListItem>
-						<ListItem href="/">Navigate</ListItem>
-					</List>
-				</Card>
-			</Menu>
-			<!-- Disabled -->
-			<Menu disabled>
-				<Button slot="trigger" variant="ghost-warning" type="button" disabled>Disabled</Button>
-				<div slot="content"><!-- (will never show) --></div>
-			</Menu>
-		</div>
+	<Card body="flex justify-center space-x-4">
+		<!-- Default -->
+		<Menu>
+			<!-- Slot: Trigger -->
+			<Button slot="trigger" variant="ghost-primary" type="button">Menu</Button>
+			<!-- Slot: Content -->
+			<Card slot="content" background="bg-surface-300 dark:bg-surface-700" class="w-[200px] p-[0px] shadow-xl overflow-hidden">
+				<List tag="nav">
+					<ListItem>Item 1</ListItem>
+					<ListItem>Item 2</ListItem>
+				</List>
+			</Card>
+		</Menu>
+		<!-- Select -->
+		<Menu origin="tr" select={true}>
+			<Button slot="trigger" variant="ghost-accent" type="button">Select</Button>
+			<Card slot="content" background="bg-surface-300 dark:bg-surface-700" class="w-[200px] p-[0px] shadow-xl overflow-hidden">
+				<List tag="nav">
+					<ListItem>Item 1</ListItem>
+					<ListItem>Item 2</ListItem>
+					<ListItem>Item 3</ListItem>
+					<ListItem>Item 4</ListItem>
+					<ListItem>Item 5</ListItem>
+					<ListItem href="/">Navigate</ListItem>
+				</List>
+			</Card>
+		</Menu>
+		<!-- Disabled -->
+		<Menu disabled>
+			<Button slot="trigger" variant="ghost-warning" type="button" disabled>Disabled</Button>
+			<div slot="content"><!-- (will never show) --></div>
+		</Menu>
 	</Card>
 
 	<!-- Usage -->

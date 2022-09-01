@@ -3,6 +3,7 @@
 	import Card  from '$lib/Card/Card.svelte';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
 
+	// Tables
 	const tableProps: any = {
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Required', 'Description'],
 		source: [
@@ -34,7 +35,7 @@
 	</header>
 
 	<!-- Examples -->
-	<Card class="space-y-4">
+	<Card body="space-y-4">
 		<p>(ExamplesHere)</p>
 	</Card>
 

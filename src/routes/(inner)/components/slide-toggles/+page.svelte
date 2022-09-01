@@ -30,7 +30,7 @@
 	<!-- Examples -->
 	<section class="space-y-4">
 		<h3>Colors</h3>
-		<Card class="flex justify-center">
+		<Card body="flex justify-center">
 			<div class="grid grid-cols-3 gap-4">
 				<SlideToggle size="md" accent="bg-primary-400" checked label="Toggle Green" />
 				<SlideToggle size="md" accent="bg-warning-400" checked label="Toggle Warning" />
@@ -41,21 +41,19 @@
 			</div>
 		</Card>
 		<h3>Sizes</h3>
-		<Card>
-			<div class="flex justify-center items-center space-x-4">
-				<SlideToggle size="sm" label="Toggle Small" />
-				<SlideToggle size="md" label="Toggle Medium" />
-				<SlideToggle size="lg" label="Toggle Large" />
-			</div>
+		<Card body="flex justify-center items-center space-x-4">
+			<SlideToggle size="sm" label="Toggle Small" />
+			<SlideToggle size="md" label="Toggle Medium" />
+			<SlideToggle size="lg" label="Toggle Large" />
 		</Card>
 		<h3>Label Slot</h3>
-		<Card class="text-center">
+		<Card body="flex justify-center items-center space-x-4">
 			<SlideToggle size="md" bind:checked={checkedValue}>
 				<p class="w-[90px]">{checkedValue ? 'Checked' : 'Unchecked'}</p>
 			</SlideToggle>
 		</Card>
 		<h3>Disabled</h3>
-		<Card class="text-center">
+		<Card body="flex justify-center items-center space-x-4">
 			<SlideToggle size="lg" disabled label="Toggle Disabled" />
 		</Card>
 	</section>

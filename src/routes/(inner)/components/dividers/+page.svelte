@@ -35,13 +35,13 @@
 	<section class="space-y-4">
 		<div class="space-y-4 xl:space-y-0 xl:grid grid-cols-[2fr,1fr] gap-2">
 			<!-- Example -->
-			<Card class="space-y-4 flex justify-center items-center">
+			<Card body="h-full flex justify-center items-center">
 				<div class="w-[75%] h-[100px] flex justify-evenly items-center">
 					<svelte:component this={Divider} variant={props.variant} weight={props.weight} orientation={props.orientation} />
 				</div>
 			</Card>
 			<!-- Options -->
-			<Card class="space-y-4">
+			<Card body="space-y-4">
 				<!-- Variant -->
 				<div>
 					<legend>Variant</legend>

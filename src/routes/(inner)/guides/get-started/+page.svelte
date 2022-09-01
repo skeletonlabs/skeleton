@@ -97,7 +97,7 @@ npm run dev
     <Divider />
     
     <!-- Next Steps -->
-    <Card class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+    <Card body="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
         <p>Next, let's configure Tailwind to work with Skeleton.</p>
         <Button variant="filled-accent" href="/guides/tailwind">Configure Tailwind</Button>
     </Card>
