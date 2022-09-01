@@ -27,7 +27,6 @@
 			default: setAutoOrigin(); break;
 		}
 	}
-	setOrigin(); // on init
 
 	// Auto-update origin based on viewport position
 	function setAutoOrigin(): void {
@@ -85,6 +84,8 @@
 
 	// Lifecycle Events
 	onMount(() => {
+		// Set the default origin, including auto
+		setOrigin();
 		// Event: Window Keydown (ESC)
 		window.addEventListener('keydown', onKeyDown);
 		// If auto-origin enabled, add event listeners
