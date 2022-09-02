@@ -14,7 +14,6 @@ export { default as Crumb } from './Breadcrumb/Crumb.svelte';
 export { default as Button } from './Button/Button.svelte';
 export { default as Card } from './Card/Card.svelte';
 export { default as Divider } from './Divider/Divider.svelte';
-export { default as Drawer } from './Drawer/Drawer.svelte';
 export { default as GradientHeading } from './GradientHeading/GradientHeading.svelte';
 export { default as List } from './List/List.svelte';
 export { default as ListItem } from './List/ListItem.svelte';
@@ -55,6 +54,9 @@ export { default as NoirLight } from './Filters/svg/NoirLight.svelte';
 export { default as Rustic } from './Filters/svg/Rustic.svelte';
 export { default as Summer84 } from './Filters/svg/Summer84.svelte';
 export { default as XPro } from './Filters/svg/XPro.svelte';
+
+// Drawer
+export { default as Drawer } from './Drawer/Drawer.svelte';
 
 // Notifications
 export { dialogStore } from './Notifications/Stores';
