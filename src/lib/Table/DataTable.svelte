@@ -16,6 +16,7 @@
 	export let header: string = 'bg-surface-50 dark:bg-surface-700';
 	export let body: string = 'bg-surface-200 dark:bg-surface-800';
 	export let text: string = 'text-sm';
+	export let color: string | undefined = undefined;
 	export let hover: string = 'hover:bg-primary-500/10';
 	// A11y
 	export let labelledby: string | undefined = undefined;
@@ -33,12 +34,12 @@
 	const cBaseEmpty: string = 'p-4 text-center';
 	// ---
 	const cBaseHead: string = '';
-	const cBaseHeadRow: string = 'capitalize font-medium text-left text-surface-900 dark:text-surface-50';
+	const cBaseHeadRow: string = 'capitalize font-medium text-left';
 	const cBaseHeadCol: string = `p-3 py-4 whitespace-nowrap cursor-pointer`;
 	// ---
 	const cBaseBody: string = '';
 	const cBaseBodyRow: string = 'border-t border-surface-500/10 even:bg-black/[4%]';
-	const cBaseBodyCol: string = 'p-3 font-medium text-surface-900 whitespace-nowrap md:whitespace-normal dark:text-white';
+	const cBaseBodyCol: string = 'p-3 font-medium whitespace-nowrap md:whitespace-normal';
 
 	function headKeyByIndex(i: number): string {
 		return Object.keys(source[0])[i];
@@ -155,7 +156,7 @@
 	}
 
 	// Reactive Classes
-	$: classesTable = `${cBaseTable} ${text}`;
+	$: classesTable = `${cBaseTable} ${text} ${color}`;
 	$: classesHeader = `${cBaseHead} ${header}`;
 	$: classesHeadCol = `${cBaseHeadCol} ${hover}`;
 	$: classesBody = `${cBaseBody} ${body}`;
