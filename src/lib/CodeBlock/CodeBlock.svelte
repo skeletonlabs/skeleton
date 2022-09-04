@@ -1,6 +1,3 @@
-<!-- NOTE: don't allow linting on this page as pre/code tags are particular about whitespace -->
-<!-- prettier-ignore-start -->
-
 <script lang="ts">
 	import { storeHighlightJs } from '$lib/CodeBlock/stores';
 
@@ -12,6 +9,9 @@
 	let cBaseBlock: string = `text-surface-50 p-4 rounded`;
 	let cBaseHeader: string = 'text-xs opacity-50 pb-2';
 
+	// Notify the template to use @html injection
+	let formatted: boolean = false;
+
 	// Allow shorthand 'js' alias for Javascript
 	function languageFormatter(lang: string): string {
 		if (lang === 'js') { return 'javascript'; }
@@ -19,21 +19,22 @@
 	}
 
 	// Trigger syntax highlighting if highlight.js is available
-	function highlight(): void {
-		if ($storeHighlightJs === undefined) return;
-		// Apply Highlight.js syntaxt highlighting
+	$: if ($storeHighlightJs !== undefined) {
 		code = $storeHighlightJs.highlight(code, { language }).value;
+		formatted = true;
 	}
-	highlight();
 
 	// Reactive Classes
 	$: classesBlock = `${cBaseBlock} ${background}`;
 </script>
 
+<!-- NOTE: don't allow linting as pre/code tags are particular about whitespace -->
+<!-- prettier-ignore-start -->
+
 {#if language && code}
 <div class="codeblock {classesBlock} {$$props.class}" data-testid="codeblock">
 <header class={cBaseHeader}>{languageFormatter(language)}</header>
-<pre class="whitespace-pre-wrap break-all text-sm"><code class="language-{language} outline-none" contenteditable spellcheck="false">{@html code}</code></pre>
+<pre class="whitespace-pre-wrap break-all text-sm"><code class="language-{language} outline-none" contenteditable spellcheck="false">{#if formatted}{@html code}{:else}{code}{/if}</code></pre>
 </div>
 {/if}
 
