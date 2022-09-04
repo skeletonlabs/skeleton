@@ -1,6 +1,3 @@
-<!-- NOTE: don't allow linting on this page as pre/code tags are particular about whitespace -->
-<!-- prettier-ignore-start -->
-
 <script lang="ts">
 	import { storeHighlightJs } from '$lib/CodeBlock/stores';
 
@@ -14,21 +11,24 @@
 
 	// Allow shorthand 'js' alias for Javascript
 	function languageFormatter(lang: string): string {
-		if (lang === 'js') { return 'javascript'; }
+		if (lang === 'js') {
+			return 'javascript';
+		}
 		return lang;
 	}
 
 	// Trigger syntax highlighting if highlight.js is available
-	function highlight(): void {
-		if ($storeHighlightJs === undefined) return;
+	$: if ($storeHighlightJs !== undefined) {
 		// Apply Highlight.js syntaxt highlighting
 		code = $storeHighlightJs.highlight(code, { language }).value;
 	}
-	highlight();
 
 	// Reactive Classes
 	$: classesBlock = `${cBaseBlock} ${background}`;
 </script>
+
+<!-- NOTE: don't allow linting on this page as pre/code tags are particular about whitespace -->
+<!-- prettier-ignore-start -->
 
 {#if language && code}
 <div class="codeblock {classesBlock} {$$props.class}" data-testid="codeblock">
