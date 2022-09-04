@@ -142,13 +142,13 @@
 			<!-- Contributors -->
 			<div class="text-center space-y-6">
 				<h2>Contributors</h2>
-				<div class="flex flex-wrap justify-center space-x-2">
+				<div class="flex flex-wrap justify-center">
 					{#await contributors}
 						<p>Loading contributors...</p>
 					{:then response}
 						{#each response as c}
 							<a href={c.html_url} target="_blank" title={c.login}>
-								<Avatar src={c.avatar_url} size="lg" shadow="shadow-lg" hover class="m-2" />
+								<Avatar src={c.avatar_url} size="fluid" shadow="shadow-lg" hover class="m-2 max-w-[50px]" />
 							</a>
 						{/each}
 					{/await}
