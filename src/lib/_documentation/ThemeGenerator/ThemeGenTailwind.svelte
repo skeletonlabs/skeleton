@@ -106,6 +106,6 @@
 
 	<!-- Codeblock -->
 	<fieldset class="space-y-4">
-		<CodeBlock language="css" code={`${cssSnippet}`} class="max-h-[440px] overflow-y-auto" />
+		<CodeBlock language="css" code={`${cssSnippet}`} class="max-h-[440px] overflow-y-auto border border-white/10" />
 	</fieldset>
 </form>
