@@ -15,6 +15,15 @@
 			['duration', 'number', '150', 'number', 'Animation fade in/out duration in milliseconds. Set to 0 (zero) to disable.']
 		]
 	};
+	const tablePropSlots: any = {
+		headings: ['Prop', 'Type', 'Default', 'Description'],
+		source: [
+			['popup', 'string', 'false', 'Provide classes to style the popup.'],
+			['message', 'string', 'false', 'Provide classes to style the popup message.'],
+			['arrow', 'string', 'false', 'Provide classes to style the popup arrow.'],
+			['content', 'string', 'false', 'Provide classes to style the tooltip content wrapping element.'],
+		]
+	};
 	const tableSlots: any = {
 		headings: ['Name', 'Description'],
 		source: [
@@ -109,6 +118,7 @@
 	<section class="space-y-4">
 		<h2>Properties</h2>
 		<DataTable headings={tableProps.headings} source={tableProps.source} />
+		<DataTable headings={tablePropSlots.headings} source={tablePropSlots.source} />
 	</section>
 
 	<!-- Slots -->
