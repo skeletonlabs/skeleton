@@ -33,7 +33,7 @@
 {#if language && code}
 <div class="codeblock {classesBlock} {$$props.class}" data-testid="codeblock">
 <header class={cBaseHeader}>{languageFormatter(language)}</header>
-<pre class="whitespace-pre-wrap break-all text-sm"><code class="language-{language} outline-none" contenteditable spellcheck="false">{@html code}</code></pre>
+<pre class="whitespace-pre-wrap break-all text-sm"><code class="language-{language} outline-none" contenteditable spellcheck="false">{#if $storeHighlightJs !== undefined}{@html code}{:else}{code}{/if}</code></pre>
 </div>
 {/if}
 
