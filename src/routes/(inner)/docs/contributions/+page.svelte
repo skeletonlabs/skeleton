@@ -42,18 +42,11 @@
 		<h2>How to Contribute</h2>
 		<ul class="list-disc list-inside">
 			<li>
-				Pull requests are always welcome. Read this full guide, <a href="https://github.com/Brain-Bones/skeleton/issues" target="_blank">create or pick an issue</a>, stake your claim, and start
-				helping!
+				Pull requests are always welcome. Read this full guide, <a href="https://github.com/Brain-Bones/skeleton/issues" target="_blank">create or pick an issue</a>, stake your claim, and start helping!
 			</li>
-			<li>
-				Let us know what you want to see added. We are actively seeking feedback on the <a
-					href="https://github.com/Brain-Bones/skeleton/wiki/%F0%9F%9B%A3%EF%B8%8F-The-Skeleton-Roadmap-(proposal)"
-					target="_blank">roadmap</a
-				>, see the
-				<a href="https://github.com/Brain-Bones/skeleton/discussions/79" target="_blank">discussion thread</a>.
-			</li>
+			<li>Let Skeleton contributors know what you would like to see added. See the <a href="https://github.com/Brain-Bones/skeleton/wiki/%F0%9F%9B%A3%EF%B8%8F-The-Skeleton-Roadmap-(proposal)" target="_blank">roadmap</a> and and review the current <a href="https://github.com/Brain-Bones/skeleton/discussions/79" target="_blank">discussion thread</a>.</li>
 			<li>Help improve documentation. Send a pull request to fix typos, grammar issues, as well as correct outdated or incorrect information.</li>
-			<li>Help spread the word. Send Skeleton to your fellow developers. This helps a lot more than you think!</li>
+			<li>Spread the word. Send Skeleton to your fellow developers or share on social media. This helps a lot more than you think!</li>
 		</ul>
 	</section>
 
@@ -65,7 +58,7 @@
 			Workflow
 			<Badge background="bg-warning-500" class="-translate-y-2">Important</Badge>
 		</h2>
-		<p>Avoid going rogue and commiting changes without prior discussion. Open-source is most successful when we all work together.</p>
+		<p>Avoid commits and PRs without prior discussion. Open-source is most successful when we all work together.</p>
 		<ol class="list-decimal list-inside">
 			<li>
 				<a href="https://github.com/Brain-Bones/skeleton/issues" target="_blank">Select an issue</a>
@@ -73,17 +66,16 @@
 				<a href="https://github.com/Brain-Bones/skeleton/wiki/%F0%9F%9B%A3%EF%B8%8F-The-Skeleton-Roadmap-(proposal)" target="_blank">roadmap task</a> you wish to make a contribution to.
 			</li>
 			<li>
-				Leave a comment, join the <a href="https://github.com/Brain-Bones/skeleton/discussions/79" target="_blank">roadmap discussion</a>, or notify core contributors on Discord.
+				Leave a comment, join the <a href="https://github.com/Brain-Bones/skeleton/discussions/79" target="_blank">roadmap discussion</a>, or notify other contributors on Discord.
 			</li>
-			<li>Review with other contributors to define the requirements before you begin. This is critical!</li>
-			<li>Create a feature branch based on the <code>dev</code> branch, follow conventions defined in the sections below.</li>
-			<li>Make all changes, then run automated tests to ensure no regressions were introduced.</li>
+			<li>Review with other contributors to define the requirements before you begin. (This is critical!)</li>
+			<li>Create a feature branch against the <code>dev</code> branch using the branch naming conventions defined below.</li>
+			<li>Make your changes, then run automated tests to ensure no regressions were introduced.</li>
 			<li>When ready, submit a pull request to begin the code review process.</li>
-			<li>If your PR meets all requirements it <u>will</u> be merged!</li>
+			<li>If your PR meets all requirements it will be merged!</li>
 		</ol>
 		<p>
-			The overwhelming majority of rejected pull requests come from unrequested submissions that do not meet the requirements for a feature or otherwise conflict with other ongoing efforts. To avoid
-			rejection, be a team player, don't try to be a hero!
+			The overwhelming majority of rejected pull requests come from submissions without prior discussion, do not meet the requirements for a feature, or otherwise conflict with ongoing efforts. To avoid rejection, be a team player, don't try to be a hero!
 		</p>
 	</section>
 
@@ -93,15 +85,12 @@
 	<section class="space-y-4">
 		<h2>Pull Requests</h2>
 		<p>
-			As a common courtesy, please reach out to contributors before you start work on new features. If you're interested in creating a new feature, create a ticket on <a
-				href="https://github.com/Brain-Bones/skeleton/issues"
-				target="_blank">Github Issues</a
-			>. This allows for open discourse and may help prevent redundant work. This includes but is not limited to: creating new components, adding new utilities, or alterations to existing work.
+			Per common courtesy, please reach out to contributors before you start work on new features. If you're interested in creating a new feature, create a ticket on <a href="https://github.com/Brain-Bones/skeleton/issues" target="_blank">GitHub Issues</a>. This allows for open discourse and may help prevent redundant work. This includes but is not limited to: creating new components, adding new utilities, or notable alterations to existing work.
 		</p>
 		<h4>Git Branches</h4>
 		<DataTable headings={tableBranches.headings} source={tableBranches.source} />
 		<h4>Branch Naming Conventions</h4>
-		<p>Branch wildcard (*) values should contain a short and semantic description (ex: feature/new-component-name).</p>
+		<p>The wildcards (*) below should contain a short and semantic description (ex: feature/new-component-name).</p>
 		<DataTable headings={tableBranchConventions.headings} source={tableBranchConventions.source} />
 	</section>
 
@@ -111,8 +100,7 @@
 	<section class="space-y-4">
 		<h2>Dependencies</h2>
 		<p>
-			Skeleton aims to keep dependencies to as few as possible to keep the project lean. Please be leery of introducing new dependencies. However, don't be afraid to discuss additions you would like
-			to propose with core contributors before proceeding. We just want what's best for end users!
+			Skeleton aims to keep dependencies as lean as possible. Please be leery of introducing more. If you have a valid reason to add one, please discuss with core contributors before proceeding. This can help avoid conflicts and greatly benefits end users!
 		</p>
 	</section>
 
@@ -120,8 +108,7 @@
 
 	<!-- Conventions -->
 	<section class="space-y-4">
-		<h2>Conventions</h2>
-		<h4>Project Structure</h4>
+		<h2>Project Structure</h2>
 		<DataTable headings={tableProjectStructure.headings} source={tableProjectStructure.source} />
 		<h4>Component Naming Conventions</h4>
 		<ul class="list-disc list-inside">
@@ -145,7 +132,7 @@
 
 	<!-- Component -->
 	<section class="space-y-4">
-		<h2>Component Markup</h2>
+		<h2>Component Markup Conventions</h2>
 		<p>
 			Ensure any relevant events bubble via <a href="https://svelte.dev/tutorial/dom-event-forwarding" target="_blank">event forwarding</a>.
 		</p>
@@ -185,20 +172,22 @@ function prunedRestProps(): any {
 		<h2>Component Props</h2>
 		<p>Follow these guidelines when creating or adding new component props.</p>
 		<ul class="list-disc list-inside">
-			<li>Should be a single word, all lowercase, and semantic. Match Tailwind class naming conventions whenever possible.</li>
-			<li>If you need multiple words, use camel-casing.</li>
-			<li>Color props should follow standard CSS style names.</li>
-			<li>Ensure Typescript type definitions are included.</li>
-			<li>Always pass full Tailwind classes. Class names cannot be constructed dynamically. Tailwind does not support this.</li>
-			<li>Make sure you set a relevant default value when possible.</li>
-			<li>If a property is added, please ensure you update the component documentation.</li>
+			<li>Each prop should be a single word, all lowercase, and semantic. Match Tailwind class naming conventions whenever possible.</li>
+			<li>If you need multiple words, use camel-casing (ex: ringSize).</li>
+			<li>Color props should follow standard CSS style names (ex: <code>color</code> for text color).</li>
+			<li>Avoid passing a set of styles using arrays or objects. String formats work better (ex: <code>border border-primary-500</code>).</li>
+			<li>Ensure Typescript types are provided and set a relevant default values when possible.</li>
+			<li>Always pass the full Tailwind class name. Tailwind does not support contructed class names.</li>
+			<li>If a new prop is added, update the documentation. Otherwise users won't know about it!</li>
 		</ul>
+		<p>Here's a few examples:</p>
 		<CodeBlock
 			language="typescript"
 			code={`
 export let background: string = 'bg-primary-500'; // background color
 export let color: string = 'text-primary-500'; // text color
 export let rounded: string = 'rounded-xl'; // border radius
+export let visible: boolean = false;
         `.trim()}
 		/>
 	</section>
@@ -209,7 +198,7 @@ export let rounded: string = 'rounded-xl'; // border radius
 	<section class="space-y-4">
 		<h2>Component Styling</h2>
 		<p>
-			Skeleton utilizes a strict paradigm for handling static and dynamic Tailwind styles for components. This is accomplished by passing Tailwind classes to the component as props, as well as
+			Skeleton utilizes a very specific paradigm for handling static and dynamic Tailwind styles for components. This is accomplished by passing Tailwind classes to the component as props, as well as
 			defining base structural classes within the component's script tag. While this may feel odd at first, you'll find it works really well in execution.
 		</p>
 		<!-- Base Classes -->
@@ -230,8 +219,13 @@ let cBaseLabel: string = 'text-base'; // base label styles
 		<CodeBlock
 			language="typescript"
 			code={`
+// Prop for outlined state
 export let outlined: boolean;
+
+// The base classes for outline styles
 let cOutlined: string = '';
+
+// Use a function to conditionally update the base classes 
 function setOutlined(): void {
     cOutlined = outlined ? 'border-2 border-primary-500' : 'border-none';
 }
@@ -249,27 +243,29 @@ afterUpdate(() => {
         `.trim()}
 		/>
 		<!-- Reactive Classes -->
-		<h4>Reactive Classes</h4>
+		<h3>Reactive Classes</h3>
 		<p>Reactive classes combine all base and dynamic classes. These are applied directly to each respective element.</p>
-		<CodeBlock
-			language="typescript"
-			code={`
+		<CodeBlock language="typescript" code={`
 $: classesCard = \`\${cBase} \${cOutlined}\`; // parent element
 $: classesLabel = \`\${cBaseLabel}\`; // child element
-        `.trim()}
-		/>
+        `.trim()} />
 		<p>
 			Apply the reactive classes as follows. Make sure to also include <code>$$props.classes</code> as a pass-through for additional classes. Note that the first class acts as an identifier for the element,
 			which is useful for testing and DOM manipulation.
 		</p>
-		<CodeBlock
-			language="html"
-			code={`
+		<CodeBlock language="html" code={`
 <div class="card {classesCard} {$$props.classes||''}">
     <label class="card-label {classesLabel}">My Label</label>
 </div>
-        `.trim()}
-		/>
+        `.trim()} />
+		<p>Optionaly, we can use reactive classes to simply the dynamic classes example above.</p>
+		<CodeBlock language="ts" code={`
+export let outlined: boolean;
+
+$: classesOutlined = outlined ? 'border-2 border-primary-500' : 'border-none';
+$: classesCard = \`\${cBase} \${classesOutlined}\`;
+		`.trim()} />
+		<p>This prevents the need for the <code>afterUpdate()</code> method.</p>
 	</section>
 
 	<Divider />
@@ -280,11 +276,11 @@ $: classesLabel = \`\${cBaseLabel}\`; // child element
 		<p>Below are a few pitfalls we've encountered when creating Skeleton. Do your best to avoid these whenever possible.</p>
 		<ul class="list-disc list-inside">
 			<li>
-				As a best practice for Tailwind, avoid component <code>style</code> blocks. This can increase the final stylesheet bundle size.
+				As a best practice for Tailwind, avoid using <code>style</code> blocks and <code>@apply</code> in component files. This can increase the final stylesheet bundle size.
 			</li>
 			<li>Do not mix script-defined and inline Tailwind classes. Doing so can have negative impact on the readability of the code.</li>
-			<li>Avoid switch-case statements to create shorthand property values (ex: sm, md, lg). This limits prop-based customization.</li>
-			<li>Keep Skeleton icon library agnostic. Use embedded SVGs or unicode instead. Slots and props are also great for customization.</li>
+			<li>Avoid switch-case statements to create shorthand property values (ex: sm, md, lg). This can limit prop-based customization.</li>
+			<li>Keep Skeleton icon library agnostic. Embed SVGs or unicode instead. Consider using a component slot if an icon is required.</li>
 		</ul>
 	</section>
 
@@ -292,18 +288,17 @@ $: classesLabel = \`\${cBaseLabel}\`; // child element
 
 	<!-- Documentation -->
 	<section class="space-y-4">
-		<h2>Updating Documentation</h2>
+		<h2>Documentation</h2>
 		<p>
-			A boilerplate template for documentation pages is available under <code>/src/routes/components/(inner)/template/+page.svelte</code>.
+			A boilerplate template for adding new documentation pages is available under <code>/src/routes/components/(inner)/template/+page.svelte</code>.
 		</p>
 		<h4>Update Site Navigation</h4>
 		<p>
-			Open <code>/src/lib/_documentation/SkeletonNavigation/links.ts</code> and document the new links under the appropriate section.
+			Open <code>/src/lib/_documentation/SkeletonNavigation/links.ts</code> and document the new links under the appropriate section. General rule of thumb is simple components go under <em>Components</em>, while Svelte actions and complicated features go under <em>Utilities</em>.
 		</p>
 		<h4>Interactive vs Static Demos</h4>
 		<p>
-			While interactive demos are preferred, static demos are fine. Just make sure to provide a variety of examples to illustrate potential use cases and showcase the feature set of the component. If
-			you need help adding an interactive demo, please contact any core contributor on the team.
+			While interactive demos are preferred, static demos are welcome too. Just make sure to provide a variety of examples to illustrate potential use cases and showcase the feature set of the component. If require assistance in setting up an interactive demo, please contact any core contributor on the team. We're happy to help!
 		</p>
 	</section>
 
@@ -312,8 +307,9 @@ $: classesLabel = \`\${cBaseLabel}\`; // child element
 	<!-- Code Formatting -->
 	<section class="space-y-4">
 		<h2>Code Linting &amp; Formatting</h2>
-		<p>This is is handled via <a href="https://prettier.io/" target="_blank">Prettier</a>.</p>
+		<p>This is is handled via <a href="https://prettier.io/" target="_blank">Prettier</a>. To check for linting issues, run:</p>
 		<CodeBlock language="console" code={`npm run lint`} />
+		<p>To automatically apply formatting, run:</p>
 		<CodeBlock language="console" code={`npm run format`} />
 	</section>
 
@@ -323,8 +319,7 @@ $: classesLabel = \`\${cBaseLabel}\`; // child element
 	<section class="space-y-4">
 		<h2>Automated Tests</h2>
 		<p>
-			Tests are handled via <a href="https://vitest.dev/" target="_blank">Vitest</a>, which uses similar conventions and syntax to Jest. Please ensure you write and run tests before submitting a pull
-			request. Bare minimum, these tests should test components with the minimal and maximum available prop changes.
+			Tests are handled via <a href="https://vitest.dev/" target="_blank">Vitest</a>, which uses similar conventions and syntax to Jest. Please ensure you write and run tests before submitting a pull request. Bare minimum, these tests should test components with the minimum and maximum props. If you're unfamiliar with automated testing, contact a core contributor for help.
 		</p>
 		<CodeBlock language="console" code={`npm run test`} />
 	</section>

@@ -35,7 +35,7 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>App Bar</h1>
-		<p>Header element for the top of your layout. Pairs well with the <a href="/components/app-shell">App Shell</a>.</p>
+		<p>A header element for the top of your app layout. Pairs well with the <a href="/components/app-shell">App Shell</a>.</p>
 		<CodeBlock language="javascript" code={`import { AppBar } from '@brainandbones/skeleton';`} />
 	</header>
 

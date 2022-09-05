@@ -59,28 +59,28 @@
 					<SvgIcon name="svelte" fill="fill-white" width="w-10" height="h-10" />
 				</div>
 				<h6>Svelte Integration</h6>
-				<p>Support for any Svelte project, with official instruction for <a href="https://kit.svelte.dev/" target="_blank">SvelteKit</a>, <a href="https://vitejs.dev/" target="_blank">Vite</a>, and <a href="https://astro.build/" target="_blank">Astro</a>.</p>
+				<p>Tightly coupled with Svelte, including full support for <a href="https://kit.svelte.dev/" target="_blank">SvelteKit</a>, <a href="https://vitejs.dev/" target="_blank">Vite</a>, and <a href="https://astro.build/" target="_blank">Astro</a>.</p>
 			</Card>
 			<Card body="space-y-4">
 				<div class="bg-sky-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
 					<SvgIcon name="tailwind" fill="fill-white" width="w-10" height="h-10" />
 				</div>
 				<h6>Tailwind CSS Integration</h6>
-				<p>Customize components with utility classes. Integrates with your Tailwind design system.</p>
+				<p>Integrate with your design system using Tailwind utility classes to style components.</p>
 			</Card>
 			<Card body="space-y-4">
 				<div class="bg-primary-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
 					<SvgIcon name="swatchbook" fill="fill-white" width="w-8" height="h-8" />
 				</div>
 				<h6>Dynamic Themes</h6>
-				<p>Choose from a library of hand crafted preset themes or quickly create your own in seconds.</p>
+				<p>Choose from a library of hand crafted preset themes or quickly generate your own in seconds.</p>
 			</Card>
 			<Card body="space-y-4">
 				<div class="bg-accent-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
 					<SvgIcon name="screwdriver" fill="fill-white" width="w-8" height="h-8" />
 				</div>
 				<h6>Powerful Utilities</h6>
-				<p>Provides complete toolkit for building modern web apps, with layouts, dialogs, and more.</p>
+				<p>Provides a feature rich UI toolkit for modern web apps, with layouts, dialogs, and more.</p>
 			</Card>
 		</section>
 

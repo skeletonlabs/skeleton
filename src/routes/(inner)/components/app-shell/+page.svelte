@@ -50,13 +50,13 @@
 			<svelte:fragment slot="pageFooter"><div class="boxShape">Page Footer</div></svelte:fragment>
 			<div class="boxShape">Page Content</div>
 		</AppShell>
-		<SlideToggle bind:checked={sidebarState}>Show Sidebars</SlideToggle>
+		<SlideToggle bind:checked={sidebarState}>Enable Sidebars</SlideToggle>
 	</section>
 
 	<!-- Usage -->
 	<section class="space-y-4">
 		<h2>Usage</h2>
-		<p>For best results implement this in your app's root layout. Please note that slot order does not matter.</p>
+		<p>For best results implement this in your app's root layout. The slot order does not matter.</p>
 		<CodeBlock language="html" code={`
 <AppShell>
 	<svelte:fragment slot="header">Header</svelte:fragment>
@@ -64,19 +64,35 @@
 	<svelte:fragment slot="sidebarRight">Sidebar Right</svelte:fragment>
 	<svelte:fragment slot="pageHeader">Page Header</svelte:fragment>
 	<svelte:fragment slot="pageFooter">Page Footer</svelte:fragment>
-	<!-- Insert you route slot here --->
+	<!-- Be sure to insert your route <slot> in the default position --->
 	<slot />
 </AppShell>
 		`.trim()} />
-		<p>The App Shell will expand to fill the parent container. Update your global styles for <em>html</em> and <em>body</em> tags to allow for this. Disable overflow to prevent duplicate scroll bars.</p>
+		<p>The App Shell will expand to fill the parent container. Disable overflow on your <em>html</em> and <em>body</em> tags to prevent duplicate scroll bars.</p>
 		<CodeBlock language="css" code={`
 /* Within your global stylesheet */
 html, body { @apply w-screen h-screen overflow-hidden; }
 		`.trim()} />
-		<h4>Header</h4>
-		<p>The <a href="/components/app-bar">AppBar component</a> should be embedded within the top-most <code>header</code> slot.</p>
-		<h4>Sidebars</h4>
-		<p>Please be aware that sidebars have a default width of <code>auto</code>. They will automatically collapse when empty or all content is hidden.</p>
+		<h4>Header AppBar</h4>
+		<p>The <a href="/components/app-bar">AppBar</a> component should be embedded within the top-most <code>header</code> slot.</p>
+		<CodeBlock language="html" code={`
+<AppShell>
+	<svelte:fragment slot="header">
+		<AppBar>Logo</AppBar>
+	</svelte:fragment>
+	<!-- ... -->
+</AppShell>
+		`.trim()} />
+		<h4>Using Sidebars</h4>
+		<p>Please be aware that sidebars have a default width of <code>auto</code>. They will automatically collapse when empty or content is set to hidden. This is useful for hiding sidebars using media queries via <a href="https://tailwindcss.com/docs/responsive-design" target="_blank">Tailwind's responsive breakpoints</a>.</p>
+		<CodeBlock language="html" code={`
+<AppShell>
+	<svelte:fragment slot="sidebarLeft">
+	    <!-- Hidden below Tailwind's large breakpoint -->
+		<div id="sidebar-left" class="hidden lg:block">Sidebar</div>
+	</svelte:fragment>
+</AppShell>
+		`.trim()} />
 	</section>
 
 	<!-- Properties -->

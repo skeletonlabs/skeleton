@@ -3,6 +3,8 @@
 	import { storeFramework } from '$lib/_documentation/stores';
 
 	import { DataTable, Card, Divider, Button, RadioGroup, RadioItem, TabGroup, Tab } from '@brainandbones/skeleton';
+	import { toastStore, type ToastMessage } from '$lib/Notifications/Stores';
+
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
 	import ThemeGenTailwind from '$lib/_documentation/ThemeGenerator/ThemeGenTailwind.svelte';
 	import ThemeGenCustom from '$lib/_documentation/ThemeGenerator/ThemeGenCustom.svelte';
@@ -22,6 +24,23 @@
         { name: 'seafoam', colors: ['#14b8a6', '#8b5cf6', '#f59e0b'], surface: '#0c4a6e', url: `${presetUrl}/theme-seafoam.css` },
     ];
 
+	// Copy Theme Import to Clipboard
+	function copyThemeToClipboard(name: string): void {
+		navigator.clipboard.writeText(`import '@brainandbones/skeleton/styles/themes/theme-${name}.css';`).then(
+			// Success
+			() => {
+				const t: ToastMessage = { message: 'Import statement copied to clipboard.' };
+				toastStore.trigger(t);
+			},
+			// Error
+			(error) => {
+				const t: ToastMessage = { message: 'Sorry, copy to clipboard not supported.' };
+				toastStore.trigger(t);
+			}
+		);
+		
+	}
+
 	// Tables
 	// prettier-ignore
 	const tableProps: any = {
@@ -40,8 +59,7 @@
 	<header class="space-y-4">
 		<h1>Themes</h1>
 		<p>
-			Skeleton themes integrate with Tailwind using <a href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank">CSS custom properties</a> converted to RGB values. This enables the use of <a href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank">background opacity</a> as well as support for <a href="https://tailwindcss.com/docs/dark-mode" target="_blank">dark mode</a>. Components intelligently implement each color from the theme's palette. Follow the instructions below to get
-			started.
+			Skeleton themes integrate with Tailwind using <a href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank">CSS custom properties</a> converted to RGB values. This enables the use of <a href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank">background opacity</a> as well as support for <a href="https://tailwindcss.com/docs/dark-mode" target="_blank">dark mode</a>. Components intelligently implement each color from the theme's palette.
 		</p>
 	</header>
 
@@ -50,7 +68,7 @@
 	<!-- Presets -->
 	<section class="space-y-4">
 		<h2>Preset Themes</h2>
-		<p>Skeleton provides a set of curated themes out of the box. Use these to get started quickly.</p>
+		<p>A handful of curated preset themes are available below.</p>
 		<TabGroup selected={storeFramework}>
 			<Tab value="sveltekit">SvelteKit</Tab>
 			<Tab value="vite">Vite (Svelte)</Tab>
@@ -70,17 +88,17 @@
 			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/styles/themes/theme-{name}.css'; // <--\nimport '../styles/base.css';`} />
 		{/if}
 		<!-- Preset Previews -->
-		<p>Be sure to set <em>name</em> in <code>theme-(name).css</code> to one of the following values.</p>
+		<p>Tap any theme below to automatically copy the import statement to your clipboard.</p>
 		<nav class="grid grid-cols-1 md:grid-cols-3 gap-4">
 			{#each presets as preset}
-				<a href={preset.url} class="theme-set" style:background={preset.surface} target="_blank">
+				<div on:click={() => { copyThemeToClipboard(preset.name) }} class="theme-set" style:background={preset.surface} target="_blank">
 					<span class="text-sm">{preset.name}</span>
 					<ul class="grid grid-cols-3 gap-2">
 						{#each preset.colors as color}
 							<li class="aspect-square w-4 rounded-full" style:background={color} />
 						{/each}
 					</ul>
-				</a>
+				</div>
 			{/each}
 		</nav>
 	</section>
@@ -107,7 +125,7 @@
 			{/if}
 			{#if $storeGenerator === 'hex'}
 				<span class="block text-center">
-					For advanced users, enter any arbitrary hex color values to generate a completely unique theme.
+					For advanced users. Enterhex color values to generate a completely unique theme.
 				</span>
 			{/if}
 			<Divider class="opacity-30" />
@@ -115,10 +133,8 @@
 			{#if $storeGenerator === 'tailwind'}<ThemeGenTailwind />{/if}
 			{#if $storeGenerator === 'hex'}<ThemeGenCustom />{/if}
 			<Divider class="opacity-30" />
-			<svelte:fragment slot="footer">
-				<span class="block text-center">Use <a href="https://tailwind.simeongriggs.dev/blue/3B82F6" target="_blank">Palette Generator</a> to for deeper palatte curation. The <a href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba" target="_blank">Hex-To-RGB extension</a> can convert colors from <strong>Hex &rarr; RGB</strong> in bulk with <strong>VS Code</strong>.</span>
-			</svelte:fragment>
 		</Card>
+		<p class="block">TIP: Use <a href="https://tailwind.simeongriggs.dev/blue/3B82F6" target="_blank">Palette Generator</a> to for complete custom palatte curation. The <a href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba" target="_blank">Hex-To-RGB extension</a> can convert colors from <strong>Hex &rarr; RGB</strong> in bulk within <strong>VS Code</strong>.</p>
 		<!-- Instructions -->
 		<TabGroup selected={storeFramework}>
 			<Tab value="sveltekit">SvelteKit</Tab>
@@ -127,15 +143,15 @@
 		</TabGroup>
 		<!-- Framework: SvelteKit -->
 		{#if $storeFramework === 'sveltekit'}
-			<p>Create a new file for your theme in <code>/src/theme.postcss</code>, then import into <code>/src/routes/+layout.svelte</code>.</p>
+			<p>Add your custom theme to <code>/src/theme.postcss</code>, then import this file into <code>/src/routes/+layout.svelte</code>.</p>
 			<CodeBlock language="typescript" code={`import '../theme.postcss'; // <--\nimport '../app.postcss';\n`} />
 			<!-- Framework. Vite (Svelte) -->
 		{:else if $storeFramework === 'vite'}
-			<p>Create a new file for your theme in <code>/src/theme.css</code>, then import into <code>/src/main.js</code>:</p>
+			<p>Add your custom theme to <code>/src/theme.css</code>, then import this file into <code>/src/main.js</code>:</p>
 			<CodeBlock language="typescript" code={`import '../theme.css'; // <--\nimport '../app.css';\n`} />
 			<!-- Framework: Astro -->
 		{:else if $storeFramework === 'astro'}
-			<p>Create a new file for your theme in <code>/src/styles/theme.css</code>, then import into <code>/src/layouts/LayoutBasic.astro</code>.</p>
+			<p>Add your custom theme to <code>/src/styles/theme.css</code>, then import this file into <code>/src/layouts/LayoutBasic.astro</code>.</p>
 			<CodeBlock language="typescript" code={`import '../styles/theme.css'; // <--\nimport '../styles/base.css';`} />
 		{/if}
 	</section>
@@ -146,7 +162,7 @@
 	<section class="space-y-4">
 		<h3>Usage</h3>
 		<p>
-			Theme colors are not limited to Skeleton components. You can utilize them anywhere within your app following Tailwind's standard conventions. Feel free to mix or extend them with <a
+			Theme colors are not limited to Skeleton components. You may utilize them anywhere within your app following Tailwind's standard conventions. Feel free to mix or extend them with <a
 				href="https://tailwindcss.com/docs/customizing-colors"
 				target="_blank">Tailwind's default color palette</a
 			>.
@@ -162,7 +178,7 @@
 	<!-- Reference -->
 	<section class="space-y-4">
 		<h3>Reference</h3>
-		<p>A loose reference for what each color should represent within your project.</p>
+		<p>Here's a brief reference of what each color should represent within your project.</p>
 		<DataTable headings={tableProps.headings} source={tableProps.source} />
 	</section>
 
@@ -171,12 +187,12 @@
 	<!-- Next Steps -->
 	<Card body="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<p>Next, let's review best practices for handling CSS styles and overrides.</p>
-		<Button variant="filled-accent" href="/guides/styling">Handling Styles</Button>
+		<Button variant="filled-accent" href="/guides/styling">Styles and Stylesheets</Button>
 	</Card>
 </div>
 
 <style lang="postcss">
 	.theme-set {
-		@apply p-4 !no-underline !text-white flex justify-between items-center border border-white/10 hover:border-white/50 rounded shadow;
+		@apply p-4 !no-underline !text-white flex justify-between items-center border border-white/10 rounded shadow cursor-pointer hover:border-white/50 ;
 	}
 </style>

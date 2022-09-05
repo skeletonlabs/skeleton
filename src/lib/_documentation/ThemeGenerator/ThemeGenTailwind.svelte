@@ -42,7 +42,7 @@
 		Object.entries(rgbShades).forEach((set: any, i: number) => {
 			const [colorName, shades] = set;
 			// Add Comment Row
-			css += `${i === 0 ? `\t/* --- Tailwind Theme --- */\n` : '\n'}\t/* ${colorName} (${formValues[colorName]}) */`;
+			css += `${i === 0 ? `\t/* --- Custom Tailwind Theme --- */\n` : '\n'}\t/* ${colorName} (${formValues[colorName]}) */`;
 			// Per each entry, add custom property key/value row
 			Object.entries(shades).forEach((shade: any) => {
 				const [shadeKey, shadeValue] = shade;

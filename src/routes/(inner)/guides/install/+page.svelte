@@ -8,7 +8,7 @@
 
     <!-- Install -->
     <section class="space-y-4">
-        <h1>Get Started</h1>
+        <h1>Install Skeleton</h1>
         <p>
             Select your app framework of choice, then follow steps below. During this process you'll scaffold a project, install the Skeleton package, install and configure Tailwind, as well as implement a
             custom theme. Make sure to follow each guide carefully.

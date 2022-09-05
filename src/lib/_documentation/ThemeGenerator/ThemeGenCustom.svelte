@@ -1,5 +1,6 @@
 <script lang="ts">
 	// https://github.com/bobthered/tailwindcss-palette-generator
+	// @ts-ignore
 	import paletteGenerator from '@bobthered/tailwindcss-palette-generator';
 
 	// Components
@@ -89,7 +90,7 @@
 		Object.entries(rgbShades).forEach((set: any, i: number) => {
 			const [colorName, shades] = set;
 			// Add Comment Row
-			css += `${i === 0 ? `\t/* --- Custom Theme --- */\n` : '\n'}\t/* ${colorName} (${formValues[colorName]}) */`;
+			css += `${i === 0 ? `\t/* --- Custom Hex Theme --- */\n` : '\n'}\t/* ${colorName} (${formValues[colorName]}) */`;
 			// Per each entry, add custom property key/value row
 			Object.entries(shades).forEach((shade) => {
 				const [shadeKey, shadeValue] = shade;

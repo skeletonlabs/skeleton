@@ -20,12 +20,9 @@
 			impacting your ability to customize and style each input.
 		</p>
 		<p>
-			However, given Skeleton's tight integration with Tailwind, an elegant solution is available via the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank"
-				>official Tailwind Forms plugin</a
-			>. This provides a no-nonsense approach to applying clean and modern styling to <em>most</em>
-			inputs. Tailwind provides an example page to
-			<a href="https://tailwindcss-forms.vercel.app/kitchen-sink.html" target="_blank">preview the default styles here</a>.
+			However, given Skeleton's tight integration with Tailwind, an elegant solution is available via the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">official Tailwind Forms plugin</a>. This provides a no-nonsense approach to applying clean and modern styling to <em>most</em> inputs.
 		</p>
+		<p>Tailwind provides an example page to <a href="https://tailwindcss-forms.vercel.app/kitchen-sink.html" target="_blank">preview the default styles here</a>. These default styles can then be tailored to adapt your theme styling use Skeleton's modular stylesheet add-on for forms.</p>
 	</header>
 
 	<Divider />
@@ -62,7 +59,7 @@ module.exports = {
 }
         `.trim()}
 		/>
-		<p>We provide simple stylesheet add-on that allows form elements to adapta to your Skeleton theme.</p>
+		<p>We provide simple stylesheet add-on that allows form elements to adapt to your Skeleton theme.</p>
 		<TabGroup selected={storeFramework}>
 			<Tab value="sveltekit">SvelteKit</Tab>
 			<Tab value="vite">Vite (Svelte)</Tab>
@@ -70,18 +67,18 @@ module.exports = {
 		</TabGroup>
 		<!-- Framework: SvelteKit -->
 		{#if $storeFramework === 'sveltekit'}
-			<p>Import form element styles after your global stylesheet in <code>/src/routes/+layout.svelte</code>.</p>
+			<p>Import form element styles before your global stylesheet in <code>/src/routes/+layout.svelte</code>.</p>
 			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/styles/forms.css'; // <--\nimport '../app.postcss';`} />
 		<!-- Framework: Vite (Svelte) -->
 		{:else if $storeFramework === 'vite'}
-			<p>Import form element styles after your global stylesheet in <code>/src/main.js</code>.</p>
+			<p>Import form element styles before your global stylesheet in <code>/src/main.js</code>.</p>
 			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/styles/forms.css'; // <--\nimport '../app.css';`} />
 		<!-- Framework: Astro -->
 		{:else if $storeFramework === 'astro'}
-			<p>Import form element styles after your global stylesheet in <code>/src/layouts/LayoutBasic.astro</code>.</p>
+			<p>Import form element styles before your global stylesheet in <code>/src/layouts/LayoutBasic.astro</code>.</p>
 			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/styles/forms.css'; // <--\nimport '../styles/base.css';`} />
 		{/if}
-		<p>Finally, implement your form elements using standard HTML markup.</p>
+		<p>Finally, create your form elements using standard HTML markup.</p>
 		<CodeBlock
 			language="html"
 			code={`
@@ -112,12 +109,8 @@ module.exports = {
 	<section class="space-y-4">
 		<h2>Non-Supported Inputs</h2>
 		<p>
-			While the Tailwind Forms plugin covers most common inputs, there are a few <a href="https://tailwindcss-forms.vercel.app/kitchen-sink.html" target="_blank">exceptions</a>
-			(see page bottom). However, Skeleton provides a robust
-			<a href="/components/range-sliders">Range Slider</a>
-			alternative, as well as custom components for
-			<a href="/components/slide-toggles">Slide Toggles</a>
-			and <a href="/components/radio-groups">Radio Groups</a>. Expect to see more of these in the future.
+			While the Tailwind Forms plugin covers most common inputs, there are <a href="https://tailwindcss-forms.vercel.app/kitchen-sink.html" target="_blank">a few exceptions</a> (see page bottom). However, Skeleton provides a robust <a href="/components/range-sliders">Range Slider</a>
+			alternative, as well as custom components for <a href="/components/slide-toggles">Slide Toggles</a> and <a href="/components/radio-groups">Radio Groups</a>. Expect to see more of these in the future.
 		</p>
 	</section>
 
