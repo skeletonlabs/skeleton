@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Card, Divider, Button } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+	import Alert from '$lib/Alert/Alert.svelte';
 
 	const dynamicSvelteWrapperSnippet: string = `
 \<script lang="ts"\>
@@ -22,13 +23,15 @@
 			</nav>
 		</div>
 		<p>Skeleton now officially supports the Astro web framework. This guide provides a walkthrough for scaffolding a simple Astro application.</p>
-		<p>
-			<strong>IMPORTANT:</strong> Make sure you've read through <a href="/guides/tailwind">Tailwind</a>,
-			<a href="/guides/themes">Themes</a>, and <a href="/guides/styling">Styling</a> guides before you proceed.
-		</p>
 	</header>
-
+	
 	<Divider />
+
+	<Alert>
+		<svelte:fragment slot="message">
+			Please ensure you've read through <a href="/guides/tailwind">Tailwind</a>, <a href="/guides/themes">Themes</a>, and <a href="/guides/styling">Styling</a> guides before you proceed.
+		</svelte:fragment>
+	</Alert>
 
 	<!-- Setup -->
 	<section class="space-y-4">
@@ -83,7 +86,7 @@ import LayoutBasic from '../layouts/LayoutBasic.astro';
 		<p>Let's review how to implement Skeleton components while taking advantage of <a href="https://docs.astro.build/en/concepts/islands/" target="_blank">Astro's islands architecture</a>.</p>
 		<h4>Static</h4>
 		<p>
-			For simple Skeleton components that do not require JavaScript logic or functionality, we can simply import and use those components directly in the homepage <code>/src/pages/index.astro</code>:
+			For simple Skeleton components that do not require JavaScript logic or functionality, you can import these components directly in the homepage <code>/src/pages/index.astro</code>:
 		</p>
 		<CodeBlock
 			language="html"
@@ -105,12 +108,12 @@ import { LogoCloud, Logo } from '@brainandbones/skeleton';
 		<h4>Dynamic</h4>
 		<p>
 			For Skeleton components that make use of reactive Svelte features, such as the <code>on:click</code>
-			directive, Writable Stores, Actions, or similiar, you'll need to setup a dedicated Svelte wrapper component, then hydrate the wrapper component. For this example we'll create
+			directive, Writable Stores, Actions, or similiar, you'll need to create a Svelte wrapper component, then hydrate this component. For this example we'll create
 			<code>/src/components/WrapperExample.svelte</code>:
 		</p>
 		<CodeBlock language="html" code={dynamicSvelteWrapperSnippet} />
 		<p>
-			Now we can display it on the home page <code>/src/pages/index.astro</code>:
+			Now we can display the wrapper on the homepage in <code>/src/pages/index.astro</code>:
 		</p>
 		<CodeBlock
 			language="html"
@@ -125,10 +128,9 @@ import WrapperExample from '../components/WrapperExample.svelte';
         `.trim()}
 		/>
 		<p>
-			The trick with the dynamic component, is to hydrate it using <a href="https://docs.astro.build/en/reference/directives-reference/#client-directives" target="_blank">Astro's Client Directives</a>.
+			Please note that dynamic components must be hydrated using <a href="https://docs.astro.build/en/reference/directives-reference/#client-directives" target="_blank">Astro's Client Directives</a>.
 			We opted for
-			<code>client:visible</code>, which loads and hydrates the JavaScript component only when it enters the user’s viewport. If we did not do this, the
-			<code>triggerMessage()</code> method would not function. You can see the output in the console of your web browser.
+			<code>client:visible</code>, which loads and hydrates the JavaScript component only when it enters the user’s viewport. If we did not do this, the component would be rendered as only HTML/CSS and the <code>triggerMessage()</code> method would not function.
 		</p>
 	</section>
 
