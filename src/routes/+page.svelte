@@ -45,7 +45,7 @@
 					+ <a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a>.
 				</p>
 				<nav class="flex space-x-4">
-					<Button variant="filled-primary" href="/guides/get-started">Get Started</Button>
+					<Button variant="filled-primary" href="/guides/install">Get Started</Button>
 					<Button variant="ghost" href="/docs/why">Why Skeleton</Button>
 					<Button variant="ghost" href="https://github.com/Brain-Bones/skeleton" target="_blank">Github</Button>
 				</nav>
