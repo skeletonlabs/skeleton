@@ -31,10 +31,7 @@
 		}
 	}
 
-	// After Prop Update
-	afterUpdate(() => {
-		setSize();
-	});
+	$: setSize();
 
 	// Reactive Classes
 	$: cOutlined = outlined === true ? 'ring ring-2 ring-offset-2 ring-offset-surface-50 dark:ring-offset-surface-900 ring-primary-600' : '';
