@@ -42,9 +42,9 @@
 	$: classesAvatar = `${cBase} ${cSize} ${background} ${color} ${cOutlined} ${cHover} ${$$props.class}`;
 </script>
 
-<figure on:click class="avatar {classesAvatar}" data-testid="avatar" >
+<figure on:click class="avatar {classesAvatar}" data-testid="avatar">
 	{#if src}
-		<img class="w-full h-full object-cover" {src} alt={$$props.alt || 'avatar'} use:f.filter={filter||''} />
+		<img class="w-full h-full object-cover" {src} alt={$$props.alt || 'avatar'} use:f.filter={filter || ''} />
 	{:else}
 		<span class={cText}>{initials.substring(0, 2).toUpperCase()}</span>
 	{/if}

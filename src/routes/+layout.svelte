@@ -1,5 +1,4 @@
 <!-- Layout: (root) -->
-
 <script lang="ts">
 	import hljs from 'highlight.js';
 	import 'highlight.js/styles/github-dark.css';
@@ -14,7 +13,7 @@
 	import Dialog from '$lib/Notifications/Dialog.svelte';
 	import Toast from '$lib/Notifications/Toast.svelte';
 
-	// Doc-Only Components 
+	// Doc-Only Components
 	import SkeletonAppBar from '$lib/_documentation/SkeletonAppBar/SkeletonAppBar.svelte';
 	import SkeletonSidebar from '$lib/_documentation/SkeletonNavigation/SkeletonSidebar.svelte';
 	import SkeletonDrawer from '$lib/_documentation/SkeletonNavigation/SkeletonDrawer.svelte';
@@ -39,7 +38,9 @@
 		storeCurrentUrl.set($page.url.pathname);
 		// Scroll to top
 		const elemPage = document.querySelector('#page');
-		if (elemPage !== null) { elemPage.scrollTop = 0; }
+		if (elemPage !== null) {
+			elemPage.scrollTop = 0;
+		}
 	});
 
 	// Disable left sidebar on homepage
@@ -53,7 +54,6 @@
 
 <!-- App Shell -->
 <AppShell {sidebarLeftWidth}>
-
 	<!-- Header -->
 	<svelte:fragment slot="header">
 		<SkeletonAppBar />
@@ -71,5 +71,4 @@
 	<svelte:fragment slot="pageFooter">
 		<SkeletonFooter />
 	</svelte:fragment>
-
 </AppShell>

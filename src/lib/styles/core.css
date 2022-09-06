@@ -1,7 +1,7 @@
 /* --- Skeleton: Core --- */
 
 body {
-    @apply font-sans bg-surface-100 dark:bg-surface-900 text-black dark:text-white;
+	@apply font-sans bg-surface-100 dark:bg-surface-900 text-black dark:text-white;
 }
 
 /* --- Scrollbars --- */

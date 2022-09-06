@@ -40,7 +40,9 @@
 		dispatch('keydown', event);
 		if (['Enter', 'Space'].includes(event.code)) {
 			event.preventDefault();
-			if (parentTag === 'nav') { elemItem.click(); }
+			if (parentTag === 'nav') {
+				elemItem.click();
+			}
 		}
 	}
 

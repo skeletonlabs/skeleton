@@ -17,7 +17,7 @@ describe('Badge.svelte', () => {
 				color: 'text-white',
 				fill: 'fill-white',
 				rounded: 'rounded',
-				icon: false,
+				icon: false
 			}
 		});
 		expect(getByTestId('badge')).toBeTruthy();

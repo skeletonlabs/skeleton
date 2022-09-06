@@ -14,13 +14,13 @@ describe('AppBar.svelte', () => {
 		const { getByTestId } = render(AppBar, {
 			props: {
 				background: 'bg-primary-500',
-                border: 'border border-accent-500',
-                padding: 'p-4',
-                shadow: 'shadow',
-                space: 'space-x-2',
-                // a11y
-                label: 'TestAppShell',
-                labelledby: 'TestLabelAppShell',
+				border: 'border border-accent-500',
+				padding: 'p-4',
+				shadow: 'shadow',
+				space: 'space-x-2',
+				// a11y
+				label: 'TestAppShell',
+				labelledby: 'TestLabelAppShell'
 			}
 		});
 		expect(getByTestId('app-bar')).toBeTruthy();

@@ -20,7 +20,7 @@ describe('Tooltip.svelte', () => {
 				width: 'w-auto',
 				whitespace: 'whitespace-nowrap',
 				rounded: 'rounded',
-				duration: 100,
+				duration: 100
 			}
 		});
 		expect(getByTestId('tooltip')).toBeTruthy();

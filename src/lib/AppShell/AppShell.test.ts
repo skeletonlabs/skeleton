@@ -14,7 +14,7 @@ describe('AppShell.svelte', () => {
 		const { getByTestId } = render(AppShell, {
 			props: {
 				sidebarLeftWidth: 'w-auto',
-                sidebarRightWidth: 'w-auto',
+				sidebarRightWidth: 'w-auto'
 			}
 		});
 		expect(getByTestId('app-shell')).toBeTruthy();

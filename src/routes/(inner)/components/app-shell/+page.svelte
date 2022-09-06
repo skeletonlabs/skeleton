@@ -12,7 +12,7 @@
 		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
 		source: [
 			['sidebarLeftWidth', 'string', 'w-auto', '-', 'Provide a class to set the left sidebar width.'],
-			['sidebarRightWidth', 'string', 'w-auto', '-', 'Provide a class to set the right sidebar width.'],
+			['sidebarRightWidth', 'string', 'w-auto', '-', 'Provide a class to set the right sidebar width.']
 		]
 	};
 	const tableSlots: any = {
@@ -23,7 +23,7 @@
 			['sidebarLeft', 'Hidden when empty. Allows you to set fixed left sidebar content.'],
 			['sidebarRight', 'Hidden when empty. Allows you to set fixed right sidebar content.'],
 			['pageHeader', 'Insert content that resides above your page content. Great for global alerts.'],
-			['pageFooter', 'Insert content that resides below your page content. Add your site footer here.'],
+			['pageFooter', 'Insert content that resides below your page content. Add your site footer here.']
 		]
 	};
 </script>
@@ -57,7 +57,9 @@
 	<section class="space-y-4">
 		<h2>Usage</h2>
 		<p>For best results implement this in your app's root layout. The slot order does not matter.</p>
-		<CodeBlock language="html" code={`
+		<CodeBlock
+			language="html"
+			code={`
 <AppShell>
 	<svelte:fragment slot="header">Header</svelte:fragment>
 	<svelte:fragment slot="sidebarLeft">Sidebar Left</svelte:fragment>
@@ -67,32 +69,45 @@
 	<!-- Be sure to insert your route <slot> in the default position --->
 	<slot />
 </AppShell>
-		`.trim()} />
+		`.trim()}
+		/>
 		<p>The App Shell will expand to fill the parent container. Disable overflow on your <em>html</em> and <em>body</em> tags to prevent duplicate scroll bars.</p>
-		<CodeBlock language="css" code={`
+		<CodeBlock
+			language="css"
+			code={`
 /* Within your global stylesheet */
 html, body { @apply w-screen h-screen overflow-hidden; }
-		`.trim()} />
+		`.trim()}
+		/>
 		<h4>Header AppBar</h4>
 		<p>The <a href="/components/app-bar">AppBar</a> component should be embedded within the top-most <code>header</code> slot.</p>
-		<CodeBlock language="html" code={`
+		<CodeBlock
+			language="html"
+			code={`
 <AppShell>
 	<svelte:fragment slot="header">
 		<AppBar>Logo</AppBar>
 	</svelte:fragment>
 	<!-- ... -->
 </AppShell>
-		`.trim()} />
+		`.trim()}
+		/>
 		<h4>Using Sidebars</h4>
-		<p>Please be aware that sidebars have a default width of <code>auto</code>. They will automatically collapse when empty or content is set to hidden. This is useful for hiding sidebars using media queries via <a href="https://tailwindcss.com/docs/responsive-design" target="_blank">Tailwind's responsive breakpoints</a>.</p>
-		<CodeBlock language="html" code={`
+		<p>
+			Please be aware that sidebars have a default width of <code>auto</code>. They will automatically collapse when empty or content is set to hidden. This is useful for hiding sidebars using media
+			queries via <a href="https://tailwindcss.com/docs/responsive-design" target="_blank">Tailwind's responsive breakpoints</a>.
+		</p>
+		<CodeBlock
+			language="html"
+			code={`
 <AppShell>
 	<svelte:fragment slot="sidebarLeft">
 	    <!-- Hidden below Tailwind's large breakpoint -->
 		<div id="sidebar-left" class="hidden lg:block">Sidebar</div>
 	</svelte:fragment>
 </AppShell>
-		`.trim()} />
+		`.trim()}
+		/>
 	</section>
 
 	<!-- Properties -->
@@ -109,5 +124,7 @@ html, body { @apply w-screen h-screen overflow-hidden; }
 </div>
 
 <style lang="postcss">
-	.boxShape { @apply bg-warning-500/10 border border-warning-500 p-4 text-center text-xs h-full flex justify-center items-center; }
+	.boxShape {
+		@apply bg-warning-500/10 border border-warning-500 p-4 text-center text-xs h-full flex justify-center items-center;
+	}
 </style>

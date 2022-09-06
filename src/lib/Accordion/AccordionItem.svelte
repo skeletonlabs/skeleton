@@ -46,5 +46,7 @@
 <style>
 	/* Hide the left-hande arrows for details/summary  */
 	/* Note: let's keep this localized in case users want the arrows elsewhere */
-	details summary::-webkit-details-marker { display: none; }
+	details summary::-webkit-details-marker {
+		display: none;
+	}
 </style>

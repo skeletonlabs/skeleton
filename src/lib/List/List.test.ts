@@ -18,7 +18,7 @@ describe('List.svelte', () => {
 				tag: 'ul',
 				title: 'testTitle1',
 				label: 'testList1',
-				labelledby: 'testLabel1',
+				labelledby: 'testLabel1'
 			}
 		});
 		expect(getByTestId('list-group')).toBeTruthy();

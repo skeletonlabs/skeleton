@@ -49,15 +49,16 @@ describe('ListItem.svelte', () => {
 
 	// TODO: we need to define the `value` prop here, not sure the syntax
 	it('Renders <nav> selection list item, single value', async () => {
-		const { getByTestId } = render(ListItem, { props: {
-			parentTag: 'nav',
-			selected: writable('foobar'),
-			highlight: 'hover:bg-accent-500/10',
-			hover: '!bg-accent-500',
-		} });
+		const { getByTestId } = render(ListItem, {
+			props: {
+				parentTag: 'nav',
+				selected: writable('foobar'),
+				highlight: 'hover:bg-accent-500/10',
+				hover: '!bg-accent-500'
+			}
+		});
 		const element: HTMLElement = getByTestId('list-row');
 		expect(element).toBeTruthy();
 		expect(element.className).to.contain('!bg-accent-500');
 	});
-
 });

@@ -41,7 +41,7 @@ export { default as LightSwitch } from './LightSwitch/LightSwitch.svelte';
 
 // CodeBlock
 export { storeHighlightJs } from './CodeBlock/stores';
-export { default as CodeBlock } from "./CodeBlock/CodeBlock.svelte";
+export { default as CodeBlock } from './CodeBlock/CodeBlock.svelte';
 
 // Filters
 export { filter } from './Filters/filter';

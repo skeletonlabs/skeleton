@@ -14,25 +14,26 @@
 	async function getContributors(): Promise<any> {
 		const http = await fetch('https://api.github.com/repos/Brain-Bones/skeleton/contributors');
 		const res = await http.json();
-		if (http.ok) { return res; } else { throw new Error(res); }
+		if (http.ok) {
+			return res;
+		} else {
+			throw new Error(res);
+		}
 	}
 	let contributors: Promise<any> = getContributors();
 </script>
 
 <div>
-
 	<!-- Alert: Beta -->
 	<Alert>
 		<svelte:fragment slot="lead">🚧</svelte:fragment>
-		<svelte:fragment slot="message">
-			Skeleton is available as a public beta. Expect breaking changes prior to v1.0. If you encounter issues please report them on GitHub.</svelte:fragment>
+		<svelte:fragment slot="message">Skeleton is available as a public beta. Expect breaking changes prior to v1.0. If you encounter issues please report them on GitHub.</svelte:fragment>
 		<svelte:fragment slot="trail">
 			<Button variant="ghost" href="https://github.com/Brain-Bones/skeleton/issues">Report Issue</Button>
 		</svelte:fragment>
 	</Alert>
 
 	<div class="container max-w-[1200px] mx-auto px-4 py-10 md:py-20 space-y-20">
-
 		<!-- Hero -->
 		<header>
 			<div class="space-y-6">
@@ -59,7 +60,10 @@
 					<SvgIcon name="svelte" fill="fill-white" width="w-10" height="h-10" />
 				</div>
 				<h6>Svelte Integration</h6>
-				<p>Tightly coupled with Svelte, including full support for <a href="https://kit.svelte.dev/" target="_blank">SvelteKit</a>, <a href="https://vitejs.dev/" target="_blank">Vite</a>, and <a href="https://astro.build/" target="_blank">Astro</a>.</p>
+				<p>
+					Tightly coupled with Svelte, including full support for <a href="https://kit.svelte.dev/" target="_blank">SvelteKit</a>, <a href="https://vitejs.dev/" target="_blank">Vite</a>, and
+					<a href="https://astro.build/" target="_blank">Astro</a>.
+				</p>
 			</Card>
 			<Card body="space-y-4">
 				<div class="bg-sky-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
@@ -121,14 +125,13 @@
 
 		<!-- Shoutouts -->
 		<section class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20">
-
 			<!-- Sponsors -->
 			<div class="text-center space-y-8">
 				<h2>Sponsors</h2>
 				<div class="flex flex-wrap justify-center space-x-4">
 					<a href="https://www.brainandbonesllc.com/" target="_blank" class="opacity-90 hover:opacity-100 !no-underline">
 						<Card border="border border-surface-500/30" body="flex flex-col items-center space-y-4">
-							<img src="https://www.brainandbonesllc.com/svg/logo.svg" alt="Brain & Bones" class="h-[32px] invert dark:invert-0">
+							<img src="https://www.brainandbonesllc.com/svg/logo.svg" alt="Brain & Bones" class="h-[32px] invert dark:invert-0" />
 							<p class="text-sm">Brain & Bones</p>
 						</Card>
 					</a>
@@ -158,10 +161,6 @@
 					<svelte:fragment slot="trail">&rarr;</svelte:fragment>
 				</Button>
 			</div>
-
 		</section>
-
 	</div>
-	
-
 </div>

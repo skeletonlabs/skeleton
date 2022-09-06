@@ -1,6 +1,6 @@
 <script lang="ts">
 	import DataTable from '$lib/Table/DataTable.svelte';
-	import Card  from '$lib/Card/Card.svelte';
+	import Card from '$lib/Card/Card.svelte';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
 
 	// Tables
@@ -8,20 +8,18 @@
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Required', 'Description'],
 		source: [
 			['name', '-', '-', '-', '&check;', '...'],
-			['name', '-', '-', '-', '-', '...'],
+			['name', '-', '-', '-', '-', '...']
 		]
 	};
 	const tableSlots: any = {
 		headings: ['Name', 'Description'],
-		source: [
-			['name', '...'],
-		]
+		source: [['name', '...']]
 	};
 	const tableA11y: any = {
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Required', 'Description'],
 		source: [
 			['name', '-', '-', '-', '&check;', '...'],
-			['name', '-', '-', '-', '-', '...'],
+			['name', '-', '-', '-', '-', '...']
 		]
 	};
 </script>

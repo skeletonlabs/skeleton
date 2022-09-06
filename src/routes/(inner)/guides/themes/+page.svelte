@@ -38,7 +38,6 @@
 				toastStore.trigger(t);
 			}
 		);
-		
 	}
 
 	// Tables
@@ -59,12 +58,14 @@
 	<header class="space-y-4">
 		<h1>Themes</h1>
 		<p>
-			Skeleton themes integrate with Tailwind using <a href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank">CSS custom properties</a> converted to RGB values. This enables the use of <a href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank">background opacity</a> as well as support for <a href="https://tailwindcss.com/docs/dark-mode" target="_blank">dark mode</a>. Components intelligently implement each color from the theme's palette.
+			Skeleton themes integrate with Tailwind using <a href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank">CSS custom properties</a> converted to RGB values.
+			This enables the use of <a href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank">background opacity</a> as well as support for
+			<a href="https://tailwindcss.com/docs/dark-mode" target="_blank">dark mode</a>. Components intelligently implement each color from the theme's palette.
 		</p>
 	</header>
 
 	<Divider />
-		
+
 	<!-- Presets -->
 	<section class="space-y-4">
 		<h2>Preset Themes</h2>
@@ -91,7 +92,14 @@
 		<p>Tap any theme below to automatically copy the import statement to your clipboard.</p>
 		<nav class="grid grid-cols-1 md:grid-cols-3 gap-4">
 			{#each presets as preset}
-				<div on:click={() => { copyThemeToClipboard(preset.name) }} class="theme-set" style:background={preset.surface} target="_blank">
+				<div
+					on:click={() => {
+						copyThemeToClipboard(preset.name);
+					}}
+					class="theme-set"
+					style:background={preset.surface}
+					target="_blank"
+				>
 					<span class="text-sm">{preset.name}</span>
 					<ul class="grid grid-cols-3 gap-2">
 						{#each preset.colors as color}
@@ -124,9 +132,7 @@
 				</span>
 			{/if}
 			{#if $storeGenerator === 'hex'}
-				<span class="block text-center">
-					For advanced users. Enterhex color values to generate a completely unique theme.
-				</span>
+				<span class="block text-center"> For advanced users. Enterhex color values to generate a completely unique theme. </span>
 			{/if}
 			<Divider class="opacity-30" />
 			<!-- Generator Components -->
@@ -134,7 +140,11 @@
 			{#if $storeGenerator === 'hex'}<ThemeGenCustom />{/if}
 			<Divider class="opacity-30" />
 		</Card>
-		<p class="block">TIP: Use <a href="https://tailwind.simeongriggs.dev/blue/3B82F6" target="_blank">Palette Generator</a> to for complete custom palatte curation. The <a href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba" target="_blank">Hex-To-RGB extension</a> can convert colors from <strong>Hex &rarr; RGB</strong> in bulk within <strong>VS Code</strong>.</p>
+		<p class="block">
+			TIP: Use <a href="https://tailwind.simeongriggs.dev/blue/3B82F6" target="_blank">Palette Generator</a> to for complete custom palatte curation. The
+			<a href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba" target="_blank">Hex-To-RGB extension</a>
+			can convert colors from <strong>Hex &rarr; RGB</strong> in bulk within <strong>VS Code</strong>.
+		</p>
 		<!-- Instructions -->
 		<TabGroup selected={storeFramework}>
 			<Tab value="sveltekit">SvelteKit</Tab>
@@ -193,6 +203,6 @@
 
 <style lang="postcss">
 	.theme-set {
-		@apply p-4 !no-underline !text-white flex justify-between items-center border border-white/10 rounded shadow cursor-pointer hover:border-white/50 ;
+		@apply p-4 !no-underline !text-white flex justify-between items-center border border-white/10 rounded shadow cursor-pointer hover:border-white/50;
 	}
 </style>

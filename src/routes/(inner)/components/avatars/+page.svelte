@@ -4,7 +4,7 @@
 	import { Apollo, BlueNight, Emerald, GreenFall, Noir, NoirLight, Rustic, Summer84, XPro } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
 
-	const storeSrc: Writable<string|undefined> = writable(undefined);
+	const storeSrc: Writable<string | undefined> = writable(undefined);
 	let placeholder: string = 'https://i.pravatar.cc/';
 
 	const tableProps: any = {

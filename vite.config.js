@@ -11,11 +11,9 @@ const pkg = JSON.parse(json);
 
 /** @type {import('vite').UserConfig} */
 const config = {
-	plugins: [
-		sveltekit({ hot: !process.env.VITEST }),
-	],
+	plugins: [sveltekit({ hot: !process.env.VITEST })],
 	define: {
-		'__PACKAGE__': pkg
+		__PACKAGE__: pkg
 	},
 	resolve: {
 		alias: {
@@ -26,7 +24,7 @@ const config = {
 		globals: true,
 		environment: 'jsdom',
 		exclude: [...configDefaults.exclude, '**/package/**', '**/build/**']
-	},
+	}
 };
 
 export default config;

@@ -14,7 +14,7 @@ describe('Card.svelte', () => {
 		const { getByTestId } = render(Card, {
 			props: {
 				background: 'bg-primary-500',
-				color: 'text-white',
+				color: 'text-white'
 			}
 		});
 		expect(getByTestId('card')).toBeTruthy();

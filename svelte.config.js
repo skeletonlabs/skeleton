@@ -24,7 +24,7 @@ const config = {
 	package: {
 		// strip test files from packaging
 		files: (filepath) => {
-			return filepath.indexOf('test') == -1 ? true : false
+			return filepath.indexOf('test') == -1 ? true : false;
 		}
 	}
 };
