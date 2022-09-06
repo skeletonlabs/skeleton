@@ -11,12 +11,12 @@ describe('Breadcrumb.svelte', () => {
 	});
 
 	it('Renders with all props', () => {
-	    const { getByTestId } = render(Breadcrumb, {
-	        props: {
+		const { getByTestId } = render(Breadcrumb, {
+			props: {
 				separator: '|',
 				label: 'Test Divider'
-			},
-	    });
-	    expect(getByTestId('breadcrumb')).toBeTruthy();
+			}
+		});
+		expect(getByTestId('breadcrumb')).toBeTruthy();
 	});
 });

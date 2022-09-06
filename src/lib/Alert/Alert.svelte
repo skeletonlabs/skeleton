@@ -6,7 +6,7 @@
 	export let duration: number = 200; // ms
 	export let background: string = 'bg-accent-500/30';
 	export let border: string = 'border-l-accent-500';
-	export let color: string|undefined = undefined;
+	export let color: string | undefined = undefined;
 	export let radius: string = '';
 
 	// Base Classes
@@ -23,24 +23,24 @@
 	<div class="alert {classesCard}" transition:fade|local={{ duration }} data-testid="alert" role="alert" aria-live="polite">
 		<!-- Slot: Lead -->
 		{#if $$slots.lead}
-			<section class="{cLead}">
+			<section class={cLead}>
 				<slot name="lead" />
 			</section>
 		{/if}
 
 		<!-- Content -->
-		<section class="{cContent}">
+		<section class={cContent}>
 			<!-- Slot: Title -->
-			{#if $$slots.title}<h3><slot name="title"></slot></h3>{/if}
+			{#if $$slots.title}<h3><slot name="title" /></h3>{/if}
 			<!-- Slot: Message -->
 			{#if $$slots.message}
-				<div class="{color}"><slot name="message" /></div>
+				<div class={color}><slot name="message" /></div>
 			{/if}
 		</section>
 
 		<!-- Slot: Trail -->
 		{#if $$slots.trail}
-			<section class="{cTail}">
+			<section class={cTail}>
 				<slot name="trail" />
 			</section>
 		{/if}

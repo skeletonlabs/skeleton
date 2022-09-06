@@ -31,7 +31,7 @@ describe('DataTable.svelte', () => {
 				hover: 'hover:bg-primary-500/10',
 				// ---
 				labelledby: 'testDataTableLabel1',
-				describedby: 'testDataTablDescribed1',
+				describedby: 'testDataTablDescribed1'
 			}
 		});
 		expect(getByTestId('data-table')).toBeTruthy();

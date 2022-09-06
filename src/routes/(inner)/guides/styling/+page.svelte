@@ -7,32 +7,22 @@
 	// Tables
 	const ghLibPathMaster: string = 'https://github.com/Brain-Bones/skeleton/tree/master/src/lib'; // master branch
 	const tableStyleAddons: any = {
-		headings: ['Stylesheet', 'Description', 'Plugin Required', 'Source', ],
+		headings: ['Stylesheet', 'Description', 'Plugin Required', 'Source'],
 		source: [
 			[
 				'<code>tailwind.css</code>',
 				'Should proceed all other add-ons. Includes only the four primary <a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank">@tailwind directives</a>.',
 				'-',
-				`<a href="${ghLibPathMaster}/styles/tailwind.css" target="_blank">View</a>`,
+				`<a href="${ghLibPathMaster}/styles/tailwind.css" target="_blank">View</a>`
 			],
-			[
-				'<code>core.css</code>',
-				'General styles for for body elements, scrollbars, and more.',
-				'-',
-				`<a href="${ghLibPathMaster}/styles/core.css" target="_blank">View</a>`,
-			],
-			[
-				'<code>typography.css</code>',
-				'Styles headings, paragraph, anchors, pre, code, and more.',
-				'-',
-				`<a href="${ghLibPathMaster}/styles/typography.css" target="_blank">View</a>`,
-			],
+			['<code>core.css</code>', 'General styles for for body elements, scrollbars, and more.', '-', `<a href="${ghLibPathMaster}/styles/core.css" target="_blank">View</a>`],
+			['<code>typography.css</code>', 'Styles headings, paragraph, anchors, pre, code, and more.', '-', `<a href="${ghLibPathMaster}/styles/typography.css" target="_blank">View</a>`],
 			[
 				'<code>forms.css</code>',
 				'Should only be used with the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Tailwind Forms</a> plugin. See the <a href="/guides/forms">Forms</a> for details.',
 				'&check;',
-				`<a href="${ghLibPathMaster}/styles/forms.css" target="_blank">View</a>`,
-			],
+				`<a href="${ghLibPathMaster}/styles/forms.css" target="_blank">View</a>`
+			]
 		]
 	};
 </script>
@@ -52,10 +42,12 @@
 		<p>Here's a few suggested best practices to follow when creating global styles:</p>
 		<ul class="list-disc list-inside space-y-1">
 			<li>
-				Ensure you wrap your core page elements within a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main" target="_blank">main element</a>. The <a href="/components/app-shell">App Shell</a> component handles this for you.
-			
+				Ensure you wrap your core page elements within a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main" target="_blank">main element</a>. The
+				<a href="/components/app-shell">App Shell</a> component handles this for you.
+			</li>
 			<li>
-				The ideal use case for <a href="https://tailwindcss.com/docs/reusing-styles#extracting-classes-with-apply" target="_blank">Tailwind @apply</a> is defining global styles. Please be leery of <a href="https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction" target="_blank">premature abstraction</a>.
+				The ideal use case for <a href="https://tailwindcss.com/docs/reusing-styles#extracting-classes-with-apply" target="_blank">Tailwind @apply</a> is defining global styles. Please be leery of
+				<a href="https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction" target="_blank">premature abstraction</a>.
 			</li>
 			<li>
 				Utilize the CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:not" target="_blank">:not pseudo-class</a> to exclude and avoid conflicts with Skeleton component's inherit styles.
@@ -95,7 +87,8 @@
 		<Alert background="bg-accent-500/30">
 			<svelte:fragment slot="message">
 				<span class="text-black dark:text-white">
-					Ensure you import the <code>tailwind.css</code> add-on before all others. Remove the @tailwind directives from your global stylesheet if you choose to use these add-ons. Failure to do so will mean you have two instances of the directives in your project.
+					Ensure you import the <code>tailwind.css</code> add-on before all others. Remove the @tailwind directives from your global stylesheet if you choose to use these add-ons. Failure to do so will
+					mean you have two instances of the directives in your project.
 				</span>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
@@ -109,11 +102,11 @@
 	<!-- Per Component Styles -->
 	<section class="space-y-4">
 		<h2>Per Component Styles</h2>
-		<p>
-			Skeleton components automatically inherit and utilize your theme colors. However, there may be cases where you want to overwrite or extend the styling on a single component.
-		</p>
+		<p>Skeleton components automatically inherit and utilize your theme colors. However, there may be cases where you want to overwrite or extend the styling on a single component.</p>
 		<p>Special style properties are provided to customize each component. See each component's documentation for instruction.</p>
-		<CodeBlock language="html" code={`
+		<CodeBlock
+			language="html"
+			code={`
 <Button background="bg-accent-500">Prop Customized</Button>
         `.trim()}
 		/>
@@ -129,8 +122,8 @@
 		</p>
 		<CodeBlock language="html" code={`<Button class="!p-10">Big</Button>`} />
 		<p>
-			Keep in mind that components are a single line HTML element and represent a set of HTML elements within. This means you should be mindful of your target, as the <code>class</code> attribute
-			is only applied to the top-most parent element. In rare cases you may need to generate a chained class definition, though we advise using this technique sparingly.
+			Keep in mind that components are a single line HTML element and represent a set of HTML elements within. This means you should be mindful of your target, as the <code>class</code> attribute is only
+			applied to the top-most parent element. In rare cases you may need to generate a chained class definition, though we advise using this technique sparingly.
 		</p>
 		<CodeBlock language="css" code={`.my-custom-class .menu-content { @apply bg-red-500; }`} />
 		<CodeBlock language="html" code={`<Menu class="my-custom-class">...</Menu>`} />

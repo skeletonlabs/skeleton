@@ -20,7 +20,7 @@
 	$: classesFooter = `${footer}`;
 </script>
 
-<div class="card {classesCard} {$$props.class||''}" data-testid="card">
+<div class="card {classesCard} {$$props.class || ''}" data-testid="card">
 	<!-- Header -->
 	{#if $$slots.header}
 		<header class="card-header {classesHeader}"><slot name="header" /></header>

@@ -18,7 +18,7 @@
 			['hover', 'string', 'hover:bg-primary-500/10', '-', 'Provide a class to set the hover background color.'],
 			['spacing', 'string', 'space-y-0', '-', 'Provide a class to set spacing between title and description elements.'],
 			['padding', 'string', 'px-4 py-2', '-', 'Provide a class to set padding for summary and content regions.'],
-			['rounded', 'string', 'rounded', '-', 'Provide a class to set summary border radius.'],
+			['rounded', 'string', 'rounded', '-', 'Provide a class to set summary border radius.']
 		]
 	};
 	const tableSlots: any = {

@@ -15,7 +15,7 @@ describe('LogoCloud.svelte', () => {
 			props: {
 				background: 'bg-primary-500',
 				color: 'text-white',
-				text: 'text-base font-bold',
+				text: 'text-base font-bold'
 			}
 		});
 		expect(getByTestId('logo-cloud')).toBeTruthy();

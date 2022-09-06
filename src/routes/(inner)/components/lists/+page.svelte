@@ -14,7 +14,7 @@
 			['space', 'string', 'space-y-1', 'class', 'Provide a class to set Y-axis spacing of list items.'],
 			['selected', 'Writable', '-', 'any', 'Nav tag only. Provide a writable store to maintain list selection.'],
 			['hover', 'string', 'hover:bg-primary-500/10', 'class', 'Nav tag only. Provide a class to set hover background color.'],
-			['highlight', 'string', '!bg-primary-500', 'class', 'Nav tag only. Provide a class for highlighted rows. Note this must be use (!) for important.'],
+			['highlight', 'string', '!bg-primary-500', 'class', 'Nav tag only. Provide a class for highlighted rows. Note this must be use (!) for important.']
 		]
 	};
 	const tablePropsItems: any = {

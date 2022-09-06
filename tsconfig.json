@@ -40,5 +40,5 @@
 			"@brainandbones/skeleton": ["src/lib/index.ts"]
 		},
 		"outDir": "package"
-	},
+	}
 }

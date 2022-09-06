@@ -31,8 +31,11 @@
 	function setOrientation(): void {
 		// prettier-iignore
 		switch (orientation) {
-			case 'v': cOrientation = `border-0 ${cWeight[weight].v} h-full`; break;
-			default: cOrientation = `border-0 ${cWeight[weight].h} border-t w-full`;
+			case 'v':
+				cOrientation = `border-0 ${cWeight[weight].v} h-full`;
+				break;
+			default:
+				cOrientation = `border-0 ${cWeight[weight].h} border-t w-full`;
 		}
 	}
 

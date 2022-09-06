@@ -67,7 +67,7 @@
 	// Creates a hex shade palette from a singular hex value
 	function generateHexShades(key: string): void {
 		// Use paletteGenerator
-		const p: any = paletteGenerator({ names: [key], colors: [formValues[key]], });
+		const p: any = paletteGenerator({ names: [key], colors: [formValues[key]] });
 		delete p[key][950]; // drop swatch 950
 		hexShades[key] = p[key];
 		// Generate RGB shades

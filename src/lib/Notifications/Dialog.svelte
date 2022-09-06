@@ -80,13 +80,7 @@
 
 {#if $dialogStore.length}
 	<!-- Backdrop Shim -->
-	<div
-		class="dialog-backdrop {classesBackdrop} {$$props.class}"
-		on:click={onDialogClose}
-		on:keydown={onKeyPress}
-		transition:fade|local={{ duration }}
-		data-testid="dialog-backdrop"
-	>
+	<div class="dialog-backdrop {classesBackdrop} {$$props.class}" on:click={onDialogClose} on:keydown={onKeyPress} transition:fade|local={{ duration }} data-testid="dialog-backdrop">
 		<!-- Dialog -->
 		<div
 			bind:this={elemModal}

@@ -24,7 +24,7 @@
 		</div>
 		<p>Skeleton now officially supports the Astro web framework. This guide provides a walkthrough for scaffolding a simple Astro application.</p>
 	</header>
-	
+
 	<Divider />
 
 	<Alert>
@@ -130,7 +130,8 @@ import WrapperExample from '../components/WrapperExample.svelte';
 		<p>
 			Please note that dynamic components must be hydrated using <a href="https://docs.astro.build/en/reference/directives-reference/#client-directives" target="_blank">Astro's Client Directives</a>.
 			We opted for
-			<code>client:visible</code>, which loads and hydrates the JavaScript component only when it enters the user’s viewport. If we did not do this, the component would be rendered as only HTML/CSS and the <code>triggerMessage()</code> method would not function.
+			<code>client:visible</code>, which loads and hydrates the JavaScript component only when it enters the user’s viewport. If we did not do this, the component would be rendered as only HTML/CSS
+			and the <code>triggerMessage()</code> method would not function.
 		</p>
 	</section>
 

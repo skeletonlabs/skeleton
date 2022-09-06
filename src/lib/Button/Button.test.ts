@@ -23,12 +23,12 @@ describe('Button.svelte', () => {
 				width: 'w-[200px]',
 				rounded: 'rounded',
 				label: 'testButton1',
-				describedby: 'testLabel1',
+				describedby: 'testLabel1'
 			}
 		});
 		expect(getByTestId).toBeTruthy();
 	});
-	
+
 	it('Renders with variant prop', async () => {
 		const { getByTestId } = render(Button, {
 			props: { variant: 'ghost-primary' }

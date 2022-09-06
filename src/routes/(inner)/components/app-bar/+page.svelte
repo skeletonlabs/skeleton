@@ -11,7 +11,7 @@
 			['border', 'string', '-', 'Provide a class to set border styles.'],
 			['padding', 'string', 'px-4 py-4 md:py-6', 'Provide a class to set padding.'],
 			['shadow', 'string', 'shadow-xl', 'Provide a class to define a box shadow.'],
-			['space', 'string', 'space-x-4', 'Provide a class to set horizontal spacing.'],
+			['space', 'string', 'space-x-4', 'Provide a class to set horizontal spacing.']
 		]
 	};
 	const tableSlots: any = {
@@ -19,7 +19,7 @@
 		source: [
 			['default', 'Provide items that reside in the center, such as a search element.'],
 			['lead', 'Provide leading items, such as a branding logo or page header.'],
-			['trail', 'Provide trailing items, such as a navigation links.'],
+			['trail', 'Provide trailing items, such as a navigation links.']
 		]
 	};
 	const tableA11y: any = {
@@ -45,7 +45,7 @@
 			<svelte:fragment slot="lead">
 				<span class="text-base md:text-3xl font-bold uppercase">Logo</span>
 			</svelte:fragment>
-			<input type="search" placeholder="Search..." class="max-w-[200px]">
+			<input type="search" placeholder="Search..." class="max-w-[200px]" />
 			<svelte:fragment slot="trail">
 				<SvgIcon />
 			</svelte:fragment>
@@ -55,13 +55,16 @@
 	<!-- Usage -->
 	<section class="space-y-4">
 		<h2>Usage</h2>
-		<CodeBlock language="html" code={`
+		<CodeBlock
+			language="html"
+			code={`
 <AppBar>
 	<svelte:fragment slot="lead">(branding)</svelte:fragment>
 	(search)
 	<svelte:fragment slot="trail">(navigation)</svelte:fragment>
 </AppBar>
-		`.trim()} />
+		`.trim()}
+		/>
 	</section>
 
 	<!-- Properties -->

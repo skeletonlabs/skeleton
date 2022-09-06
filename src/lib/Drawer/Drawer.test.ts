@@ -9,7 +9,6 @@ import Drawer from '$lib/Drawer/Drawer.svelte';
 const storeTest: Writable<boolean> = writable(true);
 
 describe('Drawer.svelte', () => {
-
 	it('Renders when draw opened', async () => {
 		const { getByTestId } = render(Drawer, {
 			props: {
@@ -19,5 +18,4 @@ describe('Drawer.svelte', () => {
 		expect(getByTestId('drawer-backdrop')).toBeTruthy();
 		expect(getByTestId('drawer')).toBeTruthy();
 	});
-
 });

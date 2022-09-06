@@ -21,7 +21,7 @@
 			['popup', 'string', 'false', 'Provide classes to style the popup.'],
 			['message', 'string', 'false', 'Provide classes to style the popup message.'],
 			['arrow', 'string', 'false', 'Provide classes to style the popup arrow.'],
-			['content', 'string', 'false', 'Provide classes to style the tooltip content wrapping element.'],
+			['content', 'string', 'false', 'Provide classes to style the tooltip content wrapping element.']
 		]
 	};
 	const tableSlots: any = {

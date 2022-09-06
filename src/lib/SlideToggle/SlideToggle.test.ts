@@ -16,7 +16,7 @@ describe('SliderToggle.svelte', () => {
 				checked: true,
 				accent: 'bg-primary-500',
 				size: 'lg',
-				label: 'testSlideToggle1',
+				label: 'testSlideToggle1'
 			}
 		});
 		expect(getByTestId('slide-toggle')).toBeTruthy();

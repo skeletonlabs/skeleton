@@ -41,7 +41,10 @@
 		<CodeBlock language="typescript" code={`import 'highlight.js/styles/github-dark.css';`} />
 		<p>Finally, import the CodeBlock's writable store and pass a referenced to Highlight.js.</p>
 		<CodeBlock language="typescript" code={`import { storeHighlightJs } from '@brainandbones/skeleton';\nstoreHighlightJs.set(hljs);`} />
-		<p>This will trigger highlighting only when a supported <a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md" target="_blank">language alias</a> is provided to the CodeBlock's <code>language</code> prop.</p>
+		<p>
+			This will trigger highlighting only when a supported <a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md" target="_blank">language alias</a> is provided to the
+			CodeBlock's <code>language</code> prop.
+		</p>
 	</section>
 
 	<!-- Usage -->

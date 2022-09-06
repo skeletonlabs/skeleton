@@ -42,9 +42,16 @@
 		<h2>How to Contribute</h2>
 		<ul class="list-disc list-inside">
 			<li>
-				Pull requests are always welcome. Read this full guide, <a href="https://github.com/Brain-Bones/skeleton/issues" target="_blank">create or pick an issue</a>, stake your claim, and start helping!
+				Pull requests are always welcome. Read this full guide, <a href="https://github.com/Brain-Bones/skeleton/issues" target="_blank">create or pick an issue</a>, stake your claim, and start
+				helping!
 			</li>
-			<li>Let Skeleton contributors know what you would like to see added. See the <a href="https://github.com/Brain-Bones/skeleton/wiki/%F0%9F%9B%A3%EF%B8%8F-The-Skeleton-Roadmap-(proposal)" target="_blank">roadmap</a> and and review the current <a href="https://github.com/Brain-Bones/skeleton/discussions/79" target="_blank">discussion thread</a>.</li>
+			<li>
+				Let Skeleton contributors know what you would like to see added. See the <a
+					href="https://github.com/Brain-Bones/skeleton/wiki/%F0%9F%9B%A3%EF%B8%8F-The-Skeleton-Roadmap-(proposal)"
+					target="_blank">roadmap</a
+				>
+				and and review the current <a href="https://github.com/Brain-Bones/skeleton/discussions/79" target="_blank">discussion thread</a>.
+			</li>
 			<li>Help improve documentation. Send a pull request to fix typos, grammar issues, as well as correct outdated or incorrect information.</li>
 			<li>Spread the word. Send Skeleton to your fellow developers or share on social media. This helps a lot more than you think!</li>
 		</ul>
@@ -75,7 +82,8 @@
 			<li>If your PR meets all requirements it will be merged!</li>
 		</ol>
 		<p>
-			The overwhelming majority of rejected pull requests come from submissions without prior discussion, do not meet the requirements for a feature, or otherwise conflict with ongoing efforts. To avoid rejection, be a team player, don't try to be a hero!
+			The overwhelming majority of rejected pull requests come from submissions without prior discussion, do not meet the requirements for a feature, or otherwise conflict with ongoing efforts. To
+			avoid rejection, be a team player, don't try to be a hero!
 		</p>
 	</section>
 
@@ -85,7 +93,11 @@
 	<section class="space-y-4">
 		<h2>Pull Requests</h2>
 		<p>
-			Per common courtesy, please reach out to contributors before you start work on new features. If you're interested in creating a new feature, create a ticket on <a href="https://github.com/Brain-Bones/skeleton/issues" target="_blank">GitHub Issues</a>. This allows for open discourse and may help prevent redundant work. This includes but is not limited to: creating new components, adding new utilities, or notable alterations to existing work.
+			Per common courtesy, please reach out to contributors before you start work on new features. If you're interested in creating a new feature, create a ticket on <a
+				href="https://github.com/Brain-Bones/skeleton/issues"
+				target="_blank">GitHub Issues</a
+			>. This allows for open discourse and may help prevent redundant work. This includes but is not limited to: creating new components, adding new utilities, or notable alterations to existing
+			work.
 		</p>
 		<h4>Git Branches</h4>
 		<DataTable headings={tableBranches.headings} source={tableBranches.source} />
@@ -100,7 +112,8 @@
 	<section class="space-y-4">
 		<h2>Dependencies</h2>
 		<p>
-			Skeleton aims to keep dependencies as lean as possible. Please be leery of introducing more. If you have a valid reason to add one, please discuss with core contributors before proceeding. This can help avoid conflicts and greatly benefits end users!
+			Skeleton aims to keep dependencies as lean as possible. Please be leery of introducing more. If you have a valid reason to add one, please discuss with core contributors before proceeding. This
+			can help avoid conflicts and greatly benefits end users!
 		</p>
 	</section>
 
@@ -245,26 +258,35 @@ afterUpdate(() => {
 		<!-- Reactive Classes -->
 		<h3>Reactive Classes</h3>
 		<p>Reactive classes combine all base and dynamic classes. These are applied directly to each respective element.</p>
-		<CodeBlock language="typescript" code={`
+		<CodeBlock
+			language="typescript"
+			code={`
 $: classesCard = \`\${cBase} \${cOutlined}\`; // parent element
 $: classesLabel = \`\${cBaseLabel}\`; // child element
-        `.trim()} />
+        `.trim()}
+		/>
 		<p>
 			Apply the reactive classes as follows. Make sure to also include <code>$$props.classes</code> as a pass-through for additional classes. Note that the first class acts as an identifier for the element,
 			which is useful for testing and DOM manipulation.
 		</p>
-		<CodeBlock language="html" code={`
+		<CodeBlock
+			language="html"
+			code={`
 <div class="card {classesCard} {$$props.classes||''}">
     <label class="card-label {classesLabel}">My Label</label>
 </div>
-        `.trim()} />
+        `.trim()}
+		/>
 		<p>Optionaly, we can use reactive classes to simply the dynamic classes example above.</p>
-		<CodeBlock language="ts" code={`
+		<CodeBlock
+			language="ts"
+			code={`
 export let outlined: boolean;
 
 $: classesOutlined = outlined ? 'border-2 border-primary-500' : 'border-none';
 $: classesCard = \`\${cBase} \${classesOutlined}\`;
-		`.trim()} />
+		`.trim()}
+		/>
 		<p>This prevents the need for the <code>afterUpdate()</code> method.</p>
 	</section>
 
@@ -294,11 +316,13 @@ $: classesCard = \`\${cBase} \${classesOutlined}\`;
 		</p>
 		<h4>Update Site Navigation</h4>
 		<p>
-			Open <code>/src/lib/_documentation/SkeletonNavigation/links.ts</code> and document the new links under the appropriate section. General rule of thumb is simple components go under <em>Components</em>, while Svelte actions and complicated features go under <em>Utilities</em>.
+			Open <code>/src/lib/_documentation/SkeletonNavigation/links.ts</code> and document the new links under the appropriate section. General rule of thumb is simple components go under
+			<em>Components</em>, while Svelte actions and complicated features go under <em>Utilities</em>.
 		</p>
 		<h4>Interactive vs Static Demos</h4>
 		<p>
-			While interactive demos are preferred, static demos are welcome too. Just make sure to provide a variety of examples to illustrate potential use cases and showcase the feature set of the component. If require assistance in setting up an interactive demo, please contact any core contributor on the team. We're happy to help!
+			While interactive demos are preferred, static demos are welcome too. Just make sure to provide a variety of examples to illustrate potential use cases and showcase the feature set of the
+			component. If require assistance in setting up an interactive demo, please contact any core contributor on the team. We're happy to help!
 		</p>
 	</section>
 
@@ -319,7 +343,8 @@ $: classesCard = \`\${cBase} \${classesOutlined}\`;
 	<section class="space-y-4">
 		<h2>Automated Tests</h2>
 		<p>
-			Tests are handled via <a href="https://vitest.dev/" target="_blank">Vitest</a>, which uses similar conventions and syntax to Jest. Please ensure you write and run tests before submitting a pull request. Bare minimum, these tests should test components with the minimum and maximum props. If you're unfamiliar with automated testing, contact a core contributor for help.
+			Tests are handled via <a href="https://vitest.dev/" target="_blank">Vitest</a>, which uses similar conventions and syntax to Jest. Please ensure you write and run tests before submitting a pull
+			request. Bare minimum, these tests should test components with the minimum and maximum props. If you're unfamiliar with automated testing, contact a core contributor for help.
 		</p>
 		<CodeBlock language="console" code={`npm run test`} />
 	</section>

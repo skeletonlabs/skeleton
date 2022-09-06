@@ -1,6 +1,7 @@
 <script context="module">
 	import { icons } from './icons';
 </script>
+
 <script lang="ts">
 	// Props
 	export let name: string = 'image';
