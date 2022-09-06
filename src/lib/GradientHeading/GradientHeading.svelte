@@ -11,6 +11,7 @@
 	$: classesWrapper = `${cBaseHeading} ${direction} ${from} ${to}`;
 </script>
 
+<!-- svelte-ignore a11y-role-has-required-aria-props-->
 <svelte:element this={tag} class="gradient-heading {$$props.class}" data-testid="gradient-heading" role="heading">
 	<span class={classesWrapper}>
 		<slot />
