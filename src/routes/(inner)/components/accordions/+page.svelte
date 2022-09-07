@@ -74,7 +74,7 @@
 		<h3>Customized</h3>
 		<section class="border border-surface-500/10 p-2 rounded-xl space-y-4">
 			<AccordionGroup>
-				<AccordionItem spacing="space-y-4" open>
+				<AccordionItem spacing="space-y-4" open openOnHover>
 					<svelte:fragment slot="lead">
 						<SvgIcon name="skull" width="w-8" height="h-8" fill="fill-primary-500" />
 					</svelte:fragment>
@@ -85,7 +85,7 @@
 						<Card><p>The content for the first element.</p></Card>
 					</svelte:fragment>
 				</AccordionItem>
-				<AccordionItem spacing="space-y-4">
+				<AccordionItem spacing="space-y-4" openOnHover>
 					<svelte:fragment slot="lead"><Avatar size="sm" src="https://i.pravatar.cc/" /></svelte:fragment>
 					<svelte:fragment slot="summary">
 						<h3>Avatar and Heading</h3>
@@ -94,7 +94,7 @@
 						<Card><p>The content for the second element.</p></Card>
 					</svelte:fragment>
 				</AccordionItem>
-				<AccordionItem spacing="space-y-4">
+				<AccordionItem spacing="space-y-4" openOnHover>
 					<svelte:fragment slot="lead">
 						<Avatar initials="1" size="sm" background="bg-accent-500" />
 					</svelte:fragment>

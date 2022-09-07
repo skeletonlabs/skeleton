@@ -1,8 +1,16 @@
 <script lang="ts">
 	import SvgIcon from '$lib/SvgIcon/SvgIcon.svelte';
 
+	function openAccordion() {
+		if (openOnHover) open = true;
+	}
+	function closeAccordion() {
+		if (openOnHover) open = false;
+	}
+
 	// Props
 	export let open: boolean = false;
+	export let openOnHover: boolean = false;
 	export let hover: string = 'hover:bg-primary-500/10';
 	export let spacing: string = 'space-y-2';
 	export let padding: string = 'px-4 py-2';
@@ -24,7 +32,7 @@
 	$: classesDesc = `${padding}`;
 </script>
 
-<details bind:open class="accordion-item {classesDetails} {$$props.class}" data-testid="accordion-item">
+<details bind:open on:mouseenter={openAccordion} on:mouseleave={closeAccordion} class="accordion-item {classesDetails} {$$props.class}" data-testid="accordion-item">
 	<!-- Summary -->
 	<summary id={summaryId} class={classesSummary} aria-expanded={open} aria-controls={contentId}>
 		<!-- Slot: Lead -->
