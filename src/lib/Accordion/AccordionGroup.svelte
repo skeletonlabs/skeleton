@@ -1,9 +1,12 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onMount, setContext } from 'svelte';
 
 	// Props
 	export let collapse: boolean = true;
 	export let spacing: string = 'space-y-4';
+	export let openOnHover: boolean = false;
+
+	setContext('openOnHover', openOnHover);
 
 	let elemAccordian: HTMLElement;
 

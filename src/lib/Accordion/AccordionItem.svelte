@@ -1,5 +1,6 @@
 <script lang="ts">
 	import SvgIcon from '$lib/SvgIcon/SvgIcon.svelte';
+	import { getContext } from 'svelte';
 
 	function openAccordion() {
 		if (openOnHover) open = true;
@@ -10,7 +11,7 @@
 
 	// Props
 	export let open: boolean = false;
-	export let openOnHover: boolean = false;
+	export let openOnHover: boolean = getContext('openOnHover');
 	export let hover: string = 'hover:bg-primary-500/10';
 	export let spacing: string = 'space-y-2';
 	export let padding: string = 'px-4 py-2';
