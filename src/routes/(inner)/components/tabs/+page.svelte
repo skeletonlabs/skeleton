@@ -66,10 +66,10 @@
 			</Card>
 			<Card>
 				<svelte:fragment slot="header">
-					<TabGroup selected={storeTwo} justify="justify-start md:justify-end" border="border-accent-500" color="text-accent-500">
-						<Tab openOnHover value="a">Tab A</Tab>
-						<Tab openOnHover value="b">Tab B</Tab>
-						<Tab openOnHover value="c">Tab C</Tab>
+					<TabGroup openOnHover selected={storeTwo} justify="justify-start md:justify-end" border="border-accent-500" color="text-accent-500">
+						<Tab value="a">Tab A</Tab>
+						<Tab value="b">Tab B</Tab>
+						<Tab value="c">Tab C</Tab>
 					</TabGroup>
 				</svelte:fragment>
 				{#if $storeTwo === 'a'}Content A{/if}
