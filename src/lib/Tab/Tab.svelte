@@ -4,9 +4,14 @@
 
 	// Context
 	export let selected: Writable<any> = getContext('selected');
+	export let openOnHover: boolean = false;
 	export let border: string = getContext('border');
 	export let fill: string = getContext('fill');
 	export let color: string = getContext('color');
+
+	function selectTab() {
+		if (openOnHover === true) selected.set(value);
+	}
 
 	// Props
 	export let value: any = $selected.value;
@@ -38,6 +43,7 @@
 	on:click={() => {
 		selected.set(value);
 	}}
+	on:mouseenter={() => selectTab()}
 	data-testid="tab"
 	on:keydown={onKeyDown}
 	role="tab"
