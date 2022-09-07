@@ -8,7 +8,6 @@ import { fireEvent } from '@testing-library/dom';
 let testImgSrc = 'https://i.pravatar.cc/512';
 
 describe('Avatar.svelte', () => {
-
 	it('Renders with minimal props', async () => {
 		const { getByTestId } = render(Avatar);
 		expect(getByTestId('avatar')).toBeTruthy();
@@ -24,7 +23,7 @@ describe('Avatar.svelte', () => {
 				color: 'text-white-500',
 				outlined: true,
 				hover: true,
-				filter: '#Emerald',
+				filter: '#Emerald'
 			}
 		});
 		expect(getByTestId('avatar')).toBeTruthy();
@@ -47,7 +46,7 @@ describe('Avatar.svelte', () => {
 		const { getByTestId } = render(Avatar, {
 			props: { src: testImgSrc }
 		});
-		const imgSrc: string|undefined = getByTestId('avatar').querySelector('img')?.src;
+		const imgSrc: string | undefined = getByTestId('avatar').querySelector('img')?.src;
 		expect(imgSrc).to.eq(testImgSrc);
 	});
 

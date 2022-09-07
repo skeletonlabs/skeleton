@@ -5,22 +5,23 @@
 	export let open: boolean = false;
 	export let hover: string = 'hover:bg-primary-500/10';
 	export let spacing: string = 'space-y-2';
+	export let padding: string = 'px-4 py-2';
+	export let rounded: string = 'rounded';
 	// A11y
 	export let summaryId: string | undefined = undefined;
 	export let contentId: string | undefined = undefined;
 
 	// Base Classes
 	const cBaseDetails: string = '';
-	const cBaseSummary: string = 'flex items-center space-x-4 px-4 py-2 cursor-pointer rounded';
+	const cBaseSummary: string = 'list-none flex items-center space-x-4 cursor-pointer';
 	const cBaseIcon: string = 'flex justify-center items-center w-3 fill-black dark:fill-white transition-all duration-[100ms]';
-	const cBaseDesc: string = 'px-4 py-2';
 
 	// Reactive Classes
 	$: classesDetails = `${cBaseDetails} ${spacing}`;
-	$: classesSummary = `${cBaseSummary} ${hover}`;
+	$: classesSummary = `${cBaseSummary} ${padding} ${rounded} ${hover}`;
 	$: classesIconState = open ? '-rotate-180' : '';
 	$: classesIcon = `${cBaseIcon} ${classesIconState}`;
-	$: classesDesc = `${cBaseDesc}`;
+	$: classesDesc = `${padding}`;
 </script>
 
 <details bind:open class="accordion-item {classesDetails} {$$props.class}" data-testid="accordion-item">
@@ -41,3 +42,11 @@
 		<slot name="content" />
 	</div>
 </details>
+
+<style>
+	/* Hide the left-hande arrows for details/summary  */
+	/* Note: let's keep this localized in case users want the arrows elsewhere */
+	details summary::-webkit-details-marker {
+		display: none;
+	}
+</style>

@@ -31,10 +31,7 @@
 		}
 	}
 
-	// After Prop Update
-	afterUpdate(() => {
-		setSize();
-	});
+	$: setSize();
 
 	// Reactive Classes
 	$: cOutlined = outlined === true ? 'ring ring-2 ring-offset-2 ring-offset-surface-50 dark:ring-offset-surface-900 ring-primary-600' : '';
@@ -42,9 +39,9 @@
 	$: classesAvatar = `${cBase} ${cSize} ${background} ${color} ${cOutlined} ${cHover} ${$$props.class}`;
 </script>
 
-<figure on:click class="avatar {classesAvatar}" data-testid="avatar" >
+<figure on:click class="avatar {classesAvatar}" data-testid="avatar">
 	{#if src}
-		<img class="w-full h-full object-cover" {src} alt={$$props.alt || 'avatar'} use:f.filter={filter||''} />
+		<img class="w-full h-full object-cover" {src} alt={$$props.alt || 'avatar'} use:f.filter={filter || ''} />
 	{:else}
 		<span class={cText}>{initials.substring(0, 2).toUpperCase()}</span>
 	{/if}

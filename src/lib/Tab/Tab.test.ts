@@ -18,7 +18,7 @@ describe('Tab.svelte', () => {
 				selected: writable(0),
 				border: 'border-primary-500',
 				fill: 'fill-primary-500',
-				color: 'text-primary-500',
+				color: 'text-primary-500'
 			}
 		});
 		expect(getByTestId('tab')).toBeTruthy();

@@ -20,7 +20,7 @@ describe('CodeBlock.svelte', () => {
 			props: {
 				language: 'js',
 				code: `console.log('Hello World');`,
-				background: 'bg-slate-800',
+				background: 'bg-slate-800'
 			}
 		});
 		expect(getByTestId('codeblock')).toBeTruthy();

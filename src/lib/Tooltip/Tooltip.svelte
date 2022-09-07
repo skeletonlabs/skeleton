@@ -11,6 +11,11 @@
 	export let whitespace: string = 'whitespace-nowrap';
 	export let rounded: string = 'rounded';
 	export let duration: number = 100; // ms
+	// Props (slots)
+	export let popup: string | undefined = undefined;
+	export let message: string | undefined = undefined;
+	export let arrow: string | undefined = undefined;
+	export let content: string | undefined = undefined;
 
 	// Base Styles
 	const cBaseTooltip: string = 'relative inline-flex justify-center items-center';
@@ -70,9 +75,10 @@
 	});
 
 	// Reactive Classes
-	$: classesPopup = `${cBasePopup} ${cPosition}`;
-	$: classesMessage = `${cBaseMessage} ${background} ${color} ${width} ${whitespace} ${rounded}`;
-	$: classesArrow = `${cBaseArrow} ${cArrowPosition} ${background}`;
+	$: classesPopup = `${cBasePopup} ${cPosition} ${popup}`;
+	$: classesMessage = `${cBaseMessage} ${background} ${color} ${width} ${whitespace} ${rounded} ${message}`;
+	$: classesArrow = `${cBaseArrow} ${cArrowPosition} ${background} ${arrow}`;
+	$: classesContent = `${content}`;
 </script>
 
 <div class="tooltip {cBaseTooltip} {$$props.class}" data-testid="tooltip" role="tooltip">
@@ -86,7 +92,7 @@
 
 	<!-- Slot: Content -->
 	{#if $$slots.content}
-		<div data-testid="content" on:mouseenter={onMouseEnter} on:mouseleave={onMouseLeave}>
+		<div class={classesContent} data-testid="content" on:mouseenter={onMouseEnter} on:mouseleave={onMouseLeave}>
 			<slot name="content" />
 		</div>
 	{/if}

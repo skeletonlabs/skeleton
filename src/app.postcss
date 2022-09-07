@@ -1,157 +1,51 @@
+/*
+IMPORTANT:
+Only implement Tailwind directives if you're not using
+Skeleton's core.css add-on as it will do this for you.
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+*/
+
+/*
+IMPORTANT:
+Global styles are now distributed as part of the Skeleton package. Previously we used:
+
+import '$lib/styles/themes/theme-skeleton.css';
+(global stylesheet) <--- the file you're viewing now
+
+But should now import from `node_modules` and use modular style packs:
+
+import '@brainandbones/skeleton/styles/themes/theme-skeleton.css';
+import '@brainandbones/skeleton/styles/core.css';
+import '@brainandbones/skeleton/styles/typography.css';
+import '@brainandbones/skeleton/styles/forms.css';
+(global stylesheet)
+
+If the global styles you're adding or overwriting are unique to the Skeleton documentation, set the below.
+Otherwise, update the respective style packs (core, typography, forms) so everyone benefits!
+*/
+
+/* === NOTE: unique doc-only styles below: ==== */
 
 html,
 body {
 	@apply h-screen overflow-hidden;
 }
-body {
-	@apply font-sans bg-surface-100 dark:bg-surface-900 text-black dark:text-white;
-}
 
-.dark body {
-	/* Via: https://csshero.org/mesher/ */
-	background-image: radial-gradient(at 32% 66%, hsla(183, 55%, 15%, 0.33) 0, transparent 53%), radial-gradient(at 80% 20%, hsla(232, 40%, 22%, 0.5) 0, transparent 56%),
-		radial-gradient(at 63% 56%, hsla(182, 53%, 15%, 0.33) 0, transparent 59%);
+/* Gradient Background, via: https://csshero.org/mesher/ */
+body {
+	/* prettier-ignore */
+	background-image:
+		radial-gradient(at 35% 35%, hsla(160,84%,39%,0.08) 0px, transparent 35%),
+		radial-gradient(at 61% 60%, hsla(238,83%,66%,0.08) 0px, transparent 35%);
 	background-size: cover;
 	background-attachment: fixed;
 }
-
-/* --- Focus --- */
-
-/*
-*:focus-visible:not(.codeblock code) {
-    @apply outline-none ring-2 ring-black dark:ring-white ring-inset shadow-xl;
-}
-*/
-
-/* --- Scrollbars --- */
-
-/* Scrollbars (webkit) */
-::-webkit-scrollbar {
-	@apply w-2;
-}
-::-webkit-scrollbar-track {
-	@apply bg-white/20 dark:bg-black/20;
-}
-::-webkit-scrollbar-thumb {
-	@apply rounded-full bg-surface-300 dark:bg-surface-700;
-}
-
-/* Hide Scrollbars */
-.hide-scrollbar::-webkit-scrollbar {
-	display: none;
-}
-.hide-scrollbar {
-	-ms-overflow-style: none; /* IE/Edge */
-	scrollbar-width: none; /* Firefox */
-}
-
-/* --- Typography --- */
-
-/* Headings */
-h1 {
-	@apply text-4xl md:text-6xl font-bold;
-}
-h2 {
-	@apply text-3xl md:text-4xl font-bold;
-}
-h3 {
-	@apply text-2xl md:text-3xl font-bold;
-}
-h4 {
-	@apply text-xl md:text-2xl font-bold;
-}
-h5 {
-	@apply text-lg md:text-xl font-bold;
-}
-h6 {
-	@apply text-base md:text-lg font-bold;
-}
-
-/* Blockquote */
-blockquote {
-	@apply border-l-2 border-l-accent-500 pl-2 text-base text-surface-500 dark:text-surface-400;
-}
-
-/* Code */
-pre:not(.codeblock pre) {
-	@apply bg-surface-700 dark:bg-black/20 text-surface-50 p-4 whitespace-pre-wrap text-base overflow-x-auto rounded;
-}
-code:not(.codeblock code) {
-	@apply bg-surface-500/30 text-black dark:text-white text-xs py-1 px-2 rounded;
-}
-
-/* Page Styles */
-main p {
-	@apply text-base text-surface-500 dark:text-surface-400;
-}
-main a:not(.comp-button):not(.crumb a):not(.list-row):not(.logo):not(.drawer a) {
-	@apply text-primary-500 underline underline-offset-4 decoration-primary-500/20 decoration-dotted hover:brightness-110;
-}
-
-/* --- Forms --- */
-
-fieldset {
-	@apply block;
-}
-
-/* Inputs */
-[type='text'],
-[type='email'],
-[type='url'],
-[type='password'],
-[type='number'],
-[type='date'],
-[type='datetime-local'],
-[type='month'],
-[type='search'],
-[type='tel'],
-[type='time'],
-[type='week'],
-[multiple],
-textarea,
-select {
-	@apply w-full text-black bg-surface-50 border-surface-300 rounded-lg shadow-sm focus:border-accent-500 focus:ring-accent-500 hover:brightness-110;
-	@apply dark:text-white dark:bg-surface-600 dark:border-surface-500;
-}
-
-/* Selectable */
-[type='checkbox'],
-[type='radio'] {
-	@apply border-surface-500 rounded text-accent-600 focus:ring-accent-500;
-}
-
-/* Invalid - https://www.bram.us/2021/01/28/form-validation-you-want-notfocusinvalid-not-invalid/ */
-input:not(:focus):not(:placeholder-shown):invalid {
-	@apply bg-warning-300 border-warning-500;
-}
-
-/* Placeholders */
-input::-moz-placeholder,
-textarea::-moz-placeholder {
-	@apply text-surface-400;
-}
-input:-ms-input-placeholder,
-textarea:-ms-input-placeholder {
-	@apply text-surface-400;
-}
-input::placeholder,
-textarea::placeholder {
-	@apply text-surface-400;
-}
-
-/* Labels */
-label {
-	@apply block overflow-visible;
-}
-label span,
-legend {
-	@apply block text-surface-700 dark:text-surface-300 text-sm mb-2;
-}
-
-/* Accent Color - https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color */
-[type='range']:not(.range-input) {
-	@apply w-full accent-accent-500;
+.dark body {
+	/* prettier-ignore */
+	background-image:
+		radial-gradient(at 35% 35%, hsla(160,84%,39%,0.16) 0px, transparent 50%),
+		radial-gradient(at 61% 60%, hsla(238,83%,66%,0.16) 0px, transparent 50%);
 }

@@ -23,7 +23,7 @@ describe('Paginator.svelte', () => {
 				select: 'bg-primary-500',
 				// ---
 				variant: 'ghost-primary',
-				rounded: 'rounded',
+				rounded: 'rounded'
 			}
 		});
 		expect(getByTestId('paginator')).toBeTruthy();

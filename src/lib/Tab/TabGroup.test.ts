@@ -21,7 +21,7 @@ describe('TabGroup.svelte', () => {
 				fill: 'fill-primary-500',
 				color: 'text-primary-500',
 				labeledby: 'testTabGroupLabel1',
-				label: 'testTabGroup1',
+				label: 'testTabGroup1'
 			}
 		});
 		expect(getByTestId('tab-group')).toBeTruthy();

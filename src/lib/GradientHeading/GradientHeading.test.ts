@@ -20,7 +20,7 @@ describe('GradientHeading.svelte', () => {
 				tag: 'h1',
 				direction: 'bg-gradient-to-r',
 				from: 'from-primary-500',
-				to: 'to-accent-500',
+				to: 'to-accent-500'
 			}
 		});
 		const elem: HTMLElement = getByTestId('gradient-heading');

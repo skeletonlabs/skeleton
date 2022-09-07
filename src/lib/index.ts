@@ -4,6 +4,8 @@
 
 export { default as AccordionGroup } from './Accordion/AccordionGroup.svelte';
 export { default as AccordionItem } from './Accordion/AccordionItem.svelte';
+export { default as AppBar } from './AppBar/AppBar.svelte';
+export { default as AppShell } from './AppShell/AppShell.svelte';
 export { default as Alert } from './Alert/Alert.svelte';
 export { default as Avatar } from './Avatar/Avatar.svelte';
 export { default as Badge } from './Badge/Badge.svelte';
@@ -11,11 +13,8 @@ export { default as Breadcrumb } from './Breadcrumb/Breadcrumb.svelte';
 export { default as Crumb } from './Breadcrumb/Crumb.svelte';
 export { default as Button } from './Button/Button.svelte';
 export { default as Card } from './Card/Card.svelte';
-// export { default as CodeBlock } from "./CodeBlock/CodeBlock.svelte"; // keep disabled until further notice
 export { default as Divider } from './Divider/Divider.svelte';
-export { default as Drawer } from './Drawer/Drawer.svelte';
 export { default as GradientHeading } from './GradientHeading/GradientHeading.svelte';
-export { default as LightSwitch } from './LightSwitch/LightSwitch.svelte';
 export { default as List } from './List/List.svelte';
 export { default as ListItem } from './List/ListItem.svelte';
 export { default as LogoCloud } from './LogoCloud/LogoCloud.svelte';
@@ -37,6 +36,13 @@ export { default as Tooltip } from './Tooltip/Tooltip.svelte';
 
 // Utilities ---
 
+// LightSwitch
+export { default as LightSwitch } from './LightSwitch/LightSwitch.svelte';
+
+// CodeBlock
+export { storeHighlightJs } from './CodeBlock/stores';
+export { default as CodeBlock } from './CodeBlock/CodeBlock.svelte';
+
 // Filters
 export { filter } from './Filters/filter';
 export { default as Apollo } from './Filters/svg/Apollo.svelte';
@@ -48,6 +54,9 @@ export { default as NoirLight } from './Filters/svg/NoirLight.svelte';
 export { default as Rustic } from './Filters/svg/Rustic.svelte';
 export { default as Summer84 } from './Filters/svg/Summer84.svelte';
 export { default as XPro } from './Filters/svg/XPro.svelte';
+
+// Drawer
+export { default as Drawer } from './Drawer/Drawer.svelte';
 
 // Notifications
 export { dialogStore } from './Notifications/Stores';

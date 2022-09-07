@@ -10,7 +10,7 @@ describe('RadioGroup.svelte', () => {
 	it('Renders with minimal props', async () => {
 		const { getByTestId } = render(RadioGroup, {
 			props: {
-				selected: writable(0),
+				selected: writable(0)
 			}
 		});
 		expect(getByTestId('radio-group')).toBeTruthy();
@@ -22,7 +22,7 @@ describe('RadioGroup.svelte', () => {
 				selected: writable(0),
 				background: 'bg-warning-500',
 				color: 'text-white',
-				width: 'w-auto',
+				width: 'w-auto'
 			}
 		});
 		expect(getByTestId('radio-group')).toBeTruthy();
