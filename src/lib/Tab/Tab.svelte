@@ -4,7 +4,7 @@
 
 	// Context
 	export let selected: Writable<any> = getContext('selected');
-	export let openOnHover: boolean = false;
+	export let openOnHover: boolean = getContext('openOnHover');
 	export let border: string = getContext('border');
 	export let fill: string = getContext('fill');
 	export let color: string = getContext('color');

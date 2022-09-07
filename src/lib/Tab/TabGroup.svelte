@@ -4,6 +4,7 @@
 
 	// Props
 	export let selected: Writable<any>;
+	export let openOnHover: boolean = false;
 	export let justify: string = 'justify-start';
 	export let border: string = 'border-primary-500';
 	export let fill: string = 'fill-primary-500';
@@ -17,6 +18,7 @@
 	setContext('border', border);
 	setContext('fill', fill);
 	setContext('color', color);
+	setContext('openOnHover', openOnHover);
 
 	// Classes
 	const cBaseGroup: string = 'hide-scrollbar overflow-x-auto flex border-b border-surface-300 border-inset dark:border-surface-700';
