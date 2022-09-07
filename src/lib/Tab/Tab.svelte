@@ -1,28 +1,51 @@
 <script lang="ts">
-    import type { Writable } from "svelte/store";
-    import { getContext } from "svelte";
+	import type { Writable } from 'svelte/store';
+	import { getContext } from 'svelte';
 
-    // Context and Props
-    export let selected: Writable<any> = getContext('selected');
-    export let value = $selected.value;
+	// Context
+	export let selected: Writable<any> = getContext('selected');
+	export let border: string = getContext('border');
+	export let fill: string = getContext('fill');
+	export let color: string = getContext('color');
 
-    // Base Classes
-    const cBaseItem: string = 'list-none flex items-center border-b-2 pb-2 px-4 space-x-2 hover:opacity-70 cursor-pointer';
-    const cBaseLabel: string = 'font-semibold whitespace-nowrap';
+	// Props
+	export let value: any = $selected.value;
+	// A11y
+	export let label: string = 'tab';
 
-    // Reactive Classes
-    $: cHighlight = value == $selected ? getContext('highlight') : 'border-transparent';
-    $: cTextColor = value == $selected ? getContext('color') : '';
-    $: classesItem = `${cBaseItem} ${cTextColor} ${cHighlight}`;
-    $: classesLabel = `${cBaseLabel}`;
+	// Base Classes
+	const cBase: string = 'list-none flex items-center py-2 px-4 space-x-2 cursor-pointer border-b-2 opacity-60 hover:opacity-100';
+	const cBaseLabel: string = 'font-bold whitespace-nowrap';
+
+	// A11y Input Handlers
+	function onKeyDown(event: any): void {
+		// Enter/Space to toggle element
+		if (['Enter', 'Space'].includes(event.code)) {
+			event.preventDefault();
+			event.target.click();
+		}
+	}
+
+	// Reactive Classes
+	$: isSelected = value == $selected;
+	$: cHighlight = isSelected ? `${border} ${color} opacity-100` : 'border-transparent';
+	$: classesBase = `${cBase} ${cHighlight}`;
+	$: classesIcon = isSelected ? fill : 'fill-surface-500';
 </script>
 
-<li class="tab ${classesItem} {$$props.class}" on:click={()=>{selected.set(value)}} data-testid="tab">
+<li
+	class="tab ${classesBase} {$$props.class || ''}"
+	on:click={() => {
+		selected.set(value);
+	}}
+	data-testid="tab"
+	on:keydown={onKeyDown}
+	role="tab"
+	tabindex="0"
+>
+	<!-- Slot: Lead -->
+	{#if $$slots.lead}<div class={classesIcon}><slot name="lead" /></div>{/if}
 
-    <!-- Slot: Lead -->
-    {#if $$slots.lead}<span><slot name="lead"/></span>{/if}
-    
-    <!-- Label -->
-    {#if $$slots.default}<span class="{classesLabel}"><slot /></span>{/if}
-
+	<!-- Label -->
+	{#if $$slots.default}<div class={cBaseLabel} {label}><slot /></div>{/if}
 </li>

@@ -1,27 +1,34 @@
 <script lang="ts">
-    export let background: string = 'bg-surface-200 dark:bg-surface-800 space-y-4';
-    export let color: string = undefined;
+	// Props
+	export let background: string = 'bg-surface-200 dark:bg-surface-800';
+	export let color: string | undefined = undefined;
+	export let padding: string = 'p-4';
+	export let space: string = 'space-y-4';
+	export let ringSize: string = 'ring-[1px]';
+	export let ringColor: string = 'ring-black/5 dark:ring-white/5';
+	export let ringInset: string = 'ring-inset';
+	export let rounded: string = 'rounded-lg';
+	// Props (per slot)
+	export let header: string | undefined = undefined;
+	export let body: string | undefined = undefined;
+	export let footer: string | undefined = undefined;
 
-    // Base Classes
-    let cBaseCard: string = `p-4 rounded-lg`;
-
-    // Reactive
-    $: classesCard = `${cBaseCard} ${background} ${color}`;
+	// Reactive
+	$: classesCard = `${background} ${color} ${padding} ${space} ${ringSize} ${ringColor} ${ringInset} ${rounded}`;
+	$: classesHeader = `${header}`;
+	$: classesBody = `${body}`;
+	$: classesFooter = `${footer}`;
 </script>
 
-<div class="card {classesCard} {$$props.class}">
-
-    <!-- Header -->
-    {#if $$slots.header}
-    <header><slot name="header"></slot></header>
-    {/if}
-
-    <!-- Body -->
-    <slot />
-
-    <!-- Footer -->
-    {#if $$slots.footer}
-    <footer><slot name="footer"></slot></footer>
-    {/if}
-
+<div class="card {classesCard} {$$props.class || ''}" data-testid="card">
+	<!-- Header -->
+	{#if $$slots.header}
+		<header class="card-header {classesHeader}"><slot name="header" /></header>
+	{/if}
+	<!-- Body -->
+	<section class="card-body {classesBody}"><slot /></section>
+	<!-- Footer -->
+	{#if $$slots.footer}
+		<footer class="card-footer {classesFooter}"><slot name="footer" /></footer>
+	{/if}
 </div>

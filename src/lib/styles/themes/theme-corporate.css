@@ -1,0 +1,47 @@
+:root {
+	/* --- Tailwind Theme --- */
+	/* primary (amber) */
+	--color-primary-50: 255 251 235;
+	--color-primary-100: 254 243 199;
+	--color-primary-200: 253 230 138;
+	--color-primary-300: 252 211 77;
+	--color-primary-400: 251 191 36;
+	--color-primary-500: 245 158 11;
+	--color-primary-600: 217 119 6;
+	--color-primary-700: 180 83 9;
+	--color-primary-800: 146 64 14;
+	--color-primary-900: 120 53 15;
+	/* accent (green) */
+	--color-accent-50: 240 253 244;
+	--color-accent-100: 220 252 231;
+	--color-accent-200: 187 247 208;
+	--color-accent-300: 134 239 172;
+	--color-accent-400: 74 222 128;
+	--color-accent-500: 34 197 94;
+	--color-accent-600: 22 163 74;
+	--color-accent-700: 21 128 61;
+	--color-accent-800: 22 101 52;
+	--color-accent-900: 20 83 45;
+	/* warning (red) */
+	--color-warning-50: 254 242 242;
+	--color-warning-100: 254 226 226;
+	--color-warning-200: 254 202 202;
+	--color-warning-300: 252 165 165;
+	--color-warning-400: 248 113 113;
+	--color-warning-500: 239 68 68;
+	--color-warning-600: 220 38 38;
+	--color-warning-700: 185 28 28;
+	--color-warning-800: 153 27 27;
+	--color-warning-900: 127 29 29;
+	/* surface (stone) */
+	--color-surface-50: 250 250 249;
+	--color-surface-100: 245 245 244;
+	--color-surface-200: 231 229 228;
+	--color-surface-300: 214 211 209;
+	--color-surface-400: 168 162 158;
+	--color-surface-500: 120 113 108;
+	--color-surface-600: 87 83 78;
+	--color-surface-700: 68 64 60;
+	--color-surface-800: 41 37 36;
+	--color-surface-900: 28 25 23;
+}

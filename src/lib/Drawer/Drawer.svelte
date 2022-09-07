@@ -1,57 +1,114 @@
 <script lang="ts">
-    import { fade } from 'svelte/transition';
-    import type { Writable } from 'svelte/store';
+	import { fade, fly } from 'svelte/transition';
+	import { writable, type Writable } from 'svelte/store';
+	import { afterUpdate, onMount } from 'svelte/internal';
 
-    // Props
-    export let visible: Writable<boolean> = undefined;
-    export let fixed: string = undefined;
-    export let backdrop: string = 'bg-white/50 dark:bg-black/50';
-    export let background: string = 'bg-surface-50 dark:bg-surface-900';
-    export let border: string = 'border-r border-surface-200 dark:border-surface-800';
+	// Props
+	export let open: Writable<boolean> = writable(false);
+	export let position: string = 'left';
+	export let duration: number = 150;
+	// Props (backdrop)
+	export let bgBackdrop: string = 'bg-surface-400/70 dark:bg-surface-900/70';
+	export let display: string | undefined = undefined;
+	export let blur: string = 'backdrop-blur-sm';
+	// Props (drawer)
+	export let bgDrawer: string = 'bg-surface-100 dark:bg-surface-800';
+	export let border: string | undefined = undefined;
+	export let rounded: string | undefined = undefined;
+	export let width: string | undefined = undefined;
+	export let height: string | undefined = undefined;
+	export let margin: string | undefined = undefined;
+	// Props (a11y)
+	export let labelledby: string | undefined = undefined;
+	export let describedby: string | undefined = undefined;
 
-    // Base Classes
-    const cBaseBackdrop: string = 'lg:hidden fixed top-0 left-0 right-0 bottom-0 z-30';
-    const cBaseDrawer: string = 'flex flex-col w-[280px] h-screen';
-    
-    // Set Fixed Position
-    let cFixed: string;
-    let cPosition: string;
-    if (fixed !== undefined) {
-        cFixed = 'flex-none fixed lg:static top-0 z-40 shadow-2xl lg:shadow-none lg:translate-x-0 transition-transform';
-        switch(fixed) {
-            case('left'): cPosition = 'left-0 -translate-x-full'; break;
-            case('right'): cPosition = 'right-0 translate-x-full'; break;
-        }
-    }
+	// Base Classes
+	const cBaseBackdrop: string = 'fixed top-0 left-0 right-0 bottom-0 z-40 flex';
+	const cBaseDrawer: string = 'shadow-xl overflow-y-auto';
 
-    // Handle Backdrop Click
-	const onBackdropClick = () => { visible.set(false); }
+	// Local
+	let elemBackdrop: HTMLElement;
 
-    // Reactive Classes
-    $: classesDrawer = `${cBaseDrawer} ${background} ${cFixed} ${cPosition} ${border}`;
-    $: classesBackdrop = `${cBaseBackdrop} ${backdrop}`;
+	// Set Animation Values
+	let animParams: any = { backdrop: '', width: '', height: '', x: 0, y: 0 };
+	function setAnimParams(): void {
+		switch (position) {
+			// prettier-ignore
+			case('top'):
+				animParams = { backdrop: 'flex-col justify-start', width: 'w-full', height: 'h-[40%]', x: 0, y: -window.innerHeight };
+				break;
+			case 'bottom':
+				animParams = { backdrop: 'flex-col justify-end', width: 'w-full', height: 'h-[40%]', x: 0, y: window.innerHeight };
+				break;
+			case 'right':
+				animParams = { backdrop: 'justify-end', width: 'w-[80%]', height: 'h-full', x: window.innerWidth, y: 0 };
+				break;
+			// Default: Left
+			default:
+				animParams = { backdrop: 'justify-start', width: 'w-[80%]', height: 'h-full', x: -window.innerWidth, y: 0 };
+				break;
+		}
+	}
+
+	// Input Handlers
+	function onClickBackdrop(e: any): void {
+		// Limit to only backdrop element
+		if (e.target === elemBackdrop) {
+			close();
+		}
+	}
+	function onKeydownWindow(e: any): void {
+		if (!$open) return;
+		if (e.code === 'Escape') {
+			close();
+		}
+	}
+
+	// Close
+	function close(): void {
+		open.set(false);
+	}
+
+	// Lifecycle
+	onMount(() => {
+		setAnimParams();
+	});
+	afterUpdate(() => {
+		setAnimParams();
+	});
+
+	// Reactive
+	$: classesWidth = width ? width : animParams.width;
+	$: classesHeight = height ? height : animParams.height;
+	$: classesBackdrop = `${cBaseBackdrop} ${animParams.backdrop} ${bgBackdrop} ${display} ${blur}`;
+	$: classesDrawer = `${cBaseDrawer} ${classesWidth} ${classesHeight} ${bgDrawer} ${border} ${margin} ${rounded}`;
 </script>
 
-<div class="drawer {classesDrawer} {$$props.class}" class:translate-x-0={$visible} data-testid="drawer">
+<svelte:window on:keydown={onKeydownWindow} />
 
-    <!-- Header -->
-    {#if $$slots.header}
-    <header class="flex-none"><slot name="header"></slot></header>
-    {/if}
-
-    <!-- Main -->
-    {#if $$slots.main}
-    <section class="flex-auto overflow-y-auto"><slot name="main"></slot></section>
-    {/if}
-
-    <!-- Footer -->
-    {#if $$slots.footer}
-    <footer class="flex-none"><slot name="footer"></slot></footer>
-    {/if}
-
-</div>
-
-<!-- Backdrop -->
-{#if $visible}
-<div class="drawer-backdrop {classesBackdrop}" on:click={onBackdropClick} transition:fade|local={{duration: 250}}></div>
+{#if $open}
+	<!-- Backdrop -->
+	<div
+		bind:this={elemBackdrop}
+		class="drawer-backdrop {classesBackdrop} {$$props.class || ''}"
+		data-testid="drawer-backdrop"
+		on:click={(e) => {
+			onClickBackdrop(e);
+		}}
+		transition:fade|local={{ duration }}
+	>
+		<!-- Drawer -->
+		<div
+			class="drawer {classesDrawer} {$$props.class}"
+			data-testid="drawer"
+			transition:fly|local={{ x: animParams.x, y: animParams.y, duration }}
+			role="dialog"
+			aria-modal="true"
+			aria-labelledby={labelledby}
+			aria-describedby={describedby}
+		>
+			<!-- Slot: Default -->
+			<slot />
+		</div>
+	</div>
 {/if}

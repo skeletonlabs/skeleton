@@ -8,3 +8,4 @@ node_modules
 !.env.example
 /coverage
 pnpm-lock.yaml
+.vscode

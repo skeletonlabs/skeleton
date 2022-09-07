@@ -1,0 +1,51 @@
+/*
+IMPORTANT:
+Only implement Tailwind directives if you're not using
+Skeleton's core.css add-on as it will do this for you.
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*/
+
+/*
+IMPORTANT:
+Global styles are now distributed as part of the Skeleton package. Previously we used:
+
+import '$lib/styles/themes/theme-skeleton.css';
+(global stylesheet) <--- the file you're viewing now
+
+But should now import from `node_modules` and use modular style packs:
+
+import '@brainandbones/skeleton/styles/themes/theme-skeleton.css';
+import '@brainandbones/skeleton/styles/core.css';
+import '@brainandbones/skeleton/styles/typography.css';
+import '@brainandbones/skeleton/styles/forms.css';
+(global stylesheet)
+
+If the global styles you're adding or overwriting are unique to the Skeleton documentation, set the below.
+Otherwise, update the respective style packs (core, typography, forms) so everyone benefits!
+*/
+
+/* === NOTE: unique doc-only styles below: ==== */
+
+html,
+body {
+	@apply h-screen overflow-hidden;
+}
+
+/* Gradient Background, via: https://csshero.org/mesher/ */
+body {
+	/* prettier-ignore */
+	background-image:
+		radial-gradient(at 35% 35%, hsla(160,84%,39%,0.08) 0px, transparent 35%),
+		radial-gradient(at 61% 60%, hsla(238,83%,66%,0.08) 0px, transparent 35%);
+	background-size: cover;
+	background-attachment: fixed;
+}
+.dark body {
+	/* prettier-ignore */
+	background-image:
+		radial-gradient(at 35% 35%, hsla(160,84%,39%,0.16) 0px, transparent 50%),
+		radial-gradient(at 61% 60%, hsla(238,83%,66%,0.16) 0px, transparent 50%);
+}

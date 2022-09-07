@@ -11,7 +11,7 @@ A fully featured Svelte UI component library. Skeleton allows you to build fast 
 
 ## Sponsorship
 
-* [Github Sponsors](https://github.com/sponsors/Brain-Bones)
+- [Github Sponsors](https://github.com/sponsors/Brain-Bones)
 
 ## Useful Links
 
@@ -28,39 +28,24 @@ A fully featured Svelte UI component library. Skeleton allows you to build fast 
 
 ### Contributions
 
-Ensure you've read the [contribution guide](https://skeleton.brainandbonesllc.com/docs/contributions) before you proceed. Pull requests are highly encouraged. [Pick an open issue](https://github.com/Brain-Bones/skeleton/issues) and help us out!
+Please read the [contribution guide](https://skeleton.brainandbonesllc.com/docs/contributions) before you begin. Pull requests are highly encouraged. [Pick an open issue](https://github.com/Brain-Bones/skeleton/issues) and help us out!
 
 ### Install
 
-* Clone the Skeleton project to your local machine.
-* Install dependencies with `npm install`
-* Create a new feature branch: `git checkout -b {branchName}`
-* Start a dev server:
-    * `npm run dev` - start server
-    * `npm run dev -- --open` - start and open new browser window
-* Make changes, then submit a pull request when ready.
-
-### Linting
-
-Use the following command to run the linter:
-
-```bash
-npm run lint
-```
-
-### Tests
-
-Use the following command to run the Vitest:
-
-```bash
-npm run test
-```
+- Clone the Skeleton project to your local machine.
+- Install dependencies with `npm install`
+- Switch to the Dev branch: `git checkout dev`
+- Create a new feature branch based on Dev: `git checkout -b {branchName}`
+- Start a dev server:
+  - `npm run dev` - start server
+  - `npm run dev -- --open` - start and open new browser window
+- Make changes, then submit a pull request when ready.
 
 ## Core Maintainers
 
-* [Chris Simmons](https://github.com/endigo9740)
-* [Thomas Jespersen](https://github.com/thomasbjespersen)
+- [Chris Simmons](https://github.com/endigo9740)
+- [Thomas Jespersen](https://github.com/thomasbjespersen)
 
 ---
 
-Created by [Brain & Bones, LLC](https://www.brainandbonesllc.com/).
+Founded by [Brain & Bones, LLC](https://www.brainandbonesllc.com/).
