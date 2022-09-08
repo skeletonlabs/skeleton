@@ -5,7 +5,7 @@
 
 	// Components
 	import Swatches from './Swatches.svelte';
-	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	const regexHexColor = new RegExp(/^#[0-9a-f]{6}$/i);
 	const formValues: any = {

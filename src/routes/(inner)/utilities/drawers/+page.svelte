@@ -2,7 +2,7 @@
 	import { writable, type Writable } from 'svelte/store';
 
 	import { Button, Card, DataTable, Drawer } from '@brainandbones/skeleton';
-	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Drawer Example
 	const storeDrawer: Writable<boolean> = writable(false);

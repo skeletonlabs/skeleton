@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Drawer from '$lib/Drawer/Drawer.svelte';
+	import Drawer from '$lib/utilities/Drawer/Drawer.svelte';
 	import SkeletonSidebar from './SkeletonSidebar.svelte';
 	import { storeMobileDrawer } from '$lib/_documentation/stores';
 </script>

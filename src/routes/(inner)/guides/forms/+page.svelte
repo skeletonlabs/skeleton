@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { storeFramework } from '$lib/_documentation/stores';
 	import { Badge, Card, Divider, Button, TabGroup, Tab } from '@brainandbones/skeleton';
-	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 </script>
 
 <div class="space-y-8">

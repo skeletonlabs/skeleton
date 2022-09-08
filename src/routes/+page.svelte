@@ -4,11 +4,11 @@
 	// const { contributors }: { contributors: any[]} = data;
 
 	// Components
-	import Alert from '$lib/Alert/Alert.svelte';
-	import Avatar from '$lib/Avatar/Avatar.svelte';
-	import Card from '$lib/Card/Card.svelte';
-	import Button from '$lib/Button/Button.svelte';
-	import SvgIcon from '$lib/SvgIcon/SvgIcon.svelte';
+	import Alert from '$lib/components/Alert/Alert.svelte';
+	import Avatar from '$lib/components/Avatar/Avatar.svelte';
+	import Card from '$lib/components/Card/Card.svelte';
+	import Button from '$lib/components/Button/Button.svelte';
+	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
 	// Fetch Contributors
 	async function getContributors(): Promise<any> {
