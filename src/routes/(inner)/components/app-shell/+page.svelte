@@ -71,11 +71,23 @@
 </AppShell>
 		`.trim()}
 		/>
-		<p>The App Shell will expand to fill the parent container. Disable overflow on your <em>html</em> and <em>body</em> tags to prevent duplicate scroll bars.</p>
+		<p>
+			The App Shell will need expand to fill your <em>body</em> tag. First, remove all wrapping elements in your root page. For SvelteKit that's located in
+			<code>/src/app.html</code>.
+		</p>
+		<CodeBlock
+			language="html"
+			code={`
+<body>
+	<!-- Drop wrapping elements, allow your layout to be the root -->
+	%sveltekit.body%
+</body>
+		`.trim()}
+		/>
+		<p>Then, disable overflow on your <em>html</em> and <em>body</em> tags to prevent duplicate scroll bars. Add this to your global stylesheet.</p>
 		<CodeBlock
 			language="css"
 			code={`
-/* Within your global stylesheet */
 html, body { @apply w-screen h-screen overflow-hidden; }
 		`.trim()}
 		/>
