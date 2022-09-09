@@ -26,7 +26,7 @@
 
 	// Copy Theme Import to Clipboard
 	function copyThemeToClipboard(name: string): void {
-		navigator.clipboard.writeText(`import '@brainandbones/skeleton/styles/themes/theme-${name}.css';`).then(
+		navigator.clipboard.writeText(`import '@brainandbones/skeleton/themes/theme-${name}.css';`).then(
 			// Success
 			() => {
 				const t: ToastMessage = { message: 'Import statement copied to clipboard.' };
@@ -78,15 +78,15 @@
 		<!-- Framework: SvelteKit -->
 		{#if $storeFramework === 'sveltekit'}
 			<p>Import your desired preset into <code>src/routes/+layout.svelte</code>.</p>
-			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/styles/themes/theme-{name}.css'; // <--\nimport '../app.postcss';\n`} />
+			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/themes/theme-{name}.css'; // <--\nimport '../app.postcss';\n`} />
 			<!-- Framework: Vite (Svelte) -->
 		{:else if $storeFramework === 'vite'}
 			<p>Import your desired preset into <code>/src/main.js</code>.</p>
-			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/styles/themes/theme-{name}.css'; // <--\nimport '../app.css';\n`} />
+			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/themes/theme-{name}.css'; // <--\nimport '../app.css';\n`} />
 			<!-- Framework: Astro -->
 		{:else if $storeFramework === 'astro'}
 			<p>Import your desired preset into <code>/src/layouts/LayoutBasic.astro</code>.</p>
-			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/styles/themes/theme-{name}.css'; // <--\nimport '../styles/base.css';`} />
+			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/themes/theme-{name}.css'; // <--\nimport '../styles/base.css';`} />
 		{/if}
 		<!-- Preset Previews -->
 		<p>Tap any theme below to automatically copy the import statement to your clipboard.</p>

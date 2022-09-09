@@ -23,7 +23,7 @@
 	import { storeCurrentUrl } from '$docs/stores';
 
 	// Skeleton Theme: skeleton|rocket|modern|seafoam|vintage|sahara|test
-	import '$lib/styles/themes/theme-skeleton.css';
+	import '$lib/themes/theme-skeleton.css';
 	// Skeleton Add-On Stylesheets
 	import '$lib/styles/tailwind.css';
 	import '$lib/styles/core.css';
