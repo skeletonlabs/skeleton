@@ -37,7 +37,7 @@
 		<a href="/" class="text-sm sm:text-lg md:text-3xl font-bold uppercase mr-4" title="Return to Homepage">Skeleton</a>
 		<!-- Badge -->
 		<a class="hidden sm:block" href="https://github.com/Brain-Bones/skeleton/releases" target="_blank">
-			<Badge background="bg-surface-500/20" color="text-black dark:text-white">v{pkg.version}</Badge>
+			<Badge>v{pkg.version}</Badge>
 		</a>
 	</svelte:fragment>
 

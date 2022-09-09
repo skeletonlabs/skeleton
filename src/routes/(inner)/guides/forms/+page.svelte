@@ -9,7 +9,7 @@
 	<header class="space-y-4">
 		<h1>
 			Forms
-			<Badge background="bg-accent-500" class="-translate-y-3">Optional</Badge>
+			<Badge background="bg-accent-500" color="text-white" class="-translate-y-3">Optional</Badge>
 		</h1>
 		<p>
 			If you have experience with other UI component libraries, you may expect Skeleton to provide dedicated components for form inputs, select, checkboxes, and similar. However, this is not the case.

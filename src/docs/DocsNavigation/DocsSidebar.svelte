@@ -35,7 +35,7 @@
 					<span>{label}</span>
 					<!-- Badge -->
 					<svelte:fragment slot="trail">
-						{#if badge}<Badge background="bg-accent-500 dark/bg-accent-500/30">{badge}</Badge>{/if}
+						{#if badge}<Badge background="bg-accent-500" color="text-white">{badge}</Badge>{/if}
 					</svelte:fragment>
 				</ListItem>
 			{/each}
