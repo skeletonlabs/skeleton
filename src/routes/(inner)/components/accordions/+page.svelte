@@ -88,7 +88,9 @@
 					</svelte:fragment>
 				</AccordionItem>
 				<AccordionItem spacing="space-y-4">
-					<svelte:fragment slot="lead"><Avatar size="sm" src="https://i.pravatar.cc/?img=5" /></svelte:fragment>
+					<svelte:fragment slot="lead">
+						<Avatar src="https://i.pravatar.cc/?img=5" />
+					</svelte:fragment>
 					<svelte:fragment slot="summary">
 						<h3>Avatar and Heading</h3>
 					</svelte:fragment>
@@ -98,7 +100,7 @@
 				</AccordionItem>
 				<AccordionItem spacing="space-y-4">
 					<svelte:fragment slot="lead">
-						<Avatar initials="1" size="sm" background="bg-accent-500" />
+						<Avatar initials="1" background="bg-accent-500" />
 					</svelte:fragment>
 					<svelte:fragment slot="summary">
 						<h3>Numeral and Heading</h3>
