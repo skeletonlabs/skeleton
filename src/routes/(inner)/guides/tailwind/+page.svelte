@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Divider, Card, Button } from '@brainandbones/skeleton';
-	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 </script>
 
 <div class="space-y-8">

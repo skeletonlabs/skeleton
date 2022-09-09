@@ -2,10 +2,10 @@
 	// @ts-ignore
 	const pkg = __PACKAGE__;
 
-	import AppBar from '$lib/AppBar/AppBar.svelte';
-	import Badge from '$lib/Badge/Badge.svelte';
-	import LightSwitch from '$lib/LightSwitch/LightSwitch.svelte';
-	import SvgIcon from '$lib/SvgIcon/SvgIcon.svelte';
+	import AppBar from '$lib/components/AppBar/AppBar.svelte';
+	import Badge from '$lib/components/Badge/Badge.svelte';
+	import LightSwitch from '$lib/utilities/LightSwitch/LightSwitch.svelte';
+	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
 	// Stores
 	import { storeMobileDrawer } from '$lib/_documentation/stores';

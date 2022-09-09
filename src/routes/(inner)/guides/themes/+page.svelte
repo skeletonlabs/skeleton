@@ -3,9 +3,9 @@
 	import { storeFramework } from '$lib/_documentation/stores';
 
 	import { DataTable, Card, Divider, Button, RadioGroup, RadioItem, TabGroup, Tab } from '@brainandbones/skeleton';
-	import { toastStore, type ToastMessage } from '$lib/Notifications/Stores';
+	import { toastStore, type ToastMessage } from '$lib/utilities/Toast/stores';
 
-	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import ThemeGenTailwind from '$lib/_documentation/ThemeGenerator/ThemeGenTailwind.svelte';
 	import ThemeGenCustom from '$lib/_documentation/ThemeGenerator/ThemeGenCustom.svelte';
 

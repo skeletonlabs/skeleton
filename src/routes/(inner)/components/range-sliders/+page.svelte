@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { DataTable, Card, RangeSlider } from '@brainandbones/skeleton';
-	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	let valueA: number = 5;
 	let valueB: number = 50;

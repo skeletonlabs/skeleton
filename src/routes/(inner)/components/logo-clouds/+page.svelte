@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { DataTable, LogoCloud, Logo } from '@brainandbones/skeleton';
-	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	const tablePropsCloud: any = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],

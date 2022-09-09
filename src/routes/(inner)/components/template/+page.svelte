@@ -1,7 +1,7 @@
 <script lang="ts">
-	import DataTable from '$lib/Table/DataTable.svelte';
-	import Card from '$lib/Card/Card.svelte';
-	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+	import DataTable from '$lib/components/Table/DataTable.svelte';
+	import Card from '$lib/components/Card/Card.svelte';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Tables
 	const tableProps: any = {

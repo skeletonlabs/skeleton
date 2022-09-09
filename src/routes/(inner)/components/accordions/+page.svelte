@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { DataTable, Card, Avatar, AccordionGroup, AccordionItem } from '@brainandbones/skeleton';
-	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import SvgIcon from '$lib/SvgIcon/SvgIcon.svelte';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
 	const tablePropsGroup: any = {
 		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],

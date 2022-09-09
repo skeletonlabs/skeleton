@@ -2,16 +2,16 @@
 <script lang="ts">
 	import hljs from 'highlight.js';
 	import 'highlight.js/styles/github-dark.css';
-	import { storeHighlightJs } from '$lib/CodeBlock/stores';
+	import { storeHighlightJs } from '$lib/utilities/CodeBlock/stores';
 	storeHighlightJs.set(hljs);
 
 	import { page } from '$app/stores';
 	import { afterNavigate } from '$app/navigation';
 
 	// Components & Utilities
-	import AppShell from '$lib/AppShell/AppShell.svelte';
-	import Dialog from '$lib/Notifications/Dialog.svelte';
-	import Toast from '$lib/Notifications/Toast.svelte';
+	import AppShell from '$lib/components/AppShell/AppShell.svelte';
+	import Dialog from '$lib/utilities/Dialog/Dialog.svelte';
+	import Toast from '$lib/utilities/Toast/Toast.svelte';
 
 	// Doc-Only Components
 	import SkeletonAppBar from '$lib/_documentation/SkeletonAppBar/SkeletonAppBar.svelte';

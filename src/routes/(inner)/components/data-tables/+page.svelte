@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { mapTableSource } from '$lib/Table/DataTableService';
+	import { mapTableSource } from '$lib/components/Table/DataTableService';
 	import { writable, type Writable } from 'svelte/store';
 
 	import { DataTable, Card, TabGroup, Tab } from '@brainandbones/skeleton';
-	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	let tabExample: Writable<string> = writable('local');
 

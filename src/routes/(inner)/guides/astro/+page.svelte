@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Card, Divider, Button } from '@brainandbones/skeleton';
-	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import Alert from '$lib/Alert/Alert.svelte';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import Alert from '$lib/components/Alert/Alert.svelte';
 
 	const dynamicSvelteWrapperSnippet: string = `
 \<script lang="ts"\>
