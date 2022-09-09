@@ -25,7 +25,7 @@
 	<div class="flex-auto {cContentArea}">
 		<!-- Slot: Sidebar (left) -->
 		{#if $$slots.sidebarLeft}
-			<aside class="sidebar-left {classesSidebarLeft}"><slot name="sidebarLeft" /></aside>
+			<aside id="sidebar-left" class={classesSidebarLeft}><slot name="sidebarLeft" /></aside>
 		{/if}
 
 		<!-- Page -->
@@ -46,7 +46,7 @@
 
 		<!-- Slot: Sidebar (right) -->
 		{#if $$slots.sidebarRight}
-			<aside class="sidebar-right {classesSidebarRight}"><slot name="sidebarRight" /></aside>
+			<aside id="sidebar-right" class={classesSidebarRight}><slot name="sidebarRight" /></aside>
 		{/if}
 	</div>
 </main>

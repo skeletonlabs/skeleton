@@ -1,7 +1,8 @@
-// Menu Navigation Links
+// Documentation AppBar Navigation
 
 export const menuNavLinks: any = [
 	{
+		id: 'nav-guides',
 		title: 'Get Started',
 		list: [
 			{ href: '/guides/install', label: 'Install', icon: 'circle-check' },
@@ -13,6 +14,7 @@ export const menuNavLinks: any = [
 		]
 	},
 	{
+		id: 'nav-docs',
 		title: 'Docs',
 		list: [
 			{ href: '/docs/why', label: 'Why Skeleton' },
@@ -21,6 +23,7 @@ export const menuNavLinks: any = [
 		]
 	},
 	{
+		id: 'nav-components',
 		title: 'Components',
 		list: [
 			{ href: '/components/app-shell', label: 'App Shell' },
@@ -52,14 +55,19 @@ export const menuNavLinks: any = [
 		]
 	},
 	{
+		id: 'nav-utilities',
 		title: 'Utilities',
 		list: [
 			{ href: '/utilities/codeblocks', label: 'Code Blocks' },
 			{ href: '/utilities/drawers', label: 'Drawers' },
 			{ href: '/utilities/dialogs', label: 'Dialogs' },
 			{ href: '/utilities/toasts', label: 'Toasts' },
-			{ href: '/utilities/lightswitches', label: 'Lightswitch' },
-			{ href: '/utilities/filters', label: 'Filters', badge: 'Experimental' }
+			{ href: '/utilities/lightswitches', label: 'Lightswitch' }
 		]
+	},
+	{
+		id: 'nav-actions',
+		title: 'Actions',
+		list: [{ href: '/actions/filters', label: 'Filters', badge: 'Experimental' }]
 	}
 ];

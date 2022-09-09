@@ -14,6 +14,16 @@
 	function drawerOpen(): void {
 		storeMobileDrawer.set(true);
 	}
+
+	// Sidebar Scroll Handler
+	function scrollSidebarTo(targetId: string): void {
+		const elemSidebarLeft: HTMLElement | null = document.querySelector('#sidebar-left');
+		const targetElem: HTMLElement | null = document.querySelector(targetId);
+		const targetOffsetTop = targetElem?.offsetTop;
+		if (elemSidebarLeft && targetOffsetTop) {
+			elemSidebarLeft.scrollTo({ top: targetOffsetTop - 85, behavior: 'smooth' });
+		}
+	}
 </script>
 
 <AppBar border="border-b border-b-surface-300 dark:border-b-surface-900">
@@ -35,10 +45,41 @@
 	<svelte:fragment slot="trail">
 		<!-- Links -->
 		<section class="hidden lg:flex space-x-4 spacer-line">
-			<a href="/guides/install" class="navlink" aria-label="Guides">Guides</a>
-			<a href="/docs/why" class="navlink" aria-label="Docs">Docs</a>
-			<a href="/components/app-shell" class="navlink" aria-label="Components">Components</a>
-			<a href="/utilities/codeblocks" class="navlink" aria-label="Utilities">Utilities</a>
+			<a
+				href="/guides/install"
+				class="navlink"
+				on:click={() => {
+					scrollSidebarTo('#nav-guides');
+				}}>Guides</a
+			>
+			<a
+				href="/docs/why"
+				class="navlink"
+				on:click={() => {
+					scrollSidebarTo('#nav-docs');
+				}}>Docs</a
+			>
+			<a
+				href="/components/app-shell"
+				class="navlink"
+				on:click={() => {
+					scrollSidebarTo('#nav-components');
+				}}>Components</a
+			>
+			<a
+				href="/utilities/codeblocks"
+				class="navlink"
+				on:click={() => {
+					scrollSidebarTo('#nav-utilities');
+				}}>Utilities</a
+			>
+			<a
+				href="/actions/filters"
+				class="navlink"
+				on:click={() => {
+					scrollSidebarTo('#nav-actions');
+				}}>Actions</a
+			>
 		</section>
 
 		<!-- Light Switch -->
