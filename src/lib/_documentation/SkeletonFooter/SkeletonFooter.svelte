@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Button from '$lib/Button/Button.svelte';
-	import Divider from '$lib/Divider/Divider.svelte';
-	import SvgIcon from '$lib/SvgIcon/SvgIcon.svelte';
+	import Button from '$lib/components/Button/Button.svelte';
+	import Divider from '$lib/components/Divider/Divider.svelte';
+	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
 	// Base Classes
 	const cBase: string = 'bg-white/75 dark:bg-black/10 text-xs mx-auto px-4 py-8 md:p-10 space-y-10';

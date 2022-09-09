@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { DataTable, Card, Alert, Button } from '@brainandbones/skeleton';
-	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	let title = `What's New in Skeleton?`;
 	let message =

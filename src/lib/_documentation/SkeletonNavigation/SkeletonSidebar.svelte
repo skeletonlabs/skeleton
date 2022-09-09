@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Badge, List, ListItem, Divider } from '@brainandbones/skeleton';
-	import SvgIcon from '$lib/SvgIcon/SvgIcon.svelte';
+	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	import { storeCurrentUrl, storeMobileDrawer } from '$lib/_documentation/stores';
 	import { menuNavLinks } from './links';
 

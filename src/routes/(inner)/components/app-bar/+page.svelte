@@ -1,8 +1,8 @@
 <script lang="ts">
-	import DataTable from '$lib/Table/DataTable.svelte';
-	import AppBar from '$lib/AppBar/AppBar.svelte';
-	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import SvgIcon from '$lib/SvgIcon/SvgIcon.svelte';
+	import DataTable from '$lib/components/Table/DataTable.svelte';
+	import AppBar from '$lib/components/AppBar/AppBar.svelte';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
 	const tableProps: any = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],

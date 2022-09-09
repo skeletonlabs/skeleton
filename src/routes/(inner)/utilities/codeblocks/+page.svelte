@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Card, DataTable } from '@brainandbones/skeleton';
-	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// prettier-ignore
 	const tableProps: any = {

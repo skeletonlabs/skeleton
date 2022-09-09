@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Card, DataTable, Divider, Button, toastStore, type ToastMessage } from '@brainandbones/skeleton';
-	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Trigger Examples
 	function toastBasic(): void {

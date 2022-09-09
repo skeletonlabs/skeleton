@@ -2,7 +2,7 @@
 	import { writable, type Writable } from 'svelte/store';
 	import { DataTable, Card, RadioGroup, RadioItem, SlideToggle, Avatar } from '@brainandbones/skeleton';
 	import { Apollo, BlueNight, Emerald, GreenFall, Noir, NoirLight, Rustic, Summer84, XPro } from '@brainandbones/skeleton';
-	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	const storeSrc: Writable<string | undefined> = writable(undefined);
 	let placeholder: string = 'https://i.pravatar.cc/';

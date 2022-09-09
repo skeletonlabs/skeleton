@@ -1,8 +1,8 @@
 <script lang="ts">
-	import DataTable from '$lib/Table/DataTable.svelte';
-	import AppShell from '$lib/AppShell/AppShell.svelte';
-	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import SlideToggle from '$lib/SlideToggle/SlideToggle.svelte';
+	import DataTable from '$lib/components/Table/DataTable.svelte';
+	import AppShell from '$lib/components/AppShell/AppShell.svelte';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
 
 	// Local
 	let sidebarState: boolean = true;

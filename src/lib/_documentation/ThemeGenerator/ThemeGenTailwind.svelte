@@ -2,7 +2,7 @@
 	import { tailwindColors } from './colors';
 
 	import Swatches from './Swatches.svelte';
-	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	const twColors: any = tailwindColors;
 	const colorLabels: any[] = Object.keys(tailwindColors);

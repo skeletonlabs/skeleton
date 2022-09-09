@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { DataTable, Card, Button, SlideToggle } from '@brainandbones/skeleton';
-	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import SvgIcon from '$lib/SvgIcon/SvgIcon.svelte';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
 	function onClickHandler(): void {
 		console.log('Button was clicked!');

@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
 	import { DataTable, Card, List, ListItem } from '@brainandbones/skeleton';
-	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import SvgIcon from '$lib/SvgIcon/SvgIcon.svelte';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
 	let navSingle: Writable<string> = writable('A');
 	let navMultiple: Writable<string[]> = writable(['A', 'B']);
