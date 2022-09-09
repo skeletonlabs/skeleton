@@ -12,8 +12,13 @@ describe('AppShell.svelte', () => {
 	it('Renders with all props', async () => {
 		const { getByTestId } = render(AppShell, {
 			props: {
-				sidebarLeftWidth: 'w-auto',
-				sidebarRightWidth: 'w-auto'
+				slotHeader: 'bg-red-500',
+				slotSidebarLeft: 'w-auto',
+				slotSidebarRight: 'w-auto',
+				slotPageHeader: 'bg-green-500',
+				slotPageContent: 'bg-blue-500',
+				slotPageFooter: 'bg-yellow-500',
+				slotFooter: 'bg-purple-500'
 			}
 		});
 		expect(getByTestId('app-shell')).toBeTruthy();

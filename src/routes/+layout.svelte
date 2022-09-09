@@ -44,7 +44,7 @@
 	});
 
 	// Disable left sidebar on homepage
-	$: sidebarLeftWidth = $page.url.pathname === '/' ? 'w-0' : 'lg:w-auto';
+	$: slotSidebarLeft = $page.url.pathname === '/' ? 'w-0' : 'lg:w-auto';
 </script>
 
 <!-- Overlays -->
@@ -53,7 +53,7 @@
 <DocsDrawer />
 
 <!-- App Shell -->
-<AppShell {sidebarLeftWidth}>
+<AppShell {slotSidebarLeft} slotFooter="bg-black p-4">
 	<!-- Header -->
 	<svelte:fragment slot="header">
 		<DocsAppBar />
@@ -64,10 +64,10 @@
 		<DocsSidebar class="hidden lg:block w-[300px]" />
 	</svelte:fragment>
 
-	<!-- Page: Content -->
+	<!-- Page Content -->
 	<slot />
 
-	<!-- Page: Footer -->
+	<!-- Page Footer -->
 	<svelte:fragment slot="pageFooter">
 		<DocsFooter />
 	</svelte:fragment>
