@@ -7,6 +7,8 @@
 	export let spacing: string = 'space-y-2';
 	export let padding: string = 'px-4 py-2';
 	export let rounded: string = 'rounded';
+	export let slotSummary: string = '';
+	export let slotContent: string = '';
 	// A11y
 	export let summaryId: string | undefined = undefined;
 	export let contentId: string | undefined = undefined;
@@ -18,27 +20,27 @@
 
 	// Reactive Classes
 	$: classesDetails = `${cBaseDetails} ${spacing}`;
-	$: classesSummary = `${cBaseSummary} ${padding} ${rounded} ${hover}`;
+	$: classesSummary = `${cBaseSummary} ${padding} ${rounded} ${hover} ${slotSummary}`;
 	$: classesIconState = open ? '-rotate-180' : '';
 	$: classesIcon = `${cBaseIcon} ${classesIconState}`;
-	$: classesDesc = `${padding}`;
+	$: classesContent = `${padding} ${slotContent}`;
 </script>
 
 <details bind:open class="accordion-item {classesDetails} {$$props.class}" data-testid="accordion-item">
 	<!-- Summary -->
-	<summary id={summaryId} class={classesSummary} aria-expanded={open} aria-controls={contentId}>
+	<summary id={summaryId} class="accordion-summary {classesSummary}" aria-expanded={open} aria-controls={contentId}>
 		<!-- Slot: Lead -->
-		{#if $$slots.lead}<div><slot name="lead" /></div>{/if}
+		{#if $$slots.lead}<div class="summary-lead"><slot name="lead" /></div>{/if}
 		<!-- Slot: Text -->
-		<div class="flex-auto" role="button"><slot name="summary"><code>(Missing: Summary Slot)</code></slot></div>
+		<div class="summary-text flex-auto" role="button"><slot name="summary"><code>(Missing: Summary Slot)</code></slot></div>
 		<!-- Caret -->
-		<div class={classesIcon}>
+		<div class="summary-caret {classesIcon}">
 			<SvgIcon name="angle-down" class="opacity-50" />
 		</div>
 	</summary>
 
 	<!-- Content -->
-	<div id={contentId} role="region" aria-labelledby={summaryId} class={classesDesc}>
+	<div id={contentId} class="accordion-content {classesContent}" role="region" aria-labelledby={summaryId}>
 		<slot name="content"><code>(Missing: Content Slot)</code></slot>
 	</div>
 </details>

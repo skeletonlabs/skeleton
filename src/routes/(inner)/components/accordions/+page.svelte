@@ -12,13 +12,15 @@
 	};
 
 	const tablePropsItem: any = {
-		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
+		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
-			['open', 'boolean', 'false', '-', `Defines the open state on page load.`],
-			['hover', 'string', 'hover:bg-primary-500/10', '-', 'Provide classes to set the hover background color.'],
-			['spacing', 'string', 'space-y-0', '-', 'Provide classes to set spacing between title and description elements.'],
-			['padding', 'string', 'px-4 py-2', '-', 'Provide classes to set padding for summary and content regions.'],
-			['rounded', 'string', 'rounded', '-', 'Provide classes to set summary border radius.']
+			['open', 'boolean', 'false', `Defines the open state on page load.`],
+			['hover', 'string', 'hover:bg-primary-500/10', 'Provide classes to set the hover background color.'],
+			['spacing', 'string', 'space-y-0', 'Provide classes to set spacing between title and description elements.'],
+			['padding', 'string', 'px-4 py-2', 'Provide classes to set padding for summary and content regions.'],
+			['rounded', 'string', 'rounded', 'Provide classes to set summary border radius.'],
+			['slotSummary', 'string', '-', 'Provide arbitrary classes for the summary slot element.'],
+			['slotContent', 'string', '-', 'Provide arbitrary classes for the slotContent slot element.']
 		]
 	};
 	const tableSlots: any = {

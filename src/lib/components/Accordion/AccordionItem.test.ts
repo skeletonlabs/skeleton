@@ -15,7 +15,9 @@ describe('AccordionItem.svelte', () => {
 			hover: 'bg-green-500/50',
 			spacing: 'space-y-2',
 			summaryId: 'testSummary1',
-			contentId: 'testContent1'
+			contentId: 'testContent1',
+			slotSummary: 'bg-red-500',
+			slotContent: 'bg-green-500'
 		});
 		expect(getByTestId('accordion-item')).toBeTruthy();
 		expect(getByTestId('accordion-item').className).to.contain('space-y-2');
