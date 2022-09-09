@@ -35,8 +35,8 @@
 	<svelte:fragment slot="trail">
 		<!-- Links -->
 		<section class="hidden lg:flex space-x-4 spacer-line">
-			<a href="/guides/install" class="navlink" aria-label="Docs">Docs</a>
-			<a href="/docs/why" class="navlink" aria-label="Guides">Guides</a>
+			<a href="/guides/install" class="navlink" aria-label="Guides">Guides</a>
+			<a href="/docs/why" class="navlink" aria-label="Docs">Docs</a>
 			<a href="/components/app-shell" class="navlink" aria-label="Components">Components</a>
 			<a href="/utilities/codeblocks" class="navlink" aria-label="Utilities">Utilities</a>
 		</section>
