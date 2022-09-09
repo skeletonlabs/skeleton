@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
-	import { storeFramework } from '$lib/_documentation/stores';
+	import { storeFramework } from '$docs/stores';
 
 	import { DataTable, Card, Divider, Button, RadioGroup, RadioItem, TabGroup, Tab } from '@brainandbones/skeleton';
 	import { toastStore, type ToastMessage } from '$lib/utilities/Toast/stores';
 
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-	import ThemeGenTailwind from '$lib/_documentation/ThemeGenerator/ThemeGenTailwind.svelte';
-	import ThemeGenCustom from '$lib/_documentation/ThemeGenerator/ThemeGenCustom.svelte';
+	import DocsThemerTailwind from '$docs/DocsThemer/DocsThemerTailwind.svelte';
+	import DocsThemerHex from '$docs/DocsThemer/DocsThemerHex.svelte';
 
 	// Stores
 	const storeGenerator: Writable<string> = writable('tailwind'); // tailwind | hex
@@ -26,7 +26,7 @@
 
 	// Copy Theme Import to Clipboard
 	function copyThemeToClipboard(name: string): void {
-		navigator.clipboard.writeText(`import '@brainandbones/skeleton/styles/themes/theme-${name}.css';`).then(
+		navigator.clipboard.writeText(`import '@brainandbones/skeleton/themes/theme-${name}.css';`).then(
 			// Success
 			() => {
 				const t: ToastMessage = { message: 'Import statement copied to clipboard.' };
@@ -78,15 +78,15 @@
 		<!-- Framework: SvelteKit -->
 		{#if $storeFramework === 'sveltekit'}
 			<p>Import your desired preset into <code>src/routes/+layout.svelte</code>.</p>
-			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/styles/themes/theme-{name}.css'; // <--\nimport '../app.postcss';\n`} />
+			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/themes/theme-{name}.css'; // <--\nimport '../app.postcss';\n`} />
 			<!-- Framework: Vite (Svelte) -->
 		{:else if $storeFramework === 'vite'}
 			<p>Import your desired preset into <code>/src/main.js</code>.</p>
-			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/styles/themes/theme-{name}.css'; // <--\nimport '../app.css';\n`} />
+			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/themes/theme-{name}.css'; // <--\nimport '../app.css';\n`} />
 			<!-- Framework: Astro -->
 		{:else if $storeFramework === 'astro'}
 			<p>Import your desired preset into <code>/src/layouts/LayoutBasic.astro</code>.</p>
-			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/styles/themes/theme-{name}.css'; // <--\nimport '../styles/base.css';`} />
+			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/themes/theme-{name}.css'; // <--\nimport '../styles/base.css';`} />
 		{/if}
 		<!-- Preset Previews -->
 		<p>Tap any theme below to automatically copy the import statement to your clipboard.</p>
@@ -136,8 +136,8 @@
 			{/if}
 			<Divider class="opacity-30" />
 			<!-- Generator Components -->
-			{#if $storeGenerator === 'tailwind'}<ThemeGenTailwind />{/if}
-			{#if $storeGenerator === 'hex'}<ThemeGenCustom />{/if}
+			{#if $storeGenerator === 'tailwind'}<DocsThemerTailwind />{/if}
+			{#if $storeGenerator === 'hex'}<DocsThemerHex />{/if}
 			<Divider class="opacity-30" />
 		</Card>
 		<p class="block">

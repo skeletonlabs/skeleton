@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Badge, List, ListItem, Divider } from '@brainandbones/skeleton';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
-	import { storeCurrentUrl, storeMobileDrawer } from '$lib/_documentation/stores';
+	import { storeCurrentUrl, storeMobileDrawer } from '$docs/stores';
 	import { menuNavLinks } from './links';
 
 	// Props
@@ -15,9 +15,9 @@
 </script>
 
 <div class="mb-8 {$$props.class || ''}">
-	{#each menuNavLinks as { title, list }, i}
+	{#each menuNavLinks as { id, title, list }, i}
 		<!-- Title -->
-		<div class="text-primary-500 text-sm font-bold uppercase p-4">{title}</div>
+		<div {id} class="text-primary-500 text-sm font-bold uppercase p-4">{title}</div>
 
 		<!-- List -->
 		<List tag="nav" selected={storeCurrentUrl} {title} label={title}>
