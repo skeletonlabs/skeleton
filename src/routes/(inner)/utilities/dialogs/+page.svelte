@@ -88,7 +88,7 @@
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['backdrop', 'string', 'bg-surface-400/70 dark:bg-surface-900/70', 'Provide classes to set the backdrop background color.'],
-			['blur', 'string', 'backdrop-blur-none', 'Provide a class to add a backdrop blur.'],
+			['blur', 'string', 'backdrop-blur-none', 'Provide classes to add a backdrop blur.'],
 			['card', 'string', 'bg-surface-50 dark:bg-surface-700', 'Provide classes to set the modal card element.'],
 			['width', 'string', 'max-w-[640px]', 'Provide classes to set max modal width.'],
 			['duration', 'number', '100', 'The animation in/out durations. Set to zero (0) for none.']

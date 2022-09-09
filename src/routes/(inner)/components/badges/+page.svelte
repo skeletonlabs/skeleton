@@ -8,10 +8,10 @@
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['icon', 'boolean', 'false', 'Adjusts styling to accommodate icons.'],
-			['background', 'class', 'bg-surface-500', 'Provide a class to set the background color.'],
-			['color', 'class', 'text-white', 'Provide a class to set the text color.'],
-			['fill', 'class', 'fill-white', 'Provide a class to set the fill color for SVG icons.'],
-			['rounded', 'class', 'rounded-lg', 'Provide a class to set rounding style.']
+			['background', 'class', 'bg-surface-500', 'Provide classes to set the background color.'],
+			['color', 'class', 'text-white', 'Provide classes to set the text color.'],
+			['fill', 'class', 'fill-white', 'Provide classes to set the fill color for SVG icons.'],
+			['rounded', 'class', 'rounded-lg', 'Provide classes to set rounding style.']
 		]
 	};
 	// Slots

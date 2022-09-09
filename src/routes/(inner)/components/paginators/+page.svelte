@@ -49,11 +49,11 @@
 	const tablePropsDesign: any = {
         headings: ['Prop', 'Type', 'Default', 'Description'],
         source: [
-            {prop: 'justify', type: 'string', default: 'justify-between', desc: 'Provide a class to set flexbox justification.'},
-            {prop: 'text', type: 'string', default: 'text-xs', desc: 'Provide a class to style page context text.'},
+            {prop: 'justify', type: 'string', default: 'justify-between', desc: 'Provide classes to set flexbox justification.'},
+            {prop: 'text', type: 'string', default: 'text-xs', desc: 'Provide classes to style page context text.'},
             {prop: 'select', type: 'string', default: '-', desc: 'Provide one or more classes to style the amounts select element.'},
             {prop: 'variant', type: 'string', default: 'filled-primary', desc: 'Provide a <a href="/components/buttons">button variant</a> option.'},
-            {prop: 'rounded', type: 'string', default: '-', desc: 'Provide a class to overwrite the button rounding style.'},
+            {prop: 'rounded', type: 'string', default: '-', desc: 'Provide classes to overwrite the button rounding style.'},
         ],
     };
 

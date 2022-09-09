@@ -6,9 +6,9 @@
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['tag', 'string', 'h1', 'Define the semantic element tag.'],
-			['direction', 'string', 'bg-gradient-to-r', 'Provide a class to set gradient direction.'],
-			['from', 'string', 'from-primary-500', 'Provide a class to set "from" gradient color.'],
-			['to', 'string', 'to-accent-500', 'Provide a class to set "to" gradient color.']
+			['direction', 'string', 'bg-gradient-to-r', 'Provide classes to set gradient direction.'],
+			['from', 'string', 'from-primary-500', 'Provide classes to set "from" gradient color.'],
+			['to', 'string', 'to-accent-500', 'Provide classes to set "to" gradient color.']
 		]
 	};
 

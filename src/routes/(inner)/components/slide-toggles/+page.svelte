@@ -9,7 +9,7 @@
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
 		source: [
 			['checked', 'boolean', 'false', 'true | false', 'The checked state of the input element.'],
-			['accent', 'string', 'bg-accent-500', 'class', 'Provide a class to set the checked state color.'],
+			['accent', 'string', 'bg-accent-500', 'class', 'Provide classes to set the checked state color.'],
 			['size', 'string', 'md', 'sm | md | lg', 'Sets the size of the component.']
 		]
 	};

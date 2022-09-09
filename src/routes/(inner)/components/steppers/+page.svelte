@@ -16,8 +16,8 @@
 		source: [
 			['active', 'Writable<number>', '0 (zero)', '&check;', 'Provide a Svelte Writable that stores the active step state.'],
 			['length', 'number', '0 (zero)', '&check;', 'Informs the component of the total number of steps.'],
-			['accent', 'string', 'bg-primary-500', '-', 'Provide a class that sets the current step numeral background color.'],
-			['background', 'string', 'bg-surface-300 dark:bg-surface-700', '-', 'Provide a class that sets timeline background color.']
+			['accent', 'string', 'bg-primary-500', '-', 'Provide classes that sets the current step numeral background color.'],
+			['background', 'string', 'bg-surface-300 dark:bg-surface-700', '-', 'Provide classes that sets timeline background color.']
 		]
 	};
 	const tablePropsStep: any = {

@@ -11,10 +11,10 @@
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
 		source: [
 			['tag', 'string', 'ul', 'ul | ol | dl | nav', , 'Defines the semantic wrapping element.'],
-			['space', 'string', 'space-y-1', 'class', 'Provide a class to set Y-axis spacing of list items.'],
+			['space', 'string', 'space-y-1', 'class', 'Provide classes to set Y-axis spacing of list items.'],
 			['selected', 'Writable', '-', 'any', 'Nav tag only. Provide a writable store to maintain list selection.'],
-			['hover', 'string', 'hover:bg-primary-500/10', 'class', 'Nav tag only. Provide a class to set hover background color.'],
-			['highlight', 'string', '!bg-primary-500', 'class', 'Nav tag only. Provide a class for highlighted rows. Note this must be use (!) for important.']
+			['hover', 'string', 'hover:bg-primary-500/10', 'class', 'Nav tag only. Provide classes to set hover background color.'],
+			['highlight', 'string', '!bg-primary-500', 'class', 'Nav tag only. Provide classes for highlighted rows. Note this must be use (!) for important.']
 		]
 	};
 	const tablePropsItems: any = {

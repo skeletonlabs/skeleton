@@ -5,17 +5,17 @@
 	const tablePropsCloud: any = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
-			['background', 'string', 'bg-surface-200 dark:bg-surface-800', 'Provide a class to set background color.'],
-			['color', 'string', 'text-black dark:text-white', 'Provide a class to set text color.'],
-			['text', 'string', 'text-base font-bold', 'Provide a class to set text styling.']
+			['background', 'string', 'bg-surface-200 dark:bg-surface-800', 'Provide classes to set background color.'],
+			['color', 'string', 'text-black dark:text-white', 'Provide classes to set text color.'],
+			['text', 'string', 'text-base font-bold', 'Provide classes to set text styling.']
 		]
 	};
 	const tablePropsLogo: any = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
-			['background', 'string', 'bg-surface-200 dark:bg-surface-800', 'Provide a class to override background color.'],
-			['color', 'string', 'text-black dark:text-white', 'Provide a class to override text color.'],
-			['text', 'string', 'text-base font-bold', 'Provide a class to override text styling.'],
+			['background', 'string', 'bg-surface-200 dark:bg-surface-800', 'Provide classes to override background color.'],
+			['color', 'string', 'text-black dark:text-white', 'Provide classes to override text color.'],
+			['text', 'string', 'text-base font-bold', 'Provide classes to override text styling.'],
 			['href', 'string', '-', 'Converts to an anchor element and sets click through value.']
 		]
 	};

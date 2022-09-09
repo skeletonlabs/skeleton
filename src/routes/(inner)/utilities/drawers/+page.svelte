@@ -26,18 +26,18 @@
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['bgBackdrop', 'string', 'bg-surface-400/70 dark:bg-surface-900/70', 'Provide classes to set the backdrop background color'],
-			['display', 'string', '-', 'Provide a class to set the display (ex: <code>lg:hidden</code>)'],
-			['blur', 'string', 'backdrop-blur-sm', 'Provide a class to set the blur style.']
+			['display', 'string', '-', 'Provide classes to set the display (ex: <code>lg:hidden</code>)'],
+			['blur', 'string', 'backdrop-blur-sm', 'Provide classes to set the blur style.']
 		]
 	};
 	const tablePropsDrawer: any = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
-			['bgDrawer', 'string', 'bg-surface-100 dark:bg-surface-800', 'Provide a class to set the drawer background color.'],
-			['border', 'string', '-', 'Provide a class to set border color.'],
-			['rounded', 'string', '-', 'Provide a class to set border radius.'],
-			['width', 'string', '(based on position)', 'Provide a class to override the width.'],
-			['height', 'string', '(based on position)', 'Provide a class to override the height.'],
+			['bgDrawer', 'string', 'bg-surface-100 dark:bg-surface-800', 'Provide classes to set the drawer background color.'],
+			['border', 'string', '-', 'Provide classes to set border color.'],
+			['rounded', 'string', '-', 'Provide classes to set border radius.'],
+			['width', 'string', '(based on position)', 'Provide classes to override the width.'],
+			['height', 'string', '(based on position)', 'Provide classes to override the height.'],
 			['margin', 'string', '-', 'Provide classes to set margins.']
 		]
 	};

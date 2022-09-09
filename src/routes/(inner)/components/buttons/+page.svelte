@@ -21,13 +21,13 @@
 		source: [
 			['variant', 'string', '-', '(see above)', 'Provides preset prop values. Overwrites all props but width, rounded, and href.'],
 			['size', 'string', 'base', 'none | sm | base | lg | xl', 'Scales the button to various sizes.'],
-			['background', 'string', 'bg-black dark:bg-white', 'class', 'Provide a class to define background.'],
-			['color', 'string', 'text-white dark:text-black', 'class', 'Provide a class to define text color.'],
-			['fill', 'string', 'fill-white dark:fill-black', 'class', 'Provide a class to define SVG fill color.'],
-			['ring', 'string', 'ring-transparent', 'class', 'Provide a class to define ring color.'],
-			['weight', 'string', 'ring-1', 'class', 'Provide a class to define ring weight.'],
-			['width', 'string', 'w-auto', 'class', 'Provide a class to set the button width.'],
-			['rounded', 'string', 'rounded-lg', 'class', 'Provide a class to define border radius.'],
+			['background', 'string', 'bg-black dark:bg-white', 'class', 'Provide classes to define background.'],
+			['color', 'string', 'text-white dark:text-black', 'class', 'Provide classes to define text color.'],
+			['fill', 'string', 'fill-white dark:fill-black', 'class', 'Provide classes to define SVG fill color.'],
+			['ring', 'string', 'ring-transparent', 'class', 'Provide classes to define ring color.'],
+			['weight', 'string', 'ring-1', 'class', 'Provide classes to define ring weight.'],
+			['width', 'string', 'w-auto', 'class', 'Provide classes to set the button width.'],
+			['rounded', 'string', 'rounded-lg', 'class', 'Provide classes to define border radius.'],
 			['href', 'string', '-', 'link', 'Converts to an anchor element and sets click through value.']
 		]
 	};

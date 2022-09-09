@@ -7,13 +7,13 @@
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['background', 'string', 'bg-surface-200 dark:bg-surface-800', 'Provided a class to set background color.'],
-			['color', 'string', '-', 'Provide a class to set text color.'],
-			['padding', 'string', 'p-4', 'Provide a class to padding style.'],
-			['space', 'string', 'space-y-4', 'Provide a class to adjust header/body/footer spacing.'],
-			['ringSize', 'string', 'ring-[1px]', 'Provide a class set outline size.'],
-			['ringColor', 'string', 'ring-black/5 dark:ring-white/5', 'Provide a class set outline color.'],
-			['ringInset', 'string', 'ring-inset', 'Provide a class set outline inset style.'],
-			['rounded', 'string', 'rounded-lg', 'Provide a class set border radius style.']
+			['color', 'string', '-', 'Provide classes to set text color.'],
+			['padding', 'string', 'p-4', 'Provide classes to padding style.'],
+			['space', 'string', 'space-y-4', 'Provide classes to adjust header/body/footer spacing.'],
+			['ringSize', 'string', 'ring-[1px]', 'Provide classes set outline size.'],
+			['ringColor', 'string', 'ring-black/5 dark:ring-white/5', 'Provide classes set outline color.'],
+			['ringInset', 'string', 'ring-inset', 'Provide classes set outline inset style.'],
+			['rounded', 'string', 'rounded-lg', 'Provide classes set border radius style.']
 		]
 	};
 	const tablePropsSlots: any = {

@@ -12,8 +12,8 @@
 			['label', 'string', '-', 'Set the label text.'],
 			['value', 'number', '-', 'Specifies the amount completed. Shows as indeterminate when undefined.'],
 			['max', 'number', '10', 'Maximum amount the bar represents.'],
-			['color', 'string', 'bg-accent-500', 'Provide a class to set meter background color.'],
-			['height', 'string', 'h-2', 'Provide a class to set track height.']
+			['color', 'string', 'bg-accent-500', 'Provide classes to set meter background color.'],
+			['height', 'string', 'h-2', 'Provide classes to set track height.']
 		]
 	};
 

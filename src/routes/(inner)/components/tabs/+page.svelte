@@ -14,9 +14,9 @@
 		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
 		source: [
 			['selected', 'Writable', '-', '&check;', 'A svelte store to keep track of tab selection.'],
-			['justify', 'string', 'justify-start', '-', `Provide a class to set the flex justification. 'justify-start' is best small screens.`],
-			['border', 'string', 'border-primary-500', '-', 'Provide a class to set the highlight border color.'],
-			['fill', 'string', 'border-primary-500', '-', 'Provide a class to set the highlight SVG fill color.'],
+			['justify', 'string', 'justify-start', '-', `Provide classes to set the flex justification. 'justify-start' is best small screens.`],
+			['border', 'string', 'border-primary-500', '-', 'Provide classes to set the highlight border color.'],
+			['fill', 'string', 'border-primary-500', '-', 'Provide classes to set the highlight SVG fill color.'],
 			['color', 'string', 'text-primary-500', '-', 'Provide class to set the highlighted text color.']
 		]
 	};

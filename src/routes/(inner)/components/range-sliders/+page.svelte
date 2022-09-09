@@ -17,7 +17,7 @@
 			['step', 'number', '1', 'Set the input step offset.'],
 			['value', 'number', '0', 'Set the input value.'],
 			['ticked', 'boolean', 'false', 'Enables tick marks. See browser support below.'],
-			['accent', 'string', 'accent-primary-500', 'Provide a class to set the input accent color.']
+			['accent', 'string', 'accent-primary-500', 'Provide classes to set the input accent color.']
 		]
 	};
 	const tableA11y: any = {

@@ -13,9 +13,9 @@
 			['x', 'string', '0px', '-', 'Native X attribute for the svg element.'],
 			['y', 'string', '0px', '-', 'Native Y attribute for the svg element.'],
 			['viewBox', 'string', '0 0 512 512', '-', 'Native viewBox attribute for the svg element.'],
-			['fill', 'string', 'fill-black dark:fill-white', '-', 'Provide a class to set the SVG fill color.'],
-			['width', 'string', 'w-5', '-', 'Provide a class to set the width color.'],
-			['height', 'string', 'w-5', '-', 'Provide a class to set the height color.']
+			['fill', 'string', 'fill-black dark:fill-white', '-', 'Provide classes to set the SVG fill color.'],
+			['width', 'string', 'w-5', '-', 'Provide classes to set the width color.'],
+			['height', 'string', 'w-5', '-', 'Provide classes to set the height color.']
 		]
 	};
 	const tableSlots: any = {

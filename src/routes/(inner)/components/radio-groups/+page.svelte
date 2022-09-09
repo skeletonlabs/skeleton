@@ -12,9 +12,9 @@
 		headings: ['Prop', 'Type', 'Values', 'Required', 'Description'],
 		source: [
 			['selected', 'Writable', 'any', '&check;', 'Provide a Svelte writable to store the selected state value.'],
-			['background', 'string', 'bg-primary-500', '-', `Provide a class to set the selected item background color.`],
-			['color', 'string', 'text-black dark:text-white', '-', `Provide a class to set the selected item text color.`],
-			['width', 'string', 'w-auto', '-', `Provide a class to set the width.`]
+			['background', 'string', 'bg-primary-500', '-', `Provide classes to set the selected item background color.`],
+			['color', 'string', 'text-black dark:text-white', '-', `Provide classes to set the selected item text color.`],
+			['width', 'string', 'w-auto', '-', `Provide classes to set the width.`]
 		]
 	};
 	const tablePropsItem: any = {

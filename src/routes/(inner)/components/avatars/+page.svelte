@@ -13,8 +13,8 @@
 			['initials', 'string', 'A', 'text', 'Provide up to two text characters.'],
 			['src', 'string', 'url', '-', 'The image source to display.'],
 			['size', 'string', 'full', 'sm | md | lg | xl | 2xl | 3xl | full', 'Sets the circle and text sizing.'],
-			['background', 'string', 'bg-surface-500', 'class', 'Provide a class to set background color. Only works with initials'],
-			['color', 'string', 'text-white', 'class', 'Provide a class to set text color.'],
+			['background', 'string', 'bg-surface-500', 'class', 'Provide classes to set background color. Only works with initials'],
+			['color', 'string', 'text-white', 'class', 'Provide classes to set text color.'],
 			['outlined', 'boolean', 'false', 'true | false', 'Displays an outline of the primary color.'],
 			['hover', 'boolean', 'false', 'true | false', 'Displays and outline when hovering the avatar.'],
 			['filter', 'string', 'false', 'filter reference', 'Enables a visual <a href="/utilities/filters">Filter</a>. Only works with src.']

@@ -8,9 +8,9 @@
 		source: [
 			['value', 'number', '-', 'Set the meter fill amount. Shows as indeterminate when set undefined.'],
 			['stroke', 'number', '20', 'Sets the base stroke width. Scales responsively.'],
-			['meter', 'string', 'stroke-black dark:stroke-white', 'Provide a class to set meter color.'],
-			['track', 'string', 'stroke-surface-300 dark:stroke-surface-700', 'Provide a class to set track color.'],
-			['color', 'string', 'fill-black dark:fill-white', 'Provide a class to set the SVG text fill color.'],
+			['meter', 'string', 'stroke-black dark:stroke-white', 'Provide classes to set meter color.'],
+			['track', 'string', 'stroke-surface-300 dark:stroke-surface-700', 'Provide classes to set track color.'],
+			['color', 'string', 'fill-black dark:fill-white', 'Provide classes to set the SVG text fill color.'],
 			['font', 'string', '56', 'Sets the base font size. Scales responsively.']
 		]
 	};

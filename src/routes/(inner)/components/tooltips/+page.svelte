@@ -7,11 +7,11 @@
 		source: [
 			['visible', 'boolean', 'false', 'true | false', 'Whether the tooltip is showing or not.'],
 			['position', 'string', 'top', 'top | bottom | left | right', 'Designates where the tooltip will appear.'],
-			['background', 'string', 'bg-black dark:bg-white', 'class', 'Provide a class to set background color.'],
-			['color', 'string', 'text-white dark:text-black', 'class', 'Provide a class to set text color.'],
-			['width', 'string', 'w-auto', 'class', 'Provide a class to set width.'],
-			['whitespace', 'string', 'whitespace-nowrap', 'class', 'Provide a class to set white-space.'],
-			['rounded', 'string', 'rounded', 'class', 'Provide a class to set rounding style.'],
+			['background', 'string', 'bg-black dark:bg-white', 'class', 'Provide classes to set background color.'],
+			['color', 'string', 'text-white dark:text-black', 'class', 'Provide classes to set text color.'],
+			['width', 'string', 'w-auto', 'class', 'Provide classes to set width.'],
+			['whitespace', 'string', 'whitespace-nowrap', 'class', 'Provide classes to set white-space.'],
+			['rounded', 'string', 'rounded', 'class', 'Provide classes to set rounding style.'],
 			['duration', 'number', '150', 'number', 'Animation fade in/out duration in milliseconds. Set to 0 (zero) to disable.']
 		]
 	};

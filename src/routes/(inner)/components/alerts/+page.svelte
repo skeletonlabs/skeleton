@@ -2,7 +2,7 @@
 	import { DataTable, Card, Alert, Button } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	let title = `What's New in Skeleton?`;
+	let title = `Hello Skeleton!`;
 	let message =
 		'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi, cupiditate eveniet in neque magnam quos ad cumque quae numquam voluptatum magni atque vitae dolore voluptatibus aliquam tempora! Animi, nihil quo.';
 
@@ -10,20 +10,24 @@
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['visible', 'boolean', 'true', 'Control visibility of the alert.'],
-			['duration', 'number', '200', 'Set fade in/out animation speed. Set 0 (zero) to disable.'],
-			['background', 'string', 'bg-accent-500/30', 'Provide a class to set background color.'],
-			['border', 'string', 'border-l-accent-500', 'Provide a class to set border styles.'],
-			['color', 'string', '-', 'Provide a class to set text color.'],
-			['radius', 'string', '-', 'Provide a class to set border radius.']
+			['background', 'string', 'bg-accent-500/30', 'Provide classes to set background color.'],
+			['borderSize', 'string', 'border-l-4', 'Provide classes to set the border size.'],
+			['borderColor', 'string', 'border-l-accent-500', 'Provide classes to set the border color.'],
+			['color', 'string', '-', 'Provide classes to set text color.'],
+			['radius', 'string', '-', 'Provide classes to set border radius.'],
+			['duration', 'number', '200', 'Svelte fade transition duration. Set <code>0</code> to disable.'],
+			['slotLead', 'string', '-', 'Provide arbitrary classes for the leading slot element.'],
+			['slotContent', 'string', '-', 'Provide arbitrary classes for the default slot element.'],
+			['slotTrail', 'string', '-', 'Provide arbitrary classes for the trailing slot element.']
 		]
 	};
 	const tableSlots: any = {
 		headings: ['Slot', 'Description'],
 		source: [
 			['lead', 'Provide a leading element, such as an icon.'],
-			['title', 'Provide the title of the alert.'],
-			['message', 'Provide the message of the alert.'],
-			['trail', 'Provide a trailing element, such as a button.']
+			['title', 'Provide the alert title text.'],
+			['message', 'Provide the alert message text.'],
+			['trail', 'Provide a trailing element, such as a call to action.']
 		]
 	};
 
@@ -59,13 +63,13 @@
 				<Button variant="ghost-accent" on:click={toggleVisible}>&#10005;</Button>
 			</svelte:fragment>
 		</Alert>
-		<Alert background="bg-primary-500/30" border="border-primary-500" {visible}>
+		<Alert background="bg-primary-500/30" borderColor="border-primary-500" {visible}>
 			<svelte:fragment slot="title">{title}</svelte:fragment>
 			<svelte:fragment slot="trail">
 				<Button variant="filled-primary" on:click={actionExample}>View More</Button>
 			</svelte:fragment>
 		</Alert>
-		<Alert background="bg-warning-500/30" border="border-warning-500" rounded="rounded-3xl" {visible}>
+		<Alert background="bg-warning-500/30" borderColor="border-warning-500" rounded="rounded-3xl" {visible}>
 			<svelte:fragment slot="message">{message}</svelte:fragment>
 			<svelte:fragment slot="trail">
 				<Button variant="ghost" on:click={toggleVisible}>&#10005;</Button>
@@ -76,22 +80,15 @@
 	<!-- Usage -->
 	<section class="space-y-4">
 		<h2>Usage</h2>
-		<CodeBlock
-			language="typescript"
-			code={`
-let visible: boolean = true;
-function actionExample(): void { alert('Action button was triggered!'); }`}
-		/>
+		<CodeBlock language="typescript" code={`let visible: boolean = true;`} />
 		<CodeBlock
 			language="html"
 			code={`
 <Alert {visible}>
     <svelte:fragment slot="lead">(icon)</svelte:fragment>
-    <svelte:fragment slot="title">Hello, Skeleton</svelte:fragment>
-    <svelte:fragment slot="message">A custom message here.</svelte:fragment>      
-    <svelte:fragment slot="trail">
-        <Button variant="filled" on:click={actionExample}>Show Me</Button>
-    </svelte:fragment>
+    <svelte:fragment slot="title">(title))</svelte:fragment>
+    <svelte:fragment slot="message">(message)</svelte:fragment>      
+    <svelte:fragment slot="trail">(trail)</svelte:fragment>
 </Alert>
         `.trim()}
 		/>
