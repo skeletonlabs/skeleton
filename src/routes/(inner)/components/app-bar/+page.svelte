@@ -28,7 +28,7 @@
 	const tableA11y: any = {
 		headings: ['Prop', 'Type', 'Description'],
 		source: [
-			['label', 'string', 'Provide a semantic label for the toolbar.'],
+			['label', 'string', 'Provide semantic ID for the ARIA label.'],
 			['labelledby', 'string', 'Provide the ID of the element that labels the toolbar.']
 		]
 	};

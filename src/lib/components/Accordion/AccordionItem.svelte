@@ -30,7 +30,7 @@
 		<!-- Slot: Lead -->
 		{#if $$slots.lead}<div><slot name="lead" /></div>{/if}
 		<!-- Slot: Text -->
-		<div class="flex-auto" role="button"><slot name="summary" /></div>
+		<div class="flex-auto" role="button"><slot name="summary"><code>(Missing: Summary Slot)</code></slot></div>
 		<!-- Caret -->
 		<div class={classesIcon}>
 			<SvgIcon name="angle-down" class="opacity-50" />
@@ -39,7 +39,7 @@
 
 	<!-- Content -->
 	<div id={contentId} role="region" aria-labelledby={summaryId} class={classesDesc}>
-		<slot name="content" />
+		<slot name="content"><code>(Missing: Content Slot)</code></slot>
 	</div>
 </details>
 
