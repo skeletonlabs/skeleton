@@ -8,7 +8,7 @@
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
 	// Stores
-	import { storeMobileDrawer } from '$lib/_documentation/stores';
+	import { storeMobileDrawer } from '$docs/stores';
 
 	// Drawer Handler
 	function drawerOpen(): void {

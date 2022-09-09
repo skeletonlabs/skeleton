@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { DataTable, Card } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-	import ConicGradient from '$lib/ConicGradient/ConicGradient.svelte';
+	import ConicGradient from '$lib/components/ConicGradient/ConicGradient.svelte';
 
 	// Examples
 	const dataOne: any[] = [

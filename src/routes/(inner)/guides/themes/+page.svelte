@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
-	import { storeFramework } from '$lib/_documentation/stores';
+	import { storeFramework } from '$docs/stores';
 
 	import { DataTable, Card, Divider, Button, RadioGroup, RadioItem, TabGroup, Tab } from '@brainandbones/skeleton';
 	import { toastStore, type ToastMessage } from '$lib/utilities/Toast/stores';
 
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-	import ThemeGenTailwind from '$lib/_documentation/ThemeGenerator/ThemeGenTailwind.svelte';
-	import ThemeGenCustom from '$lib/_documentation/ThemeGenerator/ThemeGenCustom.svelte';
+	import DocsThemerTailwind from '$docs/DocsThemer/DocsThemerTailwind.svelte';
+	import DocsThemerHex from '$docs/DocsThemer/DocsThemerHex.svelte';
 
 	// Stores
 	const storeGenerator: Writable<string> = writable('tailwind'); // tailwind | hex
@@ -136,8 +136,8 @@
 			{/if}
 			<Divider class="opacity-30" />
 			<!-- Generator Components -->
-			{#if $storeGenerator === 'tailwind'}<ThemeGenTailwind />{/if}
-			{#if $storeGenerator === 'hex'}<ThemeGenCustom />{/if}
+			{#if $storeGenerator === 'tailwind'}<DocsThemerTailwind />{/if}
+			{#if $storeGenerator === 'hex'}<DocsThemerHex />{/if}
 			<Divider class="opacity-30" />
 		</Card>
 		<p class="block">

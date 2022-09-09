@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { storeFramework } from '$lib/_documentation/stores';
+	import { storeFramework } from '$docs/stores';
 	import { Card, Divider, Button, TabGroup, Tab } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 </script>

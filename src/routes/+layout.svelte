@@ -13,14 +13,14 @@
 	import Dialog from '$lib/utilities/Dialog/Dialog.svelte';
 	import Toast from '$lib/utilities/Toast/Toast.svelte';
 
-	// Doc-Only Components
-	import SkeletonAppBar from '$lib/_documentation/SkeletonAppBar/SkeletonAppBar.svelte';
-	import SkeletonSidebar from '$lib/_documentation/SkeletonNavigation/SkeletonSidebar.svelte';
-	import SkeletonDrawer from '$lib/_documentation/SkeletonNavigation/SkeletonDrawer.svelte';
-	import SkeletonFooter from '$lib/_documentation/SkeletonFooter/SkeletonFooter.svelte';
+	// Docs Components
+	import DocsAppBar from '$docs/DocsAppBar/DocsAppBar.svelte';
+	import DocsSidebar from '$docs/DocsNavigation/DocsSidebar.svelte';
+	import DocsDrawer from '$docs/DocsNavigation/DocsDrawer.svelte';
+	import DocsFooter from '$docs/DocsFooter/DocsFooter.svelte';
 
 	// Stores
-	import { storeCurrentUrl } from '$lib/_documentation/stores';
+	import { storeCurrentUrl } from '$docs/stores';
 
 	// Skeleton Theme: skeleton|rocket|modern|seafoam|vintage|sahara|test
 	import '$lib/styles/themes/theme-skeleton.css';
@@ -50,18 +50,18 @@
 <!-- Overlays -->
 <Dialog />
 <Toast />
-<SkeletonDrawer />
+<DocsDrawer />
 
 <!-- App Shell -->
 <AppShell {sidebarLeftWidth}>
 	<!-- Header -->
 	<svelte:fragment slot="header">
-		<SkeletonAppBar />
+		<DocsAppBar />
 	</svelte:fragment>
 
 	<!-- Sidebar (Left) -->
 	<svelte:fragment slot="sidebarLeft">
-		<SkeletonSidebar class="hidden lg:block w-[300px]" />
+		<DocsSidebar class="hidden lg:block w-[300px]" />
 	</svelte:fragment>
 
 	<!-- Page: Content -->
@@ -69,6 +69,6 @@
 
 	<!-- Page: Footer -->
 	<svelte:fragment slot="pageFooter">
-		<SkeletonFooter />
+		<DocsFooter />
 	</svelte:fragment>
 </AppShell>
