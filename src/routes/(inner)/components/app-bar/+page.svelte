@@ -7,19 +7,22 @@
 	const tableProps: any = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
-			['background', 'string', 'bg-surface-100 dark:bg-surface-800', 'Provide a class to set background color.'],
-			['border', 'string', '-', 'Provide a class to set border styles.'],
-			['padding', 'string', 'px-4 py-4 md:py-6', 'Provide a class to set padding.'],
-			['shadow', 'string', 'shadow-xl', 'Provide a class to define a box shadow.'],
-			['space', 'string', 'space-x-4', 'Provide a class to set horizontal spacing.']
+			['background', 'string', 'bg-surface-100 dark:bg-surface-800', 'Provide classes to set background color.'],
+			['border', 'string', '-', 'Provide classes to set border styles.'],
+			['padding', 'string', 'px-4 py-4 md:py-6', 'Provide classes to set padding.'],
+			['shadow', 'string', 'shadow-lg', 'Provide classes to define a box shadow.'],
+			['space', 'string', 'space-x-4', 'Provide classes to set horizontal spacing.'],
+			['slotLead', 'string', '-', 'Provide arbitrary classes for the leading slot element.'],
+			['slotCenter', 'string', '-', 'Provide arbitrary classes for the center slot element.'],
+			['slotTrail', 'string', '-', 'Provide arbitrary classes for the trailing slot element.']
 		]
 	};
 	const tableSlots: any = {
 		headings: ['Name', 'Description'],
 		source: [
-			['default', 'Provide items that reside in the center, such as a search element.'],
-			['lead', 'Provide leading items, such as a branding logo or page header.'],
-			['trail', 'Provide trailing items, such as a navigation links.']
+			['default', 'Provides content within the center of the bar, such as a search element.'],
+			['lead', 'Provides content on the left end of the bar, such a logo.'],
+			['trail', 'Provides content on the right end of the bar, such as a navigation.']
 		]
 	};
 	const tableA11y: any = {
@@ -47,7 +50,10 @@
 			</svelte:fragment>
 			<input type="search" placeholder="Search..." class="max-w-[200px]" />
 			<svelte:fragment slot="trail">
-				<SvgIcon />
+				<div class="flex items-center space-x-6">
+					<a href="/components/app-bar">Link</a>
+					<SvgIcon />
+				</div>
 			</svelte:fragment>
 		</AppBar>
 	</section>
@@ -59,9 +65,9 @@
 			language="html"
 			code={`
 <AppBar>
-	<svelte:fragment slot="lead">(branding)</svelte:fragment>
-	(search)
-	<svelte:fragment slot="trail">(navigation)</svelte:fragment>
+	<svelte:fragment slot="lead">(lead)</svelte:fragment>
+	(center)
+	<svelte:fragment slot="trail">(trail)</svelte:fragment>
 </AppBar>
 		`.trim()}
 		/>

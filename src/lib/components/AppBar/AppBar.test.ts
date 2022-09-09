@@ -17,6 +17,10 @@ describe('AppBar.svelte', () => {
 				padding: 'p-4',
 				shadow: 'shadow',
 				space: 'space-x-2',
+				// Slots
+				slotLead: 'bg-red-500',
+				slotCenter: 'bg-green-500',
+				slotTrail: 'bg-blue-500',
 				// a11y
 				label: 'TestAppShell',
 				labelledby: 'TestLabelAppShell'
