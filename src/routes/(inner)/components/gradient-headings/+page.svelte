@@ -1,7 +1,24 @@
 <script lang="ts">
+	import { writable, type Writable } from 'svelte/store';
+
 	import { DataTable, Card, GradientHeading } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
+	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
 
+	// Stores
+	const storeTag: Writable<string> = writable('h1');
+
+	// Reactive Props
+	$: props = {
+		text: 'Skeleton',
+		tag: $storeTag,
+		direction: 'bg-gradient-to-r',
+		from: 'from-primary-500',
+		to: 'to-accent-500'
+	};
+
+	// Tables
 	const tableProps: any = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
@@ -10,14 +27,6 @@
 			['from', 'string', 'from-primary-500', 'Provide classes to set "from" gradient color.'],
 			['to', 'string', 'to-accent-500', 'Provide classes to set "to" gradient color.']
 		]
-	};
-
-	$: props = {
-		text: 'Skeleton',
-		tag: 'h1',
-		direction: 'bg-gradient-to-r',
-		from: 'from-primary-500',
-		to: 'to-accent-500'
 	};
 </script>
 
@@ -43,17 +52,14 @@
 					<input type="text" bind:value={props.text} placeholder="Enter text..." />
 				</label>
 				<!-- Tag -->
-				<label>
+				<label for="">
 					<span>Tag</span>
-					<select name="tag" id="tag" bind:value={props.tag}>
-						<option value="h1">h1</option>
-						<option value="h2">h2</option>
-						<option value="h3">h3</option>
-						<option value="h4">h4</option>
-						<option value="h5">h5</option>
-						<option value="h6">h6</option>
-						<option value="div">div</option>
-					</select>
+					<RadioGroup selected={storeTag} background="bg-accent-500" color="text-white" width="w-full">
+						<RadioItem value="h1">h1</RadioItem>
+						<RadioItem value="h3">h3</RadioItem>
+						<RadioItem value="h6">h6</RadioItem>
+						<RadioItem value="p">p</RadioItem>
+					</RadioGroup>
 				</label>
 				<!-- Direction -->
 				<label>
@@ -90,7 +96,12 @@
 				</label>
 			</Card>
 		</div>
-		<CodeBlock language="html" code={`<GradientHeading tag="${props.tag}" direction="${props.direction}" from="${props.from}" to="${props.to}">Skeleton</GradientHeading>`} />
+	</section>
+
+	<!-- Usage -->
+	<section class="space-y-4">
+		<h2>Usage</h2>
+		<CodeBlock language="html" code={`<GradientHeading tag="h1" direction="bg-gradient-to-r" from="from-primary-500" to="to-accent-500">Skeleton</GradientHeading>`} />
 	</section>
 
 	<!-- Properties -->
@@ -103,7 +114,7 @@
 	<section class="space-y-4">
 		<h2>Accessibility</h2>
 		<p>
-			You are advised to use semantic heading tags (H1-H6). Has an explicit ARIA attribute of <code>role="heading"</code>.
+			You are advised to use semantic heading tags (H1-H6), but an explicit ARIA attribute of <code>role="heading"</code> has been applied.
 		</p>
 	</section>
 </div>
