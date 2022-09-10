@@ -3,16 +3,19 @@
 
 	// Props
 	export let separator: string = `&rsaquo;`;
-	// A11y
+	// Props (A11y)
 	export let label: string | undefined = undefined;
-
-	// Base Classes
-	const cBaseBreadcrumb: string = 'flex align-center space-x-4';
 
 	// Context
 	setContext('separator', separator);
+
+	// Base Classes
+	const cBase: string = 'flex align-center space-x-4';
+
+	// Reactive Classes
+	$: classesBase = `${cBase} ${$$props.class || ''}`;
 </script>
 
-<div class="breadcrumb {cBaseBreadcrumb} {$$props.class}" data-testid="breadcrumb" aria-label={label}>
+<div class="breadcrumb {classesBase}" data-testid="breadcrumb" aria-label={label}>
 	<slot />
 </div>

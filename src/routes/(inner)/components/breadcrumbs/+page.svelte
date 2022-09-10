@@ -14,8 +14,8 @@
 	const tablePropsCrumb: any = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
-			['href', 'string', '-', 'Optionally provide an anchor href value.'],
-			['current', 'boolean ', 'false', 'Sets the crumb to a disabled mode.']
+			['text', 'string', 'text-base', 'Provide classes to set text size.'],
+			['color', 'string ', '-', 'Provide classes set the base text color. Links adopt global anchor styles.']
 		]
 	};
 	const tableSlotsCrumb: any = {
@@ -58,7 +58,7 @@
 						<Breadcrumb separator={customSeparator}>
 							<Crumb href="/">Home</Crumb>
 							<Crumb href="/">Blog</Crumb>
-							<Crumb current>Current</Crumb>
+							<Crumb>Current</Crumb>
 						</Breadcrumb>
 					</div>
 				</Card>
@@ -69,12 +69,12 @@
 					<div class="w-full overflow-x-auto min-w-[400px]">
 						<Breadcrumb>
 							<Crumb href="/">
-								<SvgIcon name="house" fill="fill-primary-500" title="house" />
+								<SvgIcon name="house" title="house" />
 							</Crumb>
 							<Crumb href="/">
-								<SvgIcon name="skull" fill="fill-primary-500" title="skull" />
+								<SvgIcon name="skull" title="skull" />
 							</Crumb>
-							<Crumb current>Current</Crumb>
+							<Crumb>Current</Crumb>
 						</Breadcrumb>
 					</div>
 				</Card>
@@ -86,17 +86,17 @@
 						<Breadcrumb>
 							<Crumb href="/">
 								<svelte:fragment slot="lead">
-									<SvgIcon name="house" fill="fill-primary-500" title="house" />
+									<SvgIcon name="house" title="house" />
 								</svelte:fragment>
 								<span>Home</span>
 							</Crumb>
 							<Crumb href="/">
 								<svelte:fragment slot="lead">
-									<SvgIcon name="skull" fill="fill-primary-500" title="skull" />
+									<SvgIcon name="skull" title="skull" />
 								</svelte:fragment>
 								<span>Subpage</span>
 							</Crumb>
-							<Crumb current>Current</Crumb>
+							<Crumb>Current</Crumb>
 						</Breadcrumb>
 					</div>
 				</Card>
@@ -112,14 +112,17 @@
 			code={`
 <Breadcrumb>
     <Crumb href='/'>
-        <svelte:fragment slot="lead">{@html icon}</svelte:fragment>
-        <span>Home</span>
+        <svelte:fragment slot="lead">{icon}</svelte:fragment>
+        <span>Page</span>
     </Crumb>
-    <Crumb href='/'>Subpage</Crumb>
-    <Crumb current>Current</Crumb>
+    <Crumb href='/'>Page</Crumb>
+    <Crumb>Current</Crumb>
 </Breadcrumb>
         `.trim()}
 		/>
+		<h4>Current Page Crumb</h4>
+		<p>Crumbs without a <code>href</code> attribute will renders as a <code>span</code> instead of <code>a</code> and will not include a trailing seperator.</p>
+		<CodeBlock language="html" code={`<Crumb>Current</Crumb>`} />
 	</section>
 
 	<!-- Properties -->
