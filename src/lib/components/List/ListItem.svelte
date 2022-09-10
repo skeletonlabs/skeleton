@@ -5,9 +5,7 @@
 	// Event Handler
 	const dispatch = createEventDispatcher();
 
-	// Props
-	// NOTE: 'value' is handled by $$props.value
-	// A11y
+	// Props (A11y)
 	export let setsize: number | undefined = undefined;
 	export let posinset: number | undefined = undefined;
 

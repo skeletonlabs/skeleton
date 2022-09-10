@@ -8,13 +8,13 @@
 	let navMultiple: Writable<string[]> = writable(['A', 'B']);
 
 	const tablePropsList: any = {
-		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
+		headings: ['Prop', 'Type', 'Default', 'Values', 'Nav Only', 'Description'],
 		source: [
-			['tag', 'string', 'ul', 'ul | ol | dl | nav', , 'Defines the semantic wrapping element.'],
-			['space', 'string', 'space-y-1', 'class', 'Provide classes to set Y-axis spacing of list items.'],
-			['selected', 'Writable', '-', 'any', 'Nav tag only. Provide a writable store to maintain list selection.'],
-			['hover', 'string', 'hover:bg-primary-500/10', 'class', 'Nav tag only. Provide classes to set hover background color.'],
-			['highlight', 'string', '!bg-primary-500', 'class', 'Nav tag only. Provide classes for highlighted rows. Note this must be use (!) for important.']
+			['tag', 'string', 'ul', 'ul | ol | dl | nav', , '-', 'Defines the semantic wrapping element.'],
+			['space', 'string', 'space-y-1', 'class', '-', 'Provide classes to set Y-axis spacing of list items.'],
+			['selected', 'Writable', '-', 'any', `&check;`, 'Provide a writable store to maintain list selection.'],
+			['hover', 'string', 'hover:bg-primary-500/10', 'class', `&check;`, 'Provide classes to set hover background color.'],
+			['highlight', 'string', '!bg-primary-500', 'class', `&check;`, 'Provide classes for highlighted rows. Must use <code>!</code> for important.']
 		]
 	};
 	const tablePropsItems: any = {
@@ -39,10 +39,10 @@
 		]
 	};
 	const tableA11yItem: any = {
-		headings: ['Prop', 'Type', 'Default', 'Description'],
+		headings: ['Prop', 'Type', 'Default', 'Nav Only', 'Description'],
 		source: [
-			['setsize', 'number', '-', `Nav Item only. Define the ARIA setsize value.`],
-			['posinset ', 'number', '-', `Nav Item only. Define the ARIA posinset value.`]
+			['setsize', 'number', '-', `&check;`, 'Define the ARIA setsize value.'],
+			['posinset ', 'number', '-', `&check;`, 'Define the ARIA posinset value.']
 		]
 	};
 </script>

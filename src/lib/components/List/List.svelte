@@ -8,7 +8,7 @@
 	export let highlight: string = '!bg-primary-500'; // '!' required
 	export let hover: string = 'hover:bg-primary-500/10'; // 'hover:' required
 	export let space: string = 'space-y-1';
-	// A11y
+	// Props (A11y)
 	export let title: string | undefined = undefined;
 	export let label: string | undefined = undefined;
 	export let labelledby: string | undefined = undefined;
@@ -41,11 +41,10 @@
 	}
 
 	// Reactive Classes
-	$: classes = `list-group ${cBase} ${space} ${$$props.class || ''}`;
+	$: classesList = `${cBase} ${space} ${$$props.class || ''}`;
 </script>
 
-<svelte:element this={tag} bind:this={elemList} class={classes} data-testid="list-group" on:keydown={onKeyDown} {title}>
-	<!-- Wrap <nav> (listbox) to meet ARIA spec requirements -->
+<svelte:element this={tag} bind:this={elemList} class="list-group {classesList}" data-testid="list-group" on:keydown={onKeyDown} {title}>
 	{#if tag === 'nav'}
 		<ul class={space} role="listbox" aria-label={label} aria-labelledby={labelledby} aria-multiselectable={Array.isArray($selected)}>
 			<slot />
