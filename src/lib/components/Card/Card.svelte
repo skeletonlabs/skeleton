@@ -4,7 +4,7 @@
 	export let color: string | undefined = undefined;
 	export let padding: string = 'p-4';
 	export let space: string = 'space-y-4';
-	export let ringSize: string = 'ring-[1px]';
+	export let ringWidth: string = 'ring-[1px]';
 	export let ringColor: string = 'ring-black/5 dark:ring-white/5';
 	export let ringInset: string = 'ring-inset';
 	export let rounded: string = 'rounded-lg';
@@ -14,7 +14,7 @@
 	export let slotFooter: string | undefined = undefined;
 
 	// Reactive
-	$: classesCard = `${background} ${color} ${padding} ${space} ${ringSize} ${ringColor} ${ringInset} ${rounded}`;
+	$: classesCard = `${background} ${color} ${padding} ${space} ${ringWidth} ${ringColor} ${ringInset} ${rounded}`;
 	$: classesHeader = `${slotHeader}`;
 	$: classesBody = `${slotBody}`;
 	$: classesFooter = `${slotFooter}`;

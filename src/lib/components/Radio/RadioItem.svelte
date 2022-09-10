@@ -36,7 +36,7 @@
 	$: classesItem = `${cBaseItem} ${cSelected} ${cBaseHover}`;
 </script>
 
-<div id={label} class="radio-item {classesItem}" data-testid="radio-item" on:keydown={onKeyDown} role="radio" aria-checked={isChecked} aria-label={label} tabindex="0">
+<div id={label} class="radio-item {classesItem}" data-testid="radio-item" on:click on:keydown={onKeyDown} role="radio" aria-checked={isChecked} aria-label={label} tabindex="0">
 	<label class="px-5 py-2.5 cursor-pointer">
 		<input class="hidden" type="radio" {value} bind:group={$selected} />
 		<div class="inline-block mx-auto"><slot /></div>

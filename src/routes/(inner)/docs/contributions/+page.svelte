@@ -186,7 +186,7 @@ function prunedRestProps(): any {
 		<p>Follow these guidelines when creating or adding new component props.</p>
 		<ul class="list-disc list-inside">
 			<li>Each prop should be a single word, all lowercase, and semantic. Match Tailwind class naming conventions whenever possible.</li>
-			<li>If you need multiple words, use camel-casing (ex: ringSize).</li>
+			<li>If you need multiple words, use camel-casing (ex: ringWidth).</li>
 			<li>Color props should follow standard CSS style names (ex: <code>color</code> for text color).</li>
 			<li>Avoid passing a set of styles using arrays or objects. String formats work better (ex: <code>border border-primary-500</code>).</li>
 			<li>Ensure Typescript types are provided and set a relevant default values when possible.</li>

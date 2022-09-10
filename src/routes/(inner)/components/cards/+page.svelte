@@ -10,7 +10,7 @@
 			['color', 'string', '-', 'Provide classes to set text color.'],
 			['padding', 'string', 'p-4', 'Provide classes to padding style.'],
 			['space', 'string', 'space-y-4', 'Provide classes to adjust header/body/footer spacing.'],
-			['ringSize', 'string', 'ring-[1px]', 'Provide classes set outline size.'],
+			['ringWidth', 'string', 'ring-[1px]', 'Provide classes set outline size.'],
 			['ringColor', 'string', 'ring-black/5 dark:ring-white/5', 'Provide classes set outline color.'],
 			['ringInset', 'string', 'ring-inset', 'Provide classes set outline inset style.'],
 			['rounded', 'string', 'rounded-lg', 'Provide classes set border radius style.']

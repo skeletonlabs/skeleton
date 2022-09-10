@@ -4,6 +4,7 @@
 
 	import AppBar from '$lib/components/AppBar/AppBar.svelte';
 	import Badge from '$lib/components/Badge/Badge.svelte';
+	import Divider from '$lib/components/Divider/Divider.svelte';
 	import LightSwitch from '$lib/utilities/LightSwitch/LightSwitch.svelte';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
@@ -44,7 +45,7 @@
 	<!-- Navigation -->
 	<svelte:fragment slot="trail">
 		<!-- Links -->
-		<section class="hidden lg:flex space-x-4 spacer-line">
+		<section class="hidden lg:flex space-x-4">
 			<a
 				href="/guides/install"
 				class="navlink"
@@ -82,10 +83,14 @@
 			>
 		</section>
 
+		<Divider vertical borderWidth="border-l-2" />
+
 		<!-- Light Switch -->
-		<section class="flex spacer-line space-x-4">
+		<section class="flex space-x-4">
 			<LightSwitch origin="tr" />
 		</section>
+
+		<Divider vertical borderWidth="border-l-2" />
 
 		<!-- Community -->
 		<section class="flex space-x-4">
@@ -104,9 +109,6 @@
 
 <style lang="postcss">
 	.navlink {
-		@apply opacity-80 hover:opacity-100 hover:text-primary-500 transition-all;
-	}
-	.spacer-line {
-		@apply border-r border-r-surface-500/50 pr-4;
+		@apply font-bold opacity-80 hover:opacity-100 hover:text-primary-500 transition-all;
 	}
 </style>

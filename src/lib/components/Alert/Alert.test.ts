@@ -16,7 +16,7 @@ describe('Alert.svelte', () => {
 				duration: 100,
 				background: 'bg-primary-500/30',
 				color: 'text-accent-500',
-				borderSize: 'border-l-2',
+				borderWidth: 'border-l-2',
 				borderColor: 'border-l-primary-500',
 				radius: 'rounded',
 				// Slots

@@ -11,7 +11,7 @@
 		source: [
 			['visible', 'boolean', 'true', 'Control visibility of the alert.'],
 			['background', 'string', 'bg-accent-500/30', 'Provide classes to set background color.'],
-			['borderSize', 'string', 'border-l-4', 'Provide classes to set the border size.'],
+			['borderWidth', 'string', 'border-l-4', 'Provide classes to set the border size.'],
 			['borderColor', 'string', 'border-l-accent-500', 'Provide classes to set the border color.'],
 			['color', 'string', '-', 'Provide classes to set text color.'],
 			['radius', 'string', '-', 'Provide classes to set border radius.'],

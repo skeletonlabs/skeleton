@@ -1,52 +1,18 @@
 <script lang="ts">
-	import { afterUpdate } from 'svelte';
-
 	// Props
-	export let variant: string = 'solid';
-	export let weight: number = 1;
-	export let orientation: string = 'h';
+	export let vertical: boolean = false;
+	export let borderWidth: string = 'border-t';
+	export let borderStyle: string = 'border-solid';
+	export let borderColor: string = 'border-surface-300 dark:border-surface-700';
+	export let margin: string = 'm-0';
+	export let opacity: string = 'opacity-full';
 
 	// Base Classes
-	const cBaseDivider = `block border-surface-300 dark:border-surface-700`;
-
-	// Set Variant
-	let cVariant: string;
-	function setVariant(): void {
-		// prettier-ignore
-		switch (variant) {
-			case 'dashed': cVariant = 'border-dashed'; break;
-			case 'dotted': cVariant = 'border-dotted'; break;
-			default: cVariant = 'border-solid';
-		}
-	}
-
-	// Set Orientation
-	const cWeight: any = {
-		1: { v: 'border-l', h: 'border-t' },
-		2: { v: 'border-l-2', h: 'border-t-2' },
-		4: { v: 'border-l-4', h: 'border-t-4' },
-		8: { v: 'border-l-8', h: 'border-t-8' }
-	};
-	let cOrientation: string;
-	function setOrientation(): void {
-		// prettier-iignore
-		switch (orientation) {
-			case 'v':
-				cOrientation = `border-0 ${cWeight[weight].v} h-full`;
-				break;
-			default:
-				cOrientation = `border-0 ${cWeight[weight].h} border-t w-full`;
-		}
-	}
-
-	// After Prop Updates
-	afterUpdate(() => {
-		setVariant();
-		setOrientation();
-	});
+	const cBaseDivider = `block`;
 
 	// Reactive Classes
-	$: classes = `${cBaseDivider} ${cVariant} ${cOrientation}`;
+	$: classesOrientation = vertical === true ? 'w-0 h-full min-h-[24px]' : 'w-full h-0';
+	$: classesDivider = `${cBaseDivider} ${classesOrientation} ${borderWidth} ${borderStyle} ${borderColor} ${margin} ${opacity} ${$$props.class || ''}`;
 </script>
 
-<hr class="divider {classes} {$$props.class}" data-testid="divider" />
+<hr class="divider {classesDivider}" data-testid="divider" />

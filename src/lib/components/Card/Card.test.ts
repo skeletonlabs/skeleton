@@ -16,7 +16,7 @@ describe('Card.svelte', () => {
 				color: 'text-white',
 				padding: 'p-4',
 				space: 'space-y-4',
-				ringSize: 'ring-[1px]',
+				ringWidth: 'ring-[1px]',
 				ringColor: 'ring-black/5 dark:ring-white/5',
 				ringInset: 'ring-inset',
 				rounded: 'rounded-lg',

@@ -42,6 +42,6 @@
 		</List>
 
 		<!-- Divider -->
-		{#if i + 1 < menuNavLinks.length}<Divider class="my-4 opacity-30" />{/if}
+		{#if i + 1 < menuNavLinks.length}<Divider margin="my-4" opacity="opacity-50" />{/if}
 	{/each}
 </div>

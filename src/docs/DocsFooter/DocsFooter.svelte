@@ -44,7 +44,7 @@
 		</div>
 	</section>
 
-	<Divider variant="dotted" class="border-black/10 dark:border-white/10" />
+	<Divider borderStyle="border-dotted" opacity="opacity-50" />
 
 	<!-- Row 2 -->
 	<section class={cRowTwo}>
