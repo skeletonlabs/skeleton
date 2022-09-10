@@ -132,7 +132,7 @@
 	<Divider />
 
 	<!-- Next Steps -->
-	<Card body="flex justify-between items-center space-x-4 space-y-0">
+	<Card slotBody="flex justify-between items-center space-x-4 space-y-0">
 		<p>Next, let's review how to handle forms and inputs.</p>
 		<Button variant="filled-accent" href="/guides/forms">Handling Forms</Button>
 	</Card>

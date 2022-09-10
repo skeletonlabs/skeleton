@@ -59,28 +59,28 @@ module.exports = {
 		<h2>Tailwind Plugins</h2>
 		<p>Skeleton pairs well with all of the official Tailwind plugins, however these are completely optional.</p>
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-			<Card body="flex justify-between items-center space-x-4">
+			<Card slotBody="flex justify-between items-center space-x-4">
 				<div>
 					<h6>Forms</h6>
 					<p>Provides a basic reset for form elements.</p>
 				</div>
 				<Button variant="ghost" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">View</Button>
 			</Card>
-			<Card body="flex justify-between items-center space-x-4">
+			<Card slotBody="flex justify-between items-center space-x-4">
 				<div>
 					<h6>Typography</h6>
 					<p>Typographic defaults for HTML you don't control.</p>
 				</div>
 				<Button variant="ghost" href="https://tailwindcss.com/docs/typography-plugin" target="_blank">View</Button>
 			</Card>
-			<Card body="flex justify-between items-center space-x-4">
+			<Card slotBody="flex justify-between items-center space-x-4">
 				<div>
 					<h6>Aspect Ratio</h6>
 					<p>Composable API for giving elements a fixed aspect ratio.</p>
 				</div>
 				<Button variant="ghost" href="https://github.com/tailwindlabs/tailwindcss-aspect-ratio" target="_blank">View</Button>
 			</Card>
-			<Card body="flex justify-between items-center space-x-4">
+			<Card slotBody="flex justify-between items-center space-x-4">
 				<div>
 					<h6>Line Clamp</h6>
 					<p>Provides utilities for visually truncating text.</p>
@@ -93,7 +93,7 @@ module.exports = {
 	<Divider />
 
 	<!-- Next Steps -->
-	<Card body="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+	<Card slotBody="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<p>Next, let's create and implement a custom theme.</p>
 		<Button variant="filled-accent" href="/guides/themes">Create a Theme</Button>
 	</Card>

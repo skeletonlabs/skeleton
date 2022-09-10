@@ -8,16 +8,16 @@
 	export let ringColor: string = 'ring-black/5 dark:ring-white/5';
 	export let ringInset: string = 'ring-inset';
 	export let rounded: string = 'rounded-lg';
-	// Props (per slot)
-	export let header: string | undefined = undefined;
-	export let body: string | undefined = undefined;
-	export let footer: string | undefined = undefined;
+	// Props (slots)
+	export let slotHeader: string | undefined = undefined;
+	export let slotBody: string | undefined = undefined;
+	export let slotFooter: string | undefined = undefined;
 
 	// Reactive
 	$: classesCard = `${background} ${color} ${padding} ${space} ${ringSize} ${ringColor} ${ringInset} ${rounded}`;
-	$: classesHeader = `${header}`;
-	$: classesBody = `${body}`;
-	$: classesFooter = `${footer}`;
+	$: classesHeader = `${slotHeader}`;
+	$: classesBody = `${slotBody}`;
+	$: classesFooter = `${slotFooter}`;
 </script>
 
 <div class="card {classesCard} {$$props.class || ''}" data-testid="card">

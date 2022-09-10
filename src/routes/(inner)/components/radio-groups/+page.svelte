@@ -41,7 +41,7 @@
 
 	<!-- Examples -->
 	<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
-		<Card body="flex-auto space-y-4 text-center">
+		<Card slotBody="flex-auto space-y-4 text-center">
 			<RadioGroup selected={storeJustify}>
 				<RadioItem value={0} label="Align Left">
 					<SvgIcon name="align-left" class="-translate-y-[2px]" />
@@ -55,7 +55,7 @@
 			</RadioGroup>
 			<pre>selected = {$storeJustify}</pre>
 		</Card>
-		<Card body="flex-auto space-y-4 text-center">
+		<Card slotBody="flex-auto space-y-4 text-center">
 			<RadioGroup background="bg-accent-500" color="text-white" selected={storeLayout}>
 				<RadioItem value="horz">Horizontal</RadioItem>
 				<RadioItem value="vert">Vertical</RadioItem>

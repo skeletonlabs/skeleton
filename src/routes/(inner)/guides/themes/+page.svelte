@@ -118,7 +118,7 @@
 		<h2>Theme Generator</h2>
 		<p>Use the form below to craft a custom theme. Each color represents swatch 500 (ex: <code>bg-primary-500</code>).</p>
 		<!-- Card -->
-		<Card background="bg-[#E9E9E9] dark:bg-[#141414]" header="flex justify-center" body="space-y-4">
+		<Card background="bg-[#E9E9E9] dark:bg-[#141414]" slotHeader="flex justify-center" slotBody="space-y-4">
 			<svelte:fragment slot="header">
 				<RadioGroup selected={storeGenerator}>
 					<RadioItem value="tailwind">Tailwind Mode</RadioItem>
@@ -138,7 +138,6 @@
 			<!-- Generator Components -->
 			{#if $storeGenerator === 'tailwind'}<DocsThemerTailwind />{/if}
 			{#if $storeGenerator === 'hex'}<DocsThemerHex />{/if}
-			<Divider class="opacity-30" />
 		</Card>
 		<p class="block">
 			TIP: Use <a href="https://tailwind.simeongriggs.dev/blue/3B82F6" target="_blank">Palette Generator</a> to for complete custom palatte curation. The
@@ -195,7 +194,7 @@
 	<Divider />
 
 	<!-- Next Steps -->
-	<Card body="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+	<Card slotBody="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<p>Next, let's review best practices for handling CSS styles and overrides.</p>
 		<Button variant="filled-accent" href="/guides/styling">Styles and Stylesheets</Button>
 	</Card>

@@ -59,7 +59,7 @@
 	<section class="space-y-4">
 		<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-4">
 			<section class="space-y-4">
-				<Card body="space-y-4">
+				<Card slotBody="space-y-4">
 					<h6>Unordered</h6>
 					<List tag="ul">
 						{#each ['A', 'B', 'C'] as v, i}
@@ -78,7 +78,7 @@
 				</Card>
 			</section>
 			<section class="space-y-4">
-				<Card body="space-y-4">
+				<Card slotBody="space-y-4">
 					<h6>Ordered</h6>
 					<List tag="ol">
 						{#each ['A', 'B', 'C'] as v, i}
@@ -91,7 +91,7 @@
 				</Card>
 			</section>
 			<section class="space-y-4">
-				<Card body="space-y-4">
+				<Card slotBody="space-y-4">
 					<h6>Description</h6>
 					<List tag="dl">
 						{#each ['A', 'B'] as v, i}
@@ -104,7 +104,7 @@
 				</Card>
 			</section>
 			<section class="space-y-4">
-				<Card body="space-y-4">
+				<Card slotBody="space-y-4">
 					<h6>Anchors</h6>
 					<List tag="nav" label="Anchor List Example">
 						<ListItem href="/">Page A</ListItem>
@@ -121,7 +121,7 @@
 		<h3>Selection Listbox</h3>
 		<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
 			<section class="space-y-4">
-				<Card body="space-y-4">
+				<Card slotBody="space-y-4">
 					<h6>Single</h6>
 					<List tag="nav" selected={navSingle} label="Single Selection">
 						<ListItem value={'A'}>Item A</ListItem>
@@ -132,7 +132,7 @@
 				</Card>
 			</section>
 			<section class="space-y-4">
-				<Card body="space-y-4">
+				<Card slotBody="space-y-4">
 					<h6>Multiple</h6>
 					<List tag="nav" selected={navMultiple} label="Multi-Selection" hover="hover:bg-accent-500/10" highlight="!bg-accent-500">
 						<ListItem value={'A'}>Item A</ListItem>

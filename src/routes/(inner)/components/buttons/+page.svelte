@@ -72,7 +72,7 @@
 	<section class="space-y-4">
 		<div class="space-y-4 xl:space-y-0 xl:grid grid-cols-[2fr,1fr] gap-2">
 			<!-- Example -->
-			<Card body="h-full flex justify-center items-center">
+			<Card slotBody="h-full flex justify-center items-center">
 				<svelte:component
 					this={Button}
 					size={props.size}
@@ -95,7 +95,7 @@
 				</svelte:component>
 			</Card>
 			<!-- Options -->
-			<Card body="grid grid-cols-1 2xl:grid-cols-2 gap-4">
+			<Card slotBody="grid grid-cols-1 2xl:grid-cols-2 gap-4">
 				<!-- Size -->
 				<label>
 					<span>Size</span>
@@ -212,7 +212,7 @@
 	<section class="space-y-4">
 		<h3>Variants</h3>
 		<p>Skeleton provides variants to quickly and easily create buttons with predefined styles. You may still set rounded and width properties with variants.</p>
-		<Card body="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+		<Card slotBody="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 			{#each variantExamples as ve}
 				<section>
 					<h3 class="text-center mb-4">{ve.label}</h3>

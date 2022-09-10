@@ -36,7 +36,7 @@
 
 	<!-- Examples -->
 	<section class="space-y-4">
-		<Card body="space-y-4">
+		<Card slotBody="space-y-4">
 			<RangeSlider bind:value={valueA} label="Big Slider Example 1" />
 			<RangeSlider bind:value={valueA} accent="accent-accent-500" label="Big Slider Example 2" />
 			<RangeSlider bind:value={valueA} accent="accent-warning-500" label="Big Slider Example 3" />

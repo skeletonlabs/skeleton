@@ -54,7 +54,7 @@
 	</header>
 
 	<!-- Examples -->
-	<Card body="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-full md:max-w-[320px] lg:max-w-[640px] mx-auto">
+	<Card slotBody="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-full md:max-w-[320px] lg:max-w-[640px] mx-auto">
 		<Button variant="ghost-primary" on:click={toastBasic}>Short</Button>
 		<Button variant="ghost-primary" on:click={toastLong}>Long</Button>
 		<Button variant="ghost-primary" on:click={toastMultiple}>Multiple</Button>

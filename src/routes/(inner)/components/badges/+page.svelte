@@ -43,10 +43,10 @@
 	<!-- Examples -->
 	<section class="space-y-4">
 		<section class="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-4">
-			<Card class="flex-auto" body="flex justify-center space-x-2">
+			<Card class="flex-auto" slotBody="flex justify-center space-x-2">
 				<Badge>Skeleton</Badge>
 			</Card>
-			<Card class="flex-auto" body="flex justify-center space-x-4">
+			<Card class="flex-auto" slotBody="flex justify-center space-x-4">
 				<Badge background="bg-primary-500" color="text-white">
 					Complete
 					<svelte:fragment slot="lead">
@@ -65,15 +65,15 @@
 		</section>
 		<h3>Positioning</h3>
 		<section class="grid grid-cols-1 xl:grid-cols-3 gap-4">
-			<Card body="flex justify-center items-center h-full space-x-2">
+			<Card slotBody="flex justify-center items-center h-full space-x-2">
 				<h4>Skeleton</h4>
 				<sup class="-translate-y-1"><Badge background="bg-primary-500" color="text-white" class="-ml-0">Sup</Badge></sup>
 			</Card>
-			<Card body="flex justify-center items-center h-full space-x-2">
+			<Card slotBody="flex justify-center items-center h-full space-x-2">
 				<h4>Skeleton</h4>
 				<sub class="translate-y-1"><Badge background="bg-accent-500" color="text-white" class="-ml-0">Sub</Badge></sub>
 			</Card>
-			<Card body="flex justify-center items-center space-x-6">
+			<Card slotBody="flex justify-center items-center space-x-6">
 				<div class="relative inline-block">
 					<Badge background="bg-primary-500" color="text-white" class="absolute -top-3 -right-4 z-10 shadow-xl">50k</Badge>
 					<Button size="sm" variant="ghost">Button</Button>

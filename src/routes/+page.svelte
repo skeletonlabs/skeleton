@@ -55,7 +55,7 @@
 
 		<!-- Features -->
 		<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-			<Card body="space-y-4">
+			<Card slotBody="space-y-4">
 				<div class="bg-orange-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
 					<SvgIcon name="svelte" fill="fill-white" width="w-10" height="h-10" />
 				</div>
@@ -65,21 +65,21 @@
 					<a href="https://astro.build/" target="_blank">Astro</a>.
 				</p>
 			</Card>
-			<Card body="space-y-4">
+			<Card slotBody="space-y-4">
 				<div class="bg-sky-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
 					<SvgIcon name="tailwind" fill="fill-white" width="w-10" height="h-10" />
 				</div>
 				<h6>Tailwind CSS Integration</h6>
 				<p>Integrate with your design system using Tailwind utility classes to style components.</p>
 			</Card>
-			<Card body="space-y-4">
+			<Card slotBody="space-y-4">
 				<div class="bg-primary-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
 					<SvgIcon name="swatchbook" fill="fill-white" width="w-8" height="h-8" />
 				</div>
 				<h6>Dynamic Themes</h6>
 				<p>Choose from a library of hand crafted preset themes or quickly generate your own in seconds.</p>
 			</Card>
-			<Card body="space-y-4">
+			<Card slotBody="space-y-4">
 				<div class="bg-accent-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
 					<SvgIcon name="screwdriver" fill="fill-white" width="w-8" height="h-8" />
 				</div>
@@ -92,7 +92,7 @@
 		<section class="text-center space-y-6">
 			<h2>Meet The Team</h2>
 			<section class="grid grid-cols-1 md:grid-cols-3 gap-4">
-				<Card body="space-y-2 text-center">
+				<Card slotBody="space-y-2 text-center">
 					<Avatar src="https://avatars.githubusercontent.com/u/1509726?v=4" width="w-24" shadow="shadow-xl" class="mx-auto" />
 					<h5>Chris Simmons</h5>
 					<p>Co-founder and core contributor.</p>
@@ -102,7 +102,7 @@
 						<a href="https://www.linkedin.com/in/chris-simmons-8a523a23/" target="_blank"><SvgIcon name="linkedin" /></a>
 					</div>
 				</Card>
-				<Card body="space-y-2 text-center">
+				<Card slotBody="space-y-2 text-center">
 					<Avatar src="https://avatars.githubusercontent.com/u/52718757?v=4" width="w-24" shadow="shadow-xl" class="mx-auto" />
 					<h5>Thomas Jespersen</h5>
 					<p>Co-founder and core contributor.</p>
@@ -111,7 +111,7 @@
 						<a href="https://www.linkedin.com/in/thomas-jespersen-b77132202/" target="_blank"><SvgIcon name="linkedin" /></a>
 					</div>
 				</Card>
-				<Card body="space-y-2 text-center">
+				<Card slotBody="space-y-2 text-center">
 					<Avatar src="https://avatars.githubusercontent.com/u/10255430?v=4" width="w-24" shadow="shadow-xl" class="mx-auto" />
 					<h5>Trey Weir</h5>
 					<p>Core member and founder of <a href="https://www.brainandbonesllc.com/" target="_blank">Brain & Bones</a></p>
@@ -130,7 +130,7 @@
 				<h2>Sponsors</h2>
 				<div class="flex flex-wrap justify-center space-x-4">
 					<a href="https://www.brainandbonesllc.com/" target="_blank" class="opacity-90 hover:opacity-100 !no-underline">
-						<Card border="border border-surface-500/30" body="flex flex-col items-center space-y-4">
+						<Card border="border border-surface-500/30" slotBody="flex flex-col items-center space-y-4">
 							<img src="https://www.brainandbonesllc.com/svg/logo.svg" alt="Brain & Bones" class="h-[32px] invert dark:invert-0" />
 							<p class="text-sm">Brain & Bones</p>
 						</Card>

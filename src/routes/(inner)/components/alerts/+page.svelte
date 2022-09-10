@@ -50,7 +50,7 @@
 	</header>
 
 	<!-- Examples -->
-	<Card body="space-y-4">
+	<Card slotBody="space-y-4">
 		{#if !visible}<Button variant="ghost" on:click={toggleVisible}>Show Alerts</Button>{/if}
 		<Alert {visible}>
 			<svelte:fragment slot="lead">
