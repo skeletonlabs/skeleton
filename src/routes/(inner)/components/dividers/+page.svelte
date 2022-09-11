@@ -66,7 +66,7 @@
 				<label for="">
 					<span>Vertical</span>
 					<!-- prettier-ignore -->
-					<RadioGroup selected={storeVertical} background="bg-accent-500" color="text-white" width="w-full">
+					<RadioGroup selected={storeVertical} display="flex">
 						<RadioItem value={false} on:click={() => { setOrientationStyles(); }}>false</RadioItem>
 						<RadioItem value={true} on:click={() => { setOrientationStyles(); }}>true</RadioItem >
 					</RadioGroup>
@@ -77,7 +77,7 @@
 						<span>Border Width</span>
 						<span>{$storeBorderWidth}</span>
 					</div>
-					<RadioGroup selected={storeBorderWidth} background="bg-accent-500" color="text-white" width="w-full">
+					<RadioGroup selected={storeBorderWidth} display="flex">
 						{#if $storeVertical === false}
 							<RadioItem value="border-t">1</RadioItem>
 							<RadioItem value="border-t-2">2</RadioItem>
@@ -97,7 +97,7 @@
 						<span>Border Store</span>
 						<span>{$storeBorderStyle}</span>
 					</div>
-					<RadioGroup selected={storeBorderStyle} background="bg-accent-500" color="text-white" width="w-full">
+					<RadioGroup selected={storeBorderStyle} display="flex">
 						<RadioItem value="border-solid">Solid</RadioItem>
 						<RadioItem value="border-dashed">Dashed</RadioItem>
 						<RadioItem value="border-dotted">Dotted</RadioItem>

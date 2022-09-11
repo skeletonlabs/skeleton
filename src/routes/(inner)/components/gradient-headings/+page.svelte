@@ -54,7 +54,7 @@
 				<!-- Tag -->
 				<label for="">
 					<span>Tag</span>
-					<RadioGroup selected={storeTag} background="bg-accent-500" color="text-white" width="w-full">
+					<RadioGroup selected={storeTag} display="flex">
 						<RadioItem value="h1">h1</RadioItem>
 						<RadioItem value="h3">h3</RadioItem>
 						<RadioItem value="h6">h6</RadioItem>

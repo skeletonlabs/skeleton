@@ -70,28 +70,23 @@
 				<!-- Mode -->
 				<label for="">
 					<span>Mode</span>
-					<RadioGroup selected={storeDeterminate} background="bg-accent-500" color="text-white" width="w-full">
+					<RadioGroup selected={storeDeterminate} display="flex">
 						<RadioItem value={true}>Determinate</RadioItem>
 						<RadioItem value={false}>Indeterminate</RadioItem>
 					</RadioGroup>
 				</label>
 				<!-- Amount -->
 				{#if props.determinate}
-					<label for="">
-						<div class="flex justify-between">
-							<span>Fill Amount</span>
-							<span>{props.value}%</span>
-						</div>
-						<input type="range" id="amount" name="amount" min="0" max={props.max} step="10" bind:value={props.value} aria-label="Value Amount" />
-					</label>
+					<input type="range" id="amount" name="amount" min="0" max={props.max} step="10" bind:value={props.value} aria-label="Value Amount" />
 				{/if}
 				<!-- Height -->
 				<label for="">
 					<span>Height</span>
-					<RadioGroup selected={storeHeight} background="bg-accent-500" color="text-white" width="w-full">
+					<RadioGroup selected={storeHeight} display="flex">
+						<RadioItem value="h-1">h-1</RadioItem>
 						<RadioItem value="h-2">h-2</RadioItem>
 						<RadioItem value="h-4">h-4</RadioItem>
-						<RadioItem value="h-6">h-6</RadioItem>
+						<RadioItem value="h-8">h-8</RadioItem>
 					</RadioGroup>
 				</label>
 				<!-- Rounded -->

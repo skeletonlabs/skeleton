@@ -118,7 +118,7 @@
 		<h2>Theme Generator</h2>
 		<p>Use the form below to craft a custom theme. Each color represents swatch 500 (ex: <code>bg-primary-500</code>).</p>
 		<!-- Card -->
-		<Card background="bg-[#E9E9E9] dark:bg-[#141414]" slotHeader="flex justify-center" slotBody="space-y-4">
+		<Card slotHeader="flex justify-center" slotBody="space-y-4">
 			<svelte:fragment slot="header">
 				<RadioGroup selected={storeGenerator}>
 					<RadioItem value="tailwind">Tailwind Mode</RadioItem>

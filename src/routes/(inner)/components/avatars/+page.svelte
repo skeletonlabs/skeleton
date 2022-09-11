@@ -112,14 +112,14 @@
 			<!-- Options -->
 			<Card slotBody="space-y-4">
 				<!-- Source -->
-				<RadioGroup selected={storeSrc} background="bg-accent-500" width="w-full">
+				<RadioGroup selected={storeSrc} display="flex">
 					<RadioItem value={imgPlaceholder}>Image</RadioItem>
 					<RadioItem value={undefined}>Initials</RadioItem>
 				</RadioGroup>
 				<!-- Width -->
 				<label for="">
 					<span>Width</span>
-					<RadioGroup selected={storeWidth} background="bg-accent-500" width="w-full">
+					<RadioGroup selected={storeWidth} display="flex">
 						<RadioItem value="w-10">w-10</RadioItem>
 						<RadioItem value="w-24">w-24</RadioItem>
 						<RadioItem value="w-48">w-48</RadioItem>
@@ -129,7 +129,7 @@
 				<!-- Border -->
 				<label for="">
 					<span>Border</span>
-					<RadioGroup selected={storeBorder} background="bg-accent-500" width="w-full">
+					<RadioGroup selected={storeBorder} display="flex">
 						<RadioItem value={borderStyles}>On</RadioItem>
 						<RadioItem value="">Off</RadioItem>
 					</RadioGroup>
@@ -144,7 +144,7 @@
 					<!-- Text -->
 					<label for="">
 						<span>Text Size</span>
-						<RadioGroup selected={storeText} background="bg-accent-500" width="w-full">
+						<RadioGroup selected={storeText} display="flex">
 							<RadioItem value="text-sm">text-sm</RadioItem>
 							<RadioItem value="text-base">text-base</RadioItem>
 							<RadioItem value="text-2xl">text-2xl</RadioItem>

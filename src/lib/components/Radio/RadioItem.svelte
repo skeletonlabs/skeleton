@@ -19,7 +19,7 @@
 	export let rounded: string = getContext('rounded');
 
 	// Base Classes
-	const cBase: string = 'text-base font-bold px-4 py-2 cursor-pointer whitespace-nowrap';
+	const cBase: string = ' font-bold text-base text-center px-4 py-2 cursor-pointer whitespace-nowrap';
 
 	// A11y Input Handlers
 	function onKeyDown(event: any): void {

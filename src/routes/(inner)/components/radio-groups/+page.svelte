@@ -45,46 +45,47 @@
 
 	<!-- Examples -->
 	<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
-		<Card slotBody="flex-auto space-y-4 text-center">
-			<RadioGroup selected={storeJustify}>
-				<RadioItem value={0} label="Align Left">
-					<SvgIcon name="align-left" class="-translate-y-[2px]" />
-				</RadioItem>
-				<RadioItem value={1} label="Align Middle">
-					<SvgIcon name="align-justify" class="-translate-y-[2px]" />
-				</RadioItem>
-				<RadioItem value={2} label="Align Right">
-					<SvgIcon name="align-right" class="-translate-y-[2px]" />
-				</RadioItem>
-			</RadioGroup>
-			<pre>selected = {$storeJustify}</pre>
+		<Card slotBody="grid grid-cols-1 gap-4 text-center">
+			<div>
+				<RadioGroup selected={storeJustify}>
+					<RadioItem value={0} label="Align Left">
+						<SvgIcon name="align-left" class="-translate-y-[2px]" />
+					</RadioItem>
+					<RadioItem value={1} label="Align Middle">
+						<SvgIcon name="align-justify" class="-translate-y-[2px]" />
+					</RadioItem>
+					<RadioItem value={2} label="Align Right">
+						<SvgIcon name="align-right" class="-translate-y-[2px]" />
+					</RadioItem>
+				</RadioGroup>
+			</div>
+			<p>Selected <code>{$storeJustify}</code></p>
 		</Card>
-		<Card slotBody="flex-auto space-y-4 text-center">
-			<RadioGroup accent="bg-accent-500" hover="hover:bg-accent-500/10" selected={storeLayout}>
-				<RadioItem value="horz">Horizontal</RadioItem>
-				<RadioItem value="vert">Vertical</RadioItem>
-			</RadioGroup>
-			<pre>selected = {$storeLayout}</pre>
+		<Card slotBody="grid grid-cols-1 gap-4 text-center">
+			<div>
+				<RadioGroup selected={storeLayout} accent="bg-primary-500" hover="hover:bg-primary-500/10">
+					<RadioItem value="horz">Horizontal</RadioItem>
+					<RadioItem value="vert">Vertical</RadioItem>
+				</RadioGroup>
+			</div>
+			<p>Selected <code>{$storeLayout}</code></p>
 		</Card>
 	</section>
 
 	<!-- Usage -->
 	<section class="space-y-4">
-		<CodeBlock
-			language="typescript"
-			code={`import type { Writable } from "svelte/store";
-const storeLayout: Writable<string> = writable('horz');`}
-		/>
+		<CodeBlock language="typescript" code={`import type { Writable } from "svelte/store";\n\nconst storeLayout: Writable<string> = writable('horz');`} />
 		<CodeBlock
 			language="html"
 			code={`
-<RadioGroup selected={storeLayout} accent="bg-accent-500">
+<RadioGroup selected={storeLayout}>
     <RadioItem value="horz">Horizontal</RadioItem>
     <RadioItem value="vert">Vertical</RadioItem>
 </RadioGroup>
         `.trim()}
 		/>
-		<CodeBlock language="html" code={`<pre>{$storeLayout}</pre>`} />
+		<p>Set dispay width to full (100%) use <code>display="flex"</code></p>
+		<CodeBlock language="html" code={`<RadioGroup display="flex"></RadioGroup>`} />
 	</section>
 
 	<!-- Properties -->
