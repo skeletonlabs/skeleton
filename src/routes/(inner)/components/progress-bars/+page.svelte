@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
+
 	import { DataTable, Card, RadioGroup, RadioItem, ProgressBar } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
@@ -7,7 +8,7 @@
 	const storeHeight: Writable<string> = writable('h-2');
 	const defaultTrackBg: string = 'bg-surface-300 dark:bg-surface-700';
 
-	// Usage
+	// Reactive Props
 	$: props = {
 		determinate: $storeDeterminate,
 		label: 'Progress Bar',

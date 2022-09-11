@@ -1,27 +1,31 @@
 <script lang="ts">
+	import { afterUpdate } from 'svelte';
+
 	// Props
-	export let id: string = (Math.random() * 10e15).toString(16); // unique id
-	export let name: string = id;
-	// Props: Values
 	export let min: number = 0;
 	export let max: number = 10;
 	export let step: number = 1;
 	export let value: number = 0;
-	// Props: Options
-	export let label: string = '';
 	export let ticked: boolean = false;
-	export let accent: string = 'accent-primary-500';
+	export let accent: string = 'accent-accent-500';
+	// Props (a11y)
+	export let id: string = (Math.random() * 10e15).toString(16); // unique id
+	export let name: string = id;
+	export let label: string = '';
 
 	// Base Styles
-	const cBaseLabel: string = 'm-0';
-	const cBaseContent: string = 'flex justify-center space-x-4';
+	const cBase: string = 'space-y-2';
+	const cBaseLabel: string = '';
+	const cBaseContent: string = 'flex justify-center py-2';
 	const cBaseInput: string = 'w-full h-2';
-	const cBaseValue: string = 'flex-none min-w-[50px] text-center';
+
+	// Local
+	let tickmarks: any[];
 
 	// Tickmarks - generate datalist options based on min/max values
-	let tickmarks: any[];
-	if (ticked) {
-		tickmarks = Array.from({ length: max - min + 1 }, (v, i) => i);
+	function setTicks(): void {
+		if (ticked == false) return;
+		tickmarks = Array.from({ length: max - min + 1 }, (_, i) => i + 1);
 	}
 
 	// A11y Input Handler
@@ -59,7 +63,13 @@
 		value = max;
 	}
 
+	// Lifecycle
+	afterUpdate(() => {
+		setTicks();
+	});
+
 	// Reactive Classes
+	$: classesBase = `${cBase} ${$$props.class || ''}`;
 	$: classesInput = `${cBaseInput} ${accent}`;
 
 	// Prune $$restProps to avoid overwriting $$props.class
@@ -69,27 +79,53 @@
 	}
 </script>
 
-<div class="range-slider {$$props.class || ''}" data-testid="range-slider" on:keydown={onKeyDown} role="slider" aria-label={label} aria-valuenow={value} aria-valuemin={min} aria-valuemax={max}>
-	<!-- Label -->
-	<label class="range-label {cBaseLabel}" for={id}>{label}</label>
+<!-- prettier-ignore -->
+<div
+	class="range-slider {classesBase}"
+	data-testid="range-slider"
+	on:keydown={onKeyDown}
+	role="slider"
+	aria-label={label}
+	aria-valuenow={value}
+	aria-valuemin={min}
+	aria-valuemax={max}
+>
+
+	<!-- Slot: Default (label) -->
+	{#if $$slots.default}<label class="range-label {cBaseLabel}" for={id}><slot /></label>{/if}
 
 	<!-- Content -->
 	<div class="range-content {cBaseContent}">
+			
 		<!-- Input -->
-		<div class="flex-1">
-			<input type="range" {id} {name} class="range-input {classesInput}" list="tickmarks-{id}" {min} {max} {step} bind:value on:click on:change on:blur {...prunedRestProps()} />
+		<input
+			type="range"
+			{id}
+			{name}
+			class="range-input {classesInput}"
+			list="tickmarks-{id}"
+			{min}
+			{max}
+			{step}
+			bind:value
+			on:click
+			on:change
+			on:blur
+			{...prunedRestProps()}
+		/>
 
-			<!-- Tickmarks -->
-			{#if ticked && tickmarks.length}
-				<datalist id="tickmarks-{id}">
-					{#each tickmarks as tm}
-						<option value={tm} label={tm} />
-					{/each}
-				</datalist>
-			{/if}
-		</div>
+		<!-- Tickmarks -->
+		{#if ticked && tickmarks && tickmarks.length}
+		<datalist id="tickmarks-{id}">
+			{#each tickmarks as tm}
+			<option value={tm} label={tm} />
+			{/each}
+		</datalist>
+		{/if}
 
-		<!-- Value -->
-		<span class="range-value {cBaseValue}">{value}</span>
 	</div>
+
+	<!-- Slot: Trail -->
+	{#if $$slots.trail}<div><slot name="trail" /></div>{/if}
+	
 </div>
