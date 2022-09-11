@@ -76,24 +76,26 @@
 						<option value="bg-gradient-to-r">bg-gradient-to-r</option>
 					</select>
 				</label>
-				<!-- From -->
-				<label>
-					<span>From</span>
-					<select name="from" id="from" bind:value={props.from}>
-						<option value="from-primary-500">from-primary-500</option>
-						<option value="from-accent-500">from-accent-500</option>
-						<option value="from-warning-500">from-warning-500</option>
-					</select>
-				</label>
-				<!-- To -->
-				<label>
-					<span>To</span>
-					<select name="to" id="to" bind:value={props.to}>
-						<option value="to-primary-500">to-primary-500</option>
-						<option value="to-accent-500">to-accent-500</option>
-						<option value="to-warning-500">to-warning-500</option>
-					</select>
-				</label>
+				<div class="grid grid-cols-2 gap-4">
+					<!-- From -->
+					<label>
+						<span>From</span>
+						<select name="from" id="from" bind:value={props.from}>
+							<option value="from-primary-500">from-primary-500</option>
+							<option value="from-accent-500">from-accent-500</option>
+							<option value="from-warning-500">from-warning-500</option>
+						</select>
+					</label>
+					<!-- To -->
+					<label>
+						<span>To</span>
+						<select name="to" id="to" bind:value={props.to}>
+							<option value="to-primary-500">to-primary-500</option>
+							<option value="to-accent-500">to-accent-500</option>
+							<option value="to-warning-500">to-warning-500</option>
+						</select>
+					</label>
+				</div>
 			</Card>
 		</div>
 	</section>

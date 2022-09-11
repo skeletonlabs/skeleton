@@ -118,23 +118,22 @@
 		<h2>Theme Generator</h2>
 		<p>Use the form below to craft a custom theme. Each color represents swatch 500 (ex: <code>bg-primary-500</code>).</p>
 		<!-- Card -->
-		<Card slotHeader="flex justify-center" slotBody="space-y-4">
+		<Card slotHeader="flex flex-col md:items-center space-y-4 py-4" slotBody="space-y-4">
 			<svelte:fragment slot="header">
-				<RadioGroup selected={storeGenerator}>
+				<RadioGroup selected={storeGenerator} display="flex md:inline-flex">
 					<RadioItem value="tailwind">Tailwind Mode</RadioItem>
-					<RadioItem value="hex">Hex Color Mode</RadioItem>
+					<RadioItem value="hex">Hex Mode</RadioItem>
 				</RadioGroup>
+				<!-- Messaging -->
+				{#if $storeGenerator === 'tailwind'}
+					<span class="block text-center">
+						Create a theme using <a href="https://tailwindcss.com/docs/customizing-colors" target="_blank">Tailwind's color palette</a>. This typically provides the best results.
+					</span>
+				{/if}
+				{#if $storeGenerator === 'hex'}
+					<span class="block text-center"> For advanced users. Enterhex color values to generate a completely unique theme. </span>
+				{/if}
 			</svelte:fragment>
-			<!-- Messaging -->
-			{#if $storeGenerator === 'tailwind'}
-				<span class="block text-center">
-					Create a theme using <a href="https://tailwindcss.com/docs/customizing-colors" target="_blank">Tailwind's color palette</a>. This typically provides the best results.
-				</span>
-			{/if}
-			{#if $storeGenerator === 'hex'}
-				<span class="block text-center"> For advanced users. Enterhex color values to generate a completely unique theme. </span>
-			{/if}
-			<Divider class="opacity-30" />
 			<!-- Generator Components -->
 			{#if $storeGenerator === 'tailwind'}<DocsThemerTailwind />{/if}
 			{#if $storeGenerator === 'hex'}<DocsThemerHex />{/if}

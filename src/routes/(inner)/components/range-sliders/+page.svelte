@@ -57,7 +57,7 @@
 
 	<!-- Sandbox -->
 	<section class="space-y-4">
-		<div class="space-y-4 xl:space-y-0 xl:grid grid-cols-[2fr,1fr] gap-2">
+		<div class="space-y-4 xl:space-y-0 xl:grid grid-cols-[1.5fr,1fr] gap-2">
 			<!-- Example -->
 			<Card slotBody="flex justify-center items-center h-full">
 				<!-- prettier-ignore -->
@@ -105,39 +105,28 @@
 						<RadioItem value={10}>10</RadioItem>
 					</RadioGroup>
 				</label>
-				<!-- Tick Marks -->
-				<label for="">
-					<span>Tick Marks</span>
-					<RadioGroup selected={storeTicked} display="flex">
-						<RadioItem value={false}>Off</RadioItem>
-						<RadioItem value={true}>On</RadioItem>
-					</RadioGroup>
-				</label>
-				<!-- Accent -->
-				<label>
-					<span>Accent</span>
-					<select name="accent" id="accent" bind:value={props.accent}>
-						<option value="accent-primary-500">accent-primary-500</option>
-						<option value="accent-accent-500">accent-accent-500</option>
-						<option value="accent-warning-500">accent-warning-500</option>
-					</select>
-				</label>
+				<div class="grid grid-cols-2 gap-4">
+					<!-- Ticks -->
+					<label for="">
+						<span>Ticks</span>
+						<RadioGroup selected={storeTicked} display="flex">
+							<RadioItem value={false}>Off</RadioItem>
+							<RadioItem value={true}>On</RadioItem>
+						</RadioGroup>
+					</label>
+					<!-- Accent -->
+					<label>
+						<span>Accent</span>
+						<select name="accent" id="accent" bind:value={props.accent}>
+							<option value="accent-primary-500">accent-primary-500</option>
+							<option value="accent-accent-500">accent-accent-500</option>
+							<option value="accent-warning-500">accent-warning-500</option>
+						</select>
+					</label>
+				</div>
 			</Card>
 		</div>
 	</section>
-
-	<!-- Examples -->
-	<!-- <section class="space-y-4">
-		<Card slotBody="space-y-4">
-			<RangeSlider bind:value={valueA} />
-		</Card>
-		<div class="grid grid-cols-1 xl:grid-cols-2 gap-4 font-bold">
-			<Card><RangeSlider accent="accent-accent-500" bind:value={valueA}>Labeled</RangeSlider></Card>
-			<Card><RangeSlider accent="accent-accent-500" bind:value={valueA} ticked>Ticked</RangeSlider></Card>
-			<Card><RangeSlider disabled>Disabled</RangeSlider></Card>
-			<Card><RangeSlider accent="accent-warning-500" bind:value={valueB} max={100} step={5} ticked>Stepped</RangeSlider></Card>
-		</div>
-	</section> -->
 
 	<!-- Usage -->
 	<section class="space-y-4">
