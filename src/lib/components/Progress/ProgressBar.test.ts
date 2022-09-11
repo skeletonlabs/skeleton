@@ -16,7 +16,8 @@ describe('ProgressBar.svelte', () => {
 				value: 50,
 				max: 100,
 				height: 'h-1',
-				color: 'bg-warning-500'
+				meter: 'bg-warning-500',
+				track: 'bg-warning-500/30'
 			}
 		});
 		expect(getByTestId('progress-wrapper')).toBeTruthy();
