@@ -28,7 +28,7 @@
 		source: [
 			['value', 'number', '0', 'Set the input value.'],
 			['min', 'number', '0', 'Set the input minimum range.'],
-			['max', 'number', '10', 'Set the input maximum range.'],
+			['max', 'number', '100', 'Set the input maximum range.'],
 			['step', 'number', '1', 'Set the input step offset.'],
 			['ticked', 'boolean', 'false', 'Enables tick marks. See browser support below.'],
 			['accent', 'string', 'accent-accent-500', 'Provide classes to set the input accent color.']
