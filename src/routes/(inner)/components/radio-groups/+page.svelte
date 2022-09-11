@@ -12,9 +12,13 @@
 		headings: ['Prop', 'Type', 'Values', 'Required', 'Description'],
 		source: [
 			['selected', 'Writable', 'any', '&check;', 'Provide a Svelte writable to store the selected state value.'],
-			['background', 'string', 'bg-primary-500', '-', `Provide classes to set the selected item background color.`],
-			['color', 'string', 'text-black dark:text-white', '-', `Provide classes to set the selected item text color.`],
-			['width', 'string', 'w-auto', '-', `Provide classes to set the width.`]
+			['display', 'string', 'inline-flex', '-', 'Provided classes to set the wrapping display style (ex: flex)'],
+			['background', 'string', 'bg-surface-300 dark:bg-surface-700', '-', 'Provided classes for the base background color.'],
+			['hover', 'string', 'hover:bg-primary-500/10', '-', 'Provided classes for the hover style.'],
+			['accent', 'string', 'bg-primary-500 !text-white', '-', 'Provided classes for the highlighted accent color.'],
+			['color', 'string', 'text-white', '-', 'Provided classes for the highlighted text color.'],
+			['fill', 'string', '-', '-', 'Provided classes for the highlighted SVG fill color.'],
+			['rounded', 'string', 'rounded', '-', 'Provided classes for the border radius.']
 		]
 	};
 	const tablePropsItem: any = {
@@ -56,7 +60,7 @@
 			<pre>selected = {$storeJustify}</pre>
 		</Card>
 		<Card slotBody="flex-auto space-y-4 text-center">
-			<RadioGroup background="bg-accent-500" color="text-white" selected={storeLayout}>
+			<RadioGroup accent="bg-accent-500" hover="hover:bg-accent-500/10" selected={storeLayout}>
 				<RadioItem value="horz">Horizontal</RadioItem>
 				<RadioItem value="vert">Vertical</RadioItem>
 			</RadioGroup>
@@ -74,7 +78,7 @@ const storeLayout: Writable<string> = writable('horz');`}
 		<CodeBlock
 			language="html"
 			code={`
-<RadioGroup selected={storeLayout} background="bg-accent-500" color="text-white" width="w-auto">
+<RadioGroup selected={storeLayout} accent="bg-accent-500">
     <RadioItem value="horz">Horizontal</RadioItem>
     <RadioItem value="vert">Vertical</RadioItem>
 </RadioGroup>
@@ -89,6 +93,7 @@ const storeLayout: Writable<string> = writable('horz');`}
 		<h3>Radio Group</h3>
 		<DataTable headings={tablePropsGroup.headings} source={tablePropsGroup.source} />
 		<h3>Radio Item</h3>
+		<p>Can override props <code>hover</code>, <code>accent</code>, <code>color</code>, <code>fill</code>, <code>rounded</code>.</p>
 		<DataTable headings={tablePropsItem.headings} source={tablePropsItem.source} />
 	</section>
 

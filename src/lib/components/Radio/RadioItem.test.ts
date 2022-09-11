@@ -18,9 +18,13 @@ describe('RadioItem.svelte', () => {
 			props: {
 				value: 'foobar',
 				selected: writable(0),
-				background: 'bg-primary-500',
+				hover: 'hover:bg-primary-500/10',
+				accent: 'bg-primary-500 !text-white',
 				color: 'text-white',
-				label: 'testRadioItem1'
+				fill: 'fill-white',
+				rounded: 'rounded',
+				// A11y
+				label: 'testRadioItem'
 			}
 		});
 		expect(getByTestId('radio-item')).toBeTruthy();
