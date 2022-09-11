@@ -1,4 +1,4 @@
-<!-- https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/text-anchor -->
+<!-- https://css-tricks.com/building-progress-ring-quickly/ -->
 <script lang="ts">
 	import { afterUpdate } from 'svelte';
 
@@ -38,7 +38,7 @@
 	});
 </script>
 
-<!-- https://css-tricks.com/building-progress-ring-quickly/ -->
+<!-- https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/text-anchor -->
 
 <figure
 	class="progress-radial relative overflow-hidden {$$props.class}"
@@ -68,7 +68,7 @@
 		/>
 
 		<!-- Center Text -->
-		{#if value >= 0 && $$slots.default}
+		{#if value && value >= 0 && $$slots.default}
 			<text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-weight="bold" font-size={font} class={color}><slot /></text>
 		{/if}
 	</svg>

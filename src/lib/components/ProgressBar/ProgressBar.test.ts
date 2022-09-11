@@ -1,7 +1,7 @@
 import { render } from '@testing-library/svelte';
 import { describe, it, expect } from 'vitest';
 
-import ProgressBar from '$lib/components/Progress/ProgressBar.svelte';
+import ProgressBar from '$lib/components/ProgressBar/ProgressBar.svelte';
 
 describe('ProgressBar.svelte', () => {
 	it('Renders with minimal props', async () => {
