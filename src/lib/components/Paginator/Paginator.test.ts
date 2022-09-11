@@ -21,8 +21,7 @@ describe('Paginator.svelte', () => {
 				text: 'text-xs',
 				select: 'bg-primary-500',
 				// ---
-				variant: 'ghost-primary',
-				rounded: 'rounded'
+				buttons: { variant: 'filled-primary' }
 			}
 		});
 		expect(getByTestId('paginator')).toBeTruthy();

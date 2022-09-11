@@ -9,18 +9,17 @@
 	export let limit: number = 5;
 	export let size: number = 10;
 	export let amounts: number[] = [1, 5, 10, 50, 100];
-	// Props: Design
+	// Props (design)
 	export let justify: string = 'justify-between';
-	export let text: string = 'text-xs';
+	export let text: string = 'text-xs md:text-base';
 	export let select: string | undefined = undefined;
-	// Props: Button
-	export let variant: string = 'filled-primary';
-	export let rounded: string | undefined = undefined;
+	// Props (buttons)
+	export let buttons: any = { variant: 'ghost', class: 'font-bold' };
 
 	// Base Classes
-	// const cBasePaginator: string = 'flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4';
-	const cBasePaginator: string = 'flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4';
-	const cBaseText: string = 'opacity-60 whitespace-nowrap';
+	const cBase: string = 'flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4';
+	const cLabel: string = 'w-full md:w-auto';
+	const cPageText: string = 'opacity-60 whitespace-nowrap';
 
 	// Functionality
 	function onChangeLength(e: any): void {
@@ -37,26 +36,26 @@
 	}
 
 	// Reactive Classes
-	$: classesPaginator = `${cBasePaginator} ${justify}`;
-	$: classesText = `${cBaseText} ${text}`;
+	$: classesBase = `${cBase} ${justify} ${$$props.class || ''}`;
+	$: classesLabel = `${cLabel}`;
+	$: classesSelect = `${select}`;
+	$: classesPageText = `${cPageText} ${text}`;
 </script>
 
-<div class="paginator {classesPaginator} {$$props.class}" data-testid="paginator">
+<div class="paginator {classesBase}" data-testid="paginator">
 	<!-- Select Amount -->
-	<label class="w-full md:w-auto">
-		<select bind:value={limit} on:change={onChangeLength} class={select} aria-label="Select Amount">
+	<label class="paginator-label {classesLabel}">
+		<select bind:value={limit} on:change={onChangeLength} class="paginator-select {classesSelect}" aria-label="Select Amount">
 			{#each amounts as amount}<option value={amount}>Show {amount}</option>{/each}
 		</select>
 	</label>
-
-	<!-- Context Text -->
-	<div class={classesText}>
+	<!-- Page Text -->
+	<p class="paginator-text {classesPageText}">
 		{offset * limit + 1} to {offset * limit + limit} of <strong>{size}</strong>
-	</div>
-
+	</p>
 	<!-- Arrows -->
-	<div class="space-x-2">
-		<Button {variant} {rounded} on:click={onPrev} disabled={offset === 0}>&larr;</Button>
-		<Button {variant} {rounded} on:click={onNext} disabled={(offset + 1) * limit >= size}>&rarr;</Button>
+	<div class="paginator-nav space-x-2">
+		<Button {...buttons} on:click={onPrev} disabled={offset === 0}>&larr;</Button>
+		<Button {...buttons} on:click={onNext} disabled={(offset + 1) * limit >= size}>&rarr;</Button>
 	</div>
 </div>
