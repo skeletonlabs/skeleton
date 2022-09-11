@@ -14,6 +14,7 @@
 		value: 50,
 		max: 100,
 		height: $storeHeight,
+		rounded: 'rounded-full',
 		meter: 'bg-accent-500',
 		track: defaultTrackBg
 	};
@@ -26,8 +27,9 @@
 			['value', 'number', '-', 'Specifies the amount completed. Shows as indeterminate when <code>undefined</code>.'],
 			['max', 'number', '100', 'Maximum amount the bar represents.'],
 			['height', 'string', 'h-2', 'Provide classes to set track height.'],
+			['rounded', 'string', 'rounded-full', 'Provide classes to set rounded styles.'],
 			['meter', 'string', 'bg-accent-500', 'Provide arbitrary classes to style the meter element.'],
-			['meter', 'string', 'bg-surface-300 dark:bg-surface-700', 'Provide arbitrary classes to style the track element.']
+			['track', 'string', 'bg-surface-300 dark:bg-surface-700', 'Provide arbitrary classes to style the track element.']
 		]
 	};
 </script>
@@ -46,7 +48,16 @@
 			<!-- Example -->
 			<Card slotBody="h-full flex justify-center items-center">
 				<div class="w-[75%]">
-					<svelte:component this={ProgressBar} label={props.label} value={props.determinate ? props.value : undefined} max={props.max} height={props.height} meter={props.meter} track={props.track} />
+					<svelte:component
+						this={ProgressBar}
+						label={props.label}
+						value={props.determinate ? props.value : undefined}
+						max={props.max}
+						height={props.height}
+						rounded={props.rounded}
+						meter={props.meter}
+						track={props.track}
+					/>
 				</div>
 			</Card>
 			<!-- Options -->
@@ -57,13 +68,13 @@
 					<input type="text" bind:value={props.label} placeholder="Label" />
 				</label>
 				<!-- Mode -->
-				<div>
-					<legend>Mode</legend>
+				<label for="">
+					<span>Mode</span>
 					<RadioGroup selected={storeDeterminate} background="bg-accent-500" color="text-white" width="w-full">
 						<RadioItem value={true}>Determinate</RadioItem>
 						<RadioItem value={false}>Indeterminate</RadioItem>
 					</RadioGroup>
-				</div>
+				</label>
 				<!-- Amount -->
 				{#if props.determinate}
 					<label for="">
@@ -75,14 +86,23 @@
 					</label>
 				{/if}
 				<!-- Height -->
-				<div>
-					<legend>Height</legend>
+				<label for="">
+					<span>Height</span>
 					<RadioGroup selected={storeHeight} background="bg-accent-500" color="text-white" width="w-full">
 						<RadioItem value="h-2">h-2</RadioItem>
 						<RadioItem value="h-4">h-4</RadioItem>
 						<RadioItem value="h-6">h-6</RadioItem>
 					</RadioGroup>
-				</div>
+				</label>
+				<!-- Rounded -->
+				<label>
+					<span>Rounded</span>
+					<select name="rounded" id="rounded" bind:value={props.rounded}>
+						<option value="rounded-none">rounded-none</option>
+						<option value="rounded">rounded</option>
+						<option value="rounded-full">rounded-full</option>
+					</select>
+				</label>
 				<!-- Meter -->
 				<label>
 					<span>Meter</span>
