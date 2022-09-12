@@ -45,6 +45,7 @@ export const menuNavLinks: any = [
 			{ href: '/components/paginators', label: 'Paginators' },
 			{ href: '/components/progress-bars', label: 'Progress Bars' },
 			{ href: '/components/progress-radials', label: 'Progress Radials' },
+			{ href: '/components/placeholders', label: 'Placeholders' },
 			{ href: '/components/radio-groups', label: 'Radio Groups' },
 			{ href: '/components/range-sliders', label: 'Range Sliders' },
 			{ href: '/components/slide-toggles', label: 'Slide Toggles' },
