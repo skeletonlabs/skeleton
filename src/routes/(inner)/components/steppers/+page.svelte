@@ -10,7 +10,7 @@
 		alert('Complete was triggered!');
 	};
 
-	// Props and Slots
+	// Tables
 	const tablePropsStepper: any = {
 		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
 		source: [
@@ -28,7 +28,6 @@
 			['done', 'boolean', 'false', '-', 'When enabled, numeric step value changes to checkmark.']
 		]
 	};
-
 	// Slots
 	const tableSlotsStepper: any = {
 		headings: ['Name', 'Description'],
@@ -42,7 +41,6 @@
 			['content', 'Provide the content for the step.']
 		]
 	};
-
 	// Events
 	const tableEvents: any = {
 		headings: ['Prop', 'Description'],
@@ -61,21 +59,12 @@
 	<!-- Examples -->
 	<Card>
 		<Stepper {active} length={3} on:complete={onComplete}>
-			<Step index={0} disabled={false} done={false}>
-				<svelte:fragment slot="title"><h4>Step One</h4></svelte:fragment>
-				<svelte:fragment slot="subtitle">Subtext for step one</svelte:fragment>
-				<svelte:fragment slot="content"><p>{lorem}</p></svelte:fragment>
+			<Step index={0}>
+				<svelte:fragment slot="header"><h4>Get Started!</h4></svelte:fragment>
+				<p>{lorem}</p>
 			</Step>
-			<Step index={1} disabled={false} done={false}>
-				<svelte:fragment slot="title"><h4>Step Two</h4></svelte:fragment>
-				<svelte:fragment slot="subtitle">Subtext for step two</svelte:fragment>
-				<svelte:fragment slot="content"><p>{lorem}</p></svelte:fragment>
-			</Step>
-			<Step index={2} disabled={false} done={false}>
-				<svelte:fragment slot="title"><h4>Step Three</h4></svelte:fragment>
-				<svelte:fragment slot="subtitle">Subtext for step three</svelte:fragment>
-				<svelte:fragment slot="content"><p>{lorem}</p></svelte:fragment>
-			</Step>
+			<Step index={1}><p>{lorem}</p></Step>
+			<Step index={2}><p>{lorem}</p></Step>
 		</Stepper>
 	</Card>
 

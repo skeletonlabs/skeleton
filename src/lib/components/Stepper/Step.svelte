@@ -1,81 +1,91 @@
 <!-- Reference: https://dribbble.com/shots/16221169-Figma-Material-Ui-components-Steppers-and-sliders -->
 <script lang="ts">
 	import { getContext } from 'svelte';
+	import { slide } from 'svelte/transition';
+
+	// Components
 	import Button from '$lib/components/Button/Button.svelte';
 
 	// Props
-	export let index: number;
-	export let disabled: boolean = false;
-	export let done: boolean = false;
+	export let index: number = 0;
+
+	// Base Classes
+	const cStep: string = 'grid grid-cols-[18px_1fr] gap-4';
+	const cLine: string = 'w-1 h-full';
+	const cLineBackground = 'bg-surface-300 dark:bg-surface-700';
+	const cNumeral: string = 'font-bold text-base w-8 h-8 rounded-full flex justify-center items-center';
+	const cNumralBackground: string = 'bg-surface-300 dark:bg-surface-700';
+	const cDrawer: string = 'ml-4 space-y-4';
+	const cNav: string = 'flex items-center space-x-2';
 
 	// Context
 	export let dispatch: any = getContext('dispatch');
 	export let active: any = getContext('active');
-	export let length: number = getContext('length');
-	export let accent: string = getContext('accent');
-	export let background: string = getContext('background');
+	export let length: any = getContext('length');
+	export let color: any = getContext('color');
+	export let background: any = getContext('background');
+	export let buttonBack: any = getContext('buttonBack');
+	export let buttonNext: any = getContext('buttonNext');
+	export let buttonComplete: any = getContext('buttonComplete');
 
-	// Base Classes
-	const cStep: string = 'flex space-x-4';
-	const cTimeline: string = 'text-center';
-	const cTimelineCircle: string = 'font-bold w-8 aspect-square flex justify-center items-center rounded-full';
-	const cTimelineBar: string = 'h-full w-1 mx-auto';
-	const cInfo: string = 'space-y-4';
-	const cNav: string = 'flex space-x-4';
-
-	// Functionality
+	// Step Handlers
 	function stepPrev(): void {
 		active.set($active - 1);
 	}
 	function stepNext(): void {
 		active.set($active + 1);
 	}
-
-	// On complete, dispatch event
 	function onComplete() {
 		dispatch('complete', {});
 	}
 
-	// Set Active Background Color
-	$: activeBg = index === $active ? `!text-white ${accent}` : background;
-
-	// Reactive Classes
-	$: classesCircle = `${cTimelineCircle} ${activeBg}`;
-	$: classesBar = `${cTimelineBar} ${background}`;
+	// Reactive
+	$: isLastItem = index === length - 1;
+	// Step
+	$: classesStep = `${cStep} ${$$props.class || ''}`;
+	// Timeline (line)
+	$: classesLineBackgroundColor = index < $active ? `${background}` : `${cLineBackground}`;
+	$: classesLineBackground = !isLastItem ? `${classesLineBackgroundColor}` : '';
+	$: classesLine = `${cLine} ${classesLineBackground}`;
+	// Timeline (numeral)
+	$: classesNumeralBackground = index <= $active ? `${color} ${background}` : `${cNumralBackground}`;
+	$: classesNumeral = `${cNumeral} ${classesNumeralBackground}`;
+	// Content Drawer
+	$: classesDrawerHeight = !isLastItem ? 'min-h-[56px]' : '';
+	$: classesDrawer = `${cDrawer} ${classesDrawerHeight}`;
+	// Content Nav
+	$: classesNavPadding = !isLastItem ? 'py-4' : 'pt-4';
+	$: classesNav = `${cNav} ${classesNavPadding}`;
 </script>
 
-<section class="step {cStep} {$$props.class}" data-testid="step">
+<div class="step {classesStep}" data-testid="step">
 	<!-- Timeline -->
-	<div class="timeline {cTimeline}">
-		<div class="timeline-circle {classesCircle}">{@html done ? '&check;' : index + 1}</div>
-		{#if index + 1 < length}<div class="timeline-bar {classesBar}" />{/if}
+	<div class="flex flex-col items-center">
+		<!-- Numeral -->
+		<div class="step-numeral flex-none {classesNumeral}">
+			{@html index < $active ? '&check;' : index + 1}
+		</div>
+		<!-- Line -->
+		{#if !isLastItem}<div class="line {classesLine}" />{/if}
 	</div>
-
-	<!-- Information -->
-	<div class="info {cInfo}">
-		<!-- Header -->
-		{#if $$slots.title || $$slots.subtitle}
-			<header class="space-y-1">
-				<!-- Slot: Title -->
-				{#if $$slots.title}<div><slot name="title" /></div>{/if}
-				<!-- Slot: Subtitle -->
-				{#if $$slots.subtitle}<div><slot name="subtitle" /></div>{/if}
-			</header>
-		{/if}
-
-		<!-- Slot: Content -->
-		{#if $$slots.content && index === $active}<div><slot name="content" /></div>{/if}
-
-		<!-- Navigation -->
+	<!-- Content -->
+	<div class={classesDrawer}>
+		<!-- Slot: Header -->
+		<header><slot name="header"><h4>Step {index + 1}</h4></slot></header>
 		{#if index === $active}
-			<nav class="navigation {cNav}">
-				<Button variant="ring" on:click={stepPrev} disabled={index === 0}>Back</Button>
-				{#if $active + 1 < length}
-					<Button variant="filled" on:click={stepNext} {disabled}>Next &darr;</Button>
-				{:else}
-					<Button variant="filled-primary" on:click={onComplete} {disabled}>Complete</Button>
-				{/if}
-			</nav>
+			<div transition:slide|local={{ duration: 100 }}>
+				<!-- Slot: Default -->
+				<slot />
+				<!-- Nav -->
+				<footer class={classesNav}>
+					{#if index !== 0}<Button {...buttonBack} on:click={stepPrev}>&uarr;</Button>{/if}
+					{#if $active + 1 < length}
+						<Button {...buttonNext} on:click={stepNext}>Next &darr;</Button>
+					{:else}
+						<Button {...buttonComplete} on:click={onComplete}>{buttonComplete.text}</Button>
+					{/if}
+				</footer>
+			</div>
 		{/if}
 	</div>
-</section>
+</div>
