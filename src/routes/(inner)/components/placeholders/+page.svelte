@@ -1,24 +1,26 @@
 <script lang="ts">
-	import { DataTable, SlideToggle, Placeholder } from '@brainandbones/skeleton';
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	import Card from '$lib/components/Card/Card.svelte';
+	import DataTable from '$lib/components/Table/DataTable.svelte';
+	import Placeholder from '$lib/components/Placeholder/Placeholder.svelte';
+	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+
+	// Reactive
+	$: props = {
+		animate: true,
+		circle: true
+	};
 
 	// Props & Slots
 	const tableProps: any = {
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
 		source: [
-			['width', 'string', 'w-auto', 'class', 'Placeholder width'],
-			['height', 'string', 'w-4', 'class', 'Placeholder height'],
-			['rounded', 'string', 'rounded-lg', 'class', 'Placeholder radius'],
-			['circle', 'boolean', 'false', 'true | false', "If Placeholder is a circle, it's width and border radius will be equal to height"],
-			['animate', 'boolean', 'true', 'true | false', 'Whether to show the animation effect']
+			['width', 'string', 'w-auto', 'class', 'Provide classes to set the width styles.'],
+			['height', 'string', 'w-4', 'class', 'Provide classes to set the height styles.'],
+			['rounded', 'string', 'rounded-lg', 'class', 'Provide classes to set the border radius style.'],
+			['circle', 'boolean', 'false', 'true | false', 'Creates a circular shaped placeholder.'],
+			['animate', 'boolean', 'true', 'true | false', 'Can be set to false to disable the pulse animation.']
 		]
-	};
-
-	$: props = {
-		animate: true,
-		circle: true
 	};
 </script>
 
@@ -26,30 +28,32 @@
 	<!-- Heading -->
 	<heading class="space-y-4">
 		<h1>Placeholder</h1>
-		<p>Use Placeholder to create a placeholder for loading content.</p>
+		<p>Create "skeleton" placeholders while loading page content.</p>
 		<CodeBlock language="javascript" code={`import { Placeholder } from '@brainandbones/Placeholder';`} />
 	</heading>
 
 	<!-- Examples -->
-	<section class="space-x-2 flex flex-wrap items-center">
-		<Card class="flex-1">
-			<Placeholder animate={props.animate} circle={props.circle} width="w-10" height="h-10" />
-			<div class="space-y-3 mt-2">
-				<Placeholder animate={props.animate} radius="rounded-lg" width="full" height="h-4" />
-				<Placeholder animate={props.animate} radius="rounded-lg" width="full" height="h-4" />
+	<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+		<Card>
+			<Placeholder animate={props.animate} circle={props.circle} width="w-10" />
+			<div class="space-y-4 mt-4">
+				<Placeholder animate={props.animate} />
+				<Placeholder animate={props.animate} />
 			</div>
 		</Card>
-		<div class="flex-1">
-			<SlideToggle bind:checked={props.animate} accent="bg-accent-500">Animate</SlideToggle>
-			<SlideToggle bind:checked={props.circle} accent="bg-accent-500">Circle</SlideToggle>
+		<div class="space-y-4">
+			<div class="flex justify-center items-center space-x-4">
+				<SlideToggle bind:checked={props.circle} accent="bg-accent-500">Circle</SlideToggle>
+				<SlideToggle bind:checked={props.animate} accent="bg-accent-500">Animate</SlideToggle>
+			</div>
 			<Card>
-				<div class="space-y-2">
-					<Placeholder animate={props.animate} radius="rounded-lg" width="w-full" height="h-4" />
-					<div class="grid grid-cols-4 gap-2">
-						<Placeholder animate={props.animate} radius="rounded-lg" width="w-full" height="h-4" />
-						<Placeholder animate={props.animate} radius="rounded-lg" width="w-full" height="h-4" />
-						<Placeholder animate={props.animate} radius="rounded-lg" width="w-full" height="h-4" />
-						<Placeholder animate={props.animate} radius="rounded-lg" width="w-full" height="h-4" />
+				<div class="space-y-4">
+					<Placeholder animate={props.animate} />
+					<div class="grid grid-cols-4 gap-4">
+						<Placeholder animate={props.animate} />
+						<Placeholder animate={props.animate} />
+						<Placeholder animate={props.animate} />
+						<Placeholder animate={props.animate} />
 					</div>
 				</div>
 			</Card>
@@ -59,7 +63,7 @@
 	<!-- Usage -->
 	<section class="space-y-4">
 		<h2>Usage</h2>
-		<CodeBlock language="html" code={`<Placeholder ${props.circle ? 'circle' : ''} ${props.animate ? 'animate' : ''} width="w-full" height="h-10" rounded="round-lg" />`} />
+		<CodeBlock language="html" code={`<Placeholder animate={true} circle={true} />`} />
 	</section>
 
 	<!-- Properties -->
