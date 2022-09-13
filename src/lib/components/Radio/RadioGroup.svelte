@@ -26,9 +26,9 @@
 	let cBaseGroup: string = `items-center p-1 rounded overflow-hidden space-x-1`;
 
 	// Reactive
-	$: classesGroup = `${cBaseGroup} ${display} ${background} ${rounded}`;
+	$: classesGroup = `${cBaseGroup} ${display} ${background} ${rounded} ${$$props.class || ''}`;
 </script>
 
-<div class="radio-group {classesGroup} {$$props.class || ''}" data-testid="radio-group" role="radiogroup" aria-label={label}>
+<div class="radio-group {classesGroup}" data-testid="radio-group" role="radiogroup" aria-label={label}>
 	<slot />
 </div>

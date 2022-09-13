@@ -75,13 +75,14 @@
 	});
 
 	// Reactive Classes
+	$: classesBase = `${cBaseTooltip} ${$$props.class || ''}`;
 	$: classesPopup = `${cBasePopup} ${cPosition} ${popup}`;
 	$: classesMessage = `${cBaseMessage} ${background} ${color} ${width} ${whitespace} ${rounded} ${message}`;
 	$: classesArrow = `${cBaseArrow} ${cArrowPosition} ${background} ${arrow}`;
 	$: classesContent = `${content}`;
 </script>
 
-<div class="tooltip {cBaseTooltip} {$$props.class}" data-testid="tooltip" role="tooltip">
+<div class="tooltip {classesBase}" data-testid="tooltip" role="tooltip">
 	<!-- Popup -->
 	{#if $$slots.message && visible}
 		<div class="popup {classesPopup}" data-testid="popup" in:fade={{ duration }} out:fade={{ duration }}>

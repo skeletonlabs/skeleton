@@ -14,13 +14,13 @@
 	export let slotFooter: string | undefined = undefined;
 
 	// Reactive
-	$: classesCard = `${background} ${color} ${padding} ${space} ${ringWidth} ${ringColor} ${ringInset} ${rounded}`;
+	$: classesCard = `${background} ${color} ${padding} ${space} ${ringWidth} ${ringColor} ${ringInset} ${rounded} ${$$props.class || ''}`;
 	$: classesHeader = `${slotHeader}`;
 	$: classesBody = `${slotBody}`;
 	$: classesFooter = `${slotFooter}`;
 </script>
 
-<div class="card {classesCard} {$$props.class || ''}" data-testid="card">
+<div class="card {classesCard}" data-testid="card">
 	<!-- Header -->
 	{#if $$slots.header}
 		<header class="card-header {classesHeader}"><slot name="header" /></header>

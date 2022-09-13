@@ -19,14 +19,14 @@
 	const cBaseIcon: string = 'flex justify-center items-center w-3 fill-black dark:fill-white transition-all duration-[100ms]';
 
 	// Reactive Classes
-	$: classesDetails = `${cBaseDetails} ${spacing}`;
+	$: classesDetails = `${cBaseDetails} ${spacing} ${$$props.class || ''}`;
 	$: classesSummary = `${cBaseSummary} ${padding} ${rounded} ${hover} ${slotSummary}`;
 	$: classesIconState = open ? '-rotate-180' : '';
 	$: classesIcon = `${cBaseIcon} ${classesIconState}`;
 	$: classesContent = `${padding} ${slotContent}`;
 </script>
 
-<details bind:open class="accordion-item {classesDetails} {$$props.class}" data-testid="accordion-item">
+<details bind:open class="accordion-item {classesDetails}" data-testid="accordion-item">
 	<!-- Summary -->
 	<summary id={summaryId} class="accordion-summary {classesSummary}" aria-expanded={open} aria-controls={contentId}>
 		<!-- Slot: Lead -->

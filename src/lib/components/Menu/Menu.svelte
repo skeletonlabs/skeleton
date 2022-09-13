@@ -104,13 +104,13 @@
 	});
 
 	// Responsive Classes
-	$: classesMenu = `${cBaseMenu}`;
+	$: classesMenu = `${cBaseMenu} ${$$props.class || ''}`;
 	$: classesContent = `${cBaseContent} ${cOrigin}`;
 </script>
 
 <svelte:body on:click={handleBodyClick} />
 
-<div bind:this={elemMenu} class="menu-wrapper {classesMenu} {$$props.class}" data-testid="menu-wrapper">
+<div bind:this={elemMenu} class="menu-wrapper {classesMenu}" data-testid="menu-wrapper">
 	<!-- Trigger Button -->
 	<div class="menu-trigger" on:click={toggle} data-testid="menu-trigger">
 		{#if $$slots.trigger}<slot name="trigger" />{/if}

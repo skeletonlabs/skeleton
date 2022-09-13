@@ -13,6 +13,7 @@
 	export let label: string | undefined = undefined;
 
 	// Base Classes
+	const cBase: string = 'progress-radial relative overflow-hidden';
 	const cBaseTrack: string = 'fill-transparent';
 	const cBaseMeter: string = 'fill-transparent transition-[stroke-dashoffset] duration-200 -rotate-90 origin-[50%_50%]';
 
@@ -36,12 +37,15 @@
 		// If indeterminate set 25, else set the value
 		setProgress(value === undefined ? 25 : value);
 	});
+
+	// Reactive
+	$: classesBase = `${cBase} ${$$props.class || ''}`;
 </script>
 
 <!-- https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/text-anchor -->
 
 <figure
-	class="progress-radial relative overflow-hidden {$$props.class}"
+	class="progress-radial {classesBase}"
 	data-testid="progress-radial"
 	role="meter"
 	aria-label={label}

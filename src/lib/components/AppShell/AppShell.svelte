@@ -16,6 +16,7 @@
 	const cSidebarRight: string = 'flex-none overflow-x-hidden overflow-y-auto';
 
 	// Reactive Classes
+	$: classesBase = `${cBaseAppShell} ${$$props.class || ''}`;
 	$: classesheader = `${slotHeader}`;
 	$: classesSidebarLeft = `${cSidebarLeft} ${slotSidebarLeft}`;
 	$: classesSidebarRight = `${cSidebarRight} ${slotSidebarRight}`;
@@ -25,7 +26,7 @@
 	$: classesFooter = `${slotFooter}`;
 </script>
 
-<main id="appShell" class="{cBaseAppShell} {$$props.class || ''}" data-testid="app-shell">
+<main id="appShell" class={classesBase} data-testid="app-shell">
 	<!-- Slot: Header -->
 	{#if $$slots.header}
 		<header id="shell-header" class="flex-none {classesheader}"><slot name="header" /></header>

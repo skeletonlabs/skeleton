@@ -16,7 +16,7 @@
 
 	// Reactive Classes
 	$: classesHover = $$props.href ? 'hover:brightness-110' : '';
-	$: classesLogo = `${cBaseLogo} ${classesHover} ${background} ${color} ${text} ${padding}`;
+	$: classesLogo = `${cBaseLogo} ${classesHover} ${background} ${color} ${text} ${padding} ${$$props.class || ''}`;
 
 	// Prune $$restProps to avoid overwriting $$props.class
 	function prunedRestProps(): any {
@@ -25,7 +25,7 @@
 	}
 </script>
 
-<svelte:element this={tag} {href} class="logo {classesLogo} {$$props.class}" data-testid="logo" {...prunedRestProps()}>
+<svelte:element this={tag} {href} class="logo {classesLogo}" data-testid="logo" {...prunedRestProps()}>
 	<!-- Slot: lead -->
 	{#if $$slots.lead}<span><slot name="lead" /></span>{/if}
 	<!-- Slot: Default -->

@@ -21,9 +21,9 @@
 	const cCloud: string = 'grid grid-cols-1 gap-4 overflow-hidden';
 
 	// Reactive Clases
-	$: classesCloud = `${cCloud} ${gridCols} ${rounded} ${gridGap}`;
+	$: classesCloud = `${cCloud} ${gridCols} ${rounded} ${gridGap} ${$$props.class || ''}`;
 </script>
 
-<div class="{classesCloud} {$$props.class}" data-testid="logo-cloud">
+<div class="logo-cloud {classesCloud}" data-testid="logo-cloud">
 	<slot />
 </div>

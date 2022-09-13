@@ -20,13 +20,13 @@
 	const cTrail: string = 'flex-none flex items-center space-x-4';
 
 	// Reactive Classes
-	$: classesBase = `${cBase} ${background} ${border} ${padding} ${shadow} ${space}`;
+	$: classesBase = `${cBase} ${background} ${border} ${padding} ${shadow} ${space} ${$$props.class || ''}`;
 	$: classesLead = `${cLead} ${slotLead}`;
 	$: classesCenter = `${cCenter} ${slotCenter}`;
 	$: classesTrail = `${cTrail} ${slotTrail}`;
 </script>
 
-<div class="app-bar {classesBase} {$$props.class || ''}" data-testid="app-bar" role="toolbar" aria-label={label} aria-labelledby={labelledby}>
+<div class="app-bar {classesBase}" data-testid="app-bar" role="toolbar" aria-label={label} aria-labelledby={labelledby}>
 	<!-- Slot: lead -->
 	{#if $$slots.lead}
 		<div class="appbar-lead {classesLead}"><slot name="lead" /></div>

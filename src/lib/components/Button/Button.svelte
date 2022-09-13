@@ -105,7 +105,7 @@
 
 <svelte:element
 	this={tag}
-	class="comp-button {classesButton} {$$props.class}"
+	class="comp-button {classesButton} {$$props.class || ''}"
 	{href}
 	data-testid="comp-button"
 	on:click

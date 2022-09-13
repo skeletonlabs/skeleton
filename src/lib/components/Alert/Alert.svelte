@@ -21,7 +21,7 @@
 	let cTrail: string = 'flex items-center space-x-4';
 
 	// Reactive Classes
-	$: classesCard = `${cBaseCard} ${background} ${borderWidth} ${borderColor} ${color} ${radius} ${$$props.class}`;
+	$: classesCard = `${cBaseCard} ${background} ${borderWidth} ${borderColor} ${color} ${radius} ${$$props.class || ''}`;
 	$: classesLead = `${cLead} ${slotLead}`;
 	$: classesContent = `${cContent} ${slotContent}`;
 	$: classesTrail = `${cTrail} ${slotTrail}`;

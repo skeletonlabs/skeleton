@@ -175,7 +175,7 @@ function prunedRestProps(): any {
     return $$restProps;
 }`.trim()}
 		/>
-		<CodeBlock language="html" code={`<button class="... {$$props.class}" {...prunedRestProps()}>Skeleton</button>`} />
+		<CodeBlock language="html" code={`<button class="... {$$props.class || ''}" {...prunedRestProps()}>Skeleton</button>`} />
 	</section>
 
 	<Divider />

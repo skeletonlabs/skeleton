@@ -14,7 +14,7 @@
 
 	// Reactive Classes
 	$: classesIcon = icon ? 'w-5 h-5 justify-center rounded-full translate-x-1 -translate-y-1' : `${padding} ${rounded}`;
-	$: classesBadge = `${cBaseBadge} ${classesIcon} ${background} ${fill} ${text} ${color} ${shadow} ${$$props.class}`;
+	$: classesBadge = `${cBaseBadge} ${classesIcon} ${background} ${fill} ${text} ${color} ${shadow} ${$$props.class || ''}`;
 </script>
 
 <span data-testid="badge" class="badge {classesBadge}">

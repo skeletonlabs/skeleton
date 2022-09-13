@@ -59,7 +59,7 @@
 		genConicGradient();
 		genLegend();
 	});
-	$: classes = `${cBase} ${width} ${$$props.class}`;
+	$: classes = `${cBase} ${width} ${$$props.class || ''}`;
 </script>
 
 <figure class="conic-gradient text-center space-y-4" data-testid="conic-gradient">

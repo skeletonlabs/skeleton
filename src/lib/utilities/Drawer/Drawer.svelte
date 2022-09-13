@@ -79,7 +79,7 @@
 	// Reactive
 	$: classesWidth = width ? width : animParams.width;
 	$: classesHeight = height ? height : animParams.height;
-	$: classesBackdrop = `${cBaseBackdrop} ${animParams.backdrop} ${bgBackdrop} ${display} ${blur}`;
+	$: classesBackdrop = `${cBaseBackdrop} ${animParams.backdrop} ${bgBackdrop} ${display} ${blur} ${$$props.class || ''}`;
 	$: classesDrawer = `${cBaseDrawer} ${classesWidth} ${classesHeight} ${bgDrawer} ${border} ${margin} ${rounded}`;
 </script>
 
@@ -89,7 +89,7 @@
 	<!-- Backdrop -->
 	<div
 		bind:this={elemBackdrop}
-		class="drawer-backdrop {classesBackdrop} {$$props.class || ''}"
+		class="drawer-backdrop {classesBackdrop}"
 		data-testid="drawer-backdrop"
 		on:click={(e) => {
 			onClickBackdrop(e);
@@ -98,7 +98,7 @@
 	>
 		<!-- Drawer -->
 		<div
-			class="drawer {classesDrawer} {$$props.class}"
+			class="drawer {classesDrawer}"
 			data-testid="drawer"
 			transition:fly|local={{ x: animParams.x, y: animParams.y, duration }}
 			role="dialog"
