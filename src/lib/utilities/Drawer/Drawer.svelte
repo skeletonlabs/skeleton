@@ -33,8 +33,7 @@
 	let animParams: any = { backdrop: '', width: '', height: '', x: 0, y: 0 };
 	function setAnimParams(): void {
 		switch (position) {
-			// prettier-ignore
-			case('top'):
+			case 'top':
 				animParams = { backdrop: 'flex-col justify-start', width: 'w-full', height: 'h-[40%]', x: 0, y: -window.innerHeight };
 				break;
 			case 'bottom':

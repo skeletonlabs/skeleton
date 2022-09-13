@@ -23,15 +23,21 @@
 	<section class="space-y-4">
 		<h2>Usage</h2>
 		<CodeBlock language="html" code={`<LightSwitch />`} />
-	</section>
-
-	<!-- How It Works -->
-	<section class="space-y-4">
-		<h2>How It Works</h2>
+		<h4>Configure Tailwind</h4>
 		<p>
-			Uses a device's <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme" target="_blank">prefers-color-scheme</a> setting is used. When toggled, a <code>dark</code>
-			class is applied to your HTML element. This value persists using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage" target="_blank">window.localStorage</a>.
+			See Tailwind's official <a href="https://tailwindcss.com/docs/dark-mode" target="_blank">dark mode</a> documentation for full instructions. Ensure you've added <code>darkMode: 'class'</code> to
+			your <a href="/guides/tailwind">Tailwind config</a>.
 		</p>
+		<h4>How It Works</h4>
+		<p>
+			By default your theme will default to match the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme" target="_blank">prefers-color-scheme</a> setting. However, when
+			interacted with, two things will occur:
+		</p>
+		<ul class="list-disc list-inside space-y-1">
+			<li>If dark mode is enabled, a <code>dark</code> class will be applied to your <em>HTML</em> page element.</li>
+			<li>A key of <code>mode: 'light | dark'</code> will also persist via <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage" target="_blank">window.localStorage</a>.</li>
+		</ul>
+		<p>Here's an example of a modified <em>HTML</em> page element.</p>
 		<CodeBlock
 			language="html"
 			code={`
@@ -46,7 +52,6 @@
 <html class="dark">
 		`.trim()}
 		/>
-		<p>See Tailwind's official <a href="https://tailwindcss.com/docs/dark-mode" target="_blank">dark mode</a> documentation for configuration settings.</p>
 	</section>
 
 	<!-- Accessibility -->

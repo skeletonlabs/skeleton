@@ -19,12 +19,15 @@
 		<h3>Update Content</h3>
 		<p>
 			Add the following to <a href="https://tailwindcss.com/docs/configuration" target="_blank">content</a>
-			within <code>tailwind.config.cjs</code>. This ensures Tailwind is aware of Skeleton's component classes within your local development server.
+			within <code>tailwind.config.cjs</code>. This ensures Tailwind is aware of Skeleton's component classes within your local development server. Implement <code>darkMode: 'class'</code> only if you
+			plan to make use of <a href="https://tailwindcss.com/docs/dark-mode" target="_blank">Tailwind's dark mode</a>
+			feature.
 		</p>
 		<CodeBlock
 			language="js"
 			code={`
 module.exports = {
+	darkMode: 'class',
     content: [
         // ...
         "./node_modules/@brainandbones/skeleton/**/*.{html,js,svelte,ts}"
