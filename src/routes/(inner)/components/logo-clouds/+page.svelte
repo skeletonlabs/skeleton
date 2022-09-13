@@ -92,6 +92,10 @@
 		<DataTable headings={tablePropsCloud.headings} source={tablePropsCloud.source} />
 		<h3>Logo</h3>
 		<p>Properties for <code>background</code>, <code>color</code>, <code>text</code>, <code>padding</code> can be overwritten per each Logo instance.</p>
+		<p>
+			This component makes use of <a href="https://svelte.dev/docs#template-syntax-attributes-and-props" target="_blank">$$restProps</a>, which allows arbitrary attributes to be provided to the
+			component.
+		</p>
 		<DataTable headings={tablePropsLogo.headings} source={tablePropsLogo.source} />
 	</section>
 

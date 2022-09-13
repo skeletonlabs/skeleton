@@ -65,6 +65,10 @@
 	<!-- Properties -->
 	<section class="space-y-4">
 		<h2>Properties</h2>
+		<p>
+			This component makes use of <a href="https://svelte.dev/docs#template-syntax-attributes-and-props" target="_blank">$$restProps</a>, which allows arbitrary attributes to be provided to the
+			component.
+		</p>
 		<DataTable headings={tableProps.headings} source={tableProps.source} />
 	</section>
 
