@@ -15,9 +15,15 @@ describe('Stepper.svelte', () => {
 		const { getByTestId } = render(Stepper, {
 			props: {
 				active: writable(0),
-				length: 3,
-				accent: 'bg-green-500',
-				background: 'bg-surface-500'
+				length: 0,
+				duration: 200,
+				// Props (timeline)
+				color: 'text-white',
+				background: 'bg-accent-500 text-white',
+				// Props (buttons)
+				buttonBack: {},
+				buttonNext: {},
+				buttonComplete: {}
 			}
 		});
 		expect(getByTestId('stepper')).toBeTruthy();

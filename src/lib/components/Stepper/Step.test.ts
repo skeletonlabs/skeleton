@@ -15,12 +15,7 @@ describe('Step.svelte', () => {
 		const { getByTestId } = render(Step, {
 			props: {
 				index: 0,
-				disabled: true,
-				done: true,
-				active: writable(0),
-				length: 3,
-				accent: 'bg-green-500',
-				background: 'bg-surface-500'
+				locked: false
 			}
 		});
 		expect(getByTestId('step')).toBeTruthy();

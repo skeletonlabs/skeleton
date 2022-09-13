@@ -18,18 +18,21 @@
 	const tablePropsStepper: any = {
 		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
 		source: [
-			['active', 'Writable<number>', '0 (zero)', '&check;', 'Provide a Svelte Writable that stores the active step state.'],
-			['length', 'number', '0 (zero)', '&check;', 'Informs the component of the total number of steps.'],
-			['accent', 'string', 'bg-primary-500', '-', 'Provide classes that sets the current step numeral background color.'],
-			['background', 'string', 'bg-surface-300 dark:bg-surface-700', '-', 'Provide classes that sets timeline background color.']
+			['active', 'Writable<number>', 'writable(0)', '&check;', 'Provide a writable which stores the actively selected step state.'],
+			['length', 'number', '0', '&check;', 'Provide a count of the total number of Steps (children).'],
+			['duration', 'number', '200', '-', 'Set the Svelte transition duration.'],
+			['color', 'string', 'text-white', '-', 'Provide classes to set the numeral text color.'],
+			['background', 'string', 'bg-accent-500 text-white', '-', 'Provide classes to set the timeline background color.'],
+			['buttonBack', 'object', '-', '-', 'Provide an object of button props. Uses an object spread to apply attributes.'],
+			['buttonNext', 'object', '-', '-', 'Provide an object of button props. Uses an object spread to apply attributes.'],
+			['buttonComplete', 'object', '-', '-', 'Provide an object of button props. Uses an object spread to apply attributes.']
 		]
 	};
 	const tablePropsStep: any = {
 		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
 		source: [
-			['index', 'number', '-', '&check;', 'Indicates the step index value. Should start with zero 0 (zero)'],
-			['disabled', 'boolean', 'false', '-', 'When enabled, the Next button is disabled. This prevents progress.'],
-			['done', 'boolean', 'false', '-', 'When enabled, numeric step value changes to checkmark.']
+			['index', 'number', '-', '&check;', 'Indicates the step index value. Should start with 0 (zero)'],
+			['locked', 'boolean', 'false', '-', 'When enabled, a lock icon appears and the Next button is disabled. This prevents progress.']
 		]
 	};
 	// Slots
@@ -40,9 +43,8 @@
 	const tableSlotsStep: any = {
 		headings: ['Name', 'Description'],
 		source: [
-			['title', 'Optionally provide the title for the step.'],
-			['subtitle', 'Optionally provide the subtitle for the step.'],
-			['content', 'Provide the content for the step.']
+			['default', 'Provide the content for the step.'],
+			['header', 'Override the aut-generated heading with your own value. Typically a step title.']
 		]
 	};
 	// Events
