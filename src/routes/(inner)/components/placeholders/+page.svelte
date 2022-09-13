@@ -15,11 +15,12 @@
 	const tableProps: any = {
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
 		source: [
+			['circle', 'boolean', 'false', 'true | false', 'Creates a circular shaped placeholder.'],
+			['animate', 'boolean', 'true', 'true | false', 'Can be set to false to disable the pulse animation.'],
+			['background', 'string', 'bg-surface-400 dark:bg-surface-700', 'class', 'Provide classes to set the background color.'],
 			['width', 'string', 'w-auto', 'class', 'Provide classes to set the width styles.'],
 			['height', 'string', 'w-4', 'class', 'Provide classes to set the height styles.'],
-			['rounded', 'string', 'rounded-lg', 'class', 'Provide classes to set the border radius style.'],
-			['circle', 'boolean', 'false', 'true | false', 'Creates a circular shaped placeholder.'],
-			['animate', 'boolean', 'true', 'true | false', 'Can be set to false to disable the pulse animation.']
+			['rounded', 'string', 'rounded-lg', 'class', 'Provide classes to set the border radius style.']
 		]
 	};
 </script>
