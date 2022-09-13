@@ -15,9 +15,10 @@ describe('Tab.svelte', () => {
 		const { getByTestId } = render(Tab, {
 			props: {
 				selected: writable(0),
-				border: 'border-primary-500',
-				fill: 'fill-primary-500',
-				color: 'text-primary-500'
+				borderWidth: 'border-b-2',
+				borderColor: 'border-primary-500',
+				color: 'text-primary-500',
+				fill: 'fill-primary-500'
 			}
 		});
 		expect(getByTestId('tab')).toBeTruthy();

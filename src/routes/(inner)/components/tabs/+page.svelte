@@ -15,9 +15,11 @@
 		source: [
 			['selected', 'Writable', '-', '&check;', 'A svelte store to keep track of tab selection.'],
 			['justify', 'string', 'justify-start', '-', `Provide classes to set the flex justification. 'justify-start' is best small screens.`],
-			['border', 'string', 'border-primary-500', '-', 'Provide classes to set the highlight border color.'],
-			['fill', 'string', 'border-primary-500', '-', 'Provide classes to set the highlight SVG fill color.'],
-			['color', 'string', 'text-primary-500', '-', 'Provide class to set the highlighted text color.']
+			['borderWidth', 'string', 'border-b-2', '-', 'Provide classes to set the selected border thickness size. Shared between group and tab.'],
+			['borderColor', 'string', 'border-primary-500', '-', 'Provide classes to set the selected border color.'],
+			['color', 'string', 'text-primary-500', '-', 'Provide class to set the selecteded text color.'],
+			['fill', 'string', 'fill-primary-500', '-', 'Provide classes to set the selected SVG fill color.'],
+			['hover', 'string', 'hover:bg-surface-500/10', '-', 'Provide classes to set the unselected hover styles.']
 		]
 	};
 	const tablePropsItem: any = {
@@ -66,7 +68,7 @@
 			</Card>
 			<Card>
 				<svelte:fragment slot="header">
-					<TabGroup selected={storeTwo} justify="justify-start md:justify-end" border="border-accent-500" color="text-accent-500">
+					<TabGroup selected={storeTwo} justify="justify-start md:justify-end" borderColor="border-accent-500" color="text-accent-500" hover="hover:bg-accent-500/10">
 						<Tab value="a">Tab A</Tab>
 						<Tab value="b">Tab B</Tab>
 						<Tab value="c">Tab C</Tab>
@@ -79,7 +81,7 @@
 		</div>
 		<Card>
 			<svelte:fragment slot="header">
-				<TabGroup selected={storeThree} justify="justify-start md:justify-center" border="border-warning-500" fill="fill-warning-500" color="text-warning-500">
+				<TabGroup selected={storeThree} justify="justify-start md:justify-center" borderColor="border-warning-500" fill="fill-warning-500" color="text-warning-500" hover="hover:bg-warning-500/10">
 					<Tab value="a">
 						<svelte:fragment slot="lead">
 							<SvgIcon name="book" fill="fill-inherit" class="!block" />

@@ -4,9 +4,11 @@
 
 	// Context
 	export let selected: Writable<any> = getContext('selected');
-	export let border: string = getContext('border');
-	export let fill: string = getContext('fill');
+	export let borderWidth: string = getContext('borderWidth');
+	export let borderColor: string = getContext('borderColor');
 	export let color: string = getContext('color');
+	export let fill: string = getContext('fill');
+	export let hover: string = getContext('hover');
 
 	// Props
 	export let value: any = $selected.value;
@@ -14,7 +16,8 @@
 	export let label: string = 'tab';
 
 	// Base Classes
-	const cBase: string = 'list-none flex items-center py-2 px-4 space-x-2 cursor-pointer border-b-2 opacity-60 hover:opacity-100';
+	const cBase: string = 'font-bold list-none py-2.5 px-4 flex items-center space-x-2 cursor-pointer';
+	const cBorderColor: string = 'border-transparent';
 	const cBaseLabel: string = 'font-bold whitespace-nowrap';
 
 	// A11y Input Handlers
@@ -28,13 +31,14 @@
 
 	// Reactive Classes
 	$: isSelected = value == $selected;
-	$: cHighlight = isSelected ? `${border} ${color} opacity-100` : 'border-transparent';
-	$: classesBase = `${cBase} ${cHighlight}`;
-	$: classesIcon = isSelected ? fill : 'fill-surface-500';
+	$: classesSelected = isSelected ? `${borderWidth} ${borderColor} ${color} ${fill}` : `${borderWidth} ${cBorderColor}`;
+	$: classesBase = `${cBase} ${classesSelected} ${hover}`;
+	$: classesLead = isSelected ? `${fill}` : 'fill-surface-500';
+	$: classesLabel = `${cBaseLabel}`;
 </script>
 
 <li
-	class="tab ${classesBase} {$$props.class || ''}"
+	class="tab ${classesBase}"
 	on:click={() => {
 		selected.set(value);
 	}}
@@ -44,8 +48,7 @@
 	tabindex="0"
 >
 	<!-- Slot: Lead -->
-	{#if $$slots.lead}<div class={classesIcon}><slot name="lead" /></div>{/if}
-
-	<!-- Label -->
-	{#if $$slots.default}<div class={cBaseLabel} {label}><slot /></div>{/if}
+	{#if $$slots.lead}<div class="tab-lead {classesLead}"><slot name="lead" /></div>{/if}
+	<!-- Slot: Default -->
+	{#if $$slots.default}<div class="tab-label {classesLabel}" {label}><slot /></div>{/if}
 </li>
