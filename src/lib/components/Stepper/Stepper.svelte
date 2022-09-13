@@ -8,6 +8,7 @@
 	// Props
 	export let active: Writable<number> = writable(0);
 	export let length: number = 0;
+	export let duration: number = 200;
 	// Props (timeline)
 	export let color: string = 'text-white';
 	export let background: string = 'bg-accent-500 text-white';
@@ -35,6 +36,7 @@
 	setContext('buttonBack', mergedButtonBack);
 	setContext('buttonNext', mergedButtonNext);
 	setContext('buttonComplete', mergedButtonComplete);
+	setContext('duration', duration);
 
 	// Reactive Classes
 	$: classesStepper = `${$$props.class || ''}`;

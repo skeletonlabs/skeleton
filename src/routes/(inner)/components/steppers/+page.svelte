@@ -2,6 +2,7 @@
 	import { writable, type Writable } from 'svelte/store';
 	import { DataTable, Card, Stepper, Step } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
 
 	const active: Writable<number> = writable(0);
 	const lorem: string =
@@ -9,6 +10,9 @@
 	const onComplete = () => {
 		alert('Complete was triggered!');
 	};
+
+	// Local
+	let exampleLockedState: boolean = false;
 
 	// Tables
 	const tablePropsStepper: any = {
@@ -58,43 +62,54 @@
 
 	<!-- Examples -->
 	<Card>
-		<Stepper {active} length={3} on:complete={onComplete}>
+		<Stepper {active} length={5} on:complete={onComplete}>
 			<Step index={0}>
-				<svelte:fragment slot="header"><h4>Get Started!</h4></svelte:fragment>
-				<p>{lorem}</p>
+				<svelte:fragment slot="header"><h4>Step 1 - Get Started!</h4></svelte:fragment>
+				<p>This example will teach you how to use the Stepper component. Tap <em>next</em> to proceed forward.</p>
 			</Step>
-			<Step index={1}><p>{lorem}</p></Step>
-			<Step index={2}><p>{lorem}</p></Step>
+			<Step index={1}>
+				<p>Prior completed steps will display a checkmark. However, tap the &uarr; button at any time to return to the previous step.</p>
+			</Step>
+			<Step index={2} locked={!exampleLockedState}>
+				<p>
+					The Step component has a <code>locked</code> property that can be enabled to prevent progress. This is ideal for multi-step forms, such as registration. Just tie the form validation
+					condition to the property. For now we'll simulate this using the <em>unlock</em> option below.
+				</p>
+				<SlideToggle bind:checked={exampleLockedState}>Unlock</SlideToggle>
+			</Step>
+			<Step index={3}>
+				<p>The steps will expand to fit content of any width. We'll demonstrate this below with lorem ipsum text.</p>
+				<p>{lorem} {lorem} {lorem} {lorem} {lorem}</p>
+			</Step>
+			<Step index={4}>
+				<p>
+					On the last step the <em>Complete</em> button will appear. When tapped an <code>on:complete</code> event will fire, which can be used to submit form data to a server.
+				</p>
+			</Step>
 		</Stepper>
 	</Card>
 
 	<!-- Usage -->
 	<section class="space-y-4">
 		<h2>Usage</h2>
-		<p>For the best user experience keep the number of steps to a minimum. Usually five or less.</p>
-		<CodeBlock
-			language="typescript"
-			code={`import type { Writable } from "svelte/store";
-const active: Writable<number> = writable(0);`}
-		/>
-		<CodeBlock language="typescript" code={`const onComplete: any = () => { /* ... */ }`} />
+		<p>To begin, create a writable that will store your active step value. This should always be set to zero.</p>
+		<CodeBlock language="typescript" code={`import type { Writable } from "svelte/store";`} />
+		<CodeBlock language="typescript" code={`const active: Writable<number> = writable(0);`} />
+		<p>Scaffold your stepper as shown. If no header slot is provided text will be generated that says "Step X" automatically.</p>
 		<CodeBlock
 			language="html"
 			code={`
-<Stepper {active} length={3} on:complete={onComplete}>
-    <Step index={0} disabled={false} done={false}>
-        <svelte:fragment slot="title">Step One</svelte:fragment>
-        <svelte:fragment slot="subtitle">Subtext for step one</svelte:fragment>
-        <svelte:fragment slot="content">The content of step one.</svelte:fragment>
-    </Step>
-    <Step index={1} disabled={false} done={false}>
-        <svelte:fragment slot="title">Step Two</svelte:fragment>
-        <svelte:fragment slot="subtitle">Subtext for step two</svelte:fragment>
-        <svelte:fragment slot="content">The content of step two.</svelte:fragment>
-    </Step>
+<Stepper {active} length={5} on:complete={onComplete}>
+	<Step index={0}>
+		<svelte:fragment slot="header">(header)</svelte:fragment>
+		(content)
+	</Step>
+	<Step index={1} locked={true}>(content)</Step>
 </Stepper>
         `.trim()}
 		/>
+		<p>Create a function to handle your Stepper's <code>complete</code> event.</p>
+		<CodeBlock language="typescript" code={`const onComplete: any = () => { /* handle the event */ }`} />
 	</section>
 
 	<!-- Properties -->
