@@ -60,12 +60,12 @@ export { default as LightSwitch } from './utilities/LightSwitch/LightSwitch.svel
 
 // Filters
 export { filter } from './actions/Filters/filter';
-export { default as Apollo } from './actions/Filters/svg/Apollo.svelte';
-export { default as BlueNight } from './actions/Filters/svg/BlueNight.svelte';
-export { default as Emerald } from './actions/Filters/svg/Emerald.svelte';
-export { default as GreenFall } from './actions/Filters/svg/GreenFall.svelte';
-export { default as Noir } from './actions/Filters/svg/Noir.svelte';
-export { default as NoirLight } from './actions/Filters/svg/NoirLight.svelte';
-export { default as Rustic } from './actions/Filters/svg/Rustic.svelte';
-export { default as Summer84 } from './actions/Filters/svg/Summer84.svelte';
-export { default as XPro } from './actions/Filters/svg/XPro.svelte';
+export { default as Apollo } from './actions/Filters/svg-filters/Apollo.svelte';
+export { default as BlueNight } from './actions/Filters/svg-filters/BlueNight.svelte';
+export { default as Emerald } from './actions/Filters/svg-filters/Emerald.svelte';
+export { default as GreenFall } from './actions/Filters/svg-filters/GreenFall.svelte';
+export { default as Noir } from './actions/Filters/svg-filters/Noir.svelte';
+export { default as NoirLight } from './actions/Filters/svg-filters/NoirLight.svelte';
+export { default as Rustic } from './actions/Filters/svg-filters/Rustic.svelte';
+export { default as Summer84 } from './actions/Filters/svg-filters/Summer84.svelte';
+export { default as XPro } from './actions/Filters/svg-filters/XPro.svelte';

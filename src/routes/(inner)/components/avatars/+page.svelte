@@ -10,7 +10,17 @@
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	// Actions
-	import { filter, Apollo, BlueNight, Emerald, GreenFall, Noir, NoirLight, Rustic, Summer84, XPro } from '$lib/actions/Filters/filter';
+	import { filter } from '$lib/actions/Filters/filter';
+	// Filter SVGs
+	import Apollo from '$lib/actions/Filters/svg-filters/Apollo.svelte';
+	import BlueNight from '$lib/actions/Filters/svg-filters/BlueNight.svelte';
+	import Emerald from '$lib/actions/Filters/svg-filters/Emerald.svelte';
+	import GreenFall from '$lib/actions/Filters/svg-filters/GreenFall.svelte';
+	import Noir from '$lib/actions/Filters/svg-filters/Noir.svelte';
+	import NoirLight from '$lib/actions/Filters/svg-filters/NoirLight.svelte';
+	import Rustic from '$lib/actions/Filters/svg-filters/Rustic.svelte';
+	import Summer84 from '$lib/actions/Filters/svg-filters/Summer84.svelte';
+	import XPro from '$lib/actions/Filters/svg-filters/XPro.svelte';
 
 	// Local
 	const imgPlaceholder: string = 'https://i.pravatar.cc/?img=5';
@@ -82,7 +92,7 @@
 <Summer84 />
 <XPro />
 
-<div class="space-y-8">
+<div class="!mt-0 space-y-8">
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Avatars</h1>
