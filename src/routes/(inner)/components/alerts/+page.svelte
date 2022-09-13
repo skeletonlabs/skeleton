@@ -15,19 +15,16 @@
 			['borderColor', 'string', 'border-l-accent-500', 'Provide classes to set the border color.'],
 			['color', 'string', '-', 'Provide classes to set text color.'],
 			['radius', 'string', '-', 'Provide classes to set border radius.'],
-			['duration', 'number', '200', 'Svelte fade transition duration. Set <code>0</code> to disable.'],
-			['slotLead', 'string', '-', 'Provide arbitrary classes for the leading slot element.'],
-			['slotContent', 'string', '-', 'Provide arbitrary classes for the default slot element.'],
-			['slotTrail', 'string', '-', 'Provide arbitrary classes for the trailing slot element.']
+			['duration', 'number', '200', 'Svelte fade transition duration. Set <code>0</code> to disable.']
 		]
 	};
 	const tableSlots: any = {
-		headings: ['Slot', 'Description'],
+		headings: ['Slot', 'Syle Prop', 'Description'],
 		source: [
-			['lead', 'Provide a leading element, such as an icon.'],
-			['title', 'Provide the alert title text.'],
-			['message', 'Provide the alert message text.'],
-			['trail', 'Provide a trailing element, such as a call to action.']
+			['lead', 'slotLead', 'Provide a leading element, such as an icon.'],
+			['title', 'slotContent > .alert-title', 'Provide the alert title text.'],
+			['message', 'slotContent > .alert-message', 'Provide the alert message text.'],
+			['trail', 'slotTrail', 'Provide a trailing element, such as a call to action.']
 		]
 	};
 

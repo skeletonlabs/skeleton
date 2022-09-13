@@ -39,11 +39,9 @@
 		<!-- Content -->
 		<section class="alert-content {classesContent}">
 			<!-- Slot: Title -->
-			{#if $$slots.title}<h3><slot name="title" /></h3>{/if}
+			{#if $$slots.title}<h3 class="alert-title"><slot name="title" /></h3>{/if}
 			<!-- Slot: Message -->
-			{#if $$slots.message}
-				<div class={color}><slot name="message" /></div>
-			{/if}
+			{#if $$slots.message}<div class="alert-message {color}"><slot name="message" /></div>{/if}
 		</section>
 
 		<!-- Slot: Trail -->

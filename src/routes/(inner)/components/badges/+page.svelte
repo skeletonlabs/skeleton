@@ -7,11 +7,6 @@
 	const tableProps: any = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
-			// ['icon', 'boolean', 'false', 'Adjusts styling to accommodate icons.'],
-			// ['background', 'class', 'bg-surface-500', 'Provide classes to set the background color.'],
-			// ['color', 'class', 'text-white', 'Provide classes to set the text color.'],
-			// ['fill', 'class', 'fill-white', 'Provide classes to set the fill color for SVG icons.'],
-			// ['rounded', 'class', 'rounded-lg', 'Provide classes to set rounding style.']
 			['icon', 'string', '-', 'Enable icon mode.'],
 			['background', 'string', 'bg-surface-300 dark:bg-surface-600', 'Provided classes to set the background color.'],
 			['fill', 'string', 'fill-black dark:fill-white', 'Provided classes to set to set SVG fill color.'],
@@ -24,10 +19,11 @@
 	};
 	// Slots
 	const tableSlots: any = {
-		headings: ['Slot', 'Description'],
+		headings: ['Slot', 'Style Prop', 'Description'],
 		source: [
-			['lead', 'Define a leading element, such as an icon.'],
-			['trail', 'Define a trailing element, such as an icon.']
+			['default', 'slotDefault', 'Provide your default content, usually the text label.'],
+			['lead', 'slotLead', 'Provide a leading element, such as an icon.'],
+			['trail', 'slotDefault', 'Provide a trailing element, such as an icon.']
 		]
 	};
 </script>

@@ -22,10 +22,15 @@
 			['length', 'number', '0', '&check;', 'Provide a count of the total number of Steps (children).'],
 			['duration', 'number', '200', '-', 'Set the Svelte transition duration.'],
 			['color', 'string', 'text-white', '-', 'Provide classes to set the numeral text color.'],
-			['background', 'string', 'bg-accent-500 text-white', '-', 'Provide classes to set the timeline background color.'],
-			['buttonBack', 'object', '-', '-', 'Provide an object of button props. Uses an object spread to apply attributes.'],
-			['buttonNext', 'object', '-', '-', 'Provide an object of button props. Uses an object spread to apply attributes.'],
-			['buttonComplete', 'object', '-', '-', 'Provide an object of button props. Uses an object spread to apply attributes.']
+			['background', 'string', 'bg-accent-500 text-white', '-', 'Provide classes to set the timeline background color.']
+		]
+	};
+	const tablePropsStepperButtons: any = {
+		headings: ['Prop', 'Type', 'Default', 'Description'],
+		source: [
+			['buttonBack', 'object', `variant: 'ring'`, 'Provide an object of button props. Uses an object spread to apply attributes.'],
+			['buttonNext', 'object', `variant: 'filled'`, 'Provide an object of button props. Uses an object spread to apply attributes.'],
+			['buttonComplete', 'object', `variant: 'filled-primary', text: 'Complete'`, 'Provide an object of button props. Uses an object spread to apply attributes.']
 		]
 	};
 	const tablePropsStep: any = {
@@ -119,6 +124,9 @@
 		<h2>Properties</h2>
 		<h3>Stepper</h3>
 		<DataTable headings={tablePropsStepper.headings} source={tablePropsStepper.source} />
+		<p>To style your buttons, create an object of the desired props and attributes. This will be applied via a JavaScript spread method.</p>
+		<CodeBlock language="html" code={`<Stepper buttonBack={variant: 'filled-warning' class='m-10'}></Stepper>`} />
+		<DataTable headings={tablePropsStepperButtons.headings} source={tablePropsStepperButtons.source} />
 		<h3>Step</h3>
 		<DataTable headings={tablePropsStep.headings} source={tablePropsStep.source} />
 	</section>

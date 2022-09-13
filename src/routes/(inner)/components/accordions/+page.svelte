@@ -18,17 +18,15 @@
 			['hover', 'string', 'hover:bg-primary-500/10', 'Provide classes to set the hover background color.'],
 			['spacing', 'string', 'space-y-0', 'Provide classes to set spacing between title and description elements.'],
 			['padding', 'string', 'px-4 py-2', 'Provide classes to set padding for summary and content regions.'],
-			['rounded', 'string', 'rounded', 'Provide classes to set summary border radius.'],
-			['slotSummary', 'string', '-', 'Provide arbitrary classes for the summary slot element.'],
-			['slotContent', 'string', '-', 'Provide arbitrary classes for the slotContent slot element.']
+			['rounded', 'string', 'rounded', 'Provide classes to set summary border radius.']
 		]
 	};
 	const tableSlots: any = {
-		headings: ['Name', 'Required', 'Description'],
+		headings: ['Name', 'Required', 'Style Prop', 'Description'],
 		source: [
-			['lead', '-', 'Allows for an optional leading element, such as an icon.'],
-			['summary', '&check;', 'Provide the summary details of each item.'],
-			['content', '&check;', 'Provide the content details of each item.']
+			['lead', '-', 'slotSummary > .summary-lead', 'Allows for an optional leading element, such as an icon.'],
+			['summary', '&check;', 'slotSummary', 'Provide the summary details of each item.'],
+			['content', '&check;', 'slotContent', 'Provide the content details of each item.']
 		]
 	};
 	const tableA11yItem: any = {
@@ -140,15 +138,16 @@
 	<!-- Properties -->
 	<section class="space-y-4">
 		<h2>Properties</h2>
-		<h3>Accordion Group</h3>
+		<h4>Accordion Group</h4>
 		<DataTable headings={tablePropsGroup.headings} source={tablePropsGroup.source} />
-		<h3>Accordion Item</h3>
+		<h4>Accordion Item</h4>
 		<DataTable headings={tablePropsItem.headings} source={tablePropsItem.source} />
 	</section>
 
 	<!-- Slots -->
 	<section class="space-y-4">
 		<h2>Slots</h2>
+		<h4>Accordion Item</h4>
 		<DataTable headings={tableSlots.headings} source={tableSlots.source} />
 	</section>
 
@@ -156,7 +155,7 @@
 	<section class="space-y-4">
 		<h2>Accessibility</h2>
 		<div class="flex justify-between items-center">
-			<h3>Accordion Item</h3>
+			<h4>Accordion Item</h4>
 			<a href="https://www.w3.org/WAI/ARIA/apg/example-index/accordion/accordion" target="_blank">ARIA Guidelines</a>
 		</div>
 		<DataTable headings={tableA11yItem.headings} source={tableA11yItem.source} />

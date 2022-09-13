@@ -7,7 +7,7 @@
 	export let space: string = 'space-x-4';
 	// Props (slots)
 	export let slotLead: string = '';
-	export let slotCenter: string = '';
+	export let slotDefault: string = '';
 	export let slotTrail: string = '';
 	// Props (a11y)
 	export let label: string | undefined = undefined;
@@ -22,7 +22,7 @@
 	// Reactive Classes
 	$: classesBase = `${cBase} ${background} ${border} ${padding} ${shadow} ${space} ${$$props.class || ''}`;
 	$: classesLead = `${cLead} ${slotLead}`;
-	$: classesCenter = `${cCenter} ${slotCenter}`;
+	$: classesCenter = `${cCenter} ${slotDefault}`;
 	$: classesTrail = `${cTrail} ${slotTrail}`;
 </script>
 

@@ -11,18 +11,15 @@
 			['border', 'string', '-', 'Provide classes to set border styles.'],
 			['padding', 'string', 'px-4 py-4 md:py-6', 'Provide classes to set padding.'],
 			['shadow', 'string', 'shadow-lg', 'Provide classes to define a box shadow.'],
-			['space', 'string', 'space-x-4', 'Provide classes to set horizontal spacing.'],
-			['slotLead', 'string', '-', 'Provide arbitrary classes for the leading slot element.'],
-			['slotCenter', 'string', '-', 'Provide arbitrary classes for the center slot element.'],
-			['slotTrail', 'string', '-', 'Provide arbitrary classes for the trailing slot element.']
+			['space', 'string', 'space-x-4', 'Provide classes to set horizontal spacing.']
 		]
 	};
 	const tableSlots: any = {
-		headings: ['Name', 'Description'],
+		headings: ['Name', 'Style Prop', 'Description'],
 		source: [
-			['default', 'Provides content within the center of the bar, such as a search element.'],
-			['lead', 'Provides content on the left end of the bar, such a logo.'],
-			['trail', 'Provides content on the right end of the bar, such as a navigation.']
+			['default', 'slotDefault', 'Provides content within the center of the bar, such as a search element.'],
+			['lead', 'slotLead', 'Provides content on the left end of the bar, such a logo.'],
+			['trail', 'slotTrail', 'Provides content on the right end of the bar, such as a navigation.']
 		]
 	};
 	const tableA11y: any = {

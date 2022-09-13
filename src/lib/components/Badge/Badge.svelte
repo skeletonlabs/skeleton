@@ -8,6 +8,10 @@
 	export let padding: string = 'px-2 py-[3px]';
 	export let rounded: string = 'rounded';
 	export let shadow: string | undefined = undefined;
+	// Props (slot)
+	export let slotLead: string | undefined = undefined;
+	export let slotDefault: string | undefined = undefined;
+	export let slotTrail: string | undefined = undefined;
 
 	// Base Classes
 	let cBaseBadge: string = 'font-semibold inline-flex items-center space-x-2 whitespace-nowrap';
@@ -19,9 +23,9 @@
 
 <span data-testid="badge" class="badge {classesBadge}">
 	<!-- Slot: Lead -->
-	{#if $$slots.lead}<div class="badge-lead"><slot name="lead" /></div>{/if}
+	{#if $$slots.lead}<div class="badge-lead {slotLead}"><slot name="lead" /></div>{/if}
 	<!-- Slot: Default -->
-	<div class="badge-content"><slot /></div>
+	<div class="badge-content {slotDefault}"><slot /></div>
 	<!-- Slot: Trail -->
-	{#if $$slots.trail}<div class="badge-trail"><slot name="trail" /></div>{/if}
+	{#if $$slots.trail}<div class="badge-trail {slotTrail}"><slot name="trail" /></div>{/if}
 </span>

@@ -16,15 +16,15 @@
 
 	// Tables
 	const tableProps: any = {
-		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
+		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
-			['slotHeader', 'string', '-', '-', 'Provide arbitrary classes to the header slot element.'],
-			['slotSidebarLeft', 'string', 'w-auto', '-', 'Provide arbitrary classes to the header left sidebar element.'],
-			['slotSidebarRight', 'string', 'w-auto', '-', 'Provide arbitrary classes to the header right sidebar element.'],
-			['slotPageHeader', 'string', '-', '-', 'Provide arbitrary classes to the header page header element.'],
-			['slotPageContent', 'string', '-', '-', 'Provide arbitrary classes to the header page content element.'],
-			['slotPageFooter', 'string', '-', '-', 'Provide arbitrary classes to the header page footer element.'],
-			['slotFooter', 'string', '-', '-', 'Provide arbitrary classes to the footer element.']
+			['slotHeader', 'string', '-', 'Provide arbitrary classes to the header slot element.'],
+			['slotSidebarLeft', 'string', 'w-auto', 'Provide arbitrary classes to the header left sidebar element.'],
+			['slotSidebarRight', 'string', 'w-auto', 'Provide arbitrary classes to the header right sidebar element.'],
+			['slotPageHeader', 'string', '-', 'Provide arbitrary classes to the header page header element.'],
+			['slotPageContent', 'string', '-', 'Provide arbitrary classes to the header page content element.'],
+			['slotPageFooter', 'string', '-', 'Provide arbitrary classes to the header page footer element.'],
+			['slotFooter', 'string', '-', 'Provide arbitrary classes to the footer element.']
 		]
 	};
 	const tableSlots: any = {

@@ -7,8 +7,9 @@
 	export let spacing: string = 'space-y-2';
 	export let padding: string = 'px-4 py-2';
 	export let rounded: string = 'rounded';
-	export let slotSummary: string = '';
-	export let slotContent: string = '';
+	// Props (slot)
+	export let slotSummary: string | undefined = undefined;
+	export let slotContent: string | undefined = undefined;
 	// A11y
 	export let summaryId: string | undefined = undefined;
 	export let contentId: string | undefined = undefined;
