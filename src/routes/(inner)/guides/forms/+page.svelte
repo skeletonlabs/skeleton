@@ -21,14 +21,20 @@
 		</p>
 		<p>
 			However, given Skeleton's tight integration with Tailwind, an elegant solution is available via the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank"
-				>official Tailwind Forms plugin</a
+				>Tailwind Forms plugin</a
 			>. This provides a no-nonsense approach to applying clean and modern styling to <em>most</em> inputs.
-		</p>
-		<p>
-			Tailwind provides an example page to <a href="https://tailwindcss-forms.vercel.app/kitchen-sink.html" target="_blank">preview the default styles here</a>. These default styles can then be
-			tailored to adapt your theme styling use Skeleton's modular stylesheet add-on for forms.
+			<a href="https://tailwindcss-forms.vercel.app/kitchen-sink.html" target="_blank">See their default styles here</a>.
 		</p>
 	</header>
+
+	<!-- Preview -->
+	<Card slotBody="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+		<div class="space-y-2">
+			<h2>Forms Preview</h2>
+			<p>We've provided a "kitchen sink" page to view all form styles.</p>
+		</div>
+		<Button variant="filled-accent" href="/guides/forms/preview">Preview Form Inputs</Button>
+	</Card>
 
 	<Divider />
 
@@ -106,19 +112,6 @@ module.exports = {
 </label>
         `.trim()}
 		/>
-	</section>
-
-	<Divider />
-
-	<!-- Non-Supported -->
-	<section class="space-y-4">
-		<h2>Non-Supported Inputs</h2>
-		<p>
-			While the Tailwind Forms plugin covers most common inputs, there are <a href="https://tailwindcss-forms.vercel.app/kitchen-sink.html" target="_blank">a few exceptions</a> (see page bottom).
-			However, Skeleton provides a robust <a href="/components/range-sliders">Range Slider</a>
-			alternative, as well as custom components for <a href="/components/slide-toggles">Slide Toggles</a> and <a href="/components/radio-groups">Radio Groups</a>. Expect to see more of these in the
-			future.
-		</p>
 	</section>
 
 	<Divider />

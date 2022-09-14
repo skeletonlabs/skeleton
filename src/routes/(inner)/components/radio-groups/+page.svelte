@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { writable } from 'svelte/store';
+	import { writable, type Writable } from 'svelte/store';
 	import { DataTable, Card, RadioGroup, RadioItem } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
 	const storeJustify = writable(0);
-	const storeLayout = writable('horz');
+	const storeLayout: Writable<string> = writable('horz');
 
 	// Props & Slots
 	const tablePropsGroup: any = {
@@ -74,7 +74,7 @@
 
 	<!-- Usage -->
 	<section class="space-y-4">
-		<CodeBlock language="typescript" code={`import type { Writable } from "svelte/store";\n\nconst storeLayout: Writable<string> = writable('horz');`} />
+		<CodeBlock language="typescript" code={`import { writable, type Writable } from 'svelte/store';\n\nconst storeLayout: Writable<string> = writable('horz');`} />
 		<CodeBlock
 			language="html"
 			code={`
