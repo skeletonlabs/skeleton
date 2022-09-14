@@ -2,7 +2,8 @@
 	import { writable, type Writable } from 'svelte/store';
 
 	// Components
-	import Button from '$lib/components/Button/Button.svelte';
+	import Breadcrumb from '$lib/components/Breadcrumb/Breadcrumb.svelte';
+	import Crumb from '$lib/components/Breadcrumb/Crumb.svelte';
 	import Card from '$lib/components/Card/Card.svelte';
 	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
@@ -16,9 +17,14 @@
 </script>
 
 <div class="space-y-8">
+	<!-- Breadcrumbs -->
+	<Breadcrumb>
+		<Crumb href="/guides/forms">Forms Guide</Crumb>
+		<Crumb>Preview</Crumb>
+	</Breadcrumb>
+
 	<!-- Header -->
 	<header class="space-y-4">
-		<a href="/guides/forms">&larr; Go Back</a>
 		<h1>Forms Preview</h1>
 		<p>This page provides a "kitchen sink" of various form elements and Skeleton components.</p>
 	</header>
