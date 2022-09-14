@@ -28,8 +28,8 @@
 		<svelte:fragment slot="header">
 			<h2>Native HTML Elements</h2>
 			<p>
-				Native HTML input elements syled with both the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Tailwind Forms plugin</a> and
-				<a href="/guides/styling">Skeleton forms.css stylesheet</a>.
+				Native HTML input elements using the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Tailwind Forms plugin</a>, further augmented with the
+				<a href="/guides/styling">Skeleton forms.css</a> add-on stylesheet.
 			</p>
 		</svelte:fragment>
 		<!-- Column 1 -->
@@ -152,7 +152,7 @@
 		<Card slotHeader="space-y-1">
 			<svelte:fragment slot="header">
 				<h2>Skeleton Style Add-On</h2>
-				<p>Native HTML elements styled by the <a href="/guides/styling">Skeleton forms.css stylesheet</a>.</p>
+				<p>Native HTML elements styled by the <a href="/guides/styling">Skeleton forms.css</a> add-on stylesheet.</p>
 			</svelte:fragment>
 			<div class="space-y-4">
 				<label class="block">
