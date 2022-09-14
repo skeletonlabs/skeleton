@@ -10,8 +10,8 @@
 			['gridGap', 'string', 'gap-1', 'Group', 'Provide classes to style grid gap.'],
 			['rounded', 'string', 'rounded-lg', 'Group', 'Provide classes to style rounded styling.'],
 			['background', 'string', 'bg-surface-300 dark:bg-surface-800', 'Logo', 'Provide classes to style background color.'],
-			['color', 'string', 'text-black dark:text-white', 'Logo', 'Provide classes to style text color.'],
 			['text', 'string', 'text-base font-bold', 'Logo', 'Provide classes to style text size.'],
+			['color', 'string', 'text-black dark:text-white', 'Logo', 'Provide classes to style text color.'],
 			['padding', 'string', 'py-4 md:py-10', 'Logo', 'Provide classes to style padding.']
 		]
 	};

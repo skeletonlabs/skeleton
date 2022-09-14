@@ -11,8 +11,7 @@
 		source: [
 			['visible', 'boolean', 'true', 'Control visibility of the alert.'],
 			['background', 'string', 'bg-accent-500/30', 'Provide classes to set background color.'],
-			['borderWidth', 'string', 'border-l-4', 'Provide classes to set the border size.'],
-			['borderColor', 'string', 'border-l-accent-500', 'Provide classes to set the border color.'],
+			['border', 'string', 'border-l-4 border-l-accent-500', 'Provide classes to set the border styles.'],
 			['color', 'string', '-', 'Provide classes to set text color.'],
 			['radius', 'string', '-', 'Provide classes to set border radius.'],
 			['duration', 'number', '200', 'Svelte fade transition duration. Set <code>0</code> to disable.']
@@ -23,7 +22,7 @@
 		source: [
 			['lead', 'slotLead', 'Provide a leading element, such as an icon.'],
 			['title', 'slotContent > .alert-title', 'Provide the alert title text.'],
-			['message', 'slotContent > .alert-message', 'Provide the alert message text.'],
+			['default', 'slotContent > .alert-message', 'Provide the alert message text.'],
 			['trail', 'slotTrail', 'Provide a trailing element, such as a call to action.']
 		]
 	};
@@ -54,20 +53,20 @@
 				<span class="text-4xl">⚠️</span>
 			</svelte:fragment>
 			<svelte:fragment slot="title">{title}</svelte:fragment>
-			<svelte:fragment slot="message">{message}</svelte:fragment>
+			<span>{message}</span>
 			<svelte:fragment slot="trail">
 				<Button variant="filled-accent" on:click={actionExample}>View More</Button>
 				<Button variant="ghost-accent" on:click={toggleVisible}>&#10005;</Button>
 			</svelte:fragment>
 		</Alert>
-		<Alert background="bg-primary-500/30" borderColor="border-primary-500" {visible}>
+		<Alert background="bg-primary-500/30" border="border-l-4 border-primary-500" {visible}>
 			<svelte:fragment slot="title">{title}</svelte:fragment>
 			<svelte:fragment slot="trail">
 				<Button variant="filled-primary" on:click={actionExample}>View More</Button>
 			</svelte:fragment>
 		</Alert>
-		<Alert background="bg-warning-500/30" borderColor="border-warning-500" rounded="rounded-3xl" {visible}>
-			<svelte:fragment slot="message">{message}</svelte:fragment>
+		<Alert background="bg-warning-500/30" border="border-l-4 border-warning-500" rounded="rounded-3xl" {visible}>
+			<span>{message}</span>
 			<svelte:fragment slot="trail">
 				<Button variant="ghost" on:click={toggleVisible}>&#10005;</Button>
 			</svelte:fragment>
@@ -84,7 +83,7 @@
 <Alert {visible}>
     <svelte:fragment slot="lead">(icon)</svelte:fragment>
     <svelte:fragment slot="title">(title))</svelte:fragment>
-    <svelte:fragment slot="message">(message)</svelte:fragment>      
+    <span>(message)</span>      
     <svelte:fragment slot="trail">(trail)</svelte:fragment>
 </Alert>
         `.trim()}

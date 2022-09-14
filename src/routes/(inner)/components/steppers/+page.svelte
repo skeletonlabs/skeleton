@@ -28,9 +28,14 @@
 	const tablePropsStepperButtons: any = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
-			['buttonBack', 'object', `variant: 'ring'`, 'Provide an object of button props. Uses an object spread to apply attributes.'],
-			['buttonNext', 'object', `variant: 'filled'`, 'Provide an object of button props. Uses an object spread to apply attributes.'],
-			['buttonComplete', 'object', `variant: 'filled-primary', text: 'Complete'`, 'Provide an object of button props. Uses an object spread to apply attributes.']
+			['buttonBack', 'object', `variant: 'ring'`, 'Provide <a href="/components/buttons">Button properties</a> to <a href="https://svelte.dev/tutorial/spread-props" target="_blank">spread</a>.'],
+			['buttonNext', 'object', `variant: 'filled'`, 'Provide <a href="/components/buttons">Button properties</a> to <a href="https://svelte.dev/tutorial/spread-props" target="_blank">spread</a>.'],
+			[
+				'buttonComplete',
+				'object',
+				`variant: 'filled-primary', text: 'Complete'`,
+				'Provide <a href="/components/buttons">Button properties</a> to <a href="https://svelte.dev/tutorial/spread-props" target="_blank">spread</a>.'
+			]
 		]
 	};
 	const tablePropsStep: any = {
@@ -63,7 +68,7 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Stepper</h1>
-		<p>Divide content into sequenced steps.</p>
+		<p>Divide and present content in sequenced steps.</p>
 		<CodeBlock language="javascript" code={`import { Stepper, Step } from '@brainandbones/skeleton';`} />
 	</header>
 
@@ -79,18 +84,19 @@
 			</Step>
 			<Step index={2} locked={!exampleLockedState}>
 				<p>
-					The Step component has a <code>locked</code> property that can be enabled to prevent progress. This is ideal for multi-step forms, such as registration. Just tie the form validation
-					condition to the property. For now we'll simulate this using the <em>unlock</em> option below.
+					This Step component uses the <code>locked</code> property, which can prevent progress. This is ideal for multi-step forms, such as registration. For now we'll simulate a successful
+					validation condition using the
+					<em>unlock</em> option below.
 				</p>
 				<SlideToggle bind:checked={exampleLockedState}>Unlock</SlideToggle>
 			</Step>
 			<Step index={3}>
-				<p>The steps will expand to fit content of any width. We'll demonstrate this below with lorem ipsum text.</p>
+				<p>The steps will expand to fit content of any width. We'll demonstrate this below with <em>lorem ipsum</em> text.</p>
 				<p>{lorem} {lorem} {lorem} {lorem} {lorem}</p>
 			</Step>
 			<Step index={4}>
 				<p>
-					On the last step the <em>Complete</em> button will appear. When tapped an <code>on:complete</code> event will fire, which can be used to submit form data to a server.
+					A <em>Complete</em> button will appear on the last step. When the step is unlocked and the button pressed, an <code>on:complete</code> event will fire. Use this to submit form data to a server.
 				</p>
 			</Step>
 		</Stepper>
@@ -99,10 +105,10 @@
 	<!-- Usage -->
 	<section class="space-y-4">
 		<h2>Usage</h2>
-		<p>To begin, create a writable that will store your active step value. This should always be set to zero.</p>
+		<p>To begin, create a writable that will store your active step value. This should <u>always</u> be set to <code>0</code> (zero).</p>
 		<CodeBlock language="typescript" code={`import type { Writable } from "svelte/store";`} />
 		<CodeBlock language="typescript" code={`const active: Writable<number> = writable(0);`} />
-		<p>Scaffold your stepper as shown. If no header slot is provided text will be generated that says "Step X" automatically.</p>
+		<p>Scaffold your stepper as shown. If no header slot is provided then the component will add "Step X" text automatically.</p>
 		<CodeBlock
 			language="html"
 			code={`
@@ -115,7 +121,7 @@
 </Stepper>
         `.trim()}
 		/>
-		<p>Create a function to handle your Stepper's <code>complete</code> event.</p>
+		<p>Create a function to handle your Stepper's <code>on:complete</code> event.</p>
 		<CodeBlock language="typescript" code={`const onComplete: any = () => { /* handle the event */ }`} />
 	</section>
 
@@ -124,8 +130,6 @@
 		<h2>Properties</h2>
 		<h3>Stepper</h3>
 		<DataTable headings={tablePropsStepper.headings} source={tablePropsStepper.source} />
-		<p>To style your buttons, create an object of the desired props and attributes. This will be applied via a JavaScript spread method.</p>
-		<CodeBlock language="html" code={`<Stepper buttonBack={variant: 'filled-warning' class='m-10'}></Stepper>`} />
 		<DataTable headings={tablePropsStepperButtons.headings} source={tablePropsStepperButtons.source} />
 		<h3>Step</h3>
 		<DataTable headings={tablePropsStep.headings} source={tablePropsStep.source} />

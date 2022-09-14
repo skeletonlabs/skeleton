@@ -25,7 +25,7 @@
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['label', 'string', '-', 'Set the label text.'],
-			['value', 'number', '-', 'Specifies the amount completed. Shows as indeterminate when <code>undefined</code>.'],
+			['value', 'number', '-', 'Specifies the amount completed. Indeterminate when <code>undefined</code>.'],
 			['max', 'number', '100', 'Maximum amount the bar represents.'],
 			['height', 'string', 'h-2', 'Provide classes to set track height.'],
 			['rounded', 'string', 'rounded-full', 'Provide classes to set rounded styles.'],
@@ -39,7 +39,7 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Progress Bar</h1>
-		<p>Displays an indicator showing the progress or completion of a task.</p>
+		<p>An indicator showing the progress or completion of a task.</p>
 		<CodeBlock language="js" code={`import { ProgressBar } from '@brainandbones/skeleton';`} />
 	</header>
 
@@ -63,14 +63,8 @@
 			</Card>
 			<!-- Options -->
 			<Card slotBody="space-y-4">
-				<!-- Label -->
-				<label>
-					<span>Label</span>
-					<input type="text" bind:value={props.label} placeholder="Label" />
-				</label>
 				<!-- Mode -->
 				<label for="">
-					<span>Mode</span>
 					<RadioGroup selected={storeDeterminate} display="flex">
 						<RadioItem value={true}>Determinate</RadioItem>
 						<RadioItem value={false}>Indeterminate</RadioItem>
@@ -80,6 +74,11 @@
 				{#if props.determinate}
 					<input type="range" id="amount" name="amount" min="0" max={props.max} step="10" bind:value={props.value} aria-label="Value Amount" />
 				{/if}
+				<!-- Label -->
+				<label>
+					<span>Label</span>
+					<input type="text" bind:value={props.label} placeholder="Label" />
+				</label>
 				<!-- Height -->
 				<label for="">
 					<span>Height</span>

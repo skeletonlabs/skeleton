@@ -44,7 +44,7 @@
 	<!-- Examples -->
 	<Alert background="bg-warning-500" class="sm:hidden">
 		<svelte:fragment slot="title">Warning</svelte:fragment>
-		<svelte:fragment slot="message">Tooltips require mouse hover events. They are not available for use on mobile.</svelte:fragment>
+		Tooltips require mouse hover events. They are not available for use on mobile.
 	</Alert>
 	<section class="hidden sm:block space-y-4">
 		<!-- Default -->

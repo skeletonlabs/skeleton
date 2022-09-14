@@ -4,6 +4,7 @@
 	import DataTable from '$lib/components/Table/DataTable.svelte';
 	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
 	import AppShell from '$lib/components/AppShell/AppShell.svelte';
+	import Alert from '$lib/components/Alert/Alert.svelte';
 
 	// Local
 	let state: any = {
@@ -106,7 +107,7 @@
 		`.trim()}
 		/>
 		<p>
-			The App Shell will need expand to fill your <em>body</em> tag. First, remove all wrapping elements in your root page. For SvelteKit this is located in
+			The App Shell will need to expand to fill your <em>body</em> tag. First, remove all wrapping elements in your root HTML page. For SvelteKit this is located in
 			<code>/src/app.html</code>.
 		</p>
 		<CodeBlock
@@ -118,7 +119,7 @@
 </body>
 		`.trim()}
 		/>
-		<p>Then, disable overflow on your <em>html</em> and <em>body</em> tags to prevent duplicate scroll bars. Add this to your global stylesheet.</p>
+		<p>Then, disable overflow on your <em>html</em> and <em>body</em> tags to prevent duplicate scroll bars. Update your global stylesheet with the following.</p>
 		<CodeBlock
 			language="css"
 			code={`
@@ -126,7 +127,7 @@ html, body { @apply w-screen h-screen overflow-hidden; }
 		`.trim()}
 		/>
 		<h4>App Bar</h4>
-		<p>If you wish for your <a href="/components/app-bar">App Bar</a> component to remain fixed at the top of the page, add it to the top-most <code>header</code> slot.</p>
+		<p>If you wish for your <a href="/components/app-bar">App Bar</a> component to remain fixed at the top of the page, embed it into the top-most <code>header</code> slot.</p>
 		<CodeBlock
 			language="html"
 			code={`
@@ -140,8 +141,8 @@ html, body { @apply w-screen h-screen overflow-hidden; }
 		/>
 		<h4>Sidebars</h4>
 		<p>
-			Please be aware that sidebars have a default width of <code>auto</code>. This means sidebars will automatically collapse when their contents are empty or hidden. This is useful if you wish to
-			hide the sidebar when with CSS media queries via <a href="https://tailwindcss.com/docs/responsive-design" target="_blank">Tailwind's responsive breakpoints</a>.
+			Please be aware that sidebars have a default width of <code>auto</code>. Sidebars will automatically collapse when their contents are empty or hidden. This is useful if you wish to hide the
+			sidebar when with CSS media queries via <a href="https://tailwindcss.com/docs/responsive-design" target="_blank">Tailwind's responsive breakpoints</a>.
 		</p>
 		<CodeBlock
 			language="html"
@@ -154,6 +155,11 @@ html, body { @apply w-screen h-screen overflow-hidden; }
 </AppShell>
 		`.trim()}
 		/>
+		<Alert>
+			<svelte:fragment slot="title">Pro Tip</svelte:fragment>
+			Consider hiding your sidebar for smaller screens and using a Drawer component. If you wish to use the same navigation lists in both, create a shared components that's inserted into both the Drawer
+			and Sidebar slots. We use this technique on this site!
+		</Alert>
 	</section>
 
 	<!-- Properties -->

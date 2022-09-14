@@ -11,7 +11,7 @@
 		source: [
 			[
 				'<code>tailwind.css</code>',
-				'Should proceed all other add-ons. Includes only the four primary <a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank">@tailwind directives</a>.',
+				'Should proceed all other add-ons. Includes the <a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank">@tailwind directives</a>.',
 				'-',
 				`<a href="${ghLibPathMaster}/styles/tailwind.css" target="_blank">View</a>`
 			],
@@ -31,8 +31,62 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Styling</h1>
-		<p>Review best practies for implementing global styles using the modular stylesheet system, as well as how to override and adjust styles per each component.</p>
+		<p>Review best practies for implementing stylesheets, handling global styles, as well as how to styling each each component.</p>
 	</header>
+
+	<Divider />
+
+	<!-- Add-Ons -->
+	<section class="space-y-4">
+		<h2>Stylesheet Add-Ons</h2>
+		<p>Skeleton provides a set of modular stylesheets that adapt to your theme and provide a more consistent aesthetic.</p>
+		<TabGroup selected={storeFramework}>
+			<Tab value="sveltekit">SvelteKit</Tab>
+			<Tab value="vite">Vite (Svelte)</Tab>
+			<Tab value="astro">Astro</Tab>
+		</TabGroup>
+		<!-- Framework: SvelteKit | Vite (Svelte) -->
+		{#if $storeFramework === 'sveltekit'}
+			<p>Import CSS add-ons <u>after your theme</u> and <u>before the global</u> stylesheet in <code>/src/routes/+layout.svelte</code>.</p>
+			<CodeBlock
+				language="typescript"
+				code={`
+// Append the following after your theme:
+import '@brainandbones/skeleton/styles/{stylehsheet}.css'; // <--
+import '../app.postcss';`.trim()}
+			/>
+		{:else if $storeFramework === 'vite'}
+			<p>Import CSS add-ons <u>after your theme</u> and <u>before the global</u> stylesheet in <code>/src/main.js</code>.</p>
+			<CodeBlock
+				language="typescript"
+				code={`
+// Append the following after your theme:
+import '@brainandbones/skeleton/styles/{stylehsheet}.css'; // <--
+import '../app.css';`.trim()}
+			/>
+			<!-- Framework: Astro -->
+		{:else if $storeFramework === 'astro'}
+			<p>Import CSS add-ons <u>after your theme</u> and <u>before the global</u> stylesheet in <code>/src/layouts/LayoutBasic.astro</code>.</p>
+			<CodeBlock
+				language="typescript"
+				code={`
+// Append the following after your theme:
+import '@brainandbones/skeleton/styles/{stylehsheet}.css'; // <--
+import '../styles/base.css';`.trim()}
+			/>
+		{/if}
+		<p>Import each desired add-on in the order shown below. Be sure to set the appropriate file name.</p>
+		<DataTable headings={tableStyleAddons.headings} source={tableStyleAddons.source} />
+		<Alert background="bg-accent-500/30">
+			<span class="text-black dark:text-white">
+				Ensure you import the <code>tailwind.css</code> add-on before all others. Remove the @tailwind directives from your global stylesheet if you choose to use these add-ons. Failure to do so will mean
+				you have two instances of the directives in your project.
+			</span>
+			<svelte:fragment slot="trail">
+				<Button variant="filled" href="https://tailwindcss.com/docs/functions-and-directives" target="_blank">Tailwind Directives</Button>
+			</svelte:fragment>
+		</Alert>
+	</section>
 
 	<Divider />
 
@@ -56,60 +110,25 @@
 				Utilize the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Tailwind Forms plugin</a>
 				to handle form input element styling. View the <a href="/guides/forms">Forms</a> guide for details.
 			</li>
+			<li>We recommend you inspect each imported stylesheet add-on. If you wish to override these, you can do so in your global stylesheet.</li>
 		</ul>
-	</section>
-
-	<Divider />
-
-	<!-- Add-Ons -->
-	<section class="space-y-4">
-		<h2>Stylesheet Add-Ons</h2>
-		<p>Skeleton provides a set of modular stylesheets that can adapt your project to use your theme colors and provide a more consistent aesthetic.</p>
-		<TabGroup selected={storeFramework}>
-			<Tab value="sveltekit">SvelteKit</Tab>
-			<Tab value="vite">Vite (Svelte)</Tab>
-			<Tab value="astro">Astro</Tab>
-		</TabGroup>
-		<!-- Framework: SvelteKit | Vite (Svelte) -->
-		{#if $storeFramework === 'sveltekit'}
-			<p>Import desired CSS add-ons directly above your global stylesheet in <code>/src/routes/+layout.svelte</code>.</p>
-			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/styles/{stylehsheet}.css'; // ex: tailwind.css\nimport '../app.postcss';`} />
-		{:else if $storeFramework === 'vite'}
-			<p>Import desired CSS add-ons directly above your global stylesheet in <code>/src/main.js</code>.</p>
-			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/styles/{stylehsheet}.css'; // ex: tailwind.css\nimport '../app.css';`} />
-			<!-- Framework: Astro -->
-		{:else if $storeFramework === 'astro'}
-			<p>Import desired CSS add-ons directly above your global stylesheet in <code>/src/layouts/LayoutBasic.astro</code>.</p>
-			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/styles/{stylehsheet}.css'; // ex: tailwind.css\nimport '../styles/base.css';`} />
-		{/if}
-		<p>Import each add-on in the order shown below, from top-to-bottom. Be sure to pass the appropriate stylesheet filename as follows.</p>
-		<DataTable headings={tableStyleAddons.headings} source={tableStyleAddons.source} />
-		<Alert background="bg-accent-500/30">
-			<svelte:fragment slot="message">
-				<span class="text-black dark:text-white">
-					Ensure you import the <code>tailwind.css</code> add-on before all others. Remove the @tailwind directives from your global stylesheet if you choose to use these add-ons. Failure to do so will
-					mean you have two instances of the directives in your project.
-				</span>
-			</svelte:fragment>
-			<svelte:fragment slot="trail">
-				<Button variant="filled" href="https://tailwindcss.com/docs/functions-and-directives" target="_blank">Tailwind Directives</Button>
-			</svelte:fragment>
-		</Alert>
 	</section>
 
 	<Divider />
 
 	<!-- Per Component Styles -->
 	<section class="space-y-4">
-		<h2>Per Component Styles</h2>
+		<h2>Styling Components</h2>
 		<p>Skeleton components automatically inherit and utilize your theme colors. However, there may be cases where you want to overwrite or extend the styling on a single component.</p>
-		<p>Special style properties are provided to customize each component. See each component's documentation for instruction.</p>
+		<h4>Using Component Props</h4>
+		<p>Various style properties are available to customize components. These accept Tailwind utility classes. See each component's documentation page for details.</p>
 		<CodeBlock
 			language="html"
 			code={`
 <Button background="bg-accent-500">Prop Customized</Button>
         `.trim()}
 		/>
+		<h4>Appending Arbitrary Classes</h4>
 		<p>To go beyond the pre-defined properties, pass a standard <code>class</code> attribute to any component. You can then apply any valid CSS or Tailwind class as expected.</p>
 		<CodeBlock
 			language="html"
@@ -121,12 +140,18 @@
 			When overwriting inherited styles, you may need to mark the styles as <code>!important</code>. Tailwind uses a leading exclamation mark to handle this.
 		</p>
 		<CodeBlock language="html" code={`<Button class="!p-10">Big</Button>`} />
+		<h4>Targetting Component Elements</h4>
 		<p>
 			Keep in mind that components are a single line HTML element and represent a set of HTML elements within. This means you should be mindful of your target, as the <code>class</code> attribute is only
 			applied to the top-most parent element. In rare cases you may need to generate a chained class definition, though we advise using this technique sparingly.
 		</p>
-		<CodeBlock language="css" code={`.my-custom-class .menu-content { @apply bg-red-500; }`} />
+		<CodeBlock language="css" code={`.my-custom-class .some-child-element { @apply bg-red-500; }`} />
 		<CodeBlock language="html" code={`<Menu class="my-custom-class">...</Menu>`} />
+		<h4>Template Element Classes</h4>
+		<p>Finally, if you inspect rendered components in your browser's element DOM, you'll notice that most have classes. There's the Breadcrumb seperator for example:</p>
+		<CodeBlock language="html" code={`<div class="crumb-seperator ...">&rarr;</div>`} />
+		<p>If you wish to adjust the styling of this element, you can target the <code>.crumb-seperator</code> class in your global stylesheet like so:</p>
+		<CodeBlock language="css" code={`.crumb-seperator { @apply text-red-500; }`} />
 	</section>
 
 	<Divider />

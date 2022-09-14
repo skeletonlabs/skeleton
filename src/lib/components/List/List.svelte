@@ -5,9 +5,12 @@
 	// Props
 	export let tag: string = 'ul'; // ul | ol | dl | nav
 	export let selected: Writable<any> = writable(undefined); // (store)
-	export let highlight: string = '!bg-primary-500'; // '!' required
-	export let hover: string = 'hover:bg-primary-500/10'; // 'hover:' required
 	export let space: string = 'space-y-1';
+	// Props (pass to list item)
+	export let accent: string = '!bg-primary-500'; // '!' required
+	export let hover: string = 'hover:bg-primary-500/10'; // 'hover:' required
+	export let padding: string = 'px-4 py-3';
+	export let rounded: string = 'rounded';
 	// Props (A11y)
 	export let title: string | undefined = undefined;
 	export let label: string | undefined = undefined;
@@ -16,8 +19,10 @@
 	// Context
 	setContext('parentTag', tag);
 	setContext('selected', selected);
-	setContext('highlight', highlight);
+	setContext('accent', accent);
 	setContext('hover', hover);
+	setContext('padding', padding);
+	setContext('rounded', rounded);
 
 	// Classes
 	const cBase: string = 'whitespace-nowrap';

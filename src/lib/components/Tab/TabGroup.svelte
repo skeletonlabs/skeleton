@@ -10,6 +10,7 @@
 	export let color: string = 'text-primary-500';
 	export let fill: string = 'fill-primary-500';
 	export let hover: string = 'hover:bg-primary-500/10';
+	export let rounded: string = 'rounded-tl-lg rounded-tr-lg';
 	// A11y
 	export let labeledby: string | undefined = undefined;
 	export let label: string | undefined = undefined;
@@ -21,6 +22,7 @@
 	setContext('color', color);
 	setContext('fill', fill);
 	setContext('hover', hover);
+	setContext('rounded', rounded);
 
 	// Classes
 	const cBase: string = 'border-surface-500/50 flex hide-scrollbar overflow-x-auto';

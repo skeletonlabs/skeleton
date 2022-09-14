@@ -7,14 +7,14 @@
 	export let rounded: string = 'rounded-lg';
 	// Props (Logo)
 	export let background: string = 'bg-surface-300 dark:bg-surface-800';
-	export let color: string = 'text-black dark:text-white';
 	export let text: string = 'text-base font-bold';
+	export let color: string = 'text-black dark:text-white';
 	export let padding: string = 'py-4 md:py-10';
 
 	// Context
 	setContext('background', background);
-	setContext('color', color);
 	setContext('text', text);
+	setContext('color', color);
 	setContext('padding', padding);
 
 	// Base Classes

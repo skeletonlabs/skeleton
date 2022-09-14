@@ -43,8 +43,8 @@ NOTE: Keep these localized
 			<Badge background="bg-accent-500">Experimental</Badge>
 		</div>
 		<p>
-			Bring life to your elements by applying a set of unique <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter" target="_blank">SVG filters</a>. Skeleton provides built-in
-			support for filters within certain components, such as Avatars.
+			Applies a set of unique <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter" target="_blank">SVG filters</a>. Best used with images, but also available to select components,
+			such as Avatars.
 		</p>
 	</header>
 
@@ -96,18 +96,18 @@ NOTE: Keep these localized
 	<section class="space-y-4">
 		<h2>Usage</h2>
 		<h4>Import Filter Components</h4>
-		<p>Add within scope of your filtered element. Only import the filters you plan to use. For global access, add the following to your app's root component:</p>
+		<p>Add within scope of your filtered element. For global scope, add the following to your app's root component. Only import the filters you plan to use.</p>
 		<CodeBlock language="javascript" code={`import { Emerald, BlueNight, /* ... */  } from '@brainandbones/skeleton';`} />
 		<CodeBlock language="html" code={`<Emerald />\n<BlueNight />`} />
 		<p>You'll then need to apply the filter using one of the two techuniques listed below.</p>
 		<h3>Option 1: Use the Svelte Action</h3>
 		<p>
-			Use our <a href="https://svelte.dev/tutorial/actions" target="_blank">Svelte action</a> to your preferred filter to any element.
+			Use the following <a href="https://svelte.dev/tutorial/actions" target="_blank">Svelte action</a> to to filter any element.
 		</p>
 		<CodeBlock language="javascript" code={`import { filter } from '@brainandbones/skeleton';`} />
 		<CodeBlock language="html" code={`<img src={myImageSrc} use:filter={'BlueNight'}>`} />
 		<h3>Option 2: Using Only CSS</h3>
-		<p>Alternatively you may apply filters using CSS. This is what the action does for you. Note the hash mark, this is required.</p>
+		<p>Alternatively you may apply filters using CSS. This is what the action does for you. Note the hash mark is required.</p>
 		<CodeBlock language="html" code={`<img src={myImageSrc} style="filter: url({'#Emerald'})">`} />
 	</section>
 
@@ -116,7 +116,7 @@ NOTE: Keep these localized
 		<h2>Browser Support</h2>
 		<p>
 			Please be aware that <a href="https://caniuse.com/css-filters" target="_blank">browser support</a> varies. Some filters are not functional in Safari, while Firefox is not supported at all. We recommend
-			using progressive enhancement for non-supported browsers.
+			using progressive enhancement when using filters in non-supported browsers.
 		</p>
 		<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
 			<Card background="bg-emerald-500" class="flex justify-center items-center px-4 min-h-[100px]">

@@ -4,17 +4,17 @@
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
 	const tablePropsGroup: any = {
-		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
+		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
-			['collapse', 'boolean', 'true', '-', 'Enabled auto-collapse mode.'],
-			['spacing', 'class', 'spacing-y-2', '-', 'Provide classes to set spacing between item rows.']
+			['collapse', 'boolean', 'true', 'Enabled auto-collapse mode.'],
+			['spacing', 'string', 'spacing-y-2', 'Provide classes to set spacing between item rows.']
 		]
 	};
 
 	const tablePropsItem: any = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
-			['open', 'boolean', 'false', `Defines the open state on page load.`],
+			['open', 'boolean', 'false', `Defines the default open state on page load.`],
 			['hover', 'string', 'hover:bg-primary-500/10', 'Provide classes to set the hover background color.'],
 			['spacing', 'string', 'space-y-0', 'Provide classes to set spacing between title and description elements.'],
 			['padding', 'string', 'px-4 py-2', 'Provide classes to set padding for summary and content regions.'],

@@ -28,10 +28,10 @@
 
 	// Event Handlers
 	function onPageChange(e: any): void {
-		console.log('event:page', e.detail);
+		console.log('Paginator - event:page', e.detail);
 	}
 	function onAmountChange(e: any): void {
-		console.log('event:amount', e.detail);
+		console.log('Paginator - event:amount', e.detail);
 	}
 
 	// Props
@@ -39,20 +39,20 @@
 	const tableProps: any = {
         headings: ['Prop', 'Type', 'Default', 'Description'],
         source: [
-            {prop: 'offset', type: 'number', default: '0', desc: 'Index of the first list item to display.'},
-            {prop: 'limit', type: 'number', default: '5', desc: 'Current number of items to display.'},
-            {prop: 'size', type: 'number', default: '10', desc: 'The total size (length) of your source content.'},
-            {prop: 'amounts', type: 'number[]', default: '[1,5,10,50,100]', desc: 'List of amounts available to the select input.'},
+            ['offset', 'number', '0', 'Index of the first list item to display.'],
+            ['limit', 'number', '5', 'Current number of items to display.'],
+            ['size', 'number', '10', 'The total size (length) of your source content.'],
+            ['amounts', 'number[]', '[1,5,10,50,100]', 'List of amounts available to the select input.'],
         ],
     };
 	// prettier-ignore
 	const tablePropsDesign: any = {
         headings: ['Prop', 'Type', 'Default', 'Description'],
         source: [
-            {prop: 'justify', type: 'string', default: 'justify-between', desc: 'Provide classes to set flexbox justification.'},
-            {prop: 'text', type: 'string', default: 'text-xs', desc: 'Provide classes to style page context text.'},
-            {prop: 'select', type: 'string', default: '-', desc: 'Provide arbitrary classes to style the select input.'},
-            {prop: 'buttons', type: 'object', default: `{ variant: 'ghost', class: 'font-bold' }`, desc: 'Provide <a href="/components/buttons">Button properties</a> to <a href="https://svelte.dev/tutorial/spread-props" target="_blank">spread</a>.'},
+            ['justify', 'string', 'justify-between', 'Provide classes to set flexbox justification.'],
+            ['text', 'string', 'text-xs', 'Provide classes to style page context text.'],
+            ['select', 'string', '-', 'Provide arbitrary classes to style the select input.'],
+            ['buttons', 'object', `{ variant: 'ghost', class: 'font-bold' }`, 'Provide <a href="/components/buttons">Button properties</a> to <a href="https://svelte.dev/tutorial/spread-props" target="_blank">spread</a>.'],
         ],
     };
 
@@ -60,14 +60,8 @@
 	const tableEvents: any = {
 		headings: ['Name', 'Description'],
 		source: [
-			{
-				name: 'amount',
-				desc: 'Fires when the amount selection input changes. Provides the selected amount value.'
-			},
-			{
-				name: 'page',
-				desc: 'Fires when the next/back buttons are pressed. Provides the new offset value.'
-			}
+			['amount', 'Fires when the amount selection input changes. Provides the selected amount value.'],
+			['page', 'Fires when the next/back buttons are pressed. Provides the new offset value.']
 		]
 	};
 </script>
@@ -138,12 +132,12 @@ function onAmountChange(e: any): void { console.log('event:amount', e.detail); }
 		/>
 		<h3>Utilizing Pagination</h3>
 		<p>
-			Once your paginator component is setup you'll need to limit your content. This can be accomplished with <a
+			Once your paginator component is setup you'll need to limit your content. This can be accomplished with the JavaScript <a
 				href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice"
 				target="_blank">slice</a
-			>. See a minimal example below using the Javascript slice method.
+			> method. See a minimal example below.
 		</p>
-		<CodeBlock language="typescript" code={`const source: any[] = [ /* an array of objects */ ]`.trim()} />
+		<CodeBlock language="typescript" code={`const source: any[] = [ /* any array of objects */ ]`.trim()} />
 		<CodeBlock
 			language="typescript"
 			code={`

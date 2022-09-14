@@ -7,12 +7,12 @@
 	const tableProps: any = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
-			['icon', 'string', '-', 'Enable icon mode.'],
+			['icon', 'boolean', '-', 'Enable icon mode, making the badge small and circular.'],
 			['background', 'string', 'bg-surface-300 dark:bg-surface-600', 'Provided classes to set the background color.'],
 			['fill', 'string', 'fill-black dark:fill-white', 'Provided classes to set to set SVG fill color.'],
 			['text', 'string', 'text-xs', 'Provided classes to set to set text size.'],
 			['color', 'string', 'text-black dark:text-white', 'Provided classes to set the text color.'],
-			['padding', 'string', 'px-2 py-[3px]', 'Provided classes to set padding styles.'],
+			['padding', 'string', 'px-2 py-1', 'Provided classes to set padding styles.'],
 			['rounded', 'string', 'rounded', 'Provided classes to set rounded styles.'],
 			['shadow', 'string', '-', 'Provided classes to set shadow styles.']
 		]
@@ -91,8 +91,9 @@
 	<!-- Usage -->
 	<section class="space-y-4">
 		<h2>Usage</h2>
-		<CodeBlock language="html" code={`<Badge>\n\tSkeleton\n\t<svelte:fragment slot="lead">💀</svelte:fragment>\n</Badge>`} />
+		<CodeBlock language="html" code={`<Badge>\n\t<svelte:fragment slot="lead">💀</svelte:fragment>\n\tSkeleton\n</Badge>`} />
 		<h4>Overlapping Icon</h4>
+		<p>Use Tailwind utility classes to overlap elements.</p>
 		<CodeBlock
 			language="html"
 			code={`

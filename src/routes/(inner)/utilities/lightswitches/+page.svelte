@@ -8,7 +8,7 @@
 	<header class="space-y-4">
 		<h1>Lightswitch</h1>
 		<p>
-			Allows uses to toggle between light and dark themes using <a href="https://tailwindcss.com/docs/dark-mode" target="_blank">Tailwind's dark mode</a>
+			Allows users to toggle between light and dark themes using <a href="https://tailwindcss.com/docs/dark-mode" target="_blank">Tailwind's dark mode</a>
 			feature.
 		</p>
 		<CodeBlock language="javascript" code={`import { LightSwitch } from '@brainandbones/skeleton';`} />
@@ -30,14 +30,17 @@
 		</p>
 		<h4>How It Works</h4>
 		<p>
-			By default your theme will default to match the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme" target="_blank">prefers-color-scheme</a> setting. However, when
-			interacted with, two things will occur:
+			By default this will match the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme" target="_blank">prefers-color-scheme</a> setting in your device's operating system
+			settings. However, when toggled, the following will occur.
 		</p>
 		<ul class="list-disc list-inside space-y-1">
 			<li>If dark mode is enabled, a <code>dark</code> class will be applied to your <em>HTML</em> page element.</li>
-			<li>A key of <code>mode: 'light | dark'</code> will also persist via <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage" target="_blank">window.localStorage</a>.</li>
+			<li>All instances of the Light Switch share state and will update accordingly.</li>
+			<li>
+				A value of <code>mode: 'light | dark'</code> will persist in
+				<a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage" target="_blank">window.localStorage</a>.
+			</li>
 		</ul>
-		<p>Here's an example of a modified <em>HTML</em> page element.</p>
 		<CodeBlock
 			language="html"
 			code={`

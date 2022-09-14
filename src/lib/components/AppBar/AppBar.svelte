@@ -2,7 +2,7 @@
 	// Props (base)
 	export let background: string = 'bg-surface-100 dark:bg-surface-800';
 	export let border: string = '';
-	export let padding: string = 'px-4 md:py-6';
+	export let padding: string = 'p-4 md:py-6';
 	export let shadow: string = 'shadow-lg';
 	export let space: string = 'space-x-4';
 	// Props (slots)

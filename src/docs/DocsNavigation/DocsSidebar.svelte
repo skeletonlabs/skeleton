@@ -14,7 +14,7 @@
 	}
 </script>
 
-<div class="mb-8 {$$props.class || ''}">
+<div class="m-4 mb-20 {$$props.class || ''}">
 	{#each menuNavLinks as { id, title, list }, i}
 		<!-- Title -->
 		<div {id} class="text-primary-500 text-sm font-bold uppercase p-4">{title}</div>

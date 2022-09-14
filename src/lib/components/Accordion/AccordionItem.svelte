@@ -6,7 +6,7 @@
 	export let hover: string = 'hover:bg-primary-500/10';
 	export let spacing: string = 'space-y-2';
 	export let padding: string = 'px-4 py-2';
-	export let rounded: string = 'rounded';
+	export let rounded: string = 'rounded-lg';
 	// Props (slot)
 	export let slotSummary: string | undefined = undefined;
 	export let slotContent: string | undefined = undefined;

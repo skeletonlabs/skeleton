@@ -30,7 +30,7 @@
 		source: [
 			['vertical', 'boolean', 'false', 'true | false', 'When enable sets the width to zero and height to full.'],
 			['borderWidth', 'string', 'border-t', 'class', 'Provide classes to set the border width.'],
-			['borderStyle', 'string', 'border-solid', 'class', 'Provide classes to set the border styles.'],
+			['borderStyle', 'string', 'border-solid', 'class', 'Provide classes to set the border style.'],
 			['borderColor', 'string', 'border-surface-300 dark:border-surface-700', 'class', 'Provide classes to set the border color.'],
 			['margin', 'string', 'm-0', 'class', 'Provide classes set the margin.'],
 			['opacity', 'string', 'opacity-full', 'class', 'Provide classes set opacity.']
@@ -94,7 +94,7 @@
 				<!-- Border Style -->
 				<label for="">
 					<div class="flex justify-between items-center">
-						<span>Border Store</span>
+						<span>Border Style</span>
 						<span>{$storeBorderStyle}</span>
 					</div>
 					<RadioGroup selected={storeBorderStyle} display="flex">

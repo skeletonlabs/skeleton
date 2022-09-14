@@ -3,8 +3,8 @@
 
 	// Context
 	export let background = getContext('background');
-	export let color = getContext('color');
 	export let text = getContext('text');
+	export let color = getContext('color');
 	export let padding = getContext('padding');
 
 	// Set tag and href values
@@ -16,7 +16,7 @@
 
 	// Reactive Classes
 	$: classesHover = $$props.href ? 'hover:brightness-110' : '';
-	$: classesLogo = `${cBaseLogo} ${classesHover} ${background} ${color} ${text} ${padding} ${$$props.class || ''}`;
+	$: classesLogo = `${cBaseLogo} ${classesHover} ${background} ${text} ${color} ${padding} ${$$props.class || ''}`;
 
 	// Prune $$restProps to avoid overwriting $$props.class
 	function prunedRestProps(): any {

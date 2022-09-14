@@ -24,11 +24,10 @@
 
 	// Local
 	const imgPlaceholder: string = 'https://i.pravatar.cc/?img=5';
-	const borderStyles: string = 'border-4 border-black dark:border-white hover:!border-accent-500 cursor-pointer';
+	const borderStyles: string = 'border-4 border-black dark:border-white hover:!border-primary-500 cursor-pointer';
 
 	// Store
 	const storeWidth: Writable<string | undefined> = writable('w-48');
-	const storeText: Writable<string | undefined> = writable('text-6xl');
 	const storeSrc: Writable<string | undefined> = writable(imgPlaceholder);
 	const storeBorder: Writable<string | undefined> = writable(borderStyles);
 
@@ -44,9 +43,8 @@
 		src: $storeSrc,
 		alt: 'avatar',
 		width: $storeWidth,
-		text: $storeText,
 		background: 'bg-surface-500',
-		color: undefined,
+		fill: 'fill-white',
 		border: $storeBorder,
 		actionParams: ''
 	};
@@ -59,7 +57,8 @@
 			['width', 'string', 'w-12', 'Provide classes to set avatar width.'],
 			['border', 'string', '-', 'Provide classes to set border styles.'],
 			['rounded', 'string', 'rounded-full', 'Provide classes to set rounded style.'],
-			['shadow', 'string', '-', 'Provide classes to set shadow styles.']
+			['shadow', 'string', '-', 'Provide classes to set shadow styles.'],
+			['cursor', 'string', '-', 'Provide classes to set cursor styles.']
 		]
 	};
 	const tablePropsImg: any = {
@@ -75,8 +74,7 @@
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['initials', 'string', 'AB', 'Provide up to two text characters.'],
-			['text', 'string', 'text-xl', 'Provide classes to set the text size.'],
-			['color', 'string', 'text-white', 'Provide classes to set the text color.']
+			['fill', 'string', 'fill-white', 'Provide classes to set the text fill color.']
 		]
 	};
 </script>
@@ -96,7 +94,7 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Avatars</h1>
-		<p>Choose from a variety for avatar sizes and styles, using either initials or images.</p>
+		<p>Display user avatars with an image or initials.</p>
 		<CodeBlock language="js" code={`import { Avatar } from '@brainandbones/skeleton';`} />
 	</header>
 
@@ -111,9 +109,8 @@
 					src={props.src}
 					alt={props.alt}
 					width={props.width}
-					text={props.text}
 					background={props.background}
-					color={props.color}
+					fill={props.fill}
 					border={props.border}
 					action={filter}
 					actionParams={props.actionParams}
@@ -150,16 +147,6 @@
 					<label>
 						<span>Initial Text</span>
 						<input type="text" bind:value={props.initials} maxlength="2" />
-					</label>
-					<!-- Text -->
-					<label for="">
-						<span>Text Size</span>
-						<RadioGroup selected={storeText} display="flex">
-							<RadioItem value="text-sm">text-sm</RadioItem>
-							<RadioItem value="text-base">text-base</RadioItem>
-							<RadioItem value="text-2xl">text-2xl</RadioItem>
-							<RadioItem value="text-6xl">text-6xl</RadioItem>
-						</RadioGroup>
 					</label>
 					<!-- Background -->
 					<label>
@@ -201,7 +188,7 @@
 		<p>Display an image source cropped into the shape.</p>
 		<CodeBlock language="html" code={`<Avatar src="https://i.pravatar.cc/" />`.trim()} />
 		<h4>Initials</h4>
-		<p>Display up to two text characters (ex: Jane Doe would be JD)</p>
+		<p>Display up to two text characters. (ex: Jane Doe would be JD)</p>
 		<CodeBlock language="html" code={`<Avatar initials="JD" />`.trim()} />
 		<h4>Using Filters</h4>
 		<p>

@@ -9,6 +9,7 @@
 	export let color: string = getContext('color');
 	export let fill: string = getContext('fill');
 	export let hover: string = getContext('hover');
+	export let rounded: string = getContext('rounded');
 
 	// Props
 	export let value: any = $selected.value;
@@ -32,7 +33,7 @@
 	// Reactive Classes
 	$: isSelected = value == $selected;
 	$: classesSelected = isSelected ? `${borderWidth} ${borderColor} ${color} ${fill}` : `${borderWidth} ${cBorderColor}`;
-	$: classesBase = `${cBase} ${classesSelected} ${hover}`;
+	$: classesBase = `${cBase} ${classesSelected} ${hover} ${rounded}`;
 	$: classesLead = isSelected ? `${fill}` : 'fill-surface-500';
 	$: classesLabel = `${cBaseLabel}`;
 </script>

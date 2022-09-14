@@ -9,13 +9,13 @@
 	// Props
 	const tableProps: any = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
-		source: [['separator', 'string', '&rsaquo (unicode)', 'Defines the crumb seperator. Supports SVG icons.']]
+		source: [['separator', 'string', `<code>&rsaquo</code> (unicode)`, 'Defines the crumb seperator. Supports SVG icons.']]
 	};
 	const tablePropsCrumb: any = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['text', 'string', 'text-base', 'Provide classes to set text size.'],
-			['color', 'string ', '-', 'Provide classes set the base text color. Links adopt global anchor styles.']
+			['color', 'string ', '-', 'Provide classes set the current page text color.']
 		]
 	};
 	const tableSlotsCrumb: any = {
@@ -32,7 +32,7 @@
 	<!-- Heading -->
 	<heading class="space-y-4">
 		<h1>Breadcrumbs</h1>
-		<p>Allows display of navigation hierarchy.</p>
+		<p>Displays navigation hierarchy.</p>
 		<CodeBlock language="javascript" code={`import { Breadcrumb, Crumb } from '@brainandbones/skeleton';`} />
 	</heading>
 
@@ -112,16 +112,16 @@
 			code={`
 <Breadcrumb>
     <Crumb href='/'>
-        <svelte:fragment slot="lead">{icon}</svelte:fragment>
-        <span>Page</span>
+        <svelte:fragment slot="lead">(icon)</svelte:fragment>
+        <span>(page)</span>
     </Crumb>
-    <Crumb href='/'>Page</Crumb>
-    <Crumb>Current</Crumb>
+    <Crumb href='/'>(page)</Crumb>
+    <Crumb>(current)</Crumb>
 </Breadcrumb>
         `.trim()}
 		/>
 		<h4>Current Page Crumb</h4>
-		<p>Crumbs without a <code>href</code> attribute will renders as a <code>span</code> instead of <code>a</code> and will not include a trailing seperator.</p>
+		<p>Crumbs without a <code>href</code> attribute are treated as the <em>current</em> page. This means they render as <code>span</code> and do not append a trailing separator.</p>
 		<CodeBlock language="html" code={`<Crumb>Current</Crumb>`} />
 	</section>
 

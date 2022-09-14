@@ -4,8 +4,7 @@
 	// Props
 	export let visible: boolean = true;
 	export let background: string = 'bg-accent-500/30';
-	export let borderWidth: string = 'border-l-4';
-	export let borderColor: string = 'border-l-accent-500';
+	export let border: string = 'border-l-4 border-l-accent-500';
 	export let color: string | undefined = undefined;
 	export let radius: string = '';
 	export let duration: number = 200; // ms
@@ -21,7 +20,7 @@
 	let cTrail: string = 'flex items-center space-x-4';
 
 	// Reactive Classes
-	$: classesCard = `${cBaseCard} ${background} ${borderWidth} ${borderColor} ${color} ${radius} ${$$props.class || ''}`;
+	$: classesCard = `${cBaseCard} ${background} ${border} ${color} ${radius} ${$$props.class || ''}`;
 	$: classesLead = `${cLead} ${slotLead}`;
 	$: classesContent = `${cContent} ${slotContent}`;
 	$: classesTrail = `${cTrail} ${slotTrail}`;
@@ -40,8 +39,8 @@
 		<section class="alert-content {classesContent}">
 			<!-- Slot: Title -->
 			{#if $$slots.title}<h3 class="alert-title"><slot name="title" /></h3>{/if}
-			<!-- Slot: Message -->
-			{#if $$slots.message}<div class="alert-message {color}"><slot name="message" /></div>{/if}
+			<!-- Slot: Default -->
+			{#if $$slots.default}<div class="alert-message {color}"><slot /></div>{/if}
 		</section>
 
 		<!-- Slot: Trail -->

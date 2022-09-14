@@ -9,7 +9,6 @@
 	export let duration: number = 150;
 	// Props (backdrop)
 	export let bgBackdrop: string = 'bg-surface-400/70 dark:bg-surface-900/70';
-	export let display: string | undefined = undefined;
 	export let blur: string = 'backdrop-blur-sm';
 	// Props (drawer)
 	export let bgDrawer: string = 'bg-surface-100 dark:bg-surface-800';
@@ -79,7 +78,7 @@
 	// Reactive
 	$: classesWidth = width ? width : animParams.width;
 	$: classesHeight = height ? height : animParams.height;
-	$: classesBackdrop = `${cBaseBackdrop} ${animParams.backdrop} ${bgBackdrop} ${display} ${blur} ${$$props.class || ''}`;
+	$: classesBackdrop = `${cBaseBackdrop} ${animParams.backdrop} ${bgBackdrop} ${blur} ${$$props.class || ''}`;
 	$: classesDrawer = `${cBaseDrawer} ${classesWidth} ${classesHeight} ${bgDrawer} ${border} ${margin} ${rounded}`;
 </script>
 

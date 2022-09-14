@@ -13,6 +13,9 @@
 	export let slotBody: string | undefined = undefined;
 	export let slotFooter: string | undefined = undefined;
 
+	// Local
+	const tag: string = $$props.href ? 'a' : 'div';
+
 	// Reactive
 	$: classesCard = `${background} ${color} ${padding} ${space} ${ringWidth} ${ringColor} ${ringInset} ${rounded} ${$$props.class || ''}`;
 	$: classesHeader = `${slotHeader}`;
@@ -20,7 +23,7 @@
 	$: classesFooter = `${slotFooter}`;
 </script>
 
-<div class="card {classesCard}" data-testid="card">
+<svelte:element this={tag} href={$$props.href} target={$$props.target} class="card {classesCard}" data-testid="card">
 	<!-- Header -->
 	{#if $$slots.header}
 		<header class="card-header {classesHeader}"><slot name="header" /></header>
@@ -31,4 +34,4 @@
 	{#if $$slots.footer}
 		<footer class="card-footer {classesFooter}"><slot name="footer" /></footer>
 	{/if}
-</div>
+</svelte:element>

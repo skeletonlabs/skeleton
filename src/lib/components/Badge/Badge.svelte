@@ -5,7 +5,7 @@
 	export let fill: string = 'fill-black dark:fill-white';
 	export let text: string = 'text-xs';
 	export let color: string = 'text-black dark:text-white';
-	export let padding: string = 'px-2 py-[3px]';
+	export let padding: string = 'px-2 py-1';
 	export let rounded: string = 'rounded';
 	export let shadow: string | undefined = undefined;
 	// Props (slot)

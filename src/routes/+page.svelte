@@ -27,7 +27,7 @@
 	<!-- Alert: Beta -->
 	<Alert>
 		<svelte:fragment slot="lead">🚧</svelte:fragment>
-		<svelte:fragment slot="message">Skeleton is available as a public beta. Expect breaking changes prior to v1.0. If you encounter issues please report them on GitHub.</svelte:fragment>
+		<span>Skeleton is available as a public beta. Expect breaking changes prior to v1.0. If you encounter issues please report them on GitHub.</span>
 		<svelte:fragment slot="trail">
 			<Button variant="ghost" href="https://github.com/Brain-Bones/skeleton/issues">Report Issue</Button>
 		</svelte:fragment>

@@ -23,7 +23,7 @@
 	<!-- Heading -->
 	<heading class="space-y-4">
 		<h1>Slide Toggle</h1>
-		<p>Add a slide toggle switch with custom colors and sizes to capture input from a user.</p>
+		<p>A sliding toggle element that can capture input from a user.</p>
 		<CodeBlock language="javascript" code={`import { SlideToggle } from '@brainandbones/skeleton';`} />
 	</heading>
 
@@ -44,7 +44,7 @@
 		<Card slotBody="flex justify-center items-center space-x-4">
 			<svelte:fragment slot="header"><p class="text-center">Labeled</p></svelte:fragment>
 			<SlideToggle size="md" bind:checked={checkedValue}>
-				<code class="inline-block w-[40px] text-center">{checkedValue ? 'On' : 'Off'}</code>
+				Value is <code class="inline-block w-[40px] text-center">{checkedValue ? 'On' : 'Off'}</code>
 			</SlideToggle>
 		</Card>
 		<Card slotBody="flex justify-center items-center space-x-4">

@@ -19,9 +19,8 @@
 		<h3>Update Content</h3>
 		<p>
 			Add the following to <a href="https://tailwindcss.com/docs/configuration" target="_blank">content</a>
-			within <code>tailwind.config.cjs</code>. This ensures Tailwind is aware of Skeleton's component classes within your local development server. Implement <code>darkMode: 'class'</code> only if you
-			plan to make use of <a href="https://tailwindcss.com/docs/dark-mode" target="_blank">Tailwind's dark mode</a>
-			feature.
+			within <code>tailwind.config.cjs</code>. This ensures Tailwind is aware of Skeleton's component classes within your local development server and enables support for
+			<a href="https://tailwindcss.com/docs/dark-mode" target="_blank">Tailwind's dark mode</a>.
 		</p>
 		<CodeBlock
 			language="js"
@@ -29,7 +28,7 @@
 module.exports = {
 	darkMode: 'class',
     content: [
-        // ...
+        // Append the following:
         "./node_modules/@brainandbones/skeleton/**/*.{html,js,svelte,ts}"
     ],
     // ...
@@ -39,7 +38,7 @@ module.exports = {
 		<h3>Add the Skeleton Plugin</h3>
 		<p>
 			Add the Skeleton <a href="https://tailwindcss.com/docs/plugins#official-plugins" target="_blank">plugin</a>
-			to <code>tailwind.config.cjs</code>. This will automatically ingest and utilize your CSS variables defined in your theme.
+			to <code>tailwind.config.cjs</code>. This will automatically ingest and utilize the CSS variables defined in your theme.
 		</p>
 		<CodeBlock
 			language="js"
@@ -47,7 +46,7 @@ module.exports = {
 module.exports = {
     // ...
     plugins: [
-        // ...
+        // Append the following:
         require("@brainandbones/skeleton/tailwind.cjs")
     ]
 }

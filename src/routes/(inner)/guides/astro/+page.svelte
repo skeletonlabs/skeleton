@@ -28,9 +28,7 @@
 	<Divider />
 
 	<Alert>
-		<svelte:fragment slot="message">
-			Please ensure you've read through <a href="/guides/tailwind">Tailwind</a>, <a href="/guides/themes">Themes</a>, and <a href="/guides/styling">Styling</a> guides before you proceed.
-		</svelte:fragment>
+		Please ensure you've read through <a href="/guides/tailwind">Tailwind</a>, <a href="/guides/themes">Themes</a>, and <a href="/guides/styling">Styling</a> guides before you proceed.
 	</Alert>
 
 	<!-- Setup -->

@@ -56,6 +56,7 @@
 			<Card class="flex justify-center items-center min-h-[100px]">Minimal</Card>
 			<!-- Detailed -->
 			<Card
+				href="https://skeleton.brainandbonesllc.com/"
 				slotHeader="-mt-4 -mx-4"
 				slotBody="space-y-4"
 				slotFooter="flex justify-start items-center space-x-4"
@@ -88,6 +89,9 @@
 	<section class="space-y-4">
 		<h2>Usage</h2>
 		<CodeBlock language="html" code={`<Card>Skeleton</Card>`} />
+		<p>Cards can optionally be used as anchor links, supporting <code>href</code> and <code>target</code> attributes.</p>
+		<CodeBlock language="html" code={`<Card href={url} target="_blank">Skeleton</Card>`} />
+		<p>You can target and apply styles to any slot region using the slot properties.</p>
 		<CodeBlock
 			language="html"
 			code={`

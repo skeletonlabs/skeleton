@@ -33,12 +33,13 @@
 	import '../app.postcss';
 
 	// Lifecycle Events
-	afterNavigate(() => {
+	afterNavigate((params: any) => {
 		// Store current page route URL
 		storeCurrentUrl.set($page.url.pathname);
 		// Scroll to top
+		const isNewPage: boolean = params.from && params.to && params.from.routeId !== params.to.routeId;
 		const elemPage = document.querySelector('#page');
-		if (elemPage !== null) {
+		if (isNewPage && elemPage !== null) {
 			elemPage.scrollTop = 0;
 		}
 	});
@@ -61,7 +62,7 @@
 
 	<!-- Sidebar (Left) -->
 	<svelte:fragment slot="sidebarLeft">
-		<DocsSidebar class="hidden lg:block w-[300px]" />
+		<DocsSidebar class="hidden lg:block w-[280px]" />
 	</svelte:fragment>
 
 	<!-- Page Content -->
