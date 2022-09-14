@@ -51,7 +51,7 @@
 
 <svelte:element this={tag} bind:this={elemList} class="list-group {classesList}" data-testid="list-group" on:keydown={onKeyDown} {title}>
 	{#if tag === 'nav'}
-		<ul class={space} role="listbox" aria-label={label} aria-labelledby={labelledby} aria-multiselectable={Array.isArray($selected)}>
+		<ul class="list-group-ul {space}" role="listbox" aria-label={label} aria-labelledby={labelledby} aria-multiselectable={Array.isArray($selected)}>
 			<slot />
 		</ul>
 	{:else}

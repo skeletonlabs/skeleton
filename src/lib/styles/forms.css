@@ -21,7 +21,7 @@ fieldset {
 [multiple],
 textarea,
 select {
-	@apply w-full text-black bg-surface-50 border-surface-300 rounded-lg shadow-sm focus:border-accent-500 focus:ring-accent-500 hover:brightness-110;
+	@apply w-full text-black bg-surface-50 border-surface-300 rounded-lg shadow-sm caret-accent-500 focus:border-accent-500 focus:ring-accent-500 hover:brightness-110;
 	@apply dark:text-white dark:bg-surface-600 dark:border-surface-500;
 }
 

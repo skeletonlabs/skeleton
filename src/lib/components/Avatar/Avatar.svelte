@@ -26,7 +26,7 @@
 	{#if $$props.src}
 		<img class="avatar-image {cImage}" src={$$props.src} alt={$$props.alt || ''} use:action={actionParams} />
 	{:else}
-		<svg viewBox="0 0 512 512" class="avatar-initials {classesText}">
+		<svg class="avatar-initials {classesText}" viewBox="0 0 512 512">
 			<text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-weight="bold" font-size={150}>
 				{initials.substring(0, 2).toUpperCase()}
 			</text>

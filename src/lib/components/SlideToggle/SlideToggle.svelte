@@ -65,13 +65,14 @@
 	aria-checked={checked}
 	tabindex="0"
 >
-	<label class="slider-label {classesLabel}">
+	<label class="slide-toggle-label {classesLabel}">
+		<!-- Hidden Input -->
 		<input type="checkbox" class="hidden" bind:checked on:click on:mouseover on:focus on:blur {...prunedRestProps()} disabled={$$props.disabled} />
 		<!-- Slider Track/Thumb -->
-		<div class="track {classesTrack}" class:cursor-not-allowed={$$props.disabled}>
-			<div class="thumb {classesThumb}" class:cursor-not-allowed={$$props.disabled} />
+		<div class="slide-toggle-track {classesTrack}" class:cursor-not-allowed={$$props.disabled}>
+			<div class="slide-toggle-humb {classesThumb}" class:cursor-not-allowed={$$props.disabled} />
 		</div>
 		<!-- Label -->
-		{#if $$slots.default}<div class="ml-3"><slot /></div>{/if}
+		{#if $$slots.default}<div class="slide-toggle-label ml-3"><slot /></div>{/if}
 	</label>
 </div>

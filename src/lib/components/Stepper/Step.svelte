@@ -79,7 +79,7 @@
 		<!-- Slot: Header -->
 		<header class="step-header"><slot name="header"><h4>Step {index + 1}</h4></slot></header>
 		{#if index === $active}
-			<div class="space-y-4" transition:slide|local={{ duration }}>
+			<div class="step-body space-y-4" transition:slide|local={{ duration }}>
 				<!-- Slot: Default -->
 				<slot />
 				<!-- Nav -->

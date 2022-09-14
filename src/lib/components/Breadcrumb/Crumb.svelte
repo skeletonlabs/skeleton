@@ -26,7 +26,6 @@
 		{#if $$slots.lead}<span><slot name="lead" /></span>{/if}
 		<span class="crumb-text"><slot /></span>
 	</svelte:element>
-
 	<!-- Seperator -->
 	{#if $$props.href}
 		<div class="crumb-seperator {cSeperator}">{@html separator}</div>

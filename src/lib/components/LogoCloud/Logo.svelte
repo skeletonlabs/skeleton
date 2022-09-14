@@ -27,9 +27,9 @@
 
 <svelte:element this={tag} {href} class="logo {classesLogo}" data-testid="logo" {...prunedRestProps()}>
 	<!-- Slot: lead -->
-	{#if $$slots.lead}<span><slot name="lead" /></span>{/if}
+	{#if $$slots.lead}<span class="logo-lead"><slot name="lead" /></span>{/if}
 	<!-- Slot: Default -->
-	{#if $$slots.default}<span class="text-lg"><slot /></span>{/if}
+	{#if $$slots.default}<span class="logo-body text-lg"><slot /></span>{/if}
 	<!-- Slot: Trail -->
-	{#if $$slots.trail}<span><slot name="trail" /></span>{/if}
+	{#if $$slots.trail}<span class="logo-trail"><slot name="trail" /></span>{/if}
 </svelte:element>

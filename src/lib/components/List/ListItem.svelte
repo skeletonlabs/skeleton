@@ -82,14 +82,14 @@
 	$: classesHighlight = isSelected() ? accent : '';
 	$: classesAccent = parentTag === 'nav' ? cItemHover : '';
 	$: classesRowFlex = parentTag !== 'dl' ? cRowFlex : '';
-	$: classesBase = `list-row ${cBase} ${padding} ${rounded} ${classesRowFlex} ${classesAccent} ${classesHighlight} ${$$props.class || ''}`;
+	$: classesBase = `${cBase} ${padding} ${rounded} ${classesRowFlex} ${classesAccent} ${classesHighlight} ${$$props.class || ''}`;
 </script>
 
 <svelte:element
 	this={tag}
 	bind:this={elemItem}
 	href={$$props.href}
-	class={classesBase}
+	class="list-row {classesBase}"
 	data-testid="list-row"
 	on:click={onClickHandler}
 	on:keydown={onKeyDown}

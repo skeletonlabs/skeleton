@@ -14,7 +14,7 @@
 
 <!-- svelte-ignore a11y-role-has-required-aria-props-->
 <svelte:element this={tag} class="gradient-heading {classesBase}" data-testid="gradient-heading" role="heading">
-	<span class={classesWrapper}>
+	<span class="gradient-heading-wrapper {classesWrapper}">
 		<slot />
 	</span>
 </svelte:element>

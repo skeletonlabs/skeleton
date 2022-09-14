@@ -126,6 +126,6 @@
 	</div>
 
 	<!-- Slot: Trail -->
-	{#if $$slots.trail}<div><slot name="trail" /></div>{/if}
+	{#if $$slots.trail}<div class="range-trail"><slot name="trail" /></div>{/if}
 	
 </div>
