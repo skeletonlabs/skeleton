@@ -23,6 +23,7 @@ export { default as Menu } from './components/Menu/Menu.svelte';
 export { default as Paginator } from './components/Paginator/Paginator.svelte';
 export { default as ProgressBar } from './components/ProgressBar/ProgressBar.svelte';
 export { default as ProgressRadial } from './components/ProgressRadial/ProgressRadial.svelte';
+export { default as Placeholder } from './components/Placeholder/Placeholder.svelte';
 export { default as RadioGroup } from './components/Radio/RadioGroup.svelte';
 export { default as RadioItem } from './components/Radio/RadioItem.svelte';
 export { default as RangeSlider } from './components/RangeSlider/RangeSlider.svelte';
