@@ -1,0 +1,130 @@
+/* Import: button.css */
+
+/* --- Core Button --- */
+
+button,
+.btn {
+	/* Core */
+	@apply text-center whitespace-nowrap;
+	/* Flex Columns */
+	@apply inline-flex justify-center items-center space-x-2;
+	/* Hover */
+	@apply hover:brightness-110;
+	/* Transitions */
+	@apply transition-all active:scale-90;
+	/*  active:rotate-[5deg] */
+}
+
+/* Option: Sizes */
+.btn-sm {
+	@apply text-sm px-3 py-1.5;
+}
+.btn-base {
+	@apply text-base px-5 py-[9px];
+}
+.btn-lg {
+	@apply text-lg px-7 py-3;
+}
+.btn-xl {
+	@apply text-xl px-9 py-4;
+}
+
+/* Option: Outline */
+.btn-outline {
+	@apply ring-2 ring-black dark:ring-white ring-inset;
+}
+.btn-outline-primary {
+	@apply ring-2 ring-primary-500 ring-inset;
+}
+.btn-outline-accent {
+	@apply ring-2 ring-accent-500 ring-inset;
+}
+.btn-outline-warning {
+	@apply ring-2 ring-warning-500 ring-inset;
+}
+
+/* --- Icon Button --- */
+
+.btn-icon {
+	/* Width/Height */
+	@apply w-[43px] h-[43px];
+	/* Core */
+	@apply text-center whitespace-nowrap;
+	/* Flex Columns */
+	@apply inline-flex justify-center items-center;
+	/* Rounded */
+	@apply rounded-full;
+	/* Hover */
+	@apply hover:brightness-110;
+	/* Transitions */
+	@apply transition-all active:scale-90;
+}
+
+/* Option: Size */
+.btn-icon-sm {
+	@apply text-sm w-[33px] h-[33px];
+}
+.btn-icon-base {
+	@apply text-base w-[43px] h-[43px];
+}
+.btn-icon-lg {
+	@apply text-lg w-[53px] h-[53px];
+}
+.btn-icon-xl {
+	@apply text-xl w-[63px] h-[63px];
+}
+
+/* --- Variants --- */
+
+/* Filled */
+.btn-filled {
+	@apply bg-black dark:bg-white text-white dark:text-black;
+}
+.btn-filled-primary {
+	@apply bg-primary-500;
+}
+.btn-filled-accent {
+	@apply bg-accent-500;
+}
+.btn-filled-warning {
+	@apply bg-warning-500;
+}
+
+/* Ringed */
+.btn-ringed {
+	@apply btn-outline;
+}
+.btn-ringed-primary {
+	@apply btn-outline-primary;
+}
+.btn-ringed-accent {
+	@apply btn-outline-accent;
+}
+.btn-ringed-warning {
+	@apply btn-outline-warning;
+}
+
+/* Ghost */
+.btn-ghost {
+	@apply btn-outline bg-black/10 dark:bg-white/10;
+}
+.btn-ghost-primary {
+	@apply btn-outline-primary bg-primary-500/10;
+}
+.btn-ghost-accent {
+	@apply btn-outline-accent bg-accent-500/10;
+}
+.btn-ghost-warning {
+	@apply btn-outline-warning bg-warning-500/10;
+}
+
+/* ========================= */
+/* Move to global stylesheet */
+/* ========================= */
+
+.btn {
+	@apply font-bold rounded;
+}
+.btn-icon {
+	@apply font-bold;
+}

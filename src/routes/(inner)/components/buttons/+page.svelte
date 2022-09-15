@@ -61,6 +61,116 @@
 </script>
 
 <div class="space-y-8">
+	<!-- Test -->
+	<section class="space-y-4">
+		<!-- <h4>Unstyled</h4> -->
+		<Card slotBody="flex justify-center items-center space-x-4">
+			<a href="/components/buttons">Anchor</a>
+			<button>Button</button>
+		</Card>
+		<!-- <h4>Icon Buttons</h4> -->
+		<Card slotBody="flex justify-center items-center space-x-4">
+			<button class="btn-icon btn-icon-sm bg-primary-500">sm</button>
+			<button class="btn-icon btn-icon-base bg-primary-500">
+				<SvgIcon name="skull" fill="fill-white/60" />
+			</button>
+			<button class="btn-icon btn-icon-lg bg-primary-500">lg</button>
+			<button class="btn-icon btn-icon-xl bg-primary-500">xl</button>
+		</Card>
+		<!-- <h4>Lead/Trail</h4> -->
+		<Card slotBody="flex justify-center items-center space-x-4">
+			<button class="btn btn-base bg-accent-500">
+				<SvgIcon name="skull" fill="fill-white/60" />
+				<span>Button</span>
+			</button>
+			<button class="btn btn-base bg-warning-500">
+				<span>Button</span>
+				<SvgIcon name="skull" fill="fill-white/60" />
+			</button>
+		</Card>
+		<!-- <h4>Sizes</h4> -->
+		<Card slotBody="flex justify-center items-center space-x-4">
+			<button class="btn btn-sm bg-primary-500">btn-sm</button>
+			<button class="btn btn-base bg-primary-500">btn-base</button>
+			<button class="btn btn-lg bg-primary-500">btn-lg</button>
+			<button class="btn btn-xl bg-primary-500">btn-xl</button>
+		</Card>
+		<!-- <h4>Style Combos</h4> -->
+		<Card slotBody="flex justify-center items-center space-x-4">
+			<button class="btn btn-base btn-min">Text</button>
+			<button class="btn btn-base bg-primary-500">Filled-Primary</button>
+			<button class="btn btn-base btn-outline-accent">Outline-Accent</button>
+			<button class="btn btn-base btn-outline-warning bg-warning-500/30">Ghost-Warning</button>
+		</Card>
+		<!-- <h4>Variants (.btn)</h4> -->
+		<Card slotBody="flex justify-center items-center space-x-4">
+			<!-- Text -->
+			<div class="grid grid-cols-1 gap-4">
+				<button class="btn btn-base">Text</button>
+				<button class="btn btn-base text-primary-500">Text</button>
+				<button class="btn btn-base text-accent-500">Text</button>
+				<button class="btn btn-base text-warning-500">Text</button>
+			</div>
+			<!-- Filled -->
+			<div class="grid grid-cols-1 gap-4">
+				<button class="btn btn-filled btn-base">filled</button>
+				<button class="btn btn-filled-primary btn-base">filled-primary</button>
+				<button class="btn btn-filled-accent btn-base">filled-accent</button>
+				<button class="btn btn-filled-warning btn-base">filled-warning</button>
+			</div>
+			<!-- Ringed -->
+			<div class="grid grid-cols-1 gap-4">
+				<button class="btn btn-ringed btn-base">ringed</button>
+				<button class="btn btn-ringed-primary btn-base">ringed-primary</button>
+				<button class="btn btn-ringed-accent btn-base">ringed-accent</button>
+				<button class="btn btn-ringed-warning btn-base">ringed-warning</button>
+			</div>
+			<!-- Ringed -->
+			<div class="grid grid-cols-1 gap-4">
+				<button class="btn btn-ghost btn-base">ghost</button>
+				<button class="btn btn-ghost-primary btn-base">ghost-primary</button>
+				<button class="btn btn-ghost-accent btn-base">ghost-accent</button>
+				<button class="btn btn-ghost-warning btn-base">ghost-warning</button>
+			</div>
+		</Card>
+		<!-- <h4>Variants (.btn-icon)</h4> -->
+		<Card slotBody="flex justify-center items-center space-x-4">
+			<!-- Text -->
+			<div class="grid grid-cols-1 gap-4">
+				<button class="btn-icon btn-base">i</button>
+				<button class="btn-icon btn-base text-primary-500">i</button>
+				<button class="btn-icon btn-base text-accent-500">i</button>
+				<button class="btn-icon btn-base text-warning-500">i</button>
+			</div>
+			<!-- Text -->
+			<div class="grid grid-cols-1 gap-4">
+				<button class="btn-icon btn-filled btn-base">i</button>
+				<button class="btn-icon btn-filled-primary btn-base">i</button>
+				<button class="btn-icon btn-filled-accent btn-base">i</button>
+				<button class="btn-icon btn-filled-warning btn-base">i</button>
+			</div>
+			<!-- Ringed -->
+			<div class="grid grid-cols-1 gap-4">
+				<button class="btn-icon btn-ringed btn-base">i</button>
+				<button class="btn-icon btn-ringed-primary btn-base">i</button>
+				<button class="btn-icon btn-ringed-accent btn-base">i</button>
+				<button class="btn-icon btn-ringed-warning btn-base">i</button>
+			</div>
+			<!-- Ringed -->
+			<div class="grid grid-cols-1 gap-4">
+				<button class="btn-icon btn-ghost btn-base">i</button>
+				<button class="btn-icon btn-ghost-primary btn-base">i</button>
+				<button class="btn-icon btn-ghost-accent btn-base">i</button>
+				<button class="btn-icon btn-ghost-warning btn-base">i</button>
+			</div>
+		</Card>
+		<!-- <h4>Form</h4> -->
+		<Card slotBody="flex justify-center items-center space-x-2">
+			<input type="text" placeholder="test" />
+			<button class="btn btn-base bg-primary-500">Button</button>
+		</Card>
+	</section>
+
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Buttons</h1>

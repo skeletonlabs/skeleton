@@ -29,6 +29,7 @@
 	import '$lib/styles/core.css';
 	import '$lib/styles/typography.css';
 	import '$lib/styles/forms.css';
+	import '$lib/styles/buttons.css';
 	// Global Stylesheets
 	import '../app.postcss';
 
