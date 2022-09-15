@@ -40,6 +40,13 @@
 	<section class="space-y-4">
 		<h2>Stylesheet Add-Ons</h2>
 		<p>Skeleton provides a set of modular stylesheets that adapt to your theme and provide a more consistent aesthetic.</p>
+		<!-- Preview -->
+		<Card slotBody="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+			<div class="space-y-2">
+				<p>Preview the effects of each add-on stylesheet.</p>
+			</div>
+			<Button variant="filled-accent" href="/guides/styling/preview">Preview &rarr;</Button>
+		</Card>
 		<TabGroup selected={storeFramework}>
 			<Tab value="sveltekit">SvelteKit</Tab>
 			<Tab value="vite">Vite (Svelte)</Tab>
@@ -76,7 +83,9 @@ import '../styles/base.css';`.trim()}
 			/>
 		{/if}
 		<p>Import each desired add-on in the order shown below. Be sure to set the appropriate file name.</p>
+		<!-- Table -->
 		<DataTable headings={tableStyleAddons.headings} source={tableStyleAddons.source} />
+		<!-- Alert -->
 		<Alert background="bg-accent-500/30">
 			<span class="text-black dark:text-white">
 				Ensure you import the <code>tailwind.css</code> add-on before all others. Remove the @tailwind directives from your global stylesheet if you choose to use these add-ons. Failure to do so will mean

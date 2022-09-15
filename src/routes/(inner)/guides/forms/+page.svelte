@@ -30,10 +30,9 @@
 	<!-- Preview -->
 	<Card slotBody="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<div class="space-y-2">
-			<h2>Forms Preview</h2>
-			<p>We've provided a "kitchen sink" page to view all form styles.</p>
+			<p>We've provided a "kitchen sink" page to preview all form styles.</p>
 		</div>
-		<Button variant="filled-accent" href="/guides/forms/preview">Preview Form Inputs</Button>
+		<Button variant="filled-accent" href="/guides/forms/preview">Preview &rarr;</Button>
 	</Card>
 
 	<Divider />
