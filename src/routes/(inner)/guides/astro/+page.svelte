@@ -14,15 +14,16 @@
 
 <div class="space-y-8">
 	<!-- Header -->
-	<header class="space-y-4">
-		<div class="flex justify-between items-center">
-			<h1>Astro</h1>
-			<nav class="flex space-x-4">
-				<Button variant="filled-primary" href="https://astro.build/" target="_blank">What's Astro?</Button>
-				<Button variant="ghost" href="https://docs.astro.build/en/getting-started/" target="_blank">Docs</Button>
+	<header>
+		<div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 items-start md:items-center">
+			<div class="flex-auto space-y-4">
+				<h1>Astro</h1>
+				<p class="flex-auto">Skeleton now officially supports the Astro web framework. This guide provides a walkthrough for scaffolding a simple Astro application.</p>
+			</div>
+			<nav class="flex-none">
+				<Button variant="filled-primary" href="https://astro.build/" target="_blank">Website & Docs</Button>
 			</nav>
 		</div>
-		<p>Skeleton now officially supports the Astro web framework. This guide provides a walkthrough for scaffolding a simple Astro application.</p>
 	</header>
 
 	<Divider />

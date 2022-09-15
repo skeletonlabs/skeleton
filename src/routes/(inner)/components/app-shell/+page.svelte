@@ -85,12 +85,7 @@
 		`.trim()}
 		/>
 		<p>Then, disable overflow on your <em>html</em> and <em>body</em> tags to prevent duplicate scroll bars. Add this to your global stylesheet.</p>
-		<CodeBlock
-			language="css"
-			code={`
-html, body { @apply w-screen h-screen overflow-hidden; }
-		`.trim()}
-		/>
+		<CodeBlock language="css" code={`html, body { @apply h-full overflow-hidden; }`} />
 		<h4>Header AppBar</h4>
 		<p>The <a href="/components/app-bar">AppBar</a> component should be embedded within the top-most <code>header</code> slot.</p>
 		<CodeBlock
