@@ -43,3 +43,8 @@ pre:not(.codeblock pre) {
 code:not(.codeblock code) {
 	@apply bg-surface-500/30 text-black dark:text-white text-xs py-1 px-2 rounded;
 }
+
+/* --- KBD (Keyboard) --- */
+kbd {
+	@apply rounded border-b-[1px] border-surface-500 ring-[1px] ring-surface-500 bg-surface-300 px-1.5 py-0.5 text-sm font-bold dark:bg-slate-700;
+}

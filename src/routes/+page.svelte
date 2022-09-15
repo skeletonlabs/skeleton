@@ -48,7 +48,7 @@
 				<nav class="flex space-x-4">
 					<Button variant="filled-primary" href="/guides/install">Get Started</Button>
 					<Button variant="ghost" href="/docs/why">Why Skeleton</Button>
-					<Button variant="ghost" href="https://github.com/Brain-Bones/skeleton" target="_blank">Github</Button>
+					<Button variant="ghost" href="https://github.com/Brain-Bones/skeleton" target="_blank" class="hidden sm:inline-block">Github</Button>
 				</nav>
 			</div>
 		</header>

@@ -120,12 +120,7 @@
 		`.trim()}
 		/>
 		<p>Then, disable overflow on your <em>html</em> and <em>body</em> tags to prevent duplicate scroll bars. Update your global stylesheet with the following.</p>
-		<CodeBlock
-			language="css"
-			code={`
-html, body { @apply w-screen h-screen overflow-hidden; }
-		`.trim()}
-		/>
+		<CodeBlock language="css" code={`html, body { @apply h-full overflow-hidden; }`} />
 		<h4>App Bar</h4>
 		<p>If you wish for your <a href="/components/app-bar">App Bar</a> component to remain fixed at the top of the page, embed it into the top-most <code>header</code> slot.</p>
 		<CodeBlock
