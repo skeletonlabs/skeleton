@@ -3,8 +3,6 @@ import { describe, it, expect } from 'vitest';
 
 import GradientHeading from '$lib/components/GradientHeading/GradientHeading.svelte';
 
-// NOTE: handling destructuring types:
-// https://daily-dev-tips.com/posts/object-destructuring-in-typescript/
 describe('GradientHeading.svelte', () => {
 	it('Renders with minimal props', async () => {
 		const { getByTestId }: { getByTestId: any } = render(GradientHeading, {

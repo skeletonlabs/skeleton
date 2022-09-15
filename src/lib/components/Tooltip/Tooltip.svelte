@@ -75,24 +75,25 @@
 	});
 
 	// Reactive Classes
+	$: classesBase = `${cBaseTooltip} ${$$props.class || ''}`;
 	$: classesPopup = `${cBasePopup} ${cPosition} ${popup}`;
 	$: classesMessage = `${cBaseMessage} ${background} ${color} ${width} ${whitespace} ${rounded} ${message}`;
 	$: classesArrow = `${cBaseArrow} ${cArrowPosition} ${background} ${arrow}`;
 	$: classesContent = `${content}`;
 </script>
 
-<div class="tooltip {cBaseTooltip} {$$props.class}" data-testid="tooltip" role="tooltip">
+<div class="tooltip {classesBase}" data-testid="tooltip" role="tooltip">
 	<!-- Popup -->
 	{#if $$slots.message && visible}
-		<div class="popup {classesPopup}" data-testid="popup" in:fade={{ duration }} out:fade={{ duration }}>
-			<div class="message {classesMessage}" data-testid="message"><slot name="message" /></div>
-			<div class="arrow {classesArrow}" data-testid="arrow" />
+		<div class="tooltip-popup {classesPopup}" data-testid="popup" in:fade={{ duration }} out:fade={{ duration }}>
+			<div class="tooltip-message {classesMessage}" data-testid="message"><slot name="message" /></div>
+			<div class="tooltip-arrow {classesArrow}" data-testid="arrow" />
 		</div>
 	{/if}
 
 	<!-- Slot: Content -->
 	{#if $$slots.content}
-		<div class={classesContent} data-testid="content" on:mouseenter={onMouseEnter} on:mouseleave={onMouseLeave}>
+		<div class="tooltip-content {classesContent}" data-testid="content" on:mouseenter={onMouseEnter} on:mouseleave={onMouseLeave}>
 			<slot name="content" />
 		</div>
 	{/if}

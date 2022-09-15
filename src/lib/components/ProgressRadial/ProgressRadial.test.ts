@@ -1,7 +1,7 @@
 import { render } from '@testing-library/svelte';
 import { describe, it, expect } from 'vitest';
 
-import ProgressRadial from '$lib/components/Progress/ProgressRadial.svelte';
+import ProgressRadial from '$lib/components/ProgressRadial/ProgressRadial.svelte';
 
 describe('ProgressRadial.svelte', () => {
 	it('Renders with minimal props', async () => {

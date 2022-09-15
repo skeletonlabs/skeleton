@@ -12,21 +12,18 @@
 	export let label: string | undefined = undefined;
 
 	// Base Styles
-	const cBaseLabel: string = 'inline-block';
-	const cBaseTrack: string = 'flex rounded-full transition-all duration-[200ms] hover:brightness-110 cursor-pointer';
-	const cBaseThumb: string = 'w-[50%] h-full scale-[0.7] rounded-full cursor-pointer transition-all duration-[200ms] shadow-lg';
+	const cBase: string = 'inline-block';
+	const cLabel: string = 'flex items-center';
+	const cTrack: string = 'flex rounded-full transition-all duration-[200ms] hover:brightness-110 cursor-pointer';
+	const cThumb: string = 'w-[50%] h-full scale-[0.7] rounded-full cursor-pointer transition-all duration-[200ms] shadow-lg';
 
 	// Set track size
 	let trackSize: string;
+	// prettier-ignore
 	switch (size) {
-		case 'sm':
-			trackSize = 'w-12 h-6';
-			break;
-		case 'lg':
-			trackSize = 'w-20 h-10';
-			break;
-		default:
-			trackSize = 'w-16 h-8';
+		case 'sm': trackSize = 'w-12 h-6'; break;
+		case 'lg': trackSize = 'w-20 h-10'; break;
+		default: trackSize = 'w-16 h-8';
 	}
 
 	// A11y Input Handlers
@@ -45,8 +42,10 @@
 	$: cThumbPos = checked ? 'translate-x-full' : '';
 
 	// Reactive Classes
-	$: classesTrack = `${cBaseTrack} ${trackSize} ${cTrackAccent}`;
-	$: classesThumb = `${cBaseThumb} ${cThumbBackground} ${cThumbPos}`;
+	$: classesBase = `${cBase}`;
+	$: classesLabel = `${cLabel} ${$$props.class || ''}`;
+	$: classesTrack = `${cTrack} ${trackSize} ${cTrackAccent}`;
+	$: classesThumb = `${cThumb} ${cThumbBackground} ${cThumbPos}`;
 
 	// Prune $$restProps to avoid overwriting $$props.class
 	function prunedRestProps(): any {
@@ -57,7 +56,7 @@
 
 <div
 	id={label}
-	class="slide-toggle {cBaseLabel} {$$props.class}"
+	class="slide-toggle {classesBase}"
 	class:opacity-30={$$props.disabled}
 	data-testid="slide-toggle"
 	on:keydown={onKeyDown}
@@ -66,19 +65,14 @@
 	aria-checked={checked}
 	tabindex="0"
 >
-	<!-- Keep this, it triggers click/toggle event -->
-	<label>
-		<!-- Input (Hidden) -->
+	<label class="slide-toggle-label {classesLabel}">
+		<!-- Hidden Input -->
 		<input type="checkbox" class="hidden" bind:checked on:click on:mouseover on:focus on:blur {...prunedRestProps()} disabled={$$props.disabled} />
-
-		<div class="flex items-center space-x-4">
-			<!-- Slider Track/Thumb -->
-			<div class="track {classesTrack}" class:cursor-not-allowed={$$props.disabled}>
-				<div class="thumb {classesThumb}" class:cursor-not-allowed={$$props.disabled} />
-			</div>
-
-			<!-- Label -->
-			{#if $$slots.default}<div><slot /></div>{/if}
+		<!-- Slider Track/Thumb -->
+		<div class="slide-toggle-track {classesTrack}" class:cursor-not-allowed={$$props.disabled}>
+			<div class="slide-toggle-humb {classesThumb}" class:cursor-not-allowed={$$props.disabled} />
 		</div>
+		<!-- Label -->
+		{#if $$slots.default}<div class="slide-toggle-label ml-3"><slot /></div>{/if}
 	</label>
 </div>

@@ -14,9 +14,15 @@ describe('Alert.svelte', () => {
 			props: {
 				visible: true,
 				duration: 100,
-				background: 'bg-primary-500',
+				background: 'bg-primary-500/30',
 				color: 'text-accent-500',
-				radius: 'rounded'
+				borderWidth: 'border-l-2',
+				borderColor: 'border-l-primary-500',
+				radius: 'rounded',
+				// Slots
+				slotLead: 'bg-red-500',
+				slotContent: 'bg-green-500',
+				slotTrail: 'bg-blue-500'
 			}
 		});
 		expect(getByTestId('alert')).toBeTruthy();

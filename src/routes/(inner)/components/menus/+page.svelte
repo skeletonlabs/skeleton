@@ -31,7 +31,7 @@
 	</header>
 
 	<!-- Examples -->
-	<Card body="flex justify-center space-x-4">
+	<Card slotBody="flex justify-center space-x-4">
 		<!-- Default -->
 		<Menu>
 			<!-- Slot: Trigger -->

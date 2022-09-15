@@ -71,7 +71,7 @@
 
 <!-- prettier-ignore -->
 <div
-	class="lightswitch-track {classesBase}"
+	class="lightswitch {classesBase}"
 	on:click={onClick}
 	on:keydown={onKeyDown}
 	role="switch"

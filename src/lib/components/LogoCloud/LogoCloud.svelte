@@ -1,20 +1,29 @@
 <script lang="ts">
 	import { setContext } from 'svelte';
 
-	// Props
-	export let background: string = 'bg-surface-200 dark:bg-surface-800';
-	export let color: string = 'text-black dark:text-white';
+	// Props (Cloud)
+	export let gridCols: string = 'md:grid-cols-1';
+	export let gridGap: string = 'gap-1';
+	export let rounded: string = 'rounded-lg';
+	// Props (Logo)
+	export let background: string = 'bg-surface-300 dark:bg-surface-800';
 	export let text: string = 'text-base font-bold';
+	export let color: string = 'text-black dark:text-white';
+	export let padding: string = 'py-4 md:py-10';
 
 	// Context
 	setContext('background', background);
-	setContext('color', color);
 	setContext('text', text);
+	setContext('color', color);
+	setContext('padding', padding);
 
 	// Base Classes
-	const cBaseCloud: string = 'flex flex-col lg:flex-row space-y-1 lg:space-y-0 lg:space-x-1 overflow-hidden rounded-xl';
+	const cCloud: string = 'grid grid-cols-1 gap-4 overflow-hidden';
+
+	// Reactive Clases
+	$: classesCloud = `${cCloud} ${gridCols} ${rounded} ${gridGap} ${$$props.class || ''}`;
 </script>
 
-<div class="{cBaseCloud} {$$props.class}" data-testid="logo-cloud">
+<div class="logo-cloud {classesCloud}" data-testid="logo-cloud">
 	<slot />
 </div>

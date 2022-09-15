@@ -2,6 +2,7 @@
 	import { writable, type Writable } from 'svelte/store';
 	import { DataTable, Card, Stepper, Step } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
 
 	const active: Writable<number> = writable(0);
 	const lorem: string =
@@ -10,25 +11,40 @@
 		alert('Complete was triggered!');
 	};
 
-	// Props and Slots
+	// Local
+	let exampleLockedState: boolean = false;
+
+	// Tables
 	const tablePropsStepper: any = {
 		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
 		source: [
-			['active', 'Writable<number>', '0 (zero)', '&check;', 'Provide a Svelte Writable that stores the active step state.'],
-			['length', 'number', '0 (zero)', '&check;', 'Informs the component of the total number of steps.'],
-			['accent', 'string', 'bg-primary-500', '-', 'Provide a class that sets the current step numeral background color.'],
-			['background', 'string', 'bg-surface-300 dark:bg-surface-700', '-', 'Provide a class that sets timeline background color.']
+			['active', 'Writable<number>', 'writable(0)', '&check;', 'Provide a writable which stores the actively selected step state.'],
+			['length', 'number', '0', '&check;', 'Provide a count of the total number of Steps (children).'],
+			['duration', 'number', '200', '-', 'Set the Svelte transition duration.'],
+			['color', 'string', 'text-white', '-', 'Provide classes to set the numeral text color.'],
+			['background', 'string', 'bg-accent-500 text-white', '-', 'Provide classes to set the timeline background color.']
+		]
+	};
+	const tablePropsStepperButtons: any = {
+		headings: ['Prop', 'Type', 'Default', 'Description'],
+		source: [
+			['buttonBack', 'object', `variant: 'ring'`, 'Provide <a href="/components/buttons">Button properties</a> to <a href="https://svelte.dev/tutorial/spread-props" target="_blank">spread</a>.'],
+			['buttonNext', 'object', `variant: 'filled'`, 'Provide <a href="/components/buttons">Button properties</a> to <a href="https://svelte.dev/tutorial/spread-props" target="_blank">spread</a>.'],
+			[
+				'buttonComplete',
+				'object',
+				`variant: 'filled-primary', text: 'Complete'`,
+				'Provide <a href="/components/buttons">Button properties</a> to <a href="https://svelte.dev/tutorial/spread-props" target="_blank">spread</a>.'
+			]
 		]
 	};
 	const tablePropsStep: any = {
 		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
 		source: [
-			['index', 'number', '-', '&check;', 'Indicates the step index value. Should start with zero 0 (zero)'],
-			['disabled', 'boolean', 'false', '-', 'When enabled, the Next button is disabled. This prevents progress.'],
-			['done', 'boolean', 'false', '-', 'When enabled, numeric step value changes to checkmark.']
+			['index', 'number', '-', '&check;', 'Indicates the step index value. Should start with 0 (zero)'],
+			['locked', 'boolean', 'false', '-', 'When enabled, a lock icon appears and the Next button is disabled. This prevents progress.']
 		]
 	};
-
 	// Slots
 	const tableSlotsStepper: any = {
 		headings: ['Name', 'Description'],
@@ -37,12 +53,10 @@
 	const tableSlotsStep: any = {
 		headings: ['Name', 'Description'],
 		source: [
-			['title', 'Optionally provide the title for the step.'],
-			['subtitle', 'Optionally provide the subtitle for the step.'],
-			['content', 'Provide the content for the step.']
+			['default', 'Provide the content for the step.'],
+			['header', 'Override the aut-generated heading with your own value. Typically a step title.']
 		]
 	};
-
 	// Events
 	const tableEvents: any = {
 		headings: ['Prop', 'Description'],
@@ -54,27 +68,36 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Stepper</h1>
-		<p>Divide content into sequenced steps.</p>
+		<p>Divide and present content in sequenced steps.</p>
 		<CodeBlock language="javascript" code={`import { Stepper, Step } from '@brainandbones/skeleton';`} />
 	</header>
 
 	<!-- Examples -->
 	<Card>
-		<Stepper {active} length={3} on:complete={onComplete}>
-			<Step index={0} disabled={false} done={false}>
-				<svelte:fragment slot="title"><h4>Step One</h4></svelte:fragment>
-				<svelte:fragment slot="subtitle">Subtext for step one</svelte:fragment>
-				<svelte:fragment slot="content"><p>{lorem}</p></svelte:fragment>
+		<Stepper {active} length={5} on:complete={onComplete}>
+			<Step index={0}>
+				<svelte:fragment slot="header"><h4>Step 1 - Get Started!</h4></svelte:fragment>
+				<p>This example will teach you how to use the Stepper component. Tap <em>next</em> to proceed forward.</p>
 			</Step>
-			<Step index={1} disabled={false} done={false}>
-				<svelte:fragment slot="title"><h4>Step Two</h4></svelte:fragment>
-				<svelte:fragment slot="subtitle">Subtext for step two</svelte:fragment>
-				<svelte:fragment slot="content"><p>{lorem}</p></svelte:fragment>
+			<Step index={1}>
+				<p>Prior completed steps will display a checkmark. However, tap the &uarr; button at any time to return to the previous step.</p>
 			</Step>
-			<Step index={2} disabled={false} done={false}>
-				<svelte:fragment slot="title"><h4>Step Three</h4></svelte:fragment>
-				<svelte:fragment slot="subtitle">Subtext for step three</svelte:fragment>
-				<svelte:fragment slot="content"><p>{lorem}</p></svelte:fragment>
+			<Step index={2} locked={!exampleLockedState}>
+				<p>
+					This Step component uses the <code>locked</code> property, which can prevent progress. This is ideal for multi-step forms, such as registration. For now we'll simulate a successful
+					validation condition using the
+					<em>unlock</em> option below.
+				</p>
+				<SlideToggle bind:checked={exampleLockedState}>Unlock</SlideToggle>
+			</Step>
+			<Step index={3}>
+				<p>The steps will expand to fit content of any width. We'll demonstrate this below with <em>lorem ipsum</em> text.</p>
+				<p>{lorem} {lorem} {lorem} {lorem} {lorem}</p>
+			</Step>
+			<Step index={4}>
+				<p>
+					A <em>Complete</em> button will appear on the last step. When the step is unlocked and the button pressed, an <code>on:complete</code> event will fire. Use this to submit form data to a server.
+				</p>
 			</Step>
 		</Stepper>
 	</Card>
@@ -82,30 +105,24 @@
 	<!-- Usage -->
 	<section class="space-y-4">
 		<h2>Usage</h2>
-		<p>For the best user experience keep the number of steps to a minimum. Usually five or less.</p>
-		<CodeBlock
-			language="typescript"
-			code={`import type { Writable } from "svelte/store";
-const active: Writable<number> = writable(0);`}
-		/>
-		<CodeBlock language="typescript" code={`const onComplete: any = () => { /* ... */ }`} />
+		<p>To begin, create a writable that will store your active step value. This should <u>always</u> be set to <code>0</code> (zero).</p>
+		<CodeBlock language="typescript" code={`import type { Writable } from "svelte/store";`} />
+		<CodeBlock language="typescript" code={`const active: Writable<number> = writable(0);`} />
+		<p>Scaffold your stepper as shown. If no header slot is provided then the component will add "Step X" text automatically.</p>
 		<CodeBlock
 			language="html"
 			code={`
-<Stepper {active} length={3} on:complete={onComplete}>
-    <Step index={0} disabled={false} done={false}>
-        <svelte:fragment slot="title">Step One</svelte:fragment>
-        <svelte:fragment slot="subtitle">Subtext for step one</svelte:fragment>
-        <svelte:fragment slot="content">The content of step one.</svelte:fragment>
-    </Step>
-    <Step index={1} disabled={false} done={false}>
-        <svelte:fragment slot="title">Step Two</svelte:fragment>
-        <svelte:fragment slot="subtitle">Subtext for step two</svelte:fragment>
-        <svelte:fragment slot="content">The content of step two.</svelte:fragment>
-    </Step>
+<Stepper {active} length={5} on:complete={onComplete}>
+	<Step index={0}>
+		<svelte:fragment slot="header">(header)</svelte:fragment>
+		(content)
+	</Step>
+	<Step index={1} locked={true}>(content)</Step>
 </Stepper>
         `.trim()}
 		/>
+		<p>Create a function to handle your Stepper's <code>on:complete</code> event.</p>
+		<CodeBlock language="typescript" code={`const onComplete: any = () => { /* handle the event */ }`} />
 	</section>
 
 	<!-- Properties -->
@@ -113,6 +130,7 @@ const active: Writable<number> = writable(0);`}
 		<h2>Properties</h2>
 		<h3>Stepper</h3>
 		<DataTable headings={tablePropsStepper.headings} source={tablePropsStepper.source} />
+		<DataTable headings={tablePropsStepperButtons.headings} source={tablePropsStepperButtons.source} />
 		<h3>Step</h3>
 		<DataTable headings={tablePropsStep.headings} source={tablePropsStep.source} />
 	</section>

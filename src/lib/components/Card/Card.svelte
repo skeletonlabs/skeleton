@@ -4,23 +4,26 @@
 	export let color: string | undefined = undefined;
 	export let padding: string = 'p-4';
 	export let space: string = 'space-y-4';
-	export let ringSize: string = 'ring-[1px]';
+	export let ringWidth: string = 'ring-[1px]';
 	export let ringColor: string = 'ring-black/5 dark:ring-white/5';
 	export let ringInset: string = 'ring-inset';
 	export let rounded: string = 'rounded-lg';
-	// Props (per slot)
-	export let header: string | undefined = undefined;
-	export let body: string | undefined = undefined;
-	export let footer: string | undefined = undefined;
+	// Props (slots)
+	export let slotHeader: string | undefined = undefined;
+	export let slotBody: string | undefined = undefined;
+	export let slotFooter: string | undefined = undefined;
+
+	// Local
+	const tag: string = $$props.href ? 'a' : 'div';
 
 	// Reactive
-	$: classesCard = `${background} ${color} ${padding} ${space} ${ringSize} ${ringColor} ${ringInset} ${rounded}`;
-	$: classesHeader = `${header}`;
-	$: classesBody = `${body}`;
-	$: classesFooter = `${footer}`;
+	$: classesCard = `${background} ${color} ${padding} ${space} ${ringWidth} ${ringColor} ${ringInset} ${rounded} ${$$props.class || ''}`;
+	$: classesHeader = `${slotHeader}`;
+	$: classesBody = `${slotBody}`;
+	$: classesFooter = `${slotFooter}`;
 </script>
 
-<div class="card {classesCard} {$$props.class || ''}" data-testid="card">
+<svelte:element this={tag} href={$$props.href} target={$$props.target} class="card {classesCard}" data-testid="card">
 	<!-- Header -->
 	{#if $$slots.header}
 		<header class="card-header {classesHeader}"><slot name="header" /></header>
@@ -31,4 +34,4 @@
 	{#if $$slots.footer}
 		<footer class="card-footer {classesFooter}"><slot name="footer" /></footer>
 	{/if}
-</div>
+</svelte:element>

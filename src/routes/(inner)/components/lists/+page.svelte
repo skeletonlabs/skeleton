@@ -8,13 +8,15 @@
 	let navMultiple: Writable<string[]> = writable(['A', 'B']);
 
 	const tablePropsList: any = {
-		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
+		headings: ['Prop', 'Type', 'Default', 'Values', 'Nav Only', 'Description'],
 		source: [
-			['tag', 'string', 'ul', 'ul | ol | dl | nav', , 'Defines the semantic wrapping element.'],
-			['space', 'string', 'space-y-1', 'class', 'Provide a class to set Y-axis spacing of list items.'],
-			['selected', 'Writable', '-', 'any', 'Nav tag only. Provide a writable store to maintain list selection.'],
-			['hover', 'string', 'hover:bg-primary-500/10', 'class', 'Nav tag only. Provide a class to set hover background color.'],
-			['highlight', 'string', '!bg-primary-500', 'class', 'Nav tag only. Provide a class for highlighted rows. Note this must be use (!) for important.']
+			['tag', 'string', 'ul', 'ul | ol | dl | nav', , '-', 'Defines the semantic wrapping element.'],
+			['space', 'string', 'space-y-1', 'class', '-', 'Provide classes to set Y-axis spacing of list items.'],
+			['selected', 'Writable', '-', 'any | any[]', `&check;`, 'Provide a writable store to maintain list selection.'],
+			['accent', 'string', '!bg-primary-500', 'class', `&check;`, 'Selected row item color. Important <code>!</code> is recommended.'],
+			['hover', 'string', 'hover:bg-primary-500/10', 'class', `&check;`, 'Provide classes to set hover background color.'],
+			['padding', 'string', 'px-4 py-3', 'class', `-`, 'Provide classes to set the list item padding.'],
+			['rounded', 'string', 'rounded', 'class', `-`, 'Provide classes to set the list item rounding styles.']
 		]
 	};
 	const tablePropsItems: any = {
@@ -39,10 +41,10 @@
 		]
 	};
 	const tableA11yItem: any = {
-		headings: ['Prop', 'Type', 'Default', 'Description'],
+		headings: ['Prop', 'Type', 'Default', 'Nav Only', 'Description'],
 		source: [
-			['setsize', 'number', '-', `Nav Item only. Define the ARIA setsize value.`],
-			['posinset ', 'number', '-', `Nav Item only. Define the ARIA posinset value.`]
+			['setsize', 'number', '-', `&check;`, 'Define the ARIA setsize value.'],
+			['posinset ', 'number', '-', `&check;`, 'Define the ARIA posinset value.']
 		]
 	};
 </script>
@@ -56,90 +58,88 @@
 	</header>
 
 	<!-- Variations -->
-	<section class="space-y-4">
-		<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-4">
-			<section class="space-y-4">
-				<Card body="space-y-4">
-					<h6>Unordered</h6>
-					<List tag="ul">
-						{#each ['A', 'B', 'C'] as v, i}
-							<ListItem tabindex={i}>
-								<svelte:fragment slot="lead">
-									<!-- {@html svgHeart} -->
-									<SvgIcon name="skull" fill="fill-primary-500" />
-								</svelte:fragment>
-								Item {v}
-								<svelte:fragment slot="trail">
-									<span class="opacity-50">⋮</span>
-								</svelte:fragment>
-							</ListItem>
-						{/each}
-					</List>
-				</Card>
-			</section>
-			<section class="space-y-4">
-				<Card body="space-y-4">
-					<h6>Ordered</h6>
-					<List tag="ol">
-						{#each ['A', 'B', 'C'] as v, i}
-							<ListItem tabindex={i}>
-								<svelte:fragment slot="lead"><div class="circle font-bold text-white">{i + 1}</div></svelte:fragment>
-								Item {v}
-							</ListItem>
-						{/each}
-					</List>
-				</Card>
-			</section>
-			<section class="space-y-4">
-				<Card body="space-y-4">
-					<h6>Description</h6>
-					<List tag="dl">
-						{#each ['A', 'B'] as v, i}
-							<ListItem tabindex={i}>
-								<svelte:fragment slot="dt">Item {v}</svelte:fragment>
-								<svelte:fragment slot="dd"><p>Description for {v}</p></svelte:fragment>
-							</ListItem>
-						{/each}
-					</List>
-				</Card>
-			</section>
-			<section class="space-y-4">
-				<Card body="space-y-4">
-					<h6>Anchors</h6>
-					<List tag="nav" label="Anchor List Example">
-						<ListItem href="/">Page A</ListItem>
-						<ListItem href="/">Page B</ListItem>
-						<ListItem href="/">Page C</ListItem>
-					</List>
-				</Card>
-			</section>
+	<section class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-4">
+		<div class="space-y-4">
+			<Card slotBody="space-y-4">
+				<h6>Unordered</h6>
+				<List tag="ul">
+					{#each ['A', 'B', 'C'] as v, i}
+						<ListItem tabindex={i}>
+							<svelte:fragment slot="lead">
+								<!-- {@html svgHeart} -->
+								<SvgIcon name="skull" fill="fill-primary-500" />
+							</svelte:fragment>
+							Item {v}
+							<svelte:fragment slot="trail">
+								<span class="opacity-50">⋮</span>
+							</svelte:fragment>
+						</ListItem>
+					{/each}
+				</List>
+			</Card>
+		</div>
+		<div class="space-y-4">
+			<Card slotBody="space-y-4">
+				<h6>Ordered</h6>
+				<List tag="ol">
+					{#each ['A', 'B', 'C'] as v, i}
+						<ListItem tabindex={i}>
+							<svelte:fragment slot="lead"><div class="circle font-bold text-white">{i + 1}</div></svelte:fragment>
+							Item {v}
+						</ListItem>
+					{/each}
+				</List>
+			</Card>
+		</div>
+		<div class="space-y-4">
+			<Card slotBody="space-y-4">
+				<h6>Description</h6>
+				<List tag="dl">
+					{#each ['A', 'B'] as v, i}
+						<ListItem tabindex={i}>
+							<svelte:fragment slot="dt">Item {v}</svelte:fragment>
+							<svelte:fragment slot="dd"><p>Description for {v}</p></svelte:fragment>
+						</ListItem>
+					{/each}
+				</List>
+			</Card>
+		</div>
+		<div class="space-y-4">
+			<Card slotBody="space-y-4">
+				<h6>Anchors</h6>
+				<List tag="nav" label="Anchor List Example">
+					<ListItem href="/">Page A</ListItem>
+					<ListItem href="/">Page B</ListItem>
+					<ListItem href="/">Page C</ListItem>
+				</List>
+			</Card>
 		</div>
 	</section>
 
 	<!-- Selection Listbox -->
 	<section class="space-y-4">
-		<h3>Selection Listbox</h3>
+		<h3>Selection Listboxes</h3>
 		<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
 			<section class="space-y-4">
-				<Card body="space-y-4">
+				<Card slotBody="space-y-4">
 					<h6>Single</h6>
 					<List tag="nav" selected={navSingle} label="Single Selection">
 						<ListItem value={'A'}>Item A</ListItem>
 						<ListItem value={'B'}>Item B</ListItem>
 						<ListItem value={'C'}>Item C</ListItem>
 					</List>
-					<pre>Selected: {$navSingle}</pre>
+					<p class="text-center">Selected: <code>{$navSingle}</code></p>
 				</Card>
 			</section>
 			<section class="space-y-4">
-				<Card body="space-y-4">
+				<Card slotBody="space-y-4">
 					<h6>Multiple</h6>
-					<List tag="nav" selected={navMultiple} label="Multi-Selection" hover="hover:bg-accent-500/10" highlight="!bg-accent-500">
+					<List tag="nav" selected={navMultiple} label="Multi-Selection" hover="hover:bg-accent-500/10" accent="!bg-accent-500">
 						<ListItem value={'A'}>Item A</ListItem>
 						<ListItem value={'B'}>Item B</ListItem>
 						<ListItem value={'C'}>Item C</ListItem>
 					</List>
-					<pre>Selected: {$navMultiple}</pre>
+					<p class="text-center">Selected: <code>{$navMultiple}</code></p>
 				</Card>
 			</section>
 		</div>
@@ -225,7 +225,8 @@
 		<h2>Properties</h2>
 		<h3>List Group</h3>
 		<DataTable headings={tablePropsList.headings} source={tablePropsList.source} />
-		<h3>Nav Item</h3>
+		<h3>List Item</h3>
+		<p>Properties for <code>accent</code>, <code>hover</code>, <code>padding</code> can be overriden on this component.</p>
 		<DataTable headings={tablePropsItems.headings} source={tablePropsItems.source} />
 	</section>
 
@@ -243,7 +244,7 @@
 		</div>
 		<h3>List</h3>
 		<DataTable headings={tableA11yList.headings} source={tableA11yList.source} />
-		<h3>Items</h3>
+		<h3>List Item</h3>
 		<DataTable headings={tableA11yItem.headings} source={tableA11yItem.source} />
 	</section>
 </div>

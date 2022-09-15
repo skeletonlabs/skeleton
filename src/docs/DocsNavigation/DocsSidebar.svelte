@@ -14,7 +14,7 @@
 	}
 </script>
 
-<div class="mb-8 {$$props.class || ''}">
+<div class="m-4 mb-20 {$$props.class || ''}">
 	{#each menuNavLinks as { id, title, list }, i}
 		<!-- Title -->
 		<div {id} class="text-primary-500 text-sm font-bold uppercase p-4">{title}</div>
@@ -35,13 +35,13 @@
 					<span>{label}</span>
 					<!-- Badge -->
 					<svelte:fragment slot="trail">
-						{#if badge}<Badge background="bg-accent-500 dark/bg-accent-500/30">{badge}</Badge>{/if}
+						{#if badge}<Badge background="bg-accent-500" color="text-white">{badge}</Badge>{/if}
 					</svelte:fragment>
 				</ListItem>
 			{/each}
 		</List>
 
 		<!-- Divider -->
-		{#if i + 1 < menuNavLinks.length}<Divider class="my-4 opacity-30" />{/if}
+		{#if i + 1 < menuNavLinks.length}<Divider margin="my-4" opacity="opacity-50" />{/if}
 	{/each}
 </div>

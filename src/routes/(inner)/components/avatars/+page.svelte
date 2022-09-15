@@ -1,42 +1,81 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
-	import { DataTable, Card, RadioGroup, RadioItem, SlideToggle, Avatar } from '@brainandbones/skeleton';
-	import { Apollo, BlueNight, Emerald, GreenFall, Noir, NoirLight, Rustic, Summer84, XPro } from '@brainandbones/skeleton';
+
+	// Components
+	import Avatar from '$lib/components/Avatar/Avatar.svelte';
+	import Card from '$lib/components/Card/Card.svelte';
+	import DataTable from '$lib/components/Table/DataTable.svelte';
+	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
+	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
+	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	// Actions
+	import { filter } from '$lib/actions/Filters/filter';
+	// Filter SVGs
+	import Apollo from '$lib/actions/Filters/svg-filters/Apollo.svelte';
+	import BlueNight from '$lib/actions/Filters/svg-filters/BlueNight.svelte';
+	import Emerald from '$lib/actions/Filters/svg-filters/Emerald.svelte';
+	import GreenFall from '$lib/actions/Filters/svg-filters/GreenFall.svelte';
+	import Noir from '$lib/actions/Filters/svg-filters/Noir.svelte';
+	import NoirLight from '$lib/actions/Filters/svg-filters/NoirLight.svelte';
+	import Rustic from '$lib/actions/Filters/svg-filters/Rustic.svelte';
+	import Summer84 from '$lib/actions/Filters/svg-filters/Summer84.svelte';
+	import XPro from '$lib/actions/Filters/svg-filters/XPro.svelte';
 
-	const storeSrc: Writable<string | undefined> = writable(undefined);
-	let placeholder: string = 'https://i.pravatar.cc/';
+	// Local
+	const imgPlaceholder: string = 'https://i.pravatar.cc/?img=5';
+	const borderStyles: string = 'border-4 border-black dark:border-white hover:!border-primary-500 cursor-pointer';
 
-	const tableProps: any = {
-		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
-		source: [
-			['initials', 'string', 'A', 'text', 'Provide up to two text characters.'],
-			['src', 'string', 'url', '-', 'The image source to display.'],
-			['size', 'string', 'full', 'sm | md | lg | xl | 2xl | 3xl | full', 'Sets the circle and text sizing.'],
-			['background', 'string', 'bg-surface-500', 'class', 'Provide a class to set background color. Only works with initials'],
-			['color', 'string', 'text-white', 'class', 'Provide a class to set text color.'],
-			['outlined', 'boolean', 'false', 'true | false', 'Displays an outline of the primary color.'],
-			['hover', 'boolean', 'false', 'true | false', 'Displays and outline when hovering the avatar.'],
-			['filter', 'string', 'false', 'filter reference', 'Enables a visual <a href="/utilities/filters">Filter</a>. Only works with src.']
-		]
-	};
+	// Store
+	const storeWidth: Writable<string | undefined> = writable('w-48');
+	const storeSrc: Writable<string | undefined> = writable(imgPlaceholder);
+	const storeBorder: Writable<string | undefined> = writable(borderStyles);
 
 	function updateImage(): void {
 		props.src = undefined;
 		setTimeout(() => {
-			props.src = placeholder;
+			props.src = imgPlaceholder;
 		}, 1);
 	}
 
 	$: props = {
-		initials: 'SK',
+		initials: 'AB',
 		src: $storeSrc,
-		size: '3xl',
+		alt: 'avatar',
+		width: $storeWidth,
 		background: 'bg-surface-500',
-		color: undefined,
-		outlined: false,
-		hover: false,
-		filter: ''
+		fill: 'fill-white',
+		border: $storeBorder,
+		actionParams: ''
+	};
+
+	// Tables
+	const tableProps: any = {
+		headings: ['Prop', 'Type', 'Default', 'Description'],
+		source: [
+			['background', 'string', 'bg-surface-500', 'Provide classes to set background styles.'],
+			['width', 'string', 'w-12', 'Provide classes to set avatar width.'],
+			['border', 'string', '-', 'Provide classes to set border styles.'],
+			['rounded', 'string', 'rounded-full', 'Provide classes to set rounded style.'],
+			['shadow', 'string', '-', 'Provide classes to set shadow styles.'],
+			['cursor', 'string', '-', 'Provide classes to set cursor styles.']
+		]
+	};
+	const tablePropsImg: any = {
+		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
+		source: [
+			['src', 'string', '-', '-', 'Set image source value.'],
+			['alt', 'string', '-', '-', 'Set image alt text value for accessability.'],
+			['action', 'string', '-', '(Svelte action)', 'Provide an Svelte action reference, such as <code>filter</code>.'],
+			['actionParams', 'string', '-', '(filter ID)', 'Provide Svelte action params, such as <code>Apollo</code>.']
+		]
+	};
+	const tablePropsInitials: any = {
+		headings: ['Prop', 'Type', 'Default', 'Description'],
+		source: [
+			['initials', 'string', 'AB', 'Provide up to two text characters.'],
+			['fill', 'string', 'fill-white', 'Provide classes to set the text fill color.']
+		]
 	};
 </script>
 
@@ -51,65 +90,69 @@
 <Summer84 />
 <XPro />
 
-<div class="space-y-8">
+<div class="!mt-0 space-y-8">
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Avatars</h1>
-		<p>Choose from a variety for avatar sizes and styles, using either initials or images.</p>
+		<p>Display user avatars with an image or initials.</p>
 		<CodeBlock language="js" code={`import { Avatar } from '@brainandbones/skeleton';`} />
 	</header>
 
 	<!-- Sandbox -->
 	<section class="space-y-4">
-		<div class="space-y-4 xl:space-y-0 xl:grid grid-cols-[2fr,1fr] gap-2">
+		<div class="grid grid-cols-1 xl:grid-cols-[1fr_480px] gap-2">
 			<!-- Example -->
-			<Card body="h-full flex justify-center items-center">
+			<Card slotBody="h-full flex justify-center items-center">
 				<svelte:component
 					this={Avatar}
 					initials={props.initials || 'A'}
 					src={props.src}
-					size={props.size}
+					alt={props.alt}
+					width={props.width}
 					background={props.background}
-					color={props.color}
-					outlined={props.outlined}
-					hover={props.hover}
-					filter={props.filter}
+					fill={props.fill}
+					border={props.border}
+					action={filter}
+					actionParams={props.actionParams}
 				/>
 			</Card>
 			<!-- Options -->
-			<Card body="space-y-4">
-				<!-- Size -->
-				<label>
-					<span>Size</span>
-					<select name="size" id="size" bind:value={props.size}>
-						<option value="sm">sm</option>
-						<option value="md">md</option>
-						<option value="lg">lg</option>
-						<option value="xl">xl</option>
-						<option value="2xl">2xl</option>
-						<option value="3xl">3xl</option>
-						<option value="full">full</option>
-					</select>
-				</label>
+			<Card slotBody="space-y-4">
 				<!-- Source -->
-				<div>
-					<legend>Source</legend>
-					<RadioGroup selected={storeSrc} background="bg-accent-500" color="text-white" width="w-full">
-						<RadioItem value={undefined}>Initials</RadioItem>
-						<RadioItem value={placeholder}>Image</RadioItem>
+				<RadioGroup selected={storeSrc} display="flex">
+					<RadioItem value={imgPlaceholder}>Image</RadioItem>
+					<RadioItem value={undefined}>Initials</RadioItem>
+				</RadioGroup>
+				<!-- Width -->
+				<label for="">
+					<span>Width</span>
+					<RadioGroup selected={storeWidth} display="flex">
+						<RadioItem value="w-10">w-10</RadioItem>
+						<RadioItem value="w-24">w-24</RadioItem>
+						<RadioItem value="w-48">w-48</RadioItem>
+						<RadioItem value="w-56">w-56</RadioItem>
 					</RadioGroup>
-				</div>
+				</label>
+				<!-- Border -->
+				<label for="">
+					<span>Border</span>
+					<RadioGroup selected={storeBorder} display="flex">
+						<RadioItem value={borderStyles}>On</RadioItem>
+						<RadioItem value="">Off</RadioItem>
+					</RadioGroup>
+				</label>
+				<!-- If: Initials -->
 				{#if $storeSrc === undefined}
 					<!-- Initials -->
 					<label>
-						<span>Initials</span>
+						<span>Initial Text</span>
 						<input type="text" bind:value={props.initials} maxlength="2" />
 					</label>
 					<!-- Background -->
 					<label>
 						<span>Background</span>
 						<select name="background" id="background" bind:value={props.background}>
-							<option value="bg-surface-500">Default</option>
+							<option value="bg-surface-500">bg-surface-500</option>
 							<option value="bg-primary-500">bg-primary-500</option>
 							<option value="bg-accent-500">bg-accent-500</option>
 							<option value="bg-warning-500">bg-warning-500</option>
@@ -120,7 +163,7 @@
 				{#if $storeSrc !== undefined}
 					<label>
 						<span>Filter</span>
-						<select name="filter" id="filter" bind:value={props.filter} on:change={updateImage}>
+						<select name="filter" id="filter" bind:value={props.actionParams} on:change={updateImage}>
 							<option value="">None</option>
 							<option value="Apollo">Apollo</option>
 							<option value="BlueNight">BlueNight</option>
@@ -134,33 +177,35 @@
 						</select>
 					</label>
 				{/if}
-				<div class="flex space-x-4">
-					<div class="flex-1">
-						<SlideToggle bind:checked={props.outlined} accent="bg-accent-500">Outlined</SlideToggle>
-					</div>
-					<div class="flex-1">
-						<SlideToggle bind:checked={props.hover} accent="bg-accent-500">Hover</SlideToggle>
-					</div>
-				</div>
 			</Card>
 		</div>
-		<CodeBlock
-			language="html"
-			code={`<Avatar initials="${props.initials || 'A'}" ${props.src ? `src="${props.src}"` : ''} size="${props.size}" background="${props.background}" outlined={${props.outlined}} hover={${
-				props.hover
-			}} ${props.filter ? `filter="${props.filter}"` : ''}/>`.trim()}
-		/>
+	</section>
+
+	<!-- Usage -->
+	<section class="space-y-4">
+		<h2>Usage</h2>
+		<h4>Image</h4>
+		<p>Display an image source cropped into the shape.</p>
+		<CodeBlock language="html" code={`<Avatar src="https://i.pravatar.cc/" />`.trim()} />
+		<h4>Initials</h4>
+		<p>Display up to two text characters. (ex: Jane Doe would be JD)</p>
+		<CodeBlock language="html" code={`<Avatar initials="JD" />`.trim()} />
+		<h4>Using Filters</h4>
+		<p>
+			See <a href="/actions/filters">Filters</a> to learn how to import and configure the filters action and SVG filter components.
+		</p>
+		<CodeBlock language="ts" code={`import { filter, Apollo, /* ... */ } from '@brainandbones/skeleton';`.trim()} />
+		<p>Import the filter action reference using <code>action</code> and set <code>actionParams</code> to the desired filter id.</p>
+		<CodeBlock language="html" code={`<Avatar src="https://i.pravatar.cc/" action={filter} actionParams="Apollo" />`.trim()} />
 	</section>
 
 	<!-- Properties -->
 	<section class="space-y-4">
 		<h2>Properties</h2>
 		<DataTable headings={tableProps.headings} source={tableProps.source} />
-	</section>
-
-	<!-- Accessibility -->
-	<section class="space-y-4">
-		<h2>Accessibility</h2>
-		<p>You many apply an <code>alt</code> tag, which is appended to the image element.</p>
+		<h4>Image</h4>
+		<DataTable headings={tablePropsImg.headings} source={tablePropsImg.source} />
+		<h4>Initials</h4>
+		<DataTable headings={tablePropsInitials.headings} source={tablePropsInitials.source} />
 	</section>
 </div>

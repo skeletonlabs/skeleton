@@ -12,15 +12,16 @@ describe('RangeSlider.svelte', () => {
 	it('Renders with all props', async () => {
 		const { getByTestId } = render(RangeSlider, {
 			props: {
-				id: 'testRangeSlider1',
-				name: 'testRangeSlider1',
 				min: 0,
 				max: 20,
 				step: 5,
 				value: 10,
-				label: 'testRangeSliderLabel1',
 				ticked: true,
-				accent: 'bg-primary-500'
+				accent: 'bg-primary-500',
+				// a11y
+				id: 'testRangeSlider1',
+				name: 'testRangeSlider1',
+				label: 'testRangeSliderLabel1'
 			}
 		});
 		expect(getByTestId('range-slider')).toBeTruthy();

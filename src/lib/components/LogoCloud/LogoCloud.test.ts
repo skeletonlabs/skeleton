@@ -12,9 +12,14 @@ describe('LogoCloud.svelte', () => {
 	it('Renders with all props', async () => {
 		const { getByTestId } = render(LogoCloud, {
 			props: {
-				background: 'bg-primary-500',
-				color: 'text-white',
-				text: 'text-base font-bold'
+				gridCols: 'md:grid-cols-1',
+				gridGap: 'gap-1',
+				rounded: 'rounded-lg',
+				// Props (Logo)
+				background: 'bg-surface-300 dark:bg-surface-800',
+				color: 'text-black dark:text-white',
+				text: 'text-base font-bold',
+				padding: 'py-4 md:py-10'
 			}
 		});
 		expect(getByTestId('logo-cloud')).toBeTruthy();

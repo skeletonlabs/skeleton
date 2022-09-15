@@ -29,9 +29,7 @@
 	<Divider />
 
 	<Alert>
-		<svelte:fragment slot="message">
-			Please ensure you've read through <a href="/guides/tailwind">Tailwind</a>, <a href="/guides/themes">Themes</a>, and <a href="/guides/styling">Styling</a> guides before you proceed.
-		</svelte:fragment>
+		Please ensure you've read through <a href="/guides/tailwind">Tailwind</a>, <a href="/guides/themes">Themes</a>, and <a href="/guides/styling">Styling</a> guides before you proceed.
 	</Alert>
 
 	<!-- Setup -->
@@ -139,7 +137,7 @@ import WrapperExample from '../components/WrapperExample.svelte';
 	<Divider />
 
 	<!-- Official Docs -->
-	<Card body="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+	<Card slotBody="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<p>If you need more help with Astro, try their official Discord or documentation.</p>
 		<div class="space-x-2">
 			<Button variant="ghost" href="https://astro.build/chat" target="_blank">Discord</Button>

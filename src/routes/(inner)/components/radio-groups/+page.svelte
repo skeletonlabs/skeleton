@@ -1,20 +1,24 @@
 <script lang="ts">
-	import { writable } from 'svelte/store';
+	import { writable, type Writable } from 'svelte/store';
 	import { DataTable, Card, RadioGroup, RadioItem } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
 	const storeJustify = writable(0);
-	const storeLayout = writable('horz');
+	const storeLayout: Writable<string> = writable('horz');
 
 	// Props & Slots
 	const tablePropsGroup: any = {
 		headings: ['Prop', 'Type', 'Values', 'Required', 'Description'],
 		source: [
 			['selected', 'Writable', 'any', '&check;', 'Provide a Svelte writable to store the selected state value.'],
-			['background', 'string', 'bg-primary-500', '-', `Provide a class to set the selected item background color.`],
-			['color', 'string', 'text-black dark:text-white', '-', `Provide a class to set the selected item text color.`],
-			['width', 'string', 'w-auto', '-', `Provide a class to set the width.`]
+			['display', 'string', 'inline-flex', '-', 'Provided classes to set the display style.'],
+			['background', 'string', 'bg-surface-300 dark:bg-surface-700', '-', 'Provided classes to set the base background color.'],
+			['hover', 'string', 'hover:bg-primary-500/10', '-', 'Provided classes to set the hover style.'],
+			['accent', 'string', 'bg-primary-500 !text-white', '-', 'Provided classes to set the highlighted accent color.'],
+			['color', 'string', 'text-white', '-', 'Provided classes to set the highlighted text color.'],
+			['fill', 'string', '-', '-', 'Provided classes to set the highlighted SVG fill color.'],
+			['rounded', 'string', 'rounded', '-', 'Provided classes to set the border radius.']
 		]
 	};
 	const tablePropsItem: any = {
@@ -41,46 +45,47 @@
 
 	<!-- Examples -->
 	<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
-		<Card body="flex-auto space-y-4 text-center">
-			<RadioGroup selected={storeJustify}>
-				<RadioItem value={0} label="Align Left">
-					<SvgIcon name="align-left" class="-translate-y-[2px]" />
-				</RadioItem>
-				<RadioItem value={1} label="Align Middle">
-					<SvgIcon name="align-justify" class="-translate-y-[2px]" />
-				</RadioItem>
-				<RadioItem value={2} label="Align Right">
-					<SvgIcon name="align-right" class="-translate-y-[2px]" />
-				</RadioItem>
-			</RadioGroup>
-			<pre>selected = {$storeJustify}</pre>
+		<Card slotBody="grid grid-cols-1 gap-4 text-center">
+			<div>
+				<RadioGroup selected={storeJustify}>
+					<RadioItem value={0} label="Align Left">
+						<SvgIcon name="align-left" class="-translate-y-[2px]" />
+					</RadioItem>
+					<RadioItem value={1} label="Align Middle">
+						<SvgIcon name="align-justify" class="-translate-y-[2px]" />
+					</RadioItem>
+					<RadioItem value={2} label="Align Right">
+						<SvgIcon name="align-right" class="-translate-y-[2px]" />
+					</RadioItem>
+				</RadioGroup>
+			</div>
+			<p>Selected <code>{$storeJustify}</code></p>
 		</Card>
-		<Card body="flex-auto space-y-4 text-center">
-			<RadioGroup background="bg-accent-500" color="text-white" selected={storeLayout}>
-				<RadioItem value="horz">Horizontal</RadioItem>
-				<RadioItem value="vert">Vertical</RadioItem>
-			</RadioGroup>
-			<pre>selected = {$storeLayout}</pre>
+		<Card slotBody="grid grid-cols-1 gap-4 text-center">
+			<div>
+				<RadioGroup selected={storeLayout} accent="bg-primary-500" hover="hover:bg-primary-500/10">
+					<RadioItem value="horz">Horizontal</RadioItem>
+					<RadioItem value="vert">Vertical</RadioItem>
+				</RadioGroup>
+			</div>
+			<p>Selected <code>{$storeLayout}</code></p>
 		</Card>
 	</section>
 
 	<!-- Usage -->
 	<section class="space-y-4">
-		<CodeBlock
-			language="typescript"
-			code={`import type { Writable } from "svelte/store";
-const storeLayout: Writable<string> = writable('horz');`}
-		/>
+		<CodeBlock language="typescript" code={`import { writable, type Writable } from 'svelte/store';\n\nconst storeLayout: Writable<string> = writable('horz');`} />
 		<CodeBlock
 			language="html"
 			code={`
-<RadioGroup selected={storeLayout} background="bg-accent-500" color="text-white" width="w-auto">
+<RadioGroup selected={storeLayout}>
     <RadioItem value="horz">Horizontal</RadioItem>
     <RadioItem value="vert">Vertical</RadioItem>
 </RadioGroup>
         `.trim()}
 		/>
-		<CodeBlock language="html" code={`<pre>{$storeLayout}</pre>`} />
+		<p>To set dispay width to 100% use <code>display="flex"</code></p>
+		<CodeBlock language="html" code={`<RadioGroup display="flex"></RadioGroup>`} />
 	</section>
 
 	<!-- Properties -->
@@ -89,6 +94,7 @@ const storeLayout: Writable<string> = writable('horz');`}
 		<h3>Radio Group</h3>
 		<DataTable headings={tablePropsGroup.headings} source={tablePropsGroup.source} />
 		<h3>Radio Item</h3>
+		<p>Can override props <code>hover</code>, <code>accent</code>, <code>color</code>, <code>fill</code>, <code>rounded</code>.</p>
 		<DataTable headings={tablePropsItem.headings} source={tablePropsItem.source} />
 	</section>
 

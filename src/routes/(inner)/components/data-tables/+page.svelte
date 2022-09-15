@@ -68,11 +68,11 @@
 	const tablePropStyles: any = {
         headings: ['Prop', 'Type', 'Default', 'Description'],
         source: [
-            {prop: 'header', type: 'string', default: 'bg-surface-50 dark:bg-surface-700', desc: 'Provide a class to set the table header background color.'},
-            {prop: 'body', type: 'string', default: 'bg-surface-200 dark:bg-surface-800', desc: 'Provide a class to set the table body background color.'},
-            {prop: 'text', type: 'string', default: 'text-sm', desc: 'Provide a class to set the table text size.'},
-            {prop: 'color', type: 'string', default: '-', desc: 'Provide a class to set the table text color.'},
-            {prop: 'hover', type: 'string', default: 'hover:bg-primary-500/10', desc: 'Provide a class to set the hover background color.'},
+            {prop: 'header', type: 'string', default: 'bg-surface-50 dark:bg-surface-700', desc: 'Provide classes to set the table header background color.'},
+            {prop: 'body', type: 'string', default: 'bg-surface-200 dark:bg-surface-800', desc: 'Provide classes to set the table body background color.'},
+            {prop: 'text', type: 'string', default: 'text-sm', desc: 'Provide classes to set the table text size.'},
+            {prop: 'color', type: 'string', default: '-', desc: 'Provide classes to set the table text color.'},
+            {prop: 'hover', type: 'string', default: 'hover:bg-primary-500/10', desc: 'Provide classes to set the hover background color.'},
         ],
     }
 

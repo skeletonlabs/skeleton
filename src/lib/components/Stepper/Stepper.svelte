@@ -8,20 +8,40 @@
 	// Props
 	export let active: Writable<number> = writable(0);
 	export let length: number = 0;
-	export let accent: string = 'bg-primary-500';
-	export let background: string = 'bg-surface-300 dark:bg-surface-700';
+	export let duration: number = 200;
+	// Props (timeline)
+	export let color: string = 'text-white';
+	export let background: string = 'bg-accent-500 text-white';
+	// Props (buttons)
+	export let buttonBack: any | undefined = undefined;
+	export let buttonNext: any | undefined = undefined;
+	export let buttonComplete: any | undefined = undefined;
+
+	// Button deafult attributes
+	let defaultButtonBack: any = { variant: 'ring' };
+	let defaultButtonNext: any = { variant: 'filled' };
+	let defaultButtonComplete: any = { variant: 'filled-primary', text: 'Complete' };
+
+	// Merge button defaults with prop overrides
+	let mergedButtonBack: any = Object.assign(defaultButtonBack, buttonBack);
+	let mergedButtonNext: any = Object.assign(defaultButtonNext, buttonNext);
+	let mergedButtonComplete: any = Object.assign(defaultButtonComplete, buttonComplete);
 
 	// Context
 	setContext('dispatch', dispatch);
 	setContext('active', active);
 	setContext('length', length);
-	setContext('accent', accent);
+	setContext('color', color);
 	setContext('background', background);
+	setContext('buttonBack', mergedButtonBack);
+	setContext('buttonNext', mergedButtonNext);
+	setContext('buttonComplete', mergedButtonComplete);
+	setContext('duration', duration);
 
-	// Base Clssses
-	const cBaseStepper: string = 'space-y-8';
+	// Reactive Classes
+	$: classesStepper = `${$$props.class || ''}`;
 </script>
 
-<div class="stepper {cBaseStepper} {$$props.class}" data-testid="stepper">
+<div class="stepper {classesStepper}" data-testid="stepper">
 	<slot />
 </div>

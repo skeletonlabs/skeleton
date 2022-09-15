@@ -1,4 +1,5 @@
-<svg id="svg-filter-noirlight" class="filter hidden">
+<!-- NoirLight: `filter: url(#NoirLight)` -->
+<svg id="svg-filter-noirlight" class="hidden">
 	<filter id="NoirLight" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="linearRGB">
 		<feColorMatrix type="saturate" values="0" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" result="colormatrix2" />
 		<feBlend mode="saturation" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" in2="colormatrix2" result="blend2" />

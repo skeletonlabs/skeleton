@@ -7,19 +7,23 @@
 	const tableProps: any = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
-			['icon', 'boolean', 'false', 'Adjusts styling to accommodate icons.'],
-			['background', 'class', 'bg-surface-500', 'Provide a class to set the background color.'],
-			['color', 'class', 'text-white', 'Provide a class to set the text color.'],
-			['fill', 'class', 'fill-white', 'Provide a class to set the fill color for SVG icons.'],
-			['rounded', 'class', 'rounded-lg', 'Provide a class to set rounding style.']
+			['icon', 'boolean', '-', 'Enable icon mode, making the badge small and circular.'],
+			['background', 'string', 'bg-surface-300 dark:bg-surface-600', 'Provided classes to set the background color.'],
+			['fill', 'string', 'fill-black dark:fill-white', 'Provided classes to set to set SVG fill color.'],
+			['text', 'string', 'text-xs', 'Provided classes to set to set text size.'],
+			['color', 'string', 'text-black dark:text-white', 'Provided classes to set the text color.'],
+			['padding', 'string', 'px-2 py-1', 'Provided classes to set padding styles.'],
+			['rounded', 'string', 'rounded', 'Provided classes to set rounded styles.'],
+			['shadow', 'string', '-', 'Provided classes to set shadow styles.']
 		]
 	};
 	// Slots
 	const tableSlots: any = {
-		headings: ['Slot', 'Description'],
+		headings: ['Slot', 'Style Prop', 'Description'],
 		source: [
-			['lead', 'Define a leading element, such as an icon.'],
-			['trail', 'Define a trailing element, such as an icon.']
+			['default', 'slotDefault', 'Provide your default content, usually the text label.'],
+			['lead', 'slotLead', 'Provide a leading element, such as an icon.'],
+			['trail', 'slotDefault', 'Provide a trailing element, such as an icon.']
 		]
 	};
 </script>
@@ -34,45 +38,44 @@
 
 	<!-- Examples -->
 	<section class="space-y-4">
-		<section class="space-y-4 md:space-y-0 md:grid md:grid-cols-2 md:gap-4">
-			<Card body="flex justify-center space-x-2">
+		<section class="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-4">
+			<Card class="flex-auto" slotBody="flex justify-center space-x-2">
 				<Badge>Skeleton</Badge>
-				<Badge background="bg-primary-500" color="text-primary-100">Skeleton</Badge>
-				<Badge background="bg-accent-500" color="text-accent-100">Skeleton</Badge>
-				<Badge background="bg-warning-500" color="text-primary-100">Skeleton</Badge>
 			</Card>
-			<Card body="flex justify-center space-x-2">
-				<Badge>
+			<Card class="flex-auto" slotBody="flex justify-center space-x-4">
+				<Badge background="bg-primary-500" color="text-white">
 					Complete
 					<svelte:fragment slot="lead">
-						<SvgIcon name="circle-check" width="w-3" height="w-3" fill="fill-white/50" class="!block" />
+						<SvgIcon name="circle-check" width="w-3" height="w-3" fill="fill-white" class="!block" />
 					</svelte:fragment>
 				</Badge>
-				<Badge background="bg-yellow-500" color="text-yellow-900" fill="fill-yellow-900">
-					Complete
-					<svelte:fragment slot="trail">
-						<SvgIcon name="circle-check" width="w-3" height="w-3" fill="fill-yellow-900" class="!block" />
-					</svelte:fragment>
+				<Badge background="bg-accent-500" color="text-white">
+					Skeleton
+					<svelte:fragment slot="trail">💀</svelte:fragment>
 				</Badge>
-				<Badge background="bg-pink-300" color="text-pink-900" rounded="rounded-full">
+				<Badge background="bg-warning-500" color="text-white">
 					Favorite
 					<svelte:fragment slot="lead">❤️</svelte:fragment>
 				</Badge>
 			</Card>
 		</section>
 		<h3>Positioning</h3>
-		<section class="space-y-4 md:space-y-0 md:grid md:grid-cols-3 md:gap-4">
-			<Card body="flex justify-center items-center h-full space-x-2">
-				<p>Skeleton</p>
-				<sup><Badge class="-ml-0" background="bg-primary-500">Super</Badge></sup>
+		<section class="grid grid-cols-1 xl:grid-cols-3 gap-4">
+			<Card slotBody="flex justify-center items-center h-full space-x-2">
+				<h4>Skeleton</h4>
+				<sup class="-translate-y-1"><Badge background="bg-primary-500" color="text-white" class="-ml-0">Sup</Badge></sup>
 			</Card>
-			<Card body="flex justify-center items-center h-full space-x-2">
-				<p>Skeleton</p>
-				<sub><Badge class="-ml-0" background="bg-accent-500">Subscript</Badge></sub>
+			<Card slotBody="flex justify-center items-center h-full space-x-2">
+				<h4>Skeleton</h4>
+				<sub class="translate-y-1"><Badge background="bg-accent-500" color="text-white" class="-ml-0">Sub</Badge></sub>
 			</Card>
-			<Card body="flex justify-center items-center space-x-4">
+			<Card slotBody="flex justify-center items-center space-x-6">
 				<div class="relative inline-block">
-					<Badge icon background="bg-primary-500" class="absolute top-0 right-0 z-10 shadow-xl">2</Badge>
+					<Badge background="bg-primary-500" color="text-white" class="absolute -top-3 -right-4 z-10 shadow-xl">50k</Badge>
+					<Button size="sm" variant="ghost">Button</Button>
+				</div>
+				<div class="relative inline-block">
+					<Badge icon background="bg-accent-500" color="text-white" class="absolute top-0 right-0 z-10 shadow-xl">2</Badge>
 					<Avatar size="md" />
 				</div>
 				<div class="relative inline-block">
@@ -81,10 +84,6 @@
 					</Badge>
 					<Avatar size="md" />
 				</div>
-				<div class="relative inline-block">
-					<Badge class="absolute -top-2 -right-4 z-10 shadow-xl">5k</Badge>
-					<Button size="sm" variant="filled-accent">Button</Button>
-				</div>
 			</Card>
 		</section>
 	</section>
@@ -92,24 +91,17 @@
 	<!-- Usage -->
 	<section class="space-y-4">
 		<h2>Usage</h2>
-		<CodeBlock language="html" code={`<Badge background="bg-primary-500">{label}</Badge>`} />
-		<CodeBlock
-			language="html"
-			code={`
-<Badge background="bg-pink-300" color="text-pink-900" rounded="rounded-full">
-    Favorite
-    <svelte:fragment slot="lead">❤️</svelte:fragment>
-</Badge>
-        `.trim()}
-		/>
+		<CodeBlock language="html" code={`<Badge>\n\t<svelte:fragment slot="lead">💀</svelte:fragment>\n\tSkeleton\n</Badge>`} />
+		<h4>Overlapping Icon</h4>
+		<p>Use Tailwind utility classes to overlap elements.</p>
 		<CodeBlock
 			language="html"
 			code={`
 <div class="relative inline-block">
-    <Badge icon background="bg-warning-500" class="absolute top-0 right-0 shadow-xl">2</Badge>
-    <Avatar size="md" />
+	<Badge icon class="absolute top-0 right-0 z-10">💀</Badge>
+	<Avatar background="bg-primary-500" />
 </div>
-        `.trim()}
+		`.trim()}
 		/>
 	</section>
 

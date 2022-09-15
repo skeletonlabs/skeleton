@@ -21,13 +21,13 @@
 		source: [
 			['variant', 'string', '-', '(see above)', 'Provides preset prop values. Overwrites all props but width, rounded, and href.'],
 			['size', 'string', 'base', 'none | sm | base | lg | xl', 'Scales the button to various sizes.'],
-			['background', 'string', 'bg-black dark:bg-white', 'class', 'Provide a class to define background.'],
-			['color', 'string', 'text-white dark:text-black', 'class', 'Provide a class to define text color.'],
-			['fill', 'string', 'fill-white dark:fill-black', 'class', 'Provide a class to define SVG fill color.'],
-			['ring', 'string', 'ring-transparent', 'class', 'Provide a class to define ring color.'],
-			['weight', 'string', 'ring-1', 'class', 'Provide a class to define ring weight.'],
-			['width', 'string', 'w-auto', 'class', 'Provide a class to set the button width.'],
-			['rounded', 'string', 'rounded-lg', 'class', 'Provide a class to define border radius.'],
+			['background', 'string', 'bg-black dark:bg-white', 'class', 'Provide classes to define background.'],
+			['color', 'string', 'text-white dark:text-black', 'class', 'Provide classes to define text color.'],
+			['fill', 'string', 'fill-white dark:fill-black', 'class', 'Provide classes to define SVG fill color.'],
+			['ring', 'string', 'ring-transparent', 'class', 'Provide classes to define ring color.'],
+			['weight', 'string', 'ring-1', 'class', 'Provide classes to define ring weight.'],
+			['width', 'string', 'w-auto', 'class', 'Provide classes to set the button width.'],
+			['rounded', 'string', 'rounded-lg', 'class', 'Provide classes to define border radius.'],
 			['href', 'string', '-', 'link', 'Converts to an anchor element and sets click through value.']
 		]
 	};
@@ -72,7 +72,7 @@
 	<section class="space-y-4">
 		<div class="space-y-4 xl:space-y-0 xl:grid grid-cols-[2fr,1fr] gap-2">
 			<!-- Example -->
-			<Card body="h-full flex justify-center items-center">
+			<Card slotBody="h-full flex justify-center items-center">
 				<svelte:component
 					this={Button}
 					size={props.size}
@@ -95,7 +95,7 @@
 				</svelte:component>
 			</Card>
 			<!-- Options -->
-			<Card body="grid grid-cols-1 2xl:grid-cols-2 gap-4">
+			<Card slotBody="grid grid-cols-1 2xl:grid-cols-2 gap-4">
 				<!-- Size -->
 				<label>
 					<span>Size</span>
@@ -212,7 +212,7 @@
 	<section class="space-y-4">
 		<h3>Variants</h3>
 		<p>Skeleton provides variants to quickly and easily create buttons with predefined styles. You may still set rounded and width properties with variants.</p>
-		<Card body="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+		<Card slotBody="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 			{#each variantExamples as ve}
 				<section>
 					<h3 class="text-center mb-4">{ve.label}</h3>
@@ -243,6 +243,10 @@
 	<!-- Properties -->
 	<section class="space-y-4">
 		<h2>Properties</h2>
+		<p>
+			This component makes use of <a href="https://svelte.dev/docs#template-syntax-attributes-and-props" target="_blank">$$restProps</a>, which allows arbitrary attributes to be provided to the
+			component.
+		</p>
 		<DataTable headings={tableProps.headings} source={tableProps.source} />
 	</section>
 

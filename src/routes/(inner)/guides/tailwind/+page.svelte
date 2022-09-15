@@ -19,14 +19,16 @@
 		<h3>Update Content</h3>
 		<p>
 			Add the following to <a href="https://tailwindcss.com/docs/configuration" target="_blank">content</a>
-			within <code>tailwind.config.cjs</code>. This ensures Tailwind is aware of Skeleton's component classes within your local development server.
+			within <code>tailwind.config.cjs</code>. This ensures Tailwind is aware of Skeleton's component classes within your local development server and enables support for
+			<a href="https://tailwindcss.com/docs/dark-mode" target="_blank">Tailwind's dark mode</a>.
 		</p>
 		<CodeBlock
 			language="js"
 			code={`
 module.exports = {
+	darkMode: 'class',
     content: [
-        // ...
+        // Append the following:
         "./node_modules/@brainandbones/skeleton/**/*.{html,js,svelte,ts}"
     ],
     // ...
@@ -36,7 +38,7 @@ module.exports = {
 		<h3>Add the Skeleton Plugin</h3>
 		<p>
 			Add the Skeleton <a href="https://tailwindcss.com/docs/plugins#official-plugins" target="_blank">plugin</a>
-			to <code>tailwind.config.cjs</code>. This will automatically ingest and utilize your CSS variables defined in your theme.
+			to <code>tailwind.config.cjs</code>. This will automatically ingest and utilize the CSS variables defined in your theme.
 		</p>
 		<CodeBlock
 			language="js"
@@ -44,7 +46,7 @@ module.exports = {
 module.exports = {
     // ...
     plugins: [
-        // ...
+        // Append the following:
         require("@brainandbones/skeleton/tailwind.cjs")
     ]
 }
@@ -59,28 +61,28 @@ module.exports = {
 		<h2>Tailwind Plugins</h2>
 		<p>Skeleton pairs well with all of the official Tailwind plugins, however these are completely optional.</p>
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-			<Card body="flex justify-between items-center space-x-4">
+			<Card slotBody="flex justify-between items-center space-x-4">
 				<div>
 					<h6>Forms</h6>
 					<p>Provides a basic reset for form elements.</p>
 				</div>
 				<Button variant="ghost" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">View</Button>
 			</Card>
-			<Card body="flex justify-between items-center space-x-4">
+			<Card slotBody="flex justify-between items-center space-x-4">
 				<div>
 					<h6>Typography</h6>
 					<p>Typographic defaults for HTML you don't control.</p>
 				</div>
 				<Button variant="ghost" href="https://tailwindcss.com/docs/typography-plugin" target="_blank">View</Button>
 			</Card>
-			<Card body="flex justify-between items-center space-x-4">
+			<Card slotBody="flex justify-between items-center space-x-4">
 				<div>
 					<h6>Aspect Ratio</h6>
 					<p>Composable API for giving elements a fixed aspect ratio.</p>
 				</div>
 				<Button variant="ghost" href="https://github.com/tailwindlabs/tailwindcss-aspect-ratio" target="_blank">View</Button>
 			</Card>
-			<Card body="flex justify-between items-center space-x-4">
+			<Card slotBody="flex justify-between items-center space-x-4">
 				<div>
 					<h6>Line Clamp</h6>
 					<p>Provides utilities for visually truncating text.</p>
@@ -93,7 +95,7 @@ module.exports = {
 	<Divider />
 
 	<!-- Next Steps -->
-	<Card body="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+	<Card slotBody="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<p>Next, let's create and implement a custom theme.</p>
 		<Button variant="filled-accent" href="/guides/themes">Create a Theme</Button>
 	</Card>

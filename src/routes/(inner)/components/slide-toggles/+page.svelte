@@ -9,7 +9,7 @@
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
 		source: [
 			['checked', 'boolean', 'false', 'true | false', 'The checked state of the input element.'],
-			['accent', 'string', 'bg-accent-500', 'class', 'Provide a class to set the checked state color.'],
+			['accent', 'string', 'bg-accent-500', 'class', 'Provide classes to set the checked state color.'],
 			['size', 'string', 'md', 'sm | md | lg', 'Sets the size of the component.']
 		]
 	};
@@ -23,38 +23,33 @@
 	<!-- Heading -->
 	<heading class="space-y-4">
 		<h1>Slide Toggle</h1>
-		<p>Add a slide toggle switch with custom colors and sizes to capture input from a user.</p>
+		<p>A sliding toggle element that can capture input from a user.</p>
 		<CodeBlock language="javascript" code={`import { SlideToggle } from '@brainandbones/skeleton';`} />
 	</heading>
 
 	<!-- Examples -->
-	<section class="space-y-4">
-		<h3>Colors</h3>
-		<Card body="flex justify-center">
-			<div class="grid grid-cols-3 gap-4">
-				<SlideToggle size="md" accent="bg-primary-400" checked label="Toggle Green" />
-				<SlideToggle size="md" accent="bg-warning-400" checked label="Toggle Warning" />
-				<SlideToggle size="md" accent="bg-accent-400" checked label="Toggle Purple" />
-				<SlideToggle size="md" accent="bg-blue-400" checked label="Toggle Blue" />
-				<SlideToggle size="md" accent="bg-orange-400" checked label="Toggle Orange" />
-				<SlideToggle size="md" accent="bg-yellow-400" checked label="Toggle Yellow" />
-			</div>
+	<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+		<Card slotBody="flex justify-center items-center space-x-4">
+			<svelte:fragment slot="header"><p class="text-center">Accent Colors</p></svelte:fragment>
+			<SlideToggle size="md" accent="bg-primary-400" checked label="Toggle Green" />
+			<SlideToggle size="md" checked label="Toggle Purple" />
+			<SlideToggle size="md" accent="bg-warning-400" checked label="Toggle Warning" />
 		</Card>
-		<h3>Sizes</h3>
-		<Card body="flex justify-center items-center space-x-4">
+		<Card slotBody="flex justify-center items-center space-x-4">
+			<svelte:fragment slot="header"><p class="text-center">Sizes</p></svelte:fragment>
 			<SlideToggle size="sm" label="Toggle Small" />
 			<SlideToggle size="md" label="Toggle Medium" />
 			<SlideToggle size="lg" label="Toggle Large" />
 		</Card>
-		<h3>Label Slot</h3>
-		<Card body="flex justify-center items-center space-x-4">
+		<Card slotBody="flex justify-center items-center space-x-4">
+			<svelte:fragment slot="header"><p class="text-center">Labeled</p></svelte:fragment>
 			<SlideToggle size="md" bind:checked={checkedValue}>
-				<p class="w-[90px]">{checkedValue ? 'Checked' : 'Unchecked'}</p>
+				Value is <code class="inline-block w-[40px] text-center">{checkedValue ? 'On' : 'Off'}</code>
 			</SlideToggle>
 		</Card>
-		<h3>Disabled</h3>
-		<Card body="flex justify-center items-center space-x-4">
-			<SlideToggle size="lg" disabled label="Toggle Disabled" />
+		<Card slotBody="flex justify-center items-center space-x-4">
+			<svelte:fragment slot="header"><p class="text-center">Disabled</p></svelte:fragment>
+			<SlideToggle disabled label="Toggle Disabled" />
 		</Card>
 	</section>
 
@@ -62,12 +57,18 @@
 	<section class="space-y-4">
 		<h2>Usage</h2>
 		<CodeBlock language="typescript" code={`let myValue: boolean = false;`} />
-		<CodeBlock language="html" code={`<SlideToggle bind:checked={myValue} size="lg" accent="bg-primary-500">{labelText}</SlideToggle>`} />
+		<CodeBlock language="html" code={`<SlideToggle bind:checked={myValue}>(label)</SlideToggle>`} />
+		<CodeBlock language="html" code={`<SlideToggle bind:checked={myValue} size="lg" />`} />
+		<CodeBlock language="html" code={`<SlideToggle bind:checked={myValue} disabled />`} />
 	</section>
 
 	<!-- Properties -->
 	<section class="space-y-4">
 		<h2>Properties</h2>
+		<p>
+			This component makes use of <a href="https://svelte.dev/docs#template-syntax-attributes-and-props" target="_blank">$$restProps</a>, which allows arbitrary attributes to be provided to the
+			component.
+		</p>
 		<DataTable headings={tableProps.headings} source={tableProps.source} />
 	</section>
 

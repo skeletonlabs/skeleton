@@ -12,8 +12,7 @@ describe('Breadcrumb.svelte', () => {
 	it('Renders with all props', () => {
 		const { getByTestId } = render(Breadcrumb, {
 			props: {
-				separator: '|',
-				label: 'Test Divider'
+				separator: '|'
 			}
 		});
 		expect(getByTestId('breadcrumb')).toBeTruthy();

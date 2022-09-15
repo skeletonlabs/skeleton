@@ -7,11 +7,11 @@
 		source: [
 			['visible', 'boolean', 'false', 'true | false', 'Whether the tooltip is showing or not.'],
 			['position', 'string', 'top', 'top | bottom | left | right', 'Designates where the tooltip will appear.'],
-			['background', 'string', 'bg-black dark:bg-white', 'class', 'Provide a class to set background color.'],
-			['color', 'string', 'text-white dark:text-black', 'class', 'Provide a class to set text color.'],
-			['width', 'string', 'w-auto', 'class', 'Provide a class to set width.'],
-			['whitespace', 'string', 'whitespace-nowrap', 'class', 'Provide a class to set white-space.'],
-			['rounded', 'string', 'rounded', 'class', 'Provide a class to set rounding style.'],
+			['background', 'string', 'bg-black dark:bg-white', 'class', 'Provide classes to set background color.'],
+			['color', 'string', 'text-white dark:text-black', 'class', 'Provide classes to set text color.'],
+			['width', 'string', 'w-auto', 'class', 'Provide classes to set width.'],
+			['whitespace', 'string', 'whitespace-nowrap', 'class', 'Provide classes to set white-space.'],
+			['rounded', 'string', 'rounded', 'class', 'Provide classes to set rounding style.'],
 			['duration', 'number', '150', 'number', 'Animation fade in/out duration in milliseconds. Set to 0 (zero) to disable.']
 		]
 	};
@@ -44,11 +44,11 @@
 	<!-- Examples -->
 	<Alert background="bg-warning-500" class="sm:hidden">
 		<svelte:fragment slot="title">Warning</svelte:fragment>
-		<svelte:fragment slot="message">Tooltips require mouse hover events. They are not available for use on mobile.</svelte:fragment>
+		Tooltips require mouse hover events. They are not available for use on mobile.
 	</Alert>
 	<section class="hidden sm:block space-y-4">
 		<!-- Default -->
-		<Card body="flex flex-col space-y-2">
+		<Card slotBody="flex flex-col space-y-2">
 			<section class="flex justify-center">
 				<Tooltip>
 					<svelte:fragment slot="message">Tooltip on Top.</svelte:fragment>

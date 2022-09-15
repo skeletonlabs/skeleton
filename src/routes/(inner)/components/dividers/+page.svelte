@@ -3,23 +3,38 @@
 	import { DataTable, Card, RadioGroup, RadioItem, Divider } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	const storeVariant: Writable<string> = writable('solid');
-	const storeWeight: Writable<number> = writable(2);
-	const storeOrientation: Writable<string> = writable('h');
+	const storeVertical: Writable<boolean> = writable(false);
+	const storeBorderWidth: Writable<string> = writable('border-t');
+	const storeBorderStyle: Writable<string> = writable('border-solid');
+	const defaultBorderColor: string = 'border-surface-300 dark:border-surface-700';
 
+	// Switches between top and left oriented styles
+	function setOrientationStyles(): void {
+		setTimeout(() => {
+			const newDefaultWidth: string = $storeVertical === true ? 'border-l' : 'border-t';
+			storeBorderWidth.set(newDefaultWidth);
+		}, 10);
+	}
+
+	// Reactive Props
+	$: props = {
+		vertical: $storeVertical,
+		borderWidth: $storeBorderWidth,
+		borderStyle: $storeBorderStyle,
+		borderColor: defaultBorderColor
+	};
+
+	// Tables
 	const tableProps: any = {
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
 		source: [
-			['variant', 'string', 'solid', 'solid | dashed | dotted', 'Defines the visual display styling.'],
-			['weight', 'number', '1', '1 | 2 | 4 | 8', 'Defines the thickness of the divider.'],
-			['orientation', 'string', 'h', 'h | v', 'Switches between horizontal/vertical layout.']
+			['vertical', 'boolean', 'false', 'true | false', 'When enable sets the width to zero and height to full.'],
+			['borderWidth', 'string', 'border-t', 'class', 'Provide classes to set the border width.'],
+			['borderStyle', 'string', 'border-solid', 'class', 'Provide classes to set the border style.'],
+			['borderColor', 'string', 'border-surface-300 dark:border-surface-700', 'class', 'Provide classes to set the border color.'],
+			['margin', 'string', 'm-0', 'class', 'Provide classes set the margin.'],
+			['opacity', 'string', 'opacity-full', 'class', 'Provide classes set opacity.']
 		]
-	};
-
-	$: props = {
-		variant: $storeVariant,
-		weight: $storeWeight,
-		orientation: $storeOrientation
 	};
 </script>
 
@@ -33,45 +48,85 @@
 
 	<!-- Sandbox -->
 	<section class="space-y-4">
-		<div class="space-y-4 xl:space-y-0 xl:grid grid-cols-[2fr,1fr] gap-2">
+		<div class="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-2">
 			<!-- Example -->
-			<Card body="h-full flex justify-center items-center">
-				<div class="w-[75%] h-[100px] flex justify-evenly items-center">
-					<svelte:component this={Divider} variant={props.variant} weight={props.weight} orientation={props.orientation} />
-				</div>
+			<Card slotBody="h-full min-h-[100px] max-w-[480px] mx-auto flex justify-center items-center">
+				<!-- prettier-ignore -->
+				<svelte:component
+					this={Divider}
+					vertical={props.vertical}
+					borderWidth={props.borderWidth}
+					borderStyle={props.borderStyle}
+					borderColor={props.borderColor}
+				/>
 			</Card>
 			<!-- Options -->
-			<Card body="space-y-4">
-				<!-- Variant -->
-				<div>
-					<legend>Variant</legend>
-					<RadioGroup selected={storeVariant} background="bg-accent-500" color="text-white" width="w-full">
-						<RadioItem value="solid">Solid</RadioItem>
-						<RadioItem value="dashed">Dashed</RadioItem>
-						<RadioItem value="dotted">Dotted</RadioItem>
-					</RadioGroup>
-				</div>
-				<!-- Weight -->
-				<div>
-					<legend>Weight</legend>
-					<RadioGroup selected={storeWeight} background="bg-accent-500" color="text-white" width="w-full">
-						<RadioItem value={1}>1</RadioItem>
-						<RadioItem value={2}>2</RadioItem>
-						<RadioItem value={4}>4</RadioItem>
-						<RadioItem value={8}>8</RadioItem>
-					</RadioGroup>
-				</div>
+			<Card slotBody="space-y-4">
 				<!-- Orientation -->
-				<div>
-					<legend>Orientation</legend>
-					<RadioGroup selected={storeOrientation} background="bg-accent-500" color="text-white" width="w-full">
-						<RadioItem value="h">Horizontal</RadioItem>
-						<RadioItem value="v">Vertical</RadioItem>
+				<label for="">
+					<span>Vertical</span>
+					<!-- prettier-ignore -->
+					<RadioGroup selected={storeVertical} display="flex">
+						<RadioItem value={false} on:click={() => { setOrientationStyles(); }}>false</RadioItem>
+						<RadioItem value={true} on:click={() => { setOrientationStyles(); }}>true</RadioItem >
 					</RadioGroup>
-				</div>
+				</label>
+				<!-- Border Width -->
+				<label for="">
+					<div class="flex justify-between items-center">
+						<span>Border Width</span>
+						<span>{$storeBorderWidth}</span>
+					</div>
+					<RadioGroup selected={storeBorderWidth} display="flex">
+						{#if $storeVertical === false}
+							<RadioItem value="border-t">1</RadioItem>
+							<RadioItem value="border-t-2">2</RadioItem>
+							<RadioItem value="border-t-4">4</RadioItem>
+							<RadioItem value="border-t-8">8</RadioItem>
+						{:else}
+							<RadioItem value="border-l">1</RadioItem>
+							<RadioItem value="border-l-2">2</RadioItem>
+							<RadioItem value="border-l-4">4</RadioItem>
+							<RadioItem value="border-l-8">8</RadioItem>
+						{/if}
+					</RadioGroup>
+				</label>
+				<!-- Border Style -->
+				<label for="">
+					<div class="flex justify-between items-center">
+						<span>Border Style</span>
+						<span>{$storeBorderStyle}</span>
+					</div>
+					<RadioGroup selected={storeBorderStyle} display="flex">
+						<RadioItem value="border-solid">Solid</RadioItem>
+						<RadioItem value="border-dashed">Dashed</RadioItem>
+						<RadioItem value="border-dotted">Dotted</RadioItem>
+						<RadioItem value="border-double">Double</RadioItem>
+					</RadioGroup>
+				</label>
+				<!-- Border Color -->
+				<label>
+					<span>Border Color</span>
+					<select name="background" id="background" bind:value={props.borderColor}>
+						<option value={defaultBorderColor}>Inherent</option>
+						<option value="border-primary-500">border-primary-500</option>
+						<option value="border-accent-500">border-accent-500</option>
+						<option value="border-warning-500">border-warning-500</option>
+						<option value="border-red-500">border-red-500</option>
+						<option value="border-green-500">border-green-500</option>
+						<option value="border-blue-500">border-blue-500</option>
+					</select>
+				</label>
 			</Card>
 		</div>
-		<CodeBlock language="html" code={`<Divider variant="${props.variant}" weight={${props.weight}} orientation="${props.orientation}" />`} />
+	</section>
+
+	<!-- Usage -->
+	<section class="space-y-4">
+		<h2>Usage</h2>
+		<CodeBlock language="html" code={`<Divider />`} />
+		<h4>Vertical</h4>
+		<CodeBlock language="html" code={`<Divider vertical={true} borderWidth="border-l" />`} />
 	</section>
 
 	<!-- Properties -->

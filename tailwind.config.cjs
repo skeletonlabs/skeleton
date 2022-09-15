@@ -10,5 +10,8 @@ module.exports = {
 			}
 		}
 	},
-	plugins: [require('@tailwindcss/forms'), require('./src/lib/tailwind.cjs')]
+	plugins: [
+		require('@tailwindcss/forms'),
+		require('./src/lib/tailwind.cjs')
+	]
 };

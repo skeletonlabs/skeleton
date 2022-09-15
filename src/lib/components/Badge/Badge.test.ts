@@ -9,14 +9,18 @@ describe('Badge.svelte', () => {
 		expect(getByTestId('badge')).toBeTruthy();
 	});
 
+	// FIXME: props are missing and need to be updated!
 	it('Renders with all props', async () => {
 		const { getByTestId } = render(Badge, {
 			props: {
-				background: 'bg-red-500',
-				color: 'text-white',
+				icon: false,
+				background: 'bg-primary-500',
 				fill: 'fill-white',
-				rounded: 'rounded',
-				icon: false
+				text: 'text-xs',
+				color: 'text-white',
+				padding: 'p-3',
+				rounded: 'rounded-full',
+				shadow: 'shadow-xl'
 			}
 		});
 		expect(getByTestId('badge')).toBeTruthy();

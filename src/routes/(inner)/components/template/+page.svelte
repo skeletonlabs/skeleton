@@ -33,7 +33,7 @@
 	</header>
 
 	<!-- Examples -->
-	<Card body="space-y-4">
+	<Card slotBody="space-y-4">
 		<p>(ExamplesHere)</p>
 	</Card>
 

@@ -4,36 +4,36 @@
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
 	const tablePropsGroup: any = {
-		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
+		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
-			['collapse', 'boolean', 'true', '-', 'When TRUE, only one item will show at a time.'],
-			['spacing', 'class', 'spacing-y-2', '-', 'Provide a class to set spacing between item rows.']
+			['collapse', 'boolean', 'true', 'Enabled auto-collapse mode.'],
+			['spacing', 'string', 'spacing-y-2', 'Provide classes to set spacing between item rows.']
 		]
 	};
 
 	const tablePropsItem: any = {
-		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
+		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
-			['open', 'boolean', 'false', '-', `Use this to define which item is open on page load.`],
-			['hover', 'string', 'hover:bg-primary-500/10', '-', 'Provide a class to set the hover background color.'],
-			['spacing', 'string', 'space-y-0', '-', 'Provide a class to set spacing between title and description elements.'],
-			['padding', 'string', 'px-4 py-2', '-', 'Provide a class to set padding for summary and content regions.'],
-			['rounded', 'string', 'rounded', '-', 'Provide a class to set summary border radius.']
+			['open', 'boolean', 'false', `Defines the default open state on page load.`],
+			['hover', 'string', 'hover:bg-primary-500/10', 'Provide classes to set the hover background color.'],
+			['spacing', 'string', 'space-y-0', 'Provide classes to set spacing between title and description elements.'],
+			['padding', 'string', 'px-4 py-2', 'Provide classes to set padding for summary and content regions.'],
+			['rounded', 'string', 'rounded', 'Provide classes to set summary border radius.']
 		]
 	};
 	const tableSlots: any = {
-		headings: ['Name', 'Required', 'Description'],
+		headings: ['Name', 'Required', 'Style Prop', 'Description'],
 		source: [
-			['lead', '-', 'Allows for an optional leading element, such as an icon.'],
-			['summary', '&check;', 'Provide the summary details of each item.'],
-			['content', '&check;', 'Provide the content details of each item.']
+			['lead', '-', 'slotSummary > .summary-lead', 'Allows for an optional leading element, such as an icon.'],
+			['summary', '&check;', 'slotSummary', 'Provide the summary details of each item.'],
+			['content', '&check;', 'slotContent', 'Provide the content details of each item.']
 		]
 	};
 	const tableA11yItem: any = {
-		headings: ['Prop', 'Required', 'Description'],
+		headings: ['Prop', 'Description'],
 		source: [
-			['summaryId', '-', `Provide a semantic ID for for the items summary element.`],
-			['contentId', '-', `Provide a semantic ID for for the items content element.`]
+			['summaryId', 'Provide semantic ID for ARIA summary element.'],
+			['contentId', 'Provide semantic ID for ARIA content element.']
 		]
 	};
 </script>
@@ -86,7 +86,9 @@
 					</svelte:fragment>
 				</AccordionItem>
 				<AccordionItem spacing="space-y-4">
-					<svelte:fragment slot="lead"><Avatar size="sm" src="https://i.pravatar.cc/" /></svelte:fragment>
+					<svelte:fragment slot="lead">
+						<Avatar src="https://i.pravatar.cc/?img=5" />
+					</svelte:fragment>
 					<svelte:fragment slot="summary">
 						<h3>Avatar and Heading</h3>
 					</svelte:fragment>
@@ -96,7 +98,7 @@
 				</AccordionItem>
 				<AccordionItem spacing="space-y-4">
 					<svelte:fragment slot="lead">
-						<Avatar initials="1" size="sm" background="bg-accent-500" />
+						<Avatar initials="1" background="bg-accent-500" />
 					</svelte:fragment>
 					<svelte:fragment slot="summary">
 						<h3>Numeral and Heading</h3>
@@ -136,15 +138,16 @@
 	<!-- Properties -->
 	<section class="space-y-4">
 		<h2>Properties</h2>
-		<h3>Group</h3>
+		<h4>Accordion Group</h4>
 		<DataTable headings={tablePropsGroup.headings} source={tablePropsGroup.source} />
-		<h3>Item</h3>
+		<h4>Accordion Item</h4>
 		<DataTable headings={tablePropsItem.headings} source={tablePropsItem.source} />
 	</section>
 
 	<!-- Slots -->
 	<section class="space-y-4">
 		<h2>Slots</h2>
+		<h4>Accordion Item</h4>
 		<DataTable headings={tableSlots.headings} source={tableSlots.source} />
 	</section>
 
@@ -152,7 +155,7 @@
 	<section class="space-y-4">
 		<h2>Accessibility</h2>
 		<div class="flex justify-between items-center">
-			<h3>Item</h3>
+			<h4>Accordion Item</h4>
 			<a href="https://www.w3.org/WAI/ARIA/apg/example-index/accordion/accordion" target="_blank">ARIA Guidelines</a>
 		</div>
 		<DataTable headings={tableA11yItem.headings} source={tableA11yItem.source} />

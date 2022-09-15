@@ -1,7 +1,7 @@
 import { render } from '@testing-library/svelte';
 import { describe, it, expect } from 'vitest';
 
-import ProgressBar from '$lib/components/Progress/ProgressBar.svelte';
+import ProgressBar from '$lib/components/ProgressBar/ProgressBar.svelte';
 
 describe('ProgressBar.svelte', () => {
 	it('Renders with minimal props', async () => {
@@ -16,7 +16,9 @@ describe('ProgressBar.svelte', () => {
 				value: 50,
 				max: 100,
 				height: 'h-1',
-				color: 'bg-warning-500'
+				rounded: 'rounded-none',
+				meter: 'bg-warning-500',
+				track: 'bg-warning-500/30'
 			}
 		});
 		expect(getByTestId('progress-wrapper')).toBeTruthy();

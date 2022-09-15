@@ -18,10 +18,16 @@ describe('RadioGroup.svelte', () => {
 	it('Renders with all props', () => {
 		const { getByTestId } = render(RadioGroup, {
 			props: {
-				selected: writable(0),
-				background: 'bg-warning-500',
+				selected: writable('foobar'),
+				display: 'inline-flex',
+				background: 'bg-surface-300 dark:bg-surface-700',
+				hover: 'hover:bg-primary-500/10',
+				accent: 'bg-primary-500 !text-white',
 				color: 'text-white',
-				width: 'w-auto'
+				fill: 'fill-white',
+				rounded: 'rounded',
+				// A11y
+				label: 'testRadioGroup'
 			}
 		});
 		expect(getByTestId('radio-group')).toBeTruthy();

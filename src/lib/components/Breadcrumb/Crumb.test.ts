@@ -9,17 +9,40 @@ describe('Crumb.svelte', () => {
 		expect(getByTestId('crumb')).toBeTruthy();
 	});
 
-	it('Renders with all props', () => {
+	it('Renders with style props', () => {
+		const { getByTestId } = render(Crumb, {
+			props: {
+				text: 'text-base',
+				color: 'text-white'
+			}
+		});
+		expect(getByTestId('crumb')).toBeTruthy();
+		expect(getByTestId('crumb')?.className).to.contain('text-base');
+		expect(getByTestId('crumb')?.className).to.contain('text-white');
+	});
+
+	it('Renders an anchor with seperator', () => {
 		const { getByTestId } = render(Crumb, {
 			props: {
 				href: '/foobar',
-				current: false,
 				separator: '|'
 			}
 		});
 		expect(getByTestId('crumb')).toBeTruthy();
+		expect(getByTestId('crumb').querySelector('a')).toBeTruthy();
 		expect(getByTestId('crumb').querySelector('a')?.href).to.contain('/foobar');
-		expect(getByTestId('crumb').querySelector('.separator')).toBeTruthy();
-		expect(getByTestId('crumb').querySelector('.separator')?.textContent).eq('|');
+		expect(getByTestId('crumb').querySelector('.crumb-seperator')).toBeTruthy();
+		expect(getByTestId('crumb').querySelector('.crumb-seperator')?.textContent).eq('|');
+	});
+
+	it('Renders a current page as span', () => {
+		const { getByTestId } = render(Crumb, {
+			props: {
+				text: 'text-base',
+				color: 'text-white'
+			}
+		});
+		expect(getByTestId('crumb')).toBeTruthy();
+		expect(getByTestId('crumb').querySelector('span')).toBeTruthy();
 	});
 });

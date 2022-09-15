@@ -1,17 +1,19 @@
 import { render } from '@testing-library/svelte';
 import { describe, it, expect } from 'vitest';
 
+// Action
 import { filter } from '$lib/actions/Filters/filter';
 
-import Emerald from '$lib/actions/Filters/svg/Emerald.svelte';
-import BlueNight from '$lib/actions/Filters/svg/BlueNight.svelte';
-import XPro from '$lib/actions/Filters/svg/XPro.svelte';
-import Summer84 from '$lib/actions/Filters/svg/Summer84.svelte';
-import Rustic from '$lib/actions/Filters/svg/Rustic.svelte';
-import Apollo from '$lib/actions/Filters/svg/Apollo.svelte';
-import GreenFall from '$lib/actions/Filters/svg/GreenFall.svelte';
-import Noir from '$lib/actions/Filters/svg/Noir.svelte';
-import NoirLight from '$lib/actions/Filters/svg/NoirLight.svelte';
+// SVG Filters
+import Emerald from '$lib/actions/Filters/svg-filters/Emerald.svelte';
+import BlueNight from '$lib/actions/Filters/svg-filters/BlueNight.svelte';
+import XPro from '$lib/actions/Filters/svg-filters/XPro.svelte';
+import Summer84 from '$lib/actions/Filters/svg-filters/Summer84.svelte';
+import Rustic from '$lib/actions/Filters/svg-filters/Rustic.svelte';
+import Apollo from '$lib/actions/Filters/svg-filters/Apollo.svelte';
+import GreenFall from '$lib/actions/Filters/svg-filters/GreenFall.svelte';
+import Noir from '$lib/actions/Filters/svg-filters/Noir.svelte';
+import NoirLight from '$lib/actions/Filters/svg-filters/NoirLight.svelte';
 
 describe('Actions: Filter', () => {
 	it('Tests all SVGs have class of "filter"', async () => {

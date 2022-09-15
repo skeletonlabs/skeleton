@@ -16,9 +16,11 @@ describe('TabGroup.svelte', () => {
 			props: {
 				selected: writable(0),
 				justify: 'justify-start',
-				border: 'border-primary-500',
-				fill: 'fill-primary-500',
+				borderWidth: 'border-b-2',
+				borderColor: 'border-primary-500',
 				color: 'text-primary-500',
+				fill: 'fill-primary-500',
+				hover: 'hover:bg-primary-500/10',
 				labeledby: 'testTabGroupLabel1',
 				label: 'testTabGroup1'
 			}

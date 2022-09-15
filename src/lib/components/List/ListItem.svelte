@@ -5,20 +5,20 @@
 	// Event Handler
 	const dispatch = createEventDispatcher();
 
-	// Props
-	// NOTE: 'value' is handled by $$props.value
-	// A11y
+	// Props (A11y)
 	export let setsize: number | undefined = undefined;
 	export let posinset: number | undefined = undefined;
 
 	// Context
 	export let parentTag: string = getContext('parentTag');
 	export let selected: Writable<any> = getContext('selected');
-	export let highlight: string = getContext('highlight');
+	export let accent: string = getContext('accent');
 	export let hover: string = getContext('hover');
+	export let padding: string = getContext('padding');
+	export let rounded: string = getContext('rounded');
 
 	// Base Classes
-	const cBase: string = 'list-none px-4 py-3';
+	const cBase: string = 'list-none';
 	const cRowFlex: string = 'flex flex-row items-center space-x-4';
 	const cItemHover: string = `${hover} cursor-pointer`;
 
@@ -79,17 +79,17 @@
 		return false;
 	};
 	// Reactive Clases
-	$: classesHighlight = isSelected() ? highlight : '';
-	$: classesHover = parentTag === 'nav' ? cItemHover : '';
+	$: classesHighlight = isSelected() ? accent : '';
+	$: classesAccent = parentTag === 'nav' ? cItemHover : '';
 	$: classesRowFlex = parentTag !== 'dl' ? cRowFlex : '';
-	$: classesBase = `list-row ${cBase} ${classesRowFlex} ${classesHover} ${classesHighlight} ${$$props.class || ''}`;
+	$: classesBase = `${cBase} ${padding} ${rounded} ${classesRowFlex} ${classesAccent} ${classesHighlight} ${$$props.class || ''}`;
 </script>
 
 <svelte:element
 	this={tag}
 	bind:this={elemItem}
 	href={$$props.href}
-	class={classesBase}
+	class="list-row {classesBase}"
 	data-testid="list-row"
 	on:click={onClickHandler}
 	on:keydown={onKeyDown}
@@ -102,13 +102,11 @@
 		<dt><slot name="dt" /></dt>
 		<dd><slot name="dd" /></dd>
 	{:else}
-		<!-- Slot: Lead -->
+		<!-- Slot: Lead - NOTE: do not wrap the slot -->
 		{#if $$slots.lead}<slot name="lead" />{/if}
-
 		<!-- Slot: Content -->
-		<div class="flex-1"><slot /></div>
-
-		<!-- Slot: Trail -->
+		<div class="flex-1 "><slot /></div>
+		<!-- Slot: Trail - NOTE: do not wrap the slot element -->
 		{#if $$slots.trail}<slot name="trail" />{/if}
 	{/if}
 </svelte:element>

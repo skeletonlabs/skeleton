@@ -88,7 +88,7 @@
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['backdrop', 'string', 'bg-surface-400/70 dark:bg-surface-900/70', 'Provide classes to set the backdrop background color.'],
-			['blur', 'string', 'backdrop-blur-none', 'Provide a class to add a backdrop blur.'],
+			['blur', 'string', 'backdrop-blur-none', 'Provide classes to add a backdrop blur.'],
 			['card', 'string', 'bg-surface-50 dark:bg-surface-700', 'Provide classes to set the modal card element.'],
 			['width', 'string', 'max-w-[640px]', 'Provide classes to set max modal width.'],
 			['duration', 'number', '100', 'The animation in/out durations. Set to zero (0) for none.']
@@ -106,7 +106,7 @@
 	<!-- Examples -->
 	<section class="space-y-4">
 		<nav class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-			<Card body="grid grid-cols-1 gap-4">
+			<Card slotBody="grid grid-cols-1 gap-4">
 				<h3>Alerts</h3>
 				<div class="flex justify-between items-center space-x-4">
 					<div>
@@ -130,7 +130,7 @@
 					<Button variant="ghost-primary" on:click={dialogAlertMultiple}>Trigger</Button>
 				</div>
 			</Card>
-			<Card body="grid grid-cols-1 gap-4">
+			<Card slotBody="grid grid-cols-1 gap-4">
 				<h3>Embeds</h3>
 				<div class="flex justify-between items-center space-x-4">
 					<div>
@@ -154,7 +154,7 @@
 					<Button variant="ghost-primary" on:click={dialogComponent}>Trigger</Button>
 				</div>
 			</Card>
-			<Card body="space-y-4">
+			<Card slotBody="space-y-4">
 				<div class="flex justify-between items-center space-x-4">
 					<div class="space-y-2">
 						<h3>Confirm</h3>
@@ -164,7 +164,7 @@
 				</div>
 				<pre>Response: {JSON.stringify(valueConfirm, null, 2)}</pre>
 			</Card>
-			<Card body="space-y-4">
+			<Card slotBody="space-y-4">
 				<div class="flex justify-between items-center space-x-4">
 					<div class="space-y-2">
 						<h3>Prompt</h3>

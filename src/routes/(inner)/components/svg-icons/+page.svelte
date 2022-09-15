@@ -2,7 +2,7 @@
 	import { DataTable, Card } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
-	import { icons } from '$lib/SvgIcon/icons';
+	import { icons } from '$lib/components/SvgIcon/icons';
 
 	const iconKeys = Object.keys(icons);
 
@@ -13,9 +13,9 @@
 			['x', 'string', '0px', '-', 'Native X attribute for the svg element.'],
 			['y', 'string', '0px', '-', 'Native Y attribute for the svg element.'],
 			['viewBox', 'string', '0 0 512 512', '-', 'Native viewBox attribute for the svg element.'],
-			['fill', 'string', 'fill-black dark:fill-white', '-', 'Provide a class to set the SVG fill color.'],
-			['width', 'string', 'w-5', '-', 'Provide a class to set the width color.'],
-			['height', 'string', 'w-5', '-', 'Provide a class to set the height color.']
+			['fill', 'string', 'fill-black dark:fill-white', '-', 'Provide classes to set the SVG fill color.'],
+			['width', 'string', 'w-5', '-', 'Provide classes to set the width color.'],
+			['height', 'string', 'w-5', '-', 'Provide classes to set the height color.']
 		]
 	};
 	const tableSlots: any = {
@@ -43,7 +43,7 @@
 	<!-- Examples -->
 	<section class="grid grid-cols-4 md:grid-cols-7 gap-4">
 		{#each iconKeys as name}
-			<Card body="space-y-2 text-center">
+			<Card slotBody="space-y-2 text-center">
 				<SvgIcon {name} />
 				<p class="text-xs">{name}</p>
 			</Card>

@@ -9,7 +9,6 @@
 	export let duration: number = 150;
 	// Props (backdrop)
 	export let bgBackdrop: string = 'bg-surface-400/70 dark:bg-surface-900/70';
-	export let display: string | undefined = undefined;
 	export let blur: string = 'backdrop-blur-sm';
 	// Props (drawer)
 	export let bgDrawer: string = 'bg-surface-100 dark:bg-surface-800';
@@ -33,8 +32,7 @@
 	let animParams: any = { backdrop: '', width: '', height: '', x: 0, y: 0 };
 	function setAnimParams(): void {
 		switch (position) {
-			// prettier-ignore
-			case('top'):
+			case 'top':
 				animParams = { backdrop: 'flex-col justify-start', width: 'w-full', height: 'h-[40%]', x: 0, y: -window.innerHeight };
 				break;
 			case 'bottom':
@@ -80,7 +78,7 @@
 	// Reactive
 	$: classesWidth = width ? width : animParams.width;
 	$: classesHeight = height ? height : animParams.height;
-	$: classesBackdrop = `${cBaseBackdrop} ${animParams.backdrop} ${bgBackdrop} ${display} ${blur}`;
+	$: classesBackdrop = `${cBaseBackdrop} ${animParams.backdrop} ${bgBackdrop} ${blur} ${$$props.class || ''}`;
 	$: classesDrawer = `${cBaseDrawer} ${classesWidth} ${classesHeight} ${bgDrawer} ${border} ${margin} ${rounded}`;
 </script>
 
@@ -90,7 +88,7 @@
 	<!-- Backdrop -->
 	<div
 		bind:this={elemBackdrop}
-		class="drawer-backdrop {classesBackdrop} {$$props.class || ''}"
+		class="drawer-backdrop {classesBackdrop}"
 		data-testid="drawer-backdrop"
 		on:click={(e) => {
 			onClickBackdrop(e);
@@ -99,7 +97,7 @@
 	>
 		<!-- Drawer -->
 		<div
-			class="drawer {classesDrawer} {$$props.class}"
+			class="drawer {classesDrawer}"
 			data-testid="drawer"
 			transition:fly|local={{ x: animParams.x, y: animParams.y, duration }}
 			role="dialog"

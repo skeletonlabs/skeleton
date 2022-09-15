@@ -33,18 +33,19 @@
 	import '../app.postcss';
 
 	// Lifecycle Events
-	afterNavigate(() => {
+	afterNavigate((params: any) => {
 		// Store current page route URL
 		storeCurrentUrl.set($page.url.pathname);
 		// Scroll to top
+		const isNewPage: boolean = params.from && params.to && params.from.routeId !== params.to.routeId;
 		const elemPage = document.querySelector('#page');
-		if (elemPage !== null) {
+		if (isNewPage && elemPage !== null) {
 			elemPage.scrollTop = 0;
 		}
 	});
 
 	// Disable left sidebar on homepage
-	$: sidebarLeftWidth = $page.url.pathname === '/' ? 'w-0' : 'lg:w-auto';
+	$: slotSidebarLeft = $page.url.pathname === '/' ? 'w-0' : 'lg:w-auto';
 </script>
 
 <!-- Overlays -->
@@ -53,7 +54,7 @@
 <DocsDrawer />
 
 <!-- App Shell -->
-<AppShell {sidebarLeftWidth}>
+<AppShell {slotSidebarLeft} slotFooter="bg-black p-4">
 	<!-- Header -->
 	<svelte:fragment slot="header">
 		<DocsAppBar />
@@ -61,13 +62,13 @@
 
 	<!-- Sidebar (Left) -->
 	<svelte:fragment slot="sidebarLeft">
-		<DocsSidebar class="hidden lg:block w-[300px]" />
+		<DocsSidebar class="hidden lg:block w-[280px]" />
 	</svelte:fragment>
 
-	<!-- Page: Content -->
+	<!-- Page Content -->
 	<slot />
 
-	<!-- Page: Footer -->
+	<!-- Page Footer -->
 	<svelte:fragment slot="pageFooter">
 		<DocsFooter />
 	</svelte:fragment>

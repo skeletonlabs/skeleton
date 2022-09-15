@@ -156,6 +156,7 @@
 	}
 
 	// Reactive Classes
+	$: classesBase = `${cBase} ${$$props.class || ''}`;
 	$: classesTable = `${cBaseTable} ${text} ${color}`;
 	$: classesHeader = `${cBaseHead} ${header}`;
 	$: classesHeadCol = `${cBaseHeadCol} ${hover}`;
@@ -164,7 +165,7 @@
 	$: classesBodyRoll = `${cBaseBodyRow} ${cRowInteractive}`;
 </script>
 
-<div class="data-table {cBase} {$$props.class}" data-testid="data-table">
+<div class="data-table {classesBase}" data-testid="data-table">
 	<!-- Header -->
 	{#if $$slots.header}<header class="table-header"><slot name="header" /></header>{/if}
 
