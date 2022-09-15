@@ -22,7 +22,7 @@ h6 {
 
 /* Blockquote */
 blockquote {
-	@apply border-l-2 border-l-accent-500 pl-2 text-base text-surface-500 dark:text-surface-400;
+	@apply border-l-4 border-l-accent-500 pl-4 text-base text-surface-500 dark:text-surface-400;
 }
 
 /* Page Styles */
