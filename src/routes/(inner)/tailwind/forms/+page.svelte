@@ -7,23 +7,11 @@
 <div class="space-y-8">
 	<!-- Header -->
 	<header class="space-y-4">
-		<h1>
-			Forms
-			<Badge background="bg-accent-500" color="text-white" class="-translate-y-3">Optional</Badge>
-		</h1>
+		<h1>Forms</h1>
 		<p>
-			If you have experience with other UI component libraries, you may expect Skeleton to provide dedicated components for form inputs, select, checkboxes, and similar. However, this is not the case.
-			The Skeleton team takes the stance that this is generally a bad practice.
-		</p>
-		<p>
-			Wrapping inputs within a component tends to hurt accessibility, limit error handling and validation, and makes it much more difficult to customize inline attributes. While also dramatically
-			impacting your ability to customize and style each input.
-		</p>
-		<p>
-			However, given Skeleton's tight integration with Tailwind, an elegant solution is available via the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank"
-				>Tailwind Forms plugin</a
-			>. This provides a no-nonsense approach to applying clean and modern styling to <em>most</em> inputs.
-			<a href="https://tailwindcss-forms.vercel.app/kitchen-sink.html" target="_blank">See their default styles here</a>.
+			Given Skeleton's tight integration with Tailwind, we recommend the use of <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Tailwind Forms plugin</a>. This provides a
+			no-nonsense approach to applying clean and modern styling to <em>most</em> native form inputs. Then pair these with the custom Skeleton form components like Radio Groups, Slide Toggles, and Range
+			Sliders.
 		</p>
 	</header>
 
@@ -32,7 +20,7 @@
 		<div class="space-y-2">
 			<p>We've provided a "kitchen sink" page to preview all form styles.</p>
 		</div>
-		<Button variant="filled-accent" href="/guides/forms/preview">Preview &rarr;</Button>
+		<Button variant="filled-accent" href="/tailwind/forms/preview">Preview &rarr;</Button>
 	</Card>
 
 	<Divider />
@@ -88,7 +76,7 @@ module.exports = {
 			<p>Import form element styles before your global stylesheet in <code>/src/layouts/LayoutBasic.astro</code>.</p>
 			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/styles/forms.css'; // <--\nimport '../styles/base.css';`} />
 		{/if}
-		<p>Finally, create your form elements using standard HTML markup.</p>
+		<p>Finally, create your form elements using native HTML markup.</p>
 		<CodeBlock
 			language="html"
 			code={`

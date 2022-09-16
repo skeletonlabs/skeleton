@@ -9,7 +9,6 @@ export const menuNavLinks: any = [
 			{ href: '/guides/tailwind', label: 'Tailwind Settings', icon: 'tailwind' },
 			{ href: '/guides/themes', label: 'Themes', icon: 'swatchbook' },
 			{ href: '/guides/styling', label: 'Styling', icon: 'pen-ruler' },
-			{ href: '/guides/forms', label: 'Forms', icon: 'keyboard' },
 			{ href: '/guides/astro', label: 'Usage with Astro', icon: 'rocket' }
 		]
 	},
@@ -23,8 +22,16 @@ export const menuNavLinks: any = [
 		]
 	},
 	{
+		id: 'nav-tailwind',
+		title: 'Tailwind Elements',
+		list: [
+			{ href: '/tailwind/buttons', label: 'Buttons' },
+			{ href: '/tailwind/forms', label: 'Forms' }
+		]
+	},
+	{
 		id: 'nav-components',
-		title: 'Components',
+		title: 'Svelte Components',
 		list: [
 			{ href: '/components/app-shell', label: 'App Shell' },
 			{ href: '/components/app-bar', label: 'App Bar' },
@@ -56,6 +63,11 @@ export const menuNavLinks: any = [
 		]
 	},
 	{
+		id: 'nav-actions',
+		title: 'Svelte Actions',
+		list: [{ href: '/actions/filters', label: 'Filters', badge: 'Experimental' }]
+	},
+	{
 		id: 'nav-utilities',
 		title: 'Utilities',
 		list: [
@@ -65,10 +77,5 @@ export const menuNavLinks: any = [
 			{ href: '/utilities/toasts', label: 'Toasts' },
 			{ href: '/utilities/lightswitches', label: 'Lightswitch' }
 		]
-	},
-	{
-		id: 'nav-actions',
-		title: 'Actions',
-		list: [{ href: '/actions/filters', label: 'Filters', badge: 'Experimental' }]
 	}
 ];

@@ -1,5 +1,9 @@
 /* Import: button.css */
 
+button:disabled {
+	@apply !opacity-50 !cursor-not-allowed active:scale-100 hover:brightness-100;
+}
+
 /* --- Core Button --- */
 
 button,
@@ -31,7 +35,7 @@ button,
 
 /* Option: Outline */
 .btn-outline {
-	@apply ring-2 ring-black dark:ring-white ring-inset;
+	@apply ring-2 ring-surface-500 ring-inset;
 }
 .btn-outline-primary {
 	@apply ring-2 ring-primary-500 ring-inset;
@@ -41,6 +45,9 @@ button,
 }
 .btn-outline-warning {
 	@apply ring-2 ring-warning-500 ring-inset;
+}
+.btn-outline-surface {
+	@apply ring-2 ring-surface-500 ring-inset;
 }
 
 /* --- Icon Button --- */
@@ -78,7 +85,7 @@ button,
 
 /* Filled */
 .btn-filled {
-	@apply bg-black dark:bg-white text-white dark:text-black;
+	@apply bg-surface-500;
 }
 .btn-filled-primary {
 	@apply bg-primary-500;
@@ -88,6 +95,9 @@ button,
 }
 .btn-filled-warning {
 	@apply bg-warning-500;
+}
+.btn-filled-surface {
+	@apply bg-surface-500;
 }
 
 /* Ringed */
@@ -103,10 +113,13 @@ button,
 .btn-ringed-warning {
 	@apply btn-outline-warning;
 }
+.btn-ringed-surface {
+	@apply btn-outline-surface;
+}
 
 /* Ghost */
 .btn-ghost {
-	@apply btn-outline bg-black/10 dark:bg-white/10;
+	@apply btn-outline bg-surface-500/10;
 }
 .btn-ghost-primary {
 	@apply btn-outline-primary bg-primary-500/10;
@@ -116,6 +129,9 @@ button,
 }
 .btn-ghost-warning {
 	@apply btn-outline-warning bg-warning-500/10;
+}
+.btn-ghost-surface {
+	@apply btn-outline-surface bg-surface-500/10;
 }
 
 /* ========================= */
