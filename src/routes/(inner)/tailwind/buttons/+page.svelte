@@ -9,8 +9,9 @@
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
 
 	// Stores
+	const storeTag: Writable<string> = writable('button');
+	const storeDisabled: Writable<boolean> = writable(false);
 	const storeBtnSize: Writable<string> = writable('btn-base');
-	const storeBtnDisabled: Writable<boolean> = writable(false);
 
 	// Reactive
 	$: btnValues = {
@@ -50,13 +51,20 @@
 			<!-- Example -->
 			<Card slotBody="h-full flex justify-center items-center">
 				<!-- prettier-ignore -->
-				<button class="btn {btnClases}" disabled={$storeBtnDisabled}>
+				<svelte:element this={$storeTag} class="btn {btnClases}" disabled={$storeDisabled}>
                     <span>💀</span>
                     <span>Skeleton</span>
-                </button>
+                </svelte:element>
 			</Card>
 			<!-- Options -->
 			<Card slotBody="space-y-4">
+				<!-- Tag -->
+				<label for="">
+					<RadioGroup selected={storeTag} display="flex">
+						<RadioItem value="button">Button</RadioItem>
+						<RadioItem value="a">Anchor</RadioItem>
+					</RadioGroup>
+				</label>
 				<!-- Size -->
 				<label for="">
 					<span>Size</span>
@@ -109,15 +117,14 @@
 				<!-- Disabled -->
 				<label for="">
 					<span>Disabled</span>
-					<RadioGroup selected={storeBtnDisabled} display="flex">
+					<RadioGroup selected={storeDisabled} display="flex">
 						<RadioItem value={false}>Enabled</RadioItem>
 						<RadioItem value={true}>Disabled</RadioItem>
 					</RadioGroup>
 				</label>
 			</Card>
 		</div>
-		<CodeBlock language="html" code={`<button class="btn ` + btnClases + `" disabled="` + $storeBtnDisabled + `"">Skeleton</button>`} />
-		<CodeBlock language="html" code={`<a href="/" class="btn ` + btnClases + `" disabled="` + $storeBtnDisabled + `"">Skeleton</a>`} />
+		<CodeBlock language="html" code={`<` + $storeTag + ` class="btn ` + btnClases + `" disabled="` + $storeDisabled + `">Skeleton</` + $storeTag + `>`} />
 	</section>
 
 	<!-- Usage -->

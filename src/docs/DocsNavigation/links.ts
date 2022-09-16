@@ -22,7 +22,7 @@ export const menuNavLinks: any = [
 		]
 	},
 	{
-		id: 'nav-tailwind',
+		id: 'nav-elements',
 		title: 'Tailwind Elements',
 		list: [
 			{ href: '/tailwind/buttons', label: 'Buttons' },
