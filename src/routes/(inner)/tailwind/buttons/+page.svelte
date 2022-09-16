@@ -195,35 +195,35 @@
 			</div>
 		</Card>
 		<p>For icon buttons use <code>.btn-icon-[variant]</code>.</p>
-		<CodeBlock language="html" code={`<button class="btn-icon btn-filled-primary btn-base">i</button>`} />
+		<CodeBlock language="html" code={`<button class="btn-icon btn-filled-primary btn-base">♥</button>`} />
 		<Card slotBody="flex justify-center items-center space-x-4">
 			<!-- Text -->
 			<div class="grid grid-cols-1 gap-4">
-				<button class="btn-icon btn-base">i</button>
-				<button class="btn-icon btn-base text-primary-500">i</button>
-				<button class="btn-icon btn-base text-accent-500">i</button>
-				<button class="btn-icon btn-base text-warning-500">i</button>
+				<button class="btn-icon btn-base">♥</button>
+				<button class="btn-icon btn-base text-primary-500">♥</button>
+				<button class="btn-icon btn-base text-accent-500">♥</button>
+				<button class="btn-icon btn-base text-warning-500">♥</button>
 			</div>
 			<!-- Text -->
 			<div class="grid grid-cols-1 gap-4">
-				<button class="btn-icon btn-filled btn-base">i</button>
-				<button class="btn-icon btn-filled-primary btn-base">i</button>
-				<button class="btn-icon btn-filled-accent btn-base">i</button>
-				<button class="btn-icon btn-filled-warning btn-base">i</button>
+				<button class="btn-icon btn-filled btn-base">♥</button>
+				<button class="btn-icon btn-filled-primary btn-base">♥</button>
+				<button class="btn-icon btn-filled-accent btn-base">♥</button>
+				<button class="btn-icon btn-filled-warning btn-base">♥</button>
 			</div>
 			<!-- Ringed -->
 			<div class="grid grid-cols-1 gap-4">
-				<button class="btn-icon btn-ringed btn-base">i</button>
-				<button class="btn-icon btn-ringed-primary btn-base">i</button>
-				<button class="btn-icon btn-ringed-accent btn-base">i</button>
-				<button class="btn-icon btn-ringed-warning btn-base">i</button>
+				<button class="btn-icon btn-ringed btn-base">♥</button>
+				<button class="btn-icon btn-ringed-primary btn-base">♥</button>
+				<button class="btn-icon btn-ringed-accent btn-base">♥</button>
+				<button class="btn-icon btn-ringed-warning btn-base">♥</button>
 			</div>
 			<!-- Ringed -->
 			<div class="grid grid-cols-1 gap-4">
-				<button class="btn-icon btn-ghost btn-base">i</button>
-				<button class="btn-icon btn-ghost-primary btn-base">i</button>
-				<button class="btn-icon btn-ghost-accent btn-base">i</button>
-				<button class="btn-icon btn-ghost-warning btn-base">i</button>
+				<button class="btn-icon btn-ghost btn-base">♥</button>
+				<button class="btn-icon btn-ghost-primary btn-base">♥</button>
+				<button class="btn-icon btn-ghost-accent btn-base">♥</button>
+				<button class="btn-icon btn-ghost-warning btn-base">♥</button>
 			</div>
 		</Card>
 		<h4>SvelteKit Link Options</h4>
