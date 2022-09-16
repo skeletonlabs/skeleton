@@ -47,7 +47,7 @@
 			</li>
 			<li>
 				Let Skeleton contributors know what you would like to see added. See the <a
-					href="https://github.com/Brain-Bones/skeleton/wiki/%F0%9F%9B%A3%EF%B8%8F-The-Skeleton-Roadmap-(proposal)"
+					href="https://github.com/Brain-Bones/skeleton/wiki/%F0%9F%9B%A3%EF%B8%8F-The-Skeleton-Roadmap"
 					target="_blank">roadmap</a
 				>
 				and and review the current <a href="https://github.com/Brain-Bones/skeleton/discussions/79" target="_blank">discussion thread</a>.
