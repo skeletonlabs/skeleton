@@ -7,7 +7,7 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Typography</h1>
-		<p>This <a href="/guides/styling">stylesheet add-on</a> provides common typographical elements.</p>
+		<p>This <a href="/guides/styling">stylesheet add-on</a> provides common typographical element styles.</p>
 		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/typography.css';`} />
 	</header>
 

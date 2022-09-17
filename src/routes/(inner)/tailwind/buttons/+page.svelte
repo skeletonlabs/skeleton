@@ -285,16 +285,16 @@
 				language="css"
 				code={`
 .btn {
-@apply font-bold rounded;
+	@apply font-bold rounded;
 }
 .btn-icon {
-@apply font-bold;
+	@apply font-bold;
 }
 .btn-filled-primary,
 .btn-filled-accent,
 .btn-filled-warning,
 .btn-filled-surface {
-@apply text-white;
+	@apply text-white;
 }
 				`.trim()}
 			/>
