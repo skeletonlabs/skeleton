@@ -204,7 +204,7 @@
 		<div class="space-y-4">
 			<h4>Leading and Trailing Icons</h4>
 			<p>By default, buttons use a <code>flex-row</code> layout, which means child elements create a spaced row. Using <em>span</em> elements ensures the spacing works as expected.</p>
-			<CodeBlock language="html" code={`<button class="btn bg-primary-500">\n\t<span>💀</span>\n\t<span>Skeleton</span></button>`} />
+			<CodeBlock language="html" code={`<button class="btn bg-primary-500">\n\t<span>💀</span>\n\t<span>Skeleton</span>\n</button>`} />
 			<Card slotBody="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 				<button class="btn bg-primary-500">
 					<span>💀</span>
