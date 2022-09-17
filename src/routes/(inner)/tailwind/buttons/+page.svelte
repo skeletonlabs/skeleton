@@ -35,7 +35,7 @@
 			['<code>.btn-icon</code>', '-', 'Creates a text icon button using a button or anchor.'],
 			['<code>.btn-[size]</code>', 'sm | base | lg | xl', 'Canned button sizes that define padding and text sizes.'],
 			['<code>.btn-icon-[size]</code>', 'sm | base | lg | xl', 'Canned icon button sizes that define padding and text sizes.'],
-			['<code>.btn-[variant]</code>', 'filled-primary | ghost | ...', 'A set of preset class styles for a <code>.btn</code> element.'],
+			['<code>.btn-[variant]</code>', 'filled-primary | ghost | ...', 'A set of preset class styles for buttons or icon buttons.'],
 			['<code>.btn-outline-[color]</code>', 'primary | accent | warning | surface', 'Utility classes for adding a Tailwind ring effect.']
 		]
 	};
