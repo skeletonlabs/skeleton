@@ -33,9 +33,10 @@
 		source: [
 			['<code>.btn</code>', '-', 'Creates a text button using a button or anchor.'],
 			['<code>.btn-icon</code>', '-', 'Creates a text icon button using a button or anchor.'],
-			['<code>.btn-[value]</code>', 'sm | base | lg | xl', 'Canned button sizes that define padding and text sizes.'],
-			['<code>.btn-[value]</code>', '(variant id)', 'A set of preset class styles for a <code>.btn</code> element.'],
-			['<code>.btn-icon-[value]</code>', '(variant id)', 'A set of preset class styles for a <code>.btn-icon</code> element.']
+			['<code>.btn-[size]</code>', 'sm | base | lg | xl', 'Canned button sizes that define padding and text sizes.'],
+			['<code>.btn-icon-[size]</code>', 'sm | base | lg | xl', 'Canned icon button sizes that define padding and text sizes.'],
+			['<code>.btn-[variant]</code>', 'filled-primary | ghost | ...', 'A set of preset class styles for a <code>.btn</code> element.'],
+			['<code>.btn-outline-[color]</code>', 'primary | accent | warning | surface', 'Utility classes for adding a Tailwind ring effect.']
 		]
 	};
 </script>
