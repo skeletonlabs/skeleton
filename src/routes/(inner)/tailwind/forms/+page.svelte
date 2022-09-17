@@ -12,7 +12,7 @@
 			This <a href="/guides/styling">stylesheet add-on</a> provides a theme supports to form elements when paired with the
 			<a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Tailwind Forms plugin</a>.
 		</p>
-		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/buttons.css';`.trim()} />
+		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/forms.css';`.trim()} />
 	</header>
 
 	<!-- Preview -->
@@ -52,7 +52,7 @@
 module.exports = {
 	// ...
 	plugins: [
-		// Append before other the Skeleton Tailwind plugin:
+		// Append before the Skeleton Tailwind plugin:
 		require('@tailwindcss/forms'),
 		// ...
 	],
