@@ -70,23 +70,23 @@ module.exports = {
 		<CodeBlock
 			language="html"
 			code={`
-	<label for="name">
+<label for="name">
 	<span>Name</span>
 	<input type="text" id="name" bind:value={name} minlength="2" required>
-	</label>
+</label>
 		`.trim()}
 		/>
 		<CodeBlock
 			language="html"
 			code={`
-	<label for="color">
+<label for="color">
 	<span>Color</span>
 	<select name="color" id="color" bind:value={color}>
 		<option value="red">red</option>
 		<option value="green">green</option>
 		<option value="blue">blue</option>
 	</select>
-	</label>
+</label>
 		`.trim()}
 		/>
 	</section>
