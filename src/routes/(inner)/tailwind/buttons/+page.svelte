@@ -260,6 +260,29 @@
 		<CodeBlock language="html" code={`<a href="/" class="btn" data-sveltekit-prefetch>Skeleton</a>`} />
 	</section>
 
+	<!-- Global Styles -->
+	<section class="space-y-4">
+		<h2>Global Button Styles</h2>
+		<p>If you wish to override default button styles, you can do so in your global stylesheet. Here's an example.</p>
+		<CodeBlock
+			language="css"
+			code={`
+.btn {
+	@apply font-bold rounded;
+}
+.btn-icon {
+	@apply font-bold;
+}
+.btn-filled-primary,
+.btn-filled-accent,
+.btn-filled-warning,
+.btn-filled-surface {
+	@apply text-white;
+}
+		`.trim()}
+		/>
+	</section>
+
 	<!-- Classes -->
 	<section class="space-y-4">
 		<h2>Classes</h2>
