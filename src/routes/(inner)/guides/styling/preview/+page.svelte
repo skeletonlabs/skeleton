@@ -1,6 +1,5 @@
 <script lang="ts">
 	// Components
-	import Button from '$lib/components/Button/Button.svelte';
 	import Breadcrumb from '$lib/components/Breadcrumb/Breadcrumb.svelte';
 	import Crumb from '$lib/components/Breadcrumb/Crumb.svelte';
 	import Card from '$lib/components/Card/Card.svelte';
@@ -117,7 +116,7 @@
 				<h2>Forms.css</h2>
 				<p>We've provided a "kitchen sink" page to view all form styles.</p>
 			</div>
-			<Button variant="filled-accent" href="/guides/forms/preview">Preview Form Inputs</Button>
+			<a class="btn btn-ghost" href="/guides/forms/preview">Preview Form Inputs</a>
 		</div>
 		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/forms.css';`} />
 	</Card>

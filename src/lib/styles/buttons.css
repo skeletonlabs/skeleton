@@ -22,7 +22,7 @@ button:disabled {
 	@apply transition-all active:scale-90;
 }
 
-/* Option: Sizes */
+/* Button: Sizes */
 .btn-sm {
 	@apply text-sm px-3 py-1.5;
 }
@@ -34,23 +34,6 @@ button:disabled {
 }
 .btn-xl {
 	@apply text-xl px-9 py-4;
-}
-
-/* Option: Outline */
-.btn-outline {
-	@apply ring-2 ring-surface-500 ring-inset;
-}
-.btn-outline-primary {
-	@apply ring-2 ring-primary-500 ring-inset;
-}
-.btn-outline-accent {
-	@apply ring-2 ring-accent-500 ring-inset;
-}
-.btn-outline-warning {
-	@apply ring-2 ring-warning-500 ring-inset;
-}
-.btn-outline-surface {
-	@apply ring-2 ring-surface-500 ring-inset;
 }
 
 /* ===== Icon Button ===== */
@@ -65,7 +48,7 @@ button:disabled {
 	@apply rounded-full;
 }
 
-/* Option: Size */
+/* Icon Button: Size */
 .btn-icon-sm {
 	@apply text-sm aspect-square w-[33px];
 }
@@ -79,12 +62,32 @@ button:disabled {
 	@apply text-xl aspect-square w-[63px];
 }
 
+/* ===== Utilities ===== */
+/* A set of utility classes that work for any kind of button. */
+
+/* Outline */
+.btn-outline {
+	@apply ring-2 ring-neutral-900 dark:ring-neutral-50 ring-inset;
+}
+.btn-outline-primary {
+	@apply ring-2 ring-primary-500 ring-inset;
+}
+.btn-outline-accent {
+	@apply ring-2 ring-accent-500 ring-inset;
+}
+.btn-outline-warning {
+	@apply ring-2 ring-warning-500 ring-inset;
+}
+.btn-outline-surface {
+	@apply ring-2 ring-surface-500 ring-inset;
+}
+
 /* ===== Variants ===== */
 /* A canned set of preset styles. */
 
 /* Filled */
 .btn-filled {
-	@apply bg-surface-500;
+	@apply bg-neutral-900 text-neutral-50 dark:bg-neutral-50 dark:text-neutral-900;
 }
 .btn-filled-primary {
 	@apply bg-primary-500;
@@ -118,7 +121,7 @@ button:disabled {
 
 /* Ghost */
 .btn-ghost {
-	@apply btn-outline bg-surface-500/10;
+	@apply btn-outline bg-neutral-900/10 dark:bg-neutral-50/10;
 }
 .btn-ghost-primary {
 	@apply btn-outline-primary bg-primary-500/10;
@@ -131,15 +134,4 @@ button:disabled {
 }
 .btn-ghost-surface {
 	@apply btn-outline-surface bg-surface-500/10;
-}
-
-/* ========================= */
-/* Move to global stylesheet */
-/* ========================= */
-
-.btn {
-	@apply font-bold rounded;
-}
-.btn-icon {
-	@apply font-bold;
 }

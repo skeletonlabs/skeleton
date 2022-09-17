@@ -13,19 +13,9 @@
 	export let color: string = 'text-white';
 	export let background: string = 'bg-accent-500 text-white';
 	// Props (buttons)
-	export let buttonBack: any | undefined = undefined;
-	export let buttonNext: any | undefined = undefined;
-	export let buttonComplete: any | undefined = undefined;
-
-	// Button deafult attributes
-	let defaultButtonBack: any = { variant: 'ring' };
-	let defaultButtonNext: any = { variant: 'filled' };
-	let defaultButtonComplete: any = { variant: 'filled-primary', text: 'Complete' };
-
-	// Merge button defaults with prop overrides
-	let mergedButtonBack: any = Object.assign(defaultButtonBack, buttonBack);
-	let mergedButtonNext: any = Object.assign(defaultButtonNext, buttonNext);
-	let mergedButtonComplete: any = Object.assign(defaultButtonComplete, buttonComplete);
+	export let buttonBack: string = 'btn-ghost';
+	export let buttonNext: string = 'btn-filled';
+	export let buttonComplete: string = 'btn-filled-primary';
 
 	// Context
 	setContext('dispatch', dispatch);
@@ -33,9 +23,9 @@
 	setContext('length', length);
 	setContext('color', color);
 	setContext('background', background);
-	setContext('buttonBack', mergedButtonBack);
-	setContext('buttonNext', mergedButtonNext);
-	setContext('buttonComplete', mergedButtonComplete);
+	setContext('buttonBack', buttonBack);
+	setContext('buttonNext', buttonNext);
+	setContext('buttonComplete', buttonComplete);
 	setContext('duration', duration);
 
 	// Reactive Classes

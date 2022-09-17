@@ -52,7 +52,7 @@
             ['justify', 'string', 'justify-between', 'Provide classes to set flexbox justification.'],
             ['text', 'string', 'text-xs', 'Provide classes to style page context text.'],
             ['select', 'string', '-', 'Provide arbitrary classes to style the select input.'],
-            ['buttons', 'object', `{ variant: 'ghost', class: 'font-bold' }`, 'Provide <a href="/components/buttons">Button properties</a> to <a href="https://svelte.dev/tutorial/spread-props" target="_blank">spread</a>.'],
+            ['buttons', 'string', `btn-ghost`, 'Provide any desired <a href="/tailwind/buttons">Button element</a> classes.'],
         ],
     };
 

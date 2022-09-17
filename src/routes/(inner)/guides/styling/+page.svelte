@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { storeFramework } from '$docs/stores';
-	import { Card, Button, DataTable, Divider, TabGroup, Tab } from '@brainandbones/skeleton';
+	import { Card, DataTable, Divider, TabGroup, Tab } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import Alert from '$lib/components/Alert/Alert.svelte';
 
@@ -45,7 +45,7 @@
 			<div class="space-y-2">
 				<p>Preview the effects of each add-on stylesheet.</p>
 			</div>
-			<Button variant="filled-accent" href="/guides/styling/preview">Preview &rarr;</Button>
+			<a class="btn btn-filled-accent" href="/guides/styling/preview">Preview &rarr;</a>
 		</Card>
 		<TabGroup selected={storeFramework}>
 			<Tab value="sveltekit">SvelteKit</Tab>
@@ -92,7 +92,7 @@ import '../styles/base.css';`.trim()}
 				you have two instances of the directives in your project.
 			</span>
 			<svelte:fragment slot="trail">
-				<Button variant="filled" href="https://tailwindcss.com/docs/functions-and-directives" target="_blank">Tailwind Directives</Button>
+				<a class="btn btn-filled" href="https://tailwindcss.com/docs/functions-and-directives" target="_blank">Tailwind Directives</a>
 			</svelte:fragment>
 		</Alert>
 	</section>
@@ -134,7 +134,7 @@ import '../styles/base.css';`.trim()}
 		<CodeBlock
 			language="html"
 			code={`
-<Button background="bg-accent-500">Prop Customized</Button>
+<Card background="bg-accent-500">Prop Customized</Card>
         `.trim()}
 		/>
 		<h4>Appending Arbitrary Classes</h4>
@@ -142,13 +142,13 @@ import '../styles/base.css';`.trim()}
 		<CodeBlock
 			language="html"
 			code={`
-<Button variant="filled-primary" class="text-3xl px-10 py-5">Big</Button>
+<Card class="text-3xl px-10 py-5">Big</Card>
         `.trim()}
 		/>
 		<p>
 			When overwriting inherited styles, you may need to mark the styles as <code>!important</code>. Tailwind uses a leading exclamation mark to handle this.
 		</p>
-		<CodeBlock language="html" code={`<Button class="!p-10">Big</Button>`} />
+		<CodeBlock language="html" code={`<Card class="!p-10">Big</Card>`} />
 		<h4>Targetting Component Elements</h4>
 		<p>
 			Keep in mind that components are a single line HTML element and represent a set of HTML elements within. This means you should be mindful of your target, as the <code>class</code> attribute is only
@@ -168,6 +168,6 @@ import '../styles/base.css';`.trim()}
 	<!-- Next Steps -->
 	<Card slotBody="flex justify-between items-center space-x-4 space-y-0">
 		<p>Next, let's review how to handle forms and inputs.</p>
-		<Button variant="filled-accent" href="/guides/forms">Handling Forms</Button>
+		<a class="btn btn-filled-accent" href="/guides/forms">Handling Forms</a>
 	</Card>
 </div>

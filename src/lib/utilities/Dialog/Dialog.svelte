@@ -2,7 +2,6 @@
 <script lang="ts">
 	import { fade, scale } from 'svelte/transition';
 
-	import Button from '$lib/components/Button/Button.svelte';
 	import { dialogStore } from '$lib/utilities/Dialog/stores';
 
 	// Props
@@ -133,11 +132,11 @@
 			<!-- Footer -->
 			<footer class="dialog-footer {cBaseFooter}">
 				<!-- Button: Cancel -->
-				<Button variant="ghost" on:click={onDialogClose}>Close</Button>
-				<!-- If Confirm - Button: Confirm -->
-				{#if $dialogStore[0].type === 'confirm'}<Button variant="filled-primary" on:click={onDialogConfirmSubmit}>Confirm</Button>{/if}
-				<!-- If Promopt - Button: Submit -->
-				{#if $dialogStore[0].type === 'prompt'}<Button variant="filled-primary" on:click={onDialogPromptSubmit}>Submit</Button>{/if}
+				<button class="btn btn-ghost" on:click={onDialogClose}>Close</button>
+				<!-- If Confirm - button: Confirm -->
+				{#if $dialogStore[0].type === 'confirm'}<button class="btn btn-filled-primary" on:click={onDialogConfirmSubmit}>Confirm</button>{/if}
+				<!-- If Promopt - button: Submit -->
+				{#if $dialogStore[0].type === 'prompt'}<button class="btn btn-filled-primary" on:click={onDialogPromptSubmit}>Submit</button>{/if}
 			</footer>
 		</div>
 	</div>

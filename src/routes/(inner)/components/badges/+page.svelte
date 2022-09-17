@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { DataTable, Card, Button, Badge, Avatar } from '@brainandbones/skeleton';
+	import { DataTable, Card, Badge, Avatar } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
@@ -72,7 +72,7 @@
 			<Card slotBody="flex justify-center items-center space-x-6">
 				<div class="relative inline-block">
 					<Badge background="bg-primary-500" color="text-white" class="absolute -top-3 -right-4 z-10 shadow-xl">50k</Badge>
-					<Button size="sm" variant="ghost">Button</Button>
+					<button class="btn btn-sm btn-ghost">Button</button>
 				</div>
 				<div class="relative inline-block">
 					<Badge icon background="bg-accent-500" color="text-white" class="absolute top-0 right-0 z-10 shadow-xl">2</Badge>

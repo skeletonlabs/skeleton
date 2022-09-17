@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
 
-	import { Button, Card, DataTable, Drawer } from '@brainandbones/skeleton';
+	import { Card, DataTable, Drawer } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Drawer Example
@@ -73,31 +73,12 @@
 				</div>
 			</Drawer>
 		</div>
+		<!-- prettier-ignore -->
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-[600px] mx-auto">
-			<Button
-				variant="ghost-primary"
-				on:click={() => {
-					trigger('left');
-				}}>Left</Button
-			>
-			<Button
-				variant="ghost-primary"
-				on:click={() => {
-					trigger('right');
-				}}>Right</Button
-			>
-			<Button
-				variant="ghost-primary"
-				on:click={() => {
-					trigger('top');
-				}}>Top</Button
-			>
-			<Button
-				variant="ghost-primary"
-				on:click={() => {
-					trigger('bottom');
-				}}>Bottom</Button
-			>
+			<button class="btn btn-ghost" on:click={() => { trigger('left'); }}>Left</button>
+			<button class="btn btn-ghost" on:click={() => { trigger('right'); }}>Right</button>
+			<button class="btn btn-ghost" on:click={() => { trigger('top'); }}>Top</button>
+			<button class="btn btn-ghost" on:click={() => { trigger('bottom'); }}>Bottom</button>
 		</div>
 	</Card>
 
@@ -125,8 +106,8 @@ const storeDrawer: Writable<boolean> = writable(false);
 		<CodeBlock language="typescript" code={`const drawerOpen: any = () => { storeDrawer.set(true) };`} />
 		<CodeBlock language="typescript" code={`const drawerClose: any = () => { storeDrawer.set(false) };`} />
 		<p>Implement the trigger methods on any interactive element.</p>
-		<CodeBlock language="html" code={`<Button variant="filled-primary" on:click={drawerOpen}>Open</Button>`} />
-		<CodeBlock language="html" code={`<Button variant="filled-primary" on:click={drawerClose}>Close</Button>`} />
+		<CodeBlock language="html" code={`<button class="btn btn-filled-primary" on:click={drawerOpen}>Open</button>`} />
+		<CodeBlock language="html" code={`<button class="btn btn-filled-primary" on:click={drawerClose}>Close</button>`} />
 		<h4>Closing the Drawer</h4>
 		<p>Note that you can always close the Drawer by tapping the backdrop or pressing <em>ESC</em> on your keyboard.</p>
 		<h4>Pairing with App Shell</h4>

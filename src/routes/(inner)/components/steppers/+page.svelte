@@ -28,14 +28,9 @@
 	const tablePropsStepperButtons: any = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
-			['buttonBack', 'object', `variant: 'ring'`, 'Provide <a href="/components/buttons">Button properties</a> to <a href="https://svelte.dev/tutorial/spread-props" target="_blank">spread</a>.'],
-			['buttonNext', 'object', `variant: 'filled'`, 'Provide <a href="/components/buttons">Button properties</a> to <a href="https://svelte.dev/tutorial/spread-props" target="_blank">spread</a>.'],
-			[
-				'buttonComplete',
-				'object',
-				`variant: 'filled-primary', text: 'Complete'`,
-				'Provide <a href="/components/buttons">Button properties</a> to <a href="https://svelte.dev/tutorial/spread-props" target="_blank">spread</a>.'
-			]
+			['buttonBack', 'string', 'btn-ghost', 'Provide <a href="/tailwind/buttons">Button element</a> classes.'],
+			['buttonNext', 'string', 'btn-filled', 'Provide <a href="/tailwind/buttons">Button element</a> classes.'],
+			['buttonComplete', 'string', 'btn-filled-primary', 'Provide <a href="/tailwind/buttons">Button element</a> classes.']
 		]
 	};
 	const tablePropsStep: any = {

@@ -137,22 +137,22 @@
 		<p>Add the <code>.btn</code> class to any anchor or button to create a <em>text</em> button.</p>
 		<CodeBlock language="html" code={`<button class="btn">Skeleton</button>`} />
 		<CodeBlock language="html" code={`<a href="/" class="btn">Skeleton</a>`} />
-		<Card slotBody="flex justify-center items-center space-x-4">
-			<button class="btn">Skeleton</button>
-			<a {href} class="btn">Skeleton</a>
+		<Card slotBody="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
+			<button class="btn">Button</button>
+			<a {href} class="btn">Anchor</a>
 		</Card>
 		<h4>Icon Buttons</h4>
 		<p>Add the <code>.btn-icon</code> class to any anchor or button to create a <em>text</em> icon button.</p>
 		<CodeBlock language="html" code={`<button class="btn-icon">💀</button>`} />
 		<CodeBlock language="html" code={`<a href="/" class="btn-icon">💀</a>`} />
-		<Card slotBody="flex justify-center items-center space-x-4">
-			<button class="btn-icon">💀</button>
-			<a {href} class="btn-icon">💀</a>
+		<Card slotBody="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
+			<button class="btn-icon">B</button>
+			<a {href} class="btn-icon">A</a>
 		</Card>
 		<h4>Styling</h4>
 		<p>Use any valid Tailwind classes to style your buttons.</p>
-		<CodeBlock language="html" code={`<button class="btn bg-primary-500">Filled-Primary</button>`} />
-		<Card slotBody="flex justify-center items-center space-x-4">
+		<CodeBlock language="html" code={`<button class="btn bg-primary-500">Skeleton</button>`} />
+		<Card slotBody="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 			<button class="btn bg-primary-500">Skeleton</button>
 			<button class="btn bg-accent-500">Skeleton</button>
 			<button class="btn bg-warning-500">Skeleton</button>
@@ -160,7 +160,7 @@
 		<h4>Sizes</h4>
 		<p>Add a <code>.btn-[sm|base|lg|xl]</code> class to adjust the size of a button.</p>
 		<CodeBlock language="html" code={`<button class="btn btn-lg bg-primary-500">Large</button>`} />
-		<Card slotBody="flex justify-center items-center space-x-4">
+		<Card slotBody="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 			<button class="btn btn-sm bg-primary-500">sm</button>
 			<button class="btn btn-base bg-primary-500">base</button>
 			<button class="btn btn-lg bg-primary-500">lg</button>
@@ -168,7 +168,7 @@
 		</Card>
 		<p>Add a <code>.btn-icon-[sm|base|lg|xl]</code> class to adjust the size of an icon button.</p>
 		<CodeBlock language="html" code={`<button class="btn-icon btn-icon-lg bg-primary-500">💀</button>`} />
-		<Card slotBody="flex justify-center items-center space-x-4">
+		<Card slotBody="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 			<button class="btn-icon btn-icon-sm bg-primary-500">sm</button>
 			<button class="btn-icon btn-icon-base bg-primary-500">b</button>
 			<button class="btn-icon btn-icon-lg bg-primary-500">lg</button>
@@ -179,7 +179,7 @@
 			We've included theme-friendly utility classes for <code>btn-outline-[primary|accent|warning|surface]</code>. This represents <code>ring-2 ring-[color]-500 ring-inset</code>.
 		</p>
 		<CodeBlock language="html" code={`<button class="btn btn-outline-primary">Outline</button>`} />
-		<Card slotBody="flex justify-center items-center space-x-4">
+		<Card slotBody="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 			<button class="btn btn-outline-primary">Outline</button>
 		</Card>
 		<h4>Leading and Trailing Icons</h4>
@@ -193,7 +193,7 @@
 </button>
         `.trim()}
 		/>
-		<Card slotBody="flex justify-center items-center space-x-4">
+		<Card slotBody="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 			<button class="btn bg-primary-500">
 				<span>💀</span>
 				<span>Skeleton</span>
@@ -202,13 +202,14 @@
 		<h4>Variants</h4>
 		<p>A set of canned preset styles are available by using <code>.btn-[variant]</code>. This works for both standard and icon buttons.</p>
 		<CodeBlock language="html" code={`<button class="btn btn-filled-primary">filled-primary</button>`} />
-		<Card slotBody="flex justify-center items-center space-x-4">
+		<Card slotBody="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 			<!-- Filled -->
 			<div class="grid grid-cols-1 gap-4">
 				<button class="btn btn-filled">filled</button>
 				<button class="btn btn-filled-primary">filled-primary</button>
 				<button class="btn btn-filled-accent">filled-accent</button>
 				<button class="btn btn-filled-warning">filled-warning</button>
+				<button class="btn btn-filled-surface">filled-surface</button>
 			</div>
 			<!-- Ringed -->
 			<div class="grid grid-cols-1 gap-4">
@@ -216,6 +217,7 @@
 				<button class="btn btn-ringed-primary">ringed-primary</button>
 				<button class="btn btn-ringed-accent">ringed-accent</button>
 				<button class="btn btn-ringed-warning">ringed-warning</button>
+				<button class="btn btn-ringed-surface">ringed-surface</button>
 			</div>
 			<!-- Ringed -->
 			<div class="grid grid-cols-1 gap-4">
@@ -223,16 +225,18 @@
 				<button class="btn btn-ghost-primary">ghost-primary</button>
 				<button class="btn btn-ghost-accent">ghost-accent</button>
 				<button class="btn btn-ghost-warning">ghost-warning</button>
+				<button class="btn btn-ghost-surface">ghost-surface</button>
 			</div>
 		</Card>
 		<CodeBlock language="html" code={`<button class="btn-icon btn-filled-primary">♥</button>`} />
-		<Card slotBody="flex justify-center items-center space-x-4">
+		<Card slotBody="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 			<!-- Text -->
 			<div class="grid grid-cols-1 gap-4">
 				<button class="btn-icon btn-filled">♥</button>
 				<button class="btn-icon btn-filled-primary">♥</button>
 				<button class="btn-icon btn-filled-accent">♥</button>
 				<button class="btn-icon btn-filled-warning">♥</button>
+				<button class="btn-icon btn-filled-surface">♥</button>
 			</div>
 			<!-- Ringed -->
 			<div class="grid grid-cols-1 gap-4">
@@ -240,6 +244,7 @@
 				<button class="btn-icon btn-ringed-primary">♥</button>
 				<button class="btn-icon btn-ringed-accent">♥</button>
 				<button class="btn-icon btn-ringed-warning">♥</button>
+				<button class="btn-icon btn-ringed-surface">♥</button>
 			</div>
 			<!-- Ringed -->
 			<div class="grid grid-cols-1 gap-4">
@@ -247,6 +252,7 @@
 				<button class="btn-icon btn-ghost-primary">♥</button>
 				<button class="btn-icon btn-ghost-accent">♥</button>
 				<button class="btn-icon btn-ghost-warning">♥</button>
+				<button class="btn-icon btn-ghost-surface">♥</button>
 			</div>
 		</Card>
 		<h4>SvelteKit Link Options</h4>

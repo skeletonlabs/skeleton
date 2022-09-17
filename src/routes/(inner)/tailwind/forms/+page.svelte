@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { storeFramework } from '$docs/stores';
-	import { Badge, Card, Divider, Button, TabGroup, Tab } from '@brainandbones/skeleton';
+	import { Card, Divider, TabGroup, Tab } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 </script>
 
@@ -20,7 +20,7 @@
 		<div class="space-y-2">
 			<p>We've provided a "kitchen sink" page to preview all form styles.</p>
 		</div>
-		<Button variant="filled-accent" href="/tailwind/forms/preview">Preview &rarr;</Button>
+		<a class="btn btn-filled-accent" href="/tailwind/forms/preview">Preview &rarr;</a>
 	</Card>
 
 	<Divider />
@@ -106,6 +106,6 @@ module.exports = {
 	<!-- Next Steps -->
 	<Card slotBody="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<p>Finally, let's add our first component.</p>
-		<Button variant="filled-accent" href="/components/buttons">Add a Component</Button>
+		<a class="btn btn-filled-accent" href="/components/buttons">Add a Component</a>
 	</Card>
 </div>

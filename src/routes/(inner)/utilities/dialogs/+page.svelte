@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Card, Button, Divider, DataTable } from '@brainandbones/skeleton';
+	import { Card, Divider, DataTable } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import { dialogStore, type DialogAlert, type DialogConfirm, type DialogPrompt } from '$lib/utilities/Dialog/stores';
 
@@ -113,21 +113,21 @@
 						<h6>Basic</h6>
 						<p>The simplest form of a dialog.</p>
 					</div>
-					<Button variant="ghost-primary" on:click={dialogAlertBasic}>Trigger</Button>
+					<button class="btn btn-ghost" on:click={dialogAlertBasic}>Trigger</button>
 				</div>
 				<div class="flex justify-between items-center space-x-4">
 					<div>
 						<h6>Icon</h6>
 						<p>Shown with an optional icon.</p>
 					</div>
-					<Button variant="ghost-primary" on:click={dialogAlertIcon}>Trigger</Button>
+					<button class="btn btn-ghost" on:click={dialogAlertIcon}>Trigger</button>
 				</div>
 				<div class="flex justify-between items-center space-x-4">
 					<div>
 						<h6>Multiple</h6>
 						<p>Queues a set of three dialogs.</p>
 					</div>
-					<Button variant="ghost-primary" on:click={dialogAlertMultiple}>Trigger</Button>
+					<button class="btn btn-ghost" on:click={dialogAlertMultiple}>Trigger</button>
 				</div>
 			</Card>
 			<Card slotBody="grid grid-cols-1 gap-4">
@@ -137,21 +137,21 @@
 						<h6>Image</h6>
 						<p>Includes an embedded image.</p>
 					</div>
-					<Button variant="ghost-primary" on:click={dialogImage}>Trigger</Button>
+					<button class="btn btn-ghost" on:click={dialogImage}>Trigger</button>
 				</div>
 				<div class="flex justify-between items-center space-x-4">
 					<div>
 						<h6>HTML</h6>
 						<p>Displays embedded an styled HTML markup.</p>
 					</div>
-					<Button variant="ghost-primary" on:click={dialogHtml}>Trigger</Button>
+					<button class="btn btn-ghost" on:click={dialogHtml}>Trigger</button>
 				</div>
 				<div class="flex justify-between items-center space-x-4">
 					<div>
 						<h6>Component</h6>
 						<p>Embeds and entire component.</p>
 					</div>
-					<Button variant="ghost-primary" on:click={dialogComponent}>Trigger</Button>
+					<button class="btn btn-ghost" on:click={dialogComponent}>Trigger</button>
 				</div>
 			</Card>
 			<Card slotBody="space-y-4">
@@ -160,7 +160,7 @@
 						<h3>Confirm</h3>
 						<p>Dialog with confirm options. Response shown below.</p>
 					</div>
-					<Button variant="ghost-primary" on:click={dialogConfirm}>Trigger</Button>
+					<button class="btn btn-ghost" on:click={dialogConfirm}>Trigger</button>
 				</div>
 				<pre>Response: {JSON.stringify(valueConfirm, null, 2)}</pre>
 			</Card>
@@ -170,7 +170,7 @@
 						<h3>Prompt</h3>
 						<p>Prompts the user to input a value. Response shown below.</p>
 					</div>
-					<Button variant="ghost-primary" on:click={dialogPrompt}>Trigger</Button>
+					<button class="btn btn-ghost" on:click={dialogPrompt}>Trigger</button>
 				</div>
 				<pre>Response: {JSON.stringify(valuePrompt, null, 2)}</pre>
 			</Card>
