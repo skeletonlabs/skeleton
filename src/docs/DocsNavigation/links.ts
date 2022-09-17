@@ -25,6 +25,8 @@ export const menuNavLinks: any = [
 		id: 'nav-elements',
 		title: 'Tailwind Elements',
 		list: [
+			{ href: '/tailwind/core', label: 'Core' },
+			{ href: '/tailwind/typography', label: 'Typography' },
 			{ href: '/tailwind/buttons', label: 'Buttons' },
 			{ href: '/tailwind/forms', label: 'Forms' }
 		]

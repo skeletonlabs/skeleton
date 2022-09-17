@@ -7,21 +7,43 @@
 	// Tables
 	const ghLibPathMaster: string = 'https://github.com/Brain-Bones/skeleton/tree/master/src/lib'; // master branch
 	const tableStyleAddons: any = {
-		headings: ['Stylesheet', 'Description', 'Plugin Required', 'Source'],
+		headings: ['Stylesheet', 'Description', 'Documentation', 'View Source', 'Plugin'],
+		// prettier-ignore
 		source: [
 			[
 				'<code>tailwind.css</code>',
-				'Should proceed all other add-ons. Includes the <a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank">@tailwind directives</a>.',
+				'<u>IMPORTANT</u>: should proceed all other add-ons.<br>Includes all <a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank">@tailwind directives</a>.',
 				'-',
-				`<a href="${ghLibPathMaster}/styles/tailwind.css" target="_blank">View</a>`
+				`<a href="${ghLibPathMaster}/styles/tailwind.css" target="_blank">tailwind.css</a>`,
+				'-'
 			],
-			['<code>core.css</code>', 'General styles for for body elements, scrollbars, and more.', '-', `<a href="${ghLibPathMaster}/styles/core.css" target="_blank">View</a>`],
-			['<code>typography.css</code>', 'Styles headings, paragraph, anchors, pre, code, and more.', '-', `<a href="${ghLibPathMaster}/styles/typography.css" target="_blank">View</a>`],
+			[
+				'<code>core.css</code>',
+				'Applies styles to body elements, scrollbars, and more.',
+				'<a href="/tailwind/core">Core</a>',
+				`<a href="${ghLibPathMaster}/styles/core.css" target="_blank">core.css</a>`,
+				'-'
+			],
+			[
+				'<code>typography.css</code>',
+				'Headings, paragraph, anchors, pre, code, and more.',
+				'<a href="/tailwind/typography">Typography</a>',
+				`<a href="${ghLibPathMaster}/styles/typography.css" target="_blank">typography.css</a>`,
+				'-'
+			],
+			[
+				'<code>buttons.css</code>',
+				'Provides a variety of button and button icon styles.',
+				'<a href="/tailwind/buttons">Buttons</a>',
+				`<a href="${ghLibPathMaster}/styles/buttons.css" target="_blank">buttons.css</a>`,
+				'-'
+			],
 			[
 				'<code>forms.css</code>',
-				'Should only be used with the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Tailwind Forms</a> plugin. See the <a href="/guides/forms">Forms</a> for details.',
-				'&check;',
-				`<a href="${ghLibPathMaster}/styles/forms.css" target="_blank">View</a>`
+				'Adapts form elements to utilize the Skeleton theme.',
+				'<a href="/tailwind/forms">Forms</a>',
+				`<a href="${ghLibPathMaster}/styles/forms.css" target="_blank">forms.css</a>`,
+				'<a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">tailwindcss-forms</a>'
 			]
 		]
 	};
@@ -39,62 +61,18 @@
 	<!-- Add-Ons -->
 	<section class="space-y-4">
 		<h2>Stylesheet Add-Ons</h2>
-		<p>Skeleton provides a set of modular stylesheets that adapt to your theme and provide a more consistent aesthetic.</p>
-		<!-- Preview -->
-		<Card slotBody="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-			<div class="space-y-2">
-				<p>Preview the effects of each add-on stylesheet.</p>
-			</div>
-			<a class="btn btn-filled-accent" href="/guides/styling/preview">Preview &rarr;</a>
-		</Card>
-		<TabGroup selected={storeFramework}>
-			<Tab value="sveltekit">SvelteKit</Tab>
-			<Tab value="vite">Vite (Svelte)</Tab>
-			<Tab value="astro">Astro</Tab>
-		</TabGroup>
-		<!-- Framework: SvelteKit | Vite (Svelte) -->
-		{#if $storeFramework === 'sveltekit'}
-			<p>Import CSS add-ons <u>after your theme</u> and <u>before the global</u> stylesheet in <code>/src/routes/+layout.svelte</code>.</p>
-			<CodeBlock
-				language="typescript"
-				code={`
-// Append the following after your theme:
+		<p>Skeleton provides a set of modular stylesheets that adapt to your theme and provide a more consistent aesthetic. These are optional, but highly recommended.</p>
+		<CodeBlock
+			language="typescript"
+			code={`
+// (theme stylesheet here)
 import '@brainandbones/skeleton/styles/{stylehsheet}.css'; // <--
-import '../app.postcss';`.trim()}
-			/>
-		{:else if $storeFramework === 'vite'}
-			<p>Import CSS add-ons <u>after your theme</u> and <u>before the global</u> stylesheet in <code>/src/main.js</code>.</p>
-			<CodeBlock
-				language="typescript"
-				code={`
-// Append the following after your theme:
-import '@brainandbones/skeleton/styles/{stylehsheet}.css'; // <--
-import '../app.css';`.trim()}
-			/>
-			<!-- Framework: Astro -->
-		{:else if $storeFramework === 'astro'}
-			<p>Import CSS add-ons <u>after your theme</u> and <u>before the global</u> stylesheet in <code>/src/layouts/LayoutBasic.astro</code>.</p>
-			<CodeBlock
-				language="typescript"
-				code={`
-// Append the following after your theme:
-import '@brainandbones/skeleton/styles/{stylehsheet}.css'; // <--
-import '../styles/base.css';`.trim()}
-			/>
-		{/if}
-		<p>Import each desired add-on in the order shown below. Be sure to set the appropriate file name.</p>
+// (global stylesheet here)
+			`.trim()}
+		/>
+		<p>Import each desired add-on in the order shown below. Be sure to set the appropriate file name as follows.</p>
 		<!-- Table -->
 		<DataTable headings={tableStyleAddons.headings} source={tableStyleAddons.source} />
-		<!-- Alert -->
-		<Alert background="bg-accent-500/30">
-			<span class="text-black dark:text-white">
-				Ensure you import the <code>tailwind.css</code> add-on before all others. Remove the @tailwind directives from your global stylesheet if you choose to use these add-ons. Failure to do so will mean
-				you have two instances of the directives in your project.
-			</span>
-			<svelte:fragment slot="trail">
-				<a class="btn btn-filled" href="https://tailwindcss.com/docs/functions-and-directives" target="_blank">Tailwind Directives</a>
-			</svelte:fragment>
-		</Alert>
 	</section>
 
 	<Divider />
@@ -162,12 +140,4 @@ import '../styles/base.css';`.trim()}
 		<p>If you wish to adjust the styling of this element, you can target the <code>.crumb-seperator</code> class in your global stylesheet like so:</p>
 		<CodeBlock language="css" code={`.crumb-seperator { @apply text-red-500; }`} />
 	</section>
-
-	<Divider />
-
-	<!-- Next Steps -->
-	<Card slotBody="flex justify-between items-center space-x-4 space-y-0">
-		<p>Next, let's review how to handle forms and inputs.</p>
-		<a class="btn btn-filled-accent" href="/guides/forms">Handling Forms</a>
-	</Card>
 </div>
