@@ -10,6 +10,8 @@ button:disabled {
 /* Standard button/anchor tag elements. */
 
 .btn {
+	/* Size (match base)  */
+	@apply text-base px-5 py-[9px];
 	/* Core */
 	@apply text-center whitespace-nowrap;
 	/* Flex Columns */
@@ -57,24 +59,24 @@ button:disabled {
 .btn-icon {
 	/* Extend Base Button Clases */
 	@apply btn;
-	/* Width/Height */
-	@apply w-[43px] h-[43px];
+	/* Size (match base) */
+	@apply text-base aspect-square w-[43px];
 	/* Rounded */
 	@apply rounded-full;
 }
 
 /* Option: Size */
 .btn-icon-sm {
-	@apply text-sm w-[33px] h-[33px];
+	@apply text-sm aspect-square w-[33px];
 }
 .btn-icon-base {
-	@apply text-base w-[43px] h-[43px];
+	@apply text-base aspect-square w-[43px];
 }
 .btn-icon-lg {
-	@apply text-lg w-[53px] h-[53px];
+	@apply text-lg aspect-square w-[53px];
 }
 .btn-icon-xl {
-	@apply text-xl w-[63px] h-[63px];
+	@apply text-xl aspect-square w-[63px];
 }
 
 /* ===== Variants ===== */
