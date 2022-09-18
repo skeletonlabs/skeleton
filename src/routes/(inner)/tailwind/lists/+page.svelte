@@ -8,7 +8,7 @@
 		headings: ['Class', 'Description'],
 		source: [
 			['<code>.list</code>', 'Class for defining a unordered or ordered list.'],
-			['<code>.list-desc</code>', 'Class for defining a description list.'],
+			['<code>.list-dl</code>', 'Class for defining a description list.'],
 			['<code>.list-nav</code>', 'Class for defining a navigation list.']
 		]
 	};
@@ -54,7 +54,7 @@
 		</Card>
 		<Card slotBody="space-y-4">
 			<h6>Description</h6>
-			<dl class="list-desc">
+			<dl class="list-dl">
 				{#each ['A', 'B'] as v}
 					<div>
 						<span class="badge bg-primary-500">💀</span>
@@ -104,6 +104,7 @@
         <span>💀</span>
         <span class="flex-auto">Skeleton</span>
     </li>
+	<!-- ... -->
 </ul>
             `.trim()}
 			/>
@@ -119,6 +120,7 @@
         <span>1.</span>
         <span class="flex-auto">Skeleton</span>
     </li>
+	<!-- ... -->
 </ol>
             `.trim()}
 			/>
@@ -130,7 +132,7 @@
 			<CodeBlock
 				language="html"
 				code={`
-<dl class="list-desc">
+<dl class="list-dl">
     <div>
         <span class="badge bg-primary-500">💀</span>
         <span class="flex-auto">
@@ -138,6 +140,7 @@
             <dd>Description</dd>
         </span>
     </div>
+	<!-- ... -->
 </dl>
             `.trim()}
 			/>
@@ -157,6 +160,7 @@
                 <span class="flex-auto">Skeleton</span>
             </a>
         </li>
+		<!-- ... -->
     </ul>
 </nav>
             `.trim()}
@@ -170,7 +174,7 @@
 				language="css"
 				code={`
 .list,
-.list-desc,
+.list-dl,
 .list-nav ul {
 	@apply space-y-4;
 }

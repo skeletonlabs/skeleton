@@ -3,7 +3,7 @@
 /* === Lists (Parents) === */
 
 .list,
-.list-desc,
+.list-dl,
 .list-nav ul {
 	/* List Style */
 	@apply list-none;
@@ -22,7 +22,7 @@
 	@apply rounded;
 }
 
-.list-desc div {
+.list-dl div {
 	/* @apply bg-blue-500; */
 	@apply flex items-center space-x-4 whitespace-nowrap;
 	/* Padding */
