@@ -100,7 +100,7 @@
 		<!-- Global Styles -->
 		<div class="space-y-4">
 			<h4>Global Styles</h4>
-			<p>You wish to override the global styles of this element, you can do so in your global stylesheet. Here's an example.</p>
+			<p>You can override styles for all instances of this element in your global stylesheet as follows.</p>
 			<CodeBlock language="css" code={`.badge { @apply rounded-full; }`} />
 		</div>
 	</section>

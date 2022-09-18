@@ -25,7 +25,7 @@
 	}
 </script>
 
-<svelte:element this={tag} {href} class="logo {classesLogo}" data-testid="logo" {...prunedRestProps()}>
+<svelte:element this={tag} {href} class="logo-item {classesLogo}" data-testid="logo" {...prunedRestProps()}>
 	<!-- Slot: lead -->
 	{#if $$slots.lead}<span class="logo-lead"><slot name="lead" /></span>{/if}
 	<!-- Slot: Default -->
