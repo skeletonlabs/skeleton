@@ -42,7 +42,7 @@ export const menuNavLinks: any = [
 			{ href: '/components/avatars', label: 'Avatars' },
 			{ href: '/components/badges', label: 'Badges' },
 			{ href: '/components/breadcrumbs', label: 'Breadcrumbs' },
-			{ href: '/components/buttons', label: 'Buttons', badge: 'Depreciated' },
+			// { href: '/components/buttons', label: 'Buttons', badge: 'Depricated' },
 			{ href: '/components/cards', label: 'Cards' },
 			// {href: '/components/conic-gradients', label: 'Conic Gradients'}, // keep disabled until further notice
 			{ href: '/components/data-tables', label: 'Data Tables' },
