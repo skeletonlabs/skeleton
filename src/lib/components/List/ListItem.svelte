@@ -2,49 +2,23 @@
 	import { createEventDispatcher, getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
 
+	// Props (a11y)
+	export let id: string | undefined = undefined;
+
 	// Event Handler
 	const dispatch = createEventDispatcher();
 
-	// Props (A11y)
-	export let setsize: number | undefined = undefined;
-	export let posinset: number | undefined = undefined;
-
 	// Context
-	export let parentTag: string = getContext('parentTag');
 	export let selected: Writable<any> = getContext('selected');
 	export let accent: string = getContext('accent');
-	export let hover: string = getContext('hover');
 	export let padding: string = getContext('padding');
 	export let rounded: string = getContext('rounded');
 
 	// Base Classes
-	const cBase: string = 'list-none';
-	const cRowFlex: string = 'flex flex-row items-center space-x-4';
-	const cItemHover: string = `${hover} cursor-pointer`;
+	const cBase: string = 'flex items-center space-x-4 whitespace-nowrap cursor-pointer';
 
 	// Local
 	let elemItem: HTMLElement;
-	let tag: string = 'li';
-	let role: string | undefined = parentTag === 'nav' ? 'option' : undefined;
-
-	// Set Wrapping Tag
-	// prettier-ignore
-	switch (parentTag) {
-		case 'dl': tag = 'div'; break;
-		case 'nav': tag = 'a'; break;
-		default: break;
-	}
-
-	// A11y Input Handler
-	function onKeyDown(event: any): void {
-		dispatch('keydown', event);
-		if (['Enter', 'Space'].includes(event.code)) {
-			event.preventDefault();
-			if (parentTag === 'nav') {
-				elemItem.click();
-			}
-		}
-	}
 
 	// Input Handler
 	function onClickHandler(event: any): void {
@@ -54,6 +28,8 @@
 		}
 		typeof $selected === 'object' ? handleMultiSelect() : handleSingleSelect();
 	}
+
+	// Selection Handlers
 	function handleSingleSelect(): void {
 		selected.set($$props.value);
 	}
@@ -71,42 +47,42 @@
 		}
 	}
 
-	// Reactive Selection State
-	$: isSelected = () => {
+	// A11y Key Down Handler
+	function onKeyDown(event: any): void {
+		dispatch('keydown', event);
+		if (['Enter', 'Space'].includes(event.code)) {
+			event.preventDefault();
+			elemItem.click();
+		}
+	}
+
+	// Reactive
+	$: selectionMatch = () => {
 		if ($selected && $$props.value) {
 			return typeof $selected === 'object' ? $selected.includes($$props.value) : $selected === $$props.value;
 		}
 		return false;
 	};
-	// Reactive Clases
-	$: classesHighlight = isSelected() ? accent : '';
-	$: classesAccent = parentTag === 'nav' ? cItemHover : '';
-	$: classesRowFlex = parentTag !== 'dl' ? cRowFlex : '';
-	$: classesBase = `${cBase} ${padding} ${rounded} ${classesRowFlex} ${classesAccent} ${classesHighlight} ${$$props.class || ''}`;
+	$: isSelected = selectionMatch() ? true : false;
+	$: classesHighlight = isSelected ? accent : '';
+	$: classesBase = `${cBase} ${padding} ${rounded} ${classesHighlight} ${$$props.class || ''}`;
 </script>
 
-<svelte:element
-	this={tag}
+<!-- prettier-ignore -->
+<li
 	bind:this={elemItem}
-	href={$$props.href}
-	class="list-row {classesBase}"
-	data-testid="list-row"
+	class="listbox-item {classesBase}"
+	{id}
 	on:click={onClickHandler}
 	on:keydown={onKeyDown}
-	{role}
-	aria-setsize={setsize}
-	aria-posinset={posinset}
+	role="option"
+	aria-selected={isSelected}
 	tabindex="0"
 >
-	{#if parentTag === 'dl'}
-		<dt><slot name="dt" /></dt>
-		<dd><slot name="dd" /></dd>
-	{:else}
-		<!-- Slot: Lead - NOTE: do not wrap the slot -->
-		{#if $$slots.lead}<slot name="lead" />{/if}
-		<!-- Slot: Content -->
-		<div class="flex-1 "><slot /></div>
-		<!-- Slot: Trail - NOTE: do not wrap the slot element -->
-		{#if $$slots.trail}<slot name="trail" />{/if}
-	{/if}
-</svelte:element>
+	<!-- Slot: Lead -->
+	{#if $$slots.lead}<span><slot name="lead" /></span>{/if}
+	<!-- Slot: Default -->
+	<div class="flex-1 "><slot /></div>
+	<!-- Slot: Trail -->
+	{#if $$slots.trail}<span><slot name="trail" /></span>{/if}
+</li>

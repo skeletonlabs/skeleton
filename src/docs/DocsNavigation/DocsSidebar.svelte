@@ -20,10 +20,9 @@
 		<div {id} class="text-primary-500 text-sm font-bold uppercase p-4">{title}</div>
 
 		<!-- List -->
-		<List tag="nav" selected={storeCurrentUrl} {title} label={title}>
+		<!-- <List tag="nav" selected={storeCurrentUrl} {title} label={title}>
 			{#each list as { href, label, badge, icon }}
 				<ListItem {href} value={href} on:click={onListItemClick}>
-					<!-- Icon -->
 					<svelte:fragment slot="lead">
 						{#if icon}
 							<div class="bg-accent-500 w-7 h-7 flex justify-center items-center rounded shadow">
@@ -31,15 +30,13 @@
 							</div>
 						{/if}
 					</svelte:fragment>
-					<!-- Label -->
 					<span>{label}</span>
-					<!-- Badge -->
 					<svelte:fragment slot="trail">
 						{#if badge}<span class="badge bg-accent-500 text-white">{badge}</span>{/if}
 					</svelte:fragment>
 				</ListItem>
 			{/each}
-		</List>
+		</List> -->
 
 		<!-- Divider -->
 		{#if i + 1 < menuNavLinks.length}<Divider margin="my-4" opacity="opacity-50" />{/if}

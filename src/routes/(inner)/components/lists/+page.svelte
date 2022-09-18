@@ -2,28 +2,26 @@
 	import { writable, type Writable } from 'svelte/store';
 	import { DataTable, Card, List, ListItem } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
-	let navSingle: Writable<string> = writable('A');
+	let navSingle: Writable<number> = writable(1);
 	let navMultiple: Writable<string[]> = writable(['A', 'B']);
 
 	const tablePropsList: any = {
-		headings: ['Prop', 'Type', 'Default', 'Values', 'Nav Only', 'Description'],
+		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
 		source: [
-			['tag', 'string', 'ul', 'ul | ol | dl | nav', , '-', 'Defines the semantic wrapping element.'],
-			['space', 'string', 'space-y-1', 'class', '-', 'Provide classes to set Y-axis spacing of list items.'],
-			['selected', 'Writable', '-', 'any | any[]', `&check;`, 'Provide a writable store to maintain list selection.'],
-			['accent', 'string', '!bg-primary-500', 'class', `&check;`, 'Selected row item color. Important <code>!</code> is recommended.'],
-			['hover', 'string', 'hover:bg-primary-500/10', 'class', `&check;`, 'Provide classes to set hover background color.'],
-			['padding', 'string', 'px-4 py-3', 'class', `-`, 'Provide classes to set the list item padding.'],
-			['rounded', 'string', 'rounded', 'class', `-`, 'Provide classes to set the list item rounding styles.']
+			['selected', 'string', 'writable(undefined)', 'any | any[]', 'Provide a writable store to maintain list selection.'],
+			['space', 'string', 'space-y-1', 'class', 'Provide classes to set vertical item spacing.'],
+			['height', 'string', '-', 'class', 'Provide to set scrollable listbox region height.'],
+			['regionLabel', 'string', '-', 'class', 'Provide arbitrary classes to the label element.'],
+			['regionList', 'string', '-', 'class', 'Provide arbitrary classes to the scrollable listbox element.']
 		]
 	};
 	const tablePropsItems: any = {
-		headings: ['Prop', 'Type', 'Description'],
+		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
-			['href', 'string', `To create a link, provide an anchor tag.`],
-			['value', 'any', `To create a section item, provide a value.`]
+			['accent', 'string', '!bg-primary-500', `Provide classes to set the selected element background.`],
+			['padding', 'string', 'px-4 py-3', `Provide classes to set the padding styles.`],
+			['rounded', 'string', 'rounded', `Provide classes to set the border radius styles.`]
 		]
 	};
 	const slotsItems: any = {
@@ -37,104 +35,39 @@
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['label', 'string', '-', `Define a semantic ARIA label.`],
-			['labelledby', 'string', '-', `ID of the element that labels this this.`]
+			['labelId', 'string', '-', `Set automatically based on the label text, but can be overwritten.`]
 		]
 	};
 	const tableA11yItem: any = {
-		headings: ['Prop', 'Type', 'Default', 'Nav Only', 'Description'],
-		source: [
-			['setsize', 'number', '-', `&check;`, 'Define the ARIA setsize value.'],
-			['posinset ', 'number', '-', `&check;`, 'Define the ARIA posinset value.']
-		]
+		headings: ['Prop', 'Type', 'Default', 'Description'],
+		source: [['id', 'string', '-', 'Define a unique and semantic identifier for the item.']]
 	};
 </script>
 
 <div class="space-y-8">
 	<!-- Header -->
 	<header class="space-y-4">
-		<h1>Lists</h1>
-		<p class="space-y-4">Lists are continuous, vertical indexes of text options.</p>
+		<h1>Listboxes</h1>
+		<p class="space-y-4">Interactive listboxes that maintain selection state.</p>
 		<CodeBlock language="js" code={`import { List, ListItem } from '@brainandbones/skeleton';`} />
 	</header>
 
-	<!-- Variations -->
-	<section class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-4">
-		<div class="space-y-4">
-			<Card slotBody="space-y-4">
-				<h6>Unordered</h6>
-				<List tag="ul">
-					{#each ['A', 'B', 'C'] as v, i}
-						<ListItem tabindex={i}>
-							<svelte:fragment slot="lead">
-								<!-- {@html svgHeart} -->
-								<SvgIcon name="skull" fill="fill-primary-500" />
-							</svelte:fragment>
-							Item {v}
-							<svelte:fragment slot="trail">
-								<span class="opacity-50">⋮</span>
-							</svelte:fragment>
-						</ListItem>
-					{/each}
-				</List>
-			</Card>
-		</div>
-		<div class="space-y-4">
-			<Card slotBody="space-y-4">
-				<h6>Ordered</h6>
-				<List tag="ol">
-					{#each ['A', 'B', 'C'] as v, i}
-						<ListItem tabindex={i}>
-							<svelte:fragment slot="lead"><div class="circle font-bold text-white">{i + 1}</div></svelte:fragment>
-							Item {v}
-						</ListItem>
-					{/each}
-				</List>
-			</Card>
-		</div>
-		<div class="space-y-4">
-			<Card slotBody="space-y-4">
-				<h6>Description</h6>
-				<List tag="dl">
-					{#each ['A', 'B'] as v, i}
-						<ListItem tabindex={i}>
-							<svelte:fragment slot="dt">Item {v}</svelte:fragment>
-							<svelte:fragment slot="dd"><p>Description for {v}</p></svelte:fragment>
-						</ListItem>
-					{/each}
-				</List>
-			</Card>
-		</div>
-		<div class="space-y-4">
-			<Card slotBody="space-y-4">
-				<h6>Anchors</h6>
-				<List tag="nav" label="Anchor List Example">
-					<ListItem href="/">Page A</ListItem>
-					<ListItem href="/">Page B</ListItem>
-					<ListItem href="/">Page C</ListItem>
-				</List>
-			</Card>
-		</div>
-	</section>
-
-	<!-- Selection Listbox -->
+	<!-- Examples -->
 	<section class="space-y-4">
-		<h3>Selection Listboxes</h3>
 		<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
 			<section class="space-y-4">
 				<Card slotBody="space-y-4">
-					<h6>Single</h6>
-					<List tag="nav" selected={navSingle} label="Single Selection">
-						<ListItem value={'A'}>Item A</ListItem>
-						<ListItem value={'B'}>Item B</ListItem>
-						<ListItem value={'C'}>Item C</ListItem>
+					<List selected={navSingle} label="Single Selection">
+						<ListItem value={1}>Item 1</ListItem>
+						<ListItem value={2}>Item 2</ListItem>
+						<ListItem value={3}>Item 3</ListItem>
 					</List>
 					<p class="text-center">Selected: <code>{$navSingle}</code></p>
 				</Card>
 			</section>
 			<section class="space-y-4">
 				<Card slotBody="space-y-4">
-					<h6>Multiple</h6>
-					<List tag="nav" selected={navMultiple} label="Multi-Selection" hover="hover:bg-accent-500/10" accent="!bg-accent-500">
+					<List selected={navMultiple} label="Multi-Selection" hover="hover:bg-accent-500/10" accent="!bg-accent-500">
 						<ListItem value={'A'}>Item A</ListItem>
 						<ListItem value={'B'}>Item B</ListItem>
 						<ListItem value={'C'}>Item C</ListItem>
@@ -148,59 +81,13 @@
 	<!-- Usage -->
 	<section class="space-y-4">
 		<h2>Usage</h2>
-		<p>Defaults to an unordered list with list item children.</p>
-		<CodeBlock
-			language="html"
-			code={`
-<List>
-    <ListItem>Item A</ListItem>
-    <ListItem>Item B</ListItem>
-    <ListItem>Item C</ListItem>
-</List>
-        `.trim()}
-		/>
-		<h3>Role and Slot</h3>
-		<CodeBlock
-			language="html"
-			code={`
-<List tag="ol">
-    <ListItem>
-        <svelte:fragment slot="lead">1.</svelte:fragment>
-        Item A
-    </ListItem>
-</List>
-        `.trim()}
-		/>
-		<h3>Description List</h3>
-		<CodeBlock
-			language="html"
-			code={`
-<List tag="dl">
-    <ListItem>
-        <svelte:fragment slot="dt">Item A</svelte:fragment>
-        <svelte:fragment slot="dd"><p>Description for A</p></svelte:fragment>
-    </ListItem>
-</List>
-        `.trim()}
-		/>
-		<h3>Navigation Lists</h3>
-		<CodeBlock
-			language="html"
-			code={`
-<List tag="nav">
-    <ListItem href="/">Link Example 1</ListItem>
-    <ListItem href="/">Link Example 2</ListItem>
-</List>
-        `.trim()}
-		/>
-		<h3>Selection Listbox</h3>
 		<p>Define a writable store to house the selection state, then apply a value property to each child.</p>
 		<h6>Single Value</h6>
 		<CodeBlock language="typescript" code={`const storeSingle: Writable<number> = writable(1);`} />
 		<CodeBlock
 			language="html"
 			code={`
-<List tag="nav" selected={storeSingle}"">
+<List selected="{storeSingle}" label="Single Selection">
     <ListItem value={1}>Selection Example 1</ListItem>
     <ListItem value={2}>Selection Example 2</ListItem>
 </List>
@@ -211,7 +98,7 @@
 		<CodeBlock
 			language="html"
 			code={`
-<List tag="nav" selected={storeMultiple}">
+<List selected={storeMultiple}" label="Multi-Selection">
     <ListItem value={'A'}>Item A</ListItem>
     <ListItem value={'B'}>Item B</ListItem>
     <ListItem value={'C'}>Item C</ListItem>
@@ -226,7 +113,7 @@
 		<h3>List Group</h3>
 		<DataTable headings={tablePropsList.headings} source={tablePropsList.source} />
 		<h3>List Item</h3>
-		<p>Properties for <code>accent</code>, <code>hover</code>, <code>padding</code> can be overriden on this component.</p>
+		<p>These properties can be set on the parent to affect all child items.</p>
 		<DataTable headings={tablePropsItems.headings} source={tablePropsItems.source} />
 	</section>
 
@@ -248,9 +135,3 @@
 		<DataTable headings={tableA11yItem.headings} source={tableA11yItem.source} />
 	</section>
 </div>
-
-<style lang="postcss">
-	.circle {
-		@apply bg-primary-500 text-xs w-6 h-6 aspect-square text-center flex justify-center items-center rounded-full;
-	}
-</style>
