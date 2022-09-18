@@ -6,7 +6,7 @@
 	const tablePropsGroup: any = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
-			['collapse', 'boolean', 'true', 'Enabled auto-collapse mode.'],
+			['collapse', 'boolean', 'true', 'Enable auto-collapse mode.'],
 			['spacing', 'string', 'spacing-y-2', 'Provide classes to set spacing between item rows.']
 		]
 	};

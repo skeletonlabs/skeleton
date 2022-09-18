@@ -105,7 +105,7 @@
 			<Card slotBody="h-full flex justify-center items-center">
 				<svelte:component
 					this={Avatar}
-					initials={props.initials || 'A'}
+					initials={props.initials}
 					src={props.src}
 					alt={props.alt}
 					width={props.width}

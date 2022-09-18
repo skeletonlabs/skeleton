@@ -8,13 +8,13 @@
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['icon', 'boolean', '-', 'Enable icon mode, making the badge small and circular.'],
-			['background', 'string', 'bg-surface-300 dark:bg-surface-600', 'Provided classes to set the background color.'],
-			['fill', 'string', 'fill-black dark:fill-white', 'Provided classes to set to set SVG fill color.'],
-			['text', 'string', 'text-xs', 'Provided classes to set to set text size.'],
-			['color', 'string', 'text-black dark:text-white', 'Provided classes to set the text color.'],
-			['padding', 'string', 'px-2 py-1', 'Provided classes to set padding styles.'],
-			['rounded', 'string', 'rounded', 'Provided classes to set rounded styles.'],
-			['shadow', 'string', '-', 'Provided classes to set shadow styles.']
+			['background', 'string', 'bg-surface-300 dark:bg-surface-600', 'Provide classes to set the background color.'],
+			['fill', 'string', 'fill-black dark:fill-white', 'Provide classes to set to set SVG fill color.'],
+			['text', 'string', 'text-xs', 'Provide classes to set to set text size.'],
+			['color', 'string', 'text-black dark:text-white', 'Provide classes to set the text color.'],
+			['padding', 'string', 'px-2 py-1', 'Provide classes to set padding styles.'],
+			['rounded', 'string', 'rounded', 'Provide classes to set rounded styles.'],
+			['shadow', 'string', '-', 'Provide classes to set shadow styles.']
 		]
 	};
 	// Slots

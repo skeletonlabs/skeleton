@@ -6,7 +6,7 @@
 	const tableProps: any = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
-			['background', 'string', 'bg-surface-200 dark:bg-surface-800', 'Provided a class to set background color.'],
+			['background', 'string', 'bg-surface-200 dark:bg-surface-800', 'Provide a class to set background color.'],
 			['color', 'string', '-', 'Provide classes to set text color.'],
 			['padding', 'string', 'p-4', 'Provide classes to padding style.'],
 			['space', 'string', 'space-y-4', 'Provide classes to adjust header/body/footer spacing.'],

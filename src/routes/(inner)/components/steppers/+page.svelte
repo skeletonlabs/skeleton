@@ -49,7 +49,7 @@
 		headings: ['Name', 'Description'],
 		source: [
 			['default', 'Provide the content for the step.'],
-			['header', 'Override the aut-generated heading with your own value. Typically a step title.']
+			['header', 'Override the auto-generated heading with your own value. Typically a step title.']
 		]
 	};
 	// Events

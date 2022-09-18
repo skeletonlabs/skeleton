@@ -26,7 +26,7 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Forms Preview</h1>
-		<p>This page provides a "kitchen sink" of various form elements and Skeleton components.</p>
+		<p>This page provides a "kitchen sink" of various form elements and Skeleton components. Please note that these are handled natively by browsers and as such there are some differences across platforms.</p>
 	</header>
 
 	<!-- Native Elements -->
@@ -42,7 +42,7 @@
 		<div class="space-y-4">
 			<label>
 				<span>Input (text)</span>
-				<input type="text" placeholder="john@example.com" />
+				<input type="text" placeholder="input text" />
 			</label>
 			<label>
 				<span>Input (email)</span>
@@ -50,11 +50,11 @@
 			</label>
 			<label>
 				<span>Input (email, multiple)</span>
-				<input type="email" multiple placeholder="john@example.com" />
+				<input type="email" multiple placeholder="john@example.com, susy@example.com" />
 			</label>
 			<label>
 				<span>Input (password)</span>
-				<input type="password" placeholder="john@example.com" />
+				<input type="password" placeholder="password" />
 			</label>
 			<label>
 				<span>Input (date)</span>

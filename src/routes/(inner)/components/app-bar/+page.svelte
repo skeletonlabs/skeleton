@@ -17,15 +17,15 @@
 	const tableSlots: any = {
 		headings: ['Name', 'Style Prop', 'Description'],
 		source: [
-			['default', 'slotDefault', 'Provides content within the center of the bar, such as a search element.'],
-			['lead', 'slotLead', 'Provides content on the left end of the bar, such a logo.'],
-			['trail', 'slotTrail', 'Provides content on the right end of the bar, such as a navigation.']
+			['default', 'slotDefault', 'Provides content within the center of the bar, e.g. a search element.'],
+			['lead', 'slotLead', 'Provides content on the left end of the bar, e.g. a logo.'],
+			['trail', 'slotTrail', 'Provides content on the right end of the bar, e.g. navigation elements.']
 		]
 	};
 	const tableA11y: any = {
 		headings: ['Prop', 'Type', 'Description'],
 		source: [
-			['label', 'string', 'Provide semantic ID for the ARIA label.'],
+			['label', 'string', 'Provide a semantic ID for the ARIA label.'],
 			['labelledby', 'string', 'Provide the ID of the element that labels the toolbar.']
 		]
 	};
