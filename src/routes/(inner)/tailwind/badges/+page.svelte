@@ -83,7 +83,7 @@
 			<p>A compact circular size for the badge.</p>
 			<CodeBlock language="html" code={`<span class="badge-icon bg-primary-500">💀</span>`} />
 		</div>
-		<!-- xxxx -->
+		<!-- Overlapping -->
 		<div class="space-y-4">
 			<h4>Overlapping Icon</h4>
 			<p>Use Tailwind utility classes to overlap elements.</p>
