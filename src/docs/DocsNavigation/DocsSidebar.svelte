@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Badge, List, ListItem, Divider } from '@brainandbones/skeleton';
+	import { List, ListItem, Divider } from '@brainandbones/skeleton';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	import { storeCurrentUrl, storeMobileDrawer } from '$docs/stores';
 	import { menuNavLinks } from './links';
@@ -35,7 +35,7 @@
 					<span>{label}</span>
 					<!-- Badge -->
 					<svelte:fragment slot="trail">
-						{#if badge}<Badge background="bg-accent-500" color="text-white">{badge}</Badge>{/if}
+						{#if badge}<span class="badge bg-accent-500 text-white">{badge}</span>{/if}
 					</svelte:fragment>
 				</ListItem>
 			{/each}

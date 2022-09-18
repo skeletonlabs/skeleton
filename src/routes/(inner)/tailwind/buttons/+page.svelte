@@ -46,7 +46,7 @@
 	<header class="space-y-4">
 		<h1>Buttons</h1>
 		<p>This <a href="/guides/styling">stylesheet add-on</a> provides a robust set of button styles.</p>
-		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/buttons.css';`.trim()} />
+		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/buttons.css';`} />
 	</header>
 
 	<!-- Sandbox -->
@@ -279,8 +279,8 @@
 		</div>
 		<!-- Global Styles -->
 		<div class="space-y-4">
-			<h4>Global Button Styles</h4>
-			<p>If you wish to override default button styles, you can do so in your global stylesheet. Here's an example.</p>
+			<h4>Global Styles</h4>
+			<p>You wish to override the global styles of this element, you can do so in your global stylesheet. Here's an example.</p>
 			<CodeBlock
 				language="css"
 				code={`

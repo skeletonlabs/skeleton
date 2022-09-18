@@ -27,8 +27,12 @@ export const menuNavLinks: any = [
 		list: [
 			{ href: '/tailwind/core', label: 'Core' },
 			{ href: '/tailwind/typography', label: 'Typography' },
+			{ href: '/tailwind/badges', label: 'Badges' },
 			{ href: '/tailwind/buttons', label: 'Buttons' },
-			{ href: '/tailwind/forms', label: 'Forms' }
+			{ href: '/tailwind/cards', label: 'Cards' },
+			{ href: '/tailwind/cards', label: 'Cards' },
+			{ href: '/tailwind/lists', label: 'Lists' },
+			{ href: '/tailwind/logo-cloud', label: 'Logo Clouds' }
 		]
 	},
 	{
@@ -40,16 +44,11 @@ export const menuNavLinks: any = [
 			{ href: '/components/accordions', label: 'Accordions' },
 			{ href: '/components/alerts', label: 'Alerts' },
 			{ href: '/components/avatars', label: 'Avatars' },
-			{ href: '/components/badges', label: 'Badges' },
 			{ href: '/components/breadcrumbs', label: 'Breadcrumbs' },
-			// { href: '/components/buttons', label: 'Buttons', badge: 'Depricated' },
-			{ href: '/components/cards', label: 'Cards' },
-			// {href: '/components/conic-gradients', label: 'Conic Gradients'}, // keep disabled until further notice
 			{ href: '/components/data-tables', label: 'Data Tables' },
 			{ href: '/components/dividers', label: 'Dividers' },
 			{ href: '/components/gradient-headings', label: 'Gradient Headings' },
-			{ href: '/components/lists', label: 'Lists' },
-			{ href: '/components/logo-clouds', label: 'Logo Clouds' },
+			{ href: '/components/lists', label: 'Listboxes', badge: 'Updated' },
 			{ href: '/components/menus', label: 'Menus' },
 			{ href: '/components/paginators', label: 'Paginators' },
 			{ href: '/components/placeholders', label: 'Placeholders' },
@@ -59,9 +58,16 @@ export const menuNavLinks: any = [
 			{ href: '/components/range-sliders', label: 'Range Sliders' },
 			{ href: '/components/slide-toggles', label: 'Slide Toggles' },
 			{ href: '/components/steppers', label: 'Steppers' },
-			// { href: '/components/svg-icons', label: 'SVG Icons' }, // keep disabled until further notice
 			{ href: '/components/tabs', label: 'Tabs' },
-			{ href: '/components/tooltips', label: 'Tooltips' }
+			{ href: '/components/tooltips', label: 'Tooltips' },
+			// Work in Progress
+			// {href: '/components/conic-gradients', label: 'Conic Gradients'}, // keep disabled until further notice
+			// { href: '/components/svg-icons', label: 'SVG Icons' }, // keep disabled until further notice
+			// Depricated
+			{ href: '/components/badges', label: 'Badges', badge: 'Depricated' },
+			{ href: '/components/buttons', label: 'Buttons', badge: 'Depricated' },
+			{ href: '/components/cards', label: 'Cards', badge: 'Depricated' },
+			{ href: '/components/logo-clouds', label: 'Logo Clouds', badge: 'Depricated' }
 		]
 	},
 	{

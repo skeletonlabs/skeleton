@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { DataTable, Badge, Divider } from '@brainandbones/skeleton';
+	import { DataTable, Divider } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	const tableBranches: any = {
@@ -46,9 +46,8 @@
 				helping!
 			</li>
 			<li>
-				Let Skeleton contributors know what you would like to see added. See the <a
-					href="https://github.com/Brain-Bones/skeleton/wiki/%F0%9F%9B%A3%EF%B8%8F-The-Skeleton-Roadmap"
-					target="_blank">roadmap</a
+				Let Skeleton contributors know what you would like to see added. See the <a href="https://github.com/Brain-Bones/skeleton/wiki/%F0%9F%9B%A3%EF%B8%8F-The-Skeleton-Roadmap" target="_blank"
+					>roadmap</a
 				>
 				and and review the current <a href="https://github.com/Brain-Bones/skeleton/discussions/79" target="_blank">discussion thread</a>.
 			</li>
@@ -63,7 +62,7 @@
 	<section class="space-y-4">
 		<h2>
 			Workflow
-			<Badge background="bg-warning-500" class="-translate-y-2">Important</Badge>
+			<sup class="badge bg-warning-500 -translate-y-2">Important</sup>
 		</h2>
 		<p>Avoid commits and PRs without prior discussion. Open-source is most successful when we all work together.</p>
 		<ol class="list-decimal list-inside">

@@ -3,7 +3,6 @@
 	const pkg = __PACKAGE__;
 
 	import AppBar from '$lib/components/AppBar/AppBar.svelte';
-	import Badge from '$lib/components/Badge/Badge.svelte';
 	import Divider from '$lib/components/Divider/Divider.svelte';
 	import LightSwitch from '$lib/utilities/LightSwitch/LightSwitch.svelte';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
@@ -38,7 +37,7 @@
 		<a href="/" class="text-sm sm:text-lg md:text-3xl font-bold uppercase mr-4" title="Return to Homepage">Skeleton</a>
 		<!-- Badge -->
 		<a class="hidden sm:block" href="https://github.com/Brain-Bones/skeleton/releases" target="_blank">
-			<Badge>v{pkg.version}</Badge>
+			<span class="badge bg-surface-500/30">v{pkg.version}</span>
 		</a>
 	</svelte:fragment>
 

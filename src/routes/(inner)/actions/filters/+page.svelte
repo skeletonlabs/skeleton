@@ -1,7 +1,6 @@
 <script lang="ts">
 	// Components
 	import Card from '$lib/components/Card/Card.svelte';
-	import Badge from '$lib/components/Badge/Badge.svelte';
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	// Actions
@@ -38,10 +37,7 @@ NOTE: Keep these localized
 <div class="!mt-0 space-y-8">
 	<!-- Header -->
 	<header class="space-y-4">
-		<div class="flex justify-start items-center space-x-4">
-			<h1>Filters</h1>
-			<Badge background="bg-accent-500">Experimental</Badge>
-		</div>
+		<h1>Filters</h1>
 		<p>
 			Applies a set of unique <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter" target="_blank">SVG filters</a>. Best used with images, but also available to select components,
 			such as Avatars.
