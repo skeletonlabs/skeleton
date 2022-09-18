@@ -58,15 +58,15 @@ export const menuNavLinks: any = [
 			{ href: '/components/slide-toggles', label: 'Slide Toggles' },
 			{ href: '/components/steppers', label: 'Steppers' },
 			{ href: '/components/tabs', label: 'Tabs' },
-			{ href: '/components/tooltips', label: 'Tooltips' },
+			{ href: '/components/tooltips', label: 'Tooltips' }
 			// Work in Progress
 			// {href: '/components/conic-gradients', label: 'Conic Gradients'}, // keep disabled until further notice
 			// { href: '/components/svg-icons', label: 'SVG Icons' }, // keep disabled until further notice
 			// Depricated
-			{ href: '/components/badges', label: 'Badges', badge: 'Depricated' },
-			{ href: '/components/buttons', label: 'Buttons', badge: 'Depricated' },
-			{ href: '/components/cards', label: 'Cards', badge: 'Depricated' },
-			{ href: '/components/logo-clouds', label: 'Logo Clouds', badge: 'Depricated' }
+			// { href: '/components/badges', label: 'Badges', badge: 'Depricated' },
+			// { href: '/components/buttons', label: 'Buttons', badge: 'Depricated' },
+			// { href: '/components/cards', label: 'Cards', badge: 'Depricated' },
+			// { href: '/components/logo-clouds', label: 'Logo Clouds', badge: 'Depricated' }
 		]
 	},
 	{
