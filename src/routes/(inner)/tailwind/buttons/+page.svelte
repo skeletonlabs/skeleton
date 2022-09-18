@@ -139,7 +139,7 @@
 		<!-- Buttons -->
 		<div class="space-y-4">
 			<h4>Button</h4>
-			<p>Add the <code>.btn</code> class to any anchor or button to create a <em>text</em> button.</p>
+			<p>Add the <code>.btn</code> class to any anchor or button to create a <em>text</em> button. Sizing is controlled using padding.</p>
 			<CodeBlock language="html" code={`<button class="btn">Button</button>`} />
 			<CodeBlock language="html" code={`<a href="/" class="btn">Anchor</a>`} />
 			<Card slotBody="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
@@ -150,7 +150,7 @@
 		<!-- Icon Buttons -->
 		<div class="space-y-4">
 			<h4>Icon Buttons</h4>
-			<p>Add the <code>.btn-icon</code> class to any anchor or button to create a <em>text</em> icon button.</p>
+			<p>Add the <code>.btn-icon</code> class to any anchor or button to create a <em>text</em> icon button. Sizing is controlled using aspect-square + width.</p>
 			<CodeBlock language="html" code={`<button class="btn-icon">B</button>`} />
 			<CodeBlock language="html" code={`<a href="/" class="btn-icon">A</a>`} />
 			<Card slotBody="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">

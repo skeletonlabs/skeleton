@@ -194,7 +194,7 @@
         `.trim()}
 		/>
 		<h3>Selection Listbox</h3>
-		<p>Define a writable to store to house the selection state, then apply a value property to each child.</p>
+		<p>Define a writable store to house the selection state, then apply a value property to each child.</p>
 		<h6>Single Value</h6>
 		<CodeBlock language="typescript" code={`const storeSingle: Writable<number> = writable(1);`} />
 		<CodeBlock

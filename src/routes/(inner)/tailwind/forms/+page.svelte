@@ -52,7 +52,7 @@
 module.exports = {
 	// ...
 	plugins: [
-		// Append before the Skeleton Tailwind plugin:
+		// Insert before the Skeleton Tailwind plugin:
 		require('@tailwindcss/forms'),
 		// ...
 	],

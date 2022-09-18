@@ -12,13 +12,13 @@
 		headings: ['Prop', 'Type', 'Values', 'Required', 'Description'],
 		source: [
 			['selected', 'Writable', 'any', '&check;', 'Provide a Svelte writable to store the selected state value.'],
-			['display', 'string', 'inline-flex', '-', 'Provided classes to set the display style.'],
-			['background', 'string', 'bg-surface-300 dark:bg-surface-700', '-', 'Provided classes to set the base background color.'],
-			['hover', 'string', 'hover:bg-primary-500/10', '-', 'Provided classes to set the hover style.'],
-			['accent', 'string', 'bg-primary-500 !text-white', '-', 'Provided classes to set the highlighted accent color.'],
-			['color', 'string', 'text-white', '-', 'Provided classes to set the highlighted text color.'],
-			['fill', 'string', '-', '-', 'Provided classes to set the highlighted SVG fill color.'],
-			['rounded', 'string', 'rounded', '-', 'Provided classes to set the border radius.']
+			['display', 'string', 'inline-flex', '-', 'Provide classes to set the display style.'],
+			['background', 'string', 'bg-surface-300 dark:bg-surface-700', '-', 'Provide classes to set the base background color.'],
+			['hover', 'string', 'hover:bg-primary-500/10', '-', 'Provide classes to set the hover style.'],
+			['accent', 'string', 'bg-primary-500 !text-white', '-', 'Provide classes to set the highlighted accent color.'],
+			['color', 'string', 'text-white', '-', 'Provide classes to set the highlighted text color.'],
+			['fill', 'string', '-', '-', 'Provide classes to set the highlighted SVG fill color.'],
+			['rounded', 'string', 'rounded', '-', 'Provide classes to set the border radius.']
 		]
 	};
 	const tablePropsItem: any = {

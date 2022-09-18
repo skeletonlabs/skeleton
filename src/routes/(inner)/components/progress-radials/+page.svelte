@@ -19,7 +19,7 @@
 	};
 	const tableSlots: any = {
 		headings: ['Name', 'Description'],
-		source: [['default', 'Text content is render as SVG text in the center of the element.']]
+		source: [['default', 'Text content is rendered as SVG text in the center of the element.']]
 	};
 	const tableA11y: any = {
 		headings: ['Prop', 'Required', 'Description'],

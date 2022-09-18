@@ -137,7 +137,7 @@
 		<h4>Sidebars</h4>
 		<p>
 			Please be aware that sidebars have a default width of <code>auto</code>. Sidebars will automatically collapse when their contents are empty or hidden. This is useful if you wish to hide the
-			sidebar when with CSS media queries via <a href="https://tailwindcss.com/docs/responsive-design" target="_blank">Tailwind's responsive breakpoints</a>.
+			sidebar with CSS media queries via <a href="https://tailwindcss.com/docs/responsive-design" target="_blank">Tailwind's responsive breakpoints</a>.
 		</p>
 		<CodeBlock
 			language="html"

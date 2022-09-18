@@ -28,12 +28,12 @@
 	const tableProps: any = {
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
 		source: [
-			['vertical', 'boolean', 'false', 'true | false', 'When enable sets the width to zero and height to full.'],
+			['vertical', 'boolean', 'false', 'true | false', 'When enabled, sets the width to zero and height to full.'],
 			['borderWidth', 'string', 'border-t', 'class', 'Provide classes to set the border width.'],
 			['borderStyle', 'string', 'border-solid', 'class', 'Provide classes to set the border style.'],
 			['borderColor', 'string', 'border-surface-300 dark:border-surface-700', 'class', 'Provide classes to set the border color.'],
-			['margin', 'string', 'm-0', 'class', 'Provide classes set the margin.'],
-			['opacity', 'string', 'opacity-full', 'class', 'Provide classes set opacity.']
+			['margin', 'string', 'm-0', 'class', 'Provide classes to set the margin.'],
+			['opacity', 'string', 'opacity-full', 'class', 'Provide classes to set opacity.']
 		]
 	};
 </script>
@@ -139,7 +139,7 @@
 	<section class="space-y-4">
 		<h2>Accessibility</h2>
 		<p>
-			Uses a horizontal rule <code>hr</code> tag, which has an inherit
+			Uses a horizontal rule <code>hr</code> tag, which has an inherent
 			<code>role="seperator"</code>.
 		</p>
 	</section>
