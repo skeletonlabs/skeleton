@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { DataTable, Card, List, ListItem, Menu } from '@brainandbones/skeleton';
+	import { DataTable, Card, Menu } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Local
