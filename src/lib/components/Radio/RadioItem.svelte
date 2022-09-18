@@ -37,7 +37,7 @@
 	$: classesLabel = `${cBase} ${classesSelected} ${rounded}`;
 </script>
 
-<div class="radio-item flex-auto" role="radio" aria-checked={checked} aria-label={label} tabindex="0" on:click on:keydown={onKeyDown}>
+<div class="radio-item flex-auto" role="radio" aria-checked={checked} aria-label={label} tabindex="0" data-testid="radio-item" on:click on:keydown={onKeyDown}>
 	<label class="radio-item-label {classesLabel}">
 		<input class="hidden" type="radio" {value} bind:group={$selected} />
 		<slot />
