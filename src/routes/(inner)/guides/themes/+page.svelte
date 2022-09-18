@@ -2,7 +2,7 @@
 	import { writable, type Writable } from 'svelte/store';
 	import { storeFramework } from '$docs/stores';
 
-	import { DataTable, Card, Divider, Button, RadioGroup, RadioItem, TabGroup, Tab } from '@brainandbones/skeleton';
+	import { DataTable, Card, Divider, RadioGroup, RadioItem, TabGroup, Tab } from '@brainandbones/skeleton';
 	import { toastStore, type ToastMessage } from '$lib/utilities/Toast/stores';
 
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
@@ -195,7 +195,7 @@
 	<!-- Next Steps -->
 	<Card slotBody="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<p>Next, let's review best practices for handling CSS styles and overrides.</p>
-		<Button variant="filled-accent" href="/guides/styling">Styles and Stylesheets</Button>
+		<a class="btn btn-filled-accent" href="/guides/styling">Styles and Stylesheets</a>
 	</Card>
 </div>
 

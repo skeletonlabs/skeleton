@@ -19,7 +19,7 @@
 <div class="space-y-8">
 	<!-- Breadcrumbs -->
 	<Breadcrumb>
-		<Crumb href="/guides/forms">Forms Guide</Crumb>
+		<Crumb href="/tailwind/forms">Forms</Crumb>
 		<Crumb>Preview</Crumb>
 	</Breadcrumb>
 

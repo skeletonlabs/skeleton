@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { DataTable, Card, Button, List, ListItem, Menu } from '@brainandbones/skeleton';
+	import { DataTable, Card, List, ListItem, Menu } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Tables and Slots
@@ -35,7 +35,7 @@
 		<!-- Default -->
 		<Menu>
 			<!-- Slot: Trigger -->
-			<Button slot="trigger" variant="ghost-primary" type="button">Menu</Button>
+			<button slot="trigger" class="btn btn-ghost">Menu</button>
 			<!-- Slot: Content -->
 			<Card slot="content" background="bg-surface-300 dark:bg-surface-700" class="w-[200px] p-[0px] shadow-xl overflow-hidden">
 				<List tag="nav">
@@ -46,7 +46,7 @@
 		</Menu>
 		<!-- Select -->
 		<Menu origin="tr" select={true}>
-			<Button slot="trigger" variant="ghost-accent" type="button">Select</Button>
+			<button slot="trigger" class="btn btn-ghost">Select</button>
 			<Card slot="content" background="bg-surface-300 dark:bg-surface-700" class="w-[200px] p-[0px] shadow-xl overflow-hidden">
 				<List tag="nav">
 					<ListItem>Item 1</ListItem>
@@ -60,7 +60,7 @@
 		</Menu>
 		<!-- Disabled -->
 		<Menu disabled>
-			<Button slot="trigger" variant="ghost-warning" type="button" disabled>Disabled</Button>
+			<button slot="trigger" class="btn btn-ghost" disabled>Disabled</button>
 			<div slot="content"><!-- (will never show) --></div>
 		</Menu>
 	</Card>
@@ -73,7 +73,7 @@
 			code={`
 <Menu select={false} open={false} origin="tl">
     <!-- Slot: Trigger -->
-    <Button slot="trigger" variant="ghost-primary" type="button">Menu</Button>
+    <button slot="trigger" class="btn btn-ghost">Menu</button>
     <!-- Slot: Content -->
     <Card slot="content" background="bg-surface-300 dark:bg-surface-700" class="w-[200px] p-[0px] shadow-xl overflow-hidden">
         <List tag="nav">

@@ -61,6 +61,13 @@
 				}}>Docs</a
 			>
 			<a
+				href="/tailwind/buttons"
+				class="navlink"
+				on:click={() => {
+					scrollSidebarTo('#nav-elements');
+				}}>Elements</a
+			>
+			<a
 				href="/components/app-shell"
 				class="navlink"
 				on:click={() => {
@@ -68,18 +75,18 @@
 				}}>Components</a
 			>
 			<a
-				href="/utilities/codeblocks"
-				class="navlink"
-				on:click={() => {
-					scrollSidebarTo('#nav-utilities');
-				}}>Utilities</a
-			>
-			<a
 				href="/actions/filters"
 				class="navlink"
 				on:click={() => {
 					scrollSidebarTo('#nav-actions');
 				}}>Actions</a
+			>
+			<a
+				href="/utilities/codeblocks"
+				class="navlink"
+				on:click={() => {
+					scrollSidebarTo('#nav-utilities');
+				}}>Utilities</a
 			>
 		</section>
 

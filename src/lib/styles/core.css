@@ -1,10 +1,12 @@
-/* --- Skeleton: Core --- */
+/* Stylesheet Add-On: core.css */
+
+/* === Body Styles === */
 
 body {
 	@apply font-sans bg-surface-100 dark:bg-surface-900 text-black dark:text-white;
 }
 
-/* --- Scrollbars --- */
+/* === Scrollbars === */
 
 ::-webkit-scrollbar {
 	@apply w-2;

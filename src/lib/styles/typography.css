@@ -1,6 +1,7 @@
-/* --- Skeleton: Typography --- */
+/* Stylesheet Add-On: typography.css */
 
-/* Headings */
+/* === Headings === */
+
 h1 {
 	@apply text-4xl md:text-5xl font-bold;
 }
@@ -20,20 +21,26 @@ h6 {
 	@apply text-base md:text-base font-bold;
 }
 
-/* Blockquote */
+/* === Elements === */
+
+p {
+	@apply text-base text-surface-500 dark:text-surface-400;
+}
+
+a:not(.btn):not(.btn-icon):not(.comp-button):not(.list-row):not(.drawer a):not(.app-bar a):not(.logo):not(.card) {
+	@apply text-primary-500 underline underline-offset-4 decoration-primary-500/20 decoration-dotted;
+}
+
 blockquote {
 	@apply border-l-4 border-l-accent-500 pl-4 text-base text-surface-500 dark:text-surface-400;
 }
 
-/* Page Styles */
-p {
-	@apply text-base text-surface-500 dark:text-surface-400;
-}
-a:not(.comp-button):not(.list-row):not(.drawer a):not(.app-bar a):not(.logo):not(.card) {
-	@apply text-primary-500 underline underline-offset-4 decoration-primary-500/20 decoration-dotted;
+/* Keyboard */
+kbd {
+	@apply rounded border-b-[1px] border-surface-500 ring-[1px] ring-surface-500 bg-surface-300 px-1.5 py-0.5 text-sm font-bold dark:bg-slate-700;
 }
 
-/* --- Pre and Code --- */
+/* === Code Blocks === */
 /* For use outside of Skeleton's CodeBlock component */
 
 pre:not(.codeblock pre) {
@@ -42,9 +49,4 @@ pre:not(.codeblock pre) {
 
 code:not(.codeblock code) {
 	@apply bg-surface-500/30 text-black dark:text-white text-xs py-1 px-2 rounded;
-}
-
-/* --- KBD (Keyboard) --- */
-kbd {
-	@apply rounded border-b-[1px] border-surface-500 ring-[1px] ring-surface-500 bg-surface-300 px-1.5 py-0.5 text-sm font-bold dark:bg-slate-700;
 }

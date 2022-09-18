@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Button from '$lib/components/Button/Button.svelte';
 	import Divider from '$lib/components/Divider/Divider.svelte';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
@@ -54,24 +53,24 @@
 			<a href="https://github.com/Brain-Bones/skeleton/graphs/contributors" target="_blank">Contributors</a>
 		</p>
 		<div class="flex space-x-4">
-			<Button background="bg-[#7289da]" color="!text-white" href="https://discord.gg/EXqV7W8MtY" target="_blank">
-				<SvgIcon name="discord" fill="fill-white" viewBox="0 0 640 512" class="-translate-y-[2px]" />
+			<a class="btn bg-[#7289da] text-white" href="https://discord.gg/EXqV7W8MtY" target="_blank">
+				<SvgIcon name="discord" fill="fill-white" />
 				<span class="hidden md:inline-block ml-2">Discord</span>
-			</Button>
-			<Button background="bg-[#1da1f2]" color="!text-white" href="https://twitter.com/SkeletonUI" target="_blank">
-				<SvgIcon name="twitter" fill="fill-white" class="-translate-y-[2px]" />
+			</a>
+			<a class="btn bg-[#1da1f2] text-white" href="https://twitter.com/SkeletonUI" target="_blank">
+				<SvgIcon name="twitter" fill="fill-white" />
 				<span class="hidden md:inline-block ml-2">Twitter</span>
-			</Button>
-			<Button background="bg-[#6e5494]" color="!text-white" href="https://github.com/Brain-Bones/skeleton" target="_blank">
-				<SvgIcon name="github" fill="fill-white" class="-translate-y-[2px]" />
+			</a>
+			<a class="btn bg-[#6e5494] text-white" href="https://github.com/Brain-Bones/skeleton" target="_blank">
+				<SvgIcon name="github" fill="fill-white" />
 				<span class="hidden md:inline-block ml-2">Github</span>
-			</Button>
+			</a>
 		</div>
 	</section>
 </div>
 
 <style lang="postcss">
-	a {
+	a:not(.btn) {
 		@apply !no-underline !text-surface-500 hover:!text-primary-500 text-sm;
 	}
 </style>

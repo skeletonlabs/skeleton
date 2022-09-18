@@ -31,9 +31,9 @@
 	<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
 		<Card slotBody="flex justify-center items-center space-x-4">
 			<svelte:fragment slot="header"><p class="text-center">Accent Colors</p></svelte:fragment>
-			<SlideToggle size="md" accent="bg-primary-400" checked label="Toggle Green" />
+			<SlideToggle size="md" accent="bg-primary-500" checked label="Toggle Green" />
 			<SlideToggle size="md" checked label="Toggle Purple" />
-			<SlideToggle size="md" accent="bg-warning-400" checked label="Toggle Warning" />
+			<SlideToggle size="md" accent="bg-warning-500" checked label="Toggle Warning" />
 		</Card>
 		<Card slotBody="flex justify-center items-center space-x-4">
 			<svelte:fragment slot="header"><p class="text-center">Sizes</p></svelte:fragment>

@@ -4,9 +4,6 @@
 	import { slide } from 'svelte/transition';
 	import type { Writable } from 'svelte/store';
 
-	// Components
-	import Button from '$lib/components/Button/Button.svelte';
-
 	// Props
 	export let index: number = 0;
 	export let locked: boolean = false;
@@ -84,11 +81,11 @@
 				<slot />
 				<!-- Nav -->
 				<footer class="step-footer {classesNav}">
-					{#if index !== 0}<Button {...buttonBack} on:click={stepPrev}>&uarr;</Button>{/if}
+					{#if index !== 0}<button class="btn {buttonBack}" on:click={stepPrev}>&uarr;</button>{/if}
 					{#if $active + 1 < length}
-						<Button {...buttonNext} on:click={stepNext} disabled={locked}>Next &darr;</Button>
+						<button class="btn {buttonNext}" on:click={stepNext} disabled={locked}>Next &darr;</button>
 					{:else}
-						<Button {...buttonComplete} on:click={onComplete} disabled={locked}>{buttonComplete.text}</Button>
+						<button class="btn {buttonComplete}" on:click={onComplete} disabled={locked}>Complete</button>
 					{/if}
 				</footer>
 			</div>

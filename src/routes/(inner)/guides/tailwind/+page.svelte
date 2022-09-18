@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Divider, Card, Button } from '@brainandbones/skeleton';
+	import { Divider, Card } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 </script>
 
@@ -66,28 +66,28 @@ module.exports = {
 					<h6>Forms</h6>
 					<p>Provides a basic reset for form elements.</p>
 				</div>
-				<Button variant="ghost" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">View</Button>
+				<a class="btn btn-ghost" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">View</a>
 			</Card>
 			<Card slotBody="flex justify-between items-center space-x-4">
 				<div>
 					<h6>Typography</h6>
 					<p>Typographic defaults for HTML you don't control.</p>
 				</div>
-				<Button variant="ghost" href="https://tailwindcss.com/docs/typography-plugin" target="_blank">View</Button>
+				<a class="btn btn-ghost" href="https://tailwindcss.com/docs/typography-plugin" target="_blank">View</a>
 			</Card>
 			<Card slotBody="flex justify-between items-center space-x-4">
 				<div>
 					<h6>Aspect Ratio</h6>
 					<p>Composable API for giving elements a fixed aspect ratio.</p>
 				</div>
-				<Button variant="ghost" href="https://github.com/tailwindlabs/tailwindcss-aspect-ratio" target="_blank">View</Button>
+				<a class="btn btn-ghost" href="https://github.com/tailwindlabs/tailwindcss-aspect-ratio" target="_blank">View</a>
 			</Card>
 			<Card slotBody="flex justify-between items-center space-x-4">
 				<div>
 					<h6>Line Clamp</h6>
 					<p>Provides utilities for visually truncating text.</p>
 				</div>
-				<Button variant="ghost" href="https://github.com/tailwindlabs/tailwindcss-line-clamp" target="_blank">View</Button>
+				<a class="btn btn-ghost" href="https://github.com/tailwindlabs/tailwindcss-line-clamp" target="_blank">View</a>
 			</Card>
 		</div>
 	</section>
@@ -97,6 +97,6 @@ module.exports = {
 	<!-- Next Steps -->
 	<Card slotBody="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<p>Next, let's create and implement a custom theme.</p>
-		<Button variant="filled-accent" href="/guides/themes">Create a Theme</Button>
+		<a class="btn btn-filled-accent" href="/guides/themes">Create a Theme</a>
 	</Card>
 </div>

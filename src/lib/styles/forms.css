@@ -1,8 +1,22 @@
-/* --- Skeleton: Forms --- */
+/* Stylesheet Add-On: forms.css */
+
+/* === Fieldset === */
 
 fieldset {
 	@apply block;
 }
+
+/* === Labels === */
+
+label {
+	@apply block overflow-visible;
+}
+label span,
+legend {
+	@apply block text-surface-700 dark:text-surface-300 text-sm mb-2;
+}
+
+/* === Inputs === */
 
 /* Inputs */
 [type='text'],
@@ -21,7 +35,7 @@ fieldset {
 [multiple],
 textarea,
 select {
-	@apply w-full text-black bg-surface-50 border-surface-300 rounded-lg shadow-sm caret-accent-500 focus:border-accent-500 focus:ring-accent-500 hover:brightness-110;
+	@apply w-full text-black bg-surface-50 border-surface-300 rounded shadow-sm caret-accent-500 focus:border-accent-500 focus:ring-accent-500 hover:brightness-110;
 	@apply dark:text-white dark:bg-surface-600 dark:border-surface-500;
 }
 
@@ -36,12 +50,15 @@ select {
 	@apply border-surface-500 rounded text-accent-600 focus:ring-accent-500;
 }
 
+/* === States === */
+
 /* Invalid - https://www.bram.us/2021/01/28/form-validation-you-want-notfocusinvalid-not-invalid/ */
 input:not(:focus):not(:placeholder-shown):invalid {
 	@apply bg-warning-300 border-warning-500;
 }
 
-/* Placeholders */
+/* === Placeholders === */
+
 input::-moz-placeholder,
 textarea::-moz-placeholder {
 	@apply text-surface-400;
@@ -55,16 +72,9 @@ textarea::placeholder {
 	@apply text-surface-400;
 }
 
-/* Labels */
-label {
-	@apply block overflow-visible;
-}
-label span,
-legend {
-	@apply block text-surface-700 dark:text-surface-300 text-sm mb-2;
-}
+/* === Accent Color === */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color */
 
-/* Accent Color - https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color */
 [type='range']:not(.range-input) {
 	@apply w-full accent-accent-500;
 }

@@ -1,13 +1,8 @@
 <script lang="ts">
-	// Deconstruct data from +page.server.ts
-	// export let data: any;
-	// const { contributors }: { contributors: any[]} = data;
-
 	// Components
 	import Alert from '$lib/components/Alert/Alert.svelte';
 	import Avatar from '$lib/components/Avatar/Avatar.svelte';
 	import Card from '$lib/components/Card/Card.svelte';
-	import Button from '$lib/components/Button/Button.svelte';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
 	// Fetch Contributors
@@ -29,7 +24,7 @@
 		<svelte:fragment slot="lead">🚧</svelte:fragment>
 		<span>Skeleton is available as a public beta. Expect breaking changes prior to v1.0. If you encounter issues please report them on GitHub.</span>
 		<svelte:fragment slot="trail">
-			<Button variant="ghost" href="https://github.com/Brain-Bones/skeleton/issues">Report Issue</Button>
+			<a href="https://github.com/Brain-Bones/skeleton/issues" target="_blank" class="btn btn-ghost">Report Issue</a>
 		</svelte:fragment>
 	</Alert>
 
@@ -40,15 +35,14 @@
 				<h1 class="text-3xl md:text-5xl lg:text-6xl">
 					<span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-accent-500">Skeleton</span>
 				</h1>
-				<h2 class="text-4xl md:text-6xl lg:text-8xl">A fully featured Svelte component library.</h2>
+				<h2 class="text-4xl md:text-6xl lg:text-8xl">A fully featured UI toolkit for Svelte and Tailwind.</h2>
 				<p class="text-xl">
-					Skeleton allows you to build fast and reactive web UI using the power of <a href="https://svelte.dev/" target="_blank">Svelte</a>
+					Skeleton allows you to build fast and reactive web interfaces using the power of <a href="https://svelte.dev/" target="_blank">Svelte</a>
 					+ <a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a>.
 				</p>
 				<nav class="flex space-x-4">
-					<Button variant="filled-primary" href="/guides/install">Get Started</Button>
-					<Button variant="ghost" href="/docs/why">Why Skeleton</Button>
-					<Button variant="ghost" href="https://github.com/Brain-Bones/skeleton" target="_blank" class="hidden sm:inline-block">Github</Button>
+					<a href="/guides/install" class="btn btn-lg btn-filled-primary">Get Started</a>
+					<a href="/docs/why" class="btn btn-lg btn-ghost">Why Skeleton</a>
 				</nav>
 			</div>
 		</header>
@@ -136,10 +130,10 @@
 						</Card>
 					</a>
 				</div>
-				<Button variant="ghost" href="https://github.com/sponsors/Brain-Bones" target="_blank">
-					Become a Sponsor
-					<svelte:fragment slot="trail">&rarr;</svelte:fragment>
-				</Button>
+				<a class="btn btn-ghost" href="https://github.com/sponsors/Brain-Bones" target="_blank">
+					<span>Become a Sponsor</span>
+					<span>&rarr;</span>
+				</a>
 			</div>
 
 			<!-- Contributors -->
@@ -156,10 +150,10 @@
 						{/each}
 					{/await}
 				</div>
-				<Button variant="ghost" href="/docs/contributions">
-					How to Contribute
-					<svelte:fragment slot="trail">&rarr;</svelte:fragment>
-				</Button>
+				<a class="btn btn-ghost" href="/docs/contributions">
+					<span>How to Contribute</span>
+					<span>&rarr;</span>
+				</a>
 			</div>
 		</section>
 	</div>

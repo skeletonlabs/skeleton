@@ -14,7 +14,7 @@
 	export let text: string = 'text-xs md:text-base';
 	export let select: string | undefined = undefined;
 	// Props (buttons)
-	export let buttons: any = { variant: 'ghost', class: 'font-bold' };
+	export let buttons: string = 'btn-ghost';
 
 	// Base Classes
 	const cBase: string = 'flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4';
@@ -55,7 +55,7 @@
 	</p>
 	<!-- Arrows -->
 	<div class="paginator-nav space-x-2">
-		<Button {...buttons} on:click={onPrev} disabled={offset === 0}>&larr;</Button>
-		<Button {...buttons} on:click={onNext} disabled={(offset + 1) * limit >= size}>&rarr;</Button>
+		<button class="btn {buttons}" on:click={onPrev} disabled={offset === 0}>&larr;</button>
+		<button class="btn {buttons}" on:click={onNext} disabled={(offset + 1) * limit >= size}>&rarr;</button>
 	</div>
 </div>
