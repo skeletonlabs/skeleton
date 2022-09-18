@@ -30,7 +30,6 @@ export const menuNavLinks: any = [
 			{ href: '/tailwind/badges', label: 'Badges' },
 			{ href: '/tailwind/buttons', label: 'Buttons' },
 			{ href: '/tailwind/cards', label: 'Cards' },
-			{ href: '/tailwind/cards', label: 'Cards' },
 			{ href: '/tailwind/lists', label: 'Lists' },
 			{ href: '/tailwind/logo-cloud', label: 'Logo Clouds' }
 		]
