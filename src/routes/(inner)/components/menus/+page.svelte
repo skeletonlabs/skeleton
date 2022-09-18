@@ -2,6 +2,9 @@
 	import { DataTable, Card, List, ListItem, Menu } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
+	// Local
+	const exampleLink: string = '/components/menus';
+
 	// Tables and Slots
 	const tableProps: any = {
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
@@ -38,24 +41,26 @@
 			<button slot="trigger" class="btn btn-ghost">Menu</button>
 			<!-- Slot: Content -->
 			<Card slot="content" background="bg-surface-300 dark:bg-surface-700" class="w-[200px] p-[0px] shadow-xl overflow-hidden">
-				<List tag="nav">
-					<ListItem>Item 1</ListItem>
-					<ListItem>Item 2</ListItem>
-				</List>
+				<nav class="list-nav">
+					<ul>
+						<li><a href={exampleLink}>Item 1</a></li>
+						<li><a href={exampleLink}>Item 2</a></li>
+					</ul>
+				</nav>
 			</Card>
 		</Menu>
 		<!-- Select -->
 		<Menu origin="tr" select={true}>
 			<button slot="trigger" class="btn btn-ghost">Select</button>
 			<Card slot="content" background="bg-surface-300 dark:bg-surface-700" class="w-[200px] p-[0px] shadow-xl overflow-hidden">
-				<List tag="nav">
-					<ListItem>Item 1</ListItem>
-					<ListItem>Item 2</ListItem>
-					<ListItem>Item 3</ListItem>
-					<ListItem>Item 4</ListItem>
-					<ListItem>Item 5</ListItem>
-					<ListItem href="/">Navigate</ListItem>
-				</List>
+				<nav class="list-nav">
+					<ul>
+						<li><a href={exampleLink}>Item 1</a></li>
+						<li><a href={exampleLink}>Item 2</a></li>
+						<li><a href={exampleLink}>Item 3</a></li>
+						<li><a href={exampleLink}>Item 4</a></li>
+					</ul>
+				</nav>
 			</Card>
 		</Menu>
 		<!-- Disabled -->
@@ -76,11 +81,12 @@
     <button slot="trigger" class="btn btn-ghost">Menu</button>
     <!-- Slot: Content -->
     <Card slot="content" background="bg-surface-300 dark:bg-surface-700" class="w-[200px] p-[0px] shadow-xl overflow-hidden">
-        <List tag="nav">
-            <ListItem href="/">Item 1</ListItem>
-            <ListItem href="/">Item 2</ListItem>
-            <ListItem href="/">Item 3</ListItem>
-        </List>
+        <nav class="list-nav">
+			<ul>
+				<li><a href="/">Item 1</a></li>
+				<li><a href="/">Item 2</a></li>
+			</ul>
+		</nav>
     </Card>
 </Menu>
         `.trim()}
