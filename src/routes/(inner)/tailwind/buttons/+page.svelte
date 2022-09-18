@@ -109,13 +109,13 @@
 				<label>
 					<span>Color</span>
 					<select name="color" id="color" bind:value={btnValues.color}>
-						<option value={undefined}>None</option>
+						<option value={undefined}>Inherent</option>
 						<option value="text-white">text-white</option>
 						<option value="text-black">text-black</option>
 						<option value="text-primary-500">text-primary-500</option>
 						<option value="text-accent-500">text-accent-500</option>
 						<option value="text-warning-500">text-warning-500</option>
-						<option value="text-surface-500">btn-outline-surface-500</option>
+						<option value="text-surface-500">text-surface-500</option>
 					</select>
 				</label>
 				<!-- Disabled -->
@@ -140,8 +140,8 @@
 		<div class="space-y-4">
 			<h4>Button</h4>
 			<p>Add the <code>.btn</code> class to any anchor or button to create a <em>text</em> button.</p>
-			<CodeBlock language="html" code={`<button class="btn">Skeleton</button>`} />
-			<CodeBlock language="html" code={`<a href="/" class="btn">Skeleton</a>`} />
+			<CodeBlock language="html" code={`<button class="btn">Button</button>`} />
+			<CodeBlock language="html" code={`<a href="/" class="btn">Anchor</a>`} />
 			<Card slotBody="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 				<button class="btn">Button</button>
 				<a {href} class="btn">Anchor</a>
@@ -151,8 +151,8 @@
 		<div class="space-y-4">
 			<h4>Icon Buttons</h4>
 			<p>Add the <code>.btn-icon</code> class to any anchor or button to create a <em>text</em> icon button.</p>
-			<CodeBlock language="html" code={`<button class="btn-icon">💀</button>`} />
-			<CodeBlock language="html" code={`<a href="/" class="btn-icon">💀</a>`} />
+			<CodeBlock language="html" code={`<button class="btn-icon">B</button>`} />
+			<CodeBlock language="html" code={`<a href="/" class="btn-icon">A</a>`} />
 			<Card slotBody="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 				<button class="btn-icon">B</button>
 				<a {href} class="btn-icon">A</a>
@@ -172,7 +172,7 @@
 		<!-- Sizes -->
 		<div class="space-y-4">
 			<h4>Sizes</h4>
-			<p>Add a <code>.btn-[sm|base|lg|xl]</code> class to adjust the size of a button.</p>
+			<p>Add the <code>.btn-[sm|base|lg|xl]</code> class to adjust the size of a button.</p>
 			<CodeBlock language="html" code={`<button class="btn btn-lg bg-primary-500">Large</button>`} />
 			<Card slotBody="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 				<button class="btn btn-sm bg-primary-500">sm</button>
@@ -180,8 +180,8 @@
 				<button class="btn btn-lg bg-primary-500">lg</button>
 				<button class="btn btn-xl bg-primary-500">xl</button>
 			</Card>
-			<p>Add a <code>.btn-icon-[sm|base|lg|xl]</code> class to adjust the size of an icon button.</p>
-			<CodeBlock language="html" code={`<button class="btn-icon btn-icon-lg bg-primary-500">💀</button>`} />
+			<p>Add the <code>.btn-icon-[sm|base|lg|xl]</code> class to adjust the size of an icon button.</p>
+			<CodeBlock language="html" code={`<button class="btn-icon btn-icon-lg bg-primary-500">lg</button>`} />
 			<Card slotBody="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 				<button class="btn-icon btn-icon-sm bg-primary-500">sm</button>
 				<button class="btn-icon btn-icon-base bg-primary-500">b</button>
@@ -243,31 +243,31 @@
 					<button class="btn btn-ghost-surface">ghost-surface</button>
 				</div>
 			</Card>
-			<CodeBlock language="html" code={`<button class="btn-icon btn-filled-primary">♥</button>`} />
+			<CodeBlock language="html" code={`<button class="btn-icon btn-filled-primary">&hearts;</button>`} />
 			<Card slotBody="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 				<!-- Text -->
 				<div class="grid grid-cols-1 gap-4">
-					<button class="btn-icon btn-filled">♥</button>
-					<button class="btn-icon btn-filled-primary">♥</button>
-					<button class="btn-icon btn-filled-accent">♥</button>
-					<button class="btn-icon btn-filled-warning">♥</button>
-					<button class="btn-icon btn-filled-surface">♥</button>
+					<button class="btn-icon btn-filled">&hearts;</button>
+					<button class="btn-icon btn-filled-primary">&hearts;</button>
+					<button class="btn-icon btn-filled-accent">&hearts;</button>
+					<button class="btn-icon btn-filled-warning">&hearts;</button>
+					<button class="btn-icon btn-filled-surface">&hearts;</button>
 				</div>
 				<!-- Ringed -->
 				<div class="grid grid-cols-1 gap-4">
-					<button class="btn-icon btn-ringed">♥</button>
-					<button class="btn-icon btn-ringed-primary">♥</button>
-					<button class="btn-icon btn-ringed-accent">♥</button>
-					<button class="btn-icon btn-ringed-warning">♥</button>
-					<button class="btn-icon btn-ringed-surface">♥</button>
+					<button class="btn-icon btn-ringed">&hearts;</button>
+					<button class="btn-icon btn-ringed-primary">&hearts;</button>
+					<button class="btn-icon btn-ringed-accent">&hearts;</button>
+					<button class="btn-icon btn-ringed-warning">&hearts;</button>
+					<button class="btn-icon btn-ringed-surface">&hearts;</button>
 				</div>
 				<!-- Ringed -->
 				<div class="grid grid-cols-1 gap-4">
-					<button class="btn-icon btn-ghost">♥</button>
-					<button class="btn-icon btn-ghost-primary">♥</button>
-					<button class="btn-icon btn-ghost-accent">♥</button>
-					<button class="btn-icon btn-ghost-warning">♥</button>
-					<button class="btn-icon btn-ghost-surface">♥</button>
+					<button class="btn-icon btn-ghost">&hearts;</button>
+					<button class="btn-icon btn-ghost-primary">&hearts;</button>
+					<button class="btn-icon btn-ghost-accent">&hearts;</button>
+					<button class="btn-icon btn-ghost-warning">&hearts;</button>
+					<button class="btn-icon btn-ghost-surface">&hearts;</button>
 				</div>
 			</Card>
 		</div>
