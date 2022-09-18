@@ -3,7 +3,7 @@ import { describe, it, expect } from 'vitest';
 
 import { writable } from 'svelte/store';
 
-import List from '$lib/components/List/List.svelte';
+import List from '$lib/components/ListBox/ListBox.svelte';
 
 describe('List.svelte', () => {
 	it('Renders with minimal props', async () => {

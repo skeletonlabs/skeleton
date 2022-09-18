@@ -1,7 +1,10 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
-	import { DataTable, Card, List, ListItem } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import Card from '$lib/components/Card/Card.svelte';
+	import Listbox from '$lib/components/ListBox/ListBox.svelte';
+	import ListboxItem from '$lib/components/ListBox/ListBoxItem.svelte';
+	import DataTable from '$lib/components/Table/DataTable.svelte';
 
 	let navSingle: Writable<number> = writable(1);
 	let navMultiple: Writable<string[]> = writable(['A', 'B']);
@@ -49,7 +52,7 @@
 	<header class="space-y-4">
 		<h1>Listboxes</h1>
 		<p class="space-y-4">Interactive listboxes that maintain selection state.</p>
-		<CodeBlock language="js" code={`import { List, ListItem } from '@brainandbones/skeleton';`} />
+		<CodeBlock language="js" code={`import { Listbox, ListboxItem } from '@brainandbones/skeleton';`} />
 	</header>
 
 	<!-- Examples -->
@@ -57,21 +60,21 @@
 		<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
 			<section class="space-y-4">
 				<Card slotBody="space-y-4">
-					<List selected={navSingle} label="Single Selection">
-						<ListItem value={1}>Item 1</ListItem>
-						<ListItem value={2}>Item 2</ListItem>
-						<ListItem value={3}>Item 3</ListItem>
-					</List>
+					<Listbox selected={navSingle} label="Single Selection">
+						<ListboxItem value={1}>Item 1</ListboxItem>
+						<ListboxItem value={2}>Item 2</ListboxItem>
+						<ListboxItem value={3}>Item 3</ListboxItem>
+					</Listbox>
 					<p class="text-center">Selected: <code>{$navSingle}</code></p>
 				</Card>
 			</section>
 			<section class="space-y-4">
 				<Card slotBody="space-y-4">
-					<List selected={navMultiple} label="Multi-Selection" hover="hover:bg-accent-500/10" accent="!bg-accent-500">
-						<ListItem value={'A'}>Item A</ListItem>
-						<ListItem value={'B'}>Item B</ListItem>
-						<ListItem value={'C'}>Item C</ListItem>
-					</List>
+					<Listbox selected={navMultiple} label="Multi-Selection" hover="hover:bg-accent-500/10" accent="!bg-accent-500">
+						<ListboxItem value={'A'}>Item A</ListboxItem>
+						<ListboxItem value={'B'}>Item B</ListboxItem>
+						<ListboxItem value={'C'}>Item C</ListboxItem>
+					</Listbox>
 					<p class="text-center">Selected: <code>{$navMultiple}</code></p>
 				</Card>
 			</section>
@@ -87,10 +90,10 @@
 		<CodeBlock
 			language="html"
 			code={`
-<List selected="{storeSingle}" label="Single Selection">
-    <ListItem value={1}>Selection Example 1</ListItem>
-    <ListItem value={2}>Selection Example 2</ListItem>
-</List>
+<Listbox selected="{storeSingle}" label="Single Selection">
+    <ListboxItem value={1}>Selection Example 1</ListboxItem>
+    <ListboxItem value={2}>Selection Example 2</ListboxItem>
+</Listbox>
         `.trim()}
 		/>
 		<h6>Multiple Values</h6>
@@ -98,11 +101,11 @@
 		<CodeBlock
 			language="html"
 			code={`
-<List selected={storeMultiple}" label="Multi-Selection">
-    <ListItem value={'A'}>Item A</ListItem>
-    <ListItem value={'B'}>Item B</ListItem>
-    <ListItem value={'C'}>Item C</ListItem>
-</List>
+<Listbox selected={storeMultiple}" label="Multi-Selection">
+    <ListboxItem value={'A'}>Item A</ListboxItem>
+    <ListboxItem value={'B'}>Item B</ListboxItem>
+    <ListboxItem value={'C'}>Item C</ListboxItem>
+</Listbox>
         `.trim()}
 		/>
 	</section>
@@ -110,9 +113,9 @@
 	<!-- Properties -->
 	<section class="space-y-4">
 		<h2>Properties</h2>
-		<h3>List Group</h3>
+		<h3>Listbox</h3>
 		<DataTable headings={tablePropsList.headings} source={tablePropsList.source} />
-		<h3>List Item</h3>
+		<h3>Listbox Item</h3>
 		<p>These properties can be set on the parent to affect all child items.</p>
 		<DataTable headings={tablePropsItems.headings} source={tablePropsItems.source} />
 	</section>
@@ -129,9 +132,9 @@
 			<h2>Accessibility</h2>
 			<a href="https://www.w3.org/WAI/ARIA/apg/patterns/listbox/" target="_blank">ARIA Guidelines</a>
 		</div>
-		<h3>List</h3>
+		<h3>Listbox</h3>
 		<DataTable headings={tableA11yList.headings} source={tableA11yList.source} />
-		<h3>List Item</h3>
+		<h3>Listbox Item</h3>
 		<DataTable headings={tableA11yItem.headings} source={tableA11yItem.source} />
 	</section>
 </div>
