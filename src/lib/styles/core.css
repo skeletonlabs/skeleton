@@ -30,5 +30,5 @@ body {
 /* === Horizontal Rules === */
 
 hr:not(.divider) {
-	@apply block border-t border-solid border-surface-300 dark:border-surface-700 m-0;
+	@apply block border-t border-solid border-surface-300 dark:border-surface-700;
 }
