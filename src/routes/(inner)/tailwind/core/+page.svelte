@@ -52,5 +52,16 @@
 				</p>
 			</Card>
 		</div>
+		<!-- Horizontal Rules -->
+		<div class="space-y-4">
+			<h4>Horizontal Rules</h4>
+			<p>Applies basic styling to the native horizontal rule element. See the <a href="/components/dividers">Dividers</a> component for more options.</p>
+			<CodeBlock language="html" code={`<hr />`} />
+			<Card slotBody="space-y-4 text-center">
+				<p>Above the horizontal rule.</p>
+				<hr />
+				<p>Below the horizontal rule.</p>
+			</Card>
+		</div>
 	</section>
 </div>
