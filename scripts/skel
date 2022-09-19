@@ -4,13 +4,13 @@
 # Either call this script directly, or preferably drop it into a bin directory that is in your $PATH. You need jq, pnpm installed as well
 # Most likely you should tweak the options depending on what you are testing.
 
-npm init @svelte-add/kit@latest $1 -y -- --with typescript+eslint+prettier+tailwindcss 
+npm init @svelte-add/kit@latest $1 -y -- --with typescript+eslint+prettier+tailwindcss --tailwindcss-typography --tailwindcss-forms
 #additional options --install --tailwindcss-typography --tailwindcss-forms
 cd $1/
-echo "$( jq '.devDependencies += {"@brainandbones/skeleton":"*"}' package.json )" > package.json
+#pnpm i @brainandbones/skeleton --save-dev //re-enable when a @dev scope comes along
 cat <<EOT > tailwind.config.cjs
-//const typography = require('@tailwindcss/typography'); //add to plugins array 
-//const forms = require('@tailwindcss/forms'); //add to plugins array
+const typography = require('@tailwindcss/typography');
+const forms = require('@tailwindcss/forms');
 const skeleton = require('@brainandbones/skeleton/tailwind.cjs');
 
 const config = {
@@ -20,19 +20,18 @@ const config = {
 		extend: {}
 	},
 
-	plugins: [skeleton]
+	plugins: [forms, typography, skeleton]
 };
 
 module.exports = config;
 EOT
-curl -s -o src/theme.postcss https://raw.githubusercontent.com/Brain-Bones/skeleton/master/src/themes/theme-skeleton.css
-curl -s -o src/app.postcss https://raw.githubusercontent.com/Brain-Bones/skeleton/master/src/app.css
+#curl -s -o src/app.postcss https://raw.githubusercontent.com/Brain-Bones/skeleton/master/src/app.css
 cat <<EOT > src/routes/+layout.svelte
 <script>
-	import '../theme.postcss'
+	import '@brainandbones/skeleton/styles/all.css';
+	import '@brainandbones/skeleton/themes/theme-skeleton.css';
 	import '../app.postcss';
 </script>
 
 <slot />
 EOT
-pnpm i
