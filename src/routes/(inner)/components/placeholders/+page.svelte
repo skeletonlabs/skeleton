@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Card from '$lib/components/Card/Card.svelte';
 	import DataTable from '$lib/components/Table/DataTable.svelte';
 	import Placeholder from '$lib/components/Placeholder/Placeholder.svelte';
 	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
@@ -35,19 +34,20 @@
 
 	<!-- Examples -->
 	<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
-		<Card>
+		<div class="card card-body">
 			<Placeholder animate={props.animate} circle={props.circle} width="w-10" />
 			<div class="space-y-4 mt-4">
 				<Placeholder animate={props.animate} />
 				<Placeholder animate={props.animate} />
+				<Placeholder animate={props.animate} />
 			</div>
-		</Card>
+		</div>
 		<div class="space-y-4">
 			<div class="flex justify-center items-center space-x-4">
 				<SlideToggle bind:checked={props.circle} accent="bg-accent-500">Circle</SlideToggle>
 				<SlideToggle bind:checked={props.animate} accent="bg-accent-500">Animate</SlideToggle>
 			</div>
-			<Card>
+			<div class="card card-body">
 				<div class="space-y-4">
 					<Placeholder animate={props.animate} />
 					<div class="grid grid-cols-4 gap-4">
@@ -56,8 +56,9 @@
 						<Placeholder animate={props.animate} />
 						<Placeholder animate={props.animate} />
 					</div>
+					<Placeholder animate={props.animate} />
 				</div>
-			</Card>
+			</div>
 		</div>
 	</section>
 

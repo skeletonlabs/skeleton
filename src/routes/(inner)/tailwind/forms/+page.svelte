@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { storeFramework } from '$docs/stores';
-	import { Card, Divider, TabGroup, Tab } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 </script>
 
@@ -16,12 +14,12 @@
 	</header>
 
 	<!-- Preview -->
-	<Card slotBody="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+	<card class="card card-body flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<div class="space-y-2">
 			<p>We've provided a "kitchen sink" page to preview all form styles.</p>
 		</div>
 		<a class="btn btn-filled-accent" href="/tailwind/forms/preview">Preview &rarr;</a>
-	</Card>
+	</card>
 
 	<!-- Setup -->
 	<section class="space-y-4">

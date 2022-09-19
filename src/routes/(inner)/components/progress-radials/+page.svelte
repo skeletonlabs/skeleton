@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { DataTable, Card, ProgressRadial } from '@brainandbones/skeleton';
+	import { DataTable, ProgressRadial } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Reactive
@@ -37,30 +37,30 @@
 
 	<!-- Examples -->
 	<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
-		<Card slotBody="h-full flex justify-center items-center">
+		<div class="card card-body h-full flex justify-center items-center">
 			<div class="w-full space-y-8">
 				<ProgressRadial value={props.value}>{props.value}%</ProgressRadial>
 				<input type="range" min="0" max={props.max} step={props.step} bind:value={props.value} aria-label="Example Radial Value" />
 			</div>
-		</Card>
+		</div>
 		<div class="space-y-4">
 			<div class="space-y-2">
 				<h3>Indeterminate</h3>
 				<p>Remove the value property to set to indeterminate mode.</p>
 			</div>
 			<div class="grid grid-cols-2 gap-4">
-				<Card class="space-y-4">
+				<div class="card card-body">
 					<ProgressRadial stroke={20} />
-				</Card>
-				<Card class="space-y-4">
+				</div>
+				<div class="card card-body">
 					<ProgressRadial stroke={50} meter="stroke-primary-500" track="stroke-primary-500/20" />
-				</Card>
-				<Card class="space-y-4">
+				</div>
+				<div class="card card-body">
 					<ProgressRadial stroke={100} meter="stroke-accent-500" track="stroke-accent-500/20" />
-				</Card>
-				<Card class="space-y-4">
+				</div>
+				<div class="card card-body">
 					<ProgressRadial stroke={200} meter="stroke-warning-500" track="stroke-warning-500/20" />
-				</Card>
+				</div>
 			</div>
 		</div>
 	</section>

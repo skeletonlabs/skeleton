@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Avatar from '$lib/components/Avatar/Avatar.svelte';
 	import DataTable from '$lib/components/Table/DataTable.svelte';
-	import Card from '$lib/components/Card/Card.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Tables
@@ -25,10 +24,10 @@
 	<!-- Examples -->
 	<section class="space-y-4">
 		<section class="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-4">
-			<Card class="flex-auto" slotBody="flex justify-center space-x-2">
+			<div class="card card-body flex-auto flex justify-center space-x-2">
 				<span class="badge bg-surface-500 text-white">Skeleton</span>
-			</Card>
-			<Card class="flex-auto" slotBody="flex justify-center space-x-4">
+			</div>
+			<div class="card card-body flex-auto flex justify-center space-x-4">
 				<span class="badge bg-primary-500 text-white">
 					<span>&hearts;</span>
 					<span>Complete</span>
@@ -41,19 +40,19 @@
 					<span>&hearts;</span>
 					<span>Favorite</span>
 				</span>
-			</Card>
+			</div>
 		</section>
 		<h3>Positioning</h3>
 		<section class="grid grid-cols-1 xl:grid-cols-3 gap-4">
-			<Card slotBody="flex justify-center items-center h-full space-x-2">
+			<div class="card card-body flex justify-center items-center h-full space-x-2">
 				<h4>Skeleton</h4>
 				<sup class="badge bg-primary-500 text-white -ml-0">Sup</sup>
-			</Card>
-			<Card slotBody="flex justify-center items-center h-full space-x-2">
+			</div>
+			<div class="card card-body flex justify-center items-center h-full space-x-2">
 				<h4>Skeleton</h4>
 				<sub class="badge bg-accent-500 text-white -ml-0">Sub</sub>
-			</Card>
-			<Card slotBody="flex justify-center items-center space-x-6">
+			</div>
+			<div class="card card-body flex justify-center items-center space-x-6">
 				<div class="relative inline-block">
 					<span class="badge bg-primary-500 text-white absolute -top-3 -right-4 z-10">50k</span>
 					<button class="btn btn-sm btn-ghost">Button</button>
@@ -66,7 +65,7 @@
 					<span class="badge-icon bg-warning-500 text-white absolute -top-1 -right-1 z-10">&hearts;</span>
 					<Avatar />
 				</div>
-			</Card>
+			</div>
 		</section>
 	</section>
 

@@ -27,6 +27,7 @@ export const menuNavLinks: any = [
 		list: [
 			{ href: '/tailwind/core', label: 'Core' },
 			{ href: '/tailwind/typography', label: 'Typography' },
+			{ href: '/tailwind/forms', label: 'Forms' },
 			{ href: '/tailwind/badges', label: 'Badges' },
 			{ href: '/tailwind/buttons', label: 'Buttons' },
 			{ href: '/tailwind/cards', label: 'Cards' },

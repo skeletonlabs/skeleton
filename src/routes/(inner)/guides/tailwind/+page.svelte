@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { Divider, Card } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 </script>
 
@@ -12,7 +11,7 @@
 		</p>
 	</header>
 
-	<Divider />
+	<hr />
 
 	<!-- Usage -->
 	<section class="space-y-4">
@@ -54,49 +53,49 @@ module.exports = {
 		/>
 	</section>
 
-	<Divider />
+	<hr />
 
 	<!-- Plugins -->
 	<section class="space-y-4">
 		<h2>Tailwind Plugins</h2>
 		<p>Skeleton pairs well with all of the official Tailwind plugins, however these are completely optional.</p>
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-			<Card slotBody="flex justify-between items-center space-x-4">
+			<div class="card card-body flex justify-between items-center space-x-4">
 				<div>
 					<h6>Forms</h6>
 					<p>Provides a basic reset for form elements.</p>
 				</div>
 				<a class="btn btn-ghost" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">View</a>
-			</Card>
-			<Card slotBody="flex justify-between items-center space-x-4">
+			</div>
+			<div class="card card-body flex justify-between items-center space-x-4">
 				<div>
 					<h6>Typography</h6>
 					<p>Typographic defaults for HTML you don't control.</p>
 				</div>
 				<a class="btn btn-ghost" href="https://tailwindcss.com/docs/typography-plugin" target="_blank">View</a>
-			</Card>
-			<Card slotBody="flex justify-between items-center space-x-4">
+			</div>
+			<div class="card card-body flex justify-between items-center space-x-4">
 				<div>
 					<h6>Aspect Ratio</h6>
 					<p>Composable API for giving elements a fixed aspect ratio.</p>
 				</div>
 				<a class="btn btn-ghost" href="https://github.com/tailwindlabs/tailwindcss-aspect-ratio" target="_blank">View</a>
-			</Card>
-			<Card slotBody="flex justify-between items-center space-x-4">
+			</div>
+			<div class="card card-body flex justify-between items-center space-x-4">
 				<div>
 					<h6>Line Clamp</h6>
 					<p>Provides utilities for visually truncating text.</p>
 				</div>
 				<a class="btn btn-ghost" href="https://github.com/tailwindlabs/tailwindcss-line-clamp" target="_blank">View</a>
-			</Card>
+			</div>
 		</div>
 	</section>
 
-	<Divider />
+	<hr />
 
 	<!-- Next Steps -->
-	<Card slotBody="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+	<div class="card card-body flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<p>Next, let's create and implement a custom theme.</p>
 		<a class="btn btn-filled-accent" href="/guides/themes">Create a Theme</a>
-	</Card>
+	</div>
 </div>

@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-	import Card from '$lib/components/Card/Card.svelte';
 	import Listbox from '$lib/components/ListBox/ListBox.svelte';
 	import ListboxItem from '$lib/components/ListBox/ListBoxItem.svelte';
 	import DataTable from '$lib/components/Table/DataTable.svelte';
@@ -59,24 +58,24 @@
 	<section class="space-y-4">
 		<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
 			<section class="space-y-4">
-				<Card slotBody="space-y-4">
+				<div class="card card-body space-y-4">
 					<Listbox selected={navSingle} label="Single Selection">
 						<ListboxItem value={1}>Item 1</ListboxItem>
 						<ListboxItem value={2}>Item 2</ListboxItem>
 						<ListboxItem value={3}>Item 3</ListboxItem>
 					</Listbox>
 					<p class="text-center">Selected: <code>{$navSingle}</code></p>
-				</Card>
+				</div>
 			</section>
 			<section class="space-y-4">
-				<Card slotBody="space-y-4">
+				<div class="card card-body space-y-4">
 					<Listbox selected={navMultiple} label="Multi-Selection" hover="hover:bg-accent-500/10" accent="!bg-accent-500">
 						<ListboxItem value={'A'}>Item A</ListboxItem>
 						<ListboxItem value={'B'}>Item B</ListboxItem>
 						<ListboxItem value={'C'}>Item C</ListboxItem>
 					</Listbox>
 					<p class="text-center">Selected: <code>{$navMultiple}</code></p>
-				</Card>
+				</div>
 			</section>
 		</div>
 	</section>

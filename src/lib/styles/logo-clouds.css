@@ -20,6 +20,8 @@
 	@apply py-4 md:py-10;
 }
 
+/* === States === */
+
 a.logo-item {
 	@apply hover:brightness-110;
 }

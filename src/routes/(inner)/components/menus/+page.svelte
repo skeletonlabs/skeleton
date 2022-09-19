@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { DataTable, Card, Menu } from '@brainandbones/skeleton';
+	import { DataTable, Menu } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Local
@@ -34,25 +34,25 @@
 	</header>
 
 	<!-- Examples -->
-	<Card slotBody="flex justify-center space-x-4">
+	<div class="card card-body flex justify-center space-x-4">
 		<!-- Default -->
 		<Menu>
 			<!-- Slot: Trigger -->
 			<button slot="trigger" class="btn btn-ghost">Menu</button>
 			<!-- Slot: Content -->
-			<Card slot="content" background="bg-surface-300 dark:bg-surface-700" class="w-[200px] p-[0px] shadow-xl overflow-hidden">
+			<div slot="content" class="card w-[200px] shadow-xl overflow-hidden">
 				<nav class="list-nav">
 					<ul>
 						<li><a href={exampleLink}>Item 1</a></li>
 						<li><a href={exampleLink}>Item 2</a></li>
 					</ul>
 				</nav>
-			</Card>
+			</div>
 		</Menu>
 		<!-- Select -->
 		<Menu origin="tr" select={true}>
 			<button slot="trigger" class="btn btn-ghost">Select</button>
-			<Card slot="content" background="bg-surface-300 dark:bg-surface-700" class="w-[200px] p-[0px] shadow-xl overflow-hidden">
+			<div slot="content" class="card w-[200px] shadow-xl overflow-hidden">
 				<nav class="list-nav">
 					<ul>
 						<li><a href={exampleLink}>Item 1</a></li>
@@ -61,14 +61,14 @@
 						<li><a href={exampleLink}>Item 4</a></li>
 					</ul>
 				</nav>
-			</Card>
+			</div>
 		</Menu>
 		<!-- Disabled -->
 		<Menu disabled>
 			<button slot="trigger" class="btn btn-ghost" disabled>Disabled</button>
 			<div slot="content"><!-- (will never show) --></div>
 		</Menu>
-	</Card>
+	</div>
 
 	<!-- Usage -->
 	<section class="space-y-4">
@@ -80,14 +80,14 @@
     <!-- Slot: Trigger -->
     <button slot="trigger" class="btn btn-ghost">Menu</button>
     <!-- Slot: Content -->
-    <Card slot="content" background="bg-surface-300 dark:bg-surface-700" class="w-[200px] p-[0px] shadow-xl overflow-hidden">
-        <nav class="list-nav">
+    <div slot="content" class="card w-[200px] shadow-xl overflow-hidden">
+		<nav class="list-nav">
 			<ul>
-				<li><a href="/">Item 1</a></li>
-				<li><a href="/">Item 2</a></li>
+				<li><a href={exampleLink}>Item 1</a></li>
+				<li><a href={exampleLink}>Item 2</a></li>
 			</ul>
 		</nav>
-    </Card>
+	</div>
 </Menu>
         `.trim()}
 		/>

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
 
-	import { DataTable, Card, RangeSlider } from '@brainandbones/skeleton';
+	import { DataTable, RangeSlider } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
@@ -59,7 +59,7 @@
 	<section class="space-y-4">
 		<div class="space-y-4 xl:space-y-0 xl:grid grid-cols-[1.5fr,1fr] gap-2">
 			<!-- Example -->
-			<Card slotBody="flex justify-center items-center h-full">
+			<div class="card card-body flex justify-center items-center h-full">
 				<!-- prettier-ignore -->
 				<svelte:component
 					this={RangeSlider}
@@ -79,9 +79,9 @@
 						<p class="text-center">Value <code>{props.value}</code></p>
 					</svelte:fragment>
 				</svelte:component>
-			</Card>
+			</div>
 			<!-- Options -->
-			<Card slotBody="space-y-4">
+			<div class="card card-body space-y-4">
 				<!-- Label -->
 				<label>
 					<span>Label</span>
@@ -124,7 +124,7 @@
 						</select>
 					</label>
 				</div>
-			</Card>
+			</div>
 		</div>
 	</section>
 

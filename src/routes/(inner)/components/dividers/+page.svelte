@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
-	import { DataTable, Card, RadioGroup, RadioItem, Divider } from '@brainandbones/skeleton';
+	import { DataTable, RadioGroup, RadioItem, Divider } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	const storeVertical: Writable<boolean> = writable(false);
@@ -50,18 +50,20 @@
 	<section class="space-y-4">
 		<div class="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-2">
 			<!-- Example -->
-			<Card slotBody="h-full min-h-[100px] max-w-[480px] mx-auto flex justify-center items-center">
-				<!-- prettier-ignore -->
-				<svelte:component
-					this={Divider}
-					vertical={props.vertical}
-					borderWidth={props.borderWidth}
-					borderStyle={props.borderStyle}
-					borderColor={props.borderColor}
-				/>
-			</Card>
+			<div class="card card-body">
+				<div class="h-full min-h-[100px] max-w-[480px] mx-auto flex justify-center items-center">
+					<!-- prettier-ignore -->
+					<svelte:component
+						this={Divider}
+						vertical={props.vertical}
+						borderWidth={props.borderWidth}
+						borderStyle={props.borderStyle}
+						borderColor={props.borderColor}
+					/>
+				</div>
+			</div>
 			<!-- Options -->
-			<Card slotBody="space-y-4">
+			<div class="card card-body space-y-4">
 				<!-- Orientation -->
 				<label for="">
 					<span>Vertical</span>
@@ -117,7 +119,7 @@
 						<option value="border-blue-500">border-blue-500</option>
 					</select>
 				</label>
-			</Card>
+			</div>
 		</div>
 	</section>
 

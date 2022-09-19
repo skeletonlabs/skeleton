@@ -1,6 +1,4 @@
 <script lang="ts">
-	// Components
-	import Card from '$lib/components/Card/Card.svelte';
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	// Actions
@@ -45,7 +43,7 @@ NOTE: Keep these localized
 	</header>
 
 	<!-- Examples -->
-	<Card slotBody="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4">
+	<div class="card card-body grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4">
 		<div class="flex flex-col items-center space-y-4">
 			<img class="bg-surface-900 aspect-square w-full rounded-lg overflow-hidden" src={imgPlaceholder} alt="example" />
 			<code>Original</code>
@@ -86,7 +84,7 @@ NOTE: Keep these localized
 			<img class="bg-surface-900 aspect-square w-full rounded-lg overflow-hidden" src={imgPlaceholder} use:filter={'NoirLight'} alt="example" />
 			<code>NoirLight</code>
 		</div>
-	</Card>
+	</div>
 
 	<!-- Usage -->
 	<section class="space-y-4">
@@ -115,18 +113,18 @@ NOTE: Keep these localized
 			using progressive enhancement when using filters in non-supported browsers.
 		</p>
 		<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-			<Card background="bg-emerald-500" class="flex justify-center items-center px-4 min-h-[100px]">
+			<div class="card card-body !bg-emerald-500 text-center">
 				<h6>Chrome: Full</h6>
-			</Card>
-			<Card background="bg-emerald-500" class="flex justify-center items-center px-4 min-h-[100px]">
+			</div>
+			<div class="card card-body !bg-emerald-500 text-center">
 				<h6>Edge: Full</h6>
-			</Card>
-			<Card background="bg-orange-500" class="flex justify-center items-center px-4 min-h-[100px]">
+			</div>
+			<div class="card card-body !bg-orange-500 text-center">
 				<h6>Safari: Partial</h6>
-			</Card>
-			<Card background="bg-rose-500" class="flex justify-center items-center px-4 min-h-[100px]">
+			</div>
+			<div class="card card-body !bg-rose-500 text-center">
 				<h6>Firefox: None</h6>
-			</Card>
+			</div>
 		</div>
 	</section>
 </div>

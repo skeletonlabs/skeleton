@@ -109,24 +109,14 @@ import '@brainandbones/skeleton/styles/{stylehsheet}.css'; // <--
 		<p>Skeleton components automatically inherit and utilize your theme colors. However, there may be cases where you want to overwrite or extend the styling on a single component.</p>
 		<h4>Using Component Props</h4>
 		<p>Various style properties are available to customize components. These accept Tailwind utility classes. See each component's documentation page for details.</p>
-		<CodeBlock
-			language="html"
-			code={`
-<Card background="bg-accent-500">Prop Customized</Card>
-        `.trim()}
-		/>
+		<CodeBlock language="html" code={`<Tab background="bg-accent-500">Prop Customized</Tab>`} />
 		<h4>Appending Arbitrary Classes</h4>
 		<p>To go beyond the pre-defined properties, pass a standard <code>class</code> attribute to any component. You can then apply any valid CSS or Tailwind class as expected.</p>
-		<CodeBlock
-			language="html"
-			code={`
-<Card class="text-3xl px-10 py-5">Big</Card>
-        `.trim()}
-		/>
+		<CodeBlock language="html" code={`<Tab class="text-3xl px-10 py-5">Big</Tab>`} />
 		<p>
 			When overwriting inherited styles, you may need to mark the styles as <code>!important</code>. Tailwind uses a leading exclamation mark to handle this.
 		</p>
-		<CodeBlock language="html" code={`<Card class="!p-10">Big</Card>`} />
+		<CodeBlock language="html" code={`<Tab class="!p-10">Big</Tab>`} />
 		<h4>Targetting Component Elements</h4>
 		<p>
 			Keep in mind that components are a single line HTML element and represent a set of HTML elements within. This means you should be mindful of your target, as the <code>class</code> attribute is only

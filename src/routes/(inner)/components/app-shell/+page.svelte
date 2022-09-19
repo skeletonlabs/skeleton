@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Card from '$lib/components/Card/Card.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import DataTable from '$lib/components/Table/DataTable.svelte';
 	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
@@ -52,7 +51,7 @@
 
 	<!-- Sandbox -->
 	<section class="grid grid-cols-1 md:grid-cols-[1fr_280px] gap-4">
-		<Card slotBody="flex justify-center items-center h-full">
+		<div class="card card-body flex justify-center items-center h-full">
 			<AppShell>
 				<svelte:fragment slot="header">
 					{#if state.header}<div class="boxShape">Header</div>{/if}
@@ -74,8 +73,8 @@
 					{#if state.footer}<div class="boxShape">Footer</div>{/if}
 				</svelte:fragment>
 			</AppShell>
-		</Card>
-		<Card slotBody="flex justify-center items-center h-full">
+		</div>
+		<div class="card card-body flex justify-center items-center h-full">
 			<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-6">
 				<SlideToggle bind:checked={state.header}>Header</SlideToggle>
 				<SlideToggle bind:checked={state.sidebars}>Sidebars</SlideToggle>
@@ -83,7 +82,7 @@
 				<SlideToggle bind:checked={state.pageFooter}>Page Footer</SlideToggle>
 				<SlideToggle bind:checked={state.footer}>Footer</SlideToggle>
 			</div>
-		</Card>
+		</div>
 	</section>
 
 	<!-- Usage -->

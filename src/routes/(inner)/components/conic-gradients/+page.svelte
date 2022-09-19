@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { DataTable, Card } from '@brainandbones/skeleton';
+	import { DataTable } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import ConicGradient from '$lib/components/ConicGradient/ConicGradient.svelte';
 
@@ -44,17 +44,17 @@
 
 	<!-- Examples -->
 	<section class="space-y-4 md:space-y-0 md:grid md:grid-cols-3 md:gap-8">
-		<Card><ConicGradient data={dataOne} legend={true} /></Card>
-		<Card>
+		<div class="card card-body"><ConicGradient data={dataOne} legend={true} /></div>
+		<div class="card card-body">
 			<ConicGradient data={dataTwo} legend={true}>
 				<h3>Heat Map</h3>
 			</ConicGradient>
-		</Card>
-		<Card class="flex justify-center items-center">
+		</div>
+		<div class="card card-body flex justify-center items-center">
 			<ConicGradient data={dataThree} width="w-8" class="animate-spin">
 				<small class="opacity-50">Loading</small>
 			</ConicGradient>
-		</Card>
+		</div>
 	</section>
 
 	<!-- Usage -->

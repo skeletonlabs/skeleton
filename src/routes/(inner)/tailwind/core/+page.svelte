@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Alert from '$lib/components/Alert/Alert.svelte';
-	import Card from '$lib/components/Card/Card.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 </script>
 
@@ -31,7 +30,7 @@
 		<div class="space-y-4">
 			<h4>Scrollbars</h4>
 			<p>Note that custom scrollbar styles are not supported in all browsers, such as Firefox.</p>
-			<Card class="max-h-[200px] overflow-auto">
+			<div class="card card-body max-h-[200px] overflow-auto">
 				<p>
 					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa corrupti iusto dolor. Similique quibusdam eveniet quae deleniti architecto modi natus, quos ducimus! Repudiandae reiciendis
 					totam sequi veniam necessitatibus, magni harum. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa corrupti iusto dolor. Similique quibusdam eveniet quae deleniti architecto
@@ -50,18 +49,18 @@
 					dolor sit amet consectetur adipisicing elit. Culpa corrupti iusto dolor. Similique quibusdam eveniet quae deleniti architecto modi natus, quos ducimus! Repudiandae reiciendis totam sequi
 					veniam necessitatibus, magni harum.
 				</p>
-			</Card>
+			</div>
 		</div>
 		<!-- Horizontal Rules -->
 		<div class="space-y-4">
 			<h4>Horizontal Rules</h4>
 			<p>Applies basic styling to the native horizontal rule element. See the <a href="/components/dividers">Dividers</a> component for more options.</p>
 			<CodeBlock language="html" code={`<hr />`} />
-			<Card slotBody="space-y-4 text-center">
+			<div class="card card-body space-y-4 text-center">
 				<p>Above the horizontal rule.</p>
 				<hr />
 				<p>Below the horizontal rule.</p>
-			</Card>
+			</div>
 		</div>
 	</section>
 </div>

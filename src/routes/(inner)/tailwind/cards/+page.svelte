@@ -36,7 +36,7 @@
 			<!-- Minimal -->
 			<div class="card card-body centerContent"><span>Minimal</span></div>
 			<!-- Detailed -->
-			<a class="card" href="https://skeleton.brainandbonesllc.com/">
+			<a class="card overflow-hidden" href="https://skeleton.brainandbonesllc.com/">
 				<!-- Header -->
 				<header>
 					<img src="https://source.unsplash.com/random/1280x540?skeleton" class="bg-black/50 w-full aspect-[21/9]" alt="Post" />

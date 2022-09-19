@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
 
-	import { DataTable, Card, GradientHeading } from '@brainandbones/skeleton';
+	import { DataTable, GradientHeading } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
@@ -42,11 +42,11 @@
 	<section class="space-y-4">
 		<div class="space-y-4 xl:space-y-0 xl:grid grid-cols-[2fr,1fr] gap-2">
 			<!-- Example -->
-			<Card slotBody="h-full flex justify-center items-center">
+			<div class="card card-body h-full flex justify-center items-center">
 				<svelte:component this={GradientHeading} tag={props.tag} direction={props.direction} from={props.from} to={props.to}>{props.text}</svelte:component>
-			</Card>
+			</div>
 			<!-- Options -->
-			<Card slotBody="space-y-4">
+			<div class="card card-body space-y-4">
 				<label>
 					<span>Text</span>
 					<input type="text" bind:value={props.text} placeholder="Enter text..." />
@@ -96,7 +96,7 @@
 						</select>
 					</label>
 				</div>
-			</Card>
+			</div>
 		</div>
 	</section>
 

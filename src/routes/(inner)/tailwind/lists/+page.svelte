@@ -1,6 +1,5 @@
 <script lang="ts">
 	import DataTable from '$lib/components/Table/DataTable.svelte';
-	import Card from '$lib/components/Card/Card.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Tables
@@ -24,7 +23,7 @@
 
 	<!-- Examples -->
 	<section class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-		<Card slotBody="space-y-4">
+		<div class="card card-body space-y-4">
 			<h6>Unordered</h6>
 			<ul class="list">
 				{#each ['A', 'B', 'C'] as v}
@@ -37,8 +36,8 @@
 					</li>
 				{/each}
 			</ul>
-		</Card>
-		<Card slotBody="space-y-4">
+		</div>
+		<div class="card card-body space-y-4">
 			<h6>Ordered</h6>
 			<ol class="list">
 				{#each ['A', 'B', 'C'] as v, i}
@@ -51,8 +50,8 @@
 					</li>
 				{/each}
 			</ol>
-		</Card>
-		<Card slotBody="space-y-4">
+		</div>
+		<div class="card card-body space-y-4">
 			<h6>Description</h6>
 			<dl class="list-dl">
 				{#each ['A', 'B'] as v}
@@ -66,8 +65,8 @@
 					</div>
 				{/each}
 			</dl>
-		</Card>
-		<Card slotBody="space-y-4">
+		</div>
+		<div class="card card-body space-y-4">
 			<h6>Navigation</h6>
 			<nav class="list-nav">
 				<ul>
@@ -84,7 +83,7 @@
 					{/each}
 				</ul>
 			</nav>
-		</Card>
+		</div>
 	</section>
 
 	<!-- Usage -->

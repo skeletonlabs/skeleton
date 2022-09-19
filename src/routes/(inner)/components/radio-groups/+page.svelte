@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
-	import { DataTable, Card, RadioGroup, RadioItem } from '@brainandbones/skeleton';
+	import { DataTable, RadioGroup, RadioItem } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
@@ -45,7 +45,7 @@
 
 	<!-- Examples -->
 	<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
-		<Card slotBody="grid grid-cols-1 gap-4 text-center">
+		<div class="card card-body grid grid-cols-1 gap-4 text-center">
 			<div>
 				<RadioGroup selected={storeJustify}>
 					<RadioItem value={0} label="Align Left">
@@ -60,8 +60,8 @@
 				</RadioGroup>
 			</div>
 			<p>Selected <code>{$storeJustify}</code></p>
-		</Card>
-		<Card slotBody="grid grid-cols-1 gap-4 text-center">
+		</div>
+		<div class="card card-body grid grid-cols-1 gap-4 text-center">
 			<div>
 				<RadioGroup selected={storeLayout} accent="bg-primary-500" hover="hover:bg-primary-500/10">
 					<RadioItem value="horz">Horizontal</RadioItem>
@@ -69,7 +69,7 @@
 				</RadioGroup>
 			</div>
 			<p>Selected <code>{$storeLayout}</code></p>
-		</Card>
+		</div>
 	</section>
 
 	<!-- Usage -->

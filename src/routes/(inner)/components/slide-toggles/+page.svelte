@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { DataTable, Card, SlideToggle } from '@brainandbones/skeleton';
+	import { DataTable, SlideToggle } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	let checkedValue: boolean = false;
@@ -29,28 +29,44 @@
 
 	<!-- Examples -->
 	<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
-		<Card slotBody="flex justify-center items-center space-x-4">
-			<svelte:fragment slot="header"><p class="text-center">Accent Colors</p></svelte:fragment>
-			<SlideToggle size="md" accent="bg-primary-500" checked label="Toggle Green" />
-			<SlideToggle size="md" checked label="Toggle Purple" />
-			<SlideToggle size="md" accent="bg-warning-500" checked label="Toggle Warning" />
-		</Card>
-		<Card slotBody="flex justify-center items-center space-x-4">
-			<svelte:fragment slot="header"><p class="text-center">Sizes</p></svelte:fragment>
-			<SlideToggle size="sm" label="Toggle Small" />
-			<SlideToggle size="md" label="Toggle Medium" />
-			<SlideToggle size="lg" label="Toggle Large" />
-		</Card>
-		<Card slotBody="flex justify-center items-center space-x-4">
-			<svelte:fragment slot="header"><p class="text-center">Labeled</p></svelte:fragment>
-			<SlideToggle size="md" bind:checked={checkedValue}>
-				Value is <code class="inline-block w-[40px] text-center">{checkedValue ? 'On' : 'Off'}</code>
-			</SlideToggle>
-		</Card>
-		<Card slotBody="flex justify-center items-center space-x-4">
-			<svelte:fragment slot="header"><p class="text-center">Disabled</p></svelte:fragment>
-			<SlideToggle disabled label="Toggle Disabled" />
-		</Card>
+		<div class="card">
+			<header class="card-header">
+				<p class="text-center">Accent Colors</p>
+			</header>
+			<div class="card-body flex justify-center items-center space-x-4">
+				<SlideToggle size="md" accent="bg-primary-500" checked label="Toggle Green" />
+				<SlideToggle size="md" checked label="Toggle Purple" />
+				<SlideToggle size="md" accent="bg-warning-500" checked label="Toggle Warning" />
+			</div>
+		</div>
+		<div class="card">
+			<header class="card-header">
+				<p class="text-center">Sizes</p>
+			</header>
+			<div class="card-body flex justify-center items-center space-x-4">
+				<SlideToggle size="sm" label="Toggle Small" />
+				<SlideToggle size="md" label="Toggle Medium" />
+				<SlideToggle size="lg" label="Toggle Large" />
+			</div>
+		</div>
+		<div class="card">
+			<header class="card-header">
+				<p class="text-center">Labeled</p>
+			</header>
+			<div class="card-body flex justify-center items-center space-x-4">
+				<SlideToggle size="md" bind:checked={checkedValue}>
+					Value is <code class="inline-block w-[40px] text-center">{checkedValue ? 'On' : 'Off'}</code>
+				</SlideToggle>
+			</div>
+		</div>
+		<div class="card">
+			<header class="card-header">
+				<p class="text-center">Disabled</p>
+			</header>
+			<div class="card-body flex justify-center items-center space-x-4">
+				<SlideToggle disabled label="Toggle Disabled" />
+			</div>
+		</div>
 	</section>
 
 	<!-- Usage -->

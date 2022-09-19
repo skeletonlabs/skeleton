@@ -3,7 +3,6 @@
 /* === Card (parent) === */
 
 .card {
-	@apply block overflow-hidden; /* <---- is this ok? */
 	/* background */
 	@apply bg-surface-200 dark:bg-surface-800;
 	/* Ring */
@@ -24,4 +23,10 @@
 
 .card-footer {
 	@apply p-4 pt-0;
+}
+
+/* === States === */
+
+a.card {
+	@apply hover:brightness-110;
 }

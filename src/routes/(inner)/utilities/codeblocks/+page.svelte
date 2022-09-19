@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Card, DataTable } from '@brainandbones/skeleton';
+	import { DataTable } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// prettier-ignore
@@ -24,11 +24,11 @@
 	</header>
 
 	<!-- Examples -->
-	<Card slotBody="space-y-4">
+	<div class="card card-body space-y-4">
 		<CodeBlock language="html" code={`<p>Hello Skeleton<p>`} />
 		<CodeBlock language="css" code={`.skeleton { color: #bada55; }`} />
 		<CodeBlock language="typescript" code={`const skeleton: string = 'awesome';`} />
-	</Card>
+	</div>
 
 	<!-- Usage -->
 	<section class="space-y-4">

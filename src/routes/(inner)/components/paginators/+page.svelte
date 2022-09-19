@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { DataTable, Card, Paginator } from '@brainandbones/skeleton';
+	import { DataTable, Paginator } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Content
@@ -76,8 +76,9 @@
 
 	<!-- Examples -->
 	<section class="grid grid-cols-1 xl:grid-cols-2 gap-4">
-		<Card slotBody="space-y-4">
+		<div class="card card-body space-y-4">
 			<h4>List Pagination</h4>
+			<hr />
 			<nav class="list-nav">
 				<ul>
 					{#each contentSliced as e, i}
@@ -93,13 +94,14 @@
 					{/each}
 				</ul>
 			</nav>
+			<hr />
 			<Paginator bind:offset={page.offset} bind:limit={page.limit} bind:size={page.size} bind:amounts={page.amounts} on:page={onPageChange} on:amount={onAmountChange} />
-		</Card>
-		<Card slotBody="space-y-4">
+		</div>
+		<div class="card card-body space-y-4">
 			<h4>Table Pagination</h4>
 			<DataTable headings={content.headings} source={contentSliced} />
 			<Paginator bind:offset={page.offset} bind:limit={page.limit} bind:size={page.size} bind:amounts={page.amounts} on:page={onPageChange} on:amount={onAmountChange} />
-		</Card>
+		</div>
 	</section>
 
 	<!-- Usage -->
