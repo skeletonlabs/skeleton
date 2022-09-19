@@ -46,7 +46,7 @@ module.exports = {
     // ...
     plugins: [
         // Append the following:
-        require("@brainandbones/skeleton/tailwind.cjs")
+        require("@brainandbones/skeleton/tailwind/theme.cjs")
     ]
 }
         `.trim()}
