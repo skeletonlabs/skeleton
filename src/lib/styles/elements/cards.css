@@ -1,0 +1,32 @@
+/* Stylesheet Add-On: cards.css */
+
+/* === Card (parent) === */
+
+.card {
+	/* background */
+	@apply bg-surface-200 dark:bg-surface-800;
+	/* Ring */
+	@apply ring-[1px] ring-black/5 dark:ring-white/5 ring-inset;
+	/* rounded */
+	@apply rounded-lg;
+}
+
+/* === Card Regions (children) === */
+
+.card-header {
+	@apply p-4 pb-0;
+}
+
+.card-body {
+	@apply p-4;
+}
+
+.card-footer {
+	@apply p-4 pt-0;
+}
+
+/* === States === */
+
+a.card {
+	@apply hover:brightness-110;
+}

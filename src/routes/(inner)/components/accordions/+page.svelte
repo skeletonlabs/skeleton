@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { DataTable, Card, Avatar, AccordionGroup, AccordionItem } from '@brainandbones/skeleton';
+	import { DataTable, Avatar, AccordionGroup, AccordionItem } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
@@ -48,7 +48,7 @@
 
 	<!-- Examples -->
 	<section class="space-y-4">
-		<Card>
+		<div class="card card-body">
 			<AccordionGroup>
 				<AccordionItem open>
 					<svelte:fragment slot="summary">Does Skeleton come with an Accordion component?</svelte:fragment>
@@ -69,7 +69,7 @@
 					</svelte:fragment>
 				</AccordionItem>
 			</AccordionGroup>
-		</Card>
+		</div>
 		<!-- Customized -->
 		<h3>Customized</h3>
 		<section class="border border-surface-500/10 p-2 rounded-xl space-y-4">
@@ -82,7 +82,7 @@
 						<h3>Icon and Heading</h3>
 					</svelte:fragment>
 					<svelte:fragment slot="content">
-						<Card><p>The content for the first element.</p></Card>
+						<div class="card card-body"><p>The content for the first element.</p></div>
 					</svelte:fragment>
 				</AccordionItem>
 				<AccordionItem spacing="space-y-4">
@@ -93,7 +93,7 @@
 						<h3>Avatar and Heading</h3>
 					</svelte:fragment>
 					<svelte:fragment slot="content">
-						<Card><p>The content for the second element.</p></Card>
+						<div class="card card-body"><p>The content for the second element.</p></div>
 					</svelte:fragment>
 				</AccordionItem>
 				<AccordionItem spacing="space-y-4">
@@ -104,7 +104,7 @@
 						<h3>Numeral and Heading</h3>
 					</svelte:fragment>
 					<svelte:fragment slot="content">
-						<Card><p>The content for the third element.</p></Card>
+						<div class="card card-body"><p>The content for the third element.</p></div>
 					</svelte:fragment>
 				</AccordionItem>
 			</AccordionGroup>

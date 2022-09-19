@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Card, Divider } from '@brainandbones/skeleton';
+	import { Divider } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import Alert from '$lib/components/Alert/Alert.svelte';
 
@@ -136,11 +136,11 @@ import WrapperExample from '../components/WrapperExample.svelte';
 	<Divider />
 
 	<!-- Official Docs -->
-	<Card slotBody="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+	<div class="card card-body flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<p>If you need more help with Astro, try their official Discord or documentation.</p>
 		<div class="space-x-2">
 			<a class="btn btn-ghost" href="https://astro.build/chat" target="_blank">Discord</a>
 			<a class="btn btn-ghost" href="https://docs.astro.build/en/getting-started/" target="_blank">Docs</a>
 		</div>
-	</Card>
+	</div>
 </div>

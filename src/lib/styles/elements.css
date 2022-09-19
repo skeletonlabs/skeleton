@@ -1,0 +1,10 @@
+/* Stylesheet Add-On: elements.css */
+/* Import AFTER your theme, but BEFORE your global stylesheet. */
+/* Recommended as the LAST add-on in the set */
+
+@import 'elements/badges.css';
+@import 'elements/buttons.css';
+@import 'elements/cards.css';
+@import 'elements/lists.css';
+@import 'elements/logo-clouds.css';
+@import 'elements/placeholders.css';

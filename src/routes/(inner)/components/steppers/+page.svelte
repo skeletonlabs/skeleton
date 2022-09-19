@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
-	import { DataTable, Card, Stepper, Step } from '@brainandbones/skeleton';
+	import { DataTable, Stepper, Step } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
 
@@ -68,7 +68,7 @@
 	</header>
 
 	<!-- Examples -->
-	<Card>
+	<div class="card card-body">
 		<Stepper {active} length={5} on:complete={onComplete}>
 			<Step index={0}>
 				<svelte:fragment slot="header"><h4>Step 1 - Get Started!</h4></svelte:fragment>
@@ -95,7 +95,7 @@
 				</p>
 			</Step>
 		</Stepper>
-	</Card>
+	</div>
 
 	<!-- Usage -->
 	<section class="space-y-4">

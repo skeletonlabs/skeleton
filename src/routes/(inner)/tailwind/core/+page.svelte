@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Alert from '$lib/components/Alert/Alert.svelte';
-	import Card from '$lib/components/Card/Card.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 </script>
 
@@ -8,8 +7,8 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Core</h1>
-		<p>This <a href="/guides/styling">stylesheet add-on</a> handles global app styles.</p>
-		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/core.css';`.trim()} />
+		<p>Automatically included in <code>all.css</code>. This <a href="/guides/styling">stylesheet</a> provides a variety of global styles.</p>
+		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/core.css';`} />
 	</header>
 
 	<!-- Usage -->
@@ -18,9 +17,9 @@
 		<!-- Body -->
 		<div class="space-y-4">
 			<h4>Body Element</h4>
-			<p>Adapts the body background color to match theme and dark mode settings.</p>
+			<p>Affects the body background color for both theme and dark mode settings.</p>
 			<Alert>
-				Note this site overlays the body with the <strong>CSS Mesh Gradient</strong> background.
+				<strong>TIP:</strong> Consider pairing this with a <strong>CSS Mesh Gradient</strong> background image.
 				<svelte:fragment slot="trail">
 					<a class="btn btn-ghost" href="https://github.com/Brain-Bones/skeleton/blob/dev/src/app.postcss" target="_blank">Reference</a>
 					<a class="btn btn-filled" href="https://csshero.org/mesher/" target="_blank">Generate</a>
@@ -30,8 +29,9 @@
 		<!-- Scrollbars -->
 		<div class="space-y-4">
 			<h4>Scrollbars</h4>
-			<p>Note that custom scrollbar styles are not supported in all browsers, such as Firefox.</p>
-			<Card class="max-h-[200px] overflow-auto">
+			<p>Provides custom scrollbar styles in supported browsers.</p>
+			<div class="card card-body max-h-[200px] overflow-auto space-y-4">
+				<h4>Test Scrolling Here</h4>
 				<p>
 					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa corrupti iusto dolor. Similique quibusdam eveniet quae deleniti architecto modi natus, quos ducimus! Repudiandae reiciendis
 					totam sequi veniam necessitatibus, magni harum. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa corrupti iusto dolor. Similique quibusdam eveniet quae deleniti architecto
@@ -50,7 +50,18 @@
 					dolor sit amet consectetur adipisicing elit. Culpa corrupti iusto dolor. Similique quibusdam eveniet quae deleniti architecto modi natus, quos ducimus! Repudiandae reiciendis totam sequi
 					veniam necessitatibus, magni harum.
 				</p>
-			</Card>
+			</div>
+		</div>
+		<!-- Horizontal Rules -->
+		<div class="space-y-4">
+			<h4>Horizontal Rules</h4>
+			<p>Applies styling to the native horizontal rule element. See the <a href="/components/dividers">Dividers</a> component for more options.</p>
+			<CodeBlock language="html" code={`<hr />`} />
+			<div class="card card-body space-y-4 text-center">
+				<p>Above the horizontal rule.</p>
+				<hr />
+				<p>Below the horizontal rule.</p>
+			</div>
 		</div>
 	</section>
 </div>

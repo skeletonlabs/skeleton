@@ -23,15 +23,15 @@
 	$: classesFooter = `${slotFooter}`;
 </script>
 
-<svelte:element this={tag} href={$$props.href} target={$$props.target} class="card {classesCard}" data-testid="card">
+<svelte:element this={tag} href={$$props.href} target={$$props.target} class="comp-card {classesCard}" data-testid="card">
 	<!-- Header -->
 	{#if $$slots.header}
-		<header class="card-header {classesHeader}"><slot name="header" /></header>
+		<header class="comp-card-header {classesHeader}"><slot name="header" /></header>
 	{/if}
 	<!-- Body -->
-	<section class="card-body {classesBody}"><slot /></section>
+	<section class="comp-card-body {classesBody}"><slot /></section>
 	<!-- Footer -->
 	{#if $$slots.footer}
-		<footer class="card-footer {classesFooter}"><slot name="footer" /></footer>
+		<footer class="comp-card-footer {classesFooter}"><slot name="footer" /></footer>
 	{/if}
 </svelte:element>

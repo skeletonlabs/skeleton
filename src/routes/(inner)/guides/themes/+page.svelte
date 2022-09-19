@@ -2,7 +2,7 @@
 	import { writable, type Writable } from 'svelte/store';
 	import { storeFramework } from '$docs/stores';
 
-	import { DataTable, Card, Divider, RadioGroup, RadioItem, TabGroup, Tab } from '@brainandbones/skeleton';
+	import { DataTable, Divider, RadioGroup, RadioItem, TabGroup, Tab } from '@brainandbones/skeleton';
 	import { toastStore, type ToastMessage } from '$lib/utilities/Toast/stores';
 
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
@@ -118,8 +118,8 @@
 		<h2>Theme Generator</h2>
 		<p>Use the form below to craft a custom theme. Each color represents swatch 500 (ex: <code>bg-primary-500</code>).</p>
 		<!-- Card -->
-		<Card slotHeader="flex flex-col md:items-center space-y-4 py-4" slotBody="space-y-4">
-			<svelte:fragment slot="header">
+		<div class="card">
+			<header class="card-header flex flex-col md:items-center space-y-4">
 				<RadioGroup selected={storeGenerator} display="flex md:inline-flex">
 					<RadioItem value="tailwind">Tailwind Mode</RadioItem>
 					<RadioItem value="hex">Hex Mode</RadioItem>
@@ -133,11 +133,13 @@
 				{#if $storeGenerator === 'hex'}
 					<span class="block text-center"> For advanced users. Enterhex color values to generate a completely unique theme. </span>
 				{/if}
-			</svelte:fragment>
-			<!-- Generator Components -->
-			{#if $storeGenerator === 'tailwind'}<DocsThemerTailwind />{/if}
-			{#if $storeGenerator === 'hex'}<DocsThemerHex />{/if}
-		</Card>
+			</header>
+			<div class="card-body">
+				<!-- Generator Components -->
+				{#if $storeGenerator === 'tailwind'}<DocsThemerTailwind />{/if}
+				{#if $storeGenerator === 'hex'}<DocsThemerHex />{/if}
+			</div>
+		</div>
 		<p class="block">
 			TIP: Use <a href="https://tailwind.simeongriggs.dev/blue/3B82F6" target="_blank">Palette Generator</a> to for complete custom palatte curation. The
 			<a href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba" target="_blank">Hex-To-RGB extension</a>
@@ -193,10 +195,10 @@
 	<Divider />
 
 	<!-- Next Steps -->
-	<Card slotBody="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+	<div class="card card-body flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<p>Next, let's review best practices for handling CSS styles and overrides.</p>
 		<a class="btn btn-filled-accent" href="/guides/styling">Styles and Stylesheets</a>
-	</Card>
+	</div>
 </div>
 
 <style lang="postcss">

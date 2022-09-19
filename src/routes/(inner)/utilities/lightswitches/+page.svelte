@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Card, LightSwitch } from '@brainandbones/skeleton';
+	import { LightSwitch } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 </script>
 
@@ -15,9 +15,9 @@
 	</header>
 
 	<!-- Examples -->
-	<Card slotBody="flex justify-center items-center py-8">
+	<div class="card card-body flex justify-center items-center !py-10">
 		<LightSwitch />
-	</Card>
+	</div>
 
 	<!-- Usage -->
 	<section class="space-y-4">

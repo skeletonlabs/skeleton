@@ -3,7 +3,6 @@
 
 	// Components
 	import Avatar from '$lib/components/Avatar/Avatar.svelte';
-	import Card from '$lib/components/Card/Card.svelte';
 	import DataTable from '$lib/components/Table/DataTable.svelte';
 	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
@@ -102,7 +101,7 @@
 	<section class="space-y-4">
 		<div class="grid grid-cols-1 xl:grid-cols-[1fr_480px] gap-2">
 			<!-- Example -->
-			<Card slotBody="h-full flex justify-center items-center">
+			<div class="card card-body h-full flex justify-center items-center">
 				<svelte:component
 					this={Avatar}
 					initials={props.initials}
@@ -115,9 +114,9 @@
 					action={filter}
 					actionParams={props.actionParams}
 				/>
-			</Card>
+			</div>
 			<!-- Options -->
-			<Card slotBody="space-y-4">
+			<div class="card card-body space-y-4">
 				<!-- Source -->
 				<RadioGroup selected={storeSrc} display="flex">
 					<RadioItem value={imgPlaceholder}>Image</RadioItem>
@@ -177,7 +176,7 @@
 						</select>
 					</label>
 				{/if}
-			</Card>
+			</div>
 		</div>
 	</section>
 

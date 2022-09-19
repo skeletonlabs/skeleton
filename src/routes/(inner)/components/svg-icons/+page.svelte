@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { DataTable, Card } from '@brainandbones/skeleton';
+	import { DataTable } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	import { icons } from '$lib/components/SvgIcon/icons';
@@ -43,10 +43,10 @@
 	<!-- Examples -->
 	<section class="grid grid-cols-4 md:grid-cols-7 gap-4">
 		{#each iconKeys as name}
-			<Card slotBody="space-y-2 text-center">
+			<div class="card card-body space-y-2 text-center">
 				<SvgIcon {name} />
 				<p class="text-xs">{name}</p>
-			</Card>
+			</div>
 		{/each}
 	</section>
 
