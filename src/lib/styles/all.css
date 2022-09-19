@@ -13,10 +13,5 @@
 /* Pairs with Tailwind Forms plugin */
 @import 'forms.css';
 
-/* Various Element Styles */
-@import 'badges.css';
-@import 'buttons.css';
-@import 'cards.css';
-@import 'lists.css';
-@import 'logo-clouds.css';
-@import 'placeholders.css';
+/* Imports the full set of Tailwind Elements */
+@import 'elements.css';

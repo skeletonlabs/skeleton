@@ -1,6 +1,12 @@
 <script lang="ts">
 	import { DataTable, Divider, TabGroup, Tab } from '@brainandbones/skeleton';
+	import Alert from '$lib/components/Alert/Alert.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import { writable, type Writable } from 'svelte/store';
+
+	// Stores
+	export const storeStylesheets: Writable<string> = writable('simple');
+	export const storeStylesheetElements: Writable<string> = writable('simple');
 
 	// Tables
 	const ghLibPathMaster: string = 'https://github.com/Brain-Bones/skeleton/tree/master/src/lib'; // master branch
@@ -10,18 +16,18 @@
 		source: [
 			[
 				'<code>all.css</code>',
-				'A universal stylesheet that imports all stylesheets set in the optimal order.',
+				'A universal stylesheet that imports all stylesheets in the optimal order.',
 				`<a href="${ghLibPathMaster}/styles/all.css" target="_blank">all.css</a>`,
 			],
 		]
 	};
 	const tableStylesUseful: any = {
-		headings: ['Stylesheet', 'Description', 'Documentation', 'View Source', 'Plugin'],
+		headings: ['Stylesheet', 'Description', 'Documentation', 'View Source', 'Required Plugin'],
 		// prettier-ignore
 		source: [
 			[
 				'<code>tailwind.css</code>',
-				'<u>IMPORTANT</u>: should proceed all individual add-ons.',
+				'<u>IMPORTANT</u>: should proceed all other stylesheets.',
 				'<a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank">@tailwind directives</a>',
 				`<a href="${ghLibPathMaster}/styles/tailwind.css" target="_blank">tailwind.css</a>`,
 				'-'
@@ -49,34 +55,50 @@
 			]
 		]
 	};
+	const tableStyleElementsAll: any = {
+		headings: ['Stylesheet', 'Documentation', 'View Source'],
+		// prettier-ignore
+		source: [
+			[
+				'<code>elements.css</code>',
+				'Imports the full suite of Tailwind Elements.',
+				`<a href="${ghLibPathMaster}/styles/elements.css" target="_blank">elements.css</a>`,
+			],
+		]
+	};
 	const tableStyleElements: any = {
 		headings: ['Stylesheet', 'Documentation', 'View Source'],
 		// prettier-ignore
 		source: [
 			[
-				'<code>badges.css</code>',
-				'View documentation for <a href="/tailwind/badges">badges</a>',
-				`<a href="${ghLibPathMaster}/styles/badges.css" target="_blank">badges.css</a>`,
+				'<code>elements/badges.css</code>',
+				'<a href="/tailwind/badges">badges</a>',
+				`<a href="${ghLibPathMaster}/styles/elements/badges.css" target="_blank">badges.css</a>`,
 			],
 			[
-				'<code>buttons.css</code>',
-				'View documentation for <a href="/tailwind/buttons">buttons</a>',
-				`<a href="${ghLibPathMaster}/styles/buttons.css" target="_blank">buttons.css</a>`,
+				'<code>elements/buttons.css</code>',
+				'<a href="/tailwind/buttons">buttons</a>',
+				`<a href="${ghLibPathMaster}/styles/elements/buttons.css" target="_blank">buttons.css</a>`,
 			],
 			[
-				'<code>cards.css</code>',
-				'View documentation for <a href="/tailwind/cards">cards</a>',
-				`<a href="${ghLibPathMaster}/styles/cards.css" target="_blank">cards.css</a>`,
+				'<code>elements/cards.css</code>',
+				'<a href="/tailwind/cards">cards</a>',
+				`<a href="${ghLibPathMaster}/styles/elements/cards.css" target="_blank">cards.css</a>`,
 			],
 			[
-				'<code>lists.css</code>',
-				'View documentation for <a href="/tailwind/lists">lists</a>',
-				`<a href="${ghLibPathMaster}/styles/lists.css" target="_blank">lists.css</a>`,
+				'<code>elements/lists.css</code>',
+				'<a href="/tailwind/lists">lists</a>',
+				`<a href="${ghLibPathMaster}/styles/elements/lists.css" target="_blank">lists.css</a>`,
 			],
 			[
-				'<code>logo-clouds.css</code>',
-				'View documentation for <a href="/tailwind/logo-clouds">logo-clouds</a>',
-				`<a href="${ghLibPathMaster}/styles/logo-clouds.css" target="_blank">logo-clouds.css</a>`,
+				'<code>elements/logo-clouds.css</code>',
+				'<a href="/tailwind/logo-clouds">logo-clouds</a>',
+				`<a href="${ghLibPathMaster}/styles/elements/logo-clouds.css" target="_blank">logo-clouds.css</a>`,
+			],
+			[
+				'<code>elements/placeholders.css</code>',
+				'<a href="/tailwind/placeholders">placeholders</a>',
+				`<a href="${ghLibPathMaster}/styles/elements/placeholders.css" target="_blank">placeholders.css</a>`,
 			],
 		]
 	};
@@ -91,24 +113,46 @@
 
 	<Divider />
 
-	<!-- Add-Ons -->
+	<!-- Stylesheets -->
 	<section class="space-y-4">
-		<h2>Stylesheet Add-Ons</h2>
-		<p>Skeleton provides a set of modular stylesheets that adapt to your theme and provide a more consistent aesthetic. Be sure to set the appropriate file stylesheet name.</p>
+		<h2>Stylesheets</h2>
+		<p>
+			Skeleton provides a set of modular stylesheets that adapt to your theme and provide a more consistent aesthetic. However, most users should opt for the <code>all.css</code> stylesheet, which ensures
+			all stylesheets are included and imported in the optimal order.
+		</p>
 		<CodeBlock
 			language="typescript"
 			code={`
 // (theme stylesheet here)
-import '@brainandbones/skeleton/styles/{stylehsheet}.css'; // <--
+import '@brainandbones/skeleton/styles/${$storeStylesheets === 'simple' ? 'all' : '{stylehsheet}'}.css'; // <--
 // (global stylesheet here)
 			`.trim()}
 		/>
-		<p>If you want to keep it simple, the <code>all.css</code> stylesheet is all you need.</p>
-		<DataTable headings={tableStyleAll.headings} source={tableStyleAll.source} />
-		<p>If you would prefer to import these piecemeal, then prioritize these stylesheets. They are the most useful.</p>
-		<DataTable headings={tableStylesUseful.headings} source={tableStylesUseful.source} />
-		<p>Each of the following stylesheets are specific to a particular Tailwind Element. See the documentation for each for more information.</p>
-		<DataTable headings={tableStyleElements.headings} source={tableStyleElements.source} />
+		<TabGroup selected={storeStylesheets} class="pt-4">
+			<Tab value="simple">All Styles</Tab>
+			<Tab value="advanced">Select Styles</Tab>
+		</TabGroup>
+		{#if $storeStylesheets === 'simple'}
+			<DataTable headings={tableStyleAll.headings} source={tableStyleAll.source} />
+		{:else if $storeStylesheets === 'advanced'}
+			<p>For advanced users, you may wish to import stylesheets individually. Please ensure you import these stylesheets in the order shown below.</p>
+			<DataTable headings={tableStylesUseful.headings} source={tableStylesUseful.source} />
+			<!-- Elements -->
+			<TabGroup selected={storeStylesheetElements} class="pt-4">
+				<Tab value="simple">All Elements</Tab>
+				<Tab value="advanced">Select Elements</Tab>
+			</TabGroup>
+			{#if $storeStylesheetElements === 'simple'}
+				<DataTable headings={tableStyleElementsAll.headings} source={tableStyleElementsAll.source} />
+			{:else if $storeStylesheetElements === 'advanced'}
+				<p>Import only the Tailwind Elements you are using. Make sure you set the path to <code>.../elements/*.css</code> as shown.</p>
+				<DataTable headings={tableStyleElements.headings} source={tableStyleElements.source} />
+			{/if}
+		{/if}
+		<Alert>
+			Either import method includes the required <a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank">@tailwind directives</a>, which means you can and should prune these
+			from your global stylesheet.
+		</Alert>
 	</section>
 
 	<Divider />
@@ -133,7 +177,7 @@ import '@brainandbones/skeleton/styles/{stylehsheet}.css'; // <--
 				Utilize the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Tailwind Forms plugin</a>
 				to handle form input element styling. View the <a href="/guides/forms">Forms</a> guide for details.
 			</li>
-			<li>We recommend you inspect each imported stylesheet add-on. If you wish to override these, you can do so in your global stylesheet.</li>
+			<li>We recommend you inspect each imported stylesheet. If you wish to override these, you can do so in your global stylesheet.</li>
 		</ul>
 	</section>
 
