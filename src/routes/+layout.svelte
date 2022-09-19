@@ -1,7 +1,7 @@
 <!-- Layout: (root) -->
 <script lang="ts">
 	import hljs from 'highlight.js';
-	import 'highlight.js/styles/github-dark.css';
+	import '$lib/styles/highlight-js.css'; // was: 'highlight.js/styles/github-dark.css';
 	import { storeHighlightJs } from '$lib/utilities/CodeBlock/stores';
 	storeHighlightJs.set(hljs);
 
