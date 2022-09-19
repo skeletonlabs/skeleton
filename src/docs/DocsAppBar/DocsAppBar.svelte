@@ -60,7 +60,7 @@
 				}}>Docs</a
 			>
 			<a
-				href="/tailwind/buttons"
+				href="/tailwind/core"
 				class="navlink"
 				on:click={() => {
 					scrollSidebarTo('#nav-elements');

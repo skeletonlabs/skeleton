@@ -4,14 +4,25 @@
 
 	// Tables
 	const ghLibPathMaster: string = 'https://github.com/Brain-Bones/skeleton/tree/master/src/lib'; // master branch
-	const tableStyleAddons: any = {
+	const tableStyleAll: any = {
+		headings: ['Stylesheet', 'Description', 'View Source'],
+		// prettier-ignore
+		source: [
+			[
+				'<code>all.css</code>',
+				'A universal stylesheet that imports all stylesheets set in the optimal order.',
+				`<a href="${ghLibPathMaster}/styles/all.css" target="_blank">all.css</a>`,
+			],
+		]
+	};
+	const tableStylesUseful: any = {
 		headings: ['Stylesheet', 'Description', 'Documentation', 'View Source', 'Plugin'],
 		// prettier-ignore
 		source: [
 			[
 				'<code>tailwind.css</code>',
-				'<u>IMPORTANT</u>: should proceed all other add-ons.<br>Includes all <a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank">@tailwind directives</a>.',
-				'-',
+				'<u>IMPORTANT</u>: should proceed all individual add-ons.',
+				'<a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank">@tailwind directives</a>',
 				`<a href="${ghLibPathMaster}/styles/tailwind.css" target="_blank">tailwind.css</a>`,
 				'-'
 			],
@@ -30,19 +41,43 @@
 				'-'
 			],
 			[
-				'<code>buttons.css</code>',
-				'Provides a variety of button and button icon styles.',
-				'<a href="/tailwind/buttons">Buttons</a>',
-				`<a href="${ghLibPathMaster}/styles/buttons.css" target="_blank">buttons.css</a>`,
-				'-'
-			],
-			[
 				'<code>forms.css</code>',
 				'Adapts form elements to utilize the Skeleton theme.',
 				'<a href="/tailwind/forms">Forms</a>',
 				`<a href="${ghLibPathMaster}/styles/forms.css" target="_blank">forms.css</a>`,
 				'<a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">tailwindcss-forms</a>'
 			]
+		]
+	};
+	const tableStyleElements: any = {
+		headings: ['Stylesheet', 'Documentation', 'View Source'],
+		// prettier-ignore
+		source: [
+			[
+				'<code>badges.css</code>',
+				'View documentation for <a href="/tailwind/badges">badges</a>',
+				`<a href="${ghLibPathMaster}/styles/badges.css" target="_blank">badges.css</a>`,
+			],
+			[
+				'<code>buttons.css</code>',
+				'View documentation for <a href="/tailwind/buttons">buttons</a>',
+				`<a href="${ghLibPathMaster}/styles/buttons.css" target="_blank">buttons.css</a>`,
+			],
+			[
+				'<code>cards.css</code>',
+				'View documentation for <a href="/tailwind/cards">cards</a>',
+				`<a href="${ghLibPathMaster}/styles/cards.css" target="_blank">cards.css</a>`,
+			],
+			[
+				'<code>lists.css</code>',
+				'View documentation for <a href="/tailwind/lists">lists</a>',
+				`<a href="${ghLibPathMaster}/styles/lists.css" target="_blank">lists.css</a>`,
+			],
+			[
+				'<code>logo-clouds.css</code>',
+				'View documentation for <a href="/tailwind/logo-clouds">logo-clouds</a>',
+				`<a href="${ghLibPathMaster}/styles/logo-clouds.css" target="_blank">logo-clouds.css</a>`,
+			],
 		]
 	};
 </script>
@@ -59,7 +94,7 @@
 	<!-- Add-Ons -->
 	<section class="space-y-4">
 		<h2>Stylesheet Add-Ons</h2>
-		<p>Skeleton provides a set of modular stylesheets that adapt to your theme and provide a more consistent aesthetic. These are optional, but highly recommended.</p>
+		<p>Skeleton provides a set of modular stylesheets that adapt to your theme and provide a more consistent aesthetic. Be sure to set the appropriate file stylesheet name.</p>
 		<CodeBlock
 			language="typescript"
 			code={`
@@ -68,9 +103,12 @@ import '@brainandbones/skeleton/styles/{stylehsheet}.css'; // <--
 // (global stylesheet here)
 			`.trim()}
 		/>
-		<p>Import each desired add-on in the order shown below. Be sure to set the appropriate file name as follows.</p>
-		<!-- Table -->
-		<DataTable headings={tableStyleAddons.headings} source={tableStyleAddons.source} />
+		<p>If you want to keep it simple, the <code>all.css</code> stylesheet is all you need.</p>
+		<DataTable headings={tableStyleAll.headings} source={tableStyleAll.source} />
+		<p>If you would prefer to import these piecemeal, then prioritize these stylesheets. They are the most useful.</p>
+		<DataTable headings={tableStylesUseful.headings} source={tableStylesUseful.source} />
+		<p>Each of the following stylesheets are specific to a particular Tailwind Element. See the documentation for each for more information.</p>
+		<DataTable headings={tableStyleElements.headings} source={tableStyleElements.source} />
 	</section>
 
 	<Divider />
