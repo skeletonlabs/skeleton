@@ -78,6 +78,7 @@
 	role="option"
 	aria-selected={isSelected}
 	tabindex="0"
+	data-testid="listbox-item"
 >
 	<!-- Slot: Lead -->
 	{#if $$slots.lead}<span><slot name="lead" /></span>{/if}

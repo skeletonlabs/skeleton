@@ -49,7 +49,7 @@ export const menuNavLinks: any = [
 			{ href: '/components/data-tables', label: 'Data Tables' },
 			{ href: '/components/dividers', label: 'Dividers' },
 			{ href: '/components/gradient-headings', label: 'Gradient Headings' },
-			{ href: '/components/listboxes', label: 'Listboxes', badge: 'Updated' },
+			{ href: '/components/listboxes', label: 'Listboxes' },
 			{ href: '/components/menus', label: 'Menus' },
 			{ href: '/components/paginators', label: 'Paginators' },
 			{ href: '/components/progress-bars', label: 'Progress Bars' },

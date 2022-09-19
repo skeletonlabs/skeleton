@@ -3,69 +3,47 @@ import { describe, it, expect } from 'vitest';
 
 import { writable } from 'svelte/store';
 
-import List from '$lib/components/ListBox/ListBox.svelte';
+// @ts-ignore
+import ListBox from '$lib/components/ListBox/ListBox.svelte';
 
-describe('List.svelte', () => {
+describe('ListBox.svelte', () => {
 	it('Renders with minimal props', async () => {
-		const { getByTestId } = render(List);
-		expect(getByTestId('list-group')).toBeTruthy();
+		const { getByTestId } = render(ListBox);
+		expect(getByTestId('listbox-area')).toBeTruthy();
 	});
 
-	it('Renders with a11y props - static', async () => {
-		const { getByTestId } = render(List, {
+	it('Renders with all props', async () => {
+		const { getByTestId } = render(ListBox, {
 			props: {
-				tag: 'ul',
-				title: 'testTitle1',
+				selected: writable('foobar'),
+				space: 'space-y-1',
+				height: 'h-auto',
+				// Props (Item)
+				accent: '!bg-primary-500', // '!' recommended
+				padding: 'px-4 py-3',
+				rounded: 'rounded',
+				// Props (regions)
+				regionLabel: 'bg-red-500',
+				regionList: 'bg-green-500',
+				// Props (a11y)
 				label: 'testList1',
-				labelledby: 'testLabel1'
+				labelId: 'testListId1'
 			}
 		});
-		expect(getByTestId('list-group')).toBeTruthy();
+		expect(getByTestId('listbox-area')).toBeTruthy();
 	});
 
-	// Basic Lists
-
-	it('Renders <ul> list', async () => {
-		const { getByTestId } = render(List, { props: { tag: 'ul' } });
-		const element = getByTestId('list-group');
+	it('Renders listbox, single value', async () => {
+		const { getByTestId } = render(ListBox, { props: { tag: 'nav', selected: writable('foobar') } });
+		const element = getByTestId('listbox-area');
 		expect(element).toBeTruthy();
-		expect(element.tagName).eq('UL');
+		expect(element.tagName).eq('DIV');
 	});
 
-	it('Renders <ol> list', async () => {
-		const { getByTestId } = render(List, { props: { tag: 'ol' } });
-		const element = getByTestId('list-group');
+	it('Renders listbox, multiple values', async () => {
+		const { getByTestId } = render(ListBox, { props: { tag: 'nav', selected: writable(['foo', 'bar']) } });
+		const element = getByTestId('listbox-area');
 		expect(element).toBeTruthy();
-		expect(element.tagName).eq('OL');
-	});
-
-	it('Renders <dl> list', async () => {
-		const { getByTestId } = render(List, { props: { tag: 'dl' } });
-		const element = getByTestId('list-group');
-		expect(element).toBeTruthy();
-		expect(element.tagName).eq('DL');
-	});
-
-	it('Renders <nav> anchor list', async () => {
-		const { getByTestId } = render(List, { props: { tag: 'nav' } });
-		const element = getByTestId('list-group');
-		expect(element).toBeTruthy();
-		expect(element.tagName).eq('NAV');
-	});
-
-	// Selection Lists
-
-	it('Renders <nav> selection list, single value', async () => {
-		const { getByTestId } = render(List, { props: { tag: 'nav', selected: writable('foobar') } });
-		const element = getByTestId('list-group');
-		expect(element).toBeTruthy();
-		expect(element.tagName).eq('NAV');
-	});
-
-	it('Renders <nav> selection list, multiple values', async () => {
-		const { getByTestId } = render(List, { props: { tag: 'nav', selected: writable(['foo', 'bar']) } });
-		const element = getByTestId('list-group');
-		expect(element).toBeTruthy();
-		expect(element.tagName).eq('NAV');
+		expect(element.tagName).eq('DIV');
 	});
 });

@@ -2,8 +2,8 @@
 	import { writable, type Writable } from 'svelte/store';
 	import Alert from '$lib/components/Alert/Alert.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-	import Listbox from '$lib/components/ListBox/ListBox.svelte';
-	import ListboxItem from '$lib/components/ListBox/ListBoxItem.svelte';
+	import ListBox from '$lib/components/ListBox/ListBox.svelte';
+	import ListBoxItem from '$lib/components/ListBox/ListBoxItem.svelte';
 	import DataTable from '$lib/components/Table/DataTable.svelte';
 
 	let navSingle: Writable<number> = writable(1);
@@ -53,7 +53,7 @@
 		<svelte:fragment slot="lead">
 			<span class="text-2xl">⚠️</span>
 		</svelte:fragment>
-		<span>Static lists are now handled via <strong>Tailwind Element &rarr; Lists</strong>, while selection lists are handled by this component.</span>
+		<span>Basic lists are available via the <strong>List</strong> Tailwind Elements.</span>
 		<svelte:fragment slot="trail">
 			<a href="/tailwind/lists" class="btn btn-ghost">View Lists</a>
 		</svelte:fragment>
@@ -63,7 +63,7 @@
 	<header class="space-y-4">
 		<h1>Listboxes</h1>
 		<p class="space-y-4">Interactive listboxes that maintain selection state.</p>
-		<CodeBlock language="js" code={`import { Listbox, ListboxItem } from '@brainandbones/skeleton';`} />
+		<CodeBlock language="js" code={`import { Listbox, ListBoxItem } from '@brainandbones/skeleton';`} />
 	</header>
 
 	<!-- Examples -->
@@ -71,21 +71,21 @@
 		<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
 			<section class="space-y-4">
 				<div class="card card-body space-y-4">
-					<Listbox selected={navSingle} label="Single Selection">
-						<ListboxItem value={1}>Item 1</ListboxItem>
-						<ListboxItem value={2}>Item 2</ListboxItem>
-						<ListboxItem value={3}>Item 3</ListboxItem>
-					</Listbox>
+					<ListBox selected={navSingle} label="Single Selection">
+						<ListBoxItem value={1}>Item 1</ListBoxItem>
+						<ListBoxItem value={2}>Item 2</ListBoxItem>
+						<ListBoxItem value={3}>Item 3</ListBoxItem>
+					</ListBox>
 					<p class="text-center">Selected: <code>{$navSingle}</code></p>
 				</div>
 			</section>
 			<section class="space-y-4">
 				<div class="card card-body space-y-4">
-					<Listbox selected={navMultiple} label="Multi-Selection" hover="hover:bg-accent-500/10" accent="!bg-accent-500">
-						<ListboxItem value={'A'}>Item A</ListboxItem>
-						<ListboxItem value={'B'}>Item B</ListboxItem>
-						<ListboxItem value={'C'}>Item C</ListboxItem>
-					</Listbox>
+					<ListBox selected={navMultiple} label="Multi-Selection" hover="hover:bg-accent-500/10" accent="!bg-accent-500">
+						<ListBoxItem value={'A'}>Item A</ListBoxItem>
+						<ListBoxItem value={'B'}>Item B</ListBoxItem>
+						<ListBoxItem value={'C'}>Item C</ListBoxItem>
+					</ListBox>
 					<p class="text-center">Selected: <code>{$navMultiple}</code></p>
 				</div>
 			</section>
@@ -101,10 +101,10 @@
 		<CodeBlock
 			language="html"
 			code={`
-<Listbox selected="{storeSingle}" label="Single Selection">
-    <ListboxItem value={1}>Selection Example 1</ListboxItem>
-    <ListboxItem value={2}>Selection Example 2</ListboxItem>
-</Listbox>
+<ListBox selected="{storeSingle}" label="Single Selection">
+    <ListBoxItem value={1}>Selection Example 1</ListBoxItem>
+    <ListBoxItem value={2}>Selection Example 2</ListBoxItem>
+</ListBox>
         `.trim()}
 		/>
 		<h6>Multiple Values</h6>
@@ -112,11 +112,11 @@
 		<CodeBlock
 			language="html"
 			code={`
-<Listbox selected={storeMultiple}" label="Multi-Selection">
-    <ListboxItem value={'A'}>Item A</ListboxItem>
-    <ListboxItem value={'B'}>Item B</ListboxItem>
-    <ListboxItem value={'C'}>Item C</ListboxItem>
-</Listbox>
+<ListBox selected={storeMultiple}" label="Multi-Selection">
+    <ListBoxItem value={'A'}>Item A</ListBoxItem>
+    <ListBoxItem value={'B'}>Item B</ListBoxItem>
+    <ListBoxItem value={'C'}>Item C</ListBoxItem>
+</ListBox>
         `.trim()}
 		/>
 	</section>

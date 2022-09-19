@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Alert from '$lib/components/Alert/Alert.svelte';
 	import DataTable from '$lib/components/Table/DataTable.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
@@ -14,6 +15,17 @@
 </script>
 
 <div class="space-y-8">
+	<!-- Alert -->
+	<Alert>
+		<svelte:fragment slot="lead">
+			<span class="text-2xl">⚠️</span>
+		</svelte:fragment>
+		<span>Selection lists are available via the <strong>Listbox</strong> Svelte component.</span>
+		<svelte:fragment slot="trail">
+			<a href="/components/listboxes" class="btn btn-ghost">View Listboxes</a>
+		</svelte:fragment>
+	</Alert>
+
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Lists</h1>

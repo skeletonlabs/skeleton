@@ -34,7 +34,7 @@
 	$: classesListBox = `${cListBox} ${height} ${space}`;
 </script>
 
-<div class="listbox-area {classesBase}">
+<div class="listbox-area {classesBase}" data-testid="listbox-area">
 	<!-- Label -->
 	{#if label}<span class="listbox-label {classesLabel} {regionLabel}" id={labelId}>{label}</span>{/if}
 	<!-- Listbox -->
