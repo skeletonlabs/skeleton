@@ -1,8 +1,6 @@
 <script lang="ts">
-	import { storeFramework } from '$docs/stores';
-	import { Card, DataTable, Divider, TabGroup, Tab } from '@brainandbones/skeleton';
+	import { DataTable, Divider, TabGroup, Tab } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-	import Alert from '$lib/components/Alert/Alert.svelte';
 
 	// Tables
 	const ghLibPathMaster: string = 'https://github.com/Brain-Bones/skeleton/tree/master/src/lib'; // master branch

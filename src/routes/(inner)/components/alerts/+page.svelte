@@ -82,7 +82,7 @@
 			code={`
 <Alert {visible}>
     <svelte:fragment slot="lead">(icon)</svelte:fragment>
-    <svelte:fragment slot="title">(title))</svelte:fragment>
+    <svelte:fragment slot="title">(title)</svelte:fragment>
     <span>(message)</span>      
     <svelte:fragment slot="trail">(trail)</svelte:fragment>
 </Alert>

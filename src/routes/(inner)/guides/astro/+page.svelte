@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Card, Divider } from '@brainandbones/skeleton';
+	import { Divider } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import Alert from '$lib/components/Alert/Alert.svelte';
 

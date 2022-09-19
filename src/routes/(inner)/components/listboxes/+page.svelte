@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
+	import Alert from '$lib/components/Alert/Alert.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import Listbox from '$lib/components/ListBox/ListBox.svelte';
 	import ListboxItem from '$lib/components/ListBox/ListBoxItem.svelte';
@@ -47,6 +48,17 @@
 </script>
 
 <div class="space-y-8">
+	<!-- Alert -->
+	<Alert>
+		<svelte:fragment slot="lead">
+			<span class="text-2xl">⚠️</span>
+		</svelte:fragment>
+		<span>Static lists are now handled via <strong>Tailwind Element &rarr; Lists</strong>, while selection lists are handled by this component.</span>
+		<svelte:fragment slot="trail">
+			<a href="/tailwind/lists" class="btn btn-ghost">View Lists</a>
+		</svelte:fragment>
+	</Alert>
+
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Listboxes</h1>
