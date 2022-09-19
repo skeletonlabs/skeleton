@@ -19,7 +19,7 @@
 	$: btnValues = {
 		background: 'bg-primary-500',
 		size: $storeBtnSize,
-		outline: undefined,
+		ring: undefined,
 		color: 'text-white'
 	};
 	$: btnClases = Object.values(btnValues)
@@ -34,8 +34,7 @@
 			['<code>.btn-icon</code>', '-', 'Creates a text icon button using a button or anchor.'],
 			['<code>.btn-[size]</code>', 'sm | base | lg | xl', 'Canned button sizes that define padding and text sizes.'],
 			['<code>.btn-icon-[size]</code>', 'sm | base | lg | xl', 'Canned icon button sizes that define padding and text sizes.'],
-			['<code>.btn-[variant]</code>', 'filled-primary | ghost | ...', 'A set of preset class styles for buttons or icon buttons.'],
-			['<code>.btn-outline-[color]</code>', 'primary | accent | warning | surface', 'Utility classes for adding a Tailwind ring effect.']
+			['<code>.btn-[variant]</code>', 'filled-primary | ghost | etc.', 'A set of preset class styles for buttons or icon buttons.']
 		]
 	};
 </script>
@@ -44,7 +43,7 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Buttons</h1>
-		<p>This <a href="/guides/styling">stylesheet add-on</a> provides a robust set of button styles.</p>
+		<p>Automatically included in <code>all.css</code> and <code>elements.css</code>. This <a href="/guides/styling">stylesheet</a> provides a robust set of button styles.</p>
 		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/buttons.css';`} />
 	</header>
 
@@ -93,15 +92,15 @@
 						<option value="bg-surface-500/30">bg-surface-500/30</option>
 					</select>
 				</label>
-				<!-- Outline -->
+				<!-- Ring -->
 				<label>
-					<span>Outline</span>
-					<select name="outline" id="outline" bind:value={btnValues.outline}>
+					<span>Ring</span>
+					<select name="ring" id="ring" bind:value={btnValues.ring}>
 						<option value={undefined}>None</option>
-						<option value="btn-outline-primary">btn-outline-primary</option>
-						<option value="btn-outline-accent">btn-outline-accent</option>
-						<option value="btn-outline-warning">btn-outline-warning</option>
-						<option value="btn-outline-surface">btn-outline-surface</option>
+						<option value="ring-2 ring-primary-500 ring-inset">ring-2 ring-primary-500 ring-inset</option>
+						<option value="ring-2 ring-accent-500 ring-inset">ring-2 ring-accent-500 ring-inset</option>
+						<option value="ring-2 ring-warning-500 ring-inset">ring-2 ring-warning-500 ring-inset</option>
+						<option value="ring-2 ring-surface-500 ring-inset">ring-2 ring-surface-500 ring-inset</option>
 					</select>
 				</label>
 				<!-- Color -->
@@ -127,7 +126,10 @@
 				</label>
 			</div>
 		</div>
-		<CodeBlock language="html" code={`<` + $storeTag + ` class="btn ` + btnClases + `" disabled="` + $storeDisabled + `">Skeleton</` + $storeTag + `>`} />
+		<CodeBlock
+			language="html"
+			code={`<` + $storeTag + ($storeTag === 'a' ? ' href="/"' : '') + ` class="btn ` + btnClases + `"` + ($storeDisabled ? ' disabled' : '') + `>Skeleton</` + $storeTag + `>`}
+		/>
 	</section>
 
 	<!-- Usage -->
@@ -138,7 +140,7 @@
 		<!-- Buttons -->
 		<div class="space-y-4">
 			<h4>Button</h4>
-			<p>Add the <code>.btn</code> class to any anchor or button to create a <em>text</em> button. Sizing is controlled using padding.</p>
+			<p>Add the <code>.btn</code> class to any button or anchor to create a button with minimal styling.</p>
 			<CodeBlock language="html" code={`<button class="btn">Button</button>`} />
 			<CodeBlock language="html" code={`<a href="/" class="btn">Anchor</a>`} />
 			<div class="card card-body flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
@@ -149,18 +151,19 @@
 		<!-- Icon Buttons -->
 		<div class="space-y-4">
 			<h4>Icon Buttons</h4>
-			<p>Add the <code>.btn-icon</code> class to any anchor or button to create a <em>text</em> icon button. Sizing is controlled using aspect-square + width.</p>
+			<p>Add the <code>.btn-icon</code> class to any button or anchor to create a icon button with minimal styling.</p>
 			<CodeBlock language="html" code={`<button class="btn-icon">B</button>`} />
 			<CodeBlock language="html" code={`<a href="/" class="btn-icon">A</a>`} />
 			<div class="card card-body flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 				<button class="btn-icon">B</button>
-				<a {href} class="btn-icon">A</a>
+				<!-- FIXME: the :not() style isn't applying here so I supplemented `.unstyled` class. Browser bug perhaps? -CHRIS -->
+				<a {href} class="btn-icon unstyled">A</a>
 			</div>
 		</div>
 		<!-- Styling -->
 		<div class="space-y-4">
 			<h4>Styling</h4>
-			<p>Use any valid Tailwind classes to style your buttons.</p>
+			<p>Use Tailwind utilty classes to enhance the button styling.</p>
 			<CodeBlock language="html" code={`<button class="btn bg-primary-500">Skeleton</button>`} />
 			<div class="card card-body flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 				<button class="btn bg-primary-500">Skeleton</button>
@@ -171,7 +174,7 @@
 		<!-- Sizes -->
 		<div class="space-y-4">
 			<h4>Sizes</h4>
-			<p>Add the <code>.btn-[sm|base|lg|xl]</code> class to adjust the size of a button.</p>
+			<p>Adjust the button size with <code>.btn-[sm|base|lg|xl]</code>. Sizing is controlled using <em>text size and padding</em>.</p>
 			<CodeBlock language="html" code={`<button class="btn btn-lg bg-primary-500">Large</button>`} />
 			<div class="card card-body flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 				<button class="btn btn-sm bg-primary-500">sm</button>
@@ -179,7 +182,7 @@
 				<button class="btn btn-lg bg-primary-500">lg</button>
 				<button class="btn btn-xl bg-primary-500">xl</button>
 			</div>
-			<p>Add the <code>.btn-icon-[sm|base|lg|xl]</code> class to adjust the size of an icon button.</p>
+			<p>Adjust the icon button size with <code>.btn-icon-[sm|base|lg|xl]</code>. Sizing is controlled using <em>text size, aspect square, and width</em>.</p>
 			<CodeBlock language="html" code={`<button class="btn-icon btn-icon-lg bg-primary-500">lg</button>`} />
 			<div class="card card-body flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 				<button class="btn-icon btn-icon-sm bg-primary-500">sm</button>
@@ -188,33 +191,23 @@
 				<button class="btn-icon btn-icon-xl bg-primary-500">xl</button>
 			</div>
 		</div>
-		<!-- Outline -->
-		<div class="space-y-4">
-			<h4>Outline</h4>
-			<p>
-				We've included theme-friendly utility classes for <code>btn-outline-[primary|accent|warning|surface]</code>. This represents <code>ring-2 ring-[color]-500 ring-inset</code>.
-			</p>
-			<CodeBlock language="html" code={`<button class="btn btn-outline-primary">Outline</button>`} />
-			<div class="card card-body flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
-				<button class="btn btn-outline-primary">Outline</button>
-			</div>
-		</div>
 		<!-- Icons -->
 		<div class="space-y-4">
 			<h4>Leading and Trailing Icons</h4>
-			<p>By default, buttons use a <code>flex-row</code> layout, which means child elements create a spaced row. Using <em>span</em> elements ensures the spacing works as expected.</p>
-			<CodeBlock language="html" code={`<button class="btn bg-primary-500">\n\t<span>💀</span>\n\t<span>Skeleton</span>\n</button>`} />
+			<p>By default, buttons use <code>flex-row</code> and <code>space-x-4</code> to create an evenly spaced row. Wrap children with <em>span</em> tags to ensure spacing works as expected.</p>
+			<CodeBlock language="html" code={`<button class="btn bg-primary-500">\n\t<span>💀</span>\n\t<span>Icons</span>\n\t<span>🦴</span>\n</button>`} />
 			<div class="card card-body flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 				<button class="btn bg-primary-500">
 					<span>💀</span>
-					<span>Skeleton</span>
+					<span>Icons</span>
+					<span>🦴</span>
 				</button>
 			</div>
 		</div>
 		<!-- Variants -->
 		<div class="space-y-4">
 			<h4>Variants</h4>
-			<p>A set of canned preset styles are available by using <code>.btn-[variant]</code>. This works for both standard and icon buttons.</p>
+			<p>A set of canned preset styles are available using <code>.btn-[variant]</code>. This works for both standard and icon buttons.</p>
 			<CodeBlock language="html" code={`<button class="btn btn-filled-primary">filled-primary</button>`} />
 			<div class="card card-body flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 				<!-- Filled -->
@@ -273,13 +266,13 @@
 		<!-- SvelteKit Link Options -->
 		<div class="space-y-4">
 			<h4>SvelteKit Link Options</h4>
-			<p>By using native anchor elements we can make use of <a href="https://kit.svelte.dev/docs/link-options" target="_blank">SvelteKit Link Options</a> such as a <em>prefetch</em>.</p>
+			<p>Since we use native elements, this means we can utilize <a href="https://kit.svelte.dev/docs/link-options" target="_blank">SvelteKit Link Options</a> such as a <em>prefetch</em>.</p>
 			<CodeBlock language="html" code={`<a href="/" class="btn" data-sveltekit-prefetch>Skeleton</a>`} />
 		</div>
 		<!-- Global Styles -->
 		<div class="space-y-4">
 			<h4>Global Styles</h4>
-			<p>You can override styles for all instances of this element in your global stylesheet as follows.</p>
+			<p>Use your global stylesheet to update all instances of this element.</p>
 			<CodeBlock
 				language="css"
 				code={`

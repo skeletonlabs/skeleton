@@ -19,7 +19,7 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Cards</h1>
-		<p>This <a href="/guides/styling">stylesheet add-on</a> provides container elements that wrap and separate your content.</p>
+		<p>Automatically included in <code>all.css</code> and <code>elements.css</code>. This <a href="/guides/styling">stylesheet</a> provides container elements that wrap and separate content.</p>
 		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/cards.css';`} />
 	</header>
 
@@ -44,7 +44,7 @@
 				<!-- Body -->
 				<div class="card-body space-y-4">
 					<h6 class="text-primary-500">Announcements</h6>
-					<h3>Welcome to Skeleton</h3>
+					<h3>Skeleton is Awesome!</h3>
 					<article class="text-surface-400">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam aspernatur provident eveniet eligendi cumque consequatur tempore sint nisi sapiente. Iste beatae laboriosam iure molestias
 						cum expedita architecto itaque quae rem.
@@ -67,15 +67,13 @@
 	<section class="space-y-8">
 		<div class="space-y-4">
 			<h2>Usage</h2>
-		</div>
-		<!-- Basic -->
-		<div class="space-y-4">
-			<h4>Basic Card</h4>
+			<p>Include the <code>.card-body</code> class to apply some basic styles, such as padding.</p>
 			<CodeBlock language="html" code={`<div class="card card-body">Skeleton</div>`} />
 		</div>
-		<!-- Regions -->
+		<!-- Headers and Footers -->
 		<div class="space-y-4">
-			<h4>Regions</h4>
+			<h4>Headers and Footers</h4>
+			<p>If you wish the split the card into regions, use the following structure.</p>
 			<CodeBlock
 				language="html"
 				code={`
@@ -90,7 +88,7 @@
 		<!-- Global Styles -->
 		<div class="space-y-4">
 			<h4>Global Styles</h4>
-			<p>You can override styles for all instances of this element in your global stylesheet as follows.</p>
+			<p>Use your global stylesheet to update all instances of this element.</p>
 			<CodeBlock language="css" code={`.card { @apply rounded-none; }`} />
 		</div>
 	</section>

@@ -11,7 +11,7 @@
 
 	// Local
 	const storeRadioGroup: Writable<string> = writable('a');
-	let valueRangeSlider: number = 50;
+	let valueRangeSlider: number = 75;
 	let valueSlideToggle: boolean = true;
 </script>
 
@@ -34,11 +34,11 @@
 	<!-- Native Elements -->
 	<div class="card">
 		<!-- Card Header -->
-		<header class="card-header space-y-1">
+		<header class="card-header space-y-4">
 			<h2>Native HTML Elements</h2>
 			<p>
-				Native HTML input elements using the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Tailwind Forms plugin</a>, further augmented with the
-				<a href="/guides/styling">Skeleton forms.css</a> add-on stylesheet.
+				Native HTML input elements using the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Tailwind Forms</a> plugin plus the Skeleton
+				<a href="/guides/styling">forms.css</a> stylesheet to apply theme colors and styles.
 			</p>
 		</header>
 		<!-- Card Body -->
@@ -122,7 +122,7 @@
 					<textarea rows="3" placeholder="Enter some long form content." />
 				</label>
 				<fieldset class="block space-y-">
-					<h4>Checkboxes</h4>
+					<h4 class="mb-4">Checkboxes</h4>
 					<div class="space-y-2">
 						<label class="flex items-center space-x-2">
 							<input type="checkbox" checked />
@@ -139,7 +139,7 @@
 					</div>
 				</fieldset>
 				<fieldset class="block space-y-">
-					<h4>Radio Buttons</h4>
+					<h4 class="mb-4">Radio Buttons</h4>
 					<div class="space-y-2">
 						<label class="flex items-center space-x-2">
 							<input type="radio" checked name="radio-direct" value="1" />
@@ -162,14 +162,14 @@
 	<section class="grid grid-cols-2 gap-4">
 		<!-- Skeleton Forms.css -->
 		<div class="card">
-			<header class="card-header space-y-1">
-				<h2>Skeleton Style Add-On</h2>
-				<p>Native HTML elements styled by the <a href="/guides/styling">Skeleton forms.css</a> add-on stylesheet.</p>
+			<header class="card-header space-y-4">
+				<h2>Skeleton Forms.css</h2>
+				<p>Native HTML elements styled by the Skeleton <a href="/guides/styling">forms.css</a> stylesheet.</p>
 			</header>
 			<div class="card-body space-y-4">
 				<label class="block">
 					<span>Input (range)</span>
-					<input type="range" />
+					<input type="range" value="75" max="100" />
 				</label>
 				<label class="block">
 					<span>Input (file)</span>
@@ -184,9 +184,9 @@
 
 		<!-- Skeleton Components -->
 		<div class="card">
-			<header class="card-header space-y-1">
+			<header class="card-header space-y-4">
 				<h2>Skeleton Components</h2>
-				<p>Components provided as part of the Skeleton library.</p>
+				<p>Custom components provided as part of the Skeleton library.</p>
 			</header>
 			<div class="card-body space-y-4">
 				<label for="">

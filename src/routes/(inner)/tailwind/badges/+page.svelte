@@ -17,7 +17,7 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Badges</h1>
-		<p>This <a href="/guides/styling">stylesheet add-on</a> provides a robust set of badge styles.</p>
+		<p>Automatically included in <code>all.css</code> and <code>elements.css</code>. This <a href="/guides/styling">stylesheet</a> provides a robust set of badge styles.</p>
 		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/badges.css';`} />
 	</header>
 
@@ -79,13 +79,13 @@
 		<!-- Icon -->
 		<div class="space-y-4">
 			<h4>Badge Icon</h4>
-			<p>A compact circular size for the badge.</p>
+			<p>A compact circular variation badge style.</p>
 			<CodeBlock language="html" code={`<span class="badge-icon bg-primary-500">💀</span>`} />
 		</div>
 		<!-- Overlapping -->
 		<div class="space-y-4">
 			<h4>Overlapping Icon</h4>
-			<p>Use Tailwind utility classes to overlap elements.</p>
+			<p>Use Tailwind utility classes to create overlapping elements.</p>
 			<CodeBlock
 				language="html"
 				code={`
@@ -99,7 +99,7 @@
 		<!-- Global Styles -->
 		<div class="space-y-4">
 			<h4>Global Styles</h4>
-			<p>You can override styles for all instances of this element in your global stylesheet as follows.</p>
+			<p>Use your global stylesheet to update all instances of this element.</p>
 			<CodeBlock language="css" code={`.badge { @apply rounded-full; }`} />
 		</div>
 	</section>

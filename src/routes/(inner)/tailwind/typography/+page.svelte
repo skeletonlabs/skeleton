@@ -6,7 +6,7 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Typography</h1>
-		<p>This <a href="/guides/styling">stylesheet add-on</a> provides common typographical element styles.</p>
+		<p>Automatically included in <code>all.css</code>. This <a href="/guides/styling">stylesheet</a> provides common typographical element styles.</p>
 		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/typography.css';`} />
 	</header>
 
@@ -52,8 +52,8 @@
 		<div class="space-y-4">
 			<h4>Blockquote</h4>
 			<CodeBlock language="html" code={`<blockquote>Skeleton</blockquote>`} />
-			<div class="card card-body max-w-[480px] mx-auto">
-				<blockquote>
+			<div class="card card-body">
+				<blockquote class="max-w-[480px] mx-auto">
 					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita cupiditate dolores dignissimos maiores doloremque fugiat, dolore doloribus nisi, repellendus mollitia nostrum, commodi a
 					minus aperiam deleniti. Velit rerum ut tempora!
 				</blockquote>
@@ -63,7 +63,9 @@
 		<div class="space-y-4">
 			<h4>Preformatted Text</h4>
 			<CodeBlock language="html" code={`<pre>The quick brown fox jumps over the lazy dog.</pre>`} />
-			<div class="card card-body max-w-[480px] mx-auto"><pre>The quick brown fox jumps over the lazy dog.</pre></div>
+			<div class="card card-body">
+				<pre class="max-w-[480px] mx-auto">The quick brown fox jumps over the lazy dog.</pre>
+			</div>
 		</div>
 		<!-- Code -->
 		<div class="space-y-4">
@@ -73,7 +75,7 @@
 		</div>
 		<!-- kbd -->
 		<div class="space-y-4">
-			<h4 class="pb-4">KBD (Keyboard)</h4>
+			<h4 class="pb-4">Keyboard</h4>
 			<CodeBlock language="html" code={`<kbd>Shift + ⌘</kbd>`} />
 			<div class="card card-body text-center"><kbd>Shift + ⌘</kbd></div>
 		</div>

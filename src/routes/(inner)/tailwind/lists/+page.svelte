@@ -17,7 +17,7 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Lists</h1>
-		<p>This <a href="/guides/styling">stylesheet add-on</a> provides styling for presentational list elements.</p>
+		<p>Automatically included in <code>all.css</code> and <code>elements.css</code>. This <a href="/guides/styling">stylesheet</a> provides styles for static list elements.</p>
 		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/lists.css';`} />
 	</header>
 
@@ -90,7 +90,7 @@
 	<section class="space-y-8">
 		<div class="space-y-4">
 			<h2>Usage</h2>
-			<p>Use semantic list HTML elements, add the <code>.list</code> class, then ensure you wrap children with <em>span</em> elements to alow for flex row spacing.</p>
+			<p>Use semantic list HTML elements, add the <code>.list</code> class, then ensure you wrap children with <em>span</em> elements allow for flex row layout styling.</p>
 		</div>
 		<!-- Unordered -->
 		<div class="space-y-4">
@@ -147,7 +147,7 @@
 		<!-- Navigation -->
 		<div class="space-y-4">
 			<h4>Navigation</h4>
-			<p>Note the <em>ul</em>, which is required to meet <a href="https://www.w3.org/WAI/tutorials/menus/structure/" target="_blank">accessibility guidelines</a>.</p>
+			<p>Note the use of the <em>ul</em> tag, which is required to meet <a href="https://www.w3.org/WAI/tutorials/menus/structure/" target="_blank">accessibility guidelines</a>.</p>
 			<CodeBlock
 				language="html"
 				code={`
@@ -168,7 +168,7 @@
 		<!-- Global Styles -->
 		<div class="space-y-4">
 			<h4>Global Styles</h4>
-			<p>You can override styles for all instances of this element in your global stylesheet as follows.</p>
+			<p>Use your global stylesheet to update all instances of this element.</p>
 			<CodeBlock
 				language="css"
 				code={`

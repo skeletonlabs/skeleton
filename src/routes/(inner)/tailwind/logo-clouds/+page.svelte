@@ -7,8 +7,8 @@
 	const tableClasses: any = {
 		headings: ['Class', 'Description'],
 		source: [
-			['<code>.logo-cloud</code>', 'Apply to a wrapping block element.'],
-			['<code>.logo-item</code>', 'Apply to each child element. Represents a brand or logo.']
+			['<code>.logo-cloud</code>', 'Apply to a wrapping block element around a set of logos.'],
+			['<code>.logo-item</code>', 'Apply to each logo child element.']
 		]
 	};
 </script>
@@ -17,7 +17,9 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Logo Clouds</h1>
-		<p>This <a href="/guides/styling">stylesheet add-on</a> provides presentational logo cloud element styles.</p>
+		<p>
+			Automatically included in <code>all.css</code> and <code>elements.css</code>. This <a href="/guides/styling">stylesheet</a> provides logos for presenting a set of logos, brands, or sponsors.
+		</p>
 		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/logo-clouds.css';`} />
 	</header>
 
@@ -39,11 +41,8 @@
 			</a>
 		</div>
 		<!-- Multi-Row -->
-		<div class="logo-cloud grid-cols-1 lg:!grid-cols-4 gap-1">
-			<div class="logo-item">
-				<span>&hearts;</span>
-				<span>HR Solutions</span>
-			</div>
+		<div class="logo-cloud grid-cols-1 lg:grid-cols-4 gap-1">
+			<div class="logo-item">HR Solutions</div>
 			<div class="logo-item">Acme Theaters</div>
 			<div class="logo-item">Cruisin' Cuisine</div>
 			<div class="logo-item">Arcane Security</div>
@@ -58,11 +57,11 @@
 	<section class="space-y-8">
 		<div class="space-y-4">
 			<h2>Usage</h2>
-			<p>Logo clouds provide a styled grid wrapper element. Ensure you set the gap spacing and responsive grid columns as desired.</p>
+			<p>Logo clouds provide a styled grid wrapper element. Ensure you provided the desired column and gap classes.</p>
 			<CodeBlock
 				language="html"
 				code={`
-<div class="logo-cloud grid-cols-1 lg:!grid-cols-4 gap-1">
+<div class="logo-cloud grid-cols-1 lg:grid-cols-4 gap-1">
     <div class="logo-item">
         <span>&hearts;</span>
         <span>HR Solutions</span>
@@ -80,7 +79,7 @@
 		</div>
 		<!-- Links -->
 		<div class="space-y-4">
-			<h4>Logo Item Links</h4>
+			<h4>Logo Item - Links</h4>
 			<p>Logo Items support anchor tags for links.</p>
 			<CodeBlock
 				language="html"
@@ -91,7 +90,7 @@
 		</div>
 		<!-- Icons -->
 		<div class="space-y-4">
-			<h4>Logo Item Icons</h4>
+			<h4>Logo Item - Icons</h4>
 			<p>Wrap child elements in space tags and they will space as expected.</p>
 			<CodeBlock
 				language="html"
@@ -106,7 +105,7 @@
 		<!-- Global Syles -->
 		<div class="space-y-4">
 			<h4>Global Styles</h4>
-			<p>You can override styles for all instances of this element in your global stylesheet as follows.</p>
+			<p>Use your global stylesheet to update all instances of this element.</p>
 			<CodeBlock
 				language="css"
 				code={`
@@ -114,7 +113,7 @@
     @apply rounded-none;
 }
 .logo-item {
-    @apply bg-surface-500 dark:bg-surface-500;
+    @apply !bg-surface-500;
 }
             `.trim()}
 			/>

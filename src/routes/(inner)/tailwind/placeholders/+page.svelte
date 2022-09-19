@@ -10,8 +10,8 @@
 	const tableClasses: any = {
 		headings: ['Class', 'Description'],
 		source: [
-			['<code>placeholder</code>', 'Provides the standard placeholder style.'],
-			['<code>placeholder-circle</code>', 'Provides the circular placeholder style.']
+			['<code>placeholder</code>', 'Applies the default placeholder style.'],
+			['<code>placeholder-circle</code>', 'Applies the circular placeholder style.']
 		]
 	};
 </script>
@@ -20,7 +20,9 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Placeholders</h1>
-		<p>This <a href="/guides/styling">stylesheet add-on</a> provides "skeleton" placeholders that may be displayed while content loads.</p>
+		<p>
+			Automatically included in <code>all.css</code> and <code>elements.css</code>. This <a href="/guides/styling">stylesheet</a> provides "skeleton" placeholders that can display while content loads.
+		</p>
 		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/placeholders.css';`} />
 	</header>
 
@@ -64,13 +66,13 @@
 		<!-- Animated -->
 		<div class="space-y-4">
 			<h4>Animated</h4>
-			<p>Apply the <code>.animate-pulse</code> utility class providing by Tailwind.</p>
+			<p>Apply the <code>.animate-pulse</code> utility class provided by Tailwind.</p>
 			<CodeBlock language="html" code={`<div class="placeholder animate-pulse" />`} />
 		</div>
 		<!-- Global Styles -->
 		<div class="space-y-4">
 			<h4>Global Styles</h4>
-			<p>You can override styles for all instances of this element in your global stylesheet as follows.</p>
+			<p>Use your global stylesheet to update all instances of this element.</p>
 			<CodeBlock language="css" code={`.placeholder { @apply rounded-none; }`} />
 		</div>
 	</section>

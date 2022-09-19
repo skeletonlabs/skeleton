@@ -24,15 +24,15 @@ h6 {
 /* === Elements === */
 
 p {
-	@apply text-base text-surface-500 dark:text-surface-400;
+	@apply text-base text-black/80 dark:text-white/80;
 }
 
-a:not(.btn-icon):not(.btn):not(.comp-button):not(.list-row):not(.drawer a):not(.app-bar a):not(.logo-item):not(.comp-card):not(.card):not(.list-nav a) {
-	@apply text-primary-500 underline underline-offset-4 decoration-primary-500/20 decoration-dotted;
+a:not(.unstyled):not(.btn-icon):not(.btn):not(.comp-button):not(.list-row):not(.drawer a):not(.app-bar a):not(.logo-item):not(.comp-card):not(.card):not(.list-nav a) {
+	@apply text-primary-600 dark:text-primary-400 underline underline-offset-4 decoration-dotted decoration-primary-500/20 hover:decoration-primary-500;
 }
 
 blockquote {
-	@apply border-l-4 border-l-accent-500 pl-4 text-base text-surface-500 dark:text-surface-400;
+	@apply text-base text-black/80 dark:text-white/80 border-l-4 border-l-accent-500 px-4 pl-4;
 }
 
 /* Keyboard */
