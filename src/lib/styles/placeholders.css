@@ -1,0 +1,13 @@
+/* Stylesheet Add-On: placeholders.css */
+
+/* === Base === */
+
+.placeholder {
+	@apply bg-surface-400 dark:bg-surface-700 h-5 rounded-full;
+}
+
+/* === Shapes === */
+
+.placeholder-circle {
+	@apply bg-surface-400 dark:bg-surface-700 aspect-square rounded-full;
+}

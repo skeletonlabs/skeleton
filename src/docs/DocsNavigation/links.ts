@@ -32,7 +32,8 @@ export const menuNavLinks: any = [
 			{ href: '/tailwind/buttons', label: 'Buttons' },
 			{ href: '/tailwind/cards', label: 'Cards' },
 			{ href: '/tailwind/lists', label: 'Lists' },
-			{ href: '/tailwind/logo-clouds', label: 'Logo Clouds' }
+			{ href: '/tailwind/logo-clouds', label: 'Logo Clouds' },
+			{ href: '/tailwind/placeholders', label: 'Placeholders' }
 		]
 	},
 	{
@@ -51,7 +52,6 @@ export const menuNavLinks: any = [
 			{ href: '/components/listboxes', label: 'Listboxes', badge: 'Updated' },
 			{ href: '/components/menus', label: 'Menus' },
 			{ href: '/components/paginators', label: 'Paginators' },
-			{ href: '/components/placeholders', label: 'Placeholders' },
 			{ href: '/components/progress-bars', label: 'Progress Bars' },
 			{ href: '/components/progress-radials', label: 'Progress Radials' },
 			{ href: '/components/radio-groups', label: 'Radio Groups' },
@@ -67,7 +67,8 @@ export const menuNavLinks: any = [
 			// { href: '/components/badges', label: 'Badges', badge: 'Depricated' },
 			// { href: '/components/buttons', label: 'Buttons', badge: 'Depricated' },
 			// { href: '/components/cards', label: 'Cards', badge: 'Depricated' },
-			// { href: '/components/logo-clouds', label: 'Logo Clouds', badge: 'Depricated' }
+			// { href: '/components/logo-clouds', label: 'Logo Clouds', badge: 'Depricated' },
+			// { href: '/components/placeholders', label: 'Placeholders', badge: 'Depricated' }
 		]
 	},
 	{
