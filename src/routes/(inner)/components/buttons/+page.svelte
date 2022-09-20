@@ -204,7 +204,7 @@
 	<svelte:fragment slot="lead">(icon)</svelte:fragment>
 	Skeleton
 </Button>
-			`.trim()}
+			`}
 		/>
 	</section>
 
@@ -236,7 +236,7 @@
 <Button variant="filled-primary">Skeleton</Button>
 <Button variant="ring-accent">Skeleton</Button>
 <Button variant="ghost-warning">Skeleton</Button>
-		`.trim()}
+		`}
 		/>
 	</section>
 

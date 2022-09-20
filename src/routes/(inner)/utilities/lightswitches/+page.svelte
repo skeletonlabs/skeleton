@@ -46,14 +46,14 @@
 			code={`
 <!-- Light Mode -->
 <html>
-		`.trim()}
+		`}
 		/>
 		<CodeBlock
 			language="html"
 			code={`
 <!-- Dark Mode -->
 <html class="dark">
-		`.trim()}
+		`}
 		/>
 	</section>
 

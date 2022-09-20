@@ -11,7 +11,7 @@
 			Automatically included in the <code>all.css</code>. This <a href="/guides/styling">stylesheet</a> provides theme styling to forms when paired with the
 			<a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Tailwind Forms</a> plugin.
 		</p>
-		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/forms.css';`.trim()} />
+		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/forms.css';`} />
 	</header>
 
 	<!-- Preview -->
@@ -56,7 +56,7 @@ module.exports = {
 		// ...
 	],
 }
-				`.trim()}
+				`}
 				/>
 			</div>
 		</div>
@@ -73,7 +73,7 @@ module.exports = {
 	<span>Name</span>
 	<input type="text" id="name" bind:value={name} minlength="2" required>
 </label>
-		`.trim()}
+		`}
 		/>
 		<CodeBlock
 			language="html"
@@ -86,7 +86,7 @@ module.exports = {
 		<option value="blue">blue</option>
 	</select>
 </label>
-		`.trim()}
+		`}
 		/>
 	</section>
 </div>

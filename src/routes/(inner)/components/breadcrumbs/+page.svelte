@@ -118,7 +118,7 @@
     <Crumb href='/'>(page)</Crumb>
     <Crumb>(current)</Crumb>
 </Breadcrumb>
-        `.trim()}
+        `}
 		/>
 		<h4>Current Page Crumb</h4>
 		<p>Crumbs without a <code>href</code> attribute are treated as the <em>current</em> page. This means they render as <code>span</code> and do not append a trailing separator.</p>

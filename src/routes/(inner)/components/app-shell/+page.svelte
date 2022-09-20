@@ -103,7 +103,7 @@
 	<svelte:fragment slot="pageFooter">Page Footer</svelte:fragment>
 	<svelte:fragment slot="footer">Footer</svelte:fragment>
 </AppShell>
-		`.trim()}
+		`}
 		/>
 		<p>
 			The App Shell will need to expand to fill your <em>body</em> tag. First, remove all wrapping elements in your root HTML page. For SvelteKit this is located in
@@ -116,7 +116,7 @@
 	<!-- SvelteKit Body Import -->
 	%sveltekit.body%
 </body>
-		`.trim()}
+		`}
 		/>
 		<p>Then, disable overflow on your <em>html</em> and <em>body</em> tags to prevent duplicate scroll bars. Update your global stylesheet with the following.</p>
 		<CodeBlock language="css" code={`html, body { @apply h-full overflow-hidden; }`} />
@@ -131,7 +131,7 @@
 	</svelte:fragment>
 	<!-- ... -->
 </AppShell>
-		`.trim()}
+		`}
 		/>
 		<h4>Sidebars</h4>
 		<p>
@@ -147,7 +147,7 @@
 		<div id="sidebar-left" class="hidden lg:block">Sidebar</div>
 	</svelte:fragment>
 </AppShell>
-		`.trim()}
+		`}
 		/>
 		<Alert>
 			<svelte:fragment slot="title">Pro Tip</svelte:fragment>

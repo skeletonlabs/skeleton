@@ -126,7 +126,7 @@
 // (theme stylesheet here)
 import '@brainandbones/skeleton/styles/${$storeStylesheets === 'simple' ? 'all' : '{stylehsheet}'}.css'; // <--
 // (global stylesheet here)
-			`.trim()}
+			`}
 		/>
 		<TabGroup selected={storeStylesheets} class="pt-4">
 			<Tab value="simple">All Styles</Tab>

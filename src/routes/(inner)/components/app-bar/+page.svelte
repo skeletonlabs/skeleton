@@ -66,7 +66,7 @@
 	(center)
 	<svelte:fragment slot="trail">(trail)</svelte:fragment>
 </AppBar>
-		`.trim()}
+		`}
 		/>
 	</section>
 

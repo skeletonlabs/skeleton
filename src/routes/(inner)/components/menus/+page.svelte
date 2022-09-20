@@ -89,7 +89,7 @@
 		</nav>
 	</div>
 </Menu>
-        `.trim()}
+        `}
 		/>
 	</section>
 

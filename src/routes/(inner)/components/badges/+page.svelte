@@ -101,7 +101,7 @@
 	<Badge icon class="absolute top-0 right-0 z-10">💀</Badge>
 	<Avatar background="bg-primary-500" />
 </div>
-		`.trim()}
+		`}
 		/>
 	</section>
 

@@ -185,17 +185,17 @@
 		<h2>Usage</h2>
 		<h4>Image</h4>
 		<p>Display an image source cropped into the shape.</p>
-		<CodeBlock language="html" code={`<Avatar src="https://i.pravatar.cc/" />`.trim()} />
+		<CodeBlock language="html" code={`<Avatar src="https://i.pravatar.cc/" />`} />
 		<h4>Initials</h4>
 		<p>Display up to two text characters. (ex: Jane Doe would be JD)</p>
-		<CodeBlock language="html" code={`<Avatar initials="JD" />`.trim()} />
+		<CodeBlock language="html" code={`<Avatar initials="JD" />`} />
 		<h4>Using Filters</h4>
 		<p>
 			See <a href="/actions/filters">Filters</a> to learn how to import and configure the filters action and SVG filter components.
 		</p>
-		<CodeBlock language="ts" code={`import { filter, Apollo, /* ... */ } from '@brainandbones/skeleton';`.trim()} />
+		<CodeBlock language="ts" code={`import { filter, Apollo, /* ... */ } from '@brainandbones/skeleton';`} />
 		<p>Import the filter action reference using <code>action</code> and set <code>actionParams</code> to the desired filter id.</p>
-		<CodeBlock language="html" code={`<Avatar src="https://i.pravatar.cc/" action={filter} actionParams="Apollo" />`.trim()} />
+		<CodeBlock language="html" code={`<Avatar src="https://i.pravatar.cc/" action={filter} actionParams="Apollo" />`} />
 	</section>
 
 	<!-- Properties -->

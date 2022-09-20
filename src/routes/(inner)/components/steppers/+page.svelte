@@ -114,7 +114,7 @@
 	</Step>
 	<Step index={1} locked={true}>(content)</Step>
 </Stepper>
-        `.trim()}
+        `}
 		/>
 		<p>Create a function to handle your Stepper's <code>on:complete</code> event.</p>
 		<CodeBlock language="typescript" code={`const onComplete: any = () => { /* handle the event */ }`} />

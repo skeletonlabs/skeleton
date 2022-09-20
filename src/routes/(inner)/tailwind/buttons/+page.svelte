@@ -288,7 +288,7 @@
 .btn-filled-surface {
 	@apply text-white;
 }
-				`.trim()}
+				`}
 			/>
 		</div>
 	</section>

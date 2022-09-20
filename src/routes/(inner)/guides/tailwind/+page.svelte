@@ -32,7 +32,7 @@ module.exports = {
     ],
     // ...
 }
-        `.trim()}
+        `}
 		/>
 		<h3>Add the Skeleton Plugin</h3>
 		<p>
@@ -49,7 +49,7 @@ module.exports = {
         require("@brainandbones/skeleton/tailwind/theme.cjs")
     ]
 }
-        `.trim()}
+        `}
 		/>
 	</section>
 

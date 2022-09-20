@@ -39,7 +39,7 @@
 	<!-- Usage -->
 	<section class="space-y-4">
 		<h2>Usage</h2>
-		<CodeBlock language="html" code={`<div>UsageExample</div>`.trim()} />
+		<CodeBlock language="html" code={`<div>UsageExample</div>`} />
 	</section>
 
 	<!-- Properties -->

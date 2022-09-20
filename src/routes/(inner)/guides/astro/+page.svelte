@@ -8,7 +8,7 @@
 	function triggerMessage(): void { console.log('Hello, Skeleton'); }
 \<\/script\>\n
 <a class="btn btn-filled-primary" on:click={() => { triggerMessage() }}>Trigger</a>
-`.trim();
+`;
 </script>
 
 <div class="space-y-8">
@@ -56,7 +56,7 @@ import '../styles/base.css';
     <slot />
 </body>
 </html>
-`.trim()}
+`}
 		/>
 		<!-- Implement Layout -->
 		<h4>Use Layouts in Pages</h4>
@@ -72,7 +72,7 @@ import LayoutBasic from '../layouts/LayoutBasic.astro';
 <LayoutBasic>
     <h1>Hello Skeleton</h1>
 </LayoutBasic>
-            `.trim()}
+            `}
 		/>
 	</section>
 
@@ -101,7 +101,7 @@ import { LogoCloud, Logo } from '@brainandbones/skeleton';
         </Logo>
     </LogoCloud>
 </LayoutBasic>
-        `.trim()}
+        `}
 		/>
 		<h4>Dynamic</h4>
 		<p>
@@ -123,7 +123,7 @@ import WrapperExample from '../components/WrapperExample.svelte';
 <LayoutBasic>
     <WrapperExample client:visible></WrapperExample>
 </LayoutBasic>
-        `.trim()}
+        `}
 		/>
 		<p>
 			Please note that dynamic components must be hydrated using <a href="https://docs.astro.build/en/reference/directives-reference/#client-directives" target="_blank">Astro's Client Directives</a>.

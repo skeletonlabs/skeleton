@@ -91,7 +91,7 @@
     <svelte:fragment slot="message">This is a basic tooltip.</svelte:fragment>
     <svelte:fragment slot="content"><button class="btn btn-ghost">Default</button></svelte:fragment>
 </Tooltip>
-        `.trim()}
+        `}
 		/>
 		<h3>Styled</h3>
 		<CodeBlock
@@ -106,7 +106,7 @@
         <button class="btn btn-ghost">Styled</button>
     </svelte:fragment>
 </Tooltip>
-        `.trim()}
+        `}
 		/>
 	</section>
 

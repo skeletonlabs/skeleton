@@ -116,14 +116,14 @@ const page: any = {
     size: source.length
     amounts: [1,2,5,10],
 };
-        `.trim()}
+        `}
 		/>
 		<CodeBlock
 			language="typescript"
 			code={`
 function onPageChange(e: any): void { console.log('event:page', e.detail); }
 function onAmountChange(e: any): void { console.log('event:amount', e.detail); }
-        `.trim()}
+        `}
 		/>
 		<CodeBlock
 			language="html"
@@ -136,7 +136,7 @@ function onAmountChange(e: any): void { console.log('event:amount', e.detail); }
     on:page={onPageChange}
     on:amount={onAmountChange}
 ></Paginator>
-        `.trim()}
+        `}
 		/>
 		<h3>Utilizing Pagination</h3>
 		<p>
@@ -145,7 +145,7 @@ function onAmountChange(e: any): void { console.log('event:amount', e.detail); }
 				target="_blank">slice</a
 			> method. See a minimal example below.
 		</p>
-		<CodeBlock language="typescript" code={`const source: any[] = [ /* any array of objects */ ]`.trim()} />
+		<CodeBlock language="typescript" code={`const source: any[] = [ /* any array of objects */ ]`} />
 		<CodeBlock
 			language="typescript"
 			code={`
@@ -153,7 +153,7 @@ $: sourcePaginated = source.slice(
     page.offset * page.limit, // start
     page.offset * page.limit + page.limit // end
 );
-        `.trim()}
+        `}
 		/>
 		<CodeBlock
 			language="html"
@@ -163,7 +163,7 @@ $: sourcePaginated = source.slice(
     <li>{row}</li>
     {/each}
 </ul>
-        `.trim()}
+        `}
 		/>
 	</section>
 

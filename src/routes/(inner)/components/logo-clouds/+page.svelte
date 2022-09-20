@@ -81,7 +81,7 @@
 		<span>Skeleton</span>
 	</Logo>
 </LogoCloud>
-			`.trim()}
+			`}
 		/>
 	</section>
 
