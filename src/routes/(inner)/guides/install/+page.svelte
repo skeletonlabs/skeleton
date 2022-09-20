@@ -7,22 +7,18 @@
 <div class="space-y-10">
 	<!-- Install -->
 	<section class="space-y-4">
-		<h1>Install Skeleton</h1>
-		<p>
-			Select your app framework of choice, then follow steps below. During this process you'll scaffold a project, install the Skeleton package, install and configure Tailwind, as well as implement a
-			custom theme. Make sure to follow each guide carefully.
-		</p>
-
-		<TabGroup selected={storeFramework} class="pt-4">
+		<h1>Installation</h1>
+		<p>Let's generate a basic project and install the Skeleton package. Make sure to follow each section in "Getting Started" very carefully.</p>
+		<!-- Tabs -->
+		<TabGroup selected={storeFramework}>
 			<Tab value="sveltekit">SvelteKit</Tab>
 			<Tab value="vite">Vite (Svelte)</Tab>
 			<Tab value="astro">Astro</Tab>
 		</TabGroup>
-
 		<!-- Framework: SvelteKit -->
 		{#if $storeFramework === 'sveltekit'}
 			<p>
-				View the <a href="https://kit.svelte.dev/docs/introduction#getting-started" target="_blank">official documentation.</a>
+				View the <a href="https://kit.svelte.dev/docs/introduction#getting-started" target="_blank">official documentation</a> for the latest instructions.
 			</p>
 			<CodeBlock
 				language="console"
@@ -38,7 +34,7 @@ npm run dev
 			<!-- Framework: Vite (Svelte) -->
 		{:else if $storeFramework === 'vite'}
 			<p>
-				View the <a href="https://vitejs.dev/guide/#scaffolding-your-first-vite-project" target="_blank">official documentation</a>.
+				View the <a href="https://vitejs.dev/guide/#scaffolding-your-first-vite-project" target="_blank">official documentation</a> for the latest instructions.
 			</p>
 			<CodeBlock
 				language="console"
@@ -52,8 +48,7 @@ npm run dev
 			<!-- Framework: Astro -->
 		{:else if $storeFramework === 'astro'}
 			<p>
-				View the <a href="https://docs.astro.build/en/install/auto/" target="_blank">official documentation</a>. Once setup of Skeleton is complete, please read the dedicated
-				<a href="/guides/astro">Usage with Astro</a> guide.
+				View the <a href="https://docs.astro.build/en/install/auto/" target="_blank">official documentation</a> for the latest instructions.
 			</p>
 			<CodeBlock
 				language="console"
@@ -72,27 +67,8 @@ npm run dev
 				Add Svelte integration via <a href="https://docs.astro.build/en/guides/integrations-guide/svelte/" target="_blank">@astrojs/svelte</a>
 			</p>
 			<CodeBlock language="console" code={`npx astro add svelte`} />
-			<!-- Tailwind -->
-			<h3>Install Tailwind</h3>
-			<p>
-				Add Tailwind integration via <a href="https://docs.astro.build/en/guides/integrations-guide/tailwind/" target="_blank">@astrojs/tailwind</a>
-			</p>
-			<CodeBlock language="console" code={`npx astro add tailwind`} />
-			<p>Add <code>/src/styles/base.css</code> to house global styles and define the following @tailwind directives:</p>
-			<CodeBlock language="css" code={`@tailwind base;\n@tailwind components;\n@tailwind utilities;`} />
 		{/if}
 	</section>
-
-	<!-- Install Tailwind -->
-	{#if ['sveltekit', 'vite'].includes($storeFramework)}
-		<section class="space-y-4">
-			<h3>Install Tailwind</h3>
-			<p>
-				<a href="https://github.com/svelte-add/tailwindcss" target="_blank">Svelte-Add</a> makes installation a trivial process.
-			</p>
-			<CodeBlock language="console" code={`npx svelte-add@latest tailwindcss\nnpm install`} />
-		</section>
-	{/if}
 
 	<!-- Install Skeleton -->
 	<section class="space-y-4">

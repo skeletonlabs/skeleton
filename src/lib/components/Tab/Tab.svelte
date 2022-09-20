@@ -33,7 +33,7 @@
 	// Reactive Classes
 	$: isSelected = value == $selected;
 	$: classesSelected = isSelected ? `${borderWidth} ${borderColor} ${color} ${fill}` : `${borderWidth} ${cBorderColor}`;
-	$: classesBase = `${cBase} ${classesSelected} ${hover} ${rounded}`;
+	$: classesBase = `${cBase} ${classesSelected} ${hover} ${rounded} ${$$props.class || ''}`;
 	$: classesLead = isSelected ? `${fill}` : 'fill-surface-500';
 	$: classesLabel = `${cBaseLabel}`;
 </script>
