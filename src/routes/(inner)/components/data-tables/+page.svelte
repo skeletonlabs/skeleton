@@ -187,13 +187,13 @@ const source: any[] = [
     { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
     { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
 ];
-            `.trim()}
+            `}
 			/>
 			<CodeBlock
 				language="html"
 				code={`
 <DataTable {headings} {source}></DataTable>
-            `.trim()}
+            `}
 			/>
 			<h3>Fully Featured</h3>
 			<p>The example below includes search, sort, and item count. Note that source is binding to provide item count.</p>
@@ -217,7 +217,7 @@ const tableLocal: any = {
         { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
     ]
 };
-            `.trim()}
+            `}
 			/>
 			<CodeBlock
 				language="html"
@@ -234,7 +234,7 @@ const tableLocal: any = {
     <svelte:fragment slot="header"><input type="search" placeholder="Search..." bind:value={tableLocal.search}></svelte:fragment>
     <svelte:fragment slot="footer">{tableLocal.source.length} Items</svelte:fragment>
 </DataTable>
-            `.trim()}
+            `}
 			/>
 		{/if}
 		<!-- Tab: Async -->
@@ -244,7 +244,7 @@ const tableLocal: any = {
 				language="typescript"
 				code={`
 const tableServer: any = { search: undefined, sort: undefined, headings: undefined, count: 0 };
-            `.trim()}
+            `}
 			/>
 			<p>Fetch API data from a server, then map headings and the default sort value.</p>
 			<CodeBlock
@@ -258,7 +258,7 @@ async function getTableSource(): Promise<any> {
     if (http.ok) { return res; } else { throw new Error(res); }
 }
 let tablePromise: Promise<any> = getTableSource();
-            `.trim()}
+            `}
 			/>
 			<p>Use Svelte await blocks to handle loading, complete, and error states. Please ensure you bind 'count' to handle item count.</p>
 			<CodeBlock
@@ -283,7 +283,7 @@ let tablePromise: Promise<any> = getTableSource();
 {:catch error}
     <p style="text-center text-warning-500">{error.message}</p>
 {/await}
-            `.trim()}
+            `}
 			/>
 			<p>If you prefer to use server-side search and sort, enable the 'async' property. This disables local search and sort within the component.</p>
 			<CodeBlock
@@ -297,7 +297,7 @@ let tablePromise: Promise<any> = getTableSource();
     async
 ></DataTable>
 <!-- (error) -->
-            `.trim()}
+            `}
 			/>
 		{/if}
 		<p>Handle events for sort and row selection. These are enabled for the demos at the top of the page. View your browser's console log during interaction.</p>
@@ -306,7 +306,7 @@ let tablePromise: Promise<any> = getTableSource();
 			code={`
 function onSort(event: any): void { console.log('event:onSort', event.detail); }
 function onSelect(event: any): void { console.log('event:onSelect', event.detail); }
-            `.trim()}
+            `}
 		/>
 	</section>
 

@@ -157,7 +157,7 @@
     <ListItem>Item B</ListItem>
     <ListItem>Item C</ListItem>
 </List>
-        `.trim()}
+        `}
 		/>
 		<h3>Role and Slot</h3>
 		<CodeBlock
@@ -169,7 +169,7 @@
         Item A
     </ListItem>
 </List>
-        `.trim()}
+        `}
 		/>
 		<h3>Description List</h3>
 		<CodeBlock
@@ -181,7 +181,7 @@
         <svelte:fragment slot="dd"><p>Description for A</p></svelte:fragment>
     </ListItem>
 </List>
-        `.trim()}
+        `}
 		/>
 		<h3>Navigation Lists</h3>
 		<CodeBlock
@@ -191,7 +191,7 @@
     <ListItem href="/">Link Example 1</ListItem>
     <ListItem href="/">Link Example 2</ListItem>
 </List>
-        `.trim()}
+        `}
 		/>
 		<h3>Selection Listbox</h3>
 		<p>Define a writable store to house the selection state, then apply a value property to each child.</p>
@@ -204,7 +204,7 @@
     <ListItem value={1}>Selection Example 1</ListItem>
     <ListItem value={2}>Selection Example 2</ListItem>
 </List>
-        `.trim()}
+        `}
 		/>
 		<h6>Multiple Values</h6>
 		<CodeBlock language="typescript" code={`let storeMultiple: Writable<any[]> = writable(['A', 'B']);`} />
@@ -216,7 +216,7 @@
     <ListItem value={'B'}>Item B</ListItem>
     <ListItem value={'C'}>Item C</ListItem>
 </List>
-        `.trim()}
+        `}
 		/>
 	</section>
 

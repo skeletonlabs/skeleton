@@ -12,7 +12,7 @@
 			This <a href="/guides/styling">stylesheet add-on</a> provides a theme supports to form elements when paired with the
 			<a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Tailwind Forms plugin</a>.
 		</p>
-		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/forms.css';`.trim()} />
+		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/forms.css';`} />
 	</header>
 
 	<!-- Preview -->
@@ -57,7 +57,7 @@ module.exports = {
 		// ...
 	],
 }
-				`.trim()}
+				`}
 				/>
 			</div>
 		</div>
@@ -74,7 +74,7 @@ module.exports = {
 	<span>Name</span>
 	<input type="text" id="name" bind:value={name} minlength="2" required>
 </label>
-		`.trim()}
+		`}
 		/>
 		<CodeBlock
 			language="html"
@@ -87,7 +87,7 @@ module.exports = {
 		<option value="blue">blue</option>
 	</select>
 </label>
-		`.trim()}
+		`}
 		/>
 	</section>
 </div>

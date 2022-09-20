@@ -68,7 +68,7 @@
 		<h2>Toast Component</h2>
 		<p>Add the following to your app's root layout so that the component stays in scope for whenever you might trigger it:</p>
 		<CodeBlock language="javascript" code={`import { Toast } from '@brainandbones/skeleton';`} />
-		<CodeBlock language="html" code={`<Toast background="bg-accent-500" position="tr" variant="filled" duration={250} />`.trim()} />
+		<CodeBlock language="html" code={`<Toast background="bg-accent-500" position="tr" variant="filled" duration={250} />`} />
 	</section>
 
 	<!-- Properties -->
@@ -112,7 +112,7 @@ const t: ToastMessage = {
     timeout: 5000,
     button: { label: 'Greeting', action: () => { alert('Hello, Skeleton'); }}
 };
-        `.trim()}
+        `}
 		/>
 	</section>
 

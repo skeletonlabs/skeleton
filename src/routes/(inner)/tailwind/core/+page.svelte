@@ -9,7 +9,7 @@
 	<header class="space-y-4">
 		<h1>Core</h1>
 		<p>This <a href="/guides/styling">stylesheet add-on</a> handles global app styles.</p>
-		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/core.css';`.trim()} />
+		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/core.css';`} />
 	</header>
 
 	<!-- Usage -->

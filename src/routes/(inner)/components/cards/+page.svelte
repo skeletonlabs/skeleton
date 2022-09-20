@@ -100,7 +100,7 @@
 	(body)
 	<svelte:fragment slot="footer">(footer)</svelte:fragment>
 </Card>
-		`.trim()}
+		`}
 		/>
 	</section>
 

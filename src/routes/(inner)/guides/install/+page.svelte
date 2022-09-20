@@ -33,7 +33,7 @@ npm create svelte@latest sveltekit-skeleton-app
 cd sveltekit-skeleton-app
 npm install
 npm run dev
-            `.trim()}
+            `}
 			/>
 			<!-- Framework: Vite (Svelte) -->
 		{:else if $storeFramework === 'vite'}
@@ -47,7 +47,7 @@ npm create vite@latest my-app -- --template svelte-ts
 cd my-app
 npm install
 npm run dev
-            `.trim()}
+            `}
 			/>
 			<!-- Framework: Astro -->
 		{:else if $storeFramework === 'astro'}
@@ -64,7 +64,7 @@ npm create astro@latest astro-skeleton-app
     - Use 'Typescript: Strict'
 cd astro-skeleton-app
 npm run dev
-            `.trim()}
+            `}
 			/>
 			<!-- Svelte -->
 			<h3>Install Svelte</h3>

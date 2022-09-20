@@ -187,7 +187,7 @@
 		<CodeBlock
 			language="html"
 			code={`<Dialog backdrop="bg-primary-500/50" blur="backdrop-blur-sm" card="bg-primary-500" duration={250} />
-        `.trim()}
+        `}
 		/>
 	</section>
 
@@ -232,7 +232,7 @@ const d: DialogAlert = {
     title: 'Welcome to <strong>Skeleton</strong>.',
     body: 'This is a standard alert dialog.',
 };
-            `.trim()}
+            `}
 			/>
 		</div>
 		<!-- Confirm -->
@@ -251,7 +251,7 @@ const d: DialogConfirm = {
     body: 'Are you sure you wish to proceed?',
     result: (r: boolean) => { console.log(r); }
 };
-            `.trim()}
+            `}
 			/>
 		</div>
 		<!-- Prompt -->
@@ -270,7 +270,7 @@ const d: DialogPrompt = {
     value: valuePrompt,
     result: (r: string) => { if (r) { console.log(r); }; }
 };
-            `.trim()}
+            `}
 			/>
 		</div>
 	</section>
@@ -293,7 +293,7 @@ const d: DialogAlert = {
     body: 'See the embedded image below.',
     image: 'https://source.unsplash.com/random/480x320?skeleton'
 };
-            `.trim()}
+            `}
 			/>
 		</div>
 		<!-- HTML -->
@@ -308,7 +308,7 @@ const d: DialogAlert = {
     body: 'See the embedded HTML content below.',
     html: \`<div class="bg-green-500 p-4">Hello, Skeleton</div>\`
 };
-            `.trim()}
+            `}
 			/>
 		</div>
 		<!-- Component -->
@@ -328,7 +328,7 @@ const d: DialogAlert = {
         slot: '<p class="text-center">Hello, Skeleton!</p>'
     }
 };
-            `.trim()}
+            `}
 			/>
 		</div>
 	</section>

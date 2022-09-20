@@ -54,7 +54,7 @@
 	<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Flowbite Version</h5>
 	<p class="font-normal text-gray-700 dark:text-gray-400">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
 </a>
-						`.trim()}
+						`}
 						/>
 						<p>We make several small adjustements to take advantage of Skeleton's styles and theme system:</p>
 						<ul class="list-disc list-inside opacity-60">
@@ -70,7 +70,7 @@
 	<h2 class="mb-2 tracking-tight text-surface-900 dark:text-white">Flowbite + Skeleton = ❤️</h2>
 	<p class="font-normal text-surface-700 dark:text-surface-400">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
 </a>
-						`.trim()}
+						`}
 						/>
 						<p>Here's the final result. Try toggling dark mode on/off to see how the card style adapts.</p>
 						<a

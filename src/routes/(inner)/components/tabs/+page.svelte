@@ -136,7 +136,7 @@ let storeTab: Writable<string> = writable('a');`}
         <span>Tab B</span>
     </Tab>
 </TabGroup>
-        `.trim()}
+        `}
 		/>
 		<CodeBlock
 			language="html"
@@ -144,7 +144,7 @@ let storeTab: Writable<string> = writable('a');`}
 <!-- Conditionally display content -->
 {#if $storeTab === 'a'}Content A{/if}
 {#if $storeTab === 'b'}Content B{/if}
-        `.trim()}
+        `}
 		/>
 	</section>
 

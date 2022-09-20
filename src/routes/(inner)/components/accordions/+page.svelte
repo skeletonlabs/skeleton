@@ -131,7 +131,7 @@
         <svelte:fragment slot="content"><p>Content 3</p></svelte:fragment>
     </AccordionItem>
 </AccordionGroup>
-`.trim()}
+`}
 		/>
 	</section>
 

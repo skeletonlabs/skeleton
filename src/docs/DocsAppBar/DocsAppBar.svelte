@@ -75,7 +75,7 @@
 				}}>Components</a
 			>
 			<a
-				href="/actions/filters"
+				href="/actions/clipboard"
 				class="navlink"
 				on:click={() => {
 					scrollSidebarTo('#nav-actions');

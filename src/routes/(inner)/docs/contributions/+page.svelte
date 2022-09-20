@@ -46,9 +46,8 @@
 				helping!
 			</li>
 			<li>
-				Let Skeleton contributors know what you would like to see added. See the <a
-					href="https://github.com/Brain-Bones/skeleton/wiki/%F0%9F%9B%A3%EF%B8%8F-The-Skeleton-Roadmap"
-					target="_blank">roadmap</a
+				Let Skeleton contributors know what you would like to see added. See the <a href="https://github.com/Brain-Bones/skeleton/wiki/%F0%9F%9B%A3%EF%B8%8F-The-Skeleton-Roadmap" target="_blank"
+					>roadmap</a
 				>
 				and and review the current <a href="https://github.com/Brain-Bones/skeleton/discussions/79" target="_blank">discussion thread</a>.
 			</li>
@@ -160,7 +159,7 @@
 			code={`
 <div class="bg-orange-500">Skeleton</div> ❌
 <div class="bg-accent-500">Skeleton</div> ✅ 
-        `.trim()}
+        `}
 		/>
 		<p>
 			If you need to include miscellaneous attributes that were not defined as props, use Svelte's <code>$$restProps</code>. Be careful though, this can overwrite the element's
@@ -173,7 +172,7 @@
 function prunedRestProps(): any {
     delete $$restProps.class;
     return $$restProps;
-}`.trim()}
+}`}
 		/>
 		<CodeBlock language="html" code={`<button class="... {$$props.class || ''}" {...prunedRestProps()}>Skeleton</button>`} />
 	</section>
@@ -201,7 +200,7 @@ export let background: string = 'bg-primary-500'; // background color
 export let color: string = 'text-primary-500'; // text color
 export let rounded: string = 'rounded-xl'; // border radius
 export let visible: boolean = false;
-        `.trim()}
+        `}
 		/>
 	</section>
 
@@ -224,7 +223,7 @@ export let visible: boolean = false;
 			code={`
 let cBaseElement: string = 'bg-surface-500 p-4 rounded'; // parent element styles
 let cBaseLabel: string = 'text-base'; // base label styles
-        `.trim()}
+        `}
 		/>
 		<!-- Dynamic Classes -->
 		<h3>Dynamic Classes</h3>
@@ -242,7 +241,7 @@ let cOutlined: string = '';
 function setOutlined(): void {
     cOutlined = outlined ? 'border-2 border-primary-500' : 'border-none';
 }
-        `.trim()}
+        `}
 		/>
 		<p>The following allows these functions to run each time a property updates. Otherwise, the class logic will only be run once, on initialization.</p>
 		<CodeBlock
@@ -253,7 +252,7 @@ afterUpdate(() => {
     setOutlined();
     setSomethingElse();
 });
-        `.trim()}
+        `}
 		/>
 		<!-- Reactive Classes -->
 		<h3>Reactive Classes</h3>
@@ -263,7 +262,7 @@ afterUpdate(() => {
 			code={`
 $: classesCard = \`\${cBase} \${cOutlined}\`; // parent element
 $: classesLabel = \`\${cBaseLabel}\`; // child element
-        `.trim()}
+        `}
 		/>
 		<p>
 			Apply the reactive classes as follows. Make sure to also include <code>$$props.classes</code> as a pass-through for additional classes. Note that the first class acts as an identifier for the element,
@@ -275,7 +274,7 @@ $: classesLabel = \`\${cBaseLabel}\`; // child element
 <div class="card {classesCard} {$$props.classes||''}">
     <label class="card-label {classesLabel}">My Label</label>
 </div>
-        `.trim()}
+        `}
 		/>
 		<p>Optionaly, we can use reactive classes to simply the dynamic classes example above.</p>
 		<CodeBlock
@@ -285,7 +284,7 @@ export let outlined: boolean;
 
 $: classesOutlined = outlined ? 'border-2 border-primary-500' : 'border-none';
 $: classesCard = \`\${cBase} \${classesOutlined}\`;
-		`.trim()}
+		`}
 		/>
 		<p>This prevents the need for the <code>afterUpdate()</code> method.</p>
 	</section>

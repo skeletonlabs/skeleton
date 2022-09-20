@@ -71,7 +71,7 @@ const dataSet: any[] = [
     {label: 'Indigo', swathe: {color: 'indigo', weight: 500}, start: 35, end: 60},
     {label: 'Rose', swathe: {color: 'rose', weight: 500}, start: 60, end: 100},
 ];
-        `.trim()}
+        `}
 		/>
 		<h3>Spinner</h3>
 		<CodeBlock
@@ -80,7 +80,7 @@ const dataSet: any[] = [
 <ConicGradient data={dataSet} width="w-8" class="animate-spin">
     <small>Loading</small>    
 </ConicGradient>
-        `.trim()}
+        `}
 		/>
 		<CodeBlock
 			language="js"
@@ -89,7 +89,7 @@ const dataSet: any[] = [
     {swathe: {color: 'transparent'}, start: 0, end: 25},
     {swathe: {color: 'slate', weight: 500}, start: 75, end: 100},
 ];
-        `.trim()}
+        `}
 		/>
 	</section>
 

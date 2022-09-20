@@ -68,7 +68,7 @@
 // (theme stylesheet here)
 import '@brainandbones/skeleton/styles/{stylehsheet}.css'; // <--
 // (global stylesheet here)
-			`.trim()}
+			`}
 		/>
 		<p>Import each desired add-on in the order shown below. Be sure to set the appropriate file name as follows.</p>
 		<!-- Table -->
@@ -113,7 +113,7 @@ import '@brainandbones/skeleton/styles/{stylehsheet}.css'; // <--
 			language="html"
 			code={`
 <Card background="bg-accent-500">Prop Customized</Card>
-        `.trim()}
+        `}
 		/>
 		<h4>Appending Arbitrary Classes</h4>
 		<p>To go beyond the pre-defined properties, pass a standard <code>class</code> attribute to any component. You can then apply any valid CSS or Tailwind class as expected.</p>
@@ -121,7 +121,7 @@ import '@brainandbones/skeleton/styles/{stylehsheet}.css'; // <--
 			language="html"
 			code={`
 <Card class="text-3xl px-10 py-5">Big</Card>
-        `.trim()}
+        `}
 		/>
 		<p>
 			When overwriting inherited styles, you may need to mark the styles as <code>!important</code>. Tailwind uses a leading exclamation mark to handle this.

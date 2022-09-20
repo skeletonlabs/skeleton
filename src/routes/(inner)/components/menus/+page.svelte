@@ -83,7 +83,7 @@
         </List>
     </Card>
 </Menu>
-        `.trim()}
+        `}
 		/>
 	</section>
 

@@ -68,7 +68,7 @@ export const menuNavLinks: any = [
 		id: 'nav-actions',
 		title: 'Svelte Actions',
 		list: [
-			{ href: '/actions/copytoclipboard', label: 'Copy To Clipboard' },
+			{ href: '/actions/clipboard', label: 'Clipboard' },
 			{ href: '/actions/filters', label: 'Filters', badge: 'Experimental' }
 		]
 	},

@@ -46,7 +46,7 @@
 	<header class="space-y-4">
 		<h1>Buttons</h1>
 		<p>This <a href="/guides/styling">stylesheet add-on</a> provides a robust set of button styles.</p>
-		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/buttons.css';`.trim()} />
+		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/buttons.css';`} />
 	</header>
 
 	<!-- Sandbox -->
@@ -296,7 +296,7 @@
 .btn-filled-surface {
 	@apply text-white;
 }
-				`.trim()}
+				`}
 			/>
 		</div>
 	</section>

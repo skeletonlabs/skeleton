@@ -26,7 +26,7 @@
 <h4>Skeleton H4</h4>
 <h5>Skeleton H5</h5>
 <h6>Skeleton H6</h6>
-        `.trim()}
+        `}
 			/>
 			<Card slotBody="space-y-6">
 				<h1>Skeleton H1</h1>

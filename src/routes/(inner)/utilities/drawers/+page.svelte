@@ -91,7 +91,7 @@
 			code={`
 import { writable, type Writable } from 'svelte/store';
 const storeDrawer: Writable<boolean> = writable(false);
-        `.trim()}
+        `}
 		/>
 		<p>Implement the Drawer component, passing the store reference. If you wish to make this accessible in global scope of your app, add this to your root layout.</p>
 		<CodeBlock
@@ -100,7 +100,7 @@ const storeDrawer: Writable<boolean> = writable(false);
 <Drawer open={storeDrawer} position="left">
 	(contents)
 </Drawer>
-        `.trim()}
+        `}
 		/>
 		<p>Set the store value to <code>true | false</code> to open or close the Drawer.</p>
 		<CodeBlock language="typescript" code={`const drawerOpen: any = () => { storeDrawer.set(true) };`} />
@@ -117,7 +117,7 @@ const storeDrawer: Writable<boolean> = writable(false);
 			code={`
 <Drawer></Drawer>\n
 <AppShell></AppShell>
-		`.trim()}
+		`}
 		/>
 	</section>
 	<!-- Properties -->

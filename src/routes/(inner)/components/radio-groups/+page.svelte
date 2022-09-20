@@ -82,7 +82,7 @@
     <RadioItem value="horz">Horizontal</RadioItem>
     <RadioItem value="vert">Vertical</RadioItem>
 </RadioGroup>
-        `.trim()}
+        `}
 		/>
 		<p>To set dispay width to 100% use <code>display="flex"</code></p>
 		<CodeBlock language="html" code={`<RadioGroup display="flex"></RadioGroup>`} />

@@ -27,8 +27,9 @@ p {
 	@apply text-base text-surface-500 dark:text-surface-400;
 }
 
+.link,
 a:not(.btn):not(.btn-icon):not(.comp-button):not(.list-row):not(.drawer a):not(.app-bar a):not(.logo):not(.card) {
-	@apply text-primary-500 underline underline-offset-4 decoration-primary-500/20 decoration-dotted;
+	@apply text-primary-500 underline underline-offset-4 decoration-primary-500/20 decoration-dotted cursor-pointer;
 }
 
 blockquote {
@@ -43,10 +44,10 @@ kbd {
 /* === Code Blocks === */
 /* For use outside of Skeleton's CodeBlock component */
 
-pre:not(.codeblock pre) {
+pre:not(.code-block pre) {
 	@apply bg-surface-700 dark:bg-black/20 text-surface-50 p-4 whitespace-pre-wrap text-base overflow-x-auto rounded;
 }
 
-code:not(.codeblock code) {
+code:not(.code-block code) {
 	@apply bg-surface-500/30 text-black dark:text-white text-xs py-1 px-2 rounded;
 }

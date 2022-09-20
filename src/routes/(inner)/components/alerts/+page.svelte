@@ -86,7 +86,7 @@
     <span>(message)</span>      
     <svelte:fragment slot="trail">(trail)</svelte:fragment>
 </Alert>
-        `.trim()}
+        `}
 		/>
 	</section>
 
