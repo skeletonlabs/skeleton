@@ -42,7 +42,7 @@
 	});
 
 	// Disable left sidebar on homepage
-	$: slotSidebarLeft = $page.url.pathname === '/' ? 'w-0' : 'lg:w-auto';
+	$: slotSidebarLeft = $page.url.pathname === '/' ? 'w-0' : 'bg-surface-900/30 lg:w-auto';
 </script>
 
 <!-- Overlays -->
