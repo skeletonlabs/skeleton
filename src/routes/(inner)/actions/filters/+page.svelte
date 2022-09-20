@@ -40,6 +40,7 @@ NOTE: Keep these localized
 			Applies a set of unique <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter" target="_blank">SVG filters</a>. Best used with images, but also available to select components,
 			such as Avatars.
 		</p>
+		<CodeBlock language="javascript" code={`import { filter } from '@brainandbones/skeleton';`} />
 	</header>
 
 	<!-- Examples -->
@@ -98,7 +99,6 @@ NOTE: Keep these localized
 		<p>
 			Use the following <a href="https://svelte.dev/tutorial/actions" target="_blank">Svelte action</a> to to filter any element.
 		</p>
-		<CodeBlock language="javascript" code={`import { filter } from '@brainandbones/skeleton';`} />
 		<CodeBlock language="html" code={`<img src={myImageSrc} use:filter={'BlueNight'}>`} />
 		<h3>Option 2: Using Only CSS</h3>
 		<p>Alternatively you may apply filters using CSS. This is what the action does for you. Note the hash mark is required.</p>

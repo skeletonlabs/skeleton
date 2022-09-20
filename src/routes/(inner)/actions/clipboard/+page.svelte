@@ -6,10 +6,9 @@
 <div class="!mt-0 space-y-8">
 	<!-- Header -->
 	<header class="space-y-4">
-		<div class="flex justify-start items-center space-x-4">
-			<h1>Clipboard</h1>
-		</div>
+		<h1>Clipboard</h1>
 		<p>Allows you to quickly copy select data to the clipboard.</p>
+		<CodeBlock language="ts" code={`import { clipboard } from '@brainandbones/skeleton';`} />
 	</header>
 
 	<!-- Examples -->
@@ -25,10 +24,7 @@
 
 	<!-- Usage -->
 	<section class="space-y-8">
-		<div class="space-y-4">
-			<h2>Usage</h2>
-			<CodeBlock language="ts" code={`import { clipboard } from '@brainandbones/skeleton';`} />
-		</div>
+		<h2>Usage</h2>
 		<!-- Basic -->
 		<div class="space-y-4">
 			<h4>Basic Data</h4>
