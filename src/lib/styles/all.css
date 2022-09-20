@@ -1,0 +1,17 @@
+/* Stylesheet Add-On: all.css */
+/* Import AFTER your theme, but BEFORE your global stylesheet. */
+
+/* Handles Tailwind Directives */
+@import 'tailwind.css';
+
+/* Handles Global Styles */
+@import 'core.css';
+
+/* Handles Typographical Settings */
+@import 'typography.css';
+
+/* Pairs with Tailwind Forms plugin */
+@import 'forms.css';
+
+/* Imports the full set of Tailwind Elements */
+@import 'elements.css';

@@ -13,4 +13,4 @@
 	$: classesSkeleton = `${background} ${width} ${classesRadius} ${classesAnimate} ${$$props.class || ''}`;
 </script>
 
-<div class="placeholder {classesSkeleton}" data-testid="placeholder" />
+<div class="comp-placeholder {classesSkeleton}" data-testid="placeholder" />

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { DataTable, Card, Breadcrumb, Crumb } from '@brainandbones/skeleton';
+	import { DataTable, Breadcrumb, Crumb } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
@@ -41,7 +41,7 @@
 		<div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
 			<div class="space-y-4">
 				<h3>Basic</h3>
-				<Card class="overflow-x-auto">
+				<div class="card card-body overflow-x-auto">
 					<div class="w-full overflow-x-auto min-w-[400px]">
 						<Breadcrumb>
 							<Crumb href="/">Home</Crumb>
@@ -49,11 +49,11 @@
 							<Crumb current>Current</Crumb>
 						</Breadcrumb>
 					</div>
-				</Card>
+				</div>
 			</div>
 			<div class="space-y-4">
 				<h3>Separator</h3>
-				<Card class="overflow-x-auto">
+				<div class="card card-body overflow-x-auto">
 					<div class="w-full overflow-x-auto min-w-[400px]">
 						<Breadcrumb separator={customSeparator}>
 							<Crumb href="/">Home</Crumb>
@@ -61,11 +61,11 @@
 							<Crumb>Current</Crumb>
 						</Breadcrumb>
 					</div>
-				</Card>
+				</div>
 			</div>
 			<div class="space-y-4">
 				<h3>Icons</h3>
-				<Card class="overflow-x-auto">
+				<div class="card card-body overflow-x-auto">
 					<div class="w-full overflow-x-auto min-w-[400px]">
 						<Breadcrumb>
 							<Crumb href="/">
@@ -77,11 +77,11 @@
 							<Crumb>Current</Crumb>
 						</Breadcrumb>
 					</div>
-				</Card>
+				</div>
 			</div>
 			<div class="space-y-4">
 				<h3>Mixed</h3>
-				<Card class="overflow-x-auto">
+				<div class="card card-body overflow-x-auto">
 					<div class="w-full overflow-x-auto min-w-[400px]">
 						<Breadcrumb>
 							<Crumb href="/">
@@ -99,7 +99,7 @@
 							<Crumb>Current</Crumb>
 						</Breadcrumb>
 					</div>
-				</Card>
+				</div>
 			</div>
 		</div>
 	</section>

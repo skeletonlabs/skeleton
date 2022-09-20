@@ -2,7 +2,6 @@
 	// Components
 	import Alert from '$lib/components/Alert/Alert.svelte';
 	import Avatar from '$lib/components/Avatar/Avatar.svelte';
-	import Card from '$lib/components/Card/Card.svelte';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
 	// Fetch Contributors
@@ -49,7 +48,7 @@
 
 		<!-- Features -->
 		<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-			<Card slotBody="space-y-4">
+			<div class="card card-body space-y-4">
 				<div class="bg-orange-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
 					<SvgIcon name="svelte" fill="fill-white" width="w-10" height="h-10" />
 				</div>
@@ -58,35 +57,35 @@
 					Tightly coupled with Svelte, including full support for <a href="https://kit.svelte.dev/" target="_blank">SvelteKit</a>, <a href="https://vitejs.dev/" target="_blank">Vite</a>, and
 					<a href="https://astro.build/" target="_blank">Astro</a>.
 				</p>
-			</Card>
-			<Card slotBody="space-y-4">
+			</div>
+			<div class="card card-body space-y-4">
 				<div class="bg-sky-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
 					<SvgIcon name="tailwind" fill="fill-white" width="w-10" height="h-10" />
 				</div>
 				<h6>Tailwind CSS Integration</h6>
 				<p>Integrate with your design system using Tailwind utility classes to style components.</p>
-			</Card>
-			<Card slotBody="space-y-4">
+			</div>
+			<div class="card card-body space-y-4">
 				<div class="bg-primary-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
 					<SvgIcon name="swatchbook" fill="fill-white" width="w-8" height="h-8" />
 				</div>
 				<h6>Dynamic Themes</h6>
 				<p>Choose from a library of hand crafted preset themes or quickly generate your own in seconds.</p>
-			</Card>
-			<Card slotBody="space-y-4">
+			</div>
+			<div class="card card-body space-y-4">
 				<div class="bg-accent-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
 					<SvgIcon name="screwdriver" fill="fill-white" width="w-8" height="h-8" />
 				</div>
 				<h6>Powerful Utilities</h6>
 				<p>Provides a feature rich UI toolkit for modern web apps, with layouts, dialogs, and more.</p>
-			</Card>
+			</div>
 		</section>
 
 		<!-- Team -->
 		<section class="text-center space-y-6">
 			<h2>Meet The Team</h2>
 			<section class="grid grid-cols-1 md:grid-cols-3 gap-4">
-				<Card slotBody="space-y-2 text-center">
+				<card class="card card-body space-y-2 text-center">
 					<Avatar src="https://avatars.githubusercontent.com/u/1509726?v=4" width="w-24" shadow="shadow-xl" class="mx-auto" />
 					<h5>Chris Simmons</h5>
 					<p>Co-founder and core contributor.</p>
@@ -95,8 +94,8 @@
 						<a href="https://twitter.com/endigodesign" target="_blank"><SvgIcon name="twitter" /></a>
 						<a href="https://www.linkedin.com/in/chris-simmons-8a523a23/" target="_blank"><SvgIcon name="linkedin" /></a>
 					</div>
-				</Card>
-				<Card slotBody="space-y-2 text-center">
+				</card>
+				<card class="card card-body space-y-2 text-center">
 					<Avatar src="https://avatars.githubusercontent.com/u/52718757?v=4" width="w-24" shadow="shadow-xl" class="mx-auto" />
 					<h5>Thomas Jespersen</h5>
 					<p>Co-founder and core contributor.</p>
@@ -104,8 +103,8 @@
 						<a href="https://github.com/thomasbjespersen" target="_blank"><SvgIcon name="github" /></a>
 						<a href="https://www.linkedin.com/in/thomas-jespersen-b77132202/" target="_blank"><SvgIcon name="linkedin" /></a>
 					</div>
-				</Card>
-				<Card slotBody="space-y-2 text-center">
+				</card>
+				<card class="card card-body space-y-2 text-center">
 					<Avatar src="https://avatars.githubusercontent.com/u/10255430?v=4" width="w-24" shadow="shadow-xl" class="mx-auto" />
 					<h5>Trey Weir</h5>
 					<p>Core member and founder of <a href="https://www.brainandbonesllc.com/" target="_blank">Brain & Bones</a></p>
@@ -113,7 +112,7 @@
 						<a href="https://twitter.com/brain_and_bones" target="_blank"><SvgIcon name="twitter" /></a>
 						<a href="https://www.linkedin.com/company/brainandbones/" target="_blank"><SvgIcon name="linkedin" /></a>
 					</div>
-				</Card>
+				</card>
 			</section>
 		</section>
 
@@ -123,11 +122,9 @@
 			<div class="text-center space-y-8">
 				<h2>Sponsors</h2>
 				<div class="flex flex-wrap justify-center space-x-4">
-					<a href="https://www.brainandbonesllc.com/" target="_blank" class="opacity-90 hover:opacity-100 !no-underline">
-						<Card border="border border-surface-500/30" slotBody="flex flex-col items-center space-y-4">
-							<img src="https://www.brainandbonesllc.com/svg/logo.svg" alt="Brain & Bones" class="h-[32px] invert dark:invert-0" />
-							<p class="text-sm">Brain & Bones</p>
-						</Card>
+					<a class="card card-body flex flex-col items-center space-y-4" href="https://www.brainandbonesllc.com/" target="_blank">
+						<img src="https://www.brainandbonesllc.com/svg/logo.svg" alt="Brain & Bones" class="h-[32px] mx-auto invert dark:invert-0" />
+						<p class="text-sm">Brain & Bones</p>
 					</a>
 				</div>
 				<a class="btn btn-ghost" href="https://github.com/sponsors/Brain-Bones" target="_blank">

@@ -1,0 +1,42 @@
+/* Stylesheet Add-On: button.css */
+
+/* === Lists (Parents) === */
+
+.list,
+.list-dl,
+.list-nav ul {
+	/* List Style */
+	@apply list-none;
+	/* Spacing */
+	@apply space-y-1;
+}
+
+/* === List Items (Children) === */
+
+.list li {
+	/* @apply bg-red-500; */
+	@apply flex items-center space-x-4 whitespace-nowrap;
+	/* Padding */
+	@apply px-4 py-3;
+	/* Rounded */
+	@apply rounded;
+}
+
+.list-dl div {
+	/* @apply bg-blue-500; */
+	@apply flex items-center space-x-4 whitespace-nowrap;
+	/* Padding */
+	@apply px-4 py-3;
+	/* Rounded */
+	@apply rounded;
+}
+
+.list-nav a {
+	@apply flex items-center space-x-4 whitespace-nowrap;
+	/* Padding */
+	@apply px-4 py-3;
+	/* Rounded */
+	@apply rounded;
+	/* Hover */
+	@apply hover:bg-primary-500/10;
+}

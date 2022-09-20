@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { DataTable, Card, Button, SlideToggle } from '@brainandbones/skeleton';
+	import { DataTable, Button, SlideToggle } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
@@ -72,7 +72,7 @@
 	<section class="space-y-4">
 		<div class="space-y-4 xl:space-y-0 xl:grid grid-cols-[2fr,1fr] gap-2">
 			<!-- Example -->
-			<Card slotBody="h-full flex justify-center items-center">
+			<div class="card card-body h-full flex justify-center items-center">
 				<svelte:component
 					this={Button}
 					size={props.size}
@@ -93,9 +93,9 @@
 					</svelte:fragment>
 					Skeleton
 				</svelte:component>
-			</Card>
+			</div>
 			<!-- Options -->
-			<Card slotBody="grid grid-cols-1 2xl:grid-cols-2 gap-4">
+			<div class="card card-body grid grid-cols-1 2xl:grid-cols-2 gap-4">
 				<!-- Size -->
 				<label>
 					<span>Size</span>
@@ -186,7 +186,7 @@
 				</label>
 				<!-- Disabled -->
 				<SlideToggle bind:checked={props.disabled} accent="bg-accent-500">Disabled</SlideToggle>
-			</Card>
+			</div>
 		</div>
 		<CodeBlock
 			language="html"
@@ -212,7 +212,7 @@
 	<section class="space-y-4">
 		<h3>Variants</h3>
 		<p>Skeleton provides variants to quickly and easily create buttons with predefined styles. You may still set rounded and width properties with variants.</p>
-		<Card slotBody="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+		<div class="card card-body grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 			{#each variantExamples as ve}
 				<section>
 					<h3 class="text-center mb-4">{ve.label}</h3>
@@ -228,7 +228,7 @@
 					</div>
 				</section>
 			{/each}
-		</Card>
+		</div>
 		<CodeBlock
 			language="html"
 			code={`

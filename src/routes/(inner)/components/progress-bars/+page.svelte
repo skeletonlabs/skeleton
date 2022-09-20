@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
 
-	import { DataTable, Card, RadioGroup, RadioItem, ProgressBar } from '@brainandbones/skeleton';
+	import { DataTable, RadioGroup, RadioItem, ProgressBar } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	const storeDeterminate: Writable<boolean> = writable(true);
@@ -47,7 +47,7 @@
 	<section class="space-y-4">
 		<div class="space-y-4 xl:space-y-0 xl:grid grid-cols-[2fr,1fr] gap-2">
 			<!-- Example -->
-			<Card slotBody="h-full flex justify-center items-center">
+			<div class="card card-body h-full flex justify-center items-center">
 				<div class="w-[75%]">
 					<svelte:component
 						this={ProgressBar}
@@ -60,9 +60,9 @@
 						track={props.track}
 					/>
 				</div>
-			</Card>
+			</div>
 			<!-- Options -->
-			<Card slotBody="space-y-4">
+			<div class="card card-body space-y-4">
 				<!-- Mode -->
 				<label for="">
 					<RadioGroup selected={storeDeterminate} display="flex">
@@ -117,7 +117,7 @@
 						<option value="bg-warning-500/30">bg-warning-500/30</option>
 					</select>
 				</label>
-			</Card>
+			</div>
 		</div>
 	</section>
 

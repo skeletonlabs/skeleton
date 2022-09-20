@@ -1,6 +1,5 @@
 <script lang="ts">
 	import DataTable from '$lib/components/Table/DataTable.svelte';
-	import Card from '$lib/components/Card/Card.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Tables
@@ -33,9 +32,9 @@
 	</header>
 
 	<!-- Examples -->
-	<Card slotBody="space-y-4">
+	<div class="card card-body space-y-4">
 		<p>(ExamplesHere)</p>
-	</Card>
+	</div>
 
 	<!-- Usage -->
 	<section class="space-y-4">

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
 
-	import { Card, DataTable, Drawer } from '@brainandbones/skeleton';
+	import { DataTable, Drawer } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Drawer Example
@@ -62,7 +62,7 @@
 	</header>
 
 	<!-- Examples -->
-	<Card>
+	<div class="card card-body">
 		<div class="w-0 h-0">
 			<Drawer open={storeDrawer} {position}>
 				<div class="w-full h-full flex justify-center items-center">
@@ -80,7 +80,7 @@
 			<button class="btn btn-ghost" on:click={() => { trigger('top'); }}>Top</button>
 			<button class="btn btn-ghost" on:click={() => { trigger('bottom'); }}>Bottom</button>
 		</div>
-	</Card>
+	</div>
 
 	<!-- Usage -->
 	<section class="space-y-4">

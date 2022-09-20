@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Card, Divider, DataTable } from '@brainandbones/skeleton';
+	import { Divider, DataTable } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import { dialogStore, type DialogAlert, type DialogConfirm, type DialogPrompt } from '$lib/utilities/Dialog/stores';
 
@@ -70,18 +70,18 @@
 		};
 		dialogStore.trigger(d);
 	}
-	function dialogComponent(): void {
-		const d: DialogAlert = {
-			title: 'Component Example',
-			body: 'See the embedded Svelte component below.',
-			component: {
-				element: Card,
-				props: { background: 'bg-orange-500' },
-				slot: '<p class="text-center">Hello, Skeleton!</p>'
-			}
-		};
-		dialogStore.trigger(d);
-	}
+	// function dialogComponent(): void {
+	// 	const d: DialogAlert = {
+	// 		title: 'Component Example',
+	// 		body: 'See the embedded Svelte component below.',
+	// 		component: {
+	// 			element: Card,
+	// 			props: { background: 'bg-orange-500' },
+	// 			slot: '<p class="text-center">Hello, Skeleton!</p>'
+	// 		}
+	// 	};
+	// 	dialogStore.trigger(d);
+	// }
 
 	// Props
 	const tableProps: any = {
@@ -106,7 +106,7 @@
 	<!-- Examples -->
 	<section class="space-y-4">
 		<nav class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-			<Card slotBody="grid grid-cols-1 gap-4">
+			<div class="card card-body grid grid-cols-1 gap-4">
 				<h3>Alerts</h3>
 				<div class="flex justify-between items-center space-x-4">
 					<div>
@@ -129,8 +129,8 @@
 					</div>
 					<button class="btn btn-ghost" on:click={dialogAlertMultiple}>Trigger</button>
 				</div>
-			</Card>
-			<Card slotBody="grid grid-cols-1 gap-4">
+			</div>
+			<div class="card card-body grid grid-cols-1 gap-4">
 				<h3>Embeds</h3>
 				<div class="flex justify-between items-center space-x-4">
 					<div>
@@ -146,15 +146,15 @@
 					</div>
 					<button class="btn btn-ghost" on:click={dialogHtml}>Trigger</button>
 				</div>
-				<div class="flex justify-between items-center space-x-4">
+				<!-- <div class="flex justify-between items-center space-x-4">
 					<div>
 						<h6>Component</h6>
 						<p>Embeds and entire component.</p>
 					</div>
 					<button class="btn btn-ghost" on:click={dialogComponent}>Trigger</button>
-				</div>
-			</Card>
-			<Card slotBody="space-y-4">
+				</div> -->
+			</div>
+			<div class="card card-body space-y-4">
 				<div class="flex justify-between items-center space-x-4">
 					<div class="space-y-2">
 						<h3>Confirm</h3>
@@ -163,8 +163,8 @@
 					<button class="btn btn-ghost" on:click={dialogConfirm}>Trigger</button>
 				</div>
 				<pre>Response: {JSON.stringify(valueConfirm, null, 2)}</pre>
-			</Card>
-			<Card slotBody="space-y-4">
+			</div>
+			<div class="card card-body space-y-4">
 				<div class="flex justify-between items-center space-x-4">
 					<div class="space-y-2">
 						<h3>Prompt</h3>
@@ -173,7 +173,7 @@
 					<button class="btn btn-ghost" on:click={dialogPrompt}>Trigger</button>
 				</div>
 				<pre>Response: {JSON.stringify(valuePrompt, null, 2)}</pre>
-			</Card>
+			</div>
 		</nav>
 	</section>
 

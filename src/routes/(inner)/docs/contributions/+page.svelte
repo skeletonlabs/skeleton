@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { DataTable, Badge, Divider } from '@brainandbones/skeleton';
+	import { DataTable, Divider } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	const tableBranches: any = {
@@ -62,7 +62,7 @@
 	<section class="space-y-4">
 		<h2>
 			Workflow
-			<Badge background="bg-warning-500" class="-translate-y-2">Important</Badge>
+			<sup class="badge bg-warning-500 -translate-y-2">Important</sup>
 		</h2>
 		<p>Avoid commits and PRs without prior discussion. Open-source is most successful when we all work together.</p>
 		<ol class="list-decimal list-inside">
@@ -157,9 +157,9 @@
 		<CodeBlock
 			language="html"
 			code={`
-<div class="bg-orange-500">Skeleton</div> ❌
-<div class="bg-accent-500">Skeleton</div> ✅ 
-        `}
+❌ <div class="bg-orange-500">Skeleton</div>
+✅ <div class="bg-accent-500">Skeleton</div> 
+        `.trim()}
 		/>
 		<p>
 			If you need to include miscellaneous attributes that were not defined as props, use Svelte's <code>$$restProps</code>. Be careful though, this can overwrite the element's

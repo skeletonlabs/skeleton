@@ -1,7 +1,7 @@
 <!-- Layout: (root) -->
 <script lang="ts">
 	import hljs from 'highlight.js';
-	import 'highlight.js/styles/github-dark.css';
+	import '$lib/styles/highlight-js.css'; // was: 'highlight.js/styles/github-dark.css';
 	import { storeHighlightJs } from '$lib/utilities/CodeBlock/stores';
 	storeHighlightJs.set(hljs);
 
@@ -24,12 +24,8 @@
 
 	// Skeleton Theme: skeleton|rocket|modern|seafoam|vintage|sahara|test
 	import '$lib/themes/theme-skeleton.css';
-	// Skeleton Add-On Stylesheets
-	import '$lib/styles/tailwind.css';
-	import '$lib/styles/core.css';
-	import '$lib/styles/typography.css';
-	import '$lib/styles/forms.css';
-	import '$lib/styles/buttons.css';
+	// Skeleton Stylesheets
+	import '$lib/styles/all.css';
 	// Global Stylesheets
 	import '../app.postcss';
 

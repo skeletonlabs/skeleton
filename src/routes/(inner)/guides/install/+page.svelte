@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { storeFramework } from '$docs/stores';
-	import { Card, Divider, TabGroup, Tab } from '@brainandbones/skeleton';
+	import { Divider, TabGroup, Tab } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 </script>
 
@@ -106,8 +106,8 @@ npm run dev
 	<Divider />
 
 	<!-- Next Steps -->
-	<Card slotBody="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+	<div class="card card-body !flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<p>Next, let's configure Tailwind to work with Skeleton.</p>
 		<a class="btn btn-filled-accent" href="/guides/tailwind">Configure Tailwind</a>
-	</Card>
+	</div>
 </div>

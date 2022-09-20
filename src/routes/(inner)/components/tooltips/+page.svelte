@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { DataTable, Card, Alert, Tooltip } from '@brainandbones/skeleton';
+	import { DataTable, Alert, Tooltip } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	const tableProps: any = {
@@ -48,7 +48,7 @@
 	</Alert>
 	<section class="hidden sm:block space-y-4">
 		<!-- Default -->
-		<Card slotBody="space-y-4">
+		<div class="card card-body space-y-4">
 			<div class="flex justify-center items-center space-x-4">
 				<Tooltip>
 					<svelte:fragment slot="message">Tooltip on Top.</svelte:fragment>
@@ -78,7 +78,7 @@
 					<svelte:fragment slot="content"><button class="btn btn-ghost">Right</button></svelte:fragment>
 				</Tooltip>
 			</div>
-		</Card>
+		</div>
 	</section>
 
 	<!-- Usage -->

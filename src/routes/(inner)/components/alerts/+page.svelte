@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { DataTable, Card, Alert } from '@brainandbones/skeleton';
+	import { DataTable, Alert } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	let title = `Hello Skeleton!`;
@@ -46,7 +46,7 @@
 	</header>
 
 	<!-- Examples -->
-	<Card slotBody="space-y-4">
+	<div class="card card-body space-y-4">
 		{#if !visible}<button class="btn btn-ghost" on:click={toggleVisible}>Show Alerts</button>{/if}
 		<Alert {visible}>
 			<svelte:fragment slot="lead">
@@ -71,7 +71,7 @@
 				<button class="btn btn-ghost" on:click={toggleVisible}>&#10005;</button>
 			</svelte:fragment>
 		</Alert>
-	</Card>
+	</div>
 
 	<!-- Usage -->
 	<section class="space-y-4">
@@ -82,7 +82,7 @@
 			code={`
 <Alert {visible}>
     <svelte:fragment slot="lead">(icon)</svelte:fragment>
-    <svelte:fragment slot="title">(title))</svelte:fragment>
+    <svelte:fragment slot="title">(title)</svelte:fragment>
     <span>(message)</span>      
     <svelte:fragment slot="trail">(trail)</svelte:fragment>
 </Alert>
