@@ -7,7 +7,7 @@
 	export let name: string = 'image';
 	export let x: string = '0px';
 	export let y: string = '0px';
-	export let viewBox: string = icons[name].viewBox || '0 0 512 512';
+	export let viewBox: string = icons.get(name)?.viewBox || '0 0 512 512';
 	// Props (Styles)
 	export let fill: string = 'fill-black dark:fill-white';
 	export let width: string = 'w-5';
@@ -37,6 +37,6 @@
     {#if $$slots.default}
         <slot />
     {:else}
-        <path d={icons[name].path} />
+        <path d={icons.get(name)?.path} />
     {/if}
 </svg>
