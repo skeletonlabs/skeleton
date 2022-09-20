@@ -95,8 +95,9 @@
 	<!-- Usage -->
 	<section class="space-y-4">
 		<h2>Usage</h2>
-		<p>Define a writable store to house the selection state, then apply a value property to each child.</p>
-		<h6>Single Value</h6>
+		<p>Define a writable store to house the selection state, then add a <code>value</code> prop to each child. You may optionaly provide an a11y-friendly <code>label</code> prop as well.</p>
+		<h4>Single Value</h4>
+		<p>Create a writable with a singular value (string, number, etc).</p>
 		<CodeBlock language="typescript" code={`const storeSingle: Writable<number> = writable(1);`} />
 		<CodeBlock
 			language="html"
@@ -107,7 +108,8 @@
 </ListBox>
         `.trim()}
 		/>
-		<h6>Multiple Values</h6>
+		<h4>Multiple Values</h4>
+		<p>Create a writable with a an array of Values.</p>
 		<CodeBlock language="typescript" code={`let storeMultiple: Writable<any[]> = writable(['A', 'B']);`} />
 		<CodeBlock
 			language="html"

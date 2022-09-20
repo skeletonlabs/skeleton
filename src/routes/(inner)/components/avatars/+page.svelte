@@ -28,6 +28,7 @@
 	// Store
 	const storeWidth: Writable<string | undefined> = writable('w-48');
 	const storeSrc: Writable<string | undefined> = writable(imgPlaceholder);
+	const storeRounded: Writable<string | undefined> = writable('rounded-full');
 	const storeBorder: Writable<string | undefined> = writable(borderStyles);
 
 	function updateImage(): void {
@@ -44,6 +45,7 @@
 		width: $storeWidth,
 		background: 'bg-surface-500',
 		fill: 'fill-white',
+		rounded: $storeRounded,
 		border: $storeBorder,
 		actionParams: ''
 	};
@@ -110,6 +112,7 @@
 					width={props.width}
 					background={props.background}
 					fill={props.fill}
+					rounded={props.rounded}
 					border={props.border}
 					action={filter}
 					actionParams={props.actionParams}
@@ -130,6 +133,16 @@
 						<RadioItem value="w-24">w-24</RadioItem>
 						<RadioItem value="w-48">w-48</RadioItem>
 						<RadioItem value="w-56">w-56</RadioItem>
+					</RadioGroup>
+				</label>
+				<!-- Rounded -->
+				<label for="">
+					<span>Rounded</span>
+					<RadioGroup selected={storeRounded} display="flex">
+						<RadioItem value="rounded-full">Full</RadioItem>
+						<RadioItem value="rounded-xl">XL</RadioItem>
+						<RadioItem value="rounded-3xl">3XL</RadioItem>
+						<RadioItem value="rounded-none">None</RadioItem>
 					</RadioGroup>
 				</label>
 				<!-- Border -->
