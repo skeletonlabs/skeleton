@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { DataTable, Divider, TabGroup, Tab } from '@brainandbones/skeleton';
+	import { DataTable, TabGroup, Tab } from '@brainandbones/skeleton';
 	import Alert from '$lib/components/Alert/Alert.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import { writable, type Writable } from 'svelte/store';
@@ -111,14 +111,13 @@
 		<p>Review best practies for implementing stylesheets, handling global styles, as well as how to styling each each component.</p>
 	</header>
 
-	<Divider />
+	<hr />
 
 	<!-- Stylesheets -->
 	<section class="space-y-4">
 		<h2>Stylesheets</h2>
 		<p>
-			Skeleton provides a set of modular stylesheets that adapt to your theme and provide a more consistent aesthetic. However, most users should opt for the <code>all.css</code> stylesheet, which ensures
-			all stylesheets are included and imported in the optimal order.
+			Skeleton provides a set of modular stylesheets that adapt to your theme. The easiest option is to use the <code>all.css</code> stylesheet. Import the following in your root layout.
 		</p>
 		<CodeBlock
 			language="typescript"
@@ -155,15 +154,19 @@ import '@brainandbones/skeleton/styles/${$storeStylesheets === 'simple' ? 'all' 
 		</Alert>
 	</section>
 
-	<Divider />
+	<hr />
 
 	<!-- Global Styles -->
 	<section class="space-y-4">
-		<h2>Global Styles</h2>
+		<h2>Global Stylesheet</h2>
 		<p>Here's a few suggested best practices to follow when creating global styles:</p>
 		<ul class="list-disc list-inside space-y-1">
 			<li>
-				Ensure you wrap your core page elements within a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main" target="_blank">main element</a>. The
+				Ensure your <a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank">@tailwind directives</a> are imported only once per project. The <code>all.css</code> stylesheet handles
+				this for you.
+			</li>
+			<li>
+				Wrap your core page elements within a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main" target="_blank">main element</a>. The
 				<a href="/components/app-shell">App Shell</a> component handles this for you.
 			</li>
 			<li>
@@ -171,43 +174,49 @@ import '@brainandbones/skeleton/styles/${$storeStylesheets === 'simple' ? 'all' 
 				<a href="https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction" target="_blank">premature abstraction</a>.
 			</li>
 			<li>
-				Utilize the CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:not" target="_blank">:not pseudo-class</a> to exclude and avoid conflicts with Skeleton component's inherit styles.
+				Utilize the CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:not" target="_blank">:not pseudo-class</a> to exclude and avoid conflicts with inherent component styles.
 			</li>
-			<li>
-				Utilize the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Tailwind Forms plugin</a>
-				to handle form input element styling. View the <a href="/guides/forms">Forms</a> guide for details.
-			</li>
-			<li>We recommend you inspect each imported stylesheet. If you wish to override these, you can do so in your global stylesheet.</li>
+			<li>You can overwrite any imported stylesheet styles in your global stylesheet.</li>
 		</ul>
 	</section>
 
-	<Divider />
+	<hr />
 
 	<!-- Per Component Styles -->
 	<section class="space-y-4">
 		<h2>Styling Components</h2>
-		<p>Skeleton components automatically inherit and utilize your theme colors. However, there may be cases where you want to overwrite or extend the styling on a single component.</p>
+		<p>Skeleton components automatically adapt to your theme. If you would like to customize a single component, see the instruction below.</p>
 		<h4>Using Component Props</h4>
-		<p>Various style properties are available to customize components. These accept Tailwind utility classes. See each component's documentation page for details.</p>
+		<p>All components support style props that accept Tailwind utility classes. See each component's documentation for details.</p>
 		<CodeBlock language="html" code={`<Tab background="bg-accent-500">Prop Customized</Tab>`} />
 		<h4>Appending Arbitrary Classes</h4>
-		<p>To go beyond the pre-defined properties, pass a standard <code>class</code> attribute to any component. You can then apply any valid CSS or Tailwind class as expected.</p>
+		<p>All components support the standard <code>class</code> attribute, allowing you to pass any valid CSS or Tailwind class.</p>
 		<CodeBlock language="html" code={`<Tab class="text-3xl px-10 py-5">Big</Tab>`} />
-		<p>
-			When overwriting inherited styles, you may need to mark the styles as <code>!important</code>. Tailwind uses a leading exclamation mark to handle this.
-		</p>
-		<CodeBlock language="html" code={`<Tab class="!p-10">Big</Tab>`} />
 		<h4>Targetting Component Elements</h4>
 		<p>
-			Keep in mind that components are a single line HTML element and represent a set of HTML elements within. This means you should be mindful of your target, as the <code>class</code> attribute is only
-			applied to the top-most parent element. In rare cases you may need to generate a chained class definition, though we advise using this technique sparingly.
+			Keep in mind that components are a single line element that contains a set of HTML elements within their template. This means you should be mindful of your target, as the <code>class</code> attribute
+			is only applied to the top-most parent element in the template. In some cases you may need to generate a chained class definition, though we advise using this technique sparingly.
 		</p>
 		<CodeBlock language="css" code={`.my-custom-class .some-child-element { @apply bg-red-500; }`} />
 		<CodeBlock language="html" code={`<Menu class="my-custom-class">...</Menu>`} />
-		<h4>Template Element Classes</h4>
-		<p>Finally, if you inspect rendered components in your browser's element DOM, you'll notice that most have classes. There's the Breadcrumb seperator for example:</p>
+		<h4>Component Element Classes</h4>
+		<p>If you inspect rendered components using your browser inpector, you'll note that most have named classes, like <code>crumb-seperator</code> for the breadcrumb component.</p>
 		<CodeBlock language="html" code={`<div class="crumb-seperator ...">&rarr;</div>`} />
-		<p>If you wish to adjust the styling of this element, you can target the <code>.crumb-seperator</code> class in your global stylesheet like so:</p>
+		<p>If you wish to adjust the styling of this element, you can target the <code>.crumb-seperator</code> class in your global stylesheet like so.</p>
 		<CodeBlock language="css" code={`.crumb-seperator { @apply text-red-500; }`} />
+		<h4>Important</h4>
+		<p>
+			Note that when overwriting styles, you may need to mark the style <a href="https://tailwindcss.com/docs/configuration#important-modifier" target="_blank">important</a> to take precedence.
+		</p>
+		<CodeBlock language="html" code={`<Tab class="!p-10">Big</Tab>`} />
+		<CodeBlock language="css" code={`.crumb-crumb { @apply !text-green-500; }`} />
 	</section>
+
+	<hr />
+
+	<!-- Next Steps -->
+	<!-- <div class="card card-body !flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+		<p>Finally, let's scaffold our project.</p>
+		<a class="btn btn-filled-accent" href="/guides/tailwind">Scaffold Project</a>
+	</div> -->
 </div>

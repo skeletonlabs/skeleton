@@ -6,10 +6,9 @@ export const menuNavLinks: any = [
 		title: 'Get Started',
 		list: [
 			{ href: '/guides/install', label: 'Install', icon: 'circle-check' },
-			{ href: '/guides/tailwind', label: 'Tailwind Settings', icon: 'tailwind' },
+			{ href: '/guides/tailwind', label: 'Tailwind CSS', icon: 'tailwind' },
 			{ href: '/guides/themes', label: 'Themes', icon: 'swatchbook' },
-			{ href: '/guides/styling', label: 'Styling', icon: 'pen-ruler' },
-			{ href: '/guides/astro', label: 'Usage with Astro', icon: 'rocket' }
+			{ href: '/guides/styling', label: 'Styling', icon: 'pen-ruler' }
 		]
 	},
 	{
@@ -18,6 +17,8 @@ export const menuNavLinks: any = [
 		list: [
 			{ href: '/docs/why', label: 'Why Skeleton' },
 			{ href: '/docs/comparisons', label: 'Comparisons' },
+			{ href: '/docs/features', label: 'Features', badge: 'New!' },
+			{ href: '/guides/scaffold', label: 'Scaffold a Project' },
 			{ href: '/docs/contributions', label: 'Contributions' }
 		]
 	},
