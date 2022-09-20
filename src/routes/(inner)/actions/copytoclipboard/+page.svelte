@@ -5,13 +5,9 @@
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	// Actions
-	import { copyToClipboard } from '$lib/actions/copyToClipboard';
+	import { clipboard } from '$lib/actions/Clipboard/clipboard';
 
 	let divCopyTarget: HTMLElement;
-
-	// function doCopy():string|null{
-	// 	//return new Promise(resolve => ()=>{return divCopyTarget.textContent}})
-	// }
 </script>
 
 <div class="!mt-0 space-y-8">
@@ -21,16 +17,16 @@
 			<h1>Copy To Clipboard</h1>
 		</div>
 		<p>
-			Provides a Svelte action to copy data to the clipboard
+			A Svelte action to copy data to the clipboard
 		</p>
 	</header>
-	<CodeBlock language="ts" code={"import { copyToClipboard } from '$lib/actions/copyToClipboard';"}/>
+	<CodeBlock language="ts" code={"import { clipboard } from '$lib/actions/copyToClipboard';"}/>
 	<!-- Examples -->
-	<Card slotBody="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4">
-		<!-- <button use:copyToClipboard={divCopyTarget.textContent}>
-			Copy
-		</button>
-		<div bind:this={divCopyTarget}>Text to be copied</div> -->
+	<Card slotBody="flex flex-row items-center justify-between px-10">
+		<button use:clipboard={{target:'divCopyTarget'}} class="btn bg-primary-500">Copy</button>
+		<div data-copy-target="divCopyTarget">Text to be copied using data-copy-target="id"</div>
+		<button use:clipboard={{target:'divCopyTarget'}} class="btn bg-primary-500">Copy</button>
+		<CodeBlock language="ts" code={`let someVar:string = 'this will be copied`} />
 	</Card>
 
 	<!-- Usage -->
