@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { storeCurrentUrl, storeMobileDrawer } from '$docs/stores';
-	// Compoonents
+	// Components
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	// Links
 	import { menuNavLinks } from './links';
