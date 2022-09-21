@@ -114,7 +114,7 @@
 				href="https://material.angular.io/"
 				target="_blank">Angular Material</a
 			>, which adapts the Material Design conventions for the <a href="https://angular.io/" target="_blank">Angular</a> framework. This has actually influenced many of the design decisions for
-			creating Skeleton, including our opinions on <a href="/guides/forms">form components</a>. It makes sense that Svelte Material UI would be popular, as it bridges the benefits of Material Design
+			creating Skeleton, including our opinions on <a href="/tailwind/forms">form components</a>. It makes sense that Svelte Material UI would be popular, as it bridges the benefits of Material Design
 			with the power of Svelte. However, Skeleton has chosen to shy away from the look and feel of Material Design, and instead create a more unique aesthetic. Additionally, Skeleton features tight
 			integration with Tailwind to aid in building a fully realized design system, allowing you to control every aspect of your interface from the ground up. If, for some reason, you are adverse to
 			Tailwind or you wish to lean into the Material Design style, then we would recommend Svelte Material UI. It also has the benefit of being one of the oldest and most mature UI component libraries
