@@ -48,11 +48,12 @@
 
 		<!-- Features -->
 		<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+			<h2 class='sr-only'>Features</h2>
 			<div class="card card-body space-y-4">
 				<div class="bg-orange-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
 					<SvgIcon name="svelte" fill="fill-white" width="w-10" height="h-10" />
 				</div>
-				<h6>Svelte Integration</h6>
+				<h3>Svelte Integration</h3>
 				<p>
 					Tightly coupled with Svelte, including full support for <a href="https://kit.svelte.dev/" target="_blank">SvelteKit</a>, <a href="https://vitejs.dev/" target="_blank">Vite</a>, and
 					<a href="https://astro.build/" target="_blank">Astro</a>.
@@ -62,21 +63,21 @@
 				<div class="bg-sky-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
 					<SvgIcon name="tailwind" fill="fill-white" width="w-10" height="h-10" />
 				</div>
-				<h6>Tailwind CSS Integration</h6>
+				<h3>Tailwind CSS Integration</h3>
 				<p>Integrate with your design system using Tailwind utility classes to style components.</p>
 			</div>
 			<div class="card card-body space-y-4">
 				<div class="bg-primary-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
 					<SvgIcon name="swatchbook" fill="fill-white" width="w-8" height="h-8" />
 				</div>
-				<h6>Dynamic Themes</h6>
+				<h3>Dynamic Themes</h3>
 				<p>Choose from a library of hand crafted preset themes or quickly generate your own in seconds.</p>
 			</div>
 			<div class="card card-body space-y-4">
 				<div class="bg-accent-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
 					<SvgIcon name="screwdriver" fill="fill-white" width="w-8" height="h-8" />
 				</div>
-				<h6>Powerful Utilities</h6>
+				<h3>Powerful Utilities</h3>
 				<p>Provides a feature rich UI toolkit for modern web apps with layouts, dialogs, and more.</p>
 			</div>
 		</section>
