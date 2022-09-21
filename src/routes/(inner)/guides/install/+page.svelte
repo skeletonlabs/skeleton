@@ -55,7 +55,7 @@ npm run dev
 				code={`
 npm create astro@latest astro-skeleton-app
     - Create an empty project
-    - Install all depedencies
+    - Install all dependencies
     - Use 'Typescript: Strict'
 cd astro-skeleton-app
 npm run dev

@@ -108,7 +108,7 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Styling</h1>
-		<p>Review best practies for implementing stylesheets, handling global styles, as well as how to styling each each component.</p>
+		<p>Review best practices for implementing stylesheets, handling global styles, as well as how to styling each each component.</p>
 	</header>
 
 	<hr />
@@ -192,7 +192,7 @@ import '@brainandbones/skeleton/styles/${$storeStylesheets === 'simple' ? 'all' 
 		<h4>Appending Arbitrary Classes</h4>
 		<p>All components support the standard <code>class</code> attribute, allowing you to pass any valid CSS or Tailwind class.</p>
 		<CodeBlock language="html" code={`<Tab class="text-3xl px-10 py-5">Big</Tab>`} />
-		<h4>Targetting Component Elements</h4>
+		<h4>Targeting Component Elements</h4>
 		<p>
 			Keep in mind that components are a single line element that contains a set of HTML elements within their template. This means you should be mindful of your target, as the <code>class</code> attribute
 			is only applied to the top-most parent element in the template. In some cases you may need to generate a chained class definition, though we advise using this technique sparingly.
@@ -200,10 +200,10 @@ import '@brainandbones/skeleton/styles/${$storeStylesheets === 'simple' ? 'all' 
 		<CodeBlock language="css" code={`.my-custom-class .some-child-element { @apply bg-red-500; }`} />
 		<CodeBlock language="html" code={`<Menu class="my-custom-class">...</Menu>`} />
 		<h4>Component Element Classes</h4>
-		<p>If you inspect rendered components using your browser inpector, you'll note that most have named classes, like <code>crumb-seperator</code> for the breadcrumb component.</p>
-		<CodeBlock language="html" code={`<div class="crumb-seperator ...">&rarr;</div>`} />
-		<p>If you wish to adjust the styling of this element, you can target the <code>.crumb-seperator</code> class in your global stylesheet like so.</p>
-		<CodeBlock language="css" code={`.crumb-seperator { @apply text-red-500; }`} />
+		<p>If you inspect rendered components using your browser inspector, you'll note that most have named classes, like <code>crumb-separator</code> for the breadcrumb component.</p>
+		<CodeBlock language="html" code={`<div class="crumb-separator ...">&rarr;</div>`} />
+		<p>If you wish to adjust the styling of this element, you can target the <code>.crumb-separator</code> class in your global stylesheet like so.</p>
+		<CodeBlock language="css" code={`.crumb-separator { @apply text-red-500; }`} />
 		<h4>Important</h4>
 		<p>
 			Note that when overwriting styles, you may need to mark the style <a href="https://tailwindcss.com/docs/configuration#important-modifier" target="_blank">important</a> to take precedence.
