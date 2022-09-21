@@ -4,7 +4,7 @@
 	// Props
 	export let separator: string = `&rsaquo;`;
 	// Props (A11y)
-	export let label: string | undefined = undefined;
+	export let label: string = 'breadcrumb';
 
 	// Context
 	setContext('separator', separator);
@@ -16,6 +16,10 @@
 	$: classesBase = `${cBase} ${$$props.class || ''}`;
 </script>
 
-<div class="breadcrumb {classesBase}" data-testid="breadcrumb" aria-label={label}>
-	<slot />
-</div>
+<nav class="breadcrumb {classesBase}" data-testid="breadcrumb" aria-label={label}>
+	<ol>
+		<li>
+			<slot />
+		</li>
+	</ol>
+</nav>
