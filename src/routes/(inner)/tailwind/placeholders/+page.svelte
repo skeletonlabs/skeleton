@@ -23,7 +23,7 @@
 		<p>
 			Automatically included in <code>all.css</code> and <code>elements.css</code>. This <a href="/guides/styling">stylesheet</a> provides "skeleton" placeholders that can display while content loads.
 		</p>
-		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/placeholders.css';`} />
+		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/elements/placeholders.css';`} />
 	</header>
 
 	<!-- Examples -->

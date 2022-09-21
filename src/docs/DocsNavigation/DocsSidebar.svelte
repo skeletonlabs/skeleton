@@ -40,7 +40,7 @@
 
 <div class="m-4 mb-20 {$$props.class || ''}">
 	<!-- Search -->
-	<input type="search" placeholder="Search..." bind:value={inputSearch} on:keyup={onSearch} />
+	<input type="search" placeholder="Search..." bind:value={inputSearch} on:input={onSearch} />
 	<!-- divider -->
 	<hr class="my-4 opacity-50" />
 	<!-- Lists -->

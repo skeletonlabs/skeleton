@@ -12,7 +12,7 @@ module.exports = {
 	},
 	plugins: [
 		require('@tailwindcss/forms'),
-		require('./src/lib/tailwind/theme.cjs'),
+		require('./src/lib/tailwind/theme.cjs')
 		// FOR TESTING ONLY, NOT READY FOR PRODUCTION USE:
 		// require('./src/lib/tailwind/typography.cjs')
 	]

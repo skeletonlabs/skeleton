@@ -20,7 +20,7 @@
 		<p>
 			Automatically included in <code>all.css</code> and <code>elements.css</code>. This <a href="/guides/styling">stylesheet</a> provides logos for presenting a set of logos, brands, or sponsors.
 		</p>
-		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/logo-clouds.css';`} />
+		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/elements/logo-clouds.css';`} />
 	</header>
 
 	<!-- Examples -->
