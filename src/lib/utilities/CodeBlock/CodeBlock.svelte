@@ -48,7 +48,7 @@
 
 <!-- prettier-ignore -->
 {#if language && code}
-<div class="code-block {classesBase}">
+<div class="code-block {classesBase}" data-testid="code-block">
 	<!-- Header -->
 	<header class="cb-header {cHeader}">
 		<!-- Language -->
