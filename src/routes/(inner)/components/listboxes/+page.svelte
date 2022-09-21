@@ -126,9 +126,9 @@
 	<!-- Properties -->
 	<section class="space-y-4">
 		<h2>Properties</h2>
-		<h3>ListBox</h3>
+		<h3>Listbox</h3>
 		<DataTable headings={tablePropsList.headings} source={tablePropsList.source} />
-		<h3>ListBox Item</h3>
+		<h3>Listbox Item</h3>
 		<p>These properties can be set on the parent to affect all child items.</p>
 		<DataTable headings={tablePropsItems.headings} source={tablePropsItems.source} />
 	</section>
@@ -145,9 +145,9 @@
 			<h2>Accessibility</h2>
 			<a href="https://www.w3.org/WAI/ARIA/apg/patterns/listbox/" target="_blank">ARIA Guidelines</a>
 		</div>
-		<h3>ListBox</h3>
+		<h3>Listbox</h3>
 		<DataTable headings={tableA11yList.headings} source={tableA11yList.source} />
-		<h3>ListBox Item</h3>
+		<h3>Listbox Item</h3>
 		<DataTable headings={tableA11yItem.headings} source={tableA11yItem.source} />
 	</section>
 </div>
