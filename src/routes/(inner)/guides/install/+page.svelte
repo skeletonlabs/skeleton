@@ -62,7 +62,7 @@ npm run dev
             `}
 			/>
 			<!-- Svelte -->
-			<h3>Install Svelte</h3>
+			<h2>Install Svelte</h2>
 			<p>
 				Add Svelte integration via <a href="https://docs.astro.build/en/guides/integrations-guide/svelte/" target="_blank">@astrojs/svelte</a>
 			</p>
@@ -72,7 +72,7 @@ npm run dev
 
 	<!-- Install Skeleton -->
 	<section class="space-y-4">
-		<h3>Install Skeleton</h3>
+		<h2>Install Skeleton</h2>
 		<p>
 			Install the core Skeleton package from <a href="https://www.npmjs.com/package/@brainandbones/skeleton" target="_blank">NPM</a>.
 		</p>
