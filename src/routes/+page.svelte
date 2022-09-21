@@ -84,69 +84,73 @@
 		<!-- Team -->
 		<section class="text-center space-y-6">
 			<h2>Meet The Team</h2>
-			<section class="grid grid-cols-1 md:grid-cols-3 gap-4">
-				<card class="card card-body space-y-2 text-center">
+			<ul class="grid grid-cols-1 md:grid-cols-3 gap-4">
+				<li class="card card-body space-y-2 text-center">
 					<Avatar src="https://avatars.githubusercontent.com/u/1509726?v=4" width="w-24" shadow="shadow-xl" class="mx-auto" />
-					<h5>Chris Simmons</h5>
+					<h3>Chris Simmons</h3>
 					<p>Co-founder and core contributor.</p>
 					<div class="flex justify-center space-x-4">
 						<a href="https://github.com/endigo9740" target="_blank"><SvgIcon name="github" /></a>
 						<a href="https://twitter.com/endigodesign" target="_blank"><SvgIcon name="twitter" /></a>
 						<a href="https://www.linkedin.com/in/chris-simmons-8a523a23/" target="_blank"><SvgIcon name="linkedin" /></a>
 					</div>
-				</card>
-				<card class="card card-body space-y-2 text-center">
+				</li>
+				<li class="card card-body space-y-2 text-center">
 					<Avatar src="https://avatars.githubusercontent.com/u/52718757?v=4" width="w-24" shadow="shadow-xl" class="mx-auto" />
-					<h5>Thomas Jespersen</h5>
+					<h3>Thomas Jespersen</h3>
 					<p>Co-founder and core contributor.</p>
 					<div class="flex justify-center space-x-4">
 						<a href="https://github.com/thomasbjespersen" target="_blank"><SvgIcon name="github" /></a>
 						<a href="https://www.linkedin.com/in/thomas-jespersen-b77132202/" target="_blank"><SvgIcon name="linkedin" /></a>
 					</div>
-				</card>
-				<card class="card card-body space-y-2 text-center">
+				</li>
+				<li class="card card-body space-y-2 text-center">
 					<Avatar src="https://avatars.githubusercontent.com/u/10255430?v=4" width="w-24" shadow="shadow-xl" class="mx-auto" />
-					<h5>Trey Weir</h5>
+					<h3>Trey Weir</h3>
 					<p>Core member and founder of <a href="https://www.brainandbonesllc.com/" target="_blank">Brain & Bones</a></p>
 					<div class="flex justify-center space-x-4">
 						<a href="https://twitter.com/brain_and_bones" target="_blank"><SvgIcon name="twitter" /></a>
 						<a href="https://www.linkedin.com/company/brainandbones/" target="_blank"><SvgIcon name="linkedin" /></a>
 					</div>
-				</card>
-			</section>
+				</li>
+			</ul>
 		</section>
 
 		<!-- Shoutouts -->
 		<section class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20">
 			<!-- Sponsors -->
-			<div class="text-center space-y-8">
+			<ul class="text-center space-y-8">
 				<h2>Sponsors</h2>
 				<div class="flex flex-wrap justify-center space-x-4">
-					<a class="card card-body flex flex-col items-center space-y-4" href="https://www.brainandbonesllc.com/" target="_blank">
+					<li>
+						<a class="card card-body flex flex-col items-center space-y-4" href="https://www.brainandbonesllc.com/" target="_blank">
 						<img src="https://www.brainandbonesllc.com/svg/logo.svg" alt="Brain & Bones" class="h-[32px] mx-auto invert dark:invert-0" />
 						<p class="text-sm">Brain & Bones</p>
-					</a>
+						</a>
+					</li>
 				</div>
 				<a class="btn btn-ghost" href="https://github.com/sponsors/Brain-Bones" target="_blank">
 					<span>Become a Sponsor</span>
 					<span>&rarr;</span>
 				</a>
-			</div>
+			</ul>
 
 			<!-- Contributors -->
 			<div class="text-center space-y-6">
 				<h2>Contributors</h2>
-				<div class="flex flex-wrap justify-center">
+				<ul class="flex flex-wrap justify-center">
 					{#await contributors}
 						<p>Loading contributors...</p>
 					{:then response}
 						{#each response as c}
-							<a href={c.html_url} target="_blank" title={c.login}>
-								<Avatar src={c.avatar_url} size="fluid" shadow="shadow-lg" hover class="m-2 max-w-[50px]" />
-							</a>
+							<li>
+								<a href={c.html_url} target="_blank" title={c.login}>
+									<Avatar src={c.avatar_url} size="fluid" shadow="shadow-lg" hover class="m-2 max-w-[50px]" />
+								</a>
+							</li>
 						{/each}
 					{/await}
-				</div>
+				</ul>
 				<a class="btn btn-ghost" href="/docs/contributions">
 					<span>How to Contribute</span>
 					<span>&rarr;</span>
