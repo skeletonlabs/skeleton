@@ -29,9 +29,9 @@
 
 	// Handle Home/End Input
 	let elemTabGroup: HTMLElement;
-	onMount(() => {
-		elemTabGroup.addEventListener('keydown', (event: any) => {
-			if (['Home', 'End'].includes(event.code)) {
+
+	function keydown (event: KeyboardEvent) {
+		if (['Home', 'End'].includes(event.code)) {
 				event.preventDefault();
 				if (event.code === 'Home') {
 					(elemTabGroup.children[0] as HTMLElement).focus();
@@ -40,13 +40,14 @@
 					(elemTabGroup.children[elemTabGroup.children.length - 1] as HTMLElement).focus();
 				}
 			}
-		});
-	});
+	}
 
 	// Reactive Classes
 	$: classesGroup = `${cBase} ${borderWidth} ${justify} ${$$props.class || ''}`;
 </script>
 
-<nav bind:this={elemTabGroup} data-testid="tab-group" class="tab-group {classesGroup}" role="tablist" aria-labelledby={labeledby} aria-label={label}>
-	<slot />
+<nav>
+	<ul on:keydown={keydown} bind:this={elemTabGroup} data-testid="tab-group" class="tab-group {classesGroup}" role="tablist" aria-labelledby={labeledby} aria-label={label}>
+		<slot />
+	</ul>
 </nav>
