@@ -20,7 +20,7 @@
 	<header class="space-y-4">
 		<h1>Cards</h1>
 		<p>Automatically included in <code>all.css</code> and <code>elements.css</code>. This <a href="/guides/styling">stylesheet</a> provides container elements that wrap and separate content.</p>
-		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/cards.css';`} />
+		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/elements/cards.css';`} />
 	</header>
 
 	<!-- Examples -->

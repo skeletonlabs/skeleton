@@ -44,7 +44,7 @@
 	<header class="space-y-4">
 		<h1>Buttons</h1>
 		<p>Automatically included in <code>all.css</code> and <code>elements.css</code>. This <a href="/guides/styling">stylesheet</a> provides a robust set of button styles.</p>
-		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/buttons.css';`} />
+		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/elements/buttons.css';`} />
 	</header>
 
 	<!-- Sandbox -->
