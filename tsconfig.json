@@ -39,7 +39,7 @@
 			"$root/*": ["./*"],
 			"@brainandbones/skeleton": ["src/lib/index.ts"],
 			"$docs": ["src/docs"],
-			"$docs/*": ["src/docs/*"],
+			"$docs/*": ["src/docs/*"]
 		},
 		"outDir": "package"
 	}
