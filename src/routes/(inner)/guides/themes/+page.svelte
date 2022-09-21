@@ -141,7 +141,7 @@
 			</div>
 		</div>
 		<p class="block">
-			TIP: Use <a href="https://tailwind.simeongriggs.dev/blue/3B82F6" target="_blank">Palette Generator</a> to for complete custom palatte curation. The
+			TIP: Use <a href="https://tailwind.simeongriggs.dev/blue/3B82F6" target="_blank">Palette Generator</a> to complete custom palatte curation. The
 			<a href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba" target="_blank">Hex-To-RGB extension</a>
 			can convert colors from <strong>Hex &rarr; RGB</strong> in bulk within <strong>VS Code</strong>.
 		</p>

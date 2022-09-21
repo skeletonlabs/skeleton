@@ -12,11 +12,11 @@
 	<!-- Tailwind Elements -->
 	<section class="space-y-4">
 		<h2>Tailwind Elements</h2>
-		<p>Mix native HTML elements with Skeleton-provided utility classes. Automatically adapt to your Skeleton theme and can be extended with Tailwind utility classes.</p>
+		<p>Mix native HTML elements with Skeleton-provided utility classes. Automatically adapt to your Skeleton theme and extend with Tailwind utility classes.</p>
 		<ul class="list-disc list-inside space-y-2">
 			<li>Svelte is <u>NOT</u> required to use Tailwind Elements.</li>
 			<li>Do not require imports per each route page like components.</li>
-			<li>A Skeleton-provided stylesheet must be imported in your project (ex: <code>all.css</code>, <code>elements.css</code>, <code>buttons.css</code>)</li>
+			<li>A Skeleton provided stylesheet must be imported in your project (ex: <code>all.css</code>, <code>elements.css</code>, <code>buttons.css</code>)</li>
 			<li>Can be paired with standard Tailwind utility classes.</li>
 		</ul>
 	</section>
@@ -27,8 +27,8 @@
 	<section class="space-y-4">
 		<h2>Svelte Components</h2>
 		<p>
-			These are <a href="https://svelte.dev/" target="_blank">Svelte Components</a> purpose built for the Skeleton library. They can include their own UI templates, scripted logic, and can maintain their
-			own state. These automatically update and adjust to your custom theme, and provide unique props to update and adjust settings per component.
+			These are <a href="https://svelte.dev/" target="_blank">Svelte Components</a> purpose built for the Skeleton library. They can include their own UI templates and scripted logic, and they can maintain
+			their own state. These automatically update and adjust to your custom theme and provide unique props to update and adjust settings per component.
 		</p>
 		<ul class="list-disc list-inside space-y-2">
 			<li>Svelte is required to use Svelte Components.</li>

@@ -77,7 +77,7 @@
 					<SvgIcon name="screwdriver" fill="fill-white" width="w-8" height="h-8" />
 				</div>
 				<h6>Powerful Utilities</h6>
-				<p>Provides a feature rich UI toolkit for modern web apps, with layouts, dialogs, and more.</p>
+				<p>Provides a feature rich UI toolkit for modern web apps with layouts, dialogs, and more.</p>
 			</div>
 		</section>
 

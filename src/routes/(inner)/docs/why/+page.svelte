@@ -49,12 +49,12 @@
 			>, <a href="https://material.io/design" target="_blank">Material Design</a>, and
 			<a href="https://bulma.io/" target="_blank">Bulma</a>. These allow developers to generate a consistent UI for web apps within any frontend tech stack. However, these toolkits only solve half the
 			problem - they provide beautiful UI, but in most cases lack the accompanying functionality needed to make interactive components for your preferred framework, leaving that burden on you. In some
-			cases, they may also require extra dependencies. Which can introduce choice paralysis when filtering through the plethora of options in modern frontend development.
+			cases, they may also require extra dependencies, which can introduce choice paralysis when filtering through the plethora of options in modern frontend development.
 		</p>
 		<p>
 			This has given rise to the framework-specific component libraries such as: <a href="https://material.angular.io/" target="_blank">Angular Material</a>
 			for Angular, <a href="https://vuetifyjs.com/en/" target="_blank">Vuetify</a> for Vue, and
-			<a href="https://mantine.dev/" target="_blank">Mantine</a> for React. These tools aim to be a complete solution that goes beyond the surface level and allow for direct integration of framework features,
+			<a href="https://mantine.dev/" target="_blank">Mantine</a> for React. These tools aim to be a complete solution that goes beyond the surface level and allows for direct integration of framework features,
 			while providing fully interactive components, typically without the need to introduce extra packages and dependencies.
 		</p>
 		<p>

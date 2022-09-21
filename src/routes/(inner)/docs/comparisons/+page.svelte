@@ -19,7 +19,7 @@
 		<h2>Mantine</h2>
 		<p><a href="https://mantine.dev/" target="_blank">https://mantine.dev/</a></p>
 		<p>
-			It’s no secret that Mantine has had a huge influence on the features and design of Skeleton. We love Mantine’s huge set of components, modular add-ons, and of course the best-in-class
+			It’s no secret that Mantine has had a huge influence on the features and design of Skeleton. We love Mantine’s huge set of components, modular add-ons, and, of course, the best-in-class
 			documentation. We’re also huge fans of the deep customization provided per component. However, Mantine is unfortunately only available for React. That said, the Skeleton team hopes to bridge the
 			gap and provide a similar experience for Svelte developers.
 		</p>
@@ -93,13 +93,13 @@
 		<h2>Daisy UI</h2>
 		<p><a href="https://daisyui.com/" target="_blank">https://daisyui.com/</a></p>
 		<p>
-			Daisy can be compared to Skeleton due to our shared use of Tailwind CSS and highly customizable theme systems. Unfortunately Daisy themes rely on hex color values which <a
+			Daisy can be compared to Skeleton due to our shared use of Tailwind CSS and highly customizable theme systems. Unfortunately, Daisy themes rely on hex color values which <a
 				href="https://tailwindcss.com/docs/customizing-colors#using-css-variables"
 				target="_blank">prevents the use of the opacity modifier syntax</a
-			>. Likewise Daisy opts to forgo the biggest benefit of Tailwind - the deeply extensible utility class system. Instead relying on
-			<a href="https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction" target="_blank">@apply</a> to generate canned style sets. On the other hand, Skeleton treats utility classes as
-			first class citizens, providing hooks to set and override Tailwind classes within each component. Skeleton components also accept arbitrary classes allowing full customization top to bottom. However,
-			it’s worth noting that Daisy is a general purpose library available to any framework, while Skeleton focuses purely on Svelte.
+			>. Daisy also opts to forgo the biggest benefit of Tailwind, the deeply extensible utility class system, instead relying on
+			<a href="https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction" target="_blank">@apply</a> to generate canned style sets. Skeleton, on the other hand, treats utility classes
+			as first class citizens, providing hooks to set and override Tailwind classes within each component. Skeleton components also accept arbitrary classes, allowing full customization top to bottom.
+			However, it’s worth noting that Daisy is a general purpose library available to any framework, while Skeleton focuses purely on Svelte.
 		</p>
 	</section>
 
@@ -115,8 +115,8 @@
 				target="_blank">Angular Material</a
 			>, which adapts the Material Design conventions for the <a href="https://angular.io/" target="_blank">Angular</a> framework. This has actually influenced many of the design decisions for
 			creating Skeleton, including our opinions on <a href="/guides/forms">form components</a>. It makes sense that Svelte Material UI would be popular, as it bridges the benefits of Material Design
-			with the power of Svelte. However, Skeleton has chosen to shy away the look and feel or Material Design, and instead create a more unique aesthetic. Additionally, Skeleton features tight
-			integration with Tailwind, to aid in building a fully realized design system. Allowing you to control every aspect of your interface from the ground up. If for some reason you’re adverse to
+			with the power of Svelte. However, Skeleton has chosen to shy away from the look and feel of Material Design, and instead create a more unique aesthetic. Additionally, Skeleton features tight
+			integration with Tailwind to aid in building a fully realized design system, allowing you to control every aspect of your interface from the ground up. If, for some reason, you are adverse to
 			Tailwind or you wish to lean into the Material Design style, then we would recommend Svelte Material UI. It also has the benefit of being one of the oldest and most mature UI component libraries
 			available for Svelte today.
 		</p>
