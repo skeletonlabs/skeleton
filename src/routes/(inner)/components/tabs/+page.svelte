@@ -53,6 +53,7 @@
 	</header>
 
 	<!-- Examples -->
+	<h2 class='sr-only'>Examples</h2>
 	<section class="space-y-4">
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 			<div class="card card-body space-y-4">
