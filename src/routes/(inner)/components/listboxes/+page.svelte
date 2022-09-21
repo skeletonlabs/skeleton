@@ -63,7 +63,7 @@
 	<header class="space-y-4">
 		<h1>Listboxes</h1>
 		<p class="space-y-4">Interactive listboxes that maintain selection state.</p>
-		<CodeBlock language="js" code={`import { Listbox, ListBoxItem } from '@brainandbones/skeleton';`} />
+		<CodeBlock language="js" code={`import { ListBox, ListBoxItem } from '@brainandbones/skeleton';`} />
 	</header>
 
 	<!-- Examples -->
@@ -114,7 +114,7 @@
 		<CodeBlock
 			language="html"
 			code={`
-<ListBox selected={storeMultiple}" label="Multi-Selection">
+<ListBox selected={storeMultiple} label="Multi-Selection">
     <ListBoxItem value={'A'}>Item A</ListBoxItem>
     <ListBoxItem value={'B'}>Item B</ListBoxItem>
     <ListBoxItem value={'C'}>Item C</ListBoxItem>
