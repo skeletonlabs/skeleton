@@ -38,7 +38,7 @@
 	<!-- Usage -->
 	<section class="space-y-4">
 		<h2>Setup Highlight.js</h2>
-		<p>If you wish to enable syntax highlighting, install <a href="https://highlightjs.org/" target="_blank">Highlight.js</a> as a depedency.</p>
+		<p>If you wish to enable syntax highlighting, install <a href="https://highlightjs.org/" target="_blank">Highlight.js</a> as a dependency.</p>
 		<CodeBlock language="console" code={`npm install highlight.js`} />
 		<p>Add the <u>following three imports</u> to your app's root component (ex: <code>/src/routes/+layout.svelte</code> for SvelteKit).</p>
 		<CodeBlock language="typescript" code={`import hljs from 'highlight.js';`} />

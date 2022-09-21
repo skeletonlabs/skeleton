@@ -109,7 +109,7 @@ import { Breadcrumb, Crumb } from '@brainandbones/skeleton';
 			<h4>Dynamic Island</h4>
 			<p>
 				If you need to support more complex Skeleton components or make use of Svelte features, such as the <code>on:click</code>
-				Action, Writable Stores, or similiar, then you'll need to create a Svelte wrapper component. For this example we'll create
+				Action, Writable Stores, or similar, then you'll need to create a Svelte wrapper component. For this example we'll create
 				<code>/src/components/WrapperExample.svelte</code>:
 			</p>
 			<CodeBlock language="html" code={dynamicSvelteWrapperSnippet} />

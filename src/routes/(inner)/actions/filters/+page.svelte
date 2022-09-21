@@ -94,7 +94,7 @@ NOTE: Keep these localized
 		<p>Add within scope of your filtered element. For global scope, add the following to your app's root component. Only import the filters you plan to use.</p>
 		<CodeBlock language="javascript" code={`import { Emerald, BlueNight, /* ... */  } from '@brainandbones/skeleton';`} />
 		<CodeBlock language="html" code={`<Emerald />\n<BlueNight />`} />
-		<p>You'll then need to apply the filter using one of the two techuniques listed below.</p>
+		<p>You'll then need to apply the filter using one of the two techniques listed below.</p>
 		<h3>Option 1: Use the Svelte Action</h3>
 		<p>
 			Use the following <a href="https://svelte.dev/tutorial/actions" target="_blank">Svelte action</a> to to filter any element.

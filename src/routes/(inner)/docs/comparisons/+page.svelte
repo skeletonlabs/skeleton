@@ -56,7 +56,7 @@
 </a>
 						`}
 						/>
-						<p>We make several small adjustements to take advantage of Skeleton's styles and theme system:</p>
+						<p>We make several small adjustments to take advantage of Skeleton's styles and theme system:</p>
 						<ul class="list-disc list-inside opacity-60">
 							<li>Replaced all instances of the <code>bg-gray-X</code> class with <code>bg-surface-X</code>.</li>
 							<li>Added a <code>!no-outline</code> class to prevent text underlines.</li>
