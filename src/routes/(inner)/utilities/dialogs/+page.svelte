@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Card, Button, Divider, DataTable } from '@brainandbones/skeleton';
-	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import { dialogStore, type DialogAlert, type DialogConfirm, type DialogPrompt } from '$lib/Notifications/Stores';
+	import { Divider, DataTable } from '@brainandbones/skeleton';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import { dialogStore, type DialogAlert, type DialogConfirm, type DialogPrompt } from '$lib/utilities/Dialog/stores';
 
 	let valueConfirm: boolean = false;
 	let valuePrompt: string = 'Skeleton';
@@ -70,25 +70,25 @@
 		};
 		dialogStore.trigger(d);
 	}
-	function dialogComponent(): void {
-		const d: DialogAlert = {
-			title: 'Component Example',
-			body: 'See the embedded Svelte component below.',
-			component: {
-				element: Card,
-				props: { background: 'bg-orange-500' },
-				slot: '<p class="text-center">Hello, Skeleton!</p>'
-			}
-		};
-		dialogStore.trigger(d);
-	}
+	// function dialogComponent(): void {
+	// 	const d: DialogAlert = {
+	// 		title: 'Component Example',
+	// 		body: 'See the embedded Svelte component below.',
+	// 		component: {
+	// 			element: Card,
+	// 			props: { background: 'bg-orange-500' },
+	// 			slot: '<p class="text-center">Hello, Skeleton!</p>'
+	// 		}
+	// 	};
+	// 	dialogStore.trigger(d);
+	// }
 
 	// Props
 	const tableProps: any = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['backdrop', 'string', 'bg-surface-400/70 dark:bg-surface-900/70', 'Provide classes to set the backdrop background color.'],
-			['blur', 'string', 'backdrop-blur-none', 'Provide a class to add a backdrop blur.'],
+			['blur', 'string', 'backdrop-blur-none', 'Provide classes to add a backdrop blur.'],
 			['card', 'string', 'bg-surface-50 dark:bg-surface-700', 'Provide classes to set the modal card element.'],
 			['width', 'string', 'max-w-[640px]', 'Provide classes to set max modal width.'],
 			['duration', 'number', '100', 'The animation in/out durations. Set to zero (0) for none.']
@@ -106,74 +106,74 @@
 	<!-- Examples -->
 	<section class="space-y-4">
 		<nav class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-			<Card body="grid grid-cols-1 gap-4">
+			<div class="card card-body grid grid-cols-1 gap-4">
 				<h3>Alerts</h3>
 				<div class="flex justify-between items-center space-x-4">
 					<div>
 						<h6>Basic</h6>
 						<p>The simplest form of a dialog.</p>
 					</div>
-					<Button variant="ghost-primary" on:click={dialogAlertBasic}>Trigger</Button>
+					<button class="btn btn-ghost" on:click={dialogAlertBasic}>Trigger</button>
 				</div>
 				<div class="flex justify-between items-center space-x-4">
 					<div>
 						<h6>Icon</h6>
 						<p>Shown with an optional icon.</p>
 					</div>
-					<Button variant="ghost-primary" on:click={dialogAlertIcon}>Trigger</Button>
+					<button class="btn btn-ghost" on:click={dialogAlertIcon}>Trigger</button>
 				</div>
 				<div class="flex justify-between items-center space-x-4">
 					<div>
 						<h6>Multiple</h6>
 						<p>Queues a set of three dialogs.</p>
 					</div>
-					<Button variant="ghost-primary" on:click={dialogAlertMultiple}>Trigger</Button>
+					<button class="btn btn-ghost" on:click={dialogAlertMultiple}>Trigger</button>
 				</div>
-			</Card>
-			<Card body="grid grid-cols-1 gap-4">
+			</div>
+			<div class="card card-body grid grid-cols-1 gap-4">
 				<h3>Embeds</h3>
 				<div class="flex justify-between items-center space-x-4">
 					<div>
 						<h6>Image</h6>
 						<p>Includes an embedded image.</p>
 					</div>
-					<Button variant="ghost-primary" on:click={dialogImage}>Trigger</Button>
+					<button class="btn btn-ghost" on:click={dialogImage}>Trigger</button>
 				</div>
 				<div class="flex justify-between items-center space-x-4">
 					<div>
 						<h6>HTML</h6>
 						<p>Displays embedded an styled HTML markup.</p>
 					</div>
-					<Button variant="ghost-primary" on:click={dialogHtml}>Trigger</Button>
+					<button class="btn btn-ghost" on:click={dialogHtml}>Trigger</button>
 				</div>
-				<div class="flex justify-between items-center space-x-4">
+				<!-- <div class="flex justify-between items-center space-x-4">
 					<div>
 						<h6>Component</h6>
 						<p>Embeds and entire component.</p>
 					</div>
-					<Button variant="ghost-primary" on:click={dialogComponent}>Trigger</Button>
-				</div>
-			</Card>
-			<Card body="space-y-4">
+					<button class="btn btn-ghost" on:click={dialogComponent}>Trigger</button>
+				</div> -->
+			</div>
+			<div class="card card-body space-y-4">
 				<div class="flex justify-between items-center space-x-4">
 					<div class="space-y-2">
 						<h3>Confirm</h3>
 						<p>Dialog with confirm options. Response shown below.</p>
 					</div>
-					<Button variant="ghost-primary" on:click={dialogConfirm}>Trigger</Button>
+					<button class="btn btn-ghost" on:click={dialogConfirm}>Trigger</button>
 				</div>
 				<pre>Response: {JSON.stringify(valueConfirm, null, 2)}</pre>
-			</Card>
-			<Card body="space-y-4">
+			</div>
+			<div class="card card-body space-y-4">
 				<div class="flex justify-between items-center space-x-4">
 					<div class="space-y-2">
 						<h3>Prompt</h3>
 						<p>Prompts the user to input a value. Response shown below.</p>
 					</div>
-					<Button variant="ghost-primary" on:click={dialogPrompt}>Trigger</Button>
+					<button class="btn btn-ghost" on:click={dialogPrompt}>Trigger</button>
 				</div>
 				<pre>Response: {JSON.stringify(valuePrompt, null, 2)}</pre>
-			</Card>
+			</div>
 		</nav>
 	</section>
 
@@ -187,7 +187,7 @@
 		<CodeBlock
 			language="html"
 			code={`<Dialog backdrop="bg-primary-500/50" blur="backdrop-blur-sm" card="bg-primary-500" duration={250} />
-        `.trim()}
+        `}
 		/>
 	</section>
 
@@ -232,7 +232,7 @@ const d: DialogAlert = {
     title: 'Welcome to <strong>Skeleton</strong>.',
     body: 'This is a standard alert dialog.',
 };
-            `.trim()}
+            `}
 			/>
 		</div>
 		<!-- Confirm -->
@@ -251,7 +251,7 @@ const d: DialogConfirm = {
     body: 'Are you sure you wish to proceed?',
     result: (r: boolean) => { console.log(r); }
 };
-            `.trim()}
+            `}
 			/>
 		</div>
 		<!-- Prompt -->
@@ -270,7 +270,7 @@ const d: DialogPrompt = {
     value: valuePrompt,
     result: (r: string) => { if (r) { console.log(r); }; }
 };
-            `.trim()}
+            `}
 			/>
 		</div>
 	</section>
@@ -293,7 +293,7 @@ const d: DialogAlert = {
     body: 'See the embedded image below.',
     image: 'https://source.unsplash.com/random/480x320?skeleton'
 };
-            `.trim()}
+            `}
 			/>
 		</div>
 		<!-- HTML -->
@@ -308,7 +308,7 @@ const d: DialogAlert = {
     body: 'See the embedded HTML content below.',
     html: \`<div class="bg-green-500 p-4">Hello, Skeleton</div>\`
 };
-            `.trim()}
+            `}
 			/>
 		</div>
 		<!-- Component -->
@@ -328,7 +328,7 @@ const d: DialogAlert = {
         slot: '<p class="text-center">Hello, Skeleton!</p>'
     }
 };
-            `.trim()}
+            `}
 			/>
 		</div>
 	</section>

@@ -1,14 +1,19 @@
 <script lang="ts">
-	import { Card, DataTable } from '@brainandbones/skeleton';
-	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+	import { DataTable } from '@brainandbones/skeleton';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// prettier-ignore
 	const tableProps: any = {
 		headings: ['Prop', 'Type', 'Values', 'Default', 'Description'],
 		source: [
-			[ 'language', 'string', 'html | css | js | ...', 'plaintext', 'Sets a language alias: <a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md" target="_blank">Highlight.js</a>' ],
+			[ 'language', 'string', '<a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md" target="_blank">Language Alias</a>', 'plaintext', 'Sets a language alias for Highlight.js syntax highlighting.' ],
 			[ 'code', 'string', '-', '-', 'Takes a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals" target="_blank">Template Literal</a>. Be mindful to escape as needed.' ],
-			['background', 'string', '(class)', 'bg-neutral-900', 'Provide a CSS class to define the background color.']
+
+			['background', 'string', '(class)', 'bg-[#141517]', 'Provided classes to set the background color.'],
+			['text', 'string', '(class)', 'text-sm', 'Provided classes to set the text size.'],
+			['color', 'string', '(class)', 'text-white', 'Provided classes to set the text color.'],
+			['rounded', 'string', '(class)', 'rounded-lg', 'Provided classes to set the border radius.'],
+			['buttonCopy', 'string', '(class)', 'btn btn-sm bg-white/5 hover:bg-white/10', 'Provided classes to set the button styles.'],
 		]
 	};
 </script>
@@ -24,16 +29,16 @@
 	</header>
 
 	<!-- Examples -->
-	<Card body="space-y-4">
+	<div class="card card-body space-y-4">
 		<CodeBlock language="html" code={`<p>Hello Skeleton<p>`} />
 		<CodeBlock language="css" code={`.skeleton { color: #bada55; }`} />
 		<CodeBlock language="typescript" code={`const skeleton: string = 'awesome';`} />
-	</Card>
+	</div>
 
 	<!-- Usage -->
 	<section class="space-y-4">
 		<h2>Setup Highlight.js</h2>
-		<p>If you wish to enable syntax highlighting, install <a href="https://highlightjs.org/" target="_blank">Highlight.js</a> as a depedency.</p>
+		<p>If you wish to enable syntax highlighting, install <a href="https://highlightjs.org/" target="_blank">Highlight.js</a> as a dependency.</p>
 		<CodeBlock language="console" code={`npm install highlight.js`} />
 		<p>Add the <u>following three imports</u> to your app's root component (ex: <code>/src/routes/+layout.svelte</code> for SvelteKit).</p>
 		<CodeBlock language="typescript" code={`import hljs from 'highlight.js';`} />
@@ -64,7 +69,7 @@
 	<section class="space-y-4">
 		<h2>Accessibility</h2>
 		<p>
-			Uses <code>pre-wrap</code> by default to support keyboard-only navigation. Be mindful of color contrast ratios when customizing theme and background color.
+			Uses <code>pre-wrap</code> by default to support keyboard-only navigation. Be mindful of color contrast ratios when customizing the design of this component.
 		</p>
 	</section>
 </div>

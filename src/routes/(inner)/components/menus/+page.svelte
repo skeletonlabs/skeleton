@@ -1,6 +1,9 @@
 <script lang="ts">
-	import { DataTable, Card, Button, List, ListItem, Menu } from '@brainandbones/skeleton';
-	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+	import { DataTable, Menu } from '@brainandbones/skeleton';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+
+	// Local
+	const exampleLink: string = '/components/menus';
 
 	// Tables and Slots
 	const tableProps: any = {
@@ -31,39 +34,41 @@
 	</header>
 
 	<!-- Examples -->
-	<Card body="flex justify-center space-x-4">
+	<div class="card card-body flex justify-center space-x-4">
 		<!-- Default -->
 		<Menu>
 			<!-- Slot: Trigger -->
-			<Button slot="trigger" variant="ghost-primary" type="button">Menu</Button>
+			<button slot="trigger" class="btn btn-ghost">Menu</button>
 			<!-- Slot: Content -->
-			<Card slot="content" background="bg-surface-300 dark:bg-surface-700" class="w-[200px] p-[0px] shadow-xl overflow-hidden">
-				<List tag="nav">
-					<ListItem>Item 1</ListItem>
-					<ListItem>Item 2</ListItem>
-				</List>
-			</Card>
+			<div slot="content" class="card w-[200px] shadow-xl overflow-hidden">
+				<nav class="list-nav">
+					<ul>
+						<li><a href={exampleLink}>Item 1</a></li>
+						<li><a href={exampleLink}>Item 2</a></li>
+					</ul>
+				</nav>
+			</div>
 		</Menu>
 		<!-- Select -->
 		<Menu origin="tr" select={true}>
-			<Button slot="trigger" variant="ghost-accent" type="button">Select</Button>
-			<Card slot="content" background="bg-surface-300 dark:bg-surface-700" class="w-[200px] p-[0px] shadow-xl overflow-hidden">
-				<List tag="nav">
-					<ListItem>Item 1</ListItem>
-					<ListItem>Item 2</ListItem>
-					<ListItem>Item 3</ListItem>
-					<ListItem>Item 4</ListItem>
-					<ListItem>Item 5</ListItem>
-					<ListItem href="/">Navigate</ListItem>
-				</List>
-			</Card>
+			<button slot="trigger" class="btn btn-ghost">Select</button>
+			<div slot="content" class="card w-[200px] shadow-xl overflow-hidden">
+				<nav class="list-nav">
+					<ul>
+						<li><a href={exampleLink}>Item 1</a></li>
+						<li><a href={exampleLink}>Item 2</a></li>
+						<li><a href={exampleLink}>Item 3</a></li>
+						<li><a href={exampleLink}>Item 4</a></li>
+					</ul>
+				</nav>
+			</div>
 		</Menu>
 		<!-- Disabled -->
 		<Menu disabled>
-			<Button slot="trigger" variant="ghost-warning" type="button" disabled>Disabled</Button>
+			<button slot="trigger" class="btn btn-ghost" disabled>Disabled</button>
 			<div slot="content"><!-- (will never show) --></div>
 		</Menu>
-	</Card>
+	</div>
 
 	<!-- Usage -->
 	<section class="space-y-4">
@@ -73,17 +78,18 @@
 			code={`
 <Menu select={false} open={false} origin="tl">
     <!-- Slot: Trigger -->
-    <Button slot="trigger" variant="ghost-primary" type="button">Menu</Button>
+    <button slot="trigger" class="btn btn-ghost">Menu</button>
     <!-- Slot: Content -->
-    <Card slot="content" background="bg-surface-300 dark:bg-surface-700" class="w-[200px] p-[0px] shadow-xl overflow-hidden">
-        <List tag="nav">
-            <ListItem href="/">Item 1</ListItem>
-            <ListItem href="/">Item 2</ListItem>
-            <ListItem href="/">Item 3</ListItem>
-        </List>
-    </Card>
+    <div slot="content" class="card w-[200px] shadow-xl overflow-hidden">
+		<nav class="list-nav">
+			<ul>
+				<li><a href={exampleLink}>Item 1</a></li>
+				<li><a href={exampleLink}>Item 2</a></li>
+			</ul>
+		</nav>
+	</div>
 </Menu>
-        `.trim()}
+        `}
 		/>
 	</section>
 

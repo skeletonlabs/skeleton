@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Card, DataTable, Divider, Button, toastStore, type ToastMessage } from '@brainandbones/skeleton';
-	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+	import { DataTable, Divider, toastStore, type ToastMessage } from '@brainandbones/skeleton';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Trigger Examples
 	function toastBasic(): void {
@@ -38,7 +38,7 @@
 	const tableProps: any = {
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
 		source: [
-			['background', 'string', 'bg-primary-500', 'class', 'Provide a class to set background color.'],
+			['background', 'string', 'bg-primary-500', 'class', 'Provide classes to set background color.'],
 			['position', 'string', 'b', 't | b | tr | tl | bl | br', 'Set top/bottom/left/right positioning.'],
 			['variant', 'string', 'ghost', 'variant reference', 'Provide a <a href="/components/buttons">button variant</a> reference.'],
 			['duration', 'number', '100', 'integer', 'The duration of the fly in/out animation.']
@@ -54,12 +54,14 @@
 	</header>
 
 	<!-- Examples -->
-	<Card body="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-full md:max-w-[320px] lg:max-w-[640px] mx-auto">
-		<Button variant="ghost-primary" on:click={toastBasic}>Short</Button>
-		<Button variant="ghost-primary" on:click={toastLong}>Long</Button>
-		<Button variant="ghost-primary" on:click={toastMultiple}>Multiple</Button>
-		<Button variant="ghost-primary" on:click={toastAction}>Action</Button>
-	</Card>
+	<div class="card card-body">
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-full md:max-w-[320px] lg:max-w-[640px] mx-auto">
+			<button class="btn btn-ghost" on:click={toastBasic}>Short</button>
+			<button class="btn btn-ghost" on:click={toastLong}>Long</button>
+			<button class="btn btn-ghost" on:click={toastMultiple}>Multiple</button>
+			<button class="btn btn-ghost" on:click={toastAction}>Action</button>
+		</div>
+	</div>
 
 	<Divider />
 
@@ -68,7 +70,7 @@
 		<h2>Toast Component</h2>
 		<p>Add the following to your app's root layout so that the component stays in scope for whenever you might trigger it:</p>
 		<CodeBlock language="javascript" code={`import { Toast } from '@brainandbones/skeleton';`} />
-		<CodeBlock language="html" code={`<Toast background="bg-accent-500" position="tr" variant="filled" duration={250} />`.trim()} />
+		<CodeBlock language="html" code={`<Toast background="bg-accent-500" position="tr" variant="filled" duration={250} />`} />
 	</section>
 
 	<!-- Properties -->
@@ -112,7 +114,7 @@ const t: ToastMessage = {
     timeout: 5000,
     button: { label: 'Greeting', action: () => { alert('Hello, Skeleton'); }}
 };
-        `.trim()}
+        `}
 		/>
 	</section>
 

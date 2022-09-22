@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
 
-	import { Button, Card, DataTable, Drawer } from '@brainandbones/skeleton';
-	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+	import { DataTable, Drawer } from '@brainandbones/skeleton';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Drawer Example
 	const storeDrawer: Writable<boolean> = writable(false);
@@ -26,18 +26,17 @@
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['bgBackdrop', 'string', 'bg-surface-400/70 dark:bg-surface-900/70', 'Provide classes to set the backdrop background color'],
-			['display', 'string', '-', 'Provide a class to set the display (ex: <code>lg:hidden</code>)'],
-			['blur', 'string', 'backdrop-blur-sm', 'Provide a class to set the blur style.']
+			['blur', 'string', 'backdrop-blur-sm', 'Provide classes to set the blur style.']
 		]
 	};
 	const tablePropsDrawer: any = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
-			['bgDrawer', 'string', 'bg-surface-100 dark:bg-surface-800', 'Provide a class to set the drawer background color.'],
-			['border', 'string', '-', 'Provide a class to set border color.'],
-			['rounded', 'string', '-', 'Provide a class to set border radius.'],
-			['width', 'string', '(based on position)', 'Provide a class to override the width.'],
-			['height', 'string', '(based on position)', 'Provide a class to override the height.'],
+			['bgDrawer', 'string', 'bg-surface-100 dark:bg-surface-800', 'Provide classes to set the drawer background color.'],
+			['border', 'string', '-', 'Provide classes to set border color.'],
+			['rounded', 'string', '-', 'Provide classes to set border radius.'],
+			['width', 'string', '(based on position)', 'Provide classes to override the width.'],
+			['height', 'string', '(based on position)', 'Provide classes to override the height.'],
 			['margin', 'string', '-', 'Provide classes to set margins.']
 		]
 	};
@@ -63,7 +62,7 @@
 	</header>
 
 	<!-- Examples -->
-	<Card>
+	<div class="card card-body">
 		<div class="w-0 h-0">
 			<Drawer open={storeDrawer} {position}>
 				<div class="w-full h-full flex justify-center items-center">
@@ -74,33 +73,14 @@
 				</div>
 			</Drawer>
 		</div>
+		<!-- prettier-ignore -->
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-[600px] mx-auto">
-			<Button
-				variant="ghost-primary"
-				on:click={() => {
-					trigger('left');
-				}}>Left</Button
-			>
-			<Button
-				variant="ghost-primary"
-				on:click={() => {
-					trigger('right');
-				}}>Right</Button
-			>
-			<Button
-				variant="ghost-primary"
-				on:click={() => {
-					trigger('top');
-				}}>Top</Button
-			>
-			<Button
-				variant="ghost-primary"
-				on:click={() => {
-					trigger('bottom');
-				}}>Bottom</Button
-			>
+			<button class="btn btn-ghost" on:click={() => { trigger('left'); }}>Left</button>
+			<button class="btn btn-ghost" on:click={() => { trigger('right'); }}>Right</button>
+			<button class="btn btn-ghost" on:click={() => { trigger('top'); }}>Top</button>
+			<button class="btn btn-ghost" on:click={() => { trigger('bottom'); }}>Bottom</button>
 		</div>
-	</Card>
+	</div>
 
 	<!-- Usage -->
 	<section class="space-y-4">
@@ -111,31 +91,33 @@
 			code={`
 import { writable, type Writable } from 'svelte/store';
 const storeDrawer: Writable<boolean> = writable(false);
-        `.trim()}
+        `}
 		/>
-		<p>Implement the Drawer component, passing the store reference. For best results implement in your app's root layout for global scope.</p>
+		<p>Implement the Drawer component, passing the store reference. If you wish to make this accessible in global scope of your app, add this to your root layout.</p>
 		<CodeBlock
 			language="html"
 			code={`
 <Drawer open={storeDrawer} position="left">
 	(contents)
 </Drawer>
-        `.trim()}
+        `}
 		/>
-		<p>Set the store value to <code>true</code> or <code>false</code> to open or close the Drawer.</p>
+		<p>Set the store value to <code>true | false</code> to open or close the Drawer.</p>
 		<CodeBlock language="typescript" code={`const drawerOpen: any = () => { storeDrawer.set(true) };`} />
 		<CodeBlock language="typescript" code={`const drawerClose: any = () => { storeDrawer.set(false) };`} />
-		<p>Implement the trigger methods on any interactive element. Note that you can always close the Drawer by tapping the backdrop or pressing <em>ESC</em> on your keyboard.</p>
-		<CodeBlock language="html" code={`<Button variant="filled-primary" on:click={drawerOpen}>Open</Button>`} />
-		<CodeBlock language="html" code={`<Button variant="filled-primary" on:click={drawerClose}>Close</Button>`} />
-		<h2>Pairing with App Shell</h2>
-		<p>Place the Drawer above and outside the App Shell in your root layout. This will prevent content shifting as the drawer opens.</p>
+		<p>Implement the trigger methods on any interactive element.</p>
+		<CodeBlock language="html" code={`<button class="btn btn-filled-primary" on:click={drawerOpen}>Open</button>`} />
+		<CodeBlock language="html" code={`<button class="btn btn-filled-primary" on:click={drawerClose}>Close</button>`} />
+		<h4>Closing the Drawer</h4>
+		<p>Note that you can always close the Drawer by tapping the backdrop or pressing <em>ESC</em> on your keyboard.</p>
+		<h4>Pairing with App Shell</h4>
+		<p>Place the Drawer above and outside the App Shell in your root layout. This will prevent page content shifting as the Drawer changes state.</p>
 		<CodeBlock
 			language="html"
 			code={`
-<Drawer></Drawer>
+<Drawer></Drawer>\n
 <AppShell></AppShell>
-		`.trim()}
+		`}
 		/>
 	</section>
 	<!-- Properties -->

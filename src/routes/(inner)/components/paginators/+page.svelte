@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { DataTable, Card, List, ListItem, Paginator } from '@brainandbones/skeleton';
-	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+	import { DataTable, Paginator } from '@brainandbones/skeleton';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Content
 	const content: any = {
@@ -28,10 +28,10 @@
 
 	// Event Handlers
 	function onPageChange(e: any): void {
-		console.log('event:page', e.detail);
+		console.log('Paginator - event:page', e.detail);
 	}
 	function onAmountChange(e: any): void {
-		console.log('event:amount', e.detail);
+		console.log('Paginator - event:amount', e.detail);
 	}
 
 	// Props
@@ -39,21 +39,20 @@
 	const tableProps: any = {
         headings: ['Prop', 'Type', 'Default', 'Description'],
         source: [
-            {prop: 'offset', type: 'number', default: '0', desc: 'Index of the first list item to display.'},
-            {prop: 'limit', type: 'number', default: '5', desc: 'Current number of items to display.'},
-            {prop: 'size', type: 'number', default: '10', desc: 'The total size (length) of your source content.'},
-            {prop: 'amounts', type: '<code>number[]</code>', default: '[1,5,10,50,100]', desc: 'List of amounts available to the select input.'},
+            ['offset', 'number', '0', 'Index of the first list item to display.'],
+            ['limit', 'number', '5', 'Current number of items to display.'],
+            ['size', 'number', '10', 'The total size (length) of your source content.'],
+            ['amounts', 'number[]', '[1,5,10,50,100]', 'List of amounts available to the select input.'],
         ],
     };
 	// prettier-ignore
 	const tablePropsDesign: any = {
         headings: ['Prop', 'Type', 'Default', 'Description'],
         source: [
-            {prop: 'justify', type: 'string', default: 'justify-between', desc: 'Provide a class to set flexbox justification.'},
-            {prop: 'text', type: 'string', default: 'text-xs', desc: 'Provide a class to style page context text.'},
-            {prop: 'select', type: 'string', default: '-', desc: 'Provide one or more classes to style the amounts select element.'},
-            {prop: 'variant', type: 'string', default: 'filled-primary', desc: 'Provide a <a href="/components/buttons">button variant</a> option.'},
-            {prop: 'rounded', type: 'string', default: '-', desc: 'Provide a class to overwrite the button rounding style.'},
+            ['justify', 'string', 'justify-between', 'Provide classes to set flexbox justification.'],
+            ['text', 'string', 'text-xs', 'Provide classes to style page context text.'],
+            ['select', 'string', '-', 'Provide arbitrary classes to style the select input.'],
+            ['buttons', 'string', `btn-ghost`, 'Provide any desired <a href="/tailwind/buttons">Button element</a> classes.'],
         ],
     };
 
@@ -61,14 +60,8 @@
 	const tableEvents: any = {
 		headings: ['Name', 'Description'],
 		source: [
-			{
-				name: 'amount',
-				desc: 'Fires when the amount selection input changes. Provides the selected amount value.'
-			},
-			{
-				name: 'page',
-				desc: 'Fires when the next/back buttons are pressed. Provides the new offset value.'
-			}
+			['amount', 'Fires when the amount selection input changes. Provides the selected amount value.'],
+			['page', 'Fires when the next/back buttons are pressed. Provides the new offset value.']
 		]
 	};
 </script>
@@ -82,19 +75,33 @@
 	</header>
 
 	<!-- Examples -->
-	<section class="space-y-4">
-		<Card body="space-y-4">
-			<List>
-				{#each contentSliced as e, i}
-					<ListItem>{e.name}</ListItem>
-				{/each}
-			</List>
+	<section class="grid grid-cols-1 xl:grid-cols-2 gap-4">
+		<div class="card card-body space-y-4">
+			<h4>List Pagination</h4>
+			<hr />
+			<nav class="list-nav">
+				<ul>
+					{#each contentSliced as e, i}
+						<li>
+							<a href="/components/paginators">
+								<span>{i + 1}</span>
+								<span class="flex-auto">
+									{e.name}
+								</span>
+								<span>{e.symbol}</span>
+							</a>
+						</li>
+					{/each}
+				</ul>
+			</nav>
+			<hr />
 			<Paginator bind:offset={page.offset} bind:limit={page.limit} bind:size={page.size} bind:amounts={page.amounts} on:page={onPageChange} on:amount={onAmountChange} />
-		</Card>
-		<Card body="space-y-4">
+		</div>
+		<div class="card card-body space-y-4">
+			<h4>Table Pagination</h4>
 			<DataTable headings={content.headings} source={contentSliced} />
 			<Paginator bind:offset={page.offset} bind:limit={page.limit} bind:size={page.size} bind:amounts={page.amounts} on:page={onPageChange} on:amount={onAmountChange} />
-		</Card>
+		</div>
 	</section>
 
 	<!-- Usage -->
@@ -109,14 +116,14 @@ const page: any = {
     size: source.length
     amounts: [1,2,5,10],
 };
-        `.trim()}
+        `}
 		/>
 		<CodeBlock
 			language="typescript"
 			code={`
 function onPageChange(e: any): void { console.log('event:page', e.detail); }
 function onAmountChange(e: any): void { console.log('event:amount', e.detail); }
-        `.trim()}
+        `}
 		/>
 		<CodeBlock
 			language="html"
@@ -129,16 +136,16 @@ function onAmountChange(e: any): void { console.log('event:amount', e.detail); }
     on:page={onPageChange}
     on:amount={onAmountChange}
 ></Paginator>
-        `.trim()}
+        `}
 		/>
 		<h3>Utilizing Pagination</h3>
 		<p>
-			Once your paginator component is setup you'll need to limit your content. This can be accomplished with <a
+			Once your paginator component is setup you'll need to limit your content. This can be accomplished with the JavaScript <a
 				href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice"
 				target="_blank">slice</a
-			>. See a minimal example below using the Javascript slice method.
+			> method. See a minimal example below.
 		</p>
-		<CodeBlock language="typescript" code={`const source: any[] = [ /* an array of objects */ ]`.trim()} />
+		<CodeBlock language="typescript" code={`const source: any[] = [ /* any array of objects */ ]`} />
 		<CodeBlock
 			language="typescript"
 			code={`
@@ -146,7 +153,7 @@ $: sourcePaginated = source.slice(
     page.offset * page.limit, // start
     page.offset * page.limit + page.limit // end
 );
-        `.trim()}
+        `}
 		/>
 		<CodeBlock
 			language="html"
@@ -156,7 +163,7 @@ $: sourcePaginated = source.slice(
     <li>{row}</li>
     {/each}
 </ul>
-        `.trim()}
+        `}
 		/>
 	</section>
 

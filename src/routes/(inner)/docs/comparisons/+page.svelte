@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { Divider } from '@brainandbones/skeleton';
-	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import AccordionGroup from '$lib/Accordion/AccordionGroup.svelte';
-	import AccordionItem from '$lib/Accordion/AccordionItem.svelte';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import AccordionGroup from '$lib/components/Accordion/AccordionGroup.svelte';
+	import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
 </script>
 
 <div class="space-y-8">
@@ -19,7 +19,7 @@
 		<h2>Mantine</h2>
 		<p><a href="https://mantine.dev/" target="_blank">https://mantine.dev/</a></p>
 		<p>
-			It’s no secret that Mantine has had a huge influence on the features and design of Skeleton. We love Mantine’s huge set of components, modular add-ons, and of course the best-in-class
+			It’s no secret that Mantine has had a huge influence on the features and design of Skeleton. We love Mantine’s huge set of components, modular add-ons, and, of course, the best-in-class
 			documentation. We’re also huge fans of the deep customization provided per component. However, Mantine is unfortunately only available for React. That said, the Skeleton team hopes to bridge the
 			gap and provide a similar experience for Svelte developers.
 		</p>
@@ -54,9 +54,9 @@
 	<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Flowbite Version</h5>
 	<p class="font-normal text-gray-700 dark:text-gray-400">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
 </a>
-						`.trim()}
+						`}
 						/>
-						<p>We make several small adjustements to take advantage of Skeleton's styles and theme system:</p>
+						<p>We make several small adjustments to take advantage of Skeleton's styles and theme system:</p>
 						<ul class="list-disc list-inside opacity-60">
 							<li>Replaced all instances of the <code>bg-gray-X</code> class with <code>bg-surface-X</code>.</li>
 							<li>Added a <code>!no-outline</code> class to prevent text underlines.</li>
@@ -70,7 +70,7 @@
 	<h2 class="mb-2 tracking-tight text-surface-900 dark:text-white">Flowbite + Skeleton = ❤️</h2>
 	<p class="font-normal text-surface-700 dark:text-surface-400">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
 </a>
-						`.trim()}
+						`}
 						/>
 						<p>Here's the final result. Try toggling dark mode on/off to see how the card style adapts.</p>
 						<a
@@ -93,13 +93,13 @@
 		<h2>Daisy UI</h2>
 		<p><a href="https://daisyui.com/" target="_blank">https://daisyui.com/</a></p>
 		<p>
-			Daisy can be compared to Skeleton due to our shared use of Tailwind CSS and highly customizable theme systems. Unfortunately Daisy themes rely on hex color values which <a
+			Daisy can be compared to Skeleton due to our shared use of Tailwind CSS and highly customizable theme systems. Unfortunately, Daisy themes rely on hex color values which <a
 				href="https://tailwindcss.com/docs/customizing-colors#using-css-variables"
 				target="_blank">prevents the use of the opacity modifier syntax</a
-			>. Likewise Daisy opts to forgo the biggest benefit of Tailwind - the deeply extensible utility class system. Instead relying on
-			<a href="https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction" target="_blank">@apply</a> to generate canned style sets. On the other hand, Skeleton treats utility classes as
-			first class citizens, providing hooks to set and override Tailwind classes within each component. Skeleton components also accept arbitrary classes allowing full customization top to bottom. However,
-			it’s worth noting that Daisy is a general purpose library available to any framework, while Skeleton focuses purely on Svelte.
+			>. Daisy also opts to forgo the biggest benefit of Tailwind, the deeply extensible utility class system, instead relying on
+			<a href="https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction" target="_blank">@apply</a> to generate canned style sets. Skeleton, on the other hand, treats utility classes
+			as first class citizens, providing hooks to set and override Tailwind classes within each component. Skeleton components also accept arbitrary classes, allowing full customization top to bottom.
+			However, it’s worth noting that Daisy is a general purpose library available to any framework, while Skeleton focuses purely on Svelte.
 		</p>
 	</section>
 
@@ -114,9 +114,9 @@
 				href="https://material.angular.io/"
 				target="_blank">Angular Material</a
 			>, which adapts the Material Design conventions for the <a href="https://angular.io/" target="_blank">Angular</a> framework. This has actually influenced many of the design decisions for
-			creating Skeleton, including our opinions on <a href="/guides/forms">form components</a>. It makes sense that Svelte Material UI would be popular, as it bridges the benefits of Material Design
-			with the power of Svelte. However, Skeleton has chosen to shy away the look and feel or Material Design, and instead create a more unique aesthetic. Additionally, Skeleton features tight
-			integration with Tailwind, to aid in building a fully realized design system. Allowing you to control every aspect of your interface from the ground up. If for some reason you’re adverse to
+			creating Skeleton, including our opinions on <a href="/tailwind/forms">form components</a>. It makes sense that Svelte Material UI would be popular, as it bridges the benefits of Material Design
+			with the power of Svelte. However, Skeleton has chosen to shy away from the look and feel of Material Design, and instead create a more unique aesthetic. Additionally, Skeleton features tight
+			integration with Tailwind to aid in building a fully realized design system, allowing you to control every aspect of your interface from the ground up. If, for some reason, you are adverse to
 			Tailwind or you wish to lean into the Material Design style, then we would recommend Svelte Material UI. It also has the benefit of being one of the oldest and most mature UI component libraries
 			available for Svelte today.
 		</p>

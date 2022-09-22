@@ -1,0 +1,21 @@
+/* Stylesheet Add-On: badges.css */
+
+.badge {
+	/* Core */
+	@apply inline-flex items-center space-x-2 whitespace-nowrap;
+	/* Text */
+	@apply font-semibold text-xs;
+	/* Padding */
+	@apply px-2 py-1;
+	/* Shadow */
+	@apply shadow;
+	/* Rounded */
+	@apply rounded;
+}
+
+.badge-icon {
+	/* Core */
+	@apply w-5 h-5 flex justify-center items-center rounded-full;
+	/* Text */
+	@apply font-semibold text-xs;
+}

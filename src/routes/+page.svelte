@@ -1,14 +1,8 @@
 <script lang="ts">
-	// Deconstruct data from +page.server.ts
-	// export let data: any;
-	// const { contributors }: { contributors: any[]} = data;
-
 	// Components
-	import Alert from '$lib/Alert/Alert.svelte';
-	import Avatar from '$lib/Avatar/Avatar.svelte';
-	import Card from '$lib/Card/Card.svelte';
-	import Button from '$lib/Button/Button.svelte';
-	import SvgIcon from '$lib/SvgIcon/SvgIcon.svelte';
+	import Alert from '$lib/components/Alert/Alert.svelte';
+	import Avatar from '$lib/components/Avatar/Avatar.svelte';
+	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
 	// Fetch Contributors
 	async function getContributors(): Promise<any> {
@@ -27,9 +21,9 @@
 	<!-- Alert: Beta -->
 	<Alert>
 		<svelte:fragment slot="lead">🚧</svelte:fragment>
-		<svelte:fragment slot="message">Skeleton is available as a public beta. Expect breaking changes prior to v1.0. If you encounter issues please report them on GitHub.</svelte:fragment>
+		<span>Skeleton is available as a public beta. Expect breaking changes prior to v1.0. If you encounter issues please report them on GitHub.</span>
 		<svelte:fragment slot="trail">
-			<Button variant="ghost" href="https://github.com/Brain-Bones/skeleton/issues">Report Issue</Button>
+			<a href="https://github.com/Brain-Bones/skeleton/issues" target="_blank" class="btn btn-ghost">Report Issue</a>
 		</svelte:fragment>
 	</Alert>
 
@@ -40,22 +34,21 @@
 				<h1 class="text-3xl md:text-5xl lg:text-6xl">
 					<span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-accent-500">Skeleton</span>
 				</h1>
-				<h2 class="text-4xl md:text-6xl lg:text-8xl">A fully featured Svelte component library.</h2>
+				<h2 class="text-4xl md:text-6xl lg:text-8xl">A fully featured UI toolkit for Svelte and Tailwind.</h2>
 				<p class="text-xl">
-					Skeleton allows you to build fast and reactive web UI using the power of <a href="https://svelte.dev/" target="_blank">Svelte</a>
+					Skeleton allows you to build fast and reactive web interfaces using the power of <a href="https://svelte.dev/" target="_blank">Svelte</a>
 					+ <a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a>.
 				</p>
 				<nav class="flex space-x-4">
-					<Button variant="filled-primary" href="/guides/install">Get Started</Button>
-					<Button variant="ghost" href="/docs/why">Why Skeleton</Button>
-					<Button variant="ghost" href="https://github.com/Brain-Bones/skeleton" target="_blank">Github</Button>
+					<a href="/guides/install" class="btn btn-lg btn-filled-primary">Get Started</a>
+					<a href="/docs/why" class="btn btn-lg btn-ghost">Why Skeleton</a>
 				</nav>
 			</div>
 		</header>
 
 		<!-- Features -->
 		<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-			<Card body="space-y-4">
+			<div class="card card-body space-y-4">
 				<div class="bg-orange-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
 					<SvgIcon name="svelte" fill="fill-white" width="w-10" height="h-10" />
 				</div>
@@ -64,36 +57,36 @@
 					Tightly coupled with Svelte, including full support for <a href="https://kit.svelte.dev/" target="_blank">SvelteKit</a>, <a href="https://vitejs.dev/" target="_blank">Vite</a>, and
 					<a href="https://astro.build/" target="_blank">Astro</a>.
 				</p>
-			</Card>
-			<Card body="space-y-4">
+			</div>
+			<div class="card card-body space-y-4">
 				<div class="bg-sky-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
 					<SvgIcon name="tailwind" fill="fill-white" width="w-10" height="h-10" />
 				</div>
 				<h6>Tailwind CSS Integration</h6>
 				<p>Integrate with your design system using Tailwind utility classes to style components.</p>
-			</Card>
-			<Card body="space-y-4">
+			</div>
+			<div class="card card-body space-y-4">
 				<div class="bg-primary-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
 					<SvgIcon name="swatchbook" fill="fill-white" width="w-8" height="h-8" />
 				</div>
 				<h6>Dynamic Themes</h6>
 				<p>Choose from a library of hand crafted preset themes or quickly generate your own in seconds.</p>
-			</Card>
-			<Card body="space-y-4">
+			</div>
+			<div class="card card-body space-y-4">
 				<div class="bg-accent-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
 					<SvgIcon name="screwdriver" fill="fill-white" width="w-8" height="h-8" />
 				</div>
 				<h6>Powerful Utilities</h6>
-				<p>Provides a feature rich UI toolkit for modern web apps, with layouts, dialogs, and more.</p>
-			</Card>
+				<p>Provides a feature rich UI toolkit for modern web apps with layouts, dialogs, and more.</p>
+			</div>
 		</section>
 
-		<!-- Meet The Team -->
+		<!-- Team -->
 		<section class="text-center space-y-6">
 			<h2>Meet The Team</h2>
 			<section class="grid grid-cols-1 md:grid-cols-3 gap-4">
-				<Card body="space-y-4" class="text-center">
-					<Avatar src="https://avatars.githubusercontent.com/u/1509726?v=4" size="xl" outlined class="mx-auto" />
+				<card class="card card-body space-y-2 text-center">
+					<Avatar src="https://avatars.githubusercontent.com/u/1509726?v=4" width="w-24" shadow="shadow-xl" class="mx-auto" />
 					<h5>Chris Simmons</h5>
 					<p>Co-founder and core contributor.</p>
 					<div class="flex justify-center space-x-4">
@@ -101,25 +94,25 @@
 						<a href="https://twitter.com/endigodesign" target="_blank"><SvgIcon name="twitter" /></a>
 						<a href="https://www.linkedin.com/in/chris-simmons-8a523a23/" target="_blank"><SvgIcon name="linkedin" /></a>
 					</div>
-				</Card>
-				<Card body="space-y-4" class="text-center">
-					<Avatar src="https://avatars.githubusercontent.com/u/52718757?v=4" size="xl" outlined class="mx-auto" />
+				</card>
+				<card class="card card-body space-y-2 text-center">
+					<Avatar src="https://avatars.githubusercontent.com/u/52718757?v=4" width="w-24" shadow="shadow-xl" class="mx-auto" />
 					<h5>Thomas Jespersen</h5>
 					<p>Co-founder and core contributor.</p>
 					<div class="flex justify-center space-x-4">
 						<a href="https://github.com/thomasbjespersen" target="_blank"><SvgIcon name="github" /></a>
 						<a href="https://www.linkedin.com/in/thomas-jespersen-b77132202/" target="_blank"><SvgIcon name="linkedin" /></a>
 					</div>
-				</Card>
-				<Card body="space-y-4" class="text-center">
-					<Avatar src="https://avatars.githubusercontent.com/u/10255430?v=4" size="xl" outlined class="mx-auto" />
+				</card>
+				<card class="card card-body space-y-2 text-center">
+					<Avatar src="https://avatars.githubusercontent.com/u/10255430?v=4" width="w-24" shadow="shadow-xl" class="mx-auto" />
 					<h5>Trey Weir</h5>
 					<p>Core member and founder of <a href="https://www.brainandbonesllc.com/" target="_blank">Brain & Bones</a></p>
 					<div class="flex justify-center space-x-4">
 						<a href="https://twitter.com/brain_and_bones" target="_blank"><SvgIcon name="twitter" /></a>
 						<a href="https://www.linkedin.com/company/brainandbones/" target="_blank"><SvgIcon name="linkedin" /></a>
 					</div>
-				</Card>
+				</card>
 			</section>
 		</section>
 
@@ -129,17 +122,15 @@
 			<div class="text-center space-y-8">
 				<h2>Sponsors</h2>
 				<div class="flex flex-wrap justify-center space-x-4">
-					<a href="https://www.brainandbonesllc.com/" target="_blank" class="opacity-90 hover:opacity-100 !no-underline">
-						<Card border="border border-surface-500/30" body="flex flex-col items-center space-y-4">
-							<img src="https://www.brainandbonesllc.com/svg/logo.svg" alt="Brain & Bones" class="h-[32px] invert dark:invert-0" />
-							<p class="text-sm">Brain & Bones</p>
-						</Card>
+					<a class="card card-body flex flex-col items-center space-y-4" href="https://www.brainandbonesllc.com/" target="_blank">
+						<img src="https://www.brainandbonesllc.com/svg/logo.svg" alt="Brain & Bones" class="h-[32px] mx-auto invert dark:invert-0" />
+						<p class="text-sm">Brain & Bones</p>
 					</a>
 				</div>
-				<Button variant="ghost" href="https://github.com/sponsors/Brain-Bones" target="_blank">
-					Become a Sponsor
-					<svelte:fragment slot="trail">&rarr;</svelte:fragment>
-				</Button>
+				<a class="btn btn-ghost" href="https://github.com/sponsors/Brain-Bones" target="_blank">
+					<span>Become a Sponsor</span>
+					<span>&rarr;</span>
+				</a>
 			</div>
 
 			<!-- Contributors -->
@@ -156,10 +147,10 @@
 						{/each}
 					{/await}
 				</div>
-				<Button variant="ghost" href="/docs/contributions">
-					How to Contribute
-					<svelte:fragment slot="trail">&rarr;</svelte:fragment>
-				</Button>
+				<a class="btn btn-ghost" href="/docs/contributions">
+					<span>How to Contribute</span>
+					<span>&rarr;</span>
+				</a>
 			</div>
 		</section>
 	</div>

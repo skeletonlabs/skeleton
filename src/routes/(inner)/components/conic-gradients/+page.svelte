@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { DataTable, Card } from '@brainandbones/skeleton';
-	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import ConicGradient from '$lib/ConicGradient/ConicGradient.svelte';
+	import { DataTable } from '@brainandbones/skeleton';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import ConicGradient from '$lib/components/ConicGradient/ConicGradient.svelte';
 
 	// Examples
 	const dataOne: any[] = [
@@ -44,17 +44,17 @@
 
 	<!-- Examples -->
 	<section class="space-y-4 md:space-y-0 md:grid md:grid-cols-3 md:gap-8">
-		<Card><ConicGradient data={dataOne} legend={true} /></Card>
-		<Card>
+		<div class="card card-body"><ConicGradient data={dataOne} legend={true} /></div>
+		<div class="card card-body">
 			<ConicGradient data={dataTwo} legend={true}>
 				<h3>Heat Map</h3>
 			</ConicGradient>
-		</Card>
-		<Card class="flex justify-center items-center">
+		</div>
+		<div class="card card-body flex justify-center items-center">
 			<ConicGradient data={dataThree} width="w-8" class="animate-spin">
 				<small class="opacity-50">Loading</small>
 			</ConicGradient>
-		</Card>
+		</div>
 	</section>
 
 	<!-- Usage -->
@@ -71,7 +71,7 @@ const dataSet: any[] = [
     {label: 'Indigo', swathe: {color: 'indigo', weight: 500}, start: 35, end: 60},
     {label: 'Rose', swathe: {color: 'rose', weight: 500}, start: 60, end: 100},
 ];
-        `.trim()}
+        `}
 		/>
 		<h3>Spinner</h3>
 		<CodeBlock
@@ -80,7 +80,7 @@ const dataSet: any[] = [
 <ConicGradient data={dataSet} width="w-8" class="animate-spin">
     <small>Loading</small>    
 </ConicGradient>
-        `.trim()}
+        `}
 		/>
 		<CodeBlock
 			language="js"
@@ -89,7 +89,7 @@ const dataSet: any[] = [
     {swathe: {color: 'transparent'}, start: 0, end: 25},
     {swathe: {color: 'slate', weight: 500}, start: 75, end: 100},
 ];
-        `.trim()}
+        `}
 		/>
 	</section>
 

@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
-	import { storeFramework } from '$lib/_documentation/stores';
+	import { storeFramework } from '$docs/stores';
 
-	import { DataTable, Card, Divider, Button, RadioGroup, RadioItem, TabGroup, Tab } from '@brainandbones/skeleton';
-	import { toastStore, type ToastMessage } from '$lib/Notifications/Stores';
+	import { DataTable, Divider, RadioGroup, RadioItem, TabGroup, Tab } from '@brainandbones/skeleton';
+	import { toastStore, type ToastMessage } from '$lib/utilities/Toast/stores';
 
-	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
-	import ThemeGenTailwind from '$lib/_documentation/ThemeGenerator/ThemeGenTailwind.svelte';
-	import ThemeGenCustom from '$lib/_documentation/ThemeGenerator/ThemeGenCustom.svelte';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import DocsThemerTailwind from '$docs/DocsThemer/DocsThemerTailwind.svelte';
+	import DocsThemerHex from '$docs/DocsThemer/DocsThemerHex.svelte';
 
 	// Stores
 	const storeGenerator: Writable<string> = writable('tailwind'); // tailwind | hex
@@ -26,7 +26,7 @@
 
 	// Copy Theme Import to Clipboard
 	function copyThemeToClipboard(name: string): void {
-		navigator.clipboard.writeText(`import '@brainandbones/skeleton/styles/themes/theme-${name}.css';`).then(
+		navigator.clipboard.writeText(`import '@brainandbones/skeleton/themes/theme-${name}.css';`).then(
 			// Success
 			() => {
 				const t: ToastMessage = { message: 'Import statement copied to clipboard.' };
@@ -78,15 +78,15 @@
 		<!-- Framework: SvelteKit -->
 		{#if $storeFramework === 'sveltekit'}
 			<p>Import your desired preset into <code>src/routes/+layout.svelte</code>.</p>
-			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/styles/themes/theme-{name}.css'; // <--\nimport '../app.postcss';\n`} />
+			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/themes/theme-{name}.css'; // <--\nimport '../app.postcss';\n`} />
 			<!-- Framework: Vite (Svelte) -->
 		{:else if $storeFramework === 'vite'}
 			<p>Import your desired preset into <code>/src/main.js</code>.</p>
-			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/styles/themes/theme-{name}.css'; // <--\nimport '../app.css';\n`} />
+			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/themes/theme-{name}.css'; // <--\nimport '../app.css';\n`} />
 			<!-- Framework: Astro -->
 		{:else if $storeFramework === 'astro'}
 			<p>Import your desired preset into <code>/src/layouts/LayoutBasic.astro</code>.</p>
-			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/styles/themes/theme-{name}.css'; // <--\nimport '../styles/base.css';`} />
+			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/themes/theme-{name}.css'; // <--\nimport '../styles/base.css';`} />
 		{/if}
 		<!-- Preset Previews -->
 		<p>Tap any theme below to automatically copy the import statement to your clipboard.</p>
@@ -118,30 +118,30 @@
 		<h2>Theme Generator</h2>
 		<p>Use the form below to craft a custom theme. Each color represents swatch 500 (ex: <code>bg-primary-500</code>).</p>
 		<!-- Card -->
-		<Card background="bg-[#E9E9E9] dark:bg-[#141414]" header="flex justify-center" body="space-y-4">
-			<svelte:fragment slot="header">
-				<RadioGroup selected={storeGenerator}>
+		<div class="card">
+			<header class="card-header flex flex-col md:items-center space-y-4">
+				<RadioGroup selected={storeGenerator} display="flex md:inline-flex">
 					<RadioItem value="tailwind">Tailwind Mode</RadioItem>
-					<RadioItem value="hex">Hex Color Mode</RadioItem>
+					<RadioItem value="hex">Hex Mode</RadioItem>
 				</RadioGroup>
-			</svelte:fragment>
-			<!-- Messaging -->
-			{#if $storeGenerator === 'tailwind'}
-				<span class="block text-center">
-					Create a theme using <a href="https://tailwindcss.com/docs/customizing-colors" target="_blank">Tailwind's color palette</a>. This typically provides the best results.
-				</span>
-			{/if}
-			{#if $storeGenerator === 'hex'}
-				<span class="block text-center"> For advanced users. Enterhex color values to generate a completely unique theme. </span>
-			{/if}
-			<Divider class="opacity-30" />
-			<!-- Generator Components -->
-			{#if $storeGenerator === 'tailwind'}<ThemeGenTailwind />{/if}
-			{#if $storeGenerator === 'hex'}<ThemeGenCustom />{/if}
-			<Divider class="opacity-30" />
-		</Card>
+				<!-- Messaging -->
+				{#if $storeGenerator === 'tailwind'}
+					<span class="block text-center">
+						Create a theme using <a href="https://tailwindcss.com/docs/customizing-colors" target="_blank">Tailwind's color palette</a>. This typically provides the best results.
+					</span>
+				{/if}
+				{#if $storeGenerator === 'hex'}
+					<span class="block text-center"> For advanced users. Enter hex color values to generate a completely unique theme. </span>
+				{/if}
+			</header>
+			<div class="card-body">
+				<!-- Generator Components -->
+				{#if $storeGenerator === 'tailwind'}<DocsThemerTailwind />{/if}
+				{#if $storeGenerator === 'hex'}<DocsThemerHex />{/if}
+			</div>
+		</div>
 		<p class="block">
-			TIP: Use <a href="https://tailwind.simeongriggs.dev/blue/3B82F6" target="_blank">Palette Generator</a> to for complete custom palatte curation. The
+			TIP: Use <a href="https://tailwind.simeongriggs.dev/blue/3B82F6" target="_blank">Palette Generator</a> to complete custom palette curation. The
 			<a href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba" target="_blank">Hex-To-RGB extension</a>
 			can convert colors from <strong>Hex &rarr; RGB</strong> in bulk within <strong>VS Code</strong>.
 		</p>
@@ -195,10 +195,10 @@
 	<Divider />
 
 	<!-- Next Steps -->
-	<Card body="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+	<div class="card card-body flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<p>Next, let's review best practices for handling CSS styles and overrides.</p>
-		<Button variant="filled-accent" href="/guides/styling">Styles and Stylesheets</Button>
-	</Card>
+		<a class="btn btn-filled-accent" href="/guides/styling">Styles and Stylesheets</a>
+	</div>
 </div>
 
 <style lang="postcss">

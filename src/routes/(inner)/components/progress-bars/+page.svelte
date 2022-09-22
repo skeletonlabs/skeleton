@@ -1,30 +1,37 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
-	import { DataTable, Card, RadioGroup, RadioItem, ProgressBar } from '@brainandbones/skeleton';
-	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+
+	import { DataTable, RadioGroup, RadioItem, ProgressBar } from '@brainandbones/skeleton';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	const storeDeterminate: Writable<boolean> = writable(true);
 	const storeHeight: Writable<string> = writable('h-2');
+	const defaultTrackBg: string = 'bg-surface-300 dark:bg-surface-700';
 
-	const tableProps: any = {
-		headings: ['Prop', 'Type', 'Default', 'Description'],
-		source: [
-			['label', 'string', '-', 'Set the label text.'],
-			['value', 'number', '-', 'Specifies the amount completed. Shows as indeterminate when undefined.'],
-			['max', 'number', '10', 'Maximum amount the bar represents.'],
-			['color', 'string', 'bg-accent-500', 'Provide a class to set meter background color.'],
-			['height', 'string', 'h-2', 'Provide a class to set track height.']
-		]
-	};
-
-	// Usage
+	// Reactive Props
 	$: props = {
 		determinate: $storeDeterminate,
 		label: 'Progress Bar',
 		value: 50,
 		max: 100,
 		height: $storeHeight,
-		color: 'bg-accent-500'
+		rounded: 'rounded-full',
+		meter: 'bg-accent-500',
+		track: defaultTrackBg
+	};
+
+	// Tables
+	const tableProps: any = {
+		headings: ['Prop', 'Type', 'Default', 'Description'],
+		source: [
+			['label', 'string', '-', 'Set the label text.'],
+			['value', 'number', '-', 'Specifies the amount completed. Indeterminate when <code>undefined</code>.'],
+			['max', 'number', '100', 'Maximum amount the bar represents.'],
+			['height', 'string', 'h-2', 'Provide classes to set track height.'],
+			['rounded', 'string', 'rounded-full', 'Provide classes to set rounded styles.'],
+			['meter', 'string', 'bg-accent-500', 'Provide arbitrary classes to style the meter element.'],
+			['track', 'string', 'bg-surface-300 dark:bg-surface-700', 'Provide arbitrary classes to style the track element.']
+		]
 	};
 </script>
 
@@ -32,7 +39,7 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Progress Bar</h1>
-		<p>Displays an indicator showing the progress or completion of a task.</p>
+		<p>An indicator showing the progress or completion of a task.</p>
 		<CodeBlock language="js" code={`import { ProgressBar } from '@brainandbones/skeleton';`} />
 	</header>
 
@@ -40,57 +47,87 @@
 	<section class="space-y-4">
 		<div class="space-y-4 xl:space-y-0 xl:grid grid-cols-[2fr,1fr] gap-2">
 			<!-- Example -->
-			<Card body="h-full flex justify-center items-center">
+			<div class="card card-body h-full flex justify-center items-center">
 				<div class="w-[75%]">
-					<svelte:component this={ProgressBar} label={props.label} value={props.determinate ? props.value : undefined} max={props.max} height={props.height} color={props.color} />
+					<svelte:component
+						this={ProgressBar}
+						label={props.label}
+						value={props.determinate ? props.value : undefined}
+						max={props.max}
+						height={props.height}
+						rounded={props.rounded}
+						meter={props.meter}
+						track={props.track}
+					/>
 				</div>
-			</Card>
+			</div>
 			<!-- Options -->
-			<Card body="space-y-4">
+			<div class="card card-body space-y-4">
+				<!-- Mode -->
+				<label for="">
+					<RadioGroup selected={storeDeterminate} display="flex">
+						<RadioItem value={true}>Determinate</RadioItem>
+						<RadioItem value={false}>Indeterminate</RadioItem>
+					</RadioGroup>
+				</label>
+				<!-- Amount -->
+				{#if props.determinate}
+					<input type="range" id="amount" name="amount" min="0" max={props.max} step="10" bind:value={props.value} aria-label="Value Amount" />
+				{/if}
 				<!-- Label -->
 				<label>
 					<span>Label</span>
 					<input type="text" bind:value={props.label} placeholder="Label" />
 				</label>
-				<!-- Value -->
-				<div>
-					<legend>Value</legend>
-					<RadioGroup selected={storeDeterminate} background="bg-accent-500" color="text-white" width="w-full">
-						<RadioItem value={true}>Determinate</RadioItem>
-						<RadioItem value={false}>Indeterminate</RadioItem>
-					</RadioGroup>
-				</div>
-				<!-- Amount -->
-				{#if props.determinate}
-					<div class="flex items-center space-x-4">
-						<input type="range" id="amount" name="amount" min="0" max={props.max} step="10" bind:value={props.value} aria-label="Value Amount" />
-						<p class="text-sm w-12">{props.value}%</p>
-					</div>
-				{/if}
 				<!-- Height -->
-				<div>
-					<legend>Height</legend>
-					<RadioGroup selected={storeHeight} background="bg-accent-500" color="text-white" width="w-full">
+				<label for="">
+					<span>Height</span>
+					<RadioGroup selected={storeHeight} display="flex">
+						<RadioItem value="h-1">h-1</RadioItem>
 						<RadioItem value="h-2">h-2</RadioItem>
 						<RadioItem value="h-4">h-4</RadioItem>
-						<RadioItem value="h-6">h-6</RadioItem>
+						<RadioItem value="h-8">h-8</RadioItem>
 					</RadioGroup>
-				</div>
-				<!-- Color -->
+				</label>
+				<!-- Rounded -->
 				<label>
-					<span>Color</span>
-					<select name="color" id="color" bind:value={props.color}>
-						<option value={'bg-primary-500'}>bg-primary-500</option>
-						<option value={'bg-accent-500'}>bg-accent-500</option>
-						<option value={'bg-warning-500'}>bg-warning-500</option>
+					<span>Rounded</span>
+					<select name="rounded" id="rounded" bind:value={props.rounded}>
+						<option value="rounded-none">rounded-none</option>
+						<option value="rounded">rounded</option>
+						<option value="rounded-full">rounded-full</option>
 					</select>
 				</label>
-			</Card>
+				<!-- Meter -->
+				<label>
+					<span>Meter</span>
+					<select name="meter" id="meter" bind:value={props.meter}>
+						<option value="bg-primary-500">bg-primary-500</option>
+						<option value="bg-accent-500">bg-accent-500</option>
+						<option value="bg-warning-500">bg-warning-500</option>
+					</select>
+				</label>
+				<!-- track -->
+				<label>
+					<span>Track</span>
+					<select name="track" id="track" bind:value={props.track}>
+						<option value={defaultTrackBg}>Default</option>
+						<option value="bg-primary-500/30">bg-primary-500/30</option>
+						<option value="bg-accent-500/30">bg-accent-500/30</option>
+						<option value="bg-warning-500/30">bg-warning-500/30</option>
+					</select>
+				</label>
+			</div>
 		</div>
-		<CodeBlock
-			language="html"
-			code={`<ProgressBar label="${props.label}" ${props.determinate ? `value={${props.value}}` : ''} max={${props.max}} height="${props.height}" color="${props.color}" />`}
-		/>
+	</section>
+
+	<!-- Usage -->
+	<section class="space-y-4">
+		<h2>Usage</h2>
+		<CodeBlock language="html" code={`<ProgressBar label="Progress Bar" value={50} max={100} />`} />
+		<h4>Indeterminate</h4>
+		<p>The <code>value</code> property must be removed or set to <code>undefined</code>.</p>
+		<CodeBlock language="html" code={`<ProgressBar />`} />
 	</section>
 
 	<!-- Properties -->

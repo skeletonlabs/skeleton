@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { mapTableSource } from '$lib/Table/DataTableService';
+	import { mapTableSource } from '$lib/components/Table/DataTableService';
 	import { writable, type Writable } from 'svelte/store';
 
-	import { DataTable, Card, TabGroup, Tab } from '@brainandbones/skeleton';
-	import CodeBlock from '$lib/CodeBlock/CodeBlock.svelte';
+	import { DataTable, TabGroup, Tab } from '@brainandbones/skeleton';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	let tabExample: Writable<string> = writable('local');
 
@@ -68,11 +68,11 @@
 	const tablePropStyles: any = {
         headings: ['Prop', 'Type', 'Default', 'Description'],
         source: [
-            {prop: 'header', type: 'string', default: 'bg-surface-50 dark:bg-surface-700', desc: 'Provide a class to set the table header background color.'},
-            {prop: 'body', type: 'string', default: 'bg-surface-200 dark:bg-surface-800', desc: 'Provide a class to set the table body background color.'},
-            {prop: 'text', type: 'string', default: 'text-sm', desc: 'Provide a class to set the table text size.'},
-            {prop: 'color', type: 'string', default: '-', desc: 'Provide a class to set the table text color.'},
-            {prop: 'hover', type: 'string', default: 'hover:bg-primary-500/10', desc: 'Provide a class to set the hover background color.'},
+            {prop: 'header', type: 'string', default: 'bg-surface-50 dark:bg-surface-700', desc: 'Provide classes to set the table header background color.'},
+            {prop: 'body', type: 'string', default: 'bg-surface-200 dark:bg-surface-800', desc: 'Provide classes to set the table body background color.'},
+            {prop: 'text', type: 'string', default: 'text-sm', desc: 'Provide classes to set the table text size.'},
+            {prop: 'color', type: 'string', default: '-', desc: 'Provide classes to set the table text color.'},
+            {prop: 'hover', type: 'string', default: 'hover:bg-primary-500/10', desc: 'Provide classes to set the hover background color.'},
         ],
     }
 
@@ -131,11 +131,11 @@
 			<Tab value="local">Local</Tab>
 			<Tab value="async">Async</Tab>
 		</TabGroup>
-		{#if $tabExample === 'local'}<p>Render a table using data fully available client-side.</p>{/if}
+		{#if $tabExample === 'local'}<p>Render a table using data that is client-side only.</p>{/if}
 		{#if $tabExample === 'async'}<p>
 				Render a table using asycronous data, such as an HTTP call to an API. The example below fetches data from <a href="https://jsonplaceholder.typicode.com/" target="_blank">JSON Placeholder</a>
 			</p>{/if}
-		<Card class="space-y-4">
+		<div class="card card-body space-y-4">
 			<!-- Tab: Local -->
 			{#if $tabExample === 'local'}
 				<DataTable headings={tableLocal.headings} bind:source={tableLocal.source} search={tableLocal.search} sort={tableLocal.sort} interactive on:sorted={onSort} on:selected={onSelect}>
@@ -165,7 +165,7 @@
 					<p style="text-center text-warning-500">{error.message}</p>
 				{/await}
 			{/if}
-		</Card>
+		</div>
 	</section>
 
 	<!-- Usage -->
@@ -187,13 +187,13 @@ const source: any[] = [
     { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
     { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
 ];
-            `.trim()}
+            `}
 			/>
 			<CodeBlock
 				language="html"
 				code={`
 <DataTable {headings} {source}></DataTable>
-            `.trim()}
+            `}
 			/>
 			<h3>Fully Featured</h3>
 			<p>The example below includes search, sort, and item count. Note that source is binding to provide item count.</p>
@@ -217,7 +217,7 @@ const tableLocal: any = {
         { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
     ]
 };
-            `.trim()}
+            `}
 			/>
 			<CodeBlock
 				language="html"
@@ -234,7 +234,7 @@ const tableLocal: any = {
     <svelte:fragment slot="header"><input type="search" placeholder="Search..." bind:value={tableLocal.search}></svelte:fragment>
     <svelte:fragment slot="footer">{tableLocal.source.length} Items</svelte:fragment>
 </DataTable>
-            `.trim()}
+            `}
 			/>
 		{/if}
 		<!-- Tab: Async -->
@@ -244,7 +244,7 @@ const tableLocal: any = {
 				language="typescript"
 				code={`
 const tableServer: any = { search: undefined, sort: undefined, headings: undefined, count: 0 };
-            `.trim()}
+            `}
 			/>
 			<p>Fetch API data from a server, then map headings and the default sort value.</p>
 			<CodeBlock
@@ -258,7 +258,7 @@ async function getTableSource(): Promise<any> {
     if (http.ok) { return res; } else { throw new Error(res); }
 }
 let tablePromise: Promise<any> = getTableSource();
-            `.trim()}
+            `}
 			/>
 			<p>Use Svelte await blocks to handle loading, complete, and error states. Please ensure you bind 'count' to handle item count.</p>
 			<CodeBlock
@@ -283,7 +283,7 @@ let tablePromise: Promise<any> = getTableSource();
 {:catch error}
     <p style="text-center text-warning-500">{error.message}</p>
 {/await}
-            `.trim()}
+            `}
 			/>
 			<p>If you prefer to use server-side search and sort, enable the 'async' property. This disables local search and sort within the component.</p>
 			<CodeBlock
@@ -297,7 +297,7 @@ let tablePromise: Promise<any> = getTableSource();
     async
 ></DataTable>
 <!-- (error) -->
-            `.trim()}
+            `}
 			/>
 		{/if}
 		<p>Handle events for sort and row selection. These are enabled for the demos at the top of the page. View your browser's console log during interaction.</p>
@@ -306,7 +306,7 @@ let tablePromise: Promise<any> = getTableSource();
 			code={`
 function onSort(event: any): void { console.log('event:onSort', event.detail); }
 function onSelect(event: any): void { console.log('event:onSelect', event.detail); }
-            `.trim()}
+            `}
 		/>
 	</section>
 

@@ -1,74 +1,72 @@
 <!-- Layout: (root) -->
 <script lang="ts">
 	import hljs from 'highlight.js';
-	import 'highlight.js/styles/github-dark.css';
-	import { storeHighlightJs } from '$lib/CodeBlock/stores';
+	import '$lib/styles/highlight-js.css'; // was: 'highlight.js/styles/github-dark.css';
+	import { storeHighlightJs } from '$lib/utilities/CodeBlock/stores';
 	storeHighlightJs.set(hljs);
 
 	import { page } from '$app/stores';
 	import { afterNavigate } from '$app/navigation';
 
 	// Components & Utilities
-	import AppShell from '$lib/AppShell/AppShell.svelte';
-	import Dialog from '$lib/Notifications/Dialog.svelte';
-	import Toast from '$lib/Notifications/Toast.svelte';
+	import AppShell from '$lib/components/AppShell/AppShell.svelte';
+	import Dialog from '$lib/utilities/Dialog/Dialog.svelte';
+	import Toast from '$lib/utilities/Toast/Toast.svelte';
 
-	// Doc-Only Components
-	import SkeletonAppBar from '$lib/_documentation/SkeletonAppBar/SkeletonAppBar.svelte';
-	import SkeletonSidebar from '$lib/_documentation/SkeletonNavigation/SkeletonSidebar.svelte';
-	import SkeletonDrawer from '$lib/_documentation/SkeletonNavigation/SkeletonDrawer.svelte';
-	import SkeletonFooter from '$lib/_documentation/SkeletonFooter/SkeletonFooter.svelte';
+	// Docs Components
+	import DocsAppBar from '$docs/DocsAppBar/DocsAppBar.svelte';
+	import DocsSidebar from '$docs/DocsNavigation/DocsSidebar.svelte';
+	import DocsDrawer from '$docs/DocsNavigation/DocsDrawer.svelte';
+	import DocsFooter from '$docs/DocsFooter/DocsFooter.svelte';
 
 	// Stores
-	import { storeCurrentUrl } from '$lib/_documentation/stores';
+	import { storeCurrentUrl } from '$docs/stores';
 
 	// Skeleton Theme: skeleton|rocket|modern|seafoam|vintage|sahara|test
-	import '$lib/styles/themes/theme-skeleton.css';
-	// Skeleton Add-On Stylesheets
-	import '$lib/styles/tailwind.css';
-	import '$lib/styles/core.css';
-	import '$lib/styles/typography.css';
-	import '$lib/styles/forms.css';
+	import '$lib/themes/theme-skeleton.css';
+	// Skeleton Stylesheets
+	import '$lib/styles/all.css';
 	// Global Stylesheets
 	import '../app.postcss';
 
 	// Lifecycle Events
-	afterNavigate(() => {
+	afterNavigate((params: any) => {
 		// Store current page route URL
 		storeCurrentUrl.set($page.url.pathname);
 		// Scroll to top
+		const isNewPage: boolean = params.from && params.to && params.from.routeId !== params.to.routeId;
 		const elemPage = document.querySelector('#page');
-		if (elemPage !== null) {
+		if (isNewPage && elemPage !== null) {
 			elemPage.scrollTop = 0;
 		}
 	});
 
 	// Disable left sidebar on homepage
-	$: sidebarLeftWidth = $page.url.pathname === '/' ? 'w-0' : 'lg:w-auto';
+	$: slotSidebarLeft = $page.url.pathname === '/' ? 'w-0' : 'bg-black/5 lg:w-auto';
 </script>
 
 <!-- Overlays -->
 <Dialog />
 <Toast />
-<SkeletonDrawer />
+<DocsDrawer />
 
 <!-- App Shell -->
-<AppShell {sidebarLeftWidth}>
+<AppShell {slotSidebarLeft} slotFooter="bg-black p-4">
 	<!-- Header -->
 	<svelte:fragment slot="header">
-		<SkeletonAppBar />
+		<DocsAppBar />
 	</svelte:fragment>
 
 	<!-- Sidebar (Left) -->
 	<svelte:fragment slot="sidebarLeft">
-		<SkeletonSidebar class="hidden lg:block w-[300px]" />
+		<DocsSidebar class="hidden lg:block w-[280px]" />
 	</svelte:fragment>
 
-	<!-- Page: Content -->
+	<!-- Page Content -->
 	<slot />
 
-	<!-- Page: Footer -->
+	<!-- Page Footer -->
 	<svelte:fragment slot="pageFooter">
-		<SkeletonFooter />
+		<DocsFooter />
 	</svelte:fragment>
 </AppShell>

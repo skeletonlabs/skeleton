@@ -1,0 +1,137 @@
+/* Stylesheet Add-On: button.css */
+
+/* === States === */
+
+button:disabled {
+	@apply !opacity-50 !cursor-not-allowed active:scale-100 hover:brightness-100;
+}
+
+/* === Button === */
+/* Standard button/anchor tag elements. */
+
+.btn {
+	/* Size (match base)  */
+	@apply text-base px-5 py-[9px];
+	/* Core */
+	@apply text-center whitespace-nowrap;
+	/* Flex Columns */
+	@apply inline-flex justify-center items-center space-x-2;
+	/* Hover */
+	@apply hover:brightness-110;
+	/* Transitions */
+	@apply transition-all active:scale-90;
+}
+
+/* Button: Sizes */
+.btn-sm {
+	@apply text-sm px-3 py-1.5;
+}
+.btn-base {
+	@apply text-base px-5 py-[9px];
+}
+.btn-lg {
+	@apply text-lg px-7 py-3;
+}
+.btn-xl {
+	@apply text-xl px-9 py-4;
+}
+
+/* === Icon Button === */
+/* A circular button meant for housing icons. */
+
+.btn-icon {
+	/* Extend Base Button Clases */
+	@apply btn;
+	/* Size (match base) */
+	@apply text-base aspect-square w-[43px];
+	/* Rounded */
+	@apply rounded-full;
+}
+
+/* Icon Button: Size */
+.btn-icon-sm {
+	@apply text-sm aspect-square w-[33px];
+}
+.btn-icon-base {
+	@apply text-base aspect-square w-[43px];
+}
+.btn-icon-lg {
+	@apply text-lg aspect-square w-[53px];
+}
+.btn-icon-xl {
+	@apply text-xl aspect-square w-[63px];
+}
+
+/* === Utilities === */
+/* A set of utility classes that work for any kind of button. */
+
+/* Outline */
+.btn-outline {
+	@apply ring-2 ring-neutral-900 dark:ring-neutral-50 ring-inset;
+}
+.btn-outline-primary {
+	@apply ring-2 ring-primary-500 ring-inset;
+}
+.btn-outline-accent {
+	@apply ring-2 ring-accent-500 ring-inset;
+}
+.btn-outline-warning {
+	@apply ring-2 ring-warning-500 ring-inset;
+}
+.btn-outline-surface {
+	@apply ring-2 ring-surface-500 ring-inset;
+}
+
+/* === Variants === */
+/* A canned set of preset styles. */
+
+/* Filled */
+.btn-filled {
+	@apply bg-neutral-900 text-neutral-50 dark:bg-neutral-50 dark:text-neutral-900;
+}
+.btn-filled-primary {
+	@apply bg-primary-500;
+}
+.btn-filled-accent {
+	@apply bg-accent-500;
+}
+.btn-filled-warning {
+	@apply bg-warning-500;
+}
+.btn-filled-surface {
+	@apply bg-surface-500;
+}
+
+/* Ringed */
+.btn-ringed {
+	@apply btn-outline;
+}
+.btn-ringed-primary {
+	@apply btn-outline-primary;
+}
+.btn-ringed-accent {
+	@apply btn-outline-accent;
+}
+.btn-ringed-warning {
+	@apply btn-outline-warning;
+}
+.btn-ringed-surface {
+	@apply btn-outline-surface;
+}
+
+/* Ghost */
+.btn-ghost {
+	@apply btn-outline bg-neutral-900/10 dark:bg-neutral-50/10;
+}
+.btn-ghost-primary {
+	@apply btn-outline-primary bg-primary-500/10;
+}
+.btn-ghost-accent {
+	@apply btn-outline-accent bg-accent-500/10;
+}
+.btn-ghost-warning {
+	@apply btn-outline-warning bg-warning-500/10;
+}
+.btn-ghost-surface {
+	@apply btn-outline-surface bg-surface-500/10;
+}
