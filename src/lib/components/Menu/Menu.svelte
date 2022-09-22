@@ -89,8 +89,6 @@
 		setOrigin();
 		// If auto-origin enabled, add event listeners
 		if (autoOriginMode === true) {
-			// Event: Window Resize
-			window.addEventListener('resize', setAutoOrigin);
 			// Event: Parent Scroll
 			const scrollParent = getFirstScrollableParent(elemMenu);
 			scrollParent.addEventListener('scroll', setAutoOrigin);
@@ -106,7 +104,7 @@
 	$: classesMenu = `${cBaseMenu} ${$$props.class || ''}`;
 	$: classesContent = `${cBaseContent} ${cOrigin}`;
 </script>
-<svelte:window on:keydown={onKeyDown}/>
+<svelte:window on:keydown={onKeyDown} on:resize={autoOriginMode ? setAutoOrigin : ''}/>
 <svelte:body on:click={handleBodyClick} />
 
 <div bind:this={elemMenu} class="menu-wrapper {classesMenu}" data-testid="menu-wrapper">
