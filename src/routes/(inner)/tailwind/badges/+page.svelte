@@ -18,7 +18,7 @@
 	<header class="space-y-4">
 		<h1>Badges</h1>
 		<p>Automatically included in <code>all.css</code> and <code>elements.css</code>. This <a href="/guides/styling">stylesheet</a> provides a robust set of badge styles.</p>
-		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/badges.css';`} />
+		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/elements/badges.css';`} />
 	</header>
 
 	<!-- Examples -->

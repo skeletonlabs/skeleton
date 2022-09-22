@@ -11,7 +11,7 @@ cd $1/
 cat <<EOT > tailwind.config.cjs
 const typography = require('@tailwindcss/typography');
 const forms = require('@tailwindcss/forms');
-const skeleton = require('@brainandbones/skeleton/tailwind.cjs');
+const skeleton = require('@brainandbones/skeleton/tailwind/theme.cjs');
 
 const config = {
 	content: ['./src/**/*.{html,js,svelte,ts}', './node_modules/@brainandbones/skeleton/**/*.{html,js,svelte,ts}'],
@@ -26,10 +26,11 @@ const config = {
 module.exports = config;
 EOT
 #curl -s -o src/app.postcss https://raw.githubusercontent.com/Brain-Bones/skeleton/master/src/app.css
+truncate -s 0 src/app.postcss
 cat <<EOT > src/routes/+layout.svelte
 <script>
+	import '@brainandbones/skeleton/themes/theme-skeleton.css';	
 	import '@brainandbones/skeleton/styles/all.css';
-	import '@brainandbones/skeleton/themes/theme-skeleton.css';
 	import '../app.postcss';
 </script>
 

@@ -61,7 +61,7 @@
 		</div>
 		<!-- Pre -->
 		<div class="space-y-4">
-			<h4>Preformatted Text</h4>
+			<h4>Pre-formatted Text</h4>
 			<CodeBlock language="html" code={`<pre>The quick brown fox jumps over the lazy dog.</pre>`} />
 			<div class="card card-body">
 				<pre class="max-w-[480px] mx-auto">The quick brown fox jumps over the lazy dog.</pre>

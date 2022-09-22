@@ -9,7 +9,7 @@
 	// Props
 	const tableProps: any = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
-		source: [['separator', 'string', `<code>&rsaquo</code> (unicode)`, 'Defines the crumb seperator. Supports SVG icons.']]
+		source: [['separator', 'string', `<code>&rsaquo</code> (unicode)`, 'Defines the crumb separator. Supports SVG icons.']]
 	};
 	const tablePropsCrumb: any = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],

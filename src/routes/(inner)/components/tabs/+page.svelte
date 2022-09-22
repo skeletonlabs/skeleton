@@ -17,7 +17,7 @@
 			['justify', 'string', 'justify-start', '-', `Provide classes to set the flex justification. 'justify-start' is best small screens.`],
 			['borderWidth', 'string', 'border-b-2', '-', 'Provide classes to set the selected border thickness size. Shared between group and tab.'],
 			['borderColor', 'string', 'border-primary-500', '-', 'Provide classes to set the selected border color.'],
-			['color', 'string', 'text-primary-500', '-', 'Provide class to set the selecteded text color.'],
+			['color', 'string', 'text-primary-500', '-', 'Provide class to set the selected text color.'],
 			['fill', 'string', 'fill-primary-500', '-', 'Provide classes to set the selected SVG fill color.'],
 			['hover', 'string', 'hover:bg-surface-500/10', '-', 'Provide classes to set the unselected hover styles.'],
 			['rounded', 'string', 'rounded-tl-lg rounded-tr-lg', '-', 'Provide classes to set the tab border radius styles.']

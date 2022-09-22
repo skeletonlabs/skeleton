@@ -30,7 +30,7 @@
 	<header class="space-y-4">
 		<h1>Lists</h1>
 		<p>Automatically included in <code>all.css</code> and <code>elements.css</code>. This <a href="/guides/styling">stylesheet</a> provides styles for static list elements.</p>
-		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/lists.css';`} />
+		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/elements/lists.css';`} />
 	</header>
 
 	<!-- Examples -->
@@ -117,7 +117,7 @@
     </li>
 	<!-- ... -->
 </ul>
-            `.trim()}
+            `}
 			/>
 		</div>
 		<!-- Ordered -->
@@ -133,7 +133,7 @@
     </li>
 	<!-- ... -->
 </ol>
-            `.trim()}
+            `}
 			/>
 		</div>
 		<!-- Description -->
@@ -153,17 +153,18 @@
     </div>
 	<!-- ... -->
 </dl>
-            `.trim()}
+            `}
 			/>
 		</div>
 		<!-- Navigation -->
 		<div class="space-y-4">
 			<h4>Navigation</h4>
-			<p>Note the use of the <em>ul</em> tag, which is required to meet <a href="https://www.w3.org/WAI/tutorials/menus/structure/" target="_blank">accessibility guidelines</a>.</p>
+			<p>While verbose, we do recommend you use all tags shown below to meet recommended <a href="https://www.w3.org/WAI/tutorials/menus/structure/" target="_blank">accessibility guidelines</a>.</p>
 			<CodeBlock
 				language="html"
 				code={`
 <nav class="list-nav">
+	<!-- (optionally you can provde a label here) -->
     <ul>
         <li>
             <a href="/">
@@ -174,8 +175,11 @@
 		<!-- ... -->
     </ul>
 </nav>
-            `.trim()}
+            `}
 			/>
+			<p>If you need to highlight an active Navigation List item, we recommend conditionally applying a background color to the anchor tag.</p>
+			<CodeBlock language="ts" code={`$: classesActive = (href: string) => (href === $page.url.pathname ? '!bg-primary-500' : '');`} />
+			<CodeBlock language="html" code={`<a {href} class="{classesActive(href)}">Page</a>`} />
 		</div>
 		<!-- Global Styles -->
 		<div class="space-y-4">
@@ -189,7 +193,7 @@
 .list-nav ul {
 	@apply space-y-4;
 }
-            `.trim()}
+            `}
 			/>
 		</div>
 	</section>

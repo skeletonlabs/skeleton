@@ -18,7 +18,7 @@
 		]
 	};
 	const tableSlots: any = {
-		headings: ['Slot', 'Syle Prop', 'Description'],
+		headings: ['Slot', 'Style Prop', 'Description'],
 		source: [
 			['lead', 'slotLead', 'Provide a leading element, such as an icon.'],
 			['title', 'slotContent > .alert-title', 'Provide the alert title text.'],

@@ -142,7 +142,7 @@
 		<h2>Accessibility</h2>
 		<p>
 			Uses a horizontal rule <code>hr</code> tag, which has an inherent
-			<code>role="seperator"</code>.
+			<code>role="separator"</code>.
 		</p>
 	</section>
 </div>

@@ -108,7 +108,7 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Styling</h1>
-		<p>Review best practies for implementing stylesheets, handling global styles, as well as how to styling each each component.</p>
+		<p>Review best practices for implementing stylesheets, handling global styles, as well as how to styling each each component.</p>
 	</header>
 
 	<hr />
@@ -148,9 +148,12 @@ import '@brainandbones/skeleton/styles/${$storeStylesheets === 'simple' ? 'all' 
 				<DataTable headings={tableStyleElements.headings} source={tableStyleElements.source} />
 			{/if}
 		{/if}
-		<Alert>
-			Either import method includes the required <a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank">@tailwind directives</a>, which means you can and should prune these
-			from your global stylesheet.
+		<!-- Alert - this is important, keep it obvious! -->
+		<Alert border="border-l-4 border-l-yellow-500" background="bg-yellow-500/30">
+			<svelte:fragment slot="lead"><span class="text-xl">⚠️</span></svelte:fragment>
+			<strong>IMPORTANT:</strong> Using either <code>all.css</code> or <code>tailwind.css</code> will add the necessary
+			<a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank">@tailwind directives</a> (ex: base, components, utilities, variants), which means you can and should remove these from
+			your global stylesheet. Failure to do will prevent certain styles, like headings, from working as expected.
 		</Alert>
 	</section>
 
@@ -192,7 +195,9 @@ import '@brainandbones/skeleton/styles/${$storeStylesheets === 'simple' ? 'all' 
 		<h3>Appending Arbitrary Classes</h3>
 		<p>All components support the standard <code>class</code> attribute, allowing you to pass any valid CSS or Tailwind class.</p>
 		<CodeBlock language="html" code={`<Tab class="text-3xl px-10 py-5">Big</Tab>`} />
+
 		<h3>Targetting Component Elements</h3>
+
 		<p>
 			Keep in mind that components are a single line element that contains a set of HTML elements within their template. This means you should be mindful of your target, as the <code>class</code> attribute
 			is only applied to the top-most parent element in the template. In some cases you may need to generate a chained class definition, though we advise using this technique sparingly.
@@ -200,10 +205,10 @@ import '@brainandbones/skeleton/styles/${$storeStylesheets === 'simple' ? 'all' 
 		<CodeBlock language="css" code={`.my-custom-class .some-child-element { @apply bg-red-500; }`} />
 		<CodeBlock language="html" code={`<Menu class="my-custom-class">...</Menu>`} />
 		<h3>Component Element Classes</h3>
-		<p>If you inspect rendered components using your browser inpector, you'll note that most have named classes, like <code>crumb-seperator</code> for the breadcrumb component.</p>
-		<CodeBlock language="html" code={`<div class="crumb-seperator ...">&rarr;</div>`} />
-		<p>If you wish to adjust the styling of this element, you can target the <code>.crumb-seperator</code> class in your global stylesheet like so.</p>
-		<CodeBlock language="css" code={`.crumb-seperator { @apply text-red-500; }`} />
+		<p>If you inspect rendered components using your browser inspector, you'll note that most have named classes, like <code>crumb-separator</code> for the breadcrumb component.</p>
+		<CodeBlock language="html" code={`<div class="crumb-separator ...">&rarr;</div>`} />
+		<p>If you wish to adjust the styling of this element, you can target the <code>.crumb-separator</code> class in your global stylesheet like so.</p>
+		<CodeBlock language="css" code={`.crumb-separator { @apply text-red-500; }`} />
 		<h3>Important</h3>
 		<p>
 			Note that when overwriting styles, you may need to mark the style <a href="https://tailwindcss.com/docs/configuration#important-modifier" target="_blank">important</a> to take precedence.
