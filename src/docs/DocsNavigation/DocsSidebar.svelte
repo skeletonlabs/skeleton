@@ -52,17 +52,19 @@
 			<nav class="list-nav">
 				<ul>
 					{#each list as { href, label, badge, icon }}
+					<li>
 						<a {href} value={href} class={classesActive(href)} on:click={onListItemClick}>
 							{#if icon}
-								<span>
-									<div class="bg-accent-500 w-7 h-7 flex justify-center items-center rounded shadow">
-										<SvgIcon name={icon} width="w-4" fill="fill-white" height="h-10" />
-									</div>
-								</span>
+							<span>
+								<div class="bg-accent-500 w-7 h-7 flex justify-center items-center rounded shadow">
+									<SvgIcon name={icon} width="w-4" fill="fill-white" height="h-10" />
+								</div>
+							</span>
 							{/if}
 							<span class="flex-auto">{label}</span>
 							{#if badge}<span class="badge bg-accent-500 text-white">{badge}</span>{/if}
 						</a>
+					</li>
 					{/each}
 				</ul>
 			</nav>
