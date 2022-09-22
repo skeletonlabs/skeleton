@@ -4,7 +4,8 @@
 
 	export let select: boolean = false;
 	export let open: boolean = false;
-	export let origin: string = 'auto'; // auto | tl | tr | bl | br
+	type Directions = `${'t'|'b'}${'l'|'r'}`
+	export let origin: Directions | 'auto' = 'auto'; // auto | tl | tr | bl | br
 	export let duration: number = 100; // ms
 	export let disabled: boolean = false;
 
@@ -33,9 +34,9 @@
 		if (!elemMenu) return;
 		// Get the Menu's bounds
 		let elemMenuBounds = elemMenu.getBoundingClientRect();
-		// Set verticle and horizontal values
-		let vert: string = elemMenuBounds.y < window.innerHeight / 2 ? 't' : 'b'; // top/bottom
-		let horz: string = elemMenuBounds.x < window.innerWidth / 2 ? 'l' : 'r'; // left/right
+		// Set vertical and horizontal values
+		let vert: 't' | 'b' = elemMenuBounds.y < window.innerHeight / 2 ? 't' : 'b'; // top/bottom
+		let horz: 'l' | 'r' = elemMenuBounds.x < window.innerWidth / 2 ? 'l' : 'r'; // left/right
 		// Update origin styles
 		origin = `${vert}${horz}`;
 		setOrigin();
@@ -76,7 +77,7 @@
 	}
 
 	// A11y Input Handler
-	function onKeyDown(event: any): void {
+	function onKeyDown(event: KeyboardEvent): void {
 		if (open && event.code === 'Escape') {
 			toggle();
 		}
@@ -86,8 +87,6 @@
 	onMount(() => {
 		// Set the default origin, including auto
 		setOrigin();
-		// Event: Window Keydown (ESC)
-		window.addEventListener('keydown', onKeyDown);
 		// If auto-origin enabled, add event listeners
 		if (autoOriginMode === true) {
 			// Event: Window Resize
@@ -107,7 +106,7 @@
 	$: classesMenu = `${cBaseMenu} ${$$props.class || ''}`;
 	$: classesContent = `${cBaseContent} ${cOrigin}`;
 </script>
-
+<svelte:window on:keydown={onKeyDown}/>
 <svelte:body on:click={handleBodyClick} />
 
 <div bind:this={elemMenu} class="menu-wrapper {classesMenu}" data-testid="menu-wrapper">
