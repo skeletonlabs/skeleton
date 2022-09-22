@@ -43,9 +43,9 @@
 	<hr />
 
 	<!-- Generator (new) -->
-	<section>
-		<DocsThemer />
-	</section>
+	<DocsThemer />
+
+	<hr />
 
 	<!-- Extras -->
 	<Alert>

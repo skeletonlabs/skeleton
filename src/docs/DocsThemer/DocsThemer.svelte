@@ -23,10 +23,10 @@
 		surface: findColor('gray')
 	};
 	const formDataHex: any = {
-		primary: findColor('emerald').shades['500'].hex,
-		accent: findColor('indigo').shades['500'].hex,
-		warning: findColor('rose').shades['500'].hex,
-		surface: findColor('gray').shades['500'].hex
+		primary: findColor('sky').shades['500'].hex,
+		accent: findColor('violet').shades['500'].hex,
+		warning: findColor('pink').shades['500'].hex,
+		surface: findColor('neutral').shades['500'].hex
 	};
 	let paletteHex: any = {
 		primary: genHexPalette('primary', formDataHex.primary),
@@ -61,7 +61,7 @@
 			<RadioItem value={false}>Custom</RadioItem>
 		</RadioGroup>
 		{#if $storeMode}
-			<a class="btn btn-sm" href="https://tailwindcss.com/docs/customizing-colors" target="_blank">Reference</a>
+			<a class="btn btn-sm" href="https://tailwindcss.com/docs/customizing-colors" target="_blank">Color Reference</a>
 		{:else}
 			<a class="btn btn-sm" href="https://coolors.co/" target="_blank">Get Inspired</a>
 		{/if}
@@ -135,7 +135,7 @@
 			</label>
 			<Swatches palette={currentPalette.surface.shades} />
 		</div>
-        <p class="text-sm text-center">Each color you {$storeMode ? 'select' : 'input'} represents swatch 500 (ex: <code>bg-primary-500</code>).</p>
+        <p class="text-xs text-center">Each color {$storeMode ? 'selected' : 'input'} represents swatch 500.</p>
 	</section>
 
 	<!-- CSS Snipnpet -->

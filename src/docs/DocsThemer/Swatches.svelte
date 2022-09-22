@@ -6,13 +6,13 @@
 	}
 </script>
 
-<div class="mt-2 grid grid-cols-10 w-full">
+<div class="swatches mt-2 grid grid-cols-10 w-full">
 	{#each objectValues(palette) as shade, i}
-		<div class="flex flex-col-reverse xl:flex-col">
+		<div class="swatch flex flex-col-reverse xl:flex-col">
 			<!-- Label -->
-			<div class="block text-white text-xs mt-2 xl:mb-2 text-center" class:underline={i === 5}>{labels[i]}</div>
+			<div class="swatch-label text-white text-xs mt-2 xl:mb-2 text-center" class:underline={i === 5}>{labels[i]}</div>
 			<!-- Color -->
-			<div class="h-[40px]" style:background={shade.hex ? shade.hex : shade} />
+			<div class="swatch-color h-[40px] transition-colors duration-200" style:background={shade.hex ? shade.hex : shade} />
 		</div>
 	{/each}
 </div>
