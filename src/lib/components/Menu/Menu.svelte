@@ -33,10 +33,10 @@
 	function setAutoOrigin(): void {
 		if (!elemMenu) return;
 		// Get the Menu's bounds
-		let elemMenuBounds = elemMenu.getBoundingClientRect();
+		const elemMenuBounds = elemMenu.getBoundingClientRect();
 		// Set vertical and horizontal values
-		let vert: 't' | 'b' = elemMenuBounds.y < window.innerHeight / 2 ? 't' : 'b'; // top/bottom
-		let horz: 'l' | 'r' = elemMenuBounds.x < window.innerWidth / 2 ? 'l' : 'r'; // left/right
+		const vert: 't' | 'b' = elemMenuBounds.y < window.innerHeight / 2 ? 't' : 'b'; // top/bottom
+		const horz: 'l' | 'r' = elemMenuBounds.x < window.innerWidth / 2 ? 'l' : 'r'; // left/right
 		// Update origin styles
 		origin = `${vert}${horz}`;
 		setOrigin();
@@ -89,8 +89,6 @@
 		setOrigin();
 		// If auto-origin enabled, add event listeners
 		if (autoOriginMode === true) {
-			// Event: Window Resize
-			window.addEventListener('resize', setAutoOrigin);
 			// Event: Parent Scroll
 			const scrollParent = getFirstScrollableParent(elemMenu);
 			scrollParent.addEventListener('scroll', setAutoOrigin);
@@ -106,7 +104,7 @@
 	$: classesMenu = `${cBaseMenu} ${$$props.class || ''}`;
 	$: classesContent = `${cBaseContent} ${cOrigin}`;
 </script>
-<svelte:window on:keydown={onKeyDown}/>
+<svelte:window on:keydown={onKeyDown} on:resize={autoOriginMode ? setAutoOrigin : ''}/>
 <svelte:body on:click={handleBodyClick} />
 
 <div bind:this={elemMenu} class="menu-wrapper {classesMenu}" data-testid="menu-wrapper">
