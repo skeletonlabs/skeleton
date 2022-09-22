@@ -19,9 +19,9 @@
 			<div class="space-y-4">
 				<h6>About</h6>
 				<ul class="space-y-2">
-					<li><a href="/docs/why">Contribute</a></li>
-					<li><a href="/docs/comparisons">Why Skeleton</a></li>
-					<li><a href="/docs/contributions">Comparisons</a></li>
+					<li><a href="/docs/contributions">Contribute</a></li>
+					<li><a href="/docs/why">Why Skeleton</a></li>
+					<li><a href="/docs/comparisons">Comparisons</a></li>
 				</ul>
 			</div>
 			<div class="space-y-4">
