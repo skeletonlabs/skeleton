@@ -139,19 +139,19 @@
 			<!-- Contributors -->
 			<div class="text-center space-y-6">
 				<h2>Contributors</h2>
+				{#await contributors}
+				<p class="flex flex-wrap justify-center">Loading contributors...</p>
+				{:then response}
 				<ul class="flex flex-wrap justify-center">
-					{#await contributors}
-						<p>Loading contributors...</p>
-					{:then response}
-						{#each response as c}
+					{#each response as c}
 							<li>
 								<a href={c.html_url} target="_blank" title={c.login}>
 									<Avatar src={c.avatar_url} size="fluid" shadow="shadow-lg" hover class="m-2 max-w-[50px]" />
 								</a>
 							</li>
-						{/each}
-					{/await}
+					{/each}
 				</ul>
+				{/await}
 				<a class="btn btn-ghost" href="/docs/contributions">
 					<span>How to Contribute</span>
 					<span>&rarr;</span>
