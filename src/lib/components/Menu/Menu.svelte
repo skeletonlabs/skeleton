@@ -33,10 +33,10 @@
 	function setAutoOrigin(): void {
 		if (!elemMenu) return;
 		// Get the Menu's bounds
-		let elemMenuBounds = elemMenu.getBoundingClientRect();
+		const elemMenuBounds = elemMenu.getBoundingClientRect();
 		// Set vertical and horizontal values
-		let vert: 't' | 'b' = elemMenuBounds.y < window.innerHeight / 2 ? 't' : 'b'; // top/bottom
-		let horz: 'l' | 'r' = elemMenuBounds.x < window.innerWidth / 2 ? 'l' : 'r'; // left/right
+		const vert: 't' | 'b' = elemMenuBounds.y < window.innerHeight / 2 ? 't' : 'b'; // top/bottom
+		const horz: 'l' | 'r' = elemMenuBounds.x < window.innerWidth / 2 ? 'l' : 'r'; // left/right
 		// Update origin styles
 		origin = `${vert}${horz}`;
 		setOrigin();
@@ -118,7 +118,7 @@
 	<!-- Content -->
 	{#if open}
 		<div role="menu" class="menu-content {classesContent}" data-testid="menu-content" in:fade={{ duration }} out:fade={{ duration }}>
-			{#if $$slots.content}<slot name="content" />{/if}
+			{#if $$slots.content}<slot role='menuitem' name="content" />{/if}
 		</div>
 	{/if}
 </div>
