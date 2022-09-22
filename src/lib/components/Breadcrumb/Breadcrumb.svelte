@@ -16,10 +16,8 @@
 	$: classesBase = `${cBase} ${$$props.class || ''}`;
 </script>
 
-<nav class="breadcrumb {classesBase}" data-testid="breadcrumb" aria-label={label}>
-	<ol>
-		<li>
+<nav data-testid="breadcrumb" aria-label={label}>
+	<ol class="breadcrumb {classesBase}">
 			<slot />
-		</li>
 	</ol>
 </nav>
