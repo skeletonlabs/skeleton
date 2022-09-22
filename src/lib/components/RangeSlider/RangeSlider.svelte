@@ -83,12 +83,6 @@
 <div
 	class="range-slider {classesBase}"
 	data-testid="range-slider"
-	on:keydown={onKeyDown}
-	role="slider"
-	aria-label={label}
-	aria-valuenow={value}
-	aria-valuemin={min}
-	aria-valuemax={max}
 >
 
 	<!-- Slot: Default (label) -->
@@ -104,6 +98,7 @@
 			{name}
 			class="range-input {classesInput}"
 			list="tickmarks-{id}"
+			aria-label={label}
 			{min}
 			{max}
 			{step}
