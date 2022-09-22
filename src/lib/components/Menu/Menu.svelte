@@ -116,7 +116,7 @@
 	<!-- Content -->
 	{#if open}
 		<div role="menu" class="menu-content {classesContent}" data-testid="menu-content" in:fade={{ duration }} out:fade={{ duration }}>
-			{#if $$slots.content}<slot name="content" />{/if}
+			{#if $$slots.content}<slot role='menuitem' name="content" />{/if}
 		</div>
 	{/if}
 </div>
