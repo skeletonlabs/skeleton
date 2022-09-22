@@ -148,9 +148,12 @@ import '@brainandbones/skeleton/styles/${$storeStylesheets === 'simple' ? 'all' 
 				<DataTable headings={tableStyleElements.headings} source={tableStyleElements.source} />
 			{/if}
 		{/if}
-		<Alert>
-			Either import method includes the required <a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank">@tailwind directives</a>, which means you can and should prune these
-			from your global stylesheet.
+		<!-- Alert - this is important, keep it obvious! -->
+		<Alert border="border-l-4 border-l-yellow-500" background="bg-yellow-500/30">
+			<svelte:fragment slot="lead"><span class="text-xl">⚠️</span></svelte:fragment>
+			<strong>IMPORTANT:</strong> Using either <code>all.css</code> or <code>tailwind.css</code> will add the necessary
+			<a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank">@tailwind directives</a> (ex: base, components, utilities, variants), which means you can and should remove these from
+			your global stylesheet. Failure to do will prevent certain styles, like headings, from working as expected.
 		</Alert>
 	</section>
 
