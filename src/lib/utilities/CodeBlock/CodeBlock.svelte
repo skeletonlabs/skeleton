@@ -50,7 +50,7 @@
 {#if language && code}
 <div class="code-block {classesBase}" data-testid="code-block">
 	<!-- Header -->
-	<header class="cb-header {cHeader}">
+	<header class="cb-header {cHeader} {background} sticky top-0">
 		<!-- Language -->
 		<span class="text-white/60">{languageFormatter(language)}</span>
 		<!-- Copy Button -->
