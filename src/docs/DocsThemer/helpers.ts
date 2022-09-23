@@ -4,12 +4,17 @@
 import paletteGenerator from '@bobthered/tailwindcss-palette-generator';
 import { colorsTailwind } from './colors';
 
-// Find Color
-export function findColor(colorName: string): any {
+// Talwind: Find Color
+export function getTailwindColor(colorName: string): any {
 	return colorsTailwind.find((c) => c.label === colorName);
 }
 
-// Source: https://github.com/bobthered/tailwindcss-palette-generator
+// Tailwind: Pick Random Color
+export function randomTailwindColor(): any {
+	return colorsTailwind[(Math.random() * colorsTailwind.length) | 0];
+}
+
+// Hex: Source: https://github.com/bobthered/tailwindcss-palette-generator
 export function genHexPalette(key: string, hexColor: string): any {
 	// Generate base palette
 	const hexShades: any = paletteGenerator({ names: [key], colors: [hexColor] });
@@ -24,7 +29,7 @@ export function genHexPalette(key: string, hexColor: string): any {
 	return { label: key, shades: hexRgbShades, source: hexColor };
 }
 
-// Source: https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
+// Hex: Source: https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
 export function hexToRgb(hex: any): string {
 	hex = hex.replace('#', '');
 	const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -35,7 +40,7 @@ export function hexToRgb(hex: any): string {
 	return '(invalid)';
 }
 
-// Generates the CSS snippet
+// Shared: Generates the CSS snippet
 export function generateCssCode(isTailwind: boolean, currentPalette: any): string {
 	let css: string = '';
 	Object.entries(currentPalette).forEach((set: any, i: number) => {
