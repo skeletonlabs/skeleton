@@ -12,6 +12,7 @@
 	// Helpers
 	import { getTailwindColor, randomTailwindColor, genHexPalette, generateThemeCss } from './helpers';
 	import { colorsTailwind } from './colors';
+	import { onMount } from 'svelte';
 
 	// Stores
 	const storeMode: Writable<boolean> = writable(true); // T: Tailwind | F: Custom
@@ -32,18 +33,18 @@
 
 	// Palette: Hex
 	let formHex: any = {
-		primary: getTailwindColor('sky').shades['500'].hex,
-		accent: getTailwindColor('violet').shades['500'].hex,
+		primary: getTailwindColor('emerald').shades['500'].hex,
+		accent: getTailwindColor('sky').shades['500'].hex,
 		ternary: getTailwindColor('yellow').shades['500'].hex,
-		warning: getTailwindColor('pink').shades['500'].hex,
-		surface: getTailwindColor('neutral').shades['500'].hex
+		warning: getTailwindColor('rose').shades['500'].hex,
+		surface: getTailwindColor('gray').shades['500'].hex
 	};
 	let paletteHex: any = {
-		primary: genHexPalette('primary', getTailwindColor('sky').shades['500'].hex),
-		accent: genHexPalette('accent', getTailwindColor('violet').shades['500'].hex),
-		ternary: genHexPalette('ternary', getTailwindColor('yellow').shades['500'].hex),
-		warning: genHexPalette('warning', getTailwindColor('pink').shades['500'].hex),
-		surface: genHexPalette('surface', getTailwindColor('neutral').shades['500'].hex)
+		primary: genHexPalette('primary', formHex.primary),
+		accent: genHexPalette('accent', formHex.accent),
+		ternary: genHexPalette('ternary', formHex.ternary),
+		warning: genHexPalette('warning', formHex.warning),
+		surface: genHexPalette('surface', formHex.surface)
 	};
 
 	// Functions ---
@@ -63,6 +64,7 @@
 			surface: randomTailwindColor()
 		};
 	}
+	// setInterval(() => { onRandomize(); }, 250); // party mode
 
 	// Hex: on input change
 	function onHexInput(key: string, hexColor: string): void {
@@ -89,6 +91,12 @@
 
 	// Toggle `.bg-mesh` on body when preview mobile ON
 	$: if (browser) document.body.classList.toggle('bg-mesh', !themePreviewEnabled);
+
+	// Lifecycle
+	onMount(() => {
+		// Bugfix: keeps the bg mesh off when returning to this page
+		themePreviewEnabled = false;
+	});
 </script>
 
 <!-- Insert live theme into page head -->
