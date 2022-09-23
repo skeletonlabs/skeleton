@@ -153,7 +153,7 @@ import '@brainandbones/skeleton/styles/${$storeStylesheets === 'simple' ? 'all' 
 			<svelte:fragment slot="lead"><span class="text-xl">⚠️</span></svelte:fragment>
 			<strong>IMPORTANT:</strong> Using either <code>all.css</code> or <code>tailwind.css</code> will add the necessary
 			<a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank">@tailwind directives</a> (ex: base, components, utilities, variants), which means you can and should remove these from
-			your global stylesheet. Failure to do will prevent certain styles, like headings, from working as expected.
+			your global stylesheet. Failure to do so will prevent certain styles, like headings, from working as expected.
 		</Alert>
 	</section>
 

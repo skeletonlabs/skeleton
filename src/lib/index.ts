@@ -45,7 +45,7 @@ export { default as CodeBlock } from './utilities/CodeBlock/CodeBlock.svelte';
 export { default as Drawer } from './utilities/Drawer/Drawer.svelte';
 
 // Dialog
-import { dialogStore } from './utilities/Dialog/stores';
+export { dialogStore } from './utilities/Dialog/stores';
 export { type DialogAlert, type DialogConfirm, type DialogPrompt } from './utilities/Dialog/stores';
 export { default as Dialog } from './utilities/Dialog/Dialog.svelte';
 
