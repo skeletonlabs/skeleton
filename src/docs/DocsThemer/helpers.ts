@@ -41,7 +41,7 @@ export function hexToRgb(hex: any): string {
 }
 
 // Shared: Generates the CSS snippet
-export function generateCssCode(isTailwind: boolean, currentPalette: any): string {
+export function generateThemeCss(isTailwind: boolean, currentPalette: any): string {
 	let css: string = '';
 	Object.entries(currentPalette).forEach((set: any, i: number) => {
 		const [key, v] = set;

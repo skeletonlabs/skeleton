@@ -8,8 +8,8 @@ body {
 	@apply h-full overflow-hidden;
 }
 
-/* Gradient Background, via: https://csshero.org/mesher/ */
-body {
+/* Background Mesh Gradient, via: https://csshero.org/mesher/ */
+.bg-mesh {
 	/* prettier-ignore */
 	background-image:
 		radial-gradient(at 35% 35%, hsla(160,84%,39%,0.12) 0px, transparent 35%),
@@ -17,7 +17,7 @@ body {
 	background-size: cover;
 	background-attachment: fixed;
 }
-.dark body {
+.dark .bg-mesh {
 	/* prettier-ignore */
 	background-image:
 		radial-gradient(at 35% 35%, hsla(160,84%,39%,0.18) 0px, transparent 50%),
