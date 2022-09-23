@@ -4,7 +4,7 @@
 import paletteGenerator from '@bobthered/tailwindcss-palette-generator';
 import { colorsTailwind } from './colors';
 
-// Talwind: Find Color
+// Talwind: Get a Particular Color
 export function getTailwindColor(colorName: string): any {
 	return colorsTailwind.find((c) => c.label === colorName);
 }
