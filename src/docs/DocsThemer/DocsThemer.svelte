@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { writable, type Writable } from 'svelte/store';
 
 	// Helpers
@@ -52,7 +53,11 @@
 	// Reactive
 	$: currentPalette = $storeMode === true ? paletteTailwind : paletteHex;
 	$: if (currentPalette) genCssSnippet();
+	// $: liveThemePreview = `\<style\>${cssSnippet}\</style\>`;
 </script>
+
+<!-- Trigger Live Theme Preview -->
+<!-- <svelte:head>{@html liveThemePreview}</svelte:head> -->
 
 <div class="themer space-y-4">
 	<section class="flex justify-between items-center">
@@ -75,7 +80,7 @@
 			<label class="w-full">
 				<span class="text-white">Primary</span>
 				{#if $storeMode}
-					<select name="primary" id="primary" class="capitalize" bind:value={paletteTailwind.primary} on:change={()=>{genCssSnippet()}}>
+					<select class="capitalize" bind:value={paletteTailwind.primary} on:change={()=>{genCssSnippet()}}>
 						{#each colorsTailwind as c}<option value={c}>{c.label}</option>{/each}
 					</select>
 				{:else}
@@ -91,7 +96,7 @@
 			<label class="w-full">
 				<span class="text-white">Accent</span>
 				{#if $storeMode}
-					<select name="accent" id="accent" class="capitalize" bind:value={paletteTailwind.accent} on:change={()=>{genCssSnippet()}}>
+					<select class="capitalize" bind:value={paletteTailwind.accent} on:change={()=>{genCssSnippet()}}>
 						{#each colorsTailwind as c}<option value={c}>{c.label}</option>{/each}
 					</select>
 				{:else}
@@ -107,7 +112,7 @@
 			<label class="w-full">
 				<span class="text-white">Warning</span>
 				{#if $storeMode}
-					<select name="warning" id="warning" class="capitalize" bind:value={paletteTailwind.warning} on:change={()=>{genCssSnippet()}}>
+					<select class="capitalize" bind:value={paletteTailwind.warning} on:change={()=>{genCssSnippet()}}>
 						{#each colorsTailwind as c}<option value={c}>{c.label}</option>{/each}
 					</select>
 				{:else}
@@ -123,7 +128,7 @@
 			<label class="w-full">
 				<span class="text-white">Surface</span>
 				{#if $storeMode}
-					<select name="surface" id="surface" class="capitalize" bind:value={paletteTailwind.surface} on:change={()=>{genCssSnippet()}}>
+					<select class="capitalize" bind:value={paletteTailwind.surface} on:change={()=>{genCssSnippet()}}>
 						{#each colorsTailwind as c}<option value={c}>{c.label}</option>{/each}
 					</select>
 				{:else}
