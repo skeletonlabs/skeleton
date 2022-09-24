@@ -28,41 +28,6 @@
 		tickmarks = Array.from({ length: max - min + 1 }, (_, i) => i + 1);
 	}
 
-	// A11y Input Handler
-	function onKeyDown(event: KeyboardEvent): void {
-		// Arrow Keys
-		const hotKeys: string[] = ['ArrowRight', 'ArrowUp', 'ArrowLeft', 'ArrowDown', 'Home', 'End'];
-		if (hotKeys.includes(event.code)) {
-			event.preventDefault();
-			// prettier-ignore
-			switch (event.code) {
-				case 'ArrowRight': valueIncrease(); break;
-				case 'ArrowUp': valueIncrease(); break;
-				case 'ArrowLeft': valueDecrease(); break;
-				case 'ArrowDown': valueDecrease(); break;
-				case 'Home': valueMin(); break;
-				case 'End': valueMax(); break;
-				default: break;
-			}
-		}
-	}
-	function valueIncrease(): void {
-		if (value + step <= max) {
-			value += step;
-		}
-	}
-	function valueDecrease(): void {
-		if (value - step >= min) {
-			value -= step;
-		}
-	}
-	function valueMin(): void {
-		value = min;
-	}
-	function valueMax(): void {
-		value = max;
-	}
-
 	// Lifecycle
 	afterUpdate(() => {
 		setTicks();
