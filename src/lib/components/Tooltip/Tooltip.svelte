@@ -64,11 +64,6 @@
 		visible = false;
 	} // hide
 
-	// Lifecycle
-	onMount(() => {
-		// Event: Window Keydown (ESC)
-		window.addEventListener('keydown', onKeyDown);
-	});
 	afterUpdate(() => {
 		setPosition();
 		setArrowPosition();
@@ -81,7 +76,7 @@
 	$: classesArrow = `${cBaseArrow} ${cArrowPosition} ${background} ${arrow}`;
 	$: classesContent = `${content}`;
 </script>
-
+<svelte:window on:keydown={onKeyDown} />
 <div class="tooltip {classesBase}" data-testid="tooltip" role="tooltip">
 	<!-- Popup -->
 	{#if $$slots.message && visible}
