@@ -7,7 +7,8 @@
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['collapse', 'boolean', 'true', 'Enable auto-collapse mode.'],
-			['spacing', 'string', 'spacing-y-2', 'Provide classes to set spacing between item rows.']
+			['spacing', 'string', 'spacing-y-2', 'Provide classes to set spacing between item rows.'],
+			['allowMultipleOpen', 'boolean', 'false', 'Allow multiple accordions in the group to be open at once.']
 		]
 	};
 
