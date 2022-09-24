@@ -16,6 +16,7 @@
 	// Local
 	const regexValidHexCode = new RegExp(/^#[0-9a-f]{6}$/i);
 	let themeCss: string = '';
+	let loaded = false;
 
 	// Stores
 	let storeMode: Writable<boolean> = writable(true); // T: Tailwind | F: Custom
@@ -36,7 +37,7 @@
 	});
 	let storeHexForm: Writable<any> = writable({
 		primary: getTailwindColor('emerald').shades['500'].hex,
-		accent: getTailwindColor('sky').shades['500'].hex,
+		accent: getTailwindColor('indigo').shades['500'].hex,
 		ternary: getTailwindColor('yellow').shades['500'].hex,
 		warning: getTailwindColor('rose').shades['500'].hex,
 		surface: getTailwindColor('gray').shades['500'].hex
@@ -51,7 +52,6 @@
 
 	// Local Storage
 
-	let loaded = false;
 	if (browser) {
 		// LocalStorage Values ---
 		const lsMode: string = localStorage['storeMode'];
@@ -79,14 +79,14 @@
 		if (lsHexPalette !== undefined) {
 			storeHexPalette = writable(JSON.parse(lsHexPalette));
 		}
-		// Settter ---
+		// Setters ---
 		storeMode.subscribe((v) => (localStorage.storeMode = String(v)));
 		storePreview.subscribe((v) => (localStorage.storePreview = String(v)));
 		storeTailwindForm.subscribe((v) => (localStorage.storeTailwindForm = JSON.stringify(v)));
 		storeTailwindPalette.subscribe((v) => (localStorage.storeTailwindPalette = JSON.stringify(v)));
 		storeHexForm.subscribe((v) => (localStorage.storeHexForm = JSON.stringify(v)));
 		storeHexPalette.subscribe((v) => (localStorage.storeHexPalette = JSON.stringify(v)));
-		// Loaind Completed ---
+		// Loading Completed ---
 		loaded = true;
 	}
 
@@ -127,7 +127,6 @@
 			surface: randomTailwindColor()
 		});
 	}
-	// setInterval(() => { onRandomize(); }, 250); // party mode
 
 	// Hex: on input change
 	function onHexInput(key: string, hexColor: string): void {
@@ -176,10 +175,8 @@
 			</RadioGroup>
 			<div class="flex items-center space-x-4">
 				<!-- Actions -->
-				{#if $storeMode}
-					<button class="btn btn-sm btn-ghost" on:click={onRandomize}>Random</button>
-					<button class="btn btn-sm btn-ghost" on:click={resetSettings}>Reset</button>
-				{/if}
+				{#if $storeMode}<button class="btn btn-sm btn-ghost" on:click={onRandomize}>Random</button>{/if}
+				<button class="btn btn-sm btn-ghost" on:click={resetSettings}>Reset</button>
 				<!-- Preview -->
 				<SlideToggle bind:checked={$storePreview} class="text-white">Live</SlideToggle>
 			</div>
