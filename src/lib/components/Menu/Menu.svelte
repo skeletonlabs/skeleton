@@ -16,7 +16,7 @@
 	const cBaseMenu: string = 'relative inline-block';
 	const cBaseContent: string = 'absolute z-10';
 
-	// Set content anchor origin
+	/** Set content anchor origin */
 	let cOrigin: string;
 	function setOrigin(): void {
 		// prettier-ignore
@@ -29,9 +29,12 @@
 		}
 	}
 
-	// Auto-update origin based on viewport position
+	/**
+	 * Auto-update origin based on viewport position
+	 */
 	function setAutoOrigin(): void {
 		if (!elemMenu) return;
+		if (!autoOriginMode) return;
 		// Get the Menu's bounds
 		const elemMenuBounds = elemMenu.getBoundingClientRect();
 		// Set vertical and horizontal values
@@ -42,17 +45,22 @@
 		setOrigin();
 	}
 
-	// Searches for the first parent node that can scroll
-	// https://thewebdev.info/2021/06/27/how-to-find-the-first-scrollable-parent-element-with-javascript/
-	function getFirstScrollableParent(node: any): any {
-		if (node === null) {
+
+	/**
+	 * Searches for the first parent node that can scroll
+	 * @see {@link https://thewebdev.info/2021/06/27/how-to-find-the-first-scrollable-parent-element-with-javascript/|This article by The Web Dev}
+	 */
+	function getFirstScrollableParent(element: HTMLElement | null): HTMLElement | null {
+		if (element === null) {
 			return null;
 		}
-		return node.scrollHeight > node.clientHeight ? node : getFirstScrollableParent(node.parentNode);
+		return element.scrollHeight > element.clientHeight ? element : getFirstScrollableParent(element.parentElement);
 	}
 
-	// Toggle Visibility
-	// NOTE: 1ms delay required to avoid race condition for select mode
+
+	/**
+	 * @note 1ms delay required to avoid race condition for select mode
+	 */
 	function toggle(): void {
 		if (disabled) return;
 		setTimeout(() => {
@@ -60,8 +68,10 @@
 		}, 1);
 	}
 
-	// Handle click on <body> element
-	// Source: https://svelte.dev/repl/0ace7a508bd843b798ae599940a91783?version=3.16.7
+	/**
+	 * Handles the click on a body element
+	 * @see {@link https://svelte.dev/repl/0ace7a508bd843b798ae599940a91783?version=3.16.7|This REPL example}
+	 */
 	function handleBodyClick(event: any): void {
 		if (!open) return;
 		// If click is outside menu, close menu
@@ -91,7 +101,7 @@
 		if (autoOriginMode === true) {
 			// Event: Parent Scroll
 			const scrollParent = getFirstScrollableParent(elemMenu);
-			scrollParent.addEventListener('scroll', setAutoOrigin);
+			scrollParent?.addEventListener('scroll', setAutoOrigin);
 		}
 	});
 
@@ -104,7 +114,7 @@
 	$: classesMenu = `${cBaseMenu} ${$$props.class || ''}`;
 	$: classesContent = `${cBaseContent} ${cOrigin}`;
 </script>
-<svelte:window on:keydown={onKeyDown} on:resize={autoOriginMode ? setAutoOrigin : ''}/>
+<svelte:window on:keydown={onKeyDown} on:resize={setAutoOrigin}/>
 <svelte:body on:click={handleBodyClick} />
 
 <div bind:this={elemMenu} class="menu-wrapper {classesMenu}" data-testid="menu-wrapper">
