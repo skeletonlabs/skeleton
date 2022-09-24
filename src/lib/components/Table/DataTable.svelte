@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
-	import { sortAscNumber, sortDescNumber, sortAscString, sortDescString } from './DataTableService';
+	import { sortAsc, sortDesc } from './DataTableService';
 
 	const dispatch = createEventDispatcher();
 
@@ -16,11 +16,11 @@
 	export let header: string = 'bg-surface-50 dark:bg-surface-700';
 	export let body: string = 'bg-surface-200 dark:bg-surface-800';
 	export let text: string = 'text-sm';
-	export let color: string | undefined = undefined;
+	export let color: string | undefined = '';
 	export let hover: string = 'hover:bg-primary-500/10';
 	// A11y
-	export let labelledby: string | undefined = undefined;
-	export let describedby: string | undefined = undefined;
+	export let labelledby: string | undefined = '';
+	export let describedby: string | undefined = '';
 
 	// Local
 	let elemTable: HTMLElement;
@@ -63,23 +63,23 @@
 		// If same column, toggle asc/desc
 		if (column === sorted.by) {
 			sorted.asc = !sorted.asc;
-			sorted.asc ? sortAsc(column) : sortDesc(column);
+			sorted.asc ? sortAscending(column) : sortDescending(column);
 			// If new column, sort asc
 		} else {
 			sorted.asc = true;
-			sortAsc(column);
+			sortAscending(column);
 		}
 		// Update states
 		sorted.by = column;
 		updateRowCount();
 	}
 
-	function sortAsc(key: string): void {
-		source = typeof source[0][key] === 'number' ? sortAscNumber(source, key) : sortAscString(source, key);
+	function sortAscending(key: string): void {
+		source = sortAsc(source, key);
 	}
 
-	function sortDesc(key: string): void {
-		source = typeof source[0][key] === 'number' ? sortDescNumber(source, key) : sortDescString(source, key);
+	function sortDescending(key: string): void {
+		source = sortDesc(source, key);
 	}
 
 	// Search
