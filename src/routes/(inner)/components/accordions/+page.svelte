@@ -48,6 +48,7 @@
 
 	<!-- Examples -->
 	<section class="space-y-4">
+		<h2 class='sr-only'>Examples</h2>
 		<div class="card card-body">
 			<AccordionGroup>
 				<AccordionItem open>

@@ -105,6 +105,7 @@
 
 	<!-- Examples -->
 	<section class="space-y-4">
+		<h2 class='sr-only'>Examples</h2>
 		<nav class="grid grid-cols-1 lg:grid-cols-2 gap-4">
 			<div class="card card-body grid grid-cols-1 gap-4">
 				<h3>Alerts</h3>

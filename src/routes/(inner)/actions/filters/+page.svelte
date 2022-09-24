@@ -45,6 +45,7 @@ NOTE: Keep these localized
 
 	<!-- Examples -->
 	<div class="card card-body grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4">
+		<h2 class='sr-only'>Examples</h2>
 		<div class="flex flex-col items-center space-y-4">
 			<img class="bg-surface-900 aspect-square w-full rounded-lg overflow-hidden" src={imgPlaceholder} alt="example" />
 			<code>Original</code>

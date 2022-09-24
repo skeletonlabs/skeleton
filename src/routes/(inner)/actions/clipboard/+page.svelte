@@ -13,6 +13,7 @@
 
 	<!-- Examples -->
 	<section class="card card-body space-y-4">
+		<h2 class='sr-only'>Examples</h2>
 		<!-- Element -->
 		<div class="bg-surface-500 p-2 rounded" data-clipboard="exampleElement" contenteditable>This <em>div</em> is set to 'contenteditable'. Make changes then tap copy below.</div>
 		<button use:clipboard={{ element: 'exampleElement' }} class="btn btn-ghost">Copy Element Contents</button>

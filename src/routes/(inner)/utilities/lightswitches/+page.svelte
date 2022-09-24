@@ -15,6 +15,7 @@
 	</header>
 
 	<!-- Examples -->
+	<h2 class='sr-only'>Examples</h2>
 	<div class="card card-body flex justify-center items-center !py-10">
 		<LightSwitch />
 	</div>

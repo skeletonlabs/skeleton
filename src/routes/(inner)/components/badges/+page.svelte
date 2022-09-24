@@ -38,6 +38,7 @@
 
 	<!-- Examples -->
 	<section class="space-y-4">
+		<h2 class='sr-only'>Examples</h2>
 		<section class="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-4">
 			<div class="card card-body flex-auto flex justify-center space-x-2">
 				<Badge>Skeleton</Badge>
