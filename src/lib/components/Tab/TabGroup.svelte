@@ -12,8 +12,8 @@
 	export let hover: string = 'hover:bg-primary-500/10';
 	export let rounded: string = 'rounded-tl-lg rounded-tr-lg';
 	// A11y
-	export let labeledby: string | undefined = undefined;
-	export let label: string | undefined = undefined;
+	export let labeledby: string | undefined = '';
+	export let label: string | undefined = '';
 
 	// Set Context
 	setContext('selected', selected);

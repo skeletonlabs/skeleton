@@ -3,7 +3,7 @@
 	import type { Writable } from 'svelte/store';
 
 	// Props (a11y)
-	export let id: string | undefined = undefined;
+	export let id: string | undefined = '';
 
 	// Event Handler
 	const dispatch = createEventDispatcher();

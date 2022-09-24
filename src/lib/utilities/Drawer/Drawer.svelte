@@ -12,14 +12,14 @@
 	export let blur: string = 'backdrop-blur-sm';
 	// Props (drawer)
 	export let bgDrawer: string = 'bg-surface-100 dark:bg-surface-800';
-	export let border: string | undefined = undefined;
-	export let rounded: string | undefined = undefined;
-	export let width: string | undefined = undefined;
-	export let height: string | undefined = undefined;
-	export let margin: string | undefined = undefined;
+	export let border: string | undefined = '';
+	export let rounded: string | undefined = '';
+	export let width: string | undefined = '';
+	export let height: string | undefined = '';
+	export let margin: string | undefined = '';
 	// Props (a11y)
-	export let labelledby: string | undefined = undefined;
-	export let describedby: string | undefined = undefined;
+	export let labelledby: string | undefined = '';
+	export let describedby: string | undefined = '';
 
 	// Base Classes
 	const cBaseBackdrop: string = 'fixed top-0 left-0 right-0 bottom-0 z-40 flex';

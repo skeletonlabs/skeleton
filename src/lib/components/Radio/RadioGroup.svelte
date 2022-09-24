@@ -9,7 +9,7 @@
 	export let hover: string = 'hover:bg-accent-500/10';
 	export let accent: string = 'bg-accent-500 !text-white';
 	export let color: string = 'text-white';
-	export let fill: string | undefined = undefined;
+	export let fill: string | undefined = '';
 	export let rounded: string = 'rounded';
 	// A11y
 	export let label: string = 'radiogroup';

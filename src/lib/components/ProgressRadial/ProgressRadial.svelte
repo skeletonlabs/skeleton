@@ -10,7 +10,7 @@
 	export let color: string = 'fill-black dark:fill-white';
 	export let font: number = 56; // px
 	// Ally
-	export let label: string | undefined = undefined;
+	export let label: string | undefined = '';
 
 	// Base Classes
 	const cBase: string = 'progress-radial relative overflow-hidden';

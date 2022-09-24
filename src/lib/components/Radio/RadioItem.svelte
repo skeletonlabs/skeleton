@@ -8,7 +8,7 @@
 	// Props
 	export let value: any = undefined;
 	// Props (A11y)
-	export let label: string | undefined = undefined;
+	export let label: string | undefined = '';
 
 	// Context
 	export let selected: Writable<any> = getContext('selected');

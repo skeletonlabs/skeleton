@@ -7,11 +7,11 @@
 	export let color: string = 'text-black dark:text-white';
 	export let padding: string = 'px-2 py-1';
 	export let rounded: string = 'rounded';
-	export let shadow: string | undefined = undefined;
+	export let shadow: string | undefined = '';
 	// Props (slot)
-	export let slotLead: string | undefined = undefined;
-	export let slotDefault: string | undefined = undefined;
-	export let slotTrail: string | undefined = undefined;
+	export let slotLead: string | undefined = '';
+	export let slotDefault: string | undefined = '';
+	export let slotTrail: string | undefined = '';
 
 	// Base Classes
 	let cBaseBadge: string = 'font-semibold inline-flex items-center space-x-2 whitespace-nowrap';

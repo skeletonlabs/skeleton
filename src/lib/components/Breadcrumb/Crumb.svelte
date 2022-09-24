@@ -3,7 +3,7 @@
 
 	// Props
 	export let text: string = 'text-base';
-	export let color: string | undefined = undefined;
+	export let color: string | undefined = '';
 
 	// Context
 	export let separator: string = getContext('separator');

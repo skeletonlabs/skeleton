@@ -16,11 +16,11 @@
 	export let header: string = 'bg-surface-50 dark:bg-surface-700';
 	export let body: string = 'bg-surface-200 dark:bg-surface-800';
 	export let text: string = 'text-sm';
-	export let color: string | undefined = undefined;
+	export let color: string | undefined = '';
 	export let hover: string = 'hover:bg-primary-500/10';
 	// A11y
-	export let labelledby: string | undefined = undefined;
-	export let describedby: string | undefined = undefined;
+	export let labelledby: string | undefined = '';
+	export let describedby: string | undefined = '';
 
 	// Local
 	let elemTable: HTMLElement;

@@ -10,8 +10,8 @@
 	export let slotDefault: string = '';
 	export let slotTrail: string = '';
 	// Props (a11y)
-	export let label: string | undefined = undefined;
-	export let labelledby: string | undefined = undefined;
+	export let label: string | undefined = '';
+	export let labelledby: string | undefined = '';
 
 	// Base Classes
 	const cBase: string = 'flex items-center';
