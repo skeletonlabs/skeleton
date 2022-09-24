@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { writable, type Writable } from 'svelte/store';
 	import { browser } from '$app/environment';
+	import { writable, type Writable } from 'svelte/store';
 
 	// Components
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
@@ -12,57 +12,120 @@
 	// Helpers
 	import { getTailwindColor, randomTailwindColor, genHexPalette, generateThemeCss } from './helpers';
 	import { colorsTailwind } from './colors';
-	import { onMount } from 'svelte';
-
-	// Stores
-	const storeMode: Writable<boolean> = writable(true); // T: Tailwind | F: Custom
 
 	// Local
 	const regexValidHexCode = new RegExp(/^#[0-9a-f]{6}$/i);
-	let themePreviewEnabled: boolean = false;
 	let themeCss: string = '';
 
-	// Palette: Tailwind
-	let paletteTailwind: any = {
-		primary: getTailwindColor('emerald'),
-		accent: getTailwindColor('indigo'),
-		ternary: getTailwindColor('yellow'),
-		warning: getTailwindColor('rose'),
-		surface: getTailwindColor('gray')
-	};
-
-	// Palette: Hex
-	let formHex: any = {
+	// Stores
+	let storeMode: Writable<boolean> = writable(true); // T: Tailwind | F: Custom
+	let storePreview: Writable<boolean> = writable(false);
+	let storeTailwindForm: Writable<any> = writable({
+		primary: 'emerald',
+		accent: 'indigo',
+		ternary: 'yellow',
+		warning: 'rose',
+		surface: 'gray'
+	});
+	let storeTailwindPalette: Writable<any> = writable({
+		primary: getTailwindColor($storeTailwindForm.primary),
+		accent: getTailwindColor($storeTailwindForm.accent),
+		ternary: getTailwindColor($storeTailwindForm.ternary),
+		warning: getTailwindColor($storeTailwindForm.warning),
+		surface: getTailwindColor($storeTailwindForm.surface)
+	});
+	let storeHexForm: Writable<any> = writable({
 		primary: getTailwindColor('emerald').shades['500'].hex,
 		accent: getTailwindColor('sky').shades['500'].hex,
 		ternary: getTailwindColor('yellow').shades['500'].hex,
 		warning: getTailwindColor('rose').shades['500'].hex,
 		surface: getTailwindColor('gray').shades['500'].hex
-	};
-	let paletteHex: any = {
-		primary: genHexPalette('primary', formHex.primary),
-		accent: genHexPalette('accent', formHex.accent),
-		ternary: genHexPalette('ternary', formHex.ternary),
-		warning: genHexPalette('warning', formHex.warning),
-		surface: genHexPalette('surface', formHex.surface)
-	};
+	});
+	let storeHexPalette: Writable<any> = writable({
+		primary: genHexPalette('primary', $storeHexForm.primary),
+		accent: genHexPalette('accent', $storeHexForm.accent),
+		ternary: genHexPalette('ternary', $storeHexForm.ternary),
+		warning: genHexPalette('warning', $storeHexForm.warning),
+		surface: genHexPalette('surface', $storeHexForm.surface)
+	});
+
+	// Local Storage
+
+	let loaded = false;
+	if (browser) {
+		// LocalStorage Values ---
+		const lsMode: string = localStorage['storeMode'];
+		const lsPreview: string = localStorage['storePreview'];
+		const lsTailwindForm: string = localStorage['storeTailwindForm'];
+		const lsTailwindPalette: string = localStorage['storeTailwindPalette'];
+		const lsHexForm: string = localStorage['storeHexForm'];
+		const lsHexPalette: string = localStorage['storeHexPalette'];
+		// Getters ---
+		if (lsMode !== undefined) {
+			storeMode = writable(lsMode === 'true');
+		}
+		if (lsPreview !== undefined) {
+			storePreview = writable(lsPreview === 'true');
+		}
+		if (lsTailwindForm !== undefined) {
+			storeTailwindForm = writable(JSON.parse(lsTailwindForm));
+		}
+		if (lsTailwindPalette !== undefined) {
+			storeTailwindPalette = writable(JSON.parse(lsTailwindPalette));
+		}
+		if (lsHexForm !== undefined) {
+			storeHexForm = writable(JSON.parse(lsHexForm));
+		}
+		if (lsHexPalette !== undefined) {
+			storeHexPalette = writable(JSON.parse(lsHexPalette));
+		}
+		// Settter ---
+		storeMode.subscribe((v) => (localStorage.storeMode = String(v)));
+		storePreview.subscribe((v) => (localStorage.storePreview = String(v)));
+		storeTailwindForm.subscribe((v) => (localStorage.storeTailwindForm = JSON.stringify(v)));
+		storeTailwindPalette.subscribe((v) => (localStorage.storeTailwindPalette = JSON.stringify(v)));
+		storeHexForm.subscribe((v) => (localStorage.storeHexForm = JSON.stringify(v)));
+		storeHexPalette.subscribe((v) => (localStorage.storeHexPalette = JSON.stringify(v)));
+		// Loaind Completed ---
+		loaded = true;
+	}
+
+	function resetSettings(): void {
+		// Clear Local Storage Values
+		localStorage.removeItem('storeMode');
+		localStorage.removeItem('storePreview');
+		localStorage.removeItem('storeTailwindForm');
+		localStorage.removeItem('storeTailwindPalette');
+		localStorage.removeItem('storeHexForm');
+		localStorage.removeItem('storeHexPalette');
+		// Reload Window
+		location.reload();
+	}
 
 	// Functions ---
 
 	// Tailwind: on selection change
 	function onTailwindSelect(): void {
+		storeTailwindPalette.set({
+			primary: getTailwindColor($storeTailwindForm.primary),
+			accent: getTailwindColor($storeTailwindForm.accent),
+			ternary: getTailwindColor($storeTailwindForm.ternary),
+			warning: getTailwindColor($storeTailwindForm.warning),
+			surface: getTailwindColor($storeTailwindForm.surface)
+		});
+		// Generate CSS
 		setThemeCss();
 	}
 
 	// Tailwind: on randomize button click
 	function onRandomize(): void {
-		paletteTailwind = {
+		storeTailwindPalette.set({
 			primary: randomTailwindColor(),
 			accent: randomTailwindColor(),
 			warning: randomTailwindColor(),
 			ternary: randomTailwindColor(),
 			surface: randomTailwindColor()
-		};
+		});
 	}
 	// setInterval(() => { onRandomize(); }, 250); // party mode
 
@@ -70,7 +133,7 @@
 	function onHexInput(key: string, hexColor: string): void {
 		if (regexValidHexCode.test(hexColor)) {
 			// Generate Palette
-			paletteHex[key] = genHexPalette(key, hexColor);
+			$storeHexPalette[key] = genHexPalette(key, hexColor);
 			// Update CSS Snipet
 			setThemeCss();
 		}
@@ -84,46 +147,41 @@
 	// Reactive ---
 
 	// Set the current palette based on Tailwind/Hex mode
-	$: currentPalette = $storeMode === true ? paletteTailwind : paletteHex;
+	$: currentPalette = $storeMode === true ? $storeTailwindPalette : $storeHexPalette;
 
 	// Update the CSS snippet on current palette change
 	$: if (currentPalette) setThemeCss();
 
 	// Toggle `.bg-mesh` on body when preview mobile ON
-	$: if (browser) document.body.classList.toggle('bg-mesh', !themePreviewEnabled);
-
-	// Lifecycle
-	onMount(() => {
-		// Bugfix: keeps the bg mesh off when returning to this page
-		themePreviewEnabled = false;
-	});
+	$: if (browser) document.body.classList.toggle('bg-mesh', !$storePreview);
 </script>
 
 <!-- Insert live theme into page head -->
 <svelte:head>
-	{@html themePreviewEnabled ? `\<style\>${themeCss}\</style\>` : ''}
+	{@html $storePreview ? `\<style\>${themeCss}\</style\>` : ''}
 </svelte:head>
 
 <!-- prettier-ignore -->
+{#if loaded}
 <div class="themer space-y-4">
-
+	
 	<!-- Color Pickers -->
 	<section class="card !bg-[#141517] !ring-0 space-y-4">
-
 		<!-- Header: Controls -->
-		<div class="card-header flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y0 space-x-4">
+		<div class="card-body flex flex-col lg:flex-row lg:justify-between items-center space-y-4 lg:space-y-0 lg:space-x-4">
+			<!-- Mode -->
 			<RadioGroup selected={storeMode}>
 				<RadioItem value={true}>Tailwind Colors</RadioItem>
 				<RadioItem value={false}>Hex Colors</RadioItem>
 			</RadioGroup>
-			<SlideToggle bind:checked={themePreviewEnabled} class="text-white">Live Preview</SlideToggle>
-			<div class="flex items-center space-x-2">
+			<div class="flex items-center space-x-4">
+				<!-- Actions -->
 				{#if $storeMode}
-					<a class="btn btn-sm text-white" href="https://tailwindcss.com/docs/customizing-colors" target="_blank">Reference</a>
-					<button class="btn btn-sm text-white" on:click={onRandomize}>Randomize</button>
-				{:else}
-					<a class="btn btn-sm" href="https://coolors.co/" target="_blank">Get Inspired</a>
+					<button class="btn btn-sm btn-ghost" on:click={onRandomize}>Random</button>
+					<button class="btn btn-sm btn-ghost" on:click={resetSettings}>Reset</button>
 				{/if}
+				<!-- Preview -->
+				<SlideToggle bind:checked={$storePreview} class="text-white">Live</SlideToggle>
 			</div>
 		</div>
 
@@ -134,13 +192,13 @@
 					<label class="w-full">
 						<span class="text-white capitalize">{colorKey}</span>
 						{#if $storeMode}
-							<select class="capitalize" bind:value={paletteTailwind[colorKey]} on:change={()=>{onTailwindSelect()}}>
-								{#each colorsTailwind as c}<option value={c}>{c.label}</option>{/each}
+							<select class="capitalize" bind:value={$storeTailwindForm[colorKey]} on:change={()=>{onTailwindSelect()}}>
+								{#each colorsTailwind as c}<option value={c.label}>{c.label}</option>{/each}
 							</select>
 						{:else}
 							<input
-								type="text" placeholder="#FFFFFF" bind:value={formHex[colorKey]}
-								on:input={() => { onHexInput(colorKey, formHex[colorKey]); }}
+								type="text" placeholder="#FFFFFF" bind:value={$storeHexForm[colorKey]}
+								on:input={() => { onHexInput(colorKey, $storeHexForm[colorKey]); }}
 							/>
 						{/if}
 					</label>
@@ -159,3 +217,6 @@
 	<!-- CSS Snipnpet -->
 	<CodeBlock language="css" code={themeCss} />
 </div>
+{:else}
+	<section class="card card-body !bg-[#141517] !ring-0 space-y-4 text-center"><p>Loading Theme Generator...</p></section>
+{/if}
