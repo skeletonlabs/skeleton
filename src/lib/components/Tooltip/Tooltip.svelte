@@ -50,7 +50,7 @@
 	setArrowPosition(); // init
 
 	// A11y Input Handler
-	function onKeyDown(event: any): void {
+	function onKeyDown(event: KeyboardEvent): void {
 		if (visible && event.code === 'Escape') {
 			visible = false;
 		}

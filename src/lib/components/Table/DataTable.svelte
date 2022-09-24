@@ -99,7 +99,7 @@
 
 	// A11y Input Handler
 	// prettier-ignore
-	function onKeyDown(event: any): void {
+	function onKeyDown(event: KeyboardEvent): void {
 		// Arrow Keys
 		const hotKeys: string[] = ['ArrowRight', 'ArrowUp', 'ArrowLeft', 'ArrowDown', 'Home', 'End'];
 		if (hotKeys.includes(event.code)) {

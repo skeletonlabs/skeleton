@@ -29,7 +29,7 @@
 	}
 
 	// A11y Input Handler
-	function onKeyDown(event: any): void {
+	function onKeyDown(event: KeyboardEvent): void {
 		// Arrow Keys
 		const hotKeys: string[] = ['ArrowRight', 'ArrowUp', 'ArrowLeft', 'ArrowDown', 'Home', 'End'];
 		if (hotKeys.includes(event.code)) {
