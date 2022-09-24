@@ -115,16 +115,16 @@ NOTE: Keep these localized
 		</p>
 		<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
 			<div class="card card-body !bg-emerald-500 text-center">
-				<h6>Chrome: Full</h6>
+				<h3 class='heading-6'>Chrome: Full</h3>
 			</div>
 			<div class="card card-body !bg-emerald-500 text-center">
-				<h6>Edge: Full</h6>
+				<h3 class='heading-6'>Edge: Full</h3>
 			</div>
 			<div class="card card-body !bg-orange-500 text-center">
-				<h6>Safari: Partial</h6>
+				<h3 class='heading-6'>Safari: Partial</h3>
 			</div>
 			<div class="card card-body !bg-rose-500 text-center">
-				<h6>Firefox: None</h6>
+				<h3 class='heading-6'>Firefox: None</h3>
 			</div>
 		</div>
 	</section>
