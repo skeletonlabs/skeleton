@@ -5,8 +5,13 @@
 	import { storeHighlightJs } from '$lib/utilities/CodeBlock/stores';
 	storeHighlightJs.set(hljs);
 
+	// SvelteKit Imports
+	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
 	import { afterNavigate } from '$app/navigation';
+
+	// Stores
+	import { storeCurrentUrl, storeTheme } from '$docs/stores';
 
 	// Components & Utilities
 	import AppShell from '$lib/components/AppShell/AppShell.svelte';
@@ -19,8 +24,15 @@
 	import DocsDrawer from '$docs/DocsNavigation/DocsDrawer.svelte';
 	import DocsFooter from '$docs/DocsFooter/DocsFooter.svelte';
 
-	// Stores
-	import { storeCurrentUrl } from '$docs/stores';
+	// Theme Imports
+	// import style from "swiper/css/bundle.css?inline";
+	import skeleton from '$lib/themes/theme-skeleton.css?inline';
+	import rocket from '$lib/themes/theme-rocket.css?inline';
+	import modern from '$lib/themes/theme-modern.css?inline';
+	import seafoam from '$lib/themes/theme-seafoam.css?inline';
+	import vintage from '$lib/themes/theme-vintage.css?inline';
+	import sahara from '$lib/themes/theme-sahara.css?inline';
+	const themes: any = { skeleton, rocket, modern, seafoam, vintage, sahara };
 
 	// Skeleton Theme: skeleton|rocket|modern|seafoam|vintage|sahara|test
 	import '$lib/themes/theme-skeleton.css';
@@ -43,7 +55,15 @@
 
 	// Disable left sidebar on homepage
 	$: slotSidebarLeft = $page.url.pathname === '/' ? 'w-0' : 'bg-black/5 lg:w-auto';
+	$: currentTheme = `\<style\>${themes[$storeTheme]}}\</style\>`;
+
+	// Enable bg-mesh only if Skeleton theme in use.
+	$: if (browser) document.body.classList.toggle('bg-mesh', $storeTheme === 'skeleton');
 </script>
+
+<svelte:head>
+	{@html currentTheme}
+</svelte:head>
 
 <!-- Overlays -->
 <Dialog />

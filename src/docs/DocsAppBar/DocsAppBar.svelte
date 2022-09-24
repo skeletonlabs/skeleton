@@ -8,7 +8,7 @@
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
 	// Stores
-	import { storeMobileDrawer } from '$docs/stores';
+	import { storeTheme, storeMobileDrawer } from '$docs/stores';
 
 	// Drawer Handler
 	function drawerOpen(): void {
@@ -90,6 +90,15 @@
 		</section>
 
 		<Divider vertical borderWidth="border-l-2" />
+
+		<select bind:value={$storeTheme}>
+			<option value="skeleton">Skeleton</option>
+			<option value="rocket">Rocket</option>
+			<option value="modern">Modern</option>
+			<option value="seafoam">Seafoam</option>
+			<option value="vintage">Vintage</option>
+			<option value="sahara">Sahara</option>
+		</select>
 
 		<!-- Light Switch -->
 		<section class="flex space-x-4">

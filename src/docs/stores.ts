@@ -5,6 +5,9 @@ import { writable, type Writable } from 'svelte/store';
 // Set within root layout, persists current SvelteKit $page.url.pathname
 export const storeCurrentUrl: Writable<string | undefined> = writable(undefined);
 
+// Persists select theme
+export const storeTheme: Writable<string> = writable('skeleton');
+
 // Persists the tab selection for the user's preferred framework
 export const storeFramework: Writable<string> = writable('sveltekit');
 
