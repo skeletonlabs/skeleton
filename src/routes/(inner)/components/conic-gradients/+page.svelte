@@ -94,7 +94,7 @@ const dataSet: any[] = [
 		<!-- Applying Colors -->
 		<h3>Colors</h3>
 		<h4>Via Theme Colors</h4>
-		<p>To utilize your theme colors, you'll need to provide the theme color CSS custom property <code>var(--color-primary-500)</code> wrapped in <code>rgba()</code>.</p>
+		<p>To utilize your theme colors, you'll need to provide the theme color CSS custom property <code>var(--color-primary-500)</code> wrapped in <code>rgb()</code>.</p>
 		<CodeBlock
 			language="js"
 			code={`
