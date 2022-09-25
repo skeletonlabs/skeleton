@@ -53,7 +53,7 @@
 				<div class="bg-orange-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
 					<SvgIcon name="svelte" fill="fill-white" width="w-10" height="h-10" />
 				</div>
-				<h3>Svelte Integration</h3>
+				<h3 class='heading-6'>Svelte Integration</h3>
 				<p>
 					Tightly coupled with Svelte, including full support for <a href="https://kit.svelte.dev/" target="_blank">SvelteKit</a>, <a href="https://vitejs.dev/" target="_blank">Vite</a>, and
 					<a href="https://astro.build/" target="_blank">Astro</a>.
@@ -63,21 +63,21 @@
 				<div class="bg-sky-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
 					<SvgIcon name="tailwind" fill="fill-white" width="w-10" height="h-10" />
 				</div>
-				<h3>Tailwind CSS Integration</h3>
+				<h3 class='heading-6'>Tailwind CSS Integration</h3>
 				<p>Integrate with your design system using Tailwind utility classes to style components.</p>
 			</div>
 			<div class="card card-body space-y-4">
 				<div class="bg-primary-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
 					<SvgIcon name="swatchbook" fill="fill-white" width="w-8" height="h-8" />
 				</div>
-				<h3>Dynamic Themes</h3>
+				<h3 class='heading-6'>Dynamic Themes</h3>
 				<p>Choose from a library of hand crafted preset themes or quickly generate your own in seconds.</p>
 			</div>
 			<div class="card card-body space-y-4">
 				<div class="bg-accent-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
 					<SvgIcon name="screwdriver" fill="fill-white" width="w-8" height="h-8" />
 				</div>
-				<h3>Powerful Utilities</h3>
+				<h3 class='heading-6'>Powerful Utilities</h3>
 				<p>Provides a feature rich UI toolkit for modern web apps with layouts, dialogs, and more.</p>
 			</div>
 		</section>
@@ -88,7 +88,7 @@
 			<ul class="grid grid-cols-1 md:grid-cols-3 gap-4">
 				<li class="card card-body space-y-2 text-center">
 					<Avatar src="https://avatars.githubusercontent.com/u/1509726?v=4" width="w-24" shadow="shadow-xl" class="mx-auto" />
-					<h3>Chris Simmons</h3>
+					<h3 class='heading-6'>Chris Simmons</h3>
 					<p>Co-founder and core contributor.</p>
 					<div class="flex justify-center space-x-4">
 						<a href="https://github.com/endigo9740" target="_blank"><SvgIcon name="github" /></a>
@@ -98,7 +98,7 @@
 				</li>
 				<li class="card card-body space-y-2 text-center">
 					<Avatar src="https://avatars.githubusercontent.com/u/52718757?v=4" width="w-24" shadow="shadow-xl" class="mx-auto" />
-					<h3>Thomas Jespersen</h3>
+					<h3 class='heading-6'>Thomas Jespersen</h3>
 					<p>Co-founder and core contributor.</p>
 					<div class="flex justify-center space-x-4">
 						<a href="https://github.com/thomasbjespersen" target="_blank"><SvgIcon name="github" /></a>
@@ -107,7 +107,7 @@
 				</li>
 				<li class="card card-body space-y-2 text-center">
 					<Avatar src="https://avatars.githubusercontent.com/u/10255430?v=4" width="w-24" shadow="shadow-xl" class="mx-auto" />
-					<h3>Trey Weir</h3>
+					<h3 class='heading-6'>Trey Weir</h3>
 					<p>Core member and founder of <a href="https://www.brainandbonesllc.com/" target="_blank">Brain & Bones</a></p>
 					<div class="flex justify-center space-x-4">
 						<a href="https://twitter.com/brain_and_bones" target="_blank"><SvgIcon name="twitter" /></a>
