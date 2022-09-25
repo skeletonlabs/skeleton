@@ -5,86 +5,81 @@
  https://tailwindcss.com/docs/configuration#referencing-in-java-script
  -->
 <script lang="ts">
-	import { afterUpdate } from 'svelte';
-	// import colors from 'tailwindcss/colors';
+	import tailwindColors from 'tailwindcss/colors';
 
-	export let data: any[] = [{ label: 'Progress', swathe: { color: 'slate', weight: 500 }, start: 0, end: 100 }];
+	// Props
+	export let data: any[] = [{ label: 'Progress', color: ['neutral', 500], start: 0, end: 100 }];
 	export let legend: boolean = false;
+	export let spin: boolean = false;
 	export let width: string = 'w-full';
+	export let hover: string = 'hover:bg-surface-500/30';
 
-	// Data
-	let currentCone: string;
-	let currentLegend: any[];
+	// Local
+	let cone: string;
+	let generatedLegendList: any[];
 
 	// Styles
-	const cBase: string = 'inline-block aspect-square rounded-full';
+	const cBase: string = 'flex flex-col items-center space-y-4';
+	const cCaption: string = 'text-center';
+	const cCone: string = 'block aspect-square rounded-full';
+	const cLabel: string = 'text-sm w-full';
+	const cSwatch: string = 'block aspect-square bg-black w-5 rounded-full mr-2';
+
+	// Set Color
+	function setColorValue(color: any): string {
+		// If string, keep as is
+		if (typeof color === 'string') return color;
+		// If object, provide default Tailwind color
+		const tw: any = tailwindColors;
+		return tw[color[0]][color[1]];
+	}
 
 	// Generate Conic Gradient style
 	function genConicGradient(): void {
-		let d: any = data.map((v) => {
-			// -- FIXME: temporary solution ---
-			// // Set Color
-			// let c: string;
-			// switch (v.swathe.color) {
-			//     case('white'): c = colors.white; break;
-			//     case('black'): c = colors.black; break;
-			//     case('transparent'): c = 'transparent'; break;
-			//     default: c = colors[v.swathe.color][v.swathe.weight];
-			// }
-			// // Return mapped value
-			// return `${c} ${v.start}% ${v.end}%`;
-			return `${v.swathe.color} ${v.start}% ${v.end}%`;
-		});
-		currentCone = `conic-gradient(${d.join(', ')})`;
+		let d: any = data.map((v) => `${setColorValue(v.color)} ${v.start}% ${v.end}%`);
+		cone = `conic-gradient(${d.join(', ')})`;
 	}
 
 	// Generate Legend
 	function genLegend(): any {
-		if (!legend) {
-			return;
-		}
-		currentLegend = data.map((v) => {
+		if (!legend) return;
+		generatedLegendList = data.map((v) => {
 			return {
 				label: v.label,
-				// -- FIXME: temporary solution ---
-				// swatch: colors[v.swathe.color][v.swathe.weight],
-				swatch: v.swathe.color,
+				color: setColorValue(v.color),
 				value: v.end - v.start
 			};
 		});
 	}
 
+	// Lifecycle (on init)
+	genConicGradient();
+	genLegend();
+
 	// Reactive
-	afterUpdate(() => {
-		genConicGradient();
-		genLegend();
-	});
-	$: classes = `${cBase} ${width} ${$$props.class || ''}`;
+	$: classesBase = `${cBase} ${$$props.class || ''}`;
+	$: classesCone = `${cCone} ${width}`;
 </script>
 
-<figure class="conic-gradient text-center space-y-4" data-testid="conic-gradient">
-	<!-- Conic Shape -->
-	{#if currentCone}
-		<div class={classes} style:background={currentCone} />
-	{/if}
-	<!-- Slot -->
+<figure class="conic-gradient {classesBase}" data-testid="conic-gradient">
+	<!-- Label -->
 	{#if $$slots.default}
-		<figcaption><slot /></figcaption>
+		<figcaption class="conic-caption {cCaption}"><slot /></figcaption>
+	{/if}
+	<!-- Conic Gradient -->
+	{#if cone}
+		<div class={classesCone} class:animate-spin={spin} style:background={cone} />
 	{/if}
 	<!-- Legend -->
-	{#if legend && currentLegend}
-		<figcaption class="text-sm">
-			<ul class="space-y-4">
-				{#each currentLegend as { swatch, label, value }}
-					<li class="flex justify-between">
-						<div class="flex space-x-4">
-							<span class="block aspect-square bg-black w-5 rounded-full mr-2" style:background={swatch} />
-							<strong>{label}</strong>
-						</div>
-						<span>{value}%</span>
-					</li>
-				{/each}
-			</ul>
-		</figcaption>
+	{#if legend && generatedLegendList}
+		<ul class="conic-list list {cLabel}">
+			{#each generatedLegendList as { color, label, value }}
+				<li class="conic-li {hover}">
+					<span class="conic-swatch {cSwatch}" style:background={color} />
+					<span class="flex-auto">{label}</span>
+					<strong>{value}%</strong>
+				</li>
+			{/each}
+		</ul>
 	{/if}
 </figure>

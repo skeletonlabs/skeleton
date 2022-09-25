@@ -13,6 +13,7 @@ export { default as Breadcrumb } from './components/Breadcrumb/Breadcrumb.svelte
 export { default as Crumb } from './components/Breadcrumb/Crumb.svelte';
 export { default as Button } from './components/Button/Button.svelte';
 export { default as Card } from './components/Card/Card.svelte';
+export { default as ConicGradient } from './components/ConicGradient/ConicGradient.svelte';
 export { default as Divider } from './components/Divider/Divider.svelte';
 export { default as GradientHeading } from './components/GradientHeading/GradientHeading.svelte';
 export { default as ListBox } from './components/ListBox/ListBox.svelte';
