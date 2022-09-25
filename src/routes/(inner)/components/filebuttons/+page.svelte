@@ -21,13 +21,15 @@
 	const tableProps: any = {
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Required', 'Description'],
 		source: [
-			['xxx', '-', '-', '-', '&check;', '...'],
-			['yyy', '-', '-', '-', '-', '...']
+			['accept', 'string', '/image*', '-', '&check;', 'File input accept attribute, for example, "image/png,image/jpeg"'],
+			['multiple', 'boolean', 'false', '-', '-', 'Determines whether user can pick more than one file'],
+			['name', 'string', '-', '-', '-', 'Input name attribute'],
+			['files', 'array', '-', '-', '-', 'Get files']
 		]
 	};
 	const tableSlots: any = {
 		headings: ['Name', 'Description'],
-		source: [['xxx', '...']]
+		source: [['(Default)', 'The slot describes the label you want for the FileButton, it can be any name']]
 	};
 </script>
 
@@ -52,8 +54,13 @@
 	<!-- Usage -->
 	<section class="space-y-4">
 		<h2>Usage</h2>
-		<p>(code block here)</p>
-		<p>(describe how to use this component)</p>
+		<CodeBlock
+			language="html"
+			code={`
+			<FileButton bind:files accept="image/*" name="file" class="btn-filled-primary" on:change={onChange}>Upload File</FileButton>
+		`}
+		/>
+		<p>Ensure you create a variable files or whatever name you choose for the variable and bind it to the FileButton as described above. And a function that will trigger the on:change event</p>
 	</section>
 
 	<!-- Properties -->
