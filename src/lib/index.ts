@@ -10,6 +10,8 @@ export { default as Alert } from './components/Alert/Alert.svelte';
 export { default as Avatar } from './components/Avatar/Avatar.svelte';
 export { default as Breadcrumb } from './components/Breadcrumb/Breadcrumb.svelte';
 export { default as Crumb } from './components/Breadcrumb/Crumb.svelte';
+export { type ConicStop } from './components/ConicGradient/types';
+export { default as ConicGradient } from './components/ConicGradient/ConicGradient.svelte';
 export { default as Divider } from './components/Divider/Divider.svelte';
 export { default as FileButton } from './components/FileButton/FileButton.svelte';
 export { default as GradientHeading } from './components/GradientHeading/GradientHeading.svelte';

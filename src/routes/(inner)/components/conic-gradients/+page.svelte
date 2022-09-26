@@ -1,36 +1,40 @@
 <script lang="ts">
-	import { DataTable } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import ConicGradient from '$lib/components/ConicGradient/ConicGradient.svelte';
+	import DataTable from '$lib/components/Table/DataTable.svelte';
 
-	// Examples
-	const dataOne: any[] = [
-		{ label: 'Red', swathe: { color: 'red', weight: 500 }, start: 0, end: 35 },
-		{ label: 'Green', swathe: { color: 'green', weight: 500 }, start: 35, end: 60 },
-		{ label: 'Blue', swathe: { color: 'blue', weight: 500 }, start: 60, end: 100 }
+	import type { ConicStop } from '$lib/components/ConicGradient/types';
+
+	// Color Stops
+	let stopsTailwind: ConicStop[] = [
+		{ label: 'Orange', color: ['orange', 500], start: 0, end: 10 },
+		{ label: 'Yellow', color: ['yellow', 500], start: 10, end: 35 },
+		{ label: 'Red', color: ['red', 500], start: 35, end: 100 }
 	];
-	let dataTwo: any[] = [
-		{ label: 'Orange', swathe: { color: 'orange', weight: 500 }, start: 0, end: 10 },
-		{ label: 'Yellow', swathe: { color: 'yellow', weight: 500 }, start: 10, end: 35 },
-		{ label: 'Red', swathe: { color: 'red', weight: 500 }, start: 35, end: 100 }
+	const stopsVars: ConicStop[] = [
+		{ label: 'Primary', color: 'rgb(var(--color-primary-500))', start: 0, end: 33 },
+		{ label: 'Acccent', color: 'rgb(var(--color-warning-500))', start: 33, end: 66 },
+		{ label: 'Warning', color: 'rgb(var(--color-accent-500))', start: 66, end: 100 }
 	];
-	const dataThree: any[] = [
-		{ swathe: { color: 'transparent' }, start: 0, end: 25 },
-		{ swathe: { color: 'white', weight: 500 }, start: 75, end: 100 }
+	const stopsSpinner: ConicStop[] = [
+		{ color: 'transparent', start: 0, end: 25 },
+		{ color: 'rgba(128,128,128,0.5)', start: 75, end: 100 }
 	];
 
-	// Props & Slots
+	// Tables
 	const tableProps: any = {
 		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
 		source: [
-			['data', 'any[]', '(filled 100%)', 'true', 'Provide your data set.'],
-			['legend', 'boolean', 'false', 'false', 'Enables a simple pie chart legend.'],
-			['width', 'string', 'w-full', 'false', 'Provided a class to define the width.']
+			['stops', 'ConicStop[]', '(100% grey circle)', '&check;', 'Provide a data set of color stops and labels.'],
+			['legend', 'boolean', 'false', '-', 'Allows for automatic generation of a legend below the conic gradient.'],
+			['spin', 'boolean', 'false', '-', 'When enabled, the conic gradient will spin.'],
+			['width', 'string', 'w-full', '-', 'Provided classes to style the conic gradient width.'],
+			['hover', 'string', 'hover:bg-surface-500/10', '-', 'Provided classes to style the legend hover effect.']
 		]
 	};
 	const tableSlots: any = {
 		headings: ['Name', 'Description'],
-		source: [['default', 'Allows you to define a label, description, or other supplementary information.']]
+		source: [['default', 'Provide a semantic figure caption value.']]
 	};
 </script>
 
@@ -45,14 +49,18 @@
 	<!-- Examples -->
 	<section class="space-y-4 md:space-y-0 md:grid md:grid-cols-3 md:gap-8">
 		<h2 class='sr-only'>Examples</h2>
-		<div class="card card-body"><ConicGradient data={dataOne} legend={true} /></div>
 		<div class="card card-body">
-			<ConicGradient data={dataTwo} legend={true}>
+			<ConicGradient stops={stopsTailwind} legend={true}>
 				<h3>Heat Map</h3>
 			</ConicGradient>
 		</div>
+		<!-- CSS Properties -->
+		<div class="card card-body">
+			<ConicGradient stops={stopsVars} legend={true} />
+		</div>
+		<!-- Spinner -->
 		<div class="card card-body flex justify-center items-center">
-			<ConicGradient data={dataThree} width="w-8" class="animate-spin">
+			<ConicGradient stops={stopsSpinner} spin={true} width="w-8">
 				<small class="opacity-50">Loading</small>
 			</ConicGradient>
 		</div>
@@ -61,34 +69,85 @@
 	<!-- Usage -->
 	<section class="space-y-4">
 		<h2>Usage</h2>
-		<p>Please note that only default Tailwind color values are currently supported, with the exception of 'white', 'black', and 'transparent'. Weight is optional for these three values.</p>
-		<h3>Pie Chart</h3>
-		<CodeBlock language="html" code={`<ConicGradient data={dataSet} legend={true}></ConicGradient>`} />
+		<p>Provde one more color stops that start at 0 and end at 100. The data set below will create a half red/green conic gradient.</p>
 		<CodeBlock
-			language="js"
+			language="ts"
 			code={`
-const dataSet: any[] = [
-    {label: 'Emerald', swathe: {color: 'emerald', weight: 500}, start: 0, end: 35},
-    {label: 'Indigo', swathe: {color: 'indigo', weight: 500}, start: 35, end: 60},
-    {label: 'Rose', swathe: {color: 'rose', weight: 500}, start: 60, end: 100},
+import type { ConicStop } from '@brainandbones/skeleton';
+
+const conicStops: ConicStop[] = [
+	{ color: 'red', start: 0, end: 50 },
+	{ color: 'green', start: 50, end: 100 }
+];
+        `}
+		/>
+		<CodeBlock language="html" code={`<ConicGradient stops={conicStops} legend={false} spin={false}>(caption)</ConicGradient>`} />
+		<!-- Legend -->
+		<h3>Legend</h3>
+		<p>A legend can be generated by setting <code>legend</code> as <em>true</em> and provided labels to each data set item.</p>
+		<CodeBlock
+			language="ts"
+			code={`
+const conicStops: ConicStop[] = [
+	{ label: 'Label 1', color: 'red', start: 0, end: 33 },
+	{ label: 'Label 2', color: 'green', start: 33, end: 66 },
+	{ label: 'Label 3', color: 'blue', start: 66, end: 100 }
+];
+        `}
+		/>
+		<!-- Applying Colors -->
+		<h3>Colors</h3>
+		<h4>Via Theme Colors</h4>
+		<p>To utilize your theme colors, you'll need to provide the theme color CSS custom property <code>var(--color-primary-500)</code> wrapped in <code>rgb()</code>.</p>
+		<CodeBlock
+			language="ts"
+			code={`
+const conicStops: ConicStop[] = [
+	{ label: 'Primary', color: 'rgb(var(--color-primary-500))', start: 0, end: 33 },
+	{ label: 'Acccent', color: 'rgb(var(--color-warning-500))', start: 33, end: 66 },
+	{ label: 'Warning', color: 'rgb(var(--color-accent-500))', start: 66, end: 100 }
+];
+        `}
+		/>
+		<!-- Tailwind Colors -->
+		<h4>Via Tailwind Colors</h4>
+		<p>To utilize any default Tailwind colors, supply an array with the format <code>[name,shade]</code>.</p>
+		<CodeBlock
+			language="ts"
+			code={`
+const conicStops: ConicStop[] = [
+	{ label: 'Orange', color: ['orange', 500], start: 0, end: 10 },
+	{ label: 'Yellow', color: ['yellow', 500], start: 10, end: 35 },
+	{ label: 'Red', color: ['red', 500], start: 35, end: 100 }
+];
+        `}
+		/>
+		<!-- Custom Colors -->
+		<h4>Via Custom Colors</h4>
+		<p>
+			You can provide any <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value" target="_blank">standard CSS color value</a> as a string, including color names, hex, rgb/rgba, HSL, etc.
+		</p>
+		<CodeBlock
+			language="ts"
+			code={`
+const conicStops: ConicStop[] = [
+	{ label: 'Name', color: 'orange', start: 0, end: 10 },
+	{ label: 'HSL', color: 'hsl(60deg 100% 50%)', start: 10, end: 35 },
+	{ label: 'Hex', color: '#bada55', start: 35, end: 100 }
 ];
         `}
 		/>
 		<h3>Spinner</h3>
+		<p>
+			To create a spinner, set <code>spin</code> to <em>true</em>, and created a smooth gradient transition between transparent and filled color stops. Note the numeric gap between stops.
+		</p>
+		<CodeBlock language="html" code={`<ConicGradient stops={conicStops} spin={true} width="w-8" />`} />
 		<CodeBlock
-			language="html"
+			language="ts"
 			code={`
-<ConicGradient data={dataSet} width="w-8" class="animate-spin">
-    <small>Loading</small>    
-</ConicGradient>
-        `}
-		/>
-		<CodeBlock
-			language="js"
-			code={`
-const dataSet: any[] = [
-    {swathe: {color: 'transparent'}, start: 0, end: 25},
-    {swathe: {color: 'slate', weight: 500}, start: 75, end: 100},
+const conicStops: ConicStop[] = [
+    { color: 'transparent', start: 0, end: 25 },
+	{ color: 'grey', start: 75, end: 100 }
 ];
         `}
 		/>

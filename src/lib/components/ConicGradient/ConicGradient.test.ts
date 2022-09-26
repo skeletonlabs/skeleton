@@ -9,13 +9,13 @@ describe('ConicGradient.svelte', () => {
 		expect(getByTestId('conic-gradient')).toBeTruthy();
 	});
 
-	it('Renders with all props', () => {
+	it('Renders with props', () => {
 		const { getByTestId } = render(ConicGradient, {
 			props: {
 				data: [
-					{ label: 'Emerald', swathe: { color: 'emerald', weight: 500 }, start: 0, end: 35 },
-					{ label: 'Indigo', swathe: { color: 'indigo', weight: 500 }, start: 35, end: 60 },
-					{ label: 'Rose', swathe: { color: 'rose', weight: 500 }, start: 60, end: 100 }
+					{ label: 'Emerald', color: ['emerald', 500], start: 0, end: 33 },
+					{ label: 'Indigo', color: ['indigo', 500], start: 33, end: 66 },
+					{ label: 'Rose', color: ['rose', 500], start: 66, end: 100 }
 				],
 				legend: true,
 				width: 'w-8'
