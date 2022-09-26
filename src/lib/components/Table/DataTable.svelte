@@ -99,7 +99,7 @@
 
 	// A11y Input Handler
 	// prettier-ignore
-	function onKeyDown(event: any): void {
+	function onKeyDown(event: KeyboardEvent): void {
 		// Arrow Keys
 		const hotKeys: string[] = ['ArrowRight', 'ArrowUp', 'ArrowLeft', 'ArrowDown', 'Home', 'End'];
 		if (hotKeys.includes(event.code)) {
@@ -110,15 +110,16 @@
 				case 'ArrowDown': setActiveCell(0, 1); break;
 				case 'ArrowLeft': setActiveCell(-1, 0); break;
 				case 'ArrowRight': setActiveCell(1, 0); break;
-				case 'Home': jumpToFirstColumn(); break;
-				case 'End': jumpToLastColumn(); break;
+				case 'Home': jumpToOuterColumn('first'); break;
+				case 'End': jumpToOuterColumn('last'); break;
 				default: break;
 			}
 		}
 	}
 	function setActiveCell(x: number, y: number): void {
 		// Focused Element
-		const focusedElem: any = document.activeElement;
+		const focusedElem: Element | null = document.activeElement;
+		if (!focusedElem || !focusedElem.parentElement || !focusedElem.parentElement.ariaRowIndex || !focusedElem.ariaColIndex) return;
 		const focusedElemRowIndex: number = parseInt(focusedElem.parentElement.ariaRowIndex);
 		const focusedElemColIndex: number = parseInt(focusedElem.ariaColIndex);
 		// Target Element
@@ -130,21 +131,23 @@
 			}
 		}
 	}
-	function getTargetElem(): any {
+	function getTargetElem(): HTMLElement | null {
 		// Focused Element
-		const focusedElem: any = document.activeElement;
+		const focusedElem: Element | null = document.activeElement;
+		if (!focusedElem || !focusedElem.parentElement || !focusedElem.parentElement.ariaRowIndex) return null;
 		const focusedElemRowIndex: number = parseInt(focusedElem.parentElement.ariaRowIndex);
 		// Return Target Element
 		return elemTable.querySelector(`[aria-rowindex="${focusedElemRowIndex}"]`);
 	}
-	function jumpToFirstColumn(): void {
-		const targetRowElement: any = getTargetElem();
-		targetRowElement.firstChild.focus();
-	}
-	function jumpToLastColumn(): void {
-		const targetRowElement: any = getTargetElem();
+
+	function jumpToOuterColumn(type: 'first' | 'last' = 'first'): void {
+		const targetRowElement = getTargetElem();
+		if (targetRowElement === null) return;
 		const lastIndex: number = targetRowElement.children.length - 1;
-		targetRowElement.children[lastIndex].focus();
+		const selected = type === 'first' ? 1 : lastIndex;
+		const targetColElement: HTMLElement | null = targetRowElement.querySelector(`[aria-colindex="${selected}"]`);
+		if (targetColElement === null) return;
+		targetColElement.focus();
 	}
 
 	// On Prop Change

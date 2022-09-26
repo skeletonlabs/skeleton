@@ -42,7 +42,7 @@
 		<AccordionGroup>
 			<AccordionItem class="border border-surface-500/20 rounded">
 				<svelte:fragment slot="summary">
-					<h4>How to integrate Skeleton and Flowbite.</h4>
+					<h3>How to integrate Skeleton and Flowbite.</h3>
 				</svelte:fragment>
 				<svelte:fragment slot="content">
 					<div class="space-y-4 pb-3">

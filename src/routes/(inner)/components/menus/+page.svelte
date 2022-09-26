@@ -32,7 +32,7 @@
 		<p>Quick context menus provided when clicking a trigger element.</p>
 		<CodeBlock language="javascript" code={`import { Menu } from '@brainandbones/skeleton';`} />
 	</header>
-
+	<h2 class='sr-only'>Examples</h2>
 	<!-- Examples -->
 	<div class="card card-body flex justify-center space-x-4">
 		<!-- Default -->

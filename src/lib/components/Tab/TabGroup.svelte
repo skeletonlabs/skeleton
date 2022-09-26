@@ -29,24 +29,34 @@
 
 	// Handle Home/End Input
 	let elemTabGroup: HTMLElement;
-	onMount(() => {
-		elemTabGroup.addEventListener('keydown', (event: any) => {
-			if (['Home', 'End'].includes(event.code)) {
-				event.preventDefault();
-				if (event.code === 'Home') {
-					(elemTabGroup.children[0] as HTMLElement).focus();
-				}
-				if (event.code === 'End') {
-					(elemTabGroup.children[elemTabGroup.children.length - 1] as HTMLElement).focus();
-				}
+
+	function keydown(event: KeyboardEvent) {
+		if (['Home', 'End'].includes(event.code)) {
+			event.preventDefault();
+			if (event.code === 'Home') {
+				(elemTabGroup.children[0] as HTMLElement).focus();
 			}
-		});
-	});
+			if (event.code === 'End') {
+				(elemTabGroup.children[elemTabGroup.children.length - 1] as HTMLElement).focus();
+			}
+		}
+	}
 
 	// Reactive Classes
 	$: classesGroup = `${cBase} ${borderWidth} ${justify} ${$$props.class || ''}`;
 </script>
 
-<nav bind:this={elemTabGroup} data-testid="tab-group" class="tab-group {classesGroup}" role="tablist" aria-labelledby={labeledby} aria-label={label}>
-	<slot />
+<!-- prettier-ignore -->
+<nav>
+	<ul
+		bind:this={elemTabGroup}
+		on:keydown={keydown}
+		class="tab-group {classesGroup}"
+		data-testid="tab-group"
+		role="tablist"
+		aria-labelledby={labeledby}
+		aria-label={label}
+	>
+		<slot />
+	</ul>
 </nav>

@@ -33,6 +33,7 @@
 		{#if ['sveltekit', 'vite'].includes($storeFramework)}
 			<div class="card card-body text-center !py-20"><strong class="capitalize">{$storeFramework}</strong> scaffolding guide coming soon!</div>
 		{:else if $storeFramework === 'astro'}
+		<h2 class='sr-only'>Astro</h2>
 			<!-- Astro Intro -->
 			<div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 items-start md:items-center">
 				<p class="flex-auto">Skeleton now provides supports the Astro web framework, including support for their unique island architecture.</p>
@@ -40,6 +41,7 @@
 					<a class="btn btn-filled-primary" href="https://astro.build/" target="_blank">View Website</a>
 				</nav>
 			</div>
+			<h3 class='sr-only'>Layouts in Astro</h3>
 			<!-- Generate Layout -->
 			<h4>Generate a Layout</h4>
 			<p>
@@ -83,7 +85,7 @@ import LayoutBasic from '../layouts/LayoutBasic.astro';
 			/>
 			<hr class="!my-8" />
 			<!-- Island Architecture -->
-			<h2>Island Architecture</h2>
+			<h3>Island Architecture</h3>
 			<p>Let's review how to implement Skeleton features while taking advantage of <a href="https://docs.astro.build/en/concepts/islands/" target="_blank">Astro's islands architecture</a>.</p>
 			<h4>Static Island</h4>
 			<p>

@@ -30,9 +30,9 @@
 	<!-- Branding -->
 	<svelte:fragment slot="lead">
 		<!-- Drawer Menu -->
-		<div on:click={drawerOpen} class="lg:hidden mr-2 p-1 cursor-pointer">
-			<SvgIcon name="bars" width="w-6" height="h-6" fill="fill-black dark:fill-white" on:click={drawerOpen} />
-		</div>
+		<button on:click={drawerOpen} class="lg:hidden mr-2 p-1 cursor-pointer">
+			<SvgIcon name="bars" width="w-6" height="h-6" fill="fill-black dark:fill-white" />
+		</button>
 		<!-- Skeleton -->
 		<a href="/" class="text-sm sm:text-lg md:text-3xl font-bold uppercase mr-4" title="Return to Homepage">Skeleton</a>
 		<!-- Badge -->

@@ -76,8 +76,9 @@
 
 	<!-- Examples -->
 	<section class="grid grid-cols-1 xl:grid-cols-2 gap-4">
+		<h2 class='sr-only'>Examples</h2>
 		<div class="card card-body space-y-4">
-			<h4>List Pagination</h4>
+			<h3>List Pagination</h3>
 			<hr />
 			<nav class="list-nav">
 				<ul>
@@ -98,7 +99,7 @@
 			<Paginator bind:offset={page.offset} bind:limit={page.limit} bind:size={page.size} bind:amounts={page.amounts} on:page={onPageChange} on:amount={onAmountChange} />
 		</div>
 		<div class="card card-body space-y-4">
-			<h4>Table Pagination</h4>
+			<h3>Table Pagination</h3>
 			<DataTable headings={content.headings} source={contentSliced} />
 			<Paginator bind:offset={page.offset} bind:limit={page.limit} bind:size={page.size} bind:amounts={page.amounts} on:page={onPageChange} on:amount={onAmountChange} />
 		</div>

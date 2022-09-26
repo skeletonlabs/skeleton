@@ -127,6 +127,7 @@
 
 	<!-- Examples -->
 	<section class="space-y-4">
+		<h2 class='sr-only'>Examples</h2>
 		<TabGroup selected={tabExample}>
 			<Tab value="local">Local</Tab>
 			<Tab value="async">Async</Tab>

@@ -45,6 +45,7 @@
 
 	<!-- Examples -->
 	<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+		<h2 class='sr-only'>Examples</h2>
 		<div class="card card-body grid grid-cols-1 gap-4 text-center">
 			<div>
 				<RadioGroup selected={storeJustify}>
