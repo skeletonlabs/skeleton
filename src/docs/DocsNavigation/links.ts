@@ -49,6 +49,7 @@ export const menuNavLinks: any = [
 			{ href: '/components/breadcrumbs', label: 'Breadcrumbs' },
 			{ href: '/components/data-tables', label: 'Data Tables' },
 			{ href: '/components/dividers', label: 'Dividers' },
+			{ href: '/components/file-buttons', label: 'File Buttons' },
 			{ href: '/components/gradient-headings', label: 'Gradient Headings' },
 			{ href: '/components/listboxes', label: 'Listboxes' },
 			{ href: '/components/menus', label: 'Menus' },

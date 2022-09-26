@@ -14,6 +14,7 @@ export { default as Crumb } from './components/Breadcrumb/Crumb.svelte';
 export { default as Button } from './components/Button/Button.svelte';
 export { default as Card } from './components/Card/Card.svelte';
 export { default as Divider } from './components/Divider/Divider.svelte';
+export { default as FileButton } from './components/FileButton/FileButton.svelte';
 export { default as GradientHeading } from './components/GradientHeading/GradientHeading.svelte';
 export { default as ListBox } from './components/ListBox/ListBox.svelte';
 export { default as ListBoxItem } from './components/ListBox/ListBoxItem.svelte';
