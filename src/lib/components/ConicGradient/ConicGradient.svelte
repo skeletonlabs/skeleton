@@ -7,10 +7,10 @@
 <script lang="ts">
 	import tailwindColors from 'tailwindcss/colors';
 
-	import type { ConicColorStop } from './types';
+	import type { ConicStop } from './types';
 
 	// Props
-	export let data: ConicColorStop[] = [{ label: 'Progress', color: ['neutral', 500], start: 0, end: 100 }];
+	export let stops: ConicStop[] = [{ label: 'Progress', color: ['neutral', 500], start: 0, end: 100 }];
 	export let legend: boolean = false;
 	export let spin: boolean = false;
 	export let width: string = 'w-full';
@@ -38,14 +38,14 @@
 
 	// Generate Conic Gradient style
 	function genConicGradient(): void {
-		let d: any = data.map((v) => `${setColorValue(v.color)} ${v.start}% ${v.end}%`);
+		let d: any = stops.map((v) => `${setColorValue(v.color)} ${v.start}% ${v.end}%`);
 		cone = `conic-gradient(${d.join(', ')})`;
 	}
 
 	// Generate Legend
 	function genLegend(): any {
 		if (!legend) return;
-		generatedLegendList = data.map((v) => {
+		generatedLegendList = stops.map((v) => {
 			return {
 				label: v.label,
 				color: setColorValue(v.color),

@@ -1,6 +1,6 @@
 // Conic Gradient Types
 
-export interface ConicColorStop {
+export interface ConicStop {
 	label?: string;
 	color: string | object;
 	start: number;
