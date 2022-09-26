@@ -64,12 +64,6 @@ export const menuNavLinks: any = [
 			// Work in Progress
 			// {href: '/components/conic-gradients', label: 'Conic Gradients'}, // keep disabled until further notice
 			// { href: '/components/svg-icons', label: 'SVG Icons' }, // keep disabled until further notice
-			// Depricated
-			// { href: '/components/badges', label: 'Badges', badge: 'Depricated' },
-			// { href: '/components/buttons', label: 'Buttons', badge: 'Depricated' },
-			// { href: '/components/cards', label: 'Cards', badge: 'Depricated' },
-			// { href: '/components/logo-clouds', label: 'Logo Clouds', badge: 'Depricated' },
-			// { href: '/components/placeholders', label: 'Placeholders', badge: 'Depricated' }
 		]
 	},
 	{
@@ -88,7 +82,8 @@ export const menuNavLinks: any = [
 			{ href: '/utilities/drawers', label: 'Drawers' },
 			{ href: '/utilities/dialogs', label: 'Dialogs' },
 			{ href: '/utilities/toasts', label: 'Toasts' },
-			{ href: '/utilities/lightswitches', label: 'Lightswitch' }
+			{ href: '/utilities/lightswitches', label: 'Lightswitch' },
+			{ href: '/utilities/local-storage-stores', label: 'Local Storage Stores' }
 		]
 	}
 ];
