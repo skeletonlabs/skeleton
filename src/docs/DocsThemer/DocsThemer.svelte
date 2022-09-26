@@ -1,6 +1,9 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { writable, type Writable } from 'svelte/store';
+	import type { Writable } from 'svelte/store';
+
+	// Utilities
+	import { localStorageStore } from '$lib/utilities/LocalStorageStore/LocalStorageStore';
 
 	// Components
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
@@ -16,33 +19,32 @@
 	// Local
 	const regexValidHexCode = new RegExp(/^#[0-9a-f]{6}$/i);
 	let themeCss: string = '';
-	let loaded = false;
 
 	// Stores
-	let storeMode: Writable<boolean> = writable(true); // T: Tailwind | F: Custom
-	let storePreview: Writable<boolean> = writable(false);
-	let storeTailwindForm: Writable<any> = writable({
+	let storeMode: Writable<boolean> = localStorageStore('storeMode', true); // T: Tailwind | F: Custom
+	let storePreview: Writable<boolean> = localStorageStore('storePreview', false);
+	let storeTailwindForm: Writable<any> = localStorageStore('storeTailwindForm', {
 		primary: 'emerald',
 		accent: 'indigo',
 		ternary: 'yellow',
 		warning: 'rose',
 		surface: 'gray'
 	});
-	let storeTailwindPalette: Writable<any> = writable({
+	let storeTailwindPalette: Writable<any> = localStorageStore('storeTailwindPalette', {
 		primary: getTailwindColor($storeTailwindForm.primary),
 		accent: getTailwindColor($storeTailwindForm.accent),
 		ternary: getTailwindColor($storeTailwindForm.ternary),
 		warning: getTailwindColor($storeTailwindForm.warning),
 		surface: getTailwindColor($storeTailwindForm.surface)
 	});
-	let storeHexForm: Writable<any> = writable({
+	let storeHexForm: Writable<any> = localStorageStore('storeHexForm', {
 		primary: getTailwindColor('emerald').shades['500'].hex,
 		accent: getTailwindColor('indigo').shades['500'].hex,
 		ternary: getTailwindColor('yellow').shades['500'].hex,
 		warning: getTailwindColor('rose').shades['500'].hex,
 		surface: getTailwindColor('gray').shades['500'].hex
 	});
-	let storeHexPalette: Writable<any> = writable({
+	let storeHexPalette: Writable<any> = localStorageStore('storeHexPalette', {
 		primary: genHexPalette('primary', $storeHexForm.primary),
 		accent: genHexPalette('accent', $storeHexForm.accent),
 		ternary: genHexPalette('ternary', $storeHexForm.ternary),
@@ -52,54 +54,18 @@
 
 	// Local Storage
 
-	if (browser) {
-		// LocalStorage Values ---
-		const lsMode: string = localStorage['storeMode'];
-		const lsPreview: string = localStorage['storePreview'];
-		const lsTailwindForm: string = localStorage['storeTailwindForm'];
-		const lsTailwindPalette: string = localStorage['storeTailwindPalette'];
-		const lsHexForm: string = localStorage['storeHexForm'];
-		const lsHexPalette: string = localStorage['storeHexPalette'];
-		// Getters ---
-		if (lsMode !== undefined) {
-			storeMode = writable(lsMode === 'true');
-		}
-		if (lsPreview !== undefined) {
-			storePreview = writable(lsPreview === 'true');
-		}
-		if (lsTailwindForm !== undefined) {
-			storeTailwindForm = writable(JSON.parse(lsTailwindForm));
-		}
-		if (lsTailwindPalette !== undefined) {
-			storeTailwindPalette = writable(JSON.parse(lsTailwindPalette));
-		}
-		if (lsHexForm !== undefined) {
-			storeHexForm = writable(JSON.parse(lsHexForm));
-		}
-		if (lsHexPalette !== undefined) {
-			storeHexPalette = writable(JSON.parse(lsHexPalette));
-		}
-		// Setters ---
-		storeMode.subscribe((v) => (localStorage.storeMode = String(v)));
-		storePreview.subscribe((v) => (localStorage.storePreview = String(v)));
-		storeTailwindForm.subscribe((v) => (localStorage.storeTailwindForm = JSON.stringify(v)));
-		storeTailwindPalette.subscribe((v) => (localStorage.storeTailwindPalette = JSON.stringify(v)));
-		storeHexForm.subscribe((v) => (localStorage.storeHexForm = JSON.stringify(v)));
-		storeHexPalette.subscribe((v) => (localStorage.storeHexPalette = JSON.stringify(v)));
-		// Loading Completed ---
-		loaded = true;
-	}
-
 	function resetSettings(): void {
-		// Clear Local Storage Values
-		localStorage.removeItem('storeMode');
-		localStorage.removeItem('storePreview');
-		localStorage.removeItem('storeTailwindForm');
-		localStorage.removeItem('storeTailwindPalette');
-		localStorage.removeItem('storeHexForm');
-		localStorage.removeItem('storeHexPalette');
-		// Reload Window
-		location.reload();
+		if (confirm('Clear all theme settings and restore the site back to the default settings?')) {
+			// Clear Local Storage Values
+			localStorage.removeItem('storeMode');
+			localStorage.removeItem('storePreview');
+			localStorage.removeItem('storeTailwindForm');
+			localStorage.removeItem('storeTailwindPalette');
+			localStorage.removeItem('storeHexForm');
+			localStorage.removeItem('storeHexPalette');
+			// Reload Window
+			location.reload();
+		}
 	}
 
 	// Functions ---
@@ -161,29 +127,26 @@
 </svelte:head>
 
 <!-- prettier-ignore -->
-{#if loaded}
 <div class="themer space-y-4">
+
+	
 	
 	<!-- Color Pickers -->
-	<section class="card !bg-[#141517] !ring-0 space-y-4">
+	<section class="card !bg-[#141517] !ring-0">
+
 		<!-- Header: Controls -->
-		<div class="card-body flex flex-col lg:flex-row lg:justify-between items-center space-y-4 lg:space-y-0 lg:space-x-4">
+		<div class="card-header flex justify-between items-center space-x-4">
 			<!-- Mode -->
 			<RadioGroup selected={storeMode}>
-				<RadioItem value={true}>Tailwind Colors</RadioItem>
-				<RadioItem value={false}>Hex Colors</RadioItem>
+				<RadioItem value={true}>Tailwind</RadioItem>
+				<RadioItem value={false}>Hex</RadioItem>
 			</RadioGroup>
-			<div class="flex items-center space-x-4">
-				<!-- Actions -->
-				{#if $storeMode}<button class="btn btn-sm btn-ghost" on:click={onRandomize}>Random</button>{/if}
-				<button class="btn btn-sm btn-ghost" on:click={resetSettings}>Reset</button>
-				<!-- Preview -->
-				<SlideToggle bind:checked={$storePreview} class="text-white">Live</SlideToggle>
-			</div>
+			{#if $storeMode}<button class="btn btn-filled" on:click={onRandomize}>Randomize</button>{/if}
+			{#if !$storeMode}<a class="btn btn-filled" href="https://coolors.co/" target="_blank">Inspiration</a>{/if}
 		</div>
 
 		<!-- Body: Form -->
-		<div class="card-body space-y-2">
+		<div class="card-body !pt-2 space-y-4 lg:space-y-2">
 			{#each ['primary', 'accent', 'ternary', 'warning', 'surface'] as colorKey}
 				<div class="grid grid-cols-1 xl:grid-cols-[140px_1fr] gap-2 xl:gap-4 xl:place-items-end">
 					<label class="w-full">
@@ -204,9 +167,10 @@
 			{/each}
 		</div>
 
-		<!-- Footer: Note -->
-		<div class="card-footer">
-			<p class="text-xs text-center">Each color {$storeMode ? 'selected' : 'input'} represents swatch 500.</p>
+		<!-- Live Preview -->
+		<div class="card-footer !pt-4 {$storePreview ? 'bg-green-500/30' : 'bg-red-500/10'} flex justify-between items-center">
+			<SlideToggle bind:checked={$storePreview} class="text-white">Enable Live Preview</SlideToggle>
+			<button class="btn bg-white/5 text-white" on:click={resetSettings}>Reset Theme</button>
 		</div>
 
 	</section>
@@ -214,6 +178,3 @@
 	<!-- CSS Snipnpet -->
 	<CodeBlock language="css" code={themeCss} />
 </div>
-{:else}
-	<section class="card card-body !bg-[#141517] !ring-0 space-y-4 text-center"><p>Loading Theme Generator...</p></section>
-{/if}
