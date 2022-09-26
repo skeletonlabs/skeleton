@@ -55,6 +55,7 @@
 
 	<!-- Examples -->
 	<div class="card card-body">
+		<h2 class='sr-only'>Examples</h2>
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-full md:max-w-[320px] lg:max-w-[640px] mx-auto">
 			<button class="btn btn-ghost" on:click={toastBasic}>Short</button>
 			<button class="btn btn-ghost" on:click={toastLong}>Long</button>

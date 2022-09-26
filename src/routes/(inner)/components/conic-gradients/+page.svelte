@@ -44,6 +44,7 @@
 
 	<!-- Examples -->
 	<section class="space-y-4 md:space-y-0 md:grid md:grid-cols-3 md:gap-8">
+		<h2 class='sr-only'>Examples</h2>
 		<div class="card card-body"><ConicGradient data={dataOne} legend={true} /></div>
 		<div class="card card-body">
 			<ConicGradient data={dataTwo} legend={true}>

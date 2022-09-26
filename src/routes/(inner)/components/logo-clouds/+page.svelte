@@ -42,6 +42,7 @@
 
 	<!-- Examples -->
 	<section class="space-y-4">
+		<h2 class='sr-only'>Examples</h2>
 		<LogoCloud gridCols="md:grid-cols-3">
 			<Logo href="https://svelte.dev/" target="_blank">
 				<svelte:fragment slot="lead"><SvgIcon name="svelte" width="w-8" height="h-8" /></svelte:fragment>

@@ -48,7 +48,7 @@
 	}
 
 	// A11y Key Down Handler
-	function onKeyDown(event: any): void {
+	function onKeyDown(event: KeyboardEvent): void {
 		dispatch('keydown', event);
 		if (['Enter', 'Space'].includes(event.code)) {
 			event.preventDefault();

@@ -13,6 +13,7 @@
 
 	<!-- Examples -->
 	<section class="card card-body space-y-4">
+		<h2 class='sr-only'>Examples</h2>
 		<!-- Element -->
 		<div class="bg-surface-500 p-2 rounded" data-clipboard="exampleElement" contenteditable>This <em>div</em> is set to 'contenteditable'. Make changes then tap copy below.</div>
 		<button use:clipboard={{ element: 'exampleElement' }} class="btn btn-ghost">Copy Element Contents</button>
@@ -27,14 +28,14 @@
 		<h2>Usage</h2>
 		<!-- Basic -->
 		<div class="space-y-4">
-			<h4>Basic Data</h4>
+			<h3>Basic Data</h3>
 			<p>If your data is available in a basic type (string, integer, etc), you can provide it directly to the action.</p>
 			<CodeBlock language="ts" code={`const exampleData: string = 'Your data here.';`} />
 			<CodeBlock language="html" code={`<button use:clipboard={exampleData}>Copy</button>`} />
 		</div>
 		<!-- Element -->
 		<div class="space-y-4">
-			<h4>HTML Elements</h4>
+			<h3>HTML Elements</h3>
 			<p>
 				To copy the <em>innerHTML</em> for an HTML element, we'll need to set a <code>data-clipboard</code> target, then provide the action an object of
 				<code>element: 'dataClipboardId'</code>
@@ -44,7 +45,7 @@
 		</div>
 		<!-- Inputs -->
 		<div class="space-y-4">
-			<h4>Form Inputs</h4>
+			<h3>Form Inputs</h3>
 			<p>
 				To copy the <em>value</em> of a form input, we'll need to set a <code>data-clipboard</code> target, then provide the action an object of
 				<code>input: 'dataClipboardId'</code>

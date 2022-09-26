@@ -37,6 +37,7 @@
 
 	<!-- Examples -->
 	<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+		<h2 class='sr-only'>Examples</h2>
 		<div class="card card-body h-full flex justify-center items-center">
 			<div class="w-full space-y-8">
 				<ProgressRadial value={props.value}>{props.value}%</ProgressRadial>

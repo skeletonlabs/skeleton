@@ -41,6 +41,7 @@
 
 	<!-- Examples -->
 	<section class="space-y-4">
+		<h2 class='sr-only'>Examples</h2>
 		<AppBar>
 			<svelte:fragment slot="lead">
 				<span class="text-base md:text-3xl font-bold uppercase">Logo</span>

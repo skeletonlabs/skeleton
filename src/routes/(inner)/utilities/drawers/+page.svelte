@@ -63,6 +63,7 @@
 
 	<!-- Examples -->
 	<div class="card card-body">
+		<h2 class='sr-only'>Examples</h2>
 		<div class="w-0 h-0">
 			<Drawer open={storeDrawer} {position}>
 				<div class="w-full h-full flex justify-center items-center">

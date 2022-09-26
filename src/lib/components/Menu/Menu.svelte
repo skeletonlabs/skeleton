@@ -2,12 +2,17 @@
 	import { onDestroy, onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 
+	// Types
+	type Directions = `${'t' | 'b'}${'l' | 'r'}`;
+
+	// Props
 	export let select: boolean = false;
 	export let open: boolean = false;
-	export let origin: string = 'auto'; // auto | tl | tr | bl | br
+	export let origin: Directions | 'auto' = 'auto'; // auto | tl | tr | bl | br
 	export let duration: number = 100; // ms
 	export let disabled: boolean = false;
 
+	// Local
 	let elemMenu: HTMLElement;
 	let autoOriginMode: boolean = origin === 'auto' ? true : false; // Persist `origin: auto` state
 
@@ -31,27 +36,27 @@
 	// Auto-update origin based on viewport position
 	function setAutoOrigin(): void {
 		if (!elemMenu) return;
+		if (!autoOriginMode) return;
 		// Get the Menu's bounds
-		let elemMenuBounds = elemMenu.getBoundingClientRect();
-		// Set verticle and horizontal values
-		let vert: string = elemMenuBounds.y < window.innerHeight / 2 ? 't' : 'b'; // top/bottom
-		let horz: string = elemMenuBounds.x < window.innerWidth / 2 ? 'l' : 'r'; // left/right
+		const elemMenuBounds = elemMenu.getBoundingClientRect();
+		// Set vertical and horizontal values
+		const vert: 't' | 'b' = elemMenuBounds.y < window.innerHeight / 2 ? 't' : 'b'; // top/bottom
+		const horz: 'l' | 'r' = elemMenuBounds.x < window.innerWidth / 2 ? 'l' : 'r'; // left/right
 		// Update origin styles
 		origin = `${vert}${horz}`;
 		setOrigin();
 	}
 
 	// Searches for the first parent node that can scroll
-	// https://thewebdev.info/2021/06/27/how-to-find-the-first-scrollable-parent-element-with-javascript/
-	function getFirstScrollableParent(node: any): any {
-		if (node === null) {
+	// Source: https://thewebdev.info/2021/06/27/how-to-find-the-first-scrollable-parent-element-with-javascript/
+	function getFirstScrollableParent(element: HTMLElement | null): HTMLElement | null {
+		if (element === null) {
 			return null;
 		}
-		return node.scrollHeight > node.clientHeight ? node : getFirstScrollableParent(node.parentNode);
+		return element.scrollHeight > element.clientHeight ? element : getFirstScrollableParent(element.parentElement);
 	}
 
-	// Toggle Visibility
-	// NOTE: 1ms delay required to avoid race condition for select mode
+	// 1ms delay required to avoid race condition for select mode
 	function toggle(): void {
 		if (disabled) return;
 		setTimeout(() => {
@@ -59,8 +64,8 @@
 		}, 1);
 	}
 
-	// Handle click on <body> element
-	// Source: https://svelte.dev/repl/0ace7a508bd843b798ae599940a91783?version=3.16.7
+	// Handles the click on a body element
+	// https://svelte.dev/repl/0ace7a508bd843b798ae599940a91783?version=3.16.7
 	function handleBodyClick(event: any): void {
 		if (!open) return;
 		// If click is outside menu, close menu
@@ -76,7 +81,7 @@
 	}
 
 	// A11y Input Handler
-	function onKeyDown(event: any): void {
+	function onKeyDown(event: KeyboardEvent): void {
 		if (open && event.code === 'Escape') {
 			toggle();
 		}
@@ -86,15 +91,11 @@
 	onMount(() => {
 		// Set the default origin, including auto
 		setOrigin();
-		// Event: Window Keydown (ESC)
-		window.addEventListener('keydown', onKeyDown);
 		// If auto-origin enabled, add event listeners
 		if (autoOriginMode === true) {
-			// Event: Window Resize
-			window.addEventListener('resize', setAutoOrigin);
 			// Event: Parent Scroll
 			const scrollParent = getFirstScrollableParent(elemMenu);
-			scrollParent.addEventListener('scroll', setAutoOrigin);
+			scrollParent?.addEventListener('scroll', setAutoOrigin);
 		}
 	});
 
@@ -108,6 +109,7 @@
 	$: classesContent = `${cBaseContent} ${cOrigin}`;
 </script>
 
+<svelte:window on:keydown={onKeyDown} on:resize={setAutoOrigin} />
 <svelte:body on:click={handleBodyClick} />
 
 <div bind:this={elemMenu} class="menu-wrapper {classesMenu}" data-testid="menu-wrapper">
@@ -119,7 +121,7 @@
 	<!-- Content -->
 	{#if open}
 		<div role="menu" class="menu-content {classesContent}" data-testid="menu-content" in:fade={{ duration }} out:fade={{ duration }}>
-			{#if $$slots.content}<slot name="content" />{/if}
+			{#if $$slots.content}<slot role="menuitem" name="content" />{/if}
 		</div>
 	{/if}
 </div>

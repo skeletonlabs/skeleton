@@ -30,6 +30,7 @@
 
 	<!-- Examples -->
 	<div class="card card-body space-y-4">
+		<h2 class='sr-only'>Examples</h2>
 		<CodeBlock language="html" code={`<p>Hello Skeleton<p>`} />
 		<CodeBlock language="css" code={`.skeleton { color: #bada55; }`} />
 		<CodeBlock language="typescript" code={`const skeleton: string = 'awesome';`} />

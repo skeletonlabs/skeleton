@@ -47,6 +47,7 @@
 
 	<!-- Examples -->
 	<div class="card card-body space-y-4">
+		<h2 class='sr-only'>Examples</h2>
 		{#if !visible}<button class="btn btn-ghost" on:click={toggleVisible}>Show Alerts</button>{/if}
 		<Alert {visible}>
 			<svelte:fragment slot="lead">

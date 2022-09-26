@@ -48,11 +48,12 @@
 
 		<!-- Features -->
 		<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+			<h2 class="sr-only">Features</h2>
 			<div class="card card-body space-y-4">
 				<div class="bg-orange-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
 					<SvgIcon name="svelte" fill="fill-white" width="w-10" height="h-10" />
 				</div>
-				<h6>Svelte Integration</h6>
+				<h4>Svelte Integration</h4>
 				<p>
 					Tightly coupled with Svelte, including full support for <a href="https://kit.svelte.dev/" target="_blank">SvelteKit</a>, <a href="https://vitejs.dev/" target="_blank">Vite</a>, and
 					<a href="https://astro.build/" target="_blank">Astro</a>.
@@ -62,21 +63,21 @@
 				<div class="bg-sky-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
 					<SvgIcon name="tailwind" fill="fill-white" width="w-10" height="h-10" />
 				</div>
-				<h6>Tailwind CSS Integration</h6>
+				<h4>Tailwind CSS Integration</h4>
 				<p>Integrate with your design system using Tailwind utility classes to style components.</p>
 			</div>
 			<div class="card card-body space-y-4">
 				<div class="bg-primary-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
 					<SvgIcon name="swatchbook" fill="fill-white" width="w-8" height="h-8" />
 				</div>
-				<h6>Dynamic Themes</h6>
+				<h4>Dynamic Themes</h4>
 				<p>Choose from a library of hand crafted preset themes or quickly generate your own in seconds.</p>
 			</div>
 			<div class="card card-body space-y-4">
 				<div class="bg-accent-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
 					<SvgIcon name="screwdriver" fill="fill-white" width="w-8" height="h-8" />
 				</div>
-				<h6>Powerful Utilities</h6>
+				<h4>Powerful Utilities</h4>
 				<p>Provides a feature rich UI toolkit for modern web apps with layouts, dialogs, and more.</p>
 			</div>
 		</section>
@@ -84,69 +85,73 @@
 		<!-- Team -->
 		<section class="text-center space-y-6">
 			<h2>Meet The Team</h2>
-			<section class="grid grid-cols-1 md:grid-cols-3 gap-4">
-				<card class="card card-body space-y-2 text-center">
+			<ul class="grid grid-cols-1 md:grid-cols-3 gap-4">
+				<li class="card card-body space-y-2 text-center">
 					<Avatar src="https://avatars.githubusercontent.com/u/1509726?v=4" width="w-24" shadow="shadow-xl" class="mx-auto" />
-					<h5>Chris Simmons</h5>
+					<h4>Chris Simmons</h4>
 					<p>Co-founder and core contributor.</p>
 					<div class="flex justify-center space-x-4">
 						<a href="https://github.com/endigo9740" target="_blank"><SvgIcon name="github" /></a>
 						<a href="https://twitter.com/endigodesign" target="_blank"><SvgIcon name="twitter" /></a>
 						<a href="https://www.linkedin.com/in/chris-simmons-8a523a23/" target="_blank"><SvgIcon name="linkedin" /></a>
 					</div>
-				</card>
-				<card class="card card-body space-y-2 text-center">
+				</li>
+				<li class="card card-body space-y-2 text-center">
 					<Avatar src="https://avatars.githubusercontent.com/u/52718757?v=4" width="w-24" shadow="shadow-xl" class="mx-auto" />
-					<h5>Thomas Jespersen</h5>
+					<h4>Thomas Jespersen</h4>
 					<p>Co-founder and core contributor.</p>
 					<div class="flex justify-center space-x-4">
 						<a href="https://github.com/thomasbjespersen" target="_blank"><SvgIcon name="github" /></a>
 						<a href="https://www.linkedin.com/in/thomas-jespersen-b77132202/" target="_blank"><SvgIcon name="linkedin" /></a>
 					</div>
-				</card>
-				<card class="card card-body space-y-2 text-center">
+				</li>
+				<li class="card card-body space-y-2 text-center">
 					<Avatar src="https://avatars.githubusercontent.com/u/10255430?v=4" width="w-24" shadow="shadow-xl" class="mx-auto" />
-					<h5>Trey Weir</h5>
+					<h4>Trey Weir</h4>
 					<p>Core member and founder of <a href="https://www.brainandbonesllc.com/" target="_blank">Brain & Bones</a></p>
 					<div class="flex justify-center space-x-4">
 						<a href="https://twitter.com/brain_and_bones" target="_blank"><SvgIcon name="twitter" /></a>
 						<a href="https://www.linkedin.com/company/brainandbones/" target="_blank"><SvgIcon name="linkedin" /></a>
 					</div>
-				</card>
-			</section>
+				</li>
+			</ul>
 		</section>
 
 		<!-- Shoutouts -->
 		<section class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20">
 			<!-- Sponsors -->
-			<div class="text-center space-y-8">
+			<ul class="text-center space-y-8">
 				<h2>Sponsors</h2>
 				<div class="flex flex-wrap justify-center space-x-4">
-					<a class="card card-body flex flex-col items-center space-y-4" href="https://www.brainandbonesllc.com/" target="_blank">
-						<img src="https://www.brainandbonesllc.com/svg/logo.svg" alt="Brain & Bones" class="h-[32px] mx-auto invert dark:invert-0" />
-						<p class="text-sm">Brain & Bones</p>
-					</a>
+					<li>
+						<a class="card card-body flex flex-col items-center space-y-4" href="https://www.brainandbonesllc.com/" target="_blank">
+							<img src="https://www.brainandbonesllc.com/svg/logo.svg" alt="Brain & Bones" class="h-[32px] mx-auto invert dark:invert-0" />
+							<p class="text-sm">Brain & Bones</p>
+						</a>
+					</li>
 				</div>
 				<a class="btn btn-ghost" href="https://github.com/sponsors/Brain-Bones" target="_blank">
 					<span>Become a Sponsor</span>
 					<span>&rarr;</span>
 				</a>
-			</div>
+			</ul>
 
 			<!-- Contributors -->
 			<div class="text-center space-y-6">
 				<h2>Contributors</h2>
-				<div class="flex flex-wrap justify-center">
-					{#await contributors}
-						<p>Loading contributors...</p>
-					{:then response}
+				{#await contributors}
+					<p class="flex flex-wrap justify-center">Loading contributors...</p>
+				{:then response}
+					<ul class="flex flex-wrap justify-center">
 						{#each response as c}
-							<a href={c.html_url} target="_blank" title={c.login}>
-								<Avatar src={c.avatar_url} size="fluid" shadow="shadow-lg" hover class="m-2 max-w-[50px]" />
-							</a>
+							<li>
+								<a href={c.html_url} target="_blank" title={c.login}>
+									<Avatar src={c.avatar_url} size="fluid" shadow="shadow-lg" hover class="m-2 max-w-[50px]" />
+								</a>
+							</li>
 						{/each}
-					{/await}
-				</div>
+					</ul>
+				{/await}
 				<a class="btn btn-ghost" href="/docs/contributions">
 					<span>How to Contribute</span>
 					<span>&rarr;</span>

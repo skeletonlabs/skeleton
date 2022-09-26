@@ -44,6 +44,7 @@
 
 	<!-- Examples -->
 	<section class="space-y-4">
+		<h2 class='sr-only'>Examples</h2>
 		<!-- Colors -->
 		<div class="grid md:grid-cols-3 gap-4">
 			<Card background="bg-primary-500" color="text-white" slotBody="flex-1 flex justify-center items-center min-h-[100px]">Primary</Card>
