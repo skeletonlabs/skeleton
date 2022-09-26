@@ -8,11 +8,11 @@
 	export let padding: string = 'px-4 py-2';
 	export let rounded: string = 'rounded-lg';
 	// Props (slot)
-	export let slotSummary: string | undefined = '';
-	export let slotContent: string | undefined = '';
+	export let slotSummary: string | undefined = undefined;
+	export let slotContent: string | undefined = undefined;
 	// A11y
-	export let summaryId: string | undefined = '';
-	export let contentId: string | undefined = '';
+	export let summaryId: string | undefined = undefined;
+	export let contentId: string | undefined = undefined;
 
 	// Base Classes
 	const cBaseDetails: string = '';

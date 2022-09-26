@@ -2,13 +2,17 @@
 	import { onDestroy, onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 
+	// Types
+	type Directions = `${'t' | 'b'}${'l' | 'r'}`;
+
+	// Props
 	export let select: boolean = false;
 	export let open: boolean = false;
-	type Directions = `${'t'|'b'}${'l'|'r'}`
 	export let origin: Directions | 'auto' = 'auto'; // auto | tl | tr | bl | br
 	export let duration: number = 100; // ms
 	export let disabled: boolean = false;
 
+	// Local
 	let elemMenu: HTMLElement;
 	let autoOriginMode: boolean = origin === 'auto' ? true : false; // Persist `origin: auto` state
 
@@ -16,7 +20,7 @@
 	const cBaseMenu: string = 'relative inline-block';
 	const cBaseContent: string = 'absolute z-10';
 
-	/** Set content anchor origin */
+	// Set content anchor origin
 	let cOrigin: string;
 	function setOrigin(): void {
 		// prettier-ignore
@@ -29,9 +33,7 @@
 		}
 	}
 
-	/**
-	 * Auto-update origin based on viewport position
-	 */
+	// Auto-update origin based on viewport position
 	function setAutoOrigin(): void {
 		if (!elemMenu) return;
 		if (!autoOriginMode) return;
@@ -45,11 +47,8 @@
 		setOrigin();
 	}
 
-
-	/**
-	 * Searches for the first parent node that can scroll
-	 * @see {@link https://thewebdev.info/2021/06/27/how-to-find-the-first-scrollable-parent-element-with-javascript/|This article by The Web Dev}
-	 */
+	// Searches for the first parent node that can scroll
+	// Source: https://thewebdev.info/2021/06/27/how-to-find-the-first-scrollable-parent-element-with-javascript/
 	function getFirstScrollableParent(element: HTMLElement | null): HTMLElement | null {
 		if (element === null) {
 			return null;
@@ -57,10 +56,7 @@
 		return element.scrollHeight > element.clientHeight ? element : getFirstScrollableParent(element.parentElement);
 	}
 
-
-	/**
-	 * @note 1ms delay required to avoid race condition for select mode
-	 */
+	// 1ms delay required to avoid race condition for select mode
 	function toggle(): void {
 		if (disabled) return;
 		setTimeout(() => {
@@ -68,10 +64,8 @@
 		}, 1);
 	}
 
-	/**
-	 * Handles the click on a body element
-	 * @see {@link https://svelte.dev/repl/0ace7a508bd843b798ae599940a91783?version=3.16.7|This REPL example}
-	 */
+	// Handles the click on a body element
+	// https://svelte.dev/repl/0ace7a508bd843b798ae599940a91783?version=3.16.7
 	function handleBodyClick(event: any): void {
 		if (!open) return;
 		// If click is outside menu, close menu
@@ -114,7 +108,8 @@
 	$: classesMenu = `${cBaseMenu} ${$$props.class || ''}`;
 	$: classesContent = `${cBaseContent} ${cOrigin}`;
 </script>
-<svelte:window on:keydown={onKeyDown} on:resize={setAutoOrigin}/>
+
+<svelte:window on:keydown={onKeyDown} on:resize={setAutoOrigin} />
 <svelte:body on:click={handleBodyClick} />
 
 <div bind:this={elemMenu} class="menu-wrapper {classesMenu}" data-testid="menu-wrapper">
@@ -126,7 +121,7 @@
 	<!-- Content -->
 	{#if open}
 		<div role="menu" class="menu-content {classesContent}" data-testid="menu-content" in:fade={{ duration }} out:fade={{ duration }}>
-			{#if $$slots.content}<slot role='menuitem' name="content" />{/if}
+			{#if $$slots.content}<slot role="menuitem" name="content" />{/if}
 		</div>
 	{/if}
 </div>

@@ -5,7 +5,7 @@
 	export let visible: boolean = true;
 	export let background: string = 'bg-accent-500/30';
 	export let border: string = 'border-l-4 border-l-accent-500';
-	export let color: string | undefined = '';
+	export let color: string | undefined = undefined;
 	export let radius: string = '';
 	export let duration: number = 200; // ms
 	// Props (slots)

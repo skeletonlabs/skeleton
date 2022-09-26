@@ -4,8 +4,8 @@
 	export let width: string = 'w-12';
 	export let border: string = '';
 	export let rounded: string = 'rounded-full';
-	export let shadow: string | undefined = '';
-	export let cursor: string | undefined = '';
+	export let shadow: string | undefined = undefined;
+	export let cursor: string | undefined = undefined;
 	// Props (initials)
 	export let initials: string = 'AB';
 	export let fill: string = 'fill-white';

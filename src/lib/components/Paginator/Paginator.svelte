@@ -11,7 +11,7 @@
 	// Props (design)
 	export let justify: string = 'justify-between';
 	export let text: string = 'text-xs md:text-base';
-	export let select: string | undefined = '';
+	export let select: string | undefined = undefined;
 	// Props (buttons)
 	export let buttons: string = 'btn-ghost';
 

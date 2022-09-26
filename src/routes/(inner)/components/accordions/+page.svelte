@@ -7,8 +7,7 @@
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['collapse', 'boolean', 'true', 'Enable auto-collapse mode.'],
-			['spacing', 'string', 'spacing-y-2', 'Provide classes to set spacing between item rows.'],
-			['allowMultipleOpen', 'boolean', 'false', 'Allow multiple accordions in the group to be open at once.']
+			['spacing', 'string', 'spacing-y-2', 'Provide classes to set spacing between item rows.']
 		]
 	};
 
@@ -49,7 +48,7 @@
 
 	<!-- Examples -->
 	<section class="space-y-4">
-		<h2 class='sr-only'>Examples</h2>
+		<h2 class="sr-only">Examples</h2>
 		<div class="card card-body">
 			<AccordionGroup>
 				<AccordionItem open>

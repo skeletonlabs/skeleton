@@ -2,7 +2,7 @@
 	import { afterUpdate } from 'svelte';
 
 	// Props
-	export let variant: string | undefined = '';
+	export let variant: string | undefined = undefined;
 	export let size: string = 'base';
 	export let background: string = 'bg-black dark:bg-white';
 	export let color: string = 'text-white dark:text-black';
@@ -12,8 +12,8 @@
 	export let width: string = 'w-auto';
 	export let rounded: string = 'rounded-lg';
 	// A11y
-	export let label: string | undefined = '';
-	export let describedby: string | undefined = '';
+	export let label: string | undefined = undefined;
+	export let describedby: string | undefined = undefined;
 
 	// Set tag and href values
 	const tag: string = $$props.href ? 'a' : 'button';

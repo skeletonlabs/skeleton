@@ -4,7 +4,6 @@
 	// Props
 	export let collapse: boolean = true;
 	export let spacing: string = 'space-y-4';
-	export let allowMultipleOpen: boolean = false;
 
 	let elemAccordian: HTMLElement;
 
@@ -17,7 +16,7 @@
 			details.forEach((detail) => {
 				detail.addEventListener('click', (e: any) => {
 					const active = details.find((d) => d.open);
-					if (!e.currentTarget.open && active && !allowMultipleOpen) {
+					if (!e.currentTarget.open && active) {
 						active.open = false;
 					}
 				});

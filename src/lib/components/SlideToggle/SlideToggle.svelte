@@ -9,7 +9,7 @@
 	export let accent: string = 'bg-accent-500';
 	export let size: string = 'md';
 	// A11y
-	export let label: string | undefined = '';
+	export let label: string | undefined = undefined;
 
 	// Base Styles
 	const cBase: string = 'inline-block';

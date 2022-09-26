@@ -12,8 +12,8 @@
 	export let hover: string = 'hover:bg-primary-500/10';
 	export let rounded: string = 'rounded-tl-lg rounded-tr-lg';
 	// A11y
-	export let labeledby: string | undefined = '';
-	export let label: string | undefined = '';
+	export let labeledby: string | undefined = undefined;
+	export let label: string | undefined = undefined;
 
 	// Set Context
 	setContext('selected', selected);
@@ -30,24 +30,33 @@
 	// Handle Home/End Input
 	let elemTabGroup: HTMLElement;
 
-	function keydown (event: KeyboardEvent) {
+	function keydown(event: KeyboardEvent) {
 		if (['Home', 'End'].includes(event.code)) {
-				event.preventDefault();
-				if (event.code === 'Home') {
-					(elemTabGroup.children[0] as HTMLElement).focus();
-				}
-				if (event.code === 'End') {
-					(elemTabGroup.children[elemTabGroup.children.length - 1] as HTMLElement).focus();
-				}
+			event.preventDefault();
+			if (event.code === 'Home') {
+				(elemTabGroup.children[0] as HTMLElement).focus();
 			}
+			if (event.code === 'End') {
+				(elemTabGroup.children[elemTabGroup.children.length - 1] as HTMLElement).focus();
+			}
+		}
 	}
 
 	// Reactive Classes
 	$: classesGroup = `${cBase} ${borderWidth} ${justify} ${$$props.class || ''}`;
 </script>
 
+<!-- prettier-ignore -->
 <nav>
-	<ul on:keydown={keydown} bind:this={elemTabGroup} data-testid="tab-group" class="tab-group {classesGroup}" role="tablist" aria-labelledby={labeledby} aria-label={label}>
+	<ul
+		bind:this={elemTabGroup}
+		on:keydown={keydown}
+		class="tab-group {classesGroup}"
+		data-testid="tab-group"
+		role="tablist"
+		aria-labelledby={labeledby}
+		aria-label={label}
+	>
 		<slot />
 	</ul>
 </nav>

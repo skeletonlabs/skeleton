@@ -13,7 +13,7 @@
 	export let width: string = 'w-5';
 	export let height: string = 'w-5';
 	// A11y
-	export let title: string | undefined = '';
+	export let title: string | undefined = undefined;
 	export let tabindex: number = -1;
 
 	// Base Classes

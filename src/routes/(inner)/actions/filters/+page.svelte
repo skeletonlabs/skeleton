@@ -45,7 +45,7 @@ NOTE: Keep these localized
 
 	<!-- Examples -->
 	<div class="card card-body grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4">
-		<h2 class='sr-only'>Examples</h2>
+		<h2 class="sr-only">Examples</h2>
 		<div class="flex flex-col items-center space-y-4">
 			<img class="bg-surface-900 aspect-square w-full rounded-lg overflow-hidden" src={imgPlaceholder} alt="example" />
 			<code>Original</code>
@@ -115,16 +115,16 @@ NOTE: Keep these localized
 		</p>
 		<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
 			<div class="card card-body !bg-emerald-500 text-center">
-				<h3 class='heading-6'>Chrome: Full</h3>
+				<h4>Chrome: Full</h4>
 			</div>
 			<div class="card card-body !bg-emerald-500 text-center">
-				<h3 class='heading-6'>Edge: Full</h3>
+				<h4>Edge: Full</h4>
 			</div>
 			<div class="card card-body !bg-orange-500 text-center">
-				<h3 class='heading-6'>Safari: Partial</h3>
+				<h4>Safari: Partial</h4>
 			</div>
 			<div class="card card-body !bg-rose-500 text-center">
-				<h3 class='heading-6'>Firefox: None</h3>
+				<h4>Firefox: None</h4>
 			</div>
 		</div>
 	</section>

@@ -12,10 +12,10 @@
 	export let rounded: string = 'rounded';
 	export let duration: number = 100; // ms
 	// Props (slots)
-	export let popup: string | undefined = '';
-	export let message: string | undefined = '';
-	export let arrow: string | undefined = '';
-	export let content: string | undefined = '';
+	export let popup: string | undefined = undefined;
+	export let message: string | undefined = undefined;
+	export let arrow: string | undefined = undefined;
+	export let content: string | undefined = undefined;
 
 	// Base Styles
 	const cBaseTooltip: string = 'relative inline-flex justify-center items-center';
@@ -76,6 +76,7 @@
 	$: classesArrow = `${cBaseArrow} ${cArrowPosition} ${background} ${arrow}`;
 	$: classesContent = `${content}`;
 </script>
+
 <svelte:window on:keydown={onKeyDown} />
 <div class="tooltip {classesBase}" data-testid="tooltip" role="tooltip">
 	<!-- Popup -->
