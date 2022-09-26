@@ -7,8 +7,10 @@
 <script lang="ts">
 	import tailwindColors from 'tailwindcss/colors';
 
+	import type { ConicColorStop } from './types';
+
 	// Props
-	export let data: any[] = [{ label: 'Progress', color: ['neutral', 500], start: 0, end: 100 }];
+	export let data: ConicColorStop[] = [{ label: 'Progress', color: ['neutral', 500], start: 0, end: 100 }];
 	export let legend: boolean = false;
 	export let spin: boolean = false;
 	export let width: string = 'w-full';
