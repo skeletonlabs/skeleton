@@ -92,12 +92,14 @@
 		<Divider vertical borderWidth="border-l-2" />
 
 		<select bind:value={$storeTheme}>
-			<option value="skeleton">Skeleton</option>
-			<option value="rocket">Rocket</option>
-			<option value="modern">Modern</option>
-			<option value="seafoam">Seafoam</option>
-			<option value="vintage">Vintage</option>
-			<option value="sahara">Sahara</option>
+			<optgroup label="Theme">
+				<option value="skeleton">Skeleton</option>
+				<option value="rocket">Rocket</option>
+				<option value="modern">Modern</option>
+				<option value="seafoam">Seafoam</option>
+				<option value="vintage">Vintage</option>
+				<option value="sahara">Sahara</option>
+			</optgroup>
 		</select>
 
 		<!-- Light Switch -->
