@@ -105,26 +105,27 @@
 
 	<!-- Examples -->
 	<section class="space-y-4">
+		<h2 class="sr-only">Examples</h2>
 		<nav class="grid grid-cols-1 lg:grid-cols-2 gap-4">
 			<div class="card card-body grid grid-cols-1 gap-4">
 				<h3>Alerts</h3>
 				<div class="flex justify-between items-center space-x-4">
 					<div>
-						<h6>Basic</h6>
+						<h4>Basic</h4>
 						<p>The simplest form of a dialog.</p>
 					</div>
 					<button class="btn btn-ghost" on:click={dialogAlertBasic}>Trigger</button>
 				</div>
 				<div class="flex justify-between items-center space-x-4">
 					<div>
-						<h6>Icon</h6>
+						<h4>Icon</h4>
 						<p>Shown with an optional icon.</p>
 					</div>
 					<button class="btn btn-ghost" on:click={dialogAlertIcon}>Trigger</button>
 				</div>
 				<div class="flex justify-between items-center space-x-4">
 					<div>
-						<h6>Multiple</h6>
+						<h4>Multiple</h4>
 						<p>Queues a set of three dialogs.</p>
 					</div>
 					<button class="btn btn-ghost" on:click={dialogAlertMultiple}>Trigger</button>
@@ -134,21 +135,21 @@
 				<h3>Embeds</h3>
 				<div class="flex justify-between items-center space-x-4">
 					<div>
-						<h6>Image</h6>
+						<h4>Image</h4>
 						<p>Includes an embedded image.</p>
 					</div>
 					<button class="btn btn-ghost" on:click={dialogImage}>Trigger</button>
 				</div>
 				<div class="flex justify-between items-center space-x-4">
 					<div>
-						<h6>HTML</h6>
+						<h4>HTML</h4>
 						<p>Displays embedded an styled HTML markup.</p>
 					</div>
 					<button class="btn btn-ghost" on:click={dialogHtml}>Trigger</button>
 				</div>
 				<!-- <div class="flex justify-between items-center space-x-4">
 					<div>
-						<h6>Component</h6>
+						<h4>Component</h4>
 						<p>Embeds and entire component.</p>
 					</div>
 					<button class="btn btn-ghost" on:click={dialogComponent}>Trigger</button>
@@ -193,7 +194,7 @@
 
 	<!-- Properties -->
 	<section class="space-y-4">
-		<h3>Properties</h3>
+		<h2>Properties</h2>
 		<DataTable headings={tableProps.headings} source={tableProps.source} />
 	</section>
 

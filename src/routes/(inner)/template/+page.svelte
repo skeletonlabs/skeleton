@@ -32,6 +32,7 @@
 	</header>
 
 	<!-- Examples -->
+	<h2 class='sr-only'>Examples</h2>
 	<div class="card card-body space-y-4">
 		<p>(ExamplesHere)</p>
 	</div>

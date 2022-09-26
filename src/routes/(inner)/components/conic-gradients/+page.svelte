@@ -48,7 +48,7 @@
 
 	<!-- Examples -->
 	<section class="space-y-4 md:space-y-0 md:grid md:grid-cols-3 md:gap-8">
-		<!-- Tailwind Colors -->
+		<h2 class='sr-only'>Examples</h2>
 		<div class="card card-body">
 			<ConicGradient stops={stopsTailwind} legend={true}>
 				<h3>Heat Map</h3>

@@ -8,7 +8,7 @@
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
 	// Stores
-	import { storeMobileDrawer } from '$docs/stores';
+	import { storeTheme, storeMobileDrawer } from '$docs/stores';
 
 	// Drawer Handler
 	function drawerOpen(): void {
@@ -30,9 +30,9 @@
 	<!-- Branding -->
 	<svelte:fragment slot="lead">
 		<!-- Drawer Menu -->
-		<div on:click={drawerOpen} class="lg:hidden mr-2 p-1 cursor-pointer">
-			<SvgIcon name="bars" width="w-6" height="h-6" fill="fill-black dark:fill-white" on:click={drawerOpen} />
-		</div>
+		<button on:click={drawerOpen} class="lg:hidden mr-2 p-1 cursor-pointer">
+			<SvgIcon name="bars" width="w-6" height="h-6" fill="fill-black dark:fill-white" />
+		</button>
 		<!-- Skeleton -->
 		<a href="/" class="text-sm sm:text-lg md:text-3xl font-bold uppercase mr-4" title="Return to Homepage">Skeleton</a>
 		<!-- Badge -->
@@ -90,6 +90,17 @@
 		</section>
 
 		<Divider vertical borderWidth="border-l-2" />
+
+		<select bind:value={$storeTheme}>
+			<optgroup label="Theme">
+				<option value="skeleton">Skeleton</option>
+				<option value="rocket">Rocket</option>
+				<option value="modern">Modern</option>
+				<option value="seafoam">Seafoam</option>
+				<option value="vintage">Vintage</option>
+				<option value="sahara">Sahara</option>
+			</optgroup>
+		</select>
 
 		<!-- Light Switch -->
 		<section class="flex space-x-4">

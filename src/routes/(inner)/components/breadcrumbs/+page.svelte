@@ -38,6 +38,7 @@
 
 	<!-- Examples -->
 	<section class="space-y-4">
+		<h2 class='sr-only'>Examples</h2>
 		<div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
 			<div class="space-y-4">
 				<h3>Basic</h3>

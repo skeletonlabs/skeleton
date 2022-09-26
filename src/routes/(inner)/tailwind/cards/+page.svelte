@@ -25,6 +25,7 @@
 
 	<!-- Examples -->
 	<section class="space-y-4">
+		<h2 class='sr-only'>Examples</h2>
 		<!-- Colors -->
 		<div class="grid md:grid-cols-3 gap-4">
 			<div class="card !bg-primary-500 text-white centerContent">Primary</div>

@@ -50,7 +50,7 @@
 	setArrowPosition(); // init
 
 	// A11y Input Handler
-	function onKeyDown(event: any): void {
+	function onKeyDown(event: KeyboardEvent): void {
 		if (visible && event.code === 'Escape') {
 			visible = false;
 		}
@@ -64,11 +64,6 @@
 		visible = false;
 	} // hide
 
-	// Lifecycle
-	onMount(() => {
-		// Event: Window Keydown (ESC)
-		window.addEventListener('keydown', onKeyDown);
-	});
 	afterUpdate(() => {
 		setPosition();
 		setArrowPosition();
@@ -82,6 +77,7 @@
 	$: classesContent = `${content}`;
 </script>
 
+<svelte:window on:keydown={onKeyDown} />
 <div class="tooltip {classesBase}" data-testid="tooltip" role="tooltip">
 	<!-- Popup -->
 	{#if $$slots.message && visible}

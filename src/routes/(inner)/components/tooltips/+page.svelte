@@ -47,6 +47,7 @@
 		Tooltips require mouse hover events. They are not available for use on mobile.
 	</Alert>
 	<section class="hidden sm:block space-y-4">
+		<h2 class='sr-only'>Examples</h2>
 		<!-- Default -->
 		<div class="card card-body space-y-4">
 			<div class="flex justify-center items-center space-x-4">

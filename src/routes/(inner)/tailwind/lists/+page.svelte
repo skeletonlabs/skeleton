@@ -35,8 +35,9 @@
 
 	<!-- Examples -->
 	<section class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+		<h2 class="sr-only">Examples</h2>
 		<div class="card card-body space-y-4">
-			<h6>Unordered</h6>
+			<h4>Unordered</h4>
 			<ul class="list">
 				{#each ['A', 'B', 'C'] as v}
 					<li>
@@ -50,7 +51,7 @@
 			</ul>
 		</div>
 		<div class="card card-body space-y-4">
-			<h6>Ordered</h6>
+			<h4>Ordered</h4>
 			<ol class="list">
 				{#each ['A', 'B', 'C'] as v, i}
 					<li>
@@ -64,7 +65,7 @@
 			</ol>
 		</div>
 		<div class="card card-body space-y-4">
-			<h6>Description</h6>
+			<h4>Description</h4>
 			<dl class="list-dl">
 				{#each ['A', 'B'] as v}
 					<div>
@@ -79,7 +80,7 @@
 			</dl>
 		</div>
 		<div class="card card-body space-y-4">
-			<h6>Navigation</h6>
+			<h4>Navigation</h4>
 			<nav class="list-nav">
 				<ul>
 					{#each ['A', 'B', 'C'] as v}
