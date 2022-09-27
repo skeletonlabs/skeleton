@@ -1,5 +1,5 @@
 import type { Writable } from 'svelte/store';
-import { localStorageStore } from '../LocalStorageStore/LocalStorageStore';
+import { localStorageStore } from '$lib/utilities/LocalStorageStore/LocalStorageStore';
 
-// Persists select theme
-export const lightSwitchChecked: Writable<boolean | undefined> = localStorageStore('lightSwitchChecked', undefined); // false:light | true:dark
+// Persist Dark Mode - false: light | true: dark
+export const storeLightSwitch: Writable<boolean | undefined> = localStorageStore('storeLightSwitch', undefined);
