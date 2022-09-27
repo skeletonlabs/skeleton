@@ -1,8 +1,7 @@
 // Action: Clipboard
 
-// prettier-ignore
-export function clipboard(node: HTMLElement, args: any): void {
-	node.addEventListener('click', () => {
+export function clipboard(node: HTMLElement, args: any) {
+	const onClick = () => {
 		// Handle `data-clipboard` target based on object key
 		if (typeof args === 'object') {
 			// Element Inner HTML
@@ -20,7 +19,18 @@ export function clipboard(node: HTMLElement, args: any): void {
 		}
 		// Handle everything else.
 		copyToClipboard(args);
-	});
+	};
+	// Event Listner
+	node.addEventListener('click', onClick);
+	// Lifecycle
+	return {
+		update(newArgs: any) {
+			args = newArgs;
+		},
+		destroy() {
+			node.removeEventListener('click', onClick);
+		}
+	};
 }
 
 // Shared copy method
