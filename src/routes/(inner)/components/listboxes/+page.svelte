@@ -45,8 +45,8 @@
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [['id', 'string', '-', 'Define a unique and semantic identifier for the item.']]
 	};
-	const tableA11yKeyboardList: any = {
-		headings: ['Keyboard Shortcut', 'Description'],
+	const tableKeys: any = {
+		headings: ['Keys', 'Description'],
 		source: [
 			['<kbd>Tab</kbd>', 'Moves focus to the next option.'],
 			['<kbd>Shift + Tab</kbd> ', 'Moves focus to the previous option.'],
@@ -158,7 +158,7 @@
 		<DataTable headings={tableA11yList.headings} source={tableA11yList.source} />
 		<h3>Listbox Item</h3>
 		<DataTable headings={tableA11yItem.headings} source={tableA11yItem.source} />
-		<h3>Keyboard shortcuts</h3>
-		<DataTable headings={tableA11yKeyboardList.headings} source={tableA11yKeyboardList.source} />
+		<h3>Keyboard Interactions</h3>
+		<DataTable headings={tableKeys.headings} source={tableKeys.source} />
 	</section>
 </div>
