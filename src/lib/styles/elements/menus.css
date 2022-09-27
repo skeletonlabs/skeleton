@@ -1,0 +1,28 @@
+/* Stylesheet Add-On: menus.css */
+
+.menu-container {
+	@apply relative inline-block;
+}
+
+.menu {
+	@apply absolute z-10;
+}
+
+/* === Origins === */
+
+:root {
+	--menu-offset: 8px;
+}
+
+.menu-tl {
+	@apply menu mt-[var(--menu-offset)] left-0 origin-top-left;
+}
+.menu-tr {
+	@apply menu mt-[var(--menu-offset)] right-0 origin-top-right;
+}
+.menu-bl {
+	@apply menu top-0 left-0 origin-bottom-left -translate-y-[calc(100%+var(--menu-offset))];
+}
+.menu-br {
+	@apply menu top-0 right-0 origin-bottom-right -translate-y-[calc(100%+var(--menu-offset))];
+}
