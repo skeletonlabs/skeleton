@@ -9,6 +9,7 @@ type TablePropKeys =
 | 'Description'
 | 'Slot'
 | 'Event'
+| 'Class'
 
 export type TableProps<T = void> = T extends Record<string,unknown> ? TableKeyedSource<T> : TableArray
 type TableArray = {
