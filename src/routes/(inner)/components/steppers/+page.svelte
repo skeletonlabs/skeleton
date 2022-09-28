@@ -1,10 +1,8 @@
 <script lang="ts">
-	import { writable, type Writable } from 'svelte/store';
 	import { DataTable, Stepper, Step } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
 
-	const active: Writable<number> = writable(0);
 	const lorem: string =
 		'Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque vel expedita porro vero, saepe dicta repellendus facilis ab accusamus unde, tempora ut nobis eum. Veniam, architecto corrupti.';
 	const onComplete = () => {
@@ -18,8 +16,6 @@
 	const tablePropsStepper: any = {
 		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
 		source: [
-			['active', 'Writable<number>', 'writable(0)', '&check;', 'Provide a writable which stores the actively selected step state.'],
-			['length', 'number', '0', '&check;', 'Provide a count of the total number of Steps (children).'],
 			['duration', 'number', '200', '-', 'Set the Svelte transition duration.'],
 			['color', 'string', 'text-white', '-', 'Provide classes to set the numeral text color.'],
 			['background', 'string', 'bg-accent-500 text-white', '-', 'Provide classes to set the timeline background color.']
@@ -36,7 +32,6 @@
 	const tablePropsStep: any = {
 		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
 		source: [
-			['index', 'number', '-', '&check;', 'Indicates the step index value. Should start with 0 (zero)'],
 			['locked', 'boolean', 'false', '-', 'When enabled, a lock icon appears and the Next button is disabled. This prevents progress.']
 		]
 	};
@@ -70,15 +65,15 @@
 	<!-- Examples -->
 	<div class="card card-body">
 		<h2 class='sr-only'>Examples</h2>
-		<Stepper {active} length={5} on:complete={onComplete}>
-			<Step index={0}>
+		<Stepper on:complete={onComplete}>
+			<Step>
 				<svelte:fragment slot="header"><h4>Step 1 - Get Started!</h4></svelte:fragment>
 				<p>This example will teach you how to use the Stepper component. Tap <em>next</em> to proceed forward.</p>
 			</Step>
-			<Step index={1}>
+			<Step>
 				<p>Prior completed steps will display a checkmark. However, tap the &uarr; button at any time to return to the previous step.</p>
 			</Step>
-			<Step index={2} locked={!exampleLockedState}>
+			<Step locked={!exampleLockedState}>
 				<p>
 					This Step component uses the <code>locked</code> property, which can prevent progress. This is ideal for multi-step forms, such as registration. For now we'll simulate a successful
 					validation condition using the
@@ -86,11 +81,11 @@
 				</p>
 				<SlideToggle bind:checked={exampleLockedState}>Unlock</SlideToggle>
 			</Step>
-			<Step index={3}>
+			<Step>
 				<p>The steps will expand to fit content of any width. We'll demonstrate this below with <em>lorem ipsum</em> text.</p>
 				<p>{lorem} {lorem} {lorem} {lorem} {lorem}</p>
 			</Step>
-			<Step index={4}>
+			<Step>
 				<p>
 					A <em>Complete</em> button will appear on the last step. When the step is unlocked and the button pressed, an <code>on:complete</code> event will fire. Use this to submit form data to a server.
 				</p>
@@ -101,19 +96,16 @@
 	<!-- Usage -->
 	<section class="space-y-4">
 		<h2>Usage</h2>
-		<p>To begin, create a writable that will store your active step value. This should <u>always</u> be set to <code>0</code> (zero).</p>
-		<CodeBlock language="typescript" code={`import type { Writable } from "svelte/store";`} />
-		<CodeBlock language="typescript" code={`const active: Writable<number> = writable(0);`} />
 		<p>Scaffold your stepper as shown. If no header slot is provided then the component will add "Step X" text automatically.</p>
 		<CodeBlock
 			language="html"
 			code={`
-<Stepper {active} length={5} on:complete={onComplete}>
-	<Step index={0}>
+<Stepper on:complete={onComplete}>
+	<Step>
 		<svelte:fragment slot="header">(header)</svelte:fragment>
 		(content)
 	</Step>
-	<Step index={1} locked={true}>(content)</Step>
+	<Step locked={true}>(content)</Step>
 </Stepper>
         `}
 		/>

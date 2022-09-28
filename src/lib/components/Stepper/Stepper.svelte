@@ -6,7 +6,6 @@
 	const dispatch = createEventDispatcher();
 
 	// Props
-	export let active: Writable<number> = writable(0);
 	export let length: number = 0;
 	export let duration: number = 200;
 	// Props (timeline)
@@ -19,7 +18,6 @@
 
 	// Context
 	setContext('dispatch', dispatch);
-	setContext('active', active);
 	setContext('length', length);
 	setContext('color', color);
 	setContext('background', background);

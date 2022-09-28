@@ -1,11 +1,35 @@
+<script context="module" lang="ts">
+	import {writable, derived} from 'svelte/store'
+
+	const activeIndex = writable(0)
+	const children = writable([])
+
+	let prevIndex, prevActiveChild
+
+	const activeChild = derived(([activeIndex, children]), ([$activeIndex, $children]) => {
+		let activeChild = $children[$activeIndex]
+		if($activeIndex !== prevIndex) {
+			//index changed
+			prevIndex = $activeIndex
+		}else {
+			//children changed
+			if($children.includes(prevActiveChild) && prevActiveChild !== activeChild) {
+				activeIndex.set($children.indexOf(prevActiveChild))
+			}else {
+				if(!activeChild && $activeIndex > 0) activeIndex.set($activeIndex -= 1)
+			}
+		}
+		prevActiveChild = activeChild
+		return activeChild
+	})
+</script>
+
 <!-- Reference: https://dribbble.com/shots/16221169-Figma-Material-Ui-components-Steppers-and-sliders -->
 <script lang="ts">
 	import { getContext } from 'svelte';
 	import { slide } from 'svelte/transition';
-	import type { Writable } from 'svelte/store';
 
 	// Props
-	export let index: number = 0;
 	export let locked: boolean = false;
 
 	// Base Classes
@@ -19,8 +43,6 @@
 
 	// Context
 	export let dispatch: any = getContext('dispatch');
-	export let active: Writable<number> = getContext('active');
-	export let length: any = getContext('length');
 	export let color: any = getContext('color');
 	export let background: any = getContext('background');
 	export let buttonBack: any = getContext('buttonBack');
@@ -30,34 +52,49 @@
 
 	// Step Handlers
 	function stepPrev(): void {
-		active.set($active - 1);
+		activeIndex.set($activeIndex - 1);
 	}
 	function stepNext(): void {
-		active.set($active + 1);
+		activeIndex.set($activeIndex + 1);
 	}
 	function onComplete() {
 		dispatch('complete', {});
 	}
 
 	// Reactive
-	$: isLastItem = index === length - 1;
+	// Step state handling
+	let childElem;
+	$: isFirstStep = childElem === $children[0];
+	$: isLastStep = childElem === $children[$children.length - 1];
+	$: ownIndex = $children.indexOf(childElem);
+	$: isActiveStep = childElem === $activeChild;
 	// Base
 	$: classesBase = `${cBase} ${$$props.class || ''}`;
 	// Timeline (line)
-	$: classesLineBackgroundColor = index < $active ? `${background}` : `${cLineBackground}`;
-	$: classesLineBackground = !isLastItem ? `${classesLineBackgroundColor}` : '';
+	$: classesLineBackgroundColor = ownIndex < $activeIndex ? `${background}` : `${cLineBackground}`;
+	$: classesLineBackground = !isLastStep ? `${classesLineBackgroundColor}` : '';
 	$: classesLine = `${cLine} ${classesLineBackground}`;
 	// Timeline (numeral)
-	$: classesNumeralBackground = index <= $active ? `${color} ${background}` : `${cNumralBackground}`;
+	$: classesNumeralBackground = $activeIndex <= $activeIndex ? `${color} ${background}` : `${cNumralBackground}`;
 	$: classesNumeral = `${cNumeral} ${classesNumeralBackground}`;
 	// Content Drawer
-	$: classesDrawerPadding = !isLastItem ? 'pb-10' : '0';
+	$: classesDrawerPadding = !isLastStep ? 'pb-10' : '0';
 	$: classesDrawer = `${cDrawer} ${classesDrawerPadding}`;
 	// Content Nav
 	$: classesNav = `${cNav}`;
+
+	// Registration
+	function register(node) {
+		childElem = node;
+		const previousChildIndex = $children.indexOf(childElem.previousElementSibling);
+		$children = [...$children.slice(0,previousChildIndex+1), childElem, ...$children.slice(previousChildIndex+1)];
+		return {
+			destroy: () => $children = $children.filter(c => c !== childElem)
+		}
+	}
 </script>
 
-<div class="step {classesBase}" data-testid="step">
+<div class="step {classesBase}" data-testid="step" use:register>
 	<!-- Timeline -->
 	<div class="flex flex-col items-center">
 		<!-- Numeral -->
@@ -65,24 +102,24 @@
 			{#if locked}
 				🔒
 			{:else}
-				{@html index < $active ? '&check;' : index + 1}
+				{@html ownIndex < $activeIndex ? '&check;' : ownIndex + 1}
 			{/if}
 		</div>
 		<!-- Line -->
-		{#if !isLastItem}<div class="line {classesLine}" />{/if}
+		{#if !isLastStep}<div class="line {classesLine}" />{/if}
 	</div>
 	<!-- Content -->
 	<div class="step-content {classesDrawer}">
 		<!-- Slot: Header -->
-		<header class="step-header"><slot name="header"><h4>Step {index + 1}</h4></slot></header>
-		{#if index === $active}
+		<header class="step-header"><slot name="header"><h4>Step {ownIndex + 1}</h4></slot></header>
+		{#if isActiveStep}
 			<div class="step-body space-y-4" transition:slide|local={{ duration }}>
 				<!-- Slot: Default -->
 				<slot />
 				<!-- Nav -->
 				<footer class="step-footer {classesNav}">
-					{#if index !== 0}<button class="btn {buttonBack}" on:click={stepPrev}>&uarr;</button>{/if}
-					{#if $active + 1 < length}
+					{#if !isFirstStep}<button class="btn {buttonBack}" on:click={stepPrev}>&uarr;</button>{/if}
+					{#if !isLastStep}
 						<button class="btn {buttonNext}" on:click={stepNext} disabled={locked}>Next &darr;</button>
 					{:else}
 						<button class="btn {buttonComplete}" on:click={onComplete} disabled={locked}>Complete</button>
