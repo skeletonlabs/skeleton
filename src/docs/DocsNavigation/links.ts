@@ -19,7 +19,8 @@ export const menuNavLinks: any = [
 			{ href: '/docs/comparisons', label: 'Comparisons' },
 			{ href: '/docs/features', label: 'Features', badge: 'New!' },
 			{ href: '/docs/scaffold', label: 'Scaffold a Project' },
-			{ href: '/docs/contributions', label: 'Contributions' }
+			{ href: '/docs/contributions', label: 'Contributions' },
+			{ href: '/docs/creating-new-components', label: 'Creating New Components' }
 		]
 	},
 	{
