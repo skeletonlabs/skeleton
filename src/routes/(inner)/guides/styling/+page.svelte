@@ -10,7 +10,7 @@
 
 	// Tables
 	const ghLibPathMaster: string = 'https://github.com/Brain-Bones/skeleton/tree/master/src/lib'; // master branch
-	const tableStyleAll: any = {
+	const tableStyleAll = {
 		headings: ['Stylesheet', 'Description', 'View Source'],
 		// prettier-ignore
 		source: [
@@ -21,7 +21,7 @@
 			],
 		]
 	};
-	const tableStylesUseful: any = {
+	const tableStylesUseful = {
 		headings: ['Stylesheet', 'Description', 'Documentation', 'View Source', 'Required Plugin'],
 		// prettier-ignore
 		source: [
@@ -55,7 +55,7 @@
 			]
 		]
 	};
-	const tableStyleElementsAll: any = {
+	const tableStyleElementsAll = {
 		headings: ['Stylesheet', 'Documentation', 'View Source'],
 		// prettier-ignore
 		source: [
@@ -66,7 +66,7 @@
 			],
 		]
 	};
-	const tableStyleElements: any = {
+	const tableStyleElements = {
 		headings: ['Stylesheet', 'Documentation', 'View Source'],
 		// prettier-ignore
 		source: [

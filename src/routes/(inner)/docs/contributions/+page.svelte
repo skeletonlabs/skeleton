@@ -2,14 +2,14 @@
 	import { DataTable, Divider } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	const tableBranches: any = {
+	const tableBranches = {
 		headings: ['Branch', 'PRs Allowed', 'Description'],
 		source: [
 			['<code>master</code>', 'No', 'Represents the mainline production branch. Pull requests sent to this branch will be rejected.'],
 			['<code>dev</code>', 'Yes', 'When submitting a pull request, please <u>target this branch</u>. PRs to other branches will be rejected.']
 		]
 	};
-	const tableBranchConventions: any = {
+	const tableBranchConventions = {
 		headings: ['Prefix', 'Description'],
 		source: [
 			['<code>docs/*</code>', 'Updates to the documentation pages or text copy.'],
@@ -19,7 +19,7 @@
 			['<code>tests/*</code>', 'New or improved test cases.']
 		]
 	};
-	const tableProjectStructure: any = {
+	const tableProjectStructure = {
 		headings: ['Path', 'Description'],
 		source: [
 			['<code>/src/lib</code>', 'Houses all functional components, actions, and other utilities that will be distributed with the package'],
