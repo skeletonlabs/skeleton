@@ -1,10 +1,11 @@
 <script lang="ts">
 	import Avatar from '$lib/components/Avatar/Avatar.svelte';
 	import DataTable from '$lib/components/Table/DataTable.svelte';
+	import type { TableProps } from '$lib/types/tableProps';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Tables
-	const tableClasses: any = {
+	const tableClasses: TableProps = {
 		headings: ['Class', 'Description'],
 		source: [
 			['<code>badge</code>', 'Provides the standard badge style.'],

@@ -3,12 +3,13 @@
 	import { DataTable, RadioGroup, RadioItem } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
+	import type { TableProps } from '$lib/types/tableProps';
 
 	const storeJustify = writable(0);
 	const storeLayout: Writable<string> = writable('horz');
 
 	// Props & Slots
-	const tablePropsGroup: any = {
+	const tablePropsGroup: TableProps = {
 		headings: ['Prop', 'Type', 'Values', 'Required', 'Description'],
 		source: [
 			['selected', 'Writable', 'any', '&check;', 'Provide a Svelte writable to store the selected state value.'],
@@ -21,15 +22,15 @@
 			['rounded', 'string', 'rounded', '-', 'Provide classes to set the border radius.']
 		]
 	};
-	const tablePropsItem: any = {
+	const tablePropsItem: TableProps = {
 		headings: ['Prop', 'Type', 'Description'],
 		source: [['value', 'any', `The item's selection value.`]]
 	};
-	const tableA11yGroup: any = {
+	const tableA11yGroup: TableProps = {
 		headings: ['Prop', 'Required', 'Description'],
 		source: [['label', '-', `Defines a semantic ARIA label.`]]
 	};
-	const tableA11yItem: any = {
+	const tableA11yItem: TableProps = {
 		headings: ['Prop', 'Required', 'Description'],
 		source: [['label', '-', `Defines a semantic ARIA label.`]]
 	};

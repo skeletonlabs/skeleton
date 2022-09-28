@@ -3,6 +3,7 @@
 	import { DataTable, Tab, TabGroup } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
+	import type { TableProps } from '$lib/types/tableProps';
 
 	// Stores
 	let storeOne = writable('a');
@@ -10,7 +11,7 @@
 	let storeThree = writable('a');
 
 	// Props and Slots
-	const tablePropsGroup: any = {
+	const tablePropsGroup: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
 		source: [
 			['selected', 'Writable', '-', '&check;', 'A svelte store to keep track of tab selection.'],
@@ -23,22 +24,22 @@
 			['rounded', 'string', 'rounded-tl-lg rounded-tr-lg', '-', 'Provide classes to set the tab border radius styles.']
 		]
 	};
-	const tablePropsItem: any = {
+	const tablePropsItem: TableProps = {
 		headings: ['Prop', 'Type', 'Description'],
 		source: [['value', 'any', 'The value of each tab.']]
 	};
-	const tableSlots: any = {
+	const tableSlots: TableProps = {
 		headings: ['Name', 'Description'],
 		source: [['lead', 'Provides a leading position, which can be used for icons.']]
 	};
-	const tableA11yGroup: any = {
+	const tableA11yGroup: TableProps = {
 		headings: ['Prop', 'Type', 'Required', 'Description'],
 		source: [
 			['labeledby', 'string', '-', `Provide the ID of the element that describes the group.`],
 			['label', 'string', '-', `Defines a semantic label for the group.`]
 		]
 	};
-	const tableA11yTab: any = {
+	const tableA11yTab: TableProps = {
 		headings: ['Prop', 'Type', 'Required', 'Description'],
 		source: [['label', 'string', '-', `Defines a semantic label for the tab.`]]
 	};

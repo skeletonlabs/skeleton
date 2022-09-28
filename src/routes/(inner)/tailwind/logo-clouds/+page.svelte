@@ -2,9 +2,10 @@
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	import DataTable from '$lib/components/Table/DataTable.svelte';
+	import type { TableProps } from '$lib/types/tableProps';
 
 	// Tables
-	const tableClasses: any = {
+	const tableClasses: TableProps = {
 		headings: ['Class', 'Description'],
 		source: [
 			['<code>.logo-cloud</code>', 'Apply to a wrapping block element around a set of logos.'],

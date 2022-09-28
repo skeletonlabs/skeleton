@@ -5,11 +5,12 @@
 	import ListBox from '$lib/components/ListBox/ListBox.svelte';
 	import ListBoxItem from '$lib/components/ListBox/ListBoxItem.svelte';
 	import DataTable from '$lib/components/Table/DataTable.svelte';
+	import type { TableProps } from '$lib/types/tableProps';
 
 	let navSingle: Writable<number> = writable(1);
 	let navMultiple: Writable<string[]> = writable(['A', 'B']);
 
-	const tablePropsList: any = {
+	const tablePropsList: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
 		source: [
 			['selected', 'string', 'writable(undefined)', 'any | any[]', 'Provide a writable store to maintain list selection.'],
@@ -19,7 +20,7 @@
 			['regionList', 'string', '-', 'class', 'Provide arbitrary classes to the scrollable listbox element.']
 		]
 	};
-	const tablePropsItems: any = {
+	const tablePropsItems: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['accent', 'string', '!bg-primary-500', `Provide classes to set the selected element background.`],
@@ -27,21 +28,21 @@
 			['rounded', 'string', 'rounded', `Provide classes to set the border radius styles.`]
 		]
 	};
-	const slotsItems: any = {
+	const slotsItems: TableProps = {
 		headings: ['Name', 'Description'],
 		source: [
 			['lead', 'Positioned on the left of each row item.'],
 			['trail', 'Positioned on the right of each row item.']
 		]
 	};
-	const tableA11yList: any = {
+	const tableA11yList: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['label', 'string', '-', `Define a semantic ARIA label.`],
 			['labelId', 'string', '-', `Set automatically based on the label text, but can be overwritten.`]
 		]
 	};
-	const tableA11yItem: any = {
+	const tableA11yItem: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [['id', 'string', '-', 'Define a unique and semantic identifier for the item.']]
 	};

@@ -3,6 +3,7 @@
 	import { DataTable, Stepper, Step } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
+	import type { TableProps } from '$lib/types/tableProps';
 
 	const active: Writable<number> = writable(0);
 	const lorem: string =
@@ -15,7 +16,7 @@
 	let exampleLockedState: boolean = false;
 
 	// Tables
-	const tablePropsStepper: any = {
+	const tablePropsStepper: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
 		source: [
 			['active', 'Writable<number>', 'writable(0)', '&check;', 'Provide a writable which stores the actively selected step state.'],
@@ -25,7 +26,7 @@
 			['background', 'string', 'bg-accent-500 text-white', '-', 'Provide classes to set the timeline background color.']
 		]
 	};
-	const tablePropsStepperButtons: any = {
+	const tablePropsStepperButtons: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['buttonBack', 'string', 'btn-ghost', 'Provide <a href="/tailwind/buttons">Button element</a> classes.'],
@@ -33,7 +34,7 @@
 			['buttonComplete', 'string', 'btn-filled-primary', 'Provide <a href="/tailwind/buttons">Button element</a> classes.']
 		]
 	};
-	const tablePropsStep: any = {
+	const tablePropsStep: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
 		source: [
 			['index', 'number', '-', '&check;', 'Indicates the step index value. Should start with 0 (zero)'],
@@ -41,11 +42,11 @@
 		]
 	};
 	// Slots
-	const tableSlotsStepper: any = {
+	const tableSlotsStepper: TableProps = {
 		headings: ['Name', 'Description'],
 		source: [['default', 'Accepts a set of steps to display.']]
 	};
-	const tableSlotsStep: any = {
+	const tableSlotsStep: TableProps = {
 		headings: ['Name', 'Description'],
 		source: [
 			['default', 'Provide the content for the step.'],
@@ -53,7 +54,7 @@
 		]
 	};
 	// Events
-	const tableEvents: any = {
+	const tableEvents: TableProps = {
 		headings: ['Prop', 'Description'],
 		source: [['complete', `Triggers when the final step's <em>Complete</em> button is pressed.`]]
 	};

@@ -1,10 +1,11 @@
 <script lang="ts">
 	import Alert from '$lib/components/Alert/Alert.svelte';
 	import DataTable from '$lib/components/Table/DataTable.svelte';
+	import type { TableProps } from '$lib/types/tableProps';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Tables
-	const tableClassesList: any = {
+	const tableClassesList: TableProps = {
 		headings: ['Class', 'Description'],
 		source: [
 			['<code>.list</code>', 'Class for defining a unordered or ordered list.'],

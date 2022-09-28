@@ -6,6 +6,7 @@
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
+	import type { TableProps } from '$lib/types/tableProps';
 
 	// Local:
 	const href: string = '/tailwind/buttons';
@@ -27,7 +28,7 @@
 		.join(' ');
 
 	// Tables
-	const tableClasses: any = {
+	const tableClasses: TableProps = {
 		headings: ['Class', 'Values', 'Description'],
 		source: [
 			['<code>.btn</code>', '-', 'Creates a text button using a button or anchor.'],

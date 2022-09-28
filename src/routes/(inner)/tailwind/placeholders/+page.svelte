@@ -2,12 +2,13 @@
 	import DataTable from '$lib/components/Table/DataTable.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
+	import type { TableProps } from '$lib/types/tableProps';
 
 	// Local
 	let animate: boolean = true;
 
 	// Tables
-	const tableClasses: any = {
+	const tableClasses: TableProps = {
 		headings: ['Class', 'Description'],
 		source: [
 			['<code>placeholder</code>', 'Applies the default placeholder style.'],
