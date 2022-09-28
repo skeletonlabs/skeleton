@@ -2,6 +2,7 @@
 	import { FileButton } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import DataTable from '$lib/components/Table/DataTable.svelte';
+	import type { TableProps } from '$lib/types/tableProps';
 
 	let files: FileList[] = [];
 
@@ -18,7 +19,7 @@
 	}
 
 	// Tables
-	const tableProps: any = {
+	const tableProps: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['files', 'array', '-', 'Bind this to your form data, represents the "files" data from the input.'],
@@ -27,11 +28,11 @@
 			['multiple', 'boolean', 'false', 'Determines whether user can pick more than one file.']
 		]
 	};
-	const tableEvents: any = {
+	const tableEvents: TableProps = {
 		headings: ['Event', 'Description'],
 		source: [['on:change', 'Detect when then file input value has changed.']]
 	};
-	const tableSlots: any = {
+	const tableSlots: TableProps = {
 		headings: ['Name', 'Description'],
 		source: [['Default', 'This slot provides the label for the file button.']]
 	};

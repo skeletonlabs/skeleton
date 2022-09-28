@@ -3,6 +3,7 @@
 
 	import { DataTable, Drawer } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import type { TableProps } from '$lib/types/tableProps';
 
 	// Drawer Example
 	const storeDrawer: Writable<boolean> = writable(false);
@@ -14,7 +15,7 @@
 		}, 100);
 	}
 
-	const tableProps: any = {
+	const tableProps: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Required', 'Description'],
 		source: [
 			['open', 'Writable(boolean)', 'writable(false)', 'boolean', '&check;', 'Provide a store to manage visible state.'],
@@ -22,14 +23,14 @@
 			['duration', 'number', '150', 'milliseconds', '-', 'Define the Svelte transition animation duration.']
 		]
 	};
-	const tablePropsBackdrop: any = {
+	const tablePropsBackdrop: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['bgBackdrop', 'string', 'bg-surface-400/70 dark:bg-surface-900/70', 'Provide classes to set the backdrop background color'],
 			['blur', 'string', 'backdrop-blur-sm', 'Provide classes to set the blur style.']
 		]
 	};
-	const tablePropsDrawer: any = {
+	const tablePropsDrawer: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['bgDrawer', 'string', 'bg-surface-100 dark:bg-surface-800', 'Provide classes to set the drawer background color.'],
@@ -40,11 +41,11 @@
 			['margin', 'string', '-', 'Provide classes to set margins.']
 		]
 	};
-	const tableSlots: any = {
+	const tableSlots: TableProps = {
 		headings: ['Name', 'Description'],
 		source: [['default', 'Provide your Drawer content here.']]
 	};
-	const tableA11y: any = {
+	const tableA11y: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['labelledby', 'string', '-', 'Provide an ID of the element labeling the drawer.'],

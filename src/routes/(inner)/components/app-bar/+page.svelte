@@ -3,8 +3,9 @@
 	import AppBar from '$lib/components/AppBar/AppBar.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
+	import type { TableProps } from '$lib/types/tableProps';
 
-	const tableProps: any = {
+	const tableProps: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['background', 'string', 'bg-surface-100 dark:bg-surface-800', 'Provide classes to set background color.'],
@@ -14,7 +15,7 @@
 			['space', 'string', 'space-x-4', 'Provide classes to set horizontal spacing.']
 		]
 	};
-	const tableSlots: any = {
+	const tableSlots: TableProps = {
 		headings: ['Name', 'Style Prop', 'Description'],
 		source: [
 			['default', 'slotDefault', 'Provides content within the center of the bar, e.g. a search element.'],
@@ -22,7 +23,7 @@
 			['trail', 'slotTrail', 'Provides content on the right end of the bar, e.g. navigation elements.']
 		]
 	};
-	const tableA11y: any = {
+	const tableA11y: TableProps = {
 		headings: ['Prop', 'Type', 'Description'],
 		source: [
 			['label', 'string', 'Provide a semantic ID for the ARIA label.'],

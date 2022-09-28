@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { DataTable, Paginator } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import type { TableProps } from '$lib/types/tableProps';
 
 	// Content
 	const content: any = {
@@ -36,7 +37,7 @@
 
 	// Props
 	// prettier-ignore
-	const tableProps: any = {
+	const tableProps: TableProps = {
         headings: ['Prop', 'Type', 'Default', 'Description'],
         source: [
             ['offset', 'number', '0', 'Index of the first list item to display.'],
@@ -46,7 +47,7 @@
         ],
     };
 	// prettier-ignore
-	const tablePropsDesign: any = {
+	const tablePropsDesign: TableProps = {
         headings: ['Prop', 'Type', 'Default', 'Description'],
         source: [
             ['justify', 'string', 'justify-between', 'Provide classes to set flexbox justification.'],
@@ -57,7 +58,7 @@
     };
 
 	// Events
-	const tableEvents: any = {
+	const tableEvents: TableProps = {
 		headings: ['Name', 'Description'],
 		source: [
 			['amount', 'Fires when the amount selection input changes. Provides the selected amount value.'],

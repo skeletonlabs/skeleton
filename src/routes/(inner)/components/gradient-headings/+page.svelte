@@ -5,6 +5,7 @@
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
+	import type { TableProps } from '$lib/types/tableProps';
 
 	// Stores
 	const storeTag: Writable<string> = writable('h1');
@@ -19,7 +20,7 @@
 	};
 
 	// Tables
-	const tableProps: any = {
+	const tableProps: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['tag', 'string', 'h1', 'Define the semantic element tag.'],

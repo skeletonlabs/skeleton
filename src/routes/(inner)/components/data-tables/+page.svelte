@@ -4,11 +4,12 @@
 
 	import { DataTable, TabGroup, Tab } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import type { TableProps } from '$lib/types/tableProps';
 
 	let tabExample: Writable<string> = writable('local');
 
 	// Local Table
-	const staticArr: any = [
+	const staticArr = [
 		{ position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
 		{ position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
 		{ position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
@@ -20,7 +21,7 @@
 		{ position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
 		{ position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' }
 	];
-	const tableLocal: any = {
+	const tableLocal = {
 		search: undefined,
 		sort: 'position',
 		headings: ['Positions', 'Name', 'Weight', 'Symbol'],
@@ -28,7 +29,7 @@
 	};
 
 	// Server Table
-	const tableServer: any = { search: undefined, sort: undefined, headings: undefined, count: 0 };
+	const tableServer = { search: undefined, sort: undefined, headings: undefined, count: 0 };
 	async function getTableSource(): Promise<any> {
 		const http = await fetch('https://jsonplaceholder.typicode.com/user/1/posts');
 		const res = await http.json();
@@ -52,7 +53,13 @@
 
 	// Props
 	// prettier-ignore
-	const tableProps: any = {
+	const tableProps: TableProps<{
+		prop: string;
+		type: string;
+		default: string;
+		req: string;
+		desc: string;
+	}> = {
         headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
         source: [
             {prop: 'headings', type: 'string[]', default: '[]', req: '&check;', desc: 'Provide a list of table headings.'},
@@ -65,7 +72,12 @@
         ],
     }
 	// prettier-ignore
-	const tablePropStyles: any = {
+	const tablePropStyles: TableProps<{
+		prop: string;
+		type: string;
+		default: string;
+		desc: string;
+	}> = {
         headings: ['Prop', 'Type', 'Default', 'Description'],
         source: [
             {prop: 'header', type: 'string', default: 'bg-surface-50 dark:bg-surface-700', desc: 'Provide classes to set the table header background color.'},
@@ -77,7 +89,10 @@
     }
 
 	// Events
-	const tableEvents: any = {
+	const tableEvents: TableProps<{
+		name: string;
+		desc: string;
+	}> = {
 		headings: ['Name', 'Description'],
 		source: [
 			{
@@ -92,7 +107,10 @@
 	};
 
 	// Slots
-	const tableSlots: any = {
+	const tableSlots: TableProps<{
+		name: string;
+		desc: string;
+	}> = {
 		headings: ['Name', 'Description'],
 		source: [
 			{
@@ -108,7 +126,7 @@
 	};
 
 	// A11y
-	const tableA11y: any = {
+	const tableA11y: TableProps = {
 		headings: ['Prop', 'Required', 'Description'],
 		source: [
 			['labelledby', '-', `Provide the ID of the element that labels the table.`],
@@ -183,7 +201,7 @@
 				language="typescript"
 				code={`
 const headings: string[] = ['Positions', 'Name', 'Weight', 'Symbol'];
-const source: any[] = [
+const source = [
     { position: 1, name: '<strong class="text-red">Hydrogen</strong>', weight: 1.0079, symbol: 'H' },
     { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
     { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
@@ -201,7 +219,7 @@ const source: any[] = [
 			<CodeBlock
 				language="typescript"
 				code={`
-const tableLocal: any = {
+const tableLocal = {
     search: undefined,
     sort: 'position',
     headings: ['Positions', 'Name', 'Weight', 'Symbol'],

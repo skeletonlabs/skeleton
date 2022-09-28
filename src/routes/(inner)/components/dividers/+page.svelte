@@ -2,6 +2,7 @@
 	import { writable, type Writable } from 'svelte/store';
 	import { DataTable, RadioGroup, RadioItem, Divider } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import type { TableProps } from '$lib/types/tableProps';
 
 	const storeVertical: Writable<boolean> = writable(false);
 	const storeBorderWidth: Writable<string> = writable('border-t');
@@ -25,7 +26,7 @@
 	};
 
 	// Tables
-	const tableProps: any = {
+	const tableProps: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
 		source: [
 			['vertical', 'boolean', 'false', 'true | false', 'When enabled, sets the width to zero and height to full.'],

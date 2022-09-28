@@ -3,10 +3,11 @@
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	import { icons } from '$lib/components/SvgIcon/icons';
+	import type { TableProps } from '$lib/types/tableProps';
 
 	const iconKeys = Object.keys(icons);
 
-	const tableProps: any = {
+	const tableProps: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
 		source: [
 			['name', 'string', 'image', '-', 'Pass canned svg name. Slot value overrides this.'],
@@ -18,11 +19,11 @@
 			['height', 'string', 'w-5', '-', 'Provide classes to set the height color.']
 		]
 	};
-	const tableSlots: any = {
+	const tableSlots: TableProps = {
 		headings: ['Name', 'Description'],
 		source: [['(default)', 'Allows you to supply any path or similar elements within the SVG tags.']]
 	};
-	const tableA11y: any = {
+	const tableA11y: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
 		source: [
 			['title', 'string', '-', '-', 'Set the title element value embedded within the SVG.'],

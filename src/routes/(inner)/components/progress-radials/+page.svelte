@@ -1,12 +1,13 @@
 <script lang="ts">
 	import { DataTable, ProgressRadial } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import type { TableProps } from '$lib/types/tableProps';
 
 	// Reactive
 	$: props = { value: 50, max: 100, step: 10 };
 
 	// Tables
-	const tableProps: any = {
+	const tableProps: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['value', 'number', '-', 'Set the meter fill amount. Shows as indeterminate when set undefined.'],
@@ -17,11 +18,11 @@
 			['font', 'string', '56', 'Sets the base font size. Scales responsively.']
 		]
 	};
-	const tableSlots: any = {
+	const tableSlots: TableProps = {
 		headings: ['Name', 'Description'],
 		source: [['default', 'Text content is rendered as SVG text in the center of the element.']]
 	};
-	const tableA11y: any = {
+	const tableA11y: TableProps = {
 		headings: ['Prop', 'Required', 'Description'],
 		source: [['label', '-', `A semantic ARIA label.`]]
 	};

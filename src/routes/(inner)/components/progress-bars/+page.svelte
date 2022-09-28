@@ -3,6 +3,7 @@
 
 	import { DataTable, RadioGroup, RadioItem, ProgressBar } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import type { TableProps } from '$lib/types/tableProps';
 
 	const storeDeterminate: Writable<boolean> = writable(true);
 	const storeHeight: Writable<string> = writable('h-2');
@@ -21,7 +22,7 @@
 	};
 
 	// Tables
-	const tableProps: any = {
+	const tableProps: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['label', 'string', '-', 'Set the label text.'],

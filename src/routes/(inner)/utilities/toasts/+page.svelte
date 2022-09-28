@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { DataTable, Divider, toastStore, type ToastMessage } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import type { TableProps } from '$lib/types/tableProps';
 
 	// Trigger Examples
 	function toastBasic(): void {
@@ -35,7 +36,7 @@
 	}
 
 	// Props
-	const tableProps: any = {
+	const tableProps: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
 		source: [
 			['background', 'string', 'bg-primary-500', 'class', 'Provide classes to set background color.'],

@@ -7,6 +7,7 @@
 
 	// Stores
 	import { toastStore, type ToastMessage } from '$lib/utilities/Toast/stores';
+	import type { TableProps } from '$lib/types/tableProps';
 
 	// Presets
 	const presetUrl: string = 'https://github.com/Brain-Bones/skeleton/blob/master/src/themes';
@@ -37,7 +38,7 @@
 	}
 
 	// Tables
-	const tableProps: any = {
+	const tableProps: TableProps = {
 		headings: ['Name', 'Class', 'Description'],
 		source: [
 			['Primary', '[x]-primary-[50-900]', 'Typically your primary brand color.'],

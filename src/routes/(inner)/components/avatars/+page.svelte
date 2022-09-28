@@ -20,6 +20,7 @@
 	import Rustic from '$lib/actions/Filters/svg-filters/Rustic.svelte';
 	import Summer84 from '$lib/actions/Filters/svg-filters/Summer84.svelte';
 	import XPro from '$lib/actions/Filters/svg-filters/XPro.svelte';
+	import type { TableProps } from '$lib/types/tableProps';
 
 	// Local
 	const imgPlaceholder: string = 'https://i.pravatar.cc/?img=5';
@@ -51,7 +52,7 @@
 	};
 
 	// Tables
-	const tableProps: any = {
+	const tableProps: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['background', 'string', 'bg-surface-500', 'Provide classes to set background styles.'],
@@ -62,7 +63,7 @@
 			['cursor', 'string', '-', 'Provide classes to set cursor styles.']
 		]
 	};
-	const tablePropsImg: any = {
+	const tablePropsImg: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
 		source: [
 			['src', 'string', '-', '-', 'Set image source value.'],
@@ -71,7 +72,7 @@
 			['actionParams', 'string', '-', '(filter ID)', 'Provide Svelte action params, such as <code>Apollo</code>.']
 		]
 	};
-	const tablePropsInitials: any = {
+	const tablePropsInitials: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['initials', 'string', 'AB', 'Provide up to two text characters.'],

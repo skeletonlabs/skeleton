@@ -1,12 +1,13 @@
 <script lang="ts">
 	import { DataTable, Alert } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import type { TableProps } from '$lib/types/tableProps';
 
 	let title = `Hello Skeleton!`;
 	let message =
 		'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi, cupiditate eveniet in neque magnam quos ad cumque quae numquam voluptatum magni atque vitae dolore voluptatibus aliquam tempora! Animi, nihil quo.';
 
-	const tableProps: any = {
+	const tableProps: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['visible', 'boolean', 'true', 'Control visibility of the alert.'],
@@ -17,7 +18,7 @@
 			['duration', 'number', '200', 'Svelte fade transition duration. Set <code>0</code> to disable.']
 		]
 	};
-	const tableSlots: any = {
+	const tableSlots: TableProps = {
 		headings: ['Slot', 'Style Prop', 'Description'],
 		source: [
 			['lead', 'slotLead', 'Provide a leading element, such as an icon.'],

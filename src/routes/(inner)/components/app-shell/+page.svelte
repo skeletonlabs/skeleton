@@ -4,6 +4,7 @@
 	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
 	import AppShell from '$lib/components/AppShell/AppShell.svelte';
 	import Alert from '$lib/components/Alert/Alert.svelte';
+	import type { TableProps } from '$lib/types/tableProps';
 
 	// Local
 	let state: any = {
@@ -15,7 +16,7 @@
 	};
 
 	// Tables
-	const tableProps: any = {
+	const tableProps: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['slotHeader', 'string', '-', 'Provide arbitrary classes to the header slot element.'],
@@ -27,7 +28,7 @@
 			['slotFooter', 'string', '-', 'Provide arbitrary classes to the footer element.']
 		]
 	};
-	const tableSlots: any = {
+	const tableSlots: TableProps = {
 		headings: ['Name', 'Description'],
 		source: [
 			['default', 'Your page content. Insert your router slot here.'],

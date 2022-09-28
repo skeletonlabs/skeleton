@@ -5,6 +5,7 @@
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
+	import type { TableProps } from '$lib/types/tableProps';
 
 	// Stores
 	const storeMax: Writable<number> = writable(50);
@@ -23,7 +24,7 @@
 	};
 
 	// Tables
-	const tableProps: any = {
+	const tableProps: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['value', 'number', '0', 'Set the input value.'],
@@ -34,11 +35,11 @@
 			['accent', 'string', 'accent-accent-500', 'Provide classes to set the input accent color.']
 		]
 	};
-	const tableSlots: any = {
+	const tableSlots: TableProps = {
 		headings: ['Prop', 'Description'],
 		source: [['Default', 'A label slot directly above the range slider element.']]
 	};
-	const tableA11y: any = {
+	const tableA11y: TableProps = {
 		headings: ['Prop', 'Type', 'Description'],
 		source: [
 			['id', 'string', 'Provide a unique input id.'],

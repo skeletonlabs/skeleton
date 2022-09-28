@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { DataTable } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import type { TableProps } from '$lib/types/tableProps';
 
 	// prettier-ignore
-	const tableProps: any = {
+	const tableProps: TableProps = {
 		headings: ['Prop', 'Type', 'Values', 'Default', 'Description'],
 		source: [
 			[ 'language', 'string', '<a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md" target="_blank">Language Alias</a>', 'plaintext', 'Sets a language alias for Highlight.js syntax highlighting.' ],

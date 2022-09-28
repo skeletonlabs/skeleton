@@ -2,8 +2,9 @@
 	import { DataTable, Avatar, AccordionGroup, AccordionItem } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
+	import type { TableProps } from '$lib/types/tableProps';
 
-	const tablePropsGroup: any = {
+	const tablePropsGroup: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['collapse', 'boolean', 'true', 'Enable auto-collapse mode.'],
@@ -11,7 +12,7 @@
 		]
 	};
 
-	const tablePropsItem: any = {
+	const tablePropsItem: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['open', 'boolean', 'false', `Defines the default open state on page load.`],
@@ -21,7 +22,7 @@
 			['rounded', 'string', 'rounded', 'Provide classes to set summary border radius.']
 		]
 	};
-	const tableSlots: any = {
+	const tableSlots: TableProps = {
 		headings: ['Name', 'Required', 'Style Prop', 'Description'],
 		source: [
 			['lead', '-', 'slotSummary > .summary-lead', 'Allows for an optional leading element, such as an icon.'],
@@ -29,7 +30,7 @@
 			['content', '&check;', 'slotContent', 'Provide the content details of each item.']
 		]
 	};
-	const tableA11yItem: any = {
+	const tableA11yItem: TableProps = {
 		headings: ['Prop', 'Description'],
 		source: [
 			['summaryId', 'Provide semantic ID for ARIA summary element.'],

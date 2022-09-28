@@ -4,6 +4,7 @@
 	import DataTable from '$lib/components/Table/DataTable.svelte';
 
 	import type { ConicStop } from '$lib/components/ConicGradient/types';
+	import type { TableProps } from '$lib/types/tableProps';
 
 	// Color Stops
 	let stopsTailwind: ConicStop[] = [
@@ -22,7 +23,7 @@
 	];
 
 	// Tables
-	const tableProps: any = {
+	const tableProps: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
 		source: [
 			['stops', 'ConicStop[]', '(100% grey circle)', '&check;', 'Provide a data set of color stops and labels.'],
@@ -32,7 +33,7 @@
 			['hover', 'string', 'hover:bg-surface-500/10', '-', 'Provided classes to style the legend hover effect.']
 		]
 	};
-	const tableSlots: any = {
+	const tableSlots: TableProps = {
 		headings: ['Name', 'Description'],
 		source: [['default', 'Provide a semantic figure caption value.']]
 	};

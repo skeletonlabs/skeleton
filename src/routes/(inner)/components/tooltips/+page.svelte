@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { DataTable, Alert, Tooltip } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import type { TableProps } from '$lib/types/tableProps';
 
-	const tableProps: any = {
+	const tableProps: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
 		source: [
 			['visible', 'boolean', 'false', 'true | false', 'Whether the tooltip is showing or not.'],
@@ -15,7 +16,7 @@
 			['duration', 'number', '150', 'number', 'Animation fade in/out duration in milliseconds. Set to 0 (zero) to disable.']
 		]
 	};
-	const tablePropSlots: any = {
+	const tablePropSlots: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['popup', 'string', 'false', 'Provide classes to style the popup.'],
@@ -24,7 +25,7 @@
 			['content', 'string', 'false', 'Provide classes to style the tooltip content wrapping element.']
 		]
 	};
-	const tableSlots: any = {
+	const tableSlots: TableProps = {
 		headings: ['Name', 'Description'],
 		source: [
 			['content', 'The element that will trigger the tooltip when hovered.'],

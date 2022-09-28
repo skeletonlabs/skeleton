@@ -3,6 +3,7 @@
 	import Placeholder from '$lib/components/Placeholder/Placeholder.svelte';
 	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import type { TableProps } from '$lib/types/tableProps';
 
 	// Reactive
 	$: props = {
@@ -11,7 +12,7 @@
 	};
 
 	// Props & Slots
-	const tableProps: any = {
+	const tableProps: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
 		source: [
 			['circle', 'boolean', 'false', 'true | false', 'Creates a circular shaped placeholder.'],

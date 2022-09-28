@@ -2,27 +2,28 @@
 	import { DataTable, Breadcrumb, Crumb } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
+	import type { TableProps } from '$lib/types/tableProps';
 
 	// Examples
 	const customSeparator: string = `<span class="text-surface-500">/</span>`;
 
 	// Props
-	const tableProps: any = {
+	const tableProps: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [['separator', 'string', `<code>&rsaquo</code> (unicode)`, 'Defines the crumb separator. Supports SVG icons.']]
 	};
-	const tablePropsCrumb: any = {
+	const tablePropsCrumb: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['text', 'string', 'text-base', 'Provide classes to set text size.'],
 			['color', 'string ', '-', 'Provide classes set the current page text color.']
 		]
 	};
-	const tableSlotsCrumb: any = {
+	const tableSlotsCrumb: TableProps = {
 		headings: ['Slot', 'Description'],
 		source: [['lead', 'A leading slot intended for icons.']]
 	};
-	const tableA11y: any = {
+	const tableA11y: TableProps = {
 		headings: ['Prop', 'Default', 'Description'],
 		source: [['label', '-', `A semantic ARIA label.`]]
 	};

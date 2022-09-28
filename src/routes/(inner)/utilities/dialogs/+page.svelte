@@ -2,6 +2,7 @@
 	import { Divider, DataTable } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import { dialogStore, type DialogAlert, type DialogConfirm, type DialogPrompt } from '$lib/utilities/Dialog/stores';
+	import type { TableProps } from '$lib/types/tableProps';
 
 	let valueConfirm: boolean = false;
 	let valuePrompt: string = 'Skeleton';
@@ -84,7 +85,7 @@
 	// }
 
 	// Props
-	const tableProps: any = {
+	const tableProps: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['backdrop', 'string', 'bg-surface-400/70 dark:bg-surface-900/70', 'Provide classes to set the backdrop background color.'],

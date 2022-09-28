@@ -1,12 +1,13 @@
 <script lang="ts">
 	import { DataTable, Menu } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import type { TableProps } from '$lib/types/tableProps';
 
 	// Local
 	const exampleLink: string = '/components/menus';
 
 	// Tables and Slots
-	const tableProps: any = {
+	const tableProps: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
 		source: [
 			['select', 'boolean', 'false', 'true | false', 'When enabled, clicks within the menu will close it.'],
@@ -16,7 +17,7 @@
 			['disabled', 'boolean', 'false', 'true | false', 'Sets menu to disabled state.']
 		]
 	};
-	const tableSlots: any = {
+	const tableSlots: TableProps = {
 		headings: ['Name', 'Description'],
 		source: [
 			['trigger', 'The element that toggles the menu when clicked. Pairs well with a button component.'],

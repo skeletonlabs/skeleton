@@ -1,11 +1,12 @@
 <script lang="ts">
 	import { DataTable, SlideToggle } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import type { TableProps } from '$lib/types/tableProps';
 
 	let checkedValue: boolean = false;
 
 	// Tables
-	const tableProps: any = {
+	const tableProps: TableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
 		source: [
 			['checked', 'boolean', 'false', 'true | false', 'The checked state of the input element.'],
@@ -13,7 +14,7 @@
 			['size', 'string', 'md', 'sm | md | lg', 'Sets the size of the component.']
 		]
 	};
-	const tableA11y: any = {
+	const tableA11y: TableProps = {
 		headings: ['Prop', 'Required', 'Description'],
 		source: [['label', '-', `Provide a semantic label.`]]
 	};
