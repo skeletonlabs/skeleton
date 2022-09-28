@@ -4,26 +4,33 @@
 	import { menu } from '$lib/utilities/Menu/menu';
 
 	// Local
-	const exampleLink: string = '/actions/menus';
+	const exampleLink: string = '/utilities/menus';
 	const log = (v: any) => {
 		console.log(`You selected anchor link ${v}`);
 	};
 
 	// Tables
-	const tableClasses: any = {
-		headings: ['Name', 'Description'],
-		source: [
-			['<code>.menu-container</code>', 'Apply to the element wrapping your trigger and menu.'],
-			['<code>.menu</code>', 'Apply to your desired menu element.'],
-			['<code>.menu-tl</code>', 'Sets the menu origin to top-left.'],
-			['<code>.menu-tr</code>', 'Sets the menu origin to top-right.'],
-			['<code>.menu-bl</code>', 'Sets the menu origin to bottom-left.'],
-			['<code>.menu-br</code>', 'Sets the menu origin to bottom-right.']
-		]
-	};
 	const tableDataAttr: any = {
 		headings: ['Name', 'Description'],
-		source: [['<code>data-menu-[menuId]</code>', 'Creates a unique identifier on your desired menu element.']]
+		source: [['<code>data-menu="{menuId}"</code>', 'Provide a unique identifier for the menu element to link it to the trigger.']]
+	};
+	const tableActionParams: any = {
+		headings: ['Key', 'Type', 'Required', 'Description'],
+		source: [
+			['menu', 'string', '&check;', 'Accepts the matching menu ID specified in the data attribute.'],
+			['fixed', 'boolean', '-', 'When enabled, a fixed origin position can be specified via a class.'],
+			['interactive', 'boolean', '-', 'When enabled, allows interaction within the menu without closing it.']
+		]
+	};
+	const tableClasses: any = {
+		headings: ['Selector', 'Required', 'Description'],
+		source: [
+			['<code>[data-menu]</code>', '&check;', 'Automatically applies menu styles.'],
+			['<code>.menu-tl</code>', '-', 'Specifies a fixed origin position of top-left.'],
+			['<code>.menu-tr</code>', '-', 'Specifies a fixed origin position of top-right.'],
+			['<code>.menu-bl</code>', '-', 'Specifies a fixed origin position of bottom-left.'],
+			['<code>.menu-br</code>', '-', 'Specifies a fixed origin position of bottom-right.']
+		]
 	};
 </script>
 
@@ -38,27 +45,41 @@
 
 	<!-- Examples -->
 	<h2 class="sr-only">Examples</h2>
-	<div class="card card-body flex justify-between">
+	<div class="card card-body flex flex-col lg:flex-row justify-center items-center space-y-4 lg:space-y-0 lg:space-x-4">
 		<!-- Dropdown 1 -->
-		<span class="menu-container">
-			<button class="btn btn-ghost" use:menu={{ target: '1' }}>Menu 1</button>
-			<div class="menu hidden card card-body w-64 shadow-xl" data-menu-1>
+		<span class="relative">
+			<button class="btn btn-ghost" use:menu={{ menu: 'basic' }}>basic</button>
+			<div class="card card-body w-64 shadow-xl" data-menu="basic">
 				<p>This menu is uses default settings and will auto-updated the origin based on the button's page position.</p>
 			</div>
 		</span>
 		<!-- Dropdown 2 -->
-		<span class="menu-container">
-			<button class="btn btn-ghost" use:menu={{ target: '2', fixed: true }}>Menu 2</button>
-			<div class="card card-body w-64 shadow-xl menu-tl hidden" data-menu-2>
-				<p>This menu position will remain fixed no matter what, due to <code>fixed: true</code> and <code>.menu-tl</code>.</p>
+		<span class="relative">
+			<button class="btn btn-ghost" use:menu={{ menu: 'interactive', interactive: true }}>interactive</button>
+			<div class="menu-tl card card-body w-64 shadow-xl" data-menu="interactive">
+				<p>This menu does not close when clicking the contents due to <code>interactive: false</code>.</p>
 			</div>
 		</span>
 		<!-- Dropdown 3 -->
+		<span class="relative">
+			<button class="btn btn-ghost" use:menu={{ menu: 'fixed', fixed: true }}>fixed</button>
+			<div class="menu-tl card card-body w-64 shadow-xl" data-menu="fixed">
+				<p>This menu position will remain fixed no matter what, due to <code>fixed: true</code> and <code>.menu-tl</code>.</p>
+			</div>
+		</span>
+		<!-- Dropdown 4 (note: don't add .menu-container here) -->
+		<span>
+			<button class="btn btn-ghost" use:menu={{ menu: 'anywhere', fixed: true }}>anywhere</button>
+			<div class="absolute top-2 right-2 card p-4 w-64 shadow-xl !bg-primary-500" data-menu="anywhere">
+				<p>This menu will appear in an absolute location on the page.</p>
+			</div>
+		</span>
+		<!-- Dropdown 5 -->
 		<!-- prettier-ignore -->
-		<span class="menu-container">
-			<button class="btn btn-ghost" use:menu={{ target: '3' }}>Menu 3</button>
-			<nav class="menu hidden list-nav card p-4 w-64 shadow-xl space-y-4" data-menu-3>
-				<p>You'll see a <code>console.log</code> message when choosing a navigation link.</p>
+		<span class="relative">
+			<button class="btn btn-ghost" use:menu={{ menu: 'navigation' }}>navigation</button>
+			<nav class="list-nav card p-4 w-64 shadow-xl space-y-4" data-menu="navigation">
+				<p>This menu will auto-close when selecting a link and log a value via <code>console.log</code>.</p>
 				<ul>
 					<li><a href={exampleLink} on:click={() => {log(1)}}>Link 1</a></li>
 					<li><a href={exampleLink} on:click={() => {log(2)}}>Link 2</a></li>
@@ -72,18 +93,18 @@
 	<section class="space-y-8">
 		<div class="space-y-4">
 			<h2>Usage</h2>
-			<p>Makes use of both Tailwind Element and a Skeleton-provided Action.</p>
+			<p>Makes use of both Tailwind Element styles and a Svelte Action.</p>
 			<CodeBlock
 				language="html"
 				code={`
-<!-- Create a wrapping element with class .menu-container -->
-<span class="menu-container">
+<!-- Use a wrapping .relative class to confine the menu -->
+<span class="relative">
 
-	<!-- Trigger: add 'use:menu' and provide a target ID matching your menu's data attribute -->
-	<button use:menu={{ target: 'example' }}>Trigger</button>
+	<!-- Trigger: add 'use:menu' and provide a menu ID matching your menu's data attribute -->
+	<button use:menu={{ menu: 'example' }}>Trigger</button>
 
-	<!-- Menu: add .menu and .hidden classes, then set a matching 'data-menu-[targetId]' attribute -->
-	<div class="menu hidden" data-menu-example>(menu)</div>
+	<!-- Menu: set a matching 'data-menu-[menuId]' attribute -->
+	<div data-menu="example">(menu)</div>
 	
 </span>
 			`}
@@ -94,14 +115,14 @@
 		<div class="space-y-4">
 			<h4>Menu Element Styling</h4>
 			<p>Apply the <code>.card</code> class to provide a card-like appearance.</p>
-			<CodeBlock language="html" code={`<div class="menu hidden card" data-menu-example>(menu)</div>`} />
+			<CodeBlock language="html" code={`<div class="menu hidden card" data-menu="example">(menu)</div>`} />
 			<p>Pair this with other abitrary classes to fully customize the look and feel.</p>
-			<CodeBlock language="html" code={`<div class="menu hidden card p-4 w-64 shadow-xl" data-menu-example>(menu)</div>`} />
+			<CodeBlock language="html" code={`<div class="menu hidden card p-4 w-64 shadow-xl" data-menu="example">(menu)</div>`} />
 			<p>Combine the <code>.menu</code>, <code>.list-nav</code>, and <code>.card</code> Tailwind Element classes to create a navigation menu.</p>
 			<CodeBlock
 				language="html"
 				code={`
-<nav class="menu hidden list-nav card p-4 w-64 shadow-xl space-y-4" data-menu-example>
+<nav class="menu hidden list-nav card p-4 w-64 shadow-xl space-y-4" data-menu="example">
 	<ul>
 		<li><a href="/">Link 1</a></li>
 		<li><a href="/">Link 2</a></li>
@@ -112,20 +133,26 @@
 			/>
 		</div>
 		<hr />
-		<!-- Auto Mode -->
+		<!-- Fixed Origin -->
 		<div class="space-y-4">
 			<h4>Fixed Origin</h4>
-			<p>The origin is set automatically by default, however if you wish to apply a fixed origin for your menu, add <code>fixed: true</code> to your action parameters.</p>
-			<CodeBlock language="html" code={`<button use:menu={{ target: 'example', fixed: true }}>Trigger</button>`} />
-			<p>Then change the menu element class from <code>menu</code> to <code>menu-[tl|tr|bl|br]</code>.</p>
-			<CodeBlock language="html" code={`<div class="menu-tl hidden" data-menu-example>(menu)</div>`} />
+			<p>Use <code>fixed: true</code> and apply the desired origin via a <code>menu-[tl|tr|bl|br]</code> class.</p>
+			<CodeBlock language="html" code={`<button use:menu={{ menu: 'example', fixed: true }}>Trigger</button>`} />
+			<CodeBlock language="html" code={`<div class="menu-tl hidden" data-menu="example">(menu)</div>`} />
 		</div>
-	</section>
-
-	<!-- Classes -->
-	<section class="space-y-4">
-		<h2>Classes</h2>
-		<DataTable headings={tableClasses.headings} source={tableClasses.source} />
+		<!-- Interactive Menus -->
+		<div class="space-y-4">
+			<h4>Interactive Menus</h4>
+			<p>By default menus will self-close when clicking within the menu body. Disable this with <code>interactive: true</code>.</p>
+			<CodeBlock language="html" code={`<button use:menu={{ menu: 'example', interactive: true }}>Trigger</button>`} />
+		</div>
+		<!-- Abitrary Position -->
+		<div class="space-y-4">
+			<h4>Abitrary Position</h4>
+			<p>Remove the wrapping <code>.relative</code> element, set <code>fixed: true</code>, and apply your positioning classes to the menu.</p>
+			<CodeBlock language="html" code={`<button use:menu={{ menu: 'example', fixed: true }}>Trigger</button>`} />
+			<CodeBlock language="html" code={`<div class="absolute top-2 right-2" data-menu="example">(menu)</div>`} />
+		</div>
 	</section>
 
 	<!-- Data Attributes -->
@@ -134,18 +161,15 @@
 		<DataTable headings={tableDataAttr.headings} source={tableDataAttr.source} />
 	</section>
 
-	<!-- Accessibility -->
+	<!-- Action Params -->
 	<section class="space-y-4">
-		<div class="flex justify-between items-end">
-			<h2>Accessibility</h2>
-			<nav class="flex space-x-4">
-				<span>ARIA</span>
-				<a href="https://www.w3.org/WAI/ARIA/apg/patterns/menu/" target="_blank">Menu</a>
-				<a href="https://www.w3.org/WAI/ARIA/apg/patterns/menubutton/" target="_blank">Button</a>
-			</nav>
-		</div>
-		<p>
-			See the <a href="/components/list">List component</a> accessibility options if you wish to embed a List within your Menu.
-		</p>
+		<h2>Action Params</h2>
+		<DataTable headings={tableActionParams.headings} source={tableActionParams.source} />
+	</section>
+
+	<!-- Classes -->
+	<section class="space-y-4">
+		<h2>Classes</h2>
+		<DataTable headings={tableClasses.headings} source={tableClasses.source} />
 	</section>
 </div>
