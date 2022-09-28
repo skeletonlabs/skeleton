@@ -171,6 +171,6 @@
 
 <style lang="postcss">
 	.boxShape {
-		@apply bg-warning-500/10 border border-warning-500 p-4 text-center text-xs h-full flex justify-center items-center;
+		@apply bg-white/10 border border-white p-4 text-center text-xs h-full flex justify-center items-center;
 	}
 </style>

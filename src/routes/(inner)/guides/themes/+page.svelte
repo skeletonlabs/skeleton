@@ -42,6 +42,7 @@
 		source: [
 			['Primary', '[x]-primary-[50-900]', 'Typically your primary brand color.'],
 			['Accent', '[x]-accent-[50-900]', 'An accent for offsets or supplementary values.'],
+			['Ternary', '[x]-ternary-[50-900]', 'A third and additional offset color. Great for informational alerts.'],
 			['Warning', '[x]-warning-[50-900]', 'May be used for warnings, alerts, and invalid inputs.'],
 			['Surface', '[x]-surface-[50-900]', 'May be used for backgrounds, card elements, and some typography.']
 		]

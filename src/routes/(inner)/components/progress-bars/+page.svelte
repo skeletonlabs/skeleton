@@ -104,7 +104,9 @@
 					<select name="meter" id="meter" bind:value={props.meter}>
 						<option value="bg-primary-500">bg-primary-500</option>
 						<option value="bg-accent-500">bg-accent-500</option>
+						<option value="bg-ternary-500">bg-ternary-500</option>
 						<option value="bg-warning-500">bg-warning-500</option>
+						<option value="bg-surface-500">bg-surface-500</option>
 					</select>
 				</label>
 				<!-- track -->
@@ -114,7 +116,9 @@
 						<option value={defaultTrackBg}>Default</option>
 						<option value="bg-primary-500/30">bg-primary-500/30</option>
 						<option value="bg-accent-500/30">bg-accent-500/30</option>
+						<option value="bg-ternary-500/30">bg-ternary-500/30</option>
 						<option value="bg-warning-500/30">bg-warning-500/30</option>
+						<option value="bg-surface-500/30">bg-surface-500/30</option>
 					</select>
 				</label>
 			</div>

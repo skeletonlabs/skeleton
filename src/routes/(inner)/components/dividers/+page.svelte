@@ -113,6 +113,7 @@
 						<option value={defaultBorderColor}>Inherent</option>
 						<option value="border-primary-500">border-primary-500</option>
 						<option value="border-accent-500">border-accent-500</option>
+						<option value="border-ternary-500">border-ternary-500</option>
 						<option value="border-warning-500">border-warning-500</option>
 						<option value="border-red-500">border-red-500</option>
 						<option value="border-green-500">border-green-500</option>
