@@ -14,10 +14,24 @@
 </script>
 
 <div class="space-y-8">
-    <section class='space-y-4'>
+	<!-- Header -->
+	<header class="space-y-4">
         <h1>Creating Components</h1>
-        If you are creating a new component for Skeleton, please follow these guidelines to maintain a cohesive and consistent codebase.
-    </section>
+        <p>If you are creating a new component for Skeleton, please follow these guidelines to maintain a cohesive and consistent codebase.</p>
+    </header>
+
+	<Divider />
+
+	<!-- Dependencies -->
+	<section class="space-y-4">
+		<h2>Dependencies</h2>
+		<p>
+			Skeleton aims to keep dependencies as lean as possible. Please be leery of introducing more. If you have a valid reason to add one, please discuss with core contributors before proceeding. This
+			can help avoid conflicts and greatly benefits end users!
+		</p>
+	</section>
+
+	<Divider />
 
 	<!-- Conventions -->
 	<section class="space-y-4">
@@ -41,17 +55,6 @@
 		</ul>
 	</section>
 
-	<Divider />
-
-
-	<!-- Dependencies -->
-	<section class="space-y-4">
-		<h2>Dependencies</h2>
-		<p>
-			Skeleton aims to keep dependencies as lean as possible. Please be leery of introducing more. If you have a valid reason to add one, please discuss with core contributors before proceeding. This
-			can help avoid conflicts and greatly benefits end users!
-		</p>
-	</section>
 
 	<Divider />
 
