@@ -12,6 +12,8 @@
 
 	// ListItem Click Handler
 	function onListItemClick(): void {
+		clearSearch();
+		// On Drawer embed Only:
 		if (!embedded) return;
 		storeMobileDrawer.set(false);
 	}
@@ -34,15 +36,23 @@
 		}
 	}
 
+	// Clear Search -- NOTE: timeout prevents anchor race condition
+	function clearSearch(): void {
+		setTimeout(() => {
+			inputSearch = '';
+			onSearch();
+		}, 1);
+	}
+
 	// Reactive
 	$: classesActive = (href: string) => ($storeCurrentUrl === href ? '!bg-primary-500' : '');
 </script>
 
 <div class="m-4 mb-20 {$$props.class || ''}">
 	<!-- Search -->
-	<input type="search" placeholder="Search..." bind:value={inputSearch} on:input={onSearch} />
-	<!-- divider -->
-	<hr class="my-4 opacity-50" />
+	<header class="sticky top-0 z-10 bg-surface-300 dark:bg-surface-900 -m-4 mb-2 p-4">
+		<input type="search" placeholder="Search..." bind:value={inputSearch} on:input={onSearch} />
+	</header>
 	<!-- Lists -->
 	{#each filteredMenuNavLinks as { id, title, list }, i}
 		{#if list.length > 0}
@@ -52,8 +62,8 @@
 			<nav class="list-nav">
 				<ul>
 					{#each list as { href, label, badge, icon }}
-						<li>
-							<a {href} value={href} class={classesActive(href)} on:click={onListItemClick}>
+						<li on:click={onListItemClick}>
+							<a {href} value={href} class={classesActive(href)}>
 								{#if icon}
 									<span>
 										<div class="bg-accent-500 w-7 h-7 flex justify-center items-center rounded shadow">
