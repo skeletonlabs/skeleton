@@ -1,27 +1,28 @@
 <script context="module" lang="ts">
-	import {writable, derived} from 'svelte/store'
+	import { writable, derived, type Writable } from 'svelte/store';
 
-	const activeIndex = writable(0)
-	const children = writable([])
+	const activeIndex: Writable<number> = writable(0);
+	const children: Writable<any> = writable([]);
 
-	let prevIndex, prevActiveChild
+	let prevIndex: number;
+	let prevActiveChild: object;
 
-	const activeChild = derived(([activeIndex, children]), ([$activeIndex, $children]) => {
-		let activeChild = $children[$activeIndex]
-		if($activeIndex !== prevIndex) {
-			//index changed
-			prevIndex = $activeIndex
-		}else {
-			//children changed
-			if($children.includes(prevActiveChild) && prevActiveChild !== activeChild) {
-				activeIndex.set($children.indexOf(prevActiveChild))
-			}else {
-				if(!activeChild && $activeIndex > 0) activeIndex.set($activeIndex -= 1)
+	const activeChild = derived([activeIndex, children], ([$activeIndex, $children]) => {
+		let activeChild: object = $children[$activeIndex];
+		if ($activeIndex !== prevIndex) {
+			// index changed
+			prevIndex = $activeIndex;
+		} else {
+			// children changed
+			if ($children.includes(prevActiveChild) && prevActiveChild !== activeChild) {
+				activeIndex.set($children.indexOf(prevActiveChild));
+			} else {
+				if (!activeChild && $activeIndex > 0) activeIndex.set(($activeIndex -= 1));
 			}
 		}
-		prevActiveChild = activeChild
-		return activeChild
-	})
+		prevActiveChild = activeChild;
+		return activeChild;
+	});
 </script>
 
 <!-- Reference: https://dribbble.com/shots/16221169-Figma-Material-Ui-components-Steppers-and-sliders -->
@@ -32,6 +33,15 @@
 	// Props
 	export let locked: boolean = false;
 
+	// Context
+	export let dispatch: any = getContext('dispatch');
+	export let color: any = getContext('color');
+	export let background: any = getContext('background');
+	export let buttonBack: any = getContext('buttonBack');
+	export let buttonNext: any = getContext('buttonNext');
+	export let buttonComplete: any = getContext('buttonComplete');
+	export let duration: any = getContext('duration');
+
 	// Base Classes
 	const cBase: string = 'grid grid-cols-[32px_1fr] gap-4';
 	const cLine: string = 'w-1 h-full';
@@ -41,14 +51,8 @@
 	const cDrawer: string = 'ml-1 space-y-4';
 	const cNav: string = 'flex items-center space-x-2';
 
-	// Context
-	export let dispatch: any = getContext('dispatch');
-	export let color: any = getContext('color');
-	export let background: any = getContext('background');
-	export let buttonBack: any = getContext('buttonBack');
-	export let buttonNext: any = getContext('buttonNext');
-	export let buttonComplete: any = getContext('buttonComplete');
-	export let duration: any = getContext('duration');
+	// Local
+	let childElem: any;
 
 	// Step Handlers
 	function stepPrev(): void {
@@ -61,9 +65,18 @@
 		dispatch('complete', {});
 	}
 
+	// Action: register children (steps) with parent (stepper)
+	function register(node: HTMLElement) {
+		childElem = node;
+		const previousChildIndex: any = $children.indexOf(childElem.previousElementSibling);
+		$children = [...$children.slice(0, previousChildIndex + 1), childElem, ...$children.slice(previousChildIndex + 1)];
+		return {
+			destroy: () => ($children = $children.filter((c: any) => c !== childElem))
+		};
+	}
+
 	// Reactive
 	// Step state handling
-	let childElem;
 	$: isFirstStep = childElem === $children[0];
 	$: isLastStep = childElem === $children[$children.length - 1];
 	$: ownIndex = $children.indexOf(childElem);
@@ -82,16 +95,6 @@
 	$: classesDrawer = `${cDrawer} ${classesDrawerPadding}`;
 	// Content Nav
 	$: classesNav = `${cNav}`;
-
-	// Registration
-	function register(node) {
-		childElem = node;
-		const previousChildIndex = $children.indexOf(childElem.previousElementSibling);
-		$children = [...$children.slice(0,previousChildIndex+1), childElem, ...$children.slice(previousChildIndex+1)];
-		return {
-			destroy: () => $children = $children.filter(c => c !== childElem)
-		}
-	}
 </script>
 
 <div class="step {classesBase}" data-testid="step" use:register>

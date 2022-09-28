@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { createEventDispatcher, setContext } from 'svelte';
-	import { writable, type Writable } from 'svelte/store';
 
 	// Event Dispacher
 	const dispatch = createEventDispatcher();
