@@ -31,7 +31,6 @@ export { default as Stepper } from './components/Stepper/Stepper.svelte';
 export { default as TabGroup } from './components/Tab/TabGroup.svelte';
 export { default as Tab } from './components/Tab/Tab.svelte';
 export { default as DataTable } from './components/Table/DataTable.svelte';
-export { default as Tooltip } from './components/Tooltip/Tooltip.svelte';
 
 // Utilities ---
 
@@ -57,6 +56,9 @@ export { default as LightSwitch } from './utilities/LightSwitch/LightSwitch.svel
 
 // LightSwitch
 export { localStorageStore } from './utilities/LocalStorageStore/LocalStorageStore';
+
+// Tooltips
+export { default as Tooltip } from './utilities/Tooltip/Tooltip.svelte';
 
 // Actions ---
 

@@ -1,7 +1,7 @@
 import { render } from '@testing-library/svelte';
 import { describe, it, expect } from 'vitest';
 
-import Tooltip from '$lib/components/Tooltip/Tooltip.svelte';
+import Tooltip from '$lib/utilities/Tooltip/Tooltip.svelte';
 
 describe('Tooltip.svelte', () => {
 	it('Renders with minimal props', async () => {
