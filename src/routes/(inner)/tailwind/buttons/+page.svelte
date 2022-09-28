@@ -84,6 +84,7 @@
 						<option value={undefined}>None</option>
 						<option value="bg-primary-500">bg-primary-500</option>
 						<option value="bg-accent-500">bg-accent-500</option>
+						<option value="bg-ternary-500">bg-ternary-500</option>
 						<option value="bg-warning-500">bg-warning-500</option>
 						<option value="bg-surface-500">bg-surface-500</option>
 						<option value="bg-primary-500/30">bg-primary-500/30</option>
@@ -168,6 +169,7 @@
 			<div class="card card-body flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 				<button class="btn bg-primary-500">Skeleton</button>
 				<button class="btn bg-accent-500">Skeleton</button>
+				<button class="btn bg-ternary-500">Skeleton</button>
 				<button class="btn bg-warning-500">Skeleton</button>
 			</div>
 		</div>
@@ -215,6 +217,7 @@
 					<button class="btn btn-filled">filled</button>
 					<button class="btn btn-filled-primary">filled-primary</button>
 					<button class="btn btn-filled-accent">filled-accent</button>
+					<button class="btn btn-filled-ternary">filled-ternary</button>
 					<button class="btn btn-filled-warning">filled-warning</button>
 					<button class="btn btn-filled-surface">filled-surface</button>
 				</div>
@@ -223,6 +226,7 @@
 					<button class="btn btn-ringed">ringed</button>
 					<button class="btn btn-ringed-primary">ringed-primary</button>
 					<button class="btn btn-ringed-accent">ringed-accent</button>
+					<button class="btn btn-ringed-ternary">ringed-ternary</button>
 					<button class="btn btn-ringed-warning">ringed-warning</button>
 					<button class="btn btn-ringed-surface">ringed-surface</button>
 				</div>
@@ -231,35 +235,39 @@
 					<button class="btn btn-ghost">ghost</button>
 					<button class="btn btn-ghost-primary">ghost-primary</button>
 					<button class="btn btn-ghost-accent">ghost-accent</button>
+					<button class="btn btn-ghost-ternary">ghost-ternary</button>
 					<button class="btn btn-ghost-warning">ghost-warning</button>
 					<button class="btn btn-ghost-surface">ghost-surface</button>
 				</div>
 			</div>
-			<CodeBlock language="html" code={`<button class="btn-icon btn-filled-primary">&hearts;</button>`} />
+			<CodeBlock language="html" code={`<button class="btn-icon btn-filled-primary">💀</button>`} />
 			<div class="card card-body flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 				<!-- Text -->
 				<div class="grid grid-cols-1 gap-4">
-					<button class="btn-icon btn-filled">&hearts;</button>
-					<button class="btn-icon btn-filled-primary">&hearts;</button>
-					<button class="btn-icon btn-filled-accent">&hearts;</button>
-					<button class="btn-icon btn-filled-warning">&hearts;</button>
-					<button class="btn-icon btn-filled-surface">&hearts;</button>
+					<button class="btn-icon btn-filled">💀</button>
+					<button class="btn-icon btn-filled-primary">💀</button>
+					<button class="btn-icon btn-filled-accent">💀</button>
+					<button class="btn-icon btn-filled-ternary">💀</button>
+					<button class="btn-icon btn-filled-warning">💀</button>
+					<button class="btn-icon btn-filled-surface">💀</button>
 				</div>
 				<!-- Ringed -->
 				<div class="grid grid-cols-1 gap-4">
-					<button class="btn-icon btn-ringed">&hearts;</button>
-					<button class="btn-icon btn-ringed-primary">&hearts;</button>
-					<button class="btn-icon btn-ringed-accent">&hearts;</button>
-					<button class="btn-icon btn-ringed-warning">&hearts;</button>
-					<button class="btn-icon btn-ringed-surface">&hearts;</button>
+					<button class="btn-icon btn-ringed">💀</button>
+					<button class="btn-icon btn-ringed-primary">💀</button>
+					<button class="btn-icon btn-ringed-accent">💀</button>
+					<button class="btn-icon btn-ringed-ternary">💀</button>
+					<button class="btn-icon btn-ringed-warning">💀</button>
+					<button class="btn-icon btn-ringed-surface">💀</button>
 				</div>
 				<!-- Ringed -->
 				<div class="grid grid-cols-1 gap-4">
-					<button class="btn-icon btn-ghost">&hearts;</button>
-					<button class="btn-icon btn-ghost-primary">&hearts;</button>
-					<button class="btn-icon btn-ghost-accent">&hearts;</button>
-					<button class="btn-icon btn-ghost-warning">&hearts;</button>
-					<button class="btn-icon btn-ghost-surface">&hearts;</button>
+					<button class="btn-icon btn-ghost">💀</button>
+					<button class="btn-icon btn-ghost-primary">💀</button>
+					<button class="btn-icon btn-ghost-accent">💀</button>
+					<button class="btn-icon btn-ghost-ternary">💀</button>
+					<button class="btn-icon btn-ghost-warning">💀</button>
+					<button class="btn-icon btn-ghost-surface">💀</button>
 				</div>
 			</div>
 		</div>

@@ -164,10 +164,11 @@
 					<label>
 						<span>Background</span>
 						<select name="background" id="background" bind:value={props.background}>
-							<option value="bg-surface-500">bg-surface-500</option>
 							<option value="bg-primary-500">bg-primary-500</option>
 							<option value="bg-accent-500">bg-accent-500</option>
+							<option value="bg-ternary-500">bg-ternary-500</option>
 							<option value="bg-warning-500">bg-warning-500</option>
+							<option value="bg-surface-500">bg-surface-500</option>
 						</select>
 					</label>
 				{/if}

@@ -29,15 +29,15 @@
 
 	<!-- Examples -->
 	<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
-		<h2 class='sr-only'>Examples</h2>
+		<h2 class="sr-only">Examples</h2>
 		<div class="card">
 			<header class="card-header">
 				<p class="text-center">Accent Colors</p>
 			</header>
 			<div class="card-body flex justify-center items-center space-x-4">
-				<SlideToggle size="md" accent="bg-primary-500" checked label="Toggle Green" />
+				<SlideToggle size="md" accent="bg-primary-500" checked label="Toggle Primary" />
 				<SlideToggle size="md" checked label="Toggle Purple" />
-				<SlideToggle size="md" accent="bg-warning-500" checked label="Toggle Warning" />
+				<SlideToggle size="md" accent="bg-ternary-500" checked label="Toggle Ternary" />
 			</div>
 		</div>
 		<div class="card">
