@@ -83,34 +83,37 @@
 				<span>Theme</span>
 				<span>▾</span>
 			</button>
-			<nav class="list-nav card p-4 w-48 shadow-xl space-y-4" data-menu="theme">
-				<ul>
-					<li class="option" class:!bg-primary-500={$storeTheme === 'skeleton'} on:click={() => { storeTheme.set('skeleton') }}> 
-						<span>🦴</span>
-						<span>Skeleton</span>
-					</li>
-					<li class="option" class:!bg-primary-500={$storeTheme === 'rocket'} on:click={() => { storeTheme.set('rocket') }}> 
-						<span>🚀</span>
-						<span>Rocket</span>
-					</li>
-					<li class="option" class:!bg-primary-500={$storeTheme === 'modern'} on:click={() => { storeTheme.set('modern') }}>
-						<span>🤖</span>
-						<span>Modern</span>
-					</li>
-					<li class="option" class:!bg-primary-500={$storeTheme === 'seafoam'} on:click={() => { storeTheme.set('seafoam') }}>
-						<span>🐚</span>
-						<span>Seafoam</span>
-					</li>
-					<li class="option" class:!bg-primary-500={$storeTheme === 'vintage'} on:click={() => { storeTheme.set('vintage') }}>
-						<span>📺</span>
-						<span>Vintage</span>
-					</li>
-					<li class="option" class:!bg-primary-500={$storeTheme === 'sahara'} on:click={() => { storeTheme.set('sahara') }}>
-						<span>🏜️</span>
-						<span>Sahara</span>
-					</li>
-				</ul>
-			</nav>
+			<div class="card p-4 w-56 shadow-xl space-y-4" data-menu="theme">
+				<nav class="list-nav space-y-4">
+					<ul>
+						<li class="option" class:!bg-primary-500={$storeTheme === 'skeleton'} on:click={() => { storeTheme.set('skeleton') }}> 
+							<span>🦴</span>
+							<span>Skeleton</span>
+						</li>
+						<li class="option" class:!bg-primary-500={$storeTheme === 'rocket'} on:click={() => { storeTheme.set('rocket') }}> 
+							<span>🚀</span>
+							<span>Rocket</span>
+						</li>
+						<li class="option" class:!bg-primary-500={$storeTheme === 'modern'} on:click={() => { storeTheme.set('modern') }}>
+							<span>🤖</span>
+							<span>Modern</span>
+						</li>
+						<li class="option" class:!bg-primary-500={$storeTheme === 'seafoam'} on:click={() => { storeTheme.set('seafoam') }}>
+							<span>🐚</span>
+							<span>Seafoam</span>
+						</li>
+						<li class="option" class:!bg-primary-500={$storeTheme === 'vintage'} on:click={() => { storeTheme.set('vintage') }}>
+							<span>📺</span>
+							<span>Vintage</span>
+						</li>
+						<li class="option" class:!bg-primary-500={$storeTheme === 'sahara'} on:click={() => { storeTheme.set('sahara') }}>
+							<span>🏜️</span>
+							<span>Sahara</span>
+						</li>
+					</ul>
+				</nav>
+				<a class="btn btn-ghost w-full" href="/guides/themes/generator">Make a Theme</a>
+			</div>
 		</div>
 
 		<Divider vertical borderWidth="border-l-2" />
