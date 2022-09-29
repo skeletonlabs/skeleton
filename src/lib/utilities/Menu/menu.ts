@@ -12,6 +12,7 @@ interface ArgsMenu {
 
 // prettier-ignore
 export function menu(node: HTMLElement, args: ArgsMenu) {
+
     const elemMenu: HTMLElement | null = document.querySelector(`[data-menu="${args.menu}"]`);
 
 	const onInit = (): void => {
