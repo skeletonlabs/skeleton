@@ -13,33 +13,50 @@ interface ArgsMenu {
 // prettier-ignore
 export function menu(node: HTMLElement, args: ArgsMenu) {
     const elemMenu: HTMLElement | null = document.querySelector(`[data-menu="${args.menu}"]`);
-	
-	const onTriggerClick = (): void => {
-        autoUpdateOrigin();
-		toggleMenu();
+
+	const onInit = (): void => {
+		autoUpdateOrigin();
+		// Apply a11y attributes
+		elemMenu?.setAttribute('role', 'menu');
 	}
+
+	// Menu Open Close States ---
 	
-	const toggleMenu = (): void => {
+	const menuToggle = (): void => {
         if (elemMenu === null) return;
 		elemMenu.style.display = getComputedStyle(elemMenu).display === 'none' ? 'block' : 'none';
 	}
+
+	const menuClose = (): void => {
+		if (elemMenu === null) return;
+		elemMenu.style.display = 'none';
+	}
 	
+	// Click Handlers ---
+
+	const onTriggerClick = (): void => {
+        autoUpdateOrigin();
+		menuToggle();
+	}
+
 	const onWindowClick = (event: any): void => {
 		args.interactive === true ? interactiveClickHandler(event) : standardClickHandler();
 	}
 	
+	// Interactive FALSE - any click closes the menu
 	const standardClickHandler = (): void => {
         if (elemMenu === null) return;
 		elemMenu.style.display = 'none';
 	}
 	
+	// Interactive TRUE - clicks outside close menu
 	const interactiveClickHandler = (event: any): void => {
 		const outsideNode = node && !node.contains(event.target);
 		const outsideMenu = elemMenu && !elemMenu.contains(event.target);
-		if (outsideNode && outsideMenu) {
-			elemMenu.style.display = 'none';
-		}
+		if (outsideNode && outsideMenu) { menuClose(); }
 	}
+
+	// Menu - Set auto origin ---
 
     const autoUpdateOrigin = (): void => {
         if (args.fixed !== true && !elemMenu?.classList.contains('hidden')) {
@@ -53,19 +70,45 @@ export function menu(node: HTMLElement, args: ArgsMenu) {
             elemMenu?.classList.add(`menu-${vert}${horz}`);
         }
     }
+
+	// A11y Input Handlers ---
+
+	const onTriggerKeyDown = (event: KeyboardEvent): void => {
+		if (['Enter', 'Space'].includes(event.code)) {
+			event.preventDefault();
+			// Trigger Menu
+			onTriggerClick();
+			// If menu open, set focus
+			if (elemMenu?.style.display === 'block') { elemMenu.focus() }
+		}
+	}
+
+	const onWindowKeyDown = (event: KeyboardEvent): void => {
+		if (['Escape'].includes(event.code)) {
+			event.preventDefault();
+			menuClose();
+		}
+	}
 	
-	// Events
-    autoUpdateOrigin(); // on init
+	// On Action Init
+    onInit();
+	// Window Events
     window.addEventListener('resize', autoUpdateOrigin, true)
 	window.addEventListener('click', onWindowClick, true);
+	window.addEventListener('keydown', onWindowKeyDown, true);
+	// Trigger Node Events
 	node.addEventListener('click', onTriggerClick);
+	node.addEventListener('keydown', onTriggerKeyDown);
 	
+	// Lifecycle
 	return {
 		update: (newArgs: ArgsMenu) => { args = newArgs },
 		destroy: (): void => {
             window.removeEventListener('resize', onWindowClick, true);
 			window.removeEventListener('click', onWindowClick, true);
+			window.removeEventListener('keydown', onWindowKeyDown, true);
 			node.removeEventListener('click', onTriggerClick);
+			node.removeEventListener('keydown', onTriggerKeyDown);
 		}
 	}
 }

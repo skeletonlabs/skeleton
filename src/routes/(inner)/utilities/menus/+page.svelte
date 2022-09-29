@@ -32,6 +32,14 @@
 			['<code>.menu-br</code>', 'Specifies a fixed origin position of bottom-right.']
 		]
 	};
+	const tableKeyboard: any = {
+		headings: ['Keys', 'Description'],
+		source: [
+			['<kbd>Enter</kbd>', 'When menu button in focus, toggles the menu open/close.'],
+			['<kbd>Space</kbd>', 'When menu button in focus, toggles the menu open/close.'],
+			['<kbd>Esc</kbd>', 'Close the open menu.']
+		]
+	};
 </script>
 
 <div class="space-y-8">
@@ -170,5 +178,27 @@
 	<section class="space-y-4">
 		<h2>Classes</h2>
 		<DataTable headings={tableClasses.headings} source={tableClasses.source} />
+	</section>
+
+	<!-- Accessibility -->
+	<section class="space-y-4">
+		<div class="flex justify-between items-end">
+			<h2>Accessibility</h2>
+			<nav class="flex space-x-4">
+				<span>ARIA</span>
+				<a href="https://www.w3.org/WAI/ARIA/apg/patterns/menu/" target="_blank">Menu</a>
+				<a href="https://www.w3.org/WAI/ARIA/apg/patterns/menubutton/" target="_blank">Button</a>
+			</nav>
+		</div>
+		<p>
+			The attribute <code>role="menu"</code> will be applied to the menu automatically. However, please review the
+			<a href="https://www.w3.org/WAI/ARIA/apg/patterns/menu/" target="_blank">menus guidelines</a> for handling menu bars or menu items.
+		</p>
+	</section>
+
+	<!-- Keyboard Interactions -->
+	<section class="space-y-4">
+		<h2>Keyboard Interactions</h2>
+		<DataTable headings={tableKeyboard.headings} source={tableKeyboard.source} />
 	</section>
 </div>
