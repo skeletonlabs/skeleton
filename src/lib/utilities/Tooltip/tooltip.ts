@@ -3,50 +3,67 @@
 interface ArgsTooltip {
 	content: string;
 	position: string;
+	// Style Overrides
 	background?: string;
-	text?: string;
+	color?: string;
 	width?: string;
+	padding: string;
+	shadow?: string;
+	rounded?: string;
+	// Regions
+	regionContainer?: string;
 	regionTooltip?: string;
 	regionArrow?: string;
 }
 
 export function tooltip(node: HTMLElement, args: ArgsTooltip) {
+	const animDuration: number = 150;
 	let elemTooltip: HTMLElement;
 
-	// Map the Args and set default values
+	// Map the Args and provide default values
 	// prettier-ignore
 	const {
-        content = 'Tooltip',
+        content = '(tooltip)',
         position = 'top',
-        background = 'bg-primary-500',
-        text = 'text-white',
-        width = 'w-48',
+        // Regions
+        regionContainer = 'regionContainer',
         regionTooltip = 'regionTooltip',
         regionArrow = 'regionArrow'
     }: ArgsTooltip = args;
 
-	// Create a wrapping DIV element, set relative positioning
-	const createElemWrapper = (): void => {
-		const elemWrapper = document.createElement('span');
-		elemWrapper.classList.add('relative');
-		node.parentNode?.insertBefore(elemWrapper, node);
-		elemWrapper.appendChild(node);
+	// Create a wrapping element, set relative positioning
+	const createElemContainer = (): void => {
+		const elemContainer = document.createElement('div');
+		elemContainer.classList.add('tooltip-container', 'relative', regionContainer);
+		node.parentNode?.insertBefore(elemContainer, node);
+		elemContainer.appendChild(node);
 	};
-	createElemWrapper();
+	createElemContainer();
 
 	// Create the tooltip element
+	// prettier-ignore
 	const createElemTooltip = (): void => {
 		elemTooltip = document.createElement('div');
-		elemTooltip.classList.add('tooltip', `tooltip-${position}`, background, text, width, 'hidden', regionTooltip);
+		elemTooltip.classList.add('tooltip', `tooltip-${position}`, 'hidden', regionTooltip);
+        if (args.background) { elemTooltip.classList.add(args.background); }
+        if (args.color) { elemTooltip.classList.add(args.color); }
+        if (args.width) { elemTooltip.classList.add(args.width); }
+        if (args.padding) { elemTooltip.classList.add(args.padding); }
+        if (args.shadow) { elemTooltip.classList.add(args.shadow); }
+        if (args.rounded) { elemTooltip.classList.add(args.rounded); }
+		elemTooltip.setAttribute('role', 'tooltip');
+		elemTooltip.setAttribute('data-testid', 'tooltip');
 		elemTooltip.innerHTML = content;
 		node.parentNode?.insertBefore(elemTooltip, node);
 	};
 	createElemTooltip();
 
 	// Create the tooltip arrow
+	// prettier-ignore
 	const createElemArrow = (): void => {
 		const elemArrow = document.createElement('div');
-		elemArrow.classList.add(`tooltip-arrow-${position}`, background, regionArrow);
+		elemArrow.classList.add(`tooltip-arrow-${position}`, regionArrow);
+        if (args.background) { elemArrow.classList.add(args.background); }
 		elemTooltip.append(elemArrow);
 	};
 	createElemArrow();
@@ -56,7 +73,7 @@ export function tooltip(node: HTMLElement, args: ArgsTooltip) {
 		elemTooltip.classList.toggle('hidden');
 		setTimeout(() => {
 			elemTooltip.classList.toggle('!opacity-100');
-		}, 150);
+		}, animDuration);
 	};
 
 	// On mouse out - hide the tooltip
@@ -64,7 +81,7 @@ export function tooltip(node: HTMLElement, args: ArgsTooltip) {
 		elemTooltip.classList.toggle('!opacity-100');
 		setTimeout(() => {
 			elemTooltip.classList.toggle('hidden');
-		}, 150);
+		}, animDuration);
 	};
 
 	// Event Listner

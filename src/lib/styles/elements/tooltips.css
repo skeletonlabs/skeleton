@@ -6,9 +6,12 @@
 
 .tooltip {
 	@apply text-center rounded origin-center absolute z-10 opacity-0 transition-opacity duration-150;
-	/* Design */
-	@apply px-5 py-[9px] rounded;
+	/* Base Design */
+	@apply bg-primary-500 text-white w-48 p-2 shadow-xl rounded;
 }
+
+/* === Positions === */
+/* Set based on the action param 'position' */
 
 .tooltip-top {
 	@apply top-0;
@@ -43,9 +46,12 @@
 }
 
 /* === Arrow === */
+/* Set based on the action param 'position' */
 
 .tooltip-arrow {
 	@apply absolute h-2 w-2 -rotate-45 origin-center;
+	/* Base Design */
+	@apply bg-primary-500;
 }
 
 .tooltip-arrow-top {
