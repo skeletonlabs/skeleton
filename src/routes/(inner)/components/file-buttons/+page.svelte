@@ -51,7 +51,7 @@
 		<FileButton bind:files accept="image/*" name="file" class="btn-filled-primary" on:change={onChange}>Upload File</FileButton>
 		<!-- Log Results -->
 		{#each files as file}
-			<pre>details: {JSON.stringify(formatter(file), null, 2)}</pre>
+			<pre>files: {JSON.stringify(formatter(file), null, 2)}</pre>
 		{/each}
 	</section>
 

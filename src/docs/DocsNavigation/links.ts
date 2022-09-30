@@ -51,6 +51,7 @@ export const menuNavLinks: any = [
 			{ href: '/components/data-tables', label: 'Data Tables' },
 			{ href: '/components/dividers', label: 'Dividers' },
 			{ href: '/components/file-buttons', label: 'File Buttons' },
+			{ href: '/components/file-dropzone', label: 'File Dropzone' },
 			{ href: '/components/gradient-headings', label: 'Gradient Headings' },
 			{ href: '/components/listboxes', label: 'Listboxes' },
 			{ href: '/components/menus', label: 'Menus' },
