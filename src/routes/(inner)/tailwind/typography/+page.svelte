@@ -45,8 +45,11 @@
 		<!-- Anchor -->
 		<div class="space-y-4">
 			<h4>Anchor</h4>
-			<CodeBlock language="html" code={`<a href="/">Example Link</a>`} />
-			<div class="card card-body text-center"><a href="https://www.youtube.com/watch?v=XTgFtxHhCQ0" target="_blank">Example Link</a></div>
+			<CodeBlock language="html" code={`<a href="/">Anchor</a>\n<a class="unstyled" href="/">Unstyled</a>`} />
+			<div class="card card-body text-center space-x-4">
+				<a href="https://www.youtube.com/watch?v=XTgFtxHhCQ0" target="_blank">Anchor</a>
+				<a class="unstyled" href="https://www.youtube.com/watch?v=XTgFtxHhCQ0" target="_blank">Unstyled</a>
+			</div>
 		</div>
 		<!-- Blockquote -->
 		<div class="space-y-4">
