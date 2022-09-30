@@ -1,13 +1,13 @@
 // Action: Tooltip
 
-interface ArgsTooltip {
+export interface ArgsTooltip {
 	content: string;
 	position: string;
 	// Style Overrides
 	background?: string;
 	color?: string;
 	width?: string;
-	padding: string;
+	padding?: string;
 	shadow?: string;
 	rounded?: string;
 	// Regions
@@ -46,11 +46,11 @@ export function tooltip(node: HTMLElement, args: ArgsTooltip) {
 		elemTooltip = document.createElement('div');
 		elemTooltip.classList.add('tooltip', `tooltip-${position}`, 'hidden', regionTooltip);
         if (args.background) { elemTooltip.classList.add(args.background); }
-        if (args.color) { elemTooltip.classList.add(args.color); }
-        if (args.width) { elemTooltip.classList.add(args.width); }
-        if (args.padding) { elemTooltip.classList.add(args.padding); }
-        if (args.shadow) { elemTooltip.classList.add(args.shadow); }
-        if (args.rounded) { elemTooltip.classList.add(args.rounded); }
+        if (args.color) elemTooltip.classList.add(args.color);
+        if (args.width) elemTooltip.classList.add(args.width);
+        if (args.padding) elemTooltip.classList.add(args.padding);
+        if (args.shadow) elemTooltip.classList.add(args.shadow);
+        if (args.rounded) elemTooltip.classList.add(args.rounded);
 		elemTooltip.setAttribute('role', 'tooltip');
 		elemTooltip.setAttribute('data-testid', 'tooltip');
 		elemTooltip.innerHTML = content;
@@ -63,7 +63,7 @@ export function tooltip(node: HTMLElement, args: ArgsTooltip) {
 	const createElemArrow = (): void => {
 		const elemArrow = document.createElement('div');
 		elemArrow.classList.add(`tooltip-arrow-${position}`, regionArrow);
-        if (args.background) { elemArrow.classList.add(args.background); }
+        if (args.background) elemArrow.classList.add(args.background);
 		elemTooltip.append(elemArrow);
 	};
 	createElemArrow();

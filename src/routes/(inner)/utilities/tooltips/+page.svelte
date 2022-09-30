@@ -3,25 +3,23 @@
 	import DataTable from '$lib/components/Table/DataTable.svelte';
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-	import { tooltip } from '$lib/utilities/Tooltip/tooltip';
+	import { tooltip, type ArgsTooltip } from '$lib/utilities/Tooltip/tooltip';
 
 	// Examples
-	const examples: any = {
-		top: { content: 'Tooltip <strong>TOP</strong>', position: 'top' },
-		bottom: { content: 'Tooltip <strong>BOTTOM</strong>', position: 'bottom', background: '!bg-accent-500' },
-		left: { content: 'Tooltip <strong>LEFT</strong>', position: 'left', background: '!bg-ternary-500' },
-		right: { content: 'Tooltip <strong>RIGHT</strong>', position: 'right', background: '!bg-warning-500' },
-		html: {
-			content: `
-				<img src="https://source.unsplash.com/random/1280x540?skeleton" class="w-full aspect-[21/9]" alt="example" />
-				<p class="mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio et voluptatibus nobis cupiditate eos saepe ab officiis quisquam consequatur magni porro veritatis fuga mollitia ipsa, blanditiis quidem minima molestias sint.</p>
-			`,
-			position: 'bottom',
-			width: '!w-[480px]'
-		}
+	const exampleTop: ArgsTooltip = { content: 'Tooltip <strong>TOP</strong>', position: 'top' };
+	const exampleBottom: ArgsTooltip = { content: 'Tooltip <strong>BOTTOM</strong>', position: 'bottom', background: '!bg-accent-500' };
+	const exampleLeft: ArgsTooltip = { content: 'Tooltip <strong>LEFT</strong>', position: 'left', background: '!bg-ternary-500' };
+	const exampleRight: ArgsTooltip = { content: 'Tooltip <strong>RIGHT</strong>', position: 'right', background: '!bg-warning-500' };
+	const exampleHtml: ArgsTooltip = {
+		content: `
+			<img src="https://source.unsplash.com/random/1280x540?skeleton" class="w-full aspect-[21/9]" alt="example" />
+			<p class="mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio et voluptatibus nobis cupiditate eos saepe ab officiis quisquam consequatur magni porro veritatis fuga mollitia ipsa, blanditiis quidem minima molestias sint.</p>
+		`,
+		position: 'bottom',
+		width: '!w-[480px]'
 	};
 
-	const tableActionParams: any = {
+	const tableActionParams = {
 		headings: ['Prop', 'Type', 'Default', 'Values', 'Required', 'Description'],
 		source: [
 			['content', 'string', '(tooltip)', 'HTML', '&check;', 'The HTML content of your tooltip.'],
@@ -37,7 +35,7 @@
 			['regionArrow', 'string', '-', 'class', '-', 'Provide arbitrary classes to the tooltip arrow element.']
 		]
 	};
-	const tableClasses: any = {
+	const tableClasses = {
 		headings: ['Selector', 'Description'],
 		source: [
 			['<code>.tooltip-container</code>', 'The wrapping DIV container.'],
@@ -61,12 +59,12 @@
 	<section class="card">
 		<div class="card-body max-w-[280px] mx-auto">
 			<div class="grid grid-cols-2 gap-4 mb-4">
-				<button class="btn btn-ghost w-full" use:tooltip={examples.top}>Top</button>
-				<button class="btn btn-ghost w-full" use:tooltip={examples.bottom}>Bottom</button>
-				<button class="btn btn-ghost w-full" use:tooltip={examples.left}>Left</button>
-				<button class="btn btn-ghost w-full" use:tooltip={examples.right}>Right</button>
+				<button class="btn btn-ghost w-full" use:tooltip={exampleTop}>Top</button>
+				<button class="btn btn-ghost w-full" use:tooltip={exampleBottom}>Bottom</button>
+				<button class="btn btn-ghost w-full" use:tooltip={exampleLeft}>Left</button>
+				<button class="btn btn-ghost w-full" use:tooltip={exampleRight}>Right</button>
 			</div>
-			<button class="btn btn-ghost w-full" use:tooltip={examples.html}>HTML Content</button>
+			<button class="btn btn-ghost w-full" use:tooltip={exampleHtml}>HTML Content</button>
 		</div>
 	</section>
 
