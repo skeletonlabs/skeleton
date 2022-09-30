@@ -2,34 +2,32 @@
 // https://svelte.dev/repl/0ace7a508bd843b798ae599940a91783?version=3.16.7
 
 interface ArgsMenu {
-	// The value of 'x' from data-menu-[x]
+	/** The value of 'x' from data-menu-[x] */
 	menu: string;
-	// Origin - TRUE: fixed | FALSE: auto
+	/** Origin - TRUE: fixed | FALSE: auto */
 	fixed?: boolean;
-	// Clicks inside body don't close menu
+	/** Clicks inside body will not close window */
 	interactive?: boolean;
 }
 
 // prettier-ignore
 export function menu(node: HTMLElement, args: ArgsMenu) {
-
     const elemMenu: HTMLElement | null = document.querySelector(`[data-menu="${args.menu}"]`);
+	if (!elemMenu) return;
 
 	const onInit = (): void => {
 		autoUpdateOrigin();
 		// Apply a11y attributes
-		elemMenu?.setAttribute('role', 'menu');
+		elemMenu.setAttribute('role', 'menu');
 	}
 
 	// Menu Open Close States ---
 	
 	const menuToggle = (): void => {
-        if (elemMenu === null) return;
 		elemMenu.style.display = getComputedStyle(elemMenu).display === 'none' ? 'block' : 'none';
 	}
 
 	const menuClose = (): void => {
-		if (elemMenu === null) return;
 		elemMenu.style.display = 'none';
 	}
 	
@@ -46,7 +44,6 @@ export function menu(node: HTMLElement, args: ArgsMenu) {
 	
 	// Interactive FALSE - any click closes the menu
 	const standardClickHandler = (): void => {
-        if (elemMenu === null) return;
 		elemMenu.style.display = 'none';
 	}
 	
@@ -60,15 +57,15 @@ export function menu(node: HTMLElement, args: ArgsMenu) {
 	// Menu - Set auto origin ---
 
     const autoUpdateOrigin = (): void => {
-        if (args.fixed !== true && !elemMenu?.classList.contains('hidden')) {
+        if (args.fixed && !elemMenu.classList.contains('hidden')) {
             // Get the Menu's bounds
             const elemTriggerBounds: DOMRect = node.getBoundingClientRect();
             // Determine vertical and horizontal values
             const vert: string = elemTriggerBounds.y < window.innerHeight / 2 ? 't' : 'b'; // top/bottom
             const horz: string = elemTriggerBounds.x < window.innerWidth / 2 ? 'l' : 'r'; // left/right
             // Strip and apply only the relevant class
-            elemMenu?.classList.remove('menu-tl', 'menu-tr', 'menu-bl', 'menu-br');
-            elemMenu?.classList.add(`menu-${vert}${horz}`);
+            elemMenu.classList.remove('menu-tl', 'menu-tr', 'menu-bl', 'menu-br');
+            elemMenu.classList.add(`menu-${vert}${horz}`);
         }
     }
 
@@ -80,7 +77,7 @@ export function menu(node: HTMLElement, args: ArgsMenu) {
 			// Trigger Menu
 			onTriggerClick();
 			// If menu open, set focus
-			if (elemMenu?.style.display === 'block') { elemMenu.focus() }
+			if (elemMenu.style.display === 'block') { elemMenu.focus() }
 		}
 	}
 

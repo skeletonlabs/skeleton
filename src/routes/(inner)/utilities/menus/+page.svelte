@@ -10,11 +10,11 @@
 	};
 
 	// Tables
-	const tableDataAttr: any = {
+	const tableDataAttr = {
 		headings: ['Name', 'Description'],
 		source: [['<code>data-menu="{menuId}"</code>', 'Provide a unique identifier for the menu element. This pairs with <code>menu</code> action param.']]
 	};
-	const tableActionParams: any = {
+	const tableActionParams = {
 		headings: ['Key', 'Type', 'Required', 'Description'],
 		source: [
 			['menu', 'string', '&check;', 'Accepts the matching menu ID specified in the data attribute.'],
@@ -22,7 +22,7 @@
 			['interactive', 'boolean', '-', 'When enabled, keeps the menu open while interacting with the contents.']
 		]
 	};
-	const tableClasses: any = {
+	const tableClasses = {
 		headings: ['Class', 'Description'],
 		source: [
 			['<code>[data-menu]</code>', 'Automatically applies menu styles.'],
@@ -32,7 +32,7 @@
 			['<code>.menu-br</code>', 'Specifies a fixed origin position of bottom-right.']
 		]
 	};
-	const tableKeyboard: any = {
+	const tableKeyboard = {
 		headings: ['Keys', 'Description'],
 		source: [
 			['<kbd>Enter</kbd>', 'When menu button in focus, toggles the menu open/close.'],
@@ -120,7 +120,7 @@
 		<hr />
 		<!-- Menu Styling -->
 		<div class="space-y-4">
-			<h4>Menu Element Styling</h4>
+			<h3>Menu Element Styling</h3>
 			<p>Use <code>.card</code> classes to alter the appearance.</p>
 			<CodeBlock language="html" code={`<div class="card card-body" data-menu="example">(menu)</div>`} />
 			<p>Pair this with Tailwind utility classes to customize the look and feel.</p>
