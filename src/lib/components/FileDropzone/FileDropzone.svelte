@@ -1,4 +1,3 @@
-<!-- Reference: https://www.smashingmagazine.com/2018/01/drag-drop-file-uploader-vanilla-js/ -->
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte/internal';
 
@@ -26,7 +25,7 @@
 	let elemIcon: HTMLElement;
 
 	// Drag and Drop Event Handlers
-	// Handles icon animation and passes event up
+	// Handles icon animation and passes events up
 	function onDragOver(event: any): void {
 		dispatch('dragover', event);
 		elemIcon?.classList.add('animate-bounce');
@@ -51,8 +50,11 @@
 	<div class="file-dropzone-message {classesMessage}">
 		<!-- Slot: Default -->
 		<slot>
+			<!-- Default Message -->
 			<div class="grid grid-cols-[auto_1fr] gap-4">
+				<!-- Icon -->
 				<div class="text-4xl flex justify-center items-center" bind:this={elemIcon}>&darr;</div>
+				<!-- Text -->
 				<div class="flex flex-col justify-center items-start space-y-0">
 					<div class="text-base font-bold">Drop files or click to select.</div>
 					{#if notes}<div class="text-sm opacity-70">{@html notes}</div>{/if}
