@@ -38,7 +38,7 @@
 			<h2>Native HTML Elements</h2>
 			<p>
 				Native HTML input elements using the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Tailwind Forms</a> plugin plus the Skeleton
-				<a href="/guides/styling">forms.css</a> stylesheet to apply theme colors and styles.
+				<code>forms.css</code> stylesheet to apply theme colors and styles.
 			</p>
 		</header>
 		<!-- Card Body -->
@@ -62,6 +62,10 @@
 					<input type="password" placeholder="password" />
 				</label>
 				<label>
+					<span>Input (search)</span>
+					<input type="search" placeholder="Search..." />
+				</label>
+				<label>
 					<span>Input (date)</span>
 					<input type="date" />
 				</label>
@@ -76,10 +80,6 @@
 				<label>
 					<span>Input (number)</span>
 					<input type="number" />
-				</label>
-				<label>
-					<span>Input (search)</span>
-					<input type="search" />
 				</label>
 				<label>
 					<span>Input (time)</span>
@@ -157,6 +157,25 @@
 				</fieldset>
 			</div>
 		</div>
+	</div>
+
+	<!-- State Classes -->
+	<div class="card card-body space-y-4">
+		<h2>Utility State Classes</h2>
+		<p>
+			Provided by <code>forms.css</code>. See handling
+			<a href="https://kit.svelte.dev/docs/form-actions#anatomy-of-an-action-validation-errors" target="_blank">validation errors for SvelteKit</a>. Additionally we recommend
+			<a href="https://felte.dev/" target="_blank">Felte</a>
+			paired with your choice of <a href="https://felte.dev/docs/svelte/validators" target="_blank">Validators</a>.
+		</p>
+		<label>
+			<span><code>.input-valid</code></span>
+			<input type="text" placeholder="input text" class="input-valid" />
+		</label>
+		<label>
+			<span><code>.input-invalid</code></span>
+			<input type="text" placeholder="input text" class="input-invalid" />
+		</label>
 	</div>
 
 	<section class="grid grid-cols-2 gap-4">
