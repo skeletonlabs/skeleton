@@ -14,7 +14,6 @@
 	export let height: string = 'w-5';
 	// A11y
 	export let title: string | undefined = undefined;
-	export let tabindex: number = -1;
 
 	// Base Classes
 	const cBase: string = 'inline-block outline-none';
@@ -30,7 +29,6 @@
     {viewBox}
     class="svg-icon {classesBase} {$$props.class||''}"
     focusable="false"
-    {tabindex}
 	data-testid="svg-icon"
 >
     {#if title}<title>{title}</title>{/if}
