@@ -43,6 +43,10 @@
 			['<code>.tooltip-arrow</code>', 'The small tooltip arrow.']
 		]
 	};
+	const tableKeyboard = {
+		headings: ['Key', 'Description'],
+		source: [['<kbd>Esc</kbd>', 'Closes any open tooltip.']]
+	};
 </script>
 
 <div class="space-y-8">
@@ -123,5 +127,11 @@
 			are a
 			<a href="https://github.com/w3c/aria-practices/issues/128" target="_blank">work-in-progress</a> and subject to change over time.
 		</p>
+	</section>
+
+	<!-- Keyboard Interactions -->
+	<section class="space-y-4">
+		<h2>Keyboard Interactions</h2>
+		<DataTable headings={tableKeyboard.headings} source={tableKeyboard.source} />
 	</section>
 </div>

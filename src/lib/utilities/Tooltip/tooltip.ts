@@ -70,23 +70,29 @@ export function tooltip(node: HTMLElement, args: ArgsTooltip) {
 
 	// On mouse over - show the tooltip
 	const onMouseOver = (): void => {
-		elemTooltip.classList.toggle('hidden');
+		elemTooltip.classList.remove('hidden');
 		setTimeout(() => {
-			elemTooltip.classList.toggle('!opacity-100');
+			elemTooltip.classList.add('!opacity-100');
 		}, animDuration);
 	};
 
 	// On mouse out - hide the tooltip
 	const onMouseOut = (): void => {
-		elemTooltip.classList.toggle('!opacity-100');
+		elemTooltip.classList.remove('!opacity-100');
 		setTimeout(() => {
-			elemTooltip.classList.toggle('hidden');
+			elemTooltip.classList.add('hidden');
 		}, animDuration);
+	};
+
+	// A11y Input Handler
+	const onWindowKeyDown = (event: KeyboardEvent): void => {
+		if (event.code === 'Escape') onMouseOut();
 	};
 
 	// Event Listner
 	node.addEventListener('mouseover', onMouseOver);
 	node.addEventListener('mouseout', onMouseOut);
+	window.addEventListener('keydown', onWindowKeyDown);
 
 	// Lifecycle
 	return {
@@ -96,6 +102,7 @@ export function tooltip(node: HTMLElement, args: ArgsTooltip) {
 		destroy() {
 			node.removeEventListener('mouseover', onMouseOver);
 			node.removeEventListener('mouseout', onMouseOut);
+			window.removeEventListener('keydown', onWindowKeyDown);
 		}
 	};
 }
