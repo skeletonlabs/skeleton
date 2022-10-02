@@ -42,6 +42,16 @@
 		headings: ['Prop', 'Type', 'Required', 'Description'],
 		source: [['label', 'string', '-', `Defines a semantic label for the tab.`]]
 	};
+	const tableKeys: any = {
+		headings: ['Keys', 'Description'],
+		source: [
+			['<kbd>Tab</kbd>', 'Moves focus to the next focusable Tab.'],
+			['<kbd>Shift + Tab</kbd> ', 'Moves focus to the previous focusable Tab.'],
+			['<kbd>Home</kbd>', 'Moves focus to the first tab.'],
+			['<kbd>End</kbd>', 'Moves focus to the last tab.'],
+			['<kbd>Space</kbd> or <kbd>Enter</kbd>', 'Activates the tab if it was not activated automatically on focus.'],
+		]
+	};
 </script>
 
 <div class="space-y-8">
@@ -175,5 +185,7 @@ let storeTab: Writable<string> = writable('a');`}
 		<DataTable headings={tableA11yGroup.headings} source={tableA11yGroup.source} />
 		<h3>Tab</h3>
 		<DataTable headings={tableA11yTab.headings} source={tableA11yTab.source} />
+		<h3>Keyboard Interactions</h3>
+		<DataTable headings={tableKeys.headings} source={tableKeys.source} />
 	</section>
 </div>
