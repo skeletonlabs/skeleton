@@ -54,7 +54,7 @@
 
 	<!-- Examples -->
 	<section class="space-y-4">
-		<h2 class='sr-only'>Examples</h2>
+		<h2 class="sr-only">Examples</h2>
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 			<div class="card card-body space-y-4">
 				<TabGroup selected={storeOne}>
@@ -82,7 +82,7 @@
 			</div>
 		</div>
 		<div class="card card-body space-y-4">
-			<TabGroup selected={storeThree} justify="justify-start md:justify-center" borderColor="border-warning-500" fill="fill-warning-500" color="text-warning-500" hover="hover:bg-warning-500/10">
+			<TabGroup selected={storeThree} justify="justify-start md:justify-center" borderColor="border-ternary-500" fill="fill-ternary-500" color="text-ternary-500" hover="hover:bg-ternary-500/10">
 				<Tab value="a">
 					<svelte:fragment slot="lead">
 						<SvgIcon name="book" fill="fill-inherit" class="!block" />

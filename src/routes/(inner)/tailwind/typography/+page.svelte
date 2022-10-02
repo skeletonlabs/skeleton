@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Alert from '$lib/components/Alert/Alert.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 </script>
 
@@ -9,6 +10,9 @@
 		<p>Automatically included in <code>all.css</code>. This <a href="/guides/styling">stylesheet</a> provides common typographical element styles.</p>
 		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/typography.css';`} />
 	</header>
+
+	<!-- Alert -->
+	<Alert>Use the <code>.unstyled</code> class to exclude these styles for an individual element.</Alert>
 
 	<!-- Usage -->
 	<section class="space-y-8">
@@ -45,8 +49,10 @@
 		<!-- Anchor -->
 		<div class="space-y-4">
 			<h4>Anchor</h4>
-			<CodeBlock language="html" code={`<a href="/">Example Link</a>`} />
-			<div class="card card-body text-center"><a href="https://www.youtube.com/watch?v=XTgFtxHhCQ0" target="_blank">Example Link</a></div>
+			<CodeBlock language="html" code={`<a href="/">Anchor</a>`} />
+			<div class="card card-body text-center space-x-4">
+				<a href="https://www.youtube.com/watch?v=XTgFtxHhCQ0" target="_blank">Anchor</a>
+			</div>
 		</div>
 		<!-- Blockquote -->
 		<div class="space-y-4">

@@ -23,7 +23,7 @@
 	$: classesTrack = `${cBaseTrack} ${height} ${rounded} ${track} ${$$props.class || ''}`;
 </script>
 
-<div class="progress-wrapper {cBaseWrapper}" data-testid="progress-wrapper" role="meter" aria-label={label} aria-valuenow={value} aria-valuemin={0} aria-valuemax={max}>
+<div class="progress-wrapper {cBaseWrapper}" data-testid="progress-wrapper" role="progressbar" aria-label={label} aria-valuenow={value} aria-valuemin={0} aria-valuemax={max}>
 	<!-- Label -->
 	{#if label}<label for="progress" class="progress-label {cBaseLabel}">{label}</label>{/if}
 	<!-- Track -->

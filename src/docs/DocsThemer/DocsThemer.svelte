@@ -85,12 +85,26 @@
 
 	// Tailwind: on randomize button click
 	function onRandomize(): void {
-		storeTailwindPalette.set({
+		const newColors: any = {
 			primary: randomTailwindColor(),
 			accent: randomTailwindColor(),
 			warning: randomTailwindColor(),
 			ternary: randomTailwindColor(),
 			surface: randomTailwindColor()
+		};
+		storeTailwindForm.set({
+			primary: newColors.primary.label,
+			accent: newColors.accent.label,
+			ternary: newColors.ternary.label,
+			warning: newColors.warning.label,
+			surface: newColors.surface.label
+		});
+		storeTailwindPalette.set({
+			primary: newColors.primary,
+			accent: newColors.accent,
+			warning: newColors.warning,
+			ternary: newColors.ternary,
+			surface: newColors.surface
 		});
 	}
 

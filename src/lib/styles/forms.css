@@ -51,10 +51,45 @@ select {
 }
 
 /* === States === */
+/* These are not required to use, merely an option */
 
 /* Invalid - https://www.bram.us/2021/01/28/form-validation-you-want-notfocusinvalid-not-invalid/ */
-input:not(:focus):not(:placeholder-shown):invalid {
-	@apply bg-warning-300 border-warning-500;
+/* input:not(:focus):not(:placeholder-shown):invalid {
+	@apply invalid;
+} */
+
+/* Valid */
+.input-valid {
+	@apply !bg-green-200 !border-green-500 !text-green-500;
+}
+.input-valid::-moz-placeholder,
+textarea::-moz-placeholder {
+	@apply text-green-500;
+}
+.input-valid:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+	@apply text-green-500;
+}
+.input-valid::placeholder,
+textarea::placeholder {
+	@apply text-green-500;
+}
+
+/* Invalid */
+.input-invalid {
+	@apply !bg-red-200 !border-red-500 !text-red-500;
+}
+.input-invalid::-moz-placeholder,
+textarea::-moz-placeholder {
+	@apply text-red-500;
+}
+.input-invalid:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+	@apply text-red-500;
+}
+.input-invalid::placeholder,
+textarea::placeholder {
+	@apply text-red-500;
 }
 
 /* === Placeholders === */

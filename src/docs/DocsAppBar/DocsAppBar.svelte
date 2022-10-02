@@ -21,7 +21,7 @@
 		const targetElem: HTMLElement | null = document.querySelector(targetId);
 		const targetOffsetTop = targetElem?.offsetTop;
 		if (elemSidebarLeft && targetOffsetTop) {
-			elemSidebarLeft.scrollTo({ top: targetOffsetTop - 85, behavior: 'smooth' });
+			elemSidebarLeft.scrollTo({ top: targetOffsetTop - 160, behavior: 'smooth' });
 		}
 	}
 </script>

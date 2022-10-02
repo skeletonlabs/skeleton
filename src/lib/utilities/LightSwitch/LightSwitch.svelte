@@ -1,17 +1,8 @@
 <!-- https://tailwindcss.com/docs/dark-mode -->
-<script context="module" lang="ts">
-	import { writable, type Writable } from 'svelte/store';
-	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
-
-	// Share checked state between all component instances
-	const checked: Writable<boolean> = writable(false); // false:light | true:dark
-</script>
-
 <script lang="ts">
+	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
+	import { storeLightSwitch } from './stores';
 	import { onMount } from 'svelte';
-
-	// Local
-	let lsDefinedMode: string;
 
 	// Base Classes
 	const cTrack: string = 'inline-block bg-surface-500/50 w-12 h-6 rounded-full cursor-pointer transition-all duration-[100ms] hover:brightness-110';
@@ -21,28 +12,20 @@
 	// On Mount: Set the users system prefers for light/dark mode
 	function setPreferredScheme(): void {
 		const prefersDarkScheme: any = window.matchMedia('(prefers-color-scheme: dark)').matches;
-		checked.set(prefersDarkScheme);
-		setElemHtmlClass();
-	}
-
-	// On Mount: sets the defined mode via LocalStorage
-	function setDefinedMode(): void {
-		checked.set(lsDefinedMode === 'dark');
+		storeLightSwitch.set(prefersDarkScheme);
 		setElemHtmlClass();
 	}
 
 	// Toggles a 'dark' class on the <html> element
 	function setElemHtmlClass(): void {
 		const elemHtmlClassList: DOMTokenList = document.documentElement.classList;
-		$checked ? elemHtmlClassList.add('dark') : elemHtmlClassList.remove('dark');
+		$storeLightSwitch ? elemHtmlClassList.add('dark') : elemHtmlClassList.remove('dark');
 	}
 
 	// On Click Handler
 	function onClick(): void {
 		// Set the Store Value
-		checked.set(($checked = !$checked));
-		// Cache to LocalStorage
-		localStorage.setItem('mode', $checked === true ? 'dark' : 'light');
+		storeLightSwitch.set(($storeLightSwitch = !$storeLightSwitch));
 		// Apply to <html> Element
 		setElemHtmlClass();
 	}
@@ -58,13 +41,12 @@
 
 	// Lifecycle
 	onMount(() => {
-		lsDefinedMode = localStorage.mode;
-		lsDefinedMode === undefined ? setPreferredScheme() : setDefinedMode();
+		storeLightSwitch === undefined ? setPreferredScheme() : setElemHtmlClass();
 	});
 
 	// Reactive Classses
-	$: classesPosition = $checked ? 'translate-x-full' : 'translate-x-0';
-	$: classesThumbBg = $checked ? 'fill-neutral-100 bg-neutral-900' : 'fill-neutral-900 bg-neutral-100';
+	$: classesPosition = $storeLightSwitch ? 'translate-x-full' : 'translate-x-0';
+	$: classesThumbBg = $storeLightSwitch ? 'fill-neutral-100 bg-neutral-900' : 'fill-neutral-900 bg-neutral-100';
 	$: classesBase = `${cTrack} ${$$props.class || ''}`;
 	$: classesThumb = `${cThumb} ${classesThumbBg} ${classesPosition}`;
 </script>
@@ -76,13 +58,13 @@
 	on:keydown={onKeyDown}
 	role="switch"
 	aria-label="Light Switch"
-	aria-checked={$checked}
-	title="Toggle {$checked ? 'Light' : 'Dark'} Mode"
+	aria-checked={$storeLightSwitch}
+	title="Toggle {$storeLightSwitch ? 'Light' : 'Dark'} Mode"
 	tabindex="0"
 >
 	<!-- Thumb -->
 	<div class="lightswitch-thumb {classesThumb}">
 		<!-- SVG Icon -->
-		<SvgIcon name={$checked === false ? 'sun' : 'moon'} class="lightswitch-icon {cIcon}" />
+		<SvgIcon name={$storeLightSwitch === false ? 'sun' : 'moon'} class="lightswitch-icon {cIcon}" />
 	</div>
 </div>
