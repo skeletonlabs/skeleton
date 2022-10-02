@@ -32,7 +32,7 @@
 		if (['Enter', 'Space'].includes(event.code)) {
 			event.preventDefault();
 			dispatch('keyup', event);
-			event.target.click();
+			event.target.firstChild.click();
 		}
 	}
 
