@@ -51,6 +51,11 @@
 			['describedby', 'string', '-', 'Provide an ID of the element describing the drawer.']
 		]
 	};
+
+	const tableKeys: any = {
+		headings: ['Keys', 'Description'],
+		source: [['<kbd>Escape</kbd>', ' Closes the drawer.']]
+	};
 </script>
 
 <section class="space-y-8">
@@ -144,5 +149,7 @@ const storeDrawer: Writable<boolean> = writable(false);
 			<a href="https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/" target="_blank">ARIA Guidelines</a>
 		</div>
 		<DataTable headings={tableA11y.headings} source={tableA11y.source} />
+		<h3>Keyboard Interactions</h3>
+		<DataTable headings={tableKeys.headings} source={tableKeys.source} />
 	</section>
 </section>
