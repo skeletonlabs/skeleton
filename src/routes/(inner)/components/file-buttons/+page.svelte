@@ -1,17 +1,9 @@
 <script lang="ts">
-	import { FileButton } from '@brainandbones/skeleton';
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import DataTable from '$lib/components/Table/DataTable.svelte';
+	import FileButton from '$lib/components/FileButton/FileButton.svelte';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	let files: FileList;
-
-	function formatter(file: any): any {
-		return {
-			name: file.name,
-			size: file.size,
-			type: file.type
-		};
-	}
 
 	function onChange(e: Event): void {
 		console.log('file data:', e);
@@ -47,12 +39,8 @@
 
 	<!-- Example -->
 	<section class="card card-body flex flex-col items-center justify-center !py-10 space-y-4">
-		<!-- Component -->
 		<FileButton bind:files accept="image/*" name="file" class="btn-filled-primary" on:change={onChange}>Upload File</FileButton>
-		<!-- Log Results -->
-		{#each files as file}
-			<pre>files: {JSON.stringify(formatter(file), null, 2)}</pre>
-		{/each}
+		<p class="!text-xs text-center">Monitor browser console when uploading files.</p>
 	</section>
 
 	<!-- Usage -->

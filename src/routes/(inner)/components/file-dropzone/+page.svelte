@@ -5,21 +5,7 @@
 
 	let files: FileList;
 
-	interface formatterResp {
-		name: string;
-		size: number;
-		type: string;
-	}
-
-	function formatter(file: File): formatterResp {
-		return {
-			name: file.name,
-			size: file.size,
-			type: file.type
-		};
-	}
-
-	function onChange(e: Event): void {
+	function onChange(e: any): void {
 		console.log('file data:', e);
 	}
 
@@ -63,10 +49,7 @@
 		<FileDropzone bind:files on:change={onChange} />
 		<FileDropzone bind:files notes="Files should not exceed 5mb." on:change={onChange} />
 		<FileDropzone bind:files on:change={onChange}><p>Custom message example</p></FileDropzone>
-		<!-- Log Results -->
-		{#each files as file}
-			<pre>files: {JSON.stringify(formatter(file), null, 2)}</pre>
-		{/each}
+		<p class="!text-xs text-center">Monitor browser console when uploading files.</p>
 	</section>
 
 	<!-- Usage -->

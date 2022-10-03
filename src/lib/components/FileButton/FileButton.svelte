@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let files: any;
+	export let files: FileList;
 	export let name: string | undefined = '';
 	export let accept: string | undefined = '';
 	export let multiple: boolean = false;
