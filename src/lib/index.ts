@@ -14,6 +14,7 @@ export { type ConicStop } from './components/ConicGradient/types';
 export { default as ConicGradient } from './components/ConicGradient/ConicGradient.svelte';
 export { default as Divider } from './components/Divider/Divider.svelte';
 export { default as FileButton } from './components/FileButton/FileButton.svelte';
+export { default as FileDropzone } from './components/FileDropzone/FileDropzone.svelte';
 export { default as GradientHeading } from './components/GradientHeading/GradientHeading.svelte';
 export { default as ListBox } from './components/ListBox/ListBox.svelte';
 export { default as ListBoxItem } from './components/ListBox/ListBoxItem.svelte';
@@ -60,7 +61,7 @@ export { localStorageStore } from './utilities/LocalStorageStore/LocalStorageSto
 export { menu } from './utilities/Menu/menu';
 
 // Tooltips
-export { default as Tooltip } from './utilities/Tooltip/Tooltip.svelte';
+export { tooltip } from './utilities/Tooltip/tooltip';
 
 // Actions ---
 
