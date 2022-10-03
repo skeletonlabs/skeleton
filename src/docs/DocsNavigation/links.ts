@@ -60,8 +60,7 @@ export const menuNavLinks: any = [
 			{ href: '/components/range-sliders', label: 'Range Sliders' },
 			{ href: '/components/slide-toggles', label: 'Slide Toggles' },
 			{ href: '/components/steppers', label: 'Steppers' },
-			{ href: '/components/tabs', label: 'Tabs' },
-			{ href: '/components/tooltips', label: 'Tooltips' }
+			{ href: '/components/tabs', label: 'Tabs' }
 			// Work in Progress
 			// { href: '/components/svg-icons', label: 'SVG Icons' }, // keep disabled until further notice
 		]
@@ -84,7 +83,8 @@ export const menuNavLinks: any = [
 			{ href: '/utilities/toasts', label: 'Toasts' },
 			{ href: '/utilities/lightswitches', label: 'Lightswitch' },
 			{ href: '/utilities/local-storage-stores', label: 'Local Storage Stores' },
-			{ href: '/utilities/menus', label: 'Menus' }
+			{ href: '/utilities/menus', label: 'Menus' },
+			{ href: '/utilities/tooltips', label: 'Tooltips' }
 		]
 	}
 ];
