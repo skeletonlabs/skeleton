@@ -59,7 +59,7 @@
 	genLegend();
 
 	// Reactive
-	$: classesBase = `${cBase} ${$$props.class || ''}`;
+	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
 	$: classesCone = `${cCone} ${width}`;
 </script>
 

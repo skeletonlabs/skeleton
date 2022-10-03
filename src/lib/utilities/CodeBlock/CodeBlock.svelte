@@ -43,7 +43,7 @@
 	}
 
 	// Reactive
-	$: classesBase = `${cBase} ${background} ${text} ${color} ${rounded} ${$$props.class || ''}`;
+	$: classesBase = `${cBase} ${background} ${text} ${color} ${rounded} ${$$props.class ?? ''}`;
 </script>
 
 <!-- prettier-ignore -->

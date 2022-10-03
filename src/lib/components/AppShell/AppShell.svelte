@@ -16,7 +16,7 @@
 	const cSidebarRight: string = 'flex-none overflow-x-hidden overflow-y-auto';
 
 	// Reactive Classes
-	$: classesBase = `${cBaseAppShell} ${$$props.class || ''}`;
+	$: classesBase = `${cBaseAppShell} ${$$props.class ?? ''}`;
 	$: classesheader = `${slotHeader}`;
 	$: classesSidebarLeft = `${cSidebarLeft} ${slotSidebarLeft}`;
 	$: classesSidebarRight = `${cSidebarRight} ${slotSidebarRight}`;

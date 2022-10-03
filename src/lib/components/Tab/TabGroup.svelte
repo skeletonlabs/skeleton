@@ -43,7 +43,7 @@
 	}
 
 	// Reactive Classes
-	$: classesGroup = `${cBase} ${borderWidth} ${justify} ${$$props.class || ''}`;
+	$: classesGroup = `${cBase} ${borderWidth} ${justify} ${$$props.class ?? ''}`;
 </script>
 
 <!-- prettier-ignore -->

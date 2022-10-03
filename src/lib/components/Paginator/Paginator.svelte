@@ -35,7 +35,7 @@
 	}
 
 	// Reactive Classes
-	$: classesBase = `${cBase} ${justify} ${$$props.class || ''}`;
+	$: classesBase = `${cBase} ${justify} ${$$props.class ?? ''}`;
 	$: classesLabel = `${cLabel}`;
 	$: classesSelect = `${select}`;
 	$: classesPageText = `${cPageText} ${text}`;

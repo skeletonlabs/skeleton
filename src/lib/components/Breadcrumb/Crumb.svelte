@@ -17,7 +17,7 @@
 	const cSeperator: string = 'font-bold flex fill-surface-500 text-surface-500 w-2';
 
 	// Reactive Classes
-	$: classesBase = `${cBase} ${text} ${color} ${$$props.class || ''}`;
+	$: classesBase = `${cBase} ${text} ${color} ${$$props.class ?? ''}`;
 </script>
 
 <li class="crumb {classesBase}" data-testid="crumb">

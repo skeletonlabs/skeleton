@@ -10,7 +10,7 @@
 	// Reactive classes
 	$: classesRadius = circle ? 'aspect-square rounded-full' : `${height} ${rounded}`;
 	$: classesAnimate = animate ? 'animate-pulse' : '';
-	$: classesSkeleton = `${background} ${width} ${classesRadius} ${classesAnimate} ${$$props.class || ''}`;
+	$: classesSkeleton = `${background} ${width} ${classesRadius} ${classesAnimate} ${$$props.class ?? ''}`;
 </script>
 
 <div class="comp-placeholder {classesSkeleton}" data-testid="placeholder" />

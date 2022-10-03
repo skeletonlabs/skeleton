@@ -43,7 +43,7 @@
 
 	// Reactive Classes
 	$: classesBase = `${cBase}`;
-	$: classesLabel = `${cLabel} ${$$props.class || ''}`;
+	$: classesLabel = `${cLabel} ${$$props.class ?? ''}`;
 	$: classesTrack = `${cTrack} ${trackSize} ${cTrackAccent}`;
 	$: classesThumb = `${cThumb} ${cThumbBackground} ${cThumbPos}`;
 

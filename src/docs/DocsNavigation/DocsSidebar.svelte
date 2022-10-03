@@ -48,7 +48,7 @@
 	$: classesActive = (href: string) => ($storeCurrentUrl === href ? '!bg-primary-500' : '');
 </script>
 
-<div class="m-4 mb-20 {$$props.class || ''}">
+<div class="m-4 mb-20 {$$props.class ?? ''}">
 	<!-- Search -->
 	<header class="sticky top-0 z-10 bg-surface-300 dark:bg-surface-900 -m-4 mb-2 p-4">
 		<input type="search" placeholder="Search..." bind:value={inputSearch} on:input={onSearch} />

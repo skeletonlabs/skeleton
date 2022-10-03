@@ -20,7 +20,7 @@
 	const cBaseIcon: string = 'flex justify-center items-center w-3 fill-black dark:fill-white transition-all duration-[100ms]';
 
 	// Reactive Classes
-	$: classesDetails = `${cBaseDetails} ${spacing} ${$$props.class || ''}`;
+	$: classesDetails = `${cBaseDetails} ${spacing} ${$$props.class ?? ''}`;
 	$: classesSummary = `${cBaseSummary} ${padding} ${rounded} ${hover} ${slotSummary}`;
 	$: classesIconState = open ? '-rotate-180' : '';
 	$: classesIcon = `${cBaseIcon} ${classesIconState}`;
