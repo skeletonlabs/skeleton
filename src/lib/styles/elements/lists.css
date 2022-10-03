@@ -31,7 +31,8 @@
 	@apply rounded;
 }
 
-.list-nav a {
+.list-nav a,
+.list-nav .option {
 	@apply flex items-center space-x-4 whitespace-nowrap;
 	/* Padding */
 	@apply px-4 py-3;
@@ -39,4 +40,6 @@
 	@apply rounded;
 	/* Hover */
 	@apply hover:bg-primary-500/10;
+	/* Cursor */
+	@apply cursor-pointer;
 }

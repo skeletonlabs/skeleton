@@ -17,7 +17,6 @@ export { default as FileButton } from './components/FileButton/FileButton.svelte
 export { default as GradientHeading } from './components/GradientHeading/GradientHeading.svelte';
 export { default as ListBox } from './components/ListBox/ListBox.svelte';
 export { default as ListBoxItem } from './components/ListBox/ListBoxItem.svelte';
-export { default as Menu } from './components/Menu/Menu.svelte';
 export { default as Paginator } from './components/Paginator/Paginator.svelte';
 export { default as ProgressBar } from './components/ProgressBar/ProgressBar.svelte';
 export { default as ProgressRadial } from './components/ProgressRadial/ProgressRadial.svelte';
@@ -58,7 +57,12 @@ export { default as LightSwitch } from './utilities/LightSwitch/LightSwitch.svel
 // LightSwitch
 export { localStorageStore } from './utilities/LocalStorageStore/LocalStorageStore';
 
+// Menus
+export { menu } from './utilities/Menu/menu';
+
 // Actions ---
+
+export { clipboard } from './actions/Clipboard/clipboard';
 
 // Filters
 export { filter } from './actions/Filters/filter';
