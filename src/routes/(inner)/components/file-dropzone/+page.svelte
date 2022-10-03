@@ -3,9 +3,15 @@
 	import FileDropzone from '$lib/components/FileDropzone/FileDropzone.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	let files: FileList[] = [];
+	let files: FileList;
 
-	function formatter(file: any): any {
+	interface formatterResp {
+		name: string;
+		size: number;
+		type: string;
+	}
+
+	function formatter(file: File): formatterResp {
 		return {
 			name: file.name,
 			size: file.size,
@@ -18,7 +24,7 @@
 	}
 
 	// Tables
-	const tableProps: any = {
+	const tableProps = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['files', 'array', '-', 'Bind this to your form data, represents the "files" data from the input.'],
@@ -28,7 +34,7 @@
 			['notes', 'string', '-', 'Provided additional notes or information.']
 		]
 	};
-	const tablePropsStyles: any = {
+	const tablePropsStyles = {
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [
 			['width', 'string', 'w-full', 'Provide styles to set the dropzone width.'],
@@ -37,7 +43,7 @@
 			['color', 'string', '-', 'Provide styles to set the dropzone text color.']
 		]
 	};
-	const tableSlots: any = {
+	const tableSlots = {
 		headings: ['Name', 'Description'],
 		source: [['default', 'Replace the message with custom UI.']]
 	};

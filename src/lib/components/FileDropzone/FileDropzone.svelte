@@ -5,7 +5,7 @@
 	const dispatch = createEventDispatcher();
 
 	// Props
-	export let files: any;
+	export let files: FileList;
 	export let name: string | undefined = undefined;
 	export let accept: string | undefined = undefined;
 	export let multiple: boolean = false;
@@ -26,15 +26,15 @@
 
 	// Drag and Drop Event Handlers
 	// Handles icon animation and passes events up
-	function onDragOver(event: any): void {
+	function onDragOver(event: DragEvent): void {
 		dispatch('dragover', event);
 		elemIcon?.classList.add('animate-bounce');
 	}
-	function onDragLeave(event: any): void {
+	function onDragLeave(event: DragEvent): void {
 		dispatch('dragleave', event);
 		elemIcon?.classList.remove('animate-bounce');
 	}
-	function onDrop(event: any): void {
+	function onDrop(event: DragEvent): void {
 		dispatch('drop', event);
 		elemIcon?.classList.remove('animate-bounce');
 	}
@@ -69,12 +69,12 @@
 <style lang="postcss">
 	/* Hide Input:File Content */
 	input[type='file'] {
-		@apply !text-transparent;
+		@apply text-transparent;
 	}
 	::-webkit-file-upload-button {
-		@apply !hidden;
+		@apply hidden;
 	}
 	::file-selector-button {
-		@apply !hidden;
+		@apply hidden;
 	}
 </style>

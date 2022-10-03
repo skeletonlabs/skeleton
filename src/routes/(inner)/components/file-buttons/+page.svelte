@@ -3,7 +3,7 @@
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import DataTable from '$lib/components/Table/DataTable.svelte';
 
-	let files: FileList[] = [];
+	let files: FileList;
 
 	function formatter(file: any): any {
 		return {
