@@ -8,7 +8,7 @@
 	let cBaseHeading: string = 'bg-clip-text text-transparent box-decoration-clone';
 
 	// Reactive
-	$: classesBase = `${$$props.class || ''}`;
+	$: classesBase = `${$$props.class ?? ''}`;
 	$: classesWrapper = `${cBaseHeading} ${direction} ${from} ${to}`;
 </script>
 

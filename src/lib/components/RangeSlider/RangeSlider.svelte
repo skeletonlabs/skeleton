@@ -9,7 +9,7 @@
 	export let ticked: boolean = false;
 	export let accent: string = 'accent-accent-500';
 	// Props (a11y)
-	export let id: string = crypto.randomUUID() // unique id
+	export let id: string = crypto.randomUUID(); // unique id
 	export let name: string = id;
 	export let label: string = '';
 
@@ -34,7 +34,7 @@
 	});
 
 	// Reactive Classes
-	$: classesBase = `${cBase} ${$$props.class || ''}`;
+	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
 	$: classesInput = `${cBaseInput} ${accent}`;
 
 	// Prune $$restProps to avoid overwriting $$props.class

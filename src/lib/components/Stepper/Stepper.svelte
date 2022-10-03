@@ -29,7 +29,7 @@
 	setContext('duration', duration);
 
 	// Reactive Classes
-	$: classesStepper = `${$$props.class || ''}`;
+	$: classesStepper = `${$$props.class ?? ''}`;
 </script>
 
 <div class="stepper {classesStepper}" data-testid="stepper">

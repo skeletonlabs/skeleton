@@ -18,7 +18,7 @@
 	let cImage: string = 'w-full h-full object-cover';
 
 	// Reactive Classes
-	$: classesBase = `${cBase} ${background} ${width} ${border} ${rounded} ${shadow} ${cursor} ${$$props.class || ''}`;
+	$: classesBase = `${cBase} ${background} ${width} ${border} ${rounded} ${shadow} ${cursor} ${$$props.class ?? ''}`;
 	$: classesText = `${fill}`;
 </script>
 

@@ -29,7 +29,7 @@
 	const cListBox: string = 'list-none overflow-y-auto';
 
 	// Reactive
-	$: classesBase = `${cBase} ${$$props.class || ''}`;
+	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
 	$: classesLabel = `${cLabel}`;
 	$: classesListBox = `${cListBox} ${height} ${space}`;
 </script>

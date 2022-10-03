@@ -159,7 +159,7 @@
 	}
 
 	// Reactive Classes
-	$: classesBase = `${cBase} ${$$props.class || ''}`;
+	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
 	$: classesTable = `${cBaseTable} ${text} ${color}`;
 	$: classesHeader = `${cBaseHead} ${header}`;
 	$: classesHeadCol = `${cBaseHeadCol} ${hover}`;

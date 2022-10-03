@@ -47,7 +47,7 @@
 	// Reactive Classses
 	$: classesPosition = $storeLightSwitch ? 'translate-x-full' : 'translate-x-0';
 	$: classesThumbBg = $storeLightSwitch ? 'fill-neutral-100 bg-neutral-900' : 'fill-neutral-900 bg-neutral-100';
-	$: classesBase = `${cTrack} ${$$props.class || ''}`;
+	$: classesBase = `${cTrack} ${$$props.class ?? ''}`;
 	$: classesThumb = `${cThumb} ${classesThumbBg} ${classesPosition}`;
 </script>
 

@@ -65,7 +65,7 @@
 	};
 	$: isSelected = selectionMatch() ? true : false;
 	$: classesHighlight = isSelected ? accent : '';
-	$: classesBase = `${cBase} ${padding} ${rounded} ${classesHighlight} ${$$props.class || ''}`;
+	$: classesBase = `${cBase} ${padding} ${rounded} ${classesHighlight} ${$$props.class ?? ''}`;
 </script>
 
 <!-- prettier-ignore -->

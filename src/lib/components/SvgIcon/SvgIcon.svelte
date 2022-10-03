@@ -27,7 +27,7 @@
     xmlns="http://www.w3.org/2000/svg"
     {x} {y}
     {viewBox}
-    class="svg-icon {classesBase} {$$props.class||''}"
+    class="svg-icon {classesBase} {$$props.class ?? ''}"
     focusable="false"
 	data-testid="svg-icon"
 >
