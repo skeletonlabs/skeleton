@@ -47,7 +47,7 @@
 	<section class="space-y-4">
 		<h2>Usage</h2>
 		<p />
-		<CodeBlock language="ts" code={`let files: FileList[] = [];`} />
+		<CodeBlock language="ts" code={`let files: FileList;`} />
 		<CodeBlock language="html" code={`<FileButton bind:files={myFiles} class="btn-filled-primary">Upload File</FileButton>`} />
 		<p>Note the class values are applied directly to the button element, which is a great way to provide button styles.</p>
 	</section>
