@@ -57,7 +57,7 @@ export function menu(node: HTMLElement, args: ArgsMenu) {
 	// Menu - Set auto origin ---
 
     const autoUpdateOrigin = (): void => {
-        if (args.fixed && !elemMenu.classList.contains('hidden')) {
+        if (!args.fixed && !elemMenu.classList.contains('hidden')) {
             // Get the Menu's bounds
             const elemTriggerBounds: DOMRect = node.getBoundingClientRect();
             // Determine vertical and horizontal values
