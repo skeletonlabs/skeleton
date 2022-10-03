@@ -56,6 +56,7 @@
 	<section class="space-y-4">
 		<h2>Usage</h2>
 		<CodeBlock language="ts" code={`let files: FileList;`} />
+		<CodeBlock language="html" code={`<FileDropzone bind:files />`} />
 		<h3>Notes Text</h3>
 		<p>Use the <code>notes</code> prop to add a second line of information.</p>
 		<CodeBlock language="html" code={`<FileDropzone notes="Files should not exceed 5mb." />`} />
