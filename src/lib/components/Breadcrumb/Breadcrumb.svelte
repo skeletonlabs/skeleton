@@ -13,11 +13,11 @@
 	const cBase: string = 'flex align-center space-x-4';
 
 	// Reactive Classes
-	$: classesBase = `${cBase} ${$$props.class || ''}`;
+	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
 </script>
 
 <nav data-testid="breadcrumb" aria-label={label}>
 	<ol class="breadcrumb {classesBase}">
-			<slot />
+		<slot />
 	</ol>
 </nav>

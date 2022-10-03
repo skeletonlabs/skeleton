@@ -174,7 +174,7 @@ function prunedRestProps(): any {
     return $$restProps;
 }`}
 		/>
-		<CodeBlock language="html" code={`<button class="... {$$props.class || ''}" {...prunedRestProps()}>Skeleton</button>`} />
+		<CodeBlock language="html" code={`<button class="... {$$props.class ?? ''}" {...prunedRestProps()}>Skeleton</button>`} />
 	</section>
 
 	<Divider />
@@ -271,7 +271,7 @@ $: classesLabel = \`\${cBaseLabel}\`; // child element
 		<CodeBlock
 			language="html"
 			code={`
-<div class="card {classesCard} {$$props.classes||''}">
+<div class="card {classesCard} {$$props.classes ?? ''}">
     <label class="card-label {classesLabel}">My Label</label>
 </div>
         `}

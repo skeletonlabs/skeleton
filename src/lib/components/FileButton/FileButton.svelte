@@ -15,7 +15,7 @@
 	<!-- Input: File -->
 	<input bind:this={elemFileInput} bind:files type="file" {name} {accept} {multiple} class="file-button-input hidden" on:change />
 	<!-- Button -->
-	<button class="file-button-btn btn {$$props.class}" on:click={onButtonClick}>
+	<button class="file-button-btn btn {$$props.class ?? ''}" on:click={onButtonClick}>
 		<slot />
 	</button>
 </div>

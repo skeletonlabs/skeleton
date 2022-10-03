@@ -40,7 +40,7 @@
 	}
 
 	// Reactive
-	$: classesBase = `${cBase} ${width} ${$$props.class || ''}`;
+	$: classesBase = `${cBase} ${width} ${$$props.class ?? ''}`;
 	$: classesMessage = `${cMessage} ${color} ${height} ${padding}`;
 	$: classesInput = `${cInput} ${height} ${padding}`;
 </script>
