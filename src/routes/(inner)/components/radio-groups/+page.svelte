@@ -33,6 +33,14 @@
 		headings: ['Prop', 'Required', 'Description'],
 		source: [['label', '-', `Defines a semantic ARIA label.`]]
 	};
+	const tableKeys: any = {
+		headings: ['Keys', 'Description'],
+		source: [
+			['<kbd>Tab</kbd>', 'Moves focus to the next focusable RadioItem.'],
+			['<kbd>Shift + Tab</kbd> ', 'Moves focus to the previous focusable RadioItem.'],
+			['<kbd>Space</kbd> or <kbd>Enter</kbd>', 'Checks the focused radio button if it is not already checked']
+		]
+	};
 </script>
 
 <div class="space-y-8">
@@ -109,5 +117,7 @@
 		<DataTable headings={tableA11yGroup.headings} source={tableA11yGroup.source} />
 		<h3>Radio Item</h3>
 		<DataTable headings={tableA11yItem.headings} source={tableA11yItem.source} />
+		<h3>Keyboard Interactions</h3>
+		<DataTable headings={tableKeys.headings} source={tableKeys.source} />
 	</section>
 </div>

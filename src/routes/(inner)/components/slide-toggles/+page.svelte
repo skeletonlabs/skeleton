@@ -17,6 +17,10 @@
 		headings: ['Prop', 'Required', 'Description'],
 		source: [['label', '-', `Provide a semantic label.`]]
 	};
+	const tableKeys: any = {
+		headings: ['Keys', 'Description'],
+		source: [['<kbd>Space</kbd> or <kbd>Enter</kbd>', 'When focus is on the slide toggle, changes the state of the slide toggle.']]
+	};
 </script>
 
 <div class="space-y-8">
@@ -96,5 +100,7 @@
 			<a href="https://www.w3.org/WAI/ARIA/apg/patterns/switch/" target="_blank">ARIA Guidelines</a>
 		</div>
 		<DataTable headings={tableA11y.headings} source={tableA11y.source} />
+		<h3>Keyboard Interactions</h3>
+		<DataTable headings={tableKeys.headings} source={tableKeys.source} />
 	</section>
 </div>

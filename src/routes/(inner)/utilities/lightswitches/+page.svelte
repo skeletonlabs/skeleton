@@ -1,6 +1,12 @@
 <script lang="ts">
-	import { LightSwitch } from '@brainandbones/skeleton';
+	import { LightSwitch, DataTable } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+
+	// A11y
+	const tableKeys: any = {
+		headings: ['Keys', 'Description'],
+		source: [['<kbd>Space</kbd> or <kbd>Enter</kbd>', 'When focus is on the switch, changes the state of the switch.']]
+	};
 </script>
 
 <div class="space-y-8">
@@ -62,5 +68,8 @@
 	<section class="space-y-4">
 		<h2>Accessibility</h2>
 		<p>This component is treated as a <em>Switch</em>. See the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/switch/" target="_blank">ARIA Guidelines</a>.</p>
+		
+		<h3>Keyboard Interactions</h3>
+		<DataTable headings={tableKeys.headings} source={tableKeys.source} />
 	</section>
 </div>

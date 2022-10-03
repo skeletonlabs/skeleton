@@ -45,6 +45,17 @@
 			['label', 'string', `A semantic ARIA label.`]
 		]
 	};
+	const tableKeys: any = {
+		headings: ['Keys', 'Description'],
+		source: [
+			['<kbd>Right Arrow</kbd> or <kbd>Up Arrow</kbd>', 'Increase the value of the slider by one step.'],
+			['<kbd>Left Arrow</kbd> or <kbd>Down Arrow</kbd>', 'Decrease  the value of the slider by one step.'],
+			['<kbd>Home</kbd>', 'Set the slider to the first allowed value in its range.'],
+			['<kbd>End</kbd>', 'Set the slider to the last allowed value in its range.'],
+			['<kbd>Page Up</kbd>', 'Increase the slider value by an amount larger than the step change made by <kbd>Up Arrow</kbd>.'],
+			['<kbd>Page Down</kbd>', 'Decrease  the slider value by an amount larger than the step change made by <kbd>Up Down</kbd>.']
+		]
+	};
 </script>
 
 <div class="space-y-8">
@@ -159,6 +170,8 @@
 			<a href="https://www.w3.org/WAI/ARIA/apg/patterns/slider/" target="_blank">ARIA Guidelines</a>
 		</div>
 		<DataTable headings={tableA11y.headings} source={tableA11y.source} />
+		<h3>Keyboard Interactions</h3>
+		<DataTable headings={tableKeys.headings} source={tableKeys.source} />
 	</section>
 
 	<!-- Support -->

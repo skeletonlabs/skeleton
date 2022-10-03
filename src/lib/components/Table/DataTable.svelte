@@ -143,7 +143,7 @@
 	function jumpToOuterColumn(type: 'first' | 'last' = 'first'): void {
 		const targetRowElement = getTargetElem();
 		if (targetRowElement === null) return;
-		const lastIndex: number = targetRowElement.children.length - 1;
+		const lastIndex: number = targetRowElement.children.length;
 		const selected = type === 'first' ? 1 : lastIndex;
 		const targetColElement: HTMLElement | null = targetRowElement.querySelector(`[aria-colindex="${selected}"]`);
 		if (targetColElement === null) return;
