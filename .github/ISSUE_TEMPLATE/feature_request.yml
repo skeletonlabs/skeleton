@@ -1,0 +1,22 @@
+name: Request a new feature
+description: Is there a component or feature that you think we should add?
+labels: 'feature_request'
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe what feature you'd like. Pseudo-code, mockups, or screenshots of similar solutions are encouraged!
+  - type: dropdown
+    id: category
+    attributes:
+      label: What type of pull request would this be?
+      options:
+        - 'New Feature'
+        - 'Enhancement'
+        - 'Guide'
+        - 'Docs'
+        - 'Other'
+  - type: textarea
+    id: references
+    attributes:
+      label: Any links to similar examples in other libraries that we should take a look at? 
