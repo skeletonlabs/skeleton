@@ -53,7 +53,6 @@ export const menuNavLinks: any = [
 			{ href: '/components/file-buttons', label: 'File Buttons' },
 			{ href: '/components/gradient-headings', label: 'Gradient Headings' },
 			{ href: '/components/listboxes', label: 'Listboxes' },
-			{ href: '/components/menus', label: 'Menus' },
 			{ href: '/components/paginators', label: 'Paginators' },
 			{ href: '/components/progress-bars', label: 'Progress Bars' },
 			{ href: '/components/progress-radials', label: 'Progress Radials' },
@@ -84,7 +83,7 @@ export const menuNavLinks: any = [
 			{ href: '/utilities/toasts', label: 'Toasts' },
 			{ href: '/utilities/lightswitches', label: 'Lightswitch' },
 			{ href: '/utilities/local-storage-stores', label: 'Local Storage Stores' },
-
+			{ href: '/utilities/menus', label: 'Menus' },
 			{ href: '/utilities/tooltips', label: 'Tooltips' }
 		]
 	}

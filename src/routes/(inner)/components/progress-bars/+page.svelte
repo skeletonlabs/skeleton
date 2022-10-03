@@ -144,8 +144,7 @@
 	<section class="space-y-4">
 		<h2>Accessibility</h2>
 		<p>
-			This component is treated as a <em>Meter</em>. View the
-			<a href="https://www.w3.org/WAI/ARIA/apg/patterns/meter/" target="_blank">ARIA Guidelines</a>.
+			This component is treated as a <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/progressbar_role" target="_blank">ARIA progressbar</a>.
 		</p>
 	</section>
 </div>

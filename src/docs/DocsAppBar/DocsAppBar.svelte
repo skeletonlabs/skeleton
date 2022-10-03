@@ -2,10 +2,13 @@
 	// @ts-ignore
 	const pkg = __PACKAGE__;
 
+	// Components
 	import AppBar from '$lib/components/AppBar/AppBar.svelte';
 	import Divider from '$lib/components/Divider/Divider.svelte';
-	import LightSwitch from '$lib/utilities/LightSwitch/LightSwitch.svelte';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
+	// Utilities
+	import LightSwitch from '$lib/utilities/LightSwitch/LightSwitch.svelte';
+	import { menu } from '$lib/utilities/Menu/menu';
 
 	// Stores
 	import { storeTheme, storeMobileDrawer } from '$docs/stores';
@@ -44,68 +47,74 @@
 	<!-- Navigation -->
 	<svelte:fragment slot="trail">
 		<!-- Links -->
-		<section class="hidden lg:flex space-x-4">
-			<a
-				href="/guides/install"
-				class="navlink"
-				on:click={() => {
-					scrollSidebarTo('#nav-guides');
-				}}>Guides</a
-			>
-			<a
-				href="/docs/why"
-				class="navlink"
-				on:click={() => {
-					scrollSidebarTo('#nav-docs');
-				}}>Docs</a
-			>
-			<a
-				href="/tailwind/core"
-				class="navlink"
-				on:click={() => {
-					scrollSidebarTo('#nav-elements');
-				}}>Elements</a
-			>
-			<a
-				href="/components/app-shell"
-				class="navlink"
-				on:click={() => {
-					scrollSidebarTo('#nav-components');
-				}}>Components</a
-			>
-			<a
-				href="/actions/clipboard"
-				class="navlink"
-				on:click={() => {
-					scrollSidebarTo('#nav-actions');
-				}}>Actions</a
-			>
-			<a
-				href="/utilities/codeblocks"
-				class="navlink"
-				on:click={() => {
-					scrollSidebarTo('#nav-utilities');
-				}}>Utilities</a
-			>
+		<!-- prettier-ignore -->
+		<section class="hidden lg:flex space-x-6">
+			<a href="/guides/install" class="navlink" on:click={() => { scrollSidebarTo('#nav-guides'); }}>Guides</a>
+			<a href="/docs/why" class="navlink" on:click={() => { scrollSidebarTo('#nav-docs'); }}>Docs</a>
+			<div class="relative">
+				<button class="navlink space-x-1" use:menu={{ menu: 'features' }}>
+					<span>Features</span>
+					<span>▾</span>
+				</button>
+				<nav class="list-nav card p-4 w-48 shadow-xl space-y-4" data-menu="features">
+					
+					<ul>
+						<li><a href="/tailwind/core" on:click={() => { scrollSidebarTo('#nav-elements'); }}>Elements</a></li>
+						<li><a href="/components/app-shell" on:click={() => { scrollSidebarTo('#nav-components'); }}>Components</a></li>
+						<li><a href="/actions/clipboard" on:click={() => { scrollSidebarTo('#nav-actions'); }}>Actions</a></li>
+						<li><a href="/utilities/codeblocks" on:click={() => { scrollSidebarTo('#nav-utilities'); }}>Utilities</a></li>
+					</ul>
+				</nav>
+			</div>
+			<!-- <a href="/blog" class="navlink">Blog</a> -->
 		</section>
 
 		<Divider vertical borderWidth="border-l-2" />
-
-		<select bind:value={$storeTheme}>
-			<optgroup label="Theme">
-				<option value="skeleton">Skeleton</option>
-				<option value="rocket">Rocket</option>
-				<option value="modern">Modern</option>
-				<option value="seafoam">Seafoam</option>
-				<option value="vintage">Vintage</option>
-				<option value="sahara">Sahara</option>
-			</optgroup>
-		</select>
 
 		<!-- Light Switch -->
 		<section class="flex space-x-4">
 			<LightSwitch origin="tr" />
 		</section>
+
+		<!-- Theme Picker -->
+		<!-- prettier-ignore -->
+		<div class="relative">
+			<button class="navlink capitalize space-x-1" use:menu={{ menu: 'theme' }}>
+				<span>Theme</span>
+				<span>▾</span>
+			</button>
+			<div class="card p-4 w-56 shadow-xl space-y-4" data-menu="theme">
+				<nav class="list-nav space-y-4">
+					<ul>
+						<li class="option" class:!bg-primary-500={$storeTheme === 'skeleton'} on:click={() => { storeTheme.set('skeleton') }}> 
+							<span>🦴</span>
+							<span>Skeleton</span>
+						</li>
+						<li class="option" class:!bg-primary-500={$storeTheme === 'rocket'} on:click={() => { storeTheme.set('rocket') }}> 
+							<span>🚀</span>
+							<span>Rocket</span>
+						</li>
+						<li class="option" class:!bg-primary-500={$storeTheme === 'modern'} on:click={() => { storeTheme.set('modern') }}>
+							<span>🤖</span>
+							<span>Modern</span>
+						</li>
+						<li class="option" class:!bg-primary-500={$storeTheme === 'seafoam'} on:click={() => { storeTheme.set('seafoam') }}>
+							<span>🐚</span>
+							<span>Seafoam</span>
+						</li>
+						<li class="option" class:!bg-primary-500={$storeTheme === 'vintage'} on:click={() => { storeTheme.set('vintage') }}>
+							<span>📺</span>
+							<span>Vintage</span>
+						</li>
+						<li class="option" class:!bg-primary-500={$storeTheme === 'sahara'} on:click={() => { storeTheme.set('sahara') }}>
+							<span>🏜️</span>
+							<span>Sahara</span>
+						</li>
+					</ul>
+				</nav>
+				<a class="btn btn-ghost w-full" href="/guides/themes/generator">Make a Theme</a>
+			</div>
+		</div>
 
 		<Divider vertical borderWidth="border-l-2" />
 

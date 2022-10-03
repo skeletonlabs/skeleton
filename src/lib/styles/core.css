@@ -6,6 +6,16 @@ body {
 	@apply font-sans bg-surface-100 dark:bg-surface-900 text-black dark:text-white;
 }
 
+/* === Focus === */
+
+/* Outline (do not change) */
+/* http://www.outlinenone.com/ */
+
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-tap-highlight-color */
+html {
+	-webkit-tap-highlight-color: rgba(128, 128, 128, 0.5);
+}
+
 /* === Scrollbars === */
 
 ::-webkit-scrollbar {

@@ -96,6 +96,11 @@
 				`<a href="${ghLibPathMaster}/styles/elements/logo-clouds.css" target="_blank">logo-clouds.css</a>`,
 			],
 			[
+				'<code>elements/menus.css</code>',
+				'<a href="/utilities/menus">menus</a>',
+				`<a href="${ghLibPathMaster}/styles/elements/menus.css" target="_blank">menus.css</a>`,
+			],
+			[
 				'<code>elements/placeholders.css</code>',
 				'<a href="/tailwind/placeholders">placeholders</a>',
 				`<a href="${ghLibPathMaster}/styles/elements/placeholders.css" target="_blank">placeholders.css</a>`,
