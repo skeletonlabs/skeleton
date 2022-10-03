@@ -39,9 +39,9 @@
 	const tableKeys: any = {
 		headings: ['Keys', 'Description'],
 		source: [
-			['<kbd>Tab</kbd>', 'Moves focus to the next focusable element.<br>All focusable elements in the accordion are included in the page <kbd>Tab</kbd> sequence.'],
-			['<kbd>Shift + Tab</kbd> ', 'Moves focus to the previous focusable element.<br>All focusable elements in the accordion are included in the page <kbd>Tab</kbd> sequence.'],
-			['<kbd>Space</kbd> or <kbd>Enter</kbd>', 'When focus is on the accordion header of a collapsed section, expands the section.']
+			['<kbd>Tab</kbd>', 'Moves focus to the next focusable element.'],
+			['<kbd>Shift + Tab</kbd> ', 'Moves focus to the previous focusable element.'],
+			['<kbd>Space</kbd> or <kbd>Enter</kbd>', 'When focus is on the accordion header toggles the collapsable region open/closed.']
 		]
 	};
 </script>
