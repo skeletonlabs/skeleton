@@ -16,6 +16,7 @@
 			<p class="mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio et voluptatibus nobis cupiditate eos saepe ab officiis quisquam consequatur magni porro veritatis fuga mollitia ipsa, blanditiis quidem minima molestias sint.</p>
 		`,
 		position: 'bottom',
+		inline: false,
 		width: '!w-[480px]'
 	};
 
@@ -24,6 +25,7 @@
 		source: [
 			['content', 'string', '(tooltip)', 'HTML', '&check;', 'The HTML content of your tooltip.'],
 			['position', 'string', 'top', 'top | bottom | left | right', '-', 'Designates where the tooltip will appear.'],
+			['inline', 'boolean', 'false', 'true | false', '-', 'Sets the wrapping element to inline or block.'],
 			['background', 'string', '-', 'class', '-', 'Provide a class to set the background color.'],
 			['color', 'string', '-', 'class', '-', 'Provide a class to set the text color.'],
 			['width', 'string', '-', 'class', '-', 'Provide a class to set the width.'],
@@ -83,7 +85,7 @@
 				language="html"
 				code={`
 <!-- Container -->
-<div class="tooltip-container relative regionContainer">
+<span class="tooltip-container relative regionContainer">
 	<!-- Tooltip -->
 	<div class="tooltip tooltip-top regionTooltip hidden" role="tooltip" data-testid="tooltip">
 		Skeleton
@@ -92,7 +94,7 @@
 	</div>
 	<!-- Trigger -->
 	<button>Trigger</button>
-</div>
+</span>
 		`}
 			/>
 		</div>

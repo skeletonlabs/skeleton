@@ -3,6 +3,7 @@
 export interface ArgsTooltip {
 	content: string;
 	position?: string;
+	inline?: boolean;
 	// Style Overrides
 	background?: string;
 	color?: string;
@@ -25,6 +26,7 @@ export function tooltip(node: HTMLElement, args: ArgsTooltip) {
 	const {
         content = '(tooltip)',
         position = 'top',
+		inline = true,
         // Regions
         regionContainer = 'regionContainer',
         regionTooltip = 'regionTooltip',
@@ -33,7 +35,7 @@ export function tooltip(node: HTMLElement, args: ArgsTooltip) {
 
 	// Create a wrapping element, set relative positioning
 	const createElemContainer = (): void => {
-		const elemContainer = document.createElement('div');
+		const elemContainer = document.createElement(inline ? 'span' : 'div');
 		elemContainer.classList.add('tooltip-container', 'relative', regionContainer);
 		node.parentNode?.insertBefore(elemContainer, node);
 		elemContainer.appendChild(node);
