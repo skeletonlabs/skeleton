@@ -3,8 +3,8 @@ description: See a typo? Outdated types? File a docs issue here!
 labels: 'documentation'
 body:
 - type: markdown
-  attributes: |
-    Sometimes something slips through the cracks, and the documentation isn't quite right. Thanks for letting us know!
+  attributes:
+    label: Sometimes something slips through the cracks, and the documentation isn't quite right. Thanks for letting us know!
 - type: input
   id: link
   attributes:
