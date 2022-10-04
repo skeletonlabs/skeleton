@@ -1,5 +1,5 @@
-name: Request a new feature
-description: Is there a component or feature that you think we should add?
+name: 🛠️ Request New Feature
+description: Let us know what we should add.
 labels: 'feature_request'
 body:
   - type: textarea
@@ -19,4 +19,4 @@ body:
   - type: textarea
     id: references
     attributes:
-      label: Any links to similar examples in other libraries that we should take a look at? 
+      label: Any links to similar examples or other references we should review? 
