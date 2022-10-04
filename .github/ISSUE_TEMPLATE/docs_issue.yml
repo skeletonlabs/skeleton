@@ -1,10 +1,11 @@
 name: Report an issue with Skeleton docs
 description: See a typo? Outdated types? File a docs issue here!
-labels: 'documentation'
+title: "<title>"
+labels: [documentation]
 body:
 - type: markdown
   attributes:
-    label: Sometimes something slips through the cracks, and the documentation isn't quite right. Thanks for letting us know!
+    value: Sometimes something slips through the cracks, and the documentation isn't quite right. Thanks for letting us know!
 - type: input
   id: link
   attributes:
