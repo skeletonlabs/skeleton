@@ -2,7 +2,7 @@
 
 export interface ArgsTooltip {
 	content: string;
-	position: string;
+	position?: string;
 	// Style Overrides
 	background?: string;
 	color?: string;
