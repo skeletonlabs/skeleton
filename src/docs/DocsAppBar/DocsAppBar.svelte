@@ -37,7 +37,7 @@
 			<SvgIcon name="bars" width="w-6" height="h-6" fill="fill-black dark:fill-white" />
 		</button>
 		<!-- Skeleton -->
-		<a href="/" class="text-sm sm:text-lg md:text-3xl font-bold uppercase mr-4" title="Return to Homepage">Skeleton</a>
+		<a href="/" class="hidden sm:inline-block text-sm sm:text-lg md:text-3xl font-bold uppercase mr-4" title="Return to Homepage">Skeleton</a>
 		<!-- Badge -->
 		<a class="hidden sm:block" href="https://github.com/Brain-Bones/skeleton/releases" target="_blank">
 			<span class="badge bg-surface-500/30">v{pkg.version}</span>
@@ -48,43 +48,42 @@
 	<svelte:fragment slot="trail">
 		<!-- Links -->
 		<!-- prettier-ignore -->
-		<section class="hidden lg:flex space-x-6">
-			<a href="/guides/install" class="navlink" on:click={() => { scrollSidebarTo('#nav-guides'); }}>Guides</a>
-			<a href="/docs/why" class="navlink" on:click={() => { scrollSidebarTo('#nav-docs'); }}>Docs</a>
+		<section class="hidden lg:flex space-x-1">
+			<a class="btn btn-sm" href="/guides/install" on:click={() => { scrollSidebarTo('#nav-guides'); }}>Guides</a>
+			<a class="btn btn-sm" href="/docs/why" on:click={() => { scrollSidebarTo('#nav-docs'); }}>Docs</a>
 			<div class="relative">
-				<button class="navlink space-x-1" use:menu={{ menu: 'features' }}>
+				<button class="btn btn-sm space-x-1" use:menu={{ menu: 'features' }}>
 					<span>Features</span>
-					<span>▾</span>
+					<span class="opacity-50">▾</span>
 				</button>
-				<nav class="list-nav card p-4 w-48 shadow-xl space-y-4" data-menu="features">
-					
+				<nav class="list-nav card card-body w-56 shadow-xl space-y-4" data-menu="features">
 					<ul>
-						<li><a href="/tailwind/core" on:click={() => { scrollSidebarTo('#nav-elements'); }}>Elements</a></li>
-						<li><a href="/components/app-shell" on:click={() => { scrollSidebarTo('#nav-components'); }}>Components</a></li>
-						<li><a href="/actions/clipboard" on:click={() => { scrollSidebarTo('#nav-actions'); }}>Actions</a></li>
+						<li><a href="/tailwind/core" on:click={() => { scrollSidebarTo('#nav-elements'); }}>Tailwind Elements</a></li>
+						<li><a href="/components/app-shell" on:click={() => { scrollSidebarTo('#nav-components'); }}>Svelte Components</a></li>
+						<li><a href="/actions/clipboard" on:click={() => { scrollSidebarTo('#nav-actions'); }}>Svelte Actions</a></li>
 						<li><a href="/utilities/codeblocks" on:click={() => { scrollSidebarTo('#nav-utilities'); }}>Utilities</a></li>
 					</ul>
 				</nav>
 			</div>
-			<!-- <a href="/blog" class="navlink">Blog</a> -->
 		</section>
 
-		<Divider vertical borderWidth="border-l-2" />
+		<Divider vertical borderWidth="hidden lg:block border-l-2" />
 
-		<!-- Light Switch -->
-		<section class="flex space-x-4">
-			<LightSwitch origin="tr" />
-		</section>
-
-		<!-- Theme Picker -->
+		<!-- Theme -->
 		<!-- prettier-ignore -->
 		<div class="relative">
-			<button class="navlink capitalize space-x-1" use:menu={{ menu: 'theme' }}>
-				<span>Theme</span>
-				<span>▾</span>
+			<button class="btn btn-sm" use:menu={{ menu: 'theme' }}>
+				<SvgIcon name="swatchbook" width="w-4" height="w-4" />
+				<span class="hidden md:inline-block">Theme</span>
+				<span class="opacity-50">▾</span>
 			</button>
-			<div class="card p-4 w-56 shadow-xl space-y-4" data-menu="theme">
-				<nav class="list-nav space-y-4">
+			<div class="card card-body w-56 shadow-xl space-y-6" data-menu="theme">
+				<section class="flex justify-between">
+					<h6>Set Mode</h6>
+					<LightSwitch origin="tr" />
+				</section>
+				<hr>
+				<nav class="list-nav">
 					<ul>
 						<li class="option" class:!bg-primary-500={$storeTheme === 'skeleton'} on:click={() => { storeTheme.set('skeleton') }}> 
 							<span>🦴</span>
@@ -112,29 +111,24 @@
 						</li>
 					</ul>
 				</nav>
-				<a class="btn btn-ghost w-full" href="/guides/themes/generator">Make a Theme</a>
+				<hr>
+				<a class="btn btn-ghost w-full" href="/guides/themes/generator">Theme Generator</a>
 			</div>
 		</div>
 
 		<Divider vertical borderWidth="border-l-2" />
 
 		<!-- Community -->
-		<section class="flex space-x-4">
-			<a href="https://discord.gg/EXqV7W8MtY" target="_blank" aria-label="Discord">
+		<section class="flex">
+			<a class="btn btn-sm" href="https://discord.gg/EXqV7W8MtY" target="_blank" aria-label="Discord">
 				<SvgIcon name="discord" viewBox="0 0 640 512" />
 			</a>
-			<a href="https://twitter.com/SkeletonUI" target="_blank" aria-label="Twitter">
+			<a class="btn btn-sm" href="https://twitter.com/SkeletonUI" target="_blank" aria-label="Twitter">
 				<SvgIcon name="twitter" />
 			</a>
-			<a href="https://github.com/Brain-Bones/skeleton" target="_blank" aria-label="GitHub">
+			<a class="btn btn-sm" href="https://github.com/Brain-Bones/skeleton" target="_blank" aria-label="GitHub">
 				<SvgIcon name="github" />
 			</a>
 		</section>
 	</svelte:fragment>
 </AppBar>
-
-<style lang="postcss">
-	.navlink {
-		@apply font-bold opacity-80 hover:opacity-100 hover:text-primary-500 transition-all;
-	}
-</style>

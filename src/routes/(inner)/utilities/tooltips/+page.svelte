@@ -45,7 +45,7 @@
 	};
 	const tableKeyboard = {
 		headings: ['Key', 'Description'],
-		source: [['<kbd>Esc</kbd>', 'Closes any open tooltip.']]
+		source: [['<kbd>Esc</kbd>', 'Closes all open tooltips.']]
 	};
 </script>
 
@@ -54,8 +54,8 @@
 	<header class="space-y-4">
 		<h1>Tooltips</h1>
 		<p>Informative tooltips that render on mouse over.</p>
-		<CodeBlock language="javascript" code={`// Included in 'all.css' and 'elements.css'\nimport '@brainandbones/skeleton/styles/elements/tooltips.css';`} />
 		<CodeBlock language="javascript" code={`import { tooltip } from '@brainandbones/skeleton';`} />
+		<CodeBlock language="javascript" code={`// Included in 'all.css' and 'elements.css'\nimport '@brainandbones/skeleton/styles/elements/tooltips.css';`} />
 	</header>
 
 	<!-- Examples -->
@@ -73,14 +73,15 @@
 	</section>
 
 	<!-- Usage -->
-	<section class="space-y-4">
-		<h2>Usage</h2>
-		<p>Use the <code>tooltip</code> action and provided your desired HTML content.</p>
-		<CodeBlock language="html" code={`<button use:tooltip={{ content: 'Skeleton' }}>Trigger</button>`} />
-		<p>This will automatically construct the the required markup as follows.</p>
-		<CodeBlock
-			language="html"
-			code={`
+	<section class="space-y-8">
+		<div class="space-y-4">
+			<h2>Usage</h2>
+			<p>Use the <code>tooltip</code> action and provided your desired content. Note that content does support HTML.</p>
+			<CodeBlock language="html" code={`<button use:tooltip={{ content: 'Skeleton' }}>Trigger</button>`} />
+			<p>This will automatically construct and wrap the target element with the required markup.</p>
+			<CodeBlock
+				language="html"
+				code={`
 <!-- Container -->
 <div class="tooltip-container relative regionContainer">
 	<!-- Tooltip -->
@@ -93,16 +94,23 @@
 	<button>Trigger</button>
 </div>
 		`}
-		/>
-		<h3>Positions</h3>
-		<p>Adjust the setting for <code>position: 'top|bottom|left|right'</code></p>
-		<CodeBlock language="html" code={`<button use:tooltip={{ content: 'Skeleton', position: 'bottom' }}>Trigger</button>`} />
-		<h3>Style Keys</h3>
-		<p>Most styles should be handled via global CSS overrides, however we've provided keys to overriding values per tooltip.</p>
-		<CodeBlock language="html" code={`<button use:tooltip={{ ... background: '!bg-accent-500', text: '!text-yellow-500', width: '!w-56' }}>Trigger</button>`} />
-		<h3>Style Regions</h3>
-		<p>Use style regions to pass multiple abitrary classes to a particular element.</p>
-		<CodeBlock language="html" code={`<button use:tooltip={{ ... regionTooltip: 'space-y-4 uppercase' }}>Trigger</button>`} />
+			/>
+		</div>
+		<div class="space-y-4">
+			<h3>Positions</h3>
+			<p>Adjust the setting for <code>position: 'top|bottom|left|right'</code></p>
+			<CodeBlock language="html" code={`<button use:tooltip={{ content: 'Skeleton', position: 'bottom' }}>Trigger</button>`} />
+		</div>
+		<div class="space-y-4">
+			<h3>Style Keys</h3>
+			<p>Most styles should be handled via global CSS overrides. However, you may override styles using preset keys, similar to component props.</p>
+			<CodeBlock language="html" code={`<button use:tooltip={{ ... background: '!bg-accent-500', text: '!text-yellow-500', width: '!w-56' }}>Trigger</button>`} />
+		</div>
+		<div class="space-y-4">
+			<h3>Style Region Keys</h3>
+			<p>Use style regions to pass multiple abitrary classes to a particular element.</p>
+			<CodeBlock language="html" code={`<button use:tooltip={{ ... regionTooltip: 'space-y-4 uppercase' }}>Trigger</button>`} />
+		</div>
 	</section>
 
 	<!-- Action Params -->

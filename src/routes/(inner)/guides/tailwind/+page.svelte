@@ -30,31 +30,37 @@
 	<hr />
 
 	<!-- Usage -->
-	<section class="space-y-4">
-		<h2>Configure Tailwind</h2>
-		<p>Let's modify a few settings in <code>tailwind.config.cjs</code>. This is usually located in the root of your project directory.</p>
-		<h3>Enabled Dark Mode Support</h3>
-		<p>
-			Append <code>darkMode: class</code> to support <a href="https://tailwindcss.com/docs/dark-mode" target="_blank">Tailwind's dark mode</a>. You can pair this with the
-			<a href="/utilities/light-switch">lightswitch</a> utility to toggle light/dark modes.
-		</p>
-		<CodeBlock
-			language="js"
-			code={`
+	<section class="space-y-8">
+		<div class="space-y-4">
+			<h2>Configure Tailwind</h2>
+			<p>Let's modify a few settings in <code>tailwind.config.cjs</code>. This is usually located in the root of your project directory.</p>
+		</div>
+		<div class="space-y-4">
+			<h3>Enabled Dark Mode Support</h3>
+			<p>
+				Append <code>darkMode: class</code> to support <a href="https://tailwindcss.com/docs/dark-mode" target="_blank">Tailwind's dark mode</a>. You can pair this with the
+				<a href="/utilities/light-switch">lightswitch</a> utility to toggle light/dark modes.
+			</p>
+			<CodeBlock
+				language="js"
+				code={`
 module.exports = {
 	darkMode: 'class',
     // ...
 }
         `}
-		/>
-		<h3>Update Content Settings</h3>
-		<p>
-			Add the following to the <a href="https://tailwindcss.com/docs/configuration" target="_blank">content</a> settings. This ensures the Tailwind compiler sees utility classes for components within
-			<code>node_modules</code>.
-		</p>
-		<CodeBlock
-			language="js"
-			code={`
+			/>
+		</div>
+		<div class="space-y-4">
+			<h3>Update Content Settings</h3>
+			<p>
+				Add the following to the <a href="https://tailwindcss.com/docs/configuration" target="_blank">content</a> settings. This ensures the Tailwind compiler sees utility classes for components
+				within
+				<code>node_modules</code>.
+			</p>
+			<CodeBlock
+				language="js"
+				code={`
 module.exports = {
 	// ...
     content: [
@@ -64,15 +70,17 @@ module.exports = {
     // ...
 }
         `}
-		/>
-		<h3>Add the Skeleton Plugin</h3>
-		<p>
-			Add the Skeleton <a href="https://tailwindcss.com/docs/plugins#official-plugins" target="_blank">plugin</a>. This will automatically ingest and utilize the CSS variables defined in your theme.
-			We'll setup the theme in the next step.
-		</p>
-		<CodeBlock
-			language="js"
-			code={`
+			/>
+		</div>
+		<div class="space-y-4">
+			<h3>Add the Skeleton Plugin</h3>
+			<p>
+				Add the Skeleton <a href="https://tailwindcss.com/docs/plugins#official-plugins" target="_blank">plugin</a>. This will automatically ingest and utilize the CSS variables defined in your theme.
+				We'll setup the theme in the next step.
+			</p>
+			<CodeBlock
+				language="js"
+				code={`
 module.exports = {
     // ...
     plugins: [
@@ -81,7 +89,8 @@ module.exports = {
     ]
 }
         `}
-		/>
+			/>
+		</div>
 	</section>
 
 	<hr />

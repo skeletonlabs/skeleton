@@ -1,7 +1,7 @@
 /* Stylesheet Add-On: menus.css */
 
 [data-menu] {
-	@apply absolute z-10 hidden;
+	@apply absolute z-20 hidden;
 }
 
 /* === Origins === */

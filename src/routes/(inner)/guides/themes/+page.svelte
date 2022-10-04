@@ -65,7 +65,7 @@
 	<!-- Select Theme -->
 	<section class="space-y-4">
 		<h2>Select a Theme</h2>
-		<p>Select from any of our curated preset themes, or use the theme generator to create your own custom theme.</p>
+		<p>Select from any of our curated preset themes or use the theme generator to create your own custom theme.</p>
 		<div class="card card-body space-y-4">
 			<!-- Presets -->
 			<p>Tap any theme below to automatically copy the import statement to your clipboard.</p>

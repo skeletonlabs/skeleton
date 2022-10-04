@@ -5,7 +5,7 @@
 }
 
 .tooltip {
-	@apply text-center rounded origin-center absolute z-10 opacity-0 transition-opacity duration-150;
+	@apply text-center rounded origin-center absolute z-20 opacity-0 transition-opacity duration-150;
 	/* Base Design */
 	@apply bg-primary-500 text-white w-48 p-2 shadow-xl rounded;
 }

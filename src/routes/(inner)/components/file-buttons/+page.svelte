@@ -39,17 +39,16 @@
 
 	<!-- Example -->
 	<section class="card card-body flex flex-col items-center justify-center !py-10 space-y-4">
-		<FileButton bind:files accept="image/*" name="file" class="btn-filled-primary" on:change={onChange}>Upload File</FileButton>
-		<p class="!text-xs text-center">Monitor browser console when uploading files.</p>
+		<FileButton bind:files accept="image/*" name="file" class="btn-filled-accent" on:change={onChange}>Upload File</FileButton>
+		<p class="!text-xs text-center">Monitor your browser's console when adding files.</p>
 	</section>
 
 	<!-- Usage -->
 	<section class="space-y-4">
 		<h2>Usage</h2>
-		<p />
+		<p>Note that class values are applied directly to the button element. Use this to provide button utility classes.</p>
 		<CodeBlock language="ts" code={`let files: FileList;`} />
-		<CodeBlock language="html" code={`<FileButton bind:files={myFiles} class="btn-filled-primary">Upload File</FileButton>`} />
-		<p>Note the class values are applied directly to the button element, which is a great way to provide button styles.</p>
+		<CodeBlock language="html" code={`<FileButton bind:files={myFiles} class="btn-filled-accent">Upload File</FileButton>`} />
 	</section>
 
 	<!-- Properties -->

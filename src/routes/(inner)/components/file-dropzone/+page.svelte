@@ -46,23 +46,29 @@
 	<!-- Examples -->
 	<h2 class="sr-only">Examples</h2>
 	<section class="card card-body grid grid-cols-1 gap-4">
+		<p class="!text-xs text-center">Monitor your browser's console when adding files.</p>
 		<FileDropzone bind:files on:change={onChange} />
 		<FileDropzone bind:files notes="Files should not exceed 5mb." on:change={onChange} />
-		<FileDropzone bind:files on:change={onChange}><p>Custom message example</p></FileDropzone>
-		<p class="!text-xs text-center">Monitor browser console when uploading files.</p>
+		<FileDropzone bind:files on:change={onChange}><p>Custom message example.</p></FileDropzone>
 	</section>
 
 	<!-- Usage -->
-	<section class="space-y-4">
-		<h2>Usage</h2>
-		<CodeBlock language="ts" code={`let files: FileList;`} />
-		<CodeBlock language="html" code={`<FileDropzone bind:files />`} />
-		<h3>Notes Text</h3>
-		<p>Use the <code>notes</code> prop to add a second line of information.</p>
-		<CodeBlock language="html" code={`<FileDropzone notes="Files should not exceed 5mb." />`} />
-		<h3>Message Slot</h3>
-		<p>Use the default slot to replace the "drop files" message entirely.</p>
-		<CodeBlock language="html" code={`<FileDropzone>(message)</FileDropzone>`} />
+	<section class="space-y-8">
+		<div class="space-y-4">
+			<h2>Usage</h2>
+			<CodeBlock language="ts" code={`let files: FileList;`} />
+			<CodeBlock language="html" code={`<FileDropzone bind:files />`} />
+		</div>
+		<div class="space-y-4">
+			<h3>Notes Text</h3>
+			<p>Use the <code>notes</code> property to provide addition information on a second line.</p>
+			<CodeBlock language="html" code={`<FileDropzone notes="Files should not exceed 5mb." />`} />
+		</div>
+		<div class="space-y-4">
+			<h3>Message Slot</h3>
+			<p>Use the default slot to replace the message entirely.</p>
+			<CodeBlock language="html" code={`<FileDropzone>(message)</FileDropzone>`} />
+		</div>
 	</section>
 
 	<!-- Properties -->
