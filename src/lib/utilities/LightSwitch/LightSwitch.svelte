@@ -1,7 +1,7 @@
 <!-- https://tailwindcss.com/docs/dark-mode -->
 <script lang="ts">
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
-	import { storeLightSwitch } from './stores';
+	import { storePrefersDarkScheme, storeLightSwitch } from './stores';
 	import { onMount } from 'svelte';
 
 	// Base Classes
@@ -9,17 +9,24 @@
 	const cThumb: string = 'w-6 h-6 flex justify-center items-center rounded-full shadow-lg transition-all duration-[100ms] scale-90';
 	const cIcon: string = 'block w-4 h-4';
 
-	// On Mount: Set the users system prefers for light/dark mode
-	function setPreferredScheme(): void {
-		const prefersDarkScheme: any = window.matchMedia('(prefers-color-scheme: dark)').matches;
-		storeLightSwitch.set(prefersDarkScheme);
-		setElemHtmlClass();
+	// Set the users system prefers for light/dark mode
+	function setPrefersDarkScheme(): void {
+		const prefersDark: boolean = window.matchMedia('(prefers-color-scheme: dark)').matches;
+		storePrefersDarkScheme.set(prefersDark);
 	}
 
 	// Toggles a 'dark' class on the <html> element
 	function setElemHtmlClass(): void {
 		const elemHtmlClassList: DOMTokenList = document.documentElement.classList;
-		$storeLightSwitch ? elemHtmlClassList.add('dark') : elemHtmlClassList.remove('dark');
+		let preference: boolean = false;
+		// If $storeLightSwitch not set, match the OS preference
+		if ($storeLightSwitch === undefined) {
+			preference = $storePrefersDarkScheme;
+		} else {
+			preference = $storeLightSwitch;
+		}
+		// Update HTML element class
+		preference === true ? elemHtmlClassList.add('dark') : elemHtmlClassList.remove('dark');
 	}
 
 	// On Click Handler
@@ -41,7 +48,10 @@
 
 	// Lifecycle
 	onMount(() => {
-		storeLightSwitch === undefined ? setPreferredScheme() : setElemHtmlClass();
+		// Determine OS Preference
+		setPrefersDarkScheme();
+		// Finally, update HTML element class as needed
+		setElemHtmlClass();
 	});
 
 	// Reactive Classses

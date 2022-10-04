@@ -52,6 +52,7 @@ export { type ToastMessage } from './utilities/Toast/stores';
 export { default as Toast } from './utilities/Toast/Toast.svelte';
 
 // LightSwitch
+export { storePrefersDarkScheme, storeLightSwitch } from './utilities/LightSwitch/stores';
 export { default as LightSwitch } from './utilities/LightSwitch/LightSwitch.svelte';
 
 // LightSwitch
