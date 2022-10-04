@@ -17,7 +17,7 @@ export const menuNavLinks: any = [
 		list: [
 			{ href: '/docs/why', label: 'Why Skeleton' },
 			{ href: '/docs/comparisons', label: 'Comparisons' },
-			{ href: '/docs/features', label: 'Features', badge: 'New!' },
+			{ href: '/docs/features', label: 'Features' },
 			{ href: '/docs/scaffold', label: 'Scaffold a Project' },
 			{ href: '/docs/contributions', label: 'Contributions' }
 		]

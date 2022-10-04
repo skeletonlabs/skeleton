@@ -49,7 +49,7 @@
 			['<kbd>Shift + Tab</kbd> ', 'Moves focus to the previous focusable Tab.'],
 			['<kbd>Home</kbd>', 'Moves focus to the first tab.'],
 			['<kbd>End</kbd>', 'Moves focus to the last tab.'],
-			['<kbd>Space</kbd> or <kbd>Enter</kbd>', 'Activates the tab if it was not activated automatically on focus.'],
+			['<kbd>Space</kbd> or <kbd>Enter</kbd>', 'Activates the tab if it was not activated automatically on focus.']
 		]
 	};
 </script>
@@ -134,7 +134,9 @@
 		<h2>Usage</h2>
 		<CodeBlock
 			language="typescript"
-			code={`import type { Writable } from "svelte/store";
+			code={`
+import { writable, type Writable } from "svelte/store";
+
 let storeTab: Writable<string> = writable('a');`}
 		/>
 		<CodeBlock
