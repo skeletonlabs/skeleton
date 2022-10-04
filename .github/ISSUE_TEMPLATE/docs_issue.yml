@@ -1,19 +1,19 @@
-name: Report an issue with Skeleton docs
-description: See a typo? Outdated types? File a docs issue here!
-title: "<title>"
+name: 📗 Report Docs Issue
+description: See a typo? Outdated or incorrect information? Let us know!
+title: ""
 labels: [documentation]
 body:
 - type: markdown
   attributes:
-    value: Sometimes something slips through the cracks, and the documentation isn't quite right. Thanks for letting us know!
+    value: Sometimes something slips through the cracks, and the documentation is not quite right. Thanks for letting us know!
 - type: input
   id: link
   attributes:
-    label: Link to the page with the error
+    label: Link to the Page
 - type: textarea
   id: quote
   attributes:
-    label: What's wrong with it?
+    label: Describe the Issue
 - type: dropdown
   id: participate
   attributes:
