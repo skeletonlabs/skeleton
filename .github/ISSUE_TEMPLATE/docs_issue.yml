@@ -1,6 +1,6 @@
 name: 📗 Report Docs Issue
 description: See a typo? Outdated or incorrect information? Let us know!
-title: ""
+title: "<title>"
 labels: [documentation]
 body:
 - type: markdown
