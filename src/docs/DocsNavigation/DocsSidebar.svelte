@@ -45,7 +45,7 @@
 	}
 
 	// Reactive
-	$: classesActive = (href: string) => ($storeCurrentUrl === href ? '!bg-primary-500' : '');
+	$: classesActive = (href: string) => ($storeCurrentUrl?.includes(href) ? '!bg-primary-500' : '');
 </script>
 
 <div class="m-4 mb-20 {$$props.class ?? ''}">
