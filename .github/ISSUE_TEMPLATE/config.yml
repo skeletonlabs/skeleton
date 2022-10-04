@@ -3,9 +3,6 @@ contact_links:
   - name: Get support on Discord
     url: https://discord.com/channels/1003691521280856084/1003691521721245792
     about: Get help from the maintainers on Discord
-  - name: Feature request
-    url: https://github.com/Brain-Bones/skeleton/discussions/new
-    about: Request new feature
   - name: Ask a question, give feedback, share your project
     url: https://github.com/Brain-Bones/skeleton/discussions
     about: Connect with other community members with GitHub discussions
