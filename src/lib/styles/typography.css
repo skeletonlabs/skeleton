@@ -49,5 +49,5 @@ pre:not(.unstyled):not(.code-block pre) {
 }
 
 code:not(.unstyled):not(.code-block code) {
-	@apply bg-black/10 text-black dark:bg-white/10 dark:text-white text-xs py-1 px-2 rounded;
+	@apply bg-black/5 dark:bg-white/5 text-xs py-1 px-2 rounded;
 }

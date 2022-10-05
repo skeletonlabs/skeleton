@@ -7,6 +7,7 @@
 
 	// Components
 	import DataTable from '$lib/components/Table/DataTable.svelte';
+	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	import Tab from '$lib/components/Tab/Tab.svelte';
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
 
@@ -61,7 +62,7 @@
 	}
 
 	function formatStylesheet(stylesheet: string): string {
-		return `'${pageSettings.package?.name}'/styles/${stylesheet}.css;`;
+		return `import '${pageSettings.package?.name}/styles/${stylesheet}.css;`;
 	}
 
 	// Copy ---
@@ -90,6 +91,7 @@
 	<header class="doc-shell-header {classesRegionHeader} !pb-0">
 		<!-- Information -->
 		<div class="container mx-auto space-y-8">
+			<!-- Feature -->
 			<span class="badge badge-ghost">{@html pageSettings.feature}</span>
 			<!-- Intro -->
 			<section class="space-y-4">
@@ -103,52 +105,52 @@
 				<li>
 					<span class="detail-header">Import</span>
 					<!-- prettier-ignore -->
-					<code class="unstyled detail-code" on:click={copyImports}>{formatImports()}</code>
+					<code on:click={copyImports}>{formatImports()}</code>
 				</li>
 				<!-- Types -->
 				{#if pageSettings.types?.length}
 					<li>
 						<span class="detail-header">Types</span>
-						<code class="unstyled detail-code" on:click={copyTypes}>{formatTypes()}</code>
+						<code on:click={copyTypes}>{formatTypes()}</code>
 					</li>
 				{/if}
 				<!-- Stylesheets -->
 				{#if pageSettings.stylesheetIncludes?.length || pageSettings.stylesheets?.length}
-					<li class="flex items-start">
+					<li class="block md:flex items-start">
 						<span class="detail-header">Stylesheets</span>
+						<!-- prettier-ignore -->
 						<div class="grid grid-cols-1 gap-1">
 							<!-- Stylesheet Includes -->
 							{#if pageSettings.stylesheetIncludes?.length}
 								<div class="flex space-x-1">
 									{#each pageSettings.stylesheetIncludes as si}
-										<span class="badge badge-ghost">{si}.css</span>
+                                        <code on:click={() => {copyStylesheet(si)}}>{si}.css</code>
 									{/each}
 								</div>
 							{/if}
+                            <!-- Stylesheets -->
 							{#each Array.from(pageSettings.stylesheets || []) as s}
-								<code
-									class="unstyled detail-code"
-									on:click={() => {
-										copyStylesheet(s);
-									}}>{formatStylesheet(s)}</code
-								>
+								<code on:click={() => {copyStylesheet(s)}}>{formatStylesheet(s)}</code>
 							{/each}
 						</div>
 					</li>
 				{/if}
 				<!-- Source Code -->
-				<li>
+				<li class="block md:flex items-center space-x-2">
 					<span class="detail-header">Source</span>
+					<SvgIcon width="w-4" height="h-4" class="!mr-1" name="github" />
 					<a href={`${githubSourcePath}/lib/${pageSettings.source}`} target="_blank">View source code</a>
 				</li>
 				<!-- Doc Source -->
-				<li>
+				<li class="block md:flex items-center space-x-2">
 					<span class="detail-header">Docs</span>
+					<SvgIcon width="w-4" height="h-4" class="!mr-1" name="pen-ruler" />
 					<a href={`${githubSourcePath}/routes/(inner)${pageSettings.docs}/+page.svelte`} target="_blank">Edit this page</a>
 				</li>
 				<!-- Package -->
-				<li>
+				<li class="block md:flex items-center space-x-2">
 					<span class="detail-header">Package</span>
+					<SvgIcon width="w-5" height="h-5" name="npm" />
 					<a href={pageSettings.package?.url} target="_blank">{pageSettings.package?.name}</a>
 				</li>
 				<!-- Dependencies -->
@@ -233,6 +235,11 @@
 					<section class="space-y-4">
 						{#if d.label}<h2>{d.label}</h2>{/if}
 						{#if d.description}<div>{@html d.description}</div>{/if}
+						{#if d.links?.length}
+							{#each d.links as link}
+								<a class="btn btn-sm btn-ghost" href={link.url} target="_blank">{link.label}</a>
+							{/each}
+						{/if}
 						<DataTable headings={d.headings} source={d.source} />
 					</section>
 				{/each}
@@ -246,10 +253,10 @@
 </div>
 
 <style lang="postcss">
-	.detail-header {
-		@apply inline-block w-28 mr-4;
+	code {
+		@apply cursor-pointer hover:!bg-primary-500/20 transition-colors duration-100;
 	}
-	.detail-code {
-		@apply bg-surface-500/10 text-xs py-1 px-2 rounded cursor-pointer hover:bg-primary-500/10;
+	.detail-header {
+		@apply font-bold block md:inline-block w-full md:w-32 mb-2 md:mb-0;
 	}
 </style>

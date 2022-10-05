@@ -45,4 +45,6 @@ export interface DocsShellTable {
 	headings?: string[];
 	/** Provide the table source data. */
 	source?: any[];
+	/** Provide reference links { label: string, url: string } */
+	links?: any[];
 }

@@ -31,17 +31,21 @@
 	const classes: DocsShellTable[] = [
 		{
 			headings: ['Selector', 'Description'],
-			source: [['<code>.foo</code>', '...']]
+			source: [
+				['<code>.foo</code>', '...'],
+				['<code>.bar</code>', '...']
+			]
 		}
 	];
 	const slots: DocsShellTable[] = [
 		{
 			headings: ['Name', 'Description'],
-			source: [['<code>name</code>', '...']]
+			source: [['<code>default</code>', '...']]
 		}
 	];
 	const a11y: DocsShellTable[] = [
 		{
+			links: [{ label: 'ARIA APG', url: 'https://www.w3.org/WAI/ARIA/apg/' }],
 			headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
 			source: [
 				['<code>foo</code>', '-', '-', '-', '...'],
