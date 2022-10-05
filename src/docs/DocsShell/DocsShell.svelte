@@ -22,7 +22,7 @@
 	// Props (styles)
 	export let spacing: string = 'space-y-8';
 	// Props (regions)
-	export let regionHeader: string = 'page-container bg-white/75 dark:bg-black/10';
+	export let regionHeader: string = 'bg-white/75 dark:bg-black/10';
 	export let regionDetails: string = 'text-xs md:text-sm lg:text-base space-y-4';
 	export let regionPanels: string = 'page-container';
 
@@ -30,7 +30,7 @@
 	const cBase: string = '';
 
 	// Stores
-	let storePageTabs: Writable<string> = writable('documentation');
+	let storeActiveTab: Writable<string> = writable('documentation');
 
 	// Local
 	const githubSourcePath: string = 'https://github.com/Brain-Bones/skeleton/tree/dev/src'; // FIXME: hardcoded dev
@@ -108,7 +108,7 @@
 	<!-- Region: Header -->
 	<header class="doc-shell-header {classesRegionHeader} !pb-0">
 		<!-- Information -->
-		<div class="container mx-auto space-y-8">
+		<div class="page-container !pb-0">
 			<!-- Feature -->
 			<span class="badge badge-ghost">
 				<SvgIcon width="w-4" height="h-4" name={setFeatureIcon()} />
@@ -187,7 +187,7 @@
 			</ul>
 
 			<!-- Tabs -->
-			<TabGroup selected={storePageTabs}>
+			<TabGroup selected={storeActiveTab}>
 				<Tab value="documentation">Documentation</Tab>
 				{#if properties && properties.length}<Tab value="properties">Properties</Tab>{/if}
 				{#if classes && classes.length}<Tab value="classes">Classes</Tab>{/if}
@@ -200,7 +200,7 @@
 	<!-- Tab Panels -->
 	<div class="doc-shell-tab-panels {classesRegionPanels}">
 		<!-- Tab: documentation -->
-		{#if $storePageTabs === 'documentation'}
+		{#if $storeActiveTab === 'documentation'}
 			<div class="doc-shell-documentation {spacing}">
 				<!-- Slot: Sandbox -->
 				<div class="doc-shell-sandbox {spacing}"><slot name="sandbox">(sandbox)</slot></div>
@@ -214,7 +214,7 @@
 		{/if}
 
 		<!-- Tab: Props -->
-		{#if properties && properties.length && $storePageTabs === 'properties'}
+		{#if properties && properties.length && $storeActiveTab === 'properties'}
 			<div class="doc-shell-props {spacing}">
 				{#each properties as d}
 					<section class="space-y-4">
@@ -227,7 +227,7 @@
 		{/if}
 
 		<!-- Tab: Classes -->
-		{#if classes && classes.length && $storePageTabs === 'classes'}
+		{#if classes && classes.length && $storeActiveTab === 'classes'}
 			<div class="doc-shell-classes {spacing}">
 				{#each classes as d}
 					<section class="space-y-4">
@@ -240,7 +240,7 @@
 		{/if}
 
 		<!-- Tab: Slots -->
-		{#if slots && slots.length && $storePageTabs === 'slots'}
+		{#if slots && slots.length && $storeActiveTab === 'slots'}
 			<div class="doc-shell-slots {spacing}">
 				{#each slots as d}
 					<section class="space-y-4">
@@ -253,7 +253,7 @@
 		{/if}
 
 		<!-- Tab: A11y -->
-		{#if a11y && a11y.length && $storePageTabs === 'a11y'}
+		{#if a11y && a11y.length && $storeActiveTab === 'a11y'}
 			<div class="doc-shell-a11y {spacing}">
 				{#each a11y as d}
 					<section class="space-y-4">
@@ -277,6 +277,6 @@
 		@apply cursor-pointer hover:!bg-primary-500/20 transition-colors duration-100;
 	}
 	.detail-header {
-		@apply font-bold block md:inline-block w-full md:w-32 mb-2 md:mb-0;
+		@apply hidden md:inline-block w-32;
 	}
 </style>
