@@ -67,7 +67,7 @@
 
 <!-- Overlays -->
 <Dialog />
-<Toast />
+<Toast background="bg-accent-500" />
 <DocsDrawer />
 
 <!-- App Shell -->

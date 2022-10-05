@@ -10,18 +10,21 @@
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	import Tab from '$lib/components/Tab/Tab.svelte';
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
+	// Utilities
+	import { toastStore, type ToastMessage } from '$lib/utilities/Toast/stores';
 
 	// Props
 	export let settings: DocsShellSettings;
-	export let properties: DocsShellTable[];
-	export let classes: DocsShellTable[];
-	export let slots: DocsShellTable[];
-	export let a11y: DocsShellTable[];
+	export let properties: DocsShellTable[] | undefined = undefined;
+	export let classes: DocsShellTable[] | undefined = undefined;
+	export let slots: DocsShellTable[] | undefined = undefined;
+	export let a11y: DocsShellTable[] | undefined = undefined;
 	// Props (styles)
 	export let padding: string = ' p-4 md:p-10';
 	export let spacing: string = 'space-y-8';
 	// Props (regions)
 	export let regionHeader: string = 'bg-white/75 dark:bg-black/10';
+	export let regionDetails: string = 'text-xs md:text-sm lg:text-base space-y-4';
 	export let regionPanels: string = 'container mx-auto';
 	export let regionExtra: string = 'container mx-auto';
 
@@ -69,14 +72,24 @@
 
 	function copyImports(): void {
 		navigator.clipboard.writeText(formatImports());
+		toastCopied('import');
 	}
 
 	function copyTypes(): void {
 		navigator.clipboard.writeText(formatTypes());
+		toastCopied('type import');
 	}
 
 	function copyStylesheet(stylesheet: string): void {
 		navigator.clipboard.writeText(formatStylesheet(stylesheet));
+		toastCopied('stylesheet');
+	}
+
+	// Toast ---
+
+	function toastCopied(noun: string): void {
+		const t: ToastMessage = { message: `Copied ${noun} to clipboard.`, timeout: 2000 };
+		toastStore.trigger(t);
 	}
 
 	// Reactive
@@ -100,13 +113,14 @@
 			</section>
 
 			<!-- Details -->
-			<ul class="text-sm space-y-4">
+			<ul class={regionDetails}>
 				<!-- Imports -->
-				<li>
-					<span class="detail-header">Import</span>
-					<!-- prettier-ignore -->
-					<code on:click={copyImports}>{formatImports()}</code>
-				</li>
+				{#if pageSettings.imports?.length}
+					<li>
+						<span class="detail-header">Import</span>
+						<code on:click={copyImports}>{formatImports()}</code>
+					</li>
+				{/if}
 				<!-- Types -->
 				{#if pageSettings.types?.length}
 					<li>
@@ -169,10 +183,10 @@
 			<!-- Tabs -->
 			<TabGroup selected={storePageTabs}>
 				<Tab value="documentation">Documentation</Tab>
-				{#if properties.length}<Tab value="properties">Properties</Tab>{/if}
-				{#if classes.length}<Tab value="classes">Classes</Tab>{/if}
-				{#if slots.length}<Tab value="slots">Slots</Tab>{/if}
-				{#if a11y.length}<Tab value="a11y">Accessibility</Tab>{/if}
+				{#if properties && properties.length}<Tab value="properties">Properties</Tab>{/if}
+				{#if classes && classes.length}<Tab value="classes">Classes</Tab>{/if}
+				{#if slots && slots.length}<Tab value="slots">Slots</Tab>{/if}
+				{#if a11y && a11y.length}<Tab value="a11y">Accessibility</Tab>{/if}
 			</TabGroup>
 		</div>
 	</header>
@@ -190,7 +204,7 @@
 		{/if}
 
 		<!-- Tab: Props -->
-		{#if properties.length && $storePageTabs === 'properties'}
+		{#if properties && properties.length && $storePageTabs === 'properties'}
 			<div class="doc-shell-props {spacing}">
 				{#each properties as d}
 					<section class="space-y-4">
@@ -203,7 +217,7 @@
 		{/if}
 
 		<!-- Tab: Classes -->
-		{#if classes.length && $storePageTabs === 'classes'}
+		{#if classes && classes.length && $storePageTabs === 'classes'}
 			<div class="doc-shell-classes {spacing}">
 				{#each classes as d}
 					<section class="space-y-4">
@@ -216,7 +230,7 @@
 		{/if}
 
 		<!-- Tab: Slots -->
-		{#if slots.length && $storePageTabs === 'slots'}
+		{#if slots && slots.length && $storePageTabs === 'slots'}
 			<div class="doc-shell-slots {spacing}">
 				{#each slots as d}
 					<section class="space-y-4">
@@ -229,7 +243,7 @@
 		{/if}
 
 		<!-- Tab: A11y -->
-		{#if a11y.length && $storePageTabs === 'a11y'}
+		{#if a11y && a11y.length && $storePageTabs === 'a11y'}
 			<div class="doc-shell-a11y {spacing}">
 				{#each a11y as d}
 					<section class="space-y-4">

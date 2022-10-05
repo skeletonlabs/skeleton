@@ -2,7 +2,7 @@
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
 
-	// Docs Shell Settings
+	// Docs Shell
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Component,
 		name: 'Template',
@@ -11,12 +11,10 @@
 		imports: ['Template'],
 		types: ['types'],
 		stylesheetIncludes: ['core', 'elements'],
-		stylesheets: ['template'],
+		stylesheets: ['elements/template'],
 		source: 'components/Template'
 		// dependencies: [{ label: 'Highlight.js', url: 'https://highlightjs.org/' }],
 	};
-
-	// Docs Shell Tables
 	const properties: DocsShellTable[] = [
 		{
 			// label: '(label)',

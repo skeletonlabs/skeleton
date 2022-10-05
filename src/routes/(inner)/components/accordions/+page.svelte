@@ -10,7 +10,7 @@
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// Docs Shell Settings
+	// Docs Shell
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Component,
 		name: 'Accordions',
@@ -18,8 +18,6 @@
 		imports: ['AccordionGroup', 'AccordionItem'],
 		source: 'components/Accordion'
 	};
-
-	// Docs Shell Tables
 	const properties: DocsShellTable[] = [
 		{
 			label: 'AccordionGroup',
