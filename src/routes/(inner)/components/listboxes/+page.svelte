@@ -45,6 +45,14 @@
 		headings: ['Prop', 'Type', 'Default', 'Description'],
 		source: [['id', 'string', '-', 'Define a unique and semantic identifier for the item.']]
 	};
+	const tableKeys: any = {
+		headings: ['Keys', 'Description'],
+		source: [
+			['<kbd>Tab</kbd>', 'Moves focus to the next option.'],
+			['<kbd>Shift + Tab</kbd> ', 'Moves focus to the previous option.'],
+			['<kbd>Space</kbd> or <kbd>Enter</kbd>', 'Changes the selection state of the focused option.']
+		]
+	};
 </script>
 
 <div class="space-y-8">
@@ -68,6 +76,7 @@
 
 	<!-- Examples -->
 	<section class="space-y-4">
+		<h2 class='sr-only'>Examples</h2>
 		<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
 			<section class="space-y-4">
 				<div class="card card-body space-y-4">
@@ -149,5 +158,7 @@
 		<DataTable headings={tableA11yList.headings} source={tableA11yList.source} />
 		<h3>Listbox Item</h3>
 		<DataTable headings={tableA11yItem.headings} source={tableA11yItem.source} />
+		<h3>Keyboard Interactions</h3>
+		<DataTable headings={tableKeys.headings} source={tableKeys.source} />
 	</section>
 </div>

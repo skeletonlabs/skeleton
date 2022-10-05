@@ -20,7 +20,7 @@
 	const cTrail: string = 'flex-none flex items-center space-x-4';
 
 	// Reactive Classes
-	$: classesBase = `${cBase} ${background} ${border} ${padding} ${shadow} ${space} ${$$props.class || ''}`;
+	$: classesBase = `${cBase} ${background} ${border} ${padding} ${shadow} ${space} ${$$props.class ?? ''}`;
 	$: classesLead = `${cLead} ${slotLead}`;
 	$: classesCenter = `${cCenter} ${slotDefault}`;
 	$: classesTrail = `${cTrail} ${slotTrail}`;

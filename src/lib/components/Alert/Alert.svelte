@@ -3,8 +3,8 @@
 
 	// Props
 	export let visible: boolean = true;
-	export let background: string = 'bg-accent-500/30';
-	export let border: string = 'border-l-4 border-l-accent-500';
+	export let background: string = 'bg-ternary-500/30';
+	export let border: string = 'border-l-4 border-l-ternary-500';
 	export let color: string | undefined = undefined;
 	export let radius: string = '';
 	export let duration: number = 200; // ms
@@ -20,7 +20,7 @@
 	let cTrail: string = 'flex items-center space-x-4';
 
 	// Reactive Classes
-	$: classesCard = `${cBaseCard} ${background} ${border} ${color} ${radius} ${$$props.class || ''}`;
+	$: classesCard = `${cBaseCard} ${background} ${border} ${color} ${radius} ${$$props.class ?? ''}`;
 	$: classesLead = `${cLead} ${slotLead}`;
 	$: classesContent = `${cContent} ${slotContent}`;
 	$: classesTrail = `${cTrail} ${slotTrail}`;

@@ -36,6 +36,14 @@
 			['contentId', 'Provide semantic ID for ARIA content element.']
 		]
 	};
+	const tableKeys: any = {
+		headings: ['Keys', 'Description'],
+		source: [
+			['<kbd>Tab</kbd>', 'Moves focus to the next focusable element.'],
+			['<kbd>Shift + Tab</kbd> ', 'Moves focus to the previous focusable element.'],
+			['<kbd>Space</kbd> or <kbd>Enter</kbd>', 'When focus is on the accordion header toggles the collapsable region open/closed.']
+		]
+	};
 </script>
 
 <div class="space-y-8">
@@ -48,6 +56,7 @@
 
 	<!-- Examples -->
 	<section class="space-y-4">
+		<h2 class="sr-only">Examples</h2>
 		<div class="card card-body">
 			<AccordionGroup>
 				<AccordionItem open>
@@ -159,5 +168,7 @@
 			<a href="https://www.w3.org/WAI/ARIA/apg/example-index/accordion/accordion" target="_blank">ARIA Guidelines</a>
 		</div>
 		<DataTable headings={tableA11yItem.headings} source={tableA11yItem.source} />
+		<h3>Keyboard Interactions</h3>
+		<DataTable headings={tableKeys.headings} source={tableKeys.source} />
 	</section>
 </div>

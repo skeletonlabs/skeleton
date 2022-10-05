@@ -23,6 +23,7 @@
 
 	<!-- Examples -->
 	<section class="space-y-4">
+		<h2 class="sr-only">Examples</h2>
 		<section class="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-4">
 			<div class="card card-body flex-auto flex justify-center space-x-2">
 				<span class="badge bg-surface-500 text-white">Skeleton</span>
@@ -36,7 +37,7 @@
 					<span>Skeleton</span>
 					<span>💀</span>
 				</span>
-				<span class="badge bg-warning-500 text-white">
+				<span class="badge bg-ternary-500 text-white">
 					<span>&hearts;</span>
 					<span>Favorite</span>
 				</span>
@@ -62,7 +63,7 @@
 					<Avatar />
 				</div>
 				<div class="relative inline-block">
-					<span class="badge-icon bg-warning-500 text-white absolute -top-1 -right-1 z-10">&hearts;</span>
+					<span class="badge-icon bg-ternary-500 text-white absolute -top-1 -right-1 z-10">&hearts;</span>
 					<Avatar />
 				</div>
 			</div>
@@ -78,13 +79,13 @@
 		</div>
 		<!-- Icon -->
 		<div class="space-y-4">
-			<h4>Badge Icon</h4>
+			<h3>Badge Icon</h3>
 			<p>A compact circular variation badge style.</p>
 			<CodeBlock language="html" code={`<span class="badge-icon bg-primary-500">💀</span>`} />
 		</div>
 		<!-- Overlapping -->
 		<div class="space-y-4">
-			<h4>Overlapping Icon</h4>
+			<h3>Overlapping Icon</h3>
 			<p>Use Tailwind utility classes to create overlapping elements.</p>
 			<CodeBlock
 				language="html"
@@ -98,7 +99,7 @@
 		</div>
 		<!-- Global Styles -->
 		<div class="space-y-4">
-			<h4>Global Styles</h4>
+			<h3>Global Styles</h3>
 			<p>Use your global stylesheet to update all instances of this element.</p>
 			<CodeBlock language="css" code={`.badge { @apply rounded-full; }`} />
 		</div>

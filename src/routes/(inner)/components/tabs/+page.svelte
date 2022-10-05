@@ -42,6 +42,16 @@
 		headings: ['Prop', 'Type', 'Required', 'Description'],
 		source: [['label', 'string', '-', `Defines a semantic label for the tab.`]]
 	};
+	const tableKeys: any = {
+		headings: ['Keys', 'Description'],
+		source: [
+			['<kbd>Tab</kbd>', 'Moves focus to the next focusable Tab.'],
+			['<kbd>Shift + Tab</kbd> ', 'Moves focus to the previous focusable Tab.'],
+			['<kbd>Home</kbd>', 'Moves focus to the first tab.'],
+			['<kbd>End</kbd>', 'Moves focus to the last tab.'],
+			['<kbd>Space</kbd> or <kbd>Enter</kbd>', 'Activates the tab if it was not activated automatically on focus.']
+		]
+	};
 </script>
 
 <div class="space-y-8">
@@ -54,6 +64,7 @@
 
 	<!-- Examples -->
 	<section class="space-y-4">
+		<h2 class="sr-only">Examples</h2>
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 			<div class="card card-body space-y-4">
 				<TabGroup selected={storeOne}>
@@ -81,7 +92,7 @@
 			</div>
 		</div>
 		<div class="card card-body space-y-4">
-			<TabGroup selected={storeThree} justify="justify-start md:justify-center" borderColor="border-warning-500" fill="fill-warning-500" color="text-warning-500" hover="hover:bg-warning-500/10">
+			<TabGroup selected={storeThree} justify="justify-start md:justify-center" borderColor="border-ternary-500" fill="fill-ternary-500" color="text-ternary-500" hover="hover:bg-ternary-500/10">
 				<Tab value="a">
 					<svelte:fragment slot="lead">
 						<SvgIcon name="book" fill="fill-inherit" class="!block" />
@@ -123,7 +134,9 @@
 		<h2>Usage</h2>
 		<CodeBlock
 			language="typescript"
-			code={`import type { Writable } from "svelte/store";
+			code={`
+import { writable, type Writable } from "svelte/store";
+
 let storeTab: Writable<string> = writable('a');`}
 		/>
 		<CodeBlock
@@ -174,5 +187,7 @@ let storeTab: Writable<string> = writable('a');`}
 		<DataTable headings={tableA11yGroup.headings} source={tableA11yGroup.source} />
 		<h3>Tab</h3>
 		<DataTable headings={tableA11yTab.headings} source={tableA11yTab.source} />
+		<h3>Keyboard Interactions</h3>
+		<DataTable headings={tableKeys.headings} source={tableKeys.source} />
 	</section>
 </div>

@@ -39,7 +39,7 @@
 	});
 
 	// Reactive
-	$: classesBase = `${cBase} ${$$props.class || ''}`;
+	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
 </script>
 
 <!-- https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/text-anchor -->

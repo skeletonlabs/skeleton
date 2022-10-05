@@ -47,6 +47,7 @@
 
 	<!-- Examples -->
 	<div class="card card-body space-y-4">
+		<h2 class="sr-only">Examples</h2>
 		{#if !visible}<button class="btn btn-ghost" on:click={toggleVisible}>Show Alerts</button>{/if}
 		<Alert {visible}>
 			<svelte:fragment slot="lead">
@@ -55,20 +56,26 @@
 			<svelte:fragment slot="title">{title}</svelte:fragment>
 			<span>{message}</span>
 			<svelte:fragment slot="trail">
-				<button class="btn btn-filled-accent" on:click={actionExample}>View More</button>
-				<button class="btn btn-ghost-accent" on:click={toggleVisible}>&#10005;</button>
-			</svelte:fragment>
-		</Alert>
-		<Alert background="bg-primary-500/30" border="border-l-4 border-primary-500" {visible}>
-			<svelte:fragment slot="title">{title}</svelte:fragment>
-			<svelte:fragment slot="trail">
-				<button class="btn btn-filled-primary" on:click={actionExample}>View More</button>
+				<button class="btn btn-filled-ternary" on:click={actionExample}>View More</button>
+				<button class="btn btn-ghost-ternary" on:click={toggleVisible}>&#10005;</button>
 			</svelte:fragment>
 		</Alert>
 		<Alert background="bg-warning-500/30" border="border-l-4 border-warning-500" rounded="rounded-3xl" {visible}>
 			<span>{message}</span>
 			<svelte:fragment slot="trail">
 				<button class="btn btn-ghost" on:click={toggleVisible}>&#10005;</button>
+			</svelte:fragment>
+		</Alert>
+		<Alert background="bg-accent-500/30" border="border-l-4 border-accent-500" {visible}>
+			<svelte:fragment slot="title">{title}</svelte:fragment>
+			<svelte:fragment slot="trail">
+				<button class="btn btn-filled-accent" on:click={actionExample}>View More</button>
+			</svelte:fragment>
+		</Alert>
+		<Alert background="bg-primary-500/30" border="border-l-4 border-primary-500" {visible}>
+			<svelte:fragment slot="title">{title}</svelte:fragment>
+			<svelte:fragment slot="trail">
+				<button class="btn btn-filled-primary" on:click={actionExample}>View More</button>
 			</svelte:fragment>
 		</Alert>
 	</div>

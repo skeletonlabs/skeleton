@@ -25,6 +25,6 @@
 	});
 </script>
 
-<div bind:this={elemAccordian} class="accordian-group {spacing} {$$props.classes}" data-testid="accordion-group">
+<div bind:this={elemAccordian} class="accordian-group {spacing} {$$props.class ?? ''}" data-testid="accordion-group">
 	<slot />
 </div>

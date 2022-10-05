@@ -8,18 +8,16 @@ export { default as AppBar } from './components/AppBar/AppBar.svelte';
 export { default as AppShell } from './components/AppShell/AppShell.svelte';
 export { default as Alert } from './components/Alert/Alert.svelte';
 export { default as Avatar } from './components/Avatar/Avatar.svelte';
-export { default as Badge } from './components/Badge/Badge.svelte';
 export { default as Breadcrumb } from './components/Breadcrumb/Breadcrumb.svelte';
 export { default as Crumb } from './components/Breadcrumb/Crumb.svelte';
-export { default as Button } from './components/Button/Button.svelte';
-export { default as Card } from './components/Card/Card.svelte';
+export { type ConicStop } from './components/ConicGradient/types';
+export { default as ConicGradient } from './components/ConicGradient/ConicGradient.svelte';
 export { default as Divider } from './components/Divider/Divider.svelte';
+export { default as FileButton } from './components/FileButton/FileButton.svelte';
+export { default as FileDropzone } from './components/FileDropzone/FileDropzone.svelte';
 export { default as GradientHeading } from './components/GradientHeading/GradientHeading.svelte';
 export { default as ListBox } from './components/ListBox/ListBox.svelte';
 export { default as ListBoxItem } from './components/ListBox/ListBoxItem.svelte';
-export { default as LogoCloud } from './components/LogoCloud/LogoCloud.svelte';
-export { default as Logo } from './components/LogoCloud/Logo.svelte';
-export { default as Menu } from './components/Menu/Menu.svelte';
 export { default as Paginator } from './components/Paginator/Paginator.svelte';
 export { default as ProgressBar } from './components/ProgressBar/ProgressBar.svelte';
 export { default as ProgressRadial } from './components/ProgressRadial/ProgressRadial.svelte';
@@ -33,7 +31,6 @@ export { default as Stepper } from './components/Stepper/Stepper.svelte';
 export { default as TabGroup } from './components/Tab/TabGroup.svelte';
 export { default as Tab } from './components/Tab/Tab.svelte';
 export { default as DataTable } from './components/Table/DataTable.svelte';
-export { default as Tooltip } from './components/Tooltip/Tooltip.svelte';
 
 // Utilities ---
 
@@ -55,9 +52,21 @@ export { type ToastMessage } from './utilities/Toast/stores';
 export { default as Toast } from './utilities/Toast/Toast.svelte';
 
 // LightSwitch
+export { storePrefersDarkScheme, storeLightSwitch } from './utilities/LightSwitch/stores';
 export { default as LightSwitch } from './utilities/LightSwitch/LightSwitch.svelte';
 
+// LightSwitch
+export { localStorageStore } from './utilities/LocalStorageStore/LocalStorageStore';
+
+// Menus
+export { menu } from './utilities/Menu/menu';
+
+// Tooltips
+export { tooltip } from './utilities/Tooltip/tooltip';
+
 // Actions ---
+
+export { clipboard } from './actions/Clipboard/clipboard';
 
 // Filters
 export { filter } from './actions/Filters/filter';

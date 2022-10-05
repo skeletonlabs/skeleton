@@ -42,6 +42,7 @@
 
 	<!-- Examples -->
 	<section class="grid grid-cols-4 md:grid-cols-7 gap-4">
+		<h2 class='sr-only'>Examples</h2>
 		{#each iconKeys as name}
 			<div class="card card-body space-y-2 text-center">
 				<SvgIcon {name} />

@@ -17,7 +17,7 @@ export const menuNavLinks: any = [
 		list: [
 			{ href: '/docs/why', label: 'Why Skeleton' },
 			{ href: '/docs/comparisons', label: 'Comparisons' },
-			{ href: '/docs/features', label: 'Features', badge: 'New!' },
+			{ href: '/docs/features', label: 'Features' },
 			{ href: '/docs/scaffold', label: 'Scaffold a Project' },
 			{ href: '/docs/contributions', label: 'Contributions' }
 		]
@@ -47,11 +47,13 @@ export const menuNavLinks: any = [
 			{ href: '/components/alerts', label: 'Alerts' },
 			{ href: '/components/avatars', label: 'Avatars' },
 			{ href: '/components/breadcrumbs', label: 'Breadcrumbs' },
+			{ href: '/components/conic-gradients', label: 'Conic Gradients' },
 			{ href: '/components/data-tables', label: 'Data Tables' },
 			{ href: '/components/dividers', label: 'Dividers' },
+			{ href: '/components/file-buttons', label: 'File Buttons' },
+			{ href: '/components/file-dropzone', label: 'File Dropzone' },
 			{ href: '/components/gradient-headings', label: 'Gradient Headings' },
 			{ href: '/components/listboxes', label: 'Listboxes' },
-			{ href: '/components/menus', label: 'Menus' },
 			{ href: '/components/paginators', label: 'Paginators' },
 			{ href: '/components/progress-bars', label: 'Progress Bars' },
 			{ href: '/components/progress-radials', label: 'Progress Radials' },
@@ -59,17 +61,9 @@ export const menuNavLinks: any = [
 			{ href: '/components/range-sliders', label: 'Range Sliders' },
 			{ href: '/components/slide-toggles', label: 'Slide Toggles' },
 			{ href: '/components/steppers', label: 'Steppers' },
-			{ href: '/components/tabs', label: 'Tabs' },
-			{ href: '/components/tooltips', label: 'Tooltips' }
+			{ href: '/components/tabs', label: 'Tabs' }
 			// Work in Progress
-			// {href: '/components/conic-gradients', label: 'Conic Gradients'}, // keep disabled until further notice
 			// { href: '/components/svg-icons', label: 'SVG Icons' }, // keep disabled until further notice
-			// Depricated
-			// { href: '/components/badges', label: 'Badges', badge: 'Depricated' },
-			// { href: '/components/buttons', label: 'Buttons', badge: 'Depricated' },
-			// { href: '/components/cards', label: 'Cards', badge: 'Depricated' },
-			// { href: '/components/logo-clouds', label: 'Logo Clouds', badge: 'Depricated' },
-			// { href: '/components/placeholders', label: 'Placeholders', badge: 'Depricated' }
 		]
 	},
 	{
@@ -88,7 +82,10 @@ export const menuNavLinks: any = [
 			{ href: '/utilities/drawers', label: 'Drawers' },
 			{ href: '/utilities/dialogs', label: 'Dialogs' },
 			{ href: '/utilities/toasts', label: 'Toasts' },
-			{ href: '/utilities/lightswitches', label: 'Lightswitch' }
+			{ href: '/utilities/lightswitches', label: 'Lightswitch' },
+			{ href: '/utilities/local-storage-stores', label: 'Local Storage Stores' },
+			{ href: '/utilities/menus', label: 'Menus' },
+			{ href: '/utilities/tooltips', label: 'Tooltips' }
 		]
 	}
 ];

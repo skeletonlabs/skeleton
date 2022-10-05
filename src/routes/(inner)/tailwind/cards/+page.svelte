@@ -25,10 +25,12 @@
 
 	<!-- Examples -->
 	<section class="space-y-4">
+		<h2 class="sr-only">Examples</h2>
 		<!-- Colors -->
-		<div class="grid md:grid-cols-3 gap-4">
+		<div class="grid md:grid-cols-4 gap-4">
 			<div class="card !bg-primary-500 text-white centerContent">Primary</div>
 			<div class="card !bg-accent-500 text-white centerContent">Accent</div>
+			<div class="card !bg-ternary-500 text-white centerContent">Ternary</div>
 			<div class="card !bg-warning-500 text-white centerContent">Warning</div>
 		</div>
 		<!-- Columns -->

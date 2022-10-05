@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
-	import Button from '$lib/components/Button/Button.svelte';
 
 	const dispatch = createEventDispatcher();
 
@@ -22,7 +21,7 @@
 	const cPageText: string = 'opacity-60 whitespace-nowrap';
 
 	// Functionality
-	function onChangeLength(e: any): void {
+	function onChangeLength(): void {
 		offset = 0;
 		dispatch('amount', length);
 	}
@@ -36,7 +35,7 @@
 	}
 
 	// Reactive Classes
-	$: classesBase = `${cBase} ${justify} ${$$props.class || ''}`;
+	$: classesBase = `${cBase} ${justify} ${$$props.class ?? ''}`;
 	$: classesLabel = `${cLabel}`;
 	$: classesSelect = `${select}`;
 	$: classesPageText = `${cPageText} ${text}`;

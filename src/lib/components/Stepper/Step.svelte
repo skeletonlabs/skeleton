@@ -42,7 +42,7 @@
 	// Reactive
 	$: isLastItem = index === length - 1;
 	// Base
-	$: classesBase = `${cBase} ${$$props.class || ''}`;
+	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
 	// Timeline (line)
 	$: classesLineBackgroundColor = index < $active ? `${background}` : `${cLineBackground}`;
 	$: classesLineBackground = !isLastItem ? `${classesLineBackgroundColor}` : '';

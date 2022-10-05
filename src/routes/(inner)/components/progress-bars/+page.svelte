@@ -104,7 +104,9 @@
 					<select name="meter" id="meter" bind:value={props.meter}>
 						<option value="bg-primary-500">bg-primary-500</option>
 						<option value="bg-accent-500">bg-accent-500</option>
+						<option value="bg-ternary-500">bg-ternary-500</option>
 						<option value="bg-warning-500">bg-warning-500</option>
+						<option value="bg-surface-500">bg-surface-500</option>
 					</select>
 				</label>
 				<!-- track -->
@@ -114,7 +116,9 @@
 						<option value={defaultTrackBg}>Default</option>
 						<option value="bg-primary-500/30">bg-primary-500/30</option>
 						<option value="bg-accent-500/30">bg-accent-500/30</option>
+						<option value="bg-ternary-500/30">bg-ternary-500/30</option>
 						<option value="bg-warning-500/30">bg-warning-500/30</option>
+						<option value="bg-surface-500/30">bg-surface-500/30</option>
 					</select>
 				</label>
 			</div>
@@ -140,8 +144,7 @@
 	<section class="space-y-4">
 		<h2>Accessibility</h2>
 		<p>
-			This component is treated as a <em>Meter</em>. View the
-			<a href="https://www.w3.org/WAI/ARIA/apg/patterns/meter/" target="_blank">ARIA Guidelines</a>.
+			This component is treated as a <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/progressbar_role" target="_blank">ARIA progressbar</a>.
 		</p>
 	</section>
 </div>

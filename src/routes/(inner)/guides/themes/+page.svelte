@@ -1,16 +1,12 @@
 <script lang="ts">
-	import { writable, type Writable } from 'svelte/store';
 	import { storeFramework } from '$docs/stores';
 
-	import { DataTable, Divider, RadioGroup, RadioItem, TabGroup, Tab } from '@brainandbones/skeleton';
-	import { toastStore, type ToastMessage } from '$lib/utilities/Toast/stores';
-
+	// Components
+	import { DataTable, Divider, TabGroup, Tab } from '@brainandbones/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-	import DocsThemerTailwind from '$docs/DocsThemer/DocsThemerTailwind.svelte';
-	import DocsThemerHex from '$docs/DocsThemer/DocsThemerHex.svelte';
 
 	// Stores
-	const storeGenerator: Writable<string> = writable('tailwind'); // tailwind | hex
+	import { toastStore, type ToastMessage } from '$lib/utilities/Toast/stores';
 
 	// Presets
 	const presetUrl: string = 'https://github.com/Brain-Bones/skeleton/blob/master/src/themes';
@@ -41,16 +37,16 @@
 	}
 
 	// Tables
-	// prettier-ignore
 	const tableProps: any = {
-        headings: ['Name', 'Class', 'Description'],
-        source: [
-            {n: 'Primary', c:'[x]-primary-[50-900]', d:'Typically your primary brand color.'},
-            {n: 'Accent', c:'[x]-accent-[50-900]', d:'An accent for offsets or supplementary values.'},
-            {n: 'Warning', c:'[x]-warning-[50-900]', d:'May be used for warnings, alerts, and invalid inputs.'},
-            {n: 'Surface', c:'[x]-surface-[50-900]', d:'May be used for backgrounds, card elements, and some typography.'},
-        ],
-    };
+		headings: ['Name', 'Class', 'Description'],
+		source: [
+			['Primary', '[x]-primary-[50-900]', 'Typically your primary brand color.'],
+			['Accent', '[x]-accent-[50-900]', 'An accent for offsets or supplementary values.'],
+			['Ternary', '[x]-ternary-[50-900]', 'A third and additional offset color. Great for informational alerts.'],
+			['Warning', '[x]-warning-[50-900]', 'May be used for warnings, alerts, and invalid inputs.'],
+			['Surface', '[x]-surface-[50-900]', 'May be used for backgrounds, card elements, and some typography.']
+		]
+	};
 </script>
 
 <div class="space-y-8">
@@ -60,110 +56,65 @@
 		<p>
 			Skeleton themes integrate with Tailwind using <a href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank">CSS custom properties</a> converted to RGB values.
 			This enables the use of <a href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank">background opacity</a> as well as support for
-			<a href="https://tailwindcss.com/docs/dark-mode" target="_blank">dark mode</a>. Components intelligently implement each color from the theme's palette.
+			<a href="https://tailwindcss.com/docs/dark-mode" target="_blank">dark mode</a>. Components intelligently adapt to your theme color palette.
 		</p>
 	</header>
 
 	<Divider />
 
-	<!-- Presets -->
+	<!-- Select Theme -->
 	<section class="space-y-4">
-		<h2>Preset Themes</h2>
-		<p>A handful of curated preset themes are available below.</p>
-		<TabGroup selected={storeFramework}>
-			<Tab value="sveltekit">SvelteKit</Tab>
-			<Tab value="vite">Vite (Svelte)</Tab>
-			<Tab value="astro">Astro</Tab>
-		</TabGroup>
-		<!-- Framework: SvelteKit -->
-		{#if $storeFramework === 'sveltekit'}
-			<p>Import your desired preset into <code>src/routes/+layout.svelte</code>.</p>
-			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/themes/theme-{name}.css'; // <--\nimport '../app.postcss';\n`} />
-			<!-- Framework: Vite (Svelte) -->
-		{:else if $storeFramework === 'vite'}
-			<p>Import your desired preset into <code>/src/main.js</code>.</p>
-			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/themes/theme-{name}.css'; // <--\nimport '../app.css';\n`} />
-			<!-- Framework: Astro -->
-		{:else if $storeFramework === 'astro'}
-			<p>Import your desired preset into <code>/src/layouts/LayoutBasic.astro</code>.</p>
-			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/themes/theme-{name}.css'; // <--\nimport '../styles/base.css';`} />
-		{/if}
-		<!-- Preset Previews -->
-		<p>Tap any theme below to automatically copy the import statement to your clipboard.</p>
-		<nav class="grid grid-cols-1 md:grid-cols-3 gap-4">
-			{#each presets as preset}
-				<div
-					on:click={() => {
-						copyThemeToClipboard(preset.name);
-					}}
-					class="theme-set"
-					style:background={preset.surface}
-					target="_blank"
-				>
-					<span class="text-sm">{preset.name}</span>
-					<ul class="grid grid-cols-3 gap-2">
-						{#each preset.colors as color}
-							<li class="aspect-square w-4 rounded-full" style:background={color} />
-						{/each}
-					</ul>
-				</div>
-			{/each}
-		</nav>
-	</section>
-
-	<Divider />
-
-	<!-- Theme Generator -->
-	<section class="space-y-4">
-		<h2>Theme Generator</h2>
-		<p>Use the form below to craft a custom theme. Each color represents swatch 500 (ex: <code>bg-primary-500</code>).</p>
-		<!-- Card -->
-		<div class="card">
-			<header class="card-header flex flex-col md:items-center space-y-4">
-				<RadioGroup selected={storeGenerator} display="flex md:inline-flex">
-					<RadioItem value="tailwind">Tailwind Mode</RadioItem>
-					<RadioItem value="hex">Hex Mode</RadioItem>
-				</RadioGroup>
-				<!-- Messaging -->
-				{#if $storeGenerator === 'tailwind'}
-					<span class="block text-center">
-						Create a theme using <a href="https://tailwindcss.com/docs/customizing-colors" target="_blank">Tailwind's color palette</a>. This typically provides the best results.
-					</span>
-				{/if}
-				{#if $storeGenerator === 'hex'}
-					<span class="block text-center"> For advanced users. Enter hex color values to generate a completely unique theme. </span>
-				{/if}
-			</header>
-			<div class="card-body">
-				<!-- Generator Components -->
-				{#if $storeGenerator === 'tailwind'}<DocsThemerTailwind />{/if}
-				{#if $storeGenerator === 'hex'}<DocsThemerHex />{/if}
-			</div>
+		<h2>Select a Theme</h2>
+		<p>Select from any of our curated preset themes or use the theme generator to create your own custom theme.</p>
+		<div class="card card-body space-y-4">
+			<!-- Presets -->
+			<p>Tap any theme below to automatically copy the import statement to your clipboard.</p>
+			<nav class="grid grid-cols-1 md:grid-cols-3 gap-4">
+				{#each presets as preset}
+					<div
+						on:click={() => {
+							copyThemeToClipboard(preset.name);
+						}}
+						class="theme-set"
+						style:background={preset.surface}
+						target="_blank"
+					>
+						<span class="text-sm">{preset.name}</span>
+						<ul class="grid grid-cols-3 gap-2">
+							{#each preset.colors as color}
+								<li class="aspect-square w-4 rounded-full" style:background={color} />
+							{/each}
+						</ul>
+					</div>
+				{/each}
+			</nav>
+			<!-- Implement -->
+			<TabGroup selected={storeFramework}>
+				<Tab value="sveltekit">SvelteKit</Tab>
+				<Tab value="vite">Vite (Svelte)</Tab>
+				<Tab value="astro">Astro</Tab>
+			</TabGroup>
+			<!-- Framework: SvelteKit -->
+			{#if $storeFramework === 'sveltekit'}
+				<p>Import your desired preset into <code>src/routes/+layout.svelte</code>.</p>
+				<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/themes/theme-{name}.css'; // <--\nimport '../app.postcss';\n`} />
+				<!-- Framework: Vite (Svelte) -->
+			{:else if $storeFramework === 'vite'}
+				<p>Import your desired preset into <code>/src/main.js</code>.</p>
+				<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/themes/theme-{name}.css'; // <--\nimport '../app.css';\n`} />
+				<!-- Framework: Astro -->
+			{:else if $storeFramework === 'astro'}
+				<p>Import your desired preset into <code>/src/layouts/LayoutBasic.astro</code>.</p>
+				<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/themes/theme-{name}.css'; // <--\nimport '../styles/base.css';`} />
+			{/if}
 		</div>
-		<p class="block">
-			TIP: Use <a href="https://tailwind.simeongriggs.dev/blue/3B82F6" target="_blank">Palette Generator</a> to complete custom palette curation. The
-			<a href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba" target="_blank">Hex-To-RGB extension</a>
-			can convert colors from <strong>Hex &rarr; RGB</strong> in bulk within <strong>VS Code</strong>.
-		</p>
-		<!-- Instructions -->
-		<TabGroup selected={storeFramework}>
-			<Tab value="sveltekit">SvelteKit</Tab>
-			<Tab value="vite">Vite (Svelte)</Tab>
-			<Tab value="astro">Astro</Tab>
-		</TabGroup>
-		<!-- Framework: SvelteKit -->
-		{#if $storeFramework === 'sveltekit'}
-			<p>Add your custom theme to <code>/src/theme.postcss</code>, then import this file into <code>/src/routes/+layout.svelte</code>.</p>
-			<CodeBlock language="typescript" code={`import '../theme.postcss'; // <--\nimport '../app.postcss';\n`} />
-			<!-- Framework. Vite (Svelte) -->
-		{:else if $storeFramework === 'vite'}
-			<p>Add your custom theme to <code>/src/theme.css</code>, then import this file into <code>/src/main.js</code>:</p>
-			<CodeBlock language="typescript" code={`import '../theme.css'; // <--\nimport '../app.css';\n`} />
-			<!-- Framework: Astro -->
-		{:else if $storeFramework === 'astro'}
-			<p>Add your custom theme to <code>/src/styles/theme.css</code>, then import this file into <code>/src/layouts/LayoutBasic.astro</code>.</p>
-			<CodeBlock language="typescript" code={`import '../styles/theme.css'; // <--\nimport '../styles/base.css';`} />
-		{/if}
+		<!-- Generator -->
+		<div class="card card-body flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+			<div class="space-y-2">
+				<p>Create your own custom theme.</p>
+			</div>
+			<a class="btn btn-filled-accent" href="/guides/themes/generator">Themes Generator &rarr;</a>
+		</div>
 	</section>
 
 	<Divider />

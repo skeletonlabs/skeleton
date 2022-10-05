@@ -48,7 +48,7 @@
 	}
 
 	// A11y Key Down Handler
-	function onKeyDown(event: any): void {
+	function onKeyDown(event: KeyboardEvent): void {
 		dispatch('keydown', event);
 		if (['Enter', 'Space'].includes(event.code)) {
 			event.preventDefault();
@@ -65,7 +65,7 @@
 	};
 	$: isSelected = selectionMatch() ? true : false;
 	$: classesHighlight = isSelected ? accent : '';
-	$: classesBase = `${cBase} ${padding} ${rounded} ${classesHighlight} ${$$props.class || ''}`;
+	$: classesBase = `${cBase} ${padding} ${rounded} ${classesHighlight} ${$$props.class ?? ''}`;
 </script>
 
 <!-- prettier-ignore -->

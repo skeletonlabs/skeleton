@@ -37,6 +37,7 @@
 
 	<!-- Examples -->
 	<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+		<h2 class="sr-only">Examples</h2>
 		<div class="card card-body h-full flex justify-center items-center">
 			<div class="w-full space-y-8">
 				<ProgressRadial value={props.value}>{props.value}%</ProgressRadial>
@@ -59,7 +60,7 @@
 					<ProgressRadial stroke={100} meter="stroke-accent-500" track="stroke-accent-500/20" />
 				</div>
 				<div class="card card-body">
-					<ProgressRadial stroke={200} meter="stroke-warning-500" track="stroke-warning-500/20" />
+					<ProgressRadial stroke={200} meter="stroke-ternary-500" track="stroke-ternary-500/20" />
 				</div>
 			</div>
 		</div>

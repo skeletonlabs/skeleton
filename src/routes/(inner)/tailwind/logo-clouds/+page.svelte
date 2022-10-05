@@ -25,6 +25,7 @@
 
 	<!-- Examples -->
 	<section class="space-y-4">
+		<h2 class='sr-only'>Examples</h2>
 		<!-- Has Links -->
 		<div class="logo-cloud grid-cols-1 lg:!grid-cols-3 gap-1">
 			<a class="logo-item" href="https://svelte.dev/" target="_blank">

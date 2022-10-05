@@ -9,7 +9,7 @@
 	export let ticked: boolean = false;
 	export let accent: string = 'accent-accent-500';
 	// Props (a11y)
-	export let id: string = (Math.random() * 10e15).toString(16); // unique id
+	export let id: string = crypto.randomUUID(); // unique id
 	export let name: string = id;
 	export let label: string = '';
 
@@ -28,48 +28,13 @@
 		tickmarks = Array.from({ length: max - min + 1 }, (_, i) => i + 1);
 	}
 
-	// A11y Input Handler
-	function onKeyDown(event: any): void {
-		// Arrow Keys
-		const hotKeys: string[] = ['ArrowRight', 'ArrowUp', 'ArrowLeft', 'ArrowDown', 'Home', 'End'];
-		if (hotKeys.includes(event.code)) {
-			event.preventDefault();
-			// prettier-ignore
-			switch (event.code) {
-				case 'ArrowRight': valueIncrease(); break;
-				case 'ArrowUp': valueIncrease(); break;
-				case 'ArrowLeft': valueDecrease(); break;
-				case 'ArrowDown': valueDecrease(); break;
-				case 'Home': valueMin(); break;
-				case 'End': valueMax(); break;
-				default: break;
-			}
-		}
-	}
-	function valueIncrease(): void {
-		if (value + step <= max) {
-			value += step;
-		}
-	}
-	function valueDecrease(): void {
-		if (value - step >= min) {
-			value -= step;
-		}
-	}
-	function valueMin(): void {
-		value = min;
-	}
-	function valueMax(): void {
-		value = max;
-	}
-
 	// Lifecycle
 	afterUpdate(() => {
 		setTicks();
 	});
 
 	// Reactive Classes
-	$: classesBase = `${cBase} ${$$props.class || ''}`;
+	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
 	$: classesInput = `${cBaseInput} ${accent}`;
 
 	// Prune $$restProps to avoid overwriting $$props.class
@@ -83,12 +48,6 @@
 <div
 	class="range-slider {classesBase}"
 	data-testid="range-slider"
-	on:keydown={onKeyDown}
-	role="slider"
-	aria-label={label}
-	aria-valuenow={value}
-	aria-valuemin={min}
-	aria-valuemax={max}
 >
 
 	<!-- Slot: Default (label) -->
@@ -104,6 +63,7 @@
 			{name}
 			class="range-input {classesInput}"
 			list="tickmarks-{id}"
+			aria-label={label}
 			{min}
 			{max}
 			{step}
