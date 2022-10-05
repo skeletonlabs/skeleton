@@ -11,9 +11,9 @@
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
-		feature: DocsFeature.Component,
+		feature: DocsFeature.Element,
 		name: 'Buttons',
-		description: 'Provides a robust set of button styles',
+		description: 'Provides a robust set of button styles, including preset variants.',
 		stylesheetIncludes: ['core', 'elements'],
 		stylesheets: ['elements/buttons'],
 		source: 'styles/elements/buttons.css'
@@ -163,38 +163,6 @@
 				<button class="btn-icon">B</button>
 				<!-- FIXME: the :not() style isn't applying here so I supplemented `.unstyled` class. Browser bug perhaps? -CHRIS -->
 				<a {href} class="btn-icon unstyled">A</a>
-			</div>
-		</div>
-		<!-- Styling -->
-		<div class="space-y-4">
-			<h4>Styling</h4>
-			<p>Use Tailwind utilty classes to enhance the button styling.</p>
-			<CodeBlock language="html" code={`<button class="btn bg-primary-500">Skeleton</button>`} />
-			<div class="card card-body flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
-				<button class="btn bg-primary-500">Skeleton</button>
-				<button class="btn bg-accent-500">Skeleton</button>
-				<button class="btn bg-ternary-500">Skeleton</button>
-				<button class="btn bg-warning-500">Skeleton</button>
-			</div>
-		</div>
-		<!-- Sizes -->
-		<div class="space-y-4">
-			<h4>Sizes</h4>
-			<p>Adjust the button size with <code>.btn-[sm|base|lg|xl]</code>. Sizing is controlled using <em>text size and padding</em>.</p>
-			<CodeBlock language="html" code={`<button class="btn btn-lg bg-primary-500">Large</button>`} />
-			<div class="card card-body flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
-				<button class="btn btn-sm bg-primary-500">sm</button>
-				<button class="btn btn-base bg-primary-500">base</button>
-				<button class="btn btn-lg bg-primary-500">lg</button>
-				<button class="btn btn-xl bg-primary-500">xl</button>
-			</div>
-			<p>Adjust the icon button size with <code>.btn-icon-[sm|base|lg|xl]</code>. Sizing is controlled using <em>text size, aspect square, and width</em>.</p>
-			<CodeBlock language="html" code={`<button class="btn-icon btn-icon-lg bg-primary-500">lg</button>`} />
-			<div class="card card-body flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
-				<button class="btn-icon btn-icon-sm bg-primary-500">sm</button>
-				<button class="btn-icon btn-icon-base bg-primary-500">b</button>
-				<button class="btn-icon btn-icon-lg bg-primary-500">lg</button>
-				<button class="btn-icon btn-icon-xl bg-primary-500">xl</button>
 			</div>
 		</div>
 		<!-- Icons -->

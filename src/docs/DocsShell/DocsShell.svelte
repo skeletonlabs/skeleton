@@ -54,6 +54,23 @@
 	};
 	const pageSettings: DocsShellSettings = { ...defaultSettings, ...settings };
 
+	function setFeatureIcon(): string {
+		const index: number = Object.values(DocsFeature).indexOf(pageSettings.feature);
+		// prettier-ignore
+		switch(index) {
+            case(0): return 'book';
+            case(1): return 'tailwind';
+            case(2): return 'svelte';
+            case(3): return 'screwdriver';
+            default: return 'heart';
+        }
+	}
+
+	function toastCopied(noun: string): void {
+		const t: ToastMessage = { message: `Copied ${noun} to clipboard.`, timeout: 2000 };
+		toastStore.trigger(t);
+	}
+
 	// Format ---
 
 	function formatImports(): string {
@@ -85,18 +102,11 @@
 		toastCopied('stylesheet');
 	}
 
-	// Toast ---
-
-	function toastCopied(noun: string): void {
-		const t: ToastMessage = { message: `Copied ${noun} to clipboard.`, timeout: 2000 };
-		toastStore.trigger(t);
-	}
-
 	// Reactive
 	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
 	$: classesRegionHeader = `${regionHeader} ${padding}`;
 	$: classesRegionPanels = `${regionPanels} ${padding}`;
-	$: classesRegionExtras = `${regionExtra} ${padding} ${spacing}`;
+	$: classesRegionFooter = `${regionExtra} ${padding} ${spacing}`;
 </script>
 
 <div class="doc-shell {classesBase}">
@@ -105,7 +115,10 @@
 		<!-- Information -->
 		<div class="container mx-auto space-y-8">
 			<!-- Feature -->
-			<span class="badge badge-ghost">{@html pageSettings.feature}</span>
+			<span class="badge badge-ghost">
+				<SvgIcon width="w-4" height="h-4" name={setFeatureIcon()} />
+				<span>{@html pageSettings.feature}</span>
+			</span>
 			<!-- Intro -->
 			<section class="space-y-4">
 				<h1>{@html pageSettings.name}</h1>
@@ -133,18 +146,16 @@
 					<li class="block md:flex items-start">
 						<span class="detail-header">Stylesheets</span>
 						<!-- prettier-ignore -->
-						<div class="grid grid-cols-1 gap-1">
+						<div class="flex space-x-1">
 							<!-- Stylesheet Includes -->
 							{#if pageSettings.stylesheetIncludes?.length}
-								<div class="flex space-x-1">
-									{#each pageSettings.stylesheetIncludes as si}
-                                        <code on:click={() => {copyStylesheet(si)}}>{si}.css</code>
-									{/each}
-								</div>
+                                {#each pageSettings.stylesheetIncludes as si}
+                                    <code on:click={() => {copyStylesheet(si)}}>{si}.css</code>
+                                {/each}
 							{/if}
                             <!-- Stylesheets -->
 							{#each Array.from(pageSettings.stylesheets || []) as s}
-								<code on:click={() => {copyStylesheet(s)}}>{formatStylesheet(s)}</code>
+								<code on:click={() => {copyStylesheet(s)}}>{s}.css</code>
 							{/each}
 						</div>
 					</li>
@@ -261,9 +272,8 @@
 		{/if}
 	</div>
 
-	<!-- Slot: Default -->
-	<!-- Use this to extend the page with unique features or information features. -->
-	{#if $$slots.default}<div class="doc-shell-extras {classesRegionExtras}"><slot /></div>{/if}
+	<!-- Slot: Default (footer) -->
+	{#if $$slots.default}<footer class="doc-shell-footer {classesRegionFooter}"><slot /></footer>{/if}
 </div>
 
 <style lang="postcss">
