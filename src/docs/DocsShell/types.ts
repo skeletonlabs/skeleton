@@ -15,6 +15,8 @@ export interface DocsShellSettings {
 	description: string;
 	/** List of import alias names. */
 	imports?: string[];
+	/** List of import Typescript interface imports. */
+	types?: string[];
 	/** List of stylesheets that include the required styles. */
 	stylesheetIncludes?: string[];
 	/** List of CSS import paths (partials) */

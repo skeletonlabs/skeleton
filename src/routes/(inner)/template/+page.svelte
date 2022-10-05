@@ -9,21 +9,22 @@
 		description:
 			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, eius officia aliquid beatae libero voluptas ea reprehenderit sed, ducimus quae reiciendis esse qui repudiandae veritatis perferendis deserunt ut magnam quisquam.',
 		imports: ['Template'],
+		types: ['types'],
 		stylesheetIncludes: ['core', 'elements'],
 		stylesheets: ['template'],
-		source: 'Components/Template/Template.svelte'
+		source: 'components/Template'
 		// dependencies: [{ label: 'Highlight.js', url: 'https://highlightjs.org/' }],
 	};
 
 	// Docs Shell Tables
 	const properties: DocsShellTable[] = [
 		{
-			label: '(label)',
-			description: '(description)',
+			// label: '(label)',
+			// description: '(description)',
 			headings: ['Prop', 'Type', 'Default', 'Values', 'Required', 'Description'],
 			source: [
-				['foo', '-', '-', '-', '&check;', '...'],
-				['bar', '-', '-', '-', '-', '...']
+				['<code>foo</code>', '-', '-', '-', '&check;', '...'],
+				['<code>bar</code>', '-', '-', '-', '-', '...']
 			]
 		}
 	];
@@ -36,15 +37,15 @@
 	const slots: DocsShellTable[] = [
 		{
 			headings: ['Name', 'Description'],
-			source: [['name', '...']]
+			source: [['<code>name</code>', '...']]
 		}
 	];
 	const a11y: DocsShellTable[] = [
 		{
 			headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
 			source: [
-				['name', '-', '-', '-', '...'],
-				['name', '-', '-', '-', '...']
+				['<code>foo</code>', '-', '-', '-', '...'],
+				['<code>bar</code>', '-', '-', '-', '...']
 			]
 		}
 	];
@@ -58,6 +59,8 @@
 		</div>
 	</svelte:fragment>
 
-	<!-- Usage -->
-	<p>(usage)</p>
+	<!-- Slot: Usage -->
+	<svelte:fragment slot="usage">
+		<p>Describe the usage of this feature.</p>
+	</svelte:fragment>
 </DocsShell>

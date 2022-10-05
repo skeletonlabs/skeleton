@@ -18,16 +18,17 @@
 	export let a11y: DocsShellTable[];
 	// Props (styles)
 	export let padding: string = ' p-4 md:p-10';
+	export let spacing: string = 'space-y-8';
 	// Props (regions)
 	export let regionHeader: string = 'bg-white/75 dark:bg-black/10';
 	export let regionPanels: string = 'container mx-auto';
+	export let regionExtra: string = 'container mx-auto';
 
 	// Classes
 	const cBase: string = '';
-	const cPanel: string = 'space-y-8';
 
 	// Stores
-	let storePageTabs: Writable<string> = writable('usage');
+	let storePageTabs: Writable<string> = writable('documentation');
 
 	// Local
 	const githubSourcePath: string = 'https://github.com/Brain-Bones/skeleton/tree/dev/src'; // hardcoded
@@ -39,6 +40,7 @@
 		description: '(description)',
 		// Details
 		imports: [],
+        types: [],
 		stylesheetIncludes: [],
 		stylesheets: [],
 		source: '',
@@ -48,11 +50,39 @@
 	};
 	const pageSettings: DocsShellSettings = { ...defaultSettings, ...settings };
 
+	// Format ---
+
+	function formatImports(): string {
+		return `import { ${pageSettings.imports?.join(', ')} } '${pageSettings.package?.name}';`;
+	}
+
+	function formatTypes(): string {
+		return `import { ${pageSettings.types?.join(', ')} } '${pageSettings.package?.name}';`;
+	}
+
+	function formatStylesheet(stylesheet: string): string {
+		return `'${pageSettings.package?.name}'/styles/${stylesheet}.css;`;
+	}
+
+	// Copy ---
+
+	function copyImports(): void {
+		navigator.clipboard.writeText(formatImports());
+	}
+
+	function copyTypes(): void {
+		navigator.clipboard.writeText(formatTypes());
+	}
+
+	function copyStylesheet(stylesheet: string): void {
+		navigator.clipboard.writeText(formatStylesheet(stylesheet));
+	}
+
 	// Reactive
 	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
 	$: classesRegionHeader = `${regionHeader} ${padding}`;
 	$: classesRegionPanels = `${regionPanels} ${padding}`;
-	$: classesPanel = `${cPanel}`;
+	$: classesRegionExtras = `${regionExtra} ${padding} ${spacing}`;
 </script>
 
 <div class="doc-shell {classesBase}">
@@ -60,9 +90,9 @@
 	<header class="doc-shell-header {classesRegionHeader} !pb-0">
 		<!-- Information -->
 		<div class="container mx-auto space-y-8">
+			<span class="badge badge-ghost">{@html pageSettings.feature}</span>
 			<!-- Intro -->
 			<section class="space-y-4">
-				<span class="text-xs opacity-80">{@html pageSettings.feature}</span>
 				<h1>{@html pageSettings.name}</h1>
 				<p>{@html pageSettings.description}</p>
 			</section>
@@ -70,27 +100,38 @@
 			<!-- Details -->
 			<ul class="text-sm space-y-4">
 				<!-- Imports -->
-				{#if pageSettings.imports}
+				<li>
+					<span class="detail-header">Import</span>
+					<!-- prettier-ignore -->
+					<code class="unstyled detail-code" on:click={copyImports}>{formatImports()}</code>
+				</li>
+				<!-- Types -->
+				{#if pageSettings.types?.length}
 					<li>
-						<span class="detail-header">Import</span>
-						<span>import {`{ ${pageSettings.imports.join(' ')} }`} '{pageSettings.package?.name}';</span>
+						<span class="detail-header">Types</span>
+						<code class="unstyled detail-code" on:click={copyTypes}>{formatTypes()}</code>
 					</li>
 				{/if}
 				<!-- Stylesheets -->
 				{#if pageSettings.stylesheetIncludes?.length || pageSettings.stylesheets?.length}
 					<li class="flex items-start">
 						<span class="detail-header">Stylesheets</span>
-						<div class="grid grid-cols-1 gap-2">
+						<div class="grid grid-cols-1 gap-1">
 							<!-- Stylesheet Includes -->
 							{#if pageSettings.stylesheetIncludes?.length}
-								<div class="flex space-x-2">
+								<div class="flex space-x-1">
 									{#each pageSettings.stylesheetIncludes as si}
 										<span class="badge badge-ghost">{si}.css</span>
 									{/each}
 								</div>
 							{/if}
 							{#each Array.from(pageSettings.stylesheets || []) as s}
-								<span>import '@brainandbones/skeleton/styles/{s}.css';</span>
+								<code
+									class="unstyled detail-code"
+									on:click={() => {
+										copyStylesheet(s);
+									}}>{formatStylesheet(s)}</code
+								>
 							{/each}
 						</div>
 					</li>
@@ -98,12 +139,12 @@
 				<!-- Source Code -->
 				<li>
 					<span class="detail-header">Source</span>
-					<a href={githubSourcePath + '/lib/' + pageSettings.source} target="_blank">View source code</a>
+					<a href={`${githubSourcePath}/lib/${pageSettings.source}`} target="_blank">View source code</a>
 				</li>
 				<!-- Doc Source -->
 				<li>
 					<span class="detail-header">Docs</span>
-					<a href={githubSourcePath + '/routes/(inner)' + pageSettings.docs} target="_blank">Edit this page</a>
+					<a href={`${githubSourcePath}/routes/(inner)${pageSettings.docs}/+page.svelte`} target="_blank">Edit this page</a>
 				</li>
 				<!-- Package -->
 				<li>
@@ -125,7 +166,7 @@
 
 			<!-- Tabs -->
 			<TabGroup selected={storePageTabs}>
-				<Tab value="usage">Usage</Tab>
+				<Tab value="documentation">Documentation</Tab>
 				{#if properties.length}<Tab value="properties">Properties</Tab>{/if}
 				{#if classes.length}<Tab value="classes">Classes</Tab>{/if}
 				{#if slots.length}<Tab value="slots">Slots</Tab>{/if}
@@ -136,63 +177,79 @@
 
 	<!-- Tab Panels -->
 	<div class="doc-shell-tab-panels {classesRegionPanels}">
-		<!-- Tab: Usage -->
-		{#if $storePageTabs === 'usage'}
-			<section class="doc-shell-usage {classesPanel}">
-				<slot name="sandbox" />
-				<h2>Usage</h2>
-				<slot />
-			</section>
+		<!-- Tab: documentation -->
+		{#if $storePageTabs === 'documentation'}
+			<div class="doc-shell-documentation {spacing}">
+				<!-- Slot: Sandbox -->
+				<div class={spacing}><slot name="sandbox">(sandbox)</slot></div>
+				<!-- Slot: Default -->
+				<div class={spacing}><slot name="usage">(usage)</slot></div>
+			</div>
 		{/if}
 
 		<!-- Tab: Props -->
 		{#if properties.length && $storePageTabs === 'properties'}
-			<section class="doc-shell-props {classesPanel}">
+			<div class="doc-shell-props {spacing}">
 				{#each properties as d}
-					{#if d.label}<h3>{d.label}</h3>{/if}
-					{#if d.description}<div>{@html d.description}</div>{/if}
-					<DataTable headings={d.headings} source={d.source} />
+					<section class="space-y-4">
+						{#if d.label}<h2>{d.label}</h2>{/if}
+						{#if d.description}<div>{@html d.description}</div>{/if}
+						<DataTable headings={d.headings} source={d.source} />
+					</section>
 				{/each}
-			</section>
+			</div>
 		{/if}
 
 		<!-- Tab: Classes -->
 		{#if classes.length && $storePageTabs === 'classes'}
-			<section class="doc-shell-classes {classesPanel}">
+			<div class="doc-shell-classes {spacing}">
 				{#each classes as d}
-					{#if d.label}<h3>{d.label}</h3>{/if}
-					{#if d.description}<div>{@html d.description}</div>{/if}
-					<DataTable headings={d.headings} source={d.source} />
+					<section class="space-y-4">
+						{#if d.label}<h2>{d.label}</h2>{/if}
+						{#if d.description}<div>{@html d.description}</div>{/if}
+						<DataTable headings={d.headings} source={d.source} />
+					</section>
 				{/each}
-			</section>
+			</div>
 		{/if}
 
 		<!-- Tab: Slots -->
 		{#if slots.length && $storePageTabs === 'slots'}
-			<section class="doc-shell-slots {classesPanel}">
+			<div class="doc-shell-slots {spacing}">
 				{#each slots as d}
-					{#if d.label}<h3>{d.label}</h3>{/if}
-					{#if d.description}<div>{@html d.description}</div>{/if}
-					<DataTable headings={d.headings} source={d.source} />
+					<section class="space-y-4">
+						{#if d.label}<h2>{d.label}</h2>{/if}
+						{#if d.description}<div>{@html d.description}</div>{/if}
+						<DataTable headings={d.headings} source={d.source} />
+					</section>
 				{/each}
-			</section>
+			</div>
 		{/if}
 
 		<!-- Tab: A11y -->
 		{#if a11y.length && $storePageTabs === 'a11y'}
-			<section class="doc-shell-a11y {classesPanel}">
+			<div class="doc-shell-a11y {spacing}">
 				{#each a11y as d}
-					{#if d.label}<h3>{d.label}</h3>{/if}
-					{#if d.description}<div>{@html d.description}</div>{/if}
-					<DataTable headings={d.headings} source={d.source} />
+					<section class="space-y-4">
+						{#if d.label}<h2>{d.label}</h2>{/if}
+						{#if d.description}<div>{@html d.description}</div>{/if}
+						<DataTable headings={d.headings} source={d.source} />
+					</section>
 				{/each}
-			</section>
+			</div>
 		{/if}
 	</div>
+
+	<!-- Slot: Default -->
+	<!-- Use this to extend the page with unique features or information features. -->
+	{#if $$slots.default}<div class="doc-shell-extras {classesRegionExtras}"><slot /></div>{/if}
 </div>
 
 <style lang="postcss">
 	.detail-header {
 		@apply inline-block w-28 mr-4;
+	}
+	.detail-code {
+		@apply bg-surface-500/10 text-xs py-1 px-2 rounded cursor-pointer hover:bg-primary-500/10;
 	}
 </style>

@@ -41,10 +41,10 @@ export const menuNavLinks: any = [
 		id: 'nav-components',
 		title: 'Svelte Components',
 		list: [
-			{ href: '/components/app-shell', label: 'App Shell' },
-			{ href: '/components/app-bar', label: 'App Bar' },
 			{ href: '/components/accordions', label: 'Accordions' },
 			{ href: '/components/alerts', label: 'Alerts' },
+			{ href: '/components/app-bar', label: 'App Bar' },
+			{ href: '/components/app-shell', label: 'App Shell' },
 			{ href: '/components/avatars', label: 'Avatars' },
 			{ href: '/components/breadcrumbs', label: 'Breadcrumbs' },
 			{ href: '/components/conic-gradients', label: 'Conic Gradients' },
