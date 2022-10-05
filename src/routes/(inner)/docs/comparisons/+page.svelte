@@ -5,7 +5,7 @@
 	import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
 </script>
 
-<div class="space-y-8">
+<div class="page-container">
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Comparisons</h1>

@@ -20,13 +20,11 @@
 	export let slots: DocsShellTable[] | undefined = undefined;
 	export let a11y: DocsShellTable[] | undefined = undefined;
 	// Props (styles)
-	export let padding: string = ' p-4 md:p-10';
 	export let spacing: string = 'space-y-8';
 	// Props (regions)
-	export let regionHeader: string = 'bg-white/75 dark:bg-black/10';
+	export let regionHeader: string = 'page-container bg-white/75 dark:bg-black/10';
 	export let regionDetails: string = 'text-xs md:text-sm lg:text-base space-y-4';
-	export let regionPanels: string = 'container mx-auto';
-	export let regionExtra: string = 'container mx-auto';
+	export let regionPanels: string = 'page-container';
 
 	// Classes
 	const cBase: string = '';
@@ -35,8 +33,7 @@
 	let storePageTabs: Writable<string> = writable('documentation');
 
 	// Local
-	const githubSourcePath: string = 'https://github.com/Brain-Bones/skeleton/tree/dev/src'; // hardcoded
-	// prettier-ignore
+	const githubSourcePath: string = 'https://github.com/Brain-Bones/skeleton/tree/dev/src'; // FIXME: hardcoded dev
 	const defaultSettings: DocsShellSettings = {
 		// Intro
 		feature: DocsFeature.Component,
@@ -44,13 +41,13 @@
 		description: '(description)',
 		// Details
 		imports: [],
-        types: [],
+		types: [],
 		stylesheetIncludes: [],
 		stylesheets: [],
 		source: '',
 		docs: $page.url.pathname,
 		package: { name: '@brainandbones/skeleton', url: 'https://www.npmjs.com/package/@brainandbones/skeleton' },
-        dependencies: [],
+		dependencies: []
 	};
 	const pageSettings: DocsShellSettings = { ...defaultSettings, ...settings };
 
@@ -58,11 +55,10 @@
 		const index: number = Object.values(DocsFeature).indexOf(pageSettings.feature);
 		// prettier-ignore
 		switch(index) {
-            case(0): return 'book';
-            case(1): return 'tailwind';
-            case(2): return 'svelte';
-            case(3): return 'screwdriver';
-            default: return 'heart';
+            case(1): return 'tailwind'; // Element
+            case(2): return 'svelte'; // Component
+            case(3): return 'svelte'; // Action
+            default: return 'screwdriver'; // Utility
         }
 	}
 
@@ -104,9 +100,8 @@
 
 	// Reactive
 	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
-	$: classesRegionHeader = `${regionHeader} ${padding}`;
-	$: classesRegionPanels = `${regionPanels} ${padding}`;
-	$: classesRegionFooter = `${regionExtra} ${padding} ${spacing}`;
+	$: classesRegionHeader = `${regionHeader}`;
+	$: classesRegionPanels = `${regionPanels}`;
 </script>
 
 <div class="doc-shell {classesBase}">
@@ -208,9 +203,13 @@
 		{#if $storePageTabs === 'documentation'}
 			<div class="doc-shell-documentation {spacing}">
 				<!-- Slot: Sandbox -->
-				<div class={spacing}><slot name="sandbox">(sandbox)</slot></div>
+				<div class="doc-shell-sandbox {spacing}"><slot name="sandbox">(sandbox)</slot></div>
 				<!-- Slot: Default -->
-				<div class={spacing}><slot name="usage">(usage)</slot></div>
+				<div class="doc-shell-usage {spacing}"><slot name="usage">(usage)</slot></div>
+				<!-- Slot: Default (footer) -->
+				{#if $$slots.default}
+					<footer class="doc-shell-footer"><slot /></footer>
+				{/if}
 			</div>
 		{/if}
 
@@ -271,9 +270,6 @@
 			</div>
 		{/if}
 	</div>
-
-	<!-- Slot: Default (footer) -->
-	{#if $$slots.default}<footer class="doc-shell-footer {classesRegionFooter}"><slot /></footer>{/if}
 </div>
 
 <style lang="postcss">

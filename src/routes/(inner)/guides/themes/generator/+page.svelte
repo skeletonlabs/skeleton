@@ -13,7 +13,7 @@
 	import DocsThemer from '$docs/DocsThemer/DocsThemer.svelte';
 </script>
 
-<div class="space-y-8">
+<div class="page-container">
 	<!-- Breadcrumbs -->
 	<Breadcrumb>
 		<Crumb href="/guides/themes">Themes</Crumb>

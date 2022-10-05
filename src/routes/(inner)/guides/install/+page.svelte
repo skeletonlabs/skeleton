@@ -4,7 +4,7 @@
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 </script>
 
-<div class="space-y-10">
+<div class="page-container">
 	<!-- Install -->
 	<section class="space-y-4">
 		<h1>Installation</h1>

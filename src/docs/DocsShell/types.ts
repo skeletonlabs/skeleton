@@ -1,5 +1,4 @@
 export enum DocsFeature {
-	Documentation = 'Documentation',
 	Element = 'Tailwind Element',
 	Component = 'Svelte Component',
 	Action = 'Svelte Action',
