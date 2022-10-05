@@ -1,66 +1,63 @@
 <script lang="ts">
-	import DataTable from '$lib/components/Table/DataTable.svelte';
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
 
-	// Tables
-	const tableProps: any = {
-		headings: ['Prop', 'Type', 'Default', 'Values', 'Required', 'Description'],
-		source: [
-			['name', '-', '-', '-', '&check;', '...'],
-			['name', '-', '-', '-', '-', '...']
-		]
+	// Docs Shell Settings
+	const settings: DocsShellSettings = {
+		feature: DocsFeature.Component,
+		name: 'Template',
+		description:
+			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, eius officia aliquid beatae libero voluptas ea reprehenderit sed, ducimus quae reiciendis esse qui repudiandae veritatis perferendis deserunt ut magnam quisquam.',
+		imports: ['Template'],
+		stylesheetIncludes: ['core', 'elements'],
+		stylesheets: ['template'],
+		source: 'Components/Template/Template.svelte'
+		// dependencies: [{ label: 'Highlight.js', url: 'https://highlightjs.org/' }],
 	};
-	const tableSlots: any = {
-		headings: ['Name', 'Description'],
-		source: [['name', '...']]
-	};
-	const tableA11y: any = {
-		headings: ['Prop', 'Type', 'Default', 'Values', 'Required', 'Description'],
-		source: [
-			['name', '-', '-', '-', '&check;', '...'],
-			['name', '-', '-', '-', '-', '...']
-		]
-	};
+
+	// Docs Shell Tables
+	const properties: DocsShellTable[] = [
+		{
+			label: '(label)',
+			description: '(description)',
+			headings: ['Prop', 'Type', 'Default', 'Values', 'Required', 'Description'],
+			source: [
+				['foo', '-', '-', '-', '&check;', '...'],
+				['bar', '-', '-', '-', '-', '...']
+			]
+		}
+	];
+	const classes: DocsShellTable[] = [
+		{
+			headings: ['Selector', 'Description'],
+			source: [['<code>.foo</code>', '...']]
+		}
+	];
+	const slots: DocsShellTable[] = [
+		{
+			headings: ['Name', 'Description'],
+			source: [['name', '...']]
+		}
+	];
+	const a11y: DocsShellTable[] = [
+		{
+			headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
+			source: [
+				['name', '-', '-', '-', '...'],
+				['name', '-', '-', '-', '...']
+			]
+		}
+	];
 </script>
 
-<div class="space-y-8">
-	<!-- Header -->
-	<header class="space-y-4">
-		<h1>Template</h1>
-		<p>Describe the component here.</p>
-		<CodeBlock language="javascript" code={`import { Component } from '@brainandbones/skeleton';`} />
-	</header>
-
-	<!-- Examples -->
-	<h2 class='sr-only'>Examples</h2>
-	<div class="card card-body space-y-4">
-		<p>(ExamplesHere)</p>
-	</div>
+<DocsShell {settings} {properties} {classes} {slots} {a11y}>
+	<!-- Slot: Sandbox -->
+	<svelte:fragment slot="sandbox">
+		<div class="card card-body">
+			<p class="text-center">(sandbox)</p>
+		</div>
+	</svelte:fragment>
 
 	<!-- Usage -->
-	<section class="space-y-4">
-		<h2>Usage</h2>
-		<CodeBlock language="html" code={`<div>UsageExample</div>`} />
-	</section>
-
-	<!-- Properties -->
-	<section class="space-y-4">
-		<h2>Properties</h2>
-		<DataTable headings={tableProps.headings} source={tableProps.source} />
-	</section>
-
-	<!-- Slots -->
-	<section class="space-y-4">
-		<h2>Slots</h2>
-		<DataTable headings={tableSlots.headings} source={tableSlots.source} />
-	</section>
-
-	<!-- Accessibility -->
-	<section class="space-y-4">
-		<div class="flex justify-between items-center">
-			<h2>Accessibility</h2>
-			<a href="https://www.w3.org/WAI/ARIA/apg/patterns/" target="_blank">ARIA Guidelines</a>
-		</div>
-		<DataTable headings={tableA11y.headings} source={tableA11y.source} />
-	</section>
-</div>
+	<p>(usage)</p>
+</DocsShell>
