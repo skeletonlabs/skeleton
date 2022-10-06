@@ -14,6 +14,7 @@
 		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
 		source: [
 			['selected', 'Writable', '-', '&check;', 'A svelte store to keep track of tab selection.'],
+			['rail', 'boolean', 'true', '-', 'Toggless the bottom border below the tabs.'],
 			['justify', 'string', 'justify-start', '-', `Provide classes to set the flex justification. 'justify-start' is best small screens.`],
 			['borderWidth', 'string', 'border-b-2', '-', 'Provide classes to set the selected border thickness size. Shared between group and tab.'],
 			['borderColor', 'string', 'border-primary-500', '-', 'Provide classes to set the selected border color.'],

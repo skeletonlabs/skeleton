@@ -5,6 +5,11 @@ export enum DocsFeature {
 	Utility = 'Utility'
 }
 
+interface DocShellLinks {
+	label: string;
+	url: string;
+}
+
 export interface DocsShellSettings {
 	/** Enum: Documentation | Element | Component | Action | Utility */
 	feature: DocsFeature;
@@ -20,10 +25,6 @@ export interface DocsShellSettings {
 	stylesheetIncludes?: string[];
 	/** List of CSS import paths (partials) */
 	stylesheets?: string[];
-	/** Specify the source path (partials) */
-	source: string;
-	/** Provide the GitHub documentation route path (partial) */
-	docs?: string;
 	/** The NPM package this feature belongs to. */
 	package?: {
 		/** Package Name */
@@ -31,8 +32,12 @@ export interface DocsShellSettings {
 		/** Package URL */
 		url: string;
 	};
-	/** Provide a list of depedencies as { name: string, url: string } */
-	dependencies?: any[];
+	/** Specify the source path (partials) */
+	source: string;
+	/** Provide the GitHub documentation route path (partial) */
+	docs?: string;
+	/** Provide list of depedency links.  */
+	dependencies?: DocShellLinks[];
 }
 
 export interface DocsShellTable {
@@ -43,7 +48,7 @@ export interface DocsShellTable {
 	/** Provide the table headings. */
 	headings?: string[];
 	/** Provide the table source data. */
-	source?: any[];
-	/** Provide reference links { label: string, url: string } */
-	links?: any[];
+	source?: string[][];
+	/** WAI-ARIA APG page link. */
+	aria?: string;
 }

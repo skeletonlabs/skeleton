@@ -76,7 +76,7 @@
 	];
 	const a11y: DocsShellTable[] = [
 		{
-			links: [{ label: 'ARIA APG', url: 'https://www.w3.org/WAI/ARIA/apg/example-index/accordion/accordion' }],
+			aria: 'https://www.w3.org/WAI/ARIA/apg/example-index/accordion/accordion',
 			headings: ['Prop', 'Description'],
 			source: [
 				['<code>summaryId</code>', 'Provide semantic ID for ARIA summary element.'],

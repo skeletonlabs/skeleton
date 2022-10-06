@@ -1,9 +1,10 @@
 <script lang="ts">
 	import type { Writable } from 'svelte/store';
-	import { onMount, setContext } from 'svelte';
+	import { setContext } from 'svelte';
 
 	// Props
 	export let selected: Writable<any>;
+	export let rail: boolean = true;
 	export let justify: string = 'justify-start';
 	export let borderWidth: string = 'border-b-2';
 	export let borderColor: string = 'border-primary-500';
@@ -43,7 +44,8 @@
 	}
 
 	// Reactive Classes
-	$: classesGroup = `${cBase} ${borderWidth} ${justify} ${$$props.class ?? ''}`;
+	$: classesRail = rail ? borderWidth : 'border-0';
+	$: classesGroup = `${cBase} ${classesRail} ${justify} ${$$props.class ?? ''}`;
 </script>
 
 <!-- prettier-ignore -->

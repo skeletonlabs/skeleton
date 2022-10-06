@@ -43,7 +43,7 @@
 	];
 	const a11y: DocsShellTable[] = [
 		{
-			links: [{ label: 'ARIA APG', url: 'https://www.w3.org/WAI/ARIA/apg/' }],
+			aria: 'https://www.w3.org/WAI/ARIA/apg/',
 			headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
 			source: [
 				['<code>foo</code>', '-', '-', '-', '...'],
@@ -57,7 +57,7 @@
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<div class="card card-body">
-			<p class="text-center">(sandbox)</p>
+			<p class="text-center">(examples)</p>
 		</div>
 	</svelte:fragment>
 

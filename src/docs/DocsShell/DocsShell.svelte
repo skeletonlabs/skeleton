@@ -22,15 +22,15 @@
 	// Props (styles)
 	export let spacing: string = 'space-y-8';
 	// Props (regions)
-	export let regionHeader: string = 'bg-white/75 dark:bg-black/10';
-	export let regionDetails: string = 'text-xs md:text-sm lg:text-base space-y-4';
+	export let regionHeader: string = 'bg-white/20 dark:bg-black/10';
+	export let regionDetails: string = 'grid grid-cols-1 md:grid-cols-[128px_1fr] gap-4';
 	export let regionPanels: string = 'page-container';
 
 	// Classes
 	const cBase: string = '';
 
 	// Stores
-	let storeActiveTab: Writable<string> = writable('documentation');
+	let storeActiveTab: Writable<string> = writable('usage');
 
 	// Local
 	const githubSourcePath: string = 'https://github.com/Brain-Bones/skeleton/tree/dev/src'; // FIXME: hardcoded dev
@@ -44,9 +44,9 @@
 		types: [],
 		stylesheetIncludes: [],
 		stylesheets: [],
+		package: { name: '@brainandbones/skeleton', url: 'https://www.npmjs.com/package/@brainandbones/skeleton' },
 		source: '',
 		docs: $page.url.pathname,
-		package: { name: '@brainandbones/skeleton', url: 'https://www.npmjs.com/package/@brainandbones/skeleton' },
 		dependencies: []
 	};
 	const pageSettings: DocsShellSettings = { ...defaultSettings, ...settings };
@@ -121,74 +121,66 @@
 			</section>
 
 			<!-- Details -->
-			<ul class={regionDetails}>
+			<section class="doc-shell-details {regionDetails}">
 				<!-- Imports -->
 				{#if pageSettings.imports?.length}
-					<li>
-						<span class="detail-header">Import</span>
-						<code on:click={copyImports}>{formatImports()}</code>
-					</li>
+					<p class="hidden md:inline-block w-32">Import</p>
+					<div><code on:click={copyImports}>{formatImports()}</code></div>
 				{/if}
 				<!-- Types -->
 				{#if pageSettings.types?.length}
-					<li>
-						<span class="detail-header">Types</span>
-						<code on:click={copyTypes}>{formatTypes()}</code>
-					</li>
+					<p class="hidden md:inline-block w-32">Types</p>
+					<div><code on:click={copyTypes}>{formatTypes()}</code></div>
 				{/if}
 				<!-- Stylesheets -->
 				{#if pageSettings.stylesheetIncludes?.length || pageSettings.stylesheets?.length}
-					<li class="block md:flex items-start">
-						<span class="detail-header">Stylesheets</span>
-						<!-- prettier-ignore -->
-						<div class="flex space-x-1">
-							<!-- Stylesheet Includes -->
-							{#if pageSettings.stylesheetIncludes?.length}
-                                {#each pageSettings.stylesheetIncludes as si}
-                                    <code on:click={() => {copyStylesheet(si)}}>{si}.css</code>
-                                {/each}
-							{/if}
-                            <!-- Stylesheets -->
-							{#each Array.from(pageSettings.stylesheets || []) as s}
-								<code on:click={() => {copyStylesheet(s)}}>{s}.css</code>
+					<p class="hidden md:inline-block w-32">Stylesheets</p>
+					<!-- prettier-ignore -->
+					<div class="flex space-x-1">
+						<!-- Stylesheet Includes -->
+						{#if pageSettings.stylesheetIncludes?.length}
+							{#each pageSettings.stylesheetIncludes as si}
+								<code on:click={() => {copyStylesheet(si)}}>{si}.css</code>
 							{/each}
-						</div>
-					</li>
+						{/if}
+						<!-- Stylesheets -->
+						{#each Array.from(pageSettings.stylesheets || []) as s}
+							<code on:click={() => {copyStylesheet(s)}}>{s}.css</code>
+						{/each}
+					</div>
 				{/if}
-				<!-- Source Code -->
-				<li class="block md:flex items-center space-x-2">
-					<span class="detail-header">Source</span>
-					<SvgIcon width="w-4" height="h-4" class="!mr-1" name="github" />
-					<a href={`${githubSourcePath}/lib/${pageSettings.source}`} target="_blank">View source code</a>
-				</li>
-				<!-- Doc Source -->
-				<li class="block md:flex items-center space-x-2">
-					<span class="detail-header">Docs</span>
-					<SvgIcon width="w-4" height="h-4" class="!mr-1" name="pen-ruler" />
-					<a href={`${githubSourcePath}/routes/(inner)${pageSettings.docs}/+page.svelte`} target="_blank">Edit this page</a>
-				</li>
 				<!-- Package -->
-				<li class="block md:flex items-center space-x-2">
-					<span class="detail-header">Package</span>
+				<p class="hidden md:inline-block w-32">Package</p>
+				<div class="flex items-end space-x-2">
 					<SvgIcon width="w-5" height="h-5" name="npm" />
 					<a href={pageSettings.package?.url} target="_blank">{pageSettings.package?.name}</a>
-				</li>
+				</div>
+				<!-- Source Code -->
+				<p class="hidden md:inline-block w-32">Source</p>
+				<div class="flex items-end space-x-2">
+					<SvgIcon width="w-4" height="h-4" class="!mr-1" name="github" />
+					<a href={`${githubSourcePath}/lib/${pageSettings.source}`} target="_blank">View Source</a>
+				</div>
+				<!-- Doc Source -->
+				<p class="hidden md:inline-block w-32">Docs</p>
+				<div class="flex items-end space-x-2">
+					<SvgIcon width="w-4" height="h-4" class="!mr-1" name="book" />
+					<a href={`${githubSourcePath}/routes/(inner)${pageSettings.docs}/+page.svelte`} target="_blank">Doc Source</a>
+				</div>
 				<!-- Dependencies -->
 				{#if pageSettings.dependencies?.length}
-					<li class="flex items-start">
-						<span class="detail-header">Dependencies</span>
-						<div class="grid grid-cols-1 gap-2">
-							{#each pageSettings.dependencies as d}
-								<a href={d.url} target="_blank">{d.label}</a>
-							{/each}
-						</div>
-					</li>
+					<p class="hidden md:inline-block w-32">Dependencies</p>
+					<div class="grid grid-cols-1 gap-2">
+						{#each pageSettings.dependencies as d}
+							<a href={d.url} target="_blank">{d.label}</a>
+						{/each}
+					</div>
 				{/if}
-			</ul>
+			</section>
 
 			<!-- Tabs -->
-			<TabGroup selected={storeActiveTab}>
-				<Tab value="documentation">Documentation</Tab>
+			<TabGroup selected={storeActiveTab} rail={false}>
+				<Tab value="usage">Usage</Tab>
 				{#if properties && properties.length}<Tab value="properties">Properties</Tab>{/if}
 				{#if classes && classes.length}<Tab value="classes">Classes</Tab>{/if}
 				{#if slots && slots.length}<Tab value="slots">Slots</Tab>{/if}
@@ -199,9 +191,9 @@
 
 	<!-- Tab Panels -->
 	<div class="doc-shell-tab-panels {classesRegionPanels}">
-		<!-- Tab: documentation -->
-		{#if $storeActiveTab === 'documentation'}
-			<div class="doc-shell-documentation {spacing}">
+		<!-- Tab: Usage -->
+		{#if $storeActiveTab === 'usage'}
+			<div class="doc-shell-usage {spacing}">
 				<!-- Slot: Sandbox -->
 				<div class="doc-shell-sandbox {spacing}"><slot name="sandbox">(sandbox)</slot></div>
 				<!-- Slot: Default -->
@@ -259,11 +251,7 @@
 					<section class="space-y-4">
 						{#if d.label}<h2>{d.label}</h2>{/if}
 						{#if d.description}<div>{@html d.description}</div>{/if}
-						{#if d.links?.length}
-							{#each d.links as link}
-								<a class="btn btn-sm btn-ghost" href={link.url} target="_blank">{link.label}</a>
-							{/each}
-						{/if}
+						{#if d.aria}<p>Adheres to <a href={d.aria} target="_blank">WAI-ARIA guidelines</a> for accessibility.</p>{/if}
 						<DataTable headings={d.headings} source={d.source} />
 					</section>
 				{/each}
@@ -275,8 +263,5 @@
 <style lang="postcss">
 	code {
 		@apply cursor-pointer hover:!bg-primary-500/20 transition-colors duration-100;
-	}
-	.detail-header {
-		@apply hidden md:inline-block w-32;
 	}
 </style>
