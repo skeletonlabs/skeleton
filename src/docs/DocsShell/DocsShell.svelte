@@ -196,11 +196,21 @@
 			<div class="doc-shell-usage {spacing}">
 				<!-- Slot: Sandbox -->
 				{#if $$slots.sandbox}
-					<div class="doc-shell-sandbox {spacing}"><slot name="sandbox">(sandbox)</slot></div>
+					<div>
+						<h2 class="sr-only">Examples</h2>
+						<div class="doc-shell-sandbox {spacing}">
+							<slot name="sandbox">(sandbox)</slot>
+						</div>
+					</div>
 				{/if}
 				<!-- Slot: Usage -->
 				{#if $$slots.usage}
-					<div class="doc-shell-usage {spacing}"><slot name="usage">(usage)</slot></div>
+					<div>
+						<h2 class="sr-only">Usage</h2>
+						<div class="doc-shell-usage {spacing}">
+							<slot name="usage">(usage)</slot>
+						</div>
+					</div>
 				{/if}
 				<!-- Slot: Default (footer) -->
 				{#if $$slots.default}

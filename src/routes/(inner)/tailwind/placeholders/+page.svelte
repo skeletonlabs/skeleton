@@ -31,28 +31,25 @@
 <DocsShell {settings} {classes}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section>
-			<h2 class="sr-only">Examples</h2>
-			<div class="card">
-				<div class="card-header flex justify-between items-center">
-					<div class="flex justify-center items-center space-x-4" class:animate-pulse={animate}>
-						<div class="placeholder-circle w-16" />
-						<div class="placeholder-circle w-14" />
-						<div class="placeholder-circle w-10" />
-					</div>
-					<SlideToggle bind:checked={animate} accent="bg-accent-500">Animated</SlideToggle>
+		<section class="card">
+			<div class="card-header flex justify-between items-center">
+				<div class="flex justify-center items-center space-x-4" class:animate-pulse={animate}>
+					<div class="placeholder-circle w-16" />
+					<div class="placeholder-circle w-14" />
+					<div class="placeholder-circle w-10" />
 				</div>
-				<div class="card-body space-y-4" class:animate-pulse={animate}>
+				<SlideToggle bind:checked={animate} accent="bg-accent-500">Animated</SlideToggle>
+			</div>
+			<div class="card-body space-y-4" class:animate-pulse={animate}>
+				<div class="placeholder" />
+				<div class="grid grid-cols-4 gap-4">
 					<div class="placeholder" />
-					<div class="grid grid-cols-4 gap-4">
-						<div class="placeholder" />
-						<div class="placeholder" />
-						<div class="placeholder" />
-						<div class="placeholder" />
-					</div>
+					<div class="placeholder" />
 					<div class="placeholder" />
 					<div class="placeholder" />
 				</div>
+				<div class="placeholder" />
+				<div class="placeholder" />
 			</div>
 		</section>
 	</svelte:fragment>

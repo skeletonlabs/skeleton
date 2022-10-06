@@ -9,7 +9,7 @@
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Element,
 		name: 'Logo Clouds',
-		description: 'Provides logos for presenting a set of logos, brands, or sponsors.',
+		description: 'Provides a grid for presenting a set of logos, brands, or sponsors.',
 		stylesheetIncludes: ['core', 'elements'],
 		stylesheets: ['elements/logo-clouds'],
 		source: 'styles/elements/logo-clouds.css'
@@ -29,8 +29,7 @@
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 gap-4">
-			<h2 class="sr-only">Examples</h2>
-			<!-- Has Links -->
+			<!-- Links -->
 			<div class="logo-cloud grid-cols-1 lg:!grid-cols-3 gap-1">
 				<a class="logo-item" href="https://svelte.dev/" target="_blank">
 					<span><SvgIcon name="svelte" width="w-8" height="h-8" /></span>

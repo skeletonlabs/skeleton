@@ -54,7 +54,7 @@
 <DocsShell {settings} {classes}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<div class="grid grid-cols-1 xl:grid-cols-[1fr_480px] gap-2">
+		<div class="grid grid-cols-1 xl:grid-cols-[1fr_auto] gap-2">
 			<!-- Example -->
 			<div class="card grid grid-rows-[1fr_auto]">
 				<div class="p-4 flex justify-center items-center">

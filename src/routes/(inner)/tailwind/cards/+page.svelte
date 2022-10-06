@@ -31,7 +31,6 @@
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-			<h2 class="sr-only">Examples</h2>
 			<!-- Colors -->
 			<div class="card card-body !bg-primary-500 text-white text-center">Primary</div>
 			<div class="card card-body !bg-accent-500 text-white text-center">Accent</div>

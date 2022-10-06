@@ -98,45 +98,42 @@
 <DocsShell {settings} {properties} {classes} {slots} {a11y}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="space-y-4">
-			<h2 class="sr-only">Examples</h2>
-			<div class="card card-body">
-				<AccordionGroup>
-					<AccordionItem spacing="space-y-4" open>
-						<svelte:fragment slot="lead">
-							<SvgIcon name="skull" width="w-10" height="h-10" fill="fill-primary-500" />
-						</svelte:fragment>
-						<svelte:fragment slot="summary">
-							<h3>Icon Heading</h3>
-						</svelte:fragment>
-						<svelte:fragment slot="content">
-							<p>The content for the first element.</p>
-						</svelte:fragment>
-					</AccordionItem>
-					<AccordionItem spacing="space-y-4">
-						<svelte:fragment slot="lead">
-							<Avatar src="https://i.pravatar.cc/?img=5" />
-						</svelte:fragment>
-						<svelte:fragment slot="summary">
-							<h3>Avatar Heading</h3>
-						</svelte:fragment>
-						<svelte:fragment slot="content">
-							<p>The content for the second element.</p>
-						</svelte:fragment>
-					</AccordionItem>
-					<AccordionItem spacing="space-y-4">
-						<svelte:fragment slot="lead">
-							<Avatar initials="1" background="bg-accent-500" />
-						</svelte:fragment>
-						<svelte:fragment slot="summary">
-							<h3>Numeral Heading</h3>
-						</svelte:fragment>
-						<svelte:fragment slot="content">
-							<p>The content for the third element.</p>
-						</svelte:fragment>
-					</AccordionItem>
-				</AccordionGroup>
-			</div>
+		<section class="card card-body">
+			<AccordionGroup>
+				<AccordionItem spacing="space-y-4" open>
+					<svelte:fragment slot="lead">
+						<SvgIcon name="skull" width="w-10" height="h-10" fill="fill-primary-500" />
+					</svelte:fragment>
+					<svelte:fragment slot="summary">
+						<h3>Icon Heading</h3>
+					</svelte:fragment>
+					<svelte:fragment slot="content">
+						<p>The content for the first element.</p>
+					</svelte:fragment>
+				</AccordionItem>
+				<AccordionItem spacing="space-y-4">
+					<svelte:fragment slot="lead">
+						<Avatar src="https://i.pravatar.cc/?img=5" />
+					</svelte:fragment>
+					<svelte:fragment slot="summary">
+						<h3>Avatar Heading</h3>
+					</svelte:fragment>
+					<svelte:fragment slot="content">
+						<p>The content for the second element.</p>
+					</svelte:fragment>
+				</AccordionItem>
+				<AccordionItem spacing="space-y-4">
+					<svelte:fragment slot="lead">
+						<Avatar initials="1" background="bg-accent-500" />
+					</svelte:fragment>
+					<svelte:fragment slot="summary">
+						<h3>Numeral Heading</h3>
+					</svelte:fragment>
+					<svelte:fragment slot="content">
+						<p>The content for the third element.</p>
+					</svelte:fragment>
+				</AccordionItem>
+			</AccordionGroup>
 		</section>
 	</svelte:fragment>
 
