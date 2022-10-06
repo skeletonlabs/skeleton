@@ -1,8 +1,62 @@
 <script lang="ts">
-	import { DataTable, Paginator } from '@brainandbones/skeleton';
+	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+
+	import Paginator from '$lib/components/Paginator/Paginator.svelte';
+	import DataTable from '$lib/components/Table/DataTable.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// Content
+	// Docs Shell
+	const settings: DocsShellSettings = {
+		feature: DocsFeature.Component,
+		name: 'Paginators',
+		description: 'Navigate between multiple pages of content.',
+		imports: ['Paginator'],
+		source: 'components/Paginator'
+	};
+	const properties: DocsShellTable[] = [
+		{
+			label: 'Settings',
+			headings: ['Prop', 'Type', 'Default', 'Description'],
+			source: [
+				['<code>offset</code>', 'number', '0', 'Index of the first list item to display.'],
+				['<code>limit</code>', 'number', '5', 'Current number of items to display.'],
+				['<code>size</code>', 'number', '10', 'The total size (length) of your source content.'],
+				['<code>amounts</code>', 'number[]', '[1,5,10,50,100]', 'List of amounts available to the select input.']
+			]
+		},
+		{
+			label: 'Styling',
+			headings: ['Prop', 'Type', 'Default', 'Description'],
+			source: [
+				['<code>justify</code>', 'string', 'justify-between', 'Provide classes to set flexbox justification.'],
+				['<code>text</code>', 'string', 'text-xs', 'Provide classes to style page context text.'],
+				['<code>select</code>', 'string', '-', 'Provide arbitrary classes to style the select input.'],
+				['<code>buttons</code>', 'string', `btn-ghost`, 'Provide any desired <a href="/tailwind/buttons">Button element</a> classes.']
+			]
+		}
+	];
+	const events: DocsShellTable[] = [
+		{
+			headings: ['Name', 'Description'],
+			source: [
+				['<code>on:amount</code>', 'Fires when the amount selection input changes. Provides the selected amount value.'],
+				['<code>on:page</code>', 'Fires when the next/back buttons are pressed. Provides the new offset value.']
+			]
+		}
+	];
+	const classes: DocsShellTable[] = [
+		{
+			description: 'Coming soon.'
+			// headings: ['Selector', 'Description'],
+			// source: [
+			// 	['<code>.foo</code>', '...'],
+			// 	['<code>.bar</code>', '...']
+			// ]
+		}
+	];
+
+	// Local
 	const content: any = {
 		headings: ['Positions', 'Name', 'Weight', 'Symbol'],
 		source: [
@@ -18,7 +72,6 @@
 			{ position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' }
 		]
 	};
-	$: contentSliced = content.source.slice(page.offset * page.limit, page.offset * page.limit + page.limit);
 	const page: any = {
 		offset: 0,
 		limit: 5,
@@ -34,83 +87,27 @@
 		console.log('Paginator - event:amount', e.detail);
 	}
 
-	// Props
-	// prettier-ignore
-	const tableProps: any = {
-        headings: ['Prop', 'Type', 'Default', 'Description'],
-        source: [
-            ['offset', 'number', '0', 'Index of the first list item to display.'],
-            ['limit', 'number', '5', 'Current number of items to display.'],
-            ['size', 'number', '10', 'The total size (length) of your source content.'],
-            ['amounts', 'number[]', '[1,5,10,50,100]', 'List of amounts available to the select input.'],
-        ],
-    };
-	// prettier-ignore
-	const tablePropsDesign: any = {
-        headings: ['Prop', 'Type', 'Default', 'Description'],
-        source: [
-            ['justify', 'string', 'justify-between', 'Provide classes to set flexbox justification.'],
-            ['text', 'string', 'text-xs', 'Provide classes to style page context text.'],
-            ['select', 'string', '-', 'Provide arbitrary classes to style the select input.'],
-            ['buttons', 'string', `btn-ghost`, 'Provide any desired <a href="/tailwind/buttons">Button element</a> classes.'],
-        ],
-    };
-
-	// Events
-	const tableEvents: any = {
-		headings: ['Name', 'Description'],
-		source: [
-			['amount', 'Fires when the amount selection input changes. Provides the selected amount value.'],
-			['page', 'Fires when the next/back buttons are pressed. Provides the new offset value.']
-		]
-	};
+	// Reactive
+	$: contentSliced = content.source.slice(page.offset * page.limit, page.offset * page.limit + page.limit);
 </script>
 
-<div class="space-y-8">
-	<!-- Header -->
-	<header class="space-y-4">
-		<h1>Paginators</h1>
-		<p>Navigate between multiple pages of content.</p>
-		<CodeBlock language="javascript" code={`import { Paginator } from '@brainandbones/skeleton';`} />
-	</header>
-
-	<!-- Examples -->
-	<section class="grid grid-cols-1 xl:grid-cols-2 gap-4">
-		<h2 class='sr-only'>Examples</h2>
-		<div class="card card-body space-y-4">
-			<h3>List Pagination</h3>
-			<hr />
-			<nav class="list-nav">
-				<ul>
-					{#each contentSliced as e, i}
-						<li>
-							<a href="/components/paginators">
-								<span>{i + 1}</span>
-								<span class="flex-auto">
-									{e.name}
-								</span>
-								<span>{e.symbol}</span>
-							</a>
-						</li>
-					{/each}
-				</ul>
-			</nav>
-			<hr />
-			<Paginator bind:offset={page.offset} bind:limit={page.limit} bind:size={page.size} bind:amounts={page.amounts} on:page={onPageChange} on:amount={onAmountChange} />
-		</div>
-		<div class="card card-body space-y-4">
-			<h3>Table Pagination</h3>
+<DocsShell {settings} {properties} {events} {classes}>
+	<!-- Slot: Sandbox -->
+	<svelte:fragment slot="sandbox">
+		<section class="space-y-4">
 			<DataTable headings={content.headings} source={contentSliced} />
-			<Paginator bind:offset={page.offset} bind:limit={page.limit} bind:size={page.size} bind:amounts={page.amounts} on:page={onPageChange} on:amount={onAmountChange} />
-		</div>
-	</section>
+			<div class="col-span-2 card card-body space-y-4">
+				<Paginator bind:offset={page.offset} bind:limit={page.limit} bind:size={page.size} bind:amounts={page.amounts} on:page={onPageChange} on:amount={onAmountChange} />
+			</div>
+		</section>
+	</svelte:fragment>
 
-	<!-- Usage -->
-	<section class="space-y-4">
-		<h2>Usage</h2>
-		<CodeBlock
-			language="typescript"
-			code={`
+	<!-- Slot: Usage -->
+	<svelte:fragment slot="usage">
+		<div class="space-y-4">
+			<CodeBlock
+				language="typescript"
+				code={`
 const page: any = {
     offset: 0,
     limit: 5,
@@ -118,17 +115,10 @@ const page: any = {
     amounts: [1,2,5,10],
 };
         `}
-		/>
-		<CodeBlock
-			language="typescript"
-			code={`
-function onPageChange(e: any): void { console.log('event:page', e.detail); }
-function onAmountChange(e: any): void { console.log('event:amount', e.detail); }
-        `}
-		/>
-		<CodeBlock
-			language="html"
-			code={`
+			/>
+			<CodeBlock
+				language="html"
+				code={`
 <Paginator
     bind:offset={page.offset}
     bind:limit={page.limit}
@@ -138,46 +128,36 @@ function onAmountChange(e: any): void { console.log('event:amount', e.detail); }
     on:amount={onAmountChange}
 ></Paginator>
         `}
-		/>
-		<h3>Utilizing Pagination</h3>
-		<p>
-			Once your paginator component is setup you'll need to limit your content. This can be accomplished with the JavaScript <a
-				href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice"
-				target="_blank">slice</a
-			> method. See a minimal example below.
-		</p>
-		<CodeBlock language="typescript" code={`const source: any[] = [ /* any array of objects */ ]`} />
-		<CodeBlock
-			language="typescript"
-			code={`
+			/>
+		</div>
+		<div class="space-y-4">
+			<h2>Utilizing Pagination</h2>
+			<p>
+				Once your paginator component is setup you'll need to limit your content. This can be accomplished with the JavaScript <a
+					href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice"
+					target="_blank">slice</a
+				> method. See a minimal example below.
+			</p>
+			<CodeBlock language="typescript" code={`const source: any[] = [ /* any array of objects */ ]`} />
+			<CodeBlock
+				language="typescript"
+				code={`
 $: sourcePaginated = source.slice(
     page.offset * page.limit, // start
     page.offset * page.limit + page.limit // end
 );
         `}
-		/>
-		<CodeBlock
-			language="html"
-			code={`
+			/>
+			<CodeBlock
+				language="html"
+				code={`
 <ul>
     {#each sourcePaginated as row}
     <li>{row}</li>
     {/each}
 </ul>
         `}
-		/>
-	</section>
-
-	<!-- Properties -->
-	<section class="space-y-4">
-		<h2>Properties</h2>
-		<DataTable headings={tableProps.headings} source={tableProps.source} />
-		<DataTable headings={tablePropsDesign.headings} source={tablePropsDesign.source} />
-	</section>
-
-	<!-- Events -->
-	<section class="space-y-4">
-		<h2>Events</h2>
-		<DataTable headings={tableEvents.headings} source={tableEvents.source} />
-	</section>
-</div>
+			/>
+		</div>
+	</svelte:fragment>
+</DocsShell>

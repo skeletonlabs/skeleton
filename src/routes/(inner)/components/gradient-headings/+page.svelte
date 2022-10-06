@@ -1,10 +1,49 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
 
-	import { DataTable, GradientHeading } from '@brainandbones/skeleton';
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+
+	import GradientHeading from '$lib/components/GradientHeading/GradientHeading.svelte';
 	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+
+	// Docs Shell
+	const settings: DocsShellSettings = {
+		feature: DocsFeature.Component,
+		name: 'Gradient Headings',
+		description: 'Generate a gradient-colored heading with customizable tag and gradient direction.',
+		imports: ['GradientHeading'],
+		source: 'components/GradientHeading'
+	};
+	const properties: DocsShellTable[] = [
+		{
+			headings: ['Prop', 'Type', 'Default', 'Description'],
+			source: [
+				['<code>tag</code>', 'string', 'h1', 'Define the semantic element tag.'],
+				['<code>direction</code>', 'string', 'bg-gradient-to-r', 'Provide classes to set gradient direction.'],
+				['<code>from</code>', 'string', 'from-primary-500', 'Provide classes to set "from" gradient color.'],
+				['<code>to</code>', 'string', 'to-accent-500', 'Provide classes to set "to" gradient color.']
+			]
+		}
+	];
+	const classes: DocsShellTable[] = [
+		{
+			description: 'Coming soon.'
+			// headings: ['Selector', 'Description'],
+			// source: [
+			// 	['<code>.foo</code>', '...'],
+			// 	['<code>.bar</code>', '...']
+			// ]
+		}
+	];
+	const slots: DocsShellTable[] = [
+		{
+			headings: ['Name', 'Description'],
+			source: [['<code>default</code>', 'Provide the text to render.']]
+		}
+	];
 
 	// Stores
 	const storeTag: Writable<string> = writable('h1');
@@ -17,30 +56,12 @@
 		from: 'from-primary-500',
 		to: 'to-accent-500'
 	};
-
-	// Tables
-	const tableProps: any = {
-		headings: ['Prop', 'Type', 'Default', 'Description'],
-		source: [
-			['tag', 'string', 'h1', 'Define the semantic element tag.'],
-			['direction', 'string', 'bg-gradient-to-r', 'Provide classes to set gradient direction.'],
-			['from', 'string', 'from-primary-500', 'Provide classes to set "from" gradient color.'],
-			['to', 'string', 'to-accent-500', 'Provide classes to set "to" gradient color.']
-		]
-	};
 </script>
 
-<div class="space-y-8">
-	<!-- Header -->
-	<header class="space-y-4">
-		<h1>Gradient Heading</h1>
-		<p>Generate a gradient-colored heading with customizable tag and gradient direction.</p>
-		<CodeBlock language="javascript" code={`import { GradientHeading } from '@brainandbones/skeleton';`} />
-	</header>
-
-	<!-- Sandbox -->
-	<section class="space-y-4">
-		<div class="space-y-4 xl:space-y-0 xl:grid grid-cols-[2fr,1fr] gap-2">
+<DocsShell {settings} {properties} {classes} {slots}>
+	<!-- Slot: Sandbox -->
+	<svelte:fragment slot="sandbox">
+		<section class="space-y-4 xl:space-y-0 xl:grid grid-cols-[1fr_auto] gap-2">
 			<!-- Example -->
 			<div class="card card-body h-full flex justify-center items-center">
 				<svelte:component this={GradientHeading} tag={props.tag} direction={props.direction} from={props.from} to={props.to}>{props.text}</svelte:component>
@@ -101,26 +122,14 @@
 					</label>
 				</div>
 			</div>
-		</div>
-	</section>
+		</section>
+	</svelte:fragment>
 
-	<!-- Usage -->
-	<section class="space-y-4">
-		<h2>Usage</h2>
-		<CodeBlock language="html" code={`<GradientHeading tag="h1" direction="bg-gradient-to-r" from="from-primary-500" to="to-accent-500">Skeleton</GradientHeading>`} />
-	</section>
-
-	<!-- Properties -->
-	<section class="space-y-4">
-		<h2>Properties</h2>
-		<DataTable headings={tableProps.headings} source={tableProps.source} />
-	</section>
-
-	<!-- Accessibility -->
-	<section class="space-y-4">
-		<h2>Accessibility</h2>
-		<p>
-			You are advised to use semantic heading tags (H1-H6), but an explicit ARIA attribute of <code>role="heading"</code> has been applied.
-		</p>
-	</section>
-</div>
+	<!-- Slot: Usage -->
+	<svelte:fragment slot="usage">
+		<section class="space-y-4">
+			<p>You are advised to use semantic heading tags (H1-H6). However, an explicit ARIA attribute of <code>role="heading"</code> has been applied.</p>
+			<CodeBlock language="html" code={`<GradientHeading tag="h1" direction="bg-gradient-to-r" from="from-primary-500" to="to-accent-500">Skeleton</GradientHeading>`} />
+		</section>
+	</svelte:fragment>
+</DocsShell>

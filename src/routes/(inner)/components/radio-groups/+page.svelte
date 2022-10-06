@@ -1,61 +1,94 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
-	import { DataTable, RadioGroup, RadioItem } from '@brainandbones/skeleton';
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
+	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+
+	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
+	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
+	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+
+	// Stores
 	const storeJustify = writable(0);
 	const storeLayout: Writable<string> = writable('horz');
 
-	// Props & Slots
-	const tablePropsGroup: any = {
-		headings: ['Prop', 'Type', 'Values', 'Required', 'Description'],
-		source: [
-			['selected', 'Writable', 'any', '&check;', 'Provide a Svelte writable to store the selected state value.'],
-			['display', 'string', 'inline-flex', '-', 'Provide classes to set the display style.'],
-			['background', 'string', 'bg-surface-300 dark:bg-surface-700', '-', 'Provide classes to set the base background color.'],
-			['hover', 'string', 'hover:bg-primary-500/10', '-', 'Provide classes to set the hover style.'],
-			['accent', 'string', 'bg-primary-500 !text-white', '-', 'Provide classes to set the highlighted accent color.'],
-			['color', 'string', 'text-white', '-', 'Provide classes to set the highlighted text color.'],
-			['fill', 'string', '-', '-', 'Provide classes to set the highlighted SVG fill color.'],
-			['rounded', 'string', 'rounded', '-', 'Provide classes to set the border radius.']
-		]
+	// Docs Shell
+	const settings: DocsShellSettings = {
+		feature: DocsFeature.Component,
+		name: 'RadioGroup',
+		description: 'Capture feedback limited to a small set of options.',
+		imports: ['RadioGroup', 'RadioItem'],
+		source: 'components/Radio'
 	};
-	const tablePropsItem: any = {
-		headings: ['Prop', 'Type', 'Description'],
-		source: [['value', 'any', `The item's selection value.`]]
-	};
-	const tableA11yGroup: any = {
-		headings: ['Prop', 'Required', 'Description'],
-		source: [['label', '-', `Defines a semantic ARIA label.`]]
-	};
-	const tableA11yItem: any = {
-		headings: ['Prop', 'Required', 'Description'],
-		source: [['label', '-', `Defines a semantic ARIA label.`]]
-	};
-	const tableKeys: any = {
-		headings: ['Keys', 'Description'],
-		source: [
-			['<kbd>Tab</kbd>', 'Moves focus to the next focusable RadioItem.'],
-			['<kbd>Shift + Tab</kbd> ', 'Moves focus to the previous focusable RadioItem.'],
-			['<kbd>Space</kbd> or <kbd>Enter</kbd>', 'Checks the focused radio button if it is not already checked']
-		]
-	};
+	const properties: DocsShellTable[] = [
+		{
+			label: 'RadioGroup',
+			headings: ['Prop', 'Type', 'Values', 'Required', 'Description'],
+			source: [
+				['<code>selected</code>', 'Writable', 'any', '&check;', 'Provide a Svelte writable to store the selected state value.'],
+				['<code>display</code>', 'string', 'inline-flex', '-', 'Provide classes to set the display style.'],
+				['<code>background</code>', 'string', 'bg-surface-300 dark:bg-surface-700', '-', 'Provide classes to set the base background color.'],
+				['<code>hover</code>', 'string', 'hover:bg-primary-500/10', '-', 'Provide classes to set the hover style.'],
+				['<code>accent</code>', 'string', 'bg-primary-500 !text-white', '-', 'Provide classes to set the highlighted accent color.'],
+				['<code>color</code>', 'string', 'text-white', '-', 'Provide classes to set the highlighted text color.'],
+				['<code>fill</code>', 'string', '-', '-', 'Provide classes to set the highlighted SVG fill color.'],
+				['<code>rounded</code>', 'string', 'rounded', '-', 'Provide classes to set the border radius.']
+			]
+		},
+		{
+			label: 'RadioItem',
+			headings: ['Prop', 'Type', 'Description'],
+			source: [['<code>value</code>', 'any', `The item's selection value.`]]
+		}
+	];
+	const classes: DocsShellTable[] = [
+		{
+			description: 'Coming soon.'
+			// headings: ['Selector', 'Description'],
+			// source: [
+			// 	['<code>.foo</code>', '...'],
+			// 	['<code>.bar</code>', '...']
+			// ]
+		}
+	];
+	const slots: DocsShellTable[] = [
+		{
+			label: 'RadioGroup',
+			headings: ['Name', 'Description'],
+			source: [['<code>default</code>', 'Accepts a set of RadioItem components.']]
+		}
+	];
+	const a11y: DocsShellTable[] = [
+		{
+			aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/radiobutton/',
+			label: 'RadioGroup',
+			headings: ['Prop', 'Description'],
+			source: [['<code>label</code>', `Defines a semantic ARIA label.`]]
+		},
+		{
+			label: 'RadioItem',
+			headings: ['Prop', 'Description'],
+			source: [['<code>label</code>', `Defines a semantic ARIA label.`]]
+		},
+		{
+			label: 'Keyboard Interactions',
+			headings: ['<code>Keys</code>', 'Description'],
+			source: [
+				['<kbd>Tab</kbd>', 'Moves focus to the next focusable RadioItem.'],
+				['<kbd>Shift + Tab</kbd> ', 'Moves focus to the previous focusable RadioItem.'],
+				['<kbd>Space</kbd> or <kbd>Enter</kbd>', 'Checks the focused radio button if it is not already checked']
+			]
+		}
+	];
 </script>
 
-<div class="space-y-8">
-	<!-- Header -->
-	<header class="space-y-4">
-		<h1>Radio Groups</h1>
-		<p>Capture user feedback limited to a small set of options.</p>
-		<CodeBlock language="js" code={`import { RadioGroup, RadioItem } from '@brainandbones/skeleton';`} />
-	</header>
-
-	<!-- Examples -->
-	<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
-		<h2 class='sr-only'>Examples</h2>
-		<div class="card card-body grid grid-cols-1 gap-4 text-center">
-			<div>
+<DocsShell {settings} {properties} {classes} {slots} {a11y}>
+	<!-- Slot: Sandbox -->
+	<svelte:fragment slot="sandbox">
+		<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+			<!-- Icons -->
+			<div class="card card-body space-y-4 text-center">
 				<RadioGroup selected={storeJustify}>
 					<RadioItem value={0} label="Align Left">
 						<SvgIcon name="align-left" class="-translate-y-[2px]" />
@@ -67,57 +100,38 @@
 						<SvgIcon name="align-right" class="-translate-y-[2px]" />
 					</RadioItem>
 				</RadioGroup>
+				<p>Selected <code>{$storeJustify}</code></p>
 			</div>
-			<p>Selected <code>{$storeJustify}</code></p>
-		</div>
-		<div class="card card-body grid grid-cols-1 gap-4 text-center">
-			<div>
+			<!-- Text -->
+			<div class="card card-body space-y-4 text-center">
 				<RadioGroup selected={storeLayout} accent="bg-primary-500" hover="hover:bg-primary-500/10">
 					<RadioItem value="horz">Horizontal</RadioItem>
 					<RadioItem value="vert">Vertical</RadioItem>
 				</RadioGroup>
+				<p>Selected <code>{$storeLayout}</code></p>
 			</div>
-			<p>Selected <code>{$storeLayout}</code></p>
-		</div>
-	</section>
+		</section>
+	</svelte:fragment>
 
-	<!-- Usage -->
-	<section class="space-y-4">
-		<CodeBlock language="typescript" code={`import { writable, type Writable } from 'svelte/store';\n\nconst storeLayout: Writable<string> = writable('horz');`} />
-		<CodeBlock
-			language="html"
-			code={`
+	<!-- Slot: Usage -->
+	<svelte:fragment slot="usage">
+		<section class="space-y-4">
+			<CodeBlock language="typescript" code={`import { writable, type Writable } from 'svelte/store';`} />
+			<CodeBlock language="typescript" code={`const storeLayout: Writable<string> = writable('horz');`} />
+			<CodeBlock
+				language="html"
+				code={`
 <RadioGroup selected={storeLayout}>
-    <RadioItem value="horz">Horizontal</RadioItem>
-    <RadioItem value="vert">Vertical</RadioItem>
+	<RadioItem value="horz">Horizontal</RadioItem>
+	<RadioItem value="vert">Vertical</RadioItem>
 </RadioGroup>
-        `}
-		/>
-		<p>To set display width to 100% use <code>display="flex"</code></p>
-		<CodeBlock language="html" code={`<RadioGroup display="flex"></RadioGroup>`} />
-	</section>
-
-	<!-- Properties -->
-	<section class="space-y-4">
-		<h2 class="text-2xl font-bold">Properties</h2>
-		<h3>Radio Group</h3>
-		<DataTable headings={tablePropsGroup.headings} source={tablePropsGroup.source} />
-		<h3>Radio Item</h3>
-		<p>Can override props <code>hover</code>, <code>accent</code>, <code>color</code>, <code>fill</code>, <code>rounded</code>.</p>
-		<DataTable headings={tablePropsItem.headings} source={tablePropsItem.source} />
-	</section>
-
-	<!-- Accessibility -->
-	<section class="space-y-4">
-		<div class="flex justify-between items-center">
-			<h2>Accessibility</h2>
-			<a href="https://www.w3.org/WAI/ARIA/apg/patterns/radiobutton/" target="_blank">ARIA Guidelines</a>
-		</div>
-		<h3>Radio Group</h3>
-		<DataTable headings={tableA11yGroup.headings} source={tableA11yGroup.source} />
-		<h3>Radio Item</h3>
-		<DataTable headings={tableA11yItem.headings} source={tableA11yItem.source} />
-		<h3>Keyboard Interactions</h3>
-		<DataTable headings={tableKeys.headings} source={tableKeys.source} />
-	</section>
-</div>
+					`}
+			/>
+		</section>
+		<section class="space-y-4">
+			<h2>Full Width Display</h2>
+			<p>To set display width to 100% use <code>display="flex"</code></p>
+			<CodeBlock language="html" code={`<RadioGroup display="flex"></RadioGroup>`} />
+		</section>
+	</svelte:fragment>
+</DocsShell>

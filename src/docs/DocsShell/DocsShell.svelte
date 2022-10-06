@@ -16,6 +16,7 @@
 	// Props
 	export let settings: DocsShellSettings;
 	export let properties: DocsShellTable[] | undefined = undefined;
+	export let events: DocsShellTable[] | undefined = undefined;
 	export let classes: DocsShellTable[] | undefined = undefined;
 	export let slots: DocsShellTable[] | undefined = undefined;
 	export let a11y: DocsShellTable[] | undefined = undefined;
@@ -182,6 +183,7 @@
 			<TabGroup selected={storeActiveTab} rail={false}>
 				<Tab value="usage">Usage</Tab>
 				{#if properties && properties.length}<Tab value="properties">Properties</Tab>{/if}
+				{#if events && events.length}<Tab value="events">Events</Tab>{/if}
 				{#if classes && classes.length}<Tab value="classes">Classes</Tab>{/if}
 				{#if slots && slots.length}<Tab value="slots">Slots</Tab>{/if}
 				{#if a11y && a11y.length}<Tab value="a11y">Accessibility</Tab>{/if}
@@ -219,14 +221,27 @@
 			</div>
 		{/if}
 
-		<!-- Tab: Props -->
+		<!-- Tab: Properties -->
 		{#if properties && properties.length && $storeActiveTab === 'properties'}
-			<div class="doc-shell-props {spacing}">
+			<div class="doc-shell-properties {spacing}">
 				{#each properties as d}
 					<section class="space-y-4">
 						{#if d.label}<h2>{d.label}</h2>{/if}
 						{#if d.description}<div>{@html d.description}</div>{/if}
-						<DataTable headings={d.headings} source={d.source} />
+						{#if d.headings && d.source}<DataTable headings={d.headings} source={d.source} />{/if}
+					</section>
+				{/each}
+			</div>
+		{/if}
+
+		<!-- Tab: Events -->
+		{#if events && events.length && $storeActiveTab === 'events'}
+			<div class="doc-shell-events {spacing}">
+				{#each events as d}
+					<section class="space-y-4">
+						{#if d.label}<h2>{d.label}</h2>{/if}
+						{#if d.description}<div>{@html d.description}</div>{/if}
+						{#if d.headings && d.source}<DataTable headings={d.headings} source={d.source} />{/if}
 					</section>
 				{/each}
 			</div>
@@ -239,7 +254,7 @@
 					<section class="space-y-4">
 						{#if d.label}<h2>{d.label}</h2>{/if}
 						{#if d.description}<div>{@html d.description}</div>{/if}
-						<DataTable headings={d.headings} source={d.source} />
+						{#if d.headings && d.source}<DataTable headings={d.headings} source={d.source} />{/if}
 					</section>
 				{/each}
 			</div>
@@ -252,7 +267,7 @@
 					<section class="space-y-4">
 						{#if d.label}<h2>{d.label}</h2>{/if}
 						{#if d.description}<div>{@html d.description}</div>{/if}
-						<DataTable headings={d.headings} source={d.source} />
+						{#if d.headings && d.source}<DataTable headings={d.headings} source={d.source} />{/if}
 					</section>
 				{/each}
 			</div>
@@ -266,7 +281,7 @@
 						{#if d.label}<h2>{d.label}</h2>{/if}
 						{#if d.description}<div>{@html d.description}</div>{/if}
 						{#if d.aria}<p>Adheres to <a href={d.aria} target="_blank">WAI-ARIA guidelines</a> for accessibility.</p>{/if}
-						<DataTable headings={d.headings} source={d.source} />
+						{#if d.headings && d.source}<DataTable headings={d.headings} source={d.source} />{/if}
 					</section>
 				{/each}
 			</div>

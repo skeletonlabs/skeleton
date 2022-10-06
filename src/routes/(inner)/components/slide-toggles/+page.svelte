@@ -1,106 +1,90 @@
 <script lang="ts">
-	import { DataTable, SlideToggle } from '@brainandbones/skeleton';
+	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+
+	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	let checkedValue: boolean = false;
+	// Docs Shell
+	const settings: DocsShellSettings = {
+		feature: DocsFeature.Component,
+		name: 'Slide Toggles',
+		description: 'A sliding toggle element that can capture input from a user.',
+		imports: ['SlideToggle'],
+		source: 'components/SlideToggle'
+	};
+	const properties: DocsShellTable[] = [
+		{
+			headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
+			source: [
+				['<code>checked</code>', 'boolean', 'false', 'true | false', 'The checked state of the input element.'],
+				['<code>accent</code>', 'string', 'bg-accent-500', 'class', 'Provide classes to set the checked state color.'],
+				['<code>size</code>', 'string', 'md', 'sm | md | lg', 'Sets the size of the component.']
+			]
+		}
+	];
+	const classes: DocsShellTable[] = [
+		{
+			description: 'Coming soon.'
+			// headings: ['Selector', 'Description'],
+			// source: [
+			// 	['<code>.foo</code>', '...'],
+			// 	['<code>.bar</code>', '...']
+			// ]
+		}
+	];
+	const slots: DocsShellTable[] = [
+		{
+			headings: ['Name', 'Description'],
+			source: [['<code>default</code>', 'Provide label text.']]
+		}
+	];
+	const a11y: DocsShellTable[] = [
+		{
+			aria: 'https://www.w3.org/WAI/ARIA/apg/',
+			headings: ['Prop', 'Required', 'Description'],
+			source: [['<code>label</code>', '-', `Provide a semantic label.`]]
+		}
+	];
 
-	// Tables
-	const tableProps: any = {
-		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
-		source: [
-			['checked', 'boolean', 'false', 'true | false', 'The checked state of the input element.'],
-			['accent', 'string', 'bg-accent-500', 'class', 'Provide classes to set the checked state color.'],
-			['size', 'string', 'md', 'sm | md | lg', 'Sets the size of the component.']
-		]
-	};
-	const tableA11y: any = {
-		headings: ['Prop', 'Required', 'Description'],
-		source: [['label', '-', `Provide a semantic label.`]]
-	};
-	const tableKeys: any = {
-		headings: ['Keys', 'Description'],
-		source: [['<kbd>Space</kbd> or <kbd>Enter</kbd>', 'When focus is on the slide toggle, changes the state of the slide toggle.']]
-	};
+	// Local
+	let checkedValue: boolean = false;
 </script>
 
-<div class="space-y-8">
-	<!-- Heading -->
-	<heading class="space-y-4">
-		<h1>Slide Toggle</h1>
-		<p>A sliding toggle element that can capture input from a user.</p>
-		<CodeBlock language="javascript" code={`import { SlideToggle } from '@brainandbones/skeleton';`} />
-	</heading>
-
-	<!-- Examples -->
-	<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
-		<h2 class="sr-only">Examples</h2>
-		<div class="card">
-			<header class="card-header">
-				<p class="text-center">Accent Colors</p>
-			</header>
-			<div class="card-body flex justify-center items-center space-x-4">
-				<SlideToggle size="md" accent="bg-primary-500" checked label="Toggle Primary" />
+<DocsShell {settings} {properties} {classes} {slots} {a11y}>
+	<!-- Slot: Sandbox -->
+	<svelte:fragment slot="sandbox">
+		<section class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+			<div class="card card-body flex justify-center items-center space-x-4">
+				<SlideToggle size="sm" accent="bg-primary-500" checked label="Toggle Primary" />
 				<SlideToggle size="md" checked label="Toggle Purple" />
-				<SlideToggle size="md" accent="bg-ternary-500" checked label="Toggle Ternary" />
+				<SlideToggle size="lg" accent="bg-ternary-500" checked label="Toggle Ternary" />
 			</div>
-		</div>
-		<div class="card">
-			<header class="card-header">
-				<p class="text-center">Sizes</p>
-			</header>
-			<div class="card-body flex justify-center items-center space-x-4">
-				<SlideToggle size="sm" label="Toggle Small" />
-				<SlideToggle size="md" label="Toggle Medium" />
-				<SlideToggle size="lg" label="Toggle Large" />
-			</div>
-		</div>
-		<div class="card">
-			<header class="card-header">
-				<p class="text-center">Labeled</p>
-			</header>
-			<div class="card-body flex justify-center items-center space-x-4">
+			<div class="card card-body flex justify-center items-center space-x-4">
 				<SlideToggle size="md" bind:checked={checkedValue}>
-					Value is <code class="inline-block w-[40px] text-center">{checkedValue ? 'On' : 'Off'}</code>
+					<code class="inline-block w-[40px] text-center">{checkedValue ? 'On' : 'Off'}</code>
 				</SlideToggle>
 			</div>
-		</div>
-		<div class="card">
-			<header class="card-header">
-				<p class="text-center">Disabled</p>
-			</header>
-			<div class="card-body flex justify-center items-center space-x-4">
-				<SlideToggle disabled label="Toggle Disabled" />
+			<div class="card card-body flex justify-center items-center space-x-4">
+				<SlideToggle disabled label="Toggle Disabled">Disabled</SlideToggle>
 			</div>
-		</div>
-	</section>
+		</section>
+	</svelte:fragment>
 
-	<!-- Usage -->
-	<section class="space-y-4">
-		<h2>Usage</h2>
-		<CodeBlock language="typescript" code={`let myValue: boolean = false;`} />
-		<CodeBlock language="html" code={`<SlideToggle bind:checked={myValue}>(label)</SlideToggle>`} />
-		<CodeBlock language="html" code={`<SlideToggle bind:checked={myValue} size="lg" />`} />
-		<CodeBlock language="html" code={`<SlideToggle bind:checked={myValue} disabled />`} />
-	</section>
-
-	<!-- Properties -->
-	<section class="space-y-4">
-		<h2>Properties</h2>
-		<p>
-			This component makes use of <a href="https://svelte.dev/docs#template-syntax-attributes-and-props" target="_blank">$$restProps</a>, which allows arbitrary attributes to be provided to the
-			component.
-		</p>
-		<DataTable headings={tableProps.headings} source={tableProps.source} />
-	</section>
-
-	<!-- Accessibility -->
-	<section class="space-y-4">
-		<div class="flex justify-between items-center">
-			<h2>Accessibility</h2>
-			<a href="https://www.w3.org/WAI/ARIA/apg/patterns/switch/" target="_blank">ARIA Guidelines</a>
-		</div>
-		<DataTable headings={tableA11y.headings} source={tableA11y.source} />
-		<h3>Keyboard Interactions</h3>
-		<DataTable headings={tableKeys.headings} source={tableKeys.source} />
-	</section>
-</div>
+	<!-- Slot: Usage -->
+	<svelte:fragment slot="usage">
+		<section class="space-y-4">
+			<CodeBlock language="typescript" code={`let valueChecked: boolean = false;`} />
+			<CodeBlock language="html" code={`<SlideToggle bind:checked={valueChecked}>(label)</SlideToggle>`} />
+		</section>
+		<section class="space-y-2">
+			<h2>Size</h2>
+			<p>Set <code>size</code> to <em>sm</em>, <em>md</em>, or <em>lg</em>.</p>
+			<CodeBlock language="html" code={`<SlideToggle bind:checked={valueChecked} size="lg" />`} />
+		</section>
+		<section class="space-y-2">
+			<h2>Disabled</h2>
+			<CodeBlock language="html" code={`<SlideToggle bind:checked={valueChecked} disabled />`} />
+		</section>
+	</svelte:fragment>
+</DocsShell>

@@ -1,9 +1,11 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
 
+	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+
 	// Components
 	import Avatar from '$lib/components/Avatar/Avatar.svelte';
-	import DataTable from '$lib/components/Table/DataTable.svelte';
 	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
 	// Utilities
@@ -21,6 +23,61 @@
 	import Summer84 from '$lib/actions/Filters/svg-filters/Summer84.svelte';
 	import XPro from '$lib/actions/Filters/svg-filters/XPro.svelte';
 
+	// Docs Shell
+	const settings: DocsShellSettings = {
+		feature: DocsFeature.Component,
+		name: 'Avatars',
+		description: 'Display user avatars with an image or initials.',
+		imports: ['Avatar'],
+		source: 'components/Avatar'
+	};
+	const properties: DocsShellTable[] = [
+		{
+			headings: ['Prop', 'Type', 'Default', 'Description'],
+			source: [
+				['<code>background</code>', 'string', 'bg-surface-500', 'Provide classes to set background styles.'],
+				['<code>width</code>', 'string', 'w-12', 'Provide classes to set avatar width.'],
+				['<code>border</code>', 'string', '-', 'Provide classes to set border styles.'],
+				['<code>rounded</code>', 'string', 'rounded-full', 'Provide classes to set rounded style.'],
+				['<code>shadow</code>', 'string', '-', 'Provide classes to set shadow styles.'],
+				['<code>cursor</code>', 'string', '-', 'Provide classes to set cursor styles.']
+			]
+		},
+		{
+			label: 'Image',
+			headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
+			source: [
+				['<code>src</code>', 'string', '-', '-', 'Set image source value.'],
+				['<code>action</code>', 'string', '-', '(Svelte action)', 'Provide an Svelte action reference, such as <code>filter</code>.'],
+				['<code>actionParams</code>', 'string', '-', '(filter ID)', 'Provide Svelte action params, such as <code>Apollo</code>.']
+			]
+		},
+		{
+			label: 'Initials',
+			headings: ['Prop', 'Type', 'Default', 'Description'],
+			source: [
+				['<code>initials</code>', 'string', 'AB', 'Provide up to two text characters.'],
+				['<code>fill</code>', 'string', 'fill-white', 'Provide classes to set the SVG text fill color.']
+			]
+		}
+	];
+	const classes: DocsShellTable[] = [
+		{
+			description: 'Coming soon.'
+			// headings: ['Selector', 'Description'],
+			// source: [
+			// 	['<code>.foo</code>', '...'],
+			// 	['<code>.bar</code>', '...']
+			// ]
+		}
+	];
+	const a11y: DocsShellTable[] = [
+		{
+			headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
+			source: [['<code>alt</code>', 'string', '-', '-', 'Set image alt text value for accessability.']]
+		}
+	];
+
 	// Local
 	const imgPlaceholder: string = 'https://i.pravatar.cc/?img=5';
 	const borderStyles: string = 'border-4 border-black dark:border-white hover:!border-primary-500 cursor-pointer';
@@ -30,13 +87,6 @@
 	const storeSrc: Writable<string | undefined> = writable(imgPlaceholder);
 	const storeRounded: Writable<string | undefined> = writable('rounded-full');
 	const storeBorder: Writable<string | undefined> = writable(borderStyles);
-
-	function updateImage(): void {
-		props.src = undefined;
-		setTimeout(() => {
-			props.src = imgPlaceholder;
-		}, 1);
-	}
 
 	$: props = {
 		initials: 'AB',
@@ -48,35 +98,6 @@
 		rounded: $storeRounded,
 		border: $storeBorder,
 		actionParams: ''
-	};
-
-	// Tables
-	const tableProps: any = {
-		headings: ['Prop', 'Type', 'Default', 'Description'],
-		source: [
-			['background', 'string', 'bg-surface-500', 'Provide classes to set background styles.'],
-			['width', 'string', 'w-12', 'Provide classes to set avatar width.'],
-			['border', 'string', '-', 'Provide classes to set border styles.'],
-			['rounded', 'string', 'rounded-full', 'Provide classes to set rounded style.'],
-			['shadow', 'string', '-', 'Provide classes to set shadow styles.'],
-			['cursor', 'string', '-', 'Provide classes to set cursor styles.']
-		]
-	};
-	const tablePropsImg: any = {
-		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
-		source: [
-			['src', 'string', '-', '-', 'Set image source value.'],
-			['alt', 'string', '-', '-', 'Set image alt text value for accessability.'],
-			['action', 'string', '-', '(Svelte action)', 'Provide an Svelte action reference, such as <code>filter</code>.'],
-			['actionParams', 'string', '-', '(filter ID)', 'Provide Svelte action params, such as <code>Apollo</code>.']
-		]
-	};
-	const tablePropsInitials: any = {
-		headings: ['Prop', 'Type', 'Default', 'Description'],
-		source: [
-			['initials', 'string', 'AB', 'Provide up to two text characters.'],
-			['fill', 'string', 'fill-white', 'Provide classes to set the text fill color.']
-		]
 	};
 </script>
 
@@ -91,134 +112,124 @@
 <Summer84 />
 <XPro />
 
-<div class="!mt-0 space-y-8">
-	<!-- Header -->
-	<header class="space-y-4">
-		<h1>Avatars</h1>
-		<p>Display user avatars with an image or initials.</p>
-		<CodeBlock language="js" code={`import { Avatar } from '@brainandbones/skeleton';`} />
-	</header>
+<DocsShell {settings} {properties} {classes} {a11y}>
+	<!-- Slot: Sandbox -->
+	<svelte:fragment slot="sandbox">
+		<section class="space-y-4">
+			<div class="grid grid-cols-1 xl:grid-cols-[1fr_auto] gap-2">
+				<!-- Example -->
+				<div class="card card-body h-full flex justify-center items-center">
+					<svelte:component
+						this={Avatar}
+						initials={props.initials}
+						src={props.src}
+						alt={props.alt}
+						width={props.width}
+						background={props.background}
+						fill={props.fill}
+						rounded={props.rounded}
+						border={props.border}
+						action={filter}
+						actionParams={props.actionParams}
+					/>
+				</div>
+				<!-- Options -->
+				<div class="card card-body space-y-4">
+					<!-- Source -->
+					<RadioGroup selected={storeSrc} display="flex">
+						<RadioItem value={imgPlaceholder}>Image</RadioItem>
+						<RadioItem value={undefined}>Initials</RadioItem>
+					</RadioGroup>
+					<!-- Width -->
+					<label for="">
+						<span>Width</span>
+						<RadioGroup selected={storeWidth} display="flex">
+							<RadioItem value="w-10">w-10</RadioItem>
+							<RadioItem value="w-24">w-24</RadioItem>
+							<RadioItem value="w-48">w-48</RadioItem>
+							<RadioItem value="w-56">w-56</RadioItem>
+						</RadioGroup>
+					</label>
+					<!-- Rounded -->
+					<label for="">
+						<span>Rounded</span>
+						<RadioGroup selected={storeRounded} display="flex">
+							<RadioItem value="rounded-full">Full</RadioItem>
+							<RadioItem value="rounded-xl">XL</RadioItem>
+							<RadioItem value="rounded-3xl">3XL</RadioItem>
+							<RadioItem value="rounded-none">None</RadioItem>
+						</RadioGroup>
+					</label>
+					<!-- Border -->
+					<label for="">
+						<span>Border</span>
+						<RadioGroup selected={storeBorder} display="flex">
+							<RadioItem value={borderStyles}>On</RadioItem>
+							<RadioItem value="">Off</RadioItem>
+						</RadioGroup>
+					</label>
+					<!-- If: Initials -->
+					{#if $storeSrc === undefined}
+						<!-- Initials -->
+						<label>
+							<span>Initial Text</span>
+							<input type="text" bind:value={props.initials} maxlength="2" />
+						</label>
+						<!-- Background -->
+						<label>
+							<span>Background</span>
+							<select name="background" id="background" bind:value={props.background}>
+								<option value="bg-primary-500">bg-primary-500</option>
+								<option value="bg-accent-500">bg-accent-500</option>
+								<option value="bg-ternary-500">bg-ternary-500</option>
+								<option value="bg-warning-500">bg-warning-500</option>
+								<option value="bg-surface-500">bg-surface-500</option>
+							</select>
+						</label>
+					{/if}
+					<!-- Filter -->
+					{#if $storeSrc !== undefined}
+						<label>
+							<span>Filter</span>
+							<select name="filter" id="filter" bind:value={props.actionParams}>
+								<option value="">None</option>
+								<option value="Apollo">Apollo</option>
+								<option value="BlueNight">BlueNight</option>
+								<option value="Emerald">Emerald</option>
+								<option value="GreenFall">GreenFall</option>
+								<option value="Noir">Noir</option>
+								<option value="NoirLight">NoirLight</option>
+								<option value="Rustic">Rustic</option>
+								<option value="Summer84">Summer84</option>
+								<option value="XPro">XPro</option>
+							</select>
+						</label>
+					{/if}
+				</div>
+			</div>
+		</section>
+	</svelte:fragment>
 
-	<!-- Sandbox -->
-	<section class="space-y-4">
-		<div class="grid grid-cols-1 xl:grid-cols-[1fr_480px] gap-2">
-			<!-- Example -->
-			<div class="card card-body h-full flex justify-center items-center">
-				<svelte:component
-					this={Avatar}
-					initials={props.initials}
-					src={props.src}
-					alt={props.alt}
-					width={props.width}
-					background={props.background}
-					fill={props.fill}
-					rounded={props.rounded}
-					border={props.border}
-					action={filter}
-					actionParams={props.actionParams}
-				/>
-			</div>
-			<!-- Options -->
-			<div class="card card-body space-y-4">
-				<!-- Source -->
-				<RadioGroup selected={storeSrc} display="flex">
-					<RadioItem value={imgPlaceholder}>Image</RadioItem>
-					<RadioItem value={undefined}>Initials</RadioItem>
-				</RadioGroup>
-				<!-- Width -->
-				<label for="">
-					<span>Width</span>
-					<RadioGroup selected={storeWidth} display="flex">
-						<RadioItem value="w-10">w-10</RadioItem>
-						<RadioItem value="w-24">w-24</RadioItem>
-						<RadioItem value="w-48">w-48</RadioItem>
-						<RadioItem value="w-56">w-56</RadioItem>
-					</RadioGroup>
-				</label>
-				<!-- Rounded -->
-				<label for="">
-					<span>Rounded</span>
-					<RadioGroup selected={storeRounded} display="flex">
-						<RadioItem value="rounded-full">Full</RadioItem>
-						<RadioItem value="rounded-xl">XL</RadioItem>
-						<RadioItem value="rounded-3xl">3XL</RadioItem>
-						<RadioItem value="rounded-none">None</RadioItem>
-					</RadioGroup>
-				</label>
-				<!-- Border -->
-				<label for="">
-					<span>Border</span>
-					<RadioGroup selected={storeBorder} display="flex">
-						<RadioItem value={borderStyles}>On</RadioItem>
-						<RadioItem value="">Off</RadioItem>
-					</RadioGroup>
-				</label>
-				<!-- If: Initials -->
-				{#if $storeSrc === undefined}
-					<!-- Initials -->
-					<label>
-						<span>Initial Text</span>
-						<input type="text" bind:value={props.initials} maxlength="2" />
-					</label>
-					<!-- Background -->
-					<label>
-						<span>Background</span>
-						<select name="background" id="background" bind:value={props.background}>
-							<option value="bg-primary-500">bg-primary-500</option>
-							<option value="bg-accent-500">bg-accent-500</option>
-							<option value="bg-ternary-500">bg-ternary-500</option>
-							<option value="bg-warning-500">bg-warning-500</option>
-							<option value="bg-surface-500">bg-surface-500</option>
-						</select>
-					</label>
-				{/if}
-				<!-- Filter -->
-				{#if $storeSrc !== undefined}
-					<label>
-						<span>Filter</span>
-						<select name="filter" id="filter" bind:value={props.actionParams} on:change={updateImage}>
-							<option value="">None</option>
-							<option value="Apollo">Apollo</option>
-							<option value="BlueNight">BlueNight</option>
-							<option value="Emerald">Emerald</option>
-							<option value="GreenFall">GreenFall</option>
-							<option value="Noir">Noir</option>
-							<option value="NoirLight">NoirLight</option>
-							<option value="Rustic">Rustic</option>
-							<option value="Summer84">Summer84</option>
-							<option value="XPro">XPro</option>
-						</select>
-					</label>
-				{/if}
-			</div>
+	<!-- Slot: Usage -->
+	<svelte:fragment slot="usage">
+		<div class="space-y-4">
+			<h2>Image</h2>
+			<p>Display an image source cropped into the shape.</p>
+			<CodeBlock language="html" code={`<Avatar src="https://i.pravatar.cc/" />`} />
 		</div>
-	</section>
-
-	<!-- Usage -->
-	<section class="space-y-4">
-		<h2>Usage</h2>
-		<h4>Image</h4>
-		<p>Display an image source cropped into the shape.</p>
-		<CodeBlock language="html" code={`<Avatar src="https://i.pravatar.cc/" />`} />
-		<h4>Initials</h4>
-		<p>Display up to two text characters. (ex: Jane Doe would be JD)</p>
-		<CodeBlock language="html" code={`<Avatar initials="JD" />`} />
-		<h4>Using Filters</h4>
-		<p>
-			See <a href="/actions/filters">Filters</a> to learn how to import and configure the filters action and SVG filter components.
-		</p>
-		<CodeBlock language="ts" code={`import { filter, Apollo, /* ... */ } from '@brainandbones/skeleton';`} />
-		<p>Import the filter action reference using <code>action</code> and set <code>actionParams</code> to the desired filter id.</p>
-		<CodeBlock language="html" code={`<Avatar src="https://i.pravatar.cc/" action={filter} actionParams="Apollo" />`} />
-	</section>
-
-	<!-- Properties -->
-	<section class="space-y-4">
-		<h2>Properties</h2>
-		<DataTable headings={tableProps.headings} source={tableProps.source} />
-		<h4>Image</h4>
-		<DataTable headings={tablePropsImg.headings} source={tablePropsImg.source} />
-		<h4>Initials</h4>
-		<DataTable headings={tablePropsInitials.headings} source={tablePropsInitials.source} />
-	</section>
-</div>
+		<div class="space-y-4">
+			<h2>Initials</h2>
+			<p>Display up to two text characters. (ex: Jane Doe would be JD)</p>
+			<CodeBlock language="html" code={`<Avatar initials="JD" />`} />
+		</div>
+		<div class="space-y-4">
+			<h2>Using Filters</h2>
+			<p>
+				See <a href="/actions/filters">Filters</a> to learn how to import and configure the filters action and SVG filter components.
+			</p>
+			<CodeBlock language="ts" code={`import { filter, Apollo, /* ... */ } from '@brainandbones/skeleton';`} />
+			<p>Import the filter action reference using <code>action</code> and set <code>actionParams</code> to the desired filter id.</p>
+			<CodeBlock language="html" code={`<Avatar src="https://i.pravatar.cc/" action={filter} actionParams="Apollo" />`} />
+		</div>
+	</svelte:fragment>
+</DocsShell>

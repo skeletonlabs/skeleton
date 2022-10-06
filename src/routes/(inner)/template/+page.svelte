@@ -9,7 +9,7 @@
 		description:
 			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, eius officia aliquid beatae libero voluptas ea reprehenderit sed, ducimus quae reiciendis esse qui repudiandae veritatis perferendis deserunt ut magnam quisquam.',
 		imports: ['Template'],
-		types: ['types'],
+		types: ['Template'],
 		stylesheetIncludes: ['core', 'elements'],
 		stylesheets: ['elements/template'],
 		source: 'components/Template'
@@ -26,13 +26,23 @@
 			]
 		}
 	];
+	const events: DocsShellTable[] = [
+		{
+			headings: ['Event', 'Description'],
+			source: [
+				['<code>on:click</code>', '...'],
+				['<code>on:hover</code>', '...']
+			]
+		}
+	];
 	const classes: DocsShellTable[] = [
 		{
-			headings: ['Selector', 'Description'],
-			source: [
-				['<code>.foo</code>', '...'],
-				['<code>.bar</code>', '...']
-			]
+			description: 'Coming soon.'
+			// headings: ['Selector', 'Description'],
+			// source: [
+			// 	['<code>.foo</code>', '...'],
+			// 	['<code>.bar</code>', '...']
+			// ]
 		}
 	];
 	const slots: DocsShellTable[] = [
@@ -53,7 +63,7 @@
 	];
 </script>
 
-<DocsShell {settings} {properties} {classes} {slots} {a11y}>
+<DocsShell {settings} {properties} {events} {classes} {slots} {a11y}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<div class="card card-body">
