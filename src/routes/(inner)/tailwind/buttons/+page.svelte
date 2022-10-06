@@ -146,7 +146,7 @@
 	<svelte:fragment slot="usage">
 		<!-- Buttons -->
 		<div class="space-y-4">
-			<h4>Button</h4>
+			<h2>Button</h2>
 			<p>Add the <code>.btn</code> class to any button or anchor to create a button with minimal styling.</p>
 			<CodeBlock language="html" code={`<button class="btn">Button</button>\n<a href="/" class="btn">Anchor</a>`} />
 			<div class="card card-body flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
@@ -156,7 +156,7 @@
 		</div>
 		<!-- Icon Buttons -->
 		<div class="space-y-4">
-			<h4>Icon Buttons</h4>
+			<h2>Icon Buttons</h2>
 			<p>Add the <code>.btn-icon</code> class to any button or anchor to create a icon button with minimal styling.</p>
 			<CodeBlock language="html" code={`<button class="btn-icon">B</button>\n<a href="/" class="btn-icon">A</a>`} />
 			<div class="card card-body flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
@@ -167,7 +167,7 @@
 		</div>
 		<!-- Icons -->
 		<div class="space-y-4">
-			<h4>Leading and Trailing Icons</h4>
+			<h2>Leading and Trailing Icons</h2>
 			<p>By default, buttons use <code>flex-row</code> and <code>space-x-4</code> to create an evenly spaced row. Wrap children with <em>span</em> tags to ensure spacing works as expected.</p>
 			<CodeBlock language="html" code={`<button class="btn bg-primary-500">\n\t<span>💀</span>\n\t<span>Icons</span>\n\t<span>🦴</span>\n</button>`} />
 			<div class="card card-body flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
@@ -180,7 +180,7 @@
 		</div>
 		<!-- Variants -->
 		<div class="space-y-4">
-			<h4>Variants</h4>
+			<h2>Variants</h2>
 			<p>A set of canned preset styles are available using <code>.btn-[variant]</code>. This works for both standard and icon buttons.</p>
 			<CodeBlock language="html" code={`<button class="btn btn-filled-primary">filled-primary</button>`} />
 			<div class="card card-body flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
@@ -245,13 +245,13 @@
 		</div>
 		<!-- SvelteKit Link Options -->
 		<div class="space-y-4">
-			<h4>SvelteKit Link Options</h4>
+			<h2>SvelteKit Link Options</h2>
 			<p>Since we use native elements, this means we can utilize <a href="https://kit.svelte.dev/docs/link-options" target="_blank">SvelteKit Link Options</a> such as a <em>prefetch</em>.</p>
 			<CodeBlock language="html" code={`<a href="/" class="btn" data-sveltekit-prefetch>Skeleton</a>`} />
 		</div>
 		<!-- Global Styles -->
 		<div class="space-y-4">
-			<h4>Global Styles</h4>
+			<h2>Global Styles</h2>
 			<p>Use your global stylesheet to update all instances of this element.</p>
 			<CodeBlock
 				language="css"

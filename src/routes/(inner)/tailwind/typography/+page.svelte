@@ -1,25 +1,26 @@
 <script lang="ts">
-	import Alert from '$lib/components/Alert/Alert.svelte';
+	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
+
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+
+	// Docs Shell
+	const settings: DocsShellSettings = {
+		feature: DocsFeature.Element,
+		name: 'Typography',
+		description: 'Provides common typographical element styles',
+		stylesheetIncludes: ['core', 'typography'],
+		source: 'styles/typography.css'
+	};
 </script>
 
-<div class="space-y-8">
-	<!-- Header -->
-	<header class="space-y-4">
-		<h1>Typography</h1>
-		<p>Automatically included in <code>all.css</code>. This <a href="/guides/styling">stylesheet</a> provides common typographical element styles.</p>
-		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/typography.css';`} />
-	</header>
-
-	<!-- Alert -->
-	<Alert>Use the <code>.unstyled</code> class to exclude these styles for an individual element.</Alert>
-
-	<!-- Usage -->
-	<section class="space-y-8">
-		<h2>Usage</h2>
+<DocsShell {settings}>
+	<!-- Slot: Usage -->
+	<svelte:fragment slot="usage">
+		<p>Use the <code>.unstyled</code> class to exclude these styles for an individual element.</p>
 		<div class="space-y-4">
 			<!-- Headings -->
-			<h4>Headings</h4>
+			<h2>Headings</h2>
 			<CodeBlock
 				language="html"
 				code={`
@@ -42,13 +43,13 @@
 		</div>
 		<!-- Paragraph -->
 		<div class="space-y-4">
-			<h4>Paragraph</h4>
+			<h2>Paragraph</h2>
 			<CodeBlock language="html" code={`<p>The quick brown fox jumps over the lazy dog.</p>`} />
 			<div class="card card-body text-center"><p>The quick brown fox jumps over the lazy dog.</p></div>
 		</div>
 		<!-- Anchor -->
 		<div class="space-y-4">
-			<h4>Anchor</h4>
+			<h2>Anchor</h2>
 			<CodeBlock language="html" code={`<a href="/">Anchor</a>`} />
 			<div class="card card-body text-center space-x-4">
 				<a href="https://www.youtube.com/watch?v=XTgFtxHhCQ0" target="_blank">Anchor</a>
@@ -56,7 +57,7 @@
 		</div>
 		<!-- Blockquote -->
 		<div class="space-y-4">
-			<h4>Blockquote</h4>
+			<h2>Blockquote</h2>
 			<CodeBlock language="html" code={`<blockquote>Skeleton</blockquote>`} />
 			<div class="card card-body">
 				<blockquote class="max-w-[480px] mx-auto">
@@ -67,7 +68,7 @@
 		</div>
 		<!-- Pre -->
 		<div class="space-y-4">
-			<h4>Pre-formatted Text</h4>
+			<h2>Pre-formatted Text</h2>
 			<CodeBlock language="html" code={`<pre>The quick brown fox jumps over the lazy dog.</pre>`} />
 			<div class="card card-body">
 				<pre class="max-w-[480px] mx-auto">The quick brown fox jumps over the lazy dog.</pre>
@@ -75,15 +76,15 @@
 		</div>
 		<!-- Code -->
 		<div class="space-y-4">
-			<h4 class="pb-4">Code</h4>
+			<h2 class="pb-4">Code</h2>
 			<CodeBlock language="html" code={`<code>.myExampleClass</code>`} />
 			<div class="card card-body text-center"><code>.myExampleClass</code></div>
 		</div>
 		<!-- kbd -->
 		<div class="space-y-4">
-			<h4 class="pb-4">Keyboard</h4>
+			<h2 class="pb-4">Keyboard</h2>
 			<CodeBlock language="html" code={`<kbd>Shift + ⌘</kbd>`} />
 			<div class="card card-body text-center"><kbd>Shift + ⌘</kbd></div>
 		</div>
-	</section>
-</div>
+	</svelte:fragment>
+</DocsShell>

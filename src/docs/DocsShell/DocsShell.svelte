@@ -106,7 +106,7 @@
 
 <div class="doc-shell {classesBase}">
 	<!-- Region: Header -->
-	<header class="doc-shell-header {classesRegionHeader} !pb-0">
+	<header class="doc-shell-header {classesRegionHeader}">
 		<!-- Information -->
 		<div class="page-container !pb-0">
 			<!-- Feature -->
@@ -195,9 +195,13 @@
 		{#if $storeActiveTab === 'usage'}
 			<div class="doc-shell-usage {spacing}">
 				<!-- Slot: Sandbox -->
-				<div class="doc-shell-sandbox {spacing}"><slot name="sandbox">(sandbox)</slot></div>
-				<!-- Slot: Default -->
-				<div class="doc-shell-usage {spacing}"><slot name="usage">(usage)</slot></div>
+				{#if $$slots.sandbox}
+					<div class="doc-shell-sandbox {spacing}"><slot name="sandbox">(sandbox)</slot></div>
+				{/if}
+				<!-- Slot: Usage -->
+				{#if $$slots.usage}
+					<div class="doc-shell-usage {spacing}"><slot name="usage">(usage)</slot></div>
+				{/if}
 				<!-- Slot: Default (footer) -->
 				{#if $$slots.default}
 					<footer class="doc-shell-footer"><slot /></footer>
