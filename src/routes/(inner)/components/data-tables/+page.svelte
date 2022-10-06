@@ -70,15 +70,15 @@
 		{
 			headings: ['Name', 'Description'],
 			source: [
-				['<code>default</code>', 'Overrides the default "no results found" message when the table is empty.'],
 				['<code>header</code>', 'Dislays above the table. Useful for embedding search and filter inputs.'],
+				['<code>empty</code>', 'Overrides the default "no results found" message when the table is empty.'],
 				['<code>footer</code>', 'Displays below the table. Useful for embedding pagination.']
 			]
 		}
 	];
 	const a11y: DocsShellTable[] = [
+		{ aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/grid/' },
 		{
-			aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/grid/"',
 			headings: ['Prop', 'Required', 'Description'],
 			source: [
 				['<code>labelledby</code>', '-', `Provide the ID of the element that labels the table.`],
@@ -87,8 +87,7 @@
 		},
 		{
 			label: 'Keyboard Interactions',
-			description:
-				'The following keys provide grid navigation by moving focus among cells of the grid. Implementations of grid make these key commands available when an element in the grid has received focus, e.g., after a user has moved focus to the grid with <kbd>Tab</kbd>.',
+			description: 'Begin focus by tabbing into the table, then use any of the following interactions.',
 			headings: ['Keys', 'Description'],
 			source: [
 				['<kbd>Right Arrow</kbd>', 'Moves focus one cell to the right. If focus is on the right-most cell in the row, focus does not move.'],

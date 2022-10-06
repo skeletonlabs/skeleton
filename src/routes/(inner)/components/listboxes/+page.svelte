@@ -128,7 +128,7 @@
 		</section>
 		<section class="space-y-4">
 			<h2>Multiple Values</h2>
-			<p>Create a writable with a an <u>array</u> of values.</p>
+			<p>Create a writable with an <u>array</u> of values.</p>
 			<CodeBlock language="typescript" code={`let storeMultiple: Writable<any[]> = writable(['A', 'B']);`} />
 			<CodeBlock
 				language="html"

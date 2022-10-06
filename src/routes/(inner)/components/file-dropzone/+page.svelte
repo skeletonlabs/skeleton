@@ -87,13 +87,13 @@
 			<CodeBlock language="html" code={`<FileDropzone bind:files />`} />
 		</div>
 		<div class="space-y-4">
-			<h3>Notes Text</h3>
-			<p>Use the <code>notes</code> property to provide addition information on a second line.</p>
+			<h3>Notes</h3>
+			<p>Use the <code>notes</code> property to provide addition text information on a second line.</p>
 			<CodeBlock language="html" code={`<FileDropzone notes="Files should not exceed 5mb." />`} />
 		</div>
 		<div class="space-y-4">
-			<h3>Message Slot</h3>
-			<p>Use the default slot to replace the message entirely.</p>
+			<h3>Message</h3>
+			<p>Use the default slot to replace the default UI entirely.</p>
 			<CodeBlock language="html" code={`<FileDropzone>(message)</FileDropzone>`} />
 		</div>
 	</svelte:fragment>

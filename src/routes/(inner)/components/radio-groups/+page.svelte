@@ -38,6 +38,7 @@
 		},
 		{
 			label: 'RadioItem',
+			description: 'Can override <code>hover</code>, <code>accent</code>, <code>color</code>, <code>fill</code>, <code>rounded</code>.',
 			headings: ['Prop', 'Type', 'Description'],
 			source: [['<code>value</code>', 'any', `The item's selection value.`]]
 		}
@@ -57,6 +58,11 @@
 			label: 'RadioGroup',
 			headings: ['Name', 'Description'],
 			source: [['<code>default</code>', 'Accepts a set of RadioItem components.']]
+		},
+		{
+			label: 'RadioItem',
+			headings: ['Name', 'Description'],
+			source: [['<code>default</code>', 'The radio item label contents.']]
 		}
 	];
 	const a11y: DocsShellTable[] = [

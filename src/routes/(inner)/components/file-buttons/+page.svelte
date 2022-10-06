@@ -32,7 +32,8 @@
 	];
 	const classes: DocsShellTable[] = [
 		{
-			description: 'Coming soon.'
+			label: 'Coming soon.',
+			description: '<p>Classes provided to the <code>class</code> attribite are applied directly to the button. Add button utility classes here.</p>'
 			// headings: ['Selector', 'Description'],
 			// source: [
 			// 	['<code>.foo</code>', '...'],
@@ -43,7 +44,7 @@
 	const slots: DocsShellTable[] = [
 		{
 			headings: ['Name', 'Description'],
-			source: [['<code>Default</code>', 'This slot provides the label for the file button.']]
+			source: [['<code>Default</code>', 'Provide the button label text.']]
 		}
 	];
 
@@ -67,7 +68,6 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<p>Note that class values are applied directly to the button element. Use this to provide button utility classes.</p>
 			<CodeBlock language="ts" code={`let files: FileList;`} />
 			<CodeBlock language="html" code={`<FileButton bind:files={myFiles} class="btn-filled-accent">Upload File</FileButton>`} />
 		</section>

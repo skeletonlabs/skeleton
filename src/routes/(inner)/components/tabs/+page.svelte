@@ -55,9 +55,17 @@
 	];
 	const slots: DocsShellTable[] = [
 		{
+			label: 'TabGroup',
+			headings: ['Name', 'Description'],
+			source: [['<code>default</code>', 'Accepts a step of Tab components.']]
+		},
+		{
 			label: 'Tab',
 			headings: ['Name', 'Description'],
-			source: [['<code>lead</code>', 'Provides a leading position, which can be used for icons.']]
+			source: [
+				['<code>lead</code>', 'Provides a leading position, which can be used for icons.'],
+				['<code>default</code>', 'Provide the Tab label contents.']
+			]
 		}
 	];
 	const a11y: DocsShellTable[] = [

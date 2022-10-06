@@ -47,11 +47,6 @@
 			]
 		}
 	];
-	const a11y: DocsShellTable[] = [
-		{
-			description: 'Makes use of <code>role="alert"</code> and <code>aria-live="polite"</code>.'
-		}
-	];
 
 	// Local
 	let title = `Hello Skeleton!`;
@@ -68,7 +63,7 @@
 	}
 </script>
 
-<DocsShell {settings} {properties} {classes} {slots} {a11y}>
+<DocsShell {settings} {properties} {classes} {slots}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-4">
@@ -110,6 +105,7 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
+			<p>This component makes use of <code>role="alert"</code> and <code>aria-live="polite"</code>.</p>
 			<CodeBlock language="typescript" code={`let visible: boolean = true;`} />
 			<CodeBlock
 				language="html"

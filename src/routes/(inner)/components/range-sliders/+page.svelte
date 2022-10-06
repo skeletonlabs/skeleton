@@ -48,7 +48,10 @@
 	const slots: DocsShellTable[] = [
 		{
 			headings: ['Prop', 'Description'],
-			source: [['<code>default</code>', 'A label slot directly above the range slider element.']]
+			source: [
+				['<code>default</code>', 'A label slot directly above the range slider.'],
+				['<code>trail</code>', 'A label slot directly below the range slider.']
+			]
 		}
 	];
 	const a11y: DocsShellTable[] = [

@@ -174,9 +174,8 @@
 		`}
 			/>
 			<Alert>
-				<svelte:fragment slot="title">Pro Tip</svelte:fragment>
-				Consider hiding your sidebar for smaller screens and using a Drawer component. If you wish to use the same navigation lists in both, create a shared components that's inserted into both the Drawer
-				and Sidebar slots. We use this technique on this site!
+				<strong>Tip:</strong> Consider hiding your sidebar for smaller screens and using a Drawer component. If you wish to use the same navigation lists in both, create a shared components that's inserted
+				into both the Drawer and Sidebar slots. We use this technique on this site!
 			</Alert>
 		</div>
 	</svelte:fragment>
