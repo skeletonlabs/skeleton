@@ -28,7 +28,6 @@
 	};
 	const properties: DocsShellTable[] = [
 		{
-			label: 'Parameter Keys',
 			headings: ['Key', 'Type', 'Required', 'Description'],
 			source: [['<code>default</code>', 'string', '&check;', 'The name of the filter, such as "Apollo".']]
 		}

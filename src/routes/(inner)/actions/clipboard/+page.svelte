@@ -16,7 +16,6 @@
 	};
 	const properties: DocsShellTable[] = [
 		{
-			label: 'Parameter Keys',
 			headings: ['Key', 'Type', 'Description'],
 			source: [
 				['<code>element</code>', 'string', `HTML element's <em>data-clipboard</em> ID value.`],

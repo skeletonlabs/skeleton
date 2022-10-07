@@ -183,7 +183,9 @@
 			<!-- Tabs -->
 			<TabGroup selected={storeActiveTab} rail={false}>
 				<Tab value="usage">Usage</Tab>
-				{#if properties && properties.length}<Tab value="properties">Properties</Tab>{/if}
+				{#if properties && properties.length}<Tab value="properties">
+						{pageSettings.feature === 'Svelte Action' ? 'Parameters' : 'Properties'}
+					</Tab>{/if}
 				{#if events && events.length}<Tab value="events">Events</Tab>{/if}
 				{#if classes && classes.length}<Tab value="classes">Classes</Tab>{/if}
 				{#if slots && slots.length}<Tab value="slots">Slots</Tab>{/if}
