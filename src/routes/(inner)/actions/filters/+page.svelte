@@ -23,8 +23,8 @@
 		description:
 			'Applies a set of unique <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter" target="_blank">SVG filters</a>. Best used with images, but also available to select components, such as Avatars.',
 		imports: ['filter'],
-		source: 'actions/Filters'
-		// dependencies: [{ label: 'Highlight.js', url: 'https://highlightjs.org/' }],
+		source: 'actions/Filters',
+		parameters: true
 	};
 	const properties: DocsShellTable[] = [
 		{

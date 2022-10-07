@@ -48,7 +48,9 @@
 		package: { name: '@brainandbones/skeleton', url: 'https://www.npmjs.com/package/@brainandbones/skeleton' },
 		source: '',
 		docs: $page.url.pathname,
-		dependencies: []
+		dependencies: [],
+		// Extras
+		parameters: false
 	};
 	const pageSettings: DocsShellSettings = { ...defaultSettings, ...settings };
 
@@ -184,7 +186,7 @@
 			<TabGroup selected={storeActiveTab} rail={false}>
 				<Tab value="usage">Usage</Tab>
 				{#if properties && properties.length}<Tab value="properties">
-						{pageSettings.feature === 'Svelte Action' ? 'Parameters' : 'Properties'}
+						{pageSettings.parameters === true ? 'Params' : 'Props'}
 					</Tab>{/if}
 				{#if events && events.length}<Tab value="events">Events</Tab>{/if}
 				{#if classes && classes.length}<Tab value="classes">Classes</Tab>{/if}

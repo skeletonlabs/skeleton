@@ -13,7 +13,8 @@
 		imports: ['menu'],
 		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/menus'],
-		source: 'utilities/Menu'
+		source: 'utilities/Menu',
+		parameters: true
 	};
 	const properties: DocsShellTable[] = [
 		{

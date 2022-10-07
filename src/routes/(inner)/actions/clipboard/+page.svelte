@@ -11,8 +11,8 @@
 		name: 'Clipboard',
 		description: 'Allows you to quickly copy select data to the clipboard.',
 		imports: ['clipboard'],
-		source: 'actions/Clipboard'
-		// dependencies: [{ label: 'Highlight.js', url: 'https://highlightjs.org/' }],
+		source: 'actions/Clipboard',
+		parameters: true
 	};
 	const properties: DocsShellTable[] = [
 		{

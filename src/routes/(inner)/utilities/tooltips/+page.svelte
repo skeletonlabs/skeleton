@@ -13,12 +13,11 @@
 		imports: ['tooltip'],
 		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/tooltips'],
-		source: 'utilities/Tooltip'
-		// dependencies: [{ label: 'Highlight.js', url: 'https://highlightjs.org/' }],
+		source: 'utilities/Tooltip',
+		parameters: true
 	};
 	const properties: DocsShellTable[] = [
 		{
-			label: 'Action Parameters',
 			headings: ['Prop', 'Type', 'Default', 'Values', 'Required', 'Description'],
 			source: [
 				['<code>content</code>', 'string', '(tooltip)', 'HTML', '&check;', 'The HTML content of your tooltip.'],

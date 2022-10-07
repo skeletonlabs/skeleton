@@ -38,6 +38,8 @@ export interface DocsShellSettings {
 	docs?: string;
 	/** Provide list of depedency links.  */
 	dependencies?: DocShellLinks[];
+	/** When enabled, renames tab "Props" to "Params" for Svelte Actions */
+	parameters?: boolean;
 }
 
 export interface DocsShellTable {
