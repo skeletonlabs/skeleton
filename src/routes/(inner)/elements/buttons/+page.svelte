@@ -32,7 +32,7 @@
 	];
 
 	// Local:
-	const href: string = '/tailwind/buttons';
+	const href: string = '/elements/buttons';
 
 	// Stores
 	const storeTag: Writable<string> = writable('button');

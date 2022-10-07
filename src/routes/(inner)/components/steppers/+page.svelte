@@ -30,9 +30,9 @@
 				['<code>duration</code>', 'number', '200', '-', 'Set the Svelte transition duration.'],
 				['<code>color</code>', 'string', 'text-white', '-', 'Provide classes to set the numeral text color.'],
 				['<code>background</code>', 'string', 'bg-accent-500 text-white', '-', 'Provide classes to set the timeline background color.'],
-				['<code>buttonBack</code>', 'string', 'btn-ghost', '-', 'Provide <a href="/tailwind/buttons">Button element</a> classes.'],
-				['<code>buttonNext</code>', 'string', 'btn-filled', '-', 'Provide <a href="/tailwind/buttons">Button element</a> classes.'],
-				['<code>buttonComplete</code>', 'string', 'btn-filled-primary', '-', 'Provide <a href="/tailwind/buttons">Button element</a> classes.']
+				['<code>buttonBack</code>', 'string', 'btn-ghost', '-', 'Provide <a href="/elements/buttons">Button element</a> classes.'],
+				['<code>buttonNext</code>', 'string', 'btn-filled', '-', 'Provide <a href="/elements/buttons">Button element</a> classes.'],
+				['<code>buttonComplete</code>', 'string', 'btn-filled-primary', '-', 'Provide <a href="/elements/buttons">Button element</a> classes.']
 			]
 		},
 		{
