@@ -26,15 +26,15 @@ export const menuNavLinks: any = [
 		id: 'nav-elements',
 		title: 'Tailwind Elements',
 		list: [
-			{ href: '/tailwind/core', label: 'Core' },
-			{ href: '/tailwind/typography', label: 'Typography' },
-			{ href: '/tailwind/forms', label: 'Forms' },
-			{ href: '/tailwind/badges', label: 'Badges' },
-			{ href: '/tailwind/buttons', label: 'Buttons' },
-			{ href: '/tailwind/cards', label: 'Cards' },
-			{ href: '/tailwind/lists', label: 'Lists' },
-			{ href: '/tailwind/logo-clouds', label: 'Logo Clouds' },
-			{ href: '/tailwind/placeholders', label: 'Placeholders' }
+			{ href: '/elements/core', label: 'Core' },
+			{ href: '/elements/typography', label: 'Typography' },
+			{ href: '/elements/forms', label: 'Forms' },
+			{ href: '/elements/badges', label: 'Badges' },
+			{ href: '/elements/buttons', label: 'Buttons' },
+			{ href: '/elements/cards', label: 'Cards' },
+			{ href: '/elements/lists', label: 'Lists' },
+			{ href: '/elements/logo-clouds', label: 'Logo Clouds' },
+			{ href: '/elements/placeholders', label: 'Placeholders' }
 		]
 	},
 	{
