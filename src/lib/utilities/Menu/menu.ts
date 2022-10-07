@@ -8,8 +8,8 @@ interface ArgsMenu {
 	fixed?: boolean;
 	/** Clicks inside body will not close window */
 	interactive?: boolean;
-	/** Callback function that informs of current menu state */
-	state?: any;
+	/** Provide an optional callback function to handle open/close state changes. */
+	state?: (e: { menu: string; state: boolean }) => void;
 }
 
 // prettier-ignore
