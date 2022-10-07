@@ -23,8 +23,8 @@
 	// Props (styles)
 	export let spacing: string = 'space-y-8';
 	// Props (regions)
-	export let regionHeader: string = 'bg-white/20 dark:bg-black/5';
-	export let regionDetails: string = 'grid grid-cols-1 md:grid-cols-[128px_1fr] gap-4';
+	export let regionHeader: string = 'bg-white/20 dark:bg-black/10';
+	export let regionDetails: string = 'grid grid-cols-1 md:grid-cols-[128px_1fr] gap-3';
 	export let regionPanels: string = 'page-container';
 
 	// Classes
@@ -109,14 +109,15 @@
 	<!-- Region: Header -->
 	<header class="doc-shell-header {classesRegionHeader}">
 		<!-- Information -->
-		<div class="page-container !pb-0">
+		<div class="page-container !pb-0 lg:!space-y-10">
 			<!-- Feature -->
-			<span class="badge badge-ghost">
-				<SvgIcon width="w-4" height="h-4" name={setFeatureIcon()} />
+			<span class="badge bg-primary-500/10 text-primary-500">
+				<SvgIcon width="w-4" height="h-4" fill="fill-primary-500" name={setFeatureIcon()} />
 				<span>{@html pageSettings.feature}</span>
 			</span>
+
 			<!-- Intro -->
-			<section class="space-y-4">
+			<section class="space-y-2">
 				<h1>{@html pageSettings.name}</h1>
 				<p>{@html pageSettings.description}</p>
 			</section>
