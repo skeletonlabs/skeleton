@@ -198,7 +198,7 @@
 					language="ts"
 					code={`
 let menuExample: boolean = false;\n
-function stateHandler(res: { menu: string; state: boolean }): void {
+function stateHandler(response: { menu: string; state: boolean }): void {
 	if (response.menu === 'example') menuExample = response.state;
 }
 				`}

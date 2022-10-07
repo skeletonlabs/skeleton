@@ -27,12 +27,12 @@ export function menu(node: HTMLElement, args: ArgsMenu) {
 	
 	const menuOpen = (): void => {
 		elemMenu.style.display = 'block';
-		stateEventHandler(true)
+		stateEventHandler(true);
 	}
 
 	const menuClose = (): void => {
 		elemMenu.style.display = 'none';
-		stateEventHandler(false)
+		stateEventHandler(false);
 	}
 
 	const stateEventHandler = (state: boolean): void => {
