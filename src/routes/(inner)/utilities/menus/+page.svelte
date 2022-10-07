@@ -69,25 +69,36 @@
 	// Local
 	const exampleLink: string = '/utilities/menus';
 
-	const log = (v: any) => {
+	function log(v: any): void {
 		console.log(`You selected anchor link ${v}`);
-	};
+	}
+
+	let menuBasicState: boolean = false;
+	let menuInteractiveState: boolean = false;
+
+	function stateHandler(res: any): void {
+		if (res.menu === 'basic') menuBasicState = res.state;
+		if (res.menu === 'interactive') menuInteractiveState = res.state;
+	}
 </script>
 
 <DocsShell {settings} {properties} {events} {classes} {a11y}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
+		<pre>menuBasicState: {menuBasicState}</pre>
+		<pre>menuInteractiveState: {menuInteractiveState}</pre>
 		<section class="card card-body flex flex-col lg:flex-row justify-center items-center space-y-4 lg:space-y-0 lg:space-x-4">
 			<!-- Dropdown 1 -->
 			<span class="relative">
-				<button class="btn btn-ghost" use:menu={{ menu: 'basic' }}>Basic</button>
+				<button class="btn btn-ghost" use:menu={{ menu: 'basic', state: stateHandler }}>Basic</button>
+				<!-- on:toggled={eventLogger} -->
 				<div class="card card-body w-64 shadow-xl" data-menu="basic">
 					<p>This menu uses default settings. The position will auto-update depending on the trigger's page location.</p>
 				</div>
 			</span>
 			<!-- Dropdown 2 -->
 			<span class="relative">
-				<button class="btn btn-ghost" use:menu={{ menu: 'interactive', interactive: true }}>Interactive</button>
+				<button class="btn btn-ghost" use:menu={{ menu: 'interactive', interactive: true, state: stateHandler }}>Interactive</button>
 				<div class="menu-tl card card-body w-64 shadow-xl" data-menu="interactive">
 					<p>This menu will not close when clicking within the menu body due to <code>interactive: true</code>.</p>
 				</div>
