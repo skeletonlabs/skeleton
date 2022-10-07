@@ -40,21 +40,21 @@
 			[
 				'<code>core.css</code>',
 				'Applies styles to body elements, scrollbars, and more.',
-				'<a href="/tailwind/core">Core</a>',
+				'<a href="/elements/core">Core</a>',
 				`<a href="${ghLibPathMaster}/styles/core.css" target="_blank">core.css</a>`,
 				'-'
 			],
 			[
 				'<code>typography.css</code>',
 				'Headings, paragraph, anchors, pre, code, and more.',
-				'<a href="/tailwind/typography">Typography</a>',
+				'<a href="/elements/typography">Typography</a>',
 				`<a href="${ghLibPathMaster}/styles/typography.css" target="_blank">typography.css</a>`,
 				'-'
 			],
 			[
 				'<code>forms.css</code>',
 				'Adapts form elements to utilize the Skeleton theme.',
-				'<a href="/tailwind/forms">Forms</a>',
+				'<a href="/elements/forms">Forms</a>',
 				`<a href="${ghLibPathMaster}/styles/forms.css" target="_blank">forms.css</a>`,
 				'<a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">tailwindcss-forms</a>'
 			]
@@ -77,27 +77,27 @@
 		source: [
 			[
 				'<code>elements/badges.css</code>',
-				'<a href="/tailwind/badges">badges</a>',
+				'<a href="/elements/badges">badges</a>',
 				`<a href="${ghLibPathMaster}/styles/elements/badges.css" target="_blank">badges.css</a>`,
 			],
 			[
 				'<code>elements/buttons.css</code>',
-				'<a href="/tailwind/buttons">buttons</a>',
+				'<a href="/elements/buttons">buttons</a>',
 				`<a href="${ghLibPathMaster}/styles/elements/buttons.css" target="_blank">buttons.css</a>`,
 			],
 			[
 				'<code>elements/cards.css</code>',
-				'<a href="/tailwind/cards">cards</a>',
+				'<a href="/elements/cards">cards</a>',
 				`<a href="${ghLibPathMaster}/styles/elements/cards.css" target="_blank">cards.css</a>`,
 			],
 			[
 				'<code>elements/lists.css</code>',
-				'<a href="/tailwind/lists">lists</a>',
+				'<a href="/elements/lists">lists</a>',
 				`<a href="${ghLibPathMaster}/styles/elements/lists.css" target="_blank">lists.css</a>`,
 			],
 			[
 				'<code>elements/logo-clouds.css</code>',
-				'<a href="/tailwind/logo-clouds">logo-clouds</a>',
+				'<a href="/elements/logo-clouds">logo-clouds</a>',
 				`<a href="${ghLibPathMaster}/styles/elements/logo-clouds.css" target="_blank">logo-clouds.css</a>`,
 			],
 			[
@@ -107,14 +107,14 @@
 			],
 			[
 				'<code>elements/placeholders.css</code>',
-				'<a href="/tailwind/placeholders">placeholders</a>',
+				'<a href="/elements/placeholders">placeholders</a>',
 				`<a href="${ghLibPathMaster}/styles/elements/placeholders.css" target="_blank">placeholders.css</a>`,
 			],
 		]
 	};
 </script>
 
-<div class="space-y-8">
+<div class="page-container">
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Styling</h1>

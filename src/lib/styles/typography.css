@@ -27,6 +27,7 @@ p:not(.unstyled) {
 	@apply text-base text-black/80 dark:text-white/80;
 }
 
+.link,
 a:not(.unstyled):not(.btn-icon):not(.btn):not(.app-bar a):not(.logo-item):not(.card):not(.list-nav a) {
 	@apply text-primary-600 dark:text-primary-400 underline underline-offset-4 decoration-dotted decoration-primary-500/20 hover:decoration-primary-500;
 }
@@ -48,5 +49,5 @@ pre:not(.unstyled):not(.code-block pre) {
 }
 
 code:not(.unstyled):not(.code-block code) {
-	@apply bg-surface-500/30 text-black dark:text-white text-xs py-1 px-2 rounded;
+	@apply bg-black/5 dark:bg-white/5 text-xs py-1 px-2 rounded;
 }

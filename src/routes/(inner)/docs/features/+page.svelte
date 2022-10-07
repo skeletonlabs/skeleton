@@ -1,6 +1,6 @@
 <!-- <script lang="ts"></script> -->
 
-<div class="space-y-8">
+<div class="page-container">
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Features</h1>

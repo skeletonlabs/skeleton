@@ -1,12 +1,51 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
-	import { DataTable, RadioGroup, RadioItem, Divider } from '@brainandbones/skeleton';
+
+	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+
+	import Divider from '$lib/components/Divider/Divider.svelte';
+	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
+	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
+	// Stores
 	const storeVertical: Writable<boolean> = writable(false);
 	const storeBorderWidth: Writable<string> = writable('border-t');
 	const storeBorderStyle: Writable<string> = writable('border-solid');
 	const defaultBorderColor: string = 'border-surface-300 dark:border-surface-700';
+
+	// Docs Shell
+	const settings: DocsShellSettings = {
+		feature: DocsFeature.Component,
+		name: 'Dividers',
+		description: 'Horizontal or vertical rules for sectioning your content.',
+		imports: ['Divider'],
+		source: 'components/Divider'
+	};
+	const properties: DocsShellTable[] = [
+		{
+			headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
+			source: [
+				['<code>vertical</code>', 'boolean', 'false', 'true | false', 'When enabled, sets the width to zero and height to full.'],
+				['<code>borderWidth</code>', 'string', 'border-t', 'class', 'Provide classes to set the border width.'],
+				['<code>borderStyle</code>', 'string', 'border-solid', 'class', 'Provide classes to set the border style.'],
+				['<code>borderColor</code>', 'string', 'border-surface-300 dark:border-surface-700', 'class', 'Provide classes to set the border color.'],
+				['<code>margin</code>', 'string', 'm-0', 'class', 'Provide classes to set the margin.'],
+				['<code>opacity</code>', 'string', 'opacity-full', 'class', 'Provide classes to set opacity.']
+			]
+		}
+	];
+	const classes: DocsShellTable[] = [
+		{
+			description: 'Coming soon.'
+			// headings: ['Selector', 'Description'],
+			// source: [
+			// 	['<code>.foo</code>', '...'],
+			// 	['<code>.bar</code>', '...']
+			// ]
+		}
+	];
 
 	// Switches between top and left oriented styles
 	function setOrientationStyles(): void {
@@ -23,32 +62,12 @@
 		borderStyle: $storeBorderStyle,
 		borderColor: defaultBorderColor
 	};
-
-	// Tables
-	const tableProps: any = {
-		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
-		source: [
-			['vertical', 'boolean', 'false', 'true | false', 'When enabled, sets the width to zero and height to full.'],
-			['borderWidth', 'string', 'border-t', 'class', 'Provide classes to set the border width.'],
-			['borderStyle', 'string', 'border-solid', 'class', 'Provide classes to set the border style.'],
-			['borderColor', 'string', 'border-surface-300 dark:border-surface-700', 'class', 'Provide classes to set the border color.'],
-			['margin', 'string', 'm-0', 'class', 'Provide classes to set the margin.'],
-			['opacity', 'string', 'opacity-full', 'class', 'Provide classes to set opacity.']
-		]
-	};
 </script>
 
-<div class="space-y-8">
-	<!-- Header -->
-	<header class="space-y-4">
-		<h1>Dividers</h1>
-		<p>Horizontal or vertical rules for sectioning your content.</p>
-		<CodeBlock language="javascript" code={`import { Divider } from '@brainandbones/skeleton';`} />
-	</header>
-
-	<!-- Sandbox -->
-	<section class="space-y-4">
-		<div class="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-2">
+<DocsShell {settings} {properties} {classes}>
+	<!-- Slot: Sandbox -->
+	<svelte:fragment slot="sandbox">
+		<section class="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-2">
 			<!-- Example -->
 			<div class="card card-body">
 				<div class="h-full min-h-[100px] max-w-[480px] mx-auto flex justify-center items-center">
@@ -69,9 +88,9 @@
 					<span>Vertical</span>
 					<!-- prettier-ignore -->
 					<RadioGroup selected={storeVertical} display="flex">
-						<RadioItem value={false} on:click={() => { setOrientationStyles(); }}>false</RadioItem>
-						<RadioItem value={true} on:click={() => { setOrientationStyles(); }}>true</RadioItem >
-					</RadioGroup>
+							<RadioItem value={false} on:click={() => { setOrientationStyles(); }}>false</RadioItem>
+							<RadioItem value={true} on:click={() => { setOrientationStyles(); }}>true</RadioItem >
+						</RadioGroup>
 				</label>
 				<!-- Border Width -->
 				<label for="">
@@ -121,29 +140,18 @@
 					</select>
 				</label>
 			</div>
-		</div>
-	</section>
+		</section>
+	</svelte:fragment>
 
-	<!-- Usage -->
-	<section class="space-y-4">
-		<h2>Usage</h2>
-		<CodeBlock language="html" code={`<Divider />`} />
-		<h4>Vertical</h4>
-		<CodeBlock language="html" code={`<Divider vertical={true} borderWidth="border-l" />`} />
-	</section>
-
-	<!-- Properties -->
-	<section class="space-y-4">
-		<h2>Properties</h2>
-		<DataTable headings={tableProps.headings} source={tableProps.source} />
-	</section>
-
-	<!-- Accessibility -->
-	<section class="space-y-4">
-		<h2>Accessibility</h2>
-		<p>
-			Uses a horizontal rule <code>hr</code> tag, which has an inherent
-			<code>role="separator"</code>.
-		</p>
-	</section>
-</div>
+	<!-- Slot: Usage -->
+	<svelte:fragment slot="usage">
+		<section class="space-y-4">
+			<p>Uses a horizontal rule <code>hr</code> tag, which has an inherent <code>role="separator"</code></p>
+			<CodeBlock language="html" code={`<Divider />`} />
+		</section>
+		<section class="space-y-4">
+			<h2>Vertical</h2>
+			<CodeBlock language="html" code={`<Divider vertical={true} borderWidth="border-l" />`} />
+		</section>
+	</svelte:fragment>
+</DocsShell>

@@ -1,97 +1,114 @@
 <script lang="ts">
-	import { DataTable, Avatar, AccordionGroup, AccordionItem } from '@brainandbones/skeleton';
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+
+	// Components
+	import AccordionGroup from '$lib/components/Accordion/AccordionGroup.svelte';
+	import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
+	import Avatar from '$lib/components/Avatar/Avatar.svelte';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
+	// Utilities
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	const tablePropsGroup: any = {
-		headings: ['Prop', 'Type', 'Default', 'Description'],
-		source: [
-			['collapse', 'boolean', 'true', 'Enable auto-collapse mode.'],
-			['spacing', 'string', 'spacing-y-2', 'Provide classes to set spacing between item rows.']
-		]
+	// Docs Shell
+	const settings: DocsShellSettings = {
+		feature: DocsFeature.Component,
+		name: 'Accordions',
+		description: 'Divide content into collapsible sections.',
+		imports: ['AccordionGroup', 'AccordionItem'],
+		source: 'components/Accordion'
 	};
-
-	const tablePropsItem: any = {
-		headings: ['Prop', 'Type', 'Default', 'Description'],
-		source: [
-			['open', 'boolean', 'false', `Defines the default open state on page load.`],
-			['hover', 'string', 'hover:bg-primary-500/10', 'Provide classes to set the hover background color.'],
-			['spacing', 'string', 'space-y-0', 'Provide classes to set spacing between title and description elements.'],
-			['padding', 'string', 'px-4 py-2', 'Provide classes to set padding for summary and content regions.'],
-			['rounded', 'string', 'rounded', 'Provide classes to set summary border radius.']
-		]
-	};
-	const tableSlots: any = {
-		headings: ['Name', 'Required', 'Style Prop', 'Description'],
-		source: [
-			['lead', '-', 'slotSummary > .summary-lead', 'Allows for an optional leading element, such as an icon.'],
-			['summary', '&check;', 'slotSummary', 'Provide the summary details of each item.'],
-			['content', '&check;', 'slotContent', 'Provide the content details of each item.']
-		]
-	};
-	const tableA11yItem: any = {
-		headings: ['Prop', 'Description'],
-		source: [
-			['summaryId', 'Provide semantic ID for ARIA summary element.'],
-			['contentId', 'Provide semantic ID for ARIA content element.']
-		]
-	};
-	const tableKeys: any = {
-		headings: ['Keys', 'Description'],
-		source: [
-			['<kbd>Tab</kbd>', 'Moves focus to the next focusable element.'],
-			['<kbd>Shift + Tab</kbd> ', 'Moves focus to the previous focusable element.'],
-			['<kbd>Space</kbd> or <kbd>Enter</kbd>', 'When focus is on the accordion header toggles the collapsable region open/closed.']
-		]
-	};
+	const properties: DocsShellTable[] = [
+		{
+			label: 'AccordionGroup',
+			headings: ['Prop', 'Type', 'Default', 'Description'],
+			source: [
+				['<code>collapse</code>', 'boolean', 'true', 'Enable auto-collapse mode.'],
+				['<code>spacing</code>', 'string', 'spacing-y-2', 'Provide classes to set spacing between item rows.']
+			]
+		},
+		{
+			label: 'AccordionItem',
+			headings: ['Prop', 'Type', 'Default', 'Description'],
+			source: [
+				['<code>open</code>', 'boolean', 'false', `Defines the default open state on page load.`],
+				['<code>hover</code>', 'string', 'hover:bg-primary-500/10', 'Provide classes to set the hover background color.'],
+				['<code>spacing</code>', 'string', 'space-y-0', 'Provide classes to set spacing between title and description elements.'],
+				['<code>padding</code>', 'string', 'px-4 py-2', 'Provide classes to set padding for summary and content regions.'],
+				['<code>rounded</code>', 'string', 'rounded', 'Provide classes to set summary border radius.']
+			]
+		}
+	];
+	const classes: DocsShellTable[] = [
+		{
+			label: 'AccordionGroup',
+			headings: ['Selector', 'Description'],
+			source: [['<code>.accordian-group</code>', 'The parent element.']]
+		},
+		{
+			label: 'AccordionGroup',
+			headings: ['Selector', 'Description'],
+			source: [
+				['<code>.accordion-item</code>', 'The parent element.'],
+				['<code>.accordion-summary</code>', 'The HTML summary element.'],
+				['<code>.summary-lead</code>', 'The summary lead.'],
+				['<code>.summary-text</code>', 'The summary text.'],
+				['<code>.summary-caret</code>', 'The summary caret.'],
+				['<code>.accordion-content</code>', 'The accordion content region.']
+			]
+		}
+	];
+	const slots: DocsShellTable[] = [
+		{
+			label: 'AccordionGroup',
+			headings: ['Name', 'Description'],
+			source: [['<code>default</code>', 'Accepts a set of Tab components.']]
+		},
+		{
+			label: 'AccordionItem',
+			headings: ['Name', 'Required', 'Description'],
+			source: [
+				['<code>lead</code>', '-', 'Allows for an optional leading element, such as an icon.'],
+				['<code>summary</code>', '&check;', 'Provide the summary details of each item.'],
+				['<code>content</code>', '&check;', 'Provide the content details of each item.']
+			]
+		}
+	];
+	const a11y: DocsShellTable[] = [
+		{
+			aria: 'https://www.w3.org/WAI/ARIA/apg/example-index/accordion/accordion',
+			headings: ['Prop', 'Description'],
+			source: [
+				['<code>summaryId</code>', 'Provide semantic ID for ARIA summary element.'],
+				['<code>contentId</code>', 'Provide semantic ID for ARIA content element.']
+			]
+		},
+		{
+			label: 'Keyboard Interactions',
+			headings: ['Keys', 'Description'],
+			source: [
+				['<kbd>Tab</kbd>', 'Moves focus to the next focusable element.'],
+				['<kbd>Shift + Tab</kbd> ', 'Moves focus to the previous focusable element.'],
+				['<kbd>Space</kbd> or <kbd>Enter</kbd>', 'When focus is on the accordion header toggles the collapsable region open/closed.']
+			]
+		}
+	];
 </script>
 
-<div class="space-y-8">
-	<!-- Header -->
-	<header class="space-y-4">
-		<h1>Accordions</h1>
-		<p>Divide content into collapsible sections.</p>
-		<CodeBlock language="javascript" code={`import { AccordionGroup, AccordionItem } from '@brainandbones/skeleton';`} />
-	</header>
-
-	<!-- Examples -->
-	<section class="space-y-4">
-		<h2 class="sr-only">Examples</h2>
-		<div class="card card-body">
-			<AccordionGroup>
-				<AccordionItem open>
-					<svelte:fragment slot="summary">Does Skeleton come with an Accordion component?</svelte:fragment>
-					<svelte:fragment slot="content">
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis eaque nam deleniti rem incidunt.</p>
-					</svelte:fragment>
-				</AccordionItem>
-				<AccordionItem>
-					<svelte:fragment slot="summary">What else do I need to know to build awesome web apps?</svelte:fragment>
-					<svelte:fragment slot="content">
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis eaque nam deleniti rem incidunt.</p>
-					</svelte:fragment>
-				</AccordionItem>
-				<AccordionItem>
-					<svelte:fragment slot="summary">What is the weather like today?</svelte:fragment>
-					<svelte:fragment slot="content">
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis eaque nam deleniti rem incidunt.</p>
-					</svelte:fragment>
-				</AccordionItem>
-			</AccordionGroup>
-		</div>
-		<!-- Customized -->
-		<h3>Customized</h3>
-		<section class="border border-surface-500/10 p-2 rounded-xl space-y-4">
+<DocsShell {settings} {properties} {classes} {slots} {a11y}>
+	<!-- Slot: Sandbox -->
+	<svelte:fragment slot="sandbox">
+		<section class="card card-body">
 			<AccordionGroup>
 				<AccordionItem spacing="space-y-4" open>
 					<svelte:fragment slot="lead">
-						<SvgIcon name="skull" width="w-8" height="h-8" fill="fill-primary-500" />
+						<SvgIcon name="skull" width="w-10" height="h-10" fill="fill-primary-500" />
 					</svelte:fragment>
 					<svelte:fragment slot="summary">
-						<h3>Icon and Heading</h3>
+						<h3>Icon Heading</h3>
 					</svelte:fragment>
 					<svelte:fragment slot="content">
-						<div class="card card-body"><p>The content for the first element.</p></div>
+						<p>The content for the first element.</p>
 					</svelte:fragment>
 				</AccordionItem>
 				<AccordionItem spacing="space-y-4">
@@ -99,10 +116,10 @@
 						<Avatar src="https://i.pravatar.cc/?img=5" />
 					</svelte:fragment>
 					<svelte:fragment slot="summary">
-						<h3>Avatar and Heading</h3>
+						<h3>Avatar Heading</h3>
 					</svelte:fragment>
 					<svelte:fragment slot="content">
-						<div class="card card-body"><p>The content for the second element.</p></div>
+						<p>The content for the second element.</p>
 					</svelte:fragment>
 				</AccordionItem>
 				<AccordionItem spacing="space-y-4">
@@ -110,65 +127,35 @@
 						<Avatar initials="1" background="bg-accent-500" />
 					</svelte:fragment>
 					<svelte:fragment slot="summary">
-						<h3>Numeral and Heading</h3>
+						<h3>Numeral Heading</h3>
 					</svelte:fragment>
 					<svelte:fragment slot="content">
-						<div class="card card-body"><p>The content for the third element.</p></div>
+						<p>The content for the third element.</p>
 					</svelte:fragment>
 				</AccordionItem>
 			</AccordionGroup>
 		</section>
-	</section>
+	</svelte:fragment>
 
-	<!-- Usage -->
-	<section class="space-y-4">
-		<h2>Usage</h2>
+	<!-- Slot: Usage -->
+	<svelte:fragment slot="usage">
 		<CodeBlock
 			language="html"
 			code={`
 <AccordionGroup>
+	<!-- Open -->
     <AccordionItem open>
-        <svelte:fragment slot="summary">Summary 1</svelte:fragment>
-        <svelte:fragment slot="content"><p>Content 1</p></svelte:fragment>
+		<svelte:fragment slot="lead">(lead)</svelte:fragment>
+        <svelte:fragment slot="summary">(summary)</svelte:fragment>
+        <svelte:fragment slot="content">(content)</svelte:fragment>
     </AccordionItem>
+	<!-- Closed -->
     <AccordionItem>
-        <svelte:fragment slot="summary">Summary 2</svelte:fragment>
-        <svelte:fragment slot="content"><p>Content 2</p></svelte:fragment>
-    </AccordionItem>
-    <AccordionItem>
-        <svelte:fragment slot="summary">Summary 3</svelte:fragment>
-        <svelte:fragment slot="content"><p>Content 3</p></svelte:fragment>
+        <svelte:fragment slot="summary">(summary)</svelte:fragment>
+        <svelte:fragment slot="content">(content)</svelte:fragment>
     </AccordionItem>
 </AccordionGroup>
-`}
+			`}
 		/>
-	</section>
-
-	<!-- Properties -->
-	<section class="space-y-4">
-		<h2>Properties</h2>
-		<h4>Accordion Group</h4>
-		<DataTable headings={tablePropsGroup.headings} source={tablePropsGroup.source} />
-		<h4>Accordion Item</h4>
-		<DataTable headings={tablePropsItem.headings} source={tablePropsItem.source} />
-	</section>
-
-	<!-- Slots -->
-	<section class="space-y-4">
-		<h2>Slots</h2>
-		<h4>Accordion Item</h4>
-		<DataTable headings={tableSlots.headings} source={tableSlots.source} />
-	</section>
-
-	<!-- Accessibility -->
-	<section class="space-y-4">
-		<h2>Accessibility</h2>
-		<div class="flex justify-between items-center">
-			<h4>Accordion Item</h4>
-			<a href="https://www.w3.org/WAI/ARIA/apg/example-index/accordion/accordion" target="_blank">ARIA Guidelines</a>
-		</div>
-		<DataTable headings={tableA11yItem.headings} source={tableA11yItem.source} />
-		<h3>Keyboard Interactions</h3>
-		<DataTable headings={tableKeys.headings} source={tableKeys.source} />
-	</section>
-</div>
+	</svelte:fragment>
+</DocsShell>

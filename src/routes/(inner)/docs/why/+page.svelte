@@ -2,7 +2,7 @@
 	import { Divider } from '@brainandbones/skeleton';
 </script>
 
-<div class="space-y-8">
+<div class="page-container">
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Why Skeleton</h1>

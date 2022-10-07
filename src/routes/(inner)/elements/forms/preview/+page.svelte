@@ -15,10 +15,10 @@
 	let valueSlideToggle: boolean = true;
 </script>
 
-<div class="space-y-8">
+<div class="page-container">
 	<!-- Breadcrumbs -->
 	<Breadcrumb>
-		<Crumb href="/tailwind/forms">Forms</Crumb>
+		<Crumb href="/elements/forms">Forms</Crumb>
 		<Crumb>Preview</Crumb>
 	</Breadcrumb>
 

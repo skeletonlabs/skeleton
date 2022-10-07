@@ -7,8 +7,6 @@
 	@apply font-semibold text-xs;
 	/* Padding */
 	@apply px-2 py-1;
-	/* Shadow */
-	@apply shadow;
 	/* Rounded */
 	@apply rounded;
 }
@@ -18,4 +16,20 @@
 	@apply w-5 h-5 flex justify-center items-center rounded-full;
 	/* Text */
 	@apply font-semibold text-xs;
+	/* Shadow */
+	@apply shadow;
+}
+
+/* === Variants === */
+
+.badge-ghost {
+	@apply bg-black/10 text-black dark:bg-white/10 dark:text-white;
+}
+
+.badge-ghost-primary {
+	@apply bg-primary-500/10 text-primary-600 dark:text-primary-400;
+}
+
+.badge-ghost-accent {
+	@apply bg-accent-500/10 text-accent-600 dark:text-accent-400;
 }

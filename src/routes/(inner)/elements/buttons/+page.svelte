@@ -1,14 +1,38 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
 
+	// Docs
+	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
 	// Components
-	import DataTable from '$lib/components/Table/DataTable.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
 
+	// Docs Shell
+	const settings: DocsShellSettings = {
+		feature: DocsFeature.Element,
+		name: 'Buttons',
+		description: 'Provides a robust set of button styles, including preset variants.',
+		stylesheetIncludes: ['all', 'elements'],
+		stylesheets: ['elements/buttons'],
+		source: 'styles/elements/buttons.css'
+	};
+	const classes: DocsShellTable[] = [
+		{
+			headings: ['Class', 'Values', 'Description'],
+			source: [
+				['<code>.btn</code>', '-', 'Creates a text button using a button or anchor.'],
+				['<code>.btn-icon</code>', '-', 'Creates a text icon button using a button or anchor.'],
+				['<code>.btn-[size]</code>', 'sm | base | lg | xl', 'Canned button sizes that define padding and text sizes.'],
+				['<code>.btn-icon-[size]</code>', 'sm | base | lg | xl', 'Canned icon button sizes that define padding and text sizes.'],
+				['<code>.btn-[variant]</code>', 'filled-primary | ghost | etc.', 'A set of preset class styles for buttons or icon buttons.']
+			]
+		}
+	];
+
 	// Local:
-	const href: string = '/tailwind/buttons';
+	const href: string = '/elements/buttons';
 
 	// Stores
 	const storeTag: Writable<string> = writable('button');
@@ -25,38 +49,27 @@
 	$: btnClases = Object.values(btnValues)
 		.filter((x) => x !== undefined)
 		.join(' ');
-
-	// Tables
-	const tableClasses: any = {
-		headings: ['Class', 'Values', 'Description'],
-		source: [
-			['<code>.btn</code>', '-', 'Creates a text button using a button or anchor.'],
-			['<code>.btn-icon</code>', '-', 'Creates a text icon button using a button or anchor.'],
-			['<code>.btn-[size]</code>', 'sm | base | lg | xl', 'Canned button sizes that define padding and text sizes.'],
-			['<code>.btn-icon-[size]</code>', 'sm | base | lg | xl', 'Canned icon button sizes that define padding and text sizes.'],
-			['<code>.btn-[variant]</code>', 'filled-primary | ghost | etc.', 'A set of preset class styles for buttons or icon buttons.']
-		]
-	};
 </script>
 
-<div class="space-y-8">
-	<!-- Header -->
-	<header class="space-y-4">
-		<h1>Buttons</h1>
-		<p>Automatically included in <code>all.css</code> and <code>elements.css</code>. This <a href="/guides/styling">stylesheet</a> provides a robust set of button styles.</p>
-		<CodeBlock language="ts" code={`import '@brainandbones/skeleton/styles/elements/buttons.css';`} />
-	</header>
-
-	<!-- Sandbox -->
-	<section class="space-y-4">
-		<div class="grid grid-cols-1 xl:grid-cols-[1fr_480px] gap-2">
+<DocsShell {settings} {classes}>
+	<!-- Slot: Sandbox -->
+	<svelte:fragment slot="sandbox">
+		<div class="grid grid-cols-1 xl:grid-cols-[1fr_auto] gap-2">
 			<!-- Example -->
-			<div class="card card-body h-full flex justify-center items-center">
-				<!-- prettier-ignore -->
-				<svelte:element this={$storeTag} class="btn {btnClases}" disabled={$storeDisabled}>
-                    <span>💀</span>
-                    <span>Skeleton</span>
-                </svelte:element>
+			<div class="card grid grid-rows-[1fr_auto]">
+				<div class="p-4 flex justify-center items-center">
+					<!-- prettier-ignore -->
+					<svelte:element this={$storeTag} class="btn {btnClases}" disabled={$storeDisabled}>
+						<span>💀</span>
+						<span>Skeleton</span>
+					</svelte:element>
+				</div>
+				<div class="p-4">
+					<CodeBlock
+						language="html"
+						code={`<` + $storeTag + ($storeTag === 'a' ? ' href="/"' : '') + ` class="btn ` + btnClases + `"` + ($storeDisabled ? ' disabled' : '') + `>Skeleton</` + $storeTag + `>`}
+					/>
+				</div>
 			</div>
 			<!-- Options -->
 			<div class="card card-body space-y-4">
@@ -127,23 +140,15 @@
 				</label>
 			</div>
 		</div>
-		<CodeBlock
-			language="html"
-			code={`<` + $storeTag + ($storeTag === 'a' ? ' href="/"' : '') + ` class="btn ` + btnClases + `"` + ($storeDisabled ? ' disabled' : '') + `>Skeleton</` + $storeTag + `>`}
-		/>
-	</section>
+	</svelte:fragment>
 
-	<!-- Usage -->
-	<section class="space-y-8">
-		<div>
-			<h2>Usage</h2>
-		</div>
+	<!-- Slot: Usage -->
+	<svelte:fragment slot="usage">
 		<!-- Buttons -->
 		<div class="space-y-4">
-			<h4>Button</h4>
+			<h2>Button</h2>
 			<p>Add the <code>.btn</code> class to any button or anchor to create a button with minimal styling.</p>
-			<CodeBlock language="html" code={`<button class="btn">Button</button>`} />
-			<CodeBlock language="html" code={`<a href="/" class="btn">Anchor</a>`} />
+			<CodeBlock language="html" code={`<button class="btn">Button</button>\n<a href="/" class="btn">Anchor</a>`} />
 			<div class="card card-body flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 				<button class="btn">Button</button>
 				<a {href} class="btn">Anchor</a>
@@ -151,51 +156,18 @@
 		</div>
 		<!-- Icon Buttons -->
 		<div class="space-y-4">
-			<h4>Icon Buttons</h4>
+			<h2>Icon Buttons</h2>
 			<p>Add the <code>.btn-icon</code> class to any button or anchor to create a icon button with minimal styling.</p>
-			<CodeBlock language="html" code={`<button class="btn-icon">B</button>`} />
-			<CodeBlock language="html" code={`<a href="/" class="btn-icon">A</a>`} />
+			<CodeBlock language="html" code={`<button class="btn-icon">B</button>\n<a href="/" class="btn-icon">A</a>`} />
 			<div class="card card-body flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 				<button class="btn-icon">B</button>
 				<!-- FIXME: the :not() style isn't applying here so I supplemented `.unstyled` class. Browser bug perhaps? -CHRIS -->
 				<a {href} class="btn-icon unstyled">A</a>
 			</div>
 		</div>
-		<!-- Styling -->
-		<div class="space-y-4">
-			<h4>Styling</h4>
-			<p>Use Tailwind utilty classes to enhance the button styling.</p>
-			<CodeBlock language="html" code={`<button class="btn bg-primary-500">Skeleton</button>`} />
-			<div class="card card-body flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
-				<button class="btn bg-primary-500">Skeleton</button>
-				<button class="btn bg-accent-500">Skeleton</button>
-				<button class="btn bg-ternary-500">Skeleton</button>
-				<button class="btn bg-warning-500">Skeleton</button>
-			</div>
-		</div>
-		<!-- Sizes -->
-		<div class="space-y-4">
-			<h4>Sizes</h4>
-			<p>Adjust the button size with <code>.btn-[sm|base|lg|xl]</code>. Sizing is controlled using <em>text size and padding</em>.</p>
-			<CodeBlock language="html" code={`<button class="btn btn-lg bg-primary-500">Large</button>`} />
-			<div class="card card-body flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
-				<button class="btn btn-sm bg-primary-500">sm</button>
-				<button class="btn btn-base bg-primary-500">base</button>
-				<button class="btn btn-lg bg-primary-500">lg</button>
-				<button class="btn btn-xl bg-primary-500">xl</button>
-			</div>
-			<p>Adjust the icon button size with <code>.btn-icon-[sm|base|lg|xl]</code>. Sizing is controlled using <em>text size, aspect square, and width</em>.</p>
-			<CodeBlock language="html" code={`<button class="btn-icon btn-icon-lg bg-primary-500">lg</button>`} />
-			<div class="card card-body flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
-				<button class="btn-icon btn-icon-sm bg-primary-500">sm</button>
-				<button class="btn-icon btn-icon-base bg-primary-500">b</button>
-				<button class="btn-icon btn-icon-lg bg-primary-500">lg</button>
-				<button class="btn-icon btn-icon-xl bg-primary-500">xl</button>
-			</div>
-		</div>
 		<!-- Icons -->
 		<div class="space-y-4">
-			<h4>Leading and Trailing Icons</h4>
+			<h2>Leading and Trailing Icons</h2>
 			<p>By default, buttons use <code>flex-row</code> and <code>space-x-4</code> to create an evenly spaced row. Wrap children with <em>span</em> tags to ensure spacing works as expected.</p>
 			<CodeBlock language="html" code={`<button class="btn bg-primary-500">\n\t<span>💀</span>\n\t<span>Icons</span>\n\t<span>🦴</span>\n</button>`} />
 			<div class="card card-body flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
@@ -208,7 +180,7 @@
 		</div>
 		<!-- Variants -->
 		<div class="space-y-4">
-			<h4>Variants</h4>
+			<h2>Variants</h2>
 			<p>A set of canned preset styles are available using <code>.btn-[variant]</code>. This works for both standard and icon buttons.</p>
 			<CodeBlock language="html" code={`<button class="btn btn-filled-primary">filled-primary</button>`} />
 			<div class="card card-body flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
@@ -273,13 +245,13 @@
 		</div>
 		<!-- SvelteKit Link Options -->
 		<div class="space-y-4">
-			<h4>SvelteKit Link Options</h4>
+			<h2>SvelteKit Link Options</h2>
 			<p>Since we use native elements, this means we can utilize <a href="https://kit.svelte.dev/docs/link-options" target="_blank">SvelteKit Link Options</a> such as a <em>prefetch</em>.</p>
 			<CodeBlock language="html" code={`<a href="/" class="btn" data-sveltekit-prefetch>Skeleton</a>`} />
 		</div>
 		<!-- Global Styles -->
 		<div class="space-y-4">
-			<h4>Global Styles</h4>
+			<h2>Global Styles</h2>
 			<p>Use your global stylesheet to update all instances of this element.</p>
 			<CodeBlock
 				language="css"
@@ -299,11 +271,5 @@
 				`}
 			/>
 		</div>
-	</section>
-
-	<!-- Classes -->
-	<section class="space-y-4">
-		<h2>Classes</h2>
-		<DataTable headings={tableClasses.headings} source={tableClasses.source} />
-	</section>
-</div>
+	</svelte:fragment>
+</DocsShell>

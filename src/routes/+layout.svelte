@@ -54,7 +54,7 @@
 	});
 
 	// Disable left sidebar on homepage
-	$: slotSidebarLeft = $page.url.pathname === '/' ? 'w-0' : 'bg-black/5 lg:w-auto';
+	$: slotSidebarLeft = $page.url.pathname === '/' ? 'w-0' : 'bg-white/20 dark:bg-black/5 lg:w-auto';
 	$: currentTheme = `\<style\>${themes[$storeTheme]}}\</style\>`;
 
 	// Enable bg-mesh only if Skeleton theme in use.
@@ -67,7 +67,7 @@
 
 <!-- Overlays -->
 <Dialog />
-<Toast />
+<Toast background="bg-accent-500" />
 <DocsDrawer />
 
 <!-- App Shell -->
