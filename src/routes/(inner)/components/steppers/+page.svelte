@@ -123,7 +123,7 @@
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<p>To begin, create a writable that will store your active step value. This should <u>always</u> be set to <code>0</code> (zero).</p>
-			<CodeBlock language="typescript" code={`import type { Writable } from "svelte/store";`} />
+			<CodeBlock language="typescript" code={`import { writable, type Writable } from 'svelte/store';`} />
 			<CodeBlock language="typescript" code={`const active: Writable<number> = writable(0);`} />
 		</section>
 		<section class="space-y-4">
