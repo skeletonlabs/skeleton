@@ -18,12 +18,12 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<card class="card card-body flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+		<section class="card card-body flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 			<div class="space-y-2">
 				<p>We've provided a "kitchen sink" page to preview form elements.</p>
 			</div>
 			<a class="btn btn-filled-accent" href="/elements/forms/preview">Preview Elements &rarr;</a>
-		</card>
+		</section>
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
