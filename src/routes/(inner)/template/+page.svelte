@@ -52,8 +52,8 @@
 		}
 	];
 	const a11y: DocsShellTable[] = [
+		{ aria: 'https://www.w3.org/WAI/ARIA/apg/' },
 		{
-			aria: 'https://www.w3.org/WAI/ARIA/apg/',
 			headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
 			source: [
 				['<code>foo</code>', '-', '-', '-', '...'],
