@@ -10,7 +10,7 @@
 			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, eius officia aliquid beatae libero voluptas ea reprehenderit sed, ducimus quae reiciendis esse qui repudiandae veritatis perferendis deserunt ut magnam quisquam.',
 		imports: ['Template'],
 		types: ['Template'],
-		stylesheetIncludes: ['core', 'elements'],
+		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/template'],
 		source: 'components/Template'
 		// dependencies: [{ label: 'Highlight.js', url: 'https://highlightjs.org/' }],

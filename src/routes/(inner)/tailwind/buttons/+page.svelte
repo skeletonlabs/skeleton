@@ -14,7 +14,7 @@
 		feature: DocsFeature.Element,
 		name: 'Buttons',
 		description: 'Provides a robust set of button styles, including preset variants.',
-		stylesheetIncludes: ['core', 'elements'],
+		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/buttons'],
 		source: 'styles/elements/buttons.css'
 	};

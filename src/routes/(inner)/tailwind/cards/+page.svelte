@@ -10,7 +10,7 @@
 		feature: DocsFeature.Element,
 		name: 'Cards',
 		description: 'Provides container elements that wrap and separate content',
-		stylesheetIncludes: ['core', 'elements'],
+		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/cards'],
 		source: 'styles/elements/cards.css'
 	};

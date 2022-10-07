@@ -11,7 +11,7 @@
 		name: 'Tooltips',
 		description: 'Informative tooltips that render on mouse over.',
 		imports: ['tooltip'],
-		stylesheetIncludes: ['core', 'elements'],
+		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/tooltips'],
 		source: 'utilities/Tooltip'
 		// dependencies: [{ label: 'Highlight.js', url: 'https://highlightjs.org/' }],

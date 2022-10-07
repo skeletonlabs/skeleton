@@ -9,7 +9,7 @@
 		feature: DocsFeature.Element,
 		name: 'Typography',
 		description: 'Provides common typographical element styles',
-		stylesheetIncludes: ['core', 'typography'],
+		stylesheetIncludes: ['all', 'typography'],
 		source: 'styles/typography.css'
 	};
 </script>

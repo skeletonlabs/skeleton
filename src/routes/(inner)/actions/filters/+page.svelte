@@ -99,7 +99,7 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<h2>Import Filter Components</h2>
+			<h2>Import SVG Filters</h2>
 			<p>Add within scope of your filtered element. For global scope, add the following to your app's root component. Only import the filters you plan to use.</p>
 			<CodeBlock language="javascript" code={`import { Emerald, BlueNight, /* ... */  } from '@brainandbones/skeleton';`} />
 			<CodeBlock language="html" code={`<Emerald />\n<BlueNight />`} />

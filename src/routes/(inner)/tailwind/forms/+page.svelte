@@ -9,7 +9,7 @@
 		feature: DocsFeature.Element,
 		name: 'Forms',
 		description: 'Provides theme styling to forms when paired with the Tailwind forms plugin.',
-		stylesheetIncludes: ['core', 'forms'],
+		stylesheetIncludes: ['all', 'forms'],
 		source: 'styles/forms.css',
 		dependencies: [{ label: 'Tailwind Forms Plugin', url: 'https://github.com/tailwindlabs/tailwindcss-forms' }]
 	};

@@ -9,7 +9,7 @@
 		feature: DocsFeature.Element,
 		name: 'Lists',
 		description: 'Provides styles for static list elements.',
-		stylesheetIncludes: ['core', 'elements'],
+		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/lists'],
 		source: 'styles/elements/lists.css'
 	};

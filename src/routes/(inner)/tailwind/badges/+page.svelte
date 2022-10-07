@@ -10,7 +10,7 @@
 		feature: DocsFeature.Element,
 		name: 'Badges',
 		description: 'Provides a robust set of badge styles',
-		stylesheetIncludes: ['core', 'elements'],
+		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/badges'],
 		source: 'styles/elements/badges.css'
 	};

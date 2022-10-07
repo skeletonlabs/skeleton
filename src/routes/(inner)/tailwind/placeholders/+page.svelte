@@ -10,7 +10,7 @@
 		feature: DocsFeature.Element,
 		name: 'Placeholders',
 		description: 'Provides "skeleton" placeholders that can display while content loads.',
-		stylesheetIncludes: ['core', 'elements'],
+		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/placeholders'],
 		source: 'styles/elements/placeholders.css'
 	};

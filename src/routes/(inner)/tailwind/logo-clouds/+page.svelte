@@ -10,7 +10,7 @@
 		feature: DocsFeature.Element,
 		name: 'Logo Clouds',
 		description: 'Provides a grid for presenting a set of logos, brands, or sponsors.',
-		stylesheetIncludes: ['core', 'elements'],
+		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/logo-clouds'],
 		source: 'styles/elements/logo-clouds.css'
 	};

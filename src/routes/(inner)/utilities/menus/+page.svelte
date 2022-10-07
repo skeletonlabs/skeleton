@@ -11,7 +11,7 @@
 		name: 'Menu',
 		description: 'Provides quick context menus when you tap the trigger element.',
 		imports: ['menu'],
-		stylesheetIncludes: ['core', 'elements'],
+		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/menus'],
 		source: 'utilities/Menu'
 	};

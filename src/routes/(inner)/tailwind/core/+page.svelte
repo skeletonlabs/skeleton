@@ -10,7 +10,7 @@
 		feature: DocsFeature.Element,
 		name: 'Core',
 		description: 'Provides a variety of global scoped styles.',
-		stylesheetIncludes: ['core'],
+		stylesheetIncludes: ['all', 'core'],
 		source: 'styles/core.css'
 	};
 </script>
