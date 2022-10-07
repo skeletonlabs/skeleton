@@ -23,7 +23,7 @@
 	// Props (styles)
 	export let spacing: string = 'space-y-8';
 	// Props (regions)
-	export let regionHeader: string = 'bg-white/20 dark:bg-black/10';
+	export let regionHeader: string = 'bg-white/20 dark:bg-black/5';
 	export let regionDetails: string = 'grid grid-cols-1 md:grid-cols-[128px_1fr] gap-4';
 	export let regionPanels: string = 'page-container';
 

@@ -3,7 +3,7 @@
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
 	// Base Classes
-	const cBase: string = 'bg-white/75 dark:bg-black/10 text-xs mx-auto px-4 py-8 md:p-10 space-y-10';
+	const cBase: string = 'bg-surface-50 dark:bg-surface-900 text-xs mx-auto px-4 py-8 md:p-10 space-y-10';
 	const cRowOne: string = 'flex flex-col md:flex-row justify-between items-center md:items-start space-y-5 md:space-y-0';
 	const cRowTwo: string = 'flex flex-col md:flex-row justify-between items-center md:items-start space-y-4 md:space-y-0';
 </script>
