@@ -7,7 +7,7 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Framework Guides</h1>
-		<p>Let's review how we scaffold Skeleton within each supported framework.</p>
+		<p>Need help getting started? We've provided a set of optional guides for building a simple app within each supported framework.</p>
 	</header>
 
 	<!-- Select a Framework -->
@@ -56,7 +56,7 @@
 			<SvgIcon name="astro" fill="fill-surface-500" width="w-14" height="h-14" class="place-self-center" />
 			<div class="space-y-2">
 				<h2>Astro</h2>
-				<p>Server content fast with Astro's next-gen island architecture.</p>
+				<p>Serve content fast with Astro's next-gen island architecture.</p>
 			</div>
 			<button class="btn btn-filled-accent place-self-center">View &rarr;</button>
 		</a>
@@ -66,7 +66,6 @@
 
 	<!-- Suggest -->
 	<section class="text-center space-y-4">
-		<p>Is your preferred framework missing? Let us know!</p>
 		<a class="btn btn-ghost" href="https://github.com/Brain-Bones/skeleton/issues/new?assignees=&labels=feature-request&template=feature_request.yml" target="_blank">Suggest a Framework</a>
 	</section>
 </div>

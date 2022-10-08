@@ -241,7 +241,7 @@ import '@brainandbones/skeleton/styles/${$storeStylesheets === 'simple' ? 'all' 
 
 	<!-- Next Steps -->
 	<div class="card card-body !flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-		<p>Next, let's create a simple project with our framework of choice.</p>
+		<p>Next, let's create a simple project within one of Skeleton's supported frameworks.</p>
 		<a class="btn btn-filled-accent" href="/guides/frameworks">Framework Guides</a>
 	</div>
 </div>
