@@ -66,6 +66,7 @@
 
 	<!-- Suggest -->
 	<section class="text-center space-y-4">
+		<p>Is your preferred framework missing? Let us know!</p>
 		<a class="btn btn-ghost" href="https://github.com/Brain-Bones/skeleton/issues/new?assignees=&labels=feature-request&template=feature_request.yml" target="_blank">Suggest a Framework</a>
 	</section>
 </div>

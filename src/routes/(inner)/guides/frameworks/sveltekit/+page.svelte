@@ -16,7 +16,7 @@
 		<div class="grid grid-cols-[1fr_auto] gap-4">
 			<div class="space-y-2">
 				<h1>SvelteKit</h1>
-				<p>This guide will help you scaffold a basic Skeleton application within SvelteKit.</p>
+				<p>This guide will help you scaffold a basic Skeleton-powered app within SvelteKit.</p>
 			</div>
 			<div class="place-self-end">
 				<a class="btn btn-filled-primary" href="https://kit.svelte.dev/" target="_blank">Documentation</a>
@@ -29,9 +29,9 @@
 	<!-- Prereqs -->
 	<section class="space-y-4">
 		<h2>Getting Started</h2>
-		<p>Let's make a couple quick adjustments to ensure our app layout will display as expected.</p>
+		<p>Let's make a couple quick updates to ensure our layout displays as expected.</p>
 		<h3>Adjust App.html</h3>
-		<p>Open <code>/src/app.html</code> and drop the wrapping <em>div</em> element around <code>%sveltekit.body%</code>.</p>
+		<p>Open <code>/src/app.html</code> and remove the wrapping <em>div</em> element around <code>%sveltekit.body%</code>.</p>
 		<CodeBlock
 			language="html"
 			code={`
@@ -40,8 +40,10 @@
 </body>
     `.trim()}
 		/>
+		<p>Optionally you can enable Dark Mode by default by adding the <code>.dark</code> class to your <em>HTML</em> element at the top of the page.</p>
+		<CodeBlock language="html" code={`<html lang="en" class="dark">`.trim()} />
 		<h3>Global Stylesheet</h3>
-		<p>Open your global stylesheet in <code>/src/app.postcss</code>. Delete everything in this file, including the Tailwind directives. Then add the following styles.</p>
+		<p>Open your global stylesheet in <code>/src/app.postcss</code>. Delete everything in this file, including the Tailwind directives. Then add the following.</p>
 		<CodeBlock language="css" code={`html, body { @apply h-full overflow-hidden; }`} />
 	</section>
 
@@ -50,8 +52,8 @@
 	<section class="space-y-4">
 		<h2>Layout Setup</h2>
 		<p>
-			Now, let's create our app layout using an App Shell component. Open your root layout found in <code>/src/routes/+layout.svelte</code>. Ensure all required CSS and component imports are in place.
-			We'll use these in our next few steps. Initially our layout will have a header, left sidebar, and page content slots.
+			Now, let's setup our app layout using an App Shell component. Open your root layout found in <code>/src/routes/+layout.svelte</code>. Ensure all required CSS and component imports are in place,
+			as we'll use these in the next few steps. Our layout will include a header, left sidebar, and page content slots.
 		</p>
 		<CodeBlock
 			language="html"
@@ -61,7 +63,7 @@
     import "@brainandbones/skeleton/styles/all.css";
     import "../app.postcss";
 
-    import { AppShell, AppShell } from "@brainandbones/skeleton";
+    import { AppShell, AppShell, GradientHeading } from "@brainandbones/skeleton";
 \</script\>
 
 <AppShell>
@@ -75,12 +77,12 @@
 `}
 		/>
 		<h3>Add the App Bar</h3>
-		<p>Next, let's add a header to our App Shell using an App Bar component. Replace "Skeleton" with your application and the link to your own GitHub repos.</p>
+		<p>Next, let's add a header to our App Shell using an App Bar component. Replace "Skeleton" with your application name and change the GitHub link as you wish.</p>
 		<CodeBlock
 			language="html"
 			code={`
 <svelte:fragment slot="header">
-    <!-- Insert your App Bar here -->
+    <!-- Insert the App Bar: -->
 	<AppBar>
 		<svelte:fragment slot="lead">
 			<h1>Skeleton</h1>
@@ -89,6 +91,7 @@
 			<a class="btn btn-sm" href="https://github.com/" target="_blank">GitHub</a>
 		</svelte:fragment>
 	</AppBar>
+	<!-- --- -->
 </svelte:fragment>
             `}
 		/>
@@ -96,6 +99,22 @@
 		<p>Let's add navigation to our App Shell's sidebar slot. First, let's apply some basic Tailwind class styles to the sidebar via the App Shell prop called <code>slotSidebarLeft</code>.</p>
 		<CodeBlock language="html" code={`<AppShell slotSidebarLeft="bg-surface-500/5 w-56 p-4">`} />
 		<p>Then add the sidebar navigation using Tailwind Elements navigation list.</p>
+		<CodeBlock
+			language="html"
+			code={`
+<svelte:fragment slot="sidebarLeft">
+	<!-- Insert the list: -->
+	<nav class="list-nav">
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/about">About</a></li>
+		</ul>
+	</nav>
+	<!-- --- -->
+</svelte:fragment>
+			`}
+		/>
+		<p>Note we won't setup the About page in this guide, this is just added as an example.</p>
 	</section>
 
 	<hr />
@@ -104,8 +123,8 @@
 	<section class="space-y-4">
 		<h2>Page Setup</h2>
 		<p>
-			Now we're ready to start adding content to our homepage. Open <code>/src/routes/+page.svelte</code>. Drop all existing content and add the following. This will provide some basic content styled
-			with Tailwind Elements.
+			Now let's add some basic content to our homepage. Open <code>/src/routes/+page.svelte</code>, drop all existing content, then add the following. These elements will be styled automatically due
+			to our use of <code>all.css</code> and the included stylesheets for Tailwind Elements.
 		</p>
 		<CodeBlock
 			language="html"
@@ -127,9 +146,7 @@
                 `}
 		/>
 		<h3>Add a Component</h3>
-		<p>Let's add a Gradient Heading as our first page component. At the top of the page, insert the following within a <em>script</em> tag.</p>
-		<CodeBlock language="ts" code={`import { GradientHeading } '@brainandbones/skeleton';`} />
-		<p>Then let's replace our H1 heading tag with the following. Feel free to test different prop settings and colors.</p>
+		<p>Let's add a Gradient Heading as our first Skeleton component. Replace the current H1 heading tag with the following. Feel free to adjust the settings.</p>
 		<CodeBlock
 			language="html"
 			code={`
@@ -146,8 +163,8 @@
 	<section class="space-y-4">
 		<h2>Global Styling</h2>
 		<p>
-			Before we wrap up, let's make one more quick adjustment. Let's update our boring square buttons to look more unique. Open your global stylesheet in <code>/src/app.postcss</code> and add the following
-			styles. This will update every button instance throughout your application!
+			Finally, let's make one more adjustment. Let's update our boring square buttons for our application. Open your global stylesheet in <code>/src/app.postcss</code> and add the following styles. All
+			buttons should now be bold and rounded!
 		</p>
 		<CodeBlock language="css" code={`.btn { @apply font-bold rounded; }`} />
 	</section>

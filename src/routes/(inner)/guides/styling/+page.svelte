@@ -237,5 +237,11 @@ import '@brainandbones/skeleton/styles/${$storeStylesheets === 'simple' ? 'all' 
 		</div>
 	</section>
 
-	<!-- TODO: link to scaffolding section -->
+	<hr />
+
+	<!-- Next Steps -->
+	<div class="card card-body !flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+		<p>Next, let's create a simple project with our framework of choice.</p>
+		<a class="btn btn-filled-accent" href="/guides/frameworks">Framework Guides</a>
+	</div>
 </div>
