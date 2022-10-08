@@ -45,7 +45,7 @@
 			</svg>
 			<!-- / -->
 			<div class="space-y-2">
-				<h2>Vite</h2>
+				<h2>Vite + Svelte</h2>
 				<p>Next Generation Frontend Tooling.</p>
 			</div>
 			<button class="btn btn-filled-accent place-self-center">View &rarr;</button>
