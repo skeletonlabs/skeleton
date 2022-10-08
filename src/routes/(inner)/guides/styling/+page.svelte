@@ -133,7 +133,7 @@
 			language="typescript"
 			code={`
 // (theme stylesheet here)
-import '@brainandbones/skeleton/styles/${$storeStylesheets === 'simple' ? 'all' : '{stylehsheet}'}.css'; // <--
+import '@brainandbones/skeleton/styles/${$storeStylesheets === 'simple' ? 'all' : '{stylehsheet}'}.css';
 // (global stylesheet here)
 			`}
 		/>

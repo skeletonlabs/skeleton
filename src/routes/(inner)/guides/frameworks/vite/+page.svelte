@@ -29,14 +29,14 @@
 	<!-- Prereqs -->
 	<section class="space-y-4">
 		<h2>Getting Started</h2>
-		<p>Let's make a couple quick updates to ensure our layout displays as expected.</p>
+		<p>To begin, let's make a couple quick modifications to our app. This ensures our layout will display properly.</p>
 		<h3>Adjust App.html</h3>
 		<p>Open <code>/src/index.html</code> and add the following classes so our <em>app</em> div fills the canvas size.</p>
 		<CodeBlock language="html" code={`<div id="app" class="h-full overflow-hidden"></div>`.trim()} />
 		<p>Optionally you can enable Dark Mode by default by adding the <code>.dark</code> class to your <em>HTML</em> element at the top of the page.</p>
 		<CodeBlock language="html" code={`<html lang="en" class="dark">`.trim()} />
 		<h3>Global Stylesheet</h3>
-		<p>Open your global stylesheet in <code>/src/app.postcss</code>. Delete everything in this file, including the Tailwind directives. Then add the following.</p>
+		<p>Open your global stylesheet in <code>/src/app.postcss</code>. Remove the @tailwind directives and replace the contents of the file with the following.</p>
 		<CodeBlock language="css" code={`html, body { @apply h-full overflow-hidden; }`} />
 	</section>
 
@@ -44,9 +44,9 @@
 
 	<section class="space-y-4">
 		<h2>App Shell Layout</h2>
+		<!-- prettier-ignore -->
 		<p>
-			Note that neither Vite nor Svelte provide a app router by default. For this guide we'll treat our app as a single landing page. To begin, let's implement our App Shell component. Open your root
-			page component in <code>/src/App.svelte</code>, then add the following. Our layout will include a header, left sidebar, and page content slots.
+			Neither Vite nor Svelte provide an application router by default. For this guide we'll assume this app is a single landing page layout. Our page needs some structure, so let's implement the Skeleton <a href="/components/app-shell">App Shell</a> component. Open your root app component in <code>/src/App.svelte</code> and add the following.
 		</p>
 		<CodeBlock
 			language="html"
@@ -62,13 +62,15 @@
 	<svelte:fragment slot="sidebarLeft">(sidebar)</svelte:fragment>
 	<!-- Page Content -->
 	<div id="page">
-		<h1>Homepage</h1>
+		<h1>Hello Skeleton</h1>
 	</div>
 </AppShell>
 `}
 		/>
 		<h3>Add the App Bar</h3>
-		<p>Next, let's add a header to our App Shell using an App Bar component. Replace "Skeleton" with your application name and change the GitHub link as you wish.</p>
+		<p>
+			Next, let's add a header element using Skeleton's <a href="/components/app-bar">App Bar</a> component. Replace "Skeleton" with your application name and customize the GitHub link as desired.
+		</p>
 		<CodeBlock
 			language="html"
 			code={`
@@ -87,9 +89,9 @@
             `}
 		/>
 		<h3>Add Sidebar Navigation</h3>
-		<p>Let's add navigation to our App Shell's sidebar slot. First, let's apply some basic Tailwind class styles to the sidebar via the App Shell prop called <code>slotSidebarLeft</code>.</p>
+		<p>Let's customize our App Shell's sidebar slot to make it stand out a bit more. Add the following Tailwind utility classes to the <code>slotSidebarLeft</code> prop.</p>
 		<CodeBlock language="html" code={`<AppShell slotSidebarLeft="bg-surface-500/5 w-56 p-4">`} />
-		<p>Then add the sidebar navigation using Tailwind Elements navigation list.</p>
+		<p>Then, let's implement a <a href="/elements/lists">Tailwind Elements navigation list</a> within the App Shell's left sidebar slot.</p>
 		<CodeBlock
 			language="html"
 			code={`
@@ -105,7 +107,6 @@
 </svelte:fragment>
 			`}
 		/>
-		<p>Note we won't setup the About page in this guide, this is just added as an example.</p>
 	</section>
 
 	<hr />
@@ -114,8 +115,8 @@
 	<section class="space-y-4">
 		<h2>Page Contents</h2>
 		<p>
-			Now let's add some basic content to our homepage. In <code>/src/App.svelte</code> replace the <code>#page</code> element with the following. The included elements will be styled automatically
-			due to our use of <code>all.css</code> and the included stylesheets for Tailwind Elements.
+			Now let's add some basic content to our homepage. Open <code>/src/App.svelte</code>, replace the contents with the following. This will provide multiple "Tailwind Elements" styled via the
+			<code>all.css</code> stylesheets.
 		</p>
 		<CodeBlock
 			language="html"
@@ -137,7 +138,10 @@
                 `}
 		/>
 		<h3>Add a Component</h3>
-		<p>Let's add a Gradient Heading as our first Skeleton component. Replace the current H1 heading tag with the following. Feel free to adjust the settings.</p>
+		<p>
+			Let's implement Skeleton's <a href="/components/gradient-headings">Gradient Heading</a> component. Replace the <em>H1</em> heading on the page with the following. Feel free to adjust the settings
+			and text you wish.
+		</p>
 		<CodeBlock
 			language="html"
 			code={`
@@ -154,8 +158,7 @@
 	<section class="space-y-4">
 		<h2>Global Styling</h2>
 		<p>
-			Finally, let's make one more adjustment. Let's update our boring square buttons for our application. Open your global stylesheet in <code>/src/app.postcss</code> and add the following styles. All
-			buttons should now be bold and rounded!
+			Finally, let's update our boring square buttons. Open your global stylesheet in <code>/src/app.postcss</code> and add the following to update all buttons in your app!
 		</p>
 		<CodeBlock language="css" code={`.btn { @apply font-bold rounded; }`} />
 	</section>
