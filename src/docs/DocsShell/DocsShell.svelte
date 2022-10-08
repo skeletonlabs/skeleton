@@ -24,7 +24,7 @@
 	export let spacing: string = 'space-y-8';
 	// Props (regions)
 	export let regionHeader: string = 'bg-white/20 dark:bg-black/10';
-	export let regionDetails: string = 'grid grid-cols-1 md:grid-cols-[128px_1fr] gap-3';
+	export let regionDetails: string = 'pb-4 overflow-x-auto whitespace-nowrap grid grid-cols-1 md:grid-cols-[128px_1fr] gap-3';
 	export let regionPanels: string = 'page-container';
 
 	// Classes
@@ -73,11 +73,11 @@
 	// Format ---
 
 	function formatImports(): string {
-		return `import { ${pageSettings.imports?.join(', ')} } '${pageSettings.package?.name}';`;
+		return `import { ${pageSettings.imports?.join(', ')} } from '${pageSettings.package?.name}';`;
 	}
 
 	function formatTypes(): string {
-		return `import { ${pageSettings.types?.join(', ')} } '${pageSettings.package?.name}';`;
+		return `import type { ${pageSettings.types?.join(', ')} } from '${pageSettings.package?.name}';`;
 	}
 
 	function formatStylesheet(stylesheet: string): string {
