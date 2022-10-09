@@ -2,16 +2,16 @@
 
 // @ts-ignore
 import paletteGenerator from '@bobthered/tailwindcss-palette-generator';
-import { colorsTailwind } from './colors';
+import { tailwindDefaultColors } from '../../lib/tailwind/colors';
 
 // Talwind: Get a Particular Color
 export function getTailwindColor(colorName: string): any {
-	return colorsTailwind.find((c) => c.label === colorName);
+	return tailwindDefaultColors.find((c) => c.label === colorName);
 }
 
 // Tailwind: Pick Random Color
 export function randomTailwindColor(): any {
-	return colorsTailwind[(Math.random() * colorsTailwind.length) | 0];
+	return tailwindDefaultColors[(Math.random() * tailwindDefaultColors.length) | 0];
 }
 
 // Hex: Source: https://github.com/bobthered/tailwindcss-palette-generator

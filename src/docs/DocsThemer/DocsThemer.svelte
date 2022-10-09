@@ -14,7 +14,7 @@
 
 	// Helpers
 	import { getTailwindColor, randomTailwindColor, genHexPalette, generateThemeCss } from './helpers';
-	import { colorsTailwind } from './colors';
+	import { tailwindDefaultColors } from '$lib/tailwind/colors';
 
 	// Local
 	const regexValidHexCode = new RegExp(/^#[0-9a-f]{6}$/i);
@@ -167,7 +167,7 @@
 						<span class="text-white capitalize">{colorKey}</span>
 						{#if $storeMode}
 							<select class="capitalize" bind:value={$storeTailwindForm[colorKey]} on:change={()=>{onTailwindSelect()}}>
-								{#each colorsTailwind as c}<option value={c.label}>{c.label}</option>{/each}
+								{#each tailwindDefaultColors as c}<option value={c.label}>{c.label}</option>{/each}
 							</select>
 						{:else}
 							<input

@@ -1,12 +1,5 @@
-<!-- 
- https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/conic-gradient
- https://www.sitepoint.com/create-css-conic-gradients-pie-charts/
- https://css-tricks.com/radial-gradient-recipes/ 
- https://tailwindcss.com/docs/configuration#referencing-in-java-script
- -->
 <script lang="ts">
-	import tailwindColors from 'tailwindcss/colors';
-
+	import { tailwindDefaultColors } from '$lib/tailwind/colors';
 	import type { ConicStop } from './types';
 
 	// Props
@@ -32,8 +25,8 @@
 		// If string, keep as is
 		if (typeof color === 'string') return color;
 		// If object, provide default Tailwind color
-		const tw: any = tailwindColors;
-		return tw[color[0]][color[1]];
+		const colorSet = tailwindDefaultColors.find((c) => c.label === color[0]);
+		return colorSet.shades[color[1]].hex;
 	}
 
 	// Generate Conic Gradient style

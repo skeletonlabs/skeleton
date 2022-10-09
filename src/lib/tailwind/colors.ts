@@ -1,6 +1,6 @@
 // https://tailwindcss.com/docs/customizing-colors#default-color-palette
 
-export const colorsTailwind: any[] = [
+export const tailwindDefaultColors: any[] = [
 	{
 		label: 'slate',
 		shades: {
