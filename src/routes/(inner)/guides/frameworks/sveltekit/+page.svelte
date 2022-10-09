@@ -29,7 +29,7 @@
 	<!-- Prereqs -->
 	<section class="space-y-4">
 		<h2>Getting Started</h2>
-		<p>To begin, let's make a couple quick modifications to our app. This ensures our layout will display properly.</p>
+		<p>To begin, let's make a couple quick modifications to our app. Doing this ensures our layout will display properly.</p>
 		<h3>Update App.html</h3>
 		<p>Open <code>/src/app.html</code> and remove the wrapping <em>div</em> element around <code>%sveltekit.body%</code>.</p>
 		<CodeBlock
@@ -100,7 +100,7 @@
 		<h3>Add Sidebar Navigation</h3>
 		<p>Let's customize our App Shell's sidebar slot to make it stand out a bit more. Add the following Tailwind utility classes to the <code>slotSidebarLeft</code> prop.</p>
 		<CodeBlock language="html" code={`<AppShell slotSidebarLeft="bg-surface-500/5 w-56 p-4">`} />
-		<p>Then, let's implement a <a href="/elements/lists">Tailwind Elements navigation list</a> within the App Shell's left sidebar slot.</p>
+		<p>After that, let's implement a <a href="/elements/lists">Tailwind Elements navigation list</a> within the App Shell's left sidebar slot.</p>
 		<CodeBlock
 			language="html"
 			code={`
@@ -124,8 +124,8 @@
 	<section class="space-y-4">
 		<h2>Page Setup</h2>
 		<p>
-			Now let's add some basic content to our homepage. Open <code>/src/routes/+page.svelte</code> and replace the contents with the following. This will provide multiple "Tailwind Elements" styled
-			via the <code>all.css</code> stylesheets.
+			Now let's add some basic content to our homepage. Open <code>/src/routes/+page.svelte</code> and replace the contents with the following. This will provide multiple "Tailwind Elements" styled by
+			the <code>all.css</code> stylesheets.
 		</p>
 		<CodeBlock
 			language="html"
@@ -149,7 +149,7 @@
 		<h3>Add a Component</h3>
 		<p>
 			Let's implement Skeleton's <a href="/components/gradient-headings">Gradient Heading</a> component. Replace the <em>H1</em> heading on the page with the following. Feel free to adjust the settings
-			and text you wish.
+			and text as you wish.
 		</p>
 		<CodeBlock
 			language="html"

@@ -37,7 +37,7 @@
 	<!-- Global Stylesheet -->
 	<section class="space-y-4">
 		<h2>Global Stylesheet</h2>
-		<p>Let's start by creating a global stylesheet in <code>/src/styles/global.css</code>. Then add the following styles:</p>
+		<p>Let's start by creating a global stylesheet in <code>/src/styles/global.css</code>. Then add the following styles.</p>
 		<CodeBlock language="css" code={`html, body { @apply h-full overflow-hidden; }`} />
 	</section>
 
@@ -108,7 +108,7 @@ import { AppShell, AppBar } from "@brainandbones/skeleton";
 		<h3>Add Sidebar Navigation</h3>
 		<p>Let's customize our App Shell's sidebar slot to make it stand out a bit more. Add the following Tailwind utility classes to the <code>slotSidebarLeft</code> prop.</p>
 		<CodeBlock language="html" code={`<AppShell slotSidebarLeft="bg-surface-500/5 w-56 p-4">`} />
-		<p>Then, let's implement a <a href="/elements/lists">Tailwind Elements navigation list</a> within the App Shell's left sidebar slot.</p>
+		<p>After that, let's implement a <a href="/elements/lists">Tailwind Elements navigation list</a> within the App Shell's left sidebar slot.</p>
 		<CodeBlock
 			language="html"
 			code={`
@@ -132,7 +132,7 @@ import { AppShell, AppBar } from "@brainandbones/skeleton";
 	<section class="space-y-4">
 		<h2>Page Setup</h2>
 		<p>
-			Now that our layout is setup, let's implement itn in our homepage in <code>/src/pages/index.astro</code>. Replace the file contents with the following. Be aware that we'll make use of the
+			Now that our layout is setup, let's implement it in our homepage in <code>/src/pages/index.astro</code>. Replace the file contents with the following. Be aware that we'll make use of the
 			Gradient Heading import in a following step below.
 		</p>
 		<CodeBlock
@@ -149,7 +149,7 @@ import { GradientHeading } from "@brainandbones/skeleton";
 		/>
 		<p>
 			Now let's add some basic content to our homepage. Open <code>/src/pages/index.astro</code> and replace the contents within the <code>LayoutBasic</code> tags with the following. This will provide
-			multiple "Tailwind Elements" styled via the <code>all.css</code> stylesheets.
+			multiple "Tailwind Elements" styled by the <code>all.css</code> stylesheets.
 		</p>
 		<CodeBlock
 			language="html"
@@ -176,7 +176,7 @@ import { GradientHeading } from "@brainandbones/skeleton";
 		<h3>Add a Component</h3>
 		<p>
 			Let's implement Skeleton's <a href="/components/gradient-headings">Gradient Heading</a> component. Replace the <em>H1</em> heading on the page with the following. Feel free to adjust the settings
-			and text you wish.
+			and text as you wish.
 		</p>
 		<CodeBlock
 			language="html"
@@ -234,8 +234,7 @@ import { Breadcrumb, Crumb } from '@brainandbones/skeleton';
 		<!-- Dynamic -->
 		<h3>Dynamic Islands</h3>
 		<p>
-			However, for more complex Svelte features, such event handlers, Svelte Actions, using Svelte writable stores, and similar, we'll need to create Svelte "wrapper" component. Let's create one now
-			in
+			For more complex Svelte features--such as event handlers, Svelte Actions, using Svelte writable stores, and similar--we'll need to create Svelte "wrapper" component. Let's create one now in
 			<code>/src/components/WrapperExample.svelte</code>, and insert a button which uses a Svelte <code>on:click</code> event handler.
 		</p>
 		<CodeBlock language="html" code={dynamicSvelteWrapperSnippet} />

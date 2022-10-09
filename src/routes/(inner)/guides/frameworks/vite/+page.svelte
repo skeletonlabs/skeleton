@@ -46,7 +46,7 @@
 		<h2>App Shell Layout</h2>
 		<!-- prettier-ignore -->
 		<p>
-			Neither Vite nor Svelte provide an application router by default. For this guide we'll assume this app is a single landing page layout. Our page needs some structure, so let's implement the Skeleton <a href="/components/app-shell">App Shell</a> component. Open your root app component in <code>/src/App.svelte</code> and add the following.
+			Neither Vite nor Svelte provide an application router by default. For this guide, let's assume this app is a single landing page layout. Our page needs some structure, so let's implement the Skeleton <a href="/components/app-shell">App Shell</a> component. Open your root app component in <code>/src/App.svelte</code> and add the following.
 		</p>
 		<CodeBlock
 			language="html"
@@ -91,7 +91,7 @@
 		<h3>Add Sidebar Navigation</h3>
 		<p>Let's customize our App Shell's sidebar slot to make it stand out a bit more. Add the following Tailwind utility classes to the <code>slotSidebarLeft</code> prop.</p>
 		<CodeBlock language="html" code={`<AppShell slotSidebarLeft="bg-surface-500/5 w-56 p-4">`} />
-		<p>Then, let's implement a <a href="/elements/lists">Tailwind Elements navigation list</a> within the App Shell's left sidebar slot.</p>
+		<p>After that, let's implement a <a href="/elements/lists">Tailwind Elements navigation list</a> within the App Shell's left sidebar slot.</p>
 		<CodeBlock
 			language="html"
 			code={`
@@ -115,7 +115,7 @@
 	<section class="space-y-4">
 		<h2>Page Contents</h2>
 		<p>
-			Now let's add some basic content to our homepage. Open <code>/src/App.svelte</code>, replace the contents with the following. This will provide multiple "Tailwind Elements" styled via the
+			Now let's add some basic content to our homepage. Open <code>/src/App.svelte</code> and replace the contents with the following. This will provide multiple "Tailwind Elements" styled by the
 			<code>all.css</code> stylesheets.
 		</p>
 		<CodeBlock
@@ -140,7 +140,7 @@
 		<h3>Add a Component</h3>
 		<p>
 			Let's implement Skeleton's <a href="/components/gradient-headings">Gradient Heading</a> component. Replace the <em>H1</em> heading on the page with the following. Feel free to adjust the settings
-			and text you wish.
+			and text as you wish.
 		</p>
 		<CodeBlock
 			language="html"
