@@ -39,8 +39,8 @@ npm run dev
 			<CodeBlock
 				language="console"
 				code={`
-npm create vite@latest my-app -- --template svelte-ts
-cd my-app
+npm create vite@latest vite-skeleton-app -- --template svelte-ts
+cd vite-skeleton-app
 npm install
 npm run dev
             `}

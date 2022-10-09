@@ -63,7 +63,7 @@
 				<ul>
 					{#each list as { href, label, badge, icon }}
 						<li on:click={onListItemClick}>
-							<a {href} value={href} class={classesActive(href)}>
+							<a {href} value={href} class={classesActive(href)} data-sveltekit-prefetch>
 								{#if icon}
 									<span>
 										<div class="bg-accent-500 w-7 h-7 flex justify-center items-center rounded shadow">
