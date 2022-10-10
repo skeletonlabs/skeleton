@@ -19,7 +19,6 @@ legend {
 /* === Inputs === */
 
 /* Inputs */
-input:not(.unstyled),
 [type='text'],
 [type='email'],
 [type='url'],
@@ -41,9 +40,9 @@ select {
 	/* Text */
 	@apply text-black dark:text-white;
 	/* Background */
-	@apply bg-surface-100 dark:bg-surface-600;
+	@apply bg-surface-300 dark:bg-surface-700;
 	/* Border */
-	@apply border-surface-400 dark:border-surface-500 focus:border-accent-500;
+	@apply border-surface-400 dark:border-surface-600 focus:border-accent-500;
 	/* Shadow */
 	@apply shadow-sm;
 	/* Theme: Border Width */
@@ -68,7 +67,7 @@ select {
 /* Selectable */
 [type='checkbox'],
 [type='radio'] {
-	@apply border-surface-500 rounded text-accent-600 focus:ring-accent-500;
+	@apply border-surface-500 rounded text-accent-600 focus:ring-accent-500 w-5 h-5;
 	/* Theme: Rounded */
 	@apply rounded-theme;
 }

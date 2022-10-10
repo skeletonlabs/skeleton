@@ -62,7 +62,7 @@
 	--theme-font-family: Helvetica, system-ui;
 	/* Font Color */
 	--theme-font-color-base: var(--color-surface-900);
-	--theme-font-color-dark: var(--color-primary-200);
+	--theme-font-color-dark: var(--color-primary-100);
 	/* Border Radius */
 	--theme-rounded-base: 9999px;
 	--theme-rounded-container: 16px;

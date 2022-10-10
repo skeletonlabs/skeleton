@@ -132,7 +132,11 @@ button:disabled {
 
 /* Ghost */
 .btn-ghost {
-	@apply btn-outline bg-surface-900/20 dark:bg-surface-50/20 hover:bg-surface-500/30 hover:dark:bg-surface-500/30;
+	@apply btn-outline;
+	/* Background */
+	@apply bg-surface-900/20 dark:bg-surface-50/20;
+	/* Hover */
+	@apply hover:bg-surface-900/10 hover:dark:bg-surface-50/30;
 }
 .btn-ghost-primary {
 	@apply btn-outline-primary bg-primary-500/20 hover:bg-primary-500/30;

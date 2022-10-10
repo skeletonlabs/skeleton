@@ -33,7 +33,7 @@
 
 	// Reactive Classes
 	$: checked = value === $selected;
-	$: classesSelected = checked ? `${accent} ${fill} text-white shadow` : `${color} ${hover}`;
+	$: classesSelected = checked ? `${accent} ${fill} ${color}` : `${hover}`;
 	$: classesLabel = `${cBase} ${classesSelected} ${rounded}`;
 </script>
 

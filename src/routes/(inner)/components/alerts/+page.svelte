@@ -21,7 +21,7 @@
 				['<code>background</code>', 'string', 'bg-ternary-500/30', 'Provide classes to set background color.'],
 				['<code>border</code>', 'string', 'border-l-4 border-l-ternary-500', 'Provide classes to set the border styles.'],
 				['<code>color</code>', 'string', '-', 'Provide classes to set text color.'],
-				['<code>rounded</code>', 'string', 'rounded-container-theme', 'Provide classes to set border radius.'],
+				['<code>rounded</code>', 'string', '-', 'Provide classes to set border radius.'],
 				['<code>duration</code>', 'number', '200', 'Svelte fade transition duration. Set <code>0</code> to disable.']
 			]
 		}

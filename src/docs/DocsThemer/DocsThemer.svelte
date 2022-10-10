@@ -2,7 +2,6 @@
 	import { browser } from '$app/environment';
 	import type { Writable } from 'svelte/store';
 
-	// Utilities
 	import { localStorageStore } from '$lib/utilities/LocalStorageStore/LocalStorageStore';
 
 	// Components
@@ -143,13 +142,11 @@
 <!-- prettier-ignore -->
 <div class="themer space-y-4">
 
-	
-	
-	<!-- Color Pickers -->
-	<section class="card !bg-[#141517] !ring-0">
+	<!-- Color Selection -->
+	<section class="space-y-4">
 
-		<!-- Header: Controls -->
-		<div class="card-header flex justify-between items-center space-x-4">
+		<!-- Controls -->
+		<div class="flex justify-between items-center space-x-4">
 			<!-- Mode -->
 			<RadioGroup selected={storeMode}>
 				<RadioItem value={true}>Tailwind</RadioItem>
@@ -159,12 +156,12 @@
 			{#if !$storeMode}<a class="btn btn-filled" href="https://coolors.co/" target="_blank">Inspiration</a>{/if}
 		</div>
 
-		<!-- Body: Form -->
-		<div class="card-body !pt-2 space-y-4 lg:space-y-2">
+		<!-- Form -->
+		<div class="space-y-4 lg:space-y-2">
 			{#each ['primary', 'accent', 'ternary', 'warning', 'surface'] as colorKey}
 				<div class="grid grid-cols-1 xl:grid-cols-[140px_1fr] gap-2 xl:gap-4 xl:place-items-end">
 					<label class="w-full">
-						<span class="text-white capitalize">{colorKey}</span>
+						<span class="capitalize">{colorKey}</span>
 						{#if $storeMode}
 							<select class="capitalize" bind:value={$storeTailwindForm[colorKey]} on:change={()=>{onTailwindSelect()}}>
 								{#each tailwindDefaultColors as c}<option value={c.label}>{c.label}</option>{/each}
@@ -182,12 +179,14 @@
 		</div>
 
 		<!-- Live Preview -->
-		<div class="card-footer !pt-4 {$storePreview ? 'bg-green-500/30' : 'bg-red-500/10'} flex justify-between items-center">
-			<SlideToggle bind:checked={$storePreview} class="text-white">Enable Live Preview</SlideToggle>
-			<button class="btn bg-white/5 text-white" on:click={resetSettings}>Reset Theme</button>
+		<div class="flex justify-between items-center pt-2">
+			<SlideToggle bind:checked={$storePreview}>Enable Live Preview</SlideToggle>
+			<button class="btn btn-filled" on:click={resetSettings} disabled={!$storePreview}>Reset Theme</button>
 		</div>
 
 	</section>
+
+	<hr>
 
 	<!-- CSS Snipnpet -->
 	<CodeBlock language="css" code={themeCss} />

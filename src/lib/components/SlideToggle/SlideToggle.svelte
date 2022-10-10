@@ -8,6 +8,8 @@
 	export let checked: boolean = false;
 	export let size: string = 'md';
 	export let accent: string = 'bg-accent-500';
+	export let borderWidth: string = 'border-theme';
+	export let borderColor: string = 'border-surface-400 dark:border-surface-600';
 	export let rounded: string = 'rounded-full';
 	// A11y
 	export let label: string | undefined = undefined;
@@ -45,7 +47,7 @@
 	// Reactive Classes
 	$: classesBase = `${cBase}`;
 	$: classesLabel = `${cLabel} ${$$props.class ?? ''}`;
-	$: classesTrack = `${cTrack} ${rounded} ${trackSize} ${cTrackAccent}`;
+	$: classesTrack = `${cTrack} ${borderWidth} ${borderColor} ${rounded} ${trackSize} ${cTrackAccent}`;
 	$: classesThumb = `${cThumb} ${rounded} ${cThumbBackground} ${cThumbPos}`;
 
 	// Prune $$restProps to avoid overwriting $$props.class

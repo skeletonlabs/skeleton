@@ -31,7 +31,7 @@
 				['<code>background</code>', 'string', 'bg-surface-300 dark:bg-surface-700', '-', 'Provide classes to set the base background color.'],
 				['<code>hover</code>', 'string', 'bg-accent-hover-theme', '-', 'Provide classes to set the hover style.'],
 				['<code>accent</code>', 'string', 'bg-accent-active-theme', '-', 'Provide classes to set the highlighted accent color.'],
-				['<code>color</code>', 'string', '-', '-', 'Provide classes to set the highlighted text color.'],
+				['<code>color</code>', 'string', '-', 'text-surface-50', 'Provide classes to set the highlighted text color.'],
 				['<code>fill</code>', 'string', '-', '-', 'Provide classes to set the highlighted SVG fill color.'],
 				['<code>rounded</code>', 'string', 'rounded-theme', '-', 'Provide classes to set the border radius.']
 			]

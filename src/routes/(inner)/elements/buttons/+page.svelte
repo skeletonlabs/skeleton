@@ -171,7 +171,7 @@
 			<p>By default, buttons use <code>flex-row</code> and <code>space-x-4</code> to create an evenly spaced row. Wrap children with <em>span</em> tags to ensure spacing works as expected.</p>
 			<CodeBlock language="html" code={`<button class="btn bg-primary-500">\n\t<span>💀</span>\n\t<span>Icons</span>\n\t<span>🦴</span>\n</button>`} />
 			<div class="card card-body flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
-				<button class="btn bg-primary-500">
+				<button class="btn btn-filled-primary">
 					<span>💀</span>
 					<span>Icons</span>
 					<span>🦴</span>
@@ -256,10 +256,7 @@
 			<CodeBlock
 				language="css"
 				code={`
-.btn {
-	@apply font-bold rounded;
-}
-.btn-icon {
+.btn, .btn-icon {
 	@apply font-bold;
 }
 .btn-filled-primary,
