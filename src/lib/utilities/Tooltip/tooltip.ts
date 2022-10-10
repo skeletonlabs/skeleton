@@ -1,9 +1,14 @@
 // Action: Tooltip
 
 export interface ArgsTooltip {
+	/** The HTML content of the tooltip. */
 	content: string;
+	/** Provide a value of: top | bottom | left | right */
 	position?: string;
+	/** Sets the wrapping element to be either inline or block */
 	inline?: boolean;
+	/** Provide an optional callback function to handle open/close state changes. */
+	state?: (e: { trigger: HTMLElement; state: boolean }) => void;
 	// Style Overrides
 	background?: string;
 	color?: string;
@@ -70,12 +75,15 @@ export function tooltip(node: HTMLElement, args: ArgsTooltip) {
 	};
 	createElemArrow();
 
+	// -- State
+
 	// On mouse over - show the tooltip
 	const onMouseOver = (): void => {
 		elemTooltip.classList.remove('hidden');
 		setTimeout(() => {
 			elemTooltip.classList.add('!opacity-100');
 		}, animDuration);
+		stateEventHandler(true);
 	};
 
 	// On mouse out - hide the tooltip
@@ -84,14 +92,22 @@ export function tooltip(node: HTMLElement, args: ArgsTooltip) {
 		setTimeout(() => {
 			elemTooltip.classList.add('hidden');
 		}, animDuration);
+		stateEventHandler(false);
 	};
+
+	const stateEventHandler = (state: boolean): void => {
+		if (args.state) args.state({ trigger: node, state });
+	};
+
+	// Ally ---
 
 	// A11y Input Handler
 	const onWindowKeyDown = (event: KeyboardEvent): void => {
 		if (event.code === 'Escape') onMouseOut();
 	};
 
-	// Event Listner
+	// Event Listners ---
+
 	node.addEventListener('mouseover', onMouseOver);
 	node.addEventListener('mouseout', onMouseOut);
 	window.addEventListener('keydown', onWindowKeyDown);

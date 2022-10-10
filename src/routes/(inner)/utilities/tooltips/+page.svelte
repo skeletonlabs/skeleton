@@ -20,9 +20,10 @@
 		{
 			headings: ['Prop', 'Type', 'Default', 'Values', 'Required', 'Description'],
 			source: [
-				['<code>content</code>', 'string', '(tooltip)', 'HTML', '&check;', 'The HTML content of your tooltip.'],
+				['<code>content</code>', 'string', '(tooltip)', 'HTML template literal', '&check;', 'The HTML content of your tooltip.'],
 				['<code>position</code>', 'string', 'top', 'top | bottom | left | right', '-', 'Designates where the tooltip will appear.'],
 				['<code>inline</code>', 'boolean', 'false', 'true | false', '-', 'Sets the wrapping element to inline or block.'],
+				['<code>state</code>', 'function', '-', 'function', '-', 'Provide a callback function for detecting tooltip open/closed state.'],
 				['<code>background</code>', 'string', '-', 'class', '-', 'Provide a class to set the background color.'],
 				['<code>color</code>', 'string', '-', 'class', '-', 'Provide a class to set the text color.'],
 				['<code>width</code>', 'string', '-', 'class', '-', 'Provide a class to set the width.'],
@@ -90,7 +91,7 @@
 		<section class="card">
 			<div class="card-body max-w-[280px] mx-auto">
 				<div class="grid grid-cols-2 gap-4 mb-4">
-					<button class="btn btn-ghost w-full" use:tooltip={exampleTop}>Top</button>
+					<button class="btn btn-ghost w-full" data-tooltip="tooltipTop" use:tooltip={exampleTop}>Top</button>
 					<button class="btn btn-ghost w-full" use:tooltip={exampleBottom}>Bottom</button>
 					<button class="btn btn-ghost w-full" use:tooltip={exampleLeft}>Left</button>
 					<button class="btn btn-ghost w-full" use:tooltip={exampleRight}>Right</button>
@@ -136,6 +137,30 @@
 				<CodeBlock language="html" code={`<button use:tooltip={{ ... background: '!bg-accent-500', text: '!text-yellow-500', width: '!w-56' }}>Trigger</button>`} />
 				<p>Use style region keys to pass multiple abitrary classes to a particular element region.</p>
 				<CodeBlock language="html" code={`<button use:tooltip={{ ... regionTooltip: 'space-y-4 uppercase' }}>Trigger</button>`} />
+			</div>
+			<!-- Tooltip State -->
+			<div class="space-y-4">
+				<h2>Tooltip State Handler</h2>
+				<p>
+					You can optionally monitor the open/closed state of a tooltip using <code>state: stateHandler</code>. This will require adding a <code>data-tooltip</code> attribute with a unique identifier.
+				</p>
+				<CodeBlock language="html" code={`<button use:tooltip={{ content: 'Skeleton' }} data-tooltip="example">Trigger</button>`} />
+				<p>
+					In this case, <code>stateHandler</code> is a callback function that will update a local variable. We use the <em>if statement</em> to match a particular tooltip on the page.
+				</p>
+				<CodeBlock
+					language="ts"
+					code={`
+let tooltipExample: boolean = false;\n
+function stateHandler(response: { trigger: HTMLElement; state: boolean }): void {
+	if (response.trigger.dataset.tooltip === 'example') tooltipExample = response.state;
+}
+				`}
+				/>
+				<p>
+					The response <code>trigger</code> will provide an <em>HTMLElement</em> reference to your trigger element. From this you can match the <code>data-tooltip</code> attribute via dataset, while
+					state will be a boolean value representing <em>TRUE</em> for open and <em>FALSE</em> for closed.
+				</p>
 			</div>
 		</section>
 	</svelte:fragment>

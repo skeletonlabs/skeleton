@@ -8,6 +8,8 @@ interface ArgsMenu {
 	fixed?: boolean;
 	/** Clicks inside body will not close window */
 	interactive?: boolean;
+	/** Provide an optional callback function to handle open/close state changes. */
+	state?: (e: { menu: string; state: boolean }) => void;
 }
 
 // prettier-ignore
@@ -21,21 +23,27 @@ export function menu(node: HTMLElement, args: ArgsMenu) {
 		elemMenu.setAttribute('role', 'menu');
 	}
 
-	// Menu Open Close States ---
+	// Menu States ---
 	
-	const menuToggle = (): void => {
-		elemMenu.style.display = getComputedStyle(elemMenu).display === 'none' ? 'block' : 'none';
+	const menuOpen = (): void => {
+		elemMenu.style.display = 'block';
+		stateEventHandler(true);
 	}
 
 	const menuClose = (): void => {
 		elemMenu.style.display = 'none';
+		stateEventHandler(false);
+	}
+
+	const stateEventHandler = (state: boolean): void => {
+		if (args.state) args.state({menu: args.menu, state});
 	}
 	
 	// Click Handlers ---
 
 	const onTriggerClick = (): void => {
         autoUpdateOrigin();
-		menuToggle();
+		menuOpen();
 	}
 
 	const onWindowClick = (event: any): void => {
@@ -44,7 +52,7 @@ export function menu(node: HTMLElement, args: ArgsMenu) {
 	
 	// Interactive FALSE - any click closes the menu
 	const standardClickHandler = (): void => {
-		elemMenu.style.display = 'none';
+		menuClose();
 	}
 	
 	// Interactive TRUE - clicks outside close menu
@@ -97,6 +105,9 @@ export function menu(node: HTMLElement, args: ArgsMenu) {
 	// Trigger Node Events
 	node.addEventListener('click', onTriggerClick);
 	node.addEventListener('keydown', onTriggerKeyDown);
+	node.addEventListener('change', (e: any) => {
+		console.log(e);
+	})
 	
 	// Lifecycle
 	return {

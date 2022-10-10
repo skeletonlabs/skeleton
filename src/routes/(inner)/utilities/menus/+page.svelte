@@ -28,7 +28,8 @@
 			source: [
 				['<code>menu</code>', 'string', '&check;', 'Accepts the matching menu ID specified in the data attribute.'],
 				['<code>fixed</code>', 'boolean', '-', 'When enabled, a fixed origin position can be specified via a menu class.'],
-				['<code>interactive</code>', 'boolean', '-', 'When enabled, keeps the menu open while interacting with the contents.']
+				['<code>interactive</code>', 'boolean', '-', 'When enabled, keeps the menu open while interacting with the contents.'],
+				['<code>state</code>', 'function', '-', 'Provide a callback function for detecting menu open/closed state.']
 			]
 		}
 	];
@@ -69,9 +70,9 @@
 	// Local
 	const exampleLink: string = '/utilities/menus';
 
-	const log = (v: any) => {
+	function log(v: any): void {
 		console.log(`You selected anchor link ${v}`);
-	};
+	}
 </script>
 
 <DocsShell {settings} {properties} {events} {classes} {a11y}>
@@ -81,6 +82,7 @@
 			<!-- Dropdown 1 -->
 			<span class="relative">
 				<button class="btn btn-ghost" use:menu={{ menu: 'basic' }}>Basic</button>
+				<!-- on:toggled={eventLogger} -->
 				<div class="card card-body w-64 shadow-xl" data-menu="basic">
 					<p>This menu uses default settings. The position will auto-update depending on the trigger's page location.</p>
 				</div>
@@ -183,6 +185,27 @@
 				<p>Remove the wrapping <code>.relative</code> element, set <code>fixed: true</code>, and position the menu with utility classes.</p>
 				<CodeBlock language="html" code={`<button use:menu={{ menu: 'example', fixed: true }}>Trigger</button>`} />
 				<CodeBlock language="html" code={`<div class="absolute top-2 right-2" data-menu="example">(menu)</div>`} />
+			</div>
+			<!-- Menu State -->
+			<div class="space-y-4">
+				<h2>Menu State Handler</h2>
+				<p>You can optionally monitor the open/closed state of a menu using <code>state: stateHandler</code></p>
+				<CodeBlock language="html" code={`<button use:menu={{ menu: 'example', state: stateHandler }}>Trigger</button>`} />
+				<p>
+					In this case, <code>stateHandler</code> is a callback function that will update a local variable. We use the <em>if statement</em> to match a particular menu on the page.
+				</p>
+				<CodeBlock
+					language="ts"
+					code={`
+let menuExample: boolean = false;\n
+function stateHandler(response: { menu: string; state: boolean }): void {
+	if (response.menu === 'example') menuExample = response.state;
+}
+				`}
+				/>
+				<p>
+					The <code>menu</code> value will match your unique <code>data-menu</code> ID value, while state will be a boolean value representing <em>TRUE</em> for open and <em>FALSE</em> for closed.
+				</p>
 			</div>
 		</section>
 	</svelte:fragment>
