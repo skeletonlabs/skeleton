@@ -10,8 +10,8 @@
 	export let background: string = 'bg-[#141517]';
 	export let text: string = 'text-sm';
 	export let color: string = 'text-white';
-	export let rounded: string = 'rounded-theme-container';
-	export let buttonCopy: string = 'btn btn-sm bg-white/5 hover:bg-white/10';
+	export let rounded: string = 'rounded-container-theme';
+	export let buttonCopy: string = 'bg-white/5 hover:bg-white/10';
 
 	// Base Classes
 	const cBase: string = 'overflow-hidden shadow';
@@ -54,7 +54,7 @@
 		<!-- Language -->
 		<span class="text-white/60">{languageFormatter(language)}</span>
 		<!-- Copy Button -->
-		<button on:click={onCopyClick} use:clipboard={code} class="cb-copy-btn {buttonCopy}">
+		<button on:click={onCopyClick} use:clipboard={code} class="cb-copy-btn btn btn-sm {buttonCopy}">
 			{!copyState ? 'Copy' : 'Copied ✓'}
 		</button>
 	</header>

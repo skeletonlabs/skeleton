@@ -6,7 +6,7 @@
 	// Props
 	export let background: string = 'bg-primary-500';
 	export let position: string = 'b'; // bottom
-	export let variant: string = 'btn-ghost';
+	export let button: string = 'btn-ghost';
 	export let duration: number = 250;
 
 	// Base Classes
@@ -54,8 +54,8 @@
 
 		<!-- Action -->
 		<div class="toast-actions {cBaseActions}">
-			{#if $toastStore[0].button}<button class="btn {variant}" on:click={onAction}>{$toastStore[0].button.label}</button>{/if}
-			<button class="btn {variant}" on:click={onDismiss}>
+			{#if $toastStore[0].button}<button class="btn {button}" on:click={onAction}>{$toastStore[0].button.label}</button>{/if}
+			<button class="btn {button}" on:click={onDismiss}>
 				{@html $toastStore[0].button ? '&#10005;' : 'Dismiss'}
 			</button>
 		</div>

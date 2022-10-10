@@ -57,7 +57,7 @@
 			headings: ['Prop', 'Type', 'Default', 'Description'],
 			source: [
 				['<code>initials</code>', 'string', 'AB', 'Provide up to two text characters.'],
-				['<code>fill</code>', 'string', 'fill-white', 'Provide classes to set the SVG text fill color.']
+				['<code>fill</code>', 'string', 'fill-theme', 'Provide classes to set the SVG text fill color.']
 			]
 		}
 	];

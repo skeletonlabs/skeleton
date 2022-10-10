@@ -19,15 +19,15 @@
 		{
 			label: 'BreadCrumb',
 			headings: ['Prop', 'Type', 'Default', 'Description'],
-			source: [['<code>separator</code>', 'string', `&rsaquo (unicode)`, 'Defines the crumb separator. Supports SVG icons.']]
+			source: [
+				['<code>separator</code>', 'string', `&rsaquo (unicode)`, 'Defines the crumb separator. Supports SVG icons.'],
+				['<code>text</code>', 'string', '-', 'Provide classes to set text size.']
+			]
 		},
 		{
 			label: 'Crumb',
 			headings: ['Prop', 'Type', 'Default', 'Description'],
-			source: [
-				['<code>text</code>', 'string', 'text-base', 'Provide classes to set text size.'],
-				['<code>color</code>', 'string ', '-', 'Provide classes set the current page text color.']
-			]
+			source: [['<code>color</code>', 'string ', '-', 'Provide classes set the current page text color.']]
 		}
 	];
 	const classes: DocsShellTable[] = [

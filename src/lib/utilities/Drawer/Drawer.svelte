@@ -8,8 +8,8 @@
 	export let position: string = 'left';
 	export let duration: number = 150;
 	// Props (backdrop)
-	export let bgBackdrop: string = 'bg-surface-400/70 dark:bg-surface-900/70';
-	export let blur: string = 'backdrop-blur-sm';
+	export let bgBackdrop: string = 'bg-backdrop-theme';
+	export let blur: string = 'backdrop-blur-xs';
 	// Props (drawer)
 	export let bgDrawer: string = 'bg-surface-100 dark:bg-surface-800';
 	export let border: string | undefined = undefined;

@@ -17,7 +17,7 @@
 	export let body: string = 'bg-surface-200 dark:bg-surface-800';
 	export let text: string = 'text-sm';
 	export let color: string | undefined = '';
-	export let hover: string = 'hover:bg-primary-500/10';
+	export let hover: string = 'bg-hover-theme';
 	// A11y
 	export let labelledby: string | undefined = '';
 	export let describedby: string | undefined = '';
@@ -29,7 +29,7 @@
 
 	// Base Classes
 	const cBase: string = 'space-y-4';
-	const cBaseWrapper: string = 'overflow-x-auto w-full rounded-lg border-[1px] border-surface-500/10 border-inset';
+	const cBaseWrapper: string = 'overflow-x-auto w-full rounded-container-theme border-[1px] border-surface-500/10 border-inset';
 	const cBaseTable: string = 'w-full overflow-hidden table-auto';
 	const cBaseEmpty: string = 'p-4 text-center';
 	// ---

@@ -19,6 +19,7 @@ legend {
 /* === Inputs === */
 
 /* Inputs */
+input:not(.unstyled),
 [type='text'],
 [type='email'],
 [type='url'],
@@ -56,7 +57,7 @@ select {
 textarea,
 select {
 	/* Theme: Rounded */
-	@apply rounded-theme-container;
+	@apply rounded-container-theme;
 }
 
 /* File */
@@ -147,5 +148,5 @@ textarea::placeholder {
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color */
 
 [type='range']:not(.range-input) {
-	@apply w-full accent-accent-500;
+	@apply w-full accent-theme;
 }

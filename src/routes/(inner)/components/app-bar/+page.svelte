@@ -20,7 +20,7 @@
 			source: [
 				['<code>background</code>', 'string', 'bg-surface-100 dark:bg-surface-800', 'Provide classes to set background color.'],
 				['<code>border</code>', 'string', '-', 'Provide classes to set border styles.'],
-				['<code>padding</code>', 'string', 'px-4 py-4 md:py-6', 'Provide classes to set padding.'],
+				['<code>padding</code>', 'string', 'p-4 md:py-6', 'Provide classes to set padding.'],
 				['<code>shadow</code>', 'string', 'shadow-lg', 'Provide classes to define a box shadow.'],
 				['<code>space</code>', 'string', 'space-x-4', 'Provide classes to set horizontal spacing.']
 			]

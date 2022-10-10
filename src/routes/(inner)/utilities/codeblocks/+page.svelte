@@ -42,8 +42,8 @@
 				['<code>background</code>', 'string', 'bg-[#141517]', 'Provided classes to set the background color.'],
 				['<code>text</code>', 'string', 'text-sm', 'Provided classes to set the text size.'],
 				['<code>color</code>', 'string', 'text-white', 'Provided classes to set the text color.'],
-				['<code>rounded</code>', 'string', 'rounded-lg', 'Provided classes to set the border radius.'],
-				['<code>buttonCopy</code>', 'string', 'btn btn-sm bg-white/5 hover:bg-white/10', 'Provided classes to set the button styles.']
+				['<code>rounded</code>', 'string', 'rounded-container-theme', 'Provided classes to set the border radius.'],
+				['<code>buttonCopy</code>', 'string', 'bg-white/5 hover:bg-white/10', 'Provided classes to set the button styles.']
 			]
 		}
 	];

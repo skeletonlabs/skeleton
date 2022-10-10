@@ -13,6 +13,7 @@
 	export let accent: string = getContext('accent');
 	export let padding: string = getContext('padding');
 	export let rounded: string = getContext('rounded');
+	export let hover: string = getContext('hover');
 
 	// Base Classes
 	const cBase: string = 'flex items-center space-x-4 whitespace-nowrap cursor-pointer';
@@ -64,7 +65,7 @@
 		return false;
 	};
 	$: isSelected = selectionMatch() ? true : false;
-	$: classesHighlight = isSelected ? accent : '';
+	$: classesHighlight = isSelected ? `${accent}` : `${hover}`;
 	$: classesBase = `${cBase} ${padding} ${rounded} ${classesHighlight} ${$$props.class ?? ''}`;
 </script>
 

@@ -3,6 +3,7 @@
 
 	// Props
 	export let separator: string = `&rsaquo;`;
+	export let text: string | undefined = undefined;
 	// Props (A11y)
 	export let label: string = 'breadcrumb';
 
@@ -13,7 +14,7 @@
 	const cBase: string = 'flex align-center space-x-4';
 
 	// Reactive Classes
-	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
+	$: classesBase = `${cBase} ${text} ${$$props.class ?? ''}`;
 </script>
 
 <nav data-testid="breadcrumb" aria-label={label}>

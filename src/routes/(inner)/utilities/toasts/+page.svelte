@@ -20,7 +20,7 @@
 			source: [
 				['<code>background</code>', 'string', 'bg-primary-500', 'class', 'Provide classes to set background color.'],
 				['<code>position</code>', 'string', 'b', 't | b | tr | tl | bl | br', 'Set top/bottom/left/right positioning.'],
-				['<code>variant</code>', 'string', 'ghost', 'variant reference', 'Provide a <a href="/components/buttons">button variant</a> reference.'],
+				['<code>button</code>', 'string', 'btn-ghost', 'class', 'Provide a <a href="/components/buttons">button variant</a> reference.'],
 				['<code>duration</code>', 'number', '100', 'integer', 'The duration of the fly in/out animation.']
 			]
 		}

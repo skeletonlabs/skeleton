@@ -34,7 +34,7 @@
 	$: isSelected = value == $selected;
 	$: classesSelected = isSelected ? `${borderWidth} ${borderColor} ${color} ${fill}` : `${borderWidth} ${cBorderColor}`;
 	$: classesBase = `${cBase} ${classesSelected} ${hover} ${rounded} ${$$props.class ?? ''}`;
-	$: classesLead = isSelected ? `${fill}` : 'fill-surface-500';
+	$: classesLead = isSelected ? `${fill}` : 'fill-theme';
 	$: classesLabel = `${cBaseLabel}`;
 </script>
 

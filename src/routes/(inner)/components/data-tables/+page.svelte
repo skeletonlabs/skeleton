@@ -43,7 +43,7 @@
 				['<code>body</code>', 'string', 'bg-surface-200 dark:bg-surface-800', 'Provide classes to set the table body background color.'],
 				['<code>text</code>', 'string', 'text-sm', 'Provide classes to set the table text size.'],
 				['<code>color</code>', 'string', '-', 'Provide classes to set the table text color.'],
-				['<code>hover</code>', 'string', 'hover:bg-primary-500/10', 'Provide classes to set the hover background color.']
+				['<code>hover</code>', 'string', 'bg-hover-theme', 'Provide classes to set the hover background color.']
 			]
 		}
 	];

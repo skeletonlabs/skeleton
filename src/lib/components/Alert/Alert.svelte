@@ -6,7 +6,7 @@
 	export let background: string = 'bg-ternary-500/30';
 	export let border: string = 'border-l-4 border-l-ternary-500';
 	export let color: string | undefined = undefined;
-	export let rounded: string = 'rounded-theme-container';
+	export let rounded: string = 'rounded-container-theme';
 	export let duration: number = 200; // ms
 	// Props (slots)
 	export let slotLead: string = '';

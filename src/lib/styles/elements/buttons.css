@@ -151,6 +151,6 @@ button:disabled {
 }
 
 /* File Input Button */
-input[type='file']::file-selector-button {
+input[type='file']:not(.file-dropzone-input)::file-selector-button {
 	@apply border-0 btn btn-filled-accent btn-sm mr-2 text-theme;
 }

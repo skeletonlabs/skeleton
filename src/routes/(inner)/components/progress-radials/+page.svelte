@@ -19,9 +19,9 @@
 			source: [
 				['<code>value</code>', 'number', '-', 'Set the meter fill amount. Shows as indeterminate when set undefined.'],
 				['<code>stroke</code>', 'number', '20', 'Sets the base stroke width. Scales responsively.'],
-				['<code>meter</code>', 'string', 'stroke-black dark:stroke-white', 'Provide classes to set meter color.'],
+				['<code>meter</code>', 'string', 'stroke-accent-500', 'Provide classes to set meter color.'],
 				['<code>track</code>', 'string', 'stroke-surface-300 dark:stroke-surface-700', 'Provide classes to set track color.'],
-				['<code>color</code>', 'string', 'fill-black dark:fill-white', 'Provide classes to set the SVG text fill color.'],
+				['<code>fill</code>', 'string', 'fill-theme', 'Provide classes to set the SVG text fill color.'],
 				['<code>font</code>', 'string', '56', 'Sets the base font size. Scales responsively.']
 			]
 		}

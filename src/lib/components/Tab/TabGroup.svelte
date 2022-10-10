@@ -10,8 +10,8 @@
 	export let borderColor: string = 'border-primary-500';
 	export let color: string = 'text-primary-500';
 	export let fill: string = 'fill-primary-500';
-	export let hover: string = 'hover:bg-primary-500/10';
-	export let rounded: string = 'rounded-tl-lg rounded-tr-lg';
+	export let hover: string = 'bg-hover-theme';
+	export let rounded: string = 'rounded-tl-container-theme rounded-tr-container-theme';
 	// A11y
 	export let labeledby: string | undefined = undefined;
 	export let label: string | undefined = undefined;

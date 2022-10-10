@@ -5,7 +5,7 @@
 .logo-cloud {
 	@apply grid overflow-hidden;
 	/* Theme: Rounded */
-	@apply rounded-theme-container;
+	@apply rounded-container-theme;
 }
 
 /* === Logo Item (Child) === */

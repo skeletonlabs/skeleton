@@ -30,9 +30,9 @@
 			headings: ['Prop', 'Type', 'Default', 'Description'],
 			source: [
 				['<code>justify</code>', 'string', 'justify-between', 'Provide classes to set flexbox justification.'],
-				['<code>text</code>', 'string', 'text-xs', 'Provide classes to style page context text.'],
+				['<code>text</code>', 'string', 'text-xs', 'Provide classes to style page info text.'],
 				['<code>select</code>', 'string', '-', 'Provide arbitrary classes to style the select input.'],
-				['<code>buttons</code>', 'string', `btn-ghost`, 'Provide any desired <a href="/elements/buttons">Button element</a> classes.']
+				['<code>buttons</code>', 'string', `btn-filled`, 'Provide arbitrary casses to style the buttons.']
 			]
 		}
 	];

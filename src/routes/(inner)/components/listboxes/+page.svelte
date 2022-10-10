@@ -29,16 +29,22 @@
 				['<code>space</code>', 'string', 'space-y-1', 'Provide classes to set vertical item spacing.'],
 				['<code>height</code>', 'string', '-', 'Provide to set scrollable listbox region height.'],
 				['<code>regionLabel</code>', 'string', '-', 'Provide arbitrary classes to the label element.'],
-				['<code>regionList</code>', 'string', '-', 'Provide arbitrary classes to the scrollable listbox element.']
+				['<code>regionList</code>', 'string', '-', 'Provide arbitrary classes to the scrollable listbox element.'],
+				// Items
+				['<code>accent</code>', 'string', '!bg-active-theme', `Provide classes to set the item selected background.`],
+				['<code>padding</code>', 'string', 'px-4 py-3', `Provide classes to set the item padding styles.`],
+				['<code>rounded</code>', 'string', 'rounded-theme', `Provide classes to set the item border radius styles.`],
+				['<code>hover</code>', 'string', 'bg-hover-theme', `Provide classes to set the item hover background color.`]
 			]
 		},
 		{
 			label: 'ListBoxItem',
 			headings: ['Prop', 'Type', 'Default', 'Description'],
 			source: [
-				['<code>accent</code>', 'string', '!bg-primary-500', `Provide classes to set the selected element background.`],
-				['<code>padding</code>', 'string', 'px-4 py-3', `Provide classes to set the padding styles.`],
-				['<code>rounded</code>', 'string', 'rounded', `Provide classes to set the border radius styles.`]
+				['<code>accent</code>', 'string', '(inherit)', `Provide classes to set the selected element background.`],
+				['<code>padding</code>', 'string', '(inherit)', `Provide classes to set the padding styles.`],
+				['<code>rounded</code>', 'string', '(inherit)', `Provide classes to set the border radius styles.`],
+				['<code>hover</code>', 'string', '(inherit)', `Provide classes to set hover background color.`]
 			]
 		}
 	];
