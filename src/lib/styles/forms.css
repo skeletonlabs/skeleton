@@ -42,13 +42,13 @@ select {
 	/* Background */
 	@apply bg-surface-100 dark:bg-surface-600;
 	/* Border */
-	@apply border-surface-300 dark:border-surface-500 focus:border-accent-500;
+	@apply border-surface-400 dark:border-surface-500 focus:border-accent-500;
 	/* Shadow */
 	@apply shadow-sm;
 	/* Theme: Border Width */
-	@apply theme-border-width-base;
+	@apply border-theme;
 	/* Theme: Rounded */
-	@apply theme-radius-base;
+	@apply rounded-theme;
 }
 
 .file-dropzone-input,
@@ -56,7 +56,7 @@ select {
 textarea,
 select {
 	/* Theme: Rounded */
-	@apply theme-radius-container;
+	@apply rounded-theme-container;
 }
 
 /* File */
@@ -69,7 +69,7 @@ select {
 [type='radio'] {
 	@apply border-surface-500 rounded text-accent-600 focus:ring-accent-500;
 	/* Theme: Rounded */
-	@apply theme-radius-base;
+	@apply rounded-theme;
 }
 
 /* Placeholder */

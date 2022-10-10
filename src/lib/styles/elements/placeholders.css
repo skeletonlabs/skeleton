@@ -3,7 +3,9 @@
 /* === Base === */
 
 .placeholder {
-	@apply bg-surface-400 dark:bg-surface-700 h-5 rounded-full;
+	@apply bg-surface-400 dark:bg-surface-700 h-5;
+	/* Theme: Rounded */
+	@apply rounded-theme;
 }
 
 /* === Shapes === */

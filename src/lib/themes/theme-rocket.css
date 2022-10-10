@@ -57,13 +57,15 @@
 	--color-surface-900: 60 69 83;
 
 	/* --- THEME --- */
+
+	/* Font Family */
 	--theme-font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 	/* Font Color */
 	--theme-font-color-base: var(--color-surface-900);
 	--theme-font-color-dark: var(--color-surface-50);
 	/* Border Radius */
-	--theme-radius-base: 0px;
-	--theme-radius-container: 0px;
-	/* Border/Ring Width */
-	--theme-border-width-base: 0px;
+	--theme-rounded-base: 0px;
+	--theme-rounded-container: 0px;
+	/* Border Width */
+	--theme-border-base: 0px;
 }

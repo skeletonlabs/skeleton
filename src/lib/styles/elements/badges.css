@@ -8,7 +8,7 @@
 	/* Padding */
 	@apply px-2 py-1;
 	/* Theme: Rounded */
-	@apply theme-radius-base;
+	@apply rounded-theme;
 }
 
 .badge-icon {

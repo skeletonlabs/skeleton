@@ -8,7 +8,7 @@
 	/* Ring */
 	@apply ring-[1px] ring-black/5 dark:ring-white/5 ring-inset;
 	/* Theme: Rounded */
-	@apply theme-radius-container;
+	@apply rounded-theme-container;
 }
 
 /* === Card Regions (children) === */

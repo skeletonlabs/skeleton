@@ -4,9 +4,9 @@
 
 body {
 	/* Theme: Font Family */
-	@apply theme-font-family;
+	@apply font-theme;
 	/* Theme: Font Color */
-	@apply theme-font-color;
+	@apply text-theme;
 }
 
 /* === Headings === */
@@ -33,7 +33,9 @@ h6 {
 /* === Elements === */
 
 p:not(.unstyled) {
-	@apply text-base text-black/80 dark:text-white/80;
+	@apply text-base;
+	/* Theme: Font Color */
+	@apply text-theme;
 }
 
 .link,
@@ -42,7 +44,9 @@ a:not(.unstyled):not(.btn-icon):not(.btn):not(.app-bar a):not(.logo-item):not(.c
 }
 
 blockquote:not(.unstyled) {
-	@apply text-base text-black/80 dark:text-white/80 border-l-4 border-l-accent-500 px-4 pl-4;
+	@apply text-base border-l-4 border-l-accent-500 px-4 pl-4;
+	/* Theme: Font Color */
+	@apply text-theme;
 }
 
 /* Keyboard */
@@ -54,13 +58,15 @@ kbd:not(.unstyled) {
 /* For use outside of Skeleton's CodeBlock component */
 
 pre:not(.unstyled):not(.code-block pre) {
-	@apply bg-surface-700 dark:bg-black/20 text-surface-50 p-4 whitespace-pre-wrap text-base overflow-x-auto;
+	@apply font-mono text-base bg-[#141517] text-white p-4 whitespace-pre-wrap overflow-x-auto;
 	/* Theme: Rounded */
-	@apply theme-radius-base;
+	@apply rounded-theme;
 }
 
 code:not(.unstyled):not(.code-block code) {
-	@apply bg-black/5 dark:bg-white/5 text-xs py-1 px-2;
+	@apply bg-surface-900/10 dark:bg-surface-50/10 text-xs py-1 px-2;
+	/* Theme: Font Family */
+	@apply font-theme;
 	/* Theme: Rounded */
-	@apply theme-radius-base;
+	@apply rounded-theme;
 }

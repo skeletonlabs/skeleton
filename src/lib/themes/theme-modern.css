@@ -57,13 +57,15 @@
 	--color-surface-900: 49 46 129; /* ⬅ #312e81 */
 
 	/* --- THEME --- */
-	--theme-font-family: system-ui;
+
+	/* Font Family */
+	--theme-font-family: Helvetica, system-ui;
 	/* Font Color */
 	--theme-font-color-base: var(--color-surface-900);
 	--theme-font-color-dark: var(--color-primary-200);
 	/* Border Radius */
-	--theme-radius-base: 9999px;
-	--theme-radius-container: 16px;
-	/* Border/Ring Width */
-	--theme-border-width-base: 4px;
+	--theme-rounded-base: 9999px;
+	--theme-rounded-container: 16px;
+	/* Border Width */
+	--theme-border-base: 3px;
 }

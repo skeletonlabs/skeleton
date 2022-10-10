@@ -3,7 +3,9 @@
 /* === Logo Cloud (Parent) === */
 
 .logo-cloud {
-	@apply grid overflow-hidden rounded-lg;
+	@apply grid overflow-hidden;
+	/* Theme: Rounded */
+	@apply rounded-theme-container;
 }
 
 /* === Logo Item (Child) === */
