@@ -1,5 +1,14 @@
 /* Stylesheet Add-On: typography.css */
 
+/* === Base === */
+
+body {
+	/* Theme: Font Family */
+	@apply theme-font-family;
+	/* Theme: Font Color */
+	@apply theme-font-color;
+}
+
 /* === Headings === */
 
 h1 {
@@ -45,9 +54,13 @@ kbd:not(.unstyled) {
 /* For use outside of Skeleton's CodeBlock component */
 
 pre:not(.unstyled):not(.code-block pre) {
-	@apply bg-surface-700 dark:bg-black/20 text-surface-50 p-4 whitespace-pre-wrap text-base overflow-x-auto rounded;
+	@apply bg-surface-700 dark:bg-black/20 text-surface-50 p-4 whitespace-pre-wrap text-base overflow-x-auto;
+	/* Theme: Rounded */
+	@apply theme-radius-base;
 }
 
 code:not(.unstyled):not(.code-block code) {
-	@apply bg-black/5 dark:bg-white/5 text-xs py-1 px-2 rounded;
+	@apply bg-black/5 dark:bg-white/5 text-xs py-1 px-2;
+	/* Theme: Rounded */
+	@apply theme-radius-base;
 }

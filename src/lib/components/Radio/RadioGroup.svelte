@@ -10,7 +10,7 @@
 	export let accent: string = 'bg-accent-500 !text-white';
 	export let color: string = 'text-white';
 	export let fill: string | undefined = undefined;
-	export let rounded: string = 'rounded';
+	export let rounded: string = 'theme-radius-base';
 	// A11y
 	export let label: string = 'radiogroup';
 
@@ -23,7 +23,7 @@
 	setContext('rounded', rounded);
 
 	// Base Classes
-	let cBaseGroup: string = `items-center p-1 rounded overflow-hidden space-x-1`;
+	let cBaseGroup: string = `items-center p-1 overflow-hidden space-x-1 theme-radius-base`;
 
 	// Reactive
 	$: classesGroup = `${cBaseGroup} ${display} ${background} ${rounded} ${$$props.class ?? ''}`;

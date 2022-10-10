@@ -2,11 +2,44 @@
 
 /*
 Tailwind directives should only be included ONCE per project.
-These directives should proceed all Skeleton add-on styles.
-Remove these from your global CSS file if you use this add-on.
+These directives should proceed all Skeleton Tailwind Element stylesheets.
+Remove these directives from your global CSS file if you use this add-on.
 */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 @tailwind variants;
+
+/* === Design Tokens === */
+
+@layer components {
+	/* Font Family */
+	.theme-font-family {
+		font-family: var(--theme-font-family);
+	}
+
+	/* Font Color */
+	.theme-font-color-base {
+		color: rgba(var(--theme-font-color-base));
+	}
+	.theme-font-color-dark {
+		color: rgba(var(--theme-font-color-dark));
+	}
+	.theme-font-color {
+		@apply theme-font-color-base dark:theme-font-color-dark;
+	}
+
+	/* Border/Ring Width */
+	.theme-border-width-base {
+		border-width: var(--theme-border-width-base);
+	}
+
+	/* Border Radius */
+	.theme-radius-base {
+		border-radius: var(--theme-radius-base);
+	}
+	.theme-radius-container {
+		border-radius: var(--theme-radius-container);
+	}
+}

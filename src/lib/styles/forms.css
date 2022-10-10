@@ -35,8 +35,28 @@ legend {
 [multiple],
 textarea,
 select {
-	@apply w-full text-black bg-surface-50 border-surface-300 rounded shadow-sm caret-accent-500 focus:border-accent-500 focus:ring-accent-500 hover:brightness-110;
-	@apply dark:text-white dark:bg-surface-600 dark:border-surface-500;
+	/* Base */
+	@apply w-full caret-accent-500 focus:ring-accent-500 hover:brightness-110;
+	/* Text */
+	@apply text-black dark:text-white;
+	/* Background */
+	@apply bg-surface-100 dark:bg-surface-600;
+	/* Border */
+	@apply border-surface-300 dark:border-surface-500 focus:border-accent-500;
+	/* Shadow */
+	@apply shadow-sm;
+	/* Theme: Border Width */
+	@apply theme-border-width-base;
+	/* Theme: Rounded */
+	@apply theme-radius-base;
+}
+
+.file-dropzone-input,
+[multiple],
+textarea,
+select {
+	/* Theme: Rounded */
+	@apply theme-radius-container;
 }
 
 /* File */
@@ -48,6 +68,22 @@ select {
 [type='checkbox'],
 [type='radio'] {
 	@apply border-surface-500 rounded text-accent-600 focus:ring-accent-500;
+	/* Theme: Rounded */
+	@apply theme-radius-base;
+}
+
+/* Placeholder */
+::-moz-placeholder,
+textarea::-moz-placeholder {
+	@apply text-surface-900/50 dark:text-surface-50/50;
+}
+:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+	@apply text-surface-900/50 dark:text-surface-50/50;
+}
+::placeholder,
+textarea::placeholder {
+	@apply text-surface-900/50 dark:text-surface-50/50;
 }
 
 /* === States === */

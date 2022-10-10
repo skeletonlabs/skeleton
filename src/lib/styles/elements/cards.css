@@ -7,8 +7,8 @@
 	@apply bg-surface-200 dark:bg-surface-800;
 	/* Ring */
 	@apply ring-[1px] ring-black/5 dark:ring-white/5 ring-inset;
-	/* rounded */
-	@apply rounded-lg;
+	/* Theme: Rounded */
+	@apply theme-radius-container;
 }
 
 /* === Card Regions (children) === */

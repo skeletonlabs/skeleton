@@ -55,4 +55,15 @@
 	--color-surface-700: 67 56 202; /* ⬅ #4338ca */
 	--color-surface-800: 55 48 163; /* ⬅ #3730a3 */
 	--color-surface-900: 49 46 129; /* ⬅ #312e81 */
+
+	/* --- THEME --- */
+	--theme-font-family: system-ui;
+	/* Font Color */
+	--theme-font-color-base: var(--color-surface-900);
+	--theme-font-color-dark: var(--color-primary-200);
+	/* Border Radius */
+	--theme-radius-base: 9999px;
+	--theme-radius-container: 16px;
+	/* Border/Ring Width */
+	--theme-border-width-base: 4px;
 }

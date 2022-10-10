@@ -3,7 +3,7 @@
 /* === Body Styles === */
 
 body {
-	@apply font-sans bg-surface-100 dark:bg-surface-900 text-black dark:text-white;
+	@apply bg-surface-100 dark:bg-surface-900;
 }
 
 /* === Focus === */

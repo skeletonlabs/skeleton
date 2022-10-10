@@ -20,6 +20,8 @@ button:disabled {
 	@apply hover:brightness-110;
 	/* Transitions */
 	@apply transition-all active:scale-90;
+	/* Theme: Rounded */
+	@apply theme-radius-base;
 }
 
 /* Button: Sizes */
@@ -90,7 +92,7 @@ button:disabled {
 
 /* Filled */
 .btn-filled {
-	@apply bg-neutral-900 text-neutral-50 dark:bg-neutral-50 dark:text-neutral-900;
+	@apply bg-surface-900 dark:bg-surface-50 text-surface-50 dark:text-surface-900;
 }
 .btn-filled-primary {
 	@apply bg-primary-500;
@@ -130,20 +132,20 @@ button:disabled {
 
 /* Ghost */
 .btn-ghost {
-	@apply btn-outline bg-neutral-900/10 dark:bg-neutral-50/10;
+	@apply bg-neutral-900/10 dark:bg-neutral-50/10 hover:bg-neutral-500/30 hover:dark:bg-neutral-500/30;
 }
 .btn-ghost-primary {
-	@apply btn-outline-primary bg-primary-500/10;
+	@apply bg-primary-500/10 hover:bg-primary-500/30;
 }
 .btn-ghost-accent {
-	@apply btn-outline-accent bg-accent-500/10;
+	@apply bg-accent-500/10 hover:bg-accent-500/30;
 }
 .btn-ghost-ternary {
-	@apply btn-outline-ternary bg-ternary-500/10;
+	@apply bg-ternary-500/10 hover:bg-ternary-500/30;
 }
 .btn-ghost-warning {
-	@apply btn-outline-warning bg-warning-500/10;
+	@apply bg-warning-500/10 hover:bg-warning-500/30;
 }
 .btn-ghost-surface {
-	@apply btn-outline-surface bg-surface-500/10;
+	@apply bg-surface-500/10 hover:bg-surface-500/30;
 }
