@@ -30,7 +30,7 @@
 	<section class="space-y-4">
 		<h2>Getting Started</h2>
 		<p>To begin, let's make a couple quick modifications to our app. This ensures our layout will display properly.</p>
-		<h3>Adjust App.html</h3>
+		<h3>Adjust index.html</h3>
 		<p>Open <code>/src/index.html</code> and add the following classes so our <em>app</em> div fills the canvas size.</p>
 		<CodeBlock language="html" code={`<div id="app" class="h-full overflow-hidden"></div>`.trim()} />
 		<p>Optionally you can enable Dark Mode by default by adding the <code>.dark</code> class to your <em>HTML</em> element at the top of the page.</p>
