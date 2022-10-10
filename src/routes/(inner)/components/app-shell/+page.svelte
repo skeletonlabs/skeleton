@@ -20,11 +20,11 @@
 			headings: ['Prop', 'Type', 'Default', 'Description'],
 			source: [
 				['<code>slotHeader</code>', 'string', '-', 'Provide arbitrary classes to the header slot element.'],
-				['<code>slotSidebarLeft</code>', 'string', 'w-auto', 'Provide arbitrary classes to the header left sidebar element.'],
-				['<code>slotSidebarRight</code>', 'string', 'w-auto', 'Provide arbitrary classes to the header right sidebar element.'],
-				['<code>slotPageHeader</code>', 'string', '-', 'Provide arbitrary classes to the header page header element.'],
-				['<code>slotPageContent</code>', 'string', '-', 'Provide arbitrary classes to the header page content element.'],
-				['<code>slotPageFooter</code>', 'string', '-', 'Provide arbitrary classes to the header page footer element.'],
+				['<code>slotSidebarLeft</code>', 'string', 'w-auto', 'Provide arbitrary classes to the left sidebar element.'],
+				['<code>slotSidebarRight</code>', 'string', 'w-auto', 'Provide arbitrary classes to the right sidebar element.'],
+				['<code>slotPageHeader</code>', 'string', '-', 'Provide arbitrary classes to the page header element.'],
+				['<code>slotPageContent</code>', 'string', '-', 'Provide arbitrary classes to the page content element.'],
+				['<code>slotPageFooter</code>', 'string', '-', 'Provide arbitrary classes to the page footer element.'],
 				['<code>slotFooter</code>', 'string', '-', 'Provide arbitrary classes to the footer element.']
 			]
 		}
