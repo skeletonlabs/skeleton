@@ -36,6 +36,24 @@
 		@apply bg-surface-400/70 dark:bg-surface-900/70;
 	}
 
+	/* Levels: Surface (darkest -> lightest) */
+	/* https://user-images.githubusercontent.com/1509726/195171203-423e5b84-8763-40f1-b3ea-4cb2b8e38108.png */
+	.bg-surface-50-900-token {
+		@apply bg-surface-50 dark:bg-surface-900;
+	}
+	.bg-surface-100-800-token {
+		@apply bg-surface-100 dark:bg-surface-800;
+	}
+	.bg-surface-200-700-token {
+		@apply bg-surface-200 dark:bg-surface-700;
+	}
+	.bg-surface-300-600-token {
+		@apply bg-surface-300 dark:bg-surface-600;
+	}
+	.bg-surface-400-500-token {
+		@apply bg-surface-400 dark:bg-surface-500;
+	}
+
 	/* === Border Width === */
 
 	.border-token {

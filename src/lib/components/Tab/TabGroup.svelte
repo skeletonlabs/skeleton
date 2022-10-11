@@ -26,7 +26,7 @@
 	setContext('rounded', rounded);
 
 	// Classes
-	const cBase: string = 'border-surface-500/50 flex hide-scrollbar overflow-x-auto';
+	const cBase: string = 'border-surface-400/50 dark:border-surface-500/50 flex hide-scrollbar overflow-x-auto';
 
 	// Handle Home/End Input
 	let elemTabGroup: HTMLElement;

@@ -19,7 +19,7 @@
 	// Classes
 	const cBase: string = 'relative';
 	const cMessage: string = 'absolute top-0 left-0 right-0 bottom-0 z-[1] max-w-[480px] mx-auto flex justify-center items-center !pointer-events-none';
-	const cInput: string = 'border-2 border-dashed cursor-pointer';
+	const cInput: string = '!border-2 border-dashed cursor-pointer';
 
 	// Local
 	let elemIcon: HTMLElement;

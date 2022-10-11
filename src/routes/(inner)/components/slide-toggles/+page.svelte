@@ -20,6 +20,8 @@
 				['<code>checked</code>', 'boolean', 'false', 'true | false', 'The checked state of the input element.'],
 				['<code>size</code>', 'string', 'md', 'sm | md | lg', 'Sets the size of the component.'],
 				['<code>accent</code>', 'string', 'bg-accent-500', 'class', 'Provide classes to set the checked state color.'],
+				['<code>borderWidth</code>', 'string', 'border-token', 'class', 'Provide classes to set the border width styles.'],
+				['<code>borderColor</code>', 'string', 'border-surface-300 dark:border-surface-600', 'class', 'Provide classes to set the border color styles.'],
 				['<code>rounded</code>', 'string', 'rounded-full', 'class', 'Provide classes to set border radius styles.']
 			]
 		}

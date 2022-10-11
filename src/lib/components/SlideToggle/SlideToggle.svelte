@@ -9,7 +9,7 @@
 	export let size: string = 'md';
 	export let accent: string = 'bg-accent-500';
 	export let borderWidth: string = 'border-token';
-	export let borderColor: string = 'border-surface-400 dark:border-surface-600';
+	export let borderColor: string = 'border-surface-300 dark:border-surface-600';
 	export let rounded: string = 'rounded-full';
 	// A11y
 	export let label: string | undefined = undefined;
@@ -40,7 +40,7 @@
 	}
 
 	// Interactive
-	$: cTrackAccent = checked ? accent : 'bg-surface-400 dark:bg-surface-700 cursor-pointer';
+	$: cTrackAccent = checked ? accent : 'bg-surface-200-700-token cursor-pointer';
 	$: cThumbBackground = checked ? 'bg-white' : 'bg-white/50';
 	$: cThumbPos = checked ? 'translate-x-full' : '';
 

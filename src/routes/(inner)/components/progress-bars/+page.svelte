@@ -12,7 +12,7 @@
 	// Stores
 	const storeDeterminate: Writable<boolean> = writable(true);
 	const storeHeight: Writable<string> = writable('h-2');
-	const defaultTrackBg: string = 'bg-surface-300 dark:bg-surface-700';
+	const defaultTrackBg: string = 'bg-surface-200-700-token';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -32,7 +32,7 @@
 				['<code>height</code>', 'string', 'h-2', 'Provide classes to set track height.'],
 				['<code>rounded</code>', 'string', 'rounded-token', 'Provide classes to set rounded styles.'],
 				['<code>meter</code>', 'string', 'bg-accent-500', 'Provide arbitrary classes to style the meter element.'],
-				['<code>track</code>', 'string', 'bg-surface-300 dark:bg-surface-700', 'Provide arbitrary classes to style the track element.']
+				['<code>track</code>', 'string', 'bg-surface-200-700-token', 'Provide arbitrary classes to style the track element.']
 			]
 		}
 	];

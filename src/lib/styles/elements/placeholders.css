@@ -3,7 +3,7 @@
 /* === Base === */
 
 .placeholder {
-	@apply bg-surface-400 dark:bg-surface-700 h-5;
+	@apply bg-surface-300-600-token h-5;
 	/* Theme: Rounded */
 	@apply rounded-token;
 }
@@ -11,5 +11,5 @@
 /* === Shapes === */
 
 .placeholder-circle {
-	@apply bg-surface-400 dark:bg-surface-700 aspect-square rounded-full;
+	@apply bg-surface-300-600-token aspect-square rounded-full;
 }

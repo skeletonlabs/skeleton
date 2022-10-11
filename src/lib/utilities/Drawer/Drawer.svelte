@@ -11,7 +11,7 @@
 	export let bgBackdrop: string = 'bg-backdrop-token';
 	export let blur: string = 'backdrop-blur-xs';
 	// Props (drawer)
-	export let bgDrawer: string = 'bg-surface-100 dark:bg-surface-800';
+	export let bgDrawer: string = 'bg-surface-100-800-token';
 	export let border: string | undefined = undefined;
 	export let rounded: string | undefined = undefined;
 	export let width: string | undefined = undefined;

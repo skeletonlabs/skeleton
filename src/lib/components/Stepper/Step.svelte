@@ -11,9 +11,9 @@
 	// Base Classes
 	const cBase: string = 'grid grid-cols-[32px_1fr] gap-4';
 	const cLine: string = 'w-1 h-full';
-	const cLineBackground = 'bg-surface-300 dark:bg-surface-700';
+	const cLineBackground = 'bg-surface-300-600-token';
 	const cNumeral: string = 'font-bold text-base w-8 h-8 rounded-full flex justify-center items-center';
-	const cNumralBackground: string = 'bg-surface-300 dark:bg-surface-700';
+	const cNumralBackground: string = 'bg-surface-300-600-token';
 	const cDrawer: string = 'ml-1 space-y-4';
 	const cNav: string = 'flex items-center space-x-2';
 

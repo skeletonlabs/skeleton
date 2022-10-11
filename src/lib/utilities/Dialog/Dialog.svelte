@@ -7,7 +7,7 @@
 	// Props
 	export let backdrop: string = 'bg-backdrop-token';
 	export let blur: string = 'backdrop-blur-xs';
-	export let background: string = 'bg-surface-50 dark:bg-surface-700';
+	export let background: string = 'bg-surface-200-700-token';
 	export let width: string = 'max-w-[640px]';
 	export let duration: number = 100;
 

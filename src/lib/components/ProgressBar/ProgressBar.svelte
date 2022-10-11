@@ -7,7 +7,7 @@
 	export let rounded: string = 'rounded-token';
 	// Props (elements)
 	export let meter: string = 'bg-accent-500';
-	export let track: string = 'bg-surface-300 dark:bg-surface-700';
+	export let track: string = 'bg-surface-200-700-token';
 
 	// Base Classes
 	const cBaseWrapper: string = 'w-full';

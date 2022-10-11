@@ -113,7 +113,7 @@
 		<!-- Information -->
 		<div class="doc-shell-info page-container !pb-0 lg:!space-y-10">
 			<!-- Feature -->
-			<span class="badge bg-surface-500/10">
+			<span class="badge badge-filled-surface">
 				<SvgIcon width="w-4" height="h-4" name={setFeatureIcon()} />
 				<span>{@html pageSettings.feature}</span>
 			</span>

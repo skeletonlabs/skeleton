@@ -3,7 +3,12 @@
 /* === Body Styles === */
 
 body {
-	@apply bg-surface-100 dark:bg-surface-900;
+	@apply bg-surface-50-900-token;
+}
+
+/* === Selection === */
+::selection {
+	@apply bg-primary-500/30;
 }
 
 /* === Focus === */
@@ -22,10 +27,10 @@ html {
 	@apply w-2;
 }
 ::-webkit-scrollbar-track {
-	@apply bg-white/20 dark:bg-black/20;
+	@apply bg-surface-100-800-token px-[1px];
 }
 ::-webkit-scrollbar-thumb {
-	@apply rounded-full bg-surface-300 dark:bg-surface-700;
+	@apply rounded-token bg-surface-300-600-token;
 }
 
 /* Hide Scrollbars */

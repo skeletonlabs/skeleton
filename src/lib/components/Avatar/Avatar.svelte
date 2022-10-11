@@ -1,6 +1,6 @@
 <script lang="ts">
 	// Props
-	export let background: string = 'bg-surface-500';
+	export let background: string = 'bg-surface-400-500-token';
 	export let width: string = 'w-12';
 	export let border: string = '';
 	export let rounded: string = 'rounded-full';

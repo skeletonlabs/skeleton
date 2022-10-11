@@ -5,9 +5,9 @@
 	// Props
 	export let selected: Writable<any>;
 	export let display: string = 'inline-flex'; // inline-flex | flex | block
-	export let background: string = 'bg-surface-300 dark:bg-surface-700';
+	export let background: string = 'bg-surface-200-700-token';
 	export let borderWidth: string = 'border-token';
-	export let borderColor: string = 'border-surface-400 dark:border-surface-600';
+	export let borderColor: string = 'border-surface-300 dark:border-surface-600';
 	export let hover: string = 'bg-accent-hover-token';
 	export let accent: string = 'bg-accent-active-token';
 	export let color: string = 'text-surface-50';

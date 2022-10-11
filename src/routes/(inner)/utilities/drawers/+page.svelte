@@ -32,7 +32,7 @@
 			description: 'Apply these props to the Drawer component.',
 			headings: ['Prop', 'Type', 'Default', 'Description'],
 			source: [
-				['<code>bgDrawer</code>', 'string', 'bg-surface-100 dark:bg-surface-800', 'Provide classes to set the drawer background color.'],
+				['<code>bgDrawer</code>', 'string', 'bg-surface-100-800-token', 'Provide classes to set the drawer background color.'],
 				['<code>border</code>', 'string', '-', 'Provide classes to set border color.'],
 				['<code>rounded</code>', 'string', '-', 'Provide classes to set border radius.'],
 				['<code>width</code>', 'string', '(based on position)', 'Provide classes to override the width.'],

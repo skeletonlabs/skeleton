@@ -35,7 +35,7 @@
 		{
 			headings: ['Prop', 'Type', 'Default', 'Description'],
 			source: [
-				['<code>background</code>', 'string', 'bg-surface-500', 'Provide classes to set background styles.'],
+				['<code>background</code>', 'string', 'bg-surface-400-500-token', 'Provide classes to set background styles.'],
 				['<code>width</code>', 'string', 'w-12', 'Provide classes to set avatar width.'],
 				['<code>border</code>', 'string', '-', 'Provide classes to set border styles.'],
 				['<code>rounded</code>', 'string', 'rounded-full', 'Provide classes to set rounded style.'],

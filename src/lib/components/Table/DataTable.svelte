@@ -13,8 +13,8 @@
 	export let interactive: boolean = false;
 	export let async: boolean = false;
 	// Props: Design
-	export let header: string = 'bg-surface-50 dark:bg-surface-700';
-	export let body: string = 'bg-surface-200 dark:bg-surface-800';
+	export let header: string = 'bg-surface-200-700-token';
+	export let body: string = 'bg-surface-100-800-token';
 	export let text: string = 'text-sm';
 	export let color: string | undefined = '';
 	export let hover: string = 'bg-hover-token';

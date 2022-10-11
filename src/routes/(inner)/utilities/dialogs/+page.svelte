@@ -26,7 +26,7 @@
 			source: [
 				['<code>backdrop</code>', 'string', 'bg-backdrop-token', 'Provide classes to set the backdrop background color.'],
 				['<code>blur</code>', 'string', 'backdrop-blur-xs', 'Provide classes to add a backdrop blur.'],
-				['<code>background</code>', 'string', 'bg-surface-50 dark:bg-surface-700', 'Provide classes to set the modal card background styles.'],
+				['<code>background</code>', 'string', 'bg-surface-200-700-token', 'Provide classes to set the modal card background styles.'],
 				['<code>width</code>', 'string', 'max-w-[640px]', 'Provide classes to set max modal width.'],
 				['<code>duration</code>', 'number', '100', 'The animation in/out durations. Set to zero (0) for none.']
 			]

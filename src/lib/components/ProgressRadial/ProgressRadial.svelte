@@ -6,7 +6,7 @@
 	export let value: number | undefined = undefined; // %
 	export let stroke: number = 20; // px
 	export let meter: string = 'stroke-accent-500';
-	export let track: string = 'stroke-surface-300 dark:stroke-surface-700';
+	export let track: string = 'stroke-surface-200 dark:stroke-surface-700';
 	export let fill: string = 'fill-token';
 	export let font: number = 56; // px
 	// Ally

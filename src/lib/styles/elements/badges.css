@@ -22,14 +22,6 @@
 
 /* === Variants === */
 
-.badge-ghost {
-	@apply bg-black/10 text-black dark:bg-white/10 dark:text-white;
-}
-
-.badge-ghost-primary {
-	@apply bg-primary-500/10 text-primary-600 dark:text-primary-400;
-}
-
-.badge-ghost-accent {
-	@apply bg-accent-500/10 text-accent-600 dark:text-accent-400;
+.badge-filled-surface {
+	@apply bg-surface-300-600-token;
 }

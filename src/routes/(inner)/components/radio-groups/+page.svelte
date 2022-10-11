@@ -28,7 +28,7 @@
 			source: [
 				['<code>selected</code>', 'Writable', 'any', '&check;', 'Provide a Svelte writable to store the selected state value.'],
 				['<code>display</code>', 'string', 'inline-flex', '-', 'Provide classes to set the display style.'],
-				['<code>background</code>', 'string', 'bg-surface-300 dark:bg-surface-700', '-', 'Provide classes to set the base background color.'],
+				['<code>background</code>', 'string', 'bg-surface-200-700-token', '-', 'Provide classes to set the base background color.'],
 				['<code>hover</code>', 'string', 'bg-accent-hover-token', '-', 'Provide classes to set the hover style.'],
 				['<code>accent</code>', 'string', 'bg-accent-active-token', '-', 'Provide classes to set the highlighted accent color.'],
 				['<code>color</code>', 'string', '-', 'text-surface-50', 'Provide classes to set the highlighted text color.'],

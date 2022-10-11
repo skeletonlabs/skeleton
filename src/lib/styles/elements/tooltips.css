@@ -7,7 +7,7 @@
 .tooltip {
 	@apply text-center origin-center absolute z-20 opacity-0 transition-opacity duration-150;
 	/* Base Design */
-	@apply bg-primary-500 text-white w-48 p-2 shadow-xl;
+	@apply bg-primary-500 w-48 p-2 shadow-xl;
 	/* Theme: Rounded */
 	@apply rounded-container-token;
 }

@@ -4,7 +4,7 @@
 
 .card {
 	/* background */
-	@apply bg-surface-200 dark:bg-surface-800;
+	@apply bg-surface-100-800-token;
 	/* Ring */
 	@apply ring-[1px] ring-black/5 dark:ring-white/5 ring-inset;
 	/* Theme: Rounded */
