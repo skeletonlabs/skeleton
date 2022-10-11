@@ -18,7 +18,7 @@
 	// Base Classes
 	const cBase: string = 'flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4';
 	const cLabel: string = 'w-full md:w-auto';
-	const cPageText: string = 'opacity-60 whitespace-nowrap';
+	const cPageText: string = 'whitespace-nowrap';
 
 	// Functionality
 	function onChangeLength(): void {

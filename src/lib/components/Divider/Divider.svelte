@@ -3,7 +3,7 @@
 	export let vertical: boolean = false;
 	export let borderWidth: string = 'border-t';
 	export let borderStyle: string = 'border-solid';
-	export let borderColor: string = 'border-surface-300 dark:border-surface-700';
+	export let borderColor: string = 'border-surface-300-600-token';
 	export let margin: string = 'm-0';
 	export let opacity: string = 'opacity-full';
 

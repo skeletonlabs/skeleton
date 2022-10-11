@@ -36,7 +36,7 @@
 		@apply bg-surface-400/70 dark:bg-surface-900/70;
 	}
 
-	/* Levels: Surface (darkest -> lightest) */
+	/* Background: Surface (darkest -> lightest) */
 	/* https://user-images.githubusercontent.com/1509726/195171203-423e5b84-8763-40f1-b3ea-4cb2b8e38108.png */
 	.bg-surface-50-900-token {
 		@apply bg-surface-50 dark:bg-surface-900;
@@ -58,6 +58,26 @@
 
 	.border-token {
 		border-width: var(--theme-border-base);
+	}
+
+	/* === Border Colors === */
+
+	/* Border: Surface (darkest -> lightest) */
+	/* https://user-images.githubusercontent.com/1509726/195171203-423e5b84-8763-40f1-b3ea-4cb2b8e38108.png */
+	.border-surface-50-900-token {
+		@apply border-surface-50 dark:border-surface-900;
+	}
+	.border-surface-100-800-token {
+		@apply border-surface-100 dark:border-surface-800;
+	}
+	.border-surface-200-700-token {
+		@apply border-surface-200 dark:border-surface-700;
+	}
+	.border-surface-300-600-token {
+		@apply border-surface-300 dark:border-surface-600;
+	}
+	.border-surface-400-500-token {
+		@apply border-surface-400 dark:border-surface-500;
 	}
 
 	/* === Border Radius === */
@@ -115,6 +135,26 @@
 	}
 	.text-token {
 		@apply text-base-token dark:text-dark-token;
+	}
+
+	/* === Ring Colors === */
+
+	/* Ring: Surface (darkest -> lightest) */
+	/* https://user-images.githubusercontent.com/1509726/195171203-423e5b84-8763-40f1-b3ea-4cb2b8e38108.png */
+	.ring-surface-50-900-token {
+		@apply ring-surface-50 dark:ring-surface-900;
+	}
+	.ring-surface-100-800-token {
+		@apply ring-surface-100 dark:ring-surface-800;
+	}
+	.ring-surface-200-700-token {
+		@apply ring-surface-200 dark:ring-surface-700;
+	}
+	.ring-surface-300-600-token {
+		@apply ring-surface-300 dark:ring-surface-600;
+	}
+	.ring-surface-400-500-token {
+		@apply ring-surface-400 dark:ring-surface-500;
 	}
 
 	/* === SVG Fill === */

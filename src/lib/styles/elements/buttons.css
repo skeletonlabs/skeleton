@@ -84,7 +84,7 @@ button:disabled {
 	@apply ring-2 ring-warning-500 ring-inset;
 }
 .btn-outline-surface {
-	@apply ring-2 ring-surface-500 ring-inset;
+	@apply ring-2 ring-surface-400-500-token ring-inset;
 }
 
 /* === Variants === */
@@ -107,7 +107,7 @@ button:disabled {
 	@apply bg-warning-500;
 }
 .btn-filled-surface {
-	@apply bg-surface-500;
+	@apply bg-surface-400-500-token;
 }
 
 /* Ringed */
@@ -151,7 +151,7 @@ button:disabled {
 	@apply btn-outline-warning bg-warning-500/20 hover:bg-warning-500/30;
 }
 .btn-ghost-surface {
-	@apply btn-outline-surface bg-surface-500/20 hover:bg-surface-500/30;
+	@apply btn-outline-surface bg-surface-400/20 hover:bg-surface-500/30;
 }
 
 /* File Input Button */

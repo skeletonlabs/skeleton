@@ -9,7 +9,7 @@
 	export let size: string = 'md';
 	export let accent: string = 'bg-accent-500';
 	export let borderWidth: string = 'border-token';
-	export let borderColor: string = 'border-surface-300 dark:border-surface-600';
+	export let borderColor: string = 'border-surface-300-600-token';
 	export let rounded: string = 'rounded-full';
 	// A11y
 	export let label: string | undefined = undefined;

@@ -45,5 +45,5 @@ html {
 /* === Horizontal Rules === */
 
 hr:not(.divider) {
-	@apply block border-t border-solid border-surface-300 dark:border-surface-700;
+	@apply block border-t border-solid border-surface-300-600-token;
 }

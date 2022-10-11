@@ -80,7 +80,7 @@
 
 	// Local
 	const imgPlaceholder: string = 'https://i.pravatar.cc/?img=5';
-	const borderStyles: string = 'border-4 border-black dark:border-white hover:!border-primary-500 cursor-pointer';
+	const borderStyles: string = 'border-4 border-surface-300-600-token hover:!border-primary-500 cursor-pointer';
 
 	// Store
 	const storeWidth: Writable<string | undefined> = writable('w-48');

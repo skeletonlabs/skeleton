@@ -29,7 +29,7 @@
 
 	// Base Classes
 	const cBase: string = 'space-y-4';
-	const cBaseWrapper: string = 'overflow-x-auto w-full rounded-container-token border-[1px] border-surface-500/10 border-inset';
+	const cBaseWrapper: string = 'overflow-x-auto w-full rounded-container-token border-[1px] border-neutral-900/5 dark:border-neutral-50/5 border-inset';
 	const cBaseTable: string = 'w-full overflow-hidden table-auto';
 	const cBaseEmpty: string = 'p-4 text-center';
 	// ---
@@ -38,7 +38,7 @@
 	const cBaseHeadCol: string = `p-3 py-4 whitespace-nowrap cursor-pointer`;
 	// ---
 	const cBaseBody: string = '';
-	const cBaseBodyRow: string = 'border-t border-surface-500/10 even:bg-black/[4%]';
+	const cBaseBodyRow: string = 'border-t border-neutral-900/5 dark:border-neutral-50/5 even:bg-black/[2%]';
 	const cBaseBodyCol: string = 'p-3 font-medium whitespace-nowrap md:whitespace-normal';
 
 	function headKeyByIndex(i: number): string {

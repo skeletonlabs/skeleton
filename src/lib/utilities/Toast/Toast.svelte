@@ -4,7 +4,7 @@
 	import { toastStore } from './stores';
 
 	// Props
-	export let background: string = 'bg-primary-500';
+	export let background: string = 'bg-accent-500';
 	export let position: string = 'b'; // bottom
 	export let button: string = 'btn-ghost';
 	export let duration: number = 250;
