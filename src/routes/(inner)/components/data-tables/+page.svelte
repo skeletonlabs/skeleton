@@ -39,8 +39,8 @@
 			label: 'Styling',
 			headings: ['Prop', 'Type', 'Default', 'Description'],
 			source: [
-				['<code>header</code>', 'string', 'bg-surface-50 dark:bg-surface-700', 'Provide classes to set the table header background color.'],
-				['<code>body</code>', 'string', 'bg-surface-200 dark:bg-surface-800', 'Provide classes to set the table body background color.'],
+				['<code>header</code>', 'string', 'bg-surface-200-700-token', 'Provide classes to set the table header background color.'],
+				['<code>body</code>', 'string', 'bg-surface-100-800-token', 'Provide classes to set the table body background color.'],
 				['<code>text</code>', 'string', 'text-sm', 'Provide classes to set the table text size.'],
 				['<code>color</code>', 'string', '-', 'Provide classes to set the table text color.'],
 				['<code>hover</code>', 'string', 'bg-hover-token', 'Provide classes to set the hover background color.']
