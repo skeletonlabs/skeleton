@@ -50,7 +50,7 @@
 		<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 			<h2 class="sr-only">Features</h2>
 			<div class="card card-body space-y-4">
-				<div class="bg-orange-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
+				<div class="bg-orange-500 w-14 aspect-square flex justify-center items-center rounded-token shadow">
 					<SvgIcon name="svelte" fill="fill-white" width="w-10" height="h-10" />
 				</div>
 				<h4>Svelte Integration</h4>
@@ -60,21 +60,21 @@
 				</p>
 			</div>
 			<div class="card card-body space-y-4">
-				<div class="bg-sky-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
+				<div class="bg-sky-500 w-14 aspect-square flex justify-center items-center rounded-token shadow">
 					<SvgIcon name="tailwind" fill="fill-white" width="w-10" height="h-10" />
 				</div>
 				<h4>Tailwind CSS Integration</h4>
 				<p>Integrate with your design system using Tailwind utility classes to style components.</p>
 			</div>
 			<div class="card card-body space-y-4">
-				<div class="bg-primary-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
+				<div class="bg-primary-500 w-14 aspect-square flex justify-center items-center rounded-token shadow">
 					<SvgIcon name="swatchbook" fill="fill-white" width="w-8" height="h-8" />
 				</div>
 				<h4>Dynamic Themes</h4>
 				<p>Choose from a library of hand crafted preset themes or quickly generate your own in seconds.</p>
 			</div>
 			<div class="card card-body space-y-4">
-				<div class="bg-accent-500 w-14 aspect-square flex justify-center items-center rounded-lg shadow">
+				<div class="bg-accent-500 w-14 aspect-square flex justify-center items-center rounded-token shadow">
 					<SvgIcon name="screwdriver" fill="fill-white" width="w-8" height="h-8" />
 				</div>
 				<h4>Powerful Utilities</h4>

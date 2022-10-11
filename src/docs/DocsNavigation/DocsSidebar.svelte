@@ -66,7 +66,7 @@
 							<a {href} value={href} class={classesActive(href)} data-sveltekit-prefetch>
 								{#if icon}
 									<span>
-										<div class="bg-accent-500 w-7 h-7 flex justify-center items-center rounded shadow">
+										<div class="bg-accent-500 w-7 h-7 flex justify-center items-center rounded-token shadow">
 											<SvgIcon name={icon} width="w-4" fill="fill-white" height="h-10" />
 										</div>
 									</span>

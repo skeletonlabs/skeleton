@@ -71,11 +71,10 @@
 			<p>Tap any theme below to automatically copy the import statement to your clipboard.</p>
 			<nav class="grid grid-cols-1 md:grid-cols-3 gap-4">
 				{#each presets as preset}
+					<!-- prettier-ignore -->
 					<div
-						on:click={() => {
-							copyThemeToClipboard(preset.name);
-						}}
-						class="theme-set"
+						on:click={() => { copyThemeToClipboard(preset.name); }}
+						class="card card-body flex justify-between items-center hover:!ring-white/20 cursor-pointer"
 						style:background={preset.surface}
 						target="_blank"
 					>
@@ -119,9 +118,9 @@
 
 	<hr />
 
-	<!-- Usage -->
+	<!-- Theme Colors -->
 	<section class="space-y-4">
-		<h3>Usage</h3>
+		<h3>Theme Colors</h3>
 		<p>
 			Theme colors are not limited to Skeleton components. You may utilize them anywhere within your app following Tailwind's standard conventions. Feel free to mix or extend them with <a
 				href="https://tailwindcss.com/docs/customizing-colors"
@@ -165,9 +164,3 @@
 		<a class="btn btn-filled-accent" href="/guides/frameworks">Framework Guides</a>
 	</div>
 </div>
-
-<style lang="postcss">
-	.theme-set {
-		@apply p-4 !no-underline !text-white flex justify-between items-center border border-white/10 rounded shadow cursor-pointer hover:border-white/50;
-	}
-</style>
