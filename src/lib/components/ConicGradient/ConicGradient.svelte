@@ -7,7 +7,7 @@
 	export let legend: boolean = false;
 	export let spin: boolean = false;
 	export let width: string = 'w-full';
-	export let hover: string = 'bg-hover-theme';
+	export let hover: string = 'bg-hover-token';
 
 	// Local
 	let cone: string;

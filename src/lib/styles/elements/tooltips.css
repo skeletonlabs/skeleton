@@ -9,7 +9,7 @@
 	/* Base Design */
 	@apply bg-primary-500 text-white w-48 p-2 shadow-xl;
 	/* Theme: Rounded */
-	@apply rounded-container-theme;
+	@apply rounded-container-token;
 }
 
 /* === Positions === */

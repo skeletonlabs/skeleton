@@ -46,17 +46,16 @@ select {
 	/* Shadow */
 	@apply shadow-sm;
 	/* Theme: Border Width */
-	@apply border-theme;
+	@apply border-token;
 	/* Theme: Rounded */
-	@apply rounded-theme;
+	@apply rounded-token;
 }
 
 .file-dropzone-input,
 [multiple],
-textarea,
-select {
+textarea {
 	/* Theme: Rounded */
-	@apply rounded-container-theme;
+	@apply rounded-container-token;
 }
 
 /* File */
@@ -69,7 +68,7 @@ select {
 [type='radio'] {
 	@apply border-surface-500 rounded text-accent-600 focus:ring-accent-500 w-5 h-5;
 	/* Theme: Rounded */
-	@apply rounded-theme;
+	@apply rounded-token;
 }
 
 /* Placeholder */
@@ -147,5 +146,5 @@ textarea::placeholder {
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color */
 
 [type='range']:not(.range-input) {
-	@apply w-full accent-theme;
+	@apply w-full accent-token;
 }

@@ -30,7 +30,7 @@
 				['<code>value</code>', 'number', '-', 'Specifies the amount completed. Indeterminate when <code>undefined</code>.'],
 				['<code>max</code>', 'number', '100', 'Maximum amount the bar represents.'],
 				['<code>height</code>', 'string', 'h-2', 'Provide classes to set track height.'],
-				['<code>rounded</code>', 'string', 'rounded-theme', 'Provide classes to set rounded styles.'],
+				['<code>rounded</code>', 'string', 'rounded-token', 'Provide classes to set rounded styles.'],
 				['<code>meter</code>', 'string', 'bg-accent-500', 'Provide arbitrary classes to style the meter element.'],
 				['<code>track</code>', 'string', 'bg-surface-300 dark:bg-surface-700', 'Provide arbitrary classes to style the track element.']
 			]
@@ -54,7 +54,7 @@
 		value: 50,
 		max: 100,
 		height: $storeHeight,
-		rounded: 'rounded-theme',
+		rounded: 'rounded-token',
 		meter: 'bg-accent-500',
 		track: defaultTrackBg
 	};
@@ -111,7 +111,7 @@
 				<label>
 					<span>Rounded</span>
 					<select name="rounded" id="rounded" bind:value={props.rounded}>
-						<option value="rounded-theme">rounded-theme</option>
+						<option value="rounded-token">rounded-token</option>
 						<option value="rounded">rounded</option>
 						<option value="rounded-full">rounded-full</option>
 					</select>

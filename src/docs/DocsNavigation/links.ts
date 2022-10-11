@@ -7,8 +7,8 @@ export const menuNavLinks: any = [
 		list: [
 			{ href: '/guides/install', label: 'Install', icon: 'circle-check' },
 			{ href: '/guides/tailwind', label: 'Tailwind CSS', icon: 'tailwind' },
-			{ href: '/guides/themes', label: 'Themes', icon: 'swatchbook' },
 			{ href: '/guides/styling', label: 'Styling', icon: 'pen-ruler' },
+			{ href: '/guides/themes', label: 'Themes', icon: 'swatchbook' },
 			{ href: '/guides/frameworks', label: 'Frameworks', icon: 'cubes' }
 		]
 	},

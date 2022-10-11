@@ -24,7 +24,7 @@
 				['<code>legend</code>', 'boolean', 'false', '-', 'Allows for automatic generation of a legend below the conic gradient.'],
 				['<code>spin</code>', 'boolean', 'false', '-', 'When enabled, the conic gradient will spin.'],
 				['<code>width</code>', 'string', 'w-full', '-', 'Provided classes to style the conic gradient width.'],
-				['<code>hover</code>', 'string', 'bg-hover-theme', '-', 'Provided classes to style the legend hover effect.']
+				['<code>hover</code>', 'string', 'bg-hover-token', '-', 'Provided classes to style the legend hover effect.']
 			]
 		}
 	];

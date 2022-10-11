@@ -29,11 +29,11 @@
 				['<code>selected</code>', 'Writable', 'any', '&check;', 'Provide a Svelte writable to store the selected state value.'],
 				['<code>display</code>', 'string', 'inline-flex', '-', 'Provide classes to set the display style.'],
 				['<code>background</code>', 'string', 'bg-surface-300 dark:bg-surface-700', '-', 'Provide classes to set the base background color.'],
-				['<code>hover</code>', 'string', 'bg-accent-hover-theme', '-', 'Provide classes to set the hover style.'],
-				['<code>accent</code>', 'string', 'bg-accent-active-theme', '-', 'Provide classes to set the highlighted accent color.'],
+				['<code>hover</code>', 'string', 'bg-accent-hover-token', '-', 'Provide classes to set the hover style.'],
+				['<code>accent</code>', 'string', 'bg-accent-active-token', '-', 'Provide classes to set the highlighted accent color.'],
 				['<code>color</code>', 'string', '-', 'text-surface-50', 'Provide classes to set the highlighted text color.'],
 				['<code>fill</code>', 'string', '-', '-', 'Provide classes to set the highlighted SVG fill color.'],
-				['<code>rounded</code>', 'string', 'rounded-theme', '-', 'Provide classes to set the border radius.']
+				['<code>rounded</code>', 'string', 'rounded-token', '-', 'Provide classes to set the border radius.']
 			]
 		},
 		{
@@ -110,7 +110,7 @@
 			</div>
 			<!-- Text -->
 			<div class="card card-body space-y-4 text-center">
-				<RadioGroup selected={storeLayout} accent="bg-active-theme" hover="bg-hover-theme">
+				<RadioGroup selected={storeLayout} accent="bg-active-token" hover="bg-hover-token">
 					<RadioItem value="horz">Horizontal</RadioItem>
 					<RadioItem value="vert">Vertical</RadioItem>
 				</RadioGroup>

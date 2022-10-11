@@ -45,7 +45,7 @@
 			description: 'Apply these props to the Drawer component.',
 			headings: ['Prop', 'Type', 'Default', 'Description'],
 			source: [
-				['<code>bgBackdrop</code>', 'string', 'bg-backdrop-theme', 'Provide classes to set the backdrop background color'],
+				['<code>bgBackdrop</code>', 'string', 'bg-backdrop-token', 'Provide classes to set the backdrop background color'],
 				['<code>blur</code>', 'string', 'backdrop-blur-xs', 'Provide classes to set the blur style.']
 			]
 		}

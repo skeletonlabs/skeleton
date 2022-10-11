@@ -4,7 +4,7 @@
 	export let value: number | undefined = undefined;
 	export let max: number = 100;
 	export let height: string = 'h-2';
-	export let rounded: string = 'rounded-theme';
+	export let rounded: string = 'rounded-token';
 	// Props (elements)
 	export let meter: string = 'bg-accent-500';
 	export let track: string = 'bg-surface-300 dark:bg-surface-700';

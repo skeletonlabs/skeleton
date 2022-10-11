@@ -5,7 +5,7 @@
 	import { dialogStore } from '$lib/utilities/Dialog/stores';
 
 	// Props
-	export let backdrop: string = 'bg-backdrop-theme';
+	export let backdrop: string = 'bg-backdrop-token';
 	export let blur: string = 'backdrop-blur-xs';
 	export let background: string = 'bg-surface-50 dark:bg-surface-700';
 	export let width: string = 'max-w-[640px]';

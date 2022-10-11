@@ -31,10 +31,10 @@
 				['<code>regionLabel</code>', 'string', '-', 'Provide arbitrary classes to the label element.'],
 				['<code>regionList</code>', 'string', '-', 'Provide arbitrary classes to the scrollable listbox element.'],
 				// Items
-				['<code>accent</code>', 'string', '!bg-active-theme', `Provide classes to set the item selected background.`],
+				['<code>accent</code>', 'string', '!bg-active-token', `Provide classes to set the item selected background.`],
 				['<code>padding</code>', 'string', 'px-4 py-3', `Provide classes to set the item padding styles.`],
-				['<code>rounded</code>', 'string', 'rounded-theme', `Provide classes to set the item border radius styles.`],
-				['<code>hover</code>', 'string', 'bg-hover-theme', `Provide classes to set the item hover background color.`]
+				['<code>rounded</code>', 'string', 'rounded-token', `Provide classes to set the item border radius styles.`],
+				['<code>hover</code>', 'string', 'bg-hover-token', `Provide classes to set the item hover background color.`]
 			]
 		},
 		{

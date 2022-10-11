@@ -137,7 +137,7 @@ module.exports = {
 
 	<!-- Next Steps -->
 	<div class="card card-body flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-		<p>Next, let's create and implement a custom theme.</p>
-		<a class="btn btn-filled-accent" href="/guides/themes">Create a Theme</a>
+		<p>Next, let's review best practices for handling CSS styles and overrides.</p>
+		<a class="btn btn-filled-accent" href="/guides/styling">Styles and Stylesheets</a>
 	</div>
 </div>

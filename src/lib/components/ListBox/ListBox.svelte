@@ -7,10 +7,10 @@
 	export let space: string = 'space-y-1';
 	export let height: string | undefined = undefined;
 	// Props (Item)
-	export let accent: string = '!bg-active-theme'; // '!' recommended
+	export let accent: string = '!bg-active-token'; // '!' recommended
 	export let padding: string = 'px-4 py-3';
-	export let rounded: string = 'rounded-theme';
-	export let hover: string = 'bg-hover-theme';
+	export let rounded: string = 'rounded-token';
+	export let hover: string = 'bg-hover-token';
 	// Props (regions)
 	export let regionLabel: string | undefined = undefined;
 	export let regionList: string | undefined = undefined;

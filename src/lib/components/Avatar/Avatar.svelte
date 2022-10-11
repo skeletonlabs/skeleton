@@ -8,7 +8,7 @@
 	export let cursor: string | undefined = undefined;
 	// Props (initials)
 	export let initials: string = 'AB';
-	export let fill: string = 'fill-theme';
+	export let fill: string = 'fill-token';
 	// Props (actions)
 	export let action: any = () => {};
 	export let actionParams: any = undefined;

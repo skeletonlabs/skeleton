@@ -9,7 +9,7 @@
 	export let y: string = '0px';
 	export let viewBox: string = icons[name].viewBox || '0 0 512 512';
 	// Props (Styles)
-	export let fill: string = 'fill-theme';
+	export let fill: string = 'fill-token';
 	export let width: string = 'w-5';
 	export let height: string = 'w-5';
 	// A11y

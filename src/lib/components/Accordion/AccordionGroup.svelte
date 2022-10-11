@@ -4,10 +4,10 @@
 	// Props
 	export let collapse: boolean = true;
 	// Props (item)
-	export let hover: string = 'bg-hover-theme';
+	export let hover: string = 'bg-hover-token';
 	export let spacing: string = 'space-y-4';
 	export let padding: string = 'px-4 py-2';
-	export let rounded: string = 'rounded-theme';
+	export let rounded: string = 'rounded-token';
 
 	// Context
 	setContext('hover', hover);
@@ -16,7 +16,7 @@
 	setContext('rounded', rounded);
 
 	// Classes
-	const cBase: string = 'rounded-container-theme';
+	const cBase: string = 'rounded-container-token';
 
 	// Local
 	let elemAccordian: HTMLElement;

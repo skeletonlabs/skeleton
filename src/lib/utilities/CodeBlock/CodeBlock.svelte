@@ -10,7 +10,7 @@
 	export let background: string = 'bg-[#141517]';
 	export let text: string = 'text-sm';
 	export let color: string = 'text-white';
-	export let rounded: string = 'rounded-container-theme';
+	export let rounded: string = 'rounded-container-token';
 	export let buttonCopy: string = 'bg-white/5 hover:bg-white/10';
 
 	// Base Classes

@@ -21,7 +21,7 @@ button:disabled {
 	/* Transitions */
 	@apply transition-all active:scale-90;
 	/* Theme: Rounded */
-	@apply rounded-theme;
+	@apply rounded-token;
 }
 
 /* Button: Sizes */
@@ -156,5 +156,5 @@ button:disabled {
 
 /* File Input Button */
 input[type='file']:not(.file-dropzone-input)::file-selector-button {
-	@apply border-0 btn btn-filled-accent btn-sm mr-2 text-theme;
+	@apply border-0 btn btn-filled-accent btn-sm mr-2 text-token;
 }

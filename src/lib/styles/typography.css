@@ -4,9 +4,9 @@
 
 body {
 	/* Theme: Font Family */
-	@apply font-theme;
+	@apply font-token;
 	/* Theme: Font Color */
-	@apply text-theme;
+	@apply text-token;
 }
 
 /* === Headings === */
@@ -35,7 +35,7 @@ h6 {
 p:not(.unstyled) {
 	@apply text-base;
 	/* Theme: Font Color */
-	@apply text-theme;
+	@apply text-token;
 }
 
 .link,
@@ -46,7 +46,7 @@ a:not(.unstyled):not(.btn-icon):not(.btn):not(.app-bar a):not(.logo-item):not(.c
 blockquote:not(.unstyled) {
 	@apply text-base border-l-4 border-l-accent-500 px-4 pl-4;
 	/* Theme: Font Color */
-	@apply text-theme;
+	@apply text-token;
 }
 
 /* Keyboard */
@@ -60,13 +60,13 @@ kbd:not(.unstyled) {
 pre:not(.unstyled):not(.code-block pre) {
 	@apply font-mono text-base bg-[#141517] text-white p-4 whitespace-pre-wrap overflow-x-auto;
 	/* Theme: Rounded */
-	@apply rounded-theme;
+	@apply rounded-token;
 }
 
 code:not(.unstyled):not(.code-block code) {
-	@apply text-primary-600 dark:text-primary-300 bg-primary-500/20 text-xs md:text-[13px] py-1 px-2;
+	@apply text-primary-800 dark:text-primary-300 bg-primary-500/20 text-xs md:text-[13px] py-1 px-2;
 	/* Theme: Font Family */
-	@apply font-theme;
+	@apply font-token;
 	/* Theme: Rounded */
-	@apply rounded-theme;
+	@apply rounded-token;
 }

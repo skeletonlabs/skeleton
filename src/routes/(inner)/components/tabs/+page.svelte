@@ -33,8 +33,8 @@
 				['<code>borderColor</code>', 'string', 'border-primary-500', '-', 'Provide classes to set the selected border color.'],
 				['<code>color</code>', 'string', 'text-primary-500', '-', 'Provide class to set the selected text color.'],
 				['<code>fill</code>', 'string', 'fill-primary-500', '-', 'Provide classes to set the selected SVG fill color.'],
-				['<code>hover</code>', 'string', 'bg-hover-theme', '-', 'Provide classes to set the unselected hover styles.'],
-				['<code>rounded</code>', 'string', 'rounded-tl-container-theme rounded-tr-container-theme', '-', 'Provide classes to set the tab border radius styles.']
+				['<code>hover</code>', 'string', 'bg-hover-token', '-', 'Provide classes to set the unselected hover styles.'],
+				['<code>rounded</code>', 'string', 'rounded-tl-container-token rounded-tr-container-token', '-', 'Provide classes to set the tab border radius styles.']
 			]
 		},
 		{

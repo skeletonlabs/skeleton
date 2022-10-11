@@ -19,7 +19,7 @@
 	/* Padding */
 	@apply px-4 py-3;
 	/* Theme: Rounded */
-	@apply rounded-theme;
+	@apply rounded-token;
 }
 
 .list-dl div {
@@ -28,7 +28,7 @@
 	/* Padding */
 	@apply px-4 py-3;
 	/* Theme: Rounded */
-	@apply rounded-theme;
+	@apply rounded-token;
 }
 
 .list-nav a,
@@ -41,5 +41,5 @@
 	/* Cursor */
 	@apply cursor-pointer;
 	/* Theme: Rounded */
-	@apply rounded-theme;
+	@apply rounded-token;
 }

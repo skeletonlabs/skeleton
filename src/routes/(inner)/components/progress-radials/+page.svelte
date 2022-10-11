@@ -21,7 +21,7 @@
 				['<code>stroke</code>', 'number', '20', 'Sets the base stroke width. Scales responsively.'],
 				['<code>meter</code>', 'string', 'stroke-accent-500', 'Provide classes to set meter color.'],
 				['<code>track</code>', 'string', 'stroke-surface-300 dark:stroke-surface-700', 'Provide classes to set track color.'],
-				['<code>fill</code>', 'string', 'fill-theme', 'Provide classes to set the SVG text fill color.'],
+				['<code>fill</code>', 'string', 'fill-token', 'Provide classes to set the SVG text fill color.'],
 				['<code>font</code>', 'string', '56', 'Sets the base font size. Scales responsively.']
 			]
 		}
