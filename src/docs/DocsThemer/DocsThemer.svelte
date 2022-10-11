@@ -5,19 +5,36 @@
 	import { localStorageStore } from '$lib/utilities/LocalStorageStore/LocalStorageStore';
 
 	// Components
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import Swatches from './Swatches.svelte';
+	import Alert from '$lib/components/Alert/Alert.svelte';
 	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
 	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
-	import Swatches from './Swatches.svelte';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Helpers
-	import { getTailwindColor, randomTailwindColor, genHexPalette, generateThemeCss } from './helpers';
+	import { getTailwindColor, randomTailwindColor, genHexPalette } from './helpers';
 	import { tailwindDefaultColors } from '$lib/tailwind/colors';
 
 	// Local
 	const regexValidHexCode = new RegExp(/^#[0-9a-f]{6}$/i);
-	let themeCss: string = '';
+	const formData: any = {
+		colors: '',
+		borderBase: '1px',
+		fontFamily: 'sans',
+		fontColorBase: 'var(--color-surface-900)',
+		fontColorDark: 'var(--color-surface-50)',
+		roundedBase: '4px',
+		roundedContainer: '8px'
+	};
+
+	// Font Families
+	const fontFamilyLists: any = {
+		sans: `Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'`,
+		serif: `ui-serif, Georgia, Cambria, "Times New Roman", Times, serif`,
+		mono: `ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace`,
+		helvetica: `Helvetica, system-ui`
+	};
 
 	// Stores
 	let storeMode: Writable<boolean> = localStorageStore('storeMode', true); // T: Tailwind | F: Custom
@@ -78,8 +95,6 @@
 			warning: getTailwindColor($storeTailwindForm.warning),
 			surface: getTailwindColor($storeTailwindForm.surface)
 		});
-		// Generate CSS
-		setThemeCss();
 	}
 
 	// Tailwind: on randomize button click
@@ -112,54 +127,71 @@
 		if (regexValidHexCode.test(hexColor)) {
 			// Generate Palette
 			$storeHexPalette[key] = genHexPalette(key, hexColor);
-			// Update CSS Snipet
-			setThemeCss();
 		}
 	}
 
-	// Shared: Generate CSS Snippet
-	function setThemeCss(): void {
-		themeCss = generateThemeCss($storeMode, currentPalette);
+	function genCssColorStrings(colorKey: string, colorSet: any): string {
+		let css: string = '';
+		Object.entries(colorSet.shades).forEach((set: any, i: number) => {
+			const [key, v] = set;
+			css += i === 0 ? '' : '\n' + '\t';
+			css += `--color-${colorKey}-${key}: ${v['rgb']}; /* ⬅ ${v['hex']} */`;
+		});
+		return css;
 	}
 
 	// Reactive ---
 
+	// CSS
+	$: cssBorderBase = `--theme-border-base: ${formData.borderBase};`;
+	$: cssFontFamily = `--theme-font-family: ${fontFamilyLists[formData.fontFamily]};`;
+	$: cssFontColorBase = `--theme-font-color-base: ${formData.fontColorBase};`;
+	$: cssFontColorDark = `--theme-font-color-dark: ${formData.fontColorDark};`;
+	$: cssRoundedBase = `--theme-rounded-base: ${formData.roundedBase};`;
+	$: cssRoundedContainer = `--theme-rounded-container: ${formData.roundedContainer};`;
+	$: cssFullTheme = `
+:root {
+	/* =~= Design Tokens =~= */
+	${cssBorderBase}
+	${cssFontFamily}
+	${cssFontColorBase}
+	${cssFontColorDark}
+	${cssRoundedBase}
+	${cssRoundedContainer}
+	/* =~= Colors | ${$storeMode ? 'Tailwind' : 'Hex'} =~= */
+	/* ${currentPalette.primary.label} | ${currentPalette.primary.shades['500'].hex} */
+	${genCssColorStrings('primary', currentPalette.primary)}
+	/* ${currentPalette.accent.label} | ${currentPalette.accent.shades['500'].hex} */
+	${genCssColorStrings('accent', currentPalette.accent)}
+	/* ${currentPalette.ternary.label} | ${currentPalette.ternary.shades['500'].hex} */
+	${genCssColorStrings('ternary', currentPalette.ternary)}
+	/* ${currentPalette.warning.label} | ${currentPalette.warning.shades['500'].hex} */
+	${genCssColorStrings('warning', currentPalette.warning)}
+	/* ${currentPalette.surface.label} | ${currentPalette.surface.shades['500'].hex} */
+	${genCssColorStrings('surface', currentPalette.surface)}
+}`.trim();
 	// Set the current palette based on Tailwind/Hex mode
 	$: currentPalette = $storeMode === true ? $storeTailwindPalette : $storeHexPalette;
-
-	// Update the CSS snippet on current palette change
-	$: if (currentPalette) setThemeCss();
-
 	// Toggle `.bg-mesh` on body when preview mobile ON
 	$: if (browser) document.body.classList.toggle('bg-mesh', !$storePreview);
 </script>
 
 <!-- Insert live theme into page head -->
 <svelte:head>
-	{@html $storePreview ? `\<style\>${themeCss}\</style\>` : ''}
+	{@html $storePreview ? `\<style\>${cssFullTheme}\</style\>` : ''}
 </svelte:head>
 
 <!-- prettier-ignore -->
 <div class="themer space-y-4">
 
+	<!-- {#if !$storeMode}<a class="btn btn-filled" href="https://coolors.co/" target="_blank">Inspiration</a>{/if} -->
+
 	<!-- Color Selection -->
-	<section class="space-y-4">
-
-		<!-- Controls -->
-		<div class="flex justify-between items-center space-x-4">
-			<!-- Mode -->
-			<RadioGroup selected={storeMode}>
-				<RadioItem value={true}>Tailwind</RadioItem>
-				<RadioItem value={false}>Hex</RadioItem>
-			</RadioGroup>
-			{#if $storeMode}<button class="btn btn-filled" on:click={onRandomize}>Randomize</button>{/if}
-			{#if !$storeMode}<a class="btn btn-filled" href="https://coolors.co/" target="_blank">Inspiration</a>{/if}
-		</div>
-
-		<!-- Form -->
-		<div class="space-y-4 lg:space-y-2">
+	<div class="grid grid-cols-1 xl:grid-cols-[1fr_auto] gap-2">
+		<!-- Left: Form -->
+		<div class="card card-body flex flex-col justify-center space-y-4">
 			{#each ['primary', 'accent', 'ternary', 'warning', 'surface'] as colorKey}
-				<div class="grid grid-cols-1 xl:grid-cols-[140px_1fr] gap-2 xl:gap-4 xl:place-items-end">
+				<div class="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-2 md:gap-4">
 					<label class="w-full">
 						<span class="capitalize">{colorKey}</span>
 						{#if $storeMode}
@@ -177,17 +209,101 @@
 				</div>
 			{/each}
 		</div>
-
-		<!-- Live Preview -->
-		<div class="flex justify-between items-center pt-2">
-			<SlideToggle bind:checked={$storePreview}>Enable Live Preview</SlideToggle>
-			<button class="btn btn-filled" on:click={resetSettings} disabled={!$storePreview}>Reset Theme</button>
+		<!-- Right: Options -->
+		<div class="card card-body grid grid-cols-2 gap-4">
+			<!-- Mode -->
+			<label for="" class="col-span-2">
+				<span>Mode</span>
+				<RadioGroup selected={storeMode} display="flex">
+					<RadioItem value={true}>Tailwind</RadioItem>
+					<RadioItem value={false}>Hex</RadioItem>
+				</RadioGroup>
+			</label>
+			<hr class="col-span-2" />
+			<!-- ----theme-border-base -->
+			<label>
+				<span>Border</span>
+				<select name="background" id="background" bind:value={formData.borderBase}>
+					<option value="0px">0px</option>
+					<option value="1px">1px</option>
+					<option value="2px">2px</option>
+					<option value="4px">4px</option>
+				</select>
+			</label>
+			<!-- --theme-font-family -->
+			<label>
+				<span>Font Family</span>
+				<select name="background" id="background" bind:value={formData.fontFamily}>
+					<option value="sans">Sans Serif</option>
+					<option value="serif">Serif</option>
+					<option value="mono">Monospace</option>
+					<option value="helvetica">Helvetica</option>
+				</select>
+			</label>
+			<!-- --theme-font-color-base -->
+			<label>
+				<span>Font Color <small>(light mode)</small></span>
+				<select name="background" id="background" bind:value={formData.fontColorBase}>
+					<option value="var(--color-surface-800)">Surface 800</option>
+					<option value="var(--color-surface-900)">Surface 900</option>
+					<option value="0 0 0">Black</option>
+				</select>
+			</label>
+			<!-- --theme-font-color-dark -->
+			<label>
+				<span>Font Color <small>(dark mode)</small></span>
+				<select name="background" id="background" bind:value={formData.fontColorDark}>
+					<option value="var(--color-surface-100)">Surface 100</option>
+					<option value="var(--color-surface-50)">Surface 50</option>
+					<option value="255 255 255">White</option>
+				</select>
+			</label>
+			<!-- ----theme-rounded-base -->
+			<label>
+				<span>Rounded</span>
+				<select name="background" id="background" bind:value={formData.roundedBase}>
+					<option value="0px">0px</option>
+					<option value="2px">2px</option>
+					<option value="4px">4px</option>
+					<option value="6px">6px</option>
+					<option value="8px">8px</option>
+					<option value="12px">12px</option>
+					<option value="16px">16px</option>
+					<option value="24px">24px</option>
+					<option value="9999px">9999px</option>
+				</select>
+			</label>
+			<!-- ----theme-rounded-container -->
+			<label>
+				<span>Rounded <small>(container)</small></span>
+				<select name="background" id="background" bind:value={formData.roundedContainer}>
+					<option value="0px">0px</option>
+					<option value="2px">2px</option>
+					<option value="4px">4px</option>
+					<option value="6px">6px</option>
+					<option value="8px">8px</option>
+					<option value="12px">12px</option>
+					<option value="16px">16px</option>
+					<option value="24px">24px</option>
+				</select>
+			</label>
+			<hr class="col-span-2" />
+			<!-- Preview -->
+			<div class="place-self-center">
+				<SlideToggle bind:checked={$storePreview}>Preview</SlideToggle>
+			</div>
+			<!-- Randomize -->
+			<button class="btn btn-filled-accent" on:click={onRandomize} disabled={!$storeMode}>Random</button>
 		</div>
+	</div>
 
-	</section>
-
+	{#if $storePreview}
+	<Alert class="text-center">
+		<button class="btn btn-filled" on:click={resetSettings}>Reset Theme</button>
+	</Alert>
+	{/if}
+	
 	<hr>
 
-	<!-- CSS Snipnpet -->
-	<CodeBlock language="css" code={themeCss} />
+	<CodeBlock language="css" code={cssFullTheme} />
 </div>

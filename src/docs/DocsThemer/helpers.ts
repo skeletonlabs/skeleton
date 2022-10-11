@@ -40,20 +40,22 @@ export function hexToRgb(hex: any): string {
 	return '(invalid)';
 }
 
+// NOTE: depreciated in favor of `genCssColorStrings()`
+// ----
 // Shared: Generates the CSS snippet
-export function generateThemeCss(isTailwind: boolean, currentPalette: any): string {
-	let css: string = '';
-	Object.entries(currentPalette).forEach((set: any, i: number) => {
-		const [key, v] = set;
-		// Generate label
-		const generatedLabel: string = v.source ? v.source : v.label + ' | ' + v.shades['500'].hex;
-		// Set First Row of Set
-		css += `${i === 0 ? `\t/* =~= Skeleton Theme | ${isTailwind ? 'Tailwind' : 'Custom'} =~= */\n` : '\n'}\t/* ~ ${key} (${generatedLabel}) ~ */`;
-		// Per each entry, add custom property key/value row
-		Object.entries(v.shades).forEach((shade: any) => {
-			const [shadeKey, shadeValue] = shade;
-			css += `\n\t--color-${key}-${shadeKey}: ${shadeValue['rgb']}; /* ⬅ ${shadeValue['hex']} */`;
-		});
-	});
-	return `:root {\n${css}\n}`;
-}
+// export function generateThemeCss(isTailwind: boolean, currentPalette: any): string {
+// 	let css: string = '';
+// 	Object.entries(currentPalette).forEach((set: any, i: number) => {
+// 		const [key, v] = set;
+// 		// Generate label
+// 		const generatedLabel: string = v.source ? v.source : v.label + ' | ' + v.shades['500'].hex;
+// 		// Set First Row of Set
+// 		css += `${i === 0 ? `\t/* =~= Skeleton Theme | ${isTailwind ? 'Tailwind' : 'Custom'} =~= */\n` : '\n'}/* ~ ${key} (${generatedLabel}) ~ */`;
+// 		// Per each entry, add custom property key/value row
+// 		Object.entries(v.shades).forEach((shade: any) => {
+// 			const [shadeKey, shadeValue] = shade;
+// 			css += `\n--color-${key}-${shadeKey}: ${shadeValue['rgb']}; /* ⬅ ${shadeValue['hex']} */`;
+// 		});
+// 	});
+// 	return `:root {\n${css}\n}`;
+// }
