@@ -6,7 +6,7 @@
 	}
 </script>
 
-<div class="swatches mt-2 grid grid-cols-10 w-full ring-inset shadow-xl">
+<div class="swatches mt-2 grid grid-cols-10 w-full ring-inset">
 	{#each objectValues(palette) as shade, i}
 		<div class="swatch flex flex-col-reverse xl:flex-col">
 			<!-- Label -->

@@ -106,7 +106,7 @@
 			</div>
 			<!-- Multiple -->
 			<div class="card card-body space-y-4">
-				<ListBox selected={navMultiple} label="Multi-Selection" hover="hover:bg-accent-500/10" accent="!bg-accent-500">
+				<ListBox selected={navMultiple} label="Multi-Selection" hover="bg-accent-hover-token" accent="!bg-accent-active-token">
 					<ListBoxItem value={'A'}>Item A</ListBoxItem>
 					<ListBoxItem value={'B'}>Item B</ListBoxItem>
 					<ListBoxItem value={'C'}>Item C</ListBoxItem>

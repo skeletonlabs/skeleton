@@ -36,7 +36,7 @@ legend {
 textarea,
 select {
 	/* Base */
-	@apply w-full caret-accent-500 focus:ring-accent-500 hover:brightness-110;
+	@apply w-full caret-accent-500 focus:ring-accent-500 transition-all duration-200 hover:brightness-110;
 	/* Text */
 	@apply text-black dark:text-white;
 	/* Background */

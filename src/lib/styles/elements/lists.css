@@ -37,7 +37,7 @@
 	/* Padding */
 	@apply px-4 py-3;
 	/* Hover */
-	@apply hover:bg-primary-500/10;
+	@apply bg-hover-token;
 	/* Cursor */
 	@apply cursor-pointer;
 	/* Theme: Rounded */

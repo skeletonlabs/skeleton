@@ -3,7 +3,7 @@
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
 	// Base Classes
-	const cBase: string = 'bg-white/20 dark:bg-black/10 text-xs mx-auto px-4 py-8 md:p-10 space-y-10';
+	const cBase: string = 'bg-white/20 dark:bg-black/10 text-xs md:text-base mx-auto px-4 py-8 md:p-10 space-y-10';
 	const cRowOne: string = 'flex flex-col md:flex-row justify-between items-center md:items-start space-y-5 md:space-y-0';
 	const cRowTwo: string = 'flex flex-col md:flex-row justify-between items-center md:items-start space-y-4 md:space-y-0';
 </script>
@@ -13,7 +13,7 @@
 	<section class={cRowOne}>
 		<div class="space-y-2">
 			<span class="text-2xl font-bold uppercase">Skeleton</span>
-			<p class="text-lg">A fully featured Svelte + Tailwind component library.</p>
+			<p class="text-lg opacity-80">A fully featured UI component library.</p>
 		</div>
 		<div class="hidden md:flex items-start space-x-10">
 			<div class="space-y-4">
@@ -68,9 +68,3 @@
 		</div>
 	</section>
 </div>
-
-<style lang="postcss">
-	a:not(.btn) {
-		@apply !no-underline !text-surface-500 hover:!text-primary-500 text-sm;
-	}
-</style>

@@ -51,7 +51,7 @@ blockquote:not(.unstyled) {
 
 /* Keyboard */
 kbd:not(.unstyled) {
-	@apply text-sm bg-surface-300-600-token border-b-[2px] border-surface-400-500-token ring-[1px] ring-surface-400-500-token px-1.5 py-0.5 rounded;
+	@apply !font-sans font-bold text-xs bg-surface-200-700-token border-b-[2px] border-surface-400-500-token ring-[1px] ring-surface-400-500-token px-1.5 py-0.5 rounded;
 }
 
 /* === Code Blocks === */
@@ -64,7 +64,7 @@ pre:not(.unstyled):not(.code-block pre) {
 }
 
 code:not(.unstyled):not(.code-block code) {
-	@apply text-primary-800 dark:text-primary-300 bg-primary-500/20 text-xs md:text-[13px] py-1 px-2;
+	@apply !font-mono text-primary-800 dark:text-primary-300 bg-primary-500/20 text-xs md:text-[13px] py-1 px-2;
 	/* Theme: Font Family */
 	@apply font-token;
 	/* Theme: Rounded */
