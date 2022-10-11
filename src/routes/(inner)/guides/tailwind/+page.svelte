@@ -118,7 +118,7 @@ module.exports = {
 				<div class="space-y-2">
 					<h3>Aspect Ratio</h3>
 					<p>
-						Composable aspect ratios. <a href="https://github.com/tailwindlabs/tailwindcss-aspect-ratio#compatibility-with-default-aspect-ratio-utilities" target="_blank">See compatability</a>.
+						Composable aspect ratios. <a href="https://github.com/tailwindlabs/tailwindcss-aspect-ratio#compatibility-with-default-aspect-ratio-utilities" target="_blank">See compatibility</a>.
 					</p>
 				</div>
 				<a class="btn btn-ghost" href="https://github.com/tailwindlabs/tailwindcss-aspect-ratio" target="_blank">View</a>
