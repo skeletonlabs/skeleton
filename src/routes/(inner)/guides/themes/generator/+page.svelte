@@ -48,10 +48,12 @@
 	<hr />
 
 	<!-- Extras -->
-	<Alert>
-		<svelte:fragment slot="title">Pro Tip</svelte:fragment>
-		Use <a href="https://tailwind.simeongriggs.dev/blue/3B82F6" target="_blank">Palette Generator</a> to curate a theme from scratch, then pair with the
-		<a href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba" target="_blank">Hex-To-RGB extension</a>
-		to convert colors to RGB in bulk with VS Code.
-	</Alert>
+	<section class="space-y-4">
+		<h2>Advanced Curation</h2>
+		<p>
+			You can use <a href="https://tailwind.simeongriggs.dev/blue/3B82F6" target="_blank">Palette Generator</a> to curate your theme from scratch, then pair with the
+			<a href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba" target="_blank">Hex-To-RGB extension</a>
+			to convert colors to RGB in bulk with VS Code.
+		</p>
+	</section>
 </div>

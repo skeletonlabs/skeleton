@@ -5,6 +5,7 @@
 	import Alert from '$lib/components/Alert/Alert.svelte';
 	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
+	import LightSwitch from '$lib/utilities/LightSwitch/LightSwitch.svelte';
 	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
@@ -14,8 +15,7 @@
 	import { resetSettings, onTailwindSelect, onRandomize, onHexInput, genCssColorStrings } from './utils';
 	import { fonts } from './fonts';
 
-	// Form Data
-
+	// Local
 	const formData: any = {
 		colors: '',
 		borderBase: '1px',
@@ -25,6 +25,7 @@
 		roundedBase: '4px',
 		roundedContainer: '8px'
 	};
+	let showCode: boolean = false;
 
 	// Reactive ---
 
@@ -69,6 +70,15 @@
 	<div class="grid grid-cols-1 xl:grid-cols-[1fr_auto] gap-2">
 		<!-- Left: Form -->
 		<div class="card card-body flex flex-col justify-center space-y-4">
+			<!-- Header -->
+			<header class="flex justify-between items-center">
+				<RadioGroup selected={storeMode}>
+					<RadioItem value={true}>Tailwind</RadioItem>
+					<RadioItem value={false}>Hex</RadioItem>
+				</RadioGroup>
+				<button class="btn btn-filled-accent" on:click={onRandomize} disabled={!$storeMode}>Randomize</button>
+			</header>
+			<!-- Color Inputs -->
 			{#each ['primary', 'accent', 'ternary', 'warning', 'surface'] as colorKey}
 				<div class="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-2 md:gap-4">
 					<label class="w-full">
@@ -90,13 +100,10 @@
 		</div>
 		<!-- Right: Options -->
 		<div class="card card-body grid grid-cols-2 gap-4">
-			<!-- Mode -->
-			<label for="" class="col-span-2">
-				<RadioGroup selected={storeMode} display="flex">
-					<RadioItem value={true}>Tailwind</RadioItem>
-					<RadioItem value={false}>Hex</RadioItem>
-				</RadioGroup>
-			</label>
+			<div class="col-span-2 flex justify-between items-center space-x-2">
+				<strong>Set Mode</strong>
+				<LightSwitch />
+			</div>
 			<hr class="col-span-2" />
 			<!-- --theme-border-base -->
 			<label>
@@ -167,21 +174,25 @@
 			</label>
 			<hr class="col-span-2" />
 			<!-- Preview -->
-			<div class="place-self-center">
-				<SlideToggle bind:checked={$storePreview}>Preview</SlideToggle>
+			<div class="col-span-2 place-self-center">
+				<SlideToggle bind:checked={$storePreview}>Live Preview</SlideToggle>
 			</div>
-			<!-- Randomize -->
-			<button class="btn btn-filled-accent" on:click={onRandomize} disabled={!$storeMode}>Random</button>
+			<!-- Code Toggle -->
+			<button class="col-span-2 btn btn-filled-primary btn-xl" on:click={()=>{showCode=!showCode}}>
+				{showCode ? 'Hide' : 'Show'} Theme CSS <span class="text-xs ml-4">{@html showCode ? '&#9650;' : '&#9660;'}</span>
+			</button>
 		</div>
 	</div>
 
-	{#if $storePreview}
-	<Alert class="text-center">
-		<button class="btn btn-filled" on:click={resetSettings}>Reset Theme</button>
+	<!-- Alert -->
+	<Alert visible={$storePreview} class="animate-pulse hover:animate-none">
+		<svelte:fragment slot="title">Live Preview Enabled</svelte:fragment>
+		<span>While the preview is active you can browse the entire site. Don't worry, your settings will not be lost. When you're done, tap the reset button to return to your default theme.</span>      
+		<svelte:fragment slot="trail">
+			<button class="btn btn-filled" on:click={resetSettings}>Reset Theme</button>
+		</svelte:fragment>
 	</Alert>
-	{/if}
 	
-	<hr>
-
-	<CodeBlock language="css" code={cssTheme} />
+	<!-- Code -->
+	{#if showCode}<CodeBlock language="css" code={cssTheme} />{/if}
 </div>
