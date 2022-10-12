@@ -1,10 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import type { Writable } from 'svelte/store';
 
-	import { localStorageStore } from '$lib/utilities/LocalStorageStore/LocalStorageStore';
-
-	// Components
 	import Swatches from './Swatches.svelte';
 	import Alert from '$lib/components/Alert/Alert.svelte';
 	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
@@ -13,11 +9,13 @@
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Helpers
-	import { getTailwindColor, randomTailwindColor, genHexPalette } from './helpers';
 	import { tailwindDefaultColors } from '$lib/tailwind/colors';
+	import { storeMode, storePreview, storeTailwindForm, storeTailwindPalette, storeHexForm, storeHexPalette } from './stores';
+	import { resetSettings, onTailwindSelect, onRandomize, onHexInput, genCssColorStrings } from './utils';
+	import { fonts } from './fonts';
 
-	// Local
-	const regexValidHexCode = new RegExp(/^#[0-9a-f]{6}$/i);
+	// Form Data
+
 	const formData: any = {
 		colors: '',
 		borderBase: '1px',
@@ -28,136 +26,22 @@
 		roundedContainer: '8px'
 	};
 
-	// Font Families
-	const fontFamilyLists: any = {
-		sans: `Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'`,
-		serif: `ui-serif, Georgia, Cambria, "Times New Roman", Times, serif`,
-		mono: `ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace`,
-		helvetica: `Helvetica, system-ui`
-	};
-
-	// Stores
-	let storeMode: Writable<boolean> = localStorageStore('storeMode', true); // T: Tailwind | F: Custom
-	let storePreview: Writable<boolean> = localStorageStore('storePreview', false);
-	let storeTailwindForm: Writable<any> = localStorageStore('storeTailwindForm', {
-		primary: 'emerald',
-		accent: 'indigo',
-		ternary: 'yellow',
-		warning: 'rose',
-		surface: 'gray'
-	});
-	let storeTailwindPalette: Writable<any> = localStorageStore('storeTailwindPalette', {
-		primary: getTailwindColor($storeTailwindForm.primary),
-		accent: getTailwindColor($storeTailwindForm.accent),
-		ternary: getTailwindColor($storeTailwindForm.ternary),
-		warning: getTailwindColor($storeTailwindForm.warning),
-		surface: getTailwindColor($storeTailwindForm.surface)
-	});
-	let storeHexForm: Writable<any> = localStorageStore('storeHexForm', {
-		primary: getTailwindColor('emerald').shades['500'].hex,
-		accent: getTailwindColor('indigo').shades['500'].hex,
-		ternary: getTailwindColor('yellow').shades['500'].hex,
-		warning: getTailwindColor('rose').shades['500'].hex,
-		surface: getTailwindColor('gray').shades['500'].hex
-	});
-	let storeHexPalette: Writable<any> = localStorageStore('storeHexPalette', {
-		primary: genHexPalette('primary', $storeHexForm.primary),
-		accent: genHexPalette('accent', $storeHexForm.accent),
-		ternary: genHexPalette('ternary', $storeHexForm.ternary),
-		warning: genHexPalette('warning', $storeHexForm.warning),
-		surface: genHexPalette('surface', $storeHexForm.surface)
-	});
-
-	// Local Storage
-
-	function resetSettings(): void {
-		if (confirm('Clear all theme settings and restore the site back to the default settings?')) {
-			// Clear Local Storage Values
-			localStorage.removeItem('storeMode');
-			localStorage.removeItem('storePreview');
-			localStorage.removeItem('storeTailwindForm');
-			localStorage.removeItem('storeTailwindPalette');
-			localStorage.removeItem('storeHexForm');
-			localStorage.removeItem('storeHexPalette');
-			// Reload Window
-			location.reload();
-		}
-	}
-
-	// Functions ---
-
-	// Tailwind: on selection change
-	function onTailwindSelect(): void {
-		storeTailwindPalette.set({
-			primary: getTailwindColor($storeTailwindForm.primary),
-			accent: getTailwindColor($storeTailwindForm.accent),
-			ternary: getTailwindColor($storeTailwindForm.ternary),
-			warning: getTailwindColor($storeTailwindForm.warning),
-			surface: getTailwindColor($storeTailwindForm.surface)
-		});
-	}
-
-	// Tailwind: on randomize button click
-	function onRandomize(): void {
-		const newColors: any = {
-			primary: randomTailwindColor(),
-			accent: randomTailwindColor(),
-			warning: randomTailwindColor(),
-			ternary: randomTailwindColor(),
-			surface: randomTailwindColor()
-		};
-		storeTailwindForm.set({
-			primary: newColors.primary.label,
-			accent: newColors.accent.label,
-			ternary: newColors.ternary.label,
-			warning: newColors.warning.label,
-			surface: newColors.surface.label
-		});
-		storeTailwindPalette.set({
-			primary: newColors.primary,
-			accent: newColors.accent,
-			warning: newColors.warning,
-			ternary: newColors.ternary,
-			surface: newColors.surface
-		});
-	}
-
-	// Hex: on input change
-	function onHexInput(key: string, hexColor: string): void {
-		if (regexValidHexCode.test(hexColor)) {
-			// Generate Palette
-			$storeHexPalette[key] = genHexPalette(key, hexColor);
-		}
-	}
-
-	function genCssColorStrings(colorKey: string, colorSet: any): string {
-		let css: string = '';
-		Object.entries(colorSet.shades).forEach((set: any, i: number) => {
-			const [key, v] = set;
-			css += i === 0 ? '' : '\n' + '\t';
-			css += `--color-${colorKey}-${key}: ${v['rgb']}; /* ⬅ ${v['hex']} */`;
-		});
-		return css;
-	}
-
 	// Reactive ---
 
+	// Toggle `.bg-mesh` on body when preview mobile ON
+	$: if (browser) document.body.classList.toggle('bg-mesh', !$storePreview);
+	// Set the current palette based on Tailwind/Hex mode
+	$: currentPalette = $storeMode === true ? $storeTailwindPalette : $storeHexPalette;
 	// CSS
-	$: cssBorderBase = `--theme-border-base: ${formData.borderBase};`;
-	$: cssFontFamily = `--theme-font-family: ${fontFamilyLists[formData.fontFamily]};`;
-	$: cssFontColorBase = `--theme-font-color-base: ${formData.fontColorBase};`;
-	$: cssFontColorDark = `--theme-font-color-dark: ${formData.fontColorDark};`;
-	$: cssRoundedBase = `--theme-rounded-base: ${formData.roundedBase};`;
-	$: cssRoundedContainer = `--theme-rounded-container: ${formData.roundedContainer};`;
-	$: cssFullTheme = `
+	$: cssTheme = `
 :root {
 	/* =~= Design Tokens =~= */
-	${cssBorderBase}
-	${cssFontFamily}
-	${cssFontColorBase}
-	${cssFontColorDark}
-	${cssRoundedBase}
-	${cssRoundedContainer}
+	--theme-border-base: ${formData.borderBase};
+	--theme-font-family: ${fonts[formData.fontFamily]};
+	--theme-font-color-base: ${formData.fontColorBase};
+	--theme-font-color-dark: ${formData.fontColorDark};
+	--theme-rounded-base: ${formData.roundedBase};
+	--theme-rounded-container: ${formData.roundedContainer};
 	/* =~= Colors | ${$storeMode ? 'Tailwind' : 'Hex'} =~= */
 	/* ${currentPalette.primary.label} | ${currentPalette.primary.shades['500'].hex} */
 	${genCssColorStrings('primary', currentPalette.primary)}
@@ -170,21 +54,16 @@
 	/* ${currentPalette.surface.label} | ${currentPalette.surface.shades['500'].hex} */
 	${genCssColorStrings('surface', currentPalette.surface)}
 }`.trim();
-	// Set the current palette based on Tailwind/Hex mode
-	$: currentPalette = $storeMode === true ? $storeTailwindPalette : $storeHexPalette;
-	// Toggle `.bg-mesh` on body when preview mobile ON
-	$: if (browser) document.body.classList.toggle('bg-mesh', !$storePreview);
 </script>
 
 <!-- Insert live theme into page head -->
 <svelte:head>
-	{@html $storePreview ? `\<style\>${cssFullTheme}\</style\>` : ''}
+	{@html $storePreview ? `\<style\>${cssTheme}\</style\>` : ''}
 </svelte:head>
 
+<!-- {#if !$storeMode}<a href="https://coolors.co/" target="_blank">Inspiration</a>{/if} -->
 <!-- prettier-ignore -->
 <div class="themer space-y-4">
-
-	<!-- {#if !$storeMode}<a class="btn btn-filled" href="https://coolors.co/" target="_blank">Inspiration</a>{/if} -->
 
 	<!-- Color Selection -->
 	<div class="grid grid-cols-1 xl:grid-cols-[1fr_auto] gap-2">
@@ -213,14 +92,13 @@
 		<div class="card card-body grid grid-cols-2 gap-4">
 			<!-- Mode -->
 			<label for="" class="col-span-2">
-				<span>Mode</span>
 				<RadioGroup selected={storeMode} display="flex">
 					<RadioItem value={true}>Tailwind</RadioItem>
 					<RadioItem value={false}>Hex</RadioItem>
 				</RadioGroup>
 			</label>
 			<hr class="col-span-2" />
-			<!-- ----theme-border-base -->
+			<!-- --theme-border-base -->
 			<label>
 				<span>Border</span>
 				<select name="background" id="background" bind:value={formData.borderBase}>
@@ -258,7 +136,7 @@
 					<option value="255 255 255">White</option>
 				</select>
 			</label>
-			<!-- ----theme-rounded-base -->
+			<!-- --theme-rounded-base -->
 			<label>
 				<span>Rounded</span>
 				<select name="background" id="background" bind:value={formData.roundedBase}>
@@ -273,7 +151,7 @@
 					<option value="9999px">9999px</option>
 				</select>
 			</label>
-			<!-- ----theme-rounded-container -->
+			<!-- --theme-rounded-container -->
 			<label>
 				<span>Rounded <small>(container)</small></span>
 				<select name="background" id="background" bind:value={formData.roundedContainer}>
@@ -305,5 +183,5 @@
 	
 	<hr>
 
-	<CodeBlock language="css" code={cssFullTheme} />
+	<CodeBlock language="css" code={cssTheme} />
 </div>
