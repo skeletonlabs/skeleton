@@ -89,13 +89,13 @@
 							<span>🦴</span>
 							<span>Skeleton</span>
 						</li>
-						<li class="option" class:!bg-primary-500={$storeTheme === 'rocket'} on:click={() => { storeTheme.set('rocket') }}> 
-							<span>🚀</span>
-							<span>Rocket</span>
-						</li>
 						<li class="option" class:!bg-primary-500={$storeTheme === 'modern'} on:click={() => { storeTheme.set('modern') }}>
 							<span>🤖</span>
 							<span>Modern</span>
+						</li>
+						<li class="option" class:!bg-primary-500={$storeTheme === 'rocket'} on:click={() => { storeTheme.set('rocket') }}> 
+							<span>🚀</span>
+							<span>Rocket</span>
 						</li>
 						<li class="option" class:!bg-primary-500={$storeTheme === 'seafoam'} on:click={() => { storeTheme.set('seafoam') }}>
 							<span>🐚</span>

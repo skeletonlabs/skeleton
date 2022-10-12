@@ -10,8 +10,6 @@ export const fonts: any = {
 	// Tailwind Mono
 	mono: `ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace`,
 
-	// Helvetica
-	helvetica: `Helvetica, system-ui`
-
-	// TODO: extend with more options!
+	// System UI
+	system: `system-ui`
 };

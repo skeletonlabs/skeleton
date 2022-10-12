@@ -1,6 +1,18 @@
+/* https://fonts.google.com/specimen/Playfair+Display?query=playfair&noto.query=Abril */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 :root {
-	/* =~= Skeleton Theme | Tailwind =~= */
-	/* ~ primary (teal | #14b8a6) ~ */
+	/* =~= Theme Styles =~= */
+	--theme-border-base: 5px;
+	--theme-font-family-heading: 'Playfair Display', serif;
+	--theme-font-family-base: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+		'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+	--theme-font-color-base: var(--color-surface-900);
+	--theme-font-color-dark: var(--color-surface-50);
+	--theme-rounded-base: 16px;
+	--theme-rounded-container: 16px;
+	/* =~= Theme Colors | Tailwind =~= */
+	/* teal | #14b8a6 */
 	--color-primary-50: 240 253 250; /* ⬅ #f0fdfa */
 	--color-primary-100: 204 251 241; /* ⬅ #ccfbf1 */
 	--color-primary-200: 153 246 228; /* ⬅ #99f6e4 */
@@ -11,7 +23,7 @@
 	--color-primary-700: 15 118 110; /* ⬅ #0f766e */
 	--color-primary-800: 17 94 89; /* ⬅ #115e59 */
 	--color-primary-900: 19 78 74; /* ⬅ #134e4a */
-	/* ~ accent (lime | #84cc16) ~ */
+	/* lime | #84cc16 */
 	--color-accent-50: 247 254 231; /* ⬅ #f7fee7 */
 	--color-accent-100: 236 252 203; /* ⬅ #ecfccb */
 	--color-accent-200: 217 249 157; /* ⬅ #d9f99d */
@@ -22,7 +34,7 @@
 	--color-accent-700: 77 124 15; /* ⬅ #4d7c0f */
 	--color-accent-800: 63 98 18; /* ⬅ #3f6212 */
 	--color-accent-900: 54 83 20; /* ⬅ #365314 */
-	/* ~ ternary (purple | #a855f7) ~ */
+	/* purple | #a855f7 */
 	--color-ternary-50: 250 245 255; /* ⬅ #faf5ff */
 	--color-ternary-100: 243 232 255; /* ⬅ #f3e8ff */
 	--color-ternary-200: 233 213 255; /* ⬅ #e9d5ff */
@@ -33,7 +45,7 @@
 	--color-ternary-700: 126 34 206; /* ⬅ #7e22ce */
 	--color-ternary-800: 107 33 168; /* ⬅ #6b21a8 */
 	--color-ternary-900: 88 28 135; /* ⬅ #581c87 */
-	/* ~ warning (pink | #ec4899) ~ */
+	/* pink | #ec4899 */
 	--color-warning-50: 253 242 248; /* ⬅ #fdf2f8 */
 	--color-warning-100: 252 231 243; /* ⬅ #fce7f3 */
 	--color-warning-200: 251 207 232; /* ⬅ #fbcfe8 */
@@ -44,7 +56,7 @@
 	--color-warning-700: 190 24 93; /* ⬅ #be185d */
 	--color-warning-800: 157 23 77; /* ⬅ #9d174d */
 	--color-warning-900: 131 24 67; /* ⬅ #831843 */
-	/* ~ surface (sky | #0ea5e9) ~ */
+	/* sky | #0ea5e9 */
 	--color-surface-50: 240 249 255; /* ⬅ #f0f9ff */
 	--color-surface-100: 224 242 254; /* ⬅ #e0f2fe */
 	--color-surface-200: 186 230 253; /* ⬅ #bae6fd */
@@ -55,4 +67,15 @@
 	--color-surface-700: 3 105 161; /* ⬅ #0369a1 */
 	--color-surface-800: 7 89 133; /* ⬅ #075985 */
 	--color-surface-900: 12 74 110; /* ⬅ #0c4a6e */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: bold;
+	font-style: italic;
+	letter-spacing: 1px;
 }

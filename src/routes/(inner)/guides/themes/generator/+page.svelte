@@ -48,11 +48,12 @@
 
 	<!-- Extras -->
 	<section class="space-y-4">
-		<h2>Advanced Curation</h2>
+		<h2>Advanced Color Curation</h2>
 		<p>
-			You can use <a href="https://tailwind.simeongriggs.dev/blue/3B82F6" target="_blank">Palette Generator</a> to curate your theme from scratch, then pair with the
+			We recommend <a href="https://tailwind.simeongriggs.dev/blue/3B82F6" target="_blank">Palette Generator</a> to curate a custom theme. This includes support for hue, saturation, and lightness
+			adjustments. Pair this with the
 			<a href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba" target="_blank">Hex-To-RGB extension</a>
-			to convert colors to RGB in bulk with VS Code.
+			to convert eaxch Hex color value to RGB in bulk with VS Code.
 		</p>
 	</section>
 </div>

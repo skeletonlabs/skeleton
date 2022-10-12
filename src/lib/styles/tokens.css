@@ -120,8 +120,12 @@
 
 	/* === Font Family === */
 
+	.font-heading-token {
+		font-family: var(--theme-font-family-heading);
+	}
+
 	.font-token {
-		font-family: var(--theme-font-family);
+		font-family: var(--theme-font-family-base);
 	}
 
 	/* === Font Color === */

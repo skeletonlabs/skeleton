@@ -1,6 +1,17 @@
+/* https://fonts.google.com/specimen/Quicksand?query=Quicksand */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
 :root {
-	/* =~= Skeleton Theme | Tailwind =~= */
-	/* ~ primary (pink | #ec4899) ~ */
+	/* =~= Theme Styles =~= */
+	--theme-border-base: 3px;
+	--theme-font-family-heading: 'Quicksand', sans-serif;
+	--theme-font-family-body: 'Quicksand', sans-serif;
+	--theme-font-color-base: var(--color-surface-900);
+	--theme-font-color-dark: var(--color-surface-50);
+	--theme-rounded-base: 9999px;
+	--theme-rounded-container: 24px;
+	/* =~= Theme Colors | Tailwind =~= */
+	/* pink | #ec4899 */
 	--color-primary-50: 253 242 248; /* ⬅ #fdf2f8 */
 	--color-primary-100: 252 231 243; /* ⬅ #fce7f3 */
 	--color-primary-200: 251 207 232; /* ⬅ #fbcfe8 */
@@ -11,7 +22,7 @@
 	--color-primary-700: 190 24 93; /* ⬅ #be185d */
 	--color-primary-800: 157 23 77; /* ⬅ #9d174d */
 	--color-primary-900: 131 24 67; /* ⬅ #831843 */
-	/* ~ accent (cyan | #06b6d4) ~ */
+	/* cyan | #06b6d4 */
 	--color-accent-50: 236 254 255; /* ⬅ #ecfeff */
 	--color-accent-100: 207 250 254; /* ⬅ #cffafe */
 	--color-accent-200: 165 243 252; /* ⬅ #a5f3fc */
@@ -22,7 +33,7 @@
 	--color-accent-700: 14 116 144; /* ⬅ #0e7490 */
 	--color-accent-800: 21 94 117; /* ⬅ #155e75 */
 	--color-accent-900: 22 78 99; /* ⬅ #164e63 */
-	/* ~ ternary (yellow | #eab308) ~ */
+	/* yellow | #eab308 */
 	--color-ternary-50: 254 252 232; /* ⬅ #fefce8 */
 	--color-ternary-100: 254 249 195; /* ⬅ #fef9c3 */
 	--color-ternary-200: 254 240 138; /* ⬅ #fef08a */
@@ -33,18 +44,18 @@
 	--color-ternary-700: 161 98 7; /* ⬅ #a16207 */
 	--color-ternary-800: 133 77 14; /* ⬅ #854d0e */
 	--color-ternary-900: 113 63 18; /* ⬅ #713f12 */
-	/* ~ warning (orange | #f97316) ~ */
-	--color-warning-50: 255 247 237; /* ⬅ #fff7ed */
-	--color-warning-100: 255 237 213; /* ⬅ #ffedd5 */
-	--color-warning-200: 254 215 170; /* ⬅ #fed7aa */
-	--color-warning-300: 253 186 116; /* ⬅ #fdba74 */
-	--color-warning-400: 251 146 60; /* ⬅ #fb923c */
-	--color-warning-500: 249 115 22; /* ⬅ #f97316 */
-	--color-warning-600: 234 88 12; /* ⬅ #ea580c */
-	--color-warning-700: 194 65 12; /* ⬅ #c2410c */
-	--color-warning-800: 154 52 18; /* ⬅ #9a3412 */
-	--color-warning-900: 124 45 18; /* ⬅ #7c2d12 */
-	/* ~ surface (indigo | #6366f1) ~ */
+	/* red | #ef4444 */
+	--color-warning-50: 254 242 242; /* ⬅ #fef2f2 */
+	--color-warning-100: 254 226 226; /* ⬅ #fee2e2 */
+	--color-warning-200: 254 202 202; /* ⬅ #fecaca */
+	--color-warning-300: 252 165 165; /* ⬅ #fca5a5 */
+	--color-warning-400: 248 113 113; /* ⬅ #f87171 */
+	--color-warning-500: 239 68 68; /* ⬅ #ef4444 */
+	--color-warning-600: 220 38 38; /* ⬅ #dc2626 */
+	--color-warning-700: 185 28 28; /* ⬅ #b91c1c */
+	--color-warning-800: 153 27 27; /* ⬅ #991b1b */
+	--color-warning-900: 127 29 29; /* ⬅ #7f1d1d */
+	/* indigo | #6366f1 */
 	--color-surface-50: 238 242 255; /* ⬅ #eef2ff */
 	--color-surface-100: 224 231 255; /* ⬅ #e0e7ff */
 	--color-surface-200: 199 210 254; /* ⬅ #c7d2fe */
@@ -55,17 +66,13 @@
 	--color-surface-700: 67 56 202; /* ⬅ #4338ca */
 	--color-surface-800: 55 48 163; /* ⬅ #3730a3 */
 	--color-surface-900: 49 46 129; /* ⬅ #312e81 */
+}
 
-	/* --- THEME --- */
-
-	/* Font Family */
-	--theme-font-family: Helvetica, system-ui;
-	/* Font Color */
-	--theme-font-color-base: var(--color-surface-900);
-	--theme-font-color-dark: var(--color-primary-100);
-	/* Border Radius */
-	--theme-rounded-base: 9999px;
-	--theme-rounded-container: 16px;
-	/* Border Width */
-	--theme-border-base: 3px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: bold;
 }

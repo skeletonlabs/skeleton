@@ -27,14 +27,15 @@
 	// CSS
 	$: cssTheme = `
 :root {
-	/* =~= Design Tokens =~= */
+	/* =~= Theme Styles =~= */
 	--theme-border-base: ${$storeFormData.borderBase};
-	--theme-font-family: ${fonts[$storeFormData.fontFamily]};
+	--theme-font-family-heading: ${fonts[$storeFormData.fontFamilyHeading]};
+	--theme-font-family-base: ${fonts[$storeFormData.fontFamilyBase]};
 	--theme-font-color-base: ${$storeFormData.fontColorBase};
 	--theme-font-color-dark: ${$storeFormData.fontColorDark};
 	--theme-rounded-base: ${$storeFormData.roundedBase};
 	--theme-rounded-container: ${$storeFormData.roundedContainer};
-	/* =~= Colors | ${$storeMode ? 'Tailwind' : 'Hex'} =~= */
+	/* =~= Theme Colors | ${$storeMode ? 'Tailwind' : 'Hex'} =~= */
 	/* ${currentPalette.primary.label} | ${currentPalette.primary.shades['500'].hex} */
 	${genCssColorStrings('primary', currentPalette.primary)}
 	/* ${currentPalette.accent.label} | ${currentPalette.accent.shades['500'].hex} */
@@ -69,6 +70,7 @@
 				</RadioGroup>
 				<button class="btn btn-filled-accent" on:click={onRandomize} disabled={!$storeMode}>Randomize</button>
 			</header>
+			<hr />
 			<!-- Color Inputs -->
 			{#each ['primary', 'accent', 'ternary', 'warning', 'surface'] as colorKey}
 				<div class="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-2 md:gap-4">
@@ -96,24 +98,24 @@
 				<LightSwitch />
 			</div>
 			<hr class="col-span-2" />
-			<!-- --theme-border-base -->
+			<!-- --theme-font-family-heading -->
 			<label>
-				<span>Border</span>
-				<select name="background" id="background" bind:value={$storeFormData.borderBase}>
-					<option value="0px">0px</option>
-					<option value="1px">1px</option>
-					<option value="2px">2px</option>
-					<option value="4px">4px</option>
-				</select>
-			</label>
-			<!-- --theme-font-family -->
-			<label>
-				<span>Font Family</span>
-				<select name="background" id="background" bind:value={$storeFormData.fontFamily}>
+				<span>Font Family <small>(headings)</small></span>
+				<select name="background" id="background" bind:value={$storeFormData.fontFamilyHeading}>
 					<option value="sans">Sans Serif</option>
 					<option value="serif">Serif</option>
 					<option value="mono">Monospace</option>
-					<option value="helvetica">Helvetica</option>
+					<option value="system">System UI</option>
+				</select>
+			</label>
+			<!-- --theme-font-family-base -->
+			<label>
+				<span>Font Family <small>(base)</small></span>
+				<select name="background" id="background" bind:value={$storeFormData.fontFamilyBase}>
+					<option value="sans">Sans Serif</option>
+					<option value="serif">Serif</option>
+					<option value="mono">Monospace</option>
+					<option value="system">System UI</option>
 				</select>
 			</label>
 			<!-- --theme-font-color-base -->
@@ -163,14 +165,24 @@
 					<option value="24px">24px</option>
 				</select>
 			</label>
+			<!-- --theme-border-base -->
+			<label class="col-span-2">
+				<span>Border</span>
+				<select name="background" id="background" bind:value={$storeFormData.borderBase}>
+					<option value="0px">0px</option>
+					<option value="1px">1px</option>
+					<option value="2px">2px</option>
+					<option value="4px">4px</option>
+				</select>
+			</label>
 			<hr class="col-span-2" />
 			<!-- Preview -->
 			<div class="col-span-2 place-self-center">
 				<SlideToggle bind:checked={$storePreview}>Live Preview</SlideToggle>
 			</div>
 			<!-- Code Toggle -->
-			<button class="col-span-2 btn btn-filled-primary btn-xl" on:click={()=>{showCode=!showCode}}>
-				{showCode ? 'Hide' : 'Show'} Theme CSS <span class="text-xs ml-4">{@html showCode ? '&#9650;' : '&#9660;'}</span>
+			<button class="col-span-2 btn btn-filled-primary" on:click={()=>{showCode=!showCode}}>
+				{!showCode ? 'Generate' : 'Hide'} Theme CSS <span class="text-xs ml-4">{@html showCode ? '&#9650;' : '&#9660;'}</span>
 			</button>
 		</div>
 	</div>

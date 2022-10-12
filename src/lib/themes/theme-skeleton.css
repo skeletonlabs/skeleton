@@ -1,6 +1,15 @@
+/* prettier-ignore */
 :root {
-	/* =~= Skeleton Theme | Tailwind =~= */
-	/* ~ primary (emerald | #10b981) ~ */
+	/* =~= Theme Styles =~= */
+	--theme-border-base: 1px;
+	--theme-font-family-heading: system-ui;
+	--theme-font-family-base: --theme-font-family-base: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+	--theme-font-color-base: var(--color-surface-900);
+	--theme-font-color-dark: var(--color-surface-50);
+	--theme-rounded-base: 4px;
+	--theme-rounded-container: 8px;
+	/* =~= Theme Colors | Tailwind =~= */
+	/* emerald | #10b981 */
 	--color-primary-50: 236 253 245; /* ⬅ #ecfdf5 */
 	--color-primary-100: 209 250 229; /* ⬅ #d1fae5 */
 	--color-primary-200: 167 243 208; /* ⬅ #a7f3d0 */
@@ -11,7 +20,7 @@
 	--color-primary-700: 4 120 87; /* ⬅ #047857 */
 	--color-primary-800: 6 95 70; /* ⬅ #065f46 */
 	--color-primary-900: 6 78 59; /* ⬅ #064e3b */
-	/* ~ accent (indigo | #6366f1) ~ */
+	/* indigo | #6366f1 */
 	--color-accent-50: 238 242 255; /* ⬅ #eef2ff */
 	--color-accent-100: 224 231 255; /* ⬅ #e0e7ff */
 	--color-accent-200: 199 210 254; /* ⬅ #c7d2fe */
@@ -22,7 +31,7 @@
 	--color-accent-700: 67 56 202; /* ⬅ #4338ca */
 	--color-accent-800: 55 48 163; /* ⬅ #3730a3 */
 	--color-accent-900: 49 46 129; /* ⬅ #312e81 */
-	/* ~ ternary (yellow | #eab308) ~ */
+	/* yellow | #eab308 */
 	--color-ternary-50: 254 252 232; /* ⬅ #fefce8 */
 	--color-ternary-100: 254 249 195; /* ⬅ #fef9c3 */
 	--color-ternary-200: 254 240 138; /* ⬅ #fef08a */
@@ -33,7 +42,7 @@
 	--color-ternary-700: 161 98 7; /* ⬅ #a16207 */
 	--color-ternary-800: 133 77 14; /* ⬅ #854d0e */
 	--color-ternary-900: 113 63 18; /* ⬅ #713f12 */
-	/* ~ warning (rose | #f43f5e) ~ */
+	/* rose | #f43f5e */
 	--color-warning-50: 255 241 242; /* ⬅ #fff1f2 */
 	--color-warning-100: 255 228 230; /* ⬅ #ffe4e6 */
 	--color-warning-200: 254 205 211; /* ⬅ #fecdd3 */
@@ -44,7 +53,7 @@
 	--color-warning-700: 190 18 60; /* ⬅ #be123c */
 	--color-warning-800: 159 18 57; /* ⬅ #9f1239 */
 	--color-warning-900: 136 19 55; /* ⬅ #881337 */
-	/* ~ surface (gray | #6b7280) ~ */
+	/* gray | #6b7280 */
 	--color-surface-50: 249 250 251; /* ⬅ #f9fafb */
 	--color-surface-100: 243 244 246; /* ⬅ #f3f4f6 */
 	--color-surface-200: 229 231 235; /* ⬅ #e5e7eb */
@@ -55,18 +64,13 @@
 	--color-surface-700: 55 65 81; /* ⬅ #374151 */
 	--color-surface-800: 31 41 55; /* ⬅ #1f2937 */
 	--color-surface-900: 17 24 39; /* ⬅ #111827 */
+}
 
-	/* --- THEME --- */
-
-	/* Font Family */
-	/* prettier-ignore */
-	--theme-font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-	/* Font Color */
-	--theme-font-color-base: var(--color-surface-900);
-	--theme-font-color-dark: var(--color-surface-50);
-	/* Border Radius */
-	--theme-rounded-base: 4px;
-	--theme-rounded-container: 8px;
-	/* Border Width */
-	--theme-border-base: 1px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: bold;
 }
