@@ -11,20 +11,11 @@
 
 	// Helpers
 	import { tailwindDefaultColors } from '$lib/tailwind/colors';
-	import { storeMode, storePreview, storeTailwindForm, storeTailwindPalette, storeHexForm, storeHexPalette } from './stores';
+	import { storeMode, storePreview, storeTailwindForm, storeTailwindPalette, storeHexForm, storeHexPalette, storeFormData } from './stores';
 	import { resetSettings, onTailwindSelect, onRandomize, onHexInput, genCssColorStrings } from './utils';
 	import { fonts } from './fonts';
 
 	// Local
-	const formData: any = {
-		colors: '',
-		borderBase: '1px',
-		fontFamily: 'sans',
-		fontColorBase: 'var(--color-surface-900)',
-		fontColorDark: 'var(--color-surface-50)',
-		roundedBase: '4px',
-		roundedContainer: '8px'
-	};
 	let showCode: boolean = false;
 
 	// Reactive ---
@@ -37,12 +28,12 @@
 	$: cssTheme = `
 :root {
 	/* =~= Design Tokens =~= */
-	--theme-border-base: ${formData.borderBase};
-	--theme-font-family: ${fonts[formData.fontFamily]};
-	--theme-font-color-base: ${formData.fontColorBase};
-	--theme-font-color-dark: ${formData.fontColorDark};
-	--theme-rounded-base: ${formData.roundedBase};
-	--theme-rounded-container: ${formData.roundedContainer};
+	--theme-border-base: ${$storeFormData.borderBase};
+	--theme-font-family: ${fonts[$storeFormData.fontFamily]};
+	--theme-font-color-base: ${$storeFormData.fontColorBase};
+	--theme-font-color-dark: ${$storeFormData.fontColorDark};
+	--theme-rounded-base: ${$storeFormData.roundedBase};
+	--theme-rounded-container: ${$storeFormData.roundedContainer};
 	/* =~= Colors | ${$storeMode ? 'Tailwind' : 'Hex'} =~= */
 	/* ${currentPalette.primary.label} | ${currentPalette.primary.shades['500'].hex} */
 	${genCssColorStrings('primary', currentPalette.primary)}
@@ -101,14 +92,14 @@
 		<!-- Right: Options -->
 		<div class="card card-body grid grid-cols-2 gap-4">
 			<div class="col-span-2 flex justify-between items-center space-x-2">
-				<strong>Set Mode</strong>
+				<strong>Settings</strong>
 				<LightSwitch />
 			</div>
 			<hr class="col-span-2" />
 			<!-- --theme-border-base -->
 			<label>
 				<span>Border</span>
-				<select name="background" id="background" bind:value={formData.borderBase}>
+				<select name="background" id="background" bind:value={$storeFormData.borderBase}>
 					<option value="0px">0px</option>
 					<option value="1px">1px</option>
 					<option value="2px">2px</option>
@@ -118,7 +109,7 @@
 			<!-- --theme-font-family -->
 			<label>
 				<span>Font Family</span>
-				<select name="background" id="background" bind:value={formData.fontFamily}>
+				<select name="background" id="background" bind:value={$storeFormData.fontFamily}>
 					<option value="sans">Sans Serif</option>
 					<option value="serif">Serif</option>
 					<option value="mono">Monospace</option>
@@ -128,7 +119,7 @@
 			<!-- --theme-font-color-base -->
 			<label>
 				<span>Font Color <small>(light mode)</small></span>
-				<select name="background" id="background" bind:value={formData.fontColorBase}>
+				<select name="background" id="background" bind:value={$storeFormData.fontColorBase}>
 					<option value="var(--color-surface-800)">Surface 800</option>
 					<option value="var(--color-surface-900)">Surface 900</option>
 					<option value="0 0 0">Black</option>
@@ -137,7 +128,7 @@
 			<!-- --theme-font-color-dark -->
 			<label>
 				<span>Font Color <small>(dark mode)</small></span>
-				<select name="background" id="background" bind:value={formData.fontColorDark}>
+				<select name="background" id="background" bind:value={$storeFormData.fontColorDark}>
 					<option value="var(--color-surface-100)">Surface 100</option>
 					<option value="var(--color-surface-50)">Surface 50</option>
 					<option value="255 255 255">White</option>
@@ -146,7 +137,7 @@
 			<!-- --theme-rounded-base -->
 			<label>
 				<span>Rounded</span>
-				<select name="background" id="background" bind:value={formData.roundedBase}>
+				<select name="background" id="background" bind:value={$storeFormData.roundedBase}>
 					<option value="0px">0px</option>
 					<option value="2px">2px</option>
 					<option value="4px">4px</option>
@@ -161,7 +152,7 @@
 			<!-- --theme-rounded-container -->
 			<label>
 				<span>Rounded <small>(container)</small></span>
-				<select name="background" id="background" bind:value={formData.roundedContainer}>
+				<select name="background" id="background" bind:value={$storeFormData.roundedContainer}>
 					<option value="0px">0px</option>
 					<option value="2px">2px</option>
 					<option value="4px">4px</option>

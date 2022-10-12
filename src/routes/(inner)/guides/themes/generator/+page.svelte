@@ -2,7 +2,6 @@
 	import { storeFramework } from '$docs/stores';
 
 	// Components
-	import Alert from '$lib/components/Alert/Alert.svelte';
 	import Breadcrumb from '$lib/components/Breadcrumb/Breadcrumb.svelte';
 	import Crumb from '$lib/components/Breadcrumb/Crumb.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';

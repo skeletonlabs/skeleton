@@ -43,3 +43,14 @@ export let storeHexPalette: Writable<any> = localStorageStore('storeHexPalette',
 	warning: genHexPalette('warning', get(storeHexForm).warning),
 	surface: genHexPalette('surface', get(storeHexForm).surface)
 });
+
+// Settings Form Data
+export let storeFormData: Writable<any> = localStorageStore('storeFormData', {
+	colors: '',
+	borderBase: '1px',
+	fontFamily: 'sans',
+	fontColorBase: 'var(--color-surface-900)',
+	fontColorDark: 'var(--color-surface-50)',
+	roundedBase: '4px',
+	roundedContainer: '8px'
+});

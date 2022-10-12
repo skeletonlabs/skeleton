@@ -115,6 +115,7 @@ export function resetSettings(): void {
 		localStorage.removeItem('storeTailwindPalette');
 		localStorage.removeItem('storeHexForm');
 		localStorage.removeItem('storeHexPalette');
+		localStorage.removeItem('storeFormData');
 		// Reload Window
 		location.reload();
 	}
