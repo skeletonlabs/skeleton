@@ -94,9 +94,12 @@ export function hexToRgb(hex: string): string {
 // On Input Change
 export function onHexInput(key: SemanticNames, hexColor: string): void {
 	const regexValidHexCode = new RegExp(/^#[0-9a-f]{6}$/i);
+	console.log({ key, hexColor, test: regexValidHexCode.test(hexColor) });
 	if (regexValidHexCode.test(hexColor)) {
 		// Generate Palette
-		get(storeHexPalette)[key] = genHexPalette(key, hexColor);
+		let newStoreHexPalette = get(storeHexPalette);
+		newStoreHexPalette[key] = genHexPalette(key, hexColor);
+		storeHexPalette.set(newStoreHexPalette);
 	}
 }
 
