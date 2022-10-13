@@ -1,15 +1,16 @@
 import { get, type Writable } from 'svelte/store';
 import { localStorageStore } from '$lib/utilities/LocalStorageStore/LocalStorageStore';
 import { genHexPalette, getTailwindColor } from './utils';
+import type { SemanticNames, TailwindColorObject } from '$lib/tailwind/colors';
 
 // Mode - T: Tailwind | F: Custom
-export let storeMode: Writable<boolean> = localStorageStore('storeMode', true);
+export const storeMode: Writable<boolean> = localStorageStore('storeMode', true);
 
 // Live Preview Enabled State
-export let storePreview: Writable<boolean> = localStorageStore('storePreview', false);
+export const storePreview: Writable<boolean> = localStorageStore('storePreview', false);
 
 // Tailwind: Form Values
-export let storeTailwindForm: Writable<any> = localStorageStore('storeTailwindForm', {
+export const storeTailwindForm: Writable<Record<SemanticNames, string>> = localStorageStore('storeTailwindForm', {
 	primary: 'emerald',
 	accent: 'indigo',
 	ternary: 'yellow',
@@ -18,7 +19,7 @@ export let storeTailwindForm: Writable<any> = localStorageStore('storeTailwindFo
 });
 
 // Tailwind: Generated Palette Colors
-export let storeTailwindPalette: Writable<any> = localStorageStore('storeTailwindPalette', {
+export const storeTailwindPalette: Writable<Record<SemanticNames, TailwindColorObject>> = localStorageStore('storeTailwindPalette', {
 	primary: getTailwindColor(get(storeTailwindForm).primary),
 	accent: getTailwindColor(get(storeTailwindForm).accent),
 	ternary: getTailwindColor(get(storeTailwindForm).ternary),
@@ -27,7 +28,7 @@ export let storeTailwindPalette: Writable<any> = localStorageStore('storeTailwin
 });
 
 // Hex: Form Values
-export let storeHexForm: Writable<any> = localStorageStore('storeHexForm', {
+export const storeHexForm: Writable<Record<SemanticNames, string>> = localStorageStore('storeHexForm', {
 	primary: getTailwindColor('emerald').shades['500'].hex,
 	accent: getTailwindColor('indigo').shades['500'].hex,
 	ternary: getTailwindColor('yellow').shades['500'].hex,
@@ -36,7 +37,7 @@ export let storeHexForm: Writable<any> = localStorageStore('storeHexForm', {
 });
 
 // Hex: Generated Palette Colors
-export let storeHexPalette: Writable<any> = localStorageStore('storeHexPalette', {
+export const storeHexPalette: Writable<Record<SemanticNames, TailwindColorObject>> = localStorageStore('storeHexPalette', {
 	primary: genHexPalette('primary', get(storeHexForm).primary),
 	accent: genHexPalette('accent', get(storeHexForm).accent),
 	ternary: genHexPalette('ternary', get(storeHexForm).ternary),
@@ -44,8 +45,18 @@ export let storeHexPalette: Writable<any> = localStorageStore('storeHexPalette',
 	surface: genHexPalette('surface', get(storeHexForm).surface)
 });
 
+export type CustomisableAttributes = 
+| 'colors'
+| 'borderBase'
+| 'fontFamilyHeading'
+| 'fontFamilyBase'
+| 'fontColorBase'
+| 'fontColorDark'
+| 'roundedBase'
+| 'roundedContainer'
+
 // Settings Form Data
-export let storeFormData: Writable<any> = localStorageStore('storeFormData', {
+export const storeFormData: Writable<Record<CustomisableAttributes, string>> = localStorageStore('storeFormData', {
 	colors: '',
 	borderBase: '1px',
 	fontFamilyHeading: 'system',

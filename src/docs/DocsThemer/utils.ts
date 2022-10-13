@@ -1,21 +1,25 @@
-// Doc Themer Helper Functions
-
 import { get } from 'svelte/store';
 
+// Types
+import type { HexRgb, SemanticNames, TailwindColorObject, TailwindNumbers } from '../../lib/tailwind/colors';
+
+// Helpers
 // @ts-ignore
 import paletteGenerator from '@bobthered/tailwindcss-palette-generator';
-import { tailwindDefaultColors } from '../../lib/tailwind/colors';
+import { tailwindDefaultColors, tailwindNumbers } from '../../lib/tailwind/colors';
 import { storeTailwindPalette, storeTailwindForm, storeHexPalette } from './stores';
 
 // Tailwind ---
 
 // Get a Particular Color
-export function getTailwindColor(colorName: string): any {
-	return tailwindDefaultColors.find((c) => c.label === colorName);
+export function getTailwindColor(colorName: string) {
+	const result = tailwindDefaultColors.find((c) => c.label === colorName);
+	if (!result) throw new Error(`Color ${colorName} not found`);
+	return result;
 }
 
 // Pick Random Color
-export function randomTailwindColor(): any {
+export function randomTailwindColor() {
 	return tailwindDefaultColors[(Math.random() * tailwindDefaultColors.length) | 0];
 }
 
@@ -32,7 +36,7 @@ export function onTailwindSelect(): void {
 
 // On randomize button click
 export function onRandomize(): void {
-	const newColors: any = {
+	const newColors: Record<SemanticNames, TailwindColorObject> = {
 		primary: randomTailwindColor(),
 		accent: randomTailwindColor(),
 		warning: randomTailwindColor(),
@@ -58,22 +62,26 @@ export function onRandomize(): void {
 // Hex ---
 
 // Generate Hex Palette - Source: https://github.com/bobthered/tailwindcss-palette-generator
-export function genHexPalette(key: string, hexColor: string): any {
+export function genHexPalette(key: SemanticNames, hexColor: string): TailwindColorObject & { source: string } {
 	// Generate base palette
-	const hexShades: any = paletteGenerator({ names: [key], colors: [hexColor] });
-	delete hexShades[key][950]; // drop swatch 950
+	const hexShades: {
+		[key in SemanticNames]: {
+			[key in TailwindNumbers]: string;
+		};
+	} = paletteGenerator({ names: [key], colors: [hexColor] });
+	// @ts-expect-error It's too much bother to create a new type for the 950 swatch when we're going to bin it immediately.
+	delete hexShades[key]['950']; // drop swatch 950
 	// Generate RGB values and map data structure
-	let hexRgbShades: any = {};
-	let shadeValues: string[] = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'];
+	const hexRgbShades = {} as { [key in TailwindNumbers]: HexRgb };
 	Object.values(hexShades[key]).forEach((hexColor, i) => {
-		hexRgbShades[shadeValues[i]] = { hex: hexColor, rgb: hexToRgb(hexColor) };
+		hexRgbShades[tailwindNumbers[i]] = { hex: hexColor, rgb: hexToRgb(hexColor) };
 	});
 	// Update Hex Palette
 	return { label: key, shades: hexRgbShades, source: hexColor };
 }
 
 // Hex -> RGB - Source: https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
-export function hexToRgb(hex: any): string {
+export function hexToRgb(hex: string): string {
 	hex = hex.replace('#', '');
 	const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
 	if (result) {
@@ -84,7 +92,7 @@ export function hexToRgb(hex: any): string {
 }
 
 // On Input Change
-export function onHexInput(key: string, hexColor: string): void {
+export function onHexInput(key: SemanticNames, hexColor: string): void {
 	const regexValidHexCode = new RegExp(/^#[0-9a-f]{6}$/i);
 	if (regexValidHexCode.test(hexColor)) {
 		// Generate Palette
@@ -94,9 +102,9 @@ export function onHexInput(key: string, hexColor: string): void {
 
 // CSS Generation ---
 
-export function genCssColorStrings(colorKey: string, colorSet: any): string {
-	let css: string = '';
-	Object.entries(colorSet.shades).forEach((set: any, i: number) => {
+export function genCssColorStrings(colorKey: string, colorSet: TailwindColorObject): string {
+	let css = '';
+	Object.entries(colorSet.shades).forEach((set, i: number) => {
 		const [key, v] = set;
 		css += i === 0 ? '' : '\n' + '\t';
 		css += `--color-${colorKey}-${key}: ${v['rgb']}; /* ⬅ ${v['hex']} */`;

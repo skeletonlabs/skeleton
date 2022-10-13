@@ -53,7 +53,7 @@
 			We recommend <a href="https://tailwind.simeongriggs.dev/blue/3B82F6" target="_blank">Palette Generator</a> to curate a custom theme. This includes support for hue, saturation, and lightness
 			adjustments. Pair this with the
 			<a href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba" target="_blank">Hex-To-RGB extension</a>
-			to convert eaxch Hex color value to RGB in bulk with VS Code.
+			to convert each Hex color value to RGB in bulk with VS Code.
 		</p>
 	</section>
 </div>
