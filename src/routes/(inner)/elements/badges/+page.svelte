@@ -31,7 +31,7 @@
 		<section class="grid grid-cols-1 lg:grid-cols-3 gap-4">
 			<!-- - -->
 			<div class="card card-body">
-				<span class="badge bg-surface-500 text-white">Skeleton</span>
+				<span class="badge badge-filled-surface">Skeleton</span>
 			</div>
 			<!-- - -->
 			<div class="lg:col-span-2 card card-body">

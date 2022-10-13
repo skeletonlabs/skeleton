@@ -51,7 +51,7 @@
 		<section class="card card-body grid grid-cols-1 md:grid-cols-2 gap-4">
 			<!-- Element -->
 			<div class="space-y-4">
-				<div class="bg-surface-50 dark:bg-surface-600 h-20 p-2 px-4 rounded" data-clipboard="exampleElement" contenteditable>
+				<div class="bg-surface-200-700-token p-4 rounded-container-token h-20" data-clipboard="exampleElement" contenteditable>
 					This <em>div</em> is set to 'contenteditable'. Make changes then tap copy.
 				</div>
 				<button use:clipboard={{ element: 'exampleElement' }} class="btn btn-ghost">Copy Element Contents</button>

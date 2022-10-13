@@ -18,10 +18,10 @@
 			headings: ['Prop', 'Type', 'Default', 'Description'],
 			source: [
 				['<code>visible</code>', 'boolean', 'true', 'Control visibility of the alert.'],
-				['<code>background</code>', 'string', 'bg-accent-500/30', 'Provide classes to set background color.'],
-				['<code>border</code>', 'string', 'border-l-4 border-l-accent-500', 'Provide classes to set the border styles.'],
+				['<code>background</code>', 'string', 'bg-ternary-500/30', 'Provide classes to set background color.'],
+				['<code>border</code>', 'string', 'border-l-4 border-l-ternary-500', 'Provide classes to set the border styles.'],
 				['<code>color</code>', 'string', '-', 'Provide classes to set text color.'],
-				['<code>radius</code>', 'string', '-', 'Provide classes to set border radius.'],
+				['<code>rounded</code>', 'string', '-', 'Provide classes to set border radius.'],
 				['<code>duration</code>', 'number', '200', 'Svelte fade transition duration. Set <code>0</code> to disable.']
 			]
 		}
@@ -78,13 +78,13 @@
 				<span>{message}</span>
 				<svelte:fragment slot="trail">
 					<button class="btn btn-filled-ternary" on:click={actionExample}>View More</button>
-					<button class="btn btn-ghost-ternary" on:click={toggleVisible}>&#10005;</button>
+					<button class="btn-icon btn-ghost-ternary" on:click={toggleVisible}>&#10005;</button>
 				</svelte:fragment>
 			</Alert>
-			<Alert background="bg-warning-500/30" border="border-l-4 border-warning-500" rounded="rounded-3xl" {visible}>
+			<Alert background="bg-warning-500/30" border="border-l-4 border-warning-500" {visible}>
 				<span>{message}</span>
 				<svelte:fragment slot="trail">
-					<button class="btn btn-ghost" on:click={toggleVisible}>&#10005;</button>
+					<button class="btn-icon btn-ghost" on:click={toggleVisible}>&#10005;</button>
 				</svelte:fragment>
 			</Alert>
 			<Alert background="bg-accent-500/30" border="border-l-4 border-accent-500" {visible}>

@@ -7,7 +7,7 @@
 	export let step: number = 1;
 	export let value: number = 0;
 	export let ticked: boolean = false;
-	export let accent: string = 'accent-accent-500';
+	export let accent: string = 'accent-token';
 	// Props (a11y)
 	export let id: string = crypto.randomUUID(); // unique id
 	export let name: string = id;

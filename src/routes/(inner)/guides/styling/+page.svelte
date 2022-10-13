@@ -32,8 +32,15 @@
 		source: [
 			[
 				'<code>tailwind.css</code>',
-				'<u>IMPORTANT</u>: should proceed all other stylesheets.',
+				'<u>IMPORTANT</u>: always required andshould proceed all other stylesheets.',
 				'<a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank">@tailwind directives</a>',
+				`<a href="${ghLibPathMaster}/styles/tailwind.css" target="_blank">tailwind.css</a>`,
+				'-'
+			],
+			[
+				'<code>tokens.css</code>',
+				'Creates design token classes for theme CSS custom properties.',
+				'<a href="/guides/themes">Themes</a>',
 				`<a href="${ghLibPathMaster}/styles/tailwind.css" target="_blank">tailwind.css</a>`,
 				'-'
 			],
@@ -127,14 +134,13 @@
 	<section class="space-y-4">
 		<h2>Stylesheets</h2>
 		<p>
-			Skeleton provides a set of modular stylesheets that adapt to your theme. The easiest option is to use the <code>all.css</code> stylesheet. Import the following in your root layout.
+			Skeleton provides a set of modular stylesheets that adapt to your theme. The easiest option is to use the <code>all.css</code> stylesheet. Import the following in your root layout. Sandwich stylesheets
+			between your theme and global stylesheet.
 		</p>
 		<CodeBlock
 			language="typescript"
 			code={`
-// (theme stylesheet here)
 import '@brainandbones/skeleton/styles/${$storeStylesheets === 'simple' ? 'all' : '{stylehsheet}'}.css';
-// (global stylesheet here)
 			`}
 		/>
 		<TabGroup selected={storeStylesheets} class="pt-4">
@@ -240,8 +246,8 @@ import '@brainandbones/skeleton/styles/${$storeStylesheets === 'simple' ? 'all' 
 	<hr />
 
 	<!-- Next Steps -->
-	<div class="card card-body !flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-		<p>Next, let's create a simple project within one of Skeleton's supported frameworks.</p>
-		<a class="btn btn-filled-accent" href="/guides/frameworks">Framework Guides</a>
+	<div class="card card-body flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+		<p>Next, let's create and implement a custom theme.</p>
+		<a class="btn btn-filled-accent" href="/guides/themes">Create a Theme</a>
 	</div>
 </div>

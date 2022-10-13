@@ -4,10 +4,10 @@
 	export let value: number | undefined = undefined;
 	export let max: number = 100;
 	export let height: string = 'h-2';
-	export let rounded: string = 'rounded-xl';
+	export let rounded: string = 'rounded-token';
 	// Props (elements)
 	export let meter: string = 'bg-accent-500';
-	export let track: string = 'bg-surface-300 dark:bg-surface-700';
+	export let track: string = 'bg-surface-200-700-token';
 
 	// Base Classes
 	const cBaseWrapper: string = 'w-full';
@@ -21,6 +21,7 @@
 
 	// Reactive Classes
 	$: classesTrack = `${cBaseTrack} ${height} ${rounded} ${track} ${$$props.class ?? ''}`;
+	$: classesMeter = `${rounded} ${meter}`;
 </script>
 
 <div class="progress-wrapper {cBaseWrapper}" data-testid="progress-wrapper" role="progressbar" aria-label={label} aria-valuenow={value} aria-valuemin={0} aria-valuemax={max}>
@@ -30,9 +31,9 @@
 	<div class="progress-track {classesTrack}">
 		<!-- Meter - Determinate / Indeterminate -->
 		{#if value !== undefined && value >= 0}
-			<div class="progress-meter {cBaseMeterDeterminate} {rounded} {meter}" style:width="{fillPercent}%" />
+			<div class="progress-meter {cBaseMeterDeterminate} {classesMeter}" style:width="{fillPercent}%" />
 		{:else}
-			<div class="progress-meter {cBaseMeterIndeterminate} {rounded} {meter} animIndeterminate" />
+			<div class="progress-meter {cBaseMeterIndeterminate} {classesMeter} animIndeterminate" />
 		{/if}
 	</div>
 </div>

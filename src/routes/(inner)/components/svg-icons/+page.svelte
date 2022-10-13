@@ -25,7 +25,7 @@
 				['<code>x</code>', 'string', '0px', '-', 'Native X attribute for the svg element.'],
 				['<code>y</code>', 'string', '0px', '-', 'Native Y attribute for the svg element.'],
 				['<code>viewBox</code>', 'string', '0 0 512 512', '-', 'Native viewBox attribute for the svg element.'],
-				['<code>fill</code>', 'string', 'fill-black dark:fill-white', '-', 'Provide classes to set the SVG fill color.'],
+				['<code>fill</code>', 'string', 'fill-token', '-', 'Provide classes to set the SVG fill color.'],
 				['<code>width</code>', 'string', 'w-5', '-', 'Provide classes to set the width color.'],
 				['<code>height</code>', 'string', 'w-5', '-', 'Provide classes to set the height color.']
 			]

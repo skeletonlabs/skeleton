@@ -24,7 +24,10 @@
 			headings: ['Prop', 'Type', 'Default', 'Description'],
 			source: [
 				['<code>collapse</code>', 'boolean', 'true', 'Enable auto-collapse mode.'],
-				['<code>spacing</code>', 'string', 'spacing-y-2', 'Provide classes to set spacing between item rows.']
+				['<code>hover</code>', 'string', 'bg-hover-token', 'Provide classes to set the hover background color.'],
+				['<code>spacing</code>', 'string', 'space-y-4', 'Provide classes to set vertical spacing.'],
+				['<code>padding</code>', 'string', 'px-4 py-2', 'Provide classes to set padding for summary and content regions.'],
+				['<code>rounded</code>', 'string', 'rounded-token', 'Provide classes to set summary border radius.']
 			]
 		},
 		{
@@ -32,10 +35,10 @@
 			headings: ['Prop', 'Type', 'Default', 'Description'],
 			source: [
 				['<code>open</code>', 'boolean', 'false', `Defines the default open state on page load.`],
-				['<code>hover</code>', 'string', 'hover:bg-primary-500/10', 'Provide classes to set the hover background color.'],
-				['<code>spacing</code>', 'string', 'space-y-0', 'Provide classes to set spacing between title and description elements.'],
-				['<code>padding</code>', 'string', 'px-4 py-2', 'Provide classes to set padding for summary and content regions.'],
-				['<code>rounded</code>', 'string', 'rounded', 'Provide classes to set summary border radius.']
+				['<code>hover</code>', 'string', '(inherit)', 'Provide classes to set the hover background color.'],
+				['<code>spacing</code>', 'string', '(inherit)', 'Provide classes to set spacing between title and description elements.'],
+				['<code>padding</code>', 'string', '(inherit)', 'Provide classes to set padding for summary and content regions.'],
+				['<code>rounded</code>', 'string', '(inherit)', 'Provide classes to set summary border radius.']
 			]
 		}
 	];

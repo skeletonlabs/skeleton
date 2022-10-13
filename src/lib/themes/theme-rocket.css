@@ -1,6 +1,19 @@
+/* https://fonts.google.com/specimen/Space+Grotesk */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+/* https://fonts.google.com/specimen/Roboto?query=roboto */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 :root {
-	/* =~= Skeleton Theme | Tailwind =~= */
-	/* ~ primary (cyan | #06b6d4) ~ */
+	/* =~= Theme Styles =~= */
+	--theme-border-base: 0px;
+	--theme-font-family-heading: 'Space Grotesk', sans-serif;
+	--theme-font-family-base: 'Roboto', sans-serif;
+	--theme-font-color-base: var(--color-surface-900);
+	--theme-font-color-dark: var(--color-surface-50);
+	--theme-rounded-base: 0px;
+	--theme-rounded-container: 0px;
+	/* =~= Theme Colors | Tailwind =~= */
+	/* cyan | #06b6d4 */
 	--color-primary-50: 236 254 255; /* ⬅ #ecfeff */
 	--color-primary-100: 207 250 254; /* ⬅ #cffafe */
 	--color-primary-200: 165 243 252; /* ⬅ #a5f3fc */
@@ -11,7 +24,7 @@
 	--color-primary-700: 14 116 144; /* ⬅ #0e7490 */
 	--color-primary-800: 21 94 117; /* ⬅ #155e75 */
 	--color-primary-900: 22 78 99; /* ⬅ #164e63 */
-	/* ~ accent (blue | #3b82f6) ~ */
+	/* blue | #3b82f6 */
 	--color-accent-50: 239 246 255; /* ⬅ #eff6ff */
 	--color-accent-100: 219 234 254; /* ⬅ #dbeafe */
 	--color-accent-200: 191 219 254; /* ⬅ #bfdbfe */
@@ -22,7 +35,7 @@
 	--color-accent-700: 29 78 216; /* ⬅ #1d4ed8 */
 	--color-accent-800: 30 64 175; /* ⬅ #1e40af */
 	--color-accent-900: 30 58 138; /* ⬅ #1e3a8a */
-	/* ~ ternary (purple | #a855f7) ~ */
+	/* purple | #a855f7 */
 	--color-ternary-50: 250 245 255; /* ⬅ #faf5ff */
 	--color-ternary-100: 243 232 255; /* ⬅ #f3e8ff */
 	--color-ternary-200: 233 213 255; /* ⬅ #e9d5ff */
@@ -33,7 +46,7 @@
 	--color-ternary-700: 126 34 206; /* ⬅ #7e22ce */
 	--color-ternary-800: 107 33 168; /* ⬅ #6b21a8 */
 	--color-ternary-900: 88 28 135; /* ⬅ #581c87 */
-	/* ~ warning (pink | #ec4899) ~ */
+	/* pink | #ec4899 */
 	--color-warning-50: 253 242 248; /* ⬅ #fdf2f8 */
 	--color-warning-100: 252 231 243; /* ⬅ #fce7f3 */
 	--color-warning-200: 251 207 232; /* ⬅ #fbcfe8 */
@@ -55,4 +68,13 @@
 	--color-surface-700: 77 89 107;
 	--color-surface-800: 66 77 92;
 	--color-surface-900: 60 69 83;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: bold;
 }

@@ -31,7 +31,7 @@
 				['<code>max</code>', 'number', '100', 'Set the input maximum range.'],
 				['<code>step</code>', 'number', '1', 'Set the input step offset.'],
 				['<code>ticked</code>', 'boolean', 'false', 'Enables tick marks. See browser support below.'],
-				['<code>accent</code>', 'string', 'accent-accent-500', 'Provide classes to set the input accent color.']
+				['<code>accent</code>', 'string', 'accent-token', 'Provide classes to set the input accent color.']
 			]
 		}
 	];

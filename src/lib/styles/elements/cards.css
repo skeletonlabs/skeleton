@@ -4,11 +4,11 @@
 
 .card {
 	/* background */
-	@apply bg-surface-200 dark:bg-surface-800;
+	@apply bg-surface-100-800-token;
 	/* Ring */
-	@apply ring-[1px] ring-black/5 dark:ring-white/5 ring-inset;
-	/* rounded */
-	@apply rounded-lg;
+	@apply ring-[1px] ring-neutral-900/5 dark:ring-neutral-50/5 ring-inset;
+	/* Theme: Rounded */
+	@apply rounded-container-token;
 }
 
 /* === Card Regions (children) === */

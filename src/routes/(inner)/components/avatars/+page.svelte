@@ -35,7 +35,7 @@
 		{
 			headings: ['Prop', 'Type', 'Default', 'Description'],
 			source: [
-				['<code>background</code>', 'string', 'bg-surface-500', 'Provide classes to set background styles.'],
+				['<code>background</code>', 'string', 'bg-surface-400-500-token', 'Provide classes to set background styles.'],
 				['<code>width</code>', 'string', 'w-12', 'Provide classes to set avatar width.'],
 				['<code>border</code>', 'string', '-', 'Provide classes to set border styles.'],
 				['<code>rounded</code>', 'string', 'rounded-full', 'Provide classes to set rounded style.'],
@@ -57,7 +57,7 @@
 			headings: ['Prop', 'Type', 'Default', 'Description'],
 			source: [
 				['<code>initials</code>', 'string', 'AB', 'Provide up to two text characters.'],
-				['<code>fill</code>', 'string', 'fill-white', 'Provide classes to set the SVG text fill color.']
+				['<code>fill</code>', 'string', 'fill-token', 'Provide classes to set the SVG text fill color.']
 			]
 		}
 	];
@@ -80,7 +80,7 @@
 
 	// Local
 	const imgPlaceholder: string = 'https://i.pravatar.cc/?img=5';
-	const borderStyles: string = 'border-4 border-black dark:border-white hover:!border-primary-500 cursor-pointer';
+	const borderStyles: string = 'border-4 border-surface-300-600-token hover:!border-primary-500 cursor-pointer';
 
 	// Store
 	const storeWidth: Writable<string | undefined> = writable('w-48');

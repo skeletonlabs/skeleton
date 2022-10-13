@@ -18,8 +18,8 @@
 	@apply flex items-center space-x-4 whitespace-nowrap;
 	/* Padding */
 	@apply px-4 py-3;
-	/* Rounded */
-	@apply rounded;
+	/* Theme: Rounded */
+	@apply rounded-token;
 }
 
 .list-dl div {
@@ -27,8 +27,8 @@
 	@apply flex items-center space-x-4 whitespace-nowrap;
 	/* Padding */
 	@apply px-4 py-3;
-	/* Rounded */
-	@apply rounded;
+	/* Theme: Rounded */
+	@apply rounded-token;
 }
 
 .list-nav a,
@@ -36,10 +36,10 @@
 	@apply flex items-center space-x-4 whitespace-nowrap;
 	/* Padding */
 	@apply px-4 py-3;
-	/* Rounded */
-	@apply rounded;
 	/* Hover */
-	@apply hover:bg-primary-500/10;
+	@apply bg-hover-token;
 	/* Cursor */
 	@apply cursor-pointer;
+	/* Theme: Rounded */
+	@apply rounded-token;
 }

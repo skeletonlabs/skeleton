@@ -5,9 +5,9 @@
 	import { dialogStore } from '$lib/utilities/Dialog/stores';
 
 	// Props
-	export let backdrop: string = 'bg-surface-400/70 dark:bg-surface-900/70';
-	export let blur: string = 'backdrop-blur-none';
-	export let card: string = 'bg-surface-50 dark:bg-surface-700';
+	export let backdrop: string = 'bg-backdrop-token';
+	export let blur: string = 'backdrop-blur-xs';
+	export let background: string = 'bg-surface-200-700-token';
 	export let width: string = 'max-w-[640px]';
 	export let duration: number = 100;
 
@@ -16,7 +16,7 @@
 	let dialogValue: string;
 
 	// Base Classes
-	const cBaseBackdrop: string = 'fixed top-0 left-0 right-0 bottom-0 z-[999] flex justify-center items-center p-4 backdrop-blur-sm';
+	const cBaseBackdrop: string = 'fixed top-0 left-0 right-0 bottom-0 z-[999] flex justify-center items-center p-4';
 	const cBaseDialog: string = 'p-4 w-full space-y-4 rounded-xl drop-shadow';
 	const cBaseHeader: string = 'flex justify-start items-center space-x-4';
 	const cBaseIcon: string = 'fill-black dark:fill-white bg-primary-500/20 flex justify-center items-center w-10 mx-auto aspect-square rounded-full';
@@ -74,7 +74,7 @@
 
 	// Reactive Classes
 	$: classesBackdrop = `${cBaseBackdrop} ${backdrop} ${blur}`;
-	$: classesDialog = `${cBaseDialog} ${card} ${width}`;
+	$: classesDialog = `${cBaseDialog} ${background} ${width}`;
 </script>
 
 {#if $dialogStore.length}

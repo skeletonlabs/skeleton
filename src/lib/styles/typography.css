@@ -1,30 +1,49 @@
 /* Stylesheet Add-On: typography.css */
 
+body {
+	/* Theme: Font Family */
+	@apply font-token;
+	/* Theme: Font Color */
+	@apply text-token;
+}
+
 /* === Headings === */
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	/* Theme: Font Family */
+	@apply font-heading-token;
+}
+
 h1 {
-	@apply text-3xl md:text-4xl font-bold;
+	@apply text-3xl md:text-4xl; /*  font-semibold */
 }
 h2 {
-	@apply text-2xl md:text-3xl font-bold;
+	@apply text-2xl md:text-3xl; /*  font-semibold */
 }
 h3 {
-	@apply text-xl md:text-2xl font-bold;
+	@apply text-xl md:text-2xl; /*  font-semibold */
 }
 h4 {
-	@apply text-lg md:text-xl font-bold;
+	@apply text-lg md:text-xl; /*  font-semibold */
 }
 h5 {
-	@apply text-base md:text-lg font-bold;
+	@apply text-base md:text-lg; /*  font-semibold */
 }
 h6 {
-	@apply text-sm md:text-base font-bold;
+	@apply text-sm md:text-base; /*  font-semibold */
 }
 
 /* === Elements === */
 
 p:not(.unstyled) {
-	@apply text-base text-black/80 dark:text-white/80;
+	@apply text-base;
+	/* Theme: Font Color */
+	@apply text-token;
 }
 
 .link,
@@ -33,21 +52,29 @@ a:not(.unstyled):not(.btn-icon):not(.btn):not(.app-bar a):not(.logo-item):not(.c
 }
 
 blockquote:not(.unstyled) {
-	@apply text-base text-black/80 dark:text-white/80 border-l-4 border-l-accent-500 px-4 pl-4;
+	@apply text-base border-l-4 border-l-accent-500 px-4 pl-4;
+	/* Theme: Font Color */
+	@apply text-token;
 }
 
 /* Keyboard */
 kbd:not(.unstyled) {
-	@apply text-sm bg-surface-300 dark:bg-surface-600 border-b-[2px] border-surface-500 ring-[1px] ring-surface-500 px-1.5 py-0.5 rounded;
+	@apply !font-sans font-bold text-xs bg-surface-200-700-token border-b-[2px] border-surface-400-500-token ring-[1px] ring-surface-400-500-token px-1.5 py-0.5 rounded;
 }
 
 /* === Code Blocks === */
 /* For use outside of Skeleton's CodeBlock component */
 
 pre:not(.unstyled):not(.code-block pre) {
-	@apply bg-surface-700 dark:bg-black/20 text-surface-50 p-4 whitespace-pre-wrap text-base overflow-x-auto rounded;
+	@apply font-mono text-base bg-[#141517] text-white p-4 whitespace-pre-wrap overflow-x-auto;
+	/* Theme: Rounded */
+	@apply rounded-token;
 }
 
 code:not(.unstyled):not(.code-block code) {
-	@apply bg-black/5 dark:bg-white/5 text-xs py-1 px-2 rounded;
+	@apply !font-mono text-primary-800 dark:text-primary-300 bg-primary-500/20 text-xs md:text-[13px] py-1 px-2;
+	/* Theme: Font Family */
+	@apply font-token;
+	/* Theme: Rounded */
+	@apply rounded-token;
 }

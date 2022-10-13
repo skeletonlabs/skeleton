@@ -4,7 +4,6 @@
 
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import ConicGradient from '$lib/components/ConicGradient/ConicGradient.svelte';
-	import DataTable from '$lib/components/Table/DataTable.svelte';
 
 	import type { ConicStop } from '$lib/components/ConicGradient/types';
 
@@ -25,7 +24,7 @@
 				['<code>legend</code>', 'boolean', 'false', '-', 'Allows for automatic generation of a legend below the conic gradient.'],
 				['<code>spin</code>', 'boolean', 'false', '-', 'When enabled, the conic gradient will spin.'],
 				['<code>width</code>', 'string', 'w-full', '-', 'Provided classes to style the conic gradient width.'],
-				['<code>hover</code>', 'string', 'hover:bg-surface-500/10', '-', 'Provided classes to style the legend hover effect.']
+				['<code>hover</code>', 'string', 'bg-hover-token', '-', 'Provided classes to style the legend hover effect.']
 			]
 		}
 	];

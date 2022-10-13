@@ -111,10 +111,10 @@
 	<!-- Region: Header -->
 	<header class="doc-shell-header {classesRegionHeader}">
 		<!-- Information -->
-		<div class="page-container !pb-0 lg:!space-y-10">
+		<div class="doc-shell-info page-container !pb-0 lg:!space-y-10">
 			<!-- Feature -->
-			<span class="badge bg-primary-500/10 text-primary-500">
-				<SvgIcon width="w-4" height="h-4" fill="fill-primary-500" name={setFeatureIcon()} />
+			<span class="badge badge-filled-surface">
+				<SvgIcon width="w-4" height="h-4" name={setFeatureIcon()} />
 				<span>{@html pageSettings.feature}</span>
 			</span>
 
@@ -125,6 +125,7 @@
 			</section>
 
 			<!-- Details -->
+			<!-- TODO: replace w/ chip elements -->
 			<section class="doc-shell-details {regionDetails}">
 				<!-- Imports -->
 				{#if pageSettings.imports?.length}
@@ -295,7 +296,7 @@
 </div>
 
 <style lang="postcss">
-	code {
-		@apply cursor-pointer hover:!bg-primary-500/20 transition-colors duration-100;
+	.doc-shell-info code {
+		@apply hover:!bg-primary-500/30 transition-colors duration-100 cursor-pointer;
 	}
 </style>

@@ -45,7 +45,7 @@
 	}
 
 	// Reactive
-	$: classesActive = (href: string) => ($storeCurrentUrl?.includes(href) ? '!bg-primary-500' : '');
+	$: classesActive = (href: string) => ($storeCurrentUrl?.includes(href) ? '!bg-primary-500 !text-primary-50 !dark:text-primary-50' : '');
 </script>
 
 <div class="m-4 mb-20 {$$props.class ?? ''}">
@@ -66,7 +66,7 @@
 							<a {href} value={href} class={classesActive(href)} data-sveltekit-prefetch>
 								{#if icon}
 									<span>
-										<div class="bg-accent-500 w-7 h-7 flex justify-center items-center rounded shadow">
+										<div class="bg-accent-500 w-7 h-7 flex justify-center items-center rounded-token shadow">
 											<SvgIcon name={icon} width="w-4" fill="fill-white" height="h-10" />
 										</div>
 									</span>

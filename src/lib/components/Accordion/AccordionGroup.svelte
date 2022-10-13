@@ -1,10 +1,24 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onMount, setContext } from 'svelte';
 
 	// Props
 	export let collapse: boolean = true;
+	// Props (item)
+	export let hover: string = 'bg-hover-token';
 	export let spacing: string = 'space-y-4';
+	export let padding: string = 'px-4 py-2';
+	export let rounded: string = 'rounded-token';
 
+	// Context
+	setContext('hover', hover);
+	setContext('spacing', spacing);
+	setContext('padding', padding);
+	setContext('rounded', rounded);
+
+	// Classes
+	const cBase: string = 'rounded-container-token';
+
+	// Local
 	let elemAccordian: HTMLElement;
 
 	// Lifecycle
@@ -23,8 +37,11 @@
 			});
 		}
 	});
+
+	// Reactive
+	$: classesBase = `${cBase} ${spacing} ${$$props.class ?? ''}`;
 </script>
 
-<div bind:this={elemAccordian} class="accordian-group {spacing} {$$props.class ?? ''}" data-testid="accordion-group">
+<div bind:this={elemAccordian} class="accordian-group {classesBase}" data-testid="accordion-group">
 	<slot />
 </div>

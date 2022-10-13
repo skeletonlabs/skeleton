@@ -57,7 +57,7 @@
 						`}
 						/>
 						<p>We make several small adjustments to take advantage of Skeleton's styles and theme system:</p>
-						<ul class="list-disc list-inside opacity-60">
+						<ul class="list-disc list-inside">
 							<li>Replaced all instances of the <code>bg-gray-X</code> class with <code>bg-surface-X</code>.</li>
 							<li>Added a <code>!no-outline</code> class to prevent text underlines.</li>
 							<li>Modified the the heading to be an H2 and dropped <code>text-2xl font-bold</code> classes.</li>

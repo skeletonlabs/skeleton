@@ -6,16 +6,19 @@
 
 	// Props
 	export let checked: boolean = false;
-	export let accent: string = 'bg-accent-500';
 	export let size: string = 'md';
+	export let accent: string = 'bg-accent-500';
+	export let borderWidth: string = 'border-token';
+	export let borderColor: string = 'border-surface-300-600-token';
+	export let rounded: string = 'rounded-full';
 	// A11y
 	export let label: string | undefined = undefined;
 
 	// Base Styles
 	const cBase: string = 'inline-block';
 	const cLabel: string = 'flex items-center';
-	const cTrack: string = 'flex rounded-full transition-all duration-[200ms] hover:brightness-110 cursor-pointer';
-	const cThumb: string = 'w-[50%] h-full scale-[0.7] rounded-full cursor-pointer transition-all duration-[200ms] shadow-lg';
+	const cTrack: string = 'flex transition-all duration-[200ms] hover:brightness-110 cursor-pointer';
+	const cThumb: string = 'w-[50%] h-full scale-[0.7] cursor-pointer transition-all duration-[200ms] shadow-lg';
 
 	// Set track size
 	let trackSize: string;
@@ -37,15 +40,15 @@
 	}
 
 	// Interactive
-	$: cTrackAccent = checked ? accent : 'bg-surface-400 dark:bg-surface-700 cursor-pointer';
+	$: cTrackAccent = checked ? accent : 'bg-surface-200-700-token cursor-pointer';
 	$: cThumbBackground = checked ? 'bg-white' : 'bg-white/50';
 	$: cThumbPos = checked ? 'translate-x-full' : '';
 
 	// Reactive Classes
 	$: classesBase = `${cBase}`;
 	$: classesLabel = `${cLabel} ${$$props.class ?? ''}`;
-	$: classesTrack = `${cTrack} ${trackSize} ${cTrackAccent}`;
-	$: classesThumb = `${cThumb} ${cThumbBackground} ${cThumbPos}`;
+	$: classesTrack = `${cTrack} ${borderWidth} ${borderColor} ${rounded} ${trackSize} ${cTrackAccent}`;
+	$: classesThumb = `${cThumb} ${rounded} ${cThumbBackground} ${cThumbPos}`;
 
 	// Prune $$restProps to avoid overwriting $$props.class
 	function prunedRestProps(): any {

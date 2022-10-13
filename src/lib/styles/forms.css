@@ -35,8 +35,27 @@ legend {
 [multiple],
 textarea,
 select {
-	@apply w-full text-black bg-surface-50 border-surface-300 rounded shadow-sm caret-accent-500 focus:border-accent-500 focus:ring-accent-500 hover:brightness-110;
-	@apply dark:text-white dark:bg-surface-600 dark:border-surface-500;
+	/* Base */
+	@apply w-full caret-accent-500 focus:ring-accent-500 transition-all duration-200 hover:brightness-110;
+	/* Text */
+	@apply text-black dark:text-white;
+	/* Background */
+	@apply bg-surface-200-700-token;
+	/* Border */
+	@apply border-surface-300-600-token focus:border-accent-500;
+	/* Shadow */
+	@apply shadow-sm;
+	/* Theme: Border Width */
+	@apply border-token;
+	/* Theme: Rounded */
+	@apply rounded-token;
+}
+
+.file-dropzone-input,
+[multiple],
+textarea {
+	/* Theme: Rounded */
+	@apply rounded-container-token;
 }
 
 /* File */
@@ -47,7 +66,23 @@ select {
 /* Selectable */
 [type='checkbox'],
 [type='radio'] {
-	@apply border-surface-500 rounded text-accent-600 focus:ring-accent-500;
+	@apply border-surface-500 rounded text-accent-600 focus:ring-accent-500 w-5 h-5;
+	/* Theme: Rounded */
+	@apply rounded-token;
+}
+
+/* Placeholder */
+::-moz-placeholder,
+textarea::-moz-placeholder {
+	@apply text-surface-900/50 dark:text-surface-50/50;
+}
+:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+	@apply text-surface-900/50 dark:text-surface-50/50;
+}
+::placeholder,
+textarea::placeholder {
+	@apply text-surface-900/50 dark:text-surface-50/50;
 }
 
 /* === States === */
@@ -111,5 +146,5 @@ textarea::placeholder {
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color */
 
 [type='range']:not(.range-input) {
-	@apply w-full accent-accent-500;
+	@apply w-full accent-token;
 }
