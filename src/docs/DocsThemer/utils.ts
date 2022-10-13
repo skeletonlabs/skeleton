@@ -1,11 +1,12 @@
-// Doc Themer Helper Functions
-
 import { get } from 'svelte/store';
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// Types
+import type { HexRgb, SemanticNames, TailwindColorObject, TailwindNumbers } from '../../lib/tailwind/colors';
+
+// Helpers
 // @ts-ignore
 import paletteGenerator from '@bobthered/tailwindcss-palette-generator';
-import { tailwindDefaultColors, tailwindNumbers, type HexRgb, type SemanticNames, type TailwindColorObject, type TailwindNumbers } from '../../lib/tailwind/colors';
+import { tailwindDefaultColors, tailwindNumbers } from '../../lib/tailwind/colors';
 import { storeTailwindPalette, storeTailwindForm, storeHexPalette } from './stores';
 
 // Tailwind ---
@@ -65,7 +66,7 @@ export function genHexPalette(key: SemanticNames, hexColor: string): TailwindCol
 	// Generate base palette
 	const hexShades: {
 		[key in SemanticNames]: {
-			[key in TailwindNumbers]: string
+			[key in TailwindNumbers]: string;
 		};
 	} = paletteGenerator({ names: [key], colors: [hexColor] });
 	// @ts-expect-error It's too much bother to create a new type for the 950 swatch when we're going to bin it immediately.
