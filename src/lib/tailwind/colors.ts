@@ -1,6 +1,14 @@
 // https://tailwindcss.com/docs/customizing-colors#default-color-palette
-
-export const tailwindDefaultColors: any[] = [
+export const tailwindNumbers = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'] as const
+export type TailwindNumbers = typeof tailwindNumbers[number]
+export type HexRgb = { hex: string, rgb: string }
+export type TailwindColorObject = {
+	label: string,
+	shades: Record<TailwindNumbers, HexRgb>,
+}
+export const semanticNames = [ 'primary', 'accent', 'warning', 'ternary', 'surface'] as const
+export type SemanticNames = typeof semanticNames[number]
+export const tailwindDefaultColors: TailwindColorObject[] = [
 	{
 		label: 'slate',
 		shades: {
