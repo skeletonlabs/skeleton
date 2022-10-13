@@ -41,7 +41,7 @@
 				'<code>tokens.css</code>',
 				'Creates design token classes for theme CSS custom properties.',
 				'<a href="/guides/themes">Themes</a>',
-				`<a href="${ghLibPathMaster}/styles/tailwind.css" target="_blank">tailwind.css</a>`,
+				`<a href="${ghLibPathMaster}/styles/tokens.css" target="_blank">tokens.css</a>`,
 				'-'
 			],
 			[
