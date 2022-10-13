@@ -3,18 +3,47 @@
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
 	// Props
+	/** Defines the default open state on page load.*/
 	export let open: boolean = false;
+
 	// Props (slot)
+	/** This is the slot summary
+	 * @type { string | undefined }*/
 	export let slotSummary: string | undefined = undefined;
+	/** This is the slot content
+	 * @type { string | undefined }*/
 	export let slotContent: string | undefined = undefined;
 	// A11y
+	/** Provide semantic ID for ARIA summary element. a11y https://www.w3.org/WAI/ARIA/apg/example-index/accordion/accordion
+	 * @type { string | undefined }*/
 	export let summaryId: string | undefined = undefined;
+	/** Provide semantic ID for ARIA content element. a11y https://www.w3.org/WAI/ARIA/apg/example-index/accordion/accordion
+	 * @type { string | undefined }*/
 	export let contentId: string | undefined = undefined;
 
 	// Context
+	/**
+	 * @typedef PropertiesHash
+	 * @type {object}
+	 * @property {string} id - an ID.
+	 * @property {string} name - your name.
+	 * @property {number} age - your age.
+	 */
+	/** Provide classes to set the hover background color. Inherits from AccordianGroup
+	 * @type {PropertiesHash}
+	 */
 	export let hover: string = getContext('hover');
+	/** Provide classes to set spacing between title and description elements.
+	 * @type {string}
+	 */
 	export let spacing: string = getContext('spacing');
+	/** Provide classes to set padding for summary and content regions.
+	 * @type {string}
+	 */
 	export let padding: string = getContext('padding');
+	/** Provide classes to set summary border radius.
+	 * @type {string}
+	 */
 	export let rounded: string = getContext('rounded');
 
 	// Base Classes

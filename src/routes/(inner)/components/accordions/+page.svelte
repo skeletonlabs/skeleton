@@ -78,14 +78,14 @@
 		}
 	];
 	const a11y: DocsShellTable[] = [
-		{
-			aria: 'https://www.w3.org/WAI/ARIA/apg/example-index/accordion/accordion',
-			headings: ['Prop', 'Description'],
-			source: [
-				['<code>summaryId</code>', 'Provide semantic ID for ARIA summary element.'],
-				['<code>contentId</code>', 'Provide semantic ID for ARIA content element.']
-			]
-		},
+		// {
+		// 	aria: 'https://www.w3.org/WAI/ARIA/apg/example-index/accordion/accordion',
+		// 	headings: ['Prop', 'Description'],
+		// 	source: [
+		// 		['<code>summaryId</code>', 'Provide semantic ID for ARIA summary element.'],
+		// 		['<code>contentId</code>', 'Provide semantic ID for ARIA content element.']
+		// 	]
+		// },
 		{
 			label: 'Keyboard Interactions',
 			headings: ['Keys', 'Description'],
@@ -98,7 +98,7 @@
 	];
 </script>
 
-<DocsShell {settings} {properties} {classes} {slots} {a11y}>
+<DocsShell {settings} {properties} {classes} {slots} {a11y} components={["Accordion/AccordionGroup","Accordion/AccordionItem"]}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="card card-body">

@@ -1,6 +1,7 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import { configDefaults } from 'vitest/config';
 import path from 'path';
+import sveld from 'vite-plugin-sveld';
 
 // Import package.json version
 import { readFileSync } from 'fs';
@@ -11,7 +12,7 @@ const pkg = JSON.parse(json);
 
 /** @type {import('vite').UserConfig} */
 const config = {
-	plugins: [sveltekit({ hot: !process.env.VITEST })],
+	plugins: [sveltekit({ hot: !process.env.VITEST }), sveld()],
 	define: {
 		__PACKAGE__: pkg
 	},

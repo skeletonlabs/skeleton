@@ -14,6 +14,7 @@
 	import { toastStore, type ToastMessage } from '$lib/utilities/Toast/stores';
 
 	// Props
+	export let components: string | string[] = '';
 	export let settings: DocsShellSettings;
 	export let properties: DocsShellTable[] | undefined = undefined;
 	export let events: DocsShellTable[] | undefined = undefined;
@@ -100,6 +101,37 @@
 		navigator.clipboard.writeText(formatStylesheet(stylesheet));
 		toastCopied('stylesheet');
 	}
+
+	//Auto doc Props and Accessibility tab content using sveld
+	let componentProps: any[] = [];
+	async function parseComponentProps() {
+		if (components == undefined || components.length == 0) return;
+		if (typeof components == 'string') {
+			components = [components];
+		}
+		for (let component of components) {
+			const compData = await import(/* @vite-ignore */ '../../lib/components/' + component + '.svelte?raw&sveld');
+			//console.log(JSON.stringify(compData));
+			let parsedProps = [];
+			let parsedAccessibility = [];
+			let ariaURL = '';
+			for (let prop of compData.default.props) {
+				if (prop.description?.includes('a11y')) {
+					const urlIndex = prop.description.indexOf('https');
+					ariaURL = prop.description.substring(urlIndex);
+					const shortDescription = prop.description.substring(0, urlIndex).replace('a11y', '');
+					parsedAccessibility.push({ Name: `<code>${prop.name}</code>`, Description: shortDescription });
+				} else {
+					parsedProps.push({ Name: `<code>${prop.name}</code>`, Type: prop.type, Default: prop.value ? prop.value : '-', Description: prop.description });
+				}
+			}
+			componentProps.push({ name: component.substring(component.indexOf('/') + 1), props: parsedProps, accessibility: parsedAccessibility, aria: ariaURL });
+		}
+		//console.log(JSON.stringify(componentProps));
+		return componentProps;
+	}
+
+	parseComponentProps();
 
 	// Reactive
 	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
@@ -227,8 +259,20 @@
 			</div>
 		{/if}
 
-		<!-- Tab: Properties -->
-		{#if properties && properties.length && $storeActiveTab === 'properties'}
+		<!-- Tab: Properties TODO: remove lower block once all docs changed over-->
+		{#if componentProps && $storeActiveTab === 'properties'}
+			<div class="doc-shell-properties {spacing}">
+				{#if componentProps}
+					{#each componentProps as comp}
+						<h2>{comp.name}</h2>
+						<section class="space-y-4">
+							<DataTable headings={['Name', 'Type', 'Default', 'Description']} source={comp.props} sort={'Name'} />
+						</section>
+					{/each}
+				{/if}
+			</div>
+		{/if}
+		{#if properties && properties.length && !componentProps.length && $storeActiveTab === 'properties'}
 			<div class="doc-shell-properties {spacing}">
 				{#each properties as d}
 					<section class="space-y-4">
@@ -282,6 +326,17 @@
 		<!-- Tab: A11y -->
 		{#if a11y && a11y.length && $storeActiveTab === 'a11y'}
 			<div class="doc-shell-a11y {spacing}">
+				{#if componentProps}
+					{#each componentProps as comp}
+						{#if comp.aria}
+							<h2>{comp.name}</h2>
+							{#if comp.aria}<p>Adheres to <a href={comp.aria} target="_blank">WAI-ARIA guidelines</a> for accessibility.</p>{/if}
+							<section class="space-y-4">
+								<DataTable headings={['Name', 'Description']} source={comp.accessibility} sort={'Name'} />
+							</section>
+						{/if}
+					{/each}
+				{/if}
 				{#each a11y as d}
 					<section class="space-y-4">
 						{#if d.label}<h2>{d.label}</h2>{/if}
