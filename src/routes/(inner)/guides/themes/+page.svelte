@@ -143,7 +143,7 @@
 		<h3>Design Tokens</h3>
 		<!-- prettier-ignore -->
 		<p>
-			Skeleton themes are combined with a <a href="https://vimeo.com/showcase/9653752/video/724689965" target="_blank">Design Token System</a> to create utility classes based on theme settings for common styles - including backgrounds, border radius, fonts, and more. Tokens are used as the base styles for most components, which means they auto-adapt to your theme style for minimal configuration out of the box.
+			Skeleton themes are paired with a powerful <a href="https://vimeo.com/showcase/9653752/video/724689965" target="_blank">design token system</a> to create utility classes based on theme settings. Thes cover common styles for backgrounds, border radius, fonts, and more. In fact, most components use these tokens as the default settings, which means components auto-adapt to your theme style with minimal configuration out of the box.
 		</p>
 		<a href="/guides/frameworks/sveltekit" class="card p-4 grid grid-cols-[1fr_auto] gap-4">
 			<div class="flex items-center">
@@ -151,10 +151,10 @@
 			</div>
 			<a class="btn btn-filled-accent place-self-center" href="https://github.com/Brain-Bones/skeleton/tree/master/src/lib/styles/tokens.css" target="_blank">View Source &rarr;</a>
 		</a>
-		<p>However, these are available to use anywhere in your project. Below are a few examples showing how to use tokens within your project.</p>
-		<CodeBlock language="html" code={`<!-- Class containing your theme's rounding style -->\n<div class="w-10 h-10 bg-primary-500 rounded-token">Rounded</div>`} />
-		<CodeBlock language="html" code={`<!-- Class containing your theme's font family -->\n<span class="font-token">Font Family</span>`} />
-		<CodeBlock language="html" code={`<!-- Text color that updates for light/dark themes -->\n<span class="text-token">Skeleton</span>`} />
+		<p>Tokens are avialable to use anywhere in your project. Here's a few examples:</p>
+		<CodeBlock language="html" code={`<!-- Apply your theme's border radius value -->\n<div class="w-10 h-10 bg-primary-500 rounded-token">Rounded</div>`} />
+		<CodeBlock language="html" code={`<!-- Apply your theme's heading font -->\n<span class="font-heading-token">Font Family</span>`} />
+		<CodeBlock language="html" code={`<!-- Set the text color, which auto adjusts for light/dark modes -->\n<span class="text-token">Skeleton</span>`} />
 	</section>
 
 	<hr />
