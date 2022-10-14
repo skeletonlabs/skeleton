@@ -17,7 +17,7 @@
 	// Base Styles
 	const cBase: string = 'inline-block';
 	const cLabel: string = 'flex items-center';
-	const cTrack: string = 'flex transition-all duration-[200ms] hover:brightness-110 cursor-pointer';
+	const cTrack: string = 'flex transition-all duration-[200ms]';
 	const cThumb: string = 'w-[50%] h-full scale-[0.7] cursor-pointer transition-all duration-[200ms] shadow-lg';
 
 	// Set track size
@@ -45,7 +45,8 @@
 	$: cThumbPos = checked ? 'translate-x-full' : '';
 
 	// Reactive Classes
-	$: classesBase = `${cBase}`;
+	$: classesDisabled = $$props.disabled === true ? 'opacity-50' : 'hover:brightness-[105%] dark:hover:brightness-110 cursor-pointer';
+	$: classesBase = `${cBase} ${classesDisabled}`;
 	$: classesLabel = `${cLabel} ${$$props.class ?? ''}`;
 	$: classesTrack = `${cTrack} ${borderWidth} ${borderColor} ${rounded} ${trackSize} ${cTrackAccent}`;
 	$: classesThumb = `${cThumb} ${rounded} ${cThumbBackground} ${cThumbPos}`;
@@ -57,17 +58,7 @@
 	}
 </script>
 
-<div
-	id={label}
-	class="slide-toggle {classesBase}"
-	class:opacity-30={$$props.disabled}
-	data-testid="slide-toggle"
-	on:keydown={onKeyDown}
-	role="switch"
-	aria-label={label}
-	aria-checked={checked}
-	tabindex="0"
->
+<div id={label} class="slide-toggle {classesBase}" data-testid="slide-toggle" on:keydown={onKeyDown} role="switch" aria-label={label} aria-checked={checked} tabindex="0">
 	<label class="slide-toggle-label {classesLabel}">
 		<!-- Hidden Input -->
 		<input type="checkbox" class="hidden" bind:checked on:click on:change on:mouseover on:focus on:blur {...prunedRestProps()} disabled={$$props.disabled} />
