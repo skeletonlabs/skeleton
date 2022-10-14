@@ -3,48 +3,32 @@
 [![Twitter Follow](https://img.shields.io/twitter/follow/SkeletonUI?style=social)](https://twitter.com/SkeletonUI)
 [![license](https://img.shields.io/badge/license-MIT-%23bada55)](https://github.com/Brain-Bones/skeleton/blob/master/LICENSE)
 
-# Skeleton
+# 💀 Skeleton
 
-https://skeleton.brainandbonesllc.com/
+A fully featured Svelte UI toolkit for Svelte + Tailwind. Skeleton allows you to build fast and reactive web interfaces using the power of [Svelte](https://svelte.dev/) + [Tailwind CSS](https://tailwindcss.com/). Including official support for [SvelteKit](https://kit.svelte.dev/), [Vite](https://vitejs.dev/), and [Astro](https://astro.build/).
 
-A fully featured Svelte UI component library. Skeleton allows you to build fast and responsive web interfaces using Svelte + Tailwind.
+## 🔗 Useful Links
 
-## Sponsorship
+- [Documentation](https://skeleton.dev/)
+- [Contribution Guide](https://skeleton.dev/docs/contributions)
+- [Project Roadmap](https://github.com/Brain-Bones/skeleton/wiki/%F0%9F%9B%A3%EF%B8%8F-The-Skeleton-Roadmap)
 
-- [Github Sponsors](https://github.com/sponsors/Brain-Bones)
-
-## Useful Links
-
-- [Documentation](https://skeleton.brainandbonesllc.com/)
-- [Contribution Guide](https://skeleton.brainandbonesllc.com/docs/contributions)
-- [Report Issues](https://github.com/Brain-Bones/skeleton/issues)
-
-## Community
+## 👋 Community
 
 - [Join the Discord](https://discord.gg/EXqV7W8MtY)
 - [Follow on Twitter](https://twitter.com/SkeletonUI)
 
-## Development
+## 🐞 Report an Issue
 
-### Contributions
+- [Submit Issue](https://github.com/Brain-Bones/skeleton/issues/new/choose)
 
-Please read the [contribution guide](https://skeleton.brainandbonesllc.com/docs/contributions) before you begin. Pull requests are highly encouraged. [Pick an open issue](https://github.com/Brain-Bones/skeleton/issues) and help us out!
+## 🛠️ Contributions
 
-### Install
+We've provided a detailed [contribution guide](https://skeleton.dev/docs/contributions) to help you get started. Pull requests are highly encouraged. [Pick an open issue](https://github.com/Brain-Bones/skeleton/issues), review requirements with contributors, then send a PR!
 
-- Clone the Skeleton project to your local machine.
-- Install dependencies with `npm install`
-- Switch to the Dev branch: `git checkout dev`
-- Create a new feature branch based on Dev: `git checkout -b {branchName}`
-- Start a dev server:
-  - `npm run dev` - start server
-  - `npm run dev -- --open` - start and open new browser window
-- Make changes, then submit a pull request when ready.
+## Core Maintainer
 
-## Core Maintainers
-
-- [Chris Simmons](https://github.com/endigo9740)
-- [Thomas Jespersen](https://github.com/thomasbjespersen)
+- [Chris Simmons](https://github.com/endigo9740) (endigo9740)
 
 ---
 
