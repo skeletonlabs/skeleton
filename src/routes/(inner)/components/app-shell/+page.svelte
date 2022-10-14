@@ -126,18 +126,10 @@
 		`}
 			/>
 			<p>
-				The App Shell will need expand to fill your <em>body</em> tag. First, remove all wrapping elements in your root page. For SvelteKit that's located in
-				<code>/src/app.html</code>.
+				The App Shell will need expand to fill your <em>body</em> tag. Add the following classes to the wrapping <em>div</em> in <code>/src/app.html</code>.
+				<a href="https://github.com/sveltejs/kit/issues/6244#issuecomment-1226600661" target="_blank">This element is required</a>.
 			</p>
-			<CodeBlock
-				language="html"
-				code={`
-<body>
-	<!-- Drop wrapping elements, allow your layout to be the root -->
-	%sveltekit.body%
-</body>
-		`.trim()}
-			/>
+			<CodeBlock language="html" code={`<body>\n\t<div class="h-full overflow-hidden">%sveltekit.body%</div>\n</body>`.trim()} />
 			<p>Then, disable overflow on your <em>html</em> and <em>body</em> tags to prevent duplicate scroll bars. Update your global stylesheet with the following.</p>
 			<CodeBlock language="css" code={`html, body { @apply h-full overflow-hidden; }`} />
 		</div>
