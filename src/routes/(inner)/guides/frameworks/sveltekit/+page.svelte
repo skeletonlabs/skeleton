@@ -31,15 +31,11 @@
 		<h2>Getting Started</h2>
 		<p>To begin, let's make a couple quick modifications to our app. Doing this ensures our layout will display properly.</p>
 		<h3>Update App.html</h3>
-		<p>Open <code>/src/app.html</code> and remove the wrapping <em>div</em> element around <code>%sveltekit.body%</code>.</p>
-		<CodeBlock
-			language="html"
-			code={`
-<body>
-%sveltekit.body%
-</body>
-    `.trim()}
-		/>
+		<p>
+			Open <code>/src/app.html</code> and add the following classes to the wrapping <em>div</em> in <code>/src/app.html</code>.
+			<a href="https://github.com/sveltejs/kit/issues/6244#issuecomment-1226600661" target="_blank">This element is required</a>
+		</p>
+		<CodeBlock language="html" code={`<body>\n\t<div class="h-full overflow-hidden">%sveltekit.body%</div>\n</body>`.trim()} />
 		<p>Note that you can optionally enable Dark Mode for your app by adding <code>.dark</code> to the <em>HTML</em> element at the top of <code>app.html</code>.</p>
 		<CodeBlock language="html" code={`<html lang="en" class="dark">`.trim()} />
 		<h3>Global Stylesheet</h3>
