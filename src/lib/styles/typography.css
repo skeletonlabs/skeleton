@@ -78,3 +78,31 @@ code:not(.unstyled):not(.code-block code) {
 	/* Theme: Rounded */
 	@apply rounded-token;
 }
+
+/* === Insertions / Deletions  ==== */
+/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins */
+/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del */
+
+del,
+ins {
+	@apply block relative pl-5;
+	text-decoration: none;
+}
+del::before,
+ins::before {
+	@apply absolute left-1 font-mono;
+}
+
+del::before {
+	content: '−';
+}
+ins::before {
+	content: '+';
+}
+
+del {
+	@apply bg-red-500;
+}
+ins {
+	@apply bg-green-500;
+}

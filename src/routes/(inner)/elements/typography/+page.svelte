@@ -76,15 +76,25 @@
 		</div>
 		<!-- Code -->
 		<div class="space-y-4">
-			<h2 class="pb-4">Code</h2>
+			<h2>Code</h2>
 			<CodeBlock language="html" code={`<code>.myExampleClass</code>`} />
 			<div class="card card-body text-center"><code>.myExampleClass</code></div>
 		</div>
-		<!-- kbd -->
+		<!-- Keyboard -->
 		<div class="space-y-4">
-			<h2 class="pb-4">Keyboard</h2>
+			<h2>Keyboard</h2>
 			<CodeBlock language="html" code={`<kbd>Shift + ⌘</kbd>`} />
 			<div class="card card-body text-center"><kbd>Shift + ⌘</kbd></div>
+		</div>
+		<!-- Ins/Del -->
+		<div class="space-y-4">
+			<h2>Insertion / Deletion</h2>
+			<CodeBlock language="html" code={`<del><s>Always</s> Gonna Give You Up</del>`} />
+			<CodeBlock language="html" code={`<ins cite="https://youtu.be/dQw4w9WgXcQ" datetime="10-31-2022">Never Gonna Give You Up</ins>`} />
+			<div>
+				<del><s>Always</s> Gonna Give You Up</del>
+				<ins cite="https://youtu.be/dQw4w9WgXcQ" datetime="10-31-2022">Never Gonna Give You Up</ins>
+			</div>
 		</div>
 	</svelte:fragment>
 </DocsShell>
