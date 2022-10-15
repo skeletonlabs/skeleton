@@ -34,8 +34,8 @@
 		<CodeBlock
 			language="html"
 			code={`
-	❌ <div class="bg-orange-500">Skeleton</div>
-	✅ <div class="bg-accent-500">Skeleton</div> 
+❌ <div class="bg-orange-500">Skeleton</div>
+✅ <div class="bg-accent-500">Skeleton</div> 
 		`.trim()}
 		/>
 		<p>
@@ -46,10 +46,10 @@
 		<CodeBlock
 			language="js"
 			code={`
-	function prunedRestProps(): any {
-		delete $$restProps.class;
-		return $$restProps;
-	}`}
+function prunedRestProps(): any {
+	delete $$restProps.class;
+	return $$restProps;
+}`}
 		/>
 		<CodeBlock language="html" code={`<button class="... {$$props.class ?? ''}" {...prunedRestProps()}>Skeleton</button>`} />
 	</section>
@@ -73,10 +73,10 @@
 		<CodeBlock
 			language="typescript"
 			code={`
-	export let background: string = 'bg-primary-500'; // background color
-	export let color: string = 'text-primary-500'; // text color
-	export let rounded: string = 'rounded-xl'; // border radius
-	export let visible: boolean = false;
+export let background: string = 'bg-primary-500'; // background color
+export let color: string = 'text-primary-500'; // text color
+export let rounded: string = 'rounded-xl'; // border radius
+export let visible: boolean = false;
 		`}
 		/>
 	</section>
@@ -98,8 +98,8 @@
 		<CodeBlock
 			language="typescript"
 			code={`
-	let cBase: string = 'bg-surface-500 p-4 rounded'; // parent element styles
-	let cLabel: string = 'text-base'; // child element label styles
+let cBase: string = 'bg-surface-500 p-4 rounded'; // parent element styles
+let cLabel: string = 'text-base'; // child element label styles
 		`}
 		/>
 		<!-- Dynamic Classes -->
@@ -108,11 +108,11 @@
 		<CodeBlock
 			language="typescript"
 			code={`
-	// Prop for outlined state
-	export let outlined: boolean;
+// Prop for outlined state
+export let outlined: boolean;
 
-	// Create a reactive property that uses a ternary statement
-	$: classesOutlined = outlined ? 'border-2 border-primary-500' : 'border-none';
+// Create a reactive property that uses a ternary statement
+$: classesOutlined = outlined ? 'border-2 border-primary-500' : 'border-none';
 		`}
 		/>
 		<!-- Reactive Classes -->
@@ -121,8 +121,8 @@
 		<CodeBlock
 			language="typescript"
 			code={`
-	$: classesTab = \`\${cBase} \${classesOutlined}\`; // parent element
-	$: classesLabel = \`\${cBaseLabel}\`; // child element
+$: classesTab = \`\${cBase} \${classesOutlined}\`; // parent element
+$: classesLabel = \`\${cBaseLabel}\`; // child element
 		`}
 		/>
 		<p>Classes are applied in three ways:</p>
@@ -134,9 +134,9 @@
 		<CodeBlock
 			language="html"
 			code={`
-	<div class="tab {classesTab} {$$props.classes ?? ''}">
-		<span class="tab-label {classesLabel}">Label</span>
-	</div>
+<div class="tab {classesTab} {$$props.classes ?? ''}">
+	<span class="tab-label {classesLabel}">Label</span>
+</div>
 		`}
 		/>
 	</section>
