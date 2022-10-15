@@ -34,7 +34,7 @@
 	let storeActiveTab: Writable<string> = writable('usage');
 
 	// Local
-	const githubSourcePath: string = 'https://github.com/Brain-Bones/skeleton/tree/dev/src'; // FIXME: hardcoded dev
+	const githubSourcePath: string = 'https://github.com/Brain-Bones/skeleton/tree/master/src'; // FIXME: hardcoded path
 	const defaultSettings: DocsShellSettings = {
 		// Intro
 		feature: DocsFeature.Component,
