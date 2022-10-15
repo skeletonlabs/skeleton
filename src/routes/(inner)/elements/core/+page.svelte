@@ -25,7 +25,8 @@
 			<Alert>
 				<strong>TIP:</strong> Consider pairing this with a <strong>CSS Mesh Gradient</strong> background image.
 				<svelte:fragment slot="trail">
-					<a class="btn btn-ghost" href="https://github.com/Brain-Bones/skeleton/blob/dev/src/app.postcss" target="_blank">Reference</a>
+					<!-- FIXME: hardcoded path -->
+					<a class="btn btn-ghost" href="https://github.com/Brain-Bones/skeleton/blob/master/src/app.postcss" target="_blank">Reference</a>
 					<a class="btn btn-filled" href="https://csshero.org/mesher/" target="_blank">Generate</a>
 				</svelte:fragment>
 			</Alert>
