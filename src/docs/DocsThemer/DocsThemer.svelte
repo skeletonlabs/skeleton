@@ -10,7 +10,7 @@
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Helpers
-	import { tailwindDefaultColors } from '$lib/tailwind/colors';
+	import { semanticNames, tailwindDefaultColors } from '$lib/tailwind/colors';
 	import { storeMode, storePreview, storeTailwindForm, storeTailwindPalette, storeHexForm, storeHexPalette, storeFormData } from './stores';
 	import { resetSettings, onTailwindSelect, onRandomize, onHexInput, genCssColorStrings } from './utils';
 	import { fonts } from './fonts';
@@ -72,7 +72,7 @@
 			</header>
 			<hr />
 			<!-- Color Inputs -->
-			{#each ['primary', 'accent', 'ternary', 'warning', 'surface'] as colorKey}
+			{#each semanticNames as colorKey}
 				<div class="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-2 md:gap-4">
 					<label class="w-full">
 						<span class="capitalize">{colorKey}</span>
@@ -190,12 +190,12 @@
 	<!-- Alert -->
 	<Alert visible={$storePreview} class="animate-pulse hover:animate-none">
 		<svelte:fragment slot="title">Live Preview Enabled</svelte:fragment>
-		<span>While the preview is active you can browse the entire site. Don't worry, your settings will not be lost. When you're done, tap the reset button to return to your default theme.</span>      
+		<span>While the preview is active you can browse the entire site. Don't worry, your settings will not be lost. When you're done, tap the reset button to return to your default theme.</span>
 		<svelte:fragment slot="trail">
 			<button class="btn btn-filled" on:click={resetSettings}>Reset Theme</button>
 		</svelte:fragment>
 	</Alert>
-	
+
 	<!-- Code -->
 	{#if showCode}<CodeBlock language="css" code={cssTheme} />{/if}
 </div>
