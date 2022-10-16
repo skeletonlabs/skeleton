@@ -11,7 +11,7 @@ export const storeMobileDrawer: Writable<boolean> = writable(false);
 
 // Local Storage Stores ---
 
-// Persists select theme
+// Persists select preset theme
 export const storeTheme: Writable<string> = localStorageStore('storeTheme', 'skeleton');
 
 // Persists the tab selection for the user's preferred framework

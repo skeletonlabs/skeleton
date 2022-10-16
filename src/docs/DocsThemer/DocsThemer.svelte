@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
+	import { onDestroy } from 'svelte';
 
 	import Swatches from './Swatches.svelte';
 	import Alert from '$lib/components/Alert/Alert.svelte';
@@ -11,21 +11,19 @@
 
 	// Helpers
 	import { semanticNames, tailwindDefaultColors } from '$lib/tailwind/colors';
-	import { storeMode, storePreview, storeTailwindForm, storeTailwindPalette, storeHexForm, storeHexPalette, storeFormData } from './stores';
-	import { resetSettings, onTailwindSelect, onRandomize, onHexInput, genCssColorStrings } from './utils';
-	import { fonts } from './fonts';
+	import { storeMode, storePreview, storeTailwindForm, storeTailwindPalette, storeHexForm, storeHexPalette, storeFormData } from '$docs/DocsThemer/stores';
+	import { resetSettings, onTailwindSelect, onRandomize, onHexInput, genCssColorStrings } from '$docs/DocsThemer/utils';
+	import { fonts } from '$docs/DocsThemer/fonts';
 
 	// Local
 	let showCode: boolean = false;
 
 	// Reactive ---
 
-	// Toggle `.bg-mesh` on body when preview mobile ON
-	$: if (browser) document.body.classList.toggle('bg-mesh', !$storePreview);
 	// Set the current palette based on Tailwind/Hex mode
 	$: currentPalette = $storeMode === true ? $storeTailwindPalette : $storeHexPalette;
 	// CSS
-	$: cssTheme = `
+	$: themeCSS = `
 :root {
 	/* =~= Theme Styles =~= */
 	--theme-border-base: ${$storeFormData.borderBase};
@@ -47,14 +45,14 @@
 	/* ${currentPalette.surface.label} | ${currentPalette.surface.shades['500'].hex} */
 	${genCssColorStrings('surface', currentPalette.surface)}
 }`.trim();
+	$: headStyleCSS = $storePreview ? `\<style\>${themeCSS}\</style\>` : '';
 </script>
 
-<!-- Insert live theme into page head -->
 <svelte:head>
-	{@html $storePreview ? `\<style\>${cssTheme}\</style\>` : ''}
+	<!-- Generated Theme CSS -->
+	{@html headStyleCSS}
 </svelte:head>
 
-<!-- {#if !$storeMode}<a href="https://coolors.co/" target="_blank">Inspiration</a>{/if} -->
 <!-- prettier-ignore -->
 <div class="themer space-y-4">
 
@@ -93,6 +91,7 @@
 		</div>
 		<!-- Right: Options -->
 		<div class="card card-body grid grid-cols-2 gap-4">
+			<!-- LightSwitch -->
 			<div class="col-span-2 flex justify-between items-center space-x-2">
 				<strong>Settings</strong>
 				<LightSwitch />
@@ -182,12 +181,12 @@
 			</div>
 			<!-- Code Toggle -->
 			<button class="col-span-2 btn btn-filled-primary" on:click={()=>{showCode=!showCode}}>
-				{!showCode ? 'Generate' : 'Hide'} Theme CSS <span class="text-xs ml-4">{@html showCode ? '&#9650;' : '&#9660;'}</span>
+				{!showCode ? 'Show' : 'Hide'} Theme CSS <span class="text-xs ml-4">{@html showCode ? '&#9650;' : '&#9660;'}</span>
 			</button>
 		</div>
 	</div>
 
-	<!-- Alert -->
+	<!-- Preview Enabled Alert -->
 	<Alert visible={$storePreview} class="animate-pulse hover:animate-none">
 		<svelte:fragment slot="title">Live Preview Enabled</svelte:fragment>
 		<span>While the preview is active you can browse the entire site. Don't worry, your settings will not be lost. When you're done, tap the reset button to return to your default theme.</span>
@@ -196,6 +195,7 @@
 		</svelte:fragment>
 	</Alert>
 
+
 	<!-- Code -->
-	{#if showCode}<CodeBlock language="css" code={cssTheme} />{/if}
+	{#if showCode}<CodeBlock language="css" code={themeCSS} />{/if}
 </div>
