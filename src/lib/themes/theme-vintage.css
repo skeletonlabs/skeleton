@@ -70,11 +70,11 @@
 	--color-surface-900: 28 25 23; /* ⬅ #1c1917 */
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+[data-theme='vintage'] h1,
+[data-theme='vintage'] h2,
+[data-theme='vintage'] h3,
+[data-theme='vintage'] h4,
+[data-theme='vintage'] h5,
+[data-theme='vintage'] h6 {
 	letter-spacing: 1px;
 }

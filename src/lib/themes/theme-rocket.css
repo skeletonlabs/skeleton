@@ -70,11 +70,11 @@
 	--color-surface-900: 60 69 83;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+[data-theme='rocket'] h1,
+[data-theme='rocket'] h2,
+[data-theme='rocket'] h3,
+[data-theme='rocket'] h4,
+[data-theme='rocket'] h5,
+[data-theme='rocket'] h6 {
 	font-weight: bold;
 }

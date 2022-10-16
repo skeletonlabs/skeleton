@@ -66,12 +66,12 @@
 	--color-surface-900: 17 24 39; /* ⬅ #111827 */
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+[data-theme='skeleton'] h1,
+[data-theme='skeleton'] h2,
+[data-theme='skeleton'] h3,
+[data-theme='skeleton'] h4,
+[data-theme='skeleton'] h5,
+[data-theme='skeleton'] h6 {
 	font-weight: bold;
 }
 

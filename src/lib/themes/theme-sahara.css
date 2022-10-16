@@ -70,14 +70,14 @@
 	--color-surface-900: 136 19 55; /* ⬅ #881337 */
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+[data-theme='sahara'] h1,
+[data-theme='sahara'] h2,
+[data-theme='sahara'] h3,
+[data-theme='sahara'] h4,
+[data-theme='sahara'] h5,
+[data-theme='sahara'] h6 {
 	font-weight: 600;
 }
-p {
+[data-theme='sahara'] p {
 	font-weight: 400;
 }

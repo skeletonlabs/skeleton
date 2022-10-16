@@ -68,11 +68,11 @@
 	--color-surface-900: 49 46 129; /* ⬅ #312e81 */
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+[data-theme='modern'] h1,
+[data-theme='modern'] h2,
+[data-theme='modern'] h3,
+[data-theme='modern'] h4,
+[data-theme='modern'] h5,
+[data-theme='modern'] h6 {
 	font-weight: bold;
 }

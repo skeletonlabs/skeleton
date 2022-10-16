@@ -69,12 +69,12 @@
 	--color-surface-900: 12 74 110; /* ⬅ #0c4a6e */
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+[data-theme='seafoam'] h1,
+[data-theme='seafoam'] h2,
+[data-theme='seafoam'] h3,
+[data-theme='seafoam'] h4,
+[data-theme='seafoam'] h5,
+[data-theme='seafoam'] h6 {
 	font-weight: bold;
 	font-style: italic;
 	letter-spacing: 1px;
