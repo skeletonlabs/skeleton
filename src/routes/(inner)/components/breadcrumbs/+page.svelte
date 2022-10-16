@@ -12,7 +12,7 @@
 		feature: DocsFeature.Component,
 		name: 'Breadcrumbs',
 		description: 'Displays the current navigation hierarchy.',
-		imports: ['BreadCrumb', 'Crumb'],
+		imports: ['Breadcrumb', 'Crumb'],
 		source: 'components/Breadcrumb'
 	};
 	const properties: DocsShellTable[] = [
