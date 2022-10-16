@@ -1,7 +1,10 @@
 <script lang="ts">
-	import { tailwindNumbers, type HexRgb, type TailwindColorObject, type TailwindNumbers } from "$lib/tailwind/colors";
+	import { tailwindNumbers, type HexRgb, type TailwindNumbers } from "$lib/tailwind/colors";
+	/**
+	 * A record that contains the Tailwind color numbers and the corresponding hex / RGB values.
+	 * @type {Record<TailwindNumbers, HexRgb>}
+	 */
 	export let palette: Record<TailwindNumbers, HexRgb>;
-
 </script>
 
 <div class="swatches grid grid-cols-10 w-full ring-inset">
