@@ -111,7 +111,7 @@
 const page: any = {
     offset: 0,
     limit: 5,
-    size: source.length
+    size: source.length,
     amounts: [1,2,5,10],
 };
         `}
