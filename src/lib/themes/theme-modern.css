@@ -7,7 +7,7 @@
 	--theme-font-family-heading: 'Quicksand', sans-serif;
 	--theme-font-family-body: 'Quicksand', sans-serif;
 	--theme-font-color-base: var(--color-surface-900);
-	--theme-font-color-dark: var(--color-surface-50);
+	--theme-font-color-dark: var(--color-ternary-50);
 	--theme-rounded-base: 9999px;
 	--theme-rounded-container: 24px;
 	/* =~= Theme Colors | Tailwind =~= */

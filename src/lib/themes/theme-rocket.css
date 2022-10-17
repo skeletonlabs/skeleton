@@ -8,8 +8,8 @@
 	--theme-border-base: 0px;
 	--theme-font-family-heading: 'Space Grotesk', sans-serif;
 	--theme-font-family-base: 'Roboto', sans-serif;
-	--theme-font-color-base: var(--color-surface-900);
-	--theme-font-color-dark: var(--color-surface-50);
+	--theme-font-color-base: var(--color-primary-900);
+	--theme-font-color-dark: var(--color-primary-100);
 	--theme-rounded-base: 0px;
 	--theme-rounded-container: 0px;
 	/* =~= Theme Colors | Tailwind =~= */

@@ -8,8 +8,8 @@
 	--theme-border-base: 1px;
 	--theme-font-family-heading: 'Raleway', sans-serif;
 	--theme-font-family-base: 'Lato', sans-serif;
-	--theme-font-color-base: var(--color-surface-900);
-	--theme-font-color-dark: var(--color-surface-50);
+	--theme-font-color-base: var(--color-accent-900);
+	--theme-font-color-dark: var(--color-primary-100);
 	--theme-rounded-base: 9999px;
 	--theme-rounded-container: 24px;
 	/* =~= Theme Colors | Tailwind =~= */

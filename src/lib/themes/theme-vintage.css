@@ -8,8 +8,8 @@
 	--theme-border-base: 1px;
 	--theme-font-family-heading: 'Abril Fatface', cursive;
 	--theme-font-family-base: 'Noto Sans', sans-serif;
-	--theme-font-color-base: var(--color-surface-900);
-	--theme-font-color-dark: var(--color-surface-50);
+	--theme-font-color-base: var(--color-primary-900);
+	--theme-font-color-dark: var(--color-primary-100);
 	--theme-rounded-base: 2px;
 	--theme-rounded-container: 4px;
 	/* =~= Theme Colors | Tailwind =~= */
