@@ -16,6 +16,7 @@
 	const properties: DocsShellTable[] = [
 		{
 			label: 'Settings',
+			description: 'Uses <code>$$restProps</code> to support all valid input attributes such as <em>required</em>.',
 			headings: ['Prop', 'Type', 'Default', 'Description'],
 			source: [
 				['<code>files</code>', 'array', '-', 'Bind this to your form data, represents the "files" data from the input.'],
@@ -68,7 +69,7 @@
 			<div class="card card-body grid grid-cols-1 xl:grid-cols-2 gap-4">
 				<label for="">
 					<span>Upload File</span>
-					<FileDropzone bind:files notes="Files should not exceed 5mb." on:change={onChange} />
+					<FileDropzone bind:files notes="Files should not exceed 5mb." on:change={onChange} required />
 				</label>
 				<label for="">
 					<span>Custom Message</span>

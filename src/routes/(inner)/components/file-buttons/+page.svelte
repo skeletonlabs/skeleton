@@ -15,6 +15,7 @@
 	};
 	const properties: DocsShellTable[] = [
 		{
+			description: 'Uses <code>$$restProps</code> to support all valid input attributes such as <em>required</em>.',
 			headings: ['Prop', 'Type', 'Default', 'Description'],
 			source: [
 				['<code>files</code>', 'FileList', '-', 'Bind this to your form data, represents the "files" data from the input.'],
