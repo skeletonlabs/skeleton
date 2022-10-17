@@ -109,25 +109,23 @@
 				language="typescript"
 				code={`
 const page: any = {
-    offset: 0,
-    limit: 5,
-    size: source.length,
-    amounts: [1,2,5,10],
-};
-        `}
+	offset: 0,
+	limit: 5,
+	size: source.length,
+	amounts: [1,2,5,10],
+};`}
 			/>
 			<CodeBlock
 				language="html"
 				code={`
 <Paginator
-    bind:offset={page.offset}
-    bind:limit={page.limit}
-    bind:size={page.size}
-    bind:amounts={page.amounts}
-    on:page={onPageChange}
-    on:amount={onAmountChange}
-></Paginator>
-        `}
+	bind:offset={page.offset}
+	bind:limit={page.limit}
+	bind:size={page.size}
+	bind:amounts={page.amounts}
+	on:page={onPageChange}
+	on:amount={onAmountChange}
+></Paginator>`}
 			/>
 		</div>
 		<div class="space-y-4">
@@ -143,20 +141,18 @@ const page: any = {
 				language="typescript"
 				code={`
 $: sourcePaginated = source.slice(
-    page.offset * page.limit, // start
-    page.offset * page.limit + page.limit // end
-);
-        `}
+	page.offset * page.limit, // start
+	page.offset * page.limit + page.limit // end
+);`}
 			/>
 			<CodeBlock
 				language="html"
 				code={`
 <ul>
-    {#each sourcePaginated as row}
-    <li>{row}</li>
-    {/each}
-</ul>
-        `}
+	{#each sourcePaginated as row}
+	<li>{row}</li>
+	{/each}
+</ul>`}
 			/>
 		</div>
 	</svelte:fragment>

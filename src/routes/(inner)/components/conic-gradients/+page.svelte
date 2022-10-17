@@ -96,8 +96,7 @@ import type { ConicStop } from '@brainandbones/skeleton';
 const conicStops: ConicStop[] = [
 	{ color: 'red', start: 0, end: 50 },
 	{ color: 'green', start: 50, end: 100 }
-];
-        `}
+];`}
 			/>
 			<CodeBlock language="html" code={`<ConicGradient stops={conicStops} legend={false} spin={false}>(caption)</ConicGradient>`} />
 		</div>
@@ -112,8 +111,7 @@ const conicStops: ConicStop[] = [
 	{ label: 'Label 1', color: 'red', start: 0, end: 33 },
 	{ label: 'Label 2', color: 'green', start: 33, end: 66 },
 	{ label: 'Label 3', color: 'blue', start: 66, end: 100 }
-];
-        `}
+];`}
 			/>
 		</div>
 		<!-- Applying Colors -->
@@ -128,8 +126,7 @@ const conicStops: ConicStop[] = [
 	{ label: 'Primary', color: 'rgb(var(--color-primary-500))', start: 0, end: 33 },
 	{ label: 'Acccent', color: 'rgb(var(--color-warning-500))', start: 33, end: 66 },
 	{ label: 'Warning', color: 'rgb(var(--color-accent-500))', start: 66, end: 100 }
-];
-        `}
+];`}
 			/>
 		</div>
 		<!-- Tailwind Colors -->
@@ -143,8 +140,7 @@ const conicStops: ConicStop[] = [
 	{ label: 'Orange', color: ['orange', 500], start: 0, end: 10 },
 	{ label: 'Yellow', color: ['yellow', 500], start: 10, end: 35 },
 	{ label: 'Red', color: ['red', 500], start: 35, end: 100 }
-];
-        `}
+];`}
 			/>
 		</div>
 		<!-- Custom Colors -->
@@ -160,8 +156,7 @@ const conicStops: ConicStop[] = [
 	{ label: 'Name', color: 'orange', start: 0, end: 10 },
 	{ label: 'HSL', color: 'hsl(60deg 100% 50%)', start: 10, end: 35 },
 	{ label: 'Hex', color: '#bada55', start: 35, end: 100 }
-];
-        `}
+];`}
 			/>
 		</div>
 		<!-- Spinner -->
@@ -175,10 +170,9 @@ const conicStops: ConicStop[] = [
 				language="ts"
 				code={`
 const conicStops: ConicStop[] = [
-    { color: 'transparent', start: 0, end: 25 },
+	{ color: 'transparent', start: 0, end: 25 },
 	{ color: 'grey', start: 75, end: 100 }
-];
-        `}
+];`}
 			/>
 		</div>
 	</svelte:fragment>

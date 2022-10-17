@@ -176,17 +176,13 @@
 				language="html"
 				code={`
 <TabGroup selected={storeTab}>
-    <Tab value="a">
-        <svelte:fragment>(icon)</svelte:fragment>
-        <span>(labelA)</span>
-    </Tab>
-    <Tab value="b">(labelB)</Tab>
+	<Tab value="a">(labelA)</Tab>
+	<Tab value="b">(labelB)</Tab>
 </TabGroup>
 
 <!-- Conditionally display content -->
 {#if $storeTab === 'a'}Content A{/if}
-{#if $storeTab === 'b'}Content B{/if}
-        `}
+{#if $storeTab === 'b'}Content B{/if}`}
 			/>
 		</section>
 	</svelte:fragment>

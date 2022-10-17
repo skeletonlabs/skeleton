@@ -122,8 +122,7 @@
 	<!-- ---- / ---- -->
 	<svelte:fragment slot="pageFooter">Page Footer</svelte:fragment>
 	<svelte:fragment slot="footer">Footer</svelte:fragment>
-</AppShell>
-		`}
+</AppShell>`}
 			/>
 			<p>
 				The App Shell will need expand to fill your <em>body</em> tag. Add the following classes to the wrapping <em>div</em> in <code>/src/app.html</code>.
@@ -144,8 +143,7 @@
 		<AppBar>Skeleton</AppBar>
 	</svelte:fragment>
 	<!-- ... -->
-</AppShell>
-		`}
+</AppShell>`}
 			/>
 		</div>
 		<div class="space-y-4">
@@ -159,11 +157,10 @@
 				code={`
 <AppShell>
 	<svelte:fragment slot="sidebarLeft">
-	    <!-- Hidden below Tailwind's large breakpoint -->
+		<!-- Hidden below Tailwind's large breakpoint -->
 		<div id="sidebar-left" class="hidden lg:block">Sidebar</div>
 	</svelte:fragment>
-</AppShell>
-		`}
+</AppShell>`}
 			/>
 			<Alert>
 				<strong>Tip:</strong> Consider hiding your sidebar for smaller screens and using a Drawer component. If you wish to use the same navigation lists in both, create a shared components that's inserted

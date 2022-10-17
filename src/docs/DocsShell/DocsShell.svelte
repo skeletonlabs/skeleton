@@ -58,11 +58,11 @@
 		const index: number = Object.values(DocsFeature).indexOf(pageSettings.feature);
 		// prettier-ignore
 		switch(index) {
-            case(0): return 'tailwind'; // Element
-            case(1): return 'svelte'; // Component
-            case(2): return 'svelte'; // Action
-            default: return 'screwdriver'; // Default
-        }
+			case(0): return 'tailwind'; // Element
+			case(1): return 'svelte'; // Component
+			case(2): return 'svelte'; // Action
+			default: return 'screwdriver'; // Default
+		}
 	}
 
 	function toastCopied(noun: string): void {

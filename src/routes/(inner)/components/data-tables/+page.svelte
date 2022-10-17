@@ -209,18 +209,12 @@
 					code={`
 const headings: string[] = ['Positions', 'Name', 'Weight', 'Symbol'];
 const source: any[] = [
-    { position: 1, name: '<strong class="text-red">Hydrogen</strong>', weight: 1.0079, symbol: 'H' },
-    { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-    { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-];
-            `}
+	{ position: 1, name: '<strong class="text-red">Hydrogen</strong>', weight: 1.0079, symbol: 'H' },
+	{ position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
+	{ position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
+];`}
 				/>
-				<CodeBlock
-					language="html"
-					code={`
-<DataTable {headings} {source}></DataTable>
-            `}
-				/>
+				<CodeBlock language="html" code={`<DataTable {headings} {source}></DataTable>`}/>
 			</div>
 			<div class="space-y-4">
 				<h2>Search, Sort, and Pagination</h2>
@@ -229,40 +223,38 @@ const source: any[] = [
 					language="typescript"
 					code={`
 const tableLocal: any = {
-    search: undefined,
-    sort: 'position',
-    headings: ['Positions', 'Name', 'Weight', 'Symbol'],
-    source: [
-        { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-        { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-        { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-        { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-        { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-        { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-        { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-        { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-        { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-        { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
-    ]
-};
-            `}
+	search: undefined,
+	sort: 'position',
+	headings: ['Positions', 'Name', 'Weight', 'Symbol'],
+	source: [
+		{ position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
+		{ position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
+		{ position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
+		{ position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
+		{ position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
+		{ position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
+		{ position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
+		{ position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
+		{ position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
+		{ position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
+	]
+};`}
 				/>
 				<CodeBlock
 					language="html"
 					code={`
 <DataTable
-    headings={tableLocal.headings}
-    bind:source={tableLocal.source}
-    search={tableLocal.search}
-    sort={tableLocal.sort}
-    interactive
-    on:sorted={onSort}
-    on:selected={onSelect}
+	headings={tableLocal.headings}
+	bind:source={tableLocal.source}
+	search={tableLocal.search}
+	sort={tableLocal.sort}
+	interactive
+	on:sorted={onSort}
+	on:selected={onSelect}
 >
-    <svelte:fragment slot="header"><input type="search" placeholder="Search..." bind:value={tableLocal.search}></svelte:fragment>
-    <svelte:fragment slot="footer">{tableLocal.source.length} Items</svelte:fragment>
-</DataTable>
-            `}
+	<svelte:fragment slot="header"><input type="search" placeholder="Search..." bind:value={tableLocal.search}></svelte:fragment>
+	<svelte:fragment slot="footer">{tableLocal.source.length} Items</svelte:fragment>
+</DataTable>`}
 				/>
 			</div>
 		{/if}
@@ -273,47 +265,44 @@ const tableLocal: any = {
 				<CodeBlock
 					language="typescript"
 					code={`
-const tableServer: any = { search: undefined, sort: undefined, headings: undefined, count: 0 };
-            `}
+const tableServer: any = { search: undefined, sort: undefined, headings: undefined, count: 0 };`}
 				/>
 				<p>Fetch API data from a server, then map headings and the default sort value.</p>
 				<CodeBlock
 					language="typescript"
 					code={`
 async function getTableSource(): Promise<any> {
-    const http = await fetch('https://jsonplaceholder.typicode.com/user/1/posts');
-    const res = await http.json();
-    tableServer.headings = Object.keys(res[0]);
-    tableServer.sort = 'userId';
-    if (http.ok) { return res; } else { throw new Error(res); }
+	const http = await fetch('https://jsonplaceholder.typicode.com/user/1/posts');
+	const res = await http.json();
+	tableServer.headings = Object.keys(res[0]);
+	tableServer.sort = 'userId';
+	if (http.ok) { return res; } else { throw new Error(res); }
 }
-let tablePromise: Promise<any> = getTableSource();
-            `}
+let tablePromise: Promise<any> = getTableSource();`}
 				/>
 				<p>Use Svelte await blocks to handle loading, complete, and error states. Please ensure you bind 'count' to handle item count.</p>
 				<CodeBlock
 					language="html"
 					code={`
 {#await tablePromise}
-    <p class="text-center">Loading...</p>
+	<p class="text-center">Loading...</p>
 {:then response}
-    <DataTable
-        headings={tableServer.headings}
-        source={response}
-        search={tableServer.search}
-        sort={tableServer.sort}
-        bind:count={tableServer.count}
-        interactive
-        on:sorted={onSort}
-        on:selected={onSelect}
-    >
-        <svelte:fragment slot="header"><input type="search" placeholder="Search..." bind:value={tableServer.search}></svelte:fragment>
-        <svelte:fragment slot="footer">{tableServer.count} Posts</svelte:fragment>
-    </DataTable>
+	<DataTable
+		headings={tableServer.headings}
+		source={response}
+		search={tableServer.search}
+		sort={tableServer.sort}
+		bind:count={tableServer.count}
+		interactive
+		on:sorted={onSort}
+		on:selected={onSelect}
+	>
+		<svelte:fragment slot="header"><input type="search" placeholder="Search..." bind:value={tableServer.search}></svelte:fragment>
+		<svelte:fragment slot="footer">{tableServer.count} Posts</svelte:fragment>
+	</DataTable>
 {:catch error}
-    <p style="text-center text-warning-500">{error.message}</p>
-{/await}
-            `}
+	<p style="text-center text-warning-500">{error.message}</p>
+{/await}`}
 				/>
 				<p>If you prefer to use server-side search and sort, enable the 'async' property. This disables local search and sort within the component.</p>
 				<CodeBlock
@@ -321,13 +310,12 @@ let tablePromise: Promise<any> = getTableSource();
 					code={`
 <!-- (await/then) -->
 <DataTable
-    headings={tableServer.headings}
-    source={response}
-    bind:count={tableServer.count}
-    async
+	headings={tableServer.headings}
+	source={response}
+	bind:count={tableServer.count}
+	async
 ></DataTable>
-<!-- (error) -->
-            `}
+<!-- (error) -->`}
 				/>
 			</div>
 		{/if}
@@ -346,8 +334,7 @@ const sourceObject: any = [
 	{ position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
 	{ position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
 ];
-const mappedSource: string[] = mapTableSource(['position', 'name', 'weight', 'symbol'], sourceObject)
-			`}
+const mappedSource: string[] = mapTableSource(['position', 'name', 'weight', 'symbol'], sourceObject)`}
 			/>
 		</div>
 	</svelte:fragment>

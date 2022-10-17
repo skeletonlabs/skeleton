@@ -119,13 +119,12 @@
 			language="html"
 			code={`
 <Breadcrumb>
-    <Crumb href='/'>
-        <svelte:fragment slot="lead">(icon)</svelte:fragment>
-        <span>(page)</span>
-    </Crumb>
-    <Crumb>(current)</Crumb>
-</Breadcrumb>
-        `}
+	<Crumb href='/'>
+		<svelte:fragment slot="lead">(icon)</svelte:fragment>
+		<span>(page)</span>
+	</Crumb>
+	<Crumb>(current)</Crumb>
+</Breadcrumb>`}
 		/>
 		<div class="space-y-4">
 			<h2>Seperator</h2>

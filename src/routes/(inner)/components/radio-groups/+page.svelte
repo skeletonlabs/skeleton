@@ -130,8 +130,7 @@
 <RadioGroup selected={storeLayout}>
 	<RadioItem value="horz">Horizontal</RadioItem>
 	<RadioItem value="vert">Vertical</RadioItem>
-</RadioGroup>
-					`}
+</RadioGroup>`}
 			/>
 		</section>
 		<section class="space-y-4">

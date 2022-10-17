@@ -121,6 +121,7 @@
 		<section class="space-y-4">
 			<h2>Single Value</h2>
 			<p>Define a writable store with a <u>singular</u> value of any type, then add a <code>value</code> prop to each child.</p>
+			<CodeBlock language="typescript" code={`import { writable, type Writable } from "svelte/store";`} />
 			<CodeBlock language="typescript" code={`const storeSingle: Writable<number> = writable(1);`} />
 			<CodeBlock
 				language="html"
@@ -128,13 +129,13 @@
 <ListBox selected="{storeSingle}" label="Single Selection">
 	<ListBoxItem value={1}>Selection Example 1</ListBoxItem>
 	<ListBoxItem value={2}>Selection Example 2</ListBoxItem>
-</ListBox>
-			`.trim()}
+</ListBox>`}
 			/>
 		</section>
 		<section class="space-y-4">
 			<h2>Multiple Values</h2>
 			<p>Create a writable with an <u>array</u> of values.</p>
+			<CodeBlock language="typescript" code={`import { writable, type Writable } from "svelte/store";`} />
 			<CodeBlock language="typescript" code={`let storeMultiple: Writable<any[]> = writable(['A', 'B']);`} />
 			<CodeBlock
 				language="html"
@@ -143,8 +144,7 @@
 	<ListBoxItem value={'A'}>Item A</ListBoxItem>
 	<ListBoxItem value={'B'}>Item B</ListBoxItem>
 	<ListBoxItem value={'C'}>Item C</ListBoxItem>
-</ListBox>
-			`.trim()}
+</ListBox>`}
 			/>
 		</section>
 	</svelte:fragment>

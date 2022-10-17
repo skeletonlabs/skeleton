@@ -137,8 +137,7 @@
 		(content)
 	</Step>
 	<Step index={1} locked={true}>(content)</Step>
-</Stepper>
-        `}
+</Stepper>`}
 			/>
 		</section>
 		<section class="space-y-4">

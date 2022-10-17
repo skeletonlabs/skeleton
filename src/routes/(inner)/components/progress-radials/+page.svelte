@@ -89,7 +89,7 @@
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<CodeBlock language="ts" code={`let value: number = 50; // %`} />
-			<CodeBlock language="html" code={`<ProgressRadial {value}>{valuePercent}%</ProgressRadial>`} />
+			<CodeBlock language="html" code={`<ProgressRadial {value}>{value}%</ProgressRadial>`} />
 		</section>
 	</svelte:fragment>
 </DocsShell>
