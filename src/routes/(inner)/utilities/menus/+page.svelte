@@ -33,16 +33,6 @@
 			]
 		}
 	];
-	const events: DocsShellTable[] = [
-		{
-			description: 'Coming soon.'
-			// headings: ['Event', 'Description'],
-			// source: [
-			// 	['<code>on:click</code>', '...'],
-			// 	['<code>on:hover</code>', '...']
-			// ]
-		}
-	];
 	const classes: DocsShellTable[] = [
 		{
 			headings: ['Class', 'Description'],
@@ -75,7 +65,7 @@
 	}
 </script>
 
-<DocsShell {settings} {properties} {events} {classes} {a11y}>
+<DocsShell {settings} {properties} {classes} {a11y}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="card card-body flex flex-col lg:flex-row justify-center items-center space-y-4 lg:space-y-0 lg:space-x-4">
