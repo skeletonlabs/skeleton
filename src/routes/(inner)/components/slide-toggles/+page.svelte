@@ -15,6 +15,7 @@
 	};
 	const properties: DocsShellTable[] = [
 		{
+			description: 'Uses <code>$$restProps</code> to support all valid input attributes, such as <em>required</em>.',
 			headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
 			source: [
 				['<code>checked</code>', 'boolean', 'false', 'true | false', 'The checked state of the input element.'],
