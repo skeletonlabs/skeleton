@@ -3,26 +3,59 @@
 	import type { Writable } from 'svelte/store';
 
 	// Props (a11y)
-	export let id: string | undefined = undefined;
+	/** Define a unique and semantic identifier for the item. */
+	export let id = '';
 
 	// Event Handler
 	const dispatch = createEventDispatcher();
 
 	// Context
-	export let selected: Writable<any> = getContext('selected');
-	export let accent: string = getContext('accent');
-	export let padding: string = getContext('padding');
-	export let rounded: string = getContext('rounded');
-	export let hover: string = getContext('hover');
+	/**
+	 * Provide a writable store to maintain list selection.
+	 * @type {Writable<T> | Writable<T[]>}
+	 * @default undefined
+	 */
+	// @ts-ignore
+	export let selected: Writable<T> = getContext('selected');
+	/**
+	 * Provide classes to set the item selected background.
+	 * @type {CSSClasses}
+	 * @default '!bg-active-token'
+	 * @remarks It's recommended that you prepend this with `!` to mark the class as `!important`.
+	 */
+	export let accent = getContext('accent');
+	/**
+	 * Provide classes to set the item padding styles.
+	 * @default 'px-4 py-3'
+	 * @type {CSSClasses}
+	 */
+	export let padding = getContext('padding');
+	/**
+	 * Provide classes to set the item border radius styles.
+	 * @default 'rounded-token'
+	 * @type {CSSClasses}
+	 */
+	export let rounded = getContext('rounded');
+	/**
+	 * Provide classes to set the item hover background color.
+	 * @default 'bg-hover-token'
+	 * @type {CSSClasses}
+	 */
+	export let hover = getContext('hover');
+
+	/**
+	 * @slot lead - Positioned on the left of each row item.
+	 * @slot trail - Positioned on the right of each row item.
+	 */
 
 	// Base Classes
-	const cBase: string = 'flex items-center space-x-4 whitespace-nowrap cursor-pointer';
+	const cBase = 'flex items-center space-x-4 whitespace-nowrap cursor-pointer';
 
 	// Local
 	let elemItem: HTMLElement;
 
 	// Input Handler
-	function onClickHandler(event: any): void {
+	function onClickHandler(event: Event): void {
 		dispatch('click', event);
 		if (!$selected || !$$props.value) {
 			return;
@@ -35,8 +68,8 @@
 		selected.set($$props.value);
 	}
 	function handleMultiSelect(): void {
-		const v: any = $$props.value;
-		const local: any[] = $selected;
+		const v = $$props.value;
+		const local = $selected;
 		// Add
 		if (local.includes(v)) {
 			local.splice(local.indexOf(v), 1);
@@ -70,17 +103,13 @@
 </script>
 
 <!-- prettier-ignore -->
-<li
-	bind:this={elemItem}
-	class="listbox-item {classesBase}"
-	{id}
-	on:click={onClickHandler}
-	on:keydown={onKeyDown}
-	role="option"
-	aria-selected={isSelected}
-	tabindex="0"
-	data-testid="listbox-item"
->
+<!-- @component
+	@augments HTMLListElement
+	@see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li
+	@childOf ListBox
+	@tutorial {https://www.skeleton.dev/components/listboxes}
+ -->
+<li bind:this={elemItem} class="listbox-item {classesBase}" {id} on:click={onClickHandler} on:keydown={onKeyDown} role="option" aria-selected={isSelected} tabindex="0" data-testid="listbox-item">
 	<!-- Slot: Lead -->
 	{#if $$slots.lead}<span><slot name="lead" /></span>{/if}
 	<!-- Slot: Default -->
