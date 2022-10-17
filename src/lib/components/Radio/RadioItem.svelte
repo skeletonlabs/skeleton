@@ -39,7 +39,7 @@
 
 <div class="radio-item flex-auto" role="radio" aria-checked={checked} aria-label={label} tabindex="0" data-testid="radio-item" on:click on:keydown={onKeyDown}>
 	<label class="radio-item-label {classesLabel}">
-		<input class="hidden" type="radio" {value} bind:group={$selected} />
+		<input class="radio-item-input hidden" type="radio" {value} bind:group={$selected} />
 		<slot />
 	</label>
 </div>

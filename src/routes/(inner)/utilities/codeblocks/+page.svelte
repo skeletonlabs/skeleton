@@ -49,12 +49,15 @@
 	];
 	const classes: DocsShellTable[] = [
 		{
-			description: 'Coming soon.'
-			// headings: ['Selector', 'Description'],
-			// source: [
-			// 	['<code>.foo</code>', '...'],
-			// 	['<code>.bar</code>', '...']
-			// ]
+			headings: ['Selector', 'Description'],
+			source: [
+				['<code>.code-block</code>', 'The parent element.'],
+				['<code>.code-block-header</code>', 'The header region.'],
+				['<code>.code-block-language</code>', 'The language element.'],
+				['<code>.code-block-btn</code>', 'The copy button element.'],
+				['<code>.code-block-pre</code>', 'The preformatted element.'],
+				['<code>.code-block-code</code>', 'The code element.']
+			]
 		}
 	];
 </script>

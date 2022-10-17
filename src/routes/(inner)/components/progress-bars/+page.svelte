@@ -38,12 +38,13 @@
 	];
 	const classes: DocsShellTable[] = [
 		{
-			description: 'Coming soon.'
-			// headings: ['Selector', 'Description'],
-			// source: [
-			// 	['<code>.foo</code>', '...'],
-			// 	['<code>.bar</code>', '...']
-			// ]
+			headings: ['Selector', 'Description'],
+			source: [
+				['<code>.progress-bar</code>', 'The parent element.'],
+				['<code>.progress-bar-label</code>', 'The progress bar label element.'],
+				['<code>.progress-bar-track</code>', 'The progress bar track element.'],
+				['<code>.progress-bar-meter</code>', 'The progress bar meter element.']
+			]
 		}
 	];
 

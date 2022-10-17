@@ -30,12 +30,17 @@
 	];
 	const classes: DocsShellTable[] = [
 		{
-			description: 'Coming soon.'
-			// headings: ['Selector', 'Description'],
-			// source: [
-			// 	['<code>.foo</code>', '...'],
-			// 	['<code>.bar</code>', '...']
-			// ]
+			headings: ['Selector', 'Description'],
+			source: [
+				['<code>.conic-gradient</code>', 'The parent element.'],
+				['<code>.conic-caption</code>', 'The figcaption element.'],
+				['<code>.concic-cone</code>', 'The chart element.'],
+				['<code>.conic-list</code>', 'The legend list.'],
+				['<code>.conic-item</code>', 'Legend list items.'],
+				['<code>.conic-swatch</code>', 'Legend swatch elements.'],
+				['<code>.conic-label</code>', 'Legend label elements.'],
+				['<code>.conic-value</code>', 'Legend value elements.']
+			]
 		}
 	];
 	const slots: DocsShellTable[] = [

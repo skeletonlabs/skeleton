@@ -38,12 +38,14 @@
 	];
 	const classes: DocsShellTable[] = [
 		{
-			description: 'Coming soon.'
-			// headings: ['Selector', 'Description'],
-			// source: [
-			// 	['<code>.foo</code>', '...'],
-			// 	['<code>.bar</code>', '...']
-			// ]
+			headings: ['Selector', 'Description'],
+			source: [
+				['<code>.range-slider</code>', 'The parent element.'],
+				['<code>.range-slider-label</code>', 'The label element.'],
+				['<code>.range-slider-input</code>', 'The hidden input element.'],
+				['<code>.range-slider-ticks</code>', 'The datalist ticks element.'],
+				['<code>.range-slider-trail</code>', 'The trailing content region.']
+			]
 		}
 	];
 	const slots: DocsShellTable[] = [

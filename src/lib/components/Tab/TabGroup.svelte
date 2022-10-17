@@ -49,12 +49,11 @@
 </script>
 
 <!-- prettier-ignore -->
-<nav>
+<nav class="tab-group" data-testid="tab-group">
 	<ul
 		bind:this={elemTabGroup}
 		on:keydown={keydown}
-		class="tab-group {classesGroup}"
-		data-testid="tab-group"
+		class="tab-group-list {classesGroup}"
 		role="tablist"
 		aria-labelledby={labeledby}
 		aria-label={label}

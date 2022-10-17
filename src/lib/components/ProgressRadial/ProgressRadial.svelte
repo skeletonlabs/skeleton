@@ -57,11 +57,11 @@
 	<!-- Draw SVG -->
 	<svg viewBox="0 0 {baseSize} {baseSize}" class="rounded-full" class:animate-spin={value === undefined}>
 		<!-- Track -->
-		<circle class="progress-track {cBaseTrack} {track}" stroke-width={stroke} r={baseSize / 2} cx="50%" cy="50%" />
+		<circle class="progress-radial-track {cBaseTrack} {track}" stroke-width={stroke} r={baseSize / 2} cx="50%" cy="50%" />
 
 		<!-- Meter -->
 		<circle
-			class="progress-meter {cBaseMeter} {meter}"
+			class="progress-radial-meter {cBaseMeter} {meter}"
 			stroke-width={stroke}
 			r={baseSize / 2}
 			cx="50%"
@@ -73,7 +73,7 @@
 
 		<!-- Center Text -->
 		{#if value && value >= 0 && $$slots.default}
-			<text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-weight="bold" font-size={font} class="progress-text {fill}"><slot /></text>
+			<text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-weight="bold" font-size={font} class="progress-radial-text {fill}"><slot /></text>
 		{/if}
 	</svg>
 </figure>

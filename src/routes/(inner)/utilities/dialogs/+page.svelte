@@ -34,12 +34,19 @@
 	];
 	const classes: DocsShellTable[] = [
 		{
-			description: 'Coming soon.'
-			// headings: ['Selector', 'Description'],
-			// source: [
-			// 	['<code>.foo</code>', '...'],
-			// 	['<code>.bar</code>', '...']
-			// ]
+			headings: ['Selector', 'Description'],
+			source: [
+				['<code>.dialog-backdrop</code>', 'The backdrop shim element.'],
+				['<code>.dialog</code>', 'The dialog modal element.'],
+				['<code>.dialog-header</code>', 'The dialog header region.'],
+				['<code>.dialog-title</code>', 'The dialog title element'],
+				['<code>.dialog-content</code>', 'The dialog content region.'],
+				['<code>.dialog-body</code>', 'The dialog body region.'],
+				['<code>.dialog-image</code>', 'The dialog image element.'],
+				['<code>.dialog-html</code>', 'The dialog HTML region.'],
+				['<code>.dialog-prompt-input</code>', 'The prompt input element.'],
+				['<code>.dialog-actions</code>', 'The dialog action buttons region.']
+			]
 		}
 	];
 	const a11y: DocsShellTable[] = [

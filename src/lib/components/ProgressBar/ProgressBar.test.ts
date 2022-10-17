@@ -6,7 +6,7 @@ import ProgressBar from '$lib/components/ProgressBar/ProgressBar.svelte';
 describe('ProgressBar.svelte', () => {
 	it('Renders with minimal props', async () => {
 		const { getByTestId } = render(ProgressBar);
-		expect(getByTestId('progress-wrapper')).toBeTruthy();
+		expect(getByTestId('progress-bar')).toBeTruthy();
 	});
 
 	it('Renders with all props', () => {
@@ -21,6 +21,6 @@ describe('ProgressBar.svelte', () => {
 				track: 'bg-warning-500/30'
 			}
 		});
-		expect(getByTestId('progress-wrapper')).toBeTruthy();
+		expect(getByTestId('progress-bar')).toBeTruthy();
 	});
 });

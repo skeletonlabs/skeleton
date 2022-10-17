@@ -63,12 +63,12 @@
 	];
 	const classes: DocsShellTable[] = [
 		{
-			description: 'Coming soon.'
-			// headings: ['Selector', 'Description'],
-			// source: [
-			// 	['<code>.foo</code>', '...'],
-			// 	['<code>.bar</code>', '...']
-			// ]
+			headings: ['Selector', 'Description'],
+			source: [
+				['<code>.avatar</code>', 'The parent element.'],
+				['<code>.avatar-image</code>', 'The avatar image element.'],
+				['<code>.avatar-initials</code>', 'The avatar SVG text element.']
+			]
 		}
 	];
 	const a11y: DocsShellTable[] = [

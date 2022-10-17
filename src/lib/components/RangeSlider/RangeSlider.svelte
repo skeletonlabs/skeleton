@@ -51,7 +51,7 @@
 >
 
 	<!-- Slot: Default (label) -->
-	{#if $$slots.default}<label class="range-label {cBaseLabel}" for={id}><slot /></label>{/if}
+	{#if $$slots.default}<label class="range-slider-label {cBaseLabel}" for={id}><slot /></label>{/if}
 
 	<!-- Content -->
 	<div class="range-content {cBaseContent}">
@@ -61,7 +61,7 @@
 			type="range"
 			{id}
 			{name}
-			class="range-input {classesInput}"
+			class="range-slider-input {classesInput}"
 			list="tickmarks-{id}"
 			aria-label={label}
 			{min}
@@ -76,7 +76,7 @@
 
 		<!-- Tickmarks -->
 		{#if ticked && tickmarks && tickmarks.length}
-		<datalist id="tickmarks-{id}">
+		<datalist id="tickmarks-{id}" class="range-slider-ticks">
 			{#each tickmarks as tm}
 			<option value={tm} label={tm} />
 			{/each}
@@ -86,6 +86,6 @@
 	</div>
 
 	<!-- Slot: Trail -->
-	{#if $$slots.trail}<div class="range-trail"><slot name="trail" /></div>{/if}
+	{#if $$slots.trail}<div class="range-slider-trail"><slot name="trail" /></div>{/if}
 	
 </div>

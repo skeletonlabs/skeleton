@@ -54,9 +54,9 @@
 			source: [
 				['<code>.accordion-item</code>', 'The parent element.'],
 				['<code>.accordion-summary</code>', 'The HTML summary element.'],
-				['<code>.summary-lead</code>', 'The summary lead.'],
-				['<code>.summary-text</code>', 'The summary text.'],
-				['<code>.summary-caret</code>', 'The summary caret.'],
+				['<code>.accordion-summary-lead</code>', 'The summary lead.'],
+				['<code>.accordion-summary-text</code>', 'The summary text.'],
+				['<code>.accordion-summary-caret</code>', 'The summary caret.'],
 				['<code>.accordion-content</code>', 'The accordion content region.']
 			]
 		}

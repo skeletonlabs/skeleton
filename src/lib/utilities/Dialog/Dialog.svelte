@@ -99,12 +99,15 @@
 				{/if}
 
 				<!-- Title -->
-				<span class="flex-1 text-xl font-bold">{@html $dialogStore[0].title}</span>
+				<span class="dialog-title flex-1 text-xl font-bold">{@html $dialogStore[0].title}</span>
 			</header>
 
 			<!-- Content -->
 			<section class="dialog-content space-y-4">
-				<p class="opacity-60">{@html $dialogStore[0].body}</p>
+				<!-- Body -->
+				<div class="dialog-body">
+					{@html $dialogStore[0].body}
+				</div>
 
 				<!-- If: image -->
 				{#if $dialogStore[0].image}
@@ -113,24 +116,26 @@
 
 				<!-- If: HTML -->
 				{#if $dialogStore[0].html}
-					{@html $dialogStore[0].html}
+					<div class="dialog-html">
+						{@html $dialogStore[0].html}
+					</div>
 				{/if}
 
 				<!-- If: Component -->
-				{#if $dialogStore[0].component}
+				<!-- {#if $dialogStore[0].component}
 					<svelte:component this={$dialogStore[0].component.element} {...$dialogStore[0].component.props}>
 						{@html $dialogStore[0].component.slot}
 					</svelte:component>
-				{/if}
+				{/if} -->
 
 				<!-- If: Prompt -->
 				{#if $dialogStore[0].type === 'prompt'}
-					<input type="text" bind:value={dialogValue} placeholder="Enter value..." required />
+					<input class="dialog-prompt-input" type="text" bind:value={dialogValue} placeholder="Enter value..." required />
 				{/if}
 			</section>
 
-			<!-- Footer -->
-			<footer class="dialog-footer {cBaseFooter}">
+			<!-- Actions -->
+			<footer class="dialog-actions {cBaseFooter}">
 				<!-- Button: Cancel -->
 				<button class="btn btn-ghost" on:click={onDialogClose}>Close</button>
 				<!-- If Confirm - button: Confirm -->

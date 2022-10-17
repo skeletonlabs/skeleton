@@ -27,12 +27,12 @@
 	];
 	const classes: DocsShellTable[] = [
 		{
-			description: 'Coming soon.'
-			// headings: ['Selector', 'Description'],
-			// source: [
-			// 	['<code>.foo</code>', '...'],
-			// 	['<code>.bar</code>', '...']
-			// ]
+			headings: ['Selector', 'Description'],
+			source: [
+				['<code>.toast</code>', 'The parent element.'],
+				['<code>.toast-message</code>', 'The toast message element.'],
+				['<code>.toast-actions</code>', 'The toast action buttons region.']
+			]
 		}
 	];
 

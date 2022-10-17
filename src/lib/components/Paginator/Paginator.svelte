@@ -48,12 +48,12 @@
 			{#each amounts as amount}<option value={amount}>Show {amount}</option>{/each}
 		</select>
 	</label>
-	<!-- Page Text -->
-	<p class="paginator-text {classesPageText}">
+	<!-- Details -->
+	<p class="paginator-details {classesPageText}">
 		{offset * limit + 1} to {offset * limit + limit} of <strong>{size}</strong>
 	</p>
 	<!-- Arrows -->
-	<div class="paginator-nav space-x-2">
+	<div class="paginator-arrows space-x-2">
 		<button class="btn-icon {buttons}" on:click={onPrev} disabled={offset === 0}>&larr;</button>
 		<button class="btn-icon {buttons}" on:click={onNext} disabled={(offset + 1) * limit >= size}>&rarr;</button>
 	</div>

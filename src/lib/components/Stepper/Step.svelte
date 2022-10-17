@@ -59,7 +59,7 @@
 
 <div class="step {classesBase}" data-testid="step">
 	<!-- Timeline -->
-	<div class="flex flex-col items-center">
+	<div class="step-timeline flex flex-col items-center">
 		<!-- Numeral -->
 		<div class="step-numeral flex-none {classesNumeral}">
 			{#if locked}
@@ -69,7 +69,7 @@
 			{/if}
 		</div>
 		<!-- Line -->
-		{#if !isLastItem}<div class="line {classesLine}" />{/if}
+		{#if !isLastItem}<div class="step-line {classesLine}" />{/if}
 	</div>
 	<!-- Content -->
 	<div class="step-content {classesDrawer}">
@@ -80,7 +80,7 @@
 				<!-- Slot: Default -->
 				<slot />
 				<!-- Nav -->
-				<footer class="step-footer {classesNav}">
+				<footer class="step-navigation {classesNav}">
 					{#if index !== 0}<button class="btn {buttonBack}" on:click={stepPrev}>&uarr;</button>{/if}
 					{#if $active + 1 < length}
 						<button class="btn {buttonNext}" on:click={stepNext} disabled={locked}>Next &darr;</button>

@@ -28,12 +28,13 @@
 	];
 	const classes: DocsShellTable[] = [
 		{
-			description: 'Coming soon.'
-			// headings: ['Selector', 'Description'],
-			// source: [
-			// 	['<code>.foo</code>', '...'],
-			// 	['<code>.bar</code>', '...']
-			// ]
+			headings: ['Selector', 'Description'],
+			source: [
+				['<code>.progress-radial</code>', 'The parent element.'],
+				['<code>.progress-radial-track</code>', 'The progress radial track element.'],
+				['<code>.progress-radial-meter</code>', 'The progress radial meter element.'],
+				['<code>.progress-radial-text</code>', 'The progress radial SVG text element.']
+			]
 		}
 	];
 	const slots: DocsShellTable[] = [

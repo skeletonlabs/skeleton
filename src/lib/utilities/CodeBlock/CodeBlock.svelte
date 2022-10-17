@@ -50,15 +50,15 @@
 {#if language && code}
 <div class="code-block {classesBase}" data-testid="code-block">
 	<!-- Header -->
-	<header class="cb-header {cHeader} {background} sticky top-0">
+	<header class="code-block-header {cHeader} {background} sticky top-0">
 		<!-- Language -->
-		<span class="text-white/60">{languageFormatter(language)}</span>
+		<span class="code-block-language text-white/60">{languageFormatter(language)}</span>
 		<!-- Copy Button -->
-		<button on:click={onCopyClick} use:clipboard={code} class="cb-copy-btn btn btn-sm {buttonCopy}">
+		<button class="code-block-btn btn btn-sm {buttonCopy}" on:click={onCopyClick} use:clipboard={code}>
 			{!copyState ? 'Copy' : 'Copied ✓'}
 		</button>
 	</header>
 	<!-- Pre/Code -->
-	<pre class={cPre}><code class="cb-preformatted language-{language}">{#if formatted}{@html displayCode}{:else}{code.trim()}{/if}</code></pre>
+	<pre class="code-block-pre {cPre}"><code class="code-block-code language-{language}">{#if formatted}{@html displayCode}{:else}{code.trim()}{/if}</code></pre>
 </div>
 {/if}

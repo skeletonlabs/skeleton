@@ -1,5 +1,6 @@
 <script lang="ts">
 	export let files: FileList;
+	export let button: string = 'btn-filled-accent';
 
 	let elemFileInput: HTMLElement;
 
@@ -13,11 +14,11 @@
 	}
 </script>
 
-<div class="file-button" data-testid="file-button">
+<div class="file-button {$$props.class ?? ''}" data-testid="file-button">
 	<!-- Input: File -->
 	<input bind:this={elemFileInput} bind:files type="file" {...prunedRestProps()} class="file-button-input hidden" on:change />
 	<!-- Button -->
-	<button class="file-button-btn btn {$$props.class ?? ''}" on:click={onButtonClick}>
+	<button class="file-button-btn btn {button}" on:click={onButtonClick}>
 		<slot />
 	</button>
 </div>
