@@ -8,6 +8,8 @@
 	import ListBox from '$lib/components/ListBox/ListBox.svelte';
 	import ListBoxItem from '$lib/components/ListBox/ListBoxItem.svelte';
 
+
+
 	// Stores
 	let navSingle: Writable<number> = writable(1);
 	let navMultiple: Writable<string[]> = writable(['A', 'B']);
@@ -25,26 +27,26 @@
 			label: 'ListBox',
 			headings: ['Prop', 'Type', 'Default', 'Description'],
 			source: [
-				['<code>selected</code>', 'writable(any) | writable(any[])', 'writable(undefined)', 'Provide a writable store to maintain list selection.'],
-				['<code>space</code>', 'string', 'space-y-1', 'Provide classes to set vertical item spacing.'],
-				['<code>height</code>', 'string', '-', 'Provide to set scrollable listbox region height.'],
-				['<code>regionLabel</code>', 'string', '-', 'Provide arbitrary classes to the label element.'],
-				['<code>regionList</code>', 'string', '-', 'Provide arbitrary classes to the scrollable listbox element.'],
-				// Items
-				['<code>accent</code>', 'string', '!bg-active-token', `Provide classes to set the item selected background.`],
-				['<code>padding</code>', 'string', 'px-4 py-3', `Provide classes to set the item padding styles.`],
-				['<code>rounded</code>', 'string', 'rounded-token', `Provide classes to set the item border radius styles.`],
-				['<code>hover</code>', 'string', 'bg-hover-token', `Provide classes to set the item hover background color.`]
+				// ['<code>selected</code>', 'writable(any) | writable(any[])', 'writable(undefined)', 'Provide a writable store to maintain list selection.'],
+				// ['<code>space</code>', 'string', 'space-y-1', 'Provide classes to set vertical item spacing.'],
+				// ['<code>height</code>', 'string', '-', 'Provide to set scrollable listbox region height.'],
+				// ['<code>regionLabel</code>', 'string', '-', 'Provide arbitrary classes to the label element.'],
+				// ['<code>regionList</code>', 'string', '-', 'Provide arbitrary classes to the scrollable listbox element.'],
+				// // Items
+				// ['<code>accent</code>', 'string', '!bg-active-token', `Provide classes to set the item selected background.`],
+				// ['<code>padding</code>', 'string', 'px-4 py-3', `Provide classes to set the item padding styles.`],
+				// ['<code>rounded</code>', 'string', 'rounded-token', `Provide classes to set the item border radius styles.`],
+				// ['<code>hover</code>', 'string', 'bg-hover-token', `Provide classes to set the item hover background color.`]
 			]
 		},
 		{
 			label: 'ListBoxItem',
 			headings: ['Prop', 'Type', 'Default', 'Description'],
 			source: [
-				['<code>accent</code>', 'string', '(inherit)', `Provide classes to set the selected element background.`],
-				['<code>padding</code>', 'string', '(inherit)', `Provide classes to set the padding styles.`],
-				['<code>rounded</code>', 'string', '(inherit)', `Provide classes to set the border radius styles.`],
-				['<code>hover</code>', 'string', '(inherit)', `Provide classes to set hover background color.`]
+				// ['<code>accent</code>', 'string', '(inherit)', `Provide classes to set the selected element background.`],
+				// ['<code>padding</code>', 'string', '(inherit)', `Provide classes to set the padding styles.`],
+				// ['<code>rounded</code>', 'string', '(inherit)', `Provide classes to set the border radius styles.`],
+				// ['<code>hover</code>', 'string', '(inherit)', `Provide classes to set hover background color.`]
 			]
 		}
 	];
@@ -91,7 +93,7 @@
 	];
 </script>
 
-<DocsShell {settings} {properties} {classes} {slots} {a11y}>
+<DocsShell {settings} {properties} {classes} {slots} {a11y} components={['ListBox/ListBox', 'ListBox/ListBoxItem']}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 lg:grid-cols-2 gap-4">
