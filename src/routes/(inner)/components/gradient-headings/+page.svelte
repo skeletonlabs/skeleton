@@ -30,12 +30,11 @@
 	];
 	const classes: DocsShellTable[] = [
 		{
-			description: 'Coming soon.'
-			// headings: ['Selector', 'Description'],
-			// source: [
-			// 	['<code>.foo</code>', '...'],
-			// 	['<code>.bar</code>', '...']
-			// ]
+			headings: ['Selector', 'Description'],
+			source: [
+				['<code>.gradient-heading</code>', 'The parent element.'],
+				['<code>.gradient-heading-text</code>', 'The text span element.']
+			]
 		}
 	];
 	const slots: DocsShellTable[] = [

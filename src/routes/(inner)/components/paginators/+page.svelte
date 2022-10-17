@@ -47,12 +47,14 @@
 	];
 	const classes: DocsShellTable[] = [
 		{
-			description: 'Coming soon.'
-			// headings: ['Selector', 'Description'],
-			// source: [
-			// 	['<code>.foo</code>', '...'],
-			// 	['<code>.bar</code>', '...']
-			// ]
+			headings: ['Selector', 'Description'],
+			source: [
+				['<code>.paginator</code>', 'The parent element.'],
+				['<code>.paginator-label</code>', 'The select label element.'],
+				['<code>.paginator-select</code>', 'The select element.'],
+				['<code>.paginator-details</code>', 'The page information text.'],
+				['<code>.paginator-arrows</code>', 'The left/right arrow region.']
+			]
 		}
 	];
 

@@ -50,12 +50,23 @@
 	];
 	const classes: DocsShellTable[] = [
 		{
-			description: 'Coming soon.'
-			// headings: ['Selector', 'Description'],
-			// source: [
-			// 	['<code>.foo</code>', '...'],
-			// 	['<code>.bar</code>', '...']
-			// ]
+			label: 'ListBox',
+			headings: ['Selector', 'Description'],
+			source: [
+				['<code>.listbox</code>', 'The parent element.'],
+				['<code>.listbox-label</code>', 'The optional listbox label.'],
+				['<code>.listbox-list</code>', 'The listbox ul element.']
+			]
+		},
+		{
+			label: 'ListBoxItem',
+			headings: ['Selector', 'Description'],
+			source: [
+				['<code>.listbox-item</code>', 'The parent element.'],
+				['<code>.listbox-item-lead</code>', 'The leading slot region.'],
+				['<code>.listbox-item-content</code>', 'The content slot region.'],
+				['<code>.listbox-item-trail</code>', 'The trailing slot region.']
+			]
 		}
 	];
 	const slots: DocsShellTable[] = [

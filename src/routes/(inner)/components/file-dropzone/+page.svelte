@@ -39,12 +39,12 @@
 	];
 	const classes: DocsShellTable[] = [
 		{
-			description: 'Coming soon.'
-			// headings: ['Selector', 'Description'],
-			// source: [
-			// 	['<code>.foo</code>', '...'],
-			// 	['<code>.bar</code>', '...']
-			// ]
+			headings: ['Selector', 'Description'],
+			source: [
+				['<code>.file-dropzone</code>', 'The parent element.'],
+				['<code>.file-dropzone-message</code>', 'The dropzone message region.'],
+				['<code>.file-dropzone-input</code>', 'The dropzone input element.']
+			]
 		}
 	];
 	const slots: DocsShellTable[] = [

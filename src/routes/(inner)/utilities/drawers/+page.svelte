@@ -52,12 +52,11 @@
 	];
 	const classes: DocsShellTable[] = [
 		{
-			description: 'Coming soon.'
-			// headings: ['Selector', 'Description'],
-			// source: [
-			// 	['<code>.foo</code>', '...'],
-			// 	['<code>.bar</code>', '...']
-			// ]
+			headings: ['Selector', 'Description'],
+			source: [
+				['<code>.drawer-backdrop</code>', 'The backdrop shim element.'],
+				['<code>.drawer</code>', 'The drawer modal element.']
+			]
 		}
 	];
 	const slots: DocsShellTable[] = [

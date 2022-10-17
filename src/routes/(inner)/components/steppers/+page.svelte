@@ -52,12 +52,23 @@
 	];
 	const classes: DocsShellTable[] = [
 		{
-			description: 'Coming soon.'
-			// headings: ['Selector', 'Description'],
-			// source: [
-			// 	['<code>.foo</code>', '...'],
-			// 	['<code>.bar</code>', '...']
-			// ]
+			label: 'Stepper',
+			headings: ['Selector', 'Description'],
+			source: [['<code>.stepper</code>', 'The parent element.']]
+		},
+		{
+			label: 'Step',
+			headings: ['Selector', 'Description'],
+			source: [
+				['<code>.step</code>', 'The parent element.'],
+				['<code>.step-timeline</code>', 'The left side timeline element.'],
+				['<code>.step-numeral</code>', 'The timeline numeral elements.'],
+				['<code>.step-line</code>', 'The timeline vertical line element.'],
+				['<code>.step-content</code>', 'The right side content region.'],
+				['<code>.step-header</code>', 'The content header region.'],
+				['<code>.step-body</code>', 'The content body region.'],
+				['<code>.step-navigation</code>', 'The content navigation region.']
+			]
 		}
 	];
 	const slots: DocsShellTable[] = [

@@ -21,7 +21,8 @@
 				['<code>files</code>', 'FileList', '-', 'Bind this to your form data, represents the "files" data from the input.'],
 				['<code>accept</code>', 'string', '-', 'Set the native <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept" target="_blank">file accepts attribute</a>.'],
 				['<code>name</code>', 'string', '-', 'Set the native input name value.'],
-				['<code>multiple</code>', 'boolean', 'false', 'Determines whether user can pick more than one file.']
+				['<code>multiple</code>', 'boolean', 'false', 'Determines whether user can pick more than one file.'],
+				['<code>btn-filled-accent</code>', 'string', 'btn-filled-accent', 'Provides classes to style the button element.']
 			]
 		}
 	];
@@ -33,13 +34,12 @@
 	];
 	const classes: DocsShellTable[] = [
 		{
-			label: 'Coming soon.',
-			description: '<p>Classes provided to the <code>class</code> attribite are applied directly to the button. Add button utility classes here.</p>'
-			// headings: ['Selector', 'Description'],
-			// source: [
-			// 	['<code>.foo</code>', '...'],
-			// 	['<code>.bar</code>', '...']
-			// ]
+			headings: ['Selector', 'Description'],
+			source: [
+				['<code>.file-button</code>', 'The parent element.'],
+				['<code>.file-button-input</code>', 'The hidden input element.'],
+				['<code>.file-button-btn</code>', 'The visible button element.']
+			]
 		}
 	];
 	const slots: DocsShellTable[] = [
@@ -61,7 +61,7 @@
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="card card-body text-center !py-10 space-y-4">
-			<FileButton bind:files accept="image/*" name="file" class="btn-filled-accent" on:change={onChange}>Upload File</FileButton>
+			<FileButton bind:files accept="image/*" name="file" button="btn-filled-accent" on:change={onChange}>Upload File</FileButton>
 			<p class="!text-xs text-center">Monitor your browser's console when adding files.</p>
 		</section>
 	</svelte:fragment>
@@ -70,7 +70,7 @@
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<CodeBlock language="ts" code={`let files: FileList;`} />
-			<CodeBlock language="html" code={`<FileButton bind:files={files} class="btn-filled-accent">Upload File</FileButton>`} />
+			<CodeBlock language="html" code={`<FileButton bind:files={files} button="btn-filled-accent">Upload File</FileButton>`} />
 		</section>
 	</svelte:fragment>
 </DocsShell>

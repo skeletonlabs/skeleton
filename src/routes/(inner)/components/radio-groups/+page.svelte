@@ -45,12 +45,18 @@
 	];
 	const classes: DocsShellTable[] = [
 		{
-			description: 'Coming soon.'
-			// headings: ['Selector', 'Description'],
-			// source: [
-			// 	['<code>.foo</code>', '...'],
-			// 	['<code>.bar</code>', '...']
-			// ]
+			label: 'RadioGroup',
+			headings: ['Selector', 'Description'],
+			source: [['<code>.radio-group</code>', 'The parent element.']]
+		},
+		{
+			label: 'RadioItem',
+			headings: ['Selector', 'Description'],
+			source: [
+				['<code>.radio-item</code>', 'The parent element.'],
+				['<code>.radio-item-label</code>', 'The label element.'],
+				['<code>.radio-item-item</code>', 'The hidden input element.']
+			]
 		}
 	];
 	const slots: DocsShellTable[] = [

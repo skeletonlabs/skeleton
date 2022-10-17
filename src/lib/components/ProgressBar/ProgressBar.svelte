@@ -10,7 +10,7 @@
 	export let track: string = 'bg-surface-200-700-token';
 
 	// Base Classes
-	const cBaseWrapper: string = 'w-full';
+	const cBase: string = 'w-full';
 	const cBaseLabel: string = 'block text-sm mb-2';
 	const cBaseTrack: string = `w-full overflow-hidden`;
 	const cBaseMeterDeterminate: string = 'h-full';
@@ -24,16 +24,16 @@
 	$: classesMeter = `${rounded} ${meter}`;
 </script>
 
-<div class="progress-wrapper {cBaseWrapper}" data-testid="progress-wrapper" role="progressbar" aria-label={label} aria-valuenow={value} aria-valuemin={0} aria-valuemax={max}>
+<div class="progress-bar {cBase}" data-testid="progress-bar" role="progressbar" aria-label={label} aria-valuenow={value} aria-valuemin={0} aria-valuemax={max}>
 	<!-- Label -->
-	{#if label}<label for="progress" class="progress-label {cBaseLabel}">{label}</label>{/if}
+	{#if label}<label for="progress" class="progress-bar-label {cBaseLabel}">{label}</label>{/if}
 	<!-- Track -->
-	<div class="progress-track {classesTrack}">
+	<div class="progress-bar-track {classesTrack}">
 		<!-- Meter - Determinate / Indeterminate -->
 		{#if value !== undefined && value >= 0}
-			<div class="progress-meter {cBaseMeterDeterminate} {classesMeter}" style:width="{fillPercent}%" />
+			<div class="progress-bar-meter {cBaseMeterDeterminate} {classesMeter}" style:width="{fillPercent}%" />
 		{:else}
-			<div class="progress-meter {cBaseMeterIndeterminate} {classesMeter} animIndeterminate" />
+			<div class="progress-bar-meter {cBaseMeterIndeterminate} {classesMeter} animIndeterminate" />
 		{/if}
 	</div>
 </div>

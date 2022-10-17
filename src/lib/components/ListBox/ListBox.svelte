@@ -36,11 +36,11 @@
 	$: classesListBox = `${cListBox} ${height} ${space}`;
 </script>
 
-<div class="listbox-area {classesBase}" data-testid="listbox-area">
+<div class="listbox {classesBase}" data-testid="listbox-area">
 	<!-- Label -->
 	{#if label}<span class="listbox-label {classesLabel} {regionLabel}" id={labelId}>{label}</span>{/if}
 	<!-- Listbox -->
-	<ul class="listbox {classesListBox} {regionList}" role="listbox" aria-labelledby={labelId}>
+	<ul class="listbox-list {classesListBox} {regionList}" role="listbox" aria-labelledby={labelId}>
 		<slot />
 	</ul>
 </div>

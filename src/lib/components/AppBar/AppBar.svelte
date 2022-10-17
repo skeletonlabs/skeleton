@@ -29,14 +29,14 @@
 <div class="app-bar {classesBase}" data-testid="app-bar" role="toolbar" aria-label={label} aria-labelledby={labelledby}>
 	<!-- Slot: lead -->
 	{#if $$slots.lead}
-		<div class="appbar-lead {classesLead}"><slot name="lead" /></div>
+		<div class="app-bar-lead {classesLead}"><slot name="lead" /></div>
 	{/if}
 
 	<!-- Slot: center -->
-	<div class="appbar-center {classesCenter}"><slot /></div>
+	<div class="app-bar-center {classesCenter}"><slot /></div>
 
 	<!-- Slot: trail -->
 	{#if $$slots.trail}
-		<div class="appbar-trail {classesTrail}"><slot name="trail" /></div>
+		<div class="app-bar-trail {classesTrail}"><slot name="trail" /></div>
 	{/if}
 </div>

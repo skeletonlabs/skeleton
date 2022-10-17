@@ -29,16 +29,6 @@
 			]
 		}
 	];
-	const classes: DocsShellTable[] = [
-		{
-			description: 'Coming soon.'
-			// headings: ['Selector', 'Description'],
-			// source: [
-			// 	['<code>.foo</code>', '...'],
-			// 	['<code>.bar</code>', '...']
-			// ]
-		}
-	];
 	const slots: DocsShellTable[] = [
 		{
 			headings: ['Name', 'Description'],
@@ -65,7 +55,7 @@
 	};
 </script>
 
-<DocsShell {settings} {properties} {classes} {slots}>
+<DocsShell {settings} {properties} {slots}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4">

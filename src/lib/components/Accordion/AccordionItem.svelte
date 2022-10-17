@@ -34,11 +34,11 @@
 	<!-- Summary -->
 	<summary id={summaryId} class="accordion-summary {classesSummary}" aria-expanded={open} aria-controls={contentId}>
 		<!-- Slot: Lead -->
-		{#if $$slots.lead}<div class="summary-lead"><slot name="lead" /></div>{/if}
+		{#if $$slots.lead}<div class="accordion-summary-lead"><slot name="lead" /></div>{/if}
 		<!-- Slot: Text -->
-		<div class="summary-text flex-auto" role="button"><slot name="summary"><code>(Missing: Summary Slot)</code></slot></div>
+		<div class="accordion-summary-text flex-auto" role="button"><slot name="summary"><code>(Missing: Summary Slot)</code></slot></div>
 		<!-- Caret -->
-		<div class="summary-caret {classesIcon}">
+		<div class="accordion-summary-caret {classesIcon}">
 			<SvgIcon name="angle-down" class="opacity-50" />
 		</div>
 	</summary>
