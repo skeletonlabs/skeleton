@@ -81,7 +81,7 @@
 	}
 
 	function formatStylesheet(stylesheet: string): string {
-		return `import '${pageSettings.package?.name}/styles/${stylesheet}.css;`;
+		return `import '${pageSettings.package?.name}/styles/${stylesheet}.css';`;
 	}
 
 	// Copy ---
