@@ -121,18 +121,52 @@
 			<label>
 				<span>Font Color <small>(light mode)</small></span>
 				<select name="background" id="background" bind:value={$storeFormData.fontColorBase}>
+					<!-- Black -->
+					<option value="0 0 0">Black</option>
+					<!-- Surface -->
+					<option value="var(--color-surface-500)">Surface 500</option>
+					<option value="var(--color-surface-600)">Surface 600</option>
+					<option value="var(--color-surface-700)">Surface 700</option>
 					<option value="var(--color-surface-800)">Surface 800</option>
 					<option value="var(--color-surface-900)">Surface 900</option>
-					<option value="0 0 0">Black</option>
+					<!-- Primary -->
+					<option value="var(--color-primary-500)">Primary 500</option>
+					<option value="var(--color-primary-600)">Primary 600</option>
+					<option value="var(--color-primary-700)">Primary 700</option>
+					<option value="var(--color-primary-800)">Primary 800</option>
+					<option value="var(--color-primary-900)">Primary 900</option>
+					<!-- Accent -->
+					<option value="var(--color-accent-500)">Accent 500</option>
+					<option value="var(--color-accent-600)">Accent 600</option>
+					<option value="var(--color-accent-700)">Accent 700</option>
+					<option value="var(--color-accent-800)">Accent 800</option>
+					<option value="var(--color-accent-900)">Accent 900</option>
 				</select>
 			</label>
 			<!-- --theme-font-color-dark -->
 			<label>
 				<span>Font Color <small>(dark mode)</small></span>
 				<select name="background" id="background" bind:value={$storeFormData.fontColorDark}>
+					<!-- White -->
+					<option value="255 255 255">White</option>
+					<!-- Surface -->
+					<option value="var(--color-surface-400)">Surface 400</option>
+					<option value="var(--color-surface-300)">Surface 300</option>
+					<option value="var(--color-surface-200)">Surface 200</option>
 					<option value="var(--color-surface-100)">Surface 100</option>
 					<option value="var(--color-surface-50)">Surface 50</option>
-					<option value="255 255 255">White</option>
+					<!-- Primary -->
+					<option value="var(--color-primary-400)">Primary 400</option>
+					<option value="var(--color-primary-300)">Primary 300</option>
+					<option value="var(--color-primary-200)">Primary 200</option>
+					<option value="var(--color-primary-100)">Primary 100</option>
+					<option value="var(--color-primary-50)">Primary 50</option>
+					<!-- Accent -->
+					<option value="var(--color-accent-400)">Accent 400</option>
+					<option value="var(--color-accent-300)">Accent 300</option>
+					<option value="var(--color-accent-200)">Accent 200</option>
+					<option value="var(--color-accent-100)">Accent 100</option>
+					<option value="var(--color-accent-50)">Accent 50</option>
 				</select>
 			</label>
 			<!-- --theme-rounded-base -->
@@ -165,7 +199,7 @@
 				</select>
 			</label>
 			<!-- --theme-border-base -->
-			<label class="col-span-2">
+			<label>
 				<span>Border</span>
 				<select name="background" id="background" bind:value={$storeFormData.borderBase}>
 					<option value="0px">0px</option>
