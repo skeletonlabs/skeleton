@@ -84,8 +84,7 @@
 	<svelte:fragment slot="lead">(lead)</svelte:fragment>
 	(center)
 	<svelte:fragment slot="trail">(trail)</svelte:fragment>
-</AppBar>
-		`}
+</AppBar>`}
 		/>
 	</svelte:fragment>
 </DocsShell>

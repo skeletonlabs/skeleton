@@ -147,18 +147,17 @@
 			code={`
 <AccordionGroup>
 	<!-- Open -->
-    <AccordionItem open>
+	<AccordionItem open>
 		<svelte:fragment slot="lead">(lead)</svelte:fragment>
-        <svelte:fragment slot="summary">(summary)</svelte:fragment>
-        <svelte:fragment slot="content">(content)</svelte:fragment>
-    </AccordionItem>
+		<svelte:fragment slot="summary">(summary)</svelte:fragment>
+		<svelte:fragment slot="content">(content)</svelte:fragment>
+	</AccordionItem>
 	<!-- Closed -->
-    <AccordionItem>
-        <svelte:fragment slot="summary">(summary)</svelte:fragment>
-        <svelte:fragment slot="content">(content)</svelte:fragment>
-    </AccordionItem>
-</AccordionGroup>
-			`}
+	<AccordionItem>
+		<svelte:fragment slot="summary">(summary)</svelte:fragment>
+		<svelte:fragment slot="content">(content)</svelte:fragment>
+	</AccordionItem>
+</AccordionGroup>`}
 		/>
 	</svelte:fragment>
 </DocsShell>
