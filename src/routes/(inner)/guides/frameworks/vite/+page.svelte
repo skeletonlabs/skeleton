@@ -151,15 +151,4 @@
         `}
 		/>
 	</section>
-
-	<hr />
-
-	<!-- Styling -->
-	<section class="space-y-4">
-		<h2>Global Styling</h2>
-		<p>
-			Finally, let's update our boring square buttons. Open your global stylesheet in <code>/src/app.postcss</code> and add the following to update all buttons in your app!
-		</p>
-		<CodeBlock language="css" code={`.btn { @apply font-bold rounded; }`} />
-	</section>
 </div>
