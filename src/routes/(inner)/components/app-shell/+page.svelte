@@ -125,7 +125,7 @@
 </AppShell>`}
 			/>
 			<p>
-				The App Shell will need expand to fill your <em>body</em> tag. Add the following classes to the wrapping <em>div</em> in <code>/src/app.html</code>.
+				The App Shell will need to expand to fill your <em>body</em> tag. Add the following classes to the wrapping <em>div</em> in <code>/src/app.html</code>.
 				<a href="https://github.com/sveltejs/kit/issues/6244#issuecomment-1226600661" target="_blank">This element is required</a>.
 			</p>
 			<CodeBlock language="html" code={`<body>\n\t<div class="h-full overflow-hidden">%sveltekit.body%</div>\n</body>`.trim()} />
