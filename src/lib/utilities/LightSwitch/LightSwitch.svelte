@@ -1,12 +1,17 @@
 <!-- https://tailwindcss.com/docs/dark-mode -->
 <script lang="ts">
-	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
-	import { storePrefersDarkScheme, storeLightSwitch } from './stores';
 	import { onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
+
+	// Components
+	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
+
+	// Stores
+	import { storePrefersDarkScheme, storeLightSwitch } from './stores';
 
 	// Base Classes
-	const cTrack: string = 'inline-block bg-surface-500/50 w-12 h-6 rounded-full cursor-pointer transition-all duration-[100ms] hover:brightness-110';
-	const cThumb: string = 'w-6 h-6 flex justify-center items-center rounded-full shadow-lg transition-all duration-[100ms] scale-90';
+	const cTrack: string = 'inline-block bg-surface-200-700-token ring-[1px] ring-surface-300-600-token ring-inset w-12 h-6 rounded-full cursor-pointer transition-all duration-[100ms]';
+	const cThumb: string = 'bg-white dark:bg-black fill-white dark:fill-black w-6 h-6 flex justify-center items-center rounded-full shadow-lg transition-all duration-[100ms] scale-90';
 	const cIcon: string = 'block w-4 h-4';
 
 	// Set the users system prefers for light/dark mode
@@ -18,15 +23,12 @@
 	// Toggles a 'dark' class on the <html> element
 	function setElemHtmlClass(): void {
 		const elemHtmlClassList: DOMTokenList = document.documentElement.classList;
-		let preference: boolean = false;
 		// If $storeLightSwitch not set, match the OS preference
 		if ($storeLightSwitch === undefined) {
-			preference = $storePrefersDarkScheme;
-		} else {
-			preference = $storeLightSwitch;
+			$storeLightSwitch = $storePrefersDarkScheme;
 		}
 		// Update HTML element class
-		preference === true ? elemHtmlClassList.add('dark') : elemHtmlClassList.remove('dark');
+		$storeLightSwitch === true ? elemHtmlClassList.add('dark') : elemHtmlClassList.remove('dark');
 	}
 
 	// On Click Handler
@@ -56,9 +58,8 @@
 
 	// Reactive Classses
 	$: classesPosition = $storeLightSwitch ? 'translate-x-full' : 'translate-x-0';
-	$: classesThumbBg = $storeLightSwitch ? 'fill-neutral-100 bg-neutral-900' : 'fill-neutral-900 bg-neutral-100';
 	$: classesBase = `${cTrack} ${$$props.class ?? ''}`;
-	$: classesThumb = `${cThumb} ${classesThumbBg} ${classesPosition}`;
+	$: classesThumb = `${cThumb} ${classesPosition}`;
 </script>
 
 <!-- prettier-ignore -->

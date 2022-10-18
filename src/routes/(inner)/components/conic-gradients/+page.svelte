@@ -1,9 +1,54 @@
 <script lang="ts">
+	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import ConicGradient from '$lib/components/ConicGradient/ConicGradient.svelte';
-	import DataTable from '$lib/components/Table/DataTable.svelte';
 
 	import type { ConicStop } from '$lib/components/ConicGradient/types';
+
+	// Docs Shell
+	const settings: DocsShellSettings = {
+		feature: DocsFeature.Component,
+		name: 'Conic Gradients',
+		description: 'Create conic gradient data visualizations for pie charts, loading spinners, and more.',
+		imports: ['ConicGradient'],
+		types: ['ConicStop'],
+		source: 'components/ConicGradient'
+	};
+	const properties: DocsShellTable[] = [
+		{
+			headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
+			source: [
+				['<code>stops</code>', 'ConicStop[]', '(100% grey circle)', '&check;', 'Provide a data set of color stops and labels.'],
+				['<code>legend</code>', 'boolean', 'false', '-', 'Allows for automatic generation of a legend below the conic gradient.'],
+				['<code>spin</code>', 'boolean', 'false', '-', 'When enabled, the conic gradient will spin.'],
+				['<code>width</code>', 'string', 'w-full', '-', 'Provided classes to style the conic gradient width.'],
+				['<code>hover</code>', 'string', 'bg-hover-token', '-', 'Provided classes to style the legend hover effect.']
+			]
+		}
+	];
+	const classes: DocsShellTable[] = [
+		{
+			headings: ['Selector', 'Description'],
+			source: [
+				['<code>.conic-gradient</code>', 'The parent element.'],
+				['<code>.conic-caption</code>', 'The figcaption element.'],
+				['<code>.concic-cone</code>', 'The chart element.'],
+				['<code>.conic-list</code>', 'The legend list.'],
+				['<code>.conic-item</code>', 'Legend list items.'],
+				['<code>.conic-swatch</code>', 'Legend swatch elements.'],
+				['<code>.conic-label</code>', 'Legend label elements.'],
+				['<code>.conic-value</code>', 'Legend value elements.']
+			]
+		}
+	];
+	const slots: DocsShellTable[] = [
+		{
+			headings: ['Name', 'Description'],
+			source: [['<code>default</code>', 'Provide a semantic heading to represent the figure caption.']]
+		}
+	];
 
 	// Color Stops
 	let stopsTailwind: ConicStop[] = [
@@ -20,56 +65,33 @@
 		{ color: 'transparent', start: 0, end: 25 },
 		{ color: 'rgba(128,128,128,0.5)', start: 75, end: 100 }
 	];
-
-	// Tables
-	const tableProps: any = {
-		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
-		source: [
-			['stops', 'ConicStop[]', '(100% grey circle)', '&check;', 'Provide a data set of color stops and labels.'],
-			['legend', 'boolean', 'false', '-', 'Allows for automatic generation of a legend below the conic gradient.'],
-			['spin', 'boolean', 'false', '-', 'When enabled, the conic gradient will spin.'],
-			['width', 'string', 'w-full', '-', 'Provided classes to style the conic gradient width.'],
-			['hover', 'string', 'hover:bg-surface-500/10', '-', 'Provided classes to style the legend hover effect.']
-		]
-	};
-	const tableSlots: any = {
-		headings: ['Name', 'Description'],
-		source: [['default', 'Provide a semantic heading to represent the figure caption.']]
-	};
 </script>
 
-<div class="space-y-8">
-	<!-- Header -->
-	<header class="space-y-4">
-		<h1>Conic Gradient</h1>
-		<p>Create conic gradient data visualizations for pie charts, loading spinners, and more.</p>
-		<CodeBlock language="javascript" code={`import { ConicGradient } from '@brainandbones/skeleton';`} />
-	</header>
+<DocsShell {settings} {properties} {classes} {slots}>
+	<!-- Slot: Sandbox -->
+	<svelte:fragment slot="sandbox">
+		<section class="space-y-4 lg:space-y-0 lg:grid lg:grid-cols-3 gap-5">
+			<div class="card card-body">
+				<ConicGradient stops={stopsTailwind} legend={true}>
+					<h3>Heat Map</h3>
+				</ConicGradient>
+			</div>
+			<!-- CSS Properties -->
+			<div class="card card-body flex justify-center items-center">
+				<ConicGradient stops={stopsVars} legend={true} class="w-full" />
+			</div>
+			<!-- Spinner -->
+			<div class="card card-body flex justify-center items-center">
+				<ConicGradient stops={stopsSpinner} spin={true} width="w-8">
+					<small class="opacity-50">Loading</small>
+				</ConicGradient>
+			</div>
+		</section>
+	</svelte:fragment>
 
-	<!-- Examples -->
-	<section class="space-y-4 md:space-y-0 md:grid md:grid-cols-3 md:gap-8">
-		<h2 class="sr-only">Examples</h2>
-		<div class="card card-body">
-			<ConicGradient stops={stopsTailwind} legend={true}>
-				<h3>Heat Map</h3>
-			</ConicGradient>
-		</div>
-		<!-- CSS Properties -->
-		<div class="card card-body flex justify-center items-center">
-			<ConicGradient stops={stopsVars} legend={true} class="w-full" />
-		</div>
-		<!-- Spinner -->
-		<div class="card card-body flex justify-center items-center">
-			<ConicGradient stops={stopsSpinner} spin={true} width="w-8">
-				<small class="opacity-50">Loading</small>
-			</ConicGradient>
-		</div>
-	</section>
-
-	<!-- Usage -->
-	<section class="space-y-8">
+	<!-- Slot: Usage -->
+	<svelte:fragment slot="usage">
 		<div class="space-y-4">
-			<h2>Usage</h2>
 			<p>Provde one or more color stops that start at <em>0%</em> and end at <em>100%</em>. The data set below will create a half red/green conic gradient.</p>
 			<CodeBlock
 				language="ts"
@@ -79,14 +101,13 @@ import type { ConicStop } from '@brainandbones/skeleton';
 const conicStops: ConicStop[] = [
 	{ color: 'red', start: 0, end: 50 },
 	{ color: 'green', start: 50, end: 100 }
-];
-        `}
+];`}
 			/>
 			<CodeBlock language="html" code={`<ConicGradient stops={conicStops} legend={false} spin={false}>(caption)</ConicGradient>`} />
 		</div>
 		<!-- Legend -->
 		<div class="space-y-4">
-			<h3>Display a Legend</h3>
+			<h2>Display a Legend</h2>
 			<p>A legend can be enabled by setting <code>legend</code> as <em>true</em> and provided labels for each stop.</p>
 			<CodeBlock
 				language="ts"
@@ -95,14 +116,13 @@ const conicStops: ConicStop[] = [
 	{ label: 'Label 1', color: 'red', start: 0, end: 33 },
 	{ label: 'Label 2', color: 'green', start: 33, end: 66 },
 	{ label: 'Label 3', color: 'blue', start: 66, end: 100 }
-];
-        `}
+];`}
 			/>
 		</div>
 		<!-- Applying Colors -->
 		<div class="space-y-4">
-			<h3>Colors</h3>
-			<h4>Via Theme Colors</h4>
+			<h2>Colors</h2>
+			<h3>Via Theme Colors</h3>
 			<p>Provide a theme color CSS custom property <code>var(--color-primary-500)</code> wrapped in <code>rgb()</code>.</p>
 			<CodeBlock
 				language="ts"
@@ -111,13 +131,12 @@ const conicStops: ConicStop[] = [
 	{ label: 'Primary', color: 'rgb(var(--color-primary-500))', start: 0, end: 33 },
 	{ label: 'Acccent', color: 'rgb(var(--color-warning-500))', start: 33, end: 66 },
 	{ label: 'Warning', color: 'rgb(var(--color-accent-500))', start: 66, end: 100 }
-];
-        `}
+];`}
 			/>
 		</div>
 		<!-- Tailwind Colors -->
 		<div class="space-y-4">
-			<h4>Via Tailwind Colors</h4>
+			<h3>Via Tailwind Colors</h3>
 			<p>To utilize default Tailwind colors, supply an array with the format <code>[name: string, shade: number]</code>.</p>
 			<CodeBlock
 				language="ts"
@@ -126,13 +145,12 @@ const conicStops: ConicStop[] = [
 	{ label: 'Orange', color: ['orange', 500], start: 0, end: 10 },
 	{ label: 'Yellow', color: ['yellow', 500], start: 10, end: 35 },
 	{ label: 'Red', color: ['red', 500], start: 35, end: 100 }
-];
-        `}
+];`}
 			/>
 		</div>
 		<!-- Custom Colors -->
 		<div class="space-y-4">
-			<h4>Via Custom Colors</h4>
+			<h3>Via Custom Colors</h3>
 			<p>
 				You can provide <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value" target="_blank">standard CSS color values</a> as a string, including: color names, hex, rgba, HSL, or similar.
 			</p>
@@ -143,13 +161,12 @@ const conicStops: ConicStop[] = [
 	{ label: 'Name', color: 'orange', start: 0, end: 10 },
 	{ label: 'HSL', color: 'hsl(60deg 100% 50%)', start: 10, end: 35 },
 	{ label: 'Hex', color: '#bada55', start: 35, end: 100 }
-];
-        `}
+];`}
 			/>
 		</div>
 		<!-- Spinner -->
 		<div class="space-y-4">
-			<h3>Spinner Gradient</h3>
+			<h2>Spinner Gradient</h2>
 			<p>
 				To create a spinner, set <code>spin</code> to <em>true</em>, and created a smooth gradient transition between transparent and filled color stops. Note the numeric gap between stops.
 			</p>
@@ -158,23 +175,10 @@ const conicStops: ConicStop[] = [
 				language="ts"
 				code={`
 const conicStops: ConicStop[] = [
-    { color: 'transparent', start: 0, end: 25 },
+	{ color: 'transparent', start: 0, end: 25 },
 	{ color: 'grey', start: 75, end: 100 }
-];
-        `}
+];`}
 			/>
 		</div>
-	</section>
-
-	<!-- Properties -->
-	<section class="space-y-4">
-		<h2>Properties</h2>
-		<DataTable headings={tableProps.headings} source={tableProps.source} />
-	</section>
-
-	<!-- Slots -->
-	<section class="space-y-4">
-		<h2>Slots</h2>
-		<DataTable headings={tableSlots.headings} source={tableSlots.source} />
-	</section>
-</div>
+	</svelte:fragment>
+</DocsShell>

@@ -1,47 +1,67 @@
 <script lang="ts">
-	import DataTable from '$lib/components/Table/DataTable.svelte';
-	import AppBar from '$lib/components/AppBar/AppBar.svelte';
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
+	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
 
-	const tableProps: any = {
-		headings: ['Prop', 'Type', 'Default', 'Description'],
-		source: [
-			['background', 'string', 'bg-surface-100 dark:bg-surface-800', 'Provide classes to set background color.'],
-			['border', 'string', '-', 'Provide classes to set border styles.'],
-			['padding', 'string', 'px-4 py-4 md:py-6', 'Provide classes to set padding.'],
-			['shadow', 'string', 'shadow-lg', 'Provide classes to define a box shadow.'],
-			['space', 'string', 'space-x-4', 'Provide classes to set horizontal spacing.']
-		]
+	import AppBar from '$lib/components/AppBar/AppBar.svelte';
+	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+
+	// Docs Shell
+	const settings: DocsShellSettings = {
+		feature: DocsFeature.Component,
+		name: 'App Bar',
+		description: 'A header element for the top of your page layout. Pairs well with the <a href="/components/app-shell">App Shell</a>.',
+		imports: ['AppBar'],
+		source: 'components/AppBar'
 	};
-	const tableSlots: any = {
-		headings: ['Name', 'Style Prop', 'Description'],
-		source: [
-			['default', 'slotDefault', 'Provides content within the center of the bar, e.g. a search element.'],
-			['lead', 'slotLead', 'Provides content on the left end of the bar, e.g. a logo.'],
-			['trail', 'slotTrail', 'Provides content on the right end of the bar, e.g. navigation elements.']
-		]
-	};
-	const tableA11y: any = {
-		headings: ['Prop', 'Type', 'Description'],
-		source: [
-			['label', 'string', 'Provide a semantic ID for the ARIA label.'],
-			['labelledby', 'string', 'Provide the ID of the element that labels the toolbar.']
-		]
-	};
+	const properties: DocsShellTable[] = [
+		{
+			headings: ['Prop', 'Type', 'Default', 'Description'],
+			source: [
+				['<code>background</code>', 'string', 'bg-surface-100-800-token', 'Provide classes to set background color.'],
+				['<code>border</code>', 'string', '-', 'Provide classes to set border styles.'],
+				['<code>padding</code>', 'string', 'p-4 md:py-6', 'Provide classes to set padding.'],
+				['<code>shadow</code>', 'string', 'shadow-lg', 'Provide classes to define a box shadow.'],
+				['<code>space</code>', 'string', 'space-x-4', 'Provide classes to set horizontal spacing.']
+			]
+		}
+	];
+	const classes: DocsShellTable[] = [
+		{
+			headings: ['Selector', 'Description'],
+			source: [
+				['<code>.app-bar</code>', 'The parent element.'],
+				['<code>.app-bar-lead</code>', 'The left-most region.'],
+				['<code>.app-bar-center</code>', 'The center region.'],
+				['<code>.app-bar-trail</code>', 'The right-most region.']
+			]
+		}
+	];
+	const slots: DocsShellTable[] = [
+		{
+			headings: ['Name', 'Style Prop', 'Description'],
+			source: [
+				['<code>default</code>', 'slotDefault', 'Provides content within the center of the bar, e.g. a search element.'],
+				['<code>lead</code>', 'slotLead', 'Provides content on the left end of the bar, e.g. a logo.'],
+				['<code>trail</code>', 'slotTrail', 'Provides content on the right end of the bar, e.g. navigation elements.']
+			]
+		}
+	];
+	const a11y: DocsShellTable[] = [
+		{
+			aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/',
+			headings: ['Prop', 'Type', 'Description'],
+			source: [
+				['<code>label</code>', 'string', 'Provide a semantic ID for the ARIA label.'],
+				['<code>labelledby</code>', 'string', 'Provide the ID of the element that labels the toolbar.']
+			]
+		}
+	];
 </script>
 
-<div class="space-y-8">
-	<!-- Header -->
-	<header class="space-y-4">
-		<h1>App Bar</h1>
-		<p>A header element for the top of your page layout. Pairs well with the <a href="/components/app-shell">App Shell</a>.</p>
-		<CodeBlock language="javascript" code={`import { AppBar } from '@brainandbones/skeleton';`} />
-	</header>
-
-	<!-- Examples -->
-	<section class="space-y-4">
-		<h2 class='sr-only'>Examples</h2>
+<DocsShell {settings} {properties} {classes} {slots} {a11y}>
+	<!-- Slot: Sandbox -->
+	<svelte:fragment slot="sandbox">
 		<AppBar>
 			<svelte:fragment slot="lead">
 				<span class="text-base md:text-3xl font-bold uppercase">Logo</span>
@@ -54,11 +74,10 @@
 				</div>
 			</svelte:fragment>
 		</AppBar>
-	</section>
+	</svelte:fragment>
 
-	<!-- Usage -->
-	<section class="space-y-4">
-		<h2>Usage</h2>
+	<!-- Slot: Usage -->
+	<svelte:fragment slot="usage">
 		<CodeBlock
 			language="html"
 			code={`
@@ -66,29 +85,7 @@
 	<svelte:fragment slot="lead">(lead)</svelte:fragment>
 	(center)
 	<svelte:fragment slot="trail">(trail)</svelte:fragment>
-</AppBar>
-		`}
+</AppBar>`}
 		/>
-	</section>
-
-	<!-- Properties -->
-	<section class="space-y-4">
-		<h2>Properties</h2>
-		<DataTable headings={tableProps.headings} source={tableProps.source} />
-	</section>
-
-	<!-- Slots -->
-	<section class="space-y-4">
-		<h2>Slots</h2>
-		<DataTable headings={tableSlots.headings} source={tableSlots.source} />
-	</section>
-
-	<!-- Accessibility -->
-	<section class="space-y-4">
-		<div class="flex justify-between items-center">
-			<h2>Accessibility</h2>
-			<a href="https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/" target="_blank">ARIA Guidelines</a>
-		</div>
-		<DataTable headings={tableA11y.headings} source={tableA11y.source} />
-	</section>
-</div>
+	</svelte:fragment>
+</DocsShell>

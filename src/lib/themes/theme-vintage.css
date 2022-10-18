@@ -1,6 +1,19 @@
+/* https://fonts.google.com/specimen/Abril+Fatface?query=Abril+Fatface&noto.query=Abril */
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+/* https://fonts.google.com/noto/specimen/Noto+Sans?query=sans */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300&display=swap');
+
 :root {
-	/* =~= Skeleton Theme | Tailwind =~= */
-	/* ~ primary (amber | #f59e0b) ~ */
+	/* =~= Theme Styles =~= */
+	--theme-border-base: 1px;
+	--theme-font-family-heading: 'Abril Fatface', cursive;
+	--theme-font-family-base: 'Noto Sans', sans-serif;
+	--theme-font-color-base: var(--color-primary-900);
+	--theme-font-color-dark: var(--color-primary-100);
+	--theme-rounded-base: 2px;
+	--theme-rounded-container: 4px;
+	/* =~= Theme Colors | Tailwind =~= */
+	/* amber | #f59e0b */
 	--color-primary-50: 255 251 235; /* ⬅ #fffbeb */
 	--color-primary-100: 254 243 199; /* ⬅ #fef3c7 */
 	--color-primary-200: 253 230 138; /* ⬅ #fde68a */
@@ -11,7 +24,7 @@
 	--color-primary-700: 180 83 9; /* ⬅ #b45309 */
 	--color-primary-800: 146 64 14; /* ⬅ #92400e */
 	--color-primary-900: 120 53 15; /* ⬅ #78350f */
-	/* ~ accent (green | #22c55e) ~ */
+	/* green | #22c55e */
 	--color-accent-50: 240 253 244; /* ⬅ #f0fdf4 */
 	--color-accent-100: 220 252 231; /* ⬅ #dcfce7 */
 	--color-accent-200: 187 247 208; /* ⬅ #bbf7d0 */
@@ -22,7 +35,7 @@
 	--color-accent-700: 21 128 61; /* ⬅ #15803d */
 	--color-accent-800: 22 101 52; /* ⬅ #166534 */
 	--color-accent-900: 20 83 45; /* ⬅ #14532d */
-	/* ~ ternary (cyan | #06b6d4) ~ */
+	/* cyan | #06b6d4 */
 	--color-ternary-50: 236 254 255; /* ⬅ #ecfeff */
 	--color-ternary-100: 207 250 254; /* ⬅ #cffafe */
 	--color-ternary-200: 165 243 252; /* ⬅ #a5f3fc */
@@ -33,7 +46,7 @@
 	--color-ternary-700: 14 116 144; /* ⬅ #0e7490 */
 	--color-ternary-800: 21 94 117; /* ⬅ #155e75 */
 	--color-ternary-900: 22 78 99; /* ⬅ #164e63 */
-	/* ~ warning (red | #ef4444) ~ */
+	/* red | #ef4444 */
 	--color-warning-50: 254 242 242; /* ⬅ #fef2f2 */
 	--color-warning-100: 254 226 226; /* ⬅ #fee2e2 */
 	--color-warning-200: 254 202 202; /* ⬅ #fecaca */
@@ -44,7 +57,7 @@
 	--color-warning-700: 185 28 28; /* ⬅ #b91c1c */
 	--color-warning-800: 153 27 27; /* ⬅ #991b1b */
 	--color-warning-900: 127 29 29; /* ⬅ #7f1d1d */
-	/* ~ surface (stone | #78716c) ~ */
+	/* stone | #78716c */
 	--color-surface-50: 250 250 249; /* ⬅ #fafaf9 */
 	--color-surface-100: 245 245 244; /* ⬅ #f5f5f4 */
 	--color-surface-200: 231 229 228; /* ⬅ #e7e5e4 */
@@ -55,4 +68,13 @@
 	--color-surface-700: 68 64 60; /* ⬅ #44403c */
 	--color-surface-800: 41 37 36; /* ⬅ #292524 */
 	--color-surface-900: 28 25 23; /* ⬅ #1c1917 */
+}
+
+[data-theme='vintage'] h1,
+[data-theme='vintage'] h2,
+[data-theme='vintage'] h3,
+[data-theme='vintage'] h4,
+[data-theme='vintage'] h5,
+[data-theme='vintage'] h6 {
+	letter-spacing: 1px;
 }

@@ -20,6 +20,8 @@ button:disabled {
 	@apply hover:brightness-110;
 	/* Transitions */
 	@apply transition-all active:scale-90;
+	/* Theme: Rounded */
+	@apply rounded-token;
 }
 
 /* Button: Sizes */
@@ -67,7 +69,7 @@ button:disabled {
 
 /* Outline */
 .btn-outline {
-	@apply ring-2 ring-neutral-900 dark:ring-neutral-50 ring-inset;
+	@apply ring-2 ring-surface-900 dark:ring-surface-50 ring-inset;
 }
 .btn-outline-primary {
 	@apply ring-2 ring-primary-500 ring-inset;
@@ -82,7 +84,7 @@ button:disabled {
 	@apply ring-2 ring-warning-500 ring-inset;
 }
 .btn-outline-surface {
-	@apply ring-2 ring-surface-500 ring-inset;
+	@apply ring-2 ring-surface-400-500-token ring-inset;
 }
 
 /* === Variants === */
@@ -90,7 +92,7 @@ button:disabled {
 
 /* Filled */
 .btn-filled {
-	@apply bg-neutral-900 text-neutral-50 dark:bg-neutral-50 dark:text-neutral-900;
+	@apply bg-surface-900 dark:bg-surface-50 text-surface-50 dark:text-surface-900;
 }
 .btn-filled-primary {
 	@apply bg-primary-500;
@@ -105,7 +107,7 @@ button:disabled {
 	@apply bg-warning-500;
 }
 .btn-filled-surface {
-	@apply bg-surface-500;
+	@apply bg-surface-400-500-token;
 }
 
 /* Ringed */
@@ -130,20 +132,29 @@ button:disabled {
 
 /* Ghost */
 .btn-ghost {
-	@apply btn-outline bg-neutral-900/10 dark:bg-neutral-50/10;
+	@apply btn-outline;
+	/* Background */
+	@apply bg-surface-900/20 dark:bg-surface-50/20;
+	/* Hover */
+	@apply hover:bg-surface-900/10 hover:dark:bg-surface-50/30;
 }
 .btn-ghost-primary {
-	@apply btn-outline-primary bg-primary-500/10;
+	@apply btn-outline-primary bg-primary-500/20 hover:bg-primary-500/30;
 }
 .btn-ghost-accent {
-	@apply btn-outline-accent bg-accent-500/10;
+	@apply btn-outline-accent bg-accent-500/20 hover:bg-accent-500/30;
 }
 .btn-ghost-ternary {
-	@apply btn-outline-ternary bg-ternary-500/10;
+	@apply btn-outline-ternary bg-ternary-500/20 hover:bg-ternary-500/30;
 }
 .btn-ghost-warning {
-	@apply btn-outline-warning bg-warning-500/10;
+	@apply btn-outline-warning bg-warning-500/20 hover:bg-warning-500/30;
 }
 .btn-ghost-surface {
-	@apply btn-outline-surface bg-surface-500/10;
+	@apply btn-outline-surface bg-surface-400/20 hover:bg-surface-500/30;
+}
+
+/* File Input Button */
+input[type='file']:not(.file-dropzone-input)::file-selector-button {
+	@apply border-0 btn btn-filled-accent btn-sm mr-2 text-token;
 }

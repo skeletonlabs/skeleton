@@ -7,10 +7,8 @@
 	@apply font-semibold text-xs;
 	/* Padding */
 	@apply px-2 py-1;
-	/* Shadow */
-	@apply shadow;
-	/* Rounded */
-	@apply rounded;
+	/* Theme: Rounded */
+	@apply rounded-token;
 }
 
 .badge-icon {
@@ -18,4 +16,12 @@
 	@apply w-5 h-5 flex justify-center items-center rounded-full;
 	/* Text */
 	@apply font-semibold text-xs;
+	/* Shadow */
+	@apply shadow;
+}
+
+/* === Variants === */
+
+.badge-filled-surface {
+	@apply bg-surface-300-600-token;
 }

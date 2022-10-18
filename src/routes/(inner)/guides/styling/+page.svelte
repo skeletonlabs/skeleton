@@ -38,23 +38,30 @@
 				'-'
 			],
 			[
+				'<code>tokens.css</code>',
+				'Creates design token classes for theme CSS custom properties.',
+				'<a href="/guides/themes">Themes</a>',
+				`<a href="${ghLibPathMaster}/styles/tokens.css" target="_blank">tokens.css</a>`,
+				'-'
+			],
+			[
 				'<code>core.css</code>',
 				'Applies styles to body elements, scrollbars, and more.',
-				'<a href="/tailwind/core">Core</a>',
+				'<a href="/elements/core">Core</a>',
 				`<a href="${ghLibPathMaster}/styles/core.css" target="_blank">core.css</a>`,
 				'-'
 			],
 			[
 				'<code>typography.css</code>',
 				'Headings, paragraph, anchors, pre, code, and more.',
-				'<a href="/tailwind/typography">Typography</a>',
+				'<a href="/elements/typography">Typography</a>',
 				`<a href="${ghLibPathMaster}/styles/typography.css" target="_blank">typography.css</a>`,
 				'-'
 			],
 			[
 				'<code>forms.css</code>',
 				'Adapts form elements to utilize the Skeleton theme.',
-				'<a href="/tailwind/forms">Forms</a>',
+				'<a href="/elements/forms">Forms</a>',
 				`<a href="${ghLibPathMaster}/styles/forms.css" target="_blank">forms.css</a>`,
 				'<a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">tailwindcss-forms</a>'
 			]
@@ -77,27 +84,27 @@
 		source: [
 			[
 				'<code>elements/badges.css</code>',
-				'<a href="/tailwind/badges">badges</a>',
+				'<a href="/elements/badges">badges</a>',
 				`<a href="${ghLibPathMaster}/styles/elements/badges.css" target="_blank">badges.css</a>`,
 			],
 			[
 				'<code>elements/buttons.css</code>',
-				'<a href="/tailwind/buttons">buttons</a>',
+				'<a href="/elements/buttons">buttons</a>',
 				`<a href="${ghLibPathMaster}/styles/elements/buttons.css" target="_blank">buttons.css</a>`,
 			],
 			[
 				'<code>elements/cards.css</code>',
-				'<a href="/tailwind/cards">cards</a>',
+				'<a href="/elements/cards">cards</a>',
 				`<a href="${ghLibPathMaster}/styles/elements/cards.css" target="_blank">cards.css</a>`,
 			],
 			[
 				'<code>elements/lists.css</code>',
-				'<a href="/tailwind/lists">lists</a>',
+				'<a href="/elements/lists">lists</a>',
 				`<a href="${ghLibPathMaster}/styles/elements/lists.css" target="_blank">lists.css</a>`,
 			],
 			[
 				'<code>elements/logo-clouds.css</code>',
-				'<a href="/tailwind/logo-clouds">logo-clouds</a>',
+				'<a href="/elements/logo-clouds">logo-clouds</a>',
 				`<a href="${ghLibPathMaster}/styles/elements/logo-clouds.css" target="_blank">logo-clouds.css</a>`,
 			],
 			[
@@ -107,14 +114,14 @@
 			],
 			[
 				'<code>elements/placeholders.css</code>',
-				'<a href="/tailwind/placeholders">placeholders</a>',
+				'<a href="/elements/placeholders">placeholders</a>',
 				`<a href="${ghLibPathMaster}/styles/elements/placeholders.css" target="_blank">placeholders.css</a>`,
 			],
 		]
 	};
 </script>
 
-<div class="space-y-8">
+<div class="page-container">
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Styling</h1>
@@ -127,14 +134,13 @@
 	<section class="space-y-4">
 		<h2>Stylesheets</h2>
 		<p>
-			Skeleton provides a set of modular stylesheets that adapt to your theme. The easiest option is to use the <code>all.css</code> stylesheet. Import the following in your root layout.
+			Skeleton provides a set of modular stylesheets that adapt to your theme. The easiest option is to use the <code>all.css</code> stylesheet. Import the following in your root layout. Sandwich stylesheets
+			between your theme and global stylesheet.
 		</p>
 		<CodeBlock
 			language="typescript"
 			code={`
-// (theme stylesheet here)
-import '@brainandbones/skeleton/styles/${$storeStylesheets === 'simple' ? 'all' : '{stylehsheet}'}.css'; // <--
-// (global stylesheet here)
+import '@brainandbones/skeleton/styles/${$storeStylesheets === 'simple' ? 'all' : '{stylehsheet}'}.css';
 			`}
 		/>
 		<TabGroup selected={storeStylesheets} class="pt-4">
@@ -237,5 +243,11 @@ import '@brainandbones/skeleton/styles/${$storeStylesheets === 'simple' ? 'all' 
 		</div>
 	</section>
 
-	<!-- TODO: link to scaffolding section -->
+	<hr />
+
+	<!-- Next Steps -->
+	<div class="card card-body flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+		<p>Next, let's create and implement a custom theme.</p>
+		<a class="btn btn-filled-accent" href="/guides/themes">Create a Theme</a>
+	</div>
 </div>

@@ -5,9 +5,9 @@
 	import { dialogStore } from '$lib/utilities/Dialog/stores';
 
 	// Props
-	export let backdrop: string = 'bg-surface-400/70 dark:bg-surface-900/70';
-	export let blur: string = 'backdrop-blur-none';
-	export let card: string = 'bg-surface-50 dark:bg-surface-700';
+	export let backdrop: string = 'bg-backdrop-token';
+	export let blur: string = 'backdrop-blur-xs';
+	export let background: string = 'bg-surface-200-700-token';
 	export let width: string = 'max-w-[640px]';
 	export let duration: number = 100;
 
@@ -16,7 +16,7 @@
 	let dialogValue: string;
 
 	// Base Classes
-	const cBaseBackdrop: string = 'fixed top-0 left-0 right-0 bottom-0 z-[999] flex justify-center items-center p-4 backdrop-blur-sm';
+	const cBaseBackdrop: string = 'fixed top-0 left-0 right-0 bottom-0 z-[999] flex justify-center items-center p-4';
 	const cBaseDialog: string = 'p-4 w-full space-y-4 rounded-xl drop-shadow';
 	const cBaseHeader: string = 'flex justify-start items-center space-x-4';
 	const cBaseIcon: string = 'fill-black dark:fill-white bg-primary-500/20 flex justify-center items-center w-10 mx-auto aspect-square rounded-full';
@@ -74,7 +74,7 @@
 
 	// Reactive Classes
 	$: classesBackdrop = `${cBaseBackdrop} ${backdrop} ${blur}`;
-	$: classesDialog = `${cBaseDialog} ${card} ${width}`;
+	$: classesDialog = `${cBaseDialog} ${background} ${width}`;
 </script>
 
 {#if $dialogStore.length}
@@ -99,12 +99,15 @@
 				{/if}
 
 				<!-- Title -->
-				<span class="flex-1 text-xl font-bold">{@html $dialogStore[0].title}</span>
+				<span class="dialog-title flex-1 text-xl font-bold">{@html $dialogStore[0].title}</span>
 			</header>
 
 			<!-- Content -->
 			<section class="dialog-content space-y-4">
-				<p class="opacity-60">{@html $dialogStore[0].body}</p>
+				<!-- Body -->
+				<div class="dialog-body">
+					{@html $dialogStore[0].body}
+				</div>
 
 				<!-- If: image -->
 				{#if $dialogStore[0].image}
@@ -113,24 +116,26 @@
 
 				<!-- If: HTML -->
 				{#if $dialogStore[0].html}
-					{@html $dialogStore[0].html}
+					<div class="dialog-html">
+						{@html $dialogStore[0].html}
+					</div>
 				{/if}
 
 				<!-- If: Component -->
-				{#if $dialogStore[0].component}
+				<!-- {#if $dialogStore[0].component}
 					<svelte:component this={$dialogStore[0].component.element} {...$dialogStore[0].component.props}>
 						{@html $dialogStore[0].component.slot}
 					</svelte:component>
-				{/if}
+				{/if} -->
 
 				<!-- If: Prompt -->
 				{#if $dialogStore[0].type === 'prompt'}
-					<input type="text" bind:value={dialogValue} placeholder="Enter value..." required />
+					<input class="dialog-prompt-input" type="text" bind:value={dialogValue} placeholder="Enter value..." required />
 				{/if}
 			</section>
 
-			<!-- Footer -->
-			<footer class="dialog-footer {cBaseFooter}">
+			<!-- Actions -->
+			<footer class="dialog-actions {cBaseFooter}">
 				<!-- Button: Cancel -->
 				<button class="btn btn-ghost" on:click={onDialogClose}>Close</button>
 				<!-- If Confirm - button: Confirm -->

@@ -7,7 +7,7 @@
 	export let legend: boolean = false;
 	export let spin: boolean = false;
 	export let width: string = 'w-full';
-	export let hover: string = 'hover:bg-surface-500/30';
+	export let hover: string = 'bg-hover-token';
 
 	// Local
 	let cone: string;
@@ -25,8 +25,8 @@
 		// If string, keep as is
 		if (typeof color === 'string') return color;
 		// If object, provide default Tailwind color
-		const colorSet = tailwindDefaultColors.find((c) => c.label === color[0]);
-		return colorSet.shades[color[1]].hex;
+		const colorSet: any = tailwindDefaultColors.find((c) => c.label === color[0]);
+		return colorSet?.shades[color[1]].hex;
 	}
 
 	// Generate Conic Gradient style
@@ -63,16 +63,16 @@
 	{/if}
 	<!-- Conic Gradient -->
 	{#if cone}
-		<div class={classesCone} class:animate-spin={spin} style:background={cone} />
+		<div class="concic-cone {classesCone}" class:animate-spin={spin} style:background={cone} />
 	{/if}
 	<!-- Legend -->
 	{#if legend && generatedLegendList}
 		<ul class="conic-list list {cLabel}">
 			{#each generatedLegendList as { color, label, value }}
-				<li class="conic-li {hover}">
+				<li class="conic-item {hover}">
 					<span class="conic-swatch {cSwatch}" style:background={color} />
-					<span class="flex-auto">{label}</span>
-					<strong>{value}%</strong>
+					<span class="conic-label flex-auto">{label}</span>
+					<strong class="conic-value">{value}%</strong>
 				</li>
 			{/each}
 		</ul>

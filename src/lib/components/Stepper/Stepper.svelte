@@ -11,7 +11,7 @@
 	export let duration: number = 200;
 	// Props (timeline)
 	export let color: string = 'text-white';
-	export let background: string = 'bg-accent-500 text-white';
+	export let background: string = 'bg-accent-500';
 	// Props (buttons)
 	export let buttonBack: string = 'btn-ghost';
 	export let buttonNext: string = 'btn-filled';

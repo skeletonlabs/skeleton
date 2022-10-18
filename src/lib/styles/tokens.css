@@ -1,0 +1,176 @@
+/* Stylesheet: Design Tokens */
+
+@layer components {
+	/*
+	Tokens are injected into the Tailwind @layer
+	components to ensure they work as utility classes.
+	*/
+
+	/* === Accent Color === */
+	/* https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color */
+
+	.accent-token {
+		@apply accent-accent-500;
+	}
+
+	/* === Background === */
+
+	/* Primary */
+	.bg-hover-token {
+		@apply hover:bg-primary-500/10;
+	}
+	.bg-active-token {
+		@apply bg-primary-500 text-primary-50 dark:text-primary-50;
+	}
+
+	/* Accent */
+	.bg-accent-hover-token {
+		@apply hover:bg-accent-500/10;
+	}
+	.bg-accent-active-token {
+		@apply bg-accent-500 text-accent-50 dark:text-accent-50;
+	}
+
+	/* Backdrop Shim */
+	.bg-backdrop-token {
+		@apply bg-surface-400/70 dark:bg-surface-900/70;
+	}
+
+	/* Background: Surface (darkest -> lightest) */
+	/* https://user-images.githubusercontent.com/1509726/195171203-423e5b84-8763-40f1-b3ea-4cb2b8e38108.png */
+	.bg-surface-50-900-token {
+		@apply bg-surface-50 dark:bg-surface-900;
+	}
+	.bg-surface-100-800-token {
+		@apply bg-surface-100 dark:bg-surface-800;
+	}
+	.bg-surface-200-700-token {
+		@apply bg-surface-200 dark:bg-surface-700;
+	}
+	.bg-surface-300-600-token {
+		@apply bg-surface-300 dark:bg-surface-600;
+	}
+	.bg-surface-400-500-token {
+		@apply bg-surface-400 dark:bg-surface-500;
+	}
+
+	/* === Border Width === */
+
+	.border-token {
+		border-width: var(--theme-border-base);
+	}
+
+	/* === Border Colors === */
+
+	/* Border: Surface (darkest -> lightest) */
+	/* https://user-images.githubusercontent.com/1509726/195171203-423e5b84-8763-40f1-b3ea-4cb2b8e38108.png */
+	.border-surface-50-900-token {
+		@apply border-surface-50 dark:border-surface-900;
+	}
+	.border-surface-100-800-token {
+		@apply border-surface-100 dark:border-surface-800;
+	}
+	.border-surface-200-700-token {
+		@apply border-surface-200 dark:border-surface-700;
+	}
+	.border-surface-300-600-token {
+		@apply border-surface-300 dark:border-surface-600;
+	}
+	.border-surface-400-500-token {
+		@apply border-surface-400 dark:border-surface-500;
+	}
+
+	/* === Border Radius === */
+
+	/* Base */
+	/* Small elements, such as buttons, badges, chips, etc. */
+	.rounded-token {
+		border-radius: var(--theme-rounded-base);
+	}
+	.rounded-tl-token {
+		border-top-left-radius: var(--theme-rounded-base);
+	}
+	.rounded-tr-token {
+		border-top-right-radius: var(--theme-rounded-base);
+	}
+	.rounded-bl-token {
+		border-bottom-left-radius: var(--theme-rounded-base);
+	}
+	.rounded-br-token {
+		border-bottom-right-radius: var(--theme-rounded-base);
+	}
+
+	/* Container */
+	/* Large elements, such as cards and textareas */
+	.rounded-container-token {
+		border-radius: var(--theme-rounded-container);
+	}
+	.rounded-tl-container-token {
+		border-top-left-radius: var(--theme-rounded-container);
+	}
+	.rounded-tr-container-token {
+		border-top-right-radius: var(--theme-rounded-container);
+	}
+	.rounded-bl-container-token {
+		border-bottom-left-radius: var(--theme-rounded-container);
+	}
+	.rounded-br-container-token {
+		border-bottom-right-radius: var(--theme-rounded-container);
+	}
+
+	/* === Font Family === */
+
+	.font-heading-token {
+		font-family: var(--theme-font-family-heading);
+	}
+
+	.font-token {
+		font-family: var(--theme-font-family-base);
+	}
+
+	/* === Font Color === */
+	/* Light / Dark / Auto */
+
+	.text-base-token {
+		color: rgba(var(--theme-font-color-base));
+	}
+	.text-dark-token {
+		color: rgba(var(--theme-font-color-dark));
+	}
+	.text-token {
+		@apply text-base-token dark:text-dark-token;
+	}
+
+	/* === Ring Colors === */
+
+	/* Ring: Surface (darkest -> lightest) */
+	/* https://user-images.githubusercontent.com/1509726/195171203-423e5b84-8763-40f1-b3ea-4cb2b8e38108.png */
+	.ring-surface-50-900-token {
+		@apply ring-surface-50 dark:ring-surface-900;
+	}
+	.ring-surface-100-800-token {
+		@apply ring-surface-100 dark:ring-surface-800;
+	}
+	.ring-surface-200-700-token {
+		@apply ring-surface-200 dark:ring-surface-700;
+	}
+	.ring-surface-300-600-token {
+		@apply ring-surface-300 dark:ring-surface-600;
+	}
+	.ring-surface-400-500-token {
+		@apply ring-surface-400 dark:ring-surface-500;
+	}
+
+	/* === SVG Fill === */
+	/* Light / Dark / Auto */
+
+	.fill-base-token {
+		fill: rgba(var(--theme-font-color-base));
+	}
+	.fill-dark-token {
+		fill: rgba(var(--theme-font-color-dark));
+	}
+	.fill-token {
+		@apply fill-base-token dark:fill-dark-token;
+	}
+}

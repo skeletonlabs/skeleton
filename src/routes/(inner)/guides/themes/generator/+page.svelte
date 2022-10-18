@@ -2,7 +2,6 @@
 	import { storeFramework } from '$docs/stores';
 
 	// Components
-	import Alert from '$lib/components/Alert/Alert.svelte';
 	import Breadcrumb from '$lib/components/Breadcrumb/Breadcrumb.svelte';
 	import Crumb from '$lib/components/Breadcrumb/Crumb.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
@@ -13,7 +12,7 @@
 	import DocsThemer from '$docs/DocsThemer/DocsThemer.svelte';
 </script>
 
-<div class="space-y-8">
+<div class="page-container">
 	<!-- Breadcrumbs -->
 	<Breadcrumb>
 		<Crumb href="/guides/themes">Themes</Crumb>
@@ -48,10 +47,13 @@
 	<hr />
 
 	<!-- Extras -->
-	<Alert>
-		<svelte:fragment slot="title">Pro Tip</svelte:fragment>
-		Use <a href="https://tailwind.simeongriggs.dev/blue/3B82F6" target="_blank">Palette Generator</a> to curate a theme from scratch, then pair with the
-		<a href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba" target="_blank">Hex-To-RGB extension</a>
-		to convert colors to RGB in bulk with VS Code.
-	</Alert>
+	<section class="space-y-4">
+		<h2>Advanced Color Curation</h2>
+		<p>
+			We recommend <a href="https://tailwind.simeongriggs.dev/blue/3B82F6" target="_blank">Palette Generator</a> to curate a custom theme. This includes support for hue, saturation, and lightness
+			adjustments. Pair this with the
+			<a href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba" target="_blank">Hex-To-RGB extension</a>
+			to convert each Hex color value to RGB in bulk with VS Code.
+		</p>
+	</section>
 </div>

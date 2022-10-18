@@ -5,9 +5,9 @@
 	// Props
 	export let value: number | undefined = undefined; // %
 	export let stroke: number = 20; // px
-	export let track: string = 'stroke-surface-300 dark:stroke-surface-700';
-	export let meter: string = 'stroke-black dark:stroke-white';
-	export let color: string = 'fill-black dark:fill-white';
+	export let meter: string = 'stroke-accent-500';
+	export let track: string = 'stroke-surface-200 dark:stroke-surface-700';
+	export let fill: string = 'fill-token';
 	export let font: number = 56; // px
 	// Ally
 	export let label: string | undefined = undefined;
@@ -57,11 +57,11 @@
 	<!-- Draw SVG -->
 	<svg viewBox="0 0 {baseSize} {baseSize}" class="rounded-full" class:animate-spin={value === undefined}>
 		<!-- Track -->
-		<circle class="progress-track {cBaseTrack} {track}" stroke-width={stroke} r={baseSize / 2} cx="50%" cy="50%" />
+		<circle class="progress-radial-track {cBaseTrack} {track}" stroke-width={stroke} r={baseSize / 2} cx="50%" cy="50%" />
 
 		<!-- Meter -->
 		<circle
-			class="progress-meter {cBaseMeter} {meter}"
+			class="progress-radial-meter {cBaseMeter} {meter}"
 			stroke-width={stroke}
 			r={baseSize / 2}
 			cx="50%"
@@ -73,7 +73,7 @@
 
 		<!-- Center Text -->
 		{#if value && value >= 0 && $$slots.default}
-			<text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-weight="bold" font-size={font} class="progress-text {color}"><slot /></text>
+			<text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-weight="bold" font-size={font} class="progress-radial-text {fill}"><slot /></text>
 		{/if}
 	</svg>
 </figure>

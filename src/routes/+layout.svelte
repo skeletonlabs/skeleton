@@ -12,6 +12,7 @@
 
 	// Stores
 	import { storeCurrentUrl, storeTheme } from '$docs/stores';
+	import { storePreview } from '$docs/DocsThemer/stores';
 
 	// Components & Utilities
 	import AppShell from '$lib/components/AppShell/AppShell.svelte';
@@ -24,22 +25,32 @@
 	import DocsDrawer from '$docs/DocsNavigation/DocsDrawer.svelte';
 	import DocsFooter from '$docs/DocsFooter/DocsFooter.svelte';
 
-	// Theme Imports
-	// import style from "swiper/css/bundle.css?inline";
-	import skeleton from '$lib/themes/theme-skeleton.css?inline';
+	// Themes
+	// https://vitejs.dev/guide/features.html#disabling-css-injection-into-the-page
 	import rocket from '$lib/themes/theme-rocket.css?inline';
 	import modern from '$lib/themes/theme-modern.css?inline';
 	import seafoam from '$lib/themes/theme-seafoam.css?inline';
 	import vintage from '$lib/themes/theme-vintage.css?inline';
 	import sahara from '$lib/themes/theme-sahara.css?inline';
-	const themes: any = { skeleton, rocket, modern, seafoam, vintage, sahara };
+	import halloween from '$lib/themes/theme-halloween.css?inline'; // temporary
 
-	// Skeleton Theme: skeleton|rocket|modern|seafoam|vintage|sahara|test
-	import '$lib/themes/theme-skeleton.css';
+	// Default Theme, injected immediately:
+	import skeleton from '$lib/themes/theme-skeleton.css';
 	// Skeleton Stylesheets
 	import '$lib/styles/all.css';
 	// Global Stylesheets
 	import '../app.postcss';
+
+	// List of Themes
+	const themes: any = { skeleton, rocket, modern, seafoam, vintage, sahara, halloween };
+
+	// Set body `data-theme` based on current theme status
+	storeTheme.subscribe(setBodyThemeAttribute);
+	storePreview.subscribe(setBodyThemeAttribute);
+	function setBodyThemeAttribute(): void {
+		if (!browser) return;
+		document.body.setAttribute('data-theme', $storePreview ? 'generator' : $storeTheme);
+	}
 
 	// Lifecycle Events
 	afterNavigate((params: any) => {
@@ -54,15 +65,12 @@
 	});
 
 	// Disable left sidebar on homepage
-	$: slotSidebarLeft = $page.url.pathname === '/' ? 'w-0' : 'bg-black/5 lg:w-auto';
-	$: currentTheme = `\<style\>${themes[$storeTheme]}}\</style\>`;
-
-	// Enable bg-mesh only if Skeleton theme in use.
-	$: if (browser) document.body.classList.toggle('bg-mesh', $storeTheme === 'skeleton');
+	$: slotSidebarLeft = $page.url.pathname === '/' ? 'w-0' : 'bg-white/20 dark:bg-black/5 lg:w-auto';
 </script>
 
 <svelte:head>
-	{@html currentTheme}
+	<!-- Select Preset Theme CSS -->
+	{@html `\<style\>${themes[$storeTheme]}}\</style\>`}
 </svelte:head>
 
 <!-- Overlays -->

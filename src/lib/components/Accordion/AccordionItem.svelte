@@ -1,18 +1,21 @@
 <script lang="ts">
+	import { getContext } from 'svelte';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
 	// Props
 	export let open: boolean = false;
-	export let hover: string = 'hover:bg-primary-500/10';
-	export let spacing: string = 'space-y-2';
-	export let padding: string = 'px-4 py-2';
-	export let rounded: string = 'rounded-lg';
 	// Props (slot)
 	export let slotSummary: string | undefined = undefined;
 	export let slotContent: string | undefined = undefined;
 	// A11y
 	export let summaryId: string | undefined = undefined;
 	export let contentId: string | undefined = undefined;
+
+	// Context
+	export let hover: string = getContext('hover');
+	export let spacing: string = getContext('spacing');
+	export let padding: string = getContext('padding');
+	export let rounded: string = getContext('rounded');
 
 	// Base Classes
 	const cBaseDetails: string = '';
@@ -31,11 +34,11 @@
 	<!-- Summary -->
 	<summary id={summaryId} class="accordion-summary {classesSummary}" aria-expanded={open} aria-controls={contentId}>
 		<!-- Slot: Lead -->
-		{#if $$slots.lead}<div class="summary-lead"><slot name="lead" /></div>{/if}
+		{#if $$slots.lead}<div class="accordion-summary-lead"><slot name="lead" /></div>{/if}
 		<!-- Slot: Text -->
-		<div class="summary-text flex-auto" role="button"><slot name="summary"><code>(Missing: Summary Slot)</code></slot></div>
+		<div class="accordion-summary-text flex-auto" role="button"><slot name="summary"><code>(Missing: Summary Slot)</code></slot></div>
 		<!-- Caret -->
-		<div class="summary-caret {classesIcon}">
+		<div class="accordion-summary-caret {classesIcon}">
 			<SvgIcon name="angle-down" class="opacity-50" />
 		</div>
 	</summary>

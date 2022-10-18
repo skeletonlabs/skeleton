@@ -6,9 +6,9 @@
 
 	// Props
 	export let files: FileList;
-	export let name: string | undefined = undefined;
-	export let accept: string | undefined = undefined;
-	export let multiple: boolean = false;
+	// export let name: string | undefined = undefined;
+	// export let accept: string | undefined = undefined;
+	// export let multiple: boolean = false;
 	export let notes: string | undefined = undefined;
 	// Props (Styles)
 	export let width: string = 'w-full';
@@ -19,7 +19,7 @@
 	// Classes
 	const cBase: string = 'relative';
 	const cMessage: string = 'absolute top-0 left-0 right-0 bottom-0 z-[1] max-w-[480px] mx-auto flex justify-center items-center !pointer-events-none';
-	const cInput: string = 'border-2 border-dashed cursor-pointer';
+	const cInput: string = '!border-2 border-dashed cursor-pointer';
 
 	// Local
 	let elemIcon: HTMLElement;
@@ -43,6 +43,12 @@
 	$: classesBase = `${cBase} ${width} ${$$props.class ?? ''}`;
 	$: classesMessage = `${cMessage} ${color} ${height} ${padding}`;
 	$: classesInput = `${cInput} ${height} ${padding}`;
+
+	// Prune $$restProps to avoid overwriting $$props.class
+	function prunedRestProps(): any {
+		delete $$restProps.class;
+		return $$restProps;
+	}
 </script>
 
 <div class="file-dropzone {classesBase}" data-testid="file-dropzone" on:dragenter on:dragover={onDragOver} on:dragleave={onDragLeave} on:drop={onDrop}>
@@ -63,7 +69,7 @@
 		</slot>
 	</div>
 	<!-- Input: File -->
-	<input bind:files type="file" {name} {accept} {multiple} class="file-dropzone-input {classesInput}" on:change />
+	<input bind:files type="file" {...prunedRestProps()} class="file-dropzone-input {classesInput}" on:change />
 </div>
 
 <style lang="postcss">

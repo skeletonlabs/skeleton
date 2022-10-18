@@ -3,7 +3,9 @@
 /* === Logo Cloud (Parent) === */
 
 .logo-cloud {
-	@apply grid overflow-hidden rounded-lg;
+	@apply grid overflow-hidden;
+	/* Theme: Rounded */
+	@apply rounded-container-token;
 }
 
 /* === Logo Item (Child) === */
@@ -13,7 +15,7 @@
 	/* Center Contents */
 	@apply flex justify-center items-center space-x-4;
 	/* Background */
-	@apply bg-surface-300 dark:bg-surface-800;
+	@apply bg-surface-100-800-token;
 	/* Text */
 	@apply text-base font-bold text-black dark:text-white;
 	/* Padding */

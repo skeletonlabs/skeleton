@@ -1,16 +1,17 @@
 <script lang="ts">
 	import type { Writable } from 'svelte/store';
-	import { onMount, setContext } from 'svelte';
+	import { setContext } from 'svelte';
 
 	// Props
 	export let selected: Writable<any>;
+	export let rail: boolean = true;
 	export let justify: string = 'justify-start';
 	export let borderWidth: string = 'border-b-2';
 	export let borderColor: string = 'border-primary-500';
 	export let color: string = 'text-primary-500';
 	export let fill: string = 'fill-primary-500';
-	export let hover: string = 'hover:bg-primary-500/10';
-	export let rounded: string = 'rounded-tl-lg rounded-tr-lg';
+	export let hover: string = 'bg-hover-token';
+	export let rounded: string = 'rounded-tl-container-token rounded-tr-container-token';
 	// A11y
 	export let labeledby: string | undefined = undefined;
 	export let label: string | undefined = undefined;
@@ -25,7 +26,7 @@
 	setContext('rounded', rounded);
 
 	// Classes
-	const cBase: string = 'border-surface-500/50 flex hide-scrollbar overflow-x-auto';
+	const cBase: string = 'border-surface-300-600-token flex hide-scrollbar overflow-x-auto';
 
 	// Handle Home/End Input
 	let elemTabGroup: HTMLElement;
@@ -43,16 +44,16 @@
 	}
 
 	// Reactive Classes
-	$: classesGroup = `${cBase} ${borderWidth} ${justify} ${$$props.class ?? ''}`;
+	$: classesRail = rail ? borderWidth : 'border-0';
+	$: classesGroup = `${cBase} ${classesRail} ${justify} ${$$props.class ?? ''}`;
 </script>
 
 <!-- prettier-ignore -->
-<nav>
+<nav class="tab-group" data-testid="tab-group">
 	<ul
 		bind:this={elemTabGroup}
 		on:keydown={keydown}
-		class="tab-group {classesGroup}"
-		data-testid="tab-group"
+		class="tab-group-list {classesGroup}"
 		role="tablist"
 		aria-labelledby={labeledby}
 		aria-label={label}

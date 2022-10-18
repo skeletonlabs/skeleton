@@ -1,42 +1,26 @@
-/*
-For full styling instructions, reference here:
-https://skeleton.brainandbonesllc.com/guides/styling
-*/
+/* Reference: https://skeleton.brainandbonesllc.com/guides/styling */
 
 html,
 body {
 	@apply h-full overflow-hidden;
 }
 
-/* Background Mesh Gradient - this is applied to the <body> element in app.html */
-/* https://csshero.org/mesher/ */
-.bg-mesh {
-	/* prettier-ignore */
-	background-image:
-		radial-gradient(at 35% 35%, hsla(160,84%,39%,0.12) 0px, transparent 35%),
-		radial-gradient(at 61% 60%, hsla(238,83%,66%,0.16) 0px, transparent 35%);
-	background-size: cover;
-	background-attachment: fixed;
-}
-.dark .bg-mesh {
-	/* prettier-ignore */
-	background-image:
-		radial-gradient(at 35% 35%, hsla(160,84%,39%,0.18) 0px, transparent 50%),
-		radial-gradient(at 61% 60%, hsla(238,83%,66%,0.18) 0px, transparent 50%);
+/* Page Styles */
+.page-container {
+	@apply container mx-auto p-4 md:p-12 space-y-8;
 }
 
 /*
 Global overrides to buttons styles, provided by:
 https://skeleton.brainandbonesllc.com/tailwind/buttons
 */
-.btn {
-	@apply font-bold rounded;
-}
+.btn,
 .btn-icon {
 	@apply font-bold;
 }
 .btn-filled-primary,
 .btn-filled-accent,
+.btn-filled-ternary,
 .btn-filled-warning,
 .btn-filled-surface {
 	@apply text-white;

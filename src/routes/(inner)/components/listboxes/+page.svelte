@@ -1,164 +1,162 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
-	import Alert from '$lib/components/Alert/Alert.svelte';
+
+	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import ListBox from '$lib/components/ListBox/ListBox.svelte';
 	import ListBoxItem from '$lib/components/ListBox/ListBoxItem.svelte';
-	import DataTable from '$lib/components/Table/DataTable.svelte';
 
+	// Stores
 	let navSingle: Writable<number> = writable(1);
 	let navMultiple: Writable<string[]> = writable(['A', 'B']);
 
-	const tablePropsList: any = {
-		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
-		source: [
-			['selected', 'string', 'writable(undefined)', 'any | any[]', 'Provide a writable store to maintain list selection.'],
-			['space', 'string', 'space-y-1', 'class', 'Provide classes to set vertical item spacing.'],
-			['height', 'string', '-', 'class', 'Provide to set scrollable listbox region height.'],
-			['regionLabel', 'string', '-', 'class', 'Provide arbitrary classes to the label element.'],
-			['regionList', 'string', '-', 'class', 'Provide arbitrary classes to the scrollable listbox element.']
-		]
+	// Docs Shell
+	const settings: DocsShellSettings = {
+		feature: DocsFeature.Component,
+		name: 'Listboxes',
+		description: 'Interactive listboxes that maintain selection state.',
+		imports: ['ListBox', 'ListBoxItem'],
+		source: 'components/ListBox'
 	};
-	const tablePropsItems: any = {
-		headings: ['Prop', 'Type', 'Default', 'Description'],
-		source: [
-			['accent', 'string', '!bg-primary-500', `Provide classes to set the selected element background.`],
-			['padding', 'string', 'px-4 py-3', `Provide classes to set the padding styles.`],
-			['rounded', 'string', 'rounded', `Provide classes to set the border radius styles.`]
-		]
-	};
-	const slotsItems: any = {
-		headings: ['Name', 'Description'],
-		source: [
-			['lead', 'Positioned on the left of each row item.'],
-			['trail', 'Positioned on the right of each row item.']
-		]
-	};
-	const tableA11yList: any = {
-		headings: ['Prop', 'Type', 'Default', 'Description'],
-		source: [
-			['label', 'string', '-', `Define a semantic ARIA label.`],
-			['labelId', 'string', '-', `Set automatically based on the label text, but can be overwritten.`]
-		]
-	};
-	const tableA11yItem: any = {
-		headings: ['Prop', 'Type', 'Default', 'Description'],
-		source: [['id', 'string', '-', 'Define a unique and semantic identifier for the item.']]
-	};
-	const tableKeys: any = {
-		headings: ['Keys', 'Description'],
-		source: [
-			['<kbd>Tab</kbd>', 'Moves focus to the next option.'],
-			['<kbd>Shift + Tab</kbd> ', 'Moves focus to the previous option.'],
-			['<kbd>Space</kbd> or <kbd>Enter</kbd>', 'Changes the selection state of the focused option.']
-		]
-	};
+	const properties: DocsShellTable[] = [
+		{
+			label: 'ListBox',
+			headings: ['Prop', 'Type', 'Default', 'Description'],
+			source: [
+				['<code>selected</code>', 'writable(any) | writable(any[])', 'writable(undefined)', 'Provide a writable store to maintain list selection.'],
+				['<code>space</code>', 'string', 'space-y-1', 'Provide classes to set vertical item spacing.'],
+				['<code>height</code>', 'string', '-', 'Provide to set scrollable listbox region height.'],
+				['<code>regionLabel</code>', 'string', '-', 'Provide arbitrary classes to the label element.'],
+				['<code>regionList</code>', 'string', '-', 'Provide arbitrary classes to the scrollable listbox element.'],
+				// Items
+				['<code>accent</code>', 'string', '!bg-active-token', `Provide classes to set the item selected background.`],
+				['<code>padding</code>', 'string', 'px-4 py-3', `Provide classes to set the item padding styles.`],
+				['<code>rounded</code>', 'string', 'rounded-token', `Provide classes to set the item border radius styles.`],
+				['<code>hover</code>', 'string', 'bg-hover-token', `Provide classes to set the item hover background color.`]
+			]
+		},
+		{
+			label: 'ListBoxItem',
+			headings: ['Prop', 'Type', 'Default', 'Description'],
+			source: [
+				['<code>accent</code>', 'string', '(inherit)', `Provide classes to set the selected element background.`],
+				['<code>padding</code>', 'string', '(inherit)', `Provide classes to set the padding styles.`],
+				['<code>rounded</code>', 'string', '(inherit)', `Provide classes to set the border radius styles.`],
+				['<code>hover</code>', 'string', '(inherit)', `Provide classes to set hover background color.`]
+			]
+		}
+	];
+	const classes: DocsShellTable[] = [
+		{
+			label: 'ListBox',
+			headings: ['Selector', 'Description'],
+			source: [
+				['<code>.listbox</code>', 'The parent element.'],
+				['<code>.listbox-label</code>', 'The optional listbox label.'],
+				['<code>.listbox-list</code>', 'The listbox ul element.']
+			]
+		},
+		{
+			label: 'ListBoxItem',
+			headings: ['Selector', 'Description'],
+			source: [
+				['<code>.listbox-item</code>', 'The parent element.'],
+				['<code>.listbox-item-lead</code>', 'The leading slot region.'],
+				['<code>.listbox-item-content</code>', 'The content slot region.'],
+				['<code>.listbox-item-trail</code>', 'The trailing slot region.']
+			]
+		}
+	];
+	const slots: DocsShellTable[] = [
+		{
+			label: 'ListBox',
+			headings: ['Name', 'Description'],
+			source: [['<code>default</code>', 'Accepts a set of ListBoxItem components.']]
+		},
+		{
+			label: 'ListBoxItem',
+			headings: ['Name', 'Description'],
+			source: [
+				['<code>lead</code>', 'Positioned on the left of each row item.'],
+				['<code>trail</code>', 'Positioned on the right of each row item.']
+			]
+		}
+	];
+	const a11y: DocsShellTable[] = [
+		{
+			aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/listbox/',
+			label: 'ListBox',
+			headings: ['Prop', 'Type', 'Default', 'Description'],
+			source: [
+				['<code>label</code>', 'string', '-', `Define a semantic ARIA label.`],
+				['<code>labelId</code>', 'string', '-', `Set automatically based on the label text, but can be overwritten.`]
+			]
+		},
+		{
+			label: 'ListBoxItem',
+			headings: ['Prop', 'Type', 'Default', 'Description'],
+			source: [['<code>id</code>', 'string', '-', 'Define a unique and semantic identifier for the item.']]
+		}
+	];
 </script>
 
-<div class="space-y-8">
-	<!-- Alert -->
-	<Alert>
-		<svelte:fragment slot="lead">
-			<span class="text-2xl">⚠️</span>
-		</svelte:fragment>
-		<span>Basic lists are available via the <strong>List</strong> Tailwind Elements.</span>
-		<svelte:fragment slot="trail">
-			<a href="/tailwind/lists" class="btn btn-ghost">View Lists</a>
-		</svelte:fragment>
-	</Alert>
+<DocsShell {settings} {properties} {classes} {slots} {a11y}>
+	<!-- Slot: Sandbox -->
+	<svelte:fragment slot="sandbox">
+		<section class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+			<!-- Single -->
+			<div class="card card-body space-y-4">
+				<ListBox selected={navSingle} label="Single Selection">
+					<ListBoxItem value={1}>Item 1</ListBoxItem>
+					<ListBoxItem value={2}>Item 2</ListBoxItem>
+					<ListBoxItem value={3}>Item 3</ListBoxItem>
+				</ListBox>
+				<p class="text-center">Selected: <code>{$navSingle}</code></p>
+			</div>
+			<!-- Multiple -->
+			<div class="card card-body space-y-4">
+				<ListBox selected={navMultiple} label="Multi-Selection" hover="bg-accent-hover-token" accent="!bg-accent-active-token">
+					<ListBoxItem value={'A'}>Item A</ListBoxItem>
+					<ListBoxItem value={'B'}>Item B</ListBoxItem>
+					<ListBoxItem value={'C'}>Item C</ListBoxItem>
+				</ListBox>
+				<p class="text-center">Selected: <code>{$navMultiple}</code></p>
+			</div>
+		</section>
+	</svelte:fragment>
 
-	<!-- Header -->
-	<header class="space-y-4">
-		<h1>Listboxes</h1>
-		<p class="space-y-4">Interactive listboxes that maintain selection state.</p>
-		<CodeBlock language="js" code={`import { ListBox, ListBoxItem } from '@brainandbones/skeleton';`} />
-	</header>
-
-	<!-- Examples -->
-	<section class="space-y-4">
-		<h2 class='sr-only'>Examples</h2>
-		<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-			<section class="space-y-4">
-				<div class="card card-body space-y-4">
-					<ListBox selected={navSingle} label="Single Selection">
-						<ListBoxItem value={1}>Item 1</ListBoxItem>
-						<ListBoxItem value={2}>Item 2</ListBoxItem>
-						<ListBoxItem value={3}>Item 3</ListBoxItem>
-					</ListBox>
-					<p class="text-center">Selected: <code>{$navSingle}</code></p>
-				</div>
-			</section>
-			<section class="space-y-4">
-				<div class="card card-body space-y-4">
-					<ListBox selected={navMultiple} label="Multi-Selection" hover="hover:bg-accent-500/10" accent="!bg-accent-500">
-						<ListBoxItem value={'A'}>Item A</ListBoxItem>
-						<ListBoxItem value={'B'}>Item B</ListBoxItem>
-						<ListBoxItem value={'C'}>Item C</ListBoxItem>
-					</ListBox>
-					<p class="text-center">Selected: <code>{$navMultiple}</code></p>
-				</div>
-			</section>
-		</div>
-	</section>
-
-	<!-- Usage -->
-	<section class="space-y-4">
-		<h2>Usage</h2>
-		<p>Define a writable store to house the selection state, then add a <code>value</code> prop to each child. You may optionally provide an a11y-friendly <code>label</code> prop as well.</p>
-		<h4>Single Value</h4>
-		<p>Create a writable with a singular value (string, number, etc).</p>
-		<CodeBlock language="typescript" code={`const storeSingle: Writable<number> = writable(1);`} />
-		<CodeBlock
-			language="html"
-			code={`
+	<!-- Slot: Usage -->
+	<svelte:fragment slot="usage">
+		<section class="space-y-4">
+			<h2>Single Value</h2>
+			<p>Define a writable store with a <u>singular</u> value of any type, then add a <code>value</code> prop to each child.</p>
+			<CodeBlock language="typescript" code={`import { writable, type Writable } from "svelte/store";`} />
+			<CodeBlock language="typescript" code={`const storeSingle: Writable<number> = writable(1);`} />
+			<CodeBlock
+				language="html"
+				code={`
 <ListBox selected="{storeSingle}" label="Single Selection">
-    <ListBoxItem value={1}>Selection Example 1</ListBoxItem>
-    <ListBoxItem value={2}>Selection Example 2</ListBoxItem>
-</ListBox>
-        `.trim()}
-		/>
-		<h4>Multiple Values</h4>
-		<p>Create a writable with a an array of Values.</p>
-		<CodeBlock language="typescript" code={`let storeMultiple: Writable<any[]> = writable(['A', 'B']);`} />
-		<CodeBlock
-			language="html"
-			code={`
+	<ListBoxItem value={1}>Selection Example 1</ListBoxItem>
+	<ListBoxItem value={2}>Selection Example 2</ListBoxItem>
+</ListBox>`}
+			/>
+		</section>
+		<section class="space-y-4">
+			<h2>Multiple Values</h2>
+			<p>Create a writable with an <u>array</u> of values.</p>
+			<CodeBlock language="typescript" code={`import { writable, type Writable } from "svelte/store";`} />
+			<CodeBlock language="typescript" code={`let storeMultiple: Writable<any[]> = writable(['A', 'B']);`} />
+			<CodeBlock
+				language="html"
+				code={`
 <ListBox selected={storeMultiple} label="Multi-Selection">
-    <ListBoxItem value={'A'}>Item A</ListBoxItem>
-    <ListBoxItem value={'B'}>Item B</ListBoxItem>
-    <ListBoxItem value={'C'}>Item C</ListBoxItem>
-</ListBox>
-        `.trim()}
-		/>
-	</section>
-
-	<!-- Properties -->
-	<section class="space-y-4">
-		<h2>Properties</h2>
-		<h3>Listbox</h3>
-		<DataTable headings={tablePropsList.headings} source={tablePropsList.source} />
-		<h3>Listbox Item</h3>
-		<p>These properties can be set on the parent to affect all child items.</p>
-		<DataTable headings={tablePropsItems.headings} source={tablePropsItems.source} />
-	</section>
-
-	<!-- Slots -->
-	<section class="space-y-4">
-		<h2>Slots</h2>
-		<DataTable headings={slotsItems.headings} source={slotsItems.source} />
-	</section>
-
-	<!-- Accessibility -->
-	<section class="space-y-4">
-		<div class="flex justify-between items-end">
-			<h2>Accessibility</h2>
-			<a href="https://www.w3.org/WAI/ARIA/apg/patterns/listbox/" target="_blank">ARIA Guidelines</a>
-		</div>
-		<h3>Listbox</h3>
-		<DataTable headings={tableA11yList.headings} source={tableA11yList.source} />
-		<h3>Listbox Item</h3>
-		<DataTable headings={tableA11yItem.headings} source={tableA11yItem.source} />
-		<h3>Keyboard Interactions</h3>
-		<DataTable headings={tableKeys.headings} source={tableKeys.source} />
-	</section>
-</div>
+	<ListBoxItem value={'A'}>Item A</ListBoxItem>
+	<ListBoxItem value={'B'}>Item B</ListBoxItem>
+	<ListBoxItem value={'C'}>Item C</ListBoxItem>
+</ListBox>`}
+			/>
+		</section>
+	</svelte:fragment>
+</DocsShell>

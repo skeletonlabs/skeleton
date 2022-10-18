@@ -1,8 +1,11 @@
-/* Stylesheet Add-On: all.css */
+/* Stylesheet: all.css */
 /* Import AFTER your theme, but BEFORE your global stylesheet. */
 
 /* Handles Tailwind Directives */
 @import 'tailwind.css';
+
+/* Handles Tailwind Directives */
+@import 'tokens.css';
 
 /* Handles Global Styles */
 @import 'core.css';

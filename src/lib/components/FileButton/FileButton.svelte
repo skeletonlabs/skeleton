@@ -1,21 +1,24 @@
 <script lang="ts">
 	export let files: FileList;
-	export let name: string | undefined = '';
-	export let accept: string | undefined = '';
-	export let multiple: boolean = false;
+	export let button: string = 'btn-filled-accent';
 
 	let elemFileInput: HTMLElement;
 
 	function onButtonClick(): void {
 		elemFileInput.click();
 	}
+
+	function prunedRestProps(): any {
+		delete $$restProps.class;
+		return $$restProps;
+	}
 </script>
 
-<div class="file-button" data-testid="file-button">
+<div class="file-button {$$props.class ?? ''}" data-testid="file-button">
 	<!-- Input: File -->
-	<input bind:this={elemFileInput} bind:files type="file" {name} {accept} {multiple} class="file-button-input hidden" on:change />
+	<input bind:this={elemFileInput} bind:files type="file" {...prunedRestProps()} class="file-button-input hidden" on:change />
 	<!-- Button -->
-	<button class="file-button-btn btn {$$props.class ?? ''}" on:click={onButtonClick}>
+	<button class="file-button-btn btn {button}" on:click={onButtonClick}>
 		<slot />
 	</button>
 </div>

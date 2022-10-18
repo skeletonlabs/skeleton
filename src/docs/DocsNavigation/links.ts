@@ -3,12 +3,13 @@
 export const menuNavLinks: any = [
 	{
 		id: 'nav-guides',
-		title: 'Get Started',
+		title: 'Guides',
 		list: [
 			{ href: '/guides/install', label: 'Install', icon: 'circle-check' },
 			{ href: '/guides/tailwind', label: 'Tailwind CSS', icon: 'tailwind' },
+			{ href: '/guides/styling', label: 'Styling', icon: 'pen-ruler' },
 			{ href: '/guides/themes', label: 'Themes', icon: 'swatchbook' },
-			{ href: '/guides/styling', label: 'Styling', icon: 'pen-ruler' }
+			{ href: '/guides/frameworks', label: 'Frameworks', icon: 'cubes' }
 		]
 	},
 	{
@@ -18,7 +19,6 @@ export const menuNavLinks: any = [
 			{ href: '/docs/why', label: 'Why Skeleton' },
 			{ href: '/docs/comparisons', label: 'Comparisons' },
 			{ href: '/docs/features', label: 'Features' },
-			{ href: '/docs/scaffold', label: 'Scaffold a Project' },
 			{ href: '/docs/contributions', label: 'Contributions' }
 		]
 	},
@@ -26,25 +26,25 @@ export const menuNavLinks: any = [
 		id: 'nav-elements',
 		title: 'Tailwind Elements',
 		list: [
-			{ href: '/tailwind/core', label: 'Core' },
-			{ href: '/tailwind/typography', label: 'Typography' },
-			{ href: '/tailwind/forms', label: 'Forms' },
-			{ href: '/tailwind/badges', label: 'Badges' },
-			{ href: '/tailwind/buttons', label: 'Buttons' },
-			{ href: '/tailwind/cards', label: 'Cards' },
-			{ href: '/tailwind/lists', label: 'Lists' },
-			{ href: '/tailwind/logo-clouds', label: 'Logo Clouds' },
-			{ href: '/tailwind/placeholders', label: 'Placeholders' }
+			{ href: '/elements/core', label: 'Core' },
+			{ href: '/elements/typography', label: 'Typography' },
+			{ href: '/elements/forms', label: 'Forms' },
+			{ href: '/elements/badges', label: 'Badges' },
+			{ href: '/elements/buttons', label: 'Buttons' },
+			{ href: '/elements/cards', label: 'Cards' },
+			{ href: '/elements/lists', label: 'Lists' },
+			{ href: '/elements/logo-clouds', label: 'Logo Clouds' },
+			{ href: '/elements/placeholders', label: 'Placeholders' }
 		]
 	},
 	{
 		id: 'nav-components',
 		title: 'Svelte Components',
 		list: [
-			{ href: '/components/app-shell', label: 'App Shell' },
-			{ href: '/components/app-bar', label: 'App Bar' },
 			{ href: '/components/accordions', label: 'Accordions' },
 			{ href: '/components/alerts', label: 'Alerts' },
+			{ href: '/components/app-bar', label: 'App Bar' },
+			{ href: '/components/app-shell', label: 'App Shell' },
 			{ href: '/components/avatars', label: 'Avatars' },
 			{ href: '/components/breadcrumbs', label: 'Breadcrumbs' },
 			{ href: '/components/conic-gradients', label: 'Conic Gradients' },

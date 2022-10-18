@@ -45,12 +45,12 @@
 	}
 
 	// Reactive
-	$: classesActive = (href: string) => ($storeCurrentUrl?.includes(href) ? '!bg-primary-500' : '');
+	$: classesActive = (href: string) => ($storeCurrentUrl?.includes(href) ? '!bg-primary-500 !text-primary-50 !dark:text-primary-50' : '');
 </script>
 
 <div class="m-4 mb-20 {$$props.class ?? ''}">
 	<!-- Search -->
-	<header class="sticky top-0 z-10 bg-surface-300 dark:bg-surface-900 -m-4 mb-2 p-4">
+	<header class="sticky top-0 z-10 bg-white/5 dark:bg-black/5 backdrop-blur -m-4 mb-2 p-4 shadow-lg">
 		<input type="search" placeholder="Search..." bind:value={inputSearch} on:input={onSearch} />
 	</header>
 	<!-- Lists -->
@@ -63,10 +63,10 @@
 				<ul>
 					{#each list as { href, label, badge, icon }}
 						<li on:click={onListItemClick}>
-							<a {href} value={href} class={classesActive(href)}>
+							<a {href} value={href} class={classesActive(href)} data-sveltekit-prefetch>
 								{#if icon}
 									<span>
-										<div class="bg-accent-500 w-7 h-7 flex justify-center items-center rounded shadow">
+										<div class="bg-accent-500 w-7 h-7 flex justify-center items-center rounded-token shadow">
 											<SvgIcon name={icon} width="w-4" fill="fill-white" height="h-10" />
 										</div>
 									</span>

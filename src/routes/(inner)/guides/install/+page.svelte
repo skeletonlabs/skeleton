@@ -4,7 +4,7 @@
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 </script>
 
-<div class="space-y-10">
+<div class="page-container">
 	<!-- Install -->
 	<section class="space-y-4">
 		<h1>Installation</h1>
@@ -39,8 +39,8 @@ npm run dev
 			<CodeBlock
 				language="console"
 				code={`
-npm create vite@latest my-app -- --template svelte-ts
-cd my-app
+npm create vite@latest vite-skeleton-app -- --template svelte-ts
+cd vite-skeleton-app
 npm install
 npm run dev
             `}

@@ -6,7 +6,7 @@
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 </script>
 
-<div class="space-y-8">
+<div class="page-container">
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Tailwind CSS</h1>
@@ -118,7 +118,7 @@ module.exports = {
 				<div class="space-y-2">
 					<h3>Aspect Ratio</h3>
 					<p>
-						Composable aspect ratios. <a href="https://github.com/tailwindlabs/tailwindcss-aspect-ratio#compatibility-with-default-aspect-ratio-utilities" target="_blank">See compatability</a>.
+						Composable aspect ratios. <a href="https://github.com/tailwindlabs/tailwindcss-aspect-ratio#compatibility-with-default-aspect-ratio-utilities" target="_blank">See compatibility</a>.
 					</p>
 				</div>
 				<a class="btn btn-ghost" href="https://github.com/tailwindlabs/tailwindcss-aspect-ratio" target="_blank">View</a>
@@ -137,7 +137,7 @@ module.exports = {
 
 	<!-- Next Steps -->
 	<div class="card card-body flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-		<p>Next, let's create and implement a custom theme.</p>
-		<a class="btn btn-filled-accent" href="/guides/themes">Create a Theme</a>
+		<p>Next, let's review best practices for handling CSS styles and overrides.</p>
+		<a class="btn btn-filled-accent" href="/guides/styling">Styles and Stylesheets</a>
 	</div>
 </div>

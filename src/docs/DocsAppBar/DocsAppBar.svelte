@@ -40,7 +40,7 @@
 		<a href="/" class="hidden sm:inline-block text-sm sm:text-lg md:text-3xl font-bold uppercase mr-4" title="Return to Homepage">Skeleton</a>
 		<!-- Badge -->
 		<a class="hidden sm:block" href="https://github.com/Brain-Bones/skeleton/releases" target="_blank">
-			<span class="badge bg-surface-500/30">v{pkg.version}</span>
+			<span class="badge badge-filled-surface">v{pkg.version}</span>
 		</a>
 	</svelte:fragment>
 
@@ -58,8 +58,8 @@
 				</button>
 				<nav class="list-nav card card-body w-56 shadow-xl space-y-4" data-menu="features">
 					<ul>
-						<li><a href="/tailwind/core" on:click={() => { scrollSidebarTo('#nav-elements'); }}>Tailwind Elements</a></li>
-						<li><a href="/components/app-shell" on:click={() => { scrollSidebarTo('#nav-components'); }}>Svelte Components</a></li>
+						<li><a href="/elements/core" on:click={() => { scrollSidebarTo('#nav-elements'); }}>Tailwind Elements</a></li>
+						<li><a href="/components/accordions" on:click={() => { scrollSidebarTo('#nav-components'); }}>Svelte Components</a></li>
 						<li><a href="/actions/clipboard" on:click={() => { scrollSidebarTo('#nav-actions'); }}>Svelte Actions</a></li>
 						<li><a href="/utilities/codeblocks" on:click={() => { scrollSidebarTo('#nav-utilities'); }}>Utilities</a></li>
 					</ul>
@@ -89,13 +89,13 @@
 							<span>🦴</span>
 							<span>Skeleton</span>
 						</li>
-						<li class="option" class:!bg-primary-500={$storeTheme === 'rocket'} on:click={() => { storeTheme.set('rocket') }}> 
-							<span>🚀</span>
-							<span>Rocket</span>
-						</li>
 						<li class="option" class:!bg-primary-500={$storeTheme === 'modern'} on:click={() => { storeTheme.set('modern') }}>
 							<span>🤖</span>
 							<span>Modern</span>
+						</li>
+						<li class="option" class:!bg-primary-500={$storeTheme === 'rocket'} on:click={() => { storeTheme.set('rocket') }}> 
+							<span>🚀</span>
+							<span>Rocket</span>
 						</li>
 						<li class="option" class:!bg-primary-500={$storeTheme === 'seafoam'} on:click={() => { storeTheme.set('seafoam') }}>
 							<span>🐚</span>
@@ -108,6 +108,10 @@
 						<li class="option" class:!bg-primary-500={$storeTheme === 'sahara'} on:click={() => { storeTheme.set('sahara') }}>
 							<span>🏜️</span>
 							<span>Sahara</span>
+						</li>
+						<li class="option" class:!bg-primary-500={$storeTheme === 'halloween'} on:click={() => { storeTheme.set('halloween') }}>
+							<span>🎃</span>
+							<span>Halloween</span>
 						</li>
 					</ul>
 				</nav>

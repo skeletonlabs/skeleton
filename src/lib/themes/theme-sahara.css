@@ -1,6 +1,19 @@
+/* https://fonts.google.com/specimen/Raleway */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* https://fonts.google.com/specimen/Lato?query=lato&noto.query=Abril */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
 :root {
-	/* =~= Skeleton Theme | Tailwind =~= */
-	/* ~ primary (yellow | #eab308) ~ */
+	/* =~= Theme Styles =~= */
+	--theme-border-base: 1px;
+	--theme-font-family-heading: 'Raleway', sans-serif;
+	--theme-font-family-base: 'Lato', sans-serif;
+	--theme-font-color-base: var(--color-accent-900);
+	--theme-font-color-dark: var(--color-primary-100);
+	--theme-rounded-base: 9999px;
+	--theme-rounded-container: 24px;
+	/* =~= Theme Colors | Tailwind =~= */
+	/* yellow | #eab308 */
 	--color-primary-50: 254 252 232; /* ⬅ #fefce8 */
 	--color-primary-100: 254 249 195; /* ⬅ #fef9c3 */
 	--color-primary-200: 254 240 138; /* ⬅ #fef08a */
@@ -11,7 +24,7 @@
 	--color-primary-700: 161 98 7; /* ⬅ #a16207 */
 	--color-primary-800: 133 77 14; /* ⬅ #854d0e */
 	--color-primary-900: 113 63 18; /* ⬅ #713f12 */
-	/* ~ accent (teal | #14b8a6) ~ */
+	/* teal | #14b8a6 */
 	--color-accent-50: 240 253 250; /* ⬅ #f0fdfa */
 	--color-accent-100: 204 251 241; /* ⬅ #ccfbf1 */
 	--color-accent-200: 153 246 228; /* ⬅ #99f6e4 */
@@ -22,29 +35,29 @@
 	--color-accent-700: 15 118 110; /* ⬅ #0f766e */
 	--color-accent-800: 17 94 89; /* ⬅ #115e59 */
 	--color-accent-900: 19 78 74; /* ⬅ #134e4a */
-	/* ~ ternary (sky | #0ea5e9) ~ */
-	--color-ternary-50: 240 249 255; /* ⬅ #f0f9ff */
-	--color-ternary-100: 224 242 254; /* ⬅ #e0f2fe */
-	--color-ternary-200: 186 230 253; /* ⬅ #bae6fd */
-	--color-ternary-300: 125 211 252; /* ⬅ #7dd3fc */
-	--color-ternary-400: 56 189 248; /* ⬅ #38bdf8 */
-	--color-ternary-500: 14 165 233; /* ⬅ #0ea5e9 */
-	--color-ternary-600: 2 132 199; /* ⬅ #0284c7 */
-	--color-ternary-700: 3 105 161; /* ⬅ #0369a1 */
-	--color-ternary-800: 7 89 133; /* ⬅ #075985 */
-	--color-ternary-900: 12 74 110; /* ⬅ #0c4a6e */
-	/* ~ warning (red | #ef4444) ~ */
-	--color-warning-50: 254 242 242; /* ⬅ #fef2f2 */
-	--color-warning-100: 254 226 226; /* ⬅ #fee2e2 */
-	--color-warning-200: 254 202 202; /* ⬅ #fecaca */
-	--color-warning-300: 252 165 165; /* ⬅ #fca5a5 */
-	--color-warning-400: 248 113 113; /* ⬅ #f87171 */
-	--color-warning-500: 239 68 68; /* ⬅ #ef4444 */
-	--color-warning-600: 220 38 38; /* ⬅ #dc2626 */
-	--color-warning-700: 185 28 28; /* ⬅ #b91c1c */
-	--color-warning-800: 153 27 27; /* ⬅ #991b1b */
-	--color-warning-900: 127 29 29; /* ⬅ #7f1d1d */
-	/* ~ surface (rose | #f43f5e) ~ */
+	/* lime | #84cc16 */
+	--color-ternary-50: 247 254 231; /* ⬅ #f7fee7 */
+	--color-ternary-100: 236 252 203; /* ⬅ #ecfccb */
+	--color-ternary-200: 217 249 157; /* ⬅ #d9f99d */
+	--color-ternary-300: 190 242 100; /* ⬅ #bef264 */
+	--color-ternary-400: 163 230 53; /* ⬅ #a3e635 */
+	--color-ternary-500: 132 204 22; /* ⬅ #84cc16 */
+	--color-ternary-600: 101 163 13; /* ⬅ #65a30d */
+	--color-ternary-700: 77 124 15; /* ⬅ #4d7c0f */
+	--color-ternary-800: 63 98 18; /* ⬅ #3f6212 */
+	--color-ternary-900: 54 83 20; /* ⬅ #365314 */
+	/* sky | #0ea5e9 */
+	--color-warning-50: 240 249 255; /* ⬅ #f0f9ff */
+	--color-warning-100: 224 242 254; /* ⬅ #e0f2fe */
+	--color-warning-200: 186 230 253; /* ⬅ #bae6fd */
+	--color-warning-300: 125 211 252; /* ⬅ #7dd3fc */
+	--color-warning-400: 56 189 248; /* ⬅ #38bdf8 */
+	--color-warning-500: 14 165 233; /* ⬅ #0ea5e9 */
+	--color-warning-600: 2 132 199; /* ⬅ #0284c7 */
+	--color-warning-700: 3 105 161; /* ⬅ #0369a1 */
+	--color-warning-800: 7 89 133; /* ⬅ #075985 */
+	--color-warning-900: 12 74 110; /* ⬅ #0c4a6e */
+	/* rose | #f43f5e */
 	--color-surface-50: 255 241 242; /* ⬅ #fff1f2 */
 	--color-surface-100: 255 228 230; /* ⬅ #ffe4e6 */
 	--color-surface-200: 254 205 211; /* ⬅ #fecdd3 */
@@ -55,4 +68,16 @@
 	--color-surface-700: 190 18 60; /* ⬅ #be123c */
 	--color-surface-800: 159 18 57; /* ⬅ #9f1239 */
 	--color-surface-900: 136 19 55; /* ⬅ #881337 */
+}
+
+[data-theme='sahara'] h1,
+[data-theme='sahara'] h2,
+[data-theme='sahara'] h3,
+[data-theme='sahara'] h4,
+[data-theme='sahara'] h5,
+[data-theme='sahara'] h6 {
+	font-weight: 600;
+}
+[data-theme='sahara'] p {
+	font-weight: 400;
 }

@@ -7,9 +7,10 @@
 	export let space: string = 'space-y-1';
 	export let height: string | undefined = undefined;
 	// Props (Item)
-	export let accent: string = '!bg-primary-500'; // '!' recommended
+	export let accent: string = '!bg-active-token'; // '!' recommended
 	export let padding: string = 'px-4 py-3';
-	export let rounded: string = 'rounded';
+	export let rounded: string = 'rounded-token';
+	export let hover: string = 'bg-hover-token';
 	// Props (regions)
 	export let regionLabel: string | undefined = undefined;
 	export let regionList: string | undefined = undefined;
@@ -22,6 +23,7 @@
 	setContext('accent', accent);
 	setContext('padding', padding);
 	setContext('rounded', rounded);
+	setContext('hover', hover);
 
 	// Base Classes
 	const cBase: string = 'space-y-4';
@@ -34,11 +36,11 @@
 	$: classesListBox = `${cListBox} ${height} ${space}`;
 </script>
 
-<div class="listbox-area {classesBase}" data-testid="listbox-area">
+<div class="listbox {classesBase}" data-testid="listbox-area">
 	<!-- Label -->
 	{#if label}<span class="listbox-label {classesLabel} {regionLabel}" id={labelId}>{label}</span>{/if}
 	<!-- Listbox -->
-	<ul class="listbox {classesListBox} {regionList}" role="listbox" aria-labelledby={labelId}>
+	<ul class="listbox-list {classesListBox} {regionList}" role="listbox" aria-labelledby={labelId}>
 		<slot />
 	</ul>
 </div>
