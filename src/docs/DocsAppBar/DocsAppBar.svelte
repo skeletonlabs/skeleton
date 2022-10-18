@@ -109,6 +109,10 @@
 							<span>🏜️</span>
 							<span>Sahara</span>
 						</li>
+						<li class="option" class:!bg-primary-500={$storeTheme === 'halloween'} on:click={() => { storeTheme.set('halloween') }}>
+							<span>🎃</span>
+							<span>Halloween</span>
+						</li>
 					</ul>
 				</nav>
 				<hr>
