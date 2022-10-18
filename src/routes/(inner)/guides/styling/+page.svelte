@@ -32,7 +32,7 @@
 		source: [
 			[
 				'<code>tailwind.css</code>',
-				'<u>IMPORTANT</u>: always required andshould proceed all other stylesheets.',
+				'<u>IMPORTANT</u>: should precede all other stylesheets.',
 				'<a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank">@tailwind directives</a>',
 				`<a href="${ghLibPathMaster}/styles/tailwind.css" target="_blank">tailwind.css</a>`,
 				'-'
