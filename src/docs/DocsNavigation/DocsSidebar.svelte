@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import { storeCurrentUrl, storeMobileDrawer } from '$docs/stores';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	import { menuNavLinks } from './links';
@@ -7,6 +8,7 @@
 	export let embedded: boolean = false;
 
 	// Local
+	let elemSearch: HTMLElement;
 	let inputSearch: string = '';
 	let filteredMenuNavLinks: any[] = menuNavLinks;
 
@@ -44,14 +46,32 @@
 		}, 1);
 	}
 
+	// Keyboard Shortcut (⌘+K) to Focus Search
+	let pressedKeys: string[] = [];
+	function onWindowKeydown(e: any): void {
+		if (e.code === 'MetaLeft' || e.code === 'KeyK') {
+			// Set pressed keys
+			pressedKeys = [...pressedKeys, e.code];
+			// If both keys pressed, focus input
+			if (pressedKeys.includes('MetaLeft') && pressedKeys.includes('KeyK')) {
+				elemSearch.focus();
+			}
+		}
+	}
+	function onWindowKeyup(e: any): void {
+		pressedKeys = [];
+	}
+
 	// Reactive
 	$: classesActive = (href: string) => ($storeCurrentUrl?.includes(href) ? '!bg-primary-500 !text-primary-50 !dark:text-primary-50' : '');
 </script>
 
+<svelte:window on:keydown={onWindowKeydown} on:keyup={onWindowKeyup} />
+
 <div class="m-4 mb-20 {$$props.class ?? ''}">
 	<!-- Search -->
-	<header class="sticky top-0 z-10 bg-white/5 dark:bg-black/5 backdrop-blur -m-4 mb-2 p-4 shadow-lg">
-		<input type="search" placeholder="Search..." bind:value={inputSearch} on:input={onSearch} />
+	<header class="sticky top-0 z-10 bg-white/5 dark:bg-black/5 backdrop-blur -m-4 mb-2 p-4 space-y-2">
+		<input type="search" placeholder="Quick search..." bind:this={elemSearch} bind:value={inputSearch} on:input={onSearch} />
 	</header>
 	<!-- Lists -->
 	{#each filteredMenuNavLinks as { id, title, list }, i}
