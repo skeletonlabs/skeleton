@@ -19,7 +19,8 @@ export const menuNavLinks: any = [
 			{ href: '/docs/why', label: 'Why Skeleton' },
 			{ href: '/docs/comparisons', label: 'Comparisons' },
 			{ href: '/docs/features', label: 'Features' },
-			{ href: '/docs/contributions', label: 'Contributions' }
+			{ href: '/docs/contributions', label: 'Contributions' },
+			{ href: '/docs/recommendations', label: 'Recommendations', badge: 'New' }
 		]
 	},
 	{
