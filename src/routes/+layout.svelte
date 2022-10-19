@@ -32,7 +32,7 @@
 	import seafoam from '$lib/themes/theme-seafoam.css?inline';
 	import vintage from '$lib/themes/theme-vintage.css?inline';
 	import sahara from '$lib/themes/theme-sahara.css?inline';
-	import halloween from '$lib/themes/theme-halloween.css?inline'; // temporary
+	import seasonal from '$lib/themes/theme-seasonal.css?inline';
 
 	// Default Theme, injected immediately:
 	import skeleton from '$lib/themes/theme-skeleton.css';
@@ -42,7 +42,7 @@
 	import '../app.postcss';
 
 	// List of Themes
-	const themes: any = { skeleton, rocket, modern, seafoam, vintage, sahara, halloween };
+	const themes: any = { skeleton, rocket, modern, seafoam, vintage, sahara, seasonal };
 
 	// Set body `data-theme` based on current theme status
 	storeTheme.subscribe(setBodyThemeAttribute);

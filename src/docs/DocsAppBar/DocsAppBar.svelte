@@ -109,10 +109,10 @@
 							<span>🏜️</span>
 							<span>Sahara</span>
 						</li>
-						<li class="option" class:!bg-primary-500={$storeTheme === 'halloween'} on:click={() => { storeTheme.set('halloween') }}>
+						<!-- <li class="option" class:!bg-primary-500={$storeTheme === 'seasonal'} on:click={() => { storeTheme.set('seasonal') }}>
 							<span>🎃</span>
-							<span>Halloween</span>
-						</li>
+							<span>Seasonal</span>
+						</li> -->
 					</ul>
 				</nav>
 				<hr>
