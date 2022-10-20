@@ -142,7 +142,7 @@
 			<CodeBlock
 				language="html"
 				code={`
-<Stepper {active} length={5} on:complete={onComplete}>
+<Stepper {active} length={2} on:complete={onComplete}>
 	<Step index={0}>
 		<svelte:fragment slot="header">(header)</svelte:fragment>
 		(content)
