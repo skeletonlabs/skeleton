@@ -8,7 +8,7 @@
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Utility,
 		name: 'Code Blocks',
-		description: 'Displays pre-formatted source code, with optional support for <a href="https://highlightjs.org/" target="_blank">Highlight.js</a> syntax highlighting.',
+		description: 'Displays pre-formatted source code, with optional support for <a href="https://highlightjs.org/" target="_blank" rel="noreferrer">Highlight.js</a> syntax highlighting.',
 		imports: ['CodeBlock'],
 		stylesheets: ['highlight-js'],
 		source: 'utilities/CodeBlock',
@@ -22,14 +22,14 @@
 				[
 					'<code>language</code>',
 					'string',
-					'<a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md" target="_blank">Language Alias</a>',
+					'<a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md" target="_blank" rel="noreferrer">Language Alias</a>',
 					'plaintext',
 					'Sets a language alias for Highlight.js syntax highlighting.'
 				],
 				[
 					'<code>code</code>',
 					'string',
-					'<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals" target="_blank">Template Literal</a>',
+					'<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals" target="_blank" rel="noreferrer">Template Literal</a>',
 					'-',
 					'Provide the code to render. Be mindful to escape as needed!'
 				]
@@ -76,7 +76,7 @@
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<h2>Install Highlight.js</h2>
-			<p><a href="https://highlightjs.org/" target="_blank">Highlight.js</a> is a required depedency to enable syntax highlighting.</p>
+			<p><a href="https://highlightjs.org/" target="_blank" rel="noreferrer">Highlight.js</a> is a required depedency to enable syntax highlighting.</p>
 			<CodeBlock language="console" code={`npm install highlight.js`} />
 		</section>
 		<section class="space-y-4">
@@ -84,8 +84,8 @@
 			<p>Apply the following changes to your app's root component (ex: <code>/src/routes/+layout.svelte</code> for SvelteKit).</p>
 			<CodeBlock language="typescript" code={`import hljs from 'highlight.js';`} />
 			<p>
-				Import any <a href="https://github.com/highlightjs/highlight.js/tree/main/src/styles" target="_blank">Highlight.js CSS theme</a> of your choice. Skeleton has provided our custom theme near the
-				top of this page.
+				Import any <a href="https://github.com/highlightjs/highlight.js/tree/main/src/styles" target="_blank" rel="noreferrer">Highlight.js CSS theme</a> of your choice. Skeleton has provided our custom
+				theme near the top of this page.
 			</p>
 			<CodeBlock language="typescript" code={`import 'highlight.js/styles/github-dark.css';`} />
 			<p>Finally, import the CodeBlock's writable store and pass a referenced to Highlight.js.</p>
@@ -94,8 +94,8 @@
 		<section class="space-y-4">
 			<h2>Create a Code Block</h2>
 			<p>
-				Syntax highlighting will appear when a valid <a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md" target="_blank">language alias</a> is provided to the
-				CodeBlock's
+				Syntax highlighting will appear when a valid <a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md" target="_blank" rel="noreferrer">language alias</a> is
+				provided to the CodeBlock's
 				<code>language</code> prop.
 			</p>
 			<CodeBlock code={'<CodeBlock language="html" code={`<div>This is meta</div>`}></CodeBlock>'} />

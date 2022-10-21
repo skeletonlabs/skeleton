@@ -19,7 +19,7 @@
 				<p>This guide will help you scaffold a basic Skeleton-powered app with Vite + Svelte.</p>
 			</div>
 			<div class="place-self-end">
-				<a class="btn btn-filled-primary" href="https://vitejs.dev/" target="_blank">Documentation</a>
+				<a class="btn btn-filled-primary" href="https://vitejs.dev/" target="_blank" rel="noreferrer">Documentation</a>
 			</div>
 		</div>
 	</header>
@@ -81,7 +81,7 @@
 			<h1>Skeleton</h1>
 		</svelte:fragment>
 		<svelte:fragment slot="trail">
-			<a class="btn btn-sm" href="https://github.com/" target="_blank">GitHub</a>
+			<a class="btn btn-sm" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
 		</svelte:fragment>
 	</AppBar>
 	<!-- --- -->
@@ -130,9 +130,9 @@
 	</section>
 	<hr />
 	<section class="flex space-x-2">
-      <a class="btn btn-filled-primary" href="https://kit.svelte.dev/" target="_blank">SvelteKit</a>
-      <a class="btn btn-filled-accent" href="https://tailwindcss.com/" target="_blank">Tailwind</a>
-      <a class="btn btn-filled-ternary" href="https://github.com/" target="_blank">GitHub</a>
+      <a class="btn btn-filled-primary" href="https://kit.svelte.dev/" target="_blank" rel="noreferrer">SvelteKit</a>
+      <a class="btn btn-filled-accent" href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind</a>
+      <a class="btn btn-filled-ternary" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
     </section>
 </div>
                 `}

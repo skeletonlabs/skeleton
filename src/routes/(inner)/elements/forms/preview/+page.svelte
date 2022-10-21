@@ -37,7 +37,7 @@
 		<header class="card-header space-y-4">
 			<h2>Native HTML Elements</h2>
 			<p>
-				Native HTML input elements using the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">Tailwind Forms</a> plugin plus the Skeleton
+				Native HTML input elements using the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank" rel="noreferrer">Tailwind Forms</a> plugin plus the Skeleton
 				<code>forms.css</code> stylesheet to apply theme colors and styles.
 			</p>
 		</header>
@@ -164,9 +164,9 @@
 		<h2>Utility State Classes</h2>
 		<p>
 			Provided by <code>forms.css</code>. See handling
-			<a href="https://kit.svelte.dev/docs/form-actions#anatomy-of-an-action-validation-errors" target="_blank">validation errors for SvelteKit</a>. Additionally we recommend
-			<a href="https://felte.dev/" target="_blank">Felte</a>
-			paired with your choice of <a href="https://felte.dev/docs/svelte/validators" target="_blank">Validators</a>.
+			<a href="https://kit.svelte.dev/docs/form-actions#anatomy-of-an-action-validation-errors" target="_blank" rel="noreferrer">validation errors for SvelteKit</a>. Additionally we recommend
+			<a href="https://felte.dev/" target="_blank" rel="noreferrer">Felte</a>
+			paired with your choice of <a href="https://felte.dev/docs/svelte/validators" target="_blank" rel="noreferrer">Validators</a>.
 		</p>
 		<label>
 			<span><code>.input-valid</code></span>
@@ -243,7 +243,7 @@
 			<h2>Untouched</h2>
 			<p>
 				One notable exception is the <code>color</code> field input. This is due to
-				<a href="https://css-tricks.com/color-inputs-a-deep-dive-into-cross-browser-differences/" target="_blank">major cross-browser issues</a>.
+				<a href="https://css-tricks.com/color-inputs-a-deep-dive-into-cross-browser-differences/" target="_blank" rel="noreferrer">major cross-browser issues</a>.
 			</p>
 		</div>
 		<label class="block text-center">

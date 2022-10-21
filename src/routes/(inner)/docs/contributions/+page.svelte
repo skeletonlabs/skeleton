@@ -12,7 +12,7 @@
 	<!-- Resources -->
 	<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 		<!-- Article: How to Contribute -->
-		<a class="card p-4 space-y-4" href="https://opensource.guide/how-to-contribute/" target="_blank">
+		<a class="card p-4 space-y-4" href="https://opensource.guide/how-to-contribute/" target="_blank" rel="noreferrer">
 			<h2>How to Contribute</h2>
 			<p>Are you new to open source? Read this helpful guide covering the basic concepts and best practices for contributing.</p>
 			<div class="flex justify-end">
@@ -20,7 +20,7 @@
 			</div>
 		</a>
 		<!-- GitHub: First Contributions -->
-		<a class="card p-4 space-y-4" href="https://github.com/firstcontributions/first-contributions" target="_blank">
+		<a class="card p-4 space-y-4" href="https://github.com/firstcontributions/first-contributions" target="_blank" rel="noreferrer">
 			<h2>First Contributions</h2>
 			<p>Need a guided tour? Follow a written step-by-step guide explaining the process for contributing to open source.</p>
 			<div class="flex justify-end">
@@ -52,7 +52,7 @@
 		</a>
 
 		<!-- Testing (video) -->
-		<a class="card p-4 grid grid-cols-[1fr_auto] gap-4" href="https://youtu.be/Ru3FtSzN128" target="_blank">
+		<a class="card p-4 grid grid-cols-[1fr_auto] gap-4" href="https://youtu.be/Ru3FtSzN128" target="_blank" rel="noreferrer">
 			<div class="space-y-4">
 				<h2>Writing Automated Tests</h2>
 				<p>Watch an in-depth video covering automated testing with Vitest, provided by Skeleton contributors.</p>

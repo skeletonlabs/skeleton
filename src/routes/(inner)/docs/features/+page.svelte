@@ -27,8 +27,8 @@
 	<section class="space-y-4">
 		<h2>Svelte Components</h2>
 		<p>
-			These are <a href="https://svelte.dev/" target="_blank">Svelte Components</a> purpose built for the Skeleton library. They can include their own UI templates and scripted logic, and they can maintain
-			their own state. These automatically update and adjust to your custom theme and provide unique props to update and adjust settings per component.
+			These are <a href="https://svelte.dev/" target="_blank" rel="noreferrer">Svelte Components</a> purpose built for the Skeleton library. They can include their own UI templates and scripted logic,
+			and they can maintain their own state. These automatically update and adjust to your custom theme and provide unique props to update and adjust settings per component.
 		</p>
 		<ul class="list-disc list-inside space-y-2">
 			<li>Svelte is required to use Svelte Components.</li>
@@ -46,8 +46,8 @@
 	<section class="space-y-4">
 		<h2>Svelte Actions</h2>
 		<p>
-			Skeleton provides a set of unique <a href="https://svelte.dev/tutorial/actions" target="_blank">Svelte Actions</a>, also known as directives in other libraries. These provide "headless" script
-			logic without inherent UI. Think of these as add-ons features, including <em>copy to clipboard</em> and <em>applying image filters</em>.
+			Skeleton provides a set of unique <a href="https://svelte.dev/tutorial/actions" target="_blank" rel="noreferrer">Svelte Actions</a>, also known as directives in other libraries. These provide
+			"headless" script logic without inherent UI. Think of these as add-ons features, including <em>copy to clipboard</em> and <em>applying image filters</em>.
 		</p>
 		<ul class="list-disc list-inside space-y-2">
 			<li>Svelte is required to use Svelte Actions.</li>

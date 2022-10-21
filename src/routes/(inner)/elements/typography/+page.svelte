@@ -52,7 +52,7 @@
 			<h2>Anchor</h2>
 			<CodeBlock language="html" code={`<a href="/">Anchor</a>`} />
 			<div class="card card-body text-center space-x-4">
-				<a href="https://www.youtube.com/watch?v=XTgFtxHhCQ0" target="_blank">Anchor</a>
+				<a href="https://www.youtube.com/watch?v=XTgFtxHhCQ0" target="_blank" rel="noreferrer">Anchor</a>
 			</div>
 		</div>
 		<!-- Blockquote -->

@@ -23,13 +23,13 @@
 			</div>
 			<!-- Byline -->
 			<footer class="p-4 flex justify-between items-center space-x-4">
-				<a class="flex items-center space-x-4" href="https://github.com/benzara-tahar" target="_blank">
+				<a class="flex items-center space-x-4" href="https://github.com/benzara-tahar" target="_blank" rel="noreferrer">
 					<Avatar src="https://avatars.githubusercontent.com/u/71077112?v=4" />
 					<small>Benzara Tahar</small>
 				</a>
 				<div class="flex items-center space-x-4">
-					<a class="btn btn-filled-accent" href="https://svelte-animated-counter.vercel.app/" target="_blank">Website</a>
-					<a class="btn btn-filled-accent" href="https://github.com/benzara-tahar/svelte-animated-counter" target="_blank">GitHub</a>
+					<a class="btn btn-filled-accent" href="https://svelte-animated-counter.vercel.app/" target="_blank" rel="noreferrer">Website</a>
+					<a class="btn btn-filled-accent" href="https://github.com/benzara-tahar/svelte-animated-counter" target="_blank" rel="noreferrer">GitHub</a>
 				</div>
 			</footer>
 		</div>
@@ -44,13 +44,13 @@
 			</div>
 			<!-- Byline -->
 			<footer class="p-4 flex justify-between items-center space-x-4">
-				<a class="flex items-center space-x-4" href="https://github.com/highlightjs" target="_blank">
+				<a class="flex items-center space-x-4" href="https://github.com/highlightjs" target="_blank" rel="noreferrer">
 					<Avatar src="https://avatars.githubusercontent.com/u/9039821?s=200&v=4" />
 					<small>Highlight.js</small>
 				</a>
 				<div class="flex items-center space-x-4">
-					<a class="btn btn-filled-accent" href="https://highlightjs.org/" target="_blank">Website</a>
-					<a class="btn btn-filled-accent" href="https://github.com/highlightjs/highlight.js" target="_blank">GitHub</a>
+					<a class="btn btn-filled-accent" href="https://highlightjs.org/" target="_blank" rel="noreferrer">Website</a>
+					<a class="btn btn-filled-accent" href="https://github.com/highlightjs/highlight.js" target="_blank" rel="noreferrer">GitHub</a>
 				</div>
 			</footer>
 		</div>
@@ -65,13 +65,13 @@
 			</div>
 			<!-- Byline -->
 			<footer class="p-4 flex justify-between items-center space-x-4">
-				<a class="flex items-center space-x-4" href="https://github.com/pablo-abc" target="_blank">
+				<a class="flex items-center space-x-4" href="https://github.com/pablo-abc" target="_blank" rel="noreferrer">
 					<Avatar src="https://avatars.githubusercontent.com/u/40573613?v=4" />
 					<small>Pablo Berganza</small>
 				</a>
 				<div class="flex items-center space-x-4">
-					<a class="btn btn-filled-accent" href="https://felte.dev/" target="_blank">Website</a>
-					<a class="btn btn-filled-accent" href="https://github.com/pablo-abc/felte" target="_blank">GitHub</a>
+					<a class="btn btn-filled-accent" href="https://felte.dev/" target="_blank" rel="noreferrer">Website</a>
+					<a class="btn btn-filled-accent" href="https://github.com/pablo-abc/felte" target="_blank" rel="noreferrer">GitHub</a>
 				</div>
 			</footer>
 		</div>
@@ -86,12 +86,12 @@
 			</div>
 			<!-- Byline -->
 			<footer class="p-4 flex justify-between items-center space-x-4">
-				<a class="flex items-center space-x-4" href="https://github.com/jquense" target="_blank">
+				<a class="flex items-center space-x-4" href="https://github.com/jquense" target="_blank" rel="noreferrer">
 					<Avatar src="https://avatars.githubusercontent.com/u/339286?v=4" />
 					<small>Jason Quense</small>
 				</a>
 				<div class="flex items-center space-x-4">
-					<a class="btn btn-filled-accent" href="https://github.com/jquense/yup" target="_blank">GitHub</a>
+					<a class="btn btn-filled-accent" href="https://github.com/jquense/yup" target="_blank" rel="noreferrer">GitHub</a>
 				</div>
 			</footer>
 		</div>
@@ -106,13 +106,13 @@
 			</div>
 			<!-- Byline -->
 			<footer class="p-4 flex justify-between items-center space-x-4">
-				<a class="flex items-center space-x-4" href="https://github.com/chartjs" target="_blank">
+				<a class="flex items-center space-x-4" href="https://github.com/chartjs" target="_blank" rel="noreferrer">
 					<Avatar background="bg-pink-500" src="https://avatars.githubusercontent.com/u/10342521?s=200&v=4" />
 					<small>Chart.js</small>
 				</a>
 				<div class="flex items-center space-x-4">
-					<a class="btn btn-filled-accent" href="https://www.chartjs.org/" target="_blank">Website</a>
-					<a class="btn btn-filled-accent" href="https://github.com/chartjs/Chart.js" target="_blank">GitHub</a>
+					<a class="btn btn-filled-accent" href="https://www.chartjs.org/" target="_blank" rel="noreferrer">Website</a>
+					<a class="btn btn-filled-accent" href="https://github.com/chartjs/Chart.js" target="_blank" rel="noreferrer">GitHub</a>
 				</div>
 			</footer>
 		</div>
@@ -127,13 +127,13 @@
 			</div>
 			<!-- Byline -->
 			<footer class="p-4 flex justify-between items-center space-x-4">
-				<a class="flex items-center space-x-4" href="https://github.com/FortAwesome" target="_blank">
+				<a class="flex items-center space-x-4" href="https://github.com/FortAwesome" target="_blank" rel="noreferrer">
 					<Avatar src="https://avatars.githubusercontent.com/u/1505683?s=200&v=4" />
 					<small>Font Awesome</small>
 				</a>
 				<div class="flex items-center space-x-4">
-					<a class="btn btn-filled-accent" href="https://fontawesome.com/" target="_blank">Website</a>
-					<a class="btn btn-filled-accent" href="https://github.com/FortAwesome/Font-Awesome" target="_blank">GitHub</a>
+					<a class="btn btn-filled-accent" href="https://fontawesome.com/" target="_blank" rel="noreferrer">Website</a>
+					<a class="btn btn-filled-accent" href="https://github.com/FortAwesome/Font-Awesome" target="_blank" rel="noreferrer">GitHub</a>
 				</div>
 			</footer>
 		</div>
@@ -144,6 +144,8 @@
 	<!-- Suggest -->
 	<section class="text-center space-y-4">
 		<p>Is there something we're missing?</p>
-		<a class="btn btn-ghost" href="https://github.com/Brain-Bones/skeleton/issues/new?assignees=&labels=feature-request&template=feature_request.yml" target="_blank">Suggest a Package</a>
+		<a class="btn btn-ghost" href="https://github.com/Brain-Bones/skeleton/issues/new?assignees=&labels=feature-request&template=feature_request.yml" target="_blank" rel="noreferrer"
+			>Suggest a Package</a
+		>
 	</section>
 </div>

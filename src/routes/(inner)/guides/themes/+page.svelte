@@ -55,9 +55,9 @@
 	<header class="space-y-4">
 		<h1>Themes</h1>
 		<p>
-			Skeleton themes integrate with Tailwind using <a href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank">CSS custom properties</a> converted to RGB values.
-			This enables the use of <a href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank">background opacity</a> as well as support for
-			<a href="https://tailwindcss.com/docs/dark-mode" target="_blank">dark mode</a>. Components intelligently adapt to your theme color palette.
+			Skeleton themes integrate with Tailwind using <a href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank" rel="noreferrer">CSS custom properties</a> converted
+			to RGB values. This enables the use of <a href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank" rel="noreferrer">background opacity</a> as well as support for
+			<a href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="noreferrer">dark mode</a>. Components intelligently adapt to your theme color palette.
 		</p>
 	</header>
 
@@ -77,7 +77,7 @@
 						on:click={() => { copyThemeToClipboard(preset.name); }}
 						class="card card-body text-white flex justify-between items-center hover:!ring-white/20 cursor-pointer"
 						style:background={preset.surface}
-						target="_blank"
+						target="_blank" rel="noreferrer"
 					>
 						<span class="text-sm">{preset.name}</span>
 						<ul class="grid grid-cols-3 gap-2">
@@ -125,7 +125,8 @@
 		<p>
 			Theme colors are not limited to Skeleton components. You may utilize them anywhere within your app following Tailwind's standard conventions. Feel free to mix or extend them with <a
 				href="https://tailwindcss.com/docs/customizing-colors"
-				target="_blank">Tailwind's default color palette</a
+				target="_blank"
+				rel="noreferrer">Tailwind's default color palette</a
 			>.
 		</p>
 		<CodeBlock language="html" code={`<!-- Inlined classes -->\n<div class="bg-primary-500 text-accent-500">Skeleton</div>`} />
@@ -143,13 +144,13 @@
 		<h3>Design Tokens</h3>
 		<!-- prettier-ignore -->
 		<p>
-			Skeleton themes are paired with a powerful <a href="https://vimeo.com/showcase/9653752/video/724689965" target="_blank">design token system</a> to create utility classes based on theme settings. These cover common styles for backgrounds, border radius, fonts, and more. In fact, most components use these tokens as the default settings, which means components auto-adapt to your theme style with minimal configuration out of the box.
+			Skeleton themes are paired with a powerful <a href="https://vimeo.com/showcase/9653752/video/724689965" target="_blank" rel="noreferrer">design token system</a> to create utility classes based on theme settings. These cover common styles for backgrounds, border radius, fonts, and more. In fact, most components use these tokens as the default settings, which means components auto-adapt to your theme style with minimal configuration out of the box.
 		</p>
 		<a href="/guides/frameworks/sveltekit" class="card p-4 grid grid-cols-[1fr_auto] gap-4">
 			<div class="flex items-center">
 				<p>While we formalize this feature, please see the stylesheet directly as a source reference.</p>
 			</div>
-			<a class="btn btn-filled-accent place-self-center" href="https://github.com/Brain-Bones/skeleton/tree/master/src/lib/styles/tokens.css" target="_blank">View Source &rarr;</a>
+			<a class="btn btn-filled-accent place-self-center" href="https://github.com/Brain-Bones/skeleton/tree/master/src/lib/styles/tokens.css" target="_blank" rel="noreferrer">View Source &rarr;</a>
 		</a>
 		<p>Tokens are avialable to use anywhere in your project. Here's a few examples:</p>
 		<CodeBlock language="html" code={`<!-- Apply your theme's border radius value -->\n<div class="w-10 h-10 bg-primary-500 rounded-token">Rounded</div>`} />

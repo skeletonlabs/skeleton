@@ -22,7 +22,7 @@
 			[
 				'<code>all.css</code>',
 				'A universal stylesheet that imports all stylesheets in the optimal order.',
-				`<a href="${ghLibPathMaster}/styles/all.css" target="_blank">all.css</a>`,
+				`<a href="${ghLibPathMaster}/styles/all.css" target="_blank" rel="noreferrer">all.css</a>`,
 			],
 		]
 	};
@@ -33,37 +33,37 @@
 			[
 				'<code>tailwind.css</code>',
 				'<u>IMPORTANT</u>: should precede all other stylesheets.',
-				'<a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank">@tailwind directives</a>',
-				`<a href="${ghLibPathMaster}/styles/tailwind.css" target="_blank">tailwind.css</a>`,
+				'<a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a>',
+				`<a href="${ghLibPathMaster}/styles/tailwind.css" target="_blank" rel="noreferrer">tailwind.css</a>`,
 				'-'
 			],
 			[
 				'<code>tokens.css</code>',
 				'Creates design token classes for theme CSS custom properties.',
 				'<a href="/guides/themes">Themes</a>',
-				`<a href="${ghLibPathMaster}/styles/tokens.css" target="_blank">tokens.css</a>`,
+				`<a href="${ghLibPathMaster}/styles/tokens.css" target="_blank" rel="noreferrer">tokens.css</a>`,
 				'-'
 			],
 			[
 				'<code>core.css</code>',
 				'Applies styles to body elements, scrollbars, and more.',
 				'<a href="/elements/core">Core</a>',
-				`<a href="${ghLibPathMaster}/styles/core.css" target="_blank">core.css</a>`,
+				`<a href="${ghLibPathMaster}/styles/core.css" target="_blank" rel="noreferrer">core.css</a>`,
 				'-'
 			],
 			[
 				'<code>typography.css</code>',
 				'Headings, paragraph, anchors, pre, code, and more.',
 				'<a href="/elements/typography">Typography</a>',
-				`<a href="${ghLibPathMaster}/styles/typography.css" target="_blank">typography.css</a>`,
+				`<a href="${ghLibPathMaster}/styles/typography.css" target="_blank" rel="noreferrer">typography.css</a>`,
 				'-'
 			],
 			[
 				'<code>forms.css</code>',
 				'Adapts form elements to utilize the Skeleton theme.',
 				'<a href="/elements/forms">Forms</a>',
-				`<a href="${ghLibPathMaster}/styles/forms.css" target="_blank">forms.css</a>`,
-				'<a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">tailwindcss-forms</a>'
+				`<a href="${ghLibPathMaster}/styles/forms.css" target="_blank" rel="noreferrer">forms.css</a>`,
+				'<a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank" rel="noreferrer">tailwindcss-forms</a>'
 			]
 		]
 	};
@@ -74,7 +74,7 @@
 			[
 				'<code>elements.css</code>',
 				'Imports the full suite of Tailwind Elements.',
-				`<a href="${ghLibPathMaster}/styles/elements.css" target="_blank">elements.css</a>`,
+				`<a href="${ghLibPathMaster}/styles/elements.css" target="_blank" rel="noreferrer">elements.css</a>`,
 			],
 		]
 	};
@@ -85,37 +85,37 @@
 			[
 				'<code>elements/badges.css</code>',
 				'<a href="/elements/badges">badges</a>',
-				`<a href="${ghLibPathMaster}/styles/elements/badges.css" target="_blank">badges.css</a>`,
+				`<a href="${ghLibPathMaster}/styles/elements/badges.css" target="_blank" rel="noreferrer">badges.css</a>`,
 			],
 			[
 				'<code>elements/buttons.css</code>',
 				'<a href="/elements/buttons">buttons</a>',
-				`<a href="${ghLibPathMaster}/styles/elements/buttons.css" target="_blank">buttons.css</a>`,
+				`<a href="${ghLibPathMaster}/styles/elements/buttons.css" target="_blank" rel="noreferrer">buttons.css</a>`,
 			],
 			[
 				'<code>elements/cards.css</code>',
 				'<a href="/elements/cards">cards</a>',
-				`<a href="${ghLibPathMaster}/styles/elements/cards.css" target="_blank">cards.css</a>`,
+				`<a href="${ghLibPathMaster}/styles/elements/cards.css" target="_blank" rel="noreferrer">cards.css</a>`,
 			],
 			[
 				'<code>elements/lists.css</code>',
 				'<a href="/elements/lists">lists</a>',
-				`<a href="${ghLibPathMaster}/styles/elements/lists.css" target="_blank">lists.css</a>`,
+				`<a href="${ghLibPathMaster}/styles/elements/lists.css" target="_blank" rel="noreferrer">lists.css</a>`,
 			],
 			[
 				'<code>elements/logo-clouds.css</code>',
 				'<a href="/elements/logo-clouds">logo-clouds</a>',
-				`<a href="${ghLibPathMaster}/styles/elements/logo-clouds.css" target="_blank">logo-clouds.css</a>`,
+				`<a href="${ghLibPathMaster}/styles/elements/logo-clouds.css" target="_blank" rel="noreferrer">logo-clouds.css</a>`,
 			],
 			[
 				'<code>elements/menus.css</code>',
 				'<a href="/utilities/menus">menus</a>',
-				`<a href="${ghLibPathMaster}/styles/elements/menus.css" target="_blank">menus.css</a>`,
+				`<a href="${ghLibPathMaster}/styles/elements/menus.css" target="_blank" rel="noreferrer">menus.css</a>`,
 			],
 			[
 				'<code>elements/placeholders.css</code>',
 				'<a href="/elements/placeholders">placeholders</a>',
-				`<a href="${ghLibPathMaster}/styles/elements/placeholders.css" target="_blank">placeholders.css</a>`,
+				`<a href="${ghLibPathMaster}/styles/elements/placeholders.css" target="_blank" rel="noreferrer">placeholders.css</a>`,
 			],
 		]
 	};
@@ -168,8 +168,8 @@ import '@brainandbones/skeleton/styles/${$storeStylesheets === 'simple' ? 'all' 
 		<Alert>
 			<svelte:fragment slot="lead"><span class="text-xl">⚠️</span></svelte:fragment>
 			<strong>IMPORTANT:</strong> Using either <code>all.css</code> or <code>tailwind.css</code> will add the necessary
-			<a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank">@tailwind directives</a> (ex: base, components, utilities, variants), which means you are required to remove these
-			from your global stylesheet. Failure to do so will prevent the use of certain styles.
+			<a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> (ex: base, components, utilities, variants), which means you are required
+			to remove these from your global stylesheet. Failure to do so will prevent the use of certain styles.
 		</Alert>
 	</section>
 
@@ -181,19 +181,20 @@ import '@brainandbones/skeleton/styles/${$storeStylesheets === 'simple' ? 'all' 
 		<p>Here's a few suggested best practices to follow when creating global styles:</p>
 		<ul class="list-disc list-inside space-y-">
 			<li>
-				Ensure your <a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank">@tailwind directives</a> are imported only once per project. The <code>all.css</code> stylesheet handles
-				this for you.
+				Ensure your <a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> are imported only once per project. The
+				<code>all.css</code> stylesheet handles this for you.
 			</li>
 			<li>
-				Wrap your core page elements within a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main" target="_blank">main element</a>. The
+				Wrap your core page elements within a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main" target="_blank" rel="noreferrer">main element</a>. The
 				<a href="/components/app-shell">App Shell</a> component handles this for you.
 			</li>
 			<li>
-				The ideal use case for <a href="https://tailwindcss.com/docs/reusing-styles#extracting-classes-with-apply" target="_blank">Tailwind @apply</a> is defining global styles. Please be leery of
-				<a href="https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction" target="_blank">premature abstraction</a>.
+				The ideal use case for <a href="https://tailwindcss.com/docs/reusing-styles#extracting-classes-with-apply" target="_blank" rel="noreferrer">Tailwind @apply</a> is defining global styles.
+				Please be leery of
+				<a href="https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction" target="_blank" rel="noreferrer">premature abstraction</a>.
 			</li>
 			<li>
-				Utilize the CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:not" target="_blank">:not pseudo-class</a> to exclude and avoid conflicts with inherent component styles.
+				Utilize the CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:not" target="_blank" rel="noreferrer">:not pseudo-class</a> to exclude and avoid conflicts with inherent component styles.
 			</li>
 			<li>You can overwrite any imported stylesheet styles in your global stylesheet.</li>
 		</ul>
@@ -236,7 +237,8 @@ import '@brainandbones/skeleton/styles/${$storeStylesheets === 'simple' ? 'all' 
 		<div class="space-y-4">
 			<h3>Important</h3>
 			<p>
-				Note that when overwriting styles, you may need to mark the style <a href="https://tailwindcss.com/docs/configuration#important-modifier" target="_blank">important</a> to take precedence.
+				Note that when overwriting styles, you may need to mark the style <a href="https://tailwindcss.com/docs/configuration#important-modifier" target="_blank" rel="noreferrer">important</a> to take
+				precedence.
 			</p>
 			<CodeBlock language="html" code={`<Tab class="!p-10">Big</Tab>`} />
 			<CodeBlock language="css" code={`.crumb-crumb { @apply !text-green-500; }`} />

@@ -157,7 +157,11 @@
 		<!-- Navigation -->
 		<div class="space-y-4">
 			<h2>Navigation</h2>
-			<p>While verbose, we do recommend you use all tags shown below to meet recommended <a href="https://www.w3.org/WAI/tutorials/menus/structure/" target="_blank">accessibility guidelines</a>.</p>
+			<p>
+				While verbose, we do recommend you use all tags shown below to meet recommended <a href="https://www.w3.org/WAI/tutorials/menus/structure/" target="_blank" rel="noreferrer"
+					>accessibility guidelines</a
+				>.
+			</p>
 			<CodeBlock
 				language="html"
 				code={`

@@ -152,7 +152,8 @@ const conicStops: ConicStop[] = [
 		<div class="space-y-4">
 			<h3>Via Custom Colors</h3>
 			<p>
-				You can provide <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value" target="_blank">standard CSS color values</a> as a string, including: color names, hex, rgba, HSL, or similar.
+				You can provide <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value" target="_blank" rel="noreferrer">standard CSS color values</a> as a string, including: color names, hex, rgba,
+				HSL, or similar.
 			</p>
 			<CodeBlock
 				language="ts"

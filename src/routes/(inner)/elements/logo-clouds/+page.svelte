@@ -31,15 +31,15 @@
 		<section class="grid grid-cols-1 gap-4">
 			<!-- Links -->
 			<div class="logo-cloud grid-cols-1 lg:!grid-cols-3 gap-1">
-				<a class="logo-item" href="https://svelte.dev/" target="_blank">
+				<a class="logo-item" href="https://svelte.dev/" target="_blank" rel="noreferrer">
 					<span><SvgIcon name="svelte" width="w-8" height="h-8" /></span>
 					<span>Svelte</span>
 				</a>
-				<a class="logo-item" href="https://tailwindcss.com/" target="_blank">
+				<a class="logo-item" href="https://tailwindcss.com/" target="_blank" rel="noreferrer">
 					<span><SvgIcon name="tailwind" width="w-6" height="h-6" /></span>
 					<span>Tailwind</span>
 				</a>
-				<a class="logo-item" href="https://github.com/" target="_blank">
+				<a class="logo-item" href="https://github.com/" target="_blank" rel="noreferrer">
 					<span><SvgIcon name="github" width="w-6" height="h-6" /></span>
 					<span>Github</span>
 				</a>
