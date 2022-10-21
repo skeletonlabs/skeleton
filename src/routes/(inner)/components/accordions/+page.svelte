@@ -25,7 +25,7 @@
 		ariaApgLink: 'https://www.w3.org/WAI/ARIA/apg/example-index/accordion/accordion',
 		sveld: [
 			{ label: 'AccordionGroup', source: sveldAccordionGroup },
-			{ label: 'AccordionItem', source: sveldAccordionItem }
+			{ label: 'AccordionItem', description: 'Overrides: hover, spacing, padding, rounded', source: sveldAccordionItem }
 		],
 		classes: [
 			{

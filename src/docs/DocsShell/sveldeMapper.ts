@@ -45,10 +45,9 @@ export function sveldeMapperEvents(sveld: Sveld): any {
 		source: events.map((e: any) => {
 			// prettier-ignore
 			return [
-				`<code>${e.name}</code>`,
+				`<code>on:${e.name}</code>`,
 				`<em>${e.type}</em>`,
 				e.element
-				
 			];
 		})
 	};
