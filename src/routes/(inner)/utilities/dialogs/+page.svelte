@@ -18,7 +18,7 @@
 		description: 'High priority overlay notification utilizing a dynamic queue system.',
 		imports: ['Dialog', 'dialogStore'],
 		types: ['DialogAlert', 'DialogConfirm', 'DialogPrompt'],
-		source: 'utilities/Drawer'
+		source: 'utilities/Dialog'
 	};
 	const properties: DocsShellTable[] = [
 		{
