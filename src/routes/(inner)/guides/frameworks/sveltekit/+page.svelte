@@ -19,7 +19,7 @@
 				<p>This guide will help you scaffold a basic Skeleton-powered app within SvelteKit.</p>
 			</div>
 			<div class="place-self-end">
-				<a class="btn btn-filled-primary" href="https://kit.svelte.dev/" target="_blank">Documentation</a>
+				<a class="btn btn-filled-primary" href="https://kit.svelte.dev/" target="_blank" rel="noreferrer">Documentation</a>
 			</div>
 		</div>
 	</header>
@@ -33,7 +33,7 @@
 		<h3>Update App.html</h3>
 		<p>
 			Open <code>/src/app.html</code> and add the following classes to the wrapping <em>div</em> in <code>/src/app.html</code>.
-			<a href="https://github.com/sveltejs/kit/issues/6244#issuecomment-1226600661" target="_blank">This element is required</a>
+			<a href="https://github.com/sveltejs/kit/issues/6244#issuecomment-1226600661" target="_blank" rel="noreferrer">This element is required</a>
 		</p>
 		<CodeBlock language="html" code={`<body>\n\t<div class="h-full overflow-hidden">%sveltekit.body%</div>\n</body>`.trim()} />
 		<p>Note that you can optionally enable Dark Mode for your app by adding <code>.dark</code> to the <em>HTML</em> element at the top of <code>app.html</code>.</p>
@@ -86,7 +86,7 @@
 			<h1>Skeleton</h1>
 		</svelte:fragment>
 		<svelte:fragment slot="trail">
-			<a class="btn btn-sm" href="https://github.com/" target="_blank">GitHub</a>
+			<a class="btn btn-sm" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
 		</svelte:fragment>
 	</AppBar>
 	<!-- --- -->
@@ -135,9 +135,9 @@
 	</section>
 	<hr />
 	<section class="flex space-x-2">
-      <a class="btn btn-filled-primary" href="https://kit.svelte.dev/" target="_blank">SvelteKit</a>
-      <a class="btn btn-filled-accent" href="https://tailwindcss.com/" target="_blank">Tailwind</a>
-      <a class="btn btn-filled-ternary" href="https://github.com/" target="_blank">GitHub</a>
+      <a class="btn btn-filled-primary" href="https://kit.svelte.dev/" target="_blank" rel="noreferrer">SvelteKit</a>
+      <a class="btn btn-filled-accent" href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind</a>
+      <a class="btn btn-filled-ternary" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
     </section>
 </div>
                 `}

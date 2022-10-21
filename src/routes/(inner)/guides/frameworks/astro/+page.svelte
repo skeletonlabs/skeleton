@@ -27,7 +27,7 @@
 				<p>This guide will help create a basic Skeleton project using Astro, including adding components using Astro's island architecture.</p>
 			</div>
 			<div class="place-self-end">
-				<a class="btn btn-filled-primary" href="https://astro.build/" target="_blank">Documentation</a>
+				<a class="btn btn-filled-primary" href="https://astro.build/" target="_blank" rel="noreferrer">Documentation</a>
 			</div>
 		</div>
 	</header>
@@ -47,7 +47,7 @@
 	<section class="space-y-4">
 		<h2>Layout Setup</h2>
 		<p>
-			We'll create a new <a href="https://docs.astro.build/en/core-concepts/layouts/" target="_blank">Astro Layout</a>
+			We'll create a new <a href="https://docs.astro.build/en/core-concepts/layouts/" target="_blank" rel="noreferrer">Astro Layout</a>
 			in <code>/src/layouts/LayoutBasic.astro</code>. Our layout needs a bit of structure, so let's make use of the Skeleton <a href="/components/app-shell">App Shell</a> component.
 		</p>
 		<CodeBlock
@@ -98,7 +98,7 @@ import { AppShell, AppBar } from "@brainandbones/skeleton";
 			<h1>Skeleton</h1>
 		</svelte:fragment>
 		<svelte:fragment slot="trail">
-			<a class="btn btn-sm" href="https://github.com/" target="_blank">GitHub</a>
+			<a class="btn btn-sm" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
 		</svelte:fragment>
 	</AppBar>
 	<!-- --- -->
@@ -164,9 +164,9 @@ import { GradientHeading } from "@brainandbones/skeleton";
 		</section>
 		<hr />
 		<section class="flex space-x-2">
-		<a class="btn btn-filled-primary" href="https://kit.svelte.dev/" target="_blank">SvelteKit</a>
-		<a class="btn btn-filled-accent" href="https://tailwindcss.com/" target="_blank">Tailwind</a>
-		<a class="btn btn-filled-ternary" href="https://github.com/" target="_blank">GitHub</a>
+		<a class="btn btn-filled-primary" href="https://kit.svelte.dev/" target="_blank" rel="noreferrer">SvelteKit</a>
+		<a class="btn btn-filled-accent" href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind</a>
+		<a class="btn btn-filled-ternary" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
 		</section>
 	</div>
 </LayoutBasic>
@@ -194,8 +194,8 @@ import { GradientHeading } from "@brainandbones/skeleton";
 	<section class="space-y-4">
 		<h2>Island Architecture</h2>
 		<p>
-			Astro allows for partial component hydration via the <a href="https://docs.astro.build/en/concepts/islands/" target="_blank">Astro Island Architecture</a>. Let's learn how to utilize this for
-			Skeleton features.
+			Astro allows for partial component hydration via the <a href="https://docs.astro.build/en/concepts/islands/" target="_blank" rel="noreferrer">Astro Island Architecture</a>. Let's learn how to
+			utilize this for Skeleton features.
 		</p>
 		<!-- Static -->
 		<h3>Static Islands</h3>
@@ -245,7 +245,7 @@ import WrapperExample from '../components/WrapperExample.svelte';
 		<h3>Component Hydration</h3>
 		<p>
 			Please note that <em>dynamic components</em> MUST be hydrated using
-			<a href="https://docs.astro.build/en/reference/directives-reference/#client-directives" target="_blank">Astro's Client Directives</a>. In the example above, we opted for the
+			<a href="https://docs.astro.build/en/reference/directives-reference/#client-directives" target="_blank" rel="noreferrer">Astro's Client Directives</a>. In the example above, we opted for the
 			<code>client:visible</code> directive, which loads and hydrates the component Javascript only when it becomes visible the user’s viewport. Had we not hydrated our component, the
 			<code>triggerMessage()</code> method would not work as expected.
 		</p>

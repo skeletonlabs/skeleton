@@ -20,7 +20,12 @@
 			headings: ['Prop', 'Type', 'Default', 'Description'],
 			source: [
 				['<code>files</code>', 'array', '-', 'Bind this to your form data, represents the "files" data from the input.'],
-				['<code>accept</code>', 'string', '-', 'Set the native <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept" target="_blank">file accepts attribute</a>.'],
+				[
+					'<code>accept</code>',
+					'string',
+					'-',
+					'Set the native <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept" target="_blank" rel="noreferrer">file accepts attribute</a>.'
+				],
 				['<code>name</code>', 'string', '-', 'Set the native input name value.'],
 				['<code>multiple</code>', 'boolean', 'false', 'Determines whether user can pick more than one file.'],
 				['<code>notes</code>', 'string', '-', 'Provided additional notes or information.']

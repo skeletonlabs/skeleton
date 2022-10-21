@@ -11,7 +11,7 @@
 	<header class="space-y-4">
 		<h1>Tailwind CSS</h1>
 		<p>
-			Skeleton features tight integration with <a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a>. Let's install Tailwind and set a few configuration settings.
+			Skeleton features tight integration with <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind CSS</a>. Let's install Tailwind and set a few configuration settings.
 		</p>
 		<TabGroup selected={storeFramework}>
 			<Tab value="sveltekit">SvelteKit</Tab>
@@ -19,10 +19,10 @@
 			<Tab value="astro">Astro</Tab>
 		</TabGroup>
 		{#if ['sveltekit', 'vite'].includes($storeFramework)}
-			<p><a href="https://github.com/svelte-add/tailwindcss" target="_blank">Svelte-Add</a> makes installation a trivial process.</p>
+			<p><a href="https://github.com/svelte-add/tailwindcss" target="_blank" rel="noreferrer">Svelte-Add</a> makes installation a trivial process.</p>
 			<CodeBlock language="console" code={`npx svelte-add@latest tailwindcss\nnpm install`} />
 		{:else if $storeFramework === 'astro'}
-			<p>Add Tailwind integration via <a href="https://docs.astro.build/en/guides/integrations-guide/tailwind/" target="_blank">@astrojs/tailwind</a></p>
+			<p>Add Tailwind integration via <a href="https://docs.astro.build/en/guides/integrations-guide/tailwind/" target="_blank" rel="noreferrer">@astrojs/tailwind</a></p>
 			<CodeBlock language="console" code={`npx astro add tailwind`} />
 		{/if}
 	</header>
@@ -38,7 +38,7 @@
 		<div class="space-y-4">
 			<h3>Enabled Dark Mode Support</h3>
 			<p>
-				Append <code>darkMode: class</code> to support <a href="https://tailwindcss.com/docs/dark-mode" target="_blank">Tailwind's dark mode</a>. You can pair this with the
+				Append <code>darkMode: class</code> to support <a href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="noreferrer">Tailwind's dark mode</a>. You can pair this with the
 				<a href="/utilities/light-switch">lightswitch</a> utility to toggle light/dark modes.
 			</p>
 			<CodeBlock
@@ -54,8 +54,8 @@ module.exports = {
 		<div class="space-y-4">
 			<h3>Update Content Settings</h3>
 			<p>
-				Add the following to the <a href="https://tailwindcss.com/docs/configuration" target="_blank">content</a> settings. This ensures the Tailwind compiler sees utility classes for components
-				within
+				Add the following to the <a href="https://tailwindcss.com/docs/configuration" target="_blank" rel="noreferrer">content</a> settings. This ensures the Tailwind compiler sees utility classes for
+				components within
 				<code>node_modules</code>.
 			</p>
 			<CodeBlock
@@ -75,8 +75,8 @@ module.exports = {
 		<div class="space-y-4">
 			<h3>Add the Skeleton Plugin</h3>
 			<p>
-				Add the Skeleton <a href="https://tailwindcss.com/docs/plugins#official-plugins" target="_blank">plugin</a>. This will automatically ingest and utilize the CSS variables defined in your theme.
-				We'll setup the theme in the next step.
+				Add the Skeleton <a href="https://tailwindcss.com/docs/plugins#official-plugins" target="_blank" rel="noreferrer">plugin</a>. This will automatically ingest and utilize the CSS variables
+				defined in your theme. We'll setup the theme in the next step.
 			</p>
 			<CodeBlock
 				language="js"
@@ -105,30 +105,32 @@ module.exports = {
 					<h3>Forms</h3>
 					<p>Provides a basic reset for form elements.</p>
 				</div>
-				<a class="btn btn-ghost" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">View</a>
+				<a class="btn btn-ghost" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank" rel="noreferrer">View</a>
 			</div>
 			<div class="card card-body flex justify-between items-center space-x-4">
 				<div class="space-y-2">
 					<h3>Typography</h3>
 					<p>Typographic defaults for HTML you don't control.</p>
 				</div>
-				<a class="btn btn-ghost" href="https://tailwindcss.com/docs/typography-plugin" target="_blank">View</a>
+				<a class="btn btn-ghost" href="https://tailwindcss.com/docs/typography-plugin" target="_blank" rel="noreferrer">View</a>
 			</div>
 			<div class="card card-body flex justify-between items-center space-x-4">
 				<div class="space-y-2">
 					<h3>Aspect Ratio</h3>
 					<p>
-						Composable aspect ratios. <a href="https://github.com/tailwindlabs/tailwindcss-aspect-ratio#compatibility-with-default-aspect-ratio-utilities" target="_blank">See compatibility</a>.
+						Composable aspect ratios. <a href="https://github.com/tailwindlabs/tailwindcss-aspect-ratio#compatibility-with-default-aspect-ratio-utilities" target="_blank" rel="noreferrer"
+							>See compatibility</a
+						>.
 					</p>
 				</div>
-				<a class="btn btn-ghost" href="https://github.com/tailwindlabs/tailwindcss-aspect-ratio" target="_blank">View</a>
+				<a class="btn btn-ghost" href="https://github.com/tailwindlabs/tailwindcss-aspect-ratio" target="_blank" rel="noreferrer">View</a>
 			</div>
 			<div class="card card-body flex justify-between items-center space-x-4">
 				<div class="space-y-2">
 					<h3>Line Clamp</h3>
 					<p>Provides utilities for visually truncating text.</p>
 				</div>
-				<a class="btn btn-ghost" href="https://github.com/tailwindlabs/tailwindcss-line-clamp" target="_blank">View</a>
+				<a class="btn btn-ghost" href="https://github.com/tailwindlabs/tailwindcss-line-clamp" target="_blank" rel="noreferrer">View</a>
 			</div>
 		</div>
 	</section>

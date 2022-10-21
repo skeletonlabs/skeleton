@@ -158,26 +158,26 @@
 				<p class="hidden md:inline-block w-32">Package</p>
 				<div class="flex items-end space-x-2">
 					<SvgIcon width="w-5" height="h-5" name="npm" />
-					<a href={pageSettings.package?.url} target="_blank">{pageSettings.package?.name}</a>
+					<a href={pageSettings.package?.url} target="_blank" rel="noreferrer">{pageSettings.package?.name}</a>
 				</div>
 				<!-- Source Code -->
 				<p class="hidden md:inline-block w-32">Source</p>
 				<div class="flex items-end space-x-2">
 					<SvgIcon width="w-4" height="h-4" class="!mr-1" name="github" />
-					<a href={`${githubSourcePath}/lib/${pageSettings.source}`} target="_blank">View Source</a>
+					<a href={`${githubSourcePath}/lib/${pageSettings.source}`} target="_blank" rel="noreferrer">View Source</a>
 				</div>
 				<!-- Doc Source -->
 				<p class="hidden md:inline-block w-32">Docs</p>
 				<div class="flex items-end space-x-2">
 					<SvgIcon width="w-4" height="h-4" class="!mr-1" name="book" />
-					<a href={`${githubSourcePath}/routes/(inner)${pageSettings.docs}/+page.svelte`} target="_blank">Doc Source</a>
+					<a href={`${githubSourcePath}/routes/(inner)${pageSettings.docs}/+page.svelte`} target="_blank" rel="noreferrer">Doc Source</a>
 				</div>
 				<!-- Dependencies -->
 				{#if pageSettings.dependencies?.length}
 					<p class="hidden md:inline-block w-32">Dependencies</p>
 					<div class="grid grid-cols-1 gap-2">
 						{#each pageSettings.dependencies as d}
-							<a href={d.url} target="_blank">{d.label}</a>
+							<a href={d.url} target="_blank" rel="noreferrer">{d.label}</a>
 						{/each}
 					</div>
 				{/if}
@@ -286,7 +286,7 @@
 					<section class="space-y-4">
 						{#if d.label}<h2>{d.label}</h2>{/if}
 						{#if d.description}<div>{@html d.description}</div>{/if}
-						{#if d.aria}<p>Adheres to <a href={d.aria} target="_blank">WAI-ARIA guidelines</a> for accessibility.</p>{/if}
+						{#if d.aria}<p>Adheres to <a href={d.aria} target="_blank" rel="noreferrer">WAI-ARIA guidelines</a> for accessibility.</p>{/if}
 						{#if d.headings && d.source}<DataTable headings={d.headings} source={d.source} />{/if}
 					</section>
 				{/each}

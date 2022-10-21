@@ -8,7 +8,7 @@
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Utility,
 		name: 'Local Storage Store',
-		description: 'An extended version of the <a href="https://svelte.dev/tutorial/writable-stores" target="_blank">Svelte writable store</a> that includes pub/sub to local storage.',
+		description: 'An extended version of the <a href="https://svelte.dev/tutorial/writable-stores" target="_blank" rel="noreferrer">Svelte writable store</a> that includes pub/sub to local storage.',
 		imports: ['localStorageStore'],
 		source: 'utilities/LocalStorageStore'
 	};
@@ -24,7 +24,8 @@
 			<p>
 				This operates exactly like a standard Svelte writable store but with the added benefit of automatic persistence via <a
 					href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage"
-					target="_blank">Local Storage</a
+					target="_blank"
+					rel="noreferrer">Local Storage</a
 				>.
 			</p>
 			<CodeBlock
@@ -53,9 +54,9 @@ $storeExample
 		<section class="space-y-4">
 			<h2>Attribution</h2>
 			<p>
-				<a href="https://github.com/joshnuss/svelte-local-storage-store" target="_blank">Source code</a> provided courtesy of <a href="https://github.com/joshnuss" target="_blank">Joshua Nussbaum</a>.
-				Please consider
-				<a href="https://github.com/sponsors/joshnuss" target="_blank">sponsoring his work</a>.
+				<a href="https://github.com/joshnuss/svelte-local-storage-store" target="_blank" rel="noreferrer">Source code</a> provided courtesy of
+				<a href="https://github.com/joshnuss" target="_blank" rel="noreferrer">Joshua Nussbaum</a>. Please consider
+				<a href="https://github.com/sponsors/joshnuss" target="_blank" rel="noreferrer">sponsoring his work</a>.
 			</p>
 		</section>
 	</svelte:fragment>
