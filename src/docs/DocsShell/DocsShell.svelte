@@ -51,7 +51,7 @@
 		// (added)
 		sveld: [],
 		classes: [],
-		ariaApg: undefined,
+		ariaApgLink: undefined,
 		keyboard: []
 	};
 	const pageSettings: DocsShellSettings = { ...defaultSettings, ...settings };
@@ -70,6 +70,19 @@
 	function toastCopied(noun: string): void {
 		const t: ToastMessage = { message: `Copied ${noun} to clipboard.`, timeout: 2000 };
 		toastStore.trigger(t);
+	}
+
+	// Sveld Counts ---
+	// Conditional tab display based on Sveld reference counts
+
+	const sveldCounts = { props: 0, slots: 0, events: 0 };
+
+	if (pageSettings.sveld.length > 0) {
+		pageSettings.sveld.forEach((row) => {
+			sveldCounts.props += row.source.props.length;
+			sveldCounts.slots += row.source.slots.length;
+			sveldCounts.events += row.source.events.length;
+		});
 	}
 
 	// Format ---
@@ -183,18 +196,25 @@
 						{/each}
 					</div>
 				{/if}
+				<!-- Accessibility -->
+				{#if pageSettings.ariaApgLink}
+					<p class="hidden md:inline-block w-32">Accessibility</p>
+					<div class="grid grid-cols-1 gap-2">
+						<a href={pageSettings.ariaApgLink} target="_blank">WAI-ARIA Reference</a>
+					</div>
+				{/if}
 			</section>
 
 			<!-- Tabs -->
 			<TabGroup selected={storeActiveTab} rail={false}>
 				<Tab value="usage">Usage</Tab>
-				<!-- Sveld -->
-				<Tab value="properties">{pageSettings.parameters === true ? 'Params' : 'Props'}</Tab>
-				<Tab value="slots">Slots</Tab>
-				<Tab value="events">Events</Tab>
-				<!-- Page Settings -->
+				<!-- Based on Sveld -->
+				{#if sveldCounts.props > 0}<Tab value="properties">Props</Tab>{/if}
+				{#if sveldCounts.slots > 0}<Tab value="slots">Slots</Tab>{/if}
+				{#if sveldCounts.events > 0}<Tab value="events">Events</Tab>{/if}
+				<!-- Based on Page Settings -->
 				{#if pageSettings.classes?.length}<Tab value="classes">Classes</Tab>{/if}
-				{#if pageSettings.ariaApg || pageSettings.keyboard?.length}<Tab value="a11y">Accessibility</Tab>{/if}
+				{#if pageSettings.keyboard?.length}<Tab value="keyboard">Keyboard</Tab>{/if}
 			</TabGroup>
 		</div>
 	</header>
@@ -232,9 +252,8 @@
 		<!-- Tab: Properties -->
 		{#if $storeActiveTab === 'properties'}
 			<div class="doc-shell-properties {spacing}">
-				<!-- Sveld Docs -->
 				{#each pageSettings.sveld as row}
-					{#if row.docs.props.length}
+					{#if row.source.props.length}
 						{@const table = sveldMapperProps(row)}
 						<section class="space-y-4">
 							<h2>{row.label}</h2>
@@ -249,9 +268,8 @@
 		<!-- Tab: Slots -->
 		{#if $storeActiveTab === 'slots'}
 			<div class="doc-shell-slots {spacing}">
-				<!-- Sveld Docs -->
 				{#each pageSettings.sveld as row}
-					{#if row.docs.slots.length}
+					{#if row.source.slots.length}
 						{@const table = sveldMapperSlots(row)}
 						<section class="space-y-4">
 							<h2>{row.label}</h2>
@@ -266,9 +284,8 @@
 		<!-- Tab: Events -->
 		{#if $storeActiveTab === 'events'}
 			<div class="doc-shell-events {spacing}">
-				<!-- Sveld Docs -->
 				{#each pageSettings.sveld as row}
-					{#if row.docs.events.length}
+					{#if row.source.events.length}
 						{@const table = sveldeMapperEvents(row)}
 						<section class="space-y-4">
 							<h2>{row.label}</h2>
@@ -293,14 +310,10 @@
 			</div>
 		{/if}
 
-		<!-- Tab: A11y -->
-		{#if $storeActiveTab === 'a11y'}
-			<!-- Aria APG Link -->
-			{#if pageSettings.ariaApg}<p>Adheres to <a href={pageSettings.ariaApg} target="_blank">WAI-ARIA guidelines</a> for accessibility.</p>{/if}
-			<!-- Keyboard Interactions -->
+		<!-- Tab: Keyboard Interactions -->
+		{#if $storeActiveTab === 'keyboard'}
 			{#if pageSettings.keyboard?.length}
-				<div class="doc-shell-a11y {spacing}">
-					<h2>Keyboard Interactions</h2>
+				<div class="doc-shell-keyboard {spacing}">
 					<DataTable headings={['Keys', 'Description']} source={pageSettings.keyboard} />
 				</div>
 			{/if}

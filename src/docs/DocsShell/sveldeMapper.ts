@@ -2,7 +2,7 @@ import type { Sveld } from './types';
 
 // Mapper: Props
 export function sveldMapperProps(sveld: Sveld): any {
-	const { props } = sveld.docs;
+	const { props } = sveld.source;
 	// Filter props with undefined types (exclude getContext)
 	const propsFiltered = props.filter((p: any) => p.type !== undefined);
 	// Return table headings/source
@@ -22,7 +22,7 @@ export function sveldMapperProps(sveld: Sveld): any {
 
 // Mapper: Slots
 export function sveldMapperSlots(sveld: Sveld): any {
-	const { slots } = sveld.docs;
+	const { slots } = sveld.source;
 	return {
 		headings: ['Name', 'Default', 'Fallback', 'Props'],
 		source: slots.map((s: any) => {
@@ -39,7 +39,7 @@ export function sveldMapperSlots(sveld: Sveld): any {
 
 // Mapper: Slots
 export function sveldeMapperEvents(sveld: Sveld): any {
-	const { events } = sveld.docs;
+	const { events } = sveld.source;
 	return {
 		headings: ['Name', 'Type', 'Element'],
 		source: events.map((e: any) => {

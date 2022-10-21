@@ -37,7 +37,7 @@
 	$: classesContent = `${padding} ${regionContent}`;
 </script>
 
-<!-- @component This is the AccordianItem description -->
+<!-- @component The Accordion child element. -->
 
 <details bind:open class="accordion-item {classesDetails}" data-testid="accordion-item" on:click>
 	<!-- Summary -->

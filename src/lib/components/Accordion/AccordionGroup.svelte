@@ -45,9 +45,8 @@
 	$: classesBase = `${cBase} ${spacing} ${$$props.class ?? ''}`;
 </script>
 
-<!--
-@component This is the component description
--->
+<!-- @component The Accordion parent element. -->
+
 <div bind:this={elemAccordian} class="accordian-group {classesBase}" data-testid="accordion-group">
 	<slot />
 </div>

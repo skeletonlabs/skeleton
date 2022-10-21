@@ -15,12 +15,12 @@ export interface Sveld {
 	label: string;
 	/** Provide HTML for description region. */
 	description?: string;
-	/** Provide the Sveld docs object. */
-	docs: any;
+	/** Provide the Sveld docs source. */
+	source: any;
 }
 
 export interface DocsShellSettings {
-	/** Enum: Documentation | Element | Component | Action | Utility */
+	/** Documentation | Element | Component | Action | Utility */
 	feature: DocsFeature;
 	/** The feature name. */
 	name: string;
@@ -47,22 +47,17 @@ export interface DocsShellSettings {
 	docsPath?: string;
 	/** Provide list of depedency links.  */
 	dependencies?: DocShellLinks[];
-
-	// -----------
-
-	// TODO: we need to review how we handle params with JSDocs/Sveld\
-
-	/** When enabled, renames tab "Props" to "Params" for Svelte Actions */
-	parameters?: boolean;
-
+	/** WAI-ARIA APG page URL */
+	ariaApgLink?: string;
 	/** Svelde documentation list */
 	sveld: Sveld[];
 	/** Class table source [name, description] */
 	classes?: any[];
-	/** WAI-ARIA APG page URL */
-	ariaApg?: string;
 	/** Keyboard interaction table source [name, description]. */
 	keyboard?: any[];
+	// --- TODO: figure this out for actions ---
+	/** When enabled, renames tab "Props" to "Params" for Svelte Actions */
+	parameters?: boolean;
 }
 
 export interface DocsShellTable {

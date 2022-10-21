@@ -3,11 +3,9 @@
 	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
 
 	// @ts-ignore
-	import docsAccordionGroup from '$lib/components/Accordion/AccordionGroup.svelte?raw&sveld';
+	import sveldAccordionGroup from '$lib/components/Accordion/AccordionGroup.svelte?raw&sveld';
 	// @ts-ignore
-	import docsAccordionItem from '$lib/components/Accordion/AccordionItem.svelte?raw&sveld';
-
-	// console.log({ docsAccordionGroup, docsAccordionItem });
+	import sveldAccordionItem from '$lib/components/Accordion/AccordionItem.svelte?raw&sveld';
 
 	// Components
 	import AccordionGroup from '$lib/components/Accordion/AccordionGroup.svelte';
@@ -24,9 +22,10 @@
 		description: 'Divide content into collapsible sections.',
 		imports: ['AccordionGroup', 'AccordionItem'],
 		source: 'components/Accordion',
+		ariaApgLink: 'https://www.w3.org/WAI/ARIA/apg/example-index/accordion/accordion',
 		sveld: [
-			{ label: 'AccordionGroup', docs: docsAccordionGroup },
-			{ label: 'AccordionItem', docs: docsAccordionItem }
+			{ label: 'AccordionGroup', source: sveldAccordionGroup },
+			{ label: 'AccordionItem', source: sveldAccordionItem }
 		],
 		classes: [
 			{
@@ -45,32 +44,15 @@
 				]
 			}
 		],
-		ariaApg: 'https://www.w3.org/WAI/ARIA/apg/example-index/accordion/accordion',
 		keyboard: [
 			['<kbd>Tab</kbd>', 'Moves focus to the next focusable element.'],
 			['<kbd>Shift + Tab</kbd> ', 'Moves focus to the previous focusable element.'],
 			['<kbd>Space</kbd> or <kbd>Enter</kbd>', 'When focus is on the accordion header toggles the collapsable region open/closed.']
 		]
 	};
-	const slots: DocsShellTable[] = [
-		{
-			label: 'AccordionGroup',
-			headings: ['Name', 'Description'],
-			source: [['<code>default</code>', 'Accepts a set of Tab components.']]
-		},
-		{
-			label: 'AccordionItem',
-			headings: ['Name', 'Required', 'Description'],
-			source: [
-				['<code>lead</code>', '-', 'Allows for an optional leading element, such as an icon.'],
-				['<code>summary</code>', '&check;', 'Provide the summary details of each item.'],
-				['<code>content</code>', '&check;', 'Provide the content details of each item.']
-			]
-		}
-	];
 </script>
 
-<DocsShell {settings} {slots}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="card card-body">
