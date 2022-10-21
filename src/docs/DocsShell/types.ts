@@ -56,6 +56,25 @@ export interface DocsShellTable {
 }
 
 export interface DocsShellComponentRef {
-	name: string,
-	docData: object
+	name: string;
+	docData: object;
+}
+
+export interface ComponentDocs {
+	name?: string;
+	description?: string;
+	props?: PropDocs[];
+	accessibilityProps?: PropDocs[];
+}
+
+export interface PropDocs {
+	name?: string;
+	type?: string;
+	defaultValue?: string;
+	description?: string;
+	tags?: Tags;
+}
+
+export interface Tags {
+	[key: string]: string;
 }

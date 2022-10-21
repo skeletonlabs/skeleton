@@ -1,21 +1,34 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
+	import type { CSSClasses } from '$lib/types';
 
 	// Props
+	/** Defines the default open state on page load.*/
 	export let open: boolean = false;
 	// Props (slot)
 	export let slotSummary: string | undefined = undefined;
 	export let slotContent: string | undefined = undefined;
-	// A11y
+
+	/**Provide semantic ID for ARIA summary element.
+	 * @a11y
+	*/
 	export let summaryId: string | undefined = undefined;
+
+	/**Provide semantic ID for ARIA content element.
+	 * @a11y
+	*/
 	export let contentId: string | undefined = undefined;
 
 	// Context
-	export let hover: string = getContext('hover');
-	export let spacing: string = getContext('spacing');
-	export let padding: string = getContext('padding');
-	export let rounded: string = getContext('rounded');
+	/** Provide classes to set the hover background color. */
+	export let hover: CSSClasses = getContext('hover');
+	/** Provide classes to set spacing between title and description elements. */
+	export let spacing: CSSClasses = getContext('spacing');
+	/** Provide classes to set padding for summary and content regions. */
+	export let padding: CSSClasses = getContext('padding');
+	/** Provide classes to set summary border radius. */
+	export let rounded: CSSClasses = getContext('rounded');
 
 	// Base Classes
 	const cBaseDetails: string = '';
@@ -30,6 +43,7 @@
 	$: classesContent = `${padding} ${slotContent}`;
 </script>
 
+<!-- @component This is the AccordianItem description-->
 <details bind:open class="accordion-item {classesDetails}" data-testid="accordion-item">
 	<!-- Summary -->
 	<summary id={summaryId} class="accordion-summary {classesSummary}" aria-expanded={open} aria-controls={contentId}>

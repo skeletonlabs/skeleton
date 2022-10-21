@@ -103,12 +103,10 @@
 		navigator.clipboard.writeText(formatStylesheet(stylesheet));
 		toastCopied('stylesheet');
 	}
-	console.log('raw data', components);
-	// if (!components == undefined) {
-	// 	console.log("sending data:", components)
+	
+	if (components != undefined) {
 		let componentsDocData = SveldOutputParser(components);
-	// 	console.log('received data:', componentsDocData);
-	// }
+	}
 
 	// Reactive
 	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
