@@ -3,7 +3,7 @@
 	import { writable, type Writable } from 'svelte/store';
 
 	// Types
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable, type DocsShellComponentRef } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
 
 	// Components
 	import DataTable from '$lib/components/Table/DataTable.svelte';
@@ -13,16 +13,10 @@
 
 	// Utilities
 	import { toastStore, type ToastMessage } from '$lib/utilities/Toast/stores';
-	import { SveldOutputParser } from './sveldParser';
+	import { sveldMapperProps, sveldMapperSlots, sveldeMapperEvents } from './sveldeMapper';
 
 	// Props
 	export let settings: DocsShellSettings;
-	export let components: DocsShellComponentRef | DocsShellComponentRef[] | undefined = undefined;
-	export let properties: DocsShellTable[] | undefined = undefined;
-	export let events: DocsShellTable[] | undefined = undefined;
-	export let classes: DocsShellTable[] | undefined = undefined;
-	export let slots: DocsShellTable[] | undefined = undefined;
-	export let a11y: DocsShellTable[] | undefined = undefined;
 	// Props (styles)
 	export let spacing: string = 'space-y-8';
 	// Props (regions)
@@ -50,10 +44,15 @@
 		stylesheets: [],
 		package: { name: '@brainandbones/skeleton', url: 'https://www.npmjs.com/package/@brainandbones/skeleton' },
 		source: '',
-		docs: $page.url.pathname,
+		docsPath: $page.url.pathname,
 		dependencies: [],
 		// Extras
-		parameters: false
+		parameters: false,
+		// (added)
+		sveld: [],
+		classes: [],
+		ariaApg: undefined,
+		keyboard: []
 	};
 	const pageSettings: DocsShellSettings = { ...defaultSettings, ...settings };
 
@@ -102,10 +101,6 @@
 	function copyStylesheet(stylesheet: string): void {
 		navigator.clipboard.writeText(formatStylesheet(stylesheet));
 		toastCopied('stylesheet');
-	}
-	
-	if (components != undefined) {
-		let componentsDocData = SveldOutputParser(components);
 	}
 
 	// Reactive
@@ -177,7 +172,7 @@
 				<p class="hidden md:inline-block w-32">Docs</p>
 				<div class="flex items-end space-x-2">
 					<SvgIcon width="w-4" height="h-4" class="!mr-1" name="book" />
-					<a href={`${githubSourcePath}/routes/(inner)${pageSettings.docs}/+page.svelte`} target="_blank">Doc Source</a>
+					<a href={`${githubSourcePath}/routes/(inner)${pageSettings.docsPath}/+page.svelte`} target="_blank">Doc Source</a>
 				</div>
 				<!-- Dependencies -->
 				{#if pageSettings.dependencies?.length}
@@ -193,13 +188,13 @@
 			<!-- Tabs -->
 			<TabGroup selected={storeActiveTab} rail={false}>
 				<Tab value="usage">Usage</Tab>
-				{#if properties && properties.length}<Tab value="properties">
-						{pageSettings.parameters === true ? 'Params' : 'Props'}
-					</Tab>{/if}
-				{#if events && events.length}<Tab value="events">Events</Tab>{/if}
-				{#if classes && classes.length}<Tab value="classes">Classes</Tab>{/if}
-				{#if slots && slots.length}<Tab value="slots">Slots</Tab>{/if}
-				{#if a11y && a11y.length}<Tab value="a11y">Accessibility</Tab>{/if}
+				<!-- Sveld -->
+				<Tab value="properties">{pageSettings.parameters === true ? 'Params' : 'Props'}</Tab>
+				<Tab value="slots">Slots</Tab>
+				<Tab value="events">Events</Tab>
+				<!-- Page Settings -->
+				{#if pageSettings.classes?.length}<Tab value="classes">Classes</Tab>{/if}
+				{#if pageSettings.ariaApg || pageSettings.keyboard?.length}<Tab value="a11y">Accessibility</Tab>{/if}
 			</TabGroup>
 		</div>
 	</header>
@@ -235,69 +230,80 @@
 		{/if}
 
 		<!-- Tab: Properties -->
-		{#if properties && properties.length && $storeActiveTab === 'properties'}
+		{#if $storeActiveTab === 'properties'}
 			<div class="doc-shell-properties {spacing}">
-				{#each properties as d}
-					<section class="space-y-4">
-						{#if d.label}<h2>{d.label}</h2>{/if}
-						{#if d.description}<div>{@html d.description}</div>{/if}
-						{#if d.headings && d.source}<DataTable headings={d.headings} source={d.source} />{/if}
-					</section>
-				{/each}
-			</div>
-		{/if}
-
-		<!-- Tab: Events -->
-		{#if events && events.length && $storeActiveTab === 'events'}
-			<div class="doc-shell-events {spacing}">
-				{#each events as d}
-					<section class="space-y-4">
-						{#if d.label}<h2>{d.label}</h2>{/if}
-						{#if d.description}<div>{@html d.description}</div>{/if}
-						{#if d.headings && d.source}<DataTable headings={d.headings} source={d.source} />{/if}
-					</section>
-				{/each}
-			</div>
-		{/if}
-
-		<!-- Tab: Classes -->
-		{#if classes && classes.length && $storeActiveTab === 'classes'}
-			<div class="doc-shell-classes {spacing}">
-				{#each classes as d}
-					<section class="space-y-4">
-						{#if d.label}<h2>{d.label}</h2>{/if}
-						{#if d.description}<div>{@html d.description}</div>{/if}
-						{#if d.headings && d.source}<DataTable headings={d.headings} source={d.source} />{/if}
-					</section>
+				<!-- Sveld Docs -->
+				{#each pageSettings.sveld as row}
+					{#if row.docs.props.length}
+						{@const table = sveldMapperProps(row)}
+						<section class="space-y-4">
+							<h2>{row.label}</h2>
+							{#if row.description}<div>{@html row.description}</div>{/if}
+							<DataTable headings={table.headings} source={table.source} />
+						</section>
+					{/if}
 				{/each}
 			</div>
 		{/if}
 
 		<!-- Tab: Slots -->
-		{#if slots && slots.length && $storeActiveTab === 'slots'}
+		{#if $storeActiveTab === 'slots'}
 			<div class="doc-shell-slots {spacing}">
-				{#each slots as d}
+				<!-- Sveld Docs -->
+				{#each pageSettings.sveld as row}
+					{#if row.docs.slots.length}
+						{@const table = sveldMapperSlots(row)}
+						<section class="space-y-4">
+							<h2>{row.label}</h2>
+							{#if row.description}<div>{@html row.description}</div>{/if}
+							<DataTable headings={table.headings} source={table.source} />
+						</section>
+					{/if}
+				{/each}
+			</div>
+		{/if}
+
+		<!-- Tab: Events -->
+		{#if $storeActiveTab === 'events'}
+			<div class="doc-shell-events {spacing}">
+				<!-- Sveld Docs -->
+				{#each pageSettings.sveld as row}
+					{#if row.docs.events.length}
+						{@const table = sveldeMapperEvents(row)}
+						<section class="space-y-4">
+							<h2>{row.label}</h2>
+							{#if row.description}<div>{@html row.description}</div>{/if}
+							<DataTable headings={table.headings} source={table.source} />
+						</section>
+					{/if}
+				{/each}
+			</div>
+		{/if}
+
+		<!-- Tab: Classes -->
+		{#if pageSettings.classes?.length && $storeActiveTab === 'classes'}
+			<div class="doc-shell-classes {spacing}">
+				{#each pageSettings.classes as d}
 					<section class="space-y-4">
 						{#if d.label}<h2>{d.label}</h2>{/if}
 						{#if d.description}<div>{@html d.description}</div>{/if}
-						{#if d.headings && d.source}<DataTable headings={d.headings} source={d.source} />{/if}
+						{#if d.source}<DataTable headings={['Keys', 'Description']} source={d.source} />{/if}
 					</section>
 				{/each}
 			</div>
 		{/if}
 
 		<!-- Tab: A11y -->
-		{#if a11y && a11y.length && $storeActiveTab === 'a11y'}
-			<div class="doc-shell-a11y {spacing}">
-				{#each a11y as d}
-					<section class="space-y-4">
-						{#if d.label}<h2>{d.label}</h2>{/if}
-						{#if d.description}<div>{@html d.description}</div>{/if}
-						{#if d.aria}<p>Adheres to <a href={d.aria} target="_blank">WAI-ARIA guidelines</a> for accessibility.</p>{/if}
-						{#if d.headings && d.source}<DataTable headings={d.headings} source={d.source} />{/if}
-					</section>
-				{/each}
-			</div>
+		{#if $storeActiveTab === 'a11y'}
+			<!-- Aria APG Link -->
+			{#if pageSettings.ariaApg}<p>Adheres to <a href={pageSettings.ariaApg} target="_blank">WAI-ARIA guidelines</a> for accessibility.</p>{/if}
+			<!-- Keyboard Interactions -->
+			{#if pageSettings.keyboard?.length}
+				<div class="doc-shell-a11y {spacing}">
+					<h2>Keyboard Interactions</h2>
+					<DataTable headings={['Keys', 'Description']} source={pageSettings.keyboard} />
+				</div>
+			{/if}
 		{/if}
 	</div>
 </div>

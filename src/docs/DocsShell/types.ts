@@ -10,6 +10,15 @@ interface DocShellLinks {
 	url: string;
 }
 
+export interface Sveld {
+	/** Provide a semantic label. */
+	label: string;
+	/** Provide HTML for description region. */
+	description?: string;
+	/** Provide the Sveld docs object. */
+	docs: any;
+}
+
 export interface DocsShellSettings {
 	/** Enum: Documentation | Element | Component | Action | Utility */
 	feature: DocsFeature;
@@ -35,11 +44,25 @@ export interface DocsShellSettings {
 	/** Specify the source path (partials) */
 	source: string;
 	/** Provide the GitHub documentation route path (partial) */
-	docs?: string;
+	docsPath?: string;
 	/** Provide list of depedency links.  */
 	dependencies?: DocShellLinks[];
+
+	// -----------
+
+	// TODO: we need to review how we handle params with JSDocs/Sveld\
+
 	/** When enabled, renames tab "Props" to "Params" for Svelte Actions */
 	parameters?: boolean;
+
+	/** Svelde documentation list */
+	sveld: Sveld[];
+	/** Class table source [name, description] */
+	classes?: any[];
+	/** WAI-ARIA APG page URL */
+	ariaApg?: string;
+	/** Keyboard interaction table source [name, description]. */
+	keyboard?: any[];
 }
 
 export interface DocsShellTable {
@@ -52,29 +75,5 @@ export interface DocsShellTable {
 	/** Provide the table source data. */
 	source?: string[][];
 	/** WAI-ARIA APG page link. */
-	aria?: string;
-}
-
-export interface DocsShellComponentRef {
-	name: string;
-	docData: object;
-}
-
-export interface ComponentDocs {
-	name?: string;
-	description?: string;
-	props?: PropDocs[];
-	accessibilityProps?: PropDocs[];
-}
-
-export interface PropDocs {
-	name?: string;
-	type?: string;
-	defaultValue?: string;
-	description?: string;
-	tags?: Tags;
-}
-
-export interface Tags {
-	[key: string]: string;
+	aria?: string; // TODO: remove this
 }
