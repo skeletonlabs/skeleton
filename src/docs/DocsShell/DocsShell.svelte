@@ -13,7 +13,7 @@
 
 	// Utilities
 	import { toastStore, type ToastMessage } from '$lib/utilities/Toast/stores';
-	import { sveldMapperProps, sveldMapperSlots, sveldeMapperEvents } from './sveldeMapper';
+	import { sveldMapperProps, sveldMapperSlots, sveldeMapperEvents } from './sveldMapper';
 
 	// Props
 	export let settings: DocsShellSettings;
