@@ -34,7 +34,7 @@
 			source: [
 				['<code>.conic-gradient</code>', 'The parent element.'],
 				['<code>.conic-caption</code>', 'The figcaption element.'],
-				['<code>.concic-cone</code>', 'The chart element.'],
+				['<code>.conic-cone</code>', 'The chart element.'],
 				['<code>.conic-list</code>', 'The legend list.'],
 				['<code>.conic-item</code>', 'Legend list items.'],
 				['<code>.conic-swatch</code>', 'Legend swatch elements.'],
@@ -58,7 +58,7 @@
 	];
 	const stopsVars: ConicStop[] = [
 		{ label: 'Primary', color: 'rgb(var(--color-primary-500))', start: 0, end: 33 },
-		{ label: 'Acccent', color: 'rgb(var(--color-warning-500))', start: 33, end: 66 },
+		{ label: 'Accent', color: 'rgb(var(--color-warning-500))', start: 33, end: 66 },
 		{ label: 'Warning', color: 'rgb(var(--color-accent-500))', start: 66, end: 100 }
 	];
 	const stopsSpinner: ConicStop[] = [
@@ -92,7 +92,7 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<div class="space-y-4">
-			<p>Provde one or more color stops that start at <em>0%</em> and end at <em>100%</em>. The data set below will create a half red/green conic gradient.</p>
+			<p>Provide one or more color stops that start at <em>0%</em> and end at <em>100%</em>. The data set below will create a half red/green conic gradient.</p>
 			<CodeBlock
 				language="ts"
 				code={`
@@ -129,7 +129,7 @@ const conicStops: ConicStop[] = [
 				code={`
 const conicStops: ConicStop[] = [
 	{ label: 'Primary', color: 'rgb(var(--color-primary-500))', start: 0, end: 33 },
-	{ label: 'Acccent', color: 'rgb(var(--color-warning-500))', start: 33, end: 66 },
+	{ label: 'Accent', color: 'rgb(var(--color-warning-500))', start: 33, end: 66 },
 	{ label: 'Warning', color: 'rgb(var(--color-accent-500))', start: 66, end: 100 }
 ];`}
 			/>
