@@ -3,18 +3,21 @@
 	import { writable, type Writable } from 'svelte/store';
 
 	// Types
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings, type DocsShellTable, type DocsShellComponentRef } from '$docs/DocsShell/types';
 
 	// Components
 	import DataTable from '$lib/components/Table/DataTable.svelte';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	import Tab from '$lib/components/Tab/Tab.svelte';
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
+
 	// Utilities
 	import { toastStore, type ToastMessage } from '$lib/utilities/Toast/stores';
+	import { SveldOutputParser } from './sveldParser';
 
 	// Props
 	export let settings: DocsShellSettings;
+	export let components: DocsShellComponentRef | DocsShellComponentRef[] | undefined = undefined;
 	export let properties: DocsShellTable[] | undefined = undefined;
 	export let events: DocsShellTable[] | undefined = undefined;
 	export let classes: DocsShellTable[] | undefined = undefined;
@@ -100,6 +103,12 @@
 		navigator.clipboard.writeText(formatStylesheet(stylesheet));
 		toastCopied('stylesheet');
 	}
+	console.log('raw data', components);
+	// if (!components == undefined) {
+	// 	console.log("sending data:", components)
+		let componentsDocData = SveldOutputParser(components);
+	// 	console.log('received data:', componentsDocData);
+	// }
 
 	// Reactive
 	$: classesBase = `${cBase} ${$$props.class ?? ''}`;

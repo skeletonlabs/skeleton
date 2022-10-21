@@ -1,6 +1,8 @@
 <script lang="ts">
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings, type DocsShellTable, type DocsShellComponentRef } from '$docs/DocsShell/types';
+	import AccordionGroupDocs from '$lib/components/Accordion/AccordionGroup.svelte?raw&sveld';
+	import AccordionItemDocs from '$lib/components/Accordion/AccordionItem.svelte?raw&sveld';
 
 	// Components
 	import AccordionGroup from '$lib/components/Accordion/AccordionGroup.svelte';
@@ -96,9 +98,11 @@
 			]
 		}
 	];
+	let components: DocsShellComponentRef[] = [{name:"AccordionGroup", docData: AccordionGroupDocs},{name: "AccordionItem", docData: AccordionItemDocs}];
+	// let components: DocsShellComponentRef = {name:"AccordionGroup", docData: AccordionGroupDocs}
 </script>
 
-<DocsShell {settings} {properties} {classes} {slots} {a11y}>
+<DocsShell {settings} {properties} {classes} {slots} {a11y} {components}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="card card-body">

@@ -54,3 +54,8 @@ export interface DocsShellTable {
 	/** WAI-ARIA APG page link. */
 	aria?: string;
 }
+
+export interface DocsShellComponentRef {
+	name: string,
+	docData: object
+}
