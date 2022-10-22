@@ -54,13 +54,13 @@
 		<CodeBlock
 			language="html"
 			code={`
-\<script>
+<script>
     import "@brainandbones/skeleton/themes/theme-skeleton.css";
     import "@brainandbones/skeleton/styles/all.css";
     import "../app.postcss";
 
-    import { AppShell, AppBar, GradientHeading } from "@brainandbones/skeleton";
-\</script\>
+    import { AppShell, AppBar } from "@brainandbones/skeleton";
+</script\>
 
 <AppShell>
     <!-- Header -->
@@ -126,6 +126,10 @@
 		<CodeBlock
 			language="html"
 			code={`
+<script>
+    import { GradientHeading } from "@brainandbones/skeleton";
+</script\>
+
 <div class="container mx-auto p-8 space-y-8">
 	<h1>Hello Skeleton</h1>
 	<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
