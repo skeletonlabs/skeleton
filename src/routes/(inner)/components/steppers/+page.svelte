@@ -4,10 +4,15 @@
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
 
-	import Step from '$lib/components/Stepper/Step.svelte';
 	import Stepper from '$lib/components/Stepper/Stepper.svelte';
+	import Step from '$lib/components/Stepper/Step.svelte';
 	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+
+	// @ts-ignore
+	import sveldStepper from '$lib/components/Stepper/Stepper.svelte?raw&sveld';
+	// @ts-ignore
+	import sveldStep from '$lib/components/Stepper/Step.svelte?raw&sveld';
 
 	// Stores
 	const active: Writable<number> = writable(0);
@@ -18,74 +23,76 @@
 		name: 'Steppers',
 		description: 'Divide and present content in sequenced steps.',
 		imports: ['Stepper', 'Step'],
-		source: 'components/Stepper'
+		source: 'components/Stepper',
+		sveld: [
+			{ label: 'Stepper', source: sveldStepper },
+			{ label: 'Step', source: sveldStep }
+		],
+		classes: [
+			{
+				label: 'Stepper',
+				source: [['<code>.stepper</code>', 'The parent element.']]
+			},
+			{
+				label: 'Step',
+				source: [
+					['<code>.step</code>', 'The parent element.'],
+					['<code>.step-timeline</code>', 'The left side timeline element.'],
+					['<code>.step-numeral</code>', 'The timeline numeral elements.'],
+					['<code>.step-line</code>', 'The timeline vertical line element.'],
+					['<code>.step-content</code>', 'The right side content region.'],
+					['<code>.step-header</code>', 'The content header region.'],
+					['<code>.step-body</code>', 'The content body region.'],
+					['<code>.step-navigation</code>', 'The content navigation region.']
+				]
+			}
+		]
 	};
-	const properties: DocsShellTable[] = [
-		{
-			label: 'Stepper',
-			headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
-			source: [
-				['<code>active</code>', 'Writable<number>', 'writable(0)', '&check;', 'Provide a writable which stores the actively selected step state.'],
-				['<code>length</code>', 'number', '0', '&check;', 'Provide a count of the total number of Steps (children).'],
-				['<code>duration</code>', 'number', '200', '-', 'Set the Svelte transition duration.'],
-				['<code>color</code>', 'string', 'text-white', '-', 'Provide classes to set the numeral text color.'],
-				['<code>background</code>', 'string', 'bg-accent-500', '-', 'Provide classes to set the timeline background color.'],
-				['<code>buttonBack</code>', 'string', 'btn-ghost', '-', 'Provide <a href="/elements/buttons">Button element</a> classes.'],
-				['<code>buttonNext</code>', 'string', 'btn-filled', '-', 'Provide <a href="/elements/buttons">Button element</a> classes.'],
-				['<code>buttonComplete</code>', 'string', 'btn-filled-primary', '-', 'Provide <a href="/elements/buttons">Button element</a> classes.']
-			]
-		},
-		{
-			label: 'Step',
-			headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
-			source: [
-				['<code>index</code>', 'number', '-', '&check;', 'Indicates the step index value. Should start with 0 (zero)'],
-				['<code>locked</code>', 'boolean', 'false', '-', 'When enabled, a lock icon appears and the Next button is disabled. This prevents progress.']
-			]
-		}
-	];
-	const events: DocsShellTable[] = [
-		{
-			headings: ['Prop', 'Description'],
-			source: [['<code>on:complete</code>', `Triggers when the final step's <em>Complete</em> button is pressed.`]]
-		}
-	];
-	const classes: DocsShellTable[] = [
-		{
-			label: 'Stepper',
-			headings: ['Selector', 'Description'],
-			source: [['<code>.stepper</code>', 'The parent element.']]
-		},
-		{
-			label: 'Step',
-			headings: ['Selector', 'Description'],
-			source: [
-				['<code>.step</code>', 'The parent element.'],
-				['<code>.step-timeline</code>', 'The left side timeline element.'],
-				['<code>.step-numeral</code>', 'The timeline numeral elements.'],
-				['<code>.step-line</code>', 'The timeline vertical line element.'],
-				['<code>.step-content</code>', 'The right side content region.'],
-				['<code>.step-header</code>', 'The content header region.'],
-				['<code>.step-body</code>', 'The content body region.'],
-				['<code>.step-navigation</code>', 'The content navigation region.']
-			]
-		}
-	];
-	const slots: DocsShellTable[] = [
-		{
-			label: 'Stepper',
-			headings: ['Name', 'Description'],
-			source: [['<code>default</code>', 'Accepts a set of Step components.']]
-		},
-		{
-			label: 'Step',
-			headings: ['Name', 'Description'],
-			source: [
-				['<code>default</code>', 'Provide the content for the step.'],
-				['<code>header</code>', 'Override the auto-generated heading with your own value. Typically a step title.']
-			]
-		}
-	];
+	// const properties: DocsShellTable[] = [
+	// 	{
+	// 		label: 'Stepper',
+	// 		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
+	// 		source: [
+	// 			['<code>active</code>', 'Writable<number>', 'writable(0)', '&check;', 'Provide a writable which stores the actively selected step state.'],
+	// 			['<code>length</code>', 'number', '0', '&check;', 'Provide a count of the total number of Steps (children).'],
+	// 			['<code>duration</code>', 'number', '200', '-', 'Set the Svelte transition duration.'],
+	// 			['<code>color</code>', 'string', 'text-white', '-', 'Provide classes to set the numeral text color.'],
+	// 			['<code>background</code>', 'string', 'bg-accent-500', '-', 'Provide classes to set the timeline background color.'],
+	// 			['<code>buttonBack</code>', 'string', 'btn-ghost', '-', 'Provide <a href="/elements/buttons">Button element</a> classes.'],
+	// 			['<code>buttonNext</code>', 'string', 'btn-filled', '-', 'Provide <a href="/elements/buttons">Button element</a> classes.'],
+	// 			['<code>buttonComplete</code>', 'string', 'btn-filled-primary', '-', 'Provide <a href="/elements/buttons">Button element</a> classes.']
+	// 		]
+	// 	},
+	// 	{
+	// 		label: 'Step',
+	// 		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
+	// 		source: [
+	// 			['<code>index</code>', 'number', '-', '&check;', 'Indicates the step index value. Should start with 0 (zero)'],
+	// 			['<code>locked</code>', 'boolean', 'false', '-', 'When enabled, a lock icon appears and the Next button is disabled. This prevents progress.']
+	// 		]
+	// 	}
+	// ];
+	// const events: DocsShellTable[] = [
+	// 	{
+	// 		headings: ['Prop', 'Description'],
+	// 		source: [['<code>on:complete</code>', `Triggers when the final step's <em>Complete</em> button is pressed.`]]
+	// 	}
+	// ];
+	// const slots: DocsShellTable[] = [
+	// 	{
+	// 		label: 'Stepper',
+	// 		headings: ['Name', 'Description'],
+	// 		source: [['<code>default</code>', 'Accepts a set of Step components.']]
+	// 	},
+	// 	{
+	// 		label: 'Step',
+	// 		headings: ['Name', 'Description'],
+	// 		source: [
+	// 			['<code>default</code>', 'Provide the content for the step.'],
+	// 			['<code>header</code>', 'Override the auto-generated heading with your own value. Typically a step title.']
+	// 		]
+	// 	}
+	// ];
 
 	// Local
 	const lorem: string =
@@ -97,7 +104,7 @@
 	};
 </script>
 
-<DocsShell {settings} {properties} {events} {classes} {slots}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="card card-body">

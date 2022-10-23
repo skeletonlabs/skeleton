@@ -1,6 +1,6 @@
 <script lang="ts">
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	// @ts-ignore
 	import sveldAccordionGroup from '$lib/components/Accordion/AccordionGroup.svelte?raw&sveld';
@@ -22,10 +22,10 @@
 		description: 'Divide content into collapsible sections.',
 		imports: ['AccordionGroup', 'AccordionItem'],
 		source: 'components/Accordion',
-		ariaApgLink: 'https://www.w3.org/WAI/ARIA/apg/example-index/accordion/accordion',
+		aria: 'https://www.w3.org/WAI/ARIA/apg/example-index/accordion/accordion',
 		sveld: [
 			{ label: 'AccordionGroup', source: sveldAccordionGroup },
-			{ label: 'AccordionItem', description: 'Overrides: hover, spacing, padding, rounded', source: sveldAccordionItem }
+			{ label: 'AccordionItem', source: sveldAccordionItem }
 		],
 		classes: [
 			{

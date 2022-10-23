@@ -1,11 +1,14 @@
 <script lang="ts">
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	import Alert from '$lib/components/Alert/Alert.svelte';
 	import AppShell from '$lib/components/AppShell/AppShell.svelte';
 	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+
+	// @ts-ignore
+	import sveldAppShell from '$lib/components/AppShell/AppShell.svelte?raw&sveld';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -13,36 +16,37 @@
 		name: 'App Shell',
 		description: 'Responsive shell for controlling application layout.',
 		imports: ['AppShell'],
-		source: 'components/AppShell'
+		source: 'components/AppShell',
+		sveld: [{ source: sveldAppShell }]
 	};
-	const properties: DocsShellTable[] = [
-		{
-			headings: ['Prop', 'Type', 'Default', 'Description'],
-			source: [
-				['<code>slotHeader</code>', 'string', '-', 'Provide arbitrary classes to the header slot element.'],
-				['<code>slotSidebarLeft</code>', 'string', 'w-auto', 'Provide arbitrary classes to the left sidebar element.'],
-				['<code>slotSidebarRight</code>', 'string', 'w-auto', 'Provide arbitrary classes to the right sidebar element.'],
-				['<code>slotPageHeader</code>', 'string', '-', 'Provide arbitrary classes to the page header element.'],
-				['<code>slotPageContent</code>', 'string', '-', 'Provide arbitrary classes to the page content element.'],
-				['<code>slotPageFooter</code>', 'string', '-', 'Provide arbitrary classes to the page footer element.'],
-				['<code>slotFooter</code>', 'string', '-', 'Provide arbitrary classes to the footer element.']
-			]
-		}
-	];
-	const slots: DocsShellTable[] = [
-		{
-			headings: ['Name', 'Description'],
-			source: [
-				['<code>default</code>', 'Your page content. Insert your router slot here.'],
-				['<code>header</code>', 'Insert fixed header content, such as the <a href="/components/app-bar">AppBar component</a>.'],
-				['<code>sidebarLeft</code>', 'Hidden when empty. Allows you to set fixed left sidebar content.'],
-				['<code>sidebarRight</code>', 'Hidden when empty. Allows you to set fixed right sidebar content.'],
-				['<code>pageHeader</code>', 'Insert content that resides above your page content. Great for global alerts.'],
-				['<code>pageFooter</code>', 'Insert content that resides below your page content. Recommended for most layouts.'],
-				['<code>footer</code>', 'Insert fixed footer content. Not recommended for most layouts.']
-			]
-		}
-	];
+	// const properties: DocsShellTable[] = [
+	// 	{
+	// 		headings: ['Prop', 'Type', 'Default', 'Description'],
+	// 		source: [
+	// 			['<code>slotHeader</code>', 'string', '-', 'Provide arbitrary classes to the header slot element.'],
+	// 			['<code>slotSidebarLeft</code>', 'string', 'w-auto', 'Provide arbitrary classes to the left sidebar element.'],
+	// 			['<code>slotSidebarRight</code>', 'string', 'w-auto', 'Provide arbitrary classes to the right sidebar element.'],
+	// 			['<code>slotPageHeader</code>', 'string', '-', 'Provide arbitrary classes to the page header element.'],
+	// 			['<code>slotPageContent</code>', 'string', '-', 'Provide arbitrary classes to the page content element.'],
+	// 			['<code>slotPageFooter</code>', 'string', '-', 'Provide arbitrary classes to the page footer element.'],
+	// 			['<code>slotFooter</code>', 'string', '-', 'Provide arbitrary classes to the footer element.']
+	// 		]
+	// 	}
+	// ];
+	// const slots: DocsShellTable[] = [
+	// 	{
+	// 		headings: ['Name', 'Description'],
+	// 		source: [
+	// 			['<code>default</code>', 'Your page content. Insert your router slot here.'],
+	// 			['<code>header</code>', 'Insert fixed header content, such as the <a href="/components/app-bar">AppBar component</a>.'],
+	// 			['<code>sidebarLeft</code>', 'Hidden when empty. Allows you to set fixed left sidebar content.'],
+	// 			['<code>sidebarRight</code>', 'Hidden when empty. Allows you to set fixed right sidebar content.'],
+	// 			['<code>pageHeader</code>', 'Insert content that resides above your page content. Great for global alerts.'],
+	// 			['<code>pageFooter</code>', 'Insert content that resides below your page content. Recommended for most layouts.'],
+	// 			['<code>footer</code>', 'Insert fixed footer content. Not recommended for most layouts.']
+	// 		]
+	// 	}
+	// ];
 
 	// Local
 	let state: any = {
@@ -55,7 +59,7 @@
 	};
 </script>
 
-<DocsShell {settings} {properties} {slots}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4">

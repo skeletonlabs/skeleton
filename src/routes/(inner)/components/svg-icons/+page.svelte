@@ -3,8 +3,12 @@
 	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
 
 	import { icons } from '$lib/components/SvgIcon/icons';
+
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+
+	// @ts-ignore
+	import sveldSvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte?raw&sveld';
 
 	// Local
 	const iconKeys = Object.keys(icons);
@@ -15,40 +19,41 @@
 		name: 'SVG Icons',
 		description: 'Display and customize SVG images and icons.',
 		imports: ['SvgIcon'],
-		source: 'components/SvgIcon'
+		source: 'components/SvgIcon',
+		sveld: [{ source: sveldSvgIcon }]
 	};
-	const properties: DocsShellTable[] = [
-		{
-			headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
-			source: [
-				['<code>name</code>', 'string', 'image', '-', 'Pass canned svg name. Slot value overrides this.'],
-				['<code>x</code>', 'string', '0px', '-', 'Native X attribute for the svg element.'],
-				['<code>y</code>', 'string', '0px', '-', 'Native Y attribute for the svg element.'],
-				['<code>viewBox</code>', 'string', '0 0 512 512', '-', 'Native viewBox attribute for the svg element.'],
-				['<code>fill</code>', 'string', 'fill-token', '-', 'Provide classes to set the SVG fill color.'],
-				['<code>width</code>', 'string', 'w-5', '-', 'Provide classes to set the width color.'],
-				['<code>height</code>', 'string', 'w-5', '-', 'Provide classes to set the height color.']
-			]
-		}
-	];
-	const slots: DocsShellTable[] = [
-		{
-			headings: ['Name', 'Description'],
-			source: [['<code>default</code>', 'Allows you to supply any path or similar elements within the SVG tags.']]
-		}
-	];
-	const a11y: DocsShellTable[] = [
-		{
-			headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
-			source: [
-				['<code>title</code>', 'string', '-', '-', 'Set the title element value embedded within the SVG.'],
-				['<code>tabindex</code>', 'number', '-1', '-', 'Provide a tab index value.']
-			]
-		}
-	];
+	// const properties: DocsShellTable[] = [
+	// 	{
+	// 		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
+	// 		source: [
+	// 			['<code>name</code>', 'string', 'image', '-', 'Pass canned svg name. Slot value overrides this.'],
+	// 			['<code>x</code>', 'string', '0px', '-', 'Native X attribute for the svg element.'],
+	// 			['<code>y</code>', 'string', '0px', '-', 'Native Y attribute for the svg element.'],
+	// 			['<code>viewBox</code>', 'string', '0 0 512 512', '-', 'Native viewBox attribute for the svg element.'],
+	// 			['<code>fill</code>', 'string', 'fill-token', '-', 'Provide classes to set the SVG fill color.'],
+	// 			['<code>width</code>', 'string', 'w-5', '-', 'Provide classes to set the width color.'],
+	// 			['<code>height</code>', 'string', 'w-5', '-', 'Provide classes to set the height color.']
+	// 		]
+	// 	}
+	// ];
+	// const slots: DocsShellTable[] = [
+	// 	{
+	// 		headings: ['Name', 'Description'],
+	// 		source: [['<code>default</code>', 'Allows you to supply any path or similar elements within the SVG tags.']]
+	// 	}
+	// ];
+	// const a11y: DocsShellTable[] = [
+	// 	{
+	// 		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
+	// 		source: [
+	// 			['<code>title</code>', 'string', '-', '-', 'Set the title element value embedded within the SVG.'],
+	// 			['<code>tabindex</code>', 'number', '-1', '-', 'Provide a tab index value.']
+	// 		]
+	// 	}
+	// ];
 </script>
 
-<DocsShell {settings} {properties} {slots} {a11y}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-3 lg:grid-cols-6 gap-4">

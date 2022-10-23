@@ -3,7 +3,7 @@
 	import type { ConicStop } from './types';
 
 	// Props
-	export let stops: ConicStop[] = [{ label: 'Progress', color: ['neutral', 500], start: 0, end: 100 }];
+	export let stops: ConicStop[] = [{ color: ['neutral', 500], start: 0, end: 100 }];
 	export let legend: boolean = false;
 	export let spin: boolean = false;
 	export let width: string = 'w-full';

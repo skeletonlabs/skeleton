@@ -12,20 +12,19 @@
 		description: 'Provides a grid for presenting a set of logos, brands, or sponsors.',
 		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/logo-clouds'],
-		source: 'styles/elements/logo-clouds.css'
+		source: 'styles/elements/logo-clouds.css',
+		classes: [
+			{
+				source: [
+					['<code>.logo-cloud</code>', 'Apply to a wrapping block element around a set of logos.'],
+					['<code>.logo-item</code>', 'Apply to each logo child element.']
+				]
+			}
+		]
 	};
-	const classes: DocsShellTable[] = [
-		{
-			headings: ['Class', 'Description'],
-			source: [
-				['<code>.logo-cloud</code>', 'Apply to a wrapping block element around a set of logos.'],
-				['<code>.logo-item</code>', 'Apply to each logo child element.']
-			]
-		}
-	];
 </script>
 
-<DocsShell {settings} {classes}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 gap-4">

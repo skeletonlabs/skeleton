@@ -12,20 +12,19 @@
 		description: 'Allows you to quickly copy select data to the clipboard.',
 		imports: ['clipboard'],
 		source: 'actions/Clipboard',
-		parameters: true
+		parameters: [
+			{
+				headings: ['Key', 'Type', 'Description'],
+				source: [
+					['<code>element</code>', 'string', `HTML element's <em>data-clipboard</em> ID value.`],
+					['<code>input</code>', 'string', `Input element's <em>data-clipboard</em> ID value.`]
+				]
+			}
+		]
 	};
-	const properties: DocsShellTable[] = [
-		{
-			headings: ['Key', 'Type', 'Description'],
-			source: [
-				['<code>element</code>', 'string', `HTML element's <em>data-clipboard</em> ID value.`],
-				['<code>input</code>', 'string', `Input element's <em>data-clipboard</em> ID value.`]
-			]
-		}
-	];
 </script>
 
-<DocsShell {settings} {properties}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="card card-body grid grid-cols-1 md:grid-cols-2 gap-4">

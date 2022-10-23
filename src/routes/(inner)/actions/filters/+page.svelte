@@ -24,14 +24,13 @@
 			'Applies a set of unique <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter" target="_blank">SVG filters</a>. Best used with images, but also available to select components, such as Avatars.',
 		imports: ['filter'],
 		source: 'actions/Filters',
-		parameters: true
+		parameters: [
+			{
+				headings: ['Key', 'Type', 'Description'],
+				source: [['<code>(default)</code>', 'string', 'The name of the filter, such as "Apollo".']]
+			}
+		]
 	};
-	const properties: DocsShellTable[] = [
-		{
-			headings: ['Key', 'Type', 'Required', 'Description'],
-			source: [['<code>default</code>', 'string', '&check;', 'The name of the filter, such as "Apollo".']]
-		}
-	];
 
 	// Local
 	let imgPlaceholder = 'https://i.pravatar.cc/512?img=5';
@@ -48,7 +47,7 @@
 <Summer84 />
 <XPro />
 
-<DocsShell {settings} {properties}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="card card-body grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4">

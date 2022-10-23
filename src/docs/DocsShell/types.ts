@@ -12,7 +12,7 @@ interface DocShellLinks {
 
 export interface Sveld {
 	/** Provide a semantic label. */
-	label: string;
+	label?: string;
 	/** Provide HTML for description region. */
 	description?: string;
 	/** Provide the Sveld docs source. */
@@ -48,16 +48,15 @@ export interface DocsShellSettings {
 	/** Provide list of depedency links.  */
 	dependencies?: DocShellLinks[];
 	/** WAI-ARIA APG page URL */
-	ariaApgLink?: string;
+	aria?: string;
 	/** Svelde documentation list */
-	sveld: Sveld[];
+	sveld?: Sveld[];
+	/** Param table source [key, type, description] */
+	parameters?: any[];
 	/** Class table source [name, description] */
 	classes?: any[];
 	/** Keyboard interaction table source [name, description]. */
 	keyboard?: any[];
-	// --- TODO: figure this out for actions ---
-	/** When enabled, renames tab "Props" to "Params" for Svelte Actions */
-	parameters?: boolean;
 }
 
 export interface DocsShellTable {

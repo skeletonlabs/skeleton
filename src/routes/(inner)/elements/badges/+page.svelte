@@ -12,20 +12,19 @@
 		description: 'Provides a robust set of badge styles',
 		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/badges'],
-		source: 'styles/elements/badges.css'
+		source: 'styles/elements/badges.css',
+		classes: [
+			{
+				source: [
+					['<code>badge</code>', 'Provides the standard badge style.'],
+					['<code>badge-icon</code>', 'Provides the icon badge style.']
+				]
+			}
+		]
 	};
-	const classes: DocsShellTable[] = [
-		{
-			headings: ['Class', 'Description'],
-			source: [
-				['<code>badge</code>', 'Provides the standard badge style.'],
-				['<code>badge-icon</code>', 'Provides the icon badge style.']
-			]
-		}
-	];
 </script>
 
-<DocsShell {settings} {classes}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 lg:grid-cols-3 gap-4">

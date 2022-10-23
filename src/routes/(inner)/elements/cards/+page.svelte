@@ -12,22 +12,21 @@
 		description: 'Provides container elements that wrap and separate content',
 		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/cards'],
-		source: 'styles/elements/cards.css'
+		source: 'styles/elements/cards.css',
+		classes: [
+			{
+				source: [
+					['<code>.card</code>', 'Adds basic card styling to any block element.'],
+					['<code>.card-header</code>', 'The header region of the card.'],
+					['<code>.card-body</code>', 'The body region of the card.'],
+					['<code>.card-footer</code>', 'The footer region of the card.']
+				]
+			}
+		]
 	};
-	const classes: DocsShellTable[] = [
-		{
-			headings: ['Class', 'Description'],
-			source: [
-				['<code>.card</code>', 'Adds basic card styling to any block element.'],
-				['<code>.card-header</code>', 'The header region of the card.'],
-				['<code>.card-body</code>', 'The body region of the card.'],
-				['<code>.card-footer</code>', 'The footer region of the card.']
-			]
-		}
-	];
 </script>
 
-<DocsShell {settings} {classes}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
