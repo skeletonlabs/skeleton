@@ -33,11 +33,11 @@
 	// Local
 	const githubSourcePath: string = 'https://github.com/Brain-Bones/skeleton/tree/master/src'; // FIXME: hardcoded path
 	const defaultSettings: DocsShellSettings = {
-		// Intro
+		// Heading
 		feature: DocsFeature.Component,
 		name: '(name)',
 		description: '(description)',
-		// Details
+		// Meta
 		imports: [],
 		types: [],
 		stylesheetIncludes: [],
@@ -45,12 +45,12 @@
 		package: { name: '@brainandbones/skeleton', url: 'https://www.npmjs.com/package/@brainandbones/skeleton' },
 		source: '',
 		docsPath: $page.url.pathname,
+		aria: undefined,
+		// Docs
 		dependencies: [],
-		// (added)
 		sveld: [],
 		parameters: [],
 		classes: [],
-		aria: undefined,
 		keyboard: []
 	};
 	const pageSettings: DocsShellSettings = { ...defaultSettings, ...settings };
