@@ -1,6 +1,6 @@
 <script lang="ts">
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	// Actions
@@ -24,12 +24,7 @@
 			'Applies a set of unique <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter" target="_blank">SVG filters</a>. Best used with images, but also available to select components, such as Avatars.',
 		imports: ['filter'],
 		source: 'actions/Filters',
-		parameters: [
-			{
-				headings: ['Key', 'Type', 'Description'],
-				source: [['<code>(default)</code>', 'string', 'The name of the filter, such as "Apollo".']]
-			}
-		]
+		parameters: [['<code>(default)</code>', 'string', '-', '-', 'The name of the filter, such as "Apollo".']]
 	};
 
 	// Local

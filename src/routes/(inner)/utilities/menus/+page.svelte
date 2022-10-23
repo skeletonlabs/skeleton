@@ -1,6 +1,6 @@
 <script lang="ts">
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import { menu } from '$lib/utilities/Menu/menu';
@@ -14,48 +14,29 @@
 		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/menus'],
 		source: 'utilities/Menu',
-		parameters: true
+		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/menu/',
+		parameters: [
+			['<code>menu</code>', 'string', '-', '-', 'Accepts the matching menu ID specified in the data attribute.'],
+			['<code>fixed</code>', 'boolean', '-', '-', 'When enabled, a fixed origin position can be specified via a menu class.'],
+			['<code>interactive</code>', 'boolean', '-', '-', 'When enabled, keeps the menu open while interacting with the contents.'],
+			['<code>state</code>', 'function', '-', '-', 'Provide a callback function for detecting menu open/closed state.']
+		],
+		classes: [
+			{
+				source: [
+					['<code>.menu-tl</code>', 'Specifies a fixed origin position of top-left.'],
+					['<code>.menu-tr</code>', 'Specifies a fixed origin position of top-right.'],
+					['<code>.menu-bl</code>', 'Specifies a fixed origin position of bottom-left.'],
+					['<code>.menu-br</code>', 'Specifies a fixed origin position of bottom-right.']
+				]
+			}
+		],
+		keyboard: [
+			['<kbd>Enter</kbd>', 'When menu button in focus, toggles the menu open/close.'],
+			['<kbd>Space</kbd>', 'When menu button in focus, toggles the menu open/close.'],
+			['<kbd>Esc</kbd>', 'Close the open menu.']
+		]
 	};
-	const properties: DocsShellTable[] = [
-		{
-			label: 'Data Attribute',
-			headings: ['Name', 'Description'],
-			source: [['<code>data-menu="{menuId}"</code>', 'Provide a unique identifier for the menu element. This pairs with <code>menu</code> action param.']]
-		},
-		{
-			label: 'Action Parameters',
-			headings: ['Key', 'Type', 'Required', 'Description'],
-			source: [
-				['<code>menu</code>', 'string', '&check;', 'Accepts the matching menu ID specified in the data attribute.'],
-				['<code>fixed</code>', 'boolean', '-', 'When enabled, a fixed origin position can be specified via a menu class.'],
-				['<code>interactive</code>', 'boolean', '-', 'When enabled, keeps the menu open while interacting with the contents.'],
-				['<code>state</code>', 'function', '-', 'Provide a callback function for detecting menu open/closed state.']
-			]
-		}
-	];
-	const classes: DocsShellTable[] = [
-		{
-			headings: ['Class', 'Description'],
-			source: [
-				['<code>.menu-tl</code>', 'Specifies a fixed origin position of top-left.'],
-				['<code>.menu-tr</code>', 'Specifies a fixed origin position of top-right.'],
-				['<code>.menu-bl</code>', 'Specifies a fixed origin position of bottom-left.'],
-				['<code>.menu-br</code>', 'Specifies a fixed origin position of bottom-right.']
-			]
-		}
-	];
-	const a11y: DocsShellTable[] = [
-		{ aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/menu/' },
-		{
-			label: 'Keyboard Interactions',
-			headings: ['Keys', 'Description'],
-			source: [
-				['<kbd>Enter</kbd>', 'When menu button in focus, toggles the menu open/close.'],
-				['<kbd>Space</kbd>', 'When menu button in focus, toggles the menu open/close.'],
-				['<kbd>Esc</kbd>', 'Close the open menu.']
-			]
-		}
-	];
 
 	// Local
 	const exampleLink: string = '/utilities/menus';
@@ -65,7 +46,7 @@
 	}
 </script>
 
-<DocsShell {settings} {properties} {classes} {a11y}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="card card-body flex flex-col lg:flex-row justify-center items-center space-y-4 lg:space-y-0 lg:space-x-4">

@@ -2,7 +2,7 @@
 	import { writable, type Writable } from 'svelte/store';
 
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	import Divider from '$lib/components/Divider/Divider.svelte';
 	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';

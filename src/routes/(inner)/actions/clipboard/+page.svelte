@@ -1,6 +1,6 @@
 <script lang="ts">
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import { clipboard } from '$lib/actions/Clipboard/clipboard';
@@ -13,13 +13,8 @@
 		imports: ['clipboard'],
 		source: 'actions/Clipboard',
 		parameters: [
-			{
-				headings: ['Key', 'Type', 'Description'],
-				source: [
-					['<code>element</code>', 'string', `HTML element's <em>data-clipboard</em> ID value.`],
-					['<code>input</code>', 'string', `Input element's <em>data-clipboard</em> ID value.`]
-				]
-			}
+			['<code>element</code>', 'string', '-', '-', `HTML element's <em>data-clipboard</em> ID value.`],
+			['<code>input</code>', 'string', '-', '-', `Input element's <em>data-clipboard</em> ID value.`]
 		]
 	};
 </script>

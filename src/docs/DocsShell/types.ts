@@ -51,7 +51,7 @@ export interface DocsShellSettings {
 	aria?: string;
 	/** Svelde documentation list */
 	sveld?: Sveld[];
-	/** Param table source [key, type, description] */
+	/** Param table source [prop, type, default, values, description] */
 	parameters?: any[];
 	/** Class table source [name, description] */
 	classes?: any[];

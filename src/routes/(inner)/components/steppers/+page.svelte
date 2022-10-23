@@ -2,7 +2,7 @@
 	import { writable, type Writable } from 'svelte/store';
 
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	import Stepper from '$lib/components/Stepper/Stepper.svelte';
 	import Step from '$lib/components/Stepper/Step.svelte';

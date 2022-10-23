@@ -2,12 +2,15 @@
 	import { writable, type Writable } from 'svelte/store';
 
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	import { dialogStore, type DialogAlert, type DialogConfirm, type DialogPrompt } from '$lib/utilities/Dialog/stores';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
 	import Tab from '$lib/components/Tab/Tab.svelte';
+
+	// @ts-ignore
+	import sveldDrawer from '$lib/utilities/Drawer/Drawer.svelte?raw&sveld';
 
 	const storeDialogVariants: Writable<string> = writable('alert'); // alert | confirm | prompt
 
@@ -18,45 +21,39 @@
 		description: 'High priority overlay notification utilizing a dynamic queue system.',
 		imports: ['Dialog', 'dialogStore'],
 		types: ['DialogAlert', 'DialogConfirm', 'DialogPrompt'],
-		source: 'utilities/Drawer'
+		source: 'utilities/Drawer',
+		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/',
+		sveld: [{ source: sveldDrawer }],
+		classes: [
+			{
+				source: [
+					['<code>.dialog-backdrop</code>', 'The backdrop shim element.'],
+					['<code>.dialog</code>', 'The dialog modal element.'],
+					['<code>.dialog-header</code>', 'The dialog header region.'],
+					['<code>.dialog-title</code>', 'The dialog title element'],
+					['<code>.dialog-content</code>', 'The dialog content region.'],
+					['<code>.dialog-body</code>', 'The dialog body region.'],
+					['<code>.dialog-image</code>', 'The dialog image element.'],
+					['<code>.dialog-html</code>', 'The dialog HTML region.'],
+					['<code>.dialog-prompt-input</code>', 'The prompt input element.'],
+					['<code>.dialog-actions</code>', 'The dialog action buttons region.']
+				]
+			}
+		],
+		keyboard: [['<kbd>Esc</kbd>', ' Dismisses the foremost dialog.']]
 	};
-	const properties: DocsShellTable[] = [
-		{
-			headings: ['Prop', 'Type', 'Default', 'Description'],
-			source: [
-				['<code>backdrop</code>', 'string', 'bg-backdrop-token', 'Provide classes to set the backdrop background color.'],
-				['<code>blur</code>', 'string', 'backdrop-blur-xs', 'Provide classes to add a backdrop blur.'],
-				['<code>background</code>', 'string', 'bg-surface-200-700-token', 'Provide classes to set the modal card background styles.'],
-				['<code>width</code>', 'string', 'max-w-[640px]', 'Provide classes to set max modal width.'],
-				['<code>duration</code>', 'number', '100', 'The animation in/out durations. Set to zero (0) for none.']
-			]
-		}
-	];
-	const classes: DocsShellTable[] = [
-		{
-			headings: ['Selector', 'Description'],
-			source: [
-				['<code>.dialog-backdrop</code>', 'The backdrop shim element.'],
-				['<code>.dialog</code>', 'The dialog modal element.'],
-				['<code>.dialog-header</code>', 'The dialog header region.'],
-				['<code>.dialog-title</code>', 'The dialog title element'],
-				['<code>.dialog-content</code>', 'The dialog content region.'],
-				['<code>.dialog-body</code>', 'The dialog body region.'],
-				['<code>.dialog-image</code>', 'The dialog image element.'],
-				['<code>.dialog-html</code>', 'The dialog HTML region.'],
-				['<code>.dialog-prompt-input</code>', 'The prompt input element.'],
-				['<code>.dialog-actions</code>', 'The dialog action buttons region.']
-			]
-		}
-	];
-	const a11y: DocsShellTable[] = [
-		{ aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/' },
-		{
-			label: 'Keyboard Interactions',
-			headings: ['Keys', 'Description'],
-			source: [['<kbd>Esc</kbd>', ' Dismisses the foremost dialog.']]
-		}
-	];
+	// const properties: DocsShellTable[] = [
+	// 	{
+	// 		headings: ['Prop', 'Type', 'Default', 'Description'],
+	// 		source: [
+	// 			['<code>backdrop</code>', 'string', 'bg-backdrop-token', 'Provide classes to set the backdrop background color.'],
+	// 			['<code>blur</code>', 'string', 'backdrop-blur-xs', 'Provide classes to add a backdrop blur.'],
+	// 			['<code>background</code>', 'string', 'bg-surface-200-700-token', 'Provide classes to set the modal card background styles.'],
+	// 			['<code>width</code>', 'string', 'max-w-[640px]', 'Provide classes to set max modal width.'],
+	// 			['<code>duration</code>', 'number', '100', 'The animation in/out durations. Set to zero (0) for none.']
+	// 		]
+	// 	}
+	// ];
 
 	// Local
 	let valueConfirm: boolean = false;
@@ -135,7 +132,7 @@
 	}
 </script>
 
-<DocsShell {settings} {properties} {classes} {a11y}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-4">

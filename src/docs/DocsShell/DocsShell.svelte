@@ -3,7 +3,7 @@
 	import { writable, type Writable } from 'svelte/store';
 
 	// Types
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	// Components
 	import DataTable from '$lib/components/Table/DataTable.svelte';
@@ -310,21 +310,13 @@
 		{/if}
 
 		<!-- Tab: Parameters -->
-		<!-- FIXME: can we automate these? -->
 		{#if pageSettings.parameters?.length && $storeActiveTab === 'parameters'}
 			<div class="doc-shell-parameters {spacing}">
-				{#each pageSettings.parameters as d}
-					<section class="space-y-4">
-						{#if d.label}<h2>{d.label}</h2>{/if}
-						{#if d.description}<div>{@html d.description}</div>{/if}
-						{#if d.source}<DataTable headings={['Keys', 'Type', 'Description']} source={d.source} />{/if}
-					</section>
-				{/each}
+				<DataTable headings={['Prop', 'Type', 'Default', 'Values', 'Description']} source={pageSettings.parameters} />
 			</div>
 		{/if}
 
 		<!-- Tab: Classes -->
-		<!-- FIXME: can we automate these? -->
 		{#if pageSettings.classes?.length && $storeActiveTab === 'classes'}
 			<div class="doc-shell-classes {spacing}">
 				{#each pageSettings.classes as d}

@@ -80,12 +80,12 @@ export const menuNavLinks: any = [
 		title: 'Utilities',
 		list: [
 			{ href: '/utilities/codeblocks', label: 'Code Blocks' },
-			{ href: '/utilities/drawers', label: 'Drawers' },
 			{ href: '/utilities/dialogs', label: 'Dialogs' },
-			{ href: '/utilities/toasts', label: 'Toasts' },
+			{ href: '/utilities/drawers', label: 'Drawers' },
 			{ href: '/utilities/lightswitches', label: 'Lightswitch' },
 			{ href: '/utilities/local-storage-stores', label: 'Local Storage Stores' },
 			{ href: '/utilities/menus', label: 'Menus' },
+			{ href: '/utilities/toasts', label: 'Toasts' },
 			{ href: '/utilities/tooltips', label: 'Tooltips' }
 		]
 	}
