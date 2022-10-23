@@ -126,10 +126,6 @@
 		<CodeBlock
 			language="html"
 			code={`
-<script>
-    import { GradientHeading } from "@brainandbones/skeleton";
-</script\>
-
 <div class="container mx-auto p-8 space-y-8">
 	<h1>Hello Skeleton</h1>
 	<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -148,12 +144,16 @@
 		/>
 		<h3>Add a Component</h3>
 		<p>
-			Let's implement Skeleton's <a href="/components/gradient-headings">Gradient Heading</a> component. Replace the <em>H1</em> heading on the page with the following. Feel free to adjust the settings
-			and text as you wish.
+			Finally let's implement Skeleton's <a href="/components/gradient-headings">Gradient Heading</a> component. Import the component and replace the <em>H1</em> heading on the page with the following.
+			Feel free to adjust the settings and text as you wish.
 		</p>
 		<CodeBlock
 			language="html"
 			code={`
+<script>
+    import { GradientHeading } from "@brainandbones/skeleton";
+</script\>
+
 <GradientHeading tag="h1" direction="bg-gradient-to-br" from="from-primary-500" to="to-accent-500">
     Homepage
 </GradientHeading>
