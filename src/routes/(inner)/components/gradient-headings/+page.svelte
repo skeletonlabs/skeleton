@@ -19,16 +19,7 @@
 		description: 'Generate a gradient-colored heading with customizable tag and gradient direction.',
 		imports: ['GradientHeading'],
 		source: 'components/GradientHeading',
-		sveld: [{ source: sveldGradientHeading }],
-		classes: [
-			{
-				headings: ['Selector', 'Description'],
-				source: [
-					['<code>.gradient-heading</code>', 'The parent element.'],
-					['<code>.gradient-heading-text</code>', 'The text span element.']
-				]
-			}
-		]
+		sveld: [{ source: sveldGradientHeading }]
 	};
 	// const properties: DocsShellTable[] = [
 	// 	{

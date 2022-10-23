@@ -16,20 +16,7 @@
 		imports: ['SlideToggle'],
 		source: 'components/SlideToggle',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/',
-		sveld: [{ source: sveldSlideToggle }],
-		classes: [
-			{
-				headings: ['Selector', 'Description'],
-				source: [
-					['<code>.slide-toggle</code>', 'The parent element.'],
-					['<code>.slide-toggle-label</code>', 'The label element.'],
-					['<code>.slide-toggle-input</code>', 'The hidden input element.'],
-					['<code>.slide-toggle-track</code>', 'The slide toggle track element.'],
-					['<code>.slide-toggle-thumb</code>', 'The slide toggle thumb element.'],
-					['<code>.slide-toggle-text</code>', 'The text content region.']
-				]
-			}
-		]
+		sveld: [{ source: sveldSlideToggle }]
 	};
 	// const properties: DocsShellTable[] = [
 	// 	{

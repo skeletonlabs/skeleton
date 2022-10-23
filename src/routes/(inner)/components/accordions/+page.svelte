@@ -27,23 +27,6 @@
 			{ label: 'AccordionGroup', source: sveldAccordionGroup },
 			{ label: 'AccordionItem', source: sveldAccordionItem }
 		],
-		classes: [
-			{
-				label: 'AccordionGroup',
-				source: [['<code>.accordian-group</code>', 'The parent element.']]
-			},
-			{
-				label: 'AccordionGroup',
-				source: [
-					['<code>.accordion-item</code>', 'The parent element.'],
-					['<code>.accordion-summary</code>', 'The HTML summary element.'],
-					['<code>.accordion-summary-lead</code>', 'The summary lead.'],
-					['<code>.accordion-summary-text</code>', 'The summary text.'],
-					['<code>.accordion-summary-caret</code>', 'The summary caret.'],
-					['<code>.accordion-content</code>', 'The accordion content region.']
-				]
-			}
-		],
 		keyboard: [
 			['<kbd>Tab</kbd>', 'Moves focus to the next focusable element.'],
 			['<kbd>Shift + Tab</kbd> ', 'Moves focus to the previous focusable element.'],

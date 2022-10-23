@@ -16,18 +16,7 @@
 		imports: ['ProgressRadial'],
 		source: 'components/ProgressRadial',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/meter/',
-		sveld: [{ source: sveldProgressRadial }],
-		classes: [
-			{
-				headings: ['Selector', 'Description'],
-				source: [
-					['<code>.progress-radial</code>', 'The parent element.'],
-					['<code>.progress-radial-track</code>', 'The progress radial track element.'],
-					['<code>.progress-radial-meter</code>', 'The progress radial meter element.'],
-					['<code>.progress-radial-text</code>', 'The progress radial SVG text element.']
-				]
-			}
-		]
+		sveld: [{ source: sveldProgressRadial }]
 	};
 	// const properties: DocsShellTable[] = [
 	// 	{

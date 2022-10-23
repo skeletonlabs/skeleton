@@ -24,18 +24,7 @@
 		description: 'An indicator showing the progress or completion of a task.',
 		imports: ['ProgressBar'],
 		source: 'components/ProgressBar',
-		sveld: [{ source: sveldProgressBar }],
-		classes: [
-			{
-				headings: ['Selector', 'Description'],
-				source: [
-					['<code>.progress-bar</code>', 'The parent element.'],
-					['<code>.progress-bar-label</code>', 'The progress bar label element.'],
-					['<code>.progress-bar-track</code>', 'The progress bar track element.'],
-					['<code>.progress-bar-meter</code>', 'The progress bar meter element.']
-				]
-			}
-		]
+		sveld: [{ source: sveldProgressBar }]
 	};
 	// const properties: DocsShellTable[] = [
 	// 	{

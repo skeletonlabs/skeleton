@@ -17,15 +17,6 @@
 		source: 'utilities/LightSwitch',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/switch/',
 		sveld: [{ source: sveldLightSwitch }],
-		classes: [
-			{
-				source: [
-					['<code>.lightswitch</code>', 'The parent element.'],
-					['<code>.lightswitch-thumb</code>', 'The thumb element.'],
-					['<code>.lightswitch-icon</code>', 'The thumb icon.']
-				]
-			}
-		],
 		keyboard: [['<kbd>Space</kbd> or <kbd>Enter</kbd>', 'Toggle the switch state.']]
 	};
 </script>

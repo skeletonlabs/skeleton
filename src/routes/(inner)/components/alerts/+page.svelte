@@ -15,19 +15,7 @@
 		description: 'Display customizable alerts to garner attention and provide critical actions.',
 		imports: ['Alert'],
 		source: 'components/Alert',
-		sveld: [{ source: sveldAlert }],
-		classes: [
-			{
-				source: [
-					['<code>.alert</code>', 'The parent element.'],
-					['<code>.alert-lead</code>', 'The alert icon region.'],
-					['<code>.alert-content</code>', 'The alert content region.'],
-					['<code>.alert-title</code>', 'the alert title element.'],
-					['<code>.alert-message</code>', 'The alert message element.'],
-					['<code>.alert-trail</code>', 'The alert trailing region.']
-				]
-			}
-		]
+		sveld: [{ source: sveldAlert }]
 	};
 	// const properties: DocsShellTable[] = [
 	// 	{

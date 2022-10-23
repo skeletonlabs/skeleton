@@ -26,17 +26,6 @@
 		source: 'components/RangeSlider',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/slider/',
 		sveld: [{ source: sveldRangeSlider }],
-		classes: [
-			{
-				source: [
-					['<code>.range-slider</code>', 'The parent element.'],
-					['<code>.range-slider-label</code>', 'The label element.'],
-					['<code>.range-slider-input</code>', 'The hidden input element.'],
-					['<code>.range-slider-ticks</code>', 'The datalist ticks element.'],
-					['<code>.range-slider-trail</code>', 'The trailing content region.']
-				]
-			}
-		],
 		keyboard: [
 			['<kbd>Right Arrow</kbd> or <kbd>Up Arrow</kbd>', 'Increase the value of the slider by one step.'],
 			['<kbd>Left Arrow</kbd> or <kbd>Down Arrow</kbd>', 'Decrease  the value of the slider by one step.'],

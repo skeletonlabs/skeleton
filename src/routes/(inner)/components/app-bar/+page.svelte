@@ -17,17 +17,7 @@
 		imports: ['AppBar'],
 		source: 'components/AppBar',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/',
-		sveld: [{ source: sveldAppBar }],
-		classes: [
-			{
-				source: [
-					['<code>.app-bar</code>', 'The parent element.'],
-					['<code>.app-bar-lead</code>', 'The left-most region.'],
-					['<code>.app-bar-center</code>', 'The center region.'],
-					['<code>.app-bar-trail</code>', 'The right-most region.']
-				]
-			}
-		]
+		sveld: [{ source: sveldAppBar }]
 	};
 	// const properties: DocsShellTable[] = [
 	// 	{

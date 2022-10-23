@@ -29,21 +29,6 @@
 		sveld: [
 			{ label: 'TabGroup', source: sveldTabGroup },
 			{ label: 'Tab', source: sveldTab }
-		],
-		classes: [
-			{
-				source: [
-					['<code>.tab-group</code>', 'The parent element.'],
-					['<code>.tab-group-list</code>', 'The ul list element.']
-				]
-			},
-			{
-				source: [
-					['<code>.tab</code>', 'The parent element.'],
-					['<code>.tab-lead</code>', 'The tab lead region.'],
-					['<code>.tab-label</code>', 'The tab label element.']
-				]
-			}
 		]
 	};
 	// const properties: DocsShellTable[] = [

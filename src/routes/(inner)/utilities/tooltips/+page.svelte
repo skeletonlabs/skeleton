@@ -30,15 +30,6 @@
 			['<code>regionTooltip</code>', 'string', '-', 'class', 'Provide arbitrary classes to the tooltip element.'],
 			['<code>regionArrow</code>', 'string', '-', 'class', 'Provide arbitrary classes to the tooltip arrow element.']
 		],
-		classes: [
-			{
-				source: [
-					['<code>.tooltip-container</code>', 'The wrapping DIV container.'],
-					['<code>.tooltip</code>', 'The tooltip element body.'],
-					['<code>.tooltip-arrow</code>', 'The small tooltip arrow.']
-				]
-			}
-		],
 		keyboard: [['<kbd>Esc</kbd>', 'Closes all open tooltips.']]
 	};
 

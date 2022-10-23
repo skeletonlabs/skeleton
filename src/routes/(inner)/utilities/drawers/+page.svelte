@@ -22,14 +22,6 @@
 		source: 'utilities/Drawer',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/',
 		sveld: [{ source: sveldDrawer }],
-		classes: [
-			{
-				source: [
-					['<code>.drawer-backdrop</code>', 'The backdrop shim element.'],
-					['<code>.drawer</code>', 'The drawer modal element.']
-				]
-			}
-		],
 		keyboard: [['<kbd>Esc</kbd>', ' Closes the drawer.']]
 	};
 	// const properties: DocsShellTable[] = [

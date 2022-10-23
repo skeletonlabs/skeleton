@@ -24,22 +24,6 @@
 		source: 'utilities/Drawer',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/',
 		sveld: [{ source: sveldDrawer }],
-		classes: [
-			{
-				source: [
-					['<code>.dialog-backdrop</code>', 'The backdrop shim element.'],
-					['<code>.dialog</code>', 'The dialog modal element.'],
-					['<code>.dialog-header</code>', 'The dialog header region.'],
-					['<code>.dialog-title</code>', 'The dialog title element'],
-					['<code>.dialog-content</code>', 'The dialog content region.'],
-					['<code>.dialog-body</code>', 'The dialog body region.'],
-					['<code>.dialog-image</code>', 'The dialog image element.'],
-					['<code>.dialog-html</code>', 'The dialog HTML region.'],
-					['<code>.dialog-prompt-input</code>', 'The prompt input element.'],
-					['<code>.dialog-actions</code>', 'The dialog action buttons region.']
-				]
-			}
-		],
 		keyboard: [['<kbd>Esc</kbd>', ' Dismisses the foremost dialog.']]
 	};
 	// const properties: DocsShellTable[] = [

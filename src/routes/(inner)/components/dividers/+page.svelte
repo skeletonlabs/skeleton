@@ -25,12 +25,7 @@
 		description: 'Horizontal or vertical rules for sectioning your content.',
 		imports: ['Divider'],
 		source: 'components/Divider',
-		sveld: [{ source: sveldDivider }],
-		classes: [
-			{
-				source: [['<code>.divider</code>', 'The horizontal rule element.']]
-			}
-		]
+		sveld: [{ source: sveldDivider }]
 	};
 	// const properties: DocsShellTable[] = [
 	// 	{

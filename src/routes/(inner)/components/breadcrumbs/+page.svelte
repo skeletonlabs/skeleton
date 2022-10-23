@@ -25,25 +25,6 @@
 		sveld: [
 			{ label: 'BreadCrumb', source: sveldBreadcrumb },
 			{ label: 'Crumb', source: sveldCrumb }
-		],
-		classes: [
-			{
-				label: 'BreadCrumb',
-				source: [
-					['<code>.breadcrumb</code>', 'The parent element.'],
-					['<code>.breadcrumb-list</code>', 'The ordered list element.']
-				]
-			},
-			{
-				label: 'Crumb',
-				source: [
-					['<code>.crumb</code>', 'The parent element.'],
-					['<code>.crumb-anchor</code>', 'The crumb anchor element.'],
-					['<code>.crumb-lead</code>', 'The crumb lead element.'],
-					['<code>.crumb-text</code>', 'The crumb text element.'],
-					['<code>.crumb-seperator</code>', 'The crumb seperator element.']
-				]
-			}
 		]
 	};
 	// const properties: DocsShellTable[] = [

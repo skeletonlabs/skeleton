@@ -27,25 +27,6 @@
 		sveld: [
 			{ label: 'Stepper', source: sveldStepper },
 			{ label: 'Step', source: sveldStep }
-		],
-		classes: [
-			{
-				label: 'Stepper',
-				source: [['<code>.stepper</code>', 'The parent element.']]
-			},
-			{
-				label: 'Step',
-				source: [
-					['<code>.step</code>', 'The parent element.'],
-					['<code>.step-timeline</code>', 'The left side timeline element.'],
-					['<code>.step-numeral</code>', 'The timeline numeral elements.'],
-					['<code>.step-line</code>', 'The timeline vertical line element.'],
-					['<code>.step-content</code>', 'The right side content region.'],
-					['<code>.step-header</code>', 'The content header region.'],
-					['<code>.step-body</code>', 'The content body region.'],
-					['<code>.step-navigation</code>', 'The content navigation region.']
-				]
-			}
 		]
 	};
 	// const properties: DocsShellTable[] = [

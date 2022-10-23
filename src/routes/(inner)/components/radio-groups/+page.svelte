@@ -30,22 +30,6 @@
 			{ label: 'RadioGroup', source: sveldRadioGroup },
 			{ label: 'RadioItem', source: sveldRadioItem }
 		],
-		classes: [
-			{
-				label: 'RadioGroup',
-				headings: ['Selector', 'Description'],
-				source: [['<code>.radio-group</code>', 'The parent element.']]
-			},
-			{
-				label: 'RadioItem',
-				headings: ['Selector', 'Description'],
-				source: [
-					['<code>.radio-item</code>', 'The parent element.'],
-					['<code>.radio-item-label</code>', 'The label element.'],
-					['<code>.radio-item-item</code>', 'The hidden input element.']
-				]
-			}
-		],
 		keyboard: [
 			['<kbd>Tab</kbd>', 'Moves focus to the next focusable RadioItem.'],
 			['<kbd>Shift + Tab</kbd> ', 'Moves focus to the previous focusable RadioItem.'],

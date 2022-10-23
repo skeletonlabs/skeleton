@@ -15,16 +15,7 @@
 		description: 'Allows you to select files with a single click.',
 		imports: ['FileButton'],
 		source: 'components/FileButton',
-		sveld: [{ source: sveldFileButton }],
-		classes: [
-			{
-				source: [
-					['<code>.file-button</code>', 'The parent element.'],
-					['<code>.file-button-input</code>', 'The hidden input element.'],
-					['<code>.file-button-btn</code>', 'The visible button element.']
-				]
-			}
-		]
+		sveld: [{ source: sveldFileButton }]
 	};
 	// const properties: DocsShellTable[] = [
 	// 	{

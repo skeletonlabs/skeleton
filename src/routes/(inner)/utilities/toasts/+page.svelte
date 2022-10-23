@@ -16,16 +16,7 @@
 		imports: ['Toast', 'toastStore'],
 		types: ['ToastMessage'],
 		source: 'utilities/Toast',
-		sveld: [{ source: sveldToast }],
-		classes: [
-			{
-				source: [
-					['<code>.toast</code>', 'The parent element.'],
-					['<code>.toast-message</code>', 'The toast message element.'],
-					['<code>.toast-actions</code>', 'The toast action buttons region.']
-				]
-			}
-		]
+		sveld: [{ source: sveldToast }]
 	};
 	// const properties: DocsShellTable[] = [
 	// 	{

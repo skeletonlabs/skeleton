@@ -21,16 +21,6 @@
 			['<code>interactive</code>', 'boolean', '-', '-', 'When enabled, keeps the menu open while interacting with the contents.'],
 			['<code>state</code>', 'function', '-', '-', 'Provide a callback function for detecting menu open/closed state.']
 		],
-		classes: [
-			{
-				source: [
-					['<code>.menu-tl</code>', 'Specifies a fixed origin position of top-left.'],
-					['<code>.menu-tr</code>', 'Specifies a fixed origin position of top-right.'],
-					['<code>.menu-bl</code>', 'Specifies a fixed origin position of bottom-left.'],
-					['<code>.menu-br</code>', 'Specifies a fixed origin position of bottom-right.']
-				]
-			}
-		],
 		keyboard: [
 			['<kbd>Enter</kbd>', 'When menu button in focus, toggles the menu open/close.'],
 			['<kbd>Space</kbd>', 'When menu button in focus, toggles the menu open/close.'],

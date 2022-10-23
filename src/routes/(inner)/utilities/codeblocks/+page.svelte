@@ -16,18 +16,6 @@
 		stylesheets: ['highlight-js'],
 		source: 'utilities/CodeBlock',
 		sveld: [{ source: sveldCodeBlock }],
-		classes: [
-			{
-				source: [
-					['<code>.code-block</code>', 'The parent element.'],
-					['<code>.code-block-header</code>', 'The header region.'],
-					['<code>.code-block-language</code>', 'The language element.'],
-					['<code>.code-block-btn</code>', 'The copy button element.'],
-					['<code>.code-block-pre</code>', 'The preformatted element.'],
-					['<code>.code-block-code</code>', 'The code element.']
-				]
-			}
-		],
 		dependencies: [{ label: 'Highlight.js', url: 'https://highlightjs.org/' }]
 	};
 	// ** TODO: feel free to flatten these into a single table of props **

@@ -28,25 +28,6 @@
 		sveld: [
 			{ label: 'ListBox', source: sveldListBox },
 			{ label: 'ListBoxItem', source: sveldListBoxItem }
-		],
-		classes: [
-			{
-				label: 'ListBox',
-				source: [
-					['<code>.listbox</code>', 'The parent element.'],
-					['<code>.listbox-label</code>', 'The optional listbox label.'],
-					['<code>.listbox-list</code>', 'The listbox ul element.']
-				]
-			},
-			{
-				label: 'ListBoxItem',
-				source: [
-					['<code>.listbox-item</code>', 'The parent element.'],
-					['<code>.listbox-item-lead</code>', 'The leading slot region.'],
-					['<code>.listbox-item-content</code>', 'The content slot region.'],
-					['<code>.listbox-item-trail</code>', 'The trailing slot region.']
-				]
-			}
 		]
 	};
 	// const properties: DocsShellTable[] = [

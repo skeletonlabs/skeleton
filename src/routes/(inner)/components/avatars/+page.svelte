@@ -33,16 +33,7 @@
 		description: 'Display user avatars with an image or initials.',
 		imports: ['Avatar'],
 		source: 'components/Avatar',
-		sveld: [{ source: sveldAvatar }],
-		classes: [
-			{
-				source: [
-					['<code>.avatar</code>', 'The parent element.'],
-					['<code>.avatar-image</code>', 'The avatar image element.'],
-					['<code>.avatar-initials</code>', 'The avatar SVG text element.']
-				]
-			}
-		]
+		sveld: [{ source: sveldAvatar }]
 	};
 	// const properties: DocsShellTable[] = [
 	// 	{
