@@ -54,13 +54,13 @@
 		<CodeBlock
 			language="html"
 			code={`
-\<script>
+<script>
     import "@brainandbones/skeleton/themes/theme-skeleton.css";
     import "@brainandbones/skeleton/styles/all.css";
     import "../app.postcss";
 
-    import { AppShell, AppBar, GradientHeading } from "@brainandbones/skeleton";
-\</script\>
+    import { AppShell, AppBar } from "@brainandbones/skeleton";
+</script\>
 
 <AppShell>
     <!-- Header -->
@@ -144,12 +144,16 @@
 		/>
 		<h3>Add a Component</h3>
 		<p>
-			Let's implement Skeleton's <a href="/components/gradient-headings">Gradient Heading</a> component. Replace the <em>H1</em> heading on the page with the following. Feel free to adjust the settings
-			and text as you wish.
+			Finally let's implement Skeleton's <a href="/components/gradient-headings">Gradient Heading</a> component. Import the component and replace the <em>H1</em> heading on the page with the following.
+			Feel free to adjust the settings and text as you wish.
 		</p>
 		<CodeBlock
 			language="html"
 			code={`
+<script>
+    import { GradientHeading } from "@brainandbones/skeleton";
+</script\>
+
 <GradientHeading tag="h1" direction="bg-gradient-to-br" from="from-primary-500" to="to-accent-500">
     Homepage
 </GradientHeading>
