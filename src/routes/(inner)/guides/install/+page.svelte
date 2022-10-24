@@ -8,7 +8,8 @@
 	<!-- Install -->
 	<section class="space-y-4">
 		<h1>Installation</h1>
-		<p>Let's generate a basic project and install the Skeleton package. Make sure to follow each section in "Getting Started" very carefully.</p>
+		<p>Let's generate a basic project and install the Skeleton package.</p>
+		<p>Note that we currently only support NPM. Yarn and PNPM may work, but official support is not provided for these package managers.</p>
 		<!-- Tabs -->
 		<TabGroup selected={storeFramework}>
 			<Tab value="sveltekit">SvelteKit</Tab>
