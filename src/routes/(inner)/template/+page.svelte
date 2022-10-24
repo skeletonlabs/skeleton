@@ -17,16 +17,12 @@
 		stylesheets: ['elements/template'],
 		source: 'components/Template',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/'
+		// dependencies: [{ label: 'Highlight.js', url: 'https://highlightjs.org/' }],
 		// components: [{sveld: sveldComp}],
 		// classes: [
-		// 	{
-		// 		source: [
-		// 			['<code>.foo</code>', '...'],
-		// 			['<code>.bar</code>', '...']
-		// 		]
-		// 	}
+		// 	['<code>.foo</code>', '...'],
+		// 	['<code>.bar</code>', '...']
 		// ],
-		// dependencies: [{ label: 'Highlight.js', url: 'https://highlightjs.org/' }],
 		// keyboard: [
 		// 	['<code>foo</code>', '-', '-', '-', '...'],
 		// 	['<code>bar</code>', '-', '-', '-', '...']
