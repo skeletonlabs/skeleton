@@ -17,7 +17,7 @@
 		stylesheets: ['elements/template'],
 		source: 'components/Template',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/'
-		// sveld: [{source: sveldComp}],
+		// components: [{sveld: sveldComp}],
 		// classes: [
 		// 	{
 		// 		source: [

@@ -26,9 +26,9 @@
 		imports: ['TabGroup', 'Tab'],
 		source: 'components/Tab',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/tabpanel/',
-		sveld: [
-			{ label: 'TabGroup', source: sveldTabGroup },
-			{ label: 'Tab', source: sveldTab }
+		components: [
+			{ label: 'TabGroup', sveld: sveldTabGroup },
+			{ label: 'Tab', sveld: sveldTab }
 		]
 	};
 	// const properties: DocsShellTable[] = [

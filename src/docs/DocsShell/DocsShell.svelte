@@ -48,7 +48,7 @@
 		aria: undefined,
 		// Docs
 		dependencies: [],
-		sveld: [],
+		components: [],
 		parameters: [],
 		classes: [],
 		keyboard: []
@@ -76,11 +76,11 @@
 
 	const sveldCounts = { props: 0, slots: 0, events: 0 };
 
-	if (pageSettings.sveld && pageSettings.sveld?.length > 0) {
-		pageSettings.sveld.forEach((row) => {
-			sveldCounts.props += row.source.props.length;
-			sveldCounts.slots += row.source.slots.length;
-			sveldCounts.events += row.source.events.length;
+	if (pageSettings.components && pageSettings.components?.length > 0) {
+		pageSettings.components.forEach((row) => {
+			sveldCounts.props += row.sveld.props.length;
+			sveldCounts.slots += row.sveld.slots.length;
+			sveldCounts.events += row.sveld.events.length;
 		});
 	}
 
@@ -224,7 +224,7 @@
 		<!-- Tab: Usage -->
 		{#if $storeActiveTab === 'usage'}
 			<div class="doc-shell-usage {spacing}">
-				<!-- Slot: Sandbox -->
+				<!-- Slot: Examples Sandbox -->
 				{#if $$slots.sandbox}
 					<div>
 						<h2 class="sr-only">Examples</h2>
@@ -242,24 +242,24 @@
 						</div>
 					</div>
 				{/if}
-				<!-- Slot: Default (footer) -->
+				<!-- Slot: Overflow -->
 				{#if $$slots.default}
 					<footer class="doc-shell-footer"><slot /></footer>
 				{/if}
 			</div>
 		{/if}
 
-		<!-- Tab: Properties -->
+		<!-- Tab: Component Properties -->
 		{#if $storeActiveTab === 'properties'}
 			<div class="doc-shell-properties {spacing}">
-				{#if pageSettings.sveld}
-					{#each pageSettings.sveld as row}
-						{#if row.source.props.length}
-							{@const table = sveldMapperProps(row)}
+				{#if pageSettings.components}
+					{#each pageSettings.components as comp}
+						{#if comp.sveld.props.length > 0}
+							{@const table = sveldMapperProps(comp)}
 							<section class="space-y-4">
-								{#if row.label}<h2>{row.label}</h2>{/if}
-								<!-- {#if row.description}<div>{@html row.description}</div>{/if} -->
-								{#if table.source.length}
+								{#if comp.label}<h2>{comp.label}</h2>{/if}
+								{#if comp.descProps}<div>{@html comp.descProps}</div>{/if}
+								{#if table.source.length > 0}
 									<DataTable headings={table.headings} source={table.source} />
 								{/if}
 							</section>
@@ -269,17 +269,17 @@
 			</div>
 		{/if}
 
-		<!-- Tab: Slots -->
+		<!-- Tab: Component Slots -->
 		{#if $storeActiveTab === 'slots'}
 			<div class="doc-shell-slots {spacing}">
-				{#if pageSettings.sveld}
-					{#each pageSettings.sveld as row}
-						{#if row.source.slots.length}
-							{@const table = sveldMapperSlots(row)}
+				{#if pageSettings.components}
+					{#each pageSettings.components as comp}
+						{#if comp.sveld.slots.length > 0}
+							{@const table = sveldMapperSlots(comp)}
 							<section class="space-y-4">
-								{#if row.label}<h2>{row.label}</h2>{/if}
-								<!-- {#if row.description}<div>{@html row.description}</div>{/if} -->
-								{#if table.source.length}
+								{#if comp.label}<h2>{comp.label}</h2>{/if}
+								{#if comp.descSlots}<div>{@html comp.descSlots}</div>{/if}
+								{#if table.source.length > 0}
 									<DataTable headings={table.headings} source={table.source} />
 								{/if}
 							</section>
@@ -289,17 +289,17 @@
 			</div>
 		{/if}
 
-		<!-- Tab: Events -->
+		<!-- Tab: Component Events -->
 		{#if $storeActiveTab === 'events'}
 			<div class="doc-shell-events {spacing}">
-				{#if pageSettings.sveld}
-					{#each pageSettings.sveld as row}
-						{#if row.source.events.length}
-							{@const table = sveldeMapperEvents(row)}
+				{#if pageSettings.components}
+					{#each pageSettings.components as comp}
+						{#if comp.sveld.events.length > 0}
+							{@const table = sveldeMapperEvents(comp)}
 							<section class="space-y-4">
-								{#if row.label}<h2>{row.label}</h2>{/if}
-								<!-- {#if row.description}<div>{@html row.description}</div>{/if} -->
-								{#if table.source.length}
+								{#if comp.label}<h2>{comp.label}</h2>{/if}
+								{#if comp.descEvents}<div>{@html comp.descEvents}</div>{/if}
+								{#if table.source.length > 0}
 									<DataTable headings={table.headings} source={table.source} />
 								{/if}
 							</section>
@@ -309,23 +309,17 @@
 			</div>
 		{/if}
 
-		<!-- Tab: Parameters -->
+		<!-- Tab: Action Parameters -->
 		{#if pageSettings.parameters?.length && $storeActiveTab === 'parameters'}
 			<div class="doc-shell-parameters {spacing}">
 				<DataTable headings={['Prop', 'Type', 'Default', 'Values', 'Description']} source={pageSettings.parameters} />
 			</div>
 		{/if}
 
-		<!-- Tab: Classes -->
+		<!-- Tab: Tailwind Element Classes -->
 		{#if pageSettings.classes?.length && $storeActiveTab === 'classes'}
 			<div class="doc-shell-classes {spacing}">
-				{#each pageSettings.classes as d}
-					<section class="space-y-4">
-						{#if d.label}<h2>{d.label}</h2>{/if}
-						{#if d.description}<div>{@html d.description}</div>{/if}
-						{#if d.source}<DataTable headings={['Keys', 'Description']} source={d.source} />{/if}
-					</section>
-				{/each}
+				<DataTable headings={['Keys', 'Values', 'Description']} source={pageSettings.classes} />
 			</div>
 		{/if}
 

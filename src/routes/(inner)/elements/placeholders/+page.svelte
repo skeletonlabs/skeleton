@@ -14,12 +14,8 @@
 		stylesheets: ['elements/placeholders'],
 		source: 'styles/elements/placeholders.css',
 		classes: [
-			{
-				source: [
-					['<code>placeholder</code>', 'Applies the default placeholder style.'],
-					['<code>placeholder-circle</code>', 'Applies the circular placeholder style.']
-				]
-			}
+			['<code>placeholder</code>', '-', 'Applies the default placeholder style.'],
+			['<code>placeholder-circle</code>', '-', 'Applies the circular placeholder style.']
 		]
 	};
 

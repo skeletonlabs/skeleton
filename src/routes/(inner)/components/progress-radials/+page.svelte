@@ -16,7 +16,7 @@
 		imports: ['ProgressRadial'],
 		source: 'components/ProgressRadial',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/meter/',
-		sveld: [{ source: sveldProgressRadial }]
+		components: [{ sveld: sveldProgressRadial }]
 	};
 	// const properties: DocsShellTable[] = [
 	// 	{

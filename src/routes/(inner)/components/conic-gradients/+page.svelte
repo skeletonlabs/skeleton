@@ -18,7 +18,7 @@
 		imports: ['ConicGradient'],
 		types: ['ConicStop'],
 		source: 'components/ConicGradient',
-		sveld: [{ source: sveldConicGradient }]
+		components: [{ sveld: sveldConicGradient }]
 	};
 	// const properties: DocsShellTable[] = [
 	// 	{

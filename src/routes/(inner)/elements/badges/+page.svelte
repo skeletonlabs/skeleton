@@ -14,12 +14,8 @@
 		stylesheets: ['elements/badges'],
 		source: 'styles/elements/badges.css',
 		classes: [
-			{
-				source: [
-					['<code>badge</code>', 'Provides the standard badge style.'],
-					['<code>badge-icon</code>', 'Provides the icon badge style.']
-				]
-			}
+			['<code>badge</code>', '-', 'Provides the standard badge style.'],
+			['<code>badge-icon</code>', '-', 'Provides the icon badge style.']
 		]
 	};
 </script>

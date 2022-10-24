@@ -18,15 +18,11 @@
 		stylesheets: ['elements/buttons'],
 		source: 'styles/elements/buttons.css',
 		classes: [
-			{
-				source: [
-					['<code>.btn</code>', 'Creates a text button using a button or anchor.'],
-					['<code>.btn-icon</code>', 'Creates a text icon button using a button or anchor.'],
-					['<code>.btn-[sm|base|lg|xl]</code>', 'Canned button sizes that define padding and text sizes.'],
-					['<code>.btn-icon-[sm|base|lg|xl]</code>', 'Canned icon button sizes that define padding and text sizes.'],
-					['<code>.btn-[variant]</code>', 'A set of preset class styles for buttons or icon buttons.']
-				]
-			}
+			['<code>.btn</code>', '-', 'Creates a text button using a button or anchor.'],
+			['<code>.btn-icon</code>', '-', 'Creates a text icon button using a button or anchor.'],
+			['<code>.btn-[value]</code>', 'sm | base | lg | xl', 'Canned button sizes that define padding and text sizes.'],
+			['<code>.btn-icon-[value]</code>', 'sm | base | lg | xl', 'Canned icon button sizes that define padding and text sizes.'],
+			['<code>.btn-[variant]</code>', '(see usage)', 'A set of preset class styles for buttons or icon buttons.']
 		]
 	};
 

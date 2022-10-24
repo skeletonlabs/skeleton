@@ -14,12 +14,8 @@
 		stylesheets: ['elements/logo-clouds'],
 		source: 'styles/elements/logo-clouds.css',
 		classes: [
-			{
-				source: [
-					['<code>.logo-cloud</code>', 'Apply to a wrapping block element around a set of logos.'],
-					['<code>.logo-item</code>', 'Apply to each logo child element.']
-				]
-			}
+			['<code>.logo-cloud</code>', '-', 'Apply to a wrapping block element around a set of logos.'],
+			['<code>.logo-item</code>', '-', 'Apply to each logo child element.']
 		]
 	};
 </script>

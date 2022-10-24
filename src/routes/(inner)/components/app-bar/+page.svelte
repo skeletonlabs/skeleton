@@ -17,7 +17,7 @@
 		imports: ['AppBar'],
 		source: 'components/AppBar',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/',
-		sveld: [{ source: sveldAppBar }]
+		components: [{ sveld: sveldAppBar }]
 	};
 	// const properties: DocsShellTable[] = [
 	// 	{

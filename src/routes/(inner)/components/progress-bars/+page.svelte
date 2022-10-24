@@ -24,7 +24,7 @@
 		description: 'An indicator showing the progress or completion of a task.',
 		imports: ['ProgressBar'],
 		source: 'components/ProgressBar',
-		sveld: [{ source: sveldProgressBar }]
+		components: [{ sveld: sveldProgressBar }]
 	};
 	// const properties: DocsShellTable[] = [
 	// 	{

@@ -22,9 +22,9 @@
 		imports: ['Breadcrumb', 'Crumb'],
 		source: 'components/Breadcrumb',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/',
-		sveld: [
-			{ label: 'BreadCrumb', source: sveldBreadcrumb },
-			{ label: 'Crumb', source: sveldCrumb }
+		components: [
+			{ label: 'BreadCrumb', sveld: sveldBreadcrumb },
+			{ label: 'Crumb', sveld: sveldCrumb }
 		]
 	};
 	// const properties: DocsShellTable[] = [

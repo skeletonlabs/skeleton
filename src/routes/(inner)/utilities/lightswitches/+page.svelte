@@ -16,7 +16,7 @@
 		imports: ['LightSwitch'],
 		source: 'utilities/LightSwitch',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/switch/',
-		sveld: [{ source: sveldLightSwitch }],
+		components: [{ sveld: sveldLightSwitch }],
 		keyboard: [['<kbd>Space</kbd> or <kbd>Enter</kbd>', 'Toggle the switch state.']]
 	};
 </script>

@@ -23,7 +23,7 @@
 		types: ['DialogAlert', 'DialogConfirm', 'DialogPrompt'],
 		source: 'utilities/Drawer',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/',
-		sveld: [{ source: sveldDrawer }],
+		components: [{ sveld: sveldDrawer }],
 		keyboard: [['<kbd>Esc</kbd>', ' Dismisses the foremost dialog.']]
 	};
 	// const properties: DocsShellTable[] = [

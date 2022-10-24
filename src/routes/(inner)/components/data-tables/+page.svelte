@@ -24,7 +24,7 @@
 		imports: ['DataTable'],
 		source: 'components/Table',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/grid/',
-		sveld: [{ source: sveldDataTable }],
+		components: [{ sveld: sveldDataTable }],
 		keyboard: [
 			['<kbd>Right Arrow</kbd>', 'Moves focus one cell to the right. If focus is on the right-most cell in the row, focus does not move.'],
 			['<kbd>Left Arrow</kbd>', 'Moves focus one cell to the left. If focus is on the left-most cell in the row, focus does not move.'],

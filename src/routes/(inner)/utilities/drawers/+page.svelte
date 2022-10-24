@@ -21,7 +21,7 @@
 		imports: ['Drawer'],
 		source: 'utilities/Drawer',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/',
-		sveld: [{ source: sveldDrawer }],
+		components: [{ sveld: sveldDrawer }],
 		keyboard: [['<kbd>Esc</kbd>', ' Closes the drawer.']]
 	};
 	// const properties: DocsShellTable[] = [

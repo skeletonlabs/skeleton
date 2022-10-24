@@ -16,7 +16,7 @@
 		imports: ['Toast', 'toastStore'],
 		types: ['ToastMessage'],
 		source: 'utilities/Toast',
-		sveld: [{ source: sveldToast }]
+		components: [{ sveld: sveldToast }]
 	};
 	// const properties: DocsShellTable[] = [
 	// 	{

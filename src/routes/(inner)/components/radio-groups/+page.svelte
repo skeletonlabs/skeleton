@@ -26,9 +26,9 @@
 		imports: ['RadioGroup', 'RadioItem'],
 		source: 'components/Radio',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/radiobutton/',
-		sveld: [
-			{ label: 'RadioGroup', source: sveldRadioGroup },
-			{ label: 'RadioItem', source: sveldRadioItem }
+		components: [
+			{ label: 'RadioGroup', sveld: sveldRadioGroup },
+			{ label: 'RadioItem', sveld: sveldRadioItem }
 		],
 		keyboard: [
 			['<kbd>Tab</kbd>', 'Moves focus to the next focusable RadioItem.'],

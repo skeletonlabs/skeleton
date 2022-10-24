@@ -16,7 +16,7 @@
 		description: 'Navigate between multiple pages of content.',
 		imports: ['Paginator'],
 		source: 'components/Paginator',
-		sveld: [{ source: sveldPaginator }]
+		components: [{ sveld: sveldPaginator }]
 	};
 	// const properties: DocsShellTable[] = [
 	// 	{

@@ -15,7 +15,7 @@
 		description: 'Display customizable alerts to garner attention and provide critical actions.',
 		imports: ['Alert'],
 		source: 'components/Alert',
-		sveld: [{ source: sveldAlert }]
+		components: [{ sveld: sveldAlert }]
 	};
 	// const properties: DocsShellTable[] = [
 	// 	{

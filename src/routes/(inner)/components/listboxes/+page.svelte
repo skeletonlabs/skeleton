@@ -25,9 +25,9 @@
 		imports: ['ListBox', 'ListBoxItem'],
 		source: 'components/ListBox',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/listbox/',
-		sveld: [
-			{ label: 'ListBox', source: sveldListBox },
-			{ label: 'ListBoxItem', source: sveldListBoxItem }
+		components: [
+			{ label: 'ListBox', sveld: sveldListBox },
+			{ label: 'ListBoxItem', sveld: sveldListBoxItem }
 		]
 	};
 	// const properties: DocsShellTable[] = [

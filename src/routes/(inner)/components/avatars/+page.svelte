@@ -33,7 +33,7 @@
 		description: 'Display user avatars with an image or initials.',
 		imports: ['Avatar'],
 		source: 'components/Avatar',
-		sveld: [{ source: sveldAvatar }]
+		components: [{ sveld: sveldAvatar }]
 	};
 	// const properties: DocsShellTable[] = [
 	// 	{

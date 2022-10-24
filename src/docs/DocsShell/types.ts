@@ -5,18 +5,22 @@ export enum DocsFeature {
 	Utility = 'Utility'
 }
 
-interface DocShellLinks {
+interface Link {
 	label: string;
 	url: string;
 }
 
-export interface Sveld {
-	/** Provide a semantic label. */
+export interface Component {
+	/** Provide a semantic component label. */
 	label?: string;
-	/** Provide HTML for description region. */
-	description?: string;
-	/** Provide the Sveld docs source. */
-	source: any;
+	/** Provide HTML markup for a props description. */
+	descProps?: string;
+	/** Provide HTML markup for a slots description. */
+	descSlots?: string;
+	/** Provide HTML markup for a events description. */
+	descEvents?: string;
+	/** Provide the raw component Sveld doc source. */
+	sveld: any;
 }
 
 export interface DocsShellSettings {
@@ -41,33 +45,34 @@ export interface DocsShellSettings {
 		/** Package URL */
 		url: string;
 	};
-	/** Specify the source path (partials) */
+	/** Specifiy the GitHub source path for the feature (partial) */
 	source: string;
-	/** Provide the GitHub documentation route path (partial) */
+	/** Specifify the GitHub documentation source for the feature (partial) */
 	docsPath?: string;
 	/** Provide list of depedency links.  */
-	dependencies?: DocShellLinks[];
-	/** WAI-ARIA APG page URL */
+	dependencies?: Link[];
+	/** WAI-ARIA APG reference page URL. */
 	aria?: string;
-	/** Svelde documentation list */
-	sveld?: Sveld[];
-	/** Param table source [prop, type, default, values, description] */
-	parameters?: any[];
-	/** Class table source [name, description] */
-	classes?: any[];
+	/** Component documentation, which utilizes Sveld. */
+	components?: Component[];
+	/** Action parameter table source [prop, type, default, values, description] */
+	parameters?: string[][];
+	/** Tailwind Element classes table source [name, values, description] */
+	classes?: string[][];
 	/** Keyboard interaction table source [name, description]. */
-	keyboard?: any[];
+	keyboard?: string[][];
 }
 
-export interface DocsShellTable {
-	/** Provide a semantic label. */
-	label?: string;
-	/** Provide HTML for description region. */
-	description?: string;
-	/** Provide the table headings. */
-	headings?: string[];
-	/** Provide the table source data. */
-	source?: string[][];
-	/** WAI-ARIA APG page link. */
-	aria?: string; // TODO: remove this
-}
+// NOTE: this will be removed alongside the move to the JSDocs documentation.
+// export interface DocsShellTable {
+// 	/** Provide a semantic label. */
+// 	label?: string;
+// 	/** Provide HTML for description region. */
+// 	description?: string;
+// 	/** Provide the table headings. */
+// 	headings?: string[];
+// 	/** Provide the table source data. */
+// 	source?: string[][];
+// 	/** WAI-ARIA APG page link. */
+// 	aria?: string; // TODO: remove this
+// }

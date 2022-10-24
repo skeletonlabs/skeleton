@@ -15,7 +15,7 @@
 		imports: ['CodeBlock'],
 		stylesheets: ['highlight-js'],
 		source: 'utilities/CodeBlock',
-		sveld: [{ source: sveldCodeBlock }],
+		components: [{ sveld: sveldCodeBlock }],
 		dependencies: [{ label: 'Highlight.js', url: 'https://highlightjs.org/' }]
 	};
 	// ** TODO: feel free to flatten these into a single table of props **

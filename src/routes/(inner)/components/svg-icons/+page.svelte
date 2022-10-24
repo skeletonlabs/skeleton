@@ -20,7 +20,7 @@
 		description: 'Display and customize SVG images and icons.',
 		imports: ['SvgIcon'],
 		source: 'components/SvgIcon',
-		sveld: [{ source: sveldSvgIcon }]
+		components: [{ sveld: sveldSvgIcon }]
 	};
 	// const properties: DocsShellTable[] = [
 	// 	{

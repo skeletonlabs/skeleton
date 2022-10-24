@@ -24,9 +24,9 @@
 		description: 'Divide and present content in sequenced steps.',
 		imports: ['Stepper', 'Step'],
 		source: 'components/Stepper',
-		sveld: [
-			{ label: 'Stepper', source: sveldStepper },
-			{ label: 'Step', source: sveldStep }
+		components: [
+			{ label: 'Stepper', sveld: sveldStepper },
+			{ label: 'Step', sveld: sveldStep }
 		]
 	};
 	// const properties: DocsShellTable[] = [

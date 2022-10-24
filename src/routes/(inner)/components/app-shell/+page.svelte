@@ -17,7 +17,7 @@
 		description: 'Responsive shell for controlling application layout.',
 		imports: ['AppShell'],
 		source: 'components/AppShell',
-		sveld: [{ source: sveldAppShell }]
+		components: [{ sveld: sveldAppShell }]
 	};
 	// const properties: DocsShellTable[] = [
 	// 	{

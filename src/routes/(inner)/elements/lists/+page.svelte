@@ -13,13 +13,9 @@
 		stylesheets: ['elements/lists'],
 		source: 'styles/elements/lists.css',
 		classes: [
-			{
-				source: [
-					['<code>.list</code>', 'Class for defining a unordered or ordered list.'],
-					['<code>.list-dl</code>', 'Class for defining a description list.'],
-					['<code>.list-nav</code>', 'Class for defining a navigation list.']
-				]
-			}
+			['<code>.list</code>', '-', 'Class for defining a unordered or ordered list.'],
+			['<code>.list-dl</code>', '-', 'Class for defining a description list.'],
+			['<code>.list-nav</code>', '-', 'Class for defining a navigation list.']
 		]
 	};
 </script>

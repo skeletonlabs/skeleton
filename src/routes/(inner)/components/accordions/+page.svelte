@@ -23,9 +23,9 @@
 		imports: ['AccordionGroup', 'AccordionItem'],
 		source: 'components/Accordion',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/example-index/accordion/accordion',
-		sveld: [
-			{ label: 'AccordionGroup', source: sveldAccordionGroup },
-			{ label: 'AccordionItem', source: sveldAccordionItem }
+		components: [
+			{ label: 'AccordionGroup', sveld: sveldAccordionGroup },
+			{ label: 'AccordionItem', sveld: sveldAccordionItem, descProps: 'Overrides hover, spacing, padding, and rounded.' }
 		],
 		keyboard: [
 			['<kbd>Tab</kbd>', 'Moves focus to the next focusable element.'],
