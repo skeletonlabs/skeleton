@@ -164,12 +164,30 @@ import '@brainandbones/skeleton/styles/${$storeStylesheets === 'simple' ? 'all' 
 				<DataTable headings={tableStyleElements.headings} source={tableStyleElements.source} />
 			{/if}
 		{/if}
+	</section>
+
+	<hr />
+
+	<!-- @Tailwind Directives -->
+	<section class="space-y-4">
+		<h3>@Tailwind Directives</h3>
+		<p>
+			Skeleton's stylesheet provide the required <a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a>. Drop the following from your
+			global stylesheet (ex: <code>/src/app.postcss</code> for SvelteKit)
+		</p>
+		<CodeBlock
+			language="css"
+			code={`
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+			`}
+		/>
 		<!-- Alert - this is important, keep it obvious! -->
 		<Alert>
 			<svelte:fragment slot="lead"><span class="text-xl">⚠️</span></svelte:fragment>
-			<strong>IMPORTANT:</strong> Using either <code>all.css</code> or <code>tailwind.css</code> will add the necessary
-			<a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> (ex: base, components, utilities, variants), which means you are required
-			to remove these from your global stylesheet. Failure to do so will prevent the use of certain styles.
+			<strong>IMPORTANT:</strong> Do not skip this step, otherwise your styles will not display as expected.
 		</Alert>
 	</section>
 
