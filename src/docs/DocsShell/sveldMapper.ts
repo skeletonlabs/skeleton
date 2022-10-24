@@ -9,8 +9,6 @@ export function sveldMapperProps(sveld: Sveld): any {
 	return {
 		headings: ['Name', 'Type', 'Value', 'Description'],
 		source: propsFiltered.map((p: any) => {
-			// Description Parser Hook
-			// const descObj: object = descriptionTagParser(p.description);
 			// prettier-ignore
 			return [
 				`<code>${p.name}<?code>`,
@@ -32,7 +30,8 @@ export function sveldMapperSlots(sveld: Sveld): any {
 			return [
 				`<code>${s.name.replaceAll('__','')}</code>`,
 				s.default ? '&check;' : '-',
-				s.fallback ? `<pre>${s.fallback}</pre>` : '-', // TODO: need to format this as code
+				// s.fallback ? `<pre>${s.fallback}</pre>` : '-', // TODO: need to format this as code
+				s.fallback ? `&check;` : '-',
 				s.slot_props ? s.slot_props : '-'
 			];
 		})
@@ -65,12 +64,7 @@ description element in every single Sveld item, we handle it per instance.
 The idea being that prop desc tags may differ from slot desc tags. It also
 allows us to pass unique settings per instance rather than just assuming
 they'll all be the same.
-*/
-// function descriptionTagParser(description: string): object {
-// 	// (parse the description)
-// 	return {};
-// }
-/*
+
 Likewise we might follow the lead above and have unique versions of the desc parser
 per each type of data as well so they can be purpose-built for only the description
 data they are handling. Though the universal method above may suffice.

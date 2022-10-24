@@ -2,11 +2,6 @@
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
-	// @ts-ignore
-	import sveldAccordionGroup from '$lib/components/Accordion/AccordionGroup.svelte?raw&sveld';
-	// @ts-ignore
-	import sveldAccordionItem from '$lib/components/Accordion/AccordionItem.svelte?raw&sveld';
-
 	// Components
 	import AccordionGroup from '$lib/components/Accordion/AccordionGroup.svelte';
 	import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
@@ -14,6 +9,11 @@
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+
+	// @ts-ignore
+	import sveldAccordionGroup from '$lib/components/Accordion/AccordionGroup.svelte?raw&sveld';
+	// @ts-ignore
+	import sveldAccordionItem from '$lib/components/Accordion/AccordionItem.svelte?raw&sveld';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
