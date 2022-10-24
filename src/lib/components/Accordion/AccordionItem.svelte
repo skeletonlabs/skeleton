@@ -1,4 +1,11 @@
 <script lang="ts">
+	/** @slot */
+	/** @slot {{}} content - This is the CONTENT slot description. */
+	/** @slot {{}} lead - This is the LEAD slot description. */
+	/** @slot {{}} summary - This is the SUMMARY slot description. */
+
+	/** @event {{}} click - This is the CLICK event description. */
+
 	import { getContext } from 'svelte';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
