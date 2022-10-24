@@ -30,8 +30,7 @@ export function sveldMapperSlots(component: Component): any {
 			return [
 				`<code>${s.name.replaceAll('__','')}</code>`,
 				s.default ? '&check;' : '-',
-				// s.fallback ? `<pre>${s.fallback}</pre>` : '-', // TODO: need to format this as code
-				s.fallback ? `&check;` : '-',
+				s.fallback ? '&check;' : '-',
 				s.slot_props ? s.slot_props : '-'
 			];
 		})
@@ -48,10 +47,23 @@ export function sveldeMapperEvents(component: Component): any {
 			return [
 				`<code>on:${e.name}</code>`,
 				`<em>${e.type}</em>`,
-				e.element ? e.element : '-'
+				e.element ? escapeHtml(`<${e.element}>`) : '-'
 			];
 		})
 	};
+}
+
+// ---
+
+// https://stackoverflow.com/questions/6234773/can-i-escape-html-special-chars-in-javascript
+// prettier-ignore
+function escapeHtml(unsafe: string) {
+    return unsafe
+         .replace(/&/g, "&amp;")
+         .replace(/</g, "&lt;")
+         .replace(/>/g, "&gt;")
+         .replace(/"/g, "&quot;")
+         .replace(/'/g, "&#039;");
 }
 
 // ---

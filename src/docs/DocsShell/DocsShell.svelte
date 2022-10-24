@@ -46,8 +46,8 @@
 		source: '',
 		docsPath: $page.url.pathname,
 		aria: undefined,
-		// Docs
 		dependencies: [],
+		// Docs
 		components: [],
 		parameters: [],
 		classes: [],
@@ -77,10 +77,10 @@
 	const sveldCounts = { props: 0, slots: 0, events: 0 };
 
 	if (pageSettings.components && pageSettings.components?.length > 0) {
-		pageSettings.components.forEach((row) => {
-			sveldCounts.props += row.sveld.props.length;
-			sveldCounts.slots += row.sveld.slots.length;
-			sveldCounts.events += row.sveld.events.length;
+		pageSettings.components.forEach((comp) => {
+			sveldCounts.props += comp.sveld.props.length;
+			sveldCounts.slots += comp.sveld.slots.length;
+			sveldCounts.events += comp.sveld.events.length;
 		});
 	}
 
