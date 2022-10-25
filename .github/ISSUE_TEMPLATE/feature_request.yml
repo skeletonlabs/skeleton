@@ -19,4 +19,4 @@ body:
   - type: textarea
     id: references
     attributes:
-      label: Any links to similar examples or other references we should review?
+      label: Any links to similar examples or other references we should review? 
