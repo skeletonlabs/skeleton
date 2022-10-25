@@ -177,7 +177,7 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<CodeBlock language="typescript" code={`import { writable, type Writable } from "svelte/store";`} />
+			<CodeBlock language="typescript" code={`import { writable, type Writable } from 'svelte/store';`} />
 			<CodeBlock language="typescript" code={`const storeTab: Writable<string> = writable('a');`} />
 			<CodeBlock
 				language="html"

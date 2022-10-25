@@ -52,7 +52,7 @@
 			language="html"
 			code={`
 \<script\>
-	import { AppShell, AppBar } from "@brainandbones/skeleton";
+	import { AppShell, AppBar } from '@brainandbones/skeleton';
 \</script\>
 
 <AppShell>
