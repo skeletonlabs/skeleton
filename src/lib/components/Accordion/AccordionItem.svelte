@@ -1,10 +1,11 @@
 <script lang="ts">
-	/** @slot */
-	/** @slot {{}} content - This is the CONTENT slot description. */
-	/** @slot {{}} lead - This is the LEAD slot description. */
-	/** @slot {{}} summary - This is the SUMMARY slot description. */
-
-	/** @event {{}} click - This is the CLICK event description. */
+	// Slots:
+	/** @slot {{}} content - Allows for an optional leading element, such as an icon. */
+	/** @slot {{}} lead - Provide the summary details of each item. */
+	/** @slot {{}} summary - Provide the content details of each item. */
+	// Events:
+	// FORWARDED: do not document these, breaks the type definition
+	// DISPATCHED: document directly above the definition, like props (ex: paginator)
 
 	import { getContext } from 'svelte';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
@@ -46,7 +47,7 @@
 
 <!-- @component The Accordion child element. -->
 
-<details bind:open class="accordion-item {classesDetails}" data-testid="accordion-item" on:click>
+<details bind:open class="accordion-item {classesDetails}" data-testid="accordion-item" on:click on:keydown on:keyup on:keypress>
 	<!-- Summary -->
 	<summary id={summaryId} class="accordion-summary {classesSummary}" aria-expanded={open} aria-controls={contentId}>
 		<!-- Slot: Lead -->

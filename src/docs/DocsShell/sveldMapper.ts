@@ -24,14 +24,14 @@ export function sveldMapperProps(component: Component): any {
 export function sveldMapperSlots(component: Component): any {
 	const { slots } = component.sveld;
 	return {
-		headings: ['Name', 'Default', 'Fallback', 'Props', 'Description'],
+		headings: ['Name', 'Default', 'Fallback', 'Description'],
 		source: slots.map((s: any) => {
 			// prettier-ignore
 			return [
 				`<code>${s.name.replaceAll('__','')}</code>`,
 				s.default ? '&check;' : '-',
 				s.fallback ? '&check;' : '-',
-				s.slot_props ? s.slot_props : '-',
+				// s.slot_props ? s.slot_props : '-', // NOTE: we don't currently use this
 				s.description ? s.description : '-'
 			];
 		})
@@ -42,13 +42,14 @@ export function sveldMapperSlots(component: Component): any {
 export function sveldeMapperEvents(component: Component): any {
 	const { events } = component.sveld;
 	return {
-		headings: ['Name', 'Type', 'Element', 'Description'],
+		headings: ['Name', 'Type', 'Element', 'Response', 'Description'],
 		source: events.map((e: any) => {
 			// prettier-ignore
 			return [
 				`<code>on:${e.name}</code>`,
 				`<em>${e.type}</em>`,
 				e.element ? escapeHtml(`<${e.element}>`) : '-',
+				e.detail ? e.detail : '-',
 				e.description ? e.description : '-'
 			];
 		})

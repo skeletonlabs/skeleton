@@ -23,10 +23,12 @@
 	// Functionality
 	function onChangeLength(): void {
 		offset = 0;
+		/** @event {{ length: number }} amount - Fires when the amount selection input changes.  */
 		dispatch('amount', length);
 	}
 	function onPrev(): void {
 		offset--;
+		/** @event {{ offset: number }} page Fires when the next/back buttons are pressed. */
 		dispatch('page', offset);
 	}
 	function onNext(): void {

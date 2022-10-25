@@ -1,4 +1,7 @@
 <script lang="ts">
+	// Slots:
+	// NOTE: we cannot describe the default slot.
+
 	import { onMount, setContext } from 'svelte';
 
 	/** Enable auto-collapse mode. */
