@@ -58,7 +58,7 @@ import '@brainandbones/skeleton/themes/theme-skeleton.css';
 import '@brainandbones/skeleton/styles/all.css';
 import '../styles/global.css';
 
-import { AppShell, AppBar } from "@brainandbones/skeleton";
+import { AppShell, AppBar } from '@brainandbones/skeleton';
 ---
 
 <!-- NOTE: we've set the .dark class to enable Dark Mode -->
@@ -140,7 +140,7 @@ import { AppShell, AppBar } from "@brainandbones/skeleton";
 			code={`
 ---
 import LayoutBasic from '../layouts/LayoutBasic.astro';
-import { GradientHeading } from "@brainandbones/skeleton";
+import { GradientHeading } from '@brainandbones/skeleton';
 ---
 <LayoutBasic>
 	<h1>Hello Skeleton</h1>
