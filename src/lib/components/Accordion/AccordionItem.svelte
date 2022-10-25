@@ -1,4 +1,5 @@
 <script lang="ts">
+	// Slots:
 	/**
 	 * @slot {{}} content - Allows for an optional leading element, such as an icon.
 	 * @slot {{}} lead - Provide the summary details of each item.
