@@ -16,7 +16,8 @@
 		imports: ['SlideToggle'],
 		source: 'components/SlideToggle',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/',
-		components: [{ sveld: sveldSlideToggle }]
+		components: [{ sveld: sveldSlideToggle }],
+		restProps: 'input'
 	};
 	// const properties: DocsShellTable[] = [
 	// 	{

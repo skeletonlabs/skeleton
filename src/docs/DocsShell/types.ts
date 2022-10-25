@@ -55,6 +55,8 @@ export interface DocsShellSettings {
 	aria?: string;
 	/** Component documentation, which utilizes Sveld. */
 	components?: Component[];
+	/** Component element that uses restProps */
+	restProps?: string;
 	/** Action parameter table source [prop, type, default, values, description] */
 	parameters?: string[][];
 	/** Tailwind Element classes table source [name, values, description] */

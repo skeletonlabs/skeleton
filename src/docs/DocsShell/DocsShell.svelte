@@ -49,6 +49,7 @@
 		dependencies: [],
 		// Docs
 		components: [],
+		restProps: undefined,
 		parameters: [],
 		classes: [],
 		keyboard: []
@@ -144,12 +145,20 @@
 				<!-- Imports -->
 				{#if pageSettings.imports?.length}
 					<p class="hidden md:inline-block w-32">Import</p>
-					<div><code on:click={copyImports}>{formatImports()}</code></div>
+					<div>
+						<button on:click={copyImports}>
+							<code>{formatImports()}</code>
+						</button>
+					</div>
 				{/if}
 				<!-- Types -->
 				{#if pageSettings.types?.length}
 					<p class="hidden md:inline-block w-32">Types</p>
-					<div><code on:click={copyTypes}>{formatTypes()}</code></div>
+					<div>
+						<button on:click={copyTypes}>
+							<code>{formatTypes()}</code>
+						</button>
+					</div>
 				{/if}
 				<!-- Stylesheets -->
 				{#if pageSettings.stylesheetIncludes?.length || pageSettings.stylesheets?.length}
@@ -159,12 +168,16 @@
 						<!-- Stylesheet Includes -->
 						{#if pageSettings.stylesheetIncludes?.length}
 							{#each pageSettings.stylesheetIncludes as si}
-								<code on:click={() => {copyStylesheet(si)}}>{si}.css</code>
+								<button on:click={() => {copyStylesheet(si)}}>
+									<code>{si}.css</code>
+								</button>
 							{/each}
 						{/if}
 						<!-- Stylesheets -->
 						{#each Array.from(pageSettings.stylesheets || []) as s}
-							<code on:click={() => {copyStylesheet(s)}}>{s}.css</code>
+							<button on:click={() => {copyStylesheet(s)}}>
+								<code>{s}.css</code>
+							</button>
 						{/each}
 					</div>
 				{/if}
@@ -172,26 +185,26 @@
 				<p class="hidden md:inline-block w-32">Package</p>
 				<div class="flex items-end space-x-2">
 					<SvgIcon width="w-5" height="h-5" name="npm" />
-					<a href={pageSettings.package?.url} target="_blank">{pageSettings.package?.name}</a>
+					<a href={pageSettings.package?.url} target="_blank" rel="noreferrer">{pageSettings.package?.name}</a>
 				</div>
 				<!-- Source Code -->
 				<p class="hidden md:inline-block w-32">Source</p>
 				<div class="flex items-end space-x-2">
 					<SvgIcon width="w-4" height="h-4" class="!mr-1" name="github" />
-					<a href={`${githubSourcePath}/lib/${pageSettings.source}`} target="_blank">View Source</a>
+					<a href={`${githubSourcePath}/lib/${pageSettings.source}`} target="_blank" rel="noreferrer">View Source</a>
 				</div>
 				<!-- Doc Source -->
 				<p class="hidden md:inline-block w-32">Docs</p>
 				<div class="flex items-end space-x-2">
 					<SvgIcon width="w-4" height="h-4" class="!mr-1" name="book" />
-					<a href={`${githubSourcePath}/routes/(inner)${pageSettings.docsPath}/+page.svelte`} target="_blank">Doc Source</a>
+					<a href={`${githubSourcePath}/routes/(inner)${pageSettings.docsPath}/+page.svelte`} target="_blank" rel="noreferrer">Doc Source</a>
 				</div>
 				<!-- Dependencies -->
 				{#if pageSettings.dependencies?.length}
 					<p class="hidden md:inline-block w-32">Dependencies</p>
 					<div class="grid grid-cols-1 gap-2">
 						{#each pageSettings.dependencies as d}
-							<a href={d.url} target="_blank">{d.label}</a>
+							<a href={d.url} target="_blank" rel="noreferrer">{d.label}</a>
 						{/each}
 					</div>
 				{/if}
@@ -199,7 +212,7 @@
 				{#if pageSettings.aria}
 					<p class="hidden md:inline-block w-32">Accessibility</p>
 					<div class="grid grid-cols-1 gap-2">
-						<a href={pageSettings.aria} target="_blank">WAI-ARIA Reference</a>
+						<a href={pageSettings.aria} target="_blank" rel="noreferrer">WAI-ARIA Reference</a>
 					</div>
 				{/if}
 			</section>
@@ -252,6 +265,14 @@
 		<!-- Tab: Component Properties -->
 		{#if $storeActiveTab === 'properties'}
 			<div class="doc-shell-properties {spacing}">
+				<!-- Supports restProps -->
+				{#if pageSettings.restProps}
+					<p>
+						This component makes use of <a href="https://svelte.dev/docs#template-syntax-attributes-and-props" target="_blank" rel="noreferrer">restProps</a> for the
+						<code>{pageSettings.restProps}</code> element.
+					</p>
+				{/if}
+				<!-- Tables -->
 				{#if pageSettings.components}
 					{#each pageSettings.components as comp}
 						{#if comp.sveld.props.length > 0}

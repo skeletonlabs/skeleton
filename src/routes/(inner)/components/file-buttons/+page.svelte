@@ -15,7 +15,8 @@
 		description: 'Allows you to select files with a single click.',
 		imports: ['FileButton'],
 		source: 'components/FileButton',
-		components: [{ sveld: sveldFileButton }]
+		components: [{ sveld: sveldFileButton }],
+		restProps: 'input'
 	};
 	// const properties: DocsShellTable[] = [
 	// 	{

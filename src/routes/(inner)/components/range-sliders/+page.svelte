@@ -26,6 +26,7 @@
 		source: 'components/RangeSlider',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/slider/',
 		components: [{ sveld: sveldRangeSlider }],
+		restProps: 'input',
 		keyboard: [
 			['<kbd>Right Arrow</kbd> or <kbd>Up Arrow</kbd>', 'Increase the value of the slider by one step.'],
 			['<kbd>Left Arrow</kbd> or <kbd>Down Arrow</kbd>', 'Decrease  the value of the slider by one step.'],

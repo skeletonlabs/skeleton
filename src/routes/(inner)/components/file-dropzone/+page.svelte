@@ -15,7 +15,8 @@
 		description: 'Allow upload of files with drag and drop.',
 		imports: ['FileDropzone'],
 		source: 'components/FileDropzone',
-		components: [{ sveld: sveldFileDropzone }]
+		components: [{ sveld: sveldFileDropzone }],
+		restProps: 'input'
 	};
 	// const properties: DocsShellTable[] = [
 	// 	{
