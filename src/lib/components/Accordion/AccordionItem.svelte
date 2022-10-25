@@ -1,8 +1,9 @@
 <script lang="ts">
-	// Slots:
-	/** @slot {{}} content - Allows for an optional leading element, such as an icon. */
-	/** @slot {{}} lead - Provide the summary details of each item. */
-	/** @slot {{}} summary - Provide the content details of each item. */
+	/**
+	 * @slot {{}} content - Allows for an optional leading element, such as an icon.
+	 * @slot {{}} lead - Provide the summary details of each item.
+	 * @slot {{}} summary - Provide the content details of each item.
+	 */
 	// Events:
 	// FORWARDED: do not document these, breaks the type definition
 	// DISPATCHED: document directly above the definition, like props (ex: paginator)
