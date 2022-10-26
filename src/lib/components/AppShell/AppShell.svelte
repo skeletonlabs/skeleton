@@ -1,18 +1,18 @@
 <script lang="ts">
 	// Props (slots)
-	/** Classes to apply to the <code>header</code> slot container element*/
+	/** Classes to apply to the `header` slot container element*/
 	export let slotHeader: string = '';
-	/** Classes to apply to the <code>sidebarLeft</code> slot container element*/
+	/** Classes to apply to the `sidebarLeft` slot container element*/
 	export let slotSidebarLeft: string = 'w-auto';
-	/** Classes to apply to the <code>sidebarRight</code> slot container element*/
+	/** Classes to apply to the `sidebarRight` slot container element*/
 	export let slotSidebarRight: string = 'w-auto';
-	/** Classes to apply to the <code>pageHeader</code> slot container element*/
+	/** Classes to apply to the `pageHeader` slot container element*/
 	export let slotPageHeader: string = '';
-	/** Classes to apply to the <code>pageContent</code> slot container element*/
+	/** Classes to apply to the `pageContent` slot container element*/
 	export let slotPageContent: string = '';
-	/** Classes to apply to the <code>pageFooter</code> slot container element*/
+	/** Classes to apply to the `pageFooter` slot container element*/
 	export let slotPageFooter: string = '';
-	/** Classes to apply to the <code>footer</code> slot container element*/
+	/** Classes to apply to the `footer` slot container element*/
 	export let slotFooter: string = '';
 
 	// Slots
@@ -23,7 +23,7 @@
 	 * @slot pageFooter - Insert content that resides below your page content. Recommended for most layouts.
 	 * @slot footer - Insert fixed footer content. Not recommended for most layouts.
 	*/
-	
+
 	// Base Classes
 	const cBaseAppShell: string = 'w-full h-full flex flex-col overflow-hidden';
 	const cContentArea: string = 'w-full h-full flex overflow-hidden';

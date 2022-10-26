@@ -22,12 +22,13 @@
 	/** Provide classes to set the timeline background color.*/
 	export let background: string = 'bg-accent-500';
 
+
 	// Props (buttons)
-	/** Provide <a href="https://www.skeleton.dev/elements/buttons">Button element</a> classes.*/
+	/** Provide [button classes](https://www.skeleton.dev/elements/buttons) to the back button. */
 	export let buttonBack: string = 'btn-ghost';
-	/** Provide <a href="https://www.skeleton.dev/elements/buttons">Button element</a> classes.*/
+	/** Provide [button classes](https://www.skeleton.dev/elements/buttons) to the next button. */
 	export let buttonNext: string = 'btn-filled';
-	/** Provide <a href="https://www.skeleton.dev/elements/buttons">Button element</a> classes.*/
+	/** Provide [button classes](https://www.skeleton.dev/elements/buttons) to the complete button. */
 	export let buttonComplete: string = 'btn-filled-primary';
 
 	// Context

@@ -21,9 +21,9 @@
 
 	// Props (actions)
 	//AUDIT do we export src as a prop rather than getting it from the $$props.src? Also action and actionParams are getting wonk.
-	/** Image only - Provide an Svelte action reference, such as <code>filter</code>.*/
+	/** Image only - Provide an Svelte action reference, such as `filter`. */
 	export let action: any = () => {};
-	/** Image only - Provide Svelte action params, such as <code>Apollo.</code>*/
+	/** Image only - Provide Svelte action params, such as `Apollo`. */
 	export let actionParams: any = undefined;
 
 	// Base Classes

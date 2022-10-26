@@ -19,11 +19,11 @@
 	/** Provide classes to style page info text.*/
 	export let text: string = 'text-xs md:text-base';
 	/** Provide arbitrary classes to style the select input.*/
-	export let select: string | undefined = undefined;
+	export let select: string = '';
 
 	// Props (buttons)
-	//AUDIT link to https://www.skeleton.dev/elements/buttons ?
-	/** Provide arbitrary casses to style the buttons.*/
+	/** Provide arbitrary casses to style the {@link https://www.skeleton.dev/elements/buttons buttons}.
+	*/
 	export let buttons: string = 'btn-filled';
 
 	// Base Classes

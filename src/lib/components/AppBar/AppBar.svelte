@@ -12,15 +12,15 @@
 	export let space: string = 'space-x-4';
 
 	// Props (slots)
-	/** 
+	/**
 	 * @slot lead - Provides content on the left end of the bar, e.g. a logo.
 	 * @slot trail - Provides content on the right end of the bar, e.g. navigation elements.
 	*/
-	/** Classes to apply to the <code>lead</code> slot container element*/
+	/** Classes to apply to the `lead` slot container element*/
 	export let slotLead: string = '';
-	/** Classes to apply to the <code>default</code> slot container element*/
+	/** Classes to apply to the `default` slot container element*/
 	export let slotDefault: string = '';
-	/** Classes to apply to the <code>trail</code> slot container element*/
+	/** Classes to apply to the `trail` slot container element*/
 	export let slotTrail: string = '';
 
 	// Props (a11y)
