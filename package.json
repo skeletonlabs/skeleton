@@ -20,7 +20,6 @@
 	"devDependencies": {
 		"@bobthered/tailwindcss-palette-generator": "^3.0.0",
 		"@sveltejs/adapter-auto": "1.0.0-next.79",
-		"@sveltejs/adapter-static": "1.0.0-next.43",
 		"@sveltejs/kit": "1.0.0-next.493",
 		"@sveltejs/package": "1.0.0-next.5",
 		"@tailwindcss/forms": "^0.5.3",
