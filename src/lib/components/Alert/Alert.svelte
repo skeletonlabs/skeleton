@@ -1,16 +1,34 @@
 <script lang="ts">
+	//Slots
+	/**
+	 * @slot lead - Provide a leading element, such as an icon.
+	 * @slot content - Provide the alert message text.
+	 * @slot trail - Provide a trailing element, such as a call to action.
+	 * @slot title - Provide the alert title text.
+	 */
+
 	import { fade } from 'svelte/transition';
 
 	// Props
+	/** Control visibility of the alert. */
 	export let visible: boolean = true;
+	/** Provide classes to set background color. */
 	export let background: string = 'bg-ternary-500/30';
+	/** Provide classes to set the border styles. */
 	export let border: string = 'border-l-4 border-l-ternary-500';
-	export let color: string | undefined = undefined;
-	export let rounded: string | undefined = undefined;
+	/** Provide classes to set text color. */
+	export let color: string = '';
+	/** Provide classes to set border radius. */
+	export let rounded: string = '';
+	/** Svelte fade transition duration. Set 0 to disable. */
 	export let duration: number = 200; // ms
-	// Props (slots)
+
+	// Props (regions)
+	/** Classes to be applied to the lead slot region. */
 	export let slotLead: string = '';
+	/** Classes to be applied to the content slot region. */
 	export let slotContent: string = '';
+	/** Classes to be applied to the trail slot region. */
 	export let slotTrail: string = '';
 
 	// Base Classes

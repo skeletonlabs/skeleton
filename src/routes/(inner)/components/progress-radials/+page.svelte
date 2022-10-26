@@ -18,31 +18,6 @@
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/meter/',
 		components: [{ sveld: sveldProgressRadial }]
 	};
-	// const properties: DocsShellTable[] = [
-	// 	{
-	// 		headings: ['Prop', 'Type', 'Default', 'Description'],
-	// 		source: [
-	// 			['<code>value</code>', 'number', '-', 'Set the meter fill amount. Shows as indeterminate when set undefined.'],
-	// 			['<code>stroke</code>', 'number', '20', 'Sets the base stroke width. Scales responsively.'],
-	// 			['<code>meter</code>', 'string', 'stroke-accent-500', 'Provide classes to set meter color.'],
-	// 			['<code>track</code>', 'string', 'stroke-surface-200 dark:stroke-surface-700', 'Provide classes to set track color.'],
-	// 			['<code>fill</code>', 'string', 'fill-token', 'Provide classes to set the SVG text fill color.'],
-	// 			['<code>font</code>', 'string', '56', 'Sets the base font size. Scales responsively.']
-	// 		]
-	// 	}
-	// ];
-	// const slots: DocsShellTable[] = [
-	// 	{
-	// 		headings: ['Name', 'Description'],
-	// 		source: [['<code>default</code>', 'Text content is rendered as SVG text in the center of the element.']]
-	// 	}
-	// ];
-	// const a11y: DocsShellTable[] = [
-	// 	{
-	// 		headings: ['Prop', 'Required', 'Description'],
-	// 		source: [['<code>label</code>', '-', `A semantic ARIA label.`]]
-	// 	}
-	// ];
 
 	// Reactive
 	$: props = { value: 50, max: 100, step: 10 };

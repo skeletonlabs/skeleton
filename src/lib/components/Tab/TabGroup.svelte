@@ -3,18 +3,33 @@
 	import { setContext } from 'svelte';
 
 	// Props
+	/**
+	 * A svelte store to keep track of tab selection.
+	 * @type {Writable(any)}
+	 */
 	export let selected: Writable<any>;
+	/** Toggle display of the bottom border, below the tabs. */
 	export let rail: boolean = true;
+	/** Provide classes to set the flex justification. 'justify-start' is best for small screens. */
 	export let justify: string = 'justify-start';
+	/** Provide classes to set the selected border size. Shared between group and tab. */
 	export let borderWidth: string = 'border-b-2';
+	/** Provide classes to set the selected border color. */
 	export let borderColor: string = 'border-primary-500';
+	/** Provide class to set the selected text color. */
 	export let color: string = 'text-primary-500';
+	/** Provide classes to set the selected SVG fill color. */
 	export let fill: string = 'fill-primary-500';
+	/** Provide classes to set the unselected hover styles. */
 	export let hover: string = 'bg-hover-token';
+	/** Provide classes to set the tab border radius styles. */
 	export let rounded: string = 'rounded-tl-container-token rounded-tr-container-token';
+
 	// A11y
-	export let labeledby: string | undefined = undefined;
-	export let label: string | undefined = undefined;
+	/** Provide the ID of the element that describes the group. */
+	export let labeledby: string = '';
+	/** Defines a semantic label for the group. */
+	export let label: string = '';
 
 	// Set Context
 	setContext('selected', selected);

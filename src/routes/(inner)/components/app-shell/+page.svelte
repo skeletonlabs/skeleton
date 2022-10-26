@@ -19,34 +19,6 @@
 		source: 'components/AppShell',
 		components: [{ sveld: sveldAppShell }]
 	};
-	// const properties: DocsShellTable[] = [
-	// 	{
-	// 		headings: ['Prop', 'Type', 'Default', 'Description'],
-	// 		source: [
-	// 			['<code>slotHeader</code>', 'string', '-', 'Provide arbitrary classes to the header slot element.'],
-	// 			['<code>slotSidebarLeft</code>', 'string', 'w-auto', 'Provide arbitrary classes to the left sidebar element.'],
-	// 			['<code>slotSidebarRight</code>', 'string', 'w-auto', 'Provide arbitrary classes to the right sidebar element.'],
-	// 			['<code>slotPageHeader</code>', 'string', '-', 'Provide arbitrary classes to the page header element.'],
-	// 			['<code>slotPageContent</code>', 'string', '-', 'Provide arbitrary classes to the page content element.'],
-	// 			['<code>slotPageFooter</code>', 'string', '-', 'Provide arbitrary classes to the page footer element.'],
-	// 			['<code>slotFooter</code>', 'string', '-', 'Provide arbitrary classes to the footer element.']
-	// 		]
-	// 	}
-	// ];
-	// const slots: DocsShellTable[] = [
-	// 	{
-	// 		headings: ['Name', 'Description'],
-	// 		source: [
-	// 			['<code>default</code>', 'Your page content. Insert your router slot here.'],
-	// 			['<code>header</code>', 'Insert fixed header content, such as the <a href="/components/app-bar">AppBar component</a>.'],
-	// 			['<code>sidebarLeft</code>', 'Hidden when empty. Allows you to set fixed left sidebar content.'],
-	// 			['<code>sidebarRight</code>', 'Hidden when empty. Allows you to set fixed right sidebar content.'],
-	// 			['<code>pageHeader</code>', 'Insert content that resides above your page content. Great for global alerts.'],
-	// 			['<code>pageFooter</code>', 'Insert content that resides below your page content. Recommended for most layouts.'],
-	// 			['<code>footer</code>', 'Insert fixed footer content. Not recommended for most layouts.']
-	// 		]
-	// 	}
-	// ];
 
 	// Local
 	let state: any = {

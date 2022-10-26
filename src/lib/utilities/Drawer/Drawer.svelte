@@ -4,22 +4,42 @@
 	import { afterUpdate, onMount } from 'svelte/internal';
 
 	// Props
+	/** Provide a store to manage visible state.
+	 * @type {Writable(boolean)}
+	 */
 	export let open: Writable<boolean> = writable(false);
+	/** Set the anchor position.
+	 * @type {'left' | 'top' | 'right' | 'bottom'}
+	 */
 	export let position: string = 'left';
+	/** Define the Svelte transition animation duration.*/
 	export let duration: number = 150;
+
 	// Props (backdrop)
+	/** Backdrop - Provide classes to set the backdrop background color*/
 	export let bgBackdrop: string = 'bg-backdrop-token';
+	/** Backdrop - Provide classes to set the blur style.*/
 	export let blur: string = 'backdrop-blur-xs';
+
 	// Props (drawer)
+	/** Drawer - Provide classes to set the drawer background color.*/
 	export let bgDrawer: string = 'bg-surface-100-800-token';
-	export let border: string | undefined = undefined;
-	export let rounded: string | undefined = undefined;
-	export let width: string | undefined = undefined;
-	export let height: string | undefined = undefined;
-	export let margin: string | undefined = undefined;
+	/** Drawer - Provide classes to set border color.*/
+	export let border: string = '';
+	/** Drawer - Provide classes to set border radius.*/
+	export let rounded: string = '';
+	/** Drawer - Provide classes to override the width.*/
+	export let width: string = '';
+	/** Drawer - Provide classes to override the height.*/
+	export let height: string = '';
+	/** Drawer - Provide classes to set margins.*/
+	export let margin: string = '';
+
 	// Props (a11y)
-	export let labelledby: string | undefined = undefined;
-	export let describedby: string | undefined = undefined;
+	/** Provide an ID of the element labeling the drawer.*/
+	export let labelledby: string = '';
+	/** Provide an ID of the element describing the drawer.*/
+	export let describedby: string = '';
 
 	// Base Classes
 	const cBaseBackdrop: string = 'fixed top-0 left-0 right-0 bottom-0 z-40 flex';
@@ -90,10 +110,13 @@
 		bind:this={elemBackdrop}
 		class="drawer-backdrop {classesBackdrop}"
 		data-testid="drawer-backdrop"
+		transition:fade|local={{ duration }}
 		on:click={(e) => {
 			onClickBackdrop(e);
 		}}
-		transition:fade|local={{ duration }}
+		on:keydown
+		on:keyup
+		on:keypress
 	>
 		<!-- Drawer -->
 		<div

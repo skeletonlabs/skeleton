@@ -1,4 +1,9 @@
 <script lang="ts">
+	// Slots
+	/**
+	 * @slot lead - Provides a leading position, which can be used for icons.
+	 */
+
 	import type { Writable } from 'svelte/store';
 	import { getContext } from 'svelte';
 
@@ -12,8 +17,11 @@
 	export let rounded: string = getContext('rounded');
 
 	// Props
+	/** The value of each tab.*/
 	export let value: any = $selected.value;
+
 	// A11y
+	/** Defines a semantic label for the tab.*/
 	export let label: string = 'tab';
 
 	// Base Classes

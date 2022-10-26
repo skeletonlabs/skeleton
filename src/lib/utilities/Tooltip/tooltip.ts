@@ -9,16 +9,27 @@ export interface ArgsTooltip {
 	inline?: boolean;
 	/** Provide an optional callback function to handle open/close state changes. */
 	state?: (e: { trigger: HTMLElement; state: boolean }) => void;
+
 	// Style Overrides
+	/** Provide a class to set the background color. */
 	background?: string;
+	/** Provide a class to set the text color. */
 	color?: string;
+	/** Provide a class to set the width. */
 	width?: string;
+	/** Provide a class to set the padding. */
 	padding?: string;
+	/** Provide a class to set the box shadow. */
 	shadow?: string;
+	/** Provide a class to set the border radius. */
 	rounded?: string;
+
 	// Regions
+	/** Provide arbitrary classes to the container element. */
 	regionContainer?: string;
+	/** Provide arbitrary classes to the tooltip element. */
 	regionTooltip?: string;
+	/** Provide arbitrary classes to the tooltip arrow element. */
 	regionArrow?: string;
 }
 
@@ -29,14 +40,14 @@ export function tooltip(node: HTMLElement, args: ArgsTooltip) {
 	// Map the Args and provide default values
 	// prettier-ignore
 	const {
-        content = '(tooltip)',
-        position = 'top',
+		content = '(tooltip)',
+		position = 'top',
 		inline = true,
-        // Regions
-        regionContainer = 'regionContainer',
-        regionTooltip = 'regionTooltip',
-        regionArrow = 'regionArrow'
-    }: ArgsTooltip = args;
+		// Regions
+		regionContainer = 'regionContainer',
+		regionTooltip = 'regionTooltip',
+		regionArrow = 'regionArrow'
+	}: ArgsTooltip = args;
 
 	// Create a wrapping element, set relative positioning
 	const createElemContainer = (): void => {
@@ -52,10 +63,10 @@ export function tooltip(node: HTMLElement, args: ArgsTooltip) {
 	const createElemTooltip = (): void => {
 		elemTooltip = document.createElement('div');
 		elemTooltip.classList.add('tooltip', `tooltip-${position}`, 'hidden', regionTooltip);
-        if (args.background) { elemTooltip.classList.add(args.background); }
-        if (args.color) elemTooltip.classList.add(args.color);
-        if (args.width) elemTooltip.classList.add(args.width);
-        if (args.padding) elemTooltip.classList.add(args.padding);
+		if (args.background) { elemTooltip.classList.add(args.background); }
+		if (args.color) elemTooltip.classList.add(args.color);
+		if (args.width) elemTooltip.classList.add(args.width);
+		if (args.padding) elemTooltip.classList.add(args.padding);
         if (args.shadow) elemTooltip.classList.add(args.shadow);
         if (args.rounded) elemTooltip.classList.add(args.rounded);
 		elemTooltip.setAttribute('role', 'tooltip');

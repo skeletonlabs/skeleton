@@ -18,40 +18,6 @@
 		components: [{ sveld: sveldCodeBlock }],
 		dependencies: [{ label: 'Highlight.js', url: 'https://highlightjs.org/' }]
 	};
-	// ** TODO: feel free to flatten these into a single table of props **
-	// const properties: DocsShellTable[] = [
-	// 	{
-	// 		label: 'Settings',
-	// 		headings: ['Prop', 'Type', 'Values', 'Default', 'Description'],
-	// 		source: [
-	// 			[
-	// 				'<code>language</code>',
-	// 				'string',
-	// 				'<a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md" target="_blank">Language Alias</a>',
-	// 				'plaintext',
-	// 				'Sets a language alias for Highlight.js syntax highlighting.'
-	// 			],
-	// 			[
-	// 				'<code>code</code>',
-	// 				'string',
-	// 				'<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals" target="_blank">Template Literal</a>',
-	// 				'-',
-	// 				'Provide the code to render. Be mindful to escape as needed!'
-	// 			]
-	// 		]
-	// 	},
-	// 	{
-	// 		label: 'Styling',
-	// 		headings: ['Prop', 'Type', 'Default', 'Description'],
-	// 		source: [
-	// 			['<code>background</code>', 'string', 'bg-[#141517]', 'Provided classes to set the background color.'],
-	// 			['<code>text</code>', 'string', 'text-sm', 'Provided classes to set the text size.'],
-	// 			['<code>color</code>', 'string', 'text-white', 'Provided classes to set the text color.'],
-	// 			['<code>rounded</code>', 'string', 'rounded-container-token', 'Provided classes to set the border radius.'],
-	// 			['<code>buttonCopy</code>', 'string', 'bg-white/5 hover:bg-white/10', 'Provided classes to set the button styles.']
-	// 		]
-	// 	}
-	// ];
 </script>
 
 <DocsShell {settings}>

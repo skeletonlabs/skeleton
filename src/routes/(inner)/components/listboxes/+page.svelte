@@ -27,68 +27,9 @@
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/listbox/',
 		components: [
 			{ label: 'ListBox', sveld: sveldListBox },
-			{ label: 'ListBoxItem', sveld: sveldListBoxItem }
+			{ label: 'ListBoxItem', sveld: sveldListBoxItem, overrideProps: ['accent', 'padding', 'rounded', 'hover'] }
 		]
 	};
-	// const properties: DocsShellTable[] = [
-	// 	{
-	// 		label: 'ListBox',
-	// 		headings: ['Prop', 'Type', 'Default', 'Description'],
-	// 		source: [
-	// 			['<code>selected</code>', 'writable(any) | writable(any[])', 'writable(undefined)', 'Provide a writable store to maintain list selection.'],
-	// 			['<code>space</code>', 'string', 'space-y-1', 'Provide classes to set vertical item spacing.'],
-	// 			['<code>height</code>', 'string', '-', 'Provide to set scrollable listbox region height.'],
-	// 			['<code>regionLabel</code>', 'string', '-', 'Provide arbitrary classes to the label element.'],
-	// 			['<code>regionList</code>', 'string', '-', 'Provide arbitrary classes to the scrollable listbox element.'],
-	// 			// Items
-	// 			['<code>accent</code>', 'string', '!bg-active-token', `Provide classes to set the item selected background.`],
-	// 			['<code>padding</code>', 'string', 'px-4 py-3', `Provide classes to set the item padding styles.`],
-	// 			['<code>rounded</code>', 'string', 'rounded-token', `Provide classes to set the item border radius styles.`],
-	// 			['<code>hover</code>', 'string', 'bg-hover-token', `Provide classes to set the item hover background color.`]
-	// 		]
-	// 	},
-	// 	{
-	// 		label: 'ListBoxItem',
-	// 		headings: ['Prop', 'Type', 'Default', 'Description'],
-	// 		source: [
-	// 			['<code>accent</code>', 'string', '(inherit)', `Provide classes to set the selected element background.`],
-	// 			['<code>padding</code>', 'string', '(inherit)', `Provide classes to set the padding styles.`],
-	// 			['<code>rounded</code>', 'string', '(inherit)', `Provide classes to set the border radius styles.`],
-	// 			['<code>hover</code>', 'string', '(inherit)', `Provide classes to set hover background color.`]
-	// 		]
-	// 	}
-	// ];
-	// const slots: DocsShellTable[] = [
-	// 	{
-	// 		label: 'ListBox',
-	// 		headings: ['Name', 'Description'],
-	// 		source: [['<code>default</code>', 'Accepts a set of ListBoxItem components.']]
-	// 	},
-	// 	{
-	// 		label: 'ListBoxItem',
-	// 		headings: ['Name', 'Description'],
-	// 		source: [
-	// 			['<code>lead</code>', 'Positioned on the left of each row item.'],
-	// 			['<code>trail</code>', 'Positioned on the right of each row item.']
-	// 		]
-	// 	}
-	// ];
-	// const a11y: DocsShellTable[] = [
-	// 	{
-	// 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/listbox/',
-	// 		label: 'ListBox',
-	// 		headings: ['Prop', 'Type', 'Default', 'Description'],
-	// 		source: [
-	// 			['<code>label</code>', 'string', '-', `Define a semantic ARIA label.`],
-	// 			['<code>labelId</code>', 'string', '-', `Set automatically based on the label text, but can be overwritten.`]
-	// 		]
-	// 	},
-	// 	{
-	// 		label: 'ListBoxItem',
-	// 		headings: ['Prop', 'Type', 'Default', 'Description'],
-	// 		source: [['<code>id</code>', 'string', '-', 'Define a unique and semantic identifier for the item.']]
-	// 	}
-	// ];
 </script>
 
 <DocsShell {settings}>

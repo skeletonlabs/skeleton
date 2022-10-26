@@ -35,42 +35,6 @@
 		source: 'components/Avatar',
 		components: [{ sveld: sveldAvatar }]
 	};
-	// const properties: DocsShellTable[] = [
-	// 	{
-	// 		headings: ['Prop', 'Type', 'Default', 'Description'],
-	// 		source: [
-	// 			['<code>background</code>', 'string', 'bg-surface-400-500-token', 'Provide classes to set background styles.'],
-	// 			['<code>width</code>', 'string', 'w-12', 'Provide classes to set avatar width.'],
-	// 			['<code>border</code>', 'string', '-', 'Provide classes to set border styles.'],
-	// 			['<code>rounded</code>', 'string', 'rounded-full', 'Provide classes to set rounded style.'],
-	// 			['<code>shadow</code>', 'string', '-', 'Provide classes to set shadow styles.'],
-	// 			['<code>cursor</code>', 'string', '-', 'Provide classes to set cursor styles.']
-	// 		]
-	// 	},
-	// 	{
-	// 		label: 'Image',
-	// 		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
-	// 		source: [
-	// 			['<code>src</code>', 'string', '-', '-', 'Set image source value.'],
-	// 			['<code>action</code>', 'string', '-', '(Svelte action)', 'Provide an Svelte action reference, such as <code>filter</code>.'],
-	// 			['<code>actionParams</code>', 'string', '-', '(filter ID)', 'Provide Svelte action params, such as <code>Apollo</code>.']
-	// 		]
-	// 	},
-	// 	{
-	// 		label: 'Initials',
-	// 		headings: ['Prop', 'Type', 'Default', 'Description'],
-	// 		source: [
-	// 			['<code>initials</code>', 'string', 'AB', 'Provide up to two text characters.'],
-	// 			['<code>fill</code>', 'string', 'fill-token', 'Provide classes to set the SVG text fill color.']
-	// 		]
-	// 	}
-	// ];
-	// const a11y: DocsShellTable[] = [
-	// 	{
-	// 		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
-	// 		source: [['<code>alt</code>', 'string', '-', '-', 'Set image alt text value for accessability.']]
-	// 	}
-	// ];
 
 	// Local
 	const imgPlaceholder: string = 'https://i.pravatar.cc/?img=5';

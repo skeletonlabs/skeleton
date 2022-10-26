@@ -1,26 +1,55 @@
 <script lang="ts">
+	//Slots
+	/**
+	 * @slot empty - Overrides the default "no results found" message when the table is empty.
+	 * @slot footer - Displays below the table. Useful for embedding pagination.
+	 * @slot header - Dislays above the table. Useful for embedding search and filter inputs.
+	 */
+
 	import { createEventDispatcher } from 'svelte';
 	import { sortAsc, sortDesc } from './DataTableService';
 
 	const dispatch = createEventDispatcher();
 
 	// Props
-	export let headings: any[] = [];
+	/**
+	 * Provide a list of table headings.
+	 * @type {string[]}
+	 */
+	export let headings: string[] = [];
+	/**
+	 * Provide the table body content.
+	 * @type {any[]}
+	 */
 	export let source: any[] = [];
-	export let search: any = '';
+	/** Provide a term for local fuzzy search within the compoonent. */
+	export let search: string = '';
+	/** Defines the sort key value. */
 	export let sort: string = '';
+	/** When using async mode, use this to get a count of rows. */
 	export let count: number = source.length;
+	/** Enables row hover and selection features. */
 	export let interactive: boolean = false;
+	/** Disables search/sort within the component, allowing for server-side pagination. */
 	export let async: boolean = false;
-	// Props: Design
+
+	// Props (styles)
+	/** Provide classes to set the table header background color. */
 	export let header: string = 'bg-surface-200-700-token';
+	/** Provide classes to set the table body background color. */
 	export let body: string = 'bg-surface-100-800-token';
+	/** Provide classes to set the table text size. */
 	export let text: string = 'text-sm';
-	export let color: string | undefined = '';
+	/** Provide classes to set the table text color. */
+	export let color: string = '';
+	/** Provide classes to set the hover background color. */
 	export let hover: string = 'bg-hover-token';
-	// A11y
-	export let labelledby: string | undefined = '';
-	export let describedby: string | undefined = '';
+
+	// Props (a11y)
+	/** Provide the ID of the element that labels the table. */
+	export let labelledby: string = '';
+	/** Provide the ID of the element that describes the table. */
+	export let describedby: string = '';
 
 	// Local
 	let elemTable: HTMLElement;
@@ -47,12 +76,14 @@
 
 	function onHeadSelect(i: number) {
 		const column: string = headKeyByIndex(i);
+		/** @event {{ headKeyIndex: number }} sorted - Fires a table column is sorted. */
 		dispatch('sorted', column);
 		async ? (sorted.by = column) : localSort(column);
 	}
 
 	function onRowSelect(r: Object) {
 		if (interactive === true) {
+			/** @event {{ row: Object }} selected - Fires when a table row is clicked. */
 			dispatch('selected', r);
 		}
 	}

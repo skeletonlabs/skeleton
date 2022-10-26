@@ -174,11 +174,13 @@
 							{/each}
 						{/if}
 						<!-- Stylesheets -->
-						{#each Array.from(pageSettings.stylesheets || []) as s}
-							<button on:click={() => {copyStylesheet(s)}}>
-								<code>{s}.css</code>
-							</button>
-						{/each}
+						{#if pageSettings.stylesheets?.length}
+							{#each pageSettings.stylesheets as s}
+								<button on:click={() => {copyStylesheet(s)}}>
+									<code>{s}.css</code>
+								</button>
+							{/each}
+						{/if}
 					</div>
 				{/if}
 				<!-- Package -->
@@ -283,6 +285,7 @@
 								{#if table.source.length > 0}
 									<DataTable headings={table.headings} source={table.source} />
 								{/if}
+								{#if comp.overrideProps}<div><em>{comp.label} can override: <span class="text-primary-500">{comp.overrideProps.join(', ')}</span>.</em></div>{/if}
 							</section>
 						{/if}
 					{/each}

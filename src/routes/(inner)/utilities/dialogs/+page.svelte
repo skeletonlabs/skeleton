@@ -26,18 +26,6 @@
 		components: [{ sveld: sveldDrawer }],
 		keyboard: [['<kbd>Esc</kbd>', ' Dismisses the foremost dialog.']]
 	};
-	// const properties: DocsShellTable[] = [
-	// 	{
-	// 		headings: ['Prop', 'Type', 'Default', 'Description'],
-	// 		source: [
-	// 			['<code>backdrop</code>', 'string', 'bg-backdrop-token', 'Provide classes to set the backdrop background color.'],
-	// 			['<code>blur</code>', 'string', 'backdrop-blur-xs', 'Provide classes to add a backdrop blur.'],
-	// 			['<code>background</code>', 'string', 'bg-surface-200-700-token', 'Provide classes to set the modal card background styles.'],
-	// 			['<code>width</code>', 'string', 'max-w-[640px]', 'Provide classes to set max modal width.'],
-	// 			['<code>duration</code>', 'number', '100', 'The animation in/out durations. Set to zero (0) for none.']
-	// 		]
-	// 	}
-	// ];
 
 	// Local
 	let valueConfirm: boolean = false;

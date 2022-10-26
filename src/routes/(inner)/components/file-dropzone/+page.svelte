@@ -18,36 +18,6 @@
 		components: [{ sveld: sveldFileDropzone }],
 		restProps: 'input'
 	};
-	// const properties: DocsShellTable[] = [
-	// 	{
-	// 		label: 'Settings',
-	// 		description: 'Uses <code>$$restProps</code> to support all valid input attributes such as <em>required</em>.',
-	// 		headings: ['Prop', 'Type', 'Default', 'Description'],
-	// 		source: [
-	// 			['<code>files</code>', 'array', '-', 'Bind this to your form data, represents the "files" data from the input.'],
-	// 			['<code>accept</code>', 'string', '-', 'Set the native <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept" target="_blank">file accepts attribute</a>.'],
-	// 			['<code>name</code>', 'string', '-', 'Set the native input name value.'],
-	// 			['<code>multiple</code>', 'boolean', 'false', 'Determines whether user can pick more than one file.'],
-	// 			['<code>notes</code>', 'string', '-', 'Provided additional notes or information.']
-	// 		]
-	// 	},
-	// 	{
-	// 		label: 'Styling',
-	// 		headings: ['Prop', 'Type', 'Default', 'Description'],
-	// 		source: [
-	// 			['<code>width</code>', 'string', 'w-full', 'Provide styles to set the dropzone width.'],
-	// 			['<code>height</code>', 'string', 'h-24', 'Provide styles to set the dropzone height.'],
-	// 			['<code>padding</code>', 'string', 'p-4', 'Provide styles to set the dropzone padding.'],
-	// 			['<code>color</code>', 'string', '-', 'Provide styles to set the dropzone text color.']
-	// 		]
-	// 	}
-	// ];
-	// const slots: DocsShellTable[] = [
-	// 	{
-	// 		headings: ['Name', 'Description'],
-	// 		source: [['<code>default</code>', 'Replace the message with custom UI.']]
-	// 	}
-	// ];
 
 	// Local
 	let files: FileList;

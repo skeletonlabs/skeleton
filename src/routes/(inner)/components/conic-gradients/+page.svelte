@@ -20,39 +20,6 @@
 		source: 'components/ConicGradient',
 		components: [{ sveld: sveldConicGradient }]
 	};
-	// const properties: DocsShellTable[] = [
-	// 	{
-	// 		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
-	// 		source: [
-	// 			['<code>stops</code>', 'ConicStop[]', '(100% grey circle)', '&check;', 'Provide a data set of color stops and labels.'],
-	// 			['<code>legend</code>', 'boolean', 'false', '-', 'Allows for automatic generation of a legend below the conic gradient.'],
-	// 			['<code>spin</code>', 'boolean', 'false', '-', 'When enabled, the conic gradient will spin.'],
-	// 			['<code>width</code>', 'string', 'w-full', '-', 'Provided classes to style the conic gradient width.'],
-	// 			['<code>hover</code>', 'string', 'bg-hover-token', '-', 'Provided classes to style the legend hover effect.']
-	// 		]
-	// 	}
-	// ];
-	// const classes: DocsShellTable[] = [
-	// 	{
-	// 		headings: ['Selector', 'Description'],
-	// 		source: [
-	// 			['<code>.conic-gradient</code>', 'The parent element.'],
-	// 			['<code>.conic-caption</code>', 'The figcaption element.'],
-	// 			['<code>.concic-cone</code>', 'The chart element.'],
-	// 			['<code>.conic-list</code>', 'The legend list.'],
-	// 			['<code>.conic-item</code>', 'Legend list items.'],
-	// 			['<code>.conic-swatch</code>', 'Legend swatch elements.'],
-	// 			['<code>.conic-label</code>', 'Legend label elements.'],
-	// 			['<code>.conic-value</code>', 'Legend value elements.']
-	// 		]
-	// 	}
-	// ];
-	// const slots: DocsShellTable[] = [
-	// 	{
-	// 		headings: ['Name', 'Description'],
-	// 		source: [['<code>default</code>', 'Provide a semantic heading to represent the figure caption.']]
-	// 	}
-	// ];
 
 	// Color Stops
 	let stopsTailwind: ConicStop[] = [
