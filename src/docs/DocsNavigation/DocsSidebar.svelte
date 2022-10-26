@@ -82,7 +82,7 @@
 			<nav class="list-nav">
 				<ul>
 					{#each list as { href, label, badge, icon }}
-						<li on:click={onListItemClick}>
+						<li on:click={onListItemClick} on:keypress>
 							<a {href} value={href} class={classesActive(href)} data-sveltekit-prefetch>
 								{#if icon}
 									<span>
