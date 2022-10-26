@@ -20,7 +20,21 @@ export interface Component {
 	/** Provide HTML markup for a events description. */
 	descEvents?: string;
 	/** Provide the raw component Sveld doc source. */
-	sveld: any;
+	sveld: Record<string, SveldObj[]>;
+}
+
+export interface SveldObj {
+	name: string
+	type: string
+	description?: string
+	value?: string
+	detail?: string
+	element?: string
+	tags?: {
+		tag: string
+		value?: string
+	}[]
+	[key: string]: any
 }
 
 export interface DocsShellSettings {
@@ -30,6 +44,8 @@ export interface DocsShellSettings {
 	name: string;
 	/** The feature description */
 	description: string;
+	/** Specifiy the GitHub source path for the feature (partial) */
+	source: string;
 	/** List of import alias names. */
 	imports?: string[];
 	/** List of import Typescript interface imports. */
@@ -45,8 +61,6 @@ export interface DocsShellSettings {
 		/** Package URL */
 		url: string;
 	};
-	/** Specifiy the GitHub source path for the feature (partial) */
-	source: string;
 	/** Specifify the GitHub documentation source for the feature (partial) */
 	docsPath?: string;
 	/** Provide list of depedency links.  */
@@ -58,12 +72,14 @@ export interface DocsShellSettings {
 	/** Component element that uses restProps */
 	restProps?: string;
 	/** Action parameter table source [prop, type, default, values, description] */
-	parameters?: string[][];
+	parameters?: [string, string, string, string, string][];
 	/** Tailwind Element classes table source [name, values, description] */
-	classes?: string[][];
+	classes?: [string, string, string][];
 	/** Keyboard interaction table source [name, description]. */
-	keyboard?: string[][];
+	keyboard?: [string, string][];
 }
+
+
 
 // NOTE: this will be removed alongside the move to the JSDocs documentation.
 // export interface DocsShellTable {
