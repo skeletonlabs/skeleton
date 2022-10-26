@@ -2,12 +2,15 @@
 	import { writable, type Writable } from 'svelte/store';
 
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
 	import RangeSlider from '$lib/components/RangeSlider/RangeSlider.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+
+	// @ts-ignore
+	import sveldRangeSlider from '$lib/components/RangeSlider/RangeSlider.svelte?raw&sveld';
 
 	// Stores
 	const storeMax: Writable<number> = writable(50);
@@ -20,65 +23,51 @@
 		name: 'Range Sliders',
 		description: 'Capture input from a range of values, including optional ticks.',
 		imports: ['RangeSlider'],
-		source: 'components/RangeSlider'
+		source: 'components/RangeSlider',
+		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/slider/',
+		components: [{ sveld: sveldRangeSlider }],
+		restProps: 'input',
+		keyboard: [
+			['<kbd>Right Arrow</kbd> or <kbd>Up Arrow</kbd>', 'Increase the value of the slider by one step.'],
+			['<kbd>Left Arrow</kbd> or <kbd>Down Arrow</kbd>', 'Decrease  the value of the slider by one step.'],
+			['<kbd>Home</kbd>', 'Set the slider to the first allowed value in its range.'],
+			['<kbd>End</kbd>', 'Set the slider to the last allowed value in its range.'],
+			['<kbd>Page Up</kbd>', 'Increase the slider value by an amount larger than the step change made by <kbd>Up Arrow</kbd>.'],
+			['<kbd>Page Down</kbd>', 'Decrease  the slider value by an amount larger than the step change made by <kbd>Up Down</kbd>.']
+		]
 	};
-	const properties: DocsShellTable[] = [
-		{
-			description: 'Uses <code>$$restProps</code> to support all valid input attributes, such as <em>required</em>.',
-			headings: ['Prop', 'Type', 'Default', 'Description'],
-			source: [
-				['<code>value</code>', 'number', '0', 'Set the input value.'],
-				['<code>min</code>', 'number', '0', 'Set the input minimum range.'],
-				['<code>max</code>', 'number', '100', 'Set the input maximum range.'],
-				['<code>step</code>', 'number', '1', 'Set the input step offset.'],
-				['<code>ticked</code>', 'boolean', 'false', 'Enables tick marks. See browser support below.'],
-				['<code>accent</code>', 'string', 'accent-token', 'Provide classes to set the input accent color.']
-			]
-		}
-	];
-	const classes: DocsShellTable[] = [
-		{
-			headings: ['Selector', 'Description'],
-			source: [
-				['<code>.range-slider</code>', 'The parent element.'],
-				['<code>.range-slider-label</code>', 'The label element.'],
-				['<code>.range-slider-input</code>', 'The hidden input element.'],
-				['<code>.range-slider-ticks</code>', 'The datalist ticks element.'],
-				['<code>.range-slider-trail</code>', 'The trailing content region.']
-			]
-		}
-	];
-	const slots: DocsShellTable[] = [
-		{
-			headings: ['Prop', 'Description'],
-			source: [
-				['<code>default</code>', 'A label slot directly above the range slider.'],
-				['<code>trail</code>', 'A label slot directly below the range slider.']
-			]
-		}
-	];
-	const a11y: DocsShellTable[] = [
-		{
-			aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/slider/',
-			headings: ['Prop', 'Type', 'Description'],
-			source: [
-				['<code>id</code>', 'string', 'Provide a unique input id.'],
-				['<code>label</code>', 'string', `A semantic ARIA label.`]
-			]
-		},
-		{
-			label: 'Keyboard Interactions',
-			headings: ['Keys', 'Description'],
-			source: [
-				['<kbd>Right Arrow</kbd> or <kbd>Up Arrow</kbd>', 'Increase the value of the slider by one step.'],
-				['<kbd>Left Arrow</kbd> or <kbd>Down Arrow</kbd>', 'Decrease  the value of the slider by one step.'],
-				['<kbd>Home</kbd>', 'Set the slider to the first allowed value in its range.'],
-				['<kbd>End</kbd>', 'Set the slider to the last allowed value in its range.'],
-				['<kbd>Page Up</kbd>', 'Increase the slider value by an amount larger than the step change made by <kbd>Up Arrow</kbd>.'],
-				['<kbd>Page Down</kbd>', 'Decrease  the slider value by an amount larger than the step change made by <kbd>Up Down</kbd>.']
-			]
-		}
-	];
+	// const properties: DocsShellTable[] = [
+	// 	{
+	// 		description: 'Uses <code>$$restProps</code> to support all valid input attributes, such as <em>required</em>.',
+	// 		headings: ['Prop', 'Type', 'Default', 'Description'],
+	// 		source: [
+	// 			['<code>value</code>', 'number', '0', 'Set the input value.'],
+	// 			['<code>min</code>', 'number', '0', 'Set the input minimum range.'],
+	// 			['<code>max</code>', 'number', '100', 'Set the input maximum range.'],
+	// 			['<code>step</code>', 'number', '1', 'Set the input step offset.'],
+	// 			['<code>ticked</code>', 'boolean', 'false', 'Enables tick marks. See browser support below.'],
+	// 			['<code>accent</code>', 'string', 'accent-token', 'Provide classes to set the input accent color.']
+	// 		]
+	// 	}
+	// ];
+	// const slots: DocsShellTable[] = [
+	// 	{
+	// 		headings: ['Prop', 'Description'],
+	// 		source: [
+	// 			['<code>default</code>', 'A label slot directly above the range slider.'],
+	// 			['<code>trail</code>', 'A label slot directly below the range slider.']
+	// 		]
+	// 	}
+	// ];
+	// const a11y: DocsShellTable[] = [
+	// 	{
+	// 		headings: ['Prop', 'Type', 'Description'],
+	// 		source: [
+	// 			['<code>id</code>', 'string', 'Provide a unique input id.'],
+	// 			['<code>label</code>', 'string', `A semantic ARIA label.`]
+	// 		]
+	// 	},
+	// ];
 
 	// Reactive Props
 	$: props = {
@@ -92,7 +81,7 @@
 	};
 </script>
 
-<DocsShell {settings} {properties} {classes} {slots} {a11y}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-4 xl:space-y-0 xl:grid grid-cols-[1fr_auto] gap-2">

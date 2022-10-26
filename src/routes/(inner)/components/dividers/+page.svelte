@@ -2,12 +2,15 @@
 	import { writable, type Writable } from 'svelte/store';
 
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	import Divider from '$lib/components/Divider/Divider.svelte';
 	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+
+	// @ts-ignore
+	import sveldDivider from '$lib/components/Divider/Divider.svelte?raw&sveld';
 
 	// Stores
 	const storeVertical: Writable<boolean> = writable(false);
@@ -21,27 +24,22 @@
 		name: 'Dividers',
 		description: 'Horizontal or vertical rules for sectioning your content.',
 		imports: ['Divider'],
-		source: 'components/Divider'
+		source: 'components/Divider',
+		components: [{ sveld: sveldDivider }]
 	};
-	const properties: DocsShellTable[] = [
-		{
-			headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
-			source: [
-				['<code>vertical</code>', 'boolean', 'false', 'true | false', 'When enabled, sets the width to zero and height to full.'],
-				['<code>borderWidth</code>', 'string', 'border-t', 'class', 'Provide classes to set the border width.'],
-				['<code>borderStyle</code>', 'string', 'border-solid', 'class', 'Provide classes to set the border style.'],
-				['<code>borderColor</code>', 'string', 'border-surface-300-600-token', 'class', 'Provide classes to set the border color.'],
-				['<code>margin</code>', 'string', 'm-0', 'class', 'Provide classes to set the margin.'],
-				['<code>opacity</code>', 'string', 'opacity-full', 'class', 'Provide classes to set opacity.']
-			]
-		}
-	];
-	const classes: DocsShellTable[] = [
-		{
-			headings: ['Selector', 'Description'],
-			source: [['<code>.divider</code>', 'The horizontal rule element.']]
-		}
-	];
+	// const properties: DocsShellTable[] = [
+	// 	{
+	// 		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
+	// 		source: [
+	// 			['<code>vertical</code>', 'boolean', 'false', 'true | false', 'When enabled, sets the width to zero and height to full.'],
+	// 			['<code>borderWidth</code>', 'string', 'border-t', 'class', 'Provide classes to set the border width.'],
+	// 			['<code>borderStyle</code>', 'string', 'border-solid', 'class', 'Provide classes to set the border style.'],
+	// 			['<code>borderColor</code>', 'string', 'border-surface-300-600-token', 'class', 'Provide classes to set the border color.'],
+	// 			['<code>margin</code>', 'string', 'm-0', 'class', 'Provide classes to set the margin.'],
+	// 			['<code>opacity</code>', 'string', 'opacity-full', 'class', 'Provide classes to set opacity.']
+	// 		]
+	// 	}
+	// ];
 
 	// Switches between top and left oriented styles
 	function setOrientationStyles(): void {
@@ -60,7 +58,7 @@
 	};
 </script>
 
-<DocsShell {settings} {properties} {classes}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-2">

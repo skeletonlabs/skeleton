@@ -3,7 +3,7 @@
 
 	// Docs
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 	// Components
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
@@ -16,20 +16,15 @@
 		description: 'Provides a robust set of button styles, including preset variants.',
 		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/buttons'],
-		source: 'styles/elements/buttons.css'
+		source: 'styles/elements/buttons.css',
+		classes: [
+			['<code>.btn</code>', '-', 'Creates a text button using a button or anchor.'],
+			['<code>.btn-icon</code>', '-', 'Creates a text icon button using a button or anchor.'],
+			['<code>.btn-[value]</code>', 'sm | base | lg | xl', 'Canned button sizes that define padding and text sizes.'],
+			['<code>.btn-icon-[value]</code>', 'sm | base | lg | xl', 'Canned icon button sizes that define padding and text sizes.'],
+			['<code>.btn-[variant]</code>', '(see usage)', 'A set of preset class styles for buttons or icon buttons.']
+		]
 	};
-	const classes: DocsShellTable[] = [
-		{
-			headings: ['Class', 'Values', 'Description'],
-			source: [
-				['<code>.btn</code>', '-', 'Creates a text button using a button or anchor.'],
-				['<code>.btn-icon</code>', '-', 'Creates a text icon button using a button or anchor.'],
-				['<code>.btn-[size]</code>', 'sm | base | lg | xl', 'Canned button sizes that define padding and text sizes.'],
-				['<code>.btn-icon-[size]</code>', 'sm | base | lg | xl', 'Canned icon button sizes that define padding and text sizes.'],
-				['<code>.btn-[variant]</code>', 'filled-primary | ghost | etc.', 'A set of preset class styles for buttons or icon buttons.']
-			]
-		}
-	];
 
 	// Local:
 	const href: string = '/elements/buttons';
@@ -51,7 +46,7 @@
 		.join(' ');
 </script>
 
-<DocsShell {settings} {classes}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<div class="grid grid-cols-1 xl:grid-cols-[1fr_auto] gap-2">

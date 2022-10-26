@@ -2,13 +2,16 @@
 	import { writable, type Writable } from 'svelte/store';
 
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	import { mapTableSource } from '$lib/components/Table/DataTableService';
 	import DataTable from '$lib/components/Table/DataTable.svelte';
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
 	import Tab from '$lib/components/Tab/Tab.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+
+	// @ts-ignore
+	import sveldDataTable from '$lib/components/Table/DataTable.svelte?raw&sveld';
 
 	// Stores
 	let tabExample: Writable<string> = writable('local');
@@ -19,86 +22,72 @@
 		name: 'Data Tables',
 		description: 'Interactive table with support for search, sort, and pagination.',
 		imports: ['DataTable'],
-		source: 'components/Table'
+		source: 'components/Table',
+		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/grid/',
+		components: [{ sveld: sveldDataTable }],
+		keyboard: [
+			['<kbd>Right Arrow</kbd>', 'Moves focus one cell to the right. If focus is on the right-most cell in the row, focus does not move.'],
+			['<kbd>Left Arrow</kbd>', 'Moves focus one cell to the left. If focus is on the left-most cell in the row, focus does not move.'],
+			['<kbd>Down Arrow</kbd>', 'Moves focus one cell down. If focus is on the bottom cell in the column, focus does not move.'],
+			['<kbd>Up Arrow</kbd>', 'Moves focus one cell Up. If focus is on the top cell in the column, focus does not move.'],
+			['<kbd>Home</kbd>', 'Moves focus to the first cell in the row that contains focus.'],
+			['<kbd>End</kbd>', ' Moves focus to the last cell in the row that contains focus.']
+		]
 	};
-	const properties: DocsShellTable[] = [
-		{
-			label: 'Settings',
-			headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
-			source: [
-				['<code>headings</code>', 'string[]', '[]', '&check;', 'Provide a list of table headings.'],
-				['<code>source</code>', 'any[]', '[]', '&check;', 'Provide the table body content.'],
-				['<code>async</code>', 'boolean', 'false', '-', 'Disables search/sort within the component, allowing for server-side pagination.'],
-				['<code>search</code>', 'any', '-', '-', 'Provide a term for local fuzzy search within the compoonent.'],
-				['<code>sort</code>', 'string', '-', '-', 'Defines the sort key value.'],
-				['<code>count</code>', 'number', '(source length)', '-', 'When using async mode, use this to get a count of rows.'],
-				['<code>interactive</code>', 'boolean', 'false', '-', 'Enables row hover and selection features.']
-			]
-		},
-		{
-			label: 'Styling',
-			headings: ['Prop', 'Type', 'Default', 'Description'],
-			source: [
-				['<code>header</code>', 'string', 'bg-surface-200-700-token', 'Provide classes to set the table header background color.'],
-				['<code>body</code>', 'string', 'bg-surface-100-800-token', 'Provide classes to set the table body background color.'],
-				['<code>text</code>', 'string', 'text-sm', 'Provide classes to set the table text size.'],
-				['<code>color</code>', 'string', '-', 'Provide classes to set the table text color.'],
-				['<code>hover</code>', 'string', 'bg-hover-token', 'Provide classes to set the hover background color.']
-			]
-		}
-	];
-	const events: DocsShellTable[] = [
-		{
-			headings: ['Name', 'Description'],
-			source: [
-				['<code>on:sorted</code>', 'Fires when a table heading is selected for sorting. Contains a key name reference.'],
-				['<code>on:selected</code>', 'If interactive enabled, fires when a row is selected. Contains the complete row data.']
-			]
-		}
-	];
-	const classes: DocsShellTable[] = [
-		{
-			description: 'Coming soon.'
-			// headings: ['Selector', 'Description'],
-			// source: [
-			// 	['<code>.foo</code>', '...'],
-			// 	['<code>.bar</code>', '...']
-			// ]
-		}
-	];
-	const slots: DocsShellTable[] = [
-		{
-			headings: ['Name', 'Description'],
-			source: [
-				['<code>header</code>', 'Dislays above the table. Useful for embedding search and filter inputs.'],
-				['<code>empty</code>', 'Overrides the default "no results found" message when the table is empty.'],
-				['<code>footer</code>', 'Displays below the table. Useful for embedding pagination.']
-			]
-		}
-	];
-	const a11y: DocsShellTable[] = [
-		{ aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/grid/' },
-		{
-			headings: ['Prop', 'Required', 'Description'],
-			source: [
-				['<code>labelledby</code>', '-', `Provide the ID of the element that labels the table.`],
-				['<code>describedby</code>', '-', `Provide the ID of the element that describes the table.`]
-			]
-		},
-		{
-			label: 'Keyboard Interactions',
-			description: 'Begin focus by tabbing into the table, then use any of the following interactions.',
-			headings: ['Keys', 'Description'],
-			source: [
-				['<kbd>Right Arrow</kbd>', 'Moves focus one cell to the right. If focus is on the right-most cell in the row, focus does not move.'],
-				['<kbd>Left Arrow</kbd>', 'Moves focus one cell to the left. If focus is on the left-most cell in the row, focus does not move.'],
-				['<kbd>Down Arrow</kbd>', 'Moves focus one cell down. If focus is on the bottom cell in the column, focus does not move.'],
-				['<kbd>Up Arrow</kbd>', 'Moves focus one cell Up. If focus is on the top cell in the column, focus does not move.'],
-				['<kbd>Home</kbd>', 'Moves focus to the first cell in the row that contains focus.'],
-				['<kbd>End</kbd>', ' Moves focus to the last cell in the row that contains focus.']
-			]
-		}
-	];
+	// const properties: DocsShellTable[] = [
+	// 	{
+	// 		label: 'Settings',
+	// 		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
+	// 		source: [
+	// 			['<code>headings</code>', 'string[]', '[]', '&check;', 'Provide a list of table headings.'],
+	// 			['<code>source</code>', 'any[]', '[]', '&check;', 'Provide the table body content.'],
+	// 			['<code>async</code>', 'boolean', 'false', '-', 'Disables search/sort within the component, allowing for server-side pagination.'],
+	// 			['<code>search</code>', 'any', '-', '-', 'Provide a term for local fuzzy search within the compoonent.'],
+	// 			['<code>sort</code>', 'string', '-', '-', 'Defines the sort key value.'],
+	// 			['<code>count</code>', 'number', '(source length)', '-', 'When using async mode, use this to get a count of rows.'],
+	// 			['<code>interactive</code>', 'boolean', 'false', '-', 'Enables row hover and selection features.']
+	// 		]
+	// 	},
+	// 	{
+	// 		label: 'Styling',
+	// 		headings: ['Prop', 'Type', 'Default', 'Description'],
+	// 		source: [
+	// 			['<code>header</code>', 'string', 'bg-surface-200-700-token', 'Provide classes to set the table header background color.'],
+	// 			['<code>body</code>', 'string', 'bg-surface-100-800-token', 'Provide classes to set the table body background color.'],
+	// 			['<code>text</code>', 'string', 'text-sm', 'Provide classes to set the table text size.'],
+	// 			['<code>color</code>', 'string', '-', 'Provide classes to set the table text color.'],
+	// 			['<code>hover</code>', 'string', 'bg-hover-token', 'Provide classes to set the hover background color.']
+	// 		]
+	// 	}
+	// ];
+	// const events: DocsShellTable[] = [
+	// 	{
+	// 		headings: ['Name', 'Description'],
+	// 		source: [
+	// 			['<code>on:sorted</code>', 'Fires when a table heading is selected for sorting. Contains a key name reference.'],
+	// 			['<code>on:selected</code>', 'If interactive enabled, fires when a row is selected. Contains the complete row data.']
+	// 		]
+	// 	}
+	// ];
+	// const slots: DocsShellTable[] = [
+	// 	{
+	// 		headings: ['Name', 'Description'],
+	// 		source: [
+	// 			['<code>header</code>', 'Dislays above the table. Useful for embedding search and filter inputs.'],
+	// 			['<code>empty</code>', 'Overrides the default "no results found" message when the table is empty.'],
+	// 			['<code>footer</code>', 'Displays below the table. Useful for embedding pagination.']
+	// 		]
+	// 	}
+	// ];
+	// const a11y: DocsShellTable[] = [
+	// 	{
+	// 		headings: ['Prop', 'Required', 'Description'],
+	// 		source: [
+	// 			['<code>labelledby</code>', '-', `Provide the ID of the element that labels the table.`],
+	// 			['<code>describedby</code>', '-', `Provide the ID of the element that describes the table.`]
+	// 		]
+	// 	}
+	// ];
 
 	// Local Table
 	const staticArr: any = [
@@ -144,7 +133,7 @@
 	}
 </script>
 
-<DocsShell {settings} {properties} {events} {classes} {slots} {a11y}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-4">

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
@@ -12,23 +12,18 @@
 		description: 'Provides "skeleton" placeholders that can display while content loads.',
 		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/placeholders'],
-		source: 'styles/elements/placeholders.css'
+		source: 'styles/elements/placeholders.css',
+		classes: [
+			['<code>placeholder</code>', '-', 'Applies the default placeholder style.'],
+			['<code>placeholder-circle</code>', '-', 'Applies the circular placeholder style.']
+		]
 	};
-	const classes: DocsShellTable[] = [
-		{
-			headings: ['Class', 'Description'],
-			source: [
-				['<code>placeholder</code>', 'Applies the default placeholder style.'],
-				['<code>placeholder-circle</code>', 'Applies the circular placeholder style.']
-			]
-		}
-	];
 
 	// Local
 	let animate: boolean = true;
 </script>
 
-<DocsShell {settings} {classes}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="card">

@@ -1,9 +1,12 @@
 <script lang="ts">
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	import Alert from '$lib/components/Alert/Alert.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+
+	// @ts-ignore
+	import sveldAlert from '$lib/components/Alert/Alert.svelte?raw&sveld';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -11,45 +14,33 @@
 		name: 'Alerts',
 		description: 'Display customizable alerts to garner attention and provide critical actions.',
 		imports: ['Alert'],
-		source: 'components/Alert'
+		source: 'components/Alert',
+		components: [{ sveld: sveldAlert }]
 	};
-	const properties: DocsShellTable[] = [
-		{
-			headings: ['Prop', 'Type', 'Default', 'Description'],
-			source: [
-				['<code>visible</code>', 'boolean', 'true', 'Control visibility of the alert.'],
-				['<code>background</code>', 'string', 'bg-ternary-500/30', 'Provide classes to set background color.'],
-				['<code>border</code>', 'string', 'border-l-4 border-l-ternary-500', 'Provide classes to set the border styles.'],
-				['<code>color</code>', 'string', '-', 'Provide classes to set text color.'],
-				['<code>rounded</code>', 'string', '-', 'Provide classes to set border radius.'],
-				['<code>duration</code>', 'number', '200', 'Svelte fade transition duration. Set <code>0</code> to disable.']
-			]
-		}
-	];
-	const classes: DocsShellTable[] = [
-		{
-			headings: ['Selector', 'Description'],
-			source: [
-				['<code>.alert</code>', 'The parent element.'],
-				['<code>.alert-lead</code>', 'The alert icon region.'],
-				['<code>.alert-content</code>', 'The alert content region.'],
-				['<code>.alert-title</code>', 'the alert title element.'],
-				['<code>.alert-message</code>', 'The alert message element.'],
-				['<code>.alert-trail</code>', 'The alert trailing region.']
-			]
-		}
-	];
-	const slots: DocsShellTable[] = [
-		{
-			headings: ['Slot', 'Style Prop', 'Description'],
-			source: [
-				['<code>lead</code>', 'slotLead', 'Provide a leading element, such as an icon.'],
-				['<code>title</code>', 'slotContent > .alert-title', 'Provide the alert title text.'],
-				['<code>default</code>', 'slotContent > .alert-message', 'Provide the alert message text.'],
-				['<code>trail</code>', 'slotTrail', 'Provide a trailing element, such as a call to action.']
-			]
-		}
-	];
+	// const properties: DocsShellTable[] = [
+	// 	{
+	// 		headings: ['Prop', 'Type', 'Default', 'Description'],
+	// 		source: [
+	// 			['<code>visible</code>', 'boolean', 'true', 'Control visibility of the alert.'],
+	// 			['<code>background</code>', 'string', 'bg-ternary-500/30', 'Provide classes to set background color.'],
+	// 			['<code>border</code>', 'string', 'border-l-4 border-l-ternary-500', 'Provide classes to set the border styles.'],
+	// 			['<code>color</code>', 'string', '-', 'Provide classes to set text color.'],
+	// 			['<code>rounded</code>', 'string', '-', 'Provide classes to set border radius.'],
+	// 			['<code>duration</code>', 'number', '200', 'Svelte fade transition duration. Set <code>0</code> to disable.']
+	// 		]
+	// 	}
+	// ];
+	// const slots: DocsShellTable[] = [
+	// 	{
+	// 		headings: ['Slot', 'Style Prop', 'Description'],
+	// 		source: [
+	// 			['<code>lead</code>', 'slotLead', 'Provide a leading element, such as an icon.'],
+	// 			['<code>title</code>', 'slotContent > .alert-title', 'Provide the alert title text.'],
+	// 			['<code>default</code>', 'slotContent > .alert-message', 'Provide the alert message text.'],
+	// 			['<code>trail</code>', 'slotTrail', 'Provide a trailing element, such as a call to action.']
+	// 		]
+	// 	}
+	// ];
 
 	// Local
 	let title = `Hello Skeleton!`;
@@ -66,7 +57,7 @@
 	}
 </script>
 
-<DocsShell {settings} {properties} {classes} {slots}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-4">

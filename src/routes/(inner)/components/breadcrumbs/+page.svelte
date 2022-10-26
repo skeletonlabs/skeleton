@@ -1,11 +1,18 @@
 <script lang="ts">
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	import Breadcrumb from '$lib/components/Breadcrumb/Breadcrumb.svelte';
 	import Crumb from '$lib/components/Breadcrumb/Crumb.svelte';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+
+	// @ts-ignore
+	import sveldBreadcrumb from '$lib/components/Breadcrumb/Breadcrumb.svelte?raw&sveld';
+	// @ts-ignore
+	import sveldCrumb from '$lib/components/Breadcrumb/Crumb.svelte?raw&sveld';
+
+	console.log(sveldCrumb);
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -13,69 +20,53 @@
 		name: 'Breadcrumbs',
 		description: 'Displays the current navigation hierarchy.',
 		imports: ['Breadcrumb', 'Crumb'],
-		source: 'components/Breadcrumb'
+		source: 'components/Breadcrumb',
+		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/',
+		components: [
+			{ label: 'BreadCrumb', sveld: sveldBreadcrumb },
+			{ label: 'Crumb', sveld: sveldCrumb }
+		]
 	};
-	const properties: DocsShellTable[] = [
-		{
-			label: 'BreadCrumb',
-			headings: ['Prop', 'Type', 'Default', 'Description'],
-			source: [
-				['<code>separator</code>', 'string', `&rsaquo (unicode)`, 'Defines the crumb separator. Supports SVG icons.'],
-				['<code>text</code>', 'string', '-', 'Provide classes to set text size.']
-			]
-		},
-		{
-			label: 'Crumb',
-			headings: ['Prop', 'Type', 'Default', 'Description'],
-			source: [['<code>color</code>', 'string ', '-', 'Provide classes set the current page text color.']]
-		}
-	];
-	const classes: DocsShellTable[] = [
-		{
-			label: 'BreadCrumb',
-			headings: ['Selector', 'Description'],
-			source: [
-				['<code>.breadcrumb</code>', 'The parent element.'],
-				['<code>.breadcrumb-list</code>', 'The ordered list element.']
-			]
-		},
-		{
-			label: 'Crumb',
-			headings: ['Selector', 'Description'],
-			source: [
-				['<code>.crumb</code>', 'The parent element.'],
-				['<code>.crumb-anchor</code>', 'The crumb anchor element.'],
-				['<code>.crumb-lead</code>', 'The crumb lead element.'],
-				['<code>.crumb-text</code>', 'The crumb text element.'],
-				['<code>.crumb-seperator</code>', 'The crumb seperator element.']
-			]
-		}
-	];
-	const slots: DocsShellTable[] = [
-		{
-			label: 'BreadCrumb',
-			headings: ['Slot', 'Description'],
-			source: [['<code>default</code>', 'Accepts a set of Crumb components.']]
-		},
-		{
-			label: 'Crumb',
-			headings: ['Slot', 'Description'],
-			source: [['<code>lead</code>', 'A leading slot intended for icons.']]
-		}
-	];
-	const a11y: DocsShellTable[] = [
-		{
-			aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/',
-			headings: ['Prop', 'Description'],
-			source: [['<code>label</code>', 'A semantic ARIA label.']]
-		}
-	];
+	// const properties: DocsShellTable[] = [
+	// 	{
+	// 		label: 'BreadCrumb',
+	// 		headings: ['Prop', 'Type', 'Default', 'Description'],
+	// 		source: [
+	// 			['<code>separator</code>', 'string', `&rsaquo (unicode)`, 'Defines the crumb separator. Supports SVG icons.'],
+	// 			['<code>text</code>', 'string', '-', 'Provide classes to set text size.']
+	// 		]
+	// 	},
+	// 	{
+	// 		label: 'Crumb',
+	// 		headings: ['Prop', 'Type', 'Default', 'Description'],
+	// 		source: [['<code>color</code>', 'string ', '-', 'Provide classes set the current page text color.']]
+	// 	}
+	// ];
+	// const slots: DocsShellTable[] = [
+	// 	{
+	// 		label: 'BreadCrumb',
+	// 		headings: ['Slot', 'Description'],
+	// 		source: [['<code>default</code>', 'Accepts a set of Crumb components.']]
+	// 	},
+	// 	{
+	// 		label: 'Crumb',
+	// 		headings: ['Slot', 'Description'],
+	// 		source: [['<code>lead</code>', 'A leading slot intended for icons.']]
+	// 	}
+	// ];
+	// const a11y: DocsShellTable[] = [
+	// 	{
+	// 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/',
+	// 		headings: ['Prop', 'Description'],
+	// 		source: [['<code>label</code>', 'A semantic ARIA label.']]
+	// 	}
+	// ];
 
 	// Local
 	const customSeparator: string = `<span class="text-surface-500">/</span>`;
 </script>
 
-<DocsShell {settings} {properties} {classes} {slots} {a11y}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 xl:grid-cols-2 gap-4">

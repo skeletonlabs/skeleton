@@ -2,7 +2,7 @@
 	import { writable, type Writable } from 'svelte/store';
 
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	// Components
 	import Avatar from '$lib/components/Avatar/Avatar.svelte';
@@ -23,60 +23,54 @@
 	import Summer84 from '$lib/actions/Filters/svg-filters/Summer84.svelte';
 	import XPro from '$lib/actions/Filters/svg-filters/XPro.svelte';
 
+	// @ts-ignore
+	import sveldAvatar from '$lib/components/Avatar/Avatar.svelte?raw&sveld';
+
 	// Docs Shell
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Component,
 		name: 'Avatars',
 		description: 'Display user avatars with an image or initials.',
 		imports: ['Avatar'],
-		source: 'components/Avatar'
+		source: 'components/Avatar',
+		components: [{ sveld: sveldAvatar }]
 	};
-	const properties: DocsShellTable[] = [
-		{
-			headings: ['Prop', 'Type', 'Default', 'Description'],
-			source: [
-				['<code>background</code>', 'string', 'bg-surface-400-500-token', 'Provide classes to set background styles.'],
-				['<code>width</code>', 'string', 'w-12', 'Provide classes to set avatar width.'],
-				['<code>border</code>', 'string', '-', 'Provide classes to set border styles.'],
-				['<code>rounded</code>', 'string', 'rounded-full', 'Provide classes to set rounded style.'],
-				['<code>shadow</code>', 'string', '-', 'Provide classes to set shadow styles.'],
-				['<code>cursor</code>', 'string', '-', 'Provide classes to set cursor styles.']
-			]
-		},
-		{
-			label: 'Image',
-			headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
-			source: [
-				['<code>src</code>', 'string', '-', '-', 'Set image source value.'],
-				['<code>action</code>', 'string', '-', '(Svelte action)', 'Provide an Svelte action reference, such as <code>filter</code>.'],
-				['<code>actionParams</code>', 'string', '-', '(filter ID)', 'Provide Svelte action params, such as <code>Apollo</code>.']
-			]
-		},
-		{
-			label: 'Initials',
-			headings: ['Prop', 'Type', 'Default', 'Description'],
-			source: [
-				['<code>initials</code>', 'string', 'AB', 'Provide up to two text characters.'],
-				['<code>fill</code>', 'string', 'fill-token', 'Provide classes to set the SVG text fill color.']
-			]
-		}
-	];
-	const classes: DocsShellTable[] = [
-		{
-			headings: ['Selector', 'Description'],
-			source: [
-				['<code>.avatar</code>', 'The parent element.'],
-				['<code>.avatar-image</code>', 'The avatar image element.'],
-				['<code>.avatar-initials</code>', 'The avatar SVG text element.']
-			]
-		}
-	];
-	const a11y: DocsShellTable[] = [
-		{
-			headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
-			source: [['<code>alt</code>', 'string', '-', '-', 'Set image alt text value for accessability.']]
-		}
-	];
+	// const properties: DocsShellTable[] = [
+	// 	{
+	// 		headings: ['Prop', 'Type', 'Default', 'Description'],
+	// 		source: [
+	// 			['<code>background</code>', 'string', 'bg-surface-400-500-token', 'Provide classes to set background styles.'],
+	// 			['<code>width</code>', 'string', 'w-12', 'Provide classes to set avatar width.'],
+	// 			['<code>border</code>', 'string', '-', 'Provide classes to set border styles.'],
+	// 			['<code>rounded</code>', 'string', 'rounded-full', 'Provide classes to set rounded style.'],
+	// 			['<code>shadow</code>', 'string', '-', 'Provide classes to set shadow styles.'],
+	// 			['<code>cursor</code>', 'string', '-', 'Provide classes to set cursor styles.']
+	// 		]
+	// 	},
+	// 	{
+	// 		label: 'Image',
+	// 		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
+	// 		source: [
+	// 			['<code>src</code>', 'string', '-', '-', 'Set image source value.'],
+	// 			['<code>action</code>', 'string', '-', '(Svelte action)', 'Provide an Svelte action reference, such as <code>filter</code>.'],
+	// 			['<code>actionParams</code>', 'string', '-', '(filter ID)', 'Provide Svelte action params, such as <code>Apollo</code>.']
+	// 		]
+	// 	},
+	// 	{
+	// 		label: 'Initials',
+	// 		headings: ['Prop', 'Type', 'Default', 'Description'],
+	// 		source: [
+	// 			['<code>initials</code>', 'string', 'AB', 'Provide up to two text characters.'],
+	// 			['<code>fill</code>', 'string', 'fill-token', 'Provide classes to set the SVG text fill color.']
+	// 		]
+	// 	}
+	// ];
+	// const a11y: DocsShellTable[] = [
+	// 	{
+	// 		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
+	// 		source: [['<code>alt</code>', 'string', '-', '-', 'Set image alt text value for accessability.']]
+	// 	}
+	// ];
 
 	// Local
 	const imgPlaceholder: string = 'https://i.pravatar.cc/?img=5';
@@ -112,7 +106,7 @@
 <Summer84 />
 <XPro />
 
-<DocsShell {settings} {properties} {classes} {a11y}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-4">

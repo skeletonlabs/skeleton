@@ -1,9 +1,12 @@
 <script lang="ts">
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import LightSwitch from '$lib/utilities/LightSwitch/LightSwitch.svelte';
+
+	// @ts-ignore
+	import sveldLightSwitch from '$lib/utilities/LightSwitch/LightSwitch.svelte?raw&sveld';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -11,28 +14,14 @@
 		name: 'Lightswitch',
 		description: `Allows users to toggle between light and dark themes using <a href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="noreferrer">Tailwind's dark mode</a> feature.`,
 		imports: ['LightSwitch'],
-		source: 'utilities/LightSwitch'
+		source: 'utilities/LightSwitch',
+		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/switch/',
+		components: [{ sveld: sveldLightSwitch }],
+		keyboard: [['<kbd>Space</kbd> or <kbd>Enter</kbd>', 'Toggle the switch state.']]
 	};
-	const classes: DocsShellTable[] = [
-		{
-			headings: ['Selector', 'Description'],
-			source: [
-				['<code>.lightswitch</code>', 'The parent element.'],
-				['<code>.lightswitch-thumb</code>', 'The thumb element.'],
-				['<code>.lightswitch-icon</code>', 'The thumb icon.']
-			]
-		}
-	];
-	const a11y: DocsShellTable[] = [
-		{ aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/switch/' },
-		{
-			headings: ['Keys', 'Description'],
-			source: [['<kbd>Space</kbd> or <kbd>Enter</kbd>', 'When focus is on the switch, changes the state of the switch.']]
-		}
-	];
 </script>
 
-<DocsShell {settings} {classes} {a11y}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="card card-body flex justify-center items-center !py-10">

@@ -1,6 +1,9 @@
 <script lang="ts">
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
+
+	// @ts-ignore
+	// import sveldComp from '$lib/.../Component.svelte?raw&sveld';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -12,58 +15,22 @@
 		types: ['Template'],
 		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/template'],
-		source: 'components/Template'
+		source: 'components/Template',
+		aria: 'https://www.w3.org/WAI/ARIA/apg/'
 		// dependencies: [{ label: 'Highlight.js', url: 'https://highlightjs.org/' }],
+		// components: [{sveld: sveldComp}],
+		// classes: [
+		// 	['<code>.foo</code>', '...'],
+		// 	['<code>.bar</code>', '...']
+		// ],
+		// keyboard: [
+		// 	['<code>foo</code>', '-', '-', '-', '...'],
+		// 	['<code>bar</code>', '-', '-', '-', '...']
+		// ]
 	};
-	const properties: DocsShellTable[] = [
-		{
-			// label: '(label)',
-			// description: '(description)',
-			headings: ['Prop', 'Type', 'Default', 'Values', 'Required', 'Description'],
-			source: [
-				['<code>foo</code>', '-', '-', '-', '&check;', '...'],
-				['<code>bar</code>', '-', '-', '-', '-', '...']
-			]
-		}
-	];
-	const events: DocsShellTable[] = [
-		{
-			headings: ['Event', 'Description'],
-			source: [
-				['<code>on:click</code>', '...'],
-				['<code>on:hover</code>', '...']
-			]
-		}
-	];
-	const classes: DocsShellTable[] = [
-		{
-			description: 'Coming soon.'
-			// headings: ['Selector', 'Description'],
-			// source: [
-			// 	['<code>.foo</code>', '...'],
-			// 	['<code>.bar</code>', '...']
-			// ]
-		}
-	];
-	const slots: DocsShellTable[] = [
-		{
-			headings: ['Name', 'Description'],
-			source: [['<code>default</code>', '...']]
-		}
-	];
-	const a11y: DocsShellTable[] = [
-		{ aria: 'https://www.w3.org/WAI/ARIA/apg/' },
-		{
-			headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
-			source: [
-				['<code>foo</code>', '-', '-', '-', '...'],
-				['<code>bar</code>', '-', '-', '-', '...']
-			]
-		}
-	];
 </script>
 
-<DocsShell {settings} {properties} {events} {classes} {slots} {a11y}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<div class="card card-body">

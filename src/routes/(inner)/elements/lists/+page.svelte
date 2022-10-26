@@ -1,6 +1,6 @@
 <script lang="ts">
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
@@ -11,21 +11,16 @@
 		description: 'Provides styles for static list elements.',
 		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/lists'],
-		source: 'styles/elements/lists.css'
+		source: 'styles/elements/lists.css',
+		classes: [
+			['<code>.list</code>', '-', 'Class for defining a unordered or ordered list.'],
+			['<code>.list-dl</code>', '-', 'Class for defining a description list.'],
+			['<code>.list-nav</code>', '-', 'Class for defining a navigation list.']
+		]
 	};
-	const classes: DocsShellTable[] = [
-		{
-			headings: ['Class', 'Description'],
-			source: [
-				['<code>.list</code>', 'Class for defining a unordered or ordered list.'],
-				['<code>.list-dl</code>', 'Class for defining a description list.'],
-				['<code>.list-nav</code>', 'Class for defining a navigation list.']
-			]
-		}
-	];
 </script>
 
-<DocsShell {settings} {classes}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-4">

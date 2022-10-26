@@ -1,9 +1,12 @@
 <script lang="ts">
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	import ProgressRadial from '$lib/components/ProgressRadial/ProgressRadial.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+
+	// @ts-ignore
+	import sveldProgressRadial from '$lib/components/ProgressRadial/ProgressRadial.svelte?raw&sveld';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -11,51 +14,41 @@
 		name: 'Progress Radials',
 		description: 'Displays a radial indicator showing the progress or completion of a task.',
 		imports: ['ProgressRadial'],
-		source: 'components/ProgressRadial'
+		source: 'components/ProgressRadial',
+		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/meter/',
+		components: [{ sveld: sveldProgressRadial }]
 	};
-	const properties: DocsShellTable[] = [
-		{
-			headings: ['Prop', 'Type', 'Default', 'Description'],
-			source: [
-				['<code>value</code>', 'number', '-', 'Set the meter fill amount. Shows as indeterminate when set undefined.'],
-				['<code>stroke</code>', 'number', '20', 'Sets the base stroke width. Scales responsively.'],
-				['<code>meter</code>', 'string', 'stroke-accent-500', 'Provide classes to set meter color.'],
-				['<code>track</code>', 'string', 'stroke-surface-200 dark:stroke-surface-700', 'Provide classes to set track color.'],
-				['<code>fill</code>', 'string', 'fill-token', 'Provide classes to set the SVG text fill color.'],
-				['<code>font</code>', 'string', '56', 'Sets the base font size. Scales responsively.']
-			]
-		}
-	];
-	const classes: DocsShellTable[] = [
-		{
-			headings: ['Selector', 'Description'],
-			source: [
-				['<code>.progress-radial</code>', 'The parent element.'],
-				['<code>.progress-radial-track</code>', 'The progress radial track element.'],
-				['<code>.progress-radial-meter</code>', 'The progress radial meter element.'],
-				['<code>.progress-radial-text</code>', 'The progress radial SVG text element.']
-			]
-		}
-	];
-	const slots: DocsShellTable[] = [
-		{
-			headings: ['Name', 'Description'],
-			source: [['<code>default</code>', 'Text content is rendered as SVG text in the center of the element.']]
-		}
-	];
-	const a11y: DocsShellTable[] = [
-		{
-			aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/meter/',
-			headings: ['Prop', 'Required', 'Description'],
-			source: [['<code>label</code>', '-', `A semantic ARIA label.`]]
-		}
-	];
+	// const properties: DocsShellTable[] = [
+	// 	{
+	// 		headings: ['Prop', 'Type', 'Default', 'Description'],
+	// 		source: [
+	// 			['<code>value</code>', 'number', '-', 'Set the meter fill amount. Shows as indeterminate when set undefined.'],
+	// 			['<code>stroke</code>', 'number', '20', 'Sets the base stroke width. Scales responsively.'],
+	// 			['<code>meter</code>', 'string', 'stroke-accent-500', 'Provide classes to set meter color.'],
+	// 			['<code>track</code>', 'string', 'stroke-surface-200 dark:stroke-surface-700', 'Provide classes to set track color.'],
+	// 			['<code>fill</code>', 'string', 'fill-token', 'Provide classes to set the SVG text fill color.'],
+	// 			['<code>font</code>', 'string', '56', 'Sets the base font size. Scales responsively.']
+	// 		]
+	// 	}
+	// ];
+	// const slots: DocsShellTable[] = [
+	// 	{
+	// 		headings: ['Name', 'Description'],
+	// 		source: [['<code>default</code>', 'Text content is rendered as SVG text in the center of the element.']]
+	// 	}
+	// ];
+	// const a11y: DocsShellTable[] = [
+	// 	{
+	// 		headings: ['Prop', 'Required', 'Description'],
+	// 		source: [['<code>label</code>', '-', `A semantic ARIA label.`]]
+	// 	}
+	// ];
 
 	// Reactive
 	$: props = { value: 50, max: 100, step: 10 };
 </script>
 
-<DocsShell {settings} {properties} {classes} {slots} {a11y}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 md:grid-cols-2 gap-4">

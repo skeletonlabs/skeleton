@@ -1,9 +1,12 @@
 <script lang="ts">
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+
+	// @ts-ignore
+	import sveldSlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte?raw&sveld';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -11,54 +14,43 @@
 		name: 'Slide Toggles',
 		description: 'A sliding toggle element that can capture input from a user.',
 		imports: ['SlideToggle'],
-		source: 'components/SlideToggle'
+		source: 'components/SlideToggle',
+		aria: 'https://www.w3.org/WAI/ARIA/apg/',
+		components: [{ sveld: sveldSlideToggle }],
+		restProps: 'input'
 	};
-	const properties: DocsShellTable[] = [
-		{
-			description: 'Uses <code>$$restProps</code> to support all valid input attributes, such as <em>required</em>.',
-			headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
-			source: [
-				['<code>checked</code>', 'boolean', 'false', 'true | false', 'The checked state of the input element.'],
-				['<code>size</code>', 'string', 'md', 'sm | md | lg', 'Sets the size of the component.'],
-				['<code>accent</code>', 'string', 'bg-accent-500', 'class', 'Provide classes to set the checked state color.'],
-				['<code>borderWidth</code>', 'string', 'border-token', 'class', 'Provide classes to set the border width styles.'],
-				['<code>borderColor</code>', 'string', 'border-surface-300-600-token', 'class', 'Provide classes to set the border color styles.'],
-				['<code>rounded</code>', 'string', 'rounded-full', 'class', 'Provide classes to set border radius styles.']
-			]
-		}
-	];
-	const classes: DocsShellTable[] = [
-		{
-			headings: ['Selector', 'Description'],
-			source: [
-				['<code>.slide-toggle</code>', 'The parent element.'],
-				['<code>.slide-toggle-label</code>', 'The label element.'],
-				['<code>.slide-toggle-input</code>', 'The hidden input element.'],
-				['<code>.slide-toggle-track</code>', 'The slide toggle track element.'],
-				['<code>.slide-toggle-thumb</code>', 'The slide toggle thumb element.'],
-				['<code>.slide-toggle-text</code>', 'The text content region.']
-			]
-		}
-	];
-	const slots: DocsShellTable[] = [
-		{
-			headings: ['Name', 'Description'],
-			source: [['<code>default</code>', 'Provide label text.']]
-		}
-	];
-	const a11y: DocsShellTable[] = [
-		{
-			aria: 'https://www.w3.org/WAI/ARIA/apg/',
-			headings: ['Prop', 'Required', 'Description'],
-			source: [['<code>label</code>', '-', `Provide a semantic label.`]]
-		}
-	];
+	// const properties: DocsShellTable[] = [
+	// 	{
+	// 		description: 'Uses <code>$$restProps</code> to support all valid input attributes, such as <em>required</em>.',
+	// 		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
+	// 		source: [
+	// 			['<code>checked</code>', 'boolean', 'false', 'true | false', 'The checked state of the input element.'],
+	// 			['<code>size</code>', 'string', 'md', 'sm | md | lg', 'Sets the size of the component.'],
+	// 			['<code>accent</code>', 'string', 'bg-accent-500', 'class', 'Provide classes to set the checked state color.'],
+	// 			['<code>borderWidth</code>', 'string', 'border-token', 'class', 'Provide classes to set the border width styles.'],
+	// 			['<code>borderColor</code>', 'string', 'border-surface-300-600-token', 'class', 'Provide classes to set the border color styles.'],
+	// 			['<code>rounded</code>', 'string', 'rounded-full', 'class', 'Provide classes to set border radius styles.']
+	// 		]
+	// 	}
+	// ];
+	// const slots: DocsShellTable[] = [
+	// 	{
+	// 		headings: ['Name', 'Description'],
+	// 		source: [['<code>default</code>', 'Provide label text.']]
+	// 	}
+	// ];
+	// const a11y: DocsShellTable[] = [
+	// 	{
+	// 		headings: ['Prop', 'Required', 'Description'],
+	// 		source: [['<code>label</code>', '-', `Provide a semantic label.`]]
+	// 	}
+	// ];
 
 	// Local
 	let checkedValue: boolean = false;
 </script>
 
-<DocsShell {settings} {properties} {classes} {slots} {a11y}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 lg:grid-cols-3 gap-4">
