@@ -1,31 +1,25 @@
-
 import type { Component } from './types';
 
 interface MapperOutput {
-	headings: string[]
-	source: string[][]
+	headings: string[];
+	source: string[][];
 }
 
 // Mapper: Props
 export function sveldMapperProps(component: Component): MapperOutput {
 	const { props } = component.sveld;
-	const propsHeadings = ['Name', 'Type', 'Value', 'Description']
+	const propsHeadings = ['Name', 'Type', 'Value', 'Description'];
 	// Filter props with undefined types (exclude getContext)
 	const propsFiltered = props.filter((p) => p.type !== undefined);
 	// Return table headings/source
 	function cleanValue(value: string | undefined): string {
 		if (value === undefined || value === '' || value === "''") return '-';
-		return value
+		return value;
 	}
 	return {
 		headings: propsHeadings,
 		source: propsFiltered.map((p) => {
-			return [
-				`<code>${p.name}<?code>`,
-				`<em>${p.type}</em>`,
-				cleanValue(p.value),
-				p.description ? p?.description : '-'
-			];
+			return [`<code>${p.name}<?code>`, `<em>${p.type}</em>`, cleanValue(p.value), p.description ? p?.description : '-'];
 		})
 	};
 }
@@ -33,7 +27,7 @@ export function sveldMapperProps(component: Component): MapperOutput {
 // Mapper: Slots
 export function sveldMapperSlots(component: Component): MapperOutput {
 	const { slots } = component.sveld;
-	const slotsHeadings = ['Name', 'Default', 'Fallback', 'Description']
+	const slotsHeadings = ['Name', 'Default', 'Fallback', 'Description'];
 	return {
 		headings: slotsHeadings,
 		source: slots.map((s) => {
@@ -52,7 +46,7 @@ export function sveldMapperSlots(component: Component): MapperOutput {
 // Mapper: Events
 export function sveldeMapperEvents(component: Component): MapperOutput {
 	const { events } = component.sveld;
-	const eventsHeadings = ['Name', 'Type', 'Element', 'Response', 'Description']
+	const eventsHeadings = ['Name', 'Type', 'Element', 'Response', 'Description'];
 	return {
 		headings: eventsHeadings,
 		source: events.map((e) => {
