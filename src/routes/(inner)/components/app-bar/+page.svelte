@@ -19,38 +19,6 @@
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/',
 		components: [{ sveld: sveldAppBar }]
 	};
-	// const properties: DocsShellTable[] = [
-	// 	{
-	// 		headings: ['Prop', 'Type', 'Default', 'Description'],
-	// 		source: [
-	// 			['<code>background</code>', 'string', 'bg-surface-100-800-token', 'Provide classes to set background color.'],
-	// 			['<code>border</code>', 'string', '-', 'Provide classes to set border styles.'],
-	// 			['<code>padding</code>', 'string', 'p-4 md:py-6', 'Provide classes to set padding.'],
-	// 			['<code>shadow</code>', 'string', 'shadow-lg', 'Provide classes to define a box shadow.'],
-	// 			['<code>space</code>', 'string', 'space-x-4', 'Provide classes to set horizontal spacing.']
-	// 		]
-	// 	}
-	// ];
-	// const slots: DocsShellTable[] = [
-	// 	{
-	// 		headings: ['Name', 'Style Prop', 'Description'],
-	// 		source: [
-	// 			['<code>default</code>', 'slotDefault', 'Provides content within the center of the bar, e.g. a search element.'],
-	// 			['<code>lead</code>', 'slotLead', 'Provides content on the left end of the bar, e.g. a logo.'],
-	// 			['<code>trail</code>', 'slotTrail', 'Provides content on the right end of the bar, e.g. navigation elements.']
-	// 		]
-	// 	}
-	// ];
-	// const a11y: DocsShellTable[] = [
-	// 	{
-	// 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/',
-	// 		headings: ['Prop', 'Type', 'Description'],
-	// 		source: [
-	// 			['<code>label</code>', 'string', 'Provide a semantic ID for the ARIA label.'],
-	// 			['<code>labelledby</code>', 'string', 'Provide the ID of the element that labels the toolbar.']
-	// 		]
-	// 	}
-	// ];
 </script>
 
 <DocsShell {settings}>

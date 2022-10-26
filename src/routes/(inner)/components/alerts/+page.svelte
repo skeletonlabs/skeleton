@@ -17,30 +17,6 @@
 		source: 'components/Alert',
 		components: [{ sveld: sveldAlert }]
 	};
-	// const properties: DocsShellTable[] = [
-	// 	{
-	// 		headings: ['Prop', 'Type', 'Default', 'Description'],
-	// 		source: [
-	// 			['<code>visible</code>', 'boolean', 'true', 'Control visibility of the alert.'],
-	// 			['<code>background</code>', 'string', 'bg-ternary-500/30', 'Provide classes to set background color.'],
-	// 			['<code>border</code>', 'string', 'border-l-4 border-l-ternary-500', 'Provide classes to set the border styles.'],
-	// 			['<code>color</code>', 'string', '-', 'Provide classes to set text color.'],
-	// 			['<code>rounded</code>', 'string', '-', 'Provide classes to set border radius.'],
-	// 			['<code>duration</code>', 'number', '200', 'Svelte fade transition duration. Set <code>0</code> to disable.']
-	// 		]
-	// 	}
-	// ];
-	// const slots: DocsShellTable[] = [
-	// 	{
-	// 		headings: ['Slot', 'Style Prop', 'Description'],
-	// 		source: [
-	// 			['<code>lead</code>', 'slotLead', 'Provide a leading element, such as an icon.'],
-	// 			['<code>title</code>', 'slotContent > .alert-title', 'Provide the alert title text.'],
-	// 			['<code>default</code>', 'slotContent > .alert-message', 'Provide the alert message text.'],
-	// 			['<code>trail</code>', 'slotTrail', 'Provide a trailing element, such as a call to action.']
-	// 		]
-	// 	}
-	// ];
 
 	// Local
 	let title = `Hello Skeleton!`;

@@ -21,23 +21,6 @@
 		source: 'components/GradientHeading',
 		components: [{ sveld: sveldGradientHeading }]
 	};
-	// const properties: DocsShellTable[] = [
-	// 	{
-	// 		headings: ['Prop', 'Type', 'Default', 'Description'],
-	// 		source: [
-	// 			['<code>tag</code>', 'string', 'h1', 'Define the semantic element tag.'],
-	// 			['<code>direction</code>', 'string', 'bg-gradient-to-r', 'Provide classes to set gradient direction.'],
-	// 			['<code>from</code>', 'string', 'from-primary-500', 'Provide classes to set "from" gradient color.'],
-	// 			['<code>to</code>', 'string', 'to-accent-500', 'Provide classes to set "to" gradient color.']
-	// 		]
-	// 	}
-	// ];
-	// const slots: DocsShellTable[] = [
-	// 	{
-	// 		headings: ['Name', 'Description'],
-	// 		source: [['<code>default</code>', 'Provide the text to render.']]
-	// 	}
-	// ];
 
 	// Stores
 	const storeTag: Writable<string> = writable('h1');

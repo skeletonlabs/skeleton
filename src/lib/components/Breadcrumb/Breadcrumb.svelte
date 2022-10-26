@@ -2,9 +2,13 @@
 	import { setContext } from 'svelte';
 
 	// Props
-	export let separator: string = `&rsaquo;`;
-	export let text: string | undefined = undefined;
+	/** Defines the crumb separator. Supports SVG icons.*/ //AUDIT prop dissapears if template literal is used and gets interpreted if part of the comment
+	export let separator: string = '&rsaquo;';
+	/** Provide classes to set text size.*/
+	export let text: string = '';
+
 	// Props (A11y)
+	/** A semantic ARIA label.*/
 	export let label: string = 'breadcrumb';
 
 	// Context

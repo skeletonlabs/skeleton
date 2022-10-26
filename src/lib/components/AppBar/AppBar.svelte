@@ -1,17 +1,33 @@
 <script lang="ts">
 	// Props (base)
+	/** Provide classes to set background color.*/
 	export let background: string = 'bg-surface-100-800-token';
+	/** Provide classes to set border styles.*/
 	export let border: string = '';
+	/** Provide classes to set padding.*/
 	export let padding: string = 'p-4 md:py-6';
+	/** Provide classes to define a box shadow.*/
 	export let shadow: string = 'shadow-lg';
+	/** Provide classes to set horizontal spacing.*/
 	export let space: string = 'space-x-4';
+
 	// Props (slots)
+	/** 
+	 * @slot lead - Provides content on the left end of the bar, e.g. a logo.
+	 * @slot trail - Provides content on the right end of the bar, e.g. navigation elements.
+	*/
+	/** Classes to apply to the <code>lead</code> slot container element*/
 	export let slotLead: string = '';
+	/** Classes to apply to the <code>default</code> slot container element*/
 	export let slotDefault: string = '';
+	/** Classes to apply to the <code>trail</code> slot container element*/
 	export let slotTrail: string = '';
+
 	// Props (a11y)
-	export let label: string | undefined = undefined;
-	export let labelledby: string | undefined = undefined;
+	/** Provide a semantic ID for the ARIA label.*/
+	export let label: string = '';
+	/** Provide the ID of the element that labels the toolbar.*/
+	export let labelledby: string = '';
 
 	// Base Classes
 	const cBase: string = 'flex items-center';

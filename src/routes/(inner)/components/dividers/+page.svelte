@@ -27,19 +27,6 @@
 		source: 'components/Divider',
 		components: [{ sveld: sveldDivider }]
 	};
-	// const properties: DocsShellTable[] = [
-	// 	{
-	// 		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
-	// 		source: [
-	// 			['<code>vertical</code>', 'boolean', 'false', 'true | false', 'When enabled, sets the width to zero and height to full.'],
-	// 			['<code>borderWidth</code>', 'string', 'border-t', 'class', 'Provide classes to set the border width.'],
-	// 			['<code>borderStyle</code>', 'string', 'border-solid', 'class', 'Provide classes to set the border style.'],
-	// 			['<code>borderColor</code>', 'string', 'border-surface-300-600-token', 'class', 'Provide classes to set the border color.'],
-	// 			['<code>margin</code>', 'string', 'm-0', 'class', 'Provide classes to set the margin.'],
-	// 			['<code>opacity</code>', 'string', 'opacity-full', 'class', 'Provide classes to set opacity.']
-	// 		]
-	// 	}
-	// ];
 
 	// Switches between top and left oriented styles
 	function setOrientationStyles(): void {

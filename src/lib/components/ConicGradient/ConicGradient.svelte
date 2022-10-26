@@ -3,11 +3,18 @@
 	import type { ConicStop } from './types';
 
 	// Props
+	/** Provide a data set of color stops and labels.*/
 	export let stops: ConicStop[] = [{ color: ['neutral', 500], start: 0, end: 100 }];
+	/** Allows for automatic generation of a legend below the conic gradient.*/
 	export let legend: boolean = false;
+	/** When enabled, the conic gradient will spin.*/
 	export let spin: boolean = false;
+	/** Provided classes to style the conic gradient width.*/
 	export let width: string = 'w-full';
+	/** Provided classes to style the legend hover effect.*/
 	export let hover: string = 'bg-hover-token';
+
+	//AUDIT - default slot really needs describing when it becomes possible
 
 	// Local
 	let cone: string;

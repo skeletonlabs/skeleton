@@ -1,16 +1,29 @@
 <script lang="ts">
 	// Props
+	/** Provide classes to set background styles.*/
 	export let background: string = 'bg-surface-400-500-token';
+	/** Provide classes to set avatar width.*/
 	export let width: string = 'w-12';
+	/** Provide classes to set border styles.*/
 	export let border: string = '';
+	/** Provide classes to set rounded style.*/
 	export let rounded: string = 'rounded-full';
-	export let shadow: string | undefined = undefined;
-	export let cursor: string | undefined = undefined;
+	/** Provide classes to set shadow styles.*/
+	export let shadow: string = '';
+	/** Provide classes to set cursor styles.*/
+	export let cursor: string = '';
+
 	// Props (initials)
+	/** Initials only - Provide up to two text characters.*/
 	export let initials: string = 'AB';
+	/** Initials only - Provide classes to set the SVG text fill color.*/
 	export let fill: string = 'fill-token';
+
 	// Props (actions)
+	//AUDIT do we export src as a prop rather than getting it from the $$props.src? Also action and actionParams are getting wonk.
+	/** Image only - Provide an Svelte action reference, such as <code>filter</code>.*/
 	export let action: any = () => {};
+	/** Image only - Provide Svelte action params, such as <code>Apollo.</code>*/
 	export let actionParams: any = undefined;
 
 	// Base Classes

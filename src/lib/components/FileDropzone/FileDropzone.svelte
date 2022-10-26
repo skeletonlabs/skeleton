@@ -5,16 +5,19 @@
 	const dispatch = createEventDispatcher();
 
 	// Props
+	/** Bind this to your form data, represents the "files" data from the input.*/
 	export let files: FileList;
-	// export let name: string | undefined = undefined;
-	// export let accept: string | undefined = undefined;
-	// export let multiple: boolean = false;
-	export let notes: string | undefined = undefined;
+	/** Provided additional notes or information.*/
+	export let notes: string = '';
 	// Props (Styles)
+	/** Provide styles to set the dropzone width.*/
 	export let width: string = 'w-full';
+	/** Provide styles to set the dropzone height.*/
 	export let height: string = 'h-24';
+	/** Provide styles to set the dropzone padding.*/
 	export let padding: string = 'p-4';
-	export let color: string | undefined = undefined;
+	/** Provide styles to set the dropzone text color.*/
+	export let color: string = '';
 
 	// Classes
 	const cBase: string = 'relative';

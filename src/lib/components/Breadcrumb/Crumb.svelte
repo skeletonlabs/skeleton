@@ -2,11 +2,14 @@
 	import { getContext } from 'svelte';
 
 	// Props
-	export let color: string | undefined = undefined;
+	/** Provide classes set the current page text color.*/
+	export let color: string = '';
 
 	// Context
 	export let separator: string = getContext('separator');
 
+	//Slots
+	/** @slot lead - A leading slot intended for icons.*/
 	// Local
 	const tag: string = $$props.href ? 'a' : 'span';
 

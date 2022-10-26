@@ -27,40 +27,6 @@
 			{ label: 'Crumb', sveld: sveldCrumb }
 		]
 	};
-	// const properties: DocsShellTable[] = [
-	// 	{
-	// 		label: 'BreadCrumb',
-	// 		headings: ['Prop', 'Type', 'Default', 'Description'],
-	// 		source: [
-	// 			['<code>separator</code>', 'string', `&rsaquo (unicode)`, 'Defines the crumb separator. Supports SVG icons.'],
-	// 			['<code>text</code>', 'string', '-', 'Provide classes to set text size.']
-	// 		]
-	// 	},
-	// 	{
-	// 		label: 'Crumb',
-	// 		headings: ['Prop', 'Type', 'Default', 'Description'],
-	// 		source: [['<code>color</code>', 'string ', '-', 'Provide classes set the current page text color.']]
-	// 	}
-	// ];
-	// const slots: DocsShellTable[] = [
-	// 	{
-	// 		label: 'BreadCrumb',
-	// 		headings: ['Slot', 'Description'],
-	// 		source: [['<code>default</code>', 'Accepts a set of Crumb components.']]
-	// 	},
-	// 	{
-	// 		label: 'Crumb',
-	// 		headings: ['Slot', 'Description'],
-	// 		source: [['<code>lead</code>', 'A leading slot intended for icons.']]
-	// 	}
-	// ];
-	// const a11y: DocsShellTable[] = [
-	// 	{
-	// 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/',
-	// 		headings: ['Prop', 'Description'],
-	// 		source: [['<code>label</code>', 'A semantic ARIA label.']]
-	// 	}
-	// ];
 
 	// Local
 	const customSeparator: string = `<span class="text-surface-500">/</span>`;
