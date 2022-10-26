@@ -27,7 +27,7 @@
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/listbox/',
 		components: [
 			{ label: 'ListBox', sveld: sveldListBox },
-			{ label: 'ListBoxItem', sveld: sveldListBoxItem }
+			{ label: 'ListBoxItem', sveld: sveldListBoxItem, overrideProps: ['accent', 'padding', 'rounded', 'hover'] }
 		]
 	};
 </script>

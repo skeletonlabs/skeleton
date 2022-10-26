@@ -24,7 +24,7 @@
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/',
 		components: [
 			{ label: 'BreadCrumb', sveld: sveldBreadcrumb },
-			{ label: 'Crumb', sveld: sveldCrumb }
+			{ label: 'Crumb', sveld: sveldCrumb, overrideProps: ['separator'] }
 		]
 	};
 

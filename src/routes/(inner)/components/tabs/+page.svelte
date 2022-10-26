@@ -28,7 +28,7 @@
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/tabpanel/',
 		components: [
 			{ label: 'TabGroup', sveld: sveldTabGroup },
-			{ label: 'Tab', sveld: sveldTab }
+			{ label: 'Tab', sveld: sveldTab, overrideProps: ['borderWidth', 'borderColor', 'color', 'fill', 'hover', 'rounded'] }
 		]
 	};
 </script>

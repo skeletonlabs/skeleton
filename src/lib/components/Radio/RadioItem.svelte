@@ -14,7 +14,6 @@
 	export let label: string = '';
 
 	// Context
-	//AUDIT needs override description
 	export let selected: Writable<any> = getContext('selected');
 	export let hover: string = getContext('hover');
 	export let accent: string = getContext('accent');

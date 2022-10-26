@@ -26,7 +26,7 @@
 		source: 'components/Stepper',
 		components: [
 			{ label: 'Stepper', sveld: sveldStepper },
-			{ label: 'Step', sveld: sveldStep }
+			{ label: 'Step', sveld: sveldStep, overrideProps: ['color', 'background', 'buttonBack', 'buttonNext', 'buttonComplete'] }
 		]
 	};
 

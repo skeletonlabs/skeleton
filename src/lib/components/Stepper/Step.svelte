@@ -27,14 +27,14 @@
 	// Context
 	export let dispatch: any = getContext('dispatch');
 	export let active: Writable<number> = getContext('active');
-	//AUDIT provide override details as per AccordionItem for items below?
 	export let length: number = getContext('length');
+	export let duration: number = getContext('duration');
+	// Context (overrides)
 	export let color: string = getContext('color');
 	export let background: string = getContext('background');
 	export let buttonBack: string = getContext('buttonBack');
 	export let buttonNext: string = getContext('buttonNext');
 	export let buttonComplete: string = getContext('buttonComplete');
-	export let duration: number = getContext('duration');
 
 	// Step Handlers
 	function stepPrev(): void {

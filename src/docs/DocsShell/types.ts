@@ -19,22 +19,24 @@ export interface Component {
 	descSlots?: string;
 	/** Provide HTML markup for a events description. */
 	descEvents?: string;
+	/** Provide a list of props that children can override. */
+	overrideProps?: string[];
 	/** Provide the raw component Sveld doc source. */
 	sveld: Record<string, SveldObj[]>;
 }
 
 export interface SveldObj {
-	name: string
-	type: string
-	description?: string
-	value?: string
-	detail?: string
-	element?: string
+	name: string;
+	type: string;
+	description?: string;
+	value?: string;
+	detail?: string;
+	element?: string;
 	tags?: {
-		tag: string
-		value?: string
-	}[]
-	[key: string]: any
+		tag: string;
+		value?: string;
+	}[];
+	[key: string]: any;
 }
 
 export interface DocsShellSettings {
@@ -78,8 +80,6 @@ export interface DocsShellSettings {
 	/** Keyboard interaction table source [name, description]. */
 	keyboard?: [string, string][];
 }
-
-
 
 // NOTE: this will be removed alongside the move to the JSDocs documentation.
 // export interface DocsShellTable {
