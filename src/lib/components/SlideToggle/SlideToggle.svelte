@@ -5,23 +5,23 @@
 	const dispatch = createEventDispatcher();
 
 	// Props
-	/** The checked state of the input element.*/
+	/** The checked state of the input element. */
 	export let checked: boolean = false;
 	/** Sets the size of the component.
 	 * @type {'sm' | 'md' | 'lg'}
-	*/
+	 */
 	export let size: string = 'md';
-	/** Provide classes to set the checked state color.*/
+	/** Provide classes to set the checked state color. */
 	export let accent: string = 'bg-accent-500';
-	/** Provide classes to set the border width styles.*/
+	/** Provide classes to set the border width styles. */
 	export let borderWidth: string = 'border-token';
-	/** Provide classes to set the border color styles.*/
+	/** Provide classes to set the border color styles. */
 	export let borderColor: string = 'border-surface-300-600-token';
-	/** Provide classes to set border radius styles.*/
+	/** Provide classes to set border radius styles. */
 	export let rounded: string = 'rounded-full';
 
 	// A11y
-	/** Provide a semantic label.*/
+	/** Provide a semantic label. */
 	export let label: string = '';
 
 	// Base Styles
@@ -44,6 +44,7 @@
 		// Enter/Space to toggle element
 		if (['Enter', 'Space'].includes(event.code)) {
 			event.preventDefault();
+			/** @event {{ event }} keyup Fires when the component is focused and key is pressed. */
 			dispatch('keyup', event);
 			event.target.firstChild.click();
 		}

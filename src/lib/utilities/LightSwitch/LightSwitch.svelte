@@ -1,7 +1,6 @@
 <!-- https://tailwindcss.com/docs/dark-mode -->
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { fade } from 'svelte/transition';
 
 	// Components
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';

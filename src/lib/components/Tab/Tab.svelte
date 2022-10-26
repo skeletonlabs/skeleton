@@ -1,4 +1,9 @@
 <script lang="ts">
+	// Slots
+	/**
+	 * @slot lead - Provides a leading position, which can be used for icons.
+	 */
+
 	import type { Writable } from 'svelte/store';
 	import { getContext } from 'svelte';
 

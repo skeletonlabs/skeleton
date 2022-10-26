@@ -18,17 +18,6 @@
 		source: 'utilities/Toast',
 		components: [{ sveld: sveldToast }]
 	};
-	// const properties: DocsShellTable[] = [
-	// 	{
-	// 		headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
-	// 		source: [
-	// 			['<code>background</code>', 'string', 'bg-accent-500', 'class', 'Provide classes to set background color.'],
-	// 			['<code>position</code>', 'string', 'b', 't | b | tr | tl | bl | br', 'Set top/bottom/left/right positioning.'],
-	// 			['<code>button</code>', 'string', 'btn-ghost', 'class', 'Provide a <a href="/components/buttons">button variant</a> reference.'],
-	// 			['<code>duration</code>', 'number', '100', 'integer', 'The duration of the fly in/out animation.']
-	// 		]
-	// 	}
-	// ];
 
 	// Triggers Toasts ---
 

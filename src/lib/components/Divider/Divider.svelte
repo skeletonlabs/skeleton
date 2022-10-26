@@ -1,16 +1,16 @@
 <script lang="ts">
 	// Props
-	/** When enabled, sets the width to zero and height to full.*/
+	/** When enabled, sets the width to zero and height to full. */
 	export let vertical: boolean = false;
-	/** Provide classes to set the border width.*/
+	/** Provide classes to set the border width. */
 	export let borderWidth: string = 'border-t';
-	/** Provide classes to set the border style.*/
+	/** Provide classes to set the border style. */
 	export let borderStyle: string = 'border-solid';
-	/** Provide classes to set the border color.*/
+	/** Provide classes to set the border color. */
 	export let borderColor: string = 'border-surface-300-600-token';
-	/** Provide classes to set the margin.*/
+	/** Provide classes to set the margin. */
 	export let margin: string = 'm-0';
-	/** Provide classes to set opacity.*/
+	/** Provide classes to set opacity. */
 	export let opacity: string = 'opacity-full';
 
 	// Base Classes

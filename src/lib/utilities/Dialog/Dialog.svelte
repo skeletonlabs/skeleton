@@ -89,12 +89,15 @@
 		<div
 			bind:this={elemModal}
 			class="dialog {classesDialog}"
-			on:click|preventDefault|stopPropagation
 			transition:scale|local={{ duration, opacity: 0, start: 0.5 }}
 			data-testid="dialog"
 			role="dialog"
 			aria-modal="true"
 			aria-label={$dialogStore[0].title}
+			on:click|preventDefault|stopPropagation
+			on:keydown
+			on:keyup
+			on:keypress
 		>
 			<!-- Header -->
 			<header class="dialog-header {cBaseHeader}">

@@ -1,13 +1,18 @@
 <!-- Reference: https://dribbble.com/shots/16221169-Figma-Material-Ui-components-Steppers-and-sliders -->
 <script lang="ts">
+	// Slots
+	/**
+	 * @slot header - Override the auto-generated heading with your own value. Typically a step title.
+	 */
+
 	import { getContext } from 'svelte';
 	import { slide } from 'svelte/transition';
 	import type { Writable } from 'svelte/store';
 
 	// Props
-	/** Indicates the step index value. Should start with 0 (zero)*/
+	/** Indicates the step index value. Should start with 0 (zero) */
 	export let index: number = 0;
-	/** When enabled, a lock icon appears and the Next button is disabled. This prevents progress.*/
+	/** When enabled, a lock icon appears and Next button is disabled, preventing progress. */
 	export let locked: boolean = false;
 
 	// Base Classes
@@ -19,17 +24,17 @@
 	const cDrawer: string = 'ml-1 space-y-4';
 	const cNav: string = 'flex items-center space-x-2';
 
-	// Context 
+	// Context
 	export let dispatch: any = getContext('dispatch');
 	export let active: Writable<number> = getContext('active');
-	//AUDIT provide override details as per AccordionItem for items below ? Tighten up types
-	export let length: any = getContext('length');
-	export let color: any = getContext('color');
-	export let background: any = getContext('background');
-	export let buttonBack: any = getContext('buttonBack');
-	export let buttonNext: any = getContext('buttonNext');
-	export let buttonComplete: any = getContext('buttonComplete');
-	export let duration: any = getContext('duration');
+	//AUDIT provide override details as per AccordionItem for items below?
+	export let length: number = getContext('length');
+	export let color: string = getContext('color');
+	export let background: string = getContext('background');
+	export let buttonBack: string = getContext('buttonBack');
+	export let buttonNext: string = getContext('buttonNext');
+	export let buttonComplete: string = getContext('buttonComplete');
+	export let duration: number = getContext('duration');
 
 	// Step Handlers
 	function stepPrev(): void {

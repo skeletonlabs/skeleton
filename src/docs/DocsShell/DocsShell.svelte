@@ -174,11 +174,13 @@
 							{/each}
 						{/if}
 						<!-- Stylesheets -->
-						{#each Array.from(pageSettings.stylesheets || []) as s}
-							<button on:click={() => {copyStylesheet(s)}}>
-								<code>{s}.css</code>
-							</button>
-						{/each}
+						{#if pageSettings.stylesheets?.length}
+							{#each pageSettings.stylesheets as s}
+								<button on:click={() => {copyStylesheet(s)}}>
+									<code>{s}.css</code>
+								</button>
+							{/each}
+						{/if}
 					</div>
 				{/if}
 				<!-- Package -->

@@ -4,16 +4,15 @@
 	import { toastStore } from './stores';
 
 	// Props
-	/** Provide classes to set background color.*/
+	/** Provide classes to set background color. */
 	export let background: string = 'bg-accent-500';
-	//AUDIT it would be a breaking change, but other positionals use the full 'top' 'bottom' 'right' etc
-	/** Set top/bottom/left/right positioning.
+	/** Set the toast position.
 	 * @type {'t' | 'b' | 'tr' | 'tl' | 'bl' | 'br'}
-	*/
+	 */
 	export let position: string = 'b'; // bottom
-	/** Provide a <a href="https://www.skeleton.dev/components/buttons">button variant</a> reference.*/
+	/** Provide <a href="https://www.skeleton.dev/components/buttons">button</a> classes. */
 	export let button: string = 'btn-ghost';
-	/** The duration of the fly in/out animation.*/
+	/** The duration of the fly in/out animation. */
 	export let duration: number = 250;
 
 	// Base Classes

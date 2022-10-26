@@ -1,20 +1,23 @@
 <script lang="ts">
 	// Props
-	/** Set the label text.*/
+	/** Set the label text. */
 	export let label: string = '';
-	/** Specifies the amount completed. Indeterminate when <code>undefined</code>*/
+	/**
+	 * Specifies the amount completed. Indeterminate when `undefined`
+	 * @type {number}
+	 */
 	export let value: number | undefined = undefined;
-	/** Maximum amount the bar represents.*/
+	/** Maximum amount the bar represents. */
 	export let max: number = 100;
-	/** Provide classes to set track height.*/
+	/** Provide classes to set track height. */
 	export let height: string = 'h-2';
-	/** Provide classes to set rounded styles.*/
+	/** Provide classes to set rounded styles. */
 	export let rounded: string = 'rounded-token';
 
 	// Props (elements)
-	/** Provide arbitrary classes to style the meter element.*/
+	/** Provide arbitrary classes to style the meter element. */
 	export let meter: string = 'bg-accent-500';
-	/** Provide arbitrary classes to style the track element.*/
+	/** Provide arbitrary classes to style the track element. */
 	export let track: string = 'bg-surface-200-700-token';
 
 	// Base Classes

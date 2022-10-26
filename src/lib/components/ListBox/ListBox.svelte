@@ -5,33 +5,33 @@
 	// Props (Listbox)
 	/** Provide a writable store to maintain list selection.
 	 * @type {writeable(any) | writable(any[])}
-	*/
+	 */
 	export let selected: Writable<any> = writable(undefined);
-	/** Provide classes to set vertical item spacing.*/
+	/** Provide classes to set vertical item spacing. */
 	export let space: string = 'space-y-1';
-	/** Provide to set scrollable listbox region height.*/
+	/** Provide to set scrollable listbox region height. */
 	export let height: string = '';
 
 	// Props (Item)
-	/** Provide classes to set the item selected background.*/
-	export let accent: string = '!bg-active-token'; // '!' recommended
-	/** Provide classes to set the item padding styles.*/
+	/** Provide classes to set the item selected background. '!' recommended. */
+	export let accent: string = '!bg-active-token'; //
+	/** Provide classes to set the item padding styles. */
 	export let padding: string = 'px-4 py-3';
-	/** Provide classes to set the item border radius styles.*/
+	/** Provide classes to set the item border radius styles. */
 	export let rounded: string = 'rounded-token';
-	/** Provide classes to set the item hover background color.*/
+	/** Provide classes to set the item hover background color. */
 	export let hover: string = 'bg-hover-token';
 
 	// Props (regions)
-	/** Provide arbitrary classes to the label element.*/
+	/** Provide arbitrary classes to the label element. */
 	export let regionLabel: string = '';
-	/** Provide arbitrary classes to the scrollable listbox element.*/
+	/** Provide arbitrary classes to the scrollable listbox element. */
 	export let regionList: string = '';
 
 	// Props (a11y)
-	/** Define a semantic ARIA label.*/
+	/** Define a semantic ARIA label. */
 	export let label: string = '';
-	/** Set automatically based on the label text, but can be overwritten.*/
+	/** Set automatically based on the label text, but can be overwritten. */
 	export let labelId: string = label?.toLowerCase().replace(' ', '-'); //AUDIT this doesn't seem to be consistently applied across Skeleton
 
 	// Context

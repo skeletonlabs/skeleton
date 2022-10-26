@@ -4,33 +4,35 @@
 	import { afterUpdate, onMount } from 'svelte/internal';
 
 	// Props
-	/** Provide a store to manage visible state. //AUDIT still need to set default value
-	 * @type {boolean}
-	*/
+	/** Provide a store to manage visible state.
+	 * @type {Writable(boolean)}
+	 */
 	export let open: Writable<boolean> = writable(false);
 	/** Set the anchor position.
 	 * @type {'left' | 'top' | 'right' | 'bottom'}
-	*/
+	 */
 	export let position: string = 'left';
 	/** Define the Svelte transition animation duration.*/
 	export let duration: number = 150;
+
 	// Props (backdrop)
-	/** Provide classes to set the backdrop background color*/
+	/** Backdrop - Provide classes to set the backdrop background color*/
 	export let bgBackdrop: string = 'bg-backdrop-token';
-	/** Provide classes to set the blur style.*/
+	/** Backdrop - Provide classes to set the blur style.*/
 	export let blur: string = 'backdrop-blur-xs';
+
 	// Props (drawer)
-	/** Provide classes to set the drawer background color.*/
+	/** Drawer - Provide classes to set the drawer background color.*/
 	export let bgDrawer: string = 'bg-surface-100-800-token';
-	/** Provide classes to set border color.*/
+	/** Drawer - Provide classes to set border color.*/
 	export let border: string = '';
-	/** Provide classes to set border radius.*/
+	/** Drawer - Provide classes to set border radius.*/
 	export let rounded: string = '';
-	/** Provide classes to override the width.*/
+	/** Drawer - Provide classes to override the width.*/
 	export let width: string = '';
-	/** Provide classes to override the height.*/
+	/** Drawer - Provide classes to override the height.*/
 	export let height: string = '';
-	/** Provide classes to set margins.*/
+	/** Drawer - Provide classes to set margins.*/
 	export let margin: string = '';
 
 	// Props (a11y)
@@ -108,10 +110,13 @@
 		bind:this={elemBackdrop}
 		class="drawer-backdrop {classesBackdrop}"
 		data-testid="drawer-backdrop"
+		transition:fade|local={{ duration }}
 		on:click={(e) => {
 			onClickBackdrop(e);
 		}}
-		transition:fade|local={{ duration }}
+		on:keydown
+		on:keyup
+		on:keypress
 	>
 		<!-- Drawer -->
 		<div
