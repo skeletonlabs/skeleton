@@ -24,53 +24,6 @@
 		components: [{ sveld: sveldDrawer }],
 		keyboard: [['<kbd>Esc</kbd>', ' Closes the drawer.']]
 	};
-	// const properties: DocsShellTable[] = [
-	// 	{
-	// 		headings: ['Prop', 'Type', 'Default', 'Values', 'Required', 'Description'],
-	// 		source: [
-	// 			['<code>open</code>', 'writable(boolean)', 'writable(false)', 'boolean', '&check;', 'Provide a store to manage visible state.'],
-	// 			['<code>position</code>', 'string', 'left', 'left | right | top | bottom', '-', 'Set the anchor position.'],
-	// 			['<code>duration</code>', 'number', '150', 'milliseconds', '-', 'Define the Svelte transition animation duration.']
-	// 		]
-	// 	},
-	// 	{
-	// 		label: 'Drawer',
-	// 		description: 'Apply these props to the Drawer component.',
-	// 		headings: ['Prop', 'Type', 'Default', 'Description'],
-	// 		source: [
-	// 			['<code>bgDrawer</code>', 'string', 'bg-surface-100-800-token', 'Provide classes to set the drawer background color.'],
-	// 			['<code>border</code>', 'string', '-', 'Provide classes to set border color.'],
-	// 			['<code>rounded</code>', 'string', '-', 'Provide classes to set border radius.'],
-	// 			['<code>width</code>', 'string', '(based on position)', 'Provide classes to override the width.'],
-	// 			['<code>height</code>', 'string', '(based on position)', 'Provide classes to override the height.'],
-	// 			['<code>margin</code>', 'string', '-', 'Provide classes to set margins.']
-	// 		]
-	// 	},
-	// 	{
-	// 		label: 'Backdrop',
-	// 		description: 'Apply these props to the Drawer component.',
-	// 		headings: ['Prop', 'Type', 'Default', 'Description'],
-	// 		source: [
-	// 			['<code>bgBackdrop</code>', 'string', 'bg-backdrop-token', 'Provide classes to set the backdrop background color'],
-	// 			['<code>blur</code>', 'string', 'backdrop-blur-xs', 'Provide classes to set the blur style.']
-	// 		]
-	// 	}
-	// ];
-	// const slots: DocsShellTable[] = [
-	// 	{
-	// 		headings: ['Name', 'Description'],
-	// 		source: [['<code>default</code>', 'Provide your Drawer content here.']]
-	// 	}
-	// ];
-	// const a11y: DocsShellTable[] = [
-	// 	{
-	// 		headings: ['Prop', 'Type', 'Description'],
-	// 		source: [
-	// 			['<code>labelledby</code>', 'string', 'Provide an ID of the element labeling the drawer.'],
-	// 			['<code>describedby</code>', 'string', 'Provide an ID of the element describing the drawer.']
-	// 		]
-	// 	},
-	// ];
 
 	// Local
 	let position: string = 'left';

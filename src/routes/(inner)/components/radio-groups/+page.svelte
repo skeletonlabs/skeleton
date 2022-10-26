@@ -36,52 +36,6 @@
 			['<kbd>Space</kbd> or <kbd>Enter</kbd>', 'Checks the focused radio button if it is not already checked']
 		]
 	};
-	// const properties: DocsShellTable[] = [
-	// 	{
-	// 		label: 'RadioGroup',
-	// 		headings: ['Prop', 'Type', 'Values', 'Required', 'Description'],
-	// 		source: [
-	// 			['<code>selected</code>', 'Writable', 'any', '&check;', 'Provide a Svelte writable to store the selected state value.'],
-	// 			['<code>display</code>', 'string', 'inline-flex', '-', 'Provide classes to set the display style.'],
-	// 			['<code>background</code>', 'string', 'bg-surface-200-700-token', '-', 'Provide classes to set the base background color.'],
-	// 			['<code>hover</code>', 'string', 'bg-accent-hover-token', '-', 'Provide classes to set the hover style.'],
-	// 			['<code>accent</code>', 'string', 'bg-accent-active-token', '-', 'Provide classes to set the highlighted accent color.'],
-	// 			['<code>color</code>', 'string', '-', 'text-surface-50', 'Provide classes to set the highlighted text color.'],
-	// 			['<code>fill</code>', 'string', '-', '-', 'Provide classes to set the highlighted SVG fill color.'],
-	// 			['<code>rounded</code>', 'string', 'rounded-token', '-', 'Provide classes to set the border radius.']
-	// 		]
-	// 	},
-	// 	{
-	// 		label: 'RadioItem',
-	// 		description: 'Can override <code>hover</code>, <code>accent</code>, <code>color</code>, <code>fill</code>, <code>rounded</code>.',
-	// 		headings: ['Prop', 'Type', 'Description'],
-	// 		source: [['<code>value</code>', 'any', `The item's selection value.`]]
-	// 	}
-	// ];
-	// const slots: DocsShellTable[] = [
-	// 	{
-	// 		label: 'RadioGroup',
-	// 		headings: ['Name', 'Description'],
-	// 		source: [['<code>default</code>', 'Accepts a set of RadioItem components.']]
-	// 	},
-	// 	{
-	// 		label: 'RadioItem',
-	// 		headings: ['Name', 'Description'],
-	// 		source: [['<code>default</code>', 'The radio item label contents.']]
-	// 	}
-	// ];
-	// const a11y: DocsShellTable[] = [
-	// 	{
-	// 		label: 'RadioGroup',
-	// 		headings: ['Prop', 'Description'],
-	// 		source: [['<code>label</code>', `Defines a semantic ARIA label.`]]
-	// 	},
-	// 	{
-	// 		label: 'RadioItem',
-	// 		headings: ['Prop', 'Description'],
-	// 		source: [['<code>label</code>', `Defines a semantic ARIA label.`]]
-	// 	},
-	// ];
 </script>
 
 <DocsShell {settings}>

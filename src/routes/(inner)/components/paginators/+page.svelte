@@ -18,38 +18,6 @@
 		source: 'components/Paginator',
 		components: [{ sveld: sveldPaginator }]
 	};
-	// const properties: DocsShellTable[] = [
-	// 	{
-	// 		label: 'Settings',
-	// 		headings: ['Prop', 'Type', 'Default', 'Description'],
-	// 		source: [
-	// 			['<code>offset</code>', 'number', '0', 'Index of the first list item to display.'],
-	// 			['<code>limit</code>', 'number', '5', 'Current number of items to display.'],
-	// 			['<code>size</code>', 'number', '10', 'The total size (length) of your source content.'],
-	// 			['<code>amounts</code>', 'number[]', '[1,5,10,50,100]', 'List of amounts available to the select input.']
-	// 		]
-	// 	},
-	// 	{
-	// 		label: 'Styling',
-	// 		headings: ['Prop', 'Type', 'Default', 'Description'],
-	// 		source: [
-	// 			['<code>justify</code>', 'string', 'justify-between', 'Provide classes to set flexbox justification.'],
-	// 			['<code>text</code>', 'string', 'text-xs', 'Provide classes to style page info text.'],
-	// 			['<code>select</code>', 'string', '-', 'Provide arbitrary classes to style the select input.'],
-	// 			['<code>buttons</code>', 'string', `btn-filled`, 'Provide arbitrary casses to style the buttons.']
-	// 		]
-	// 	}
-	// ];
-	// const events: DocsShellTable[] = [
-	// 	{
-	// 		headings: ['Name', 'Description'],
-	// 		source: [
-	// 			['<code>on:amount</code>', 'Fires when the amount selection input changes. Provides the selected amount value.'],
-	// 			['<code>on:page</code>', 'Fires when the next/back buttons are pressed. Provides the new offset value.']
-	// 		]
-	// 	}
-	// ];
-
 	// Local
 	const content: any = {
 		headings: ['Positions', 'Name', 'Weight', 'Symbol'],

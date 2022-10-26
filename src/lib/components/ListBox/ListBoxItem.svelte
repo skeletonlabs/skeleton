@@ -3,11 +3,18 @@
 	import type { Writable } from 'svelte/store';
 
 	// Props (a11y)
-	export let id: string | undefined = undefined;
+	/** Define a unique and semantic identifier for the item.*/
+	export let id: string = '';
 
 	// Event Handler
 	const dispatch = createEventDispatcher();
 
+	// Slots
+	/**
+	 * @slot lead - Positioned on the left of each row item.
+	 * @slot trail - Positioned on the right of each row item.
+	 */
+	//AUDIT add overrides to the description or however it is going to be displayed ala Accordion
 	// Context
 	export let selected: Writable<any> = getContext('selected');
 	export let accent: string = getContext('accent');

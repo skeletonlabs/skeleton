@@ -29,51 +29,6 @@
 			{ label: 'Step', sveld: sveldStep }
 		]
 	};
-	// const properties: DocsShellTable[] = [
-	// 	{
-	// 		label: 'Stepper',
-	// 		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
-	// 		source: [
-	// 			['<code>active</code>', 'Writable<number>', 'writable(0)', '&check;', 'Provide a writable which stores the actively selected step state.'],
-	// 			['<code>length</code>', 'number', '0', '&check;', 'Provide a count of the total number of Steps (children).'],
-	// 			['<code>duration</code>', 'number', '200', '-', 'Set the Svelte transition duration.'],
-	// 			['<code>color</code>', 'string', 'text-white', '-', 'Provide classes to set the numeral text color.'],
-	// 			['<code>background</code>', 'string', 'bg-accent-500', '-', 'Provide classes to set the timeline background color.'],
-	// 			['<code>buttonBack</code>', 'string', 'btn-ghost', '-', 'Provide <a href="/elements/buttons">Button element</a> classes.'],
-	// 			['<code>buttonNext</code>', 'string', 'btn-filled', '-', 'Provide <a href="/elements/buttons">Button element</a> classes.'],
-	// 			['<code>buttonComplete</code>', 'string', 'btn-filled-primary', '-', 'Provide <a href="/elements/buttons">Button element</a> classes.']
-	// 		]
-	// 	},
-	// 	{
-	// 		label: 'Step',
-	// 		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
-	// 		source: [
-	// 			['<code>index</code>', 'number', '-', '&check;', 'Indicates the step index value. Should start with 0 (zero)'],
-	// 			['<code>locked</code>', 'boolean', 'false', '-', 'When enabled, a lock icon appears and the Next button is disabled. This prevents progress.']
-	// 		]
-	// 	}
-	// ];
-	// const events: DocsShellTable[] = [
-	// 	{
-	// 		headings: ['Prop', 'Description'],
-	// 		source: [['<code>on:complete</code>', `Triggers when the final step's <em>Complete</em> button is pressed.`]]
-	// 	}
-	// ];
-	// const slots: DocsShellTable[] = [
-	// 	{
-	// 		label: 'Stepper',
-	// 		headings: ['Name', 'Description'],
-	// 		source: [['<code>default</code>', 'Accepts a set of Step components.']]
-	// 	},
-	// 	{
-	// 		label: 'Step',
-	// 		headings: ['Name', 'Description'],
-	// 		source: [
-	// 			['<code>default</code>', 'Provide the content for the step.'],
-	// 			['<code>header</code>', 'Override the auto-generated heading with your own value. Typically a step title.']
-	// 		]
-	// 	}
-	// ];
 
 	// Local
 	const lorem: string =

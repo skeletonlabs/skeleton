@@ -4,15 +4,26 @@
 	const dispatch = createEventDispatcher();
 
 	// Props
+	/** Index of the first list item to display.*/
 	export let offset: number = 0;
+	/** Current number of items to display.*/
 	export let limit: number = 5;
+	/** The total size (length) of your source content.*/
 	export let size: number = 10;
+	/** List of amounts available to the select input.*/
 	export let amounts: number[] = [1, 5, 10, 50, 100];
+
 	// Props (design)
+	/** Provide classes to set flexbox justification.*/
 	export let justify: string = 'justify-between';
+	/** Provide classes to style page info text.*/
 	export let text: string = 'text-xs md:text-base';
+	/** Provide arbitrary classes to style the select input.*/
 	export let select: string | undefined = undefined;
+
 	// Props (buttons)
+	//AUDIT link to https://www.skeleton.dev/elements/buttons ?
+	/** Provide arbitrary casses to style the buttons.*/
 	export let buttons: string = 'btn-filled';
 
 	// Base Classes

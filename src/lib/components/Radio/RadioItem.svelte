@@ -6,11 +6,16 @@
 	const dispatch = createEventDispatcher();
 
 	// Props
+	//AUDIT stronger typing ?
+	/** The item's selection value.*/
 	export let value: any = undefined;
+
 	// Props (A11y)
-	export let label: string | undefined = undefined;
+	/** Defines a semantic ARIA label.*/
+	export let label: string = '';
 
 	// Context
+	//AUDIT needs override description
 	export let selected: Writable<any> = getContext('selected');
 	export let hover: string = getContext('hover');
 	export let accent: string = getContext('accent');

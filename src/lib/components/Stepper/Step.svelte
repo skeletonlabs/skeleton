@@ -5,7 +5,9 @@
 	import type { Writable } from 'svelte/store';
 
 	// Props
+	/** Indicates the step index value. Should start with 0 (zero)*/
 	export let index: number = 0;
+	/** When enabled, a lock icon appears and the Next button is disabled. This prevents progress.*/
 	export let locked: boolean = false;
 
 	// Base Classes
@@ -17,9 +19,10 @@
 	const cDrawer: string = 'ml-1 space-y-4';
 	const cNav: string = 'flex items-center space-x-2';
 
-	// Context
+	// Context 
 	export let dispatch: any = getContext('dispatch');
 	export let active: Writable<number> = getContext('active');
+	//AUDIT provide override details as per AccordionItem for items below ? Tighten up types
 	export let length: any = getContext('length');
 	export let color: any = getContext('color');
 	export let background: any = getContext('background');

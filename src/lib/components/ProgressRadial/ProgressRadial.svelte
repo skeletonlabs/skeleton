@@ -3,14 +3,22 @@
 	import { afterUpdate } from 'svelte';
 
 	// Props
+	/** Set the meter fill amount. Shows as indeterminate when set undefined.*/
 	export let value: number | undefined = undefined; // %
+	/** Sets the base stroke width. Scales responsively.*/
 	export let stroke: number = 20; // px
+	/** Provide classes to set meter color.*/
 	export let meter: string = 'stroke-accent-500';
+	/** Provide classes to set track color.*/
 	export let track: string = 'stroke-surface-200 dark:stroke-surface-700';
+	/** Provide classes to set the SVG text fill color.*/
 	export let fill: string = 'fill-token';
+	/** Sets the base font size. Scales responsively.*/
 	export let font: number = 56; // px
+
 	// Ally
-	export let label: string | undefined = undefined;
+	/** A semantic ARIA label.*/
+	export let label: string = '';
 
 	// Base Classes
 	const cBase: string = 'progress-radial relative overflow-hidden';

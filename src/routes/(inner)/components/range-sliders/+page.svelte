@@ -36,38 +36,6 @@
 			['<kbd>Page Down</kbd>', 'Decrease  the slider value by an amount larger than the step change made by <kbd>Up Down</kbd>.']
 		]
 	};
-	// const properties: DocsShellTable[] = [
-	// 	{
-	// 		description: 'Uses <code>$$restProps</code> to support all valid input attributes, such as <em>required</em>.',
-	// 		headings: ['Prop', 'Type', 'Default', 'Description'],
-	// 		source: [
-	// 			['<code>value</code>', 'number', '0', 'Set the input value.'],
-	// 			['<code>min</code>', 'number', '0', 'Set the input minimum range.'],
-	// 			['<code>max</code>', 'number', '100', 'Set the input maximum range.'],
-	// 			['<code>step</code>', 'number', '1', 'Set the input step offset.'],
-	// 			['<code>ticked</code>', 'boolean', 'false', 'Enables tick marks. See browser support below.'],
-	// 			['<code>accent</code>', 'string', 'accent-token', 'Provide classes to set the input accent color.']
-	// 		]
-	// 	}
-	// ];
-	// const slots: DocsShellTable[] = [
-	// 	{
-	// 		headings: ['Prop', 'Description'],
-	// 		source: [
-	// 			['<code>default</code>', 'A label slot directly above the range slider.'],
-	// 			['<code>trail</code>', 'A label slot directly below the range slider.']
-	// 		]
-	// 	}
-	// ];
-	// const a11y: DocsShellTable[] = [
-	// 	{
-	// 		headings: ['Prop', 'Type', 'Description'],
-	// 		source: [
-	// 			['<code>id</code>', 'string', 'Provide a unique input id.'],
-	// 			['<code>label</code>', 'string', `A semantic ARIA label.`]
-	// 		]
-	// 	},
-	// ];
 
 	// Reactive Props
 	$: props = {

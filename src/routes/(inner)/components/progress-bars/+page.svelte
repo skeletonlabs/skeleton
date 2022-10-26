@@ -26,20 +26,6 @@
 		source: 'components/ProgressBar',
 		components: [{ sveld: sveldProgressBar }]
 	};
-	// const properties: DocsShellTable[] = [
-	// 	{
-	// 		headings: ['Prop', 'Type', 'Default', 'Description'],
-	// 		source: [
-	// 			['<code>label</code>', 'string', '-', 'Set the label text.'],
-	// 			['<code>value</code>', 'number', '-', 'Specifies the amount completed. Indeterminate when <code>undefined</code>.'],
-	// 			['<code>max</code>', 'number', '100', 'Maximum amount the bar represents.'],
-	// 			['<code>height</code>', 'string', 'h-2', 'Provide classes to set track height.'],
-	// 			['<code>rounded</code>', 'string', 'rounded-token', 'Provide classes to set rounded styles.'],
-	// 			['<code>meter</code>', 'string', 'bg-accent-500', 'Provide arbitrary classes to style the meter element.'],
-	// 			['<code>track</code>', 'string', 'bg-surface-200-700-token', 'Provide arbitrary classes to style the track element.']
-	// 		]
-	// 	}
-	// ];
 
 	// Reactive Props
 	$: props = {
