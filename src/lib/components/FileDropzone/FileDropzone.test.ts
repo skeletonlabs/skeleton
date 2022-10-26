@@ -13,7 +13,7 @@ describe('FileDropzone.svelte', () => {
 	it('Renders with all props', async () => {
 		const { getByTestId } = render(FileDropzone, {
 			props: {
-				files: undefined,
+				files: [],
 				name: 'testFileDropzoneInput',
 				accept: 'image/*',
 				multiple: false
