@@ -31,69 +31,6 @@
 			{ label: 'Tab', sveld: sveldTab }
 		]
 	};
-	// const properties: DocsShellTable[] = [
-	// 	{
-	// 		label: 'TabGroup',
-	// 		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
-	// 		source: [
-	// 			['<code>selected</code>', 'Writable', '-', '&check;', 'A svelte store to keep track of tab selection.'],
-	// 			['<code>rail</code>', 'boolean', 'true', '-', 'Toggless the bottom border below the tabs.'],
-	// 			['<code>justify</code>', 'string', 'justify-start', '-', `Provide classes to set the flex justification. 'justify-start' is best small screens.`],
-	// 			['<code>borderWidth</code>', 'string', 'border-b-2', '-', 'Provide classes to set the selected border thickness size. Shared between group and tab.'],
-	// 			['<code>borderColor</code>', 'string', 'border-primary-500', '-', 'Provide classes to set the selected border color.'],
-	// 			['<code>color</code>', 'string', 'text-primary-500', '-', 'Provide class to set the selected text color.'],
-	// 			['<code>fill</code>', 'string', 'fill-primary-500', '-', 'Provide classes to set the selected SVG fill color.'],
-	// 			['<code>hover</code>', 'string', 'bg-hover-token', '-', 'Provide classes to set the unselected hover styles.'],
-	// 			['<code>rounded</code>', 'string', 'rounded-tl-container-token rounded-tr-container-token', '-', 'Provide classes to set the tab border radius styles.']
-	// 		]
-	// 	},
-	// 	{
-	// 		label: 'Tab',
-	// 		headings: ['Prop', 'Type', 'Description'],
-	// 		source: [['<code>value</vcode>', 'any', 'The value of each tab.']]
-	// 	}
-	// ];
-	// const slots: DocsShellTable[] = [
-	// 	{
-	// 		label: 'TabGroup',
-	// 		headings: ['Name', 'Description'],
-	// 		source: [['<code>default</code>', 'Accepts a step of Tab components.']]
-	// 	},
-	// 	{
-	// 		label: 'Tab',
-	// 		headings: ['Name', 'Description'],
-	// 		source: [
-	// 			['<code>lead</code>', 'Provides a leading position, which can be used for icons.'],
-	// 			['<code>default</code>', 'Provide the Tab label contents.']
-	// 		]
-	// 	}
-	// ];
-	// const a11y: DocsShellTable[] = [
-	// 	{
-	// 		label: 'TabGroup',
-	// 		headings: ['Prop', 'Type', 'Required', 'Description'],
-	// 		source: [
-	// 			['<code>labeledby</code>', 'string', '-', `Provide the ID of the element that describes the group.`],
-	// 			['<code>label</code>', 'string', '-', `Defines a semantic label for the group.`]
-	// 		]
-	// 	},
-	// 	{
-	// 		label: 'Tab',
-	// 		headings: ['Prop', 'Type', 'Required', 'Description'],
-	// 		source: [['<code>label</code>', 'string', '-', `Defines a semantic label for the tab.`]]
-	// 	},
-	// 	{
-	// 		label: 'Keyboard Interactions',
-	// 		headings: ['Keys', 'Description'],
-	// 		source: [
-	// 			['<kbd>Tab</kbd>', 'Moves focus to the next focusable Tab.'],
-	// 			['<kbd>Shift + Tab</kbd> ', 'Moves focus to the previous focusable Tab.'],
-	// 			['<kbd>Home</kbd>', 'Moves focus to the first tab.'],
-	// 			['<kbd>End</kbd>', 'Moves focus to the last tab.'],
-	// 			['<kbd>Space</kbd> or <kbd>Enter</kbd>', 'Activates the tab if it was not activated automatically on focus.']
-	// 		]
-	// 	}
-	// ];
 </script>
 
 <DocsShell {settings}>

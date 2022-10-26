@@ -34,60 +34,6 @@
 			['<kbd>End</kbd>', ' Moves focus to the last cell in the row that contains focus.']
 		]
 	};
-	// const properties: DocsShellTable[] = [
-	// 	{
-	// 		label: 'Settings',
-	// 		headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
-	// 		source: [
-	// 			['<code>headings</code>', 'string[]', '[]', '&check;', 'Provide a list of table headings.'],
-	// 			['<code>source</code>', 'any[]', '[]', '&check;', 'Provide the table body content.'],
-	// 			['<code>async</code>', 'boolean', 'false', '-', 'Disables search/sort within the component, allowing for server-side pagination.'],
-	// 			['<code>search</code>', 'any', '-', '-', 'Provide a term for local fuzzy search within the compoonent.'],
-	// 			['<code>sort</code>', 'string', '-', '-', 'Defines the sort key value.'],
-	// 			['<code>count</code>', 'number', '(source length)', '-', 'When using async mode, use this to get a count of rows.'],
-	// 			['<code>interactive</code>', 'boolean', 'false', '-', 'Enables row hover and selection features.']
-	// 		]
-	// 	},
-	// 	{
-	// 		label: 'Styling',
-	// 		headings: ['Prop', 'Type', 'Default', 'Description'],
-	// 		source: [
-	// 			['<code>header</code>', 'string', 'bg-surface-200-700-token', 'Provide classes to set the table header background color.'],
-	// 			['<code>body</code>', 'string', 'bg-surface-100-800-token', 'Provide classes to set the table body background color.'],
-	// 			['<code>text</code>', 'string', 'text-sm', 'Provide classes to set the table text size.'],
-	// 			['<code>color</code>', 'string', '-', 'Provide classes to set the table text color.'],
-	// 			['<code>hover</code>', 'string', 'bg-hover-token', 'Provide classes to set the hover background color.']
-	// 		]
-	// 	}
-	// ];
-	// const events: DocsShellTable[] = [
-	// 	{
-	// 		headings: ['Name', 'Description'],
-	// 		source: [
-	// 			['<code>on:sorted</code>', 'Fires when a table heading is selected for sorting. Contains a key name reference.'],
-	// 			['<code>on:selected</code>', 'If interactive enabled, fires when a row is selected. Contains the complete row data.']
-	// 		]
-	// 	}
-	// ];
-	// const slots: DocsShellTable[] = [
-	// 	{
-	// 		headings: ['Name', 'Description'],
-	// 		source: [
-	// 			['<code>header</code>', 'Dislays above the table. Useful for embedding search and filter inputs.'],
-	// 			['<code>empty</code>', 'Overrides the default "no results found" message when the table is empty.'],
-	// 			['<code>footer</code>', 'Displays below the table. Useful for embedding pagination.']
-	// 		]
-	// 	}
-	// ];
-	// const a11y: DocsShellTable[] = [
-	// 	{
-	// 		headings: ['Prop', 'Required', 'Description'],
-	// 		source: [
-	// 			['<code>labelledby</code>', '-', `Provide the ID of the element that labels the table.`],
-	// 			['<code>describedby</code>', '-', `Provide the ID of the element that describes the table.`]
-	// 		]
-	// 	}
-	// ];
 
 	// Local Table
 	const staticArr: any = [
