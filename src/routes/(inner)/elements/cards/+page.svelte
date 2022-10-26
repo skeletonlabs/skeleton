@@ -84,11 +84,5 @@
             `.trim()}
 			/>
 		</div>
-		<!-- Global Styles -->
-		<div class="space-y-4">
-			<h2>Global Styles</h2>
-			<p>Use your global stylesheet to update all instances of this element.</p>
-			<CodeBlock language="css" code={`.card { @apply rounded-none; }`} />
-		</div>
 	</svelte:fragment>
 </DocsShell>

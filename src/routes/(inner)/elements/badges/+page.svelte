@@ -97,12 +97,6 @@
 		`.trim()}
 			/>
 		</section>
-		<!-- Global Styles -->
-		<section class="space-y-4">
-			<h2>Global Styles</h2>
-			<p>Use your global stylesheet to update all instances of this element.</p>
-			<CodeBlock language="css" code={`.badge { @apply rounded-full; }`} />
-		</section>
 	</svelte:fragment>
 </DocsShell>
 

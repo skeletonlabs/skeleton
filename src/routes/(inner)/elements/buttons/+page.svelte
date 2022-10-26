@@ -247,24 +247,5 @@
 			</p>
 			<CodeBlock language="html" code={`<a href="/" class="btn" data-sveltekit-prefetch>Skeleton</a>`} />
 		</div>
-		<!-- Global Styles -->
-		<div class="space-y-4">
-			<h2>Global Styles</h2>
-			<p>Use your global stylesheet to update all instances of this element.</p>
-			<CodeBlock
-				language="css"
-				code={`
-.btn, .btn-icon {
-	@apply font-bold;
-}
-.btn-filled-primary,
-.btn-filled-accent,
-.btn-filled-warning,
-.btn-filled-surface {
-	@apply text-white;
-}
-				`}
-			/>
-		</div>
 	</svelte:fragment>
 </DocsShell>
