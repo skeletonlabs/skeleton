@@ -101,21 +101,5 @@
             `.trim()}
 			/>
 		</div>
-		<!-- Global Syles -->
-		<div class="space-y-4">
-			<h2>Global Styles</h2>
-			<p>Use your global stylesheet to update all instances of this element.</p>
-			<CodeBlock
-				language="css"
-				code={`
-.logo-cloud {
-    @apply rounded-none;
-}
-.logo-item {
-    @apply !bg-surface-500;
-}
-            `.trim()}
-			/>
-		</div>
 	</svelte:fragment>
 </DocsShell>
