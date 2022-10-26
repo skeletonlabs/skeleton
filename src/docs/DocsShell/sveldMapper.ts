@@ -1,34 +1,45 @@
+
 import type { Component } from './types';
 
+interface MapperOutput {
+	headings: string[]
+	source: string[][]
+}
+
 // Mapper: Props
-export function sveldMapperProps(component: Component): any {
+export function sveldMapperProps(component: Component): MapperOutput {
 	const { props } = component.sveld;
+	const propsHeadings = ['Name', 'Type', 'Value', 'Description']
 	// Filter props with undefined types (exclude getContext)
-	const propsFiltered = props.filter((p: any) => p.type !== undefined);
+	const propsFiltered = props.filter((p) => p.type !== undefined);
 	// Return table headings/source
+	function cleanValue(value: string | undefined): string {
+		if (value === undefined || value === '' || value === "''") return '-';
+		return value
+	}
 	return {
-		headings: ['Name', 'Type', 'Value', 'Description'],
-		source: propsFiltered.map((p: any) => {
-			// prettier-ignore
+		headings: propsHeadings,
+		source: propsFiltered.map((p) => {
 			return [
 				`<code>${p.name}<?code>`,
 				`<em>${p.type}</em>`,
-				!["''", undefined].includes(p.value) ? p.value : '-',
-				p.description ? p.description : '-'
+				cleanValue(p.value),
+				p.description ? p?.description : '-'
 			];
 		})
 	};
 }
 
 // Mapper: Slots
-export function sveldMapperSlots(component: Component): any {
+export function sveldMapperSlots(component: Component): MapperOutput {
 	const { slots } = component.sveld;
+	const slotsHeadings = ['Name', 'Default', 'Fallback', 'Description']
 	return {
-		headings: ['Name', 'Default', 'Fallback', 'Description'],
-		source: slots.map((s: any) => {
+		headings: slotsHeadings,
+		source: slots.map((s) => {
 			// prettier-ignore
 			return [
-				`<code>${s.name.replaceAll('__','')}</code>`,
+				`<code>${s.name.replaceAll('__', '')}</code>`,
 				s.default ? '&check;' : '-',
 				s.fallback ? '&check;' : '-',
 				// s.slot_props ? s.slot_props : '-', // NOTE: we don't currently use this
@@ -39,11 +50,12 @@ export function sveldMapperSlots(component: Component): any {
 }
 
 // Mapper: Events
-export function sveldeMapperEvents(component: Component): any {
+export function sveldeMapperEvents(component: Component): MapperOutput {
 	const { events } = component.sveld;
+	const eventsHeadings = ['Name', 'Type', 'Element', 'Response', 'Description']
 	return {
-		headings: ['Name', 'Type', 'Element', 'Response', 'Description'],
-		source: events.map((e: any) => {
+		headings: eventsHeadings,
+		source: events.map((e) => {
 			// prettier-ignore
 			return [
 				`<code>on:${e.name}</code>`,
@@ -58,15 +70,19 @@ export function sveldeMapperEvents(component: Component): any {
 
 // ---
 
-// https://stackoverflow.com/questions/6234773/can-i-escape-html-special-chars-in-javascript
 // prettier-ignore
+/**
+ * @param unsafe The unsafe raw HTML string
+ * @returns a nice, safely escaped string
+ * @see https://stackoverflow.com/questions/6234773/can-i-escape-html-special-chars-in-javascript
+ */
 function escapeHtml(unsafe: string) {
-    return unsafe
-         .replace(/&/g, "&amp;")
-         .replace(/</g, "&lt;")
-         .replace(/>/g, "&gt;")
-         .replace(/"/g, "&quot;")
-         .replace(/'/g, "&#039;");
+	return unsafe
+		.replace(/&/g, "&amp;")
+		.replace(/</g, "&lt;")
+		.replace(/>/g, "&gt;")
+		.replace(/"/g, "&quot;")
+		.replace(/'/g, "&#039;");
 }
 
 // ---
