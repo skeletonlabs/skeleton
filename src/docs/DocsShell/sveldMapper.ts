@@ -1,13 +1,19 @@
 import type { Component } from './types';
 
+interface MapperOutput {
+	headings: string[]
+	source: string[]
+}
+
 // Mapper: Props
-export function sveldMapperProps(component: Component): any {
+export function sveldMapperProps(component: Component): MapperOutput {
 	const { props } = component.sveld;
+	const propsHeadings = ['Name', 'Type', 'Value', 'Description']
 	// Filter props with undefined types (exclude getContext)
 	const propsFiltered = props.filter((p: any) => p.type !== undefined);
 	// Return table headings/source
 	return {
-		headings: ['Name', 'Type', 'Value', 'Description'],
+		headings: propsHeadings,
 		source: propsFiltered.map((p: any) => {
 			// prettier-ignore
 			return [
@@ -21,10 +27,11 @@ export function sveldMapperProps(component: Component): any {
 }
 
 // Mapper: Slots
-export function sveldMapperSlots(component: Component): any {
+export function sveldMapperSlots(component: Component): MapperOutput {
 	const { slots } = component.sveld;
+	const slotsHeadings = ['Name', 'Default', 'Fallback', 'Description']
 	return {
-		headings: ['Name', 'Default', 'Fallback', 'Description'],
+		headings: slotsHeadings,
 		source: slots.map((s: any) => {
 			// prettier-ignore
 			return [
@@ -39,10 +46,11 @@ export function sveldMapperSlots(component: Component): any {
 }
 
 // Mapper: Events
-export function sveldeMapperEvents(component: Component): any {
+export function sveldeMapperEvents(component: Component): MapperOutput {
 	const { events } = component.sveld;
+	const eventsHeadings = ['Name', 'Type', 'Element', 'Response', 'Description']
 	return {
-		headings: ['Name', 'Type', 'Element', 'Response', 'Description'],
+		headings: eventsHeadings,
 		source: events.map((e: any) => {
 			// prettier-ignore
 			return [
