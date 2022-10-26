@@ -127,7 +127,8 @@ const page: any = {
 			<p>
 				Once your paginator component is setup you'll need to limit your content. This can be accomplished with the JavaScript <a
 					href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice"
-					target="_blank">slice</a
+					target="_blank"
+					rel="noreferrer">slice</a
 				> method. See a minimal example below.
 			</p>
 			<CodeBlock language="typescript" code={`const source: any[] = [ /* any array of objects */ ]`} />

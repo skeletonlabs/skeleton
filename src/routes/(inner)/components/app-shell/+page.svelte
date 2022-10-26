@@ -120,7 +120,7 @@
 			/>
 			<p>
 				The App Shell will need to expand to fill your <em>body</em> tag. Add the following classes to the wrapping <em>div</em> in <code>/src/app.html</code>.
-				<a href="https://github.com/sveltejs/kit/issues/6244#issuecomment-1226600661" target="_blank">This element is required</a>.
+				<a href="https://github.com/sveltejs/kit/issues/6244#issuecomment-1226600661" target="_blank" rel="noreferrer">This element is required</a>.
 			</p>
 			<CodeBlock language="html" code={`<body>\n\t<div class="h-full overflow-hidden">%sveltekit.body%</div>\n</body>`.trim()} />
 			<p>Then, disable overflow on your <em>html</em> and <em>body</em> tags to prevent duplicate scroll bars. Update your global stylesheet with the following.</p>
@@ -144,7 +144,7 @@
 			<h2>Sidebars</h2>
 			<p>
 				Please be aware that sidebars have a default width of <code>auto</code>. Sidebars will automatically collapse when their contents are empty or hidden. This is useful if you wish to hide the
-				sidebar with CSS media queries via <a href="https://tailwindcss.com/docs/responsive-design" target="_blank">Tailwind's responsive breakpoints</a>.
+				sidebar with CSS media queries via <a href="https://tailwindcss.com/docs/responsive-design" target="_blank" rel="noreferrer">Tailwind's responsive breakpoints</a>.
 			</p>
 			<CodeBlock
 				language="html"

@@ -63,13 +63,13 @@
 		<h2>Contribution Workflow</h2>
 		<ol class="list-decimal list-inside space-y-1">
 			<li>
-				<a href="https://github.com/Brain-Bones/skeleton/issues" target="_blank">Select an issue</a>
+				<a href="https://github.com/Brain-Bones/skeleton/issues" target="_blank" rel="noreferrer">Select an issue</a>
 				or
-				<a href="https://github.com/Brain-Bones/skeleton/wiki/%F0%9F%9B%A3%EF%B8%8F-The-Skeleton-Roadmap" target="_blank">roadmap task</a> you wish to contribute to.
+				<a href="https://github.com/Brain-Bones/skeleton/wiki/%F0%9F%9B%A3%EF%B8%8F-The-Skeleton-Roadmap" target="_blank" rel="noreferrer">roadmap task</a> you wish to contribute to.
 			</li>
 			<li>
-				Leave a comment, join the <a href="https://github.com/Brain-Bones/skeleton/discussions/79" target="_blank">roadmap discussion</a>, or
-				<a href="https://discord.gg/EXqV7W8MtY" target="_blank">give us a heads up on Discord</a>.
+				Leave a comment, join the <a href="https://github.com/Brain-Bones/skeleton/discussions/79" target="_blank" rel="noreferrer">roadmap discussion</a>, or
+				<a href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer">give us a heads up on Discord</a>.
 			</li>
 			<li>Review with core contributors to define the requirements before you write your first line of code.</li>
 			<li>Follow our branch naming conventions described below.</li>
@@ -121,7 +121,7 @@
 	<!-- Code Formatting -->
 	<section class="space-y-4">
 		<h2>Code Linting &amp; Formatting</h2>
-		<p>This is is handled via <a href="https://prettier.io/" target="_blank">Prettier</a>. To check for linting issues, run:</p>
+		<p>This is is handled via <a href="https://prettier.io/" target="_blank" rel="noreferrer">Prettier</a>. To check for linting issues, run:</p>
 		<CodeBlock language="console" code={`npm run lint`} />
 		<p>To automatically apply formatting, run:</p>
 		<CodeBlock language="console" code={`npm run format`} />
@@ -133,8 +133,8 @@
 	<section class="space-y-4">
 		<h2>Automated Tests</h2>
 		<p>
-			Tests are handled via <a href="https://vitest.dev/" target="_blank">Vitest</a>, which uses similar conventions and syntax to Jest. Please ensure you write or update tests before submitting a
-			pull request.
+			Tests are handled via <a href="https://vitest.dev/" target="_blank" rel="noreferrer">Vitest</a>, which uses similar conventions and syntax to Jest. Please ensure you write or update tests before
+			submitting a pull request.
 		</p>
 		<CodeBlock language="console" code={`npm run test`} />
 	</section>

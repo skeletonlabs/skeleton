@@ -137,7 +137,7 @@ toastStore.clear();
 		<!-- Accessibility -->
 		<section class="space-y-4">
 			<h2>Accessibility</h2>
-			<p>Meets the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/alert/" target="_blank">ARIA Guidelines</a>.</p>
+			<p>Meets the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/alert/" target="_blank" rel="noreferrer">ARIA Guidelines</a>.</p>
 		</section>
 	</svelte:fragment>
 </DocsShell>

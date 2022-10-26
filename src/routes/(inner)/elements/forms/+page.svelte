@@ -31,7 +31,7 @@
 		<section class="space-y-4">
 			<h2>Tailwind Forms Plugin</h2>
 			<p>
-				Follow the steps below to instlal this plugin. If you would like to learn more about this plugin, see <a href="https://www.youtube.com/watch?v=pONeWAzDsQg" target="_blank"
+				Follow the steps below to instlal this plugin. If you would like to learn more about this plugin, see <a href="https://www.youtube.com/watch?v=pONeWAzDsQg" target="_blank" rel="noreferrer"
 					>Tailwind's YouTube tutorial</a
 				>.
 			</p>
@@ -39,7 +39,7 @@
 			<div class="flex-auto space-y-4">
 				<CodeBlock language="console" code={`npm install -D @tailwindcss/forms`} />
 				<p>
-					Add the <a href="https://tailwindcss.com/docs/plugins" target="_blank">plugin</a> to your
+					Add the <a href="https://tailwindcss.com/docs/plugins" target="_blank" rel="noreferrer">plugin</a> to your
 					<code>tailwind.config.cjs</code>
 				</p>
 				<CodeBlock

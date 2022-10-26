@@ -110,7 +110,7 @@
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<h2>Create a Store</h2>
-			<p>Create a <a href="https://svelte.dev/tutorial/writable-stores" target="_blank">Svelte writable store</a> to manage the state of the drawer.</p>
+			<p>Create a <a href="https://svelte.dev/tutorial/writable-stores" target="_blank" rel="noreferrer">Svelte writable store</a> to manage the state of the drawer.</p>
 			<CodeBlock language="typescript" code={`import { writable, type Writable } from 'svelte/store';`} />
 			<CodeBlock language="typescript" code={`const storeDrawer: Writable<boolean> = writable(false);`} />
 		</section>

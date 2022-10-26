@@ -143,7 +143,9 @@
 			</TabGroup>
 			{#if $tabExample === 'local'}<p>Render a table using data that is client-side only.</p>{/if}
 			{#if $tabExample === 'async'}<p>
-					Render a table using asycronous data, such as an HTTP call to an API. The example below fetches data from <a href="https://jsonplaceholder.typicode.com/" target="_blank">JSON Placeholder</a>
+					Render a table using asycronous data, such as an HTTP call to an API. The example below fetches data from <a href="https://jsonplaceholder.typicode.com/" target="_blank" rel="noreferrer"
+						>JSON Placeholder</a
+					>
 				</p>{/if}
 			<div class="card card-body space-y-4">
 				<!-- Tab: Local -->

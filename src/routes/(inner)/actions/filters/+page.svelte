@@ -21,7 +21,7 @@
 		feature: DocsFeature.Action,
 		name: 'Filters',
 		description:
-			'Applies a set of unique <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter" target="_blank">SVG filters</a>. Best used with images, but also available to select components, such as Avatars.',
+			'Applies a set of unique <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter" target="_blank" rel="noreferrer">SVG filters</a>. Best used with images, but also available to select components, such as Avatars.',
 		imports: ['filter'],
 		source: 'actions/Filters',
 		parameters: [['<code>(default)</code>', 'string', '-', '-', 'The name of the filter, such as "Apollo".']]
@@ -102,7 +102,7 @@
 			<p>Use of of the two menthods below to apply your desired filter.</p>
 			<h3>Via the Svelte Action</h3>
 			<p>
-				Use the following <a href="https://svelte.dev/tutorial/actions" target="_blank">Svelte action</a> to to filter any element.
+				Use the following <a href="https://svelte.dev/tutorial/actions" target="_blank" rel="noreferrer">Svelte action</a> to to filter any element.
 			</p>
 			<CodeBlock language="html" code={`<img src={myImageSrc} use:filter={'BlueNight'}>`} />
 			<h3>Via Style Attribute</h3>
@@ -112,16 +112,16 @@
 		<section class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0 md:space-x-4">
 			<div class="space-y-2">
 				<h2>Create a Filter</h2>
-				<p>Easily generate your own filters using this tool by <a href="https://twitter.com/rikschennink/" target="_blank">Rik Schennink</a>.</p>
+				<p>Easily generate your own filters using this tool by <a href="https://twitter.com/rikschennink/" target="_blank" rel="noreferrer">Rik Schennink</a>.</p>
 			</div>
-			<a class="btn btn-filled-accent" href="https://fecolormatrix.com/" target="_blank">Create Filter</a>
+			<a class="btn btn-filled-accent" href="https://fecolormatrix.com/" target="_blank" rel="noreferrer">Create Filter</a>
 		</section>
 		<hr />
 		<section class="space-y-4">
 			<h2>Browser Support</h2>
 			<p>
-				Please be aware that <a href="https://caniuse.com/css-filters" target="_blank">browser support</a> varies. Some filters are not functional in Safari, while Firefox is not supported at all. We recommend
-				using progressive enhancement when using filters in non-supported browsers.
+				Please be aware that <a href="https://caniuse.com/css-filters" target="_blank" rel="noreferrer">browser support</a> varies. Some filters are not functional in Safari, while Firefox is not supported
+				at all. We recommend using progressive enhancement when using filters in non-supported browsers.
 			</p>
 			<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
 				<div class="card card-body !bg-emerald-500 text-white text-center">

@@ -241,7 +241,10 @@
 		<!-- SvelteKit Link Options -->
 		<div class="space-y-4">
 			<h2>SvelteKit Link Options</h2>
-			<p>Since we use native elements, this means we can utilize <a href="https://kit.svelte.dev/docs/link-options" target="_blank">SvelteKit Link Options</a> such as a <em>prefetch</em>.</p>
+			<p>
+				Since we use native elements, this means we can utilize <a href="https://kit.svelte.dev/docs/link-options" target="_blank" rel="noreferrer">SvelteKit Link Options</a> such as a
+				<em>prefetch</em>.
+			</p>
 			<CodeBlock language="html" code={`<a href="/" class="btn" data-sveltekit-prefetch>Skeleton</a>`} />
 		</div>
 		<!-- Global Styles -->

@@ -39,7 +39,7 @@
 		<!-- Skeleton -->
 		<a href="/" class="hidden sm:inline-block text-sm sm:text-lg md:text-3xl font-bold uppercase mr-4" title="Return to Homepage">Skeleton</a>
 		<!-- Badge -->
-		<a class="hidden sm:block" href="https://github.com/Brain-Bones/skeleton/releases" target="_blank">
+		<a class="hidden sm:block" href="https://github.com/Brain-Bones/skeleton/releases" target="_blank" rel="noreferrer">
 			<span class="badge badge-filled-surface">v{pkg.version}</span>
 		</a>
 	</svelte:fragment>
@@ -124,13 +124,13 @@
 
 		<!-- Community -->
 		<section class="flex">
-			<a class="btn btn-sm" href="https://discord.gg/EXqV7W8MtY" target="_blank" aria-label="Discord">
+			<a class="btn btn-sm" href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer" aria-label="Discord">
 				<SvgIcon name="discord" viewBox="0 0 640 512" />
 			</a>
-			<a class="btn btn-sm" href="https://twitter.com/SkeletonUI" target="_blank" aria-label="Twitter">
+			<a class="btn btn-sm" href="https://twitter.com/SkeletonUI" target="_blank" rel="noreferrer" aria-label="Twitter">
 				<SvgIcon name="twitter" />
 			</a>
-			<a class="btn btn-sm" href="https://github.com/Brain-Bones/skeleton" target="_blank" aria-label="GitHub">
+			<a class="btn btn-sm" href="https://github.com/Brain-Bones/skeleton" target="_blank" rel="noreferrer" aria-label="GitHub">
 				<SvgIcon name="github" />
 			</a>
 		</section>

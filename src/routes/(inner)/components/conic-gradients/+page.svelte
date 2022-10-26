@@ -62,7 +62,7 @@
 	];
 	const stopsVars: ConicStop[] = [
 		{ label: 'Primary', color: 'rgb(var(--color-primary-500))', start: 0, end: 33 },
-		{ label: 'Acccent', color: 'rgb(var(--color-warning-500))', start: 33, end: 66 },
+		{ label: 'Accent', color: 'rgb(var(--color-warning-500))', start: 33, end: 66 },
 		{ label: 'Warning', color: 'rgb(var(--color-accent-500))', start: 66, end: 100 }
 	];
 	const stopsSpinner: ConicStop[] = [
@@ -96,7 +96,7 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<div class="space-y-4">
-			<p>Provde one or more color stops that start at <em>0%</em> and end at <em>100%</em>. The data set below will create a half red/green conic gradient.</p>
+			<p>Provide one or more color stops that start at <em>0%</em> and end at <em>100%</em>. The data set below will create a half red/green conic gradient.</p>
 			<CodeBlock
 				language="ts"
 				code={`
@@ -133,7 +133,7 @@ const conicStops: ConicStop[] = [
 				code={`
 const conicStops: ConicStop[] = [
 	{ label: 'Primary', color: 'rgb(var(--color-primary-500))', start: 0, end: 33 },
-	{ label: 'Acccent', color: 'rgb(var(--color-warning-500))', start: 33, end: 66 },
+	{ label: 'Accent', color: 'rgb(var(--color-warning-500))', start: 33, end: 66 },
 	{ label: 'Warning', color: 'rgb(var(--color-accent-500))', start: 66, end: 100 }
 ];`}
 			/>
@@ -156,7 +156,8 @@ const conicStops: ConicStop[] = [
 		<div class="space-y-4">
 			<h3>Via Custom Colors</h3>
 			<p>
-				You can provide <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value" target="_blank">standard CSS color values</a> as a string, including: color names, hex, rgba, HSL, or similar.
+				You can provide <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value" target="_blank" rel="noreferrer">standard CSS color values</a> as a string, including: color names, hex, rgba,
+				HSL, or similar.
 			</p>
 			<CodeBlock
 				language="ts"
