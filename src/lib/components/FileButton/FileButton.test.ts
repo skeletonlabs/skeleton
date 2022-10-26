@@ -13,7 +13,7 @@ describe('FileButton.svelte', () => {
 	it('Renders with all props', async () => {
 		const { getByTestId } = render(FileButton, {
 			props: {
-				files: undefined,
+				files: [],
 				name: 'testFileButtonInput',
 				accept: 'image/*',
 				multiple: false

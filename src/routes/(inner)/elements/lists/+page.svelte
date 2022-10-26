@@ -178,20 +178,5 @@
 			<CodeBlock language="ts" code={`$: classesActive = (href: string) => (href === $page.url.pathname ? '!bg-primary-500' : '');`} />
 			<CodeBlock language="html" code={`<a {href} class="{classesActive(href)}">Page</a>`} />
 		</div>
-		<!-- Global Styles -->
-		<div class="space-y-4">
-			<h2>Global Styles</h2>
-			<p>Use your global stylesheet to update all instances of this element.</p>
-			<CodeBlock
-				language="css"
-				code={`
-.list,
-.list-dl,
-.list-nav ul {
-	@apply space-y-4;
-}
-            `}
-			/>
-		</div>
 	</svelte:fragment>
 </DocsShell>
