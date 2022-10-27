@@ -66,7 +66,8 @@
 	$: classesActive = (href: string) => ($storeCurrentUrl?.includes(href) ? '!bg-primary-500 !text-primary-50 !dark:text-primary-50' : '');
 </script>
 
-<svelte:window on:keydown={onWindowKeydown} on:keyup={onWindowKeyup} />
+<!-- NOTE: using stopPropagation to override Chrome for Windows search shortcut -->
+<svelte:window on:keydown|stopPropagation={onWindowKeydown} on:keyup={onWindowKeyup} />
 
 <div class="m-4 mb-20 {$$props.class ?? ''}">
 	<!-- Search -->
