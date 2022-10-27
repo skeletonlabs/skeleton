@@ -75,6 +75,7 @@
 			<li>Follow our branch naming conventions described below.</li>
 			<li>Don't be afraid to submit a draft pull request early on to ensure your meeting our guidelines.</li>
 			<li>Make sure you run our automated tests to confirm no regressions were introduced from your changes.</li>
+			<li>Everything needs a docs page to explain how it works to end users. See our <a href="/docs/contributions/documentation" target="_blank" rel="noreferrer">docs section</a> for more info.</li>
 			<li>When ready, submit or set your pull request to the ready state. This will begin the code review process.</li>
 			<li>If your PR meets all requirements it will be merged, otherwise feedback will be provided.</li>
 		</ol>
@@ -145,7 +146,6 @@
 	<section class="space-y-4">
 		<h2>Project Structure</h2>
 		<DataTable headings={tableProjectStructure.headings} source={tableProjectStructure.source} />
-		<p>A boilerplate template for new documentation pages can be found in <code>/src/routes/(inner)/template/+page.svelte</code>.</p>
 		<DataTable headings={tableDocs.headings} source={tableDocs.source} />
 	</section>
 </div>

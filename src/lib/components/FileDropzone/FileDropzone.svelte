@@ -43,7 +43,7 @@
 		elemIcon?.classList.remove('animate-bounce');
 	}
 	function onDrop(event: DragEvent): void {
-		/** @event {{ event: DragEvent }} drop - When a file dropped on the component. */
+		/** @event {{ event: DragEvent }} drop - When a file is dropped on the component. */
 		dispatch('drop', event);
 		elemIcon?.classList.remove('animate-bounce');
 	}
