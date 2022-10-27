@@ -5,13 +5,16 @@
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	import { dialogStore, type DialogAlert, type DialogConfirm, type DialogPrompt } from '$lib/utilities/Dialog/stores';
+
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import GradientHeading from '$lib/components/GradientHeading/GradientHeading.svelte';
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
 	import Tab from '$lib/components/Tab/Tab.svelte';
 
 	// @ts-ignore
 	import sveldDrawer from '$lib/utilities/Drawer/Drawer.svelte?raw&sveld';
 
+	// Stores
 	const storeDialogVariants: Writable<string> = writable('alert'); // alert | confirm | prompt
 
 	// Docs Shell
@@ -102,6 +105,19 @@
 		};
 		dialogStore.trigger(d);
 	}
+
+	function dialogComponent(): void {
+		const d: DialogAlert = {
+			title: 'Component Example',
+			body: 'See the embedded Svelte component below.',
+			component: {
+				element: GradientHeading,
+				props: { tag: 'h1', direction: 'bg-gradient-to-r', from: 'from-primary-500', to: 'to-accent-500' },
+				slot: 'Hello Skeleton.'
+			}
+		};
+		dialogStore.trigger(d);
+	}
 </script>
 
 <DocsShell {settings}>
@@ -149,6 +165,13 @@
 							<p>Displays embedded an styled HTML markup.</p>
 						</div>
 						<button class="btn btn-ghost" on:click={dialogHtml}>Trigger</button>
+					</div>
+					<div class="flex justify-between items-center space-x-4">
+						<div>
+							<h6>Component</h6>
+							<p>Embeds and entire component.</p>
+						</div>
+						<button class="btn btn-ghost" on:click={dialogComponent}>Trigger</button>
 					</div>
 				</div>
 				<div class="card card-body space-y-4">
@@ -263,11 +286,17 @@ dialogStore.clear();
 				language="typescript"
 				code={`
 const dialogMessage: DialogAlert = {
-	// ...
+	// ...(title, body, etc)...
 	// Image: Inserts an image within the dialog
 	image: 'https://source.unsplash.com/random/480x320?skeleton',
 	// HTML: Appends HTML markup within the dialog
 	html: \`<div class="bg-green-500 p-4">Hello, Skeleton</div>\`
+	// Component: Appends any valid Svelte component
+	component: {
+		element: GradientHeading,
+		props: { tag: 'h1', direction: 'bg-gradient-to-r', from: 'from-primary-500', to: 'to-accent-500' },
+		slot: 'Hello Skeleton.'
+	}
 };
 			`}
 			/>
