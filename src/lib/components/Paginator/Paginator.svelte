@@ -65,7 +65,7 @@
 	</label>
 	<!-- Details -->
 	<p class="paginator-details {classesPageText}">
-		{offset * limit + 1} to {offset * limit + limit} of <strong>{size}</strong>
+		{offset * limit + 1} to {Math.min(offset * limit + limit, size)} of <strong>{size}</strong>
 	</p>
 	<!-- Arrows -->
 	<div class="paginator-arrows space-x-2">
