@@ -47,12 +47,13 @@ type JSDocData = {
 
 export function getDataFromJSDoc (jsdoc: string) {
 	const results = linkRegex.exec(jsdoc);
-	console.log(results?.groups)
-	// filter the results to the defined ones
-	const filteredResults = results?.filter((r) => r !== undefined);
-	if (filteredResults === undefined) return jsdoc;
-
-
+	if (!results) return jsdoc
+	const groups = results.groups
+	if (!groups) return jsdoc
+	const assertedGroup = groups as JSDocData
+	const fixedString = outputAsHtml(assertedGroup)
+	if (!fixedString) return jsdoc
+	return results?.input.replace(results[0], fixedString);
 }
 
 function turnBackticksToCode (str: string) {
@@ -60,6 +61,7 @@ function turnBackticksToCode (str: string) {
 }
 
 export function outputAsHtml (data: JSDocData) {
+	console.log({data})
 	const desc = data.description || data.markdownName || data.modifierDescription
 	const link = data.link || data.markdownLink
 	switch (data.tag) {
@@ -70,6 +72,10 @@ export function outputAsHtml (data: JSDocData) {
 			return `<code>${turnBackticksToCode(desc)}</code>`
 		case 'a11y':
 		case 'optional':
+		default:
+			if (data.markdownLink && data.markdownName) {
+				return `<a href="${link}">${turnBackticksToCode(desc)}</a>`
+			}
 			return `${turnBackticksToCode(desc)}`
 	}
 }
