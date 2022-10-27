@@ -40,7 +40,7 @@
 			<SvgIcon name="bars" width="w-6" height="h-6" fill="fill-black dark:fill-white" />
 		</button>
 		<!-- Logo -->
-		<a href="/" class="hidden sm:inline-block sm:flex mr-4 space-x-4 -translate-y-0.5" title="Go to Homepage">
+		<a href="/" class="hidden sm:inline-block mr-4 space-x-4 -translate-y-0.5" title="Go to Homepage">
 			<DocsLogo />
 		</a>
 		<!-- Badge -->
