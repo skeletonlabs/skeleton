@@ -92,7 +92,7 @@
 						<option value={undefined}>None</option>
 						<option value="bg-primary-500">bg-primary-500</option>
 						<option value="bg-accent-500">bg-accent-500</option>
-						<option value="bg-ternary-500">bg-ternary-500</option>
+						<option value="bg-tertiary-500">bg-tertiary-500</option>
 						<option value="bg-warning-500">bg-warning-500</option>
 						<option value="bg-surface-500">bg-surface-500</option>
 						<option value="bg-primary-500/30">bg-primary-500/30</option>
@@ -184,7 +184,7 @@
 					<button class="btn btn-filled">filled</button>
 					<button class="btn btn-filled-primary">filled-primary</button>
 					<button class="btn btn-filled-accent">filled-accent</button>
-					<button class="btn btn-filled-ternary">filled-ternary</button>
+					<button class="btn btn-filled-tertiary">filled-tertiary</button>
 					<button class="btn btn-filled-warning">filled-warning</button>
 					<button class="btn btn-filled-surface">filled-surface</button>
 				</div>
@@ -193,7 +193,7 @@
 					<button class="btn btn-ringed">ringed</button>
 					<button class="btn btn-ringed-primary">ringed-primary</button>
 					<button class="btn btn-ringed-accent">ringed-accent</button>
-					<button class="btn btn-ringed-ternary">ringed-ternary</button>
+					<button class="btn btn-ringed-tertiary">ringed-tertiary</button>
 					<button class="btn btn-ringed-warning">ringed-warning</button>
 					<button class="btn btn-ringed-surface">ringed-surface</button>
 				</div>
@@ -202,7 +202,7 @@
 					<button class="btn btn-ghost">ghost</button>
 					<button class="btn btn-ghost-primary">ghost-primary</button>
 					<button class="btn btn-ghost-accent">ghost-accent</button>
-					<button class="btn btn-ghost-ternary">ghost-ternary</button>
+					<button class="btn btn-ghost-tertiary">ghost-tertiary</button>
 					<button class="btn btn-ghost-warning">ghost-warning</button>
 					<button class="btn btn-ghost-surface">ghost-surface</button>
 				</div>
@@ -214,7 +214,7 @@
 					<button class="btn-icon btn-filled">💀</button>
 					<button class="btn-icon btn-filled-primary">💀</button>
 					<button class="btn-icon btn-filled-accent">💀</button>
-					<button class="btn-icon btn-filled-ternary">💀</button>
+					<button class="btn-icon btn-filled-tertiary">💀</button>
 					<button class="btn-icon btn-filled-warning">💀</button>
 					<button class="btn-icon btn-filled-surface">💀</button>
 				</div>
@@ -223,7 +223,7 @@
 					<button class="btn-icon btn-ringed">💀</button>
 					<button class="btn-icon btn-ringed-primary">💀</button>
 					<button class="btn-icon btn-ringed-accent">💀</button>
-					<button class="btn-icon btn-ringed-ternary">💀</button>
+					<button class="btn-icon btn-ringed-tertiary">💀</button>
 					<button class="btn-icon btn-ringed-warning">💀</button>
 					<button class="btn-icon btn-ringed-surface">💀</button>
 				</div>
@@ -232,7 +232,7 @@
 					<button class="btn-icon btn-ghost">💀</button>
 					<button class="btn-icon btn-ghost-primary">💀</button>
 					<button class="btn-icon btn-ghost-accent">💀</button>
-					<button class="btn-icon btn-ghost-ternary">💀</button>
+					<button class="btn-icon btn-ghost-tertiary">💀</button>
 					<button class="btn-icon btn-ghost-warning">💀</button>
 					<button class="btn-icon btn-ghost-surface">💀</button>
 				</div>
