@@ -62,21 +62,20 @@ function turnBackticksToCode (str: string) {
 
 export function outputAsHtml (data: JSDocData) {
 	console.log({data})
-	const desc = data.description || data.markdownName || data.modifierDescription
+	const desc = turnBackticksToCode(data.description || data.markdownName || data.modifierDescription)
 	const link = data.link || data.markdownLink
 	switch (data.tag) {
 		case 'link':
 		case 'see':
-			return `<a href="${link}">${turnBackticksToCode(desc)}</a>`
+			return `<a href="${link}">${desc}</a>`
 		case 'type':
-			return `<code>${turnBackticksToCode(desc)}</code>`
 		case 'a11y':
 		case 'optional':
 		default:
 			if (data.markdownLink && data.markdownName) {
-				return `<a href="${link}">${turnBackticksToCode(desc)}</a>`
+				return `<a href="${link}">${desc}</a>`
 			}
-			return `${turnBackticksToCode(desc)}`
+			return `${desc}`
 	}
 }
 
