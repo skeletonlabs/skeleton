@@ -65,7 +65,7 @@ module.exports = {
 	// ...
     content: [
         // Keep any existing values present and append the following:
-        "./node_modules/@brainandbones/skeleton/**/*.{html,js,svelte,ts}"
+        require('path').join(require.resolve('@brainandbones/skeleton'), '../**/*.{html,js,svelte,ts}')
     ],
     // ...
 }
@@ -85,7 +85,7 @@ module.exports = {
     // ...
     plugins: [
         // Keep any existing plugins present and append the following:
-        require("@brainandbones/skeleton/tailwind/theme.cjs")
+        require('@brainandbones/skeleton/tailwind/theme.cjs')
     ]
 }
         `}
