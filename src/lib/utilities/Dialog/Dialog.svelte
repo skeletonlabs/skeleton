@@ -130,11 +130,11 @@
 				{/if}
 
 				<!-- If: Component -->
-				<!-- {#if $dialogStore[0].component}
+				{#if $dialogStore[0].component}
 					<svelte:component this={$dialogStore[0].component.element} {...$dialogStore[0].component.props}>
 						{@html $dialogStore[0].component.slot}
 					</svelte:component>
-				{/if} -->
+				{/if}
 
 				<!-- If: Prompt -->
 				{#if $dialogStore[0].type === 'prompt'}
