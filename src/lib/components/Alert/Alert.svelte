@@ -13,9 +13,9 @@
 	/** Control visibility of the alert. */
 	export let visible: boolean = true;
 	/** Provide classes to set background color. */
-	export let background: string = 'bg-ternary-500/30';
+	export let background: string = 'bg-tertiary-500/30';
 	/** Provide classes to set the border styles. */
-	export let border: string = 'border-l-4 border-l-ternary-500';
+	export let border: string = 'border-l-4 border-l-tertiary-500';
 	/** Provide classes to set text color. */
 	export let color: string = '';
 	/** Provide classes to set border radius. */

@@ -31,7 +31,7 @@
 			<div class="card card-body flex justify-center items-center space-x-4">
 				<SlideToggle size="sm" accent="bg-primary-500" checked label="Toggle Primary" />
 				<SlideToggle size="md" checked label="Toggle Purple" />
-				<SlideToggle size="lg" accent="bg-ternary-500" checked label="Toggle Ternary" />
+				<SlideToggle size="lg" accent="bg-tertiary-500" checked label="Toggle Tertiary" />
 			</div>
 			<div class="card card-body flex justify-center items-center space-x-4">
 				<SlideToggle size="md" bind:checked={checkedValue}>

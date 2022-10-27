@@ -42,8 +42,8 @@
 		headings: ['Color', 'Name', 'Class', 'Description'],
 		source: [
 			[`<div class="${cSwatch} bg-primary-500" />`, 'Primary', '[x]-primary-[50-900]', 'Typically your primary brand color.'],
-			[`<div class="${cSwatch} bg-accent-500" />`, 'Accent', '[x]-accent-[50-900]', 'An accent for offsets or supplementary values.'],
-			[`<div class="${cSwatch} bg-ternary-500" />`, 'Ternary', '[x]-ternary-[50-900]', 'A third and additional offset color. Great for informational alerts.'],
+			[`<div class="${cSwatch} bg-accent-500" />`, 'Accent', '[x]-accent-[50-900]', 'A secondary offset color or supplementary value.'],
+			[`<div class="${cSwatch} bg-tertiary-500" />`, 'Tertiary', '[x]-tertiary-[50-900]', 'A third and additional offset color. Great for informational alerts.'],
 			[`<div class="${cSwatch} bg-warning-500" />`, 'Warning', '[x]-warning-[50-900]', 'May be used for warnings, alerts, and invalid inputs.'],
 			[`<div class="${cSwatch} bg-surface-500" />`, 'Surface', '[x]-surface-[50-900]', 'May be used for backgrounds, card elements, and some typography.']
 		]
@@ -74,10 +74,11 @@
 				{#each presets as preset}
 					<!-- prettier-ignore -->
 					<div
-						on:click={() => { copyThemeToClipboard(preset.name); }}
 						class="card card-body text-white flex justify-between items-center hover:!ring-white/20 cursor-pointer"
 						style:background={preset.surface}
 						target="_blank" rel="noreferrer"
+						on:click={() => { copyThemeToClipboard(preset.name); }}
+						on:keydown={() => { copyThemeToClipboard(preset.name); }}
 					>
 						<span class="text-sm">{preset.name}</span>
 						<ul class="grid grid-cols-3 gap-2">

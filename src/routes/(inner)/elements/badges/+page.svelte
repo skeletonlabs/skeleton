@@ -38,7 +38,7 @@
 					<span>Skeleton</span>
 					<span>💀</span>
 				</span>
-				<span class="badge bg-ternary-500 text-white">
+				<span class="badge bg-tertiary-500 text-white">
 					<span>&hearts;</span>
 					<span>Favorite</span>
 				</span>
@@ -64,7 +64,7 @@
 					<Avatar />
 				</div>
 				<div class="relative inline-block">
-					<span class="badge-icon bg-ternary-500 text-white absolute -top-1 -right-1 z-10">&hearts;</span>
+					<span class="badge-icon bg-tertiary-500 text-white absolute -top-1 -right-1 z-10">&hearts;</span>
 					<Avatar />
 				</div>
 			</div>

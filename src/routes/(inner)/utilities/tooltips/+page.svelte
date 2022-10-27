@@ -36,7 +36,7 @@
 	// Local
 	const exampleTop: ArgsTooltip = { content: 'Tooltip <strong>TOP</strong>', position: 'top' };
 	const exampleBottom: ArgsTooltip = { content: 'Tooltip <strong>BOTTOM</strong>', position: 'bottom', background: '!bg-accent-500' };
-	const exampleLeft: ArgsTooltip = { content: 'Tooltip <strong>LEFT</strong>', position: 'left', background: '!bg-ternary-500' };
+	const exampleLeft: ArgsTooltip = { content: 'Tooltip <strong>LEFT</strong>', position: 'left', background: '!bg-tertiary-500' };
 	const exampleRight: ArgsTooltip = { content: 'Tooltip <strong>RIGHT</strong>', position: 'right', background: '!bg-warning-500' };
 	const exampleHtml: ArgsTooltip = {
 		content: `

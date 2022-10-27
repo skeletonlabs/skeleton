@@ -65,7 +65,7 @@
 				</div>
 			</div>
 			<div class="card card-body space-y-4">
-				<TabGroup selected={storeThree} justify="justify-start md:justify-center" borderColor="border-ternary-500" fill="fill-ternary-500" color="text-ternary-500" hover="hover:bg-ternary-500/10">
+				<TabGroup selected={storeThree} justify="justify-start md:justify-center" borderColor="border-tertiary-500" fill="fill-tertiary-500" color="text-tertiary-500" hover="hover:bg-tertiary-500/10">
 					<Tab value="a">
 						<svelte:fragment slot="lead">
 							<SvgIcon name="book" fill="fill-inherit" class="!block" />
