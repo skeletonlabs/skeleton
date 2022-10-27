@@ -100,6 +100,6 @@ dispatch('dragover', event);`}
 			<a href="/components/range-sliders">Range Sliders</a>. Which you choose is somewhat dependant on the component you have made, but at a minimum, you should show the common use cases, but
 			preferably look into maintaining the same level of examples as similar components.
 		</p>
-		<p>You should also have <code>CodeBlock</code> snippets showing actual code to pair with your examples to help end developers get up to</p>
+		<p>You should also have <code>CodeBlock</code> snippets showing actual code to pair with your examples to help end developers understand how to use your component.</p>
 	</section>
 </div>
