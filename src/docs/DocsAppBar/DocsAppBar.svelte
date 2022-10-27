@@ -86,7 +86,7 @@
 				<nav class="list-nav">
 					<ul>
 						<li class="option" class:!bg-primary-500={$storeTheme === 'skeleton'} on:click={() => { storeTheme.set('skeleton') }} on:keypress> 
-							<span>🦴</span>
+							<span>💀</span>
 							<span>Skeleton</span>
 						</li>
 						<li class="option" class:!bg-primary-500={$storeTheme === 'modern'} on:click={() => { storeTheme.set('modern') }} on:keypress>

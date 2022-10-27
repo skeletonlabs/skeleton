@@ -13,7 +13,7 @@
 	/** Control visibility of the alert. */
 	export let visible: boolean = true;
 	/** Provide classes to set background color. */
-	export let background: string = 'bg-tertiary-500/30';
+	export let background: string = 'bg-tertiary-500/40';
 	/** Provide classes to set the border styles. */
 	export let border: string = 'border-l-4 border-l-tertiary-500';
 	/** Provide classes to set text color. */

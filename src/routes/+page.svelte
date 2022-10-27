@@ -23,7 +23,7 @@
 		<svelte:fragment slot="lead">🚧</svelte:fragment>
 		<span>Skeleton is available as a public beta. Expect breaking changes prior to v1.0. If you encounter issues please report them on GitHub.</span>
 		<svelte:fragment slot="trail">
-			<a href="https://github.com/Brain-Bones/skeleton/issues" target="_blank" rel="noreferrer" class="btn btn-ghost">Report Issue</a>
+			<a href="https://github.com/Brain-Bones/skeleton/issues" target="_blank" rel="noreferrer" class="btn btn-filled">Report Issue</a>
 		</svelte:fragment>
 	</Alert>
 
@@ -38,7 +38,7 @@
 				</p>
 				<nav class="flex space-x-4">
 					<a href="/guides/install" class="btn btn-lg btn-filled-primary">Get Started</a>
-					<a href="/docs/why" class="btn btn-lg btn-ghost">Why Skeleton</a>
+					<a href="/docs/why" class="btn btn-lg btn-ghost-surface">Why Skeleton</a>
 				</nav>
 			</div>
 		</header>
@@ -128,7 +128,7 @@
 						</a>
 					</li>
 				</div>
-				<a class="btn btn-ghost" href="https://github.com/sponsors/Brain-Bones" target="_blank" rel="noreferrer">
+				<a class="btn btn-ghost-surface" href="https://github.com/sponsors/Brain-Bones" target="_blank" rel="noreferrer">
 					<span>Become a Sponsor</span>
 					<span>&rarr;</span>
 				</a>
@@ -150,7 +150,7 @@
 						{/each}
 					</ul>
 				{/await}
-				<a class="btn btn-ghost" href="/docs/contributions">
+				<a class="btn btn-ghost-surface" href="/docs/contributions">
 					<span>How to Contribute</span>
 					<span>&rarr;</span>
 				</a>
