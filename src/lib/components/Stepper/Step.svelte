@@ -10,7 +10,7 @@
 	import type { Writable } from 'svelte/store';
 
 	// Props
-	/** Indicates the step index value. Should start with 0 (zero) */
+	/** Indicates the step index value. Should start with `0` (zero) */
 	export let index: number = 0;
 	/** When enabled, a lock icon appears and Next button is disabled, preventing progress. */
 	export let locked: boolean = false;
