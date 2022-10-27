@@ -79,10 +79,30 @@
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
+		<p>A standard AccordionGroup that only allows one AccordionItem to be open at once.</p>
 		<CodeBlock
 			language="html"
 			code={`
 <AccordionGroup>
+	<!-- Open -->
+	<AccordionItem open>
+		<svelte:fragment slot="lead">(lead)</svelte:fragment>
+		<svelte:fragment slot="summary">(summary)</svelte:fragment>
+		<svelte:fragment slot="content">(content)</svelte:fragment>
+	</AccordionItem>
+	<!-- Closed -->
+	<AccordionItem>
+		<svelte:fragment slot="summary">(summary)</svelte:fragment>
+		<svelte:fragment slot="content">(content)</svelte:fragment>
+	</AccordionItem>
+</AccordionGroup>`}
+		/>
+
+		<p>When you don't want an AccordionItem to auto-collapse the other AccordionItems, just set <code>collapse</code> to <code>false</code>.</p>
+		<CodeBlock
+			language="html"
+			code={`
+<AccordionGroup collapse={false}>
 	<!-- Open -->
 	<AccordionItem open>
 		<svelte:fragment slot="lead">(lead)</svelte:fragment>
