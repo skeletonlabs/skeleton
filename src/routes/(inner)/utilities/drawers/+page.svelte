@@ -51,10 +51,10 @@
 			<p>Select a drawer position to preview.</p>
 			<!-- prettier-ignore -->
 			<div class="flex justify-center items-center space-x-4">
-				<button class="btn-icon btn-ghost" on:click={() => { trigger('left'); }}>&larr;</button>
-				<button class="btn-icon btn-ghost" on:click={() => { trigger('right'); }}>&rarr;</button>
-				<button class="btn-icon btn-ghost" on:click={() => { trigger('top'); }}>&uarr;</button>
-				<button class="btn-icon btn-ghost" on:click={() => { trigger('bottom'); }}>&darr;</button>
+				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('left'); }}>&larr;</button>
+				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('right'); }}>&rarr;</button>
+				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('top'); }}>&uarr;</button>
+				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('bottom'); }}>&darr;</button>
 			</div>
 		</div>
 	</svelte:fragment>

@@ -61,10 +61,10 @@
 	<svelte:fragment slot="sandbox">
 		<section class="card card-body">
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-full md:max-w-[320px] lg:max-w-[640px] mx-auto">
-				<button class="btn btn-ghost" on:click={toastBasic}>Short</button>
-				<button class="btn btn-ghost" on:click={toastLong}>Long</button>
-				<button class="btn btn-ghost" on:click={toastMultiple}>Multiple</button>
-				<button class="btn btn-ghost" on:click={toastAction}>Action</button>
+				<button class="btn btn-ghost-surface" on:click={toastBasic}>Short</button>
+				<button class="btn btn-ghost-surface" on:click={toastLong}>Long</button>
+				<button class="btn btn-ghost-surface" on:click={toastMultiple}>Multiple</button>
+				<button class="btn btn-ghost-surface" on:click={toastAction}>Action</button>
 			</div>
 		</section>
 	</svelte:fragment>

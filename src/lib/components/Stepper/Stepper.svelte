@@ -23,9 +23,9 @@
 
 	// Props (buttons)
 	/** Provide <a href="https://www.skeleton.dev/elements/buttons">Button</a> classes. */
-	export let buttonBack: string = 'btn-ghost';
+	export let buttonBack: string = 'btn-ghost-surface';
 	/** Provide <a href="https://www.skeleton.dev/elements/buttons">Button</a> classes. */
-	export let buttonNext: string = 'btn-filled';
+	export let buttonNext: string = 'btn-filled-surface';
 	/** Provide <a href="https://www.skeleton.dev/elements/buttons">Button</a> classes. */
 	export let buttonComplete: string = 'btn-filled-primary';
 
