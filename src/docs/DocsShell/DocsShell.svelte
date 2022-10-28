@@ -18,7 +18,7 @@
 	// Props
 	export let settings: DocsShellSettings;
 	// Props (styles)
-	export let spacing: string = 'space-y-8';
+	export let spacing: string = 'space-y-8 md:space-y-12';
 	// Props (regions)
 	export let regionHeader: string = 'bg-accent-900/5 dark:bg-accent-900/20 border-b border-black/5 dark:border-white/5';
 	export let regionDetails: string = 'overflow-x-auto whitespace-nowrap grid grid-cols-1 md:grid-cols-[128px_1fr] gap-3';
@@ -236,10 +236,10 @@
 	</header>
 
 	<!-- Tab Panels -->
-	<div class="doc-shell-tab-panels {classesRegionPanels}">
+	<div class="doc-shell-tab-panels">
 		<!-- Tab: Usage -->
 		{#if $storeActiveTab === 'usage'}
-			<div class="doc-shell-usage {spacing}">
+			<div class="doc-shell-usage {classesRegionPanels}">
 				<!-- Slot: Examples Sandbox -->
 				{#if $$slots.sandbox}
 					<div>
@@ -267,7 +267,7 @@
 
 		<!-- Tab: Component Properties -->
 		{#if $storeActiveTab === 'properties'}
-			<div class="doc-shell-properties {spacing}">
+			<div class="doc-shell-properties {classesRegionPanels}">
 				<!-- Supports restProps -->
 				{#if pageSettings.restProps}
 					<p>
@@ -296,7 +296,7 @@
 
 		<!-- Tab: Component Slots -->
 		{#if $storeActiveTab === 'slots'}
-			<div class="doc-shell-slots {spacing}">
+			<div class="doc-shell-slots {classesRegionPanels}">
 				{#if pageSettings.components}
 					{#each pageSettings.components as comp}
 						{#if comp.sveld.slots.length > 0}
@@ -316,7 +316,7 @@
 
 		<!-- Tab: Component Events -->
 		{#if $storeActiveTab === 'events'}
-			<div class="doc-shell-events {spacing}">
+			<div class="doc-shell-events {classesRegionPanels}">
 				{#if pageSettings.components}
 					{#each pageSettings.components as comp}
 						{#if comp.sveld.events.length > 0}
@@ -336,14 +336,14 @@
 
 		<!-- Tab: Action Parameters -->
 		{#if pageSettings.parameters?.length && $storeActiveTab === 'parameters'}
-			<div class="doc-shell-parameters {spacing}">
+			<div class="doc-shell-parameters {classesRegionPanels}">
 				<DataTable headings={['Prop', 'Type', 'Default', 'Values', 'Description']} source={pageSettings.parameters} />
 			</div>
 		{/if}
 
 		<!-- Tab: Tailwind Element Classes -->
 		{#if pageSettings.classes?.length && $storeActiveTab === 'classes'}
-			<div class="doc-shell-classes {spacing}">
+			<div class="doc-shell-classes {classesRegionPanels}">
 				<DataTable headings={['Keys', 'Values', 'Description']} source={pageSettings.classes} />
 			</div>
 		{/if}
@@ -351,7 +351,7 @@
 		<!-- Tab: Keyboard Interactions -->
 		{#if $storeActiveTab === 'keyboard'}
 			{#if pageSettings.keyboard?.length}
-				<div class="doc-shell-keyboard {spacing}">
+				<div class="doc-shell-keyboard {classesRegionPanels}">
 					<DataTable headings={['Keys', 'Description']} source={pageSettings.keyboard} />
 				</div>
 			{/if}

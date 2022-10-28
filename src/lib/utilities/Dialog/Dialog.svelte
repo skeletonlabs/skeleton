@@ -10,7 +10,7 @@
 	/** Provide classes to add a backdrop blur.*/
 	export let blur: string = 'backdrop-blur-xs';
 	/** Provide classes to set the modal card background styles.*/
-	export let background: string = 'bg-surface-200-700-token';
+	export let background: string = 'bg-surface-100-800-token';
 	/** Provide classes to set max modal width.*/
 	export let width: string = 'max-w-[640px]';
 	/** The animation in/out durations. Set to zero (0) for none.*/
