@@ -42,7 +42,7 @@
 			<AccordionGroup>
 				<AccordionItem spacing="space-y-4" open>
 					<svelte:fragment slot="lead">
-						<SvgIcon name="skull" width="w-10" height="h-10" fill="fill-primary-500" />
+						<SvgIcon name="house" width="w-10" height="h-10" fill="fill-primary-500" />
 					</svelte:fragment>
 					<svelte:fragment slot="summary">
 						<h3>Icon Heading</h3>
@@ -64,7 +64,7 @@
 				</AccordionItem>
 				<AccordionItem spacing="space-y-4">
 					<svelte:fragment slot="lead">
-						<Avatar initials="1" background="bg-accent-500" />
+						<Avatar initials="1" background="bg-accent-500" fill="fill-white" />
 					</svelte:fragment>
 					<svelte:fragment slot="summary">
 						<h3>Numeral Heading</h3>

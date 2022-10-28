@@ -71,14 +71,16 @@
 
 <div class="m-4 mb-20 {$$props.class ?? ''}">
 	<!-- Search -->
-	<header class="sticky top-0 z-10 bg-white/5 dark:bg-black/5 backdrop-blur -m-4 mb-2 p-4 space-y-2">
+	<header class="sticky top-0 z-10 bg-white/5 dark:bg-black/5 backdrop-blur border-b border-black/5 dark:border-white/5 -m-4 mb-2 p-4 space-y-2">
 		<input type="search" placeholder="Quick search..." bind:this={elemSearch} bind:value={inputSearch} on:input={onSearch} />
 	</header>
 	<!-- Lists -->
 	{#each filteredMenuNavLinks as { id, title, list }, i}
 		{#if list.length > 0}
 			<!-- Title -->
-			<div {id} class="text-primary-500 text-sm font-bold uppercase p-4">{title}</div>
+			<div {id} class="p-4 flex items-center space-x-2">
+				<span class="text-primary-500 text-sm font-bold uppercase">{title}</span>
+			</div>
 			<!-- Navigation List -->
 			<nav class="list-nav">
 				<ul>
@@ -86,11 +88,9 @@
 						<li on:click={onListItemClick} on:keypress>
 							<a {href} value={href} class={classesActive(href)} data-sveltekit-prefetch>
 								{#if icon}
-									<span>
-										<div class="bg-accent-500 w-8 h-8 flex justify-center items-center rounded-token shadow">
-											<SvgIcon name={icon} width="w-4" fill="fill-white" height="h-10" />
-										</div>
-									</span>
+									<div class="bg-accent-500 w-8 h-8 flex justify-center items-center rounded-token shadow">
+										<SvgIcon name={icon} width="w-4" fill="fill-white" height="h-10" />
+									</div>
 								{/if}
 								<span class="flex-auto">{label}</span>
 								{#if badge}<span class="badge bg-accent-500 text-white">{badge}</span>{/if}

@@ -3,7 +3,7 @@
 	const pkg = __PACKAGE__;
 
 	// Logo
-	import DocsLogo from './DocsLogo.svelte';
+	import DocsLogo from '$docs/DocsLogo/DocsLogo.svelte';
 
 	// Components
 	import AppBar from '$lib/components/AppBar/AppBar.svelte';
@@ -53,11 +53,14 @@
 	<svelte:fragment slot="trail">
 		<!-- Links -->
 		<!-- prettier-ignore -->
-		<section class="hidden lg:flex space-x-1">
-			<a class="btn btn-sm" href="/guides/install" on:click={() => { scrollSidebarTo('#nav-guides'); }}>Guides</a>
-			<a class="btn btn-sm" href="/docs/why" on:click={() => { scrollSidebarTo('#nav-docs'); }}>Docs</a>
+		<section class="hidden lg:flex space-x-6">
+			<!-- Guides -->
+			<a class="unstyled font-bold" href="/guides/install" on:click={() => { scrollSidebarTo('#nav-guides'); }}>Guides</a>
+			<!-- Docs -->
+			<a class="unstyled font-bold" href="/docs/why" on:click={() => { scrollSidebarTo('#nav-docs'); }}>Docs</a>
+			<!-- Features -->
 			<div class="relative">
-				<button class="btn btn-sm space-x-1" use:menu={{ menu: 'features' }}>
+				<button class="unstyled font-bold space-x-2" use:menu={{ menu: 'features' }}>
 					<span>Features</span>
 					<span class="opacity-50">▾</span>
 				</button>
@@ -77,8 +80,8 @@
 		<!-- Theme -->
 		<!-- prettier-ignore -->
 		<div class="relative">
-			<button class="btn btn-sm" use:menu={{ menu: 'theme' }}>
-				<SvgIcon name="swatchbook" width="w-4" height="w-4" />
+			<button class="unstyled font-bold space-x-2" use:menu={{ menu: 'theme' }}>
+				<SvgIcon name="swatchbook" width="w-4" height="w-4" class="inline-block md:hidden" />
 				<span class="hidden md:inline-block">Theme</span>
 				<span class="opacity-50">▾</span>
 			</button>

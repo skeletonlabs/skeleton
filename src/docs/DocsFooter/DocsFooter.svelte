@@ -1,4 +1,8 @@
 <script lang="ts">
+	// Logo
+	import DocsLogo from '$docs/DocsLogo/DocsLogo.svelte';
+
+	// Components
 	import Divider from '$lib/components/Divider/Divider.svelte';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
@@ -12,8 +16,8 @@
 	<!-- Row 1 -->
 	<section class={cRowOne}>
 		<div class="space-y-2">
-			<span class="text-2xl font-bold uppercase">Skeleton</span>
-			<p class="text-lg opacity-80">A fully featured UI component library.</p>
+			<DocsLogo />
+			<p class="text-lg opacity-80">A fully featured UI Toolkit.</p>
 		</div>
 		<div class="hidden md:flex items-start space-x-10">
 			<div class="space-y-4">

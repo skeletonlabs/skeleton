@@ -63,8 +63,8 @@
 		<!-- Features -->
 		<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 			<h2 class="sr-only">Features</h2>
-			<div class="card card-body !bg-accent-500/5 space-y-4">
-				<div class="bg-orange-500 w-14 aspect-square flex justify-center items-center rounded-token shadow">
+			<div class="card card-body !bg-accent-500/5 text-center space-y-4">
+				<div class="bg-orange-500 w-20 mx-auto aspect-square flex justify-center items-center rounded-token shadow">
 					<SvgIcon name="svelte" fill="fill-white" width="w-10" height="h-10" />
 				</div>
 				<h4>Svelte Integration</h4>
@@ -74,22 +74,22 @@
 					<a href="https://astro.build/" target="_blank" rel="noreferrer">Astro</a>.
 				</p>
 			</div>
-			<div class="card card-body !bg-accent-500/5 space-y-4">
-				<div class="bg-sky-500 w-14 aspect-square flex justify-center items-center rounded-token shadow">
+			<div class="card card-body !bg-accent-500/5 text-center space-y-4">
+				<div class="bg-sky-500 w-20 mx-auto aspect-square flex justify-center items-center rounded-token shadow">
 					<SvgIcon name="tailwind" fill="fill-white" width="w-10" height="h-10" />
 				</div>
 				<h4>Tailwind CSS Integration</h4>
 				<p>Integrate with your design system using Tailwind utility classes to style components.</p>
 			</div>
-			<div class="card card-body !bg-accent-500/5 space-y-4">
-				<div class="bg-primary-500 w-14 aspect-square flex justify-center items-center rounded-token shadow">
+			<div class="card card-body !bg-accent-500/5 text-center space-y-4">
+				<div class="bg-primary-500 w-20 mx-auto aspect-square flex justify-center items-center rounded-token shadow">
 					<SvgIcon name="swatchbook" fill="fill-white" width="w-8" height="h-8" />
 				</div>
 				<h4>Dynamic Themes</h4>
 				<p>Choose from a library of hand crafted preset themes or quickly generate your own in seconds.</p>
 			</div>
-			<div class="card card-body !bg-accent-500/5 space-y-4">
-				<div class="bg-accent-500 w-14 aspect-square flex justify-center items-center rounded-token shadow">
+			<div class="card card-body !bg-accent-500/5 text-center space-y-4">
+				<div class="bg-accent-500 w-20 mx-auto aspect-square flex justify-center items-center rounded-token shadow">
 					<SvgIcon name="screwdriver" fill="fill-white" width="w-8" height="h-8" />
 				</div>
 				<h4>Powerful Utilities</h4>
@@ -104,10 +104,11 @@
 			<h2>Meet The Team</h2>
 			<ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
 				<li class="card card-body !bg-accent-500/5 space-y-4">
-					<Avatar src="https://avatars.githubusercontent.com/u/1509726?v=4" width="w-24" class="mx-auto" />
+					<Avatar src="https://avatars.githubusercontent.com/u/1509726?v=4" width="w-32" class="mx-auto" />
 					<div>
 						<h3>Chris Simmons</h3>
-						<p>Co-founder and core contributor.</p>
+						<p>Co-founder and core maintainer.</p>
+						<small class="!text-primary-500">(aka endigo9740)</small>
 					</div>
 					<div class="flex justify-center space-x-4">
 						<a href="https://github.com/endigo9740" target="_blank" rel="noreferrer"><SvgIcon name="github" /></a>
@@ -116,10 +117,11 @@
 					</div>
 				</li>
 				<!-- <li class="card card-body !bg-accent-500/5 space-y-4">
-					<Avatar src="https://avatars.githubusercontent.com/u/52718757?v=4" width="w-24" class="mx-auto" />
+					<Avatar src="https://avatars.githubusercontent.com/u/52718757?v=4" width="w-32" class="mx-auto" />
 					<div>
 						<h3>Thomas Jespersen</h3>
 						<p>Co-founder and core contributor.</p>
+						<small class="!text-primary-500">(aka thomjespersen)</small>
 					</div>
 					<div class="flex justify-center space-x-4">
 						<a href="https://github.com/thomasbjespersen" target="_blank" rel="noreferrer"><SvgIcon name="github" /></a>
@@ -127,10 +129,11 @@
 					</div>
 				</li> -->
 				<li class="card card-body !bg-accent-500/5 space-y-4">
-					<Avatar src="https://avatars.githubusercontent.com/u/10255430?v=4" width="w-24" class="mx-auto" />
+					<Avatar src="https://avatars.githubusercontent.com/u/10255430?v=4" width="w-32" class="mx-auto" />
 					<div>
 						<h3>Trey Weir</h3>
 						<p>Core member and founder of <a href="https://www.brainandbonesllc.com/" target="_blank" rel="noreferrer">Brain & Bones</a></p>
+						<small class="!text-primary-500">(aka weirbones)</small>
 					</div>
 					<div class="flex justify-center space-x-4">
 						<a href="https://twitter.com/brain_and_bones" target="_blank" rel="noreferrer"><SvgIcon name="twitter" /></a>
@@ -140,36 +143,10 @@
 			</ul>
 		</section>
 
+		<hr />
+
 		<!-- Shoutouts -->
 		<section class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20">
-			<!-- Sponsors -->
-			<div class="text-center space-y-6">
-				<h2>Sponsors</h2>
-				<div class="flex flex-wrap justify-center space-x-4">
-					<a class="card card-body flex flex-col items-center space-y-4" href="https://www.brainandbonesllc.com/" target="_blank" rel="noreferrer">
-						<img src="https://www.brainandbonesllc.com/svg/logo.svg" alt="Brain & Bones" class="h-[32px] mx-auto invert dark:invert-0" />
-						<p class="text-sm">Brain & Bones</p>
-					</a>
-				</div>
-				{#await sponsors}
-					<p class="flex flex-wrap justify-center">Loading sponsors...</p>
-				{:then response}
-					<ul class="flex flex-wrap justify-center">
-						{#each response as s}
-							<li>
-								<a href={s.profile} target="_blank" rel="noreferrer" title={s.handle}>
-									<Avatar src={s.avatar} size="fluid" shadow="shadow-lg" border="hover:border-2 hover:!border-primary-500 cursor-pointer" class="m-2 max-w-[50px]" />
-								</a>
-							</li>
-						{/each}
-					</ul>
-				{/await}
-				<a class="btn btn-filled-primary" href="https://github.com/sponsors/Brain-Bones" target="_blank" rel="noreferrer">
-					<span>Become a Sponsor</span>
-					<span>&rarr;</span>
-				</a>
-			</div>
-
 			<!-- Contributors -->
 			<div class="text-center space-y-6">
 				<h2>Contributors</h2>
@@ -188,6 +165,32 @@
 				{/await}
 				<a class="btn btn-ghost-surface" href="/docs/contributions">
 					<span>How to Contribute</span>
+					<span>&rarr;</span>
+				</a>
+			</div>
+
+			<!-- Sponsors -->
+			<div class="text-center space-y-6">
+				<h2>Sponsors</h2>
+				<a class="unstyled flex flex-col items-center space-y-4" href="https://www.brainandbonesllc.com/" target="_blank" rel="noreferrer">
+					<img src="https://www.brainandbonesllc.com/svg/logo.svg" alt="Brain & Bones" class="h-[32px] mx-auto invert dark:invert-0" />
+					<p class="text-sm">Brain & Bones</p>
+				</a>
+				{#await sponsors}
+					<p class="flex flex-wrap justify-center">Loading sponsors...</p>
+				{:then response}
+					<ul class="flex flex-wrap justify-center">
+						{#each response as s}
+							<li>
+								<a href={s.profile} target="_blank" rel="noreferrer" title={s.handle}>
+									<Avatar src={s.avatar} size="fluid" shadow="shadow-lg" border="hover:border-2 hover:!border-primary-500 cursor-pointer" class="m-2 max-w-[50px]" />
+								</a>
+							</li>
+						{/each}
+					</ul>
+				{/await}
+				<a class="btn btn-filled-primary" href="https://github.com/sponsors/Brain-Bones" target="_blank" rel="noreferrer">
+					<span>Become a Sponsor</span>
 					<span>&rarr;</span>
 				</a>
 			</div>
