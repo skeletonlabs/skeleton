@@ -21,7 +21,7 @@
 	export let spacing: string = 'space-y-8';
 	// Props (regions)
 	export let regionHeader: string = 'bg-accent-900/5 dark:bg-accent-900/20 border-b border-black/5 dark:border-white/5';
-	export let regionDetails: string = 'pb-4 overflow-x-auto whitespace-nowrap grid grid-cols-1 md:grid-cols-[128px_1fr] gap-3';
+	export let regionDetails: string = 'overflow-x-auto whitespace-nowrap grid grid-cols-1 md:grid-cols-[128px_1fr] gap-3';
 	export let regionPanels: string = 'page-container';
 
 	// Classes
@@ -127,15 +127,16 @@
 	<header class="doc-shell-header {classesRegionHeader}">
 		<!-- Information -->
 		<div class="doc-shell-info page-container !pb-0 lg:!space-y-10">
-			<!-- Feature -->
-			<span class="badge badge-filled-surface">
-				<SvgIcon width="w-4" height="h-4" name={setFeatureIcon()} />
-				<span>{@html pageSettings.feature}</span>
-			</span>
-
 			<!-- Intro -->
-			<section class="space-y-2">
-				<h1>{@html pageSettings.name}</h1>
+			<section class="space-y-4">
+				<div class="flex items-center space-x-4">
+					<h1>{@html pageSettings.name}</h1>
+					<!-- Feature -->
+					<span class="badge bg-surface-500/30 translate-y-1">
+						<SvgIcon width="w-4" height="h-4" name={setFeatureIcon()} />
+						<span>{@html pageSettings.feature}</span>
+					</span>
+				</div>
 				<p>{@html pageSettings.description}</p>
 			</section>
 
@@ -212,9 +213,9 @@
 				{/if}
 				<!-- Accessibility -->
 				{#if pageSettings.aria}
-					<p class="hidden md:inline-block w-32">Accessibility</p>
+					<p class="hidden md:inline-block w-32">WAI-ARIA</p>
 					<div class="grid grid-cols-1 gap-2">
-						<a href={pageSettings.aria} target="_blank" rel="noreferrer">WAI-ARIA Reference</a>
+						<a href={pageSettings.aria} target="_blank" rel="noreferrer">Accessibility Reference</a>
 					</div>
 				{/if}
 			</section>

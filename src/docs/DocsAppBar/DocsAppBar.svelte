@@ -75,7 +75,7 @@
 			</div>
 		</section>
 
-		<Divider vertical borderWidth="hidden lg:block border-l-2" />
+		<Divider vertical borderWidth="hidden lg:block border-l-2 opacity-30" />
 
 		<!-- Theme -->
 		<!-- prettier-ignore -->
@@ -124,11 +124,11 @@
 					</ul>
 				</nav>
 				<hr>
-				<a class="btn btn-ghost w-full" href="/guides/themes/generator">Theme Generator</a>
+				<a class="btn btn-ghost-surface w-full" href="/guides/themes/generator">Theme Generator</a>
 			</div>
 		</div>
 
-		<Divider vertical borderWidth="border-l-2" />
+		<Divider vertical borderWidth="border-l-2 opacity-30" />
 
 		<!-- Community -->
 		<section class="flex">

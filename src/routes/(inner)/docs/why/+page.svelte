@@ -27,14 +27,10 @@
 	<section class="space-y-4">
 		<h2>What is Skeleton?</h2>
 		<p>
-			Skeleton is a brand new UI component library, featuring tight integration between <a href="https://svelte.dev/" target="_blank" rel="noreferrer">Svelte</a>
+			Skeleton is a UI library, featuring tight integration between <a href="https://svelte.dev/" target="_blank" rel="noreferrer">Svelte</a>
 			and <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind CSS</a>. In short, the library utilizes Tailwind’s utility class-based design system to quickly and easily
 			customize and extend the look and feel of each component. Paired with Svelte’s powerful component architecture, Skeleton creates customized, responsive, and reactive interfaces for any size
 			project.
-		</p>
-		<p>
-			The library is fully featured and covers everything from simple buttons and tabs to more complex and interactive elements, such as data tables and popup dialog modals. It includes built-in
-			support for both <a href="/guides/themes">themes and dark mode</a>, while providing access to bleeding edge features such as <a href="/utilities/filters">SVG filters</a>.
 		</p>
 	</section>
 
@@ -42,9 +38,9 @@
 
 	<!-- Problems -->
 	<section class="space-y-4">
-		<h2>The Problems</h2>
+		<h2>Advantages</h2>
 		<p>
-			Let’s face it - creating consistent and responsive interfaces for the web can be quite a challenge. This has led to the emergence of UI toolkits such as <a
+			Let’s face it - creating consistent and responsive interfaces for the web can be quite a challenge. This led to the emergence of UI toolkits such as <a
 				href="https://getbootstrap.com/"
 				target="_blank"
 				rel="noreferrer">Bootstrap</a

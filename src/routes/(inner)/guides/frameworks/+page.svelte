@@ -7,7 +7,7 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Framework Guides</h1>
-		<p>Need help getting started? We've provided a set of optional guides for building a simple app within each supported framework.</p>
+		<p>Need help getting started? We've provided a set of <u>optional</u> guides for building a simple app within each supported framework.</p>
 	</header>
 
 	<!-- Select a Framework -->

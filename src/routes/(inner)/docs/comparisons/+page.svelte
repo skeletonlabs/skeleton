@@ -41,9 +41,9 @@
 			match components, while taking advantage of Skeleton’s theme system. See our guide below.
 		</p>
 		<AccordionGroup>
-			<AccordionItem class="border border-surface-500/20 rounded">
+			<AccordionItem>
 				<svelte:fragment slot="summary">
-					<h3>How to integrate Skeleton and Flowbite.</h3>
+					<strong>Tap here to view integration instructions.</strong>
 				</svelte:fragment>
 				<svelte:fragment slot="content">
 					<div class="space-y-4 pb-3">
@@ -73,7 +73,7 @@
 </a>
 						`}
 						/>
-						<p>Here's the final result. Try toggling dark mode on/off to see how the card style adapts.</p>
+						<p>Here's the final result. Try toggling various themes to see how the Flowbite component adapts.</p>
 						<a
 							href="/docs/comparisons"
 							class="block p-6 max-w-lg bg-white rounded-lg border border-surface-200 shadow-md hover:bg-surface-100 dark:bg-surface-800 dark:border-surface-700 dark:hover:bg-surface-700 !no-underline"
