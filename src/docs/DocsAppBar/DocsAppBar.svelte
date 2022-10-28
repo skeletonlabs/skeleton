@@ -66,9 +66,8 @@
 				</button>
 				<nav class="list-nav card card-body w-56 shadow-xl space-y-4" data-menu="features">
 					<ul>
-						<li><a href="/elements/core" on:click={() => { scrollSidebarTo('#nav-elements'); }}>Tailwind Elements</a></li>
-						<li><a href="/components/accordions" on:click={() => { scrollSidebarTo('#nav-components'); }}>Svelte Components</a></li>
-						<li><a href="/actions/clipboard" on:click={() => { scrollSidebarTo('#nav-actions'); }}>Svelte Actions</a></li>
+						<li><a href="/elements/core" on:click={() => { scrollSidebarTo('#nav-elements'); }}>Tailwind</a></li>
+						<li><a href="/components/accordions" on:click={() => { scrollSidebarTo('#nav-components'); }}>Svelte</a></li>
 						<li><a href="/utilities/codeblocks" on:click={() => { scrollSidebarTo('#nav-utilities'); }}>Utilities</a></li>
 					</ul>
 				</nav>

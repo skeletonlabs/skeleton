@@ -25,7 +25,7 @@ export const menuNavLinks: any = [
 	},
 	{
 		id: 'nav-elements',
-		title: 'Tailwind Elements',
+		title: 'Elements',
 		list: [
 			{ href: '/elements/core', label: 'Core' },
 			{ href: '/elements/typography', label: 'Typography' },
@@ -39,8 +39,16 @@ export const menuNavLinks: any = [
 		]
 	},
 	{
+		id: 'nav-actions',
+		title: 'Actions',
+		list: [
+			{ href: '/actions/clipboard', label: 'Clipboard' },
+			{ href: '/actions/filters', label: 'Filters', badge: 'Experimental' }
+		]
+	},
+	{
 		id: 'nav-components',
-		title: 'Svelte Components',
+		title: 'Components',
 		list: [
 			{ href: '/components/accordions', label: 'Accordions' },
 			{ href: '/components/alerts', label: 'Alerts' },
@@ -65,14 +73,6 @@ export const menuNavLinks: any = [
 			{ href: '/components/tabs', label: 'Tabs' }
 			// Work in Progress
 			// { href: '/components/svg-icons', label: 'SVG Icons' }, // keep disabled until further notice
-		]
-	},
-	{
-		id: 'nav-actions',
-		title: 'Svelte Actions',
-		list: [
-			{ href: '/actions/clipboard', label: 'Clipboard' },
-			{ href: '/actions/filters', label: 'Filters', badge: 'Experimental' }
 		]
 	},
 	{

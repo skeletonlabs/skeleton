@@ -65,7 +65,7 @@
 	});
 
 	// Disable left sidebar on homepage
-	$: slotSidebarLeft = $page.url.pathname === '/' ? 'w-0' : 'bg-white/20 dark:bg-black/20 lg:w-auto';
+	$: slotSidebarLeft = $page.url.pathname === '/' ? 'w-0' : 'bg-black/5 lg:w-auto';
 </script>
 
 <svelte:head>
@@ -87,7 +87,7 @@
 
 	<!-- Sidebar (Left) -->
 	<svelte:fragment slot="sidebarLeft">
-		<DocsSidebar class="hidden lg:block w-[280px]" />
+		<DocsSidebar class="hidden lg:grid w-[360px] overflow-hidden" />
 	</svelte:fragment>
 
 	<!-- Page Content -->
