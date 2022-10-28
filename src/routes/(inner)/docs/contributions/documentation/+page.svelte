@@ -34,9 +34,9 @@
 	<section class="space-y-4">
 		<h2>Components</h2>
 		<p>
-			Sveld makes use of <a href="https://tsdoc.org" target="_blank" rel="noreferrer">TSDoc tags</a> (a superset of JSDocs) to to generate component documenting from within our component code itself.
-			This comes with the added benefit of providing additional <a href="https://code.visualstudio.com/docs/editor/intellisense" target="_blank" rel="noreferrer">Intellesense</a> features to aid developers
-			implementing Skeleton features in tools like VS Code.
+			Sveld makes use of <a href="https://tsdoc.org" target="_blank" rel="noreferrer">TSDoc tags</a> (a superset of JSDocs) to generate component documentation from the component code itself.
+			This comes with the benefit of providing additional <a href="https://code.visualstudio.com/docs/editor/intellisense" target="_blank" rel="noreferrer">Intellisense</a> features to aid developers
+			implementing Skeleton components in tools like VS Code. Tap <kbd>Ctrl/⌘ + i</kbd> in a component declaration to see the extended docs come through. 
 		</p>
 	</section>
 
@@ -67,19 +67,19 @@ export let space: string = 'space-y-1';
  * @type {FileList}
  */
 export let files: FileList;
-			`}
+`}
 		/>
 		<p>
-			Ensure you document Context API <code>getContext</code> values to provide Intellesense. However, we intentionally exclude these values from the Props table.
+			Ensure you document Context API <code>getContext</code> values to provide Intellisense. However, we intentionally exclude these values from the Props table.
 		</p>
 		<CodeBlock
 			language="js"
 			code={`
 /** Provide classes to set the hover background color. */
 export let hover: string = getContext('hover');
-			`}
+`}
 		/>
-		<p>For additonal examples, reference reference any existing components in the project.</p>
+		<p>For additonal examples, look at existing components in the project.</p>
 	</section>
 
 	<!-- Slots -->
@@ -87,9 +87,8 @@ export let hover: string = getContext('hover');
 		<h3>Slots</h3>
 		<p><a href="https://github.com/carbon-design-system/sveld#slot" target="_blank" rel="noreferrer">Sveld Reference</a></p>
 		<p>
-			Slot documentation is provided by placing a TSDoc comment block at the top (by convention) of your script block. Note that Sveld does not currently support descriptions for the <code
-				>default</code
-			> slot at this time. Instead, we recommend you opt for Usage tab example and instruction to illustrate the use case of this slot.
+			Slot documentation is provided by placing a TSDoc comment block at the top (by convention) of your script block. Note that Sveld does not currently support descriptions for the 
+			<code>default</code> slot at this time. Instead, we recommend you opt for a Usage tab example and instructions to illustrate the use of this slot.
 		</p>
 		<CodeBlock
 			language="js"
@@ -131,13 +130,13 @@ dispatch('dragover', event);`}
 		<p>Copy this to the appropriate file route location and use our recommend naming convention:<br />e.g. <code>/routes/components/your-new-component/+page.svelte</code>.</p>
 		<!-- Documentation Tables -->
 		<h3>Documentation Tables</h3>
-		<p>To populate each documentation table we'll need to import our Sveld documentation data. Follow the instruction below:</p>
+		<p>To populate each documentation table we'll need to import our Sveld documentation data. Follow the instructions below:</p>
 		<ol class="list-decimal list-inside space-y-1">
 			<li>Create a duplicate of your component import statement, e.g. <code>import Avatar from '$lib/components/Avatar/Avatar.svelte';</code></li>
 			<li>Implement a <code>// @ts-ignore</code> comment above the new import to silence any warnings.</li>
 			<li>Rename the import reference using the convention: <code>Avatar</code> -> <code>sveldAvatar</code>.</li>
-			<li>Append the following URL parameters to the end of your import statement, ex: <code>.../Accordion.svelte?raw&sveld</code>.</li>
-			<li>Finally, pass the import reference your DocShell settings like so: <code>components: [&#123; sveld: sveldAvatar &#125;]</code></li>
+			<li>Append the following URL parameters to the end of your import statement, e.g.: <code>.../Accordion.svelte?raw&sveld</code>.</li>
+			<li>Finally, pass the import reference to the DocShell settings like so: <code>components: [&#123; sveld: sveldAvatar &#125;]</code></li>
 		</ol>
 		<!-- DocShell Settings -->
 		<h3>DocShell Settings</h3>
@@ -151,7 +150,7 @@ dispatch('dragover', event);`}
 			<a class="btn btn-filled-accent" href="https://github.com/Brain-Bones/skeleton/blob/dev/src/docs/DocsShell/types.ts#L42" target="_blank" rel="noreferrer">View Available Settings</a>
 		</section>
 		<p>
-			When adding a new keys, tap <kbd>Ctrl/⌘ + i</kbd> to see suggested values. Below are existing documentation pages we recommend you reference:
+			Below are existing documentation pages we recommend you reference:
 		</p>
 		<ul class="list-disc list-inside space-y-1">
 			<li><a href="/elements/button">Buttons</a> showcases how to document Tailwind Element classes.</li>
@@ -163,7 +162,7 @@ dispatch('dragover', event);`}
 		<h3>Examples</h3>
 		<p>When showcasing examples of new features we typically handle this by one of two methods:</p>
 		<ul class="list-disc list-inside space-y-1">
-			<li><strong>Sandbox</strong> (e.g. <a href="/components/range-sliders">Range Sliders</a>) - which provide an dynamic and interactive example that can be adjusted live.</li>
+			<li><strong>Sandbox</strong> (e.g. <a href="/components/range-sliders">Range Sliders</a>) - which provide a dynamic and interactive example that can be adjusted live.</li>
 			<li><strong>Static</strong> (e.g. <a href="components/accordions">Accordion</a>) - with multiple static examples displaying various configurations.</li>
 		</ul>
 		<p>Dynamic examples are preferred, but remember the overall goal is to showcase how the feature operates.</p>
