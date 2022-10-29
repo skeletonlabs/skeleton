@@ -39,6 +39,9 @@
 		<a class="hidden sm:block" href="https://github.com/Brain-Bones/skeleton/releases" target="_blank" rel="noreferrer">
 			<span class="badge badge-filled-surface">v{pkg.version}</span>
 		</a>
+		<!-- <div class="hidden md:inline">
+			<input type="search" placeholder="Search..." />
+		</div> -->
 	</svelte:fragment>
 
 	<!-- Navigation -->
@@ -47,9 +50,9 @@
 		<!-- prettier-ignore -->
 		<section class="hidden lg:flex space-x-6">
 			<!-- Guides -->
-			<a class="unstyled font-bold" href="/guides/install">Guides</a>
+			<a class="unstyled font-bold" href="/guides/install" data-sveltekit-prefetch>Guides</a>
 			<!-- Docs -->
-			<a class="unstyled font-bold" href="/docs/why">Docs</a>
+			<a class="unstyled font-bold" href="/docs/why" data-sveltekit-prefetch>Docs</a>
 			<!-- Features -->
 			<div class="relative">
 				<button class="unstyled font-bold space-x-2" use:menu={{ menu: 'features' }}>
@@ -58,7 +61,7 @@
 				</button>
 				<div class="card overflow-hidden w-60 shadow-xl grid grid-cols-1" data-menu="features">
 					<!-- Tailwind -->
-					<a class="grid grid-cols-[auto_1fr] gap-4 p-4 hover:bg-hover-token" href="/elements/core">
+					<a class="grid grid-cols-[auto_1fr] gap-4 p-4 hover:bg-hover-token" href="/elements/core" data-sveltekit-prefetch>
 						<div class="flex justify-center items-center">
 							<SvgIcon name="tailwind" />
 						</div>
@@ -69,7 +72,7 @@
 					</a>
 					<hr>
 					<!-- Svelte -->
-					<a class="grid grid-cols-[auto_1fr] gap-4 p-4 hover:bg-hover-token" href="/actions/clipboard">
+					<a class="grid grid-cols-[auto_1fr] gap-4 p-4 hover:bg-hover-token" href="/actions/clipboard" data-sveltekit-prefetch>
 						<div class="flex justify-center items-center">
 							<SvgIcon name="svelte" />
 						</div>
@@ -80,7 +83,7 @@
 					</a>
 					<hr>
 					<!-- Utilities -->
-					<a class="grid grid-cols-[auto_1fr] gap-4 p-4 hover:bg-hover-token" href="/utilities/codeblocks">
+					<a class="grid grid-cols-[auto_1fr] gap-4 p-4 hover:bg-hover-token" href="/utilities/codeblocks" data-sveltekit-prefetch>
 						<div class="flex justify-center items-center">
 							<SvgIcon name="screwdriver" />
 						</div>
