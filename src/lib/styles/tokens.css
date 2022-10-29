@@ -20,7 +20,7 @@
 		@apply hover:bg-primary-500/10;
 	}
 	.bg-active-token {
-		@apply bg-primary-500 text-primary-50 dark:text-primary-50;
+		@apply bg-primary-500;
 	}
 
 	/* Accent */

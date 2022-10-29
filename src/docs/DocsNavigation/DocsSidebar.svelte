@@ -10,7 +10,6 @@
 
 	// Local
 	let elemSearch: HTMLElement;
-	// let inputSearch: string = '';
 	let filteredMenuNavLinks: any[] = menuNavLinks;
 
 	let category: string = 'guides'; // guides | docs | tailwind | svelte | utilities
@@ -41,32 +40,6 @@
 		if (!embedded) return;
 		storeMobileDrawer.set(false);
 	}
-
-	// Search Handler
-	// function onSearch(): void {
-	// 	// Reset with Deep Copy
-	// 	filteredMenuNavLinks = JSON.parse(JSON.stringify(menuNavLinks));
-	// 	// If search value
-	// 	if (inputSearch?.length > 0) {
-	// 		// Loop each set
-	// 		filteredMenuNavLinks.forEach((linkSet: any) => {
-	// 			// Filter the links
-	// 			linkSet.list = linkSet.list.filter((linkObj: any) => {
-	// 				const target: string = JSON.stringify(linkObj).toLowerCase();
-	// 				const searchTerm: string | undefined = inputSearch?.toLowerCase();
-	// 				return target.includes(searchTerm);
-	// 			});
-	// 		});
-	// 	}
-	// }
-
-	// Clear Search -- NOTE: timeout prevents anchor race condition
-	// function clearSearch(): void {
-	// 	setTimeout(() => {
-	// 		inputSearch = '';
-	// 		onSearch();
-	// 	}, 1);
-	// }
 
 	// Keyboard Shortcut (⌘+K) to Focus Search
 	let pressedKeys: string[] = [];
@@ -148,6 +121,8 @@
 	</section>
 	<!-- Navigation -->
 	<section class="space-y-4 p-4 overflow-y-auto">
+		<!-- Search -->
+		<!-- <input type="search" placeholder="Quick search..." /> -->
 		<!-- Lists -->
 		{#each filteredMenuNavLinks as { id, title, list }, i}
 			{#if list.length > 0}

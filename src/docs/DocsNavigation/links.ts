@@ -53,6 +53,7 @@ export const menuNavLinks: any = [
 			{ href: '/components/accordions', label: 'Accordions' },
 			{ href: '/components/alerts', label: 'Alerts' },
 			{ href: '/components/app-bar', label: 'App Bar' },
+			{ href: '/components/app-rail', label: 'App Rail' },
 			{ href: '/components/app-shell', label: 'App Shell' },
 			{ href: '/components/avatars', label: 'Avatars' },
 			{ href: '/components/breadcrumbs', label: 'Breadcrumbs' },
