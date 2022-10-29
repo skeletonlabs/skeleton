@@ -21,36 +21,24 @@
 	function drawerOpen(): void {
 		storeMobileDrawer.set(true);
 	}
-
-	// Sidebar Scroll Handler
-	function scrollSidebarTo(targetId: string): void {
-		const elemSidebarLeft: HTMLElement | null = document.querySelector('#sidebar-left');
-		const targetElem: HTMLElement | null = document.querySelector(targetId);
-		const targetOffsetTop = targetElem?.offsetTop;
-		if (elemSidebarLeft && targetOffsetTop) {
-			elemSidebarLeft.scrollTo({ top: targetOffsetTop - 160, behavior: 'smooth' });
-		}
-	}
 </script>
 
 <AppBar>
 	<!-- Branding -->
 	<svelte:fragment slot="lead">
-		<div class="flex items-center space-x-2">
-			<!-- Drawer Menu -->
-			<button on:click={drawerOpen} class="lg:hidden btn btn-sm">
-				<SvgIcon name="bars" />
-			</button>
-			<!-- Logo -->
-			<a href="/" title="Go to Homepage">
-				<span class="hidden sm:inline"><DocsLogoFull /></span>
-				<span class="inline sm:hidden"><DocsLogoIcon /></span>
-			</a>
-			<!-- Badge -->
-			<a class="hidden sm:block" href="https://github.com/Brain-Bones/skeleton/releases" target="_blank" rel="noreferrer">
-				<span class="badge badge-filled-surface">v{pkg.version}</span>
-			</a>
-		</div>
+		<!-- Drawer Menu -->
+		<button on:click={drawerOpen} class="lg:!hidden btn btn-sm">
+			<SvgIcon name="bars" />
+		</button>
+		<!-- Logo -->
+		<a class="mr-4" href="/" title="Go to Homepage">
+			<span class="hidden sm:inline"><DocsLogoFull /></span>
+			<span class="inline sm:hidden"><DocsLogoIcon /></span>
+		</a>
+		<!-- Badge -->
+		<a class="hidden sm:block" href="https://github.com/Brain-Bones/skeleton/releases" target="_blank" rel="noreferrer">
+			<span class="badge badge-filled-surface">v{pkg.version}</span>
+		</a>
 	</svelte:fragment>
 
 	<!-- Navigation -->
@@ -59,22 +47,49 @@
 		<!-- prettier-ignore -->
 		<section class="hidden lg:flex space-x-6">
 			<!-- Guides -->
-			<a class="unstyled font-bold" href="/guides/install" on:click={() => { scrollSidebarTo('#nav-guides'); }}>Guides</a>
+			<a class="unstyled font-bold" href="/guides/install">Guides</a>
 			<!-- Docs -->
-			<a class="unstyled font-bold" href="/docs/why" on:click={() => { scrollSidebarTo('#nav-docs'); }}>Docs</a>
+			<a class="unstyled font-bold" href="/docs/why">Docs</a>
 			<!-- Features -->
 			<div class="relative">
 				<button class="unstyled font-bold space-x-2" use:menu={{ menu: 'features' }}>
 					<span>Features</span>
 					<span class="opacity-50">▾</span>
 				</button>
-				<nav class="list-nav card card-body w-56 shadow-xl space-y-4" data-menu="features">
-					<ul>
-						<li><a href="/elements/core" on:click={() => { scrollSidebarTo('#nav-elements'); }}>Tailwind</a></li>
-						<li><a href="/components/accordions" on:click={() => { scrollSidebarTo('#nav-components'); }}>Svelte</a></li>
-						<li><a href="/utilities/codeblocks" on:click={() => { scrollSidebarTo('#nav-utilities'); }}>Utilities</a></li>
-					</ul>
-				</nav>
+				<div class="card overflow-hidden w-60 shadow-xl grid grid-cols-1" data-menu="features">
+					<!-- Tailwind -->
+					<a class="grid grid-cols-[auto_1fr] gap-4 p-4 hover:bg-hover-token" href="/elements/core">
+						<div class="flex justify-center items-center">
+							<SvgIcon name="tailwind" />
+						</div>
+						<div>
+							<h4>Tailwind</h4>
+							<small>Elements styled by Tailwind.</small>
+						</div>
+					</a>
+					<hr>
+					<!-- Svelte -->
+					<a class="grid grid-cols-[auto_1fr] gap-4 p-4 hover:bg-hover-token" href="/actions/clipboard">
+						<div class="flex justify-center items-center">
+							<SvgIcon name="svelte" />
+						</div>
+						<div>
+							<h4>Svelte</h4>
+							<small>Actions and Components.</small>
+						</div>
+					</a>
+					<hr>
+					<!-- Utilities -->
+					<a class="grid grid-cols-[auto_1fr] gap-4 p-4 hover:bg-hover-token" href="/utilities/codeblocks">
+						<div class="flex justify-center items-center">
+							<SvgIcon name="screwdriver" />
+						</div>
+						<div>
+							<h4>Utilities</h4>
+							<small>Powerful utility features.</small>
+						</div>
+					</a>
+				</div>
 			</div>
 		</section>
 
@@ -88,13 +103,13 @@
 				<span class="hidden md:inline-block">Theme</span>
 				<span class="opacity-50">▾</span>
 			</button>
-			<div class="card card-body w-56 shadow-xl space-y-6" data-menu="theme">
-				<section class="flex justify-between">
-					<h6>Set Mode</h6>
+			<div class="card w-56 shadow-xl" data-menu="theme">
+				<section class="flex justify-between items-center p-4">
+					<h6>Theme</h6>
 					<LightSwitch origin="tr" />
 				</section>
 				<hr>
-				<nav class="list-nav">
+				<nav class="list-nav p-4 max-h-70 overflow-y-auto">
 					<ul>
 						<li class="option" class:!bg-primary-500={$storeTheme === 'skeleton'} on:click={() => { storeTheme.set('skeleton') }} on:keypress> 
 							<span>💀</span>
@@ -127,7 +142,9 @@
 					</ul>
 				</nav>
 				<hr>
-				<a class="btn btn-ghost-surface w-full" href="/guides/themes/generator">Theme Generator</a>
+				<div class="p-4">
+					<a class="btn btn-ghost-surface w-full" href="/guides/themes/generator">Theme Generator</a>
+				</div>
 			</div>
 		</div>
 

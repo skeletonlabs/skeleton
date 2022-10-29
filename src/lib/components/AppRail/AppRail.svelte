@@ -18,7 +18,7 @@
 	/** Provide classes to set the selected tile background. '!' recommended. */
 	export let accent: string = '!bg-primary-500'; //
 	/** Provide classes to set the width. */
-	export let width: string = 'w-[70px]';
+	export let width: string = 'w-[70px] sm:w-20';
 	/** Provide classes to set the height. */
 	export let height: string = 'h-full';
 	/** Provide a class to set the grid gap. */

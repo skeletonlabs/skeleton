@@ -53,6 +53,7 @@
 	<AppRail selected={storeCategory} background="bg-white/30 dark:bg-black/30">
 		<AppRailTile label="Guides" value={'guides'}><SvgIcon name="cubes" width="w-6" height="h-6" /></AppRailTile>
 		<AppRailTile label="Docs" value={'docs'}><SvgIcon name="book" width="w-6" height="h-6" /></AppRailTile>
+		<hr class="opacity-30" />
 		<AppRailTile label="Tailwind" value={'elements'}><SvgIcon name="tailwind" width="w-6" height="h-6" /></AppRailTile>
 		<AppRailTile label="Svelte" value={'svelte'}><SvgIcon name="svelte" width="w-6" height="h-6" /></AppRailTile>
 		<AppRailTile label="Utilities" value={'utilities'}><SvgIcon name="screwdriver" width="w-6" height="h-6" /></AppRailTile>
