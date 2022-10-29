@@ -50,16 +50,16 @@
 		</div>
 	</header>
 
-	<!-- Alert: Beta -->
-	<Alert>
-		<svelte:fragment slot="lead">🚧</svelte:fragment>
-		<span>Skeleton is currently in beta. Expect breaking changes prior to v1.0. Please report bugs on GitHub.</span>
-		<svelte:fragment slot="trail">
-			<a href="https://github.com/Brain-Bones/skeleton/issues" target="_blank" rel="noreferrer" class="btn btn-filled">Report Issue</a>
-		</svelte:fragment>
-	</Alert>
-
 	<div class="container max-w-[1200px] mx-auto px-4 py-10 md:py-20 space-y-20">
+		<!-- Alert: Beta -->
+		<Alert>
+			<svelte:fragment slot="lead">🚧</svelte:fragment>
+			<span>Skeleton is currently in beta. Expect breaking changes prior to v1.0. Please report bugs on GitHub.</span>
+			<svelte:fragment slot="trail">
+				<a href="https://github.com/Brain-Bones/skeleton/issues" target="_blank" rel="noreferrer" class="btn btn-filled">Report Issue</a>
+			</svelte:fragment>
+		</Alert>
+
 		<!-- Features -->
 		<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 			<h2 class="sr-only">Features</h2>
