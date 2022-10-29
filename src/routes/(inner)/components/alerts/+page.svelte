@@ -38,7 +38,7 @@
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-4">
 			{#if !visible}
-				<div class="card card-body text-center"><button class="btn btn-ghost" on:click={toggleVisible}>Display Alerts</button></div>
+				<div class="card card-body text-center"><button class="btn btn-ghost-surface" on:click={toggleVisible}>Display Alerts</button></div>
 			{/if}
 			<Alert {visible}>
 				<svelte:fragment slot="lead">
@@ -54,7 +54,7 @@
 			<Alert background="bg-warning-500/40" border="border-l-4 border-warning-500" {visible}>
 				<span>{message}</span>
 				<svelte:fragment slot="trail">
-					<button class="btn-icon btn-ghost" on:click={toggleVisible}>&#10005;</button>
+					<button class="btn-icon btn-ghost-surface" on:click={toggleVisible}>&#10005;</button>
 				</svelte:fragment>
 			</Alert>
 			<Alert background="bg-accent-500/40" border="border-l-4 border-accent-500" {visible}>

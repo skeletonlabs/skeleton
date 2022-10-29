@@ -3,7 +3,7 @@
 	const pkg = __PACKAGE__;
 
 	// Logo
-	import DocsLogo from '$docs/DocsLogo/DocsLogo.svelte';
+	import DocsLogoFull from '$docs/DocsLogo/DocsLogoFull.svelte';
 
 	// Components
 	import AppBar from '$lib/components/AppBar/AppBar.svelte';
@@ -41,7 +41,7 @@
 		</button>
 		<!-- Logo -->
 		<a href="/" class="hidden sm:inline-block mr-4 space-x-4 -translate-y-0.5" title="Go to Homepage">
-			<DocsLogo />
+			<DocsLogoFull />
 		</a>
 		<!-- Badge -->
 		<a class="hidden sm:block badge badge-filled-surface" href="https://github.com/Brain-Bones/skeleton/releases" target="_blank" rel="noreferrer">

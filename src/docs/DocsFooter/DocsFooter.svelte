@@ -1,6 +1,6 @@
 <script lang="ts">
 	// Logo
-	import DocsLogo from '$docs/DocsLogo/DocsLogo.svelte';
+	import DocsLogoFull from '$docs/DocsLogo/DocsLogoFull.svelte';
 
 	// Components
 	import Divider from '$lib/components/Divider/Divider.svelte';
@@ -16,7 +16,7 @@
 	<!-- Row 1 -->
 	<section class={cRowOne}>
 		<div class="space-y-2">
-			<DocsLogo />
+			<DocsLogoFull />
 			<p class="text-lg opacity-80">A fully featured UI Toolkit.</p>
 		</div>
 		<div class="hidden md:flex items-start space-x-10">

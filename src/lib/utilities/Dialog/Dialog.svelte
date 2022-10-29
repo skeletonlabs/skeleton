@@ -145,7 +145,7 @@
 			<!-- Actions -->
 			<footer class="dialog-actions {cBaseFooter}">
 				<!-- Button: Cancel -->
-				<button class="btn btn-ghost" on:click={onDialogClose}>Close</button>
+				<button class="btn btn-ghost-surface" on:click={onDialogClose}>Close</button>
 				<!-- If Confirm - button: Confirm -->
 				{#if $dialogStore[0].type === 'confirm'}<button class="btn btn-filled-primary" on:click={onDialogConfirmSubmit}>Confirm</button>{/if}
 				<!-- If Promopt - button: Submit -->
