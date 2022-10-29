@@ -22,14 +22,14 @@
 	/** Provide abitrary classes to style the icon region. */
 	export let regionIcon: string = '';
 	/** Provide abitrary classes to style the label region. */
-	export let regionLabel: string = 'text-xs font-bold';
+	export let regionLabel: string = 'text-xs';
 
 	// Context
 	export let selected: Writable<any> = getContext('selected');
 	export let accent: Writable<any> = getContext('accent');
 
 	// Base Classes
-	const cBase: string = 'grid place-content-center place-items-center w-full aspect-square space-y-1';
+	const cBase: string = 'grid place-content-center place-items-center w-full aspect-square space-y-1.5';
 
 	// Input Handler
 	function onClickHandler(event: any): void {

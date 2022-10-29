@@ -2,29 +2,29 @@
 
 export const menuNavLinks: any = [
 	{
-		id: 'nav-guides',
+		id: 'guides',
 		title: 'Guides',
 		list: [
-			{ href: '/guides/install', label: 'Install', icon: 'circle-check' },
-			{ href: '/guides/tailwind', label: 'Tailwind CSS', icon: 'tailwind' },
-			{ href: '/guides/styling', label: 'Styling', icon: 'pen-ruler' },
-			{ href: '/guides/themes', label: 'Themes', icon: 'swatchbook' },
-			{ href: '/guides/frameworks', label: 'Frameworks', icon: 'cubes' }
+			{ href: '/guides/install', label: 'Install' },
+			{ href: '/guides/tailwind', label: 'Tailwind CSS' },
+			{ href: '/guides/styling', label: 'Styling' },
+			{ href: '/guides/themes', label: 'Themes' },
+			{ href: '/guides/frameworks', label: 'Frameworks' }
 		]
 	},
 	{
-		id: 'nav-docs',
+		id: 'docs',
 		title: 'Docs',
 		list: [
 			{ href: '/docs/why', label: 'Why Skeleton' },
 			{ href: '/docs/comparisons', label: 'Comparisons' },
 			{ href: '/docs/features', label: 'Features' },
-			{ href: '/docs/contributions', label: 'Contributions' },
-			{ href: '/docs/recommendations', label: 'Recommendations', badge: 'New' }
+			{ href: '/docs/recommended', label: 'Recommended', badge: 'New' },
+			{ href: '/docs/contributions', label: 'Contributions' }
 		]
 	},
 	{
-		id: 'nav-elements',
+		id: 'elements',
 		title: 'Elements',
 		list: [
 			{ href: '/elements/core', label: 'Core' },
@@ -39,15 +39,15 @@ export const menuNavLinks: any = [
 		]
 	},
 	{
-		id: 'nav-actions',
+		id: 'actions',
 		title: 'Actions',
 		list: [
 			{ href: '/actions/clipboard', label: 'Clipboard' },
-			{ href: '/actions/filters', label: 'Filters', badge: 'Experimental' }
+			{ href: '/actions/filters', label: 'Filters' } // badge: 'Experimental'
 		]
 	},
 	{
-		id: 'nav-components',
+		id: 'components',
 		title: 'Components',
 		list: [
 			{ href: '/components/accordions', label: 'Accordions' },
@@ -77,7 +77,7 @@ export const menuNavLinks: any = [
 		]
 	},
 	{
-		id: 'nav-utilities',
+		id: 'utilities',
 		title: 'Utilities',
 		list: [
 			{ href: '/utilities/codeblocks', label: 'Code Blocks' },

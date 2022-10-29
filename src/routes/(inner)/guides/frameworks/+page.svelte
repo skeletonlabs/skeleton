@@ -6,8 +6,11 @@
 <div class="page-container">
 	<!-- Header -->
 	<header class="space-y-4">
-		<h1>Framework Guides</h1>
-		<p>Need help getting started? We've provided a set of <u>optional</u> guides for building a simple app within each supported framework.</p>
+		<div class="flex items-end space-x-2">
+			<h1>Framework Guides</h1>
+			<span class="badge bg-surface-500/30 -translate-y-1">optional</span>
+		</div>
+		<p>We've provided <u>optional guides</u> for building a simple example app within each supported framework.</p>
 	</header>
 
 	<!-- Select a Framework -->

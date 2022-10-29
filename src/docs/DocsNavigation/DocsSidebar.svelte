@@ -1,129 +1,64 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import { writable, type Writable } from 'svelte/store';
 
 	import { storeCurrentUrl, storeMobileDrawer } from '$docs/stores';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	import { menuNavLinks } from './links';
+	import AppRail from '$lib/components/AppRail/AppRail.svelte';
+	import AppRailTile from '$lib/components/AppRail/AppRailTile.svelte';
 
 	// Props
 	export let embedded: boolean = false;
 
 	// Local
-	let elemSearch: HTMLElement;
+	const storeCategory: Writable<string> = writable('guides'); // guides | docs | tailwind | svelte | utilities
 	let filteredMenuNavLinks: any[] = menuNavLinks;
-
-	let category: string = 'guides'; // guides | docs | tailwind | svelte | utilities
-
-	function setNavCategory(c: string): void {
-		category = c;
-		// prettier-ignore
-		switch(category) {
-			case('guides'): filteredMenuNavLinks = menuNavLinks.filter((linkSet: any) => linkSet.id === 'nav-guides'); break;
-			case('docs'): filteredMenuNavLinks = menuNavLinks.filter((linkSet: any) => linkSet.id === 'nav-docs'); break;
-			case('elements'): filteredMenuNavLinks = menuNavLinks.filter((linkSet: any) => linkSet.id === 'nav-elements'); break;
-			case('svelte'): filteredMenuNavLinks = menuNavLinks.filter((linkSet: any) => linkSet.id === 'nav-components' || linkSet.id === 'nav-actions'); break;
-			case('utilities'): filteredMenuNavLinks = menuNavLinks.filter((linkSet: any) => linkSet.id === 'nav-utilities'); break;
-		}
-	}
-	page.subscribe((p) => {
-		let pathMatch: string = p.url.pathname.split('/')[1];
-		if (['components', 'actions'].includes(pathMatch)) {
-			pathMatch = 'svelte';
-		}
-		setNavCategory(pathMatch);
-	});
 
 	// ListItem Click Handler
 	function onListItemClick(): void {
-		// clearSearch();
 		// On Drawer embed Only:
 		if (!embedded) return;
 		storeMobileDrawer.set(false);
 	}
 
-	// Keyboard Shortcut (⌘+K) to Focus Search
-	let pressedKeys: string[] = [];
-	function onWindowKeydown(e: any): void {
-		if (e.code === 'MetaLeft' || e.code === 'KeyK') {
-			// Set pressed keys
-			pressedKeys = [...pressedKeys, e.code];
-			// If both keys pressed, focus input
-			if (pressedKeys.includes('MetaLeft') && pressedKeys.includes('KeyK')) {
-				elemSearch.focus();
-			}
+	function setNavCategory(c: string): void {
+		storeCategory.set(c);
+		// prettier-ignore
+		switch($storeCategory) {
+			case('guides'): filteredMenuNavLinks = menuNavLinks.filter((linkSet: any) => linkSet.id === 'guides'); break;
+			case('docs'): filteredMenuNavLinks = menuNavLinks.filter((linkSet: any) => linkSet.id === 'docs'); break;
+			case('elements'): filteredMenuNavLinks = menuNavLinks.filter((linkSet: any) => linkSet.id === 'elements'); break;
+			case('svelte'): filteredMenuNavLinks = menuNavLinks.filter((linkSet: any) => ['components', 'actions'].includes(linkSet.id)); break;
+			case('utilities'): filteredMenuNavLinks = menuNavLinks.filter((linkSet: any) => linkSet.id === 'utilities'); break;
 		}
 	}
-	function onWindowKeyup(e: any): void {
-		pressedKeys = [];
-	}
+
+	// Lifecycle
+	page.subscribe((p) => {
+		let pathMatch: string = p.url.pathname.split('/')[1];
+		if (['components', 'actions'].includes(pathMatch)) pathMatch = 'svelte';
+		setNavCategory(pathMatch);
+	});
+	storeCategory.subscribe((c: string) => {
+		setNavCategory(c);
+	});
 
 	// Reactive
 	$: classesActive = (href: string) => ($storeCurrentUrl?.includes(href) ? '!bg-primary-500' : '');
 </script>
 
-<!-- NOTE: using stopPropagation to override Chrome for Windows search shortcut -->
-<svelte:window on:keydown|stopPropagation={onWindowKeydown} on:keyup={onWindowKeyup} />
-
 <div class="grid grid-cols-[auto_1fr] h-full border-r border-black/5 dark:border-white/5 {$$props.class ?? ''}">
-	<!-- Rail -->
-	<!-- bg-surface-200-700-token -->
-	<section class="bg-white/30 dark:bg-black/30 w-20 overflow-y-auto">
-		<button
-			class="block w-full aspect-square space-y-1 hover:bg-primary-500/30"
-			class:!bg-primary-500={category === 'guides'}
-			on:click={() => {
-				setNavCategory('guides');
-			}}
-		>
-			<SvgIcon name="cubes" width="w-6" height="h-6" />
-			<div class="text-xs capitalize font-bold">guides</div>
-		</button>
-		<button
-			class="block w-full aspect-square space-y-1 hover:bg-primary-500/30"
-			class:!bg-primary-500={category === 'docs'}
-			on:click={() => {
-				setNavCategory('docs');
-			}}
-		>
-			<SvgIcon name="book" width="w-6" height="h-6" />
-			<div class="text-xs capitalize font-bold">docs</div>
-		</button>
-		<button
-			class="block w-full aspect-square space-y-1 hover:bg-primary-500/30"
-			class:!bg-primary-500={category === 'elements'}
-			on:click={() => {
-				setNavCategory('elements');
-			}}
-		>
-			<SvgIcon name="tailwind" width="w-6" height="h-6" />
-			<div class="text-xs capitalize font-bold">tailwind</div>
-		</button>
-		<button
-			class="block w-full aspect-square space-y-1 hover:bg-primary-500/30"
-			class:!bg-primary-500={category === 'svelte'}
-			on:click={() => {
-				setNavCategory('svelte');
-			}}
-		>
-			<SvgIcon name="svelte" width="w-6" height="h-6" />
-			<div class="text-xs capitalize font-bold">svelte</div>
-		</button>
-		<button
-			class="block w-full aspect-square space-y-1 hover:bg-primary-500/30"
-			class:!bg-primary-500={category === 'utilities'}
-			on:click={() => {
-				setNavCategory('utilities');
-			}}
-		>
-			<SvgIcon name="screwdriver" width="w-6" height="h-6" />
-			<div class="text-xs capitalize font-bold">utilities</div>
-		</button>
-	</section>
-	<!-- Navigation -->
-	<section class="space-y-4 p-4 overflow-y-auto">
-		<!-- Search -->
-		<!-- <input type="search" placeholder="Quick search..." /> -->
-		<!-- Lists -->
+	<!-- App Rail -->
+	<AppRail selected={storeCategory} background="bg-white/30 dark:bg-black/30">
+		<AppRailTile label="Guides" value={'guides'}><SvgIcon name="cubes" width="w-6" height="h-6" /></AppRailTile>
+		<AppRailTile label="Docs" value={'docs'}><SvgIcon name="book" width="w-6" height="h-6" /></AppRailTile>
+		<AppRailTile label="Tailwind" value={'elements'}><SvgIcon name="tailwind" width="w-6" height="h-6" /></AppRailTile>
+		<AppRailTile label="Svelte" value={'svelte'}><SvgIcon name="svelte" width="w-6" height="h-6" /></AppRailTile>
+		<AppRailTile label="Utilities" value={'utilities'}><SvgIcon name="screwdriver" width="w-6" height="h-6" /></AppRailTile>
+	</AppRail>
+	<!-- Nav Links -->
+	<section class="p-4 pb-20 space-y-4 overflow-y-auto">
 		{#each filteredMenuNavLinks as { id, title, list }, i}
 			{#if list.length > 0}
 				<!-- Title -->
@@ -142,7 +77,7 @@
 					</ul>
 				</nav>
 				<!-- Divider -->
-				{#if i + 1 < filteredMenuNavLinks.length}<hr class="my-4 opacity-50" />{/if}
+				{#if i + 1 < filteredMenuNavLinks.length}<hr class="!my-6 opacity-50" />{/if}
 			{/if}
 		{/each}
 	</section>
