@@ -2,8 +2,9 @@
 	// @ts-ignore
 	const pkg = __PACKAGE__;
 
-	// Logo
+	// Docs
 	import DocsLogoFull from '$docs/DocsLogo/DocsLogoFull.svelte';
+	import DocsLogoIcon from '$docs/DocsLogo/DocsLogoIcon.svelte';
 
 	// Components
 	import AppBar from '$lib/components/AppBar/AppBar.svelte';
@@ -32,21 +33,24 @@
 	}
 </script>
 
-<AppBar border="border-b border-b-surface-300 dark:border-b-surface-900">
+<AppBar>
 	<!-- Branding -->
 	<svelte:fragment slot="lead">
-		<!-- Drawer Menu -->
-		<button on:click={drawerOpen} class="lg:hidden mr-2 p-1 cursor-pointer">
-			<SvgIcon name="bars" width="w-6" height="h-6" fill="fill-black dark:fill-white" />
-		</button>
-		<!-- Logo -->
-		<a href="/" class="hidden sm:inline-block mr-4 space-x-4 -translate-y-0.5" title="Go to Homepage">
-			<DocsLogoFull />
-		</a>
-		<!-- Badge -->
-		<a class="hidden sm:block badge badge-filled-surface" href="https://github.com/Brain-Bones/skeleton/releases" target="_blank" rel="noreferrer">
-			v{pkg.version}
-		</a>
+		<div class="flex items-center space-x-2">
+			<!-- Drawer Menu -->
+			<button on:click={drawerOpen} class="lg:hidden btn btn-sm">
+				<SvgIcon name="bars" />
+			</button>
+			<!-- Logo -->
+			<a href="/" title="Go to Homepage">
+				<span class="hidden sm:inline"><DocsLogoFull /></span>
+				<span class="inline sm:hidden"><DocsLogoIcon /></span>
+			</a>
+			<!-- Badge -->
+			<a class="hidden sm:block" href="https://github.com/Brain-Bones/skeleton/releases" target="_blank" rel="noreferrer">
+				<span class="badge badge-filled-surface">v{pkg.version}</span>
+			</a>
+		</div>
 	</svelte:fragment>
 
 	<!-- Navigation -->
@@ -129,7 +133,7 @@
 
 		<Divider vertical borderWidth="border-l-2 opacity-30" />
 
-		<!-- Community -->
+		<!-- Social -->
 		<section class="flex">
 			<a class="btn btn-sm" href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer" aria-label="Discord">
 				<SvgIcon name="discord" viewBox="0 0 640 512" />

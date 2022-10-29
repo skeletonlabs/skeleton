@@ -1,6 +1,6 @@
 <script lang="ts">
 	// Logo
-	import DocsLogoFull from '$docs/DocsLogo/DocsLogoFull.svelte';
+	import DocsLogoIcon from '$docs/DocsLogo/DocsLogoIcon.svelte';
 
 	// Components
 	import Divider from '$lib/components/Divider/Divider.svelte';
@@ -15,11 +15,11 @@
 <div class="page-footer {cBase}">
 	<!-- Row 1 -->
 	<section class={cRowOne}>
-		<div class="space-y-2">
-			<DocsLogoFull />
-			<p class="text-lg opacity-80">A fully featured UI Toolkit.</p>
+		<div class="grid grid-cols-1 gap-2 place-content-center place-items-center md:place-items-start">
+			<DocsLogoIcon />
+			<p class="!text-sm opacity-80">A fully featured UI Toolkit.</p>
 		</div>
-		<div class="hidden md:flex items-start space-x-10">
+		<div class="hidden md:grid grid-cols-[auto_auto_auto] gap-10">
 			<div class="space-y-4">
 				<h6>About</h6>
 				<ul class="space-y-2">
