@@ -2,6 +2,10 @@
 	// @ts-ignore
 	const pkg = __PACKAGE__;
 
+	// Docs
+	import DocsLogoFull from '$docs/DocsLogo/DocsLogoFull.svelte';
+	import DocsLogoIcon from '$docs/DocsLogo/DocsLogoIcon.svelte';
+
 	// Components
 	import AppBar from '$lib/components/AppBar/AppBar.svelte';
 	import Divider from '$lib/components/Divider/Divider.svelte';
@@ -17,76 +21,101 @@
 	function drawerOpen(): void {
 		storeMobileDrawer.set(true);
 	}
-
-	// Sidebar Scroll Handler
-	function scrollSidebarTo(targetId: string): void {
-		const elemSidebarLeft: HTMLElement | null = document.querySelector('#sidebar-left');
-		const targetElem: HTMLElement | null = document.querySelector(targetId);
-		const targetOffsetTop = targetElem?.offsetTop;
-		if (elemSidebarLeft && targetOffsetTop) {
-			elemSidebarLeft.scrollTo({ top: targetOffsetTop - 160, behavior: 'smooth' });
-		}
-	}
 </script>
 
-<AppBar border="border-b border-b-surface-300 dark:border-b-surface-900">
+<AppBar>
 	<!-- Branding -->
 	<svelte:fragment slot="lead">
 		<!-- Drawer Menu -->
-		<button on:click={drawerOpen} class="lg:hidden mr-2 p-1 cursor-pointer">
-			<SvgIcon name="bars" width="w-6" height="h-6" fill="fill-black dark:fill-white" />
+		<button on:click={drawerOpen} class="lg:!hidden btn btn-sm">
+			<SvgIcon name="bars" />
 		</button>
-		<!-- Skeleton -->
-		<a href="/" class="hidden sm:inline-block text-sm sm:text-lg md:text-3xl font-bold uppercase mr-4" title="Return to Homepage">Skeleton</a>
+		<!-- Logo -->
+		<a class="mr-4" href="/" title="Go to Homepage">
+			<span class="hidden sm:inline"><DocsLogoFull /></span>
+			<span class="inline sm:hidden"><DocsLogoIcon /></span>
+		</a>
 		<!-- Badge -->
 		<a class="hidden sm:block" href="https://github.com/Brain-Bones/skeleton/releases" target="_blank" rel="noreferrer">
 			<span class="badge badge-filled-surface">v{pkg.version}</span>
 		</a>
+		<!-- <div class="hidden md:inline">
+			<input type="search" placeholder="Search..." />
+		</div> -->
 	</svelte:fragment>
 
 	<!-- Navigation -->
 	<svelte:fragment slot="trail">
 		<!-- Links -->
 		<!-- prettier-ignore -->
-		<section class="hidden lg:flex space-x-1">
-			<a class="btn btn-sm" href="/guides/install" on:click={() => { scrollSidebarTo('#nav-guides'); }}>Guides</a>
-			<a class="btn btn-sm" href="/docs/why" on:click={() => { scrollSidebarTo('#nav-docs'); }}>Docs</a>
+		<section class="hidden lg:flex space-x-6">
+			<!-- Guides -->
+			<a class="unstyled font-bold" href="/guides/install" data-sveltekit-prefetch>Guides</a>
+			<!-- Docs -->
+			<a class="unstyled font-bold" href="/docs/why" data-sveltekit-prefetch>Docs</a>
+			<!-- Features -->
 			<div class="relative">
-				<button class="btn btn-sm space-x-1" use:menu={{ menu: 'features' }}>
+				<button class="unstyled font-bold space-x-2" use:menu={{ menu: 'features' }}>
 					<span>Features</span>
 					<span class="opacity-50">▾</span>
 				</button>
-				<nav class="list-nav card card-body w-56 shadow-xl space-y-4" data-menu="features">
-					<ul>
-						<li><a href="/elements/core" on:click={() => { scrollSidebarTo('#nav-elements'); }}>Tailwind Elements</a></li>
-						<li><a href="/components/accordions" on:click={() => { scrollSidebarTo('#nav-components'); }}>Svelte Components</a></li>
-						<li><a href="/actions/clipboard" on:click={() => { scrollSidebarTo('#nav-actions'); }}>Svelte Actions</a></li>
-						<li><a href="/utilities/codeblocks" on:click={() => { scrollSidebarTo('#nav-utilities'); }}>Utilities</a></li>
-					</ul>
-				</nav>
+				<div class="card overflow-hidden w-60 shadow-xl grid grid-cols-1" data-menu="features">
+					<!-- Tailwind -->
+					<a class="grid grid-cols-[auto_1fr] gap-4 p-4 hover:bg-hover-token" href="/elements/core" data-sveltekit-prefetch>
+						<div class="flex justify-center items-center">
+							<SvgIcon name="tailwind" />
+						</div>
+						<div>
+							<h4>Tailwind</h4>
+							<small>Elements styled by Tailwind.</small>
+						</div>
+					</a>
+					<hr>
+					<!-- Svelte -->
+					<a class="grid grid-cols-[auto_1fr] gap-4 p-4 hover:bg-hover-token" href="/actions/clipboard" data-sveltekit-prefetch>
+						<div class="flex justify-center items-center">
+							<SvgIcon name="svelte" />
+						</div>
+						<div>
+							<h4>Svelte</h4>
+							<small>Actions and Components.</small>
+						</div>
+					</a>
+					<hr>
+					<!-- Utilities -->
+					<a class="grid grid-cols-[auto_1fr] gap-4 p-4 hover:bg-hover-token" href="/utilities/codeblocks" data-sveltekit-prefetch>
+						<div class="flex justify-center items-center">
+							<SvgIcon name="screwdriver" />
+						</div>
+						<div>
+							<h4>Utilities</h4>
+							<small>Powerful utility features.</small>
+						</div>
+					</a>
+				</div>
 			</div>
 		</section>
 
-		<Divider vertical borderWidth="hidden lg:block border-l-2" />
+		<Divider vertical borderWidth="hidden lg:block border-l-2 opacity-30" />
 
 		<!-- Theme -->
 		<!-- prettier-ignore -->
 		<div class="relative">
-			<button class="btn btn-sm" use:menu={{ menu: 'theme' }}>
-				<SvgIcon name="swatchbook" width="w-4" height="w-4" />
+			<button class="unstyled font-bold space-x-2" use:menu={{ menu: 'theme' }}>
+				<SvgIcon name="swatchbook" width="w-4" height="w-4" class="inline-block md:hidden" />
 				<span class="hidden md:inline-block">Theme</span>
 				<span class="opacity-50">▾</span>
 			</button>
-			<div class="card card-body w-56 shadow-xl space-y-6" data-menu="theme">
-				<section class="flex justify-between">
-					<h6>Set Mode</h6>
+			<div class="card w-56 shadow-xl" data-menu="theme">
+				<section class="flex justify-between items-center p-4">
+					<h6>Theme</h6>
 					<LightSwitch origin="tr" />
 				</section>
 				<hr>
-				<nav class="list-nav">
+				<nav class="list-nav p-4 max-h-70 overflow-y-auto">
 					<ul>
 						<li class="option" class:!bg-primary-500={$storeTheme === 'skeleton'} on:click={() => { storeTheme.set('skeleton') }} on:keypress> 
-							<span>🦴</span>
+							<span>💀</span>
 							<span>Skeleton</span>
 						</li>
 						<li class="option" class:!bg-primary-500={$storeTheme === 'modern'} on:click={() => { storeTheme.set('modern') }} on:keypress>
@@ -116,13 +145,15 @@
 					</ul>
 				</nav>
 				<hr>
-				<a class="btn btn-ghost w-full" href="/guides/themes/generator">Theme Generator</a>
+				<div class="p-4">
+					<a class="btn btn-ghost-surface w-full" href="/guides/themes/generator">Theme Generator</a>
+				</div>
 			</div>
 		</div>
 
-		<Divider vertical borderWidth="border-l-2" />
+		<Divider vertical borderWidth="border-l-2 opacity-30" />
 
-		<!-- Community -->
+		<!-- Social -->
 		<section class="flex">
 			<a class="btn btn-sm" href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer" aria-label="Discord">
 				<SvgIcon name="discord" viewBox="0 0 640 512" />

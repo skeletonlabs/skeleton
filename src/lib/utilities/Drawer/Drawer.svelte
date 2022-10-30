@@ -63,11 +63,11 @@
 				animParams = { backdrop: 'flex-col justify-end', width: 'w-full', height: 'h-[40%]', x: 0, y: percentage(40, window.innerHeight) };
 				break;
 			case 'right':
-				animParams = { backdrop: 'justify-end', width: 'w-[80%]', height: 'h-full', x: percentage(80, window.innerWidth), y: 0 };
+				animParams = { backdrop: 'justify-end', width: 'w-[90%]', height: 'h-full', x: percentage(80, window.innerWidth), y: 0 };
 				break;
 			// Default: Left
 			default:
-				animParams = { backdrop: 'justify-start', width: 'w-[80%]', height: 'h-full', x: -percentage(80, window.innerWidth), y: 0 };
+				animParams = { backdrop: 'justify-start', width: 'w-[90%]', height: 'h-full', x: -percentage(80, window.innerWidth), y: 0 };
 				break;
 		}
 	}

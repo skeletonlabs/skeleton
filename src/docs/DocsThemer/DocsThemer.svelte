@@ -66,7 +66,7 @@
 					<RadioItem value={true}>Tailwind</RadioItem>
 					<RadioItem value={false}>Hex</RadioItem>
 				</RadioGroup>
-				<button class="btn btn-filled-accent" on:click={onRandomize} disabled={!$storeMode}>Randomize</button>
+				<button class="btn btn-ghost-surface" on:click={onRandomize} disabled={!$storeMode}>Randomize</button>
 			</header>
 			<hr />
 			<!-- Color Inputs -->

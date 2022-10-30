@@ -20,7 +20,7 @@ h6 {
 }
 
 h1 {
-	@apply text-3xl md:text-4xl;
+	@apply text-3xl md:text-5xl;
 }
 h2 {
 	@apply text-2xl md:text-3xl;

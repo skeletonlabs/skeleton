@@ -25,7 +25,8 @@
 
 	<!-- Svelte Components -->
 	<section class="space-y-4">
-		<h2>Svelte Components</h2>
+		<h2>Svelte</h2>
+		<h3>Components</h3>
 		<p>
 			These are <a href="https://svelte.dev/" target="_blank" rel="noreferrer">Svelte Components</a> purpose built for the Skeleton library. They can include their own UI templates and scripted logic,
 			and they can maintain their own state. These automatically update and adjust to your custom theme and provide unique props to update and adjust settings per component.
@@ -38,13 +39,7 @@
 			<li>Typically include their own UI template.</li>
 			<li>Typically have their own built-in styling, which adapts to your theme.</li>
 		</ul>
-	</section>
-
-	<hr />
-
-	<!-- Svelte Actions -->
-	<section class="space-y-4">
-		<h2>Svelte Actions</h2>
+		<h3>Actions</h3>
 		<p>
 			Skeleton provides a set of unique <a href="https://svelte.dev/tutorial/actions" target="_blank" rel="noreferrer">Svelte Actions</a>, also known as directives in other libraries. These provide
 			"headless" script logic without inherent UI. Think of these as add-ons features, including <em>copy to clipboard</em> and <em>applying image filters</em>.

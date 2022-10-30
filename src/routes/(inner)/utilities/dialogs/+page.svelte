@@ -133,21 +133,21 @@
 							<h4>Basic</h4>
 							<p>The simplest form of a dialog.</p>
 						</div>
-						<button class="btn btn-ghost" on:click={dialogAlertBasic}>Trigger</button>
+						<button class="btn btn-ghost-surface" on:click={dialogAlertBasic}>Trigger</button>
 					</div>
 					<div class="flex justify-between items-center space-x-4">
 						<div>
 							<h4>Icon</h4>
 							<p>Shown with an optional icon.</p>
 						</div>
-						<button class="btn btn-ghost" on:click={dialogAlertIcon}>Trigger</button>
+						<button class="btn btn-ghost-surface" on:click={dialogAlertIcon}>Trigger</button>
 					</div>
 					<div class="flex justify-between items-center space-x-4">
 						<div>
 							<h4>Multiple</h4>
 							<p>Queues a set of three dialogs.</p>
 						</div>
-						<button class="btn btn-ghost" on:click={dialogAlertMultiple}>Trigger</button>
+						<button class="btn btn-ghost-surface" on:click={dialogAlertMultiple}>Trigger</button>
 					</div>
 				</div>
 				<div class="card card-body grid grid-cols-1 gap-4">
@@ -157,21 +157,21 @@
 							<h4>Image</h4>
 							<p>Includes an embedded image.</p>
 						</div>
-						<button class="btn btn-ghost" on:click={dialogImage}>Trigger</button>
+						<button class="btn btn-ghost-surface" on:click={dialogImage}>Trigger</button>
 					</div>
 					<div class="flex justify-between items-center space-x-4">
 						<div>
 							<h4>HTML</h4>
 							<p>Displays embedded an styled HTML markup.</p>
 						</div>
-						<button class="btn btn-ghost" on:click={dialogHtml}>Trigger</button>
+						<button class="btn btn-ghost-surface" on:click={dialogHtml}>Trigger</button>
 					</div>
 					<div class="flex justify-between items-center space-x-4">
 						<div>
 							<h6>Component</h6>
 							<p>Embeds and entire component.</p>
 						</div>
-						<button class="btn btn-ghost" on:click={dialogComponent}>Trigger</button>
+						<button class="btn btn-ghost-surface" on:click={dialogComponent}>Trigger</button>
 					</div>
 				</div>
 				<div class="card card-body space-y-4">
@@ -181,7 +181,7 @@
 							<p>Dialog with confirm options.</p>
 							<div><code>Response: {JSON.stringify(valueConfirm, null, 2)}</code></div>
 						</div>
-						<button class="btn btn-ghost" on:click={dialogConfirm}>Trigger</button>
+						<button class="btn btn-ghost-surface" on:click={dialogConfirm}>Trigger</button>
 					</div>
 				</div>
 				<div class="card card-body space-y-4">
@@ -191,7 +191,7 @@
 							<p>Prompts the user to input a value.</p>
 							<div><code>Response: {JSON.stringify(valuePrompt, null, 2)}</code></div>
 						</div>
-						<button class="btn btn-ghost" on:click={dialogPrompt}>Trigger</button>
+						<button class="btn btn-ghost-surface" on:click={dialogPrompt}>Trigger</button>
 					</div>
 				</div>
 			</nav>

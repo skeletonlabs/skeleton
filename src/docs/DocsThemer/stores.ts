@@ -11,11 +11,11 @@ export const storePreview: Writable<boolean> = localStorageStore('storePreview',
 
 // Tailwind: Form Values
 export const storeTailwindForm: Writable<Record<SemanticNames, string>> = localStorageStore('storeTailwindForm', {
-	primary: 'emerald',
-	accent: 'indigo',
+	primary: 'blue',
+	accent: 'emerald',
 	tertiary: 'yellow',
-	warning: 'rose',
-	surface: 'gray'
+	warning: 'red',
+	surface: 'zinc'
 });
 
 // Tailwind: Generated Palette Colors
@@ -29,11 +29,11 @@ export const storeTailwindPalette: Writable<Record<SemanticNames, TailwindColorO
 
 // Hex: Form Values
 export const storeHexForm: Writable<Record<SemanticNames, string>> = localStorageStore('storeHexForm', {
-	primary: getTailwindColor('emerald').shades['500'].hex,
-	accent: getTailwindColor('indigo').shades['500'].hex,
+	primary: getTailwindColor('blue').shades['500'].hex,
+	accent: getTailwindColor('emerald').shades['500'].hex,
 	tertiary: getTailwindColor('yellow').shades['500'].hex,
-	warning: getTailwindColor('rose').shades['500'].hex,
-	surface: getTailwindColor('gray').shades['500'].hex
+	warning: getTailwindColor('red').shades['500'].hex,
+	surface: getTailwindColor('zinc').shades['500'].hex
 });
 
 // Hex: Generated Palette Colors
