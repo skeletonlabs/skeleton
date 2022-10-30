@@ -1,58 +1,69 @@
 :root {
-	/* =~= Skeleton Theme | Tailwind =~= */
-	/* ~ primary (violet | #8b5cf6) ~ */
-	--color-primary-50: 245 243 255; /* ⬅ #f5f3ff */
-	--color-primary-100: 237 233 254; /* ⬅ #ede9fe */
-	--color-primary-200: 221 214 254; /* ⬅ #ddd6fe */
-	--color-primary-300: 196 181 253; /* ⬅ #c4b5fd */
-	--color-primary-400: 167 139 250; /* ⬅ #a78bfa */
-	--color-primary-500: 139 92 246; /* ⬅ #8b5cf6 */
-	--color-primary-600: 124 58 237; /* ⬅ #7c3aed */
-	--color-primary-700: 109 40 217; /* ⬅ #6d28d9 */
-	--color-primary-800: 91 33 182; /* ⬅ #5b21b6 */
-	--color-primary-900: 76 29 149; /* ⬅ #4c1d95 */
-	/* ~ accent (emerald | #10b981) ~ */
-	--color-accent-50: 236 253 245; /* ⬅ #ecfdf5 */
-	--color-accent-100: 209 250 229; /* ⬅ #d1fae5 */
-	--color-accent-200: 167 243 208; /* ⬅ #a7f3d0 */
-	--color-accent-300: 110 231 183; /* ⬅ #6ee7b7 */
-	--color-accent-400: 52 211 153; /* ⬅ #34d399 */
-	--color-accent-500: 16 185 129; /* ⬅ #10b981 */
-	--color-accent-600: 5 150 105; /* ⬅ #059669 */
-	--color-accent-700: 4 120 87; /* ⬅ #047857 */
-	--color-accent-800: 6 95 70; /* ⬅ #065f46 */
-	--color-accent-900: 6 78 59; /* ⬅ #064e3b */
-	/* ~ warning (stone | #78716c) ~ */
-	--color-warning-50: 250 250 249; /* ⬅ #fafaf9 */
-	--color-warning-100: 245 245 244; /* ⬅ #f5f5f4 */
-	--color-warning-200: 231 229 228; /* ⬅ #e7e5e4 */
-	--color-warning-300: 214 211 209; /* ⬅ #d6d3d1 */
-	--color-warning-400: 168 162 158; /* ⬅ #a8a29e */
-	--color-warning-500: 120 113 108; /* ⬅ #78716c */
-	--color-warning-600: 87 83 78; /* ⬅ #57534e */
-	--color-warning-700: 68 64 60; /* ⬅ #44403c */
-	--color-warning-800: 41 37 36; /* ⬅ #292524 */
-	--color-warning-900: 28 25 23; /* ⬅ #1c1917 */
-	/* ~ tertiary (red | #ef4444) ~ */
-	--color-tertiary-50: 254 242 242; /* ⬅ #fef2f2 */
-	--color-tertiary-100: 254 226 226; /* ⬅ #fee2e2 */
-	--color-tertiary-200: 254 202 202; /* ⬅ #fecaca */
-	--color-tertiary-300: 252 165 165; /* ⬅ #fca5a5 */
-	--color-tertiary-400: 248 113 113; /* ⬅ #f87171 */
-	--color-tertiary-500: 239 68 68; /* ⬅ #ef4444 */
-	--color-tertiary-600: 220 38 38; /* ⬅ #dc2626 */
-	--color-tertiary-700: 185 28 28; /* ⬅ #b91c1c */
-	--color-tertiary-800: 153 27 27; /* ⬅ #991b1b */
-	--color-tertiary-900: 127 29 29; /* ⬅ #7f1d1d */
-	/* ~ surface (violet | #8b5cf6) ~ */
-	--color-surface-50: 245 243 255; /* ⬅ #f5f3ff */
-	--color-surface-100: 237 233 254; /* ⬅ #ede9fe */
-	--color-surface-200: 221 214 254; /* ⬅ #ddd6fe */
-	--color-surface-300: 196 181 253; /* ⬅ #c4b5fd */
-	--color-surface-400: 167 139 250; /* ⬅ #a78bfa */
-	--color-surface-500: 139 92 246; /* ⬅ #8b5cf6 */
-	--color-surface-600: 124 58 237; /* ⬅ #7c3aed */
-	--color-surface-700: 109 40 217; /* ⬅ #6d28d9 */
-	--color-surface-800: 91 33 182; /* ⬅ #5b21b6 */
-	--color-surface-900: 76 29 149; /* ⬅ #4c1d95 */
+	/* =~= Hamlindigo theme, made by rcgy for the Skeleton community. Go watch Better Call Saul.  =~= */
+	/* =~= Theme Styles =~= */
+	--theme-border-base: 2px;
+	--theme-font-family-heading: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+		'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+	--theme-font-family-base: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+		'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+	--theme-font-color-base: 0 0 0;
+	--theme-font-color-dark: 255 255 255;
+	--theme-rounded-base: 0px;
+	--theme-rounded-container: 0px;
+	/* =~= Theme Colors | Hex =~= */
+	/* primary | #576994 */
+	--color-primary-50: 249 249 251; /* ⬅ #f9f9fb */
+	--color-primary-100: 239 241 246; /* ⬅ #eff1f6 */
+	--color-primary-200: 223 227 236; /* ⬅ #dfe3ec */
+	--color-primary-300: 197 204 221; /* ⬅ #c5ccdd */
+	--color-primary-400: 139 154 187; /* ⬅ #8b9abb */
+	--color-primary-500: 87 105 148; /* ⬅ #576994 */
+	--color-primary-600: 62 75 106; /* ⬅ #3e4b6a */
+	--color-primary-700: 45 55 77; /* ⬅ #2d374d */
+	--color-primary-800: 26 32 45; /* ⬅ #1a202d */
+	--color-primary-900: 13 16 22; /* ⬅ #0d1016 */
+	/* accent | #a58945 */
+	--color-accent-50: 252 251 248; /* ⬅ #fcfbf8 */
+	--color-accent-100: 247 244 237; /* ⬅ #f7f4ed */
+	--color-accent-200: 240 234 219; /* ⬅ #f0eadb */
+	--color-accent-300: 228 217 190; /* ⬅ #e4d9be */
+	--color-accent-400: 201 178 126; /* ⬅ #c9b27e */
+	--color-accent-500: 165 137 69; /* ⬅ #a58945 */
+	--color-accent-600: 119 98 50; /* ⬅ #776232 */
+	--color-accent-700: 86 71 36; /* ⬅ #564724 */
+	--color-accent-800: 50 42 21; /* ⬅ #322a15 */
+	--color-accent-900: 25 21 11; /* ⬅ #19150b */
+	/* ternary | #2254c9 */
+	--color-ternary-50: 246 248 254; /* ⬅ #f6f8fe */
+	--color-ternary-100: 233 239 251; /* ⬅ #e9effb */
+	--color-ternary-200: 211 222 248; /* ⬅ #d3def8 */
+	--color-ternary-300: 177 196 242; /* ⬅ #b1c4f2 */
+	--color-ternary-400: 98 137 228; /* ⬅ #6289e4 */
+	--color-ternary-500: 34 84 201; /* ⬅ #2254c9 */
+	--color-ternary-600: 24 60 144; /* ⬅ #183c90 */
+	--color-ternary-700: 18 44 105; /* ⬅ #122c69 */
+	--color-ternary-800: 10 26 61; /* ⬅ #0a1a3d */
+	--color-ternary-900: 5 13 31; /* ⬅ #050d1f */
+	/* warning | #e00b27 */
+	--color-warning-50: 255 245 246; /* ⬅ #fff5f6 */
+	--color-warning-100: 254 231 234; /* ⬅ #fee7ea */
+	--color-warning-200: 253 206 212; /* ⬅ #fdced4 */
+	--color-warning-300: 251 167 178; /* ⬅ #fba7b2 */
+	--color-warning-400: 247 80 102; /* ⬅ #f75066 */
+	--color-warning-500: 224 11 39; /* ⬅ #e00b27 */
+	--color-warning-600: 161 8 28; /* ⬅ #a1081c */
+	--color-warning-700: 117 6 20; /* ⬅ #750614 */
+	--color-warning-800: 68 3 12; /* ⬅ #44030c */
+	--color-warning-900: 34 2 6; /* ⬅ #220206 */
+	/* surface | #586b93 */
+	--color-surface-50: 245 247 249;
+	--color-surface-100: 232 235 242;
+	--color-surface-200: 207 213 227;
+	--color-surface-300: 181 190 212;
+	--color-surface-400: 146 159 191;
+	--color-surface-500: 98 118 163; /* #6276A3 */
+	--color-surface-600: 92 112 158;
+	--color-surface-700: 83 100 141;
+	--color-surface-800: 73 89 125;
+	--color-surface-900: 66 80 113;
 }
