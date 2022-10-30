@@ -33,6 +33,10 @@
 	import vintage from '$lib/themes/theme-vintage.css?inline';
 	import sahara from '$lib/themes/theme-sahara.css?inline';
 	import seasonal from '$lib/themes/theme-seasonal.css?inline';
+	import hamlindigo from '$lib/themes/theme-hamlindigo.css?inline';
+	import goldNouveau from '$lib/themes/theme-gold-nouveau.css?inline';
+	import crimson from '$lib/themes/theme-crimson.css?inline';
+	import test from '$lib/themes/theme-test.css?inline';
 
 	// Default Theme, injected immediately:
 	import skeleton from '$lib/themes/theme-skeleton.css';
@@ -42,7 +46,7 @@
 	import '../app.postcss';
 
 	// List of Themes
-	const themes: any = { skeleton, rocket, modern, seafoam, vintage, sahara, seasonal };
+	const themes: any = { skeleton, rocket, modern, seafoam, vintage, sahara, seasonal, hamlindigo, goldNouveau, crimson, test };
 
 	// Set body `data-theme` based on current theme status
 	storeTheme.subscribe(setBodyThemeAttribute);

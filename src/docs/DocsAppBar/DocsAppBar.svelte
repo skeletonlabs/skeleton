@@ -112,7 +112,7 @@
 					<LightSwitch origin="tr" />
 				</section>
 				<hr>
-				<nav class="list-nav p-4 max-h-70 overflow-y-auto">
+				<nav class="list-nav p-4 max-h-64 overflow-y-auto">
 					<ul>
 						<li class="option" class:!bg-primary-500={$storeTheme === 'skeleton'} on:click={() => { storeTheme.set('skeleton') }} on:keypress> 
 							<span>💀</span>
@@ -138,6 +138,22 @@
 							<span>🏜️</span>
 							<span>Sahara</span>
 						</li>
+						<li class="option" class:!bg-primary-500={$storeTheme === 'hamlindigo'} on:click={() => { storeTheme.set('hamlindigo') }} on:keypress>
+							<span>👔</span>
+							<span>Hamlindigo</span>
+						</li>
+						<li class="option" class:!bg-primary-500={$storeTheme === 'goldNouveau'} on:click={() => { storeTheme.set('goldNouveau') }} on:keypress>
+							<span>💫</span>
+							<span>Gold Nouveau</span>
+						</li>
+						<li class="option" class:!bg-primary-500={$storeTheme === 'crimson'} on:click={() => { storeTheme.set('crimson') }} on:keypress>
+							<span>⭕</span>
+							<span>Crimson</span>
+						</li>
+						<!-- <li class="option" class:!bg-primary-500={$storeTheme === 'test'} on:click={() => { storeTheme.set('test') }} on:keypress>
+							<span>🚧</span>
+							<span>Test</span>
+						</li> -->
 						<!-- <li class="option" class:!bg-primary-500={$storeTheme === 'seasonal'} on:click={() => { storeTheme.set('seasonal') }} on:keypress>
 							<span>🎃</span>
 							<span>Seasonal</span>
