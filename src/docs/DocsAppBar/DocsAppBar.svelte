@@ -1,6 +1,10 @@
 <script lang="ts">
 	// @ts-ignore
-	const pkg = __PACKAGE__;
+	// const pkg = __PACKAGE__;
+
+	import { goto } from '$app/navigation';
+
+	import { menuNavLinks } from '$docs/DocsNavigation/links';
 
 	// Docs
 	import DocsLogoFull from '$docs/DocsLogo/DocsLogoFull.svelte';
@@ -17,11 +21,42 @@
 	// Stores
 	import { storeTheme, storeMobileDrawer } from '$docs/stores';
 
+	// Local
+	let elemSearch: HTMLInputElement;
+	let autocompleteValues = menuNavLinks.map((linkSet: any) => linkSet.list).flat();
+
 	// Drawer Handler
 	function drawerOpen(): void {
 		storeMobileDrawer.set(true);
 	}
+
+	// AutoComplete
+	function navigateToResult(e: any): void {
+		if (e.target.value.includes('/')) {
+			goto(e.target.value);
+			elemSearch.value = '';
+		}
+	}
+
+	// Keyboard Shortcut (⌘+K) to Focus Search
+	let pressedKeys: string[] = [];
+	function onWindowKeydown(e: any): void {
+		if (e.code === 'MetaLeft' || e.code === 'KeyK') {
+			// Set pressed keys
+			pressedKeys = [...pressedKeys, e.code];
+			// If both keys pressed, focus input
+			if (pressedKeys.includes('MetaLeft') && pressedKeys.includes('KeyK')) {
+				elemSearch.focus();
+			}
+		}
+	}
+	function onWindowKeyup(e: any): void {
+		pressedKeys = [];
+	}
 </script>
+
+<!-- NOTE: using stopPropagation to override Chrome for Windows search shortcut -->
+<svelte:window on:keydown|stopPropagation={onWindowKeydown} on:keyup={onWindowKeyup} />
 
 <AppBar>
 	<!-- Branding -->
@@ -36,13 +71,20 @@
 			<span class="inline sm:hidden"><DocsLogoIcon /></span>
 		</a>
 		<!-- Badge -->
-		<a class="hidden sm:block" href="https://github.com/Brain-Bones/skeleton/releases" target="_blank" rel="noreferrer">
+		<!-- <a class="hidden sm:block" href="https://github.com/Brain-Bones/skeleton/releases" target="_blank" rel="noreferrer">
 			<span class="badge badge-filled-surface">v{pkg.version}</span>
-		</a>
-		<!-- <div class="hidden md:inline">
-			<input type="search" placeholder="Search..." />
-		</div> -->
+		</a> -->
 	</svelte:fragment>
+
+	<!-- Search -->
+	<div class="hidden md:inline">
+		<input class="!w-[175px]" bind:this={elemSearch} type="search" placeholder="Search..." list="searchResults" on:input={navigateToResult} />
+		<datalist id="searchResults">
+			{#each autocompleteValues as { href, label }}
+				<option value={href}>{label}</option>
+			{/each}
+		</datalist>
+	</div>
 
 	<!-- Navigation -->
 	<svelte:fragment slot="trail">
@@ -183,3 +225,9 @@
 		</section>
 	</svelte:fragment>
 </AppBar>
+
+<style>
+	input {
+		-webkit-appearance: none;
+	}
+</style>
