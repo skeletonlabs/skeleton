@@ -142,6 +142,10 @@
 							<span>👔</span>
 							<span>Hamlindigo</span>
 						</li>
+						<li class="option" class:!bg-primary-500={$storeTheme === 'goldNouveau'} on:click={() => { storeTheme.set('goldNouveau') }} on:keypress>
+							<span>💫</span>
+							<span>Gold Nouveau</span>
+						</li>
 						<!-- <li class="option" class:!bg-primary-500={$storeTheme === 'test'} on:click={() => { storeTheme.set('test') }} on:keypress>
 							<span>🚧</span>
 							<span>Test</span>
