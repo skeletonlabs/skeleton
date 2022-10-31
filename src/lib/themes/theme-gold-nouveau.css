@@ -130,3 +130,13 @@
 	--color-surface-800: 35 22 49; /* ⬅ #231631 */
 	--color-surface-900: 18 11 24; /* ⬅ #120b18 */
 }
+
+/* Headings */
+[data-theme='skeleton'] h1,
+[data-theme='skeleton'] h2,
+[data-theme='skeleton'] h3,
+[data-theme='skeleton'] h4,
+[data-theme='skeleton'] h5,
+[data-theme='skeleton'] h6 {
+	font-weight: bold;
+}
