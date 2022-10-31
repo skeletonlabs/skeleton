@@ -6,9 +6,8 @@
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	// Components
-	import { DataTable } from '@brainandbones/skeleton';
+	import { DataTable, Tab, TabGroup } from '@brainandbones/skeleton';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
-	import { Tab, TabGroup } from '@brainandbones/skeleton';
 
 	// Utilities
 	import { toastStore, type ToastMessage } from '@brainandbones/skeleton';

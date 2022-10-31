@@ -10,8 +10,7 @@
 	import DocsLogoIcon from '$docs/DocsLogo/DocsLogoIcon.svelte';
 
 	// Components
-	import { AppBar } from '@brainandbones/skeleton';
-	import { Divider } from '@brainandbones/skeleton';
+	import { AppBar, Divider } from '@brainandbones/skeleton';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
 	// Utilities
