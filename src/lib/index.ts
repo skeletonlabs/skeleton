@@ -5,6 +5,8 @@
 export { default as AccordionGroup } from './components/Accordion/AccordionGroup.svelte';
 export { default as AccordionItem } from './components/Accordion/AccordionItem.svelte';
 export { default as AppBar } from './components/AppBar/AppBar.svelte';
+export { default as AppRail } from './components/AppRail/AppRail.svelte';
+export { default as AppRailTile } from './components/AppRail/AppRailTile.svelte';
 export { default as AppShell } from './components/AppShell/AppShell.svelte';
 export { default as Alert } from './components/Alert/Alert.svelte';
 export { default as Avatar } from './components/Avatar/Avatar.svelte';
@@ -78,3 +80,6 @@ export { default as NoirLight } from './actions/Filters/svg-filters/NoirLight.sv
 export { default as Rustic } from './actions/Filters/svg-filters/Rustic.svelte';
 export { default as Summer84 } from './actions/Filters/svg-filters/Summer84.svelte';
 export { default as XPro } from './actions/Filters/svg-filters/XPro.svelte';
+
+// DataTableService
+export { sort, sortAsc, sortDesc, mapTableSource } from './components/Table/DataTableService';
