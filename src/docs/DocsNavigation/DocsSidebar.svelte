@@ -37,6 +37,7 @@
 	// Lifecycle
 	page.subscribe((p) => {
 		let pathMatch: string = p.url.pathname.split('/')[1];
+		if (!pathMatch) return;
 		if (['components', 'actions'].includes(pathMatch)) pathMatch = 'svelte';
 		setNavCategory(pathMatch);
 	});
