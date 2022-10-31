@@ -2,7 +2,7 @@
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import { CodeBlock } from '@brainandbones/skeleton';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -30,7 +30,7 @@
 <h4>Skeleton H4</h4>
 <h5>Skeleton H5</h5>
 <h6>Skeleton H6</h6>
-        `}
+`}
 			/>
 			<div class="card card-body space-y-6">
 				<h1>Skeleton H1</h1>

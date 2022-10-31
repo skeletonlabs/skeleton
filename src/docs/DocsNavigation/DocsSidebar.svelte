@@ -5,8 +5,7 @@
 	import { storeCurrentUrl, storeMobileDrawer } from '$docs/stores';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	import { menuNavLinks } from './links';
-	import AppRail from '$lib/components/AppRail/AppRail.svelte';
-	import AppRailTile from '$lib/components/AppRail/AppRailTile.svelte';
+	import { AppRail, AppRailTile } from '@brainandbones/skeleton';
 
 	// Props
 	export let embedded: boolean = false;

@@ -2,8 +2,7 @@
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
-	import ProgressRadial from '$lib/components/ProgressRadial/ProgressRadial.svelte';
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import { ProgressRadial, CodeBlock } from '@brainandbones/skeleton';
 
 	// @ts-ignore
 	import sveldProgressRadial from '$lib/components/ProgressRadial/ProgressRadial.svelte?raw&sveld';

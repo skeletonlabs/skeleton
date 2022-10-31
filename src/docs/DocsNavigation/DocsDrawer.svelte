@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Drawer from '$lib/utilities/Drawer/Drawer.svelte';
+	import { Drawer } from '@brainandbones/skeleton';
 	import DocsSidebar from './DocsSidebar.svelte';
 	import { storeMobileDrawer } from '$docs/stores';
 </script>

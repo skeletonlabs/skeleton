@@ -15,9 +15,7 @@
 	import { storePreview } from '$docs/DocsThemer/stores';
 
 	// Components & Utilities
-	import AppShell from '$lib/components/AppShell/AppShell.svelte';
-	import Dialog from '$lib/utilities/Dialog/Dialog.svelte';
-	import Toast from '$lib/utilities/Toast/Toast.svelte';
+	import { AppShell, Dialog, Toast } from '@brainandbones/skeleton';
 
 	// Docs Components
 	import DocsAppBar from '$docs/DocsAppBar/DocsAppBar.svelte';

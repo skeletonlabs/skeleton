@@ -2,8 +2,7 @@
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
-	import Avatar from '$lib/components/Avatar/Avatar.svelte';
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import { Avatar, CodeBlock } from '@brainandbones/skeleton';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {

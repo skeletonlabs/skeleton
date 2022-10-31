@@ -2,11 +2,10 @@
 	import { storeFramework } from '$docs/stores';
 
 	// Components
-	import { DataTable, TabGroup, Tab } from '@brainandbones/skeleton';
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import { DataTable, TabGroup, Tab, CodeBlock } from '@brainandbones/skeleton';
 
 	// Stores
-	import { toastStore, type ToastMessage } from '$lib/utilities/Toast/stores';
+	import { toastStore, type ToastMessage } from '@brainandbones/skeleton';
 
 	// Presets
 	const presetUrl: string = 'https://github.com/Brain-Bones/skeleton/blob/master/src/themes';

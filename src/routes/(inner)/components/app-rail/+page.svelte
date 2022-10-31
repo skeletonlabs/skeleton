@@ -5,11 +5,8 @@
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	// Components
-	import AppRail from '$lib/components/AppRail/AppRail.svelte';
-	import AppRailTile from '$lib/components/AppRail/AppRailTile.svelte';
+	import { AppRail, AppRailTile, CodeBlock } from '@brainandbones/skeleton';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
-	// Utilities
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// @ts-ignore
 	import sveldAppRail from '$lib/components/AppRail/AppRail.svelte?raw&sveld';

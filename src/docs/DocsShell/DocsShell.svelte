@@ -6,13 +6,12 @@
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	// Components
-	import DataTable from '$lib/components/Table/DataTable.svelte';
+	import { DataTable } from '@brainandbones/skeleton';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
-	import Tab from '$lib/components/Tab/Tab.svelte';
-	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
+	import { Tab, TabGroup } from '@brainandbones/skeleton';
 
 	// Utilities
-	import { toastStore, type ToastMessage } from '$lib/utilities/Toast/stores';
+	import { toastStore, type ToastMessage } from '@brainandbones/skeleton';
 	import { sveldMapperProps, sveldMapperSlots, sveldeMapperEvents } from './sveldMapper';
 
 	// Props

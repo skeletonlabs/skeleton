@@ -2,8 +2,8 @@
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-	import { clipboard } from '$lib/actions/Clipboard/clipboard';
+	import { CodeBlock } from '@brainandbones/skeleton';
+	import { clipboard } from '@brainandbones/skeleton';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {

@@ -3,7 +3,7 @@
 	import DocsLogoIcon from '$docs/DocsLogo/DocsLogoIcon.svelte';
 
 	// Components
-	import Divider from '$lib/components/Divider/Divider.svelte';
+	import { Divider } from '@brainandbones/skeleton';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
 	// Base Classes

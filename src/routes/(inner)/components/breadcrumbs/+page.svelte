@@ -2,10 +2,8 @@
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
-	import Breadcrumb from '$lib/components/Breadcrumb/Breadcrumb.svelte';
-	import Crumb from '$lib/components/Breadcrumb/Crumb.svelte';
+	import { Breadcrumb, Crumb, CodeBlock } from '@brainandbones/skeleton';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// @ts-ignore
 	import sveldBreadcrumb from '$lib/components/Breadcrumb/Breadcrumb.svelte?raw&sveld';

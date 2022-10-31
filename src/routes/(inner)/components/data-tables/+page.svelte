@@ -4,11 +4,7 @@
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
-	import { mapTableSource } from '$lib/components/Table/DataTableService';
-	import DataTable from '$lib/components/Table/DataTable.svelte';
-	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
-	import Tab from '$lib/components/Tab/Tab.svelte';
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import { DataTable, TabGroup, Tab, CodeBlock, mapTableSource } from '@brainandbones/skeleton';
 
 	// @ts-ignore
 	import sveldDataTable from '$lib/components/Table/DataTable.svelte?raw&sveld';
@@ -262,7 +258,7 @@ let tablePromise: Promise<any> = getTableSource();`}
 				We've provided a utility service for remapping data from a object to an array. The first parameter is the keys, which also defines the order. The second parameter is the object you wish to
 				map.
 			</p>
-			<CodeBlock language="typescript" code={`import { mapTableSource } from '@brainandbones/skeleton/components/Table/DataTableService';`} />
+			<CodeBlock language="typescript" code={`import { mapTableSource } from '@brainandbones/skeleton';`} />
 			<CodeBlock
 				language="typescript"
 				code={`

@@ -4,9 +4,7 @@
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-	import ListBox from '$lib/components/ListBox/ListBox.svelte';
-	import ListBoxItem from '$lib/components/ListBox/ListBoxItem.svelte';
+	import { CodeBlock, ListBox, ListBoxItem } from '@brainandbones/skeleton';
 
 	// @ts-ignore
 	import sveldListBox from '$lib/components/ListBox/ListBox.svelte?raw&sveld';

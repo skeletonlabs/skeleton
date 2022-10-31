@@ -1,5 +1,5 @@
 <script>
-	import Avatar from '$lib/components/Avatar/Avatar.svelte';
+	import { Avatar } from '@brainandbones/skeleton';
 </script>
 
 <div class="page-container">

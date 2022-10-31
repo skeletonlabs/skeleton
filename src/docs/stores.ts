@@ -1,5 +1,5 @@
 import { writable, type Writable } from 'svelte/store';
-import { localStorageStore } from '$lib/utilities/LocalStorageStore/LocalStorageStore';
+import { localStorageStore } from '@brainandbones/skeleton';
 
 // Svelte Writable Stores ---
 

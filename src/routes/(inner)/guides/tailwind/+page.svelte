@@ -1,9 +1,7 @@
 <script lang="ts">
 	import { storeFramework } from '$docs/stores';
 	// Components
-	import Tab from '$lib/components/Tab/Tab.svelte';
-	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import { Tab, TabGroup, CodeBlock } from '@brainandbones/skeleton';
 </script>
 
 <div class="page-container">

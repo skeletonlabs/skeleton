@@ -3,7 +3,6 @@
 	// const pkg = __PACKAGE__;
 
 	import { goto } from '$app/navigation';
-
 	import { menuNavLinks } from '$docs/DocsNavigation/links';
 
 	// Docs
@@ -11,12 +10,12 @@
 	import DocsLogoIcon from '$docs/DocsLogo/DocsLogoIcon.svelte';
 
 	// Components
-	import AppBar from '$lib/components/AppBar/AppBar.svelte';
-	import Divider from '$lib/components/Divider/Divider.svelte';
+	import { AppBar } from '@brainandbones/skeleton';
+	import { Divider } from '@brainandbones/skeleton';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
+
 	// Utilities
-	import LightSwitch from '$lib/utilities/LightSwitch/LightSwitch.svelte';
-	import { menu } from '$lib/utilities/Menu/menu';
+	import { LightSwitch, menu } from '@brainandbones/skeleton';
 
 	// Stores
 	import { storeTheme, storeMobileDrawer } from '$docs/stores';

@@ -2,8 +2,7 @@
 	// Docs
 	import DocsLogoAnim from '$docs/DocsLogo/DocsLogoAnim.svelte';
 	// Components
-	import Alert from '$lib/components/Alert/Alert.svelte';
-	import Avatar from '$lib/components/Avatar/Avatar.svelte';
+	import { Alert, Avatar } from '@brainandbones/skeleton';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
 	// Fetch HTTP Data

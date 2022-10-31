@@ -2,9 +2,7 @@
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
-	import FileButton from '$lib/components/FileButton/FileButton.svelte';
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-
+	import { FileButton, CodeBlock } from '@brainandbones/skeleton';
 	// @ts-ignore
 	import sveldFileButton from '$lib/components/FileButton/FileButton.svelte?raw&sveld';
 

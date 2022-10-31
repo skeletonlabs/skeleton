@@ -2,8 +2,7 @@
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
-	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import { SlideToggle, CodeBlock } from '@brainandbones/skeleton';
 
 	// @ts-ignore
 	import sveldSlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte?raw&sveld';

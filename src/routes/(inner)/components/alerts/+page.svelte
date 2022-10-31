@@ -2,8 +2,7 @@
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
-	import Alert from '$lib/components/Alert/Alert.svelte';
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import { Alert, CodeBlock } from '@brainandbones/skeleton';
 
 	// @ts-ignore
 	import sveldAlert from '$lib/components/Alert/Alert.svelte?raw&sveld';

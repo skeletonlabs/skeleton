@@ -2,12 +2,7 @@
 	import { onDestroy } from 'svelte';
 
 	import Swatches from './Swatches.svelte';
-	import Alert from '$lib/components/Alert/Alert.svelte';
-	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
-	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
-	import LightSwitch from '$lib/utilities/LightSwitch/LightSwitch.svelte';
-	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import { Alert, RadioGroup, RadioItem, LightSwitch, SlideToggle, CodeBlock } from '@brainandbones/skeleton';
 
 	// Helpers
 	import { semanticNames, tailwindDefaultColors } from '$lib/tailwind/colors';

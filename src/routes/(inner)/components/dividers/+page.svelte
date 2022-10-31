@@ -4,10 +4,7 @@
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
-	import Divider from '$lib/components/Divider/Divider.svelte';
-	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
-	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import { Divider, RadioGroup, RadioItem, CodeBlock } from '@brainandbones/skeleton';
 
 	// @ts-ignore
 	import sveldDivider from '$lib/components/Divider/Divider.svelte?raw&sveld';

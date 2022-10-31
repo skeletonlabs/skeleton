@@ -2,10 +2,7 @@
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-	import ConicGradient from '$lib/components/ConicGradient/ConicGradient.svelte';
-
-	import type { ConicStop } from '$lib/components/ConicGradient/types';
+	import { CodeBlock, ConicGradient, type ConicStop } from '@brainandbones/skeleton';
 
 	// @ts-ignore
 	import sveldConicGradient from '$lib/components/ConicGradient/ConicGradient.svelte?raw&sveld';

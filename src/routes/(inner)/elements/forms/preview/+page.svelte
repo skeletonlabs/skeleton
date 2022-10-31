@@ -2,12 +2,7 @@
 	import { writable, type Writable } from 'svelte/store';
 
 	// Components
-	import Breadcrumb from '$lib/components/Breadcrumb/Breadcrumb.svelte';
-	import Crumb from '$lib/components/Breadcrumb/Crumb.svelte';
-	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
-	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
-	import RangeSlider from '$lib/components/RangeSlider/RangeSlider.svelte';
-	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
+	import { Breadcrumb, Crumb, RadioGroup, RadioItem, RangeSlider, SlideToggle } from '@brainandbones/skeleton';
 
 	// Local
 	const storeRadioGroup: Writable<string> = writable('a');

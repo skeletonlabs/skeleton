@@ -1,5 +1,5 @@
 import { get, type Writable } from 'svelte/store';
-import { localStorageStore } from '$lib/utilities/LocalStorageStore/LocalStorageStore';
+import { localStorageStore } from '@brainandbones/skeleton';
 import { genHexPalette, getTailwindColor } from './utils';
 import type { SemanticNames, TailwindColorObject } from '$lib/tailwind/colors';
 

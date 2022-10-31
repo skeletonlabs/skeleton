@@ -5,7 +5,7 @@
 	import { icons } from '$lib/components/SvgIcon/icons';
 
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import { CodeBlock } from '@brainandbones/skeleton';
 
 	// @ts-ignore
 	import sveldSvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte?raw&sveld';

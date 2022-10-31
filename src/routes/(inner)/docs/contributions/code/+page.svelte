@@ -1,7 +1,5 @@
 <script lang="ts">
-	import Breadcrumb from '$lib/components/Breadcrumb/Breadcrumb.svelte';
-	import Crumb from '$lib/components/Breadcrumb/Crumb.svelte';
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import { Breadcrumb, Crumb, CodeBlock } from '@brainandbones/skeleton';
 </script>
 
 <div class="page-container">

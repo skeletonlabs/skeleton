@@ -2,12 +2,7 @@
 	import { writable, type Writable } from 'svelte/store';
 
 	// Components
-	import Alert from '$lib/components/Alert/Alert.svelte';
-	import DataTable from '$lib/components/Table/DataTable.svelte';
-	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
-	import Tab from '$lib/components/Tab/Tab.svelte';
-	// Utilities
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import { Alert, CodeBlock, DataTable, TabGroup, Tab } from '@brainandbones/skeleton';
 
 	// Stores
 	export const storeStylesheets: Writable<string> = writable('simple');

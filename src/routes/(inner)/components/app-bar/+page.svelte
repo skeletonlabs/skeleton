@@ -2,9 +2,8 @@
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
-	import AppBar from '$lib/components/AppBar/AppBar.svelte';
+	import { AppBar, CodeBlock } from '@brainandbones/skeleton';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// @ts-ignore
 	import sveldAppBar from '$lib/components/AppBar/AppBar.svelte?raw&sveld';

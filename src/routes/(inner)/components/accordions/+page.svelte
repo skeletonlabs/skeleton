@@ -3,12 +3,10 @@
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	// Components
-	import AccordionGroup from '$lib/components/Accordion/AccordionGroup.svelte';
-	import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
-	import Avatar from '$lib/components/Avatar/Avatar.svelte';
+	import { AccordionGroup, AccordionItem, Avatar } from '@brainandbones/skeleton';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	// Utilities
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import { CodeBlock } from '@brainandbones/skeleton';
 
 	// @ts-ignore
 	import sveldAccordionGroup from '$lib/components/Accordion/AccordionGroup.svelte?raw&sveld';

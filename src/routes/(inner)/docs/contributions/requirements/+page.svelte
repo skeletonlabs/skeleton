@@ -1,9 +1,5 @@
 <script lang="ts">
-	import Alert from '$lib/components/Alert/Alert.svelte';
-	import Breadcrumb from '$lib/components/Breadcrumb/Breadcrumb.svelte';
-	import Crumb from '$lib/components/Breadcrumb/Crumb.svelte';
-	import DataTable from '$lib/components/Table/DataTable.svelte';
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import { Alert, Breadcrumb, Crumb, CodeBlock, DataTable } from '@brainandbones/skeleton';
 
 	// Tables
 	const tableProjectStructure: any = {

@@ -4,10 +4,7 @@
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
-	import Stepper from '$lib/components/Stepper/Stepper.svelte';
-	import Step from '$lib/components/Stepper/Step.svelte';
-	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import { Stepper, Step, SlideToggle, CodeBlock } from '@brainandbones/skeleton';
 
 	// @ts-ignore
 	import sveldStepper from '$lib/components/Stepper/Stepper.svelte?raw&sveld';

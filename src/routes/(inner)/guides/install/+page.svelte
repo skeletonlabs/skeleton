@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { storeFramework } from '$docs/stores';
-	import { Divider, TabGroup, Tab } from '@brainandbones/skeleton';
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import { Divider, TabGroup, Tab, CodeBlock } from '@brainandbones/skeleton';
 </script>
 
 <div class="page-container">

@@ -1,7 +1,5 @@
 <script lang="ts">
-	import Breadcrumb from '$lib/components/Breadcrumb/Breadcrumb.svelte';
-	import Crumb from '$lib/components/Breadcrumb/Crumb.svelte';
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import { Breadcrumb, Crumb, CodeBlock } from '@brainandbones/skeleton';
 </script>
 
 <div class="page-container">
@@ -55,20 +53,20 @@
 			language="html"
 			code={`
 <script>
-    import '@brainandbones/skeleton/themes/theme-skeleton.css';
-    import '@brainandbones/skeleton/styles/all.css';
-    import '../app.postcss';
+	import '@brainandbones/skeleton/themes/theme-skeleton.css';
+	import '@brainandbones/skeleton/styles/all.css';
+	import '../app.postcss';
 
-    import { AppShell, AppBar } from '@brainandbones/skeleton';
+	import { AppShell, AppBar } from '@brainandbones/skeleton';
 </script\>
 
 <AppShell>
-    <!-- Header -->
-    <svelte:fragment slot="header">(header)</svelte:fragment>
-    <!-- Sidebar -->
-    <svelte:fragment slot="sidebarLeft">(sidebar)</svelte:fragment>
-    <!-- Page Content Slot -->
-    <slot />
+	<!-- Header -->
+	<svelte:fragment slot="header">(header)</svelte:fragment>
+	<!-- Sidebar -->
+	<svelte:fragment slot="sidebarLeft">(sidebar)</svelte:fragment>
+	<!-- Page Content Slot -->
+	<slot />
 </AppShell>
 `}
 		/>

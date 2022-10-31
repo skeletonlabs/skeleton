@@ -2,9 +2,7 @@
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
-	import Paginator from '$lib/components/Paginator/Paginator.svelte';
-	import DataTable from '$lib/components/Table/DataTable.svelte';
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import { Paginator, DataTable, CodeBlock } from '@brainandbones/skeleton';
 
 	// @ts-ignore
 	import sveldPaginator from '$lib/components/Paginator/Paginator.svelte?raw&sveld';

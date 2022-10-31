@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { Divider } from '@brainandbones/skeleton';
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-	import AccordionGroup from '$lib/components/Accordion/AccordionGroup.svelte';
-	import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
+	import { AccordionGroup, AccordionItem, CodeBlock } from '@brainandbones/skeleton';
 </script>
 
 <div class="page-container">

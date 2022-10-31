@@ -2,8 +2,7 @@
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
-	import FileDropzone from '$lib/components/FileDropzone/FileDropzone.svelte';
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import { FileDropzone, CodeBlock } from '@brainandbones/skeleton';
 
 	// @ts-ignore
 	import sveldFileDropzone from '$lib/components/FileDropzone/FileDropzone.svelte?raw&sveld';

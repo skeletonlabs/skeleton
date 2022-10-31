@@ -4,12 +4,9 @@
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
-	import { dialogStore, type DialogAlert, type DialogConfirm, type DialogPrompt } from '$lib/utilities/Dialog/stores';
+	import { dialogStore, type DialogAlert, type DialogConfirm, type DialogPrompt } from '@brainandbones/skeleton';
 
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-	import GradientHeading from '$lib/components/GradientHeading/GradientHeading.svelte';
-	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
-	import Tab from '$lib/components/Tab/Tab.svelte';
+	import { CodeBlock, GradientHeading, TabGroup, Tab } from '@brainandbones/skeleton';
 
 	// @ts-ignore
 	import sveldDrawer from '$lib/utilities/Drawer/Drawer.svelte?raw&sveld';
