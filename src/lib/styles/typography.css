@@ -69,7 +69,7 @@ kbd:not(.unstyled) {
 pre:not(.unstyled):not(.code-block pre) {
 	@apply font-mono text-base bg-[#141517] text-white p-4 whitespace-pre-wrap overflow-x-auto;
 	/* Theme: Rounded */
-	@apply rounded-token;
+	@apply rounded-container-token;
 }
 
 code:not(.unstyled):not(.code-block code) {
