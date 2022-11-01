@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { onDestroy } from 'svelte';
-
 	import Swatches from './Swatches.svelte';
 	import Alert from '$lib/components/Alert/Alert.svelte';
 	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
