@@ -4,16 +4,26 @@
 
 <script lang="ts">
 	// Props
+	/** Pass canned svg name. Slot value overrides this.*/
 	export let name: string = 'image';
+	/** Native X attribute for the svg element.*/
 	export let x: string = '0px';
+	/** Native Y attribute for the svg element.*/
 	export let y: string = '0px';
+	/** Native viewBox attribute for the svg element.*/
 	export let viewBox: string = icons[name].viewBox || '0 0 512 512';
+
 	// Props (Styles)
+	/** Provide classes to set the SVG fill color.*/
 	export let fill: string = 'fill-token';
+	/** Provide classes to set the width color.*/
 	export let width: string = 'w-5';
+	/** Provide classes to set the height color.*/
 	export let height: string = 'w-5';
+
 	// A11y
-	export let title: string | undefined = undefined;
+	/** Set the title element value embedded within the SVG.*/
+	export let title: string = '';
 
 	// Base Classes
 	const cBase: string = 'inline-block outline-none';

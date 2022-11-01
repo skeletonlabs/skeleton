@@ -1,11 +1,14 @@
 <script lang="ts">
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import ConicGradient from '$lib/components/ConicGradient/ConicGradient.svelte';
 
 	import type { ConicStop } from '$lib/components/ConicGradient/types';
+
+	// @ts-ignore
+	import sveldConicGradient from '$lib/components/ConicGradient/ConicGradient.svelte?raw&sveld';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -14,41 +17,9 @@
 		description: 'Create conic gradient data visualizations for pie charts, loading spinners, and more.',
 		imports: ['ConicGradient'],
 		types: ['ConicStop'],
-		source: 'components/ConicGradient'
+		source: 'components/ConicGradient',
+		components: [{ sveld: sveldConicGradient }]
 	};
-	const properties: DocsShellTable[] = [
-		{
-			headings: ['Prop', 'Type', 'Default', 'Required', 'Description'],
-			source: [
-				['<code>stops</code>', 'ConicStop[]', '(100% grey circle)', '&check;', 'Provide a data set of color stops and labels.'],
-				['<code>legend</code>', 'boolean', 'false', '-', 'Allows for automatic generation of a legend below the conic gradient.'],
-				['<code>spin</code>', 'boolean', 'false', '-', 'When enabled, the conic gradient will spin.'],
-				['<code>width</code>', 'string', 'w-full', '-', 'Provided classes to style the conic gradient width.'],
-				['<code>hover</code>', 'string', 'bg-hover-token', '-', 'Provided classes to style the legend hover effect.']
-			]
-		}
-	];
-	const classes: DocsShellTable[] = [
-		{
-			headings: ['Selector', 'Description'],
-			source: [
-				['<code>.conic-gradient</code>', 'The parent element.'],
-				['<code>.conic-caption</code>', 'The figcaption element.'],
-				['<code>.concic-cone</code>', 'The chart element.'],
-				['<code>.conic-list</code>', 'The legend list.'],
-				['<code>.conic-item</code>', 'Legend list items.'],
-				['<code>.conic-swatch</code>', 'Legend swatch elements.'],
-				['<code>.conic-label</code>', 'Legend label elements.'],
-				['<code>.conic-value</code>', 'Legend value elements.']
-			]
-		}
-	];
-	const slots: DocsShellTable[] = [
-		{
-			headings: ['Name', 'Description'],
-			source: [['<code>default</code>', 'Provide a semantic heading to represent the figure caption.']]
-		}
-	];
 
 	// Color Stops
 	let stopsTailwind: ConicStop[] = [
@@ -58,16 +29,16 @@
 	];
 	const stopsVars: ConicStop[] = [
 		{ label: 'Primary', color: 'rgb(var(--color-primary-500))', start: 0, end: 33 },
-		{ label: 'Acccent', color: 'rgb(var(--color-warning-500))', start: 33, end: 66 },
+		{ label: 'Accent', color: 'rgb(var(--color-warning-500))', start: 33, end: 66 },
 		{ label: 'Warning', color: 'rgb(var(--color-accent-500))', start: 66, end: 100 }
 	];
 	const stopsSpinner: ConicStop[] = [
 		{ color: 'transparent', start: 0, end: 25 },
-		{ color: 'rgba(128,128,128,0.5)', start: 75, end: 100 }
+		{ color: 'rgb(var(--color-surface-500))', start: 75, end: 100 }
 	];
 </script>
 
-<DocsShell {settings} {properties} {classes} {slots}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-4 lg:space-y-0 lg:grid lg:grid-cols-3 gap-5">
@@ -92,7 +63,7 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<div class="space-y-4">
-			<p>Provde one or more color stops that start at <em>0%</em> and end at <em>100%</em>. The data set below will create a half red/green conic gradient.</p>
+			<p>Provide one or more color stops that start at <em>0%</em> and end at <em>100%</em>. The data set below will create a half red/green conic gradient.</p>
 			<CodeBlock
 				language="ts"
 				code={`
@@ -129,7 +100,7 @@ const conicStops: ConicStop[] = [
 				code={`
 const conicStops: ConicStop[] = [
 	{ label: 'Primary', color: 'rgb(var(--color-primary-500))', start: 0, end: 33 },
-	{ label: 'Acccent', color: 'rgb(var(--color-warning-500))', start: 33, end: 66 },
+	{ label: 'Accent', color: 'rgb(var(--color-warning-500))', start: 33, end: 66 },
 	{ label: 'Warning', color: 'rgb(var(--color-accent-500))', start: 66, end: 100 }
 ];`}
 			/>
@@ -152,7 +123,8 @@ const conicStops: ConicStop[] = [
 		<div class="space-y-4">
 			<h3>Via Custom Colors</h3>
 			<p>
-				You can provide <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value" target="_blank">standard CSS color values</a> as a string, including: color names, hex, rgba, HSL, or similar.
+				You can provide <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value" target="_blank" rel="noreferrer">standard CSS color values</a> as a string, including: color names, hex, rgba,
+				HSL, or similar.
 			</p>
 			<CodeBlock
 				language="ts"

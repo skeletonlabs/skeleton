@@ -20,7 +20,7 @@ h6 {
 }
 
 h1 {
-	@apply text-3xl md:text-4xl;
+	@apply text-3xl md:text-5xl;
 }
 h2 {
 	@apply text-2xl md:text-3xl;
@@ -46,8 +46,9 @@ p:not(.unstyled) {
 	@apply text-token;
 }
 
+/* FIXME: double :not(.btn) required, not sure why, perhaps a bug? */
 .link,
-a:not(.unstyled):not(.btn-icon):not(.btn):not(.app-bar a):not(.logo-item):not(.card):not(.list-nav a) {
+a:not(.unstyled):not(.btn-icon):not(.btn):not(.app-bar a):not(.logo-item):not(.card):not(.list-nav a):not(.btn) {
 	@apply text-primary-600 dark:text-primary-400 underline underline-offset-4 decoration-dotted decoration-primary-500/20 hover:decoration-primary-500;
 }
 

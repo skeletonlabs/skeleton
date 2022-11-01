@@ -32,7 +32,10 @@
 	import seafoam from '$lib/themes/theme-seafoam.css?inline';
 	import vintage from '$lib/themes/theme-vintage.css?inline';
 	import sahara from '$lib/themes/theme-sahara.css?inline';
-	import halloween from '$lib/themes/theme-halloween.css?inline'; // temporary
+	import hamlindigo from '$lib/themes/theme-hamlindigo.css?inline';
+	import goldNouveau from '$lib/themes/theme-gold-nouveau.css?inline';
+	import crimson from '$lib/themes/theme-crimson.css?inline';
+	import seasonal from '$lib/themes/theme-seasonal.css?inline';
 
 	// Default Theme, injected immediately:
 	import skeleton from '$lib/themes/theme-skeleton.css';
@@ -42,7 +45,7 @@
 	import '../app.postcss';
 
 	// List of Themes
-	const themes: any = { skeleton, rocket, modern, seafoam, vintage, sahara, halloween };
+	const themes: any = { skeleton, rocket, modern, seafoam, vintage, sahara, hamlindigo, goldNouveau, crimson, seasonal };
 
 	// Set body `data-theme` based on current theme status
 	storeTheme.subscribe(setBodyThemeAttribute);
@@ -65,7 +68,7 @@
 	});
 
 	// Disable left sidebar on homepage
-	$: slotSidebarLeft = $page.url.pathname === '/' ? 'w-0' : 'bg-white/20 dark:bg-black/5 lg:w-auto';
+	$: slotSidebarLeft = $page.url.pathname === '/' ? 'w-0' : 'bg-black/5 lg:w-auto';
 </script>
 
 <svelte:head>
@@ -87,7 +90,7 @@
 
 	<!-- Sidebar (Left) -->
 	<svelte:fragment slot="sidebarLeft">
-		<DocsSidebar class="hidden lg:block w-[280px]" />
+		<DocsSidebar class="hidden lg:grid w-[360px] overflow-hidden" />
 	</svelte:fragment>
 
 	<!-- Page Content -->

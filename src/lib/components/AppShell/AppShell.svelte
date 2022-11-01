@@ -1,11 +1,27 @@
 <script lang="ts">
-	// Props (slots)
+	// Slots
+	/** @slot header - Insert fixed header content, such as the <a href='https://www.skeleton.dev/components/app-bar'>AppBar</a> component.
+	 * @slot sidebarLeft - Hidden when empty. Allows you to set fixed left sidebar content.
+	 * @slot sidebarRight - Hidden when empty. Allows you to set fixed right sidebar content.
+	 * @slot pageHeader - Insert content that resides above your page content. Great for global alerts.
+	 * @slot pageFooter - Insert content that resides below your page content. Recommended for most layouts.
+	 * @slot footer - Insert fixed footer content. Not recommended for most layouts.
+	 */
+
+	// Props (regions)
+	/** Classes to apply to the <code>header</code> slot container element */
 	export let slotHeader: string = '';
+	/** Classes to apply to the <code>sidebarLeft</code> slot container element */
 	export let slotSidebarLeft: string = 'w-auto';
+	/** Classes to apply to the <code>sidebarRight</code> slot container element */
 	export let slotSidebarRight: string = 'w-auto';
+	/** Classes to apply to the <code>pageHeader</code> slot container element */
 	export let slotPageHeader: string = '';
+	/** Classes to apply to the <code>pageContent</code> slot container element */
 	export let slotPageContent: string = '';
+	/** Classes to apply to the <code>pageFooter</code> slot container element */
 	export let slotPageFooter: string = '';
+	/** Classes to apply to the <code>footer</code> slot container element */
 	export let slotFooter: string = '';
 
 	// Base Classes

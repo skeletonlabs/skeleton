@@ -1,6 +1,6 @@
 <script lang="ts">
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import { menu } from '$lib/utilities/Menu/menu';
@@ -14,48 +14,19 @@
 		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/menus'],
 		source: 'utilities/Menu',
-		parameters: true
+		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/menu/',
+		parameters: [
+			['<code>menu</code>', 'string', '-', '-', 'Accepts the matching menu ID specified in the data attribute.'],
+			['<code>fixed</code>', 'boolean', '-', '-', 'When enabled, a fixed origin position can be specified via a menu class.'],
+			['<code>interactive</code>', 'boolean', '-', '-', 'When enabled, keeps the menu open while interacting with the contents.'],
+			['<code>state</code>', 'function', '-', '-', 'Provide a callback function for detecting menu open/closed state.']
+		],
+		keyboard: [
+			['<kbd>Enter</kbd>', 'When menu button in focus, toggles the menu open/close.'],
+			['<kbd>Space</kbd>', 'When menu button in focus, toggles the menu open/close.'],
+			['<kbd>Esc</kbd>', 'Close the open menu.']
+		]
 	};
-	const properties: DocsShellTable[] = [
-		{
-			label: 'Data Attribute',
-			headings: ['Name', 'Description'],
-			source: [['<code>data-menu="{menuId}"</code>', 'Provide a unique identifier for the menu element. This pairs with <code>menu</code> action param.']]
-		},
-		{
-			label: 'Action Parameters',
-			headings: ['Key', 'Type', 'Required', 'Description'],
-			source: [
-				['<code>menu</code>', 'string', '&check;', 'Accepts the matching menu ID specified in the data attribute.'],
-				['<code>fixed</code>', 'boolean', '-', 'When enabled, a fixed origin position can be specified via a menu class.'],
-				['<code>interactive</code>', 'boolean', '-', 'When enabled, keeps the menu open while interacting with the contents.'],
-				['<code>state</code>', 'function', '-', 'Provide a callback function for detecting menu open/closed state.']
-			]
-		}
-	];
-	const classes: DocsShellTable[] = [
-		{
-			headings: ['Class', 'Description'],
-			source: [
-				['<code>.menu-tl</code>', 'Specifies a fixed origin position of top-left.'],
-				['<code>.menu-tr</code>', 'Specifies a fixed origin position of top-right.'],
-				['<code>.menu-bl</code>', 'Specifies a fixed origin position of bottom-left.'],
-				['<code>.menu-br</code>', 'Specifies a fixed origin position of bottom-right.']
-			]
-		}
-	];
-	const a11y: DocsShellTable[] = [
-		{ aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/menu/' },
-		{
-			label: 'Keyboard Interactions',
-			headings: ['Keys', 'Description'],
-			source: [
-				['<kbd>Enter</kbd>', 'When menu button in focus, toggles the menu open/close.'],
-				['<kbd>Space</kbd>', 'When menu button in focus, toggles the menu open/close.'],
-				['<kbd>Esc</kbd>', 'Close the open menu.']
-			]
-		}
-	];
 
 	// Local
 	const exampleLink: string = '/utilities/menus';
@@ -65,13 +36,13 @@
 	}
 </script>
 
-<DocsShell {settings} {properties} {classes} {a11y}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="card card-body flex flex-col lg:flex-row justify-center items-center space-y-4 lg:space-y-0 lg:space-x-4">
 			<!-- Dropdown 1 -->
 			<span class="relative">
-				<button class="btn btn-ghost" use:menu={{ menu: 'basic' }}>Basic</button>
+				<button class="btn btn-ghost-surface" use:menu={{ menu: 'basic' }}>Basic</button>
 				<!-- on:toggled={eventLogger} -->
 				<div class="card card-body w-64 shadow-xl" data-menu="basic">
 					<p>This menu uses default settings. The position will auto-update depending on the trigger's page location.</p>
@@ -79,21 +50,21 @@
 			</span>
 			<!-- Dropdown 2 -->
 			<span class="relative">
-				<button class="btn btn-ghost" use:menu={{ menu: 'interactive', interactive: true }}>Interactive</button>
+				<button class="btn btn-ghost-surface" use:menu={{ menu: 'interactive', interactive: true }}>Interactive</button>
 				<div class="menu-tl card card-body w-64 shadow-xl" data-menu="interactive">
 					<p>This menu will not close when clicking within the menu body due to <code>interactive: true</code>.</p>
 				</div>
 			</span>
 			<!-- Dropdown 3 -->
 			<span class="relative">
-				<button class="btn btn-ghost" use:menu={{ menu: 'fixed', fixed: true }}>Fixed</button>
+				<button class="btn btn-ghost-surface" use:menu={{ menu: 'fixed', fixed: true }}>Fixed</button>
 				<div class="menu-tl card card-body w-64 shadow-xl" data-menu="fixed">
 					<p>This menus is fixed to the top-right origin point due to <code>fixed: true</code> and <code>.menu-tl</code>.</p>
 				</div>
 			</span>
 			<!-- Dropdown 4 (note: don't add .menu-container here) -->
 			<span>
-				<button class="btn btn-ghost" use:menu={{ menu: 'position', fixed: true }}>Position</button>
+				<button class="btn btn-ghost-surface" use:menu={{ menu: 'position', fixed: true }}>Position</button>
 				<div class="absolute top-2 right-2 card p-4 w-64 shadow-xl !bg-primary-500" data-menu="position">
 					<p>This menu is arbitrarily positioned in the top-right corner of the page. We've made it a bright color to catch you attention.</p>
 				</div>
@@ -101,7 +72,7 @@
 			<!-- Dropdown 5 -->
 			<!-- prettier-ignore -->
 			<span class="relative">
-				<button class="btn btn-ghost" use:menu={{ menu: 'navigation' }}>Navigation</button>
+				<button class="btn btn-ghost-surface" use:menu={{ menu: 'navigation' }}>Navigation</button>
 				<nav class="list-nav card p-4 w-40 shadow-xl" data-menu="navigation">
 					<ul>
 						<li><a href={exampleLink} on:click={()=>{log(1)}}>Home</a></li>

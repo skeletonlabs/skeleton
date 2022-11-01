@@ -1,6 +1,6 @@
 <script lang="ts">
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	import Avatar from '$lib/components/Avatar/Avatar.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
@@ -12,20 +12,15 @@
 		description: 'Provides a robust set of badge styles',
 		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/badges'],
-		source: 'styles/elements/badges.css'
+		source: 'styles/elements/badges.css',
+		classes: [
+			['<code>badge</code>', '-', 'Provides the standard badge style.'],
+			['<code>badge-icon</code>', '-', 'Provides the icon badge style.']
+		]
 	};
-	const classes: DocsShellTable[] = [
-		{
-			headings: ['Class', 'Description'],
-			source: [
-				['<code>badge</code>', 'Provides the standard badge style.'],
-				['<code>badge-icon</code>', 'Provides the icon badge style.']
-			]
-		}
-	];
 </script>
 
-<DocsShell {settings} {classes}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 lg:grid-cols-3 gap-4">
@@ -43,7 +38,7 @@
 					<span>Skeleton</span>
 					<span>💀</span>
 				</span>
-				<span class="badge bg-ternary-500 text-white">
+				<span class="badge bg-tertiary-500 text-white">
 					<span>&hearts;</span>
 					<span>Favorite</span>
 				</span>
@@ -62,14 +57,14 @@
 			<div class="card card-body !space-x-6">
 				<div class="relative inline-block">
 					<span class="badge bg-primary-500 text-white absolute -top-3 -right-4 z-10">50k</span>
-					<button class="btn btn-sm btn-ghost">Button</button>
+					<button class="btn btn-sm btn-ghost-surface">Button</button>
 				</div>
 				<div class="relative inline-block">
 					<span class="badge-icon bg-accent-500 text-white absolute -top-1 -right-1 z-10">2</span>
 					<Avatar />
 				</div>
 				<div class="relative inline-block">
-					<span class="badge-icon bg-ternary-500 text-white absolute -top-1 -right-1 z-10">&hearts;</span>
+					<span class="badge-icon bg-tertiary-500 text-white absolute -top-1 -right-1 z-10">&hearts;</span>
 					<Avatar />
 				</div>
 			</div>
@@ -101,12 +96,6 @@
 </div>
 		`.trim()}
 			/>
-		</section>
-		<!-- Global Styles -->
-		<section class="space-y-4">
-			<h2>Global Styles</h2>
-			<p>Use your global stylesheet to update all instances of this element.</p>
-			<CodeBlock language="css" code={`.badge { @apply rounded-full; }`} />
 		</section>
 	</svelte:fragment>
 </DocsShell>

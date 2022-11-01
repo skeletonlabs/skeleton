@@ -6,9 +6,12 @@
 	const dispatch = createEventDispatcher();
 
 	// Props
+	/** The item's selection value. */
 	export let value: any = undefined;
+
 	// Props (A11y)
-	export let label: string | undefined = undefined;
+	/** Defines a semantic ARIA label. */
+	export let label: string = '';
 
 	// Context
 	export let selected: Writable<any> = getContext('selected');
@@ -26,6 +29,7 @@
 		// Enter/Space triggers selecton event
 		if (['Enter', 'Space'].includes(event.code)) {
 			event.preventDefault();
+			/** @event {{ event }} keydown - Fires when the component is in focus and key is pressed.  */
 			dispatch('keydown', event);
 			event.target.children[0].click();
 		}

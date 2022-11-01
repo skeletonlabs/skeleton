@@ -36,9 +36,9 @@ module.exports = plugin(() => { }, {
 			colors: {
 				primary: createColorSet('primary'),
 				accent: createColorSet('accent'),
-				ternary: createColorSet('ternary'),
+				tertiary: createColorSet('tertiary'),
 				warning: createColorSet('warning'),
-				surface: createColorSet('surface'),
+				surface: createColorSet('surface')
 			}
 		}
 	}

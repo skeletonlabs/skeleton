@@ -23,7 +23,7 @@
 	<section class="space-y-4">
 		<h2>General Conventions</h2>
 		<p>
-			Ensure relevant events bubble via <a href="https://svelte.dev/tutorial/dom-event-forwarding" target="_blank">event forwarding</a>.
+			Ensure relevant events bubble via <a href="https://svelte.dev/tutorial/dom-event-forwarding" target="_blank" rel="noreferrer">event forwarding</a>.
 		</p>
 		<CodeBlock language="html" code={`<button on:click on:mouseover>Skeleton</button>`} />
 		<p>
@@ -111,7 +111,7 @@ let cLabel: string = 'text-base'; // child element label styles
 // Prop for outlined state
 export let outlined: boolean;
 
-// Create a reactive property that uses a ternary statement
+// Create a reactive property that uses a tertiary statement
 $: classesOutlined = outlined ? 'border-2 border-primary-500' : 'border-none';
 		`}
 		/>

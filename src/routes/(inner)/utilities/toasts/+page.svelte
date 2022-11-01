@@ -1,9 +1,12 @@
 <script lang="ts">
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	import { toastStore, type ToastMessage } from '$lib/utilities/Toast/stores';
+
+	// @ts-ignore
+	import sveldToast from '$lib/utilities/Toast/Toast.svelte?raw&sveld';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -12,29 +15,9 @@
 		description: 'Simple notifications utilizing a dynamic queue system.',
 		imports: ['Toast', 'toastStore'],
 		types: ['ToastMessage'],
-		source: 'utilities/Toast'
+		source: 'utilities/Toast',
+		components: [{ sveld: sveldToast }]
 	};
-	const properties: DocsShellTable[] = [
-		{
-			headings: ['Prop', 'Type', 'Default', 'Values', 'Description'],
-			source: [
-				['<code>background</code>', 'string', 'bg-accent-500', 'class', 'Provide classes to set background color.'],
-				['<code>position</code>', 'string', 'b', 't | b | tr | tl | bl | br', 'Set top/bottom/left/right positioning.'],
-				['<code>button</code>', 'string', 'btn-ghost', 'class', 'Provide a <a href="/components/buttons">button variant</a> reference.'],
-				['<code>duration</code>', 'number', '100', 'integer', 'The duration of the fly in/out animation.']
-			]
-		}
-	];
-	const classes: DocsShellTable[] = [
-		{
-			headings: ['Selector', 'Description'],
-			source: [
-				['<code>.toast</code>', 'The parent element.'],
-				['<code>.toast-message</code>', 'The toast message element.'],
-				['<code>.toast-actions</code>', 'The toast action buttons region.']
-			]
-		}
-	];
 
 	// Triggers Toasts ---
 
@@ -73,15 +56,15 @@
 	}
 </script>
 
-<DocsShell {settings} {properties} {classes}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="card card-body">
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-full md:max-w-[320px] lg:max-w-[640px] mx-auto">
-				<button class="btn btn-ghost" on:click={toastBasic}>Short</button>
-				<button class="btn btn-ghost" on:click={toastLong}>Long</button>
-				<button class="btn btn-ghost" on:click={toastMultiple}>Multiple</button>
-				<button class="btn btn-ghost" on:click={toastAction}>Action</button>
+				<button class="btn btn-ghost-surface" on:click={toastBasic}>Short</button>
+				<button class="btn btn-ghost-surface" on:click={toastLong}>Long</button>
+				<button class="btn btn-ghost-surface" on:click={toastMultiple}>Multiple</button>
+				<button class="btn btn-ghost-surface" on:click={toastAction}>Action</button>
 			</div>
 		</section>
 	</svelte:fragment>
@@ -143,7 +126,7 @@ toastStore.clear();
 		<!-- Accessibility -->
 		<section class="space-y-4">
 			<h2>Accessibility</h2>
-			<p>Meets the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/alert/" target="_blank">ARIA Guidelines</a>.</p>
+			<p>Meets the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/alert/" target="_blank" rel="noreferrer">ARIA Guidelines</a>.</p>
 		</section>
 	</svelte:fragment>
 </DocsShell>

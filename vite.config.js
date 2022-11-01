@@ -1,5 +1,6 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import { configDefaults } from 'vitest/config';
+import sveld from 'vite-plugin-sveld';
 import path from 'path';
 
 // Import package.json version
@@ -11,7 +12,7 @@ const pkg = JSON.parse(json);
 
 /** @type {import('vite').UserConfig} */
 const config = {
-	plugins: [sveltekit({ hot: !process.env.VITEST })],
+	plugins: [sveltekit({ hot: !process.env.VITEST }), sveld()],
 	define: {
 		__PACKAGE__: pkg
 	},

@@ -2,12 +2,15 @@
 	import { writable, type Writable } from 'svelte/store';
 
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	import ProgressBar from '$lib/components/ProgressBar/ProgressBar.svelte';
 	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+
+	// @ts-ignore
+	import sveldProgressBar from '$lib/components/ProgressBar/ProgressBar.svelte?raw&sveld';
 
 	// Stores
 	const storeDeterminate: Writable<boolean> = writable(true);
@@ -20,33 +23,9 @@
 		name: 'Progress Bars',
 		description: 'An indicator showing the progress or completion of a task.',
 		imports: ['ProgressBar'],
-		source: 'components/ProgressBar'
+		source: 'components/ProgressBar',
+		components: [{ sveld: sveldProgressBar }]
 	};
-	const properties: DocsShellTable[] = [
-		{
-			headings: ['Prop', 'Type', 'Default', 'Description'],
-			source: [
-				['<code>label</code>', 'string', '-', 'Set the label text.'],
-				['<code>value</code>', 'number', '-', 'Specifies the amount completed. Indeterminate when <code>undefined</code>.'],
-				['<code>max</code>', 'number', '100', 'Maximum amount the bar represents.'],
-				['<code>height</code>', 'string', 'h-2', 'Provide classes to set track height.'],
-				['<code>rounded</code>', 'string', 'rounded-token', 'Provide classes to set rounded styles.'],
-				['<code>meter</code>', 'string', 'bg-accent-500', 'Provide arbitrary classes to style the meter element.'],
-				['<code>track</code>', 'string', 'bg-surface-200-700-token', 'Provide arbitrary classes to style the track element.']
-			]
-		}
-	];
-	const classes: DocsShellTable[] = [
-		{
-			headings: ['Selector', 'Description'],
-			source: [
-				['<code>.progress-bar</code>', 'The parent element.'],
-				['<code>.progress-bar-label</code>', 'The progress bar label element.'],
-				['<code>.progress-bar-track</code>', 'The progress bar track element.'],
-				['<code>.progress-bar-meter</code>', 'The progress bar meter element.']
-			]
-		}
-	];
 
 	// Reactive Props
 	$: props = {
@@ -61,7 +40,7 @@
 	};
 </script>
 
-<DocsShell {settings} {properties} {classes}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-2">
@@ -123,7 +102,7 @@
 					<select name="meter" id="meter" bind:value={props.meter}>
 						<option value="bg-primary-500">bg-primary-500</option>
 						<option value="bg-accent-500">bg-accent-500</option>
-						<option value="bg-ternary-500">bg-ternary-500</option>
+						<option value="bg-tertiary-500">bg-tertiary-500</option>
 						<option value="bg-warning-500">bg-warning-500</option>
 						<option value="bg-surface-500">bg-surface-500</option>
 					</select>
@@ -135,7 +114,7 @@
 						<option value={defaultTrackBg}>Default</option>
 						<option value="bg-primary-500/30">bg-primary-500/30</option>
 						<option value="bg-accent-500/30">bg-accent-500/30</option>
-						<option value="bg-ternary-500/30">bg-ternary-500/30</option>
+						<option value="bg-tertiary-500/30">bg-tertiary-500/30</option>
 						<option value="bg-warning-500/30">bg-warning-500/30</option>
 						<option value="bg-surface-500/30">bg-surface-500/30</option>
 					</select>
@@ -148,7 +127,7 @@
 	<svelte:fragment slot="usage">
 		<div class="space-y-4">
 			<p>
-				This component is treated as a <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/progressbar_role" target="_blank">ARIA progressbar</a>.
+				This component is treated as a <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/progressbar_role" target="_blank" rel="noreferrer">ARIA progressbar</a>.
 			</p>
 			<CodeBlock language="html" code={`<ProgressBar label="Progress Bar" value={50} max={100} />`} />
 		</div>

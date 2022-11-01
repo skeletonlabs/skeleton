@@ -1,6 +1,6 @@
 <script lang="ts">
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import { tooltip, type ArgsTooltip } from '$lib/utilities/Tooltip/tooltip';
@@ -14,64 +14,29 @@
 		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/tooltips'],
 		source: 'utilities/Tooltip',
-		parameters: true
+		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/',
+		parameters: [
+			['<code>content</code>', 'string', '(tooltip)', 'HTML template literal', 'The HTML content of your tooltip.'],
+			['<code>position</code>', 'string', 'top', 'top | bottom | left | right', 'Designates where the tooltip will appear.'],
+			['<code>inline</code>', 'boolean', 'false', 'true | false', 'Sets the wrapping element to inline or block.'],
+			['<code>state</code>', 'function', '-', 'function', 'Provide a callback function for detecting tooltip open/closed state.'],
+			['<code>background</code>', 'string', '-', 'class', 'Provide a class to set the background color.'],
+			['<code>color</code>', 'string', '-', 'class', 'Provide a class to set the text color.'],
+			['<code>width</code>', 'string', '-', 'class', 'Provide a class to set the width.'],
+			['<code>padding</code>', 'string', '-', 'class', 'Provide a class to set the padding.'],
+			['<code>shadow</code>', 'string', '-', 'class', 'Provide a class to set the box shadow.'],
+			['<code>rounded</code>', 'string', '-', 'class', 'Provide a class to set the border radius.'],
+			['<code>regionContainer</code>', 'string', '-', 'class', 'Provide arbitrary classes to the container element.'],
+			['<code>regionTooltip</code>', 'string', '-', 'class', 'Provide arbitrary classes to the tooltip element.'],
+			['<code>regionArrow</code>', 'string', '-', 'class', 'Provide arbitrary classes to the tooltip arrow element.']
+		],
+		keyboard: [['<kbd>Esc</kbd>', 'Closes all open tooltips.']]
 	};
-	const properties: DocsShellTable[] = [
-		{
-			headings: ['Prop', 'Type', 'Default', 'Values', 'Required', 'Description'],
-			source: [
-				['<code>content</code>', 'string', '(tooltip)', 'HTML template literal', '&check;', 'The HTML content of your tooltip.'],
-				['<code>position</code>', 'string', 'top', 'top | bottom | left | right', '-', 'Designates where the tooltip will appear.'],
-				['<code>inline</code>', 'boolean', 'false', 'true | false', '-', 'Sets the wrapping element to inline or block.'],
-				['<code>state</code>', 'function', '-', 'function', '-', 'Provide a callback function for detecting tooltip open/closed state.'],
-				['<code>background</code>', 'string', '-', 'class', '-', 'Provide a class to set the background color.'],
-				['<code>color</code>', 'string', '-', 'class', '-', 'Provide a class to set the text color.'],
-				['<code>width</code>', 'string', '-', 'class', '-', 'Provide a class to set the width.'],
-				['<code>padding</code>', 'string', '-', 'class', '-', 'Provide a class to set the padding.'],
-				['<code>shadow</code>', 'string', '-', 'class', '-', 'Provide a class to set the box shadow.'],
-				['<code>rounded</code>', 'string', '-', 'class', '-', 'Provide a class to set the border radius.'],
-				['<code>regionContainer</code>', 'string', '-', 'class', '-', 'Provide arbitrary classes to the container element.'],
-				['<code>regionTooltip</code>', 'string', '-', 'class', '-', 'Provide arbitrary classes to the tooltip element.'],
-				['<code>regionArrow</code>', 'string', '-', 'class', '-', 'Provide arbitrary classes to the tooltip arrow element.']
-			]
-		}
-	];
-	const events: DocsShellTable[] = [
-		{
-			description: 'Coming soon.'
-			// headings: ['Event', 'Description'],
-			// source: [
-			// 	['<code>on:click</code>', '...'],
-			// 	['<code>on:hover</code>', '...']
-			// ]
-		}
-	];
-	const classes: DocsShellTable[] = [
-		{
-			headings: ['Selector', 'Description'],
-			source: [
-				['<code>.tooltip-container</code>', 'The wrapping DIV container.'],
-				['<code>.tooltip</code>', 'The tooltip element body.'],
-				['<code>.tooltip-arrow</code>', 'The small tooltip arrow.']
-			]
-		}
-	];
-	const a11y: DocsShellTable[] = [
-		{
-			aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/',
-			description: 'Note the the ARIA Guidelines are a work-in-progress and subject to change.'
-		},
-		{
-			label: 'Keyboard Interactions',
-			headings: ['Key', 'Description'],
-			source: [['<kbd>Esc</kbd>', 'Closes all open tooltips.']]
-		}
-	];
 
 	// Local
 	const exampleTop: ArgsTooltip = { content: 'Tooltip <strong>TOP</strong>', position: 'top' };
 	const exampleBottom: ArgsTooltip = { content: 'Tooltip <strong>BOTTOM</strong>', position: 'bottom', background: '!bg-accent-500' };
-	const exampleLeft: ArgsTooltip = { content: 'Tooltip <strong>LEFT</strong>', position: 'left', background: '!bg-ternary-500' };
+	const exampleLeft: ArgsTooltip = { content: 'Tooltip <strong>LEFT</strong>', position: 'left', background: '!bg-tertiary-500' };
 	const exampleRight: ArgsTooltip = { content: 'Tooltip <strong>RIGHT</strong>', position: 'right', background: '!bg-warning-500' };
 	const exampleHtml: ArgsTooltip = {
 		content: `
@@ -84,19 +49,19 @@
 	};
 </script>
 
-<DocsShell {settings} {properties} {events} {classes} {a11y}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<!-- prettier-ignore -->
 		<section class="card">
-			<div class="card-body max-w-[280px] mx-auto">
+			<div class="card-body max-w-[220px] mx-auto">
 				<div class="grid grid-cols-2 gap-4 mb-4">
-					<button class="btn btn-ghost w-full" data-tooltip="tooltipTop" use:tooltip={exampleTop}>Top</button>
-					<button class="btn btn-ghost w-full" use:tooltip={exampleBottom}>Bottom</button>
-					<button class="btn btn-ghost w-full" use:tooltip={exampleLeft}>Left</button>
-					<button class="btn btn-ghost w-full" use:tooltip={exampleRight}>Right</button>
+					<button class="btn btn-ghost-surface w-full" data-tooltip="tooltipTop" use:tooltip={exampleTop}>&uarr;</button>
+					<button class="btn btn-ghost-surface w-full" use:tooltip={exampleBottom}>&darr;</button>
+					<button class="btn btn-ghost-surface w-full" use:tooltip={exampleLeft}>&larr;</button>
+					<button class="btn btn-ghost-surface w-full" use:tooltip={exampleRight}>&rarr;</button>
 				</div>
-				<button class="btn btn-ghost w-full" use:tooltip={exampleHtml}>HTML Content</button>
+				<button class="btn btn-ghost-surface w-full" use:tooltip={exampleHtml}>HTML Content</button>
 			</div>
 		</section>
 	</svelte:fragment>

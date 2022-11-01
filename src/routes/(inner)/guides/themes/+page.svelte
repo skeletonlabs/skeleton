@@ -12,12 +12,16 @@
 	const presetUrl: string = 'https://github.com/Brain-Bones/skeleton/blob/master/src/themes';
 	// prettier-ignore
 	const presets: any[] = [
-        { name: 'skeleton', colors: ['#10b981', '#6366f1', '#f43f5e'], surface: '#111827', url: `${presetUrl}/theme-skeleton.css` },
-        { name: 'rocket', colors: ['#06b6d4', '#3b82f6', '#ec4899'], surface: '#3c4553', url: `${presetUrl}/theme-rocket.css` },
-        { name: 'vintage', colors: ['#f59e0b', '#22c55e', '#ef4444'], surface: '#1c1917', url: `${presetUrl}/theme-vintage.css` },
-        { name: 'modern', colors: ['#ec4899', '#06b6d4', '#eab308'], surface: '#312e81', url: `${presetUrl}/theme-modern.css` },
-        { name: 'sahara', colors: ['#facc15', '#fb923c', '#14b8a6'], surface: '#881337', url: `${presetUrl}/theme-sahara.css` },
-        { name: 'seafoam', colors: ['#14b8a6', '#8b5cf6', '#f59e0b'], surface: '#0c4a6e', url: `${presetUrl}/theme-seafoam.css` },
+        { name: 'Skeleton', colors: ['#10b981', '#6366f1', '#f43f5e'], surface: '#111827', url: `${presetUrl}/theme-skeleton.css` },
+        { name: 'Rocket', colors: ['#06b6d4', '#3b82f6', '#ec4899'], surface: '#3c4553', url: `${presetUrl}/theme-rocket.css` },
+        { name: 'Vintage', colors: ['#f59e0b', '#22c55e', '#ef4444'], surface: '#1c1917', url: `${presetUrl}/theme-vintage.css` },
+        { name: 'Modern', colors: ['#ec4899', '#06b6d4', '#eab308'], surface: '#312e81', url: `${presetUrl}/theme-modern.css` },
+        { name: 'Sahara', colors: ['#facc15', '#fb923c', '#14b8a6'], surface: '#881337', url: `${presetUrl}/theme-sahara.css` },
+        { name: 'Seafoam', colors: ['#14b8a6', '#8b5cf6', '#f59e0b'], surface: '#0c4a6e', url: `${presetUrl}/theme-seafoam.css` },
+		// Community:
+        { name: 'Hamlindigo', colors: ['#6276A3', '#a58945', '#f59e0b'], surface: '#425071', url: `${presetUrl}/theme-hamlindigo.css` },
+        { name: 'Gold Nouveau', colors: ['#e7c504', '#0697e5', '#cc1e8a'], surface: '#231631', url: `${presetUrl}/theme-gold-nouveau.css` },
+        { name: 'Crimson', colors: ['#d4161d', '#3881b2', '#956056'], surface: '#0f1014', url: `${presetUrl}/theme-crimson.css` },
     ];
 
 	// Copy Theme Import to Clipboard
@@ -42,8 +46,8 @@
 		headings: ['Color', 'Name', 'Class', 'Description'],
 		source: [
 			[`<div class="${cSwatch} bg-primary-500" />`, 'Primary', '[x]-primary-[50-900]', 'Typically your primary brand color.'],
-			[`<div class="${cSwatch} bg-accent-500" />`, 'Accent', '[x]-accent-[50-900]', 'An accent for offsets or supplementary values.'],
-			[`<div class="${cSwatch} bg-ternary-500" />`, 'Ternary', '[x]-ternary-[50-900]', 'A third and additional offset color. Great for informational alerts.'],
+			[`<div class="${cSwatch} bg-accent-500" />`, 'Accent', '[x]-accent-[50-900]', 'A secondary offset color or supplementary value.'],
+			[`<div class="${cSwatch} bg-tertiary-500" />`, 'Tertiary', '[x]-tertiary-[50-900]', 'A third and additional offset color. Great for informational alerts.'],
 			[`<div class="${cSwatch} bg-warning-500" />`, 'Warning', '[x]-warning-[50-900]', 'May be used for warnings, alerts, and invalid inputs.'],
 			[`<div class="${cSwatch} bg-surface-500" />`, 'Surface', '[x]-surface-[50-900]', 'May be used for backgrounds, card elements, and some typography.']
 		]
@@ -55,9 +59,9 @@
 	<header class="space-y-4">
 		<h1>Themes</h1>
 		<p>
-			Skeleton themes integrate with Tailwind using <a href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank">CSS custom properties</a> converted to RGB values.
-			This enables the use of <a href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank">background opacity</a> as well as support for
-			<a href="https://tailwindcss.com/docs/dark-mode" target="_blank">dark mode</a>. Components intelligently adapt to your theme color palette.
+			Skeleton themes integrate with Tailwind using <a href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank" rel="noreferrer">CSS custom properties</a> converted
+			to RGB values. This enables the use of <a href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank" rel="noreferrer">background opacity</a> as well as support for
+			<a href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="noreferrer">dark mode</a>. Components intelligently adapt to your theme color palette.
 		</p>
 	</header>
 
@@ -74,10 +78,11 @@
 				{#each presets as preset}
 					<!-- prettier-ignore -->
 					<div
-						on:click={() => { copyThemeToClipboard(preset.name); }}
 						class="card card-body text-white flex justify-between items-center hover:!ring-white/20 cursor-pointer"
 						style:background={preset.surface}
-						target="_blank"
+						target="_blank" rel="noreferrer"
+						on:click={() => { copyThemeToClipboard(preset.name); }}
+						on:keydown={() => { copyThemeToClipboard(preset.name); }}
 					>
 						<span class="text-sm">{preset.name}</span>
 						<ul class="grid grid-cols-3 gap-2">
@@ -125,7 +130,8 @@
 		<p>
 			Theme colors are not limited to Skeleton components. You may utilize them anywhere within your app following Tailwind's standard conventions. Feel free to mix or extend them with <a
 				href="https://tailwindcss.com/docs/customizing-colors"
-				target="_blank">Tailwind's default color palette</a
+				target="_blank"
+				rel="noreferrer">Tailwind's default color palette</a
 			>.
 		</p>
 		<CodeBlock language="html" code={`<!-- Inlined classes -->\n<div class="bg-primary-500 text-accent-500">Skeleton</div>`} />
@@ -143,13 +149,13 @@
 		<h3>Design Tokens</h3>
 		<!-- prettier-ignore -->
 		<p>
-			Skeleton themes are paired with a powerful <a href="https://vimeo.com/showcase/9653752/video/724689965" target="_blank">design token system</a> to create utility classes based on theme settings. These cover common styles for backgrounds, border radius, fonts, and more. In fact, most components use these tokens as the default settings, which means components auto-adapt to your theme style with minimal configuration out of the box.
+			Skeleton themes are paired with a powerful <a href="https://vimeo.com/showcase/9653752/video/724689965" target="_blank" rel="noreferrer">design token system</a> to create utility classes based on theme settings. These cover common styles for backgrounds, border radius, fonts, and more. In fact, most components use these tokens as the default settings, which means components auto-adapt to your theme style with minimal configuration out of the box.
 		</p>
 		<a href="/guides/frameworks/sveltekit" class="card p-4 grid grid-cols-[1fr_auto] gap-4">
 			<div class="flex items-center">
 				<p>While we formalize this feature, please see the stylesheet directly as a source reference.</p>
 			</div>
-			<a class="btn btn-filled-accent place-self-center" href="https://github.com/Brain-Bones/skeleton/tree/master/src/lib/styles/tokens.css" target="_blank">View Source &rarr;</a>
+			<a class="btn btn-filled-accent place-self-center" href="https://github.com/Brain-Bones/skeleton/tree/master/src/lib/styles/tokens.css" target="_blank" rel="noreferrer">View Source &rarr;</a>
 		</a>
 		<p>Tokens are avialable to use anywhere in your project. Here's a few examples:</p>
 		<CodeBlock language="html" code={`<!-- Apply your theme's border radius value -->\n<div class="w-10 h-10 bg-primary-500 rounded-token">Rounded</div>`} />

@@ -77,8 +77,8 @@ button:disabled {
 .btn-outline-accent {
 	@apply ring-2 ring-accent-500 ring-inset;
 }
-.btn-outline-ternary {
-	@apply ring-2 ring-ternary-500 ring-inset;
+.btn-outline-tertiary {
+	@apply ring-2 ring-tertiary-500 ring-inset;
 }
 .btn-outline-warning {
 	@apply ring-2 ring-warning-500 ring-inset;
@@ -100,8 +100,8 @@ button:disabled {
 .btn-filled-accent {
 	@apply bg-accent-500;
 }
-.btn-filled-ternary {
-	@apply bg-ternary-500;
+.btn-filled-tertiary {
+	@apply bg-tertiary-500;
 }
 .btn-filled-warning {
 	@apply bg-warning-500;
@@ -120,8 +120,8 @@ button:disabled {
 .btn-ringed-accent {
 	@apply btn-outline-accent;
 }
-.btn-ringed-ternary {
-	@apply btn-outline-ternary;
+.btn-ringed-tertiary {
+	@apply btn-outline-tertiary;
 }
 .btn-ringed-warning {
 	@apply btn-outline-warning;
@@ -144,8 +144,8 @@ button:disabled {
 .btn-ghost-accent {
 	@apply btn-outline-accent bg-accent-500/20 hover:bg-accent-500/30;
 }
-.btn-ghost-ternary {
-	@apply btn-outline-ternary bg-ternary-500/20 hover:bg-ternary-500/30;
+.btn-ghost-tertiary {
+	@apply btn-outline-tertiary bg-tertiary-500/20 hover:bg-tertiary-500/30;
 }
 .btn-ghost-warning {
 	@apply btn-outline-warning bg-warning-500/20 hover:bg-warning-500/30;

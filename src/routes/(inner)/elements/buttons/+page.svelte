@@ -3,7 +3,7 @@
 
 	// Docs
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 	// Components
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
@@ -16,20 +16,15 @@
 		description: 'Provides a robust set of button styles, including preset variants.',
 		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/buttons'],
-		source: 'styles/elements/buttons.css'
+		source: 'styles/elements/buttons.css',
+		classes: [
+			['<code>.btn</code>', '-', 'Creates a text button using a button or anchor.'],
+			['<code>.btn-icon</code>', '-', 'Creates a text icon button using a button or anchor.'],
+			['<code>.btn-[value]</code>', 'sm | base | lg | xl', 'Canned button sizes that define padding and text sizes.'],
+			['<code>.btn-icon-[value]</code>', 'sm | base | lg | xl', 'Canned icon button sizes that define padding and text sizes.'],
+			['<code>.btn-[variant]</code>', '(see usage)', 'A set of preset class styles for buttons or icon buttons.']
+		]
 	};
-	const classes: DocsShellTable[] = [
-		{
-			headings: ['Class', 'Values', 'Description'],
-			source: [
-				['<code>.btn</code>', '-', 'Creates a text button using a button or anchor.'],
-				['<code>.btn-icon</code>', '-', 'Creates a text icon button using a button or anchor.'],
-				['<code>.btn-[size]</code>', 'sm | base | lg | xl', 'Canned button sizes that define padding and text sizes.'],
-				['<code>.btn-icon-[size]</code>', 'sm | base | lg | xl', 'Canned icon button sizes that define padding and text sizes.'],
-				['<code>.btn-[variant]</code>', 'filled-primary | ghost | etc.', 'A set of preset class styles for buttons or icon buttons.']
-			]
-		}
-	];
 
 	// Local:
 	const href: string = '/elements/buttons';
@@ -51,7 +46,7 @@
 		.join(' ');
 </script>
 
-<DocsShell {settings} {classes}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<div class="grid grid-cols-1 xl:grid-cols-[1fr_auto] gap-2">
@@ -97,7 +92,7 @@
 						<option value={undefined}>None</option>
 						<option value="bg-primary-500">bg-primary-500</option>
 						<option value="bg-accent-500">bg-accent-500</option>
-						<option value="bg-ternary-500">bg-ternary-500</option>
+						<option value="bg-tertiary-500">bg-tertiary-500</option>
 						<option value="bg-warning-500">bg-warning-500</option>
 						<option value="bg-surface-500">bg-surface-500</option>
 						<option value="bg-primary-500/30">bg-primary-500/30</option>
@@ -189,7 +184,7 @@
 					<button class="btn btn-filled">filled</button>
 					<button class="btn btn-filled-primary">filled-primary</button>
 					<button class="btn btn-filled-accent">filled-accent</button>
-					<button class="btn btn-filled-ternary">filled-ternary</button>
+					<button class="btn btn-filled-tertiary">filled-tertiary</button>
 					<button class="btn btn-filled-warning">filled-warning</button>
 					<button class="btn btn-filled-surface">filled-surface</button>
 				</div>
@@ -198,16 +193,16 @@
 					<button class="btn btn-ringed">ringed</button>
 					<button class="btn btn-ringed-primary">ringed-primary</button>
 					<button class="btn btn-ringed-accent">ringed-accent</button>
-					<button class="btn btn-ringed-ternary">ringed-ternary</button>
+					<button class="btn btn-ringed-tertiary">ringed-tertiary</button>
 					<button class="btn btn-ringed-warning">ringed-warning</button>
 					<button class="btn btn-ringed-surface">ringed-surface</button>
 				</div>
 				<!-- Ringed -->
 				<div class="grid grid-cols-1 gap-4">
-					<button class="btn btn-ghost">ghost</button>
+					<button class="btn btn-ghost-surface">ghost</button>
 					<button class="btn btn-ghost-primary">ghost-primary</button>
 					<button class="btn btn-ghost-accent">ghost-accent</button>
-					<button class="btn btn-ghost-ternary">ghost-ternary</button>
+					<button class="btn btn-ghost-tertiary">ghost-tertiary</button>
 					<button class="btn btn-ghost-warning">ghost-warning</button>
 					<button class="btn btn-ghost-surface">ghost-surface</button>
 				</div>
@@ -219,7 +214,7 @@
 					<button class="btn-icon btn-filled">💀</button>
 					<button class="btn-icon btn-filled-primary">💀</button>
 					<button class="btn-icon btn-filled-accent">💀</button>
-					<button class="btn-icon btn-filled-ternary">💀</button>
+					<button class="btn-icon btn-filled-tertiary">💀</button>
 					<button class="btn-icon btn-filled-warning">💀</button>
 					<button class="btn-icon btn-filled-surface">💀</button>
 				</div>
@@ -228,16 +223,16 @@
 					<button class="btn-icon btn-ringed">💀</button>
 					<button class="btn-icon btn-ringed-primary">💀</button>
 					<button class="btn-icon btn-ringed-accent">💀</button>
-					<button class="btn-icon btn-ringed-ternary">💀</button>
+					<button class="btn-icon btn-ringed-tertiary">💀</button>
 					<button class="btn-icon btn-ringed-warning">💀</button>
 					<button class="btn-icon btn-ringed-surface">💀</button>
 				</div>
 				<!-- Ringed -->
 				<div class="grid grid-cols-1 gap-4">
-					<button class="btn-icon btn-ghost">💀</button>
+					<button class="btn-icon btn-ghost-surface">💀</button>
 					<button class="btn-icon btn-ghost-primary">💀</button>
 					<button class="btn-icon btn-ghost-accent">💀</button>
-					<button class="btn-icon btn-ghost-ternary">💀</button>
+					<button class="btn-icon btn-ghost-tertiary">💀</button>
 					<button class="btn-icon btn-ghost-warning">💀</button>
 					<button class="btn-icon btn-ghost-surface">💀</button>
 				</div>
@@ -246,27 +241,11 @@
 		<!-- SvelteKit Link Options -->
 		<div class="space-y-4">
 			<h2>SvelteKit Link Options</h2>
-			<p>Since we use native elements, this means we can utilize <a href="https://kit.svelte.dev/docs/link-options" target="_blank">SvelteKit Link Options</a> such as a <em>prefetch</em>.</p>
+			<p>
+				Since we use native elements, this means we can utilize <a href="https://kit.svelte.dev/docs/link-options" target="_blank" rel="noreferrer">SvelteKit Link Options</a> such as a
+				<em>prefetch</em>.
+			</p>
 			<CodeBlock language="html" code={`<a href="/" class="btn" data-sveltekit-prefetch>Skeleton</a>`} />
-		</div>
-		<!-- Global Styles -->
-		<div class="space-y-4">
-			<h2>Global Styles</h2>
-			<p>Use your global stylesheet to update all instances of this element.</p>
-			<CodeBlock
-				language="css"
-				code={`
-.btn, .btn-icon {
-	@apply font-bold;
-}
-.btn-filled-primary,
-.btn-filled-accent,
-.btn-filled-warning,
-.btn-filled-surface {
-	@apply text-white;
-}
-				`}
-			/>
 		</div>
 	</svelte:fragment>
 </DocsShell>

@@ -1,16 +1,23 @@
-<!-- <svelte:options accessors /> -->
 <script lang="ts">
 	import { storeHighlightJs } from './stores';
 	import { clipboard } from '$lib/actions/Clipboard/clipboard';
 
 	// Props
+	/** Sets a language alias for Highlight.js syntax highlighting. */
 	export let language: string = 'plaintext';
+	/** Provide the code to render. Be mindful to escape as needed! */
 	export let code: string = '';
-	// Props (design)
+
+	// Props (styles)
+	/** Provided classes to set the background color. */
 	export let background: string = 'bg-[#141517]';
+	/** Provided classes to set the text size. */
 	export let text: string = 'text-sm';
+	/** Provided classes to set the text color. */
 	export let color: string = 'text-white';
+	/** Provided classes to set the border radius. */
 	export let rounded: string = 'rounded-container-token';
+	/** Provided classes to set the button styles. */
 	export let buttonCopy: string = 'bg-white/5 hover:bg-white/10';
 
 	// Base Classes

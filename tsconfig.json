@@ -6,7 +6,7 @@
 		"declaration": true,
 		// "moduleResolution": "NodeNext", // causing issues, disabling for now (ex: SvgIcon component)
 		"module": "es2020",
-		"lib": ["es2020", "DOM"],
+		"lib": ["es2020", "DOM", "ES2021.String"],
 		"target": "es2020",
 		/**
 			svelte-preprocess cannot figure out whether you have a value or a type, so tell TypeScript

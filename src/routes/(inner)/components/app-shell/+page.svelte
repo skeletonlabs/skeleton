@@ -1,11 +1,14 @@
 <script lang="ts">
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	import Alert from '$lib/components/Alert/Alert.svelte';
 	import AppShell from '$lib/components/AppShell/AppShell.svelte';
 	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+
+	// @ts-ignore
+	import sveldAppShell from '$lib/components/AppShell/AppShell.svelte?raw&sveld';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -13,36 +16,9 @@
 		name: 'App Shell',
 		description: 'Responsive shell for controlling application layout.',
 		imports: ['AppShell'],
-		source: 'components/AppShell'
+		source: 'components/AppShell',
+		components: [{ sveld: sveldAppShell }]
 	};
-	const properties: DocsShellTable[] = [
-		{
-			headings: ['Prop', 'Type', 'Default', 'Description'],
-			source: [
-				['<code>slotHeader</code>', 'string', '-', 'Provide arbitrary classes to the header slot element.'],
-				['<code>slotSidebarLeft</code>', 'string', 'w-auto', 'Provide arbitrary classes to the left sidebar element.'],
-				['<code>slotSidebarRight</code>', 'string', 'w-auto', 'Provide arbitrary classes to the right sidebar element.'],
-				['<code>slotPageHeader</code>', 'string', '-', 'Provide arbitrary classes to the page header element.'],
-				['<code>slotPageContent</code>', 'string', '-', 'Provide arbitrary classes to the page content element.'],
-				['<code>slotPageFooter</code>', 'string', '-', 'Provide arbitrary classes to the page footer element.'],
-				['<code>slotFooter</code>', 'string', '-', 'Provide arbitrary classes to the footer element.']
-			]
-		}
-	];
-	const slots: DocsShellTable[] = [
-		{
-			headings: ['Name', 'Description'],
-			source: [
-				['<code>default</code>', 'Your page content. Insert your router slot here.'],
-				['<code>header</code>', 'Insert fixed header content, such as the <a href="/components/app-bar">AppBar component</a>.'],
-				['<code>sidebarLeft</code>', 'Hidden when empty. Allows you to set fixed left sidebar content.'],
-				['<code>sidebarRight</code>', 'Hidden when empty. Allows you to set fixed right sidebar content.'],
-				['<code>pageHeader</code>', 'Insert content that resides above your page content. Great for global alerts.'],
-				['<code>pageFooter</code>', 'Insert content that resides below your page content. Recommended for most layouts.'],
-				['<code>footer</code>', 'Insert fixed footer content. Not recommended for most layouts.']
-			]
-		}
-	];
 
 	// Local
 	let state: any = {
@@ -55,7 +31,7 @@
 	};
 </script>
 
-<DocsShell {settings} {properties} {slots}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4">
@@ -116,7 +92,7 @@
 			/>
 			<p>
 				The App Shell will need to expand to fill your <em>body</em> tag. Add the following classes to the wrapping <em>div</em> in <code>/src/app.html</code>.
-				<a href="https://github.com/sveltejs/kit/issues/6244#issuecomment-1226600661" target="_blank">This element is required</a>.
+				<a href="https://github.com/sveltejs/kit/issues/6244#issuecomment-1226600661" target="_blank" rel="noreferrer">This element is required</a>.
 			</p>
 			<CodeBlock language="html" code={`<body>\n\t<div class="h-full overflow-hidden">%sveltekit.body%</div>\n</body>`.trim()} />
 			<p>Then, disable overflow on your <em>html</em> and <em>body</em> tags to prevent duplicate scroll bars. Update your global stylesheet with the following.</p>
@@ -140,7 +116,7 @@
 			<h2>Sidebars</h2>
 			<p>
 				Please be aware that sidebars have a default width of <code>auto</code>. Sidebars will automatically collapse when their contents are empty or hidden. This is useful if you wish to hide the
-				sidebar with CSS media queries via <a href="https://tailwindcss.com/docs/responsive-design" target="_blank">Tailwind's responsive breakpoints</a>.
+				sidebar with CSS media queries via <a href="https://tailwindcss.com/docs/responsive-design" target="_blank" rel="noreferrer">Tailwind's responsive breakpoints</a>.
 			</p>
 			<CodeBlock
 				language="html"

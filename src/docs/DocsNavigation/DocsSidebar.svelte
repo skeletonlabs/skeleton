@@ -1,85 +1,86 @@
 <script lang="ts">
+	import { page } from '$app/stores';
+	import { writable, type Writable } from 'svelte/store';
+
 	import { storeCurrentUrl, storeMobileDrawer } from '$docs/stores';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	import { menuNavLinks } from './links';
+	import AppRail from '$lib/components/AppRail/AppRail.svelte';
+	import AppRailTile from '$lib/components/AppRail/AppRailTile.svelte';
 
 	// Props
 	export let embedded: boolean = false;
 
 	// Local
-	let inputSearch: string = '';
+	const storeCategory: Writable<string> = writable('guides'); // guides | docs | tailwind | svelte | utilities
 	let filteredMenuNavLinks: any[] = menuNavLinks;
 
 	// ListItem Click Handler
 	function onListItemClick(): void {
-		clearSearch();
 		// On Drawer embed Only:
 		if (!embedded) return;
 		storeMobileDrawer.set(false);
 	}
 
-	// Search Handler
-	function onSearch(): void {
-		// Reset with Deep Copy
-		filteredMenuNavLinks = JSON.parse(JSON.stringify(menuNavLinks));
-		// If search value
-		if (inputSearch?.length > 0) {
-			// Loop each set
-			filteredMenuNavLinks.forEach((linkSet: any) => {
-				// Filter the links
-				linkSet.list = linkSet.list.filter((linkObj: any) => {
-					const target: string = JSON.stringify(linkObj).toLowerCase();
-					const searchTerm: string | undefined = inputSearch?.toLowerCase();
-					return target.includes(searchTerm);
-				});
-			});
+	function setNavCategory(c: string): void {
+		storeCategory.set(c);
+		// prettier-ignore
+		switch($storeCategory) {
+			case('guides'): filteredMenuNavLinks = menuNavLinks.filter((linkSet: any) => linkSet.id === 'guides'); break;
+			case('docs'): filteredMenuNavLinks = menuNavLinks.filter((linkSet: any) => linkSet.id === 'docs'); break;
+			case('elements'): filteredMenuNavLinks = menuNavLinks.filter((linkSet: any) => linkSet.id === 'elements'); break;
+			case('svelte'): filteredMenuNavLinks = menuNavLinks.filter((linkSet: any) => ['components', 'actions'].includes(linkSet.id)); break;
+			case('utilities'): filteredMenuNavLinks = menuNavLinks.filter((linkSet: any) => linkSet.id === 'utilities'); break;
 		}
 	}
 
-	// Clear Search -- NOTE: timeout prevents anchor race condition
-	function clearSearch(): void {
-		setTimeout(() => {
-			inputSearch = '';
-			onSearch();
-		}, 1);
-	}
+	// Lifecycle
+	page.subscribe((p) => {
+		let pathMatch: string = p.url.pathname.split('/')[1];
+		if (!pathMatch) return;
+		if (['components', 'actions'].includes(pathMatch)) pathMatch = 'svelte';
+		setNavCategory(pathMatch);
+	});
+	storeCategory.subscribe((c: string) => {
+		setNavCategory(c);
+	});
 
 	// Reactive
-	$: classesActive = (href: string) => ($storeCurrentUrl?.includes(href) ? '!bg-primary-500 !text-primary-50 !dark:text-primary-50' : '');
+	$: classesActive = (href: string) => ($storeCurrentUrl?.includes(href) ? '!bg-primary-500' : '');
 </script>
 
-<div class="m-4 mb-20 {$$props.class ?? ''}">
-	<!-- Search -->
-	<header class="sticky top-0 z-10 bg-white/5 dark:bg-black/5 backdrop-blur -m-4 mb-2 p-4 shadow-lg">
-		<input type="search" placeholder="Search..." bind:value={inputSearch} on:input={onSearch} />
-	</header>
-	<!-- Lists -->
-	{#each filteredMenuNavLinks as { id, title, list }, i}
-		{#if list.length > 0}
-			<!-- Title -->
-			<div {id} class="text-primary-500 text-sm font-bold uppercase p-4">{title}</div>
-			<!-- Navigation List -->
-			<nav class="list-nav">
-				<ul>
-					{#each list as { href, label, badge, icon }}
-						<li on:click={onListItemClick}>
-							<a {href} value={href} class={classesActive(href)} data-sveltekit-prefetch>
-								{#if icon}
-									<span>
-										<div class="bg-accent-500 w-7 h-7 flex justify-center items-center rounded-token shadow">
-											<SvgIcon name={icon} width="w-4" fill="fill-white" height="h-10" />
-										</div>
-									</span>
-								{/if}
-								<span class="flex-auto">{label}</span>
-								{#if badge}<span class="badge bg-accent-500 text-white">{badge}</span>{/if}
-							</a>
-						</li>
-					{/each}
-				</ul>
-			</nav>
-			<!-- Divider -->
-			{#if i + 1 < filteredMenuNavLinks.length}<hr class="my-4 opacity-50" />{/if}
-		{/if}
-	{/each}
+<div class="grid grid-cols-[auto_1fr] h-full border-r border-black/5 dark:border-white/5 {$$props.class ?? ''}">
+	<!-- App Rail -->
+	<AppRail selected={storeCategory} background="bg-white/30 dark:bg-black/30">
+		<AppRailTile label="Guides" value={'guides'}><SvgIcon name="cubes" width="w-6" height="h-6" /></AppRailTile>
+		<AppRailTile label="Docs" value={'docs'}><SvgIcon name="book" width="w-6" height="h-6" /></AppRailTile>
+		<hr class="opacity-30" />
+		<AppRailTile label="Tailwind" value={'elements'}><SvgIcon name="tailwind" width="w-6" height="h-6" /></AppRailTile>
+		<AppRailTile label="Svelte" value={'svelte'}><SvgIcon name="svelte" width="w-6" height="h-6" /></AppRailTile>
+		<AppRailTile label="Utilities" value={'utilities'}><SvgIcon name="screwdriver" width="w-6" height="h-6" /></AppRailTile>
+	</AppRail>
+	<!-- Nav Links -->
+	<section class="p-4 pb-20 space-y-4 overflow-y-auto">
+		{#each filteredMenuNavLinks as { id, title, list }, i}
+			{#if list.length > 0}
+				<!-- Title -->
+				<div {id} class="text-primary-500 font-bold uppercase px-4">{title}</div>
+				<!-- Navigation List -->
+				<nav class="list-nav">
+					<ul>
+						{#each list as { href, label, badge }}
+							<li on:click={onListItemClick} on:keypress>
+								<a {href} value={href} class={classesActive(href)} data-sveltekit-prefetch>
+									<span class="flex-auto">{label}</span>
+									{#if badge}<span class="badge bg-accent-500 text-white">{badge}</span>{/if}
+								</a>
+							</li>
+						{/each}
+					</ul>
+				</nav>
+				<!-- Divider -->
+				{#if i + 1 < filteredMenuNavLinks.length}<hr class="!my-6 opacity-50" />{/if}
+			{/if}
+		{/each}
+	</section>
 </div>

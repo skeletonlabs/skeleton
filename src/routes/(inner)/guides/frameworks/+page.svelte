@@ -6,8 +6,11 @@
 <div class="page-container">
 	<!-- Header -->
 	<header class="space-y-4">
-		<h1>Framework Guides</h1>
-		<p>Need help getting started? We've provided a set of optional guides for building a simple app within each supported framework.</p>
+		<div class="flex items-end space-x-2">
+			<h1>Framework Guides</h1>
+			<span class="badge bg-surface-500/30 -translate-y-1">optional</span>
+		</div>
+		<p>We've provided <u>optional guides</u> for building a simple example app within each supported framework.</p>
 	</header>
 
 	<!-- Select a Framework -->
@@ -66,6 +69,8 @@
 
 	<!-- Suggest -->
 	<section class="text-center space-y-4">
-		<a class="btn btn-ghost" href="https://github.com/Brain-Bones/skeleton/issues/new?assignees=&labels=feature-request&template=feature_request.yml" target="_blank">Suggest a Framework</a>
+		<a class="btn btn-ghost-surface" href="https://github.com/Brain-Bones/skeleton/issues/new?assignees=&labels=feature-request&template=feature_request.yml" target="_blank" rel="noreferrer"
+			>Suggest a Framework</a
+		>
 	</section>
 </div>

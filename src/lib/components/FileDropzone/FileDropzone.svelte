@@ -5,16 +5,22 @@
 	const dispatch = createEventDispatcher();
 
 	// Props
+	/**
+	 * Bind this to your form data, represents the "files" data from the input.
+	 * @type {FileList}
+	 */
 	export let files: FileList;
-	// export let name: string | undefined = undefined;
-	// export let accept: string | undefined = undefined;
-	// export let multiple: boolean = false;
-	export let notes: string | undefined = undefined;
+	/** Provided additional notes or information. */
+	export let notes: string = '';
 	// Props (Styles)
+	/** Provide styles to set the dropzone width. */
 	export let width: string = 'w-full';
+	/** Provide styles to set the dropzone height. */
 	export let height: string = 'h-24';
+	/** Provide styles to set the dropzone padding. */
 	export let padding: string = 'p-4';
-	export let color: string | undefined = undefined;
+	/** Provide styles to set the dropzone text color. */
+	export let color: string = '';
 
 	// Classes
 	const cBase: string = 'relative';
@@ -27,14 +33,17 @@
 	// Drag and Drop Event Handlers
 	// Handles icon animation and passes events up
 	function onDragOver(event: DragEvent): void {
+		/** @event {{ event: DragEvent }} dragover - When a file is dragged over the component. */
 		dispatch('dragover', event);
 		elemIcon?.classList.add('animate-bounce');
 	}
 	function onDragLeave(event: DragEvent): void {
+		/** @event {{ event: DragEvent }} dragleave - When a file is dragged out off the component. */
 		dispatch('dragleave', event);
 		elemIcon?.classList.remove('animate-bounce');
 	}
 	function onDrop(event: DragEvent): void {
+		/** @event {{ event: DragEvent }} drop - When a file is dropped on the component. */
 		dispatch('drop', event);
 		elemIcon?.classList.remove('animate-bounce');
 	}

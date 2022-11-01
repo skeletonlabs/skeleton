@@ -1,9 +1,16 @@
 <script lang="ts">
+	// Slots
+	/**
+	 * @slot lead - Positioned on the left of each row item.
+	 * @slot trail - Positioned on the right of each row item.
+	 */
+
 	import { createEventDispatcher, getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
 
 	// Props (a11y)
-	export let id: string | undefined = undefined;
+	/** Define a unique and semantic identifier for the item. */
+	export let id: string = '';
 
 	// Event Handler
 	const dispatch = createEventDispatcher();
@@ -23,6 +30,7 @@
 
 	// Input Handler
 	function onClickHandler(event: any): void {
+		/** @event {{ event }} click - Fires when the component is clicked.  */
 		dispatch('click', event);
 		if (!$selected || !$$props.value) {
 			return;
@@ -50,6 +58,7 @@
 
 	// A11y Key Down Handler
 	function onKeyDown(event: KeyboardEvent): void {
+		/** @event {{ event: KeyboardEvent }} keydown - Fires when the component is focused and key is pressed.  */
 		dispatch('keydown', event);
 		if (['Enter', 'Space'].includes(event.code)) {
 			event.preventDefault();

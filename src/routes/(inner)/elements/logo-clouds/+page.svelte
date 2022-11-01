@@ -1,6 +1,6 @@
 <script lang="ts">
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
@@ -12,34 +12,29 @@
 		description: 'Provides a grid for presenting a set of logos, brands, or sponsors.',
 		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/logo-clouds'],
-		source: 'styles/elements/logo-clouds.css'
+		source: 'styles/elements/logo-clouds.css',
+		classes: [
+			['<code>.logo-cloud</code>', '-', 'Apply to a wrapping block element around a set of logos.'],
+			['<code>.logo-item</code>', '-', 'Apply to each logo child element.']
+		]
 	};
-	const classes: DocsShellTable[] = [
-		{
-			headings: ['Class', 'Description'],
-			source: [
-				['<code>.logo-cloud</code>', 'Apply to a wrapping block element around a set of logos.'],
-				['<code>.logo-item</code>', 'Apply to each logo child element.']
-			]
-		}
-	];
 </script>
 
-<DocsShell {settings} {classes}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 gap-4">
 			<!-- Links -->
 			<div class="logo-cloud grid-cols-1 lg:!grid-cols-3 gap-1">
-				<a class="logo-item" href="https://svelte.dev/" target="_blank">
+				<a class="logo-item" href="https://svelte.dev/" target="_blank" rel="noreferrer">
 					<span><SvgIcon name="svelte" width="w-8" height="h-8" /></span>
 					<span>Svelte</span>
 				</a>
-				<a class="logo-item" href="https://tailwindcss.com/" target="_blank">
+				<a class="logo-item" href="https://tailwindcss.com/" target="_blank" rel="noreferrer">
 					<span><SvgIcon name="tailwind" width="w-6" height="h-6" /></span>
 					<span>Tailwind</span>
 				</a>
-				<a class="logo-item" href="https://github.com/" target="_blank">
+				<a class="logo-item" href="https://github.com/" target="_blank" rel="noreferrer">
 					<span><SvgIcon name="github" width="w-6" height="h-6" /></span>
 					<span>Github</span>
 				</a>
@@ -103,22 +98,6 @@
     <span>💀</span>
     <span>Skeleton</span>
 </div>
-            `.trim()}
-			/>
-		</div>
-		<!-- Global Syles -->
-		<div class="space-y-4">
-			<h2>Global Styles</h2>
-			<p>Use your global stylesheet to update all instances of this element.</p>
-			<CodeBlock
-				language="css"
-				code={`
-.logo-cloud {
-    @apply rounded-none;
-}
-.logo-item {
-    @apply !bg-surface-500;
-}
             `.trim()}
 			/>
 		</div>

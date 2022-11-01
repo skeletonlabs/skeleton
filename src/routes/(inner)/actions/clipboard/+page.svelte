@@ -1,6 +1,6 @@
 <script lang="ts">
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import { clipboard } from '$lib/actions/Clipboard/clipboard';
@@ -12,20 +12,14 @@
 		description: 'Allows you to quickly copy select data to the clipboard.',
 		imports: ['clipboard'],
 		source: 'actions/Clipboard',
-		parameters: true
+		parameters: [
+			['<code>element</code>', 'string', '-', '-', `HTML element's <em>data-clipboard</em> ID value.`],
+			['<code>input</code>', 'string', '-', '-', `Input element's <em>data-clipboard</em> ID value.`]
+		]
 	};
-	const properties: DocsShellTable[] = [
-		{
-			headings: ['Key', 'Type', 'Description'],
-			source: [
-				['<code>element</code>', 'string', `HTML element's <em>data-clipboard</em> ID value.`],
-				['<code>input</code>', 'string', `Input element's <em>data-clipboard</em> ID value.`]
-			]
-		}
-	];
 </script>
 
-<DocsShell {settings} {properties}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="card card-body grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -34,12 +28,12 @@
 				<div class="bg-surface-200-700-token p-4 rounded-container-token h-20" data-clipboard="exampleElement" contenteditable>
 					This <em>div</em> is set to 'contenteditable'. Make changes then tap copy.
 				</div>
-				<button use:clipboard={{ element: 'exampleElement' }} class="btn btn-ghost">Copy Element Contents</button>
+				<button use:clipboard={{ element: 'exampleElement' }} class="btn btn-filled-accent">Copy Element Contents</button>
 			</div>
 			<!-- Input -->
 			<div class="space-y-4">
 				<textarea class="h-20" data-clipboard="exampleInput">Make changes to this textarea and then tap copy.</textarea>
-				<button use:clipboard={{ input: 'exampleInput' }} class="btn btn-ghost">Copy Input Value</button>
+				<button use:clipboard={{ input: 'exampleInput' }} class="btn btn-filled-accent">Copy Input Value</button>
 			</div>
 		</section>
 	</svelte:fragment>

@@ -1,11 +1,18 @@
 <!-- Reference: https://dribbble.com/shots/16221169-Figma-Material-Ui-components-Steppers-and-sliders -->
 <script lang="ts">
+	// Slots
+	/**
+	 * @slot header - Override the auto-generated heading with your own value. Typically a step title.
+	 */
+
 	import { getContext } from 'svelte';
 	import { slide } from 'svelte/transition';
 	import type { Writable } from 'svelte/store';
 
 	// Props
+	/** Indicates the step index value. Should start with 0 (zero) */
 	export let index: number = 0;
+	/** When enabled, a lock icon appears and Next button is disabled, preventing progress. */
 	export let locked: boolean = false;
 
 	// Base Classes
@@ -20,13 +27,14 @@
 	// Context
 	export let dispatch: any = getContext('dispatch');
 	export let active: Writable<number> = getContext('active');
-	export let length: any = getContext('length');
-	export let color: any = getContext('color');
-	export let background: any = getContext('background');
-	export let buttonBack: any = getContext('buttonBack');
-	export let buttonNext: any = getContext('buttonNext');
-	export let buttonComplete: any = getContext('buttonComplete');
-	export let duration: any = getContext('duration');
+	export let length: number = getContext('length');
+	export let duration: number = getContext('duration');
+	// Context (overrides)
+	export let color: string = getContext('color');
+	export let background: string = getContext('background');
+	export let buttonBack: string = getContext('buttonBack');
+	export let buttonNext: string = getContext('buttonNext');
+	export let buttonComplete: string = getContext('buttonComplete');
 
 	// Step Handlers
 	function stepPrev(): void {

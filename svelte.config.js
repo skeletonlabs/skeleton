@@ -12,7 +12,7 @@ const config = {
 	],
 
 	kit: {
-		adapter: adapter(),
+		adapter: adapter()
 	},
 	package: {
 		// strip test files from packaging

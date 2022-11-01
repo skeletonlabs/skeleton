@@ -2,13 +2,19 @@
 	import { writable, type Writable } from 'svelte/store';
 
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	import { dialogStore, type DialogAlert, type DialogConfirm, type DialogPrompt } from '$lib/utilities/Dialog/stores';
+
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import GradientHeading from '$lib/components/GradientHeading/GradientHeading.svelte';
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
 	import Tab from '$lib/components/Tab/Tab.svelte';
 
+	// @ts-ignore
+	import sveldDrawer from '$lib/utilities/Drawer/Drawer.svelte?raw&sveld';
+
+	// Stores
 	const storeDialogVariants: Writable<string> = writable('alert'); // alert | confirm | prompt
 
 	// Docs Shell
@@ -18,45 +24,11 @@
 		description: 'High priority overlay notification utilizing a dynamic queue system.',
 		imports: ['Dialog', 'dialogStore'],
 		types: ['DialogAlert', 'DialogConfirm', 'DialogPrompt'],
-		source: 'utilities/Drawer'
+		source: 'utilities/Drawer',
+		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/',
+		components: [{ sveld: sveldDrawer }],
+		keyboard: [['<kbd>Esc</kbd>', ' Dismisses the foremost dialog.']]
 	};
-	const properties: DocsShellTable[] = [
-		{
-			headings: ['Prop', 'Type', 'Default', 'Description'],
-			source: [
-				['<code>backdrop</code>', 'string', 'bg-backdrop-token', 'Provide classes to set the backdrop background color.'],
-				['<code>blur</code>', 'string', 'backdrop-blur-xs', 'Provide classes to add a backdrop blur.'],
-				['<code>background</code>', 'string', 'bg-surface-200-700-token', 'Provide classes to set the modal card background styles.'],
-				['<code>width</code>', 'string', 'max-w-[640px]', 'Provide classes to set max modal width.'],
-				['<code>duration</code>', 'number', '100', 'The animation in/out durations. Set to zero (0) for none.']
-			]
-		}
-	];
-	const classes: DocsShellTable[] = [
-		{
-			headings: ['Selector', 'Description'],
-			source: [
-				['<code>.dialog-backdrop</code>', 'The backdrop shim element.'],
-				['<code>.dialog</code>', 'The dialog modal element.'],
-				['<code>.dialog-header</code>', 'The dialog header region.'],
-				['<code>.dialog-title</code>', 'The dialog title element'],
-				['<code>.dialog-content</code>', 'The dialog content region.'],
-				['<code>.dialog-body</code>', 'The dialog body region.'],
-				['<code>.dialog-image</code>', 'The dialog image element.'],
-				['<code>.dialog-html</code>', 'The dialog HTML region.'],
-				['<code>.dialog-prompt-input</code>', 'The prompt input element.'],
-				['<code>.dialog-actions</code>', 'The dialog action buttons region.']
-			]
-		}
-	];
-	const a11y: DocsShellTable[] = [
-		{ aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/' },
-		{
-			label: 'Keyboard Interactions',
-			headings: ['Keys', 'Description'],
-			source: [['<kbd>Esc</kbd>', ' Dismisses the foremost dialog.']]
-		}
-	];
 
 	// Local
 	let valueConfirm: boolean = false;
@@ -133,9 +105,22 @@
 		};
 		dialogStore.trigger(d);
 	}
+
+	function dialogComponent(): void {
+		const d: DialogAlert = {
+			title: 'Component Example',
+			body: 'See the embedded Svelte component below.',
+			component: {
+				element: GradientHeading,
+				props: { tag: 'h1', direction: 'bg-gradient-to-r', from: 'from-primary-500', to: 'to-accent-500' },
+				slot: 'Hello Skeleton.'
+			}
+		};
+		dialogStore.trigger(d);
+	}
 </script>
 
-<DocsShell {settings} {properties} {classes} {a11y}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-4">
@@ -148,21 +133,21 @@
 							<h4>Basic</h4>
 							<p>The simplest form of a dialog.</p>
 						</div>
-						<button class="btn btn-ghost" on:click={dialogAlertBasic}>Trigger</button>
+						<button class="btn btn-ghost-surface" on:click={dialogAlertBasic}>Trigger</button>
 					</div>
 					<div class="flex justify-between items-center space-x-4">
 						<div>
 							<h4>Icon</h4>
 							<p>Shown with an optional icon.</p>
 						</div>
-						<button class="btn btn-ghost" on:click={dialogAlertIcon}>Trigger</button>
+						<button class="btn btn-ghost-surface" on:click={dialogAlertIcon}>Trigger</button>
 					</div>
 					<div class="flex justify-between items-center space-x-4">
 						<div>
 							<h4>Multiple</h4>
 							<p>Queues a set of three dialogs.</p>
 						</div>
-						<button class="btn btn-ghost" on:click={dialogAlertMultiple}>Trigger</button>
+						<button class="btn btn-ghost-surface" on:click={dialogAlertMultiple}>Trigger</button>
 					</div>
 				</div>
 				<div class="card card-body grid grid-cols-1 gap-4">
@@ -172,14 +157,21 @@
 							<h4>Image</h4>
 							<p>Includes an embedded image.</p>
 						</div>
-						<button class="btn btn-ghost" on:click={dialogImage}>Trigger</button>
+						<button class="btn btn-ghost-surface" on:click={dialogImage}>Trigger</button>
 					</div>
 					<div class="flex justify-between items-center space-x-4">
 						<div>
 							<h4>HTML</h4>
 							<p>Displays embedded an styled HTML markup.</p>
 						</div>
-						<button class="btn btn-ghost" on:click={dialogHtml}>Trigger</button>
+						<button class="btn btn-ghost-surface" on:click={dialogHtml}>Trigger</button>
+					</div>
+					<div class="flex justify-between items-center space-x-4">
+						<div>
+							<h6>Component</h6>
+							<p>Embeds and entire component.</p>
+						</div>
+						<button class="btn btn-ghost-surface" on:click={dialogComponent}>Trigger</button>
 					</div>
 				</div>
 				<div class="card card-body space-y-4">
@@ -189,7 +181,7 @@
 							<p>Dialog with confirm options.</p>
 							<div><code>Response: {JSON.stringify(valueConfirm, null, 2)}</code></div>
 						</div>
-						<button class="btn btn-ghost" on:click={dialogConfirm}>Trigger</button>
+						<button class="btn btn-ghost-surface" on:click={dialogConfirm}>Trigger</button>
 					</div>
 				</div>
 				<div class="card card-body space-y-4">
@@ -199,7 +191,7 @@
 							<p>Prompts the user to input a value.</p>
 							<div><code>Response: {JSON.stringify(valuePrompt, null, 2)}</code></div>
 						</div>
-						<button class="btn btn-ghost" on:click={dialogPrompt}>Trigger</button>
+						<button class="btn btn-ghost-surface" on:click={dialogPrompt}>Trigger</button>
 					</div>
 				</div>
 			</nav>
@@ -294,11 +286,17 @@ dialogStore.clear();
 				language="typescript"
 				code={`
 const dialogMessage: DialogAlert = {
-	// ...
+	// ...(title, body, etc)...
 	// Image: Inserts an image within the dialog
 	image: 'https://source.unsplash.com/random/480x320?skeleton',
 	// HTML: Appends HTML markup within the dialog
 	html: \`<div class="bg-green-500 p-4">Hello, Skeleton</div>\`
+	// Component: Appends any valid Svelte component
+	component: {
+		element: GradientHeading,
+		props: { tag: 'h1', direction: 'bg-gradient-to-r', from: 'from-primary-500', to: 'to-accent-500' },
+		slot: 'Hello Skeleton.'
+	}
 };
 			`}
 			/>

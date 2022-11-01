@@ -1,9 +1,12 @@
 <script lang="ts">
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	import Alert from '$lib/components/Alert/Alert.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+
+	// @ts-ignore
+	import sveldAlert from '$lib/components/Alert/Alert.svelte?raw&sveld';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -11,45 +14,9 @@
 		name: 'Alerts',
 		description: 'Display customizable alerts to garner attention and provide critical actions.',
 		imports: ['Alert'],
-		source: 'components/Alert'
+		source: 'components/Alert',
+		components: [{ sveld: sveldAlert }]
 	};
-	const properties: DocsShellTable[] = [
-		{
-			headings: ['Prop', 'Type', 'Default', 'Description'],
-			source: [
-				['<code>visible</code>', 'boolean', 'true', 'Control visibility of the alert.'],
-				['<code>background</code>', 'string', 'bg-ternary-500/30', 'Provide classes to set background color.'],
-				['<code>border</code>', 'string', 'border-l-4 border-l-ternary-500', 'Provide classes to set the border styles.'],
-				['<code>color</code>', 'string', '-', 'Provide classes to set text color.'],
-				['<code>rounded</code>', 'string', '-', 'Provide classes to set border radius.'],
-				['<code>duration</code>', 'number', '200', 'Svelte fade transition duration. Set <code>0</code> to disable.']
-			]
-		}
-	];
-	const classes: DocsShellTable[] = [
-		{
-			headings: ['Selector', 'Description'],
-			source: [
-				['<code>.alert</code>', 'The parent element.'],
-				['<code>.alert-lead</code>', 'The alert icon region.'],
-				['<code>.alert-content</code>', 'The alert content region.'],
-				['<code>.alert-title</code>', 'the alert title element.'],
-				['<code>.alert-message</code>', 'The alert message element.'],
-				['<code>.alert-trail</code>', 'The alert trailing region.']
-			]
-		}
-	];
-	const slots: DocsShellTable[] = [
-		{
-			headings: ['Slot', 'Style Prop', 'Description'],
-			source: [
-				['<code>lead</code>', 'slotLead', 'Provide a leading element, such as an icon.'],
-				['<code>title</code>', 'slotContent > .alert-title', 'Provide the alert title text.'],
-				['<code>default</code>', 'slotContent > .alert-message', 'Provide the alert message text.'],
-				['<code>trail</code>', 'slotTrail', 'Provide a trailing element, such as a call to action.']
-			]
-		}
-	];
 
 	// Local
 	let title = `Hello Skeleton!`;
@@ -66,12 +33,12 @@
 	}
 </script>
 
-<DocsShell {settings} {properties} {classes} {slots}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-4">
 			{#if !visible}
-				<div class="card card-body text-center"><button class="btn btn-ghost" on:click={toggleVisible}>Display Alerts</button></div>
+				<div class="card card-body text-center"><button class="btn btn-ghost-surface" on:click={toggleVisible}>Display Alerts</button></div>
 			{/if}
 			<Alert {visible}>
 				<svelte:fragment slot="lead">
@@ -80,23 +47,23 @@
 				<svelte:fragment slot="title">{title}</svelte:fragment>
 				<span>{message}</span>
 				<svelte:fragment slot="trail">
-					<button class="btn btn-filled-ternary" on:click={actionExample}>View More</button>
-					<button class="btn-icon btn-ghost-ternary" on:click={toggleVisible}>&#10005;</button>
+					<button class="btn btn-filled-tertiary" on:click={actionExample}>View More</button>
+					<button class="btn-icon btn-ghost-tertiary" on:click={toggleVisible}>&#10005;</button>
 				</svelte:fragment>
 			</Alert>
-			<Alert background="bg-warning-500/30" border="border-l-4 border-warning-500" {visible}>
+			<Alert background="bg-warning-500/40" border="border-l-4 border-warning-500" {visible}>
 				<span>{message}</span>
 				<svelte:fragment slot="trail">
-					<button class="btn-icon btn-ghost" on:click={toggleVisible}>&#10005;</button>
+					<button class="btn-icon btn-ghost-surface" on:click={toggleVisible}>&#10005;</button>
 				</svelte:fragment>
 			</Alert>
-			<Alert background="bg-accent-500/30" border="border-l-4 border-accent-500" {visible}>
+			<Alert background="bg-accent-500/40" border="border-l-4 border-accent-500" {visible}>
 				<svelte:fragment slot="title">{title}</svelte:fragment>
 				<svelte:fragment slot="trail">
 					<button class="btn btn-filled-accent" on:click={actionExample}>View More</button>
 				</svelte:fragment>
 			</Alert>
-			<Alert background="bg-primary-500/30" border="border-l-4 border-primary-500" {visible}>
+			<Alert background="bg-primary-500/40" border="border-l-4 border-primary-500" {visible}>
 				<svelte:fragment slot="title">{title}</svelte:fragment>
 				<svelte:fragment slot="trail">
 					<button class="btn btn-filled-primary" on:click={actionExample}>View More</button>

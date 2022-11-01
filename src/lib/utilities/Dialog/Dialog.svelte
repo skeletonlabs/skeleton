@@ -5,10 +5,15 @@
 	import { dialogStore } from '$lib/utilities/Dialog/stores';
 
 	// Props
+	/** Provide classes to set the backdrop background color.*/
 	export let backdrop: string = 'bg-backdrop-token';
+	/** Provide classes to add a backdrop blur.*/
 	export let blur: string = 'backdrop-blur-xs';
-	export let background: string = 'bg-surface-200-700-token';
+	/** Provide classes to set the modal card background styles.*/
+	export let background: string = 'bg-surface-100-800-token';
+	/** Provide classes to set max modal width.*/
 	export let width: string = 'max-w-[640px]';
+	/** The animation in/out durations. Set to zero (0) for none.*/
 	export let duration: number = 100;
 
 	// Local Settings
@@ -84,12 +89,15 @@
 		<div
 			bind:this={elemModal}
 			class="dialog {classesDialog}"
-			on:click|preventDefault|stopPropagation
 			transition:scale|local={{ duration, opacity: 0, start: 0.5 }}
 			data-testid="dialog"
 			role="dialog"
 			aria-modal="true"
 			aria-label={$dialogStore[0].title}
+			on:click|preventDefault|stopPropagation
+			on:keydown
+			on:keyup
+			on:keypress
 		>
 			<!-- Header -->
 			<header class="dialog-header {cBaseHeader}">
@@ -122,11 +130,11 @@
 				{/if}
 
 				<!-- If: Component -->
-				<!-- {#if $dialogStore[0].component}
+				{#if $dialogStore[0].component}
 					<svelte:component this={$dialogStore[0].component.element} {...$dialogStore[0].component.props}>
 						{@html $dialogStore[0].component.slot}
 					</svelte:component>
-				{/if} -->
+				{/if}
 
 				<!-- If: Prompt -->
 				{#if $dialogStore[0].type === 'prompt'}
@@ -137,7 +145,7 @@
 			<!-- Actions -->
 			<footer class="dialog-actions {cBaseFooter}">
 				<!-- Button: Cancel -->
-				<button class="btn btn-ghost" on:click={onDialogClose}>Close</button>
+				<button class="btn btn-ghost-surface" on:click={onDialogClose}>Close</button>
 				<!-- If Confirm - button: Confirm -->
 				{#if $dialogStore[0].type === 'confirm'}<button class="btn btn-filled-primary" on:click={onDialogConfirmSubmit}>Confirm</button>{/if}
 				<!-- If Promopt - button: Submit -->

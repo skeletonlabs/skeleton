@@ -2,10 +2,13 @@
 	import { writable, type Writable } from 'svelte/store';
 
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	import Drawer from '$lib/utilities/Drawer/Drawer.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+
+	// @ts-ignore
+	import sveldDrawer from '$lib/utilities/Drawer/Drawer.svelte?raw&sveld';
 
 	// Stores
 	const storeDrawer: Writable<boolean> = writable(false);
@@ -16,70 +19,11 @@
 		name: 'Drawers',
 		description: 'Displays an overlay panel that attaches to any side of the screen.',
 		imports: ['Drawer'],
-		source: 'utilities/Drawer'
+		source: 'utilities/Drawer',
+		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/',
+		components: [{ sveld: sveldDrawer }],
+		keyboard: [['<kbd>Esc</kbd>', ' Closes the drawer.']]
 	};
-	const properties: DocsShellTable[] = [
-		{
-			headings: ['Prop', 'Type', 'Default', 'Values', 'Required', 'Description'],
-			source: [
-				['<code>open</code>', 'writable(boolean)', 'writable(false)', 'boolean', '&check;', 'Provide a store to manage visible state.'],
-				['<code>position</code>', 'string', 'left', 'left | right | top | bottom', '-', 'Set the anchor position.'],
-				['<code>duration</code>', 'number', '150', 'milliseconds', '-', 'Define the Svelte transition animation duration.']
-			]
-		},
-		{
-			label: 'Drawer',
-			description: 'Apply these props to the Drawer component.',
-			headings: ['Prop', 'Type', 'Default', 'Description'],
-			source: [
-				['<code>bgDrawer</code>', 'string', 'bg-surface-100-800-token', 'Provide classes to set the drawer background color.'],
-				['<code>border</code>', 'string', '-', 'Provide classes to set border color.'],
-				['<code>rounded</code>', 'string', '-', 'Provide classes to set border radius.'],
-				['<code>width</code>', 'string', '(based on position)', 'Provide classes to override the width.'],
-				['<code>height</code>', 'string', '(based on position)', 'Provide classes to override the height.'],
-				['<code>margin</code>', 'string', '-', 'Provide classes to set margins.']
-			]
-		},
-		{
-			label: 'Backdrop',
-			description: 'Apply these props to the Drawer component.',
-			headings: ['Prop', 'Type', 'Default', 'Description'],
-			source: [
-				['<code>bgBackdrop</code>', 'string', 'bg-backdrop-token', 'Provide classes to set the backdrop background color'],
-				['<code>blur</code>', 'string', 'backdrop-blur-xs', 'Provide classes to set the blur style.']
-			]
-		}
-	];
-	const classes: DocsShellTable[] = [
-		{
-			headings: ['Selector', 'Description'],
-			source: [
-				['<code>.drawer-backdrop</code>', 'The backdrop shim element.'],
-				['<code>.drawer</code>', 'The drawer modal element.']
-			]
-		}
-	];
-	const slots: DocsShellTable[] = [
-		{
-			headings: ['Name', 'Description'],
-			source: [['<code>default</code>', 'Provide your Drawer content here.']]
-		}
-	];
-	const a11y: DocsShellTable[] = [
-		{ aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/' },
-		{
-			headings: ['Prop', 'Type', 'Description'],
-			source: [
-				['<code>labelledby</code>', 'string', 'Provide an ID of the element labeling the drawer.'],
-				['<code>describedby</code>', 'string', 'Provide an ID of the element describing the drawer.']
-			]
-		},
-		{
-			label: 'Keyboard Interactions',
-			headings: ['Keys', 'Description'],
-			source: [['<kbd>Esc</kbd>', ' Closes the drawer.']]
-		}
-	];
 
 	// Local
 	let position: string = 'left';
@@ -100,17 +44,17 @@
 	</div>
 </Drawer>
 
-<DocsShell {settings} {properties} {classes} {slots} {a11y}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<div class="card card-body text-center space-y-4">
 			<p>Select a drawer position to preview.</p>
 			<!-- prettier-ignore -->
 			<div class="flex justify-center items-center space-x-4">
-				<button class="btn-icon btn-ghost" on:click={() => { trigger('left'); }}>&larr;</button>
-				<button class="btn-icon btn-ghost" on:click={() => { trigger('right'); }}>&rarr;</button>
-				<button class="btn-icon btn-ghost" on:click={() => { trigger('top'); }}>&uarr;</button>
-				<button class="btn-icon btn-ghost" on:click={() => { trigger('bottom'); }}>&darr;</button>
+				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('left'); }}>&larr;</button>
+				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('right'); }}>&rarr;</button>
+				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('top'); }}>&uarr;</button>
+				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('bottom'); }}>&darr;</button>
 			</div>
 		</div>
 	</svelte:fragment>
@@ -119,7 +63,7 @@
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<h2>Create a Store</h2>
-			<p>Create a <a href="https://svelte.dev/tutorial/writable-stores" target="_blank">Svelte writable store</a> to manage the state of the drawer.</p>
+			<p>Create a <a href="https://svelte.dev/tutorial/writable-stores" target="_blank" rel="noreferrer">Svelte writable store</a> to manage the state of the drawer.</p>
 			<CodeBlock language="typescript" code={`import { writable, type Writable } from 'svelte/store';`} />
 			<CodeBlock language="typescript" code={`const storeDrawer: Writable<boolean> = writable(false);`} />
 		</section>

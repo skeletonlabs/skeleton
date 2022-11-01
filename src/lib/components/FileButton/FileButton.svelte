@@ -1,5 +1,10 @@
 <script lang="ts">
+	/**
+	 * Bind your file data for the file input.
+	 * @type {FileList}
+	 */
 	export let files: FileList;
+	/** Provide a button variant or other class styles. */
 	export let button: string = 'btn-filled-accent';
 
 	let elemFileInput: HTMLElement;

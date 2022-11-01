@@ -2,29 +2,30 @@
 
 export const menuNavLinks: any = [
 	{
-		id: 'nav-guides',
+		id: 'guides',
 		title: 'Guides',
 		list: [
-			{ href: '/guides/install', label: 'Install', icon: 'circle-check' },
-			{ href: '/guides/tailwind', label: 'Tailwind CSS', icon: 'tailwind' },
-			{ href: '/guides/styling', label: 'Styling', icon: 'pen-ruler' },
-			{ href: '/guides/themes', label: 'Themes', icon: 'swatchbook' },
-			{ href: '/guides/frameworks', label: 'Frameworks', icon: 'cubes' }
+			{ href: '/guides/install', label: 'Install' },
+			{ href: '/guides/tailwind', label: 'Tailwind CSS' },
+			{ href: '/guides/styling', label: 'Styling' },
+			{ href: '/guides/themes', label: 'Themes' },
+			{ href: '/guides/frameworks', label: 'Frameworks' }
 		]
 	},
 	{
-		id: 'nav-docs',
+		id: 'docs',
 		title: 'Docs',
 		list: [
 			{ href: '/docs/why', label: 'Why Skeleton' },
 			{ href: '/docs/comparisons', label: 'Comparisons' },
 			{ href: '/docs/features', label: 'Features' },
+			{ href: '/docs/recommended', label: 'Recommended', badge: 'New' },
 			{ href: '/docs/contributions', label: 'Contributions' }
 		]
 	},
 	{
-		id: 'nav-elements',
-		title: 'Tailwind Elements',
+		id: 'elements',
+		title: 'Elements',
 		list: [
 			{ href: '/elements/core', label: 'Core' },
 			{ href: '/elements/typography', label: 'Typography' },
@@ -38,12 +39,21 @@ export const menuNavLinks: any = [
 		]
 	},
 	{
-		id: 'nav-components',
-		title: 'Svelte Components',
+		id: 'actions',
+		title: 'Actions',
+		list: [
+			{ href: '/actions/clipboard', label: 'Clipboard' },
+			{ href: '/actions/filters', label: 'Filters' } // badge: 'Experimental'
+		]
+	},
+	{
+		id: 'components',
+		title: 'Components',
 		list: [
 			{ href: '/components/accordions', label: 'Accordions' },
 			{ href: '/components/alerts', label: 'Alerts' },
 			{ href: '/components/app-bar', label: 'App Bar' },
+			{ href: '/components/app-rail', label: 'App Rail' },
 			{ href: '/components/app-shell', label: 'App Shell' },
 			{ href: '/components/avatars', label: 'Avatars' },
 			{ href: '/components/breadcrumbs', label: 'Breadcrumbs' },
@@ -67,24 +77,16 @@ export const menuNavLinks: any = [
 		]
 	},
 	{
-		id: 'nav-actions',
-		title: 'Svelte Actions',
-		list: [
-			{ href: '/actions/clipboard', label: 'Clipboard' },
-			{ href: '/actions/filters', label: 'Filters', badge: 'Experimental' }
-		]
-	},
-	{
-		id: 'nav-utilities',
+		id: 'utilities',
 		title: 'Utilities',
 		list: [
 			{ href: '/utilities/codeblocks', label: 'Code Blocks' },
-			{ href: '/utilities/drawers', label: 'Drawers' },
 			{ href: '/utilities/dialogs', label: 'Dialogs' },
-			{ href: '/utilities/toasts', label: 'Toasts' },
+			{ href: '/utilities/drawers', label: 'Drawers' },
 			{ href: '/utilities/lightswitches', label: 'Lightswitch' },
 			{ href: '/utilities/local-storage-stores', label: 'Local Storage Stores' },
 			{ href: '/utilities/menus', label: 'Menus' },
+			{ href: '/utilities/toasts', label: 'Toasts' },
 			{ href: '/utilities/tooltips', label: 'Tooltips' }
 		]
 	}

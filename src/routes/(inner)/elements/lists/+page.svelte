@@ -1,6 +1,6 @@
 <script lang="ts">
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings, type DocsShellTable } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
@@ -11,21 +11,23 @@
 		description: 'Provides styles for static list elements.',
 		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/lists'],
-		source: 'styles/elements/lists.css'
+		source: 'styles/elements/lists.css',
+		classes: [
+			['<code>.list</code>', '-', 'Class for defining a unordered or ordered list.'],
+			['<code>.list-dl</code>', '-', 'Class for defining a description list.'],
+			['<code>.list-nav</code>', '-', 'Class for defining a navigation list.']
+		]
 	};
-	const classes: DocsShellTable[] = [
-		{
-			headings: ['Class', 'Description'],
-			source: [
-				['<code>.list</code>', 'Class for defining a unordered or ordered list.'],
-				['<code>.list-dl</code>', 'Class for defining a description list.'],
-				['<code>.list-nav</code>', 'Class for defining a navigation list.']
-			]
-		}
+
+	// Local
+	const listData = [
+		{ name: 'A', class: 'bg-primary-500' },
+		{ name: 'B', class: 'bg-accent-500' },
+		{ name: 'C', class: 'bg-tertiary-500' }
 	];
 </script>
 
-<DocsShell {settings} {classes}>
+<DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-4">
@@ -33,11 +35,11 @@
 				<p class="font-bold">Unordered</p>
 				<hr />
 				<ul class="list">
-					{#each ['A', 'B', 'C'] as v}
+					{#each listData as v}
 						<li>
-							<span class="badge-icon p-4 bg-primary-500/30">💀</span>
+							<span class="badge-icon p-4 {v.class}">💀</span>
 							<span class="flex-auto">
-								Item {v}
+								Item {v.name}
 							</span>
 							<span>⋮</span>
 						</li>
@@ -48,11 +50,11 @@
 				<p class="font-bold">Ordered</p>
 				<hr />
 				<ol class="list">
-					{#each ['A', 'B', 'C'] as v, i}
+					{#each listData as v, i}
 						<li>
-							<span class="badge-icon p-4 bg-primary-500/30">{i + 1}</span>
+							<span class="badge-icon p-4 {v.class}">{i + 1}</span>
 							<span class="flex-auto">
-								Item {v}
+								Item {v.name}
 							</span>
 							<span>⋮</span>
 						</li>
@@ -63,12 +65,12 @@
 				<p class="font-bold">Description</p>
 				<hr />
 				<dl class="list-dl">
-					{#each ['A', 'B'] as v}
+					{#each listData as v}
 						<div>
-							<span class="badge-icon p-4 bg-primary-500/30">💀</span>
+							<span class="badge-icon p-4 {v.class}">💀</span>
 							<span class="flex-auto">
-								<dt>Item {v}</dt>
-								<dd>Description for {v}</dd>
+								<dt>Item {v.name}</dt>
+								<dd>Description for {v.name}</dd>
 							</span>
 							<span>⋮</span>
 						</div>
@@ -80,12 +82,12 @@
 				<hr />
 				<nav class="list-nav">
 					<ul>
-						{#each ['A', 'B', 'C'] as v}
+						{#each listData as v}
 							<li>
 								<a href="/">
-									<span class="badge-icon p-4 bg-primary-500/30">💀</span>
+									<span class="badge-icon p-4 {v.class}">💀</span>
 									<span class="flex-auto">
-										Item {v}
+										Item {v.name}
 									</span>
 									<span>⋮</span>
 								</a>
@@ -157,7 +159,11 @@
 		<!-- Navigation -->
 		<div class="space-y-4">
 			<h2>Navigation</h2>
-			<p>While verbose, we do recommend you use all tags shown below to meet recommended <a href="https://www.w3.org/WAI/tutorials/menus/structure/" target="_blank">accessibility guidelines</a>.</p>
+			<p>
+				While verbose, we do recommend you use all tags shown below to meet recommended <a href="https://www.w3.org/WAI/tutorials/menus/structure/" target="_blank" rel="noreferrer"
+					>accessibility guidelines</a
+				>.
+			</p>
 			<CodeBlock
 				language="html"
 				code={`
@@ -178,21 +184,6 @@
 			<p>If you need to highlight an active Navigation List item, we recommend conditionally applying a background color to the anchor tag.</p>
 			<CodeBlock language="ts" code={`$: classesActive = (href: string) => (href === $page.url.pathname ? '!bg-primary-500' : '');`} />
 			<CodeBlock language="html" code={`<a {href} class="{classesActive(href)}">Page</a>`} />
-		</div>
-		<!-- Global Styles -->
-		<div class="space-y-4">
-			<h2>Global Styles</h2>
-			<p>Use your global stylesheet to update all instances of this element.</p>
-			<CodeBlock
-				language="css"
-				code={`
-.list,
-.list-dl,
-.list-nav ul {
-	@apply space-y-4;
-}
-            `}
-			/>
 		</div>
 	</svelte:fragment>
 </DocsShell>
