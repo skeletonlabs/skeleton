@@ -8,6 +8,7 @@
 	// SvelteKit Imports
 	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
+	import { onMount } from 'svelte';
 	import { afterNavigate } from '$app/navigation';
 
 	// Stores
@@ -56,6 +57,14 @@
 	}
 
 	// Lifecycle Events
+	onMount(() => {
+		// TEMPORARY FIX FOR: https://github.com/Brain-Bones/skeleton/issues/489
+		const lsTailwindPallete = window.localStorage.getItem('storeTailwindPalette');
+		if (lsTailwindPallete?.includes('ternary')) {
+			console.log('TEMP FIX: LocalStorage Values Cleared. This should only ever run once!');
+			window.localStorage.clear();
+		}
+	});
 	afterNavigate((params: any) => {
 		// Store current page route URL
 		storeCurrentUrl.set($page.url.pathname);
