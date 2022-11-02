@@ -2,22 +2,30 @@
 
 import { writable } from 'svelte/store';
 
-export interface DialogAlert {
-	icon?: string;
-	title: string;
-	body: string;
+export interface DialogComponent {
+	/** Import and provide your component reference. */
+	ref: any;
+	/** Provide a key/value pairs of component props. */
+	props?: Record<string, string>;
+	/** Provide an HTML template literal for the default slot. */
+	slot?: string;
+}
+
+export interface Dialog {
+	/** Designate what type of component will display. */
+	type: 'alert' | 'confirm' | 'prompt' | 'component';
+	/** Provide the dialog header content. Accepts HTML. */
+	title?: string;
+	/** Provide the dialog body content. Accepts HTML. */
+	body?: string;
+	/** Provide a URl to display an image within the dialog. */
 	image?: any;
-	component?: any;
-	html?: any;
-}
-export interface DialogConfirm extends DialogAlert {
-	type: string;
-	result: any;
-}
-export interface DialogPrompt extends DialogAlert {
-	type: string;
-	value: any;
-	result: any;
+	/** Prompt Only - provide a prompt value. */
+	value?: any;
+	/** Provide {component, props} to create a generate a custom component. */
+	component?: DialogComponent;
+	/** Provide a function. Returns the repsonse value. */
+	response?: any;
 }
 
 function dialogService(): any {
@@ -25,7 +33,7 @@ function dialogService(): any {
 	return {
 		subscribe,
 		// Trigger - append to end of queue
-		trigger: (dialog: DialogAlert | DialogAlert | DialogAlert) =>
+		trigger: (dialog: Dialog) =>
 			update((dStore: any) => {
 				dStore.push(dialog);
 				return dStore;
