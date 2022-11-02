@@ -26,7 +26,7 @@
 
 	// Copy Theme Import to Clipboard
 	function copyThemeToClipboard(name: string): void {
-		navigator.clipboard.writeText(`import '@brainandbones/skeleton/themes/theme-${name}.css';`).then(
+		navigator.clipboard.writeText(`import '@brainandbones/skeleton/themes/theme-${name.toLowerCase()}.css';`).then(
 			// Success
 			() => {
 				const t: ToastMessage = { message: 'Import statement copied to clipboard.' };

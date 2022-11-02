@@ -34,9 +34,9 @@
 	<section class="space-y-4">
 		<h2>Components</h2>
 		<p>
-			Sveld makes use of <a href="https://tsdoc.org" target="_blank" rel="noreferrer">TSDoc tags</a> (a superset of JSDocs) to generate component documentation from the component code itself.
-			This comes with the benefit of providing additional <a href="https://code.visualstudio.com/docs/editor/intellisense" target="_blank" rel="noreferrer">Intellisense</a> features to aid developers
-			implementing Skeleton components in tools like VS Code. Tap <kbd>Ctrl/⌘ + i</kbd> in a component declaration to see the extended docs come through. 
+			Sveld makes use of <a href="https://tsdoc.org" target="_blank" rel="noreferrer">TSDoc tags</a> (a superset of JSDocs) to generate component documentation from the component code itself. This
+			comes with the benefit of providing additional <a href="https://code.visualstudio.com/docs/editor/intellisense" target="_blank" rel="noreferrer">Intellisense</a> features to aid developers
+			implementing Skeleton components in tools like VS Code. Tap <kbd>Ctrl/⌘ + i</kbd> in a component declaration to see the extended docs come through.
 		</p>
 	</section>
 
@@ -87,7 +87,7 @@ export let hover: string = getContext('hover');
 		<h3>Slots</h3>
 		<p><a href="https://github.com/carbon-design-system/sveld#slot" target="_blank" rel="noreferrer">Sveld Reference</a></p>
 		<p>
-			Slot documentation is provided by placing a TSDoc comment block at the top (by convention) of your script block. Note that Sveld does not currently support descriptions for the 
+			Slot documentation is provided by placing a TSDoc comment block at the top (by convention) of your script block. Note that Sveld does not currently support descriptions for the
 			<code>default</code> slot at this time. Instead, we recommend you opt for a Usage tab example and instructions to illustrate the use of this slot.
 		</p>
 		<CodeBlock
@@ -149,9 +149,7 @@ dispatch('dragover', event);`}
 			</div>
 			<a class="btn btn-filled-accent" href="https://github.com/Brain-Bones/skeleton/blob/dev/src/docs/DocsShell/types.ts#L42" target="_blank" rel="noreferrer">View Available Settings</a>
 		</section>
-		<p>
-			Below are existing documentation pages we recommend you reference:
-		</p>
+		<p>Below are existing documentation pages we recommend you reference:</p>
 		<ul class="list-disc list-inside space-y-1">
 			<li><a href="/elements/button">Buttons</a> showcases how to document Tailwind Element classes.</li>
 			<li><a href="/components/accordions">Accordion</a> makes use of most Component settings utilizing Sveld.</li>
