@@ -112,6 +112,8 @@
 		// ---
 		onClose
 	};
+
+	console.log($$props);
 </script>
 
 <svelte:window on:keydown={onKeyDown} />

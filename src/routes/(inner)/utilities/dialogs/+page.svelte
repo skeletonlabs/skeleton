@@ -13,6 +13,7 @@
 	import { dialogStore } from '$lib/utilities/Dialog/stores';
 	import DialogExampleForm from '$lib/utilities/Dialog/examples/DialogExampleForm.svelte';
 	import DialogExampleList from '$lib/utilities/Dialog/examples/DialogExampleList.svelte';
+	import DialogExampleEmbed from '$lib/utilities/Dialog/examples/DialogExampleEmbed.svelte';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -93,6 +94,18 @@
 		};
 		dialogStore.trigger(d);
 	}
+
+	function dialogComponentEmbed(): void {
+		const c: DialogComponent = { ref: DialogExampleEmbed };
+		const d: Dialog = {
+			type: 'component',
+			component: c,
+			response: (r: any) => {
+				if (r) console.log('response:', r);
+			}
+		};
+		dialogStore.trigger(d);
+	}
 </script>
 
 <DocsShell {settings}>
@@ -108,6 +121,7 @@
 			<div class="card card-body flex justify-center space-x-2">
 				<button class="btn btn-ghost-surface" on:click={dialogComponentForm}>Form</button>
 				<button class="btn btn-ghost-surface" on:click={dialogComponentList}>List</button>
+				<button class="btn btn-ghost-surface" on:click={dialogComponentEmbed}>Embed</button>
 			</div>
 		</section>
 	</svelte:fragment>
