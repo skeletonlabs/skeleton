@@ -5,8 +5,8 @@
 	import { dialogStore } from '$lib/utilities/Dialog/stores';
 
 	// Props
-	/** The animation in/out durations. Set to '0' (zero) for none. */
-	export let duration: number = 100;
+	/** The open/close animation duration. Set '0' (zero) to disable. */
+	export let duration: number = 150;
 
 	// Props (dialog)
 	/** Provide classes to style the dialog background. */
@@ -45,34 +45,6 @@
 	export let regionBody: string = 'max-h-[200px] overflow-hidden';
 	/** Provide arbitrary classes to dialog footer region. */
 	export let regionFooter: string = 'flex justify-end space-x-2';
-
-	// Provide to Component
-	$: parent = {
-		duration,
-		// ---
-		background,
-		width,
-		height,
-		padding,
-		spacing,
-		rounded,
-		shadow,
-		// ---
-		buttonNeutral,
-		buttonPositive,
-		buttonTextCancel,
-		buttonTextConfirm,
-		buttonTextSubmit,
-		// ---
-		regionBackdrop,
-		regionHeader,
-		regionBody,
-		regionFooter,
-		// ---
-		onClose,
-		onConfirm,
-		onPromptSubmit
-	};
 
 	// Base Styles
 	const cBackdrop: string = 'fixed top-0 left-0 right-0 bottom-0 z-[999] flex justify-center items-center p-4';
@@ -116,6 +88,30 @@
 	// Reactive
 	$: classesBackdrop = `${cBackdrop} ${regionBackdrop} ${$$props.class || ''}`;
 	$: classesDialog = `${background} ${width} ${height} ${padding} ${spacing} ${rounded} ${shadow}`;
+
+	// IMPORTANT: add relevant props/functions above to pass to the generated child.
+	$: parent = {
+		background,
+		width,
+		height,
+		padding,
+		spacing,
+		rounded,
+		shadow,
+		// ---
+		buttonNeutral,
+		buttonPositive,
+		buttonTextCancel,
+		buttonTextConfirm,
+		buttonTextSubmit,
+		// ---
+		regionBackdrop,
+		regionHeader,
+		regionBody,
+		regionFooter,
+		// ---
+		onClose
+	};
 </script>
 
 <svelte:window on:keydown={onKeyDown} />

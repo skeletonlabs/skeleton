@@ -12,6 +12,7 @@
 	import type { Dialog, DialogComponent } from '$lib/utilities/Dialog/stores';
 	import { dialogStore } from '$lib/utilities/Dialog/stores';
 	import DialogExampleForm from '$lib/utilities/Dialog/examples/DialogExampleForm.svelte';
+	import DialogExampleList from '$lib/utilities/Dialog/examples/DialogExampleList.svelte';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -65,15 +66,26 @@
 		dialogStore.trigger(d);
 	}
 
-	function dialogComponent(): void {
-		const c: DialogComponent = {
-			ref: DialogExampleForm,
-			props: { foo: 'bar' }
-		};
+	function dialogComponentForm(): void {
+		const c: DialogComponent = { ref: DialogExampleForm };
 		const d: Dialog = {
 			type: 'component',
 			title: 'Custom Form Component',
 			body: 'Complete the form below and then press submit.',
+			component: c,
+			response: (r: any) => {
+				if (r) console.log('response:', r);
+			}
+		};
+		dialogStore.trigger(d);
+	}
+
+	function dialogComponentList(): void {
+		const c: DialogComponent = { ref: DialogExampleList };
+		const d: Dialog = {
+			type: 'component',
+			title: 'Custom List Component',
+			body: 'Make your selection then press submit.',
 			component: c,
 			response: (r: any) => {
 				if (r) console.log('response:', r);
@@ -86,11 +98,17 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="card card-body flex justify-center space-x-2">
-			<button class="btn btn-ghost-surface" on:click={dialogAlert}>Alert</button>
-			<button class="btn btn-ghost-surface" on:click={dialogConfirm}>Confirm</button>
-			<button class="btn btn-ghost-surface" on:click={dialogPrompt}>Prompt</button>
-			<button class="btn btn-ghost-surface" on:click={dialogComponent}>Component</button>
+		<section class="space-y-4">
+			<div class="card card-body flex justify-center space-x-2">
+				<button class="btn btn-ghost-surface" on:click={dialogAlert}>Alert</button>
+				<button class="btn btn-ghost-surface" on:click={dialogConfirm}>Confirm</button>
+				<button class="btn btn-ghost-surface" on:click={dialogPrompt}>Prompt</button>
+			</div>
+			<h2>Custom Components</h2>
+			<div class="card card-body flex justify-center space-x-2">
+				<button class="btn btn-ghost-surface" on:click={dialogComponentForm}>Form</button>
+				<button class="btn btn-ghost-surface" on:click={dialogComponentList}>List</button>
+			</div>
 		</section>
 	</svelte:fragment>
 
