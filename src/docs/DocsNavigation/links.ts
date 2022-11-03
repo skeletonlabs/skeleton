@@ -43,7 +43,8 @@ export const menuNavLinks: any = [
 		title: 'Actions',
 		list: [
 			{ href: '/actions/clipboard', label: 'Clipboard' },
-			{ href: '/actions/filters', label: 'Filters' } // badge: 'Experimental'
+			{ href: '/actions/filters', label: 'Filters' }, // badge: 'Experimental'
+			{ href: '/actions/focus-trap', label: 'Focus Trap' }
 		]
 	},
 	{

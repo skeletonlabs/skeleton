@@ -1,6 +1,9 @@
 <script lang="ts">
 	import { fade, fly } from 'svelte/transition';
 
+	// Actions
+	import { focusTrap } from '$lib/actions/FocusTrap/focusTrap';
+
 	// Stores
 	import { dialogStore } from '$lib/utilities/Dialog/stores';
 
@@ -122,7 +125,12 @@
 	<!-- <pre>{JSON.stringify($dialogStore, null, 2)}</pre> -->
 	<div class="dialog-backdrop {classesBackdrop}" on:click={onBackdropClick} on:keydown={() => {}} transition:fade|local={{ duration }}>
 		<!-- Modal -->
-		<div class="dialog {classesDialog} {$dialogStore[0].classes}" transition:fly|local={{ duration, opacity: 0, y: 100 }}>
+		<!-- prettier-ignore -->
+		<div 
+			class="dialog {classesDialog} {$dialogStore[0].classes}"
+			transition:fly|local={{ duration, opacity: 0, y: 100 }}
+			use:focusTrap={true}
+		>
 			<!-- Header -->
 			{#if $dialogStore[0]?.title}
 				<header class="dialog-header {regionHeader}">{@html $dialogStore[0].title}</header>
