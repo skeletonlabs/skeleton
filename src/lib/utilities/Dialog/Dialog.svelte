@@ -53,11 +53,14 @@
 	// Local
 	let promptValue: any;
 
+	// Dialog Store Subscription
 	dialogStore.subscribe((dArr: any[]) => {
 		if (!dArr.length) return;
 		// Set the local dialog value (for prompt)
 		promptValue = dArr[0].value;
 	});
+
+	// Event Handlers ---
 
 	function onBackdropClick(e: any): void {
 		if (e.target.classList.contains('dialog-backdrop')) onClose();
@@ -88,8 +91,7 @@
 	// Reactive
 	$: classesBackdrop = `${cBackdrop} ${regionBackdrop} ${$$props.class || ''}`;
 	$: classesDialog = `${background} ${width} ${height} ${padding} ${spacing} ${rounded} ${shadow}`;
-
-	// IMPORTANT: add relevant props/functions above to pass to the generated child.
+	// IMPORTANT: add values to pass to the children templates.
 	$: parent = {
 		background,
 		width,
@@ -112,8 +114,6 @@
 		// ---
 		onClose
 	};
-
-	console.log($$props);
 </script>
 
 <svelte:window on:keydown={onKeyDown} />
@@ -122,7 +122,7 @@
 	<!-- <pre>{JSON.stringify($dialogStore, null, 2)}</pre> -->
 	<div class="dialog-backdrop {classesBackdrop}" on:click={onBackdropClick} on:keydown={() => {}} transition:fade|local={{ duration }}>
 		<!-- Modal -->
-		<div class="dialog {classesDialog}" transition:fly|local={{ duration, opacity: 0, y: 100 }}>
+		<div class="dialog {classesDialog} {$dialogStore[0].classes}" transition:fly|local={{ duration, opacity: 0, y: 100 }}>
 			<!-- Header -->
 			{#if $dialogStore[0]?.title}
 				<header class="dialog-header {regionHeader}">{@html $dialogStore[0].title}</header>

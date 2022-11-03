@@ -100,9 +100,7 @@
 		const d: Dialog = {
 			type: 'component',
 			component: c,
-			response: (r: any) => {
-				if (r) console.log('response:', r);
-			}
+			classes: '!p-0 !bg-black !max-w-[75%]'
 		};
 		dialogStore.trigger(d);
 	}

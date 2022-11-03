@@ -18,7 +18,7 @@ export interface Dialog {
 	title?: string;
 	/** Provide the dialog body content. Accepts HTML. */
 	body?: string;
-	/** Provide a URl to display an image within the dialog. */
+	/** Provide a URL to display an image within the dialog. */
 	image?: any;
 	/** Prompt Only - provide a prompt value. */
 	value?: any;
@@ -26,6 +26,8 @@ export interface Dialog {
 	component?: DialogComponent;
 	/** Provide a function. Returns the repsonse value. */
 	response?: any;
+	/** Provide abritrary classes to apply to the Dialog element. Use `!` for important. */
+	classes?: string;
 }
 
 function dialogService(): any {
