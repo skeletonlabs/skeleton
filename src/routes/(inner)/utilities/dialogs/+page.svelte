@@ -36,8 +36,7 @@
 		keyboard: [['<kbd>Esc</kbd>', ' Dismisses the foremost dialog.']]
 	};
 
-	// Local
-	let valueConfirm: boolean = false;
+	// Standard ---
 
 	function dialogAlert(): void {
 		const d: DialogSettings = {
@@ -55,8 +54,7 @@
 			title: 'Please Confirm',
 			body: 'Are you sure you wish to proceed?',
 			response: (r: boolean) => {
-				valueConfirm = r;
-				console.log('response:', r);
+				if (r) console.log('response:', r);
 			}
 		};
 		dialogStore.trigger(d);
@@ -74,6 +72,19 @@
 		};
 		dialogStore.trigger(d);
 	}
+
+	function dialogMultiple(): void {
+		[1, 2, 3].forEach((dNum: number) => {
+			const d: DialogSettings = {
+				type: 'alert',
+				title: `Dialog ${dNum}`,
+				body: `The dialog body of ${dNum}.`
+			};
+			dialogStore.trigger(d);
+		});
+	}
+
+	// Custom ---
 
 	function dialogComponentForm(): void {
 		const c: DialogComponent = { ref: DialogExampleForm };
@@ -124,6 +135,7 @@
 					<button class="btn btn-ghost-surface" on:click={dialogAlert}>Alert</button>
 					<button class="btn btn-ghost-surface" on:click={dialogConfirm}>Confirm</button>
 					<button class="btn btn-ghost-surface" on:click={dialogPrompt}>Prompt</button>
+					<button class="btn btn-ghost-surface" on:click={dialogMultiple}>Multiple</button>
 				</div>
 			</div>
 			<div class="card card-body space-y-4">
@@ -148,7 +160,7 @@
 		<!-- Dialog Store -->
 		<section class="space-y-4">
 			<h2>Dialog Store</h2>
-			<p>When you wish to trigger a dialog, import the <code>dialogStore</code>, which acts as our dialog queue.</p>
+			<p>When you wish to trigger a dialog, import the <code>dialogStore</code>, which acts as the dialog queue.</p>
 			<CodeBlock language="ts" code={`import { dialogStore } from '@brainandbones/skeleton';`} />
 			<h3>Trigger</h3>
 			<p>Note that <code>title</code>, <code>body</code>, and <code>image</code> are optional for <u>all</u> dialog types.</p>
@@ -251,7 +263,7 @@ function dialogComponent(): void {
 		// Pass a reference to your custom component
 		ref: MyCustomComponent,
 		// Add props as key/value pairs
-		prop: { background: 'bg-red-500' },
+		props: { background: 'bg-red-500' },
 		// Provide your 'default' slot content as a template literal
 		slot: '<p>Skeleton</p>'
 	};
@@ -266,8 +278,8 @@ function dialogComponent(): void {
 			/>
 			<h3>Constructing a Dialog Component</h3>
 			<p>
-				When constructing your these components you'll need to implement your options to close, submit, and handle dialog response values. To make this process easier, we've provided a few examples to
-				demonstrate the process.
+				When constructing your these components you'll need to implement your options for close/submit buttons, and trigger the dialog response values. To make this process easier, we've provided a
+				few examples to demonstrate the process.
 			</p>
 			<a class="btn btn-filled-accent" href="https://github.com/Brain-Bones/skeleton/tree/feature/master/src/lib/utilities/Dialog/examples" target="_blank" rel="noreferrer">View Component Examples</a>
 			<p>A few things to note:</p>

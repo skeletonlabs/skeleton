@@ -69,6 +69,8 @@
 		if (e.target.classList.contains('dialog-backdrop')) onClose();
 	}
 
+	function onBackdropKeydown(): void {}
+
 	function onClose(): void {
 		if ($dialogStore[0].response) $dialogStore[0].response(false);
 		dialogStore.close();
@@ -95,6 +97,9 @@
 	$: classesBackdrop = `${cBackdrop} ${regionBackdrop} ${$$props.class || ''}`;
 	$: classesDialog = `${background} ${width} ${height} ${padding} ${spacing} ${rounded} ${shadow}`;
 	// IMPORTANT: add values to pass to the children templates.
+	// There is a way to self-reference component values, but it involes svelte-internal and is not yet stable.
+	// REPL: https://svelte.dev/repl/badd0f11aa99450ca69dca6690d4d5a4?version=3.52.0
+	// Source: https://discord.com/channels/457912077277855764/1037768846855118909
 	$: parent = {
 		background,
 		width,
@@ -122,15 +127,10 @@
 <svelte:window on:keydown={onKeyDown} />
 
 {#if $dialogStore.length > 0}
-	<!-- <pre>{JSON.stringify($dialogStore, null, 2)}</pre> -->
-	<div class="dialog-backdrop {classesBackdrop}" on:click={onBackdropClick} on:keydown={() => {}} transition:fade|local={{ duration }}>
+	<!-- Backdrop -->
+	<div class="dialog-backdrop {classesBackdrop}" on:click={onBackdropClick} on:keydown transition:fade|local={{ duration }}>
 		<!-- Modal -->
-		<!-- prettier-ignore -->
-		<div 
-			class="dialog {classesDialog} {$dialogStore[0].classes}"
-			transition:fly|local={{ duration, opacity: 0, y: 100 }}
-			use:focusTrap={true}
-		>
+		<div class="dialog {classesDialog} {$dialogStore[0].classes}" transition:fly|local={{ duration, opacity: 0, y: 100 }} use:focusTrap={true}>
 			<!-- Header -->
 			{#if $dialogStore[0]?.title}
 				<header class="dialog-header {regionHeader}">{@html $dialogStore[0].title}</header>
