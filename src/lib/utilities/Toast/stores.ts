@@ -2,16 +2,6 @@
 
 import { writable } from 'svelte/store';
 
-export interface ToastMessage {
-	message: string;
-	autohide?: boolean;
-	timeout?: number;
-	button?: {
-		label: string;
-		action: any;
-	};
-}
-
 const toastDefaults: any = { message: 'Default Toast Message', autohide: true, timeout: 5000 };
 
 function toastService(): any {
@@ -26,10 +16,11 @@ function toastService(): any {
 				return tStore;
 			}),
 		// Close - remove first item in queue
-		close: () =>
+		close: (index: number) =>
 			update((tStore) => {
 				if (tStore.length > 0) {
-					tStore.shift();
+					// tStore.shift();
+					tStore.splice(index, 1);
 				}
 				return tStore;
 			}),
