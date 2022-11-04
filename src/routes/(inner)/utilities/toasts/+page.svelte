@@ -62,11 +62,13 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="card card-body flex justify-center space-x-2">
-			<button class="btn btn-ghost-surface" on:click={toastBasic}>Basic</button>
-			<button class="btn btn-ghost-surface" on:click={toastParagraph}>Paragraph</button>
-			<button class="btn btn-ghost-surface" on:click={toastAction}>Action</button>
-			<button class="btn btn-ghost-surface" on:click={toastMultiple}>Multiple</button>
+		<section class="card card-body">
+			<div class="grid grid-cols-1 md:grid-cols-4 gap-4 max-w-[640px] mx-auto">
+				<button class="btn btn-ghost-surface" on:click={toastBasic}>Basic</button>
+				<button class="btn btn-ghost-surface" on:click={toastParagraph}>Paragraph</button>
+				<button class="btn btn-ghost-surface" on:click={toastAction}>Action</button>
+				<button class="btn btn-ghost-surface" on:click={toastMultiple}>Multiple</button>
+			</div>
 		</section>
 	</svelte:fragment>
 
