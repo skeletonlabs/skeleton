@@ -210,7 +210,10 @@
 		</div>
 
 		<Divider vertical borderWidth="border-l-2 opacity-30" />
-
+		<!-- Blog -->
+		<a class="unstyled font-bold" href="/blog" data-sveltekit-prefetch>Blog</a>
+		
+		<Divider vertical borderWidth="border-l-2 opacity-30" />
 		<!-- Social -->
 		<section class="flex">
 			<a class="btn btn-sm" href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer" aria-label="Discord">

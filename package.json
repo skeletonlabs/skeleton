@@ -23,6 +23,7 @@
 		"@sveltejs/kit": "^1.0.0-next.532",
 		"@sveltejs/package": "1.0.0-next.5",
 		"@tailwindcss/forms": "^0.5.3",
+		"@tailwindcss/typography": "^0.5.7",
 		"@testing-library/dom": "^8.19.0",
 		"@testing-library/svelte": "^3.2.2",
 		"@typescript-eslint/eslint-plugin": "^5.42.0",
