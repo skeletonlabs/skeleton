@@ -7,13 +7,13 @@
 	import { dialogStore } from '$lib/utilities/Dialog/stores';
 
 	// Form Data
-	const formData: any = {
+	const formData = {
 		name: 'Jane Doe',
 		tel: '214-555-1234',
 		email: 'jdoe@email.com'
 	};
 
-	// We've created a custom submit function pass the response and close the dialog.
+	// We've created a custom submit function to pass the response and close the dialog.
 	function onFormSubmit(): void {
 		$dialogStore[0].response(formData);
 		dialogStore.close();

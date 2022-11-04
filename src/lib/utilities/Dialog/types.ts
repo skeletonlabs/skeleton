@@ -17,10 +17,10 @@ export interface DialogSettings {
 	/** Provide the dialog body content. Accepts HTML. */
 	body?: string;
 	/** Provide a URL to display an image within the dialog. */
-	image?: string;
+	image?: URL | string;
 	/** Prompt Only - provide a prompt value. */
-	value?: any;
-	/** Provide {component, props} to create a generate a custom component. */
+	value?: unknown;
+	/** Provide your component reference, props, and slot details. */
 	component?: DialogComponent;
 	/** Provide a function. Returns the repsonse value. */
 	response?: any;

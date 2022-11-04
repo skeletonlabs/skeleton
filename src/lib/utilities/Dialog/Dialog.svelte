@@ -69,8 +69,6 @@
 		if (e.target.classList.contains('dialog-backdrop')) onClose();
 	}
 
-	function onBackdropKeydown(): void {}
-
 	function onClose(): void {
 		if ($dialogStore[0].response) $dialogStore[0].response(false);
 		dialogStore.close();
@@ -88,7 +86,7 @@
 
 	// A11y ---
 
-	function onKeyDown(event: any): void {
+	function onKeyDown(event: KeyboardEvent): void {
 		if (!$dialogStore.length) return;
 		if (event.code === 'Escape') onClose();
 	}
@@ -127,51 +125,53 @@
 <svelte:window on:keydown={onKeyDown} />
 
 {#if $dialogStore.length > 0}
-	<!-- Backdrop -->
-	<div class="dialog-backdrop {classesBackdrop}" on:click={onBackdropClick} on:keydown transition:fade|local={{ duration }}>
-		<!-- Modal -->
-		<div class="dialog {classesDialog} {$dialogStore[0].classes}" transition:fly|local={{ duration, opacity: 0, y: 100 }} use:focusTrap={true}>
-			<!-- Header -->
-			{#if $dialogStore[0]?.title}
-				<header class="dialog-header {regionHeader}">{@html $dialogStore[0].title}</header>
-			{/if}
-			<!-- Body -->
-			{#if $dialogStore[0]?.body}
-				<article class="dialog-body {regionBody}">{@html $dialogStore[0].body}</article>
-			{/if}
-			<!-- Image -->
-			{#if $dialogStore[0]?.image}
-				<img class="dialog-image {cDialogImage}" src={$dialogStore[0]?.image} alt="Dialog" />
-			{/if}
-			<!-- Type -->
-			{#if $dialogStore[0].type === 'alert'}
-				<!-- Template: Alert -->
-				<footer class="dialog-footer {regionFooter}">
+	{#key $dialogStore}
+		<!-- Backdrop -->
+		<div class="dialog-backdrop {classesBackdrop}" on:click={onBackdropClick} on:keydown transition:fade={{ duration }}>
+			<!-- Modal -->
+			<div class="dialog {classesDialog} {$dialogStore[0].classes}" transition:fly={{ duration, opacity: 0, y: 100 }} use:focusTrap={true}>
+				<!-- Header -->
+				{#if $dialogStore[0]?.title}
+					<header class="dialog-header {regionHeader}">{@html $dialogStore[0].title}</header>
+				{/if}
+				<!-- Body -->
+				{#if $dialogStore[0]?.body}
+					<article class="dialog-body {regionBody}">{@html $dialogStore[0].body}</article>
+				{/if}
+				<!-- Image -->
+				{#if $dialogStore[0]?.image}
+					<img class="dialog-image {cDialogImage}" src={$dialogStore[0]?.image} alt="Dialog" />
+				{/if}
+				<!-- Type -->
+				{#if $dialogStore[0].type === 'alert'}
+					<!-- Template: Alert -->
+					<footer class="dialog-footer {regionFooter}">
+						<!-- prettier-ignore -->
+						<button class="btn {buttonNeutral}" on:click={onClose}>{buttonTextCancel}</button>
+					</footer>
+				{:else if $dialogStore[0].type === 'confirm'}
+					<!-- Template: Confirm -->
 					<!-- prettier-ignore -->
-					<button class="btn {buttonNeutral}" on:click={onClose}>{buttonTextCancel}</button>
-				</footer>
-			{:else if $dialogStore[0].type === 'confirm'}
-				<!-- Template: Confirm -->
-				<!-- prettier-ignore -->
-				<footer class="dialog-footer {regionFooter}">
+					<footer class="dialog-footer {regionFooter}">
 					<button class="btn {buttonNeutral}" on:click={onClose}>{buttonTextCancel}</button>
 					<button class="btn {buttonPositive}" on:click={onConfirm}>{buttonTextConfirm}</button>
 				</footer>
-			{:else if $dialogStore[0].type === 'prompt'}
-				<!-- Template: Prompt -->
-				<input class="dialog-prompt-input" type="text" bind:value={promptValue} required />
-				<!-- prettier-ignore -->
-				<footer class="dialog-footer {regionFooter}">
+				{:else if $dialogStore[0].type === 'prompt'}
+					<!-- Template: Prompt -->
+					<input class="dialog-prompt-input" type="text" bind:value={promptValue} required />
+					<!-- prettier-ignore -->
+					<footer class="dialog-footer {regionFooter}">
 					<button class="btn {buttonNeutral}" on:click={onClose}>{buttonTextCancel}</button>
 					<button class="btn {buttonPositive}" on:click={onPromptSubmit}>{buttonTextSubmit}</button>
 				</footer>
-			{:else if $dialogStore[0].type === 'component'}
-				<!-- Template: Component -->
-				<!-- NOTE: users are repsonsible for handling all UI, including cancel/submit buttons -->
-				<svelte:component this={$dialogStore[0].component.ref} {...$dialogStore[0].component.props} {parent}>
-					{@html $dialogStore[0].component.slot}
-				</svelte:component>
-			{/if}
+				{:else if $dialogStore[0].type === 'component'}
+					<!-- Template: Component -->
+					<!-- NOTE: users are repsonsible for handling all UI, including cancel/submit buttons -->
+					<svelte:component this={$dialogStore[0].component.ref} {...$dialogStore[0].component.props} {parent}>
+						{@html $dialogStore[0].component.slot}
+					</svelte:component>
+				{/if}
+			</div>
 		</div>
-	</div>
+	{/key}
 {/if}

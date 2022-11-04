@@ -278,13 +278,13 @@ function dialogComponent(): void {
 			/>
 			<h3>Constructing a Dialog Component</h3>
 			<p>
-				When constructing your these components you'll need to implement your options for close/submit buttons, and trigger the dialog response values. To make this process easier, we've provided a
-				few examples to demonstrate the process.
+				When constructing your these components you are responsible for adding all close/submit buttons, as well as triggering the dialog response values as needed. To make this process easier to
+				understand, we've provided a few examples to demonstrate the process.
 			</p>
 			<a class="btn btn-filled-accent" href="https://github.com/Brain-Bones/skeleton/tree/feature/master/src/lib/utilities/Dialog/examples" target="_blank" rel="noreferrer">View Component Examples</a>
 			<p>A few things to note:</p>
 			<ul class="list-disc list-inside space-y-1">
-				<li>Import and use the <code>dialogStore</code> to interface directly with the active dialog queue.</li>
+				<li>Import and use the <code>dialogStore</code> to interface directly with the active dialog queue. <code>[0]</code> is the visible dialog index.</li>
 				<li>Most Dialog component props are available via the <code>parent</code> prop - ex: <code>parent.background</code> will provide the background color.</li>
 				<li>
 					You can reference the full list of <a href="https://github.com/Brain-Bones/skeleton/blob/feature/master/src/lib/utilities/Dialog/Dialog.svelte#L95" target="_blank" rel="noreferrer"
@@ -292,7 +292,7 @@ function dialogComponent(): void {
 					>.
 				</li>
 				<li>Use the <code>parent.onClose()</code> or <code>dialogStore.close()</code> methods to close the dialog.</li>
-				<li>Use the <code>$dialogStore[0].response('someDataHere');</code> method to return a response value.</li>
+				<li>Use the <code>$dialogStore[0].response('myResponseDataHere');</code> method to return a response value.</li>
 			</ul>
 		</section>
 	</svelte:fragment>

@@ -5,7 +5,7 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 	let elemFirst: HTMLElement;
 	let elemLast: HTMLElement;
 
-	function lastLastKeydown(e: KeyboardEvent): void {
+	function onElemLastKeydown(e: KeyboardEvent): void {
 		if (e.code === 'Tab') {
 			e.preventDefault();
 			elemFirst.focus();
@@ -23,18 +23,18 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 			// Auto-focus first focusable element
 			elemFirst.focus();
 			// Listen for keydown on last element
-			elemLast.addEventListener('keydown', lastLastKeydown);
+			elemLast.addEventListener('keydown', onElemLastKeydown);
 		}
 	};
 	onInit();
 
 	function onDestory(): void {
-		if (elemLast) elemLast.removeEventListener('keydown', lastLastKeydown);
+		if (elemLast) elemLast.removeEventListener('keydown', onElemLastKeydown);
 	}
 
 	// Lifecycle
 	return {
-		update(newArgs: any) {
+		update(newArgs: boolean) {
 			enabled = newArgs;
 			newArgs ? onInit() : onDestory();
 		},
