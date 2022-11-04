@@ -1,6 +1,8 @@
-// Documentation AppBar Navigation
+// Navigation Links & Sitemap
 
 export const menuNavLinks: any = [
+	// Guides ---
+
 	{
 		id: 'guides',
 		title: 'Guides',
@@ -12,6 +14,9 @@ export const menuNavLinks: any = [
 			{ href: '/guides/frameworks', label: 'Frameworks' }
 		]
 	},
+
+	// Docs ---
+
 	{
 		id: 'docs',
 		title: 'Docs',
@@ -23,13 +28,29 @@ export const menuNavLinks: any = [
 			{ href: '/docs/contributions', label: 'Contributions' }
 		]
 	},
+
+	// Tailwind ---
+
+	// {
+	// 	id: 'tokens',
+	// 	title: 'Tokens',
+	// 	list: [
+	// 		{ href: '/elements/tokens', label: 'Design Tokens' }
+	// 	]
+	// },
+	{
+		id: 'base',
+		title: 'Base',
+		list: [
+			{ href: '/elements/core', label: 'Core' },
+			{ href: '/elements/typography', label: 'Typography' },
+			{ href: '/elements/forms', label: 'Forms' }
+		]
+	},
 	{
 		id: 'elements',
 		title: 'Elements',
 		list: [
-			{ href: '/elements/core', label: 'Core' },
-			{ href: '/elements/typography', label: 'Typography' },
-			{ href: '/elements/forms', label: 'Forms' },
 			{ href: '/elements/badges', label: 'Badges' },
 			{ href: '/elements/buttons', label: 'Buttons' },
 			{ href: '/elements/cards', label: 'Cards' },
@@ -38,12 +59,15 @@ export const menuNavLinks: any = [
 			{ href: '/elements/placeholders', label: 'Placeholders' }
 		]
 	},
+
+	// Svelte ---
+
 	{
 		id: 'actions',
 		title: 'Actions',
 		list: [
 			{ href: '/actions/clipboard', label: 'Clipboard' },
-			{ href: '/actions/filters', label: 'Filters' } // badge: 'Experimental'
+			{ href: '/actions/filters', label: 'Filters' }
 		]
 	},
 	{
@@ -76,6 +100,9 @@ export const menuNavLinks: any = [
 			// { href: '/components/svg-icons', label: 'SVG Icons' }, // keep disabled until further notice
 		]
 	},
+
+	// Utilities ---
+
 	{
 		id: 'utilities',
 		title: 'Utilities',

@@ -137,7 +137,7 @@
 		<CodeBlock language="html" code={`<!-- Inlined classes -->\n<div class="bg-primary-500 text-accent-500">Skeleton</div>`} />
 		<CodeBlock language="html" code={`<!-- Tailwind opacity scale -->\n<div class="bg-primary-500/50">Skeleton</div>`} />
 		<CodeBlock language="css" code={`/* Using Tailwind @apply */\n.example { @apply bg-primary-500; }`} />
-		<CodeBlock language="css" code={`/* Using CSS custom properties */\nbody { background: var(--color-surface-900); }`} />
+		<CodeBlock language="css" code={`/* Using CSS custom properties */\nbody { background: rgba(var(--color-surface-900) / 1); }`} />
 		<p>Here's a brief reference of what each color should represent within your project.</p>
 		<DataTable headings={tableProps.headings} source={tableProps.source} />
 	</section>
