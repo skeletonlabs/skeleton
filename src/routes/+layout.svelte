@@ -6,8 +6,8 @@
 	storeHighlightJs.set(hljs);
 
 	// SvelteKit exports
-	export const csr = false;
-	export const prerender = true;
+	// export const csr = false;
+	// export const prerender = true;
 
 	// SvelteKit Imports
 	import { browser } from '$app/environment';
