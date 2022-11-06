@@ -4,21 +4,23 @@
 	@apply absolute z-20 hidden;
 }
 
-/* === Origins === */
-
 :root {
 	--menu-offset: 8px;
 }
 
-.menu-tl {
-	@apply mt-[var(--menu-offset)] left-0 origin-top-left;
-}
-.menu-tr {
-	@apply mt-[var(--menu-offset)] right-0 origin-top-right;
-}
-.menu-bl {
-	@apply top-0 left-0 origin-bottom-left -translate-y-[calc(100%+var(--menu-offset))];
-}
-.menu-br {
-	@apply top-0 right-0 origin-bottom-right -translate-y-[calc(100%+var(--menu-offset))];
+@layer components {
+	/* === Origins === */
+
+	.menu-tl {
+		@apply mt-[var(--menu-offset)] left-0 origin-top-left;
+	}
+	.menu-tr {
+		@apply mt-[var(--menu-offset)] right-0 origin-top-right;
+	}
+	.menu-bl {
+		@apply top-0 left-0 origin-bottom-left -translate-y-[calc(100%+var(--menu-offset))];
+	}
+	.menu-br {
+		@apply top-0 right-0 origin-bottom-right -translate-y-[calc(100%+var(--menu-offset))];
+	}
 }

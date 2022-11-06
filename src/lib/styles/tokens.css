@@ -1,11 +1,6 @@
 /* Stylesheet: Design Tokens */
 
-@layer components {
-	/*
-	Tokens are injected into the Tailwind @layer
-	components to ensure they work as utility classes.
-	*/
-
+@layer utilities {
 	/* === Accent Color === */
 	/* https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color */
 
