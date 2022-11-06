@@ -25,7 +25,7 @@
 	// Triggers Toasts ---
 
 	function toastBasic(): void {
-		const t: ToastMessage = { message: 'Hello and welcome to Skeleton.' };
+		const t: ToastMessage = { message: '👋 Hello and welcome to Skeleton.' };
 		toastStore.trigger(t);
 	}
 
