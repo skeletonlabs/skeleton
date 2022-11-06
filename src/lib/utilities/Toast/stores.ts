@@ -1,51 +1,47 @@
 // Toast Store Queue
 
 import { writable } from 'svelte/store';
+import type { ToastSettings } from './types';
 
-const toastDefaults: any = { message: 'Default Toast Message', autohide: true, timeout: 5000 };
+const toastDefaults: ToastSettings = { message: 'Missing Toast Message', autohide: true, timeout: 5000 };
+
+// If toast should auto-hide, wait X time, then close by ID
+function handleAutoHide(toast: ToastSettings): void {
+	if (toast.autohide === true) {
+		setTimeout(() => {
+			toastStore.close(toast.id);
+		}, toast.timeout);
+	}
+}
 
 function toastService(): any {
 	const { subscribe, set, update } = writable([]);
 	return {
 		subscribe,
-		// Trigger - append to end of queue
-		trigger: (toast: any) =>
+		/** Add a new toast to the queue. */
+		trigger: (toast: ToastSettings) =>
 			update((tStore: any) => {
-				let tMerged: any = { ...toastDefaults, ...toast };
+				const id: string = crypto.hasOwnProperty('crypto') ? crypto.randomUUID() : '';
+				// Merge into store
+				let tMerged: ToastSettings = { ...toastDefaults, ...toast, id };
 				tStore.push(tMerged);
+				// Handle auto-hide, if needed
+				handleAutoHide(tMerged);
+				// Return
 				return tStore;
 			}),
-		// Close - remove first item in queue
-		close: (index: number) =>
+		/** Remove first toast in queue */
+		close: (id: string) =>
 			update((tStore) => {
 				if (tStore.length > 0) {
-					// tStore.shift();
+					var index = tStore.findIndex((t: ToastSettings) => t.id === id);
 					tStore.splice(index, 1);
 				}
 				return tStore;
 			}),
-		// Clear - remove all items from queue
+		/** Remove all toasts from queue */
 		clear: () => set([])
 	};
 }
 
-export const toastStore: any = toastService();
-
-// Handle Queue Autohide
-let timeoutAutoHide: any;
-toastStore.subscribe((t: any) => {
-	// On update, clear any existing timers
-	clearTimeout(timeoutAutoHide);
-	// If the list is empty, return
-	if (!t.length) {
-		return;
-	}
-	// If autohide is false, return
-	if (!t[0].autohide) {
-		return;
-	}
-	// Set a timeout for the amount specified but the current visible toast
-	timeoutAutoHide = setTimeout(() => {
-		toastStore.close();
-	}, t[0].timeout);
-});
+export const toastStore = toastService();

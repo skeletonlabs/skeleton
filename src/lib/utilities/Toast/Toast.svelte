@@ -62,7 +62,7 @@
 	}
 
 	function onAction(): void {
-		$toastStore[0].button.action();
+		$toastStore[0].action.response();
 		toastStore.close();
 	}
 
@@ -80,12 +80,12 @@
 			{#each $toastStore as t, i}
 				{#if i < max + 1}
 					<!-- Toast -->
-					<div class="toast {classesBase}" role="alert" aria-live="polite">
-						<div class="text-base">{t.message}</div>
+					<div class="toast {classesBase} {t.classes}" role="alert" aria-live="polite" data-testid="toast">
+						<div class="text-base">{@html t.message}</div>
 						<!-- prettier-ignore -->
 						<div class="flex items-center space-x-2">
-							{#if t.button}<button class="btn {buttonAction}" on:click={onAction}>{t.button.label}</button>{/if}
-							<button class="btn-icon {buttonDismiss}" on:click={() => { toastStore.close(i) }}>✕</button>
+							{#if t.action}<button class="btn {buttonAction}" on:click={onAction}>{@html t.action.label}</button>{/if}
+							<button class="btn-icon {buttonDismiss}" on:click={() => { toastStore.close(t.id) }}>✕</button>
 						</div>
 					</div>
 				{/if}
