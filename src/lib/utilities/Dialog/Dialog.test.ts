@@ -1,32 +1,30 @@
 import { render } from '@testing-library/svelte';
 import { describe, it, expect } from 'vitest';
 
-import { dialogStore, type DialogAlert, type DialogConfirm, type DialogPrompt } from '$lib/utilities/Dialog/stores';
+import { dialogStore } from '$lib/utilities/Dialog/stores';
+import type { DialogSettings } from '$lib/utilities/Dialog/types';
+
+// @ts-ignore
 import Dialog from '$lib/utilities/Dialog/Dialog.svelte';
 
 // Dialog Payloads
-const dialogAlert: DialogAlert = {
+const dialogAlert: DialogSettings = {
+	type: 'alert',
 	title: 'Welcome to Skeleton.',
 	body: 'This is a standard alert dialog.'
 };
-const dialogConfirm: DialogConfirm = {
+const dialogConfirm: DialogSettings = {
 	type: 'confirm',
 	title: 'Please Confirm',
 	body: 'Are you sure you wish to proceed?',
-	result: (r: boolean) => {
-		console.log(r);
-	}
+	response: (r: boolean) => console.log(r)
 };
-const dialogPrompt: DialogPrompt = {
+const dialogPrompt: DialogSettings = {
 	type: 'prompt',
 	title: 'Enter Name',
 	body: 'Provide your first name in the field below.',
 	value: 'foobar',
-	result: (r: string) => {
-		if (r) {
-			console.log(r);
-		}
-	}
+	response: (r: string) => console.log(r)
 };
 
 describe('Dialog.svelte', () => {

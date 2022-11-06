@@ -23,7 +23,7 @@ export interface DialogSettings {
 	/** Provide your component reference, props, and slot details. */
 	component?: DialogComponent;
 	/** Provide a function. Returns the repsonse value. */
-	response?: any;
+	response?: (r: any) => void;
 	/** Provide abritrary classes to apply to the Dialog element. Use `!` for important. */
 	classes?: string;
 }

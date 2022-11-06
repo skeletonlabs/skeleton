@@ -15,7 +15,7 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 	const onInit = () => {
 		if (enabled === false) return;
 		// Gather all focusable elements
-		const focusableElems: any = node.querySelectorAll(elemWhitelist);
+		const focusableElems: HTMLElement[] = Array.from(node.querySelectorAll(elemWhitelist));
 		if (focusableElems.length) {
 			// Set first/last focusable elements
 			elemFirst = focusableElems[0];

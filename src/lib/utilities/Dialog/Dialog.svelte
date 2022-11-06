@@ -65,7 +65,8 @@
 
 	// Event Handlers ---
 
-	function onBackdropClick(e: any): void {
+	function onBackdropClick(e: MouseEvent): void {
+		if (!(e.target instanceof Element)) return;
 		if (e.target.classList.contains('dialog-backdrop')) onClose();
 	}
 
@@ -127,9 +128,17 @@
 {#if $dialogStore.length > 0}
 	{#key $dialogStore}
 		<!-- Backdrop -->
-		<div class="dialog-backdrop {classesBackdrop}" on:click={onBackdropClick} on:keydown transition:fade={{ duration }}>
+		<div class="dialog-backdrop {classesBackdrop}" on:click={onBackdropClick} on:keydown transition:fade={{ duration }} data-testid="dialog-backdrop">
 			<!-- Modal -->
-			<div class="dialog {classesDialog} {$dialogStore[0].classes}" transition:fly={{ duration, opacity: 0, y: 100 }} use:focusTrap={true}>
+			<div
+				class="dialog {classesDialog} {$dialogStore[0].classes}"
+				transition:fly={{ duration, opacity: 0, y: 100 }}
+				use:focusTrap={true}
+				data-testid="dialog"
+				role="dialog"
+				aria-modal="true"
+				aria-label={$dialogStore[0].title}
+			>
 				<!-- Header -->
 				{#if $dialogStore[0]?.title}
 					<header class="dialog-header {regionHeader}">{@html $dialogStore[0].title}</header>
