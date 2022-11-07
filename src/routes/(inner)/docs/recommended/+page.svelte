@@ -143,7 +143,7 @@
 
 	<!-- Suggest -->
 	<section class="text-center space-y-4">
-		<p>Is there something we're missing?</p>
+		<p>Are we missing something useful?</p>
 		<a class="btn btn-ghost-surface" href="https://github.com/Brain-Bones/skeleton/issues/new?assignees=&labels=feature-request&template=feature_request.yml" target="_blank" rel="noreferrer"
 			>Suggest a Package</a
 		>

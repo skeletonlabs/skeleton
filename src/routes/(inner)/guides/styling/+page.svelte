@@ -237,7 +237,7 @@ import '@brainandbones/skeleton/styles/${$storeStylesheets === 'simple' ? 'all' 
 			<h2>Styling Components</h2>
 			<p>Skeleton components automatically adapt to your theme. Below are the recommended means to customize component and element styles.</p>
 		</div>
-		<div class="card card-body">
+		<div class="card card-body !bg-accent-500/5">
 			<AccordionGroup>
 				<AccordionItem spacing="space-y-4" open>
 					<svelte:fragment slot="summary"><h3>Via Component Props</h3></svelte:fragment>
