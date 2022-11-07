@@ -74,6 +74,16 @@
 	<div class="space-y-4">
 		<h2>Select a Theme</h2>
 		<p>Choose from any of the curated preset themes or created your own.</p>
+		<!-- Generator -->
+		<div class="space-y-4">
+			<div class="card card-body flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+				<div class="space-y-2">
+					<h3>Theme Generator</h3>
+					<p>Use the theme generator form to create a custom theme from scratch.</p>
+				</div>
+				<a class="btn btn-filled" href="/guides/themes/generator">Create a Theme &rarr;</a>
+			</div>
+		</div>
 		<!-- Presets -->
 		<div class="card card-body space-y-4">
 			<h3>Preset Themes</h3>
@@ -97,36 +107,26 @@
 					</div>
 				{/each}
 			</nav>
-			<!-- Implement -->
-			<TabGroup selected={storeFramework}>
-				<Tab value="sveltekit">SvelteKit</Tab>
-				<Tab value="vite">Vite (Svelte)</Tab>
-				<Tab value="astro">Astro</Tab>
-			</TabGroup>
-			<!-- Framework: SvelteKit -->
-			{#if $storeFramework === 'sveltekit'}
-				<p>Import your desired preset into <code>src/routes/+layout.svelte</code> before your global stylesheet.</p>
-				<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/themes/theme-{name}.css'; // <--\nimport '../app.postcss';\n`} />
-				<!-- Framework: Vite (Svelte) -->
-			{:else if $storeFramework === 'vite'}
-				<p>Import your desired preset into <code>/src/main.js</code> before your global stylesheet.</p>
-				<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/themes/theme-{name}.css'; // <--\nimport '../app.css';\n`} />
-				<!-- Framework: Astro -->
-			{:else if $storeFramework === 'astro'}
-				<p>Import your desired preset into <code>/src/layouts/LayoutBasic.astro</code> before your global stylesheet.</p>
-				<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/themes/theme-{name}.css'; // <--\nimport '../styles/base.css';`} />
-			{/if}
 		</div>
-		<!-- Generator -->
-		<div class="space-y-4">
-			<div class="card card-body flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-				<div class="space-y-2">
-					<h3>Theme Generator</h3>
-					<p>Use the theme generator form to create a custom theme from scratch.</p>
-				</div>
-				<a class="btn btn-filled-accent" href="/guides/themes/generator">Create a Theme &rarr;</a>
-			</div>
-		</div>
+		<!-- Implement -->
+		<TabGroup selected={storeFramework}>
+			<Tab value="sveltekit">SvelteKit</Tab>
+			<Tab value="vite">Vite (Svelte)</Tab>
+			<Tab value="astro">Astro</Tab>
+		</TabGroup>
+		<!-- Framework: SvelteKit -->
+		{#if $storeFramework === 'sveltekit'}
+			<p>Import your desired preset into <code>src/routes/+layout.svelte</code> before your global stylesheet.</p>
+			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/themes/theme-{name}.css'; // <--\nimport '../app.postcss';\n`} />
+			<!-- Framework: Vite (Svelte) -->
+		{:else if $storeFramework === 'vite'}
+			<p>Import your desired preset into <code>/src/main.js</code> before your global stylesheet.</p>
+			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/themes/theme-{name}.css'; // <--\nimport '../app.css';\n`} />
+			<!-- Framework: Astro -->
+		{:else if $storeFramework === 'astro'}
+			<p>Import your desired preset into <code>/src/layouts/LayoutBasic.astro</code> before your global stylesheet.</p>
+			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/themes/theme-{name}.css'; // <--\nimport '../styles/base.css';`} />
+		{/if}
 	</div>
 
 	<hr />
@@ -152,7 +152,7 @@
 			<h2>Design Tokens</h2>
 			<p>Special utility classes generated from your theme CSS properties. We've provide a dedicated documentation section for these.</p>
 		</div>
-		<a class="btn btn-filled-accent place-self-center" href="/elements/tokens">Design Tokens &rarr;</a>
+		<a class="btn btn-ghost-surface place-self-center" href="/elements/tokens">Design Tokens &rarr;</a>
 	</section>
 
 	<hr />
