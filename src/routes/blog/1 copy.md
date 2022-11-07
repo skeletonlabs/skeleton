@@ -1,0 +1,80 @@
+---
+title: Welcome to the Skeleton Blog
+date: 2022-05-30
+author: niktek
+category: Release
+tags: Skeleton, Svelte Kit, Tutorial, Tip
+image: blog-2.jpg
+summary: The new skeleton blog is now available for things like tutorials, developer team updates, release announcements and whatever else doesn't quite fit in the doc site!
+count: 25
+color: cadetblue
+list: [1, 2, 3, 4, "boo"]
+---
+<script>
+	import Avatar from '$lib/components/Avatar/Avatar.svelte';
+	import Boinger from './comps/Boinger.svelte';
+	import Section from './comps/Section.md';
+	import Count from './comps/Count.svelte';
+	import Seriously from './comps/Seriously.svelte';
+
+	let number = 45;
+</script>
+
+## Good stuff in your markdown
+
+Markdown is pretty good but sometimes you just need more.
+
+Sometimes you need a boinger like this:
+<summary />
+
+```js
+// JavaScript goes here,
+// And will be syntax-highlighted!
+```
+<Avatar />
+
+<Boinger color="{ color }"/>
+
+Not many people have a boinger right in their markdown.
+
+## Markdown in your markdown
+
+Sometimes what you wrote last week is so good that you just *have* to include it again.
+
+I'm not gonna stand in the way of your egomania.
+>
+><Section />
+> <Count />
+>
+>— *Me, May 2019*
+
+Yeah, thats right you can put wigdets in markdown (`.svx` files or otherwise). You can put markdown in widgets too.
+
+<Seriously>
+
+### I wasn't joking
+
+```
+	This is real life
+```
+
+</Seriously>
+
+Sometimes you need your widgets **inlined** (like this:<Count count="{number}"/>) because why shouldn't you.
+Obviously you have access to values defined in YAML (namespaced under `metadata`) and anything defined in an fenced `js exec` block can be referenced directly.
+
+Normal markdown stuff works too:
+
+| like  | this |
+|-------|------|
+| table | here |
+
+And *this* and **THIS**. And other stuff. You can also use all your favorite Svelte features, like `each` blocks:
+
+<ul>
+{#each list as item}
+  <li>{item}</li>
+{/each}
+</ul>
+
+and all the other good Svelte stuff.

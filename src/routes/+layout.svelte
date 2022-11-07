@@ -81,7 +81,7 @@
 	});
 
 	// Disable left sidebar on homepage
-	$: slotSidebarLeft = $page.url.pathname === '/' ? 'w-0' : 'bg-black/5 lg:w-auto';
+	$: slotSidebarLeft = ($page.url.pathname === '/' || $page.url.pathname.includes("/blog")) ? 'w-0' : 'bg-black/5 lg:w-auto';
 </script>
 
 <svelte:head>
