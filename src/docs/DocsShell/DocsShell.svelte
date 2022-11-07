@@ -12,7 +12,7 @@
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
 
 	// Utilities
-	import { toastStore, type ToastMessage } from '$lib/utilities/Toast/stores';
+	import { toastStore, type ToastSettings } from '$lib/utilities/Toast/stores';
 	import { sveldMapperProps, sveldMapperSlots, sveldeMapperEvents } from './sveldMapper';
 
 	// Props
@@ -68,7 +68,7 @@
 	}
 
 	function toastCopied(noun: string): void {
-		const t: ToastMessage = { message: `Copied ${noun} to clipboard.`, timeout: 2000 };
+		const t: ToastSettings = { message: `Copied ${noun} to clipboard.`, timeout: 2000 };
 		toastStore.trigger(t);
 	}
 

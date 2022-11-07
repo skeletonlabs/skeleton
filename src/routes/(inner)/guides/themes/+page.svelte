@@ -6,7 +6,8 @@
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Stores
-	import { toastStore, type ToastMessage } from '$lib/utilities/Toast/stores';
+	import { toastStore } from '$lib/utilities/Toast/stores';
+	import type { ToastSettings } from '$lib/utilities/Toast/types';
 
 	// Presets
 	const presetUrl: string = 'https://github.com/Brain-Bones/skeleton/blob/master/src/themes';
@@ -29,12 +30,12 @@
 		navigator.clipboard.writeText(`import '@brainandbones/skeleton/themes/theme-${name.toLowerCase()}.css';`).then(
 			// Success
 			() => {
-				const t: ToastMessage = { message: 'Import statement copied to clipboard.' };
+				const t: ToastSettings = { message: 'Import statement copied to clipboard.' };
 				toastStore.trigger(t);
 			},
 			// Error
 			(error) => {
-				const t: ToastMessage = { message: 'Sorry, copy to clipboard not supported.' };
+				const t: ToastSettings = { message: 'Sorry, copy to clipboard not supported.' };
 				toastStore.trigger(t);
 			}
 		);

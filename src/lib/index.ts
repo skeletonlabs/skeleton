@@ -49,7 +49,7 @@ export { default as Dialog } from './utilities/Dialog/Dialog.svelte';
 
 // Toast
 export { toastStore } from './utilities/Toast/stores';
-export { type ToastMessage } from './utilities/Toast/stores';
+export { type ToastSettings } from './utilities/Toast/types';
 export { default as Toast } from './utilities/Toast/Toast.svelte';
 
 // LightSwitch
