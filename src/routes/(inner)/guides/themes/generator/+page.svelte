@@ -22,6 +22,15 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Theme Generator</h1>
+		<p>Use the form below to genreate a custom Skeleton theme.</p>
+	</header>
+
+	<hr />
+
+	<section class="space-y-4">
+		<!-- Generator (new) -->
+		<DocsThemer />
+		<!-- Instructions -->
 		<TabGroup selected={storeFramework}>
 			<Tab value="sveltekit">SvelteKit</Tab>
 			<Tab value="vite">Vite (Svelte)</Tab>
@@ -37,12 +46,7 @@
 			<p>Add your custom theme to <code>/src/styles/theme.css</code>, then import this file into <code>/src/layouts/LayoutBasic.astro</code>.</p>
 			<CodeBlock language="typescript" code={`import '../styles/theme.css'; // <--\nimport '../styles/base.css';`} />
 		{/if}
-	</header>
-
-	<hr />
-
-	<!-- Generator (new) -->
-	<DocsThemer />
+	</section>
 
 	<hr />
 

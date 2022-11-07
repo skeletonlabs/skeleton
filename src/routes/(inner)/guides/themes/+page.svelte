@@ -2,7 +2,9 @@
 	import { storeFramework } from '$docs/stores';
 
 	// Components
-	import { DataTable, TabGroup, Tab } from '@brainandbones/skeleton';
+	import DataTable from '$lib/components/Table/DataTable.svelte';
+	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
+	import Tab from '$lib/components/Tab/Tab.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Stores
@@ -60,20 +62,21 @@
 	<header class="space-y-4">
 		<h1>Themes</h1>
 		<p>
-			Skeleton themes integrate with Tailwind using <a href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank" rel="noreferrer">CSS custom properties</a> converted
-			to RGB values. This enables the use of <a href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank" rel="noreferrer">background opacity</a> as well as support for
-			<a href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="noreferrer">dark mode</a>. Components intelligently adapt to your theme color palette.
+			Skeleton themes integrate with Tailwind using <a href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank" rel="noreferrer">CSS custom properties</a>. Themes
+			support <a href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank" rel="noreferrer">color opacity</a>,
+			<a href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="noreferrer">dark mode</a>, and the
+			<a href="/elements/tokens">design token system</a>
 		</p>
 	</header>
 
 	<hr />
 
-	<!-- Select Theme -->
-	<section class="space-y-4">
+	<div class="space-y-4">
 		<h2>Select a Theme</h2>
-		<p>Select from any of our curated preset themes or use the theme generator to create your own custom theme.</p>
+		<p>Choose from any of the curated preset themes or created your own.</p>
+		<!-- Presets -->
 		<div class="card card-body space-y-4">
-			<!-- Presets -->
+			<h3>Preset Themes</h3>
 			<p>Tap any theme below to automatically copy the import statement to your clipboard.</p>
 			<nav class="grid grid-cols-1 md:grid-cols-3 gap-4">
 				{#each presets as preset}
@@ -102,73 +105,64 @@
 			</TabGroup>
 			<!-- Framework: SvelteKit -->
 			{#if $storeFramework === 'sveltekit'}
-				<p>Import your desired preset into <code>src/routes/+layout.svelte</code>.</p>
+				<p>Import your desired preset into <code>src/routes/+layout.svelte</code> before your global stylesheet.</p>
 				<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/themes/theme-{name}.css'; // <--\nimport '../app.postcss';\n`} />
 				<!-- Framework: Vite (Svelte) -->
 			{:else if $storeFramework === 'vite'}
-				<p>Import your desired preset into <code>/src/main.js</code>.</p>
+				<p>Import your desired preset into <code>/src/main.js</code> before your global stylesheet.</p>
 				<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/themes/theme-{name}.css'; // <--\nimport '../app.css';\n`} />
 				<!-- Framework: Astro -->
 			{:else if $storeFramework === 'astro'}
-				<p>Import your desired preset into <code>/src/layouts/LayoutBasic.astro</code>.</p>
+				<p>Import your desired preset into <code>/src/layouts/LayoutBasic.astro</code> before your global stylesheet.</p>
 				<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/themes/theme-{name}.css'; // <--\nimport '../styles/base.css';`} />
 			{/if}
 		</div>
 		<!-- Generator -->
-		<div class="card card-body flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-			<div class="space-y-2">
-				<p>Create your own custom theme.</p>
+		<div class="space-y-4">
+			<div class="card card-body flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+				<div class="space-y-2">
+					<h3>Theme Generator</h3>
+					<p>Use the theme generator form to create a custom theme from scratch.</p>
+				</div>
+				<a class="btn btn-filled-accent" href="/guides/themes/generator">Create a Theme &rarr;</a>
 			</div>
-			<a class="btn btn-filled-accent" href="/guides/themes/generator">Themes Generator &rarr;</a>
 		</div>
-	</section>
+	</div>
 
 	<hr />
 
 	<!-- Theme Colors -->
 	<section class="space-y-4">
-		<h3>Theme Colors</h3>
-		<p>
-			Theme colors are not limited to Skeleton components. You may utilize them anywhere within your app following Tailwind's standard conventions. Feel free to mix or extend them with <a
-				href="https://tailwindcss.com/docs/customizing-colors"
-				target="_blank"
-				rel="noreferrer">Tailwind's default color palette</a
-			>.
-		</p>
-		<CodeBlock language="html" code={`<!-- Inlined classes -->\n<div class="bg-primary-500 text-accent-500">Skeleton</div>`} />
-		<CodeBlock language="html" code={`<!-- Tailwind opacity scale -->\n<div class="bg-primary-500/50">Skeleton</div>`} />
-		<CodeBlock language="css" code={`/* Using Tailwind @apply */\n.example { @apply bg-primary-500; }`} />
-		<CodeBlock language="css" code={`/* Using CSS custom properties */\nbody { background: rgba(var(--color-surface-900) / 1); }`} />
-		<p>Here's a brief reference of what each color should represent within your project.</p>
+		<h2>Theme Colors</h2>
+		<p>Here's a quick reference for what each color represents.</p>
 		<DataTable headings={tableProps.headings} source={tableProps.source} />
+		<h3>Using Theme Color Styles</h3>
+		<p>Skeleton themes extend Tailwind's color palette and can be used anywhere within your project. Here's a few examples:</p>
+		<CodeBlock language="html" code={`<!-- Inlined classes -->\n<div class="bg-primary-500 text-accent-500">Skeleton</div>`} />
+		<CodeBlock language="html" code={`<!-- Tailwind opacity scale -->\n<div class="border border-primary-500/50">Skeleton</div>`} />
+		<CodeBlock language="css" code={`/* Using Tailwind @apply */\n.example { @apply text-primary-500; }`} />
+		<CodeBlock language="css" code={`/* Using CSS custom properties. Note that colors are RGB values! */\nbody { background: rgba(var(--color-surface-900) / 1); }`} />
 	</section>
 
 	<hr />
 
 	<!-- Design Tokens -->
-	<section class="space-y-4">
-		<h3>Design Tokens</h3>
-		<!-- prettier-ignore -->
-		<p>
-			Skeleton themes are paired with a powerful <a href="https://vimeo.com/showcase/9653752/video/724689965" target="_blank" rel="noreferrer">design token system</a> to create utility classes based on theme settings. These cover common styles for backgrounds, border radius, fonts, and more. In fact, most components use these tokens as the default settings, which means components auto-adapt to your theme style with minimal configuration out of the box.
-		</p>
-		<a href="/guides/frameworks/sveltekit" class="card p-4 grid grid-cols-[1fr_auto] gap-4">
-			<div class="flex items-center">
-				<p>While we formalize this feature, please see the stylesheet directly as a source reference.</p>
-			</div>
-			<a class="btn btn-filled-accent place-self-center" href="https://github.com/Brain-Bones/skeleton/tree/master/src/lib/styles/tokens.css" target="_blank" rel="noreferrer">View Source &rarr;</a>
-		</a>
-		<p>Tokens are avialable to use anywhere in your project. Here's a few examples:</p>
-		<CodeBlock language="html" code={`<!-- Apply your theme's border radius value -->\n<div class="w-10 h-10 bg-primary-500 rounded-token">Rounded</div>`} />
-		<CodeBlock language="html" code={`<!-- Apply your theme's heading font -->\n<span class="font-heading-token">Font Family</span>`} />
-		<CodeBlock language="html" code={`<!-- Set the text color, which auto adjusts for light/dark modes -->\n<span class="text-token">Skeleton</span>`} />
+	<section class="grid grid-cols-[1fr_auto] gap-4">
+		<div class="space-y-4">
+			<h2>Design Tokens</h2>
+			<p>Special utility classes generated from your theme CSS properties. We've provide a dedicated documentation section for these.</p>
+		</div>
+		<a class="btn btn-filled-accent place-self-center" href="/elements/tokens">Design Tokens &rarr;</a>
 	</section>
 
 	<hr />
 
 	<!-- Next Steps -->
-	<div class="card card-body !flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-		<p>Next, let's create a simple project within one of Skeleton's supported frameworks.</p>
-		<a class="btn btn-filled-accent" href="/guides/frameworks">Framework Guides</a>
-	</div>
+	<section class="card card-body flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+		<p>Next, let's learn more about styling Skeleton.</p>
+		<a class="btn btn-filled-accent" href="/guides/styling">
+			<span>Styling</span>
+			<span>&rarr;</span>
+		</a>
+	</section>
 </div>

@@ -5,11 +5,36 @@
 </script>
 
 <div class="page-container">
-	<!-- Install -->
-	<section class="space-y-4">
+	<header class="space-y-4">
 		<h1>Installation</h1>
 		<p>Let's generate a basic project and install the Skeleton package.</p>
-		<p>Note that we currently only support NPM. Yarn and PNPM may work, but official support is not provided for these package managers.</p>
+	</header>
+
+	<hr />
+
+	<!-- Prerequisites -->
+	<section class="space-y-4">
+		<h2>Prerequisites</h2>
+		<p>The following documenation and guides assume the following:</p>
+		<ul class="list-disc list-inside space-y-1">
+			<li>You have experience with <a href="https://svelte.dev/tutorial/basics" target="_blank" rel="noreferrer">Svelte</a>.</li>
+			<li>You have experience with <a href="https://tailwindcss.com/docs/utility-first" target="_blank" rel="noreferrer">Tailwind CSS</a>.</li>
+			<li>
+				You have experience with either <a href="https://kit.svelte.dev/" target="_blank" rel="noreferrer">SvelteKit</a>,
+				<a href="https://vitejs.dev/" target="_blank" rel="noreferrer">Vite</a>, or
+				<a href="https://astro.build/" target="_blank" rel="noreferrer">Astro</a>.
+			</li>
+		</ul>
+		<p>
+			We've provided a <a href="/docs/faqs">frequently asked questions</a> section to cover recommendations for package managers, monorepos, and common issues new users face.
+		</p>
+	</section>
+
+	<hr />
+
+	<!-- Frameworks -->
+	<section class="space-y-4">
+		<h2>Setup a Framework</h2>
 		<!-- Tabs -->
 		<TabGroup selected={storeFramework}>
 			<Tab value="sveltekit">SvelteKit</Tab>
@@ -80,11 +105,14 @@ npm run dev
 		<CodeBlock language="console" code={`npm i @brainandbones/skeleton --save-dev`} />
 	</section>
 
-	<Divider />
+	<hr />
 
 	<!-- Next Steps -->
 	<div class="card card-body !flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<p>Next, let's configure Tailwind to work with Skeleton.</p>
-		<a class="btn btn-filled-accent" href="/guides/tailwind">Configure Tailwind</a>
+		<a class="btn btn-filled-accent" href="/guides/tailwind">
+			<span>Tailwind</span>
+			<span>&rarr;</span>
+		</a>
 	</div>
 </div>

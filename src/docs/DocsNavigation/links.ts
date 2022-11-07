@@ -1,20 +1,6 @@
 // Navigation Links & Sitemap
 
 export const menuNavLinks: any = [
-	// Guides ---
-
-	{
-		id: 'guides',
-		title: 'Guides',
-		list: [
-			{ href: '/guides/install', label: 'Install' },
-			{ href: '/guides/tailwind', label: 'Tailwind CSS' },
-			{ href: '/guides/styling', label: 'Styling' },
-			{ href: '/guides/themes', label: 'Themes' },
-			{ href: '/guides/frameworks', label: 'Frameworks' }
-		]
-	},
-
 	// Docs ---
 
 	{
@@ -22,6 +8,7 @@ export const menuNavLinks: any = [
 		title: 'Docs',
 		list: [
 			{ href: '/docs/why', label: 'Why Skeleton' },
+			{ href: '/docs/faqs', label: 'FAQs' },
 			{ href: '/docs/comparisons', label: 'Comparisons' },
 			{ href: '/docs/features', label: 'Features' },
 			{ href: '/docs/recommended', label: 'Recommended', badge: 'New' },
@@ -29,15 +16,27 @@ export const menuNavLinks: any = [
 		]
 	},
 
+	// Guides ---
+
+	{
+		id: 'guides',
+		title: 'Guides',
+		list: [
+			{ href: '/guides/install', label: 'Installation' },
+			{ href: '/guides/tailwind', label: 'Tailwind CSS' },
+			{ href: '/guides/themes', label: 'Themes' },
+			{ href: '/guides/styling', label: 'Styling' },
+			{ href: '/guides/frameworks', label: 'Frameworks' }
+		]
+	},
+
 	// Tailwind ---
 
-	// {
-	// 	id: 'tokens',
-	// 	title: 'Tokens',
-	// 	list: [
-	// 		{ href: '/elements/tokens', label: 'Design Tokens' }
-	// 	]
-	// },
+	{
+		id: 'tokens',
+		title: 'Info',
+		list: [{ href: '/elements/tokens', label: 'Design Tokens' }]
+	},
 	{
 		id: 'base',
 		title: 'Base',
