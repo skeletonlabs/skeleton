@@ -1,5 +1,5 @@
 import { json } from '@sveltejs/kit';
-
+export const prerender = true;
 export const fetchMarkdownPosts = async () => {
 	// be careful with paths that have layout groups or parameters, if you change this, change the path stripping slice() below.
 	const allPostFiles = import.meta.glob('../../blog/*.md');
@@ -25,7 +25,7 @@ export const fetchMarkdownPosts = async () => {
 // well as serve as the basis for an RSS feed
 
 /** @type {import('./$types').RequestHandler} */
-export const GET = async ({ url }) => {
+export const GET = async ( ) => {
 	const allPosts = await fetchMarkdownPosts();
 	
 	
