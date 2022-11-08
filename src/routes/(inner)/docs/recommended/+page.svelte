@@ -28,7 +28,7 @@
 					<small>Benzara Tahar</small>
 				</a>
 				<div class="flex items-center space-x-4">
-					<a class="btn btn-filled-accent" href="https://svelte-animated-counter.vercel.app/" target="_blank" rel="noreferrer">Website</a>
+					<a class="btn btn-ghost-surface" href="https://svelte-animated-counter.vercel.app/" target="_blank" rel="noreferrer">Website</a>
 					<a class="btn btn-filled-accent" href="https://github.com/benzara-tahar/svelte-animated-counter" target="_blank" rel="noreferrer">GitHub</a>
 				</div>
 			</footer>
@@ -49,7 +49,7 @@
 					<small>Highlight.js</small>
 				</a>
 				<div class="flex items-center space-x-4">
-					<a class="btn btn-filled-accent" href="https://highlightjs.org/" target="_blank" rel="noreferrer">Website</a>
+					<a class="btn btn-ghost-surface" href="https://highlightjs.org/" target="_blank" rel="noreferrer">Website</a>
 					<a class="btn btn-filled-accent" href="https://github.com/highlightjs/highlight.js" target="_blank" rel="noreferrer">GitHub</a>
 				</div>
 			</footer>
@@ -70,7 +70,7 @@
 					<small>Pablo Berganza</small>
 				</a>
 				<div class="flex items-center space-x-4">
-					<a class="btn btn-filled-accent" href="https://felte.dev/" target="_blank" rel="noreferrer">Website</a>
+					<a class="btn btn-ghost-surface" href="https://felte.dev/" target="_blank" rel="noreferrer">Website</a>
 					<a class="btn btn-filled-accent" href="https://github.com/pablo-abc/felte" target="_blank" rel="noreferrer">GitHub</a>
 				</div>
 			</footer>
@@ -111,7 +111,7 @@
 					<small>Chart.js</small>
 				</a>
 				<div class="flex items-center space-x-4">
-					<a class="btn btn-filled-accent" href="https://www.chartjs.org/" target="_blank" rel="noreferrer">Website</a>
+					<a class="btn btn-ghost-surface" href="https://www.chartjs.org/" target="_blank" rel="noreferrer">Website</a>
 					<a class="btn btn-filled-accent" href="https://github.com/chartjs/Chart.js" target="_blank" rel="noreferrer">GitHub</a>
 				</div>
 			</footer>
@@ -132,7 +132,7 @@
 					<small>Font Awesome</small>
 				</a>
 				<div class="flex items-center space-x-4">
-					<a class="btn btn-filled-accent" href="https://fontawesome.com/" target="_blank" rel="noreferrer">Website</a>
+					<a class="btn btn-ghost-surface" href="https://fontawesome.com/" target="_blank" rel="noreferrer">Website</a>
 					<a class="btn btn-filled-accent" href="https://github.com/FortAwesome/Font-Awesome" target="_blank" rel="noreferrer">GitHub</a>
 				</div>
 			</footer>
@@ -144,7 +144,7 @@
 	<!-- Suggest -->
 	<section class="text-center space-y-4">
 		<p>Is there something we're missing?</p>
-		<a class="btn btn-ghost" href="https://github.com/Brain-Bones/skeleton/issues/new?assignees=&labels=feature-request&template=feature_request.yml" target="_blank" rel="noreferrer"
+		<a class="btn btn-ghost-surface" href="https://github.com/Brain-Bones/skeleton/issues/new?assignees=&labels=feature-request&template=feature_request.yml" target="_blank" rel="noreferrer"
 			>Suggest a Package</a
 		>
 	</section>

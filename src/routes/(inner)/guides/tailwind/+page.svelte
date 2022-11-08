@@ -39,7 +39,7 @@
 			<h3>Enabled Dark Mode Support</h3>
 			<p>
 				Append <code>darkMode: class</code> to support <a href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="noreferrer">Tailwind's dark mode</a>. You can pair this with the
-				<a href="/utilities/light-switch">lightswitch</a> utility to toggle light/dark modes.
+				<a href="/utilities/lightswitches">lightswitch</a> utility to toggle light/dark modes.
 			</p>
 			<CodeBlock
 				language="js"
@@ -105,14 +105,14 @@ module.exports = {
 					<h3>Forms</h3>
 					<p>Provides a basic reset for form elements.</p>
 				</div>
-				<a class="btn btn-ghost" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank" rel="noreferrer">View</a>
+				<a class="btn btn-ghost-surface" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank" rel="noreferrer">View</a>
 			</div>
 			<div class="card card-body flex justify-between items-center space-x-4">
 				<div class="space-y-2">
 					<h3>Typography</h3>
 					<p>Typographic defaults for HTML you don't control.</p>
 				</div>
-				<a class="btn btn-ghost" href="https://tailwindcss.com/docs/typography-plugin" target="_blank" rel="noreferrer">View</a>
+				<a class="btn btn-ghost-surface" href="https://tailwindcss.com/docs/typography-plugin" target="_blank" rel="noreferrer">View</a>
 			</div>
 			<div class="card card-body flex justify-between items-center space-x-4">
 				<div class="space-y-2">
@@ -123,14 +123,14 @@ module.exports = {
 						>.
 					</p>
 				</div>
-				<a class="btn btn-ghost" href="https://github.com/tailwindlabs/tailwindcss-aspect-ratio" target="_blank" rel="noreferrer">View</a>
+				<a class="btn btn-ghost-surface" href="https://github.com/tailwindlabs/tailwindcss-aspect-ratio" target="_blank" rel="noreferrer">View</a>
 			</div>
 			<div class="card card-body flex justify-between items-center space-x-4">
 				<div class="space-y-2">
 					<h3>Line Clamp</h3>
 					<p>Provides utilities for visually truncating text.</p>
 				</div>
-				<a class="btn btn-ghost" href="https://github.com/tailwindlabs/tailwindcss-line-clamp" target="_blank" rel="noreferrer">View</a>
+				<a class="btn btn-ghost-surface" href="https://github.com/tailwindlabs/tailwindcss-line-clamp" target="_blank" rel="noreferrer">View</a>
 			</div>
 		</div>
 	</section>

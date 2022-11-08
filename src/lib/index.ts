@@ -5,6 +5,8 @@
 export { default as AccordionGroup } from './components/Accordion/AccordionGroup.svelte';
 export { default as AccordionItem } from './components/Accordion/AccordionItem.svelte';
 export { default as AppBar } from './components/AppBar/AppBar.svelte';
+export { default as AppRail } from './components/AppRail/AppRail.svelte';
+export { default as AppRailTile } from './components/AppRail/AppRailTile.svelte';
 export { default as AppShell } from './components/AppShell/AppShell.svelte';
 export { default as Alert } from './components/Alert/Alert.svelte';
 export { default as Avatar } from './components/Avatar/Avatar.svelte';
@@ -42,12 +44,12 @@ export { default as Drawer } from './utilities/Drawer/Drawer.svelte';
 
 // Dialog
 export { dialogStore } from './utilities/Dialog/stores';
-export { type DialogAlert, type DialogConfirm, type DialogPrompt } from './utilities/Dialog/stores';
+export { type DialogSettings, type DialogComponent } from './utilities/Dialog/types';
 export { default as Dialog } from './utilities/Dialog/Dialog.svelte';
 
 // Toast
 export { toastStore } from './utilities/Toast/stores';
-export { type ToastMessage } from './utilities/Toast/stores';
+export { type ToastSettings } from './utilities/Toast/types';
 export { default as Toast } from './utilities/Toast/Toast.svelte';
 
 // LightSwitch
@@ -66,6 +68,7 @@ export { tooltip } from './utilities/Tooltip/tooltip';
 // Actions ---
 
 export { clipboard } from './actions/Clipboard/clipboard';
+export { focusTrap } from './actions/FocusTrap/focusTrap';
 
 // Filters
 export { filter } from './actions/Filters/filter';

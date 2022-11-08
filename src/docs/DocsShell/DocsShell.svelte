@@ -12,16 +12,16 @@
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
 
 	// Utilities
-	import { toastStore, type ToastMessage } from '$lib/utilities/Toast/stores';
+	import { toastStore, type ToastSettings } from '$lib/utilities/Toast/stores';
 	import { sveldMapperProps, sveldMapperSlots, sveldeMapperEvents } from './sveldMapper';
 
 	// Props
 	export let settings: DocsShellSettings;
 	// Props (styles)
-	export let spacing: string = 'space-y-8';
+	export let spacing: string = 'space-y-8 md:space-y-12';
 	// Props (regions)
-	export let regionHeader: string = 'bg-white/20 dark:bg-black/10';
-	export let regionDetails: string = 'pb-4 overflow-x-auto whitespace-nowrap grid grid-cols-1 md:grid-cols-[128px_1fr] gap-3';
+	export let regionHeader: string = 'bg-accent-900/5 dark:bg-accent-900/20 border-b border-black/5 dark:border-white/5';
+	export let regionDetails: string = 'overflow-x-auto whitespace-nowrap grid grid-cols-1 md:grid-cols-[128px_1fr] gap-3';
 	export let regionPanels: string = 'page-container';
 
 	// Classes
@@ -68,7 +68,7 @@
 	}
 
 	function toastCopied(noun: string): void {
-		const t: ToastMessage = { message: `Copied ${noun} to clipboard.`, timeout: 2000 };
+		const t: ToastSettings = { message: `Copied ${noun} to clipboard.`, timeout: 2000 };
 		toastStore.trigger(t);
 	}
 
@@ -127,15 +127,16 @@
 	<header class="doc-shell-header {classesRegionHeader}">
 		<!-- Information -->
 		<div class="doc-shell-info page-container !pb-0 lg:!space-y-10">
-			<!-- Feature -->
-			<span class="badge badge-filled-surface">
-				<SvgIcon width="w-4" height="h-4" name={setFeatureIcon()} />
-				<span>{@html pageSettings.feature}</span>
-			</span>
-
 			<!-- Intro -->
-			<section class="space-y-2">
-				<h1>{@html pageSettings.name}</h1>
+			<section class="space-y-4">
+				<div class="flex items-center space-x-4">
+					<h1>{@html pageSettings.name}</h1>
+					<!-- Feature -->
+					<span class="badge bg-surface-500/30 translate-y-1">
+						<SvgIcon width="w-4" height="h-4" name={setFeatureIcon()} />
+						<span>{@html pageSettings.feature}</span>
+					</span>
+				</div>
 				<p>{@html pageSettings.description}</p>
 			</section>
 
@@ -212,9 +213,9 @@
 				{/if}
 				<!-- Accessibility -->
 				{#if pageSettings.aria}
-					<p class="hidden md:inline-block w-32">Accessibility</p>
+					<p class="hidden md:inline-block w-32">WAI-ARIA</p>
 					<div class="grid grid-cols-1 gap-2">
-						<a href={pageSettings.aria} target="_blank" rel="noreferrer">WAI-ARIA Reference</a>
+						<a href={pageSettings.aria} target="_blank" rel="noreferrer">Accessibility Reference</a>
 					</div>
 				{/if}
 			</section>
@@ -235,10 +236,10 @@
 	</header>
 
 	<!-- Tab Panels -->
-	<div class="doc-shell-tab-panels {classesRegionPanels}">
+	<div class="doc-shell-tab-panels">
 		<!-- Tab: Usage -->
 		{#if $storeActiveTab === 'usage'}
-			<div class="doc-shell-usage {spacing}">
+			<div class="doc-shell-usage {classesRegionPanels}">
 				<!-- Slot: Examples Sandbox -->
 				{#if $$slots.sandbox}
 					<div>
@@ -266,7 +267,7 @@
 
 		<!-- Tab: Component Properties -->
 		{#if $storeActiveTab === 'properties'}
-			<div class="doc-shell-properties {spacing}">
+			<div class="doc-shell-properties {classesRegionPanels}">
 				<!-- Supports restProps -->
 				{#if pageSettings.restProps}
 					<p>
@@ -295,7 +296,7 @@
 
 		<!-- Tab: Component Slots -->
 		{#if $storeActiveTab === 'slots'}
-			<div class="doc-shell-slots {spacing}">
+			<div class="doc-shell-slots {classesRegionPanels}">
 				{#if pageSettings.components}
 					{#each pageSettings.components as comp}
 						{#if comp.sveld.slots.length > 0}
@@ -315,7 +316,7 @@
 
 		<!-- Tab: Component Events -->
 		{#if $storeActiveTab === 'events'}
-			<div class="doc-shell-events {spacing}">
+			<div class="doc-shell-events {classesRegionPanels}">
 				{#if pageSettings.components}
 					{#each pageSettings.components as comp}
 						{#if comp.sveld.events.length > 0}
@@ -335,14 +336,14 @@
 
 		<!-- Tab: Action Parameters -->
 		{#if pageSettings.parameters?.length && $storeActiveTab === 'parameters'}
-			<div class="doc-shell-parameters {spacing}">
+			<div class="doc-shell-parameters {classesRegionPanels}">
 				<DataTable headings={['Prop', 'Type', 'Default', 'Values', 'Description']} source={pageSettings.parameters} />
 			</div>
 		{/if}
 
 		<!-- Tab: Tailwind Element Classes -->
 		{#if pageSettings.classes?.length && $storeActiveTab === 'classes'}
-			<div class="doc-shell-classes {spacing}">
+			<div class="doc-shell-classes {classesRegionPanels}">
 				<DataTable headings={['Keys', 'Values', 'Description']} source={pageSettings.classes} />
 			</div>
 		{/if}
@@ -350,7 +351,7 @@
 		<!-- Tab: Keyboard Interactions -->
 		{#if $storeActiveTab === 'keyboard'}
 			{#if pageSettings.keyboard?.length}
-				<div class="doc-shell-keyboard {spacing}">
+				<div class="doc-shell-keyboard {classesRegionPanels}">
 					<DataTable headings={['Keys', 'Description']} source={pageSettings.keyboard} />
 				</div>
 			{/if}

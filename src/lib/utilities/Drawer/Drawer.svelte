@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { fade, fly } from 'svelte/transition';
 	import { writable, type Writable } from 'svelte/store';
-	import { afterUpdate, onMount } from 'svelte/internal';
+
+	import { focusTrap } from '$lib/actions/FocusTrap/focusTrap';
 
 	// Props
 	/** Provide a store to manage visible state.
@@ -47,23 +48,28 @@
 
 	// Local
 	let elemBackdrop: HTMLElement;
+	let elemDrawer: HTMLElement;
+
+	function percentage(percent: number, amount: number): number {
+		return (amount / 100) * percent;
+	}
 
 	// Set Animation Values
 	let animParams: any = { backdrop: '', width: '', height: '', x: 0, y: 0 };
 	function setAnimParams(): void {
 		switch (position) {
 			case 'top':
-				animParams = { backdrop: 'flex-col justify-start', width: 'w-full', height: 'h-[40%]', x: 0, y: -window.innerHeight };
+				animParams = { backdrop: 'flex-col justify-start', width: 'w-full', height: 'h-[40%]', x: 0, y: -percentage(40, window.innerHeight) };
 				break;
 			case 'bottom':
-				animParams = { backdrop: 'flex-col justify-end', width: 'w-full', height: 'h-[40%]', x: 0, y: window.innerHeight };
+				animParams = { backdrop: 'flex-col justify-end', width: 'w-full', height: 'h-[40%]', x: 0, y: percentage(40, window.innerHeight) };
 				break;
 			case 'right':
-				animParams = { backdrop: 'justify-end', width: 'w-[80%]', height: 'h-full', x: window.innerWidth, y: 0 };
+				animParams = { backdrop: 'justify-end', width: 'w-[90%]', height: 'h-full', x: percentage(80, window.innerWidth), y: 0 };
 				break;
 			// Default: Left
 			default:
-				animParams = { backdrop: 'justify-start', width: 'w-[80%]', height: 'h-full', x: -window.innerWidth, y: 0 };
+				animParams = { backdrop: 'justify-start', width: 'w-[90%]', height: 'h-full', x: -percentage(80, window.innerWidth), y: 0 };
 				break;
 		}
 	}
@@ -87,12 +93,11 @@
 		open.set(false);
 	}
 
-	// Lifecycle
-	onMount(() => {
-		setAnimParams();
-	});
-	afterUpdate(() => {
-		setAnimParams();
+	// Subscribe to $open prop
+	open.subscribe((o: boolean) => {
+		if (o === true) {
+			setAnimParams();
+		}
 	});
 
 	// Reactive
@@ -117,9 +122,11 @@
 		on:keydown
 		on:keyup
 		on:keypress
+		use:focusTrap={true}
 	>
 		<!-- Drawer -->
 		<div
+			bind:this={elemDrawer}
 			class="drawer {classesDrawer}"
 			data-testid="drawer"
 			transition:fly|local={{ x: animParams.x, y: animParams.y, duration }}

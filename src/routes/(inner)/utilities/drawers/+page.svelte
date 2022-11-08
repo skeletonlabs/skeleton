@@ -37,9 +37,10 @@
 
 <Drawer open={storeDrawer} {position}>
 	<div class="w-full h-full flex justify-center items-center">
-		<div class="text-center">
+		<div class="text-center space-y-2">
 			<h4>Drawer: <span class="capitalize">{position}</span></h4>
 			<p>Tap outside the drawer to close.</p>
+			<!-- <button class="btn btn-filled-primary">Focus Me</button> -->
 		</div>
 	</div>
 </Drawer>
@@ -51,10 +52,10 @@
 			<p>Select a drawer position to preview.</p>
 			<!-- prettier-ignore -->
 			<div class="flex justify-center items-center space-x-4">
-				<button class="btn-icon btn-ghost" on:click={() => { trigger('left'); }}>&larr;</button>
-				<button class="btn-icon btn-ghost" on:click={() => { trigger('right'); }}>&rarr;</button>
-				<button class="btn-icon btn-ghost" on:click={() => { trigger('top'); }}>&uarr;</button>
-				<button class="btn-icon btn-ghost" on:click={() => { trigger('bottom'); }}>&darr;</button>
+				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('left'); }}>&larr;</button>
+				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('right'); }}>&rarr;</button>
+				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('top'); }}>&uarr;</button>
+				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('bottom'); }}>&darr;</button>
 			</div>
 		</div>
 	</svelte:fragment>

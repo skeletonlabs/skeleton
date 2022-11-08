@@ -2,6 +2,9 @@
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
+	// Utilities
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+
 	// @ts-ignore
 	// import sveldComp from '$lib/.../Component.svelte?raw&sveld';
 
@@ -40,6 +43,10 @@
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
-		<p>Describe the usage of this feature.</p>
+		<div class="space-y-4">
+			<h2>Title</h2>
+			<p>Describe how to use the feature.</p>
+			<CodeBlock language="html" code={`(code)`} />
+		</div>
 	</svelte:fragment>
 </DocsShell>

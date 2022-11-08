@@ -1,156 +1,186 @@
-<!-- Source: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog -->
 <script lang="ts">
-	import { fade, scale } from 'svelte/transition';
+	import { fade, fly } from 'svelte/transition';
 
+	// Actions
+	import { focusTrap } from '$lib/actions/FocusTrap/focusTrap';
+
+	// Stores
 	import { dialogStore } from '$lib/utilities/Dialog/stores';
 
 	// Props
-	/** Provide classes to set the backdrop background color.*/
-	export let backdrop: string = 'bg-backdrop-token';
-	/** Provide classes to add a backdrop blur.*/
-	export let blur: string = 'backdrop-blur-xs';
-	/** Provide classes to set the modal card background styles.*/
-	export let background: string = 'bg-surface-200-700-token';
-	/** Provide classes to set max modal width.*/
-	export let width: string = 'max-w-[640px]';
-	/** The animation in/out durations. Set to zero (0) for none.*/
-	export let duration: number = 100;
+	/** The open/close animation duration. Set '0' (zero) to disable. */
+	export let duration: number = 150;
 
-	// Local Settings
-	let elemModal: HTMLElement;
-	let dialogValue: string;
+	// Props (dialog)
+	/** Provide classes to style the dialog background. */
+	export let background: string = 'bg-surface-100-800-token';
+	/** Provide classes to style the dialog width. */
+	export let width: string = 'w-full max-w-[640px]';
+	/** Provide classes to style the dialog. */
+	export let height: string = 'h-auto';
+	/** Provide classes to style the dialog padding. */
+	export let padding: string = 'p-4';
+	/** Provide classes to style the dialog spacing. */
+	export let spacing: string = 'space-y-4';
+	/** Provide classes to style the dialog border radius. */
+	export let rounded: string = 'rounded-container-token';
+	/** Provide classes to style dialog box shadow. */
+	export let shadow: string = 'shadow-xl';
 
-	// Base Classes
-	const cBaseBackdrop: string = 'fixed top-0 left-0 right-0 bottom-0 z-[999] flex justify-center items-center p-4';
-	const cBaseDialog: string = 'p-4 w-full space-y-4 rounded-xl drop-shadow';
-	const cBaseHeader: string = 'flex justify-start items-center space-x-4';
-	const cBaseIcon: string = 'fill-black dark:fill-white bg-primary-500/20 flex justify-center items-center w-10 mx-auto aspect-square rounded-full';
-	const cBaseImage: string = 'w-full h-auto rounded-lg';
-	const cBaseFooter: string = 'flex justify-end space-x-4';
+	// Props (buttons)
+	/** Provide classes for neutral buttons, such as Cancel. */
+	export let buttonNeutral: string = 'btn-ghost-surface';
+	/** Provide classes for positive actions, such as Confirm or Submit. */
+	export let buttonPositive: string = 'btn-filled-primary';
+	/** Override the text for the Cancel button. */
+	export let buttonTextCancel: string = 'Cancel';
+	/** Override the text for the Confirm button. */
+	export let buttonTextConfirm: string = 'Confirm';
+	/** Override the text for the Submit button. */
+	export let buttonTextSubmit: string = 'Submit';
 
-	// Set the Result value response based on button selection
-	function setResult(v: any): void {
-		if ($dialogStore[0].result) {
-			$dialogStore[0].result(v);
-		}
-	}
+	// Props (regions)
+	/** Provide classes to style the backdrop. */
+	export let regionBackdrop: string = 'bg-backdrop-token';
+	/** Provide arbitrary classes to dialog header region. */
+	export let regionHeader: string = 'text-2xl font-bold';
+	/** Provide arbitrary classes to dialog body region. */
+	export let regionBody: string = 'max-h-[200px] overflow-hidden';
+	/** Provide arbitrary classes to dialog footer region. */
+	export let regionFooter: string = 'flex justify-end space-x-2';
 
-	// Click Handlers
-	function onDialogClose(): void {
-		setResult(false);
-		dialogStore.close();
-	}
-	function onDialogConfirmSubmit(): void {
-		setResult(true);
-		dialogStore.close();
-	}
-	function onDialogPromptSubmit(): void {
-		setResult(dialogValue);
-		dialogStore.close();
-	}
+	// Base Styles
+	const cBackdrop: string = 'fixed top-0 left-0 right-0 bottom-0 z-[999] flex justify-center items-center p-4';
+	const cDialogImage: string = 'w-full h-auto';
 
-	// Subscribe to dialog updates
-	dialogStore.subscribe((dArr: any) => {
-		// Dialog quey updated and includes a value
-		if (dArr.length) {
-			// Focus on first valid modal element
-			setTimeout(() => {
-				if (elemModal !== null) {
-					const elemWhitelist: string = 'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])';
-					const focusableElems: any = elemModal.querySelectorAll(elemWhitelist);
-					if (focusableElems !== null) {
-						focusableElems[0].focus();
-					}
-				}
-			}, 100);
-			// firstFooterButton.focus();
-			// Set the local dialog value (for prompt)
-			dialogValue = dArr[0].value;
-		}
+	// Local
+	let promptValue: any;
+
+	// Dialog Store Subscription
+	dialogStore.subscribe((dArr: any[]) => {
+		if (!dArr.length) return;
+		// Set the local dialog value (for prompt)
+		promptValue = dArr[0].value;
 	});
 
-	// A11y Input Handler
-	function onKeyPress(event: any): void {
-		// ESC to close dialog
-		if (event.code === 'Escape') {
-			onDialogClose();
-		}
+	// Event Handlers ---
+
+	function onBackdropClick(e: MouseEvent): void {
+		if (!(e.target instanceof Element)) return;
+		if (e.target.classList.contains('dialog-backdrop')) onClose();
 	}
 
-	// Reactive Classes
-	$: classesBackdrop = `${cBaseBackdrop} ${backdrop} ${blur}`;
-	$: classesDialog = `${cBaseDialog} ${background} ${width}`;
+	function onClose(): void {
+		if ($dialogStore[0].response) $dialogStore[0].response(false);
+		dialogStore.close();
+	}
+
+	function onConfirm(): void {
+		if ($dialogStore[0].response) $dialogStore[0].response(true);
+		dialogStore.close();
+	}
+
+	function onPromptSubmit(): void {
+		if ($dialogStore[0].response) $dialogStore[0].response(promptValue);
+		dialogStore.close();
+	}
+
+	// A11y ---
+
+	function onKeyDown(event: KeyboardEvent): void {
+		if (!$dialogStore.length) return;
+		if (event.code === 'Escape') onClose();
+	}
+
+	// Reactive
+	$: classesBackdrop = `${cBackdrop} ${regionBackdrop} ${$$props.class || ''}`;
+	$: classesDialog = `${background} ${width} ${height} ${padding} ${spacing} ${rounded} ${shadow}`;
+	// IMPORTANT: add values to pass to the children templates.
+	// There is a way to self-reference component values, but it involes svelte-internal and is not yet stable.
+	// REPL: https://svelte.dev/repl/badd0f11aa99450ca69dca6690d4d5a4?version=3.52.0
+	// Source: https://discord.com/channels/457912077277855764/1037768846855118909
+	$: parent = {
+		background,
+		width,
+		height,
+		padding,
+		spacing,
+		rounded,
+		shadow,
+		// ---
+		buttonNeutral,
+		buttonPositive,
+		buttonTextCancel,
+		buttonTextConfirm,
+		buttonTextSubmit,
+		// ---
+		regionBackdrop,
+		regionHeader,
+		regionBody,
+		regionFooter,
+		// ---
+		onClose
+	};
 </script>
 
-{#if $dialogStore.length}
-	<!-- Backdrop Shim -->
-	<div class="dialog-backdrop {classesBackdrop} {$$props.class ?? ''}" on:click={onDialogClose} on:keydown={onKeyPress} transition:fade|local={{ duration }} data-testid="dialog-backdrop">
-		<!-- Dialog -->
-		<div
-			bind:this={elemModal}
-			class="dialog {classesDialog}"
-			transition:scale|local={{ duration, opacity: 0, start: 0.5 }}
-			data-testid="dialog"
-			role="dialog"
-			aria-modal="true"
-			aria-label={$dialogStore[0].title}
-			on:click|preventDefault|stopPropagation
-			on:keydown
-			on:keyup
-			on:keypress
-		>
-			<!-- Header -->
-			<header class="dialog-header {cBaseHeader}">
-				<!-- Icon -->
-				{#if $dialogStore[0].icon}
-					<div class="dialog-icon {cBaseIcon}">{@html $dialogStore[0].icon}</div>
+<svelte:window on:keydown={onKeyDown} />
+
+{#if $dialogStore.length > 0}
+	{#key $dialogStore}
+		<!-- Backdrop -->
+		<div class="dialog-backdrop {classesBackdrop}" on:click={onBackdropClick} on:keydown transition:fade={{ duration }} data-testid="dialog-backdrop">
+			<!-- Modal -->
+			<div
+				class="dialog {classesDialog} {$dialogStore[0].classes}"
+				transition:fly={{ duration, opacity: 0, y: 100 }}
+				use:focusTrap={true}
+				data-testid="dialog"
+				role="dialog"
+				aria-modal="true"
+				aria-label={$dialogStore[0].title}
+			>
+				<!-- Header -->
+				{#if $dialogStore[0]?.title}
+					<header class="dialog-header {regionHeader}">{@html $dialogStore[0].title}</header>
 				{/if}
-
-				<!-- Title -->
-				<span class="dialog-title flex-1 text-xl font-bold">{@html $dialogStore[0].title}</span>
-			</header>
-
-			<!-- Content -->
-			<section class="dialog-content space-y-4">
 				<!-- Body -->
-				<div class="dialog-body">
-					{@html $dialogStore[0].body}
-				</div>
-
-				<!-- If: image -->
-				{#if $dialogStore[0].image}
-					<img src={$dialogStore[0].image} class="dialog-image {cBaseImage}" alt="Dialog" loading="lazy" />
+				{#if $dialogStore[0]?.body}
+					<article class="dialog-body {regionBody}">{@html $dialogStore[0].body}</article>
 				{/if}
-
-				<!-- If: HTML -->
-				{#if $dialogStore[0].html}
-					<div class="dialog-html">
-						{@html $dialogStore[0].html}
-					</div>
+				<!-- Image -->
+				{#if $dialogStore[0]?.image}
+					<img class="dialog-image {cDialogImage}" src={$dialogStore[0]?.image} alt="Dialog" />
 				{/if}
-
-				<!-- If: Component -->
-				<!-- {#if $dialogStore[0].component}
-					<svelte:component this={$dialogStore[0].component.element} {...$dialogStore[0].component.props}>
+				<!-- Type -->
+				{#if $dialogStore[0].type === 'alert'}
+					<!-- Template: Alert -->
+					<footer class="dialog-footer {regionFooter}">
+						<!-- prettier-ignore -->
+						<button class="btn {buttonNeutral}" on:click={onClose}>{buttonTextCancel}</button>
+					</footer>
+				{:else if $dialogStore[0].type === 'confirm'}
+					<!-- Template: Confirm -->
+					<!-- prettier-ignore -->
+					<footer class="dialog-footer {regionFooter}">
+					<button class="btn {buttonNeutral}" on:click={onClose}>{buttonTextCancel}</button>
+					<button class="btn {buttonPositive}" on:click={onConfirm}>{buttonTextConfirm}</button>
+				</footer>
+				{:else if $dialogStore[0].type === 'prompt'}
+					<!-- Template: Prompt -->
+					<input class="dialog-prompt-input" type="text" bind:value={promptValue} required />
+					<!-- prettier-ignore -->
+					<footer class="dialog-footer {regionFooter}">
+					<button class="btn {buttonNeutral}" on:click={onClose}>{buttonTextCancel}</button>
+					<button class="btn {buttonPositive}" on:click={onPromptSubmit}>{buttonTextSubmit}</button>
+				</footer>
+				{:else if $dialogStore[0].type === 'component'}
+					<!-- Template: Component -->
+					<!-- NOTE: users are repsonsible for handling all UI, including cancel/submit buttons -->
+					<svelte:component this={$dialogStore[0].component.ref} {...$dialogStore[0].component.props} {parent}>
 						{@html $dialogStore[0].component.slot}
 					</svelte:component>
-				{/if} -->
-
-				<!-- If: Prompt -->
-				{#if $dialogStore[0].type === 'prompt'}
-					<input class="dialog-prompt-input" type="text" bind:value={dialogValue} placeholder="Enter value..." required />
 				{/if}
-			</section>
-
-			<!-- Actions -->
-			<footer class="dialog-actions {cBaseFooter}">
-				<!-- Button: Cancel -->
-				<button class="btn btn-ghost" on:click={onDialogClose}>Close</button>
-				<!-- If Confirm - button: Confirm -->
-				{#if $dialogStore[0].type === 'confirm'}<button class="btn btn-filled-primary" on:click={onDialogConfirmSubmit}>Confirm</button>{/if}
-				<!-- If Promopt - button: Submit -->
-				{#if $dialogStore[0].type === 'prompt'}<button class="btn btn-filled-primary" on:click={onDialogPromptSubmit}>Submit</button>{/if}
-			</footer>
+			</div>
 		</div>
-	</div>
+	{/key}
 {/if}

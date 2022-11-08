@@ -7,103 +7,103 @@ body {
 	@apply text-token;
 }
 
-/* === Headings === */
+@layer base {
+	/* === Headings === */
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	/* Theme: Font Family */
-	@apply font-heading-token;
-}
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		/* Theme: Font Family */
+		@apply font-heading-token;
+	}
 
-h1 {
-	@apply text-3xl md:text-4xl;
-}
-h2 {
-	@apply text-2xl md:text-3xl;
-}
-h3 {
-	@apply text-xl md:text-2xl;
-}
-h4 {
-	@apply text-lg md:text-xl;
-}
-h5 {
-	@apply text-base md:text-lg;
-}
-h6 {
-	@apply text-sm md:text-base;
-}
+	h1 {
+		@apply text-3xl md:text-5xl;
+	}
+	h2 {
+		@apply text-2xl md:text-3xl;
+	}
+	h3 {
+		@apply text-xl md:text-2xl;
+	}
+	h4 {
+		@apply text-lg md:text-xl;
+	}
+	h5 {
+		@apply text-base md:text-lg;
+	}
+	h6 {
+		@apply text-sm md:text-base;
+	}
 
-/* === Elements === */
+	/* === Elements === */
 
-p:not(.unstyled) {
-	@apply text-base;
-	/* Theme: Font Color */
-	@apply text-token;
-}
+	p:not(.unstyled) {
+		@apply text-base;
+		/* Theme: Font Color */
+		@apply text-token;
+	}
 
-/* FIXME: double :not(.btn) required, not sure why, perhaps a bug? */
-.link,
-a:not(.unstyled):not(.btn-icon):not(.btn):not(.app-bar a):not(.logo-item):not(.card):not(.list-nav a):not(.btn) {
-	@apply text-primary-600 dark:text-primary-400 underline underline-offset-4 decoration-dotted decoration-primary-500/20 hover:decoration-primary-500;
-}
+	a:not(.unstyled):not(.btn):not(.btn-icon):not(.app-bar a):not(.logo-item):not(.card):not(.list-nav a) {
+		@apply text-primary-600 dark:text-primary-400 underline underline-offset-4 decoration-dotted decoration-primary-500/20 hover:decoration-primary-500;
+	}
 
-blockquote:not(.unstyled) {
-	@apply text-base border-l-4 border-l-accent-500 px-4 pl-4;
-	/* Theme: Font Color */
-	@apply text-token;
-}
+	blockquote:not(.unstyled) {
+		@apply text-base border-l-4 border-l-accent-500 px-4 pl-4;
+		/* Theme: Font Color */
+		@apply text-token;
+	}
 
-/* Keyboard */
-kbd:not(.unstyled) {
-	@apply !font-sans font-bold text-xs bg-surface-200-700-token border-b-[2px] border-surface-400-500-token ring-[1px] ring-surface-400-500-token px-1.5 py-0.5 rounded;
-}
+	/* Keyboard */
+	kbd:not(.unstyled) {
+		@apply !font-sans font-bold text-xs bg-surface-200-700-token border-b-[2px] border-surface-400-500-token ring-[1px] ring-surface-400-500-token px-1.5 py-0.5 rounded;
+	}
 
-/* === Code Blocks === */
-/* For use outside of Skeleton's CodeBlock component */
+	/* === Code Blocks === */
+	/* For use outside of Skeleton's CodeBlock component */
 
-pre:not(.unstyled):not(.code-block pre) {
-	@apply font-mono text-base bg-[#141517] text-white p-4 whitespace-pre-wrap overflow-x-auto;
-	/* Theme: Rounded */
-	@apply rounded-token;
-}
+	pre:not(.unstyled):not(.code-block pre) {
+		@apply font-mono text-base bg-[#141517] text-white p-4 whitespace-pre-wrap overflow-x-auto;
+		/* Theme: Rounded */
+		@apply rounded-container-token;
+	}
 
-code:not(.unstyled):not(.code-block code) {
-	@apply !font-mono text-primary-800 dark:text-primary-300 bg-primary-500/20 text-xs md:text-[13px] py-1 px-2;
-	/* Theme: Font Family */
-	@apply font-token;
-	/* Theme: Rounded */
-	@apply rounded-token;
-}
+	code:not(.unstyled):not(.code-block code) {
+		@apply !font-mono text-primary-800 dark:text-primary-300 bg-primary-500/20 text-xs md:text-[13px] py-1 px-2;
+		/* Theme: Font Family */
+		@apply font-token;
+		/* Theme: Rounded */
+		@apply rounded-token;
+	}
 
-/* === Insertions / Deletions  ==== */
-/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins */
-/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del */
+	/* === Insertions / Deletions  ==== */
+	/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins */
+	/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del */
 
-del,
-ins {
-	@apply block relative pl-5;
-	text-decoration: none;
-}
-del::before,
-ins::before {
-	@apply absolute left-1 font-mono;
-}
+	del,
+	ins {
+		@apply block relative pl-5;
+		text-decoration: none;
+	}
+	del::before,
+	ins::before {
+		@apply absolute left-1 font-mono;
+	}
 
-del::before {
-	content: '−';
-}
-ins::before {
-	content: '+';
-}
+	del::before {
+		content: '−';
+	}
+	ins::before {
+		content: '+';
+	}
 
-del {
-	@apply bg-red-500;
-}
-ins {
-	@apply bg-green-500;
+	del {
+		@apply bg-red-500;
+	}
+	ins {
+		@apply bg-green-500;
+	}
 }

@@ -51,6 +51,15 @@
 			<button class="btn btn-filled-accent place-self-center">Learn More &rarr;</button>
 		</a>
 
+		<!-- Docs Guide -->
+		<a class="card p-4 grid grid-cols-[1fr_auto] gap-4" href="/docs/contributions/documentation">
+			<div class="space-y-4">
+				<h2>Documentation Guide</h2>
+				<p>Good documentation makes life easier for everyone involved, check out how easy it is with this guide.</p>
+			</div>
+			<button class="btn btn-filled-accent place-self-center">Learn More &rarr;</button>
+		</a>
+
 		<!-- Testing (video) -->
 		<a class="card p-4 grid grid-cols-[1fr_auto] gap-4" href="https://youtu.be/Ru3FtSzN128" target="_blank" rel="noreferrer">
 			<div class="space-y-4">

@@ -1,9 +1,13 @@
 <script lang="ts">
+	// Logo
+	import DocsLogoIcon from '$docs/DocsLogo/DocsLogoIcon.svelte';
+
+	// Components
 	import Divider from '$lib/components/Divider/Divider.svelte';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
 	// Base Classes
-	const cBase: string = 'bg-white/20 dark:bg-black/10 text-xs md:text-base mx-auto px-4 py-8 md:p-10 space-y-10';
+	const cBase: string = 'bg-surface-100-800-token text-xs md:text-base mx-auto px-4 py-8 md:p-10 space-y-10';
 	const cRowOne: string = 'flex flex-col md:flex-row justify-between items-center md:items-start space-y-5 md:space-y-0';
 	const cRowTwo: string = 'flex flex-col md:flex-row justify-between items-center md:items-start space-y-4 md:space-y-0';
 </script>
@@ -11,11 +15,11 @@
 <div class="page-footer {cBase}">
 	<!-- Row 1 -->
 	<section class={cRowOne}>
-		<div class="space-y-2">
-			<span class="text-2xl font-bold uppercase">Skeleton</span>
-			<p class="text-lg opacity-80">A fully featured UI component library.</p>
+		<div class="grid grid-cols-1 gap-2 place-content-center place-items-center md:place-items-start">
+			<DocsLogoIcon />
+			<p class="!text-sm opacity-80">A fully featured UI Toolkit.</p>
 		</div>
-		<div class="hidden md:flex items-start space-x-10">
+		<div class="hidden md:grid grid-cols-[auto_auto_auto] gap-10">
 			<div class="space-y-4">
 				<h6>About</h6>
 				<ul class="space-y-2">

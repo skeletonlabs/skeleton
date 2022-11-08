@@ -111,7 +111,7 @@ let cLabel: string = 'text-base'; // child element label styles
 // Prop for outlined state
 export let outlined: boolean;
 
-// Create a reactive property that uses a ternary statement
+// Create a reactive property that uses a tertiary statement
 $: classesOutlined = outlined ? 'border-2 border-primary-500' : 'border-none';
 		`}
 		/>
