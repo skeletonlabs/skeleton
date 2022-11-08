@@ -44,12 +44,12 @@ export { default as Drawer } from './utilities/Drawer/Drawer.svelte';
 
 // Dialog
 export { dialogStore } from './utilities/Dialog/stores';
-export { type DialogAlert, type DialogConfirm, type DialogPrompt } from './utilities/Dialog/stores';
+export { type DialogSettings, type DialogComponent } from './utilities/Dialog/types';
 export { default as Dialog } from './utilities/Dialog/Dialog.svelte';
 
 // Toast
 export { toastStore } from './utilities/Toast/stores';
-export { type ToastMessage } from './utilities/Toast/stores';
+export { type ToastSettings } from './utilities/Toast/types';
 export { default as Toast } from './utilities/Toast/Toast.svelte';
 
 // LightSwitch
@@ -68,6 +68,7 @@ export { tooltip } from './utilities/Tooltip/tooltip';
 // Actions ---
 
 export { clipboard } from './actions/Clipboard/clipboard';
+export { focusTrap } from './actions/FocusTrap/focusTrap';
 
 // Filters
 export { filter } from './actions/Filters/filter';

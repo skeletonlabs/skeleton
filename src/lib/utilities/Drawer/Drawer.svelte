@@ -2,6 +2,8 @@
 	import { fade, fly } from 'svelte/transition';
 	import { writable, type Writable } from 'svelte/store';
 
+	import { focusTrap } from '$lib/actions/FocusTrap/focusTrap';
+
 	// Props
 	/** Provide a store to manage visible state.
 	 * @type {Writable(boolean)}
@@ -120,6 +122,7 @@
 		on:keydown
 		on:keyup
 		on:keypress
+		use:focusTrap={true}
 	>
 		<!-- Drawer -->
 		<div

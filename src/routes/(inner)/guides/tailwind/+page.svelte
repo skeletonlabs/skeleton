@@ -39,7 +39,7 @@
 			<h3>Enabled Dark Mode Support</h3>
 			<p>
 				Append <code>darkMode: class</code> to support <a href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="noreferrer">Tailwind's dark mode</a>. You can pair this with the
-				<a href="/utilities/light-switch">lightswitch</a> utility to toggle light/dark modes.
+				<a href="/utilities/lightswitches">lightswitch</a> utility to toggle light/dark modes.
 			</p>
 			<CodeBlock
 				language="js"
