@@ -34,7 +34,6 @@ npm create svelte@latest sveltekit-skeleton-app
     - Enable Typescript
 cd sveltekit-skeleton-app
 npm install
-npm run dev
             `}
 			/>
 			<!-- Framework: Vite (Svelte) -->
@@ -48,7 +47,6 @@ npm run dev
 npm create vite@latest vite-skeleton-app -- --template svelte-ts
 cd vite-skeleton-app
 npm install
-npm run dev
             `}
 			/>
 			<!-- Framework: Astro -->
@@ -64,7 +62,6 @@ npm create astro@latest astro-skeleton-app
     - Install all dependencies
     - Use 'Typescript: Strict'
 cd astro-skeleton-app
-npm run dev
             `}
 			/>
 			<!-- Svelte -->
@@ -90,7 +87,7 @@ npm run dev
 	<!-- Next Steps -->
 	<div class="card card-body !flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<p>Next, let's configure Tailwind to work with Skeleton.</p>
-		<a class="btn btn-filled-accent" href="/guides/tailwind">
+		<a class="btn btn-filled-primary" href="/guides/tailwind">
 			<span>Tailwind</span>
 			<span>&rarr;</span>
 		</a>

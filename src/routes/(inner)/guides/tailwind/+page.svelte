@@ -35,6 +35,11 @@
 			<h2>Configure Tailwind</h2>
 			<p>Let's modify a few settings in <code>tailwind.config.cjs</code>. This is usually located in the root of your project directory.</p>
 		</div>
+		<TabGroup selected={storeFramework}>
+			<Tab value="sveltekit">SvelteKit</Tab>
+			<Tab value="vite">Vite (Svelte)</Tab>
+			<Tab value="astro">Astro</Tab>
+		</TabGroup>
 		<div class="space-y-4">
 			<h3>Enabled Dark Mode Support</h3>
 			<p>
@@ -44,7 +49,7 @@
 			<CodeBlock
 				language="js"
 				code={`
-module.exports = {
+${$storeFramework === 'astro' ? 'module.exports' : 'const config'} = {
 	darkMode: 'class',
     // ...
 }
@@ -60,7 +65,7 @@ module.exports = {
 			<CodeBlock
 				language="js"
 				code={`
-module.exports = {
+${$storeFramework === 'astro' ? 'module.exports' : 'const config'} = {
 	// ...
     content: [
         // Keep existing values and append the following:
@@ -80,7 +85,7 @@ module.exports = {
 			<CodeBlock
 				language="js"
 				code={`
-module.exports = {
+${$storeFramework === 'astro' ? 'module.exports' : 'const config'} = {
     // ...
     plugins: [
         // Keep any existing plugins present and append the following:
@@ -142,9 +147,6 @@ module.exports = {
 	<!-- Next Steps -->
 	<div class="card card-body flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<p>Next, let's implement a Skeleton theme.</p>
-		<a class="btn btn-filled-accent" href="/guides/themes">
-			<span>Themes</span>
-			<span>&rarr;</span>
-		</a>
+		<a class="btn btn-filled-primary" href="/guides/themes">Themes &rarr;</a>
 	</div>
 </div>

@@ -51,6 +51,6 @@
 			<h2>Design Tokens</h2>
 			<p>These are preset utility classes generated from your theme CSS properties. See the documentation for full details.</p>
 		</div>
-		<a class="btn btn-ghost-surface place-self-center" href="/elements/tokens">Design Tokens &rarr;</a>
+		<a class="btn btn-filled-accent place-self-center" href="/elements/tokens">Design Tokens</a>
 	</section>
 </div>

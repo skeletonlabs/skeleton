@@ -24,7 +24,7 @@
 				<h2>SvelteKit</h2>
 				<p>The fastest way to build Svelte apps.</p>
 			</div>
-			<button class="btn btn-filled-accent place-self-center">Read Guide &rarr;</button>
+			<button class="btn btn-filled-accent place-self-center">Read Guide</button>
 		</a>
 
 		<!-- Astro -->
@@ -53,7 +53,7 @@
 				<h2>Vite + Svelte</h2>
 				<p>Next Generation Frontend Tooling.</p>
 			</div>
-			<button class="btn btn-filled-accent place-self-center">Read Guide &rarr;</button>
+			<button class="btn btn-filled-accent place-self-center">Read Guide</button>
 		</a>
 
 		<!-- Astro -->
@@ -63,7 +63,7 @@
 				<h2>Astro</h2>
 				<p>Serve content fast with Astro's next-gen island architecture.</p>
 			</div>
-			<button class="btn btn-filled-accent place-self-center">Read Guide &rarr;</button>
+			<button class="btn btn-filled-accent place-self-center">Read Guide</button>
 		</a>
 	</section>
 
@@ -72,29 +72,21 @@
 	<!-- Next Steps -->
 	<section class="space-y-4">
 		<h2>What's Next?</h2>
+		<p>Choose your own adventure. The path from here is up to you.</p>
 		<div class="card card-body space-y-4">
 			<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 				<p>Learn about Skeleton's <strong>Tailwind</strong> features.</p>
-				<a class="btn btn-ghost-surface" href="/elements/tokens">
-					<span>Tailwind Features</span>
-					<span>&rarr;</span>
-				</a>
+				<a class="btn btn-ghost-surface" href="/elements/tokens">Tailwind Features &rarr;</a>
 			</div>
 			<hr />
 			<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 				<p>Learn about Skeleton's <strong>Svelte</strong> features.</p>
-				<a class="btn btn-ghost-surface" href="/actions/clipboard">
-					<span>Svelte Features</span>
-					<span>&rarr;</span>
-				</a>
+				<a class="btn btn-ghost-surface" href="/actions/clipboard">Svelte Features &rarr;</a>
 			</div>
 			<hr />
 			<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 				<p>Learn about Skeleton's <strong>utility</strong> features.</p>
-				<a class="btn btn-ghost-surface" href="/utilities/codeblocks">
-					<span>Utilities Features</span>
-					<span>&rarr;</span>
-				</a>
+				<a class="btn btn-ghost-surface" href="/utilities/codeblocks">Utilities Features &rarr;</a>
 			</div>
 		</div>
 	</section>

@@ -65,7 +65,7 @@
 					<h2>Theme Generator</h2>
 					<p>This tool provides a means to generate a custom theme.</p>
 				</div>
-				<a class="btn btn-filled" href="/guides/themes/generator">Create a Theme &rarr;</a>
+				<a class="btn btn-filled-accent" href="/guides/themes/generator">Create a Theme</a>
 			</div>
 		</div>
 		<!-- Presets -->
@@ -108,8 +108,11 @@
 			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/themes/theme-{name}.css'; // <--\nimport '../app.css';\n`} />
 			<!-- Framework: Astro -->
 		{:else if $storeFramework === 'astro'}
-			<p>Import your desired preset into <code>/src/layouts/LayoutBasic.astro</code> before your global stylesheet.</p>
-			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/themes/theme-{name}.css'; // <--\nimport '../styles/base.css';`} />
+			<p>
+				Astro does not provide a root layout by default, but we recommend creating <code>/src/layouts/LayoutRoot.astro</code>. See our
+				<a href="/guides/frameworks/astro">See our Astro walkthrough</a> for assistance.
+			</p>
+			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/themes/theme-{name}.css'; // <--`} />
 		{/if}
 	</div>
 
@@ -121,7 +124,7 @@
 			<h2>Theme Styles</h2>
 			<p>View recommendations for utilizing theme styles within your application.</p>
 		</div>
-		<a class="btn btn-ghost-surface place-self-center" href="/guides/themes/styles">Theme Styles &rarr;</a>
+		<a class="btn btn-filled-accent place-self-center" href="/guides/themes/styles">Theme Styles</a>
 	</section>
 
 	<hr />
@@ -129,6 +132,6 @@
 	<!-- Next Steps -->
 	<section class="card card-body flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<p>Next, let's learn more about styling Skeleton.</p>
-		<a class="btn btn-filled-accent" href="/guides/styling">Styling &rarr;</a>
+		<a class="btn btn-filled-primary" href="/guides/styling">Styling &rarr;</a>
 	</section>
 </div>

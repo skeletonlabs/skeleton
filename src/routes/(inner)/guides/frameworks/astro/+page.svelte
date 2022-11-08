@@ -139,7 +139,7 @@ import { AppShell, AppBar } from '@brainandbones/skeleton';
 			language="html"
 			code={`
 ---
-import LayoutRoot from '../layouts/LayoutRoot.astro';
+import LayoutRoot from './layouts/LayoutRoot.astro';
 import { GradientHeading } from '@brainandbones/skeleton';
 ---
 <LayoutRoot>

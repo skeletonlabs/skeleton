@@ -10,7 +10,7 @@
 	<hr />
 
 	<!-- Resources -->
-	<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+	<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
 		<!-- Article: How to Contribute -->
 		<a class="card p-4 space-y-4" href="https://opensource.guide/how-to-contribute/" target="_blank" rel="noreferrer">
 			<h2>How to Contribute</h2>
@@ -27,46 +27,49 @@
 				<button class="btn btn-filled-accent">View Project</button>
 			</div>
 		</a>
-	</div>
+	</section>
 
 	<hr />
 
-	<!-- Skeleton Specific -->
-	<div class="space-y-4">
+	<section class="space-y-4">
+		<h2>Guides</h2>
 		<!-- Basics -->
 		<a class="card p-4 grid grid-cols-[1fr_auto] gap-4" href="/docs/contributions/requirements">
 			<div class="space-y-4">
 				<h2>Requirements</h2>
 				<p>Ready to contribute to Skeleton? Read our requirements and recommended workflow process.</p>
 			</div>
-			<button class="btn btn-filled-accent place-self-center">Learn More &rarr;</button>
+			<button class="btn btn-filled-accent place-self-center">Read Guide</button>
 		</a>
-
 		<!-- Style Guide -->
 		<a class="card p-4 grid grid-cols-[1fr_auto] gap-4" href="/docs/contributions/code">
 			<div class="space-y-4">
 				<h2>Style Guide</h2>
 				<p>Review recommended conventions for writing code, naming properties, and handling CSS styling.</p>
 			</div>
-			<button class="btn btn-filled-accent place-self-center">Learn More &rarr;</button>
+			<button class="btn btn-filled-accent place-self-center">Read Guide</button>
 		</a>
-
 		<!-- Docs Guide -->
 		<a class="card p-4 grid grid-cols-[1fr_auto] gap-4" href="/docs/contributions/documentation">
 			<div class="space-y-4">
 				<h2>Documentation Guide</h2>
 				<p>Good documentation makes life easier for everyone involved, check out how easy it is with this guide.</p>
 			</div>
-			<button class="btn btn-filled-accent place-self-center">Learn More &rarr;</button>
+			<button class="btn btn-filled-accent place-self-center">Read Guide</button>
 		</a>
+	</section>
 
+	<hr />
+
+	<section class="space-y-4">
+		<h2>Videos</h2>
 		<!-- Testing (video) -->
 		<a class="card p-4 grid grid-cols-[1fr_auto] gap-4" href="https://youtu.be/Ru3FtSzN128" target="_blank" rel="noreferrer">
 			<div class="space-y-4">
-				<h2>Writing Automated Tests</h2>
+				<h2>Automated Tests</h2>
 				<p>Watch an in-depth video covering automated testing with Vitest, provided by Skeleton contributors.</p>
 			</div>
 			<button class="btn btn-filled-accent place-self-center">Watch Video</button>
 		</a>
-	</div>
+	</section>
 </div>

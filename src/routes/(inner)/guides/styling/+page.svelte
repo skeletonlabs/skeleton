@@ -174,7 +174,7 @@
 		<CodeBlock
 			language="typescript"
 			code={`
-import '@brainandbones/skeleton/styles/${$storeStylesheets === 'simple' ? 'all' : '{stylehsheets}'}.css';
+import '@brainandbones/skeleton/styles/${$storeStylesheets === 'recommended' ? 'all' : '{stylehsheets}'}.css';
 			`}
 		/>
 		<TabGroup selected={storeStylesheets}>
@@ -238,11 +238,10 @@ import '@brainandbones/skeleton/styles/${$storeStylesheets === 'simple' ? 'all' 
 		<CodeBlock
 			language="css"
 			code={`
-/* If present, drop the following four directives: */\n
+/* If present, drop the following directives: */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@tailwind variants;
 			`}
 		/>
 	</section>
@@ -323,7 +322,7 @@ import '@brainandbones/skeleton/styles/${$storeStylesheets === 'simple' ? 'all' 
 	<!-- Next Steps -->
 	<div class="card card-body !flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<p>View the <u>optional walkthroughs</u> for creating an example app using Skeleton.</p>
-		<a class="btn btn-filled-accent" href="/guides/frameworks">
+		<a class="btn btn-filled-primary" href="/guides/frameworks">
 			<span>Framework Guides</span>
 			<span>&rarr;</span>
 		</a>
