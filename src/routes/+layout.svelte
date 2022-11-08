@@ -5,10 +5,6 @@
 	import { storeHighlightJs } from '$lib/utilities/CodeBlock/stores';
 	storeHighlightJs.set(hljs);
 
-	// SvelteKit exports
-	// export const csr = false;
-	// export const prerender = true;
-
 	// SvelteKit Imports
 	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
