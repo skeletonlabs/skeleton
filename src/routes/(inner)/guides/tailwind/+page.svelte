@@ -69,7 +69,7 @@ ${$storeFramework === 'astro' ? 'module.exports' : 'const config'} = {
 	// ...
     content: [
         // Keep existing values and append the following:
-        "./node_modules/@brainandbones/skeleton/**/*.{html,js,svelte,ts}"
+        require('path').join(require.resolve('@brainandbones/skeleton'), '../**/*.{html,js,svelte,ts}')
     ],
     // ...
 }
