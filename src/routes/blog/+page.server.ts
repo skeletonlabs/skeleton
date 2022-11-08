@@ -19,17 +19,15 @@ export const fetchMarkdownPosts = async () => {
 	return allPosts;
 };
 
+
 export const load = async () => {
 	const allPosts = await fetchMarkdownPosts();
 	let sortedPosts = allPosts.sort((a, b) => {
 		return new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime();
 	});
 	const size = sortedPosts.length;
-	const offset = 0 //Number(url.searchParams.get('offset') ?? '0');
-	const limit = size //Number(url.searchParams.get('limit') ?? size);
+	const offset = 0;
+	const limit = size;
 
 	return { offset, limit, size, posts: sortedPosts.slice(offset, offset + limit) };
-	// const response = await fetch(`/api/posts`)
-	// const data = await response.json()
-	// return {...data}
 }

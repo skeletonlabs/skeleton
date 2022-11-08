@@ -2,7 +2,6 @@
 	export let data: any;
 	import { Avatar } from '@brainandbones/skeleton';
 	import { Breadcrumb, Crumb } from '@brainandbones/skeleton';
-	//import DocsBreadCrumb from '$docs/DocsBreadCrumb/DocsBreadCrumb.svelte';
 </script>
 
 <div class="page-container">
