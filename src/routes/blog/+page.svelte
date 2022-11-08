@@ -1,26 +1,32 @@
 <script>
-	import Avatar from '$lib/components/Avatar/Avatar.svelte';
+	import { Avatar, Paginator } from '@brainandbones/skeleton';
+
 	export let data;
+	let offset = 0;
+	let limit = 10;
+	let size = data.size;
+	$: displayedPosts = data.posts.slice(
+		offset * limit, 
+		offset * limit + limit
+	);
 </script>
 
 <div class="p-5">
 	<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-10">
-		
-		{#each data.posts as post}
+		{#each displayedPosts as post}
 			<a class="card overflow-hidden" href={post.path}>
 				<!-- Header -->
 				<header>
-					<img src="/blog-assets/{post.meta.image}" class="bg-black/50 w-full aspect-[21/9]" alt="Post" />
+					<img src="{post.meta.image}" class="bg-black/50 w-full aspect-[21/9]" alt="Post" />
 				</header>
 				<!-- Body -->
 				<div class="card-body space-y-4">
 					{#if post.meta.category}
-					<h6 class="text-primary-500">{post.meta.category}</h6>
+						<h6 class="text-primary-500">{post.meta.category}</h6>
 					{/if}
 					<h3>{post.meta.title}</h3>
 					<article>
-						<p>{post.meta.summary}
-						</p>
+						<p>{post.meta.summary}</p>
 					</article>
 				</div>
 				<hr />
@@ -35,4 +41,7 @@
 			</a>
 		{/each}
 	</section>
+	<div class="flex flex-row justify-end px-10">
+		<Paginator bind:offset bind:limit bind:size amounts={[10,20,50]} justify="justify-end" />
+	</div>
 </div>

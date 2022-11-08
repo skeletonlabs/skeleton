@@ -1,11 +1,21 @@
 <script lang="ts">
 	export let data: any;
+	import { Avatar } from '@brainandbones/skeleton';
+	import { Breadcrumb, Crumb } from '@brainandbones/skeleton';
 </script>
 
-<div class="px-24">
+<div class="page-container">
+	<!-- Breadcrumbs -->
+	<Breadcrumb>
+		<Crumb href="/blog">Blog</Crumb>
+		<Crumb>{data.title}</Crumb>
+	</Breadcrumb>
 	<article class="">
-		<h1>{data.title}</h1>
-		<p>Published: {new Date(data.date).toLocaleDateString()}</p>
+		<div>
+			<h1>{data.title}</h1>
+			<p>Published: {new Date(data.date).toLocaleDateString()} by {data.author} <Avatar src="https://github.com/{data.author}.png" /></p>
+		</div>
+
 		<svelte:component this={data.content} />
 	</article>
 </div>

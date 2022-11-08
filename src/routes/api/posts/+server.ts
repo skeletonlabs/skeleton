@@ -1,7 +1,7 @@
 import { json } from '@sveltejs/kit';
 
 export const fetchMarkdownPosts = async () => {
-	// be careful with paths that have layouts or parameters
+	// be careful with paths that have layout groups or parameters, if you change this, change the path stripping slice() below.
 	const allPostFiles = import.meta.glob('../../blog/*.md');
 	const iterablePostFiles = Object.entries(allPostFiles);
 
@@ -21,13 +21,20 @@ export const fetchMarkdownPosts = async () => {
 	return allPosts;
 };
 
-/** @type {import('./$types').RequestHandler} */
-export const GET = async () => {
-	const allPosts = await fetchMarkdownPosts();
+// This is done as an API so that it can be called from multiple places (like homepage and blog), as
+// well as serve as the basis for an RSS feed
 
-	const sortedPosts = allPosts.sort((a, b) => {
+/** @type {import('./$types').RequestHandler} */
+export const GET = async ({ url }) => {
+	const allPosts = await fetchMarkdownPosts();
+	
+	
+	let sortedPosts = allPosts.sort((a, b) => {
 		return new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime();
 	});
+	const size = sortedPosts.length;
+	const offset = Number(url.searchParams.get('offset') ?? '0');
+	const limit = Number(url.searchParams.get('limit') ?? size);
 
-	return json(sortedPosts);
+	return json({ offset, limit, size, posts: sortedPosts.slice(offset, offset + limit) });
 };
