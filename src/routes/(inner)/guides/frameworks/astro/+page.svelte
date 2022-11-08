@@ -48,7 +48,7 @@
 		<h2>Layout Setup</h2>
 		<p>
 			We'll create a new <a href="https://docs.astro.build/en/core-concepts/layouts/" target="_blank" rel="noreferrer">Astro Layout</a>
-			in <code>/src/layouts/LayoutBasic.astro</code>. Our layout needs a bit of structure, so let's make use of the Skeleton <a href="/components/app-shell">App Shell</a> component.
+			in <code>/src/layouts/LayoutRoot.astro</code>. Our layout needs a bit of structure, so let's make use of the Skeleton <a href="/components/app-shell">App Shell</a> component.
 		</p>
 		<CodeBlock
 			language="html"
@@ -139,22 +139,22 @@ import { AppShell, AppBar } from '@brainandbones/skeleton';
 			language="html"
 			code={`
 ---
-import LayoutBasic from '../layouts/LayoutBasic.astro';
+import LayoutRoot from '../layouts/LayoutRoot.astro';
 import { GradientHeading } from '@brainandbones/skeleton';
 ---
-<LayoutBasic>
+<LayoutRoot>
 	<h1>Hello Skeleton</h1>
-</LayoutBasic>
+</LayoutRoot>
 		`}
 		/>
 		<p>
-			Now let's add some basic content to our homepage. Open <code>/src/pages/index.astro</code> and replace the contents within the <code>LayoutBasic</code> tags with the following. This will provide
+			Now let's add some basic content to our homepage. Open <code>/src/pages/index.astro</code> and replace the contents within the <code>LayoutRoot</code> tags with the following. This will provide
 			multiple "Tailwind Elements" styled by the <code>all.css</code> stylesheets.
 		</p>
 		<CodeBlock
 			language="html"
 			code={`
-<LayoutBasic>
+<LayoutRoot>
 	<div class="container mx-auto p-8 space-y-8">
 		<h1>Hello Skeleton</h1>
 		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -169,7 +169,7 @@ import { GradientHeading } from '@brainandbones/skeleton';
 		<a class="btn btn-filled-tertiary" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
 		</section>
 	</div>
-</LayoutBasic>
+</LayoutRoot>
                 `}
 		/>
 		<p>These elements are styled automatically due to our use of <code>all.css</code> and the included Tailwind Elements stylesheets.</p>
@@ -230,15 +230,15 @@ import { Breadcrumb, Crumb } from '@brainandbones/skeleton';
 			language="html"
 			code={`
 ---
-import LayoutBasic from '../layouts/LayoutBasic.astro';
+import LayoutRoot from '../layouts/LayoutRoot.astro';
 
 // ...
 import WrapperExample from '../components/WrapperExample.svelte';
 ---
-<LayoutBasic>
+<LayoutRoot>
 	<!-- ... --->
 	<WrapperExample client:visible></WrapperExample>
-</LayoutBasic>
+</LayoutRoot>
 	`}
 		/>
 		<!-- Hydration -->

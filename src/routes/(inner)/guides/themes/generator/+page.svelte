@@ -27,10 +27,12 @@
 
 	<hr />
 
+	<!-- Generator (new) -->
+	<DocsThemer />
+
+	<!-- Instructions -->
 	<section class="space-y-4">
-		<!-- Generator (new) -->
-		<DocsThemer />
-		<!-- Instructions -->
+		<h2>Importing Your Theme</h2>
 		<TabGroup selected={storeFramework}>
 			<Tab value="sveltekit">SvelteKit</Tab>
 			<Tab value="vite">Vite (Svelte)</Tab>
@@ -38,13 +40,13 @@
 		</TabGroup>
 		{#if $storeFramework === 'sveltekit'}
 			<p>Add your custom theme to <code>/src/theme.postcss</code>, then import this file into <code>/src/routes/+layout.svelte</code>.</p>
-			<CodeBlock language="typescript" code={`import '../theme.postcss'; // <--\nimport '../app.postcss';\n`} />
+			<CodeBlock language="typescript" code={`import '../theme.postcss';`} />
 		{:else if $storeFramework === 'vite'}
 			<p>Add your custom theme to <code>/src/theme.css</code>, then import this file into <code>/src/main.js</code>:</p>
-			<CodeBlock language="typescript" code={`import '../theme.css'; // <--\nimport '../app.css';\n`} />
+			<CodeBlock language="typescript" code={`import '../theme.css';`} />
 		{:else if $storeFramework === 'astro'}
 			<p>Add your custom theme to <code>/src/styles/theme.css</code>, then import this file into <code>/src/layouts/LayoutBasic.astro</code>.</p>
-			<CodeBlock language="typescript" code={`import '../styles/theme.css'; // <--\nimport '../styles/base.css';`} />
+			<CodeBlock language="typescript" code={`import '../styles/theme.css';`} />
 		{/if}
 	</section>
 

@@ -7,34 +7,14 @@
 <div class="page-container">
 	<header class="space-y-4">
 		<h1>Installation</h1>
-		<p>Let's generate a basic project and install the Skeleton package.</p>
-	</header>
-
-	<hr />
-
-	<!-- Prerequisites -->
-	<section class="space-y-4">
-		<h2>Prerequisites</h2>
-		<p>The following documenation and guides assume the following:</p>
-		<ul class="list-disc list-inside space-y-1">
-			<li>You have experience with <a href="https://svelte.dev/tutorial/basics" target="_blank" rel="noreferrer">Svelte</a>.</li>
-			<li>You have experience with <a href="https://tailwindcss.com/docs/utility-first" target="_blank" rel="noreferrer">Tailwind CSS</a>.</li>
-			<li>
-				You have experience with either <a href="https://kit.svelte.dev/" target="_blank" rel="noreferrer">SvelteKit</a>,
-				<a href="https://vitejs.dev/" target="_blank" rel="noreferrer">Vite</a>, or
-				<a href="https://astro.build/" target="_blank" rel="noreferrer">Astro</a>.
-			</li>
-		</ul>
+		<!-- prettier-ignore -->
 		<p>
-			We've provided a <a href="/docs/faqs">frequently asked questions</a> section to cover recommendations for package managers, monorepos, and common issues new users face.
+			Let's generate a basic project and install the Skeleton package. For best results, we recommend you have at least moderate experience with <a href="https://svelte.dev/tutorial/basics" target="_blank" rel="noreferrer">Svelte</a>, <a href="https://tailwindcss.com/docs/utility-first" target="_blank" rel="noreferrer">Tailwind CSS</a>, and at least one of the supported frameworks listed below. If you experience issues, please see our <a href="/docs/faqs">frequently asked questions</a>.
 		</p>
-	</section>
-
-	<hr />
+	</header>
 
 	<!-- Frameworks -->
 	<section class="space-y-4">
-		<h2>Setup a Framework</h2>
 		<!-- Tabs -->
 		<TabGroup selected={storeFramework}>
 			<Tab value="sveltekit">SvelteKit</Tab>

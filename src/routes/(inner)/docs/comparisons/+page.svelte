@@ -15,7 +15,7 @@
 
 	<!-- Mantine -->
 	<section class="space-y-4">
-		<a class="btn btn-ghost-surface btn-lg" href="https://mantine.dev/" target="_blank" rel="noreferrer">Mantine &#x2197;</a>
+		<a class="btn btn-ghost-surface btn-lg" href="https://mantine.dev/" target="_blank" rel="noreferrer">Mantine</a>
 		<p>
 			It’s no secret that Mantine has had a huge influence on the features and design of Skeleton. We love Mantine’s huge set of components, modular add-ons, and, of course, the best-in-class
 			documentation. We’re also huge fans of the deep customization provided per component. However, Mantine is unfortunately only available for React. That said, the Skeleton team hopes to bridge the
@@ -25,7 +25,7 @@
 
 	<!-- Flowbite -->
 	<section class="space-y-4">
-		<a class="btn btn-ghost-surface btn-lg" href="https://flowbite.com/" target="_blank" rel="noreferrer">Flowbite &#x2197;</a>
+		<a class="btn btn-ghost-surface btn-lg" href="https://flowbite.com/" target="_blank" rel="noreferrer">Flowbite</a>
 		<p>
 			Flowbite provides a set of turnkey HTML/CSS components built with Tailwind’s utility class system. Unlike other libraries, Flowbite focuses on a singular and opinionated design aesthetic.
 			Flowbite is a general purpose library, which means it can be used within any framework, but also provides framework-specific variations like <a
@@ -86,7 +86,7 @@
 
 	<!-- Daisy UI -->
 	<section class="space-y-4">
-		<a class="btn btn-ghost-surface btn-lg" href="https://daisyui.com/" target="_blank" rel="noreferrer">Daisy UI &#x2197;</a>
+		<a class="btn btn-ghost-surface btn-lg" href="https://daisyui.com/" target="_blank" rel="noreferrer">Daisy UI</a>
 		<p>
 			Daisy can be compared to Skeleton due to our shared use of Tailwind CSS and highly customizable theme systems. Unfortunately, Daisy themes rely on hex color values which <a
 				href="https://tailwindcss.com/docs/customizing-colors#using-css-variables"
@@ -101,7 +101,7 @@
 
 	<!-- Svelte Material UI -->
 	<section class="space-y-4">
-		<a class="btn btn-ghost-surface btn-lg" href="https://sveltematerialui.com/" target="_blank" rel="noreferrer">Svelte Material UI &#x2197;</a>
+		<a class="btn btn-ghost-surface btn-lg" href="https://sveltematerialui.com/" target="_blank" rel="noreferrer">Svelte Material UI</a>
 		<p>
 			The founding members of Skeleton are huge fans of Material Design and recognize its influence on modern web UI, UX, and component systems in general. Our team has extensive experience with <a
 				href="https://material.angular.io/"

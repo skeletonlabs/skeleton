@@ -54,8 +54,8 @@ module.exports = {
 		<div class="space-y-4">
 			<h3>Update Content Settings</h3>
 			<p>
-				Add the following to the <a href="https://tailwindcss.com/docs/configuration" target="_blank" rel="noreferrer">content</a> settings. This will ensure the Tailwind compiler can locate
-				Skeleton's utility classes from within <code>node_modules</code>.
+				Add the following to the <a href="https://tailwindcss.com/docs/configuration" target="_blank" rel="noreferrer">content</a> settings. This will ensure the Tailwind compiler can locate utility
+				classes for Skeleton features within <code>node_modules</code>.
 			</p>
 			<CodeBlock
 				language="js"
@@ -74,8 +74,8 @@ module.exports = {
 		<div class="space-y-4">
 			<h3>Add the Skeleton Plugin</h3>
 			<p>
-				Add the Skeleton <a href="https://tailwindcss.com/docs/plugins#official-plugins" target="_blank" rel="noreferrer">plugin</a>. This will automatically ingest and utilize Skeleton theme CSS
-				custom properties. We'll setup our theme in a following step.
+				Add the Skeleton <a href="https://tailwindcss.com/docs/plugins#official-plugins" target="_blank" rel="noreferrer">plugin</a>. This will ensure Tailwind can generate color classes based on your
+				theme. We'll setup our theme in the following step.
 			</p>
 			<CodeBlock
 				language="js"

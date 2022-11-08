@@ -2,7 +2,6 @@
 	import { storeFramework } from '$docs/stores';
 
 	// Components
-	import DataTable from '$lib/components/Table/DataTable.svelte';
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
 	import Tab from '$lib/components/Tab/Tab.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
@@ -42,19 +41,6 @@
 			}
 		);
 	}
-
-	// Tables
-	const cSwatch: string = 'w-4 aspect-square rounded-full';
-	const tableProps: any = {
-		headings: ['Color', 'Name', 'Class', 'Description'],
-		source: [
-			[`<div class="${cSwatch} bg-primary-500" />`, 'Primary', '[x]-primary-[50-900]', 'Typically your primary brand color.'],
-			[`<div class="${cSwatch} bg-accent-500" />`, 'Accent', '[x]-accent-[50-900]', 'A secondary offset color or supplementary value.'],
-			[`<div class="${cSwatch} bg-tertiary-500" />`, 'Tertiary', '[x]-tertiary-[50-900]', 'A third and additional offset color. Great for informational alerts.'],
-			[`<div class="${cSwatch} bg-warning-500" />`, 'Warning', '[x]-warning-[50-900]', 'May be used for warnings, alerts, and invalid inputs.'],
-			[`<div class="${cSwatch} bg-surface-500" />`, 'Surface', '[x]-surface-[50-900]', 'May be used for backgrounds, card elements, and some typography.']
-		]
-	};
 </script>
 
 <div class="page-container">
@@ -72,21 +58,19 @@
 	<hr />
 
 	<div class="space-y-4">
-		<h2>Select a Theme</h2>
-		<p>Choose from any of the curated preset themes or created your own.</p>
 		<!-- Generator -->
 		<div class="space-y-4">
 			<div class="card card-body flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 				<div class="space-y-2">
-					<h3>Theme Generator</h3>
-					<p>Use the theme generator form to create a custom theme from scratch.</p>
+					<h2>Theme Generator</h2>
+					<p>This tool provides a means to generate a custom theme.</p>
 				</div>
 				<a class="btn btn-filled" href="/guides/themes/generator">Create a Theme &rarr;</a>
 			</div>
 		</div>
 		<!-- Presets -->
 		<div class="card card-body space-y-4">
-			<h3>Preset Themes</h3>
+			<h2>Preset Themes</h2>
 			<p>Tap any theme below to automatically copy the import statement to your clipboard.</p>
 			<nav class="grid grid-cols-1 md:grid-cols-3 gap-4">
 				{#each presets as preset}
@@ -131,28 +115,13 @@
 
 	<hr />
 
-	<!-- Theme Colors -->
-	<section class="space-y-4">
-		<h2>Theme Colors</h2>
-		<p>Here's a quick reference for what each color represents.</p>
-		<DataTable headings={tableProps.headings} source={tableProps.source} />
-		<h3>Using Theme Color Styles</h3>
-		<p>Skeleton themes extend Tailwind's color palette and can be used anywhere within your project. Here's a few examples:</p>
-		<CodeBlock language="html" code={`<!-- Inlined classes -->\n<div class="bg-primary-500 text-accent-500">Skeleton</div>`} />
-		<CodeBlock language="html" code={`<!-- Tailwind opacity scale -->\n<div class="border border-primary-500/50">Skeleton</div>`} />
-		<CodeBlock language="css" code={`/* Using Tailwind @apply */\n.example { @apply text-primary-500; }`} />
-		<CodeBlock language="css" code={`/* Using CSS custom properties. Note that colors are RGB values! */\nbody { background: rgba(var(--color-surface-900) / 1); }`} />
-	</section>
-
-	<hr />
-
 	<!-- Design Tokens -->
 	<section class="grid grid-cols-[1fr_auto] gap-4">
 		<div class="space-y-4">
-			<h2>Design Tokens</h2>
-			<p>Special utility classes generated from your theme CSS properties. We've provide a dedicated documentation section for these.</p>
+			<h2>Theme Styles</h2>
+			<p>View recommendations for utilizing theme styles within your application.</p>
 		</div>
-		<a class="btn btn-ghost-surface place-self-center" href="/elements/tokens">Design Tokens &rarr;</a>
+		<a class="btn btn-ghost-surface place-self-center" href="/guides/themes/styles">Theme Styles &rarr;</a>
 	</section>
 
 	<hr />
@@ -160,9 +129,6 @@
 	<!-- Next Steps -->
 	<section class="card card-body flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<p>Next, let's learn more about styling Skeleton.</p>
-		<a class="btn btn-filled-accent" href="/guides/styling">
-			<span>Styling</span>
-			<span>&rarr;</span>
-		</a>
+		<a class="btn btn-filled-accent" href="/guides/styling">Styling &rarr;</a>
 	</section>
 </div>

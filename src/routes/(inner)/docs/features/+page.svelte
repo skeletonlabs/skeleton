@@ -42,6 +42,19 @@
 			<h2>Svelte</h2>
 		</div>
 		<div class="space-y-4">
+			<h3>Actions</h3>
+			<p>
+				Skeleton provides a set of unique <a href="https://svelte.dev/tutorial/actions" target="_blank" rel="noreferrer">Svelte Actions</a>, also known as directives in other libraries. These provide
+				"headless" script logic without inherent UI. Think of these as add-ons features, including <em>copy to clipboard</em> and <em>applying image filters</em>.
+			</p>
+			<ul class="list-disc list-inside space-y-2">
+				<li>Svelte is required to use Svelte Actions.</li>
+				<li>Each action must be imported into the route page where they are being used.</li>
+				<li>Each action must be applied to elements, via the <code>use:actionName="actionParams"</code> method.</li>
+				<li>Do not contain UI template or styling.</li>
+			</ul>
+		</div>
+		<div class="space-y-4">
 			<h3>Components</h3>
 			<p>
 				These are <a href="https://svelte.dev/" target="_blank" rel="noreferrer">Svelte Components</a> purpose built for the Skeleton library. They can include their own UI templates and scripted logic,
@@ -54,19 +67,6 @@
 				<li>May include slot elements to insert content.</li>
 				<li>Typically include their own UI template.</li>
 				<li>Typically have their own built-in styling, which adapts to your theme.</li>
-			</ul>
-		</div>
-		<div class="space-y-4">
-			<h3>Actions</h3>
-			<p>
-				Skeleton provides a set of unique <a href="https://svelte.dev/tutorial/actions" target="_blank" rel="noreferrer">Svelte Actions</a>, also known as directives in other libraries. These provide
-				"headless" script logic without inherent UI. Think of these as add-ons features, including <em>copy to clipboard</em> and <em>applying image filters</em>.
-			</p>
-			<ul class="list-disc list-inside space-y-2">
-				<li>Svelte is required to use Svelte Actions.</li>
-				<li>Each action must be imported into the route page where they are being used.</li>
-				<li>Each action must be applied to elements, via the <code>use:actionName="actionParams"</code> method.</li>
-				<li>Do not contain UI template or styling.</li>
 			</ul>
 		</div>
 	</section>
