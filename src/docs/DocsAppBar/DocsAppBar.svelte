@@ -211,7 +211,7 @@
 
 		<Divider vertical borderWidth="border-l-2 opacity-30" />
 		<!-- Blog -->
-		<a class="unstyled font-bold" href="/blog" data-sveltekit-prefetch>Blog</a>
+		<a class="unstyled font-bold" href="/blog" data-sveltekit-reload>Blog</a>
 		
 		<Divider vertical borderWidth="border-l-2 opacity-30" />
 		<!-- Social -->

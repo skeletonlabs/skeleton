@@ -1,15 +1,16 @@
 <script lang="ts">
 	export let data: any;
 	import { Avatar } from '@brainandbones/skeleton';
-	import { Breadcrumb, Crumb } from '@brainandbones/skeleton';
+	import { Crumb } from '@brainandbones/skeleton';
+	import DocsBreadCrumb from '$docs/DocsBreadCrumb/DocsBreadCrumb.svelte';
 </script>
 
 <div class="page-container">
 	<!-- Breadcrumbs -->
-	<Breadcrumb>
+	<DocsBreadCrumb>
 		<Crumb href="/blog">Blog</Crumb>
 		<Crumb>{data.title}</Crumb>
-	</Breadcrumb>
+	</DocsBreadCrumb>
 	<article class="">
 		<div>
 			<h1>{data.title}</h1>
