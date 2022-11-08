@@ -5,11 +5,16 @@
 </script>
 
 <div class="page-container">
-	<!-- Install -->
-	<section class="space-y-4">
+	<header class="space-y-4">
 		<h1>Installation</h1>
-		<p>Let's generate a basic project and install the Skeleton package.</p>
-		<p>Note that we currently only support NPM. Yarn and PNPM may work, but official support is not provided for these package managers.</p>
+		<!-- prettier-ignore -->
+		<p>
+			Let's generate a basic project and install the Skeleton package. For best results, we recommend you have at least moderate experience with <a href="https://svelte.dev/tutorial/basics" target="_blank" rel="noreferrer">Svelte</a>, <a href="https://tailwindcss.com/docs/utility-first" target="_blank" rel="noreferrer">Tailwind CSS</a>, and at least one of the supported frameworks listed below. If you experience issues, please see our <a href="/docs/faqs">frequently asked questions</a>.
+		</p>
+	</header>
+
+	<!-- Frameworks -->
+	<section class="space-y-4">
 		<!-- Tabs -->
 		<TabGroup selected={storeFramework}>
 			<Tab value="sveltekit">SvelteKit</Tab>
@@ -29,7 +34,6 @@ npm create svelte@latest sveltekit-skeleton-app
     - Enable Typescript
 cd sveltekit-skeleton-app
 npm install
-npm run dev
             `}
 			/>
 			<!-- Framework: Vite (Svelte) -->
@@ -43,7 +47,6 @@ npm run dev
 npm create vite@latest vite-skeleton-app -- --template svelte-ts
 cd vite-skeleton-app
 npm install
-npm run dev
             `}
 			/>
 			<!-- Framework: Astro -->
@@ -59,7 +62,6 @@ npm create astro@latest astro-skeleton-app
     - Install all dependencies
     - Use 'Typescript: Strict'
 cd astro-skeleton-app
-npm run dev
             `}
 			/>
 			<!-- Svelte -->
@@ -80,11 +82,14 @@ npm run dev
 		<CodeBlock language="console" code={`npm i @brainandbones/skeleton --save-dev`} />
 	</section>
 
-	<Divider />
+	<hr />
 
 	<!-- Next Steps -->
 	<div class="card card-body !flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<p>Next, let's configure Tailwind to work with Skeleton.</p>
-		<a class="btn btn-filled-accent" href="/guides/tailwind">Configure Tailwind</a>
+		<a class="btn btn-filled-primary" href="/guides/tailwind">
+			<span>Tailwind</span>
+			<span>&rarr;</span>
+		</a>
 	</div>
 </div>

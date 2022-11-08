@@ -91,10 +91,10 @@
 		<!-- Links -->
 		<!-- prettier-ignore -->
 		<section class="hidden lg:flex space-x-6">
-			<!-- Guides -->
-			<a class="unstyled font-bold" href="/guides/install" data-sveltekit-prefetch>Guides</a>
 			<!-- Docs -->
 			<a class="unstyled font-bold" href="/docs/why" data-sveltekit-prefetch>Docs</a>
+			<!-- Guides -->
+			<a class="unstyled font-bold" href="/guides/install" data-sveltekit-prefetch>Guides</a>
 			<!-- Features -->
 			<div class="relative">
 				<button class="unstyled font-bold space-x-2" use:menu={{ menu: 'features' }}>

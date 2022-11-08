@@ -11,7 +11,7 @@
 	<header class="space-y-4">
 		<h1>Tailwind CSS</h1>
 		<p>
-			Skeleton features tight integration with <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind CSS</a>. Let's install Tailwind and set a few configuration settings.
+			Skeleton features tight integration with <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind CSS</a>. Let's install Tailwind and configure required settings.
 		</p>
 		<TabGroup selected={storeFramework}>
 			<Tab value="sveltekit">SvelteKit</Tab>
@@ -35,16 +35,21 @@
 			<h2>Configure Tailwind</h2>
 			<p>Let's modify a few settings in <code>tailwind.config.cjs</code>. This is usually located in the root of your project directory.</p>
 		</div>
+		<TabGroup selected={storeFramework}>
+			<Tab value="sveltekit">SvelteKit</Tab>
+			<Tab value="vite">Vite (Svelte)</Tab>
+			<Tab value="astro">Astro</Tab>
+		</TabGroup>
 		<div class="space-y-4">
 			<h3>Enabled Dark Mode Support</h3>
 			<p>
 				Append <code>darkMode: class</code> to support <a href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="noreferrer">Tailwind's dark mode</a>. You can pair this with the
-				<a href="/utilities/lightswitches">lightswitch</a> utility to toggle light/dark modes.
+				<a href="/utilities/lightswitches">Lightswitch</a> utility to toggle light/dark modes.
 			</p>
 			<CodeBlock
 				language="js"
 				code={`
-module.exports = {
+${$storeFramework === 'astro' ? 'module.exports' : 'const config'} = {
 	darkMode: 'class',
     // ...
 }
@@ -54,17 +59,16 @@ module.exports = {
 		<div class="space-y-4">
 			<h3>Update Content Settings</h3>
 			<p>
-				Add the following to the <a href="https://tailwindcss.com/docs/configuration" target="_blank" rel="noreferrer">content</a> settings. This ensures the Tailwind compiler sees utility classes for
-				components within
-				<code>node_modules</code>.
+				Add the following to the <a href="https://tailwindcss.com/docs/configuration" target="_blank" rel="noreferrer">content</a> settings. This will ensure the Tailwind compiler can locate utility
+				classes for Skeleton features within <code>node_modules</code>.
 			</p>
 			<CodeBlock
 				language="js"
 				code={`
-module.exports = {
+${$storeFramework === 'astro' ? 'module.exports' : 'const config'} = {
 	// ...
     content: [
-        // Keep any existing values present and append the following:
+        // Keep existing values and append the following:
         require('path').join(require.resolve('@brainandbones/skeleton'), '../**/*.{html,js,svelte,ts}')
     ],
     // ...
@@ -75,13 +79,13 @@ module.exports = {
 		<div class="space-y-4">
 			<h3>Add the Skeleton Plugin</h3>
 			<p>
-				Add the Skeleton <a href="https://tailwindcss.com/docs/plugins#official-plugins" target="_blank" rel="noreferrer">plugin</a>. This will automatically ingest and utilize the CSS variables
-				defined in your theme. We'll setup the theme in the next step.
+				Add the Skeleton <a href="https://tailwindcss.com/docs/plugins#official-plugins" target="_blank" rel="noreferrer">plugin</a>. This will ensure Tailwind can generate color classes based on your
+				theme. We'll setup our theme in the following step.
 			</p>
 			<CodeBlock
 				language="js"
 				code={`
-module.exports = {
+${$storeFramework === 'astro' ? 'module.exports' : 'const config'} = {
     // ...
     plugins: [
         // Keep any existing plugins present and append the following:
@@ -97,8 +101,11 @@ module.exports = {
 
 	<!-- Plugins -->
 	<section class="space-y-4">
-		<h2>Tailwind Plugins</h2>
-		<p>Skeleton pairs well with all of the official Tailwind plugins. These are completely optional though.</p>
+		<div class="flex items-center space-x-2">
+			<h2>Tailwind Plugins</h2>
+			<span class="badge bg-surface-500/30">Optional</span>
+		</div>
+		<p>Skeleton pairs well with all of the official Tailwind plugins. These are <u>optional</u> and should only be added if your project requires them.</p>
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 			<div class="card card-body flex justify-between items-center space-x-4">
 				<div class="space-y-2">
@@ -118,8 +125,8 @@ module.exports = {
 				<div class="space-y-2">
 					<h3>Aspect Ratio</h3>
 					<p>
-						Composable aspect ratios. <a href="https://github.com/tailwindlabs/tailwindcss-aspect-ratio#compatibility-with-default-aspect-ratio-utilities" target="_blank" rel="noreferrer"
-							>See compatibility</a
+						Note this plugin <a href="https://github.com/tailwindlabs/tailwindcss-aspect-ratio#compatibility-with-default-aspect-ratio-utilities" target="_blank" rel="noreferrer"
+							>requires a compatibility configuration</a
 						>.
 					</p>
 				</div>
@@ -139,7 +146,7 @@ module.exports = {
 
 	<!-- Next Steps -->
 	<div class="card card-body flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-		<p>Next, let's review best practices for handling CSS styles and overrides.</p>
-		<a class="btn btn-filled-accent" href="/guides/styling">Styles and Stylesheets</a>
+		<p>Next, let's implement a Skeleton theme.</p>
+		<a class="btn btn-filled-primary" href="/guides/themes">Themes &rarr;</a>
 	</div>
 </div>

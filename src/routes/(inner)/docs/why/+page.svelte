@@ -1,7 +1,3 @@
-<script lang="ts">
-	import { Divider } from '@brainandbones/skeleton';
-</script>
-
 <div class="page-container">
 	<!-- Header -->
 	<header class="space-y-4">
@@ -9,19 +5,7 @@
 		<p>Learn more about what Skeleton is and what problems it can solve within your projects.</p>
 	</header>
 
-	<Divider />
-
-	<!-- FOSS -->
-	<section class="space-y-4">
-		<h2>Free and Open Source</h2>
-		<p>
-			Skeleton is available as <a href="https://github.com/Brain-Bones/skeleton" target="_blank" rel="noreferrer">free and open-source software (FOSS)</a>
-			provided under the
-			<a href="https://github.com/Brain-Bones/skeleton/blob/master/LICENSE" target="_blank" rel="noreferrer">MIT License</a>.
-		</p>
-	</section>
-
-	<Divider />
+	<hr />
 
 	<!-- Why -->
 	<section class="space-y-4">
@@ -33,8 +17,6 @@
 			project.
 		</p>
 	</section>
-
-	<Divider />
 
 	<!-- Problems -->
 	<section class="space-y-4">
@@ -62,6 +44,16 @@
 			tooling such as <a href="https://vitejs.dev/" target="_blank" rel="noreferrer">Vite</a>. However, we’ve noted a lack of mature Svelte-focused UI component libraries. While there’s plenty of
 			<a href="https://www.youtube.com/watch?v=RkD88ARvucM" target="_blank" rel="noreferrer">options</a>, most tend to focus on Material Design guidelines and aesthetics. While a completely valid
 			approach, we felt there was still room for a batteries included toolkit that pairs the very best of what Svelte and Tailwind have to offer. This is the reason we've introduced Skeleton.
+		</p>
+	</section>
+
+	<!-- FOSS -->
+	<section class="space-y-4">
+		<h2>Free and Open Source</h2>
+		<p>
+			Skeleton is available as <a href="https://github.com/Brain-Bones/skeleton" target="_blank" rel="noreferrer">free and open-source software (FOSS)</a>
+			provided under the
+			<a href="https://github.com/Brain-Bones/skeleton/blob/master/LICENSE" target="_blank" rel="noreferrer">MIT License</a>.
 		</p>
 	</section>
 </div>
