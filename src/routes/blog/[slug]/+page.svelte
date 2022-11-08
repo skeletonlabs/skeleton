@@ -7,7 +7,7 @@
 <div class="page-container">
 	<!-- Breadcrumbs -->
 	<Breadcrumb>
-		<Crumb> <a href="/blog" data-svelte-reload>Blog</a></Crumb>
+		<Crumb> <a href="/blog" >Blog</a></Crumb>
 		<Crumb>{data.title}</Crumb>
 	</Breadcrumb>
 	<article class="">
