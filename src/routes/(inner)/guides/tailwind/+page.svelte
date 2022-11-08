@@ -89,7 +89,7 @@ ${$storeFramework === 'astro' ? 'module.exports' : 'const config'} = {
     // ...
     plugins: [
         // Keep any existing plugins present and append the following:
-        require("@brainandbones/skeleton/tailwind/theme.cjs")
+        require('@brainandbones/skeleton/tailwind/theme.cjs')
     ]
 }
         `}
