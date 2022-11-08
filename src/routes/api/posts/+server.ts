@@ -33,8 +33,8 @@ export const GET = async ({ url }) => {
 		return new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime();
 	});
 	const size = sortedPosts.length;
-	const offset = Number(url.searchParams.get('offset') ?? '0');
-	const limit = Number(url.searchParams.get('limit') ?? size);
+	const offset = 0 //Number(url.searchParams.get('offset') ?? '0');
+	const limit = size //Number(url.searchParams.get('limit') ?? size);
 
 	return json({ offset, limit, size, posts: sortedPosts.slice(offset, offset + limit) });
 };

@@ -17,7 +17,10 @@ const config = {
 	],
 
 	kit: {
-		adapter: adapter()
+		adapter: adapter(),
+		prerender: {
+			origin: 'https://www.niktek.io'
+		}
 	},
 
 	package: {
