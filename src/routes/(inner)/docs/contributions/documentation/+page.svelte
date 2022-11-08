@@ -151,9 +151,9 @@ dispatch('dragover', event);`}
 		</section>
 		<p>Below are existing documentation pages we recommend you reference:</p>
 		<ul class="list-disc list-inside space-y-1">
-			<li><a href="/elements/button">Buttons</a> showcases how to document Tailwind Element classes.</li>
+			<li><a href="/elements/buttons">Buttons</a> showcases how to document Tailwind Element classes.</li>
 			<li><a href="/components/accordions">Accordion</a> makes use of most Component settings utilizing Sveld.</li>
-			<li><a href="/components/pagination">Accordion</a> uses Dipatched Event documentation.</li>
+			<li><a href="/components/paginators">Accordion</a> uses Dipatched Event documentation.</li>
 			<li><a href="/utilities/tooltips">Tooltips</a> provides an excellent reference for Action params.</li>
 		</ul>
 		<!-- Examples -->
@@ -161,7 +161,7 @@ dispatch('dragover', event);`}
 		<p>When showcasing examples of new features we typically handle this by one of two methods:</p>
 		<ul class="list-disc list-inside space-y-1">
 			<li><strong>Sandbox</strong> (e.g. <a href="/components/range-sliders">Range Sliders</a>) - which provide a dynamic and interactive example that can be adjusted live.</li>
-			<li><strong>Static</strong> (e.g. <a href="components/accordions">Accordion</a>) - with multiple static examples displaying various configurations.</li>
+			<li><strong>Static</strong> (e.g. <a href="/components/accordions">Accordion</a>) - with multiple static examples displaying various configurations.</li>
 		</ul>
 		<p>Dynamic examples are preferred, but remember the overall goal is to showcase how the feature operates.</p>
 		<!-- Usage -->
