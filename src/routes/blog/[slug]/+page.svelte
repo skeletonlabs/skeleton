@@ -1,16 +1,16 @@
 <script lang="ts">
 	export let data: any;
 	import { Avatar } from '@brainandbones/skeleton';
-	import { Crumb } from '@brainandbones/skeleton';
-	import DocsBreadCrumb from '$docs/DocsBreadCrumb/DocsBreadCrumb.svelte';
+	import { Breadcrumb, Crumb } from '@brainandbones/skeleton';
+	//import DocsBreadCrumb from '$docs/DocsBreadCrumb/DocsBreadCrumb.svelte';
 </script>
 
 <div class="page-container">
 	<!-- Breadcrumbs -->
-	<DocsBreadCrumb>
-		<Crumb href="/blog">Blog</Crumb>
+	<Breadcrumb>
+		<Crumb> <a href="/blog" data-svelte-reload>Blog</a></Crumb>
 		<Crumb>{data.title}</Crumb>
-	</DocsBreadCrumb>
+	</Breadcrumb>
 	<article class="">
 		<div>
 			<h1>{data.title}</h1>
