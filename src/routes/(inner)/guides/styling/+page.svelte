@@ -1,11 +1,13 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
 
+	import type { TableSource } from '$lib/components/Table/types';
+
 	// Components
 	import AccordionGroup from '$lib/components/Accordion/AccordionGroup.svelte';
 	import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
 	import Alert from '$lib/components/Alert/Alert.svelte';
-	import DataTable from '$lib/components/Table/DataTable.svelte';
+	import Table from '$lib/components/Table/Table.svelte';
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
 	import Tab from '$lib/components/Tab/Tab.svelte';
 	// Utilities
@@ -20,10 +22,10 @@
 	const ghLibPathMaster: string = 'https://github.com/Brain-Bones/skeleton/tree/master/src/lib'; // master branch
 
 	// Tables
-	const tableStyleAll: any = {
-		headings: ['Stylesheet', 'Description', 'View Source'],
+	const tableStyleAll: TableSource = {
+		head: ['Stylesheet', 'Description', 'View Source'],
 		// prettier-ignore
-		source: [
+		body: [
 			[
 				'<code>all.css</code>',
 				'A universal stylesheet that imports all stylesheets in the optimal order.',
@@ -31,10 +33,10 @@
 			],
 		]
 	};
-	const tableStylesUseful: any = {
-		headings: ['Stylesheet', 'Description', 'Documentation', 'View Source', 'Required Plugin'],
+	const tableStylesUseful: TableSource = {
+		head: ['Stylesheet', 'Description', 'Documentation', 'View Source', 'Required Plugin'],
 		// prettier-ignore
-		source: [
+		body: [
 			[
 				'<code>tailwind.css</code>',
 				'<u>IMPORTANT</u>: precedes all of the following stylesheets.',
@@ -72,10 +74,10 @@
 			]
 		]
 	};
-	const tableStyleElementsAll: any = {
-		headings: ['Stylesheet', 'Documentation', 'View Source'],
+	const tableStyleElementsAll: TableSource = {
+		head: ['Stylesheet', 'Documentation', 'View Source'],
 		// prettier-ignore
-		source: [
+		body: [
 			[
 				'<code>elements.css</code>',
 				'Imports the full suite of Tailwind Elements.',
@@ -83,10 +85,10 @@
 			],
 		]
 	};
-	const tableStyleElements: any = {
-		headings: ['Stylesheet', 'Documentation', 'View Source'],
+	const tableStyleElements: TableSource = {
+		head: ['Stylesheet', 'Documentation', 'View Source'],
 		// prettier-ignore
-		source: [
+		body: [
 			[
 				'<code>elements/badges.css</code>',
 				'<a href="/elements/badges">badges</a>',
@@ -129,10 +131,10 @@
 			],
 		]
 	};
-	const tableStylesheetOrder: any = {
-		headings: ['Order', 'Stylesheet', 'Reason'],
+	const tableStylesheetOrder: TableSource = {
+		head: ['Order', 'Stylesheet', 'Reason'],
 		// prettier-ignore
-		source: [
+		body: [
 			[ '1.', 'Theme Stylesheet', 'Houses your themes use CSS properties for colors, border radius, etc.' ],
 			[ '2.', 'Skeleton Stylesheet(s)', 'Imports Tailwind directives, generates design tokens, styles elemens and components.' ],
 			[ '3.', 'Global Stylesheet', 'Keep this last so you can override styles provided by any of the above.' ],
@@ -183,20 +185,20 @@ import '@brainandbones/skeleton/styles/${$storeStylesheets === 'recommended' ? '
 		</TabGroup>
 		{#if $storeStylesheets === 'recommended'}
 			<p>We recommend <code>all.css</code> for most users. This includes everything required for Skeleton, with all imports in the correct order.</p>
-			<DataTable headings={tableStyleAll.headings} source={tableStyleAll.source} />
+			<Table source={tableStyleAll} />
 		{:else if $storeStylesheets === 'advanced'}
 			<p>For advanced users ONLY. Follow the instruction below to import each stylesheet individually. Please ensure you use the order shown.</p>
-			<DataTable headings={tableStylesUseful.headings} source={tableStylesUseful.source} />
+			<Table source={tableStylesUseful} />
 			<!-- Elements -->
 			<TabGroup selected={storeStylesheetElements}>
 				<Tab value="combined">All Elements</Tab>
 				<Tab value="seperate">Select Elements</Tab>
 			</TabGroup>
 			{#if $storeStylesheetElements === 'combined'}
-				<DataTable headings={tableStyleElementsAll.headings} source={tableStyleElementsAll.source} />
+				<Table source={tableStyleElementsAll} />
 			{:else if $storeStylesheetElements === 'seperate'}
 				<p>Import only the Tailwind Elements you are using. Make sure you set the path to <code>.../styles/elements/*.css</code> as shown.</p>
-				<DataTable headings={tableStyleElements.headings} source={tableStyleElements.source} />
+				<Table source={tableStyleElements} />
 			{/if}
 		{/if}
 	</section>
@@ -252,7 +254,7 @@ import '@brainandbones/skeleton/styles/${$storeStylesheets === 'recommended' ? '
 	<section class="space-y-4">
 		<h2>Import Order</h2>
 		<p>Skeleton has strict requirements for stylesheet import order. Please ensure your imports conform to the following order.</p>
-		<DataTable headings={tableStylesheetOrder.headings} source={tableStylesheetOrder.source} />
+		<Table source={tableStylesheetOrder} />
 	</section>
 
 	<hr />

@@ -3,7 +3,7 @@
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	import Paginator from '$lib/components/Paginator/Paginator.svelte';
-	import DataTable from '$lib/components/Table/DataTable.svelte';
+	import Table from '$lib/components/Table/Table.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// @ts-ignore
@@ -19,26 +19,24 @@
 		components: [{ sveld: sveldPaginator }]
 	};
 	// Local
-	const content: any = {
-		headings: ['Positions', 'Name', 'Weight', 'Symbol'],
-		source: [
-			{ position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-			{ position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-			{ position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-			{ position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-			{ position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-			{ position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-			{ position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-			{ position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-			{ position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-			{ position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' }
-		]
-	};
+	const sourceHeaders: string[] = ['Positions', 'Name', 'Weight', 'Symbol'];
+	const sourceBody: any = [
+		[1, 'Hydrogen', 1.0079, 'H'],
+		[2, 'Helium', 4.0026, 'He'],
+		[3, 'Lithium', 6.941, 'Li'],
+		[4, 'Beryllium', 9.0122, 'Be'],
+		[5, 'Boron', 10.811, 'B'],
+		[6, 'Carbon', 12.0107, 'C'],
+		[7, 'Nitrogen', 14.0067, 'N'],
+		[8, 'Oxygen', 15.9994, 'O'],
+		[9, 'Fluorine', 18.9984, 'F'],
+		[10, 'Neon', 20.1797, 'Ne']
+	];
 	const page: any = {
 		offset: 0,
 		limit: 5,
-		size: content.source.length,
-		amounts: [1, 2, 5, content.source.length]
+		size: sourceBody.length,
+		amounts: [1, 2, 5, sourceBody.length]
 	};
 
 	// Event Handlers
@@ -50,14 +48,19 @@
 	}
 
 	// Reactive
-	$: contentSliced = content.source.slice(page.offset * page.limit, page.offset * page.limit + page.limit);
+	$: sourceBodySliced = sourceBody.slice(page.offset * page.limit, page.offset * page.limit + page.limit);
 </script>
 
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-4">
-			<DataTable headings={content.headings} source={contentSliced} />
+			<Table
+				source={{
+					head: sourceHeaders,
+					body: sourceBodySliced
+				}}
+			/>
 			<div class="col-span-2 card card-body space-y-4">
 				<Paginator bind:offset={page.offset} bind:limit={page.limit} bind:size={page.size} bind:amounts={page.amounts} on:page={onPageChange} on:amount={onAmountChange} />
 			</div>

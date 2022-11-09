@@ -1,38 +1,40 @@
 <script lang="ts">
+	import type { TableSource } from '$lib/components/Table/types';
+
 	import Alert from '$lib/components/Alert/Alert.svelte';
 	import Breadcrumb from '$lib/components/Breadcrumb/Breadcrumb.svelte';
 	import Crumb from '$lib/components/Breadcrumb/Crumb.svelte';
-	import DataTable from '$lib/components/Table/DataTable.svelte';
+	import Table from '$lib/components/Table/Table.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Tables
-	const tableProjectStructure: any = {
-		headings: ['Path', 'Description'],
-		source: [
+	const tableProjectStructure: TableSource = {
+		head: ['Path', 'Description'],
+		body: [
 			['<code>/src/docs</code>', 'Houses Skeleton-specific documentation site components, such as the theme generator.'],
 			['<code>/src/lib</code>', 'Houses only features and assets distributed with the NPM package.'],
 			['<code>/src/routes</code>', 'House documentation pages for the public-facing documentation website, such as this page.']
 		]
 	};
-	const tableBranches: any = {
-		headings: ['Branch', 'Description', 'PRs Allowed'],
-		source: [
+	const tableBranches: TableSource = {
+		head: ['Branch', 'Description', 'PRs Allowed'],
+		body: [
 			['<code>master</code>', 'Represents the production branch. Pull requests sent to this branch will be rejected.', 'No'],
 			['<code>dev</code>', 'The active development branch containing bleeding edge changes. Target this branch for PRs', 'Yes']
 		]
 	};
-	const tableBranchNaming: any = {
-		headings: ['Prefix', 'Description'],
-		source: [
+	const tableBranchNaming: TableSource = {
+		head: ['Prefix', 'Description'],
+		body: [
 			['<code>docs/*</code>', 'Updates to the documentation pages or text copy.'],
 			['<code>feat/*</code>', 'New features, components, or far-reaching updates.'],
 			['<code>chore/*</code>', 'Simple and localized updates.'],
 			['<code>bugfix/*</code>', 'Commits that address or fix issues.']
 		]
 	};
-	const tableDocs: any = {
-		headings: ['Path', 'Description'],
-		source: [
+	const tableDocs: TableSource = {
+		head: ['Path', 'Description'],
+		body: [
 			['<code>/src/docs/DocsAppBar</code>', 'The AppBar found at the top of the page.'],
 			['<code>/src/docs/DocFooter</code>', 'The footer found at the bottom of each page.'],
 			['<code>/src/docs/DocsNavigation/DocsDrawer.svelte</code>', 'The left navigation drawer visible on small screens.'],
@@ -87,9 +89,9 @@
 	<!--Branches -->
 	<section class="space-y-4">
 		<h2>Branches</h2>
-		<DataTable headings={tableBranches.headings} source={tableBranches.source} />
+		<Table source={tableBranches} />
 		<h4>Feature Branch Conventions</h4>
-		<DataTable headings={tableBranchNaming.headings} source={tableBranchNaming.source} />
+		<Table source={tableBranchNaming} />
 		<p>The wildcards (*) should be replaced with short and semantic descriptions that are lowercase and seperated by dashes.</p>
 		<pre>feat/my-new-component-name</pre>
 	</section>
@@ -145,7 +147,7 @@
 	<!-- Project Structure -->
 	<section class="space-y-4">
 		<h2>Project Structure</h2>
-		<DataTable headings={tableProjectStructure.headings} source={tableProjectStructure.source} />
-		<DataTable headings={tableDocs.headings} source={tableDocs.source} />
+		<Table source={tableProjectStructure} />
+		<Table source={tableDocs} />
 	</section>
 </div>

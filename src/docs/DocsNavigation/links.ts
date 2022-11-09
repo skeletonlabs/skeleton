@@ -95,8 +95,9 @@ export const menuNavLinks: any = [
 			{ href: '/components/range-sliders', label: 'Range Sliders' },
 			{ href: '/components/slide-toggles', label: 'Slide Toggles' },
 			{ href: '/components/steppers', label: 'Steppers' },
-			{ href: '/components/tables', label: 'Tables' },
-			{ href: '/components/tabs', label: 'Tabs' }
+			{ href: '/components/tabs', label: 'Tabs' },
+			{ href: '/components/tables-basic', label: 'Tables' },
+			{ href: '/components/tables-data', label: 'Data Tables' }
 			// Work in Progress
 			// { href: '/components/svg-icons', label: 'SVG Icons' }, // keep disabled until further notice
 		]

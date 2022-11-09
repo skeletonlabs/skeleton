@@ -1,13 +1,15 @@
 <script lang="ts">
+	import type { TableSource } from '$lib/components/Table/types';
+
 	import Breadcrumb from '$lib/components/Breadcrumb/Breadcrumb.svelte';
 	import Crumb from '$lib/components/Breadcrumb/Crumb.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-	import DataTable from '$lib/components/Table/DataTable.svelte';
+	import Table from '$lib/components/Table/Table.svelte';
 
 	const cSwatch: string = 'w-4 aspect-square rounded-full';
-	const tableProps: any = {
-		headings: ['Color', 'Name', 'Class', 'Description'],
-		source: [
+	const tableProps: TableSource = {
+		head: ['Color', 'Name', 'Class', 'Description'],
+		body: [
 			[`<div class="${cSwatch} bg-primary-500" />`, 'Primary', '[x]-primary-[50-900]', 'Typically your primary brand color.'],
 			[`<div class="${cSwatch} bg-accent-500" />`, 'Accent', '[x]-accent-[50-900]', 'A secondary offset color or supplementary value.'],
 			[`<div class="${cSwatch} bg-tertiary-500" />`, 'Tertiary', '[x]-tertiary-[50-900]', 'A third and additional offset color. Great for informational alerts.'],
@@ -35,7 +37,7 @@
 	<section class="space-y-4">
 		<h2>Theme Colors</h2>
 		<p>Here's a quick reference for what each theme color represents.</p>
-		<DataTable headings={tableProps.headings} source={tableProps.source} />
+		<Table source={tableProps} />
 		<p>Skeleton themes extend Tailwind's color palette and can be used anywhere within your project. Here's a few examples:</p>
 		<CodeBlock language="html" code={`<!-- Inlined classes -->\n<div class="bg-primary-500 text-accent-500">Skeleton</div>`} />
 		<CodeBlock language="html" code={`<!-- Tailwind opacity scale -->\n<div class="border border-primary-500/50">Skeleton</div>`} />

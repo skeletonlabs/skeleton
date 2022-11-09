@@ -190,5 +190,14 @@ sourceMapperValues(sourceData, ['name', 'symbol', 'weight'])\n
 				/>
 			{/if}
 		</section>
+		<hr />
+		<!-- Design Tokens -->
+		<section class="grid grid-cols-[1fr_auto] gap-4">
+			<div class="space-y-4">
+				<h2>Data Tables</h2>
+				<p>Need a fully featured data table for selection and sort? Try data tables.</p>
+			</div>
+			<a class="btn btn-filled-accent place-self-center" href="/components/tables-data">Data Tables</a>
+		</section>
 	</svelte:fragment>
 </DocsShell>
