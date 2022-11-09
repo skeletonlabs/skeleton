@@ -1,0 +1,64 @@
+/* Elements: tables.css */
+
+@layer components {
+	.table-container {
+		@apply overflow-x-auto w-full rounded-container-token;
+	}
+
+	.table {
+		@apply w-full overflow-hidden table-auto;
+		/* background */
+		@apply bg-surface-100-800-token;
+		/* Ring */
+		@apply ring-[1px] ring-neutral-900/5 dark:ring-neutral-50/5 ring-inset;
+		/* Theme: Rounded */
+		@apply rounded-container-token;
+	}
+
+	/* === Table Head === */
+
+	.table thead {
+		@apply bg-surface-200-700-token;
+	}
+
+	.table thead tr {
+		@apply capitalize text-left;
+	}
+
+	.table thead th {
+		@apply font-bold p-4 whitespace-nowrap;
+	}
+
+	/* === Table Body === */
+
+	.table tbody tr {
+		/* border-t border-neutral-900/5 dark:border-neutral-50/5 even:bg-black/[2%] */
+		@apply border-t border-surface-500/30 even:bg-surface-500/5;
+	}
+
+	.table tbody td {
+		@apply p-4 py-3 whitespace-nowrap;
+	}
+
+	/* === Table Foot === */
+
+	.table tfoot {
+		/* background */
+		@apply bg-surface-100-800-token;
+	}
+
+	.table tfoot tr {
+		@apply capitalize text-left border-t border-surface-500/30;
+	}
+
+	.table tfoot th,
+	.table tfoot td {
+		@apply p-4 whitespace-nowrap;
+	}
+
+	/* === Extras ==== */
+
+	.table-hover tbody tr {
+		@apply hover:bg-hover-token cursor-pointer;
+	}
+}

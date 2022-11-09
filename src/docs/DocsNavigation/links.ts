@@ -55,7 +55,8 @@ export const menuNavLinks: any = [
 			{ href: '/elements/cards', label: 'Cards' },
 			{ href: '/elements/lists', label: 'Lists' },
 			{ href: '/elements/logo-clouds', label: 'Logo Clouds' },
-			{ href: '/elements/placeholders', label: 'Placeholders' }
+			{ href: '/elements/placeholders', label: 'Placeholders' },
+			{ href: '/elements/tables', label: 'Tables' }
 		]
 	},
 
