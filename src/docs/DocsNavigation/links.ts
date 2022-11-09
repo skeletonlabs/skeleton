@@ -83,7 +83,6 @@ export const menuNavLinks: any = [
 			{ href: '/components/avatars', label: 'Avatars' },
 			{ href: '/components/breadcrumbs', label: 'Breadcrumbs' },
 			{ href: '/components/conic-gradients', label: 'Conic Gradients' },
-			{ href: '/components/data-tables', label: 'Data Tables' },
 			{ href: '/components/dividers', label: 'Dividers' },
 			{ href: '/components/file-buttons', label: 'File Buttons' },
 			{ href: '/components/file-dropzone', label: 'File Dropzone' },
@@ -96,6 +95,7 @@ export const menuNavLinks: any = [
 			{ href: '/components/range-sliders', label: 'Range Sliders' },
 			{ href: '/components/slide-toggles', label: 'Slide Toggles' },
 			{ href: '/components/steppers', label: 'Steppers' },
+			{ href: '/components/tables', label: 'Tables' },
 			{ href: '/components/tabs', label: 'Tabs' }
 			// Work in Progress
 			// { href: '/components/svg-icons', label: 'SVG Icons' }, // keep disabled until further notice

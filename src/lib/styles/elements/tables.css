@@ -37,7 +37,7 @@
 	}
 
 	.table tbody td {
-		@apply p-4 py-3 whitespace-nowrap;
+		@apply text-sm p-4 py-3 whitespace-nowrap;
 	}
 
 	/* === Table Foot === */
