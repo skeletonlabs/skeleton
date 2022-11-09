@@ -2,7 +2,7 @@
 	import { createEventDispatcher } from 'svelte';
 
 	import type { TableSource } from '$lib/components/Table/types';
-	import { onTableKeydown } from '$lib/components/Table/utils';
+	import { onTableKeydown } from '$lib/components/Table/utils-a11y';
 
 	const dispatch = createEventDispatcher();
 

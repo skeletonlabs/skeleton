@@ -1,0 +1,194 @@
+<script lang="ts">
+	import { writable, type Writable } from 'svelte/store';
+
+	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
+
+	// Types
+	import type { TableSource } from '$lib/components/Table/types';
+
+	// Utils
+	import { tableCellFormatter, tableMapperValues } from '$lib/components/Table/utils';
+
+	// Components
+	import Table from '$lib/components/Table/Table.svelte';
+	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
+	import Tab from '$lib/components/Tab/Tab.svelte';
+	// Utilities
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+
+	// @ts-ignore
+	import sveldTable from '$lib/components/Table/Table.svelte?raw&sveld';
+
+	// Stores
+	let storeService: Writable<string> = writable('tableCellFormatter');
+
+	// Docs Shell
+	const settings: DocsShellSettings = {
+		feature: DocsFeature.Component,
+		name: 'Tables',
+		description: 'Simple presentational tables for tabular display.',
+		imports: ['Table'],
+		types: ['TableSource'],
+		source: 'components/Table',
+		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/grid/',
+		components: [{ sveld: sveldTable }],
+		keyboard: [
+			['<kbd>Right Arrow</kbd>', 'Moves focus one cell to the right. If focus is on the right-most cell in the row, focus does not move.'],
+			['<kbd>Left Arrow</kbd>', 'Moves focus one cell to the left. If focus is on the left-most cell in the row, focus does not move.'],
+			['<kbd>Down Arrow</kbd>', 'Moves focus one cell down. If focus is on the bottom cell in the column, focus does not move.'],
+			['<kbd>Up Arrow</kbd>', 'Moves focus one cell Up. If focus is on the top cell in the column, focus does not move.'],
+			['<kbd>Home</kbd>', 'Moves focus to the first cell in the row that contains focus.'],
+			['<kbd>End</kbd>', ' Moves focus to the last cell in the row that contains focus.'],
+			['<kbd>Enter</kbd> or <kbd>Space</kbd>', 'Triggers the on:selected event.']
+		]
+	};
+
+	// Local
+	const sourceData = [
+		{ position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
+		{ position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
+		{ position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
+		{ position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
+		{ position: 5, name: 'Boron', weight: 10.811, symbol: 'B' }
+		// { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
+		// { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
+		// { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
+		// { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
+		// { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' }
+	];
+	const totalWeight = sourceData.reduce((accumulator, obj) => accumulator + obj.weight, 0);
+
+	// Cell Formatting
+	tableCellFormatter(sourceData, 'position', '<span class="opacity-50">', '</span>');
+	tableCellFormatter(sourceData, 'weight', '<code>', '</code>');
+
+	// Table Simple
+	const tableSimple: TableSource = {
+		head: ['Name', 'Symbol', 'Weight'],
+		body: tableMapperValues(sourceData, ['name', 'symbol', 'weight']),
+		meta: tableMapperValues(sourceData, ['position', 'name', 'symbol', 'weight']),
+		foot: ['Total', '', `<code>${totalWeight}</code>`]
+	};
+
+	// On Row Selected
+	function onSelected(meta: any): void {
+		console.log(meta.detail);
+	}
+</script>
+
+<DocsShell {settings}>
+	<!-- Slot: Sandbox -->
+	<svelte:fragment slot="sandbox">
+		<Table source={tableSimple} interactive={true} on:selected={onSelected} />
+	</svelte:fragment>
+
+	<!-- Slot: Usage -->
+	<svelte:fragment slot="usage">
+		<!-- Tab: Table -->
+		<section class="space-y-4">
+			<p>First we need a set of source data. This can be an array of objects with key/value pairs.</p>
+			<CodeBlock
+				language="typescript"
+				code={`
+const sourceData = [
+	{ position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
+	{ position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
+	{ position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
+	{ position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
+	{ position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
+];
+			`}
+			/>
+			<p>
+				Next, we create a <code>TableSource</code> object that houses all of our table information. We cover the use of <code>tableMapperValues()</code> further down.
+			</p>
+			<CodeBlock
+				language="typescript"
+				code={`
+const tableSimple: TableSource = {
+	// A list of heading labels.
+	head: ['Name', 'Symbol', 'Weight'],
+	// A formatted list of table body data.
+	body: tableMapperValues(sourceData, ['name', 'symbol', 'weight']),
+	// Optional: A formatted list of body data. This is returned when clicking an interactive table.
+	meta: tableMapperValues(sourceData, ['position', 'name', 'symbol', 'weight']),
+	// Optional: A list of footer labels.
+	foot: ['Total', '', '<code>${totalWeight}</code>']
+};
+			`}
+			/>
+			<p>Finally, we pass our table source data to the component. Note we've opted to enable interactive mode here.</p>
+			<CodeBlock language="html" code={`<Table source={tableSimple} interactive={true} />`} />
+		</section>
+		<!-- Table Utilities -->
+		<section class="space-y-4">
+			<h2>Table Utilities</h2>
+			<p>A set of utility methods to format your source data for use within a Table component.</p>
+			<TabGroup selected={storeService}>
+				<Tab value="tableCellFormatter">Cell Formatter</Tab>
+				<Tab value="tableSourceMapper">Source Mapper</Tab>
+				<Tab value="tableSourceValues">Source Values</Tab>
+				<Tab value="tableMapperValues">Mapper Values</Tab>
+			</TabGroup>
+			<CodeBlock language="ts" code={`import { ${$storeService} } from '@brainandbones/skeleton';>`} />
+			{#if $storeService === 'tableCellFormatter'}
+				<!-- Cell Formatter -->
+				<p>Allows wrapping HTML tags arround a particular object value.</p>
+				<CodeBlock
+					language="ts"
+					code={`
+tableCellFormatter(sourceData, 'weight', '<code>', '</code>');\n
+// [
+//     { position: 1, name: 'Hydrogen', weight: '<code>1.0079</code>', symbol: 'H' },
+//     { position: 2, name: 'Helium', weight: '<code>4.0026</code>', symbol: 'He' },
+//     ...
+// ]
+					`}
+				/>
+			{:else if $storeService === 'tableSourceMapper'}
+				<!-- Source Mapper -->
+				<p>Allows you to whitelist object keys and map the order of display.</p>
+				<CodeBlock
+					language="ts"
+					code={`
+tableSourceMapper(sourceData, ['name', 'symbol', 'weight']);\n
+// [
+//     { name: 'Hydrogen', symbol: 'H', weight: '1.0079' },
+//     { name: 'Helium', symbol: 'He', weight: '4.0026' },
+//     ...
+// ]
+					`}
+				/>
+			{:else if $storeService === 'tableSourceValues'}
+				<!-- Source Values -->
+				<p>Returns an array of values from an object array.</p>
+				<CodeBlock
+					language="ts"
+					code={`
+tableSourceValues(sourceData);\n
+// [
+//     { 1, 'Hydrogen', '1.0079', 'H' },
+//     { 2, 'Helium', '4.0026', 'He' },
+//     ...
+// ]
+					`}
+				/>
+			{:else if $storeService === 'tableMapperValues'}
+				<!-- Source Mapper Values -->
+				<p>Utilities both Source Mapper and Source Values methods.</p>
+				<CodeBlock
+					language="ts"
+					code={`
+sourceMapperValues(sourceData, ['name', 'symbol', 'weight'])\n
+// [
+//     ['Hydrogen', 'H', '1.0079'],
+//     ['Helium', 'He', '4.0026'],
+//     ...
+// ]
+				`}
+				/>
+			{/if}
+		</section>
+	</svelte:fragment>
+</DocsShell>
