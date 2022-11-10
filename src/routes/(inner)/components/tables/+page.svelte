@@ -27,7 +27,7 @@
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Component,
 		name: 'Tables',
-		description: 'Simple presentational tables for tabular display.',
+		description: 'Utilize a data-driven model to create simple presentational tables.',
 		imports: ['Table'],
 		types: ['TableSource'],
 		source: 'components/Table',

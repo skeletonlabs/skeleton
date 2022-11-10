@@ -96,8 +96,7 @@ export const menuNavLinks: any = [
 			{ href: '/components/slide-toggles', label: 'Slide Toggles' },
 			{ href: '/components/steppers', label: 'Steppers' },
 			{ href: '/components/tabs', label: 'Tabs' },
-			{ href: '/components/tables-basic', label: 'Tables' },
-			{ href: '/components/tables-data', label: 'Data Tables' }
+			{ href: '/components/tables', label: 'Tables' }
 			// Work in Progress
 			// { href: '/components/svg-icons', label: 'SVG Icons' }, // keep disabled until further notice
 		]
@@ -110,6 +109,7 @@ export const menuNavLinks: any = [
 		title: 'Utilities',
 		list: [
 			{ href: '/utilities/codeblocks', label: 'Code Blocks' },
+			{ href: '/utilities/data-tables', label: 'Data Tables' },
 			{ href: '/utilities/dialogs', label: 'Dialogs' },
 			{ href: '/utilities/drawers', label: 'Drawers' },
 			{ href: '/utilities/lightswitches', label: 'Lightswitch' },

@@ -15,6 +15,16 @@
 		@apply rounded-container-token;
 	}
 
+	/* === Sort | Hover ==== */
+
+	.table-sort thead th {
+		@apply hover:bg-hover-token cursor-pointer;
+	}
+
+	.table-hover tbody tr {
+		@apply hover:bg-hover-token cursor-pointer;
+	}
+
 	/* === Table Head === */
 
 	.table thead {
@@ -56,9 +66,10 @@
 		@apply p-4 whitespace-nowrap;
 	}
 
-	/* === Extras ==== */
+	/* === Cells === */
 
-	.table-hover tbody tr {
-		@apply hover:bg-hover-token cursor-pointer;
+	/* Source: https://stackoverflow.com/questions/11267154/fit-cell-width-to-content */
+	.table-cell-fit {
+		@apply w-[1%] whitespace-nowrap;
 	}
 }

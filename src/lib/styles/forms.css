@@ -19,6 +19,12 @@
 
 	/* === Inputs === */
 
+	input:disabled,
+	textarea:disabled,
+	select:disabled {
+		@apply !opacity-50 !cursor-not-allowed active:scale-100 hover:brightness-100;
+	}
+
 	/* Inputs */
 	[type='text'],
 	[type='email'],
