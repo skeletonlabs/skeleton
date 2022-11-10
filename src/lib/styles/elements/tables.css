@@ -17,12 +17,16 @@
 
 	/* === Sort | Hover ==== */
 
-	.table-sort thead th {
+	.table-sortable {
 		@apply hover:bg-hover-token cursor-pointer;
 	}
 
 	.table-hover tbody tr {
-		@apply hover:bg-hover-token cursor-pointer;
+		@apply hover:bg-surface-500/20 even:hover:bg-surface-500/20;
+	}
+
+	.table-interactive tbody tr {
+		@apply hover:bg-hover-token even:hover:bg-hover-token cursor-pointer;
 	}
 
 	/* === Table Head === */
@@ -36,18 +40,17 @@
 	}
 
 	.table thead th {
-		@apply font-bold p-4 whitespace-nowrap;
+		@apply font-bold p-4;
 	}
 
 	/* === Table Body === */
 
 	.table tbody tr {
-		/* border-t border-neutral-900/5 dark:border-neutral-50/5 even:bg-black/[2%] */
-		@apply border-t border-surface-500/30 even:bg-surface-500/5;
+		@apply border-b border-surface-500/30 even:bg-surface-500/5;
 	}
 
 	.table tbody td {
-		@apply text-sm p-4 py-3 whitespace-nowrap;
+		@apply text-sm p-4 py-2 md:py-3 xl:py-4;
 	}
 
 	/* === Table Foot === */
@@ -58,12 +61,18 @@
 	}
 
 	.table tfoot tr {
-		@apply capitalize text-left border-t border-surface-500/30;
+		@apply capitalize text-left;
 	}
 
 	.table tfoot th,
 	.table tfoot td {
-		@apply p-4 whitespace-nowrap;
+		@apply p-4;
+	}
+
+	/* === Cells === */
+
+	.table-row-selected {
+		@apply !bg-primary-500/20;
 	}
 
 	/* === Cells === */
