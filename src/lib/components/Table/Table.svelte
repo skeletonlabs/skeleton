@@ -8,11 +8,11 @@
 
 	// Props
 	/**
-	 * Provide the table source data.
+	 * Provide the full set of table source data.
 	 * @type {TableSource}
 	 */
 	export let source: TableSource;
-	/** Adds row hover style and enables row click handler. */
+	/** Enables row hover style and `on:selected` event when rows are clicked. */
 	export let interactive: boolean = false;
 
 	// Local
@@ -20,11 +20,13 @@
 
 	// Row Click Handler
 	function onRowClick(event: MouseEvent | KeyboardEvent, rowIndex: number): void {
-		if (!interactive || !source.meta) return;
+		if (!interactive) return;
 		event.preventDefault();
 		event.stopPropagation();
-		/** @event {Meta} selected - Fires when a table row is clicked. */
-		dispatch('selected', source.meta[rowIndex]);
+		// Prefer meta row info if available, else fallback to body row info
+		const rowInfo = source.meta ? source.meta[rowIndex] : source.body[rowIndex];
+		/** @event {rowInfo} selected - Fires when a table row is clicked. */
+		dispatch('selected', rowInfo);
 	}
 
 	// Row Keydown Handler

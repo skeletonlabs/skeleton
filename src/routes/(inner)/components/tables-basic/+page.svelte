@@ -80,14 +80,20 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<Table source={tableSimple} interactive={true} on:selected={onSelected} />
+		<section class="space-y-4">
+			<Table source={tableSimple} interactive={true} on:selected={onSelected} />
+			<div class="text-sm text-center">View your browser console when selecting a row above.</div>
+		</section>
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<!-- Tab: Table -->
 		<section class="space-y-4">
-			<p>First we need a set of source data. This can be an array of objects with key/value pairs.</p>
+			<p>
+				First we need a set of source data. This can start as either an array of objects, or an array of arrays. The latter is preferred as this is the only format the table source can accept and
+				display. Don't worry though, we've provides utility methods to help format you data.
+			</p>
 			<CodeBlock
 				language="typescript"
 				code={`
@@ -101,7 +107,8 @@ const sourceData = [
 			`}
 			/>
 			<p>
-				Next, we create a <code>TableSource</code> object that houses all of our table information. We cover the use of <code>tableMapperValues()</code> further down.
+				Next, we create a <code>TableSource</code> object that houses all of our table information. Note we're using the <code>tableMapperValues()</code> method to prune and map our data between the
+				body and meta values. We cover the use of this method in the <em>Table Utilities</em> section.
 			</p>
 			<CodeBlock
 				language="typescript"
@@ -109,16 +116,20 @@ const sourceData = [
 const tableSimple: TableSource = {
 	// A list of heading labels.
 	head: ['Name', 'Symbol', 'Weight'],
-	// A formatted list of table body data.
+	// The data visibly shown in your table body UI.
 	body: tableMapperValues(sourceData, ['name', 'symbol', 'weight']),
-	// Optional: A formatted list of body data. This is returned when clicking an interactive table.
+	// Optional: The data returned when interactive is enabled and a row is clicked.
 	meta: tableMapperValues(sourceData, ['position', 'name', 'symbol', 'weight']),
 	// Optional: A list of footer labels.
 	foot: ['Total', '', '<code>${totalWeight}</code>']
 };
 			`}
 			/>
-			<p>Finally, we pass our table source data to the component. Note we've opted to enable interactive mode here.</p>
+			<p>
+				Finally, we pass our table source data to the component for display. The <code>interactive</code> props enables a mouse hover effect for rows, and returns the matching <code>meta</code> data
+				via the
+				<code>on:selected</code> event when clicked.
+			</p>
 			<CodeBlock language="html" code={`<Table source={tableSimple} interactive={true} />`} />
 		</section>
 		<!-- Table Utilities -->
@@ -134,7 +145,7 @@ const tableSimple: TableSource = {
 			<CodeBlock language="ts" code={`import { ${$storeService} } from '@brainandbones/skeleton';>`} />
 			{#if $storeService === 'tableCellFormatter'}
 				<!-- Cell Formatter -->
-				<p>Allows wrapping HTML tags arround a particular object value.</p>
+				<p>Table cells can accept HTML via template literals. This method allows wrapping HTML tags arround a particular object value.</p>
 				<CodeBlock
 					language="ts"
 					code={`
@@ -148,7 +159,7 @@ tableCellFormatter(sourceData, 'weight', '<code>', '</code>');\n
 				/>
 			{:else if $storeService === 'tableSourceMapper'}
 				<!-- Source Mapper -->
-				<p>Allows you to whitelist object keys and map the order of display.</p>
+				<p>Allows you to both whitelist object keys and map the order of display.</p>
 				<CodeBlock
 					language="ts"
 					code={`
@@ -162,7 +173,7 @@ tableSourceMapper(sourceData, ['name', 'symbol', 'weight']);\n
 				/>
 			{:else if $storeService === 'tableSourceValues'}
 				<!-- Source Values -->
-				<p>Returns an array of values from an object array.</p>
+				<p>Returns an array of values from an object array. This is the desired format for TalbeSource body and meta data.</p>
 				<CodeBlock
 					language="ts"
 					code={`
@@ -176,7 +187,10 @@ tableSourceValues(sourceData);\n
 				/>
 			{:else if $storeService === 'tableMapperValues'}
 				<!-- Table Mapper Values -->
-				<p>Utilities both Source Mapper and Source Values methods.</p>
+				<p>
+					Combines Source Mapper and Source Values methods to handle both operations as once. This allows you to use the same source object, but format differently between display (body) and selected
+					response (meta).
+				</p>
 				<CodeBlock
 					language="ts"
 					code={`
@@ -195,7 +209,7 @@ tableMapperValues(sourceData, ['name', 'symbol', 'weight'])\n
 		<section class="grid grid-cols-[1fr_auto] gap-4">
 			<div class="space-y-4">
 				<h2>Data Tables</h2>
-				<p>Need a fully featured data table for selection and sort? Try data tables.</p>
+				<p>Need a fully featured data table with powerful features like selection and sort? See data tables.</p>
 			</div>
 			<a class="btn btn-filled-accent place-self-center" href="/components/tables-data">Data Tables</a>
 		</section>
