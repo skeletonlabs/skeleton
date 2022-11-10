@@ -175,12 +175,12 @@ tableSourceValues(sourceData);\n
 					`}
 				/>
 			{:else if $storeService === 'tableMapperValues'}
-				<!-- Source Mapper Values -->
+				<!-- Table Mapper Values -->
 				<p>Utilities both Source Mapper and Source Values methods.</p>
 				<CodeBlock
 					language="ts"
 					code={`
-sourceMapperValues(sourceData, ['name', 'symbol', 'weight'])\n
+tableMapperValues(sourceData, ['name', 'symbol', 'weight'])\n
 // [
 //     ['Hydrogen', 'H', '1.0079'],
 //     ['Helium', 'He', '4.0026'],
