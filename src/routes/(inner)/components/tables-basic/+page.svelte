@@ -173,14 +173,14 @@ tableSourceMapper(sourceData, ['name', 'symbol', 'weight']);\n
 				/>
 			{:else if $storeService === 'tableSourceValues'}
 				<!-- Source Values -->
-				<p>Returns an array of values from an object array. This is the desired format for TalbeSource body and meta data.</p>
+				<p>Returns an array of values from an array of objects. This is the desired format for <code>TableSource</code> body and meta data.</p>
 				<CodeBlock
 					language="ts"
 					code={`
 tableSourceValues(sourceData);\n
 // [
-//     { 1, 'Hydrogen', '1.0079', 'H' },
-//     { 2, 'Helium', '4.0026', 'He' },
+//     [ 1, 'Hydrogen', '1.0079', 'H' ],
+//     [ 2, 'Helium', '4.0026', 'He' ],
 //     ...
 // ]
 					`}
