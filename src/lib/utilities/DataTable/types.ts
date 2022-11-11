@@ -2,7 +2,10 @@
 
 export interface DataTableModel {
 	search: string;
-	sort: string;
+	sort: {
+		key: string;
+		asc: boolean;
+	};
 	selection: any[];
 	source: any[];
 	current: any[];

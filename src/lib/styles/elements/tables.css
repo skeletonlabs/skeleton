@@ -17,8 +17,16 @@
 
 	/* === Sort | Hover ==== */
 
-	.table-sortable {
+	.table-sort thead tr th:not(:empty) {
 		@apply hover:bg-hover-token cursor-pointer;
+	}
+
+	.table-sort-asc {
+		@apply after:opacity-50 after:ml-2 after:content-['↓'];
+	}
+
+	.table-sort-dsc {
+		@apply after:opacity-50 after:ml-2 after:content-['↑'];
 	}
 
 	.table-hover tbody tr {
@@ -50,7 +58,7 @@
 	}
 
 	.table tbody td {
-		@apply text-sm p-4 py-2 md:py-3 xl:py-4;
+		@apply text-sm p-4 py-2 md:py-3 xl:py-4 whitespace-nowrap;
 	}
 
 	/* === Table Foot === */
@@ -69,7 +77,7 @@
 		@apply p-4;
 	}
 
-	/* === Cells === */
+	/* === Rows === */
 
 	.table-row-selected {
 		@apply !bg-primary-500/20;

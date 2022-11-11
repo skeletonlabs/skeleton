@@ -2,10 +2,12 @@
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
+	import type { DataTableModel } from '$lib/utilities/DataTable/types';
+
 	// Components
 	import Avatar from '$lib/components/Avatar/Avatar.svelte';
 	// Utilities
-	import { dataTableCreate, dataTableSelect } from '$lib/utilities/DataTable/DataTable';
+	import { dataTableCreate, dataTableSelect, dataTableSort, dataTableSelectAll } from '$lib/utilities/DataTable/DataTable';
 	// import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Docs Shell
@@ -24,18 +26,18 @@
 			['<kbd>Up Arrow</kbd>', 'Moves focus one cell Up. If focus is on the top cell in the column, focus does not move.'],
 			['<kbd>Home</kbd>', 'Moves focus to the first cell in the row that contains focus.'],
 			['<kbd>End</kbd>', ' Moves focus to the last cell in the row that contains focus.'],
-			['<kbd>Enter</kbd> or <kbd>Space</kbd>', 'Triggers the on:selected event.']
+			['<kbd>Enter</kbd> or <kbd>Space</kbd>', 'Triggers the on:click event for the current row.']
 		]
 	};
 
 	// Reactive
 	$: dataTableModel = {
 		search: '',
-		sort: '',
+		sort: { key: '', asc: true },
 		selection: [],
 		source: [],
 		current: []
-	};
+	} as DataTableModel;
 	$: dataTableElements = dataTableCreate(dataTableModel);
 
 	// TODO: move to SvelteKit Load function
@@ -48,24 +50,24 @@
 	let asyncTableSource = getTableSource().then((res) => {
 		// Select rows by query method
 		res = dataTableSelect(res, 'id', [1]);
-		// res = dataTableSelect(res, 'title', ['qui est esse']);
 		// Insert response data into the table model
 		dataTableModel.source = res;
 		dataTableModel.current = res;
 	});
 
-	function consoleLogger(rowData: any, rowIndex: number): void {
-		console.log({ rowData, rowIndex });
+	function sortHandler(sortBy: string): void {
+		dataTableModel.sort.key = sortBy;
 	}
 </script>
 
 <!--
 - [X] search
-- [/] sort (toggle,arrow)
+- [X] sort
 - [X] selection
 - [X] async
 - [ ] a11y
 - [ ] pagination
+- [ ] responsive styling (fixed/fluid cell width)
 -->
 
 <DocsShell {settings}>
@@ -80,31 +82,29 @@
 				<!-- Table -->
 				<div class="table-container">
 					<!-- prettier-ignore -->
-					<table class="table table-hover">
-						<thead>
+					<table class="table table-sort table-hover">
+						<thead use:dataTableSort={sortHandler}>
 							<tr>
-								<th>&nbsp;</th>
-								<th class="table-sortable" on:click={()=>{dataTableModel.sort = 'id'}}>ID</th>
-								<th>User</th>
-								<th class="table-sortable" on:click={()=>{dataTableModel.sort = 'title'}}>title</th>
-								<th class="table-sortable" on:click={()=>{dataTableModel.sort = 'body'}}>body</th>
-								<th class="table-cell-fit">&nbsp;</th>
+								<th>
+									<input type="checkbox" on:change={(e) => { dataTableElements = dataTableSelectAll(e, dataTableElements) }} />
+								</th>
+								<th data-sort="id">ID</th>
+								<th data-sort="id">User</th>
+								<th data-sort="title">Title</th>
+								<th data-sort="body">Body</th>
+								<th class="table-cell-fit"></th>
 							</tr>
 						</thead>
 						<tbody>
 							{#each dataTableElements.current as row, i}
 								<tr class:table-row-selected={row.selected}>
-									<!-- Limit to a single selection -->
-									<!-- disabled={!row.selected && dataTableModel.selection.length > 0} -->
 									<td><input type="checkbox" bind:checked={row.selected} /></td>
-									<td>{row.id}</td>
+									<td><em class="opacity-50">{row.id}</em></td>
 									<td><Avatar src={`https://i.pravatar.cc/?img=${row.id}`} background="bg-accent-500" width="w-8" /></td>
-									<td class="capitalize">{row.title}</td>
-									<td>{row.body}</td>
+									<td class="md:!whitespace-normal capitalize">{row.title}</td>
+									<td class="md:!whitespace-normal">{row.body}</td>
 									<td class="table-cell-fit">
-										<button class="btn btn-ghost-surface btn-sm" on:click={()=>{consoleLogger(row,i)}}>
-											Console Log
-										</button>
+										<button class="btn btn-ghost-surface btn-sm" on:click={()=>{console.log(row,i)}}>Console Log</button>
 									</td>
 								</tr>
 							{/each}
@@ -120,13 +120,16 @@
 			{/await}
 		</section>
 		<!-- <pre>model: {JSON.stringify(dataTableModel, null, 2)}</pre> -->
-		<pre>selection: {JSON.stringify(dataTableModel.selection, null, 2)}</pre>
+		<!-- <pre>selection: {JSON.stringify(dataTableModel.selection, null, 2)}</pre> -->
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<p>(usage)</p>
+
+			<!-- Limit to a single selection -->
+			<!-- disabled={!row.selected && dataTableModel.selection.length > 0} -->
 		</section>
 	</svelte:fragment>
 </DocsShell>
