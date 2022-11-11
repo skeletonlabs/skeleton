@@ -6,6 +6,8 @@
 	import Table from '$lib/components/Table/Table.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
+	import type { PaginationSettings } from '$lib/components/Paginator/types';
+
 	// @ts-ignore
 	import sveldPaginator from '$lib/components/Paginator/Paginator.svelte?raw&sveld';
 
@@ -39,7 +41,7 @@
 		limit: 5,
 		size: sourceBody.length,
 		amounts: [1, 2, 5, sourceBody.length]
-	};
+	} as PaginationSettings;
 
 	// Event Handlers
 	function onPageChange(e: any): void {

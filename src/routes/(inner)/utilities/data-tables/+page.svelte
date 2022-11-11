@@ -1,5 +1,7 @@
 <script lang="ts">
-	export let data: Promise<any>;
+	// HTTP response data provided by +page.ts
+	import type { PageData } from './$types';
+	export let data: PageData;
 	let httpPosts = Object.values(data);
 
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
@@ -32,13 +34,10 @@
 		]
 	};
 
-	// Modify selection states
-	httpPosts = dataTableSelect(httpPosts, 'id', [1]);
-
 	// Reactive
 	$: dataTableModel = {
 		source: httpPosts,
-		current: httpPosts,
+		current: dataTableSelect(httpPosts, 'id', [1]),
 		search: '',
 		sort: { key: 'id', asc: true },
 		selection: [],

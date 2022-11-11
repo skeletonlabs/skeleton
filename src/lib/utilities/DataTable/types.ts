@@ -1,5 +1,7 @@
 // Data Table Types
 
+import type { PaginationSettings } from '$lib/components/Paginator/types';
+
 export interface DataTableModel {
 	/** The original unmodified source data. */
 	source: any[];
@@ -16,11 +18,6 @@ export interface DataTableModel {
 	};
 	/** An array of selected row objects. */
 	selection?: any[];
-	/** Current Pagination Setting */
-	pagination?: {
-		offset: number;
-		limit: number;
-		size: number;
-		amounts: number[];
-	};
+	/** The Pagination component settings. */
+	pagination?: PaginationSettings;
 }

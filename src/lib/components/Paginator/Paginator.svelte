@@ -1,27 +1,16 @@
 <script lang="ts">
-	import { page } from '$app/stores';
 	import { createEventDispatcher } from 'svelte';
 
-	const dispatch = createEventDispatcher();
+	import type { PaginationSettings } from '$lib/components/Paginator/types';
 
-	// TODO: move to `types.ts` and export for reuse.
-	interface PageSettings {
-		/** Index of the first list item to display. */
-		offset: number;
-		/** Current number of items to display. */
-		limit: number;
-		/** The total size (length) of your source content. */
-		size: number;
-		/** List of amounts available to the select input */
-		amounts: number[];
-	}
+	const dispatch = createEventDispatcher();
 
 	// Props
 	/**
 	 * Pass the page setting object.
-	 * @type {PageSettings}
+	 * @type {PaginationSettings}
 	 */
-	export let settings: PageSettings;
+	export let settings: PaginationSettings;
 
 	// Props (design)
 	/** Provide classes to set flexbox justification. */
