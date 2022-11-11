@@ -2,7 +2,7 @@
 	import { createEventDispatcher } from 'svelte';
 
 	import type { TableSource } from '$lib/components/Table/types';
-	import { onTableKeydown } from '$lib/components/Table/utils-a11y';
+	import { tableA11y } from '$lib/utilities/DataTable/a11y';
 
 	const dispatch = createEventDispatcher();
 
@@ -45,8 +45,9 @@
 			class="table"
 			class:table-hover={interactive}
 			role="grid"
-			on:keydown={(e) => onTableKeydown(elemTable, e)}
+			use:tableA11y
 		>
+			<!-- on:keydown={(e) => onTableKeydown(elemTable, e)} -->
 			<!-- Head -->
 			<thead>
 				<tr>

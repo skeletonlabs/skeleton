@@ -2,20 +2,18 @@
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
-	import type { DataTableModel } from '$lib/utilities/DataTable/types';
-
 	// Components
 	import Avatar from '$lib/components/Avatar/Avatar.svelte';
 	// Utilities
-	import { dataTableCreate, dataTableSelect, dataTableSort, dataTableSelectAll } from '$lib/utilities/DataTable/DataTable';
+	import { type DataTableModel, dataTableCreate, dataTableSelect, dataTableSort, dataTableSelectAll, tableA11y } from '$lib/utilities/DataTable/DataTable';
 	// import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Utility,
 		name: 'Data Tables',
-		description: 'A set of utility features for creating interactive data tables.',
-		imports: ['dataTableCreate'],
+		description: 'A set of utility features for creating template-driven data tables.',
+		// imports: ['dataTableCreate'],
 		types: ['DataTableModel'],
 		source: 'utilities/Table',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/grid/',
@@ -32,11 +30,11 @@
 
 	// Reactive
 	$: dataTableModel = {
-		search: '',
-		sort: { key: '', asc: true },
-		selection: [],
 		source: [],
-		current: []
+		current: [],
+		search: '',
+		sort: { key: 'id', asc: false },
+		selection: []
 	} as DataTableModel;
 	$: dataTableElements = dataTableCreate(dataTableModel);
 
@@ -56,6 +54,7 @@
 	});
 
 	function sortHandler(sortBy: string): void {
+		if (!dataTableModel.sort) return;
 		dataTableModel.sort.key = sortBy;
 	}
 </script>
@@ -65,7 +64,7 @@
 - [X] sort
 - [X] selection
 - [X] async
-- [ ] a11y
+- [X] a11y
 - [ ] pagination
 - [ ] responsive styling (fixed/fluid cell width)
 -->
@@ -82,11 +81,14 @@
 				<!-- Table -->
 				<div class="table-container">
 					<!-- prettier-ignore -->
-					<table class="table table-sort table-hover">
+					<table class="table table-sort table-hover" role="grid" use:tableA11y>
 						<thead use:dataTableSort={sortHandler}>
 							<tr>
 								<th>
-									<input type="checkbox" on:change={(e) => { dataTableElements = dataTableSelectAll(e, dataTableElements) }} />
+									<input
+										type="checkbox"
+										on:change={(e) => { dataTableElements = dataTableSelectAll(e, dataTableElements) }}
+									/>
 								</th>
 								<th data-sort="id">ID</th>
 								<th data-sort="id">User</th>
@@ -96,23 +98,34 @@
 							</tr>
 						</thead>
 						<tbody>
-							{#each dataTableElements.current as row, i}
-								<tr class:table-row-selected={row.selected}>
-									<td><input type="checkbox" bind:checked={row.selected} /></td>
-									<td><em class="opacity-50">{row.id}</em></td>
-									<td><Avatar src={`https://i.pravatar.cc/?img=${row.id}`} background="bg-accent-500" width="w-8" /></td>
-									<td class="md:!whitespace-normal capitalize">{row.title}</td>
-									<td class="md:!whitespace-normal">{row.body}</td>
-									<td class="table-cell-fit">
-										<button class="btn btn-ghost-surface btn-sm" on:click={()=>{console.log(row,i)}}>Console Log</button>
+							{#each dataTableElements.current as row, rowIndex}
+								<tr class:table-row-selected={row.selected} aria-rowindex={rowIndex + 1}>
+									<td role="gridcell" aria-colindex={1} tabindex="0">
+										<input type="checkbox" bind:checked={row.selected} />
+									</td>
+									<td role="gridcell" aria-colindex={2} tabindex="0">
+										<em class="opacity-50">{row.id}</em>
+									</td>
+									<td role="gridcell" aria-colindex={3} tabindex="0">
+										<Avatar src={`https://i.pravatar.cc/?img=${row.id}`} background="bg-accent-500" width="w-8" />
+									</td>
+									<td role="gridcell" aria-colindex={4} tabindex="0" class="md:!whitespace-normal capitalize">
+										{row.title}
+									</td>
+									<td role="gridcell" aria-colindex={5} tabindex="0" class="md:!whitespace-normal">
+										{row.body}
+									</td>
+									<td role="gridcell" aria-colindex={6} tabindex="0" class="table-cell-fit">
+										<button class="btn btn-ghost-surface btn-sm" on:click={()=>{console.log(row,rowIndex)}}>Console Log</button>
 									</td>
 								</tr>
 							{/each}
 						</tbody>
 						<tfoot>
 							<tr>
-								<th colspan="5" class="text-right">Posts</th>
-								<th>{dataTableElements.current.length}</th>
+								<th colspan="6">
+									<p class="text-center">(pagination)</p>
+								</th>
 							</tr>
 						</tfoot>
 					</table>
@@ -120,7 +133,6 @@
 			{/await}
 		</section>
 		<!-- <pre>model: {JSON.stringify(dataTableModel, null, 2)}</pre> -->
-		<!-- <pre>selection: {JSON.stringify(dataTableModel.selection, null, 2)}</pre> -->
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->

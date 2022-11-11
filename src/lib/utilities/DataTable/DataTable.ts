@@ -1,11 +1,18 @@
 // Data Table Utilities
+// A set of utility features for local template-driven data tables.
 
 import type { DataTableModel } from './types';
+export * from './types';
+export * from './a11y';
 
 // Local: Search ---
 
 function search(model: DataTableModel): any[] {
-	return model.source.filter((row) => JSON.stringify(row).toLowerCase().includes(model.search));
+	return model.source.filter((row) =>
+		JSON.stringify(row)
+			.toLowerCase()
+			.includes(model.search || '')
+	);
 }
 
 // Local: Sort Handlers ---
@@ -13,19 +20,19 @@ function search(model: DataTableModel): any[] {
 let lastSortedKey: string = '';
 
 function sort(model: DataTableModel): any[] {
-	if (lastSortedKey === model.sort.key) model.sort.asc = !model.sort.asc;
-	const sortedCurrent = model.sort.asc === true ? sortAsc(model) : sortDesc(model);
-	lastSortedKey = model.sort.key;
+	if (lastSortedKey === model.sort?.key) model.sort.asc = !model.sort.asc;
+	const sortedCurrent = model.sort?.asc === true ? sortAsc(model) : sortDesc(model);
+	lastSortedKey = model.sort?.key || '';
 	return sortedCurrent;
 }
 
 function sortAsc(model: DataTableModel): any[] {
-	const key: string = model.sort.key;
+	const key: string = model.sort?.key || '';
 	return model.current.sort((x, y) => (typeof x[key] === 'string' && typeof y[key] === 'string' ? String(x[key]).localeCompare(String(y[key])) : (x[key] as number) - (y[key] as number)));
 }
 
 function sortDesc(model: DataTableModel): any[] {
-	const key: string = model.sort.key;
+	const key: string = model.sort?.key || '';
 	return model.current.sort((x, y) => (typeof y[key] === 'string' && typeof x[key] === 'string' ? String(y[key]).localeCompare(String(x[key])) : (y[key] as number) - (x[key] as number)));
 }
 
@@ -83,7 +90,7 @@ export function dataTableSort(node: HTMLElement, callback: any) {
 	};
 }
 
-/** xxx */
+/** Toggles row object `selected` based on checked value. */
 export function dataTableSelectAll(e: any, model: DataTableModel): DataTableModel {
 	model.current = model.current.map((row: any) => {
 		row.selected = e.target.checked;
