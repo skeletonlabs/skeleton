@@ -53,7 +53,7 @@ function pagination(model: DataTableModel): any[] {
 	return model.current;
 }
 
-// ====== Public Methods ======
+// ~*~*~*~*~*~* Public Methods ~*~*~*~*~*~*
 
 /** Conditionally enable the select key for source data objects. */
 export function dataTableSelect(sourceData: any[], key: string, valuesArray: any[]): any[] {
@@ -77,7 +77,7 @@ export function dataTableSort(node: HTMLElement, callback: any) {
 		});
 	};
 
-	const onClick = (e: any) => {
+	const onClick = (e: any): any => {
 		const elemTarget = e.target;
 		const sortBy: string = elemTarget.dataset.sort;
 		if (sortBy) {

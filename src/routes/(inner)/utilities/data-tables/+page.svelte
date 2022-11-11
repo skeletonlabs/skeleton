@@ -36,12 +36,7 @@
 		search: '',
 		sort: { key: 'id', asc: true },
 		selection: [],
-		pagination: {
-			offset: 0,
-			limit: 5,
-			size: 0,
-			amounts: [1, 2, 5, 10]
-		}
+		pagination: { offset: 0, limit: 5, size: 0, amounts: [1, 2, 5, 10] }
 	} as DataTableModel;
 	$: dataTableElements = dataTableCreate(dataTableModel);
 
@@ -61,20 +56,9 @@
 	});
 
 	function sortHandler(sortBy: string): void {
-		if (!dataTableModel.sort) return;
-		dataTableModel.sort.key = sortBy;
+		if (dataTableModel.sort) dataTableModel.sort.key = sortBy;
 	}
 </script>
-
-<!--
-- [X] search
-- [X] sort
-- [X] selection
-- [X] async
-- [X] a11y
-- [X] pagination
-- [ ] responsive styling (fixed/fluid cell width)
--->
 
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
@@ -107,21 +91,27 @@
 						<tbody>
 							{#each dataTableElements.current as row, rowIndex}
 								<tr class:table-row-selected={row.selected} aria-rowindex={rowIndex + 1}>
+									<!-- Cell: Checkbox -->
 									<td role="gridcell" aria-colindex={1} tabindex="0">
 										<input type="checkbox" bind:checked={row.selected} />
 									</td>
+									<!-- Cell: ID -->
 									<td role="gridcell" aria-colindex={2} tabindex="0">
 										<em class="opacity-50">{row.id}</em>
 									</td>
+									<!-- Cell: User -->
 									<td role="gridcell" aria-colindex={3} tabindex="0">
 										<Avatar src={`https://i.pravatar.cc/?img=${row.id}`} background="bg-accent-500" width="w-8" />
 									</td>
+									<!-- Cell: Title -->
 									<td role="gridcell" aria-colindex={4} tabindex="0" class="md:!whitespace-normal capitalize">
 										{row.title}
 									</td>
+									<!-- Cell: Body -->
 									<td role="gridcell" aria-colindex={5} tabindex="0" class="md:!whitespace-normal">
 										{row.body}
 									</td>
+									<!-- Cell: Actions -->
 									<td role="gridcell" aria-colindex={6} tabindex="0" class="table-cell-fit">
 										<button class="btn btn-ghost-surface btn-sm" on:click={()=>{console.log(row,rowIndex)}}>Console Log</button>
 									</td>
@@ -141,14 +131,13 @@
 				</div>
 			{/await}
 		</section>
-		<!-- <pre>model: {JSON.stringify(dataTableModel, null, 2)}</pre> -->
-		<!-- <pre>pagination: {JSON.stringify(dataTableModel.pagination, null, 2)}</pre> -->
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<p>(usage)</p>
+			<!-- <pre>model: {JSON.stringify(dataTableModel, null, 2)}</pre> -->
+			<!-- <pre>pagination: {JSON.stringify(dataTableModel.pagination, null, 2)}</pre> -->
 
 			<!-- Limit to a single selection -->
 			<!-- disabled={!row.selected && dataTableModel.selection.length > 0} -->
