@@ -1,4 +1,7 @@
 <script lang="ts">
+	export let data: Promise<any>;
+	let httpPosts = Object.values(data);
+
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
@@ -7,7 +10,7 @@
 	import Paginator from '$lib/components/Paginator/Paginator.svelte';
 	// Utilities
 	import { type DataTableModel, dataTableCreate, dataTableSelect, dataTableSort, dataTableSelectAll, tableA11y } from '$lib/utilities/DataTable/DataTable';
-	// import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -29,31 +32,19 @@
 		]
 	};
 
+	// Modify selection states
+	httpPosts = dataTableSelect(httpPosts, 'id', [1]);
+
 	// Reactive
 	$: dataTableModel = {
-		source: [],
-		current: [],
+		source: httpPosts,
+		current: httpPosts,
 		search: '',
 		sort: { key: 'id', asc: true },
 		selection: [],
 		pagination: { offset: 0, limit: 5, size: 0, amounts: [1, 2, 5, 10] }
 	} as DataTableModel;
 	$: dataTableElements = dataTableCreate(dataTableModel);
-
-	// TODO: move to SvelteKit Load function
-	async function getTableSource(): Promise<any> {
-		const http = await fetch('https://jsonplaceholder.typicode.com/user/1/posts');
-		const res = await http.json();
-		if (http.ok) return res;
-		throw new Error(res);
-	}
-	let asyncTableSource = getTableSource().then((res) => {
-		// Select rows by query method
-		res = dataTableSelect(res, 'id', [1]);
-		// Insert response data into the table model
-		dataTableModel.source = res;
-		dataTableModel.current;
-	});
 
 	function sortHandler(sortBy: string): void {
 		if (dataTableModel.sort) dataTableModel.sort.key = sortBy;
@@ -64,72 +55,68 @@
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-4">
-			{#await asyncTableSource}
-				<p class="card card-body text-center">Loading Table...</p>
-			{:then _}
-				<!-- Search Input -->
-				<input bind:value={dataTableModel.search} type="search" placeholder="Search Table..." />
-				<!-- Table -->
-				<div class="table-container">
-					<!-- prettier-ignore -->
-					<table class="table table-sort table-hover" role="grid" use:tableA11y>
-						<thead use:dataTableSort={sortHandler}>
-							<tr>
-								<th>
-									<input
-										type="checkbox"
-										on:change={(e) => { dataTableElements = dataTableSelectAll(e, dataTableElements) }}
-									/>
-								</th>
-								<th data-sort="id">ID</th>
-								<th data-sort="id">User</th>
-								<th data-sort="title">Title</th>
-								<th data-sort="body">Body</th>
-								<th class="table-cell-fit"></th>
-							</tr>
-						</thead>
-						<tbody>
-							{#each dataTableElements.current as row, rowIndex}
-								<tr class:table-row-selected={row.selected} aria-rowindex={rowIndex + 1}>
-									<!-- Cell: Checkbox -->
-									<td role="gridcell" aria-colindex={1} tabindex="0">
-										<input type="checkbox" bind:checked={row.selected} />
-									</td>
-									<!-- Cell: ID -->
-									<td role="gridcell" aria-colindex={2} tabindex="0">
-										<em class="opacity-50">{row.id}</em>
-									</td>
-									<!-- Cell: User -->
-									<td role="gridcell" aria-colindex={3} tabindex="0">
-										<Avatar src={`https://i.pravatar.cc/?img=${row.id}`} background="bg-accent-500" width="w-8" />
-									</td>
-									<!-- Cell: Title -->
-									<td role="gridcell" aria-colindex={4} tabindex="0" class="md:!whitespace-normal capitalize">
-										{row.title}
-									</td>
-									<!-- Cell: Body -->
-									<td role="gridcell" aria-colindex={5} tabindex="0" class="md:!whitespace-normal">
-										{row.body}
-									</td>
-									<!-- Cell: Actions -->
-									<td role="gridcell" aria-colindex={6} tabindex="0" class="table-cell-fit">
-										<button class="btn btn-ghost-surface btn-sm" on:click={()=>{console.log(row,rowIndex)}}>Console Log</button>
-									</td>
-								</tr>
-							{/each}
-						</tbody>
-						<tfoot>
-							<tr>
-								<td colspan="6">
-									{#if dataTableModel.pagination}
-										<Paginator bind:settings={dataTableModel.pagination} />
-									{/if}
+			<!-- Search Input -->
+			<input bind:value={dataTableModel.search} type="search" placeholder="Search Table..." />
+			<!-- Table -->
+			<div class="table-container">
+				<!-- prettier-ignore -->
+				<table class="table table-sort table-hover" role="grid" use:tableA11y>
+					<thead use:dataTableSort={sortHandler}>
+						<tr>
+							<th>
+								<input
+									type="checkbox"
+									on:change={(e) => { dataTableElements = dataTableSelectAll(e, dataTableElements) }}
+								/>
+							</th>
+							<th data-sort="id">ID</th>
+							<th data-sort="id">User</th>
+							<th data-sort="title">Title</th>
+							<th data-sort="body">Body</th>
+							<th class="table-cell-fit"></th>
+						</tr>
+					</thead>
+					<tbody>
+						{#each dataTableElements.current as row, rowIndex}
+							<tr class:table-row-selected={row.selected} aria-rowindex={rowIndex + 1}>
+								<!-- Cell: Checkbox -->
+								<td role="gridcell" aria-colindex={1} tabindex="0">
+									<input type="checkbox" bind:checked={row.selected} />
+								</td>
+								<!-- Cell: ID -->
+								<td role="gridcell" aria-colindex={2} tabindex="0">
+									<em class="opacity-50">{row.id}</em>
+								</td>
+								<!-- Cell: User -->
+								<td role="gridcell" aria-colindex={3} tabindex="0">
+									<Avatar src={`https://i.pravatar.cc/?img=${row.id}`} background="bg-accent-500" width="w-8" />
+								</td>
+								<!-- Cell: Title -->
+								<td role="gridcell" aria-colindex={4} tabindex="0" class="md:!whitespace-normal capitalize">
+									{row.title}
+								</td>
+								<!-- Cell: Body -->
+								<td role="gridcell" aria-colindex={5} tabindex="0" class="md:!whitespace-normal">
+									{row.body}
+								</td>
+								<!-- Cell: Actions -->
+								<td role="gridcell" aria-colindex={6} tabindex="0" class="table-cell-fit">
+									<button class="btn btn-ghost-surface btn-sm" on:click={()=>{console.log(row,rowIndex)}}>Console Log</button>
 								</td>
 							</tr>
-						</tfoot>
-					</table>
-				</div>
-			{/await}
+						{/each}
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="6">
+								{#if dataTableModel.pagination}
+									<Paginator bind:settings={dataTableModel.pagination} />
+								{/if}
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
 		</section>
 	</svelte:fragment>
 
@@ -141,6 +128,7 @@
 
 			<!-- Limit to a single selection -->
 			<!-- disabled={!row.selected && dataTableModel.selection.length > 0} -->
+			<CodeBlock language="ts" code={`xxx`} />
 		</section>
 	</svelte:fragment>
 </DocsShell>
