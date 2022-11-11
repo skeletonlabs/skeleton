@@ -4,6 +4,7 @@
 
 	// Components
 	import Avatar from '$lib/components/Avatar/Avatar.svelte';
+	import Paginator from '$lib/components/Paginator/Paginator.svelte';
 	// Utilities
 	import { type DataTableModel, dataTableCreate, dataTableSelect, dataTableSort, dataTableSelectAll, tableA11y } from '$lib/utilities/DataTable/DataTable';
 	// import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
@@ -33,8 +34,14 @@
 		source: [],
 		current: [],
 		search: '',
-		sort: { key: 'id', asc: false },
-		selection: []
+		sort: { key: 'id', asc: true },
+		selection: [],
+		pagination: {
+			offset: 0,
+			limit: 5,
+			size: 0,
+			amounts: [1, 2, 5, 10]
+		}
 	} as DataTableModel;
 	$: dataTableElements = dataTableCreate(dataTableModel);
 
@@ -50,7 +57,7 @@
 		res = dataTableSelect(res, 'id', [1]);
 		// Insert response data into the table model
 		dataTableModel.source = res;
-		dataTableModel.current = res;
+		dataTableModel.current;
 	});
 
 	function sortHandler(sortBy: string): void {
@@ -65,7 +72,7 @@
 - [X] selection
 - [X] async
 - [X] a11y
-- [ ] pagination
+- [X] pagination
 - [ ] responsive styling (fixed/fluid cell width)
 -->
 
@@ -123,9 +130,11 @@
 						</tbody>
 						<tfoot>
 							<tr>
-								<th colspan="6">
-									<p class="text-center">(pagination)</p>
-								</th>
+								<td colspan="6">
+									{#if dataTableModel.pagination}
+										<Paginator bind:settings={dataTableModel.pagination} />
+									{/if}
+								</td>
 							</tr>
 						</tfoot>
 					</table>
@@ -133,6 +142,7 @@
 			{/await}
 		</section>
 		<!-- <pre>model: {JSON.stringify(dataTableModel, null, 2)}</pre> -->
+		<!-- <pre>pagination: {JSON.stringify(dataTableModel.pagination, null, 2)}</pre> -->
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->

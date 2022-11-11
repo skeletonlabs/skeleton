@@ -15,19 +15,21 @@
 		@apply rounded-container-token;
 	}
 
-	/* === Sort | Hover ==== */
+	/* === Sort Styles ==== */
 
-	.table-sort thead tr th:not(:empty) {
+	.table-sort thead tr th:not(:empty):not(:has(input)) {
 		@apply hover:bg-hover-token cursor-pointer;
 	}
 
 	.table-sort-asc {
-		@apply after:opacity-50 after:ml-2 after:content-['↓'];
+		@apply after:opacity-50 after:ml-2 after:!content-['↓'];
 	}
 
 	.table-sort-dsc {
-		@apply after:opacity-50 after:ml-2 after:content-['↑'];
+		@apply after:opacity-50 after:ml-2 after:!content-['↑'];
 	}
+
+	/* === Hover Styles ==== */
 
 	.table-hover tbody tr {
 		@apply hover:bg-surface-500/20 even:hover:bg-surface-500/20;
@@ -61,10 +63,13 @@
 		@apply text-sm p-4 py-2 md:py-3 xl:py-4 whitespace-nowrap;
 	}
 
+	.table tbody td input[type='checkbox'] {
+		@apply ring-2 ring-white/20;
+	}
+
 	/* === Table Foot === */
 
 	.table tfoot {
-		/* background */
 		@apply bg-surface-100-800-token;
 	}
 
@@ -77,13 +82,13 @@
 		@apply p-4;
 	}
 
-	/* === Rows === */
+	/* === Rows Specific === */
 
 	.table-row-selected {
-		@apply !bg-primary-500/20;
+		@apply !bg-accent-500/30;
 	}
 
-	/* === Cells === */
+	/* === Cells Specific === */
 
 	/* Source: https://stackoverflow.com/questions/11267154/fit-cell-width-to-content */
 	.table-cell-fit {

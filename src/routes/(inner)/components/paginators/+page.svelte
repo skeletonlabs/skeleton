@@ -32,7 +32,9 @@
 		[9, 'Fluorine', 18.9984, 'F'],
 		[10, 'Neon', 20.1797, 'Ne']
 	];
-	const page: any = {
+
+	// Reactive
+	$: page = {
 		offset: 0,
 		limit: 5,
 		size: sourceBody.length,
@@ -62,7 +64,7 @@
 				}}
 			/>
 			<div class="col-span-2 card card-body space-y-4">
-				<Paginator bind:offset={page.offset} bind:limit={page.limit} bind:size={page.size} bind:amounts={page.amounts} on:page={onPageChange} on:amount={onAmountChange} />
+				<Paginator bind:settings={page} on:page={onPageChange} on:amount={onAmountChange} />
 			</div>
 		</section>
 	</svelte:fragment>
@@ -73,25 +75,14 @@
 			<CodeBlock
 				language="typescript"
 				code={`
-const page: any = {
+$: page = {
 	offset: 0,
 	limit: 5,
-	size: source.length,
+	size: sourceData.length,
 	amounts: [1,2,5,10],
 };`}
 			/>
-			<CodeBlock
-				language="html"
-				code={`
-<Paginator
-	bind:offset={page.offset}
-	bind:limit={page.limit}
-	bind:size={page.size}
-	bind:amounts={page.amounts}
-	on:page={onPageChange}
-	on:amount={onAmountChange}
-></Paginator>`}
-			/>
+			<CodeBlock language="html" code={`<Paginator bind:settings={page} on:page={onPageChange} on:amount={onAmountChange}></Paginator>`} />
 		</div>
 		<div class="space-y-4">
 			<h2>Utilizing Pagination</h2>
@@ -116,7 +107,7 @@ $: sourcePaginated = source.slice(
 				code={`
 <ul>
 	{#each sourcePaginated as row}
-	<li>{row}</li>
+		<li>{row}</li>
 	{/each}
 </ul>`}
 			/>

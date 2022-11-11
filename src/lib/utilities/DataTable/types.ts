@@ -16,4 +16,11 @@ export interface DataTableModel {
 	};
 	/** An array of selected row objects. */
 	selection?: any[];
+	/** Current Pagination Setting */
+	pagination?: {
+		offset: number;
+		limit: number;
+		size: number;
+		amounts: number[];
+	};
 }

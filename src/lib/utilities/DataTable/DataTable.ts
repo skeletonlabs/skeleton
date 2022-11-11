@@ -2,10 +2,8 @@
 // A set of utility features for local template-driven data tables.
 
 import type { DataTableModel } from './types';
-export * from './types';
-export * from './a11y';
 
-// Local: Search ---
+// ====== Local: Search ======
 
 function search(model: DataTableModel): any[] {
 	return model.source.filter((row) =>
@@ -15,12 +13,12 @@ function search(model: DataTableModel): any[] {
 	);
 }
 
-// Local: Sort Handlers ---
+// ====== Local: Sort Handlers ======
 
 let lastSortedKey: string = '';
 
 function sort(model: DataTableModel): any[] {
-	if (lastSortedKey === model.sort?.key) model.sort.asc = !model.sort.asc;
+	// if (lastSortedKey === model.sort?.key) model.sort.asc = !model.sort.asc;
 	const sortedCurrent = model.sort?.asc === true ? sortAsc(model) : sortDesc(model);
 	lastSortedKey = model.sort?.key || '';
 	return sortedCurrent;
@@ -36,13 +34,26 @@ function sortDesc(model: DataTableModel): any[] {
 	return model.current.sort((x, y) => (typeof y[key] === 'string' && typeof x[key] === 'string' ? String(y[key]).localeCompare(String(x[key])) : (y[key] as number) - (x[key] as number)));
 }
 
-// Local:Selection ---
+// ====== Local:Selection ======
 
 function selection(model: DataTableModel): any[] {
 	return model.current.filter((row) => row.hasOwnProperty('selected') && row.selected === true);
 }
 
-// Public Methods ---
+// ====== Pagination ======
+
+function pagination(model: DataTableModel): any[] {
+	if (model.pagination) {
+		model.current = model.current.slice(
+			model.pagination.offset * model.pagination.limit, // start
+			model.pagination.offset * model.pagination.limit + model.pagination.limit // end
+		);
+		model.pagination.size = model.source.length;
+	}
+	return model.current;
+}
+
+// ====== Public Methods ======
 
 /** Conditionally enable the select key for source data objects. */
 export function dataTableSelect(sourceData: any[], key: string, valuesArray: any[]): any[] {
@@ -71,7 +82,7 @@ export function dataTableSort(node: HTMLElement, callback: any) {
 		const sortBy: string = elemTarget.dataset.sort;
 		if (sortBy) {
 			clearSortClasses();
-			if (lastSortedKey === sortBy) sortAsc = !sortAsc;
+			// if (lastSortedKey === sortBy) sortAsc = !sortAsc;
 			sortAsc ? elemTarget.classList.add(classDesc) : elemTarget.classList.add(classAsc);
 			callback(sortBy);
 		}
@@ -104,5 +115,10 @@ export function dataTableCreate(model: DataTableModel): DataTableModel {
 	model.current = search(model);
 	model.current = sort(model);
 	model.selection = selection(model);
+	if (model.pagination) model.current = pagination(model);
 	return model;
 }
+
+// Extras
+export * from './types';
+export * from './a11y';

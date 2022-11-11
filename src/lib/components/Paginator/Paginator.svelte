@@ -1,26 +1,33 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import { createEventDispatcher } from 'svelte';
 
 	const dispatch = createEventDispatcher();
 
+	// TODO: move to `types.ts` and export for reuse.
+	interface PageSettings {
+		/** Index of the first list item to display. */
+		offset: number;
+		/** Current number of items to display. */
+		limit: number;
+		/** The total size (length) of your source content. */
+		size: number;
+		/** List of amounts available to the select input */
+		amounts: number[];
+	}
+
 	// Props
-	/** Index of the first list item to display. */
-	export let offset: number = 0;
-	/** Current number of items to display. */
-	export let limit: number = 5;
-	/** The total size (length) of your source content. */
-	export let size: number = 10;
 	/**
-	 * List of amounts available to the select input.
-	 * @type {number[]}
+	 * Pass the page setting object.
+	 * @type {PageSettings}
 	 */
-	export let amounts: number[] = [1, 5, 10, 50, 100];
+	export let settings: PageSettings;
 
 	// Props (design)
 	/** Provide classes to set flexbox justification. */
 	export let justify: string = 'justify-between';
 	/** Provide classes to style page info text. */
-	export let text: string = 'text-xs md:text-base';
+	export let text: string = 'text-xs';
 	/** Provide arbitrary classes to style the select input. */
 	export let select: string | undefined = undefined;
 
@@ -35,18 +42,18 @@
 
 	// Functionality
 	function onChangeLength(): void {
-		offset = 0;
+		settings.offset = 0;
 		/** @event {{ length: number }} amount - Fires when the amount selection input changes.  */
 		dispatch('amount', length);
 	}
 	function onPrev(): void {
-		offset--;
+		settings.offset--;
 		/** @event {{ offset: number }} page Fires when the next/back buttons are pressed. */
-		dispatch('page', offset);
+		dispatch('page', settings.offset);
 	}
 	function onNext(): void {
-		offset++;
-		dispatch('page', offset);
+		settings.offset++;
+		dispatch('page', settings.offset);
 	}
 
 	// Reactive Classes
@@ -59,17 +66,17 @@
 <div class="paginator {classesBase}" data-testid="paginator">
 	<!-- Select Amount -->
 	<label class="paginator-label {classesLabel}">
-		<select bind:value={limit} on:change={onChangeLength} class="paginator-select {classesSelect}" aria-label="Select Amount">
-			{#each amounts as amount}<option value={amount}>Show {amount}</option>{/each}
+		<select bind:value={settings.limit} on:change={onChangeLength} class="paginator-select {classesSelect}" aria-label="Select Amount">
+			{#each settings.amounts as amount}<option value={amount}>Show {amount}</option>{/each}
 		</select>
 	</label>
 	<!-- Details -->
-	<p class="paginator-details {classesPageText}">
-		{offset * limit + 1} to {Math.min(offset * limit + limit, size)} of <strong>{size}</strong>
-	</p>
+	<span class="paginator-details {classesPageText}">
+		{settings.offset * settings.limit + 1} to {Math.min(settings.offset * settings.limit + settings.limit, settings.size)} of <strong>{settings.size}</strong>
+	</span>
 	<!-- Arrows -->
 	<div class="paginator-arrows space-x-2">
-		<button class="btn-icon {buttons}" on:click={onPrev} disabled={offset === 0}>&larr;</button>
-		<button class="btn-icon {buttons}" on:click={onNext} disabled={(offset + 1) * limit >= size}>&rarr;</button>
+		<button class="btn-icon {buttons}" on:click={onPrev} disabled={settings.offset === 0}>&larr;</button>
+		<button class="btn-icon {buttons}" on:click={onNext} disabled={(settings.offset + 1) * settings.limit >= settings.size}>&rarr;</button>
 	</div>
 </div>
