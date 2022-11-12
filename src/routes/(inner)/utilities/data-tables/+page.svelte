@@ -13,7 +13,16 @@
 	import Avatar from '$lib/components/Avatar/Avatar.svelte';
 	import Paginator from '$lib/components/Paginator/Paginator.svelte';
 	// Utilities
-	import { type DataTableModel, dataTableHandler, dataTableSelectAll, dataTableSorter, dataTableInteraction, tableA11y } from '$lib/utilities/DataTable/DataTable';
+	// prettier-ignore
+	import {
+		type DataTableModel,
+		dataTableHandler,
+		dataTableSelect,
+		dataTableSelectAll,
+		dataTableSorter,
+		dataTableInteraction,
+		tableA11y
+	} from '$lib/utilities/DataTable/DataTable';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Docs Shell
@@ -46,18 +55,24 @@
 		pagination: { offset: 0, limit: 5, size: 0, amounts: [1, 2, 5, 10] }
 	});
 	dataTableModel.subscribe((v) => dataTableHandler(v));
+
+	// Manual Selection
+	dataTableSelect(dataTableModel, 'id', [1]);
 </script>
 
 <!--
 TODO:
-- [ ] Search sould be case-insensitive
-- [ ] Select all checkbox using indeterminate:
-	  https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#indeterminate_state_checkboxes
-- [ ] Recreate dataTableSelect() - query select on load 
+- [X] Search sould be case-insensitive
+- [X] Recreate dataTableSelect() - query select on load 
 - [ ] Use a11y action to apply role/aria tags
 - [ ] Implement sort asc/dsc toggle
 - [ ] Test combined filtering for edge cases
 - [ ] Clean up CSS and responsive styles
+- [ ] Doc Usage/Code inline
+
+Next Update:
+- [ ] Select all checkbox using indeterminate:
+	  https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#indeterminate_state_checkboxes
 -->
 
 <DocsShell {settings}>

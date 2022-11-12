@@ -9,7 +9,7 @@ export * from './a11y';
 
 // Utilities ---
 
-export function dataTableAppend(store: Writable<DataTableModel>, key: string, value: unknown): void {
+export function dataTableStorePut(store: Writable<DataTableModel>, key: string, value: unknown): void {
 	let newStore: DataTableModel = get(store);
 	newStore = { ...newStore, [key]: value };
 	store.set(newStore);
@@ -21,7 +21,7 @@ function searchHandler(store: DataTableModel): void {
 	store.filtered = store.source.filter((row) =>
 		JSON.stringify(row)
 			.toLowerCase()
-			.includes(store.search || '')
+			.includes(store.search?.toLowerCase() || '')
 	);
 }
 
@@ -31,11 +31,17 @@ function selectionHandler(store: DataTableModel): void {
 	store.selection = store.filtered.filter((row) => row.checked === true);
 }
 
+export function dataTableSelect(store: Writable<DataTableModel>, key: string, valuesArr: any): void {
+	const storeSelected = get(store).filtered.map((row) => {
+		if (valuesArr.includes(row[key])) row.checked = true;
+		return row;
+	});
+}
+
 export function dataTableSelectAll(event: any, store: Writable<DataTableModel>): void {
-	console.log(typeof event);
 	const isAllChecked = event.target.checked;
 	const storeFiltered = get(store).filtered.forEach((row) => (row.checked = isAllChecked));
-	dataTableAppend(store, 'filtered', storeFiltered);
+	dataTableStorePut(store, 'filtered', storeFiltered);
 }
 
 // Pagination ---
@@ -56,7 +62,7 @@ function paginationHandler(store: DataTableModel): void {
 
 export function dataTableSorter(event: any, store: Writable<DataTableModel>): void {
 	const sortBy: string = event.target.dataset.sort;
-	if (sortBy) dataTableAppend(store, 'sort', sortBy);
+	if (sortBy) dataTableStorePut(store, 'sort', sortBy);
 }
 
 function sortHandler(store: DataTableModel): void {
@@ -80,7 +86,6 @@ export function dataTableInteraction(node: HTMLElement, store: Writable<DataTabl
 	const classAsc: string = 'table-sort-asc';
 	// Click Handler
 	const onClick = (e: any): any => {
-		console.log(e.target);
 		// Clear asc class
 		const elem = node.querySelector(`.${classAsc}`);
 		if (elem) elem.classList.remove(classAsc);
