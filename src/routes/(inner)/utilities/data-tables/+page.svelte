@@ -64,71 +64,68 @@
 TODO:
 - [X] Search sould be case-insensitive
 - [X] Recreate dataTableSelect() - query select on load 
-- [ ] Use a11y action to apply role/aria tags
-- [ ] Implement sort asc/dsc toggle
-- [ ] Test combined filtering for edge cases
-- [ ] Clean up CSS and responsive styles
+- [/] Use a11y action to apply role/aria tags - not possible
+- [X] Implement sort asc/dsc toggle
+- [X] Clean up CSS and responsive styles
+- [X] Test combined filtering for edge cases
 - [ ] Doc Usage/Code inline
 
 Next Update:
-- [ ] Select all checkbox using indeterminate:
-	  https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#indeterminate_state_checkboxes
+- [ ] Select all checkbox using indeterminate: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#indeterminate_state_checkboxes
 -->
 
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="space-y-4">
+		<section class="card !bg-accent-500/5">
 			<!-- Search Input -->
-			<input bind:value={$dataTableModel.search} type="search" placeholder="Search Table..." />
+			<div class="card-header">
+				<input bind:value={$dataTableModel.search} type="search" placeholder="Search Table..." />
+			</div>
 			<!-- Table -->
-			<div class="table-container">
-				<!-- prettier-ignore -->
-				<table class="table table-sort table-hover" role="grid" use:dataTableInteraction={dataTableModel} use:tableA11y>
-					<thead on:click={(e) => { dataTableSorter(e, dataTableModel) }} on:keypress>
-						<tr>
-							<th><input type="checkbox" on:click={(e) => { dataTableSelectAll(e, dataTableModel) }} /></th>
-							<th data-sort="id">ID</th>
-							<th data-sort="id">User</th>
-							<th data-sort="title">Title</th>
-							<th data-sort="body">Body</th>
-							<th class="table-cell-fit"></th>
-						</tr>
-					</thead>
-					<tbody>
-						{#each $dataTableModel.filtered as row, rowIndex}
-							<tr class:table-row-checked={row.checked} aria-rowindex={rowIndex + 1}>
-								<td role="gridcell" aria-colindex={1} tabindex="0">
-									<input type="checkbox" bind:checked={row.checked} />
-								</td>
-								<td role="gridcell" aria-colindex={2} tabindex="0">
-									<em class="opacity-50">{row.id}</em>
-								</td>
-								<td role="gridcell" aria-colindex={3} tabindex="0">
-									<Avatar src={`https://i.pravatar.cc/?img=${row.id}`} background="bg-accent-500" width="w-8" />
-								</td>
-								<td role="gridcell" aria-colindex={4} tabindex="0" class="md:!whitespace-normal capitalize">
-									{row.title}
-								</td>
-								<td role="gridcell" aria-colindex={5} tabindex="0" class="md:!whitespace-normal">
-									{row.body}
-								</td>
-								<td role="gridcell" aria-colindex={6} tabindex="0" class="table-cell-fit">
-									<button class="btn btn-ghost-surface btn-sm" on:click={()=>{console.log(row,rowIndex)}}>Console Log</button>
-								</td>
+			<div class="card-body">
+				<div class="table-container">
+					<!-- prettier-ignore -->
+					<table class="table table-hover" role="grid" use:dataTableInteraction use:tableA11y>
+						<thead on:click={(e) => { dataTableSorter(e, dataTableModel) }} on:keypress>
+							<tr>
+								<th><input type="checkbox" on:click={(e) => { dataTableSelectAll(e, dataTableModel) }} /></th>
+								<th data-sort="id">ID</th>
+								<th>User</th>
+								<th data-sort="title">Title</th>
+								<th data-sort="body">Body</th>
+								<th class="table-cell-fit"></th>
 							</tr>
-						{/each}
-					</tbody>
-					<tfoot>
-						<tr>
-							<td colspan="6">
-								{#if $dataTableModel.pagination}
-									<Paginator bind:settings={$dataTableModel.pagination} />
-								{/if}
-							</td>
-						</tr>
-					</tfoot>
-				</table>
+						</thead>
+						<tbody>
+							{#each $dataTableModel.filtered as row, rowIndex}
+								<tr class:table-row-checked={row.checked} aria-rowindex={rowIndex + 1}>
+									<td role="gridcell" aria-colindex={1} tabindex="0">
+										<input type="checkbox" bind:checked={row.checked} />
+									</td>
+									<td role="gridcell" aria-colindex={2} tabindex="0">
+										<em class="opacity-50">{row.id}</em>
+									</td>
+									<td role="gridcell" aria-colindex={3} tabindex="0">
+										<Avatar src={`https://i.pravatar.cc/?img=${row.id}`} background="bg-accent-500" width="w-8" />
+									</td>
+									<td role="gridcell" aria-colindex={4} tabindex="0" class="md:!whitespace-normal capitalize">
+										{row.title}
+									</td>
+									<td role="gridcell" aria-colindex={5} tabindex="0" class="md:!whitespace-normal">
+										{row.body}
+									</td>
+									<td role="gridcell" aria-colindex={6} tabindex="0" class="table-cell-fit">
+										<button class="btn btn-ghost-surface btn-sm" on:click={()=>{console.log(row,rowIndex)}}>Console Log</button>
+									</td>
+								</tr>
+							{/each}
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="card-footer">
+				{#if $dataTableModel.pagination}<Paginator bind:settings={$dataTableModel.pagination} />{/if}
 			</div>
 		</section>
 	</svelte:fragment>

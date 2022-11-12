@@ -17,7 +17,7 @@
 
 	/* === Sort Styles ==== */
 
-	.table-sort thead tr th:not(:empty):not(:has(input)) {
+	[data-sort] {
 		@apply hover:bg-hover-token cursor-pointer;
 	}
 

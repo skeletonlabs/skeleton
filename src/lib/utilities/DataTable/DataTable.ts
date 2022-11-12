@@ -40,13 +40,14 @@ export function dataTableSelect(store: Writable<DataTableModel>, key: string, va
 
 export function dataTableSelectAll(event: any, store: Writable<DataTableModel>): void {
 	const isAllChecked = event.target.checked;
-	const storeFiltered = get(store).filtered.forEach((row) => (row.checked = isAllChecked));
+	const storeFiltered = get(store).source.forEach((row) => (row.checked = isAllChecked));
 	dataTableStorePut(store, 'filtered', storeFiltered);
 }
 
 // Pagination ---
 
 function paginationHandler(store: DataTableModel): void {
+	store.sort = ''; // reset
 	if (store.pagination) {
 		// Slice for Pagination
 		store.filtered = store.filtered.slice(
@@ -60,29 +61,48 @@ function paginationHandler(store: DataTableModel): void {
 
 // Sort ---
 
+const sortState: Record<string, string | boolean> = { lastKey: '', asc: true };
+
 export function dataTableSorter(event: any, store: Writable<DataTableModel>): void {
 	const sortBy: string = event.target.dataset.sort;
 	if (sortBy) dataTableStorePut(store, 'sort', sortBy);
 }
 
 function sortHandler(store: DataTableModel): void {
-	sortAsc(store); // FIXME: hardcoded
+	if (!store.sort) return;
+	// If same key used repeated, toggle asc/dsc order
+	sortState.asc = store.sort === sortState.lastKey ? !sortState.asc : true;
+	// Sort order based on current sortState.asc value
+	sortState.asc ? sortAsc(store) : sortDesc(store);
+	// Cache the last key used
+	sortState.lastKey = store.sort;
 }
 
 function sortAsc(store: DataTableModel): void {
 	const key: string = store.sort;
-	store.filtered.sort((x, y) => (typeof x[key] === 'string' && typeof y[key] === 'string' ? String(x[key]).localeCompare(String(y[key])) : (x[key] as number) - (y[key] as number)));
+	store.filtered.sort((x, y) => {
+		if (typeof x[key] === 'string' && typeof y[key] === 'string') {
+			return String(x[key]).localeCompare(String(y[key]));
+		} else {
+			return (x[key] as number) - (y[key] as number);
+		}
+	});
 }
 
-// FIXME: implement this asap.
-// function sortDesc(store: DataTableModel): void {
-// 	const key: string = store.sort;
-// 	store.filtered.sort((x, y) => (typeof y[key] === 'string' && typeof x[key] === 'string' ? String(y[key]).localeCompare(String(x[key])) : (y[key] as number) - (x[key] as number)));
-// }
+function sortDesc(store: DataTableModel): void {
+	const key: string = store.sort;
+	store.filtered.sort((x, y) => {
+		if (typeof y[key] === 'string' && typeof x[key] === 'string') {
+			return String(y[key]).localeCompare(String(x[key]));
+		} else {
+			return (y[key] as number) - (x[key] as number);
+		}
+	});
+}
 
 // Action ---
 
-export function dataTableInteraction(node: HTMLElement, store: Writable<DataTableModel>) {
+export function dataTableInteraction(node: HTMLElement) {
 	const classAsc: string = 'table-sort-asc';
 	// Click Handler
 	const onClick = (e: any): any => {
@@ -97,9 +117,6 @@ export function dataTableInteraction(node: HTMLElement, store: Writable<DataTabl
 	node.addEventListener('click', onClick);
 	// Lifecycle
 	return {
-		update(newStore: Writable<DataTableModel>) {
-			store = newStore;
-		},
 		destroy() {
 			node.removeEventListener('click', onClick);
 		}
@@ -112,6 +129,6 @@ export function dataTableHandler(store: DataTableModel): void {
 	// console.log('dataTableHandler', store);
 	searchHandler(store);
 	selectionHandler(store);
-	paginationHandler(store);
 	sortHandler(store);
+	paginationHandler(store);
 }

@@ -61,7 +61,7 @@
 	</label>
 	<!-- Details -->
 	<span class="paginator-details {classesPageText}">
-		{settings.offset * settings.limit + 1} to {Math.min(settings.offset * settings.limit + settings.limit, settings.size)} of <strong>{settings.size}</strong>
+		{settings.offset * settings.limit + 1} to {Math.min(settings.offset * settings.limit + settings.limit, settings.size)} <span class="opacity-50 px-2">/</span> <strong>{settings.size}</strong>
 	</span>
 	<!-- Arrows -->
 	<div class="paginator-arrows space-x-2">
