@@ -11,7 +11,7 @@
 	import Avatar from '$lib/components/Avatar/Avatar.svelte';
 	import Paginator from '$lib/components/Paginator/Paginator.svelte';
 	// Utilities
-	import { type DataTableModel, dataTableCreate, dataTableSelect, dataTableSort, dataTableSelectAll, tableA11y } from '$lib/utilities/DataTable/DataTable';
+	import { type DataTableModel, dataTableCreate, dataTableSelect, dataTableSort, tableA11y } from '$lib/utilities/DataTable/DataTable';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Docs Shell
@@ -63,10 +63,7 @@
 					<thead use:dataTableSort={sortHandler}>
 						<tr>
 							<th>
-								<input
-									type="checkbox"
-									on:change={(e) => { dataTableElements = dataTableSelectAll(e, dataTableElements) }}
-								/>
+								<!-- <input type="checkbox" /> -->
 							</th>
 							<th data-sort="id">ID</th>
 							<th data-sort="id">User</th>
@@ -122,12 +119,9 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<!-- <pre>model: {JSON.stringify(dataTableModel, null, 2)}</pre> -->
-			<!-- <pre>pagination: {JSON.stringify(dataTableModel.pagination, null, 2)}</pre> -->
-
+			<CodeBlock language="ts" code={JSON.stringify(dataTableModel.selection, null, 2)} />
 			<!-- Limit to a single selection -->
 			<!-- disabled={!row.selected && dataTableModel.selection.length > 0} -->
-			<CodeBlock language="ts" code={`xxx`} />
 		</section>
 	</svelte:fragment>
 </DocsShell>

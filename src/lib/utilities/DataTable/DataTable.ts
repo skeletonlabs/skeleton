@@ -5,12 +5,13 @@ import type { DataTableModel } from './types';
 
 // ====== Local: Search ======
 
-function search(model: DataTableModel): any[] {
-	return model.source.filter((row) =>
+function search(model: DataTableModel): DataTableModel {
+	model.current = model.source.filter((row) =>
 		JSON.stringify(row)
 			.toLowerCase()
 			.includes(model.search || '')
 	);
+	return model;
 }
 
 // ====== Local: Sort Handlers ======
@@ -36,8 +37,9 @@ function sortDesc(model: DataTableModel): any[] {
 
 // ====== Local:Selection ======
 
-function selection(model: DataTableModel): any[] {
-	return model.current.filter((row) => row.hasOwnProperty('selected') && row.selected === true);
+function selection(model: DataTableModel): DataTableModel {
+	model.selection = model.current.filter((row) => row.hasOwnProperty('selected') && row.selected === true);
+	return model;
 }
 
 // ====== Pagination ======
@@ -101,20 +103,11 @@ export function dataTableSort(node: HTMLElement, callback: any) {
 	};
 }
 
-/** Toggles row object `selected` based on checked value. */
-export function dataTableSelectAll(e: any, model: DataTableModel): DataTableModel {
-	model.current = model.current.map((row: any) => {
-		row.selected = e.target.checked;
-		return row;
-	});
-	return model;
-}
-
 /** Initialize a data table by passing a DataTableModel object. */
 export function dataTableCreate(model: DataTableModel): DataTableModel {
-	model.current = search(model);
+	model = search(model);
 	model.current = sort(model);
-	model.selection = selection(model);
+	model = selection(model);
 	if (model.pagination) model.current = pagination(model);
 	return model;
 }
