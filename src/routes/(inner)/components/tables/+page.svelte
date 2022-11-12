@@ -211,7 +211,7 @@ tableMapperValues(sourceData, ['name', 'symbol', 'weight'])\n
 				<h2>Data Tables</h2>
 				<p>Need a fully featured data table with powerful features like selection and sort? See data tables.</p>
 			</div>
-			<a class="btn btn-filled-accent place-self-center" href="/components/tables-data">Data Tables</a>
+			<a class="btn btn-filled-accent place-self-center" href="/utilities/data-tables">Data Tables</a>
 		</section>
 	</svelte:fragment>
 </DocsShell>

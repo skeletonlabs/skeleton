@@ -9,7 +9,7 @@ export * from './a11y';
 
 // Utilities ---
 
-export function dataTableAppend(store: Writable<DataTableModel>, key: string, value: any): void {
+export function dataTableAppend(store: Writable<DataTableModel>, key: string, value: unknown): void {
 	let newStore: DataTableModel = get(store);
 	newStore = { ...newStore, [key]: value };
 	store.set(newStore);
@@ -32,6 +32,7 @@ function selectionHandler(store: DataTableModel): void {
 }
 
 export function dataTableSelectAll(event: any, store: Writable<DataTableModel>): void {
+	console.log(typeof event);
 	const isAllChecked = event.target.checked;
 	const storeFiltered = get(store).filtered.forEach((row) => (row.checked = isAllChecked));
 	dataTableAppend(store, 'filtered', storeFiltered);
@@ -75,7 +76,7 @@ function sortAsc(store: DataTableModel): void {
 
 // Action ---
 
-export function dataTableInteraction(node: HTMLElement, args: any) {
+export function dataTableInteraction(node: HTMLElement, store: Writable<DataTableModel>) {
 	const classAsc: string = 'table-sort-asc';
 	// Click Handler
 	const onClick = (e: any): any => {
@@ -91,8 +92,8 @@ export function dataTableInteraction(node: HTMLElement, args: any) {
 	node.addEventListener('click', onClick);
 	// Lifecycle
 	return {
-		update(newArgs: any) {
-			args = newArgs;
+		update(newStore: Writable<DataTableModel>) {
+			store = newStore;
 		},
 		destroy() {
 			node.removeEventListener('click', onClick);

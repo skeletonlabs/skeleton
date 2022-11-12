@@ -43,7 +43,7 @@
 		<table
 			bind:this={elemTable}
 			class="table"
-			class:table-hover={interactive}
+			class:table-interactive={interactive}
 			role="grid"
 			use:tableA11y
 		>

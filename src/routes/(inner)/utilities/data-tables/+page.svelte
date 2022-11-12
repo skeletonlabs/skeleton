@@ -21,7 +21,7 @@
 		feature: DocsFeature.Utility,
 		name: 'Data Tables',
 		description: 'A set of utility features for creating template-driven data tables.',
-		// imports: ['dataTableCreate'],
+		imports: ['dataTableHandler'],
 		types: ['DataTableModel'],
 		source: 'utilities/Table',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/grid/',
@@ -50,6 +50,9 @@
 
 <!--
 TODO:
+- [ ] Search sould be case-insensitive
+- [ ] Select all checkbox using indeterminate:
+	  https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#indeterminate_state_checkboxes
 - [ ] Recreate dataTableSelect() - query select on load 
 - [ ] Use a11y action to apply role/aria tags
 - [ ] Implement sort asc/dsc toggle
