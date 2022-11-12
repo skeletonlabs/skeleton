@@ -1,101 +1,98 @@
 // Data Table Utilities
 // A set of utility features for local template-driven data tables.
 
+import { type Writable, get } from 'svelte/store';
 import type { DataTableModel } from './types';
 
-// ====== Local: Search ======
+export * from './types';
+export * from './a11y';
 
-function search(model: DataTableModel): DataTableModel {
-	model.current = model.source.filter((row) =>
+// Utilities ---
+
+export function dataTableAppend(store: Writable<DataTableModel>, key: string, value: any): void {
+	let newStore: DataTableModel = get(store);
+	newStore = { ...newStore, [key]: value };
+	store.set(newStore);
+}
+
+// Search ---
+
+function searchHandler(store: DataTableModel): void {
+	store.filtered = store.source.filter((row) =>
 		JSON.stringify(row)
 			.toLowerCase()
-			.includes(model.search || '')
+			.includes(store.search || '')
 	);
-	return model;
 }
 
-// ====== Local: Sort Handlers ======
+// Selection ---
 
-let lastSortedKey: string = '';
-
-function sort(model: DataTableModel): any[] {
-	// if (lastSortedKey === model.sort?.key) model.sort.asc = !model.sort.asc;
-	const sortedCurrent = model.sort?.asc === true ? sortAsc(model) : sortDesc(model);
-	lastSortedKey = model.sort?.key || '';
-	return sortedCurrent;
+function selectionHandler(store: DataTableModel): void {
+	store.selection = store.filtered.filter((row) => row.checked === true);
 }
 
-function sortAsc(model: DataTableModel): any[] {
-	const key: string = model.sort?.key || '';
-	return model.current.sort((x, y) => (typeof x[key] === 'string' && typeof y[key] === 'string' ? String(x[key]).localeCompare(String(y[key])) : (x[key] as number) - (y[key] as number)));
+export function dataTableSelectAll(event: any, store: Writable<DataTableModel>): void {
+	const isAllChecked = event.target.checked;
+	const storeFiltered = get(store).filtered.forEach((row) => (row.checked = isAllChecked));
+	dataTableAppend(store, 'filtered', storeFiltered);
 }
 
-function sortDesc(model: DataTableModel): any[] {
-	const key: string = model.sort?.key || '';
-	return model.current.sort((x, y) => (typeof y[key] === 'string' && typeof x[key] === 'string' ? String(y[key]).localeCompare(String(x[key])) : (y[key] as number) - (x[key] as number)));
-}
+// Pagination ---
 
-// ====== Local:Selection ======
-
-function selection(model: DataTableModel): DataTableModel {
-	model.selection = model.current.filter((row) => row.hasOwnProperty('selected') && row.selected === true);
-	return model;
-}
-
-// ====== Pagination ======
-
-function pagination(model: DataTableModel): any[] {
-	if (model.pagination) {
-		model.current = model.current.slice(
-			model.pagination.offset * model.pagination.limit, // start
-			model.pagination.offset * model.pagination.limit + model.pagination.limit // end
+function paginationHandler(store: DataTableModel): void {
+	if (store.pagination) {
+		// Slice for Pagination
+		store.filtered = store.filtered.slice(
+			store.pagination.offset * store.pagination.limit, // start
+			store.pagination.offset * store.pagination.limit + store.pagination.limit // end
 		);
-		model.pagination.size = model.source.length;
+		// Set Current Size
+		store.pagination.size = store.source.length;
 	}
-	return model.current;
 }
 
-// ~*~*~*~*~*~* Public Methods ~*~*~*~*~*~*
+// Sort ---
 
-/** Conditionally enable the select key for source data objects. */
-export function dataTableSelect(sourceData: any[], key: string, valuesArray: any[]): any[] {
-	return sourceData.map((row: Record<string, unknown>) => {
-		row.selected = valuesArray.includes(row[key]) ? true : false;
-		return row;
-	});
+export function dataTableSorter(event: any, store: Writable<DataTableModel>): void {
+	const sortBy: string = event.target.dataset.sort;
+	if (sortBy) dataTableAppend(store, 'sort', sortBy);
 }
 
-/** Svelte Action: handle data table sort features. */
-export function dataTableSort(node: HTMLElement, callback: any) {
+function sortHandler(store: DataTableModel): void {
+	sortAsc(store); // FIXME: hardcoded
+}
+
+function sortAsc(store: DataTableModel): void {
+	const key: string = store.sort;
+	store.filtered.sort((x, y) => (typeof x[key] === 'string' && typeof y[key] === 'string' ? String(x[key]).localeCompare(String(y[key])) : (x[key] as number) - (y[key] as number)));
+}
+
+// FIXME: implement this asap.
+// function sortDesc(store: DataTableModel): void {
+// 	const key: string = store.sort;
+// 	store.filtered.sort((x, y) => (typeof y[key] === 'string' && typeof x[key] === 'string' ? String(y[key]).localeCompare(String(x[key])) : (y[key] as number) - (x[key] as number)));
+// }
+
+// Action ---
+
+export function dataTableInteraction(node: HTMLElement, args: any) {
 	const classAsc: string = 'table-sort-asc';
-	const classDesc: string = 'table-sort-dsc';
-	let lastSortedKey: string = '';
-	let sortAsc: boolean = false;
-
-	const clearSortClasses = (): void => {
-		[classAsc, classDesc].forEach((c: string) => {
-			const elem = node.querySelector(`.${c}`);
-			if (elem) elem.classList.remove(c);
-		});
-	};
-
+	// Click Handler
 	const onClick = (e: any): any => {
-		const elemTarget = e.target;
-		const sortBy: string = elemTarget.dataset.sort;
-		if (sortBy) {
-			clearSortClasses();
-			// if (lastSortedKey === sortBy) sortAsc = !sortAsc;
-			sortAsc ? elemTarget.classList.add(classDesc) : elemTarget.classList.add(classAsc);
-			callback(sortBy);
-		}
-		lastSortedKey = sortBy;
+		console.log(e.target);
+		// Clear asc class
+		const elem = node.querySelector(`.${classAsc}`);
+		if (elem) elem.classList.remove(classAsc);
+		// Add asc class to data-sort target
+		const sortBy: string = e.target.dataset.sort;
+		if (sortBy) e.target.classList.add(classAsc);
 	};
-
+	// Events
 	node.addEventListener('click', onClick);
-
+	// Lifecycle
 	return {
-		update(newCallback: any) {
-			callback = newCallback;
+		update(newArgs: any) {
+			args = newArgs;
 		},
 		destroy() {
 			node.removeEventListener('click', onClick);
@@ -103,15 +100,12 @@ export function dataTableSort(node: HTMLElement, callback: any) {
 	};
 }
 
-/** Initialize a data table by passing a DataTableModel object. */
-export function dataTableCreate(model: DataTableModel): DataTableModel {
-	model = search(model);
-	model.current = sort(model);
-	model = selection(model);
-	if (model.pagination) model.current = pagination(model);
-	return model;
-}
+// Data Table Handler
 
-// Extras
-export * from './types';
-export * from './a11y';
+export function dataTableHandler(store: DataTableModel): void {
+	// console.log('dataTableHandler', store);
+	searchHandler(store);
+	selectionHandler(store);
+	paginationHandler(store);
+	sortHandler(store);
+}

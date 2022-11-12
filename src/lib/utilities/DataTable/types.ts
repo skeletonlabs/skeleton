@@ -3,21 +3,17 @@
 import type { PaginationSettings } from '$lib/components/Paginator/types';
 
 export interface DataTableModel {
-	/** The original unmodified source data. */
+	/** The original unfiltered source data. */
 	source: any[];
-	/** The current modified source data. This displays in the UI. */
-	current: any[];
+	/** The filtered source data. Shows in UI. */
+	filtered: any[];
+	// current: any[];
+	/** An array of selected row objects. */
+	selection?: any[];
 	/** The current search term. */
 	search?: string;
 	/** The current sort state. */
-	sort?: {
-		/** The current sort key. */
-		key: string;
-		/** The current sort order. */
-		asc: boolean;
-	};
-	/** An array of selected row objects. */
-	selection?: any[];
+	sort: string;
 	/** The Pagination component settings. */
 	pagination?: PaginationSettings;
 }

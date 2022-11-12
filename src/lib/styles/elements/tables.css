@@ -84,7 +84,7 @@
 
 	/* === Rows Specific === */
 
-	.table-row-selected {
+	.table-row-checked {
 		@apply !bg-accent-500/30;
 	}
 
