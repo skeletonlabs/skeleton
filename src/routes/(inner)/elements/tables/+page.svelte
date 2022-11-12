@@ -81,7 +81,7 @@
 	<svelte:fragment slot="usage">
 		<div class="space-y-4">
 			<p>
-				Use a wrapping <code>.table-container</code> element around a table with the class <code>.table</code> applied to create a responsive
+				Wrap a <code>.table-container</code> element around any native HTML table with the <code>.table</code> class applied to create a responsive
 				table.
 			</p>
 			<CodeBlock

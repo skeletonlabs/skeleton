@@ -28,19 +28,19 @@ function searchHandler(store: DataTableModel): void {
 // Selection ---
 
 function selectionHandler(store: DataTableModel): void {
-	store.selection = store.filtered.filter((row) => row.checked === true);
+	store.selection = store.filtered.filter((row) => row.dataTableChecked === true);
 }
 
 export function dataTableSelect(store: Writable<DataTableModel>, key: string, valuesArr: any): void {
 	const storeSelected = get(store).filtered.map((row) => {
-		if (valuesArr.includes(row[key])) row.checked = true;
+		if (valuesArr.includes(row[key])) row.dataTableChecked = true;
 		return row;
 	});
 }
 
 export function dataTableSelectAll(event: any, store: Writable<DataTableModel>): void {
 	const isAllChecked = event.target.checked;
-	const storeFiltered = get(store).source.forEach((row) => (row.checked = isAllChecked));
+	const storeFiltered = get(store).source.forEach((row) => (row.dataTableChecked = isAllChecked));
 	dataTableStorePut(store, 'filtered', storeFiltered);
 }
 
