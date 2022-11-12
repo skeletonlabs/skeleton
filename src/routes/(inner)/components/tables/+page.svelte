@@ -91,9 +91,8 @@
 		<!-- Tab: Table -->
 		<section class="space-y-4">
 			<p>
-				First we need a set of source data. This can start as either an array of objects, or an array of arrays. The latter is preferred as
-				this is the only format the table source can accept and display. Don't worry though, we've provides utility methods to help format
-				you data.
+				First we need a set of source data. This can start as either an array of objects, or an array of arrays. For this example we'll use
+				the former.
 			</p>
 			<CodeBlock
 				language="typescript"
@@ -108,9 +107,9 @@ const sourceData = [
 			`}
 			/>
 			<p>
-				Next, we create a <code>TableSource</code> object that houses all of our table information. Note we're using the
-				<code>tableMapperValues()</code>
-				method to prune and map our data between the body and meta values. We cover the use of this method in the <em>Table Utilities</em> section.
+				Create a <code>TableSource</code> object that houses all of our table information. Note we're using the
+				<code>tableMapperValues()</code> method to prune and map our data between the body and meta values. We cover the use of this method
+				in the <em>Table Utilities</em> section below.
 			</p>
 			<CodeBlock
 				language="typescript"
@@ -128,16 +127,15 @@ const tableSimple: TableSource = {
 			`}
 			/>
 			<p>
-				Finally, we pass our table source data to the component for display. The <code>interactive</code> props enables a mouse hover effect
-				for rows, and returns the matching <code>meta</code> data via the
-				<code>on:selected</code> event when clicked.
+				Finally, we pass our table source data to the component for display. The <code>interactive</code> prop is optional, but indicates
+				the table is interactive, and will provide <code>meta</code> data via the <code>on:selected</code> event when a row is clicked clicked.
 			</p>
-			<CodeBlock language="html" code={`<Table source={tableSimple} interactive={true} />`} />
+			<CodeBlock language="html" code={`<Table source={tableSimple} interactive={true} on:selected={mySelectionHandler} />`} />
 		</section>
 		<!-- Table Utilities -->
 		<section class="space-y-4">
 			<h2>Table Utilities</h2>
-			<p>A set of utility methods to format your source data for use within a Table component.</p>
+			<p>The following utility methods allow you to format your source data for use within a Table component.</p>
 			<TabGroup selected={storeService}>
 				<Tab value="tableCellFormatter">Cell Formatter</Tab>
 				<Tab value="tableSourceMapper">Source Mapper</Tab>
@@ -176,7 +174,8 @@ tableSourceMapper(sourceData, ['name', 'symbol', 'weight']);\n
 			{:else if $storeService === 'tableSourceValues'}
 				<!-- Source Values -->
 				<p>
-					Returns an array of values from an array of objects. This is the desired format for <code>TableSource</code> body and meta data.
+					Returns an array of array values from an array of objects. This is the desired format for <code>TableSource</code> <em>body</em>
+					and <em>meta</em>.
 				</p>
 				<CodeBlock
 					language="ts"
@@ -192,8 +191,8 @@ tableSourceValues(sourceData);\n
 			{:else if $storeService === 'tableMapperValues'}
 				<!-- Table Mapper Values -->
 				<p>
-					Combines Source Mapper and Source Values methods to handle both operations as once. This allows you to use the same source object,
-					but format differently between display (body) and selected response (meta).
+					Combines Source Mapper and Source Values methods to handle both operations at once. This allows you to use the same source object,
+					but format differently between display (body) and selected response (meta). It's recommended to use this in most use cases.
 				</p>
 				<CodeBlock
 					language="ts"

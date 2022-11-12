@@ -17,9 +17,14 @@
 		stylesheets: ['elements/tables'],
 		source: 'styles/elements/tables.css',
 		classes: [
-			['<code>.table-container</code>', '-', 'Applied to a wrapping parent element to create make your table responsive.'],
+			['<code>.table-container</code>', '-', 'Apply to a wrapping parent element to enable responsive scrolling.'],
 			['<code>.table</code>', '-', 'Apply to a native HTML table element to add table styles.'],
-			['<code>.table-hover</code>', '-', 'Enables table hover row styles.']
+			['<code>.table-hover</code>', '-', 'Apply to a table element to enable a subtle hover effect on rows.'],
+			['<code>.table-interactive</code>', '-', 'Apply to a table element to enable visible hover effect and pointer cursor.'],
+			['<code>.table-sort-asc</code>', '-', 'Apply to a table heading cell to add down arrow indicating ascending sort.'],
+			['<code>.table-sort-dsc</code>', '-', 'Apply to a table heading cell to add up arrow indicating desending sort.'],
+			['<code>.table-row-checked</code>', '-', 'Apply to a table body row to indicate selection state.'],
+			['<code>.table-cell-fit</code>', '-', 'Apply to a table cell to auto-fit to the content widths.']
 		]
 	};
 
@@ -75,7 +80,10 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<div class="space-y-4">
-			<p>Use a wrapping <code>.table-container</code> element around a table with the class <code>.table</code> applied to create a responsive table.</p>
+			<p>
+				Use a wrapping <code>.table-container</code> element around a table with the class <code>.table</code> applied to create a responsive
+				table.
+			</p>
 			<CodeBlock
 				language="html"
 				code={`
@@ -110,5 +118,21 @@
             `}
 			/>
 		</div>
+		<hr />
+		<!-- More Options -->
+		<section class="space-y-4">
+			<h2>Additional Table Options</h2>
+			<div class="card card-body space-y-4">
+				<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+					<p>A simple data-driven table component.</p>
+					<a class="btn btn-ghost-surface" href="/components/tables">Tables Component &rarr;</a>
+				</div>
+				<hr />
+				<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+					<p>Powerful template-driven utility features for data tables.</p>
+					<a class="btn btn-ghost-surface" href="/utilities/data-tables">Data Table Utilities &rarr;</a>
+				</div>
+			</div>
+		</section>
 	</svelte:fragment>
 </DocsShell>

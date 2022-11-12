@@ -147,7 +147,7 @@ Next Update:
 		<!-- Getting Started -->
 		<section class="space-y-4">
 			<h2>Getting Started</h2>
-			<p>Let's start by importing all the utility features we're going to use. We've cover each of these in detail below.</p>
+			<p>Let's start by importing all the utility features. We've cover each of these in detail below.</p>
 			<CodeBlock
 				language="ts"
 				code={`
@@ -163,7 +163,7 @@ import {
 			`}
 			/>
 			<p>
-				We'll need data to populate the table. In most cases this may be fetched from an HTTP source. But for simplicity, let's create this
+				We'll need data to populate the table. In most cases this may be fetched from an HTTP source. For simplicity, let's create this
 				locally.
 			</p>
 			<CodeBlock
@@ -190,7 +190,7 @@ const sourceData = [
 			<CodeBlock
 				language="html"
 				code={`
-	<div class="table-container">
+<div class="table-container">
 	<table class="table table-hover">
 		<thead>
 			<tr>
@@ -203,7 +203,7 @@ const sourceData = [
 			</tr>
 		</tbody>
 	</table>
-	</div>
+</div>
 			`}
 			/>
 		</section>

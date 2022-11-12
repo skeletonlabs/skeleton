@@ -15,6 +15,16 @@
 		@apply rounded-container-token;
 	}
 
+	/* === Hover Styles ==== */
+
+	.table-hover tbody tr {
+		@apply hover:bg-surface-500/20 even:hover:bg-surface-500/20;
+	}
+
+	.table-interactive tbody tr {
+		@apply hover:bg-hover-token even:hover:bg-hover-token cursor-pointer;
+	}
+
 	/* === Sort Styles ==== */
 
 	[data-sort] {
@@ -27,16 +37,6 @@
 
 	.table-sort-dsc {
 		@apply after:opacity-50 after:ml-2 after:!content-['↑'];
-	}
-
-	/* === Hover Styles ==== */
-
-	.table-hover tbody tr {
-		@apply hover:bg-surface-500/20 even:hover:bg-surface-500/20;
-	}
-
-	.table-interactive tbody tr {
-		@apply hover:bg-hover-token even:hover:bg-hover-token cursor-pointer;
 	}
 
 	/* === Table Head === */
