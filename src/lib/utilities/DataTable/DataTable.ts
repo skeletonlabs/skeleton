@@ -104,14 +104,21 @@ function sortDesc(store: DataTableModel): void {
 
 export function dataTableInteraction(node: HTMLElement) {
 	const classAsc: string = 'table-sort-asc';
+	const classDsc: string = 'table-sort-dsc';
 	// Click Handler
 	const onClick = (e: any): any => {
 		// Clear asc class
-		const elem = node.querySelector(`.${classAsc}`);
-		if (elem) elem.classList.remove(classAsc);
+		const elemAsc = node.querySelector(`.${classAsc}`);
+		if (elemAsc) elemAsc.classList.remove(classAsc);
+		// Clear dsc class
+		const elemDsc = node.querySelector(`.${classDsc}`);
+		if (elemDsc) elemDsc.classList.remove(classDsc);
 		// Add asc class to data-sort target
 		const sortBy: string = e.target.dataset.sort;
-		if (sortBy) e.target.classList.add(classAsc);
+		if (sortBy) {
+			const classToApply = sortState.asc ? classAsc : classDsc;
+			e.target.classList.add(classToApply);
+		}
 	};
 	// Events
 	node.addEventListener('click', onClick);

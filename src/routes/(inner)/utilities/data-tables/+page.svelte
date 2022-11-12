@@ -59,20 +59,6 @@
 	dataTableSelect(dataTableModel, 'id', [1]);
 </script>
 
-<!--
-TODO:
-- [X] Search sould be case-insensitive
-- [X] Recreate dataTableSelect() - query select on load 
-- [/] Use a11y action to apply role/aria tags - not possible
-- [X] Implement sort asc/dsc toggle
-- [X] Clean up CSS and responsive styles
-- [X] Test combined filtering for edge cases
-- [ ] Doc Usage/Code inline
-      - Enable action CSS for desc arrow
-Next Update:
-- [ ] Select all checkbox using indeterminate: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#indeterminate_state_checkboxes
--->
-
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
