@@ -121,18 +121,18 @@
 	<svelte:fragment slot="usage">
 		<!-- Intro -->
 		<section class="space-y-4">
-			<h2>What is a Data Table?</h2>
+			<h2>What are Data Tables?</h2>
 			<p>
-				Data tables are not a singular feature, but rather a collection of utility methods. Most features are opt-in, so you can
-				progressively enhance any native HTML table to meet your requirements. Read the instruction below to learn how to implement each
-				feature.
+				Within the context of Skeleton, data tables are not a singular feature, but rather a collection of utilities. These utilty feature
+				are opt-in, meaning you can progressively enhance any native HTML table to meet your requirements. This is one of the most complex
+				features Skeleton provides, so please read carefully.
 			</p>
 		</section>
 		<hr />
 		<!-- Getting Started -->
 		<section class="space-y-4">
 			<h2>Getting Started</h2>
-			<p>Let's start by importing all the utility features. We've cover each of these in detail below.</p>
+			<p>Let's start by importing all the utility features we'll need. We've cover each of these in greater detail below.</p>
 			<CodeBlock
 				language="ts"
 				code={`
@@ -148,7 +148,7 @@ import {
 			`}
 			/>
 			<p>
-				We'll need data to populate the table. For simplicity, let's create this locally. In a real world app you might fetch this from an
+				We need data to populate the table. For simplicity, let's create this locally. In a real world app you might fetch this from an
 				external API.
 			</p>
 			<CodeBlock
@@ -170,7 +170,7 @@ const sourceData = [
 			/>
 			<p>
 				We'll make use of a few Tailwind Element <a href="/elements/tables">table classes</a> to provide base styles to our native HTML table
-				element.
+				element. These are optional, but recommended.
 			</p>
 			<CodeBlock
 				language="html"
@@ -195,8 +195,9 @@ const sourceData = [
 		<section class="space-y-4">
 			<h2>Data Table Model</h2>
 			<p>
-				To unlock the power of our data tables, we'll need to create a data table model. Create Svelte writable store, if you're using
-				Typescript set the type to <code>DataTableModel</code>, then pass the store to the <code>dataTableHandler</code> method.
+				To unlock the power of our data tables, we'll need to create what we'll refer to as a <em>data table model</em>. Create a new Svelte
+				writable store, if you're using Typescript set the type to <code>DataTableModel</code>, then pass the store to the
+				<code>dataTableHandler</code> method.
 			</p>
 			<CodeBlock
 				language="ts"
@@ -206,13 +207,13 @@ const dataTableModel: Writable<DataTableModel> = writable({
 	source: sourceData,
 	// The filtered source data, shown in UI.
 	filtered: sourceData,
-	// An array of selected row objects.
+	// Optional: An array of selected row objects.
 	selection: [],
-	// The current search term.
+	// Optional: The current search term.
 	search: '',
-	// The current sort key.
+	// Optional: The current sort key.
 	sort: '',
-	// The Pagination component settings.
+	// Optional: The Paginator component settings.
 	pagination: { offset: 0, limit: 5, size: 0, amounts: [1, 2, 5, 10] }
 });\n
 // Automatically handles search, sort, etc when the model updates.
@@ -220,9 +221,9 @@ dataTableModel.subscribe((v) => dataTableHandler(v));
 			`}
 			/>
 			<p>
-				Now we need to display our table data on our page. Add each each desired heading, paired with a matching body cell value. We'll use
-				a <em>foreach</em> loop to iterate each table body row. Note we use <code>$dataTableModel.filtered</code> as our loop source. This shows
-				the results filtered by search, sort, pagination, etc.
+				Next, we'll update our table markup to display our model data on the page. Add each desired heading paired with a matching body cell
+				value. We'll use a <em>foreach</em> loop to iterate each table body row. Note we use <code>$dataTableModel.filtered</code>
+				as our loop source. The features below will modify this data.
 			</p>
 			<CodeBlock
 				language="ts"
@@ -264,14 +265,15 @@ dataTableModel.subscribe((v) => dataTableHandler(v));
 			</p>
 			<CodeBlock language="html" code={`<thead on:click={(e) => { dataTableSort(e, dataTableModel) }}>`} />
 			<p>
-				Add <code>data-sort="(key)"</code> to each heading you wish to be sortable. Tapping a heading will set to the sort value and update
-				the UI. Tapping the heading repeatedly will toggle between <em>ascending</em> and <em>descending</em> sort order.
+				Add a <code>data-sort="(key)"</code> attribute to each heading you wish to be sortable. Tapping a heading will set to the
+				<code>$dataTableModel.sort</code>
+				value and update the UI. Tapping a heading repeatedly will toggle between <em>ascending</em> and <em>descending</em> sort order.
 			</p>
 			<CodeBlock language="html" code={`<th data-sort="position">Position</th>`} />
 			<p>
-				While sort is working, we're lacking a visual UI indicator. To handle this, implement a multi-purpose Svelte Action called <code
+				While sort is working, we're lacking a visual UI indicator. To handle this, implement the Svelte Action called <code
 					>dataTableInteraction</code
-				>. This adds the appropriate CSS classes and shows &uarr and &darr; sort arrows.
+				> to your table element. This adds the appropriate CSS classes that show &uarr and &darr; sort arrows.
 			</p>
 			<CodeBlock language="html" code={`<table ... use:dataTableInteraction>`} />
 		</section>
@@ -279,11 +281,11 @@ dataTableModel.subscribe((v) => dataTableHandler(v));
 		<section class="space-y-4">
 			<h2>Selection</h2>
 			<h3>Per Row</h3>
-			<p>To handle row selection, we'll add a new heading. Keep the comment, as we'll replace it in a following step.</p>
+			<p>To handle row selection, we'll add a new heading column. Keep the comment shown, as we'll replace it in a following step.</p>
 			<CodeBlock language="html" code={`<th><!-- selection --></th>`} />
 			<p>
 				Pair this with a matching table body cell that includes a checkbox input. Append <code>bind:dataTableChecked</code> to the input to
-				extend row object soure data. When checked on/off, the <code>dataTableHandler</code> will automatically include/exclude the entire
+				extend row object source data. When checked on/off, the <code>dataTableHandler</code> will automatically include/exclude the entire
 				row object in
 				<code>$dataTableModel.selection</code>.
 			</p>
@@ -295,9 +297,9 @@ dataTableModel.subscribe((v) => dataTableHandler(v));
 			<CodeBlock language="html" code={`<tr class:table-row-checked={row.dataTableChecked}>`} />
 			<h3>Pre-Selected</h3>
 			<p>
-				In some instances you may wish to pre-select certain table rows. We've provided a utility method to handle this. Pass your model,
-				the key to query against, and a whitelist of values. Any object that matches these conditions will be selected. Trigger this
-				multiple times for multipe selection queries.
+				You may wish to pre-select certain table rows. We've provided a utility method to handle this. Pass your model, the key to query
+				against, and a whitelist of values. Any object that matches these conditions will be selected. Trigger this multiple times for
+				multipe selection queries.
 			</p>
 			<CodeBlock
 				language="ts"
@@ -305,8 +307,7 @@ dataTableModel.subscribe((v) => dataTableHandler(v));
 			/>
 			<h3>Select All</h3>
 			<p>
-				If you wish to add a <em>select all</em> feature, add the following checkbox input to your table heading. This replaces
-				<code>{`<th><!-- selection --></th>`}</code>.
+				If you wish to add a <em>select all</em> feature, replace <code>{`<th><!-- selection --></th>`}</code> with the following.
 			</p>
 			<CodeBlock language="html" code={`<th><input type="checkbox" on:click={(e) => { dataTableSelectAll(e, dataTableModel) }} /></th>`} />
 		</section>
@@ -314,9 +315,8 @@ dataTableModel.subscribe((v) => dataTableHandler(v));
 		<section class="space-y-4">
 			<h2>Pagination</h2>
 			<p>
-				For brevity, we'll refer to the <a href="/components/paginators">Paginators component</a> to learn more about this feature. Use
-				<code>$dataTableModel.pagination</code> for providing data table pagination settings. This ensures the model updates reactively.
-				Note the use of the wrapping <em>if</em> statement.
+				Please refer to the <a href="/components/paginators">Paginators component</a> to learn more about this feature. For data tables, use
+				<code>$dataTableModel.pagination</code> to ensures the model updates reactively. The wrapping <em>if</em> statement is required.
 			</p>
 			<CodeBlock language="html" code={`{#if $dataTableModel.pagination}<Paginator bind:settings={$dataTableModel.pagination} />{/if}`} />
 		</section>
@@ -324,7 +324,7 @@ dataTableModel.subscribe((v) => dataTableHandler(v));
 		<section class="space-y-4">
 			<h2>Accessibility</h2>
 			<p>
-				Since data tables make use of native HTML table elements, it will be up to you to implement accessibility features. However, we've
+				Since data tables make use of native HTML table elements, you will need to implement accessibility features directly. However, we've
 				simplified this by providing a Svelte Action called <code>tableA11y</code>. This implements the required event listeners for
 				keyboard interaction. Start by appending <em>role</em> and <em>action</em> to your <em>table</em> element.
 			</p>
@@ -335,7 +335,7 @@ dataTableModel.subscribe((v) => dataTableHandler(v));
 			</p>
 			<CodeBlock language="html" code={`<tr ... aria-rowindex={rowIndex + 1}>`} />
 			<p>
-				Implement three attributes per table body <em>td</em> cell. <code>role</code> and <code>tabindex</code> are fixed, while
+				Implement three attributes per table body <em>td</em> cell. <code>role</code> and <code>tabindex</code> are static, while
 				<code>aria-colindex</code>
 				starts at <strong>1</strong> and increments per cell.
 			</p>
@@ -347,7 +347,7 @@ dataTableModel.subscribe((v) => dataTableHandler(v));
 <!-- ... -->
 			`}
 			/>
-			<p>Reference the <em>Keyboard</em> tab section at the top of this page for available interactions.</p>
+			<p>Reference the <em>Keyboard</em> tab section at the top of this page for a list of available keyboard interactions.</p>
 		</section>
 		<hr />
 		<!-- Reference -->

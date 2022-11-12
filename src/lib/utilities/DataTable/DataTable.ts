@@ -9,6 +9,7 @@ export * from './a11y';
 
 // Utilities ---
 
+/** A utility method for updating a select store value. */
 export function dataTableStorePut(store: Writable<DataTableModel>, key: string, value: unknown): void {
 	let newStore: DataTableModel = get(store);
 	newStore = { ...newStore, [key]: value };
@@ -31,6 +32,7 @@ function selectionHandler(store: DataTableModel): void {
 	store.selection = store.filtered.filter((row) => row.dataTableChecked === true);
 }
 
+/** Allows you to dynamically pre-select rows on-demand. */
 export function dataTableSelect(store: Writable<DataTableModel>, key: string, valuesArr: any): void {
 	const storeSelected = get(store).filtered.map((row) => {
 		if (valuesArr.includes(row[key])) row.dataTableChecked = true;
@@ -38,6 +40,7 @@ export function dataTableSelect(store: Writable<DataTableModel>, key: string, va
 	});
 }
 
+/** Triggered by the "select all" checkbox to toggle all row selection. */
 export function dataTableSelectAll(event: any, store: Writable<DataTableModel>): void {
 	const isAllChecked = event.target.checked;
 	const storeFiltered = get(store).source.forEach((row) => (row.dataTableChecked = isAllChecked));
@@ -63,6 +66,7 @@ function paginationHandler(store: DataTableModel): void {
 
 const sortState: Record<string, string | boolean> = { lastKey: '', asc: true };
 
+/** Listens for clicks to a table heading with `data-sort` attribute. Updates `$dataTableModel.sort`. */
 export function dataTableSort(event: any, store: Writable<DataTableModel>): void {
 	const sortBy: string = event.target.dataset.sort;
 	if (sortBy) dataTableStorePut(store, 'sort', sortBy);
@@ -102,6 +106,7 @@ function sortDesc(store: DataTableModel): void {
 
 // Action ---
 
+/** Svelte Action for applying sort asc/dsc classes. */
 export function dataTableInteraction(node: HTMLElement) {
 	const classAsc: string = 'table-sort-asc';
 	const classDsc: string = 'table-sort-dsc';
@@ -132,6 +137,7 @@ export function dataTableInteraction(node: HTMLElement) {
 
 // Data Table Handler
 
+/** Listens for changes to `$dataTableModel` and triggers: search, selection, sort, and pagination. */
 export function dataTableHandler(store: DataTableModel): void {
 	// console.log('dataTableHandler', store);
 	searchHandler(store);

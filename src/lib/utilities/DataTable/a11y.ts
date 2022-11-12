@@ -1,5 +1,6 @@
 // Table A11y Action ---
 
+/** Svelte Action for handling table a11y keyboard interactions. */
 export function tableA11y(node: HTMLElement) {
 	const keyWhitelist: string[] = ['ArrowRight', 'ArrowUp', 'ArrowLeft', 'ArrowDown', 'Home', 'End'];
 	// on:keydown

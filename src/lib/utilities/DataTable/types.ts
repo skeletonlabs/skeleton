@@ -13,6 +13,6 @@ export interface DataTableModel {
 	search?: string;
 	/** The current sort key. */
 	sort: string;
-	/** The Pagination component settings. */
+	/** The Paginator component settings. */
 	pagination?: PaginationSettings;
 }
