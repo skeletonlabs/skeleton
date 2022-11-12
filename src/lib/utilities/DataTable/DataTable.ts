@@ -63,7 +63,7 @@ function paginationHandler(store: DataTableModel): void {
 
 const sortState: Record<string, string | boolean> = { lastKey: '', asc: true };
 
-export function dataTableSorter(event: any, store: Writable<DataTableModel>): void {
+export function dataTableSort(event: any, store: Writable<DataTableModel>): void {
 	const sortBy: string = event.target.dataset.sort;
 	if (sortBy) dataTableStorePut(store, 'sort', sortBy);
 }
