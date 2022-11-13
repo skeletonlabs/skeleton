@@ -11,7 +11,7 @@
 			<span class="badge bg-surface-500/30 -translate-y-1">optional</span>
 		</div>
 		<p>
-			A set of <u>optional walkthroughs</u> for creating basic example apps in each supported framework. These cover the basics of using Skeleton.
+			A set of <u>optional walkthroughs</u> for creating a simple app in each supported framework. These introduce the basics of using Skeleton.
 		</p>
 	</header>
 
@@ -30,7 +30,13 @@
 		<!-- Astro -->
 		<a href="/guides/frameworks/vite" class="card p-4 grid grid-cols-[64px_1fr_auto] gap-4">
 			<!-- Vite Logo -->
-			<svg stroke-width="5" stroke-opacity="50%" class="w-14 aspect-square place-self-center stroke-surface-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 257">
+			<svg
+				stroke-width="5"
+				stroke-opacity="50%"
+				class="w-14 aspect-square place-self-center stroke-surface-500"
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 256 257"
+			>
 				<defs>
 					<linearGradient id="a" x1="-.8%" x2="57.6%" y1="7.7%" y2="78.4%">
 						<stop offset="0%" stop-color="transparent" />
@@ -72,21 +78,21 @@
 	<!-- Next Steps -->
 	<section class="space-y-4">
 		<h2>What's Next?</h2>
-		<p>Choose your own adventure. The path from here is up to you.</p>
+		<p>Choose your own adventure, you can jump to any of the following.</p>
 		<div class="card card-body space-y-4">
 			<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-				<p>Learn about Skeleton's <strong>Tailwind</strong> features.</p>
+				<p>Learn more about Skeleton's Tailwind features.</p>
 				<a class="btn btn-ghost-surface" href="/elements/tokens">Tailwind Features &rarr;</a>
 			</div>
 			<hr />
 			<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-				<p>Learn about Skeleton's <strong>Svelte</strong> features.</p>
+				<p>Learn more about Skeleton's Svelte features.</p>
 				<a class="btn btn-ghost-surface" href="/actions/clipboard">Svelte Features &rarr;</a>
 			</div>
 			<hr />
 			<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-				<p>Learn about Skeleton's <strong>utility</strong> features.</p>
-				<a class="btn btn-ghost-surface" href="/utilities/codeblocks">Utilities Features &rarr;</a>
+				<p>Learn more about Skeleton's utility features.</p>
+				<a class="btn btn-ghost-surface" href="/utilities/codeblocks">Utility Features &rarr;</a>
 			</div>
 		</div>
 	</section>

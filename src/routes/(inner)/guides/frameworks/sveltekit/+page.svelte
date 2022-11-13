@@ -33,13 +33,21 @@
 		<h3>Update App.html</h3>
 		<p>
 			Open <code>/src/app.html</code> and add the following classes to the wrapping <em>div</em> in <code>/src/app.html</code>.
-			<a href="https://github.com/sveltejs/kit/issues/6244#issuecomment-1226600661" target="_blank" rel="noreferrer">This element is required</a>
+			<a href="https://github.com/sveltejs/kit/issues/6244#issuecomment-1226600661" target="_blank" rel="noreferrer"
+				>This element is required</a
+			>
 		</p>
 		<CodeBlock language="html" code={`<body>\n\t<div class="h-full overflow-hidden">%sveltekit.body%</div>\n</body>`.trim()} />
-		<p>Note that you can optionally enable Dark Mode for your app by adding <code>.dark</code> to the <em>HTML</em> element at the top of <code>app.html</code>.</p>
+		<p>
+			Note that you can optionally enable Dark Mode for your app by adding <code>.dark</code> to the <em>HTML</em> element at the top of
+			<code>app.html</code>.
+		</p>
 		<CodeBlock language="html" code={`<html lang="en" class="dark">`.trim()} />
 		<h3>Global Stylesheet</h3>
-		<p>Open your global stylesheet in <code>/src/app.postcss</code>. Remove the @tailwind directives and replace the contents of the file with the following.</p>
+		<p>
+			Open your global stylesheet in <code>/src/app.postcss</code>. Remove the @tailwind directives and replace the contents of the file
+			with the following.
+		</p>
 		<CodeBlock language="css" code={`html, body { @apply h-full overflow-hidden; }`} />
 	</section>
 
@@ -48,7 +56,8 @@
 	<section class="space-y-4">
 		<h2>Layout Setup</h2>
 		<p>
-			Our page needs a bit of structure, so let's implement the Skeleton <a href="/components/app-shell">App Shell</a> component. Add the following markup to your root layout in
+			Our page needs a bit of structure, so let's implement the Skeleton <a href="/components/app-shell">App Shell</a> component. Add the
+			following markup to your root layout in
 			<code>/src/routes/+layout.svelte</code>.
 		</p>
 		<CodeBlock
@@ -74,7 +83,8 @@
 		/>
 		<h3>Add the App Bar</h3>
 		<p>
-			Next, let's add a header element using Skeleton's <a href="/components/app-bar">App Bar</a> component. Replace "Skeleton" with your application name and customize the GitHub link as desired.
+			Next, let's add a header element using Skeleton's <a href="/components/app-bar">App Bar</a> component. Replace "Skeleton" with your application
+			name and customize the GitHub link as desired.
 		</p>
 		<CodeBlock
 			language="html"
@@ -94,9 +104,15 @@
             `}
 		/>
 		<h3>Add Sidebar Navigation</h3>
-		<p>Let's customize our App Shell's sidebar slot to make it stand out a bit more. Add the following Tailwind utility classes to the <code>slotSidebarLeft</code> prop.</p>
+		<p>
+			Let's customize our App Shell's sidebar slot to make it stand out a bit more. Add the following Tailwind utility classes to the <code
+				>slotSidebarLeft</code
+			> prop.
+		</p>
 		<CodeBlock language="html" code={`<AppShell slotSidebarLeft="bg-surface-500/5 w-56 p-4">`} />
-		<p>After that, let's implement a <a href="/elements/lists">Tailwind Elements navigation list</a> within the App Shell's left sidebar slot.</p>
+		<p>
+			After that, let's implement a <a href="/elements/lists">Tailwind Elements navigation list</a> within the App Shell's left sidebar slot.
+		</p>
 		<CodeBlock
 			language="html"
 			code={`
@@ -120,8 +136,8 @@
 	<section class="space-y-4">
 		<h2>Page Setup</h2>
 		<p>
-			Now let's add some basic content to our homepage. Open <code>/src/routes/+page.svelte</code> and replace the contents with the following. This will provide multiple "Tailwind Elements" styled by
-			the <code>all.css</code> stylesheets.
+			Now let's add some basic content to our homepage. Open <code>/src/routes/+page.svelte</code> and replace the contents with the
+			following. This will provide multiple "Tailwind Elements" styled by the <code>all.css</code> stylesheets.
 		</p>
 		<CodeBlock
 			language="html"
@@ -144,8 +160,8 @@
 		/>
 		<h3>Add a Component</h3>
 		<p>
-			Finally let's implement Skeleton's <a href="/components/gradient-headings">Gradient Heading</a> component. Import the component and replace the <em>H1</em> heading on the page with the following.
-			Feel free to adjust the settings and text as you wish.
+			Finally let's implement Skeleton's <a href="/components/gradient-headings">Gradient Heading</a> component. Import the component and
+			replace the <em>H1</em> heading on the page with the following. Feel free to adjust the settings and text as you wish.
 		</p>
 		<CodeBlock
 			language="html"

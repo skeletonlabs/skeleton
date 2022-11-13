@@ -81,8 +81,8 @@
 	<svelte:fragment slot="usage">
 		<div class="space-y-4">
 			<p>
-				Import and add a single instance of the Toast component in your app's root layout. This is only required ONCE per app since it
-				exists in global scope.
+				Import and add a single instance of the Toast component in your app's root layout. We recommend only adding this <u>ONCE</u> per app
+				since it exists in global scope.
 			</p>
 			<CodeBlock language="html" code={`<Toast />`} />
 		</div>
@@ -97,17 +97,17 @@
 			/>
 			<!-- Trigger -->
 			<h3>Trigger</h3>
-			<p>To add a message to your queue, use the <code>toastStore.trigger()</code> method and pass a toast settings object.</p>
+			<p>To add a message to the queue, use the <code>toastStore.trigger()</code> method and pass a toast settings object.</p>
 			<CodeBlock
 				language="ts"
 				code={`
 function triggerToast(): void {
 	const t: ToastSettings = {
 		message: '👋 Hello and welcome to Skeleton.'
-		// Optional: Set whether the toast will automatically and timeout duration
+		// Optional: The auto-hide settings
 		autohide: true,
 		timeout: 5000,
-		// Optional: Create an action button
+		// Optional: Adds a custom action button
 		action: {
 			label: 'Greeting',
 			response: () => alert('Hello, Skeleton')
@@ -119,11 +119,11 @@ function triggerToast(): void {
 			/>
 			<!-- Clear -->
 			<h3>Clear</h3>
-			<p>Use the <code>toastStore.clear()</code> to clear the entire toast store queue.</p>
+			<p>Use <code>toastStore.clear()</code> to clear the entire toast store queue.</p>
 			<CodeBlock language="ts" code={`toastStore.clear();`} />
 			<!-- Debug -->
 			<h3>Debug</h3>
-			<p>You can visualize the contents of the store at any time, which can be helpful for debugging.</p>
+			<p>Use the following technique to visualize the contents of the store for debugging.</p>
 			<CodeBlock language="html" code={`<pre>queue: {JSON.stringify($toastStore, null, 2)}</pre>`} />
 		</div>
 		<!-- Styled -->
@@ -136,7 +136,8 @@ function triggerToast(): void {
 				language="ts"
 				code={`
 const t: ToastSettings = {
-	message: 'This message will have a warning color background.',
+	message: 'This message will have a colorful background.',
+	// Add your custom classes here:
 	classes: 'bg-warning-500'
 };
 			`}
