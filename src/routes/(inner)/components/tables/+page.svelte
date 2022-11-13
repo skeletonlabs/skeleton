@@ -8,7 +8,7 @@
 	import type { TableSource } from '$lib/components/Table/types';
 
 	// Utils
-	import { tableCellFormatter, tableMapperValues } from '$lib/components/Table/utils';
+	import { tableMapperValues } from '$lib/components/Table/utils';
 
 	// Components
 	import Table from '$lib/components/Table/Table.svelte';
@@ -21,7 +21,7 @@
 	import sveldTable from '$lib/components/Table/Table.svelte?raw&sveld';
 
 	// Stores
-	let storeService: Writable<string> = writable('tableCellFormatter');
+	let storeService: Writable<string> = writable('tableMapperValues');
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -58,10 +58,6 @@
 		// { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' }
 	];
 	const totalWeight = sourceData.reduce((accumulator, obj) => accumulator + obj.weight, 0);
-
-	// Cell Formatting
-	tableCellFormatter(sourceData, 'symbol', 'span', 'opacity-50');
-	tableCellFormatter(sourceData, 'weight', 'code');
 
 	// Table Simple
 	const tableSimple: TableSource = {
@@ -137,25 +133,28 @@ const tableSimple: TableSource = {
 			<h2>Table Utilities</h2>
 			<p>The following utility methods allow you to format your source data for use within a Table component.</p>
 			<TabGroup selected={storeService}>
-				<Tab value="tableCellFormatter">Cell Formatter</Tab>
+				<Tab value="tableMapperValues">Mapper Values</Tab>
 				<Tab value="tableSourceMapper">Source Mapper</Tab>
 				<Tab value="tableSourceValues">Source Values</Tab>
-				<Tab value="tableMapperValues">Mapper Values</Tab>
+				<!-- <Tab value="tableCellFormatter">Cell Formatter</Tab> -->
 			</TabGroup>
 			<CodeBlock language="ts" code={`import { ${$storeService} } from '@brainandbones/skeleton';>`} />
-			{#if $storeService === 'tableCellFormatter'}
-				<!-- Cell Formatter -->
-				<p>Table cells can accept HTML via template literals. This method allows wrapping HTML tags arround a particular object value.</p>
+			{#if $storeService === 'tableMapperValues'}
+				<!-- Table Mapper Values -->
+				<p>
+					Combines Source Mapper and Source Values methods to handle both operations at once. This allows you to use the same source object,
+					but format differently between display (body) and selected response (meta). It's recommended to use this in most use cases.
+				</p>
 				<CodeBlock
 					language="ts"
 					code={`
-tableCellFormatter(sourceData, 'weight', 'em', 'opacity-50');\n
+tableMapperValues(sourceData, ['name', 'symbol', 'weight'])\n
 // [
-//     { position: 1, name: 'Hydrogen', weight: '<em class="opacity-50">1.0079</em>', symbol: 'H' },
-//     { position: 2, name: 'Helium', weight: '<em class="opacity-50">4.0026</em>', symbol: 'He' },
+//     ['Hydrogen', 'H', '1.0079'],
+//     ['Helium', 'He', '4.0026'],
 //     ...
 // ]
-					`}
+				`}
 				/>
 			{:else if $storeService === 'tableSourceMapper'}
 				<!-- Source Mapper -->
@@ -188,23 +187,20 @@ tableSourceValues(sourceData);\n
 // ]
 					`}
 				/>
-			{:else if $storeService === 'tableMapperValues'}
-				<!-- Table Mapper Values -->
-				<p>
-					Combines Source Mapper and Source Values methods to handle both operations at once. This allows you to use the same source object,
-					but format differently between display (body) and selected response (meta). It's recommended to use this in most use cases.
-				</p>
+				<!-- DISABLED: see comments in utils.ts -->
+				<!-- {else if $storeService === 'tableCellFormatter'}
+				<p>Table cells can accept HTML via template literals. This method allows wrapping HTML tags arround a particular object value.</p>
 				<CodeBlock
 					language="ts"
 					code={`
-tableMapperValues(sourceData, ['name', 'symbol', 'weight'])\n
+tableCellFormatter(sourceData, 'weight', 'em', 'opacity-50');\n
 // [
-//     ['Hydrogen', 'H', '1.0079'],
-//     ['Helium', 'He', '4.0026'],
+//     { position: 1, name: 'Hydrogen', weight: '<em class="opacity-50">1.0079</em>', symbol: 'H' },
+//     { position: 2, name: 'Helium', weight: '<em class="opacity-50">4.0026</em>', symbol: 'He' },
 //     ...
 // ]
-				`}
-				/>
+					`}
+				/> -->
 			{/if}
 		</section>
 		<hr />
