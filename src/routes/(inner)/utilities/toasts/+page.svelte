@@ -50,7 +50,7 @@
 
 	function toastMultiple(): void {
 		toastStore.trigger({ message: 'Message will last 2 second.', timeout: 2000 });
-		toastStore.trigger({ message: 'Message will remain until dismissed.' });
+		toastStore.trigger({ message: 'Message will remain until dismissed.', autohide: false });
 		toastStore.trigger({ message: 'Message will auto-hide after 5 seconds.' });
 	}
 
@@ -80,7 +80,10 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<div class="space-y-4">
-			<p>Import and add a single instance of the Toast component in your app's root layout. This is only required ONCE per app since it exists in global scope.</p>
+			<p>
+				Import and add a single instance of the Toast component in your app's root layout. This is only required ONCE per app since it
+				exists in global scope.
+			</p>
 			<CodeBlock language="html" code={`<Toast />`} />
 		</div>
 		<!-- Toast Store -->
@@ -126,7 +129,9 @@ function triggerToast(): void {
 		<!-- Styled -->
 		<div class="space-y-4">
 			<h2>Styled</h2>
-			<p>To customize an individual toast, append <code>classes</code> to your settings and add CSS classes you wish to be applied to the toast.</p>
+			<p>
+				To customize an individual toast, append <code>classes</code> to your settings and add CSS classes you wish to be applied to the toast.
+			</p>
 			<CodeBlock
 				language="ts"
 				code={`
