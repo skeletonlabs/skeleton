@@ -17,9 +17,10 @@
 	<section class="space-y-4">
 		<a class="btn btn-ghost-surface btn-lg" href="https://mantine.dev/" target="_blank" rel="noreferrer">Mantine</a>
 		<p>
-			It’s no secret that Mantine has had a huge influence on the features and design of Skeleton. We love Mantine’s huge set of components, modular add-ons, and, of course, the best-in-class
-			documentation. We’re also huge fans of the deep customization provided per component. However, Mantine is unfortunately only available for React. That said, the Skeleton team hopes to bridge the
-			gap and provide a similar experience for Svelte developers.
+			It’s no secret that Mantine has had a huge influence on the features and design of Skeleton. We love Mantine’s huge set of components,
+			modular add-ons, and, of course, the best-in-class documentation. We’re also huge fans of the deep customization provided per
+			component. However, Mantine is unfortunately only available for React. That said, the Skeleton team hopes to bridge the gap and
+			provide a similar experience for Svelte developers.
 		</p>
 	</section>
 
@@ -27,13 +28,14 @@
 	<section class="space-y-4">
 		<a class="btn btn-ghost-surface btn-lg" href="https://flowbite.com/" target="_blank" rel="noreferrer">Flowbite</a>
 		<p>
-			Flowbite provides a set of turnkey HTML/CSS components built with Tailwind’s utility class system. Unlike other libraries, Flowbite focuses on a singular and opinionated design aesthetic.
-			Flowbite is a general purpose library, which means it can be used within any framework, but also provides framework-specific variations like <a
+			Flowbite provides a set of turnkey HTML/CSS components built with Tailwind’s utility class system. Unlike other libraries, Flowbite
+			focuses on a singular and opinionated design aesthetic. Flowbite is a general purpose library, which means it can be used within any
+			framework, but also provides framework-specific variations like <a
 				href="https://flowbite-svelte.com/"
 				target="_blank"
 				rel="noreferrer">Flowbite Svelte</a
-			>. It’s relatively simple to tailor a Flowbite component to work within an existing Tailwind design system. In fact, it’s even possible to pair Flowbite with Skeleton, allowing you to mix and
-			match components, while taking advantage of Skeleton’s theme system.
+			>. It’s relatively simple to tailor a Flowbite component to work within an existing Tailwind design system. In fact, it’s even
+			possible to pair Flowbite with Skeleton, allowing you to mix and match components, while taking advantage of Skeleton’s theme system.
 		</p>
 		<div class="card card-body !bg-accent-500/5">
 			<AccordionGroup>
@@ -43,7 +45,10 @@
 					</svelte:fragment>
 					<svelte:fragment slot="content">
 						<div class="space-y-4 pb-3">
-							<p>Let's integrate a <a href="https://flowbite.com/docs/components/card/" target="_blank" rel="noreferrer">Flowbite Card</a>. Here's the default markup:</p>
+							<p>
+								Let's integrate a <a href="https://flowbite.com/docs/components/card/" target="_blank" rel="noreferrer">Flowbite Card</a>.
+								Here's the default markup:
+							</p>
 							<CodeBlock
 								language="html"
 								code={`
@@ -88,14 +93,16 @@
 	<section class="space-y-4">
 		<a class="btn btn-ghost-surface btn-lg" href="https://daisyui.com/" target="_blank" rel="noreferrer">Daisy UI</a>
 		<p>
-			Daisy can be compared to Skeleton due to our shared use of Tailwind CSS and highly customizable theme systems. Unfortunately, Daisy themes rely on hex color values which <a
+			Daisy can be compared to Skeleton due to our shared use of Tailwind CSS and highly customizable theme systems. Unfortunately, Daisy
+			themes rely on hex color values which <a
 				href="https://tailwindcss.com/docs/customizing-colors#using-css-variables"
 				target="_blank"
 				rel="noreferrer">prevents the use of the opacity modifier syntax</a
 			>. Daisy also opts to forgo the biggest benefit of Tailwind, the deeply extensible utility class system, instead relying on
-			<a href="https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction" target="_blank" rel="noreferrer">@apply</a> to generate canned style sets. Skeleton, on the other hand, treats
-			utility classes as first class citizens, providing hooks to set and override Tailwind classes within each component. Skeleton components also accept arbitrary classes, allowing full customization
-			top to bottom. However, it’s worth noting that Daisy is a general purpose library available to any framework, while Skeleton focuses purely on Svelte.
+			<a href="https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction" target="_blank" rel="noreferrer">@apply</a> to generate
+			canned style sets. Skeleton, on the other hand, treats utility classes as first class citizens, providing hooks to set and override Tailwind
+			classes within each component. Skeleton components also accept arbitrary classes, allowing full customization top to bottom. However, it’s
+			worth noting that Daisy is a general purpose library available to any framework, while Skeleton focuses purely on Svelte.
 		</p>
 	</section>
 
@@ -103,16 +110,17 @@
 	<section class="space-y-4">
 		<a class="btn btn-ghost-surface btn-lg" href="https://sveltematerialui.com/" target="_blank" rel="noreferrer">Svelte Material UI</a>
 		<p>
-			The founding members of Skeleton are huge fans of Material Design and recognize its influence on modern web UI, UX, and component systems in general. Our team has extensive experience with <a
-				href="https://material.angular.io/"
-				target="_blank"
-				rel="noreferrer">Angular Material</a
-			>, which adapts the Material Design conventions for the <a href="https://angular.io/" target="_blank" rel="noreferrer">Angular</a> framework. This has actually influenced many of the design
-			decisions for creating Skeleton, including our opinions on <a href="/elements/forms">form components</a>. It makes sense that Svelte Material UI would be popular, as it bridges the benefits of
-			Material Design with the power of Svelte. However, Skeleton has chosen to shy away from the look and feel of Material Design, and instead create a more unique aesthetic. Additionally, Skeleton
-			features tight integration with Tailwind to aid in building a fully realized design system, allowing you to control every aspect of your interface from the ground up. If, for some reason, you
-			are adverse to Tailwind or you wish to lean into the Material Design style, then we would recommend Svelte Material UI. It also has the benefit of being one of the oldest and most mature UI
-			component libraries available for Svelte today.
+			The founding members of Skeleton are huge fans of Material Design and recognize its influence on modern web UI, UX, and component
+			systems in general. Our team has extensive experience with <a href="https://material.angular.io/" target="_blank" rel="noreferrer"
+				>Angular Material</a
+			>, which adapts the Material Design conventions for the <a href="https://angular.io/" target="_blank" rel="noreferrer">Angular</a>
+			framework. This has actually influenced many of the design decisions for creating Skeleton, including our opinions on
+			<a href="/elements/forms">form components</a>. It makes sense that Svelte Material UI would be popular, as it bridges the benefits of
+			Material Design with the power of Svelte. However, Skeleton has chosen to shy away from the look and feel of Material Design, and
+			instead create a more unique aesthetic. Additionally, Skeleton features tight integration with Tailwind to aid in building a fully
+			realized design system, allowing you to control every aspect of your interface from the ground up. If, for some reason, you are
+			adverse to Tailwind or you wish to lean into the Material Design style, then we would recommend Svelte Material UI. It also has the
+			benefit of being one of the oldest and most mature UI component libraries available for Svelte today.
 		</p>
 	</section>
 </div>

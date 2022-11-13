@@ -45,7 +45,9 @@
 			<p>Add your custom theme to <code>/src/theme.css</code>, then import this file into <code>/src/main.js</code>:</p>
 			<CodeBlock language="typescript" code={`import '../theme.css';`} />
 		{:else if $storeFramework === 'astro'}
-			<p>Add your custom theme to <code>/src/styles/theme.css</code>, then import this file into <code>/src/layouts/LayoutBasic.astro</code>.</p>
+			<p>
+				Add your custom theme to <code>/src/styles/theme.css</code>, then import this file into <code>/src/layouts/LayoutBasic.astro</code>.
+			</p>
 			<CodeBlock language="typescript" code={`import '../styles/theme.css';`} />
 		{/if}
 	</section>
@@ -56,9 +58,11 @@
 	<section class="space-y-4">
 		<h2>Advanced Color Curation</h2>
 		<p>
-			We recommend <a href="https://tailwind.simeongriggs.dev/blue/3B82F6" target="_blank" rel="noreferrer">Palette Generator</a> to curate a custom theme. This includes support for hue, saturation,
-			and lightness adjustments. Pair this with the
-			<a href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba" target="_blank" rel="noreferrer">Hex-To-RGB extension</a>
+			We recommend <a href="https://tailwind.simeongriggs.dev/blue/3B82F6" target="_blank" rel="noreferrer">Palette Generator</a> to curate
+			a custom theme. This includes support for hue, saturation, and lightness adjustments. Pair this with the
+			<a href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba" target="_blank" rel="noreferrer"
+				>Hex-To-RGB extension</a
+			>
 			to convert each Hex color value to RGB in bulk with VS Code.
 		</p>
 	</section>

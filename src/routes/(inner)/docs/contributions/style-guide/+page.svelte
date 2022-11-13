@@ -23,11 +23,14 @@
 	<section class="space-y-4">
 		<h2>General Conventions</h2>
 		<p>
-			Ensure relevant events bubble via <a href="https://svelte.dev/tutorial/dom-event-forwarding" target="_blank" rel="noreferrer">event forwarding</a>.
+			Ensure relevant events bubble via <a href="https://svelte.dev/tutorial/dom-event-forwarding" target="_blank" rel="noreferrer"
+				>event forwarding</a
+			>.
 		</p>
 		<CodeBlock language="html" code={`<button on:click on:mouseover>Skeleton</button>`} />
 		<p>
-			Follow conventions set by existing components when naming slots. These should be short, semantic, and agnostic. Avoid names that are too specific, such as <code>name="icon"</code>.
+			Follow conventions set by existing components when naming slots. These should be short, semantic, and agnostic. Avoid names that are
+			too specific, such as <code>name="icon"</code>.
 		</p>
 		<CodeBlock language="html" code={`{#if $$slots.lead}<slot name="lead" />{/if}`} />
 		<p>Use caution when inlining Tailwind color classes that would clash with custom themes. Consider using a prop for customization.</p>
@@ -39,9 +42,11 @@
 		`.trim()}
 		/>
 		<p>
-			If you need to include miscellaneous attributes that were not defined as props, use Svelte's <code>$$restProps</code>. Be careful though, this can overwrite the element's
+			If you need to include miscellaneous attributes that were not defined as props, use Svelte's <code>$$restProps</code>. Be careful
+			though, this can overwrite the element's
 			<code>$$props.class</code>
-			attribute. To avoid this, delete the <code>class</code> key from <code>$$restProps</code>. The function provided below can handle this on both in it and after any form of attribute updates.
+			attribute. To avoid this, delete the <code>class</code> key from <code>$$restProps</code>. The function provided below can handle this
+			on both in it and after any form of attribute updates.
 		</p>
 		<CodeBlock
 			language="js"
@@ -87,8 +92,9 @@ export let visible: boolean = false;
 	<section class="space-y-4">
 		<h2>CSS Styling Conventions</h2>
 		<p>
-			Skeleton utilizes a specific paradigm for handling static and dynamic Tailwind styles for components. This is accomplished by passing Tailwind classes to the component as props, as well as by
-			defining base structural classes within the component's script tag. While this may feel odd at first, you will find it works really well in execution.
+			Skeleton utilizes a specific paradigm for handling static and dynamic Tailwind styles for components. This is accomplished by passing
+			Tailwind classes to the component as props, as well as by defining base structural classes within the component's script tag. While
+			this may feel odd at first, you will find it works really well in execution.
 		</p>
 		<!-- Base Classes -->
 		<h3>Base Classes</h3>
@@ -148,7 +154,9 @@ $: classesLabel = \`\${cBaseLabel}\`; // child element
 		<h2>Pitfalls</h2>
 		<p>Below are a few pitfalls we've encountered when creating Skeleton. Do your best to avoid these whenever possible.</p>
 		<ul class="list-disc list-inside space-y-1">
-			<li>Avoid <code>style</code> blocks and <code>@apply</code> in component files. This can increase the final stylesheet bundle size.</li>
+			<li>
+				Avoid <code>style</code> blocks and <code>@apply</code> in component files. This can increase the final stylesheet bundle size.
+			</li>
 			<li>Do not mix script-defined and inline Tailwind classes. Doing so can have a negative impact on the readability of the code.</li>
 			<li>Avoid switch-case statements to create shorthand property values (ex: sm, md, lg). This limits customization.</li>
 			<li>Keep Skeleton icon library agnostic. Embed SVGs or unicode instead. Consider adding a component slot if an icon is required.</li>

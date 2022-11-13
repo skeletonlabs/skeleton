@@ -53,7 +53,7 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Requirements</h1>
-		<p>If you wish to contribute to Skeleton, please ensure you've read and understand our requirements below.</p>
+		<p>If you wish to contribute to Skeleton, please ensure you have read and understand our requirements below.</p>
 	</header>
 
 	<hr />
@@ -65,17 +65,27 @@
 			<li>
 				<a href="https://github.com/Brain-Bones/skeleton/issues" target="_blank" rel="noreferrer">Select an issue</a>
 				or
-				<a href="https://github.com/Brain-Bones/skeleton/wiki/%F0%9F%9B%A3%EF%B8%8F-The-Skeleton-Roadmap" target="_blank" rel="noreferrer">roadmap task</a> you wish to contribute to.
+				<a href="https://github.com/Brain-Bones/skeleton/wiki/%F0%9F%9B%A3%EF%B8%8F-The-Skeleton-Roadmap" target="_blank" rel="noreferrer"
+					>roadmap task</a
+				> you wish to contribute to.
 			</li>
 			<li>
-				Leave a comment, join the <a href="https://github.com/Brain-Bones/skeleton/discussions/79" target="_blank" rel="noreferrer">roadmap discussion</a>, or
+				Leave a comment, join the <a href="https://github.com/Brain-Bones/skeleton/discussions/79" target="_blank" rel="noreferrer"
+					>roadmap discussion</a
+				>, or
 				<a href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer">give us a heads up on Discord</a>.
 			</li>
 			<li>Review with core contributors to define the requirements before you write your first line of code.</li>
 			<li>Follow our branch naming conventions described below.</li>
 			<li>Don't be afraid to submit a draft pull request early on to ensure your meeting our guidelines.</li>
 			<li>Make sure you run our automated tests to confirm no regressions were introduced from your changes.</li>
-			<li>Everything needs a docs page to explain how it works to end users. See our <a href="/docs/contributions/documentation" target="_blank" rel="noreferrer">docs section</a> for more info.</li>
+			<li>
+				Everything needs a docs page to explain how it works to end users. See our <a
+					href="/docs/contributions/documentation"
+					target="_blank"
+					rel="noreferrer">docs section</a
+				> for more info.
+			</li>
 			<li>When ready, submit or set your pull request to the ready state. This will begin the code review process.</li>
 			<li>If your PR meets all requirements it will be merged, otherwise feedback will be provided.</li>
 		</ol>
@@ -105,7 +115,9 @@
 			<li>Svelte Actions should singular, lowercase, and use Typescript: <code>clipboard.ts</code></li>
 			<li>Tailwind Element stylesheets are plural and lowercase: <code>buttons.css</code></li>
 			<li>Documentation should be lowercase and use dashes: <code>/routes/components/radio-groups/+page.svelte</code></li>
-			<li>Tests should be suffixed with <code>*.test.ts</code> and match the feature naming convention: <code>LightSwitch.test.ts</code></li>
+			<li>
+				Tests should be suffixed with <code>*.test.ts</code> and match the feature naming convention: <code>LightSwitch.test.ts</code>
+			</li>
 		</ul>
 	</section>
 
@@ -114,7 +126,10 @@
 	<!-- Dependencies -->
 	<section class="space-y-4">
 		<h2>Third Party Dependencies</h2>
-		<p>Adding additional project depedencies is not allowed without prior discussion. Please contact a core contributor before adding or modifying depedencies.</p>
+		<p>
+			Adding additional project depedencies is not allowed without prior discussion. Please contact a core contributor before adding or
+			modifying depedencies.
+		</p>
 	</section>
 
 	<hr />
@@ -122,7 +137,9 @@
 	<!-- Code Formatting -->
 	<section class="space-y-4">
 		<h2>Code Linting &amp; Formatting</h2>
-		<p>This is is handled via <a href="https://prettier.io/" target="_blank" rel="noreferrer">Prettier</a>. To check for linting issues, run:</p>
+		<p>
+			This is is handled via <a href="https://prettier.io/" target="_blank" rel="noreferrer">Prettier</a>. To check for linting issues, run:
+		</p>
 		<CodeBlock language="console" code={`npm run lint`} />
 		<p>To automatically apply formatting, run:</p>
 		<CodeBlock language="console" code={`npm run format`} />
@@ -134,8 +151,8 @@
 	<section class="space-y-4">
 		<h2>Automated Tests</h2>
 		<p>
-			Tests are handled via <a href="https://vitest.dev/" target="_blank" rel="noreferrer">Vitest</a>, which uses similar conventions and syntax to Jest. Please ensure you write or update tests before
-			submitting a pull request.
+			Tests are handled via <a href="https://vitest.dev/" target="_blank" rel="noreferrer">Vitest</a>, which uses similar conventions and
+			syntax to Jest. Please ensure you write or update tests before submitting a pull request.
 		</p>
 		<CodeBlock language="console" code={`npm run test`} />
 	</section>

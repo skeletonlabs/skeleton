@@ -22,11 +22,17 @@
 			<h2>Tailwind</h2>
 		</div>
 		<h3>Elements</h3>
-		<p>Mix native HTML elements with Skeleton-provided utility classes. Automatically adapt to your Skeleton theme and extend with Tailwind utility classes.</p>
+		<p>
+			Mix native HTML elements with Skeleton-provided utility classes. Automatically adapt to your Skeleton theme and extend with Tailwind
+			utility classes.
+		</p>
 		<ul class="list-disc list-inside space-y-2">
 			<li>Svelte is <u>NOT</u> required to use Tailwind Elements.</li>
 			<li>Do not require imports per each route page like components.</li>
-			<li>A Skeleton provided stylesheet must be imported in your project (ex: <code>all.css</code>, <code>elements.css</code>, <code>buttons.css</code>)</li>
+			<li>
+				A Skeleton provided stylesheet must be imported in your project (ex: <code>all.css</code>, <code>elements.css</code>,
+				<code>buttons.css</code>)
+			</li>
 			<li>Can be paired with standard Tailwind utility classes.</li>
 		</ul>
 	</section>
@@ -44,8 +50,9 @@
 		<div class="space-y-4">
 			<h3>Actions</h3>
 			<p>
-				Skeleton provides a set of unique <a href="https://svelte.dev/tutorial/actions" target="_blank" rel="noreferrer">Svelte Actions</a>, also known as directives in other libraries. These provide
-				"headless" script logic without inherent UI. Think of these as add-ons features, including <em>copy to clipboard</em> and <em>applying image filters</em>.
+				Skeleton provides a set of unique <a href="https://svelte.dev/tutorial/actions" target="_blank" rel="noreferrer">Svelte Actions</a>,
+				also known as directives in other libraries. These provide "headless" script logic without inherent UI. Think of these as add-ons
+				features, including <em>copy to clipboard</em> and <em>applying image filters</em>.
 			</p>
 			<ul class="list-disc list-inside space-y-2">
 				<li>Svelte is required to use Svelte Actions.</li>
@@ -57,8 +64,9 @@
 		<div class="space-y-4">
 			<h3>Components</h3>
 			<p>
-				These are <a href="https://svelte.dev/" target="_blank" rel="noreferrer">Svelte Components</a> purpose built for the Skeleton library. They can include their own UI templates and scripted logic,
-				and they can maintain their own state. These automatically update and adjust to your custom theme and provide unique props to update and adjust settings per component.
+				These are <a href="https://svelte.dev/" target="_blank" rel="noreferrer">Svelte Components</a> purpose built for the Skeleton library.
+				They can include their own UI templates and scripted logic, and they can maintain their own state. These automatically update and adjust
+				to your custom theme and provide unique props to update and adjust settings per component.
 			</p>
 			<ul class="list-disc list-inside space-y-2">
 				<li>Svelte is required to use Svelte Components.</li>
@@ -82,8 +90,8 @@
 			<h2>Skeleton Utilities</h2>
 		</div>
 		<p>
-			Skeleton utilities are powerful features that mix and match Skeleton elements, components, actions, and more. These include complex features like dialogs and toast notifications. These may also
-			require extra dependencies to fully operate.
+			Skeleton utilities are powerful features that mix and match Skeleton elements, components, actions, and more. These include complex
+			features like dialogs and toast notifications. These may also require extra dependencies to fully operate.
 		</p>
 		<ul class="list-disc list-inside space-y-2">
 			<li>Svelte is required to use most utilities.</li>

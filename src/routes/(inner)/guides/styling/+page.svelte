@@ -134,7 +134,7 @@
 		// prettier-ignore
 		source: [
 			[ '1.', 'Theme Stylesheet', 'Houses your themes use CSS properties for colors, border radius, etc.' ],
-			[ '2.', 'Skeleton Stylesheet(s)', 'Imports Tailwind directives, generates design tokens, styles elemens and components.' ],
+			[ '2.', 'Skeleton Stylesheet(s)', 'Imports Tailwind directives, generates design tokens, styles elements and components.' ],
 			[ '3.', 'Global Stylesheet', 'Keep this last so you can override styles provided by any of the above.' ],
 		]
 	};
@@ -182,20 +182,26 @@ import '@brainandbones/skeleton/styles/${$storeStylesheets === 'recommended' ? '
 			<Tab value="advanced">Advanced</Tab>
 		</TabGroup>
 		{#if $storeStylesheets === 'recommended'}
-			<p>We recommend <code>all.css</code> for most users. This includes everything required for Skeleton, with all imports in the correct order.</p>
+			<p>
+				We recommend <code>all.css</code> for most users. This includes everything required for Skeleton, with all imports in the correct order.
+			</p>
 			<DataTable headings={tableStyleAll.headings} source={tableStyleAll.source} />
 		{:else if $storeStylesheets === 'advanced'}
-			<p>For advanced users ONLY. Follow the instruction below to import each stylesheet individually. Please ensure you use the order shown.</p>
+			<p>
+				For advanced users ONLY. Follow the instruction below to import each stylesheet individually. Please ensure you use the order shown.
+			</p>
 			<DataTable headings={tableStylesUseful.headings} source={tableStylesUseful.source} />
 			<!-- Elements -->
 			<TabGroup selected={storeStylesheetElements}>
 				<Tab value="combined">All Elements</Tab>
-				<Tab value="seperate">Select Elements</Tab>
+				<Tab value="separate">Select Elements</Tab>
 			</TabGroup>
 			{#if $storeStylesheetElements === 'combined'}
 				<DataTable headings={tableStyleElementsAll.headings} source={tableStyleElementsAll.source} />
-			{:else if $storeStylesheetElements === 'seperate'}
-				<p>Import only the Tailwind Elements you are using. Make sure you set the path to <code>.../styles/elements/*.css</code> as shown.</p>
+			{:else if $storeStylesheetElements === 'separate'}
+				<p>
+					Import only the Tailwind Elements you are using. Make sure you set the path to <code>.../styles/elements/*.css</code> as shown.
+				</p>
 				<DataTable headings={tableStyleElements.headings} source={tableStyleElements.source} />
 			{/if}
 		{/if}
@@ -206,7 +212,10 @@ import '@brainandbones/skeleton/styles/${$storeStylesheets === 'recommended' ? '
 	<!-- Global Styles -->
 	<section class="space-y-4">
 		<h2>Global Stylesheet</h2>
-		<p>The location of your app's global stylesheet differs per framework. SvelteKit and Vite users are required to make one quick modification.</p>
+		<p>
+			The location of your app's global stylesheet differs per framework. SvelteKit and Vite users are required to make one quick
+			modification.
+		</p>
 
 		<TabGroup selected={storeFramework}>
 			<Tab value="sveltekit">SvelteKit</Tab>
@@ -222,7 +231,8 @@ import '@brainandbones/skeleton/styles/${$storeStylesheets === 'recommended' ? '
 			<!-- Framework: Astro -->
 		{:else if $storeFramework === 'astro'}
 			<p>
-				Astro does not create this by default, but we recommend <code>/src/styles/global.css</code>. <a href="/guides/frameworks/astro">See our Astro walkthrough</a> for assistance.
+				Astro does not create this by default, but we recommend <code>/src/styles/global.css</code>.
+				<a href="/guides/frameworks/astro">See our Astro walkthrough</a> for assistance.
 			</p>
 		{/if}
 		<Alert>
@@ -232,8 +242,9 @@ import '@brainandbones/skeleton/styles/${$storeStylesheets === 'recommended' ? '
 		<!-- Directives -->
 		<p>
 			When using <strong>Svelte-Add</strong> this creates
-			<a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> in your global stylesheet. This is not recommended as Skeleton handles this
-			as part of the stylesheet imports above. If present, remove the following from your global stylesheet.
+			<a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> in your global
+			stylesheet. This is not recommended as Skeleton handles this as part of the stylesheet imports above. If present, remove the following
+			from your global stylesheet.
 		</p>
 		<CodeBlock
 			language="css"
@@ -260,7 +271,10 @@ import '@brainandbones/skeleton/styles/${$storeStylesheets === 'recommended' ? '
 	<section class="space-y-4">
 		<div class="space-y-4">
 			<h2>Styling Components</h2>
-			<p>Skeleton components automatically adapt to your theme. However, you may wish to customize your components and elements. View instruction for this below.</p>
+			<p>
+				Skeleton components automatically adapt to your theme. However, you may wish to customize your components and elements. View
+				instruction for this below.
+			</p>
 		</div>
 		<div class="card card-body !bg-accent-500/5">
 			<AccordionGroup>
@@ -268,8 +282,8 @@ import '@brainandbones/skeleton/styles/${$storeStylesheets === 'recommended' ? '
 					<svelte:fragment slot="summary"><h3>Via Component Props</h3></svelte:fragment>
 					<div slot="content" class="space-y-4">
 						<p>
-							This is the recommended way to style most components. Provide style "props" (aka properties) that allow you to provide utility classes to override styles. See a full list of available
-							settings under the "Props" tab for each component's documentation.
+							This is the recommended way to style most components. Provide style "props" (aka properties) that allow you to provide utility
+							classes to override styles. See a full list of available settings under the "Props" tab for each component's documentation.
 						</p>
 						<CodeBlock language="html" code={`<Tab background="bg-accent-500" style="bg-yellow-500">Prop Customized</Tab>`} />
 					</div>
@@ -278,8 +292,8 @@ import '@brainandbones/skeleton/styles/${$storeStylesheets === 'recommended' ? '
 					<svelte:fragment slot="summary"><h3>Via the Class Attribute</h3></svelte:fragment>
 					<div slot="content" class="space-y-4">
 						<p>
-							If a particular style prop is not provided, you can still provide arbitrary utility classes via the standard <code>class</code> attribute on any component. Note these classes are applied
-							to the parent element in the component template.
+							If a particular style prop is not provided, you can still provide arbitrary utility classes via the standard <code>class</code
+							> attribute on any component. Note these classes are applied to the parent element in the component template.
 						</p>
 						<CodeBlock language="html" code={`<Tab class="text-3xl px-10 py-5">Big</Tab>`} />
 					</div>
@@ -291,7 +305,7 @@ import '@brainandbones/skeleton/styles/${$storeStylesheets === 'recommended' ? '
 							If you need to target deeper than the parent element, we recommend using <a
 								href="https://tailwindcss.com/blog/tailwindcss-v3-1#arbitrary-values-but-for-variants"
 								target="_blank"
-								rel="noreferrer">Tailwind's abitrary variant syntax</a
+								rel="noreferrer">Tailwind's arbitrary variant syntax</a
 							>.
 						</p>
 						<CodeBlock language="html" code={`<Tab class="[&>.tab-label]:p-4">...</Tab>`} />
@@ -301,15 +315,19 @@ import '@brainandbones/skeleton/styles/${$storeStylesheets === 'recommended' ? '
 					<svelte:fragment slot="summary"><h3>Global Styles</h3></svelte:fragment>
 					<div slot="content" class="space-y-4">
 						<p>
-							Tailwind Elements and Svelte Components contain a unique selector classes, such as <code>.crumb-separator</code> for the Breadcrumb component seperator element. Use these to target global
-							style overrides.
+							Tailwind Elements and Svelte Components contain a unique selector classes, such as <code>.crumb-separator</code> for the Breadcrumb
+							component seperator element. Use these to target global style overrides.
 						</p>
-						<CodeBlock language="html" code={`<!--  The first class is the "selector" class -->\n<div class="crumb-separator ...">&rarr;</div>`} />
+						<CodeBlock
+							language="html"
+							code={`<!--  The first class is the "selector" class -->\n<div class="crumb-separator ...">&rarr;</div>`}
+						/>
 						<p>Add the following to your global stylesheet to override the seperator text color:</p>
 						<CodeBlock language="css" code={`.crumb-separator { @apply !text-red-500; }`} />
 						<p>
 							Note that in some cases you may need to use <code>!</code>
-							<a href="https://tailwindcss.com/docs/configuration#important-modifier" target="_blank" rel="noreferrer">important</a> to give the class precedence.
+							<a href="https://tailwindcss.com/docs/configuration#important-modifier" target="_blank" rel="noreferrer">important</a> to give
+							the class precedence.
 						</p>
 					</div>
 				</AccordionItem>

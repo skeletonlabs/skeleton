@@ -30,7 +30,13 @@
 		<!-- Astro -->
 		<a href="/guides/frameworks/vite" class="card p-4 grid grid-cols-[64px_1fr_auto] gap-4">
 			<!-- Vite Logo -->
-			<svg stroke-width="5" stroke-opacity="50%" class="w-14 aspect-square place-self-center stroke-surface-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 257">
+			<svg
+				stroke-width="5"
+				stroke-opacity="50%"
+				class="w-14 aspect-square place-self-center stroke-surface-500"
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 256 257"
+			>
 				<defs>
 					<linearGradient id="a" x1="-.8%" x2="57.6%" y1="7.7%" y2="78.4%">
 						<stop offset="0%" stop-color="transparent" />

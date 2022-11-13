@@ -30,7 +30,7 @@
 		description: 'High priority overlay notification utilizing a dynamic queue system.',
 		imports: ['Dialog', 'dialogStore'],
 		types: ['DialogSettings', 'DialogComponent'],
-		source: 'utilities/Dailog',
+		source: 'utilities/Dialog',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/',
 		components: [{ sveld: sveldDialog }],
 		keyboard: [['<kbd>Esc</kbd>', ' Dismisses the foremost dialog.']]
@@ -154,7 +154,10 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<p>Import and add a single instance of the Dialog component in your app's root layout. This is only required <u>ONCE</u> per app since it exists in global scope.</p>
+			<p>
+				Import and add a single instance of the Dialog component in your app's root layout. This is only required <u>ONCE</u> per app since it
+				exists in global scope.
+			</p>
 			<CodeBlock language="html" code={`<Dialog />`} />
 		</section>
 		<!-- Dialog Store -->
@@ -235,7 +238,10 @@ function dialogPrompt(): void {
 		<!-- Customizing Dialogs -->
 		<section class="space-y-4">
 			<h2>Customizing Dialogs</h2>
-			<p>To customize an individual dialog, append <code>classes</code> to your settings and add the classes you wish to be applied to the dialog modal.</p>
+			<p>
+				To customize an individual dialog, append <code>classes</code> to your settings and add the classes you wish to be applied to the dialog
+				modal.
+			</p>
 			<CodeBlock
 				language="ts"
 				code={`
@@ -254,7 +260,10 @@ const d: DialogSettings = {
 				<span class="badge bg-warning-500">Advanced</span>
 				<h2>Component Dialogs</h2>
 			</div>
-			<p>To create a custom dialog, import and pass a reference to any Svelte component. This will construct and display the contents of the component within the dialog modal window.</p>
+			<p>
+				To create a custom dialog, import and pass a reference to any Svelte component. This will construct and display the contents of the
+				component within the dialog modal window.
+			</p>
 			<CodeBlock
 				language="ts"
 				code={`
@@ -278,17 +287,30 @@ function dialogComponent(): void {
 			/>
 			<h3>Constructing a Dialog Component</h3>
 			<p>
-				When constructing your these components you are responsible for adding all close/submit buttons, as well as triggering the dialog response values as needed. To make this process easier to
-				understand, we've provided a few examples to demonstrate the process.
+				When constructing your these components you are responsible for adding all close/submit buttons, as well as triggering the dialog
+				response values as needed. To make this process easier to understand, we have provided a few examples to demonstrate the process.
 			</p>
-			<a class="btn btn-filled-accent" href="https://github.com/Brain-Bones/skeleton/tree/feature/master/src/lib/utilities/Dialog/examples" target="_blank" rel="noreferrer">View Component Examples</a>
+			<a
+				class="btn btn-filled-accent"
+				href="https://github.com/Brain-Bones/skeleton/tree/feature/master/src/lib/utilities/Dialog/examples"
+				target="_blank"
+				rel="noreferrer">View Component Examples</a
+			>
 			<p>A few things to note:</p>
 			<ul class="list-disc list-inside space-y-1">
-				<li>Import and use the <code>dialogStore</code> to interface directly with the active dialog queue. <code>[0]</code> is the visible dialog index.</li>
-				<li>Most Dialog component props are available via the <code>parent</code> prop - ex: <code>parent.background</code> will provide the background color.</li>
 				<li>
-					You can reference the full list of <a href="https://github.com/Brain-Bones/skeleton/blob/feature/master/src/lib/utilities/Dialog/Dialog.svelte#L95" target="_blank" rel="noreferrer"
-						>available parent prop values</a
+					Import and use the <code>dialogStore</code> to interface directly with the active dialog queue. <code>[0]</code> is the visible dialog
+					index.
+				</li>
+				<li>
+					Most Dialog component props are available via the <code>parent</code> prop - ex: <code>parent.background</code> will provide the background
+					color.
+				</li>
+				<li>
+					You can reference the full list of <a
+						href="https://github.com/Brain-Bones/skeleton/blob/feature/master/src/lib/utilities/Dialog/Dialog.svelte#L95"
+						target="_blank"
+						rel="noreferrer">available parent prop values</a
 					>.
 				</li>
 				<li>Use the <code>parent.onClose()</code> or <code>dialogStore.close()</code> methods to close the dialog.</li>

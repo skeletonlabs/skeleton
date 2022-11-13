@@ -48,8 +48,12 @@
 	<header class="space-y-4">
 		<h1>Themes</h1>
 		<p>
-			Skeleton themes integrate with Tailwind using <a href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank" rel="noreferrer">CSS custom properties</a>. Themes
-			support <a href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank" rel="noreferrer">color opacity</a>,
+			Skeleton themes integrate with Tailwind using <a
+				href="https://tailwindcss.com/docs/customizing-colors#using-css-variables"
+				target="_blank"
+				rel="noreferrer">CSS custom properties</a
+			>. Themes support
+			<a href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank" rel="noreferrer">color opacity</a>,
 			<a href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="noreferrer">dark mode</a>, and the
 			<a href="/elements/tokens">design token system</a>
 		</p>
@@ -101,7 +105,10 @@
 		<!-- Framework: SvelteKit -->
 		{#if $storeFramework === 'sveltekit'}
 			<p>Import your desired preset into <code>src/routes/+layout.svelte</code> before your global stylesheet.</p>
-			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/themes/theme-{name}.css'; // <--\nimport '../app.postcss';\n`} />
+			<CodeBlock
+				language="typescript"
+				code={`import '@brainandbones/skeleton/themes/theme-{name}.css'; // <--\nimport '../app.postcss';\n`}
+			/>
 			<!-- Framework: Vite (Svelte) -->
 		{:else if $storeFramework === 'vite'}
 			<p>Import your desired preset into <code>/src/main.js</code> before your global stylesheet.</p>
