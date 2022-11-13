@@ -19,7 +19,7 @@
 		dataTableSelect,
 		dataTableSelectAll,
 		dataTableSort,
-		dataTableInteraction,
+		tableInteraction,
 		tableA11y
 	} from '$lib/utilities/DataTable/DataTable';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
@@ -71,7 +71,7 @@
 			<div class="card-body">
 				<div class="table-container">
 					<!-- prettier-ignore -->
-					<table class="table table-hover" role="grid" use:dataTableInteraction use:tableA11y>
+					<table class="table table-hover" role="grid" use:tableInteraction use:tableA11y>
 						<thead on:click={(e) => { dataTableSort(e, dataTableModel) }} on:keypress>
 							<tr>
 								<th><input type="checkbox" on:click={(e) => { dataTableSelectAll(e, dataTableModel) }} /></th>
@@ -145,7 +145,7 @@ import {
 	dataTableSelectAll,
 	dataTableSort,
 	// Svelte Actions
-	dataTableInteraction,
+	tableInteraction,
 	tableA11y
 } from '@brainandbones/skeleton';
 			`}
@@ -275,10 +275,10 @@ dataTableModel.subscribe((v) => dataTableHandler(v));
 			<CodeBlock language="html" code={`<th data-sort="position">Position</th>`} />
 			<p>
 				While sort is working, we're lacking a visual UI indicator. To handle this, implement the Svelte Action called <code
-					>dataTableInteraction</code
+					>tableInteraction</code
 				> to your table element. This adds the appropriate CSS classes that show &uarr and &darr; sort arrows.
 			</p>
-			<CodeBlock language="html" code={`<table ... use:dataTableInteraction>`} />
+			<CodeBlock language="html" code={`<table ... use:tableInteraction>`} />
 		</section>
 		<!-- Selection -->
 		<section class="space-y-4">

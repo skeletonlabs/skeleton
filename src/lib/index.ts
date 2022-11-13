@@ -25,7 +25,7 @@ export {
 	dataTableSelectAll,
 	dataTableSort,
 	// Svelte Actions
-	dataTableInteraction,
+	tableInteraction,
 	tableA11y
 } from '$lib/utilities/DataTable/DataTable';
 export { localStorageStore } from './utilities/LocalStorageStore/LocalStorageStore';
