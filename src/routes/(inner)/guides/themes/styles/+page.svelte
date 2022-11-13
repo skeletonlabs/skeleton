@@ -67,7 +67,7 @@
 	<section class="grid grid-cols-[1fr_auto] gap-4">
 		<div class="space-y-4">
 			<h2>Design Tokens</h2>
-			<p>These are preset utility classes generated from your theme CSS properties. See the documentation for full details.</p>
+			<p>Preset utility classes based on your theme CSS property settings.</p>
 		</div>
 		<a class="btn btn-filled-accent place-self-center" href="/elements/tokens">Design Tokens</a>
 	</section>

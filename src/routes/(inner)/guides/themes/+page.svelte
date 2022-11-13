@@ -52,10 +52,10 @@
 				href="https://tailwindcss.com/docs/customizing-colors#using-css-variables"
 				target="_blank"
 				rel="noreferrer">CSS custom properties</a
-			>. Themes support
+			>. Skeleton themes support
 			<a href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank" rel="noreferrer">color opacity</a>,
-			<a href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="noreferrer">dark mode</a>, and the
-			<a href="/elements/tokens">design token system</a>
+			<a href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="noreferrer">dark mode</a>, and
+			<a href="/elements/tokens">design token</a>.
 		</p>
 	</header>
 
@@ -67,7 +67,7 @@
 			<div class="card card-body flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 				<div class="space-y-2">
 					<h2>Theme Generator</h2>
-					<p>This tool provides a means to generate a custom theme.</p>
+					<p>This tool allows you to generate a custom Skeleton theme.</p>
 				</div>
 				<a class="btn btn-filled-accent" href="/guides/themes/generator">Create a Theme</a>
 			</div>
@@ -107,7 +107,7 @@
 			<p>Import your desired preset into <code>src/routes/+layout.svelte</code> before your global stylesheet.</p>
 			<CodeBlock
 				language="typescript"
-				code={`import '@brainandbones/skeleton/themes/theme-{name}.css'; // <--\nimport '../app.postcss';\n`}
+				code={`import '@brainandbones/skeleton/themes/theme-skeleton.css'; // <--\nimport '../app.postcss';\n`}
 			/>
 			<!-- Framework: Vite (Svelte) -->
 		{:else if $storeFramework === 'vite'}
@@ -129,7 +129,7 @@
 	<section class="grid grid-cols-[1fr_auto] gap-4">
 		<div class="space-y-4">
 			<h2>Theme Styles</h2>
-			<p>View recommendations for utilizing theme styles within your application.</p>
+			<p>Learn how to use theme styles within your project.</p>
 		</div>
 		<a class="btn btn-filled-accent place-self-center" href="/guides/themes/styles">Theme Styles</a>
 	</section>

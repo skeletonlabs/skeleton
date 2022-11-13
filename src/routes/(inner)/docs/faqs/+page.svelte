@@ -22,30 +22,30 @@
 		<h2>What package managers are supported?</h2>
 		<p>
 			We support <a href="https://docs.npmjs.com/about-npm" target="_blank" rel="noreferrer">NPM (Node Package Manager)</a>. Neither Yarn or
-			PNPM are officially supported, though they may work with some minor adjustments.
+			PNPM are officially supported at this time.
 		</p>
 	</section>
 
 	<section class="space-y-4">
 		<h2>Can I use a monorepo?</h2>
 		<p>
-			Yes, but please be mindful of the <code>node_modules</code> path in your project configuration. We <u>do not</u> tailor our instruction
-			for this use case.
+			Yes, but please be mindful of the <code>node_modules</code> path in your project configuration. We <u>do not</u> tailor instruction for
+			this use case.
 		</p>
 	</section>
 
 	<section class="space-y-4">
 		<h2>Do you have a project roadmap?</h2>
 		<p>
-			Yes, <a href="https://github.com/Brain-Bones/skeleton/discussions/503" target="_blank" rel="noreferrer">view our roadmap</a>. Note
-			this covers up to the v1.0 release.
+			Yes, <a href="https://github.com/Brain-Bones/skeleton/discussions/503" target="_blank" rel="noreferrer">view our roadmap</a>. This
+			covers major milestones leading up to the v1.0 release.
 		</p>
 	</section>
 
 	<section class="space-y-4">
 		<h2>How can I contribute?</h2>
 		<p>
-			We have provided a detailed <a href="/docs/contributions">contribution guide</a>. This covers all requirements for getting started.
+			See the <a href="/docs/contributions">contribution guide</a>. This covers all requirements for getting started.
 		</p>
 	</section>
 

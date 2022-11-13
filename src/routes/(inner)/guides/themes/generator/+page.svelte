@@ -22,7 +22,7 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Theme Generator</h1>
-		<p>Use the form below to genreate a custom Skeleton theme.</p>
+		<p>Use the form below to generate a custom Skeleton theme.</p>
 	</header>
 
 	<hr />
@@ -39,17 +39,19 @@
 			<Tab value="astro">Astro</Tab>
 		</TabGroup>
 		{#if $storeFramework === 'sveltekit'}
-			<p>Add your custom theme to <code>/src/theme.postcss</code>, then import this file into <code>/src/routes/+layout.svelte</code>.</p>
+			<p>Copy and paste your theme CSS into <code>/src/theme.postcss</code>, then import it in <code>/src/routes/+layout.svelte</code>.</p>
 			<CodeBlock language="typescript" code={`import '../theme.postcss';`} />
 		{:else if $storeFramework === 'vite'}
-			<p>Add your custom theme to <code>/src/theme.css</code>, then import this file into <code>/src/main.js</code>:</p>
+			<p>Copy and paste your theme CSS into <code>/src/theme.css</code>, then import it in <code>/src/main.js</code>:</p>
 			<CodeBlock language="typescript" code={`import '../theme.css';`} />
 		{:else if $storeFramework === 'astro'}
 			<p>
-				Add your custom theme to <code>/src/styles/theme.css</code>, then import this file into <code>/src/layouts/LayoutBasic.astro</code>.
+				Copy and paste your theme CSS into <code>/src/styles/theme.css</code>, then import it in
+				<code>/src/layouts/LayoutBasic.astro</code>.
 			</p>
 			<CodeBlock language="typescript" code={`import '../styles/theme.css';`} />
 		{/if}
+		<p>Import this <u>before</u> your global stylesheet.</p>
 	</section>
 
 	<hr />
@@ -58,8 +60,11 @@
 	<section class="space-y-4">
 		<h2>Advanced Color Curation</h2>
 		<p>
-			We recommend <a href="https://tailwind.simeongriggs.dev/blue/3B82F6" target="_blank" rel="noreferrer">Palette Generator</a> to curate
-			a custom theme. This includes support for hue, saturation, and lightness adjustments. Pair this with the
+			Looking for deeper customization? We recommend using <a
+				href="https://tailwind.simeongriggs.dev/blue/3B82F6"
+				target="_blank"
+				rel="noreferrer">Palette Generator</a
+			>. This includes support for hue, saturation, and lightness adjustments. Pair this with the
 			<a href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba" target="_blank" rel="noreferrer"
 				>Hex-To-RGB extension</a
 			>
