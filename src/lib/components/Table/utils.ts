@@ -3,6 +3,7 @@
 // Cell Formatters ---
 
 // NOTE: this would require `onMount`, which is too slow, so may just nix this.
+// REMINDER: if re-enabled, update `index.ts`!
 /** Wrap object key value with an HTML tag.  */
 // export function tableCellFormatter(source: any[], key: string, tagName: string, classes?: string) {
 // 	return source.map((row) => {

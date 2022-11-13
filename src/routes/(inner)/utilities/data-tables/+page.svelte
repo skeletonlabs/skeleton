@@ -137,14 +137,17 @@
 				language="ts"
 				code={`
 import {
+	// Types
 	type DataTableModel,
+	// Utilities
 	dataTableHandler,
 	dataTableSelect,
 	dataTableSelectAll,
 	dataTableSort,
+	// Svelte Actions
 	dataTableInteraction,
 	tableA11y
-} from '$lib/utilities/DataTable/DataTable';
+} from '@brainandbones/skeleton';
 			`}
 			/>
 			<p>

@@ -1,18 +1,58 @@
-// This file defines the short path import for the package (ex: @brainandbones/skeleton/*)
+// This file defines the short path imports for the package (ex: @brainandbones/skeleton/*)
 
-// Components ---
+// Types ---
+
+export type { ConicStop } from './components/ConicGradient/types';
+export type { DialogSettings, DialogComponent } from './utilities/Dialog/types';
+export type { ToastSettings } from './utilities/Toast/types';
+export type { TableSource } from './components/Table/types';
+
+// Stores ---
+
+export { storeHighlightJs } from './utilities/CodeBlock/stores';
+export { dialogStore } from './utilities/Dialog/stores';
+export { toastStore } from './utilities/Toast/stores';
+export { storePrefersDarkScheme, storeLightSwitch } from './utilities/LightSwitch/stores';
+
+// Utilities ---
+
+export {
+	// Types
+	type DataTableModel,
+	// Utilities
+	dataTableHandler,
+	dataTableSelect,
+	dataTableSelectAll,
+	dataTableSort,
+	// Svelte Actions
+	dataTableInteraction,
+	tableA11y
+} from '$lib/utilities/DataTable/DataTable';
+export { localStorageStore } from './utilities/LocalStorageStore/LocalStorageStore';
+// Component Utilities
+export { tableSourceMapper, tableSourceValues, tableMapperValues } from './components/Table/utils';
+
+// Svelte Actions ---
+
+export { clipboard } from './actions/Clipboard/clipboard';
+export { filter } from './actions/Filters/filter';
+export { focusTrap } from './actions/FocusTrap/focusTrap';
+// Utility Actions
+export { menu } from './utilities/Menu/menu';
+export { tooltip } from './utilities/Tooltip/tooltip';
+
+// Svelte Components ---
 
 export { default as AccordionGroup } from './components/Accordion/AccordionGroup.svelte';
 export { default as AccordionItem } from './components/Accordion/AccordionItem.svelte';
+export { default as Alert } from './components/Alert/Alert.svelte';
 export { default as AppBar } from './components/AppBar/AppBar.svelte';
 export { default as AppRail } from './components/AppRail/AppRail.svelte';
 export { default as AppRailTile } from './components/AppRail/AppRailTile.svelte';
 export { default as AppShell } from './components/AppShell/AppShell.svelte';
-export { default as Alert } from './components/Alert/Alert.svelte';
 export { default as Avatar } from './components/Avatar/Avatar.svelte';
 export { default as Breadcrumb } from './components/Breadcrumb/Breadcrumb.svelte';
 export { default as Crumb } from './components/Breadcrumb/Crumb.svelte';
-export { type ConicStop } from './components/ConicGradient/types';
 export { default as ConicGradient } from './components/ConicGradient/ConicGradient.svelte';
 export { default as Divider } from './components/Divider/Divider.svelte';
 export { default as FileButton } from './components/FileButton/FileButton.svelte';
@@ -27,51 +67,18 @@ export { default as RadioGroup } from './components/Radio/RadioGroup.svelte';
 export { default as RadioItem } from './components/Radio/RadioItem.svelte';
 export { default as RangeSlider } from './components/RangeSlider/RangeSlider.svelte';
 export { default as SlideToggle } from './components/SlideToggle/SlideToggle.svelte';
-export { default as Step } from './components/Stepper/Step.svelte';
 export { default as Stepper } from './components/Stepper/Stepper.svelte';
+export { default as Step } from './components/Stepper/Step.svelte';
+export { default as Table } from './components/Table/Table.svelte';
 export { default as TabGroup } from './components/Tab/TabGroup.svelte';
 export { default as Tab } from './components/Tab/Tab.svelte';
-export { default as DataTable } from './components/Table/DataTable.svelte';
-
-// Utilities ---
-
-// CodeBlock
-export { storeHighlightJs } from './utilities/CodeBlock/stores';
+// Utility Components
 export { default as CodeBlock } from './utilities/CodeBlock/CodeBlock.svelte';
-
-// Drawer
-export { default as Drawer } from './utilities/Drawer/Drawer.svelte';
-
-// Dialog
-export { dialogStore } from './utilities/Dialog/stores';
-export { type DialogSettings, type DialogComponent } from './utilities/Dialog/types';
 export { default as Dialog } from './utilities/Dialog/Dialog.svelte';
-
-// Toast
-export { toastStore } from './utilities/Toast/stores';
-export { type ToastSettings } from './utilities/Toast/types';
-export { default as Toast } from './utilities/Toast/Toast.svelte';
-
-// LightSwitch
-export { storePrefersDarkScheme, storeLightSwitch } from './utilities/LightSwitch/stores';
+export { default as Drawer } from './utilities/Drawer/Drawer.svelte';
 export { default as LightSwitch } from './utilities/LightSwitch/LightSwitch.svelte';
-
-// LightSwitch
-export { localStorageStore } from './utilities/LocalStorageStore/LocalStorageStore';
-
-// Menus
-export { menu } from './utilities/Menu/menu';
-
-// Tooltips
-export { tooltip } from './utilities/Tooltip/tooltip';
-
-// Actions ---
-
-export { clipboard } from './actions/Clipboard/clipboard';
-export { focusTrap } from './actions/FocusTrap/focusTrap';
-
-// Filters
-export { filter } from './actions/Filters/filter';
+export { default as Toast } from './utilities/Toast/Toast.svelte';
+// Filter Components
 export { default as Apollo } from './actions/Filters/svg-filters/Apollo.svelte';
 export { default as BlueNight } from './actions/Filters/svg-filters/BlueNight.svelte';
 export { default as Emerald } from './actions/Filters/svg-filters/Emerald.svelte';

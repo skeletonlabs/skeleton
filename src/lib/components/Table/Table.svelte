@@ -2,7 +2,7 @@
 	import { createEventDispatcher } from 'svelte';
 
 	import type { TableSource } from '$lib/components/Table/types';
-	import { tableA11y } from '$lib/utilities/DataTable/a11y';
+	import { tableA11y } from '$lib/utilities/DataTable/DataTable';
 
 	const dispatch = createEventDispatcher();
 
