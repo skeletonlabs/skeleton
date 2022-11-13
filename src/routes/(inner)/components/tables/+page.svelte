@@ -60,13 +60,13 @@
 	const totalWeight = sourceData.reduce((accumulator, obj) => accumulator + obj.weight, 0);
 
 	// Cell Formatting
-	tableCellFormatter(sourceData, 'position', '<span class="opacity-50">', '</span>');
-	tableCellFormatter(sourceData, 'weight', '<code>', '</code>');
+	tableCellFormatter(sourceData, 'symbol', 'span', 'opacity-50');
+	tableCellFormatter(sourceData, 'weight', 'code');
 
 	// Table Simple
 	const tableSimple: TableSource = {
-		head: ['Name', 'Symbol', 'Weight'],
-		body: tableMapperValues(sourceData, ['name', 'symbol', 'weight']),
+		head: ['Symbol', 'Name', 'Weight'],
+		body: tableMapperValues(sourceData, ['symbol', 'name', 'weight']),
 		meta: tableMapperValues(sourceData, ['position', 'name', 'symbol', 'weight']),
 		foot: ['Total', '', `<code>${totalWeight}</code>`]
 	};
@@ -149,10 +149,10 @@ const tableSimple: TableSource = {
 				<CodeBlock
 					language="ts"
 					code={`
-tableCellFormatter(sourceData, 'weight', '<code>', '</code>');\n
+tableCellFormatter(sourceData, 'weight', 'em', 'opacity-50');\n
 // [
-//     { position: 1, name: 'Hydrogen', weight: '<code>1.0079</code>', symbol: 'H' },
-//     { position: 2, name: 'Helium', weight: '<code>4.0026</code>', symbol: 'He' },
+//     { position: 1, name: 'Hydrogen', weight: '<em class="opacity-50">1.0079</em>', symbol: 'H' },
+//     { position: 2, name: 'Helium', weight: '<em class="opacity-50">4.0026</em>', symbol: 'He' },
 //     ...
 // ]
 					`}

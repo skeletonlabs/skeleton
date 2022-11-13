@@ -34,24 +34,22 @@ export function tableA11y(node: HTMLElement) {
 
 function a11ySetActiveCell(node: HTMLElement, x: number, y: number): void {
 	// Focused Element
-	const focusedElem: Element | null = document.activeElement;
+	const focusedElem = document.activeElement;
 	if (!focusedElem || !focusedElem.parentElement || !focusedElem.parentElement.ariaRowIndex || !focusedElem.ariaColIndex) return;
-	const focusedElemRowIndex: number = parseInt(focusedElem.parentElement.ariaRowIndex);
-	const focusedElemColIndex: number = parseInt(focusedElem.ariaColIndex);
+	const focusedElemRowIndex = parseInt(focusedElem.parentElement.ariaRowIndex);
+	const focusedElemColIndex = parseInt(focusedElem.ariaColIndex);
 	// Target Element
-	const targetRowElement: HTMLElement | null = node.querySelector(`[aria-rowindex="${focusedElemRowIndex + y}"]`);
+	const targetRowElement = node.querySelector(`[aria-rowindex="${focusedElemRowIndex + y}"]`);
 	if (targetRowElement !== null) {
 		const targetColElement: HTMLElement | null = targetRowElement.querySelector(`[aria-colindex="${focusedElemColIndex + x}"]`);
-		if (targetColElement !== null) {
-			targetColElement.focus();
-		}
+		if (targetColElement !== null) targetColElement.focus();
 	}
 }
 function a11yGetTargetElem(node: HTMLElement): HTMLElement | null {
 	// Focused Element
-	const focusedElem: Element | null = document.activeElement;
+	const focusedElem = document.activeElement;
 	if (!focusedElem || !focusedElem.parentElement || !focusedElem.parentElement.ariaRowIndex) return null;
-	const focusedElemRowIndex: number = parseInt(focusedElem.parentElement.ariaRowIndex);
+	const focusedElemRowIndex = parseInt(focusedElem.parentElement.ariaRowIndex);
 	// Return Target Element
 	return node.querySelector(`[aria-rowindex="${focusedElemRowIndex}"]`);
 }
@@ -59,7 +57,7 @@ function a11yGetTargetElem(node: HTMLElement): HTMLElement | null {
 function a11yJumpToOuterColumn(node: HTMLElement, type: 'first' | 'last' = 'first'): void {
 	const targetRowElement = a11yGetTargetElem(node);
 	if (targetRowElement === null) return;
-	const lastIndex: number = targetRowElement.children.length;
+	const lastIndex = targetRowElement.children.length;
 	const selected = type === 'first' ? 1 : lastIndex;
 	const targetColElement: HTMLElement | null = targetRowElement.querySelector(`[aria-colindex="${selected}"]`);
 	if (targetColElement === null) return;

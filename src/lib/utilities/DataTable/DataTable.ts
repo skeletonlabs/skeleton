@@ -34,7 +34,7 @@ function selectionHandler(store: DataTableModel): void {
 
 /** Allows you to dynamically pre-select rows on-demand. */
 export function dataTableSelect(store: Writable<DataTableModel>, key: string, valuesArr: any): void {
-	const storeSelected = get(store).filtered.map((row) => {
+	get(store).filtered.map((row) => {
 		if (valuesArr.includes(row[key])) row.dataTableChecked = true;
 		return row;
 	});
@@ -68,8 +68,9 @@ const sortState: Record<string, string | boolean> = { lastKey: '', asc: true };
 
 /** Listens for clicks to a table heading with `data-sort` attribute. Updates `$dataTableModel.sort`. */
 export function dataTableSort(event: any, store: Writable<DataTableModel>): void {
-	const sortBy: string = event.target.dataset.sort;
-	if (sortBy) dataTableStorePut(store, 'sort', sortBy);
+	if (!(event.target instanceof Element)) return;
+	const newSortKey = event.target.getAttribute('data-sort');
+	if (newSortKey) dataTableStorePut(store, 'sort', newSortKey);
 }
 
 function sortHandler(store: DataTableModel): void {
@@ -77,29 +78,21 @@ function sortHandler(store: DataTableModel): void {
 	// If same key used repeated, toggle asc/dsc order
 	sortState.asc = store.sort === sortState.lastKey ? !sortState.asc : true;
 	// Sort order based on current sortState.asc value
-	sortState.asc ? sortAsc(store) : sortDesc(store);
+	sortState.asc ? sortOrder('asc', store) : sortOrder('dsc', store);
 	// Cache the last key used
 	sortState.lastKey = store.sort;
 }
 
-function sortAsc(store: DataTableModel): void {
+function sortOrder(order: string, store: DataTableModel): void {
 	const key: string = store.sort;
 	store.filtered.sort((x, y) => {
+		// If descending, swap x/y
+		if (order === 'dsc') [x, y] = [y, x];
+		// Sort logic
 		if (typeof x[key] === 'string' && typeof y[key] === 'string') {
 			return String(x[key]).localeCompare(String(y[key]));
 		} else {
 			return (x[key] as number) - (y[key] as number);
-		}
-	});
-}
-
-function sortDesc(store: DataTableModel): void {
-	const key: string = store.sort;
-	store.filtered.sort((x, y) => {
-		if (typeof y[key] === 'string' && typeof x[key] === 'string') {
-			return String(y[key]).localeCompare(String(x[key]));
-		} else {
-			return (y[key] as number) - (x[key] as number);
 		}
 	});
 }
@@ -111,7 +104,8 @@ export function dataTableInteraction(node: HTMLElement) {
 	const classAsc: string = 'table-sort-asc';
 	const classDsc: string = 'table-sort-dsc';
 	// Click Handler
-	const onClick = (e: any): any => {
+	const onClick = (e: any) => {
+		if (!(e.target instanceof Element)) return;
 		// Clear asc class
 		const elemAsc = node.querySelector(`.${classAsc}`);
 		if (elemAsc) elemAsc.classList.remove(classAsc);
@@ -119,8 +113,7 @@ export function dataTableInteraction(node: HTMLElement) {
 		const elemDsc = node.querySelector(`.${classDsc}`);
 		if (elemDsc) elemDsc.classList.remove(classDsc);
 		// Add asc class to data-sort target
-		const sortBy: string = e.target.dataset.sort;
-		if (sortBy) {
+		if (e.target.getAttribute('data-sort')) {
 			const classToApply = sortState.asc ? classAsc : classDsc;
 			e.target.classList.add(classToApply);
 		}

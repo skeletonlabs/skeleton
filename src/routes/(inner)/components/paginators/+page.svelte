@@ -44,10 +44,10 @@
 	} as PaginationSettings;
 
 	// Event Handlers
-	function onPageChange(e: any): void {
+	function onPageChange(e: CustomEvent): void {
 		console.log('Paginator - event:page', e.detail);
 	}
-	function onAmountChange(e: any): void {
+	function onAmountChange(e: CustomEvent): void {
 		console.log('Paginator - event:amount', e.detail);
 	}
 
@@ -95,7 +95,7 @@ $: page = {
 					rel="noreferrer">slice</a
 				> method. See a minimal example below.
 			</p>
-			<CodeBlock language="typescript" code={`const source: any[] = [ /* any array of objects */ ]`} />
+			<CodeBlock language="typescript" code={`const source = [ /* any array of objects */ ]`} />
 			<CodeBlock
 				language="typescript"
 				code={`

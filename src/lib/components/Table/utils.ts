@@ -1,12 +1,15 @@
-// Table Utils
+// Table Component Utilities
 
 // Cell Formatters ---
 
-/** Wrap object key value with HTML tags.  */
-export function tableCellFormatter(object: any[], key: string, openTag: string, closeTag: string): any[] {
-	return object.map((row) => {
+/** Wrap object key value with an HTML tag.  */
+export function tableCellFormatter(source: any[], key: string, tagName: string, classes?: string) {
+	return source.map((row) => {
 		if (row[key]) {
-			row[key] = `${openTag}${row[key]}${closeTag}`;
+			const newElem: HTMLElement = document.createElement(tagName);
+			newElem.innerHTML = row[key];
+			if (classes) newElem.setAttribute('class', classes);
+			row[key] = newElem.outerHTML;
 		}
 		return row;
 	});
@@ -15,8 +18,8 @@ export function tableCellFormatter(object: any[], key: string, openTag: string, 
 // Source Formatters ---
 
 /** Map an object to a defined order. */
-export function tableSourceMapper(object: any[], keys: string[]): any[] {
-	return object.map((row) => {
+export function tableSourceMapper(source: any[], keys: string[]): any[] {
+	return source.map((row) => {
 		const mappedRow: any = {};
 		keys.forEach((key) => (mappedRow[key] = row[key]));
 		return mappedRow;
@@ -24,11 +27,11 @@ export function tableSourceMapper(object: any[], keys: string[]): any[] {
 }
 
 /** Map an array of objects to an array of values. */
-export function tableSourceValues(object: any[]): any[] {
-	return object.map((row) => Object.values(row));
+export function tableSourceValues(source: any[]): any[] {
+	return source.map((row) => Object.values(row));
 }
 
 /** Sets object order and returns values. */
-export function tableMapperValues(object: any[], keys: string[]): any[] {
-	return tableSourceValues(tableSourceMapper(object, keys));
+export function tableMapperValues(source: any[], keys: string[]): any[] {
+	return tableSourceValues(tableSourceMapper(source, keys));
 }
