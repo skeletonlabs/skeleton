@@ -20,7 +20,7 @@
 		description: 'Displays an overlay panel that attaches to any side of the screen.',
 		imports: ['Drawer'],
 		source: 'utilities/Drawer',
-		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/',
+		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/modalmodal/',
 		components: [{ sveld: sveldDrawer }],
 		keyboard: [['<kbd>Esc</kbd>', ' Closes the drawer.']]
 	};
@@ -64,7 +64,10 @@
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<h2>Create a Store</h2>
-			<p>Create a <a href="https://svelte.dev/tutorial/writable-stores" target="_blank" rel="noreferrer">Svelte writable store</a> to manage the state of the drawer.</p>
+			<p>
+				Create a <a href="https://svelte.dev/tutorial/writable-stores" target="_blank" rel="noreferrer">Svelte writable store</a> to manage the
+				state of the drawer.
+			</p>
 			<CodeBlock language="typescript" code={`import { writable, type Writable } from 'svelte/store';`} />
 			<CodeBlock language="typescript" code={`const storeDrawer: Writable<boolean> = writable(false);`} />
 		</section>
@@ -85,13 +88,18 @@
 			<p>Set the store value to <em>true</em> too open the drawer.</p>
 			<CodeBlock language="typescript" code={`const drawerOpen: any = () => { storeDrawer.set(true) };`} />
 			<CodeBlock language="html" code={`<button on:click={drawerOpen}>Open</button>`} />
-			<p>Set the store value to <em>false</em> too close the drawer. You can also tap the backdrop or hit <kbd>ESC</kbd> on your keyboard.</p>
+			<p>
+				Set the store value to <em>false</em> too close the drawer. You can also tap the backdrop or hit <kbd>ESC</kbd> on your keyboard.
+			</p>
 			<CodeBlock language="typescript" code={`const drawerClose: any = () => { storeDrawer.set(false) };`} />
 			<CodeBlock language="html" code={`<button on:click={drawerClose}>Close</button>`} />
 		</section>
 		<section class="space-y-4">
 			<h2>Pairing with App Shell</h2>
-			<p>Place the Drawer above and outside the App Shell in your root layout. This will prevent page content shifting as the Drawer changes state.</p>
+			<p>
+				Place the Drawer above and outside the App Shell in your root layout. This will prevent page content shifting as the Drawer changes
+				state.
+			</p>
 			<CodeBlock language="html" code={`<Drawer></Drawer>\n\n<AppShell></AppShell>`} />
 		</section>
 	</svelte:fragment>

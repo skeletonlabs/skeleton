@@ -9,47 +9,47 @@
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// @ts-ignore
-	import sveldDialog from '$lib/utilities/Dialog/Dialog.svelte?raw&sveld';
+	import sveldModal from '$lib/utilities/Modal/Modal.svelte?raw&sveld';
 
-	// Dialogs Utils
-	import type { DialogSettings, DialogComponent } from '$lib/utilities/Dialog/types';
-	import { dialogStore } from '$lib/utilities/Dialog/stores';
-	import DialogExampleForm from '$lib/utilities/Dialog/examples/DialogExampleForm.svelte';
-	import DialogExampleList from '$lib/utilities/Dialog/examples/DialogExampleList.svelte';
-	import DialogExampleEmbed from '$lib/utilities/Dialog/examples/DialogExampleEmbed.svelte';
+	// Modals Utils
+	import type { ModalSettings, ModalComponent } from '$lib/utilities/Modal/types';
+	import { modalStore } from '$lib/utilities/Modal/stores';
+	import ModalExampleForm from '$lib/utilities/Modal/examples/ModalExampleForm.svelte';
+	import ModalExampleList from '$lib/utilities/Modal/examples/ModalExampleList.svelte';
+	import ModalExampleEmbed from '$lib/utilities/Modal/examples/ModalExampleEmbed.svelte';
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
 	import Tab from '$lib/components/Tab/Tab.svelte';
 
 	// Stores
-	const storeDialogStandard: Writable<string> = writable('alert');
+	const storeModalStandard: Writable<string> = writable('alert');
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Utility,
-		name: 'Dialogs',
-		description: 'High priority overlay notification utilizing a dynamic queue system.',
-		imports: ['Dialog', 'dialogStore'],
-		types: ['DialogSettings', 'DialogComponent'],
-		source: 'utilities/Dialog',
-		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/',
-		components: [{ sveld: sveldDialog }],
-		keyboard: [['<kbd>Esc</kbd>', ' Dismisses the foremost dialog.']]
+		name: 'Modals',
+		description: 'High priority dialogs and modals using a dynamic queue system.',
+		imports: ['Modal', 'modalStore'],
+		types: ['ModalSettings', 'ModalComponent'],
+		source: 'utilities/Modal',
+		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/modalmodal/',
+		components: [{ sveld: sveldModal }],
+		keyboard: [['<kbd>Esc</kbd>', ' Dismisses the foremost modal.']]
 	};
 
 	// Standard ---
 
-	function dialogAlert(): void {
-		const d: DialogSettings = {
+	function modalAlert(): void {
+		const d: ModalSettings = {
 			type: 'alert',
 			title: 'Welcome to Skeleton',
-			body: 'This simple alert dialog examples uses <code>type: alert</code> and makes use of the optional <code>title</code>, <code>body</code>, and <code>image</code> values.',
+			body: 'This simple alert modal examples uses <code>type: alert</code> and makes use of the optional <code>title</code>, <code>body</code>, and <code>image</code> values.',
 			image: 'https://i.imgur.com/WOgTG96.gif'
 		};
-		dialogStore.trigger(d);
+		modalStore.trigger(d);
 	}
 
-	function dialogConfirm(): void {
-		const d: DialogSettings = {
+	function modalConfirm(): void {
+		const d: ModalSettings = {
 			type: 'confirm',
 			title: 'Please Confirm',
 			body: 'Are you sure you wish to proceed?',
@@ -57,11 +57,11 @@
 				if (r) console.log('response:', r);
 			}
 		};
-		dialogStore.trigger(d);
+		modalStore.trigger(d);
 	}
 
-	function dialogPrompt(): void {
-		const d: DialogSettings = {
+	function modalPrompt(): void {
+		const d: ModalSettings = {
 			type: 'prompt',
 			title: 'Enter Name',
 			body: 'Provide your first name in the field below.',
@@ -70,25 +70,25 @@
 				if (r) console.log('response:', r);
 			}
 		};
-		dialogStore.trigger(d);
+		modalStore.trigger(d);
 	}
 
-	function dialogMultiple(): void {
+	function modalMultiple(): void {
 		[1, 2, 3].forEach((dNum: number) => {
-			const d: DialogSettings = {
+			const d: ModalSettings = {
 				type: 'alert',
-				title: `Dialog ${dNum}`,
-				body: `The dialog body of ${dNum}.`
+				title: `Modal ${dNum}`,
+				body: `The modal body of ${dNum}.`
 			};
-			dialogStore.trigger(d);
+			modalStore.trigger(d);
 		});
 	}
 
 	// Custom ---
 
-	function dialogComponentForm(): void {
-		const c: DialogComponent = { ref: DialogExampleForm };
-		const d: DialogSettings = {
+	function modalComponentForm(): void {
+		const c: ModalComponent = { ref: ModalExampleForm };
+		const d: ModalSettings = {
 			type: 'component',
 			title: 'Custom Form Component',
 			body: 'Complete the form below and then press submit.',
@@ -97,12 +97,12 @@
 				if (r) console.log('response:', r);
 			}
 		};
-		dialogStore.trigger(d);
+		modalStore.trigger(d);
 	}
 
-	function dialogComponentList(): void {
-		const c: DialogComponent = { ref: DialogExampleList };
-		const d: DialogSettings = {
+	function modalComponentList(): void {
+		const c: ModalComponent = { ref: ModalExampleList };
+		const d: ModalSettings = {
 			type: 'component',
 			title: 'Custom List Component',
 			body: 'Make your selection then press submit.',
@@ -111,17 +111,17 @@
 				if (r) console.log('response:', r);
 			}
 		};
-		dialogStore.trigger(d);
+		modalStore.trigger(d);
 	}
 
-	function dialogComponentEmbed(): void {
-		const c: DialogComponent = { ref: DialogExampleEmbed };
-		const d: DialogSettings = {
+	function modalComponentEmbed(): void {
+		const c: ModalComponent = { ref: ModalExampleEmbed };
+		const d: ModalSettings = {
 			type: 'component',
 			component: c,
 			classes: '!p-0 !bg-black !max-w-[75%]'
 		};
-		dialogStore.trigger(d);
+		modalStore.trigger(d);
 	}
 </script>
 
@@ -130,20 +130,20 @@
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-4">
 			<div class="card card-body space-y-4">
-				<p class="text-center font-bold">Standard Dialogs</p>
+				<p class="text-center font-bold">Dialog Modals</p>
 				<div class="flex justify-center space-x-2">
-					<button class="btn btn-ghost-surface" on:click={dialogAlert}>Alert</button>
-					<button class="btn btn-ghost-surface" on:click={dialogConfirm}>Confirm</button>
-					<button class="btn btn-ghost-surface" on:click={dialogPrompt}>Prompt</button>
-					<button class="btn btn-ghost-surface" on:click={dialogMultiple}>Multiple</button>
+					<button class="btn btn-ghost-surface" on:click={modalAlert}>Alert</button>
+					<button class="btn btn-ghost-surface" on:click={modalConfirm}>Confirm</button>
+					<button class="btn btn-ghost-surface" on:click={modalPrompt}>Prompt</button>
+					<button class="btn btn-ghost-surface" on:click={modalMultiple}>Multiple</button>
 				</div>
 			</div>
 			<div class="card card-body space-y-4">
 				<p class="text-center font-bold">Custom Component Modals</p>
 				<div class="flex justify-center space-x-2">
-					<button class="btn btn-ghost-surface" on:click={dialogComponentForm}>Form</button>
-					<button class="btn btn-ghost-surface" on:click={dialogComponentList}>List</button>
-					<button class="btn btn-ghost-surface" on:click={dialogComponentEmbed}>Embed</button>
+					<button class="btn btn-ghost-surface" on:click={modalComponentForm}>Form</button>
+					<button class="btn btn-ghost-surface" on:click={modalComponentList}>List</button>
+					<button class="btn btn-ghost-surface" on:click={modalComponentEmbed}>Embed</button>
 				</div>
 			</div>
 		</section>
@@ -155,60 +155,60 @@
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<p>
-				Import and add a single instance of the Dialog component in your app's root layout. We recommend only adding this <u>ONCE</u> per app
+				Import and add a single instance of the Modal component in your app's root layout. We recommend only adding this <u>ONCE</u> per app
 				since it exists in global scope.
 			</p>
-			<CodeBlock language="html" code={`<Dialog />`} />
+			<CodeBlock language="html" code={`<Modal />`} />
 		</section>
-		<!-- Dialog Store -->
+		<!-- Modal Store -->
 		<section class="space-y-4">
-			<h2>Dialog Store</h2>
-			<p>When you wish to trigger a dialog, import the <code>dialogStore</code>, which acts as the dialog queue.</p>
-			<CodeBlock language="ts" code={`import { dialogStore } from '@brainandbones/skeleton';`} />
+			<h2>Modal Store</h2>
+			<p>When you wish to trigger a modal, import the <code>modalStore</code>, which acts as the modal queue.</p>
+			<CodeBlock language="ts" code={`import { modalStore } from '@brainandbones/skeleton';`} />
 			<h3>Trigger</h3>
-			<p>Note that <code>title</code>, <code>body</code>, and <code>image</code> are optional for <u>all</u> dialog types.</p>
-			<TabGroup selected={storeDialogStandard}>
+			<p>Note that <code>title</code>, <code>body</code>, and <code>image</code> are optional for <u>all</u> modal types.</p>
+			<TabGroup selected={storeModalStandard}>
 				<Tab value="alert">Alert</Tab>
 				<Tab value="confirm">Confirm</Tab>
 				<Tab value="prompt">Prompt</Tab>
 			</TabGroup>
-			{#if $storeDialogStandard === 'alert'}
+			{#if $storeModalStandard === 'alert'}
 				<CodeBlock
 					language="ts"
 					code={`
 function triggerAlert(): void {
-	const d: DialogSettings = {
+	const alert: ModalSettings = {
 		type: 'alert',
 		title: 'Example Alert',
-		body: 'This is an example dialog.',
+		body: 'This is an example modal.',
 		image: 'https://i.imgur.com/WOgTG96.gif'
 	};
-	dialogStore.trigger(d);
+	modalStore.trigger(alert);
 }
 				`}
 				/>
-			{:else if $storeDialogStandard === 'confirm'}
+			{:else if $storeModalStandard === 'confirm'}
 				<CodeBlock
 					language="ts"
 					code={`
 function triggerConfirm(): void {
-	const d: DialogSettings = {
+	const confirm: ModalSettings = {
 		type: 'confirm',
 		title: 'Please Confirm',
 		body: 'Are you sure you wish to proceed?',
 		// confirm = TRUE | cancel = FALSE
 		response: (r: boolean) => console.log('response:', r)
 	};
-	dialogStore.trigger(d);
+	modalStore.trigger(confirm);
 }
 				`}
 				/>
-			{:else if $storeDialogStandard === 'prompt'}
+			{:else if $storeModalStandard === 'prompt'}
 				<CodeBlock
 					language="ts"
 					code={`
 function triggerPrompt(): void {
-	const d: DialogSettings = {
+	const prompt: ModalSettings = {
 		type: 'prompt',
 		title: 'Enter Name',
 		body: 'Provide your first name in the field below.',
@@ -217,34 +217,34 @@ function triggerPrompt(): void {
 		// Returns the updated response value
 		response: (r: string) => console.log('response:', r)
 	};
-	dialogStore.trigger(d);
+	modalStore.trigger(prompt);
 }
 				`}
 				/>
 			{/if}
 			<!-- Close -->
 			<h3>Close</h3>
-			<p>Trigger the <code>close()</code> method to remove the first dialog in the dialog queue.</p>
-			<CodeBlock language="ts" code={`dialogStore.close();`} />
+			<p>Trigger the <code>close()</code> method to remove the first modal in the modal queue.</p>
+			<CodeBlock language="ts" code={`modalStore.close();`} />
 			<!-- Clear -->
 			<h3>Clear</h3>
-			<p>Trigger the <code>clear()</code> method completely empty the dialog queue.</p>
-			<CodeBlock language="ts" code={`dialogStore.clear();`} />
+			<p>Trigger the <code>clear()</code> method completely empty the modal queue.</p>
+			<CodeBlock language="ts" code={`modalStore.clear();`} />
 			<!-- Debugging -->
 			<h3>Debugging the Queue</h3>
 			<p>Use the following technique to visualize the contents of the store for debugging.</p>
-			<CodeBlock language="html" code={`<pre>queue: {JSON.stringify($dialogStore, null, 2)}</pre>`} />
+			<CodeBlock language="html" code={`<pre>queue: {JSON.stringify($modalStore, null, 2)}</pre>`} />
 		</section>
-		<!-- Customizing Dialogs -->
+		<!-- Customizing Modals -->
 		<section class="space-y-4">
-			<h2>Customizing Dialogs</h2>
+			<h2>Customizing Modals</h2>
 			<p>
-				To customize an individual dialog, append <code>classes</code> and provide the classes you wish to be applied to the dialog modal window.
+				To customize an individual modal, append <code>classes</code> and provide the classes you wish to be applied to the modal window.
 			</p>
 			<CodeBlock
 				language="ts"
 				code={`
-const d: DialogSettings = {
+const d: ModalSettings = {
 	type: 'alert',
 	// ...
 	classes: '!p-0 !bg-green-500 !max-w-[75%]'
@@ -259,13 +259,13 @@ const d: DialogSettings = {
 				<span class="badge bg-warning-500">Advanced</span>
 				<h2>Component Modals</h2>
 			</div>
-			<p>You can create a custom modal by passing a <code>DialogComponent</code> object, which includes any Svelte component.</p>
+			<p>You can create a custom modal by passing a <code>ModalComponent</code> object, which includes any Svelte component.</p>
 			<CodeBlock
 				language="ts"
 				code={`
 // import MyCustomComponent from '...';\n
 function triggerCustomModal(): void {
-	const customModalComp: DialogComponent = {
+	const modalComponent: ModalComponent = {
 		// Pass a reference to your custom component
 		ref: MyCustomComponent,
 		// Add your props as key/value pairs
@@ -273,12 +273,12 @@ function triggerCustomModal(): void {
 		// Provide default slot content as a template literal
 		slot: '<p>Skeleton</p>'
 	};
-	const d: DialogSettings = {
+	const d: ModalSettings = {
 		type: 'component',
-		component: customModalComp
+		component: modalComponent
 		// NOTE: title, body, response, etc are supported!
 	};
-	dialogStore.trigger(d);
+	modalStore.trigger(d);
 }
 				`}
 			/>
@@ -288,28 +288,28 @@ function triggerCustomModal(): void {
 			</p>
 			<a
 				class="btn btn-filled-accent"
-				href="https://github.com/Brain-Bones/skeleton/tree/feature/master/src/lib/utilities/Dialog/examples"
+				href="https://github.com/Brain-Bones/skeleton/tree/feature/master/src/lib/utilities/Modal/examples"
 				target="_blank"
 				rel="noreferrer">View Example Modals</a
 			>
 			<p>Below are a few tips and recommendations for custom modals:</p>
 			<ul class="list-disc list-inside space-y-1">
 				<li>
-					Import and use the <code>dialogStore</code> to interface directly with the active dialog queue. <code>$dialogStore[0]</code> is the
-					visible dialog index.
+					Import and use the <code>modalStore</code> to interface directly with the active modal queue. <code>$modalStore[0]</code> is the visible
+					modal index.
 				</li>
 				<li>
 					Parent props are available via <code>parent</code> - ex: <code>parent.background</code> will provide the background color prop.
 				</li>
 				<li>
 					You can inspect the full list of <a
-						href="https://github.com/Brain-Bones/skeleton/blob/feature/master/src/lib/utilities/Dialog/Dialog.svelte#L95"
+						href="https://github.com/Brain-Bones/skeleton/blob/feature/master/src/lib/utilities/Modal/Modal.svelte#L95"
 						target="_blank"
 						rel="noreferrer">available parent prop values</a
 					> in the source code.
 				</li>
-				<li>Use the <code>parent.onClose()</code> or <code>dialogStore.close()</code> methods to close the dialog.</li>
-				<li>Use the <code>$dialogStore[0].response('myResponseDataHere');</code> method to return a response value.</li>
+				<li>Use the <code>parent.onClose()</code> or <code>modalStore.close()</code> methods to close the modal.</li>
+				<li>Use the <code>$modalStore[0].response('myResponseDataHere');</code> method to return a response value.</li>
 			</ul>
 		</section>
 	</svelte:fragment>

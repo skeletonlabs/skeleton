@@ -3,14 +3,14 @@
 // Types ---
 
 export type { ConicStop } from './components/ConicGradient/types';
-export type { DialogSettings, DialogComponent } from './utilities/Dialog/types';
+export type { ModalSettings, ModalComponent } from './utilities/Modal/types';
 export type { ToastSettings } from './utilities/Toast/types';
 export type { TableSource } from './components/Table/types';
 
 // Stores ---
 
 export { storeHighlightJs } from './utilities/CodeBlock/stores';
-export { dialogStore } from './utilities/Dialog/stores';
+export { modalStore } from './utilities/Modal/stores';
 export { toastStore } from './utilities/Toast/stores';
 export { storePrefersDarkScheme, storeLightSwitch } from './utilities/LightSwitch/stores';
 
@@ -74,7 +74,7 @@ export { default as TabGroup } from './components/Tab/TabGroup.svelte';
 export { default as Tab } from './components/Tab/Tab.svelte';
 // Utility Components
 export { default as CodeBlock } from './utilities/CodeBlock/CodeBlock.svelte';
-export { default as Dialog } from './utilities/Dialog/Dialog.svelte';
+export { default as Modal } from './utilities/Modal/Modal.svelte';
 export { default as Drawer } from './utilities/Drawer/Drawer.svelte';
 export { default as LightSwitch } from './utilities/LightSwitch/LightSwitch.svelte';
 export { default as Toast } from './utilities/Toast/Toast.svelte';

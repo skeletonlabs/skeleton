@@ -7,9 +7,9 @@
 	const cBase: string = 'relative';
 </script>
 
-<!-- @component This example creates an embedded video dialog. -->
+<!-- @component This example creates an embedded video modal. -->
 
-<div class="dialog-example-form {cBase}">
+<div class="modal-example-form {cBase}">
 	<button class="absolute -top-4 -right-4 z-1 btn-icon btn-filled" on:click={parent.onClose}>✕</button>
 	<iframe
 		class="w-full aspect-video rounded-container-token overflow-hidden"

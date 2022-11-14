@@ -5,26 +5,26 @@
 	import { focusTrap } from '$lib/actions/FocusTrap/focusTrap';
 
 	// Stores
-	import { dialogStore } from '$lib/utilities/Dialog/stores';
+	import { modalStore } from '$lib/utilities/Modal/stores';
 
 	// Props
 	/** The open/close animation duration. Set '0' (zero) to disable. */
 	export let duration: number = 150;
 
-	// Props (dialog)
-	/** Provide classes to style the dialog background. */
+	// Props (modal)
+	/** Provide classes to style the modal background. */
 	export let background: string = 'bg-surface-100-800-token';
-	/** Provide classes to style the dialog width. */
+	/** Provide classes to style the modal width. */
 	export let width: string = 'w-full max-w-[640px]';
-	/** Provide classes to style the dialog. */
+	/** Provide classes to style the modal. */
 	export let height: string = 'h-auto';
-	/** Provide classes to style the dialog padding. */
+	/** Provide classes to style the modal padding. */
 	export let padding: string = 'p-4';
-	/** Provide classes to style the dialog spacing. */
+	/** Provide classes to style the modal spacing. */
 	export let spacing: string = 'space-y-4';
-	/** Provide classes to style the dialog border radius. */
+	/** Provide classes to style the modal border radius. */
 	export let rounded: string = 'rounded-container-token';
-	/** Provide classes to style dialog box shadow. */
+	/** Provide classes to style modal box shadow. */
 	export let shadow: string = 'shadow-xl';
 
 	// Props (buttons)
@@ -42,24 +42,24 @@
 	// Props (regions)
 	/** Provide classes to style the backdrop. */
 	export let regionBackdrop: string = 'bg-backdrop-token';
-	/** Provide arbitrary classes to dialog header region. */
+	/** Provide arbitrary classes to modal header region. */
 	export let regionHeader: string = 'text-2xl font-bold';
-	/** Provide arbitrary classes to dialog body region. */
+	/** Provide arbitrary classes to modal body region. */
 	export let regionBody: string = 'max-h-[200px] overflow-hidden';
-	/** Provide arbitrary classes to dialog footer region. */
+	/** Provide arbitrary classes to modal footer region. */
 	export let regionFooter: string = 'flex justify-end space-x-2';
 
 	// Base Styles
 	const cBackdrop: string = 'fixed top-0 left-0 right-0 bottom-0 z-[999] flex justify-center items-center p-4';
-	const cDialogImage: string = 'w-full h-auto';
+	const cModalImage: string = 'w-full h-auto';
 
 	// Local
 	let promptValue: any;
 
-	// Dialog Store Subscription
-	dialogStore.subscribe((dArr: any[]) => {
+	// Modal Store Subscription
+	modalStore.subscribe((dArr: any[]) => {
 		if (!dArr.length) return;
-		// Set the local dialog value (for prompt)
+		// Set the local modal value (for prompt)
 		promptValue = dArr[0].value;
 	});
 
@@ -67,34 +67,34 @@
 
 	function onBackdropClick(e: MouseEvent): void {
 		if (!(e.target instanceof Element)) return;
-		if (e.target.classList.contains('dialog-backdrop')) onClose();
+		if (e.target.classList.contains('modal-backdrop')) onClose();
 	}
 
 	function onClose(): void {
-		if ($dialogStore[0].response) $dialogStore[0].response(false);
-		dialogStore.close();
+		if ($modalStore[0].response) $modalStore[0].response(false);
+		modalStore.close();
 	}
 
 	function onConfirm(): void {
-		if ($dialogStore[0].response) $dialogStore[0].response(true);
-		dialogStore.close();
+		if ($modalStore[0].response) $modalStore[0].response(true);
+		modalStore.close();
 	}
 
 	function onPromptSubmit(): void {
-		if ($dialogStore[0].response) $dialogStore[0].response(promptValue);
-		dialogStore.close();
+		if ($modalStore[0].response) $modalStore[0].response(promptValue);
+		modalStore.close();
 	}
 
 	// A11y ---
 
 	function onKeyDown(event: KeyboardEvent): void {
-		if (!$dialogStore.length) return;
+		if (!$modalStore.length) return;
 		if (event.code === 'Escape') onClose();
 	}
 
 	// Reactive
 	$: classesBackdrop = `${cBackdrop} ${regionBackdrop} ${$$props.class || ''}`;
-	$: classesDialog = `${background} ${width} ${height} ${padding} ${spacing} ${rounded} ${shadow}`;
+	$: classesModal = `${background} ${width} ${height} ${padding} ${spacing} ${rounded} ${shadow}`;
 	// IMPORTANT: add values to pass to the children templates.
 	// There is a way to self-reference component values, but it involes svelte-internal and is not yet stable.
 	// REPL: https://svelte.dev/repl/badd0f11aa99450ca69dca6690d4d5a4?version=3.52.0
@@ -125,59 +125,65 @@
 
 <svelte:window on:keydown={onKeyDown} />
 
-{#if $dialogStore.length > 0}
-	{#key $dialogStore}
+{#if $modalStore.length > 0}
+	{#key $modalStore}
 		<!-- Backdrop -->
-		<div class="dialog-backdrop {classesBackdrop}" on:click={onBackdropClick} on:keydown transition:fade={{ duration }} data-testid="dialog-backdrop">
+		<div
+			class="modal-backdrop {classesBackdrop}"
+			on:click={onBackdropClick}
+			on:keydown
+			transition:fade={{ duration }}
+			data-testid="modal-backdrop"
+		>
 			<!-- Modal -->
 			<div
-				class="dialog {classesDialog} {$dialogStore[0].classes}"
+				class="modal {classesModal} {$modalStore[0].classes}"
 				transition:fly={{ duration, opacity: 0, y: 100 }}
 				use:focusTrap={true}
-				data-testid="dialog"
-				role="dialog"
+				data-testid="modal"
+				role="modal"
 				aria-modal="true"
-				aria-label={$dialogStore[0].title}
+				aria-label={$modalStore[0].title}
 			>
 				<!-- Header -->
-				{#if $dialogStore[0]?.title}
-					<header class="dialog-header {regionHeader}">{@html $dialogStore[0].title}</header>
+				{#if $modalStore[0]?.title}
+					<header class="modal-header {regionHeader}">{@html $modalStore[0].title}</header>
 				{/if}
 				<!-- Body -->
-				{#if $dialogStore[0]?.body}
-					<article class="dialog-body {regionBody}">{@html $dialogStore[0].body}</article>
+				{#if $modalStore[0]?.body}
+					<article class="modal-body {regionBody}">{@html $modalStore[0].body}</article>
 				{/if}
 				<!-- Image -->
-				{#if $dialogStore[0]?.image}
-					<img class="dialog-image {cDialogImage}" src={$dialogStore[0]?.image} alt="Dialog" />
+				{#if $modalStore[0]?.image}
+					<img class="modal-image {cModalImage}" src={$modalStore[0]?.image} alt="Modal" />
 				{/if}
 				<!-- Type -->
-				{#if $dialogStore[0].type === 'alert'}
+				{#if $modalStore[0].type === 'alert'}
 					<!-- Template: Alert -->
-					<footer class="dialog-footer {regionFooter}">
+					<footer class="modal-footer {regionFooter}">
 						<!-- prettier-ignore -->
 						<button class="btn {buttonNeutral}" on:click={onClose}>{buttonTextCancel}</button>
 					</footer>
-				{:else if $dialogStore[0].type === 'confirm'}
+				{:else if $modalStore[0].type === 'confirm'}
 					<!-- Template: Confirm -->
 					<!-- prettier-ignore -->
-					<footer class="dialog-footer {regionFooter}">
+					<footer class="modal-footer {regionFooter}">
 					<button class="btn {buttonNeutral}" on:click={onClose}>{buttonTextCancel}</button>
 					<button class="btn {buttonPositive}" on:click={onConfirm}>{buttonTextConfirm}</button>
 				</footer>
-				{:else if $dialogStore[0].type === 'prompt'}
+				{:else if $modalStore[0].type === 'prompt'}
 					<!-- Template: Prompt -->
-					<input class="dialog-prompt-input" type="text" bind:value={promptValue} required />
+					<input class="modal-prompt-input" type="text" bind:value={promptValue} required />
 					<!-- prettier-ignore -->
-					<footer class="dialog-footer {regionFooter}">
+					<footer class="modal-footer {regionFooter}">
 					<button class="btn {buttonNeutral}" on:click={onClose}>{buttonTextCancel}</button>
 					<button class="btn {buttonPositive}" on:click={onPromptSubmit}>{buttonTextSubmit}</button>
 				</footer>
-				{:else if $dialogStore[0].type === 'component'}
+				{:else if $modalStore[0].type === 'component'}
 					<!-- Template: Component -->
 					<!-- NOTE: users are repsonsible for handling all UI, including cancel/submit buttons -->
-					<svelte:component this={$dialogStore[0].component.ref} {...$dialogStore[0].component.props} {parent}>
-						{@html $dialogStore[0].component.slot}
+					<svelte:component this={$modalStore[0].component.ref} {...$modalStore[0].component.props} {parent}>
+						{@html $modalStore[0].component.slot}
 					</svelte:component>
 				{/if}
 			</div>

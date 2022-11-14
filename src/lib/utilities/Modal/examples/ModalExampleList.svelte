@@ -9,21 +9,21 @@
 	export let parent: any;
 
 	// Stores
-	import { dialogStore } from '$lib/utilities/Dialog/stores';
+	import { modalStore } from '$lib/utilities/Modal/stores';
 	const storeFlavor: Writable<string> = writable('chocolate');
 
 	function onFormSubmit(): void {
-		$dialogStore[0].response($storeFlavor);
-		dialogStore.close();
+		$modalStore[0].response($storeFlavor);
+		modalStore.close();
 	}
 
 	// Base Classes
 	const cBase: string = 'space-y-4';
 </script>
 
-<!-- @component This example creates a simple form dialog. -->
+<!-- @component This example creates a simple form modal. -->
 
-<div class="dialog-example-form {cBase}">
+<div class="modal-example-form {cBase}">
 	<ListBox selected={storeFlavor} regionList="border border-surface-500 p-4 rounded-container-token">
 		<ListBoxItem value="chocolate">Chocolate</ListBoxItem>
 		<ListBoxItem value="vanilla">Vanilla</ListBoxItem>
@@ -31,7 +31,7 @@
 		<ListBoxItem value="peach">Peach</ListBoxItem>
 	</ListBox>
 	<!-- prettier-ignore -->
-	<footer class="dialog-footer {parent.regionFooter}">
+	<footer class="modal-footer {parent.regionFooter}">
         <button class="btn {parent.buttonNeutral}" on:click={parent.onClose}>{parent.buttonTextCancel}</button>
         <button class="btn {parent.buttonPositive}" on:click={onFormSubmit}>Select Flavors</button>
     </footer>
