@@ -136,7 +136,7 @@
 			class="drawer {classesDrawer}"
 			data-testid="drawer"
 			transition:fly|local={{ x: animParams.x, y: animParams.y, duration }}
-			role="modal"
+			role="dialog"
 			aria-modal="true"
 			aria-labelledby={labelledby}
 			aria-describedby={describedby}
