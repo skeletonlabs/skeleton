@@ -6,13 +6,14 @@
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	// Components
-	import DataTable from '$lib/components/Table/DataTable.svelte';
+	import Table from '$lib/components/Table/Table.svelte';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	import Tab from '$lib/components/Tab/Tab.svelte';
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
 
 	// Utilities
-	import { toastStore, type ToastSettings } from '$lib/utilities/Toast/stores';
+	import { toastStore } from '$lib/utilities/Toast/stores';
+	import type { ToastSettings } from '$lib/utilities/Toast/types';
 	import { sveldMapperProps, sveldMapperSlots, sveldeMapperEvents } from './sveldMapper';
 
 	// Props
@@ -279,13 +280,11 @@
 				{#if pageSettings.components}
 					{#each pageSettings.components as comp}
 						{#if comp.sveld.props.length > 0}
-							{@const table = sveldMapperProps(comp)}
+							{@const tableSource = sveldMapperProps(comp)}
 							<section class="space-y-4">
 								{#if comp.label}<h2>{comp.label}</h2>{/if}
 								{#if comp.descProps}<div>{@html comp.descProps}</div>{/if}
-								{#if table.source.length > 0}
-									<DataTable headings={table.headings} source={table.source} />
-								{/if}
+								{#if tableSource.body.length > 0}<Table source={tableSource} />{/if}
 								{#if comp.overrideProps}<div><em>{comp.label} can override: <span class="text-primary-500">{comp.overrideProps.join(', ')}</span>.</em></div>{/if}
 							</section>
 						{/if}
@@ -300,13 +299,11 @@
 				{#if pageSettings.components}
 					{#each pageSettings.components as comp}
 						{#if comp.sveld.slots.length > 0}
-							{@const table = sveldMapperSlots(comp)}
+							{@const tableSource = sveldMapperSlots(comp)}
 							<section class="space-y-4">
 								{#if comp.label}<h2>{comp.label}</h2>{/if}
 								{#if comp.descSlots}<div>{@html comp.descSlots}</div>{/if}
-								{#if table.source.length > 0}
-									<DataTable headings={table.headings} source={table.source} />
-								{/if}
+								{#if tableSource.body.length > 0}<Table source={tableSource} />{/if}
 							</section>
 						{/if}
 					{/each}
@@ -320,13 +317,11 @@
 				{#if pageSettings.components}
 					{#each pageSettings.components as comp}
 						{#if comp.sveld.events.length > 0}
-							{@const table = sveldeMapperEvents(comp)}
+							{@const tableSource = sveldeMapperEvents(comp)}
 							<section class="space-y-4">
 								{#if comp.label}<h2>{comp.label}</h2>{/if}
 								{#if comp.descEvents}<div>{@html comp.descEvents}</div>{/if}
-								{#if table.source.length > 0}
-									<DataTable headings={table.headings} source={table.source} />
-								{/if}
+								{#if tableSource.body.length > 0}<Table source={tableSource} />{/if}
 							</section>
 						{/if}
 					{/each}
@@ -337,14 +332,24 @@
 		<!-- Tab: Action Parameters -->
 		{#if pageSettings.parameters?.length && $storeActiveTab === 'parameters'}
 			<div class="doc-shell-parameters {classesRegionPanels}">
-				<DataTable headings={['Prop', 'Type', 'Default', 'Values', 'Description']} source={pageSettings.parameters} />
+				<Table
+					source={{
+						head: ['Prop', 'Type', 'Default', 'Values', 'Description'],
+						body: pageSettings.parameters
+					}}
+				/>
 			</div>
 		{/if}
 
 		<!-- Tab: Tailwind Element Classes -->
 		{#if pageSettings.classes?.length && $storeActiveTab === 'classes'}
 			<div class="doc-shell-classes {classesRegionPanels}">
-				<DataTable headings={['Keys', 'Values', 'Description']} source={pageSettings.classes} />
+				<Table
+					source={{
+						head: ['Keys', 'Values', 'Description'],
+						body: pageSettings.classes
+					}}
+				/>
 			</div>
 		{/if}
 
@@ -352,7 +357,12 @@
 		{#if $storeActiveTab === 'keyboard'}
 			{#if pageSettings.keyboard?.length}
 				<div class="doc-shell-keyboard {classesRegionPanels}">
-					<DataTable headings={['Keys', 'Description']} source={pageSettings.keyboard} />
+					<Table
+						source={{
+							head: ['Keys', 'Description'],
+							body: pageSettings.keyboard
+						}}
+					/>
 				</div>
 			{/if}
 		{/if}

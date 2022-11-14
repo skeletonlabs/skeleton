@@ -55,7 +55,8 @@ export const menuNavLinks: any = [
 			{ href: '/elements/cards', label: 'Cards' },
 			{ href: '/elements/lists', label: 'Lists' },
 			{ href: '/elements/logo-clouds', label: 'Logo Clouds' },
-			{ href: '/elements/placeholders', label: 'Placeholders' }
+			{ href: '/elements/placeholders', label: 'Placeholders' },
+			{ href: '/elements/tables', label: 'Tables' }
 		]
 	},
 
@@ -82,7 +83,6 @@ export const menuNavLinks: any = [
 			{ href: '/components/avatars', label: 'Avatars' },
 			{ href: '/components/breadcrumbs', label: 'Breadcrumbs' },
 			{ href: '/components/conic-gradients', label: 'Conic Gradients' },
-			{ href: '/components/data-tables', label: 'Data Tables' },
 			{ href: '/components/dividers', label: 'Dividers' },
 			{ href: '/components/file-buttons', label: 'File Buttons' },
 			{ href: '/components/file-dropzone', label: 'File Dropzone' },
@@ -95,7 +95,8 @@ export const menuNavLinks: any = [
 			{ href: '/components/range-sliders', label: 'Range Sliders' },
 			{ href: '/components/slide-toggles', label: 'Slide Toggles' },
 			{ href: '/components/steppers', label: 'Steppers' },
-			{ href: '/components/tabs', label: 'Tabs' }
+			{ href: '/components/tabs', label: 'Tabs' },
+			{ href: '/components/tables', label: 'Tables' }
 			// Work in Progress
 			// { href: '/components/svg-icons', label: 'SVG Icons' }, // keep disabled until further notice
 		]
@@ -108,6 +109,7 @@ export const menuNavLinks: any = [
 		title: 'Utilities',
 		list: [
 			{ href: '/utilities/codeblocks', label: 'Code Blocks' },
+			{ href: '/utilities/data-tables', label: 'Data Tables' },
 			{ href: '/utilities/dialogs', label: 'Dialogs' },
 			{ href: '/utilities/drawers', label: 'Drawers' },
 			{ href: '/utilities/lightswitches', label: 'Lightswitch' },
