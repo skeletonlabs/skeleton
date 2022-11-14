@@ -10,7 +10,7 @@
 	 * Pass the page setting object.
 	 * @type {PaginationSettings}
 	 */
-	export let settings: PaginationSettings;
+	export let settings: PaginationSettings = { offset: 0, limit: 5, size: 0, amounts: [1, 2, 5, 10] };
 
 	// Props (design)
 	/** Provide classes to set flexbox justification. */
@@ -52,10 +52,11 @@
 	$: classesPageText = `${cPageText} ${text}`;
 </script>
 
+<!-- prettier-ignore -->
 <div class="paginator {classesBase}" data-testid="paginator">
 	<!-- Select Amount -->
 	<label class="paginator-label {classesLabel}">
-		<select bind:value={settings.limit} on:change={onChangeLength} class="paginator-select {classesSelect}" aria-label="Select Amount">
+		<select bind:value={settings.limit} on:change={() => { onChangeLength() }} class="paginator-select {classesSelect}" aria-label="Select Amount">
 			{#each settings.amounts as amount}<option value={amount}>Show {amount}</option>{/each}
 		</select>
 	</label>
@@ -65,7 +66,7 @@
 	</span>
 	<!-- Arrows -->
 	<div class="paginator-arrows space-x-2">
-		<button class="btn-icon {buttons}" on:click={onPrev} disabled={settings.offset === 0}>&larr;</button>
-		<button class="btn-icon {buttons}" on:click={onNext} disabled={(settings.offset + 1) * settings.limit >= settings.size}>&rarr;</button>
+		<button class="btn-icon {buttons}" on:click={() => { onPrev() }} disabled={settings.offset === 0}>&larr;</button>
+		<button class="btn-icon {buttons}" on:click={() => { onNext() }} disabled={(settings.offset + 1) * settings.limit >= settings.size}>&rarr;</button>
 	</div>
 </div>

@@ -13,7 +13,9 @@ export * from './actions';
 
 /** Listens for changes to `$dataTableModel` and triggers: search, selection, sort, and pagination. */
 export function dataTableHandler(store: DataTableModel): void {
-	// console.log('dataTableHandler', store);
+	// Reset
+	store.filtered = store.source;
+	// Then
 	searchHandler(store);
 	selectionHandler(store);
 	sortHandler(store);
@@ -32,7 +34,7 @@ export function dataTableStorePut(store: Writable<DataTableModel>, key: string, 
 // Search ---
 
 function searchHandler(store: DataTableModel): void {
-	store.filtered = store.source.filter((row) =>
+	store.filtered = store.filtered.filter((row) =>
 		JSON.stringify(row)
 			.toLowerCase()
 			.includes(store.search?.toLowerCase() || '')
@@ -46,8 +48,8 @@ function selectionHandler(store: DataTableModel): void {
 }
 
 /** Allows you to dynamically pre-select rows on-demand. */
-export function dataTableSelect(store: Writable<DataTableModel>, key: string, valuesArr: any): void {
-	get(store).filtered.map((row) => {
+export function dataTableSelect(list: any[], key: string, valuesArr: any): void {
+	list.map((row) => {
 		if (valuesArr.includes(row[key])) row.dataTableChecked = true;
 		return row;
 	});
@@ -60,21 +62,6 @@ export function dataTableSelectAll(event: any, store: Writable<DataTableModel>):
 	dataTableStorePut(store, 'filtered', storeFiltered);
 }
 
-// Pagination ---
-
-function paginationHandler(store: DataTableModel): void {
-	store.sort = ''; // reset
-	if (store.pagination) {
-		// Slice for Pagination
-		store.filtered = store.filtered.slice(
-			store.pagination.offset * store.pagination.limit, // start
-			store.pagination.offset * store.pagination.limit + store.pagination.limit // end
-		);
-		// Set Current Size
-		store.pagination.size = store.source.length;
-	}
-}
-
 // Sort ---
 
 const sortState: Record<string, string | boolean> = { lastKey: '', asc: true };
@@ -83,17 +70,18 @@ const sortState: Record<string, string | boolean> = { lastKey: '', asc: true };
 export function dataTableSort(event: any, store: Writable<DataTableModel>): void {
 	if (!(event.target instanceof Element)) return;
 	const newSortKey = event.target.getAttribute('data-sort');
+	// If same key used repeated, toggle asc/dsc order
+	if (newSortKey !== '' && newSortKey === sortState.lastKey) sortState.asc = !sortState.asc;
+	// Cache the last key used
+	sortState.lastKey = newSortKey;
+	// Update store
 	if (newSortKey) dataTableStorePut(store, 'sort', newSortKey);
 }
 
 function sortHandler(store: DataTableModel): void {
 	if (!store.sort) return;
-	// If same key used repeated, toggle asc/dsc order
-	sortState.asc = store.sort === sortState.lastKey ? !sortState.asc : true;
 	// Sort order based on current sortState.asc value
 	sortState.asc ? sortOrder('asc', store) : sortOrder('dsc', store);
-	// Cache the last key used
-	sortState.lastKey = store.sort;
 }
 
 function sortOrder(order: string, store: DataTableModel): void {
@@ -108,4 +96,19 @@ function sortOrder(order: string, store: DataTableModel): void {
 			return (x[key] as number) - (y[key] as number);
 		}
 	});
+}
+
+// Pagination ---
+
+function paginationHandler(store: DataTableModel): void {
+	// store.sort = ''; // reset
+	if (store.pagination) {
+		// Slice for Pagination
+		store.filtered = store.filtered.slice(
+			store.pagination.offset * store.pagination.limit, // start
+			store.pagination.offset * store.pagination.limit + store.pagination.limit // end
+		);
+		// Set Current Size
+		store.pagination.size = store.source.length;
+	}
 }

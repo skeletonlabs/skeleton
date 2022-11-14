@@ -44,6 +44,9 @@
 		]
 	};
 
+	// Manual Selection
+	dataTableSelect(httpPosts, 'id', [1]);
+
 	// Store
 	const dataTableModel: Writable<DataTableModel> = writable({
 		source: httpPosts,
@@ -54,9 +57,6 @@
 		pagination: { offset: 0, limit: 5, size: 0, amounts: [1, 2, 5, 10] }
 	});
 	dataTableModel.subscribe((v) => dataTableHandler(v));
-
-	// Manual Selection
-	dataTableSelect(dataTableModel, 'id', [1]);
 </script>
 
 <DocsShell {settings}>
@@ -110,7 +110,7 @@
 				</div>
 			</div>
 			<div class="card-footer">
-				{#if $dataTableModel.pagination}<Paginator bind:settings={$dataTableModel.pagination} />{/if}
+				<Paginator bind:settings={$dataTableModel.pagination} />
 			</div>
 		</section>
 		<!-- Debugging -->
@@ -261,17 +261,25 @@ dataTableModel.subscribe((v) => dataTableHandler(v));`}
 				We'll use <code>dataTableSort</code> to automatically set <code>$dataTableModel.sort</code> when a table heading is tapped. Add the following
 				to your table head element.
 			</p>
-			<CodeBlock language="html" code={`<thead on:click={(e) => { dataTableSort(e, dataTableModel) }}>`} />
+			<CodeBlock language="html" code={`<thead on:click={(e) => { dataTableSort(e, dataTableModel) }} on:keypress>`} />
 			<p>
 				Add a <code>data-sort="(key)"</code> attribute to each heading you wish to be sortable. Tapping a heading will set the
 				<code>$dataTableModel.sort</code>
 				value and update the UI. Tapping a heading repeatedly will toggle between <em>ascending</em> and <em>descending</em> sort order.
 			</p>
-			<CodeBlock language="html" code={`<th data-sort="position">Position</th>`} />
+			<CodeBlock
+				language="html"
+				code={`
+<th data-sort="position">Position</th>
+<th data-sort="name">Name</th>
+<!-- ... -->
+			`}
+			/>
 			<p>
 				While sort is working, we're lacking a visual UI indicator. To handle this, implement the Svelte Action called <code
 					>tableInteraction</code
-				> to your table element. This adds the appropriate CSS classes that show &uarr and &darr; sort arrows.
+				>
+				to your table element. This adds the appropriate CSS classes that show &uarr and &darr; sort arrows.
 			</p>
 			<CodeBlock language="html" code={`<table ... use:tableInteraction>`} />
 		</section>
@@ -283,8 +291,8 @@ dataTableModel.subscribe((v) => dataTableHandler(v));`}
 			<CodeBlock language="html" code={`<th><!-- selection --></th>`} />
 			<p>
 				Pair this with a matching table body cell that includes a checkbox input. Append <code>bind:dataTableChecked</code> to the input to
-				extend the row object source data. When checked on/off, the <code>dataTableHandler</code> will automatically include/exclude the entire
-				row object in
+				extend the row object source data. When checked on/off, the <code>dataTableHandler</code> will automatically include/exclude the
+				entire row object in
 				<code>$dataTableModel.selection</code>.
 			</p>
 			<CodeBlock language="html" code={`<td><input type="checkbox" bind:checked={row.dataTableChecked} /></td>`} />
@@ -296,8 +304,8 @@ dataTableModel.subscribe((v) => dataTableHandler(v));`}
 			<h3>Pre-Selected</h3>
 			<p>
 				You may wish to pre-select certain table rows. We've provided a utility method to handle this. Pass your model, the key to query
-				against, and a whitelist of values. Any object that matches the conditions will be selected. Trigger this multiple times for
-				multipe selection queries.
+				against, and a whitelist of values. Any object that matches the conditions will be selected. Trigger this multiple times for multipe
+				selection queries.
 			</p>
 			<CodeBlock
 				language="ts"
