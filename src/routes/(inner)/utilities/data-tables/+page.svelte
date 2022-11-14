@@ -161,7 +161,7 @@ const sourceData = [
 	{ position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
 	{ position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
 	{ position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-	{ position: 5, name: 'Boron', weight: 10.811, symbol: 'B' }
+	{ position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
 	{ position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
 	{ position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
 	{ position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
@@ -221,7 +221,7 @@ dataTableModel.subscribe((v) => dataTableHandler(v));`}
 			/>
 			<p>
 				Next, we'll update our table markup to display our model data on the page. Add each desired heading paired with a matching body cell
-				value. We'll use a <em>foreach</em> loop to iterate each table body row. Note we use <code>$dataTableModel.filtered</code>
+				value. We'll use an <em>#each</em> loop to create each table body row. Note we use <code>$dataTableModel.filtered</code>
 				as our loop source. The features below will modify this data.
 			</p>
 			<CodeBlock
@@ -329,7 +329,7 @@ dataTableModel.subscribe((v) => dataTableHandler(v));`}
 			<CodeBlock language="html" code={`<table ... role="grid" use:tableA11y>`} />
 			<p>
 				Implement the <code>aria-rowindex</code> attribute. This starts at <strong>1</strong> and increments per <em>tr</em> row. We can
-				utilize the <em>foreach</em> loop index value, named <code>rowIndex</code>.
+				utilize the <em>#each</em> loop index value, named <code>rowIndex</code>.
 			</p>
 			<CodeBlock language="html" code={`<tr ... aria-rowindex={rowIndex + 1}>`} />
 			<p>
