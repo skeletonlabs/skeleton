@@ -35,11 +35,8 @@ export function dataTableStorePut(store: Writable<DataTableModel>, key: string, 
 
 function searchHandler(store: DataTableModel): void {
 	store.filtered = store.filtered.filter((rowObj) => {
-		const rowValues = Object.values(rowObj).join(' ');
-		const result = JSON.stringify(rowValues)
-			.toLowerCase()
-			.includes(store.search?.toLowerCase() || '');
-		return result;
+		const formattedSearchTerm = store.search?.toLowerCase() || '';
+		return Object.values(rowObj).join(' ').toLowerCase().includes(formattedSearchTerm);
 	});
 }
 
