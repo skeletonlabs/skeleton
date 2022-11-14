@@ -141,7 +141,7 @@
 				transition:fly={{ duration, opacity: 0, y: 100 }}
 				use:focusTrap={true}
 				data-testid="modal"
-				role="modal"
+				role="dialog"
 				aria-modal="true"
 				aria-label={$modalStore[0].title}
 			>

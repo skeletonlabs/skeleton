@@ -1,14 +1,11 @@
 <script lang="ts">
-	// @ts-ignore
-	// const pkg = __PACKAGE__;
-
-	import { goto } from '$app/navigation';
-
-	import { menuNavLinks } from '$docs/DocsNavigation/links';
+	// Types
+	import type { ModalSettings, ModalComponent } from '$lib/utilities/Modal/types';
 
 	// Docs
 	import DocsLogoFull from '$docs/DocsLogo/DocsLogoFull.svelte';
 	import DocsLogoIcon from '$docs/DocsLogo/DocsLogoIcon.svelte';
+	import DocsSearch from '$docs/DocsSearch/DocsSearch.svelte';
 
 	// Components
 	import AppBar from '$lib/components/AppBar/AppBar.svelte';
@@ -17,25 +14,25 @@
 	// Utilities
 	import LightSwitch from '$lib/utilities/LightSwitch/LightSwitch.svelte';
 	import { menu } from '$lib/utilities/Menu/menu';
+	import { modalStore } from '$lib/utilities/Modal/stores';
 
 	// Stores
 	import { storeTheme, storeMobileDrawer } from '$docs/stores';
-
-	// Local
-	let elemSearch: HTMLInputElement;
-	let autocompleteValues = menuNavLinks.map((linkSet: any) => linkSet.list).flat();
 
 	// Drawer Handler
 	function drawerOpen(): void {
 		storeMobileDrawer.set(true);
 	}
 
-	// AutoComplete
-	function navigateToResult(e: any): void {
-		if (e.target.value.includes('/')) {
-			goto(e.target.value);
-			elemSearch.value = '';
-		}
+	// Search
+	function search(): void {
+		const modalComponent: ModalComponent = { ref: DocsSearch };
+		const d: ModalSettings = {
+			type: 'component',
+			component: modalComponent,
+			classes: '!p-0'
+		};
+		modalStore.trigger(d);
 	}
 
 	// Keyboard Shortcut (⌘+K) to Focus Search
@@ -45,9 +42,7 @@
 			// Set pressed keys
 			pressedKeys = [...pressedKeys, e.code];
 			// If both keys pressed, focus input
-			if (pressedKeys.includes('MetaLeft') && pressedKeys.includes('KeyK')) {
-				elemSearch.focus();
-			}
+			if (pressedKeys.includes('MetaLeft') && pressedKeys.includes('KeyK')) search();
 		}
 	}
 	function onWindowKeyup(e: any): void {
@@ -70,20 +65,15 @@
 			<span class="hidden sm:inline"><DocsLogoFull /></span>
 			<span class="inline sm:hidden"><DocsLogoIcon /></span>
 		</a>
-		<!-- Badge -->
-		<!-- <a class="hidden sm:block" href="https://github.com/Brain-Bones/skeleton/releases" target="_blank" rel="noreferrer">
-			<span class="badge badge-filled-surface">v{pkg.version}</span>
-		</a> -->
 	</svelte:fragment>
 
 	<!-- Search -->
 	<div class="hidden md:inline">
-		<input class="!w-[175px]" bind:this={elemSearch} type="search" placeholder="Search..." list="searchResults" on:input={navigateToResult} />
-		<datalist id="searchResults">
-			{#each autocompleteValues as { href, label }}
-				<option value={href}>{label}</option>
-			{/each}
-		</datalist>
+		<button class="btn btn-filled-surface btn-sm" on:click={search}>
+			<SvgIcon name="search" width="w-4" height="h-4" fill="fill-white" class="mr-2" />
+			<span>Search</span>
+			<!-- <span>⌘K</span> -->
+		</button>
 	</div>
 
 	<!-- Navigation -->
@@ -225,9 +215,3 @@
 		</section>
 	</svelte:fragment>
 </AppBar>
-
-<style>
-	input {
-		-webkit-appearance: none;
-	}
-</style>

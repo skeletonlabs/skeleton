@@ -1,4 +1,7 @@
 <script lang="ts">
+	// @ts-ignore
+	const pkg = __PACKAGE__;
+
 	// Logo
 	import DocsLogoIcon from '$docs/DocsLogo/DocsLogoIcon.svelte';
 
@@ -18,6 +21,8 @@
 		<div class="grid grid-cols-1 gap-2 place-content-center place-items-center md:place-items-start">
 			<DocsLogoIcon />
 			<p class="!text-sm opacity-80">A fully featured UI Toolkit.</p>
+			<!-- Current Version -->
+			<span class="badge badge-filled-surface">v{pkg.version}</span>
 		</div>
 		<div class="hidden md:grid grid-cols-[auto_auto_auto] gap-10">
 			<div class="space-y-4">
