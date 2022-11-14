@@ -17,7 +17,7 @@
 
 	// Components & Utilities
 	import AppShell from '$lib/components/AppShell/AppShell.svelte';
-	import Dialog from '$lib/utilities/Dialog/Dialog.svelte';
+	import Modal from '$lib/utilities/Modal/Modal.svelte';
 	import Toast from '$lib/utilities/Toast/Toast.svelte';
 
 	// Docs Components
@@ -86,7 +86,7 @@
 </svelte:head>
 
 <!-- Overlays -->
-<Dialog />
+<Modal />
 <Toast />
 <DocsDrawer />
 

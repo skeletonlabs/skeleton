@@ -69,7 +69,9 @@
 				</div>
 				<h4>Svelte Integration</h4>
 				<p>
-					Tightly coupled with Svelte, including full support for <a href="https://kit.svelte.dev/" target="_blank" rel="noreferrer">SvelteKit</a>,
+					Tightly coupled with Svelte, including full support for <a href="https://kit.svelte.dev/" target="_blank" rel="noreferrer"
+						>SvelteKit</a
+					>,
 					<a href="https://vitejs.dev/" target="_blank" rel="noreferrer">Vite</a>, and
 					<a href="https://astro.build/" target="_blank" rel="noreferrer">Astro</a>.
 				</p>
@@ -93,7 +95,7 @@
 					<SvgIcon name="screwdriver" fill="fill-white" width="w-8" height="h-8" />
 				</div>
 				<h4>Powerful Utilities</h4>
-				<p>Provides a feature rich UI toolkit for modern web apps with layouts, dialogs, and more.</p>
+				<p>Provides a feature rich UI toolkit for modern web apps with layouts, modals, and more.</p>
 			</div>
 		</section>
 
@@ -157,7 +159,13 @@
 						{#each response as c}
 							<li>
 								<a href={c.html_url} target="_blank" rel="noreferrer" title={c.login}>
-									<Avatar src={c.avatar_url} size="fluid" shadow="shadow-lg" border="hover:border-2 hover:!border-primary-500 cursor-pointer" class="m-2 max-w-[50px]" />
+									<Avatar
+										src={c.avatar_url}
+										size="fluid"
+										shadow="shadow-lg"
+										border="hover:border-2 hover:!border-primary-500 cursor-pointer"
+										class="m-2 max-w-[50px]"
+									/>
 								</a>
 							</li>
 						{/each}
@@ -183,7 +191,13 @@
 						{#each response as s}
 							<li>
 								<a href={s.profile} target="_blank" rel="noreferrer" title={s.handle}>
-									<Avatar src={s.avatar} size="fluid" shadow="shadow-lg" border="hover:border-2 hover:!border-primary-500 cursor-pointer" class="m-2 max-w-[50px]" />
+									<Avatar
+										src={s.avatar}
+										size="fluid"
+										shadow="shadow-lg"
+										border="hover:border-2 hover:!border-primary-500 cursor-pointer"
+										class="m-2 max-w-[50px]"
+									/>
 								</a>
 							</li>
 						{/each}

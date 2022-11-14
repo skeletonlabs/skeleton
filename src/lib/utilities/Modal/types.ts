@@ -1,6 +1,6 @@
-// Dialog Types
+// Modal Types
 
-export interface DialogComponent {
+export interface ModalComponent {
 	/** Import and provide your component reference. */
 	ref: any;
 	/** Provide a key/value pairs of component props. */
@@ -9,21 +9,21 @@ export interface DialogComponent {
 	slot?: string;
 }
 
-export interface DialogSettings {
+export interface ModalSettings {
 	/** Designate what type of component will display. */
 	type: 'alert' | 'confirm' | 'prompt' | 'component';
-	/** Provide the dialog header content. Accepts HTML. */
+	/** Provide the modal header content. Accepts HTML. */
 	title?: string;
-	/** Provide the dialog body content. Accepts HTML. */
+	/** Provide the modal body content. Accepts HTML. */
 	body?: string;
-	/** Provide a URL to display an image within the dialog. */
+	/** Provide a URL to display an image within the modal. */
 	image?: URL | string;
 	/** Prompt Only - provide a prompt value. */
 	value?: unknown;
 	/** Provide your component reference, props, and slot details. */
-	component?: DialogComponent;
+	component?: ModalComponent;
 	/** Provide a function. Returns the repsonse value. */
 	response?: (r: any) => void;
-	/** Provide abritrary classes to apply to the Dialog element. Use `!` for important. */
+	/** Provide abritrary classes to apply to the Modal element. Use `!` for important. */
 	classes?: string;
 }

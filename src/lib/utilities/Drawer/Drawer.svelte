@@ -59,7 +59,13 @@
 	function setAnimParams(): void {
 		switch (position) {
 			case 'top':
-				animParams = { backdrop: 'flex-col justify-start', width: 'w-full', height: 'h-[40%]', x: 0, y: -percentage(40, window.innerHeight) };
+				animParams = {
+					backdrop: 'flex-col justify-start',
+					width: 'w-full',
+					height: 'h-[40%]',
+					x: 0,
+					y: -percentage(40, window.innerHeight)
+				};
 				break;
 			case 'bottom':
 				animParams = { backdrop: 'flex-col justify-end', width: 'w-full', height: 'h-[40%]', x: 0, y: percentage(40, window.innerHeight) };
@@ -130,7 +136,7 @@
 			class="drawer {classesDrawer}"
 			data-testid="drawer"
 			transition:fly|local={{ x: animParams.x, y: animParams.y, duration }}
-			role="dialog"
+			role="modal"
 			aria-modal="true"
 			aria-labelledby={labelledby}
 			aria-describedby={describedby}
