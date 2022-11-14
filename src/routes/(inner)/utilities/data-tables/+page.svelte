@@ -123,7 +123,7 @@
 		<section class="space-y-4">
 			<h2>What are Data Tables?</h2>
 			<p>
-				Within the context of Skeleton, data tables are not a singular feature, but rather a collection of utilities. These utilty feature
+				Within the context of Skeleton, data tables are not a singular feature, but rather a collection of utilities. These utilty features
 				are opt-in, meaning you can progressively enhance any native HTML table to meet your requirements. This is one of the most complex
 				features Skeleton provides, so please read carefully.
 			</p>
@@ -132,7 +132,7 @@
 		<!-- Getting Started -->
 		<section class="space-y-4">
 			<h2>Getting Started</h2>
-			<p>Let's start by importing all the utility features we'll need. We've cover each of these in greater detail below.</p>
+			<p>Let's start by importing all the utility features we'll need. We'll cover each of these in greater detail below.</p>
 			<CodeBlock
 				language="ts"
 				code={`
@@ -147,8 +147,7 @@ import {
 	// Svelte Actions
 	tableInteraction,
 	tableA11y
-} from '@brainandbones/skeleton';
-			`}
+} from '@brainandbones/skeleton';`}
 			/>
 			<p>
 				We need data to populate the table. For simplicity, let's create this locally. In a real world app you might fetch this from an
@@ -168,8 +167,7 @@ const sourceData = [
 	{ position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
 	{ position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
 	{ position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' }
-];
-			`}
+];`}
 			/>
 			<p>
 				We'll make use of a few Tailwind Element <a href="/elements/tables">table classes</a> to provide base styles to our native HTML table
@@ -191,8 +189,7 @@ const sourceData = [
 			</tr>
 		</tbody>
 	</table>
-</div>
-			`}
+</div>`}
 			/>
 		</section>
 		<section class="space-y-4">
@@ -220,8 +217,7 @@ const dataTableModel: Writable<DataTableModel> = writable({
 	pagination: { offset: 0, limit: 5, size: 0, amounts: [1, 2, 5, 10] }
 });\n
 // Automatically handles search, sort, etc when the model updates.
-dataTableModel.subscribe((v) => dataTableHandler(v));
-			`}
+dataTableModel.subscribe((v) => dataTableHandler(v));`}
 			/>
 			<p>
 				Next, we'll update our table markup to display our model data on the page. Add each desired heading paired with a matching body cell
@@ -246,8 +242,7 @@ dataTableModel.subscribe((v) => dataTableHandler(v));
 			<!-- ... --->
 		</tr>
 	{/each}
-</tbody>
-			`}
+</tbody>`}
 			/>
 		</section>
 		<hr />
@@ -268,7 +263,7 @@ dataTableModel.subscribe((v) => dataTableHandler(v));
 			</p>
 			<CodeBlock language="html" code={`<thead on:click={(e) => { dataTableSort(e, dataTableModel) }}>`} />
 			<p>
-				Add a <code>data-sort="(key)"</code> attribute to each heading you wish to be sortable. Tapping a heading will set to the
+				Add a <code>data-sort="(key)"</code> attribute to each heading you wish to be sortable. Tapping a heading will set the
 				<code>$dataTableModel.sort</code>
 				value and update the UI. Tapping a heading repeatedly will toggle between <em>ascending</em> and <em>descending</em> sort order.
 			</p>
@@ -288,7 +283,7 @@ dataTableModel.subscribe((v) => dataTableHandler(v));
 			<CodeBlock language="html" code={`<th><!-- selection --></th>`} />
 			<p>
 				Pair this with a matching table body cell that includes a checkbox input. Append <code>bind:dataTableChecked</code> to the input to
-				extend row object source data. When checked on/off, the <code>dataTableHandler</code> will automatically include/exclude the entire
+				extend the row object source data. When checked on/off, the <code>dataTableHandler</code> will automatically include/exclude the entire
 				row object in
 				<code>$dataTableModel.selection</code>.
 			</p>
@@ -301,7 +296,7 @@ dataTableModel.subscribe((v) => dataTableHandler(v));
 			<h3>Pre-Selected</h3>
 			<p>
 				You may wish to pre-select certain table rows. We've provided a utility method to handle this. Pass your model, the key to query
-				against, and a whitelist of values. Any object that matches these conditions will be selected. Trigger this multiple times for
+				against, and a whitelist of values. Any object that matches the conditions will be selected. Trigger this multiple times for
 				multipe selection queries.
 			</p>
 			<CodeBlock
@@ -333,7 +328,7 @@ dataTableModel.subscribe((v) => dataTableHandler(v));
 			</p>
 			<CodeBlock language="html" code={`<table ... role="grid" use:tableA11y>`} />
 			<p>
-				Implment the <code>aria-rowindex</code> attribute. This starts at <strong>1</strong> and increments per <em>tr</em> row. We can
+				Implement the <code>aria-rowindex</code> attribute. This starts at <strong>1</strong> and increments per <em>tr</em> row. We can
 				utilize the <em>foreach</em> loop index value, named <code>rowIndex</code>.
 			</p>
 			<CodeBlock language="html" code={`<tr ... aria-rowindex={rowIndex + 1}>`} />
@@ -347,8 +342,7 @@ dataTableModel.subscribe((v) => dataTableHandler(v));
 				code={`
 <td ... role="gridcell" aria-colindex={1} tabindex="0">...</td>
 <td ... role="gridcell" aria-colindex={2} tabindex="0">...</td>
-<!-- ... -->
-			`}
+<!-- ... -->`}
 			/>
 			<p>Reference the <em>Keyboard</em> tab section at the top of this page for a list of available keyboard interactions.</p>
 		</section>
