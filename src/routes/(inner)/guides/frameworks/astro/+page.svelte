@@ -24,7 +24,9 @@
 		<div class="grid grid-cols-[1fr_auto] gap-4">
 			<div class="space-y-2">
 				<h1>Astro</h1>
-				<p>This guide will help create a basic Skeleton project using Astro, including adding components using Astro's island architecture.</p>
+				<p>
+					This guide will help create a basic Skeleton project using Astro, including adding components using Astro's island architecture.
+				</p>
 			</div>
 			<div class="place-self-end">
 				<a class="btn btn-filled-primary" href="https://astro.build/" target="_blank" rel="noreferrer">Documentation</a>
@@ -48,7 +50,8 @@
 		<h2>Layout Setup</h2>
 		<p>
 			We'll create a new <a href="https://docs.astro.build/en/core-concepts/layouts/" target="_blank" rel="noreferrer">Astro Layout</a>
-			in <code>/src/layouts/LayoutRoot.astro</code>. Our layout needs a bit of structure, so let's make use of the Skeleton <a href="/components/app-shell">App Shell</a> component.
+			in <code>/src/layouts/LayoutRoot.astro</code>. Our layout needs a bit of structure, so let's make use of the Skeleton
+			<a href="/components/app-shell">App Shell</a> component.
 		</p>
 		<CodeBlock
 			language="html"
@@ -61,7 +64,7 @@ import '../styles/global.css';
 import { AppShell, AppBar } from '@brainandbones/skeleton';
 ---
 
-<!-- NOTE: we've set the .dark class to enable Dark Mode -->
+<!-- NOTE: we have set the .dark class to enable Dark Mode -->
 <html lang="en" class="dark">
 	<head>
 		<meta charset="utf-8" />
@@ -86,7 +89,8 @@ import { AppShell, AppBar } from '@brainandbones/skeleton';
 		/>
 		<h3>Add the App Bar</h3>
 		<p>
-			Next, let's add a header element using Skeleton's <a href="/components/app-bar">App Bar</a> component. Replace "Skeleton" with your application name and customize the GitHub link as desired.
+			Next, let's add a header element using Skeleton's <a href="/components/app-bar">App Bar</a> component. Replace "Skeleton" with your application
+			name and customize the GitHub link as desired.
 		</p>
 		<CodeBlock
 			language="html"
@@ -106,9 +110,15 @@ import { AppShell, AppBar } from '@brainandbones/skeleton';
             `}
 		/>
 		<h3>Add Sidebar Navigation</h3>
-		<p>Let's customize our App Shell's sidebar slot to make it stand out a bit more. Add the following Tailwind utility classes to the <code>slotSidebarLeft</code> prop.</p>
+		<p>
+			Let's customize our App Shell's sidebar slot to make it stand out a bit more. Add the following Tailwind utility classes to the <code
+				>slotSidebarLeft</code
+			> prop.
+		</p>
 		<CodeBlock language="html" code={`<AppShell slotSidebarLeft="bg-surface-500/5 w-56 p-4">`} />
-		<p>After that, let's implement a <a href="/elements/lists">Tailwind Elements navigation list</a> within the App Shell's left sidebar slot.</p>
+		<p>
+			After that, let's implement a <a href="/elements/lists">Tailwind Elements navigation list</a> within the App Shell's left sidebar slot.
+		</p>
 		<CodeBlock
 			language="html"
 			code={`
@@ -132,8 +142,8 @@ import { AppShell, AppBar } from '@brainandbones/skeleton';
 	<section class="space-y-4">
 		<h2>Page Setup</h2>
 		<p>
-			Now that our layout is setup, let's implement it in our homepage in <code>/src/pages/index.astro</code>. Replace the file contents with the following. Be aware that we'll make use of the
-			Gradient Heading import in a following step below.
+			Now that our layout is setup, let's implement it in our homepage in <code>/src/pages/index.astro</code>. Replace the file contents
+			with the following. Be aware that we'll make use of the Gradient Heading import in a following step below.
 		</p>
 		<CodeBlock
 			language="html"
@@ -148,8 +158,9 @@ import { GradientHeading } from '@brainandbones/skeleton';
 		`}
 		/>
 		<p>
-			Now let's add some basic content to our homepage. Open <code>/src/pages/index.astro</code> and replace the contents within the <code>LayoutRoot</code> tags with the following. This will provide
-			multiple "Tailwind Elements" styled by the <code>all.css</code> stylesheets.
+			Now let's add some basic content to our homepage. Open <code>/src/pages/index.astro</code> and replace the contents within the
+			<code>LayoutRoot</code>
+			tags with the following. This will provide multiple "Tailwind Elements" styled by the <code>all.css</code> stylesheets.
 		</p>
 		<CodeBlock
 			language="html"
@@ -175,8 +186,8 @@ import { GradientHeading } from '@brainandbones/skeleton';
 		<p>These elements are styled automatically due to our use of <code>all.css</code> and the included Tailwind Elements stylesheets.</p>
 		<h3>Add a Component</h3>
 		<p>
-			Let's implement Skeleton's <a href="/components/gradient-headings">Gradient Heading</a> component. Replace the <em>H1</em> heading on the page with the following. Feel free to adjust the settings
-			and text as you wish.
+			Let's implement Skeleton's <a href="/components/gradient-headings">Gradient Heading</a> component. Replace the <em>H1</em> heading on the
+			page with the following. Feel free to adjust the settings and text as you wish.
 		</p>
 		<CodeBlock
 			language="html"
@@ -194,15 +205,18 @@ import { GradientHeading } from '@brainandbones/skeleton';
 	<section class="space-y-4">
 		<h2>Island Architecture</h2>
 		<p>
-			Astro allows for partial component hydration via the <a href="https://docs.astro.build/en/concepts/islands/" target="_blank" rel="noreferrer">Astro Island Architecture</a>. Let's learn how to
-			utilize this for Skeleton features.
+			Astro allows for partial component hydration via the <a
+				href="https://docs.astro.build/en/concepts/islands/"
+				target="_blank"
+				rel="noreferrer">Astro Island Architecture</a
+			>. Let's learn how to utilize this for Skeleton features.
 		</p>
 		<!-- Static -->
 		<h3>Static Islands</h3>
 
 		<p>
-			Simple Svelte Components and Tailwind Elements require no Javascript functionality. This means they can be imported and used directly within your Astro page components with no hydration
-			required.
+			Simple Svelte Components and Tailwind Elements require no Javascript functionality. This means they can be imported and used directly
+			within your Astro page components with no hydration required.
 		</p>
 		<CodeBlock
 			language="html"
@@ -221,11 +235,16 @@ import { Breadcrumb, Crumb } from '@brainandbones/skeleton';
 		<!-- Dynamic -->
 		<h3>Dynamic Islands</h3>
 		<p>
-			For more complex Svelte features--such as event handlers, Svelte Actions, using Svelte writable stores, and similar--we'll need to create Svelte "wrapper" component. Let's create one now in
+			For more complex Svelte features--such as event handlers, Svelte Actions, using Svelte writable stores, and similar--we'll need to
+			create Svelte "wrapper" component. Let's create one now in
 			<code>/src/components/WrapperExample.svelte</code>, and insert a button which uses a Svelte <code>on:click</code> event handler.
 		</p>
 		<CodeBlock language="html" code={dynamicSvelteWrapperSnippet} />
-		<p>We can then import our new wrapper component within an Astro page component, such as our homepage in <code>/src/pages/index.astro</code>.</p>
+		<p>
+			We can then import our new wrapper component within an Astro page component, such as our homepage in <code
+				>/src/pages/index.astro</code
+			>.
+		</p>
 		<CodeBlock
 			language="html"
 			code={`
@@ -245,8 +264,11 @@ import WrapperExample from '../components/WrapperExample.svelte';
 		<h3>Component Hydration</h3>
 		<p>
 			Please note that <em>dynamic components</em> MUST be hydrated using
-			<a href="https://docs.astro.build/en/reference/directives-reference/#client-directives" target="_blank" rel="noreferrer">Astro's Client Directives</a>. In the example above, we opted for the
-			<code>client:visible</code> directive, which loads and hydrates the component Javascript only when it becomes visible the user’s viewport. Had we not hydrated our component, the
+			<a href="https://docs.astro.build/en/reference/directives-reference/#client-directives" target="_blank" rel="noreferrer"
+				>Astro's Client Directives</a
+			>. In the example above, we opted for the
+			<code>client:visible</code> directive, which loads and hydrates the component Javascript only when it becomes visible the user’s
+			viewport. Had we not hydrated our component, the
 			<code>triggerMessage()</code> method would not work as expected.
 		</p>
 	</section>

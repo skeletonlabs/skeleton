@@ -4,7 +4,10 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Contributions</h1>
-		<p>Thank you for your interest in contributing to Skeleton. We ask that you please review the sections below in full before submitting your first pull request.</p>
+		<p>
+			Thank you for your interest in contributing to Skeleton. We ask that you please review the sections below in full before submitting
+			your first pull request.
+		</p>
 	</header>
 
 	<hr />
@@ -42,7 +45,7 @@
 			<button class="btn btn-filled-accent place-self-center">Read Guide</button>
 		</a>
 		<!-- Style Guide -->
-		<a class="card p-4 grid grid-cols-[1fr_auto] gap-4" href="/docs/contributions/code">
+		<a class="card p-4 grid grid-cols-[1fr_auto] gap-4" href="/docs/contributions/style-guide">
 			<div class="space-y-4">
 				<h2>Style Guide</h2>
 				<p>Review recommended conventions for writing code, naming properties, and handling CSS styling.</p>

@@ -30,7 +30,7 @@
 		description: 'High priority overlay notification utilizing a dynamic queue system.',
 		imports: ['Dialog', 'dialogStore'],
 		types: ['DialogSettings', 'DialogComponent'],
-		source: 'utilities/Dailog',
+		source: 'utilities/Dialog',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/',
 		components: [{ sveld: sveldDialog }],
 		keyboard: [['<kbd>Esc</kbd>', ' Dismisses the foremost dialog.']]
@@ -139,7 +139,7 @@
 				</div>
 			</div>
 			<div class="card card-body space-y-4">
-				<p class="text-center font-bold">Component Dialog Examples</p>
+				<p class="text-center font-bold">Custom Component Modals</p>
 				<div class="flex justify-center space-x-2">
 					<button class="btn btn-ghost-surface" on:click={dialogComponentForm}>Form</button>
 					<button class="btn btn-ghost-surface" on:click={dialogComponentList}>List</button>
@@ -154,7 +154,10 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<p>Import and add a single instance of the Dialog component in your app's root layout. This is only required <u>ONCE</u> per app since it exists in global scope.</p>
+			<p>
+				Import and add a single instance of the Dialog component in your app's root layout. We recommend only adding this <u>ONCE</u> per app
+				since it exists in global scope.
+			</p>
 			<CodeBlock language="html" code={`<Dialog />`} />
 		</section>
 		<!-- Dialog Store -->
@@ -173,7 +176,7 @@
 				<CodeBlock
 					language="ts"
 					code={`
-function dialogAlert(): void {
+function triggerAlert(): void {
 	const d: DialogSettings = {
 		type: 'alert',
 		title: 'Example Alert',
@@ -188,13 +191,13 @@ function dialogAlert(): void {
 				<CodeBlock
 					language="ts"
 					code={`
-function dialogConfirm(): void {
+function triggerConfirm(): void {
 	const d: DialogSettings = {
 		type: 'confirm',
 		title: 'Please Confirm',
 		body: 'Are you sure you wish to proceed?',
-		// true = confirm | false = cancel
-		response: (r: boolean) => { console.log('response:', r); }
+		// confirm = TRUE | cancel = FALSE
+		response: (r: boolean) => console.log('response:', r)
 	};
 	dialogStore.trigger(d);
 }
@@ -204,15 +207,15 @@ function dialogConfirm(): void {
 				<CodeBlock
 					language="ts"
 					code={`
-function dialogPrompt(): void {
+function triggerPrompt(): void {
 	const d: DialogSettings = {
 		type: 'prompt',
 		title: 'Enter Name',
 		body: 'Provide your first name in the field below.',
-		// Populates the initial value
+		// Populates the initial input value
 		value: 'Skeleton',
-		// Returns the updated value in the response
-		response: (r: string) => { console.log('response:', r); }
+		// Returns the updated response value
+		response: (r: string) => console.log('response:', r)
 	};
 	dialogStore.trigger(d);
 }
@@ -221,21 +224,23 @@ function dialogPrompt(): void {
 			{/if}
 			<!-- Close -->
 			<h3>Close</h3>
-			<p>Trigger the <code>close()</code> method to remove the first dialog in the queue.</p>
+			<p>Trigger the <code>close()</code> method to remove the first dialog in the dialog queue.</p>
 			<CodeBlock language="ts" code={`dialogStore.close();`} />
 			<!-- Clear -->
 			<h3>Clear</h3>
-			<p>Trigger the <code>clear()</code> method completely empty the store queue.</p>
+			<p>Trigger the <code>clear()</code> method completely empty the dialog queue.</p>
 			<CodeBlock language="ts" code={`dialogStore.clear();`} />
 			<!-- Debugging -->
 			<h3>Debugging the Queue</h3>
-			<p>You can visualize the contents of the store at any time, which can be helpful for debugging.</p>
+			<p>Use the following technique to visualize the contents of the store for debugging.</p>
 			<CodeBlock language="html" code={`<pre>queue: {JSON.stringify($dialogStore, null, 2)}</pre>`} />
 		</section>
 		<!-- Customizing Dialogs -->
 		<section class="space-y-4">
 			<h2>Customizing Dialogs</h2>
-			<p>To customize an individual dialog, append <code>classes</code> to your settings and add the classes you wish to be applied to the dialog modal.</p>
+			<p>
+				To customize an individual dialog, append <code>classes</code> and provide the classes you wish to be applied to the dialog modal window.
+			</p>
 			<CodeBlock
 				language="ts"
 				code={`
@@ -248,48 +253,60 @@ const d: DialogSettings = {
 			/>
 			<p>Note that <code>!</code> (important) may be required to override some styles.</p>
 		</section>
-		<!-- Component Dialogs -->
+		<!-- Component Modals -->
 		<section class="space-y-4">
 			<div class="flex items-center space-x-2">
 				<span class="badge bg-warning-500">Advanced</span>
-				<h2>Component Dialogs</h2>
+				<h2>Component Modals</h2>
 			</div>
-			<p>To create a custom dialog, import and pass a reference to any Svelte component. This will construct and display the contents of the component within the dialog modal window.</p>
+			<p>You can create a custom modal by passing a <code>DialogComponent</code> object, which includes any Svelte component.</p>
 			<CodeBlock
 				language="ts"
 				code={`
-function dialogComponent(): void {
-	const comp: DialogComponent = {
+// import MyCustomComponent from '...';\n
+function triggerCustomModal(): void {
+	const customModalComp: DialogComponent = {
 		// Pass a reference to your custom component
 		ref: MyCustomComponent,
-		// Add props as key/value pairs
+		// Add your props as key/value pairs
 		props: { background: 'bg-red-500' },
-		// Provide your 'default' slot content as a template literal
+		// Provide default slot content as a template literal
 		slot: '<p>Skeleton</p>'
 	};
 	const d: DialogSettings = {
 		type: 'component',
-		component: comp
+		component: customModalComp
 		// NOTE: title, body, response, etc are supported!
 	};
 	dialogStore.trigger(d);
 }
 				`}
 			/>
-			<h3>Constructing a Dialog Component</h3>
 			<p>
-				When constructing your these components you are responsible for adding all close/submit buttons, as well as triggering the dialog response values as needed. To make this process easier to
-				understand, we've provided a few examples to demonstrate the process.
+				When constructing your these custom modals, you are responsible for implementing close/submit buttons, as well as triggering the
+				response method as needed. To make this process easier to understand, we have provided a few examples to demonstrate the process.
 			</p>
-			<a class="btn btn-filled-accent" href="https://github.com/Brain-Bones/skeleton/tree/feature/master/src/lib/utilities/Dialog/examples" target="_blank" rel="noreferrer">View Component Examples</a>
-			<p>A few things to note:</p>
+			<a
+				class="btn btn-filled-accent"
+				href="https://github.com/Brain-Bones/skeleton/tree/feature/master/src/lib/utilities/Dialog/examples"
+				target="_blank"
+				rel="noreferrer">View Example Modals</a
+			>
+			<p>Below are a few tips and recommendations for custom modals:</p>
 			<ul class="list-disc list-inside space-y-1">
-				<li>Import and use the <code>dialogStore</code> to interface directly with the active dialog queue. <code>[0]</code> is the visible dialog index.</li>
-				<li>Most Dialog component props are available via the <code>parent</code> prop - ex: <code>parent.background</code> will provide the background color.</li>
 				<li>
-					You can reference the full list of <a href="https://github.com/Brain-Bones/skeleton/blob/feature/master/src/lib/utilities/Dialog/Dialog.svelte#L95" target="_blank" rel="noreferrer"
-						>available parent prop values</a
-					>.
+					Import and use the <code>dialogStore</code> to interface directly with the active dialog queue. <code>$dialogStore[0]</code> is the
+					visible dialog index.
+				</li>
+				<li>
+					Parent props are available via <code>parent</code> - ex: <code>parent.background</code> will provide the background color prop.
+				</li>
+				<li>
+					You can inspect the full list of <a
+						href="https://github.com/Brain-Bones/skeleton/blob/feature/master/src/lib/utilities/Dialog/Dialog.svelte#L95"
+						target="_blank"
+						rel="noreferrer">available parent prop values</a
+					> in the source code.
 				</li>
 				<li>Use the <code>parent.onClose()</code> or <code>dialogStore.close()</code> methods to close the dialog.</li>
 				<li>Use the <code>$dialogStore[0].response('myResponseDataHere');</code> method to return a response value.</li>

@@ -89,7 +89,7 @@ export function tooltip(node: HTMLElement, args: ArgsTooltip) {
 	// -- State
 
 	// On mouse over - show the tooltip
-	const onMouseOver = (): void => {
+	const onMouseEnter = (): void => {
 		elemTooltip.classList.remove('hidden');
 		setTimeout(() => {
 			elemTooltip.classList.add('!opacity-100');
@@ -98,7 +98,7 @@ export function tooltip(node: HTMLElement, args: ArgsTooltip) {
 	};
 
 	// On mouse out - hide the tooltip
-	const onMouseOut = (): void => {
+	const onMouseLeave = (): void => {
 		elemTooltip.classList.remove('!opacity-100');
 		setTimeout(() => {
 			elemTooltip.classList.add('hidden');
@@ -114,13 +114,13 @@ export function tooltip(node: HTMLElement, args: ArgsTooltip) {
 
 	// A11y Input Handler
 	const onWindowKeyDown = (event: KeyboardEvent): void => {
-		if (event.code === 'Escape') onMouseOut();
+		if (event.code === 'Escape') onMouseLeave();
 	};
 
 	// Event Listners ---
 
-	node.addEventListener('mouseover', onMouseOver);
-	node.addEventListener('mouseout', onMouseOut);
+	node.addEventListener('mouseenter', onMouseEnter);
+	node.addEventListener('mouseleave', onMouseLeave);
 	window.addEventListener('keydown', onWindowKeyDown);
 
 	// Lifecycle
@@ -129,8 +129,8 @@ export function tooltip(node: HTMLElement, args: ArgsTooltip) {
 			args = newArgs;
 		},
 		destroy() {
-			node.removeEventListener('mouseover', onMouseOver);
-			node.removeEventListener('mouseout', onMouseOut);
+			node.removeEventListener('mouseenter', onMouseEnter);
+			node.removeEventListener('mouseleave', onMouseLeave);
 			window.removeEventListener('keydown', onWindowKeyDown);
 		}
 	};
