@@ -49,7 +49,7 @@
 	}
 
 	function toastMultiple(): void {
-		toastStore.trigger({ message: 'Message will last 2 second.', timeout: 2000 });
+		toastStore.trigger({ message: 'Message will auto-hide after 2 seconds.', timeout: 2000 });
 		toastStore.trigger({ message: 'Message will remain until dismissed.', autohide: false });
 		toastStore.trigger({ message: 'Message will auto-hide after 5 seconds.' });
 	}
