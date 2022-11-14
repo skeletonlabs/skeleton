@@ -48,8 +48,8 @@ function selectionHandler(store: DataTableModel): void {
 }
 
 /** Allows you to dynamically pre-select rows on-demand. */
-export function dataTableSelect(list: any[], key: string, valuesArr: any): void {
-	list.map((row) => {
+export function dataTableSelect(store: Writable<DataTableModel>, key: string, valuesArr: any): void {
+	get(store).filtered.map((row) => {
 		if (valuesArr.includes(row[key])) row.dataTableChecked = true;
 		return row;
 	});

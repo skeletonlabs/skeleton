@@ -44,9 +44,6 @@
 		]
 	};
 
-	// Manual Selection
-	dataTableSelect(httpPosts, 'id', [1]);
-
 	// Store
 	const dataTableModel: Writable<DataTableModel> = writable({
 		source: httpPosts,
@@ -57,6 +54,9 @@
 		pagination: { offset: 0, limit: 5, size: 0, amounts: [1, 2, 5, 10] }
 	});
 	dataTableModel.subscribe((v) => dataTableHandler(v));
+
+	// Manual Selection
+	dataTableSelect(dataTableModel, 'id', [1]);
 </script>
 
 <DocsShell {settings}>
