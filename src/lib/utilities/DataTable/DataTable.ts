@@ -34,11 +34,13 @@ export function dataTableStorePut(store: Writable<DataTableModel>, key: string, 
 // Search ---
 
 function searchHandler(store: DataTableModel): void {
-	store.filtered = store.filtered.filter((row) =>
-		JSON.stringify(row)
+	store.filtered = store.filtered.filter((rowObj) => {
+		const rowValues = Object.values(rowObj).join(' ');
+		const result = JSON.stringify(rowValues)
 			.toLowerCase()
-			.includes(store.search?.toLowerCase() || '')
-	);
+			.includes(store.search?.toLowerCase() || '');
+		return result;
+	});
 }
 
 // Selection ---
