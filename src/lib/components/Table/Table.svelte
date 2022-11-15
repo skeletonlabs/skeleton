@@ -15,6 +15,20 @@
 	/** Enables row hover style and `on:selected` event when rows are clicked. */
 	export let interactive: boolean = false;
 
+	// Props (styles)
+	/** Override the Tailwind Element class. Replace this for a headless UI. */
+	export let element: string = 'table';
+	/** Provide classes to set the table text size. */
+	export let text: string = '';
+	/** Provide classes to set the table text color. */
+	export let color: string = '';
+	/** Provide arbitrary classes for the table head. */
+	export let regionHead: string = '';
+	/** Provide arbitrary classes for the table body. */
+	export let regionBody: string = '';
+	/** Provide arbitrary classes for the table foot. */
+	export let regionFoot: string = '';
+
 	// Local
 	let elemTable: HTMLElement;
 
@@ -33,63 +47,64 @@
 	function onRowKeydown(event: KeyboardEvent, rowIndex: number): void {
 		if (['Enter', 'Space'].includes(event.code)) onRowClick(event, rowIndex);
 	}
+
+	// Reactive
+	$: classesBase = `${$$props.class || ''}`;
+	$: classesTable = `${element} ${text} ${color}`;
 </script>
 
-<div class="table-simple">
-	<!-- Container -->
-	<div class="table-container">
-		<!-- Table -->
-		<!-- prettier-ignore -->
-		<table
-			bind:this={elemTable}
-			class="table"
-			class:table-interactive={interactive}
-			role="grid"
-			use:tableA11y
-		>
-			<!-- on:keydown={(e) => onTableKeydown(elemTable, e)} -->
-			<!-- Head -->
-			<thead>
-				<tr>
-					{#each source.head as heading, i}
-						<th>{@html heading}</th>
+<div class="table-container {classesBase}">
+	<!-- Table -->
+	<!-- prettier-ignore -->
+	<table
+		bind:this={elemTable}
+		class="{classesTable}"
+		class:table-interactive={interactive}
+		role="grid"
+		use:tableA11y
+	>
+		<!-- on:keydown={(e) => onTableKeydown(elemTable, e)} -->
+		<!-- Head -->
+		<thead class="table-head {regionHead}">
+			<tr>
+				{#each source.head as heading, i}
+					<th>{@html heading}</th>
+				{/each}
+			</tr>
+		</thead>
+		<!-- Body -->
+		<tbody class="table-body {regionBody}">
+			{#each source.body as row, rowIndex}
+				<!-- Row -->
+				<!-- prettier-ignore -->
+				<tr
+					on:click={(e) => { onRowClick(e, rowIndex); }}
+					on:keydown={(e) => { onRowKeydown(e, rowIndex); }}
+					aria-rowindex={rowIndex + 1}
+				>
+					{#each row as cell, cellIndex}
+						<!-- Cell -->
+						<!-- prettier-ignore -->
+						<td
+							role="gridcell"
+							aria-colindex={cellIndex + 1}
+							tabindex={cellIndex === 0 ? 0 : -1}
+						>
+							{@html cell ? cell : '-'}
+						</td>
 					{/each}
 				</tr>
-			</thead>
-			<!-- Body -->
-			<tbody>
-				{#each source.body as row, rowIndex}
-					<!-- Row -->
-					<!-- prettier-ignore -->
-					<tr
-                        on:click={(e) => { onRowClick(e, rowIndex); }}
-                        on:keydown={(e) => { onRowKeydown(e, rowIndex); }}
-                        aria-rowindex={rowIndex + 1}
-                    >
-						{#each row as cell, cellIndex}
-                            <!-- Cell -->
-                            <!-- prettier-ignore -->
-							<td
-                                role="gridcell"
-                                aria-colindex={cellIndex + 1}
-                                tabindex={cellIndex === 0 ? 0 : -1}
-                            >
-                                {@html cell ? cell : '-'}
-                            </td>
-						{/each}
-					</tr>
-				{/each}
-			</tbody>
-			<!-- Foot -->
-			{#if source.foot}
-				<tfoot>
-					<tr>
-						{#each source.foot as cell, i}
-							<td>{@html cell}</td>
-						{/each}
-					</tr>
-				</tfoot>
-			{/if}
-		</table>
-	</div>
+			{/each}
+		</tbody>
+		<!-- Foot -->
+		{#if source.foot}
+			<tfoot class="table-foot {regionFoot}">
+				<tr>
+					{#each source.foot as cell, i}
+						<td>{@html cell}</td>
+					{/each}
+				</tr>
+			</tfoot>
+		{/if}
+	</table>
 </div>
