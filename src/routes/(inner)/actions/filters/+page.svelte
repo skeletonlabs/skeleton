@@ -109,6 +109,7 @@
 			<p>Alternatively you may apply filters using CSS. This is what the action does for you. Note the hash mark is required.</p>
 			<CodeBlock language="html" code={`<img src={myImageSrc} style="filter: url({'#Emerald'})">`} />
 		</section>
+		<hr />
 		<section class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0 md:space-x-4">
 			<div class="space-y-2">
 				<h2>Create a Filter</h2>

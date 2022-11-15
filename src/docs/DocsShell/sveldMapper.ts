@@ -1,13 +1,11 @@
 
 import type { Component } from './types';
 
-interface MapperOutput {
-	headings: string[]
-	source: string[][]
-}
+import type { TableSource } from './../../lib/components/Table/types';
+
 
 // Mapper: Props
-export function sveldMapperProps(component: Component): MapperOutput {
+export function sveldMapperProps(component: Component): TableSource {
 	const { props } = component.sveld;
 	const propsHeadings = ['Name', 'Type', 'Value', 'Description']
 	// Filter props with undefined types (exclude getContext)
@@ -18,14 +16,9 @@ export function sveldMapperProps(component: Component): MapperOutput {
 		return value
 	}
 	return {
-		headings: propsHeadings,
-		source: propsFiltered.map((p) => {
-			return [
-				`<code>${p.name}<?code>`,
-				`<em>${p.type}</em>`,
-				cleanValue(p.value),
-				p.description ? getDataFromJSDoc(p?.description) : '-'
-			];
+		head: propsHeadings,
+		body: propsFiltered.map((p) => {
+			return [`<code>${p.name}<?code>`, `<em>${p.type}</em>`, cleanValue(p.value), p.description ? getDataFromJSDoc(p?.description) : '-'];
 		})
 	};
 }
@@ -80,12 +73,12 @@ export function outputAsHtml (data: JSDocData) {
 }
 
 // Mapper: Slots
-export function sveldMapperSlots(component: Component): MapperOutput {
+export function sveldMapperSlots(component: Component): TableSource {
 	const { slots } = component.sveld;
 	const slotsHeadings = ['Name', 'Default', 'Fallback', 'Description']
 	return {
-		headings: slotsHeadings,
-		source: slots.map((s) => {
+		head: slotsHeadings,
+		body: slots.map((s) => {
 			// prettier-ignore
 			return [
 				`<code>${s.name.replaceAll('__', '')}</code>`,
@@ -99,12 +92,12 @@ export function sveldMapperSlots(component: Component): MapperOutput {
 }
 
 // Mapper: Events
-export function sveldeMapperEvents(component: Component): MapperOutput {
+export function sveldeMapperEvents(component: Component): TableSource {
 	const { events } = component.sveld;
 	const eventsHeadings = ['Name', 'Type', 'Element', 'Response', 'Description']
 	return {
-		headings: eventsHeadings,
-		source: events.map((e) => {
+		head: eventsHeadings,
+		body: events.map((e) => {
 			// prettier-ignore
 			return [
 				`<code>on:${e.name}</code>`,

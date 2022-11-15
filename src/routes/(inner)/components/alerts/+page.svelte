@@ -38,7 +38,7 @@
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-4">
 			{#if !visible}
-				<div class="card card-body text-center"><button class="btn btn-ghost" on:click={toggleVisible}>Display Alerts</button></div>
+				<div class="card card-body text-center"><button class="btn btn-ghost-surface" on:click={toggleVisible}>Display Alerts</button></div>
 			{/if}
 			<Alert {visible}>
 				<svelte:fragment slot="lead">
@@ -47,23 +47,23 @@
 				<svelte:fragment slot="title">{title}</svelte:fragment>
 				<span>{message}</span>
 				<svelte:fragment slot="trail">
-					<button class="btn btn-filled-ternary" on:click={actionExample}>View More</button>
-					<button class="btn-icon btn-ghost-ternary" on:click={toggleVisible}>&#10005;</button>
+					<button class="btn btn-filled-tertiary" on:click={actionExample}>View More</button>
+					<button class="btn-icon btn-ghost-tertiary" on:click={toggleVisible}>&#10005;</button>
 				</svelte:fragment>
 			</Alert>
-			<Alert background="bg-warning-500/30" border="border-l-4 border-warning-500" {visible}>
+			<Alert background="bg-warning-500/40" border="border-l-4 border-warning-500" {visible}>
 				<span>{message}</span>
 				<svelte:fragment slot="trail">
-					<button class="btn-icon btn-ghost" on:click={toggleVisible}>&#10005;</button>
+					<button class="btn-icon btn-ghost-surface" on:click={toggleVisible}>&#10005;</button>
 				</svelte:fragment>
 			</Alert>
-			<Alert background="bg-accent-500/30" border="border-l-4 border-accent-500" {visible}>
+			<Alert background="bg-accent-500/40" border="border-l-4 border-accent-500" {visible}>
 				<svelte:fragment slot="title">{title}</svelte:fragment>
 				<svelte:fragment slot="trail">
 					<button class="btn btn-filled-accent" on:click={actionExample}>View More</button>
 				</svelte:fragment>
 			</Alert>
-			<Alert background="bg-primary-500/30" border="border-l-4 border-primary-500" {visible}>
+			<Alert background="bg-primary-500/40" border="border-l-4 border-primary-500" {visible}>
 				<svelte:fragment slot="title">{title}</svelte:fragment>
 				<svelte:fragment slot="trail">
 					<button class="btn btn-filled-primary" on:click={actionExample}>View More</button>

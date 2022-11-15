@@ -43,7 +43,7 @@
 		elemIcon?.classList.remove('animate-bounce');
 	}
 	function onDrop(event: DragEvent): void {
-		/** @event {{ event: DragEvent }} drop - When a file dropped on the component. */
+		/** @event {{ event: DragEvent }} drop - When a file is dropped on the component. */
 		dispatch('drop', event);
 		elemIcon?.classList.remove('animate-bounce');
 	}
@@ -71,7 +71,7 @@
 				<div class="text-4xl flex justify-center items-center" bind:this={elemIcon}>&darr;</div>
 				<!-- Text -->
 				<div class="flex flex-col justify-center items-start space-y-0">
-					<div class="text-base font-bold">Drop files or click to select.</div>
+					<div class="text-base font-bold">Drop {$$restProps.multiple ? 'files' : 'a file'} or click to select.</div>
 					{#if notes}<div class="text-sm opacity-70">{@html notes}</div>{/if}
 				</div>
 			</div>

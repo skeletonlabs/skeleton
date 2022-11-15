@@ -28,7 +28,7 @@ export function onTailwindSelect(): void {
 	storeTailwindPalette.set({
 		primary: getTailwindColor(get(storeTailwindForm).primary),
 		accent: getTailwindColor(get(storeTailwindForm).accent),
-		ternary: getTailwindColor(get(storeTailwindForm).ternary),
+		tertiary: getTailwindColor(get(storeTailwindForm).tertiary),
 		warning: getTailwindColor(get(storeTailwindForm).warning),
 		surface: getTailwindColor(get(storeTailwindForm).surface)
 	});
@@ -40,13 +40,13 @@ export function onRandomize(): void {
 		primary: randomTailwindColor(),
 		accent: randomTailwindColor(),
 		warning: randomTailwindColor(),
-		ternary: randomTailwindColor(),
+		tertiary: randomTailwindColor(),
 		surface: randomTailwindColor()
 	};
 	storeTailwindForm.set({
 		primary: newColors.primary.label,
 		accent: newColors.accent.label,
-		ternary: newColors.ternary.label,
+		tertiary: newColors.tertiary.label,
 		warning: newColors.warning.label,
 		surface: newColors.surface.label
 	});
@@ -54,7 +54,7 @@ export function onRandomize(): void {
 		primary: newColors.primary,
 		accent: newColors.accent,
 		warning: newColors.warning,
-		ternary: newColors.ternary,
+		tertiary: newColors.tertiary,
 		surface: newColors.surface
 	});
 }

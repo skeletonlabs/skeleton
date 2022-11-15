@@ -1,11 +1,13 @@
 /* Stylesheet Add-On: tooltips.css */
 
+/* FIXME: adding @layer components causes visual strobing effect bug */
+
 :root {
 	--tooltip-offset: 8px;
 }
 
 .tooltip {
-	@apply text-center origin-center absolute z-20 opacity-0 transition-opacity duration-150;
+	@apply text-center origin-center absolute z-[45] opacity-0 transition-opacity duration-150;
 	/* Base Design */
 	@apply bg-primary-500 w-48 p-2 shadow-xl;
 	/* Theme: Rounded */

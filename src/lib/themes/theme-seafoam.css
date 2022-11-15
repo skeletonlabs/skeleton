@@ -35,16 +35,16 @@
 	--color-accent-800: 63 98 18; /* ⬅ #3f6212 */
 	--color-accent-900: 54 83 20; /* ⬅ #365314 */
 	/* purple | #a855f7 */
-	--color-ternary-50: 250 245 255; /* ⬅ #faf5ff */
-	--color-ternary-100: 243 232 255; /* ⬅ #f3e8ff */
-	--color-ternary-200: 233 213 255; /* ⬅ #e9d5ff */
-	--color-ternary-300: 216 180 254; /* ⬅ #d8b4fe */
-	--color-ternary-400: 192 132 252; /* ⬅ #c084fc */
-	--color-ternary-500: 168 85 247; /* ⬅ #a855f7 */
-	--color-ternary-600: 147 51 234; /* ⬅ #9333ea */
-	--color-ternary-700: 126 34 206; /* ⬅ #7e22ce */
-	--color-ternary-800: 107 33 168; /* ⬅ #6b21a8 */
-	--color-ternary-900: 88 28 135; /* ⬅ #581c87 */
+	--color-tertiary-50: 250 245 255; /* ⬅ #faf5ff */
+	--color-tertiary-100: 243 232 255; /* ⬅ #f3e8ff */
+	--color-tertiary-200: 233 213 255; /* ⬅ #e9d5ff */
+	--color-tertiary-300: 216 180 254; /* ⬅ #d8b4fe */
+	--color-tertiary-400: 192 132 252; /* ⬅ #c084fc */
+	--color-tertiary-500: 168 85 247; /* ⬅ #a855f7 */
+	--color-tertiary-600: 147 51 234; /* ⬅ #9333ea */
+	--color-tertiary-700: 126 34 206; /* ⬅ #7e22ce */
+	--color-tertiary-800: 107 33 168; /* ⬅ #6b21a8 */
+	--color-tertiary-900: 88 28 135; /* ⬅ #581c87 */
 	/* pink | #ec4899 */
 	--color-warning-50: 253 242 248; /* ⬅ #fdf2f8 */
 	--color-warning-100: 252 231 243; /* ⬅ #fce7f3 */

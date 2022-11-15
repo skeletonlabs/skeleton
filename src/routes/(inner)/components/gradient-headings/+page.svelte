@@ -81,7 +81,7 @@
 						<select name="from" id="from" bind:value={props.from}>
 							<option value="from-primary-500">from-primary-500</option>
 							<option value="from-accent-500">from-accent-500</option>
-							<option value="from-ternary-500">from-ternary-500</option>
+							<option value="from-tertiary-500">from-tertiary-500</option>
 							<option value="from-warning-500">from-warning-500</option>
 							<option value="from-surface-500">from-surface-500</option>
 						</select>
@@ -92,7 +92,7 @@
 						<select name="to" id="to" bind:value={props.to}>
 							<option value="to-primary-500">to-primary-500</option>
 							<option value="to-accent-500">to-accent-500</option>
-							<option value="to-ternary-500">to-ternary-500</option>
+							<option value="to-tertiary-500">to-tertiary-500</option>
 							<option value="to-warning-500">to-warning-500</option>
 							<option value="to-surface-500">to-surface-500</option>
 						</select>

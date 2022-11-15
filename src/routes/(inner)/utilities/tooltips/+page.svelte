@@ -36,7 +36,7 @@
 	// Local
 	const exampleTop: ArgsTooltip = { content: 'Tooltip <strong>TOP</strong>', position: 'top' };
 	const exampleBottom: ArgsTooltip = { content: 'Tooltip <strong>BOTTOM</strong>', position: 'bottom', background: '!bg-accent-500' };
-	const exampleLeft: ArgsTooltip = { content: 'Tooltip <strong>LEFT</strong>', position: 'left', background: '!bg-ternary-500' };
+	const exampleLeft: ArgsTooltip = { content: 'Tooltip <strong>LEFT</strong>', position: 'left', background: '!bg-tertiary-500' };
 	const exampleRight: ArgsTooltip = { content: 'Tooltip <strong>RIGHT</strong>', position: 'right', background: '!bg-warning-500' };
 	const exampleHtml: ArgsTooltip = {
 		content: `
@@ -54,14 +54,14 @@
 	<svelte:fragment slot="sandbox">
 		<!-- prettier-ignore -->
 		<section class="card">
-			<div class="card-body max-w-[280px] mx-auto">
+			<div class="card-body max-w-[220px] mx-auto">
 				<div class="grid grid-cols-2 gap-4 mb-4">
-					<button class="btn btn-ghost w-full" data-tooltip="tooltipTop" use:tooltip={exampleTop}>Top</button>
-					<button class="btn btn-ghost w-full" use:tooltip={exampleBottom}>Bottom</button>
-					<button class="btn btn-ghost w-full" use:tooltip={exampleLeft}>Left</button>
-					<button class="btn btn-ghost w-full" use:tooltip={exampleRight}>Right</button>
+					<button class="btn btn-ghost-surface w-full" data-tooltip="tooltipTop" use:tooltip={exampleTop}>&uarr;</button>
+					<button class="btn btn-ghost-surface w-full" use:tooltip={exampleBottom}>&darr;</button>
+					<button class="btn btn-ghost-surface w-full" use:tooltip={exampleLeft}>&larr;</button>
+					<button class="btn btn-ghost-surface w-full" use:tooltip={exampleRight}>&rarr;</button>
 				</div>
-				<button class="btn btn-ghost w-full" use:tooltip={exampleHtml}>HTML Content</button>
+				<button class="btn btn-ghost-surface w-full" use:tooltip={exampleHtml}>HTML Content</button>
 			</div>
 		</section>
 	</svelte:fragment>

@@ -11,7 +11,7 @@
 	/** Provide classes to set border styles. */
 	export let border: string = '';
 	/** Provide classes to set padding. */
-	export let padding: string = 'p-4 md:py-6';
+	export let padding: string = 'p-4';
 	/** Provide classes to define a box shadow. */
 	export let shadow: string = 'shadow-lg';
 	/** Provide classes to set horizontal spacing. */

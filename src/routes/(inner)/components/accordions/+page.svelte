@@ -42,7 +42,7 @@
 			<AccordionGroup>
 				<AccordionItem spacing="space-y-4" open>
 					<svelte:fragment slot="lead">
-						<SvgIcon name="skull" width="w-10" height="h-10" fill="fill-primary-500" />
+						<SvgIcon name="house" width="w-10" height="h-10" fill="fill-primary-500" />
 					</svelte:fragment>
 					<svelte:fragment slot="summary">
 						<h3>Icon Heading</h3>
@@ -64,7 +64,7 @@
 				</AccordionItem>
 				<AccordionItem spacing="space-y-4">
 					<svelte:fragment slot="lead">
-						<Avatar initials="1" background="bg-accent-500" />
+						<Avatar initials="1" background="bg-accent-500" fill="fill-white" />
 					</svelte:fragment>
 					<svelte:fragment slot="summary">
 						<h3>Numeral Heading</h3>
@@ -79,10 +79,30 @@
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
+		<p>A standard AccordionGroup that only allows one AccordionItem to be open at once.</p>
 		<CodeBlock
 			language="html"
 			code={`
 <AccordionGroup>
+	<!-- Open -->
+	<AccordionItem open>
+		<svelte:fragment slot="lead">(lead)</svelte:fragment>
+		<svelte:fragment slot="summary">(summary)</svelte:fragment>
+		<svelte:fragment slot="content">(content)</svelte:fragment>
+	</AccordionItem>
+	<!-- Closed -->
+	<AccordionItem>
+		<svelte:fragment slot="summary">(summary)</svelte:fragment>
+		<svelte:fragment slot="content">(content)</svelte:fragment>
+	</AccordionItem>
+</AccordionGroup>`}
+		/>
+
+		<p>When you don't want an AccordionItem to auto-collapse the other AccordionItems, just set <code>collapse</code> to <code>false</code>.</p>
+		<CodeBlock
+			language="html"
+			code={`
+<AccordionGroup collapse={false}>
 	<!-- Open -->
 	<AccordionItem open>
 		<svelte:fragment slot="lead">(lead)</svelte:fragment>

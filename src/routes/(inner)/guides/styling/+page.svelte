@@ -1,24 +1,31 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
 
+	import type { TableSource } from '$lib/components/Table/types';
+
 	// Components
+	import AccordionGroup from '$lib/components/Accordion/AccordionGroup.svelte';
+	import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
 	import Alert from '$lib/components/Alert/Alert.svelte';
-	import DataTable from '$lib/components/Table/DataTable.svelte';
+	import Table from '$lib/components/Table/Table.svelte';
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
 	import Tab from '$lib/components/Tab/Tab.svelte';
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Stores
-	export const storeStylesheets: Writable<string> = writable('simple');
-	export const storeStylesheetElements: Writable<string> = writable('simple');
+	import { storeFramework } from '$docs/stores';
+	export const storeStylesheets: Writable<string> = writable('recommended');
+	export const storeStylesheetElements: Writable<string> = writable('combined');
+
+	// Local
+	const ghLibPathMaster: string = 'https://github.com/Brain-Bones/skeleton/tree/master/src/lib'; // master branch
 
 	// Tables
-	const ghLibPathMaster: string = 'https://github.com/Brain-Bones/skeleton/tree/master/src/lib'; // master branch
-	const tableStyleAll: any = {
-		headings: ['Stylesheet', 'Description', 'View Source'],
+	const tableStyleAll: TableSource = {
+		head: ['Stylesheet', 'Description', 'View Source'],
 		// prettier-ignore
-		source: [
+		body: [
 			[
 				'<code>all.css</code>',
 				'A universal stylesheet that imports all stylesheets in the optimal order.',
@@ -26,21 +33,21 @@
 			],
 		]
 	};
-	const tableStylesUseful: any = {
-		headings: ['Stylesheet', 'Description', 'Documentation', 'View Source', 'Required Plugin'],
+	const tableStylesUseful: TableSource = {
+		head: ['Stylesheet', 'Description', 'Documentation', 'View Source', 'Required Plugin'],
 		// prettier-ignore
-		source: [
+		body: [
 			[
 				'<code>tailwind.css</code>',
-				'<u>IMPORTANT</u>: should precede all other stylesheets.',
+				'<u>IMPORTANT</u>: precedes all of the following stylesheets.',
 				'<a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a>',
 				`<a href="${ghLibPathMaster}/styles/tailwind.css" target="_blank" rel="noreferrer">tailwind.css</a>`,
 				'-'
 			],
 			[
 				'<code>tokens.css</code>',
-				'Creates design token classes for theme CSS custom properties.',
-				'<a href="/guides/themes">Themes</a>',
+				'Provides utility classes based on your theme CSS custom properties.',
+				'<a href="/elements/tokens">Design Tokens</a>',
 				`<a href="${ghLibPathMaster}/styles/tokens.css" target="_blank" rel="noreferrer">tokens.css</a>`,
 				'-'
 			],
@@ -67,10 +74,10 @@
 			]
 		]
 	};
-	const tableStyleElementsAll: any = {
-		headings: ['Stylesheet', 'Documentation', 'View Source'],
+	const tableStyleElementsAll: TableSource = {
+		head: ['Stylesheet', 'Documentation', 'View Source'],
 		// prettier-ignore
-		source: [
+		body: [
 			[
 				'<code>elements.css</code>',
 				'Imports the full suite of Tailwind Elements.',
@@ -78,10 +85,11 @@
 			],
 		]
 	};
-	const tableStyleElements: any = {
-		headings: ['Stylesheet', 'Documentation', 'View Source'],
+	const tableStyleElements: TableSource = {
+		head: ['Stylesheet', 'Documentation', 'View Source'],
 		// prettier-ignore
-		source: [
+		body: [
+			// Tailwind Elements
 			[
 				'<code>elements/badges.css</code>',
 				'<a href="/elements/badges">badges</a>',
@@ -108,15 +116,35 @@
 				`<a href="${ghLibPathMaster}/styles/elements/logo-clouds.css" target="_blank" rel="noreferrer">logo-clouds.css</a>`,
 			],
 			[
+				'<code>elements/placeholders.css</code>',
+				'<a href="/elements/placeholders">placeholders</a>',
+				`<a href="${ghLibPathMaster}/styles/elements/placeholders.css" target="_blank" rel="noreferrer">placeholders.css</a>`,
+			],
+			[
+				'<code>elements/tables.css</code>',
+				'<a href="/utilities/tables">tables</a>',
+				`<a href="${ghLibPathMaster}/styles/elements/tables.css" target="_blank" rel="noreferrer">tables.css</a>`,
+			],
+			// Utilities
+			[
 				'<code>elements/menus.css</code>',
 				'<a href="/utilities/menus">menus</a>',
 				`<a href="${ghLibPathMaster}/styles/elements/menus.css" target="_blank" rel="noreferrer">menus.css</a>`,
 			],
 			[
-				'<code>elements/placeholders.css</code>',
-				'<a href="/elements/placeholders">placeholders</a>',
-				`<a href="${ghLibPathMaster}/styles/elements/placeholders.css" target="_blank" rel="noreferrer">placeholders.css</a>`,
+				'<code>elements/tooltips.css</code>',
+				'<a href="/utilities/tooltips">tooltips</a>',
+				`<a href="${ghLibPathMaster}/styles/elements/tooltips.css" target="_blank" rel="noreferrer">tooltips.css</a>`,
 			],
+		]
+	};
+	const tableStylesheetOrder: TableSource = {
+		head: ['Order', 'Stylesheet', 'Reason'],
+		// prettier-ignore
+		body: [
+			[ '1.', 'Theme Stylesheet', 'Houses your themes use CSS properties for colors, border radius, etc.' ],
+			[ '2.', 'Skeleton Stylesheet(s)', 'Imports Tailwind directives, generates design tokens, styles elements and components.' ],
+			[ '3.', 'Global Stylesheet', 'Keep last so you can override the above styles. Project-specific styles go here.' ],
 		]
 	};
 </script>
@@ -125,70 +153,70 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Styling</h1>
-		<p>Review best practices for implementing stylesheets, handling global styles, as well as how to styling each each component.</p>
+		<p>This section covers best practices for stylesheet imports and overriding component styles.</p>
 	</header>
 
 	<hr />
 
 	<!-- Stylesheets -->
 	<section class="space-y-4">
-		<h2>Stylesheets</h2>
+		<h2>Skeleton Stylesheets</h2>
 		<p>
-			Skeleton provides a set of modular stylesheets that adapt to your theme. The easiest option is to use the <code>all.css</code> stylesheet. Import the following in your root layout. Sandwich stylesheets
-			between your theme and global stylesheet.
+			Skeleton provides a set of stylesheets for elements and components. Import these in your root layout, which differs per each
+			framework.
 		</p>
+		<TabGroup selected={storeFramework}>
+			<Tab value="sveltekit">SvelteKit</Tab>
+			<Tab value="vite">Vite (Svelte)</Tab>
+			<Tab value="astro">Astro</Tab>
+		</TabGroup>
+		<!-- Framework: SvelteKit -->
+		{#if $storeFramework === 'sveltekit'}
+			<p>Import stylesheets in <code>src/routes/+layout.svelte</code>.</p>
+			<!-- Framework: Vite (Svelte) -->
+		{:else if $storeFramework === 'vite'}
+			<p>Import stylesheets in <code>/src/main.js</code>.</p>
+			<!-- Framework: Astro -->
+		{:else if $storeFramework === 'astro'}
+			<p>
+				Astro does not provide a layout by default, but we recommend <code>/src/layouts/LayoutRoot.astro</code>. See our
+				<a href="/guides/frameworks/astro">See our Astro walkthrough</a> for assistance.
+			</p>
+		{/if}
 		<CodeBlock
 			language="typescript"
 			code={`
-import '@brainandbones/skeleton/styles/${$storeStylesheets === 'simple' ? 'all' : '{stylehsheet}'}.css';
+import '@brainandbones/skeleton/styles/${$storeStylesheets === 'recommended' ? 'all' : '{stylehsheets}'}.css';
 			`}
 		/>
-		<TabGroup selected={storeStylesheets} class="pt-4">
-			<Tab value="simple">All Styles</Tab>
-			<Tab value="advanced">Select Styles</Tab>
+		<TabGroup selected={storeStylesheets}>
+			<Tab value="recommended">Recommended</Tab>
+			<Tab value="advanced">Advanced</Tab>
 		</TabGroup>
-		{#if $storeStylesheets === 'simple'}
-			<DataTable headings={tableStyleAll.headings} source={tableStyleAll.source} />
+		{#if $storeStylesheets === 'recommended'}
+			<p>
+				We recommend <code>all.css</code> for most users. This includes everything required for Skeleton, with all imports in the correct order.
+			</p>
+			<Table source={tableStyleAll} />
 		{:else if $storeStylesheets === 'advanced'}
-			<p>For advanced users, you may wish to import stylesheets individually. Please ensure you import these stylesheets in the order shown below.</p>
-			<DataTable headings={tableStylesUseful.headings} source={tableStylesUseful.source} />
+			<p>
+				For advanced users ONLY. Follow the instruction below to import each stylesheet individually. Please ensure you use the order shown.
+			</p>
+			<Table source={tableStylesUseful} />
 			<!-- Elements -->
-			<TabGroup selected={storeStylesheetElements} class="pt-4">
-				<Tab value="simple">All Elements</Tab>
-				<Tab value="advanced">Select Elements</Tab>
+			<TabGroup selected={storeStylesheetElements}>
+				<Tab value="combined">All Elements</Tab>
+				<Tab value="separate">Select Elements</Tab>
 			</TabGroup>
-			{#if $storeStylesheetElements === 'simple'}
-				<DataTable headings={tableStyleElementsAll.headings} source={tableStyleElementsAll.source} />
-			{:else if $storeStylesheetElements === 'advanced'}
-				<p>Import only the Tailwind Elements you are using. Make sure you set the path to <code>.../elements/*.css</code> as shown.</p>
-				<DataTable headings={tableStyleElements.headings} source={tableStyleElements.source} />
+			{#if $storeStylesheetElements === 'combined'}
+				<Table source={tableStyleElementsAll} />
+			{:else if $storeStylesheetElements === 'separate'}
+				<p>
+					Import only the Tailwind Elements you are using. Make sure you set the path to <code>.../styles/elements/*.css</code> as shown.
+				</p>
+				<Table source={tableStyleElements} />
 			{/if}
 		{/if}
-	</section>
-
-	<hr />
-
-	<!-- @Tailwind Directives -->
-	<section class="space-y-4">
-		<h3>@Tailwind Directives</h3>
-		<p>
-			Skeleton's stylesheet provide the required <a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a>. Drop the following from your
-			global stylesheet (ex: <code>/src/app.postcss</code> for SvelteKit)
-		</p>
-		<CodeBlock
-			language="css"
-			code={`
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-@tailwind variants;
-			`}
-		/>
-		<!-- Alert - this is important, keep it obvious! -->
-		<Alert>
-			<svelte:fragment slot="lead"><span class="text-xl">⚠️</span></svelte:fragment>
-			<strong>IMPORTANT:</strong> Do not skip this step, otherwise your styles will not display as expected.
-		</Alert>
 	</section>
 
 	<hr />
@@ -196,78 +224,139 @@ import '@brainandbones/skeleton/styles/${$storeStylesheets === 'simple' ? 'all' 
 	<!-- Global Styles -->
 	<section class="space-y-4">
 		<h2>Global Stylesheet</h2>
-		<p>Here's a few suggested best practices to follow when creating global styles:</p>
-		<ul class="list-disc list-inside space-y-">
-			<li>
-				Ensure your <a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> are imported only once per project. The
-				<code>all.css</code> stylesheet handles this for you.
-			</li>
-			<li>
-				Wrap your core page elements within a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main" target="_blank" rel="noreferrer">main element</a>. The
-				<a href="/components/app-shell">App Shell</a> component handles this for you.
-			</li>
-			<li>
-				The ideal use case for <a href="https://tailwindcss.com/docs/reusing-styles#extracting-classes-with-apply" target="_blank" rel="noreferrer">Tailwind @apply</a> is defining global styles.
-				Please be leery of
-				<a href="https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction" target="_blank" rel="noreferrer">premature abstraction</a>.
-			</li>
-			<li>
-				Utilize the CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:not" target="_blank" rel="noreferrer">:not pseudo-class</a> to exclude and avoid conflicts with inherent component styles.
-			</li>
-			<li>You can overwrite any imported stylesheet styles in your global stylesheet.</li>
-		</ul>
+		<p>The location of your app's global stylesheet differs per framework. SvelteKit and Vite users must make one quick modification.</p>
+
+		<TabGroup selected={storeFramework}>
+			<Tab value="sveltekit">SvelteKit</Tab>
+			<Tab value="vite">Vite (Svelte)</Tab>
+			<Tab value="astro">Astro</Tab>
+		</TabGroup>
+		<!-- Framework: SvelteKit -->
+		{#if $storeFramework === 'sveltekit'}
+			<p>Your global stylesheet can be found at <code>/src/app.postcss</code>.</p>
+			<!-- Framework: Vite (Svelte) -->
+		{:else if $storeFramework === 'vite'}
+			<p>Your global stylesheet can be found at <code>/src/app.css</code>.</p>
+			<!-- Framework: Astro -->
+		{:else if $storeFramework === 'astro'}
+			<p>
+				Astro does not create this by default, but we recommend <code>/src/styles/global.css</code>.
+				<a href="/guides/frameworks/astro">See our Astro walkthrough</a> for assistance.
+			</p>
+		{/if}
+		<Alert>
+			<svelte:fragment slot="lead"><span class="text-xl">⚠️</span></svelte:fragment>
+			For <u>SvelteKit</u> and <u>Vite</u> projects the following steps is required. This will ensures all styles display properly.
+		</Alert>
+		<!-- Directives -->
+		<p>
+			<strong>Svelte-Add</strong> automatically includes
+			<a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> in your global
+			stylesheet. However, Skeleton handles this for you, so please remove the following:
+		</p>
+		<CodeBlock
+			language="css"
+			code={`
+/* NOTE: If present, remove any @tailwind directives: */\n
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+			`}
+		/>
 	</section>
 
 	<hr />
 
-	<!-- Per Component Styles -->
-	<section class="space-y-8">
+	<!-- Required Order -->
+	<section class="space-y-4">
+		<h2>Import Order</h2>
+		<p>
+			Skeleton has strict requirements for stylesheet import order. Please ensure your imports conform to the following order before you
+			continue.
+		</p>
+		<Table source={tableStylesheetOrder} />
+	</section>
+
+	<hr />
+
+	<section class="space-y-4">
 		<div class="space-y-4">
-			<h2>Styling Components</h2>
-			<p>Skeleton components automatically adapt to your theme. If you would like to customize a single component, see the instruction below.</p>
+			<h2>Customizing Styles</h2>
+			<p>If you wish to customize Skeleton element or component styles, use the recommendations below.</p>
 		</div>
-		<div class="space-y-4">
-			<h3>Using Component Props</h3>
-			<p>All components support style props that accept Tailwind utility classes. See each component's documentation for details.</p>
-			<CodeBlock language="html" code={`<Tab background="bg-accent-500">Prop Customized</Tab>`} />
-		</div>
-		<div class="space-y-4">
-			<h3>Appending Arbitrary Classes</h3>
-			<p>All components support the standard <code>class</code> attribute, allowing you to pass any valid CSS or Tailwind class.</p>
-			<CodeBlock language="html" code={`<Tab class="text-3xl px-10 py-5">Big</Tab>`} />
-		</div>
-		<div class="space-y-4">
-			<h3>Targetting Component Elements</h3>
-			<p>
-				Keep in mind that components are a single line element that contains a set of HTML elements within their template. This means you should be mindful of your target, as the <code>class</code> attribute
-				is only applied to the top-most parent element in the template. In some cases you may need to generate a chained class definition, though we advise using this technique sparingly.
-			</p>
-			<CodeBlock language="css" code={`.my-custom-class .some-child-element { @apply bg-red-500; }`} />
-			<CodeBlock language="html" code={`<Menu class="my-custom-class">...</Menu>`} />
-		</div>
-		<div class="space-y-4">
-			<h3>Component Element Classes</h3>
-			<p>If you inspect rendered components using your browser inspector, you'll note that most have named classes, like <code>crumb-separator</code> for the breadcrumb component.</p>
-			<CodeBlock language="html" code={`<div class="crumb-separator ...">&rarr;</div>`} />
-			<p>If you wish to adjust the styling of this element, you can target the <code>.crumb-separator</code> class in your global stylesheet like so.</p>
-			<CodeBlock language="css" code={`.crumb-separator { @apply text-red-500; }`} />
-		</div>
-		<div class="space-y-4">
-			<h3>Important</h3>
-			<p>
-				Note that when overwriting styles, you may need to mark the style <a href="https://tailwindcss.com/docs/configuration#important-modifier" target="_blank" rel="noreferrer">important</a> to take
-				precedence.
-			</p>
-			<CodeBlock language="html" code={`<Tab class="!p-10">Big</Tab>`} />
-			<CodeBlock language="css" code={`.crumb-crumb { @apply !text-green-500; }`} />
+		<div class="card card-body !bg-accent-500/5">
+			<AccordionGroup>
+				<AccordionItem spacing="space-y-4" open>
+					<svelte:fragment slot="summary"><h3>Via Component Props</h3></svelte:fragment>
+					<div slot="content" class="space-y-4">
+						<p>
+							This is the recommended manner to style most components. Each component provides a set of style <em>props</em> (aka properties)
+							that allow you to override the default style classes. See a list of available options under the "Props" tab in the component documentation.
+						</p>
+						<CodeBlock
+							language="html"
+							code={`<ExampleComponent background="bg-accent-500" text="text-yellow-500">Skeleton</ExampleComponent>`}
+						/>
+						<blockquote>
+							TIP: You may provide multiple utility classes per each prop, and use variations such as <code>dark:bg-green-500</code>.
+						</blockquote>
+					</div>
+				</AccordionItem>
+				<AccordionItem spacing="space-y-4">
+					<svelte:fragment slot="summary"><h3>Via the Class Attribute</h3></svelte:fragment>
+					<div slot="content" class="space-y-4">
+						<p>
+							If a style prop is not available, you can still provide arbitrary utility classes via the standard <code>class</code> attribute.
+							These styles are always applied to the parent element in the component template.
+						</p>
+						<CodeBlock language="html" code={`<ExampleComponent class="text-3xl px-10 py-5">Skeleton</ExampleComponent>`} />
+					</div>
+				</AccordionItem>
+				<AccordionItem spacing="space-y-4">
+					<svelte:fragment slot="summary"><h3>Tailwind Abitrary Variants</h3></svelte:fragment>
+					<div slot="content" class="space-y-4">
+						<p>
+							If you need to target deeper than the parent element, we recommend using <a
+								href="https://tailwindcss.com/blog/tailwindcss-v3-1#arbitrary-values-but-for-variants"
+								target="_blank"
+								rel="noreferrer">Tailwind's arbitrary variant syntax</a
+							>.
+						</p>
+						<CodeBlock language="html" code={`<ExampleComponent class="[&>.ExampleComponent-label]:p-4">...</ExampleComponent>`} />
+					</div>
+				</AccordionItem>
+				<AccordionItem spacing="space-y-4">
+					<svelte:fragment slot="summary"><h3>Global Styles Overrides</h3></svelte:fragment>
+					<div slot="content" class="space-y-4">
+						<p>
+							Tailwind Elements and Svelte Components make use of unique selector classes, such as <code>.crumb-separator</code> for the Breadcrumb
+							seperator element. Use these classes target global overrides in your global stylesheet.
+						</p>
+						<CodeBlock
+							language="html"
+							code={`<!-- Selector classes are always the first listed in the template element. -->\n<div class="crumb-separator ...">{seperator}</div>`}
+						/>
+						<p>Add the following to your global stylesheet to override the seperator's text color:</p>
+						<CodeBlock language="css" code={`.crumb-separator { @apply !text-red-500; }`} />
+						<blockquote>
+							TIP: in some cases you may need to use <code>!</code>
+							<a href="https://tailwindcss.com/docs/configuration#important-modifier" target="_blank" rel="noreferrer">important</a> to give
+							precedence, or style both the light/dark mode variations.
+						</blockquote>
+					</div>
+				</AccordionItem>
+			</AccordionGroup>
 		</div>
 	</section>
 
 	<hr />
 
 	<!-- Next Steps -->
-	<div class="card card-body flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-		<p>Next, let's create and implement a custom theme.</p>
-		<a class="btn btn-filled-accent" href="/guides/themes">Create a Theme</a>
+	<div class="card card-body !flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+		<p>View the <u>optional walkthroughs</u> for creating an example app using Skeleton.</p>
+		<a class="btn btn-filled-primary" href="/guides/frameworks">
+			<span>Framework Guides</span>
+			<span>&rarr;</span>
+		</a>
 	</div>
 </div>
