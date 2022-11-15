@@ -1,5 +1,7 @@
 /* Stylesheet Add-On: tooltips.css */
 
+/* FIXME: adding @layer components causes visual strobing effect bug */
+
 :root {
 	--tooltip-offset: 8px;
 }

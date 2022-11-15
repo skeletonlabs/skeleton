@@ -7,7 +7,9 @@
 @import 'elements/cards.css';
 @import 'elements/lists.css';
 @import 'elements/logo-clouds.css';
-@import 'elements/menus.css';
 @import 'elements/placeholders.css';
+@import 'elements/tables.css';
 
+/* Utilities */
+@import 'elements/menus.css';
 @import 'elements/tooltips.css';

@@ -2,6 +2,8 @@
 	import { fade, fly } from 'svelte/transition';
 	import { writable, type Writable } from 'svelte/store';
 
+	import { focusTrap } from '$lib/actions/FocusTrap/focusTrap';
+
 	// Props
 	/** Provide a store to manage visible state.
 	 * @type {Writable(boolean)}
@@ -57,7 +59,13 @@
 	function setAnimParams(): void {
 		switch (position) {
 			case 'top':
-				animParams = { backdrop: 'flex-col justify-start', width: 'w-full', height: 'h-[40%]', x: 0, y: -percentage(40, window.innerHeight) };
+				animParams = {
+					backdrop: 'flex-col justify-start',
+					width: 'w-full',
+					height: 'h-[40%]',
+					x: 0,
+					y: -percentage(40, window.innerHeight)
+				};
 				break;
 			case 'bottom':
 				animParams = { backdrop: 'flex-col justify-end', width: 'w-full', height: 'h-[40%]', x: 0, y: percentage(40, window.innerHeight) };
@@ -120,6 +128,7 @@
 		on:keydown
 		on:keyup
 		on:keypress
+		use:focusTrap={true}
 	>
 		<!-- Drawer -->
 		<div

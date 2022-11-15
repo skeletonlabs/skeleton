@@ -33,10 +33,15 @@
 		<h3>Adjust index.html</h3>
 		<p>Open <code>/src/index.html</code> and add the following classes so our <em>app</em> div fills the canvas size.</p>
 		<CodeBlock language="html" code={`<div id="app" class="h-full overflow-hidden"></div>`.trim()} />
-		<p>Optionally you can enable Dark Mode by default by adding the <code>.dark</code> class to your <em>HTML</em> element at the top of the page.</p>
+		<p>
+			Optionally you can enable Dark Mode by default by adding the <code>.dark</code> class to your <em>HTML</em> element at the top of the page.
+		</p>
 		<CodeBlock language="html" code={`<html lang="en" class="dark">`.trim()} />
 		<h3>Global Stylesheet</h3>
-		<p>Open your global stylesheet in <code>/src/app.postcss</code>. Remove the @tailwind directives and replace the contents of the file with the following.</p>
+		<p>
+			Open your global stylesheet in <code>/src/app.postcss</code>. Remove the @tailwind directives and replace the contents of the file
+			with the following.
+		</p>
 		<CodeBlock language="css" code={`html, body { @apply h-full overflow-hidden; }`} />
 	</section>
 
@@ -69,7 +74,8 @@
 		/>
 		<h3>Add the App Bar</h3>
 		<p>
-			Next, let's add a header element using Skeleton's <a href="/components/app-bar">App Bar</a> component. Replace "Skeleton" with your application name and customize the GitHub link as desired.
+			Next, let's add a header element using Skeleton's <a href="/components/app-bar">App Bar</a> component. Replace "Skeleton" with your application
+			name and customize the GitHub link as desired.
 		</p>
 		<CodeBlock
 			language="html"
@@ -89,9 +95,15 @@
             `}
 		/>
 		<h3>Add Sidebar Navigation</h3>
-		<p>Let's customize our App Shell's sidebar slot to make it stand out a bit more. Add the following Tailwind utility classes to the <code>slotSidebarLeft</code> prop.</p>
+		<p>
+			Let's customize our App Shell's sidebar slot to make it stand out a bit more. Add the following Tailwind utility classes to the <code
+				>slotSidebarLeft</code
+			> prop.
+		</p>
 		<CodeBlock language="html" code={`<AppShell slotSidebarLeft="bg-surface-500/5 w-56 p-4">`} />
-		<p>After that, let's implement a <a href="/elements/lists">Tailwind Elements navigation list</a> within the App Shell's left sidebar slot.</p>
+		<p>
+			After that, let's implement a <a href="/elements/lists">Tailwind Elements navigation list</a> within the App Shell's left sidebar slot.
+		</p>
 		<CodeBlock
 			language="html"
 			code={`
@@ -115,7 +127,8 @@
 	<section class="space-y-4">
 		<h2>Page Contents</h2>
 		<p>
-			Now let's add some basic content to our homepage. Open <code>/src/App.svelte</code> and replace the contents with the following. This will provide multiple "Tailwind Elements" styled by the
+			Now let's add some basic content to our homepage. Open <code>/src/App.svelte</code> and replace the contents with the following. This
+			will provide multiple "Tailwind Elements" styled by the
 			<code>all.css</code> stylesheets.
 		</p>
 		<CodeBlock
@@ -139,8 +152,8 @@
 		/>
 		<h3>Add a Component</h3>
 		<p>
-			Finally let's implement Skeleton's <a href="/components/gradient-headings">Gradient Heading</a> component. Import the component and replace the <em>H1</em> heading on the page with the following.
-			Feel free to adjust the settings and text as you wish.
+			Finally let's implement Skeleton's <a href="/components/gradient-headings">Gradient Heading</a> component. Import the component and
+			replace the <em>H1</em> heading on the page with the following. Feel free to adjust the settings and text as you wish.
 		</p>
 		<CodeBlock
 			language="html"

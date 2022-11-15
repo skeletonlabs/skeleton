@@ -1,15 +1,17 @@
 /* Stylesheet Add-On: placeholders.css */
 
-/* === Base === */
+@layer components {
+	/* === Base === */
 
-.placeholder {
-	@apply bg-surface-300-600-token h-5;
-	/* Theme: Rounded */
-	@apply rounded-token;
-}
+	.placeholder {
+		@apply bg-surface-300-600-token h-5;
+		/* Theme: Rounded */
+		@apply rounded-token;
+	}
 
-/* === Shapes === */
+	/* === Shapes === */
 
-.placeholder-circle {
-	@apply bg-surface-300-600-token aspect-square rounded-full;
+	.placeholder-circle {
+		@apply bg-surface-300-600-token aspect-square rounded-full;
+	}
 }

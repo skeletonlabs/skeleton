@@ -17,7 +17,7 @@
 
 	// Components & Utilities
 	import AppShell from '$lib/components/AppShell/AppShell.svelte';
-	import Dialog from '$lib/utilities/Dialog/Dialog.svelte';
+	import Modal from '$lib/utilities/Modal/Modal.svelte';
 	import Toast from '$lib/utilities/Toast/Toast.svelte';
 
 	// Docs Components
@@ -69,7 +69,7 @@
 		// Store current page route URL
 		storeCurrentUrl.set($page.url.pathname);
 		// Scroll to top
-		const isNewPage: boolean = params.from && params.to && params.from.routeId !== params.to.routeId;
+		const isNewPage: boolean = params.from && params.to && params.from.route.id !== params.to.route.id;
 		const elemPage = document.querySelector('#page');
 		if (isNewPage && elemPage !== null) {
 			elemPage.scrollTop = 0;
@@ -86,7 +86,7 @@
 </svelte:head>
 
 <!-- Overlays -->
-<Dialog />
+<Modal />
 <Toast />
 <DocsDrawer />
 

@@ -6,7 +6,10 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Recommendations</h1>
-		<p>The following is a curated list of open source packages that pair well with Skeleton. Use these to extend your project and add additional functionality.</p>
+		<p>
+			The following is a curated list of open source packages that pair well with Skeleton. Use these to extend your project and add
+			additional functionality.
+		</p>
 	</header>
 
 	<hr />
@@ -29,7 +32,9 @@
 				</a>
 				<div class="flex items-center space-x-4">
 					<a class="btn btn-ghost-surface" href="https://svelte-animated-counter.vercel.app/" target="_blank" rel="noreferrer">Website</a>
-					<a class="btn btn-filled-accent" href="https://github.com/benzara-tahar/svelte-animated-counter" target="_blank" rel="noreferrer">GitHub</a>
+					<a class="btn btn-filled-accent" href="https://github.com/benzara-tahar/svelte-animated-counter" target="_blank" rel="noreferrer"
+						>GitHub</a
+					>
 				</div>
 			</footer>
 		</div>
@@ -143,9 +148,12 @@
 
 	<!-- Suggest -->
 	<section class="text-center space-y-4">
-		<p>Is there something we're missing?</p>
-		<a class="btn btn-ghost-surface" href="https://github.com/Brain-Bones/skeleton/issues/new?assignees=&labels=feature-request&template=feature_request.yml" target="_blank" rel="noreferrer"
-			>Suggest a Package</a
+		<p>Are we missing something useful?</p>
+		<a
+			class="btn btn-ghost-surface"
+			href="https://github.com/Brain-Bones/skeleton/issues/new?assignees=&labels=feature-request&template=feature_request.yml"
+			target="_blank"
+			rel="noreferrer">Suggest a Package</a
 		>
 	</section>
 </div>

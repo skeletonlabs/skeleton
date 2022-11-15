@@ -7,10 +7,12 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<div class="flex items-end space-x-2">
-			<h1>Framework Guides</h1>
+			<h1>Frameworks</h1>
 			<span class="badge bg-surface-500/30 -translate-y-1">optional</span>
 		</div>
-		<p>We've provided <u>optional guides</u> for building a simple example app within each supported framework.</p>
+		<p>
+			A set of <u>optional walkthroughs</u> for creating a simple app in each supported framework. These introduce the basics of using Skeleton.
+		</p>
 	</header>
 
 	<!-- Select a Framework -->
@@ -22,13 +24,19 @@
 				<h2>SvelteKit</h2>
 				<p>The fastest way to build Svelte apps.</p>
 			</div>
-			<button class="btn btn-filled-accent place-self-center">View &rarr;</button>
+			<button class="btn btn-filled-accent place-self-center">Read Guide</button>
 		</a>
 
 		<!-- Astro -->
 		<a href="/guides/frameworks/vite" class="card p-4 grid grid-cols-[64px_1fr_auto] gap-4">
 			<!-- Vite Logo -->
-			<svg stroke-width="5" stroke-opacity="50%" class="w-14 aspect-square place-self-center stroke-surface-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 257">
+			<svg
+				stroke-width="5"
+				stroke-opacity="50%"
+				class="w-14 aspect-square place-self-center stroke-surface-500"
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 256 257"
+			>
 				<defs>
 					<linearGradient id="a" x1="-.8%" x2="57.6%" y1="7.7%" y2="78.4%">
 						<stop offset="0%" stop-color="transparent" />
@@ -51,7 +59,7 @@
 				<h2>Vite + Svelte</h2>
 				<p>Next Generation Frontend Tooling.</p>
 			</div>
-			<button class="btn btn-filled-accent place-self-center">View &rarr;</button>
+			<button class="btn btn-filled-accent place-self-center">Read Guide</button>
 		</a>
 
 		<!-- Astro -->
@@ -61,16 +69,31 @@
 				<h2>Astro</h2>
 				<p>Serve content fast with Astro's next-gen island architecture.</p>
 			</div>
-			<button class="btn btn-filled-accent place-self-center">View &rarr;</button>
+			<button class="btn btn-filled-accent place-self-center">Read Guide</button>
 		</a>
 	</section>
 
 	<hr />
 
-	<!-- Suggest -->
-	<section class="text-center space-y-4">
-		<a class="btn btn-ghost-surface" href="https://github.com/Brain-Bones/skeleton/issues/new?assignees=&labels=feature-request&template=feature_request.yml" target="_blank" rel="noreferrer"
-			>Suggest a Framework</a
-		>
+	<!-- Next Steps -->
+	<section class="space-y-4">
+		<h2>What's Next?</h2>
+		<p>Choose your own adventure, you can jump to any of the following.</p>
+		<div class="card card-body space-y-4">
+			<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+				<p>Learn more about Skeleton's Tailwind features.</p>
+				<a class="btn btn-ghost-surface" href="/elements/tokens">Tailwind Features &rarr;</a>
+			</div>
+			<hr />
+			<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+				<p>Learn more about Skeleton's Svelte features.</p>
+				<a class="btn btn-ghost-surface" href="/actions/clipboard">Svelte Features &rarr;</a>
+			</div>
+			<hr />
+			<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+				<p>Learn more about Skeleton's utility features.</p>
+				<a class="btn btn-ghost-surface" href="/utilities/codeblocks">Utility Features &rarr;</a>
+			</div>
+		</div>
 	</section>
 </div>
