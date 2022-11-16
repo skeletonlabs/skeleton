@@ -38,6 +38,7 @@
 	// Keyboard Shortcut (⌘+K) to Focus Search
 	let pressedKeys: string[] = [];
 	function onWindowKeydown(e: any): void {
+		if ($modalStore.length) return;
 		if (e.code === 'MetaLeft' || e.code === 'KeyK') {
 			// Set pressed keys
 			pressedKeys = [...pressedKeys, e.code];
