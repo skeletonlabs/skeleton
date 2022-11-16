@@ -288,7 +288,7 @@ function triggerCustomModal(): void {
 			</p>
 			<a
 				class="btn btn-filled-accent"
-				href="https://github.com/Brain-Bones/skeleton/tree/feature/master/src/lib/utilities/Modal/examples"
+				href="https://github.com/Brain-Bones/skeleton/tree/master/src/lib/utilities/Modal/examples"
 				target="_blank"
 				rel="noreferrer">View Example Modals</a
 			>
@@ -303,7 +303,7 @@ function triggerCustomModal(): void {
 				</li>
 				<li>
 					You can inspect the full list of <a
-						href="https://github.com/Brain-Bones/skeleton/blob/feature/master/src/lib/utilities/Modal/Modal.svelte#L95"
+						href="https://github.com/Brain-Bones/skeleton/blob/master/src/lib/utilities/Modal/Modal.svelte#L95"
 						target="_blank"
 						rel="noreferrer">available parent prop values</a
 					> in the source code.
