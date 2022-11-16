@@ -36,8 +36,12 @@
 			<a href="https://github.com/sveltejs/kit/issues/6244#issuecomment-1226600661" target="_blank" rel="noreferrer"
 				>This element is required</a
 			>
+			and <code>display: content</code> should remain.
 		</p>
-		<CodeBlock language="html" code={`<body>\n\t<div class="h-full overflow-hidden">%sveltekit.body%</div>\n</body>`.trim()} />
+		<CodeBlock
+			language="html"
+			code={`<body>\n\t<div style="display: content" class="h-full overflow-hidden">%sveltekit.body%</div>\n</body>`.trim()}
+		/>
 		<p>
 			Note that you can optionally enable Dark Mode for your app by adding <code>.dark</code> to the <em>HTML</em> element at the top of
 			<code>app.html</code>.
