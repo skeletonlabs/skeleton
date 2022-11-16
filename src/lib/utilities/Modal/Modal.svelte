@@ -65,7 +65,7 @@
 
 	// Event Handlers ---
 
-	function onBackdropClick(e: MouseEvent): void {
+	function onBackdropInteraction(e: MouseEvent | TouchEvent): void {
 		if (!(e.target instanceof Element)) return;
 		if (e.target.classList.contains('modal-backdrop')) onClose();
 	}
@@ -130,8 +130,8 @@
 		<!-- Backdrop -->
 		<div
 			class="modal-backdrop {classesBackdrop}"
-			on:click={onBackdropClick}
-			on:keydown
+			on:mousedown={onBackdropInteraction}
+			on:touchstart={onBackdropInteraction}
 			transition:fade={{ duration }}
 			data-testid="modal-backdrop"
 		>
