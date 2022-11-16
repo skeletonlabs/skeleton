@@ -1,5 +1,6 @@
 import adapter from '@sveltejs/adapter-auto';
 import preprocess from 'svelte-preprocess';
+import path from 'path';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -10,9 +11,13 @@ const config = {
 			postcss: true
 		})
 	],
-
 	kit: {
-		adapter: adapter()
+		adapter: adapter(),
+		// https://kit.svelte.dev/docs/configuration#alias
+		alias: {
+			'@brainandbones/skeleton': path.resolve('./src/lib/index.ts'),
+			$docs: path.resolve('./src/docs')
+		}
 	},
 	package: {
 		// strip test files from packaging

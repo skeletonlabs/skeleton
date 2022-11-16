@@ -1,7 +1,6 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import { configDefaults } from 'vitest/config';
 import sveld from 'vite-plugin-sveld';
-import path from 'path';
 
 // Import package.json version
 import { readFileSync } from 'fs';
@@ -15,12 +14,6 @@ const config = {
 	plugins: [sveltekit({ hot: !process.env.VITEST }), sveld()],
 	define: {
 		__PACKAGE__: pkg
-	},
-	resolve: {
-		alias: {
-			'@brainandbones/skeleton': path.resolve('./src/lib/index.ts'),
-			$docs: path.resolve('./src/docs')
-		}
 	},
 	test: {
 		globals: true,
