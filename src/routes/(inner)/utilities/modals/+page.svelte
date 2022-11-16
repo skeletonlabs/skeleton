@@ -283,7 +283,7 @@ function triggerCustomModal(): void {
 				`}
 			/>
 			<p>
-				When constructing your these custom modals, you are responsible for implementing close/submit buttons, as well as triggering the
+				When constructing custom modals, you are responsible for implementing close/submit buttons, as well as triggering the
 				response method as needed. To make this process easier to understand, we have provided a few examples to demonstrate the process.
 			</p>
 			<a
