@@ -1,0 +1,43 @@
+/* Ghost Blog Styles */
+
+.blog-post {
+	@apply max-w-5xl mx-auto pb-28 space-y-8 md:space-y-12;
+}
+
+/* HTML Body Content */
+.blog-html {
+	@apply space-y-8 md:space-y-12;
+}
+
+/* YouTube Embed */
+.kg-embed-card iframe {
+	@apply w-full h-full aspect-video;
+}
+
+/* Codeblock Embed */
+.kg-code-card figcaption {
+	@apply text-xs italic text-center mt-2;
+}
+
+/* Button Embed */
+/* .kg-button-card {} */
+.kg-align-center {
+	@apply text-center;
+}
+.kg-btn {
+	@apply btn !text-inherit !no-underline;
+}
+.kg-btn-accent {
+	@apply btn-filled-accent;
+}
+
+/* Gif Embeds */
+.kg-image-card {
+	@apply text-center;
+}
+.kg-image-card img {
+	@apply mx-auto max-w-full;
+}
+.kg-image-card figcaption {
+	@apply text-xs italic text-center mt-2;
+}

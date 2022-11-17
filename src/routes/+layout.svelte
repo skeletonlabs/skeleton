@@ -38,6 +38,9 @@
 	import crimson from '$lib/themes/theme-crimson.css?inline';
 	import seasonal from '$lib/themes/theme-seasonal.css?inline';
 
+	// The Skeleton blog stylesheet
+	import '$docs/DocsStyles/blog.css';
+
 	// Default Theme, injected immediately:
 	import skeleton from '$lib/themes/theme-skeleton.css';
 	// Skeleton Stylesheets
