@@ -10,10 +10,11 @@
 
 	// Props
 	export let embedded: boolean = false;
-
+	const navCategories = ['guides', 'docs', 'tailwind', 'svelte', 'utilities', 'elements'] as const;
+	type NavCategories = typeof navCategories[number];
 	// Local
-	const storeCategory: Writable<string> = writable('guides'); // guides | docs | tailwind | svelte | utilities
-	let filteredMenuNavLinks: any[] = menuNavLinks;
+	const storeCategory: Writable<NavCategories> = writable('guides'); // guides | docs | tailwind | svelte | utilities
+	let filteredMenuNavLinks = menuNavLinks;
 
 	// ListItem Click Handler
 	function onListItemClick(): void {
@@ -22,15 +23,15 @@
 		storeMobileDrawer.set(false);
 	}
 
-	function setNavCategory(c: string): void {
+	function setNavCategory(c: NavCategories): void {
 		storeCategory.set(c);
 		// prettier-ignore
 		switch($storeCategory) {
-			case('guides'): filteredMenuNavLinks = menuNavLinks.filter((linkSet: any) => linkSet.id === 'guides'); break;
-			case('docs'): filteredMenuNavLinks = menuNavLinks.filter((linkSet: any) => linkSet.id === 'docs'); break;
-			case('elements'): filteredMenuNavLinks = menuNavLinks.filter((linkSet: any) => ['tokens', 'base', 'elements'].includes(linkSet.id)); break;
-			case('svelte'): filteredMenuNavLinks = menuNavLinks.filter((linkSet: any) => ['components', 'actions'].includes(linkSet.id)); break;
-			case('utilities'): filteredMenuNavLinks = menuNavLinks.filter((linkSet: any) => linkSet.id === 'utilities'); break;
+			case('guides'): filteredMenuNavLinks = menuNavLinks.filter((linkSet) => linkSet.id === 'guides'); break;
+			case('docs'): filteredMenuNavLinks = menuNavLinks.filter((linkSet) => linkSet.id === 'docs'); break;
+			case('elements'): filteredMenuNavLinks = menuNavLinks.filter((linkSet) => ['tokens', 'base', 'elements'].includes(linkSet.id)); break;
+			case('svelte'): filteredMenuNavLinks = menuNavLinks.filter((linkSet) => ['components', 'actions'].includes(linkSet.id)); break;
+			case('utilities'): filteredMenuNavLinks = menuNavLinks.filter((linkSet) => linkSet.id === 'utilities'); break;
 		}
 	}
 
@@ -39,9 +40,14 @@
 		let pathMatch: string = p.url.pathname.split('/')[1];
 		if (!pathMatch) return;
 		if (['components', 'actions'].includes(pathMatch)) pathMatch = 'svelte';
-		setNavCategory(pathMatch);
+		if (isNavCategory(pathMatch)) setNavCategory(pathMatch);
 	});
-	storeCategory.subscribe((c: string) => {
+
+	function isNavCategory(c: string): c is NavCategories {
+		return ['guides', 'docs', 'tailwind', 'svelte', 'utilities', 'elements'].includes(c);
+	}
+
+	storeCategory.subscribe((c: NavCategories) => {
 		setNavCategory(c);
 	});
 
