@@ -106,4 +106,10 @@ body {
 	ins {
 		@apply bg-green-500;
 	}
+
+	/* === Date/Time === */
+
+	time {
+		@apply text-sm text-surface-500 dark:text-surface-400;
+	}
 }
