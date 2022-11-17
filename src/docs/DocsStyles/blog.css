@@ -21,6 +21,7 @@
 
 /* Button Embed */
 /* .kg-button-card {} */
+/*
 .kg-align-center {
 	@apply text-center;
 }
@@ -30,6 +31,7 @@
 .kg-btn-accent {
 	@apply btn-filled-accent;
 }
+*/
 
 /* Gif Embeds */
 .kg-image-card {
