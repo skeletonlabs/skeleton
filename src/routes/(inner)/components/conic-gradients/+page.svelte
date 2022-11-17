@@ -34,7 +34,7 @@
 	];
 	const stopsSpinner: ConicStop[] = [
 		{ color: 'transparent', start: 0, end: 25 },
-		{ color: 'rgba(128,128,128,0.5)', start: 75, end: 100 }
+		{ color: 'rgb(var(--color-surface-500))', start: 75, end: 100 }
 	];
 </script>
 

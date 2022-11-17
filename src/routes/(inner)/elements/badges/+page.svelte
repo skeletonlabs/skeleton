@@ -38,7 +38,7 @@
 					<span>Skeleton</span>
 					<span>💀</span>
 				</span>
-				<span class="badge bg-ternary-500 text-white">
+				<span class="badge bg-tertiary-500 text-white">
 					<span>&hearts;</span>
 					<span>Favorite</span>
 				</span>
@@ -57,14 +57,14 @@
 			<div class="card card-body !space-x-6">
 				<div class="relative inline-block">
 					<span class="badge bg-primary-500 text-white absolute -top-3 -right-4 z-10">50k</span>
-					<button class="btn btn-sm btn-ghost">Button</button>
+					<button class="btn btn-sm btn-ghost-surface">Button</button>
 				</div>
 				<div class="relative inline-block">
 					<span class="badge-icon bg-accent-500 text-white absolute -top-1 -right-1 z-10">2</span>
 					<Avatar />
 				</div>
 				<div class="relative inline-block">
-					<span class="badge-icon bg-ternary-500 text-white absolute -top-1 -right-1 z-10">&hearts;</span>
+					<span class="badge-icon bg-tertiary-500 text-white absolute -top-1 -right-1 z-10">&hearts;</span>
 					<Avatar />
 				</div>
 			</div>

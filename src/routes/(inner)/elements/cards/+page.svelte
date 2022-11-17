@@ -29,7 +29,7 @@
 			<!-- Colors -->
 			<div class="card card-body !bg-primary-500 text-white text-center">Primary</div>
 			<div class="card card-body !bg-accent-500 text-white text-center">Accent</div>
-			<div class="card card-body !bg-ternary-500 text-white text-center">Ternary</div>
+			<div class="card card-body !bg-tertiary-500 text-white text-center">Tertiary</div>
 			<div class="card card-body !bg-warning-500 text-white text-center">Warning</div>
 			<!-- Minimal -->
 			<div class="md:col-span-2 card card-body flex justify-center items-center"><span>Minimal</span></div>

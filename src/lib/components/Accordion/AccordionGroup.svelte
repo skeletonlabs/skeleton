@@ -50,6 +50,6 @@
 
 <!-- @component The Accordion parent element. -->
 
-<div bind:this={elemAccordian} class="accordian-group {classesBase}" data-testid="accordion-group">
+<div bind:this={elemAccordian} class="accordion-group {classesBase}" data-testid="accordion-group">
 	<slot />
 </div>

@@ -1,10 +1,12 @@
 <script lang="ts">
-	import type { Writable } from 'svelte/store';
+	import { writable, type Writable } from 'svelte/store';
 	import { setContext } from 'svelte';
 
 	// Props
-	/** Provide a Svelte writable to store the selected state value. */
-	export let selected: Writable<any>;
+	/** Provide a writable store to maintain list selection.
+	 * @type {writeable(any)}
+	 */
+	export let selected: Writable<any> = writable(undefined);
 	/** Provide classes to set the display style. Use value `flex` to stretch the full width. */
 	export let display: string = 'inline-flex';
 	/** Provide classes to set the base background color. */

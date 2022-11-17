@@ -11,36 +11,36 @@ export const storePreview: Writable<boolean> = localStorageStore('storePreview',
 
 // Tailwind: Form Values
 export const storeTailwindForm: Writable<Record<SemanticNames, string>> = localStorageStore('storeTailwindForm', {
-	primary: 'emerald',
-	accent: 'indigo',
-	ternary: 'yellow',
-	warning: 'rose',
-	surface: 'gray'
+	primary: 'blue',
+	accent: 'emerald',
+	tertiary: 'yellow',
+	warning: 'red',
+	surface: 'zinc'
 });
 
 // Tailwind: Generated Palette Colors
 export const storeTailwindPalette: Writable<Record<SemanticNames, TailwindColorObject>> = localStorageStore('storeTailwindPalette', {
 	primary: getTailwindColor(get(storeTailwindForm).primary),
 	accent: getTailwindColor(get(storeTailwindForm).accent),
-	ternary: getTailwindColor(get(storeTailwindForm).ternary),
+	tertiary: getTailwindColor(get(storeTailwindForm).tertiary),
 	warning: getTailwindColor(get(storeTailwindForm).warning),
 	surface: getTailwindColor(get(storeTailwindForm).surface)
 });
 
 // Hex: Form Values
 export const storeHexForm: Writable<Record<SemanticNames, string>> = localStorageStore('storeHexForm', {
-	primary: getTailwindColor('emerald').shades['500'].hex,
-	accent: getTailwindColor('indigo').shades['500'].hex,
-	ternary: getTailwindColor('yellow').shades['500'].hex,
-	warning: getTailwindColor('rose').shades['500'].hex,
-	surface: getTailwindColor('gray').shades['500'].hex
+	primary: getTailwindColor('blue').shades['500'].hex,
+	accent: getTailwindColor('emerald').shades['500'].hex,
+	tertiary: getTailwindColor('yellow').shades['500'].hex,
+	warning: getTailwindColor('red').shades['500'].hex,
+	surface: getTailwindColor('zinc').shades['500'].hex
 });
 
 // Hex: Generated Palette Colors
 export const storeHexPalette: Writable<Record<SemanticNames, TailwindColorObject>> = localStorageStore('storeHexPalette', {
 	primary: genHexPalette('primary', get(storeHexForm).primary),
 	accent: genHexPalette('accent', get(storeHexForm).accent),
-	ternary: genHexPalette('ternary', get(storeHexForm).ternary),
+	tertiary: genHexPalette('tertiary', get(storeHexForm).tertiary),
 	warning: genHexPalette('warning', get(storeHexForm).warning),
 	surface: genHexPalette('surface', get(storeHexForm).surface)
 });

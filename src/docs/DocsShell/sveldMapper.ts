@@ -1,92 +1,83 @@
-
 import type { Component } from './types';
 
-interface MapperOutput {
-	headings: string[]
-	source: string[][]
-}
+import type { TableSource } from './../../lib/components/Table/types';
 
 // Mapper: Props
-export function sveldMapperProps(component: Component): MapperOutput {
+export function sveldMapperProps(component: Component): TableSource {
 	const { props } = component.sveld;
-	const propsHeadings = ['Name', 'Type', 'Value', 'Description']
+	const propsHeadings = ['Name', 'Type', 'Value', 'Description'];
 	// Filter props with undefined types (exclude getContext)
 	const propsFiltered = props.filter((p) => p.type !== undefined);
 	// Return table headings/source
 	function cleanValue(value: string | undefined): string {
 		if (value === undefined || value === '' || value === "''") return '-';
-		return value
+		return value;
 	}
 	return {
-		headings: propsHeadings,
-		source: propsFiltered.map((p) => {
-			return [
-				`<code>${p.name}<?code>`,
-				`<em>${p.type}</em>`,
-				cleanValue(p.value),
-				p.description ? getDataFromJSDoc(p?.description) : '-'
-			];
+		head: propsHeadings,
+		body: propsFiltered.map((p) => {
+			return [`<code>${p.name}<?code>`, `<em>${p.type}</em>`, cleanValue(p.value), p.description ? p?.description : '-'];
 		})
 	};
 }
 
 // RegEx to catch the link that appears after `@` in the JSDoc and all of the text that appears before the closing `}`
-const linkRegex = /{@(?<tag>.+?)\s+(?<link>.+?)\s(?<description>[^}]+)|@(?<modifier>.+?)\s+(?<modifierDescription>[^@|\n]+)|\[(?<markdownName>.+?)\]\((?<markdownLink>.+?)\)/g;
+const linkRegex =
+	/{@(?<tag>.+?)\s+(?<link>.+?)\s(?<description>[^}]+)|@(?<modifier>.+?)\s+(?<modifierDescription>[^@|\n]+)|\[(?<markdownName>.+?)\]\((?<markdownLink>.+?)\)/g;
 
-type SupportedTags = 'link' | 'see' | 'a11y' | 'type' | 'optional' | string
+type SupportedTags = 'link' | 'see' | 'a11y' | 'type' | 'optional' | string;
 type JSDocData = {
-	tag: SupportedTags
-	link: string
-	modifier: string
-	modifierDescription: string
-	markdownLink: string
-	markdownName: string
-	description: string
-}
+	tag: SupportedTags;
+	link: string;
+	modifier: string;
+	modifierDescription: string;
+	markdownLink: string;
+	markdownName: string;
+	description: string;
+};
 
-
-export function getDataFromJSDoc (jsdoc: string) {
+export function getDataFromJSDoc(jsdoc: string) {
 	const results = linkRegex.exec(jsdoc);
-	if (!results) return jsdoc
-	const groups = results.groups
-	if (!groups) return jsdoc
-	const assertedGroup = groups as JSDocData
-	const fixedString = outputAsHtml(assertedGroup)
-	if (!fixedString) return jsdoc
+	if (!results) return jsdoc;
+	const groups = results.groups;
+	if (!groups) return jsdoc;
+	const assertedGroup = groups as JSDocData;
+	const fixedString = outputAsHtml(assertedGroup);
+	if (!fixedString) return jsdoc;
 	return results?.input.replace(results[0], fixedString);
 }
 
-function turnBackticksToCode (str: string) {
+function turnBackticksToCode(str: string) {
 	return str.replace(/`([^`]+)`/g, '<code>$1</code>');
 }
 
-export function outputAsHtml (data: JSDocData) {
-	console.log({data})
-	const desc = data.description || data.markdownName || data.modifierDescription
-	const link = data.link || data.markdownLink
+export function outputAsHtml(data: JSDocData) {
+	console.log({ data });
+	const desc = data.description || data.markdownName || data.modifierDescription;
+	const link = data.link || data.markdownLink;
 	switch (data.tag) {
 		case 'link':
 		case 'see':
-			return `<a href="${link}">${turnBackticksToCode(desc)}</a>`
+			return `<a href="${link}">${turnBackticksToCode(desc)}</a>`;
 		case 'type':
-			return `<code>${turnBackticksToCode(desc)}</code>`
+			return `<code>${turnBackticksToCode(desc)}</code>`;
 		case 'a11y':
 		case 'optional':
 		default:
 			if (data.markdownLink && data.markdownName) {
-				return `<a href="${link}">${turnBackticksToCode(desc)}</a>`
+				return `<a href="${link}">${turnBackticksToCode(desc)}</a>`;
 			}
-			return `${turnBackticksToCode(desc)}`
+			return `${turnBackticksToCode(desc)}`;
 	}
 }
 
 // Mapper: Slots
-export function sveldMapperSlots(component: Component): MapperOutput {
+export function sveldMapperSlots(component: Component): TableSource {
 	const { slots } = component.sveld;
-	const slotsHeadings = ['Name', 'Default', 'Fallback', 'Description']
+	const slotsHeadings = ['Name', 'Default', 'Fallback', 'Description'];
 	return {
-		headings: slotsHeadings,
-		source: slots.map((s) => {
+		head: slotsHeadings,
+		body: slots.map((s) => {
 			// prettier-ignore
 			return [
 				`<code>${s.name.replaceAll('__', '')}</code>`,
@@ -100,12 +91,12 @@ export function sveldMapperSlots(component: Component): MapperOutput {
 }
 
 // Mapper: Events
-export function sveldeMapperEvents(component: Component): MapperOutput {
+export function sveldeMapperEvents(component: Component): TableSource {
 	const { events } = component.sveld;
-	const eventsHeadings = ['Name', 'Type', 'Element', 'Response', 'Description']
+	const eventsHeadings = ['Name', 'Type', 'Element', 'Response', 'Description'];
 	return {
-		headings: eventsHeadings,
-		source: events.map((e) => {
+		head: eventsHeadings,
+		body: events.map((e) => {
 			// prettier-ignore
 			return [
 				`<code>on:${e.name}</code>`,

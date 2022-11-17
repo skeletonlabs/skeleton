@@ -18,6 +18,13 @@
 			['<code>.list-nav</code>', '-', 'Class for defining a navigation list.']
 		]
 	};
+
+	// Local
+	const listData = [
+		{ name: 'A', class: 'bg-primary-500' },
+		{ name: 'B', class: 'bg-accent-500' },
+		{ name: 'C', class: 'bg-tertiary-500' }
+	];
 </script>
 
 <DocsShell {settings}>
@@ -28,11 +35,11 @@
 				<p class="font-bold">Unordered</p>
 				<hr />
 				<ul class="list">
-					{#each ['A', 'B', 'C'] as v}
+					{#each listData as v}
 						<li>
-							<span class="badge-icon p-4 bg-primary-500/30">💀</span>
+							<span class="badge-icon p-4 {v.class}">💀</span>
 							<span class="flex-auto">
-								Item {v}
+								Item {v.name}
 							</span>
 							<span>⋮</span>
 						</li>
@@ -43,11 +50,11 @@
 				<p class="font-bold">Ordered</p>
 				<hr />
 				<ol class="list">
-					{#each ['A', 'B', 'C'] as v, i}
+					{#each listData as v, i}
 						<li>
-							<span class="badge-icon p-4 bg-primary-500/30">{i + 1}</span>
+							<span class="badge-icon p-4 {v.class}">{i + 1}</span>
 							<span class="flex-auto">
-								Item {v}
+								Item {v.name}
 							</span>
 							<span>⋮</span>
 						</li>
@@ -58,12 +65,12 @@
 				<p class="font-bold">Description</p>
 				<hr />
 				<dl class="list-dl">
-					{#each ['A', 'B'] as v}
+					{#each listData as v}
 						<div>
-							<span class="badge-icon p-4 bg-primary-500/30">💀</span>
+							<span class="badge-icon p-4 {v.class}">💀</span>
 							<span class="flex-auto">
-								<dt>Item {v}</dt>
-								<dd>Description for {v}</dd>
+								<dt>Item {v.name}</dt>
+								<dd>Description for {v.name}</dd>
 							</span>
 							<span>⋮</span>
 						</div>
@@ -75,12 +82,12 @@
 				<hr />
 				<nav class="list-nav">
 					<ul>
-						{#each ['A', 'B', 'C'] as v}
+						{#each listData as v}
 							<li>
 								<a href="/">
-									<span class="badge-icon p-4 bg-primary-500/30">💀</span>
+									<span class="badge-icon p-4 {v.class}">💀</span>
 									<span class="flex-auto">
-										Item {v}
+										Item {v.name}
 									</span>
 									<span>⋮</span>
 								</a>

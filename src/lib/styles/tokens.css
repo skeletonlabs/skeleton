@@ -1,11 +1,6 @@
 /* Stylesheet: Design Tokens */
 
-@layer components {
-	/*
-	Tokens are injected into the Tailwind @layer
-	components to ensure they work as utility classes.
-	*/
-
+@layer utilities {
 	/* === Accent Color === */
 	/* https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color */
 
@@ -20,7 +15,7 @@
 		@apply hover:bg-primary-500/10;
 	}
 	.bg-active-token {
-		@apply bg-primary-500 text-primary-50 dark:text-primary-50;
+		@apply bg-primary-500;
 	}
 
 	/* Accent */

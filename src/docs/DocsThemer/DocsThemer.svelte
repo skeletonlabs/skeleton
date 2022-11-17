@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { onDestroy } from 'svelte';
-
 	import Swatches from './Swatches.svelte';
 	import Alert from '$lib/components/Alert/Alert.svelte';
 	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
@@ -38,8 +36,8 @@
 	${genCssColorStrings('primary', currentPalette.primary)}
 	/* ${currentPalette.accent.label} | ${currentPalette.accent.shades['500'].hex} */
 	${genCssColorStrings('accent', currentPalette.accent)}
-	/* ${currentPalette.ternary.label} | ${currentPalette.ternary.shades['500'].hex} */
-	${genCssColorStrings('ternary', currentPalette.ternary)}
+	/* ${currentPalette.tertiary.label} | ${currentPalette.tertiary.shades['500'].hex} */
+	${genCssColorStrings('tertiary', currentPalette.tertiary)}
 	/* ${currentPalette.warning.label} | ${currentPalette.warning.shades['500'].hex} */
 	${genCssColorStrings('warning', currentPalette.warning)}
 	/* ${currentPalette.surface.label} | ${currentPalette.surface.shades['500'].hex} */
@@ -66,7 +64,7 @@
 					<RadioItem value={true}>Tailwind</RadioItem>
 					<RadioItem value={false}>Hex</RadioItem>
 				</RadioGroup>
-				<button class="btn btn-filled-accent" on:click={onRandomize} disabled={!$storeMode}>Randomize</button>
+				<button class="btn btn-ghost-surface" on:click={onRandomize} disabled={!$storeMode}>Randomize</button>
 			</header>
 			<hr />
 			<!-- Color Inputs -->

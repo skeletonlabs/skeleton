@@ -1,3 +1,5 @@
+[![Skeleton](https://user-images.githubusercontent.com/1509726/199282306-7454adcb-b765-4618-8438-67655a7dee47.png)](https://www.skeleton.dev/)
+
 [![npm version](https://img.shields.io/npm/v/@brainandbones/skeleton?logo=npm&color=cb3837)](https://www.npmjs.com/package/@brainandbones/skeleton)
 [![Chat](https://img.shields.io/discord/1003691521280856084?label=chat&logo=discord&color=7289da)](https://discord.gg/EXqV7W8MtY)
 [![Twitter Follow](https://img.shields.io/twitter/follow/SkeletonUI?style=social)](https://twitter.com/SkeletonUI)
