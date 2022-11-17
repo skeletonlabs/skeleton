@@ -127,6 +127,8 @@
 					</a>
 				</div>
 			</div>
+			<!-- Blog -->
+			<a class="unstyled font-bold" href="/blog" data-sveltekit-prefetch>Blog</a>
 		</section>
 
 		<Divider vertical borderWidth="hidden lg:block border-l-2 opacity-30" />
