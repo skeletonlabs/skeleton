@@ -32,17 +32,24 @@
 		}
 	}
 
+	/** set every element to false to reset only when a new valid element is hovered */
+	function clearAllSelected(): void {
+		const selected = searchResults.querySelectorAll('[aria-selected="true"]');
+		selected.forEach((el) => el.setAttribute('aria-selected', 'false'));
+	}
+
 	/** Sets the aria-selected attribute */
 	function onMouseOver(e: MouseEvent | FocusEvent): void {
-		// set every element to false to reset only when a new valid element is hovered
-		searchResults.querySelectorAll('[aria-selected="true"]')?.forEach((el) => el.setAttribute('aria-selected', 'false'));
-		const target = e.target as HTMLAnchorElement;
-		if (target.tagName === 'A') {
+		clearAllSelected();
+		const target = e.target;
+		if (!target) return;
+		if (target instanceof HTMLAnchorElement) {
+			target.setAttribute('aria-selected', 'true');
 			highlighted = target;
-			highlighted.setAttribute('aria-selected', 'true');
 		}
 	}
 
+	/** If the click is on an `<a>` tag, then the modal needs to close. It then updates the recently searched with the link. */
 	function onClick(e: MouseEvent, link: MenuNavLink) {
 		if (e.target instanceof HTMLAnchorElement) {
 			modalStore.close();
@@ -54,6 +61,7 @@
 		});
 	}
 
+	/** Checks to see if the link is already present- if it is, it removes it. If it isn't, then it adds it. */
 	function toggleFavSearch(link: MenuNavLink) {
 		storeFavSearch.update((list) => {
 			if ([...list].some((val) => val.label === link.label)) {
@@ -65,7 +73,18 @@
 		});
 	}
 
+	function windowRegainFocus(e: KeyboardEvent) {
+		if (e.key === 'Escape') {
+			modalStore.close();
+		}
+		const regexLetters = /[a-zA-Z]/;
+		if (regexLetters.test(e.key)) {
+			searchInput.focus();
+		}
+	}
+
 	let searchResults: HTMLDivElement;
+	let searchInput: HTMLInputElement;
 
 	const cBase: string = '';
 	const cHeader: string = 'flex items-center space-x-4 p-4';
@@ -73,10 +92,11 @@
 	const cCard: string = 'card card-body py-2 bg-surface-200-700-token aria-selected:bg-primary-500 flex justify-between items-center';
 </script>
 
+<svelte:window on:keypress={windowRegainFocus} />
 <div class="docs-search {cBase}">
 	<header class="docs-search-header {cHeader}">
 		<SvgIcon name="search" />
-		<input bind:value={searchTerm} type="search" placeholder="Search..." on:input={onSearch} on:keypress={onKey} />
+		<input bind:this={searchInput} bind:value={searchTerm} type="search" placeholder="Search..." on:input={onSearch} on:keypress={onKey} />
 		<!-- prettier-ignore -->
 		<button class="btn-icon" on:click={() => { modalStore.close(); }}><kbd>Esc</kbd></button>
 	</header>
@@ -87,7 +107,7 @@
 				<strong>Recently Searched</strong>
 				<nav>
 					<ul class="list-none space-y-2">
-						{#each [...$storeRecentlySearched] as link, i}
+						{#each [...$storeRecentlySearched].reverse() as link, i}
 							{#if !$storeFavSearch.has(link)}
 								<li>
 									<a
@@ -131,7 +151,7 @@
 					</div>
 					<nav>
 						<ul class="list-none space-y-2">
-							{#each [...$storeFavSearch] as link, i}
+							{#each [...$storeFavSearch].reverse() as link, i}
 								<li>
 									<a
 										aria-selected="false"
