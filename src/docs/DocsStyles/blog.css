@@ -9,7 +9,7 @@
 	@apply space-y-8 md:space-y-12;
 }
 
-figcaption {
+.blog-html figcaption {
 	@apply text-xs italic text-center mt-3;
 }
 
@@ -112,7 +112,7 @@ figcaption {
 
 /* Twitter */
 .kg-embed-card:has(.twitter-tweet) {
-	@apply flex justify-center p-4;
+	@apply flex justify-center p-4 overflow-x-auto;
 }
 
 /* Bookmark */

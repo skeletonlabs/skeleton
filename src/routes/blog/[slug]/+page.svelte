@@ -14,12 +14,21 @@
 	import Breadcrumb from '$lib/components/Breadcrumb/Breadcrumb.svelte';
 	import Crumb from '$lib/components/Breadcrumb/Crumb.svelte';
 
+	// Local
+	let elemPage: HTMLElement | null;
+
 	onMount(() => {
+		// Element Page
+		elemPage = document.querySelector('#page');
 		// CodeBlock Highlight
 		document.querySelectorAll('pre code').forEach((el: any) => {
 			hljs.highlightElement(el);
 		});
 	});
+
+	function scrollToTop(): void {
+		if (elemPage) elemPage.scrollTop = 0;
+	}
 
 	// Local
 	const post = data.posts[0];
@@ -53,6 +62,19 @@
 		</header>
 		<!-- HTML Content -->
 		<div class="blog-html space-y-4">{@html post.html}</div>
+		<hr />
+		<!-- Footer -->
+		<footer class="flex justify-between items-center pb-28">
+			<!-- Tags -->
+			<div class="flex items-center space-x-4">
+				{#each post.tags as tag, i}
+					<span class="text-sm font-bold opacity-50 capitalize">{tag.slug}</span>
+				{/each}
+			</div>
+			<!-- Scroll to Top -->
+			<!-- prettier-ignore -->
+			<button class="btn btn-ghost-surface" on:click={()=>{scrollToTop()}}>Scroll to Top &uarr;</button>
+		</footer>
 	</article>
 	<!-- Twitter Embed Script -->
 	<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
