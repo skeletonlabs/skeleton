@@ -2,22 +2,19 @@
 
 // HTTP ---
 
+const baseUrl: string = 'https://skeleton.ghost.io/ghost/api/content';
+const ghostKey: string = 'c76a270f160dbf241b27b81dc2';
+const headers = { 'Accept-Version': 'v5.0' };
+
 export async function getBlogList(page: number = 2): Promise<any> {
-	const http = await fetch(`https://skeleton.ghost.io/ghost/api/content/posts/?key=c76a270f160dbf241b27b81dc2&page=${page}&include=tags`, {
-		headers: { 'Accept-Version': 'v5.0' }
-	});
+	const http = await fetch(`${baseUrl}/posts/?key=${ghostKey}&page=${page}&include=tags`, { headers });
 	const res = await http.json();
 	if (http.ok) return res;
 	throw new Error(res);
 }
 
 export async function getBlogPost(slug: string): Promise<any> {
-	const http = await fetch(
-		`https://skeleton.ghost.io/ghost/api/content/posts/slug/${slug}/?key=c76a270f160dbf241b27b81dc2&include=tags,authors`,
-		{
-			headers: { 'Accept-Version': 'v5.0' }
-		}
-	);
+	const http = await fetch(`${baseUrl}/posts/slug/${slug}/?key=${ghostKey}&include=tags,authors`, { headers });
 	const res = await http.json();
 	if (http.ok) return res;
 	throw new Error(res);
