@@ -109,7 +109,7 @@
 	</header>
 	<hr />
 	<div bind:this={searchResults} class="docs-search-categories {cList}">
-		{#if searchTerm.length === 0}
+		{#if searchTerm.length === 0 && [...$storeRecentlySearched, ...$storeFavSearch].length !== 0}
 			<div class="space-y-4">
 				<strong>Recently Searched</strong>
 				<nav>
