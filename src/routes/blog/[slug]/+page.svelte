@@ -1,6 +1,7 @@
 <script lang="ts">
 	import hljs from 'highlight.js';
 	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
 
 	// +page.ts
 	import type { PageData } from './$types';
@@ -33,6 +34,27 @@
 	// Local
 	const post = data.posts[0];
 </script>
+
+<svelte:head>
+	<title>Skeleton Blog — {post.title}</title>
+	<!-- Meta -->
+	<meta name="title" content={post.title} />
+	<meta name="description" content={post.excerpt} />
+	<!-- Open Graph -->
+	<meta property="og:title" content={post.title} />
+	<meta property="og:description" content={post.excerpt} />
+	<meta property="og:type" content="image/jpeg" />
+	<meta property="og:url" content="https://www.skeleton.dev{$page.url.pathname}" />
+	<meta property="og:image" content={post.feature_image} />
+	<!-- Twitter -->
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@SkeletonUI" />
+	<meta name="twitter:creator" content="@SkeletonUI" />
+	<meta property="og:url" content="https://www.skeleton.dev{$page.url.pathname}" />
+	<meta property="og:title" content={post.title} />
+	<meta property="og:description" content={post.excerpt} />
+	<meta property="og:image" content={post.feature_image} />
+</svelte:head>
 
 <div class="page-container">
 	<!-- Breadcrumbs -->
@@ -75,6 +97,8 @@
 			<!-- prettier-ignore -->
 			<button class="btn btn-ghost-surface" on:click={()=>{scrollToTop()}}>Scroll to Top &uarr;</button>
 		</footer>
+		<!-- Debug -->
+		<pre>{JSON.stringify(post, null, 2)}</pre>
 	</article>
 	<!-- Twitter Embed Script -->
 	<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
