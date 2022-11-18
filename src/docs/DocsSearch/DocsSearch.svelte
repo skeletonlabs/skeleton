@@ -105,7 +105,10 @@
 		<SvgIcon name="search" />
 		<input bind:this={searchInput} bind:value={searchTerm} type="search" placeholder="Search..." on:input={onSearch} />
 		<!-- prettier-ignore -->
-		<button class="btn-icon" on:click={() => { modalStore.close(); }}><kbd>Esc</kbd></button>
+		<button class="md:btn-icon" on:click={() => { modalStore.close(); }}>
+			<SvgIcon class="md:hidden w-10 h-10" name="close" />
+			<kbd class='hidden md:inline'>Esc</kbd>
+		</button>
 	</header>
 	<hr />
 	<div bind:this={searchResults} class="docs-search-categories {cList}">
