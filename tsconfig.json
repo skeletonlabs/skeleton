@@ -32,15 +32,6 @@
 		"allowJs": true,
 		"checkJs": true,
 		"strict": true,
-		"paths": {
-			"$lib": ["src/lib"],
-			"$lib/*": ["src/lib/*"],
-			"$root": ["./"],
-			"$root/*": ["./*"],
-			"@brainandbones/skeleton": ["src/lib/index.ts"],
-			"$docs": ["src/docs"],
-			"$docs/*": ["src/docs/*"]
-		},
 		"outDir": "package"
 	}
 }
