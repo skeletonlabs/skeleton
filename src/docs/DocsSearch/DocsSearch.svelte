@@ -4,11 +4,13 @@
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	import { storeRecentlySearched, storeFavSearch } from '../stores';
 	import Divider from '$lib/components/Divider/Divider.svelte';
+
 	// Local
 	let searchTerm: string = '';
 	let navigationOriginal = Object.values(menuNavLinks);
 	let navigation = navigationOriginal;
 	let highlighted: HTMLAnchorElement;
+
 	function filterList(list: MenuNavLink[]) {
 		return list.filter((rowObj) => {
 			const formattedSearchTerm = searchTerm.toLowerCase() || '';
@@ -25,13 +27,6 @@
 		searchResults.getElementsByTagName('a')[0].setAttribute('aria-selected', 'true');
 	}
 
-	function onKey(e: KeyboardEvent): void {
-		if (e.key === 'Enter') {
-			const firstEl = searchResults.querySelector('[aria-selected="true"]');
-			if (firstEl instanceof HTMLAnchorElement) firstEl.click();
-		}
-	}
-
 	/** set every element to false to reset only when a new valid element is hovered */
 	function clearAllSelected(): void {
 		const selected = searchResults.querySelectorAll('[aria-selected="true"]');
@@ -39,7 +34,7 @@
 	}
 
 	/** Sets the aria-selected attribute */
-	function onMouseOver(e: MouseEvent | FocusEvent): void {
+	function onFocus(e: MouseEvent | FocusEvent): void {
 		clearAllSelected();
 		const target = e.target;
 		if (!target) return;
@@ -73,11 +68,23 @@
 		});
 	}
 
-	function windowRegainFocus(e: KeyboardEvent) {
+	function removeRecentSearch(link: MenuNavLink) {
+		storeRecentlySearched.update((list) => {
+			list.delete(link);
+			return list;
+		});
+	}
+
+	function onKey(e: KeyboardEvent) {
 		if (e.key === 'Escape') {
 			modalStore.close();
 		}
+		if (e.key === 'Enter') {
+			const firstEl = searchResults.querySelector('[aria-selected="true"]');
+			if (firstEl instanceof HTMLAnchorElement) firstEl.click();
+		}
 		const regexLetters = /[a-zA-Z]/;
+		// This makes sure that if you deselect the input, you can still type queries
 		if (regexLetters.test(e.key)) {
 			searchInput.focus();
 		}
@@ -92,11 +99,11 @@
 	const cCard: string = 'card card-body py-2 bg-surface-200-700-token aria-selected:bg-primary-500 flex justify-between items-center';
 </script>
 
-<svelte:window on:keypress={windowRegainFocus} />
+<svelte:window on:keypress={onKey} />
 <div class="docs-search {cBase}">
 	<header class="docs-search-header {cHeader}">
 		<SvgIcon name="search" />
-		<input bind:this={searchInput} bind:value={searchTerm} type="search" placeholder="Search..." on:input={onSearch} on:keypress={onKey} />
+		<input bind:this={searchInput} bind:value={searchTerm} type="search" placeholder="Search..." on:input={onSearch} />
 		<!-- prettier-ignore -->
 		<button class="btn-icon" on:click={() => { modalStore.close(); }}><kbd>Esc</kbd></button>
 	</header>
@@ -108,12 +115,12 @@
 				<nav>
 					<ul class="list-none space-y-2">
 						{#each [...$storeRecentlySearched].reverse() as link, i}
-							{#if !$storeFavSearch.has(link)}
+							{#if ![...$storeFavSearch].some((val) => val.label === link.label)}
 								<li>
 									<a
 										aria-selected="false"
-										on:mouseover={onMouseOver}
-										on:focus={onMouseOver}
+										on:mouseover={onFocus}
+										on:focus={onFocus}
 										class={cCard}
 										href={link.href}
 										on:click={(e) => onClick(e, link)}
@@ -133,7 +140,7 @@
 											<Divider vertical={true} borderStyle="h-auto" borderWidth="border-l" borderColor="border-surface-400-500-token" />
 											<button
 												on:click|preventDefault={() => {
-													$storeRecentlySearched.delete(link);
+													removeRecentSearch(link);
 												}}
 											>
 												<SvgIcon class="w-10 h-10" name="close" />
@@ -155,8 +162,8 @@
 								<li>
 									<a
 										aria-selected="false"
-										on:mouseover={onMouseOver}
-										on:focus={onMouseOver}
+										on:mouseover={onFocus}
+										on:focus={onFocus}
 										class={cCard}
 										href={link.href}
 										on:click={(e) => onClick(e, link)}
@@ -189,8 +196,8 @@
 								<li>
 									<a
 										aria-selected="false"
-										on:mouseover={onMouseOver}
-										on:focus={onMouseOver}
+										on:mouseover={onFocus}
+										on:focus={onFocus}
 										class={cCard}
 										href={link.href}
 										on:click={(e) => onClick(e, link)}
