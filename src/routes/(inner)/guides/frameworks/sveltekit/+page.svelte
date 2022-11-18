@@ -174,7 +174,7 @@
     import { GradientHeading } from '@brainandbones/skeleton';
 </script\>
 
-<GradientHeading tag="h1" direction="bg-gradient-to-br" from="from-primary-500" to="to-accent-500">
+<GradientHeading tag="h1" direction="bg-gradient-to-r" from="from-primary-500" to="to-accent-500">
     Homepage
 </GradientHeading>
         `}
