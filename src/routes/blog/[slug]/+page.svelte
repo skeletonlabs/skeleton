@@ -22,8 +22,12 @@
 		// Element Page
 		elemPage = document.querySelector('#page');
 		// CodeBlock Highlight
-		document.querySelectorAll('pre code').forEach((el: any) => {
-			hljs.highlightElement(el);
+		document.querySelectorAll('pre code').forEach((elem: any) => {
+			hljs.highlightElement(elem);
+		});
+		// Table
+		document.querySelectorAll('table').forEach((elem: any) => {
+			elem.classList.add('table');
 		});
 	});
 
@@ -75,7 +79,7 @@
 				<Avatar src={post.primary_author.profile_image} alt={post.primary_author.slug} />
 				<div>
 					<div class="text-sm">{post.primary_author.name}</div>
-					<a class="text-sm" href="https://twitter.com/{post.primary_author.twitter}">{post.primary_author.twitter}</a>
+					<a class="text-accent-500 text-xs" href="https://twitter.com/{post.primary_author.twitter}">{post.primary_author.twitter}</a>
 				</div>
 			</div>
 			{#if post.feature_image}
@@ -97,8 +101,6 @@
 			<!-- prettier-ignore -->
 			<button class="btn btn-ghost-surface" on:click={()=>{scrollToTop()}}>Scroll to Top &uarr;</button>
 		</footer>
-		<!-- Debug -->
-		<pre>{JSON.stringify(post, null, 2)}</pre>
 	</article>
 	<!-- Twitter Embed Script -->
 	<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

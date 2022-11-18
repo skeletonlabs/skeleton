@@ -20,11 +20,11 @@
 	<section class="blog-list space-y-8">
 		{#each data.posts as post, i}
 			<a class="unstyled block hover:card card-body rounded-container-token" href="/blog/{post.slug}" data-sveltekit-prefetch>
-				<article class="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-4 md:gap-8">
+				<article class="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-4 lg:gap-8">
 					<!-- Featured Image -->
 					{#if post.feature_image}
 						<div
-							class="bg-black/50 w-full md:w-64 aspect-square rounded-container-token shadow-xl bg-cover bg-center"
+							class="bg-black/50 w-full lg:w-64 aspect-square rounded-container-token shadow-xl bg-cover bg-center"
 							style:background-image={`url(${post.feature_image})`}
 						/>
 					{/if}

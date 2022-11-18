@@ -34,7 +34,7 @@
 		<SvgIcon name="search" />
 		<input bind:value={searchTerm} type="search" placeholder="Search..." on:input={onSearch} />
 		<!-- prettier-ignore -->
-		<button class="btn btn-ghost-surface btn-sm" on:click={() => { modalStore.close(); }}>✕</button>
+		<button class="btn-icon btn-ghost-surface btn-sm" on:click={() => { modalStore.close(); }}>✕</button>
 	</header>
 	<hr />
 	<div class="docs-search-categories {cList}">
