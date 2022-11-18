@@ -7,7 +7,7 @@
 	export let data: PageData;
 
 	// Blog Utils
-	import { blogDateFormatter } from '../blog-utils';
+	import { blogDateFormatter } from '../blog-service';
 
 	// Components
 	import Avatar from '$lib/components/Avatar/Avatar.svelte';
