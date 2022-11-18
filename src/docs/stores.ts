@@ -18,8 +18,19 @@ export const storeTheme: Writable<string> = localStorageStore('storeTheme', 'ske
 /** Persists the tab selection for the user's preferred framework */
 export const storeFramework: Writable<string> = localStorageStore('storeFramework', 'sveltekit');
 
+const setSerializer = {
+	parse: (text: string): Set<MenuNavLink> => new Set(JSON.parse(text)),
+	stringify: (object: Set<MenuNavLink>) => {
+		return JSON.stringify([...object]);
+	}
+};
+
 /** Persists recently searched  */
-export const storeRecentlySearched: Writable<MenuNavLink[]> = localStorageStore('storeRecentlySearched', []);
+export const storeRecentlySearched: Writable<Set<MenuNavLink>> = localStorageStore('storeRecentlySearched', new Set(), {
+	serializer: setSerializer
+});
 
 /** Persists user-saved searched */
-export const storeFavSearch: Writable<MenuNavLink[]> = localStorageStore('storeFavSearch', []);
+export const storeFavSearch: Writable<Set<MenuNavLink>> = localStorageStore('storeFavSearch', new Set(), {
+	serializer: setSerializer
+});

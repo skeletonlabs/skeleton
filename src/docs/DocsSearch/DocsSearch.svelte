@@ -3,6 +3,7 @@
 	import { modalStore } from '$lib/utilities/Modal/stores';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	import { storeRecentlySearched, storeFavSearch } from '../stores';
+	import Divider from '$lib/components/Divider/Divider.svelte';
 	// Local
 	let searchTerm: string = '';
 	let navigationOriginal = Object.values(menuNavLinks);
@@ -42,11 +43,25 @@
 		}
 	}
 
-	function onClick(link: MenuNavLink) {
-		modalStore.close();
+	function onClick(e: MouseEvent, link: MenuNavLink) {
+		if (e.target instanceof HTMLAnchorElement) {
+			modalStore.close();
+		}
 		storeRecentlySearched.update((list) => {
-			if (list.includes(link)) return list;
-			return [link, ...list];
+			if ([...list].some((val) => val.label === link.label)) return list;
+			list.add(link);
+			return list;
+		});
+	}
+
+	function toggleFavSearch(link: MenuNavLink) {
+		storeFavSearch.update((list) => {
+			if ([...list].some((val) => val.label === link.label)) {
+				list.delete(link);
+			} else {
+				list.add(link);
+			}
+			return list;
 		});
 	}
 
@@ -72,32 +87,77 @@
 				<strong>Recently Searched</strong>
 				<nav>
 					<ul class="list-none space-y-2">
-						{#each $storeRecentlySearched as link, i}
-							<li>
-								<a
-									aria-selected="false"
-									on:mouseover={onMouseOver}
-									on:focus={onMouseOver}
-									class={cCard}
-									href={link.href}
-									on:click={() => onClick(link)}
-								>
-									<div>
-										<p>{link.label}</p>
-										<small class="opacity-75">{link.href}</small>
-									</div>
-									<button
-										on:click|preventDefault={() => {
-											$storeRecentlySearched = $storeRecentlySearched.filter((_, index) => index !== i);
-										}}
+						{#each [...$storeRecentlySearched] as link, i}
+							{#if !$storeFavSearch.has(link)}
+								<li>
+									<a
+										aria-selected="false"
+										on:mouseover={onMouseOver}
+										on:focus={onMouseOver}
+										class={cCard}
+										href={link.href}
+										on:click={(e) => onClick(e, link)}
 									>
-										<SvgIcon class="w-10 h-10" name="close" />
-									</button>
-								</a>
-							</li>
+										<div class="pointer-events-none">
+											<p>{link.label}</p>
+											<small class="opacity-75">{link.href}</small>
+										</div>
+										<div class="flex space-x-4">
+											<button
+												on:click|preventDefault={() => {
+													toggleFavSearch(link);
+												}}
+											>
+												<SvgIcon class="w-10 h-10" name="heartOutline" />
+											</button>
+											<Divider vertical={true} borderStyle="h-auto" borderWidth="border-l" borderColor="border-surface-400-500-token" />
+											<button
+												on:click|preventDefault={() => {
+													$storeRecentlySearched.delete(link);
+												}}
+											>
+												<SvgIcon class="w-10 h-10" name="close" />
+											</button>
+										</div>
+									</a>
+								</li>
+							{/if}
 						{/each}
 					</ul>
 				</nav>
+				{#if $storeFavSearch.size > 0}
+					<div class="my-4">
+						<strong>Favorites</strong>
+					</div>
+					<nav>
+						<ul class="list-none space-y-2">
+							{#each [...$storeFavSearch] as link, i}
+								<li>
+									<a
+										aria-selected="false"
+										on:mouseover={onMouseOver}
+										on:focus={onMouseOver}
+										class={cCard}
+										href={link.href}
+										on:click={(e) => onClick(e, link)}
+									>
+										<div class="pointer-events-none">
+											<p>{link.label}</p>
+											<small class="opacity-75">{link.href}</small>
+										</div>
+										<button
+											on:click|preventDefault={() => {
+												toggleFavSearch(link);
+											}}
+										>
+											<SvgIcon class="w-10 h-10" name="heart" />
+										</button>
+									</a>
+								</li>
+							{/each}
+						</ul>
+					</nav>
+				{/if}
 			</div>
 		{:else}
 			{#each navigation as category, i}
@@ -113,9 +173,9 @@
 										on:focus={onMouseOver}
 										class={cCard}
 										href={link.href}
-										on:click={() => onClick(link)}
+										on:click={(e) => onClick(e, link)}
 									>
-										<div>
+										<div class="pointer-events-none">
 											<p>{link.label}</p>
 											<small class="opacity-75">{link.href}</small>
 										</div>
