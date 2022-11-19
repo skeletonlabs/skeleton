@@ -19,7 +19,7 @@
 	/** Provide classes to set the width color.*/
 	export let width: string = 'w-5';
 	/** Provide classes to set the height color.*/
-	export let height: string = 'w-5';
+	export let height: string = 'h-5';
 
 	// A11y
 	/** Set the title element value embedded within the SVG.*/
