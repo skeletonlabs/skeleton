@@ -11,20 +11,33 @@ function randomUUID(): string {
 	return Number(random).toString(32);
 }
 
-// If toast should auto-hide, wait X time, then close by ID
-function handleAutoHide(toast: ToastSettings): void {
-	console.log(toast);
-	if (toast.autohide === true) {
-		setTimeout(() => {
-			toastStore.close(toast.id);
-		}, toast.timeout);
-	}
-}
-
-function toastService(): any {
+export function toastService(): any {
 	const { subscribe, set, update } = writable([]);
+	/** Remove first toast in queue */
+	function close(id: string) {
+		update((tStore) => {
+			if (tStore.length > 0) {
+				var index = tStore.findIndex((t: ToastSettings) => t.id === id);
+				tStore.splice(index, 1);
+			}
+			return tStore;
+		});
+	}
+
+	// If toast should auto-hide, wait X time, then close by ID
+	function handleAutoHide(toast: ToastSettings): void {
+		console.log(toast);
+		if (toast.autohide === true) {
+			setTimeout(() => {
+				close(toast.id!);
+			}, toast.timeout);
+		}
+	}
+
 	return {
 		subscribe,
+		/** Remove first toast in queue */
+		close,
 		/** Add a new toast to the queue. */
 		trigger: (toast: ToastSettings) =>
 			update((tStore: any) => {
@@ -35,15 +48,6 @@ function toastService(): any {
 				// Handle auto-hide, if needed
 				handleAutoHide(tMerged);
 				// Return
-				return tStore;
-			}),
-		/** Remove first toast in queue */
-		close: (id: string) =>
-			update((tStore) => {
-				if (tStore.length > 0) {
-					var index = tStore.findIndex((t: ToastSettings) => t.id === id);
-					tStore.splice(index, 1);
-				}
 				return tStore;
 			}),
 		/** Remove all toasts from queue */

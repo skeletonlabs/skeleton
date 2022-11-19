@@ -13,7 +13,8 @@
 	export let max: number = 3;
 	/** The duration of the fly in/out animation. */
 	export let duration: number = 150;
-
+	/** Toast store used for the component, by default the const toastStore is used. */
+	export let store: any = toastStore; // the store is still a global variable, but there is the option to override it. If its overriden it *should* no longer pose a problem, although I'm not sure what the best way to test global server-side variable lifecycle is in sveltekit 
 	// Props (styles)
 	/** Provide classes to set the background color. */
 	export let background: string = 'bg-accent-500';
@@ -62,8 +63,8 @@
 	}
 
 	function onAction(): void {
-		$toastStore[0].action.response();
-		toastStore.close();
+		$store[0].action.response();
+		store.close();
 	}
 
 	// Reactive
@@ -72,12 +73,12 @@
 	$: classesBase = `${cToast} ${background} ${width} ${color} ${padding} ${spacing} ${rounded} ${shadow}`;
 </script>
 
-{#if $toastStore.length}
+{#if $store.length}
 	<!-- Wrapper -->
 	<div class="snackbar-wrapper {classesWrapper}" data-testid="snackbar-wrapper">
 		<!-- List -->
 		<div class="snackbar {classesSnackbar}" transition:fly={{ x: animAxis.x, y: animAxis.y, duration }}>
-			{#each $toastStore as t, i}
+			{#each $store as t, i}
 				{#if i < max + 1}
 					<!-- Toast -->
 					<div class="toast {classesBase} {t.classes}" role="alert" aria-live="polite" data-testid="toast">
@@ -85,7 +86,7 @@
 						<!-- prettier-ignore -->
 						<div class="flex items-center space-x-2">
 							{#if t.action}<button class="btn {buttonAction}" on:click={onAction}>{@html t.action.label}</button>{/if}
-							<button class="btn-icon {buttonDismiss}" on:click={() => { toastStore.close(t.id) }}>✕</button>
+							<button class="btn-icon {buttonDismiss}" on:click={() => { store.close(t.id) }}>✕</button>
 						</div>
 					</div>
 				{/if}
