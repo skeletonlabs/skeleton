@@ -112,7 +112,8 @@
 .kg-align-center {
 	@apply text-center;
 }
-.kg-button-card a {
+.kg-button-card a,
+.kg-header-card a {
 	@apply !no-underline;
 	@apply bg-accent-500 !text-surface-50 font-bold;
 	@apply text-base px-5 py-[9px];
@@ -163,4 +164,29 @@
 }
 .kg-bookmark-thumbnail img {
 	@apply w-full h-full md:max-h-40 object-cover overflow-hidden;
+}
+
+/* Headers */
+.kg-header-card {
+	@apply bg-accent-500/5 border border-surface-100 dark:border-surface-800;
+	@apply px-4 text-center space-y-2;
+	border-radius: var(--theme-rounded-container);
+}
+.kg-size-small {
+	@apply py-4;
+}
+.kg-size-medium {
+	@apply py-12;
+}
+.kg-size-large {
+	@apply py-20;
+}
+.kg-header-card h2 {
+	@apply text-4xl;
+}
+.kg-header-card h3 {
+	@apply text-base;
+}
+.kg-header-card a {
+	@apply inline-block;
 }
