@@ -1,12 +1,12 @@
 /* Ghost Blog Styles */
 
 .blog-post {
-	@apply max-w-5xl mx-auto pb-28 space-y-8 md:space-y-12;
+	@apply max-w-5xl mx-auto pb-28 space-y-8;
 }
 
 /* HTML Body Content */
 .blog-html {
-	@apply space-y-8 md:space-y-12;
+	@apply space-y-8;
 }
 
 /* === Typography === */
