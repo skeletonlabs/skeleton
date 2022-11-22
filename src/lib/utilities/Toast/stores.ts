@@ -13,7 +13,6 @@ function randomUUID(): string {
 
 // If toast should auto-hide, wait X time, then close by ID
 function handleAutoHide(toast: ToastSettings): void {
-	console.log(toast);
 	if (toast.autohide === true) {
 		setTimeout(() => {
 			toastStore.close(toast.id);
