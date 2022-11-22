@@ -85,13 +85,16 @@
 				</div>
 			</div>
 			<!-- Featured Image -->
-			{#if post.feature_image}<img src={post.feature_image} alt={post.title} class="rounded-container-token shadow-xl" />{/if}
+			{#if post.feature_image}<img
+					src={post.feature_image}
+					alt={post.title}
+					class="w-full aspect-video rounded-container-token shadow-xl"
+				/>{/if}
 		</header>
 		<!-- HTML Content -->
 		<div class="blog-html space-y-4">{@html post.html}</div>
-		<hr />
 		<!-- Footer -->
-		<footer class="flex justify-between items-center pb-28">
+		<footer class="card card-body !bg-accent-500/5 flex justify-between items-center mb-28">
 			<!-- Tags -->
 			<div class="flex items-center space-x-4">
 				{#each post.tags as tag, i}

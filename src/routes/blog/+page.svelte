@@ -23,9 +23,10 @@
 				<article class="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-4 lg:gap-8">
 					<!-- Featured Image -->
 					{#if post.feature_image}
-						<div
-							class="bg-black/50 w-full lg:w-64 aspect-square rounded-container-token shadow-xl bg-cover bg-center"
-							style:background-image={`url(${post.feature_image})`}
+						<img
+							class="bg-black/50 w-full lg:max-w-sm aspect-video rounded-container-token shadow-xl bg-cover bg-center"
+							src={post.feature_image}
+							alt="thumbnail"
 						/>
 					{/if}
 					<!-- Content -->
