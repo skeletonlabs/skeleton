@@ -1,8 +1,5 @@
 <!-- Layout: (root) -->
 <script lang="ts">
-	// Added to resolve Vercel deploy issue.
-	export const trailingSlash = 'always';
-
 	import hljs from 'highlight.js';
 	import '$lib/styles/highlight-js.css'; // was: 'highlight.js/styles/github-dark.css';
 	import { storeHighlightJs } from '$lib/utilities/CodeBlock/stores';
