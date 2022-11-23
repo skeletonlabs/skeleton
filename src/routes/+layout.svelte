@@ -42,6 +42,8 @@
 	import skeleton from '$lib/themes/theme-skeleton.css';
 	// Skeleton Stylesheets
 	import '$lib/styles/all.css';
+	// The Skeleton blog stylesheet
+	import '$docs/DocsStyles/blog.css';
 	// Global Stylesheets
 	import '../app.postcss';
 
@@ -76,8 +78,16 @@
 		}
 	});
 
+	function matchPathWhitelist(pageUrlPath: string): boolean {
+		// If homepage route
+		if (pageUrlPath === '/') return true;
+		// If any blog route
+		if (pageUrlPath.includes('/blog')) return true;
+		return false;
+	}
+
 	// Disable left sidebar on homepage
-	$: slotSidebarLeft = $page.url.pathname === '/' ? 'w-0' : 'bg-black/5 lg:w-auto';
+	$: slotSidebarLeft = matchPathWhitelist($page.url.pathname) ? 'w-0' : 'bg-black/5 lg:w-auto';
 </script>
 
 <svelte:head>
