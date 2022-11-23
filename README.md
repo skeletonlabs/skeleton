@@ -31,7 +31,3 @@ We've provided a detailed [contribution guide](https://skeleton.dev/docs/contrib
 ## Core Maintainer
 
 - [Chris Simmons](https://github.com/endigo9740) (endigo9740)
-
----
-
-Founded by [Brain & Bones, LLC](https://www.brainandbonesllc.com/).
