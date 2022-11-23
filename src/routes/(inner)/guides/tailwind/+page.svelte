@@ -122,44 +122,27 @@ ${$storeFramework === 'astro' ? 'module.exports' : 'const config'} = {
 			Skeleton pairs well with all of the official Tailwind plugins. These are <u>optional</u> and should only be added if your project requires
 			them.
 		</p>
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-			<div class="card card-body flex justify-between items-center space-x-4">
-				<div class="space-y-2">
-					<h3>Forms</h3>
-					<p>Provides a basic reset for form elements.</p>
-				</div>
-				<a class="btn btn-ghost-surface" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank" rel="noreferrer">View</a>
+		<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+			<div class="card card-body space-y-4 text-center">
+				<h3>Forms</h3>
+				<p>Provides a basic reset for form elements.</p>
+				<a class="btn btn-ghost-surface" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank" rel="noreferrer">
+					View Plugin
+				</a>
 			</div>
-			<div class="card card-body flex justify-between items-center space-x-4">
-				<div class="space-y-2">
-					<h3>Typography</h3>
-					<p>Typographic defaults for HTML you don't control.</p>
-				</div>
-				<a class="btn btn-ghost-surface" href="https://tailwindcss.com/docs/typography-plugin" target="_blank" rel="noreferrer">View</a>
+			<div class="card card-body space-y-4 text-center">
+				<h3>Typography</h3>
+				<p>Typographic defaults for HTML you don't control.</p>
+				<a class="btn btn-ghost-surface" href="https://tailwindcss.com/docs/typography-plugin" target="_blank" rel="noreferrer">
+					View Plugin
+				</a>
 			</div>
-			<div class="card card-body flex justify-between items-center space-x-4">
-				<div class="space-y-2">
-					<h3>Aspect Ratio</h3>
-					<p>
-						Note this plugin <a
-							href="https://github.com/tailwindlabs/tailwindcss-aspect-ratio#compatibility-with-default-aspect-ratio-utilities"
-							target="_blank"
-							rel="noreferrer">requires a compatibility configuration</a
-						>.
-					</p>
-				</div>
-				<a class="btn btn-ghost-surface" href="https://github.com/tailwindlabs/tailwindcss-aspect-ratio" target="_blank" rel="noreferrer"
-					>View</a
-				>
-			</div>
-			<div class="card card-body flex justify-between items-center space-x-4">
-				<div class="space-y-2">
-					<h3>Line Clamp</h3>
-					<p>Provides utilities for visually truncating text.</p>
-				</div>
-				<a class="btn btn-ghost-surface" href="https://github.com/tailwindlabs/tailwindcss-line-clamp" target="_blank" rel="noreferrer"
-					>View</a
-				>
+			<div class="card card-body space-y-4 text-center">
+				<h3>Line Clamp</h3>
+				<p>Provides utilities for visually truncating text.</p>
+				<a class="btn btn-ghost-surface" href="https://github.com/tailwindlabs/tailwindcss-line-clamp" target="_blank" rel="noreferrer">
+					View Plugin
+				</a>
 			</div>
 		</div>
 	</section>
