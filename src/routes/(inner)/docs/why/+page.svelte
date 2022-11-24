@@ -64,11 +64,11 @@
 	<section class="space-y-4">
 		<h2>Free and Open Source</h2>
 		<p>
-			Skeleton is available as <a href="https://github.com/Brain-Bones/skeleton" target="_blank" rel="noreferrer"
+			Skeleton is available as <a href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer"
 				>free and open-source software (FOSS)</a
 			>
 			provided under the
-			<a href="https://github.com/Brain-Bones/skeleton/blob/master/LICENSE" target="_blank" rel="noreferrer">MIT License</a>.
+			<a href="https://github.com/skeletonlabs/skeleton/blob/master/LICENSE" target="_blank" rel="noreferrer">MIT License</a>.
 		</p>
 	</section>
 </div>

@@ -32,7 +32,7 @@
 	let storeActiveTab: Writable<string> = writable('usage');
 
 	// Local
-	const githubSourcePath: string = 'https://github.com/Brain-Bones/skeleton/tree/master/src'; // FIXME: hardcoded path
+	const githubSourcePath: string = 'https://github.com/skeletonlabs/skeleton/tree/master/src'; // FIXME: hardcoded path
 	const defaultSettings: DocsShellSettings = {
 		// Heading
 		feature: DocsFeature.Component,
@@ -43,7 +43,7 @@
 		types: [],
 		stylesheetIncludes: [],
 		stylesheets: [],
-		package: { name: '@brainandbones/skeleton', url: 'https://www.npmjs.com/package/@brainandbones/skeleton' },
+		package: { name: '@skeletonlabs/skeleton', url: 'https://www.npmjs.com/package/@skeletonlabs/skeleton' },
 		source: '',
 		docsPath: $page.url.pathname,
 		aria: undefined,
@@ -201,7 +201,8 @@
 				<p class="hidden md:inline-block w-32">Docs</p>
 				<div class="flex items-end space-x-2">
 					<SvgIcon width="w-4" height="h-4" class="!mr-1" name="book" />
-					<a href={`${githubSourcePath}/routes/(inner)${pageSettings.docsPath}/+page.svelte`} target="_blank" rel="noreferrer">Doc Source</a>
+					<a href={`${githubSourcePath}/routes/(inner)${pageSettings.docsPath}/+page.svelte`} target="_blank" rel="noreferrer">Doc Source</a
+					>
 				</div>
 				<!-- Dependencies -->
 				{#if pageSettings.dependencies?.length}
@@ -272,7 +273,12 @@
 				<!-- Supports restProps -->
 				{#if pageSettings.restProps}
 					<p>
-						This component makes use of <a href="https://svelte.dev/docs#template-syntax-attributes-and-props" target="_blank" rel="noreferrer">restProps</a> for the
+						This component makes use of <a
+							href="https://svelte.dev/docs#template-syntax-attributes-and-props"
+							target="_blank"
+							rel="noreferrer">restProps</a
+						>
+						for the
 						<code>{pageSettings.restProps}</code> element.
 					</p>
 				{/if}
@@ -285,7 +291,9 @@
 								{#if comp.label}<h2>{comp.label}</h2>{/if}
 								{#if comp.descProps}<div>{@html comp.descProps}</div>{/if}
 								{#if tableSource.body.length > 0}<Table source={tableSource} />{/if}
-								{#if comp.overrideProps}<div><em>{comp.label} can override: <span class="text-primary-500">{comp.overrideProps.join(', ')}</span>.</em></div>{/if}
+								{#if comp.overrideProps}<div>
+										<em>{comp.label} can override: <span class="text-primary-500">{comp.overrideProps.join(', ')}</span>.</em>
+									</div>{/if}
 							</section>
 						{/if}
 					{/each}

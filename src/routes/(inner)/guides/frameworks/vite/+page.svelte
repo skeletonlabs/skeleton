@@ -57,7 +57,7 @@
 			language="html"
 			code={`
 \<script\>
-	import { AppShell, AppBar } from '@brainandbones/skeleton';
+	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
 \</script\>
 
 <AppShell>
@@ -159,7 +159,7 @@
 			language="html"
 			code={`
 \<script\>
-	import { GradientHeading } from '@brainandbones/skeleton';
+	import { GradientHeading } from '@skeletonlabs/skeleton';
 \</script\>
 
 <GradientHeading tag="h1" direction="bg-gradient-to-br" from="from-primary-500" to="to-accent-500">

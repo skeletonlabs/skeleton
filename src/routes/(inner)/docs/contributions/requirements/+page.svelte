@@ -65,14 +65,14 @@
 		<h2>Contribution Workflow</h2>
 		<ol class="list-decimal list-inside space-y-1">
 			<li>
-				<a href="https://github.com/Brain-Bones/skeleton/issues" target="_blank" rel="noreferrer">Select an issue</a>
+				<a href="https://github.com/skeletonlabs/skeleton/issues" target="_blank" rel="noreferrer">Select an issue</a>
 				or
-				<a href="https://github.com/Brain-Bones/skeleton/wiki/%F0%9F%9B%A3%EF%B8%8F-The-Skeleton-Roadmap" target="_blank" rel="noreferrer"
+				<a href="https://github.com/skeletonlabs/skeleton/wiki/%F0%9F%9B%A3%EF%B8%8F-The-Skeleton-Roadmap" target="_blank" rel="noreferrer"
 					>roadmap task</a
 				> you wish to contribute to.
 			</li>
 			<li>
-				Leave a comment, join the <a href="https://github.com/Brain-Bones/skeleton/discussions/79" target="_blank" rel="noreferrer"
+				Leave a comment, join the <a href="https://github.com/skeletonlabs/skeleton/discussions/79" target="_blank" rel="noreferrer"
 					>roadmap discussion</a
 				>, or
 				<a href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer">give us a heads up on Discord</a>.

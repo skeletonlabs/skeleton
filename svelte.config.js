@@ -15,7 +15,7 @@ const config = {
 		adapter: adapter(),
 		// https://kit.svelte.dev/docs/configuration#alias
 		alias: {
-			'@brainandbones/skeleton': path.resolve('./src/lib/index.ts'),
+			'@skeletonlabs/skeleton': path.resolve('./src/lib/index.ts'),
 			$docs: path.resolve('./src/docs')
 		}
 	},

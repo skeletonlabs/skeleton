@@ -11,7 +11,7 @@
 	import type { ToastSettings } from '$lib/utilities/Toast/types';
 
 	// Presets
-	const presetUrl: string = 'https://github.com/Brain-Bones/skeleton/blob/master/src/themes';
+	const presetUrl: string = 'https://github.com/skeletonlabs/skeleton/blob/master/src/themes';
 	// prettier-ignore
 	const presets: any[] = [
         { name: 'Skeleton', colors: ['#10b981', '#6366f1', '#f43f5e'], surface: '#111827', url: `${presetUrl}/theme-skeleton.css` },
@@ -28,7 +28,7 @@
 
 	// Copy Theme Import to Clipboard
 	function copyThemeToClipboard(name: string): void {
-		navigator.clipboard.writeText(`import '@brainandbones/skeleton/themes/theme-${name.toLowerCase()}.css';`).then(
+		navigator.clipboard.writeText(`import '@skeletonlabs/skeleton/themes/theme-${name.toLowerCase()}.css';`).then(
 			// Success
 			() => {
 				const t: ToastSettings = { message: 'Import statement copied to clipboard.' };
@@ -107,19 +107,19 @@
 			<p>Import your desired preset into <code>src/routes/+layout.svelte</code> before your global stylesheet.</p>
 			<CodeBlock
 				language="typescript"
-				code={`import '@brainandbones/skeleton/themes/theme-skeleton.css'; // <--\nimport '../app.postcss';\n`}
+				code={`import '@skeletonlabs/skeleton/themes/theme-skeleton.css'; // <--\nimport '../app.postcss';\n`}
 			/>
 			<!-- Framework: Vite (Svelte) -->
 		{:else if $storeFramework === 'vite'}
 			<p>Import your desired preset into <code>/src/main.js</code> before your global stylesheet.</p>
-			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/themes/theme-{name}.css'; // <--\nimport '../app.css';\n`} />
+			<CodeBlock language="typescript" code={`import '@skeletonlabs/skeleton/themes/theme-{name}.css'; // <--\nimport '../app.css';\n`} />
 			<!-- Framework: Astro -->
 		{:else if $storeFramework === 'astro'}
 			<p>
 				Astro does not provide a root layout by default, but we recommend creating <code>/src/layouts/LayoutRoot.astro</code>. See our
 				<a href="/guides/frameworks/astro">See our Astro walkthrough</a> for assistance.
 			</p>
-			<CodeBlock language="typescript" code={`import '@brainandbones/skeleton/themes/theme-{name}.css'; // <--`} />
+			<CodeBlock language="typescript" code={`import '@skeletonlabs/skeleton/themes/theme-{name}.css'; // <--`} />
 		{/if}
 	</div>
 

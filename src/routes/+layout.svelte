@@ -60,7 +60,7 @@
 
 	// Lifecycle Events
 	onMount(() => {
-		// TEMPORARY FIX FOR: https://github.com/Brain-Bones/skeleton/issues/489
+		// TEMPORARY FIX FOR: https://github.com/skeletonlabs/skeleton/issues/489
 		const lsTailwindPallete = window.localStorage.getItem('storeTailwindPalette');
 		if (lsTailwindPallete?.includes('ternary')) {
 			console.log('TEMP FIX: LocalStorage Values Cleared. This should only ever run once!');

@@ -19,7 +19,7 @@
 	export const storeStylesheetElements: Writable<string> = writable('combined');
 
 	// Local
-	const ghLibPathMaster: string = 'https://github.com/Brain-Bones/skeleton/tree/master/src/lib'; // master branch
+	const ghLibPathMaster: string = 'https://github.com/skeletonlabs/skeleton/tree/master/src/lib'; // master branch
 
 	// Tables
 	const tableStyleAll: TableSource = {
@@ -186,7 +186,7 @@
 		<CodeBlock
 			language="typescript"
 			code={`
-import '@brainandbones/skeleton/styles/${$storeStylesheets === 'recommended' ? 'all' : '{stylehsheets}'}.css';
+import '@skeletonlabs/skeleton/styles/${$storeStylesheets === 'recommended' ? 'all' : '{stylehsheets}'}.css';
 			`}
 		/>
 		<TabGroup selected={storeStylesheets}>

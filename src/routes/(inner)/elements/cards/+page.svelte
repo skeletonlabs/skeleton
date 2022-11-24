@@ -34,7 +34,7 @@
 			<!-- Minimal -->
 			<div class="md:col-span-2 card card-body flex justify-center items-center"><span>Minimal</span></div>
 			<!-- Detailed -->
-			<a class="md:col-span-2 card overflow-hidden" href="https://skeleton.brainandbonesllc.com/">
+			<a class="md:col-span-2 card overflow-hidden" href="https://www.skeleton.dev/">
 				<!-- Header -->
 				<header>
 					<img src="https://source.unsplash.com/random/1280x540?skeleton" class="bg-black/50 w-full aspect-[21/9]" alt="Post" />

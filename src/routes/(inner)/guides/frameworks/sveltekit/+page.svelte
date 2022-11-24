@@ -68,11 +68,11 @@
 			language="html"
 			code={`
 <script>
-    import '@brainandbones/skeleton/themes/theme-skeleton.css';
-    import '@brainandbones/skeleton/styles/all.css';
+    import '@skeletonlabs/skeleton/themes/theme-skeleton.css';
+    import '@skeletonlabs/skeleton/styles/all.css';
     import '../app.postcss';
 
-    import { AppShell, AppBar } from '@brainandbones/skeleton';
+    import { AppShell, AppBar } from '@skeletonlabs/skeleton';
 </script\>
 
 <AppShell>
@@ -171,7 +171,7 @@
 			language="html"
 			code={`
 <script>
-    import { GradientHeading } from '@brainandbones/skeleton';
+    import { GradientHeading } from '@skeletonlabs/skeleton';
 </script\>
 
 <GradientHeading tag="h1" direction="bg-gradient-to-br" from="from-primary-500" to="to-accent-500">

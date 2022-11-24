@@ -164,7 +164,7 @@
 		<section class="space-y-4">
 			<h2>Modal Store</h2>
 			<p>When you wish to trigger a modal, import the <code>modalStore</code>, which acts as the modal queue.</p>
-			<CodeBlock language="ts" code={`import { modalStore } from '@brainandbones/skeleton';`} />
+			<CodeBlock language="ts" code={`import { modalStore } from '@skeletonlabs/skeleton';`} />
 			<h3>Trigger</h3>
 			<p>Note that <code>title</code>, <code>body</code>, and <code>image</code> are optional for <u>all</u> modal types.</p>
 			<TabGroup selected={storeModalStandard}>
@@ -283,12 +283,12 @@ function triggerCustomModal(): void {
 				`}
 			/>
 			<p>
-				When constructing custom modals, you are responsible for implementing close/submit buttons, as well as triggering the
-				response method as needed. To make this process easier to understand, we have provided a few examples to demonstrate the process.
+				When constructing custom modals, you are responsible for implementing close/submit buttons, as well as triggering the response
+				method as needed. To make this process easier to understand, we have provided a few examples to demonstrate the process.
 			</p>
 			<a
 				class="btn btn-filled-accent"
-				href="https://github.com/Brain-Bones/skeleton/tree/master/src/lib/utilities/Modal/examples"
+				href="https://github.com/skeletonlabs/skeleton/tree/master/src/lib/utilities/Modal/examples"
 				target="_blank"
 				rel="noreferrer">View Example Modals</a
 			>
@@ -303,7 +303,7 @@ function triggerCustomModal(): void {
 				</li>
 				<li>
 					You can inspect the full list of <a
-						href="https://github.com/Brain-Bones/skeleton/blob/master/src/lib/utilities/Modal/Modal.svelte#L95"
+						href="https://github.com/skeletonlabs/skeleton/blob/master/src/lib/utilities/Modal/Modal.svelte#L95"
 						target="_blank"
 						rel="noreferrer">available parent prop values</a
 					> in the source code.
