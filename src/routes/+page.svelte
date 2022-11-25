@@ -18,7 +18,7 @@
 	}
 	let contributors: Promise<any> = fetchHttpData('https://api.github.com/repos/skeletonlabs/skeleton/contributors');
 	// https://github.com/filiptronicek/gh-sponsors-api
-	let sponsors: Promise<any> = fetchHttpData('https://ghs.vercel.app/sponsors/skeletonlabs', 'sponsors');
+	// let sponsors: Promise<any> = fetchHttpData('https://ghs.vercel.app/sponsors/skeletonlabs', 'sponsors');
 </script>
 
 <div>
@@ -184,7 +184,8 @@
 					<img src="https://www.brainandbonesllc.com/svg/logo.svg" alt="Brain & Bones" class="h-[32px] mx-auto invert dark:invert-0" />
 					<p class="text-sm">Brain & Bones</p>
 				</a>
-				{#await sponsors}
+				<!-- FIXME: disabled until GitHub Sponsors is ready. -->
+				<!-- {#await sponsors}
 					<p class="flex flex-wrap justify-center">Loading sponsors...</p>
 				{:then response}
 					<ul class="flex flex-wrap justify-center">
@@ -206,7 +207,8 @@
 				<a class="btn btn-filled-primary" href="https://github.com/sponsors/skeletonlabs" target="_blank" rel="noreferrer">
 					<span>Become a Sponsor</span>
 					<span>&rarr;</span>
-				</a>
+				</a> -->
+				<a class="btn btn-filled-primary" href="email:admin@skeleton.dev">Contact Us</a>
 			</div>
 		</section>
 	</div>
