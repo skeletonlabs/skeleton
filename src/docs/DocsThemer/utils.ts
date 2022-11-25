@@ -4,8 +4,7 @@ import { get } from 'svelte/store';
 import type { HexRgb, SemanticNames, TailwindColorObject, TailwindNumbers } from '../../lib/tailwind/colors';
 
 // Helpers
-// @ts-ignore
-import paletteGenerator from '@bobthered/tailwindcss-palette-generator';
+import { tailwindcssPaletteGenerator } from '@bobthered/tailwindcss-palette-generator';
 import { tailwindDefaultColors, tailwindNumbers } from '../../lib/tailwind/colors';
 import { storeTailwindPalette, storeTailwindForm, storeHexPalette } from './stores';
 
@@ -64,11 +63,12 @@ export function onRandomize(): void {
 // Generate Hex Palette - Source: https://github.com/bobthered/tailwindcss-palette-generator
 export function genHexPalette(key: SemanticNames, hexColor: string): TailwindColorObject & { source: string } {
 	// Generate base palette
+	// @ts-ignore
 	const hexShades: {
 		[key in SemanticNames]: {
 			[key in TailwindNumbers]: string;
 		};
-	} = paletteGenerator({ names: [key], colors: [hexColor] });
+	} = tailwindcssPaletteGenerator({ names: [key], colors: [hexColor] });
 	// @ts-expect-error It's too much bother to create a new type for the 950 swatch when we're going to bin it immediately.
 	delete hexShades[key]['950']; // drop swatch 950
 	// Generate RGB values and map data structure
