@@ -4,12 +4,16 @@
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	import { storeRecentlySearched, storeFavSearch } from '../stores';
 	import Divider from '$lib/components/Divider/Divider.svelte';
+	import { filter } from '$lib';
+
+	const elemWhitelist: string = 'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])';
 
 	// Local
 	let searchTerm: string = '';
 	let navigationOriginal = Object.values(menuNavLinks);
 	let navigation = navigationOriginal;
 	let highlighted: HTMLAnchorElement;
+	let highlightedIndex = 0;
 
 	function filterList(list: MenuNavLink[]) {
 		return list.filter((rowObj) => {
@@ -34,13 +38,14 @@
 	}
 
 	/** Sets the aria-selected attribute */
-	function onFocus(e: MouseEvent | FocusEvent): void {
+	function onFocus(e: MouseEvent | FocusEvent, index: number): void {
 		clearAllSelected();
 		const target = e.target;
 		if (!target) return;
 		if (target instanceof HTMLAnchorElement) {
 			target.setAttribute('aria-selected', 'true');
 			highlighted = target;
+			highlightedIndex = index;
 		}
 	}
 
@@ -76,17 +81,31 @@
 	}
 
 	function onKey(e: KeyboardEvent) {
-		if (e.key === 'Escape') {
-			modalStore.close();
-		}
-		if (e.key === 'Enter') {
-			const firstEl = searchResults.querySelector('[aria-selected="true"]');
-			if (firstEl instanceof HTMLAnchorElement) firstEl.click();
-		}
-		const regexLetters = /[a-zA-Z]/;
-		// This makes sure that if you deselect the input, you can still type queries
-		if (regexLetters.test(e.key)) {
-			searchInput.focus();
+		const focusableElems: HTMLElement[] = Array.from(searchResults.querySelectorAll(elemWhitelist));
+		let focusedIndex = focusableElems.indexOf(document.activeElement as HTMLElement);
+		alert(e.key);
+		switch (e.key) {
+			case 'Escape':
+				modalStore.close();
+				break;
+			case 'Enter':
+				const firstEl = searchResults.querySelector('[aria-selected="true"]');
+				if (firstEl instanceof HTMLAnchorElement) firstEl.click();
+				break;
+			case 'ArrowLeft':
+			case 'ArrowUp':
+				focusableElems[focusedIndex === 0 ? focusableElems.length - 1 : focusedIndex - 1].focus();
+				break;
+			case 'ArrowRight':
+			case 'ArrowDown':
+				focusableElems[focusedIndex === focusableElems.length - 1 ? 0 : focusedIndex + 1].focus();
+				break;
+			default:
+				const regexLetters = /[a-zA-Z]/;
+				// This makes sure that if you deselect the input, you can still type queries
+				if (regexLetters.test(e.key)) {
+					searchInput.focus();
+				}
 		}
 	}
 
@@ -99,7 +118,6 @@
 	const cCard: string = 'card card-body py-2 bg-surface-200-700-token aria-selected:bg-primary-500 flex justify-between items-center';
 </script>
 
-<svelte:window on:keypress={onKey} />
 <div class="docs-search {cBase}">
 	<header class="docs-search-header {cHeader}">
 		<SvgIcon name="search" />
@@ -111,47 +129,48 @@
 		</button>
 	</header>
 	<hr />
-	<div bind:this={searchResults} class="docs-search-categories {cList}">
+	<div bind:this={searchResults} on:keypress={onKey} class="docs-search-categories {cList}">
 		{#if searchTerm.length === 0 && [...$storeRecentlySearched, ...$storeFavSearch].length !== 0}
 			<div class="space-y-4">
-				<strong>Recently Searched</strong>
+				<strong>Recently Searched {highlightedIndex}</strong>
 				<nav>
 					<ul class="list-none space-y-2">
-						{#each [...$storeRecentlySearched].reverse() as link, i}
-							{#if ![...$storeFavSearch].some((val) => val.label === link.label)}
-								<li>
-									<a
-										aria-selected="false"
-										on:mouseover={onFocus}
-										on:focus={onFocus}
-										class={cCard}
-										href={link.href}
-										on:click={(e) => onClick(e, link)}
-									>
-										<div class="pointer-events-none">
-											<p>{link.label}</p>
-											<small class="opacity-75">{link.href}</small>
-										</div>
-										<div class="flex space-x-4">
-											<button
-												on:click|preventDefault={() => {
-													toggleFavSearch(link);
-												}}
-											>
-												<SvgIcon class="w-10 h-10" name="heartOutline" />
-											</button>
-											<Divider vertical={true} borderStyle="h-auto" borderWidth="border-l" borderColor="border-surface-400-500-token" />
-											<button
-												on:click|preventDefault={() => {
-													removeRecentSearch(link);
-												}}
-											>
-												<SvgIcon class="w-10 h-10" name="close" />
-											</button>
-										</div>
-									</a>
-								</li>
-							{/if}
+						{#each [...$storeRecentlySearched]
+							.reverse()
+							.filter((link) => ![...$storeFavSearch].some((fav) => fav.label === link.label))
+							.slice(0, 5) as link, i}
+							<li>
+								<a
+									aria-selected="false"
+									on:mouseover={(e) => onFocus(e, i)}
+									on:focus={(e) => onFocus(e, i)}
+									class={cCard}
+									href={link.href}
+									on:click={(e) => onClick(e, link)}
+								>
+									<div class="pointer-events-none">
+										<p>{link.label}</p>
+										<small class="opacity-75">{link.href}</small>
+									</div>
+									<div class="flex space-x-4">
+										<button
+											on:click|preventDefault={() => {
+												toggleFavSearch(link);
+											}}
+										>
+											<SvgIcon class="w-10 h-10" name="heartOutline" />
+										</button>
+										<Divider vertical={true} borderStyle="h-auto" borderWidth="border-l" borderColor="border-surface-400-500-token" />
+										<button
+											on:click|preventDefault={() => {
+												removeRecentSearch(link);
+											}}
+										>
+											<SvgIcon class="w-10 h-10" name="close" />
+										</button>
+									</div>
+								</a>
+							</li>
 						{/each}
 					</ul>
 				</nav>
@@ -165,8 +184,8 @@
 								<li>
 									<a
 										aria-selected="false"
-										on:mouseover={onFocus}
-										on:focus={onFocus}
+										on:mouseover={(e) => onFocus(e, i)}
+										on:focus={(e) => onFocus(e, i)}
 										class={cCard}
 										href={link.href}
 										on:click={(e) => onClick(e, link)}
@@ -189,34 +208,33 @@
 					</nav>
 				{/if}
 			</div>
-		{:else}
-			{#each navigation as category, i}
-				<div class="space-y-4">
-					<strong>{category.title}</strong>
-					<nav>
-						<ul class="list-none space-y-2">
-							{#each category.list as link, i}
-								<li>
-									<a
-										aria-selected="false"
-										on:mouseover={onFocus}
-										on:focus={onFocus}
-										class={cCard}
-										href={link.href}
-										on:click={(e) => onClick(e, link)}
-									>
-										<div class="pointer-events-none">
-											<p>{link.label}</p>
-											<small class="opacity-75">{link.href}</small>
-										</div>
-										<span class="opacity-75">&rarr;</span>
-									</a>
-								</li>
-							{/each}
-						</ul>
-					</nav>
-				</div>
-			{/each}
 		{/if}
+		{#each navigation as category, i}
+			<div class="space-y-4">
+				<strong>{category.title} {highlightedIndex}</strong>
+				<nav>
+					<ul class="list-none space-y-2">
+						{#each category.list as link, j}
+							<li>
+								<a
+									aria-selected="false"
+									on:mouseover={(e) => onFocus(e, i)}
+									on:focus={(e) => onFocus(e, i)}
+									class={cCard}
+									href={link.href}
+									on:click={(e) => onClick(e, link)}
+								>
+									<div class="pointer-events-none">
+										<p>{link.label}</p>
+										<small class="opacity-75">{link.href}</small>
+									</div>
+									<span class="opacity-75">&rarr;</span>
+								</a>
+							</li>
+						{/each}
+					</ul>
+				</nav>
+			</div>
+		{/each}
 	</div>
 </div>
