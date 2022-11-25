@@ -1,7 +1,7 @@
 // Toast Store Queue
 
 import { writable } from 'svelte/store';
-import type { ToastSettings } from './types';
+import type { ToastSettings, Toast } from './types';
 
 const toastDefaults: ToastSettings = { message: 'Missing Toast Message', autohide: true, timeout: 5000 };
 
@@ -12,8 +12,7 @@ function randomUUID(): string {
 }
 
 // If toast should auto-hide, wait X time, then close by ID
-function handleAutoHide(toast: ToastSettings): void {
-	console.log(toast);
+function handleAutoHide(toast: Toast): void {
 	if (toast.autohide === true) {
 		setTimeout(() => {
 			toastStore.close(toast.id);
@@ -21,16 +20,16 @@ function handleAutoHide(toast: ToastSettings): void {
 	}
 }
 
-function toastService(): any {
-	const { subscribe, set, update } = writable([]);
+function toastService() {
+	const { subscribe, set, update } = writable<Toast[]>([]);
 	return {
 		subscribe,
 		/** Add a new toast to the queue. */
 		trigger: (toast: ToastSettings) =>
-			update((tStore: any) => {
+			update((tStore) => {
 				const id: string = randomUUID();
 				// Merge into store
-				let tMerged: ToastSettings = { ...toastDefaults, ...toast, id };
+				const tMerged = { ...toastDefaults, ...toast, id };
 				tStore.push(tMerged);
 				// Handle auto-hide, if needed
 				handleAutoHide(tMerged);
@@ -41,7 +40,7 @@ function toastService(): any {
 		close: (id: string) =>
 			update((tStore) => {
 				if (tStore.length > 0) {
-					var index = tStore.findIndex((t: ToastSettings) => t.id === id);
+					const index = tStore.findIndex((t) => t.id === id);
 					tStore.splice(index, 1);
 				}
 				return tStore;

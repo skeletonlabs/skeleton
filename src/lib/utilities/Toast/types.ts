@@ -16,6 +16,9 @@ export interface ToastSettings {
 	};
 	/** Provide arbitrary CSS classes to style the toast. */
 	classes?: string;
+}
+
+export interface Toast extends ToastSettings {
 	/** A UUID will be auto-assigned on `.trigger()`. */
-	id?: string;
+	id: string;
 }
