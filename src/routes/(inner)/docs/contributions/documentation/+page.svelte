@@ -174,7 +174,7 @@ dispatch('dragover', event);`}
 			</div>
 			<a
 				class="btn btn-filled-accent"
-				href="https://github.com/Brain-Bones/skeleton/blob/dev/src/docs/DocsShell/types.ts#L42"
+				href="https://github.com/skeletonlabs/skeleton/blob/dev/src/docs/DocsShell/types.ts#L42"
 				target="_blank"
 				rel="noreferrer">View Available Settings</a
 			>

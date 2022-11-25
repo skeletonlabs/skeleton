@@ -21,7 +21,12 @@
 			<div class="flex items-center">
 				<p>While we formalize this feature, please see the stylesheet directly as a source reference.</p>
 			</div>
-			<a class="btn btn-filled-accent place-self-center" href="https://github.com/Brain-Bones/skeleton/tree/master/src/lib/styles/tokens.css" target="_blank" rel="noreferrer">View Source &rarr;</a>
+			<a
+				class="btn btn-filled-accent place-self-center"
+				href="https://github.com/skeletonlabs/skeleton/tree/master/src/lib/styles/tokens.css"
+				target="_blank"
+				rel="noreferrer">View Source &rarr;</a
+			>
 		</section>
 	</svelte:fragment>
 
@@ -36,9 +41,15 @@
 		<hr />
 		<section class="space-y-4">
 			<p>Tokens are avialable to use anywhere in your project. Here's a few examples:</p>
-			<CodeBlock language="html" code={`<!-- Apply your theme's border radius value -->\n<div class="w-10 h-10 bg-primary-500 rounded-token">Rounded</div>`} />
+			<CodeBlock
+				language="html"
+				code={`<!-- Apply your theme's border radius value -->\n<div class="w-10 h-10 bg-primary-500 rounded-token">Rounded</div>`}
+			/>
 			<CodeBlock language="html" code={`<!-- Apply your theme's heading font -->\n<span class="font-heading-token">Font Family</span>`} />
-			<CodeBlock language="html" code={`<!-- Set the text color, which auto adjusts for light/dark modes -->\n<span class="text-token">Skeleton</span>`} />
+			<CodeBlock
+				language="html"
+				code={`<!-- Set the text color, which auto adjusts for light/dark modes -->\n<span class="text-token">Skeleton</span>`}
+			/>
 		</section>
 	</svelte:fragment>
 </DocsShell>

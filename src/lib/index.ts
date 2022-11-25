@@ -1,4 +1,4 @@
-// This file defines the short path imports for the package (ex: @brainandbones/skeleton/*)
+// This file defines the short path imports for the package (ex: @skeletonlabs/skeleton/*)
 
 // Types ---
 

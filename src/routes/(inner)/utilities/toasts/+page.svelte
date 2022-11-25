@@ -92,7 +92,7 @@
 			<p>The Modal Store acts as a queue for your toast messages.</p>
 			<CodeBlock
 				language="ts"
-				code={`import { toastStore } from '@brainandbones/skeleton';
+				code={`import { toastStore } from '@skeletonlabs/skeleton';
 			`}
 			/>
 			<!-- Trigger -->

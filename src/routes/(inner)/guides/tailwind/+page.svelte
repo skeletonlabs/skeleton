@@ -82,7 +82,7 @@ ${$storeFramework === 'astro' ? 'module.exports' : 'const config'} = {
 	// ...
     content: [
         // Keep existing values and append the following:
-        require('path').join(require.resolve('@brainandbones/skeleton'), '../**/*.{html,js,svelte,ts}')
+        require('path').join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')
     ],
     // ...
 }
@@ -102,7 +102,7 @@ ${$storeFramework === 'astro' ? 'module.exports' : 'const config'} = {
     // ...
     plugins: [
         // Keep any existing plugins present and append the following:
-        require('@brainandbones/skeleton/tailwind/theme.cjs')
+        require('@skeletonlabs/skeleton/tailwind/theme.cjs')
     ]
 }
         `}

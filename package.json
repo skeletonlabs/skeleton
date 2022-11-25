@@ -1,8 +1,8 @@
 {
-	"name": "@brainandbones/skeleton",
+	"name": "@skeletonlabs/skeleton",
 	"version": "0.76.0",
 	"description": "A SvelteKit component library.",
-	"author": "endigo9740 <csimmons@brainandbonesllc.com>",
+	"author": "endigo9740 <chris@skeletonlabs.dev>",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",

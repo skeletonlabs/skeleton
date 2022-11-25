@@ -37,7 +37,7 @@
 	<section class="space-y-4">
 		<h2>Do you have a project roadmap?</h2>
 		<p>
-			Yes, <a href="https://github.com/Brain-Bones/skeleton/discussions/503" target="_blank" rel="noreferrer">view our roadmap</a>. This
+			Yes, <a href="https://github.com/skeletonlabs/skeleton/discussions/503" target="_blank" rel="noreferrer">view our roadmap</a>. This
 			covers major milestones leading up to the v1.0 release.
 		</p>
 	</section>
@@ -79,10 +79,10 @@
 	<section class="text-center space-y-4">
 		<p>Need additional support? Reach out.</p>
 		<div class="flex justify-center space-x-2">
-			<a class="btn btn-ghost-surface" href="https://github.com/Brain-Bones/skeleton/issues" target="_blank" rel="noreferrer"
+			<a class="btn btn-ghost-surface" href="https://github.com/skeletonlabs/skeleton/issues" target="_blank" rel="noreferrer"
 				>GitHub Support</a
 			>
-			<a class="btn btn-ghost-surface" href="https://github.com/Brain-Bones/skeleton" target="_blank" rel="noreferrer">Discord Support</a>
+			<a class="btn btn-ghost-surface" href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer">Discord Support</a>
 		</div>
 	</section>
 </div>
