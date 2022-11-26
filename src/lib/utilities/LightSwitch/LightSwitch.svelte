@@ -3,7 +3,7 @@
 	import { onMount } from 'svelte';
 
 	// Components
-	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
+	import SvgIcon from '../../components/SvgIcon/SvgIcon.svelte';
 
 	// Stores
 	import { storePrefersDarkScheme, storeLightSwitch } from './stores';

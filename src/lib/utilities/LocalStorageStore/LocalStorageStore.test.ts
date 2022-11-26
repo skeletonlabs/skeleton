@@ -5,7 +5,7 @@
 import { describe, it, expect } from 'vitest';
 import { get } from 'svelte/store';
 
-import { localStorageStore } from '$lib/utilities/LocalStorageStore/LocalStorageStore';
+import { localStorageStore } from './LocalStorageStore';
 
 describe('LocalStorageStore.ts', () => {
 	it('uses initial value if nothing in local storage', () => {

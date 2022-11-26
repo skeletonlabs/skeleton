@@ -10,7 +10,7 @@
 	// DISPATCHED: document directly above the definition, like props (ex: paginator)
 
 	import { getContext } from 'svelte';
-	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
+	import SvgIcon from '../SvgIcon/SvgIcon.svelte';
 
 	// Props
 	/** Defines the default open state on page load .*/

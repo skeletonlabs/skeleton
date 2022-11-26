@@ -2,10 +2,10 @@
 	import { fade, fly } from 'svelte/transition';
 
 	// Actions
-	import { focusTrap } from '$lib/actions/FocusTrap/focusTrap';
+	import { focusTrap } from '../../actions/FocusTrap/focusTrap';
 
 	// Stores
-	import { modalStore } from '$lib/utilities/Modal/stores';
+	import { modalStore } from './stores';
 
 	// Props
 	/** The open/close animation duration. Set '0' (zero) to disable. */

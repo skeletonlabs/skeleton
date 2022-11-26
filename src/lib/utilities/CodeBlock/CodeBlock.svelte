@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { storeHighlightJs } from './stores';
-	import { clipboard } from '$lib/actions/Clipboard/clipboard';
+	import { clipboard } from '../../actions/Clipboard/clipboard';
 
 	// Props
 	/** Sets a language alias for Highlight.js syntax highlighting. */

@@ -1,5 +1,5 @@
 import type { Writable } from 'svelte/store';
-import { localStorageStore } from '$lib/utilities/LocalStorageStore/LocalStorageStore';
+import { localStorageStore } from '../LocalStorageStore/LocalStorageStore';
 
 // OS Prefers Dark Scheme - TRUE: dark | FALSE: light
 export const storePrefersDarkScheme: Writable<boolean> = localStorageStore('storePrefersDarkScheme', false);

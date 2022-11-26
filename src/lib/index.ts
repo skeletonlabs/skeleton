@@ -27,7 +27,7 @@ export {
 	// Svelte Actions
 	tableInteraction,
 	tableA11y
-} from '$lib/utilities/DataTable/DataTable';
+} from './utilities/DataTable/DataTable';
 export { localStorageStore } from './utilities/LocalStorageStore/LocalStorageStore';
 // Component Utilities
 export { tableSourceMapper, tableSourceValues, tableMapperValues } from './components/Table/utils';

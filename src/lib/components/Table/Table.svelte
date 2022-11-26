@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
 
-	import type { TableSource } from '$lib/components/Table/types';
-	import { tableA11y } from '$lib/utilities/DataTable/DataTable';
+	import type { TableSource } from './types';
+	import { tableA11y } from '../../utilities/DataTable/DataTable';
 
 	const dispatch = createEventDispatcher();
 

@@ -2,7 +2,7 @@
 	import { fade, fly } from 'svelte/transition';
 	import { writable, type Writable } from 'svelte/store';
 
-	import { focusTrap } from '$lib/actions/FocusTrap/focusTrap';
+	import { focusTrap } from '../../actions/FocusTrap/focusTrap';
 
 	// Props
 	/** Provide a store to manage visible state.
