@@ -72,7 +72,7 @@
 		<header class="space-y-4">
 			<!-- Timestamp / Read Time -->
 			<div class="blog-meta flex justify-between items-center">
-				<time class="block">{blogDateFormatter(post.created_at)}</time>
+				<time class="block">{blogDateFormatter(post.updated_at)}</time>
 				<span class="hidden md:block text-xs opacity-50">{post.reading_time} min read</span>
 			</div>
 			<h1>{post.title}</h1>
