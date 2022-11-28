@@ -5,17 +5,17 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 	let elemFirst: HTMLElement;
 	let elemLast: HTMLElement;
 
-	function onElemLastKeydown(e: KeyboardEvent): void {
-		if (!e.shiftKey && e.code === 'Tab') {
-			e.preventDefault();
-			elemFirst.focus();
-		}
-	}
-
 	function onElemFirstKeydown(e: KeyboardEvent): void {
 		if (e.shiftKey && e.code === 'Tab') {
 			e.preventDefault();
 			elemLast.focus();
+		}
+	}
+
+	function onElemLastKeydown(e: KeyboardEvent): void {
+		if (!e.shiftKey && e.code === 'Tab') {
+			e.preventDefault();
+			elemFirst.focus();
 		}
 	}
 
@@ -37,6 +37,7 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 	onInit();
 
 	function onDestory(): void {
+		if (elemFirst) elemFirst.removeEventListener('keydown', onElemFirstKeydown);
 		if (elemLast) elemLast.removeEventListener('keydown', onElemLastKeydown);
 	}
 
