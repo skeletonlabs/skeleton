@@ -5,14 +5,16 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 	let elemFirst: HTMLElement;
 	let elemLast: HTMLElement;
 
-	function onElemFirstKeydown(e: KeyboardEvent): void {
+	// When the first element is selected, shift+tab pressed, jump to the last selectable item.
+	function onFirstElemKeydown(e: KeyboardEvent): void {
 		if (e.shiftKey && e.code === 'Tab') {
 			e.preventDefault();
 			elemLast.focus();
 		}
 	}
 
-	function onElemLastKeydown(e: KeyboardEvent): void {
+	// When the last item selected, tab pressed, jump to the first selectable item.
+	function onLastElemKeydown(e: KeyboardEvent): void {
 		if (!e.shiftKey && e.code === 'Tab') {
 			e.preventDefault();
 			elemFirst.focus();
@@ -30,15 +32,15 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 			// Auto-focus first focusable element
 			elemFirst.focus();
 			// Listen for keydown on first & last element
-			elemFirst.addEventListener('keydown', onElemFirstKeydown);
-			elemLast.addEventListener('keydown', onElemLastKeydown);
+			elemFirst.addEventListener('keydown', onFirstElemKeydown);
+			elemLast.addEventListener('keydown', onLastElemKeydown);
 		}
 	};
 	onInit();
 
 	function onDestory(): void {
-		if (elemFirst) elemFirst.removeEventListener('keydown', onElemFirstKeydown);
-		if (elemLast) elemLast.removeEventListener('keydown', onElemLastKeydown);
+		if (elemFirst) elemFirst.removeEventListener('keydown', onFirstElemKeydown);
+		if (elemLast) elemLast.removeEventListener('keydown', onLastElemKeydown);
 	}
 
 	// Lifecycle
