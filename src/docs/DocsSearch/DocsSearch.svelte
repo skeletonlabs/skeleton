@@ -38,11 +38,11 @@
 	</header>
 	<hr />
 	<div class="docs-search-categories {cList}">
-		{#each navigation as category, i}
+		{#each navigation as category}
 			<div class="space-y-4">
 				<strong>{category.title}</strong>
 				<nav class="space-y-2">
-					{#each category.list as link, i}
+					{#each category.list as link}
 						<!-- prettier-ignore -->
 						<a class="{cCard}" href={link.href} on:click={() => { modalStore.close(); }}>
 							<div>

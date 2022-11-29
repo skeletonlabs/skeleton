@@ -48,7 +48,6 @@
 
 	// Local
 	let elemBackdrop: HTMLElement;
-	let elemDrawer: HTMLElement;
 
 	function percentage(percent: number, amount: number): number {
 		return (amount / 100) * percent;
@@ -132,7 +131,6 @@
 	>
 		<!-- Drawer -->
 		<div
-			bind:this={elemDrawer}
 			class="drawer {classesDrawer}"
 			data-testid="drawer"
 			transition:fly|local={{ x: animParams.x, y: animParams.y, duration }}

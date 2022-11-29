@@ -46,7 +46,7 @@
 			if (pressedKeys.includes('MetaLeft') && pressedKeys.includes('KeyK')) search();
 		}
 	}
-	function onWindowKeyup(e: any): void {
+	function onWindowKeyup(): void {
 		pressedKeys = [];
 	}
 </script>

@@ -29,9 +29,6 @@
 	/** Provide arbitrary classes for the table foot. */
 	export let regionFoot: string = '';
 
-	// Local
-	let elemTable: HTMLElement;
-
 	// Row Click Handler
 	function onRowClick(event: MouseEvent | KeyboardEvent, rowIndex: number): void {
 		if (!interactive) return;
@@ -57,7 +54,6 @@
 	<!-- Table -->
 	<!-- prettier-ignore -->
 	<table
-		bind:this={elemTable}
 		class="{classesTable}"
 		class:table-interactive={interactive}
 		role="grid"
@@ -67,7 +63,7 @@
 		<!-- Head -->
 		<thead class="table-head {regionHead}">
 			<tr>
-				{#each source.head as heading, i}
+				{#each source.head as heading }
 					<th>{@html heading}</th>
 				{/each}
 			</tr>
@@ -100,7 +96,7 @@
 		{#if source.foot}
 			<tfoot class="table-foot {regionFoot}">
 				<tr>
-					{#each source.foot as cell, i}
+					{#each source.foot as cell }
 						<td>{@html cell}</td>
 					{/each}
 				</tr>
