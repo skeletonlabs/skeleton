@@ -54,8 +54,8 @@
 				</Step>
 				<Step index={2} locked={!exampleLockedState}>
 					<p>
-						This Step component uses the <code>locked</code> property, which can prevent progress. This is ideal for multi-step forms, such as registration. For now we'll simulate a successful
-						validation condition using the
+						This Step component uses the <code>locked</code> property, which can prevent progress. This is ideal for multi-step forms, such
+						as registration. For now we'll simulate a successful validation condition using the
 						<em>unlock</em> option below.
 					</p>
 					<SlideToggle bind:checked={exampleLockedState}>Unlock</SlideToggle>
@@ -66,7 +66,8 @@
 				</Step>
 				<Step index={4}>
 					<p>
-						A <em>Complete</em> button will appear on the last step. When the step is unlocked and the button pressed, an <code>on:complete</code> event will fire. Use this to submit form data to a server.
+						A <em>Complete</em> button will appear on the last step. When the step is unlocked and the button pressed, an
+						<code>on:complete</code> event will fire. Use this to submit form data to a server.
 					</p>
 				</Step>
 			</Stepper>

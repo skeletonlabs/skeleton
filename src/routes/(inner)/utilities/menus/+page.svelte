@@ -66,7 +66,9 @@
 			<span>
 				<button class="btn btn-ghost-surface" use:menu={{ menu: 'position', fixed: true }}>Position</button>
 				<div class="absolute top-2 right-2 card p-4 w-64 shadow-xl !bg-primary-500" data-menu="position">
-					<p>This menu is arbitrarily positioned in the top-right corner of the page. We've made it a bright color to catch you attention.</p>
+					<p>
+						This menu is arbitrarily positioned in the top-right corner of the page. We've made it a bright color to catch you attention.
+					</p>
 				</div>
 			</span>
 			<!-- Dropdown 5 -->
@@ -137,7 +139,9 @@
 			<!-- Interactive Menus -->
 			<div class="space-y-4">
 				<h2>Interactive Menus</h2>
-				<p>By default menus will self-close when clicking within the menu body. Set <code>interactive: true</code> to alter this behavior.</p>
+				<p>
+					By default menus will self-close when clicking within the menu body. Set <code>interactive: true</code> to alter this behavior.
+				</p>
 				<CodeBlock language="html" code={`<button use:menu={{ menu: 'example', interactive: true }}>Trigger</button>`} />
 			</div>
 			<!-- Custom Positioning -->
@@ -153,7 +157,8 @@
 				<p>You can optionally monitor the open/closed state of a menu using <code>state: stateHandler</code></p>
 				<CodeBlock language="html" code={`<button use:menu={{ menu: 'example', state: stateHandler }}>Trigger</button>`} />
 				<p>
-					In this case, <code>stateHandler</code> is a callback function that will update a local variable. We use the <em>if statement</em> to match a particular menu on the page.
+					In this case, <code>stateHandler</code> is a callback function that will update a local variable. We use the <em>if statement</em>
+					to match a particular menu on the page.
 				</p>
 				<CodeBlock
 					language="ts"
@@ -165,7 +170,8 @@ function stateHandler(response: { menu: string; state: boolean }): void {
 				`}
 				/>
 				<p>
-					The <code>menu</code> value will match your unique <code>data-menu</code> ID value, while state will be a boolean value representing <em>TRUE</em> for open and <em>FALSE</em> for closed.
+					The <code>menu</code> value will match your unique <code>data-menu</code> ID value, while state will be a boolean value
+					representing <em>TRUE</em> for open and <em>FALSE</em> for closed.
 				</p>
 			</div>
 		</section>

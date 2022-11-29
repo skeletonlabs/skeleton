@@ -98,8 +98,14 @@
 			</div>
 			<div class="space-y-4">
 				<h2>Style Keys</h2>
-				<p>Most styles should be handled via global CSS overrides. However, you may override styles using preset keys, similar to component props.</p>
-				<CodeBlock language="html" code={`<button use:tooltip={{ ... background: '!bg-accent-500', text: '!text-yellow-500', width: '!w-56' }}>Trigger</button>`} />
+				<p>
+					Most styles should be handled via global CSS overrides. However, you may override styles using preset keys, similar to component
+					props.
+				</p>
+				<CodeBlock
+					language="html"
+					code={`<button use:tooltip={{ ... background: '!bg-accent-500', text: '!text-yellow-500', width: '!w-56' }}>Trigger</button>`}
+				/>
 				<p>Use style region keys to pass multiple abitrary classes to a particular element region.</p>
 				<CodeBlock language="html" code={`<button use:tooltip={{ ... regionTooltip: 'space-y-4 uppercase' }}>Trigger</button>`} />
 			</div>
@@ -107,11 +113,13 @@
 			<div class="space-y-4">
 				<h2>Tooltip State Handler</h2>
 				<p>
-					You can optionally monitor the open/closed state of a tooltip using <code>state: stateHandler</code>. This will require adding a <code>data-tooltip</code> attribute with a unique identifier.
+					You can optionally monitor the open/closed state of a tooltip using <code>state: stateHandler</code>. This will require adding a
+					<code>data-tooltip</code> attribute with a unique identifier.
 				</p>
 				<CodeBlock language="html" code={`<button use:tooltip={{ content: 'Skeleton' }} data-tooltip="example">Trigger</button>`} />
 				<p>
-					In this case, <code>stateHandler</code> is a callback function that will update a local variable. We use the <em>if statement</em> to match a particular tooltip on the page.
+					In this case, <code>stateHandler</code> is a callback function that will update a local variable. We use the <em>if statement</em>
+					to match a particular tooltip on the page.
 				</p>
 				<CodeBlock
 					language="ts"
@@ -123,8 +131,9 @@ function stateHandler(response: { trigger: HTMLElement; state: boolean }): void 
 				`}
 				/>
 				<p>
-					The response <code>trigger</code> will provide an <em>HTMLElement</em> reference to your trigger element. From this you can match the <code>data-tooltip</code> attribute via dataset, while
-					state will be a boolean value representing <em>TRUE</em> for open and <em>FALSE</em> for closed.
+					The response <code>trigger</code> will provide an <em>HTMLElement</em> reference to your trigger element. From this you can match
+					the <code>data-tooltip</code> attribute via dataset, while state will be a boolean value representing <em>TRUE</em> for open and
+					<em>FALSE</em> for closed.
 				</p>
 			</div>
 		</section>

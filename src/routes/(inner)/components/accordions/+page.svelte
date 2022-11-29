@@ -98,7 +98,9 @@
 </AccordionGroup>`}
 		/>
 
-		<p>When you don't want an AccordionItem to auto-collapse the other AccordionItems, just set <code>collapse</code> to <code>false</code>.</p>
+		<p>
+			When you don't want an AccordionItem to auto-collapse the other AccordionItems, just set <code>collapse</code> to <code>false</code>.
+		</p>
 		<CodeBlock
 			language="html"
 			code={`

@@ -45,7 +45,15 @@ export const storeHexPalette: Writable<Record<SemanticNames, TailwindColorObject
 	surface: genHexPalette('surface', get(storeHexForm).surface)
 });
 
-export type CustomisableAttributes = 'colors' | 'borderBase' | 'fontFamilyHeading' | 'fontFamilyBase' | 'fontColorBase' | 'fontColorDark' | 'roundedBase' | 'roundedContainer';
+export type CustomisableAttributes =
+	| 'colors'
+	| 'borderBase'
+	| 'fontFamilyHeading'
+	| 'fontFamilyBase'
+	| 'fontColorBase'
+	| 'fontColorDark'
+	| 'roundedBase'
+	| 'roundedContainer';
 
 // Settings Form Data
 export const storeFormData: Writable<Record<CustomisableAttributes, string>> = localStorageStore('storeFormData', {

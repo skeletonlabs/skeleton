@@ -41,7 +41,8 @@
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<p>
-				A small subset of icons provided by <a href="https://fontawesome.com" target="_blank" rel="noreferrer">Font Awesome</a> and other sources. You can manage available components in
+				A small subset of icons provided by <a href="https://fontawesome.com" target="_blank" rel="noreferrer">Font Awesome</a> and other
+				sources. You can manage available components in
 				<code>$lib/components/SvgIcon/icons</code>.
 			</p>
 			<CodeBlock language="html" code={`<SvgIcon name="skull" />`} />

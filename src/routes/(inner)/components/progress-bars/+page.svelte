@@ -70,7 +70,16 @@
 				</label>
 				<!-- Amount -->
 				{#if props.determinate}
-					<input type="range" id="amount" name="amount" min="0" max={props.max} step="10" bind:value={props.value} aria-label="Value Amount" />
+					<input
+						type="range"
+						id="amount"
+						name="amount"
+						min="0"
+						max={props.max}
+						step="10"
+						bind:value={props.value}
+						aria-label="Value Amount"
+					/>
 				{/if}
 				<!-- Label -->
 				<label>
@@ -127,7 +136,11 @@
 	<svelte:fragment slot="usage">
 		<div class="space-y-4">
 			<p>
-				This component is treated as a <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/progressbar_role" target="_blank" rel="noreferrer">ARIA progressbar</a>.
+				This component is treated as a <a
+					href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/progressbar_role"
+					target="_blank"
+					rel="noreferrer">ARIA progressbar</a
+				>.
 			</p>
 			<CodeBlock language="html" code={`<ProgressBar label="Progress Bar" value={50} max={100} />`} />
 		</div>

@@ -52,7 +52,15 @@
 
 <!-- @component A navigation tile for the App Rail. -->
 
-<svelte:element this={tag} {...prunedRestProps()} class="app-rail-tile {classesBase}" on:click={onClickHandler} on:keydown on:keyup on:keypress>
+<svelte:element
+	this={tag}
+	{...prunedRestProps()}
+	class="app-rail-tile {classesBase}"
+	on:click={onClickHandler}
+	on:keydown
+	on:keyup
+	on:keypress
+>
 	<!-- Slot: Default (icon) -->
 	<div class="app-rail-tile-icon {regionIcon}"><slot /></div>
 	<!-- Label -->

@@ -41,7 +41,9 @@
 		<section class="space-y-4 xl:space-y-0 xl:grid grid-cols-[1fr_auto] gap-2">
 			<!-- Example -->
 			<div class="card card-body h-full flex justify-center items-center">
-				<svelte:component this={GradientHeading} tag={props.tag} direction={props.direction} from={props.from} to={props.to}>{props.text}</svelte:component>
+				<svelte:component this={GradientHeading} tag={props.tag} direction={props.direction} from={props.from} to={props.to}
+					>{props.text}</svelte:component
+				>
 			</div>
 			<!-- Options -->
 			<div class="card card-body space-y-4">
@@ -105,8 +107,13 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<p>You are advised to use semantic heading tags (H1-H6). However, an explicit ARIA attribute of <code>role="heading"</code> has been applied.</p>
-			<CodeBlock language="html" code={`<GradientHeading tag="h1" direction="bg-gradient-to-r" from="from-primary-500" to="to-accent-500">Skeleton</GradientHeading>`} />
+			<p>
+				You are advised to use semantic heading tags (H1-H6). However, an explicit ARIA attribute of <code>role="heading"</code> has been applied.
+			</p>
+			<CodeBlock
+				language="html"
+				code={`<GradientHeading tag="h1" direction="bg-gradient-to-r" from="from-primary-500" to="to-accent-500">Skeleton</GradientHeading>`}
+			/>
 		</section>
 	</svelte:fragment>
 </DocsShell>

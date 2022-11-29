@@ -24,7 +24,8 @@
 
 	// Classes
 	const cBase: string = 'relative';
-	const cMessage: string = 'absolute top-0 left-0 right-0 bottom-0 z-[1] max-w-[480px] mx-auto flex justify-center items-center !pointer-events-none';
+	const cMessage: string =
+		'absolute top-0 left-0 right-0 bottom-0 z-[1] max-w-[480px] mx-auto flex justify-center items-center !pointer-events-none';
 	const cInput: string = '!border-2 border-dashed cursor-pointer';
 
 	// Local
@@ -60,7 +61,14 @@
 	}
 </script>
 
-<div class="file-dropzone {classesBase}" data-testid="file-dropzone" on:dragenter on:dragover={onDragOver} on:dragleave={onDragLeave} on:drop={onDrop}>
+<div
+	class="file-dropzone {classesBase}"
+	data-testid="file-dropzone"
+	on:dragenter
+	on:dragover={onDragOver}
+	on:dragleave={onDragLeave}
+	on:drop={onDrop}
+>
 	<!-- Message -->
 	<div class="file-dropzone-message {classesMessage}">
 		<!-- Slot: Default -->
