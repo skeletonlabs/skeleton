@@ -5,8 +5,17 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 	let elemFirst: HTMLElement;
 	let elemLast: HTMLElement;
 
-	function onElemLastKeydown(e: KeyboardEvent): void {
-		if (e.code === 'Tab') {
+	// When the first element is selected, shift+tab pressed, jump to the last selectable item.
+	function onFirstElemKeydown(e: KeyboardEvent): void {
+		if (e.shiftKey && e.code === 'Tab') {
+			e.preventDefault();
+			elemLast.focus();
+		}
+	}
+
+	// When the last item selected, tab pressed, jump to the first selectable item.
+	function onLastElemKeydown(e: KeyboardEvent): void {
+		if (!e.shiftKey && e.code === 'Tab') {
 			e.preventDefault();
 			elemFirst.focus();
 		}
@@ -22,14 +31,16 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 			elemLast = focusableElems[focusableElems.length - 1];
 			// Auto-focus first focusable element
 			elemFirst.focus();
-			// Listen for keydown on last element
-			elemLast.addEventListener('keydown', onElemLastKeydown);
+			// Listen for keydown on first & last element
+			elemFirst.addEventListener('keydown', onFirstElemKeydown);
+			elemLast.addEventListener('keydown', onLastElemKeydown);
 		}
 	};
 	onInit();
 
 	function onDestory(): void {
-		if (elemLast) elemLast.removeEventListener('keydown', onElemLastKeydown);
+		if (elemFirst) elemFirst.removeEventListener('keydown', onFirstElemKeydown);
+		if (elemLast) elemLast.removeEventListener('keydown', onLastElemKeydown);
 	}
 
 	// Lifecycle
