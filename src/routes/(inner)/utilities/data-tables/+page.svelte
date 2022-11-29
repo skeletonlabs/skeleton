@@ -12,13 +12,13 @@
 	import Paginator from '$lib/components/Paginator/Paginator.svelte';
 	// Utilities
 	import {
+		createDataTableStore,
 		dataTableHandler,
 		dataTableSelect,
 		dataTableSelectAll,
 		dataTableSort,
 		tableInteraction,
-		tableA11y,
-		createDataTableStore
+		tableA11y
 	} from '$lib/utilities/DataTable/DataTable';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
@@ -43,7 +43,8 @@
 	};
 
 	// Store
-	const dataTableModel = createDataTableStore(httpPosts, '', {
+	const dataTableModel = createDataTableStore(httpPosts, {
+		sort: '',
 		selection: [],
 		search: '',
 		pagination: { offset: 0, limit: 5, size: 0, amounts: [1, 2, 5, 10] }
@@ -136,6 +137,7 @@ import {
 	// Types
 	type DataTableModel,
 	// Utilities
+	createDataTableStore,
 	dataTableHandler,
 	dataTableSelect,
 	dataTableSelectAll,
@@ -198,11 +200,7 @@ const sourceData = [
 			<CodeBlock
 				language="ts"
 				code={`
-const dataTableModel: Writable<DataTableModel> = writable({
-	// The original unfiltered source data.
-	source: sourceData,
-	// The filtered source data, shown in UI.
-	filtered: sourceData,
+const dataTableModel = createDataTableStore(sourceData, {
 	// Optional: An array of selected row objects.
 	selection: [],
 	// Optional: The current search term.

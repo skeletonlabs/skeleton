@@ -12,8 +12,8 @@ export interface DataTableModel<T> {
 	/** The current search term. */
 	search?: string;
 	/** The current sort key. */
-	sort: keyof T | '';
-	/** The current sort direction. */
+	sort?: keyof T | '';
+	/** The current state of the sort key. */
 	sortState: { lastKey: keyof T | '' | null; asc: boolean };
 	/** The Paginator component settings. */
 	pagination?: PaginationSettings;
@@ -24,6 +24,8 @@ export interface DataTableOptions<T> {
 	selection?: T[];
 	/** The current search term. */
 	search?: string;
+	/** The current sort key. */
+	sort?: keyof T | '';
 	/** The Paginator component settings. */
 	pagination?: PaginationSettings;
 }

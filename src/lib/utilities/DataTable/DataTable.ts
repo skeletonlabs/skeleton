@@ -10,13 +10,12 @@ export * from './types';
 export * from './actions';
 
 /** Creates the writeable store for the data table */
-export function createDataTableStore<T>(source: T[], sort: keyof T | '', options: DataTableOptions<T> = {}): Writable<DataTableModel<T>> {
+export function createDataTableStore<T>(source: T[], options: DataTableOptions<T> = {}): Writable<DataTableModel<T>> {
 	// Creates a new source that also adds the `dataTableChecked` property to each row object
 	const newSource = source.map((rowObj) => ({ ...rowObj, dataTableChecked: false }));
 	const store = writable<DataTableModel<T>>({
 		source: newSource,
 		filtered: newSource,
-		sort,
 		sortState: { lastKey: '', asc: true },
 		...options
 	});
@@ -106,7 +105,7 @@ function sortHandler<T extends Record<PropertyKey, unknown>>(store: DataTableMod
 }
 
 function sortOrder<T extends Record<PropertyKey, unknown>>(order: string, store: DataTableModel<T>): void {
-	const key = store.sort;
+	const key = store.sort ?? '';
 	store.filtered.sort((x, y) => {
 		// If descending, swap x/y
 		if (order === 'dsc') [x, y] = [y, x];
