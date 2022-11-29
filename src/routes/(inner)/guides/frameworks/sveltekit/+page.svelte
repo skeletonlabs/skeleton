@@ -36,8 +36,12 @@
 			<a href="https://github.com/sveltejs/kit/issues/6244#issuecomment-1226600661" target="_blank" rel="noreferrer"
 				>This element is required</a
 			>
+			and <code>display: content</code> should remain.
 		</p>
-		<CodeBlock language="html" code={`<body>\n\t<div class="h-full overflow-hidden">%sveltekit.body%</div>\n</body>`.trim()} />
+		<CodeBlock
+			language="html"
+			code={`<body>\n\t<div style="display: content" class="h-full overflow-hidden">%sveltekit.body%</div>\n</body>`.trim()}
+		/>
 		<p>
 			Note that you can optionally enable Dark Mode for your app by adding <code>.dark</code> to the <em>HTML</em> element at the top of
 			<code>app.html</code>.
@@ -64,11 +68,11 @@
 			language="html"
 			code={`
 <script>
-    import '@brainandbones/skeleton/themes/theme-skeleton.css';
-    import '@brainandbones/skeleton/styles/all.css';
+    import '@skeletonlabs/skeleton/themes/theme-skeleton.css';
+    import '@skeletonlabs/skeleton/styles/all.css';
     import '../app.postcss';
 
-    import { AppShell, AppBar } from '@brainandbones/skeleton';
+    import { AppShell, AppBar } from '@skeletonlabs/skeleton';
 </script\>
 
 <AppShell>
@@ -167,7 +171,7 @@
 			language="html"
 			code={`
 <script>
-    import { GradientHeading } from '@brainandbones/skeleton';
+    import { GradientHeading } from '@skeletonlabs/skeleton';
 </script\>
 
 <GradientHeading tag="h1" direction="bg-gradient-to-br" from="from-primary-500" to="to-accent-500">

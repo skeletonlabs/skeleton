@@ -147,7 +147,7 @@ import {
 	// Svelte Actions
 	tableInteraction,
 	tableA11y
-} from '@brainandbones/skeleton';`}
+} from '@skeletonlabs/skeleton';`}
 			/>
 			<p>
 				We need data to populate the table. For simplicity, let's create this locally. In a real world app you might fetch this from an

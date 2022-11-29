@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { storeFramework } from '$docs/stores';
-	import { Divider, TabGroup, Tab } from '@brainandbones/skeleton';
+	import { Divider, TabGroup, Tab } from '@skeletonlabs/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 </script>
 
@@ -87,13 +87,11 @@ cd astro-skeleton-app
 	<section class="space-y-4">
 		<h2>Install Skeleton</h2>
 		<p>
-			Install the core Skeleton package from <a
-				href="https://www.npmjs.com/package/@brainandbones/skeleton"
-				target="_blank"
-				rel="noreferrer">NPM</a
+			Install the core Skeleton package from <a href="https://www.npmjs.com/package/@skeletonlabs/skeleton" target="_blank" rel="noreferrer"
+				>NPM</a
 			>.
 		</p>
-		<CodeBlock language="console" code={`npm i @brainandbones/skeleton --save-dev`} />
+		<CodeBlock language="console" code={`npm i @skeletonlabs/skeleton --save-dev`} />
 	</section>
 
 	<hr />

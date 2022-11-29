@@ -63,11 +63,14 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<div class="space-y-4">
-			<p>Provide one or more color stops that start at <em>0%</em> and end at <em>100%</em>. The data set below will create a half red/green conic gradient.</p>
+			<p>
+				Provide one or more color stops that start at <em>0%</em> and end at <em>100%</em>. The data set below will create a half red/green
+				conic gradient.
+			</p>
 			<CodeBlock
 				language="ts"
 				code={`
-import type { ConicStop } from '@brainandbones/skeleton';
+import type { ConicStop } from '@skeletonlabs/skeleton';
 
 const conicStops: ConicStop[] = [
 	{ color: 'red', start: 0, end: 50 },
@@ -123,8 +126,9 @@ const conicStops: ConicStop[] = [
 		<div class="space-y-4">
 			<h3>Via Custom Colors</h3>
 			<p>
-				You can provide <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value" target="_blank" rel="noreferrer">standard CSS color values</a> as a string, including: color names, hex, rgba,
-				HSL, or similar.
+				You can provide <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value" target="_blank" rel="noreferrer"
+					>standard CSS color values</a
+				> as a string, including: color names, hex, rgba, HSL, or similar.
 			</p>
 			<CodeBlock
 				language="ts"
@@ -140,7 +144,8 @@ const conicStops: ConicStop[] = [
 		<div class="space-y-4">
 			<h2>Spinner Gradient</h2>
 			<p>
-				To create a spinner, set <code>spin</code> to <em>true</em>, and created a smooth gradient transition between transparent and filled color stops. Note the numeric gap between stops.
+				To create a spinner, set <code>spin</code> to <em>true</em>, and created a smooth gradient transition between transparent and filled
+				color stops. Note the numeric gap between stops.
 			</p>
 			<CodeBlock language="html" code={`<ConicGradient stops={conicStops} spin={true} width="w-8" />`} />
 			<CodeBlock

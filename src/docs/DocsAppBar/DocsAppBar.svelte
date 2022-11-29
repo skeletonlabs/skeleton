@@ -38,6 +38,7 @@
 	// Keyboard Shortcut (⌘+K) to Focus Search
 	let pressedKeys: string[] = [];
 	function onWindowKeydown(e: any): void {
+		if ($modalStore.length) return;
 		if (e.code === 'MetaLeft' || e.code === 'KeyK') {
 			// Set pressed keys
 			pressedKeys = [...pressedKeys, e.code];
@@ -126,6 +127,8 @@
 					</a>
 				</div>
 			</div>
+			<!-- Blog -->
+			<a class="unstyled font-bold" href="/blog" data-sveltekit-prefetch>Blog</a>
 		</section>
 
 		<Divider vertical borderWidth="hidden lg:block border-l-2 opacity-30" />
@@ -209,7 +212,7 @@
 			<a class="btn btn-sm" href="https://twitter.com/SkeletonUI" target="_blank" rel="noreferrer" aria-label="Twitter">
 				<SvgIcon name="twitter" />
 			</a>
-			<a class="btn btn-sm" href="https://github.com/Brain-Bones/skeleton" target="_blank" rel="noreferrer" aria-label="GitHub">
+			<a class="btn btn-sm" href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer" aria-label="GitHub">
 				<SvgIcon name="github" />
 			</a>
 		</section>

@@ -138,7 +138,7 @@ const tableSimple: TableSource = {
 				<Tab value="tableSourceValues">Source Values</Tab>
 				<!-- <Tab value="tableCellFormatter">Cell Formatter</Tab> -->
 			</TabGroup>
-			<CodeBlock language="ts" code={`import { ${$storeService} } from '@brainandbones/skeleton';>`} />
+			<CodeBlock language="ts" code={`import { ${$storeService} } from '@skeletonlabs/skeleton';>`} />
 			{#if $storeService === 'tableMapperValues'}
 				<!-- Table Mapper Values -->
 				<p>

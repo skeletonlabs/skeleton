@@ -57,11 +57,11 @@
 			language="html"
 			code={`
 ---
-import '@brainandbones/skeleton/themes/theme-skeleton.css';
-import '@brainandbones/skeleton/styles/all.css';
+import '@skeletonlabs/skeleton/themes/theme-skeleton.css';
+import '@skeletonlabs/skeleton/styles/all.css';
 import '../styles/global.css';
 
-import { AppShell, AppBar } from '@brainandbones/skeleton';
+import { AppShell, AppBar } from '@skeletonlabs/skeleton';
 ---
 
 <!-- NOTE: we have set the .dark class to enable Dark Mode -->
@@ -150,7 +150,7 @@ import { AppShell, AppBar } from '@brainandbones/skeleton';
 			code={`
 ---
 import LayoutRoot from './layouts/LayoutRoot.astro';
-import { GradientHeading } from '@brainandbones/skeleton';
+import { GradientHeading } from '@skeletonlabs/skeleton';
 ---
 <LayoutRoot>
 	<h1>Hello Skeleton</h1>
@@ -222,7 +222,7 @@ import { GradientHeading } from '@brainandbones/skeleton';
 			language="html"
 			code={`
 ---
-import { Breadcrumb, Crumb } from '@brainandbones/skeleton';
+import { Breadcrumb, Crumb } from '@skeletonlabs/skeleton';
 ---
 <Breadcrumb>
 	<Crumb href='/'>Home</Crumb>

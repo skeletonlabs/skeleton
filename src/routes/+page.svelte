@@ -16,9 +16,9 @@
 			throw new Error(res);
 		}
 	}
-	let contributors: Promise<any> = fetchHttpData('https://api.github.com/repos/Brain-Bones/skeleton/contributors');
+	let contributors: Promise<any> = fetchHttpData('https://api.github.com/repos/skeletonlabs/skeleton/contributors');
 	// https://github.com/filiptronicek/gh-sponsors-api
-	let sponsors: Promise<any> = fetchHttpData('https://ghs.vercel.app/sponsors/Brain-Bones', 'sponsors');
+	// let sponsors: Promise<any> = fetchHttpData('https://ghs.vercel.app/sponsors/skeletonlabs', 'sponsors');
 </script>
 
 <div>
@@ -56,7 +56,7 @@
 			<svelte:fragment slot="lead">🚧</svelte:fragment>
 			<span>Skeleton is currently in beta. Expect breaking changes prior to v1.0. Please report bugs on GitHub.</span>
 			<svelte:fragment slot="trail">
-				<a href="https://github.com/Brain-Bones/skeleton/issues" target="_blank" rel="noreferrer" class="btn btn-filled">Report Issue</a>
+				<a href="https://github.com/skeletonlabs/skeleton/issues" target="_blank" rel="noreferrer" class="btn btn-filled">Report Issue</a>
 			</svelte:fragment>
 		</Alert>
 
@@ -184,7 +184,8 @@
 					<img src="https://www.brainandbonesllc.com/svg/logo.svg" alt="Brain & Bones" class="h-[32px] mx-auto invert dark:invert-0" />
 					<p class="text-sm">Brain & Bones</p>
 				</a>
-				{#await sponsors}
+				<!-- FIXME: disabled until GitHub Sponsors is ready. -->
+				<!-- {#await sponsors}
 					<p class="flex flex-wrap justify-center">Loading sponsors...</p>
 				{:then response}
 					<ul class="flex flex-wrap justify-center">
@@ -203,10 +204,11 @@
 						{/each}
 					</ul>
 				{/await}
-				<a class="btn btn-filled-primary" href="https://github.com/sponsors/Brain-Bones" target="_blank" rel="noreferrer">
+				<a class="btn btn-filled-primary" href="https://github.com/sponsors/skeletonlabs" target="_blank" rel="noreferrer">
 					<span>Become a Sponsor</span>
 					<span>&rarr;</span>
-				</a>
+				</a> -->
+				<a class="btn btn-filled-primary" href="email:admin@skeleton.dev">Contact Us</a>
 			</div>
 		</section>
 	</div>

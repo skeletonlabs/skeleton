@@ -185,7 +185,7 @@
 			<p>
 				See <a href="/actions/filters">Filters</a> to learn how to import and configure the filters action and SVG filter components.
 			</p>
-			<CodeBlock language="ts" code={`import { filter, Apollo, /* ... */ } from '@brainandbones/skeleton';`} />
+			<CodeBlock language="ts" code={`import { filter, Apollo, /* ... */ } from '@skeletonlabs/skeleton';`} />
 			<p>Import the filter action reference using <code>action</code> and set <code>actionParams</code> to the desired filter id.</p>
 			<CodeBlock language="html" code={`<Avatar src="https://i.pravatar.cc/" action={filter} actionParams="Apollo" />`} />
 		</div>

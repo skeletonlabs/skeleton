@@ -71,7 +71,7 @@ body {
 		@apply rounded-container-token;
 	}
 
-	code:not(.unstyled):not(.code-block code) {
+	code:not(.unstyled):not(.code-block code):not(article pre code) {
 		@apply !font-mono text-primary-800 dark:text-primary-300 bg-primary-500/20 text-xs md:text-[13px] py-1 px-2;
 		/* Theme: Font Family */
 		@apply font-token;
@@ -105,5 +105,11 @@ body {
 	}
 	ins {
 		@apply bg-green-500;
+	}
+
+	/* === Date/Time === */
+
+	time {
+		@apply text-sm text-surface-500 dark:text-surface-400;
 	}
 }

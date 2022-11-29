@@ -61,9 +61,9 @@
 		case ('br'): cPosition = 'justify-end items-end'; cAlign = 'items-end'; animAxis = { x: 100, y: 0 }; break;
 	}
 
-	function onAction(): void {
-		$toastStore[0].action.response();
-		toastStore.close();
+	function onAction(index: number): void {
+		$toastStore[index]?.action?.response();
+		toastStore.close($toastStore[index].id);
 	}
 
 	// Reactive
@@ -84,7 +84,7 @@
 						<div class="text-base">{@html t.message}</div>
 						<!-- prettier-ignore -->
 						<div class="flex items-center space-x-2">
-							{#if t.action}<button class="btn {buttonAction}" on:click={onAction}>{@html t.action.label}</button>{/if}
+							{#if t.action}<button class="btn {buttonAction}" on:click={() => onAction(i)}>{@html t.action.label}</button>{/if}
 							<button class="btn-icon {buttonDismiss}" on:click={() => { toastStore.close(t.id) }}>✕</button>
 						</div>
 					</div>
