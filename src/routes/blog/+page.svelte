@@ -31,7 +31,7 @@
 					{/if}
 					<!-- Content -->
 					<div class="space-y-4">
-						<time class="block">{blogDateFormatter(post.created_at)}</time>
+						<time class="block">{blogDateFormatter(post.updated_at)}</time>
 						<h2>{post.title}</h2>
 						<p>{post.excerpt}</p>
 						<div class="flex items-center space-x-4">
