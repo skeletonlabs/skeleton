@@ -10,7 +10,10 @@ export * from './types';
 export * from './actions';
 
 /** Creates the writeable store for the data table */
-export function createDataTableStore<T>(source: T[], options: DataTableOptions<T> = {}): Writable<DataTableModel<T>> {
+export function createDataTableStore<T extends Record<PropertyKey, any>>(
+	source: T[],
+	options: DataTableOptions<T> = {}
+): Writable<DataTableModel<T>> {
 	// Creates a new source that also adds the `dataTableChecked` property to each row object
 	const newSource = source.map((rowObj) => ({ ...rowObj, dataTableChecked: false }));
 	const store = writable<DataTableModel<T>>({
@@ -38,7 +41,7 @@ export function dataTableHandler<T extends Record<PropertyKey, any>>(store: Data
 // Utilities ---
 
 /** A utility method for updating a select store value. */
-export function dataTableStorePut<T, K extends keyof DataTableModel<T>>(
+export function dataTableStorePut<T extends Record<PropertyKey, unknown>, K extends keyof DataTableModel<T>>(
 	store: Writable<DataTableModel<T>>,
 	key: K,
 	value: DataTableModel<T>[K]
@@ -64,7 +67,11 @@ function selectionHandler<T extends Record<PropertyKey, unknown>>(store: DataTab
 }
 
 /** Allows you to dynamically pre-select rows on-demand. */
-export function dataTableSelect<T, K extends keyof T>(store: Writable<DataTableModel<T>>, key: K, valuesArr: Array<unknown>): void {
+export function dataTableSelect<T extends Record<PropertyKey, any>, K extends keyof T>(
+	store: Writable<DataTableModel<T>>,
+	key: K,
+	valuesArr: Array<unknown>
+): void {
 	get(store).filtered.map((row) => {
 		if (valuesArr.includes(row[key])) row.dataTableChecked = true;
 		return row;
@@ -72,7 +79,7 @@ export function dataTableSelect<T, K extends keyof T>(store: Writable<DataTableM
 }
 
 /** Triggered by the "select all" checkbox to toggle all row selection. */
-export function dataTableSelectAll<T>(event: Event, store: Writable<DataTableModel<T>>): void {
+export function dataTableSelectAll<T extends Record<PropertyKey, any>>(event: Event, store: Writable<DataTableModel<T>>): void {
 	if (event.target && 'checked' in event.target && typeof event.target.checked === 'boolean') {
 		const isAllChecked = event.target.checked;
 		const storeFiltered = get(store).source.map((row) => {
@@ -86,7 +93,7 @@ export function dataTableSelectAll<T>(event: Event, store: Writable<DataTableMod
 // Sort ---
 
 /** Listens for clicks to a table heading with `data-sort` attribute. Updates `$dataTableModel.sort`. */
-export function dataTableSort<T>(event: Event, store: Writable<DataTableModel<T>>): void {
+export function dataTableSort<T extends Record<PropertyKey, any>>(event: Event, store: Writable<DataTableModel<T>>): void {
 	if (!(event.target instanceof Element)) return;
 	const newSortKey = event.target.getAttribute('data-sort') as keyof T | null | '';
 	const model = get(store);
@@ -120,7 +127,7 @@ function sortOrder<T extends Record<PropertyKey, unknown>>(order: string, store:
 
 // Pagination ---
 
-function paginationHandler<T>(store: DataTableModel<T>): void {
+function paginationHandler<T extends Record<PropertyKey, unknown>>(store: DataTableModel<T>): void {
 	// store.sort = ''; // reset
 	if (store.pagination) {
 		// Slice for Pagination

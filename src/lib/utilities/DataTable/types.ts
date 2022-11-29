@@ -2,7 +2,7 @@
 
 import type { PaginationSettings } from '$lib/components/Paginator/types';
 
-export interface DataTableModel<T> {
+export interface DataTableModel<T extends Record<PropertyKey, unknown>> {
 	/** The original unfiltered source data. */
 	source: Data<T>;
 	/** The filtered source data, shown in UI. */
