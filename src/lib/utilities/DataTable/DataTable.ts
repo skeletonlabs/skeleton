@@ -25,7 +25,7 @@ export function createDataTableStore<T>(source: T[], options: DataTableOptions<T
 
 // Data Table Handler
 /** Listens for changes to `$dataTableModel` and triggers: search, selection, sort, and pagination. */
-export function dataTableHandler<T extends Record<PropertyKey, unknown>>(store: DataTableModel<T>): void {
+export function dataTableHandler<T extends Record<PropertyKey, any>>(store: DataTableModel<T>): void {
 	// Reset
 	store.filtered = store.source;
 	// Then
@@ -50,7 +50,7 @@ export function dataTableStorePut<T, K extends keyof DataTableModel<T>>(
 
 // Search ---
 
-function searchHandler<T extends Record<keyof T, unknown>>(store: DataTableModel<T>): void {
+function searchHandler<T extends Record<PropertyKey, unknown>>(store: DataTableModel<T>): void {
 	store.filtered = store.filtered.filter((rowObj) => {
 		const formattedSearchTerm = store.search?.toLowerCase() || '';
 		return Object.values(rowObj).join(' ').toLowerCase().includes(formattedSearchTerm);
