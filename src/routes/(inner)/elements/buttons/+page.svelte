@@ -62,7 +62,16 @@
 				<div class="p-4">
 					<CodeBlock
 						language="html"
-						code={`<` + $storeTag + ($storeTag === 'a' ? ' href="/"' : '') + ` class="btn ` + btnClases + `"` + ($storeDisabled ? ' disabled' : '') + `>Skeleton</` + $storeTag + `>`}
+						code={`<` +
+							$storeTag +
+							($storeTag === 'a' ? ' href="/"' : '') +
+							` class="btn ` +
+							btnClases +
+							`"` +
+							($storeDisabled ? ' disabled' : '') +
+							`>Skeleton</` +
+							$storeTag +
+							`>`}
 					/>
 				</div>
 			</div>
@@ -163,8 +172,14 @@
 		<!-- Icons -->
 		<div class="space-y-4">
 			<h2>Leading and Trailing Icons</h2>
-			<p>By default, buttons use <code>flex-row</code> and <code>space-x-4</code> to create an evenly spaced row. Wrap children with <em>span</em> tags to ensure spacing works as expected.</p>
-			<CodeBlock language="html" code={`<button class="btn bg-primary-500">\n\t<span>💀</span>\n\t<span>Icons</span>\n\t<span>🦴</span>\n</button>`} />
+			<p>
+				By default, buttons use <code>flex-row</code> and <code>space-x-4</code> to create an evenly spaced row. Wrap children with
+				<em>span</em> tags to ensure spacing works as expected.
+			</p>
+			<CodeBlock
+				language="html"
+				code={`<button class="btn bg-primary-500">\n\t<span>💀</span>\n\t<span>Icons</span>\n\t<span>🦴</span>\n</button>`}
+			/>
 			<div class="card card-body flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 				<button class="btn btn-filled-primary">
 					<span>💀</span>
@@ -242,7 +257,12 @@
 		<div class="space-y-4">
 			<h2>SvelteKit Link Options</h2>
 			<p>
-				Since we use native elements, this means we can utilize <a href="https://kit.svelte.dev/docs/link-options" target="_blank" rel="noreferrer">SvelteKit Link Options</a> such as a
+				Since we use native elements, this means we can utilize <a
+					href="https://kit.svelte.dev/docs/link-options"
+					target="_blank"
+					rel="noreferrer">SvelteKit Link Options</a
+				>
+				such as a
 				<em>prefetch</em>.
 			</p>
 			<CodeBlock language="html" code={`<a href="/" class="btn" data-sveltekit-prefetch>Skeleton</a>`} />

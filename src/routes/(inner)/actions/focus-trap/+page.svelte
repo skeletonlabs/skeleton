@@ -50,7 +50,8 @@
 	<svelte:fragment slot="usage">
 		<div class="space-y-4">
 			<p>
-				Apply <code>use:focusTrap</code> and set the value to <code>true</code> to trap focus, and <code>false</code> to release focus. This will auto-select the first focusable element when activated.
+				Apply <code>use:focusTrap</code> and set the value to <code>true</code> to trap focus, and <code>false</code> to release focus. This
+				will auto-select the first focusable element when activated.
 			</p>
 			<CodeBlock language="html" code={`<div use:focusTrap={true}>Skeleton</div>`} />
 		</div>

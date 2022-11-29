@@ -45,8 +45,8 @@
 					<h3>Skeleton is Awesome!</h3>
 					<article>
 						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam aspernatur provident eveniet eligendi cumque consequatur tempore sint nisi sapiente. Iste beatae laboriosam iure
-							molestias cum expedita architecto itaque quae rem.
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam aspernatur provident eveniet eligendi cumque consequatur
+							tempore sint nisi sapiente. Iste beatae laboriosam iure molestias cum expedita architecto itaque quae rem.
 						</p>
 					</article>
 				</div>

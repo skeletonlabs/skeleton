@@ -61,8 +61,8 @@
 			<CodeBlock language="html" code={`<blockquote>Skeleton</blockquote>`} />
 			<div class="card card-body">
 				<blockquote class="max-w-[480px] mx-auto">
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita cupiditate dolores dignissimos maiores doloremque fugiat, dolore doloribus nisi, repellendus mollitia nostrum, commodi a
-					minus aperiam deleniti. Velit rerum ut tempora!
+					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita cupiditate dolores dignissimos maiores doloremque fugiat,
+					dolore doloribus nisi, repellendus mollitia nostrum, commodi a minus aperiam deleniti. Velit rerum ut tempora!
 				</blockquote>
 			</div>
 		</div>

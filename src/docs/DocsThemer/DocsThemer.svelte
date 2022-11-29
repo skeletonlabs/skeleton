@@ -9,7 +9,15 @@
 
 	// Helpers
 	import { semanticNames, tailwindDefaultColors } from '$lib/tailwind/colors';
-	import { storeMode, storePreview, storeTailwindForm, storeTailwindPalette, storeHexForm, storeHexPalette, storeFormData } from '$docs/DocsThemer/stores';
+	import {
+		storeMode,
+		storePreview,
+		storeTailwindForm,
+		storeTailwindPalette,
+		storeHexForm,
+		storeHexPalette,
+		storeFormData
+	} from '$docs/DocsThemer/stores';
 	import { resetSettings, onTailwindSelect, onRandomize, onHexInput, genCssColorStrings } from '$docs/DocsThemer/utils';
 	import { fonts } from '$docs/DocsThemer/fonts';
 

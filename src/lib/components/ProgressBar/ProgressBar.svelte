@@ -35,7 +35,15 @@
 	$: classesMeter = `${rounded} ${meter}`;
 </script>
 
-<div class="progress-bar {cBase}" data-testid="progress-bar" role="progressbar" aria-label={label} aria-valuenow={value} aria-valuemin={0} aria-valuemax={max}>
+<div
+	class="progress-bar {cBase}"
+	data-testid="progress-bar"
+	role="progressbar"
+	aria-label={label}
+	aria-valuenow={value}
+	aria-valuemin={0}
+	aria-valuemax={max}
+>
 	<!-- Label -->
 	{#if label}<label for="progress" class="progress-bar-label {cBaseLabel}">{label}</label>{/if}
 	<!-- Track -->

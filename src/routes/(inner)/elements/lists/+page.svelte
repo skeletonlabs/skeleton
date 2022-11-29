@@ -102,7 +102,10 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<div class="space-y-4">
-			<p>Create semantic list HTML elements, add the <code>.list</code> class, then ensure you wrap children with <em>span</em> elements allow for flex row layout styling.</p>
+			<p>
+				Create semantic list HTML elements, add the <code>.list</code> class, then ensure you wrap children with <em>span</em> elements allow
+				for flex row layout styling.
+			</p>
 		</div>
 		<!-- Unordered -->
 		<div class="space-y-4">
@@ -160,8 +163,10 @@
 		<div class="space-y-4">
 			<h2>Navigation</h2>
 			<p>
-				While verbose, we do recommend you use all tags shown below to meet recommended <a href="https://www.w3.org/WAI/tutorials/menus/structure/" target="_blank" rel="noreferrer"
-					>accessibility guidelines</a
+				While verbose, we do recommend you use all tags shown below to meet recommended <a
+					href="https://www.w3.org/WAI/tutorials/menus/structure/"
+					target="_blank"
+					rel="noreferrer">accessibility guidelines</a
 				>.
 			</p>
 			<CodeBlock
@@ -181,7 +186,9 @@
 </nav>
             `}
 			/>
-			<p>If you need to highlight an active Navigation List item, we recommend conditionally applying a background color to the anchor tag.</p>
+			<p>
+				If you need to highlight an active Navigation List item, we recommend conditionally applying a background color to the anchor tag.
+			</p>
 			<CodeBlock language="ts" code={`$: classesActive = (href: string) => (href === $page.url.pathname ? '!bg-primary-500' : '');`} />
 			<CodeBlock language="html" code={`<a {href} class="{classesActive(href)}">Page</a>`} />
 		</div>

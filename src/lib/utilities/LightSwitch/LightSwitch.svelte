@@ -9,8 +9,10 @@
 	import { storePrefersDarkScheme, storeLightSwitch } from './stores';
 
 	// Base Classes
-	const cTrack: string = 'inline-block bg-surface-200-700-token ring-[1px] ring-surface-300-600-token ring-inset w-12 h-6 rounded-full cursor-pointer transition-all duration-[100ms]';
-	const cThumb: string = 'bg-white dark:bg-black fill-white dark:fill-black w-6 h-6 flex justify-center items-center rounded-full shadow-lg transition-all duration-[100ms] scale-90';
+	const cTrack: string =
+		'inline-block bg-surface-200-700-token ring-[1px] ring-surface-300-600-token ring-inset w-12 h-6 rounded-full cursor-pointer transition-all duration-[100ms]';
+	const cThumb: string =
+		'bg-white dark:bg-black fill-white dark:fill-black w-6 h-6 flex justify-center items-center rounded-full shadow-lg transition-all duration-[100ms] scale-90';
 	const cIcon: string = 'block w-4 h-4';
 
 	// Set the users system prefers for light/dark mode

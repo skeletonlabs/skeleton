@@ -52,7 +52,13 @@
 					</div>
 				</div>
 				<div class="card card-body space-y-4">
-					<TabGroup selected={storeTwo} justify="justify-start md:justify-end" borderColor="border-accent-500" color="text-accent-500" hover="hover:bg-accent-500/10">
+					<TabGroup
+						selected={storeTwo}
+						justify="justify-start md:justify-end"
+						borderColor="border-accent-500"
+						color="text-accent-500"
+						hover="hover:bg-accent-500/10"
+					>
 						<Tab value="a">Tab A</Tab>
 						<Tab value="b">Tab B</Tab>
 						<Tab value="c">Tab C</Tab>
@@ -65,7 +71,14 @@
 				</div>
 			</div>
 			<div class="card card-body space-y-4">
-				<TabGroup selected={storeThree} justify="justify-start md:justify-center" borderColor="border-tertiary-500" fill="fill-tertiary-500" color="text-tertiary-500" hover="hover:bg-tertiary-500/10">
+				<TabGroup
+					selected={storeThree}
+					justify="justify-start md:justify-center"
+					borderColor="border-tertiary-500"
+					fill="fill-tertiary-500"
+					color="text-tertiary-500"
+					hover="hover:bg-tertiary-500/10"
+				>
 					<Tab value="a">
 						<svelte:fragment slot="lead">
 							<SvgIcon name="book" fill="fill-inherit" class="!block" />
@@ -88,15 +101,23 @@
 				<div>
 					{#if $storeThree === 'a'}
 						<h3>Books</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+						</p>
 					{/if}
 					{#if $storeThree === 'b'}
 						<h3>Movies</h3>
-						<p>Nisl nunc mi ipsum faucibus vitae aliquet nec. Ac ut consequat semper viverra nam libero justo laoreet. Nec sagittis aliquam malesuada.</p>
+						<p>
+							Nisl nunc mi ipsum faucibus vitae aliquet nec. Ac ut consequat semper viverra nam libero justo laoreet. Nec sagittis aliquam
+							malesuada.
+						</p>
 					{/if}
 					{#if $storeThree === 'c'}
 						<h3>Television</h3>
-						<p>Ut sem viverra aliquet eget sit. Porttitor lacus luctus accumsan tortor posuere ac ut consequat. Vulputate enim nulla aliquet porttitor.</p>
+						<p>
+							Ut sem viverra aliquet eget sit. Porttitor lacus luctus accumsan tortor posuere ac ut consequat. Vulputate enim nulla aliquet
+							porttitor.
+						</p>
 					{/if}
 				</div>
 			</div>

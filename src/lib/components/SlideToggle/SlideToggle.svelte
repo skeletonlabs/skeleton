@@ -69,10 +69,30 @@
 	}
 </script>
 
-<div id={label} class="slide-toggle {classesBase}" data-testid="slide-toggle" on:keydown={onKeyDown} role="switch" aria-label={label} aria-checked={checked} tabindex="0">
+<div
+	id={label}
+	class="slide-toggle {classesBase}"
+	data-testid="slide-toggle"
+	on:keydown={onKeyDown}
+	role="switch"
+	aria-label={label}
+	aria-checked={checked}
+	tabindex="0"
+>
 	<label class="slide-toggle-label {classesLabel}">
 		<!-- Hidden Input -->
-		<input type="checkbox" class="slide-toggle-input hidden" bind:checked on:click on:change on:mouseover on:focus on:blur {...prunedRestProps()} disabled={$$props.disabled} />
+		<input
+			type="checkbox"
+			class="slide-toggle-input hidden"
+			bind:checked
+			on:click
+			on:change
+			on:mouseover
+			on:focus
+			on:blur
+			{...prunedRestProps()}
+			disabled={$$props.disabled}
+		/>
 		<!-- Slider Track/Thumb -->
 		<div class="slide-toggle-track {classesTrack}" class:cursor-not-allowed={$$props.disabled}>
 			<div class="slide-toggle-thumb {classesThumb}" class:cursor-not-allowed={$$props.disabled} />

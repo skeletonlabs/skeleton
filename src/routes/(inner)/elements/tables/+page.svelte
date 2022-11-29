@@ -58,7 +58,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					{#each tableArr as row, i}
+					{#each tableArr as row}
 						<tr>
 							<td>{row.position}</td>
 							<td>{row.name}</td>

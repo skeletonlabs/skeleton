@@ -84,7 +84,15 @@
 
 		<!-- Center Text -->
 		{#if value && value >= 0 && $$slots.default}
-			<text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-weight="bold" font-size={font} class="progress-radial-text {fill}"><slot /></text>
+			<text
+				x="50%"
+				y="50%"
+				text-anchor="middle"
+				dominant-baseline="middle"
+				font-weight="bold"
+				font-size={font}
+				class="progress-radial-text {fill}"><slot /></text
+			>
 		{/if}
 	</svg>
 </figure>

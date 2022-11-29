@@ -18,7 +18,9 @@
 
 	// Reactive Classes
 	$: classesOrientation = vertical === true ? 'w-0 h-full min-h-[24px]' : 'w-full h-0';
-	$: classesDivider = `${cBaseDivider} ${classesOrientation} ${borderWidth} ${borderStyle} ${borderColor} ${margin} ${opacity} ${$$props.class ?? ''}`;
+	$: classesDivider = `${cBaseDivider} ${classesOrientation} ${borderWidth} ${borderStyle} ${borderColor} ${margin} ${opacity} ${
+		$$props.class ?? ''
+	}`;
 </script>
 
 <hr class="divider {classesDivider}" data-testid="divider" />

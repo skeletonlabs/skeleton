@@ -25,7 +25,13 @@
 
 <li class="crumb {classesBase}" data-testid="crumb">
 	<!-- Anchor -->
-	<svelte:element this={tag} href={$$props.href} class="crumb-anchor {cAnchor}" data-testid="crumb-anchor" aria-current={!$$props.href ? 'page' : undefined}>
+	<svelte:element
+		this={tag}
+		href={$$props.href}
+		class="crumb-anchor {cAnchor}"
+		data-testid="crumb-anchor"
+		aria-current={!$$props.href ? 'page' : undefined}
+	>
 		{#if $$slots.lead}<span class="crumb-lead"><slot name="lead" /></span>{/if}
 		<span class="crumb-text"><slot /></span>
 	</svelte:element>

@@ -35,7 +35,7 @@
 				toastStore.trigger(t);
 			},
 			// Error
-			(error) => {
+			() => {
 				const t: ToastSettings = { message: 'Sorry, copy to clipboard not supported.' };
 				toastStore.trigger(t);
 			}
