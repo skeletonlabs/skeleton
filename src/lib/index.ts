@@ -19,7 +19,9 @@ export { storePrefersDarkScheme, storeLightSwitch } from './utilities/LightSwitc
 export {
 	// Types
 	type DataTableModel,
+	type DataTableOptions,
 	// Utilities
+	createDataTableStore,
 	dataTableHandler,
 	dataTableSelect,
 	dataTableSelectAll,
