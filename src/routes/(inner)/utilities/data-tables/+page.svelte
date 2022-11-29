@@ -194,8 +194,7 @@ const sourceData = [
 			<h2>Data Table Model</h2>
 			<p>
 				To unlock the power of our data tables, we'll need to create what we'll refer to as a <em>data table model</em>. Create a new Svelte
-				writable store, if you're using Typescript set the type to <code>DataTableModel</code>, then pass the store to the
-				<code>dataTableHandler</code> method.
+				writable store with <code>createDataTableStore</code>, then pass the store to the <code>dataTableHandler</code> method.
 			</p>
 			<CodeBlock
 				language="ts"
