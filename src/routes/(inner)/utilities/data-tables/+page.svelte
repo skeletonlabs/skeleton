@@ -2,9 +2,7 @@
 	// HTTP response data provided by +page.ts
 	import type { PageData } from './$types';
 	export let data: PageData;
-	let httpPosts = Object.values(data);
-
-	import { writable, type Writable } from 'svelte/store';
+	const httpPosts = data.posts;
 
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
@@ -14,13 +12,13 @@
 	import Paginator from '$lib/components/Paginator/Paginator.svelte';
 	// Utilities
 	import {
-		type DataTableModel,
 		dataTableHandler,
 		dataTableSelect,
 		dataTableSelectAll,
 		dataTableSort,
 		tableInteraction,
-		tableA11y
+		tableA11y,
+		createDataTableStore
 	} from '$lib/utilities/DataTable/DataTable';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
@@ -45,14 +43,12 @@
 	};
 
 	// Store
-	const dataTableModel: Writable<DataTableModel> = writable({
-		source: httpPosts,
-		filtered: httpPosts,
+	const dataTableModel = createDataTableStore(httpPosts, '', {
 		selection: [],
 		search: '',
-		sort: '',
 		pagination: { offset: 0, limit: 5, size: 0, amounts: [1, 2, 5, 10] }
 	});
+
 	dataTableModel.subscribe((v) => dataTableHandler(v));
 
 	// Manual Selection

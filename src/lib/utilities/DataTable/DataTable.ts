@@ -1,18 +1,32 @@
 // Data Table Utilities
 // A set of utility features for local template-driven data tables.
 
-import { type Writable, get } from 'svelte/store';
-import type { DataTableModel } from './types';
+import { type Writable, get, writable } from 'svelte/store';
+import type { DataTableModel, DataTableOptions } from './types';
 
 // Exports
 
 export * from './types';
 export * from './actions';
 
-// Data Table Handler
+/** Creates the writeable store for the data table */
+export function createDataTableStore<T>(source: T[], sort: keyof T | '', options: DataTableOptions<T> = {}): Writable<DataTableModel<T>> {
+	// Creates a new source that also adds the `dataTableChecked` property to each row object
+	const newSource = source.map((rowObj) => ({ ...rowObj, dataTableChecked: false }));
+	const store = writable<DataTableModel<T>>({
+		source: newSource,
+		filtered: newSource,
+		sort,
+		sortState: { lastKey: '', asc: true },
+		...options
+	});
 
+	return store;
+}
+
+// Data Table Handler
 /** Listens for changes to `$dataTableModel` and triggers: search, selection, sort, and pagination. */
-export function dataTableHandler(store: DataTableModel): void {
+export function dataTableHandler<T extends Record<PropertyKey, unknown>>(store: DataTableModel<T>): void {
 	// Reset
 	store.filtered = store.source;
 	// Then
@@ -25,15 +39,19 @@ export function dataTableHandler(store: DataTableModel): void {
 // Utilities ---
 
 /** A utility method for updating a select store value. */
-export function dataTableStorePut(store: Writable<DataTableModel>, key: string, value: unknown): void {
-	let newStore: DataTableModel = get(store);
+export function dataTableStorePut<T, K extends keyof DataTableModel<T>>(
+	store: Writable<DataTableModel<T>>,
+	key: K,
+	value: DataTableModel<T>[K]
+): void {
+	let newStore = get(store);
 	newStore = { ...newStore, [key]: value };
 	store.set(newStore);
 }
 
 // Search ---
 
-function searchHandler(store: DataTableModel): void {
+function searchHandler<T extends Record<keyof T, unknown>>(store: DataTableModel<T>): void {
 	store.filtered = store.filtered.filter((rowObj) => {
 		const formattedSearchTerm = store.search?.toLowerCase() || '';
 		return Object.values(rowObj).join(' ').toLowerCase().includes(formattedSearchTerm);
@@ -42,12 +60,12 @@ function searchHandler(store: DataTableModel): void {
 
 // Selection ---
 
-function selectionHandler(store: DataTableModel): void {
+function selectionHandler<T extends Record<PropertyKey, unknown>>(store: DataTableModel<T>): void {
 	store.selection = store.filtered.filter((row) => row.dataTableChecked === true);
 }
 
 /** Allows you to dynamically pre-select rows on-demand. */
-export function dataTableSelect(store: Writable<DataTableModel>, key: string, valuesArr: any): void {
+export function dataTableSelect<T, K extends keyof T>(store: Writable<DataTableModel<T>>, key: K, valuesArr: Array<unknown>): void {
 	get(store).filtered.map((row) => {
 		if (valuesArr.includes(row[key])) row.dataTableChecked = true;
 		return row;
@@ -55,36 +73,40 @@ export function dataTableSelect(store: Writable<DataTableModel>, key: string, va
 }
 
 /** Triggered by the "select all" checkbox to toggle all row selection. */
-export function dataTableSelectAll(event: any, store: Writable<DataTableModel>): void {
-	const isAllChecked = event.target.checked;
-	const storeFiltered = get(store).source.forEach((row) => (row.dataTableChecked = isAllChecked));
-	dataTableStorePut(store, 'filtered', storeFiltered);
+export function dataTableSelectAll<T>(event: Event, store: Writable<DataTableModel<T>>): void {
+	if (event.target && 'checked' in event.target && typeof event.target.checked === 'boolean') {
+		const isAllChecked = event.target.checked;
+		const storeFiltered = get(store).source.map((row) => {
+			row.dataTableChecked = isAllChecked;
+			return row;
+		});
+		dataTableStorePut(store, 'filtered', storeFiltered);
+	}
 }
 
 // Sort ---
 
-const sortState: Record<string, string | boolean> = { lastKey: '', asc: true };
-
 /** Listens for clicks to a table heading with `data-sort` attribute. Updates `$dataTableModel.sort`. */
-export function dataTableSort(event: any, store: Writable<DataTableModel>): void {
+export function dataTableSort<T>(event: Event, store: Writable<DataTableModel<T>>): void {
 	if (!(event.target instanceof Element)) return;
-	const newSortKey = event.target.getAttribute('data-sort');
+	const newSortKey = event.target.getAttribute('data-sort') as keyof T | null | '';
+	const model = get(store);
 	// If same key used repeated, toggle asc/dsc order
-	if (newSortKey !== '' && newSortKey === sortState.lastKey) sortState.asc = !sortState.asc;
+	if (newSortKey !== '' && newSortKey === model.sortState.lastKey) model.sortState.asc = !model.sortState.asc;
 	// Cache the last key used
-	sortState.lastKey = newSortKey;
+	model.sortState.lastKey = newSortKey;
 	// Update store
 	if (newSortKey) dataTableStorePut(store, 'sort', newSortKey);
 }
 
-function sortHandler(store: DataTableModel): void {
+function sortHandler<T extends Record<PropertyKey, unknown>>(store: DataTableModel<T>): void {
 	if (!store.sort) return;
 	// Sort order based on current sortState.asc value
-	sortState.asc ? sortOrder('asc', store) : sortOrder('dsc', store);
+	store.sortState.asc ? sortOrder('asc', store) : sortOrder('dsc', store);
 }
 
-function sortOrder(order: string, store: DataTableModel): void {
-	const key: string = store.sort;
+function sortOrder<T extends Record<PropertyKey, unknown>>(order: string, store: DataTableModel<T>): void {
+	const key = store.sort;
 	store.filtered.sort((x, y) => {
 		// If descending, swap x/y
 		if (order === 'dsc') [x, y] = [y, x];
@@ -99,7 +121,7 @@ function sortOrder(order: string, store: DataTableModel): void {
 
 // Pagination ---
 
-function paginationHandler(store: DataTableModel): void {
+function paginationHandler<T>(store: DataTableModel<T>): void {
 	// store.sort = ''; // reset
 	if (store.pagination) {
 		// Slice for Pagination
