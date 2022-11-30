@@ -1,18 +1,19 @@
 <script lang="ts">
 	import { fade, fly } from 'svelte/transition';
-	import { writable, type Writable } from 'svelte/store';
+	import { onMount } from 'svelte';
 
+	// Actions
 	import { focusTrap } from '$lib/actions/FocusTrap/focusTrap';
 
+	// Drawer Utils
+	import type { DrawerSettings } from '$lib/utilities/Drawer/types';
+	import { drawerStore } from '$lib/utilities/Drawer/stores';
+
 	// Props
-	/** Provide a store to manage visible state.
-	 * @type {Writable(boolean)}
-	 */
-	export let open: Writable<boolean> = writable(false);
 	/** Set the anchor position.
 	 * @type {'left' | 'top' | 'right' | 'bottom'}
 	 */
-	export let position = 'left';
+	export let position: string = 'left';
 	/** Define the Svelte transition animation duration.*/
 	export let duration = 150;
 
@@ -48,73 +49,94 @@
 
 	// Local
 	let elemBackdrop: HTMLElement;
+	let elemDrawer: HTMLElement;
+	let windowSettings = { width: 0, height: 0 };
+	let styleSettings: Record<string, string> = { backdrop: '', width: '', height: '' };
+	let animSettings: Record<string, number> = { x: 0, y: 0 };
+
+	// Listen to drawerStore updates
+	drawerStore.subscribe((settings: DrawerSettings) => {
+		if (settings.open === false) return;
+		applySettingOverrides(settings);
+		applyPositionSettings();
+	});
+
+	// Override local props with passed settings.
+	// NOTE: these must stay in sync with the component props
+	function applySettingOverrides(settings: DrawerSettings): void {
+		if (settings.position) position = settings.position;
+		if (settings.duration) duration = settings.duration;
+		// Backdrop
+		if (settings.bgBackdrop) bgBackdrop = settings.bgBackdrop;
+		if (settings.blur) blur = settings.blur;
+		// Drawer
+		if (settings.bgDrawer) bgDrawer = settings.bgDrawer;
+		if (settings.border) border = settings.border;
+		if (settings.rounded) rounded = settings.rounded;
+		if (settings.width) width = settings.width;
+		if (settings.height) height = settings.height;
+		if (settings.margin) margin = settings.margin;
+		// A11y
+		if (settings.labelledby) labelledby = settings.labelledby;
+		if (settings.describedby) describedby = settings.describedby;
+	}
+
+	// Apply one of the four position styles and animation transition settings
+	function applyPositionSettings(): void {
+		switch (position) {
+			case 'top':
+				styleSettings = { backdrop: 'flex-col justify-start', width: 'w-full', height: 'h-[40%]' };
+				animSettings = { x: 0, y: -percentage(40, windowSettings.height) };
+				break;
+			case 'bottom':
+				styleSettings = { backdrop: 'flex-col justify-end', width: 'w-full', height: 'h-[40%]' };
+				animSettings = { x: 0, y: percentage(40, windowSettings.height) };
+				break;
+			case 'right':
+				styleSettings = { backdrop: 'justify-end', width: 'w-[90%]', height: 'h-full' };
+				animSettings = { x: percentage(90, windowSettings.width), y: 0 };
+				break;
+			default: // left
+				styleSettings = { backdrop: 'justify-start', width: 'w-[90%]', height: 'h-full' };
+				animSettings = { x: -percentage(90, windowSettings.width), y: 0 };
+				break;
+		}
+	}
 
 	function percentage(percent: number, amount: number): number {
 		return (amount / 100) * percent;
 	}
 
-	// Set Animation Values
-	let animParams: any = { backdrop: '', width: '', height: '', x: 0, y: 0 };
-	function setAnimParams(): void {
-		switch (position) {
-			case 'top':
-				animParams = {
-					backdrop: 'flex-col justify-start',
-					width: 'w-full',
-					height: 'h-[40%]',
-					x: 0,
-					y: -percentage(40, window.innerHeight)
-				};
-				break;
-			case 'bottom':
-				animParams = { backdrop: 'flex-col justify-end', width: 'w-full', height: 'h-[40%]', x: 0, y: percentage(40, window.innerHeight) };
-				break;
-			case 'right':
-				animParams = { backdrop: 'justify-end', width: 'w-[90%]', height: 'h-full', x: percentage(80, window.innerWidth), y: 0 };
-				break;
-			// Default: Left
-			default:
-				animParams = { backdrop: 'justify-start', width: 'w-[90%]', height: 'h-full', x: -percentage(80, window.innerWidth), y: 0 };
-				break;
-		}
-	}
-
 	// Input Handlers
 	function onClickBackdrop(e: any): void {
-		// Limit to only backdrop element
-		if (e.target === elemBackdrop) {
-			close();
-		}
+		if (e.target === elemBackdrop) close();
 	}
 	function onKeydownWindow(e: any): void {
-		if (!$open) return;
-		if (e.code === 'Escape') {
-			close();
-		}
+		if (!$drawerStore) return;
+		if (e.code === 'Escape') close();
 	}
 
 	// Close
 	function close(): void {
-		open.set(false);
+		drawerStore.close();
 	}
 
-	// Subscribe to $open prop
-	open.subscribe((o: boolean) => {
-		if (o === true) {
-			setAnimParams();
-		}
+	// Lifecycle
+	onMount(() => {
+		windowSettings.width = window.innerWidth;
+		windowSettings.height = window.innerHeight;
 	});
 
 	// Reactive
-	$: classesWidth = width ? width : animParams.width;
-	$: classesHeight = height ? height : animParams.height;
-	$: classesBackdrop = `${cBaseBackdrop} ${animParams.backdrop} ${bgBackdrop} ${blur} ${$$props.class ?? ''}`;
+	$: classesWidth = width ? width : styleSettings.width;
+	$: classesHeight = height ? height : styleSettings.height;
+	$: classesBackdrop = `${cBaseBackdrop} ${styleSettings.backdrop} ${bgBackdrop} ${blur} ${$$props.class ?? ''}`;
 	$: classesDrawer = `${cBaseDrawer} ${classesWidth} ${classesHeight} ${bgDrawer} ${border} ${margin} ${rounded}`;
 </script>
 
 <svelte:window on:keydown={onKeydownWindow} />
 
-{#if $open}
+{#if $drawerStore.open === true}
 	<!-- Backdrop -->
 	<div
 		bind:this={elemBackdrop}
@@ -131,9 +153,10 @@
 	>
 		<!-- Drawer -->
 		<div
+			bind:this={elemDrawer}
 			class="drawer {classesDrawer}"
 			data-testid="drawer"
-			transition:fly|local={{ x: animParams.x, y: animParams.y, duration }}
+			transition:fly|local={{ x: animSettings.x, y: animSettings.y, duration }}
 			role="dialog"
 			aria-modal="true"
 			aria-labelledby={labelledby}

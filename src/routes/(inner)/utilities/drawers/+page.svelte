@@ -1,61 +1,47 @@
 <script lang="ts">
-	import { writable, type Writable } from 'svelte/store';
-
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
-	import Drawer from '$lib/utilities/Drawer/Drawer.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import Drawer from '$lib/utilities/Drawer/Drawer.svelte';
 
 	// @ts-expect-error sveld import
 	import sveldDrawer from '$lib/utilities/Drawer/Drawer.svelte?raw&sveld';
 
-	// Stores
-	const storeDrawer: Writable<boolean> = writable(false);
+	// Drawer Utils
+	import { drawerStore } from '$lib/utilities/Drawer/stores';
+	import type { DrawerSettings } from '$lib/utilities/Drawer/types';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Utility,
 		name: 'Drawers',
 		description: 'Displays an overlay panel that attaches to any side of the screen.',
-		imports: ['Drawer'],
+		imports: ['Drawer', 'drawerStore'],
+		types: ['DrawerSettings'],
 		source: 'utilities/Drawer',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/modalmodal/',
 		components: [{ sveld: sveldDrawer }],
 		keyboard: [['<kbd>Esc</kbd>', ' Closes the drawer.']]
 	};
 
-	// Local
-	let position = 'left';
-
-	// prettier-ignore
-	function trigger(p: string): void {
-		position = p;
-		setTimeout(() => { storeDrawer.set(true); }, 100);
+	function trigger(position: string): void {
+		const s: DrawerSettings = { open: true, id: 'demo', position };
+		drawerStore.set(s);
 	}
 </script>
-
-<Drawer open={storeDrawer} {position}>
-	<div class="w-full h-full flex justify-center items-center">
-		<div class="text-center space-y-2">
-			<h4>Drawer: <span class="capitalize">{position}</span></h4>
-			<p>Tap outside the drawer to close.</p>
-			<!-- <button class="btn btn-filled-primary">Focus Me</button> -->
-		</div>
-	</div>
-</Drawer>
 
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<div class="card card-body text-center space-y-4">
-			<p>Select a drawer position to preview.</p>
+			<p>Select a drawer to preview.</p>
 			<!-- prettier-ignore -->
 			<div class="flex justify-center items-center space-x-4">
-				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('left'); }}>&larr;</button>
-				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('right'); }}>&rarr;</button>
-				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('top'); }}>&uarr;</button>
-				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('bottom'); }}>&darr;</button>
+				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('right'); }}>&larr;</button>
+				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('left'); }}>&rarr;</button>
+				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('bottom'); }}>&uarr;</button>
+				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('top'); }}>&darr;</button>
 			</div>
 		</div>
 	</svelte:fragment>
@@ -63,44 +49,98 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<h2>Create a Store</h2>
 			<p>
-				Create a <a href="https://svelte.dev/tutorial/writable-stores" target="_blank" rel="noreferrer">Svelte writable store</a> to manage the
-				state of the drawer.
+				Import and add a single instance of the Drawer component in your app's root layout. We recommend only adding this <u>ONCE</u> per app
+				since it exists in global scope.
 			</p>
-			<CodeBlock language="typescript" code={`import { writable, type Writable } from 'svelte/store';`} />
-			<CodeBlock language="typescript" code={`const storeDrawer: Writable<boolean> = writable(false);`} />
+			<CodeBlock language="html" code={`<Drawer />`} />
 		</section>
 		<section class="space-y-4">
-			<h2>Implement Drawer</h2>
-			<p>Pass the store to the Drawer component. For best results implement your Drawer component in your applications root scope.</p>
+			<h2>Drawer Store</h2>
+			<p>The Drawer Store contains the drawer's current state and settings.</p>
+			<CodeBlock language="typescript" code={`import { drawerStore } from '@skeletonlabs/skeleton';`} />
+		</section>
+		<section class="space-y-4">
+			<h2>Open</h2>
+			<p>To open the drawer, pass your drawer settings to the drawer store.</p>
 			<CodeBlock
-				language="html"
+				language="typescript"
 				code={`
-<Drawer open={storeDrawer} position="left">
-	(contents)
-</Drawer>
-`}
+function drawerOpen(): void {
+	const settings: DrawerSettings = { open: true };
+	drawerStore.set(settings);
+}
+			`}
 			/>
 		</section>
 		<section class="space-y-4">
-			<h2>Open and Close Triggers</h2>
-			<p>Set the store value to <em>true</em> too open the drawer.</p>
-			<CodeBlock language="typescript" code={`const drawerOpen: any = () => { storeDrawer.set(true) };`} />
-			<CodeBlock language="html" code={`<button on:click={drawerOpen}>Open</button>`} />
+			<h2>Close</h2>
 			<p>
-				Set the store value to <em>false</em> too close the drawer. You can also tap the backdrop or hit <kbd>ESC</kbd> on your keyboard.
+				To close the drawer, use the <code>close()</code> method on the store. This will set <code>open</code> to
+				<em>false</em>.
 			</p>
-			<CodeBlock language="typescript" code={`const drawerClose: any = () => { storeDrawer.set(false) };`} />
-			<CodeBlock language="html" code={`<button on:click={drawerClose}>Close</button>`} />
+			<CodeBlock
+				language="typescript"
+				code={`
+function drawerClose(): void {
+	drawerStore.close();
+}
+			`}
+			/>
 		</section>
 		<section class="space-y-4">
-			<h2>Pairing with App Shell</h2>
+			<h2>Handling Contents</h2>
+			<p>You may modify the contents of the drawer by providing an <code>id</code> setting.</p>
+			<CodeBlock
+				language="typescript"
+				code={`
+function drawerOpen(): void {
+	const settings: DrawerSettings = { open: true, id: 'foo' };
+	drawerStore.set(settings);
+}
+			`}
+			/>
+			<CodeBlock
+				language="html"
+				code={`
+<Drawer>
+	{#if $drawerStore.id === 'foo'}
+		(show 'foo' contents)
+	{:else if $drawerStore.id === 'bar'}
+		(show 'bar' contents)
+	{:else}
+		(no matching id, show fallback contents)
+	{/if}
+</Drawer>
+			`}
+			/>
+			<!-- prettier-ignore -->
 			<p>
-				Place the Drawer above and outside the App Shell in your root layout. This will prevent page content shifting as the Drawer changes
-				state.
+				We <a href="https://github.com/skeletonlabs/skeleton/blob/dev/src/docs/DocsNavigation/DocsDrawer.svelte" target="_blank" rel="noreferrer">use this technique</a> for this documentation site.
 			</p>
-			<CodeBlock language="html" code={`<Drawer></Drawer>\n\n<AppShell></AppShell>`} />
+		</section>
+		<section class="space-y-4">
+			<h2>Styling</h2>
+			<p>
+				Use the component prop values to set default styles. However, you may provide valid prop values as a key/value pairs when opening
+				the drawer.
+			</p>
+			<CodeBlock
+				language="typescript"
+				code={`
+function drawerOpenStyled(): void {
+	const settings: DrawerSettings = {
+		open: true,
+		// Override any prop setting
+		position: 'right',
+		bgBackdrop: 'bg-green-500/70',
+		bgDrawer: 'bg-red-500'
+		// ...
+	};
+	drawerStore.set(settings);
+}
+				`}
+			/>
 		</section>
 	</svelte:fragment>
 </DocsShell>

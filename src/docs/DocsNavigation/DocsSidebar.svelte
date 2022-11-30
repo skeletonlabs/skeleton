@@ -2,11 +2,14 @@
 	import { page } from '$app/stores';
 	import { writable, type Writable } from 'svelte/store';
 
-	import { storeCurrentUrl, storeMobileDrawer } from '$docs/stores';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	import { menuNavLinks } from './links';
 	import AppRail from '$lib/components/AppRail/AppRail.svelte';
 	import AppRailTile from '$lib/components/AppRail/AppRailTile.svelte';
+
+	// Stores
+	import { storeCurrentUrl } from '$docs/stores';
+	import { drawerStore } from '$lib/utilities/Drawer/stores';
 
 	// Props
 	export let embedded = false;
@@ -19,7 +22,7 @@
 	function onListItemClick(): void {
 		// On Drawer embed Only:
 		if (!embedded) return;
-		storeMobileDrawer.set(false);
+		drawerStore.close();
 	}
 
 	function setNavCategory(c: string): void {
