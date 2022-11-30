@@ -17,11 +17,14 @@
 	export let rounded: string = getContext('rounded');
 
 	// Props
-	/** The value of each tab.*/
+	/**
+	 * The value of each tab.
+	 * @type {any}
+	 */
 	export let value: any = $selected.value;
 
 	// A11y
-	/** Defines a semantic label for the tab.*/
+	/** Defines a semantic label for the tab. */
 	export let label = 'tab';
 
 	// Base Classes

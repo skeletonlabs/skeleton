@@ -31,7 +31,10 @@
 	// Props (a11y)
 	/** Define a semantic ARIA label. */
 	export let label = '';
-	/** Set automatically based on the label text, but can be overwritten. */
+	/**
+	 * Set automatically based on the label text, but can be overwritten.
+	 * @type {string}
+	 */
 	export let labelId: string = label?.toLowerCase().replace(' ', '-'); //AUDIT this doesn't seem to be consistently applied across Skeleton
 
 	// Context

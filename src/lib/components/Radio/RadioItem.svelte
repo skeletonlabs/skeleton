@@ -6,7 +6,10 @@
 	const dispatch = createEventDispatcher();
 
 	// Props
-	/** The item's selection value. */
+	/**
+	 * The item's selection value.
+	 * @type {any}
+	 */
 	export let value: any = undefined;
 
 	// Props (A11y)
