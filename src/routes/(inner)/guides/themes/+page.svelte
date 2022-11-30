@@ -14,17 +14,17 @@
 	const ghPath = 'https://github.com/skeletonlabs/skeleton/blob/master/src/themes';
 	// prettier-ignore
 	const presets: any[] = [
-        { file: 'skeleton', name: 'Skeleton', colors: ['#10b981', '#6366f1', '#f43f5e'], surface: '#111827', url: `${ghPath}/theme-skeleton.css` },
-        { file: 'rocket', name: 'Rocket', colors: ['#06b6d4', '#3b82f6', '#ec4899'], surface: '#3c4553', url: `${ghPath}/theme-rocket.css` },
-        { file: 'vintage', name: 'Vintage', colors: ['#f59e0b', '#22c55e', '#ef4444'], surface: '#1c1917', url: `${ghPath}/theme-vintage.css` },
-        { file: 'modern', name: 'Modern', colors: ['#ec4899', '#06b6d4', '#eab308'], surface: '#312e81', url: `${ghPath}/theme-modern.css` },
-        { file: 'sahara', name: 'Sahara', colors: ['#facc15', '#fb923c', '#14b8a6'], surface: '#881337', url: `${ghPath}/theme-sahara.css` },
-        { file: 'seafoam', name: 'Seafoam', colors: ['#14b8a6', '#8b5cf6', '#f59e0b'], surface: '#0c4a6e', url: `${ghPath}/theme-seafoam.css` },
+		{ file: 'skeleton', name: 'Skeleton', colors: ['#10b981', '#6366f1', '#f43f5e'], surface: '#111827', url: `${ghPath}/theme-skeleton.css` },
+		{ file: 'rocket', name: 'Rocket', colors: ['#06b6d4', '#3b82f6', '#ec4899'], surface: '#3c4553', url: `${ghPath}/theme-rocket.css` },
+		{ file: 'vintage', name: 'Vintage', colors: ['#f59e0b', '#22c55e', '#ef4444'], surface: '#1c1917', url: `${ghPath}/theme-vintage.css` },
+		{ file: 'modern', name: 'Modern', colors: ['#ec4899', '#06b6d4', '#eab308'], surface: '#312e81', url: `${ghPath}/theme-modern.css` },
+		{ file: 'sahara', name: 'Sahara', colors: ['#facc15', '#fb923c', '#14b8a6'], surface: '#881337', url: `${ghPath}/theme-sahara.css` },
+		{ file: 'seafoam', name: 'Seafoam', colors: ['#14b8a6', '#8b5cf6', '#f59e0b'], surface: '#0c4a6e', url: `${ghPath}/theme-seafoam.css` },
 		// Community:
-        { file: 'hamlindigo', name: 'Hamlindigo', colors: ['#6276A3', '#a58945', '#f59e0b'], surface: '#425071', url: `${ghPath}/theme-hamlindigo.css` },
-        { file: 'gold-nouveau', name: 'Gold Nouveau', colors: ['#e7c504', '#0697e5', '#cc1e8a'], surface: '#231631', url: `${ghPath}/theme-gold-nouveau.css` },
-        { file: 'crimson', name: 'Crimson', colors: ['#d4161d', '#3881b2', '#956056'], surface: '#0f1014', url: `${ghPath}/theme-crimson.css` },
-    ];
+		{ file: 'hamlindigo', name: 'Hamlindigo', colors: ['#6276A3', '#a58945', '#f59e0b'], surface: '#425071', url: `${ghPath}/theme-hamlindigo.css` },
+		{ file: 'gold-nouveau', name: 'Gold Nouveau', colors: ['#e7c504', '#0697e5', '#cc1e8a'], surface: '#231631', url: `${ghPath}/theme-gold-nouveau.css` },
+		{ file: 'crimson', name: 'Crimson', colors: ['#d4161d', '#3881b2', '#956056'], surface: '#0f1014', url: `${ghPath}/theme-crimson.css` },
+	];
 
 	// Copy Theme Import to Clipboard
 	function copyThemeToClipboard(file: string): void {

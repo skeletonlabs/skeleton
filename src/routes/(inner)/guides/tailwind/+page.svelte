@@ -64,9 +64,9 @@
 				code={`
 ${$storeFramework === 'astro' ? 'module.exports' : 'const config'} = {
 	darkMode: 'class',
-    // ...
+	// ...
 }
-        `}
+`}
 			/>
 		</div>
 		<div class="space-y-4">
@@ -80,13 +80,13 @@ ${$storeFramework === 'astro' ? 'module.exports' : 'const config'} = {
 				code={`
 ${$storeFramework === 'astro' ? 'module.exports' : 'const config'} = {
 	// ...
-    content: [
-        // Keep existing values and append the following:
-        require('path').join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')
-    ],
-    // ...
+	content: [
+		// Keep existing values and append the following:
+		require('path').join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')
+	],
+	// ...
 }
-        `}
+`}
 			/>
 		</div>
 		<div class="space-y-4">
@@ -99,13 +99,13 @@ ${$storeFramework === 'astro' ? 'module.exports' : 'const config'} = {
 				language="js"
 				code={`
 ${$storeFramework === 'astro' ? 'module.exports' : 'const config'} = {
-    // ...
-    plugins: [
-        // Keep any existing plugins present and append the following:
-        require('@skeletonlabs/skeleton/tailwind/theme.cjs')
-    ]
+	// ...
+	plugins: [
+		// Keep any existing plugins present and append the following:
+		require('@skeletonlabs/skeleton/tailwind/theme.cjs')
+	]
 }
-        `}
+`}
 			/>
 		</div>
 	</section>

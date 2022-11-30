@@ -56,9 +56,9 @@
 		<CodeBlock
 			language="html"
 			code={`
-\<script\>
+<script>
 	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
-\</script\>
+</script>
 
 <AppShell>
 	<!-- Header -->
@@ -81,7 +81,7 @@
 			language="html"
 			code={`
 <svelte:fragment slot="header">
-    <!-- Insert the App Bar: -->
+	<!-- Insert the App Bar: -->
 	<AppBar>
 		<svelte:fragment slot="lead">
 			<h1>Skeleton</h1>
@@ -92,7 +92,7 @@
 	</AppBar>
 	<!-- --- -->
 </svelte:fragment>
-            `}
+`}
 		/>
 		<h3>Add Sidebar Navigation</h3>
 		<p>
@@ -117,7 +117,7 @@
 	</nav>
 	<!-- --- -->
 </svelte:fragment>
-			`}
+`}
 		/>
 	</section>
 
@@ -143,12 +143,12 @@
 	</section>
 	<hr />
 	<section class="flex space-x-2">
-      <a class="btn btn-filled-primary" href="https://kit.svelte.dev/" target="_blank" rel="noreferrer">SvelteKit</a>
-      <a class="btn btn-filled-accent" href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind</a>
-      <a class="btn btn-filled-tertiary" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
-    </section>
+		<a class="btn btn-filled-primary" href="https://kit.svelte.dev/" target="_blank" rel="noreferrer">SvelteKit</a>
+		<a class="btn btn-filled-accent" href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind</a>
+		<a class="btn btn-filled-tertiary" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+	</section>
 </div>
-                `}
+`}
 		/>
 		<h3>Add a Component</h3>
 		<p>
@@ -158,14 +158,14 @@
 		<CodeBlock
 			language="html"
 			code={`
-\<script\>
+<script>
 	import { GradientHeading } from '@skeletonlabs/skeleton';
-\</script\>
+</script>
 
 <GradientHeading tag="h1" direction="bg-gradient-to-br" from="from-primary-500" to="to-accent-500">
-    Homepage
+	Homepage
 </GradientHeading>
-        `}
+`}
 		/>
 	</section>
 </div>

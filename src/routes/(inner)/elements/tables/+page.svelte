@@ -88,51 +88,53 @@
 				language="html"
 				code={`
 <div class="table-container">
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>Position</th>
-                <th>Name</th>
-                <th>Symbol</th>
-                <th>Weight</th>
-            </tr>
-        </thead>
-        <tbody>
-            {#each tableArr as row, i}
-                <tr>
-                    <td>{row.position}</td>
-                    <td>{row.name}</td>
-                    <td>{row.symbol}</td>
-                    <td>{row.weight}</td>
-                </tr>
-            {/each}
-        </tbody>
-        <tfoot>
-            <tr>
-                <th colspan="3">Calculated Total Weight</th>
-                <td>{totalWeight}</td>
-            </tr>
-        </tfoot>
-    </table>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Position</th>
+				<th>Name</th>
+				<th>Symbol</th>
+				<th>Weight</th>
+			</tr>
+		</thead>
+		<tbody>
+			{#each tableArr as row, i}
+				<tr>
+					<td>{row.position}</td>
+					<td>{row.name}</td>
+					<td>{row.symbol}</td>
+					<td>{row.weight}</td>
+				</tr>
+			{/each}
+		</tbody>
+		<tfoot>
+			<tr>
+				<th colspan="3">Calculated Total Weight</th>
+				<td>{totalWeight}</td>
+			</tr>
+		</tfoot>
+	</table>
 </div>
-            `}
+</div>
+`}
 			/>
-		</div>
-		<hr />
-		<!-- More Options -->
-		<section class="space-y-4">
-			<h2>Additional Table Options</h2>
-			<div class="card card-body space-y-4">
-				<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-					<p>A simple data-driven table component.</p>
-					<a class="btn btn-ghost-surface" href="/components/tables">Tables Component &rarr;</a>
+
+			<hr />
+			<!-- More Options -->
+			<section class="space-y-4">
+				<h2>Additional Table Options</h2>
+				<div class="card card-body space-y-4">
+					<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+						<p>A simple data-driven table component.</p>
+						<a class="btn btn-ghost-surface" href="/components/tables">Tables Component &rarr;</a>
+					</div>
+					<hr />
+					<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+						<p>Powerful template-driven utility features for data tables.</p>
+						<a class="btn btn-ghost-surface" href="/utilities/data-tables">Data Table Utilities &rarr;</a>
+					</div>
 				</div>
-				<hr />
-				<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-					<p>Powerful template-driven utility features for data tables.</p>
-					<a class="btn btn-ghost-surface" href="/utilities/data-tables">Data Table Utilities &rarr;</a>
-				</div>
-			</div>
-		</section>
-	</svelte:fragment>
+			</section>
+		</div></svelte:fragment
+	>
 </DocsShell>

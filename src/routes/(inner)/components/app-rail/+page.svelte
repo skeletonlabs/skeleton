@@ -77,18 +77,18 @@
 				code={`
 import { writable, type Writable } from 'svelte/store';\n
 const storeValue: Writable<number> = writable(1);
-            `}
+`}
 			/>
 			<p>Implement your App Rail component and append the <code>selected</code> prop and store.</p>
 			<CodeBlock
 				language="html"
 				code={`
 <AppRail selected={storeValue}>
-    <svelte:fragment slot="lead">(lead)</svelte:fragment>
-    <!-- (AppRailTiles Here) -->
-    <svelte:fragment slot="trail">(trail)</svelte:fragment>
+	<svelte:fragment slot="lead">(lead)</svelte:fragment>
+	<!-- (AppRailTiles Here) -->
+	<svelte:fragment slot="trail">(trail)</svelte:fragment>
 </AppRail>
-            `}
+`}
 			/>
 		</div>
 		<!-- Tile -->

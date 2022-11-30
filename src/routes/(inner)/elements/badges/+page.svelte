@@ -91,8 +91,8 @@
 				language="html"
 				code={`
 <div class="relative inline-block">
-    <span class="badge-icon bg-primary-500 absolute -top-1 -right-1 z-10">💀</span>
-    <Avatar />
+	<span class="badge-icon bg-primary-500 absolute -top-1 -right-1 z-10">💀</span>
+	<Avatar />
 </div>
 		`.trim()}
 			/>

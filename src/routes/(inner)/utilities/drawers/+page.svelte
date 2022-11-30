@@ -80,7 +80,7 @@
 <Drawer open={storeDrawer} position="left">
 	(contents)
 </Drawer>
-        `}
+`}
 			/>
 		</section>
 		<section class="space-y-4">

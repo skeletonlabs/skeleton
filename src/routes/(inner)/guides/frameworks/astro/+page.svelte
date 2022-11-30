@@ -76,13 +76,13 @@ import { AppShell, AppBar } from '@skeletonlabs/skeleton';
 	</head>
 	<body>
 		<AppShell>
-            <!-- Header -->
-            <svelte:fragment slot="header">(header)</svelte:fragment>
-            <!-- Sidebar -->
-            <svelte:fragment slot="sidebarLeft">(sidebar)</svelte:fragment>
-            <!-- Page Content Slot -->
-            <slot />
-        </AppShell>
+			<!-- Header -->
+			<svelte:fragment slot="header">(header)</svelte:fragment>
+			<!-- Sidebar -->
+			<svelte:fragment slot="sidebarLeft">(sidebar)</svelte:fragment>
+			<!-- Page Content Slot -->
+			<slot />
+		</AppShell>
 	</body>
 </html>
 `}
@@ -96,7 +96,7 @@ import { AppShell, AppBar } from '@skeletonlabs/skeleton';
 			language="html"
 			code={`
 <svelte:fragment slot="header">
-    <!-- Insert the App Bar: -->
+	<!-- Insert the App Bar: -->
 	<AppBar>
 		<svelte:fragment slot="lead">
 			<h1>Skeleton</h1>
@@ -107,7 +107,7 @@ import { AppShell, AppBar } from '@skeletonlabs/skeleton';
 	</AppBar>
 	<!-- --- -->
 </svelte:fragment>
-            `}
+`}
 		/>
 		<h3>Add Sidebar Navigation</h3>
 		<p>
@@ -181,7 +181,7 @@ import { GradientHeading } from '@skeletonlabs/skeleton';
 		</section>
 	</div>
 </LayoutRoot>
-                `}
+`}
 		/>
 		<p>These elements are styled automatically due to our use of <code>all.css</code> and the included Tailwind Elements stylesheets.</p>
 		<h3>Add a Component</h3>
@@ -193,9 +193,9 @@ import { GradientHeading } from '@skeletonlabs/skeleton';
 			language="html"
 			code={`
 <GradientHeading tag="h1" direction="bg-gradient-to-br" from="from-primary-500" to="to-accent-500">
-    Homepage
+	Homepage
 </GradientHeading>
-        `}
+`}
 		/>
 	</section>
 
@@ -230,7 +230,7 @@ import { Breadcrumb, Crumb } from '@skeletonlabs/skeleton';
 </Breadcrumb>
 
 <a class="btn btn-filled-primary" href="/">Home</a>
-	`}
+`}
 		/>
 		<!-- Dynamic -->
 		<h3>Dynamic Islands</h3>
@@ -258,7 +258,7 @@ import WrapperExample from '../components/WrapperExample.svelte';
 	<!-- ... --->
 	<WrapperExample client:visible></WrapperExample>
 </LayoutRoot>
-	`}
+`}
 		/>
 		<!-- Hydration -->
 		<h3>Component Hydration</h3>

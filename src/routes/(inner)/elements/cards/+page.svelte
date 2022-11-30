@@ -77,11 +77,11 @@
 				language="html"
 				code={`
 <div class="card">
-    <header class="card-header">(header)</header>
-    <div class="card-body">(body)</div>
-    <footer class="card-footer">(footer)</footer>
+	<header class="card-header">(header)</header>
+	<div class="card-body">(body)</div>
+	<footer class="card-footer">(footer)</footer>
 </div>
-            `.trim()}
+`}
 			/>
 		</div>
 	</svelte:fragment>

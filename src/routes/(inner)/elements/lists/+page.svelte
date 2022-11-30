@@ -114,13 +114,13 @@
 				language="html"
 				code={`
 <ul class="list">
-    <li>
-        <span>💀</span>
-        <span class="flex-auto">Skeleton</span>
-    </li>
+	<li>
+		<span>💀</span>
+		<span class="flex-auto">Skeleton</span>
+	</li>
 	<!-- ... -->
 </ul>
-            `}
+`}
 			/>
 		</div>
 		<!-- Ordered -->
@@ -130,13 +130,13 @@
 				language="html"
 				code={`
 <ol class="list">
-    <li>
-        <span>1.</span>
-        <span class="flex-auto">Skeleton</span>
-    </li>
+	<li>
+		<span>1.</span>
+		<span class="flex-auto">Skeleton</span>
+	</li>
 	<!-- ... -->
 </ol>
-            `}
+`}
 			/>
 		</div>
 		<!-- Description -->
@@ -147,16 +147,16 @@
 				language="html"
 				code={`
 <dl class="list-dl">
-    <div>
-        <span class="badge bg-primary-500">💀</span>
-        <span class="flex-auto">
-            <dt>Title</dt>
-            <dd>Description</dd>
-        </span>
-    </div>
+	<div>
+		<span class="badge bg-primary-500">💀</span>
+		<span class="flex-auto">
+			<dt>Title</dt>
+			<dd>Description</dd>
+		</span>
+	</div>
 	<!-- ... -->
 </dl>
-            `}
+`}
 			/>
 		</div>
 		<!-- Navigation -->
@@ -174,17 +174,17 @@
 				code={`
 <nav class="list-nav">
 	<!-- (optionally you can provde a label here) -->
-    <ul>
-        <li>
-            <a href="/">
-                <span class="badge bg-primary-500">💀</span>
-                <span class="flex-auto">Skeleton</span>
-            </a>
-        </li>
+	<ul>
+		<li>
+			<a href="/">
+				<span class="badge bg-primary-500">💀</span>
+				<span class="flex-auto">Skeleton</span>
+			</a>
+		</li>
 		<!-- ... -->
-    </ul>
+	</ul>
 </nav>
-            `}
+`}
 			/>
 			<p>
 				If you need to highlight an active Navigation List item, we recommend conditionally applying a background color to the anchor tag.
