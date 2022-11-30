@@ -1,6 +1,6 @@
 // Drawer Stores
 
-import { writable, type Writable } from 'svelte/store';
+import { writable } from 'svelte/store';
 import type { DrawerSettings } from './types';
 
 function drawerService() {
@@ -9,14 +9,15 @@ function drawerService() {
 		subscribe,
 		set,
 		update,
-		/** Close the drawer. */
+		/** Open the drawer. */
 		open: (newSettings: DrawerSettings) =>
-			update((d: DrawerSettings) => {
-				return { ...(newSettings || {}), open: true };
+			update((d: any) => {
+				d = { open: true, ...newSettings };
+				return d;
 			}),
 		/** Close the drawer. */
 		close: () =>
-			update((d: DrawerSettings) => {
+			update((d: any) => {
 				d.open = false;
 				return d;
 			})
