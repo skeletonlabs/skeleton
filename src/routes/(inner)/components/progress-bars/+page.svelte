@@ -9,13 +9,13 @@
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldProgressBar from '$lib/components/ProgressBar/ProgressBar.svelte?raw&sveld';
 
 	// Stores
 	const storeDeterminate: Writable<boolean> = writable(true);
 	const storeHeight: Writable<string> = writable('h-2');
-	const defaultTrackBg: string = 'bg-surface-200-700-token';
+	const defaultTrackBg = 'bg-surface-200-700-token';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {

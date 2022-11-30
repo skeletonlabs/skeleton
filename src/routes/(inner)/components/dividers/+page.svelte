@@ -9,14 +9,14 @@
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldDivider from '$lib/components/Divider/Divider.svelte?raw&sveld';
 
 	// Stores
 	const storeVertical: Writable<boolean> = writable(false);
 	const storeBorderWidth: Writable<string> = writable('border-t');
 	const storeBorderStyle: Writable<string> = writable('border-solid');
-	const defaultBorderColor: string = 'border-surface-300 dark:border-surface-700';
+	const defaultBorderColor = 'border-surface-300 dark:border-surface-700';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {

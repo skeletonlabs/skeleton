@@ -5,7 +5,7 @@
 	import ProgressRadial from '$lib/components/ProgressRadial/ProgressRadial.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldProgressRadial from '$lib/components/ProgressRadial/ProgressRadial.svelte?raw&sveld';
 
 	// Docs Shell

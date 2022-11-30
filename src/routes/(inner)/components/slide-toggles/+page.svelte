@@ -5,7 +5,7 @@
 	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldSlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte?raw&sveld';
 
 	// Docs Shell
@@ -21,7 +21,7 @@
 	};
 
 	// Local
-	let checkedValue: boolean = false;
+	let checkedValue = false;
 </script>
 
 <DocsShell {settings}>

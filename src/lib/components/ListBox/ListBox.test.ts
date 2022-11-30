@@ -3,7 +3,6 @@ import { describe, it, expect } from 'vitest';
 
 import { writable } from 'svelte/store';
 
-// @ts-ignore
 import ListBox from '$lib/components/ListBox/ListBox.svelte';
 
 describe('ListBox.svelte', () => {

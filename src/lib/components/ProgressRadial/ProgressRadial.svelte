@@ -9,27 +9,27 @@
 	 */
 	export let value: number | undefined = undefined; // %
 	/** Sets the base stroke width. Scales responsively. */
-	export let stroke: number = 20; // px
+	export let stroke = 20; // px
 	/** Provide classes to set meter color. */
-	export let meter: string = 'stroke-accent-500';
+	export let meter = 'stroke-accent-500';
 	/** Provide classes to set track color. */
-	export let track: string = 'stroke-surface-200 dark:stroke-surface-700';
+	export let track = 'stroke-surface-200 dark:stroke-surface-700';
 	/** Provide classes to set the SVG text fill color. */
-	export let fill: string = 'fill-token';
+	export let fill = 'fill-token';
 	/** Sets the base font size. Scales responsively. */
-	export let font: number = 56; // px
+	export let font = 56; // px
 
 	// Props (a11y)
 	/** A semantic ARIA label. */
-	export let label: string = '';
+	export let label = '';
 
 	// Base Classes
-	const cBase: string = 'progress-radial relative overflow-hidden';
-	const cBaseTrack: string = 'fill-transparent';
-	const cBaseMeter: string = 'fill-transparent transition-[stroke-dashoffset] duration-200 -rotate-90 origin-[50%_50%]';
+	const cBase = 'progress-radial relative overflow-hidden';
+	const cBaseTrack = 'fill-transparent';
+	const cBaseMeter = 'fill-transparent transition-[stroke-dashoffset] duration-200 -rotate-90 origin-[50%_50%]';
 
 	// Calculated Values
-	const baseSize: number = 512; // px
+	const baseSize = 512; // px
 	const radius: number = baseSize / 2;
 	let circumference: number = radius;
 	let dashoffset: number;

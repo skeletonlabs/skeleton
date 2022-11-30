@@ -25,7 +25,7 @@ describe('Actions: Filter', () => {
 		render(Apollo);
 		render(GreenFall);
 		render(NoirLight, Noir);
-		let elements: HTMLCollection = document.getElementsByClassName('filter');
+		const elements: HTMLCollection = document.getElementsByClassName('filter');
 		for (let i = 0; i < elements.length; ++i) {
 			const el: any = elements[i];
 			expect(el.getAttribute('class').includes('filter'));

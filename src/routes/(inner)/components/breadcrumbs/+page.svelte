@@ -7,9 +7,9 @@
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldBreadcrumb from '$lib/components/Breadcrumb/Breadcrumb.svelte?raw&sveld';
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldCrumb from '$lib/components/Breadcrumb/Crumb.svelte?raw&sveld';
 
 	console.log(sveldCrumb);
@@ -29,7 +29,7 @@
 	};
 
 	// Local
-	const customSeparator: string = `<span class="text-surface-500">/</span>`;
+	const customSeparator = `<span class="text-surface-500">/</span>`;
 </script>
 
 <DocsShell {settings}>

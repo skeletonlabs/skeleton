@@ -6,12 +6,15 @@
 	const dispatch = createEventDispatcher();
 
 	// Props
-	/** The item's selection value. */
+	/**
+	 * The item's selection value.
+	 * @type {any}
+	 */
 	export let value: any = undefined;
 
 	// Props (A11y)
 	/** Defines a semantic ARIA label. */
-	export let label: string = '';
+	export let label = '';
 
 	// Context
 	export let selected: Writable<any> = getContext('selected');
@@ -22,7 +25,7 @@
 	export let rounded: string = getContext('rounded');
 
 	// Base Classes
-	const cBase: string = ' font-bold text-base text-center px-4 py-2 cursor-pointer whitespace-nowrap';
+	const cBase = ' font-bold text-base text-center px-4 py-2 cursor-pointer whitespace-nowrap';
 
 	// A11y Input Handlers
 	function onKeyDown(event: any): void {

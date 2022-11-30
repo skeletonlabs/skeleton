@@ -1,7 +1,6 @@
 import { render } from '@testing-library/svelte';
 import { describe, it, expect } from 'vitest';
 
-// @ts-ignore
 import FileButton from '$lib/components/FileButton/FileButton.svelte';
 
 describe('FileButton.svelte', () => {
@@ -17,7 +16,7 @@ describe('FileButton.svelte', () => {
 		const input = document.createElement(`input`);
 		input.setAttribute(`type`, `file`);
 		input.setAttribute(`name`, `file-upload`);
-		let mockFileList = Object.create(input.files);
+		const mockFileList = Object.create(input.files);
 		mockFileList[0] = file;
 		// ---
 		const { getByTestId } = render(FileButton, {

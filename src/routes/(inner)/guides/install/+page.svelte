@@ -35,11 +35,11 @@
 				language="console"
 				code={`
 npm create svelte@latest sveltekit-skeleton-app
-    - Create a barebones project
-    - Enable Typescript
+	- Create a barebones project
+	- Enable Typescript
 cd sveltekit-skeleton-app
 npm install
-            `}
+`}
 			/>
 			<!-- Framework: Vite (Svelte) -->
 		{:else if $storeFramework === 'vite'}
@@ -54,7 +54,7 @@ npm install
 npm create vite@latest vite-skeleton-app -- --template svelte-ts
 cd vite-skeleton-app
 npm install
-            `}
+`}
 			/>
 			<!-- Framework: Astro -->
 		{:else if $storeFramework === 'astro'}
@@ -66,11 +66,11 @@ npm install
 				language="console"
 				code={`
 npm create astro@latest astro-skeleton-app
-    - Create an empty project
-    - Install all dependencies
-    - Use 'Typescript: Strict'
+	- Create an empty project
+	- Install all dependencies
+	- Use 'Typescript: Strict'
 cd astro-skeleton-app
-            `}
+`}
 			/>
 			<!-- Svelte -->
 			<h2>Install Svelte</h2>

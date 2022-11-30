@@ -6,7 +6,7 @@
 
 	// Props
 	/** Provide classes set the current page text color. */
-	export let color: string = '';
+	export let color = '';
 
 	// Context
 	export let separator: string = getContext('separator');
@@ -15,9 +15,9 @@
 	const tag: string = $$props.href ? 'a' : 'span';
 
 	// Base Classes
-	const cBase: string = 'flex items-center space-x-4';
-	const cAnchor: string = 'flex justify-center items-center space-x-2';
-	const cSeperator: string = 'font-bold flex fill-surface-500 text-surface-500 w-2';
+	const cBase = 'flex items-center space-x-4';
+	const cAnchor = 'flex justify-center items-center space-x-2';
+	const cSeperator = 'font-bold flex fill-surface-500 text-surface-500 w-2';
 
 	// Reactive Classes
 	$: classesBase = `${cBase} ${color} ${$$props.class ?? ''}`;

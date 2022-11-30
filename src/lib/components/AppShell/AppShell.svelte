@@ -10,26 +10,26 @@
 
 	// Props (regions)
 	/** Classes to apply to the <code>header</code> slot container element */
-	export let slotHeader: string = '';
+	export let slotHeader = '';
 	/** Classes to apply to the <code>sidebarLeft</code> slot container element */
-	export let slotSidebarLeft: string = 'w-auto';
+	export let slotSidebarLeft = 'w-auto';
 	/** Classes to apply to the <code>sidebarRight</code> slot container element */
-	export let slotSidebarRight: string = 'w-auto';
+	export let slotSidebarRight = 'w-auto';
 	/** Classes to apply to the <code>pageHeader</code> slot container element */
-	export let slotPageHeader: string = '';
+	export let slotPageHeader = '';
 	/** Classes to apply to the <code>pageContent</code> slot container element */
-	export let slotPageContent: string = '';
+	export let slotPageContent = '';
 	/** Classes to apply to the <code>pageFooter</code> slot container element */
-	export let slotPageFooter: string = '';
+	export let slotPageFooter = '';
 	/** Classes to apply to the <code>footer</code> slot container element */
-	export let slotFooter: string = '';
+	export let slotFooter = '';
 
 	// Base Classes
-	const cBaseAppShell: string = 'w-full h-full flex flex-col overflow-hidden';
-	const cContentArea: string = 'w-full h-full flex overflow-hidden';
-	const cPage: string = 'flex-1 overflow-x-hidden overflow-y-auto flex flex-col';
-	const cSidebarLeft: string = 'flex-none overflow-x-hidden overflow-y-auto';
-	const cSidebarRight: string = 'flex-none overflow-x-hidden overflow-y-auto';
+	const cBaseAppShell = 'w-full h-full flex flex-col overflow-hidden';
+	const cContentArea = 'w-full h-full flex overflow-hidden';
+	const cPage = 'flex-1 overflow-x-hidden overflow-y-auto flex flex-col';
+	const cSidebarLeft = 'flex-none overflow-x-hidden overflow-y-auto';
+	const cSidebarRight = 'flex-none overflow-x-hidden overflow-y-auto';
 
 	// Reactive Classes
 	$: classesBase = `${cBaseAppShell} ${$$props.class ?? ''}`;

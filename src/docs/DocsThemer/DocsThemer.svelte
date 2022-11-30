@@ -22,7 +22,7 @@
 	import { fonts } from '$docs/DocsThemer/fonts';
 
 	// Local
-	let showCode: boolean = false;
+	let showCode = false;
 
 	// Reactive ---
 
@@ -50,7 +50,7 @@
 	${genCssColorStrings('warning', currentPalette.warning)}
 	/* ${currentPalette.surface.label} | ${currentPalette.surface.shades['500'].hex} */
 	${genCssColorStrings('surface', currentPalette.surface)}
-}`.trim();
+}`;
 	$: headStyleCSS = $storePreview ? `\<style\>${themeCSS}\</style\>` : '';
 </script>
 

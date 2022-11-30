@@ -8,7 +8,7 @@
 
 	import type { PaginationSettings } from '$lib/components/Paginator/types';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldPaginator from '$lib/components/Paginator/Paginator.svelte?raw&sveld';
 
 	// Docs Shell

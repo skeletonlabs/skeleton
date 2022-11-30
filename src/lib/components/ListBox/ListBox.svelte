@@ -8,30 +8,33 @@
 	 */
 	export let selected: Writable<any> = writable(undefined);
 	/** Provide classes to set vertical item spacing. */
-	export let space: string = 'space-y-1';
+	export let space = 'space-y-1';
 	/** Provide to set scrollable listbox region height. */
-	export let height: string = '';
+	export let height = '';
 
 	// Props (Item)
 	/** Provide classes to set the item selected background. '!' recommended. */
-	export let accent: string = '!bg-active-token'; //
+	export let accent = '!bg-active-token'; //
 	/** Provide classes to set the item padding styles. */
-	export let padding: string = 'px-4 py-3';
+	export let padding = 'px-4 py-3';
 	/** Provide classes to set the item border radius styles. */
-	export let rounded: string = 'rounded-token';
+	export let rounded = 'rounded-token';
 	/** Provide classes to set the item hover background color. */
-	export let hover: string = 'bg-hover-token';
+	export let hover = 'bg-hover-token';
 
 	// Props (regions)
 	/** Provide arbitrary classes to the label element. */
-	export let regionLabel: string = '';
+	export let regionLabel = '';
 	/** Provide arbitrary classes to the scrollable listbox element. */
-	export let regionList: string = '';
+	export let regionList = '';
 
 	// Props (a11y)
 	/** Define a semantic ARIA label. */
-	export let label: string = '';
-	/** Set automatically based on the label text, but can be overwritten. */
+	export let label = '';
+	/**
+	 * Set automatically based on the label text, but can be overwritten.
+	 * @type {string}
+	 */
 	export let labelId: string = label?.toLowerCase().replace(' ', '-'); //AUDIT this doesn't seem to be consistently applied across Skeleton
 
 	// Context
@@ -42,9 +45,9 @@
 	setContext('hover', hover);
 
 	// Base Classes
-	const cBase: string = 'space-y-4';
-	const cLabel: string = 'font-bold text-lg';
-	const cListBox: string = 'list-none overflow-y-auto';
+	const cBase = 'space-y-4';
+	const cLabel = 'font-bold text-lg';
+	const cListBox = 'list-none overflow-y-auto';
 
 	// Reactive
 	$: classesBase = `${cBase} ${$$props.class ?? ''}`;

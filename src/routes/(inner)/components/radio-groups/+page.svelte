@@ -9,9 +9,9 @@
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldRadioGroup from '$lib/components/Radio/RadioGroup.svelte?raw&sveld';
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldRadioItem from '$lib/components/Radio/RadioItem.svelte?raw&sveld';
 
 	// Stores

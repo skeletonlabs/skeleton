@@ -50,7 +50,7 @@ get(storeExample);
 
 // Read value with automatic subscription
 $storeExample
-        `}
+`}
 			/>
 		</section>
 		<!-- Attribution -->

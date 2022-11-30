@@ -20,8 +20,8 @@
 	}
 
 	// Base Classes
-	const cBase: string = 'space-y-4';
-	const cForm: string = 'border border-surface-500 p-4 space-y-4 rounded-container-token';
+	const cBase = 'space-y-4';
+	const cForm = 'border border-surface-500 p-4 space-y-4 rounded-container-token';
 </script>
 
 <!-- @component This example creates a simple form modal. -->

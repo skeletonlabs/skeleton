@@ -7,7 +7,7 @@
 
 	import type { ConicStop } from '$lib/components/ConicGradient/types';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldConicGradient from '$lib/components/ConicGradient/ConicGradient.svelte?raw&sveld';
 
 	// Docs Shell

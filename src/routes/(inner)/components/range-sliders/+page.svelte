@@ -9,7 +9,7 @@
 	import RangeSlider from '$lib/components/RangeSlider/RangeSlider.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldRangeSlider from '$lib/components/RangeSlider/RangeSlider.svelte?raw&sveld';
 
 	// Stores

@@ -4,7 +4,7 @@
     Copyright 2022 Fonticons, Inc
 */
 
-export let icons: any = {
+export const icons: any = {
 	// Default Placeholder
 	// Source: https://fontawesome.com/icons/image?s=solid
 	image: {

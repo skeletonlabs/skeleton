@@ -1,7 +1,6 @@
 import { render } from '@testing-library/svelte';
 import { describe, it, expect } from 'vitest';
 
-// @ts-ignore
 import FileDropzone from '$lib/components/FileDropzone/FileDropzone.svelte';
 
 describe('FileDropzone.svelte', () => {
@@ -17,7 +16,7 @@ describe('FileDropzone.svelte', () => {
 		const input = document.createElement(`input`);
 		input.setAttribute(`type`, `file`);
 		input.setAttribute(`name`, `file-upload`);
-		let mockFileList = Object.create(input.files);
+		const mockFileList = Object.create(input.files);
 		mockFileList[0] = file;
 		// ---
 		const { getByTestId } = render(FileDropzone, {

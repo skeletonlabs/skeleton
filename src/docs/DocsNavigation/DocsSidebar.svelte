@@ -9,7 +9,7 @@
 	import AppRailTile from '$lib/components/AppRail/AppRailTile.svelte';
 
 	// Props
-	export let embedded: boolean = false;
+	export let embedded = false;
 
 	// Local
 	const storeCategory: Writable<string> = writable('guides'); // guides | docs | tailwind | svelte | utilities

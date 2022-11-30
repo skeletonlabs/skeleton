@@ -11,22 +11,22 @@
 	 */
 	export let files: FileList;
 	/** Provided additional notes or information. */
-	export let notes: string = '';
+	export let notes = '';
 	// Props (Styles)
 	/** Provide styles to set the dropzone width. */
-	export let width: string = 'w-full';
+	export let width = 'w-full';
 	/** Provide styles to set the dropzone height. */
-	export let height: string = 'h-24';
+	export let height = 'h-24';
 	/** Provide styles to set the dropzone padding. */
-	export let padding: string = 'p-4';
+	export let padding = 'p-4';
 	/** Provide styles to set the dropzone text color. */
-	export let color: string = '';
+	export let color = '';
 
 	// Classes
-	const cBase: string = 'relative';
-	const cMessage: string =
+	const cBase = 'relative';
+	const cMessage =
 		'absolute top-0 left-0 right-0 bottom-0 z-[1] max-w-[480px] mx-auto flex justify-center items-center !pointer-events-none';
-	const cInput: string = '!border-2 border-dashed cursor-pointer';
+	const cInput = '!border-2 border-dashed cursor-pointer';
 
 	// Local
 	let elemIcon: HTMLElement;

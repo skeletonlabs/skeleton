@@ -6,7 +6,7 @@
 	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
 	import { focusTrap } from '$lib/actions/FocusTrap/focusTrap';
 
-	let isFocused: boolean = false;
+	let isFocused = false;
 
 	// Docs Shell
 	const settings: DocsShellSettings = {

@@ -3,7 +3,7 @@ import { describe, it, expect } from 'vitest';
 
 import Avatar from '$lib/components/Avatar/Avatar.svelte';
 
-let imgTextSrc = 'https://i.pravatar.cc/512?img=5';
+const imgTextSrc = 'https://i.pravatar.cc/512?img=5';
 
 describe('Avatar.svelte', () => {
 	it('Renders with minimal props', async () => {

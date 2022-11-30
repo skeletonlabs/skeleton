@@ -18,7 +18,7 @@
 	}
 
 	// Base Classes
-	const cBase: string = 'space-y-4';
+	const cBase = 'space-y-4';
 </script>
 
 <!-- @component This example creates a simple form modal. -->

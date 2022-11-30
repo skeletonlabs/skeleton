@@ -27,7 +27,7 @@
 	};
 
 	// Local:
-	const href: string = '/elements/buttons';
+	const href = '/elements/buttons';
 
 	// Stores
 	const storeTag: Writable<string> = writable('button');

@@ -7,7 +7,7 @@
 	import Drawer from '$lib/utilities/Drawer/Drawer.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldDrawer from '$lib/utilities/Drawer/Drawer.svelte?raw&sveld';
 
 	// Stores
@@ -26,7 +26,7 @@
 	};
 
 	// Local
-	let position: string = 'left';
+	let position = 'left';
 
 	// prettier-ignore
 	function trigger(p: string): void {
@@ -80,7 +80,7 @@
 <Drawer open={storeDrawer} position="left">
 	(contents)
 </Drawer>
-        `}
+`}
 			/>
 		</section>
 		<section class="space-y-4">

@@ -29,7 +29,7 @@
 	};
 
 	// Local
-	const exampleLink: string = '/utilities/menus';
+	const exampleLink = '/utilities/menus';
 
 	function log(v: any): void {
 		console.log(`You selected anchor link ${v}`);

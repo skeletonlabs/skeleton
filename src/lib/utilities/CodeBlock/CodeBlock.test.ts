@@ -1,7 +1,6 @@
 import { render } from '@testing-library/svelte';
 import { describe, it, expect } from 'vitest';
 
-// @ts-ignore
 import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 describe('CodeBlock.svelte', () => {

@@ -5,7 +5,7 @@
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	// import sveldComp from '$lib/.../Component.svelte?raw&sveld';
 
 	// Docs Shell
