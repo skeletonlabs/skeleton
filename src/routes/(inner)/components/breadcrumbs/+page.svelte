@@ -29,7 +29,7 @@
 	};
 
 	// Local
-	const customSeparator: string = `<span class="text-surface-500">/</span>`;
+	const customSeparator = `<span class="text-surface-500">/</span>`;
 </script>
 
 <DocsShell {settings}>

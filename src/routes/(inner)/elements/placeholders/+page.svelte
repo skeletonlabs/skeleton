@@ -20,7 +20,7 @@
 	};
 
 	// Local
-	let animate: boolean = true;
+	let animate = true;
 </script>
 
 <DocsShell {settings}>

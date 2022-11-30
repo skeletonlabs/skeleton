@@ -11,18 +11,18 @@
 
 	// Props
 	/** Indicates the step index value. Should start with 0 (zero) */
-	export let index: number = 0;
+	export let index = 0;
 	/** When enabled, a lock icon appears and Next button is disabled, preventing progress. */
-	export let locked: boolean = false;
+	export let locked = false;
 
 	// Base Classes
-	const cBase: string = 'grid grid-cols-[32px_1fr] gap-4';
-	const cLine: string = 'w-1 h-full';
+	const cBase = 'grid grid-cols-[32px_1fr] gap-4';
+	const cLine = 'w-1 h-full';
 	const cLineBackground = 'bg-surface-300-600-token';
-	const cNumeral: string = 'font-bold text-base w-8 h-8 rounded-full flex justify-center items-center';
-	const cNumralBackground: string = 'bg-surface-300-600-token';
-	const cDrawer: string = 'ml-1 space-y-4';
-	const cNav: string = 'flex items-center space-x-2';
+	const cNumeral = 'font-bold text-base w-8 h-8 rounded-full flex justify-center items-center';
+	const cNumralBackground = 'bg-surface-300-600-token';
+	const cDrawer = 'ml-1 space-y-4';
+	const cNav = 'flex items-center space-x-2';
 
 	// Context
 	export let dispatch: any = getContext('dispatch');

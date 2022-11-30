@@ -4,7 +4,7 @@
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
 	// Local
-	let searchTerm: string = '';
+	let searchTerm = '';
 	let navigationOriginal: any[] = Object.values(menuNavLinks);
 	let navigation: any[] = navigationOriginal;
 
@@ -23,10 +23,10 @@
 		});
 	}
 
-	const cBase: string = '';
-	const cHeader: string = 'flex items-center space-x-4 p-4';
-	const cList: string = 'pr-1 space-y-4 rounded-container-token max-h-[60vh] md:max-h-[75vh] p-4 space-y-4 overflow-y-auto';
-	const cCard: string = 'card card-body py-2 bg-surface-200-700-token hover:bg-primary-500 flex justify-between items-center';
+	const cBase = '';
+	const cHeader = 'flex items-center space-x-4 p-4';
+	const cList = 'pr-1 space-y-4 rounded-container-token max-h-[60vh] md:max-h-[75vh] p-4 space-y-4 overflow-y-auto';
+	const cCard = 'card card-body py-2 bg-surface-200-700-token hover:bg-primary-500 flex justify-between items-center';
 </script>
 
 <div class="docs-search {cBase}">

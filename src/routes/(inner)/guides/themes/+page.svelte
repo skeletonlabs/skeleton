@@ -11,7 +11,7 @@
 	import type { ToastSettings } from '$lib/utilities/Toast/types';
 
 	// Presets
-	const ghPath: string = 'https://github.com/skeletonlabs/skeleton/blob/master/src/themes';
+	const ghPath = 'https://github.com/skeletonlabs/skeleton/blob/master/src/themes';
 	// prettier-ignore
 	const presets: any[] = [
         { file: 'skeleton', name: 'Skeleton', colors: ['#10b981', '#6366f1', '#f43f5e'], surface: '#111827', url: `${ghPath}/theme-skeleton.css` },

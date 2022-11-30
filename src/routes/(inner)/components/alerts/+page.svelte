@@ -22,7 +22,7 @@
 	let title = `Hello Skeleton!`;
 	let message =
 		'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi, cupiditate eveniet in neque magnam quos ad cumque quae numquam voluptatum magni atque vitae dolore voluptatibus aliquam tempora! Animi, nihil quo.';
-	let visible: boolean = true;
+	let visible = true;
 
 	// Functions
 	function toggleVisible(): void {

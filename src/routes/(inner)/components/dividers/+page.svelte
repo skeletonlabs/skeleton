@@ -16,7 +16,7 @@
 	const storeVertical: Writable<boolean> = writable(false);
 	const storeBorderWidth: Writable<string> = writable('border-t');
 	const storeBorderStyle: Writable<string> = writable('border-solid');
-	const defaultBorderColor: string = 'border-surface-300 dark:border-surface-700';
+	const defaultBorderColor = 'border-surface-300 dark:border-surface-700';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {

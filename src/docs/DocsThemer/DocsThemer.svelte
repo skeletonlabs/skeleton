@@ -22,7 +22,7 @@
 	import { fonts } from '$docs/DocsThemer/fonts';
 
 	// Local
-	let showCode: boolean = false;
+	let showCode = false;
 
 	// Reactive ---
 

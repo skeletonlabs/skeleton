@@ -6,7 +6,7 @@
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import Table from '$lib/components/Table/Table.svelte';
 
-	const cSwatch: string = 'w-4 aspect-square rounded-full';
+	const cSwatch = 'w-4 aspect-square rounded-full';
 	const tableProps: TableSource = {
 		head: ['Color', 'Name', 'Class', 'Description'],
 		body: [

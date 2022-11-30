@@ -12,39 +12,39 @@
 	/** Set the anchor position.
 	 * @type {'left' | 'top' | 'right' | 'bottom'}
 	 */
-	export let position: string = 'left';
+	export let position = 'left';
 	/** Define the Svelte transition animation duration.*/
-	export let duration: number = 150;
+	export let duration = 150;
 
 	// Props (backdrop)
 	/** Backdrop - Provide classes to set the backdrop background color*/
-	export let bgBackdrop: string = 'bg-backdrop-token';
+	export let bgBackdrop = 'bg-backdrop-token';
 	/** Backdrop - Provide classes to set the blur style.*/
-	export let blur: string = 'backdrop-blur-xs';
+	export let blur = 'backdrop-blur-xs';
 
 	// Props (drawer)
 	/** Drawer - Provide classes to set the drawer background color.*/
-	export let bgDrawer: string = 'bg-surface-100-800-token';
+	export let bgDrawer = 'bg-surface-100-800-token';
 	/** Drawer - Provide classes to set border color.*/
-	export let border: string = '';
+	export let border = '';
 	/** Drawer - Provide classes to set border radius.*/
-	export let rounded: string = '';
+	export let rounded = '';
 	/** Drawer - Provide classes to override the width.*/
-	export let width: string = '';
+	export let width = '';
 	/** Drawer - Provide classes to override the height.*/
-	export let height: string = '';
+	export let height = '';
 	/** Drawer - Provide classes to set margins.*/
-	export let margin: string = '';
+	export let margin = '';
 
 	// Props (a11y)
 	/** Provide an ID of the element labeling the drawer.*/
-	export let labelledby: string = '';
+	export let labelledby = '';
 	/** Provide an ID of the element describing the drawer.*/
-	export let describedby: string = '';
+	export let describedby = '';
 
 	// Base Classes
-	const cBaseBackdrop: string = 'fixed top-0 left-0 right-0 bottom-0 z-40 flex';
-	const cBaseDrawer: string = 'shadow-xl overflow-y-auto';
+	const cBaseBackdrop = 'fixed top-0 left-0 right-0 bottom-0 z-40 flex';
+	const cBaseDrawer = 'shadow-xl overflow-y-auto';
 
 	// Local
 	let elemBackdrop: HTMLElement;

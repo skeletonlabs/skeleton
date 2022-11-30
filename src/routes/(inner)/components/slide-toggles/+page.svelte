@@ -21,7 +21,7 @@
 	};
 
 	// Local
-	let checkedValue: boolean = false;
+	let checkedValue = false;
 </script>
 
 <DocsShell {settings}>

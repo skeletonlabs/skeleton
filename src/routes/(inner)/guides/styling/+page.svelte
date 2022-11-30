@@ -19,7 +19,7 @@
 	export const storeStylesheetElements: Writable<string> = writable('combined');
 
 	// Local
-	const ghLibPathMaster: string = 'https://github.com/skeletonlabs/skeleton/tree/master/src/lib'; // master branch
+	const ghLibPathMaster = 'https://github.com/skeletonlabs/skeleton/tree/master/src/lib'; // master branch
 
 	// Tables
 	const tableStyleAll: TableSource = {

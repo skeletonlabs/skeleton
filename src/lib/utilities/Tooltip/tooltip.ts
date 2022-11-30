@@ -34,7 +34,7 @@ export interface ArgsTooltip {
 }
 
 export function tooltip(node: HTMLElement, args: ArgsTooltip) {
-	const animDuration: number = 150;
+	const animDuration = 150;
 	let elemTooltip: HTMLElement;
 
 	// Map the Args and provide default values

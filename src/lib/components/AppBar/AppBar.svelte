@@ -7,35 +7,35 @@
 
 	// Props (base)
 	/** Provide classes to set background color. */
-	export let background: string = 'bg-surface-100-800-token';
+	export let background = 'bg-surface-100-800-token';
 	/** Provide classes to set border styles. */
-	export let border: string = '';
+	export let border = '';
 	/** Provide classes to set padding. */
-	export let padding: string = 'p-4';
+	export let padding = 'p-4';
 	/** Provide classes to define a box shadow. */
-	export let shadow: string = 'shadow-lg';
+	export let shadow = 'shadow-lg';
 	/** Provide classes to set horizontal spacing. */
-	export let space: string = 'space-x-4';
+	export let space = 'space-x-4';
 
 	// Props (regions)
 	/** Classes to apply to the lead slot container element */
-	export let slotLead: string = '';
+	export let slotLead = '';
 	/** Classes to apply to the default slot container element */
-	export let slotDefault: string = '';
+	export let slotDefault = '';
 	/** Classes to apply to the trail slot container element */
-	export let slotTrail: string = '';
+	export let slotTrail = '';
 
 	// Props (a11y)
 	/** Provide a semantic ID for the ARIA label. */
-	export let label: string = '';
+	export let label = '';
 	/** Provide the ID of the element that labels the toolbar. */
-	export let labelledby: string = '';
+	export let labelledby = '';
 
 	// Base Classes
-	const cBase: string = 'flex items-center';
-	const cLead: string = 'flex-none flex justify-between items-center';
-	const cCenter: string = 'flex-auto';
-	const cTrail: string = 'flex-none flex items-center space-x-4';
+	const cBase = 'flex items-center';
+	const cLead = 'flex-none flex justify-between items-center';
+	const cCenter = 'flex-auto';
+	const cTrail = 'flex-none flex items-center space-x-4';
 
 	// Reactive Classes
 	$: classesBase = `${cBase} ${background} ${border} ${padding} ${shadow} ${space} ${$$props.class ?? ''}`;

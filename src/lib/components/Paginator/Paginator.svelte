@@ -14,20 +14,20 @@
 
 	// Props (design)
 	/** Provide classes to set flexbox justification. */
-	export let justify: string = 'justify-between';
+	export let justify = 'justify-between';
 	/** Provide classes to style page info text. */
-	export let text: string = 'text-xs';
+	export let text = 'text-xs';
 	/** Provide arbitrary classes to style the select input. */
 	export let select: string | undefined = undefined;
 
 	// Props (buttons)
 	/** Provide a button variant class or any abitrary CSS class. */
-	export let buttons: string = 'btn-filled';
+	export let buttons = 'btn-filled';
 
 	// Base Classes
-	const cBase: string = 'flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4';
-	const cLabel: string = 'w-full md:w-auto';
-	const cPageText: string = 'whitespace-nowrap';
+	const cBase = 'flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4';
+	const cLabel = 'w-full md:w-auto';
+	const cPageText = 'whitespace-nowrap';
 
 	// Functionality
 	function onChangeLength(): void {

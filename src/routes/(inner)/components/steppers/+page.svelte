@@ -31,9 +31,9 @@
 	};
 
 	// Local
-	const lorem: string =
+	const lorem =
 		'Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque vel expedita porro vero, saepe dicta repellendus facilis ab accusamus unde, tempora ut nobis eum. Veniam, architecto corrupti.';
-	let exampleLockedState: boolean = false;
+	let exampleLockedState = false;
 
 	const onComplete = () => {
 		alert('Complete was triggered!');

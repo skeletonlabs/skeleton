@@ -11,8 +11,8 @@
 
 	// Local
 	const storeRadioGroup: Writable<string> = writable('a');
-	let valueRangeSlider: number = 75;
-	let valueSlideToggle: boolean = true;
+	let valueRangeSlider = 75;
+	let valueSlideToggle = true;
 </script>
 
 <div class="page-container">

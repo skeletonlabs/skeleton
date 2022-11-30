@@ -4,7 +4,7 @@
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Snippets
-	const dynamicSvelteWrapperSnippet: string = `
+	const dynamicSvelteWrapperSnippet = `
 \<script lang="ts"\>
 	function triggerMessage(): void { console.log('Hello, Skeleton'); }
 \<\/script\>\n

@@ -12,24 +12,24 @@
 	 */
 	export let value: any | undefined = undefined;
 	/** Provide the element tag. Button or Anchor recommended. */
-	export let tag: string = 'button';
+	export let tag = 'button';
 	/** Provide the vislble text label. */
-	export let label: string = '';
+	export let label = '';
 	/** Provide classes to set the background color. */
-	export let background: string = 'bg-hover-token';
+	export let background = 'bg-hover-token';
 
 	// Props (region)
 	/** Provide abitrary classes to style the icon region. */
-	export let regionIcon: string = '';
+	export let regionIcon = '';
 	/** Provide abitrary classes to style the label region. */
-	export let regionLabel: string = 'text-xs';
+	export let regionLabel = 'text-xs';
 
 	// Context
 	export let selected: Writable<any> = getContext('selected');
 	export let accent: Writable<any> = getContext('accent');
 
 	// Base Classes
-	const cBase: string = 'grid place-content-center place-items-center w-full aspect-square space-y-1.5';
+	const cBase = 'grid place-content-center place-items-center w-full aspect-square space-y-1.5';
 
 	// Input Handler
 	function onClickHandler(event: any): void {

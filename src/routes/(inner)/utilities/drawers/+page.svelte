@@ -26,7 +26,7 @@
 	};
 
 	// Local
-	let position: string = 'left';
+	let position = 'left';
 
 	// prettier-ignore
 	function trigger(p: string): void {

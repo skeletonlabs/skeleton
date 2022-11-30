@@ -1,31 +1,31 @@
 <script lang="ts">
 	// Props
 	/** Set the label text. */
-	export let label: string = '';
+	export let label = '';
 	/**
 	 * Specifies the amount completed. Indeterminate when `undefined`
 	 * @type {number}
 	 */
 	export let value: number | undefined = undefined;
 	/** Maximum amount the bar represents. */
-	export let max: number = 100;
+	export let max = 100;
 	/** Provide classes to set track height. */
-	export let height: string = 'h-2';
+	export let height = 'h-2';
 	/** Provide classes to set rounded styles. */
-	export let rounded: string = 'rounded-token';
+	export let rounded = 'rounded-token';
 
 	// Props (elements)
 	/** Provide arbitrary classes to style the meter element. */
-	export let meter: string = 'bg-accent-500';
+	export let meter = 'bg-accent-500';
 	/** Provide arbitrary classes to style the track element. */
-	export let track: string = 'bg-surface-200-700-token';
+	export let track = 'bg-surface-200-700-token';
 
 	// Base Classes
-	const cBase: string = 'w-full';
-	const cBaseLabel: string = 'block text-sm mb-2';
-	const cBaseTrack: string = `w-full overflow-hidden`;
-	const cBaseMeterDeterminate: string = 'h-full';
-	const cBaseMeterIndeterminate: string = 'h-full w-full';
+	const cBase = 'w-full';
+	const cBaseLabel = 'block text-sm mb-2';
+	const cBaseTrack = `w-full overflow-hidden`;
+	const cBaseMeterDeterminate = 'h-full';
+	const cBaseMeterIndeterminate = 'h-full w-full';
 
 	// Fill Percent
 	$: fillPercent = value ? (100 * value) / max : 0;

@@ -6,29 +6,29 @@
 
 	// Props
 	/** The checked state of the input element. */
-	export let checked: boolean = false;
+	export let checked = false;
 	/** Sets the size of the component.
 	 * @type {'sm' | 'md' | 'lg'}
 	 */
-	export let size: string = 'md';
+	export let size = 'md';
 	/** Provide classes to set the checked state color. */
-	export let accent: string = 'bg-accent-500';
+	export let accent = 'bg-accent-500';
 	/** Provide classes to set the border width styles. */
-	export let borderWidth: string = 'border-token';
+	export let borderWidth = 'border-token';
 	/** Provide classes to set the border color styles. */
-	export let borderColor: string = 'border-surface-300-600-token';
+	export let borderColor = 'border-surface-300-600-token';
 	/** Provide classes to set border radius styles. */
-	export let rounded: string = 'rounded-full';
+	export let rounded = 'rounded-full';
 
 	// A11y
 	/** Provide a semantic label. */
-	export let label: string = '';
+	export let label = '';
 
 	// Base Styles
-	const cBase: string = 'inline-block';
-	const cLabel: string = 'flex items-center';
-	const cTrack: string = 'flex transition-all duration-[200ms]';
-	const cThumb: string = 'w-[50%] h-full scale-[0.7] cursor-pointer transition-all duration-[200ms] shadow-lg';
+	const cBase = 'inline-block';
+	const cLabel = 'flex items-center';
+	const cTrack = 'flex transition-all duration-[200ms]';
+	const cThumb = 'w-[50%] h-full scale-[0.7] cursor-pointer transition-all duration-[200ms] shadow-lg';
 
 	// Set track size
 	let trackSize: string;

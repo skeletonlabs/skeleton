@@ -97,7 +97,7 @@ export function onHexInput(key: SemanticNames, hexColor: string): void {
 	console.log({ key, hexColor, test: regexValidHexCode.test(hexColor) });
 	if (regexValidHexCode.test(hexColor)) {
 		// Generate Palette
-		let newStoreHexPalette = get(storeHexPalette);
+		const newStoreHexPalette = get(storeHexPalette);
 		newStoreHexPalette[key] = genHexPalette(key, hexColor);
 		storeHexPalette.set(newStoreHexPalette);
 	}
