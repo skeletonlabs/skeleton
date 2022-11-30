@@ -56,9 +56,9 @@
 		<CodeBlock
 			language="html"
 			code={`
-<script>
+\<script\>
 	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
-</script>
+\</script\>
 
 <AppShell>
 	<!-- Header -->
@@ -158,9 +158,9 @@
 		<CodeBlock
 			language="html"
 			code={`
-<script>
+\<script\>
 	import { GradientHeading } from '@skeletonlabs/skeleton';
-</script>
+\</script\>
 
 <GradientHeading tag="h1" direction="bg-gradient-to-br" from="from-primary-500" to="to-accent-500">
 	Homepage
