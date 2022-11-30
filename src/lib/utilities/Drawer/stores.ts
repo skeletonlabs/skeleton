@@ -4,20 +4,20 @@ import { writable } from 'svelte/store';
 import type { DrawerSettings } from './types';
 
 function drawerService() {
-	const { subscribe, set, update } = writable([]);
+	const { subscribe, set, update } = writable<DrawerSettings>({});
 	return {
 		subscribe,
 		set,
 		update,
 		/** Open the drawer. */
 		open: (newSettings: DrawerSettings) =>
-			update((d: any) => {
+			update((d) => {
 				d = { open: true, ...newSettings };
 				return d;
 			}),
 		/** Close the drawer. */
 		close: () =>
-			update((d: any) => {
+			update((d) => {
 				d.open = false;
 				return d;
 			})
@@ -25,4 +25,4 @@ function drawerService() {
 }
 
 // Exports
-export const drawerStore: any = drawerService();
+export const drawerStore = drawerService();
