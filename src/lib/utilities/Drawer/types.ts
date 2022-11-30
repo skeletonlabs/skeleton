@@ -1,16 +1,18 @@
 // Drawer Types
 
 export interface DrawerSettings {
-	/** The open state of the drawer. */
-	open: boolean;
+	open?: boolean;
 	/** A unique identifier, useful for setting contents. */
 	id?: string;
 	/** Set the anchor position.
 	 * @type {'left' | 'top' | 'right' | 'bottom'}
 	 */
+	/** Pass abitrary information for your own persona use. */
+	meta?: any;
+
+	// NOTE: the following must style in sync with the drawer props.
 
 	// --- Core ---
-
 	/** Set the anchor position.
 	 * @type {'left' | 'top' | 'right' | 'bottom'}
 	 */
@@ -19,14 +21,12 @@ export interface DrawerSettings {
 	duration?: number;
 
 	// --- Backdrop ---
-
 	/** Backdrop - Provide classes to set the backdrop background color*/
 	bgBackdrop?: string;
 	/** Backdrop - Provide classes to set the blur style.*/
 	blur?: string;
 
 	// --- Drawer ---
-
 	/** Drawer - Provide classes to set the drawer background color.*/
 	bgDrawer?: string;
 	/** Drawer - Provide classes to set border color.*/
@@ -41,7 +41,6 @@ export interface DrawerSettings {
 	margin?: string;
 
 	// --- A11y ---
-
 	/** Provide an ID of the element labeling the drawer.*/
 	labelledby?: string;
 	/** Provide an ID of the element describing the drawer.*/

@@ -23,8 +23,8 @@
 
 	// Drawer Handler
 	function drawerOpen(): void {
-		const s: DrawerSettings = { open: true, id: 'doc-sidenav' };
-		drawerStore.set(s);
+		const s: DrawerSettings = { id: 'doc-sidenav' };
+		drawerStore.open(s);
 	}
 
 	// Search

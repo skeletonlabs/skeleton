@@ -3,7 +3,6 @@
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-	import Drawer from '$lib/utilities/Drawer/Drawer.svelte';
 
 	// @ts-expect-error sveld import
 	import sveldDrawer from '$lib/utilities/Drawer/Drawer.svelte?raw&sveld';
@@ -26,8 +25,18 @@
 	};
 
 	function trigger(position: string): void {
-		const s: DrawerSettings = { open: true, id: 'demo', position };
-		drawerStore.set(s);
+		const s: DrawerSettings = { id: 'demo', position };
+		drawerStore.open(s);
+	}
+	function triggerStyled(): void {
+		const s: DrawerSettings = {
+			id: 'demo',
+			position: 'left',
+			bgDrawer: 'bg-primary-500',
+			bgBackdrop: 'bg-primary-500/50',
+			meta: 'Styled Drawer'
+		};
+		drawerStore.open(s);
 	}
 </script>
 
@@ -37,11 +46,12 @@
 		<div class="card card-body text-center space-y-4">
 			<p>Select a drawer to preview.</p>
 			<!-- prettier-ignore -->
-			<div class="flex justify-center items-center space-x-4">
+			<div class="flex justify-center items-center space-x-2 sm:space-x-4">
 				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('right'); }}>&larr;</button>
 				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('left'); }}>&rarr;</button>
 				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('bottom'); }}>&uarr;</button>
 				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('top'); }}>&darr;</button>
+				<button class="btn btn-ghost-surface" on:click={() => { triggerStyled(); }}>Styled</button>
 			</div>
 		</div>
 	</svelte:fragment>
@@ -62,23 +72,19 @@
 		</section>
 		<section class="space-y-4">
 			<h2>Open</h2>
-			<p>To open the drawer, pass your drawer settings to the drawer store.</p>
+			<p>To open the drawer, use the <code>open()</code> method on the drawer store.</p>
 			<CodeBlock
 				language="typescript"
 				code={`
 function drawerOpen(): void {
-	const settings: DrawerSettings = { open: true };
-	drawerStore.set(settings);
+	drawerStore.open();
 }
 			`}
 			/>
 		</section>
 		<section class="space-y-4">
 			<h2>Close</h2>
-			<p>
-				To close the drawer, use the <code>close()</code> method on the store. This will set <code>open</code> to
-				<em>false</em>.
-			</p>
+			<p>To close the drawer, use the <code>close()</code> method on the drawer store.</p>
 			<CodeBlock
 				language="typescript"
 				code={`
@@ -90,16 +96,18 @@ function drawerClose(): void {
 		</section>
 		<section class="space-y-4">
 			<h2>Handling Contents</h2>
-			<p>You may modify the contents of the drawer by providing an <code>id</code> setting.</p>
+			<p>If you wish to modify the contents of your drawer, set the <code>id</code> drawer setting.</p>
 			<CodeBlock
 				language="typescript"
 				code={`
 function drawerOpen(): void {
-	const settings: DrawerSettings = { open: true, id: 'foo' };
+	const settings: DrawerSettings = { id: 'foo' };
 	drawerStore.set(settings);
 }
 			`}
 			/>
+			<!-- prettier-ignore -->
+			<p>Then, listen to the drawer value and update drawer's default slot content accordingly. We <a href="https://github.com/skeletonlabs/skeleton/blob/dev/src/docs/DocsNavigation/DocsDrawer.svelte" target="_blank" rel="noreferrer">use this technique</a> for the Skeleton documentation site.</p>
 			<CodeBlock
 				language="html"
 				code={`
@@ -114,10 +122,18 @@ function drawerOpen(): void {
 </Drawer>
 			`}
 			/>
-			<!-- prettier-ignore -->
 			<p>
-				We <a href="https://github.com/skeletonlabs/skeleton/blob/dev/src/docs/DocsNavigation/DocsDrawer.svelte" target="_blank" rel="noreferrer">use this technique</a> for this documentation site.
+				Need to pass your own abitrary metadata? You may optionally pass a <code>meta</code> key containing custom data.
 			</p>
+			<CodeBlock
+				language="typescript"
+				code={`
+function drawerOpen(): void {
+	const settings: DrawerSettings = { id: 'bar', meta: { fizz: 'buzz' } };
+	drawerStore.set(settings);
+}
+		`}
+			/>
 		</section>
 		<section class="space-y-4">
 			<h2>Styling</h2>
@@ -130,12 +146,11 @@ function drawerOpen(): void {
 				code={`
 function drawerOpenStyled(): void {
 	const settings: DrawerSettings = {
-		open: true,
-		// Override any prop setting
+		id: 'demo',
+		// Provide your prop overrides
 		position: 'right',
 		bgBackdrop: 'bg-green-500/70',
 		bgDrawer: 'bg-red-500'
-		// ...
 	};
 	drawerStore.set(settings);
 }
