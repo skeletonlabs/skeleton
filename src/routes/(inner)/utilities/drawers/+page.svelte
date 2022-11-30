@@ -67,12 +67,12 @@
 		</section>
 		<section class="space-y-4">
 			<h2>Drawer Store</h2>
-			<p>The Drawer Store contains the drawer's current state and settings.</p>
+			<p>This contains the drawer's current state and settings.</p>
 			<CodeBlock language="typescript" code={`import { drawerStore } from '@skeletonlabs/skeleton';`} />
 		</section>
 		<section class="space-y-4">
 			<h2>Open</h2>
-			<p>To open the drawer, use the <code>open()</code> method on the drawer store.</p>
+			<p>To open the drawer, use the store's <code>open()</code> method to make the drawer visible.</p>
 			<CodeBlock
 				language="typescript"
 				code={`
@@ -84,7 +84,7 @@ function drawerOpen(): void {
 		</section>
 		<section class="space-y-4">
 			<h2>Close</h2>
-			<p>To close the drawer, use the <code>close()</code> method on the drawer store.</p>
+			<p>To close the drawer, use the store's <code>close()</code> method to hide the drawer.</p>
 			<CodeBlock
 				language="typescript"
 				code={`
@@ -96,40 +96,44 @@ function drawerClose(): void {
 		</section>
 		<section class="space-y-4">
 			<h2>Handling Contents</h2>
-			<p>If you wish to modify the contents of your drawer, set the <code>id</code> drawer setting.</p>
+			<p>If you wish to modify the contents of your drawer, set a unique <code>id</code> per drawer instance.</p>
 			<CodeBlock
 				language="typescript"
 				code={`
 function drawerOpen(): void {
-	const settings: DrawerSettings = { id: 'foo' };
+	const settings: DrawerSettings = { id: 'example-1' };
 	drawerStore.open(settings);
 }
 			`}
 			/>
 			<!-- prettier-ignore -->
-			<p>Then, listen to the drawer value and update drawer's default slot content accordingly. We <a href="https://github.com/skeletonlabs/skeleton/blob/dev/src/docs/DocsNavigation/DocsDrawer.svelte" target="_blank" rel="noreferrer">use this technique</a> for the Skeleton documentation site.</p>
+			<p>Then, conditionally update your drawer's default slot content via <code>$drawerStore.id</code>. We <a href="https://github.com/skeletonlabs/skeleton/blob/master/src/docs/DocsNavigation/DocsDrawer.svelte" target="_blank" rel="noreferrer">use this technique</a> for the Skeleton documentation site.</p>
 			<CodeBlock
 				language="html"
 				code={`
 <Drawer>
-	{#if $drawerStore.id === 'foo'}
-		(show 'foo' contents)
-	{:else if $drawerStore.id === 'bar'}
-		(show 'bar' contents)
+	{#if $drawerStore.id === 'example-1'}
+		<p>(show 'example-1' contents)</p>
+	{:else if $drawerStore.id === 'example-2'}
+		<p>(show 'example-2' contents)</p>
 	{:else}
-		(no matching id, show fallback contents)
+		<p>(fallback contents)</p>
 	{/if}
 </Drawer>
 			`}
 			/>
 			<p>
-				Need to pass your own abitrary metadata? You may optionally pass a <code>meta</code> key containing custom data.
+				If you need abitrary metadata, use the <code>meta</code> key and pass your custom data. Use <code>$drawerStore.meta</code> to retreive
+				this.
 			</p>
 			<CodeBlock
 				language="typescript"
 				code={`
 function drawerOpen(): void {
-	const settings: DrawerSettings = { id: 'bar', meta: { fizz: 'buzz' } };
+	const settings: DrawerSettings = {
+		id: 'example-2',
+		meta: { foo: 'bar', fizz: 'buzz', age: 40 }
+	};
 	drawerStore.open(settings);
 }
 		`}
@@ -138,8 +142,9 @@ function drawerOpen(): void {
 		<section class="space-y-4">
 			<h2>Styling</h2>
 			<p>
-				Use the component prop values to set default styles. However, you may provide valid prop values as a key/value pairs when opening
-				the drawer.
+				In most cases we recommend setting the default styles via the Drawer component props. However, you may override each prop value per
+				drawer instance by passing a key/value pair as shown below. See the <em>Props</em> tab near the top of this page for a full list of available
+				keys.
 			</p>
 			<CodeBlock
 				language="typescript"

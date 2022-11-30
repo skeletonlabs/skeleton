@@ -43,6 +43,16 @@
 	/** Provide an ID of the element describing the drawer. */
 	export let describedby = '';
 
+	// Base Classes
+	const cBaseBackdrop = 'fixed top-0 left-0 right-0 bottom-0 z-40 flex';
+	const cBaseDrawer = 'shadow-xl overflow-y-auto';
+
+	// Local
+	let elemBackdrop: HTMLElement;
+	let windowSettings = { width: 1920, height: 1080 };
+	let styleSettings = { backdrop: '', width: '', height: '' };
+	let animSettings = { x: 0, y: 0 };
+
 	// Record a record of default props on init
 	// NOTE: these must stay in sync with the props implemented above.
 	// prettier-ignore
@@ -53,26 +63,16 @@
 		labelledby, describedby
 	};
 
-	// Local
-	let elemBackdrop: HTMLElement;
-	let windowSettings = { width: 0, height: 0 };
-	let styleSettings: Record<string, string> = { backdrop: '', width: '', height: '' };
-	let animSettings: Record<string, number> = { x: 0, y: 0 };
-
-	// Base Classes
-	const cBaseBackdrop = 'fixed top-0 left-0 right-0 bottom-0 z-40 flex';
-	const cBaseDrawer = 'shadow-xl overflow-y-auto';
-
 	// Listen to drawerStore updates
 	drawerStore.subscribe((settings: DrawerSettings) => {
 		if (settings.open === false) return;
-		applySettingOverrides(settings);
-		applyPositionSettings();
+		applySettings(settings);
+		setPosition();
 	});
 
 	// Override provided props, else restore prop defaults
 	// NOTE: these must stay in sync with the props implemented above.
-	function applySettingOverrides(settings: DrawerSettings): void {
+	function applySettings(settings: DrawerSettings): void {
 		position = settings.position || propDefaults.position;
 		duration = settings.duration || propDefaults.duration;
 		// Backdrop
@@ -90,8 +90,7 @@
 		describedby = settings.describedby || propDefaults.describedby;
 	}
 
-	// Apply one of the four position styles and animation transition settings
-	function applyPositionSettings(): void {
+	function setPosition(): void {
 		switch (position) {
 			case 'top':
 				styleSettings = { backdrop: 'flex-col justify-start', width: 'w-full', height: 'h-[40%]' };
@@ -118,16 +117,11 @@
 
 	// Input Handlers
 	function onClickBackdrop(e: any): void {
-		if (e.target === elemBackdrop) close();
+		if (e.target === elemBackdrop) drawerStore.close();
 	}
 	function onKeydownWindow(e: any): void {
 		if (!$drawerStore) return;
-		if (e.code === 'Escape') close();
-	}
-
-	// Close
-	function close(): void {
-		drawerStore.close();
+		if (e.code === 'Escape') drawerStore.close();
 	}
 
 	// Lifecycle
