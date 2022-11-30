@@ -9,7 +9,7 @@
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldGradientHeading from '$lib/components/GradientHeading/GradientHeading.svelte?raw&sveld';
 
 	// Docs Shell

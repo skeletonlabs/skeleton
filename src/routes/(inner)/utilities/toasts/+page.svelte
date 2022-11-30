@@ -6,7 +6,7 @@
 	import type { ToastSettings } from '$lib/utilities/Toast/types';
 	import { toastStore } from '$lib/utilities/Toast/stores';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldToast from '$lib/utilities/Toast/Toast.svelte?raw&sveld';
 
 	// Docs Shell

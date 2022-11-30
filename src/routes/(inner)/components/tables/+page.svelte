@@ -17,7 +17,7 @@
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldTable from '$lib/components/Table/Table.svelte?raw&sveld';
 
 	// Stores

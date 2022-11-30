@@ -5,7 +5,7 @@
 	import FileButton from '$lib/components/FileButton/FileButton.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldFileButton from '$lib/components/FileButton/FileButton.svelte?raw&sveld';
 
 	// Docs Shell

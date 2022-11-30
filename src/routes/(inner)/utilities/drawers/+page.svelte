@@ -7,7 +7,7 @@
 	import Drawer from '$lib/utilities/Drawer/Drawer.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldDrawer from '$lib/utilities/Drawer/Drawer.svelte?raw&sveld';
 
 	// Stores

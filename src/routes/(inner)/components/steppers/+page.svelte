@@ -9,9 +9,9 @@
 	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldStepper from '$lib/components/Stepper/Stepper.svelte?raw&sveld';
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldStep from '$lib/components/Stepper/Step.svelte?raw&sveld';
 
 	// Stores

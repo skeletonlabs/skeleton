@@ -9,7 +9,7 @@
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldProgressBar from '$lib/components/ProgressBar/ProgressBar.svelte?raw&sveld';
 
 	// Stores

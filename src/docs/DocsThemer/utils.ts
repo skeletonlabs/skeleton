@@ -63,7 +63,7 @@ export function onRandomize(): void {
 // Generate Hex Palette - Source: https://github.com/bobthered/tailwindcss-palette-generator
 export function genHexPalette(key: SemanticNames, hexColor: string): TailwindColorObject & { source: string } {
 	// Generate base palette
-	// @ts-ignore
+	// @ts-expect-error too complex to be worth creating a type for
 	const hexShades: {
 		[key in SemanticNames]: {
 			[key in TailwindNumbers]: string;

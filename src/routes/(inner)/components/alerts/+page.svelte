@@ -5,7 +5,7 @@
 	import Alert from '$lib/components/Alert/Alert.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldAlert from '$lib/components/Alert/Alert.svelte?raw&sveld';
 
 	// Docs Shell

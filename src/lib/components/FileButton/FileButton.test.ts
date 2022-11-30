@@ -1,7 +1,6 @@
 import { render } from '@testing-library/svelte';
 import { describe, it, expect } from 'vitest';
 
-// @ts-ignore
 import FileButton from '$lib/components/FileButton/FileButton.svelte';
 
 describe('FileButton.svelte', () => {

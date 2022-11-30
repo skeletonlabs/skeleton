@@ -1,7 +1,6 @@
 import { render } from '@testing-library/svelte';
 import { describe, it, expect } from 'vitest';
 
-// @ts-ignore
 import FileDropzone from '$lib/components/FileDropzone/FileDropzone.svelte';
 
 describe('FileDropzone.svelte', () => {
