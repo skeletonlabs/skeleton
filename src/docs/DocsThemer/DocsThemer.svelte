@@ -50,8 +50,8 @@
 	${genCssColorStrings('warning', currentPalette.warning)}
 	/* ${currentPalette.surface.label} | ${currentPalette.surface.shades['500'].hex} */
 	${genCssColorStrings('surface', currentPalette.surface)}
-}`.trim();
-	$: headStyleCSS = $storePreview ? `\<style\>${themeCSS}\</style\>` : '';
+}`;
+	$: headStyleCSS = $storePreview ? `<style>${themeCSS}</style>` : '';
 </script>
 
 <svelte:head>

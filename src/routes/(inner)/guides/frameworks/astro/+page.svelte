@@ -5,9 +5,9 @@
 
 	// Snippets
 	const dynamicSvelteWrapperSnippet = `
-\<script lang="ts"\>
+<script lang="ts">
 	function triggerMessage(): void { console.log('Hello, Skeleton'); }
-\<\/script\>\n
+</script\>\n
 <button class="btn btn-filled-primary" on:click={() => { triggerMessage() }}>Trigger</button>
 `;
 </script>
