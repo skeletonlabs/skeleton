@@ -19,7 +19,7 @@
 		imports: ['Drawer', 'drawerStore'],
 		types: ['DrawerSettings'],
 		source: 'utilities/Drawer',
-		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/modalmodal/',
+		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/',
 		components: [{ sveld: sveldDrawer }],
 		keyboard: [['<kbd>Esc</kbd>', ' Closes the drawer.']]
 	};
@@ -102,7 +102,7 @@ function drawerClose(): void {
 				code={`
 function drawerOpen(): void {
 	const settings: DrawerSettings = { id: 'foo' };
-	drawerStore.set(settings);
+	drawerStore.open(settings);
 }
 			`}
 			/>
@@ -130,7 +130,7 @@ function drawerOpen(): void {
 				code={`
 function drawerOpen(): void {
 	const settings: DrawerSettings = { id: 'bar', meta: { fizz: 'buzz' } };
-	drawerStore.set(settings);
+	drawerStore.open(settings);
 }
 		`}
 			/>
@@ -152,7 +152,7 @@ function drawerOpenStyled(): void {
 		bgBackdrop: 'bg-green-500/70',
 		bgDrawer: 'bg-red-500'
 	};
-	drawerStore.set(settings);
+	drawerStore.open(settings);
 }
 				`}
 			/>
