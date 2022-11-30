@@ -1,5 +1,5 @@
 <script lang="ts">
-	// @ts-ignore
+	// @ts-expect-error reading from vite.config.js
 	const pkg = __PACKAGE__;
 
 	// Logo
