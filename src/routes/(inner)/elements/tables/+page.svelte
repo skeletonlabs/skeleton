@@ -5,7 +5,7 @@
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-expect-error sveld import
+	// @ts-expect- error sveld import NOTE: remove the space between hyphen and error - this is to keep svelte-check happy
 	// import sveldComp from '$lib/.../Component.svelte?raw&sveld';
 
 	// Docs Shell
