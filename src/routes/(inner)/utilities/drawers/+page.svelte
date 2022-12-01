@@ -24,7 +24,7 @@
 		keyboard: [['<kbd>Esc</kbd>', ' Closes the drawer.']]
 	};
 
-	function trigger(position: string): void {
+	function trigger(position: 'left' | 'top' | 'right' | 'bottom'): void {
 		const s: DrawerSettings = { id: 'demo', position };
 		drawerStore.open(s);
 	}
@@ -60,8 +60,8 @@
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<p>
-				Import and add a single instance of the Drawer component in your app's root layout. We recommend only adding this <u>ONCE</u> per app
-				since it exists in global scope.
+				Import and add a single instance of the Drawer component in your app's root layout. Since this is in global scope it will be
+				possible to reuse this feature throughout your entire application.
 			</p>
 			<CodeBlock language="html" code={`<Drawer />`} />
 		</section>
@@ -72,7 +72,7 @@
 		</section>
 		<section class="space-y-4">
 			<h2>Open</h2>
-			<p>To open the drawer, use the store's <code>open()</code> method to make the drawer visible.</p>
+			<p>To open the drawer, use the store's <code>open()</code> method to show the drawer.</p>
 			<CodeBlock
 				language="typescript"
 				code={`
@@ -96,7 +96,7 @@ function drawerClose(): void {
 		</section>
 		<section class="space-y-4">
 			<h2>Handling Contents</h2>
-			<p>If you wish to modify the contents of your drawer, set a unique <code>id</code> per drawer instance.</p>
+			<p>If you wish to swap out the contents of your drawer, set a unique <code>id</code> per drawer instance.</p>
 			<CodeBlock
 				language="typescript"
 				code={`
@@ -123,8 +123,7 @@ function drawerOpen(): void {
 			`}
 			/>
 			<p>
-				If you need abitrary metadata, use the <code>meta</code> key and pass your custom data. Use <code>$drawerStore.meta</code> to retreive
-				this.
+				If you need to pass custom abitrary metadata use the <code>meta</code> key. Use <code>$drawerStore.meta</code> to retreive this.
 			</p>
 			<CodeBlock
 				language="typescript"
@@ -142,9 +141,9 @@ function drawerOpen(): void {
 		<section class="space-y-4">
 			<h2>Styling</h2>
 			<p>
-				In most cases we recommend setting the default styles via the Drawer component props. However, you may override each prop value per
-				drawer instance by passing a key/value pair as shown below. See the <em>Props</em> tab near the top of this page for a full list of available
-				keys.
+				In most cases we recommend setting default styles via the Drawer component props. However, you may override prop values per drawer
+				instance by passing a key/value pair as shown below. See the <em>Props</em> tab near the top of this page for a full list of available
+				options.
 			</p>
 			<CodeBlock
 				language="typescript"

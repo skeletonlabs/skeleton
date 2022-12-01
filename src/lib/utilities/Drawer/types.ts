@@ -4,19 +4,18 @@ export interface DrawerSettings {
 	open?: boolean;
 	/** A unique identifier, useful for setting contents. */
 	id?: string;
-	/** Set the anchor position.
-	 * @type {'left' | 'top' | 'right' | 'bottom'}
-	 */
 	/** Pass abitrary information for your own persona use. */
 	meta?: any;
 
-	// NOTE: the following must style in sync with the drawer props.
+	// ************************************************************
+	// NOTE: the following must stay in sync with the drawer props.
+	// ************************************************************
 
 	// --- Core ---
 	/** Set the anchor position.
 	 * @type {'left' | 'top' | 'right' | 'bottom'}
 	 */
-	position?: string;
+	position?: 'left' | 'top' | 'right' | 'bottom';
 	/** Define the Svelte transition animation duration.*/
 	duration?: number;
 

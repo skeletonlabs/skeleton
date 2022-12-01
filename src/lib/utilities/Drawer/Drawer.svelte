@@ -13,7 +13,7 @@
 	/** Set the anchor position.
 	 * @type {'left' | 'top' | 'right' | 'bottom'}
 	 */
-	export let position: string = 'left';
+	export let position: 'left' | 'top' | 'right' | 'bottom' = 'left';
 	/** Define the Svelte transition animation duration. */
 	export let duration = 150;
 
@@ -64,7 +64,7 @@
 	};
 
 	// Listen to drawerStore updates
-	drawerStore.subscribe((settings: DrawerSettings) => {
+	drawerStore.subscribe((settings) => {
 		if (settings.open === false) return;
 		applySettings(settings);
 		setPosition();
