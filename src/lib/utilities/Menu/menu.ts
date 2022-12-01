@@ -56,21 +56,24 @@ export function menu(node: HTMLElement, args: ArgsMenu) {
 	// Click Handlers ---
 
 	const onTriggerClick = (): void => {
-		if (elemMenu.style.display === 'block') {
-			menuClose();
-		} else {
+		// When the node is clicked, open the menu if it is closed, otherwise close it
+		if (elemMenu.style.display === 'none') {
 			autoUpdateOrigin();
 			menuOpen();
+		} else {
+			menuClose();
 		}
 	}
 
 	const onWindowClick = (event: any): void => {
-		args.interactive === true ? interactiveClickHandler(event) : standardClickHandler();
+		args.interactive === true ? interactiveClickHandler(event) : standardClickHandler(event);
 	}
 	
 	// Interactive FALSE - any click closes the menu
-	const standardClickHandler = (): void => {
-		menuClose();
+	const standardClickHandler = (event: any): void => {
+		// Any click closes the menu, except for when the node is clicked, since onTriggerClick will take care of closing it in this case. If we don't include this check this function would close the menu when the node is clicked and onTriggerClick reopens it again because display will be 'none' again.
+		const outsideNode = node && !node.contains(event.target);
+		if (outsideNode) { menuClose(); }
 	}
 	
 	// Interactive TRUE - clicks outside close menu
