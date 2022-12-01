@@ -81,8 +81,8 @@
 	<svelte:fragment slot="usage">
 		<div class="space-y-4">
 			<p>
-				Import and add a single instance of the Toast component in your app's root layout. We recommend only adding this <u>ONCE</u> per app
-				since it exists in global scope.
+				Import and add a single instance of the Toast component in your app's root layout. Since this is in global scope it will be possible
+				to reuse this feature throughout your entire application.
 			</p>
 			<CodeBlock language="html" code={`<Toast />`} />
 		</div>

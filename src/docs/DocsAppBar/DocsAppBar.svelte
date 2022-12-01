@@ -1,6 +1,7 @@
 <script lang="ts">
 	// Types
 	import type { ModalSettings, ModalComponent } from '$lib/utilities/Modal/types';
+	import type { DrawerSettings } from '$lib/utilities/Drawer/types';
 
 	// Docs
 	import DocsLogoFull from '$docs/DocsLogo/DocsLogoFull.svelte';
@@ -17,11 +18,13 @@
 	import { modalStore } from '$lib/utilities/Modal/stores';
 
 	// Stores
-	import { storeTheme, storeMobileDrawer } from '$docs/stores';
+	import { storeTheme } from '$docs/stores';
+	import { drawerStore } from '$lib/utilities/Drawer/stores';
 
 	// Drawer Handler
 	function drawerOpen(): void {
-		storeMobileDrawer.set(true);
+		const s: DrawerSettings = { id: 'doc-sidenav' };
+		drawerStore.open(s);
 	}
 
 	// Search
