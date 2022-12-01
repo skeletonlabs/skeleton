@@ -86,9 +86,9 @@
 		<!-- prettier-ignore -->
 		<section class="hidden lg:flex space-x-6">
 			<!-- Docs -->
-			<a class="unstyled font-bold" href="/docs/why" data-sveltekit-prefetch>Docs</a>
+			<a class="unstyled font-bold" href="/docs/why" data-sveltekit-preload-data="hover">Docs</a>
 			<!-- Guides -->
-			<a class="unstyled font-bold" href="/guides/install" data-sveltekit-prefetch>Guides</a>
+			<a class="unstyled font-bold" href="/guides/install" data-sveltekit-preload-data="hover">Guides</a>
 			<!-- Features -->
 			<div class="relative">
 				<button class="unstyled font-bold space-x-2" use:menu={{ menu: 'features' }}>
@@ -97,7 +97,7 @@
 				</button>
 				<div class="card overflow-hidden w-60 shadow-xl grid grid-cols-1" data-menu="features">
 					<!-- Tailwind -->
-					<a class="grid grid-cols-[auto_1fr] gap-4 p-4 hover:bg-hover-token" href="/elements/core" data-sveltekit-prefetch>
+					<a class="grid grid-cols-[auto_1fr] gap-4 p-4 hover:bg-hover-token" href="/elements/core" data-sveltekit-preload-data="hover">
 						<div class="flex justify-center items-center">
 							<SvgIcon name="tailwind" />
 						</div>
@@ -108,7 +108,7 @@
 					</a>
 					<hr>
 					<!-- Svelte -->
-					<a class="grid grid-cols-[auto_1fr] gap-4 p-4 hover:bg-hover-token" href="/actions/clipboard" data-sveltekit-prefetch>
+					<a class="grid grid-cols-[auto_1fr] gap-4 p-4 hover:bg-hover-token" href="/actions/clipboard" data-sveltekit-preload-data="hover">
 						<div class="flex justify-center items-center">
 							<SvgIcon name="svelte" />
 						</div>
@@ -119,7 +119,7 @@
 					</a>
 					<hr>
 					<!-- Utilities -->
-					<a class="grid grid-cols-[auto_1fr] gap-4 p-4 hover:bg-hover-token" href="/utilities/codeblocks" data-sveltekit-prefetch>
+					<a class="grid grid-cols-[auto_1fr] gap-4 p-4 hover:bg-hover-token" href="/utilities/codeblocks" data-sveltekit-preload-data="hover">
 						<div class="flex justify-center items-center">
 							<SvgIcon name="screwdriver" />
 						</div>
@@ -131,7 +131,7 @@
 				</div>
 			</div>
 			<!-- Blog -->
-			<a class="unstyled font-bold" href="/blog" data-sveltekit-prefetch>Blog</a>
+			<a class="unstyled font-bold" href="/blog" data-sveltekit-preload-data="hover">Blog</a>
 		</section>
 
 		<Divider vertical borderWidth="hidden lg:block border-l-2 opacity-30" />
@@ -147,7 +147,7 @@
 			<div class="card w-56 shadow-xl" data-menu="theme">
 				<section class="flex justify-between items-center p-4">
 					<h6>Theme</h6>
-					<LightSwitch origin="tr" />
+					<LightSwitch />
 				</section>
 				<hr>
 				<nav class="list-nav p-4 max-h-64 overflow-y-auto">

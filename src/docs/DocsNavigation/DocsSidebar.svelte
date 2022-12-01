@@ -73,7 +73,7 @@
 					<ul>
 						{#each list as { href, label, badge }}
 							<li on:click={onListItemClick} on:keypress>
-								<a {href} value={href} class={classesActive(href)} data-sveltekit-prefetch>
+								<a {href} value={href} class={classesActive(href)} data-sveltekit-preload-data="hover">
 									<span class="flex-auto">{label}</span>
 									{#if badge}<span class="badge bg-accent-500 text-white">{badge}</span>{/if}
 								</a>
