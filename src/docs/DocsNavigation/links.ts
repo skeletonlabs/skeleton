@@ -110,11 +110,11 @@ export const menuNavLinks: any = [
 		list: [
 			{ href: '/utilities/codeblocks', label: 'Code Blocks' },
 			{ href: '/utilities/data-tables', label: 'Data Tables' },
-			{ href: '/utilities/modals', label: 'Modals', keywords: 'dialog' },
 			{ href: '/utilities/drawers', label: 'Drawers' },
 			{ href: '/utilities/lightswitches', label: 'Lightswitch' },
 			{ href: '/utilities/local-storage-stores', label: 'Local Storage Stores' },
 			{ href: '/utilities/menus', label: 'Menus' },
+			{ href: '/utilities/modals', label: 'Modals', keywords: 'dialog' },
 			{ href: '/utilities/toasts', label: 'Toasts' },
 			{ href: '/utilities/tooltips', label: 'Tooltips' }
 		]

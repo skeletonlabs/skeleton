@@ -312,5 +312,31 @@ function triggerCustomModal(): void {
 				<li>Use the <code>$modalStore[0].response('myResponseDataHere');</code> method to return a response value.</li>
 			</ul>
 		</section>
+		<section class="space-y-4">
+			<h2>SvelteKit and SSR Warning</h2>
+			<p>
+				If you're building a SvelteKit project please be aware that there are <a
+					href="https://github.com/sveltejs/kit/discussions/4339#discussioncomment-2384978"
+					target="_blank"
+					rel="noreferrer">known issues when using Svelte stores with SSR</a
+				>, such as our modal store. To prevent these issues please avoid the use of the modal store within any SvelteKit Load function.
+				Likewise, if you need a modal to open on route initilization we advise triggering the <code>open()</code> method after the
+				<a href="https://kit.svelte.dev/docs/modules#$app-environment" target="_blank" rel="noreferrer"
+					>SvelteKit Browser environment context</a
+				> is available.
+			</p>
+			<CodeBlock
+				language="typescript"
+				code={`
+import { browser } from '$app/environment';\n
+if (browser) modalStore.trigger({...});
+				`}
+			/>
+			<p>
+				For additional context please see this <a href="https://github.com/skeletonlabs/skeleton/pull/580" target="_blank" rel="noreferrer"
+					>thread</a
+				>.
+			</p>
+		</section>
 	</svelte:fragment>
 </DocsShell>

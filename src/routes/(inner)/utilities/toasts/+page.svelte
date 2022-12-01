@@ -79,15 +79,15 @@
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
-		<div class="space-y-4">
+		<section class="space-y-4">
 			<p>
 				Import and add a single instance of the Toast component in your app's root layout. Since this is in global scope it will be possible
 				to reuse this feature throughout your entire application.
 			</p>
 			<CodeBlock language="html" code={`<Toast />`} />
-		</div>
+		</section>
 		<!-- Toast Store -->
-		<div class="space-y-4">
+		<section class="space-y-4">
 			<h2>Toast Store</h2>
 			<p>The Modal Store acts as a queue for your toast messages.</p>
 			<CodeBlock
@@ -125,9 +125,9 @@ function triggerToast(): void {
 			<h3>Debug</h3>
 			<p>Use the following technique to visualize the contents of the store for debugging.</p>
 			<CodeBlock language="html" code={`<pre>queue: {JSON.stringify($toastStore, null, 2)}</pre>`} />
-		</div>
+		</section>
 		<!-- Styled -->
-		<div class="space-y-4">
+		<section class="space-y-4">
 			<h2>Styled</h2>
 			<p>
 				To customize an individual toast, append <code>classes</code> to your settings and add CSS classes you wish to be applied to the toast.
@@ -142,6 +142,32 @@ const t: ToastSettings = {
 };
 			`}
 			/>
-		</div>
+		</section>
+		<section class="space-y-4">
+			<h2>SvelteKit and SSR Warning</h2>
+			<p>
+				If you're building a SvelteKit project please be aware that there are <a
+					href="https://github.com/sveltejs/kit/discussions/4339#discussioncomment-2384978"
+					target="_blank"
+					rel="noreferrer">known issues when using Svelte stores with SSR</a
+				>, such as our toast store. To prevent these issues please avoid the use of the toast store within any SvelteKit Load function.
+				Likewise, if you need a toast to open on route initilization we advise triggering the <code>open()</code> method after the
+				<a href="https://kit.svelte.dev/docs/modules#$app-environment" target="_blank" rel="noreferrer"
+					>SvelteKit Browser environment context</a
+				> is available.
+			</p>
+			<CodeBlock
+				language="typescript"
+				code={`
+import { browser } from '$app/environment';\n
+if (browser) toastStore.trigger({...});
+				`}
+			/>
+			<p>
+				For additional context please see this <a href="https://github.com/skeletonlabs/skeleton/pull/580" target="_blank" rel="noreferrer"
+					>thread</a
+				>.
+			</p>
+		</section>
 	</svelte:fragment>
 </DocsShell>
