@@ -11,7 +11,7 @@ function drawerService() {
 		update,
 		/** Open the drawer. */
 		open: (newSettings: DrawerSettings) =>
-			update((d) => {
+			update(() => {
 				return { open: true, ...newSettings };
 			}),
 		/** Close the drawer. */
