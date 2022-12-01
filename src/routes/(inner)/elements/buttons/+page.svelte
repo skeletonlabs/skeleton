@@ -265,7 +265,7 @@
 				such as a
 				<em>prefetch</em>.
 			</p>
-			<CodeBlock language="html" code={`<a href="/" class="btn" data-sveltekit-prefetch>Skeleton</a>`} />
+			<CodeBlock language="html" code={`<a href="/" class="btn" data-sveltekit-preload-data="hover">Skeleton</a>`} />
 		</div>
 	</svelte:fragment>
 </DocsShell>

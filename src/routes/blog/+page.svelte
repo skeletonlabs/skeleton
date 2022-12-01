@@ -19,7 +19,7 @@
 	<!-- Blog List -->
 	<section class="blog-list space-y-8">
 		{#each data.posts as post}
-			<a class="unstyled block hover:card card-body rounded-container-token" href="/blog/{post.slug}" data-sveltekit-prefetch>
+			<a class="unstyled block hover:card card-body rounded-container-token" href="/blog/{post.slug}" data-sveltekit-preload-data="hover">
 				<article class="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-4 lg:gap-8">
 					<!-- Featured Image -->
 					{#if post.feature_image}
