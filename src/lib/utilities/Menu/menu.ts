@@ -17,17 +17,31 @@ export function menu(node: HTMLElement, args: ArgsMenu) {
     const elemMenu: HTMLElement | null = document.querySelector(`[data-menu="${args.menu}"]`);
 	if (!elemMenu) return;
 
+	const elemWhitelist: string = 'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])';
+	let activeFocusIdx: number;
+	let focusableElems: HTMLElement[];
+
 	const onInit = (): void => {
 		autoUpdateOrigin();
 		// Apply a11y attributes
 		elemMenu.setAttribute('role', 'menu');
+
+		// Create array of all focusable elements, so that we can iterate through them
+		focusableElems = Array.from(elemMenu.querySelectorAll(elemWhitelist));
 	}
 
 	// Menu States ---
 	
-	const menuOpen = (): void => {
+	const menuOpen = (openWithFocus: boolean = false): void => {
 		elemMenu.style.display = 'block';
 		stateEventHandler(true);
+
+		if (openWithFocus) {
+			// Automatically focus the element if openWithFocus is true (for example if
+			// the menu was opened with Enter instead of with a click
+			activeFocusIdx = 0; // reset the focus index
+			focusableElems[0].focus();
+		}
 	}
 
 	const menuClose = (): void => {
@@ -42,8 +56,12 @@ export function menu(node: HTMLElement, args: ArgsMenu) {
 	// Click Handlers ---
 
 	const onTriggerClick = (): void => {
-        autoUpdateOrigin();
-		menuOpen();
+		if (elemMenu.style.display === 'block') {
+			menuClose();
+		} else {
+			autoUpdateOrigin();
+			menuOpen();
+		}
 	}
 
 	const onWindowClick = (event: any): void => {
@@ -82,17 +100,39 @@ export function menu(node: HTMLElement, args: ArgsMenu) {
 	const onTriggerKeyDown = (event: KeyboardEvent): void => {
 		if (['Enter', 'Space'].includes(event.code)) {
 			event.preventDefault();
+
 			// Trigger Menu
-			onTriggerClick();
-			// If menu open, set focus
-			if (elemMenu.style.display === 'block') { elemMenu.focus() }
+			// If menu is closed we open it and vice versa
+			if (elemMenu.style.display === 'block') {
+				menuClose();
+			} else {
+				autoUpdateOrigin();
+				menuOpen(true);
+			}
 		}
 	}
 
 	const onWindowKeyDown = (event: KeyboardEvent): void => {
-		if (['Escape'].includes(event.code)) {
-			event.preventDefault();
-			menuClose();
+		const key: string = event.key;
+
+		if (key === 'Escape' || key === 'Tab') {
+			if (elemMenu.style.display === 'block') {
+				event.preventDefault();
+				menuClose();
+				node.focus();
+			}
+		} else if (key === 'ArrowDown') {
+			if (activeFocusIdx < focusableElems.length - 1) {
+				event.preventDefault();
+				activeFocusIdx += 1;
+				focusableElems[activeFocusIdx].focus();
+			}
+		} else if (key === 'ArrowUp') {
+			if (activeFocusIdx > 0) {
+				event.preventDefault();
+				activeFocusIdx -= 1;
+				focusableElems[activeFocusIdx].focus();
+			}
 		}
 	}
 	
