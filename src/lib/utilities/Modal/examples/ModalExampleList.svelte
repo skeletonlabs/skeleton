@@ -10,7 +10,7 @@
 	const storeFlavor: Writable<string> = writable('chocolate');
 
 	function onFormSubmit(): void {
-		$modalStore[0].response($storeFlavor);
+		if ($modalStore[0].response) $modalStore[0].response($storeFlavor);
 		modalStore.close();
 	}
 

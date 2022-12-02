@@ -154,7 +154,7 @@
 					<article class="modal-body {regionBody}">{@html $modalStore[0].body}</article>
 				{/if}
 				<!-- Image -->
-				{#if $modalStore[0]?.image}
+				{#if $modalStore[0]?.image && typeof $modalStore[0]?.image === 'string'}
 					<img class="modal-image {cModalImage}" src={$modalStore[0]?.image} alt="Modal" />
 				{/if}
 				<!-- Type -->
@@ -182,8 +182,8 @@
 				{:else if $modalStore[0].type === 'component'}
 					<!-- Template: Component -->
 					<!-- NOTE: users are repsonsible for handling all UI, including cancel/submit buttons -->
-					<svelte:component this={$modalStore[0].component.ref} {...$modalStore[0].component.props} {parent}>
-						{@html $modalStore[0].component.slot}
+					<svelte:component this={$modalStore[0].component?.ref} {...$modalStore[0].component?.props} {parent}>
+						{@html $modalStore[0].component?.slot}
 					</svelte:component>
 				{/if}
 			</div>
