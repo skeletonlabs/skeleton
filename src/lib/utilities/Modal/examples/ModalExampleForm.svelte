@@ -4,7 +4,7 @@
 	export let parent: any;
 
 	// Stores
-	import { modalStore } from '$lib/utilities/Modal/stores';
+	import { modalStore } from '@skeletonlabs/skeleton';
 
 	// Form Data
 	const formData = {

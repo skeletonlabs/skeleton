@@ -1,15 +1,12 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
 
-	import ListBox from '$lib/components/ListBox/ListBox.svelte';
-	import ListBoxItem from '$lib/components/ListBox/ListBoxItem.svelte';
+	import { ListBox, ListBoxItem, modalStore } from '@skeletonlabs/skeleton';
 
 	// Props
 	/** Exposes parent props to this component. */
 	export let parent: any;
 
-	// Stores
-	import { modalStore } from '$lib/utilities/Modal/stores';
 	const storeFlavor: Writable<string> = writable('chocolate');
 
 	function onFormSubmit(): void {
