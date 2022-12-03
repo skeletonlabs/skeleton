@@ -35,12 +35,13 @@ export function menu(node: HTMLElement, args: ArgsMenu) {
 	const menuOpen = (openWithFocus: boolean = false): void => {
 		elemMenu.style.display = 'block';
 		stateEventHandler(true);
+		activeFocusIdx = -1; // reset the focus index
 
 		if (openWithFocus) {
 			// Automatically focus the element if openWithFocus is true (for example if
 			// the menu was opened with Enter instead of with a click
-			activeFocusIdx = 0; // reset the focus index
-			focusableElems[0].focus();
+			activeFocusIdx = 0;
+			focusableElems[0]?.focus();
 		}
 	}
 
@@ -71,7 +72,7 @@ export function menu(node: HTMLElement, args: ArgsMenu) {
 	
 	// Interactive FALSE - any click closes the menu
 	const standardClickHandler = (event: any): void => {
-		// Any click closes the menu, except for when the node is clicked, since onTriggerClick will take care of closing it in this case. If we don't include this check this function would close the menu when the node is clicked and onTriggerClick reopens it again because display will be 'none' again.
+		// Any click closes the menu, except for when the node is clicked, since onTriggerClick() will take care of closing it in this case. If we don't include this check this function would close the menu when the node is clicked and onTriggerClick reopens it again because display will be 'none' again.
 		const outsideNode = node && !node.contains(event.target);
 		if (outsideNode) { menuClose(); }
 	}
@@ -118,23 +119,27 @@ export function menu(node: HTMLElement, args: ArgsMenu) {
 	const onWindowKeyDown = (event: KeyboardEvent): void => {
 		const key: string = event.key;
 
-		if (key === 'Escape' || key === 'Tab') {
-			if (elemMenu.style.display === 'block') {
+		if (elemMenu.style.display === 'block') {
+			if (key === 'Escape' || key === 'Tab') {
+				// Close the menu
 				event.preventDefault();
 				menuClose();
 				node.focus();
-			}
-		} else if (key === 'ArrowDown') {
-			if (activeFocusIdx < focusableElems.length - 1) {
+			} else if (key === 'ArrowDown' && activeFocusIdx < focusableElems.length - 1) {
+				// Move down the menu
 				event.preventDefault();
 				activeFocusIdx += 1;
-				focusableElems[activeFocusIdx].focus();
-			}
-		} else if (key === 'ArrowUp') {
-			if (activeFocusIdx > 0) {
+				focusableElems[activeFocusIdx]?.focus();
+			} else if (key === 'ArrowUp' && activeFocusIdx > 0) {
+				// Move up the menu
 				event.preventDefault();
 				activeFocusIdx -= 1;
-				focusableElems[activeFocusIdx].focus();
+				focusableElems[activeFocusIdx]?.focus();
+			} else if (key === 'ArrowUp' && focusableElems.length && activeFocusIdx === -1) {
+				// Start at the bottom of the menu if first key is arrow up key
+				event.preventDefault();
+				activeFocusIdx = focusableElems.length - 1;
+				focusableElems[activeFocusIdx]?.focus();
 			}
 		}
 	}
