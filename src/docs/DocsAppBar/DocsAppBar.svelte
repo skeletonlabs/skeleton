@@ -139,7 +139,7 @@
 		<!-- Theme -->
 		<!-- prettier-ignore -->
 		<div class="relative">
-			<button class="unstyled font-bold space-x-2" use:menu={{ menu: 'theme' }}>
+			<button class="unstyled font-bold space-x-2" use:menu={{ menu: 'theme', interactive: true }}>
 				<SvgIcon name="swatchbook" width="w-4" height="w-4" class="inline-block md:hidden" />
 				<span class="hidden md:inline-block">Theme</span>
 				<span class="opacity-50">▾</span>
