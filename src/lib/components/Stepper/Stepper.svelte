@@ -14,6 +14,8 @@
 	export let length: number = 0;
 	/** Set the Svelte transition duration. */
 	export let duration: number = 200;
+	/** Provide classes to set rounded style of the step index numbers. */
+	export let rounded: string = 'rounded-full';
 	/** Allow navigation by clicking on headers or step numbers.
 	 * @type {'enabled' | 'disabled' | 'unlocked'}
 	 */
@@ -37,6 +39,7 @@
 	setContext('dispatch', dispatch);
 	setContext('active', active);
 	setContext('length', length);
+	setContext('rounded', rounded);
 	setContext('navigateOnClick', navigateOnClick);
 	setContext('color', color);
 	setContext('background', background);
