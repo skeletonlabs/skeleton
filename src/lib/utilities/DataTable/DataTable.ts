@@ -95,7 +95,7 @@ export function dataTableSelectAll<T extends Record<PropertyKey, any>>(event: Ev
 /** Listens for clicks to a table heading with `data-sort` attribute. Updates `$dataTableModel.sort`. */
 export function dataTableSort<T extends Record<PropertyKey, any>>(event: Event, store: Writable<DataTableModel<T>>): void {
 	if (!(event.target instanceof Element)) return;
-	const newSortKey = event.target.getAttribute('data-sort') as keyof T | null | '';
+	const newSortKey: keyof T | null | '' = event.target.getAttribute('data-sort');
 	const model = get(store);
 	// If same key used repeated, toggle asc/dsc order
 	if (newSortKey !== '' && newSortKey === model.sortState.lastKey) model.sortState.asc = !model.sortState.asc;
@@ -128,14 +128,22 @@ function sortOrder<T extends Record<PropertyKey, unknown>>(order: string, store:
 // Pagination ---
 
 function paginationHandler<T extends Record<PropertyKey, unknown>>(store: DataTableModel<T>): void {
-	// store.sort = ''; // reset
 	if (store.pagination) {
 		// Slice for Pagination
-		store.filtered = store.filtered.slice(
+		const filtered = store.source.slice(
 			store.pagination.offset * store.pagination.limit, // start
 			store.pagination.offset * store.pagination.limit + store.pagination.limit // end
 		);
-		// Set Current Size
-		store.pagination.size = store.source.length;
+
+		// filter by search if currently searching
+		if (store.search !== '') {
+			store.filtered = store.filtered.slice(0, store.pagination.limit);
+			// Set Current Size
+			store.pagination.size = store.filtered.length;
+		} else {
+			store.filtered = filtered;
+			// Set Current Size
+			store.pagination.size = store.source.length;
+		}
 	}
 }
