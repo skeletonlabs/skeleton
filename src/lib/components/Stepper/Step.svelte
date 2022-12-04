@@ -20,7 +20,7 @@
 	const cLine: string = 'w-1 h-full';
 	const cLineBackground = 'bg-surface-300-600-token';
 	const cNumeral: string = 'font-bold text-base w-8 h-8 rounded-full flex justify-center items-center';
-	const cNumralBackground: string = 'bg-surface-300-600-token';
+	const cNumeralBackground: string = 'bg-surface-300-600-token';
 	const cDrawer: string = 'ml-1 space-y-4';
 	const cNav: string = 'flex items-center space-x-2';
 
@@ -60,7 +60,7 @@
 	$: classesLineBackground = !isLastItem ? `${classesLineBackgroundColor}` : '';
 	$: classesLine = `${cLine} ${classesLineBackground}`;
 	// Timeline (numeral)
-	$: classesNumeralBackground = index <= $active ? `${color} ${background}` : `${cNumralBackground}`;
+	$: classesNumeralBackground = index <= $active ? `${color} ${background}` : `${cNumeralBackground}`;
 	$: classesNumeral = `${cNumeral} ${classesNumeralBackground}`;
 	// Content Drawer
 	$: classesDrawerPadding = !isLastItem ? 'pb-10' : '0';
