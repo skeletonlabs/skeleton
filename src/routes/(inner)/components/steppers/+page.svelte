@@ -35,6 +35,7 @@
 	const lorem: string =
 		'Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque vel expedita porro vero, saepe dicta repellendus facilis ab accusamus unde, tempora ut nobis eum. Veniam, architecto corrupti.';
 	let exampleLockedState: boolean = false;
+	let exampleLockedStateNavigate: boolean = false;
 
 	const onComplete = () => {
 		alert('Complete was triggered!');
@@ -90,13 +91,13 @@
 							Prior completed steps will display a checkmark. However, tap the &uarr; button at any time to return to the previous step.
 						</p>
 					</Step>
-					<Step index={2} locked={!exampleLockedState}>
+					<Step index={2} locked={!exampleLockedStateNavigate}>
 						<p>
 							This Step component uses the <code>locked</code> property, which can prevent progress. This is ideal for multi-step forms,
 							such as registration. For now we'll simulate a successful validation condition using the
 							<em>unlock</em> option below.
 						</p>
-						<SlideToggle bind:checked={exampleLockedState}>Unlock</SlideToggle>
+						<SlideToggle bind:checked={exampleLockedStateNavigate}>Unlock</SlideToggle>
 					</Step>
 				</Stepper>
 			</div>
