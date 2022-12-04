@@ -4,7 +4,7 @@ export interface ModalComponent {
 	/** Import and provide your component reference. */
 	ref: any;
 	/** Provide a key/value pairs of component props. */
-	props?: Record<string, string>;
+	props?: Record<string, unknown>;
 	/** Provide an HTML template literal for the default slot. */
 	slot?: string;
 }
