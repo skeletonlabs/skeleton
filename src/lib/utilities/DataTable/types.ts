@@ -8,11 +8,11 @@ export interface DataTableModel<T extends Record<PropertyKey, unknown>> {
 	/** The filtered source data, shown in UI. */
 	filtered: Data<T>;
 	/** An array of selected row objects. */
-	selection?: T[];
+	selection: Data<T>;
 	/** The current search term. */
-	search?: string;
+	search: string;
 	/** The current sort key. */
-	sort?: keyof T | '';
+	sort: keyof T | '';
 	/** The current state of the sort key. */
 	sortState: { lastKey: keyof T | '' | null; asc: boolean };
 	/** The Paginator component settings. */
@@ -20,8 +20,6 @@ export interface DataTableModel<T extends Record<PropertyKey, unknown>> {
 }
 
 export interface DataTableOptions<T> {
-	/** An array of selected row objects. */
-	selection?: T[];
 	/** The current search term. */
 	search?: string;
 	/** The current sort key. */

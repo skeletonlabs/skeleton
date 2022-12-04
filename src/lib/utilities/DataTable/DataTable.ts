@@ -20,7 +20,9 @@ export function createDataTableStore<T extends Record<PropertyKey, any>>(
 		source: newSource,
 		filtered: newSource,
 		sortState: { lastKey: '', asc: true },
-		...options
+		selection: [],
+		search: options.search ?? '',
+		sort: options.sort ?? ''
 	});
 
 	return store;
@@ -29,8 +31,6 @@ export function createDataTableStore<T extends Record<PropertyKey, any>>(
 // Data Table Handler
 /** Listens for changes to `$dataTableModel` and triggers: search, selection, sort, and pagination. */
 export function dataTableHandler<T extends Record<PropertyKey, any>>(store: DataTableModel<T>): void {
-	// Reset
-	store.filtered = store.source;
 	// Then
 	searchHandler(store);
 	selectionHandler(store);
@@ -54,7 +54,7 @@ export function dataTableStorePut<T extends Record<PropertyKey, unknown>, K exte
 // Search ---
 
 function searchHandler<T extends Record<PropertyKey, unknown>>(store: DataTableModel<T>): void {
-	store.filtered = store.filtered.filter((rowObj) => {
+	store.filtered = store.source.filter((rowObj) => {
 		const formattedSearchTerm = store.search?.toLowerCase() || '';
 		return Object.values(rowObj).join(' ').toLowerCase().includes(formattedSearchTerm);
 	});
@@ -63,7 +63,7 @@ function searchHandler<T extends Record<PropertyKey, unknown>>(store: DataTableM
 // Selection ---
 
 function selectionHandler<T extends Record<PropertyKey, unknown>>(store: DataTableModel<T>): void {
-	store.selection = store.filtered.filter((row) => row.dataTableChecked === true);
+	store.selection = store.source.filter((row) => row.dataTableChecked === true); // ? should this be filtered by source or filter?
 }
 
 /** Allows you to dynamically pre-select rows on-demand. */
@@ -83,7 +83,7 @@ export function dataTableSelectAll<T extends Record<PropertyKey, any>>(event: Ev
 	if (event.target && 'checked' in event.target && typeof event.target.checked === 'boolean') {
 		const isAllChecked = event.target.checked;
 		const storeFiltered = get(store).source.map((row) => {
-			row.dataTableChecked = isAllChecked;
+			row.dataTableChecked = isAllChecked; // TODO: side effect, mutating source
 			return row;
 		});
 		dataTableStorePut(store, 'filtered', storeFiltered);
@@ -113,7 +113,7 @@ function sortHandler<T extends Record<PropertyKey, unknown>>(store: DataTableMod
 
 function sortOrder<T extends Record<PropertyKey, unknown>>(order: string, store: DataTableModel<T>): void {
 	const key = store.sort ?? '';
-	store.filtered.sort((x, y) => {
+	store.filtered = store.source.sort((x, y) => {
 		// If descending, swap x/y
 		if (order === 'dsc') [x, y] = [y, x];
 		// Sort logic

@@ -45,7 +45,6 @@
 	// Store
 	const dataTableModel = createDataTableStore(httpPosts, {
 		sort: '',
-		selection: [],
 		search: '',
 		pagination: { offset: 0, limit: 5, size: 0, amounts: [1, 2, 5, 10] }
 	});
