@@ -14,8 +14,10 @@
 	export let length: number = 0;
 	/** Set the Svelte transition duration. */
 	export let duration: number = 200;
-	/** Allow navigation by clicking on headers or step numbers. */
-	export let navigateOnClick: boolean = false;
+	/** Allow navigation by clicking on headers or step numbers.
+	 * @type {'enabled' | 'disabled' | 'unlocked'}
+	 */
+	export let navigateOnClick: string = 'disabled';
 
 	// Props (timeline)
 	/** Provide classes to set the numeral text color. */

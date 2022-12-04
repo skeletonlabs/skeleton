@@ -78,12 +78,13 @@
 				</Stepper>
 			</div>
 			<div class="card card-body">
-				<Stepper active={activeNavigate} length={3} on:complete={onComplete} navigateOnClick={true}>
+				<Stepper active={activeNavigate} length={3} on:complete={onComplete} navigateOnClick={'unlocked'}>
 					<Step index={0}>
 						<svelte:fragment slot="header"><h4>Step 1 - Get Started!</h4></svelte:fragment>
 						<p>
-							This example uses <code>navigateOnClick</code>. Tap <em>next</em> or the index number or header to step to a specific step. A
-							step is not clickable if <code>locked</code> is enabled.
+							This example uses <code>navigateOnClick</code> set to <code>'unlocked'</code>, so only unlocked steps are clickable. Tap
+							<em>next</em>
+							or the index number or header to step to a specific step.
 						</p>
 					</Step>
 					<Step index={1}>

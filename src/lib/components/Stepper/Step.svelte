@@ -29,7 +29,7 @@
 	export let active: Writable<number> = getContext('active');
 	export let length: number = getContext('length');
 	export let duration: number = getContext('duration');
-	export let navigateOnClick: boolean = getContext('navigateOnClick');
+	export let navigateOnClick: string = getContext('navigateOnClick');
 	// Context (overrides)
 	export let color: string = getContext('color');
 	export let background: string = getContext('background');
@@ -68,7 +68,7 @@
 	// Content Nav
 	$: classesNav = `${cNav}`;
 	// Show cursor
-	$: isClickable = navigateOnClick && !locked;
+	$: isClickable = navigateOnClick === 'enabled' || (navigateOnClick === 'unlocked' && !locked);
 </script>
 
 <div class="step {classesBase}" data-testid="step">
