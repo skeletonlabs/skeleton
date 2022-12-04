@@ -29,6 +29,7 @@
 	export let active: Writable<number> = getContext('active');
 	export let length: number = getContext('length');
 	export let duration: number = getContext('duration');
+	export let navigateOnClick: boolean = getContext('navigateOnClick');
 	// Context (overrides)
 	export let color: string = getContext('color');
 	export let background: string = getContext('background');
@@ -45,6 +46,9 @@
 	}
 	function onComplete() {
 		dispatch('complete', {});
+	}
+	function stepToIndex(): void {
+		if (isClickable) active.set(index);
 	}
 
 	// Reactive
@@ -63,13 +67,15 @@
 	$: classesDrawer = `${cDrawer} ${classesDrawerPadding}`;
 	// Content Nav
 	$: classesNav = `${cNav}`;
+	// Show cursor
+	$: isClickable = navigateOnClick && !locked;
 </script>
 
 <div class="step {classesBase}" data-testid="step">
 	<!-- Timeline -->
 	<div class="step-timeline flex flex-col items-center">
 		<!-- Numeral -->
-		<div class="step-numeral flex-none {classesNumeral}">
+		<div class="step-numeral flex-none {classesNumeral}" class:cursor-pointer={isClickable} on:click={stepToIndex} on:keypress>
 			{#if locked}
 				🔒
 			{:else}
@@ -82,7 +88,9 @@
 	<!-- Content -->
 	<div class="step-content {classesDrawer}">
 		<!-- Slot: Header -->
-		<header class="step-header"><slot name="header"><h4>Step {index + 1}</h4></slot></header>
+		<header class="step-header" class:cursor-pointer={isClickable} on:click={stepToIndex} on:keypress>
+			<slot name="header"><h4>Step {index + 1}</h4></slot>
+		</header>
 		{#if index === $active}
 			<div class="step-body space-y-4" transition:slide|local={{ duration }}>
 				<!-- Slot: Default -->
