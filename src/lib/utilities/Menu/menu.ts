@@ -103,17 +103,13 @@ export function menu(node: HTMLElement, args: ArgsMenu) {
 	// A11y Input Handlers ---
 
 	const onTriggerKeyDown = (event: KeyboardEvent): void => {
-		if (['Enter', 'Space'].includes(event.code)) {
+		const key: string = event.key;
+		
+		if (key === 'Enter' || key === 'Space') {
 			event.preventDefault();
 
-			// Trigger Menu
-			// If menu is closed we open it and vice versa
-			if (elemMenu.style.display === 'block') {
-				menuClose();
-			} else {
-				autoUpdateOrigin();
-				menuOpen(true);
-			}
+			// Toggle menu
+			onTriggerClick();
 		}
 	}
 
