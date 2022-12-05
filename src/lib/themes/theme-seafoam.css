@@ -11,12 +11,12 @@
 	--theme-font-color-dark: var(--color-accent-100);
 	--theme-rounded-base: 16px;
 	--theme-rounded-container: 16px;
-	/* Text Colors */
-	--text-on-primary-token: #000;
-	--text-on-accent-token: #000;
-	--text-on-tertiary-token: #fff;
-	--text-on-warning-token: #fff;
-	--text-on-surface-token: #fff;
+	/* On Colors */
+	--on-primary: #000;
+	--on-accent: #000;
+	--on-tertiary: #fff;
+	--on-warning: #fff;
+	--on-surface: #fff;
 	/* =~= Theme Colors | Tailwind =~= */
 	/* teal | #14b8a6 */
 	--color-primary-50: 240 253 250; /* ⬅ #f0fdfa */

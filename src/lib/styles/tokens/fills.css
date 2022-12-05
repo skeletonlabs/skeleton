@@ -18,18 +18,18 @@
 	/* Text color when on select background colors. */
 
 	.fill-on-primary-token {
-		fill: var(--text-on-primary-token);
+		fill: var(--on-primary);
 	}
 	.fill-on-accent-token {
-		fill: var(--text-on-accent-token);
+		fill: var(--on-accent);
 	}
 	.fill-on-tertiary-token {
-		fill: var(--text-on-tertiary-token);
+		fill: var(--on-tertiary);
 	}
 	.fill-on-warning-token {
-		fill: var(--text-on-warning-token);
+		fill: var(--on-warning);
 	}
 	.fill-on-surface-token {
-		fill: var(--text-on-surface-token);
+		fill: var(--on-surface);
 	}
 }

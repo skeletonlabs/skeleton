@@ -39,6 +39,12 @@
 	--theme-font-color-dark: ${$storeFormData.fontColorDark};
 	--theme-rounded-base: ${$storeFormData.roundedBase};
 	--theme-rounded-container: ${$storeFormData.roundedContainer};
+	/* =~= Theme On-X Colors =~= */
+	--on-primary: ${$storeFormData.onPrimary};
+	--on-accent: ${$storeFormData.onAccent};
+	--on-tertiary: ${$storeFormData.onTertiary};
+	--on-warning: ${$storeFormData.onWarning};
+	--on-surface: ${$storeFormData.onSurface};
 	/* =~= Theme Colors | ${$storeMode ? 'Tailwind' : 'Hex'} =~= */
 	/* ${currentPalette.primary.label} | ${currentPalette.primary.shades['500'].hex} */
 	${genCssColorStrings('primary', currentPalette.primary)}
@@ -63,18 +69,21 @@
 <div class="themer space-y-4">
 
 	<!-- Color Selection -->
-	<div class="grid grid-cols-1 xl:grid-cols-[1fr_auto] gap-2">
-		<!-- Left: Form -->
-		<div class="card card-body flex flex-col justify-center space-y-4">
+	<div class="card card-body flex flex-col space-y-4">
 			<!-- Header -->
-			<header class="flex justify-between items-center">
-				<RadioGroup selected={storeMode}>
-					<RadioItem value={true}>Tailwind</RadioItem>
-					<RadioItem value={false}>Hex</RadioItem>
-				</RadioGroup>
-				<button class="btn btn-ghost-surface" on:click={onRandomize} disabled={!$storeMode}>Randomize</button>
+			<header class="flex justify-between items-center gap-4">
+				<div class="flex justify-between items-center space-x-4">
+					<RadioGroup selected={storeMode}>
+						<RadioItem value={true}>Tailwind</RadioItem>
+						<RadioItem value={false}>Hex</RadioItem>
+					</RadioGroup>
+					<button class="btn btn-ghost-surface" on:click={onRandomize} disabled={!$storeMode}>Randomize</button>
+				</div>
+				<div>
+					<LightSwitch />
+				</div>
 			</header>
-			<hr />
+			<hr class="col-span-2" />
 			<!-- Color Inputs -->
 			{#each semanticNames as colorKey}
 				<div class="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-2 md:gap-4">
@@ -94,15 +103,36 @@
 					<Swatches palette={currentPalette[colorKey].shades} />
 				</div>
 			{/each}
-		</div>
-		<!-- Right: Options -->
-		<div class="card card-body grid grid-cols-2 gap-4">
-			<!-- LightSwitch -->
-			<div class="col-span-2 flex justify-between items-center space-x-2">
-				<strong>Settings</strong>
-				<LightSwitch />
-			</div>
-			<hr class="col-span-2" />
+	</div>
+
+	<!-- On-Colors -->
+	<div class="card card-body grid grid-cols-1 md:grid-cols-5 gap-4">
+		<select bind:value={$storeFormData.onPrimary} class="unstyled bg-primary-500 text-on-primary-token border-none rounded-token w-full">
+			<option value='#000'>Black</option>
+			<option value='#fff'>White</option>
+		</select>
+		<select bind:value={$storeFormData.onAccent} class="unstyled bg-accent-500 text-on-accent-token border-none rounded-token w-full">
+			<option value='#000'>Black</option>
+			<option value='#fff'>White</option>
+		</select>
+		<select bind:value={$storeFormData.onTertiary} class="unstyled bg-tertiary-500 text-on-tertiary-token border-none rounded-token w-full">
+			<option value='#000'>Black</option>
+			<option value='#fff'>White</option>
+		</select>
+		<select bind:value={$storeFormData.onWarning} class="unstyled bg-warning-500 text-on-warning-token border-none rounded-token w-full">
+			<option value='#000'>Black</option>
+			<option value='#fff'>White</option>
+		</select>
+		<select bind:value={$storeFormData.onSurface} class="unstyled bg-surface-500 text-on-surface-token border-none rounded-token w-full">
+			<option value='#000'>Black</option>
+			<option value='#fff'>White</option>
+		</select>
+	</div>
+
+	<!-- Settings -->
+	<div class="card card-body grid grid-cols-1 md:grid-cols-2 gap-4">
+		<!-- Font Settings -->
+		<div class="space-y-4">
 			<!-- --theme-font-family-heading -->
 			<label>
 				<span>Font Family <small>(headings)</small></span>
@@ -175,6 +205,9 @@
 					<option value="var(--color-accent-50)">Accent 50</option>
 				</select>
 			</label>
+		</div>
+		<!-- Other Settings -->
+		<div class="space-y-4">
 			<!-- --theme-rounded-base -->
 			<label>
 				<span>Rounded</span>
@@ -214,16 +247,19 @@
 					<option value="4px">4px</option>
 				</select>
 			</label>
-			<hr class="col-span-2" />
-			<!-- Preview -->
-			<div class="col-span-2 place-self-center">
-				<SlideToggle bind:checked={$storePreview}>Live Preview</SlideToggle>
-			</div>
-			<!-- Code Toggle -->
-			<button class="col-span-2 btn btn-filled-primary" on:click={()=>{showCode=!showCode}}>
-				{!showCode ? 'Show' : 'Hide'} Theme CSS <span class="text-xs ml-4">{@html showCode ? '&#9650;' : '&#9660;'}</span>
-			</button>
 		</div>
+	</div>
+
+	<!-- Preview / Generate Actions -->
+	<div class="card card-body flex justify-between items-center space-x-4">
+		<!-- Preview -->
+		<div class="col-span-2 place-self-center">
+			<SlideToggle bind:checked={$storePreview}>Live Preview</SlideToggle>
+		</div>
+		<!-- Code Toggle -->
+		<button class="col-span-2 btn btn-filled-primary btn-lg" on:click={()=>{showCode=!showCode}}>
+			{!showCode ? 'Show' : 'Hide'} Theme CSS <span class="text-xs ml-4">{@html showCode ? '&#9650;' : '&#9660;'}</span>
+		</button>
 	</div>
 
 	<!-- Preview Enabled Alert -->

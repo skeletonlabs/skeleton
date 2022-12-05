@@ -12,12 +12,12 @@
 	--theme-font-color-dark: var(--color-primary-100);
 	--theme-rounded-base: 9999px;
 	--theme-rounded-container: 24px;
-	/* Text Colors */
-	--text-on-primary-token: #000;
-	--text-on-accent-token: #000;
-	--text-on-tertiary-token: #000;
-	--text-on-warning-token: #000;
-	--text-on-surface-token: #fff;
+	/* On Colors */
+	--on-primary: #000;
+	--on-accent: #000;
+	--on-tertiary: #000;
+	--on-warning: #000;
+	--on-surface: #fff;
 	/* =~= Theme Colors | Tailwind =~= */
 	/* yellow | #eab308 */
 	--color-primary-50: 254 252 232; /* ⬅ #fefce8 */

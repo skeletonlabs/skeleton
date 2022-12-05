@@ -27,18 +27,18 @@
 	/* Text color when on select background colors. */
 
 	.text-on-primary-token {
-		color: var(--text-on-primary-token);
+		color: var(--on-primary);
 	}
 	.text-on-accent-token {
-		color: var(--text-on-accent-token);
+		color: var(--on-accent);
 	}
 	.text-on-tertiary-token {
-		color: var(--text-on-tertiary-token);
+		color: var(--on-tertiary);
 	}
 	.text-on-warning-token {
-		color: var(--text-on-warning-token);
+		color: var(--on-warning);
 	}
 	.text-on-surface-token {
-		color: var(--text-on-surface-token);
+		color: var(--on-surface);
 	}
 }

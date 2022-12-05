@@ -10,12 +10,12 @@
 	--theme-font-color-dark: var(--color-tertiary-50);
 	--theme-rounded-base: 9999px;
 	--theme-rounded-container: 24px;
-	/* Text Colors */
-	--text-on-primary-token: #fff;
-	--text-on-accent-token: #000;
-	--text-on-tertiary-token: #000;
-	--text-on-warning-token: #fff;
-	--text-on-surface-token: #fff;
+	/* On Colors */
+	--on-primary: #fff;
+	--on-accent: #000;
+	--on-tertiary: #000;
+	--on-warning: #fff;
+	--on-surface: #fff;
 	/* =~= Theme Colors | Tailwind =~= */
 	/* pink | #ec4899 */
 	--color-primary-50: 253 242 248; /* ⬅ #fdf2f8 */
