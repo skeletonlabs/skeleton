@@ -1,0 +1,44 @@
+/* Design Tokens: Backgrounds */
+
+@layer utilities {
+	/* === Background === */
+
+	/* Primary */
+	.bg-hover-token {
+		@apply hover:bg-primary-500/10;
+	}
+	.bg-active-token {
+		@apply bg-primary-500;
+	}
+
+	/* Accent */
+	.bg-accent-hover-token {
+		@apply hover:bg-accent-500/10;
+	}
+	.bg-accent-active-token {
+		@apply bg-accent-500 text-accent-50 dark:text-accent-50;
+	}
+
+	/* Backdrop Shim */
+	.bg-backdrop-token {
+		@apply bg-surface-400/70 dark:bg-surface-900/70;
+	}
+
+	/* Background: Surface (darkest -> lightest) */
+	/* https://user-images.githubusercontent.com/1509726/195171203-423e5b84-8763-40f1-b3ea-4cb2b8e38108.png */
+	.bg-surface-50-900-token {
+		@apply bg-surface-50 dark:bg-surface-900;
+	}
+	.bg-surface-100-800-token {
+		@apply bg-surface-100 dark:bg-surface-800;
+	}
+	.bg-surface-200-700-token {
+		@apply bg-surface-200 dark:bg-surface-700;
+	}
+	.bg-surface-300-600-token {
+		@apply bg-surface-300 dark:bg-surface-600;
+	}
+	.bg-surface-400-500-token {
+		@apply bg-surface-400 dark:bg-surface-500;
+	}
+}

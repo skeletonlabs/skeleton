@@ -1,0 +1,16 @@
+/* Design Tokens: SVG Fill Color */
+
+@layer utilities {
+	/* === SVG Fill === */
+	/* Light / Dark / Auto */
+
+	.fill-base-token {
+		fill: rgba(var(--theme-font-color-base));
+	}
+	.fill-dark-token {
+		fill: rgba(var(--theme-font-color-dark));
+	}
+	.fill-token {
+		@apply fill-base-token dark:fill-dark-token;
+	}
+}

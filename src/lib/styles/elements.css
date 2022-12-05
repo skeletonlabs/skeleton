@@ -1,6 +1,6 @@
-/* Stylesheet Add-On: elements.css */
+/* Stylesheet: elements.css */
 /* Import AFTER your theme, but BEFORE your global stylesheet. */
-/* Recommended as the LAST add-on in the set */
+/* Recommended as the LAST stylesheet in the set */
 
 @import 'elements/badges.css';
 @import 'elements/buttons.css';

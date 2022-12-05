@@ -19,7 +19,7 @@
 	<svelte:fragment slot="sandbox">
 		<section class="card p-4 grid grid-cols-[1fr_auto] gap-4">
 			<div class="flex items-center">
-				<p>While we formalize this feature, please see the stylesheet directly as a source reference.</p>
+				<p>Please see the stylesheet source while we formalize this feature.</p>
 			</div>
 			<a
 				class="btn btn-filled-accent place-self-center"
