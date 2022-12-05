@@ -41,7 +41,7 @@
 	[type='file'],
 	[multiple],
 	textarea,
-	select:not(.unstyled) {
+	select {
 		/* Base */
 		@apply w-full caret-accent-500 focus:ring-accent-500 transition-all duration-200 hover:brightness-110;
 		/* Text */
