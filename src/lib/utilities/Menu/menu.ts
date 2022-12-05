@@ -25,9 +25,6 @@ export function menu(node: HTMLElement, args: ArgsMenu) {
 		autoUpdateOrigin();
 		// Apply a11y attributes
 		elemMenu.setAttribute('role', 'menu');
-
-		// Create array of all focusable elements, so that we can iterate through them
-		focusableElems = Array.from(elemMenu.querySelectorAll(elemWhitelist));
 	}
 
 	// Menu States ---
@@ -35,7 +32,11 @@ export function menu(node: HTMLElement, args: ArgsMenu) {
 	const menuOpen = (openWithFocus: boolean = false): void => {
 		elemMenu.style.display = 'block';
 		stateEventHandler(true);
-		activeFocusIdx = -1; // reset the focus index
+
+		// Create array of all focusable elements, so that we can iterate through them
+		focusableElems = Array.from(elemMenu.querySelectorAll(elemWhitelist));
+		// reset the focus index
+		activeFocusIdx = -1; 
 
 		if (openWithFocus) {
 			// Automatically focus the element if openWithFocus is true (for example if
