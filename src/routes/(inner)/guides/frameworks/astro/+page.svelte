@@ -149,7 +149,7 @@ import { AppShell, AppBar } from '@skeletonlabs/skeleton';
 			language="html"
 			code={`
 ---
-import LayoutRoot from './layouts/LayoutRoot.astro';
+import LayoutRoot from '../layouts/LayoutRoot.astro';
 import { GradientHeading } from '@skeletonlabs/skeleton';
 ---
 <LayoutRoot>
