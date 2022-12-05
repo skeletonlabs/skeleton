@@ -32,7 +32,7 @@
 		const s: DrawerSettings = {
 			id: 'demo',
 			position: 'left',
-			bgDrawer: 'bg-primary-500',
+			bgDrawer: 'bg-primary-500 text-on-primary-token',
 			bgBackdrop: 'bg-primary-500/50',
 			meta: 'Styled Drawer'
 		};
@@ -153,8 +153,8 @@ function drawerOpenStyled(): void {
 		id: 'demo',
 		// Provide your prop overrides
 		position: 'right',
-		bgBackdrop: 'bg-green-500/70',
-		bgDrawer: 'bg-red-500'
+		bgDrawer: 'bg-primary-500 text-on-primary-token',
+		bgBackdrop: 'bg-primary-500/50',
 	};
 	drawerStore.open(settings);
 }

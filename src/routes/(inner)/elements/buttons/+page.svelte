@@ -225,7 +225,7 @@
 				</div>
 				<!-- Ringed -->
 				<div class="grid grid-cols-1 gap-4">
-					<button class="btn btn-ghost-surface">ghost</button>
+					<button class="btn btn-ghost">ghost</button>
 					<button class="btn btn-ghost-primary">ghost-primary</button>
 					<button class="btn btn-ghost-accent">ghost-accent</button>
 					<button class="btn btn-ghost-tertiary">ghost-tertiary</button>
@@ -255,7 +255,7 @@
 				</div>
 				<!-- Ringed -->
 				<div class="grid grid-cols-1 gap-4">
-					<button class="btn-icon btn-ghost-surface">💀</button>
+					<button class="btn-icon btn-ghost">💀</button>
 					<button class="btn-icon btn-ghost-primary">💀</button>
 					<button class="btn-icon btn-ghost-accent">💀</button>
 					<button class="btn-icon btn-ghost-tertiary">💀</button>

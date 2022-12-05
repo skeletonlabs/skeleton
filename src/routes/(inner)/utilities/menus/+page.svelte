@@ -65,10 +65,8 @@
 			<!-- Dropdown 4 (note: don't add .menu-container here) -->
 			<span>
 				<button class="btn btn-ghost-surface" use:menu={{ menu: 'position', fixed: true }}>Position</button>
-				<div class="absolute top-2 right-2 card p-4 w-64 shadow-xl !bg-primary-500" data-menu="position">
-					<p>
-						This menu is arbitrarily positioned in the top-right corner of the page. We've made it a bright color to catch you attention.
-					</p>
+				<div class="absolute top-2 right-2 card p-4 w-64 shadow-xl !bg-primary-500 text-on-primary-token" data-menu="position">
+					This menu is arbitrarily positioned in the top-right corner of the page. We've made it a bright color to catch you attention.
 				</div>
 			</span>
 			<!-- Dropdown 5 -->

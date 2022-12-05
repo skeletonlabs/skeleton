@@ -57,7 +57,7 @@
 	function toastStyled(): void {
 		const t: ToastSettings = {
 			message: 'This message will have a warning color background.',
-			classes: 'bg-warning-500'
+			classes: 'bg-warning-500 text-on-warning-token'
 		};
 		toastStore.trigger(t);
 	}
@@ -138,7 +138,7 @@ function triggerToast(): void {
 const t: ToastSettings = {
 	message: 'This message will have a colorful background.',
 	// Add your custom classes here:
-	classes: 'bg-warning-500'
+	classes: 'bg-warning-500 text-on-warning-token'
 };
 			`}
 			/>

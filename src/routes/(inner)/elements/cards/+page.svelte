@@ -27,10 +27,10 @@
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 			<!-- Colors -->
-			<div class="card card-body !bg-primary-500 text-white text-center">Primary</div>
-			<div class="card card-body !bg-accent-500 text-white text-center">Accent</div>
-			<div class="card card-body !bg-tertiary-500 text-white text-center">Tertiary</div>
-			<div class="card card-body !bg-warning-500 text-white text-center">Warning</div>
+			<div class="card card-body !bg-primary-500 text-on-primary-token text-center">Primary</div>
+			<div class="card card-body !bg-accent-500 text-on-accent-token text-center">Accent</div>
+			<div class="card card-body !bg-tertiary-500 text-on-tertiary-token text-center">Tertiary</div>
+			<div class="card card-body !bg-warning-500 text-on-warning-token text-center">Warning</div>
 			<!-- Minimal -->
 			<div class="md:col-span-2 card card-body flex justify-center items-center"><span>Minimal</span></div>
 			<!-- Detailed -->
