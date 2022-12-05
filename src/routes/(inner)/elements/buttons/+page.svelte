@@ -36,10 +36,10 @@
 
 	// Reactive
 	$: btnValues = {
-		background: 'bg-primary-500',
+		variant: 'btn-filled-primary',
 		size: $storeBtnSize,
 		ring: undefined,
-		color: 'text-white'
+		color: undefined
 	};
 	$: btnClases = Object.values(btnValues)
 		.filter((x) => x !== undefined)
@@ -94,20 +94,29 @@
 						<RadioItem value="btn-xl">btn-xl</RadioItem>
 					</RadioGroup>
 				</label>
-				<!-- Background -->
+				<!-- Variant -->
 				<label>
-					<span>Background</span>
-					<select name="background" id="background" bind:value={btnValues.background}>
+					<span>Variant</span>
+					<select name="variant" id="variant" bind:value={btnValues.variant}>
 						<option value={undefined}>None</option>
-						<option value="bg-primary-500">bg-primary-500</option>
-						<option value="bg-accent-500">bg-accent-500</option>
-						<option value="bg-tertiary-500">bg-tertiary-500</option>
-						<option value="bg-warning-500">bg-warning-500</option>
-						<option value="bg-surface-500">bg-surface-500</option>
-						<option value="bg-primary-500/30">bg-primary-500/30</option>
-						<option value="bg-accent-500/30">bg-accent-500/30</option>
-						<option value="bg-warning-500/30">bg-warning-500/30</option>
-						<option value="bg-surface-500/30">bg-surface-500/30</option>
+						<!-- Filled -->
+						<option value="btn-filled-primary">btn-filled-primary</option>
+						<option value="btn-filled-accent">btn-filled-accent</option>
+						<option value="btn-filled-tertiary">btn-filled-tertiary</option>
+						<option value="btn-filled-warning">btn-filled-warning</option>
+						<option value="btn-filled-surface">btn-filled-surface</option>
+						<!-- Ringed -->
+						<option value="btn-ringed-primary">btn-ringed-primary</option>
+						<option value="btn-ringed-accent">btn-ringed-accent</option>
+						<option value="btn-ringed-tertiary">btn-ringed-tertiary</option>
+						<option value="btn-ringed-warning">btn-ringed-warning</option>
+						<option value="btn-ringed-surface">btn-ringed-surface</option>
+						<!-- Ghost -->
+						<option value="btn-ghost-primary">btn-ghost-primary</option>
+						<option value="btn-ghost-accent">btn-ghost-accent</option>
+						<option value="btn-ghost-tertiary">btn-ghost-tertiary</option>
+						<option value="btn-ghost-warning">btn-ghost-warning</option>
+						<option value="btn-ghost-surface">btn-ghost-surface</option>
 					</select>
 				</label>
 				<!-- Ring -->
@@ -117,6 +126,7 @@
 						<option value={undefined}>None</option>
 						<option value="ring-2 ring-primary-500 ring-inset">ring-2 ring-primary-500 ring-inset</option>
 						<option value="ring-2 ring-accent-500 ring-inset">ring-2 ring-accent-500 ring-inset</option>
+						<option value="ring-2 ring-tertiary-500 ring-inset">ring-2 ring-tertiary-500 ring-inset</option>
 						<option value="ring-2 ring-warning-500 ring-inset">ring-2 ring-warning-500 ring-inset</option>
 						<option value="ring-2 ring-surface-500 ring-inset">ring-2 ring-surface-500 ring-inset</option>
 					</select>
@@ -130,6 +140,7 @@
 						<option value="text-black">text-black</option>
 						<option value="text-primary-500">text-primary-500</option>
 						<option value="text-accent-500">text-accent-500</option>
+						<option value="text-tertiary-500">text-tertiary-500</option>
 						<option value="text-warning-500">text-warning-500</option>
 						<option value="text-surface-500">text-surface-500</option>
 					</select>

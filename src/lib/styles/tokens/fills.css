@@ -13,4 +13,23 @@
 	.fill-token {
 		@apply fill-base-token dark:fill-dark-token;
 	}
+
+	/* === On-X Colors === */
+	/* Text color when on select background colors. */
+
+	.fill-on-primary-token {
+		fill: var(--text-on-primary-token);
+	}
+	.fill-on-accent-token {
+		fill: var(--text-on-accent-token);
+	}
+	.fill-on-tertiary-token {
+		fill: var(--text-on-tertiary-token);
+	}
+	.fill-on-warning-token {
+		fill: var(--text-on-warning-token);
+	}
+	.fill-on-surface-token {
+		fill: var(--text-on-surface-token);
+	}
 }

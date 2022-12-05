@@ -15,7 +15,7 @@
 
 	// Props (Styles)
 	/** Provide classes to set the SVG fill color.*/
-	export let fill = 'fill-token';
+	export let fill = 'fill-current';
 	/** Provide classes to set the width color.*/
 	export let width = 'w-5';
 	/** Provide classes to set the height color.*/

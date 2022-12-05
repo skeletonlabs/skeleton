@@ -208,7 +208,7 @@
 					<span>Become a Sponsor</span>
 					<span>&rarr;</span>
 				</a> -->
-				<a class="btn btn-filled-primary" href="email:admin@skeleton.dev">Contact Us</a>
+				<a class="btn btn-ghost-surface" href="email:admin@skeleton.dev">Contact Us</a>
 			</div>
 		</section>
 	</div>

@@ -22,4 +22,23 @@
 	.text-token {
 		@apply text-base-token dark:text-dark-token;
 	}
+
+	/* === On-X Colors === */
+	/* Text color when on select background colors. */
+
+	.text-on-primary-token {
+		color: var(--text-on-primary-token);
+	}
+	.text-on-accent-token {
+		color: var(--text-on-accent-token);
+	}
+	.text-on-tertiary-token {
+		color: var(--text-on-tertiary-token);
+	}
+	.text-on-warning-token {
+		color: var(--text-on-warning-token);
+	}
+	.text-on-surface-token {
+		color: var(--text-on-surface-token);
+	}
 }

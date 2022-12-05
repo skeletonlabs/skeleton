@@ -16,7 +16,7 @@
 	/** Provide classes to set the background color. */
 	export let background = 'bg-surface-100-800-token';
 	/** Provide classes to set the selected tile background. '!' recommended. */
-	export let accent = '!bg-primary-500'; //
+	export let accent = 'bg-active-token'; //
 	/** Provide classes to set the width. */
 	export let width = 'w-[70px] sm:w-20';
 	/** Provide classes to set the height. */

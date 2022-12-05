@@ -152,47 +152,47 @@
 				<hr>
 				<nav class="list-nav p-4 max-h-64 overflow-y-auto">
 					<ul>
-						<li class="option" class:!bg-primary-500={$storeTheme === 'skeleton'} on:click={() => { storeTheme.set('skeleton') }} on:keypress> 
+						<li class="option" class:bg-active-token={$storeTheme === 'skeleton'} on:click={() => { storeTheme.set('skeleton') }} on:keypress> 
 							<span>💀</span>
 							<span>Skeleton</span>
 						</li>
-						<li class="option" class:!bg-primary-500={$storeTheme === 'modern'} on:click={() => { storeTheme.set('modern') }} on:keypress>
+						<li class="option" class:bg-active-token={$storeTheme === 'modern'} on:click={() => { storeTheme.set('modern') }} on:keypress>
 							<span>🤖</span>
 							<span>Modern</span>
 						</li>
-						<li class="option" class:!bg-primary-500={$storeTheme === 'rocket'} on:click={() => { storeTheme.set('rocket') }} on:keypress> 
+						<li class="option" class:bg-active-token={$storeTheme === 'rocket'} on:click={() => { storeTheme.set('rocket') }} on:keypress> 
 							<span>🚀</span>
 							<span>Rocket</span>
 						</li>
-						<li class="option" class:!bg-primary-500={$storeTheme === 'seafoam'} on:click={() => { storeTheme.set('seafoam') }} on:keypress>
+						<li class="option" class:bg-active-token={$storeTheme === 'seafoam'} on:click={() => { storeTheme.set('seafoam') }} on:keypress>
 							<span>🐚</span>
 							<span>Seafoam</span>
 						</li>
-						<li class="option" class:!bg-primary-500={$storeTheme === 'vintage'} on:click={() => { storeTheme.set('vintage') }} on:keypress>
+						<li class="option" class:bg-active-token={$storeTheme === 'vintage'} on:click={() => { storeTheme.set('vintage') }} on:keypress>
 							<span>📺</span>
 							<span>Vintage</span>
 						</li>
-						<li class="option" class:!bg-primary-500={$storeTheme === 'sahara'} on:click={() => { storeTheme.set('sahara') }} on:keypress>
+						<li class="option" class:bg-active-token={$storeTheme === 'sahara'} on:click={() => { storeTheme.set('sahara') }} on:keypress>
 							<span>🏜️</span>
 							<span>Sahara</span>
 						</li>
-						<li class="option" class:!bg-primary-500={$storeTheme === 'hamlindigo'} on:click={() => { storeTheme.set('hamlindigo') }} on:keypress>
+						<li class="option" class:bg-active-token={$storeTheme === 'hamlindigo'} on:click={() => { storeTheme.set('hamlindigo') }} on:keypress>
 							<span>👔</span>
 							<span>Hamlindigo</span>
 						</li>
-						<li class="option" class:!bg-primary-500={$storeTheme === 'goldNouveau'} on:click={() => { storeTheme.set('goldNouveau') }} on:keypress>
+						<li class="option" class:bg-active-token={$storeTheme === 'goldNouveau'} on:click={() => { storeTheme.set('goldNouveau') }} on:keypress>
 							<span>💫</span>
 							<span>Gold Nouveau</span>
 						</li>
-						<li class="option" class:!bg-primary-500={$storeTheme === 'crimson'} on:click={() => { storeTheme.set('crimson') }} on:keypress>
+						<li class="option" class:bg-active-token={$storeTheme === 'crimson'} on:click={() => { storeTheme.set('crimson') }} on:keypress>
 							<span>⭕</span>
 							<span>Crimson</span>
 						</li>
-						<!-- <li class="option" class:!bg-primary-500={$storeTheme === 'test'} on:click={() => { storeTheme.set('test') }} on:keypress>
+						<!-- <li class="option" class:bg-active-token={$storeTheme === 'test'} on:click={() => { storeTheme.set('test') }} on:keypress>
 							<span>🚧</span>
 							<span>Test</span>
 						</li> -->
-						<!-- <li class="option" class:!bg-primary-500={$storeTheme === 'seasonal'} on:click={() => { storeTheme.set('seasonal') }} on:keypress>
+						<!-- <li class="option" class:bg-active-token={$storeTheme === 'seasonal'} on:click={() => { storeTheme.set('seasonal') }} on:keypress>
 							<span>🎃</span>
 							<span>Seasonal</span>
 						</li> -->

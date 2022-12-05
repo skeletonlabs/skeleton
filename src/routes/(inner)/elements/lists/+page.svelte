@@ -21,9 +21,9 @@
 
 	// Local
 	const listData = [
-		{ name: 'A', class: 'bg-primary-500' },
-		{ name: 'B', class: 'bg-accent-500' },
-		{ name: 'C', class: 'bg-tertiary-500' }
+		{ name: 'A', class: 'btn-filled-accent' },
+		{ name: 'B', class: 'btn-filled-accent' },
+		{ name: 'C', class: 'btn-filled-accent' }
 	];
 </script>
 

@@ -8,7 +8,7 @@
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Element,
 		name: 'Design Tokens',
-		description: 'Provides a set of utility classes based on your theme CSS custom properties.',
+		description: 'Provides a set of utility classes that adjust based on your theme settings.',
 		stylesheetIncludes: ['all', 'tokens'],
 		source: 'styles/tokens.css'
 	};
@@ -38,18 +38,6 @@
 				Skeleton themes are paired with a powerful <a href="https://vimeo.com/showcase/9653752/video/724689965" target="_blank" rel="noreferrer">design token system</a> to create utility classes based on theme settings. These cover common styles for backgrounds, border radius, fonts, and more. In fact, most components use these tokens as the default settings, which means components auto-adapt to your theme style with minimal configuration out of the box.
 			</p>
 		</section>
-		<hr />
-		<section class="space-y-4">
-			<p>Tokens are avialable to use anywhere in your project. Here's a few examples:</p>
-			<CodeBlock
-				language="html"
-				code={`<!-- Apply your theme's border radius value -->\n<div class="w-10 h-10 bg-primary-500 rounded-token">Rounded</div>`}
-			/>
-			<CodeBlock language="html" code={`<!-- Apply your theme's heading font -->\n<span class="font-heading-token">Font Family</span>`} />
-			<CodeBlock
-				language="html"
-				code={`<!-- Set the text color, which auto adjusts for light/dark modes -->\n<span class="text-token">Skeleton</span>`}
-			/>
-		</section>
+		<!-- <CodeBlock language="html" code={`<span class="font-heading-token">Font Family</span>`} /> -->
 	</svelte:fragment>
 </DocsShell>

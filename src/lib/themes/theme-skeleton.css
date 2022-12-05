@@ -10,6 +10,12 @@
 	--theme-font-color-dark: var(--color-surface-50);
 	--theme-rounded-base: 9999px;
 	--theme-rounded-container: 8px;
+	/* Text Colors */
+	--text-on-primary-token: #000;
+	--text-on-accent-token: #fff;
+	--text-on-tertiary-token: #000;
+	--text-on-warning-token: #fff;
+	--text-on-surface-token: #fff;
 	/* =~= Theme Colors | Tailwind =~= */
 	/* primary | #0FBA81 */
 	--color-primary-50: 104 243 197;
