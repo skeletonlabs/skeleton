@@ -12,6 +12,12 @@
 	--theme-font-color-dark: var(--color-primary-100);
 	--theme-rounded-base: 0px;
 	--theme-rounded-container: 0px;
+	/* Text Colors */
+	--text-on-primary-token: #000;
+	--text-on-accent-token: #fff;
+	--text-on-tertiary-token: #fff;
+	--text-on-warning-token: #fff;
+	--text-on-surface-token: #fff;
 	/* =~= Theme Colors | Tailwind =~= */
 	/* cyan | #06b6d4 */
 	--color-primary-50: 236 254 255; /* ⬅ #ecfeff */

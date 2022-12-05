@@ -12,6 +12,12 @@
 	--theme-font-color-dark: var(--color-primary-100);
 	--theme-rounded-base: 2px;
 	--theme-rounded-container: 4px;
+	/* Text Colors */
+	--text-on-primary-token: #000;
+	--text-on-accent-token: #000;
+	--text-on-tertiary-token: #000;
+	--text-on-warning-token: #fff;
+	--text-on-surface-token: #fff;
 	/* =~= Theme Colors | Tailwind =~= */
 	/* amber | #f59e0b */
 	--color-primary-50: 255 251 235; /* ⬅ #fffbeb */

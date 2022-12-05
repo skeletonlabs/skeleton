@@ -13,6 +13,12 @@
 	--theme-font-color-dark: 255 255 255;
 	--theme-rounded-base: 0px;
 	--theme-rounded-container: 0px;
+	/* Text Colors */
+	--text-on-primary-token: #fff;
+	--text-on-accent-token: #fff;
+	--text-on-tertiary-token: #000;
+	--text-on-warning-token: #fff;
+	--text-on-surface-token: #fff;
 	/* =~= Theme Colors | Hex =~= */
 	/* primary | #6376A1 */
 	--color-primary-50: 245 247 249;
