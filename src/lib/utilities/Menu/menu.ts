@@ -120,23 +120,27 @@ export function menu(node: HTMLElement, args: ArgsMenu) {
 	const onWindowKeyDown = (event: KeyboardEvent): void => {
 		const key: string = event.key;
 
-		if (elemMenu.style.display === 'block') {
-			if (key === 'Escape' || key === 'Tab') {
-				// Close the menu
-				event.preventDefault();
-				menuClose();
-				node.focus();
-			} else if (key === 'ArrowDown' && activeFocusIdx < focusableElems.length - 1) {
+		if (elemMenu.style.display === 'none') return;
+
+		if (key === 'Escape' || key === 'Tab') {
+			// Close the menu
+			event.preventDefault();
+			menuClose();
+			node.focus();
+		} else if (key === 'ArrowDown') {
+			event.preventDefault();
+			if (activeFocusIdx < focusableElems.length - 1) {
 				// Move down the menu
-				event.preventDefault();
 				activeFocusIdx += 1;
 				focusableElems[activeFocusIdx]?.focus();
-			} else if (key === 'ArrowUp' && activeFocusIdx > 0) {
+			}
+		} else if (key === 'ArrowUp') {
+			event.preventDefault();
+			if (activeFocusIdx > 0) {
 				// Move up the menu
-				event.preventDefault();
 				activeFocusIdx -= 1;
 				focusableElems[activeFocusIdx]?.focus();
-			} else if (key === 'ArrowUp' && focusableElems.length && activeFocusIdx === -1) {
+			} else if (focusableElems.length && activeFocusIdx === -1) {
 				// Start at the bottom of the menu if first key is arrow up key
 				event.preventDefault();
 				activeFocusIdx = focusableElems.length - 1;
