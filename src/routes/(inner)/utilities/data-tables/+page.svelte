@@ -31,7 +31,7 @@
 		description: 'A set of utility features for creating template-driven data tables.',
 		imports: ['dataTableHandler'],
 		types: ['DataTableModel'],
-		source: 'utilities/Table',
+		source: 'utilities/DataTable',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/grid/',
 		keyboard: [
 			['<kbd>Right Arrow</kbd>', 'Moves focus one cell to the right. If focus is on the right-most cell in the row, focus does not move.'],
