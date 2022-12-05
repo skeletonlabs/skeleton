@@ -86,7 +86,7 @@
 						on:click={() => { copyThemeToClipboard(preset.file); }}
 						on:keydown={() => { copyThemeToClipboard(preset.file); }}
 					>
-						<span class="text-sm">{preset.name}</span>
+						<span class="text-sm font-bold">{preset.name}</span>
 						<ul class="grid grid-cols-3 gap-2">
 							{#each preset.colors as color}
 								<li class="aspect-square w-4 rounded-full" style:background={color} />

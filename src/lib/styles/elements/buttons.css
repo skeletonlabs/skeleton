@@ -93,7 +93,7 @@
 
 	/* Filled */
 	.btn-filled {
-		@apply bg-surface-900 dark:bg-surface-50 text-surface-50 dark:text-surface-900;
+		@apply bg-surface-900 dark:bg-surface-50 text-white dark:text-black;
 	}
 	.btn-filled-primary {
 		@apply bg-primary-500 text-on-primary-token;

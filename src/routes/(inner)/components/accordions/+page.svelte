@@ -64,7 +64,7 @@
 				</AccordionItem>
 				<AccordionItem spacing="space-y-4">
 					<svelte:fragment slot="lead">
-						<Avatar initials="1" background="bg-accent-500" fill="fill-white" />
+						<Avatar initials="1" background="bg-accent-500" fill="fill-on-accent-token" />
 					</svelte:fragment>
 					<svelte:fragment slot="summary">
 						<h3>Numeral Heading</h3>

@@ -70,26 +70,33 @@
 		@apply p-2;
 	}
 
-	/* Selectable */
+	/* Date Calendar Picker (Webkit) */
+	::-webkit-calendar-picker-indicator {
+		@apply dark:invert;
+	}
+
+	/* Checkbox */
 	[type='checkbox'],
 	[type='radio'] {
 		@apply border-surface-500 rounded text-accent-600 focus:ring-accent-500 w-5 h-5;
-		/* Theme: Rounded */
+	}
+	/* Checkbox */
+	[type='radio'] {
 		@apply rounded-token;
 	}
 
 	/* Placeholder */
 	::-moz-placeholder,
 	textarea::-moz-placeholder {
-		@apply text-surface-900/50 dark:text-surface-50/50;
+		@apply text-surface-600 dark:text-surface-300;
 	}
 	:-ms-input-placeholder,
 	textarea:-ms-input-placeholder {
-		@apply text-surface-900/50 dark:text-surface-50/50;
+		@apply text-surface-600 dark:text-surface-300;
 	}
 	::placeholder,
 	textarea::placeholder {
-		@apply text-surface-900/50 dark:text-surface-50/50;
+		@apply text-surface-600 dark:text-surface-300;
 	}
 
 	/* === States === */
