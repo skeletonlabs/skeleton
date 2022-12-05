@@ -24,7 +24,10 @@
 		keyboard: [
 			['<kbd>Enter</kbd>', 'When menu button in focus, toggles the menu open/close.'],
 			['<kbd>Space</kbd>', 'When menu button in focus, toggles the menu open/close.'],
-			['<kbd>Esc</kbd>', 'Close the open menu.']
+			['<kbd>Esc</kbd>', 'Close the open menu.'],
+			['<kbd>Tab</kbd>', 'Close the open menu.'],
+			['<kbd>↑</kbd>', 'Move upwards to the next item in the menu.'],
+			['<kbd>↓</kbd>', 'Move downwards to the next item in the menu.']
 		]
 	};
 
