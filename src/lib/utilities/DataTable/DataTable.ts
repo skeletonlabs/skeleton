@@ -20,11 +20,13 @@ export function createDataTableStore<T extends Record<PropertyKey, any>>(source:
 		sortState: { lastKey: '', asc: true },
 		selection: [],
 		search: options.search ?? '',
-		sort: options.sort ?? ''
+		sort: options.sort ?? '',
+		pagination: options.pagination
 	});
 
 	return {
 		subscribe,
+		set,
 		/** Sets a new data source while maintaining the state of the original source */
 		updateSource: (data: T[]) =>
 			update((model) => {
@@ -69,8 +71,7 @@ export function createDataTableStore<T extends Record<PropertyKey, any>>(source:
 				model.sort = newSortKey ?? '';
 				return model;
 			});
-		},
-		set
+		}
 	};
 }
 

@@ -33,8 +33,7 @@
 			// ['<kbd>Enter</kbd> or <kbd>Space</kbd>', 'Triggers the on:click event for the current row.']
 		]
 	};
-
-	const post = httpPosts.pop();
+	const post = httpPosts.pop()!;
 
 	// Store
 	const dataTableStore = createDataTableStore(httpPosts, {
@@ -51,7 +50,7 @@
 	dataTableStore.select('id', [1]);
 
 	// Update the source data
-	httpPosts.push(post!);
+	httpPosts.push(post);
 	dataTableStore.updateSource(httpPosts);
 </script>
 
