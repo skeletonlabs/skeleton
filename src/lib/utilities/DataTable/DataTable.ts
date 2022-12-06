@@ -13,6 +13,8 @@ export * from './actions';
 export function createDataTableStore<T extends Record<PropertyKey, any>>(source: T[], options: DataTableOptions<T> = {}) {
 	// Creates a new source that also adds the `dataTableChecked` property to each row object
 	const modifiedList = source.map((rowObj) => ({ ...rowObj, dataTableChecked: false }));
+
+	// Generate the writable
 	const { subscribe, set, update } = writable<DataTableModel<T>>({
 		source,
 		base: modifiedList,

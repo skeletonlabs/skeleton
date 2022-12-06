@@ -41,10 +41,7 @@
 		search: '',
 		pagination: { offset: 0, limit: 5, size: 0, amounts: [1, 2, 5, 10] }
 	});
-
-	dataTableStore.subscribe((model) => {
-		dataTableHandler(model);
-	});
+	dataTableStore.subscribe((model) => dataTableHandler(model));
 
 	// Manual Selection
 	dataTableStore.select('id', [1]);
@@ -109,7 +106,7 @@
 			</div>
 		</section>
 		<!-- Debugging -->
-		<!-- <pre>{JSON.stringify($dataTableStore.selection, null, 2)}</pre> -->
+		<!-- <pre>{JSON.stringify($dataTableStore, null, 2)}</pre> -->
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
