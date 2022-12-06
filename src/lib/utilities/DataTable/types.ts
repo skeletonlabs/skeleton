@@ -3,8 +3,10 @@
 import type { PaginationSettings } from '$lib/components/Paginator/types';
 
 export interface DataTableModel<T extends Record<PropertyKey, unknown>> {
-	/** The original unfiltered source data. */
-	source: Data<T>;
+	/** The original source data. */
+	source: T[];
+	/** The unfiltered, modified source data */
+	base: Data<T>;
 	/** The filtered source data, shown in UI. */
 	filtered: Data<T>;
 	/** An array of selected row objects. */

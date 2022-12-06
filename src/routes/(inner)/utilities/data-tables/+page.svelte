@@ -11,15 +11,7 @@
 	import Avatar from '$lib/components/Avatar/Avatar.svelte';
 	import Paginator from '$lib/components/Paginator/Paginator.svelte';
 	// Utilities
-	import {
-		createDataTableStore,
-		dataTableHandler,
-		dataTableSelect,
-		dataTableSelectAll,
-		dataTableSort,
-		tableInteraction,
-		tableA11y
-	} from '$lib/utilities/DataTable/DataTable';
+	import { createDataTableStore, dataTableHandler, tableInteraction, tableA11y } from '$lib/utilities/DataTable/DataTable';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Docs Shell
@@ -42,17 +34,25 @@
 		]
 	};
 
+	const post = httpPosts.pop();
+
 	// Store
-	const dataTableModel = createDataTableStore(httpPosts, {
+	const dataTableStore = createDataTableStore(httpPosts, {
 		sort: '',
 		search: '',
 		pagination: { offset: 0, limit: 5, size: 0, amounts: [1, 2, 5, 10] }
 	});
 
-	dataTableModel.subscribe((v) => dataTableHandler(v));
+	dataTableStore.subscribe((store) => {
+		dataTableHandler(store);
+	});
 
 	// Manual Selection
-	dataTableSelect(dataTableModel, 'id', [1]);
+	dataTableStore.select('id', [1]);
+
+	// Update the source data
+	httpPosts.push(post!);
+	dataTableStore.updateSource(httpPosts);
 </script>
 
 <DocsShell {settings}>
@@ -61,16 +61,16 @@
 		<section class="card !bg-accent-500/5">
 			<!-- Search Input -->
 			<div class="card-header">
-				<input bind:value={$dataTableModel.search} type="search" placeholder="Search Table..." />
+				<input bind:value={$dataTableStore.search} type="search" placeholder="Search Table..." />
 			</div>
 			<!-- Table -->
 			<div class="card-body">
 				<div class="table-container">
 					<!-- prettier-ignore -->
 					<table class="table table-hover" role="grid" use:tableInteraction use:tableA11y>
-						<thead on:click={(e) => { dataTableSort(e, dataTableModel) }} on:keypress>
+						<thead on:click={(e) => { dataTableStore.sort(e) }} on:keypress>
 							<tr>
-								<th><input type="checkbox" on:click={(e) => { dataTableSelectAll(e, dataTableModel) }} /></th>
+								<th><input type="checkbox" on:click={(e) => { dataTableStore.selectAll(e.currentTarget.checked) }} /></th>
 								<th data-sort="id">ID</th>
 								<th>User</th>
 								<th data-sort="title">Title</th>
@@ -79,7 +79,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							{#each $dataTableModel.filtered as row, rowIndex}
+							{#each $dataTableStore.filtered as row, rowIndex}
 								<tr class:table-row-checked={row.dataTableChecked} aria-rowindex={rowIndex + 1}>
 									<td role="gridcell" aria-colindex={1} tabindex="0">
 										<input type="checkbox" bind:checked={row.dataTableChecked} />
@@ -106,11 +106,11 @@
 				</div>
 			</div>
 			<div class="card-footer">
-				<Paginator bind:settings={$dataTableModel.pagination} />
+				<Paginator bind:settings={$dataTableStore.pagination} />
 			</div>
 		</section>
 		<!-- Debugging -->
-		<!-- <pre>{JSON.stringify($dataTableModel.selection, null, 2)}</pre> -->
+		<!-- <pre>{JSON.stringify($dataTableStore.selection, null, 2)}</pre> -->
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
