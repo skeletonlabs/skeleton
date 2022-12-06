@@ -31,4 +31,10 @@
 	a.card {
 		@apply hover:brightness-110;
 	}
+
+	/* === Variants === */
+
+	.card-glass {
+		@apply bg-accent-500/5 dark:bg-accent-500/5 backdrop-blur-lg;
+	}
 }

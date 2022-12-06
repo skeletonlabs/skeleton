@@ -14,13 +14,13 @@
 
 	// Props (Item)
 	/** Provide classes to set the item selected background. '!' recommended. */
-	export let accent = '!bg-active-token'; //
+	export let accent = '!bg-primary-active-token'; //
 	/** Provide classes to set the item padding styles. */
 	export let padding = 'px-4 py-3';
 	/** Provide classes to set the item border radius styles. */
 	export let rounded = 'rounded-token';
 	/** Provide classes to set the item hover background color. */
-	export let hover = 'bg-hover-token';
+	export let hover = 'bg-primary-hover-token';
 
 	// Props (regions)
 	/** Provide arbitrary classes to the label element. */

@@ -116,28 +116,28 @@ ${$storeFramework === 'astro' ? 'module.exports' : 'const config'} = {
 	<section class="space-y-4">
 		<div class="flex items-center space-x-2">
 			<h2>Tailwind Plugins</h2>
-			<span class="badge bg-surface-500/30">Optional</span>
+			<span class="badge bg-surface-200-700-token">Optional</span>
 		</div>
 		<p>
 			Skeleton pairs well with all of the official Tailwind plugins. These are <u>optional</u> and should only be added if your project requires
 			them.
 		</p>
 		<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-			<div class="card card-body space-y-4 text-center">
+			<div class="card card-body card-glass space-y-4 text-center">
 				<h3>Forms</h3>
 				<p>Provides a basic reset for form elements.</p>
 				<a class="btn btn-ghost-surface" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank" rel="noreferrer">
 					View Plugin
 				</a>
 			</div>
-			<div class="card card-body space-y-4 text-center">
+			<div class="card card-body card-glass space-y-4 text-center">
 				<h3>Typography</h3>
 				<p>Typographic defaults for HTML you don't control.</p>
 				<a class="btn btn-ghost-surface" href="https://tailwindcss.com/docs/typography-plugin" target="_blank" rel="noreferrer">
 					View Plugin
 				</a>
 			</div>
-			<div class="card card-body space-y-4 text-center">
+			<div class="card card-body card-glass space-y-4 text-center">
 				<h3>Line Clamp</h3>
 				<p>Provides utilities for visually truncating text.</p>
 				<a class="btn btn-ghost-surface" href="https://github.com/tailwindlabs/tailwindcss-line-clamp" target="_blank" rel="noreferrer">

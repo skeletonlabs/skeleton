@@ -125,13 +125,19 @@
 
 	<hr />
 
-	<!-- Design Tokens -->
-	<section class="grid grid-cols-[1fr_auto] gap-4">
-		<div class="space-y-4">
-			<h2>Theme Styles</h2>
-			<p>Learn how to use theme styles within your project.</p>
+	<section class="space-y-4">
+		<h2>See Also</h2>
+		<div class="card card-body card-glass space-y-4">
+			<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+				<p>Learn more about Skeleton's theme color system.</p>
+				<a class="btn btn-ghost-surface" href="/guides/themes/colors">Theme Colors &rarr;</a>
+			</div>
+			<hr class="opacity-30" />
+			<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+				<p>Learn more about Skeleton's design token sytem.</p>
+				<a class="btn btn-ghost-surface" href="/elements/tokens">Design Tokens &rarr;</a>
+			</div>
 		</div>
-		<a class="btn btn-filled-accent place-self-center" href="/guides/themes/styles">Theme Styles</a>
 	</section>
 
 	<hr />

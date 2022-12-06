@@ -281,10 +281,10 @@ import '@skeletonlabs/skeleton/styles/${$storeStylesheets === 'recommended' ? 'a
 
 	<section class="space-y-4">
 		<div class="space-y-4">
-			<h2>Customizing Styles</h2>
-			<p>If you wish to customize Skeleton element or component styles, use the recommendations below.</p>
+			<h2>How to Customize Styles</h2>
+			<p>We've provided a few tips for customizing Skeleton elements or components.</p>
 		</div>
-		<div class="card card-body !bg-accent-500/5">
+		<div class="card card-body card-glass">
 			<AccordionGroup>
 				<AccordionItem spacing="space-y-4" open>
 					<svelte:fragment slot="summary"><h3>Via Component Props</h3></svelte:fragment>

@@ -27,12 +27,12 @@
 				<svelte:fragment slot="trail">
 					<!-- FIXME: hardcoded path -->
 					<a
-						class="btn btn-ghost"
+						class="btn btn-ghost-tertiary"
 						href="https://github.com/skeletonlabs/skeleton/blob/master/src/lib/themes/theme-skeleton.css#L80"
 						target="_blank"
 						rel="noreferrer">Reference</a
 					>
-					<a class="btn btn-filled" href="https://csshero.org/mesher/" target="_blank" rel="noreferrer">Mesh Generator</a>
+					<a class="btn btn-filled-tertiary" href="https://csshero.org/mesher/" target="_blank" rel="noreferrer">Mesh Generator</a>
 				</svelte:fragment>
 			</Alert>
 		</div>

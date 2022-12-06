@@ -1,6 +1,12 @@
 /* Design Tokens: Border */
 
 @layer utilities {
+	/* === Border Width === */
+
+	.border-token {
+		border-width: var(--theme-border-base);
+	}
+
 	/* Border: Surface (darkest -> lightest) */
 	/* https://user-images.githubusercontent.com/1509726/195171203-423e5b84-8763-40f1-b3ea-4cb2b8e38108.png */
 	.border-surface-50-900-token {

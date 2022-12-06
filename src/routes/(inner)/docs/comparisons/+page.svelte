@@ -39,7 +39,7 @@
 			>. It’s relatively simple to tailor a Flowbite component to work within an existing Tailwind design system. In fact, it’s even
 			possible to pair Flowbite with Skeleton, allowing you to mix and match components, while taking advantage of Skeleton’s theme system.
 		</p>
-		<div class="card card-body !bg-accent-500/5">
+		<div class="card card-body card-glass">
 			<AccordionGroup>
 				<AccordionItem>
 					<svelte:fragment slot="summary">

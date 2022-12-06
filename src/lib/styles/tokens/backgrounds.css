@@ -1,13 +1,19 @@
 /* Design Tokens: Backgrounds */
 
 @layer utilities {
-	/* === Background === */
+	/* === Modal Backdrop Shim === */
+
+	.bg-surface-backdrop-token {
+		@apply bg-surface-400/70 dark:bg-surface-900/70;
+	}
+
+	/* === Hover & Active === */
 
 	/* Primary */
-	.bg-hover-token {
+	.bg-primary-hover-token {
 		@apply hover:bg-primary-500/10;
 	}
-	.bg-active-token {
+	.bg-primary-active-token {
 		@apply !bg-primary-500 text-on-primary-token fill-on-primary-token;
 	}
 
@@ -19,13 +25,102 @@
 		@apply bg-accent-500 text-accent-50 dark:text-accent-50;
 	}
 
-	/* Backdrop Shim */
-	.bg-backdrop-token {
-		@apply bg-surface-400/70 dark:bg-surface-900/70;
+	/* Tertiary */
+	.bg-tertiary-hover-token {
+		@apply hover:bg-tertiary-500/10;
+	}
+	.bg-tertiary-active-token {
+		@apply bg-tertiary-500 text-tertiary-50 dark:text-tertiary-50;
 	}
 
-	/* Background: Surface (darkest -> lightest) */
+	/* Warning */
+	.bg-warning-hover-token {
+		@apply hover:bg-warning-500/10;
+	}
+	.bg-warning-active-token {
+		@apply bg-warning-500 text-warning-50 dark:text-warning-50;
+	}
+
+	/* Surface */
+	.bg-surface-hover-token {
+		@apply hover:bg-surface-500/10;
+	}
+	.bg-surface-active-token {
+		@apply bg-surface-500 text-surface-50 dark:text-surface-50;
+	}
+
+	/* === Pairings (Dark|Light) === */
 	/* https://user-images.githubusercontent.com/1509726/195171203-423e5b84-8763-40f1-b3ea-4cb2b8e38108.png */
+
+	/* Primary */
+	.bg-primary-50-900-token {
+		@apply bg-primary-50 dark:bg-primary-900;
+	}
+	.bg-primary-100-800-token {
+		@apply bg-primary-100 dark:bg-primary-800;
+	}
+	.bg-primary-200-700-token {
+		@apply bg-primary-200 dark:bg-primary-700;
+	}
+	.bg-primary-300-600-token {
+		@apply bg-primary-300 dark:bg-primary-600;
+	}
+	.bg-primary-400-500-token {
+		@apply bg-primary-400 dark:bg-primary-500;
+	}
+
+	/* Accent */
+	.bg-accent-50-900-token {
+		@apply bg-accent-50 dark:bg-accent-900;
+	}
+	.bg-accent-100-800-token {
+		@apply bg-accent-100 dark:bg-accent-800;
+	}
+	.bg-accent-200-700-token {
+		@apply bg-accent-200 dark:bg-accent-700;
+	}
+	.bg-accent-300-600-token {
+		@apply bg-accent-300 dark:bg-accent-600;
+	}
+	.bg-accent-400-500-token {
+		@apply bg-accent-400 dark:bg-accent-500;
+	}
+
+	/* Tertiary */
+	.bg-tertiary-50-900-token {
+		@apply bg-tertiary-50 dark:bg-tertiary-900;
+	}
+	.bg-tertiary-100-800-token {
+		@apply bg-tertiary-100 dark:bg-tertiary-800;
+	}
+	.bg-tertiary-200-700-token {
+		@apply bg-tertiary-200 dark:bg-tertiary-700;
+	}
+	.bg-tertiary-300-600-token {
+		@apply bg-tertiary-300 dark:bg-tertiary-600;
+	}
+	.bg-tertiary-400-500-token {
+		@apply bg-tertiary-400 dark:bg-tertiary-500;
+	}
+
+	/* Warning */
+	.bg-warning-50-900-token {
+		@apply bg-warning-50 dark:bg-warning-900;
+	}
+	.bg-warning-100-800-token {
+		@apply bg-warning-100 dark:bg-warning-800;
+	}
+	.bg-warning-200-700-token {
+		@apply bg-warning-200 dark:bg-warning-700;
+	}
+	.bg-warning-300-600-token {
+		@apply bg-warning-300 dark:bg-warning-600;
+	}
+	.bg-warning-400-500-token {
+		@apply bg-warning-400 dark:bg-warning-500;
+	}
+
+	/* Surface */
 	.bg-surface-50-900-token {
 		@apply bg-surface-50 dark:bg-surface-900;
 	}
@@ -40,5 +135,93 @@
 	}
 	.bg-surface-400-500-token {
 		@apply bg-surface-400 dark:bg-surface-500;
+	}
+
+	/* === Pairings (Light}Dark) === */
+	/* https://user-images.githubusercontent.com/1509726/195171203-423e5b84-8763-40f1-b3ea-4cb2b8e38108.png */
+
+	/* Primary */
+	.bg-primary-900-50-token {
+		@apply bg-primary-900 dark:bg-primary-50;
+	}
+	.bg-primary-800-100-token {
+		@apply bg-primary-800 dark:bg-primary-100;
+	}
+	.bg-primary-700-200-token {
+		@apply bg-primary-700 dark:bg-primary-200;
+	}
+	.bg-primary-600-300-token {
+		@apply bg-primary-600 dark:bg-primary-300;
+	}
+	.bg-primary-500-400-token {
+		@apply bg-primary-500 dark:bg-primary-400;
+	}
+
+	/* Accent */
+	.bg-accent-900-50-token {
+		@apply bg-accent-900 dark:bg-accent-50;
+	}
+	.bg-accent-800-100-token {
+		@apply bg-accent-800 dark:bg-accent-100;
+	}
+	.bg-accent-700-200-token {
+		@apply bg-accent-700 dark:bg-accent-200;
+	}
+	.bg-accent-600-300-token {
+		@apply bg-accent-600 dark:bg-accent-300;
+	}
+	.bg-accent-500-400-token {
+		@apply bg-accent-500 dark:bg-accent-400;
+	}
+
+	/* Tertiary */
+	.bg-tertiary-900-50-token {
+		@apply bg-tertiary-900 dark:bg-tertiary-50;
+	}
+	.bg-tertiary-800-100-token {
+		@apply bg-tertiary-800 dark:bg-tertiary-100;
+	}
+	.bg-tertiary-700-200-token {
+		@apply bg-tertiary-700 dark:bg-tertiary-200;
+	}
+	.bg-tertiary-600-300-token {
+		@apply bg-tertiary-600 dark:bg-tertiary-300;
+	}
+	.bg-tertiary-500-400-token {
+		@apply bg-tertiary-500 dark:bg-tertiary-400;
+	}
+
+	/* Warning */
+	.bg-warning-900-50-token {
+		@apply bg-warning-900 dark:bg-warning-50;
+	}
+	.bg-warning-800-100-token {
+		@apply bg-warning-800 dark:bg-warning-100;
+	}
+	.bg-warning-700-200-token {
+		@apply bg-warning-700 dark:bg-warning-200;
+	}
+	.bg-warning-600-300-token {
+		@apply bg-warning-600 dark:bg-warning-300;
+	}
+	.bg-warning-500-400-token {
+		@apply bg-warning-500 dark:bg-warning-400;
+	}
+
+	/* Surface */
+	.bg-surface-900-50-token {
+		@apply bg-surface-900 dark:bg-surface-50;
+	}
+	.bg-surface-800-100-token {
+		@apply bg-surface-800 dark:bg-surface-100;
+	}
+	.bg-surface-700-200-token {
+		@apply bg-surface-700 dark:bg-surface-200;
+	}
+	.bg-surface-600-300-token {
+		@apply bg-surface-600 dark:bg-surface-300;
+	}
+	.bg-surface-500-400-token {
+		@apply bg-surface-500 dark:bg-surface-400;
 	}
 }

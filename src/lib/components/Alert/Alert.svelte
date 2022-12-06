@@ -15,11 +15,11 @@
 	/** Provide classes to set background color. */
 	export let background = 'bg-tertiary-500/20';
 	/** Provide classes to set the border styles. */
-	export let border = 'border-l-4 border-l-tertiary-500';
+	export let border = 'border border-tertiary-500';
 	/** Provide classes to set text color. */
 	export let color = '';
 	/** Provide classes to set border radius. */
-	export let rounded = '';
+	export let rounded = 'rounded-container-token';
 	/** Svelte fade transition duration. Set 0 to disable. */
 	export let duration = 200; // ms
 
@@ -32,7 +32,7 @@
 	export let slotTrail = '';
 
 	// Base Classes
-	let cBaseCard = 'flex flex-col items-start lg:items-center lg:flex-row p-5 space-y-4 lg:space-y-0 lg:space-x-4';
+	let cBaseCard = 'flex flex-col items-start lg:items-center lg:flex-row p-5 space-y-4 lg:space-y-0 lg:space-x-4 shadow';
 	let cLead = 'flex justify-center items-center';
 	let cContent = 'flex flex-col w-full justify-center space-y-2';
 	let cTrail = 'flex items-center space-x-4';

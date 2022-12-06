@@ -15,8 +15,10 @@
 	export let selected: Writable<any> = writable(undefined);
 	/** Provide classes to set the background color. */
 	export let background = 'bg-surface-100-800-token';
-	/** Provide classes to set the selected tile background. '!' recommended. */
-	export let accent = 'bg-active-token'; //
+	/** Provide classes to set the tile active tile background. */
+	export let active = 'bg-primary-active-token';
+	/** Provide classes to set the tile hover background color. */
+	export let hover = 'bg-primary-hover-token';
 	/** Provide classes to set the width. */
 	export let width = 'w-[70px] sm:w-20';
 	/** Provide classes to set the height. */
@@ -34,7 +36,8 @@
 
 	// Context
 	setContext('selected', selected);
-	setContext('accent', accent);
+	setContext('active', active);
+	setContext('hover', hover);
 
 	// Base Classes
 	const cBase = 'grid grid-rows-[auto_1fr_auto] overflow-y-auto';

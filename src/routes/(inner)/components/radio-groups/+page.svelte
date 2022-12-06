@@ -59,7 +59,7 @@
 			</div>
 			<!-- Text -->
 			<div class="card card-body space-y-4 text-center">
-				<RadioGroup selected={storeLayout} accent="bg-active-token" hover="bg-hover-token">
+				<RadioGroup selected={storeLayout} accent="bg-primary-active-token" hover="bg-primary-hover-token">
 					<RadioItem value="horz">Horizontal</RadioItem>
 					<RadioItem value="vert">Vertical</RadioItem>
 				</RadioGroup>

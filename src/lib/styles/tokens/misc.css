@@ -1,16 +1,9 @@
 /* Design Tokens: Misc */
 
 @layer utilities {
-	/* === Accent Color === */
+	/* === Input Accent Color === */
 	/* https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color */
-
 	.accent-token {
 		@apply accent-accent-500;
-	}
-
-	/* === Border Width === */
-
-	.border-token {
-		border-width: var(--theme-border-base);
 	}
 }

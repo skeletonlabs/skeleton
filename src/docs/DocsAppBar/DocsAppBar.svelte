@@ -73,7 +73,7 @@
 
 	<!-- Search -->
 	<div class="hidden md:inline">
-		<button class="btn btn-filled-surface btn-sm" on:click={search}>
+		<button class="btn btn-ghost-surface btn-sm" on:click={search}>
 			<SvgIcon name="search" width="w-4" height="h-4" fill="fill-white" class="mr-2" />
 			<span>Search</span>
 			<!-- <span>⌘K</span> -->
@@ -84,20 +84,20 @@
 	<svelte:fragment slot="trail">
 		<!-- Links -->
 		<!-- prettier-ignore -->
-		<section class="hidden lg:flex space-x-6">
+		<section class="hidden lg:flex">
 			<!-- Docs -->
-			<a class="unstyled font-bold" href="/docs/why" data-sveltekit-preload-data="hover">Docs</a>
+			<a class="unstyled hover:bg-primary-hover-token px-4 py-2 rounded-token" href="/docs/why" data-sveltekit-preload-data="hover">Docs</a>
 			<!-- Guides -->
-			<a class="unstyled font-bold" href="/guides/install" data-sveltekit-preload-data="hover">Guides</a>
+			<a class="unstyled hover:bg-primary-hover-token px-4 py-2 rounded-token" href="/guides/install" data-sveltekit-preload-data="hover">Guides</a>
 			<!-- Features -->
 			<div class="relative">
-				<button class="unstyled font-bold space-x-2" use:menu={{ menu: 'features' }}>
+				<button class="unstyled hover:bg-primary-hover-token px-4 py-2 rounded-token space-x-2" use:menu={{ menu: 'features' }}>
 					<span>Features</span>
 					<span class="opacity-50">▾</span>
 				</button>
 				<div class="card overflow-hidden w-60 shadow-xl grid grid-cols-1" data-menu="features">
 					<!-- Tailwind -->
-					<a class="grid grid-cols-[auto_1fr] gap-4 p-4 hover:bg-hover-token" href="/elements/core" data-sveltekit-preload-data="hover">
+					<a class="grid grid-cols-[auto_1fr] gap-4 p-4 hover:bg-primary-hover-token" href="/elements/core" data-sveltekit-preload-data="hover">
 						<div class="flex justify-center items-center">
 							<SvgIcon name="tailwind" />
 						</div>
@@ -108,7 +108,7 @@
 					</a>
 					<hr>
 					<!-- Svelte -->
-					<a class="grid grid-cols-[auto_1fr] gap-4 p-4 hover:bg-hover-token" href="/actions/clipboard" data-sveltekit-preload-data="hover">
+					<a class="grid grid-cols-[auto_1fr] gap-4 p-4 hover:bg-primary-hover-token" href="/actions/clipboard" data-sveltekit-preload-data="hover">
 						<div class="flex justify-center items-center">
 							<SvgIcon name="svelte" />
 						</div>
@@ -119,7 +119,7 @@
 					</a>
 					<hr>
 					<!-- Utilities -->
-					<a class="grid grid-cols-[auto_1fr] gap-4 p-4 hover:bg-hover-token" href="/utilities/codeblocks" data-sveltekit-preload-data="hover">
+					<a class="grid grid-cols-[auto_1fr] gap-4 p-4 hover:bg-primary-hover-token" href="/utilities/codeblocks" data-sveltekit-preload-data="hover">
 						<div class="flex justify-center items-center">
 							<SvgIcon name="screwdriver" />
 						</div>
@@ -131,15 +131,15 @@
 				</div>
 			</div>
 			<!-- Blog -->
-			<a class="unstyled font-bold" href="/blog" data-sveltekit-preload-data="hover">Blog</a>
+			<a class="unstyled hover:bg-primary-hover-token px-4 py-2 rounded-token" href="/blog" data-sveltekit-preload-data="hover">Blog</a>
 		</section>
 
-		<Divider vertical borderWidth="hidden lg:block border-l-2 opacity-30" />
+		<Divider vertical borderWidth="hidden lg:block border-l-2 opacity-20" />
 
 		<!-- Theme -->
 		<!-- prettier-ignore -->
 		<div class="relative">
-			<button class="unstyled font-bold space-x-2" use:menu={{ menu: 'theme', interactive: true }}>
+			<button class="unstyled hover:bg-primary-hover-token px-4 py-2 rounded-token space-x-2" use:menu={{ menu: 'theme', interactive: true }}>
 				<SvgIcon name="swatchbook" width="w-4" height="w-4" class="inline-block md:hidden" />
 				<span class="hidden md:inline-block">Theme</span>
 				<span class="opacity-50">▾</span>
@@ -152,47 +152,47 @@
 				<hr>
 				<nav class="list-nav p-4 max-h-64 overflow-y-auto">
 					<ul>
-						<li class="option" class:bg-active-token={$storeTheme === 'skeleton'} on:click={() => { storeTheme.set('skeleton') }} on:keypress> 
+						<li class="option" class:bg-primary-active-token={$storeTheme === 'skeleton'} on:click={() => { storeTheme.set('skeleton') }} on:keypress> 
 							<span>💀</span>
 							<span>Skeleton</span>
 						</li>
-						<li class="option" class:bg-active-token={$storeTheme === 'modern'} on:click={() => { storeTheme.set('modern') }} on:keypress>
+						<li class="option" class:bg-primary-active-token={$storeTheme === 'modern'} on:click={() => { storeTheme.set('modern') }} on:keypress>
 							<span>🤖</span>
 							<span>Modern</span>
 						</li>
-						<li class="option" class:bg-active-token={$storeTheme === 'rocket'} on:click={() => { storeTheme.set('rocket') }} on:keypress> 
+						<li class="option" class:bg-primary-active-token={$storeTheme === 'rocket'} on:click={() => { storeTheme.set('rocket') }} on:keypress> 
 							<span>🚀</span>
 							<span>Rocket</span>
 						</li>
-						<li class="option" class:bg-active-token={$storeTheme === 'seafoam'} on:click={() => { storeTheme.set('seafoam') }} on:keypress>
+						<li class="option" class:bg-primary-active-token={$storeTheme === 'seafoam'} on:click={() => { storeTheme.set('seafoam') }} on:keypress>
 							<span>🐚</span>
 							<span>Seafoam</span>
 						</li>
-						<li class="option" class:bg-active-token={$storeTheme === 'vintage'} on:click={() => { storeTheme.set('vintage') }} on:keypress>
+						<li class="option" class:bg-primary-active-token={$storeTheme === 'vintage'} on:click={() => { storeTheme.set('vintage') }} on:keypress>
 							<span>📺</span>
 							<span>Vintage</span>
 						</li>
-						<li class="option" class:bg-active-token={$storeTheme === 'sahara'} on:click={() => { storeTheme.set('sahara') }} on:keypress>
+						<li class="option" class:bg-primary-active-token={$storeTheme === 'sahara'} on:click={() => { storeTheme.set('sahara') }} on:keypress>
 							<span>🏜️</span>
 							<span>Sahara</span>
 						</li>
-						<li class="option" class:bg-active-token={$storeTheme === 'hamlindigo'} on:click={() => { storeTheme.set('hamlindigo') }} on:keypress>
+						<li class="option" class:bg-primary-active-token={$storeTheme === 'hamlindigo'} on:click={() => { storeTheme.set('hamlindigo') }} on:keypress>
 							<span>👔</span>
 							<span>Hamlindigo</span>
 						</li>
-						<li class="option" class:bg-active-token={$storeTheme === 'goldNouveau'} on:click={() => { storeTheme.set('goldNouveau') }} on:keypress>
+						<li class="option" class:bg-primary-active-token={$storeTheme === 'goldNouveau'} on:click={() => { storeTheme.set('goldNouveau') }} on:keypress>
 							<span>💫</span>
 							<span>Gold Nouveau</span>
 						</li>
-						<li class="option" class:bg-active-token={$storeTheme === 'crimson'} on:click={() => { storeTheme.set('crimson') }} on:keypress>
+						<li class="option" class:bg-primary-active-token={$storeTheme === 'crimson'} on:click={() => { storeTheme.set('crimson') }} on:keypress>
 							<span>⭕</span>
 							<span>Crimson</span>
 						</li>
-						<!-- <li class="option" class:bg-active-token={$storeTheme === 'test'} on:click={() => { storeTheme.set('test') }} on:keypress>
+						<!-- <li class="option" class:bg-primary-active-token={$storeTheme === 'test'} on:click={() => { storeTheme.set('test') }} on:keypress>
 							<span>🚧</span>
 							<span>Test</span>
 						</li> -->
-						<!-- <li class="option" class:bg-active-token={$storeTheme === 'seasonal'} on:click={() => { storeTheme.set('seasonal') }} on:keypress>
+						<!-- <li class="option" class:bg-primary-active-token={$storeTheme === 'seasonal'} on:click={() => { storeTheme.set('seasonal') }} on:keypress>
 							<span>🎃</span>
 							<span>Seasonal</span>
 						</li> -->
@@ -205,7 +205,7 @@
 			</div>
 		</div>
 
-		<Divider vertical borderWidth="border-l-2 opacity-30" />
+		<Divider vertical borderWidth="border-l-2 opacity-20" />
 
 		<!-- Social -->
 		<section class="flex">

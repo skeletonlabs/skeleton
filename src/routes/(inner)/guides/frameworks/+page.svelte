@@ -79,17 +79,17 @@
 	<section class="space-y-4">
 		<h2>What's Next?</h2>
 		<p>Choose your own adventure, you can jump to any of the following.</p>
-		<div class="card card-body space-y-4">
+		<div class="card card-body card-glass space-y-4">
 			<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 				<p>Learn more about Skeleton's Tailwind features.</p>
 				<a class="btn btn-ghost-surface" href="/elements/tokens">Tailwind Features &rarr;</a>
 			</div>
-			<hr />
+			<hr class="opacity-30" />
 			<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 				<p>Learn more about Skeleton's Svelte features.</p>
 				<a class="btn btn-ghost-surface" href="/actions/clipboard">Svelte Features &rarr;</a>
 			</div>
-			<hr />
+			<hr class="opacity-30" />
 			<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 				<p>Learn more about Skeleton's utility features.</p>
 				<a class="btn btn-ghost-surface" href="/utilities/codeblocks">Utility Features &rarr;</a>
