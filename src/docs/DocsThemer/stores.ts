@@ -3,6 +3,21 @@ import { localStorageStore } from '$lib/utilities/LocalStorageStore/LocalStorage
 import { genHexPalette, getTailwindColor } from './utils';
 import type { SemanticNames, TailwindColorObject } from '$lib/tailwind/colors';
 
+export type CustomisableAttributes =
+	| 'colors'
+	| 'borderBase'
+	| 'fontFamilyHeading'
+	| 'fontFamilyBase'
+	| 'fontColorBase'
+	| 'fontColorDark'
+	| 'roundedBase'
+	| 'roundedContainer'
+	| 'onPrimary'
+	| 'onAccent'
+	| 'onTertiary'
+	| 'onWarning'
+	| 'onSurface';
+
 // Mode - T: Tailwind | F: Custom
 export const storeMode: Writable<boolean> = localStorageStore('storeMode', true);
 
@@ -44,21 +59,6 @@ export const storeHexPalette: Writable<Record<SemanticNames, TailwindColorObject
 	warning: genHexPalette('warning', get(storeHexForm).warning),
 	surface: genHexPalette('surface', get(storeHexForm).surface)
 });
-
-export type CustomisableAttributes =
-	| 'colors'
-	| 'borderBase'
-	| 'fontFamilyHeading'
-	| 'fontFamilyBase'
-	| 'fontColorBase'
-	| 'fontColorDark'
-	| 'roundedBase'
-	| 'roundedContainer'
-	| 'onPrimary'
-	| 'onAccent'
-	| 'onTertiary'
-	| 'onWarning'
-	| 'onSurface';
 
 // Settings Form Data
 export const storeFormData: Writable<Record<CustomisableAttributes, string>> = localStorageStore('storeFormData', {

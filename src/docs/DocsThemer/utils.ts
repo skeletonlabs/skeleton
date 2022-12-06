@@ -6,7 +6,7 @@ import type { HexRgb, SemanticNames, TailwindColorObject, TailwindNumbers } from
 // Helpers
 import { tailwindcssPaletteGenerator } from '@bobthered/tailwindcss-palette-generator';
 import { tailwindDefaultColors, tailwindNumbers } from '../../lib/tailwind/colors';
-import { storeTailwindPalette, storeTailwindForm, storeHexPalette } from './stores';
+import { storeTailwindPalette, storeTailwindForm, storeHexPalette, storeFormData } from './stores';
 
 // Tailwind ---
 
