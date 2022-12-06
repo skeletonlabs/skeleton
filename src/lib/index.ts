@@ -23,9 +23,6 @@ export {
 	// Utilities
 	createDataTableStore,
 	dataTableHandler,
-	dataTableSelect,
-	dataTableSelectAll,
-	dataTableSort,
 	// Svelte Actions
 	tableInteraction,
 	tableA11y
