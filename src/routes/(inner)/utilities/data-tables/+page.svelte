@@ -129,14 +129,9 @@
 				language="ts"
 				code={`
 import {
-	// Types
-	type DataTableModel,
 	// Utilities
 	createDataTableStore,
 	dataTableHandler,
-	dataTableSelect,
-	dataTableSelectAll,
-	dataTableSort,
 	// Svelte Actions
 	tableInteraction,
 	tableA11y
@@ -189,14 +184,12 @@ const sourceData = [
 			<h2>Data Table Model</h2>
 			<p>
 				To unlock the power of our data tables, we'll need to create what we'll refer to as a <em>data table model</em>. Create a new Svelte
-				writable store with <code>createDataTableStore</code>, then pass the store to the <code>dataTableHandler</code> method.
+				writable store with <code>createDataTableStore</code>, then pass the model of our store to the <code>dataTableHandler</code> method.
 			</p>
 			<CodeBlock
 				language="ts"
 				code={`
-const dataTableModel = createDataTableStore(sourceData, {
-	// Optional: An array of selected row objects.
-	selection: [],
+const dataTableStore = createDataTableStore(sourceData, {
 	// Optional: The current search term.
 	search: '',
 	// Optional: The current sort key.
@@ -205,11 +198,11 @@ const dataTableModel = createDataTableStore(sourceData, {
 	pagination: { offset: 0, limit: 5, size: 0, amounts: [1, 2, 5, 10] }
 });\n
 // Automatically handles search, sort, etc when the model updates.
-dataTableModel.subscribe((v) => dataTableHandler(v));`}
+dataTableStore.subscribe((model) => dataTableHandler(model));`}
 			/>
 			<p>
 				Next, we'll update our table markup to display our model data on the page. Add each desired heading paired with a matching body cell
-				value. We'll use an <em>#each</em> loop to create each table body row. Note we use <code>$dataTableModel.filtered</code>
+				value. We'll use an <em>#each</em> loop to create each table body row. Note we use <code>$dataTableStore.filtered</code>
 				as our loop source. The features below will modify this data.
 			</p>
 			<CodeBlock
@@ -223,7 +216,7 @@ dataTableModel.subscribe((v) => dataTableHandler(v));`}
 	</tr>
 </thead>
 <tbody>
-	{#each $dataTableModel.filtered as row, rowIndex}
+	{#each $dataTableStore.filtered as row, rowIndex}
 		<tr>
 			<td>{row.position}</td>
 			<td>{row.name}</td>
@@ -234,25 +227,34 @@ dataTableModel.subscribe((v) => dataTableHandler(v));`}
 			/>
 		</section>
 		<hr />
+		<!-- Updating Source -->
+		<section class="space-y-4">
+			<h2>Updating the Source</h2>
+			<p>
+				To update the content of the data table, just call the <code>dataTableStore.updateSource()</code> method and pass in your new source
+				data.
+			</p>
+			<CodeBlock language="ts" code={`dataTableStore.updateSource(newSourceData)`} />
+		</section>
 		<!-- Search -->
 		<section class="space-y-4">
 			<h2>Search</h2>
 			<p>
-				To implement search, bind <code>$dataTableModel.search</code> to any search input. You can place this input anywhere on the page.
+				To implement search, bind <code>$dataTableStore.search</code> to any search input. You can place this input anywhere on the page.
 			</p>
-			<CodeBlock language="html" code={`<input bind:value={$dataTableModel.search} type="search" placeholder="Search..." />`} />
+			<CodeBlock language="html" code={`<input bind:value={$dataTableStore.search} type="search" placeholder="Search..." />`} />
 		</section>
 		<!-- Sort -->
 		<section class="space-y-4">
 			<h2>Sort</h2>
 			<p>
-				We'll use <code>dataTableSort</code> to automatically set <code>$dataTableModel.sort</code> when a table heading is tapped. Add the following
-				to your table head element.
+				We'll use the <code>dataTableStore.sort()</code> method to automatically set <code>$dataTableStore.sort</code> when a table heading is
+				tapped. Add the following to your table head element.
 			</p>
-			<CodeBlock language="html" code={`<thead on:click={(e) => { dataTableSort(e, dataTableModel) }} on:keypress>`} />
+			<CodeBlock language="html" code={`<thead on:click={(e) => { dataTableStore.sort(e) }} on:keypress>`} />
 			<p>
 				Add a <code>data-sort="(key)"</code> attribute to each heading you wish to be sortable. Tapping a heading will set the
-				<code>$dataTableModel.sort</code>
+				<code>$dataTableStore.sort</code>
 				value and update the UI. Tapping a heading repeatedly will toggle between <em>ascending</em> and <em>descending</em> sort order.
 			</p>
 			<CodeBlock
@@ -278,10 +280,10 @@ dataTableModel.subscribe((v) => dataTableHandler(v));`}
 			<p>To handle row selection, we'll add a new heading column. Keep the comment shown, as we'll replace it in a following step.</p>
 			<CodeBlock language="html" code={`<th><!-- selection --></th>`} />
 			<p>
-				Pair this with a matching table body cell that includes a checkbox input. Append <code>bind:dataTableChecked</code> to the input to
-				extend the row object source data. When checked on/off, the <code>dataTableHandler</code> will automatically include/exclude the
-				entire row object in
-				<code>$dataTableModel.selection</code>.
+				Pair this with a matching table body cell that includes a checkbox input. Append <code>bind:checked</code> to the input to extend
+				the row object source data. When checked on/off, the <code>dataTableHandler</code> will automatically include/exclude the entire row
+				object in
+				<code>$dataTableStore.selection</code>.
 			</p>
 			<CodeBlock language="html" code={`<td><input type="checkbox" bind:checked={row.dataTableChecked} /></td>`} />
 			<p>
@@ -291,28 +293,31 @@ dataTableModel.subscribe((v) => dataTableHandler(v));`}
 			<CodeBlock language="html" code={`<tr class:table-row-checked={row.dataTableChecked}>`} />
 			<h3>Pre-Selected</h3>
 			<p>
-				You may wish to pre-select certain table rows. We've provided a utility method to handle this. Pass your model, the key to query
-				against, and a whitelist of values. Any object that matches the conditions will be selected. Trigger this multiple times for multipe
-				selection queries.
+				You may wish to pre-select certain table rows. We've provided a utility method to handle this. Pass in the key to query against, and
+				a whitelist of values. Any object that matches the conditions will be selected. Trigger this multiple times for multiple selection
+				queries.
 			</p>
 			<CodeBlock
 				language="ts"
-				code={`// Select all objects with a position value of 1 or 2:\ndataTableSelect(dataTableModel, 'position', [1,2]);`}
+				code={`// Selects all objects with a position value of 1 or 2:\ndataTableStore.select('position', [1,2]);`}
 			/>
 			<h3>Select All</h3>
 			<p>
 				If you wish to add a <em>select all</em> feature, replace <code>{`<th><!-- selection --></th>`}</code> with the following.
 			</p>
-			<CodeBlock language="html" code={`<th><input type="checkbox" on:click={(e) => { dataTableSelectAll(e, dataTableModel) }} /></th>`} />
+			<CodeBlock
+				language="html"
+				code={`<th><input type="checkbox" on:click={(e) => { dataTableStore.selectAll(e.currentTarget.checked) }} /></th>`}
+			/>
 		</section>
 		<!-- Pagination -->
 		<section class="space-y-4">
 			<h2>Pagination</h2>
 			<p>
 				Please refer to the <a href="/components/paginators">Paginators component</a> to learn more about this feature. For data tables, use
-				<code>$dataTableModel.pagination</code> to ensures the model updates reactively. The wrapping <em>if</em> statement is required.
+				<code>$dataTableStore.pagination</code> to ensures the model updates reactively. The wrapping <em>if</em> statement is required.
 			</p>
-			<CodeBlock language="html" code={`{#if $dataTableModel.pagination}<Paginator bind:settings={$dataTableModel.pagination} />{/if}`} />
+			<CodeBlock language="html" code={`{#if $dataTableStore.pagination}<Paginator bind:settings={$dataTableStore.pagination} />{/if}`} />
 		</section>
 		<!-- A11y -->
 		<section class="space-y-4">

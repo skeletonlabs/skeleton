@@ -51,7 +51,6 @@ export function createDataTableStore<T extends Record<PropertyKey, any>>(source:
 		},
 		/** Allows you to dynamically pre-select rows on-demand. */
 		select: (key: keyof T, valuesArr: unknown[]) => {
-			// TODO: maybe can improve?
 			update((model) => {
 				model.filtered.map((row) => {
 					if (valuesArr.includes(row[key])) row.dataTableChecked = true;
