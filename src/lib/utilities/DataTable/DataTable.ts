@@ -1,7 +1,7 @@
 // Data Table Utilities
 // A set of utility features for local template-driven data tables.
 
-import { get, writable } from 'svelte/store';
+import { writable } from 'svelte/store';
 import type { DataTableModel, DataTableOptions } from './types';
 
 // Exports
