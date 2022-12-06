@@ -31,7 +31,7 @@
 		<section class="space-y-4">
 			<h2>Tailwind Forms Plugin</h2>
 			<p>
-				Follow the steps below to instlal this plugin. If you would like to learn more about this plugin, see <a
+				Follow the steps below to install this plugin. If you would like to learn more about this plugin, see <a
 					href="https://www.youtube.com/watch?v=pONeWAzDsQg"
 					target="_blank"
 					rel="noreferrer">Tailwind's YouTube tutorial</a
