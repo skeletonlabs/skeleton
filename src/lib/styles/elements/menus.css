@@ -3,6 +3,9 @@
 [data-menu] {
 	@apply absolute z-20 hidden;
 }
+[data-menu] a {
+	@apply focus-visible:bg-primary-500/10;
+}
 
 :root {
 	--menu-offset: 8px;
