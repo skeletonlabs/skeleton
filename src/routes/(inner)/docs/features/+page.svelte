@@ -54,7 +54,7 @@
 			</div>
 			<h2>Svelte</h2>
 		</div>
-		<p>These feature require Svelte to operate.</p>
+		<p>These features require Svelte to operate.</p>
 		<div class="space-y-4">
 			<h3>Actions</h3>
 			<p>
