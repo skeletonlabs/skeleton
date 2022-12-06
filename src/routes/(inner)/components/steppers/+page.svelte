@@ -105,7 +105,7 @@
 		</section>
 		<section>
 			<div class="card card-body">
-				<Stepper {active} horizontal={true} navigateOnClick={'disabled'} length={3} on:complete={onComplete}>
+				<Stepper {active} horizontal={true} navigateOnClick={'enabled'} length={3} on:complete={onComplete}>
 					<Step index={0}>
 						<svelte:fragment slot="header"><h4>Step 1 - Get Started!</h4></svelte:fragment>
 						<p>
