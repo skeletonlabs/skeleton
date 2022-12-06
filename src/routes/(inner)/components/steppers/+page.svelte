@@ -103,6 +103,43 @@
 				</Stepper>
 			</div>
 		</section>
+		<section>
+			<div class="card card-body">
+				<Stepper {active} horizontal={true} navigateOnClick={'enabled'} length={5} on:complete={onComplete}>
+					<Step index={0}>
+						<svelte:fragment slot="header"><h4>Step 1 - Get Started!</h4></svelte:fragment>
+						<p>
+							This example will teach you how to use the Stepper component with <code>horizontal</code>. Tap <em>next</em> to proceed forward.
+						</p>
+					</Step>
+					<Step index={1}>
+						<p>
+							Prior completed steps will display a checkmark. However, tap the &larr; button at any time to return to the previous step.
+						</p>
+					</Step>
+					<Step index={2} locked={!exampleLockedState}>
+						<div class="flex justify-center mb-2">
+							<SlideToggle bind:checked={exampleLockedState}>Unlock</SlideToggle>
+						</div>
+						<p>
+							This Step component uses the <code>locked</code> property, which can prevent progress. This is ideal for multi-step forms,
+							such as registration. For now we'll simulate a successful validation condition using the
+							<em>unlock</em> option below.
+						</p>
+					</Step>
+					<Step index={3}>
+						<p>The steps will expand to fit content of any width. We'll demonstrate this below with <em>lorem ipsum</em> text.</p>
+						<p>{lorem} {lorem} {lorem} {lorem} {lorem}</p>
+					</Step>
+					<Step index={4}>
+						<p>
+							A <em>Complete</em> button will appear on the last step. When the step is unlocked and the button pressed, an
+							<code>on:complete</code> event will fire. Use this to submit form data to a server.
+						</p>
+					</Step>
+				</Stepper>
+			</div>
+		</section>
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->

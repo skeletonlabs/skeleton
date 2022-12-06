@@ -28,6 +28,7 @@
 	export let dispatch: any = getContext('dispatch');
 	export let active: Writable<number> = getContext('active');
 	export let length: number = getContext('length');
+	export let horizontal: boolean = getContext('horizontal');
 	export let rounded: string = getContext('rounded');
 	export let duration: number = getContext('duration');
 	export let navigateOnClick: string = getContext('navigateOnClick');
@@ -70,42 +71,95 @@
 	$: classesNav = `${cNav}`;
 	// Show cursor
 	$: isClickable = navigateOnClick === 'enabled' || (navigateOnClick === 'unlocked' && !locked);
+
+	// HORIZONTAL classes
+	// Step item width
+	let cHorizontalHeader = 'min-w-fit';
+	let cHorizontalBreak = 'invisible mt-4 w-full order-2';
+	let cHorizontalContent = 'order-3';
+	let cHorizontalNav = 'mt-4 flex justify-center space-x-4';
+	$: classesTimelineStepWidth = isLastItem ? '' : `grow min-w-[${(1.0 / length) * 100}%]`;
+	$: classesHorizontalTimeline = `flex items-center order-1 ${classesTimelineStepWidth}`;
+	$: classesHorizontalNumeral = `shrink-0 mr-2 ${classesNumeral}`;
+	$: classesHorizontalLine = `ml-2 h-1 w-full ${classesLineBackground}`;
 </script>
 
-<div class="step {classesBase}" data-testid="step">
+{#if horizontal}
+	<!-- <div class="step" data-testid="step"> -->
 	<!-- Timeline -->
-	<div class="step-timeline flex flex-col items-center">
+	<!-- <div class="step-timeline flex items-center order-1 w-[{1 / length}%]" class:w-full={!isLastItem}> -->
+	<!-- <div class="step-timeline flex items-center grow order-1 w-[{(1.0 / length) * 100}%]"> -->
+	<div class="step-timeline {classesHorizontalTimeline}">
 		<!-- Numeral -->
-		<div class="step-numeral flex-none {classesNumeral}" class:cursor-pointer={isClickable} on:click={stepToIndex} on:keypress>
+		<div class="step-numeral {classesHorizontalNumeral}" class:cursor-pointer={isClickable} on:click={stepToIndex} on:keypress>
 			{#if locked}
 				🔒
 			{:else}
 				{@html index < $active ? '&check;' : index + 1}
 			{/if}
 		</div>
-		<!-- Line -->
-		{#if !isLastItem}<div class="step-line {classesLine}" />{/if}
-	</div>
-	<!-- Content -->
-	<div class="step-content {classesDrawer}">
-		<!-- Slot: Header -->
-		<header class="step-header" class:cursor-pointer={isClickable} on:click={stepToIndex} on:keypress>
+		<!-- Header -->
+		<div class={cHorizontalHeader}>
 			<slot name="header"><h4>Step {index + 1}</h4></slot>
-		</header>
-		{#if index === $active}
-			<div class="step-body space-y-4" transition:slide|local={{ duration }}>
-				<!-- Slot: Default -->
-				<slot />
-				<!-- Nav -->
-				<footer class="step-navigation {classesNav}">
-					{#if index !== 0}<button class="btn {buttonBack}" on:click={stepPrev}>&uarr;</button>{/if}
-					{#if $active + 1 < length}
-						<button class="btn {buttonNext}" on:click={stepNext} disabled={locked}>Next &darr;</button>
-					{:else}
-						<button class="btn {buttonComplete}" on:click={onComplete} disabled={locked}>Complete</button>
-					{/if}
-				</footer>
-			</div>
+		</div>
+		<!-- Line -->
+		{#if !isLastItem}
+			<div class={classesHorizontalLine} />
 		{/if}
 	</div>
-</div>
+
+	{#if index === $active}
+		<!-- Break into a new row to display the body of the step -->
+		<hr class={cHorizontalBreak} />
+		<div class="step-content {cHorizontalContent}">
+			<slot />
+			<footer class="step-navigation {cHorizontalNav}">
+				{#if index !== 0}<button class="btn {buttonBack}" on:click={stepPrev}>&larr;</button>{/if}
+				{#if $active + 1 < length}
+					<button class="btn {buttonNext}" on:click={stepNext} disabled={locked}>Next &rarr;</button>
+				{:else}
+					<button class="btn {buttonComplete}" on:click={onComplete} disabled={locked}>Complete</button>
+				{/if}
+			</footer>
+		</div>
+	{/if}
+	<!-- </div> -->
+{:else}
+	<div class="step {classesBase}" data-testid="step">
+		<!-- Timeline -->
+		<div class="step-timeline flex flex-col items-center">
+			<!-- Numeral -->
+			<div class="step-numeral flex-none {classesNumeral}" class:cursor-pointer={isClickable} on:click={stepToIndex} on:keypress>
+				{#if locked}
+					🔒
+				{:else}
+					{@html index < $active ? '&check;' : index + 1}
+				{/if}
+			</div>
+			<!-- Line -->
+			{#if !isLastItem}<div class="step-line {classesLine}" />{/if}
+		</div>
+		<!-- Content -->
+		<div class="step-content {classesDrawer}">
+			<!-- Slot: Header -->
+			<header class="step-header" class:cursor-pointer={isClickable} on:click={stepToIndex} on:keypress>
+				<slot name="header"><h4>Step {index + 1}</h4></slot>
+			</header>
+			{#if index === $active}
+				<div class="step-body space-y-4" transition:slide|local={{ duration }}>
+					<!-- Slot: Default -->
+					<slot />
+					<!-- Nav -->
+					<footer class="step-navigation {classesNav}">
+						{#if index !== 0}<button class="btn {buttonBack}" on:click={stepPrev}>&uarr;</button>{/if}
+						{#if $active + 1 < length}
+							<button class="btn {buttonNext}" on:click={stepNext} disabled={locked}>Next &darr;</button>
+						{:else}
+							<button class="btn {buttonComplete}" on:click={onComplete} disabled={locked}>Complete</button>
+						{/if}
+					</footer>
+				</div>
+			{/if}
+		</div>
+	</div>
+{/if}

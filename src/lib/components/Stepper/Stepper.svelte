@@ -14,6 +14,8 @@
 	export let length: number = 0;
 	/** Set the Svelte transition duration. */
 	export let duration: number = 200;
+	/** Set the stepper to be horizontal instead of vertical. */
+	export let horizontal: boolean = false;
 	/** Provide classes to set rounded style of the step index numbers. */
 	export let rounded: string = 'rounded-full';
 	/** Allow navigation by clicking on headers or step numbers.
@@ -39,6 +41,7 @@
 	setContext('dispatch', dispatch);
 	setContext('active', active);
 	setContext('length', length);
+	setContext('horizontal', horizontal);
 	setContext('rounded', rounded);
 	setContext('navigateOnClick', navigateOnClick);
 	setContext('color', color);
@@ -52,6 +55,12 @@
 	$: classesStepper = `${$$props.class ?? ''}`;
 </script>
 
-<div class="stepper {classesStepper}" data-testid="stepper">
-	<slot />
-</div>
+{#if horizontal}
+	<div class="stepper flex flex-wrap justify-center">
+		<slot />
+	</div>
+{:else}
+	<div class="stepper {classesStepper}" data-testid="stepper">
+		<slot />
+	</div>
+{/if}
