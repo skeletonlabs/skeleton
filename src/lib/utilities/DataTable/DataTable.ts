@@ -139,6 +139,8 @@ function paginationHandler<T extends Record<PropertyKey, unknown>>(store: DataTa
 			store.filtered = store.filtered.slice(0, store.pagination.limit);
 			// Set Current Size
 			store.pagination.size = store.filtered.length;
+			// Set the current page to the first page
+			store.pagination.offset = 0;
 		} else {
 			store.filtered = filtered;
 			// Set Current Size
