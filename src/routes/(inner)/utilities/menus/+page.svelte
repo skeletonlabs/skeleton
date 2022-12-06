@@ -119,6 +119,11 @@
 				<p>Pair this with Tailwind utility classes to customize the look and feel.</p>
 				<CodeBlock language="html" code={`<div class="card p-2 w-64 shadow-xl" data-menu="example">(menu)</div>`} />
 				<p>Combine <code>.list-nav</code>, and <code>.card</code> Tailwind Element classes to create a navigation menu.</p>
+
+				<p>
+					When <code>.list-nav</code> is applied, links will be styled automatically. To apply the same styles to other elements, such as
+					buttons, use the <code>.option</code> Tailwind Elements class, along with any other desired Tailwind utility classes.
+				</p>
 				<CodeBlock
 					language="html"
 					code={`
@@ -127,6 +132,7 @@
 		<li><a href="/">Home</a></li>
 		<li><a href="/">About</a></li>
 		<li><a href="/">Blog</a></li>
+        <li><button class="option w-full">Logout</button></li>
 	</ul>
 </nav>
 				`}
