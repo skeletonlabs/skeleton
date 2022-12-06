@@ -78,11 +78,11 @@ export function createDataTableStore<T extends Record<PropertyKey, any>>(source:
 // Data Table Handler
 
 /** Listens for changes to `$dataTableModel` and triggers: search, selection, sort, and pagination. */
-export function dataTableHandler<T extends Record<PropertyKey, any>>(store: DataTableModel<T>): void {
-	searchHandler(store);
-	selectionHandler(store);
-	sortHandler(store);
-	paginationHandler(store);
+export function dataTableHandler<T extends Record<PropertyKey, any>>(model: DataTableModel<T>): void {
+	searchHandler(model);
+	selectionHandler(model);
+	sortHandler(model);
+	paginationHandler(model);
 }
 
 // Search ---
