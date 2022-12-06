@@ -55,6 +55,10 @@
 
 	// Reactive
 	$: isLastItem = index === length - 1;
+	// clickable & cursor logic
+	$: isClickable = navigateOnClick === 'enabled' || (navigateOnClick === 'unlocked' && !locked);
+	$: classCursor = isClickable ? 'cursor-pointer' : 'cursor-default';
+	$: btnTabindex = isClickable ? 1 : -1;
 	// Base
 	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
 	// Timeline (line)
@@ -63,43 +67,35 @@
 	$: classesLine = `${cLine} ${classesLineBackground}`;
 	// Timeline (numeral)
 	$: classesNumeralBackground = index <= $active ? `${color} ${background}` : `${cNumeralBackground}`;
-	$: classesNumeral = `${cNumeral} ${classesNumeralBackground} ${rounded}`;
+	$: classesNumeral = `${cNumeral} ${classesNumeralBackground} ${rounded} ${classCursor}`;
 	// Content Drawer
 	$: classesDrawerPadding = !isLastItem ? 'pb-10' : '0';
 	$: classesDrawer = `${cDrawer} ${classesDrawerPadding}`;
 	// Content Nav
 	$: classesNav = `${cNav}`;
-	// Show cursor
-	$: isClickable = navigateOnClick === 'enabled' || (navigateOnClick === 'unlocked' && !locked);
 
 	// HORIZONTAL classes
 	// Step item width
-	let cHorizontalHeader = 'min-w-fit';
 	let cHorizontalBreak = 'invisible mt-4 w-full order-2';
-	let cHorizontalContent = 'order-3';
 	let cHorizontalNav = 'mt-4 flex justify-center space-x-4';
 	$: classesTimelineStepWidth = isLastItem ? '' : `grow min-w-[${(1.0 / length) * 100}%]`;
 	$: classesHorizontalTimeline = `flex items-center order-1 ${classesTimelineStepWidth}`;
-	$: classesHorizontalNumeral = `shrink-0 mr-2 ${classesNumeral}`;
+	$: classesHorizontalNumeral = `shrink-0 mr-2 ${classesNumeral} ${classCursor}`;
 	$: classesHorizontalLine = `ml-2 h-1 w-full ${classesLineBackground}`;
 </script>
 
 {#if horizontal}
-	<!-- <div class="step" data-testid="step"> -->
-	<!-- Timeline -->
-	<!-- <div class="step-timeline flex items-center order-1 w-[{1 / length}%]" class:w-full={!isLastItem}> -->
-	<!-- <div class="step-timeline flex items-center grow order-1 w-[{(1.0 / length) * 100}%]"> -->
 	<div class="step-timeline {classesHorizontalTimeline}">
 		<!-- Numeral -->
-		<div class="step-numeral {classesHorizontalNumeral}" class:cursor-pointer={isClickable} on:click={stepToIndex} on:keypress>
+		<button class="step-numeral {classesHorizontalNumeral}" tabindex={btnTabindex} on:click={stepToIndex} on:keypress>
 			{#if locked}
 				🔒
 			{:else}
 				{@html index < $active ? '&check;' : index + 1}
 			{/if}
-		</div>
+		</button>
 		<!-- Header -->
-		<div class={cHorizontalHeader}>
+		<div class="min-w-fit">
 			<slot name="header"><h4>Step {index + 1}</h4></slot>
 		</div>
 		<!-- Line -->
@@ -111,7 +107,7 @@
 	{#if index === $active}
 		<!-- Break into a new row to display the body of the step -->
 		<hr class={cHorizontalBreak} />
-		<div class="step-content {cHorizontalContent}">
+		<div class="step-content order-3">
 			<slot />
 			<footer class="step-navigation {cHorizontalNav}">
 				{#if index !== 0}<button class="btn {buttonBack}" on:click={stepPrev}>&larr;</button>{/if}
@@ -129,13 +125,19 @@
 		<!-- Timeline -->
 		<div class="step-timeline flex flex-col items-center">
 			<!-- Numeral -->
-			<div class="step-numeral flex-none {classesNumeral}" class:cursor-pointer={isClickable} on:click={stepToIndex} on:keypress>
+			<button
+				class="step-numeral flex-none {classesNumeral}"
+				class:cursor-pointer={isClickable}
+				tabindex={btnTabindex}
+				on:click={stepToIndex}
+				on:keypress
+			>
 				{#if locked}
 					🔒
 				{:else}
 					{@html index < $active ? '&check;' : index + 1}
 				{/if}
-			</div>
+			</button>
 			<!-- Line -->
 			{#if !isLastItem}<div class="step-line {classesLine}" />{/if}
 		</div>
