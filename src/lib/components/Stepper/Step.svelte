@@ -58,7 +58,7 @@
 	// clickable & cursor logic
 	$: isClickable = navigateOnClick === 'enabled' || (navigateOnClick === 'unlocked' && !locked);
 	$: classCursor = isClickable ? 'cursor-pointer' : 'cursor-default';
-	$: btnTabindex = isClickable ? 1 : -1;
+	$: btnTabindex = isClickable ? 0 : -1;
 	// Base
 	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
 	// Timeline (line)
@@ -80,27 +80,31 @@
 	let cHorizontalNav = 'mt-4 flex justify-center space-x-4';
 	$: classesTimelineStepWidth = isLastItem ? '' : `grow min-w-[${(1.0 / length) * 100}%]`;
 	$: classesHorizontalTimeline = `flex items-center order-1 ${classesTimelineStepWidth}`;
-	$: classesHorizontalNumeral = `shrink-0 mr-2 ${classesNumeral} ${classCursor}`;
-	$: classesHorizontalLine = `ml-2 h-1 w-full ${classesLineBackground}`;
+	$: classesHorizontalNumeral = `${classesNumeral}`;
+	$: classesHorizontalLine = `ml-2 h-1 ${classesLineBackground}`;
 </script>
 
 {#if horizontal}
 	<div class="step-timeline {classesHorizontalTimeline}">
-		<!-- Numeral -->
-		<button class="step-numeral {classesHorizontalNumeral}" tabindex={btnTabindex} on:click={stepToIndex} on:keypress>
-			{#if locked}
-				🔒
-			{:else}
-				{@html index < $active ? '&check;' : index + 1}
-			{/if}
-		</button>
-		<!-- Header -->
-		<div class="min-w-fit">
-			<slot name="header"><h4>Step {index + 1}</h4></slot>
+		<div class="">
+			<button class="step-numeral flex flex-row items-center {classCursor}" tabindex={btnTabindex} on:click={stepToIndex} on:keypress>
+				<!-- Numeral -->
+				<div class={classesHorizontalNumeral}>
+					{#if locked}
+						🔒
+					{:else}
+						{@html index < $active ? '&check;' : index + 1}
+					{/if}
+				</div>
+				<!-- Header -->
+				<div class="ml-2">
+					<slot name="header"><h4>Step {index + 1}</h4></slot>
+				</div>
+			</button>
 		</div>
 		<!-- Line -->
 		{#if !isLastItem}
-			<div class={classesHorizontalLine} />
+			<div class="shrink flex-1 {classesHorizontalLine}" />
 		{/if}
 	</div>
 
