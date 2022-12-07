@@ -46,6 +46,8 @@
 	const storeRounded: Writable<string> = writable('rounded-full');
 	let propNavigateOnClick: string = 'disabled';
 	let propBackground: string = 'bg-accent-500';
+
+	$: forceRefresh = `${propBackground} ${propNavigateOnClick} ${$storeRounded}`;
 </script>
 
 <DocsShell {settings}>
@@ -55,7 +57,7 @@
 			<div class="grid grid-cols-1 xl:grid-cols-[1fr_auto] gap-4">
 				<div class="card card-body">
 					<!-- setContext used in the Stepper component is not reactive so we need to force a refresh of the component when the prop values are changed in the page. -->
-					{#key `${propBackground} ${propNavigateOnClick} ${$storeRounded}`}
+					{#key forceRefresh}
 						<Stepper
 							{active}
 							length={5}
@@ -129,7 +131,7 @@
 			</div>
 			<!-- Horizontal Stepper -->
 			<div class="card card-body">
-				{#key `${propBackground} ${propNavigateOnClick} ${$storeRounded}`}
+				{#key forceRefresh}
 					<Stepper
 						{activeHorizontal}
 						horizontal={true}
