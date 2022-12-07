@@ -123,21 +123,21 @@ ${$storeFramework === 'astro' ? 'module.exports' : 'const config'} = {
 			them.
 		</p>
 		<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-			<div class="card card-body card-glass space-y-4 text-center">
+			<div class="card p-4 card-glass space-y-4 text-center">
 				<h3>Forms</h3>
 				<p>Provides a basic reset for form elements.</p>
 				<a class="btn btn-ghost-surface" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank" rel="noreferrer">
 					View Plugin
 				</a>
 			</div>
-			<div class="card card-body card-glass space-y-4 text-center">
+			<div class="card p-4 card-glass space-y-4 text-center">
 				<h3>Typography</h3>
 				<p>Typographic defaults for HTML you don't control.</p>
 				<a class="btn btn-ghost-surface" href="https://tailwindcss.com/docs/typography-plugin" target="_blank" rel="noreferrer">
 					View Plugin
 				</a>
 			</div>
-			<div class="card card-body card-glass space-y-4 text-center">
+			<div class="card p-4 card-glass space-y-4 text-center">
 				<h3>Line Clamp</h3>
 				<p>Provides utilities for visually truncating text.</p>
 				<a class="btn btn-ghost-surface" href="https://github.com/tailwindlabs/tailwindcss-line-clamp" target="_blank" rel="noreferrer">
@@ -150,7 +150,7 @@ ${$storeFramework === 'astro' ? 'module.exports' : 'const config'} = {
 	<hr />
 
 	<!-- Next Steps -->
-	<div class="card card-body flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+	<div class="card p-4 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<p>Next, let's implement a Skeleton theme.</p>
 		<a class="btn btn-filled-primary" href="/guides/themes">Themes &rarr;</a>
 	</div>

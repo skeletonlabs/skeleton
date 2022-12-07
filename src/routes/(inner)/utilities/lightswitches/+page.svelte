@@ -24,7 +24,7 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="card card-body flex justify-center items-center !py-10">
+		<section class="card p-4 flex justify-center items-center !py-10">
 			<LightSwitch />
 		</section>
 	</svelte:fragment>

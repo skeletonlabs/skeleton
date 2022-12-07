@@ -76,7 +76,7 @@
 				</div>
 			</div>
 			<!-- Options -->
-			<div class="card card-body space-y-4">
+			<div class="card p-4 space-y-4">
 				<!-- Tag -->
 				<label for="">
 					<RadioGroup selected={storeTag} display="flex">
@@ -164,7 +164,7 @@
 			<h2>Button</h2>
 			<p>Add the <code>.btn</code> class to any button or anchor to create a button with minimal styling.</p>
 			<CodeBlock language="html" code={`<button class="btn">Button</button>\n<a href="/" class="btn">Anchor</a>`} />
-			<div class="card card-body flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
+			<div class="card p-4 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 				<button class="btn">Button</button>
 				<a {href} class="btn">Anchor</a>
 			</div>
@@ -174,7 +174,7 @@
 			<h2>Icon Buttons</h2>
 			<p>Add the <code>.btn-icon</code> class to any button or anchor to create a icon button with minimal styling.</p>
 			<CodeBlock language="html" code={`<button class="btn-icon">B</button>\n<a href="/" class="btn-icon">A</a>`} />
-			<div class="card card-body flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
+			<div class="card p-4 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 				<button class="btn-icon">B</button>
 				<!-- FIXME: the :not() style isn't applying here so I supplemented `.unstyled` class. Browser bug perhaps? -CHRIS -->
 				<a {href} class="btn-icon unstyled">A</a>
@@ -191,7 +191,7 @@
 				language="html"
 				code={`<button class="btn bg-primary-500">\n\t<span>💀</span>\n\t<span>Icons</span>\n\t<span>🦴</span>\n</button>`}
 			/>
-			<div class="card card-body flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
+			<div class="card p-4 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 				<button class="btn btn-filled-primary">
 					<span>💀</span>
 					<span>Icons</span>
@@ -204,7 +204,7 @@
 			<h2>Variants</h2>
 			<p>A set of canned preset styles are available using <code>.btn-[variant]</code>. This works for both standard and icon buttons.</p>
 			<CodeBlock language="html" code={`<button class="btn btn-filled-primary">filled-primary</button>`} />
-			<div class="card card-body flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
+			<div class="card p-4 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 				<!-- Filled -->
 				<div class="grid grid-cols-1 gap-4">
 					<button class="btn btn-filled">filled</button>
@@ -234,7 +234,7 @@
 				</div>
 			</div>
 			<CodeBlock language="html" code={`<button class="btn-icon btn-filled-primary">💀</button>`} />
-			<div class="card card-body flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
+			<div class="card p-4 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 				<!-- Text -->
 				<div class="grid grid-cols-1 gap-4">
 					<button class="btn-icon btn-filled">💀</button>

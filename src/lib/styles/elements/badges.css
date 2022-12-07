@@ -26,7 +26,7 @@
 	/* Filled */
 	.badge-filled,
 	.badge-filled-surface {
-		@apply bg-surface-400-500-token text-on-surface-token;
+		@apply bg-surface-400-500-token;
 	}
 	.badge-filled-primary {
 		@apply bg-primary-500 text-on-primary-token;

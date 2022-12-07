@@ -43,7 +43,7 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="card card-body">
+		<section class="card p-4">
 			<Stepper {active} length={5} on:complete={onComplete}>
 				<Step index={0}>
 					<svelte:fragment slot="header"><h4>Step 1 - Get Started!</h4></svelte:fragment>

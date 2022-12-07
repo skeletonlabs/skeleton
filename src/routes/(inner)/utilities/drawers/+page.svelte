@@ -43,7 +43,7 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<div class="card card-body text-center space-y-4">
+		<div class="card p-4 text-center space-y-4">
 			<p>Select a drawer to preview.</p>
 			<!-- prettier-ignore -->
 			<div class="flex justify-center items-center space-x-2 sm:space-x-4">

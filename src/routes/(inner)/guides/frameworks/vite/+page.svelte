@@ -138,7 +138,7 @@
 	<h1>Homepage</h1>
 	<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 	<hr />
-	<section class="card card-body">
+	<section class="card p-4">
 		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 	</section>
 	<hr />

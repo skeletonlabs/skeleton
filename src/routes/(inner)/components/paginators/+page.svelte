@@ -65,7 +65,7 @@
 					body: sourceBodySliced
 				}}
 			/>
-			<div class="col-span-2 card card-body space-y-4">
+			<div class="col-span-2 card p-4 space-y-4">
 				<Paginator bind:settings={page} on:page={onPageChange} on:amount={onAmountChange} />
 			</div>
 		</section>

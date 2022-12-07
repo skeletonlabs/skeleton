@@ -30,7 +30,7 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="card card-body text-center !py-10 space-y-4">
+		<section class="card p-4 text-center !py-10 space-y-4">
 			<FileButton bind:files accept="image/*" name="file" button="btn-filled-accent" on:change={onChange}>Upload File</FileButton>
 			<p class="!text-xs text-center">Monitor your browser's console when adding files.</p>
 		</section>

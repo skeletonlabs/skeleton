@@ -21,7 +21,7 @@
 			<header class="card-header">
 				<h2>Svelte Animated Counter</h2>
 			</header>
-			<div class="card-body">
+			<div class="p-4">
 				<p>Tiny animated counter library for Svelte.</p>
 			</div>
 			<!-- Byline -->
@@ -44,7 +44,7 @@
 			<header class="card-header">
 				<h2>Highlight.js</h2>
 			</header>
-			<div class="card-body">
+			<div class="p-4">
 				<p>Syntax highlighter with language auto-detection and zero dependencies.</p>
 			</div>
 			<!-- Byline -->
@@ -65,7 +65,7 @@
 			<header class="card-header">
 				<h2>Felte</h2>
 			</header>
-			<div class="card-body">
+			<div class="p-4">
 				<p>An extensible form library for Svelte.</p>
 			</div>
 			<!-- Byline -->
@@ -86,7 +86,7 @@
 			<header class="card-header">
 				<h2>Yup</h2>
 			</header>
-			<div class="card-body">
+			<div class="p-4">
 				<p>Dead simple Object schema form validation.</p>
 			</div>
 			<!-- Byline -->
@@ -106,7 +106,7 @@
 			<header class="card-header">
 				<h2>Chart.js</h2>
 			</header>
-			<div class="card-body">
+			<div class="p-4">
 				<p>Simple HTML5 charts using the canvas element.</p>
 			</div>
 			<!-- Byline -->
@@ -127,7 +127,7 @@
 			<header class="card-header">
 				<h2>Font Awesome</h2>
 			</header>
-			<div class="card-body">
+			<div class="p-4">
 				<p>An expansive SVG, font, and icon toolkit.</p>
 			</div>
 			<!-- Byline -->

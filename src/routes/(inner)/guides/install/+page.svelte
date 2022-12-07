@@ -97,7 +97,7 @@ cd astro-skeleton-app
 	<hr />
 
 	<!-- Next Steps -->
-	<div class="card card-body !flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+	<div class="card p-4 !flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<p>Next, let's configure Tailwind for use with Skeleton.</p>
 		<a class="btn btn-filled-primary" href="/guides/tailwind">
 			<span>Tailwind</span>

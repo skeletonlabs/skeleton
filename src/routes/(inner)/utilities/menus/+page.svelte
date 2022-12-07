@@ -39,26 +39,26 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="card card-body flex flex-col lg:flex-row justify-center items-center space-y-4 lg:space-y-0 lg:space-x-4">
+		<section class="card p-4 flex flex-col lg:flex-row justify-center items-center space-y-4 lg:space-y-0 lg:space-x-4">
 			<!-- Dropdown 1 -->
 			<span class="relative">
 				<button class="btn btn-ghost-surface" use:menu={{ menu: 'basic' }}>Basic</button>
 				<!-- on:toggled={eventLogger} -->
-				<div class="card card-body w-64 shadow-xl" data-menu="basic">
+				<div class="card p-4 w-64 shadow-xl" data-menu="basic">
 					<p>This menu uses default settings. The position will auto-update depending on the trigger's page location.</p>
 				</div>
 			</span>
 			<!-- Dropdown 2 -->
 			<span class="relative">
 				<button class="btn btn-ghost-surface" use:menu={{ menu: 'interactive', interactive: true }}>Interactive</button>
-				<div class="menu-tl card card-body w-64 shadow-xl" data-menu="interactive">
+				<div class="menu-tl card p-4 w-64 shadow-xl" data-menu="interactive">
 					<p>This menu will not close when clicking within the menu body due to <code>interactive: true</code>.</p>
 				</div>
 			</span>
 			<!-- Dropdown 3 -->
 			<span class="relative">
 				<button class="btn btn-ghost-surface" use:menu={{ menu: 'fixed', fixed: true }}>Fixed</button>
-				<div class="menu-tl card card-body w-64 shadow-xl" data-menu="fixed">
+				<div class="menu-tl card p-4 w-64 shadow-xl" data-menu="fixed">
 					<p>This menus is fixed to the top-right origin point due to <code>fixed: true</code> and <code>.menu-tl</code>.</p>
 				</div>
 			</span>
@@ -110,7 +110,7 @@
 			<div class="space-y-4">
 				<h2>Menu Styles</h2>
 				<p>Use <code>.card</code> classes to alter the appearance of the menu element.</p>
-				<CodeBlock language="html" code={`<div class="card card-body" data-menu="example">(menu)</div>`} />
+				<CodeBlock language="html" code={`<div class="card p-4" data-menu="example">(menu)</div>`} />
 				<p>Pair this with Tailwind utility classes to customize the look and feel.</p>
 				<CodeBlock language="html" code={`<div class="card p-2 w-64 shadow-xl" data-menu="example">(menu)</div>`} />
 				<p>Combine <code>.list-nav</code>, and <code>.card</code> Tailwind Element classes to create a navigation menu.</p>

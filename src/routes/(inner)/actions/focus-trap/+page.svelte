@@ -22,7 +22,7 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="card card-body space-y-4">
+		<section class="card p-4 space-y-4">
 			<!-- Toggle -->
 			<div class="text-center">
 				<SlideToggle bind:checked={isFocused}>Trap Focus</SlideToggle>

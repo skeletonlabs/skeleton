@@ -66,7 +66,7 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="card card-body">
+		<section class="card p-4">
 			<div class="grid grid-cols-1 md:grid-cols-5 gap-4 max-w-[640px] mx-auto">
 				<button class="btn btn-ghost-surface" on:click={toastBasic}>Basic</button>
 				<button class="btn btn-ghost-surface" on:click={toastParagraph}>Paragraph</button>

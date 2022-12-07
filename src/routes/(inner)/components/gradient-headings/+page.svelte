@@ -40,13 +40,13 @@
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-4 xl:space-y-0 xl:grid grid-cols-[1fr_auto] gap-2">
 			<!-- Example -->
-			<div class="card card-body h-full flex justify-center items-center">
+			<div class="card p-4 h-full flex justify-center items-center">
 				<svelte:component this={GradientHeading} tag={props.tag} direction={props.direction} from={props.from} to={props.to}
 					>{props.text}</svelte:component
 				>
 			</div>
 			<!-- Options -->
-			<div class="card card-body space-y-4">
+			<div class="card p-4 space-y-4">
 				<label>
 					<span>Text</span>
 					<input type="text" bind:value={props.text} placeholder="Enter text..." />

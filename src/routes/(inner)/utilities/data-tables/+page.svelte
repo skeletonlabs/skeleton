@@ -68,7 +68,7 @@
 				<input bind:value={$dataTableModel.search} type="search" placeholder="Search Table..." />
 			</div>
 			<!-- Table -->
-			<div class="card-body">
+			<div class="p-4">
 				<div class="table-container">
 					<!-- prettier-ignore -->
 					<table class="table table-hover" role="grid" use:tableInteraction use:tableA11y>

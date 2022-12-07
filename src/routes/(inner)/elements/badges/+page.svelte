@@ -26,11 +26,11 @@
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 lg:grid-cols-3 gap-4">
 			<!-- - -->
-			<div class="card card-body">
+			<div class="card p-4">
 				<span class="badge badge-filled-surface">Skeleton</span>
 			</div>
 			<!-- - -->
-			<div class="lg:col-span-2 card card-body">
+			<div class="lg:col-span-2 card p-4">
 				<span class="badge badge-filled-primary">
 					<span>&hearts;</span>
 					<span>Complete</span>
@@ -45,17 +45,17 @@
 				</span>
 			</div>
 			<!-- - -->
-			<div class="card card-body">
+			<div class="card p-4">
 				<h4>Skeleton</h4>
 				<sup class="badge badge-filled-primary -ml-0">Sup</sup>
 			</div>
 			<!-- - -->
-			<div class="card card-body">
+			<div class="card p-4">
 				<h4>Skeleton</h4>
 				<sub class="badge badge-filled-accent -ml-0">Sub</sub>
 			</div>
 			<!-- - -->
-			<div class="card card-body !space-x-6">
+			<div class="card p-4 !space-x-6">
 				<div class="relative inline-block">
 					<span class="badge badge-filled-primary absolute -top-3 -right-4 z-10">50k</span>
 					<button class="btn btn-sm btn-ghost-surface">Button</button>
@@ -92,7 +92,7 @@
 				A set of canned preset styles are available using <code>.badge-[variant]</code>. These are available for both badge and badge icons.
 			</p>
 			<CodeBlock language="html" code={`<span class="badge badge-filled-surface">Skeleton</span>`} />
-			<section class="lg:col-span-3 card card-body">
+			<section class="lg:col-span-3 card p-4">
 				<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
 					<div class="text-center"><span class="badge badge-filled-surface">filled-surface</span></div>
 					<div class="text-center"><span class="badge badge-filled-primary">filled-primary</span></div>
@@ -121,7 +121,7 @@
 </DocsShell>
 
 <style lang="postcss">
-	.card-body {
+	.p-4 {
 		@apply flex justify-center items-center space-x-2;
 	}
 </style>

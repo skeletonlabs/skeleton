@@ -123,7 +123,7 @@
 			<!-- More Options -->
 			<section class="space-y-4">
 				<h2>Additional Table Options</h2>
-				<div class="card card-body space-y-4">
+				<div class="card p-4 space-y-4">
 					<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 						<p>A simple data-driven table component.</p>
 						<a class="btn btn-ghost-surface" href="/components/tables">Tables Component &rarr;</a>

@@ -26,7 +26,7 @@
 	const cBase = '';
 	const cHeader = 'flex items-center space-x-4 p-4';
 	const cList = 'pr-1 space-y-4 rounded-container-token max-h-[60vh] md:max-h-[75vh] p-4 space-y-4 overflow-y-auto';
-	const cCard = 'card card-body py-2 bg-surface-200-700-token flex justify-between items-center';
+	const cCard = 'card p-4 py-2 bg-surface-200-700-token flex justify-between items-center';
 </script>
 
 <div class="docs-search {cBase}">

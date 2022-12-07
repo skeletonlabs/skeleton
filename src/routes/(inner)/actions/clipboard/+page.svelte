@@ -22,7 +22,7 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="card card-body grid grid-cols-1 md:grid-cols-2 gap-4">
+		<section class="card p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
 			<!-- Element -->
 			<div class="space-y-4">
 				<div class="bg-surface-200-700-token p-4 rounded-container-token h-20" data-clipboard="exampleElement" contenteditable>

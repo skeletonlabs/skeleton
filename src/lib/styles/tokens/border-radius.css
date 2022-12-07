@@ -1,10 +1,9 @@
 /* Design Tokens: Border Radius */
 
 @layer utilities {
-	/* === Border Radius === */
+	/* === Base === */
+	/* Usage: Small elements, such as buttons, badges, chips, etc. */
 
-	/* Base */
-	/* Small elements, such as buttons, badges, chips, etc. */
 	.rounded-token {
 		border-radius: var(--theme-rounded-base);
 	}
@@ -21,8 +20,9 @@
 		border-bottom-right-radius: var(--theme-rounded-base);
 	}
 
-	/* Container */
-	/* Large elements, such as cards and textareas */
+	/* === Container === */
+	/* Usage: Large elements, such as cards and textareas */
+
 	.rounded-container-token {
 		border-radius: var(--theme-rounded-container);
 	}

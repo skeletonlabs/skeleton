@@ -63,7 +63,7 @@
 		<!-- Features -->
 		<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 			<h2 class="sr-only">Features</h2>
-			<div class="card card-body card-glass text-center space-y-4">
+			<div class="card card-glass p-4 text-center space-y-4">
 				<div class="bg-orange-500 w-20 mx-auto aspect-square flex justify-center items-center rounded-token shadow">
 					<SvgIcon name="svelte" fill="fill-white" width="w-10" height="h-10" />
 				</div>
@@ -76,21 +76,21 @@
 					<a href="https://astro.build/" target="_blank" rel="noreferrer">Astro</a>.
 				</p>
 			</div>
-			<div class="card card-body card-glass text-center space-y-4">
+			<div class="card card-glass p-4 text-center space-y-4">
 				<div class="bg-sky-500 w-20 mx-auto aspect-square flex justify-center items-center rounded-token shadow">
 					<SvgIcon name="tailwind" fill="fill-white" width="w-10" height="h-10" />
 				</div>
 				<h4>Tailwind CSS Integration</h4>
 				<p>Integrate with your design system using Tailwind utility classes to style components.</p>
 			</div>
-			<div class="card card-body card-glass text-center space-y-4">
+			<div class="card card-glass p-4 text-center space-y-4">
 				<div class="bg-primary-500 w-20 mx-auto aspect-square flex justify-center items-center rounded-token shadow">
 					<SvgIcon name="swatchbook" fill="fill-white" width="w-8" height="h-8" />
 				</div>
 				<h4>Dynamic Themes</h4>
 				<p>Choose from a library of hand crafted preset themes or quickly generate your own in seconds.</p>
 			</div>
-			<div class="card card-body card-glass text-center space-y-4">
+			<div class="card card-glass p-4 text-center space-y-4">
 				<div class="bg-accent-500 w-20 mx-auto aspect-square flex justify-center items-center rounded-token shadow">
 					<SvgIcon name="screwdriver" fill="fill-white" width="w-8" height="h-8" />
 				</div>
@@ -105,7 +105,7 @@
 		<section class="text-center space-y-6">
 			<h2>Meet The Team</h2>
 			<ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
-				<li class="card card-body card-glass space-y-4">
+				<li class="card card-glass p-4 space-y-4">
 					<Avatar src="https://avatars.githubusercontent.com/u/1509726?v=4" width="w-32" class="mx-auto" />
 					<div>
 						<h3>Chris Simmons</h3>
@@ -118,7 +118,7 @@
 						<a href="https://www.linkedin.com/in/chris-simmons-8a523a23/" target="_blank" rel="noreferrer"><SvgIcon name="linkedin" /></a>
 					</div>
 				</li>
-				<!-- <li class="card card-body card-glass space-y-4">
+				<!-- <li class="card card-glass p-4 space-y-4">
 					<Avatar src="https://avatars.githubusercontent.com/u/52718757?v=4" width="w-32" class="mx-auto" />
 					<div>
 						<h3>Thomas Jespersen</h3>
@@ -130,7 +130,7 @@
 						<a href="https://www.linkedin.com/in/thomas-jespersen-b77132202/" target="_blank" rel="noreferrer"><SvgIcon name="linkedin" /></a>
 					</div>
 				</li> -->
-				<li class="card card-body card-glass space-y-4">
+				<li class="card card-glass p-4 space-y-4">
 					<Avatar src="https://avatars.githubusercontent.com/u/10255430?v=4" width="w-32" class="mx-auto" />
 					<div>
 						<h3>Trey Weir</h3>

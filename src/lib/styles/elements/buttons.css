@@ -108,7 +108,7 @@
 		@apply bg-warning-500 text-on-warning-token;
 	}
 	.btn-filled-surface {
-		@apply bg-surface-400-500-token text-on-surface-token;
+		@apply bg-surface-400-500-token;
 	}
 
 	/* Ringed */

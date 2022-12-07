@@ -13,6 +13,6 @@
 		/* Theme: Rounded */
 		@apply rounded;
 		/* Background */
-		@apply bg-primary-500/10 border border-primary-600 dark:border-primary-400 backdrop-blur-lg hover:bg-primary-500/30;
+		@apply bg-primary-500/10 border border-primary-600-300-token backdrop-blur-lg hover:bg-primary-500/30;
 	}
 }

@@ -64,7 +64,7 @@
 	<div class="space-y-4">
 		<!-- Generator -->
 		<div class="space-y-4">
-			<div class="card card-body flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+			<div class="card p-4 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 				<div class="space-y-2">
 					<h2>Theme Generator</h2>
 					<p>This tool allows you to generate a custom Skeleton theme.</p>
@@ -73,14 +73,14 @@
 			</div>
 		</div>
 		<!-- Presets -->
-		<div class="card card-body space-y-4">
+		<div class="card p-4 space-y-4">
 			<h2>Preset Themes</h2>
 			<p>Tap any theme below to automatically copy the import statement to your clipboard.</p>
 			<nav class="grid grid-cols-1 md:grid-cols-3 gap-4">
 				{#each presets as preset}
 					<!-- prettier-ignore -->
 					<div
-						class="card card-body text-white flex justify-between items-center hover:!ring-white/20 cursor-pointer"
+						class="card p-4 text-white flex justify-between items-center hover:!ring-white/20 cursor-pointer"
 						style:background={preset.surface}
 						target="_blank" rel="noreferrer"
 						on:click={() => { copyThemeToClipboard(preset.file); }}
@@ -127,7 +127,7 @@
 
 	<section class="space-y-4">
 		<h2>See Also</h2>
-		<div class="card card-body card-glass space-y-4">
+		<div class="card p-4 card-glass space-y-4">
 			<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 				<p>Learn more about Skeleton's theme color system.</p>
 				<a class="btn btn-ghost-surface" href="/guides/themes/colors">Theme Colors &rarr;</a>
@@ -143,7 +143,7 @@
 	<hr />
 
 	<!-- Next Steps -->
-	<section class="card card-body flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+	<section class="card p-4 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<p>Next, let's learn more about styling Skeleton.</p>
 		<a class="btn btn-filled-primary" href="/guides/styling">Styling &rarr;</a>
 	</section>

@@ -39,7 +39,7 @@
 		<section class="space-y-4">
 			<h2 class="sr-only">Examples</h2>
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-				<div class="card card-body space-y-4">
+				<div class="card p-4 space-y-4">
 					<TabGroup selected={storeOne}>
 						<Tab value="a">Tab A</Tab>
 						<Tab value="b">Tab B</Tab>
@@ -51,7 +51,7 @@
 						{#if $storeOne === 'c'}Content C{/if}
 					</div>
 				</div>
-				<div class="card card-body space-y-4">
+				<div class="card p-4 space-y-4">
 					<TabGroup
 						selected={storeTwo}
 						justify="justify-start md:justify-end"
@@ -70,7 +70,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="card card-body space-y-4">
+			<div class="card p-4 space-y-4">
 				<TabGroup
 					selected={storeThree}
 					justify="justify-start md:justify-center"

@@ -24,7 +24,7 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="card card-body grid grid-cols-1 gap-4">
+		<section class="card p-4 grid grid-cols-1 gap-4">
 			<CodeBlock language="html" code={`<p>Hello Skeleton<p>`} />
 			<CodeBlock language="css" code={`.skeleton { color: #bada55; }`} />
 			<CodeBlock language="typescript" code={`const skeleton: string = 'awesome';`} />

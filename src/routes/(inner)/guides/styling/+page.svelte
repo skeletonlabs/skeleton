@@ -284,7 +284,7 @@ import '@skeletonlabs/skeleton/styles/${$storeStylesheets === 'recommended' ? 'a
 			<h2>How to Customize Styles</h2>
 			<p>We've provided a few tips for customizing Skeleton elements or components.</p>
 		</div>
-		<div class="card card-body card-glass">
+		<div class="card p-4 card-glass">
 			<AccordionGroup>
 				<AccordionItem spacing="space-y-4" open>
 					<svelte:fragment slot="summary"><h3>Via Component Props</h3></svelte:fragment>
@@ -352,7 +352,7 @@ import '@skeletonlabs/skeleton/styles/${$storeStylesheets === 'recommended' ? 'a
 	<hr />
 
 	<!-- Next Steps -->
-	<div class="card card-body !flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+	<div class="card p-4 !flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<p>View the <u>optional walkthroughs</u> for creating an example app using Skeleton.</p>
 		<a class="btn btn-filled-primary" href="/guides/frameworks">
 			<span>Framework Guides</span>

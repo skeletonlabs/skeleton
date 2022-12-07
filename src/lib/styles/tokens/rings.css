@@ -1,10 +1,84 @@
 /* Design Tokens: Rings */
 
 @layer utilities {
-	/* === Ring Colors === */
+	/* === Glass === */
 
-	/* Ring: Surface (darkest -> lightest) */
+	.ring-glass-token {
+		@apply ring-[1px] ring-neutral-900/5 dark:ring-neutral-50/5 ring-inset;
+	}
+
+	/* === Colors (Light|Dark) === */
 	/* https://user-images.githubusercontent.com/1509726/195171203-423e5b84-8763-40f1-b3ea-4cb2b8e38108.png */
+
+	/* Primary */
+	.ring-primary-50-900-token {
+		@apply ring-primary-50 dark:ring-primary-900;
+	}
+	.ring-primary-100-800-token {
+		@apply ring-primary-100 dark:ring-primary-800;
+	}
+	.ring-primary-200-700-token {
+		@apply ring-primary-200 dark:ring-primary-700;
+	}
+	.ring-primary-300-600-token {
+		@apply ring-primary-300 dark:ring-primary-600;
+	}
+	.ring-primary-400-500-token {
+		@apply ring-primary-400 dark:ring-primary-500;
+	}
+
+	/* Accent */
+	.ring-accent-50-900-token {
+		@apply ring-accent-50 dark:ring-accent-900;
+	}
+	.ring-accent-100-800-token {
+		@apply ring-accent-100 dark:ring-accent-800;
+	}
+	.ring-accent-200-700-token {
+		@apply ring-accent-200 dark:ring-accent-700;
+	}
+	.ring-accent-300-600-token {
+		@apply ring-accent-300 dark:ring-accent-600;
+	}
+	.ring-accent-400-500-token {
+		@apply ring-accent-400 dark:ring-surface-500;
+	}
+
+	/* Tertiary */
+	.ring-tertiary-50-900-token {
+		@apply ring-tertiary-50 dark:ring-tertiary-900;
+	}
+	.ring-tertiary-100-800-token {
+		@apply ring-tertiary-100 dark:ring-tertiary-800;
+	}
+	.ring-tertiary-200-700-token {
+		@apply ring-tertiary-200 dark:ring-tertiary-700;
+	}
+	.ring-tertiary-300-600-token {
+		@apply ring-tertiary-300 dark:ring-tertiary-600;
+	}
+	.ring-tertiary-400-500-token {
+		@apply ring-tertiary-400 dark:ring-tertiary-500;
+	}
+
+	/* Warning */
+	.ring-warning-50-900-token {
+		@apply ring-warning-50 dark:ring-warning-900;
+	}
+	.ring-warning-100-800-token {
+		@apply ring-warning-100 dark:ring-warning-800;
+	}
+	.ring-warning-200-700-token {
+		@apply ring-warning-200 dark:ring-warning-700;
+	}
+	.ring-warning-300-600-token {
+		@apply ring-warning-300 dark:ring-warning-600;
+	}
+	.ring-warning-400-500-token {
+		@apply ring-warning-400 dark:ring-warning-500;
+	}
+
+	/* Surface */
 	.ring-surface-50-900-token {
 		@apply ring-surface-50 dark:ring-surface-900;
 	}
@@ -19,5 +93,93 @@
 	}
 	.ring-surface-400-500-token {
 		@apply ring-surface-400 dark:ring-surface-500;
+	}
+
+	/* === Colors (Dark|Light) === */
+	/* https://user-images.githubusercontent.com/1509726/195171203-423e5b84-8763-40f1-b3ea-4cb2b8e38108.png */
+
+	/* Primary */
+	.ring-primary-900-50-token {
+		@apply ring-primary-900 dark:ring-primary-50;
+	}
+	.ring-primary-800-100-token {
+		@apply ring-primary-800 dark:ring-primary-100;
+	}
+	.ring-primary-700-200-token {
+		@apply ring-primary-700 dark:ring-primary-200;
+	}
+	.ring-primary-600-300-token {
+		@apply ring-primary-600 dark:ring-primary-300;
+	}
+	.ring-primary-500-400-token {
+		@apply ring-primary-500 dark:ring-primary-400;
+	}
+
+	/* Accent */
+	.ring-accent-900-50-token {
+		@apply ring-accent-900 dark:ring-accent-50;
+	}
+	.ring-accent-800-100-token {
+		@apply ring-accent-800 dark:ring-accent-100;
+	}
+	.ring-accent-700-200-token {
+		@apply ring-accent-700 dark:ring-accent-200;
+	}
+	.ring-accent-600-300-token {
+		@apply ring-accent-600 dark:ring-accent-300;
+	}
+	.ring-accent-500-400-token {
+		@apply ring-accent-500 dark:ring-accent-400;
+	}
+
+	/* Tertiary */
+	.ring-tertiary-900-50-token {
+		@apply ring-tertiary-900 dark:ring-tertiary-50;
+	}
+	.ring-tertiary-800-100-token {
+		@apply ring-tertiary-800 dark:ring-tertiary-100;
+	}
+	.ring-tertiary-700-200-token {
+		@apply ring-tertiary-700 dark:ring-tertiary-200;
+	}
+	.ring-tertiary-600-300-token {
+		@apply ring-tertiary-600 dark:ring-tertiary-300;
+	}
+	.ring-tertiary-500-400-token {
+		@apply ring-tertiary-500 dark:ring-tertiary-400;
+	}
+
+	/* Warning */
+	.ring-warning-900-50-token {
+		@apply ring-warning-900 dark:ring-warning-50;
+	}
+	.ring-warning-800-100-token {
+		@apply ring-warning-800 dark:ring-warning-100;
+	}
+	.ring-warning-700-200-token {
+		@apply ring-warning-700 dark:ring-warning-200;
+	}
+	.ring-warning-600-300-token {
+		@apply ring-warning-600 dark:ring-warning-300;
+	}
+	.ring-warning-500-400-token {
+		@apply ring-warning-500 dark:ring-warning-400;
+	}
+
+	/* Surface */
+	.ring-surface-900-50-token {
+		@apply ring-surface-900 dark:ring-surface-50;
+	}
+	.ring-surface-800-100-token {
+		@apply ring-surface-800 dark:ring-surface-100;
+	}
+	.ring-surface-700-200-token {
+		@apply ring-surface-700 dark:ring-surface-200;
+	}
+	.ring-surface-600-300-token {
+		@apply ring-surface-600 dark:ring-surface-300;
+	}
+	.ring-surface-500-400-token {
+		@apply ring-surface-500 dark:ring-surface-400;
 	}
 }

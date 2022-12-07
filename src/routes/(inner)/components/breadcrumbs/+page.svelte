@@ -36,21 +36,21 @@
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 xl:grid-cols-2 gap-4">
-			<div class="card card-body">
+			<div class="card p-4">
 				<Breadcrumb>
 					<Crumb href="/">Home</Crumb>
 					<Crumb href="/">Articles</Crumb>
 					<Crumb current>Current</Crumb>
 				</Breadcrumb>
 			</div>
-			<div class="card card-body">
+			<div class="card p-4">
 				<Breadcrumb separator={customSeparator}>
 					<Crumb href="/">Home</Crumb>
 					<Crumb href="/">Blog</Crumb>
 					<Crumb>Current</Crumb>
 				</Breadcrumb>
 			</div>
-			<div class="card card-body">
+			<div class="card p-4">
 				<Breadcrumb>
 					<Crumb href="/">
 						<SvgIcon name="house" title="house" />
@@ -61,7 +61,7 @@
 					<Crumb>Current</Crumb>
 				</Breadcrumb>
 			</div>
-			<div class="card card-body">
+			<div class="card p-4">
 				<Breadcrumb>
 					<Crumb href="/">
 						<svelte:fragment slot="lead">

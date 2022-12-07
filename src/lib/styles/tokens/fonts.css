@@ -10,8 +10,7 @@
 		font-family: var(--theme-font-family-base);
 	}
 
-	/* === Font Color === */
-	/* Light / Dark / Auto */
+	/* === Default Font Color === */
 
 	.text-base-token {
 		color: rgba(var(--theme-font-color-base));
@@ -24,7 +23,7 @@
 	}
 
 	/* === On-X Colors === */
-	/* Text color when on select background colors. */
+	/* Text color when overlapping theme colors. */
 
 	.text-on-primary-token {
 		color: var(--on-primary);
@@ -37,8 +36,5 @@
 	}
 	.text-on-warning-token {
 		color: var(--on-warning);
-	}
-	.text-on-surface-token {
-		color: var(--on-surface);
 	}
 }

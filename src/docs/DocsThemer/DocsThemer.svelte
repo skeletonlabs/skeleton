@@ -66,7 +66,7 @@
 <div class="themer space-y-4">
 	<!-- Preview -->
 	<!-- class="col-span-2 place-self-center" -->
-	<div class="card card-body card-glass flex justify-between items-center">
+	<div class="card p-4 card-glass flex justify-between items-center">
 		<SlideToggle bind:checked={$storePreview}>Edit Mode</SlideToggle>
 		<div />
 		<div>
@@ -75,7 +75,7 @@
 	</div>
 	{#if $storePreview}
 		<!-- Color Selection -->
-		<div class="card card-body flex flex-col space-y-4">
+		<div class="card p-4 flex flex-col space-y-4">
 			<!-- Header -->
 			<header class="flex justify-between items-center gap-4">
 				<div class="flex justify-between items-center space-x-4">
@@ -115,7 +115,7 @@
 		</div>
 
 		<!-- On-Colors -->
-		<div class="card card-body space-y-4">
+		<div class="card p-4 space-y-4">
 			<label for=""><span>Adjust Text and Fill Accessibility</span></label>
 			<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
 				<div class="space-y-2">
@@ -162,7 +162,7 @@
 		</div>
 
 		<!-- Font Settings -->
-		<div class="card card-body grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+		<div class="card p-4 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
 			<!-- --theme-font-family-heading -->
 			<label>
 				<span>Headings Font</span>
@@ -238,7 +238,7 @@
 		</div>
 
 		<!-- Radius and Border Settings -->
-		<div class="card card-body grid grid-cols-1 md:grid-cols-3 gap-4">
+		<div class="card p-4 grid grid-cols-1 md:grid-cols-3 gap-4">
 			<!-- --theme-rounded-base -->
 			<label>
 				<span>Rounded</span>

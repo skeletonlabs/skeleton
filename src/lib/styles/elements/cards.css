@@ -7,7 +7,7 @@
 		/* background */
 		@apply bg-surface-100-800-token;
 		/* Ring */
-		@apply ring-[1px] ring-neutral-900/5 dark:ring-neutral-50/5 ring-inset;
+		@apply ring-glass-token;
 		/* Theme: Rounded */
 		@apply rounded-container-token;
 	}
@@ -16,10 +16,6 @@
 
 	.card-header {
 		@apply p-4 pb-0;
-	}
-
-	.card-body {
-		@apply p-4;
 	}
 
 	.card-footer {

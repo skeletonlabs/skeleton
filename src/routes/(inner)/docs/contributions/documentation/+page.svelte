@@ -168,7 +168,7 @@ dispatch('dragover', event);`}
 			We can provide settings to our DocShell component using <code>const settings: DocsShellSettings</code>. This allows you to populate
 			all relevant settings on the page.
 		</p>
-		<section class="card card-body flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+		<section class="card p-4 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 			<div class="space-y-2">
 				<p>Reference all available settings from the Typescript interface defintion.</p>
 			</div>
