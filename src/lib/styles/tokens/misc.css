@@ -3,7 +3,20 @@
 @layer utilities {
 	/* === Input Accent Color === */
 	/* https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color */
+
+	.accent-primary-token {
+		@apply accent-accent-500;
+	}
 	.accent-accent-token {
+		@apply accent-accent-500;
+	}
+	.accent-tertiary-token {
+		@apply accent-accent-500;
+	}
+	.accent-warning-token {
+		@apply accent-accent-500;
+	}
+	.accent-surface-token {
 		@apply accent-accent-500;
 	}
 }
