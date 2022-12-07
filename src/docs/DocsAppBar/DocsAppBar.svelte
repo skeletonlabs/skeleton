@@ -152,49 +152,71 @@
 				<hr>
 				<nav class="list-nav p-4 max-h-64 overflow-y-auto">
 					<ul>
-						<li class="option" class:!bg-primary-500={$storeTheme === 'skeleton'} on:click={() => { storeTheme.set('skeleton') }} on:keypress> 
-							<span>💀</span>
-							<span>Skeleton</span>
+						<li class="option" class:!bg-primary-500={$storeTheme === 'skeleton'}> 
+							<button on:click={() => { storeTheme.set('skeleton') }} on:keypress>
+								<span>💀</span>
+								<span>Skeleton</span>
+							</button>
 						</li>
-						<li class="option" class:!bg-primary-500={$storeTheme === 'modern'} on:click={() => { storeTheme.set('modern') }} on:keypress>
-							<span>🤖</span>
-							<span>Modern</span>
+						<li class="option" class:!bg-primary-500={$storeTheme === 'modern'}>
+							<button on:click={() => { storeTheme.set('modern') }} on:keypress>
+								<span>🤖</span>
+								<span>Modern</span>
+							</button>
 						</li>
-						<li class="option" class:!bg-primary-500={$storeTheme === 'rocket'} on:click={() => { storeTheme.set('rocket') }} on:keypress> 
-							<span>🚀</span>
-							<span>Rocket</span>
+						<li class="option" class:!bg-primary-500={$storeTheme === 'rocket'}> 
+							<button on:click={() => { storeTheme.set('rocket') }} on:keypress>
+								<span>🚀</span>
+								<span>Rocket</span>
+							</button>
 						</li>
-						<li class="option" class:!bg-primary-500={$storeTheme === 'seafoam'} on:click={() => { storeTheme.set('seafoam') }} on:keypress>
-							<span>🐚</span>
-							<span>Seafoam</span>
+						<li class="option" class:!bg-primary-500={$storeTheme === 'seafoam'}>
+							<button on:click={() => { storeTheme.set('seafoam') }} on:keypress>
+								<span>🐚</span>
+								<span>Seafoam</span>
+							</button>
 						</li>
-						<li class="option" class:!bg-primary-500={$storeTheme === 'vintage'} on:click={() => { storeTheme.set('vintage') }} on:keypress>
-							<span>📺</span>
-							<span>Vintage</span>
+						<li class="option" class:!bg-primary-500={$storeTheme === 'vintage'}>
+							<button on:click={() => { storeTheme.set('vintage') }} on:keypress>
+								<span>📺</span>
+								<span>Vintage</span>
+							</button>
 						</li>
-						<li class="option" class:!bg-primary-500={$storeTheme === 'sahara'} on:click={() => { storeTheme.set('sahara') }} on:keypress>
-							<span>🏜️</span>
-							<span>Sahara</span>
+						<li class="option" class:!bg-primary-500={$storeTheme === 'sahara'}>
+							<button on:click={() => { storeTheme.set('sahara') }} on:keypress>
+								<span>🏜️</span>
+								<span>Sahara</span>
+							</button>
 						</li>
-						<li class="option" class:!bg-primary-500={$storeTheme === 'hamlindigo'} on:click={() => { storeTheme.set('hamlindigo') }} on:keypress>
-							<span>👔</span>
-							<span>Hamlindigo</span>
+						<li class="option" class:!bg-primary-500={$storeTheme === 'hamlindigo'}>
+							<button on:click={() => { storeTheme.set('hamlindigo') }} on:keypress>
+								<span>👔</span>
+								<span>Hamlindigo</span>
+							</button>
 						</li>
-						<li class="option" class:!bg-primary-500={$storeTheme === 'goldNouveau'} on:click={() => { storeTheme.set('goldNouveau') }} on:keypress>
-							<span>💫</span>
-							<span>Gold Nouveau</span>
+						<li class="option" class:!bg-primary-500={$storeTheme === 'goldNouveau'}>
+							<button on:click={() => { storeTheme.set('goldNouveau') }} on:keypress>
+								<span>💫</span>
+								<span>Gold Nouveau</span>
+							</button>
 						</li>
-						<li class="option" class:!bg-primary-500={$storeTheme === 'crimson'} on:click={() => { storeTheme.set('crimson') }} on:keypress>
-							<span>⭕</span>
-							<span>Crimson</span>
+						<li class="option" class:!bg-primary-500={$storeTheme === 'crimson'}>
+							<button on:click={() => { storeTheme.set('crimson') }} on:keypress>
+								<span>⭕</span>
+								<span>Crimson</span>
+							</button>
 						</li>
-						<!-- <li class="option" class:!bg-primary-500={$storeTheme === 'test'} on:click={() => { storeTheme.set('test') }} on:keypress>
-							<span>🚧</span>
-							<span>Test</span>
+						<!-- <li class="option" class:!bg-primary-500={$storeTheme === 'test'}>
+							<button on:click={() => { storeTheme.set('test') }} on:keypress>
+								<span>🚧</span>
+								<span>Test</span>
+							</button>
 						</li> -->
-						<!-- <li class="option" class:!bg-primary-500={$storeTheme === 'seasonal'} on:click={() => { storeTheme.set('seasonal') }} on:keypress>
-							<span>🎃</span>
-							<span>Seasonal</span>
+						<!-- <li class="option" class:!bg-primary-500={$storeTheme === 'seasonal'}>
+							<button on:click={() => { storeTheme.set('seasonal') }} on:keypress>
+								<span>🎃</span>
+								<span>Seasonal</span>
+							</button>
 						</li> -->
 					</ul>
 				</nav>

@@ -104,7 +104,7 @@
 			>. Daisy also opts to forgo the biggest benefit of Tailwind, the deeply extensible utility class system, instead relying on
 			<a href="https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction" target="_blank" rel="noreferrer">@apply</a> to generate
 			canned style sets. Skeleton, on the other hand, treats utility classes as first class citizens, providing hooks to set and override Tailwind
-			classes within each component. Skeleton components also accept arbitrary classes, allowing full customization top to bottom. However, it’s
+			classes within each component. Skeleton components also accept arbitrary classes, allowing full customization from top to bottom. However, it’s
 			worth noting that Daisy is a general purpose library available to any framework, while Skeleton focuses purely on Svelte.
 		</p>
 	</section>

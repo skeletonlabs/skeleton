@@ -17,6 +17,10 @@ export function menu(node: HTMLElement, args: ArgsMenu) {
     const elemMenu: HTMLElement | null = document.querySelector(`[data-menu="${args.menu}"]`);
 	if (!elemMenu) return;
 
+	const elemWhitelist: string = 'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])';
+	let activeFocusIdx: number;
+	let focusableElems: HTMLElement[];
+
 	const onInit = (): void => {
 		autoUpdateOrigin();
 		// Apply a11y attributes
@@ -25,9 +29,21 @@ export function menu(node: HTMLElement, args: ArgsMenu) {
 
 	// Menu States ---
 	
-	const menuOpen = (): void => {
+	const menuOpen = (openWithFocus: boolean = false): void => {
 		elemMenu.style.display = 'block';
 		stateEventHandler(true);
+
+		// Create array of all focusable elements, so that we can iterate through them
+		focusableElems = Array.from(elemMenu.querySelectorAll(elemWhitelist));
+		// reset the focus index
+		activeFocusIdx = -1; 
+
+		if (openWithFocus) {
+			// Automatically focus the element if openWithFocus is true (for example if
+			// the menu was opened with Enter instead of with a click
+			activeFocusIdx = 0;
+			focusableElems[0]?.focus();
+		}
 	}
 
 	const menuClose = (): void => {
@@ -42,17 +58,24 @@ export function menu(node: HTMLElement, args: ArgsMenu) {
 	// Click Handlers ---
 
 	const onTriggerClick = (): void => {
-        autoUpdateOrigin();
-		menuOpen();
+		// When the node is clicked, open the menu if it is closed, otherwise close it
+		if (elemMenu.style.display === 'none') {
+			autoUpdateOrigin();
+			menuOpen();
+		} else {
+			menuClose();
+		}
 	}
 
 	const onWindowClick = (event: any): void => {
-		args.interactive === true ? interactiveClickHandler(event) : standardClickHandler();
+		args.interactive === true ? interactiveClickHandler(event) : standardClickHandler(event);
 	}
 	
 	// Interactive FALSE - any click closes the menu
-	const standardClickHandler = (): void => {
-		menuClose();
+	const standardClickHandler = (event: any): void => {
+		// Any click closes the menu, except for when the node is clicked, since onTriggerClick() will take care of closing it in this case. If we don't include this check this function would close the menu when the node is clicked and onTriggerClick reopens it again because display will be 'none' again.
+		const outsideNode = node && !node.contains(event.target);
+		if (outsideNode) { menuClose(); }
 	}
 	
 	// Interactive TRUE - clicks outside close menu
@@ -80,19 +103,45 @@ export function menu(node: HTMLElement, args: ArgsMenu) {
 	// A11y Input Handlers ---
 
 	const onTriggerKeyDown = (event: KeyboardEvent): void => {
-		if (['Enter', 'Space'].includes(event.code)) {
+		const key: string = event.key;
+		
+		if (key === 'Enter' || key === 'Space') {
 			event.preventDefault();
-			// Trigger Menu
+
+			// Toggle menu
 			onTriggerClick();
-			// If menu open, set focus
-			if (elemMenu.style.display === 'block') { elemMenu.focus() }
 		}
 	}
 
 	const onWindowKeyDown = (event: KeyboardEvent): void => {
-		if (['Escape'].includes(event.code)) {
+		const key: string = event.key;
+
+		if (elemMenu.style.display === 'none') return;
+
+		if (key === 'Escape' || key === 'Tab') {
+			// Close the menu
 			event.preventDefault();
 			menuClose();
+			node.focus();
+		} else if (key === 'ArrowDown') {
+			event.preventDefault();
+			if (activeFocusIdx < focusableElems.length - 1) {
+				// Move down the menu
+				activeFocusIdx += 1;
+				focusableElems[activeFocusIdx]?.focus();
+			}
+		} else if (key === 'ArrowUp') {
+			event.preventDefault();
+			if (activeFocusIdx > 0) {
+				// Move up the menu
+				activeFocusIdx -= 1;
+				focusableElems[activeFocusIdx]?.focus();
+			} else if (focusableElems.length && activeFocusIdx === -1) {
+				// Start at the bottom of the menu if first key is arrow up key
+				event.preventDefault();
+				activeFocusIdx = focusableElems.length - 1;
+				focusableElems[activeFocusIdx]?.focus();
+			}
 		}
 	}
 	
