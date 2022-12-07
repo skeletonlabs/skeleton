@@ -48,7 +48,7 @@ body {
 	}
 
 	a:not(.unstyled):not(.btn):not(.btn-icon):not(.app-bar a):not(.logo-item):not(.card):not(.list-nav a) {
-		@apply text-primary-600 dark:text-primary-400 underline underline-offset-4 decoration-dotted decoration-primary-500/20 hover:decoration-primary-500;
+		@apply text-primary-600-300-token underline underline-offset-4 decoration-dotted decoration-primary-500/20 hover:decoration-primary-500;
 	}
 
 	blockquote:not(.unstyled) {

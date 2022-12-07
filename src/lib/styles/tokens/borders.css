@@ -7,7 +7,7 @@
 		border-width: var(--theme-border-base);
 	}
 
-	/* === Colors (Light|Dark) === */
+	/* === Color Pairings (Light|Dark) === */
 	/* https://user-images.githubusercontent.com/1509726/195171203-423e5b84-8763-40f1-b3ea-4cb2b8e38108.png */
 
 	/* Primary */
@@ -95,7 +95,7 @@
 		@apply border-surface-400 dark:border-surface-500;
 	}
 
-	/* === Colors (Dark|Light) === */
+	/* === Color Pairings (Dark|Light) === */
 	/* https://user-images.githubusercontent.com/1509726/195171203-423e5b84-8763-40f1-b3ea-4cb2b8e38108.png */
 
 	/* Primary */

@@ -74,7 +74,7 @@
 	<!-- Search -->
 	<div class="hidden md:inline">
 		<button class="btn btn-ghost-surface btn-sm" on:click={search}>
-			<SvgIcon name="search" width="w-4" height="h-4" fill="fill-white" class="mr-2" />
+			<SvgIcon name="search" width="w-4" height="h-4" class="mr-2" />
 			<span>Search</span>
 			<!-- <span>⌘K</span> -->
 		</button>

@@ -4,8 +4,8 @@
 @import 'tokens/borders.css';
 @import 'tokens/border-radius.css';
 @import 'tokens/fills.css';
-@import 'tokens/fonts.css';
 @import 'tokens/rings.css';
+@import 'tokens/text.css';
 
 /* One-off tokens go here */
 @import 'tokens/misc.css';
