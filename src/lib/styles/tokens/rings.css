@@ -3,7 +3,7 @@
 @layer utilities {
 	/* === Glass === */
 
-	.ring-glass-token {
+	.ring-outline-token {
 		@apply ring-[1px] ring-neutral-900/5 dark:ring-neutral-50/5 ring-inset;
 	}
 

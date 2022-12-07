@@ -3,6 +3,18 @@
 @layer utilities {
 	/* === Modal Backdrop Shim === */
 
+	.bg-primary-backdrop-token {
+		@apply bg-primary-400/70 dark:bg-primary-900/70;
+	}
+	.bg-accent-backdrop-token {
+		@apply bg-accent-400/70 dark:bg-accent-900/70;
+	}
+	.bg-tertiary-backdrop-token {
+		@apply bg-tertiary-400/70 dark:bg-tertiary-900/70;
+	}
+	.bg-warning-backdrop-token {
+		@apply bg-warning-400/70 dark:bg-warning-900/70;
+	}
 	.bg-surface-backdrop-token {
 		@apply bg-surface-400/70 dark:bg-surface-900/70;
 	}
