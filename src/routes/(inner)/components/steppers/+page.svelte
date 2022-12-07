@@ -44,7 +44,7 @@
 	};
 
 	const storeRounded: Writable<string> = writable('rounded-full');
-	let propNavigateOnClick: string = 'enabled';
+	let propNavigateOnClick: string = 'disabled';
 	let propBackground: string = 'bg-accent-500';
 </script>
 
@@ -54,52 +54,55 @@
 		<section class="space-y-4">
 			<div class="grid grid-cols-1 xl:grid-cols-[1fr_auto] gap-4">
 				<div class="card card-body">
-					<Stepper
-						{active}
-						length={5}
-						navigateOnClick={propNavigateOnClick}
-						bind:background={propBackground}
-						bind:rounded={$storeRounded}
-						on:complete={onComplete}
-					>
-						<Step index={0}>
-							<svelte:fragment slot="header"><h4>Step 1 - Get Started!</h4></svelte:fragment>
-							<p>This example will teach you how to use the Stepper component. Tap <em>next</em> to proceed forward.</p>
-						</Step>
-						<Step index={1}>
-							<p>
-								Prior completed steps will display a checkmark. However, tap the &uarr; button at any time to return to the previous step.
-							</p>
-						</Step>
-						<Step index={2} locked={!exampleLockedState}>
-							<p>
-								This Step component uses the <code>locked</code> property, which can prevent progress. This is ideal for multi-step forms,
-								such as registration. For now we'll simulate a successful validation condition using the
-								<em>unlock</em> option below.
-							</p>
-							<SlideToggle bind:checked={exampleLockedState}>Unlock</SlideToggle>
-						</Step>
-						<Step index={3}>
-							<p>The steps will expand to fit content of any width. We'll demonstrate this below with <em>lorem ipsum</em> text.</p>
-							<p>{lorem} {lorem} {lorem} {lorem} {lorem}</p>
-						</Step>
-						<Step index={4}>
-							<p>
-								A <em>Complete</em> button will appear on the last step. When the step is unlocked and the button pressed, an
-								<code>on:complete</code> event will fire. Use this to submit form data to a server.
-							</p>
-						</Step>
-					</Stepper>
+					<!-- setContext used in the Stepper component is not reactive so we need to force a refresh of the component when the prop values are changed in the page. -->
+					{#key `${propBackground} ${propNavigateOnClick} ${$storeRounded}`}
+						<Stepper
+							{active}
+							length={5}
+							navigateOnClick={propNavigateOnClick}
+							background={propBackground}
+							rounded={$storeRounded}
+							on:complete={onComplete}
+						>
+							<Step index={0}>
+								<svelte:fragment slot="header"><h4>Step 1 - Get Started!</h4></svelte:fragment>
+								<p>This example will teach you how to use the Stepper component. Tap <em>next</em> to proceed forward.</p>
+							</Step>
+							<Step index={1}>
+								<p>
+									Prior completed steps will display a checkmark. However, tap the &uarr; button at any time to return to the previous step.
+								</p>
+							</Step>
+							<Step index={2} locked={!exampleLockedState}>
+								<p>
+									This Step component uses the <code>locked</code> property, which can prevent progress. This is ideal for multi-step forms,
+									such as registration. For now we'll simulate a successful validation condition using the
+									<em>unlock</em> option below.
+								</p>
+								<SlideToggle bind:checked={exampleLockedState}>Unlock</SlideToggle>
+							</Step>
+							<Step index={3}>
+								<p>The steps will expand to fit content of any width. We'll demonstrate this below with <em>lorem ipsum</em> text.</p>
+								<p>{lorem} {lorem} {lorem} {lorem} {lorem}</p>
+							</Step>
+							<Step index={4}>
+								<p>
+									A <em>Complete</em> button will appear on the last step. When the step is unlocked and the button pressed, an
+									<code>on:complete</code> event will fire. Use this to submit form data to a server.
+								</p>
+							</Step>
+						</Stepper>
+					{/key}
 				</div>
 				<div class="card card-body space-y-4">
 					<!-- Rounded -->
 					<label for="">
 						<span>Rounded</span>
 						<RadioGroup selected={storeRounded} display="flex">
-							<RadioItem value="rounded-full">Full</RadioItem>
-							<RadioItem value="rounded-xl">XL</RadioItem>
-							<RadioItem value="rounded-3xl">3XL</RadioItem>
-							<RadioItem value="rounded-none">None</RadioItem>
+							<RadioItem value="rounded-sm">sm</RadioItem>
+							<RadioItem value="rounded-md">md</RadioItem>
+							<RadioItem value="rounded-lg">lg</RadioItem>
+							<RadioItem value="rounded-full">full</RadioItem>
 						</RadioGroup>
 					</label>
 					<!-- Background -->
@@ -126,36 +129,38 @@
 			</div>
 			<!-- Horizontal Stepper -->
 			<div class="card card-body">
-				<Stepper
-					{activeHorizontal}
-					horizontal={true}
-					background={propBackground}
-					navigateOnClick={propNavigateOnClick}
-					length={3}
-					rounded={$storeRounded}
-					on:complete={onComplete}
-				>
-					<Step index={0}>
-						<p>
-							This example will teach you how to use the Stepper component with <code>horizontal</code>. Tap <em>next</em> to proceed forward.
-						</p>
-					</Step>
-					<Step index={1}>
-						<p>
-							Prior completed steps will display a checkmark. However, tap the &larr; button at any time to return to the previous step.
-						</p>
-					</Step>
-					<Step index={2} locked={!exampleHorizontalLockedState}>
-						<div class="flex justify-center mb-2">
-							<SlideToggle bind:checked={exampleHorizontalLockedState}>Unlock</SlideToggle>
-						</div>
-						<p>
-							This Step component uses the <code>locked</code> property, which can prevent progress. This is ideal for multi-step forms,
-							such as registration. For now we'll simulate a successful validation condition using the
-							<em>unlock</em> option below.
-						</p>
-					</Step>
-				</Stepper>
+				{#key `${propBackground} ${propNavigateOnClick} ${$storeRounded}`}
+					<Stepper
+						{activeHorizontal}
+						horizontal={true}
+						background={propBackground}
+						navigateOnClick={propNavigateOnClick}
+						length={3}
+						rounded={$storeRounded}
+						on:complete={onComplete}
+					>
+						<Step index={0}>
+							<p>
+								This example will teach you how to use the Stepper component with <code>horizontal</code>. Tap <em>next</em> to proceed forward.
+							</p>
+						</Step>
+						<Step index={1}>
+							<p>
+								Prior completed steps will display a checkmark. However, tap the &larr; button at any time to return to the previous step.
+							</p>
+						</Step>
+						<Step index={2} locked={!exampleHorizontalLockedState}>
+							<div class="flex justify-center mb-2">
+								<SlideToggle bind:checked={exampleHorizontalLockedState}>Unlock</SlideToggle>
+							</div>
+							<p>
+								This Step component uses the <code>locked</code> property, which can prevent progress. This is ideal for multi-step forms,
+								such as registration. For now we'll simulate a successful validation condition using the
+								<em>unlock</em> option below.
+							</p>
+						</Step>
+					</Stepper>
+				{/key}
 			</div>
 		</section>
 	</svelte:fragment>
