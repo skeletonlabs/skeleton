@@ -3,7 +3,7 @@
 @layer utilities {
 	/* === Input Accent Color === */
 	/* https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color */
-	.accent-token {
+	.accent-accent-token {
 		@apply accent-accent-500;
 	}
 }

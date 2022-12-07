@@ -5,7 +5,7 @@
 	/* =~= Theme Styles =~= */
 	--theme-border-base: 1px;
 	--theme-font-family-heading: 'Lato', system-ui, sans-serif;
-	--theme-font-family-body: system-ui, sans-serif;
+	--theme-font-family-base: system-ui, sans-serif;
 	--theme-font-color-base: var(--color-surface-900);
 	--theme-font-color-dark: var(--color-surface-50);
 	--theme-rounded-base: 9999px;
