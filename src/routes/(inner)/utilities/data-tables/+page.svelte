@@ -8,6 +8,7 @@
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	// Components
+	import Alert from '$lib/components/Alert/Alert.svelte';
 	import Avatar from '$lib/components/Avatar/Avatar.svelte';
 	import Paginator from '$lib/components/Paginator/Paginator.svelte';
 	// Utilities
@@ -54,6 +55,23 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
+		<Alert>
+			<svelte:fragment slot="lead">🚧</svelte:fragment>
+			<!-- prettier-ignore -->
+			<span>
+				This feature is currently in-developement and available as an early preview. It is not feature complete and may contain bugs. If you need a production-ready alternative,
+				see the "svelte-headless-tables" library by Bryan Lee, which may be paired with the Skeleton styles under <strong>Tailwind -> Elements -> Tables</strong>.
+			</span>
+			<svelte:fragment slot="trail">
+				<a href="https://svelte-headless-table.bryanmylee.com/" target="_blank" rel="noreferrer" class="btn btn-ghost-tertiary"
+					>See Alternative</a
+				>
+				<a href="https://github.com/skeletonlabs/skeleton/issues/538" target="_blank" rel="noreferrer" class="btn btn-filled"
+					>Track Progress</a
+				>
+			</svelte:fragment>
+		</Alert>
+
 		<section class="card !bg-accent-500/5">
 			<!-- Search Input -->
 			<div class="card-header">
@@ -120,6 +138,7 @@
 				features Skeleton provides, so please read carefully.
 			</p>
 		</section>
+
 		<hr />
 		<!-- Getting Started -->
 		<section class="space-y-4">
@@ -137,9 +156,10 @@ import {
 	tableA11y
 } from '@skeletonlabs/skeleton';`}
 			/>
+			<!-- prettier-ignore -->
 			<p>
 				We need data to populate the table. For simplicity, let's create this locally. In a real world app you might fetch this from an
-				external API.
+				external API. We demonstrate this in the <a href="https://github.com/skeletonlabs/skeleton/blob/master/src/routes/(inner)/utilities/data-tables/%2Bpage.svelte" target="_blank" rel="noreferrer">example on this page</a>. See the use of <code>PageData</code> in the source.
 			</p>
 			<CodeBlock
 				language="ts"
@@ -158,8 +178,8 @@ const sourceData = [
 ];`}
 			/>
 			<p>
-				We'll make use of a few Tailwind Element <a href="/elements/tables">table classes</a> to provide base styles to our native HTML table
-				element. These are optional, but recommended.
+				We'll make use of Skeleton's <a href="/elements/tables">table element classes</a> to provide base styles to our native HTML table element.
+				These are optional, but recommended.
 			</p>
 			<CodeBlock
 				language="html"
@@ -189,21 +209,28 @@ const sourceData = [
 			<CodeBlock
 				language="ts"
 				code={`
-const dataTableStore = createDataTableStore(sourceData, {
-	// Optional: The current search term.
-	search: '',
-	// Optional: The current sort key.
-	sort: '',
-	// Optional: The Paginator component settings.
-	pagination: { offset: 0, limit: 5, size: 0, amounts: [1, 2, 5, 10] }
-});\n
-// Automatically handles search, sort, etc when the model updates.
+const dataTableStore = createDataTableStore(
+	// Pass your source data here:
+	sourceData,
+	// Provide optional settings:
+	{
+		// The current search term.
+		search: '',
+		// The current sort key.
+		sort: '',
+		// Paginator component settings.
+		pagination: { offset: 0, limit: 5, size: 0, amounts: [1, 2, 5, 10] }
+	}
+);\n
+// This automatically handles search, sort, etc when the model updates.
 dataTableStore.subscribe((model) => dataTableHandler(model));`}
 			/>
 			<p>
-				Next, we'll update our table markup to display our model data on the page. Add each desired heading paired with a matching body cell
-				value. We'll use an <em>#each</em> loop to create each table body row. Note we use <code>$dataTableStore.filtered</code>
-				as our loop source. The features below will modify this data.
+				Next, we'll update our table markup to display our model data. Implement matching parent headings and body cells. We'll use an <code
+					>#each</code
+				>
+				loop to generate each table row. Note we use <code>$dataTableStore.filtered</code>
+				as our loop source. This represents the data as modified by search, sort, pagination, and more.
 			</p>
 			<CodeBlock
 				language="ts"
@@ -240,7 +267,8 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 		<section class="space-y-4">
 			<h2>Search</h2>
 			<p>
-				To implement search, bind <code>$dataTableStore.search</code> to any search input. You can place this input anywhere on the page.
+				To implement search, bind <code>$dataTableStore.search</code> to any search input. You may add this anywhere as long as it has scope
+				of your table model (the store).
 			</p>
 			<CodeBlock language="html" code={`<input bind:value={$dataTableStore.search} type="search" placeholder="Search..." />`} />
 		</section>
@@ -248,8 +276,8 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 		<section class="space-y-4">
 			<h2>Sort</h2>
 			<p>
-				We'll use the <code>dataTableStore.sort()</code> method to automatically set <code>$dataTableStore.sort</code> when a table heading is
-				tapped. Add the following to your table head element.
+				We'll use the <code>dataTableStore.sort()</code> method to automatically set <code>$dataTableStore.sort</code> when a table heading
+				is tapped. Add the following click method once to your table's <code>thead</code> element.
 			</p>
 			<CodeBlock language="html" code={`<thead on:click={(e) => { dataTableStore.sort(e) }} on:keypress>`} />
 			<p>
@@ -266,10 +294,10 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 			`}
 			/>
 			<p>
-				While sort is working, we're lacking a visual UI indicator. To handle this, implement the Svelte Action called <code
+				While sort is working, there's currently no visual UI indicator. To handle this, implement the Svelte Action called <code
 					>tableInteraction</code
 				>
-				to your table element. This adds the appropriate CSS classes that show &uarr and &darr; sort arrows.
+				to your table element. This will toggle the appropriate CSS classes and show &uarr and &darr; sort arrows.
 			</p>
 			<CodeBlock language="html" code={`<table ... use:tableInteraction>`} />
 		</section>
