@@ -54,7 +54,7 @@
 		</div>
 		<div class="space-y-4">
 			<h3>Notes</h3>
-			<p>Use the <code>notes</code> property to provide addition text information on a second line.</p>
+			<p>Use the <code>notes</code> property to provide additional text information on a second line.</p>
 			<CodeBlock language="html" code={`<FileDropzone notes="Files should not exceed 5mb." />`} />
 		</div>
 		<div class="space-y-4">
