@@ -15,7 +15,8 @@
 		classes: [
 			['<code>.list</code>', '-', 'Class for defining a unordered or ordered list.'],
 			['<code>.list-dl</code>', '-', 'Class for defining a description list.'],
-			['<code>.list-nav</code>', '-', 'Class for defining a navigation list.']
+			['<code>.list-nav</code>', '-', 'Class for defining a navigation list.'],
+			['<code>.option</code>', '-', 'Provides hover styles similar to anchors.']
 		]
 	};
 

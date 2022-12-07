@@ -9,13 +9,14 @@
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Element,
 		name: 'Badges',
-		description: 'Provides a robust set of badge styles',
+		description: 'Provides a robust set of non-interactive badge styles',
 		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/badges'],
 		source: 'styles/elements/badges.css',
 		classes: [
 			['<code>badge</code>', '-', 'Provides the standard badge style.'],
-			['<code>badge-icon</code>', '-', 'Provides the icon badge style.']
+			['<code>badge-icon</code>', '-', 'Provides the icon badge style.'],
+			['<code>badge-[variant]</code>', '-', 'Preset styles for badge and badge icons.']
 		]
 	};
 </script>
@@ -82,6 +83,25 @@
 			<h2>Badge Icon</h2>
 			<p>A compact circular variation badge style.</p>
 			<CodeBlock language="html" code={`<span class="badge-icon badge-filled-primary">💀</span>`} />
+		</section>
+
+		<!-- Variants -->
+		<section class="space-y-4">
+			<h2>Variants</h2>
+			<p>
+				A set of canned preset styles are available using <code>.badge-[variant]</code>. These are available for both badge and badge icons.
+			</p>
+			<CodeBlock language="html" code={`<span class="badge badge-filled-surface">Skeleton</span>`} />
+			<section class="lg:col-span-3 card card-body">
+				<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+					<div class="text-center"><span class="badge badge-filled-surface">filled-surface</span></div>
+					<div class="text-center"><span class="badge badge-filled-primary">filled-primary</span></div>
+					<div class="text-center"><span class="badge badge-filled-accent">filled-accent</span></div>
+					<div class="text-center"><span class="badge badge-filled-tertiary">filled-tertiary</span></div>
+					<div class="text-center"><span class="badge badge-filled-warning">filled-warning</span></div>
+					<div class="text-center"><span class="badge badge-glass block w-full">glass</span></div>
+				</div>
+			</section>
 		</section>
 		<!-- Overlapping -->
 		<section class="space-y-4">

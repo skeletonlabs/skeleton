@@ -35,6 +35,6 @@
 	/* === Variants === */
 
 	.card-glass {
-		@apply bg-accent-500/5 dark:bg-accent-500/5 backdrop-blur-lg;
+		@apply bg-accent-500/10 dark:bg-accent-500/10 backdrop-blur-lg;
 	}
 }

@@ -17,7 +17,8 @@
 			['<code>.card</code>', '-', 'Adds basic card styling to any block element.'],
 			['<code>.card-header</code>', '-', 'The header region of the card.'],
 			['<code>.card-body</code>', '-', 'The body region of the card.'],
-			['<code>.card-footer</code>', '-', 'The footer region of the card.']
+			['<code>.card-footer</code>', '-', 'The footer region of the card.'],
+			['<code>.card-glass</code>', '-', 'A semi-transparent glass variation.']
 		]
 	};
 </script>
@@ -26,6 +27,8 @@
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+			<!-- Glass -->
+			<div class="md:col-span-4 card card-body card-glass text-on-warning-token text-center">Glass</div>
 			<!-- Colors -->
 			<div class="card card-body !bg-primary-500 text-on-primary-token text-center">Primary</div>
 			<div class="card card-body !bg-accent-500 text-on-accent-token text-center">Accent</div>

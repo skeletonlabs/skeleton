@@ -49,7 +49,7 @@
 		/* Background */
 		@apply bg-surface-200-700-token;
 		/* Border */
-		@apply border-surface-300-600-token focus:border-accent-500;
+		@apply border-surface-400-500-token focus:border-accent-500;
 		/* Shadow */
 		@apply shadow-sm;
 		/* Theme: Border Width */
