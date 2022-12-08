@@ -104,7 +104,10 @@
 		</TabGroup>
 		<!-- Framework: SvelteKit -->
 		{#if $storeFramework === 'sveltekit'}
-			<p>Import your desired preset into <code>src/routes/+layout.svelte</code> before your global stylesheet.</p>
+			<p>
+				The CLI will automatically import your selected theme into <code>src/routes/+layout.svelte</code> before your global stylesheet. You
+				may change this at any time.
+			</p>
 			<CodeBlock
 				language="typescript"
 				code={`import '@skeletonlabs/skeleton/themes/theme-skeleton.css'; // <--\nimport '../app.postcss';\n`}
