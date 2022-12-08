@@ -16,6 +16,8 @@
 	export let borderWidth = 'border-token';
 	/** Provide classes to set the border color. */
 	export let borderColor = 'border-surface-300 dark:border-surface-600';
+	/** Provide classes to set the RadioItem padding. */
+	export let padding = 'px-4 py-2';
 	/** Provide classes to set the hover style. */
 	export let hover = 'bg-accent-hover-token';
 	/** Provide classes to set the highlighted accent color. */
@@ -33,6 +35,7 @@
 
 	// Context
 	setContext('selected', selected);
+	setContext('padding', padding);
 	setContext('hover', hover);
 	setContext('accent', accent);
 	setContext('color', color);
