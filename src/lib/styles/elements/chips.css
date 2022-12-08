@@ -1,0 +1,18 @@
+/* Stylesheet Add-On: chips.css */
+
+/* NOTE: these are a work in progress; best not to use them yet! */
+
+@layer components {
+	.chip {
+		/* Core */
+		@apply inline-flex items-center space-x-2 whitespace-nowrap;
+		/* Text */
+		@apply text-xs text-black dark:text-primary-400;
+		/* Padding */
+		@apply px-2 py-1;
+		/* Theme: Rounded */
+		@apply rounded;
+		/* Background */
+		@apply bg-primary-500/10 border border-primary-600-300-token backdrop-blur-lg hover:bg-primary-500/30;
+	}
+}

@@ -94,7 +94,7 @@
 		<!-- HTML Content -->
 		<div class="blog-html space-y-4">{@html post.html}</div>
 		<!-- Footer -->
-		<footer class="card card-body !bg-accent-500/5 flex justify-between items-center mb-28">
+		<footer class="card p-4 card-glass flex justify-between items-center mb-28">
 			<!-- Tags -->
 			<div class="flex items-center space-x-4">
 				{#each post.tags as tag}

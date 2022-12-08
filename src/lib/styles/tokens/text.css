@@ -1,0 +1,216 @@
+/* Design Tokens: Fonts */
+
+@layer utilities {
+	/* === Font Family === */
+
+	.font-heading-token {
+		font-family: var(--theme-font-family-heading);
+	}
+	.font-token {
+		font-family: var(--theme-font-family-base);
+	}
+
+	/* === Default Font Color === */
+
+	.text-base-token {
+		color: rgba(var(--theme-font-color-base));
+	}
+	.text-dark-token {
+		color: rgba(var(--theme-font-color-dark));
+	}
+	.text-token {
+		@apply text-base-token dark:text-dark-token;
+	}
+
+	/* === On-X Colors === */
+	/* Text color when overlapping theme colors. */
+
+	.text-on-primary-token {
+		color: var(--on-primary);
+	}
+	.text-on-accent-token {
+		color: var(--on-accent);
+	}
+	.text-on-tertiary-token {
+		color: var(--on-tertiary);
+	}
+	.text-on-warning-token {
+		color: var(--on-warning);
+	}
+
+	/* === Color Pairings (Light|Dark) === */
+	/* https://user-images.githubusercontent.com/1509726/195171203-423e5b84-8763-40f1-b3ea-4cb2b8e38108.png */
+
+	/* Primary */
+	.text-primary-50-900-token {
+		@apply text-primary-50 dark:text-primary-900;
+	}
+	.text-primary-100-800-token {
+		@apply text-primary-100 dark:text-primary-800;
+	}
+	.text-primary-200-700-token {
+		@apply text-primary-200 dark:text-primary-700;
+	}
+	.text-primary-300-600-token {
+		@apply text-primary-300 dark:text-primary-600;
+	}
+	.text-primary-400-500-token {
+		@apply text-primary-400 dark:text-primary-500;
+	}
+
+	/* Accent */
+	.text-accent-50-900-token {
+		@apply text-accent-50 dark:text-accent-900;
+	}
+	.text-accent-100-800-token {
+		@apply text-accent-100 dark:text-accent-800;
+	}
+	.text-accent-200-700-token {
+		@apply text-accent-200 dark:text-accent-700;
+	}
+	.text-accent-300-600-token {
+		@apply text-accent-300 dark:text-accent-600;
+	}
+	.text-accent-400-500-token {
+		@apply text-accent-400 dark:text-surface-500;
+	}
+
+	/* Tertiary */
+	.text-tertiary-50-900-token {
+		@apply text-tertiary-50 dark:text-tertiary-900;
+	}
+	.text-tertiary-100-800-token {
+		@apply text-tertiary-100 dark:text-tertiary-800;
+	}
+	.text-tertiary-200-700-token {
+		@apply text-tertiary-200 dark:text-tertiary-700;
+	}
+	.text-tertiary-300-600-token {
+		@apply text-tertiary-300 dark:text-tertiary-600;
+	}
+	.text-tertiary-400-500-token {
+		@apply text-tertiary-400 dark:text-tertiary-500;
+	}
+
+	/* Warning */
+	.text-warning-50-900-token {
+		@apply text-warning-50 dark:text-warning-900;
+	}
+	.text-warning-100-800-token {
+		@apply text-warning-100 dark:text-warning-800;
+	}
+	.text-warning-200-700-token {
+		@apply text-warning-200 dark:text-warning-700;
+	}
+	.text-warning-300-600-token {
+		@apply text-warning-300 dark:text-warning-600;
+	}
+	.text-warning-400-500-token {
+		@apply text-warning-400 dark:text-warning-500;
+	}
+
+	/* Surface */
+	.text-surface-50-900-token {
+		@apply text-surface-50 dark:text-surface-900;
+	}
+	.text-surface-100-800-token {
+		@apply text-surface-100 dark:text-surface-800;
+	}
+	.text-surface-200-700-token {
+		@apply text-surface-200 dark:text-surface-700;
+	}
+	.text-surface-300-600-token {
+		@apply text-surface-300 dark:text-surface-600;
+	}
+	.text-surface-400-500-token {
+		@apply text-surface-400 dark:text-surface-500;
+	}
+
+	/* === Color Pairings (Dark|Light) === */
+	/* https://user-images.githubusercontent.com/1509726/195171203-423e5b84-8763-40f1-b3ea-4cb2b8e38108.png */
+
+	/* Primary */
+	.text-primary-900-50-token {
+		@apply text-primary-900 dark:text-primary-50;
+	}
+	.text-primary-800-100-token {
+		@apply text-primary-800 dark:text-primary-100;
+	}
+	.text-primary-700-200-token {
+		@apply text-primary-700 dark:text-primary-200;
+	}
+	.text-primary-600-300-token {
+		@apply text-primary-600 dark:text-primary-300;
+	}
+	.text-primary-500-400-token {
+		@apply text-primary-500 dark:text-primary-400;
+	}
+
+	/* Accent */
+	.text-accent-900-50-token {
+		@apply text-accent-900 dark:text-accent-50;
+	}
+	.text-accent-800-100-token {
+		@apply text-accent-800 dark:text-accent-100;
+	}
+	.text-accent-700-200-token {
+		@apply text-accent-700 dark:text-accent-200;
+	}
+	.text-accent-600-300-token {
+		@apply text-accent-600 dark:text-accent-300;
+	}
+	.text-accent-500-400-token {
+		@apply text-accent-500 dark:text-accent-400;
+	}
+
+	/* Tertiary */
+	.text-tertiary-900-50-token {
+		@apply text-tertiary-900 dark:text-tertiary-50;
+	}
+	.text-tertiary-800-100-token {
+		@apply text-tertiary-800 dark:text-tertiary-100;
+	}
+	.text-tertiary-700-200-token {
+		@apply text-tertiary-700 dark:text-tertiary-200;
+	}
+	.text-tertiary-600-300-token {
+		@apply text-tertiary-600 dark:text-tertiary-300;
+	}
+	.text-tertiary-500-400-token {
+		@apply text-tertiary-500 dark:text-tertiary-400;
+	}
+
+	/* Warning */
+	.text-warning-900-50-token {
+		@apply text-warning-900 dark:text-warning-50;
+	}
+	.text-warning-800-100-token {
+		@apply text-warning-800 dark:text-warning-100;
+	}
+	.text-warning-700-200-token {
+		@apply text-warning-700 dark:text-warning-200;
+	}
+	.text-warning-600-300-token {
+		@apply text-warning-600 dark:text-warning-300;
+	}
+	.text-warning-500-400-token {
+		@apply text-warning-500 dark:text-warning-400;
+	}
+
+	/* Surface */
+	.text-surface-900-50-token {
+		@apply text-surface-900 dark:text-surface-50;
+	}
+	.text-surface-800-100-token {
+		@apply text-surface-800 dark:text-surface-100;
+	}
+	.text-surface-700-200-token {
+		@apply text-surface-700 dark:text-surface-200;
+	}
+	.text-surface-600-300-token {
+		@apply text-surface-600 dark:text-surface-300;
+	}
+	.text-surface-500-400-token {
+		@apply text-surface-500 dark:text-surface-400;
+	}
+}

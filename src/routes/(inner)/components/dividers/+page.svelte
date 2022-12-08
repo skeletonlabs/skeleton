@@ -50,7 +50,7 @@
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-2">
 			<!-- Example -->
-			<div class="card card-body">
+			<div class="card p-4">
 				<div class="h-full min-h-[100px] max-w-[480px] mx-auto flex justify-center items-center">
 					<!-- prettier-ignore -->
 					<svelte:component
@@ -63,7 +63,7 @@
 				</div>
 			</div>
 			<!-- Options -->
-			<div class="card card-body space-y-4">
+			<div class="card p-4 space-y-4">
 				<!-- Orientation -->
 				<label for="">
 					<span>Vertical</span>

@@ -20,7 +20,7 @@
 	/** Provide classes to set width styles. */
 	export let width = 'max-w-[640px]';
 	/** Provide classes to set the text color. */
-	export let color = 'text-white';
+	export let color = 'text-on-accent-token';
 	/** Provide classes to set the padding. */
 	export let padding = 'p-4';
 	/** Provide classes to set the horizontal spacing. */

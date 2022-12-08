@@ -24,24 +24,31 @@
 		<p>These features require Tailwind to operate.</p>
 		<h3>Design Tokens</h3>
 		<p>Provides a set of utility classes based on your theme CSS custom property settings.</p>
-		<ul class="list-disc list-inside space-y-2">
-			<li>A stylesheet must be imported (ex: <code>all.css</code>, <code>tokens.css</code>)</li>
-			<li>Can be paired with Tailwind utility classes.</li>
-		</ul>
+		<div class="card p-4 space-y-4">
+			<ul class="list-disc list-inside space-y-2">
+				<li>A stylesheet must be imported (ex: <code>all.css</code>, <code>tokens.css</code>)</li>
+				<li>Can be paired with Tailwind utility classes.</li>
+			</ul>
+		</div>
 		<h3>Base Classes</h3>
 		<p>Apply default global styles, such as body, scrolling, and typography settings.</p>
-		<li>A stylesheet must be imported (ex: <code>all.css</code>, <code>core.css</code>)</li>
-		<ul class="list-disc list-inside space-y-2" />
+		<div class="card p-4 space-y-4">
+			<ul class="list-disc list-inside space-y-2">
+				<li>A stylesheet must be imported (ex: <code>all.css</code>, <code>core.css</code>)</li>
+			</ul>
+		</div>
 		<h3>Elements</h3>
 		<p>
 			Mix native HTML elements with Skeleton-provided utility classes. Automatically adapt to your Skeleton theme and extend with Tailwind
 			utility classes.
 		</p>
-		<ul class="list-disc list-inside space-y-2">
-			<li>Use Design Tokens for default style settings.</li>
-			<li>A stylesheet must be imported (ex: <code>all.css</code>, <code>elements.css</code>, <code>buttons.css</code>, etc.)</li>
-			<li>Can be paired with Tailwind utility classes.</li>
-		</ul>
+		<div class="card p-4 space-y-4">
+			<ul class="list-disc list-inside space-y-2">
+				<li>Use Design Tokens for default style settings.</li>
+				<li>A stylesheet must be imported (ex: <code>all.css</code>, <code>elements.css</code>, <code>buttons.css</code>, etc.)</li>
+				<li>Can be paired with Tailwind utility classes.</li>
+			</ul>
+		</div>
 	</section>
 
 	<hr />
@@ -62,11 +69,13 @@
 				also known as directives in other libraries. These provide "headless" script logic without inherent UI. These include features such
 				as <em>copy to clipboard</em>, <em>image filters</em>, and <em>focus capture</em>.
 			</p>
-			<ul class="list-disc list-inside space-y-2">
-				<li>Each must be imported to use.</li>
-				<li>Applied via <code>use:action="params"</code> method.</li>
-				<li>May not contain a visual UI, just pure logic.</li>
-			</ul>
+			<div class="card p-4 space-y-4">
+				<ul class="list-disc list-inside space-y-2">
+					<li>Each must be imported to use.</li>
+					<li>Applied via <code>use:action="params"</code> method.</li>
+					<li>May not contain a visual UI, just pure logic.</li>
+				</ul>
+			</div>
 		</div>
 		<div class="space-y-4">
 			<h3>Components</h3>
@@ -75,12 +84,14 @@
 				They can include their own UI templates, scripted logic, and mantaine their own state. These automatically update and adjust to your
 				custom theme and provide unique props to update and adjust settings per component.
 			</p>
-			<ul class="list-disc list-inside space-y-2">
-				<li>Each must be imported to use.</li>
-				<li>Include props (properties) to customize settings and styles.</li>
-				<li>May include slot elements to insert content.</li>
-				<li>Include UI and styling, which adapts to your theme.</li>
-			</ul>
+			<div class="card p-4 space-y-4">
+				<ul class="list-disc list-inside space-y-2">
+					<li>Each must be imported to use.</li>
+					<li>Include props (properties) to customize settings and styles.</li>
+					<li>May include slot elements to insert content.</li>
+					<li>Include UI and styling, which adapts to your theme.</li>
+				</ul>
+			</div>
 		</div>
 	</section>
 
@@ -98,11 +109,13 @@
 			Skeleton utilities are complex features that combine various Skeleton features. These are powerful features such as modals, code
 			blocks, and more.
 		</p>
-		<ul class="list-disc list-inside space-y-2">
-			<li>Svelte is required to use most utilities.</li>
-			<li>Tailwind is required to use most utilities.</li>
-			<li>Combines Skeleton elements, components, actions, and more.</li>
-			<li>May require external dependencies to operate.</li>
-		</ul>
+		<div class="card p-4 space-y-4">
+			<ul class="list-disc list-inside space-y-2">
+				<li>Svelte is required to use most utilities.</li>
+				<li>Tailwind is required to use most utilities.</li>
+				<li>Combines Skeleton elements, components, actions, and more.</li>
+				<li>May require external dependencies to operate.</li>
+			</ul>
+		</div>
 	</section>
 </div>

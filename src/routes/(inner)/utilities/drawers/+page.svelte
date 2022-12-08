@@ -32,7 +32,7 @@
 		const s: DrawerSettings = {
 			id: 'demo',
 			position: 'left',
-			bgDrawer: 'bg-primary-500',
+			bgDrawer: 'bg-primary-500 text-on-primary-token',
 			bgBackdrop: 'bg-primary-500/50',
 			meta: 'Styled Drawer'
 		};
@@ -43,7 +43,7 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<div class="card card-body text-center space-y-4">
+		<div class="card p-4 text-center space-y-4">
 			<p>Select a drawer to preview.</p>
 			<!-- prettier-ignore -->
 			<div class="flex justify-center items-center space-x-2 sm:space-x-4">
@@ -153,8 +153,8 @@ function drawerOpenStyled(): void {
 		id: 'demo',
 		// Provide your prop overrides
 		position: 'right',
-		bgBackdrop: 'bg-green-500/70',
-		bgDrawer: 'bg-red-500'
+		bgDrawer: 'bg-primary-500 text-on-primary-token',
+		bgBackdrop: 'bg-primary-500/50',
 	};
 	drawerStore.open(settings);
 }

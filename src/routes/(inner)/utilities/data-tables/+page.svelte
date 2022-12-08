@@ -22,7 +22,7 @@
 		description: 'A set of utility features for creating template-driven data tables.',
 		imports: ['dataTableHandler'],
 		types: ['DataTableModel'],
-		source: 'utilities/Table',
+		source: 'utilities/DataTable',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/grid/',
 		keyboard: [
 			['<kbd>Right Arrow</kbd>', 'Moves focus one cell to the right. If focus is on the right-most cell in the row, focus does not move.'],
@@ -78,7 +78,7 @@
 				<input bind:value={$dataTableStore.search} type="search" placeholder="Search Table..." />
 			</div>
 			<!-- Table -->
-			<div class="card-body">
+			<div class="p-4">
 				<div class="table-container">
 					<!-- prettier-ignore -->
 					<table class="table table-hover" role="grid" use:tableInteraction use:tableA11y>

@@ -35,7 +35,7 @@
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4">
-			<div class="card card-body flex justify-center items-center h-full">
+			<div class="card p-4 flex justify-center items-center h-full">
 				<AppShell>
 					<svelte:fragment slot="header">
 						{#if state.header}<div class="boxShape">Header</div>{/if}
@@ -58,7 +58,7 @@
 					</svelte:fragment>
 				</AppShell>
 			</div>
-			<div class="card card-body flex justify-center items-center h-full">
+			<div class="card p-4 flex justify-center items-center h-full">
 				<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-4">
 					<SlideToggle bind:checked={state.header}>Header</SlideToggle>
 					<SlideToggle bind:checked={state.sidebarLeft}>Left Sidebar</SlideToggle>

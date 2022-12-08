@@ -45,7 +45,7 @@
 			</p>
 		</header>
 		<!-- Card Body -->
-		<div class="card-body grid grid-cols-1 md:grid-cols-2 gap-4">
+		<div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
 			<!-- Column 1 -->
 			<div class="space-y-4">
 				<label>
@@ -163,7 +163,7 @@
 	</div>
 
 	<!-- State Classes -->
-	<div class="card card-body space-y-4">
+	<div class="card p-4 space-y-4">
 		<h2>Utility State Classes</h2>
 		<p>
 			Provided by <code>forms.css</code>. See handling
@@ -190,7 +190,7 @@
 				<h2>Skeleton Forms.css</h2>
 				<p>Native HTML elements styled by the Skeleton <a href="/guides/styling">forms.css</a> stylesheet.</p>
 			</header>
-			<div class="card-body space-y-4">
+			<div class="p-4 space-y-4">
 				<label class="block">
 					<span>Input (range)</span>
 					<input type="range" value="75" max="100" />
@@ -212,7 +212,7 @@
 				<h2>Skeleton Components</h2>
 				<p>Custom components provided as part of the Skeleton library.</p>
 			</header>
-			<div class="card-body space-y-4">
+			<div class="p-4 space-y-4">
 				<label for="">
 					<div class="text-sm flex justify-between mb-3">
 						<p>Range Slider</p>
@@ -243,7 +243,7 @@
 	</section>
 
 	<!-- Untouched -->
-	<div class="card card-body flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+	<div class="card p-4 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<div class="space-y-2">
 			<h2>Untouched</h2>
 			<p>

@@ -45,7 +45,7 @@
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-2">
 			<!-- Example -->
-			<div class="card card-body h-full flex justify-center items-center">
+			<div class="card p-4 h-full flex justify-center items-center">
 				<div class="py-10 w-[90%]">
 					<svelte:component
 						this={ProgressBar}
@@ -60,7 +60,7 @@
 				</div>
 			</div>
 			<!-- Options -->
-			<div class="card card-body space-y-4 w-auto lg:w-[400px]">
+			<div class="card p-4 space-y-4 w-auto lg:w-[400px]">
 				<!-- Mode -->
 				<label for="">
 					<RadioGroup selected={storeDeterminate} display="flex">

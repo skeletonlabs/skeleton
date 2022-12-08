@@ -15,15 +15,16 @@
 		classes: [
 			['<code>.list</code>', '-', 'Class for defining a unordered or ordered list.'],
 			['<code>.list-dl</code>', '-', 'Class for defining a description list.'],
-			['<code>.list-nav</code>', '-', 'Class for defining a navigation list.']
+			['<code>.list-nav</code>', '-', 'Class for defining a navigation list.'],
+			['<code>.option</code>', '-', 'Provides hover styles similar to anchors.']
 		]
 	};
 
 	// Local
 	const listData = [
-		{ name: 'A', class: 'bg-primary-500' },
-		{ name: 'B', class: 'bg-accent-500' },
-		{ name: 'C', class: 'bg-tertiary-500' }
+		{ name: 'A', class: 'btn-filled-accent' },
+		{ name: 'B', class: 'btn-filled-accent' },
+		{ name: 'C', class: 'btn-filled-accent' }
 	];
 </script>
 
@@ -31,7 +32,7 @@
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-4">
-			<div class="card card-body space-y-4">
+			<div class="card p-4 space-y-4">
 				<p class="font-bold">Unordered</p>
 				<hr />
 				<ul class="list">
@@ -46,7 +47,7 @@
 					{/each}
 				</ul>
 			</div>
-			<div class="card card-body space-y-4">
+			<div class="card p-4 space-y-4">
 				<p class="font-bold">Ordered</p>
 				<hr />
 				<ol class="list">
@@ -61,7 +62,7 @@
 					{/each}
 				</ol>
 			</div>
-			<div class="card card-body space-y-4">
+			<div class="card p-4 space-y-4">
 				<p class="font-bold">Description</p>
 				<hr />
 				<dl class="list-dl">
@@ -77,7 +78,7 @@
 					{/each}
 				</dl>
 			</div>
-			<div class="card card-body space-y-4">
+			<div class="card p-4 space-y-4">
 				<p class="font-bold">Navigation</p>
 				<hr />
 				<nav class="list-nav">

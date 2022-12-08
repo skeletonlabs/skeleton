@@ -64,7 +64,7 @@
 	<div class="space-y-4">
 		<!-- Generator -->
 		<div class="space-y-4">
-			<div class="card card-body flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+			<div class="card p-4 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 				<div class="space-y-2">
 					<h2>Theme Generator</h2>
 					<p>This tool allows you to generate a custom Skeleton theme.</p>
@@ -73,20 +73,20 @@
 			</div>
 		</div>
 		<!-- Presets -->
-		<div class="card card-body space-y-4">
+		<div class="card p-4 space-y-4">
 			<h2>Preset Themes</h2>
 			<p>Tap any theme below to automatically copy the import statement to your clipboard.</p>
 			<nav class="grid grid-cols-1 md:grid-cols-3 gap-4">
 				{#each presets as preset}
 					<!-- prettier-ignore -->
 					<div
-						class="card card-body text-white flex justify-between items-center hover:!ring-white/20 cursor-pointer"
+						class="card p-4 text-white flex justify-between items-center hover:!ring-white/20 cursor-pointer"
 						style:background={preset.surface}
 						target="_blank" rel="noreferrer"
 						on:click={() => { copyThemeToClipboard(preset.file); }}
 						on:keydown={() => { copyThemeToClipboard(preset.file); }}
 					>
-						<span class="text-sm">{preset.name}</span>
+						<span class="text-sm font-bold">{preset.name}</span>
 						<ul class="grid grid-cols-3 gap-2">
 							{#each preset.colors as color}
 								<li class="aspect-square w-4 rounded-full" style:background={color} />
@@ -125,19 +125,25 @@
 
 	<hr />
 
-	<!-- Design Tokens -->
-	<section class="grid grid-cols-[1fr_auto] gap-4">
-		<div class="space-y-4">
-			<h2>Theme Styles</h2>
-			<p>Learn how to use theme styles within your project.</p>
+	<section class="space-y-4">
+		<h2>See Also</h2>
+		<div class="card p-4 card-glass space-y-4">
+			<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+				<p>Learn more about Skeleton's theme color system.</p>
+				<a class="btn btn-ghost-surface" href="/guides/themes/colors">Theme Colors &rarr;</a>
+			</div>
+			<hr class="opacity-30" />
+			<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+				<p>Learn more about Skeleton's design token sytem.</p>
+				<a class="btn btn-ghost-surface" href="/elements/tokens">Design Tokens &rarr;</a>
+			</div>
 		</div>
-		<a class="btn btn-filled-accent place-self-center" href="/guides/themes/styles">Theme Styles</a>
 	</section>
 
 	<hr />
 
 	<!-- Next Steps -->
-	<section class="card card-body flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+	<section class="card p-4 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<p>Next, let's learn more about styling Skeleton.</p>
 		<a class="btn btn-filled-primary" href="/guides/styling">Styling &rarr;</a>
 	</section>

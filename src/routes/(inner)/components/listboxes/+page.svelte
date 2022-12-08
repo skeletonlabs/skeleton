@@ -37,7 +37,7 @@
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 lg:grid-cols-2 gap-4">
 			<!-- Single -->
-			<div class="card card-body space-y-4">
+			<div class="card p-4 space-y-4">
 				<ListBox selected={navSingle} label="Single Selection">
 					<ListBoxItem value={1}>Item 1</ListBoxItem>
 					<ListBoxItem value={2}>Item 2</ListBoxItem>
@@ -46,7 +46,7 @@
 				<p class="text-center">Selected: <code>{$navSingle}</code></p>
 			</div>
 			<!-- Multiple -->
-			<div class="card card-body space-y-4">
+			<div class="card p-4 space-y-4">
 				<ListBox selected={navMultiple} label="Multi-Selection" hover="bg-accent-hover-token" accent="!bg-accent-active-token">
 					<ListBoxItem value={'A'}>Item A</ListBoxItem>
 					<ListBoxItem value={'B'}>Item B</ListBoxItem>

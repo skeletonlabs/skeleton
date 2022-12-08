@@ -57,7 +57,7 @@
 	function toastStyled(): void {
 		const t: ToastSettings = {
 			message: 'This message will have a warning color background.',
-			classes: 'bg-warning-500'
+			classes: 'bg-warning-500 text-on-warning-token'
 		};
 		toastStore.trigger(t);
 	}
@@ -66,7 +66,7 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="card card-body">
+		<section class="card p-4">
 			<div class="grid grid-cols-1 md:grid-cols-5 gap-4 max-w-[640px] mx-auto">
 				<button class="btn btn-ghost-surface" on:click={toastBasic}>Basic</button>
 				<button class="btn btn-ghost-surface" on:click={toastParagraph}>Paragraph</button>
@@ -138,7 +138,7 @@ function triggerToast(): void {
 const t: ToastSettings = {
 	message: 'This message will have a colorful background.',
 	// Add your custom classes here:
-	classes: 'bg-warning-500'
+	classes: 'bg-warning-500 text-on-warning-token'
 };
 			`}
 			/>

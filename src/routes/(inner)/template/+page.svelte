@@ -36,7 +36,7 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<div class="card card-body">
+		<div class="card p-4">
 			<p class="text-center">(examples)</p>
 		</div>
 	</svelte:fragment>

@@ -21,7 +21,7 @@
 	/** Provide classes to set the selected SVG fill color. */
 	export let fill = 'fill-primary-500';
 	/** Provide classes to set the unselected hover styles. */
-	export let hover = 'bg-hover-token';
+	export let hover = 'bg-primary-hover-token';
 	/** Provide classes to set the tab border radius styles. */
 	export let rounded = 'rounded-tl-container-token rounded-tr-container-token';
 

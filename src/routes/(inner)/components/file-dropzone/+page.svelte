@@ -31,7 +31,7 @@
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-2">
-			<div class="card card-body grid grid-cols-1 xl:grid-cols-2 gap-4">
+			<div class="card p-4 grid grid-cols-1 xl:grid-cols-2 gap-4">
 				<label for="">
 					<span>Upload File</span>
 					<FileDropzone bind:files notes="Files should not exceed 5mb." on:change={onChange} required />

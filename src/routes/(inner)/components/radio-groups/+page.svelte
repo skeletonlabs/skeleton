@@ -43,7 +43,7 @@
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
 			<!-- Icons -->
-			<div class="card card-body space-y-4 text-center">
+			<div class="card p-4 space-y-4 text-center">
 				<RadioGroup selected={storeJustify}>
 					<RadioItem value={0} label="Align Left">
 						<SvgIcon name="align-left" class="-translate-y-[2px]" />
@@ -58,8 +58,8 @@
 				<p>Selected <code>{$storeJustify}</code></p>
 			</div>
 			<!-- Text -->
-			<div class="card card-body space-y-4 text-center">
-				<RadioGroup selected={storeLayout} accent="bg-active-token" hover="bg-hover-token">
+			<div class="card p-4 space-y-4 text-center">
+				<RadioGroup selected={storeLayout} accent="bg-primary-active-token" hover="bg-primary-hover-token">
 					<RadioItem value="horz">Horizontal</RadioItem>
 					<RadioItem value="vert">Vertical</RadioItem>
 				</RadioGroup>

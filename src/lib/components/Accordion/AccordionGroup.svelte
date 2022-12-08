@@ -7,7 +7,7 @@
 	/** Enable auto-collapse mode. */
 	export let collapse = true;
 	/** Provide classes to set the hover background color. */
-	export let hover = 'bg-hover-token';
+	export let hover = 'bg-primary-hover-token';
 	/** Provide classes to set vertical spacing. */
 	export let spacing = 'space-y-4';
 	/** Provide classes to set padding for summary and content regions. */

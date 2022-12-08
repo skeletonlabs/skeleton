@@ -41,7 +41,7 @@
 
 	// Props (regions)
 	/** Provide classes to style the backdrop. */
-	export let regionBackdrop = 'bg-backdrop-token';
+	export let regionBackdrop = 'bg-surface-backdrop-token';
 	/** Provide arbitrary classes to modal header region. */
 	export let regionHeader = 'text-2xl font-bold';
 	/** Provide arbitrary classes to modal body region. */

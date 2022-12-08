@@ -49,7 +49,7 @@
 	});
 
 	// Reactive
-	$: classesActive = (href: string) => ($storeCurrentUrl?.includes(href) ? '!bg-primary-500' : '');
+	$: classesActive = (href: string) => ($storeCurrentUrl?.includes(href) ? 'bg-primary-active-token' : '');
 </script>
 
 <div class="grid grid-cols-[auto_1fr] h-full border-r border-black/5 dark:border-white/5 {$$props.class ?? ''}">
@@ -75,7 +75,7 @@
 							<li on:click={onListItemClick} on:keypress>
 								<a {href} value={href} class={classesActive(href)} data-sveltekit-preload-data="hover">
 									<span class="flex-auto">{label}</span>
-									{#if badge}<span class="badge bg-accent-500 text-white">{badge}</span>{/if}
+									{#if badge}<span class="badge badge-filled-accent">{badge}</span>{/if}
 								</a>
 							</li>
 						{/each}

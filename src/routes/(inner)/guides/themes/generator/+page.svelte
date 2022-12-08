@@ -22,10 +22,11 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Theme Generator</h1>
-		<p>Use the form below to generate a custom Skeleton theme.</p>
+		<p>
+			Enable edit mode to enable a live theme preview. You can browse the entire site while edit mode is enabled. Don't worry, your settings
+			here will below will not be lost. When you are finished, tap the "Reset Theme" button to return to normal.
+		</p>
 	</header>
-
-	<hr />
 
 	<!-- Generator (new) -->
 	<DocsThemer />

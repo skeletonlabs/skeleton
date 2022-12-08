@@ -29,7 +29,7 @@
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-3 lg:grid-cols-6 gap-4">
 			{#each iconKeys as name}
-				<div class="card card-body space-y-4 text-center">
+				<div class="card p-4 space-y-4 text-center">
 					<SvgIcon {name} />
 					<div><code>{name}</code></div>
 				</div>

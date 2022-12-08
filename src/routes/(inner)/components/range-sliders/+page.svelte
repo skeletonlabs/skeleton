@@ -54,7 +54,7 @@
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-4 xl:space-y-0 xl:grid grid-cols-[1fr_auto] gap-2">
 			<!-- Example -->
-			<div class="card card-body flex justify-center items-center">
+			<div class="card p-4 flex justify-center items-center">
 				<!-- prettier-ignore -->
 				<svelte:component
 						this={RangeSlider}
@@ -76,7 +76,7 @@
 					</svelte:component>
 			</div>
 			<!-- Options -->
-			<div class="card card-body space-y-4">
+			<div class="card p-4 space-y-4">
 				<!-- Label -->
 				<label>
 					<span>Label</span>

@@ -5,11 +5,17 @@
 	/* =~= Theme Styles =~= */
 	--theme-border-base: 1px;
 	--theme-font-family-heading: 'Lato', system-ui, sans-serif;
-	--theme-font-family-body: system-ui, sans-serif;
+	--theme-font-family-base: system-ui, sans-serif;
 	--theme-font-color-base: var(--color-surface-900);
 	--theme-font-color-dark: var(--color-surface-50);
 	--theme-rounded-base: 9999px;
 	--theme-rounded-container: 8px;
+	/* On Colors */
+	--on-primary: #000;
+	--on-accent: #fff;
+	--on-tertiary: #000;
+	--on-warning: #fff;
+	--on-surface: #fff;
 	/* =~= Theme Colors | Tailwind =~= */
 	/* primary | #0FBA81 */
 	--color-primary-50: 104 243 197;

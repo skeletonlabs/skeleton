@@ -54,7 +54,7 @@
 	<svelte:fragment slot="sandbox">
 		<!-- prettier-ignore -->
 		<section class="card">
-			<div class="card-body max-w-[220px] mx-auto">
+			<div class="p-4 max-w-[220px] mx-auto">
 				<div class="grid grid-cols-2 gap-4 mb-4">
 					<button class="btn btn-ghost-surface w-full" data-tooltip="tooltipTop" use:tooltip={exampleTop}>&uarr;</button>
 					<button class="btn btn-ghost-surface w-full" use:tooltip={exampleBottom}>&darr;</button>

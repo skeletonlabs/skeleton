@@ -7,7 +7,7 @@
 		/* background */
 		@apply bg-surface-100-800-token;
 		/* Ring */
-		@apply ring-[1px] ring-neutral-900/5 dark:ring-neutral-50/5 ring-inset;
+		@apply ring-outline-token;
 		/* Theme: Rounded */
 		@apply rounded-container-token;
 	}
@@ -18,10 +18,6 @@
 		@apply p-4 pb-0;
 	}
 
-	.card-body {
-		@apply p-4;
-	}
-
 	.card-footer {
 		@apply p-4 pt-0;
 	}
@@ -29,6 +25,16 @@
 	/* === States === */
 
 	a.card {
-		@apply hover:brightness-110;
+		@apply transition-all hover:brightness-110;
+	}
+
+	.card-zoom {
+		@apply transition-all hover:scale-[101%] hover:shadow-xl;
+	}
+
+	/* === Variants === */
+
+	.card-glass {
+		@apply bg-accent-500/10 dark:bg-accent-500/10 backdrop-blur-lg;
 	}
 }

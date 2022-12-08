@@ -76,7 +76,7 @@
 		<section class="space-y-4">
 			<div class="grid grid-cols-1 xl:grid-cols-[1fr_auto] gap-2">
 				<!-- Example -->
-				<div class="card card-body h-full flex justify-center items-center">
+				<div class="card p-4 h-full flex justify-center items-center">
 					<svelte:component
 						this={Avatar}
 						initials={props.initials}
@@ -92,7 +92,7 @@
 					/>
 				</div>
 				<!-- Options -->
-				<div class="card card-body space-y-4">
+				<div class="card p-4 space-y-4">
 					<!-- Source -->
 					<RadioGroup selected={storeSrc} display="flex">
 						<RadioItem value={imgPlaceholder}>Image</RadioItem>

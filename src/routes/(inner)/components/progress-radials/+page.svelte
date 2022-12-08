@@ -27,7 +27,7 @@
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
-			<div class="card card-body grid grid-cols-1 gap-4">
+			<div class="card p-4 grid grid-cols-1 gap-4">
 				<ProgressRadial value={props.value} class="w-full">{props.value}%</ProgressRadial>
 				<input type="range" min="0" max={props.max} step={props.step} bind:value={props.value} />
 			</div>
@@ -37,16 +37,16 @@
 					<p>Remove the value property to set to indeterminate mode.</p>
 				</div>
 				<div class="grid grid-cols-2 gap-4">
-					<div class="card card-body">
+					<div class="card p-4">
 						<ProgressRadial stroke={20} />
 					</div>
-					<div class="card card-body">
+					<div class="card p-4">
 						<ProgressRadial stroke={50} meter="stroke-primary-500" track="stroke-primary-500/20" />
 					</div>
-					<div class="card card-body">
+					<div class="card p-4">
 						<ProgressRadial stroke={100} meter="stroke-accent-500" track="stroke-accent-500/20" />
 					</div>
-					<div class="card card-body">
+					<div class="card p-4">
 						<ProgressRadial stroke={200} meter="stroke-tertiary-500" track="stroke-tertiary-500/20" />
 					</div>
 				</div>

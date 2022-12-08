@@ -10,7 +10,7 @@
 
 	// Props (regions)
 	/** Classes to apply to the <code>header</code> slot container element */
-	export let slotHeader = '';
+	export let slotHeader = 'z-10';
 	/** Classes to apply to the <code>sidebarLeft</code> slot container element */
 	export let slotSidebarLeft = 'w-auto';
 	/** Classes to apply to the <code>sidebarRight</code> slot container element */

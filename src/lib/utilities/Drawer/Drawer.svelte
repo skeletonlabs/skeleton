@@ -19,7 +19,7 @@
 
 	// Props (backdrop)
 	/** Backdrop - Provide classes to set the backdrop background color */
-	export let bgBackdrop = 'bg-backdrop-token';
+	export let bgBackdrop = 'bg-surface-backdrop-token';
 	/** Backdrop - Provide classes to set the blur style. */
 	export let blur = 'backdrop-blur-xs';
 

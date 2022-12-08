@@ -35,7 +35,7 @@
 				</div>
 				<SlideToggle bind:checked={animate} accent="bg-accent-500">Animated</SlideToggle>
 			</div>
-			<div class="card-body space-y-4" class:animate-pulse={animate}>
+			<div class="p-4 space-y-4" class:animate-pulse={animate}>
 				<div class="placeholder" />
 				<div class="grid grid-cols-4 gap-4">
 					<div class="placeholder" />

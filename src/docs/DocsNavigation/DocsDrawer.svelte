@@ -16,7 +16,7 @@
 			<div class="text-center space-y-2">
 				{#if $drawerStore.meta}<h2>{$drawerStore.meta}</h2>{/if}
 				<h4>Drawer: <span class="capitalize">{$drawerStore.position}</span></h4>
-				<p>Tap outside the drawer to close.</p>
+				<span class="block">Tap outside the drawer to close.</span>
 			</div>
 		</div>
 	{/if}

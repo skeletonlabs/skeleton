@@ -15,7 +15,7 @@
 	/** Provided classes to style the conic gradient width. */
 	export let width = 'w-full';
 	/** Provided classes to style the legend hover effect. */
-	export let hover = 'bg-hover-token';
+	export let hover = 'bg-primary-hover-token';
 
 	// Local
 	let cone: string;

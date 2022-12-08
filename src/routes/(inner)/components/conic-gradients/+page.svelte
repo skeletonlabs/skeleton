@@ -42,17 +42,17 @@
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-4 lg:space-y-0 lg:grid lg:grid-cols-3 gap-5">
-			<div class="card card-body">
+			<div class="card p-4">
 				<ConicGradient stops={stopsTailwind} legend={true}>
 					<h3>Heat Map</h3>
 				</ConicGradient>
 			</div>
 			<!-- CSS Properties -->
-			<div class="card card-body flex justify-center items-center">
+			<div class="card p-4 flex justify-center items-center">
 				<ConicGradient stops={stopsVars} legend={true} class="w-full" />
 			</div>
 			<!-- Spinner -->
-			<div class="card card-body flex justify-center items-center">
+			<div class="card p-4 flex justify-center items-center">
 				<ConicGradient stops={stopsSpinner} spin={true} width="w-8">
 					<small class="opacity-50">Loading</small>
 				</ConicGradient>

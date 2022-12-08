@@ -129,7 +129,7 @@
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-4">
-			<div class="card card-body space-y-4">
+			<div class="card p-4 space-y-4">
 				<p class="text-center font-bold">Dialog Modals</p>
 				<div class="flex justify-center space-x-2">
 					<button class="btn btn-ghost-surface" on:click={modalAlert}>Alert</button>
@@ -138,7 +138,7 @@
 					<button class="btn btn-ghost-surface" on:click={modalMultiple}>Multiple</button>
 				</div>
 			</div>
-			<div class="card card-body space-y-4">
+			<div class="card p-4 space-y-4">
 				<p class="text-center font-bold">Custom Component Modals</p>
 				<div class="flex justify-center space-x-2">
 					<button class="btn btn-ghost-surface" on:click={modalComponentForm}>Form</button>

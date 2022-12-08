@@ -15,8 +15,6 @@
 	export let tag = 'button';
 	/** Provide the vislble text label. */
 	export let label = '';
-	/** Provide classes to set the background color. */
-	export let background = 'bg-hover-token';
 
 	// Props (region)
 	/** Provide abitrary classes to style the icon region. */
@@ -26,7 +24,8 @@
 
 	// Context
 	export let selected: Writable<any> = getContext('selected');
-	export let accent: Writable<any> = getContext('accent');
+	export let active: Writable<any> = getContext('active');
+	export let hover: Writable<any> = getContext('hover');
 
 	// Base Classes
 	const cBase = 'grid place-content-center place-items-center w-full aspect-square space-y-1.5';
@@ -40,8 +39,8 @@
 	}
 
 	// Reactive
-	$: classesActive = $selected && value && $selected === value ? `${accent}` : '';
-	$: classesBase = `${cBase} ${background} ${classesActive} ${$$props.class || ''}`;
+	$: classesActive = $selected && value && $selected === value ? `${active}` : '';
+	$: classesBase = `${cBase} ${hover} ${classesActive} ${$$props.class || ''}`;
 
 	// RestProps
 	function prunedRestProps(): any {
