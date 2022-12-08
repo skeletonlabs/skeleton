@@ -96,11 +96,11 @@ const storeValue: Writable<number> = writable(1);
 			<h2>Adding Tiles</h2>
 			<p>Create one or more rail tile components within your app rail's available slots.</p>
 			<CodeBlock language="html" code={`<AppRailTile label="Tile" title="Tile" value={1}>(icon)</AppRailTile>`} />
-		</div>
-		<div class="space-y-4">
-			<h2>Using Tiles with the tag property.</h2>
-			<p>Button and Anchor are recommeded element tags.</p>
-			<CodeBlock language="html" code={`<AppRailTile  tag="a" href="https://github.com/">(icon)</AppRailTile>`} />
+			<p>
+				You can use <code>tag="a"</code> to convert any tile to an anchor link, then append
+				<em>href, target, rel</em>, and other attributes as needed.
+			</p>
+			<CodeBlock language="html" code={`<AppRailTile tag="a" href="https://github.com/">(icon)</AppRailTile>`} />
 		</div>
 	</svelte:fragment>
 </DocsShell>
