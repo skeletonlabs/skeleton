@@ -26,9 +26,10 @@
 		imports: ['RadioGroup', 'RadioItem'],
 		source: 'components/Radio',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/radiobutton/',
+		restProps: 'RadioItem input',
 		components: [
 			{ label: 'RadioGroup', sveld: sveldRadioGroup },
-			{ label: 'RadioItem', sveld: sveldRadioItem, overrideProps: ['hover', 'accent', 'color', 'fill', 'rounded'] }
+			{ label: 'RadioItem', sveld: sveldRadioItem, overrideProps: ['padding', 'hover', 'accent', 'color', 'fill', 'rounded'] }
 		],
 		keyboard: [
 			['<kbd>Tab</kbd>', 'Moves focus to the next focusable RadioItem.'],
