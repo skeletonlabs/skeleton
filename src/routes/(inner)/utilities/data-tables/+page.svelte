@@ -2,26 +2,17 @@
 	// HTTP response data provided by +page.ts
 	import type { PageData } from './$types';
 	export let data: PageData;
-	let httpPosts = Object.values(data);
-
-	import { writable, type Writable } from 'svelte/store';
+	const httpPosts = data.posts;
 
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	// Components
+	import Alert from '$lib/components/Alert/Alert.svelte';
 	import Avatar from '$lib/components/Avatar/Avatar.svelte';
 	import Paginator from '$lib/components/Paginator/Paginator.svelte';
 	// Utilities
-	import {
-		type DataTableModel,
-		dataTableHandler,
-		dataTableSelect,
-		dataTableSelectAll,
-		dataTableSort,
-		tableInteraction,
-		tableA11y
-	} from '$lib/utilities/DataTable/DataTable';
+	import { createDataTableStore, dataTableHandler, tableInteraction, tableA11y } from '$lib/utilities/DataTable/DataTable';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Docs Shell
@@ -43,38 +34,57 @@
 			// ['<kbd>Enter</kbd> or <kbd>Space</kbd>', 'Triggers the on:click event for the current row.']
 		]
 	};
+	const post = httpPosts.pop()!;
 
 	// Store
-	const dataTableModel: Writable<DataTableModel> = writable({
-		source: httpPosts,
-		filtered: httpPosts,
-		selection: [],
-		search: '',
+	const dataTableStore = createDataTableStore(httpPosts, {
 		sort: '',
+		search: '',
 		pagination: { offset: 0, limit: 5, size: 0, amounts: [1, 2, 5, 10] }
 	});
-	dataTableModel.subscribe((v) => dataTableHandler(v));
+	dataTableStore.subscribe((model) => dataTableHandler(model));
 
 	// Manual Selection
-	dataTableSelect(dataTableModel, 'id', [1]);
+	dataTableStore.select('id', [1]);
+
+	// Update the source data
+	httpPosts.push(post);
+	dataTableStore.updateSource(httpPosts);
 </script>
 
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
+		<Alert>
+			<svelte:fragment slot="lead">🚧</svelte:fragment>
+			<!-- prettier-ignore -->
+			<span>
+				This feature is currently in-developement and available as an early preview. It is not feature complete and may contain bugs. If you need a production-ready alternative,
+				see the "svelte-headless-tables" library by Bryan Lee, which may be paired with the Skeleton styles under <strong>Tailwind -> Elements -> Tables</strong>.
+			</span>
+			<svelte:fragment slot="trail">
+				<a href="https://svelte-headless-table.bryanmylee.com/" target="_blank" rel="noreferrer" class="btn btn-ghost-tertiary"
+					>See Alternative</a
+				>
+				<a href="https://github.com/skeletonlabs/skeleton/issues/538" target="_blank" rel="noreferrer" class="btn btn-filled"
+					>Track Progress</a
+				>
+			</svelte:fragment>
+		</Alert>
+
 		<section class="card !bg-accent-500/5">
 			<!-- Search Input -->
 			<div class="card-header">
-				<input bind:value={$dataTableModel.search} type="search" placeholder="Search Table..." />
+				<input bind:value={$dataTableStore.search} type="search" placeholder="Search Table..." />
 			</div>
 			<!-- Table -->
 			<div class="p-4">
 				<div class="table-container">
 					<!-- prettier-ignore -->
 					<table class="table table-hover" role="grid" use:tableInteraction use:tableA11y>
-						<thead on:click={(e) => { dataTableSort(e, dataTableModel) }} on:keypress>
+						<thead on:click={(e) => { dataTableStore.sort(e) }} on:keypress>
 							<tr>
-								<th><input type="checkbox" on:click={(e) => { dataTableSelectAll(e, dataTableModel) }} /></th>
+								<th><input type="checkbox" on:click={(e) => { dataTableStore.selectAll(e.currentTarget.checked) }} /></th>
 								<th data-sort="id">ID</th>
 								<th>User</th>
 								<th data-sort="title">Title</th>
@@ -83,7 +93,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							{#each $dataTableModel.filtered as row, rowIndex}
+							{#each $dataTableStore.filtered as row, rowIndex}
 								<tr class:table-row-checked={row.dataTableChecked} aria-rowindex={rowIndex + 1}>
 									<td role="gridcell" aria-colindex={1} tabindex="0">
 										<input type="checkbox" bind:checked={row.dataTableChecked} />
@@ -110,11 +120,11 @@
 				</div>
 			</div>
 			<div class="card-footer">
-				<Paginator bind:settings={$dataTableModel.pagination} />
+				<Paginator bind:settings={$dataTableStore.pagination} />
 			</div>
 		</section>
 		<!-- Debugging -->
-		<!-- <pre>{JSON.stringify($dataTableModel.selection, null, 2)}</pre> -->
+		<!-- <pre>{JSON.stringify($dataTableStore, null, 2)}</pre> -->
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
@@ -128,6 +138,7 @@
 				features Skeleton provides, so please read carefully.
 			</p>
 		</section>
+
 		<hr />
 		<!-- Getting Started -->
 		<section class="space-y-4">
@@ -137,21 +148,18 @@
 				language="ts"
 				code={`
 import {
-	// Types
-	type DataTableModel,
 	// Utilities
+	createDataTableStore,
 	dataTableHandler,
-	dataTableSelect,
-	dataTableSelectAll,
-	dataTableSort,
 	// Svelte Actions
 	tableInteraction,
 	tableA11y
 } from '@skeletonlabs/skeleton';`}
 			/>
+			<!-- prettier-ignore -->
 			<p>
 				We need data to populate the table. For simplicity, let's create this locally. In a real world app you might fetch this from an
-				external API.
+				external API. We demonstrate this in the <a href="https://github.com/skeletonlabs/skeleton/blob/master/src/routes/(inner)/utilities/data-tables/%2Bpage.svelte" target="_blank" rel="noreferrer">example on this page</a>. See the use of <code>PageData</code> in the source.
 			</p>
 			<CodeBlock
 				language="ts"
@@ -170,8 +178,8 @@ const sourceData = [
 ];`}
 			/>
 			<p>
-				We'll make use of a few Tailwind Element <a href="/elements/tables">table classes</a> to provide base styles to our native HTML table
-				element. These are optional, but recommended.
+				We'll make use of Skeleton's <a href="/elements/tables">table element classes</a> to provide base styles to our native HTML table element.
+				These are optional, but recommended.
 			</p>
 			<CodeBlock
 				language="html"
@@ -196,33 +204,33 @@ const sourceData = [
 			<h2>Data Table Model</h2>
 			<p>
 				To unlock the power of our data tables, we'll need to create what we'll refer to as a <em>data table model</em>. Create a new Svelte
-				writable store, if you're using Typescript set the type to <code>DataTableModel</code>, then pass the store to the
-				<code>dataTableHandler</code> method.
+				writable store with <code>createDataTableStore</code>, then pass the model of our store to the <code>dataTableHandler</code> method.
 			</p>
 			<CodeBlock
 				language="ts"
 				code={`
-const dataTableModel: Writable<DataTableModel> = writable({
-	// The original unfiltered source data.
-	source: sourceData,
-	// The filtered source data, shown in UI.
-	filtered: sourceData,
-	// Optional: An array of selected row objects.
-	selection: [],
-	// Optional: The current search term.
-	search: '',
-	// Optional: The current sort key.
-	sort: '',
-	// Optional: The Paginator component settings.
-	pagination: { offset: 0, limit: 5, size: 0, amounts: [1, 2, 5, 10] }
-});\n
-// Automatically handles search, sort, etc when the model updates.
-dataTableModel.subscribe((v) => dataTableHandler(v));`}
+const dataTableStore = createDataTableStore(
+	// Pass your source data here:
+	sourceData,
+	// Provide optional settings:
+	{
+		// The current search term.
+		search: '',
+		// The current sort key.
+		sort: '',
+		// Paginator component settings.
+		pagination: { offset: 0, limit: 5, size: 0, amounts: [1, 2, 5, 10] }
+	}
+);\n
+// This automatically handles search, sort, etc when the model updates.
+dataTableStore.subscribe((model) => dataTableHandler(model));`}
 			/>
 			<p>
-				Next, we'll update our table markup to display our model data on the page. Add each desired heading paired with a matching body cell
-				value. We'll use an <em>#each</em> loop to create each table body row. Note we use <code>$dataTableModel.filtered</code>
-				as our loop source. The features below will modify this data.
+				Next, we'll update our table markup to display our model data. Implement matching parent headings and body cells. We'll use an <code
+					>#each</code
+				>
+				loop to generate each table row. Note we use <code>$dataTableStore.filtered</code>
+				as our loop source. This represents the data as modified by search, sort, pagination, and more.
 			</p>
 			<CodeBlock
 				language="ts"
@@ -235,7 +243,7 @@ dataTableModel.subscribe((v) => dataTableHandler(v));`}
 	</tr>
 </thead>
 <tbody>
-	{#each $dataTableModel.filtered as row, rowIndex}
+	{#each $dataTableStore.filtered as row, rowIndex}
 		<tr>
 			<td>{row.position}</td>
 			<td>{row.name}</td>
@@ -246,25 +254,35 @@ dataTableModel.subscribe((v) => dataTableHandler(v));`}
 			/>
 		</section>
 		<hr />
+		<!-- Updating Source -->
+		<section class="space-y-4">
+			<h2>Updating the Source</h2>
+			<p>
+				To update the content of the data table, just call the <code>dataTableStore.updateSource()</code> method and pass in your new source
+				data.
+			</p>
+			<CodeBlock language="ts" code={`dataTableStore.updateSource(newSourceData)`} />
+		</section>
 		<!-- Search -->
 		<section class="space-y-4">
 			<h2>Search</h2>
 			<p>
-				To implement search, bind <code>$dataTableModel.search</code> to any search input. You can place this input anywhere on the page.
+				To implement search, bind <code>$dataTableStore.search</code> to any search input. You may add this anywhere as long as it has scope
+				of your table model (the store).
 			</p>
-			<CodeBlock language="html" code={`<input bind:value={$dataTableModel.search} type="search" placeholder="Search..." />`} />
+			<CodeBlock language="html" code={`<input bind:value={$dataTableStore.search} type="search" placeholder="Search..." />`} />
 		</section>
 		<!-- Sort -->
 		<section class="space-y-4">
 			<h2>Sort</h2>
 			<p>
-				We'll use <code>dataTableSort</code> to automatically set <code>$dataTableModel.sort</code> when a table heading is tapped. Add the following
-				to your table head element.
+				We'll use the <code>dataTableStore.sort()</code> method to automatically set <code>$dataTableStore.sort</code> when a table heading
+				is tapped. Add the following click method once to your table's <code>thead</code> element.
 			</p>
-			<CodeBlock language="html" code={`<thead on:click={(e) => { dataTableSort(e, dataTableModel) }} on:keypress>`} />
+			<CodeBlock language="html" code={`<thead on:click={(e) => { dataTableStore.sort(e) }} on:keypress>`} />
 			<p>
 				Add a <code>data-sort="(key)"</code> attribute to each heading you wish to be sortable. Tapping a heading will set the
-				<code>$dataTableModel.sort</code>
+				<code>$dataTableStore.sort</code>
 				value and update the UI. Tapping a heading repeatedly will toggle between <em>ascending</em> and <em>descending</em> sort order.
 			</p>
 			<CodeBlock
@@ -276,10 +294,10 @@ dataTableModel.subscribe((v) => dataTableHandler(v));`}
 			`}
 			/>
 			<p>
-				While sort is working, we're lacking a visual UI indicator. To handle this, implement the Svelte Action called <code
+				While sort is working, there's currently no visual UI indicator. To handle this, implement the Svelte Action called <code
 					>tableInteraction</code
 				>
-				to your table element. This adds the appropriate CSS classes that show &uarr and &darr; sort arrows.
+				to your table element. This will toggle the appropriate CSS classes and show &uarr and &darr; sort arrows.
 			</p>
 			<CodeBlock language="html" code={`<table ... use:tableInteraction>`} />
 		</section>
@@ -290,10 +308,10 @@ dataTableModel.subscribe((v) => dataTableHandler(v));`}
 			<p>To handle row selection, we'll add a new heading column. Keep the comment shown, as we'll replace it in a following step.</p>
 			<CodeBlock language="html" code={`<th><!-- selection --></th>`} />
 			<p>
-				Pair this with a matching table body cell that includes a checkbox input. Append <code>bind:dataTableChecked</code> to the input to
-				extend the row object source data. When checked on/off, the <code>dataTableHandler</code> will automatically include/exclude the
-				entire row object in
-				<code>$dataTableModel.selection</code>.
+				Pair this with a matching table body cell that includes a checkbox input. Append <code>bind:checked</code> to the input to extend
+				the row object source data. When checked on/off, the <code>dataTableHandler</code> will automatically include/exclude the entire row
+				object in
+				<code>$dataTableStore.selection</code>.
 			</p>
 			<CodeBlock language="html" code={`<td><input type="checkbox" bind:checked={row.dataTableChecked} /></td>`} />
 			<p>
@@ -303,28 +321,31 @@ dataTableModel.subscribe((v) => dataTableHandler(v));`}
 			<CodeBlock language="html" code={`<tr class:table-row-checked={row.dataTableChecked}>`} />
 			<h3>Pre-Selected</h3>
 			<p>
-				You may wish to pre-select certain table rows. We've provided a utility method to handle this. Pass your model, the key to query
-				against, and a whitelist of values. Any object that matches the conditions will be selected. Trigger this multiple times for multipe
-				selection queries.
+				You may wish to pre-select certain table rows. We've provided a utility method to handle this. Pass in the key to query against, and
+				a whitelist of values. Any object that matches the conditions will be selected. Trigger this multiple times for multiple selection
+				queries.
 			</p>
 			<CodeBlock
 				language="ts"
-				code={`// Select all objects with a position value of 1 or 2:\ndataTableSelect(dataTableModel, 'position', [1,2]);`}
+				code={`// Selects all objects with a position value of 1 or 2:\ndataTableStore.select('position', [1,2]);`}
 			/>
 			<h3>Select All</h3>
 			<p>
 				If you wish to add a <em>select all</em> feature, replace <code>{`<th><!-- selection --></th>`}</code> with the following.
 			</p>
-			<CodeBlock language="html" code={`<th><input type="checkbox" on:click={(e) => { dataTableSelectAll(e, dataTableModel) }} /></th>`} />
+			<CodeBlock
+				language="html"
+				code={`<th><input type="checkbox" on:click={(e) => { dataTableStore.selectAll(e.currentTarget.checked) }} /></th>`}
+			/>
 		</section>
 		<!-- Pagination -->
 		<section class="space-y-4">
 			<h2>Pagination</h2>
 			<p>
 				Please refer to the <a href="/components/paginators">Paginators component</a> to learn more about this feature. For data tables, use
-				<code>$dataTableModel.pagination</code> to ensures the model updates reactively. The wrapping <em>if</em> statement is required.
+				<code>$dataTableStore.pagination</code> to ensures the model updates reactively. The wrapping <em>if</em> statement is required.
 			</p>
-			<CodeBlock language="html" code={`{#if $dataTableModel.pagination}<Paginator bind:settings={$dataTableModel.pagination} />{/if}`} />
+			<CodeBlock language="html" code={`{#if $dataTableStore.pagination}<Paginator bind:settings={$dataTableStore.pagination} />{/if}`} />
 		</section>
 		<!-- A11y -->
 		<section class="space-y-4">

@@ -9,7 +9,7 @@
 		<h1>Installation</h1>
 		<!-- prettier-ignore -->
 		<p>
-			Let's setup our project and install Skeleton. For best results, we recommend you have at least moderate experience
+			Let's set up our project and install Skeleton. For best results, we recommend you have at least moderate experience
 			with <a href="https://svelte.dev/tutorial/basics" target="_blank" rel="noreferrer">Svelte</a>,
 			<a href="https://tailwindcss.com/docs/utility-first" target="_blank" rel="noreferrer">Tailwind CSS</a>, and any
 			supported frameworks listed below. If you encounter issues, please refer to our <a href="/docs/faqs">frequently asked questions</a> section.

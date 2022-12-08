@@ -149,7 +149,7 @@ import { AppShell, AppBar } from '@skeletonlabs/skeleton';
 			language="html"
 			code={`
 ---
-import LayoutRoot from './layouts/LayoutRoot.astro';
+import LayoutRoot from '../layouts/LayoutRoot.astro';
 import { GradientHeading } from '@skeletonlabs/skeleton';
 ---
 <LayoutRoot>
@@ -232,6 +232,10 @@ import { Breadcrumb, Crumb } from '@skeletonlabs/skeleton';
 <a class="btn btn-filled-primary" href="/">Home</a>
 `}
 		/>
+		<p>
+			Note: Because of the way Astro handles Svelte Components with props, there will be cases where you'll need to use a Wrapper Component 
+			as it is described in the next section to make the Component work properly.
+		</p>
 		<!-- Dynamic -->
 		<h3>Dynamic Islands</h3>
 		<p>

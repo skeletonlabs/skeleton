@@ -136,7 +136,7 @@
 	<svelte:fragment slot="usage">
 		<div class="space-y-4">
 			<p>
-				This component is treated as a <a
+				This component is treated as an <a
 					href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/progressbar_role"
 					target="_blank"
 					rel="noreferrer">ARIA progressbar</a

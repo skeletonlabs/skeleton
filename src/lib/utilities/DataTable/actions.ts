@@ -7,7 +7,7 @@ export function tableInteraction(node: HTMLElement) {
 	const classAsc = 'table-sort-asc';
 	const classDsc = 'table-sort-dsc';
 	// Click Handler
-	const onClick = (e: any) => {
+	const onClick = (e: Event) => {
 		if (!(e.target instanceof Element)) return;
 		const sortTarget = e.target;
 		// Get target state before modification
