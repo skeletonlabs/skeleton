@@ -26,21 +26,26 @@
 		</TabGroup>
 		<!-- Framework: SvelteKit -->
 		{#if $storeFramework === 'sveltekit'}
-			<p>
-				View the <a href="https://kit.svelte.dev/docs/introduction#getting-started" target="_blank" rel="noreferrer"
-					>official documentation</a
-				> for the latest instructions.
-			</p>
+			<p>We provide an interactive CLI app to scaffold SvelteKit and automatically configure Skeleton. PNPM and Yarn are also supported.</p>
 			<CodeBlock
 				language="console"
 				code={`
-npm create svelte@latest sveltekit-skeleton-app
-	- Create a barebones project
-	- Enable Typescript
-cd sveltekit-skeleton-app
-npm install
-`}
+npm create skeleton-app@latest my-skeleton-app
+	- Enable SvelteKit's Typescript syntax
+cd my-skeleton-app
+npm run dev
+				`}
 			/>
+			<p>
+				The CLI is a great starting point, however, we encourage you to read through the the additional guides to learn more about how
+				Skeleton is configured.
+			</p>
+			<ul class="list-disc list-inside space-y-1">
+				<li>Review the Tailwind configuration and optionally install Tailwind Plugins.</li>
+				<li>Learn more about Skeleton themes, as well as how to implement a custom theme.</li>
+				<li>See how stylesheets are imported, and how to customize components and other features.</li>
+				<li>Finally, we've provided an optional guide for creating a basic demo app.</li>
+			</ul>
 			<!-- Framework: Vite (Svelte) -->
 		{:else if $storeFramework === 'vite'}
 			<p>
@@ -51,8 +56,8 @@ npm install
 			<CodeBlock
 				language="console"
 				code={`
-npm create vite@latest vite-skeleton-app -- --template svelte-ts
-cd vite-skeleton-app
+npm create vite@latest my-skeleton-app -- --template svelte-ts
+cd my-skeleton-app
 npm install
 `}
 			/>
@@ -65,11 +70,11 @@ npm install
 			<CodeBlock
 				language="console"
 				code={`
-npm create astro@latest astro-skeleton-app
+npm create astro@latest my-skeleton-app
 	- Create an empty project
 	- Install all dependencies
 	- Use 'Typescript: Strict'
-cd astro-skeleton-app
+cd my-skeleton-app
 `}
 			/>
 			<!-- Svelte -->
@@ -84,15 +89,19 @@ cd astro-skeleton-app
 	</section>
 
 	<!-- Install Skeleton -->
-	<section class="space-y-4">
-		<h2>Install Skeleton</h2>
-		<p>
-			Install the core Skeleton package from <a href="https://www.npmjs.com/package/@skeletonlabs/skeleton" target="_blank" rel="noreferrer"
-				>NPM</a
-			>.
-		</p>
-		<CodeBlock language="console" code={`npm i @skeletonlabs/skeleton --save-dev`} />
-	</section>
+	{#if $storeFramework !== 'sveltekit'}
+		<section class="space-y-4">
+			<h2>Install Skeleton</h2>
+			<p>
+				Install the core Skeleton package from <a
+					href="https://www.npmjs.com/package/@skeletonlabs/skeleton"
+					target="_blank"
+					rel="noreferrer">NPM</a
+				>.
+			</p>
+			<CodeBlock language="console" code={`npm i @skeletonlabs/skeleton --save-dev`} />
+		</section>
+	{/if}
 
 	<hr />
 

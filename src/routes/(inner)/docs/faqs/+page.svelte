@@ -21,8 +21,8 @@
 	<section class="space-y-4">
 		<h2>What package managers are supported?</h2>
 		<p>
-			We support <a href="https://docs.npmjs.com/about-npm" target="_blank" rel="noreferrer">NPM (Node Package Manager)</a>. Neither Yarn or
-			PNPM are officially supported at this time.
+			We support <a href="https://docs.npmjs.com/about-npm" target="_blank" rel="noreferrer">NPM (Node Package Manager)</a>. PNPM and Yarn
+			are currently only supported for the Skeleton CLI.
 		</p>
 	</section>
 

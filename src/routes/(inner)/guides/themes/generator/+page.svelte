@@ -40,7 +40,10 @@
 			<Tab value="astro">Astro</Tab>
 		</TabGroup>
 		{#if $storeFramework === 'sveltekit'}
-			<p>Copy and paste your theme CSS into <code>/src/theme.postcss</code>, then import it in <code>/src/routes/+layout.svelte</code>.</p>
+			<p>
+				Copy and paste your theme CSS into <code>/src/theme.postcss</code>, then in<code>/src/routes/+layout.svelte</code> remove any preset
+				theme and replace with your theme.
+			</p>
 			<CodeBlock language="typescript" code={`import '../theme.postcss';`} />
 		{:else if $storeFramework === 'vite'}
 			<p>Copy and paste your theme CSS into <code>/src/theme.css</code>, then import it in <code>/src/main.js</code>:</p>
