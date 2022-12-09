@@ -137,7 +137,7 @@
 						horizontal={true}
 						background={propBackground}
 						navigateOnClick={propNavigateOnClick}
-						length={3}
+						length={6}
 						rounded={$storeRounded}
 						on:complete={onComplete}
 					>
@@ -159,6 +159,21 @@
 								This Step component uses the <code>locked</code> property, which can prevent progress. This is ideal for multi-step forms,
 								such as registration. For now we'll simulate a successful validation condition using the
 								<em>unlock</em> option below.
+							</p>
+						</Step>
+						<Step index={3}>
+							<p>
+								This is step 4. 
+							</p>
+						</Step>
+						<Step index={4}>
+							<p>
+								This is step 5. Lorem ipsum dolor sit amet consectetur adipisicing elit. In, eos!
+							</p>
+						</Step>
+						<Step index={5}>
+							<p>
+								This is step 6. 
 							</p>
 						</Step>
 					</Stepper>
