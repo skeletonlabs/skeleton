@@ -207,5 +207,23 @@
 			<p>Create a function to handle your Stepper's <code>on:complete</code> event.</p>
 			<CodeBlock language="typescript" code={`const onComplete: any = () => { /* handle the event */ }`} />
 		</section>
+		<section class="space-y-4">
+			<h2>Horizontal Steppers</h2>
+			<p>
+				Create a horizontal stepper by setting <code>horizontal</code> to <code>true</code>. Horizontal steppers are dynamic, so they automatically switch to vertical ones if the stepper component does not have enough space to properly display all steps. For the experience of mobile users, using the vertical stepper is generally the better idea.
+			</p>
+			<CodeBlock 
+				language="html" 
+				code={`
+<Stepper {active} length={2} on:complete={onComplete} horizontal={true}>
+	<Step index={0}>
+		<svelte:fragment slot="header">(header)</svelte:fragment>
+		(content)
+	</Step>
+	<Step index={1} locked={true}>(content)</Step>
+</Stepper>`} 
+			/>
+			
+		</section>
 	</svelte:fragment>
 </DocsShell>

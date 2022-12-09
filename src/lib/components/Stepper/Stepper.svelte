@@ -37,7 +37,7 @@
 	/** Provide <a href="https://www.skeleton.dev/elements/buttons">Button</a> classes. */
 	export let buttonComplete: string = 'btn-filled-primary';
 	
-	// Used to make the horizontal stepper dynamicaly switch
+	// horizontalStore is used to make the horizontal stepper dynamicaly switch between vertical and horizontal orientation
 	let horizontalStore: Writable<boolean> = writable(horizontal);
 
 	// Context
@@ -61,7 +61,7 @@
 	let stepperWidth: number;
 	let horizontalStepper: HTMLElement;
 	let children: HTMLCollection;
-	let switchWidth: number;
+	let breakpoint: number;
 
 	$: if ($horizontalStore && horizontalStepper && stepperWidth) {
 		// Whenever the stepperWidth changes we check if any of the step numerals are at a different height from the first numeral. If yes, we memorize the width at which this happened and we convert the stepper to a vertical one.
@@ -77,7 +77,7 @@
 					currOffset = child.offsetTop;
 					continue;
 				} else if (child.offsetTop != currOffset!) {
-					switchWidth = stepperWidth;
+					breakpoint = stepperWidth;
 					$horizontalStore = false;
 					break;
 				}
@@ -85,7 +85,7 @@
 		}
 	}
 
-	$: if (horizontal && !$horizontalStore && stepperWidth && stepperWidth > switchWidth) {
+	$: if (horizontal && !$horizontalStore && stepperWidth && stepperWidth > breakpoint) {
 		// If the stepper width is resized and is again greater than the width at which it was switch to vertical orientation, we switch it back to the horizontal orientation.
 		$horizontalStore = true;
 	}
