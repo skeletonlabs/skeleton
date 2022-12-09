@@ -36,12 +36,15 @@
 	export let buttonNext: string = 'btn-filled-surface';
 	/** Provide <a href="https://www.skeleton.dev/elements/buttons">Button</a> classes. */
 	export let buttonComplete: string = 'btn-filled-primary';
+	
+	// Used to make the horizontal stepper dynamicaly switch
+	let horizontalStore: Writable<boolean> = writable(horizontal);
 
 	// Context
 	setContext('dispatch', dispatch);
 	setContext('active', active);
 	setContext('length', length);
-	setContext('horizontal', horizontal);
+	setContext('horizontal', horizontalStore);
 	setContext('rounded', rounded);
 	setContext('navigateOnClick', navigateOnClick);
 	setContext('color', color);
@@ -53,14 +56,47 @@
 
 	// Reactive Classes
 	$: classesStepper = `${$$props.class ?? ''}`;
+
+	// Define dynamic horizontal behaviour
+	let stepperWidth: number;
+	let horizontalStepper: HTMLElement;
+	let children: HTMLCollection;
+	let switchWidth: number;
+
+	$: if ($horizontalStore && horizontalStepper && stepperWidth) {
+		// Whenever the stepperWidth changes we check if any of the step numerals are at a different height from the first numeral. If yes, we memorize the width at which this happened and we convert the stepper to a vertical one.
+		children = horizontalStepper.children;
+
+		let currOffset: number;
+
+		for (let i = 0; i < children.length; i++) {
+			const child = <HTMLElement>children.item(i);
+
+			if (child?.classList.contains('step-timeline')) {
+				if (i === 0) {
+					currOffset = child.offsetTop;
+					continue;
+				} else if (child.offsetTop != currOffset!) {
+					switchWidth = stepperWidth;
+					$horizontalStore = false;
+					break;
+				}
+			}
+		}
+	}
+
+	$: if (horizontal && !$horizontalStore && stepperWidth && stepperWidth > switchWidth) {
+		// If the stepper width is resized and is again greater than the width at which it was switch to vertical orientation, we switch it back to the horizontal orientation.
+		$horizontalStore = true;
+	}
 </script>
 
-{#if horizontal}
-	<div class="stepper flex flex-wrap justify-center">
+{#if $horizontalStore}
+	<div class="stepper flex flex-wrap justify-center" bind:clientWidth={stepperWidth} bind:this={horizontalStepper}>
 		<slot />
 	</div>
 {:else}
-	<div class="stepper {classesStepper}" data-testid="stepper">
+	<div class="stepper {classesStepper}" data-testid="stepper" bind:clientWidth={stepperWidth}>
 		<slot />
 	</div>
 {/if}

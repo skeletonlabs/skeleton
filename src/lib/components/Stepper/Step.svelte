@@ -28,7 +28,7 @@
 	export let dispatch: any = getContext('dispatch');
 	export let active: Writable<number> = getContext('active');
 	export let length: number = getContext('length');
-	export let horizontal: boolean = getContext('horizontal');
+	export let horizontal: Writable<boolean> = getContext('horizontal');
 	export let rounded: string = getContext('rounded');
 	export let duration: number = getContext('duration');
 	export let navigateOnClick: string = getContext('navigateOnClick');
@@ -84,7 +84,7 @@
 	$: classesHorizontalLine = `ml-2 h-1 ${classesLineBackground}`;
 </script>
 
-{#if horizontal}
+{#if $horizontal}
 	<div class="step-timeline {classesHorizontalTimeline}">
 		<div class="">
 			<button class="step-numeral flex flex-row items-center {classCursor}" tabindex={btnTabindex} on:click={stepToIndex} on:keypress>

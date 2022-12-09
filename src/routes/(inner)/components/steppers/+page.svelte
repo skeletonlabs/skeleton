@@ -168,7 +168,7 @@
 						</Step>
 						<Step index={4}>
 							<p>
-								This is step 5. Lorem ipsum dolor sit amet consectetur adipisicing elit. In, eos!
+								This is step 5.
 							</p>
 						</Step>
 						<Step index={5}>
