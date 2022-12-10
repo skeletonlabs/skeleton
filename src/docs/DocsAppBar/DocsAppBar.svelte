@@ -41,12 +41,20 @@
 	// Keyboard Shortcut (⌘+K) to Focus Search
 	let pressedKeys: string[] = [];
 	function onWindowKeydown(e: any): void {
-		if ($modalStore.length) return;
-		if (e.code === 'MetaLeft' || e.code === 'KeyK') {
+		if (e.code === 'MetaLeft' || e.code === 'ControlLeft' || e.code === 'KeyK') {
+			// Prevent default browser behavior of focusing URL bar
+			e.preventDefault();
 			// Set pressed keys
 			pressedKeys = [...pressedKeys, e.code];
 			// If both keys pressed, focus input
-			if (pressedKeys.includes('MetaLeft') && pressedKeys.includes('KeyK')) search();
+			if ((pressedKeys.includes('MetaLeft') || pressedKeys.includes('ControlLeft')) && pressedKeys.includes('KeyK')) {
+				// If modal currently open, close modal (allows to open/close search with CTRL/⌘+K)
+				if ($modalStore.length) {
+					modalStore.close();
+				} else {
+					search();
+				}
+			}
 		}
 	}
 	function onWindowKeyup(): void {
