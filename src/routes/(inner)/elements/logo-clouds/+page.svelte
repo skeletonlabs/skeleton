@@ -90,7 +90,7 @@
 		<!-- Icons -->
 		<div class="space-y-4">
 			<h2>Logo Item Icons</h2>
-			<p>Wrap child elements in space tags and they will space as expected.</p>
+			<p>Wrap child elements in span tags and they will space as expected.</p>
 			<CodeBlock
 				language="html"
 				code={`
