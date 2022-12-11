@@ -41,7 +41,7 @@
 	// Default Theme, injected immediately:
 	import skeleton from '$lib/themes/theme-skeleton.css';
 	// Skeleton Stylesheets
-	import '$lib/styles/all.css';
+	// import '$lib/styles/all.css'; // TODO undo or remove
 	// The Skeleton blog stylesheet
 	import '$docs/DocsStyles/blog.css';
 	// Global Stylesheets

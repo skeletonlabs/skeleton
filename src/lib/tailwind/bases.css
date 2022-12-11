@@ -1,0 +1,5 @@
+@tailwind base;
+
+@import '../styles/core.css';
+@import '../styles/typography.css';
+@import '../styles/forms.css';
