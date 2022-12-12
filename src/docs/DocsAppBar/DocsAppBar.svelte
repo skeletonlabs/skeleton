@@ -41,13 +41,15 @@
 	// Keyboard Shortcut (⌘+K) to Focus Search
 	let pressedKeys: string[] = [];
 	function onWindowKeydown(e: any): void {
-		if (e.code === 'MetaLeft' || e.code === 'ControlLeft' || e.code === 'KeyK') {
+		const commandKeys = ['MetaLeft', 'MetaRight', 'ControlLeft', 'ControlRight'];
+
+		if (commandKeys.includes(e.code) || e.code === 'KeyK') {
 			// Prevent default browser behavior of focusing URL bar
 			e.preventDefault();
 			// Set pressed keys
 			pressedKeys = [...pressedKeys, e.code];
 			// If both keys pressed, focus input
-			if ((pressedKeys.includes('MetaLeft') || pressedKeys.includes('ControlLeft')) && pressedKeys.includes('KeyK')) {
+			if (pressedKeys.some((key) => commandKeys.includes(key)) && pressedKeys.includes('KeyK')) {
 				// If modal currently open, close modal (allows to open/close search with CTRL/⌘+K)
 				if ($modalStore.length) {
 					modalStore.close();
@@ -60,6 +62,9 @@
 	function onWindowKeyup(): void {
 		pressedKeys = [];
 	}
+
+	let os = navigator.userAgent;
+	let macOSUser = os.search('Mac') !== -1;
 </script>
 
 <!-- NOTE: using stopPropagation to override Chrome for Windows search shortcut -->
@@ -84,7 +89,7 @@
 		<button class="btn btn-ghost-surface btn-sm" on:click={search}>
 			<SvgIcon name="search" width="w-4" height="h-4" class="mr-2" />
 			<span>Search</span>
-			<!-- <span>⌘K</span> -->
+			<span>{macOSUser ? '⌘+K' : 'Ctrl+K'}</span>
 		</button>
 	</div>
 
