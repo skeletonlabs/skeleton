@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
+
 	// Types
 	import type { ModalSettings, ModalComponent } from '$lib/utilities/Modal/types';
 	import type { DrawerSettings } from '$lib/utilities/Drawer/types';
@@ -21,6 +23,15 @@
 	import { storeTheme } from '$docs/stores';
 	import { drawerStore } from '$lib/utilities/Drawer/stores';
 
+	// Local
+	let isOsMac = false;
+
+	// Set Search Shortkey Keys
+	if (browser) {
+		let os = navigator.userAgent;
+		isOsMac = os.search('Mac') !== -1;
+	}
+
 	// Drawer Handler
 	function drawerOpen(): void {
 		const s: DrawerSettings = { id: 'doc-sidenav' };
@@ -28,7 +39,7 @@
 	}
 
 	// Search
-	function search(): void {
+	function triggerSearch(): void {
 		const modalComponent: ModalComponent = { ref: DocsSearch };
 		const d: ModalSettings = {
 			type: 'component',
@@ -42,7 +53,6 @@
 	let pressedKeys: string[] = [];
 	function onWindowKeydown(e: any): void {
 		const commandKeys = ['MetaLeft', 'MetaRight', 'ControlLeft', 'ControlRight'];
-
 		if (commandKeys.includes(e.code) || e.code === 'KeyK') {
 			// Prevent default browser behavior of focusing URL bar
 			e.preventDefault();
@@ -51,20 +61,13 @@
 			// If both keys pressed, focus input
 			if (pressedKeys.some((key) => commandKeys.includes(key)) && pressedKeys.includes('KeyK')) {
 				// If modal currently open, close modal (allows to open/close search with CTRL/⌘+K)
-				if ($modalStore.length) {
-					modalStore.close();
-				} else {
-					search();
-				}
+				$modalStore.length ? modalStore.close() : triggerSearch();
 			}
 		}
 	}
 	function onWindowKeyup(): void {
 		pressedKeys = [];
 	}
-
-	let os = navigator.userAgent;
-	let macOSUser = os.search('Mac') !== -1;
 </script>
 
 <!-- NOTE: using stopPropagation to override Chrome for Windows search shortcut -->
@@ -86,10 +89,10 @@
 
 	<!-- Search -->
 	<div class="hidden md:inline">
-		<button class="btn btn-ghost-surface btn-sm" on:click={search}>
+		<button class="btn btn-ghost-surface btn-sm" on:click={triggerSearch}>
 			<SvgIcon name="search" width="w-4" height="h-4" class="mr-2" />
 			<span>Search</span>
-			<span>{macOSUser ? '⌘+K' : 'Ctrl+K'}</span>
+			<span class="text-[11px] font-bold opacity-60 pl-2">{!isOsMac ? '⌘' : 'Ctrl'}+K</span>
 		</button>
 	</div>
 
