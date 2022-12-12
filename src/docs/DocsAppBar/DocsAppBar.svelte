@@ -92,7 +92,7 @@
 		<button class="btn btn-ghost-surface btn-sm" on:click={triggerSearch}>
 			<SvgIcon name="search" width="w-4" height="h-4" class="mr-2" />
 			<span>Search</span>
-			<span class="text-[11px] font-bold opacity-60 pl-2">{!isOsMac ? '⌘' : 'Ctrl'}+K</span>
+			<span class="text-[11px] font-bold opacity-60 pl-2">{isOsMac ? '⌘' : 'Ctrl'}+K</span>
 		</button>
 	</div>
 
