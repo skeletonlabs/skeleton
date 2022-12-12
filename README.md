@@ -20,6 +20,11 @@ A fully featured Svelte UI toolkit for Svelte + Tailwind. Skeleton allows you to
 - [Join the Discord](https://discord.gg/EXqV7W8MtY)
 - [Follow on Twitter](https://twitter.com/SkeletonUI)
 
+## 👍 Sponsor the Project
+
+- [Ko-Fi](https://ko-fi.com/skeletonlabs)
+- [Patreon](https://patreon.com/user?u=83786276)
+
 ## 🐞 Report an Issue
 
 - [Submit Issue](https://github.com/skeletonlabs/skeleton/issues/new/choose)

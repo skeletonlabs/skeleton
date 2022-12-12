@@ -109,7 +109,7 @@ export const menuNavLinks: any = [
 		title: 'Utilities',
 		list: [
 			{ href: '/utilities/codeblocks', label: 'Code Blocks' },
-			{ href: '/utilities/data-tables', label: 'Data Tables' },
+			{ href: '/utilities/data-tables', label: 'Data Tables', badge: 'Experimental' },
 			{ href: '/utilities/drawers', label: 'Drawers' },
 			{ href: '/utilities/lightswitches', label: 'Lightswitch' },
 			{ href: '/utilities/local-storage-stores', label: 'Local Storage Stores' },

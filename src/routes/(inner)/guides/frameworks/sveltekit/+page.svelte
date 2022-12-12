@@ -53,9 +53,8 @@ npm run dev
 	<section class="space-y-4">
 		<h2>Add Sidebar Navigation</h2>
 		<p>
-			Let's customize our App Shell's sidebar slot to make it stand out a bit more. Add the following Tailwind utility classes to the <code
-				>slotSidebarLeft</code
-			> prop.
+			Let's customize our App Shell's sidebar slot to make it stand out a bit more. Open <code>/src/routes/+layout.svelte</code> and add the
+			following Tailwind utility classes to App Shell component's <code>slotSidebarLeft</code> prop.
 		</p>
 		<CodeBlock language="html" code={`<AppShell slotSidebarLeft="bg-surface-500/5 w-56 p-4">`} />
 		<p>
@@ -85,8 +84,8 @@ npm run dev
 	<section class="space-y-4">
 		<h2>Page Setup</h2>
 		<p>
-			Now let's add some basic content to our homepage. Open <code>/src/routes/+page.svelte</code> and replace the contents with the
-			following. This will provide multiple elements automatically styled by the <code>all.css</code> stylesheet in our root layout.
+			Let's add some basic content to our homepage. Open <code>/src/routes/+page.svelte</code> and replace the contents with the following.
+			This will provide multiple elements automatically styled by the <code>all.css</code> stylesheet in our root layout.
 		</p>
 		<CodeBlock
 			language="html"
