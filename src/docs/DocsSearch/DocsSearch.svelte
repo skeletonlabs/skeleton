@@ -32,7 +32,7 @@
 <div class="docs-search {cBase}">
 	<header class="docs-search-header {cHeader}">
 		<SvgIcon name="search" />
-		<input bind:value={searchTerm} type="search" placeholder="Search..." on:input={onSearch} />
+		<input bind:value={searchTerm} type="search" placeholder="Search documentation" on:input={onSearch} />
 		<!-- prettier-ignore -->
 		<button class="btn-icon btn-ghost-surface btn-icon-sm" on:click={() => { modalStore.close(); }}>✕</button>
 	</header>
