@@ -93,19 +93,19 @@
 
 	/* Filled */
 	.btn-filled {
-		@apply bg-surface-900 dark:bg-surface-50 text-surface-50 dark:text-surface-900;
+		@apply bg-surface-900 dark:bg-surface-50 text-white dark:text-black;
 	}
 	.btn-filled-primary {
-		@apply bg-primary-500;
+		@apply bg-primary-500 text-on-primary-token;
 	}
 	.btn-filled-accent {
-		@apply bg-accent-500;
+		@apply bg-accent-500 text-on-accent-token;
 	}
 	.btn-filled-tertiary {
-		@apply bg-tertiary-500;
+		@apply bg-tertiary-500 text-on-tertiary-token;
 	}
 	.btn-filled-warning {
-		@apply bg-warning-500;
+		@apply bg-warning-500 text-on-warning-token;
 	}
 	.btn-filled-surface {
 		@apply bg-surface-400-500-token;

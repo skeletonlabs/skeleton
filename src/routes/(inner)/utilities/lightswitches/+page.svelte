@@ -5,7 +5,7 @@
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import LightSwitch from '$lib/utilities/LightSwitch/LightSwitch.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldLightSwitch from '$lib/utilities/LightSwitch/LightSwitch.svelte?raw&sveld';
 
 	// Docs Shell
@@ -24,7 +24,7 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="card card-body flex justify-center items-center !py-10">
+		<section class="card p-4 flex justify-center items-center !py-10">
 			<LightSwitch />
 		</section>
 	</svelte:fragment>

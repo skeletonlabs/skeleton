@@ -18,7 +18,7 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="card card-body flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+		<section class="card p-4 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 			<div class="space-y-2">
 				<p>We've provided a "kitchen sink" page to preview form elements.</p>
 			</div>
@@ -31,8 +31,10 @@
 		<section class="space-y-4">
 			<h2>Tailwind Forms Plugin</h2>
 			<p>
-				Follow the steps below to instlal this plugin. If you would like to learn more about this plugin, see <a href="https://www.youtube.com/watch?v=pONeWAzDsQg" target="_blank" rel="noreferrer"
-					>Tailwind's YouTube tutorial</a
+				Follow the steps below to install this plugin. If you would like to learn more about this plugin, see <a
+					href="https://www.youtube.com/watch?v=pONeWAzDsQg"
+					target="_blank"
+					rel="noreferrer">Tailwind's YouTube tutorial</a
 				>.
 			</p>
 			<!-- Written -->

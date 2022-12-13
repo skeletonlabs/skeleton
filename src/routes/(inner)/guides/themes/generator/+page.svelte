@@ -22,10 +22,11 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Theme Generator</h1>
-		<p>Use the form below to generate a custom Skeleton theme.</p>
+		<p>
+			Enable edit mode to enable a live theme preview. You can browse the entire site while edit mode is enabled. Don't worry, your settings
+			here will below will not be lost. When you are finished, tap the "Reset Theme" button to return to normal.
+		</p>
 	</header>
-
-	<hr />
 
 	<!-- Generator (new) -->
 	<DocsThemer />
@@ -39,7 +40,10 @@
 			<Tab value="astro">Astro</Tab>
 		</TabGroup>
 		{#if $storeFramework === 'sveltekit'}
-			<p>Copy and paste your theme CSS into <code>/src/theme.postcss</code>, then import it in <code>/src/routes/+layout.svelte</code>.</p>
+			<p>
+				Copy and paste your theme CSS into <code>/src/theme.postcss</code>, then in<code>/src/routes/+layout.svelte</code> remove any preset
+				theme and replace with your theme.
+			</p>
 			<CodeBlock language="typescript" code={`import '../theme.postcss';`} />
 		{:else if $storeFramework === 'vite'}
 			<p>Copy and paste your theme CSS into <code>/src/theme.css</code>, then import it in <code>/src/main.js</code>:</p>

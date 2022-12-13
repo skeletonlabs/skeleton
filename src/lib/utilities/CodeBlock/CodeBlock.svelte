@@ -4,31 +4,31 @@
 
 	// Props
 	/** Sets a language alias for Highlight.js syntax highlighting. */
-	export let language: string = 'plaintext';
+	export let language = 'plaintext';
 	/** Provide the code to render. Be mindful to escape as needed! */
-	export let code: string = '';
+	export let code = '';
 
 	// Props (styles)
 	/** Provided classes to set the background color. */
-	export let background: string = 'bg-[#141517]';
+	export let background = 'bg-[#141517]';
 	/** Provided classes to set the text size. */
-	export let text: string = 'text-sm';
+	export let text = 'text-sm';
 	/** Provided classes to set the text color. */
-	export let color: string = 'text-white';
+	export let color = 'text-white';
 	/** Provided classes to set the border radius. */
-	export let rounded: string = 'rounded-container-token';
+	export let rounded = 'rounded-container-token';
 	/** Provided classes to set the button styles. */
-	export let buttonCopy: string = 'bg-white/5 hover:bg-white/10';
+	export let buttonCopy = 'bg-white/5 hover:bg-white/10';
 
 	// Base Classes
-	const cBase: string = 'overflow-hidden shadow';
-	const cHeader: string = 'text-xs uppercase flex justify-between items-center p-2 pl-4';
-	const cPre: string = 'whitespace-pre-wrap break-all p-4 pt-1';
+	const cBase = 'overflow-hidden shadow';
+	const cHeader = 'text-xs uppercase flex justify-between items-center p-2 pl-4';
+	const cPre = 'whitespace-pre-wrap break-all p-4 pt-1';
 
 	// Local
-	let formatted: boolean = false;
+	let formatted = false;
 	let displayCode: string = code;
-	let copyState: Boolean = false;
+	let copyState = false;
 
 	// Allow shorthand 'js' alias for Javascript
 	function languageFormatter(lang: string): string {

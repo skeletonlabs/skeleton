@@ -2,13 +2,15 @@
 
 // HTTP ---
 
-const baseUrl: string = 'https://skeleton.ghost.io/ghost/api/content';
-const ghostKey: string = 'c76a270f160dbf241b27b81dc2';
+const baseUrl = 'https://skeleton.ghost.io/ghost/api/content';
+const ghostKey = 'c76a270f160dbf241b27b81dc2';
 const headers = { 'Accept-Version': 'v5.0' };
 
-export async function getBlogList(page: number = 1): Promise<any> {
+export async function getBlogList(page = 1): Promise<any> {
 	const http = await fetch(`${baseUrl}/posts/?key=${ghostKey}&page=${page}&include=tags`, { headers });
 	const res = await http.json();
+	console.log(res);
+
 	if (http.ok) return res;
 	throw new Error(res);
 }

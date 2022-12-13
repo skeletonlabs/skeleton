@@ -18,8 +18,8 @@
 <div class="page-container">
 	<!-- Blog List -->
 	<section class="blog-list space-y-8">
-		{#each data.posts as post, i}
-			<a class="unstyled block hover:card card-body rounded-container-token" href="/blog/{post.slug}" data-sveltekit-prefetch>
+		{#each data.posts as post}
+			<a class="unstyled block hover:card p-4 rounded-container-token" href="/blog/{post.slug}" data-sveltekit-preload-data="hover">
 				<article class="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-4 lg:gap-8">
 					<!-- Featured Image -->
 					{#if post.feature_image}
@@ -35,7 +35,7 @@
 						<h2>{post.title}</h2>
 						<p>{post.excerpt}</p>
 						<div class="flex items-center space-x-4">
-							{#each post.tags as tag, i}
+							{#each post.tags as tag}
 								<span class="text-xs font-bold opacity-50 capitalize">{tag.slug}</span>
 							{/each}
 						</div>

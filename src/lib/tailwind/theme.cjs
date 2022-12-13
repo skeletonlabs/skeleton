@@ -4,27 +4,19 @@
 const plugin = require('tailwindcss/plugin');
 
 // Source: https://tailwindcss.com/docs/customizing-colors#using-css-variables
-function rgbAppendOpacity(variable) {
-	return ({ opacityValue }) => {
-		if (opacityValue === undefined) {
-			return `rgb(var(${variable}))`;
-		}
-		return `rgb(var(${variable}) / ${opacityValue})`;
-	};
-}
 
 function createColorSet(colorName) {
 	return {
-		50: rgbAppendOpacity(`--color-${colorName}-50`),
-		100: rgbAppendOpacity(`--color-${colorName}-100`),
-		200: rgbAppendOpacity(`--color-${colorName}-200`),
-		300: rgbAppendOpacity(`--color-${colorName}-300`),
-		400: rgbAppendOpacity(`--color-${colorName}-400`),
-		500: rgbAppendOpacity(`--color-${colorName}-500`),
-		600: rgbAppendOpacity(`--color-${colorName}-600`),
-		700: rgbAppendOpacity(`--color-${colorName}-700`),
-		800: rgbAppendOpacity(`--color-${colorName}-800`),
-		900: rgbAppendOpacity(`--color-${colorName}-900`)
+		50: `rgb(var(--color-${colorName}-50) / <alpha-value>)`,
+		100: `rgb(var(--color-${colorName}-100) / <alpha-value>)`,
+		200: `rgb(var(--color-${colorName}-200) / <alpha-value>)`,
+		300: `rgb(var(--color-${colorName}-300) / <alpha-value>)`,
+		400: `rgb(var(--color-${colorName}-400) / <alpha-value>)`,
+		500: `rgb(var(--color-${colorName}-500) / <alpha-value>)`,
+		600: `rgb(var(--color-${colorName}-600) / <alpha-value>)`,
+		700: `rgb(var(--color-${colorName}-700) / <alpha-value>)`,
+		800: `rgb(var(--color-${colorName}-800) / <alpha-value>)`,
+		900: `rgb(var(--color-${colorName}-900) / <alpha-value>)`
 	};
 }
 

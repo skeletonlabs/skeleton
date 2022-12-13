@@ -15,15 +15,16 @@
 		classes: [
 			['<code>.list</code>', '-', 'Class for defining a unordered or ordered list.'],
 			['<code>.list-dl</code>', '-', 'Class for defining a description list.'],
-			['<code>.list-nav</code>', '-', 'Class for defining a navigation list.']
+			['<code>.list-nav</code>', '-', 'Class for defining a navigation list.'],
+			['<code>.option</code>', '-', 'Provides hover styles similar to anchors.']
 		]
 	};
 
 	// Local
 	const listData = [
-		{ name: 'A', class: 'bg-primary-500' },
-		{ name: 'B', class: 'bg-accent-500' },
-		{ name: 'C', class: 'bg-tertiary-500' }
+		{ name: 'A', class: 'btn-filled-accent' },
+		{ name: 'B', class: 'btn-filled-accent' },
+		{ name: 'C', class: 'btn-filled-accent' }
 	];
 </script>
 
@@ -31,7 +32,7 @@
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-4">
-			<div class="card card-body space-y-4">
+			<div class="card p-4 space-y-4">
 				<p class="font-bold">Unordered</p>
 				<hr />
 				<ul class="list">
@@ -46,7 +47,7 @@
 					{/each}
 				</ul>
 			</div>
-			<div class="card card-body space-y-4">
+			<div class="card p-4 space-y-4">
 				<p class="font-bold">Ordered</p>
 				<hr />
 				<ol class="list">
@@ -61,7 +62,7 @@
 					{/each}
 				</ol>
 			</div>
-			<div class="card card-body space-y-4">
+			<div class="card p-4 space-y-4">
 				<p class="font-bold">Description</p>
 				<hr />
 				<dl class="list-dl">
@@ -77,7 +78,7 @@
 					{/each}
 				</dl>
 			</div>
-			<div class="card card-body space-y-4">
+			<div class="card p-4 space-y-4">
 				<p class="font-bold">Navigation</p>
 				<hr />
 				<nav class="list-nav">
@@ -102,7 +103,10 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<div class="space-y-4">
-			<p>Create semantic list HTML elements, add the <code>.list</code> class, then ensure you wrap children with <em>span</em> elements allow for flex row layout styling.</p>
+			<p>
+				Create semantic list HTML elements, add the <code>.list</code> class, then ensure you wrap children with <em>span</em> elements allow
+				for flex row layout styling.
+			</p>
 		</div>
 		<!-- Unordered -->
 		<div class="space-y-4">
@@ -111,13 +115,13 @@
 				language="html"
 				code={`
 <ul class="list">
-    <li>
-        <span>💀</span>
-        <span class="flex-auto">Skeleton</span>
-    </li>
+	<li>
+		<span>💀</span>
+		<span class="flex-auto">Skeleton</span>
+	</li>
 	<!-- ... -->
 </ul>
-            `}
+`}
 			/>
 		</div>
 		<!-- Ordered -->
@@ -127,13 +131,13 @@
 				language="html"
 				code={`
 <ol class="list">
-    <li>
-        <span>1.</span>
-        <span class="flex-auto">Skeleton</span>
-    </li>
+	<li>
+		<span>1.</span>
+		<span class="flex-auto">Skeleton</span>
+	</li>
 	<!-- ... -->
 </ol>
-            `}
+`}
 			/>
 		</div>
 		<!-- Description -->
@@ -144,24 +148,26 @@
 				language="html"
 				code={`
 <dl class="list-dl">
-    <div>
-        <span class="badge bg-primary-500">💀</span>
-        <span class="flex-auto">
-            <dt>Title</dt>
-            <dd>Description</dd>
-        </span>
-    </div>
+	<div>
+		<span class="badge bg-primary-500">💀</span>
+		<span class="flex-auto">
+			<dt>Title</dt>
+			<dd>Description</dd>
+		</span>
+	</div>
 	<!-- ... -->
 </dl>
-            `}
+`}
 			/>
 		</div>
 		<!-- Navigation -->
 		<div class="space-y-4">
 			<h2>Navigation</h2>
 			<p>
-				While verbose, we do recommend you use all tags shown below to meet recommended <a href="https://www.w3.org/WAI/tutorials/menus/structure/" target="_blank" rel="noreferrer"
-					>accessibility guidelines</a
+				While verbose, we do recommend you use all tags shown below to meet recommended <a
+					href="https://www.w3.org/WAI/tutorials/menus/structure/"
+					target="_blank"
+					rel="noreferrer">accessibility guidelines</a
 				>.
 			</p>
 			<CodeBlock
@@ -169,19 +175,21 @@
 				code={`
 <nav class="list-nav">
 	<!-- (optionally you can provde a label here) -->
-    <ul>
-        <li>
-            <a href="/">
-                <span class="badge bg-primary-500">💀</span>
-                <span class="flex-auto">Skeleton</span>
-            </a>
-        </li>
+	<ul>
+		<li>
+			<a href="/">
+				<span class="badge bg-primary-500">💀</span>
+				<span class="flex-auto">Skeleton</span>
+			</a>
+		</li>
 		<!-- ... -->
-    </ul>
+	</ul>
 </nav>
-            `}
+`}
 			/>
-			<p>If you need to highlight an active Navigation List item, we recommend conditionally applying a background color to the anchor tag.</p>
+			<p>
+				If you need to highlight an active Navigation List item, we recommend conditionally applying a background color to the anchor tag.
+			</p>
 			<CodeBlock language="ts" code={`$: classesActive = (href: string) => (href === $page.url.pathname ? '!bg-primary-500' : '');`} />
 			<CodeBlock language="html" code={`<a {href} class="{classesActive(href)}">Page</a>`} />
 		</div>

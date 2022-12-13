@@ -1,15 +1,15 @@
 <script lang="ts">
 	/** Define the semantic element tag. */
-	export let tag: string = 'h1';
+	export let tag = 'h1';
 	/** Provide classes to set gradient direction. */
-	export let direction: String = 'bg-gradient-to-r';
+	export let direction = 'bg-gradient-to-r';
 	/** Provide classes to set "from" gradient color. */
-	export let from: string = 'from-primary-500';
+	export let from = 'from-primary-500';
 	/** Provide classes to set "to" gradient color. */
-	export let to: string = 'to-accent-500';
+	export let to = 'to-accent-500';
 
 	// Base Clases
-	let cBaseHeading: string = 'bg-clip-text text-transparent box-decoration-clone';
+	let cBaseHeading = 'bg-clip-text text-transparent box-decoration-clone';
 
 	// Reactive
 	$: classesBase = `${$$props.class ?? ''}`;

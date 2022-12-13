@@ -17,17 +17,20 @@
 	export let rounded: string = getContext('rounded');
 
 	// Props
-	/** The value of each tab.*/
+	/**
+	 * The value of each tab.
+	 * @type {any}
+	 */
 	export let value: any = $selected.value;
 
 	// A11y
-	/** Defines a semantic label for the tab.*/
-	export let label: string = 'tab';
+	/** Defines a semantic label for the tab. */
+	export let label = 'tab';
 
 	// Base Classes
-	const cBase: string = 'font-bold list-none py-2.5 px-4 flex items-center space-x-2 cursor-pointer';
-	const cBorderColor: string = 'border-transparent';
-	const cBaseLabel: string = 'font-bold whitespace-nowrap';
+	const cBase = 'font-bold list-none py-2.5 px-4 flex items-center space-x-2 cursor-pointer';
+	const cBorderColor = 'border-transparent';
+	const cBaseLabel = 'font-bold whitespace-nowrap';
 
 	// A11y Input Handlers
 	function onKeyDown(event: any): void {

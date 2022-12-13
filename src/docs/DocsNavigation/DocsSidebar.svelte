@@ -2,14 +2,17 @@
 	import { page } from '$app/stores';
 	import { writable, type Writable } from 'svelte/store';
 
-	import { storeCurrentUrl, storeMobileDrawer } from '$docs/stores';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	import { menuNavLinks } from './links';
 	import AppRail from '$lib/components/AppRail/AppRail.svelte';
 	import AppRailTile from '$lib/components/AppRail/AppRailTile.svelte';
 
+	// Stores
+	import { storeCurrentUrl } from '$docs/stores';
+	import { drawerStore } from '$lib/utilities/Drawer/stores';
+
 	// Props
-	export let embedded: boolean = false;
+	export let embedded = false;
 
 	// Local
 	const storeCategory: Writable<string> = writable('guides'); // guides | docs | tailwind | svelte | utilities
@@ -19,7 +22,7 @@
 	function onListItemClick(): void {
 		// On Drawer embed Only:
 		if (!embedded) return;
-		storeMobileDrawer.set(false);
+		drawerStore.close();
 	}
 
 	function setNavCategory(c: string): void {
@@ -46,7 +49,7 @@
 	});
 
 	// Reactive
-	$: classesActive = (href: string) => ($storeCurrentUrl?.includes(href) ? '!bg-primary-500' : '');
+	$: classesActive = (href: string) => ($storeCurrentUrl?.includes(href) ? 'bg-primary-active-token' : '');
 </script>
 
 <div class="grid grid-cols-[auto_1fr] h-full border-r border-black/5 dark:border-white/5 {$$props.class ?? ''}">
@@ -70,9 +73,9 @@
 					<ul>
 						{#each list as { href, label, badge }}
 							<li on:click={onListItemClick} on:keypress>
-								<a {href} value={href} class={classesActive(href)} data-sveltekit-prefetch>
+								<a {href} value={href} class={classesActive(href)} data-sveltekit-preload-data="hover">
 									<span class="flex-auto">{label}</span>
-									{#if badge}<span class="badge bg-accent-500 text-white">{badge}</span>{/if}
+									{#if badge}<span class="badge badge-filled-accent">{badge}</span>{/if}
 								</a>
 							</li>
 						{/each}

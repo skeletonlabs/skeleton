@@ -9,7 +9,7 @@
 	import RangeSlider from '$lib/components/RangeSlider/RangeSlider.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldRangeSlider from '$lib/components/RangeSlider/RangeSlider.svelte?raw&sveld';
 
 	// Stores
@@ -45,7 +45,7 @@
 		max: $storeMax,
 		step: $storeStep,
 		ticked: $storeTicked,
-		accent: 'accent-accent-500'
+		accent: '!accent-accent-500'
 	};
 </script>
 
@@ -54,7 +54,7 @@
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-4 xl:space-y-0 xl:grid grid-cols-[1fr_auto] gap-2">
 			<!-- Example -->
-			<div class="card card-body flex justify-center items-center">
+			<div class="card p-4 flex justify-center items-center">
 				<!-- prettier-ignore -->
 				<svelte:component
 						this={RangeSlider}
@@ -76,7 +76,7 @@
 					</svelte:component>
 			</div>
 			<!-- Options -->
-			<div class="card card-body space-y-4">
+			<div class="card p-4 space-y-4">
 				<!-- Label -->
 				<label>
 					<span>Label</span>
@@ -113,11 +113,11 @@
 					<label>
 						<span>Accent</span>
 						<select name="accent" id="accent" bind:value={props.accent}>
-							<option value="accent-primary-500">accent-primary-500</option>
-							<option value="accent-accent-500">accent-accent-500</option>
-							<option value="accent-tertiary-500">accent-tertiary-500</option>
-							<option value="accent-warning-500">accent-warning-500</option>
-							<option value="accent-surface-500">accent-surface-500</option>
+							<option value="!accent-primary-500">accent-primary-500</option>
+							<option value="!accent-accent-500">accent-accent-500</option>
+							<option value="!accent-tertiary-500">accent-tertiary-500</option>
+							<option value="!accent-warning-500">accent-warning-500</option>
+							<option value="!accent-surface-500">accent-surface-500</option>
 						</select>
 					</label>
 				</div>

@@ -5,7 +5,7 @@
 	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldSlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte?raw&sveld';
 
 	// Docs Shell
@@ -21,24 +21,24 @@
 	};
 
 	// Local
-	let checkedValue: boolean = false;
+	let checkedValue = false;
 </script>
 
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-			<div class="card card-body flex justify-center items-center space-x-4">
+			<div class="card p-4 flex justify-center items-center space-x-4">
 				<SlideToggle size="sm" accent="bg-primary-500" checked label="Toggle Primary" />
 				<SlideToggle size="md" checked label="Toggle Purple" />
 				<SlideToggle size="lg" accent="bg-tertiary-500" checked label="Toggle Tertiary" />
 			</div>
-			<div class="card card-body flex justify-center items-center space-x-4">
+			<div class="card p-4 flex justify-center items-center space-x-4">
 				<SlideToggle size="md" bind:checked={checkedValue}>
 					<code class="inline-block w-[40px] text-center">{checkedValue ? 'On' : 'Off'}</code>
 				</SlideToggle>
 			</div>
-			<div class="card card-body flex justify-center items-center space-x-4">
+			<div class="card p-4 flex justify-center items-center space-x-4">
 				<SlideToggle disabled label="Toggle Disabled">Disabled</SlideToggle>
 			</div>
 		</section>

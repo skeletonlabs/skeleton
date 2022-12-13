@@ -1,8 +1,6 @@
 import { render } from '@testing-library/svelte';
 import { describe, it, expect } from 'vitest';
 
-import { writable } from 'svelte/store';
-
 import Step from '$lib/components/Stepper/Step.svelte';
 
 describe('Step.svelte', () => {

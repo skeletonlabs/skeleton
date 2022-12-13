@@ -19,7 +19,7 @@
 	export const storeStylesheetElements: Writable<string> = writable('combined');
 
 	// Local
-	const ghLibPathMaster: string = 'https://github.com/skeletonlabs/skeleton/tree/master/src/lib'; // master branch
+	const ghLibPathMaster = 'https://github.com/skeletonlabs/skeleton/tree/master/src/lib'; // master branch
 
 	// Tables
 	const tableStyleAll: TableSource = {
@@ -162,7 +162,7 @@
 	<section class="space-y-4">
 		<h2>Skeleton Stylesheets</h2>
 		<p>
-			Skeleton provides a set of stylesheets for elements and components. Import these in your root layout, which differs per each
+			Skeleton provides a set of stylesheets for elements and components. Import these in your app's root layout per your preferred
 			framework.
 		</p>
 		<TabGroup selected={storeFramework}>
@@ -172,7 +172,7 @@
 		</TabGroup>
 		<!-- Framework: SvelteKit -->
 		{#if $storeFramework === 'sveltekit'}
-			<p>Import stylesheets in <code>src/routes/+layout.svelte</code>.</p>
+			<p>The CLI will automatically import <code>all.css</code> into <code>src/routes/+layout.svelte</code>.</p>
 			<!-- Framework: Vite (Svelte) -->
 		{:else if $storeFramework === 'vite'}
 			<p>Import stylesheets in <code>/src/main.js</code>.</p>
@@ -224,45 +224,45 @@ import '@skeletonlabs/skeleton/styles/${$storeStylesheets === 'recommended' ? 'a
 	<!-- Global Styles -->
 	<section class="space-y-4">
 		<h2>Global Stylesheet</h2>
-		<p>The location of your app's global stylesheet differs per framework. SvelteKit and Vite users must make one quick modification.</p>
-
+		<p>The location of your app's global stylesheet differs per framework.</p>
 		<TabGroup selected={storeFramework}>
 			<Tab value="sveltekit">SvelteKit</Tab>
 			<Tab value="vite">Vite (Svelte)</Tab>
 			<Tab value="astro">Astro</Tab>
 		</TabGroup>
-		<!-- Framework: SvelteKit -->
 		{#if $storeFramework === 'sveltekit'}
-			<p>Your global stylesheet can be found at <code>/src/app.postcss</code>.</p>
-			<!-- Framework: Vite (Svelte) -->
+			<p>
+				Your global stylesheet is located in <code>/src/app.postcss</code>. The CLI will automatically purge
+				<a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> from Svelte-Add
+				and add any required styles.
+			</p>
 		{:else if $storeFramework === 'vite'}
-			<p>Your global stylesheet can be found at <code>/src/app.css</code>.</p>
-			<!-- Framework: Astro -->
+			<p>Your global stylesheet is located in <code>/src/app.css</code>.</p>
+			<Alert>
+				<svelte:fragment slot="lead"><span class="text-xl">⚠️</span></svelte:fragment>
+				The following step is required. This will ensures all styles display properly.
+			</Alert>
+			<!-- Directives -->
+			<p>
+				<strong>Svelte-Add</strong> automatically includes
+				<a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> in your global
+				stylesheet. However, Skeleton handles this for you, so please remove the following:
+			</p>
+			<CodeBlock
+				language="css"
+				code={`
+/* NOTE: If present, remove any @tailwind directives: */\n
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+				`}
+			/>
 		{:else if $storeFramework === 'astro'}
 			<p>
 				Astro does not create this by default, but we recommend <code>/src/styles/global.css</code>.
 				<a href="/guides/frameworks/astro">See our Astro walkthrough</a> for assistance.
 			</p>
 		{/if}
-		<Alert>
-			<svelte:fragment slot="lead"><span class="text-xl">⚠️</span></svelte:fragment>
-			For <u>SvelteKit</u> and <u>Vite</u> projects the following steps is required. This will ensures all styles display properly.
-		</Alert>
-		<!-- Directives -->
-		<p>
-			<strong>Svelte-Add</strong> automatically includes
-			<a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> in your global
-			stylesheet. However, Skeleton handles this for you, so please remove the following:
-		</p>
-		<CodeBlock
-			language="css"
-			code={`
-/* NOTE: If present, remove any @tailwind directives: */\n
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-			`}
-		/>
 	</section>
 
 	<hr />
@@ -275,30 +275,40 @@ import '@skeletonlabs/skeleton/styles/${$storeStylesheets === 'recommended' ? 'a
 			continue.
 		</p>
 		<Table source={tableStylesheetOrder} />
+		<p>We've provided an example below for reference.</p>
+		<CodeBlock
+			language="ts"
+			code={`
+import '@skeletonlabs/skeleton/themes/theme-skeleton.css';
+import '@skeletonlabs/skeleton/styles/all.css';
+import '../app.postcss'; // Substitute with your framework's global stylesheet
+		`}
+		/>
 	</section>
 
 	<hr />
 
 	<section class="space-y-4">
 		<div class="space-y-4">
-			<h2>Customizing Styles</h2>
-			<p>If you wish to customize Skeleton element or component styles, use the recommendations below.</p>
+			<h2>How to Customize Styles</h2>
+			<p>Learn how to customize Skeleton components and elements below.</p>
 		</div>
-		<div class="card card-body !bg-accent-500/5">
+		<div class="card p-4 card-glass">
 			<AccordionGroup>
 				<AccordionItem spacing="space-y-4" open>
 					<svelte:fragment slot="summary"><h3>Via Component Props</h3></svelte:fragment>
 					<div slot="content" class="space-y-4">
 						<p>
-							This is the recommended manner to style most components. Each component provides a set of style <em>props</em> (aka properties)
-							that allow you to override the default style classes. See a list of available options under the "Props" tab in the component documentation.
+							This is the recommended manner to style most components. Each component provides a set of style <em>props</em> (read: properties)
+							that allow you to override the default style classes. See a list of available options under the "Props" tab per each feature in
+							Skeleton.
 						</p>
 						<CodeBlock
 							language="html"
-							code={`<ExampleComponent background="bg-accent-500" text="text-yellow-500">Skeleton</ExampleComponent>`}
+							code={`<ExampleComponent background="bg-accent-500" text="text-yellow-500 md:text-green-500">Skeleton</ExampleComponent>`}
 						/>
 						<blockquote>
-							TIP: You may provide multiple utility classes per each prop, and use variations such as <code>dark:bg-green-500</code>.
+							TIP: You may provide multiple utility classes per each prop, as well as use variations such as <code>dark:bg-green-500</code>.
 						</blockquote>
 					</div>
 				</AccordionItem>
@@ -306,7 +316,7 @@ import '@skeletonlabs/skeleton/styles/${$storeStylesheets === 'recommended' ? 'a
 					<svelte:fragment slot="summary"><h3>Via the Class Attribute</h3></svelte:fragment>
 					<div slot="content" class="space-y-4">
 						<p>
-							If a style prop is not available, you can still provide arbitrary utility classes via the standard <code>class</code> attribute.
+							If a style prop is not available, you can still provide arbitrary utility classes via a standard <code>class</code> attribute.
 							These styles are always applied to the parent element in the component template.
 						</p>
 						<CodeBlock language="html" code={`<ExampleComponent class="text-3xl px-10 py-5">Skeleton</ExampleComponent>`} />
@@ -322,7 +332,8 @@ import '@skeletonlabs/skeleton/styles/${$storeStylesheets === 'recommended' ? 'a
 								rel="noreferrer">Tailwind's arbitrary variant syntax</a
 							>.
 						</p>
-						<CodeBlock language="html" code={`<ExampleComponent class="[&>.ExampleComponent-label]:p-4">...</ExampleComponent>`} />
+						<CodeBlock language="html" code={`<ExampleComponent class="[&>.foo-label]:p-4">...</ExampleComponent>`} />
+						<p>This will affect the Parent > .foo-label element and apply a Tailwind class of <code>p-4</code>.</p>
 					</div>
 				</AccordionItem>
 				<AccordionItem spacing="space-y-4">
@@ -330,7 +341,7 @@ import '@skeletonlabs/skeleton/styles/${$storeStylesheets === 'recommended' ? 'a
 					<div slot="content" class="space-y-4">
 						<p>
 							Tailwind Elements and Svelte Components make use of unique selector classes, such as <code>.crumb-separator</code> for the Breadcrumb
-							seperator element. Use these classes target global overrides in your global stylesheet.
+							seperator element. Use these classes target and provide global overrides in your app's global stylesheet.
 						</p>
 						<CodeBlock
 							language="html"
@@ -352,7 +363,7 @@ import '@skeletonlabs/skeleton/styles/${$storeStylesheets === 'recommended' ? 'a
 	<hr />
 
 	<!-- Next Steps -->
-	<div class="card card-body !flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+	<div class="card p-4 !flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<p>View the <u>optional walkthroughs</u> for creating an example app using Skeleton.</p>
 		<a class="btn btn-filled-primary" href="/guides/frameworks">
 			<span>Framework Guides</span>

@@ -24,12 +24,15 @@
 		keyboard: [
 			['<kbd>Enter</kbd>', 'When menu button in focus, toggles the menu open/close.'],
 			['<kbd>Space</kbd>', 'When menu button in focus, toggles the menu open/close.'],
-			['<kbd>Esc</kbd>', 'Close the open menu.']
+			['<kbd>Esc</kbd>', 'Close the open menu.'],
+			['<kbd>Tab</kbd>', 'Close the open menu.'],
+			['<kbd>↑</kbd>', 'Move upwards to the next item in the menu.'],
+			['<kbd>↓</kbd>', 'Move downwards to the next item in the menu.']
 		]
 	};
 
 	// Local
-	const exampleLink: string = '/utilities/menus';
+	const exampleLink = '/utilities/menus';
 
 	function log(v: any): void {
 		console.log(`You selected anchor link ${v}`);
@@ -39,34 +42,34 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="card card-body flex flex-col lg:flex-row justify-center items-center space-y-4 lg:space-y-0 lg:space-x-4">
+		<section class="card p-4 flex flex-col lg:flex-row justify-center items-center space-y-4 lg:space-y-0 lg:space-x-4">
 			<!-- Dropdown 1 -->
 			<span class="relative">
 				<button class="btn btn-ghost-surface" use:menu={{ menu: 'basic' }}>Basic</button>
 				<!-- on:toggled={eventLogger} -->
-				<div class="card card-body w-64 shadow-xl" data-menu="basic">
+				<div class="card p-4 w-64 shadow-xl" data-menu="basic">
 					<p>This menu uses default settings. The position will auto-update depending on the trigger's page location.</p>
 				</div>
 			</span>
 			<!-- Dropdown 2 -->
 			<span class="relative">
 				<button class="btn btn-ghost-surface" use:menu={{ menu: 'interactive', interactive: true }}>Interactive</button>
-				<div class="menu-tl card card-body w-64 shadow-xl" data-menu="interactive">
+				<div class="menu-tl card p-4 w-64 shadow-xl" data-menu="interactive">
 					<p>This menu will not close when clicking within the menu body due to <code>interactive: true</code>.</p>
 				</div>
 			</span>
 			<!-- Dropdown 3 -->
 			<span class="relative">
 				<button class="btn btn-ghost-surface" use:menu={{ menu: 'fixed', fixed: true }}>Fixed</button>
-				<div class="menu-tl card card-body w-64 shadow-xl" data-menu="fixed">
+				<div class="menu-tl card p-4 w-64 shadow-xl" data-menu="fixed">
 					<p>This menus is fixed to the top-right origin point due to <code>fixed: true</code> and <code>.menu-tl</code>.</p>
 				</div>
 			</span>
 			<!-- Dropdown 4 (note: don't add .menu-container here) -->
 			<span>
 				<button class="btn btn-ghost-surface" use:menu={{ menu: 'position', fixed: true }}>Position</button>
-				<div class="absolute top-2 right-2 card p-4 w-64 shadow-xl !bg-primary-500" data-menu="position">
-					<p>This menu is arbitrarily positioned in the top-right corner of the page. We've made it a bright color to catch you attention.</p>
+				<div class="absolute top-2 right-2 card p-4 w-64 shadow-xl !bg-primary-500 text-on-primary-token" data-menu="position">
+					This menu is arbitrarily positioned in the top-right corner of the page. We've made it a bright color to catch you attention.
 				</div>
 			</span>
 			<!-- Dropdown 5 -->
@@ -110,10 +113,15 @@
 			<div class="space-y-4">
 				<h2>Menu Styles</h2>
 				<p>Use <code>.card</code> classes to alter the appearance of the menu element.</p>
-				<CodeBlock language="html" code={`<div class="card card-body" data-menu="example">(menu)</div>`} />
+				<CodeBlock language="html" code={`<div class="card p-4" data-menu="example">(menu)</div>`} />
 				<p>Pair this with Tailwind utility classes to customize the look and feel.</p>
 				<CodeBlock language="html" code={`<div class="card p-2 w-64 shadow-xl" data-menu="example">(menu)</div>`} />
 				<p>Combine <code>.list-nav</code>, and <code>.card</code> Tailwind Element classes to create a navigation menu.</p>
+
+				<p>
+					When <code>.list-nav</code> is applied, links will be styled automatically. To apply the same styles to other elements, such as
+					buttons, use the <code>.option</code> Tailwind Elements class, along with any other desired Tailwind utility classes.
+				</p>
 				<CodeBlock
 					language="html"
 					code={`
@@ -122,6 +130,7 @@
 		<li><a href="/">Home</a></li>
 		<li><a href="/">About</a></li>
 		<li><a href="/">Blog</a></li>
+        <li><button class="option w-full">Logout</button></li>
 	</ul>
 </nav>
 				`}
@@ -137,7 +146,9 @@
 			<!-- Interactive Menus -->
 			<div class="space-y-4">
 				<h2>Interactive Menus</h2>
-				<p>By default menus will self-close when clicking within the menu body. Set <code>interactive: true</code> to alter this behavior.</p>
+				<p>
+					By default menus will self-close when clicking within the menu body. Set <code>interactive: true</code> to alter this behavior.
+				</p>
 				<CodeBlock language="html" code={`<button use:menu={{ menu: 'example', interactive: true }}>Trigger</button>`} />
 			</div>
 			<!-- Custom Positioning -->
@@ -153,7 +164,8 @@
 				<p>You can optionally monitor the open/closed state of a menu using <code>state: stateHandler</code></p>
 				<CodeBlock language="html" code={`<button use:menu={{ menu: 'example', state: stateHandler }}>Trigger</button>`} />
 				<p>
-					In this case, <code>stateHandler</code> is a callback function that will update a local variable. We use the <em>if statement</em> to match a particular menu on the page.
+					In this case, <code>stateHandler</code> is a callback function that will update a local variable. We use the <em>if statement</em>
+					to match a particular menu on the page.
 				</p>
 				<CodeBlock
 					language="ts"
@@ -165,7 +177,8 @@ function stateHandler(response: { menu: string; state: boolean }): void {
 				`}
 				/>
 				<p>
-					The <code>menu</code> value will match your unique <code>data-menu</code> ID value, while state will be a boolean value representing <em>TRUE</em> for open and <em>FALSE</em> for closed.
+					The <code>menu</code> value will match your unique <code>data-menu</code> ID value, while state will be a boolean value
+					representing <em>TRUE</em> for open and <em>FALSE</em> for closed.
 				</p>
 			</div>
 		</section>

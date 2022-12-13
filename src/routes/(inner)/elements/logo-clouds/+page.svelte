@@ -61,19 +61,19 @@
 				language="html"
 				code={`
 <div class="logo-cloud grid-cols-1 lg:grid-cols-4 gap-1">
-    <div class="logo-item">
-        <span>&hearts;</span>
-        <span>HR Solutions</span>
-    </div>
-    <div class="logo-item">Acme Theaters</div>
-    <div class="logo-item">Cruisin' Cuisine</div>
-    <div class="logo-item">Arcane Security</div>
-    <div class="logo-item">Stark Industries</div>
-    <div class="logo-item">Gekko & Co.</div>
-    <div class="logo-item">Acme Corp.</div>
-    <div class="logo-item">Wonka Inc.</div>
+	<div class="logo-item">
+		<span>&hearts;</span>
+		<span>HR Solutions</span>
+	</div>
+	<div class="logo-item">Acme Theaters</div>
+	<div class="logo-item">Cruisin' Cuisine</div>
+	<div class="logo-item">Arcane Security</div>
+	<div class="logo-item">Stark Industries</div>
+	<div class="logo-item">Gekko & Co.</div>
+	<div class="logo-item">Acme Corp.</div>
+	<div class="logo-item">Wonka Inc.</div>
 </div>
-            `.trim()}
+`}
 			/>
 		</div>
 		<!-- Links -->
@@ -84,21 +84,21 @@
 				language="html"
 				code={`
 <a class="logo-item" href="/">Skeleton</a>
-            `.trim()}
+`}
 			/>
 		</div>
 		<!-- Icons -->
 		<div class="space-y-4">
 			<h2>Logo Item Icons</h2>
-			<p>Wrap child elements in space tags and they will space as expected.</p>
+			<p>Wrap child elements in span tags and they will space as expected.</p>
 			<CodeBlock
 				language="html"
 				code={`
 <div class="logo-item">
-    <span>💀</span>
-    <span>Skeleton</span>
+	<span>💀</span>
+	<span>Skeleton</span>
 </div>
-            `.trim()}
+`}
 			/>
 		</div>
 	</svelte:fragment>

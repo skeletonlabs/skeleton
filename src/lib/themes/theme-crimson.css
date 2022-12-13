@@ -11,6 +11,12 @@
 	--theme-font-color-dark: var(--color-surface-50);
 	--theme-rounded-base: 24px;
 	--theme-rounded-container: 24px;
+	/* On Colors */
+	--on-primary: #fff;
+	--on-accent: #fff;
+	--on-tertiary: #000;
+	--on-warning: #fff;
+	--on-surface: #fff;
 	/* =~= Theme Colors | Hex =~= */
 	/* primary | #d4161d */
 	--color-primary-50: 254 246 246; /* ⬅ #fef6f6 */

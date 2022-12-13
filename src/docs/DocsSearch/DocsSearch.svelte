@@ -4,7 +4,7 @@
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
 	// Local
-	let searchTerm: string = '';
+	let searchTerm = '';
 	let navigationOriginal: any[] = Object.values(menuNavLinks);
 	let navigation: any[] = navigationOriginal;
 
@@ -23,26 +23,26 @@
 		});
 	}
 
-	const cBase: string = '';
-	const cHeader: string = 'flex items-center space-x-4 p-4';
-	const cList: string = 'pr-1 space-y-4 rounded-container-token max-h-[60vh] md:max-h-[75vh] p-4 space-y-4 overflow-y-auto';
-	const cCard: string = 'card card-body py-2 bg-surface-200-700-token hover:bg-primary-500 flex justify-between items-center';
+	const cBase = '';
+	const cHeader = 'flex items-center space-x-4 p-4';
+	const cList = 'pr-1 space-y-4 rounded-container-token max-h-[60vh] md:max-h-[75vh] p-4 space-y-4 overflow-y-auto';
+	const cCard = 'card p-4 py-2 bg-surface-200-700-token flex justify-between items-center';
 </script>
 
 <div class="docs-search {cBase}">
 	<header class="docs-search-header {cHeader}">
 		<SvgIcon name="search" />
-		<input bind:value={searchTerm} type="search" placeholder="Search..." on:input={onSearch} />
+		<input bind:value={searchTerm} type="search" placeholder="Search documentation" on:input={onSearch} />
 		<!-- prettier-ignore -->
-		<button class="btn-icon btn-ghost-surface btn-sm" on:click={() => { modalStore.close(); }}>✕</button>
+		<button class="btn-icon btn-ghost-surface btn-icon-sm" on:click={() => { modalStore.close(); }}>✕</button>
 	</header>
 	<hr />
 	<div class="docs-search-categories {cList}">
-		{#each navigation as category, i}
+		{#each navigation as category}
 			<div class="space-y-4">
 				<strong>{category.title}</strong>
-				<nav class="space-y-2">
-					{#each category.list as link, i}
+				<nav class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+					{#each category.list as link}
 						<!-- prettier-ignore -->
 						<a class="{cCard}" href={link.href} on:click={() => { modalStore.close(); }}>
 							<div>

@@ -4,7 +4,7 @@
 	export let parent: any;
 
 	// Stores
-	import { modalStore } from '$lib/utilities/Modal/stores';
+	import { modalStore } from '@skeletonlabs/skeleton';
 
 	// Form Data
 	const formData = {
@@ -15,13 +15,13 @@
 
 	// We've created a custom submit function to pass the response and close the modal.
 	function onFormSubmit(): void {
-		$modalStore[0].response(formData);
+		if ($modalStore[0].response) $modalStore[0].response(formData);
 		modalStore.close();
 	}
 
 	// Base Classes
-	const cBase: string = 'space-y-4';
-	const cForm: string = 'border border-surface-500 p-4 space-y-4 rounded-container-token';
+	const cBase = 'space-y-4';
+	const cForm = 'border border-surface-500 p-4 space-y-4 rounded-container-token';
 </script>
 
 <!-- @component This example creates a simple form modal. -->

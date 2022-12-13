@@ -6,7 +6,7 @@
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import Table from '$lib/components/Table/Table.svelte';
 
-	const cSwatch: string = 'w-4 aspect-square rounded-full';
+	const cSwatch = 'w-4 aspect-square rounded-full';
 	const tableProps: TableSource = {
 		head: ['Color', 'Name', 'Class', 'Description'],
 		body: [
@@ -38,21 +38,22 @@
 	<!-- Breadcrumbs -->
 	<Breadcrumb>
 		<Crumb href="/guides/themes">Themes</Crumb>
-		<Crumb>Styles</Crumb>
+		<Crumb>Colors</Crumb>
 	</Breadcrumb>
 
 	<!-- Header -->
 	<header class="space-y-4">
-		<h1>Theme Styles</h1>
+		<h1>Theme Colors</h1>
+		<p>This section provides a quick references for what each avialable theme color.</p>
 	</header>
 
 	<hr />
 
+	<Table source={tableProps} />
+
 	<!-- Reference -->
 	<section class="space-y-4">
-		<h2>Theme Colors</h2>
-		<p>Here's a quick reference for what each theme color represents.</p>
-		<Table source={tableProps} />
+		<h2>Usage</h2>
 		<p>Skeleton themes extend Tailwind's color palette and can be used anywhere within your project. Here's a few examples:</p>
 		<CodeBlock language="html" code={`<!-- Inlined classes -->\n<div class="bg-primary-500 text-accent-500">Skeleton</div>`} />
 		<CodeBlock language="html" code={`<!-- Tailwind opacity scale -->\n<div class="border border-primary-500/50">Skeleton</div>`} />
@@ -61,16 +62,5 @@
 			language="css"
 			code={`/* Using CSS custom properties. Note that colors are RGB values! */\nbody { background: rgba(var(--color-surface-900) / 1); }`}
 		/>
-	</section>
-
-	<hr />
-
-	<!-- Design Tokens -->
-	<section class="grid grid-cols-[1fr_auto] gap-4">
-		<div class="space-y-4">
-			<h2>Design Tokens</h2>
-			<p>Preset utility classes based on your theme CSS property settings.</p>
-		</div>
-		<a class="btn btn-filled-accent place-self-center" href="/elements/tokens">Design Tokens</a>
 	</section>
 </div>

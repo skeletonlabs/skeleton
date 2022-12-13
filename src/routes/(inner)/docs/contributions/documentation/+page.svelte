@@ -155,7 +155,7 @@ dispatch('dragover', event);`}
 			<li>
 				Create a duplicate of your component import statement, e.g. <code>import Avatar from '$lib/components/Avatar/Avatar.svelte';</code>
 			</li>
-			<li>Implement a <code>// @ts-ignore</code> comment above the new import to silence any warnings.</li>
+			<li>Implement a <code>// @ts-expect-error sveld import</code> comment above the new import to silence any warnings.</li>
 			<li>Rename the import reference using the convention: <code>Avatar</code> -> <code>sveldAvatar</code>.</li>
 			<li>Append the following URL parameters to the end of your import statement, e.g.: <code>.../Accordion.svelte?raw&sveld</code>.</li>
 			<li>
@@ -168,7 +168,7 @@ dispatch('dragover', event);`}
 			We can provide settings to our DocShell component using <code>const settings: DocsShellSettings</code>. This allows you to populate
 			all relevant settings on the page.
 		</p>
-		<section class="card card-body flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+		<section class="card p-4 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 			<div class="space-y-2">
 				<p>Reference all available settings from the Typescript interface defintion.</p>
 			</div>

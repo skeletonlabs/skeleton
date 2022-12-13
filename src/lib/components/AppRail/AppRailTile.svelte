@@ -12,24 +12,23 @@
 	 */
 	export let value: any | undefined = undefined;
 	/** Provide the element tag. Button or Anchor recommended. */
-	export let tag: string = 'button';
+	export let tag = 'button';
 	/** Provide the vislble text label. */
-	export let label: string = '';
-	/** Provide classes to set the background color. */
-	export let background: string = 'bg-hover-token';
+	export let label = '';
 
 	// Props (region)
 	/** Provide abitrary classes to style the icon region. */
-	export let regionIcon: string = '';
+	export let regionIcon = '';
 	/** Provide abitrary classes to style the label region. */
-	export let regionLabel: string = 'text-xs';
+	export let regionLabel = 'text-xs';
 
 	// Context
 	export let selected: Writable<any> = getContext('selected');
-	export let accent: Writable<any> = getContext('accent');
+	export let active: Writable<any> = getContext('active');
+	export let hover: Writable<any> = getContext('hover');
 
 	// Base Classes
-	const cBase: string = 'grid place-content-center place-items-center w-full aspect-square space-y-1.5';
+	const cBase = 'grid place-content-center place-items-center w-full aspect-square space-y-1.5';
 
 	// Input Handler
 	function onClickHandler(event: any): void {
@@ -40,8 +39,8 @@
 	}
 
 	// Reactive
-	$: classesActive = $selected && value && $selected === value ? `${accent}` : '';
-	$: classesBase = `${cBase} ${background} ${classesActive} ${$$props.class || ''}`;
+	$: classesActive = $selected && value && $selected === value ? `${active}` : '';
+	$: classesBase = `${cBase} ${hover} ${classesActive} ${$$props.class || ''}`;
 
 	// RestProps
 	function prunedRestProps(): any {
@@ -52,7 +51,15 @@
 
 <!-- @component A navigation tile for the App Rail. -->
 
-<svelte:element this={tag} {...prunedRestProps()} class="app-rail-tile {classesBase}" on:click={onClickHandler} on:keydown on:keyup on:keypress>
+<svelte:element
+	this={tag}
+	{...prunedRestProps()}
+	class="app-rail-tile {classesBase}"
+	on:click={onClickHandler}
+	on:keydown
+	on:keyup
+	on:keypress
+>
 	<!-- Slot: Default (icon) -->
 	<div class="app-rail-tile-icon {regionIcon}"><slot /></div>
 	<!-- Label -->

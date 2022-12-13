@@ -8,7 +8,7 @@
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldModal from '$lib/utilities/Modal/Modal.svelte?raw&sveld';
 
 	// Modals Utils
@@ -129,7 +129,7 @@
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-4">
-			<div class="card card-body space-y-4">
+			<div class="card p-4 space-y-4">
 				<p class="text-center font-bold">Dialog Modals</p>
 				<div class="flex justify-center space-x-2">
 					<button class="btn btn-ghost-surface" on:click={modalAlert}>Alert</button>
@@ -138,7 +138,7 @@
 					<button class="btn btn-ghost-surface" on:click={modalMultiple}>Multiple</button>
 				</div>
 			</div>
-			<div class="card card-body space-y-4">
+			<div class="card p-4 space-y-4">
 				<p class="text-center font-bold">Custom Component Modals</p>
 				<div class="flex justify-center space-x-2">
 					<button class="btn btn-ghost-surface" on:click={modalComponentForm}>Form</button>
@@ -155,8 +155,8 @@
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<p>
-				Import and add a single instance of the Modal component in your app's root layout. We recommend only adding this <u>ONCE</u> per app
-				since it exists in global scope.
+				Import and add a single instance of the Modal component in your app's root layout. Since this is in global scope it will be possible
+				to reuse this feature throughout your entire application.
 			</p>
 			<CodeBlock language="html" code={`<Modal />`} />
 		</section>
@@ -311,6 +311,32 @@ function triggerCustomModal(): void {
 				<li>Use the <code>parent.onClose()</code> or <code>modalStore.close()</code> methods to close the modal.</li>
 				<li>Use the <code>$modalStore[0].response('myResponseDataHere');</code> method to return a response value.</li>
 			</ul>
+		</section>
+		<section class="space-y-4">
+			<h2>SvelteKit and SSR Warning</h2>
+			<p>
+				If you're building a SvelteKit project please be aware that there are <a
+					href="https://github.com/sveltejs/kit/discussions/4339#discussioncomment-2384978"
+					target="_blank"
+					rel="noreferrer">known issues when using Svelte stores with SSR</a
+				>, such as our modal store. To prevent these issues please avoid the use of the modal store within any SvelteKit Load function.
+				Likewise, if you need a modal to open on route initilization we advise triggering the <code>open()</code> method after the
+				<a href="https://kit.svelte.dev/docs/modules#$app-environment" target="_blank" rel="noreferrer"
+					>SvelteKit Browser environment context</a
+				> is available.
+			</p>
+			<CodeBlock
+				language="typescript"
+				code={`
+import { browser } from '$app/environment';\n
+if (browser) modalStore.trigger({...});
+				`}
+			/>
+			<p>
+				For additional context please see this <a href="https://github.com/skeletonlabs/skeleton/pull/580" target="_blank" rel="noreferrer"
+					>thread</a
+				>.
+			</p>
 		</section>
 	</svelte:fragment>
 </DocsShell>

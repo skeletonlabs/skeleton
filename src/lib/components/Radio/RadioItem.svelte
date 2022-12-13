@@ -6,15 +6,19 @@
 	const dispatch = createEventDispatcher();
 
 	// Props
-	/** The item's selection value. */
+	/**
+	 * The item's selection value.
+	 * @type {any}
+	 */
 	export let value: any = undefined;
 
 	// Props (A11y)
 	/** Defines a semantic ARIA label. */
-	export let label: string = '';
+	export let label = '';
 
 	// Context
 	export let selected: Writable<any> = getContext('selected');
+	export let padding: string = getContext('padding');
 	export let hover: string = getContext('hover');
 	export let accent: string = getContext('accent');
 	export let color: string = getContext('color');
@@ -22,7 +26,7 @@
 	export let rounded: string = getContext('rounded');
 
 	// Base Classes
-	const cBase: string = ' font-bold text-base text-center px-4 py-2 cursor-pointer whitespace-nowrap';
+	const cBase = ' font-bold text-base text-center cursor-pointer whitespace-nowrap';
 
 	// A11y Input Handlers
 	function onKeyDown(event: any): void {
@@ -38,10 +42,26 @@
 	// Reactive Classes
 	$: checked = value === $selected;
 	$: classesSelected = checked ? `${accent} ${fill} ${color}` : `${hover}`;
-	$: classesLabel = `${cBase} ${classesSelected} ${rounded}`;
+	$: classesLabel = `${cBase} ${classesSelected} ${padding} ${rounded}`;
+
+	// Prune $$restProps to avoid overwriting $$props.class
+	function prunedRestProps(): any {
+		delete $$restProps.class;
+		return $$restProps;
+	}
 </script>
 
-<div class="radio-item flex-auto" role="radio" aria-checked={checked} aria-label={label} tabindex="0" data-testid="radio-item" on:click on:keydown={onKeyDown}>
+<div
+	class="radio-item flex-auto"
+	role="radio"
+	aria-checked={checked}
+	aria-label={label}
+	{...prunedRestProps()}
+	tabindex="0"
+	data-testid="radio-item"
+	on:click
+	on:keydown={onKeyDown}
+>
 	<label class="radio-item-label {classesLabel}">
 		<input class="radio-item-input hidden" type="radio" {value} bind:group={$selected} />
 		<slot />

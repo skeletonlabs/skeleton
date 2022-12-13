@@ -91,7 +91,7 @@
 </script>
 
 <svelte:head>
-	<!-- Select Preset Theme CSS -->
+	<!-- Select Preset Theme CSS DO NOT REMOVE ESCAPES-->
 	{@html `\<style\>${themes[$storeTheme]}}\</style\>`}
 </svelte:head>
 

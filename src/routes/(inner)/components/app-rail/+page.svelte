@@ -11,9 +11,9 @@
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldAppRail from '$lib/components/AppRail/AppRail.svelte?raw&sveld';
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldAppRailTile from '$lib/components/AppRail/AppRailTile.svelte?raw&sveld';
 
 	// Stores
@@ -77,18 +77,18 @@
 				code={`
 import { writable, type Writable } from 'svelte/store';\n
 const storeValue: Writable<number> = writable(1);
-            `}
+`}
 			/>
 			<p>Implement your App Rail component and append the <code>selected</code> prop and store.</p>
 			<CodeBlock
 				language="html"
 				code={`
 <AppRail selected={storeValue}>
-    <svelte:fragment slot="lead">(lead)</svelte:fragment>
-    <!-- (AppRailTiles Here) -->
-    <svelte:fragment slot="trail">(trail)</svelte:fragment>
+	<svelte:fragment slot="lead">(lead)</svelte:fragment>
+	<!-- (AppRailTiles Here) -->
+	<svelte:fragment slot="trail">(trail)</svelte:fragment>
 </AppRail>
-            `}
+`}
 			/>
 		</div>
 		<!-- Tile -->
@@ -96,6 +96,11 @@ const storeValue: Writable<number> = writable(1);
 			<h2>Adding Tiles</h2>
 			<p>Create one or more rail tile components within your app rail's available slots.</p>
 			<CodeBlock language="html" code={`<AppRailTile label="Tile" title="Tile" value={1}>(icon)</AppRailTile>`} />
+			<p>
+				You can use <code>tag="a"</code> to convert any tile to an anchor link, then append
+				<em>href, target, rel</em>, and other attributes as needed.
+			</p>
+			<CodeBlock language="html" code={`<AppRailTile tag="a" href="https://github.com/">(icon)</AppRailTile>`} />
 		</div>
 	</svelte:fragment>
 </DocsShell>

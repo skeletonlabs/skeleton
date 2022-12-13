@@ -9,9 +9,9 @@
 	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldStepper from '$lib/components/Stepper/Stepper.svelte?raw&sveld';
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldStep from '$lib/components/Stepper/Step.svelte?raw&sveld';
 
 	// Stores
@@ -31,9 +31,9 @@
 	};
 
 	// Local
-	const lorem: string =
+	const lorem =
 		'Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque vel expedita porro vero, saepe dicta repellendus facilis ab accusamus unde, tempora ut nobis eum. Veniam, architecto corrupti.';
-	let exampleLockedState: boolean = false;
+	let exampleLockedState = false;
 
 	const onComplete = () => {
 		alert('Complete was triggered!');
@@ -43,7 +43,7 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="card card-body">
+		<section class="card p-4">
 			<Stepper {active} length={5} on:complete={onComplete}>
 				<Step index={0}>
 					<svelte:fragment slot="header"><h4>Step 1 - Get Started!</h4></svelte:fragment>
@@ -54,8 +54,8 @@
 				</Step>
 				<Step index={2} locked={!exampleLockedState}>
 					<p>
-						This Step component uses the <code>locked</code> property, which can prevent progress. This is ideal for multi-step forms, such as registration. For now we'll simulate a successful
-						validation condition using the
+						This Step component uses the <code>locked</code> property, which can prevent progress. This is ideal for multi-step forms, such
+						as registration. For now we'll simulate a successful validation condition using the
 						<em>unlock</em> option below.
 					</p>
 					<SlideToggle bind:checked={exampleLockedState}>Unlock</SlideToggle>
@@ -66,7 +66,8 @@
 				</Step>
 				<Step index={4}>
 					<p>
-						A <em>Complete</em> button will appear on the last step. When the step is unlocked and the button pressed, an <code>on:complete</code> event will fire. Use this to submit form data to a server.
+						A <em>Complete</em> button will appear on the last step. When the step is unlocked and the button pressed, an
+						<code>on:complete</code> event will fire. Use this to submit form data to a server.
 					</p>
 				</Step>
 			</Stepper>

@@ -17,7 +17,7 @@
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldTable from '$lib/components/Table/Table.svelte?raw&sveld';
 
 	// Stores
@@ -149,11 +149,11 @@ const tableSimple: TableSource = {
 					language="ts"
 					code={`
 tableMapperValues(sourceData, ['name', 'symbol', 'weight'])\n
-// [
-//     ['Hydrogen', 'H', '1.0079'],
-//     ['Helium', 'He', '4.0026'],
-//     ...
-// ]
+//	[
+//		['Hydrogen', 'H', '1.0079'],
+//		['Helium', 'He', '4.0026'],
+//		...
+//	]
 				`}
 				/>
 			{:else if $storeService === 'tableSourceMapper'}
@@ -163,11 +163,11 @@ tableMapperValues(sourceData, ['name', 'symbol', 'weight'])\n
 					language="ts"
 					code={`
 tableSourceMapper(sourceData, ['name', 'symbol', 'weight']);\n
-// [
-//     { name: 'Hydrogen', symbol: 'H', weight: '1.0079' },
-//     { name: 'Helium', symbol: 'He', weight: '4.0026' },
-//     ...
-// ]
+//[
+//		{ name: 'Hydrogen', symbol: 'H', weight: '1.0079' },
+//		{ name: 'Helium', symbol: 'He', weight: '4.0026' },
+//		...
+//]
 					`}
 				/>
 			{:else if $storeService === 'tableSourceValues'}
@@ -180,12 +180,12 @@ tableSourceMapper(sourceData, ['name', 'symbol', 'weight']);\n
 					language="ts"
 					code={`
 tableSourceValues(sourceData);\n
-// [
-//     [ 1, 'Hydrogen', '1.0079', 'H' ],
-//     [ 2, 'Helium', '4.0026', 'He' ],
-//     ...
-// ]
-					`}
+//[
+//		[ 1, 'Hydrogen', '1.0079', 'H' ],
+//		[ 2, 'Helium', '4.0026', 'He' ],
+//		...
+//]
+`}
 				/>
 				<!-- DISABLED: see comments in utils.ts -->
 				<!-- {else if $storeService === 'tableCellFormatter'}
@@ -195,11 +195,11 @@ tableSourceValues(sourceData);\n
 					code={`
 tableCellFormatter(sourceData, 'weight', 'em', 'opacity-50');\n
 // [
-//     { position: 1, name: 'Hydrogen', weight: '<em class="opacity-50">1.0079</em>', symbol: 'H' },
-//     { position: 2, name: 'Helium', weight: '<em class="opacity-50">4.0026</em>', symbol: 'He' },
-//     ...
+//	{ position: 1, name: 'Hydrogen', weight: '<em class="opacity-50">1.0079</em>', symbol: 'H' },
+//	{ position: 2, name: 'Helium', weight: '<em class="opacity-50">4.0026</em>', symbol: 'He' },
+//	...
 // ]
-					`}
+`}
 				/> -->
 			{/if}
 		</section>

@@ -9,13 +9,13 @@
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldProgressBar from '$lib/components/ProgressBar/ProgressBar.svelte?raw&sveld';
 
 	// Stores
 	const storeDeterminate: Writable<boolean> = writable(true);
 	const storeHeight: Writable<string> = writable('h-2');
-	const defaultTrackBg: string = 'bg-surface-200-700-token';
+	const defaultTrackBg = 'bg-surface-200-700-token';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -45,7 +45,7 @@
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-2">
 			<!-- Example -->
-			<div class="card card-body h-full flex justify-center items-center">
+			<div class="card p-4 h-full flex justify-center items-center">
 				<div class="py-10 w-[90%]">
 					<svelte:component
 						this={ProgressBar}
@@ -60,7 +60,7 @@
 				</div>
 			</div>
 			<!-- Options -->
-			<div class="card card-body space-y-4 w-auto lg:w-[400px]">
+			<div class="card p-4 space-y-4 w-auto lg:w-[400px]">
 				<!-- Mode -->
 				<label for="">
 					<RadioGroup selected={storeDeterminate} display="flex">
@@ -70,7 +70,16 @@
 				</label>
 				<!-- Amount -->
 				{#if props.determinate}
-					<input type="range" id="amount" name="amount" min="0" max={props.max} step="10" bind:value={props.value} aria-label="Value Amount" />
+					<input
+						type="range"
+						id="amount"
+						name="amount"
+						min="0"
+						max={props.max}
+						step="10"
+						bind:value={props.value}
+						aria-label="Value Amount"
+					/>
 				{/if}
 				<!-- Label -->
 				<label>
@@ -127,7 +136,11 @@
 	<svelte:fragment slot="usage">
 		<div class="space-y-4">
 			<p>
-				This component is treated as a <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/progressbar_role" target="_blank" rel="noreferrer">ARIA progressbar</a>.
+				This component is treated as an <a
+					href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/progressbar_role"
+					target="_blank"
+					rel="noreferrer">ARIA progressbar</a
+				>.
 			</p>
 			<CodeBlock language="html" code={`<ProgressBar label="Progress Bar" value={50} max={100} />`} />
 		</div>

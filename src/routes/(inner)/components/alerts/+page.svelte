@@ -5,7 +5,7 @@
 	import Alert from '$lib/components/Alert/Alert.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldAlert from '$lib/components/Alert/Alert.svelte?raw&sveld';
 
 	// Docs Shell
@@ -22,7 +22,7 @@
 	let title = `Hello Skeleton!`;
 	let message =
 		'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi, cupiditate eveniet in neque magnam quos ad cumque quae numquam voluptatum magni atque vitae dolore voluptatibus aliquam tempora! Animi, nihil quo.';
-	let visible: boolean = true;
+	let visible = true;
 
 	// Functions
 	function toggleVisible(): void {
@@ -38,7 +38,7 @@
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-4">
 			{#if !visible}
-				<div class="card card-body text-center"><button class="btn btn-ghost-surface" on:click={toggleVisible}>Display Alerts</button></div>
+				<div class="card p-4 text-center"><button class="btn btn-ghost-surface" on:click={toggleVisible}>Display Alerts</button></div>
 			{/if}
 			<Alert {visible}>
 				<svelte:fragment slot="lead">
@@ -51,19 +51,19 @@
 					<button class="btn-icon btn-ghost-tertiary" on:click={toggleVisible}>&#10005;</button>
 				</svelte:fragment>
 			</Alert>
-			<Alert background="bg-warning-500/40" border="border-l-4 border-warning-500" {visible}>
+			<Alert background="bg-warning-500/20" border="border border-warning-500" {visible}>
 				<span>{message}</span>
 				<svelte:fragment slot="trail">
-					<button class="btn-icon btn-ghost-surface" on:click={toggleVisible}>&#10005;</button>
+					<button class="btn-icon btn-ghost-warning" on:click={toggleVisible}>&#10005;</button>
 				</svelte:fragment>
 			</Alert>
-			<Alert background="bg-accent-500/40" border="border-l-4 border-accent-500" {visible}>
+			<Alert background="bg-accent-500/20" border="border border-accent-500" {visible}>
 				<svelte:fragment slot="title">{title}</svelte:fragment>
 				<svelte:fragment slot="trail">
 					<button class="btn btn-filled-accent" on:click={actionExample}>View More</button>
 				</svelte:fragment>
 			</Alert>
-			<Alert background="bg-primary-500/40" border="border-l-4 border-primary-500" {visible}>
+			<Alert background="bg-primary-500/20" border="border border-primary-500" {visible}>
 				<svelte:fragment slot="title">{title}</svelte:fragment>
 				<svelte:fragment slot="trail">
 					<button class="btn btn-filled-primary" on:click={actionExample}>View More</button>

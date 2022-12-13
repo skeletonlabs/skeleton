@@ -38,7 +38,7 @@
 		/* Padding */
 		@apply px-4 py-3;
 		/* Hover */
-		@apply bg-hover-token;
+		@apply bg-primary-hover-token;
 		/* Cursor */
 		@apply cursor-pointer;
 		/* Theme: Rounded */

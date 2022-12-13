@@ -11,31 +11,31 @@
 
 	// Props
 	/** Control visibility of the alert. */
-	export let visible: boolean = true;
+	export let visible = true;
 	/** Provide classes to set background color. */
-	export let background: string = 'bg-tertiary-500/40';
+	export let background = 'bg-tertiary-500/20';
 	/** Provide classes to set the border styles. */
-	export let border: string = 'border-l-4 border-l-tertiary-500';
+	export let border = 'border border-tertiary-500';
 	/** Provide classes to set text color. */
-	export let color: string = '';
+	export let color = '';
 	/** Provide classes to set border radius. */
-	export let rounded: string = '';
+	export let rounded = 'rounded-container-token';
 	/** Svelte fade transition duration. Set 0 to disable. */
-	export let duration: number = 200; // ms
+	export let duration = 200; // ms
 
 	// Props (regions)
 	/** Classes to be applied to the lead slot region. */
-	export let slotLead: string = '';
+	export let slotLead = '';
 	/** Classes to be applied to the content slot region. */
-	export let slotContent: string = '';
+	export let slotContent = '';
 	/** Classes to be applied to the trail slot region. */
-	export let slotTrail: string = '';
+	export let slotTrail = '';
 
 	// Base Classes
-	let cBaseCard: string = 'flex flex-col items-start lg:items-center lg:flex-row p-5 space-y-4 lg:space-y-0 lg:space-x-4';
-	let cLead: string = 'flex justify-center items-center';
-	let cContent: string = 'flex flex-col w-full justify-center space-y-2';
-	let cTrail: string = 'flex items-center space-x-4';
+	let cBaseCard = 'flex flex-col items-start lg:items-center lg:flex-row p-5 space-y-4 lg:space-y-0 lg:space-x-4 shadow';
+	let cLead = 'flex justify-center items-center';
+	let cContent = 'flex flex-col w-full justify-center space-y-2';
+	let cTrail = 'flex items-center space-x-4';
 
 	// Reactive Classes
 	$: classesCard = `${cBaseCard} ${background} ${border} ${color} ${rounded} ${$$props.class ?? ''}`;

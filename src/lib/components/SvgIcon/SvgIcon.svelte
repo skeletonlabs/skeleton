@@ -5,28 +5,28 @@
 <script lang="ts">
 	// Props
 	/** Pass canned svg name. Slot value overrides this.*/
-	export let name: string = 'image';
+	export let name = 'image';
 	/** Native X attribute for the svg element.*/
-	export let x: string = '0px';
+	export let x = '0px';
 	/** Native Y attribute for the svg element.*/
-	export let y: string = '0px';
+	export let y = '0px';
 	/** Native viewBox attribute for the svg element.*/
 	export let viewBox: string = icons[name].viewBox || '0 0 512 512';
 
 	// Props (Styles)
 	/** Provide classes to set the SVG fill color.*/
-	export let fill: string = 'fill-token';
+	export let fill = 'fill-current';
 	/** Provide classes to set the width color.*/
-	export let width: string = 'w-5';
+	export let width = 'w-5';
 	/** Provide classes to set the height color.*/
-	export let height: string = 'h-5';
+	export let height = 'h-5';
 
 	// A11y
 	/** Set the title element value embedded within the SVG.*/
-	export let title: string = '';
+	export let title = '';
 
 	// Base Classes
-	const cBase: string = 'inline-block outline-none';
+	const cBase = 'inline-block outline-none';
 
 	// Reactive Classes
 	$: classesBase = `${cBase} ${fill} ${width} ${height}`;

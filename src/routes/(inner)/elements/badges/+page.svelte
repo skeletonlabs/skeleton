@@ -9,13 +9,14 @@
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Element,
 		name: 'Badges',
-		description: 'Provides a robust set of badge styles',
+		description: 'Provides a robust set of non-interactive badge styles',
 		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/badges'],
 		source: 'styles/elements/badges.css',
 		classes: [
 			['<code>badge</code>', '-', 'Provides the standard badge style.'],
-			['<code>badge-icon</code>', '-', 'Provides the icon badge style.']
+			['<code>badge-icon</code>', '-', 'Provides the icon badge style.'],
+			['<code>badge-[variant]</code>', '-', 'Preset styles for badge and badge icons.']
 		]
 	};
 </script>
@@ -25,46 +26,46 @@
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 lg:grid-cols-3 gap-4">
 			<!-- - -->
-			<div class="card card-body">
+			<div class="card p-4">
 				<span class="badge badge-filled-surface">Skeleton</span>
 			</div>
 			<!-- - -->
-			<div class="lg:col-span-2 card card-body">
-				<span class="badge bg-primary-500 text-white">
+			<div class="lg:col-span-2 card p-4">
+				<span class="badge badge-filled-primary">
 					<span>&hearts;</span>
 					<span>Complete</span>
 				</span>
-				<span class="badge bg-accent-500 text-white">
+				<span class="badge badge-filled-accent">
 					<span>Skeleton</span>
 					<span>💀</span>
 				</span>
-				<span class="badge bg-tertiary-500 text-white">
+				<span class="badge badge-filled-tertiary">
 					<span>&hearts;</span>
 					<span>Favorite</span>
 				</span>
 			</div>
 			<!-- - -->
-			<div class="card card-body">
+			<div class="card p-4">
 				<h4>Skeleton</h4>
-				<sup class="badge bg-primary-500 text-white -ml-0">Sup</sup>
+				<sup class="badge badge-filled-primary -ml-0">Sup</sup>
 			</div>
 			<!-- - -->
-			<div class="card card-body">
+			<div class="card p-4">
 				<h4>Skeleton</h4>
-				<sub class="badge bg-accent-500 text-white -ml-0">Sub</sub>
+				<sub class="badge badge-filled-accent -ml-0">Sub</sub>
 			</div>
 			<!-- - -->
-			<div class="card card-body !space-x-6">
+			<div class="card p-4 !space-x-6">
 				<div class="relative inline-block">
-					<span class="badge bg-primary-500 text-white absolute -top-3 -right-4 z-10">50k</span>
+					<span class="badge badge-filled-primary absolute -top-3 -right-4 z-10">50k</span>
 					<button class="btn btn-sm btn-ghost-surface">Button</button>
 				</div>
 				<div class="relative inline-block">
-					<span class="badge-icon bg-accent-500 text-white absolute -top-1 -right-1 z-10">2</span>
+					<span class="badge-icon badge-filled-accent absolute -top-1 -right-1 z-10">2</span>
 					<Avatar />
 				</div>
 				<div class="relative inline-block">
-					<span class="badge-icon bg-tertiary-500 text-white absolute -top-1 -right-1 z-10">&hearts;</span>
+					<span class="badge-icon badge-filled-tertiary absolute -top-1 -right-1 z-10">&hearts;</span>
 					<Avatar />
 				</div>
 			</div>
@@ -75,13 +76,32 @@
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<p>Apply to any inline element, such as a <em>span</em> or <em>anchor</em> tag.</p>
-			<CodeBlock language="html" code={`<span class="badge bg-primary-500">Skeleton</span>`} />
+			<CodeBlock language="html" code={`<span class="badge badge-filled-primary">Skeleton</span>`} />
 		</section>
 		<!-- Icon -->
 		<section class="space-y-4">
 			<h2>Badge Icon</h2>
 			<p>A compact circular variation badge style.</p>
-			<CodeBlock language="html" code={`<span class="badge-icon bg-primary-500">💀</span>`} />
+			<CodeBlock language="html" code={`<span class="badge-icon badge-filled-primary">💀</span>`} />
+		</section>
+
+		<!-- Variants -->
+		<section class="space-y-4">
+			<h2>Variants</h2>
+			<p>
+				A set of canned preset styles are available using <code>.badge-[variant]</code>. These are available for both badge and badge icons.
+			</p>
+			<CodeBlock language="html" code={`<span class="badge badge-filled-surface">Skeleton</span>`} />
+			<section class="lg:col-span-3 card p-4">
+				<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+					<div class="text-center"><span class="badge badge-filled-surface">filled-surface</span></div>
+					<div class="text-center"><span class="badge badge-filled-primary">filled-primary</span></div>
+					<div class="text-center"><span class="badge badge-filled-accent">filled-accent</span></div>
+					<div class="text-center"><span class="badge badge-filled-tertiary">filled-tertiary</span></div>
+					<div class="text-center"><span class="badge badge-filled-warning">filled-warning</span></div>
+					<div class="text-center"><span class="badge badge-glass block w-full">glass</span></div>
+				</div>
+			</section>
 		</section>
 		<!-- Overlapping -->
 		<section class="space-y-4">
@@ -91,8 +111,8 @@
 				language="html"
 				code={`
 <div class="relative inline-block">
-    <span class="badge-icon bg-primary-500 absolute -top-1 -right-1 z-10">💀</span>
-    <Avatar />
+	<span class="badge-icon badge-filled-primary absolute -top-1 -right-1 z-10">💀</span>
+	<Avatar />
 </div>
 		`.trim()}
 			/>
@@ -101,7 +121,7 @@
 </DocsShell>
 
 <style lang="postcss">
-	.card-body {
+	.p-4 {
 		@apply flex justify-center items-center space-x-2;
 	}
 </style>

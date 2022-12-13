@@ -5,7 +5,7 @@
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-ignore
+	// @ts-expect- error sveld import NOTE remove space between hyphen and error, this is to keep svelte check happy
 	// import sveldComp from '$lib/.../Component.svelte?raw&sveld';
 
 	// Docs Shell
@@ -36,7 +36,7 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<div class="card card-body">
+		<div class="card p-4">
 			<p class="text-center">(examples)</p>
 		</div>
 	</svelte:fragment>

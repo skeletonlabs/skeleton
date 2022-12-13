@@ -6,7 +6,7 @@ import type { HexRgb, SemanticNames, TailwindColorObject, TailwindNumbers } from
 // Helpers
 import { tailwindcssPaletteGenerator } from '@bobthered/tailwindcss-palette-generator';
 import { tailwindDefaultColors, tailwindNumbers } from '../../lib/tailwind/colors';
-import { storeTailwindPalette, storeTailwindForm, storeHexPalette } from './stores';
+import { storeTailwindPalette, storeTailwindForm, storeHexPalette, storeFormData } from './stores';
 
 // Tailwind ---
 
@@ -63,7 +63,7 @@ export function onRandomize(): void {
 // Generate Hex Palette - Source: https://github.com/bobthered/tailwindcss-palette-generator
 export function genHexPalette(key: SemanticNames, hexColor: string): TailwindColorObject & { source: string } {
 	// Generate base palette
-	// @ts-ignore
+	// @ts-expect-error too complex to be worth creating a type for
 	const hexShades: {
 		[key in SemanticNames]: {
 			[key in TailwindNumbers]: string;
@@ -97,7 +97,7 @@ export function onHexInput(key: SemanticNames, hexColor: string): void {
 	console.log({ key, hexColor, test: regexValidHexCode.test(hexColor) });
 	if (regexValidHexCode.test(hexColor)) {
 		// Generate Palette
-		let newStoreHexPalette = get(storeHexPalette);
+		const newStoreHexPalette = get(storeHexPalette);
 		newStoreHexPalette[key] = genHexPalette(key, hexColor);
 		storeHexPalette.set(newStoreHexPalette);
 	}

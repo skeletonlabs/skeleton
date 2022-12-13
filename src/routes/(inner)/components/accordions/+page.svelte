@@ -10,9 +10,9 @@
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldAccordionGroup from '$lib/components/Accordion/AccordionGroup.svelte?raw&sveld';
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldAccordionItem from '$lib/components/Accordion/AccordionItem.svelte?raw&sveld';
 
 	// Docs Shell
@@ -38,7 +38,7 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="card card-body">
+		<section class="card p-4">
 			<AccordionGroup>
 				<AccordionItem spacing="space-y-4" open>
 					<svelte:fragment slot="lead">
@@ -64,7 +64,7 @@
 				</AccordionItem>
 				<AccordionItem spacing="space-y-4">
 					<svelte:fragment slot="lead">
-						<Avatar initials="1" background="bg-accent-500" fill="fill-white" />
+						<Avatar initials="1" background="bg-accent-500" fill="fill-on-accent-token" />
 					</svelte:fragment>
 					<svelte:fragment slot="summary">
 						<h3>Numeral Heading</h3>
@@ -98,7 +98,9 @@
 </AccordionGroup>`}
 		/>
 
-		<p>When you don't want an AccordionItem to auto-collapse the other AccordionItems, just set <code>collapse</code> to <code>false</code>.</p>
+		<p>
+			When you don't want an AccordionItem to auto-collapse the other AccordionItems, just set <code>collapse</code> to <code>false</code>.
+		</p>
 		<CodeBlock
 			language="html"
 			code={`

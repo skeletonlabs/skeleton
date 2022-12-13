@@ -27,12 +27,12 @@
 				<svelte:fragment slot="trail">
 					<!-- FIXME: hardcoded path -->
 					<a
-						class="btn btn-ghost"
+						class="btn btn-ghost-tertiary"
 						href="https://github.com/skeletonlabs/skeleton/blob/master/src/lib/themes/theme-skeleton.css#L80"
 						target="_blank"
 						rel="noreferrer">Reference</a
 					>
-					<a class="btn btn-filled" href="https://csshero.org/mesher/" target="_blank" rel="noreferrer">Mesh Generator</a>
+					<a class="btn btn-filled-tertiary" href="https://csshero.org/mesher/" target="_blank" rel="noreferrer">Mesh Generator</a>
 				</svelte:fragment>
 			</Alert>
 		</div>
@@ -40,7 +40,7 @@
 		<div class="space-y-4">
 			<h2>Scrollbars</h2>
 			<p>Provides custom scrollbar styles in supported browsers.</p>
-			<div class="card card-body max-h-[200px] overflow-auto space-y-4">
+			<div class="card p-4 max-h-[200px] overflow-auto space-y-4">
 				<h3>Test Scrolling Here</h3>
 				<p>
 					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa corrupti iusto dolor. Similique quibusdam eveniet quae deleniti
@@ -76,7 +76,7 @@
 				Applies styling to the native horizontal rule element. See the <a href="/components/dividers">Dividers</a> component for more options.
 			</p>
 			<CodeBlock language="html" code={`<hr />`} />
-			<div class="card card-body space-y-4 text-center">
+			<div class="card p-4 space-y-4 text-center">
 				<p>Above the horizontal rule.</p>
 				<hr />
 				<p>Below the horizontal rule.</p>

@@ -3,6 +3,7 @@
 // Types ---
 
 export type { ConicStop } from './components/ConicGradient/types';
+export type { DrawerSettings } from './utilities/Drawer/types';
 export type { ModalSettings, ModalComponent } from './utilities/Modal/types';
 export type { ToastSettings } from './utilities/Toast/types';
 export type { TableSource } from './components/Table/types';
@@ -10,6 +11,7 @@ export type { TableSource } from './components/Table/types';
 // Stores ---
 
 export { storeHighlightJs } from './utilities/CodeBlock/stores';
+export { drawerStore } from './utilities/Drawer/stores';
 export { modalStore } from './utilities/Modal/stores';
 export { toastStore } from './utilities/Toast/stores';
 export { storePrefersDarkScheme, storeLightSwitch } from './utilities/LightSwitch/stores';
@@ -19,11 +21,10 @@ export { storePrefersDarkScheme, storeLightSwitch } from './utilities/LightSwitc
 export {
 	// Types
 	type DataTableModel,
+	type DataTableOptions,
 	// Utilities
+	createDataTableStore,
 	dataTableHandler,
-	dataTableSelect,
-	dataTableSelectAll,
-	dataTableSort,
 	// Svelte Actions
 	tableInteraction,
 	tableA11y

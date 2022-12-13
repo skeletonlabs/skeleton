@@ -23,7 +23,7 @@
 	import Summer84 from '$lib/actions/Filters/svg-filters/Summer84.svelte';
 	import XPro from '$lib/actions/Filters/svg-filters/XPro.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldAvatar from '$lib/components/Avatar/Avatar.svelte?raw&sveld';
 
 	// Docs Shell
@@ -37,8 +37,8 @@
 	};
 
 	// Local
-	const imgPlaceholder: string = 'https://i.pravatar.cc/?img=5';
-	const borderStyles: string = 'border-4 border-surface-300-600-token hover:!border-primary-500 cursor-pointer';
+	const imgPlaceholder = 'https://i.pravatar.cc/?img=5';
+	const borderStyles = 'border-4 border-surface-300-600-token hover:!border-primary-500 cursor-pointer';
 
 	// Store
 	const storeWidth: Writable<string | undefined> = writable('w-48');
@@ -76,7 +76,7 @@
 		<section class="space-y-4">
 			<div class="grid grid-cols-1 xl:grid-cols-[1fr_auto] gap-2">
 				<!-- Example -->
-				<div class="card card-body h-full flex justify-center items-center">
+				<div class="card p-4 h-full flex justify-center items-center">
 					<svelte:component
 						this={Avatar}
 						initials={props.initials}
@@ -92,7 +92,7 @@
 					/>
 				</div>
 				<!-- Options -->
-				<div class="card card-body space-y-4">
+				<div class="card p-4 space-y-4">
 					<!-- Source -->
 					<RadioGroup selected={storeSrc} display="flex">
 						<RadioItem value={imgPlaceholder}>Image</RadioItem>

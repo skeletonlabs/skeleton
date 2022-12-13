@@ -14,15 +14,15 @@
 
 	// Props
 	/** Defines the default open state on page load .*/
-	export let open: boolean = false;
+	export let open = false;
 	/** Provide semantic ID for ARIA summary element. */
-	export let summaryId: string = '';
+	export let summaryId = '';
 	/** Provide semantic ID for ARIA content element. */
-	export let contentId: string = '';
+	export let contentId = '';
 	/** Provide arbitrary styles for the summary element region. */
-	export let regionSummary: string = '';
+	export let regionSummary = '';
 	/** Provide arbitrary styles for the summary element region. */
-	export let regionContent: string = '';
+	export let regionContent = '';
 
 	// Context
 	/** Provide classes to set the hover background color. */
@@ -35,9 +35,9 @@
 	export let rounded: string = getContext('rounded');
 
 	// Base Classes
-	const cBaseDetails: string = '';
-	const cBaseSummary: string = 'list-none flex items-center space-x-4 cursor-pointer';
-	const cBaseIcon: string = 'flex justify-center items-center w-3 fill-black dark:fill-white transition-all duration-[100ms]';
+	const cBaseDetails = '';
+	const cBaseSummary = 'list-none flex items-center space-x-4 cursor-pointer';
+	const cBaseIcon = 'flex justify-center items-center w-3 fill-black dark:fill-white transition-all duration-[100ms]';
 
 	// Reactive Classes
 	$: classesDetails = `${cBaseDetails} ${spacing} ${$$props.class ?? ''}`;

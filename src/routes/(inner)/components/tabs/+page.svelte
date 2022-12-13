@@ -9,9 +9,9 @@
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldTabGroup from '$lib/components/Tab/TabGroup.svelte?raw&sveld';
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldTab from '$lib/components/Tab/Tab.svelte?raw&sveld';
 
 	let storeOne = writable('a');
@@ -39,7 +39,7 @@
 		<section class="space-y-4">
 			<h2 class="sr-only">Examples</h2>
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-				<div class="card card-body space-y-4">
+				<div class="card p-4 space-y-4">
 					<TabGroup selected={storeOne}>
 						<Tab value="a">Tab A</Tab>
 						<Tab value="b">Tab B</Tab>
@@ -51,8 +51,14 @@
 						{#if $storeOne === 'c'}Content C{/if}
 					</div>
 				</div>
-				<div class="card card-body space-y-4">
-					<TabGroup selected={storeTwo} justify="justify-start md:justify-end" borderColor="border-accent-500" color="text-accent-500" hover="hover:bg-accent-500/10">
+				<div class="card p-4 space-y-4">
+					<TabGroup
+						selected={storeTwo}
+						justify="justify-start md:justify-end"
+						borderColor="border-accent-500"
+						color="text-accent-500"
+						hover="hover:bg-accent-500/10"
+					>
 						<Tab value="a">Tab A</Tab>
 						<Tab value="b">Tab B</Tab>
 						<Tab value="c">Tab C</Tab>
@@ -64,8 +70,15 @@
 					</div>
 				</div>
 			</div>
-			<div class="card card-body space-y-4">
-				<TabGroup selected={storeThree} justify="justify-start md:justify-center" borderColor="border-tertiary-500" fill="fill-tertiary-500" color="text-tertiary-500" hover="hover:bg-tertiary-500/10">
+			<div class="card p-4 space-y-4">
+				<TabGroup
+					selected={storeThree}
+					justify="justify-start md:justify-center"
+					borderColor="border-tertiary-500"
+					fill="fill-tertiary-500"
+					color="text-tertiary-500"
+					hover="hover:bg-tertiary-500/10"
+				>
 					<Tab value="a">
 						<svelte:fragment slot="lead">
 							<SvgIcon name="book" fill="fill-inherit" class="!block" />
@@ -88,15 +101,23 @@
 				<div>
 					{#if $storeThree === 'a'}
 						<h3>Books</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+						</p>
 					{/if}
 					{#if $storeThree === 'b'}
 						<h3>Movies</h3>
-						<p>Nisl nunc mi ipsum faucibus vitae aliquet nec. Ac ut consequat semper viverra nam libero justo laoreet. Nec sagittis aliquam malesuada.</p>
+						<p>
+							Nisl nunc mi ipsum faucibus vitae aliquet nec. Ac ut consequat semper viverra nam libero justo laoreet. Nec sagittis aliquam
+							malesuada.
+						</p>
 					{/if}
 					{#if $storeThree === 'c'}
 						<h3>Television</h3>
-						<p>Ut sem viverra aliquet eget sit. Porttitor lacus luctus accumsan tortor posuere ac ut consequat. Vulputate enim nulla aliquet porttitor.</p>
+						<p>
+							Ut sem viverra aliquet eget sit. Porttitor lacus luctus accumsan tortor posuere ac ut consequat. Vulputate enim nulla aliquet
+							porttitor.
+						</p>
 					{/if}
 				</div>
 			</div>

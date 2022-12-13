@@ -13,24 +13,21 @@
 	 */
 	export let source: TableSource;
 	/** Enables row hover style and `on:selected` event when rows are clicked. */
-	export let interactive: boolean = false;
+	export let interactive = false;
 
 	// Props (styles)
 	/** Override the Tailwind Element class. Replace this for a headless UI. */
-	export let element: string = 'table';
+	export let element = 'table';
 	/** Provide classes to set the table text size. */
-	export let text: string = '';
+	export let text = '';
 	/** Provide classes to set the table text color. */
-	export let color: string = '';
+	export let color = '';
 	/** Provide arbitrary classes for the table head. */
-	export let regionHead: string = '';
+	export let regionHead = '';
 	/** Provide arbitrary classes for the table body. */
-	export let regionBody: string = '';
+	export let regionBody = '';
 	/** Provide arbitrary classes for the table foot. */
-	export let regionFoot: string = '';
-
-	// Local
-	let elemTable: HTMLElement;
+	export let regionFoot = '';
 
 	// Row Click Handler
 	function onRowClick(event: MouseEvent | KeyboardEvent, rowIndex: number): void {
@@ -57,7 +54,6 @@
 	<!-- Table -->
 	<!-- prettier-ignore -->
 	<table
-		bind:this={elemTable}
 		class="{classesTable}"
 		class:table-interactive={interactive}
 		role="grid"
@@ -67,7 +63,7 @@
 		<!-- Head -->
 		<thead class="table-head {regionHead}">
 			<tr>
-				{#each source.head as heading, i}
+				{#each source.head as heading }
 					<th>{@html heading}</th>
 				{/each}
 			</tr>
@@ -100,7 +96,7 @@
 		{#if source.foot}
 			<tfoot class="table-foot {regionFoot}">
 				<tr>
-					{#each source.foot as cell, i}
+					{#each source.foot as cell }
 						<td>{@html cell}</td>
 					{/each}
 				</tr>

@@ -19,20 +19,20 @@
 	// Props
 	export let settings: DocsShellSettings;
 	// Props (styles)
-	export let spacing: string = 'space-y-8 md:space-y-12';
+	export let spacing = 'space-y-8 md:space-y-12';
 	// Props (regions)
-	export let regionHeader: string = 'bg-accent-900/5 dark:bg-accent-900/20 border-b border-black/5 dark:border-white/5';
-	export let regionDetails: string = 'overflow-x-auto whitespace-nowrap grid grid-cols-1 md:grid-cols-[128px_1fr] gap-3';
-	export let regionPanels: string = 'page-container';
+	export let regionHeader = 'bg-accent-900/5 dark:bg-accent-900/20 border-b border-black/5 dark:border-white/5';
+	export let regionDetails = 'overflow-x-auto whitespace-nowrap grid grid-cols-1 md:grid-cols-[128px_1fr] gap-3';
+	export let regionPanels = 'page-container';
 
 	// Classes
-	const cBase: string = '';
+	const cBase = '';
 
 	// Stores
 	let storeActiveTab: Writable<string> = writable('usage');
 
 	// Local
-	const githubSourcePath: string = 'https://github.com/skeletonlabs/skeleton/tree/master/src'; // FIXME: hardcoded path
+	const githubSourcePath = 'https://github.com/skeletonlabs/skeleton/tree/master/src'; // FIXME: hardcoded path
 	const defaultSettings: DocsShellSettings = {
 		// Heading
 		feature: DocsFeature.Component,
@@ -133,7 +133,7 @@
 				<div class="flex items-center space-x-4">
 					<h1>{@html pageSettings.name}</h1>
 					<!-- Feature -->
-					<span class="badge bg-surface-500/30 translate-y-1">
+					<span class="badge badge-glass translate-y-1">
 						<SvgIcon width="w-4" height="h-4" name={setFeatureIcon()} />
 						<span>{@html pageSettings.feature}</span>
 					</span>
@@ -148,39 +148,34 @@
 				{#if pageSettings.imports?.length}
 					<p class="hidden md:inline-block w-32">Import</p>
 					<div>
-						<button on:click={copyImports}>
+						<!-- <button on:click={copyImports}>
 							<code>{formatImports()}</code>
-						</button>
+						</button> -->
+						<button class="chip" on:click={copyImports}>{formatImports()}</button>
 					</div>
 				{/if}
 				<!-- Types -->
 				{#if pageSettings.types?.length}
 					<p class="hidden md:inline-block w-32">Types</p>
 					<div>
-						<button on:click={copyTypes}>
-							<code>{formatTypes()}</code>
-						</button>
+						<button class="chip" on:click={copyTypes}>{formatTypes()}</button>
 					</div>
 				{/if}
 				<!-- Stylesheets -->
 				{#if pageSettings.stylesheetIncludes?.length || pageSettings.stylesheets?.length}
 					<p class="hidden md:inline-block w-32">Stylesheets</p>
 					<!-- prettier-ignore -->
-					<div class="flex space-x-1">
+					<div class="flex space-x-2">
 						<!-- Stylesheet Includes -->
 						{#if pageSettings.stylesheetIncludes?.length}
 							{#each pageSettings.stylesheetIncludes as si}
-								<button on:click={() => {copyStylesheet(si)}}>
-									<code>{si}.css</code>
-								</button>
+								<button class="chip" on:click={() => {copyStylesheet(si)}}>{si}.css</button>
 							{/each}
 						{/if}
 						<!-- Stylesheets -->
 						{#if pageSettings.stylesheets?.length}
 							{#each pageSettings.stylesheets as s}
-								<button on:click={() => {copyStylesheet(s)}}>
-									<code>{s}.css</code>
-								</button>
+								<button class="chip" on:click={() => {copyStylesheet(s)}}>{s}.css</button>
 							{/each}
 						{/if}
 					</div>
@@ -198,10 +193,11 @@
 					<a href={`${githubSourcePath}/lib/${pageSettings.source}`} target="_blank" rel="noreferrer">View Source</a>
 				</div>
 				<!-- Doc Source -->
-				<p class="hidden md:inline-block w-32">Docs</p>
+				<p class="hidden md:inline-block w-32">Doc</p>
 				<div class="flex items-end space-x-2">
-					<SvgIcon width="w-4" height="h-4" class="!mr-1" name="book" />
-					<a href={`${githubSourcePath}/routes/(inner)${pageSettings.docsPath}/+page.svelte`} target="_blank" rel="noreferrer">Doc Source</a
+					<SvgIcon width="w-4" height="h-4" class="!mr-1" name="pen-ruler" />
+					<a href={`${githubSourcePath}/routes/(inner)${pageSettings.docsPath}/+page.svelte`} target="_blank" rel="noreferrer"
+						>Edit This Page</a
 					>
 				</div>
 				<!-- Dependencies -->

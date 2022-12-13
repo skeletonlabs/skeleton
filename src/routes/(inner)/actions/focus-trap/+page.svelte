@@ -6,7 +6,7 @@
 	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
 	import { focusTrap } from '$lib/actions/FocusTrap/focusTrap';
 
-	let isFocused: boolean = false;
+	let isFocused = false;
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -22,7 +22,7 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="card card-body space-y-4">
+		<section class="card p-4 space-y-4">
 			<!-- Toggle -->
 			<div class="text-center">
 				<SlideToggle bind:checked={isFocused}>Trap Focus</SlideToggle>
@@ -50,7 +50,8 @@
 	<svelte:fragment slot="usage">
 		<div class="space-y-4">
 			<p>
-				Apply <code>use:focusTrap</code> and set the value to <code>true</code> to trap focus, and <code>false</code> to release focus. This will auto-select the first focusable element when activated.
+				Apply <code>use:focusTrap</code> and set the value to <code>true</code> to trap focus, and <code>false</code> to release focus. This
+				will auto-select the first focusable element when activated.
 			</p>
 			<CodeBlock language="html" code={`<div use:focusTrap={true}>Skeleton</div>`} />
 		</div>

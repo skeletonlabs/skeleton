@@ -4,7 +4,7 @@
 	export let parent: any;
 
 	// Base Classes
-	const cBase: string = 'relative';
+	const cBase = 'relative';
 </script>
 
 <!-- @component This example creates an embedded video modal. -->
