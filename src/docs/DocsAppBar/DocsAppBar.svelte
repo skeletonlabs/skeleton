@@ -49,29 +49,19 @@
 		modalStore.trigger(d);
 	}
 
-	// Keyboard Shortcut (⌘+K) to Focus Search
-	let pressedKeys: string[] = [];
-	function onWindowKeydown(e: any): void {
-		const commandKeys = ['MetaLeft', 'MetaRight', 'ControlLeft', 'ControlRight'];
-		if (commandKeys.includes(e.code) || e.code === 'KeyK') {
+	// Keyboard Shortcut (CTRL/⌘+K) to Focus Search
+	function onWindowKeydown(e: KeyboardEvent): void {
+		if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
 			// Prevent default browser behavior of focusing URL bar
 			e.preventDefault();
-			// Set pressed keys
-			pressedKeys = [...pressedKeys, e.code];
-			// If both keys pressed, focus input
-			if (pressedKeys.some((key) => commandKeys.includes(key)) && pressedKeys.includes('KeyK')) {
-				// If modal currently open, close modal (allows to open/close search with CTRL/⌘+K)
-				$modalStore.length ? modalStore.close() : triggerSearch();
-			}
+			// If modal currently open, close modal (allows to open/close search with CTRL/⌘+K)
+			$modalStore.length ? modalStore.close() : triggerSearch();
 		}
-	}
-	function onWindowKeyup(): void {
-		pressedKeys = [];
 	}
 </script>
 
 <!-- NOTE: using stopPropagation to override Chrome for Windows search shortcut -->
-<svelte:window on:keydown|stopPropagation={onWindowKeydown} on:keyup={onWindowKeyup} />
+<svelte:window on:keydown|stopPropagation={onWindowKeydown} />
 
 <AppBar>
 	<!-- Branding -->
