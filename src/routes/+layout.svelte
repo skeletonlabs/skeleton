@@ -39,7 +39,7 @@
 	import seasonal from '$lib/themes/theme-seasonal.css?inline';
 
 	// Default Theme, injected immediately:
-	import skeleton from '$lib/themes/theme-skeleton.css';
+	import skeleton from '$lib/themes/theme-skeleton.css?inline';
 	// Skeleton Stylesheets
 	import '$lib/styles/all.css';
 	// The Skeleton blog stylesheet
