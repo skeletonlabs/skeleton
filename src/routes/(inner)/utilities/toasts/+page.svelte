@@ -54,7 +54,7 @@
 		toastStore.trigger({ message: 'Message will auto-hide after 5 seconds.' });
 	}
 
-	function toastPreset(preset: 'primary' | 'accent' | 'tertiary' | 'warning' | 'success' | 'error'): void {
+	function toastPreset(preset: ToastSettings['preset']): void {
 		const t: ToastSettings = {
 			message: `This message the <u>${preset}</u> preset.`,
 			preset
