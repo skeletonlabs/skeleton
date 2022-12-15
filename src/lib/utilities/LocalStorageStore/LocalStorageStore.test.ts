@@ -1,13 +1,15 @@
 // Source: https://github.com/joshnuss/svelte-local-storage-store
-// https://github.com/joshnuss/svelte-local-storage-store/blob/master/test/localStorageStore.test.ts
-// Represents version v0.3.1 (2022-08-21)
+// https://github.com/joshnuss/svelte-local-storage-store/blob/master/it/localStorageStore.it.ts
+// Represents version v0.3.2 (2022-12-04)
 
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
 import { get } from 'svelte/store';
 
 import { localStorageStore } from '$lib/utilities/LocalStorageStore/LocalStorageStore';
 
-describe('LocalStorageStore.ts', () => {
+describe('localStorageStore()', () => {
+	beforeEach(() => localStorage.clear());
+
 	it('uses initial value if nothing in local storage', () => {
 		const store = localStorageStore('myKey', 123);
 		const value = get(store);
@@ -189,14 +191,30 @@ describe('LocalStorageStore.ts', () => {
 			parse: (json: string) => new Set(JSON.parse(json))
 		};
 
-		const testSet = new Set([1, 2, 3]);
+		const itSet = new Set([1, 2, 3]);
 
-		const store = localStorageStore('myKey11', testSet, { serializer });
+		const store = localStorageStore('myKey11', itSet, { serializer });
 		const value = get(store);
 
 		store.update((d) => d.add(4));
 
-		expect(value).toEqual(testSet);
-		expect(localStorage.myKey11).toEqual(serializer.stringify(testSet));
+		expect(value).toEqual(itSet);
+		expect(localStorage.myKey11).toEqual(serializer.stringify(itSet));
 	});
+
+	// FIXME: need to replace the `jest` syntax here
+	// it('lets you switch storage type', () => {
+	// 	jest.spyOn(Object.getPrototypeOf(window.sessionStorage), 'setItem');
+	// 	Object.setPrototypeOf(window.sessionStorage.setItem, jest.fn());
+
+	// 	const value = 'foo';
+
+	// 	const store = localStorageStore('myKey12', value, {
+	// 		storage: 'session'
+	// 	});
+
+	// 	store.set('bar');
+
+	// 	expect(window.sessionStorage.setItem).toHaveBeenCalled();
+	// });
 });
