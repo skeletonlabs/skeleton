@@ -181,7 +181,9 @@ function triggerAlert(): void {
 		type: 'alert',
 		title: 'Example Alert',
 		body: 'This is an example modal.',
-		image: 'https://i.imgur.com/WOgTG96.gif'
+		image: 'https://i.imgur.com/WOgTG96.gif',
+		// Optionally override buttont text
+		buttonTextCancel: 'Cancel'
 	};
 	modalStore.trigger(alert);
 }
@@ -196,8 +198,11 @@ function triggerConfirm(): void {
 		type: 'confirm',
 		title: 'Please Confirm',
 		body: 'Are you sure you wish to proceed?',
-		// confirm = TRUE | cancel = FALSE
-		response: (r: boolean) => console.log('response:', r)
+		// TRUE if confirm pressed, FALSE if cancel pressed
+		response: (r: boolean) => console.log('response:', r),
+		// Optionally override the button text
+		buttonTextCancel: 'Cancel',
+		buttonTextConfirm: 'Confirm',
 	};
 	modalStore.trigger(confirm);
 }
@@ -216,6 +221,9 @@ function triggerPrompt(): void {
 		value: 'Skeleton',
 		// Returns the updated response value
 		response: (r: string) => console.log('response:', r)
+		// Optionally override the button text
+		buttonTextCancel: 'Cancel',
+		buttonTextSubmit: 'Submit',
 	};
 	modalStore.trigger(prompt);
 }
