@@ -33,7 +33,7 @@
 	function onChangeLength(): void {
 		settings.offset = 0;
 		/** @event {{ length: number }} amount - Fires when the amount selection input changes.  */
-		dispatch('amount', length);
+		dispatch('amount', settings.limit);
 	}
 	function onPrev(): void {
 		settings.offset--;
