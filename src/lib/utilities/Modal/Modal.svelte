@@ -1,10 +1,11 @@
 <script lang="ts">
+	import { createEventDispatcher } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
 
-	// Actions
-	import { focusTrap } from '$lib/actions/FocusTrap/focusTrap';
+	// Event Handler
+	const dispatch = createEventDispatcher();
 
-	// Stores
+	import { focusTrap } from '$lib/actions/FocusTrap/focusTrap';
 	import { modalStore } from '$lib/utilities/Modal/stores';
 
 	// Props
@@ -65,9 +66,11 @@
 
 	// Event Handlers ---
 
-	function onBackdropInteraction(e: MouseEvent | TouchEvent): void {
-		if (!(e.target instanceof Element)) return;
-		if (e.target.classList.contains('modal-backdrop')) onClose();
+	function onBackdropInteraction(event: MouseEvent | TouchEvent): void {
+		if (!(event.target instanceof Element)) return;
+		if (event.target.classList.contains('modal-backdrop')) onClose();
+		/** @event {{ event }} backdrop - Fires on backdrop interaction.  */
+		dispatch('backdrop', event);
 	}
 
 	function onClose(): void {

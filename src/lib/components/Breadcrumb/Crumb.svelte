@@ -31,6 +31,10 @@
 		class="crumb-anchor {cAnchor}"
 		data-testid="crumb-anchor"
 		aria-current={!$$props.href ? 'page' : undefined}
+		on:click
+		on:keydown
+		on:keyup
+		on:keypress
 	>
 		{#if $$slots.lead}<span class="crumb-lead"><slot name="lead" /></span>{/if}
 		<span class="crumb-text"><slot /></span>

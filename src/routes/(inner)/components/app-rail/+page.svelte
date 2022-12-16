@@ -53,7 +53,7 @@
 				<AppRailTile label="Tile 2" value={2}>
 					<SvgIcon name="cubes" width="w-6" height="h-6" />
 				</AppRailTile>
-				<AppRailTile label="Tile 3" value={3}>
+				<AppRailTile label="Schedule Candidates" tag="a" value={3}>
 					<SvgIcon name="cubes" width="w-6" height="h-6" />
 				</AppRailTile>
 				<!-- Trail -->
