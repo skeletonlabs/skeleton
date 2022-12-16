@@ -79,7 +79,7 @@
 	<section class="space-y-4">
 		<h2>What's Next?</h2>
 		<p>Choose your own adventure, you can jump to any of the following.</p>
-		<div class="card p-4 card-glass space-y-4">
+		<div class="card p-4 card-glass-accent space-y-4">
 			<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 				<p>Learn more about Skeleton's Tailwind features.</p>
 				<a class="btn btn-ghost-surface" href="/elements/tokens">Tailwind Features &rarr;</a>

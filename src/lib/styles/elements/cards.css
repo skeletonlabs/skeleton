@@ -28,13 +28,25 @@
 		@apply transition-all hover:brightness-110;
 	}
 
-	.card-zoom {
+	.card-hover {
 		@apply transition-all hover:scale-[101%] hover:shadow-xl;
 	}
 
 	/* === Variants === */
 
-	.card-glass {
+	.card-glass-primary {
+		@apply bg-primary-500/10 dark:bg-primary-500/10 backdrop-blur-lg;
+	}
+	.card-glass-accent {
 		@apply bg-accent-500/10 dark:bg-accent-500/10 backdrop-blur-lg;
+	}
+	.card-glass-tertiary {
+		@apply bg-tertiary-500/10 dark:bg-tertiary-500/10 backdrop-blur-lg;
+	}
+	.card-glass-warning {
+		@apply bg-warning-500/10 dark:bg-warning-500/10 backdrop-blur-lg;
+	}
+	.card-glass-surface {
+		@apply bg-surface-500/10 dark:bg-surface-500/10 backdrop-blur-lg;
 	}
 }

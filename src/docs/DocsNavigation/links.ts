@@ -8,10 +8,10 @@ export const menuNavLinks: any = [
 		title: 'Docs',
 		list: [
 			{ href: '/docs/why', label: 'Why Skeleton' },
-			{ href: '/docs/faqs', label: 'FAQs', badge: 'New' },
-			{ href: '/docs/comparisons', label: 'Comparisons' },
 			{ href: '/docs/features', label: 'Features' },
-			{ href: '/docs/recommended', label: 'Recommended' },
+			{ href: '/docs/comparisons', label: 'Comparisons' },
+			{ href: '/docs/faqs', label: 'FAQs' }, // , badge: 'New'
+			// { href: '/docs/recommended', label: 'Recommended' }, // DISABLED until more complete
 			{ href: '/docs/contributions', label: 'Contributions' }
 		]
 	},
