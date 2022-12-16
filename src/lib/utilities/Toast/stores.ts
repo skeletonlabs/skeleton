@@ -28,8 +28,19 @@ function toastService() {
 		trigger: (toast: ToastSettings) =>
 			update((tStore) => {
 				const id: string = randomUUID();
+				// Apply Preset Color Styles
+				let classes = toast.classes ?? '';
+				// prettier-ignore
+				switch (toast.preset) {
+					// Success/Error
+					case('success'): classes += '!bg-green-500 !text-black'; break;
+					case('error'): classes += '!bg-red-500 !text-white'; break;
+					// Theme
+					default: classes += `!bg-${toast.preset}-500 text-on-${toast.preset}-token`; break;
+				}
 				// Merge into store
-				const tMerged = { ...toastDefaults, ...toast, id };
+				const tMerged = { ...toastDefaults, ...toast, id, classes };
+				console.log(tMerged);
 				tStore.push(tMerged);
 				// Handle auto-hide, if needed
 				handleAutoHide(tMerged);
