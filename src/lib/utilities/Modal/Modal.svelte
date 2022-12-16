@@ -173,11 +173,11 @@
 				</footer>
 				{:else if $modalStore[0].type === 'prompt'}
 					<!-- Template: Prompt -->
-					<input class="modal-prompt-input" type="text" bind:value={promptValue} required />
+					<input class="modal-prompt-input" type="text" bind:value={promptValue} />
 					<!-- prettier-ignore -->
 					<footer class="modal-footer {regionFooter}">
 					<button class="btn {buttonNeutral}" on:click={onClose}>{buttonTextCancel}</button>
-					<button class="btn {buttonPositive}" on:click={onPromptSubmit}>{buttonTextSubmit}</button>
+					<button class="btn {buttonPositive}" on:click={onPromptSubmit} disabled={!promptValue}>{buttonTextSubmit}</button>
 				</footer>
 				{:else if $modalStore[0].type === 'component'}
 					<!-- Template: Component -->
