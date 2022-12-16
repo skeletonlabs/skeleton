@@ -44,7 +44,7 @@
 	}
 	function onKeyDown(event: any): void {
 		/** @event {{ event }} keydown - Fires on tab keydown event.  */
-		dispatch('click', event);
+		dispatch('keydown', event);
 		// Enter/Space to toggle element
 		if (['Enter', 'Space'].includes(event.code)) {
 			event.preventDefault();
