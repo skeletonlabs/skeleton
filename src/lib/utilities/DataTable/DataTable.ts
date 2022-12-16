@@ -118,7 +118,9 @@ function sortOrder<T extends Record<PropertyKey, unknown>>(order: string, store:
 		if (typeof x[key] === 'string' && typeof y[key] === 'string') {
 			return String(x[key]).localeCompare(String(y[key]));
 		} else {
-			return (x[key] as number) - (y[key] as number);
+			const a = x[key] as number;
+			const b = y[key] as number;
+			return (a < b) ? -1 : ((a > b) ? 1 : 0)
 		}
 	});
 }
