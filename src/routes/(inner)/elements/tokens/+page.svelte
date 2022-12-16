@@ -103,7 +103,7 @@
 				construct design token classes from these, next components utilize these design token classes, then finally you construct your pages
 				with sets of elements and components.
 			</p>
-			<section class="card card-glass p-4 flex justify-center">
+			<section class="card card-glass-accent p-4 flex justify-center">
 				<img
 					class="rounded-container-token dark:invert"
 					src="https://user-images.githubusercontent.com/1509726/206284722-3aee216b-f2ac-4281-b3c4-fd07e8c18b0c.png"
@@ -120,7 +120,7 @@
 				<code>.bg-surface-50-900-token</code>
 				and <code>bg-surface-900-50-token</code> that automaticallys switch between these in light/dark mode respectively.
 			</p>
-			<section class="card card-glass p-4 flex justify-center">
+			<section class="card card-glass-accent p-4 flex justify-center">
 				<img
 					class="rounded-container-token dark:invert"
 					src="https://user-images.githubusercontent.com/1509726/195171203-423e5b84-8763-40f1-b3ea-4cb2b8e38108.png"

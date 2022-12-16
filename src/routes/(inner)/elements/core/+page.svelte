@@ -32,7 +32,7 @@
 						target="_blank"
 						rel="noreferrer">Reference</a
 					>
-					<a class="btn btn-filled-tertiary" href="https://csshero.org/mesher/" target="_blank" rel="noreferrer">Mesh Generator</a>
+					<a class="btn btn-filled" href="https://csshero.org/mesher/" target="_blank" rel="noreferrer">Mesh Generator</a>
 				</svelte:fragment>
 			</Alert>
 		</div>

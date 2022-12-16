@@ -293,7 +293,7 @@ import '../app.postcss'; // Substitute with your framework's global stylesheet
 			<h2>How to Customize Styles</h2>
 			<p>Learn how to customize Skeleton components and elements below.</p>
 		</div>
-		<div class="card p-4 card-glass">
+		<div class="card p-4 card-glass-accent">
 			<AccordionGroup>
 				<AccordionItem spacing="space-y-4" open>
 					<svelte:fragment slot="summary"><h3>Via Component Props</h3></svelte:fragment>
