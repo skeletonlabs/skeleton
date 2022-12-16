@@ -71,14 +71,14 @@
 			<SvgIcon name="bars" />
 		</button>
 		<!-- Logo -->
-		<a class="mr-4" href="/" title="Go to Homepage">
+		<a href="/" title="Go to Homepage">
 			<span class="hidden sm:inline"><DocsLogoFull /></span>
 			<span class="inline sm:hidden"><DocsLogoIcon /></span>
 		</a>
 	</svelte:fragment>
 
 	<!-- Search -->
-	<div class="hidden md:inline">
+	<div class="hidden md:inline md:ml-4">
 		<button class="btn btn-ghost-surface btn-sm" on:click={triggerSearch}>
 			<SvgIcon name="search" width="w-4" height="h-4" class="mr-2" />
 			<span>Search</span>
@@ -214,14 +214,14 @@
 		<Divider vertical borderWidth="border-l-2 opacity-20" />
 
 		<!-- Social -->
-		<section class="flex">
-			<a class="btn btn-sm" href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer" aria-label="Discord">
+		<section class="grid grid-cols-3 gap-6">
+			<a href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer" aria-label="Discord">
 				<SvgIcon name="discord" viewBox="0 0 640 512" />
 			</a>
-			<a class="btn btn-sm" href="https://twitter.com/SkeletonUI" target="_blank" rel="noreferrer" aria-label="Twitter">
+			<a href="https://twitter.com/SkeletonUI" target="_blank" rel="noreferrer" aria-label="Twitter">
 				<SvgIcon name="twitter" />
 			</a>
-			<a class="btn btn-sm" href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer" aria-label="GitHub">
+			<a href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer" aria-label="GitHub">
 				<SvgIcon name="github" />
 			</a>
 		</section>
