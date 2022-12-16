@@ -103,7 +103,7 @@
 				code={`
 function triggerToast(): void {
 	const t: ToastSettings = {
-		message: '👋 Hello and welcome to Skeleton.'
+		message: '👋 Hello and welcome to Skeleton.',
 		// Optional: The auto-hide settings
 		autohide: true,
 		timeout: 5000,
