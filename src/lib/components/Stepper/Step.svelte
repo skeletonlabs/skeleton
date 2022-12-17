@@ -32,9 +32,12 @@
 	// Context (overrides)
 	export let color: string = getContext('color');
 	export let background: string = getContext('background');
-	export let buttonBack: string = getContext('buttonBack');
-	export let buttonNext: string = getContext('buttonNext');
-	export let buttonComplete: string = getContext('buttonComplete');
+	export let buttonClassesBack: string = getContext('buttonClassesBack');
+	export let buttonClassesNext: string = getContext('buttonClassesNext');
+	export let buttonClassesComplete: string = getContext('buttonClassesComplete');
+	export let buttonTextBack: string = getContext('buttonTextBack');
+	export let buttonTextNext: string = getContext('buttonTextNext');
+	export let buttonTextComplete: string = getContext('buttonTextComplete');
 
 	// Step Handlers
 	function stepPrev(): void {
@@ -98,11 +101,19 @@
 				<slot />
 				<!-- Nav -->
 				<footer class="step-navigation {classesNav}">
-					{#if index !== 0}<button class="btn-icon {buttonBack}" on:click={stepPrev}>&uarr;</button>{/if}
+					{#if index !== 0}
+						<button class={buttonClassesBack} on:click={stepPrev}>
+							{@html buttonTextBack}
+						</button>
+					{/if}
 					{#if $active + 1 < length}
-						<button class="btn {buttonNext}" on:click={stepNext} disabled={locked}>Next &darr;</button>
+						<button class={buttonClassesNext} on:click={stepNext} disabled={locked}>
+							{@html buttonTextNext}
+						</button>
 					{:else}
-						<button class="btn {buttonComplete}" on:click={onComplete} disabled={locked}>Complete</button>
+						<button class={buttonClassesComplete} on:click={onComplete} disabled={locked}>
+							{@html buttonTextComplete}
+						</button>
 					{/if}
 				</footer>
 			</div>

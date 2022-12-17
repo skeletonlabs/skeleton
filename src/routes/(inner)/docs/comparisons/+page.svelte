@@ -39,7 +39,7 @@
 			>. It’s relatively simple to tailor a Flowbite component to work within an existing Tailwind design system. In fact, it’s even
 			possible to pair Flowbite with Skeleton, allowing you to mix and match components, while taking advantage of Skeleton’s theme system.
 		</p>
-		<div class="card p-4 card-glass">
+		<div class="card p-4 card-glass-accent">
 			<AccordionGroup>
 				<AccordionItem>
 					<svelte:fragment slot="summary">
@@ -104,8 +104,8 @@
 			>. Daisy also opts to forgo the biggest benefit of Tailwind, the deeply extensible utility class system, instead relying on
 			<a href="https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction" target="_blank" rel="noreferrer">@apply</a> to generate
 			canned style sets. Skeleton, on the other hand, treats utility classes as first class citizens, providing hooks to set and override Tailwind
-			classes within each component. Skeleton components also accept arbitrary classes, allowing full customization from top to bottom. However, it’s
-			worth noting that Daisy is a general purpose library available to any framework, while Skeleton focuses purely on Svelte.
+			classes within each component. Skeleton components also accept arbitrary classes, allowing full customization from top to bottom. However,
+			it’s worth noting that Daisy is a general purpose library available to any framework, while Skeleton focuses purely on Svelte.
 		</p>
 	</section>
 

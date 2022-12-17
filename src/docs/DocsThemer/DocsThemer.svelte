@@ -66,7 +66,7 @@
 <div class="themer space-y-4">
 	<!-- Preview -->
 	<!-- class="col-span-2 place-self-center" -->
-	<div class="card p-4 card-glass flex justify-between items-center">
+	<div class="card p-4 card-glass-accent flex justify-between items-center">
 		<SlideToggle bind:checked={$storePreview}>Edit Mode</SlideToggle>
 		<div />
 		<div>

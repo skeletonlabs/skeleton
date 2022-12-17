@@ -23,7 +23,7 @@
 	export let hover: string = getContext('hover');
 
 	// Base Classes
-	const cBase = 'flex items-center space-x-4 whitespace-nowrap cursor-pointer';
+	const cBase = 'flex items-center space-x-4 whitespace-nowrap cursor-pointer -outline-offset-[3px]';
 
 	// Local
 	let elemItem: HTMLElement;

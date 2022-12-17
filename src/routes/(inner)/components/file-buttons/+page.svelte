@@ -40,7 +40,7 @@
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<CodeBlock language="ts" code={`let files: FileList;`} />
-			<CodeBlock language="html" code={`<FileButton bind:files={files} button="btn-filled-accent">Upload File</FileButton>`} />
+			<CodeBlock language="html" code={`<FileButton bind:files button="btn-filled-accent">Upload File</FileButton>`} />
 		</section>
 	</svelte:fragment>
 </DocsShell>
