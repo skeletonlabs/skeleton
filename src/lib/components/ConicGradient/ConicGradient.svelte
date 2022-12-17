@@ -77,7 +77,7 @@
 	{#if legend && generatedLegendList}
 		<ul class="conic-list list {cLabel}">
 			{#each generatedLegendList as { color, label, value }}
-				<li class="conic-item {hover}">
+				<li class="conic-item {hover}" on:click on:keydown on:keyup on:keypress>
 					<span class="conic-swatch {cSwatch}" style:background={color} />
 					<span class="conic-label flex-auto">{label}</span>
 					<strong class="conic-value">{value}%</strong>

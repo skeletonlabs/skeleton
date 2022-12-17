@@ -61,6 +61,8 @@
 	data-testid="radio-item"
 	on:click
 	on:keydown={onKeyDown}
+	on:keyup
+	on:keypress
 >
 	<label class="radio-item-label {classesLabel}">
 		<input class="radio-item-input hidden" type="radio" {value} bind:group={$selected} />

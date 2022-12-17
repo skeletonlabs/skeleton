@@ -5,7 +5,10 @@
 	 */
 
 	import type { Writable } from 'svelte/store';
-	import { getContext } from 'svelte';
+	import { createEventDispatcher, getContext } from 'svelte';
+
+	// Event Handler
+	const dispatch = createEventDispatcher();
 
 	// Context
 	export let selected: Writable<any> = getContext('selected');
@@ -33,7 +36,15 @@
 	const cBaseLabel = 'font-bold whitespace-nowrap';
 
 	// A11y Input Handlers
+	function onClickHandler(value: any): void {
+		/** @event {{ value }} click - Fires on tab click event.  */
+		dispatch('click', value);
+		// Update Selected
+		selected.set(value);
+	}
 	function onKeyDown(event: any): void {
+		/** @event {{ event }} keydown - Fires on tab keydown event.  */
+		dispatch('keydown', event);
 		// Enter/Space to toggle element
 		if (['Enter', 'Space'].includes(event.code)) {
 			event.preventDefault();
@@ -52,12 +63,14 @@
 <li
 	class="tab ${classesBase}"
 	on:click={() => {
-		selected.set(value);
+		onClickHandler(value);
 	}}
-	data-testid="tab"
 	on:keydown={onKeyDown}
+	on:keyup
+	on:keypress
 	role="tab"
 	tabindex="0"
+	data-testid="tab"
 >
 	<!-- Slot: Lead -->
 	{#if $$slots.lead}<div class="tab-lead {classesLead}"><slot name="lead" /></div>{/if}

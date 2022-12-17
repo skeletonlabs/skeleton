@@ -72,6 +72,10 @@
 	on:dragover={onDragOver}
 	on:dragleave={onDragLeave}
 	on:drop={onDrop}
+	on:click
+	on:keydown
+	on:keyup
+	on:keypress
 >
 	<!-- Message -->
 	<div class="file-dropzone-message {classesMessage}">
