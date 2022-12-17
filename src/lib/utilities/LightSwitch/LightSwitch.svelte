@@ -1,6 +1,9 @@
 <!-- https://tailwindcss.com/docs/dark-mode -->
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { createEventDispatcher, onMount } from 'svelte';
+
+	// Event Handler
+	const dispatch = createEventDispatcher();
 
 	// Components
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
@@ -33,11 +36,13 @@
 	}
 
 	// On Click Handler
-	function onClick(): void {
+	function onClick(event: any): void {
 		// Set the Store Value
 		storeLightSwitch.set(($storeLightSwitch = !$storeLightSwitch));
 		// Apply to <html> Element
 		setElemHtmlClass();
+		/** @event {{ event }} click - Fires when the component is clicked.  */
+		dispatch('click', event);
 	}
 
 	// A11y Input Handlers
@@ -47,6 +52,8 @@
 			event.preventDefault();
 			event.target.click();
 		}
+		/** @event {{ event }} keydown - Fires when the component has keydown event.  */
+		dispatch('keydown', event);
 	}
 
 	// Lifecycle
@@ -66,8 +73,7 @@
 <!-- prettier-ignore -->
 <div
 	class="lightswitch {classesBase}"
-	on:click={onClick}
-	on:keydown={onKeyDown}
+	on:click={onClick} on:keydown={onKeyDown} on:keyup on:keypress
 	role="switch"
 	aria-label="Light Switch"
 	aria-checked={$storeLightSwitch}

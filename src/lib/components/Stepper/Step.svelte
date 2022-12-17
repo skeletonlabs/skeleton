@@ -42,11 +42,16 @@
 	// Step Handlers
 	function stepPrev(): void {
 		active.set($active - 1);
+		/** @event {{ event }} previous - Fires when the component the Next step button is pressed.  */
+		dispatch('previous', {});
 	}
 	function stepNext(): void {
 		active.set($active + 1);
+		/** @event {{ event }} next - Fires when the component the Previous step button is pressed.  */
+		dispatch('next', {});
 	}
 	function onComplete() {
+		/** @event {{ event }} complete - Fires when the component the Complete button is pressed.  */
 		dispatch('complete', {});
 	}
 

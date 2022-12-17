@@ -85,6 +85,8 @@
 	{id}
 	on:click={onClickHandler}
 	on:keydown={onKeyDown}
+	on:keyup
+	on:keypress
 	role="option"
 	aria-selected={isSelected}
 	tabindex="0"

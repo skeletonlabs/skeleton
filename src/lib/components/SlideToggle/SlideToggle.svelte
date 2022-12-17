@@ -86,8 +86,11 @@
 			class="slide-toggle-input hidden"
 			bind:checked
 			on:click
-			on:change
+			on:keydown
+			on:keyup
+			on:keypress
 			on:mouseover
+			on:change
 			on:focus
 			on:blur
 			{...prunedRestProps()}
