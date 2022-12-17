@@ -26,4 +26,12 @@ export interface ModalSettings {
 	response?: (r: any) => void;
 	/** Provide abritrary classes to apply to the Modal element. Use `!` for important. */
 	classes?: string;
+	/** Override the Cancel button label. */
+	buttonTextCancel?: string;
+	/** Override the Confirm button label. */
+	buttonTextConfirm?: string;
+	/** Override the Submit button label. */
+	buttonTextSubmit?: string;
+	/** Pass abitrary data per modal instance. */
+	meta?: Record<string, any>;
 }

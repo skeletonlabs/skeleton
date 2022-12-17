@@ -7,6 +7,7 @@
 
 	import { focusTrap } from '$lib/actions/FocusTrap/focusTrap';
 	import { modalStore } from '$lib/utilities/Modal/stores';
+	import type { ModalSettings } from './types';
 
 	// Props
 	/** The open/close animation duration. Set '0' (zero) to disable. */
@@ -56,12 +57,21 @@
 
 	// Local
 	let promptValue: any;
+	const buttonTextDefaults: Record<string, string> = {
+		buttonTextCancel,
+		buttonTextConfirm,
+		buttonTextSubmit
+	};
 
 	// Modal Store Subscription
-	modalStore.subscribe((dArr: any[]) => {
+	modalStore.subscribe((dArr: ModalSettings[]) => {
 		if (!dArr.length) return;
-		// Set the local modal value (for prompt)
+		// Set Prompt input value and type
 		promptValue = dArr[0].value;
+		// Override button text per instance, if available
+		buttonTextCancel = dArr[0].buttonTextCancel || buttonTextDefaults.buttonTextCancel;
+		buttonTextConfirm = dArr[0].buttonTextConfirm || buttonTextDefaults.buttonTextConfirm;
+		buttonTextSubmit = dArr[0].buttonTextSubmit || buttonTextDefaults.buttonTextSubmit;
 	});
 
 	// Event Handlers ---

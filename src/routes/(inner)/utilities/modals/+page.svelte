@@ -86,6 +86,10 @@
 
 	// Custom ---
 
+	function triggerAlert(): void {
+		console.log('working!');
+	}
+
 	function modalComponentForm(): void {
 		const c: ModalComponent = { ref: ModalExampleForm };
 		const d: ModalSettings = {
@@ -95,6 +99,11 @@
 			component: c,
 			response: (r: any) => {
 				if (r) console.log('response:', r);
+			},
+			meta: {
+				foo: 'bar',
+				fizz: 'buzz',
+				fn: triggerAlert
 			}
 		};
 		modalStore.trigger(d);
@@ -181,7 +190,9 @@ function triggerAlert(): void {
 		type: 'alert',
 		title: 'Example Alert',
 		body: 'This is an example modal.',
-		image: 'https://i.imgur.com/WOgTG96.gif'
+		image: 'https://i.imgur.com/WOgTG96.gif',
+		// Optionally override buttont text
+		buttonTextCancel: 'Cancel'
 	};
 	modalStore.trigger(alert);
 }
@@ -196,8 +207,11 @@ function triggerConfirm(): void {
 		type: 'confirm',
 		title: 'Please Confirm',
 		body: 'Are you sure you wish to proceed?',
-		// confirm = TRUE | cancel = FALSE
-		response: (r: boolean) => console.log('response:', r)
+		// TRUE if confirm pressed, FALSE if cancel pressed
+		response: (r: boolean) => console.log('response:', r),
+		// Optionally override the button text
+		buttonTextCancel: 'Cancel',
+		buttonTextConfirm: 'Confirm',
 	};
 	modalStore.trigger(confirm);
 }
@@ -216,6 +230,9 @@ function triggerPrompt(): void {
 		value: 'Skeleton',
 		// Returns the updated response value
 		response: (r: string) => console.log('response:', r)
+		// Optionally override the button text
+		buttonTextCancel: 'Cancel',
+		buttonTextSubmit: 'Submit',
 	};
 	modalStore.trigger(prompt);
 }
@@ -256,8 +273,8 @@ const d: ModalSettings = {
 		<!-- Component Modals -->
 		<section class="space-y-4">
 			<div class="flex items-center space-x-2">
-				<span class="badge bg-warning-500">Advanced</span>
 				<h2>Component Modals</h2>
+				<span class="badge bg-warning-500">Advanced</span>
 			</div>
 			<p>You can create a custom modal by passing a <code>ModalComponent</code> object, which includes any Svelte component.</p>
 			<CodeBlock
@@ -275,8 +292,10 @@ function triggerCustomModal(): void {
 	};
 	const d: ModalSettings = {
 		type: 'component',
-		component: modalComponent
 		// NOTE: title, body, response, etc are supported!
+		component: modalComponent,
+		// Pass abitrary data to the component
+		meta: { foo: 'bar', fizz: 'buzz', fn: myCustomFunction }
 	};
 	modalStore.trigger(d);
 }
@@ -312,6 +331,35 @@ function triggerCustomModal(): void {
 				<li>Use the <code>$modalStore[0].response('myResponseDataHere');</code> method to return a response value.</li>
 			</ul>
 		</section>
+		<!-- Abitrary Data -->
+		<section class="space-y-4">
+			<div class="flex items-center space-x-2">
+				<h2>Abitrary Data</h2>
+				<span class="badge bg-warning-500">Advanced</span>
+			</div>
+			<p>You can pass abitrary metadata to your modal via the <code>meta</code> setting. All data types are supported.</p>
+			<CodeBlock
+				language="ts"
+				code={`
+const d: ModalSettings = {
+	// ...
+	meta: { foo: 'bar', fizz: 'buzz', fn: myCustomFunction }
+};
+modalStore.trigger(d);
+				`}
+			/>
+			<p>You can retrieve the data as follows. Note the wrapping <code>#if</code> conditional to prevent console errors on modal close.</p>
+			<CodeBlock
+				language="html"
+				code={`
+{#if $modalStore[0]}
+	<pre>{$modalStore[0].meta?.foo}</pre>
+{/if}
+				`}
+			/>
+		</section>
+		<hr />
+		<!-- SSR Warning -->
 		<section class="space-y-4">
 			<h2>SvelteKit and SSR Warning</h2>
 			<p>
