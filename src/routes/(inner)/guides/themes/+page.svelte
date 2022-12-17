@@ -98,32 +98,21 @@
 		</div>
 		<!-- Implement -->
 		<TabGroup selected={storeFramework}>
-			<Tab value="sveltekit">SvelteKit</Tab>
-			<Tab value="vite">Vite (Svelte)</Tab>
-			<Tab value="astro">Astro</Tab>
+			<Tab value="cli">Skeleton CLI</Tab>
+			<Tab value="manual">Manual Install</Tab>
 		</TabGroup>
-		<!-- Framework: SvelteKit -->
-		{#if $storeFramework === 'sveltekit'}
+		{#if $storeFramework === 'cli'}
 			<p>
 				The CLI will automatically import your selected theme into <code>src/routes/+layout.svelte</code> before your global stylesheet. You
 				may change this at any time.
 			</p>
-			<CodeBlock
-				language="typescript"
-				code={`import '@skeletonlabs/skeleton/themes/theme-skeleton.css'; // <--\nimport '../app.postcss';\n`}
-			/>
-			<!-- Framework: Vite (Svelte) -->
-		{:else if $storeFramework === 'vite'}
+		{:else if $storeFramework === 'manual'}
 			<p>Import your desired preset into <code>/src/main.js</code> before your global stylesheet.</p>
-			<CodeBlock language="typescript" code={`import '@skeletonlabs/skeleton/themes/theme-{name}.css'; // <--\nimport '../app.css';\n`} />
-			<!-- Framework: Astro -->
-		{:else if $storeFramework === 'astro'}
-			<p>
-				Astro does not provide a root layout by default, but we recommend creating <code>/src/layouts/LayoutRoot.astro</code>. See our
-				<a href="/guides/frameworks/astro">See our Astro walkthrough</a> for assistance.
-			</p>
-			<CodeBlock language="typescript" code={`import '@skeletonlabs/skeleton/themes/theme-{name}.css'; // <--`} />
 		{/if}
+		<CodeBlock
+			language="typescript"
+			code={`import '@skeletonlabs/skeleton/themes/theme-skeleton.css'; // <--\nimport '../app.postcss';\n`}
+		/>
 	</div>
 
 	<hr />

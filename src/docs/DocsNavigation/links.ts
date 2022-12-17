@@ -26,7 +26,8 @@ export const menuNavLinks: any = [
 			{ href: '/guides/tailwind', label: 'Tailwind CSS' },
 			{ href: '/guides/themes', label: 'Themes' },
 			{ href: '/guides/styling', label: 'Styling' },
-			{ href: '/guides/frameworks', label: 'Frameworks' }
+			// { href: '/guides/frameworks', label: 'Frameworks' }
+			{ href: '/guides/frameworks/sveltekit', label: 'Quickstart Guide' }
 		]
 	},
 
