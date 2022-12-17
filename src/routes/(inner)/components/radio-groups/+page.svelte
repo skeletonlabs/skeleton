@@ -21,7 +21,7 @@
 	// Docs Shell
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Component,
-		name: 'RadioGroup',
+		name: 'Radio Groups',
 		description: 'Capture feedback limited to a small set of options.',
 		imports: ['RadioGroup', 'RadioItem'],
 		source: 'components/Radio',
