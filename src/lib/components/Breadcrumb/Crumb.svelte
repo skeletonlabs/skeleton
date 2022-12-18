@@ -23,7 +23,9 @@
 	$: classesBase = `${cBase} ${color} ${$$props.class ?? ''}`;
 </script>
 
-<li class="crumb {classesBase}" data-testid="crumb">
+<!-- NOTE: avoid forwarding events on <svelte:element> tags -->
+<!-- https://github.com/skeletonlabs/skeleton/issues/727#issuecomment-1356859261 -->
+<li class="crumb {classesBase}" data-testid="crumb" on:click on:keydown on:keyup on:keypress>
 	<!-- Anchor -->
 	<svelte:element
 		this={tag}
@@ -31,10 +33,6 @@
 		class="crumb-anchor {cAnchor}"
 		data-testid="crumb-anchor"
 		aria-current={!$$props.href ? 'page' : undefined}
-		on:click
-		on:keydown
-		on:keyup
-		on:keypress
 	>
 		{#if $$slots.lead}<span class="crumb-lead"><slot name="lead" /></span>{/if}
 		<span class="crumb-text"><slot /></span>
