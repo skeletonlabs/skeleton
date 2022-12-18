@@ -34,28 +34,11 @@
 	<!-- Instructions -->
 	<section class="space-y-4">
 		<h2>Importing Your Theme</h2>
-		<TabGroup selected={storeFramework}>
-			<Tab value="sveltekit">SvelteKit</Tab>
-			<Tab value="vite">Vite (Svelte)</Tab>
-			<Tab value="astro">Astro</Tab>
-		</TabGroup>
-		{#if $storeFramework === 'sveltekit'}
-			<p>
-				Copy and paste your theme CSS into <code>/src/theme.postcss</code>, then in<code>/src/routes/+layout.svelte</code> remove any preset
-				theme and replace with your theme.
-			</p>
-			<CodeBlock language="typescript" code={`import '../theme.postcss';`} />
-		{:else if $storeFramework === 'vite'}
-			<p>Copy and paste your theme CSS into <code>/src/theme.css</code>, then import it in <code>/src/main.js</code>:</p>
-			<CodeBlock language="typescript" code={`import '../theme.css';`} />
-		{:else if $storeFramework === 'astro'}
-			<p>
-				Copy and paste your theme CSS into <code>/src/styles/theme.css</code>, then import it in
-				<code>/src/layouts/LayoutBasic.astro</code>.
-			</p>
-			<CodeBlock language="typescript" code={`import '../styles/theme.css';`} />
-		{/if}
-		<p>Import this <u>before</u> your global stylesheet.</p>
+		<p>
+			Copy and paste your theme CSS into <code>/src/theme.postcss</code>, then in<code>/src/routes/+layout.svelte</code> remove any preset theme,
+			then replace with your custom theme.
+		</p>
+		<CodeBlock language="typescript" code={`import '../theme.postcss'; // <--\nimport '../app.postcss';\n`} />
 	</section>
 
 	<hr />

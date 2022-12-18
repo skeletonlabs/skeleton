@@ -1,3 +1,8 @@
+<!--
+	NOTE FROM CHRIS:
+	I'm keeping but setting it to hidden in the navigation. The CLI kind of replaces the
+	need for most of this. We might also consider making the SvelteKit guide a blog post.
+-->
 <script lang="ts">
 	// import { storeFramework } from '$docs/stores';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';

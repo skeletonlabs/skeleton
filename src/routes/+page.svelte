@@ -67,11 +67,7 @@
 				</div>
 				<h4>Svelte Integration</h4>
 				<p>
-					Tightly coupled with Svelte, including full support for <a href="https://kit.svelte.dev/" target="_blank" rel="noreferrer"
-						>SvelteKit</a
-					>,
-					<a href="https://vitejs.dev/" target="_blank" rel="noreferrer">Vite</a>, and
-					<a href="https://astro.build/" target="_blank" rel="noreferrer">Astro</a>.
+					Tightly coupled support for Svelte using the <a href="https://kit.svelte.dev/" target="_blank" rel="noreferrer">SvelteKit</a> app framework.
 				</p>
 			</div>
 			<div class="card card-glass-accent p-4 text-center space-y-4">

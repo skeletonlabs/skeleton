@@ -50,10 +50,11 @@
 	</section>
 
 	<section class="space-y-4">
-		<h2>Where can I learn Svelte?</h2>
+		<h2>Where can I learn Svelte and SvelteKit?</h2>
 		<p>
 			We recommend the official <a href="https://svelte.dev/docs" target="_blank" rel="noreferrer">documentation</a> and
-			<a href="https://svelte.dev/tutorial/basics" target="_blank" rel="noreferrer">tutorial</a>.
+			<a href="https://svelte.dev/tutorial/basics" target="_blank" rel="noreferrer">tutorial</a> for Svelte. As well as the official
+			<a href="https://kit.svelte.dev/" target="_blank" rel="noreferrer">documentation</a> for SvelteKit.
 		</p>
 	</section>
 
@@ -62,15 +63,6 @@
 		<p>
 			We recommend the official <a href="https://tailwindcss.com/docs/utility-first" target="_blank" rel="noreferrer">documentation</a> and
 			<a href="https://www.youtube.com/c/TailwindLabs/videos" target="_blank" rel="noreferrer">YouTube channel</a>.
-		</p>
-	</section>
-
-	<section class="space-y-4">
-		<h2>Where can I learn SvelteKit, Vite, or Astro?</h2>
-		<p>
-			We recommend the official documentation for <a href="https://kit.svelte.dev/" target="_blank" rel="noreferrer">SvelteKit</a>,
-			<a href="https://vitejs.dev/" target="_blank" rel="noreferrer">Vite</a>, and
-			<a href="https://astro.build/" target="_blank" rel="noreferrer">Astro</a>.
 		</p>
 	</section>
 

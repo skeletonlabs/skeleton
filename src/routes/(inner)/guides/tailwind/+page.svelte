@@ -14,35 +14,27 @@
 			Skeleton features tight integration with <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind CSS</a>. Let's
 			install Tailwind and configure all required settings.
 		</p>
+	</header>
+
+	<!-- Tailwind Install -->
+	<section class="space-y-8">
 		<TabGroup selected={storeFramework}>
-			<Tab value="sveltekit">SvelteKit</Tab>
-			<Tab value="vite">Vite (Svelte)</Tab>
-			<Tab value="astro">Astro</Tab>
+			<Tab value="cli">Skeleton CLI</Tab>
+			<Tab value="manual">Manual Install</Tab>
 		</TabGroup>
-		{#if $storeFramework === 'sveltekit'}
+		{#if $storeFramework === 'cli'}
 			<p>
 				The CLI will automatically run <a href="https://github.com/svelte-add/tailwindcss" target="_blank" rel="noreferrer">Svelte-Add</a>,
 				which will install and configure Tailwind in your SvelteKit project.
 			</p>
-		{:else if $storeFramework === 'vite'}
+		{:else if $storeFramework === 'manual'}
 			<p>
 				<a href="https://github.com/svelte-add/tailwindcss" target="_blank" rel="noreferrer">Svelte-Add</a> makes it trivial to install and setup
-				Tailwind. They provide options for including some Tailwind Plugins.
+				Tailwind. Run the following command in your terminal.
 			</p>
 			<CodeBlock language="console" code={`npx svelte-add@latest tailwindcss\nnpm install`} />
-		{:else if $storeFramework === 'astro'}
-			<p>
-				Add Tailwind integration via <a
-					href="https://docs.astro.build/en/guides/integrations-guide/tailwind/"
-					target="_blank"
-					rel="noreferrer">@astrojs/tailwind</a
-				>
-			</p>
-			<CodeBlock language="console" code={`npx astro add tailwind`} />
 		{/if}
-	</header>
-
-	<hr />
+	</section>
 
 	<!-- Usage -->
 	<section class="space-y-8">
@@ -53,11 +45,6 @@
 				directory.
 			</p>
 		</div>
-		<TabGroup selected={storeFramework}>
-			<Tab value="sveltekit">SvelteKit</Tab>
-			<Tab value="vite">Vite (Svelte)</Tab>
-			<Tab value="astro">Astro</Tab>
-		</TabGroup>
 		<div class="space-y-4">
 			<h3>Enabled Dark Mode Support</h3>
 			<p>
@@ -68,7 +55,7 @@
 			<CodeBlock
 				language="js"
 				code={`
-${$storeFramework === 'astro' ? 'module.exports' : 'const config'} = {
+const config = {
 	darkMode: 'class',
 	// ...
 }
@@ -84,7 +71,7 @@ ${$storeFramework === 'astro' ? 'module.exports' : 'const config'} = {
 			<CodeBlock
 				language="js"
 				code={`
-${$storeFramework === 'astro' ? 'module.exports' : 'const config'} = {
+const config = {
 	// ...
 	content: [
 		// Keep existing values and append the following:
@@ -104,7 +91,7 @@ ${$storeFramework === 'astro' ? 'module.exports' : 'const config'} = {
 			<CodeBlock
 				language="js"
 				code={`
-${$storeFramework === 'astro' ? 'module.exports' : 'const config'} = {
+const config = {
 	// ...
 	plugins: [
 		// Keep any existing plugins present and append the following:
@@ -157,7 +144,7 @@ ${$storeFramework === 'astro' ? 'module.exports' : 'const config'} = {
 
 	<!-- Next Steps -->
 	<div class="card p-4 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-		<p>Next, let's implement a Skeleton theme.</p>
+		<p>Next, review our options for implementing Skeleton themes.</p>
 		<a class="btn btn-filled-primary" href="/guides/themes">Themes &rarr;</a>
 	</div>
 </div>
