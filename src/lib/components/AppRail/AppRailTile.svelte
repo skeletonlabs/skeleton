@@ -51,17 +51,14 @@
 
 <!-- @component A navigation tile for the App Rail. -->
 
-<svelte:element
-	this={tag}
-	{...prunedRestProps()}
-	class="app-rail-tile {classesBase}"
-	on:click={onClickHandler}
-	on:keydown
-	on:keyup
-	on:keypress
->
-	<!-- Slot: Default (icon) -->
-	<div class="app-rail-tile-icon {regionIcon}"><slot /></div>
-	<!-- Label -->
-	{#if label}<div class="app-rail-tile-label {regionLabel}">{label}</div>{/if}
-</svelte:element>
+<!-- NOTE: moved event forwarding due to SvelteKit bug -->
+<!-- https://github.com/skeletonlabs/skeleton/issues/727#issuecomment-1356859261 -->
+<div on:click={onClickHandler} on:keydown on:keyup on:keypress>
+	<!-- NOTE: do not add event forwarding to <svelte:element> tags. See issue above. -->
+	<svelte:element this={tag} {...prunedRestProps()} class="app-rail-tile {classesBase}">
+		<!-- Slot: Default (icon) -->
+		<div class="app-rail-tile-icon {regionIcon}"><slot /></div>
+		<!-- Label -->
+		{#if label}<div class="app-rail-tile-label {regionLabel}">{label}</div>{/if}
+	</svelte:element>
+</div>
