@@ -53,7 +53,7 @@
 
 <!-- @component A navigation tile for the App Rail. -->
 
-<!-- NOTE: moved event forwarding due to SvelteKit bug -->
+<!-- NOTE: avoid forwarding events on <svelte:element> tags -->
 <!-- https://github.com/skeletonlabs/skeleton/issues/727#issuecomment-1356859261 -->
 <div on:click={onClickHandler} on:keydown on:keyup on:keypress>
 	<!-- NOTE: do not add event forwarding to <svelte:element> tags. See issue above. -->
