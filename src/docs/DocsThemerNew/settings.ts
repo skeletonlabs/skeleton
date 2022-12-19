@@ -18,6 +18,7 @@ export const settings = {
 		// Implement each color shade
 		...colorArr
 	],
+	fonts: ['sans', 'serif', 'mono', 'system'],
 	rounded: ['0px', '2px', '4px', '6px', '8px', '12px', '16px', '24px', '9999px'],
 	border: ['0px', '1px', '2px', '4px', '6px', '8px']
 };

@@ -61,59 +61,50 @@
 
 	<!-- Theme Settings -->
 	<section class="card p-4 grid grid-cols-2 gap-4">
+		<!-- Fonts -->
 		<h3 class="col-span-2">Fonts</h3>
-		<!-- --theme-font-family-base -->
 		<label>
 			<span>Base</span>
 			<select bind:value={formTheme.fontBase}>
-				<option value="sans">Sans Serif</option>
-				<option value="serif">Serif</option>
-				<option value="mono">Monospace</option>
-				<option value="system">System UI</option>
+				{#each settings.fonts as f}<option value={f}>{f}</option>{/each}
 			</select>
 		</label>
-		<!-- --theme-font-family-heading -->
 		<label>
 			<span>Heading</span>
 			<select bind:value={formTheme.fontHeadings}>
-				<option value="sans">Sans Serif</option>
-				<option value="serif">Serif</option>
-				<option value="mono">Monospace</option>
-				<option value="system">System UI</option>
+				{#each settings.fonts as f}<option value={f}>{f}</option>{/each}
 			</select>
 		</label>
+		<!-- Text Color -->
 		<h3 class="col-span-2">Text Color</h3>
-		<!-- --theme-font-color-base -->
 		<label>
 			<span>Light Mode</span>
 			<select bind:value={formTheme.textColorLight}>
 				{#each settings.colorProps as c}<option value={c.value}>{c.label}</option>{/each}
 			</select>
 		</label>
-		<!-- --theme-font-color-dark -->
 		<label>
 			<span>Dark Mode</span>
 			<select bind:value={formTheme.textColorDark}>
 				{#each settings.colorProps as c}<option value={c.value}>{c.label}</option>{/each}
 			</select>
 		</label>
+		<!-- Border Radiu -->
 		<h3 class="col-span-2">Border Radius</h3>
-		<!-- --theme-rounded-base -->
 		<label>
 			<span>Base</span>
 			<select bind:value={formTheme.roundedBase}>
 				{#each settings.rounded as r}<option value={r}>{r}</option>{/each}
 			</select>
 		</label>
-		<!-- --theme-rounded-container -->
 		<label>
 			<span>Container</span>
 			<select bind:value={formTheme.roundedContainer}>
 				{#each settings.rounded as r}<option value={r}>{r}</option>{/each}
 			</select>
 		</label>
-		<h3 class="col-span-2">Border</h3>
-		<!-- --theme-border-base -->
+		<!-- Border Size -->
+		<h3 class="col-span-2">Border Size</h3>
 		<label>
 			<span>Base</span>
 			<select bind:value={formTheme.border}>
