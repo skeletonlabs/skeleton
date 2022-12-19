@@ -1,15 +1,12 @@
 <script lang="ts">
-	import { storeFramework } from '$docs/stores';
-
 	// Components
 	import Breadcrumb from '$lib/components/Breadcrumb/Breadcrumb.svelte';
 	import Crumb from '$lib/components/Breadcrumb/Crumb.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
-	import Tab from '$lib/components/Tab/Tab.svelte';
 
 	// Docs
-	import DocsThemer from '$docs/DocsThemer/DocsThemer.svelte';
+	// import DocsThemer from '$docs/DocsThemer/DocsThemer.svelte';
+	import DocsThemerNew from '$docs/DocsThemerNew/DocsThemerNew.svelte';
 </script>
 
 <div class="page-container">
@@ -28,8 +25,12 @@
 		</p>
 	</header>
 
+	<hr />
+
 	<!-- Generator (new) -->
-	<DocsThemer />
+	<DocsThemerNew />
+
+	<hr />
 
 	<!-- Instructions -->
 	<section class="space-y-4">

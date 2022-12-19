@@ -104,8 +104,14 @@
 	.btn-filled-tertiary {
 		@apply bg-tertiary-500 text-on-tertiary-token;
 	}
+	.btn-filled-success {
+		@apply bg-success-500 text-on-success-token;
+	}
 	.btn-filled-warning {
 		@apply bg-warning-500 text-on-warning-token;
+	}
+	.btn-filled-error {
+		@apply bg-error-500 text-on-error-token;
 	}
 	.btn-filled-surface {
 		@apply bg-surface-400-500-token;

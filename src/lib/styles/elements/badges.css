@@ -37,8 +37,14 @@
 	.badge-filled-tertiary {
 		@apply bg-tertiary-500 text-on-tertiary-token;
 	}
+	.badge-filled-success {
+		@apply bg-success-500 text-on-success-token;
+	}
 	.badge-filled-warning {
 		@apply bg-warning-500 text-on-warning-token;
+	}
+	.badge-filled-error {
+		@apply bg-error-500 text-on-error-token;
 	}
 
 	/* Glass */

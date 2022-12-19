@@ -14,7 +14,9 @@
 	--on-primary: #000;
 	--on-accent: #fff;
 	--on-tertiary: #000;
-	--on-warning: #fff;
+	--on-success: #000;
+	--on-warning: #000;
+	--on-error: #fff;
 	--on-surface: #fff;
 	/* =~= Theme Colors | Tailwind =~= */
 	/* primary | #0FBA81 */
@@ -50,17 +52,39 @@
 	--color-tertiary-700: 187 142 7;
 	--color-tertiary-800: 157 119 6;
 	--color-tertiary-900: 113 86 4;
-	/* warning | #D41976 */
-	--color-warning-50: 249 205 227;
-	--color-warning-100: 247 191 219;
-	--color-warning-200: 244 164 204;
-	--color-warning-300: 241 136 189;
-	--color-warning-400: 236 91 163;
-	--color-warning-500: 212 25 118;
-	--color-warning-600: 192 23 107;
-	--color-warning-700: 173 20 97;
-	--color-warning-800: 137 16 77;
-	--color-warning-900: 96 11 54;
+	/* success | #84cc16 */
+	--color-success-50: 247 254 231; /* ⬅ #f7fee7 */
+	--color-success-100: 236 252 203; /* ⬅ #ecfccb */
+	--color-success-200: 217 249 157; /* ⬅ #d9f99d */
+	--color-success-300: 190 242 100; /* ⬅ #bef264 */
+	--color-success-400: 163 230 53; /* ⬅ #a3e635 */
+	--color-success-500: 132 204 22; /* ⬅ #84cc16 */
+	--color-success-600: 101 163 13; /* ⬅ #65a30d */
+	--color-success-700: 77 124 15; /* ⬅ #4d7c0f */
+	--color-success-800: 63 98 18; /* ⬅ #3f6212 */
+	--color-success-900: 54 83 20; /* ⬅ #365314 */
+	/* warning | #f59e0b */
+	--color-warning-50: 255 251 235; /* ⬅ #fffbeb */
+	--color-warning-100: 254 243 199; /* ⬅ #fef3c7 */
+	--color-warning-200: 253 230 138; /* ⬅ #fde68a */
+	--color-warning-300: 252 211 77; /* ⬅ #fcd34d */
+	--color-warning-400: 251 191 36; /* ⬅ #fbbf24 */
+	--color-warning-500: 245 158 11; /* ⬅ #f59e0b */
+	--color-warning-600: 217 119 6; /* ⬅ #d97706 */
+	--color-warning-700: 180 83 9; /* ⬅ #b45309 */
+	--color-warning-800: 146 64 14; /* ⬅ #92400e */
+	--color-warning-900: 120 53 15; /* ⬅ #78350f */
+	/* error | #D41976 */
+	--color-error-50: 249 205 227;
+	--color-error-100: 247 191 219;
+	--color-error-200: 244 164 204;
+	--color-error-300: 241 136 189;
+	--color-error-400: 236 91 163;
+	--color-error-500: 212 25 118;
+	--color-error-600: 192 23 107;
+	--color-error-700: 173 20 97;
+	--color-error-800: 137 16 77;
+	--color-error-900: 96 11 54;
 	/* surface | #1C2237 */
 	--color-surface-50: 231 234 243;
 	--color-surface-100: 218 222 236;

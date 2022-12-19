@@ -20,7 +20,7 @@ function createColorSet(colorName) {
 	};
 }
 
-module.exports = plugin(() => {}, {
+module.exports = plugin(() => { }, {
 	theme: {
 		extend: {
 			// Extend the colors with the CSS variable values
@@ -29,7 +29,9 @@ module.exports = plugin(() => {}, {
 				primary: createColorSet('primary'),
 				accent: createColorSet('accent'),
 				tertiary: createColorSet('tertiary'),
+				success: createColorSet('success'),
 				warning: createColorSet('warning'),
+				error: createColorSet('error'),
 				surface: createColorSet('surface')
 			}
 		}
