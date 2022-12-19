@@ -49,7 +49,7 @@
 
 <!-- @component The Accordion child element. -->
 
-<details bind:open class="accordion-item {classesDetails}" data-testid="accordion-item" on:click on:keydown on:keyup on:keypress>
+<details bind:open class="accordion-item {classesDetails}" data-testid="accordion-item" on:click on:keydown on:keyup on:keypress on:toggle>
 	<!-- Summary -->
 	<summary id={summaryId} class="accordion-summary {classesSummary}" aria-expanded={open} aria-controls={contentId}>
 		<!-- Slot: Lead -->
