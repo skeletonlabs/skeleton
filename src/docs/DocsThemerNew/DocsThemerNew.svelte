@@ -43,7 +43,7 @@
 	<!-- Theme Color -->
 	<section class="col-span-2 card p-4 grid grid-cols-1 gap-4">
 		{#each Object.entries(formTheme.colors) as [colorKey, colorRow]}
-			<div class="grid grid-cols-[105px_1fr_160px] gap-4">
+			<div class="grid grid-cols-1 lg:grid-cols-[105px_1fr_160px] gap-2 lg:gap-4">
 				<label>
 					<span>{colorRow.label}</span>
 					<input type="text" bind:value={colorRow.hex} placeholder="#BADA55" />
@@ -60,7 +60,7 @@
 	</section>
 
 	<!-- Theme Settings -->
-	<section class="card p-4 grid grid-cols-2 gap-4">
+	<section class="card p-4 grid grid-cols-2 gap-4 col-span-2 lg:col-span-1">
 		<!-- Fonts -->
 		<h3 class="col-span-2">Fonts</h3>
 		<label>
@@ -70,7 +70,7 @@
 			</select>
 		</label>
 		<label>
-			<span>Heading</span>
+			<span>Headings</span>
 			<select bind:value={formTheme.fontHeadings}>
 				{#each settings.fonts as f}<option value={f}>{f}</option>{/each}
 			</select>
@@ -114,7 +114,7 @@
 	</section>
 
 	<!-- Previews -->
-	<section class="card card-glass-accent p-4 space-y-8">
+	<section class="card card-glass-accent p-4 space-y-8 col-span-2 lg:col-span-1">
 		<h3>Preview Elements</h3>
 		<!-- Buttons -->
 		<div class="grid grid-cols-3 gap-4">
