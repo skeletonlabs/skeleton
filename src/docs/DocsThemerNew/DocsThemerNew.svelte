@@ -7,19 +7,20 @@
 	import ProgressBar from '$lib/components/ProgressBar/ProgressBar.svelte';
 	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
 
-	// Types
+	// Utils
 	import type { FormTheme } from './types';
+	import { settings } from './settings';
 
 	// Local
 	let formTheme: FormTheme = {
 		colors: {
-			primary: { label: 'Primary', hex: '#0FBA81', rgb: '0 0 0', on: '#FFFFFF' },
-			accent: { label: 'Accent', hex: '#4F46E5', rgb: '0 0 0', on: '#000000' },
-			tertiary: { label: 'Tertiary', hex: '#EAB309', rgb: '0 0 0', on: '#FFFFFF' },
-			success: { label: 'Success', hex: '#000000', rgb: '0 0 0', on: '#000000' },
-			warning: { label: 'Warning', hex: '#D41976', rgb: '0 0 0', on: '#FFFFFF' },
-			error: { label: 'Error', hex: '#000000', rgb: '0 0 0', on: '#000000' },
-			surface: { label: 'Surface', hex: '#1C2237', rgb: '0 0 0', on: '#FFFFFF' }
+			primary: { label: 'Primary', hex: '#0FBA81', rgb: '0 0 0', on: '255 255 255' },
+			accent: { label: 'Accent', hex: '#4F46E5', rgb: '0 0 0', on: '0 0 0' },
+			tertiary: { label: 'Tertiary', hex: '#EAB309', rgb: '0 0 0', on: '255 255 255' },
+			success: { label: 'Success', hex: '#000000', rgb: '0 0 0', on: '0 0 0' },
+			warning: { label: 'Warning', hex: '#D41976', rgb: '0 0 0', on: '255 255 255' },
+			error: { label: 'Error', hex: '#000000', rgb: '0 0 0', on: '0 0 0' },
+			surface: { label: 'Surface', hex: '#1C2237', rgb: '0 0 0', on: '255 255 255' }
 		},
 		fontHeadings: 'sans',
 		fontBase: 'sans',
@@ -42,7 +43,7 @@
 	<!-- Theme Color -->
 	<section class="col-span-2 card p-4 grid grid-cols-1 gap-4">
 		{#each Object.entries(formTheme.colors) as [colorKey, colorRow]}
-			<div class="grid grid-cols-[105px_1fr_105px] gap-4">
+			<div class="grid grid-cols-[105px_1fr_160px] gap-4">
 				<label>
 					<span>{colorRow.label}</span>
 					<input type="text" bind:value={colorRow.hex} placeholder="#BADA55" />
@@ -50,7 +51,9 @@
 				<Swatch color={colorKey} />
 				<label>
 					<span>On Colors</span>
-					<input type="text" bind:value={colorRow.on} placeholder="#FFFFFF" />
+					<select bind:value={colorRow.on}>
+						{#each settings.colorProps as c}<option value={c.value}>{c.label}</option>{/each}
+					</select>
 				</label>
 			</div>
 		{/each}
@@ -84,52 +87,14 @@
 		<label>
 			<span>Light Mode</span>
 			<select bind:value={formTheme.textColorLight}>
-				<!-- Black -->
-				<option value="0 0 0">Black</option>
-				<!-- Surface -->
-				<option value="var(--color-surface-500)">Surface 500</option>
-				<option value="var(--color-surface-600)">Surface 600</option>
-				<option value="var(--color-surface-700)">Surface 700</option>
-				<option value="var(--color-surface-800)">Surface 800</option>
-				<option value="var(--color-surface-900)">Surface 900</option>
-				<!-- Primary -->
-				<option value="var(--color-primary-500)">Primary 500</option>
-				<option value="var(--color-primary-600)">Primary 600</option>
-				<option value="var(--color-primary-700)">Primary 700</option>
-				<option value="var(--color-primary-800)">Primary 800</option>
-				<option value="var(--color-primary-900)">Primary 900</option>
-				<!-- Accent -->
-				<option value="var(--color-accent-500)">Accent 500</option>
-				<option value="var(--color-accent-600)">Accent 600</option>
-				<option value="var(--color-accent-700)">Accent 700</option>
-				<option value="var(--color-accent-800)">Accent 800</option>
-				<option value="var(--color-accent-900)">Accent 900</option>
+				{#each settings.colorProps as c}<option value={c.value}>{c.label}</option>{/each}
 			</select>
 		</label>
 		<!-- --theme-font-color-dark -->
 		<label>
 			<span>Dark Mode</span>
 			<select bind:value={formTheme.textColorDark}>
-				<!-- White -->
-				<option value="255 255 255">White</option>
-				<!-- Surface -->
-				<option value="var(--color-surface-400)">Surface 400</option>
-				<option value="var(--color-surface-300)">Surface 300</option>
-				<option value="var(--color-surface-200)">Surface 200</option>
-				<option value="var(--color-surface-100)">Surface 100</option>
-				<option value="var(--color-surface-50)">Surface 50</option>
-				<!-- Primary -->
-				<option value="var(--color-primary-400)">Primary 400</option>
-				<option value="var(--color-primary-300)">Primary 300</option>
-				<option value="var(--color-primary-200)">Primary 200</option>
-				<option value="var(--color-primary-100)">Primary 100</option>
-				<option value="var(--color-primary-50)">Primary 50</option>
-				<!-- Accent -->
-				<option value="var(--color-accent-400)">Accent 400</option>
-				<option value="var(--color-accent-300)">Accent 300</option>
-				<option value="var(--color-accent-200)">Accent 200</option>
-				<option value="var(--color-accent-100)">Accent 100</option>
-				<option value="var(--color-accent-50)">Accent 50</option>
+				{#each settings.colorProps as c}<option value={c.value}>{c.label}</option>{/each}
 			</select>
 		</label>
 		<h3 class="col-span-2">Border Radius</h3>
@@ -137,29 +102,14 @@
 		<label>
 			<span>Base</span>
 			<select bind:value={formTheme.roundedBase}>
-				<option value="0px">0px</option>
-				<option value="2px">2px</option>
-				<option value="4px">4px</option>
-				<option value="6px">6px</option>
-				<option value="8px">8px</option>
-				<option value="12px">12px</option>
-				<option value="16px">16px</option>
-				<option value="24px">24px</option>
-				<option value="9999px">9999px</option>
+				{#each settings.rounded as r}<option value={r}>{r}</option>{/each}
 			</select>
 		</label>
 		<!-- --theme-rounded-container -->
 		<label>
 			<span>Container</span>
 			<select bind:value={formTheme.roundedContainer}>
-				<option value="0px">0px</option>
-				<option value="2px">2px</option>
-				<option value="4px">4px</option>
-				<option value="6px">6px</option>
-				<option value="8px">8px</option>
-				<option value="12px">12px</option>
-				<option value="16px">16px</option>
-				<option value="24px">24px</option>
+				{#each settings.rounded as r}<option value={r}>{r}</option>{/each}
 			</select>
 		</label>
 		<h3 class="col-span-2">Border</h3>
@@ -167,10 +117,7 @@
 		<label>
 			<span>Base</span>
 			<select bind:value={formTheme.border}>
-				<option value="0px">0px</option>
-				<option value="1px">1px</option>
-				<option value="2px">2px</option>
-				<option value="4px">4px</option>
+				{#each settings.border as b}<option value={b}>{b}</option>{/each}
 			</select>
 		</label>
 	</section>
