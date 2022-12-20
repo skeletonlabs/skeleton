@@ -40,6 +40,7 @@
 
 	// Local
 	let cssOutput: string = '';
+	let preserveHexSource: boolean = false;
 
 	// Hex -> RGB - Source: https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
 	export function hexToRgb(hex: string): string {
@@ -57,7 +58,10 @@
 	}
 
 	function randomize(): void {
-		$storeThemGenForm.colors.forEach((_, i: number) => ($storeThemGenForm.colors[i].hex = generateRandomHexColor()));
+		$storeThemGenForm.colors.forEach((_, i: number) => {
+			$storeThemGenForm.colors[i].hex = generateRandomHexColor();
+			$storeThemGenForm.colors[i].on = '255 255 255';
+		});
 	}
 
 	function generateCSSPalette(): string {
@@ -73,8 +77,10 @@
 				{ name: '100', lightness: 85 },
 				{ name: '200', lightness: 80 },
 				{ name: '300', lightness: 75 },
-				{ name: '400', lightness: 60 },
-				{ name: '500', lightness: 50 },
+				{ name: '400', lightness: 65 },
+				// ---
+				{ name: '500', lightness: 55 },
+				// ---
 				{ name: '600', lightness: 35 },
 				{ name: '700', lightness: 30 },
 				{ name: '800', lightness: 25 },
@@ -88,7 +94,9 @@
 			const hex500 = $storeThemGenForm.colors[i].hex; // ensure 500 matches input
 			fullPalette += `/* ${colorName} | ${hex500} */\n\t`;
 			for (let [k, v] of Object.entries(generatedPalette[colorName])) {
-				// if (k === '500') v = hex500; // NOTE: providing bad results on randomize
+				// **********************************************
+				if (preserveHexSource && k === '500') v = hex500;
+				// **********************************************
 				fullPalette += `--color-${colorName}-${k}: ${hexToRgb(v)}; /* ⬅ ${v} */\n\t`;
 			}
 		});
@@ -98,11 +106,14 @@
 	// Reload when when preview is disabled
 	// Prevents issue if you browse away and back to generator
 	function onPreviewToggle(): void {
-		if ($storePreview === false) location.reload();
+		if ($storePreview === false) {
+			localStorage.removeItem('storeThemGenForm');
+			location.reload();
+		}
 	}
 
 	// Reactive
-	$: if ($storeThemGenForm) {
+	$: if ($storeThemGenForm || preserveHexSource) {
 		cssOutput = `
 :root {
     /* =~= Theme Properties =~= */
@@ -139,22 +150,32 @@
 		<!-- General Settings -->
 		<header class="col-span-2 flex justify-between items-center">
 			<SlideToggle bind:checked={$storePreview} on:change={onPreviewToggle}>Preview</SlideToggle>
-			<button class="btn btn-ghost-surface" on:click={randomize}>Randomize</button>
+			<div class="flex justify-center items-center space-x-4">
+				<button class="btn btn-ghost-surface" on:click={randomize} disabled={!$storePreview}>Randomize</button>
+				<span
+					title="Pass the provided hex color to shade 500. Provides more accureate results for branding, but may require you to rebalance your color stops."
+				>
+					<SlideToggle bind:checked={preserveHexSource}>Verbatim Hex</SlideToggle>
+				</span>
+			</div>
 			<LightSwitch />
 		</header>
 
 		<!-- Theme Color -->
 		<section class="col-span-2 card p-4 grid grid-cols-1 gap-4">
 			{#each $storeThemGenForm.colors as colorRow}
-				<div class="grid grid-cols-1 lg:grid-cols-[105px_1fr_160px] gap-2 lg:gap-4">
+				<div class="grid grid-cols-1 lg:grid-cols-[150px_1fr_160px] gap-2 lg:gap-4">
 					<label>
 						<span>{colorRow.label}</span>
-						<input type="text" bind:value={colorRow.hex} placeholder="#BADA55" />
+						<div class="grid grid-cols-[1fr_auto] gap-2">
+							<input type="text" bind:value={colorRow.hex} placeholder="#BADA55" disabled={!$storePreview} />
+							<input class="border-[1px] border-white w-10 h-10" type="color" bind:value={colorRow.hex} disabled={!$storePreview} />
+						</div>
 					</label>
 					<Swatch color={colorRow.key} />
 					<label>
 						<span>On Colors</span>
-						<select bind:value={colorRow.on}>
+						<select bind:value={colorRow.on} disabled={!$storePreview}>
 							{#each inputSettings.colorProps as c}<option value={c.value}>{c.label}</option>{/each}
 						</select>
 					</label>
@@ -168,13 +189,13 @@
 			<h3 class="col-span-2">Fonts</h3>
 			<label>
 				<span>Base</span>
-				<select bind:value={$storeThemGenForm.fontBase}>
+				<select bind:value={$storeThemGenForm.fontBase} disabled={!$storePreview}>
 					{#each inputSettings.fonts as f}<option value={f}>{f}</option>{/each}
 				</select>
 			</label>
 			<label>
 				<span>Headings</span>
-				<select bind:value={$storeThemGenForm.fontHeadings}>
+				<select bind:value={$storeThemGenForm.fontHeadings} disabled={!$storePreview}>
 					{#each inputSettings.fonts as f}<option value={f}>{f}</option>{/each}
 				</select>
 			</label>
@@ -182,13 +203,13 @@
 			<h3 class="col-span-2">Text Color</h3>
 			<label>
 				<span>Light Mode</span>
-				<select bind:value={$storeThemGenForm.textColorLight}>
+				<select bind:value={$storeThemGenForm.textColorLight} disabled={!$storePreview}>
 					{#each inputSettings.colorProps as c}<option value={c.value}>{c.label}</option>{/each}
 				</select>
 			</label>
 			<label>
 				<span>Dark Mode</span>
-				<select bind:value={$storeThemGenForm.textColorDark}>
+				<select bind:value={$storeThemGenForm.textColorDark} disabled={!$storePreview}>
 					{#each inputSettings.colorProps as c}<option value={c.value}>{c.label}</option>{/each}
 				</select>
 			</label>
@@ -196,13 +217,13 @@
 			<h3 class="col-span-2">Border Radius</h3>
 			<label>
 				<span>Base</span>
-				<select bind:value={$storeThemGenForm.roundedBase}>
+				<select bind:value={$storeThemGenForm.roundedBase} disabled={!$storePreview}>
 					{#each inputSettings.rounded as r}<option value={r}>{r}</option>{/each}
 				</select>
 			</label>
 			<label>
 				<span>Container</span>
-				<select bind:value={$storeThemGenForm.roundedContainer}>
+				<select bind:value={$storeThemGenForm.roundedContainer} disabled={!$storePreview}>
 					{#each inputSettings.rounded as r}<option value={r}>{r}</option>{/each}
 				</select>
 			</label>
@@ -210,7 +231,7 @@
 			<h3 class="col-span-2">Border Size</h3>
 			<label>
 				<span>Base</span>
-				<select bind:value={$storeThemGenForm.borderBase}>
+				<select bind:value={$storeThemGenForm.borderBase} disabled={!$storePreview}>
 					{#each inputSettings.border as b}<option value={b}>{b}</option>{/each}
 				</select>
 			</label>
