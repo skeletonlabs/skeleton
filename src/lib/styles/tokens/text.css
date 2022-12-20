@@ -26,25 +26,25 @@
 	/* Text color when overlapping theme colors. */
 
 	.text-on-primary-token {
-		color: var(--on-primary);
+		color: rgb(var(--on-primary));
 	}
 	.text-on-accent-token {
-		color: var(--on-accent);
+		color: rgb(var(--on-accent));
 	}
 	.text-on-tertiary-token {
-		color: var(--on-tertiary);
+		color: rgb(var(--on-tertiary));
 	}
 	.text-on-success-token {
-		color: var(--on-success);
+		color: rgb(var(--on-success));
 	}
 	.text-on-warning-token {
-		color: var(--on-warning);
+		color: rgb(var(--on-warning));
 	}
 	.text-on-error-token {
-		color: var(--on-error);
+		color: rgb(var(--on-error));
 	}
 	.text-on-surface-token {
-		color: var(--on-surface);
+		color: rgb(var(--on-surface));
 	}
 
 	/* === Color Pairings (Light|Dark) === */

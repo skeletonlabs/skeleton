@@ -105,7 +105,7 @@
 				{#if shade === '500'}
 					<div class="grid grid-cols-[auto_1fr] gap-1.5 place-items-center">
 						<SvgIcon name="skull" width="w-4" height="h-4" />
-						<span>Text</span>
+						<span class="hidden md:inline-block">Text</span>
 					</div>
 				{/if}
 			</div>

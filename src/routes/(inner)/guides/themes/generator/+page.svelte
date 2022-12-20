@@ -5,8 +5,7 @@
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Docs
-	// import DocsThemer from '$docs/DocsThemer/DocsThemer.svelte';
-	import DocsThemerNew from '$docs/DocsThemerNew/DocsThemerNew.svelte';
+	import DocsThemer from '$docs/DocsThemer/DocsThemer.svelte';
 </script>
 
 <div class="page-container">
@@ -28,7 +27,7 @@
 	<hr />
 
 	<!-- Generator (new) -->
-	<DocsThemerNew />
+	<DocsThemer />
 
 	<hr />
 

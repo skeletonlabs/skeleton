@@ -10,14 +10,14 @@
 	--theme-font-color-dark: var(--color-surface-50);
 	--theme-rounded-base: 9999px;
 	--theme-rounded-container: 8px;
-	/* On Colors */
-	--on-primary: #000;
-	--on-accent: #fff;
-	--on-tertiary: #000;
-	--on-success: #000;
-	--on-warning: #000;
-	--on-error: #fff;
-	--on-surface: #fff;
+	/* =~= Theme On-X Colors =~= */
+	--on-primary: 0 0 0;
+	--on-accent: 255 255 255;
+	--on-tertiary: 0 0 0;
+	--on-success: 0 0 0;
+	--on-warning: 0 0 0;
+	--on-error: 255 255 255;
+	--on-surface: 255 255 255;
 	/* =~= Theme Colors | Tailwind =~= */
 	/* primary | #0FBA81 */
 	--color-primary-50: 104 243 197;
