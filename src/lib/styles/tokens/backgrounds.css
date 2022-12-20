@@ -6,8 +6,8 @@
 	.bg-primary-backdrop-token {
 		@apply bg-primary-400/70 dark:bg-primary-900/70;
 	}
-	.bg-accent-backdrop-token {
-		@apply bg-accent-400/70 dark:bg-accent-900/70;
+	.bg-secondary-backdrop-token {
+		@apply bg-secondary-400/70 dark:bg-secondary-900/70;
 	}
 	.bg-tertiary-backdrop-token {
 		@apply bg-tertiary-400/70 dark:bg-tertiary-900/70;
@@ -29,12 +29,12 @@
 		@apply !bg-primary-500 text-on-primary-token fill-on-primary-token;
 	}
 
-	/* Accent */
-	.bg-accent-hover-token {
-		@apply hover:bg-accent-500/10;
+	/* Secondary */
+	.bg-secondary-hover-token {
+		@apply hover:bg-secondary-500/10;
 	}
-	.bg-accent-active-token {
-		@apply bg-accent-500 text-accent-50 dark:text-accent-50;
+	.bg-secondary-active-token {
+		@apply bg-secondary-500 text-secondary-50 dark:text-secondary-50;
 	}
 
 	/* Tertiary */
@@ -81,21 +81,21 @@
 		@apply bg-primary-400 dark:bg-primary-500;
 	}
 
-	/* Accent */
-	.bg-accent-50-900-token {
-		@apply bg-accent-50 dark:bg-accent-900;
+	/* Secondary */
+	.bg-secondary-50-900-token {
+		@apply bg-secondary-50 dark:bg-secondary-900;
 	}
-	.bg-accent-100-800-token {
-		@apply bg-accent-100 dark:bg-accent-800;
+	.bg-secondary-100-800-token {
+		@apply bg-secondary-100 dark:bg-secondary-800;
 	}
-	.bg-accent-200-700-token {
-		@apply bg-accent-200 dark:bg-accent-700;
+	.bg-secondary-200-700-token {
+		@apply bg-secondary-200 dark:bg-secondary-700;
 	}
-	.bg-accent-300-600-token {
-		@apply bg-accent-300 dark:bg-accent-600;
+	.bg-secondary-300-600-token {
+		@apply bg-secondary-300 dark:bg-secondary-600;
 	}
-	.bg-accent-400-500-token {
-		@apply bg-accent-400 dark:bg-accent-500;
+	.bg-secondary-400-500-token {
+		@apply bg-secondary-400 dark:bg-secondary-500;
 	}
 
 	/* Tertiary */
@@ -169,21 +169,21 @@
 		@apply bg-primary-500 dark:bg-primary-400;
 	}
 
-	/* Accent */
-	.bg-accent-900-50-token {
-		@apply bg-accent-900 dark:bg-accent-50;
+	/* Secondary */
+	.bg-secondary-900-50-token {
+		@apply bg-secondary-900 dark:bg-secondary-50;
 	}
-	.bg-accent-800-100-token {
-		@apply bg-accent-800 dark:bg-accent-100;
+	.bg-secondary-800-100-token {
+		@apply bg-secondary-800 dark:bg-secondary-100;
 	}
-	.bg-accent-700-200-token {
-		@apply bg-accent-700 dark:bg-accent-200;
+	.bg-secondary-700-200-token {
+		@apply bg-secondary-700 dark:bg-secondary-200;
 	}
-	.bg-accent-600-300-token {
-		@apply bg-accent-600 dark:bg-accent-300;
+	.bg-secondary-600-300-token {
+		@apply bg-secondary-600 dark:bg-secondary-300;
 	}
-	.bg-accent-500-400-token {
-		@apply bg-accent-500 dark:bg-accent-400;
+	.bg-secondary-500-400-token {
+		@apply bg-secondary-500 dark:bg-secondary-400;
 	}
 
 	/* Tertiary */

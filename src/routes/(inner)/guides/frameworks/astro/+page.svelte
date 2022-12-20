@@ -176,7 +176,7 @@ import { GradientHeading } from '@skeletonlabs/skeleton';
 		<hr />
 		<section class="flex space-x-2">
 		<a class="btn btn-filled-primary" href="https://kit.svelte.dev/" target="_blank" rel="noreferrer">SvelteKit</a>
-		<a class="btn btn-filled-accent" href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind</a>
+		<a class="btn btn-filled-secondary" href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind</a>
 		<a class="btn btn-filled-tertiary" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
 		</section>
 	</div>
@@ -192,7 +192,7 @@ import { GradientHeading } from '@skeletonlabs/skeleton';
 		<CodeBlock
 			language="html"
 			code={`
-<GradientHeading tag="h1" direction="bg-gradient-to-br" from="from-primary-500" to="to-accent-500">
+<GradientHeading tag="h1" direction="bg-gradient-to-br" from="from-primary-500" to="to-secondary-500">
 	Homepage
 </GradientHeading>
 `}
@@ -233,7 +233,7 @@ import { Breadcrumb, Crumb } from '@skeletonlabs/skeleton';
 `}
 		/>
 		<p>
-			Note: Because of the way Astro handles Svelte Components with props, there will be cases where you'll need to use a Wrapper Component 
+			Note: Because of the way Astro handles Svelte Components with props, there will be cases where you'll need to use a Wrapper Component
 			as it is described in the next section to make the Component work properly.
 		</p>
 		<!-- Dynamic -->

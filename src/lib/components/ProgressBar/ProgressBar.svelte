@@ -18,7 +18,7 @@
 
 	// Props (elements)
 	/** Provide arbitrary classes to style the meter element. */
-	export let meter = 'bg-accent-500';
+	export let meter = 'bg-secondary-500';
 	/** Provide arbitrary classes to style the track element. */
 	export let track = 'bg-surface-200-700-token';
 

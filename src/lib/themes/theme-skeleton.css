@@ -12,7 +12,7 @@
 	--theme-rounded-container: 8px;
 	/* =~= Theme On-X Colors =~= */
 	--on-primary: 0 0 0;
-	--on-accent: 255 255 255;
+	--on-secondary: 255 255 255;
 	--on-tertiary: 0 0 0;
 	--on-success: 0 0 0;
 	--on-warning: 0 0 0;
@@ -31,16 +31,16 @@
 	--color-primary-800: 10 123 85;
 	--color-primary-900: 7 85 59;
 	/* accent | #4F46E5 */
-	--color-accent-50: 216 215 249;
-	--color-accent-100: 204 201 247;
-	--color-accent-200: 187 183 245;
-	--color-accent-300: 157 152 241;
-	--color-accent-400: 127 121 236;
-	--color-accent-500: 79 70 229;
-	--color-accent-600: 62 54 227;
-	--color-accent-700: 41 31 224;
-	--color-accent-800: 35 27 192;
-	--color-accent-900: 22 17 121;
+	--color-secondary-50: 216 215 249;
+	--color-secondary-100: 204 201 247;
+	--color-secondary-200: 187 183 245;
+	--color-secondary-300: 157 152 241;
+	--color-secondary-400: 127 121 236;
+	--color-secondary-500: 79 70 229;
+	--color-secondary-600: 62 54 227;
+	--color-secondary-700: 41 31 224;
+	--color-secondary-800: 35 27 192;
+	--color-secondary-900: 22 17 121;
 	/* tertiary | #EAB309 */
 	--color-tertiary-50: 250 218 122;
 	--color-tertiary-100: 250 215 113;

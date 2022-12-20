@@ -22,7 +22,7 @@
 	const storeThemGenForm: Writable<FormTheme> = localStorageStore('storeThemGenForm', {
 		colors: [
 			{ key: 'primary', label: 'Primary', hex: '#0FBA81', rgb: '0 0 0', on: '0 0 0' }, // BADA55
-			{ key: 'accent', label: 'Accent', hex: '#4F46E5', rgb: '0 0 0', on: '255 255 255' },
+			{ key: 'secondary', label: 'Secondary', hex: '#4F46E5', rgb: '0 0 0', on: '255 255 255' },
 			{ key: 'tertiary', label: 'Tertiary', hex: '#EAB309', rgb: '0 0 0', on: '0 0 0' },
 			{ key: 'success', label: 'Success', hex: '#84cc16', rgb: '0 0 0', on: '0 0 0' },
 			{ key: 'warning', label: 'Warning', hex: '#f59e0b', rgb: '0 0 0', on: '0 0 0' },
@@ -126,7 +126,7 @@
     --theme-border-base: ${$storeThemGenForm.borderBase};
     /* =~= Theme On-X Colors =~= */
     --on-primary: ${$storeThemGenForm.colors[0]?.on};
-    --on-accent: ${$storeThemGenForm.colors[1]?.on};
+    --on-secondary: ${$storeThemGenForm.colors[1]?.on};
     --on-tertiary: ${$storeThemGenForm.colors[2]?.on};
     --on-success: ${$storeThemGenForm.colors[3]?.on};
     --on-warning: ${$storeThemGenForm.colors[4]?.on};
@@ -238,12 +238,12 @@
 		</section>
 
 		<!-- Previews -->
-		<section class="card card-glass-accent p-4 space-y-8 col-span-2 lg:col-span-1">
+		<section class="card card-glass-secondary p-4 space-y-8 col-span-2 lg:col-span-1">
 			<h3>Preview Elements</h3>
 			<!-- Buttons -->
 			<div class="grid grid-cols-3 gap-4">
 				<button class="btn btn-filled-primary">primary</button>
-				<button class="btn btn-filled-accent">accent</button>
+				<button class="btn btn-filled-secondary">secondary</button>
 				<button class="btn btn-filled-tertiary">tertiary</button>
 				<button class="btn btn-filled-success">success</button>
 				<button class="btn btn-filled-warning">warning</button>
@@ -253,14 +253,14 @@
 			<!-- Progress Bars -->
 			<div class="grid grid-cols-1 gap-4">
 				<ProgressBar meter="bg-primary-500" value={66} max={100} />
-				<ProgressBar meter="bg-accent-500" value={50} max={100} />
+				<ProgressBar meter="bg-secondary-500" value={50} max={100} />
 				<ProgressBar meter="bg-tertiary-500" value={33} max={100} />
 			</div>
 			<hr class="opacity-50" />
 			<!-- Badges -->
 			<div class="grid grid-cols-3 gap-4 place-items-center">
 				<button class="badge badge-filled-primary">primary</button>
-				<button class="badge badge-filled-accent">accent</button>
+				<button class="badge badge-filled-secondary">secondary</button>
 				<button class="badge badge-filled-tertiary">tertiary</button>
 				<button class="badge badge-filled-success">success</button>
 				<button class="badge badge-filled-warning">warning</button>

@@ -27,7 +27,7 @@ module.exports = plugin(() => { }, {
 			// NOTE: Must be RGB to allow for TW opacity value
 			colors: {
 				primary: createColorSet('primary'),
-				accent: createColorSet('accent'),
+				secondary: createColorSet('secondary'),
 				tertiary: createColorSet('tertiary'),
 				success: createColorSet('success'),
 				warning: createColorSet('warning'),

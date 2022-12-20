@@ -306,7 +306,7 @@ function triggerCustomModal(): void {
 				method as needed. To make this process easier to understand, we have provided a few examples to demonstrate the process.
 			</p>
 			<a
-				class="btn btn-filled-accent"
+				class="btn btn-filled-secondary"
 				href="https://github.com/skeletonlabs/skeleton/tree/master/src/lib/utilities/Modal/examples"
 				target="_blank"
 				rel="noreferrer">View Example Modals</a

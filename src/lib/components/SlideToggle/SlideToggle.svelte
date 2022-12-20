@@ -12,7 +12,7 @@
 	 */
 	export let size = 'md';
 	/** Provide classes to set the checked state color. */
-	export let accent = 'bg-accent-500';
+	export let accent = 'bg-secondary-500';
 	/** Provide classes to set the border width styles. */
 	export let borderWidth = 'border-token';
 	/** Provide classes to set the border color styles. */

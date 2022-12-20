@@ -112,7 +112,7 @@
 					<select name="background" id="background" bind:value={props.borderColor}>
 						<option value={defaultBorderColor}>Inherent</option>
 						<option value="border-primary-500">border-primary-500</option>
-						<option value="border-accent-500">border-accent-500</option>
+						<option value="border-secondary-500">border-secondary-500</option>
 						<option value="border-tertiary-500">border-tertiary-500</option>
 						<option value="border-warning-500">border-warning-500</option>
 						<option value="border-red-500">border-red-500</option>

@@ -27,21 +27,21 @@
 		@apply border-primary-400 dark:border-primary-500;
 	}
 
-	/* Accent */
-	.border-accent-50-900-token {
-		@apply border-accent-50 dark:border-accent-900;
+	/* Secondary */
+	.border-secondary-50-900-token {
+		@apply border-secondary-50 dark:border-secondary-900;
 	}
-	.border-accent-100-800-token {
-		@apply border-accent-100 dark:border-accent-800;
+	.border-secondary-100-800-token {
+		@apply border-secondary-100 dark:border-secondary-800;
 	}
-	.border-accent-200-700-token {
-		@apply border-accent-200 dark:border-accent-700;
+	.border-secondary-200-700-token {
+		@apply border-secondary-200 dark:border-secondary-700;
 	}
-	.border-accent-300-600-token {
-		@apply border-accent-300 dark:border-accent-600;
+	.border-secondary-300-600-token {
+		@apply border-secondary-300 dark:border-secondary-600;
 	}
-	.border-accent-400-500-token {
-		@apply border-accent-400 dark:border-surface-500;
+	.border-secondary-400-500-token {
+		@apply border-secondary-400 dark:border-surface-500;
 	}
 
 	/* Tertiary */
@@ -115,21 +115,21 @@
 		@apply border-primary-500 dark:border-primary-400;
 	}
 
-	/* Accent */
-	.border-accent-900-50-token {
-		@apply border-accent-900 dark:border-accent-50;
+	/* Secondary */
+	.border-secondary-900-50-token {
+		@apply border-secondary-900 dark:border-secondary-50;
 	}
-	.border-accent-800-100-token {
-		@apply border-accent-800 dark:border-accent-100;
+	.border-secondary-800-100-token {
+		@apply border-secondary-800 dark:border-secondary-100;
 	}
-	.border-accent-700-200-token {
-		@apply border-accent-700 dark:border-accent-200;
+	.border-secondary-700-200-token {
+		@apply border-secondary-700 dark:border-secondary-200;
 	}
-	.border-accent-600-300-token {
-		@apply border-accent-600 dark:border-accent-300;
+	.border-secondary-600-300-token {
+		@apply border-secondary-600 dark:border-secondary-300;
 	}
-	.border-accent-500-400-token {
-		@apply border-accent-500 dark:border-accent-400;
+	.border-secondary-500-400-token {
+		@apply border-secondary-500 dark:border-secondary-400;
 	}
 
 	/* Tertiary */

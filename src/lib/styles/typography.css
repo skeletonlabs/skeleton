@@ -52,7 +52,7 @@ body {
 	}
 
 	blockquote:not(.unstyled) {
-		@apply text-base border-l-4 border-l-accent-500 px-4 pl-4;
+		@apply text-base border-l-4 border-l-secondary-500 px-4 pl-4;
 		/* Theme: Font Color */
 		@apply text-token;
 	}

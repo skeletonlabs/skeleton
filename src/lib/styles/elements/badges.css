@@ -31,8 +31,8 @@
 	.badge-filled-primary {
 		@apply bg-primary-500 text-on-primary-token;
 	}
-	.badge-filled-accent {
-		@apply bg-accent-500 text-on-accent-token;
+	.badge-filled-secondary {
+		@apply bg-secondary-500 text-on-secondary-token;
 	}
 	.badge-filled-tertiary {
 		@apply bg-tertiary-500 text-on-tertiary-token;
@@ -49,7 +49,7 @@
 
 	/* Glass */
 	.badge-glass {
-		@apply bg-accent-500/10 dark:bg-accent-500/10 backdrop-blur-lg;
+		@apply bg-secondary-500/10 dark:bg-secondary-500/10 backdrop-blur-lg;
 		/* Ring */
 		@apply ring-[1px] ring-neutral-900/5 dark:ring-neutral-50/5 ring-inset;
 	}

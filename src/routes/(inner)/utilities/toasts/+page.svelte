@@ -87,7 +87,7 @@
 				<!-- prettier-ignore -->
 				<div class="grid grid-cols-1 md:grid-cols-6 gap-4 max-w-[700px] mx-auto">
 					<button class="btn btn-ghost-surface" on:click={() => {toastPreset('primary')}}>Primary</button>
-					<button class="btn btn-ghost-surface" on:click={() => {toastPreset('accent')}}>Accent</button>
+					<button class="btn btn-ghost-surface" on:click={() => {toastPreset('secondary')}}>Secondary</button>
 					<button class="btn btn-ghost-surface" on:click={() => {toastPreset('tertiary')}}>Tertiary</button>
 					<button class="btn btn-ghost-surface" on:click={() => {toastPreset('warning')}}>Warning</button>
 					<button class="btn btn-ghost-surface" on:click={() => {toastPreset('success')}}>Success</button>
@@ -124,7 +124,7 @@
 function triggerToast(): void {
 	const t: ToastSettings = {
 		message: '👋 Hello and welcome to Skeleton.'
-		// Optional: Presets for primary | accent | tertiary | warning
+		// Optional: Presets for primary | secondary | tertiary | warning
 		preset: 'primary',
 		// Optional: The auto-hide settings
 		autohide: true,
@@ -162,7 +162,7 @@ function triggerToast(): void {
 const t: ToastSettings = {
 	message: 'This message will have a colorful background.',
 	// Available presets include:
-	// primary | accent | tertiary | warning | success | error
+	// primary | secondary | tertiary | warning | success | error
 	preset: 'warning',
 };
 			`}

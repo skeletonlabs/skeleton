@@ -44,7 +44,7 @@
 						<ProgressRadial stroke={50} meter="stroke-primary-500" track="stroke-primary-500/20" />
 					</div>
 					<div class="card p-4">
-						<ProgressRadial stroke={100} meter="stroke-accent-500" track="stroke-accent-500/20" />
+						<ProgressRadial stroke={100} meter="stroke-secondary-500" track="stroke-secondary-500/20" />
 					</div>
 					<div class="card p-4">
 						<ProgressRadial stroke={200} meter="stroke-tertiary-500" track="stroke-tertiary-500/20" />

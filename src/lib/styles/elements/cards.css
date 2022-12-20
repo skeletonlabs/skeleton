@@ -37,8 +37,8 @@
 	.card-glass-primary {
 		@apply bg-primary-500/10 dark:bg-primary-500/10 backdrop-blur-lg;
 	}
-	.card-glass-accent {
-		@apply bg-accent-500/10 dark:bg-accent-500/10 backdrop-blur-lg;
+	.card-glass-secondary {
+		@apply bg-secondary-500/10 dark:bg-secondary-500/10 backdrop-blur-lg;
 	}
 	.card-glass-tertiary {
 		@apply bg-tertiary-500/10 dark:bg-tertiary-500/10 backdrop-blur-lg;

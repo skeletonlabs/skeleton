@@ -57,10 +57,10 @@
 					<button class="btn-icon btn-ghost-warning" on:click={toggleVisible}>&#10005;</button>
 				</svelte:fragment>
 			</Alert>
-			<Alert background="bg-accent-500/20" border="border border-accent-500" {visible}>
+			<Alert background="bg-secondary-500/20" border="border border-secondary-500" {visible}>
 				<svelte:fragment slot="title">{title}</svelte:fragment>
 				<svelte:fragment slot="trail">
-					<button class="btn btn-filled-accent" on:click={actionExample}>View More</button>
+					<button class="btn btn-filled-secondary" on:click={actionExample}>View More</button>
 				</svelte:fragment>
 			</Alert>
 			<Alert background="bg-primary-500/20" border="border border-primary-500" {visible}>

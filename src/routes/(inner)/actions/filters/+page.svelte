@@ -122,7 +122,7 @@
 					>.
 				</p>
 			</div>
-			<a class="btn btn-filled-accent" href="https://fecolormatrix.com/" target="_blank" rel="noreferrer">Create Filter</a>
+			<a class="btn btn-filled-secondary" href="https://fecolormatrix.com/" target="_blank" rel="noreferrer">Create Filter</a>
 		</section>
 		<hr />
 		<section class="space-y-4">

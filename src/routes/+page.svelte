@@ -21,7 +21,7 @@
 
 <div>
 	<!-- Hero -->
-	<header class="card-glass-accent border-b border-black/5 dark:border-white/5 px-4 py-10 md:py-20">
+	<header class="card-glass-secondary border-b border-black/5 dark:border-white/5 px-4 py-10 md:py-20">
 		<div class="container max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 place-items-center">
 			<!-- Text -->
 			<div class="space-y-4">
@@ -61,7 +61,7 @@
 		<!-- Features -->
 		<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 			<h2 class="sr-only">Features</h2>
-			<div class="card card-glass-accent p-4 text-center space-y-4">
+			<div class="card card-glass-secondary p-4 text-center space-y-4">
 				<div class="bg-orange-500 w-20 mx-auto lg:-mt-10 aspect-square flex justify-center items-center rounded-token shadow">
 					<SvgIcon name="svelte" fill="fill-white" width="w-10" height="h-10" />
 				</div>
@@ -70,22 +70,22 @@
 					Tightly coupled support for Svelte using the <a href="https://kit.svelte.dev/" target="_blank" rel="noreferrer">SvelteKit</a> app framework.
 				</p>
 			</div>
-			<div class="card card-glass-accent p-4 text-center space-y-4">
+			<div class="card card-glass-secondary p-4 text-center space-y-4">
 				<div class="bg-sky-500 w-20 mx-auto lg:-mt-10 aspect-square flex justify-center items-center rounded-token shadow">
 					<SvgIcon name="tailwind" fill="fill-white" width="w-10" height="h-10" />
 				</div>
 				<h4>Tailwind CSS Integration</h4>
 				<p>Integrate with your design system using Tailwind utility classes to style components.</p>
 			</div>
-			<div class="card card-glass-accent p-4 text-center space-y-4">
+			<div class="card card-glass-secondary p-4 text-center space-y-4">
 				<div class="bg-primary-500 w-20 mx-auto lg:-mt-10 aspect-square flex justify-center items-center rounded-token shadow">
 					<SvgIcon name="swatchbook" fill="fill-white" width="w-8" height="h-8" />
 				</div>
 				<h4>Dynamic Themes</h4>
 				<p>Choose from a library of hand crafted preset themes or quickly generate your own in seconds.</p>
 			</div>
-			<div class="card card-glass-accent p-4 text-center space-y-4">
-				<div class="bg-accent-500 w-20 mx-auto lg:-mt-10 aspect-square flex justify-center items-center rounded-token shadow">
+			<div class="card card-glass-secondary p-4 text-center space-y-4">
+				<div class="bg-secondary-500 w-20 mx-auto lg:-mt-10 aspect-square flex justify-center items-center rounded-token shadow">
 					<SvgIcon name="screwdriver" fill="fill-white" width="w-8" height="h-8" />
 				</div>
 				<h4>Powerful Utilities</h4>
@@ -143,7 +143,7 @@
 		<section class="text-center space-y-6">
 			<h2>Meet The Team</h2>
 			<ul class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-[800px] mx-auto">
-				<li class="card card-glass-accent p-4 space-y-4">
+				<li class="card card-glass-secondary p-4 space-y-4">
 					<Avatar src="https://avatars.githubusercontent.com/u/1509726?v=4" width="w-32" class="mx-auto" />
 					<div>
 						<h3>Chris Simmons</h3>
@@ -156,7 +156,7 @@
 						<a href="https://www.linkedin.com/in/chris-simmons-8a523a23/" target="_blank" rel="noreferrer"><SvgIcon name="linkedin" /></a>
 					</div>
 				</li>
-				<li class="card card-glass-accent p-4 space-y-4">
+				<li class="card card-glass-secondary p-4 space-y-4">
 					<Avatar src="https://avatars.githubusercontent.com/u/10255430?v=4" width="w-32" class="mx-auto" />
 					<div>
 						<h3>Trey Weir</h3>

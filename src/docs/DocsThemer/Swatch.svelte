@@ -17,17 +17,17 @@
 			800: 'bg-primary-800',
 			900: 'bg-primary-900'
 		},
-		accent: {
-			50: 'bg-accent-50',
-			100: 'bg-accent-100',
-			200: 'bg-accent-200',
-			300: 'bg-accent-300',
-			400: 'bg-accent-400',
-			500: 'bg-accent-500 text-on-accent-token fill-on-accent-token',
-			600: 'bg-accent-600',
-			700: 'bg-accent-700',
-			800: 'bg-accent-800',
-			900: 'bg-accent-900'
+		secondary: {
+			50: 'bg-secondary-50',
+			100: 'bg-secondary-100',
+			200: 'bg-secondary-200',
+			300: 'bg-secondary-300',
+			400: 'bg-secondary-400',
+			500: 'bg-secondary-500 text-on-secondary-token fill-on-secondary-token',
+			600: 'bg-secondary-600',
+			700: 'bg-secondary-700',
+			800: 'bg-secondary-800',
+			900: 'bg-secondary-900'
 		},
 		tertiary: {
 			50: 'bg-tertiary-50',

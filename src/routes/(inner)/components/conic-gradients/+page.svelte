@@ -30,7 +30,7 @@
 	const stopsVars: ConicStop[] = [
 		{ label: 'Primary', color: 'rgb(var(--color-primary-500))', start: 0, end: 33 },
 		{ label: 'Accent', color: 'rgb(var(--color-warning-500))', start: 33, end: 66 },
-		{ label: 'Warning', color: 'rgb(var(--color-accent-500))', start: 66, end: 100 }
+		{ label: 'Warning', color: 'rgb(var(--color-secondary-500))', start: 66, end: 100 }
 	];
 	const stopsSpinner: ConicStop[] = [
 		{ color: 'transparent', start: 0, end: 25 },
@@ -103,8 +103,8 @@ const conicStops: ConicStop[] = [
 				code={`
 const conicStops: ConicStop[] = [
 	{ label: 'Primary', color: 'rgb(var(--color-primary-500))', start: 0, end: 33 },
-	{ label: 'Accent', color: 'rgb(var(--color-warning-500))', start: 33, end: 66 },
-	{ label: 'Warning', color: 'rgb(var(--color-accent-500))', start: 66, end: 100 }
+	{ label: 'Warning', color: 'rgb(var(--color-warning-500))', start: 33, end: 66 },
+	{ label: 'secondary', color: 'rgb(var(--color-secondary-500))', start: 66, end: 100 }
 ];`}
 			/>
 		</div>

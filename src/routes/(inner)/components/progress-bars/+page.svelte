@@ -35,7 +35,7 @@
 		max: 100,
 		height: $storeHeight,
 		rounded: 'rounded-token',
-		meter: 'bg-accent-500',
+		meter: 'bg-secondary-500',
 		track: defaultTrackBg
 	};
 </script>
@@ -110,7 +110,7 @@
 					<span>Meter</span>
 					<select name="meter" id="meter" bind:value={props.meter}>
 						<option value="bg-primary-500">bg-primary-500</option>
-						<option value="bg-accent-500">bg-accent-500</option>
+						<option value="bg-secondary-500">bg-secondary-500</option>
 						<option value="bg-tertiary-500">bg-tertiary-500</option>
 						<option value="bg-warning-500">bg-warning-500</option>
 						<option value="bg-surface-500">bg-surface-500</option>
@@ -122,7 +122,7 @@
 					<select name="track" id="track" bind:value={props.track}>
 						<option value={defaultTrackBg}>Default</option>
 						<option value="bg-primary-500/30">bg-primary-500/30</option>
-						<option value="bg-accent-500/30">bg-accent-500/30</option>
+						<option value="bg-secondary-500/30">bg-secondary-500/30</option>
 						<option value="bg-tertiary-500/30">bg-tertiary-500/30</option>
 						<option value="bg-warning-500/30">bg-warning-500/30</option>
 						<option value="bg-surface-500/30">bg-surface-500/30</option>

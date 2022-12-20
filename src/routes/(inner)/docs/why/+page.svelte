@@ -19,7 +19,7 @@
 		</p>
 	</section>
 
-	<div class="card card-glass-accent p-4">
+	<div class="card card-glass-secondary p-4">
 		<iframe
 			class="w-full lg:w-[640px] aspect-video mx-auto rounded-container-token shadow"
 			src="https://www.youtube.com/embed/2OnJYCXJPK4"
@@ -97,7 +97,7 @@
 			Skeleton receives new update every other week, typically around Tuesday (US/Central). Each release is packed with major updates, new
 			features, and bugfixes.
 		</p>
-		<a class="btn btn-filled-accent" href="https://github.com/skeletonlabs/skeleton/releases" target="_blank" rel="noreferrer">
+		<a class="btn btn-filled-secondary" href="https://github.com/skeletonlabs/skeleton/releases" target="_blank" rel="noreferrer">
 			View Releases
 		</a>
 	</section>

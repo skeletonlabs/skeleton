@@ -45,7 +45,7 @@
 		max: $storeMax,
 		step: $storeStep,
 		ticked: $storeTicked,
-		accent: '!accent-accent-500'
+		accent: '!accent-secondary-500'
 	};
 </script>
 
@@ -114,7 +114,7 @@
 						<span>Accent</span>
 						<select name="accent" id="accent" bind:value={props.accent}>
 							<option value="!accent-primary-500">accent-primary-500</option>
-							<option value="!accent-accent-500">accent-accent-500</option>
+							<option value="!accent-secondary-500">accent-secondary-500</option>
 							<option value="!accent-tertiary-500">accent-tertiary-500</option>
 							<option value="!accent-warning-500">accent-warning-500</option>
 							<option value="!accent-surface-500">accent-surface-500</option>

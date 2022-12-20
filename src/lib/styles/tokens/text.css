@@ -28,8 +28,8 @@
 	.text-on-primary-token {
 		color: rgb(var(--on-primary));
 	}
-	.text-on-accent-token {
-		color: rgb(var(--on-accent));
+	.text-on-secondary-token {
+		color: rgb(var(--on-secondary));
 	}
 	.text-on-tertiary-token {
 		color: rgb(var(--on-tertiary));
@@ -67,21 +67,21 @@
 		@apply text-primary-400 dark:text-primary-500;
 	}
 
-	/* Accent */
-	.text-accent-50-900-token {
-		@apply text-accent-50 dark:text-accent-900;
+	/* Secondary */
+	.text-secondary-50-900-token {
+		@apply text-secondary-50 dark:text-secondary-900;
 	}
-	.text-accent-100-800-token {
-		@apply text-accent-100 dark:text-accent-800;
+	.text-secondary-100-800-token {
+		@apply text-secondary-100 dark:text-secondary-800;
 	}
-	.text-accent-200-700-token {
-		@apply text-accent-200 dark:text-accent-700;
+	.text-secondary-200-700-token {
+		@apply text-secondary-200 dark:text-secondary-700;
 	}
-	.text-accent-300-600-token {
-		@apply text-accent-300 dark:text-accent-600;
+	.text-secondary-300-600-token {
+		@apply text-secondary-300 dark:text-secondary-600;
 	}
-	.text-accent-400-500-token {
-		@apply text-accent-400 dark:text-surface-500;
+	.text-secondary-400-500-token {
+		@apply text-secondary-400 dark:text-surface-500;
 	}
 
 	/* Tertiary */
@@ -155,21 +155,21 @@
 		@apply text-primary-500 dark:text-primary-400;
 	}
 
-	/* Accent */
-	.text-accent-900-50-token {
-		@apply text-accent-900 dark:text-accent-50;
+	/* Secondary */
+	.text-secondary-900-50-token {
+		@apply text-secondary-900 dark:text-secondary-50;
 	}
-	.text-accent-800-100-token {
-		@apply text-accent-800 dark:text-accent-100;
+	.text-secondary-800-100-token {
+		@apply text-secondary-800 dark:text-secondary-100;
 	}
-	.text-accent-700-200-token {
-		@apply text-accent-700 dark:text-accent-200;
+	.text-secondary-700-200-token {
+		@apply text-secondary-700 dark:text-secondary-200;
 	}
-	.text-accent-600-300-token {
-		@apply text-accent-600 dark:text-accent-300;
+	.text-secondary-600-300-token {
+		@apply text-secondary-600 dark:text-secondary-300;
 	}
-	.text-accent-500-400-token {
-		@apply text-accent-500 dark:text-accent-400;
+	.text-secondary-500-400-token {
+		@apply text-secondary-500 dark:text-secondary-400;
 	}
 
 	/* Tertiary */

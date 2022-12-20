@@ -19,9 +19,9 @@
 	/** Provide classes to set the RadioItem padding. */
 	export let padding = 'px-4 py-2';
 	/** Provide classes to set the hover style. */
-	export let hover = 'bg-accent-hover-token';
+	export let hover = 'bg-secondary-hover-token';
 	/** Provide classes to set the highlighted accent color. */
-	export let accent = 'bg-accent-active-token';
+	export let accent = 'bg-secondary-active-token';
 	/** Provide classes to set the highlighted text color. */
 	export let color = 'text-surface-50';
 	/** Provide classes to set the highlighted SVG fill color. */

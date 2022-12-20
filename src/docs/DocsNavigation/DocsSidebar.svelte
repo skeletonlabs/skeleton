@@ -75,7 +75,7 @@
 							<li on:click={onListItemClick} on:keypress>
 								<a {href} value={href} class={classesActive(href)} data-sveltekit-preload-data="hover">
 									<span class="flex-auto">{label}</span>
-									{#if badge}<span class="badge badge-filled-accent">{badge}</span>{/if}
+									{#if badge}<span class="badge badge-filled-secondary">{badge}</span>{/if}
 								</a>
 							</li>
 						{/each}

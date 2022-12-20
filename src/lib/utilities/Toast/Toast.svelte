@@ -16,11 +16,11 @@
 
 	// Props (styles)
 	/** Provide classes to set the background color. */
-	export let background = 'bg-accent-500';
+	export let background = 'bg-secondary-500';
 	/** Provide classes to set width styles. */
 	export let width = 'max-w-[640px]';
 	/** Provide classes to set the text color. */
-	export let color = 'text-on-accent-token';
+	export let color = 'text-on-secondary-token';
 	/** Provide classes to set the padding. */
 	export let padding = 'p-4';
 	/** Provide classes to set the horizontal spacing. */
