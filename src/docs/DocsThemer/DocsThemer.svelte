@@ -94,9 +94,10 @@
 	function onPreviewToggle(): void {
 		if ($storePreview === false) {
 			localStorage.removeItem('storeThemGenForm');
-			// **** ENABLE FOR PRODUCTION ****
-			// location.reload();
-			// *******************************
+			// ******** KEEP ON FOR PRODUCTION ********
+			// Ensures values clear after browsing pages
+			location.reload();
+			// ****************************************
 		}
 	}
 
