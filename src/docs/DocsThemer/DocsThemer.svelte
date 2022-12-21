@@ -41,6 +41,7 @@
 	// Local
 	let generatedPalette: Record<string, Palette>;
 	let cssOutput: string = '';
+	let showThemeCSS: boolean = false;
 
 	function generateRandomHex(): string {
 		return '#' + ((Math.random() * 0xffffff) << 0).toString(16).padStart(6, '0');
@@ -134,37 +135,46 @@
 	{@html liveThemePreview}
 </svelte:head>
 
-{#if $storeThemGenForm}
+<div class="docs-themer space-y-4">
+	<div class="card card-glass-secondary p-4 flex justify-between items-center">
+		<span>Enable edit mode and live preview.</span>
+		<SlideToggle size="lg" bind:checked={$storePreview} on:change={onPreviewToggle} />
+	</div>
 	<div class="grid grid-cols-2 gap-4">
-		<!-- General Settings -->
-		<header class="col-span-2 flex justify-between items-center">
-			<SlideToggle bind:checked={$storePreview} on:change={onPreviewToggle}>Preview</SlideToggle>
-			<div class="flex justify-center items-center space-x-4">
-				<button class="btn btn-ghost-surface" on:click={randomize} disabled={!$storePreview}>Randomize</button>
-			</div>
-			<LightSwitch />
-		</header>
-
 		<!-- Theme Color -->
-		<section class="col-span-2 card p-4 grid grid-cols-1 gap-4">
-			{#each $storeThemGenForm.colors as colorRow}
-				<div class="grid grid-cols-1 lg:grid-cols-[150px_1fr_160px] gap-2 lg:gap-4">
-					<label>
-						<span>{colorRow.label}</span>
-						<div class="grid grid-cols-[1fr_auto] gap-2">
-							<input type="text" bind:value={colorRow.hex} placeholder="#BADA55" disabled={!$storePreview} />
-							<input class="border-[1px] border-white w-10 h-10" type="color" bind:value={colorRow.hex} disabled={!$storePreview} />
-						</div>
-					</label>
-					<Swatch color={colorRow.key} />
-					<label>
-						<span>On Colors</span>
-						<select bind:value={colorRow.on} disabled={!$storePreview}>
-							{#each inputSettings.colorProps as c}<option value={c.value}>{c.label}</option>{/each}
-						</select>
-					</label>
+		<section class="card col-span-2">
+			<!-- General Settings -->
+			<header class="card-header col-span-2 flex justify-between items-center">
+				<div class="flex justify-center items-center space-x-4">
+					<button class="btn btn-ghost-surface" on:click={randomize} disabled={!$storePreview}>Randomize Colors</button>
 				</div>
-			{/each}
+				<LightSwitch />
+			</header>
+			<div class="p-4 grid grid-cols-1 gap-4">
+				{#each $storeThemGenForm.colors as colorRow}
+					<div class="grid grid-cols-1 lg:grid-cols-[160px_1fr_160px] gap-2 lg:gap-4">
+						<label>
+							<span>{colorRow.label}</span>
+							<div class="grid grid-cols-[1fr_auto] gap-2 place-items-end">
+								<input type="text" bind:value={colorRow.hex} placeholder="#BADA55" disabled={!$storePreview} />
+								<input
+									class="border-transparent overflow-hidden w-10 h-10"
+									type="color"
+									bind:value={colorRow.hex}
+									disabled={!$storePreview}
+								/>
+							</div>
+						</label>
+						<Swatch color={colorRow.key} />
+						<label>
+							<span>On Colors</span>
+							<select bind:value={colorRow.on} disabled={!$storePreview}>
+								{#each inputSettings.colorProps as c}<option value={c.value}>{c.label}</option>{/each}
+							</select>
+						</label>
+					</div>
+				{/each}
+			</div>
 		</section>
 
 		<!-- Theme Settings -->
@@ -203,6 +213,7 @@
 				<span>Base</span>
 				<select bind:value={$storeThemGenForm.roundedBase} disabled={!$storePreview}>
 					{#each inputSettings.rounded as r}<option value={r}>{r}</option>{/each}
+					<option value="9999px">9999px</option>
 				</select>
 			</label>
 			<label>
@@ -243,12 +254,12 @@
 			<hr class="opacity-50" />
 			<!-- Badges -->
 			<div class="grid grid-cols-3 gap-4 place-items-center">
-				<button class="badge badge-filled-primary">primary</button>
-				<button class="badge badge-filled-secondary">secondary</button>
-				<button class="badge badge-filled-tertiary">tertiary</button>
-				<button class="badge badge-filled-success">success</button>
-				<button class="badge badge-filled-warning">warning</button>
-				<button class="badge badge-filled-error">error</button>
+				<span class="badge badge-filled-primary">primary</span>
+				<span class="badge badge-filled-secondary">secondary</span>
+				<span class="badge badge-filled-tertiary">tertiary</span>
+				<span class="badge badge-filled-success">success</span>
+				<span class="badge badge-filled-warning">warning</span>
+				<span class="badge badge-filled-error">error</span>
 			</div>
 			<hr class="opacity-50" />
 			<!-- Slide Toggles -->
@@ -259,9 +270,15 @@
 			</div>
 		</section>
 
-		<!-- Generated CSS -->
+		<!-- CSS Output -->
 		<footer class="col-span-2 space-y-4">
-			<CodeBlock language="css" code={cssOutput} />
+			{#if showThemeCSS}<CodeBlock language="css" code={cssOutput} />{/if}
+			<div class="card card-glass-secondary p-4 text-center">
+				<!-- prettier-ignore -->
+				<button class="btn btn-lg btn-filled-primary" on:click={() => { showThemeCSS = !showThemeCSS; }}>
+					{!showThemeCSS ? 'Show' : 'Hide'} Theme CSS
+				</button>
+			</div>
 		</footer>
 	</div>
-{/if}
+</div>

@@ -84,6 +84,9 @@ function darken(hex: string, intensity: number): string {
 }
 
 export function generatePalette(baseColor: string): Palette {
+	const hexValidation = new RegExp(/^#[0-9a-f]{6}$/i);
+	if (!hexValidation.test(baseColor)) baseColor = '#CCCCCC';
+
 	const hex500 = `#${baseColor}`.replace('##', '#');
 
 	const response: Palette = {
@@ -91,8 +94,8 @@ export function generatePalette(baseColor: string): Palette {
 	};
 
 	const intensityMap: { [key: number]: number } = {
-		50: 0.95,
-		100: 0.9,
+		50: 0.85,
+		100: 0.8,
 		200: 0.75,
 		300: 0.6,
 		400: 0.3,
@@ -100,6 +103,15 @@ export function generatePalette(baseColor: string): Palette {
 		700: 0.75,
 		800: 0.6,
 		900: 0.49
+		// 50: 0.95,
+		// 100: 0.9,
+		// 200: 0.75,
+		// 300: 0.6,
+		// 400: 0.3,
+		// 600: 0.9,
+		// 700: 0.75,
+		// 800: 0.6,
+		// 900: 0.49
 	};
 
 	[50, 100, 200, 300, 400].forEach((level) => {
