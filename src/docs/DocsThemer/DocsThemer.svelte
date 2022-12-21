@@ -142,27 +142,28 @@
 	</div>
 	<div class="grid grid-cols-2 gap-4">
 		<!-- Theme Color -->
-		<section class="card col-span-2">
+		<section class="card col-span-2 ">
 			<!-- General Settings -->
-			<header class="card-header col-span-2 flex justify-between items-center">
+			<header class="p-4 col-span-2 flex justify-between items-center">
 				<div class="flex justify-center items-center space-x-4">
 					<button class="btn btn-ghost-surface" on:click={randomize} disabled={!$storePreview}>Randomize Colors</button>
 				</div>
 				<LightSwitch />
 			</header>
+			<hr />
 			<div class="p-4 grid grid-cols-1 gap-4">
 				{#each $storeThemGenForm.colors as colorRow}
-					<div class="grid grid-cols-1 lg:grid-cols-[160px_1fr_160px] gap-2 lg:gap-4">
+					<div class="grid grid-cols-1 lg:grid-cols-[170px_1fr_160px] gap-2 lg:gap-4">
 						<label>
 							<span>{colorRow.label}</span>
-							<div class="grid grid-cols-[1fr_auto] gap-2 place-items-end">
-								<input type="text" bind:value={colorRow.hex} placeholder="#BADA55" disabled={!$storePreview} />
+							<div class="grid grid-cols-[auto_1fr] gap-4 place-items-end">
 								<input
 									class="border-transparent overflow-hidden w-10 h-10"
 									type="color"
 									bind:value={colorRow.hex}
 									disabled={!$storePreview}
 								/>
+								<input type="text" bind:value={colorRow.hex} placeholder="#BADA55" disabled={!$storePreview} />
 							</div>
 						</label>
 						<Swatch color={colorRow.key} />

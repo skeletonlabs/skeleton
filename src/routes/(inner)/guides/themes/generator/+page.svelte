@@ -19,8 +19,8 @@
 	<header class="space-y-4">
 		<h1>Theme Generator</h1>
 		<p>
-			Enable edit mode to enable a live theme preview. You can browse the entire site while edit mode is enabled. Don't worry, your settings
-			here will below will not be lost. When you are finished, tap the "Reset Theme" button to return to normal.
+			Enable the edit and preview mode below, then change each color and value below. You'll see the entire site update as you progress. You
+			can navigate to different sections without losing your settings. Disable the preview will reset back the standard theme.
 		</p>
 	</header>
 
