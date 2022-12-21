@@ -16,7 +16,7 @@
 	import type { ColorSettings, FormTheme } from './types';
 	import { storePreview } from './stores';
 	import { inputSettings, fontSettings } from './settings';
-	import { type Palette, generatePalette } from './colors';
+	import { type Palette, generatePalette, getA11yOnColor } from './colors';
 
 	// Stores
 	const storeThemGenForm: Writable<FormTheme> = localStorageStore('storeThemGenForm', {
@@ -48,9 +48,9 @@
 
 	function randomize(): void {
 		$storeThemGenForm.colors.forEach((_, i: number) => {
-			const colorKey = $storeThemGenForm.colors[i].key;
-			$storeThemGenForm.colors[i].hex = generateRandomHex();
-			$storeThemGenForm.colors[i].on = generatedPalette[colorKey][500].on;
+			const randHex = generateRandomHex();
+			$storeThemGenForm.colors[i].hex = randHex;
+			$storeThemGenForm.colors[i].on = getA11yOnColor(randHex);
 		});
 	}
 
@@ -221,7 +221,7 @@
 		</section>
 
 		<!-- Previews -->
-		<section class="card card-glass-secondary p-4 space-y-8 col-span-2 lg:col-span-1">
+		<section class="card !bg-transparent p-4 space-y-8 col-span-2 lg:col-span-1">
 			<h3>Preview Elements</h3>
 			<!-- Buttons -->
 			<div class="grid grid-cols-3 gap-4">

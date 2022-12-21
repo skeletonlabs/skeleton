@@ -46,7 +46,7 @@ function rgbToHex(r: number, g: number, b: number): string {
 	return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
 }
 
-export function getTextColor(hex: string): '255 255 255' | '0 0 0' {
+export function getA11yOnColor(hex: string): '255 255 255' | '0 0 0' {
 	const rgbColor = hexToRgb(hex);
 
 	if (!rgbColor) {
@@ -87,7 +87,7 @@ export function generatePalette(baseColor: string): Palette {
 	const hex500 = `#${baseColor}`.replace('##', '#');
 
 	const response: Palette = {
-		500: { hex: hex500, rgb: hexToRgbString(hex500), on: getTextColor(hex500) }
+		500: { hex: hex500, rgb: hexToRgbString(hex500), on: getA11yOnColor(hex500) }
 	};
 
 	const intensityMap: { [key: number]: number } = {
@@ -104,12 +104,12 @@ export function generatePalette(baseColor: string): Palette {
 
 	[50, 100, 200, 300, 400].forEach((level) => {
 		const hex = lighten(baseColor, intensityMap[level]);
-		response[level] = { hex, rgb: hexToRgbString(hex), on: getTextColor(hex) };
+		response[level] = { hex, rgb: hexToRgbString(hex), on: getA11yOnColor(hex) };
 	});
 
 	[600, 700, 800, 900].forEach((level) => {
 		const hex = darken(baseColor, intensityMap[level]);
-		response[level] = { hex, rgb: hexToRgbString(hex), on: getTextColor(hex) };
+		response[level] = { hex, rgb: hexToRgbString(hex), on: getA11yOnColor(hex) };
 	});
 
 	return response as Palette;
