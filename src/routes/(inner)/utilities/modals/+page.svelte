@@ -274,7 +274,7 @@ const d: ModalSettings = {
 		<section class="space-y-4">
 			<div class="flex items-center space-x-2">
 				<h2>Component Modals</h2>
-				<span class="badge bg-warning-500">Advanced</span>
+				<span class="badge badge-filled-warning">Advanced</span>
 			</div>
 			<p>You can create a custom modal by passing a <code>ModalComponent</code> object, which includes any Svelte component.</p>
 			<CodeBlock
@@ -335,7 +335,7 @@ function triggerCustomModal(): void {
 		<section class="space-y-4">
 			<div class="flex items-center space-x-2">
 				<h2>Abitrary Data</h2>
-				<span class="badge bg-warning-500">Advanced</span>
+				<span class="badge badge-filled-warning">Advanced</span>
 			</div>
 			<p>You can pass abitrary metadata to your modal via the <code>meta</code> setting. All data types are supported.</p>
 			<CodeBlock

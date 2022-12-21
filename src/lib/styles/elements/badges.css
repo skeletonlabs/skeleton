@@ -3,7 +3,7 @@
 @layer components {
 	.badge {
 		/* Core */
-		@apply inline-flex items-center space-x-2 whitespace-nowrap;
+		@apply inline-flex justify-center items-center space-x-2 whitespace-nowrap;
 		/* Text */
 		@apply font-semibold text-xs;
 		/* Padding */

@@ -114,10 +114,10 @@
 						<option value="border-primary-500">border-primary-500</option>
 						<option value="border-secondary-500">border-secondary-500</option>
 						<option value="border-tertiary-500">border-tertiary-500</option>
+						<option value="border-success-500">border-success-500</option>
 						<option value="border-warning-500">border-warning-500</option>
-						<option value="border-red-500">border-red-500</option>
-						<option value="border-green-500">border-green-500</option>
-						<option value="border-blue-500">border-blue-500</option>
+						<option value="border-error-500">border-error-500</option>
+						<option value="border-surface-500">border-surface-500</option>
 					</select>
 				</label>
 			</div>

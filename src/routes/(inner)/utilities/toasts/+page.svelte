@@ -89,8 +89,8 @@
 					<button class="btn btn-ghost-surface" on:click={() => {toastPreset('primary')}}>Primary</button>
 					<button class="btn btn-ghost-surface" on:click={() => {toastPreset('secondary')}}>Secondary</button>
 					<button class="btn btn-ghost-surface" on:click={() => {toastPreset('tertiary')}}>Tertiary</button>
-					<button class="btn btn-ghost-surface" on:click={() => {toastPreset('warning')}}>Warning</button>
 					<button class="btn btn-ghost-surface" on:click={() => {toastPreset('success')}}>Success</button>
+					<button class="btn btn-ghost-surface" on:click={() => {toastPreset('warning')}}>Warning</button>
 					<button class="btn btn-ghost-surface" on:click={() => {toastPreset('error')}}>Error</button>
 				</div>
 			</section>

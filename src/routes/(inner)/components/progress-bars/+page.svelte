@@ -112,7 +112,9 @@
 						<option value="bg-primary-500">bg-primary-500</option>
 						<option value="bg-secondary-500">bg-secondary-500</option>
 						<option value="bg-tertiary-500">bg-tertiary-500</option>
+						<option value="bg-success-500">bg-success-500</option>
 						<option value="bg-warning-500">bg-warning-500</option>
+						<option value="bg-error-500">bg-error-500</option>
 						<option value="bg-surface-500">bg-surface-500</option>
 					</select>
 				</label>
@@ -124,7 +126,9 @@
 						<option value="bg-primary-500/30">bg-primary-500/30</option>
 						<option value="bg-secondary-500/30">bg-secondary-500/30</option>
 						<option value="bg-tertiary-500/30">bg-tertiary-500/30</option>
+						<option value="bg-success-500/30">bg-success-500/30</option>
 						<option value="bg-warning-500/30">bg-warning-500/30</option>
+						<option value="bg-errror-500/30">bg-errror-500/30</option>
 						<option value="bg-surface-500/30">bg-surface-500/30</option>
 					</select>
 				</label>

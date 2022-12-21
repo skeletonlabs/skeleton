@@ -19,7 +19,7 @@
 		@apply w-64 h-64 md:w-80 md:h-80;
 	}
 	.img-bg {
-		@apply bg-gradient-to-tr from-primary-300 via-secondary-300 to-tertiary-300;
+		@apply bg-tertiary-400/75;
 		@apply absolute z-[-1] rounded-full blur-[80px];
 		animation: pulse 5s cubic-bezier(0, 0, 0, 0.5) infinite;
 	}

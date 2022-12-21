@@ -93,13 +93,15 @@
 			</p>
 			<CodeBlock language="html" code={`<span class="badge badge-filled-surface">Skeleton</span>`} />
 			<section class="lg:col-span-3 card p-4">
-				<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-					<div class="text-center"><span class="badge badge-filled-surface">filled-surface</span></div>
-					<div class="text-center"><span class="badge badge-filled-primary">filled-primary</span></div>
-					<div class="text-center"><span class="badge badge-filled-secondary">filled-secondary</span></div>
-					<div class="text-center"><span class="badge badge-filled-tertiary">filled-tertiary</span></div>
-					<div class="text-center"><span class="badge badge-filled-warning">filled-warning</span></div>
-					<div class="text-center"><span class="badge badge-glass block w-full">glass</span></div>
+				<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+					<span class="badge badge-filled-surface">filled-surface</span>
+					<span class="badge badge-filled-primary">filled-primary</span>
+					<span class="badge badge-filled-secondary">filled-secondary</span>
+					<span class="badge badge-filled-tertiary">filled-tertiary</span>
+					<span class="badge badge-glass">glass</span>
+					<span class="badge badge-filled-success">filled-success</span>
+					<span class="badge badge-filled-warning">filled-warning</span>
+					<span class="badge badge-filled-error">filled-error</span>
 				</div>
 			</section>
 		</section>

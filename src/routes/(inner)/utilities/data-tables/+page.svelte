@@ -63,9 +63,7 @@
 				see the "svelte-headless-tables" library by Bryan Lee, which may be paired with the Skeleton styles under <strong>Tailwind -> Elements -> Tables</strong>.
 			</span>
 			<svelte:fragment slot="trail">
-				<a href="https://svelte-headless-table.bryanmylee.com/" target="_blank" rel="noreferrer" class="btn btn-ghost-tertiary"
-					>See Alternative</a
-				>
+				<a href="https://svelte-headless-table.bryanmylee.com/" target="_blank" rel="noreferrer" class="btn btn-ghost">See Alternative</a>
 				<a href="https://github.com/skeletonlabs/skeleton/issues/538" target="_blank" rel="noreferrer" class="btn btn-filled"
 					>Track Progress</a
 				>

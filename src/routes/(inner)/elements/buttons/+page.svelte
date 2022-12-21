@@ -103,19 +103,25 @@
 						<option value="btn-filled-primary">btn-filled-primary</option>
 						<option value="btn-filled-secondary">btn-filled-secondary</option>
 						<option value="btn-filled-tertiary">btn-filled-tertiary</option>
+						<option value="btn-filled-success">btn-filled-success</option>
 						<option value="btn-filled-warning">btn-filled-warning</option>
+						<option value="btn-filled-error">btn-filled-error</option>
 						<option value="btn-filled-surface">btn-filled-surface</option>
 						<!-- Ringed -->
 						<option value="btn-ringed-primary">btn-ringed-primary</option>
 						<option value="btn-ringed-secondary">btn-ringed-secondary</option>
 						<option value="btn-ringed-tertiary">btn-ringed-tertiary</option>
+						<option value="btn-ringed-success">btn-ringed-success</option>
 						<option value="btn-ringed-warning">btn-ringed-warning</option>
+						<option value="btn-ringed-error">btn-ringed-error</option>
 						<option value="btn-ringed-surface">btn-ringed-surface</option>
 						<!-- Ghost -->
 						<option value="btn-ghost-primary">btn-ghost-primary</option>
 						<option value="btn-ghost-secondary">btn-ghost-secondary</option>
 						<option value="btn-ghost-tertiary">btn-ghost-tertiary</option>
+						<option value="btn-ghost-success">btn-ghost-success</option>
 						<option value="btn-ghost-warning">btn-ghost-warning</option>
+						<option value="btn-ghost-error">btn-ghost-error</option>
 						<option value="btn-ghost-surface">btn-ghost-surface</option>
 					</select>
 				</label>
@@ -127,7 +133,9 @@
 						<option value="ring-2 ring-primary-500 ring-inset">ring-2 ring-primary-500 ring-inset</option>
 						<option value="ring-2 ring-secondary-500 ring-inset">ring-2 ring-secondary-500 ring-inset</option>
 						<option value="ring-2 ring-tertiary-500 ring-inset">ring-2 ring-tertiary-500 ring-inset</option>
+						<option value="ring-2 ring-success-500 ring-inset">ring-2 ring-success-500 ring-inset</option>
 						<option value="ring-2 ring-warning-500 ring-inset">ring-2 ring-warning-500 ring-inset</option>
+						<option value="ring-2 ring-error-500 ring-inset">ring-2 ring-error-500 ring-inset</option>
 						<option value="ring-2 ring-surface-500 ring-inset">ring-2 ring-surface-500 ring-inset</option>
 					</select>
 				</label>
@@ -141,7 +149,9 @@
 						<option value="text-primary-500">text-primary-500</option>
 						<option value="text-secondary-500">text-secondary-500</option>
 						<option value="text-tertiary-500">text-tertiary-500</option>
+						<option value="text-success-500">text-success-500</option>
 						<option value="text-warning-500">text-warning-500</option>
+						<option value="text-error-500">text-error-500</option>
 						<option value="text-surface-500">text-surface-500</option>
 					</select>
 				</label>
@@ -211,7 +221,9 @@
 					<button class="btn btn-filled-primary">filled-primary</button>
 					<button class="btn btn-filled-secondary">filled-secondary</button>
 					<button class="btn btn-filled-tertiary">filled-tertiary</button>
+					<button class="btn btn-filled-success">filled-success</button>
 					<button class="btn btn-filled-warning">filled-warning</button>
+					<button class="btn btn-filled-error">filled-error</button>
 					<button class="btn btn-filled-surface">filled-surface</button>
 				</div>
 				<!-- Ringed -->
@@ -220,7 +232,9 @@
 					<button class="btn btn-ringed-primary">ringed-primary</button>
 					<button class="btn btn-ringed-secondary">ringed-secondary</button>
 					<button class="btn btn-ringed-tertiary">ringed-tertiary</button>
+					<button class="btn btn-ringed-success">ringed-success</button>
 					<button class="btn btn-ringed-warning">ringed-warning</button>
+					<button class="btn btn-ringed-error">ringed-error</button>
 					<button class="btn btn-ringed-surface">ringed-surface</button>
 				</div>
 				<!-- Ringed -->
@@ -229,7 +243,9 @@
 					<button class="btn btn-ghost-primary">ghost-primary</button>
 					<button class="btn btn-ghost-secondary">ghost-secondary</button>
 					<button class="btn btn-ghost-tertiary">ghost-tertiary</button>
+					<button class="btn btn-ghost-success">ghost-success</button>
 					<button class="btn btn-ghost-warning">ghost-warning</button>
+					<button class="btn btn-ghost-error">ghost-error</button>
 					<button class="btn btn-ghost-surface">ghost-surface</button>
 				</div>
 			</div>
@@ -241,7 +257,9 @@
 					<button class="btn-icon btn-filled-primary">💀</button>
 					<button class="btn-icon btn-filled-secondary">💀</button>
 					<button class="btn-icon btn-filled-tertiary">💀</button>
+					<button class="btn-icon btn-filled-success">💀</button>
 					<button class="btn-icon btn-filled-warning">💀</button>
+					<button class="btn-icon btn-filled-error">💀</button>
 					<button class="btn-icon btn-filled-surface">💀</button>
 				</div>
 				<!-- Ringed -->
@@ -250,7 +268,9 @@
 					<button class="btn-icon btn-ringed-primary">💀</button>
 					<button class="btn-icon btn-ringed-secondary">💀</button>
 					<button class="btn-icon btn-ringed-tertiary">💀</button>
+					<button class="btn-icon btn-ringed-success">💀</button>
 					<button class="btn-icon btn-ringed-warning">💀</button>
+					<button class="btn-icon btn-ringed-error">💀</button>
 					<button class="btn-icon btn-ringed-surface">💀</button>
 				</div>
 				<!-- Ringed -->
@@ -259,7 +279,9 @@
 					<button class="btn-icon btn-ghost-primary">💀</button>
 					<button class="btn-icon btn-ghost-secondary">💀</button>
 					<button class="btn-icon btn-ghost-tertiary">💀</button>
+					<button class="btn-icon btn-ghost-success">💀</button>
 					<button class="btn-icon btn-ghost-warning">💀</button>
+					<button class="btn-icon btn-ghost-error">💀</button>
 					<button class="btn-icon btn-ghost-surface">💀</button>
 				</div>
 			</div>

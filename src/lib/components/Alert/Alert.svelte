@@ -13,9 +13,9 @@
 	/** Control visibility of the alert. */
 	export let visible = true;
 	/** Provide classes to set background color. */
-	export let background = 'bg-tertiary-500/20';
+	export let background = 'bg-warning-500/20';
 	/** Provide classes to set the border styles. */
-	export let border = 'border border-tertiary-500';
+	export let border = 'border border-warning-500';
 	/** Provide classes to set text color. */
 	export let color = '';
 	/** Provide classes to set border radius. */

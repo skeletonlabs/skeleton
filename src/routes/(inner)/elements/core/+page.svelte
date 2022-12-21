@@ -27,7 +27,7 @@
 				<svelte:fragment slot="trail">
 					<!-- FIXME: hardcoded path -->
 					<a
-						class="btn btn-ghost-tertiary"
+						class="btn btn-ghost"
 						href="https://github.com/skeletonlabs/skeleton/blob/master/src/lib/themes/theme-skeleton.css#L80"
 						target="_blank"
 						rel="noreferrer">Reference</a

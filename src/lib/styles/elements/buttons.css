@@ -81,8 +81,14 @@
 	.btn-outline-tertiary {
 		@apply ring-2 ring-tertiary-500 ring-inset;
 	}
+	.btn-outline-success {
+		@apply ring-2 ring-success-500 ring-inset;
+	}
 	.btn-outline-warning {
 		@apply ring-2 ring-warning-500 ring-inset;
+	}
+	.btn-outline-error {
+		@apply ring-2 ring-error-500 ring-inset;
 	}
 	.btn-outline-surface {
 		@apply ring-2 ring-surface-400-500-token ring-inset;
@@ -130,8 +136,14 @@
 	.btn-ringed-tertiary {
 		@apply btn-outline-tertiary;
 	}
+	.btn-ringed-success {
+		@apply btn-outline-success;
+	}
 	.btn-ringed-warning {
 		@apply btn-outline-warning;
+	}
+	.btn-ringed-error {
+		@apply btn-outline-error;
 	}
 	.btn-ringed-surface {
 		@apply btn-outline-surface;
@@ -154,8 +166,14 @@
 	.btn-ghost-tertiary {
 		@apply btn-outline-tertiary bg-tertiary-500/20 hover:bg-tertiary-500/30;
 	}
+	.btn-ghost-success {
+		@apply btn-outline-success bg-success-500/20 hover:bg-success-500/30;
+	}
 	.btn-ghost-warning {
 		@apply btn-outline-warning bg-warning-500/20 hover:bg-warning-500/30;
+	}
+	.btn-ghost-error {
+		@apply btn-outline-error bg-error-500/20 hover:bg-error-500/30;
 	}
 	.btn-ghost-surface {
 		@apply btn-outline-surface bg-surface-400/20 hover:bg-surface-500/30;

@@ -23,9 +23,9 @@
 		colors: [
 			{ key: 'primary', label: 'Primary', hex: '#0FBA81', rgb: '0 0 0', on: '0 0 0' }, // BADA55
 			{ key: 'secondary', label: 'Secondary', hex: '#4F46E5', rgb: '0 0 0', on: '255 255 255' },
-			{ key: 'tertiary', label: 'Tertiary', hex: '#EAB309', rgb: '0 0 0', on: '0 0 0' },
+			{ key: 'tertiary', label: 'Tertiary', hex: '#0EA5E9', rgb: '0 0 0', on: '0 0 0' },
 			{ key: 'success', label: 'Success', hex: '#84cc16', rgb: '0 0 0', on: '0 0 0' },
-			{ key: 'warning', label: 'Warning', hex: '#f59e0b', rgb: '0 0 0', on: '0 0 0' },
+			{ key: 'warning', label: 'Warning', hex: '#EAB308', rgb: '0 0 0', on: '0 0 0' },
 			{ key: 'error', label: 'Error', hex: '#D41976', rgb: '0 0 0', on: '255 255 255' },
 			{ key: 'surface', label: 'Surface', hex: '#495a8f', rgb: '0 0 0', on: '255 255 255' }
 		],
@@ -276,7 +276,7 @@
 			{#if showThemeCSS}<CodeBlock language="css" code={cssOutput} />{/if}
 			<div class="card card-glass-secondary p-4 text-center">
 				<!-- prettier-ignore -->
-				<button class="btn btn-lg btn-filled-primary" on:click={() => { showThemeCSS = !showThemeCSS; }}>
+				<button class="btn btn-lg btn-filled-primary" on:click={() => { showThemeCSS = !showThemeCSS; }} disabled={!$storePreview}>
 					{!showThemeCSS ? 'Show' : 'Hide'} Theme CSS
 				</button>
 			</div>
