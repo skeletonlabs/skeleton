@@ -2,12 +2,10 @@
 // https://github.com/javisperez/tailwindcolorshades/blob/master/src/composables/colors.ts
 
 export type Palette = {
-	colors: {
-		[key: number]: {
-			hex: string;
-			rgb: string;
-			on: string;
-		};
+	[key: number]: {
+		hex: string;
+		rgb: string;
+		on: string;
 	};
 };
 
@@ -21,9 +19,7 @@ function hexToRgb(hex: string): Rgb | null {
 	const sanitizedHex = hex.replaceAll('##', '#');
 	const colorParts = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(sanitizedHex);
 
-	if (!colorParts) {
-		return null;
-	}
+	if (!colorParts) return null;
 
 	const [, r, g, b] = colorParts;
 
@@ -34,15 +30,15 @@ function hexToRgb(hex: string): Rgb | null {
 	} as Rgb;
 }
 
-// Hex -> RGB - Source: https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
 export function hexToRgbString(hex: string): string {
-	hex = hex.replace('#', '');
-	const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-	if (result) {
-		const color = { r: parseInt(result[1], 16), g: parseInt(result[2], 16), b: parseInt(result[3], 16) };
-		return `${color.r} ${color.g} ${color.b}`;
-	}
-	return '(invalid)';
+	const sanitizedHex = hex.replaceAll('##', '#');
+	const colorParts = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(sanitizedHex);
+
+	if (!colorParts) return '(invalid)';
+
+	const [, r, g, b] = colorParts;
+
+	return `${parseInt(r, 16)} ${parseInt(g, 16)} ${parseInt(b, 16)}`;
 }
 
 function rgbToHex(r: number, g: number, b: number): string {
@@ -60,7 +56,7 @@ export function getTextColor(hex: string): '255 255 255' | '0 0 0' {
 	const { r, g, b } = rgbColor;
 	const luma = 0.2126 * r + 0.7152 * g + 0.0722 * b;
 
-	return luma < 120 ? '0 0 0' : '255 255 255';
+	return luma < 120 ? '255 255 255' : '0 0 0';
 }
 
 function lighten(hex: string, intensity: number): string {
@@ -87,28 +83,14 @@ function darken(hex: string, intensity: number): string {
 	return rgbToHex(r, g, b);
 }
 
-// export function getColorName(color: string): string {
-// 	const { name } = colorNamer(`#${color}`.replace('##', '#')).ntc[0];
-// 	const sanitizedName = name.replace(/['/]/gi, '').replace(/\s+/g, '-').toLowerCase();
-
-// 	return sanitizedName;
-// }
-
 export function generatePalette(baseColor: string): Palette {
-	// const name = getColorName(baseColor);
-
 	const hex500 = `#${baseColor}`.replace('##', '#');
 
 	const response: Palette = {
-		// name,
-		colors: {
-			500: { hex: hex500, rgb: hexToRgbString(hex500), on: getTextColor(hex500) }
-		}
+		500: { hex: hex500, rgb: hexToRgbString(hex500), on: getTextColor(hex500) }
 	};
 
-	const intensityMap: {
-		[key: number]: number;
-	} = {
+	const intensityMap: { [key: number]: number } = {
 		50: 0.95,
 		100: 0.9,
 		200: 0.75,
@@ -122,12 +104,12 @@ export function generatePalette(baseColor: string): Palette {
 
 	[50, 100, 200, 300, 400].forEach((level) => {
 		const hex = lighten(baseColor, intensityMap[level]);
-		response.colors[level] = { hex, rgb: hexToRgbString(hex), on: getTextColor(hex) };
+		response[level] = { hex, rgb: hexToRgbString(hex), on: getTextColor(hex) };
 	});
 
 	[600, 700, 800, 900].forEach((level) => {
 		const hex = darken(baseColor, intensityMap[level]);
-		response.colors[level] = { hex, rgb: hexToRgbString(hex), on: getTextColor(hex) };
+		response[level] = { hex, rgb: hexToRgbString(hex), on: getTextColor(hex) };
 	});
 
 	return response as Palette;

@@ -13,9 +13,9 @@
 	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
 
 	// Local Utils
-	import type { FormTheme } from './types';
+	import type { ColorSettings, FormTheme } from './types';
 	import { storePreview } from './stores';
-	import { colorNames, inputSettings, fontSettings } from './settings';
+	import { inputSettings, fontSettings } from './settings';
 	import { type Palette, generatePalette } from './colors';
 
 	// Stores
@@ -39,15 +39,18 @@
 	});
 
 	// Local
+	let generatedPalette: Record<string, Palette>;
 	let cssOutput: string = '';
 
-	function generateRandomHexColor(): string {
+	function generateRandomHex(): string {
 		return '#' + ((Math.random() * 0xffffff) << 0).toString(16).padStart(6, '0');
 	}
 
 	function randomize(): void {
 		$storeThemGenForm.colors.forEach((_, i: number) => {
-			$storeThemGenForm.colors[i].hex = generateRandomHexColor();
+			const colorKey = $storeThemGenForm.colors[i].key;
+			$storeThemGenForm.colors[i].hex = generateRandomHex();
+			$storeThemGenForm.colors[i].on = generatedPalette[colorKey][500].on;
 		});
 	}
 
@@ -63,32 +66,25 @@
 		};
 	}
 
-	function generateCssProps(generatedPalette: Record<string, Palette>): string {
+	function generateCssProps(): string {
 		let cssProps = '';
-		colorNames.forEach((colorName: string, i: number) => {
-			cssProps += `/* ${colorName} | ${generatedPalette[colorName].colors[500].hex} */\n\t`;
+		$storeThemGenForm.colors.forEach((color: ColorSettings) => {
+			const colorKey = color.key;
+			cssProps += `/* ${colorKey} | ${generatedPalette[colorKey][500].hex} */\n\t`;
 			// Generate CSS props for shade 50-900 per each color
-			for (let [k, v] of Object.entries(generatedPalette[colorName].colors)) {
-				cssProps += `--color-${colorName}-${k}: ${v.rgb}; /* ⬅ ${v.hex} */\n\t`;
+			for (let [k, v] of Object.entries(generatedPalette[colorKey])) {
+				cssProps += `--color-${colorKey}-${k}: ${v.rgb}; /* ⬅ ${v.hex} */\n\t`;
 			}
 		});
 		return cssProps;
 	}
 
-	function generateOnColors(generatedPalette: Record<string, Palette>): void {
-		colorNames.forEach((colorName: string, i: number) => {
-			$storeThemGenForm.colors[i].on = generatedPalette[colorName].colors[500].on;
-		});
-	}
-
 	function generateColorCss(): string {
 		let cssString: string = '';
 		// Generate Hex/RGB palettes for each color
-		const generatedPalette: Record<string, Palette> = generateColorValues();
+		generatedPalette = generateColorValues();
 		// Generate CSS Property string rows in set order
-		cssString += generateCssProps(generatedPalette);
-		// Generate "on-x" text/fill per color
-		generateOnColors(generatedPalette);
+		cssString += generateCssProps();
 		// Return Palette
 		return cssString;
 	}
@@ -98,7 +94,9 @@
 	function onPreviewToggle(): void {
 		if ($storePreview === false) {
 			localStorage.removeItem('storeThemGenForm');
+			// **** ENABLE FOR PRODUCTION ****
 			// location.reload();
+			// *******************************
 		}
 	}
 
