@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { Writable } from 'svelte/store';
-	import { tailwindcssPaletteGenerator } from '@bobthered/tailwindcss-palette-generator';
 
 	// Components
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
@@ -14,9 +13,10 @@
 	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
 
 	// Local Utils
-	import type { ColorSettings, FormTheme } from './types';
+	import type { FormTheme } from './types';
 	import { storePreview } from './stores';
 	import { colorNames, inputSettings, fontSettings } from './settings';
+	import { type Palette, generatePalette } from './colors';
 
 	// Stores
 	const storeThemGenForm: Writable<FormTheme> = localStorageStore('storeThemGenForm', {
@@ -40,18 +40,6 @@
 
 	// Local
 	let cssOutput: string = '';
-	let preserveHexSource: boolean = false;
-
-	// Hex -> RGB - Source: https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
-	export function hexToRgb(hex: string): string {
-		hex = hex.replace('#', '');
-		const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-		if (result) {
-			const color = { r: parseInt(result[1], 16), g: parseInt(result[2], 16), b: parseInt(result[3], 16) };
-			return `${color.r} ${color.g} ${color.b}`;
-		}
-		return '(invalid)';
-	}
 
 	function generateRandomHexColor(): string {
 		return '#' + ((Math.random() * 0xffffff) << 0).toString(16).padStart(6, '0');
@@ -60,47 +48,49 @@
 	function randomize(): void {
 		$storeThemGenForm.colors.forEach((_, i: number) => {
 			$storeThemGenForm.colors[i].hex = generateRandomHexColor();
-			$storeThemGenForm.colors[i].on = '255 255 255';
 		});
 	}
 
-	function generateCSSPalette(): string {
-		let fullPalette: string = '';
-		// Generate full palette of hex colors 50-900
-		// Source: https://github.com/bobthered/tailwindcss-palette-generator
-		const generatedPalette = tailwindcssPaletteGenerator({
-			// Array of Color Hex Values
-			colors: $storeThemGenForm.colors.map((c: ColorSettings) => c.hex),
-			// Shade Luminosity
-			shades: [
-				{ name: '50', lightness: 90 },
-				{ name: '100', lightness: 85 },
-				{ name: '200', lightness: 80 },
-				{ name: '300', lightness: 75 },
-				{ name: '400', lightness: 65 },
-				// ---
-				{ name: '500', lightness: 55 },
-				// ---
-				{ name: '600', lightness: 35 },
-				{ name: '700', lightness: 30 },
-				{ name: '800', lightness: 25 },
-				{ name: '900', lightness: 20 }
-			],
-			// Array of Color Keys
-			names: colorNames
-		});
-		// Generate CSS Property string rows in set order
+	function generateColorValues(): Record<string, Palette> {
+		return {
+			primary: generatePalette($storeThemGenForm.colors[0].hex),
+			secondary: generatePalette($storeThemGenForm.colors[1].hex),
+			tertiary: generatePalette($storeThemGenForm.colors[2].hex),
+			success: generatePalette($storeThemGenForm.colors[3].hex),
+			warning: generatePalette($storeThemGenForm.colors[4].hex),
+			error: generatePalette($storeThemGenForm.colors[5].hex),
+			surface: generatePalette($storeThemGenForm.colors[6].hex)
+		};
+	}
+
+	function generateCssProps(generatedPalette: Record<string, Palette>): string {
+		let cssProps = '';
 		colorNames.forEach((colorName: string, i: number) => {
-			const hex500 = $storeThemGenForm.colors[i].hex; // ensure 500 matches input
-			fullPalette += `/* ${colorName} | ${hex500} */\n\t`;
-			for (let [k, v] of Object.entries(generatedPalette[colorName])) {
-				// **********************************************
-				if (preserveHexSource && k === '500') v = hex500;
-				// **********************************************
-				fullPalette += `--color-${colorName}-${k}: ${hexToRgb(v)}; /* ⬅ ${v} */\n\t`;
+			cssProps += `/* ${colorName} | ${generatedPalette[colorName].colors[500].hex} */\n\t`;
+			// Generate CSS props for shade 50-900 per each color
+			for (let [k, v] of Object.entries(generatedPalette[colorName].colors)) {
+				cssProps += `--color-${colorName}-${k}: ${v.rgb}; /* ⬅ ${v.hex} */\n\t`;
 			}
 		});
-		return fullPalette;
+		return cssProps;
+	}
+
+	function generateOnColors(generatedPalette: Record<string, Palette>): void {
+		colorNames.forEach((colorName: string, i: number) => {
+			$storeThemGenForm.colors[i].on = generatedPalette[colorName].colors[500].on;
+		});
+	}
+
+	function generateColorCss(): string {
+		let cssString: string = '';
+		// Generate Hex/RGB palettes for each color
+		const generatedPalette: Record<string, Palette> = generateColorValues();
+		// Generate CSS Property string rows in set order
+		cssString += generateCssProps(generatedPalette);
+		// Generate "on-x" text/fill per color
+		generateOnColors(generatedPalette);
+		// Return Palette
+		return cssString;
 	}
 
 	// Reload when when preview is disabled
@@ -108,12 +98,12 @@
 	function onPreviewToggle(): void {
 		if ($storePreview === false) {
 			localStorage.removeItem('storeThemGenForm');
-			location.reload();
+			// location.reload();
 		}
 	}
 
 	// Reactive
-	$: if ($storeThemGenForm || preserveHexSource) {
+	$: if ($storeThemGenForm) {
 		cssOutput = `
 :root {
     /* =~= Theme Properties =~= */
@@ -133,7 +123,7 @@
     --on-error: ${$storeThemGenForm.colors[5]?.on};
     --on-surface: ${$storeThemGenForm.colors[6]?.on};
     /* =~= Theme Colors  =~= */
-    ${generateCSSPalette()}
+    ${generateColorCss()}
 }`;
 	}
 
@@ -152,11 +142,6 @@
 			<SlideToggle bind:checked={$storePreview} on:change={onPreviewToggle}>Preview</SlideToggle>
 			<div class="flex justify-center items-center space-x-4">
 				<button class="btn btn-ghost-surface" on:click={randomize} disabled={!$storePreview}>Randomize</button>
-				<span
-					title="Pass the provided hex color to shade 500. Provides more accureate results for branding, but may require you to rebalance your color stops."
-				>
-					<SlideToggle bind:checked={preserveHexSource}>Verbatim Hex</SlideToggle>
-				</span>
 			</div>
 			<LightSwitch />
 		</header>

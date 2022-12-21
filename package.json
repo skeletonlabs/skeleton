@@ -17,7 +17,6 @@
 		"coverage": "vitest run --coverage"
 	},
 	"devDependencies": {
-		"@bobthered/tailwindcss-palette-generator": "^3.1.1",
 		"@sveltejs/adapter-auto": "^1.0.0",
 		"@sveltejs/kit": "^1.0.0",
 		"@sveltejs/package": "1.0.0",
