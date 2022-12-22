@@ -21,7 +21,7 @@
 	/** Provide classes to set the hover style. */
 	export let hover = 'bg-secondary-hover-token';
 	/** Provide classes to set the highlighted accent color. */
-	export let accent = 'bg-secondary-active-token';
+	export let accent = 'bg-secondary-active-token !text-on-secondary-token';
 	/** Provide classes to set the highlighted text color. */
 	export let color = 'text-surface-50';
 	/** Provide classes to set the highlighted SVG fill color. */

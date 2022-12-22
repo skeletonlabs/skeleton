@@ -171,7 +171,7 @@
 							<span>Rocket</span>
 						</li>
 						<li class="option" class:bg-primary-active-token={$storeTheme === 'seafoam'} on:click={() => { storeTheme.set('seafoam') }} on:keypress>
-							<span>🐚</span>
+							<span>🧜‍♀️</span>
 							<span>Seafoam</span>
 						</li>
 						<li class="option" class:bg-primary-active-token={$storeTheme === 'vintage'} on:click={() => { storeTheme.set('vintage') }} on:keypress>
@@ -194,13 +194,13 @@
 							<span>⭕</span>
 							<span>Crimson</span>
 						</li>
+						<li class="option" class:bg-primary-active-token={$storeTheme === 'seasonal'} on:click={() => { storeTheme.set('seasonal') }} on:keypress>
+							<span>🎆</span>
+							<span>Seasonal</span>
+						</li>
 						<!-- <li class="option" class:bg-primary-active-token={$storeTheme === 'test'} on:click={() => { storeTheme.set('test') }} on:keypress>
 							<span>🚧</span>
 							<span>Test</span>
-						</li> -->
-						<!-- <li class="option" class:bg-primary-active-token={$storeTheme === 'seasonal'} on:click={() => { storeTheme.set('seasonal') }} on:keypress>
-							<span>🎃</span>
-							<span>Seasonal</span>
 						</li> -->
 					</ul>
 				</nav>

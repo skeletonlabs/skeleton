@@ -67,7 +67,7 @@
 		{#each filteredMenuNavLinks as { id, title, list }, i}
 			{#if list.length > 0}
 				<!-- Title -->
-				<div {id} class="text-primary-500 font-bold uppercase px-4">{title}</div>
+				<div {id} class="text-primary-700 dark:text-primary-500 font-bold uppercase px-4">{title}</div>
 				<!-- Navigation List -->
 				<nav class="list-nav">
 					<ul>

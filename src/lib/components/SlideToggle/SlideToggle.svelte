@@ -14,7 +14,7 @@
 	/** Provide classes to set the checked state color. */
 	export let accent = 'bg-secondary-500';
 	/** Provide classes to set the border width styles. */
-	export let borderWidth = 'border-token';
+	export let borderWidth = 'border-0';
 	/** Provide classes to set the border color styles. */
 	export let borderColor = 'border-surface-300-600-token';
 	/** Provide classes to set border radius styles. */

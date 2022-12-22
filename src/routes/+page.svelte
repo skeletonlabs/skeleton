@@ -79,14 +79,14 @@
 			</div>
 			<div class="card card-glass-secondary p-4 text-center space-y-4">
 				<div class="bg-primary-500 w-20 mx-auto lg:-mt-10 aspect-square flex justify-center items-center rounded-token shadow">
-					<SvgIcon name="swatchbook" fill="fill-white" width="w-8" height="h-8" />
+					<SvgIcon name="swatchbook" fill="fill-on-primary-token" width="w-8" height="h-8" />
 				</div>
 				<h4>Dynamic Themes</h4>
 				<p>Choose from a library of hand crafted preset themes or quickly generate your own in seconds.</p>
 			</div>
 			<div class="card card-glass-secondary p-4 text-center space-y-4">
 				<div class="bg-secondary-500 w-20 mx-auto lg:-mt-10 aspect-square flex justify-center items-center rounded-token shadow">
-					<SvgIcon name="screwdriver" fill="fill-white" width="w-8" height="h-8" />
+					<SvgIcon name="screwdriver" fill="fill-on-secondary-token" width="w-8" height="h-8" />
 				</div>
 				<h4>Powerful Utilities</h4>
 				<p>Provides a feature rich UI toolkit for modern web apps with layouts, modals, and more.</p>
