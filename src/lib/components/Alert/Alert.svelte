@@ -32,7 +32,7 @@
 	export let slotTrail = '';
 
 	// Base Classes
-	let cBaseCard = 'flex flex-col items-start lg:items-center lg:flex-row p-5 space-y-4 lg:space-y-0 lg:space-x-4 shadow';
+	let cBaseCard = 'flex flex-col items-start lg:items-center lg:flex-row p-5 space-y-4 lg:space-y-0 lg:space-x-4';
 	let cLead = 'flex justify-center items-center';
 	let cContent = 'flex flex-col w-full justify-center space-y-2';
 	let cTrail = 'flex items-center space-x-4';
