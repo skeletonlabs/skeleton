@@ -151,9 +151,15 @@
 						<small class="!text-primary-500">(aka endigo9740)</small>
 					</div>
 					<div class="flex justify-center space-x-4">
-						<a href="https://github.com/endigo9740" target="_blank" rel="noreferrer"><SvgIcon name="github" /></a>
-						<a href="https://twitter.com/endigodesign" target="_blank" rel="noreferrer"><SvgIcon name="twitter" /></a>
-						<a href="https://www.linkedin.com/in/chris-simmons-8a523a23/" target="_blank" rel="noreferrer"><SvgIcon name="linkedin" /></a>
+						<a class="unstyled" href="https://github.com/endigo9740" target="_blank" rel="noreferrer">
+							<SvgIcon name="github" />
+						</a>
+						<a class="unstyled" href="https://twitter.com/endigodesign" target="_blank" rel="noreferrer">
+							<SvgIcon name="twitter" />
+						</a>
+						<a class="unstyled" href="https://www.linkedin.com/in/chris-simmons-8a523a23/" target="_blank" rel="noreferrer">
+							<SvgIcon name="linkedin" />
+						</a>
 					</div>
 				</li>
 				<li class="card card-glass-surface p-4 space-y-4">
@@ -164,8 +170,12 @@
 						<small class="!text-primary-500">(aka weirbones)</small>
 					</div>
 					<div class="flex justify-center space-x-4">
-						<a href="https://twitter.com/brain_and_bones" target="_blank" rel="noreferrer"><SvgIcon name="twitter" /></a>
-						<a href="https://www.linkedin.com/company/brainandbones/" target="_blank" rel="noreferrer"><SvgIcon name="linkedin" /></a>
+						<a class="unstyled" href="https://twitter.com/brain_and_bones" target="_blank" rel="noreferrer">
+							<SvgIcon name="twitter" />
+						</a>
+						<a class="unstyled" href="https://www.linkedin.com/company/brainandbones/" target="_blank" rel="noreferrer">
+							<SvgIcon name="linkedin" />
+						</a>
 					</div>
 				</li>
 			</ul>

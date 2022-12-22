@@ -50,7 +50,7 @@
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-2">
 			<!-- Example -->
-			<div class="card p-4">
+			<div class="card card-glass-surface p-4">
 				<div class="h-full min-h-[100px] max-w-[480px] mx-auto flex justify-center items-center">
 					<!-- prettier-ignore -->
 					<svelte:component

@@ -26,7 +26,7 @@
 	/* Filled */
 	.badge-filled,
 	.badge-filled-surface {
-		@apply bg-surface-400-500-token;
+		@apply bg-surface-400-500-token text-on-surface-token;
 	}
 	.badge-filled-primary {
 		@apply bg-primary-500 text-on-primary-token;
@@ -49,7 +49,7 @@
 
 	/* Glass */
 	.badge-glass {
-		@apply bg-secondary-500/10 dark:bg-secondary-500/10 backdrop-blur-lg;
+		@apply bg-surface-500/20 dark:bg-surface-500/20 backdrop-blur-lg;
 		/* Ring */
 		@apply ring-[1px] ring-neutral-900/5 dark:ring-neutral-50/5 ring-inset;
 	}

@@ -52,6 +52,7 @@
 	.card-glass-error {
 		@apply bg-error-500/10 dark:bg-error-500/10 backdrop-blur-lg;
 	}
+	.card-glass,
 	.card-glass-surface {
 		@apply bg-surface-500/10 dark:bg-surface-500/10 backdrop-blur-lg;
 	}
