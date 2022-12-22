@@ -16,7 +16,7 @@
 	/** Enables tick marks. See browser support below. */
 	export let ticked = false;
 	/** Provide classes to set the input accent color. */
-	export let accent = 'accent-secondary-token';
+	export let accent = 'accent-secondary-500';
 
 	// Props (a11y)
 	/**

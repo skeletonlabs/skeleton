@@ -72,11 +72,11 @@ body {
 	}
 
 	code:not(.unstyled):not(.code-block code):not(article pre code) {
-		@apply !font-mono text-primary-900 dark:text-primary-500 bg-primary-500/20 text-xs md:text-[13px] py-1 px-2;
+		@apply !font-mono text-black dark:text-primary-400 bg-primary-500/20 dark:bg-primary-500/10 text-xs md:text-[13px] py-1 px-2;
 		/* Theme: Font Family */
 		@apply font-token;
 		/* Theme: Rounded */
-		@apply rounded-token;
+		@apply rounded;
 	}
 
 	/* === Insertions / Deletions  ==== */

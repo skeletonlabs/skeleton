@@ -61,6 +61,23 @@
 		@apply ring-tertiary-400 dark:ring-tertiary-500;
 	}
 
+	/* Success */
+	.ring-success-50-900-token {
+		@apply ring-success-50 dark:ring-success-900;
+	}
+	.ring-success-100-800-token {
+		@apply ring-success-100 dark:ring-success-800;
+	}
+	.ring-success-200-700-token {
+		@apply ring-success-200 dark:ring-success-700;
+	}
+	.ring-success-300-600-token {
+		@apply ring-success-300 dark:ring-success-600;
+	}
+	.ring-success-400-500-token {
+		@apply ring-success-400 dark:ring-success-500;
+	}
+
 	/* Warning */
 	.ring-warning-50-900-token {
 		@apply ring-warning-50 dark:ring-warning-900;
@@ -76,6 +93,23 @@
 	}
 	.ring-warning-400-500-token {
 		@apply ring-warning-400 dark:ring-warning-500;
+	}
+
+	/* Error */
+	.ring-error-50-900-token {
+		@apply ring-error-50 dark:ring-error-900;
+	}
+	.ring-error-100-800-token {
+		@apply ring-error-100 dark:ring-error-800;
+	}
+	.ring-error-200-700-token {
+		@apply ring-error-200 dark:ring-error-700;
+	}
+	.ring-error-300-600-token {
+		@apply ring-error-300 dark:ring-error-600;
+	}
+	.ring-error-400-500-token {
+		@apply ring-error-400 dark:ring-error-500;
 	}
 
 	/* Surface */
@@ -149,6 +183,23 @@
 		@apply ring-tertiary-500 dark:ring-tertiary-400;
 	}
 
+	/* Success */
+	.ring-success-900-50-token {
+		@apply ring-success-900 dark:ring-success-50;
+	}
+	.ring-success-800-100-token {
+		@apply ring-success-800 dark:ring-success-100;
+	}
+	.ring-success-700-200-token {
+		@apply ring-success-700 dark:ring-success-200;
+	}
+	.ring-success-600-300-token {
+		@apply ring-success-600 dark:ring-success-300;
+	}
+	.ring-success-500-400-token {
+		@apply ring-success-500 dark:ring-success-400;
+	}
+
 	/* Warning */
 	.ring-warning-900-50-token {
 		@apply ring-warning-900 dark:ring-warning-50;
@@ -164,6 +215,23 @@
 	}
 	.ring-warning-500-400-token {
 		@apply ring-warning-500 dark:ring-warning-400;
+	}
+
+	/* Error */
+	.ring-error-900-50-token {
+		@apply ring-error-900 dark:ring-error-50;
+	}
+	.ring-error-800-100-token {
+		@apply ring-error-800 dark:ring-error-100;
+	}
+	.ring-error-700-200-token {
+		@apply ring-error-700 dark:ring-error-200;
+	}
+	.ring-error-600-300-token {
+		@apply ring-error-600 dark:ring-error-300;
+	}
+	.ring-error-500-400-token {
+		@apply ring-error-500 dark:ring-error-400;
 	}
 
 	/* Surface */

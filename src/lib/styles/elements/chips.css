@@ -15,6 +15,6 @@
 		/* Border */
 		@apply border border-primary-700 dark:border-primary-500;
 		/* Background */
-		@apply bg-primary-500/10 backdrop-blur-lg hover:bg-primary-500/30;
+		@apply bg-primary-500/5 backdrop-blur-lg hover:bg-primary-500/20;
 	}
 }

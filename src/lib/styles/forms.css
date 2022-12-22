@@ -156,6 +156,6 @@
 	/* https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color */
 
 	[type='range']:not(.range-input) {
-		@apply w-full accent-secondary-token;
+		@apply w-full accent-secondary-500;
 	}
 }

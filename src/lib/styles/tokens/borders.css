@@ -61,6 +61,23 @@
 		@apply border-tertiary-400 dark:border-tertiary-500;
 	}
 
+	/* Success */
+	.border-success-50-900-token {
+		@apply border-success-50 dark:border-success-900;
+	}
+	.border-success-100-800-token {
+		@apply border-success-100 dark:border-success-800;
+	}
+	.border-success-200-700-token {
+		@apply border-success-200 dark:border-success-700;
+	}
+	.border-success-300-600-token {
+		@apply border-success-300 dark:border-success-600;
+	}
+	.border-success-400-500-token {
+		@apply border-success-400 dark:border-success-500;
+	}
+
 	/* Warning */
 	.border-warning-50-900-token {
 		@apply border-warning-50 dark:border-warning-900;
@@ -76,6 +93,23 @@
 	}
 	.border-warning-400-500-token {
 		@apply border-warning-400 dark:border-warning-500;
+	}
+
+	/* Error */
+	.border-error-50-900-token {
+		@apply border-error-50 dark:border-error-900;
+	}
+	.border-error-100-800-token {
+		@apply border-error-100 dark:border-error-800;
+	}
+	.border-error-200-700-token {
+		@apply border-error-200 dark:border-error-700;
+	}
+	.border-error-300-600-token {
+		@apply border-error-300 dark:border-error-600;
+	}
+	.border-error-400-500-token {
+		@apply border-error-400 dark:border-error-500;
 	}
 
 	/* Surface */
@@ -149,6 +183,23 @@
 		@apply border-tertiary-500 dark:border-tertiary-400;
 	}
 
+	/* Success */
+	.border-success-900-50-token {
+		@apply border-success-900 dark:border-success-50;
+	}
+	.border-success-800-100-token {
+		@apply border-success-800 dark:border-success-100;
+	}
+	.border-success-700-200-token {
+		@apply border-success-700 dark:border-success-200;
+	}
+	.border-success-600-300-token {
+		@apply border-success-600 dark:border-success-300;
+	}
+	.border-success-500-400-token {
+		@apply border-success-500 dark:border-success-400;
+	}
+
 	/* Warning */
 	.border-warning-900-50-token {
 		@apply border-warning-900 dark:border-warning-50;
@@ -164,6 +215,23 @@
 	}
 	.border-warning-500-400-token {
 		@apply border-warning-500 dark:border-warning-400;
+	}
+
+	/* Errror */
+	.border-errror-900-50-token {
+		@apply border-errror-900 dark:border-errror-50;
+	}
+	.border-errror-800-100-token {
+		@apply border-errror-800 dark:border-errror-100;
+	}
+	.border-errror-700-200-token {
+		@apply border-errror-700 dark:border-errror-200;
+	}
+	.border-errror-600-300-token {
+		@apply border-errror-600 dark:border-errror-300;
+	}
+	.border-errror-500-400-token {
+		@apply border-errror-500 dark:border-errror-400;
 	}
 
 	/* Surface */

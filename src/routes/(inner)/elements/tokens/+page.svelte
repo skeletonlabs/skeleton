@@ -15,8 +15,8 @@
 	};
 
 	// Local
-	const vColorsAll = 'primary | secondary | tertiary | warning | surface';
-	const vColorsCore = 'primary | secondary | tertiary | warning';
+	const vColorsAll = 'primary | secondary | tertiary | success | warning | error | surface';
+	const vColorsCore = 'primary | secondary | tertiary | success | warning | error';
 	const vPairings = '50-900 | 100-800 | 200-700 | 300-600 | 400-500';
 	const vCorners = 'tl | tr | bl | br';
 

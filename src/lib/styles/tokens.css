@@ -6,6 +6,3 @@
 @import 'tokens/fills.css';
 @import 'tokens/rings.css';
 @import 'tokens/text.css';
-
-/* One-off tokens go here */
-@import 'tokens/misc.css';
