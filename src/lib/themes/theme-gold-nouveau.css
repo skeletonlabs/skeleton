@@ -103,7 +103,7 @@
 }
 
 /* =~= Gold Nouveau (dark mode overrides) =~= */
-:root .dark {
+.dark [data-theme='gold-nouveau'] {
 	/* =~= Theme On-X Colors =~= */
 	--on-primary: 0 0 0;
 	/* =~= Theme Colors  =~= */
@@ -121,25 +121,25 @@
 }
 
 /* Headings */
-[data-theme='skeleton'] h1,
-[data-theme='skeleton'] h2,
-[data-theme='skeleton'] h3,
-[data-theme='skeleton'] h4,
-[data-theme='skeleton'] h5,
-[data-theme='skeleton'] h6 {
+[data-theme='gold-nouveau'] h1,
+[data-theme='gold-nouveau'] h2,
+[data-theme='gold-nouveau'] h3,
+[data-theme='gold-nouveau'] h4,
+[data-theme='gold-nouveau'] h5,
+[data-theme='gold-nouveau'] h6 {
 	font-weight: bold;
 }
 
-/* Applied to body with `<body data-theme="goldNouveau">` */
+/* Applied to body with `<body data-theme="gold-nouveau">` */
 /* Created with: https://csshero.org/mesher/ */
-[data-theme='goldNouveau'] {
+[data-theme='gold-nouveau'] {
 	background: #e5dcef;
 	/* prettier-ignore */
 	background-image:
 		radial-gradient(at 92% 96%, hsla(268,37%,46%,0.25) 0px, transparent 50%),
 		radial-gradient(at 7% 0%, hsla(268,37%,46%,0.20) 0px, transparent 50%);
 }
-.dark [data-theme='goldNouveau'] {
+.dark [data-theme='gold-nouveau'] {
 	/* prettier-ignore */
 	background-image:
 		radial-gradient(at 77% 0%, hsla(37, 81%, 56%, 0.1) 0px, transparent 50%),
