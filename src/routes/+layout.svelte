@@ -25,29 +25,22 @@
 	import DocsDrawer from '$docs/DocsNavigation/DocsDrawer.svelte';
 	import DocsFooter from '$docs/DocsFooter/DocsFooter.svelte';
 
-	// Themes
-	// https://vitejs.dev/guide/features.html#disabling-css-injection-into-the-page
-	import rocket from '$lib/themes/theme-rocket.css?inline';
-	import modern from '$lib/themes/theme-modern.css?inline';
-	import seafoam from '$lib/themes/theme-seafoam.css?inline';
-	import vintage from '$lib/themes/theme-vintage.css?inline';
-	import sahara from '$lib/themes/theme-sahara.css?inline';
-	import hamlindigo from '$lib/themes/theme-hamlindigo.css?inline';
-	import goldNouveau from '$lib/themes/theme-gold-nouveau.css?inline';
-	import crimson from '$lib/themes/theme-crimson.css?inline';
-	import seasonal from '$lib/themes/theme-seasonal.css?inline';
-
 	// Default Theme, injected immediately:
 	import skeleton from '$lib/themes/theme-skeleton.css?inline';
+
+	// Dynamically load selected theme
+	const themesGlob = import.meta.glob('$lib/themes/*.css', { as: 'raw' });
+	async function getTheme(theme: string): Promise<string> {
+		return (await themesGlob[`/src/lib/themes/theme-${theme}.css`]()) as string;
+	}
+	$: theme = getTheme($storeTheme);
+
 	// Skeleton Stylesheets
 	import '$lib/styles/all.css';
 	// The Skeleton blog stylesheet
 	import '$docs/DocsStyles/blog.css';
 	// Global Stylesheets
 	import '../app.postcss';
-
-	// List of Themes
-	const themes: any = { skeleton, rocket, modern, seafoam, vintage, sahara, hamlindigo, goldNouveau, crimson, seasonal };
 
 	// Set body `data-theme` based on current theme status
 	storeTheme.subscribe(setBodyThemeAttribute);
@@ -80,9 +73,13 @@
 	$: slotSidebarLeft = matchPathWhitelist($page.url.pathname) ? 'w-0' : 'bg-black/5 lg:w-auto';
 </script>
 
+<!-- Select Preset Theme CSS DO NOT REMOVE ESCAPES-->
 <svelte:head>
-	<!-- Select Preset Theme CSS DO NOT REMOVE ESCAPES-->
-	{@html `\<style\>${themes[$storeTheme]}}\</style\>`}
+	{#await theme}
+		{@html `\<style\>${skeleton}}\</style\>`}
+	{:then selectedTheme}
+		{@html `\<style\>${selectedTheme}}\</style\>`}
+	{/await}
 </svelte:head>
 
 <!-- Overlays -->

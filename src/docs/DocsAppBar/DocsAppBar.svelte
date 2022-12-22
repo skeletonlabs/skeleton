@@ -186,7 +186,7 @@
 							<span>👔</span>
 							<span>Hamlindigo</span>
 						</li>
-						<li class="option" class:bg-primary-active-token={$storeTheme === 'goldNouveau'} on:click={() => { storeTheme.set('goldNouveau') }} on:keypress>
+						<li class="option" class:bg-primary-active-token={$storeTheme === 'gold-nouveau'} on:click={() => { storeTheme.set('gold-nouveau') }} on:keypress>
 							<span>💫</span>
 							<span>Gold Nouveau</span>
 						</li>

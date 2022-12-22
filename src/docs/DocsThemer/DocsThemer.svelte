@@ -139,7 +139,7 @@
 						</label>
 						<Swatch color={colorRow.key} />
 						<label>
-							<span>On Colors</span>
+							<span>Text & Fill Color</span>
 							<select bind:value={colorRow.on} disabled={!$storePreview}>
 								{#each inputSettings.colorProps as c}<option value={c.value}>{c.label}</option>{/each}
 							</select>
