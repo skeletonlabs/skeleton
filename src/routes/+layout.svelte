@@ -75,10 +75,9 @@
 
 <!-- Select Preset Theme CSS DO NOT REMOVE ESCAPES-->
 <svelte:head>
-	{#await theme}
-		{@html `\<style\>${skeleton}}\</style\>`}
-	{:then selectedTheme}
-		{@html `\<style\>${selectedTheme}}\</style\>`}
+	{@html `\<style\>${skeleton}}\</style\>`}
+	{#await theme then loadedTheme}
+		{@html `\<style\>${loadedTheme}}\</style\>`}
 	{/await}
 </svelte:head>
 
