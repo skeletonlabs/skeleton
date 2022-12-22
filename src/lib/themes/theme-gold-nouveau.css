@@ -133,14 +133,15 @@
 /* Applied to body with `<body data-theme="goldNouveau">` */
 /* Created with: https://csshero.org/mesher/ */
 [data-theme='goldNouveau'] {
+	background: #e5dcef;
 	/* prettier-ignore */
 	background-image:
-		radial-gradient(at 92% 96%, hsla(268,37%,46%,0.49) 0px, transparent 50%),
-		radial-gradient(at 7% 0%, hsla(268,37%,46%,0.38) 0px, transparent 50%);
+		radial-gradient(at 92% 96%, hsla(268,37%,46%,0.25) 0px, transparent 50%),
+		radial-gradient(at 7% 0%, hsla(268,37%,46%,0.20) 0px, transparent 50%);
 }
 .dark [data-theme='goldNouveau'] {
 	/* prettier-ignore */
 	background-image:
-		radial-gradient(at 77% 0%, hsla(37,81%,56%,0.1) 0px, transparent 50%),
-		radial-gradient(at 7% 0%, hsla(37,81%,56%,0) 0px, transparent 50%);
+		radial-gradient(at 77% 0%, hsla(37, 81%, 56%, 0.1) 0px, transparent 50%),
+		radial-gradient(at 7% 0%, hsla(37, 81%, 56%, 0) 0px, transparent 50%);
 }

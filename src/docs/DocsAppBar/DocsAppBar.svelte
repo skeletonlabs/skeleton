@@ -150,13 +150,13 @@
 				<span class="hidden md:inline-block">Theme</span>
 				<span class="opacity-50">▾</span>
 			</button>
-			<div class="card w-56 shadow-xl" data-menu="theme">
+			<div class="card w-64 shadow-xl" data-menu="theme">
 				<section class="flex justify-between items-center p-4">
 					<h6>Theme</h6>
 					<LightSwitch />
 				</section>
 				<hr>
-				<nav class="list-nav p-4 max-h-64 overflow-y-auto">
+				<nav class="list-nav p-4 max-h-64 lg:max-h-[480px] overflow-y-auto">
 					<ul>
 						<li class="option" class:bg-primary-active-token={$storeTheme === 'skeleton'} on:click={() => { storeTheme.set('skeleton') }} on:keypress> 
 							<span>💀</span>
