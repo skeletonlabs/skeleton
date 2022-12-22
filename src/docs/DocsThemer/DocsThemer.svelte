@@ -1,6 +1,9 @@
 <script lang="ts">
 	import type { Writable } from 'svelte/store';
 
+	// Preview Components
+	import ProgressBar from '$lib/components/ProgressBar/ProgressBar.svelte';
+	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
 	// Components
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import LightSwitch from '$lib/utilities/LightSwitch/LightSwitch.svelte';
@@ -8,20 +11,16 @@
 	// Utilities
 	import { localStorageStore } from '$lib/utilities/LocalStorageStore/LocalStorageStore';
 
-	// Preview Features
-	import ProgressBar from '$lib/components/ProgressBar/ProgressBar.svelte';
-	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
-
 	// Local Utils
-	import type { ColorSettings, FormTheme } from './types';
 	import { storePreview } from './stores';
+	import type { ColorSettings, FormTheme } from './types';
 	import { inputSettings, fontSettings } from './settings';
-	import { type Palette, generatePalette, getA11yOnColor } from './colors';
+	import { type Palette, generatePalette, generateA11yOnColor } from './colors';
 
 	// Stores
 	const storeThemGenForm: Writable<FormTheme> = localStorageStore('storeThemGenForm', {
 		colors: [
-			{ key: 'primary', label: 'Primary', hex: '#0FBA81', rgb: '0 0 0', on: '0 0 0' }, // BADA55
+			{ key: 'primary', label: 'Primary', hex: '#0FBA81', rgb: '0 0 0', on: '0 0 0' },
 			{ key: 'secondary', label: 'Secondary', hex: '#4F46E5', rgb: '0 0 0', on: '255 255 255' },
 			{ key: 'tertiary', label: 'Tertiary', hex: '#0EA5E9', rgb: '0 0 0', on: '0 0 0' },
 			{ key: 'success', label: 'Success', hex: '#84cc16', rgb: '0 0 0', on: '0 0 0' },
@@ -39,66 +38,39 @@
 	});
 
 	// Local
-	let generatedPalette: Record<string, Palette>;
 	let cssOutput: string = '';
 	let showThemeCSS: boolean = false;
 
-	function generateRandomHex(): string {
-		return '#' + ((Math.random() * 0xffffff) << 0).toString(16).padStart(6, '0');
-	}
-
 	function randomize(): void {
 		$storeThemGenForm.colors.forEach((_, i: number) => {
-			const randHex = generateRandomHex();
-			$storeThemGenForm.colors[i].hex = randHex;
-			$storeThemGenForm.colors[i].on = getA11yOnColor(randHex);
+			const randomHexCode = '#' + ((Math.random() * 0xffffff) << 0).toString(16).padStart(6, '0');
+			$storeThemGenForm.colors[i].hex = randomHexCode;
+			$storeThemGenForm.colors[i].on = generateA11yOnColor(randomHexCode);
 		});
 	}
 
-	function generateColorValues(): Record<string, Palette> {
-		return {
-			primary: generatePalette($storeThemGenForm.colors[0].hex),
-			secondary: generatePalette($storeThemGenForm.colors[1].hex),
-			tertiary: generatePalette($storeThemGenForm.colors[2].hex),
-			success: generatePalette($storeThemGenForm.colors[3].hex),
-			warning: generatePalette($storeThemGenForm.colors[4].hex),
-			error: generatePalette($storeThemGenForm.colors[5].hex),
-			surface: generatePalette($storeThemGenForm.colors[6].hex)
-		};
-	}
-
-	function generateCssProps(): string {
-		let cssProps = '';
-		$storeThemGenForm.colors.forEach((color: ColorSettings) => {
+	function generateColorCSS(): string {
+		let newCSS = '';
+		const newPalette: Record<string, Palette> = {};
+		// Loop store colors
+		$storeThemGenForm.colors.forEach((color: ColorSettings, i: number) => {
 			const colorKey = color.key;
-			cssProps += `/* ${colorKey} | ${generatedPalette[colorKey][500].hex} */\n\t`;
-			// Generate CSS props for shade 50-900 per each color
-			for (let [k, v] of Object.entries(generatedPalette[colorKey])) {
-				cssProps += `--color-${colorKey}-${k}: ${v.rgb}; /* ⬅ ${v.hex} */\n\t`;
+			// Generate the new color palette hex/rgb/on values
+			newPalette[color.key] = generatePalette($storeThemGenForm.colors[i].hex);
+			// The color set comment
+			newCSS += `/* ${colorKey} | ${newPalette[colorKey][500].hex} */\n\t`;
+			// CSS props for shade 50-900 per each color
+			for (let [k, v] of Object.entries(newPalette[colorKey])) {
+				newCSS += `--color-${colorKey}-${k}: ${v.rgb}; /* ⬅ ${v.hex} */\n\t`;
 			}
 		});
-		return cssProps;
+		return newCSS;
 	}
 
-	function generateColorCss(): string {
-		let cssString: string = '';
-		// Generate Hex/RGB palettes for each color
-		generatedPalette = generateColorValues();
-		// Generate CSS Property string rows in set order
-		cssString += generateCssProps();
-		// Return Palette
-		return cssString;
-	}
-
-	// Reload when when preview is disabled
-	// Prevents issue if you browse away and back to generator
 	function onPreviewToggle(): void {
 		if ($storePreview === false) {
 			localStorage.removeItem('storeThemGenForm');
-			// ******** KEEP ON FOR PRODUCTION ********
-			// Ensures values clear after browsing pages
-			location.reload();
-			// ****************************************
+			location.reload(); // required
 		}
 	}
 
@@ -123,21 +95,19 @@
     --on-error: ${$storeThemGenForm.colors[5]?.on};
     --on-surface: ${$storeThemGenForm.colors[6]?.on};
     /* =~= Theme Colors  =~= */
-    ${generateColorCss()}
+    ${generateColorCSS()}
 }`;
 	}
 
-	$: liveThemePreview = $storePreview ? `\<style\>${cssOutput}\</style\>` : '';
+	$: livePreviewStylesheet = $storePreview ? `\<style\>${cssOutput}\</style\>` : '';
 </script>
 
-<svelte:head>
-	<!-- Live Preview of Generated Theme -->
-	{@html liveThemePreview}
-</svelte:head>
+<!-- Live Preview of Generated Theme -->
+<svelte:head>{@html livePreviewStylesheet}</svelte:head>
 
 <div class="docs-themer space-y-4">
 	<div class="card card-glass-surface p-4 flex justify-between items-center">
-		<span>Enable edit mode and live preview.</span>
+		<span>Live Preview Mode</span>
 		<SlideToggle size="lg" bind:checked={$storePreview} on:change={onPreviewToggle} />
 	</div>
 	<div class="grid grid-cols-2 gap-4">
@@ -145,10 +115,11 @@
 		<section class="card col-span-2 ">
 			<!-- General Settings -->
 			<header class="p-4 col-span-2 flex justify-between items-center">
-				<div class="flex justify-center items-center space-x-4">
-					<button class="btn btn-ghost-surface" on:click={randomize} disabled={!$storePreview}>Randomize Colors</button>
+				<div class="flex items-center space-x-4">
+					<h3>Colors</h3>
+					<LightSwitch />
 				</div>
-				<LightSwitch />
+				<button class="btn btn-ghost-surface" on:click={randomize} disabled={!$storePreview}>Randomize Colors</button>
 			</header>
 			<hr />
 			<div class="p-4 grid grid-cols-1 gap-4">
@@ -235,7 +206,7 @@
 
 		<!-- Previews -->
 		<section class="card !bg-transparent p-4 space-y-8 col-span-2 lg:col-span-1">
-			<h3>Preview Elements</h3>
+			<h3>Preview</h3>
 			<!-- Buttons -->
 			<div class="grid grid-cols-3 gap-4">
 				<button class="btn btn-filled-primary">primary</button>
@@ -254,17 +225,20 @@
 			</div>
 			<hr class="opacity-50" />
 			<!-- Badges -->
-			<div class="grid grid-cols-3 gap-4 place-items-center">
+			<div class="grid grid-cols-4 gap-4 place-items-center">
+				<span class="badge badge-filled-surface">surface</span>
 				<span class="badge badge-filled-primary">primary</span>
 				<span class="badge badge-filled-secondary">secondary</span>
 				<span class="badge badge-filled-tertiary">tertiary</span>
+				<span class="badge badge-glass">glass</span>
 				<span class="badge badge-filled-success">success</span>
 				<span class="badge badge-filled-warning">warning</span>
 				<span class="badge badge-filled-error">error</span>
 			</div>
 			<hr class="opacity-50" />
 			<!-- Slide Toggles -->
-			<div class="grid grid-cols-3 gap-4 place-items-center">
+			<div class="grid grid-cols-4 gap-4 place-items-center">
+				<SlideToggle accent="bg-surface-500" checked />
 				<SlideToggle accent="bg-primary-500" checked />
 				<SlideToggle checked />
 				<SlideToggle accent="bg-tertiary-500" checked />
@@ -276,7 +250,7 @@
 			{#if showThemeCSS}<CodeBlock language="css" code={cssOutput} />{/if}
 			<div class="card card-glass-surface p-4 text-center">
 				<!-- prettier-ignore -->
-				<button class="btn btn-lg btn-filled-primary" on:click={() => { showThemeCSS = !showThemeCSS; }} disabled={!$storePreview}>
+				<button class="btn btn-lg btn-filled-primary font-bold" on:click={() => { showThemeCSS = !showThemeCSS; }} disabled={!$storePreview}>
 					{!showThemeCSS ? 'Show' : 'Hide'} Theme CSS
 				</button>
 			</div>

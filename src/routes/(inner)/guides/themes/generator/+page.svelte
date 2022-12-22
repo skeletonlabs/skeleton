@@ -19,8 +19,9 @@
 	<header class="space-y-4">
 		<h1>Theme Generator</h1>
 		<p>
-			Enable the edit and preview mode below, then change each color and value below. You'll see the entire site update as you progress. You
-			can navigate to different sections without losing your settings. Disable the preview will reset back the standard theme.
+			Enable "Live Preview Mode" to begin creating a new theme. The entire documentation site will update as you progress. You can navigate
+			to different sections without losing your settings as long as you do not refresh the page. Disabling the preview will reset back to
+			your original theme.
 		</p>
 	</header>
 
