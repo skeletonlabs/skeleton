@@ -52,7 +52,7 @@
 	$: classesActive = (href: string) => ($storeCurrentUrl?.includes(href) ? 'bg-primary-active-token' : '');
 </script>
 
-<div class="grid grid-cols-[auto_1fr] h-full border-r border-black/5 dark:border-white/5 {$$props.class ?? ''}">
+<div class="grid grid-cols-[auto_1fr] h-full border-r border-black/5 dark:border-white/5 backdrop-blur {$$props.class ?? ''}">
 	<!-- App Rail -->
 	<AppRail selected={storeCategory} background="bg-white/30 dark:bg-black/30">
 		<AppRailTile label="Docs" value={'docs'}><SvgIcon name="book" width="w-6" height="h-6" /></AppRailTile>

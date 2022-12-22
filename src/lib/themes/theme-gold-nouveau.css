@@ -23,17 +23,17 @@
 	--on-error: 255 255 255;
 	--on-surface: 255 255 255;
 	/* =~= Theme Colors  =~= */
-	/* primary | #e6c833 */
-	--color-primary-50: 223 220 226; /* ⬅ #dfdce2 */
-	--color-primary-100: 212 208 216; /* ⬅ #d4d0d8 */
-	--color-primary-200: 201 197 206; /* ⬅ #c9c5ce */
-	--color-primary-300: 169 161 177; /* ⬅ #a9a1b1 */
-	--color-primary-400: 105 91 119; /* ⬅ #695b77 */
-	--color-primary-500: 40 21 60; /* ⬅ #28153c */
-	--color-primary-600: 36 19 54; /* ⬅ #241336 */
-	--color-primary-700: 30 16 45; /* ⬅ #1e102d */
-	--color-primary-800: 24 13 36; /* ⬅ #180d24 */
-	--color-primary-900: 20 10 29; /* ⬅ #140a1d */
+	/* primary | #744aa1 */
+	--color-primary-50: 250 248 252; /* ⬅ #faf8fc */
+	--color-primary-100: 242 238 247; /* ⬅ #f2eef7 */
+	--color-primary-200: 229 220 239; /* ⬅ #e5dcef */
+	--color-primary-300: 209 192 226; /* ⬅ #d1c0e2 */
+	--color-primary-400: 162 129 197; /* ⬅ #a281c5 */
+	--color-primary-500: 116 74 161; /* ⬅ #744aa1 */
+	--color-primary-600: 83 53 115; /* ⬅ #533573 */
+	--color-primary-700: 60 39 84; /* ⬅ #3c2754 */
+	--color-primary-800: 35 22 49; /* ⬅ #231631 */
+	--color-primary-900: 18 11 24; /* ⬅ #120b18 */
 	/* secondary | #0672e5 */
 	--color-secondary-50: 218 234 251; /* ⬅ #daeafb */
 	--color-secondary-100: 205 227 250; /* ⬅ #cde3fa */
@@ -89,17 +89,17 @@
 	--color-error-700: 107 11 26; /* ⬅ #6b0b1a */
 	--color-error-800: 86 9 20; /* ⬅ #560914 */
 	--color-error-900: 70 7 17; /* ⬅ #460711 */
-	/* surface | #28153c */
-	--color-surface-50: 223 220 226; /* ⬅ #dfdce2 */
-	--color-surface-100: 212 208 216; /* ⬅ #d4d0d8 */
-	--color-surface-200: 201 197 206; /* ⬅ #c9c5ce */
-	--color-surface-300: 169 161 177; /* ⬅ #a9a1b1 */
-	--color-surface-400: 105 91 119; /* ⬅ #695b77 */
-	--color-surface-500: 40 21 60; /* ⬅ #28153c */
-	--color-surface-600: 36 19 54; /* ⬅ #241336 */
-	--color-surface-700: 30 16 45; /* ⬅ #1e102d */
-	--color-surface-800: 24 13 36; /* ⬅ #180d24 */
-	--color-surface-900: 20 10 29; /* ⬅ #140a1d */
+	/* surface | #744aa1 */
+	--color-surface-50: 250 248 252; /* ⬅ #faf8fc */
+	--color-surface-100: 242 238 247; /* ⬅ #f2eef7 */
+	--color-surface-200: 229 220 239; /* ⬅ #e5dcef */
+	--color-surface-300: 209 192 226; /* ⬅ #d1c0e2 */
+	--color-surface-400: 162 129 197; /* ⬅ #a281c5 */
+	--color-surface-500: 116 74 161; /* ⬅ #744aa1 */
+	--color-surface-600: 83 53 115; /* ⬅ #533573 */
+	--color-surface-700: 60 39 84; /* ⬅ #3c2754 */
+	--color-surface-800: 35 22 49; /* ⬅ #231631 */
+	--color-surface-900: 18 11 24; /* ⬅ #120b18 */
 }
 
 /* =~= Gold Nouveau (dark mode overrides) =~= */
@@ -128,4 +128,19 @@
 [data-theme='skeleton'] h5,
 [data-theme='skeleton'] h6 {
 	font-weight: bold;
+}
+
+/* Applied to body with `<body data-theme="goldNouveau">` */
+/* Created with: https://csshero.org/mesher/ */
+[data-theme='goldNouveau'] {
+	/* prettier-ignore */
+	background-image:
+		radial-gradient(at 92% 96%, hsla(268,37%,46%,0.49) 0px, transparent 50%),
+		radial-gradient(at 7% 0%, hsla(268,37%,46%,0.38) 0px, transparent 50%);
+}
+.dark [data-theme='goldNouveau'] {
+	/* prettier-ignore */
+	background-image:
+		radial-gradient(at 77% 0%, hsla(37,81%,56%,0.1) 0px, transparent 50%),
+		radial-gradient(at 7% 0%, hsla(37,81%,56%,0) 0px, transparent 50%);
 }

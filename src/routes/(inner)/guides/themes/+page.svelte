@@ -119,7 +119,7 @@
 
 	<section class="space-y-4">
 		<h2>See Also</h2>
-		<div class="card p-4 card-glass-secondary space-y-4">
+		<div class="card p-4 card-glass-surface space-y-4">
 			<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 				<p>Learn more about Skeleton's theme color system.</p>
 				<a class="btn btn-ghost-surface" href="/guides/themes/colors">Theme Colors &rarr;</a>

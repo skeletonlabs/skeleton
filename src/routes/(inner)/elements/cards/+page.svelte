@@ -28,7 +28,7 @@
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-4">
 			<!-- Glass -->
-			<div class="card p-4 card-glass-secondary text-center">Glass</div>
+			<div class="card p-4 card-glass-surface text-center">Glass</div>
 			<!-- Colors -->
 			<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4">
 				<div class="card p-4 !bg-primary-500 text-on-primary-token text-center">Primary</div>

@@ -136,7 +136,7 @@
 </svelte:head>
 
 <div class="docs-themer space-y-4">
-	<div class="card card-glass-secondary p-4 flex justify-between items-center">
+	<div class="card card-glass-surface p-4 flex justify-between items-center">
 		<span>Enable edit mode and live preview.</span>
 		<SlideToggle size="lg" bind:checked={$storePreview} on:change={onPreviewToggle} />
 	</div>
@@ -274,7 +274,7 @@
 		<!-- CSS Output -->
 		<footer class="col-span-2 space-y-4">
 			{#if showThemeCSS}<CodeBlock language="css" code={cssOutput} />{/if}
-			<div class="card card-glass-secondary p-4 text-center">
+			<div class="card card-glass-surface p-4 text-center">
 				<!-- prettier-ignore -->
 				<button class="btn btn-lg btn-filled-primary" on:click={() => { showThemeCSS = !showThemeCSS; }} disabled={!$storePreview}>
 					{!showThemeCSS ? 'Show' : 'Hide'} Theme CSS

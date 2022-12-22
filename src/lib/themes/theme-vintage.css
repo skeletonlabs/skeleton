@@ -108,3 +108,18 @@
 [data-theme='vintage'] h6 {
 	letter-spacing: 1px;
 }
+
+/* Applied to body with `<body data-theme="vintage">` */
+/* Created with: https://csshero.org/mesher/ */
+[data-theme='vintage'] {
+	/* prettier-ignore */
+	background-image:
+		radial-gradient(at 100% 0%, hsla(135,34%,70%,0.20) 0px, transparent 50%),
+		radial-gradient(at 85% 100%, hsla(31,83%,50%,0.20) 0px, transparent 50%);
+}
+.dark [data-theme='vintage'] {
+	/* prettier-ignore */
+	background-image:
+		radial-gradient(at 100% 0%, hsla(135,34%,70%,0.14) 0px, transparent 50%),
+		radial-gradient(at 85% 100%, hsla(31,83%,50%,0.14) 0px, transparent 50%);
+}

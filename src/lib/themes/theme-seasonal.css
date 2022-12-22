@@ -1,7 +1,10 @@
+/* https://fonts.google.com/specimen/Quicksand?query=Quicksand */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
 :root {
 	/* =~= Theme Properties =~= */
 	--theme-font-family-base: system-ui;
-	--theme-font-family-heading: system-ui;
+	--theme-font-family-heading: 'Quicksand', sans-serif;
 	--theme-font-color-base: var(--color-surface-500);
 	--theme-font-color-dark: var(--color-surface-200);
 	--theme-rounded-base: 12px;
@@ -95,10 +98,12 @@
 	--color-surface-900: 7 17 30; /* ⬅ #07111e */
 }
 
+/* Applied to body with `<body data-theme="seasonal">` */
 [data-theme='seasonal'] {
 	background: url('https://i.imgur.com/OLAmfXp.jpg') center center no-repeat;
 	background-size: cover;
 }
 .dark [data-theme='seasonal'] {
 	background: url('https://i.imgur.com/FmYCXHL.jpg') center center no-repeat;
+	background-size: cover;
 }

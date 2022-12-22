@@ -19,7 +19,7 @@
 		</p>
 	</section>
 
-	<div class="card card-glass-secondary p-4">
+	<div class="card card-glass-surface p-4">
 		<iframe
 			class="w-full lg:w-[640px] aspect-video mx-auto rounded-container-token shadow"
 			src="https://www.youtube.com/embed/2OnJYCXJPK4"

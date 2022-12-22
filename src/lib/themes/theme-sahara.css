@@ -111,3 +111,18 @@
 [data-theme='sahara'] p {
 	font-weight: 400;
 }
+
+/* Applied to body with `<body data-theme="sahara">` */
+/* Created with: https://csshero.org/mesher/ */
+[data-theme='sahara'] {
+	/* prettier-ignore */
+	background-image:
+		radial-gradient(at 100% 36%, hsla(37,81%,56%,0.15) 0px, transparent 50%),
+		radial-gradient(at 7% 0%, hsla(37,81%,56%,0.20) 0px, transparent 50%);
+}
+.dark [data-theme='sahara'] {
+	/* prettier-ignore */
+	background-image:
+		radial-gradient(at 100% 36%, hsla(37,81%,56%,0.15) 0px, transparent 50%),
+		radial-gradient(at 7% 0%, hsla(37,81%,56%,0.20) 0px, transparent 50%);
+}
