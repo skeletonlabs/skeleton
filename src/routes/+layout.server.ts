@@ -8,6 +8,6 @@ export const load: LayoutServerLoad = async ({ cookies }) => {
 		theme = 'skeleton';
 	}
 	// Imports theme as a string
-	const themeImport = (await import(`$lib/themes/theme-${theme}.css`)) as { default: string };
-	return { currentTheme: themeImport.default };
+	const modules = import.meta.glob(`$lib/themes/*.css`, { as: 'raw' });
+	return { currentTheme: modules[`/src/lib/themes/theme-${theme}.css`]() };
 };
