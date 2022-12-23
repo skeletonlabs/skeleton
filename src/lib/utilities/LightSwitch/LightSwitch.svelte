@@ -20,23 +20,40 @@
 
 	// Set the users system prefers for light/dark mode
 	function setPrefersDarkScheme(): void {
-		const prefersDark: boolean = window.matchMedia('(prefers-color-scheme: dark)').matches;
+		const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 		storePrefersDarkScheme.set(prefersDark);
-	}
-
-	// Toggles a 'dark' class on the <html> element
-	function setElemHtmlClass(): void {
-		const elemHtmlClassList: DOMTokenList = document.documentElement.classList;
 		// If $storeLightSwitch not set, match the OS preference
 		if ($storeLightSwitch === undefined) {
 			$storeLightSwitch = $storePrefersDarkScheme;
 		}
-		// Update HTML element class
-		$storeLightSwitch === true ? elemHtmlClassList.add('dark') : elemHtmlClassList.remove('dark');
 	}
 
+	// Toggles a 'dark' class on the <html> element
+	function setElemHtmlClass(): void {
+		const elemHtmlClassList = document.documentElement.classList;
+		// Update HTML element class
+		$storeLightSwitch ? elemHtmlClassList.add('dark') : elemHtmlClassList.remove('dark');
+	}
+
+	// Sets the color scheme based on localStorage or OS preference in
+	// the <head> of the document.
+	function setColorScheme() {
+		if (
+			localStorage.getItem('storeLightSwitch') === 'true' ||
+			(!('storeLightSwitch' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+		) {
+			document.documentElement.classList.add('dark');
+		} else {
+			document.documentElement.classList.remove('dark');
+		}
+	}
+
+	type OnClickEvent = MouseEvent & {
+		currentTarget: EventTarget & HTMLDivElement;
+	};
+
 	// On Click Handler
-	function onClick(event: any): void {
+	function onClick(event: OnClickEvent): void {
 		// Set the Store Value
 		storeLightSwitch.set(($storeLightSwitch = !$storeLightSwitch));
 		// Apply to <html> Element
@@ -45,12 +62,16 @@
 		dispatch('click', event);
 	}
 
+	type OnKeyDownEvent = KeyboardEvent & {
+		currentTarget: EventTarget & HTMLDivElement;
+	};
+
 	// A11y Input Handlers
-	function onKeyDown(event: any): void {
+	function onKeyDown(event: OnKeyDownEvent): void {
 		// Enter/Space triggers selecton event
 		if (['Enter', 'Space'].includes(event.code)) {
 			event.preventDefault();
-			event.target.click();
+			event.currentTarget.click();
 		}
 		/** @event {{ event }} keydown - Fires when the component has keydown event.  */
 		dispatch('keydown', event);
@@ -60,8 +81,6 @@
 	onMount(() => {
 		// Determine OS Preference
 		setPrefersDarkScheme();
-		// Finally, update HTML element class as needed
-		setElemHtmlClass();
 	});
 
 	// Reactive Classses
@@ -70,10 +89,16 @@
 	$: classesThumb = `${cThumb} ${classesPosition}`;
 </script>
 
+<svelte:head>
+	{@html `<script>${setColorScheme.toString()} setColorScheme();</script>`}
+</svelte:head>
 <!-- prettier-ignore -->
 <div
 	class="lightswitch {classesBase}"
-	on:click={onClick} on:keydown={onKeyDown} on:keyup on:keypress
+	on:click={onClick}
+	on:keydown={onKeyDown}
+	on:keyup
+	on:keypress
 	role="switch"
 	aria-label="Light Switch"
 	aria-checked={$storeLightSwitch}
