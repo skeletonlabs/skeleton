@@ -73,7 +73,10 @@
 
 <!-- Select Preset Theme CSS DO NOT REMOVE ESCAPES-->
 <svelte:head>
-	{@html `\<style\>${currentTheme ?? skeleton}}\</style\>`}
+	{@html `\<style\>${skeleton}}\</style\>`}
+	{#if currentTheme !== undefined}
+		{@html `\<style\>${currentTheme}}\</style\>`}
+	{/if}
 </svelte:head>
 
 <!-- Overlays -->
