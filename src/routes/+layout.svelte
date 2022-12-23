@@ -30,8 +30,8 @@
 
 	// Dynamically load selected theme
 	const themesGlob = import.meta.glob('$lib/themes/*.css', { as: 'raw' });
-	async function getTheme(theme: string): Promise<string> {
-		return (await themesGlob[`/src/lib/themes/theme-${theme}.css`]()) as string;
+	function getTheme(theme: string): Promise<string> {
+		return themesGlob[`/src/lib/themes/theme-${theme}.css`]();
 	}
 	$: theme = getTheme($storeTheme);
 
