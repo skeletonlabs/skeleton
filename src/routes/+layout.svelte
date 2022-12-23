@@ -25,6 +25,9 @@
 	import DocsDrawer from '$docs/DocsNavigation/DocsDrawer.svelte';
 	import DocsFooter from '$docs/DocsFooter/DocsFooter.svelte';
 
+	// Default Theme
+	import skeleton from '$lib/themes/theme-skeleton.css?inline';
+
 	// Skeleton Stylesheets
 	import '$lib/styles/all.css';
 	// The Skeleton blog stylesheet
@@ -70,7 +73,7 @@
 
 <!-- Select Preset Theme CSS DO NOT REMOVE ESCAPES-->
 <svelte:head>
-	{@html `\<style\>${currentTheme}}\</style\>`}
+	{@html `\<style\>${currentTheme ?? skeleton}}\</style\>`}
 </svelte:head>
 
 <!-- Overlays -->
