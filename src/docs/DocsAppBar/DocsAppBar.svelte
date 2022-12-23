@@ -75,11 +75,11 @@
 
 	const setTheme: SubmitFunction = () => {
 		return async ({ result, update }) => {
+			await update();
 			if (result.type === 'success') {
 				const theme = result.data?.theme as string;
 				storeTheme.set(theme);
 			}
-			await update();
 		};
 	};
 </script>
