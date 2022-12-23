@@ -15,25 +15,27 @@
 				`<div class="${cSwatch} bg-secondary-500" />`,
 				'Secondary',
 				'[x]-secondary-[50-900]',
-				'A secondary offset color or supplementary value.'
+				'A secondary branding color for supplementary value.'
 			],
+			[`<div class="${cSwatch} bg-tertiary-500" />`, 'Tertiary', '[x]-tertiary-[50-900]', 'A third and additional branding color.'],
 			[
-				`<div class="${cSwatch} bg-tertiary-500" />`,
-				'Tertiary',
-				'[x]-tertiary-[50-900]',
-				'A third and additional offset color. Great for informational alerts.'
+				`<div class="${cSwatch} bg-success-500" />`,
+				'Success',
+				'[x]-success-[50-900]',
+				'Used for successful or positive actions, such as a form submit alert.'
 			],
 			[
 				`<div class="${cSwatch} bg-warning-500" />`,
 				'Warning',
 				'[x]-warning-[50-900]',
-				'May be used for warnings, alerts, and invalid inputs.'
+				'Used for informative warning level actions, such as alerts.'
 			],
+			[`<div class="${cSwatch} bg-error-500" />`, 'Error', '[x]-error-[50-900]', 'May be used for errors, alerts, and invalid inputs.'],
 			[
 				`<div class="${cSwatch} bg-surface-500" />`,
 				'Surface',
 				'[x]-surface-[50-900]',
-				'May be used for backgrounds, card elements, and some typography.'
+				'Used for negative or harmful actions, such as errors.'
 			]
 		]
 	};
