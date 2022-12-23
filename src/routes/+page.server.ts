@@ -7,5 +7,6 @@ export const actions: Actions = {
 		const theme = formData.get('theme')?.toString() ?? 'skeleton';
 		// Sets the selected theme to the cookie
 		cookies.set('theme', theme);
+		return { theme };
 	}
 };
