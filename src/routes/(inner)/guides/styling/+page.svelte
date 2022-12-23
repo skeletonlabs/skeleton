@@ -269,7 +269,7 @@ import '../app.postcss';
 			<h2>How to Customize Styles</h2>
 			<p>Learn how to customize Skeleton components and elements below.</p>
 		</div>
-		<div class="card p-4 card-glass-accent">
+		<div class="card p-4 card-glass-surface">
 			<AccordionGroup>
 				<AccordionItem spacing="space-y-4" open>
 					<svelte:fragment slot="summary"><h3>Via Component Props</h3></svelte:fragment>
@@ -281,7 +281,7 @@ import '../app.postcss';
 						</p>
 						<CodeBlock
 							language="html"
-							code={`<ExampleComponent background="bg-accent-500" text="text-yellow-500 md:text-green-500">Skeleton</ExampleComponent>`}
+							code={`<ExampleComponent background="bg-secondary-500" text="text-yellow-500 md:text-green-500">Skeleton</ExampleComponent>`}
 						/>
 						<blockquote>
 							TIP: You may provide multiple utility classes per each prop, as well as use variations such as <code>dark:bg-green-500</code>.
@@ -342,7 +342,7 @@ import '../app.postcss';
 	<section class="space-y-4">
 		<h2>What's Next?</h2>
 		<p>Choose your own adventure. We recommend you review each section listed below.</p>
-		<div class="card p-4 card-glass-accent space-y-4">
+		<div class="card p-4 card-glass-surface space-y-4">
 			<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 				<p>Learn more about Skeleton's Tailwind features.</p>
 				<a class="btn btn-ghost-surface" href="/elements/tokens">Tailwind Features &rarr;</a>

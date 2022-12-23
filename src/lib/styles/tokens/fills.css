@@ -15,15 +15,24 @@
 	/* Fill color to set when overlapping theme colors. */
 
 	.fill-on-primary-token {
-		fill: var(--on-primary);
+		fill: rgb(var(--on-primary));
 	}
-	.fill-on-accent-token {
-		fill: var(--on-accent);
+	.fill-on-secondary-token {
+		fill: rgb(var(--on-secondary));
 	}
 	.fill-on-tertiary-token {
-		fill: var(--on-tertiary);
+		fill: rgb(var(--on-tertiary));
+	}
+	.fill-on-success-token {
+		fill: rgb(var(--on-success));
 	}
 	.fill-on-warning-token {
-		fill: var(--on-warning);
+		fill: rgb(var(--on-warning));
+	}
+	.fill-on-error-token {
+		fill: rgb(var(--on-error));
+	}
+	.fill-on-surface-token {
+		fill: rgb(var(--on-surface));
 	}
 }

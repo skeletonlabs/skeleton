@@ -19,7 +19,7 @@
 	/** Provide classes to set the numeral text color. */
 	export let color = 'text-white';
 	/** Provide classes to set the timeline background color. */
-	export let background = 'bg-accent-500';
+	export let background = 'bg-secondary-500';
 
 	// Props (buttons)
 	/** Provide artibtary classes for the Back button. */

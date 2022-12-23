@@ -5,9 +5,9 @@ export interface ToastSettings {
 	message: string;
 	/**
 	 * Applies a canned set of styles.
-	 * @type {'primary' | 'accent' | 'tertiary' | 'warning' | 'success' | 'error'}
+	 * @type {'primary' | 'secondary' | 'tertiary' | 'warning' | 'success' | 'error'}
 	 */
-	preset?: 'primary' | 'accent' | 'tertiary' | 'warning' | 'success' | 'error';
+	preset?: 'primary' | 'secondary' | 'tertiary' | 'warning' | 'success' | 'error';
 	/** Enables auto-hide after the timeout duration. */
 	autohide?: boolean;
 	/** Set the auto-hide timeout duration. */

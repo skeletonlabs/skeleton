@@ -33,5 +33,5 @@ export interface ModalSettings {
 	/** Override the Submit button label. */
 	buttonTextSubmit?: string;
 	/** Pass abitrary data per modal instance. */
-	meta?: Record<string, any>;
+	meta?: any;
 }

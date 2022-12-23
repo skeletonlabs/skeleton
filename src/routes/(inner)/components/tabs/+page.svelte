@@ -55,9 +55,9 @@
 					<TabGroup
 						selected={storeTwo}
 						justify="justify-start md:justify-end"
-						borderColor="border-accent-500"
-						color="text-accent-500"
-						hover="hover:bg-accent-500/10"
+						borderColor="border-secondary-500"
+						color="text-secondary-500"
+						hover="hover:bg-secondary-500/10"
 					>
 						<Tab value="a">Tab A</Tab>
 						<Tab value="b">Tab B</Tab>

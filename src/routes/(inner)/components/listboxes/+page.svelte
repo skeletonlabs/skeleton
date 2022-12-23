@@ -47,7 +47,7 @@
 			</div>
 			<!-- Multiple -->
 			<div class="card p-4 space-y-4">
-				<ListBox selected={navMultiple} label="Multi-Selection" hover="bg-accent-hover-token" accent="!bg-accent-active-token">
+				<ListBox selected={navMultiple} label="Multi-Selection" hover="bg-secondary-hover-token" accent="!bg-secondary-active-token">
 					<ListBoxItem value={'A'}>Item A</ListBoxItem>
 					<ListBoxItem value={'B'}>Item B</ListBoxItem>
 					<ListBoxItem value={'C'}>Item C</ListBoxItem>

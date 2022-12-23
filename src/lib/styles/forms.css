@@ -43,13 +43,13 @@
 	textarea,
 	select {
 		/* Base */
-		@apply w-full caret-accent-500 focus:ring-accent-500 transition-all duration-200 hover:brightness-110;
+		@apply w-full caret-secondary-500 focus:ring-secondary-500 transition-all duration-200 hover:brightness-110;
 		/* Text */
 		@apply text-black dark:text-white;
 		/* Background */
 		@apply bg-surface-200-700-token;
 		/* Border */
-		@apply border-surface-400-500-token focus:border-accent-500;
+		@apply border-surface-400-500-token focus:border-secondary-500;
 		/* Shadow */
 		@apply shadow-sm;
 		/* Theme: Border Width */
@@ -78,7 +78,7 @@
 	/* Checkbox */
 	[type='checkbox'],
 	[type='radio'] {
-		@apply border-surface-500 rounded text-accent-600 focus:ring-accent-500 w-5 h-5;
+		@apply border-surface-500 rounded text-secondary-600 focus:ring-secondary-500 w-5 h-5;
 	}
 	/* Checkbox */
 	[type='radio'] {
@@ -156,6 +156,6 @@
 	/* https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color */
 
 	[type='range']:not(.range-input) {
-		@apply w-full accent-accent-token;
+		@apply w-full accent-secondary-500;
 	}
 }

@@ -33,8 +33,8 @@ function toastService() {
 				// prettier-ignore
 				switch (toast.preset) {
 					// Success/Error
-					case('success'): classes += '!bg-green-500 !text-black'; break;
-					case('error'): classes += '!bg-red-500 !text-white'; break;
+					case('success'): classes += '!bg-success-500 text-on-success-token'; break;
+					case('error'): classes += '!bg-error-500 text-on-error-token'; break;
 					// Theme
 					default: classes += `!bg-${toast.preset}-500 text-on-${toast.preset}-token`; break;
 				}

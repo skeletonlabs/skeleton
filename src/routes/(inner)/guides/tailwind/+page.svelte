@@ -116,21 +116,21 @@ const config = {
 			them.
 		</p>
 		<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-			<div class="card p-4 card-glass-accent space-y-4 text-center">
+			<div class="card p-4 card-glass-surface space-y-4 text-center">
 				<h3>Forms</h3>
 				<p>Provides a basic reset for form elements.</p>
 				<a class="btn btn-ghost-surface" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank" rel="noreferrer">
 					View Plugin
 				</a>
 			</div>
-			<div class="card p-4 card-glass-accent space-y-4 text-center">
+			<div class="card p-4 card-glass-surface space-y-4 text-center">
 				<h3>Typography</h3>
 				<p>Typographic defaults for HTML you don't control.</p>
 				<a class="btn btn-ghost-surface" href="https://tailwindcss.com/docs/typography-plugin" target="_blank" rel="noreferrer">
 					View Plugin
 				</a>
 			</div>
-			<div class="card p-4 card-glass-accent space-y-4 text-center">
+			<div class="card p-4 card-glass-surface space-y-4 text-center">
 				<h3>Line Clamp</h3>
 				<p>Provides utilities for visually truncating text.</p>
 				<a class="btn btn-ghost-surface" href="https://github.com/tailwindlabs/tailwindcss-line-clamp" target="_blank" rel="noreferrer">

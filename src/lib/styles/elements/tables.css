@@ -85,7 +85,7 @@
 	/* === Rows Specific === */
 
 	.table-row-checked {
-		@apply !bg-accent-500/30;
+		@apply !bg-secondary-500/30;
 	}
 
 	/* === Cells Specific === */

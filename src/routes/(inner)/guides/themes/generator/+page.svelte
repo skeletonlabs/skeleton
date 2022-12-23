@@ -1,12 +1,8 @@
 <script lang="ts">
-	import { storeFramework } from '$docs/stores';
-
 	// Components
 	import Breadcrumb from '$lib/components/Breadcrumb/Breadcrumb.svelte';
 	import Crumb from '$lib/components/Breadcrumb/Crumb.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
-	import Tab from '$lib/components/Tab/Tab.svelte';
 
 	// Docs
 	import DocsThemer from '$docs/DocsThemer/DocsThemer.svelte';
@@ -23,13 +19,18 @@
 	<header class="space-y-4">
 		<h1>Theme Generator</h1>
 		<p>
-			Enable edit mode to enable a live theme preview. You can browse the entire site while edit mode is enabled. Don't worry, your settings
-			here will below will not be lost. When you are finished, tap the "Reset Theme" button to return to normal.
+			Enable "Live Preview Mode" to begin creating a new theme. The entire documentation site will update as you progress. You can navigate
+			to different sections without losing your settings as long as you do not refresh the page. Disabling the preview will reset back to
+			your original theme.
 		</p>
 	</header>
 
+	<hr />
+
 	<!-- Generator (new) -->
 	<DocsThemer />
+
+	<hr />
 
 	<!-- Instructions -->
 	<section class="space-y-4">

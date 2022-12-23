@@ -63,16 +63,14 @@
 				see the "svelte-headless-tables" library by Bryan Lee, which may be paired with the Skeleton styles under <strong>Tailwind -> Elements -> Tables</strong>.
 			</span>
 			<svelte:fragment slot="trail">
-				<a href="https://svelte-headless-table.bryanmylee.com/" target="_blank" rel="noreferrer" class="btn btn-ghost-tertiary"
-					>See Alternative</a
-				>
+				<a href="https://svelte-headless-table.bryanmylee.com/" target="_blank" rel="noreferrer" class="btn btn-ghost">See Alternative</a>
 				<a href="https://github.com/skeletonlabs/skeleton/issues/538" target="_blank" rel="noreferrer" class="btn btn-filled"
 					>Track Progress</a
 				>
 			</svelte:fragment>
 		</Alert>
 
-		<section class="card !bg-accent-500/5">
+		<section class="card !bg-secondary-500/5">
 			<!-- Search Input -->
 			<div class="card-header">
 				<input bind:value={$dataTableStore.search} type="search" placeholder="Search Table..." />
@@ -391,7 +389,7 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 				<h2>Table Components</h2>
 				<p>Looking for a simpler data-driven table component? Visit the Table documentation.</p>
 			</div>
-			<a class="btn btn-filled-accent place-self-center" href="/components/tables">View Tables</a>
+			<a class="btn btn-filled-secondary place-self-center" href="/components/tables">View Tables</a>
 		</section>
 	</svelte:fragment>
 </DocsShell>

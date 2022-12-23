@@ -150,13 +150,13 @@
 				<span class="hidden md:inline-block">Theme</span>
 				<span class="opacity-50">▾</span>
 			</button>
-			<div class="card w-56 shadow-xl" data-menu="theme">
+			<div class="card w-64 shadow-xl" data-menu="theme">
 				<section class="flex justify-between items-center p-4">
 					<h6>Theme</h6>
 					<LightSwitch />
 				</section>
 				<hr>
-				<nav class="list-nav p-4 max-h-64 overflow-y-auto">
+				<nav class="list-nav p-4 max-h-64 lg:max-h-[480px] overflow-y-auto">
 					<ul>
 						<li class="option" class:bg-primary-active-token={$storeTheme === 'skeleton'} on:click={() => { storeTheme.set('skeleton') }} on:keypress> 
 							<span>💀</span>
@@ -171,7 +171,7 @@
 							<span>Rocket</span>
 						</li>
 						<li class="option" class:bg-primary-active-token={$storeTheme === 'seafoam'} on:click={() => { storeTheme.set('seafoam') }} on:keypress>
-							<span>🐚</span>
+							<span>🧜‍♀️</span>
 							<span>Seafoam</span>
 						</li>
 						<li class="option" class:bg-primary-active-token={$storeTheme === 'vintage'} on:click={() => { storeTheme.set('vintage') }} on:keypress>
@@ -186,7 +186,7 @@
 							<span>👔</span>
 							<span>Hamlindigo</span>
 						</li>
-						<li class="option" class:bg-primary-active-token={$storeTheme === 'goldNouveau'} on:click={() => { storeTheme.set('goldNouveau') }} on:keypress>
+						<li class="option" class:bg-primary-active-token={$storeTheme === 'gold-nouveau'} on:click={() => { storeTheme.set('gold-nouveau') }} on:keypress>
 							<span>💫</span>
 							<span>Gold Nouveau</span>
 						</li>
@@ -194,13 +194,13 @@
 							<span>⭕</span>
 							<span>Crimson</span>
 						</li>
+						<li class="option" class:bg-primary-active-token={$storeTheme === 'seasonal'} on:click={() => { storeTheme.set('seasonal') }} on:keypress>
+							<span>🎆</span>
+							<span>Seasonal</span>
+						</li>
 						<!-- <li class="option" class:bg-primary-active-token={$storeTheme === 'test'} on:click={() => { storeTheme.set('test') }} on:keypress>
 							<span>🚧</span>
 							<span>Test</span>
-						</li> -->
-						<!-- <li class="option" class:bg-primary-active-token={$storeTheme === 'seasonal'} on:click={() => { storeTheme.set('seasonal') }} on:keypress>
-							<span>🎃</span>
-							<span>Seasonal</span>
 						</li> -->
 					</ul>
 				</nav>

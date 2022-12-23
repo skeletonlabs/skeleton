@@ -11,7 +11,7 @@
 	/** Sets the base stroke width. Scales responsively. */
 	export let stroke = 20; // px
 	/** Provide classes to set meter color. */
-	export let meter = 'stroke-accent-500';
+	export let meter = 'stroke-secondary-500';
 	/** Provide classes to set track color. */
 	export let track = 'stroke-surface-200 dark:stroke-surface-700';
 	/** Provide classes to set the SVG text fill color. */

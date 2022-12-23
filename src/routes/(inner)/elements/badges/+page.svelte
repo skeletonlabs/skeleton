@@ -35,7 +35,7 @@
 					<span>&hearts;</span>
 					<span>Complete</span>
 				</span>
-				<span class="badge badge-filled-accent">
+				<span class="badge badge-filled-secondary">
 					<span>Skeleton</span>
 					<span>💀</span>
 				</span>
@@ -52,7 +52,7 @@
 			<!-- - -->
 			<div class="card p-4">
 				<h4>Skeleton</h4>
-				<sub class="badge badge-filled-accent -ml-0">Sub</sub>
+				<sub class="badge badge-filled-secondary -ml-0">Sub</sub>
 			</div>
 			<!-- - -->
 			<div class="card p-4 !space-x-6">
@@ -61,7 +61,7 @@
 					<button class="btn btn-sm btn-ghost-surface">Button</button>
 				</div>
 				<div class="relative inline-block">
-					<span class="badge-icon badge-filled-accent absolute -top-1 -right-1 z-10">2</span>
+					<span class="badge-icon badge-filled-secondary absolute -top-1 -right-1 z-10">2</span>
 					<Avatar />
 				</div>
 				<div class="relative inline-block">
@@ -93,13 +93,15 @@
 			</p>
 			<CodeBlock language="html" code={`<span class="badge badge-filled-surface">Skeleton</span>`} />
 			<section class="lg:col-span-3 card p-4">
-				<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-					<div class="text-center"><span class="badge badge-filled-surface">filled-surface</span></div>
-					<div class="text-center"><span class="badge badge-filled-primary">filled-primary</span></div>
-					<div class="text-center"><span class="badge badge-filled-accent">filled-accent</span></div>
-					<div class="text-center"><span class="badge badge-filled-tertiary">filled-tertiary</span></div>
-					<div class="text-center"><span class="badge badge-filled-warning">filled-warning</span></div>
-					<div class="text-center"><span class="badge badge-glass block w-full">glass</span></div>
+				<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+					<span class="badge badge-filled-surface">filled-surface</span>
+					<span class="badge badge-filled-primary">filled-primary</span>
+					<span class="badge badge-filled-secondary">filled-secondary</span>
+					<span class="badge badge-filled-tertiary">filled-tertiary</span>
+					<span class="badge badge-glass">glass</span>
+					<span class="badge badge-filled-success">filled-success</span>
+					<span class="badge badge-filled-warning">filled-warning</span>
+					<span class="badge badge-filled-error">filled-error</span>
 				</div>
 			</section>
 		</section>

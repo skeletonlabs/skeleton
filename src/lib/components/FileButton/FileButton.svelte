@@ -5,7 +5,7 @@
 	 */
 	export let files: FileList;
 	/** Provide a button variant or other class styles. */
-	export let button = 'btn-filled-accent';
+	export let button = 'btn-filled-secondary';
 
 	let elemFileInput: HTMLElement;
 

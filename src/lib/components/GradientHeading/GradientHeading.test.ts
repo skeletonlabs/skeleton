@@ -17,7 +17,7 @@ describe('GradientHeading.svelte', () => {
 				tag: 'h1',
 				direction: 'bg-gradient-to-r',
 				from: 'from-primary-500',
-				to: 'to-accent-500'
+				to: 'to-secondary-500'
 			}
 		});
 		const elem: HTMLElement = getByTestId('gradient-heading');
@@ -25,6 +25,6 @@ describe('GradientHeading.svelte', () => {
 		expect(elem.tagName).eq('H1');
 		expect(elem.querySelector('span')?.className).includes('bg-gradient-to-r');
 		expect(elem.querySelector('span')?.className).includes('from-primary-500');
-		expect(elem.querySelector('span')?.className).includes('to-accent-500');
+		expect(elem.querySelector('span')?.className).includes('to-secondary-500');
 	});
 });
