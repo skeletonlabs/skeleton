@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { enhance } from '$app/forms';
+	import { enhance, type SubmitFunction } from '$app/forms';
 
 	// Types
 	import type { ModalSettings, ModalComponent } from '$lib/utilities/Modal/types';
@@ -72,6 +72,16 @@
 		{ type: 'crimson', name: 'Crimson', icon: '⭕' },
 		{ type: 'seasonal', name: 'Seasonal', icon: '🎆' }
 	];
+
+	const setTheme: SubmitFunction = () => {
+		return async ({ result, update }) => {
+			if (result.type === 'success') {
+				const theme = result.data?.theme as string;
+				storeTheme.set(theme);
+			}
+			await update();
+		};
+	};
 </script>
 
 <!-- NOTE: using stopPropagation to override Chrome for Windows search shortcut -->
@@ -171,10 +181,10 @@
 				</section>
 				<hr>
 				<nav class="list-nav p-4 max-h-64 lg:max-h-[480px] overflow-y-auto">
-					<form action="/?/setTheme" method="POST" use:enhance>
+					<form action="/?/setTheme" method="POST" use:enhance={setTheme}>
 						<ul>
 							{#each themes as {icon, name, type}}
-							<li on:click={() => { storeTheme.set(type) }} on:keypress>
+							<li>
 								<button class="option w-full h-full" type="submit" name="theme" value={type} class:bg-primary-active-token={$storeTheme === type}>
 									<span>{icon}</span>
 									<span>{name}</span>
