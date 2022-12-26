@@ -92,6 +92,7 @@
 <svelte:head>
 	{@html `<script>${setColorScheme.toString()} setColorScheme();</script>`}
 </svelte:head>
+
 <!-- prettier-ignore -->
 <div
 	class="lightswitch {classesBase}"
