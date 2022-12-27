@@ -11,6 +11,7 @@ export const menuNavLinks: any = [
 			{ href: '/docs/features', label: 'Features' },
 			{ href: '/docs/comparisons', label: 'Comparisons' },
 			{ href: '/docs/faqs', label: 'FAQs' }, // , badge: 'New'
+			{ href: '/blog', label: 'Blog', badge: 'New' }, // , badge: 'New'
 			// { href: '/docs/recommended', label: 'Recommended' }, // DISABLED until more complete
 			{ href: '/docs/contributions', label: 'Contributions' }
 		]
