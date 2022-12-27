@@ -38,7 +38,7 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<div class="card !bg-accent-500/5 overflow-hidden h-[480px] grid grid-cols-[auto_1fr]">
+		<div class="card !bg-secondary-500/5 overflow-hidden h-[480px] grid grid-cols-[auto_1fr]">
 			<AppRail selected={storeValue}>
 				<!-- Lead -->
 				<svelte:fragment slot="lead">

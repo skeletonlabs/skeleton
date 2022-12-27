@@ -10,7 +10,7 @@ function drawerService() {
 		set,
 		update,
 		/** Open the drawer. */
-		open: (newSettings: DrawerSettings) =>
+		open: (newSettings?: DrawerSettings) =>
 			update(() => {
 				return { open: true, ...newSettings };
 			}),

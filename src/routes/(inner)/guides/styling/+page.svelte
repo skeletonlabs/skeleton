@@ -161,27 +161,14 @@
 	<!-- Stylesheets -->
 	<section class="space-y-4">
 		<h2>Skeleton Stylesheets</h2>
-		<p>
-			Skeleton provides a set of stylesheets for elements and components. Import these in your app's root layout per your preferred
-			framework.
-		</p>
 		<TabGroup selected={storeFramework}>
-			<Tab value="sveltekit">SvelteKit</Tab>
-			<Tab value="vite">Vite (Svelte)</Tab>
-			<Tab value="astro">Astro</Tab>
+			<Tab value="cli">Skeleton CLI</Tab>
+			<Tab value="manual">Manual Install</Tab>
 		</TabGroup>
-		<!-- Framework: SvelteKit -->
-		{#if $storeFramework === 'sveltekit'}
+		{#if $storeFramework === 'cli'}
 			<p>The CLI will automatically import <code>all.css</code> into <code>src/routes/+layout.svelte</code>.</p>
-			<!-- Framework: Vite (Svelte) -->
-		{:else if $storeFramework === 'vite'}
-			<p>Import stylesheets in <code>/src/main.js</code>.</p>
-			<!-- Framework: Astro -->
-		{:else if $storeFramework === 'astro'}
-			<p>
-				Astro does not provide a layout by default, but we recommend <code>/src/layouts/LayoutRoot.astro</code>. See our
-				<a href="/guides/frameworks/astro">See our Astro walkthrough</a> for assistance.
-			</p>
+		{:else if $storeFramework === 'manual'}
+			<p>For most users we recommend importing <code>all.css</code> into <code>src/routes/+layout.svelte</code>.</p>
 		{/if}
 		<CodeBlock
 			language="typescript"
@@ -224,44 +211,36 @@ import '@skeletonlabs/skeleton/styles/${$storeStylesheets === 'recommended' ? 'a
 	<!-- Global Styles -->
 	<section class="space-y-4">
 		<h2>Global Stylesheet</h2>
-		<p>The location of your app's global stylesheet differs per framework.</p>
 		<TabGroup selected={storeFramework}>
-			<Tab value="sveltekit">SvelteKit</Tab>
-			<Tab value="vite">Vite (Svelte)</Tab>
-			<Tab value="astro">Astro</Tab>
+			<Tab value="cli">Skeleton CLI</Tab>
+			<Tab value="manual">Manual Install</Tab>
 		</TabGroup>
-		{#if $storeFramework === 'sveltekit'}
+		{#if $storeFramework === 'cli'}
 			<p>
-				Your global stylesheet is located in <code>/src/app.postcss</code>. The CLI will automatically purge
+				SvelteKit's global stylesheet is located in <code>/src/app.postcss</code>. The CLI will automatically purge
 				<a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> from Svelte-Add
-				and add any required styles.
+				and add required styles.
 			</p>
-		{:else if $storeFramework === 'vite'}
-			<p>Your global stylesheet is located in <code>/src/app.css</code>.</p>
+		{:else if $storeFramework === 'manual'}
 			<Alert>
 				<svelte:fragment slot="lead"><span class="text-xl">⚠️</span></svelte:fragment>
-				The following step is required. This will ensures all styles display properly.
+				The following step is <strong>REQUIRED</strong> to ensure your styles display properly in your application.
 			</Alert>
-			<!-- Directives -->
 			<p>
-				<strong>Svelte-Add</strong> automatically includes
-				<a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> in your global
-				stylesheet. However, Skeleton handles this for you, so please remove the following:
+				SvelteKit's global stylesheet is located in <code>/src/app.postcss</code>. <strong>Svelte-Add</strong> automatically includes
+				<a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> in your
+				global stylesheet. However, Skeleton imports these for you via <code>all.css</code>. Including these twice can cause issues, so
+				please remove the following from your global stylesheet.
 			</p>
 			<CodeBlock
 				language="css"
 				code={`
-/* NOTE: If present, remove any @tailwind directives: */\n
+/* NOTE: If present, remove the following @tailwind directives: */\n
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 				`}
 			/>
-		{:else if $storeFramework === 'astro'}
-			<p>
-				Astro does not create this by default, but we recommend <code>/src/styles/global.css</code>.
-				<a href="/guides/frameworks/astro">See our Astro walkthrough</a> for assistance.
-			</p>
 		{/if}
 	</section>
 
@@ -270,18 +249,15 @@ import '@skeletonlabs/skeleton/styles/${$storeStylesheets === 'recommended' ? 'a
 	<!-- Required Order -->
 	<section class="space-y-4">
 		<h2>Import Order</h2>
-		<p>
-			Skeleton has strict requirements for stylesheet import order. Please ensure your imports conform to the following order before you
-			continue.
-		</p>
+		<p>Skeleton has strict requirements for stylesheet import order. We've explained the purpose of each stylesheet below.</p>
 		<Table source={tableStylesheetOrder} />
-		<p>We've provided an example below for reference.</p>
+		<p>See the reference below. Please ensure your imports conform to the following order before you continue.</p>
 		<CodeBlock
 			language="ts"
 			code={`
 import '@skeletonlabs/skeleton/themes/theme-skeleton.css';
 import '@skeletonlabs/skeleton/styles/all.css';
-import '../app.postcss'; // Substitute with your framework's global stylesheet
+import '../app.postcss';
 		`}
 		/>
 	</section>
@@ -293,7 +269,7 @@ import '../app.postcss'; // Substitute with your framework's global stylesheet
 			<h2>How to Customize Styles</h2>
 			<p>Learn how to customize Skeleton components and elements below.</p>
 		</div>
-		<div class="card p-4 card-glass">
+		<div class="card p-4 card-glass-surface">
 			<AccordionGroup>
 				<AccordionItem spacing="space-y-4" open>
 					<svelte:fragment slot="summary"><h3>Via Component Props</h3></svelte:fragment>
@@ -305,7 +281,7 @@ import '../app.postcss'; // Substitute with your framework's global stylesheet
 						</p>
 						<CodeBlock
 							language="html"
-							code={`<ExampleComponent background="bg-accent-500" text="text-yellow-500 md:text-green-500">Skeleton</ExampleComponent>`}
+							code={`<ExampleComponent background="bg-secondary-500" text="text-yellow-500 md:text-green-500">Skeleton</ExampleComponent>`}
 						/>
 						<blockquote>
 							TIP: You may provide multiple utility classes per each prop, as well as use variations such as <code>dark:bg-green-500</code>.
@@ -363,11 +339,24 @@ import '../app.postcss'; // Substitute with your framework's global stylesheet
 	<hr />
 
 	<!-- Next Steps -->
-	<div class="card p-4 !flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-		<p>View the <u>optional walkthroughs</u> for creating an example app using Skeleton.</p>
-		<a class="btn btn-filled-primary" href="/guides/frameworks">
-			<span>Framework Guides</span>
-			<span>&rarr;</span>
-		</a>
-	</div>
+	<section class="space-y-4">
+		<h2>What's Next?</h2>
+		<p>Choose your own adventure. We recommend you review each section listed below.</p>
+		<div class="card p-4 card-glass-surface space-y-4">
+			<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+				<p>Learn more about Skeleton's Tailwind features.</p>
+				<a class="btn btn-ghost-surface" href="/elements/tokens">Tailwind Features &rarr;</a>
+			</div>
+			<hr class="opacity-30" />
+			<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+				<p>Learn more about Skeleton's Svelte features.</p>
+				<a class="btn btn-ghost-surface" href="/actions/clipboard">Svelte Features &rarr;</a>
+			</div>
+			<hr class="opacity-30" />
+			<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+				<p>Learn more about Skeleton's utility features.</p>
+				<a class="btn btn-ghost-surface" href="/utilities/codeblocks">Utility Features &rarr;</a>
+			</div>
+		</div>
+	</section>
 </div>

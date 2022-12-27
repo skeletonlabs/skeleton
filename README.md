@@ -7,7 +7,7 @@
 
 # 💀 Skeleton
 
-A fully featured Svelte UI toolkit for Svelte + Tailwind. Skeleton allows you to build fast and reactive web interfaces using the power of [Svelte](https://svelte.dev/) + [Tailwind CSS](https://tailwindcss.com/). Including official support for [SvelteKit](https://kit.svelte.dev/), [Vite](https://vitejs.dev/), and [Astro](https://astro.build/).
+A fully featured Svelte UI toolkit for Svelte + Tailwind. Skeleton allows you to build fast and reactive web interfaces using the power of [Svelte](https://svelte.dev/) + [Tailwind CSS](https://tailwindcss.com/). Including official support for [SvelteKit](https://kit.svelte.dev/).
 
 ## 🔗 Useful Links
 

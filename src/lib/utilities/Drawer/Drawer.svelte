@@ -1,6 +1,9 @@
 <script lang="ts">
 	import { fade, fly } from 'svelte/transition';
-	import { onMount } from 'svelte';
+	import { createEventDispatcher, onMount } from 'svelte';
+
+	// Event Handler
+	const dispatch = createEventDispatcher();
 
 	// Actions
 	import { focusTrap } from '$lib/actions/FocusTrap/focusTrap';
@@ -116,12 +119,14 @@
 	}
 
 	// Input Handlers
-	function onClickBackdrop(e: any): void {
-		if (e.target === elemBackdrop) drawerStore.close();
+	function onBackdropInteraction(event: any): void {
+		if (event.target === elemBackdrop) drawerStore.close();
+		/** @event {{ event }} backdrop - Fires on backdrop interaction.  */
+		dispatch('backdrop', event);
 	}
-	function onKeydownWindow(e: any): void {
+	function onKeydownWindow(event: any): void {
 		if (!$drawerStore) return;
-		if (e.code === 'Escape') drawerStore.close();
+		if (event.code === 'Escape') drawerStore.close();
 	}
 
 	// Lifecycle
@@ -146,11 +151,8 @@
 		class="drawer-backdrop {classesBackdrop}"
 		data-testid="drawer-backdrop"
 		transition:fade|local={{ duration }}
-		on:click={(e) => {
-			onClickBackdrop(e);
-		}}
-		on:keydown
-		on:keyup
+		on:mousedown={onBackdropInteraction}
+		on:touchstart={onBackdropInteraction}
 		on:keypress
 		use:focusTrap={true}
 	>

@@ -1,11 +1,13 @@
 <script lang="ts">
+	import { createEventDispatcher } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
 
-	// Actions
-	import { focusTrap } from '$lib/actions/FocusTrap/focusTrap';
+	// Event Handler
+	const dispatch = createEventDispatcher();
 
-	// Stores
+	import { focusTrap } from '$lib/actions/FocusTrap/focusTrap';
 	import { modalStore } from '$lib/utilities/Modal/stores';
+	import type { ModalSettings } from './types';
 
 	// Props
 	/** The open/close animation duration. Set '0' (zero) to disable. */
@@ -55,19 +57,30 @@
 
 	// Local
 	let promptValue: any;
+	const buttonTextDefaults: Record<string, string> = {
+		buttonTextCancel,
+		buttonTextConfirm,
+		buttonTextSubmit
+	};
 
 	// Modal Store Subscription
-	modalStore.subscribe((dArr: any[]) => {
+	modalStore.subscribe((dArr: ModalSettings[]) => {
 		if (!dArr.length) return;
-		// Set the local modal value (for prompt)
+		// Set Prompt input value and type
 		promptValue = dArr[0].value;
+		// Override button text per instance, if available
+		buttonTextCancel = dArr[0].buttonTextCancel || buttonTextDefaults.buttonTextCancel;
+		buttonTextConfirm = dArr[0].buttonTextConfirm || buttonTextDefaults.buttonTextConfirm;
+		buttonTextSubmit = dArr[0].buttonTextSubmit || buttonTextDefaults.buttonTextSubmit;
 	});
 
 	// Event Handlers ---
 
-	function onBackdropInteraction(e: MouseEvent | TouchEvent): void {
-		if (!(e.target instanceof Element)) return;
-		if (e.target.classList.contains('modal-backdrop')) onClose();
+	function onBackdropInteraction(event: MouseEvent | TouchEvent): void {
+		if (!(event.target instanceof Element)) return;
+		if (event.target.classList.contains('modal-backdrop')) onClose();
+		/** @event {{ event }} backdrop - Fires on backdrop interaction.  */
+		dispatch('backdrop', event);
 	}
 
 	function onClose(): void {
@@ -173,11 +186,11 @@
 				</footer>
 				{:else if $modalStore[0].type === 'prompt'}
 					<!-- Template: Prompt -->
-					<input class="modal-prompt-input" type="text" bind:value={promptValue} required />
+					<input class="modal-prompt-input" type="text" bind:value={promptValue} />
 					<!-- prettier-ignore -->
 					<footer class="modal-footer {regionFooter}">
 					<button class="btn {buttonNeutral}" on:click={onClose}>{buttonTextCancel}</button>
-					<button class="btn {buttonPositive}" on:click={onPromptSubmit}>{buttonTextSubmit}</button>
+					<button class="btn {buttonPositive}" on:click={onPromptSubmit} disabled={!promptValue}>{buttonTextSubmit}</button>
 				</footer>
 				{:else if $modalStore[0].type === 'component'}
 					<!-- Template: Component -->

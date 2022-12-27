@@ -11,24 +11,31 @@
 		head: ['Color', 'Name', 'Class', 'Description'],
 		body: [
 			[`<div class="${cSwatch} bg-primary-500" />`, 'Primary', '[x]-primary-[50-900]', 'Typically your primary brand color.'],
-			[`<div class="${cSwatch} bg-accent-500" />`, 'Accent', '[x]-accent-[50-900]', 'A secondary offset color or supplementary value.'],
 			[
-				`<div class="${cSwatch} bg-tertiary-500" />`,
-				'Tertiary',
-				'[x]-tertiary-[50-900]',
-				'A third and additional offset color. Great for informational alerts.'
+				`<div class="${cSwatch} bg-secondary-500" />`,
+				'Secondary',
+				'[x]-secondary-[50-900]',
+				'A secondary branding color for supplementary value.'
+			],
+			[`<div class="${cSwatch} bg-tertiary-500" />`, 'Tertiary', '[x]-tertiary-[50-900]', 'A third and additional branding color.'],
+			[
+				`<div class="${cSwatch} bg-success-500" />`,
+				'Success',
+				'[x]-success-[50-900]',
+				'Used for successful or positive actions, such as a form submit alert.'
 			],
 			[
 				`<div class="${cSwatch} bg-warning-500" />`,
 				'Warning',
 				'[x]-warning-[50-900]',
-				'May be used for warnings, alerts, and invalid inputs.'
+				'Used for negative or harmful actions, such as errors.'
 			],
+			[`<div class="${cSwatch} bg-error-500" />`, 'Error', '[x]-error-[50-900]', 'May be used for errors, alerts, and invalid inputs.'],
 			[
 				`<div class="${cSwatch} bg-surface-500" />`,
 				'Surface',
 				'[x]-surface-[50-900]',
-				'May be used for backgrounds, card elements, and some typography.'
+				'The base level colors, using for your background, cards, and other layered elements.'
 			]
 		]
 	};
@@ -55,7 +62,7 @@
 	<section class="space-y-4">
 		<h2>Usage</h2>
 		<p>Skeleton themes extend Tailwind's color palette and can be used anywhere within your project. Here's a few examples:</p>
-		<CodeBlock language="html" code={`<!-- Inlined classes -->\n<div class="bg-primary-500 text-accent-500">Skeleton</div>`} />
+		<CodeBlock language="html" code={`<!-- Inlined classes -->\n<div class="bg-primary-500 text-secondary-500">Skeleton</div>`} />
 		<CodeBlock language="html" code={`<!-- Tailwind opacity scale -->\n<div class="border border-primary-500/50">Skeleton</div>`} />
 		<CodeBlock language="css" code={`/* Using Tailwind @apply */\n.example { @apply text-primary-500; }`} />
 		<CodeBlock

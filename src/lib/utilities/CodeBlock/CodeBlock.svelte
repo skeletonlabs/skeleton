@@ -1,4 +1,9 @@
 <script lang="ts">
+	import { createEventDispatcher } from 'svelte';
+
+	// Event Handler
+	const dispatch = createEventDispatcher();
+
 	import { storeHighlightJs } from './stores';
 	import { clipboard } from '$lib/actions/Clipboard/clipboard';
 
@@ -41,6 +46,8 @@
 		copyState = true;
 		// prettier-ignore
 		setTimeout(() => { copyState = false; }, 2000);
+		/** @event {{}} copy - Fires when the Copy button is pressed.  */
+		dispatch('copy', {});
 	}
 
 	// Trigger syntax highlighting if highlight.js is available

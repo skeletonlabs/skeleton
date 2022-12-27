@@ -22,9 +22,9 @@
 
 	// Local
 	const listData = [
-		{ name: 'A', class: 'btn-filled-accent' },
-		{ name: 'B', class: 'btn-filled-accent' },
-		{ name: 'C', class: 'btn-filled-accent' }
+		{ name: 'A', class: 'btn-filled-secondary' },
+		{ name: 'B', class: 'btn-filled-secondary' },
+		{ name: 'C', class: 'btn-filled-secondary' }
 	];
 </script>
 

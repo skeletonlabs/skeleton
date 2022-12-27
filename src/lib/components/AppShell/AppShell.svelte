@@ -42,7 +42,7 @@
 	$: classesFooter = `${slotFooter}`;
 </script>
 
-<main id="appShell" class={classesBase} data-testid="app-shell">
+<div id="appShell" class={classesBase} data-testid="app-shell">
 	<!-- Slot: Header -->
 	{#if $$slots.header}
 		<header id="shell-header" class="flex-none {classesheader}"><slot name="header" /></header>
@@ -63,7 +63,7 @@
 			{/if}
 
 			<!-- Slot: Page Content (default) -->
-			<div id="page-content" class="flex-auto {classesPageContent}"><slot /></div>
+			<main id="page-content" class="flex-auto {classesPageContent}"><slot /></main>
 
 			<!-- Slot: Page Footer -->
 			{#if $$slots.pageFooter}
@@ -81,4 +81,4 @@
 	{#if $$slots.footer}
 		<footer id="shell-footer" class="flex-none {classesFooter}"><slot name="footer" /></footer>
 	{/if}
-</main>
+</div>

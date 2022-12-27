@@ -3,6 +3,11 @@
 export interface ToastSettings {
 	/** Provide the toast message. Supports HTML. */
 	message: string;
+	/**
+	 * Applies a canned set of styles.
+	 * @type {'primary' | 'secondary' | 'tertiary' | 'warning' | 'success' | 'error'}
+	 */
+	preset?: 'primary' | 'secondary' | 'tertiary' | 'warning' | 'success' | 'error';
 	/** Enables auto-hide after the timeout duration. */
 	autohide?: boolean;
 	/** Set the auto-hide timeout duration. */

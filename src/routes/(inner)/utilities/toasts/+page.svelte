@@ -54,10 +54,17 @@
 		toastStore.trigger({ message: 'Message will auto-hide after 5 seconds.' });
 	}
 
+	function toastPreset(preset: ToastSettings['preset']): void {
+		const t: ToastSettings = {
+			message: `This message uses the <u>${preset}</u> preset.`,
+			preset
+		};
+		toastStore.trigger(t);
+	}
 	function toastStyled(): void {
 		const t: ToastSettings = {
-			message: 'This message will have a warning color background.',
-			classes: 'bg-warning-500 text-on-warning-token'
+			message: 'This message has custom styles.',
+			classes: 'bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 text-white'
 		};
 		toastStore.trigger(t);
 	}
@@ -66,15 +73,28 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="card p-4">
-			<div class="grid grid-cols-1 md:grid-cols-5 gap-4 max-w-[640px] mx-auto">
-				<button class="btn btn-ghost-surface" on:click={toastBasic}>Basic</button>
-				<button class="btn btn-ghost-surface" on:click={toastParagraph}>Paragraph</button>
-				<button class="btn btn-ghost-surface" on:click={toastAction}>Action</button>
-				<button class="btn btn-ghost-surface" on:click={toastMultiple}>Multiple</button>
-				<button class="btn btn-ghost-surface" on:click={toastStyled}>Styled</button>
-			</div>
-		</section>
+		<div class="space-y-4">
+			<section class="card p-4">
+				<div class="grid grid-cols-1 md:grid-cols-5 gap-4 max-w-[700px] mx-auto">
+					<button class="btn btn-ghost-surface" on:click={toastBasic}>Basic</button>
+					<button class="btn btn-ghost-surface" on:click={toastParagraph}>Paragraph</button>
+					<button class="btn btn-ghost-surface" on:click={toastAction}>Action</button>
+					<button class="btn btn-ghost-surface" on:click={toastMultiple}>Multiple</button>
+					<button class="btn btn-ghost-surface" on:click={toastStyled}>Styled</button>
+				</div>
+			</section>
+			<section class="card p-4">
+				<!-- prettier-ignore -->
+				<div class="grid grid-cols-1 md:grid-cols-6 gap-4 max-w-[700px] mx-auto">
+					<button class="btn btn-ghost-surface" on:click={() => {toastPreset('primary')}}>Primary</button>
+					<button class="btn btn-ghost-surface" on:click={() => {toastPreset('secondary')}}>Secondary</button>
+					<button class="btn btn-ghost-surface" on:click={() => {toastPreset('tertiary')}}>Tertiary</button>
+					<button class="btn btn-ghost-surface" on:click={() => {toastPreset('success')}}>Success</button>
+					<button class="btn btn-ghost-surface" on:click={() => {toastPreset('warning')}}>Warning</button>
+					<button class="btn btn-ghost-surface" on:click={() => {toastPreset('error')}}>Error</button>
+				</div>
+			</section>
+		</div>
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
@@ -104,6 +124,8 @@
 function triggerToast(): void {
 	const t: ToastSettings = {
 		message: '👋 Hello and welcome to Skeleton.'
+		// Optional: Presets for primary | secondary | tertiary | warning
+		preset: 'primary',
 		// Optional: The auto-hide settings
 		autohide: true,
 		timeout: 5000,
@@ -126,9 +148,26 @@ function triggerToast(): void {
 			<p>Use the following technique to visualize the contents of the store for debugging.</p>
 			<CodeBlock language="html" code={`<pre>queue: {JSON.stringify($toastStore, null, 2)}</pre>`} />
 		</section>
-		<!-- Styled -->
+		<!-- Styling -->
 		<section class="space-y-4">
-			<h2>Styled</h2>
+			<h2>Styling</h2>
+			<h3>Presets</h3>
+			<p>
+				We provide a quick set of preset styles for any theme colors. The <code>success</code> preset is always green, while
+				<code>error</code> is always red.
+			</p>
+			<CodeBlock
+				language="ts"
+				code={`
+const t: ToastSettings = {
+	message: 'This message will have a colorful background.',
+	// Available presets include:
+	// primary | secondary | tertiary | warning | success | error
+	preset: 'warning',
+};
+			`}
+			/>
+			<h3>Custom Styles</h3>
 			<p>
 				To customize an individual toast, append <code>classes</code> to your settings and add CSS classes you wish to be applied to the toast.
 			</p>
@@ -138,7 +177,7 @@ function triggerToast(): void {
 const t: ToastSettings = {
 	message: 'This message will have a colorful background.',
 	// Add your custom classes here:
-	classes: 'bg-warning-500 text-on-warning-token'
+	classes: 'bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 text-white'
 };
 			`}
 			/>

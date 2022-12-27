@@ -6,7 +6,7 @@
 	/** Provide classes to set "from" gradient color. */
 	export let from = 'from-primary-500';
 	/** Provide classes to set "to" gradient color. */
-	export let to = 'to-accent-500';
+	export let to = 'to-secondary-500';
 
 	// Base Clases
 	let cBaseHeading = 'bg-clip-text text-transparent box-decoration-clone';

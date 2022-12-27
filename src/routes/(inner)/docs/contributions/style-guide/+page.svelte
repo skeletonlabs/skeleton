@@ -38,7 +38,7 @@
 			language="html"
 			code={`
 ❌ <div class="bg-orange-500">Skeleton</div>
-✅ <div class="bg-accent-500">Skeleton</div> 
+✅ <div class="bg-secondary-500">Skeleton</div> 
 		`.trim()}
 		/>
 		<p>

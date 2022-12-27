@@ -35,9 +35,9 @@
 		event.preventDefault();
 		event.stopPropagation();
 		// Prefer meta row info if available, else fallback to body row info
-		const rowInfo = source.meta ? source.meta[rowIndex] : source.body[rowIndex];
-		/** @event {rowInfo} selected - Fires when a table row is clicked. */
-		dispatch('selected', rowInfo);
+		const rowMetaData = source.meta ? source.meta[rowIndex] : source.body[rowIndex];
+		/** @event {rowMetaData} selected - Fires when a table row is clicked. */
+		dispatch('selected', rowMetaData);
 	}
 
 	// Row Keydown Handler
