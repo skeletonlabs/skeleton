@@ -1,9 +1,6 @@
 /* =~= Gold Nouveau - made by GitHub user @Sarenor for the Skeleton community theme contest.  =~= */
 /* https://github.com/skeletonlabs/skeleton/discussions/401 */
 
-/* https://fonts.google.com/specimen/Quicksand?query=Quicksand */
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
-
 /* =~= Gold Nouveau =~= */
 :root {
 	/* =~= Theme Properties =~= */
@@ -145,3 +142,6 @@
 		radial-gradient(at 77% 0%, hsla(37, 81%, 56%, 0.1) 0px, transparent 50%),
 		radial-gradient(at 7% 0%, hsla(37, 81%, 56%, 0) 0px, transparent 50%);
 }
+
+/* https://fonts.google.com/specimen/Quicksand?query=Quicksand */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');

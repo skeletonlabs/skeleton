@@ -1,6 +1,3 @@
-/* https://fonts.google.com/specimen/Quicksand?query=Quicksand */
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
-
 :root {
 	/* =~= Theme Properties =~= */
 	--theme-font-family-base: 'Quicksand', sans-serif;
@@ -125,3 +122,6 @@
 		radial-gradient(at 1% 0%, hsla(340,100%,76%,0.15) 0px, transparent 50%),
 		radial-gradient(at 20% 100%, hsla(241,100%,70%,0.30) 0px, transparent 50%);
 }
+
+/* https://fonts.google.com/specimen/Quicksand?query=Quicksand */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');

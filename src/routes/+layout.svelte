@@ -25,22 +25,17 @@
 	import DocsDrawer from '$docs/DocsNavigation/DocsDrawer.svelte';
 	import DocsFooter from '$docs/DocsFooter/DocsFooter.svelte';
 
-	// Default Theme, injected immediately:
-	import skeleton from '$lib/themes/theme-skeleton.css?inline';
-
-	// Dynamically load selected theme
-	const themesGlob = import.meta.glob('$lib/themes/*.css', { as: 'raw' });
-	function getTheme(theme: string): Promise<string> {
-		return themesGlob[`/src/lib/themes/theme-${theme}.css`]();
-	}
-	$: theme = getTheme($storeTheme);
-
 	// Skeleton Stylesheets
 	import '$lib/styles/all.css';
 	// The Skeleton blog stylesheet
 	import '$docs/DocsStyles/blog.css';
 	// Global Stylesheets
 	import '../app.postcss';
+
+	// Theme stylesheet is loaded from LayoutServerData
+	import type { LayoutServerData } from './$types';
+	export let data: LayoutServerData;
+	$: ({ currentTheme } = data);
 
 	// Set body `data-theme` based on current theme status
 	storeTheme.subscribe(setBodyThemeAttribute);
@@ -75,10 +70,7 @@
 
 <!-- Select Preset Theme CSS DO NOT REMOVE ESCAPES-->
 <svelte:head>
-	{@html `\<style\>${skeleton}}\</style\>`}
-	{#await theme then loadedTheme}
-		{@html `\<style\>${loadedTheme}}\</style\>`}
-	{/await}
+	{@html `\<style\>${currentTheme}}\</style\>`}
 </svelte:head>
 
 <!-- Overlays -->
