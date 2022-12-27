@@ -1,6 +1,3 @@
-/* https://fonts.google.com/specimen/Lato?query=lato&noto.query=Abril */
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
-
 :root {
 	/* =~= Theme Properties =~= */
 	--theme-font-family-base: system-ui;
@@ -127,3 +124,6 @@
 		radial-gradient(at 36% 0%, hsla(240,73%,56%,0.25) 0px, transparent 50%),
 		radial-gradient(at 71% 4%, hsla(330,78%,46%,0.25) 0px, transparent 50%);
 }
+
+/* https://fonts.google.com/specimen/Lato?query=lato&noto.query=Abril */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
+	import { enhance, type SubmitFunction } from '$app/forms';
 
 	// Types
 	import type { ModalSettings, ModalComponent } from '$lib/utilities/Modal/types';
@@ -58,6 +59,30 @@
 			$modalStore.length ? modalStore.close() : triggerSearch();
 		}
 	}
+
+	const themes = [
+		{ type: 'skeleton', name: 'Skeleton', icon: '💀' },
+		{ type: 'modern', name: 'Modern', icon: '🤖' },
+		{ type: 'rocket', name: 'Rocket', icon: '🚀' },
+		{ type: 'seafoam', name: 'Seafoam', icon: '🧜‍♀️' },
+		{ type: 'vintage', name: 'Vintage', icon: '📺' },
+		{ type: 'sahara', name: 'Sahara', icon: '🏜️' },
+		{ type: 'hamlindigo', name: 'Hamlindigo', icon: '👔' },
+		{ type: 'gold-nouveau', name: 'Gold Nouveau', icon: '💫' },
+		{ type: 'crimson', name: 'Crimson', icon: '⭕' },
+		{ type: 'seasonal', name: 'Seasonal', icon: '🎆' }
+		// { type: 'test', name: 'Test', icon: '🚧' },
+	];
+
+	const setTheme: SubmitFunction = () => {
+		return async ({ result, update }) => {
+			await update();
+			if (result.type === 'success') {
+				const theme = result.data?.theme as string;
+				storeTheme.set(theme);
+			}
+		};
+	};
 </script>
 
 <!-- NOTE: using stopPropagation to override Chrome for Windows search shortcut -->
@@ -143,9 +168,11 @@
 		<Divider vertical borderWidth="hidden lg:block border-l-2 opacity-20" />
 
 		<!-- Theme -->
-		<!-- prettier-ignore -->
 		<div class="relative">
-			<button class="unstyled hover:bg-primary-hover-token px-4 py-2 rounded-token space-x-2" use:menu={{ menu: 'theme', interactive: true }}>
+			<button
+				class="unstyled hover:bg-primary-hover-token px-4 py-2 rounded-token space-x-2"
+				use:menu={{ menu: 'theme', interactive: true }}
+			>
 				<SvgIcon name="swatchbook" width="w-4" height="w-4" class="inline-block md:hidden" />
 				<span class="hidden md:inline-block">Theme</span>
 				<span class="opacity-50">▾</span>
@@ -155,56 +182,28 @@
 					<h6>Theme</h6>
 					<LightSwitch />
 				</section>
-				<hr>
+				<hr />
 				<nav class="list-nav p-4 max-h-64 lg:max-h-[480px] overflow-y-auto">
-					<ul>
-						<li class="option" class:bg-primary-active-token={$storeTheme === 'skeleton'} on:click={() => { storeTheme.set('skeleton') }} on:keypress> 
-							<span>💀</span>
-							<span>Skeleton</span>
-						</li>
-						<li class="option" class:bg-primary-active-token={$storeTheme === 'modern'} on:click={() => { storeTheme.set('modern') }} on:keypress>
-							<span>🤖</span>
-							<span>Modern</span>
-						</li>
-						<li class="option" class:bg-primary-active-token={$storeTheme === 'rocket'} on:click={() => { storeTheme.set('rocket') }} on:keypress> 
-							<span>🚀</span>
-							<span>Rocket</span>
-						</li>
-						<li class="option" class:bg-primary-active-token={$storeTheme === 'seafoam'} on:click={() => { storeTheme.set('seafoam') }} on:keypress>
-							<span>🧜‍♀️</span>
-							<span>Seafoam</span>
-						</li>
-						<li class="option" class:bg-primary-active-token={$storeTheme === 'vintage'} on:click={() => { storeTheme.set('vintage') }} on:keypress>
-							<span>📺</span>
-							<span>Vintage</span>
-						</li>
-						<li class="option" class:bg-primary-active-token={$storeTheme === 'sahara'} on:click={() => { storeTheme.set('sahara') }} on:keypress>
-							<span>🏜️</span>
-							<span>Sahara</span>
-						</li>
-						<li class="option" class:bg-primary-active-token={$storeTheme === 'hamlindigo'} on:click={() => { storeTheme.set('hamlindigo') }} on:keypress>
-							<span>👔</span>
-							<span>Hamlindigo</span>
-						</li>
-						<li class="option" class:bg-primary-active-token={$storeTheme === 'gold-nouveau'} on:click={() => { storeTheme.set('gold-nouveau') }} on:keypress>
-							<span>💫</span>
-							<span>Gold Nouveau</span>
-						</li>
-						<li class="option" class:bg-primary-active-token={$storeTheme === 'crimson'} on:click={() => { storeTheme.set('crimson') }} on:keypress>
-							<span>⭕</span>
-							<span>Crimson</span>
-						</li>
-						<li class="option" class:bg-primary-active-token={$storeTheme === 'seasonal'} on:click={() => { storeTheme.set('seasonal') }} on:keypress>
-							<span>🎆</span>
-							<span>Seasonal</span>
-						</li>
-						<!-- <li class="option" class:bg-primary-active-token={$storeTheme === 'test'} on:click={() => { storeTheme.set('test') }} on:keypress>
-							<span>🚧</span>
-							<span>Test</span>
-						</li> -->
-					</ul>
+					<form action="/?/setTheme" method="POST" use:enhance={setTheme}>
+						<ul>
+							{#each themes as { icon, name, type }}
+								<li>
+									<button
+										class="option w-full h-full"
+										type="submit"
+										name="theme"
+										value={type}
+										class:bg-primary-active-token={$storeTheme === type}
+									>
+										<span>{icon}</span>
+										<span>{name}</span>
+									</button>
+								</li>
+							{/each}
+						</ul>
+					</form>
 				</nav>
-				<hr>
+				<hr />
 				<div class="p-4">
 					<a class="btn btn-ghost-surface w-full" href="/guides/themes/generator">Theme Generator</a>
 				</div>

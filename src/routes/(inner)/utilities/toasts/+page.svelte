@@ -56,7 +56,7 @@
 
 	function toastPreset(preset: ToastSettings['preset']): void {
 		const t: ToastSettings = {
-			message: `This message the <u>${preset}</u> preset.`,
+			message: `This message uses the <u>${preset}</u> preset.`,
 			preset
 		};
 		toastStore.trigger(t);

@@ -96,11 +96,11 @@
 				<a href="https://github.com/sveltejs/kit/issues/6244#issuecomment-1226600661" target="_blank" rel="noreferrer"
 					>This element is required</a
 				>
-				and the style of <code>display: content</code> should remain.
+				and the style of <code>display: contents</code> should remain.
 			</p>
 			<CodeBlock
 				language="html"
-				code={`<body>\n\t<div style="display: content" class="h-full overflow-hidden">%sveltekit.body%</div>\n</body>`.trim()}
+				code={`<body>\n\t<div style="display: contents" class="h-full overflow-hidden">%sveltekit.body%</div>\n</body>`.trim()}
 			/>
 			<p>
 				Then, disable overflow on your <em>html</em> and <em>body</em> tags to prevent duplicate scroll bars. Update your global stylesheet with
