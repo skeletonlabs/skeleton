@@ -122,7 +122,7 @@
 					>.
 				</p>
 			</div>
-			<a class="btn btn-filled-accent" href="https://fecolormatrix.com/" target="_blank" rel="noreferrer">Create Filter</a>
+			<a class="btn btn-filled-secondary" href="https://fecolormatrix.com/" target="_blank" rel="noreferrer">Create Filter</a>
 		</section>
 		<hr />
 		<section class="space-y-4">
@@ -133,16 +133,16 @@
 				non-supported browsers.
 			</p>
 			<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-				<div class="card p-4 !bg-emerald-500 text-white text-center">
+				<div class="card p-4 !bg-success-500 text-on-success-token text-center">
 					<h4>Chrome: Full</h4>
 				</div>
-				<div class="card p-4 !bg-emerald-500 text-white text-center">
+				<div class="card p-4 !bg-success-500 text-on-success-token text-center">
 					<h4>Edge: Full</h4>
 				</div>
-				<div class="card p-4 !bg-orange-500 text-white text-center">
+				<div class="card p-4 !bg-warning-500 text-on-warning-token text-center">
 					<h4>Safari: Partial</h4>
 				</div>
-				<div class="card p-4 !bg-rose-500 text-white text-center">
+				<div class="card p-4 !bg-error-500 text-on-error-token text-center">
 					<h4>Firefox: None</h4>
 				</div>
 			</div>

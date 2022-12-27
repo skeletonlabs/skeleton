@@ -33,7 +33,7 @@
 					<div class="placeholder-circle w-14" />
 					<div class="placeholder-circle w-10" />
 				</div>
-				<SlideToggle bind:checked={animate} accent="bg-accent-500">Animated</SlideToggle>
+				<SlideToggle bind:checked={animate} accent="bg-secondary-500">Animated</SlideToggle>
 			</div>
 			<div class="p-4 space-y-4" class:animate-pulse={animate}>
 				<div class="placeholder" />

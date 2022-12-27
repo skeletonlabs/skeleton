@@ -26,7 +26,7 @@
 	export let rounded: string = getContext('rounded');
 
 	// Base Classes
-	const cBase = ' font-bold text-base text-center cursor-pointer whitespace-nowrap';
+	const cBase = 'font-bold text-base text-center cursor-pointer whitespace-nowrap';
 
 	// A11y Input Handlers
 	function onKeyDown(event: any): void {
@@ -61,6 +61,8 @@
 	data-testid="radio-item"
 	on:click
 	on:keydown={onKeyDown}
+	on:keyup
+	on:keypress
 >
 	<label class="radio-item-label {classesLabel}">
 		<input class="radio-item-input hidden" type="radio" {value} bind:group={$selected} />

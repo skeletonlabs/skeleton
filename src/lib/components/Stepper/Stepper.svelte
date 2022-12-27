@@ -19,15 +19,21 @@
 	/** Provide classes to set the numeral text color. */
 	export let color = 'text-white';
 	/** Provide classes to set the timeline background color. */
-	export let background = 'bg-accent-500';
+	export let background = 'bg-secondary-500';
 
 	// Props (buttons)
-	/** Provide <a href="https://www.skeleton.dev/elements/buttons">Button</a> classes. */
-	export let buttonBack = 'btn-ghost-surface';
-	/** Provide <a href="https://www.skeleton.dev/elements/buttons">Button</a> classes. */
-	export let buttonNext = 'btn-filled-surface';
-	/** Provide <a href="https://www.skeleton.dev/elements/buttons">Button</a> classes. */
-	export let buttonComplete = 'btn-filled-primary';
+	/** Provide artibtary classes for the Back button. */
+	export let buttonClassesBack = 'btn-icon btn-ghost-surface';
+	/** Provide artibtary classes for the Next button. */
+	export let buttonClassesNext = 'btn btn-filled-surface';
+	/** Provide artibtary classes for the Complete button. */
+	export let buttonClassesComplete = 'btn btn-filled-primary';
+	/** Provide a text label for the Back button. */
+	export let buttonTextBack = '&uarr;';
+	/** Provide a text label for the Next button. */
+	export let buttonTextNext = 'Next &darr;';
+	/** Provide a text label for the Complete button. */
+	export let buttonTextComplete = 'Complete';
 
 	// Context
 	setContext('dispatch', dispatch);
@@ -35,9 +41,12 @@
 	setContext('length', length);
 	setContext('color', color);
 	setContext('background', background);
-	setContext('buttonBack', buttonBack);
-	setContext('buttonNext', buttonNext);
-	setContext('buttonComplete', buttonComplete);
+	setContext('buttonClassesBack', buttonClassesBack);
+	setContext('buttonClassesNext', buttonClassesNext);
+	setContext('buttonClassesComplete', buttonClassesComplete);
+	setContext('buttonTextBack', buttonTextBack);
+	setContext('buttonTextNext', buttonTextNext);
+	setContext('buttonTextComplete', buttonTextComplete);
 	setContext('duration', duration);
 
 	// Reactive Classes

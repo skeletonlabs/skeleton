@@ -57,9 +57,9 @@ export function menu(node: HTMLElement, args: ArgsMenu) {
 	
 	// Click Handlers ---
 
-	const onTriggerClick = (): void => {
+	const toggleMenu = (): void => {
 		// When the node is clicked, open the menu if it is closed, otherwise close it
-		if (elemMenu.style.display === 'none') {
+		if (elemMenu.style.display != 'block') {
 			autoUpdateOrigin();
 			menuOpen();
 		} else {
@@ -73,16 +73,18 @@ export function menu(node: HTMLElement, args: ArgsMenu) {
 	
 	// Interactive FALSE - any click closes the menu
 	const standardClickHandler = (event: any): void => {
-		// Any click closes the menu, except for when the node is clicked, since onTriggerClick() will take care of closing it in this case. If we don't include this check this function would close the menu when the node is clicked and onTriggerClick reopens it again because display will be 'none' again.
+		// Any click outside the node closes the menu, but a click inside the node toggles the menu.
 		const outsideNode = node && !node.contains(event.target);
 		if (outsideNode) { menuClose(); }
+		else { toggleMenu(); }
 	}
 	
 	// Interactive TRUE - clicks outside close menu
 	const interactiveClickHandler = (event: any): void => {
 		const outsideNode = node && !node.contains(event.target);
 		const outsideMenu = elemMenu && !elemMenu.contains(event.target);
-		if (outsideNode && outsideMenu) { menuClose(); }
+		if (!outsideNode) { toggleMenu(); }
+		else if (outsideNode && outsideMenu) { menuClose(); }
 	}
 
 	// Menu - Set auto origin ---
@@ -109,7 +111,7 @@ export function menu(node: HTMLElement, args: ArgsMenu) {
 			event.preventDefault();
 
 			// Toggle menu
-			onTriggerClick();
+			toggleMenu();
 		}
 	}
 
@@ -152,7 +154,6 @@ export function menu(node: HTMLElement, args: ArgsMenu) {
 	window.addEventListener('click', onWindowClick, true);
 	window.addEventListener('keydown', onWindowKeyDown, true);
 	// Trigger Node Events
-	node.addEventListener('click', onTriggerClick);
 	node.addEventListener('keydown', onTriggerKeyDown);
 	node.addEventListener('change', (e: any) => {
 		console.log(e);
@@ -165,7 +166,6 @@ export function menu(node: HTMLElement, args: ArgsMenu) {
             window.removeEventListener('resize', onWindowClick, true);
 			window.removeEventListener('click', onWindowClick, true);
 			window.removeEventListener('keydown', onWindowKeyDown, true);
-			node.removeEventListener('click', onTriggerClick);
 			node.removeEventListener('keydown', onTriggerKeyDown);
 		}
 	}

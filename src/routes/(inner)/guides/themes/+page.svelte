@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { storeFramework } from '$docs/stores';
 
+	import { presets } from './presets';
+
 	// Components
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
 	import Tab from '$lib/components/Tab/Tab.svelte';
@@ -9,22 +11,6 @@
 	// Stores
 	import { toastStore } from '$lib/utilities/Toast/stores';
 	import type { ToastSettings } from '$lib/utilities/Toast/types';
-
-	// Presets
-	const ghPath = 'https://github.com/skeletonlabs/skeleton/blob/master/src/themes';
-	// prettier-ignore
-	const presets: any[] = [
-		{ file: 'skeleton', name: 'Skeleton', colors: ['#10b981', '#6366f1', '#f43f5e'], surface: '#111827', url: `${ghPath}/theme-skeleton.css` },
-		{ file: 'rocket', name: 'Rocket', colors: ['#06b6d4', '#3b82f6', '#ec4899'], surface: '#3c4553', url: `${ghPath}/theme-rocket.css` },
-		{ file: 'vintage', name: 'Vintage', colors: ['#f59e0b', '#22c55e', '#ef4444'], surface: '#1c1917', url: `${ghPath}/theme-vintage.css` },
-		{ file: 'modern', name: 'Modern', colors: ['#ec4899', '#06b6d4', '#eab308'], surface: '#312e81', url: `${ghPath}/theme-modern.css` },
-		{ file: 'sahara', name: 'Sahara', colors: ['#facc15', '#fb923c', '#14b8a6'], surface: '#881337', url: `${ghPath}/theme-sahara.css` },
-		{ file: 'seafoam', name: 'Seafoam', colors: ['#14b8a6', '#8b5cf6', '#f59e0b'], surface: '#0c4a6e', url: `${ghPath}/theme-seafoam.css` },
-		// Community:
-		{ file: 'hamlindigo', name: 'Hamlindigo', colors: ['#6276A3', '#a58945', '#f59e0b'], surface: '#425071', url: `${ghPath}/theme-hamlindigo.css` },
-		{ file: 'gold-nouveau', name: 'Gold Nouveau', colors: ['#e7c504', '#0697e5', '#cc1e8a'], surface: '#231631', url: `${ghPath}/theme-gold-nouveau.css` },
-		{ file: 'crimson', name: 'Crimson', colors: ['#d4161d', '#3881b2', '#956056'], surface: '#0f1014', url: `${ghPath}/theme-crimson.css` },
-	];
 
 	// Copy Theme Import to Clipboard
 	function copyThemeToClipboard(file: string): void {
@@ -61,76 +47,81 @@
 
 	<hr />
 
+	<!-- Generator -->
 	<div class="space-y-4">
-		<!-- Generator -->
-		<div class="space-y-4">
-			<div class="card p-4 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-				<div class="space-y-2">
-					<h2>Theme Generator</h2>
-					<p>This tool allows you to generate a custom Skeleton theme.</p>
-				</div>
-				<a class="btn btn-filled-accent" href="/guides/themes/generator">Create a Theme</a>
+		<div class="card p-4 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+			<div class="space-y-2">
+				<h2>Theme Generator</h2>
+				<p>This tool allows you to generate a custom Skeleton theme.</p>
 			</div>
+			<a class="btn btn-filled-secondary" href="/guides/themes/generator">Create a Theme &rarr;</a>
 		</div>
-		<!-- Presets -->
-		<div class="card p-4 space-y-4">
-			<h2>Preset Themes</h2>
-			<p>Tap any theme below to automatically copy the import statement to your clipboard.</p>
+	</div>
+
+	<hr />
+
+	<!-- Presets -->
+	<div class="space-y-4">
+		<h2>Preset Themes</h2>
+		<p>
+			Use the theme picker at the top of the page to preview each option. Tap any theme automatically copy the import statement to your
+			clipboard.
+		</p>
+		<div class="card card-glass-surface p-4 space-y-4">
 			<nav class="grid grid-cols-1 md:grid-cols-3 gap-4">
 				{#each presets as preset}
 					<!-- prettier-ignore -->
 					<div
-						class="card p-4 text-white flex justify-between items-center hover:!ring-white/20 cursor-pointer"
+						class="card p-4 text-white hover:ring-surface-500/50 cursor-pointer space-y-4"
 						style:background={preset.surface}
 						target="_blank" rel="noreferrer"
 						on:click={() => { copyThemeToClipboard(preset.file); }}
 						on:keydown={() => { copyThemeToClipboard(preset.file); }}
 					>
-						<span class="text-sm font-bold">{preset.name}</span>
-						<ul class="grid grid-cols-3 gap-2">
+						<h3 class="text-center font-bold">{preset.name}</h3>
+						<ul class="flex justify-center items-center -space-x-1">
 							{#each preset.colors as color}
-								<li class="aspect-square w-4 rounded-full" style:background={color} />
+								<li class="aspect-square w-4 xl:w-6 rounded-full" style:background={color} />
 							{/each}
 						</ul>
 					</div>
 				{/each}
 			</nav>
+			<!-- prettier-ignore -->
+			<small class="block text-center">
+				TIP: Want to clone and modify a preset theme? <a href="https://github.com/skeletonlabs/skeleton/tree/master/src/lib/themes" target="_blank" rel="noreferrer">View these themes on GitHub.</a>
+			</small>
 		</div>
 		<!-- Implement -->
 		<TabGroup selected={storeFramework}>
-			<Tab value="sveltekit">SvelteKit</Tab>
-			<Tab value="vite">Vite (Svelte)</Tab>
-			<Tab value="astro">Astro</Tab>
+			<Tab value="cli">Skeleton CLI</Tab>
+			<Tab value="manual">Manual Install</Tab>
 		</TabGroup>
-		<!-- Framework: SvelteKit -->
-		{#if $storeFramework === 'sveltekit'}
+		{#if $storeFramework === 'cli'}
 			<p>
 				The CLI will automatically import your selected theme into <code>src/routes/+layout.svelte</code> before your global stylesheet. You
 				may change this at any time.
 			</p>
-			<CodeBlock
-				language="typescript"
-				code={`import '@skeletonlabs/skeleton/themes/theme-skeleton.css'; // <--\nimport '../app.postcss';\n`}
-			/>
-			<!-- Framework: Vite (Svelte) -->
-		{:else if $storeFramework === 'vite'}
+		{:else if $storeFramework === 'manual'}
 			<p>Import your desired preset into <code>/src/main.js</code> before your global stylesheet.</p>
-			<CodeBlock language="typescript" code={`import '@skeletonlabs/skeleton/themes/theme-{name}.css'; // <--\nimport '../app.css';\n`} />
-			<!-- Framework: Astro -->
-		{:else if $storeFramework === 'astro'}
-			<p>
-				Astro does not provide a root layout by default, but we recommend creating <code>/src/layouts/LayoutRoot.astro</code>. See our
-				<a href="/guides/frameworks/astro">See our Astro walkthrough</a> for assistance.
-			</p>
-			<CodeBlock language="typescript" code={`import '@skeletonlabs/skeleton/themes/theme-{name}.css'; // <--`} />
 		{/if}
+		<CodeBlock
+			language="typescript"
+			code={`import '@skeletonlabs/skeleton/themes/theme-skeleton.css'; // <--\nimport '../app.postcss';\n`}
+		/>
+		<!-- prettier-ignore -->
+		<p>
+			Some preset themes include special styles, such as a background. To use these, set the <code>data-theme</code> attribute in
+			your <code>app.html</code> body tag.
+		</p>
+		<CodeBlock language="html" code={`<body data-theme="skeleton">`} />
 	</div>
 
 	<hr />
 
 	<section class="space-y-4">
 		<h2>See Also</h2>
-		<div class="card p-4 card-glass space-y-4">
+		<div class="card p-4 card-glass-surface space-y-4">
 			<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 				<p>Learn more about Skeleton's theme color system.</p>
 				<a class="btn btn-ghost-surface" href="/guides/themes/colors">Theme Colors &rarr;</a>

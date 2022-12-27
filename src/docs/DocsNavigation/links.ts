@@ -8,10 +8,10 @@ export const menuNavLinks: any = [
 		title: 'Docs',
 		list: [
 			{ href: '/docs/why', label: 'Why Skeleton' },
-			{ href: '/docs/faqs', label: 'FAQs', badge: 'New' },
-			{ href: '/docs/comparisons', label: 'Comparisons' },
 			{ href: '/docs/features', label: 'Features' },
-			{ href: '/docs/recommended', label: 'Recommended' },
+			{ href: '/docs/comparisons', label: 'Comparisons' },
+			{ href: '/docs/faqs', label: 'FAQs' }, // , badge: 'New'
+			// { href: '/docs/recommended', label: 'Recommended' }, // DISABLED until more complete
 			{ href: '/docs/contributions', label: 'Contributions' }
 		]
 	},
@@ -26,7 +26,8 @@ export const menuNavLinks: any = [
 			{ href: '/guides/tailwind', label: 'Tailwind CSS' },
 			{ href: '/guides/themes', label: 'Themes' },
 			{ href: '/guides/styling', label: 'Styling' },
-			{ href: '/guides/frameworks', label: 'Frameworks' }
+			// { href: '/guides/frameworks', label: 'Frameworks' }
+			{ href: '/guides/frameworks/sveltekit', label: 'Quickstart Guide' }
 		]
 	},
 
@@ -109,7 +110,7 @@ export const menuNavLinks: any = [
 		title: 'Utilities',
 		list: [
 			{ href: '/utilities/codeblocks', label: 'Code Blocks' },
-			{ href: '/utilities/data-tables', label: 'Data Tables' },
+			{ href: '/utilities/data-tables', label: 'Data Tables', badge: 'Experimental' },
 			{ href: '/utilities/drawers', label: 'Drawers' },
 			{ href: '/utilities/lightswitches', label: 'Lightswitch' },
 			{ href: '/utilities/local-storage-stores', label: 'Local Storage Stores' },

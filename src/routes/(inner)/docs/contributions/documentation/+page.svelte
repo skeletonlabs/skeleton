@@ -173,7 +173,7 @@ dispatch('dragover', event);`}
 				<p>Reference all available settings from the Typescript interface defintion.</p>
 			</div>
 			<a
-				class="btn btn-filled-accent"
+				class="btn btn-filled-secondary"
 				href="https://github.com/skeletonlabs/skeleton/blob/dev/src/docs/DocsShell/types.ts#L42"
 				target="_blank"
 				rel="noreferrer">View Available Settings</a

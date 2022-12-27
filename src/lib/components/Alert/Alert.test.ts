@@ -15,7 +15,7 @@ describe('Alert.svelte', () => {
 				visible: true,
 				duration: 100,
 				background: 'bg-primary-500/30',
-				color: 'text-accent-500',
+				color: 'text-secondary-500',
 				borderWidth: 'border-l-2',
 				borderColor: 'border-l-primary-500',
 				radius: 'rounded',

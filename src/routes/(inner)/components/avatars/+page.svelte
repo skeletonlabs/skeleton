@@ -138,7 +138,7 @@
 							<span>Background</span>
 							<select name="background" id="background" bind:value={props.background}>
 								<option value="bg-primary-500">bg-primary-500</option>
-								<option value="bg-accent-500">bg-accent-500</option>
+								<option value="bg-secondary-500">bg-secondary-500</option>
 								<option value="bg-tertiary-500">bg-tertiary-500</option>
 								<option value="bg-warning-500">bg-warning-500</option>
 								<option value="bg-surface-500">bg-surface-500</option>

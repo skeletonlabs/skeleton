@@ -75,14 +75,20 @@
 	.btn-outline-primary {
 		@apply ring-2 ring-primary-500 ring-inset;
 	}
-	.btn-outline-accent {
-		@apply ring-2 ring-accent-500 ring-inset;
+	.btn-outline-secondary {
+		@apply ring-2 ring-secondary-500 ring-inset;
 	}
 	.btn-outline-tertiary {
 		@apply ring-2 ring-tertiary-500 ring-inset;
 	}
+	.btn-outline-success {
+		@apply ring-2 ring-success-500 ring-inset;
+	}
 	.btn-outline-warning {
 		@apply ring-2 ring-warning-500 ring-inset;
+	}
+	.btn-outline-error {
+		@apply ring-2 ring-error-500 ring-inset;
 	}
 	.btn-outline-surface {
 		@apply ring-2 ring-surface-400-500-token ring-inset;
@@ -98,14 +104,20 @@
 	.btn-filled-primary {
 		@apply bg-primary-500 text-on-primary-token;
 	}
-	.btn-filled-accent {
-		@apply bg-accent-500 text-on-accent-token;
+	.btn-filled-secondary {
+		@apply bg-secondary-500 text-on-secondary-token;
 	}
 	.btn-filled-tertiary {
 		@apply bg-tertiary-500 text-on-tertiary-token;
 	}
+	.btn-filled-success {
+		@apply bg-success-500 text-on-success-token;
+	}
 	.btn-filled-warning {
 		@apply bg-warning-500 text-on-warning-token;
+	}
+	.btn-filled-error {
+		@apply bg-error-500 text-on-error-token;
 	}
 	.btn-filled-surface {
 		@apply bg-surface-400-500-token;
@@ -118,14 +130,20 @@
 	.btn-ringed-primary {
 		@apply btn-outline-primary;
 	}
-	.btn-ringed-accent {
-		@apply btn-outline-accent;
+	.btn-ringed-secondary {
+		@apply btn-outline-secondary;
 	}
 	.btn-ringed-tertiary {
 		@apply btn-outline-tertiary;
 	}
+	.btn-ringed-success {
+		@apply btn-outline-success;
+	}
 	.btn-ringed-warning {
 		@apply btn-outline-warning;
+	}
+	.btn-ringed-error {
+		@apply btn-outline-error;
 	}
 	.btn-ringed-surface {
 		@apply btn-outline-surface;
@@ -142,14 +160,20 @@
 	.btn-ghost-primary {
 		@apply btn-outline-primary bg-primary-500/20 hover:bg-primary-500/30;
 	}
-	.btn-ghost-accent {
-		@apply btn-outline-accent bg-accent-500/20 hover:bg-accent-500/30;
+	.btn-ghost-secondary {
+		@apply btn-outline-secondary bg-secondary-500/20 hover:bg-secondary-500/30;
 	}
 	.btn-ghost-tertiary {
 		@apply btn-outline-tertiary bg-tertiary-500/20 hover:bg-tertiary-500/30;
 	}
+	.btn-ghost-success {
+		@apply btn-outline-success bg-success-500/20 hover:bg-success-500/30;
+	}
 	.btn-ghost-warning {
 		@apply btn-outline-warning bg-warning-500/20 hover:bg-warning-500/30;
+	}
+	.btn-ghost-error {
+		@apply btn-outline-error bg-error-500/20 hover:bg-error-500/30;
 	}
 	.btn-ghost-surface {
 		@apply btn-outline-surface bg-surface-400/20 hover:bg-surface-500/30;
@@ -157,6 +181,6 @@
 
 	/* File Input Button */
 	input[type='file']:not(.file-dropzone-input)::file-selector-button {
-		@apply border-0 btn btn-filled-accent btn-sm mr-2 text-token;
+		@apply border-0 btn btn-filled-secondary btn-sm mr-2 text-token;
 	}
 }

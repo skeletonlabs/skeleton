@@ -23,7 +23,9 @@
 	$: classesBase = `${cBase} ${color} ${$$props.class ?? ''}`;
 </script>
 
-<li class="crumb {classesBase}" data-testid="crumb">
+<!-- NOTE: avoid forwarding events on <svelte:element> tags -->
+<!-- https://github.com/skeletonlabs/skeleton/issues/727#issuecomment-1356859261 -->
+<li class="crumb {classesBase}" data-testid="crumb" on:click on:keydown on:keyup on:keypress>
 	<!-- Anchor -->
 	<svelte:element
 		this={tag}

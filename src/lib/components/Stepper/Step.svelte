@@ -32,18 +32,26 @@
 	// Context (overrides)
 	export let color: string = getContext('color');
 	export let background: string = getContext('background');
-	export let buttonBack: string = getContext('buttonBack');
-	export let buttonNext: string = getContext('buttonNext');
-	export let buttonComplete: string = getContext('buttonComplete');
+	export let buttonClassesBack: string = getContext('buttonClassesBack');
+	export let buttonClassesNext: string = getContext('buttonClassesNext');
+	export let buttonClassesComplete: string = getContext('buttonClassesComplete');
+	export let buttonTextBack: string = getContext('buttonTextBack');
+	export let buttonTextNext: string = getContext('buttonTextNext');
+	export let buttonTextComplete: string = getContext('buttonTextComplete');
 
 	// Step Handlers
 	function stepPrev(): void {
 		active.set($active - 1);
+		/** @event {{ event }} previous - Fires when the component the Next step button is pressed.  */
+		dispatch('previous', {});
 	}
 	function stepNext(): void {
 		active.set($active + 1);
+		/** @event {{ event }} next - Fires when the component the Previous step button is pressed.  */
+		dispatch('next', {});
 	}
 	function onComplete() {
+		/** @event {{ event }} complete - Fires when the component the Complete button is pressed.  */
 		dispatch('complete', {});
 	}
 
@@ -71,7 +79,11 @@
 		<!-- Numeral -->
 		<div class="step-numeral flex-none {classesNumeral}">
 			{#if locked}
-				🔒
+				<svg class="fill-token w-3 aspect-square" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+					<path
+						d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z"
+					/>
+				</svg>
 			{:else}
 				{@html index < $active ? '&check;' : index + 1}
 			{/if}
@@ -89,11 +101,19 @@
 				<slot />
 				<!-- Nav -->
 				<footer class="step-navigation {classesNav}">
-					{#if index !== 0}<button class="btn {buttonBack}" on:click={stepPrev}>&uarr;</button>{/if}
+					{#if index !== 0}
+						<button class={buttonClassesBack} on:click={stepPrev}>
+							{@html buttonTextBack}
+						</button>
+					{/if}
 					{#if $active + 1 < length}
-						<button class="btn {buttonNext}" on:click={stepNext} disabled={locked}>Next &darr;</button>
+						<button class={buttonClassesNext} on:click={stepNext} disabled={locked}>
+							{@html buttonTextNext}
+						</button>
 					{:else}
-						<button class="btn {buttonComplete}" on:click={onComplete} disabled={locked}>Complete</button>
+						<button class={buttonClassesComplete} on:click={onComplete} disabled={locked}>
+							{@html buttonTextComplete}
+						</button>
 					{/if}
 				</footer>
 			</div>

@@ -52,7 +52,7 @@
 	$: classesActive = (href: string) => ($storeCurrentUrl?.includes(href) ? 'bg-primary-active-token' : '');
 </script>
 
-<div class="grid grid-cols-[auto_1fr] h-full border-r border-black/5 dark:border-white/5 {$$props.class ?? ''}">
+<div class="grid grid-cols-[auto_1fr] h-full border-r border-black/5 dark:border-white/5 backdrop-blur {$$props.class ?? ''}">
 	<!-- App Rail -->
 	<AppRail selected={storeCategory} background="bg-white/30 dark:bg-black/30">
 		<AppRailTile label="Docs" value={'docs'}><SvgIcon name="book" width="w-6" height="h-6" /></AppRailTile>
@@ -67,7 +67,7 @@
 		{#each filteredMenuNavLinks as { id, title, list }, i}
 			{#if list.length > 0}
 				<!-- Title -->
-				<div {id} class="text-primary-500 font-bold uppercase px-4">{title}</div>
+				<div {id} class="text-primary-700 dark:text-primary-500 font-bold uppercase px-4">{title}</div>
 				<!-- Navigation List -->
 				<nav class="list-nav">
 					<ul>
@@ -75,7 +75,7 @@
 							<li on:click={onListItemClick} on:keypress>
 								<a {href} value={href} class={classesActive(href)} data-sveltekit-preload-data="hover">
 									<span class="flex-auto">{label}</span>
-									{#if badge}<span class="badge badge-filled-accent">{badge}</span>{/if}
+									{#if badge}<span class="badge badge-filled-secondary">{badge}</span>{/if}
 								</a>
 							</li>
 						{/each}

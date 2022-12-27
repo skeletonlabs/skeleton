@@ -81,7 +81,7 @@
 				<Avatar src={post.primary_author.profile_image} alt={post.primary_author.slug} />
 				<div>
 					<div class="text-sm">{post.primary_author.name}</div>
-					<a class="text-accent-500 text-xs" href="https://twitter.com/{post.primary_author.twitter}">{post.primary_author.twitter}</a>
+					<a class="text-secondary-500 text-xs" href="https://twitter.com/{post.primary_author.twitter}">{post.primary_author.twitter}</a>
 				</div>
 			</div>
 			<!-- Featured Image -->
@@ -94,7 +94,7 @@
 		<!-- HTML Content -->
 		<div class="blog-html space-y-4">{@html post.html}</div>
 		<!-- Footer -->
-		<footer class="card p-4 card-glass flex justify-between items-center mb-28">
+		<footer class="card p-4 card-glass-surface flex justify-between items-center mb-28">
 			<!-- Tags -->
 			<div class="flex items-center space-x-4">
 				{#each post.tags as tag}

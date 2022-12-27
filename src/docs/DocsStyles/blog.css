@@ -71,13 +71,13 @@
 .kg-callout-card-purple {
 	@apply bg-purple-500/30 border-purple-500;
 }
-.kg-callout-card-accent {
-	@apply bg-accent-500/30 border-accent-500;
+.kg-callout-card-secondary {
+	@apply bg-secondary-500/30 border-secondary-500;
 }
 
 /* File */
 .kg-file-card-container {
-	@apply bg-accent-500/5 border border-surface-100 dark:border-surface-800 grid grid-cols-[1fr_auto] gap-4 p-4 shadow !no-underline hover:brightness-110;
+	@apply bg-secondary-500/5 border border-surface-100 dark:border-surface-800 grid grid-cols-[1fr_auto] gap-4 p-4 shadow !no-underline hover:brightness-110;
 	border-radius: var(--theme-rounded-container);
 }
 .kg-file-card-contents {
@@ -96,7 +96,7 @@
 	@apply text-sm opacity-75;
 }
 .kg-file-card-icon {
-	@apply bg-accent-500 p-3 flex justify-center items-center;
+	@apply bg-secondary-500 p-3 flex justify-center items-center;
 	border-radius: var(--theme-rounded-base);
 }
 .kg-file-card-icon svg {
@@ -115,7 +115,7 @@
 .kg-button-card a,
 .kg-header-card a {
 	@apply !no-underline;
-	@apply bg-accent-500 !text-surface-50 font-bold;
+	@apply bg-secondary-500 !text-surface-50 font-bold;
 	@apply text-base px-5 py-[9px];
 	@apply text-center whitespace-nowrap;
 	@apply inline-flex justify-center items-center space-x-2;
@@ -131,7 +131,7 @@
 
 /* Bookmark */
 .kg-bookmark-card {
-	@apply bg-accent-500/5 border border-surface-100 dark:border-surface-800 shadow hover:brightness-110 overflow-hidden;
+	@apply bg-secondary-500/5 border border-surface-100 dark:border-surface-800 shadow hover:brightness-110 overflow-hidden;
 	border-radius: var(--theme-rounded-container);
 }
 .kg-bookmark-container {
@@ -168,7 +168,7 @@
 
 /* Headers */
 .kg-header-card {
-	@apply bg-accent-500/5 border border-surface-100 dark:border-surface-800;
+	@apply bg-secondary-500/5 border border-surface-100 dark:border-surface-800;
 	@apply px-4 text-center space-y-2;
 	border-radius: var(--theme-rounded-container);
 }

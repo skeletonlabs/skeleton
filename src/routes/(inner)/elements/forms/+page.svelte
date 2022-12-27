@@ -22,7 +22,7 @@
 			<div class="space-y-2">
 				<p>We've provided a "kitchen sink" page to preview form elements.</p>
 			</div>
-			<a class="btn btn-filled-accent" href="/elements/forms/preview">Preview Elements &rarr;</a>
+			<a class="btn btn-filled-secondary" href="/elements/forms/preview">Preview Elements &rarr;</a>
 		</section>
 	</svelte:fragment>
 

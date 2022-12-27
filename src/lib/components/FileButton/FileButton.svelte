@@ -5,7 +5,7 @@
 	 */
 	export let files: FileList;
 	/** Provide a button variant or other class styles. */
-	export let button = 'btn-filled-accent';
+	export let button = 'btn-filled-secondary';
 
 	let elemFileInput: HTMLElement;
 
@@ -23,7 +23,7 @@
 	<!-- Input: File -->
 	<input bind:this={elemFileInput} bind:files type="file" {...prunedRestProps()} class="file-button-input hidden" on:change />
 	<!-- Button -->
-	<button class="file-button-btn btn {button}" on:click={onButtonClick}>
+	<button class="file-button-btn btn {button}" type="button" on:click={onButtonClick} on:keydown on:keyup on:keypress>
 		<slot />
 	</button>
 </div>

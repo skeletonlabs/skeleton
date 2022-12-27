@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
+
 	// Types
 	import type { ModalSettings, ModalComponent } from '$lib/utilities/Modal/types';
 	import type { DrawerSettings } from '$lib/utilities/Drawer/types';
@@ -21,6 +23,15 @@
 	import { storeTheme } from '$docs/stores';
 	import { drawerStore } from '$lib/utilities/Drawer/stores';
 
+	// Local
+	let isOsMac = false;
+
+	// Set Search Shortkey Keys
+	if (browser) {
+		let os = navigator.userAgent;
+		isOsMac = os.search('Mac') !== -1;
+	}
+
 	// Drawer Handler
 	function drawerOpen(): void {
 		const s: DrawerSettings = { id: 'doc-sidenav' };
@@ -28,7 +39,7 @@
 	}
 
 	// Search
-	function search(): void {
+	function triggerSearch(): void {
 		const modalComponent: ModalComponent = { ref: DocsSearch };
 		const d: ModalSettings = {
 			type: 'component',
@@ -38,24 +49,19 @@
 		modalStore.trigger(d);
 	}
 
-	// Keyboard Shortcut (⌘+K) to Focus Search
-	let pressedKeys: string[] = [];
-	function onWindowKeydown(e: any): void {
-		if ($modalStore.length) return;
-		if (e.code === 'MetaLeft' || e.code === 'KeyK') {
-			// Set pressed keys
-			pressedKeys = [...pressedKeys, e.code];
-			// If both keys pressed, focus input
-			if (pressedKeys.includes('MetaLeft') && pressedKeys.includes('KeyK')) search();
+	// Keyboard Shortcut (CTRL/⌘+K) to Focus Search
+	function onWindowKeydown(e: KeyboardEvent): void {
+		if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+			// Prevent default browser behavior of focusing URL bar
+			e.preventDefault();
+			// If modal currently open, close modal (allows to open/close search with CTRL/⌘+K)
+			$modalStore.length ? modalStore.close() : triggerSearch();
 		}
-	}
-	function onWindowKeyup(): void {
-		pressedKeys = [];
 	}
 </script>
 
 <!-- NOTE: using stopPropagation to override Chrome for Windows search shortcut -->
-<svelte:window on:keydown|stopPropagation={onWindowKeydown} on:keyup={onWindowKeyup} />
+<svelte:window on:keydown|stopPropagation={onWindowKeydown} />
 
 <AppBar>
 	<!-- Branding -->
@@ -65,18 +71,18 @@
 			<SvgIcon name="bars" />
 		</button>
 		<!-- Logo -->
-		<a class="mr-4" href="/" title="Go to Homepage">
+		<a href="/" title="Go to Homepage">
 			<span class="hidden sm:inline"><DocsLogoFull /></span>
 			<span class="inline sm:hidden"><DocsLogoIcon /></span>
 		</a>
 	</svelte:fragment>
 
 	<!-- Search -->
-	<div class="hidden md:inline">
-		<button class="btn btn-ghost-surface btn-sm" on:click={search}>
+	<div class="hidden md:inline md:ml-4">
+		<button class="btn btn-ghost-surface btn-sm" on:click={triggerSearch}>
 			<SvgIcon name="search" width="w-4" height="h-4" class="mr-2" />
 			<span>Search</span>
-			<!-- <span>⌘K</span> -->
+			<span class="text-[11px] font-bold opacity-60 pl-2">{isOsMac ? '⌘' : 'Ctrl'}+K</span>
 		</button>
 	</div>
 
@@ -144,13 +150,13 @@
 				<span class="hidden md:inline-block">Theme</span>
 				<span class="opacity-50">▾</span>
 			</button>
-			<div class="card w-56 shadow-xl" data-menu="theme">
+			<div class="card w-64 shadow-xl" data-menu="theme">
 				<section class="flex justify-between items-center p-4">
 					<h6>Theme</h6>
 					<LightSwitch />
 				</section>
 				<hr>
-				<nav class="list-nav p-4 max-h-64 overflow-y-auto">
+				<nav class="list-nav p-4 max-h-64 lg:max-h-[480px] overflow-y-auto">
 					<ul>
 						<li class="option" class:bg-primary-active-token={$storeTheme === 'skeleton'} on:click={() => { storeTheme.set('skeleton') }} on:keypress> 
 							<span>💀</span>
@@ -165,7 +171,7 @@
 							<span>Rocket</span>
 						</li>
 						<li class="option" class:bg-primary-active-token={$storeTheme === 'seafoam'} on:click={() => { storeTheme.set('seafoam') }} on:keypress>
-							<span>🐚</span>
+							<span>🧜‍♀️</span>
 							<span>Seafoam</span>
 						</li>
 						<li class="option" class:bg-primary-active-token={$storeTheme === 'vintage'} on:click={() => { storeTheme.set('vintage') }} on:keypress>
@@ -180,7 +186,7 @@
 							<span>👔</span>
 							<span>Hamlindigo</span>
 						</li>
-						<li class="option" class:bg-primary-active-token={$storeTheme === 'goldNouveau'} on:click={() => { storeTheme.set('goldNouveau') }} on:keypress>
+						<li class="option" class:bg-primary-active-token={$storeTheme === 'gold-nouveau'} on:click={() => { storeTheme.set('gold-nouveau') }} on:keypress>
 							<span>💫</span>
 							<span>Gold Nouveau</span>
 						</li>
@@ -188,13 +194,13 @@
 							<span>⭕</span>
 							<span>Crimson</span>
 						</li>
+						<li class="option" class:bg-primary-active-token={$storeTheme === 'seasonal'} on:click={() => { storeTheme.set('seasonal') }} on:keypress>
+							<span>🎆</span>
+							<span>Seasonal</span>
+						</li>
 						<!-- <li class="option" class:bg-primary-active-token={$storeTheme === 'test'} on:click={() => { storeTheme.set('test') }} on:keypress>
 							<span>🚧</span>
 							<span>Test</span>
-						</li> -->
-						<!-- <li class="option" class:bg-primary-active-token={$storeTheme === 'seasonal'} on:click={() => { storeTheme.set('seasonal') }} on:keypress>
-							<span>🎃</span>
-							<span>Seasonal</span>
 						</li> -->
 					</ul>
 				</nav>
@@ -208,14 +214,14 @@
 		<Divider vertical borderWidth="border-l-2 opacity-20" />
 
 		<!-- Social -->
-		<section class="flex">
-			<a class="btn btn-sm" href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer" aria-label="Discord">
+		<section class="grid grid-cols-3 gap-6">
+			<a href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer" aria-label="Discord">
 				<SvgIcon name="discord" viewBox="0 0 640 512" />
 			</a>
-			<a class="btn btn-sm" href="https://twitter.com/SkeletonUI" target="_blank" rel="noreferrer" aria-label="Twitter">
+			<a href="https://twitter.com/SkeletonUI" target="_blank" rel="noreferrer" aria-label="Twitter">
 				<SvgIcon name="twitter" />
 			</a>
-			<a class="btn btn-sm" href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer" aria-label="GitHub">
+			<a href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer" aria-label="GitHub">
 				<SvgIcon name="github" />
 			</a>
 		</section>

@@ -7,6 +7,8 @@
 	 * @type {number}
 	 */
 	export let value: number | undefined = undefined;
+	/** Minimum amount the bar represents. */
+	export let min = 0;
 	/** Maximum amount the bar represents. */
 	export let max = 100;
 	/** Provide classes to set track height. */
@@ -16,7 +18,7 @@
 
 	// Props (elements)
 	/** Provide arbitrary classes to style the meter element. */
-	export let meter = 'bg-accent-500';
+	export let meter = 'bg-secondary-500';
 	/** Provide arbitrary classes to style the track element. */
 	export let track = 'bg-surface-200-700-token';
 
@@ -28,7 +30,7 @@
 	const cBaseMeterIndeterminate = 'h-full w-full';
 
 	// Fill Percent
-	$: fillPercent = value ? (100 * value) / max : 0;
+	$: fillPercent = value ? (100 * (value - min)) / (max - min) : 0;
 
 	// Reactive Classes
 	$: classesTrack = `${cBaseTrack} ${height} ${rounded} ${track} ${$$props.class ?? ''}`;
@@ -41,8 +43,8 @@
 	role="progressbar"
 	aria-label={label}
 	aria-valuenow={value}
-	aria-valuemin={0}
-	aria-valuemax={max}
+	aria-valuemin={min}
+	aria-valuemax={max - min}
 >
 	<!-- Label -->
 	{#if label}<label for="progress" class="progress-bar-label {cBaseLabel}">{label}</label>{/if}

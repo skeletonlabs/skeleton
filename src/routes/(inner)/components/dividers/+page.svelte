@@ -50,7 +50,7 @@
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-2">
 			<!-- Example -->
-			<div class="card p-4">
+			<div class="card card-glass-surface p-4">
 				<div class="h-full min-h-[100px] max-w-[480px] mx-auto flex justify-center items-center">
 					<!-- prettier-ignore -->
 					<svelte:component
@@ -112,12 +112,12 @@
 					<select name="background" id="background" bind:value={props.borderColor}>
 						<option value={defaultBorderColor}>Inherent</option>
 						<option value="border-primary-500">border-primary-500</option>
-						<option value="border-accent-500">border-accent-500</option>
+						<option value="border-secondary-500">border-secondary-500</option>
 						<option value="border-tertiary-500">border-tertiary-500</option>
+						<option value="border-success-500">border-success-500</option>
 						<option value="border-warning-500">border-warning-500</option>
-						<option value="border-red-500">border-red-500</option>
-						<option value="border-green-500">border-green-500</option>
-						<option value="border-blue-500">border-blue-500</option>
+						<option value="border-error-500">border-error-500</option>
+						<option value="border-surface-500">border-surface-500</option>
 					</select>
 				</label>
 			</div>

@@ -1,3 +1,8 @@
+<!--
+	NOTE FROM CHRIS:
+	I'm keeping but setting it to hidden in the navigation. The CLI kind of replaces the
+	need for most of this. We might also consider making the SvelteKit guide a blog post.
+-->
 <script lang="ts">
 	// import { storeFramework } from '$docs/stores';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
@@ -24,7 +29,7 @@
 				<h2>SvelteKit</h2>
 				<p>The fastest way to build Svelte apps.</p>
 			</div>
-			<button class="btn btn-filled-accent place-self-center">Read Guide</button>
+			<button class="btn btn-filled-secondary place-self-center">Read Guide</button>
 		</a>
 
 		<!-- Astro -->
@@ -59,7 +64,7 @@
 				<h2>Vite + Svelte</h2>
 				<p>Next Generation Frontend Tooling.</p>
 			</div>
-			<button class="btn btn-filled-accent place-self-center">Read Guide</button>
+			<button class="btn btn-filled-secondary place-self-center">Read Guide</button>
 		</a>
 
 		<!-- Astro -->
@@ -69,7 +74,7 @@
 				<h2>Astro</h2>
 				<p>Serve content fast with Astro's next-gen island architecture.</p>
 			</div>
-			<button class="btn btn-filled-accent place-self-center">Read Guide</button>
+			<button class="btn btn-filled-secondary place-self-center">Read Guide</button>
 		</a>
 	</section>
 
@@ -79,7 +84,7 @@
 	<section class="space-y-4">
 		<h2>What's Next?</h2>
 		<p>Choose your own adventure, you can jump to any of the following.</p>
-		<div class="card p-4 card-glass space-y-4">
+		<div class="card p-4 card-glass-surface space-y-4">
 			<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 				<p>Learn more about Skeleton's Tailwind features.</p>
 				<a class="btn btn-ghost-surface" href="/elements/tokens">Tailwind Features &rarr;</a>
