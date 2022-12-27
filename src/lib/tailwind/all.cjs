@@ -19,7 +19,10 @@ module.exports = plugin(({ addComponents, addBase, addUtilities }) => {
 	try {
 		console.log('Loading all to components');
 		const all = require('./generated/allComponents.cjs');
-		addComponents(all);
+		addComponents(all, {
+			respectImportant: true,
+			respectPrefix: true
+		});
 	} catch {
 		console.log('Failed to load allComponents.cjs');
 	}

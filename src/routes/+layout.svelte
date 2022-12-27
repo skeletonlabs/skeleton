@@ -26,7 +26,7 @@
 	import DocsFooter from '$docs/DocsFooter/DocsFooter.svelte';
 
 	// Skeleton Stylesheets
-	import '$lib/styles/all.css'; // TODO undo or remove
+	// import '$lib/styles/all.css'; // TODO undo or remove
 	// The Skeleton blog stylesheet
 	import '$docs/DocsStyles/blog.css';
 	// Global Stylesheets
