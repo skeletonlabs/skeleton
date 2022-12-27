@@ -11,6 +11,10 @@
 	// Stores
 	import { storePrefersDarkScheme, storeLightSwitch } from './stores';
 
+	// Types
+	type OnClickEvent = MouseEvent & { currentTarget: EventTarget & HTMLDivElement };
+	type OnKeyDownEvent = KeyboardEvent & { currentTarget: EventTarget & HTMLDivElement };
+
 	// Base Classes
 	const cTrack =
 		'inline-block bg-surface-200-700-token ring-[1px] ring-surface-300-600-token ring-inset w-12 h-6 rounded-full cursor-pointer transition-all duration-[100ms]';
@@ -48,10 +52,6 @@
 		}
 	}
 
-	type OnClickEvent = MouseEvent & {
-		currentTarget: EventTarget & HTMLDivElement;
-	};
-
 	// On Click Handler
 	function onClick(event: OnClickEvent): void {
 		// Set the Store Value
@@ -61,10 +61,6 @@
 		/** @event {{ event }} click - Fires when the component is clicked.  */
 		dispatch('click', event);
 	}
-
-	type OnKeyDownEvent = KeyboardEvent & {
-		currentTarget: EventTarget & HTMLDivElement;
-	};
 
 	// A11y Input Handlers
 	function onKeyDown(event: OnKeyDownEvent): void {

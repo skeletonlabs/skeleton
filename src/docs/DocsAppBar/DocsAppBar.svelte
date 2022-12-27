@@ -71,6 +71,7 @@
 		{ type: 'gold-nouveau', name: 'Gold Nouveau', icon: '💫' },
 		{ type: 'crimson', name: 'Crimson', icon: '⭕' },
 		{ type: 'seasonal', name: 'Seasonal', icon: '🎆' }
+		// { type: 'test', name: 'Test', icon: '🚧' },
 	];
 
 	const setTheme: SubmitFunction = () => {
@@ -167,9 +168,11 @@
 		<Divider vertical borderWidth="hidden lg:block border-l-2 opacity-20" />
 
 		<!-- Theme -->
-		<!-- prettier-ignore -->
 		<div class="relative">
-			<button class="unstyled hover:bg-primary-hover-token px-4 py-2 rounded-token space-x-2" use:menu={{ menu: 'theme', interactive: true }}>
+			<button
+				class="unstyled hover:bg-primary-hover-token px-4 py-2 rounded-token space-x-2"
+				use:menu={{ menu: 'theme', interactive: true }}
+			>
 				<SvgIcon name="swatchbook" width="w-4" height="w-4" class="inline-block md:hidden" />
 				<span class="hidden md:inline-block">Theme</span>
 				<span class="opacity-50">▾</span>
@@ -179,26 +182,28 @@
 					<h6>Theme</h6>
 					<LightSwitch />
 				</section>
-				<hr>
+				<hr />
 				<nav class="list-nav p-4 max-h-64 lg:max-h-[480px] overflow-y-auto">
 					<form action="/?/setTheme" method="POST" use:enhance={setTheme}>
 						<ul>
-							{#each themes as {icon, name, type}}
-							<li>
-								<button class="option w-full h-full" type="submit" name="theme" value={type} class:bg-primary-active-token={$storeTheme === type}>
-									<span>{icon}</span>
-									<span>{name}</span>
-								</button>
-							</li>
+							{#each themes as { icon, name, type }}
+								<li>
+									<button
+										class="option w-full h-full"
+										type="submit"
+										name="theme"
+										value={type}
+										class:bg-primary-active-token={$storeTheme === type}
+									>
+										<span>{icon}</span>
+										<span>{name}</span>
+									</button>
+								</li>
 							{/each}
-							<!-- <li class="option" class:bg-primary-active-token={$storeTheme === 'test'} on:click={() => { storeTheme.set('test') }} on:keypress>
-								<span>🚧</span>
-								<span>Test</span>
-							</li> -->
 						</ul>
 					</form>
 				</nav>
-				<hr>
+				<hr />
 				<div class="p-4">
 					<a class="btn btn-ghost-surface w-full" href="/guides/themes/generator">Theme Generator</a>
 				</div>
