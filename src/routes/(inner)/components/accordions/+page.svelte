@@ -6,7 +6,6 @@
 	import AccordionGroup from '$lib/components/Accordion/AccordionGroup.svelte';
 	import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
 	import Avatar from '$lib/components/Avatar/Avatar.svelte';
-	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
@@ -42,7 +41,9 @@
 			<AccordionGroup>
 				<AccordionItem spacing="space-y-4" open>
 					<svelte:fragment slot="lead">
-						<SvgIcon name="house" width="w-10" height="h-10" fill="fill-primary-500" />
+						<div class="w-10 aspect-square flex justify-center items-center">
+							<i class="fa-solid fa-house text-3xl" />
+						</div>
 					</svelte:fragment>
 					<svelte:fragment slot="summary">
 						<h3>Icon Heading</h3>

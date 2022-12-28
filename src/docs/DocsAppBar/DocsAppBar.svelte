@@ -14,7 +14,6 @@
 	// Components
 	import AppBar from '$lib/components/AppBar/AppBar.svelte';
 	import Divider from '$lib/components/Divider/Divider.svelte';
-	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	// Utilities
 	import LightSwitch from '$lib/utilities/LightSwitch/LightSwitch.svelte';
 	import { menu } from '$lib/utilities/Menu/menu';
@@ -93,7 +92,7 @@
 	<svelte:fragment slot="lead">
 		<!-- Drawer Menu -->
 		<button on:click={drawerOpen} class="lg:!hidden btn btn-sm">
-			<SvgIcon name="bars" />
+			<i class="fa-solid fa-bars text-xl" />
 		</button>
 		<!-- Logo -->
 		<a href="/" title="Go to Homepage">
@@ -105,7 +104,7 @@
 	<!-- Search -->
 	<div class="hidden md:inline md:ml-4">
 		<button class="btn btn-ghost-surface btn-sm" on:click={triggerSearch}>
-			<SvgIcon name="search" width="w-4" height="h-4" class="mr-2" />
+			<i class="fa-solid fa-magnifying-glass" />
 			<span>Search</span>
 			<span class="text-[11px] font-bold opacity-60 pl-2">{isOsMac ? '⌘' : 'Ctrl'}+K</span>
 		</button>
@@ -124,40 +123,25 @@
 			<div class="relative">
 				<button class="unstyled hover:bg-primary-hover-token px-4 py-2 rounded-token space-x-2" use:menu={{ menu: 'features' }}>
 					<span>Features</span>
-					<span class="opacity-50">▾</span>
+					<i class="fa-solid fa-caret-down opacity-50" />
 				</button>
 				<div class="card overflow-hidden w-60 shadow-xl grid grid-cols-1" data-menu="features">
 					<!-- Tailwind -->
-					<a class="grid grid-cols-[auto_1fr] gap-4 p-4 hover:bg-primary-hover-token" href="/elements/core" data-sveltekit-preload-data="hover">
-						<div class="flex justify-center items-center">
-							<SvgIcon name="tailwind" />
-						</div>
-						<div>
-							<h4>Tailwind</h4>
-							<small>Elements styled by Tailwind.</small>
-						</div>
+					<a class="block space-y-4 p-4 hover:bg-primary-hover-token" href="/elements/core" data-sveltekit-preload-data="hover">
+						<h4>Tailwind</h4>
+						<small>Design tokens and CSS elements.</small>
 					</a>
 					<hr>
 					<!-- Svelte -->
-					<a class="grid grid-cols-[auto_1fr] gap-4 p-4 hover:bg-primary-hover-token" href="/actions/clipboard" data-sveltekit-preload-data="hover">
-						<div class="flex justify-center items-center">
-							<SvgIcon name="svelte" />
-						</div>
-						<div>
-							<h4>Svelte</h4>
-							<small>Actions and Components.</small>
-						</div>
+					<a class="block space-y-4 p-4 hover:bg-primary-hover-token" href="/actions/clipboard" data-sveltekit-preload-data="hover">
+						<h4>Svelte</h4>
+						<small>Actions and Components.</small>
 					</a>
 					<hr>
 					<!-- Utilities -->
-					<a class="grid grid-cols-[auto_1fr] gap-4 p-4 hover:bg-primary-hover-token" href="/utilities/codeblocks" data-sveltekit-preload-data="hover">
-						<div class="flex justify-center items-center">
-							<SvgIcon name="screwdriver" />
-						</div>
-						<div>
-							<h4>Utilities</h4>
-							<small>Powerful utility features.</small>
-						</div>
+					<a class="block space-y-4 p-4 hover:bg-primary-hover-token" href="/utilities/codeblocks" data-sveltekit-preload-data="hover">
+						<h4>Utilities</h4>
+						<small>Powerful utility features.</small>
 					</a>
 				</div>
 			</div>
@@ -173,9 +157,9 @@
 				class="unstyled hover:bg-primary-hover-token px-4 py-2 rounded-token space-x-2"
 				use:menu={{ menu: 'theme', interactive: true }}
 			>
-				<SvgIcon name="swatchbook" width="w-4" height="w-4" class="inline-block md:hidden" />
+				<i class="fa-solid fa-palette md:hidden" />
 				<span class="hidden md:inline-block">Theme</span>
-				<span class="opacity-50">▾</span>
+				<i class="fa-solid fa-caret-down opacity-50" />
 			</button>
 			<div class="card w-64 shadow-xl" data-menu="theme">
 				<section class="flex justify-between items-center p-4">
@@ -215,13 +199,13 @@
 		<!-- Social -->
 		<section class="grid grid-cols-3 gap-6">
 			<a href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer" aria-label="Discord">
-				<SvgIcon name="discord" viewBox="0 0 640 512" />
+				<i class="fa-brands fa-discord" />
 			</a>
 			<a href="https://twitter.com/SkeletonUI" target="_blank" rel="noreferrer" aria-label="Twitter">
-				<SvgIcon name="twitter" />
+				<i class="fa-brands fa-twitter" />
 			</a>
 			<a href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer" aria-label="GitHub">
-				<SvgIcon name="github" />
+				<i class="fa-brands fa-github" />
 			</a>
 		</section>
 	</svelte:fragment>

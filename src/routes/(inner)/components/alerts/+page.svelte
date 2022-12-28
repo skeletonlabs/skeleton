@@ -42,13 +42,15 @@
 			{/if}
 			<Alert {visible}>
 				<svelte:fragment slot="lead">
-					<span class="text-4xl">⚠️</span>
+					<i class="fa-solid fa-triangle-exclamation text-2xl" />
 				</svelte:fragment>
 				<svelte:fragment slot="title">{title}</svelte:fragment>
 				<span>{message}</span>
 				<svelte:fragment slot="trail">
 					<button class="btn btn-filled-warning" on:click={actionExample}>View More</button>
-					<button class="btn-icon btn-ghost-warning" on:click={toggleVisible}>&#10005;</button>
+					<button class="btn-icon btn-ghost-warning" on:click={toggleVisible}>
+						<i class="fa-solid fa-xmark" />
+					</button>
 				</svelte:fragment>
 			</Alert>
 			<hr />
@@ -74,7 +76,9 @@
 			<Alert background="bg-success-500/20" border="border border-success-500" {visible}>
 				<svelte:fragment slot="title">Success!</svelte:fragment>
 				<svelte:fragment slot="trail">
-					<button class="btn-icon btn-ghost-success" on:click={toggleVisible}>&#10005;</button>
+					<button class="btn-icon btn-ghost-success" on:click={toggleVisible}>
+						<i class="fa-solid fa-xmark" />
+					</button>
 				</svelte:fragment>
 			</Alert>
 			<Alert background="bg-error-500/20" border="border border-error-500" {visible}>

@@ -7,7 +7,6 @@
 
 	// Components
 	import Table from '$lib/components/Table/Table.svelte';
-	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	import Tab from '$lib/components/Tab/Tab.svelte';
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
 
@@ -56,17 +55,6 @@
 		keyboard: []
 	};
 	const pageSettings: DocsShellSettings = { ...defaultSettings, ...settings };
-
-	function setFeatureIcon(): string {
-		const index: number = Object.values(DocsFeature).indexOf(pageSettings.feature);
-		// prettier-ignore
-		switch(index) {
-			case(0): return 'tailwind'; // Element
-			case(1): return 'svelte'; // Component
-			case(2): return 'svelte'; // Action
-			default: return 'screwdriver'; // Default
-		}
-	}
 
 	function toastCopied(noun: string): void {
 		const t: ToastSettings = { message: `Copied ${noun} to clipboard.`, timeout: 2000 };
@@ -133,10 +121,7 @@
 				<div class="flex items-center space-x-4">
 					<h1>{@html pageSettings.name}</h1>
 					<!-- Feature -->
-					<span class="badge badge-glass translate-y-1">
-						<SvgIcon width="w-4" height="h-4" name={setFeatureIcon()} />
-						<span>{@html pageSettings.feature}</span>
-					</span>
+					<span class="badge badge-glass translate-y-1">{@html pageSettings.feature}</span>
 				</div>
 				<p>{@html pageSettings.description}</p>
 			</section>
@@ -148,9 +133,6 @@
 				{#if pageSettings.imports?.length}
 					<p class="hidden md:inline-block w-32">Import</p>
 					<div>
-						<!-- <button on:click={copyImports}>
-							<code>{formatImports()}</code>
-						</button> -->
 						<button class="chip" on:click={copyImports}>{formatImports()}</button>
 					</div>
 				{/if}
@@ -182,37 +164,41 @@
 				{/if}
 				<!-- Package -->
 				<p class="hidden md:inline-block w-32">Package</p>
-				<div class="flex items-end space-x-2">
-					<SvgIcon width="w-5" height="h-5" name="npm" />
+				<div class="flex items-center space-x-2">
+					<i class="fa-brands fa-npm" />
 					<a href={pageSettings.package?.url} target="_blank" rel="noreferrer">{pageSettings.package?.name}</a>
 				</div>
 				<!-- Source Code -->
 				<p class="hidden md:inline-block w-32">Source</p>
-				<div class="flex items-end space-x-2">
-					<SvgIcon width="w-4" height="h-4" class="!mr-1" name="github" />
-					<a href={`${githubSourcePath}/lib/${pageSettings.source}`} target="_blank" rel="noreferrer">View Source</a>
+				<div class="flex items-center space-x-2">
+					<i class="fa-brands fa-github" />
+					<a href={`${githubSourcePath}/lib/${pageSettings.source}`} target="_blank" rel="noreferrer">Source Code</a>
 				</div>
 				<!-- Doc Source -->
 				<p class="hidden md:inline-block w-32">Doc</p>
-				<div class="flex items-end space-x-2">
-					<SvgIcon width="w-4" height="h-4" class="!mr-1" name="pen-ruler" />
-					<a href={`${githubSourcePath}/routes/(inner)${pageSettings.docsPath}/+page.svelte`} target="_blank" rel="noreferrer"
-						>Edit This Page</a
-					>
+				<div class="flex items-center space-x-2">
+					<i class="fa-solid fa-code" />
+					<a href={`${githubSourcePath}/routes/(inner)${pageSettings.docsPath}/+page.svelte`} target="_blank" rel="noreferrer">
+						View Page Source
+					</a>
 				</div>
 				<!-- Dependencies -->
 				{#if pageSettings.dependencies?.length}
 					<p class="hidden md:inline-block w-32">Dependencies</p>
-					<div class="grid grid-cols-1 gap-2">
-						{#each pageSettings.dependencies as d}
-							<a href={d.url} target="_blank" rel="noreferrer">{d.label}</a>
-						{/each}
+					<div class="flex items-center space-x-2">
+						<i class="fa-solid fa-down-left-and-up-right-to-center" />
+						<div class="grid grid-cols-1 gap-2">
+							{#each pageSettings.dependencies as d}
+								<a href={d.url} target="_blank" rel="noreferrer">{d.label}</a>
+							{/each}
+						</div>
 					</div>
 				{/if}
 				<!-- Accessibility -->
 				{#if pageSettings.aria}
 					<p class="hidden md:inline-block w-32">WAI-ARIA</p>
-					<div class="grid grid-cols-1 gap-2">
+					<div class="flex items-center space-x-2">
+						<i class="fa-solid fa-universal-access" />
 						<a href={pageSettings.aria} target="_blank" rel="noreferrer">Accessibility Reference</a>
 					</div>
 				{/if}

@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { menuNavLinks } from '$docs/DocsNavigation/links';
 	import { modalStore } from '$lib/utilities/Modal/stores';
-	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
 	// Local
 	let searchTerm = '';
@@ -31,10 +30,12 @@
 
 <div class="docs-search {cBase}">
 	<header class="docs-search-header {cHeader}">
-		<SvgIcon name="search" />
+		<i class="fa-solid fa-magnifying-glass" />
 		<input bind:value={searchTerm} type="search" placeholder="Search documentation" on:input={onSearch} />
 		<!-- prettier-ignore -->
-		<button class="btn-icon btn-ghost-surface btn-icon-sm" on:click={() => { modalStore.close(); }}>✕</button>
+		<button class="btn-icon btn-ghost-surface btn-icon-sm" on:click={() => { modalStore.close(); }}>
+			<i class="fa-solid fa-xmark" />
+		</button>
 	</header>
 	<hr />
 	<div class="docs-search-categories {cList}">
@@ -49,7 +50,7 @@
 								<p>{link.label}</p>
 								<small class="opacity-75">{link.href}</small>
 							</div>
-							<span class="opacity-75">&rarr;</span>
+							<i class="fa-solid fa-xmark" />
 						</a>
 					{/each}
 				</nav>

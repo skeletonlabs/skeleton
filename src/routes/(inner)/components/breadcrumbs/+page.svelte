@@ -4,7 +4,6 @@
 
 	import Breadcrumb from '$lib/components/Breadcrumb/Breadcrumb.svelte';
 	import Crumb from '$lib/components/Breadcrumb/Crumb.svelte';
-	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// @ts-expect-error sveld import
@@ -53,10 +52,10 @@
 			<div class="card p-4">
 				<Breadcrumb>
 					<Crumb href="/">
-						<SvgIcon name="house" title="house" />
+						<i class="fa-solid fa-house" />
 					</Crumb>
 					<Crumb href="/">
-						<SvgIcon name="skull" title="skull" />
+						<i class="fa-solid fa-skull" />
 					</Crumb>
 					<Crumb>Current</Crumb>
 				</Breadcrumb>
@@ -65,13 +64,13 @@
 				<Breadcrumb>
 					<Crumb href="/">
 						<svelte:fragment slot="lead">
-							<SvgIcon name="house" title="house" />
+							<i class="fa-solid fa-house" />
 						</svelte:fragment>
 						<span>Home</span>
 					</Crumb>
 					<Crumb href="/">
 						<svelte:fragment slot="lead">
-							<SvgIcon name="skull" title="skull" />
+							<i class="fa-solid fa-skull" />
 						</svelte:fragment>
 						<span>Subpage</span>
 					</Crumb>

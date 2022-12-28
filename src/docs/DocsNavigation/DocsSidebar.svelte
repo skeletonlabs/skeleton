@@ -54,15 +54,25 @@
 <div class="grid grid-cols-[auto_1fr] h-full border-r border-black/5 dark:border-white/5 backdrop-blur {$$props.class ?? ''}">
 	<!-- App Rail -->
 	<AppRail selected={storeCategory} background="bg-white/30 dark:bg-black/30">
-		<AppRailTile label="Docs" value={'docs'}><SvgIcon name="book" width="w-6" height="h-6" /></AppRailTile>
-		<AppRailTile label="Guides" value={'guides'}><SvgIcon name="cubes" width="w-6" height="h-6" /></AppRailTile>
+		<AppRailTile label="Docs" value={'docs'}>
+			<i class="fa-solid fa-sheet-plastic text-2xl" />
+		</AppRailTile>
+		<AppRailTile label="Guides" value={'guides'}>
+			<i class="fa-solid fa-book text-2xl" />
+		</AppRailTile>
 		<hr class="opacity-30" />
-		<AppRailTile label="Tailwind" value={'elements'}><SvgIcon name="tailwind" width="w-6" height="h-6" /></AppRailTile>
-		<AppRailTile label="Svelte" value={'svelte'}><SvgIcon name="svelte" width="w-6" height="h-6" /></AppRailTile>
-		<AppRailTile label="Utilities" value={'utilities'}><SvgIcon name="screwdriver" width="w-6" height="h-6" /></AppRailTile>
+		<AppRailTile label="Tailwind" value={'elements'}>
+			<SvgIcon name="tailwind" width="w-6" height="h-6" />
+		</AppRailTile>
+		<AppRailTile label="Svelte" value={'svelte'}>
+			<SvgIcon name="svelte" width="w-6" height="h-6" />
+		</AppRailTile>
+		<AppRailTile label="Utilities" value={'utilities'}>
+			<i class="fa-solid fa-screwdriver-wrench text-2xl" />
+		</AppRailTile>
 		<svelte:fragment slot="trail">
 			<AppRailTile label="Blog" tag="a" href="/blog" value={'blog'} on:click={onListItemClick} class="lg:hidden">
-				<SvgIcon name="align-left" width="w-6" height="h-6" />
+				<i class="fa-solid fa-blog text-2xl" />
 			</AppRailTile>
 		</svelte:fragment>
 	</AppRail>

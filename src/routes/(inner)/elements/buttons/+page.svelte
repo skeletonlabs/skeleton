@@ -55,7 +55,7 @@
 				<div class="p-4 flex justify-center items-center">
 					<!-- prettier-ignore -->
 					<svelte:element this={$storeTag} class="btn {btnClases}" disabled={$storeDisabled}>
-						<span>💀</span>
+						<i class="fa-solid fa-skull" />
 						<span>Skeleton</span>
 					</svelte:element>
 				</div>
@@ -253,36 +253,36 @@
 			<div class="card p-4 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 				<!-- Text -->
 				<div class="grid grid-cols-1 gap-4">
-					<button class="btn-icon btn-filled">💀</button>
-					<button class="btn-icon btn-filled-primary">💀</button>
-					<button class="btn-icon btn-filled-secondary">💀</button>
-					<button class="btn-icon btn-filled-tertiary">💀</button>
-					<button class="btn-icon btn-filled-success">💀</button>
-					<button class="btn-icon btn-filled-warning">💀</button>
-					<button class="btn-icon btn-filled-error">💀</button>
-					<button class="btn-icon btn-filled-surface">💀</button>
+					<button class="btn-icon btn-filled"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-filled-primary"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-filled-secondary"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-filled-tertiary"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-filled-success"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-filled-warning"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-filled-error"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-filled-surface"><i class="fa-solid fa-skull" /></button>
 				</div>
 				<!-- Ringed -->
 				<div class="grid grid-cols-1 gap-4">
-					<button class="btn-icon btn-ringed">💀</button>
-					<button class="btn-icon btn-ringed-primary">💀</button>
-					<button class="btn-icon btn-ringed-secondary">💀</button>
-					<button class="btn-icon btn-ringed-tertiary">💀</button>
-					<button class="btn-icon btn-ringed-success">💀</button>
-					<button class="btn-icon btn-ringed-warning">💀</button>
-					<button class="btn-icon btn-ringed-error">💀</button>
-					<button class="btn-icon btn-ringed-surface">💀</button>
+					<button class="btn-icon btn-ringed"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-ringed-primary"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-ringed-secondary"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-ringed-tertiary"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-ringed-success"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-ringed-warning"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-ringed-error"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-ringed-surface"><i class="fa-solid fa-skull" /></button>
 				</div>
 				<!-- Ringed -->
 				<div class="grid grid-cols-1 gap-4">
-					<button class="btn-icon btn-ghost">💀</button>
-					<button class="btn-icon btn-ghost-primary">💀</button>
-					<button class="btn-icon btn-ghost-secondary">💀</button>
-					<button class="btn-icon btn-ghost-tertiary">💀</button>
-					<button class="btn-icon btn-ghost-success">💀</button>
-					<button class="btn-icon btn-ghost-warning">💀</button>
-					<button class="btn-icon btn-ghost-error">💀</button>
-					<button class="btn-icon btn-ghost-surface">💀</button>
+					<button class="btn-icon btn-ghost"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-ghost-primary"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-ghost-secondary"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-ghost-tertiary"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-ghost-success"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-ghost-warning"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-ghost-error"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-ghost-surface"><i class="fa-solid fa-skull" /></button>
 				</div>
 			</div>
 		</div>

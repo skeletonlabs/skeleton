@@ -51,7 +51,9 @@
 	<div class="container max-w-[1200px] mx-auto px-4 py-10 md:py-20 space-y-20">
 		<!-- Alert: Beta -->
 		<Alert>
-			<svelte:fragment slot="lead">🚧</svelte:fragment>
+			<svelte:fragment slot="lead">
+				<i class="fa-solid fa-triangle-exclamation text-2xl" />
+			</svelte:fragment>
 			<span>Skeleton is currently in beta. Expect breaking changes prior to v1.0. Please report bugs on GitHub.</span>
 			<svelte:fragment slot="trail">
 				<a href="https://github.com/skeletonlabs/skeleton/issues" target="_blank" rel="noreferrer" class="btn btn-filled">Report Issue</a>
@@ -79,14 +81,14 @@
 			</div>
 			<div class="card card-glass-surface p-4 text-center space-y-4">
 				<div class="bg-primary-500 w-20 mx-auto lg:-mt-10 aspect-square flex justify-center items-center rounded-token shadow">
-					<SvgIcon name="swatchbook" fill="fill-on-primary-token" width="w-8" height="h-8" />
+					<i class="fa-solid fa-swatchbook text-3xl" />
 				</div>
 				<h4>Dynamic Themes</h4>
 				<p>Choose from a library of hand crafted preset themes or quickly generate your own in seconds.</p>
 			</div>
 			<div class="card card-glass-surface p-4 text-center space-y-4">
 				<div class="bg-secondary-500 w-20 mx-auto lg:-mt-10 aspect-square flex justify-center items-center rounded-token shadow">
-					<SvgIcon name="screwdriver" fill="fill-on-secondary-token" width="w-8" height="h-8" />
+					<i class="fa-solid fa-screwdriver-wrench text-3xl" />
 				</div>
 				<h4>Powerful Utilities</h4>
 				<p>Provides a feature rich UI toolkit for modern web apps with layouts, modals, and more.</p>
@@ -152,13 +154,13 @@
 					</div>
 					<div class="flex justify-center space-x-4">
 						<a class="unstyled" href="https://github.com/endigo9740" target="_blank" rel="noreferrer">
-							<SvgIcon name="github" />
+							<i class="fa-brands fa-github text-xl" />
 						</a>
 						<a class="unstyled" href="https://twitter.com/endigodesign" target="_blank" rel="noreferrer">
-							<SvgIcon name="twitter" />
+							<i class="fa-brands fa-twitter text-xl" />
 						</a>
 						<a class="unstyled" href="https://www.linkedin.com/in/chris-simmons-8a523a23/" target="_blank" rel="noreferrer">
-							<SvgIcon name="linkedin" />
+							<i class="fa-brands fa-linkedin text-xl" />
 						</a>
 					</div>
 				</li>
@@ -171,10 +173,10 @@
 					</div>
 					<div class="flex justify-center space-x-4">
 						<a class="unstyled" href="https://twitter.com/brain_and_bones" target="_blank" rel="noreferrer">
-							<SvgIcon name="twitter" />
+							<i class="fa-brands fa-twitter text-xl" />
 						</a>
 						<a class="unstyled" href="https://www.linkedin.com/company/brainandbones/" target="_blank" rel="noreferrer">
-							<SvgIcon name="linkedin" />
+							<i class="fa-brands fa-linkedin text-xl" />
 						</a>
 					</div>
 				</li>
