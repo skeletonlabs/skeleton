@@ -26,17 +26,17 @@
 		<section class="grid grid-cols-1 gap-4">
 			<!-- Links -->
 			<div class="logo-cloud grid-cols-1 lg:!grid-cols-3 gap-1">
-				<a class="logo-item" href="https://svelte.dev/" target="_blank" rel="noreferrer">
-					<span><SvgIcon name="svelte" width="w-8" height="h-8" /></span>
-					<span>Svelte</span>
+				<a class="logo-item" href="https://twitch.com/" target="_blank" rel="noreferrer">
+					<i class="fa-brands fa-twitch text-2xl" />
+					<span>Twitch</span>
 				</a>
-				<a class="logo-item" href="https://tailwindcss.com/" target="_blank" rel="noreferrer">
-					<span><SvgIcon name="tailwind" width="w-6" height="h-6" /></span>
-					<span>Tailwind</span>
+				<a class="logo-item" href="https://youtube.com/" target="_blank" rel="noreferrer">
+					<i class="fa-brands fa-youtube text-2xl" />
+					<span>YouTube</span>
 				</a>
-				<a class="logo-item" href="https://github.com/" target="_blank" rel="noreferrer">
-					<span><SvgIcon name="github" width="w-6" height="h-6" /></span>
-					<span>Github</span>
+				<a class="logo-item" href="https://vimeo.com/" target="_blank" rel="noreferrer">
+					<i class="fa-brands fa-vimeo text-2xl" />
+					<span>Vimeo</span>
 				</a>
 			</div>
 			<!-- Multi-Row -->
@@ -62,7 +62,7 @@
 				code={`
 <div class="logo-cloud grid-cols-1 lg:grid-cols-4 gap-1">
 	<div class="logo-item">
-		<span>&hearts;</span>
+		<span>(icon)</span>
 		<span>HR Solutions</span>
 	</div>
 	<div class="logo-item">Acme Theaters</div>

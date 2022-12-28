@@ -38,7 +38,7 @@
 				<ul class="list">
 					{#each listData as v}
 						<li>
-							<span class="badge-icon p-4 {v.class}">💀</span>
+							<span class="badge-icon p-4 {v.class}"><i class="fa-solid fa-skull" /></span>
 							<span class="flex-auto">
 								Item {v.name}
 							</span>
@@ -68,7 +68,7 @@
 				<dl class="list-dl">
 					{#each listData as v}
 						<div>
-							<span class="badge-icon p-4 {v.class}">💀</span>
+							<span class="badge-icon p-4 {v.class}"><i class="fa-solid fa-skull" /></span>
 							<span class="flex-auto">
 								<dt>Item {v.name}</dt>
 								<dd>Description for {v.name}</dd>
@@ -86,7 +86,7 @@
 						{#each listData as v}
 							<li>
 								<a href="/">
-									<span class="badge-icon p-4 {v.class}">💀</span>
+									<span class="badge-icon p-4 {v.class}"><i class="fa-solid fa-skull" /></span>
 									<span class="flex-auto">
 										Item {v.name}
 									</span>

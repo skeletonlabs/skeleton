@@ -3,7 +3,6 @@
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	import AppBar from '$lib/components/AppBar/AppBar.svelte';
-	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// @ts-expect-error sveld import
@@ -32,7 +31,7 @@
 			<svelte:fragment slot="trail">
 				<div class="flex items-center space-x-6">
 					<a href="/components/app-bar">Link</a>
-					<SvgIcon />
+					<i class="fa-solid fa-image text-xl" />
 				</div>
 			</svelte:fragment>
 		</AppBar>

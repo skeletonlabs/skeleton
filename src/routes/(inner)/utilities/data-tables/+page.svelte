@@ -56,7 +56,9 @@
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<Alert>
-			<svelte:fragment slot="lead">🚧</svelte:fragment>
+			<svelte:fragment slot="lead">
+				<i class="fa-solid fa-triangle-exclamation text-2xl" />
+			</svelte:fragment>
 			<!-- prettier-ignore -->
 			<span>
 				This feature is currently in-developement and available as an early preview. It is not feature complete and may contain bugs. If you need a production-ready alternative,
