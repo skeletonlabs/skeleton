@@ -26,6 +26,7 @@
 	}
 
 	function setNavCategory(c: string): void {
+		if (c === 'blog') return;
 		storeCategory.set(c);
 		// prettier-ignore
 		switch($storeCategory) {
@@ -44,9 +45,7 @@
 		if (['components', 'actions'].includes(pathMatch)) pathMatch = 'svelte';
 		setNavCategory(pathMatch);
 	});
-	storeCategory.subscribe((c: string) => {
-		setNavCategory(c);
-	});
+	storeCategory.subscribe((c: string) => setNavCategory(c));
 
 	// Reactive
 	$: classesActive = (href: string) => ($storeCurrentUrl?.includes(href) ? 'bg-primary-active-token' : '');
@@ -61,6 +60,11 @@
 		<AppRailTile label="Tailwind" value={'elements'}><SvgIcon name="tailwind" width="w-6" height="h-6" /></AppRailTile>
 		<AppRailTile label="Svelte" value={'svelte'}><SvgIcon name="svelte" width="w-6" height="h-6" /></AppRailTile>
 		<AppRailTile label="Utilities" value={'utilities'}><SvgIcon name="screwdriver" width="w-6" height="h-6" /></AppRailTile>
+		<svelte:fragment slot="trail">
+			<AppRailTile label="Blog" tag="a" href="/blog" value={'blog'} on:click={onListItemClick} class="lg:hidden">
+				<SvgIcon name="align-left" width="w-6" height="h-6" />
+			</AppRailTile>
+		</svelte:fragment>
 	</AppRail>
 	<!-- Nav Links -->
 	<section class="p-4 pb-20 space-y-4 overflow-y-auto">
@@ -73,7 +77,7 @@
 					<ul>
 						{#each list as { href, label, badge }}
 							<li on:click={onListItemClick} on:keypress>
-								<a {href} value={href} class={classesActive(href)} data-sveltekit-preload-data="hover">
+								<a {href} class={classesActive(href)} data-sveltekit-preload-data="hover">
 									<span class="flex-auto">{label}</span>
 									{#if badge}<span class="badge badge-filled-secondary">{badge}</span>{/if}
 								</a>
