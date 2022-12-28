@@ -88,6 +88,7 @@ export const menuNavLinks: any = [
 			{ href: '/components/file-buttons', label: 'File Buttons' },
 			{ href: '/components/file-dropzone', label: 'File Dropzone' },
 			{ href: '/components/gradient-headings', label: 'Gradient Headings' },
+			{ href: '/components/input-chips', label: 'Input Chips' },
 			{ href: '/components/listboxes', label: 'Listboxes' },
 			{ href: '/components/paginators', label: 'Paginators' },
 			{ href: '/components/progress-bars', label: 'Progress Bars' },
