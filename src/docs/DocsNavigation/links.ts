@@ -95,7 +95,7 @@ export const menuNavLinks: any = [
 			{ href: '/components/range-sliders', label: 'Range Sliders' },
 			{ href: '/components/slide-toggles', label: 'Slide Toggles' },
 			{ href: '/components/steppers', label: 'Steppers' },
-			{ href: '/components/svg-icons', label: 'SVG' },
+			// { href: '/components/svg-icons', label: 'SVG Icons' }, // Keep Disabled
 			{ href: '/components/tabs', label: 'Tabs' },
 			{ href: '/components/tables', label: 'Tables' }
 		]
