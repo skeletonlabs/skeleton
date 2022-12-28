@@ -18,6 +18,7 @@
 		@apply hover:bg-surface-hover-token;
 	}
 
+	.chip-disabled,
 	.chip:disabled {
 		@apply !opacity-50 !cursor-not-allowed active:scale-100;
 	}

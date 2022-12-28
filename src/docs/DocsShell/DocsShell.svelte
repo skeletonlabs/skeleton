@@ -127,7 +127,6 @@
 			</section>
 
 			<!-- Details -->
-			<!-- TODO: replace w/ chip elements -->
 			<section class="doc-shell-details {regionDetails}">
 				<!-- Imports -->
 				{#if pageSettings.imports?.length}

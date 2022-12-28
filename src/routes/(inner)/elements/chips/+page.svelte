@@ -20,25 +20,26 @@
 		classes: [
 			['<code>chip</code>', '', 'Provides the standard chip style.'],
 			['<code>chip-[color]</code>', '', 'Sets a variant style.'],
-			['chip-active', '', 'Provides an active state style.'],
+			['<code>chip-disabled</code>', '', 'Applies a disabled state.'],
+			['<code>chip-active</code>', '', 'Applies an active state.'],
 			[
-				'chip-[color]-active',
+				'<code>chip-[color]-active</code>',
 				'primary | secondary | tertiary | success | warning | error | surface',
-				'Provides a colored active state style.'
+				'Applied a colored active state.'
 			]
 		]
 	};
 
 	// Local
-	let states: any = {
-		vanilla: false,
+	let color: string = 'red';
+	let flavors: Record<string, boolean> = {
+		vanilla: true,
 		chocolate: false,
 		strawberry: false
 	};
-	let color: string = 'red';
 
 	function triggerToast(term: string): void {
-		const t: ToastSettings = { message: `You tapped <u>${term}</u>.` };
+		const t: ToastSettings = { message: `You selected the <u>${term}</u> action.` };
 		toastStore.trigger(t);
 	}
 
@@ -47,7 +48,7 @@
 	}
 
 	function filter(flavor: string): void {
-		states[flavor] = !states[flavor];
+		flavors[flavor] = !flavors[flavor];
 	}
 </script>
 
@@ -58,7 +59,7 @@
 		<div class="grid grid-cols-1 xl:grid-cols-3 gap-4">
 			<div class="card p-4 space-y-4 text-center">
                 <p>Actions</p>
-                <div class="flex justify-center space-x-4">
+                <div class="flex justify-center space-x-2">
                     <span class="chip" on:click={()=>{triggerToast('like')}} on:keypress>
                         <i class="fa-solid fa-heart" />
                         <span>Like</span>
@@ -72,37 +73,25 @@
             <!-- Selection -->
 			<div class="card p-4 space-y-4 text-center">
                 <p>Selection</p>
-                <div class="flex justify-center space-x-4">
-                    <span class="chip chip-primary" class:chip-active={color==='red'} on:click={()=>{section('red')}} on:keypress>
-                        {#if color==='red'}<span><i class="fa-solid fa-check" /></span>{/if}
-                        <span>Red</span>
-                    </span>
-                    <span class="chip chip-primary" class:chip-active={color==='blue'} on:click={()=>{section('blue')}} on:keypress>
-                        {#if color==='blue'}<span><i class="fa-solid fa-check" /></span>{/if}
-                        <span>Blue</span>
-                    </span>
-                    <span class="chip chip-primary" class:chip-active={color==='green'} on:click={()=>{section('green')}} on:keypress>
-                        {#if color==='green'}<span><i class="fa-solid fa-check" /></span>{/if}
-                        <span>Green</span>
-                    </span>
+                <div class="flex justify-center space-x-2">
+                    {#each ['red', 'green', 'blue'] as c}
+                        <span class="chip chip-primary" class:chip-active={ color === c } on:click={()=>{section(c)}} on:keypress>
+                            {#if color === c}<span><i class="fa-solid fa-check" /></span>{/if}
+                            <span>{c}</span>
+                        </span>
+                    {/each}
                 </div>
             </div>
             <!-- Filters -->
 			<div class="card p-4 space-y-4 text-center">
-                <p>Filters</p>
-                <div class="flex justify-center space-x-4">
-                    <span class="chip chip-secondary" class:chip-secondary-active={states.vanilla} on:click={()=>{filter('vanilla')}} on:keypress>
-                        {#if states.vanilla}<span><i class="fa-solid fa-check" /></span>{/if}
-                        <span>Vanilla</span>
+                <p>Multi-Select</p>
+                <div class="flex justify-center space-x-2">
+                    {#each Object.keys(flavors) as f}
+                    <span class="chip chip-secondary" class:chip-secondary-active={flavors[f]} on:click={()=>{filter(f)}} on:keypress>
+                        {#if flavors[f]}<span><i class="fa-solid fa-check" /></span>{/if}
+                        <span class="capitalize">{f}</span>
                     </span>
-                    <span class="chip chip-secondary" class:chip-secondary-active={states.chocolate} on:click={()=>{filter('chocolate')}} on:keypress>
-                        {#if states.chocolate}<span><i class="fa-solid fa-check" /></span>{/if}
-                        <span>Chocolate</span>
-                    </span>
-                    <span class="chip chip-secondary" class:chip-secondary-active={states.strawberry} on:click={()=>{filter('strawberry')}} on:keypress>
-                        {#if states.strawberry}<span><i class="fa-solid fa-check" /></span>{/if}
-                        <span>Strawberry</span>
-                    </span>
+                    {/each}
                 </div>
             </div>
 		</div>
@@ -128,16 +117,10 @@
 			</div>
 		</section>
 		<section class="space-y-4">
-			<h2>Selection Chips</h2>
+			<h2>Active State</h2>
 			<p>Dynamically add <code>.chip-active</code> or <code>.chip-[color]-active</code> classes to show an active state.</p>
 			<CodeBlock language="ts" code={`let color: string = 'red';`} />
 			<CodeBlock language="html" code={`<span class="chip" class:chip-active={color === 'red'}>Red</span>`} />
-		</section>
-		<section class="space-y-4">
-			<h2>Filter Chips</h2>
-			<p>Dynamically add <code>.chip-active</code> or <code>.chip-[color]-active</code> classes to show an active state.</p>
-			<CodeBlock language="ts" code={`const chipState: boolean = true;`} />
-			<CodeBlock language="html" code={`<span class="chip" class:chip-active={chipState}>Vanilla</span>`} />
 		</section>
 	</svelte:fragment>
 </DocsShell>
