@@ -27,7 +27,7 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="grid grid-cols-3 lg:grid-cols-6 gap-4">
+		<section class="grid grid-cols-3 gap-4">
 			{#each iconKeys as name}
 				<div class="card p-4 space-y-4 text-center">
 					<SvgIcon {name} />
@@ -45,7 +45,7 @@
 				sources. You can manage available components in
 				<code>$lib/components/SvgIcon/icons</code>.
 			</p>
-			<CodeBlock language="html" code={`<SvgIcon name="skull" />`} />
+			<CodeBlock language="html" code={`<SvgIcon name="svelte" />`} />
 		</section>
 		<section class="space-y-4">
 			<h2>Custom SVG</h2>

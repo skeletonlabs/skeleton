@@ -26,8 +26,7 @@ export const menuNavLinks: any = [
 			{ href: '/guides/tailwind', label: 'Tailwind CSS' },
 			{ href: '/guides/themes', label: 'Themes' },
 			{ href: '/guides/styling', label: 'Styling' },
-			// { href: '/guides/frameworks', label: 'Frameworks' }
-			{ href: '/guides/frameworks/sveltekit', label: 'Quickstart Guide' }
+			{ href: '/guides/quickstart', label: 'Quickstart' }
 		]
 	},
 
@@ -96,10 +95,9 @@ export const menuNavLinks: any = [
 			{ href: '/components/range-sliders', label: 'Range Sliders' },
 			{ href: '/components/slide-toggles', label: 'Slide Toggles' },
 			{ href: '/components/steppers', label: 'Steppers' },
+			{ href: '/components/svg-icons', label: 'SVG' },
 			{ href: '/components/tabs', label: 'Tabs' },
 			{ href: '/components/tables', label: 'Tables' }
-			// Work in Progress
-			// { href: '/components/svg-icons', label: 'SVG Icons' }, // keep disabled until further notice
 		]
 	},
 
