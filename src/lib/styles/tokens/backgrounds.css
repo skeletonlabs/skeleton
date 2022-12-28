@@ -77,7 +77,7 @@
 
 	/* Surface */
 	.bg-surface-hover-token {
-		@apply hover:bg-surface-500/10;
+		@apply hover:bg-surface-500/30; /* slightly increased */
 	}
 	.bg-surface-active-token {
 		@apply bg-surface-500 text-surface-50 dark:text-surface-50;
