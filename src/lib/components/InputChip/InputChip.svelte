@@ -4,14 +4,9 @@
 	// Event Dispatcher
 	const dispatch = createEventDispatcher();
 
-	/** Optionally provide an descriptive label. */
+	/** Optionally provide an semantic label. */
 	export let label: string = '';
-	/** Optionally provide an descriptive label. */
-	export let placeholder: string = 'Enter Value...';
-	/**
-	 * Binds an array of values.
-	 * @type {string[]}
-	 */
+	/** Optionally provide an input placeholder. */
 	export let value: string[] = [];
 	/**
 	 * Provide a whitelist of accepted values.
@@ -20,6 +15,11 @@
 	export let whitelist: string[] = [];
 	/** When enabled, will format entered values as lowercase. */
 	export let lowercase: boolean = true;
+	/**
+	 * Provide a custom validation function.
+	 * @type {function}
+	 */
+	export let validation: any = undefined;
 
 	// Local
 	let inputValue: string = '';
@@ -35,32 +35,43 @@
 	function onKeyDown(event: KeyboardEvent): void {
 		inputInvalid = false;
 		if (event.code === 'Enter' || event.keyCode === 13) {
-			// Validate whitelist (if available)
+			// Validate: custom validation
+			if (validation !== undefined && !validation(inputValue)) {
+				inputInvalid = true;
+				return;
+			}
+			// Validate: whitelist (if available)
 			if (whitelist.length > 0 && !whitelist.includes(inputValue)) {
 				inputInvalid = true;
 				return;
 			}
-			// Validate value is unique
-			if (!value.includes(inputValue)) {
-				// Format lowercase (if enabled)
-				inputValue = lowercase ? inputValue.toLowerCase() : inputValue;
-				// Append value
-				value = [...value, inputValue];
-				// Clear input value
-				inputValue = '';
-				/** @event {{ event: KeyboardEvent }} add - When a chip is added. */
-				dispatch('add', event);
-			} else {
+			// Validate: value is unique
+			if (value.includes(inputValue)) {
 				inputInvalid = true;
 				return;
 			}
+			// Format: trim value
+			inputValue = inputValue.trim();
+			// Format: to lowercase (if enabled)
+			inputValue = lowercase ? inputValue.toLowerCase() : inputValue;
+			// Append value
+			value = [...value, inputValue];
+			// Clear input value
+			inputValue = '';
+			/** @event {{ event: KeyboardEvent }} add - When a chip is added. */
+			dispatch('add', event);
 		}
 	}
 
 	function removeChip(chipIndex: number): void {
+		value = value.filter((_, i) => i !== chipIndex);
 		/** @event {{ chipIndex: number }} remove - When a chip is removed. */
 		dispatch('remove', chipIndex);
-		value = value.filter((_, i) => i !== chipIndex);
+	}
+
+	function prunedRestProps(): any {
+		delete $$restProps.class;
+		return $$restProps;
 	}
 </script>
 
@@ -75,10 +86,11 @@
 	{/each}
 	<input
 		type="text"
-		{placeholder}
 		bind:value={inputValue}
 		class="input-chip-field {cInput}"
 		class:input-invalid={inputInvalid}
 		on:keydown={onKeyDown}
+		tabindex="0"
+		{...prunedRestProps()}
 	/>
 </label>
