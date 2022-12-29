@@ -112,5 +112,13 @@ function isValidEmail(value: string): boolean {
 			<CodeBlock language="html" code={`<button type="submit" disabled={!flavors.length}>Submit</button>`} />
 			<CodeBlock language="html" code={`<button type="submit" disabled={flavors.length > 3}>Submit</button>`} />
 		</section>
+		<hr />
+		<section class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+			<div class="space-y-2">
+				<h2>Chip Elements</h2>
+				<p>Interactive elements for actions, selection, or filtering.</p>
+			</div>
+			<a class="btn btn-ghost-surface" href="/elements/chips">Chip Elements &rarr;</a>
+		</section>
 	</svelte:fragment>
 </DocsShell>

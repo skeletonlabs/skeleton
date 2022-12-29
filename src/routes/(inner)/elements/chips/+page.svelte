@@ -118,5 +118,13 @@
 			<CodeBlock language="ts" code={`let color: string = 'red';`} />
 			<CodeBlock language="html" code={`<span class="chip" class:chip-active={color === 'red'}>Red</span>`} />
 		</section>
+		<hr />
+		<section class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+			<div class="space-y-2">
+				<h2>Input Chips</h2>
+				<p>A dedicated input component for accepting multiple values using chips.</p>
+			</div>
+			<a class="btn btn-ghost-surface" href="/components/input-chips">Input Chip &rarr;</a>
+		</section>
 	</svelte:fragment>
 </DocsShell>
