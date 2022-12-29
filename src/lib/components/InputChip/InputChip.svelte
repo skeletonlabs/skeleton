@@ -43,35 +43,37 @@
 	const cLabel = 'unstyled w-full md:w-auto mr-2';
 	const cInput = 'unstyled flex-auto border-transparent bg-transparent text-base px-1 py-0 focus:border-transparent min-h-[30px]';
 
-	function onKeyDown(event: KeyboardEvent): void {
+	function resetValiadtionClass(): void {
 		inputInvalid = false;
-		if (event.code === 'Enter' || event.keyCode === 13) {
-			// Validate: custom validation
-			if (validation !== undefined && !validation(inputValue)) {
-				inputInvalid = true;
-				return;
-			}
-			// Validate: whitelist (if available)
-			if (whitelist.length > 0 && !whitelist.includes(inputValue)) {
-				inputInvalid = true;
-				return;
-			}
-			// Validate: value is unique
-			if (value.includes(inputValue)) {
-				inputInvalid = true;
-				return;
-			}
-			// Format: trim value
-			inputValue = inputValue.trim();
-			// Format: to lowercase (if enabled)
-			inputValue = lowercase ? inputValue.toLowerCase() : inputValue;
-			// Append value
-			value = [...value, inputValue];
-			// Clear input value
-			inputValue = '';
-			/** @event {{ event: KeyboardEvent }} add - When a chip is added. */
-			dispatch('add', event);
+	}
+
+	function addChip(event: any): void {
+		event.preventDefault();
+		// Validate: custom validation
+		if (validation !== undefined && !validation(inputValue)) {
+			inputInvalid = true;
+			return;
 		}
+		// Validate: whitelist (if available)
+		if (whitelist.length > 0 && !whitelist.includes(inputValue)) {
+			inputInvalid = true;
+			return;
+		}
+		// Validate: value is unique
+		if (value.includes(inputValue)) {
+			inputInvalid = true;
+			return;
+		}
+		// Format: trim value
+		inputValue = inputValue.trim();
+		// Format: to lowercase (if enabled)
+		inputValue = lowercase ? inputValue.toLowerCase() : inputValue;
+		// Append value
+		value = [...value, inputValue];
+		// Clear input value
+		inputValue = '';
+		/** @event {{ event: KeyboardEvent }} add - When a chip is added. */
+		dispatch('add', event);
 	}
 
 	function removeChip(chipIndex: number): void {
@@ -100,13 +102,15 @@
 			<span>✕</span>
 		</span>
 	{/each}
-	<input
-		type="text"
-		bind:value={inputValue}
-		class="input-chip-field {classesInput}"
-		class:input-invalid={inputInvalid}
-		on:keydown={onKeyDown}
-		tabindex="0"
-		{...prunedRestProps()}
-	/>
+	<form on:submit={addChip}>
+		<input
+			type="text"
+			bind:value={inputValue}
+			class="input-chip-field {classesInput}"
+			class:input-invalid={inputInvalid}
+			tabindex="0"
+			on:keydown={resetValiadtionClass}
+			{...prunedRestProps()}
+		/>
+	</form>
 </label>
