@@ -97,7 +97,8 @@ export const menuNavLinks: any = [
 			{ href: '/components/steppers', label: 'Steppers' },
 			// { href: '/components/svg-icons', label: 'SVG Icons' }, // Keep Disabled
 			{ href: '/components/tabs', label: 'Tabs' },
-			{ href: '/components/tables', label: 'Tables' }
+			{ href: '/components/tables', label: 'Tables' },
+			{ href: '/components/table-of-contents', label: 'Table of Contents' }
 		]
 	},
 
