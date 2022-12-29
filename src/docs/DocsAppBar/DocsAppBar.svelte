@@ -126,7 +126,7 @@
 					<span>Features</span>
 					<span class="opacity-50">▾</span>
 				</button>
-				<div class="card overflow-hidden w-60 shadow-xl" data-menu="features">
+				<div class="card overflow-hidden w-60 shadow-xl grid grid-cols-1" data-menu="features">
 					<!-- Tailwind -->
 					<a class="grid grid-cols-[auto_1fr] gap-4 p-4 hover:bg-primary-hover-token" href="/elements/core" data-sveltekit-preload-data="hover">
 						<div class="flex justify-center items-center">
