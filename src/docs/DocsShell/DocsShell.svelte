@@ -9,6 +9,7 @@
 	import Table from '$lib/components/Table/Table.svelte';
 	import Tab from '$lib/components/Tab/Tab.svelte';
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
+	import TableOfContents from '$lib/components/TableOfContents/TableOfContents.svelte';
 
 	// Utilities
 	import { toastStore } from '$lib/utilities/Toast/stores';
@@ -224,28 +225,37 @@
 		<!-- Tab: Usage -->
 		{#if $storeActiveTab === 'usage'}
 			<div class="doc-shell-usage {classesRegionPanels}">
-				<!-- Slot: Examples Sandbox -->
-				{#if $$slots.sandbox}
-					<div>
-						<h2 class="sr-only">Examples</h2>
-						<div class="doc-shell-sandbox {spacing}">
-							<slot name="sandbox">(sandbox)</slot>
+				<div class="grid grid-cols-1 xl:grid-cols-[1fr_auto]">
+					<!-- Content -->
+					<div class={spacing}>
+						<!-- Slot: Examples Sandbox -->
+						{#if $$slots.sandbox}
+							<div>
+								<h2 class="sr-only">Examples</h2>
+								<div class="doc-shell-sandbox {spacing}">
+									<slot name="sandbox">(sandbox)</slot>
+								</div>
+							</div>
+						{/if}
+						<div id="table-of-contents-target" class={spacing}>
+							<!-- Slot: Usage -->
+							{#if $$slots.usage}
+								<div>
+									<!-- <h2 class="sr-only">Usage</h2> -->
+									<div class="doc-shell-usage {spacing}">
+										<slot name="usage">(usage)</slot>
+									</div>
+								</div>
+							{/if}
+							<!-- Slot: Overflow -->
+							{#if $$slots.default}
+								<footer class="doc-shell-footer"><slot /></footer>
+							{/if}
 						</div>
 					</div>
-				{/if}
-				<!-- Slot: Usage -->
-				{#if $$slots.usage}
-					<div>
-						<h2 class="sr-only">Usage</h2>
-						<div class="doc-shell-usage {spacing}">
-							<slot name="usage">(usage)</slot>
-						</div>
-					</div>
-				{/if}
-				<!-- Slot: Overflow -->
-				{#if $$slots.default}
-					<footer class="doc-shell-footer"><slot /></footer>
-				{/if}
+					<!-- Table of Contents -->
+					<TableOfContents target="#table-of-contents-target" class="ml-10" />
+				</div>
 			</div>
 		{/if}
 

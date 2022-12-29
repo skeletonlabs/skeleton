@@ -29,9 +29,7 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<div class="card card-glass p-4 flex justify-center">
-			<TableOfContents />
-		</div>
+		<div class="card card-glass p-4 text-center">Shown on Right &rarr;</div>
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
