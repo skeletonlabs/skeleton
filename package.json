@@ -15,7 +15,7 @@
 		"format": "prettier --ignore-path .prettierignore --write --plugin-search-dir=. .",
 		"test": "vitest",
 		"coverage": "vitest run --coverage",
-		"prebuild:all": "npm run clean:all && postcss src/lib/styles/all.css --dir .temp --base src/lib/styles",
+		"prebuild:all": "postcss src/lib/styles/all.css --dir .temp --base src/lib/styles",
 		"build:all": "prejss-cli .temp/all.css --format commonjs",
 		"postbuild:all": "mkdir -p src/lib/tailwind/generated && mv -f .temp/all.js src/lib/tailwind/generated/allComponents.cjs"
 	},
