@@ -9,7 +9,7 @@
 		/* Text */
 		@apply text-xs text-token;
 		/* Padding */
-		@apply px-3 py-1;
+		@apply px-3 py-1.5;
 		/* Theme: Rounded */
 		@apply rounded;
 		/* Ring */
