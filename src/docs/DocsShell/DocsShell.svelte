@@ -240,8 +240,8 @@
 						<div id="table-of-contents-target" class={spacing}>
 							<!-- Slot: Usage -->
 							{#if $$slots.usage}
+								<h2 class="sr-only">Getting Started</h2>
 								<div>
-									<!-- <h2 class="sr-only">Usage</h2> -->
 									<div class="doc-shell-usage {spacing}">
 										<slot name="usage">(usage)</slot>
 									</div>
@@ -254,7 +254,7 @@
 						</div>
 					</div>
 					<!-- Table of Contents -->
-					<TableOfContents target="#table-of-contents-target" class="ml-10" />
+					<TableOfContents target="#table-of-contents-target" minimumHeadings={1} class="ml-10" />
 				</div>
 			</div>
 		{/if}

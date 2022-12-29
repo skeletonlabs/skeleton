@@ -5,8 +5,6 @@
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	import TableOfContents from '$lib/components/TableOfContents/TableOfContents.svelte';
-
 	// @ts-expect-error
 	import sveldTableOfContents from '$lib/components/TableOfContents/TableOfContents.svelte?raw&sveld';
 

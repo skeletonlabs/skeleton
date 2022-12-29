@@ -7,6 +7,8 @@
 	export let target: string = '#page';
 	/** The scroll offset in pixels. */
 	export let scrollOffset: number = -90;
+	/** Minimum headings before component will render. */
+	export let minimumHeadings: number = 0;
 
 	// Local
 	let headings: any = [];
@@ -29,7 +31,6 @@
 		const elemHeadersList: any = elemContainer?.querySelectorAll('h2, h3');
 		// Select only relevant headings
 		elemHeadersList?.forEach((elem: HTMLElement, i: number) => {
-			// if (elem.classList.contains('sr-only')) return;
 			// Generate Unique ID
 			let id = elem.innerText
 				.replaceAll(/[^a-zA-Z0-9 ]/g, '')
@@ -48,7 +49,7 @@
 
 <!-- @component Allows you to quickly navigate the hierarchy of headings for the current page. -->
 
-{#if headings.length}
+{#if headings.length > minimumHeadings}
 	<div class="toc w-[200px] space-y-4 {$$props.class ?? ''}">
 		<nav class="list-none">
 			<div class="font-bold pb-4">On This Page</div>
