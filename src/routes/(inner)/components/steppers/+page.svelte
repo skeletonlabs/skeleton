@@ -44,7 +44,7 @@
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="card p-4">
-			<Stepper {active} length={5} on:complete={onComplete}>
+			<Stepper {active} length={6} on:complete={onComplete}>
 				<Step index={0}>
 					<svelte:fragment slot="header"><h4>Step 1 - Get Started!</h4></svelte:fragment>
 					<p>This example will teach you how to use the Stepper component. Tap <em>next</em> to proceed forward.</p>
@@ -53,6 +53,7 @@
 					<p>Prior completed steps will display a checkmark. However, tap the &uarr; button at any time to return to the previous step.</p>
 				</Step>
 				<Step index={2} locked={!exampleLockedState}>
+					<svelte:fragment slot="header"><h4>Step 3 - <code>locked</code> Property</h4></svelte:fragment>
 					<p>
 						This Step component uses the <code>locked</code> property, which can prevent progress. This is ideal for multi-step forms, such
 						as registration. For now we'll simulate a successful validation condition using the
@@ -61,10 +62,18 @@
 					<SlideToggle bind:checked={exampleLockedState}>Unlock</SlideToggle>
 				</Step>
 				<Step index={3}>
+					<svelte:fragment slot="header"><h4>Step 4 - <code>navigateOnClick</code> Property</h4></svelte:fragment>
+					<p>
+						Steps can also be made clickable by setting the <code>navigateOnClick</code> prop to either <code>'unlocked'</code> or
+						<code>'enabled'</code>. <code>'unlocked'</code> allows only unlocked steps to be clicked, whereas <code>'enabled'</code> makes all
+						steps clickable.
+					</p>
+				</Step>
+				<Step index={4}>
 					<p>The steps will expand to fit content of any width. We'll demonstrate this below with <em>lorem ipsum</em> text.</p>
 					<p>{lorem} {lorem} {lorem} {lorem} {lorem}</p>
 				</Step>
-				<Step index={4}>
+				<Step index={5}>
 					<p>
 						A <em>Complete</em> button will appear on the last step. When the step is unlocked and the button pressed, an
 						<code>on:complete</code> event will fire. Use this to submit form data to a server.
