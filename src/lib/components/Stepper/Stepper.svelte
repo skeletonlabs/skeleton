@@ -16,6 +16,10 @@
 	export let duration: number = 200;
 	/** Provide classes to set rounded style of the step index numbers. */
 	export let rounded: string = 'rounded-full';
+	/** Allow navigation by clicking on the headers or step numbers.
+	 * @type {'enabled' | 'disabled' | 'unlocked'}
+	 */
+	export let navigateOnClick: string = 'disabled';
 
 	// Props (timeline)
 	/** Provide classes to set the numeral text color. */
@@ -42,6 +46,7 @@
 	setContext('active', active);
 	setContext('length', length);
 	setContext('rounded', rounded);
+	setContext('navigateOnClick', navigateOnClick);
 	setContext('color', color);
 	setContext('background', background);
 	setContext('buttonClassesBack', buttonClassesBack);

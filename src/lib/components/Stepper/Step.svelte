@@ -30,6 +30,7 @@
 	export let length: number = getContext('length');
 	export let rounded: string = getContext('rounded');
 	export let duration: number = getContext('duration');
+	export let navigateOnClick: string = getContext('navigateOnClick');
 	// Context (overrides)
 	export let color: string = getContext('color');
 	export let background: string = getContext('background');
@@ -55,9 +56,16 @@
 		/** @event {{ event }} complete - Fires when the component the Complete button is pressed.  */
 		dispatch('complete', {});
 	}
+	function stepToIndex(): void {
+		if (isClickable) active.set(index);
+	}
 
 	// Reactive
 	$: isLastItem = index === length - 1;
+	// clickable & cursor logic
+	$: isClickable = navigateOnClick === 'enabled' || (navigateOnClick === 'unlocked' && !locked);
+	$: classCursor = isClickable ? 'cursor-pointer' : 'cursor-default';
+	$: btnTabindex = isClickable ? 0 : -1;
 	// Base
 	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
 	// Timeline (line)
@@ -66,7 +74,7 @@
 	$: classesLine = `${cLine} ${classesLineBackground}`;
 	// Timeline (numeral)
 	$: classesNumeralBackground = index <= $active ? `${color} ${background}` : `${cNumeralBackground}`;
-	$: classesNumeral = `${cNumeral} ${classesNumeralBackground} ${rounded}`;
+	$: classesNumeral = `${cNumeral} ${classesNumeralBackground} ${rounded} ${classCursor}`;
 	// Content Drawer
 	$: classesDrawerPadding = !isLastItem ? 'pb-10' : '0';
 	$: classesDrawer = `${cDrawer} ${classesDrawerPadding}`;
@@ -78,7 +86,13 @@
 	<!-- Timeline -->
 	<div class="step-timeline flex flex-col items-center">
 		<!-- Numeral -->
-		<div class="step-numeral flex-none {classesNumeral}">
+		<button
+			class="step-numeral flex-none {classesNumeral}"
+			class:cursor-pointer={isClickable}
+			tabindex={btnTabindex}
+			on:click={stepToIndex}
+			on:keypress
+		>
 			{#if locked}
 				<svg class="fill-token w-3 aspect-square" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
 					<path
@@ -88,14 +102,16 @@
 			{:else}
 				{@html index < $active ? '&check;' : index + 1}
 			{/if}
-		</div>
+		</button>
 		<!-- Line -->
 		{#if !isLastItem}<div class="step-line {classesLine}" />{/if}
 	</div>
 	<!-- Content -->
 	<div class="step-content {classesDrawer}">
 		<!-- Slot: Header -->
-		<header class="step-header"><slot name="header"><h4>Step {index + 1}</h4></slot></header>
+		<header class="step-header" class:cursor-pointer={isClickable} on:click={stepToIndex} on:keypress>
+			<slot name="header"><h4>Step {index + 1}</h4></slot>
+		</header>
 		{#if index === $active}
 			<div class="step-body space-y-4" transition:slide|local={{ duration }}>
 				<!-- Slot: Default -->
