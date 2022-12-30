@@ -41,7 +41,7 @@
 		alert('Complete was triggered!');
 	};
 
-	const storeRounded: Writable<string> = writable('rounded-full');
+	const storeRounded: Writable<string> = writable('rounded-token');
 	let propNavigateOnClick: string = 'disabled';
 	let propBackground: string = 'bg-secondary-500';
 
@@ -84,8 +84,8 @@
 							<Step index={3}>
 								<svelte:fragment slot="header"><h4>Step 4 - <code>navigateOnClick</code> Property</h4></svelte:fragment>
 								<p>
-									Steps can also be made clickable by setting the <code>navigateOnClick</code> prop in Stepper to either <code>'unlocked'</code> or <code>'enabled'</code>.
-									<code>'unlocked'</code> allows only unlocked steps to be clicked, whereas <code>'enabled'</code> makes all steps clickable.
+									Steps can also be made clickable by setting the <code>navigateOnClick</code> prop in Stepper to <code>'unlocked'</code>.
+									This makes all steps clickable that have already been reached.
 								</p>
 							</Step>
 							<Step index={4}>
@@ -106,8 +106,8 @@
 					<label for="">
 						<span>Rounded</span>
 						<RadioGroup selected={storeRounded} display="flex">
+							<RadioItem value="rounded-token">token</RadioItem>
 							<RadioItem value="rounded-sm">sm</RadioItem>
-							<RadioItem value="rounded-md">md</RadioItem>
 							<RadioItem value="rounded-lg">lg</RadioItem>
 							<RadioItem value="rounded-full">full</RadioItem>
 						</RadioGroup>
@@ -128,7 +128,6 @@
 						<span>Navigate on Click</span>
 						<select name="navigateOnClick" id="navigateOnClick" bind:value={propNavigateOnClick}>
 							<option value="disabled">disabled</option>
-							<option value="enabled">enabled</option>
 							<option value="unlocked">unlocked</option>
 						</select>
 					</label>
