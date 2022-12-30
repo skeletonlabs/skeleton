@@ -20,7 +20,7 @@
 	const cLine = 'w-1 h-full';
 	const cLineBackground = 'bg-surface-300-600-token';
 	const cNumeral = 'font-bold text-base w-8 h-8 rounded-full flex justify-center items-center';
-	const cNumralBackground = 'bg-surface-300-600-token';
+	const cNumeralBackground = 'bg-surface-300-600-token';
 	const cDrawer = 'ml-1 space-y-4';
 	const cNav = 'flex items-center space-x-2';
 
@@ -28,6 +28,7 @@
 	export let dispatch: any = getContext('dispatch');
 	export let active: Writable<number> = getContext('active');
 	export let length: number = getContext('length');
+	export let rounded: string = getContext('rounded');
 	export let duration: number = getContext('duration');
 	// Context (overrides)
 	export let color: string = getContext('color');
@@ -64,8 +65,8 @@
 	$: classesLineBackground = !isLastItem ? `${classesLineBackgroundColor}` : '';
 	$: classesLine = `${cLine} ${classesLineBackground}`;
 	// Timeline (numeral)
-	$: classesNumeralBackground = index <= $active ? `${color} ${background}` : `${cNumralBackground}`;
-	$: classesNumeral = `${cNumeral} ${classesNumeralBackground}`;
+	$: classesNumeralBackground = index <= $active ? `${color} ${background}` : `${cNumeralBackground}`;
+	$: classesNumeral = `${cNumeral} ${classesNumeralBackground} ${rounded}`;
 	// Content Drawer
 	$: classesDrawerPadding = !isLastItem ? 'pb-10' : '0';
 	$: classesDrawer = `${cDrawer} ${classesDrawerPadding}`;
