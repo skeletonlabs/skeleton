@@ -40,6 +40,7 @@
 	};
 </script>
 
+<!-- prettier-ignore -->
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
@@ -64,9 +65,9 @@
 				<Step index={3}>
 					<svelte:fragment slot="header"><h4>Step 4 - <code>navigateOnClick</code> Property</h4></svelte:fragment>
 					<p>
-						Steps can also be made clickable by setting the <code>navigateOnClick</code> prop to either <code>'unlocked'</code> or
-						<code>'enabled'</code>. <code>'unlocked'</code> allows only unlocked steps to be clicked, whereas <code>'enabled'</code> makes all
-						steps clickable.
+						Steps can also be made clickable by setting the <code>navigateOnClick</code> prop in Stepper to either <code>'unlocked'</code> or <code>'enabled'</code>.
+						<code>'unlocked'</code> allows only unlocked steps to be clicked, whereas <code>'enabled'</code> makes all steps clickable. 
+						For this example, Stepper has its <code>navigateOnClick</code> prop set to <code>'disabled'</code>.
 					</p>
 				</Step>
 				<Step index={4}>
