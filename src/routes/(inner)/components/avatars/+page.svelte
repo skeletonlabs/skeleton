@@ -113,8 +113,8 @@
 						<span>Rounded</span>
 						<RadioGroup selected={storeRounded} display="flex">
 							<RadioItem value="rounded-full">Full</RadioItem>
-							<RadioItem value="rounded-xl">XL</RadioItem>
 							<RadioItem value="rounded-3xl">3XL</RadioItem>
+							<RadioItem value="rounded-xl">XL</RadioItem>
 							<RadioItem value="rounded-none">None</RadioItem>
 						</RadioGroup>
 					</label>
