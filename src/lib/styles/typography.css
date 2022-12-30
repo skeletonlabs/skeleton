@@ -101,10 +101,10 @@ body {
 	}
 
 	del {
-		@apply bg-success-500;
+		@apply bg-success-500 text-on-success-token;
 	}
 	ins {
-		@apply bg-error-500;
+		@apply bg-error-500 text-on-error-token;
 	}
 
 	/* === Date/Time === */
