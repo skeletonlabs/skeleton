@@ -43,14 +43,14 @@
 			<p>Type a value then hit ENTER to apply it.</p>
 			<!-- Tags -->
 			<div class="card p-4 space-y-4">
-				<p>This input allow for any value to be entered.</p>
+				<p>This input allows for any value to be entered.</p>
 				<InputChip placeholder="Add tags..." bind:value={tags} />
 				<code class="inline-block">{tags.length ? tags : 'No tags set.'}</code>
 			</div>
 			<!-- Flavors -->
 			<div class="card p-4 space-y-4">
 				<p>Flavors are whitelisted to: <em>{flavorsWhitelist.join(', ')}</em>.</p>
-				<InputChip label="Flavors" placeholder="Add flavor..." bind:value={flavors} whitelist={flavorsWhitelist} />
+				<InputChip label="Flavors" placeholder="Add flavor..." bind:value={flavors} allowDuplicates={true} whitelist={flavorsWhitelist} />
 				<code class="inline-block">{flavors.length ? flavors : 'No flavors set.'}</code>
 			</div>
 			<!-- Emails -->
@@ -67,7 +67,7 @@
 		<section class="space-y-4">
 			<p>
 				Create an array of values, then bind these to your the <code>InputChip</code> component. As values are added or removed the array will
-				update. Duplicates are not allowed.
+				update.
 			</p>
 			<CodeBlock language="ts" code={`let flavors = ['vanilla', 'chocolate', 'strawberry'];`} />
 			<CodeBlock language="html" code={`<InputChip label="Flavors" placeholder="Add flavor..." bind:value={flavors} />`} />
@@ -75,7 +75,7 @@
 		<section class="space-y-4">
 			<h2>Whitelist Values</h2>
 			<p>
-				You can provide a array of strings to use as a whitelist. Only whitelisted items can be entered. Invalid or duplicate values will
+				You can provide an array of strings to use as a whitelist. Only whitelisted items can be entered. Invalid or duplicate values will
 				show an error state.
 			</p>
 			<CodeBlock language="ts" code={`let flavorsWhitelist = ['vanilla', 'chocolate', 'strawberry'];`} />
@@ -95,19 +95,23 @@ function isValidEmail(value: string): boolean {
 			<CodeBlock language="html" code={`<InputChip ... validation={isValidEmail} />`} />
 		</section>
 		<section class="space-y-4">
-			<h2>Allow Uppercase Values</h2>
+			<h2>Additional Settings</h2>
 			<p>
-				By default, all values entered are trimmed and formatted to lowercase. If you wish to allow uppercase, set the <em>lowercase</em>
-				prop to <code>false</code>.
+				By default, only a single instance of each value is allowed. If you wish to allow duplicates, set <code>allowDuplicates={true}</code
+				>.
 			</p>
-			<CodeBlock language="html" code={`<InputChip ... lowercase="false" />`} />
+			<CodeBlock language="html" code={`<InputChip ... allowDuplicates={true} />`} />
+			<p>
+				By default, all values are trimmed and formatted lowercase. If you wish to allow uppercase, set <code>allowUpperCase={true}</code>.
+			</p>
+			<CodeBlock language="html" code={`<InputChip ... allowUpperCase={true} />`} />
 		</section>
 		<section class="space-y-4">
 			<h2>Required Attribute</h2>
 			<p>
 				Note the <code>required</code> attribute has no bearing on the validation state of this input. Instead, we recommend disabling form
-				submission if your validation conditions are not met - such as too few or too many values. Make sure to show an
-				<a href="/components/alerts">Alert</a> or message to inform users of error states.
+				submission if your validation conditions are not for our your source value array - such as too few or too many values. Make sure to
+				inform users of the error state using a message or <a href="/components/alerts">Alert</a>.
 			</p>
 			<CodeBlock language="html" code={`<button type="submit" disabled={!flavors.length}>Submit</button>`} />
 			<CodeBlock language="html" code={`<button type="submit" disabled={flavors.length > 3}>Submit</button>`} />

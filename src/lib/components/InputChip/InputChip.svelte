@@ -14,13 +14,15 @@
 	 * @type {string[]}
 	 */
 	export let whitelist: string[] = [];
-	/** When enabled, will format entered values as lowercase. */
-	export let lowercase: boolean = true;
+	/** When enabled, allows for uppercase values. */
+	export let allowUpperCase: boolean = false;
+	/** When enabled, allows for duplicate values. */
+	export let allowDuplicates: boolean = true;
 	/**
 	 * Provide a custom validation function.
 	 * @type {function}
 	 */
-	export let validation: any = undefined;
+	export let validation: (...args: any[]) => boolean = () => true;
 
 	// Props (styles)
 	/** Provide chip styles. */
@@ -36,7 +38,7 @@
 
 	// Local
 	let inputValue: string = '';
-	let inputInvalid: boolean = false;
+	let inputValueValid: boolean = true;
 
 	// Classes
 	const cBase = 'unstyled border-token flex flex-wrap gap-2 items-center';
@@ -44,30 +46,30 @@
 	const cInput = 'unstyled flex-auto border-transparent bg-transparent text-base px-1 py-0 focus:border-transparent min-h-[30px]';
 
 	function resetValiadtionClass(): void {
-		inputInvalid = false;
+		inputValueValid = true;
 	}
 
 	function addChip(event: any): void {
 		event.preventDefault();
 		// Validate: custom validation
 		if (validation !== undefined && !validation(inputValue)) {
-			inputInvalid = true;
+			inputValueValid = false;
 			return;
 		}
 		// Validate: whitelist (if available)
 		if (whitelist.length > 0 && !whitelist.includes(inputValue)) {
-			inputInvalid = true;
+			inputValueValid = false;
 			return;
 		}
 		// Validate: value is unique
-		if (value.includes(inputValue)) {
-			inputInvalid = true;
+		if (allowDuplicates === false && value.includes(inputValue)) {
+			inputValueValid = false;
 			return;
 		}
 		// Format: trim value
 		inputValue = inputValue.trim();
 		// Format: to lowercase (if enabled)
-		inputValue = lowercase ? inputValue.toLowerCase() : inputValue;
+		inputValue = allowUpperCase ? inputValue : inputValue.toLowerCase();
 		// Append value
 		value = [...value, inputValue];
 		// Clear input value
@@ -107,7 +109,7 @@
 			type="text"
 			bind:value={inputValue}
 			class="input-chip-field {classesInput}"
-			class:input-invalid={inputInvalid}
+			class:input-invalid={!inputValueValid}
 			tabindex="0"
 			on:keydown={resetValiadtionClass}
 			{...prunedRestProps()}
