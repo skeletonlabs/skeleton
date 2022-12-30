@@ -16,10 +16,8 @@
 	export let duration: number = 200;
 	/** Provide classes to set rounded style of the step index numbers. */
 	export let rounded: string = 'rounded-token';
-	/** Allow navigation by clicking on the headers or step numbers.
-	 * @type {'disabled' | 'unlocked'}
-	 */
-	export let navigateOnClick: string = 'disabled';
+	/** Allow click navigation to any visited steps. */
+	export let clickNavigation: boolean = false;
 
 	// Props (timeline)
 	/** Provide classes to set the numeral text color. */
@@ -43,7 +41,6 @@
 
 	/** Used for deciding which steps should be clickable. */
 	let highestStepReached: Writable<number> = writable(0);
-
 	active.subscribe((v) => {
 		if (v > $highestStepReached) highestStepReached.set(v);
 	});
@@ -53,7 +50,7 @@
 	setContext('active', active);
 	setContext('length', length);
 	setContext('rounded', rounded);
-	setContext('navigateOnClick', navigateOnClick);
+	setContext('clickNavigation', clickNavigation);
 	setContext('highestStepReached', highestStepReached);
 	setContext('color', color);
 	setContext('background', background);

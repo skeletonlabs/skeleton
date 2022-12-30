@@ -42,10 +42,10 @@
 	};
 
 	const storeRounded: Writable<string> = writable('rounded-token');
-	let propNavigateOnClick: string = 'disabled';
-	let propBackground: string = 'bg-secondary-500';
+	const storeClickNavigation: Writable<boolean> = writable(false);
+	let propBackground: string = 'bg-secondary-500 text-on-secondary-token';
 
-	$: forceRefresh = `${propBackground} ${propNavigateOnClick} ${$storeRounded}`;
+	$: forceRefresh = `${propBackground} ${$storeClickNavigation} ${$storeRounded}`;
 </script>
 
 <!-- prettier-ignore -->
@@ -60,7 +60,7 @@
 						<Stepper 
 							{active} 
 							length={6} 
-							navigateOnClick={propNavigateOnClick}
+							clickNavigation={$storeClickNavigation}
 							background={propBackground}
 							rounded={$storeRounded}
 							on:complete={onComplete}
@@ -82,9 +82,9 @@
 								<SlideToggle bind:checked={exampleLockedState}>Unlock</SlideToggle>
 							</Step>
 							<Step index={3}>
-								<svelte:fragment slot="header"><h4>Step 4 - <code>navigateOnClick</code> Property</h4></svelte:fragment>
+								<svelte:fragment slot="header"><h4>Step 4 - <code>clickNavigation</code> Property</h4></svelte:fragment>
 								<p>
-									Steps can also be made clickable by setting the <code>navigateOnClick</code> prop in Stepper to <code>'unlocked'</code>.
+									Steps can also be made clickable by setting the <code>clickNavigation</code> prop in Stepper to <code>true</code>.
 									This makes all steps clickable that have already been reached.
 								</p>
 							</Step>
@@ -102,11 +102,19 @@
 					{/key}
 				</div>
 				<div class="card card-body p-4 space-y-4">
+					<!-- Click Navigation -->
+					<label for="">
+						<span>Click Navigation</span>
+						<RadioGroup selected={storeClickNavigation} display="flex">
+							<RadioItem value={false}>Off</RadioItem>
+							<RadioItem value={true}>On</RadioItem>
+						</RadioGroup>
+					</label>
 					<!-- Rounded -->
 					<label for="">
 						<span>Rounded</span>
 						<RadioGroup selected={storeRounded} display="flex">
-							<RadioItem value="rounded-token">token</RadioItem>
+							<RadioItem value="rounded-token">theme</RadioItem>
 							<RadioItem value="rounded-sm">sm</RadioItem>
 							<RadioItem value="rounded-lg">lg</RadioItem>
 							<RadioItem value="rounded-full">full</RadioItem>
@@ -116,19 +124,13 @@
 					<label>
 						<span>Background</span>
 						<select name="background" id="background" bind:value={propBackground}>
-							<option value="bg-primary-500">bg-primary-500</option>
-							<option value="bg-secondary-500">bg-secondary-500</option>
-							<option value="bg-tertiary-500">bg-tertiary-500</option>
-							<option value="bg-warning-500">bg-warning-500</option>
-							<option value="bg-surface-500">bg-surface-500</option>
-						</select>
-					</label>
-					<!-- navigateOnClick -->
-					<label>
-						<span>Navigate on Click</span>
-						<select name="navigateOnClick" id="navigateOnClick" bind:value={propNavigateOnClick}>
-							<option value="disabled">disabled</option>
-							<option value="unlocked">unlocked</option>
+							<option value="bg-primary-500 text-on-primary-token">bg-primary-500</option>
+							<option value="bg-secondary-500 text-on-secondary-token">bg-secondary-500</option>
+							<option value="bg-tertiary-500 text-on-tertiary-token">bg-tertiary-500</option>
+							<option value="bg-success-500 text-on-success-token">bg-success-500</option>
+							<option value="bg-warning-500 text-on-warning-token">bg-warning-500</option>
+							<option value="bg-error-500 text-on-error-token">bg-error-500</option>
+							<option value="bg-surface-500 text-on-surface-token">bg-surface-500</option>
 						</select>
 					</label>
 				</div>

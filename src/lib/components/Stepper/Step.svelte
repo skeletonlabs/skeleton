@@ -30,7 +30,7 @@
 	export let length: number = getContext('length');
 	export let rounded: string = getContext('rounded');
 	export let duration: number = getContext('duration');
-	export let navigateOnClick: string = getContext('navigateOnClick');
+	export let clickNavigation: boolean = getContext('clickNavigation');
 	export let highestStepReached: Writable<number> = getContext('highestStepReached');
 	// Context (overrides)
 	export let color: string = getContext('color');
@@ -64,8 +64,7 @@
 	// Reactive
 	$: isLastItem = index === length - 1;
 	// clickable & cursor logic
-	// $: isClickable = navigateOnClick === 'enabled' || (navigateOnClick === 'unlocked' && !locked);
-	$: isClickable = navigateOnClick === 'unlocked' && index <= $highestStepReached;
+	$: isClickable = clickNavigation && index <= $highestStepReached;
 	$: classCursor = isClickable ? 'cursor-pointer' : 'cursor-default';
 	$: btnTabindex = isClickable ? 0 : -1;
 	// Base
