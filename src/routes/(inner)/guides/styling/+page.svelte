@@ -106,6 +106,11 @@
 				`<a href="${ghLibPathMaster}/styles/elements/cards.css" target="_blank" rel="noreferrer">cards.css</a>`,
 			],
 			[
+				'<code>elements/chips.css</code>',
+				'<a href="/elements/chips">chips</a>',
+				`<a href="${ghLibPathMaster}/styles/elements/chips.css" target="_blank" rel="noreferrer">chips.css</a>`,
+			],
+			[
 				'<code>elements/lists.css</code>',
 				'<a href="/elements/lists">lists</a>',
 				`<a href="${ghLibPathMaster}/styles/elements/lists.css" target="_blank" rel="noreferrer">lists.css</a>`,

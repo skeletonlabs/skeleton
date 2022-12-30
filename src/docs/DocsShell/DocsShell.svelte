@@ -127,20 +127,19 @@
 			</section>
 
 			<!-- Details -->
-			<!-- TODO: replace w/ chip elements -->
 			<section class="doc-shell-details {regionDetails}">
 				<!-- Imports -->
 				{#if pageSettings.imports?.length}
 					<p class="hidden md:inline-block w-32">Import</p>
 					<div>
-						<button class="chip" on:click={copyImports}>{formatImports()}</button>
+						<button class="chip chip-primary" on:click={copyImports}>{formatImports()}</button>
 					</div>
 				{/if}
 				<!-- Types -->
 				{#if pageSettings.types?.length}
 					<p class="hidden md:inline-block w-32">Types</p>
 					<div>
-						<button class="chip" on:click={copyTypes}>{formatTypes()}</button>
+						<button class="chip chip-primary" on:click={copyTypes}>{formatTypes()}</button>
 					</div>
 				{/if}
 				<!-- Stylesheets -->
@@ -151,13 +150,13 @@
 						<!-- Stylesheet Includes -->
 						{#if pageSettings.stylesheetIncludes?.length}
 							{#each pageSettings.stylesheetIncludes as si}
-								<button class="chip" on:click={() => {copyStylesheet(si)}}>{si}.css</button>
+								<button class="chip chip-primary" on:click={() => {copyStylesheet(si)}}>{si}.css</button>
 							{/each}
 						{/if}
 						<!-- Stylesheets -->
 						{#if pageSettings.stylesheets?.length}
 							{#each pageSettings.stylesheets as s}
-								<button class="chip" on:click={() => {copyStylesheet(s)}}>{s}.css</button>
+								<button class="chip chip-primary" on:click={() => {copyStylesheet(s)}}>{s}.css</button>
 							{/each}
 						{/if}
 					</div>

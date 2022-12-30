@@ -9,11 +9,11 @@
 
 	/* === Labels === */
 
-	label {
+	label:not(.unstyled) {
 		@apply block overflow-visible;
 	}
-	label span,
-	legend {
+	label:not(.unstyled) span,
+	legend:not(.unstyled) {
 		@apply block text-surface-700 dark:text-surface-300 text-sm mb-2;
 	}
 
@@ -26,22 +26,23 @@
 	}
 
 	/* Inputs */
-	[type='text'],
-	[type='email'],
-	[type='url'],
-	[type='password'],
-	[type='number'],
-	[type='date'],
-	[type='datetime-local'],
-	[type='month'],
-	[type='search'],
-	[type='tel'],
-	[type='time'],
-	[type='week'],
-	[type='file'],
-	[multiple],
-	textarea,
-	select {
+	[type='text']:not(.unstyled),
+	[type='email']:not(.unstyled),
+	[type='url']:not(.unstyled),
+	[type='password']:not(.unstyled),
+	[type='number']:not(.unstyled),
+	[type='date']:not(.unstyled),
+	[type='datetime-local']:not(.unstyled),
+	[type='month']:not(.unstyled),
+	[type='search']:not(.unstyled),
+	[type='tel']:not(.unstyled),
+	[type='time']:not(.unstyled),
+	[type='week']:not(.unstyled),
+	[type='file']:not(.unstyled),
+	[multiple]:not(.unstyled),
+	textarea:not(.unstyled),
+	select:not(.unstyled),
+	.input-chip {
 		/* Base */
 		@apply w-full caret-secondary-500 focus:ring-secondary-500 transition-all duration-200 hover:brightness-110;
 		/* Text */
@@ -49,18 +50,16 @@
 		/* Background */
 		@apply bg-surface-200-700-token;
 		/* Border */
-		@apply border-surface-400-500-token focus:border-secondary-500;
+		@apply border-token border-surface-400-500-token focus:border-secondary-500;
 		/* Shadow */
 		@apply shadow-sm;
-		/* Theme: Border Width */
-		@apply border-token;
 		/* Theme: Rounded */
 		@apply rounded-token;
 	}
 
 	.file-dropzone-input,
-	[multiple],
-	textarea {
+	[multiple]:not(.unstyled),
+	textarea:not(.unstyled) {
 		/* Theme: Rounded */
 		@apply rounded-container-token;
 	}
@@ -104,36 +103,36 @@
 
 	/* Valid */
 	.input-valid {
-		@apply !bg-green-200 !border-green-500 !text-green-500;
+		@apply !bg-success-200 !border-success-500 !text-success-700;
 	}
 	.input-valid::-moz-placeholder,
 	textarea::-moz-placeholder {
-		@apply text-green-500;
+		@apply text-success-700;
 	}
 	.input-valid:-ms-input-placeholder,
 	textarea:-ms-input-placeholder {
-		@apply text-green-500;
+		@apply text-success-700;
 	}
 	.input-valid::placeholder,
 	textarea::placeholder {
-		@apply text-green-500;
+		@apply text-success-700;
 	}
 
 	/* Invalid */
 	.input-invalid {
-		@apply !bg-red-200 !border-red-500 !text-red-500;
+		@apply !bg-error-200 !border-error-500 !text-error-500;
 	}
 	.input-invalid::-moz-placeholder,
 	textarea::-moz-placeholder {
-		@apply text-red-500;
+		@apply text-error-500;
 	}
 	.input-invalid:-ms-input-placeholder,
 	textarea:-ms-input-placeholder {
-		@apply text-red-500;
+		@apply text-error-500;
 	}
 	.input-invalid::placeholder,
 	textarea::placeholder {
-		@apply text-red-500;
+		@apply text-error-500;
 	}
 
 	/* === Placeholders === */

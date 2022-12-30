@@ -43,10 +43,10 @@
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
-		<div class="space-y-4">
+		<section class="space-y-4">
 			<h2>Title</h2>
 			<p>Describe how to use the feature.</p>
 			<CodeBlock language="html" code={`(code)`} />
-		</div>
+		</section>
 	</svelte:fragment>
 </DocsShell>
