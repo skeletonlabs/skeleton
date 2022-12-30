@@ -150,7 +150,7 @@
 		>
 			<!-- Modal -->
 			<div
-				class="modal max-h-screen overflow-auto {classesModal} {$modalStore[0].classes}"
+				class="modal max-h-screen overflow-auto mt-4 {classesModal} {$modalStore[0].classes}"
 				transition:fly={{ duration, opacity: 0, y: 100 }}
 				use:focusTrap={true}
 				data-testid="modal"
