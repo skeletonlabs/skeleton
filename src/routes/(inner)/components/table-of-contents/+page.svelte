@@ -56,21 +56,22 @@
 							<th>Description</th>
 						</tr>
 					</thead>
+					<!-- prettier-ignore -->
 					<tbody>
 						<tr>
 							<td><code>container</code></td>
-							<td>"main", "#page", ...</td>
-							<td>Query selector for the scrollable container element.</td>
+							<td>"#page"</td>
+							<td><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector" target="_blank" rel="noreferrer">Query selector</a> for the scrollable container element.</td>
 						</tr>
 						<tr>
 							<td><code>target</code></td>
-							<td>"main", "#page-content", ...</td>
-							<td>Query selector for the element to scan for headings.</td>
+							<td>"#page-content"</td>
+							<td><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector" target="_blank" rel="noreferrer">Query selector</a> for the element to scan for headings.</td>
 						</tr>
 						<tr>
-							<td><code>queryElements</code></td>
+							<td><code>allowedHeadings</code></td>
 							<td>'h2, h3'</td>
-							<td>The whitelist of accepted headings, from H2 to H6.</td>
+							<td><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector" target="_blank" rel="noreferrer">Query selector</a> for the allowed headings. From H2-H6.</td>
 						</tr>
 					</tbody>
 				</table>

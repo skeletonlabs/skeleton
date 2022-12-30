@@ -6,8 +6,8 @@
 	export let container: string = '#page';
 	/** Query selector for the element to scan for headings. */
 	export let target: string = '#page-content';
-	/** The whitelist of accepted headings, from H2 to H6. */
-	export let queryElements: string = 'h2, h3';
+	/** Query selector for the allowed headings. From H2-H6. */
+	export let allowedHeadings: string = 'h2, h3';
 	/** Set the label text. */
 	export let label: string = 'On This Page';
 	/** Must have more than this many headings to be shown. */
@@ -66,7 +66,7 @@
 	// Lifecycle
 	onMount(() => {
 		const elemContainer = document.querySelector(target);
-		const elemHeadersList: any = elemContainer?.querySelectorAll(queryElements);
+		const elemHeadersList: any = elemContainer?.querySelectorAll(allowedHeadings);
 		// Select only relevant headings
 		elemHeadersList?.forEach((elem: HTMLElement, i: number) => {
 			// Skip if ignore attribute set
