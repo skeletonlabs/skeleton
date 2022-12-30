@@ -115,7 +115,6 @@
 		</tfoot>
 	</table>
 </div>
-</div>
 `}
 			/>
 

@@ -2,34 +2,50 @@
 	import { onMount } from 'svelte';
 
 	// Props (settings)
+	/** Query selector for the scrollable container element. */
+	export let container: string = '#page';
+	/** Query selector for the element to scan for headings. */
+	export let target: string = '#page-content';
+	/** The whitelist of accepted headings, from H2 to H6. */
+	export let queryElements: string = 'h2, h3';
 	/** Set the label text. */
 	export let label: string = 'On This Page';
-	/** Set the accepted headings from H2 to H6. */
-	export let queryElements: string = 'h2, h3';
-	/** The Scrollable page element. */
-	export let container: string = '#page';
-	/** The target element that contains headings. */
-	export let target: string = '#page';
 	/** Must have more than this many headings to be shown. */
 	export let minimumHeadings: number = 0;
 	/** The scroll offset in pixels. */
-	export let scrollOffset: number = -100;
+	export let scrollOffset: number = 0;
+
+	// Props (styles)
+	/** Set the component width style. */
+	export let width: string = 'w-[200px]';
+	/** Set the vertical spacing styles. */
+	export let spacing: string = 'space-y-4';
+	/** Set the row text color styles. */
+	export let text: string = 'text-surface-600-300-token';
+	/** Set the row hover styles. */
+	export let hover: string = 'hover:bg-primary-hover-token';
+	/** Set the row border radius styles. */
+	export let rounded: string = 'rounded-token';
+
+	// Props Regions
+	/** Provide arbitrary styles for the label element. */
+	export let regionLabel: string = 'font-bold';
+	/** Provide arbitrary styles for the list element. */
+	export let regionList: string = 'list-none';
 
 	// Classes
-	const cBase: string = 'w-[200px] space-y-4';
-	const cLabel: string = 'font-bold p-4 pt-0';
-	const cList: string = 'list-none';
-	const cListItem: string = 'px-4 py-2 text-surface-600-300-token hover:bg-primary-hover-token rounded-token cursor-pointer';
+	const cLabel: string = 'p-4 pt-0';
+	const cListItem: string = 'px-4 py-2 cursor-pointer';
 
 	// Local
 	let headings: any = [];
 
 	// Sets the indentation amount per heading
 	function setHeadingClasses(headingElem: HTMLElement): string {
-		if (headingElem.tagName === 'H3') return 'ml-4';
-		if (headingElem.tagName === 'H4') return 'ml-8';
-		if (headingElem.tagName === 'H5') return 'ml-12';
-		if (headingElem.tagName === 'H6') return 'ml-16';
+		if (headingElem.tagName === 'H3') return 'ml-3';
+		if (headingElem.tagName === 'H4') return 'ml-6';
+		if (headingElem.tagName === 'H5') return 'ml-9';
+		if (headingElem.tagName === 'H6') return 'ml-12';
 		return '';
 	}
 
@@ -71,10 +87,10 @@
 	});
 
 	// Reactive
-	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
-	$: classesLabel = `${cLabel}`;
-	$: classesList = `${cList}`;
-	$: classesListItem = `${cListItem}`;
+	$: classesBase = `${width} ${spacing} ${$$props.class ?? ''}`;
+	$: classesLabel = `${cLabel} ${regionLabel}`;
+	$: classesList = `${regionList}`;
+	$: classesListItem = `${cListItem} ${text} ${hover} ${rounded}`;
 </script>
 
 <!-- @component Allows you to quickly navigate the hierarchy of headings for the current page. -->
@@ -88,6 +104,7 @@
 				<li
 					class="toc-list-item {classesListItem} {setHeadingClasses(headingElem)}"
 					on:click={() => { scrollToHeading(headingElem, i); }}
+					on:click
 					on:keypress
 				>
 					{headingElem.innerText}

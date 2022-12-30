@@ -237,7 +237,7 @@
 								</div>
 							</div>
 						{/if}
-						<div id="table-of-contents-target" class={spacing}>
+						<div id="toc-target" class={spacing}>
 							<!-- Slot: Usage -->
 							{#if $$slots.usage}
 								<div>
@@ -255,7 +255,7 @@
 					</div>
 					<!-- Table of Contents -->
 					<div class="hidden xl:block ml-4">
-						<TableOfContents target="#table-of-contents-target" minimumHeadings={1} />
+						<TableOfContents target="#toc-target" minimumHeadings={1} scrollOffset={-90} />
 					</div>
 				</div>
 			</div>
