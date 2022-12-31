@@ -13,8 +13,7 @@
 	import sveldAccordionGroup from '$lib/components/Accordion/AccordionGroup.svelte?raw&sveld';
 	// @ts-expect-error sveld import
 	import sveldAccordionItem from '$lib/components/Accordion/AccordionItem.svelte?raw&sveld';
-	import Autocomplete from '$lib/components/Autocomplete/Autocomplete.svelte';
-	import type { AutocompleteConfig, AutocompleteOptions } from '$lib/components/Autocomplete/types';
+	import Autocomplete from '$lib/components/Autocompletev2/Autocomplete.svelte';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -62,18 +61,13 @@
 			value: 'GOLD'
 		}
 	];
-
-	const autocompleteOptions: AutocompleteOptions = {
-		labelField: 'name',
-		valueField: 'value'
-	};
 </script>
 
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="card p-4">
-			<Autocomplete {items} options={autocompleteOptions} />
+			<Autocomplete {items} labelField={'name'} valueField={'value'} />
 		</section>
 	</svelte:fragment>
 

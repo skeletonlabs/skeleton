@@ -42,7 +42,8 @@
 	[multiple]:not(.unstyled),
 	textarea:not(.unstyled),
 	select:not(.unstyled),
-	.input-chip {
+	.input-chip,
+	.autocomplete-input {
 		/* Base */
 		@apply w-full caret-secondary-500 focus:ring-secondary-500 transition-all duration-200 hover:brightness-110;
 		/* Text */
