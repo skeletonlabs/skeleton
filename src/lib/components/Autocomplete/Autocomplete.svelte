@@ -220,6 +220,9 @@
 	$: console.log('Selected List Items: ', selectedListItems);
 
 	function navigateDropdown(e: KeyboardEvent) {
+		if (typeof highlightIndex !== 'number') {
+			return;
+		}
 		if (e.key === 'ArrowDown' && highlightIndex <= filteredListItems.length - 1) {
 			highlightIndex === null ? (highlightIndex = 0) : highlightIndex++;
 		} else if (e.key === 'ArrowUp' && highlightIndex !== null) {
