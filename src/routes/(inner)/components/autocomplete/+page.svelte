@@ -13,7 +13,7 @@
 	import sveldAccordionGroup from '$lib/components/Accordion/AccordionGroup.svelte?raw&sveld';
 	// @ts-expect-error sveld import
 	import sveldAccordionItem from '$lib/components/Accordion/AccordionItem.svelte?raw&sveld';
-	import Autocomplete from '$lib/components/Autocompletev2/Autocomplete.svelte';
+	import Autocomplete from '$lib/components/Autocomplete/Autocomplete.svelte';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -66,8 +66,20 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="card p-4">
-			<Autocomplete {items} labelField={'name'} valueField={'value'} />
+		<section class="space-y-4">
+			<div class="card p-4 space-y-4">
+				<p>Single select autocomplete:</p>
+				<Autocomplete {items} labelField={'name'} valueField={'value'} />
+			</div>
+
+			<div class="card p-4 space-y-4">
+				<p>Multiple select autocomplete that doesn't allow duplicates:</p>
+				<Autocomplete {items} labelField={'name'} valueField={'value'} multiple={true} allowDuplicates={false} />
+			</div>
+			<div class="card p-4 space-y-4">
+				<p>Multiple select autocomplete that allows duplicates:</p>
+				<Autocomplete {items} labelField={'name'} valueField={'value'} multiple={true} allowDuplicates={true} />
+			</div>
 		</section>
 	</svelte:fragment>
 
