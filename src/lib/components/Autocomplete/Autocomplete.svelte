@@ -78,6 +78,10 @@
 		return valueField ? item[valueField] : item;
 	};
 
+	export let stringFunction = function (item: any) {
+		return item.toString();
+	};
+
 	function search() {
 		constructListItems(items);
 		opened = true;
@@ -154,16 +158,26 @@
 	}
 
 	function constructListItem(item: any): ListItem {
-		return {
-			/** Keyword representation of the item*/
-			keywords: safeKeywordsFunction(item),
-			/** Label representation of the item */
-			label: safeLabelFunction(item),
-			/** Value representation of the item */
-			value: valueFunction(item),
-			/** The original item */
-			item: item
-		};
+		if (typeof item === 'object') {
+			return {
+				/** Keyword representation of the item*/
+				keywords: safeKeywordsFunction(item),
+				/** Label representation of the item */
+				label: safeLabelFunction(item),
+				/** Value representation of the item */
+				value: valueFunction(item),
+				/** The original item */
+				item: item
+			};
+		} else {
+			const itemValue = safeStringFunction(stringFunction, item);
+			return {
+				keywords: itemValue.toLowerCase(),
+				label: itemValue,
+				value: itemValue,
+				item: item
+			};
+		}
 	}
 
 	function setInputValue(item: ListItem) {
@@ -220,9 +234,6 @@
 	$: console.log('Selected List Items: ', selectedListItems);
 
 	function navigateDropdown(e: KeyboardEvent) {
-		if (typeof highlightIndex !== 'number') {
-			return;
-		}
 		if (e.key === 'ArrowDown' && highlightIndex <= filteredListItems.length - 1) {
 			highlightIndex === null ? (highlightIndex = 0) : highlightIndex++;
 		} else if (e.key === 'ArrowUp' && highlightIndex !== null) {

@@ -34,7 +34,7 @@
 		]
 	};
 
-	export let items = [
+	let items = [
 		{
 			id: 1,
 			name: 'Red',
@@ -61,6 +61,7 @@
 			value: 'GOLD'
 		}
 	];
+	let simpleArr = ['Donkey', 'Cow', 'Llama', 'Pig', 'Horse', 'Chicken'];
 </script>
 
 <DocsShell {settings}>
@@ -69,16 +70,16 @@
 		<section class="space-y-4">
 			<div class="card p-4 space-y-4">
 				<p>Single select autocomplete:</p>
-				<Autocomplete {items} labelField={'name'} valueField={'value'} />
+				<Autocomplete items={simpleArr} labelField={'name'} valueField={'value'} />
 			</div>
 
 			<div class="card p-4 space-y-4">
 				<p>Multiple select autocomplete that doesn't allow duplicates:</p>
-				<Autocomplete {items} labelField={'name'} valueField={'value'} multiple={true} allowDuplicates={false} />
+				<Autocomplete items={simpleArr} labelField={'name'} valueField={'value'} multiple={true} allowDuplicates={false} />
 			</div>
 			<div class="card p-4 space-y-4">
 				<p>Multiple select autocomplete that allows duplicates:</p>
-				<Autocomplete {items} labelField={'name'} valueField={'value'} multiple={true} allowDuplicates={true} />
+				<Autocomplete items={simpleArr} labelField={'name'} valueField={'value'} multiple={true} allowDuplicates={true} />
 			</div>
 		</section>
 	</svelte:fragment>
