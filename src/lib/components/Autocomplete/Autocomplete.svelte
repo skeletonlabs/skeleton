@@ -172,10 +172,15 @@
 		searchInput.focus();
 		if (multiple) {
 			inputValue = '';
-			if (!allowDuplicates && selectedListItems.length > 0) {
-				for (let i = 0; i < selectedListItems.length; i++) {
-					if (selectedListItems[i].value === item.value) {
-						return;
+			if (!allowDuplicates) {
+				if (selectedListItems.length === 0) {
+					selectedListItems = [...selectedListItems, item];
+					return;
+				} else {
+					for (let i = 0; i < selectedListItems.length; i++) {
+						if (selectedListItems[i].value === item.value) {
+							return;
+						}
 					}
 				}
 			}
@@ -334,9 +339,8 @@
 		@apply rounded-lg my-0.5;
 	}
 
-	li.autocomplete-items:hover {
-		background-color: green;
-		color: white;
+	li.autocomplete-items {
+		@apply hover:bg-primary-500 hover:text-white !important;
 	}
 
 	li.autocomplete-items:active {
