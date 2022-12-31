@@ -1,8 +1,15 @@
 <script lang="ts">
-	import { createEventDispatcher, set_input_value } from 'svelte/internal';
+	import { createEventDispatcher } from 'svelte/internal';
 
 	// Event dispatcher
 	const dispatch = createEventDispatcher();
+
+	interface ListItem {
+		label: string;
+		keywords: string;
+		item: unknown;
+		value: unknown;
+	}
 
 	// Props (styles)
 	/** Provide chip styles. */
@@ -27,7 +34,15 @@
 	/** Optionally provide object field to be used as the value. */
 	export let valueField: string = '';
 	/** Optionally provide a keyword field to be used to search */
-	export let keywordField: string = labelField;
+	export let keywordsField: string = labelField;
+	/** Optionally provide a placeholder. */
+	export let placeholder: string = '';
+	/** Allow duplicate selections */
+	export let allowDuplicates: boolean = false;
+	/** Allow multiple selections */
+	export let multiple: boolean = false;
+	/** Convert keywords to lowercase */
+	export let lowercaseKeywords: boolean = true;
 
 	// Classes
 	const cBase = 'unstyled border-token flex flex-wrap gap-2 items-center';
@@ -35,41 +50,146 @@
 	const cInput = 'unstyled flex-auto border-transparent bg-transparent text-base px-1 py-0 focus:border-transparent min-h-[30px]';
 
 	let searchInput: HTMLInputElement;
-	let inputValue = '';
+	let inputValue: string = '';
 	let filteredItems: any[] = [];
-	let selectedItems: any[] = [];
+	let listItems: ListItem[] = [];
+	let filteredListItems: ListItem[] = [];
+	let selectedListItems: ListItem[] = [];
+
+	export let labelFunction = function (item: Record<PropertyKey, unknown>) {
+		if (item === undefined || item === null) {
+			return '';
+		}
+		return labelField ? item[labelField] : item;
+	};
+
+	export let keywordsFunction = function (item: Record<PropertyKey, unknown>) {
+		if (item === undefined || item === null) {
+			return '';
+		}
+		return keywordsField ? item[keywordsField] : labelFunction(item);
+	};
+
+	export let valueFunction = function (item: Record<PropertyKey, unknown>) {
+		if (item === undefined || item === null) {
+			return item;
+		}
+		return valueField ? item[valueField] : item;
+	};
 
 	function search() {
+		constructListItems(items);
+
 		let tempItems: any[] = [];
+
 		if (inputValue) {
-			items.forEach((item) => {
-				if (item[keywordField].toLowerCase().includes(inputValue.toLowerCase())) {
+			listItems.forEach((item) => {
+				if (item.keywords.includes(inputValue.toLowerCase())) {
 					tempItems = [...tempItems, item];
 				}
 			});
 		}
-		filteredItems = tempItems;
+		filteredListItems = tempItems;
 	}
 
-	function setInputValue(item) {
-		inputValue = item[labelField];
-		filteredItems = [];
+	function safeFunction(fn: Function, arg: any) {
+		if (typeof fn !== 'function') {
+			console.error(`Not a function: ${fn}, argument: ${arg}`);
+			return undefined;
+		}
+
+		let result;
+
+		try {
+			result = fn(arg);
+		} catch (err) {
+			console.warn(`Error executing function: ${fn} with argument: ${arg}`);
+		}
+		return result;
+	}
+
+	function safeStringFunction(fn: Function, arg: any) {
+		let result = safeFunction(fn, arg);
+		if (result === undefined || result === null) {
+			return '';
+		}
+		if (typeof result !== 'string') {
+			result = result.toString();
+		}
+		return result;
+	}
+
+	function safeLabelFunction(item: unknown) {
+		return safeStringFunction(labelFunction, item);
+	}
+
+	function safeKeywordsFunction(item: unknown) {
+		const keywords = safeStringFunction(keywordsFunction, item);
+		let result = lowercaseKeywords ? keywords.toLowerCase().trim() : keywords;
+
+		return result;
+	}
+
+	function constructListItems(items: any[]) {
+		if (!Array.isArray(items)) {
+			console.warn('Autocomplete must be an array, but received:', items);
+			items = [];
+		}
+
+		const length = items ? items.length : 0;
+
+		listItems = new Array(length);
+
+		if (length > 0) {
+			items.forEach((item, idx) => {
+				const listItem = constructListItem(item);
+				if (listItem === undefined) {
+					console.warn(`Undefined item for: ${item}`);
+				}
+				listItems[idx] = listItem;
+			});
+		}
+	}
+
+	function constructListItem(item: any): ListItem {
+		return {
+			/** Keyword representation of the item*/
+			keywords: safeKeywordsFunction(item),
+			/** Label representation of the item */
+			label: safeLabelFunction(item),
+			/** Value representation of the item */
+			value: valueFunction(item),
+			/** The original item */
+			item: item
+		};
+	}
+
+	function setInputValue(item: ListItem) {
+		filteredListItems = [];
 		highlightIndex = null;
 		searchInput.focus();
-		inputValue = '';
-		selectedItems = [...selectedItems, item];
+		if (multiple) {
+			inputValue = '';
+			if (!allowDuplicates) {
+				for (let i = 0; i < selectedListItems.length; i++) {
+					if (selectedListItems[i].value === item.value) {
+						return;
+					}
+				}
+			}
+			selectedListItems = [...selectedListItems, item];
+		}
+		inputValue = item.label;
+
+		selectedListItems = [item];
 	}
 
-	function removeSelectedItem(item) {
-		selectedItems = selectedItems.filter((i) => i !== item);
+	function removeSelectedItem(index: number) {
+		selectedListItems = selectedListItems.filter((item, idx) => idx !== index);
 	}
-
-	// function selectItem(item) {
-	// 	// need to handle some parsing and config options here:
-	// }
 
 	// Handling input
-	let highlightIndex = null;
+	let highlightIndex: number | null = null;
 
 	function prunedRestProps(): any {
 		delete $$restProps.class;
@@ -86,16 +206,15 @@
 		highlightIndex = null;
 	}
 
-	$: highlightedItem = filteredItems[highlightIndex];
-	$: console.log(selectedItems);
+	$: console.log(selectedListItems);
 
-	function navigateDropdown(e) {
-		if (e.key === 'ArrowDown' && highlightIndex <= filteredItems.length - 1) {
+	function navigateDropdown(e: KeyboardEvent) {
+		if (e.key === 'ArrowDown' && highlightIndex <= filteredListItems.length - 1) {
 			highlightIndex === null ? (highlightIndex = 0) : highlightIndex++;
 		} else if (e.key === 'ArrowUp' && highlightIndex !== null) {
 			highlightIndex === 0 ? (highlightIndex = filteredItems.length - 1) : highlightIndex--;
 		} else if (e.key === 'Enter') {
-			setInputValue(filteredItems[highlightIndex]);
+			setInputValue(filteredListItems[highlightIndex]);
 		} else {
 			return;
 		}
@@ -106,18 +225,20 @@
 
 <div class="autocomplete-input {classesBase} autocomplete">
 	<select class="autocomplete-select">
-		{#each selectedItems as items}
-			<option value={items[valueField]}>{items[labelField]}</option>
+		{#each selectedListItems as item}
+			<option value={item.value}>{item.label}</option>
 		{/each}
 	</select>
 	{#if label}<span class={cLabel}>{label}</span>{/if}
-	{#each selectedItems as listItem, i}
-		<!-- prettier-ignore -->
-		<span class="chip {classesChip} mr-1" on:click={() => removeSelectedItem(listItem)}>
-			<span>{listItem[labelField]}</span>
+	{#if multiple}
+		{#each selectedListItems as listItem, i}
+			<!-- prettier-ignore -->
+			<span class="chip {classesChip} mr-1" on:click={() => removeSelectedItem(i)} on:keypress={() => false}>
+			<span>{listItem.label}</span>
 			<span>✕</span>
 		</span>
-	{/each}
+		{/each}
+	{/if}
 	<input
 		type="text"
 		bind:this={searchInput}
@@ -126,11 +247,17 @@
 		class="input-chip-field {classesInput}"
 		tabindex="0"
 		{...prunedRestProps()}
+		{placeholder}
 	/>
-	<ul class="autocomplete-items-list">
-		{#each filteredItems as item, i}
-			<li class="autocomplete-items" class:autocomplete-active={i === highlightIndex} on:click={setInputValue(item)}>
-				{@html item[labelField]}
+	<ul class="autocomplete-items-list" class:autocomplete-hidden={filteredListItems.length === 0}>
+		{#each filteredListItems as item, i}
+			<li
+				class="autocomplete-items"
+				class:autocomplete-active={i === highlightIndex}
+				on:click={() => setInputValue(item)}
+				on:keypress={() => false}
+			>
+				{@html item.label}
 			</li>
 		{/each}
 	</ul>
@@ -144,16 +271,20 @@
 	}
 
 	.autocomplete-items-list {
-		position: relative;
+		position: absolute;
 		margin: 0;
 		padding: 0;
-		top: 0;
+		top: 110%;
+		right: 0;
 		width: 100%;
+
+		@apply bg-surface-500 rounded-lg p-1;
+		z-index: 10000;
 	}
 
 	li.autocomplete-items {
 		list-style: none;
-		z-index: 99;
+		z-index: 10000;
 		top: 100%;
 		left: 0;
 		right: 0;
@@ -161,16 +292,20 @@
 		cursor: pointer;
 		background-color: inherit;
 		color: inherit;
+
+		@apply rounded-lg my-0.5;
 	}
 
 	li.autocomplete-items:hover {
 		background-color: green;
 		color: white;
+		z-index: 10000;
 	}
 
 	li.autocomplete-items:active {
 		background-color: dodgerblue !important;
 		color: white;
+		z-index: 10000;
 	}
 
 	.autocomplete-active {
@@ -179,6 +314,10 @@
 	}
 
 	.autocomplete-select {
+		display: none;
+	}
+
+	.autocomplete-hidden {
 		display: none;
 	}
 </style>
