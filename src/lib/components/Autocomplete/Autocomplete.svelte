@@ -11,31 +11,6 @@
 		value: unknown;
 	}
 
-	interface AutocompleteConfig {
-		/** Optionally add a lable to the input */
-		label?: string;
-		/** Optionally provide object field to be used as the label. */
-		labelField?: string;
-		/** Optionally provide object field to be used as the value. */
-		valueField?: string;
-		/** Optionally provide a keyword field to be used to search */
-		keywordsField?: string;
-		/** Optionally provide a placeholder. */
-		placeholder?: string;
-		/** Allow duplicate selections */
-		allowDuplicates?: boolean;
-		/** Allow multiple selections */
-		multiple?: boolean;
-		/** Convert keywords to lowercase */
-		lowercaseKeywords?: boolean;
-		/** Provide custom external search function */
-		searchFunction?: any;
-		/** Optionally provide a minimum number of characters to search */
-		minCharactersToSearch?: number;
-		/** Optionally provide the maximum number of dropdown items to show */
-		maxItemsToShowInList?: number;
-	}
-
 	// Props (styles)
 	/** Provide chip styles. */
 	export let chip: string = `chip-primary`;
@@ -71,9 +46,11 @@
 	/** Provide custom external search function */
 	export let searchFunction: any = false;
 	/** Optionally provide a minimum number of characters to search */
-	export let minCharactersToSearch: number = 0;
+	export let minCharactersToSearch: number = 2;
 	/** Optionally provide the maximum number of dropdown items to show */
 	export let maxItemsToShowInList: number = 0;
+	/** Optionally provide the delay between stopped typing and search */
+	export let delay: number = 200;
 
 	// Classes
 	const cBase = 'unstyled border-token flex flex-wrap gap-2 items-center';
@@ -91,6 +68,7 @@
 
 	let lastRequestId: number = 0;
 	let lastResponseId: number = 0;
+	let inputDelayTimeout: NodeJS.Timeout;
 
 	export let labelFunction = function (item: Record<PropertyKey, unknown>) {
 		if (item === undefined || item === null) {
@@ -125,6 +103,7 @@
 
 		if (minCharactersToSearch > 1 && currentInputValue.length < minCharactersToSearch) {
 			currentInputValue = '';
+			return;
 		}
 
 		// If no search text -> load all items
@@ -165,7 +144,8 @@
 
 			// searchFunction is a regular function
 			else {
-				let result = await searchFunction(currentInputValue, maxItemsToShowInList);
+				console.log('running search function');
+				let result = await searchFunction(currentInputValue);
 
 				// If a response to a newer request has been received
 				// while responses to this request were being loaded,
@@ -177,6 +157,12 @@
 				lastResponseId = currentRequestId;
 				items = result;
 				constructListItems(items);
+				listItems.forEach((item) => {
+					if (item.keywords.includes(inputValue.toLowerCase())) {
+						tempItems = [...tempItems, item];
+					}
+				});
+				filteredListItems = [...tempItems];
 			}
 
 			loading = false;
@@ -296,7 +282,7 @@
 	}
 
 	// Handling input
-	let highlightIndex: number | null = null;
+	let highlightIndex: any;
 
 	function prunedRestProps(): any {
 		delete $$restProps.class;
@@ -328,6 +314,19 @@
 		}
 	}
 
+	function onInput() {
+		console.log('on input');
+		if (inputDelayTimeout) {
+			clearTimeout(inputDelayTimeout);
+		}
+
+		if (delay) {
+			inputDelayTimeout = setTimeout(search, delay);
+		} else {
+			search();
+		}
+	}
+
 	function navigateDropdown(e: KeyboardEvent) {
 		if (e.key === 'ArrowDown' && highlightIndex <= filteredListItems.length - 1) {
 			highlightIndex === null ? (highlightIndex = 0) : highlightIndex++;
@@ -338,6 +337,10 @@
 			let currentItem = filteredListItems[highlightIndex];
 			setInputValue(currentItem);
 		} else if (e.key === 'Escape') {
+			opened = false;
+		} else if (e.key === 'Tab') {
+			let currentItem = filteredListItems[highlightIndex];
+			setInputValue(currentItem);
 			opened = false;
 		} else {
 			return;
@@ -372,7 +375,7 @@
 			type="text"
 			bind:this={searchInput}
 			bind:value={inputValue}
-			on:input={() => search()}
+			on:input={() => onInput()}
 			on:click={() => search()}
 			on:keydown={(e) => handleKeyDown(e)}
 			class="input-chip-field {classesInput}"
@@ -386,9 +389,7 @@
 					class="autocomplete-items"
 					class:autocomplete-active={i === highlightIndex}
 					on:click={() => setInputValue(item)}
-					on:keypress={(e) => {
-						e.key === 'Enter' && setInputValue(item);
-					}}
+					on:keypress={(e) => handleKeyDown(e)}
 				>
 					{@html item.label}
 				</li>

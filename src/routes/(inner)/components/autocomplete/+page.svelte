@@ -62,6 +62,12 @@
 		}
 	];
 	let simpleArr = ['Donkey', 'Cow', 'Llama', 'Pig', 'Horse', 'Chicken'];
+
+	async function searchMovies(keyword) {
+		const response = await fetch(`https://search.imdbot.workers.dev/?q=${keyword}`);
+		const data = await response.json();
+		return data.description;
+	}
 </script>
 
 <DocsShell {settings}>
@@ -80,6 +86,19 @@
 			<div class="card p-4 space-y-4">
 				<p>Multiple select autocomplete that allows duplicates:</p>
 				<Autocomplete items={simpleArr} labelField={'name'} valueField={'value'} multiple={true} allowDuplicates={true} />
+			</div>
+			<div class="card p-4 space-y-4">
+				<p>Custom Asynchronous Search Function Provided</p>
+				<Autocomplete
+					items={simpleArr}
+					labelField={'#TITLE'}
+					valueField={'#YEAR'}
+					multiple={true}
+					allowDuplicates={true}
+					searchFunction={searchMovies}
+					delay={200}
+					minCharactersToSearch={3}
+				/>
 			</div>
 		</section>
 	</svelte:fragment>
