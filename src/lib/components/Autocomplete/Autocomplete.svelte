@@ -43,6 +43,12 @@
 	export let multiple: boolean = false;
 	/** Convert keywords to lowercase */
 	export let lowercaseKeywords: boolean = true;
+	/** Provide custom external search function */
+	export let searchFunction: any = false;
+	/** Optionally provide a minimum number of characters to search */
+	export let minCharactersToSearch: number = 0;
+	/** Optionally provide the maximum number of dropdown items to show */
+	export let maxItemsToShowInList: number = 0;
 
 	// Classes
 	const cBase = 'unstyled border-token flex flex-wrap gap-2 items-center';
@@ -56,6 +62,10 @@
 	let filteredListItems: ListItem[] = [];
 	let selectedListItems: ListItem[] = [];
 	let opened: boolean = false;
+	let loading: boolean = false;
+
+	let lastRequestId: number = 0;
+	let lastResponseId: number = 0;
 
 	export let labelFunction = function (item: Record<PropertyKey, unknown>) {
 		if (item === undefined || item === null) {
@@ -82,20 +92,70 @@
 		return item.toString();
 	};
 
-	function search() {
-		constructListItems(items);
+	async function search() {
 		opened = true;
 
 		let tempItems: any[] = [];
+		let currentInputValue = inputValue;
 
-		if (inputValue) {
-			listItems.forEach((item) => {
-				if (item.keywords.includes(inputValue.toLowerCase())) {
-					tempItems = [...tempItems, item];
-				}
-			});
+		if (minCharactersToSearch > 1 && currentInputValue.length < minCharactersToSearch) {
+			currentInputValue = '';
 		}
-		filteredListItems = tempItems;
+
+		// If no search text -> load all items
+		if (!searchFunction) {
+			// Internal Search
+			constructListItems(items);
+			if (inputValue) {
+				listItems.forEach((item) => {
+					if (item.keywords.includes(inputValue.toLowerCase())) {
+						tempItems = [...tempItems, item];
+					}
+				});
+			}
+			filteredListItems = tempItems;
+		} else {
+			// External Search
+			lastRequestId = lastRequestId + 1;
+			const currentRequestId = lastRequestId;
+			loading = true;
+
+			// searchFunction is a generator function
+			if (searchFunction.constructor.name === 'AsyncGeneratorFunction') {
+				for await (const chunk of searchFunction(currentInputValue, maxItemsToShowInList)) {
+					if (currentRequestId < lastResponseId) {
+						return false;
+					}
+
+					if (currentRequestId > lastResponseId) {
+						items = [];
+					}
+
+					lastResponseId = currentRequestId;
+
+					items = [...items, ...chunk];
+					constructListItems(items);
+				}
+			}
+
+			// searchFunction is a regular function
+			else {
+				let result = await searchFunction(currentInputValue, maxItemsToShowInList);
+
+				// If a response to a newer request has been received
+				// while responses to this request were being loaded,
+				// then we can just throw away these outdate results.
+				if (currentRequestId < lastResponseId) {
+					return false;
+				}
+
+				lastResponseId = currentRequestId;
+				items = result;
+				constructListItems(items);
+			}
+
+			loading = false;
+		}
 	}
 
 	function safeFunction(fn: Function, arg: any) {
@@ -233,6 +293,16 @@
 	$: console.log('Filtered List Items: ', filteredListItems);
 	$: console.log('Selected List Items: ', selectedListItems);
 
+	function handleKeyDown(e: KeyboardEvent) {
+		if (e.key === 'Backspace') {
+			if (inputValue === '') {
+				removeSelectedItem(selectedListItems.length - 1);
+			}
+		} else {
+			return navigateDropdown(e);
+		}
+	}
+
 	function navigateDropdown(e: KeyboardEvent) {
 		if (e.key === 'ArrowDown' && highlightIndex <= filteredListItems.length - 1) {
 			highlightIndex === null ? (highlightIndex = 0) : highlightIndex++;
@@ -279,7 +349,7 @@
 			bind:value={inputValue}
 			on:input={() => search()}
 			on:click={() => search()}
-			on:keydown={(e) => navigateDropdown(e)}
+			on:keydown={(e) => handleKeyDown(e)}
 			class="input-chip-field {classesInput}"
 			tabindex="0"
 			{...prunedRestProps()}
