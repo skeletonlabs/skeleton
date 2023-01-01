@@ -35,8 +35,7 @@
 	export let valueField: string = '';
 	/** Optionally provide a keyword field to be used to search */
 	export let keywordsField: string = labelField;
-	/** Optionally provide a placeholder. */
-	export let placeholder: string = '';
+
 	/** Allow duplicate selections */
 	export let allowDuplicates: boolean = false;
 	/** Allow multiple selections */
@@ -46,11 +45,27 @@
 	/** Provide custom external search function */
 	export let searchFunction: any = false;
 	/** Optionally provide a minimum number of characters to search */
-	export let minCharactersToSearch: number = 2;
+	export let minCharactersToSearch: number = 0;
 	/** Optionally provide the maximum number of dropdown items to show */
 	export let maxItemsToShowInList: number = 0;
 	/** Optionally provide the delay between stopped typing and search */
 	export let delay: number = 200;
+
+	// Props (Input)
+	/** Optionally provide a placeholder for the input. */
+	export let placeholder: string = '';
+	/** Optionally provide a name for the input. */
+	export let name: string = '';
+	/** Optionally provide a disabled value for the input. */
+	export let disabled: boolean = false;
+	/** Optionally provide a required value for the input. */
+	export let required: boolean = false;
+
+	// Props (Select)
+	/** Optionally provide a name for the select input. */
+	export let selectName: string = '';
+	/** Optionally provide an id for the select input. */
+	export let selectId: string = '';
 
 	// Classes
 	const cBase = 'unstyled border-token flex flex-wrap gap-2 items-center';
@@ -62,7 +77,13 @@
 	let filteredItems: any[] = [];
 	let listItems: ListItem[] = [];
 	let filteredListItems: ListItem[] = [];
+
 	let selectedListItems: ListItem[] = [];
+
+	export let value: any = '';
+	export let selectedItems: any = [];
+	export let selectedValues: any = [];
+
 	let opened: boolean = false;
 	let loading: boolean = false;
 
@@ -299,6 +320,8 @@
 		highlightIndex = null;
 	}
 
+	$: selectedItems = selectedListItems.map((item) => item.item);
+	$: selectedValues = selectedListItems.map((item) => item.value);
 	// $: console.log(selectedListItems);
 	$: console.log('Highlight Index: ', highlightIndex);
 	$: console.log('Filtered List Items: ', filteredListItems);
@@ -357,9 +380,9 @@
 		</div>
 	{/if}
 	<div class="autocomplete-input {classesBase} autocomplete">
-		<select class="autocomplete-select">
+		<select class="autocomplete-select" name={selectName} id={selectId} {multiple}>
 			{#each selectedListItems as item}
-				<option value={item.value}>{item.label}</option>
+				<option value={item.value} selected>{item.label}</option>
 			{/each}
 		</select>
 		{#if multiple}

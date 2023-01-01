@@ -63,11 +63,24 @@
 	];
 	let simpleArr = ['Donkey', 'Cow', 'Llama', 'Pig', 'Horse', 'Chicken'];
 
+	let selectedMoviesItems: any[] = [];
+	let selectedMoviesValues: any[] = [];
+	let selectedMoviesLabels: any[] = [];
+	let selectedFarmAnimal: any[] = [];
+	let selectedColorsItems: any[] = [];
+	let selectedColorsNames: any[] = [];
+	let selectedColorsValues: any[] = [];
+	let selectedColorsItemsTwo: any[] = [];
+	let selectedColorsNamesTwo: any[] = [];
+	let selectedColorsValuesTwo: any[] = [];
+
 	async function searchMovies(keyword) {
 		const response = await fetch(`https://search.imdbot.workers.dev/?q=${keyword}`);
 		const data = await response.json();
 		return data.description;
 	}
+
+	$: selectedMoviesLabels = selectedMoviesItems.map((item) => item['#TITLE']);
 </script>
 
 <DocsShell {settings}>
@@ -76,29 +89,41 @@
 		<section class="space-y-4">
 			<div class="card p-4 space-y-4">
 				<p>Single select autocomplete:</p>
-				<Autocomplete items={simpleArr} labelField={'name'} valueField={'value'} />
+				<Autocomplete items={simpleArr} labelField={'name'} valueField={'value'} bind:selectedValues={selectedFarmAnimal} />
+				<code class="block">Selected Farm Animal: {selectedFarmAnimal.length ? selectedFarmAnimal : 'No items selected.'}</code>
 			</div>
 
 			<div class="card p-4 space-y-4">
 				<p>Multiple select autocomplete that doesn't allow duplicates:</p>
-				<Autocomplete items={simpleArr} labelField={'name'} valueField={'value'} multiple={true} allowDuplicates={false} />
+				<Autocomplete {items} labelField={'name'} valueField={'value'} multiple={true} allowDuplicates={false} />
+				<code class="block">Selected Color Items: {selectedColorsItems.length ? selectedColorsItems : 'No items selected.'}</code>
+				<code class="block">Selected Color Names: {selectedColorsNames.length ? selectedColorsNames : 'No titles selected.'}</code>
+				<code class="block">Selected Color Values: {selectedColorsValues.length ? selectedColorsValues : 'No values selected.'}</code>
 			</div>
 			<div class="card p-4 space-y-4">
 				<p>Multiple select autocomplete that allows duplicates:</p>
-				<Autocomplete items={simpleArr} labelField={'name'} valueField={'value'} multiple={true} allowDuplicates={true} />
+				<Autocomplete {items} labelField={'name'} valueField={'value'} multiple={true} allowDuplicates={true} />
+				<code class="block">Selected Color Items: {selectedColorsItemsTwo.length ? selectedColorsItemsTwo : 'No items selected.'}</code>
+				<code class="block">Selected Color Names: {selectedColorsNamesTwo.length ? selectedColorsNamesTwo : 'No titles selected.'}</code>
+				<code class="block">Selected Color Values: {selectedColorsValuesTwo.length ? selectedColorsValuesTwo : 'No values selected.'}</code>
 			</div>
 			<div class="card p-4 space-y-4">
 				<p>Custom Asynchronous Search Function Provided</p>
 				<Autocomplete
-					items={simpleArr}
 					labelField={'#TITLE'}
-					valueField={'#YEAR'}
+					valueField={'#IMDB_ID'}
 					multiple={true}
 					allowDuplicates={true}
 					searchFunction={searchMovies}
 					delay={200}
 					minCharactersToSearch={3}
+					maxItemsToShowInList={10}
+					bind:selectedValues={selectedMoviesValues}
+					bind:selectedItems={selectedMoviesItems}
 				/>
+				<code class="block">Selected Movie Items: {selectedMoviesItems.length ? selectedMoviesItems : 'No items selected.'}</code>
+				<code class="block">Selected Movie Titles: {selectedMoviesLabels.length ? selectedMoviesLabels : 'No titles selected.'}</code>
+				<code class="block">Selected Values: {selectedMoviesValues.length ? selectedMoviesValues : 'No values selected.'}</code>
 			</div>
 		</section>
 	</svelte:fragment>
