@@ -11,6 +11,31 @@
 		value: unknown;
 	}
 
+	interface AutocompleteConfig {
+		/** Optionally add a lable to the input */
+		label?: string;
+		/** Optionally provide object field to be used as the label. */
+		labelField?: string;
+		/** Optionally provide object field to be used as the value. */
+		valueField?: string;
+		/** Optionally provide a keyword field to be used to search */
+		keywordsField?: string;
+		/** Optionally provide a placeholder. */
+		placeholder?: string;
+		/** Allow duplicate selections */
+		allowDuplicates?: boolean;
+		/** Allow multiple selections */
+		multiple?: boolean;
+		/** Convert keywords to lowercase */
+		lowercaseKeywords?: boolean;
+		/** Provide custom external search function */
+		searchFunction?: any;
+		/** Optionally provide a minimum number of characters to search */
+		minCharactersToSearch?: number;
+		/** Optionally provide the maximum number of dropdown items to show */
+		maxItemsToShowInList?: number;
+	}
+
 	// Props (styles)
 	/** Provide chip styles. */
 	export let chip: string = `chip-primary`;
