@@ -2,8 +2,6 @@
 	import { onMount } from 'svelte';
 
 	// Props (settings)
-	/** Query selector for the scrollable container element. */
-	export let container: string = '#page';
 	/** Query selector for the element to scan for headings. */
 	export let target: string = '#page-content';
 	/** Query selector for the allowed headings. From H2-H6. */
@@ -12,8 +10,6 @@
 	export let label: string = 'On This Page';
 	/** Must have more than this many headings to be shown. */
 	export let minimumHeadings: number = 0;
-	/** The scroll offset in pixels. */
-	export let scrollOffset: number = 0;
 
 	// Props (styles)
 	/** Set the component width style. */
@@ -50,23 +46,16 @@
 	}
 
 	// Scrolls to the selected heading
+	// https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
 	function scrollToHeading(headingElem: HTMLElement, i: number): void {
-		const elemContainer: any = document.querySelector(container);
 		const elemTarget: any = document.querySelector(`#${headingElem.id}`);
-		const topPos = elemTarget?.offsetTop;
-		if (topPos && elemContainer) {
-			elemContainer.scrollTop = 0; // reset to 0 ensure offset works
-			elemContainer.scrollBy({
-				top: topPos + scrollOffset,
-				behavior: 'smooth'
-			});
-		}
+		elemTarget.scrollIntoView({ behavior: 'smooth' });
 	}
 
 	// Lifecycle
 	onMount(() => {
-		const elemContainer = document.querySelector(target);
-		const elemHeadersList: any = elemContainer?.querySelectorAll(allowedHeadings);
+		const elemTarget = document.querySelector(target);
+		const elemHeadersList: any = elemTarget?.querySelectorAll(allowedHeadings);
 		// Select only relevant headings
 		elemHeadersList?.forEach((elem: HTMLElement, i: number) => {
 			// Skip if ignore attribute set

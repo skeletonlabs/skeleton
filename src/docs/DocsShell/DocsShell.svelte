@@ -221,7 +221,7 @@
 	</header>
 
 	<!-- Tab Panels -->
-	<div class="doc-shell-tab-panels">
+	<div class="doc-shell-tab-panels relative">
 		<!-- Tab: Usage -->
 		{#if $storeActiveTab === 'usage'}
 			<div class="doc-shell-usage {classesRegionPanels}">
@@ -255,7 +255,7 @@
 					</div>
 					<!-- Table of Contents -->
 					<div class="hidden xl:block ml-4">
-						<TableOfContents target="#toc-target" minimumHeadings={1} scrollOffset={-90} />
+						<TableOfContents target="#toc-target" minimumHeadings={1} class="sticky top-10" />
 					</div>
 				</div>
 			</div>

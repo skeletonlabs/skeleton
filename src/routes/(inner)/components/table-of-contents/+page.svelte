@@ -26,7 +26,7 @@
 			<p>
 				Add the component to a page, set the target property, then a list of links will be auto-generated based on available HTML headings.
 			</p>
-			<CodeBlock language="html" code={`<TableOfContents container="main" target="#toc-target" />`} />
+			<CodeBlock language="html" code={`<TableOfContents target="#toc-target" />`} />
 			<CodeBlock
 				language="html"
 				code={`
@@ -46,7 +46,7 @@
 		<section class="space-y-4">
 			<h2>How It Works</h2>
 			<h3>Key Props</h3>
-			<p>The follow three props are critical to how this operates.</p>
+			<p>The following props are critical to how this operates.</p>
 			<div class="table-container">
 				<table class="table table-hover">
 					<thead>
@@ -58,11 +58,6 @@
 					</thead>
 					<!-- prettier-ignore -->
 					<tbody>
-						<tr>
-							<td><code>container</code></td>
-							<td>"#page"</td>
-							<td><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector" target="_blank" rel="noreferrer">Query selector</a> for the scrollable container element.</td>
-						</tr>
 						<tr>
 							<td><code>target</code></td>
 							<td>"#page-content"</td>
@@ -83,8 +78,8 @@
 			</p>
 			<h3>Click to Scroll</h3>
 			<p>
-				When a link is clicked, the container element will be scrolled using the JavaScript <code>scrollBy</code> method. This will smoothly
-				scroll the container element to the heading with the matching ID.
+				When a link is clicked, the scrollable parent container will be scrolled using the JavaScript <code>scrollIntoView</code> method. This
+				will smoothly scroll the container element to the heading with the matching ID.
 			</p>
 		</section>
 		<section class="space-y-4">
