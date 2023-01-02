@@ -97,14 +97,6 @@
 			<CodeBlock language="html" code={`<h2 class="sr-only">Include Me!</h2>`} />
 		</section>
 		<section class="space-y-4">
-			<h2>Minimim Headings</h2>
-			<p>
-				If no relevant headings are found in the target region, the component will be hidden. If you wish to define a minimum number of
-				headings before the component appears, set the following prop value.
-			</p>
-			<CodeBlock language="html" code={`<TableOfContents ... minimumHeadings={1} />`} />
-		</section>
-		<section class="space-y-4">
 			<h2>Scroll Offset</h2>
 			<p>
 				If your app includes a fixed header, such as an App Bar, you may need to specify a scroll offset. This will prevent the heading from

@@ -8,12 +8,10 @@
 	export let allowedHeadings: string = 'h2, h3';
 	/** Set the label text. */
 	export let label: string = 'On This Page';
-	/** Must have more than this many headings to be shown. */
-	export let minimumHeadings: number = 0;
 
 	// Props (styles)
 	/** Set the component width style. */
-	export let width: string = 'w-[200px]';
+	export let width: string = 'w-[240px]';
 	/** Set the vertical spacing styles. */
 	export let spacing: string = 'space-y-4';
 	/** Set the row text color styles. */
@@ -84,21 +82,19 @@
 
 <!-- @component Allows you to quickly navigate the hierarchy of headings for the current page. -->
 
-{#if headings.length > minimumHeadings}
-	<div class="toc {classesBase}">
-		<nav class="toc-list {classesList}">
-			<div class="toc-label {classesLabel}">{label}</div>
-			{#each headings as headingElem, i}
-				<!-- prettier-ignore -->
-				<li
-					class="toc-list-item {classesListItem} {setHeadingClasses(headingElem)}"
-					on:click={() => { scrollToHeading(headingElem, i); }}
-					on:click
-					on:keypress
-				>
-					{headingElem.innerText}
-				</li>
-			{/each}
-		</nav>
-	</div>
-{/if}
+<div class="toc {classesBase}">
+	<nav class="toc-list {classesList}">
+		<div class="toc-label {classesLabel}">{label}</div>
+		{#each headings as headingElem, i}
+			<!-- prettier-ignore -->
+			<li
+				class="toc-list-item {classesListItem} {setHeadingClasses(headingElem)}"
+				on:click={() => { scrollToHeading(headingElem, i); }}
+				on:click
+				on:keypress
+			>
+				{headingElem.innerText}
+			</li>
+		{/each}
+	</nav>
+</div>

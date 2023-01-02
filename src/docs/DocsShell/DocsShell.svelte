@@ -225,7 +225,7 @@
 		<!-- Tab: Usage -->
 		{#if $storeActiveTab === 'usage'}
 			<div class="doc-shell-usage {classesRegionPanels}">
-				<div class="grid grid-cols-1 xl:grid-cols-[1fr_auto]">
+				<div class="grid grid-cols-1 2xl:grid-cols-[1fr_240px]">
 					<!-- Content -->
 					<div class={spacing}>
 						<!-- Slot: Examples Sandbox -->
@@ -254,9 +254,7 @@
 						</div>
 					</div>
 					<!-- Table of Contents -->
-					<div class="hidden xl:block ml-4">
-						<TableOfContents target="#toc-target" minimumHeadings={1} class="sticky top-10" />
-					</div>
+					<TableOfContents target="#toc-target" minimumHeadings={1} class="sticky top-10 hidden 2xl:block ml-4" />
 				</div>
 			</div>
 		{/if}
