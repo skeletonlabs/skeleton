@@ -254,7 +254,9 @@
 						</div>
 					</div>
 					<!-- Table of Contents -->
-					<TableOfContents target="#toc-target" minimumHeadings={1} class="sticky top-10 hidden 2xl:block ml-4" />
+					<div>
+						<TableOfContents target="#toc-target" minimumHeadings={1} class="sticky top-10 hidden 2xl:inline-block ml-4" />
+					</div>
 				</div>
 			</div>
 		{/if}
