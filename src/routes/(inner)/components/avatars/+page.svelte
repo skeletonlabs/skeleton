@@ -171,17 +171,17 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<div class="space-y-4">
-			<h2>Image</h2>
+			<h2>Using Images</h2>
 			<p>Display an image source cropped into the shape.</p>
 			<CodeBlock language="html" code={`<Avatar src="https://i.pravatar.cc/" />`} />
 		</div>
 		<div class="space-y-4">
-			<h2>Initials</h2>
+			<h2>Using Initials</h2>
 			<p>Display up to two text characters. (ex: Jane Doe would be JD)</p>
 			<CodeBlock language="html" code={`<Avatar initials="JD" />`} />
 		</div>
 		<div class="space-y-4">
-			<h2>Using Filters</h2>
+			<h2>Applying Filters</h2>
 			<p>
 				See <a href="/actions/filters">Filters</a> to learn how to import and configure the filters action and SVG filter components.
 			</p>

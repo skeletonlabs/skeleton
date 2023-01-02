@@ -171,7 +171,7 @@
 	<svelte:fragment slot="usage">
 		<!-- Buttons -->
 		<div class="space-y-4">
-			<h2>Button</h2>
+			<h2>Standard Button</h2>
 			<p>Add the <code>.btn</code> class to any button or anchor to create a button with minimal styling.</p>
 			<CodeBlock language="html" code={`<button class="btn">Button</button>\n<a href="/" class="btn">Anchor</a>`} />
 			<div class="card p-4 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
