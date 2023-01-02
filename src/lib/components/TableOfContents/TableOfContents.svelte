@@ -32,7 +32,29 @@
 	const cListItem: string = 'px-4 py-2 cursor-pointer';
 
 	// Local
-	let headings: any = [];
+	let headingsList: any = [];
+
+	function generateHeadingList(): void {
+		const elemTarget = document.querySelector(target);
+		const elemHeadersList: any = elemTarget?.querySelectorAll(allowedHeadings);
+		// Select only relevant headings
+		elemHeadersList?.forEach((elem: HTMLElement, i: number) => {
+			// Skip if `data-toc-ignore` attribute set
+			if (elem.hasAttribute('data-toc-ignore')) return;
+			// Generate a unique ID if none present
+			if (!elem.id) {
+				let newId = elem.innerText
+					.replaceAll(/[^a-zA-Z0-9 ]/g, '')
+					.replaceAll(' ', '-')
+					.toLowerCase();
+				elem.id = `${newId}-${i}`;
+			}
+			// Generate headings whitelist
+			headingsList.push(elem);
+		});
+		// Update Headings list
+		headingsList = [...headingsList];
+	}
 
 	// Sets the indentation amount per heading
 	function setHeadingClasses(headingElem: HTMLElement): string {
@@ -52,25 +74,7 @@
 
 	// Lifecycle
 	onMount(() => {
-		const elemTarget = document.querySelector(target);
-		const elemHeadersList: any = elemTarget?.querySelectorAll(allowedHeadings);
-		// Select only relevant headings
-		elemHeadersList?.forEach((elem: HTMLElement, i: number) => {
-			// Skip if ignore attribute set
-			if (elem.hasAttribute('data-toc-ignore')) return;
-			// Generate Unique ID if none present
-			if (!elem.id) {
-				let newId = elem.innerText
-					.replaceAll(/[^a-zA-Z0-9 ]/g, '')
-					.replaceAll(' ', '-')
-					.toLowerCase();
-				elem.id = `${newId}-${i}`;
-			}
-			// Generate headings whitelist
-			headings.push(elem);
-		});
-		// Update Headings Array
-		headings = [...headings];
+		generateHeadingList();
 	});
 
 	// Reactive
@@ -85,7 +89,7 @@
 <div class="toc {classesBase}">
 	<nav class="toc-list {classesList}">
 		<div class="toc-label {classesLabel}">{label}</div>
-		{#each headings as headingElem, i}
+		{#each headingsList as headingElem, i}
 			<!-- prettier-ignore -->
 			<li
 				class="toc-list-item {classesListItem} {setHeadingClasses(headingElem)}"
