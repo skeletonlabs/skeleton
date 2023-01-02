@@ -44,7 +44,8 @@
 		const d: ModalSettings = {
 			type: 'component',
 			component: modalComponent,
-			classes: '!p-0'
+			backdropClasses: '!items-start',
+			modalClasses: '!bg-surface-100/60 dark:!bg-surface-800/60 backdrop-blur-lg border border-surface-500/50 !p-0 xl:!max-w-[700px]'
 		};
 		modalStore.trigger(d);
 	}

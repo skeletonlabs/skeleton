@@ -24,8 +24,10 @@ export interface ModalSettings {
 	component?: ModalComponent;
 	/** Provide a function. Returns the repsonse value. */
 	response?: (r: any) => void;
-	/** Provide abritrary classes to apply to the Modal element. Use `!` for important. */
-	classes?: string;
+	/** Provide abitrary classes to the backdrop. */
+	backdropClasses?: string;
+	/** Provide abitrary classes to the modal window. */
+	modalClasses?: string;
 	/** Override the Cancel button label. */
 	buttonTextCancel?: string;
 	/** Override the Confirm button label. */
