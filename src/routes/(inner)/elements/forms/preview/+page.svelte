@@ -8,11 +8,13 @@
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
 	import RangeSlider from '$lib/components/RangeSlider/RangeSlider.svelte';
 	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
+	import InputChip from '$lib/components/InputChip/InputChip.svelte';
 
 	// Local
 	const storeRadioGroup: Writable<string> = writable('a');
 	let valueRangeSlider = 75;
 	let valueSlideToggle = true;
+	let tags = ['tutorials', 'news'];
 </script>
 
 <div class="page-container">
@@ -127,34 +129,34 @@
 				<fieldset class="block space-y-">
 					<h4 class="mb-4">Checkboxes</h4>
 					<div class="space-y-2">
-						<label class="flex items-center space-x-2">
+						<label class="unstyled flex items-center space-x-2">
 							<input type="checkbox" checked />
-							<span class="m-0">Option 1</span>
+							<span>Option 1</span>
 						</label>
-						<label class="flex items-center space-x-2">
+						<label class="unstyled flex items-center space-x-2">
 							<input type="checkbox" />
-							<span class="m-0">Option 2</span>
+							<span>Option 2</span>
 						</label>
-						<label class="flex items-center space-x-2">
+						<label class="unstyled flex items-center space-x-2">
 							<input type="checkbox" />
-							<span class="m-0">Option 3</span>
+							<span>Option 3</span>
 						</label>
 					</div>
 				</fieldset>
 				<fieldset class="block space-y-">
 					<h4 class="mb-4">Radio Buttons</h4>
 					<div class="space-y-2">
-						<label class="flex items-center space-x-2">
+						<label class="unstyled flex items-center space-x-2">
 							<input type="radio" checked name="radio-direct" value="1" />
-							<span class="m-0">Option 1</span>
+							<span>Option 1</span>
 						</label>
-						<label class="flex items-center space-x-2">
+						<label class="unstyled flex items-center space-x-2">
 							<input type="radio" name="radio-direct" value="2" />
-							<span class="m-0">Option 2</span>
+							<span>Option 2</span>
 						</label>
-						<label class="flex items-center space-x-2">
+						<label class="unstyled flex items-center space-x-2">
 							<input type="radio" name="radio-direct" value="3" />
-							<span class="m-0">Option 3</span>
+							<span>Option 3</span>
 						</label>
 					</div>
 				</fieldset>
@@ -203,6 +205,10 @@
 					<span>Input (file, multiple)</span>
 					<input type="file" multiple />
 				</label>
+				<label class="block">
+					<span>Input (color)</span>
+					<input type="color" value="#bada55" />
+				</label>
 			</div>
 		</div>
 
@@ -238,24 +244,14 @@
 					</div>
 					<SlideToggle bind:checked={valueSlideToggle}>Slide Toggle 1</SlideToggle>
 				</label>
+				<div>
+					<div class="text-sm flex justify-between mb-3">
+						<p>Input Chip</p>
+						<a href="/components/input-chips">Documentation</a>
+					</div>
+					<InputChip placeholder="Add tags..." bind:value={tags} />
+				</div>
 			</div>
 		</div>
 	</section>
-
-	<!-- Untouched -->
-	<div class="card p-4 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-		<div class="space-y-2">
-			<h2>Untouched</h2>
-			<p>
-				One notable exception is the <code>color</code> field input. This is due to
-				<a href="https://css-tricks.com/color-inputs-a-deep-dive-into-cross-browser-differences/" target="_blank" rel="noreferrer"
-					>major cross-browser issues</a
-				>.
-			</p>
-		</div>
-		<label class="block text-center">
-			<span>Input (color)</span>
-			<input type="color" />
-		</label>
-	</div>
 </div>
