@@ -36,7 +36,7 @@
 		<section class="space-y-4">
 			<h2>Install Highlight.js</h2>
 			<p>
-				<a href="https://highlightjs.org/" target="_blank" rel="noreferrer">Highlight.js</a> is a required depedency to enable syntax highlighting.
+				<a href="https://highlightjs.org/" target="_blank" rel="noreferrer">Highlight.js</a> is a required dependency to enable syntax highlighting.
 			</p>
 			<CodeBlock language="console" code={`npm install highlight.js`} />
 		</section>
