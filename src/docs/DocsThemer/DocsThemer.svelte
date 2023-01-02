@@ -128,12 +128,7 @@
 						<label>
 							<span>{colorRow.label}</span>
 							<div class="grid grid-cols-[auto_1fr] gap-4 place-items-end">
-								<input
-									class="border-transparent overflow-hidden w-10 h-10"
-									type="color"
-									bind:value={colorRow.hex}
-									disabled={!$storePreview}
-								/>
+								<input type="color" bind:value={colorRow.hex} disabled={!$storePreview} />
 								<input type="text" bind:value={colorRow.hex} placeholder="#BADA55" disabled={!$storePreview} />
 							</div>
 						</label>

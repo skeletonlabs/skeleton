@@ -26,7 +26,7 @@
 
 	// Base Styles
 	const cBase = 'inline-block';
-	const cLabel = 'flex items-center';
+	const cLabel = 'unstyled flex items-center';
 	const cTrack = 'flex transition-all duration-[200ms] cursor-pointer';
 	const cThumb = 'w-[50%] h-full scale-[0.7] transition-all duration-[200ms] shadow-lg';
 

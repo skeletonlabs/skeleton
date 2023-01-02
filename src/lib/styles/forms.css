@@ -3,7 +3,7 @@
 @layer base {
 	/* === Fieldset === */
 
-	fieldset {
+	fieldset:not(.unstyled) {
 		@apply block;
 	}
 
@@ -65,7 +65,7 @@
 	}
 
 	/* File */
-	[type='file'] {
+	[type='file']:not(.unstyled) {
 		@apply p-2;
 	}
 
@@ -75,13 +75,30 @@
 	}
 
 	/* Checkbox */
-	[type='checkbox'],
-	[type='radio'] {
+	[type='checkbox']:not(.unstyled),
+	[type='radio']:not(.unstyled) {
 		@apply border-surface-500 rounded text-secondary-600 focus:ring-secondary-500 w-5 h-5;
 	}
 	/* Checkbox */
-	[type='radio'] {
+	[type='radio']:not(.unstyled) {
 		@apply rounded-token;
+	}
+
+	/* Color Picker */
+	/* https://stackoverflow.com/questions/11167281/webkit-css-to-control-the-box-around-the-color-in-an-inputtype-color */
+	input[type='color'] {
+		@apply border-none w-10 h-10 overflow-hidden rounded-token cursor-pointer;
+		/* WebKit */
+		-webkit-appearance: none;
+	}
+	input[type='color']::-webkit-color-swatch-wrapper {
+		@apply p-0;
+	}
+	input[type='color']::-webkit-color-swatch {
+		@apply border-none;
+	}
+	input[type='color']::-moz-color-swatch {
+		@apply border-none;
 	}
 
 	/* Placeholder */
