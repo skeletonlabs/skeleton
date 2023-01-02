@@ -114,7 +114,7 @@ export const menuNavLinks: any = [
 			{ href: '/utilities/drawers', label: 'Drawers' },
 			{ href: '/utilities/lightswitches', label: 'Lightswitch' },
 			{ href: '/utilities/local-storage-stores', label: 'Local Storage Stores' },
-			{ href: '/utilities/menus', label: 'Menus' },
+			{ href: '/utilities/menus', label: 'Menus', keywords: 'dropdown, drop, down, select' },
 			{ href: '/utilities/modals', label: 'Modals', keywords: 'dialog' },
 			{ href: '/utilities/toasts', label: 'Toasts' },
 			{ href: '/utilities/tooltips', label: 'Tooltips' }
