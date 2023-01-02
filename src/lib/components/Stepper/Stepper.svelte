@@ -11,9 +11,13 @@
 	 */
 	export let active: Writable<number> = writable(0);
 	/** Provide a count of the total number of Steps (children). */
-	export let length = 0;
+	export let length: number = 0;
 	/** Set the Svelte transition duration. */
-	export let duration = 200;
+	export let duration: number = 200;
+	/** Provide classes to set rounded style of the step index numbers. */
+	export let rounded: string = 'rounded-token';
+	/** Allow click navigation to any visited steps. */
+	export let clickNavigation: boolean = false;
 
 	// Props (timeline)
 	/** Provide classes to set the numeral text color. */
@@ -35,10 +39,19 @@
 	/** Provide a text label for the Complete button. */
 	export let buttonTextComplete = 'Complete';
 
+	/** Used for deciding which steps should be clickable. */
+	let highestStepReached: Writable<number> = writable(0);
+	active.subscribe((v) => {
+		if (v > $highestStepReached) highestStepReached.set(v);
+	});
+
 	// Context
 	setContext('dispatch', dispatch);
 	setContext('active', active);
 	setContext('length', length);
+	setContext('rounded', rounded);
+	setContext('clickNavigation', clickNavigation);
+	setContext('highestStepReached', highestStepReached);
 	setContext('color', color);
 	setContext('background', background);
 	setContext('buttonClassesBack', buttonClassesBack);

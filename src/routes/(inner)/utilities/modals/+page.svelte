@@ -140,7 +140,7 @@
 		<section class="space-y-4">
 			<div class="card p-4 space-y-4">
 				<p class="text-center font-bold">Dialog Modals</p>
-				<div class="flex justify-center space-x-2">
+				<div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:max-w-[480px] mx-auto">
 					<button class="btn btn-ghost-surface" on:click={modalAlert}>Alert</button>
 					<button class="btn btn-ghost-surface" on:click={modalConfirm}>Confirm</button>
 					<button class="btn btn-ghost-surface" on:click={modalPrompt}>Prompt</button>
@@ -149,7 +149,7 @@
 			</div>
 			<div class="card p-4 space-y-4">
 				<p class="text-center font-bold">Custom Component Modals</p>
-				<div class="flex justify-center space-x-2">
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:max-w-[320px] mx-auto">
 					<button class="btn btn-ghost-surface" on:click={modalComponentForm}>Form</button>
 					<button class="btn btn-ghost-surface" on:click={modalComponentList}>List</button>
 					<button class="btn btn-ghost-surface" on:click={modalComponentEmbed}>Embed</button>
