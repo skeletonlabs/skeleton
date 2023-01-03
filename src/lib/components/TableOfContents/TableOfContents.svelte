@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 
 	// Props (settings)
 	/** Query selector for the element to scan for headings. */
@@ -16,6 +16,8 @@
 	export let spacing: string = 'space-y-4';
 	/** Set the row text color styles. */
 	export let text: string = 'text-surface-600-300-token';
+	/** Set the active text styles. */
+	export let activeText: string = 'font-bold';
 	/** Set the row hover styles. */
 	export let hover: string = 'hover:bg-primary-hover-token';
 	/** Set the row border radius styles. */
@@ -32,7 +34,9 @@
 	const cListItem: string = 'px-4 py-2 cursor-pointer';
 
 	// Local
-	let headingsList: any = [];
+	let headingsList: HTMLElement[] = [];
+	let observer: IntersectionObserver;
+	let activeIndexes: number[] = [];
 
 	function generateHeadingList(): void {
 		const elemTarget = document.querySelector(target);
@@ -72,9 +76,46 @@
 		elemTarget.scrollIntoView({ behavior: 'smooth' });
 	}
 
+	function observeElement(e: HTMLElement, headingIndex: number) {
+		observer = new IntersectionObserver((entries) => {
+			// if (entries[0].isIntersecting) {
+			if (entries[0].intersectionRatio > 0) {
+				if (activeIndexes.indexOf(headingIndex) === -1) {
+					activeIndexes = [...activeIndexes, headingIndex];
+				}
+			} else if (entries[0].intersectionRatio <= 0) {
+				console.log('activeIndexes:', activeIndexes, 'smaller', headingIndex);
+				activeIndexes = activeIndexes.filter((v) => v != headingIndex);
+				// const index = activeIndexes.indexOf(headingIndex);
+				// if (index !== -1) {
+				// 	activeIndexes = activeIndexes.slice(index);
+				// }
+			}
+		});
+
+		observer.observe(e);
+	}
+
+	function generateObservers() {
+		headingsList.forEach((h: HTMLElement, i: number) => {
+			observeElement(h, i);
+			// get all elements between this heading and the next one and also observeit with i
+			// if not the last
+			// if the last then check all elements after it and observe it
+		});
+	}
+
 	// Lifecycle
 	onMount(() => {
 		generateHeadingList();
+		if (activeText) {
+			// Only add observers if activeText is not empty.
+			generateObservers();
+		}
+	});
+
+	onDestroy(() => {
+		observer?.disconnect();
 	});
 
 	// Reactive
@@ -82,6 +123,13 @@
 	$: classesLabel = `${cLabel} ${regionLabel}`;
 	$: classesList = `${regionList}`;
 	$: classesListItem = `${cListItem} ${text} ${hover} ${rounded}`;
+	$: setActiveClasses = (index: number): string => {
+		if (activeIndexes.indexOf(index) === -1) {
+			return '';
+		} else {
+			return activeText;
+		}
+	};
 </script>
 
 <!-- @component Allows you to quickly navigate the hierarchy of headings for the current page. -->
@@ -92,7 +140,7 @@
 		{#each headingsList as headingElem, i}
 			<!-- prettier-ignore -->
 			<li
-				class="toc-list-item {classesListItem} {setHeadingClasses(headingElem)}"
+				class="toc-list-item {classesListItem} {setHeadingClasses(headingElem)} {setActiveClasses(i)}"
 				on:click={() => { scrollToHeading(headingElem, i); }}
 				on:click
 				on:keypress
