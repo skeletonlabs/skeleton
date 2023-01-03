@@ -131,7 +131,7 @@
 			<CodeBlock language="html" code={`<Divider />`} />
 		</section>
 		<section class="space-y-4">
-			<h2>Vertical</h2>
+			<h2>Vertical Mode</h2>
 			<CodeBlock language="html" code={`<Divider vertical={true} borderWidth="border-l" />`} />
 		</section>
 	</svelte:fragment>

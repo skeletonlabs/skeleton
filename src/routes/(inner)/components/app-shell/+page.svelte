@@ -74,7 +74,7 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<p>For best results implement this in your app's root layout. The slot order does not matter.</p>
-		<div class="space-y-4">
+		<section class="space-y-4">
 			<CodeBlock
 				language="html"
 				code={`
@@ -107,9 +107,9 @@
 				the following.
 			</p>
 			<CodeBlock language="css" code={`html, body { @apply h-full overflow-hidden; }`} />
-		</div>
-		<div class="space-y-4">
-			<h2>App Bar</h2>
+		</section>
+		<section class="space-y-4">
+			<h2>Using an App Bar</h2>
 			<p>
 				If you wish for your <a href="/components/app-bar">App Bar</a> component to remain fixed at the top of the page, embed it into the
 				top-most <code>header</code> slot.
@@ -124,9 +124,9 @@
 	<!-- ... -->
 </AppShell>`}
 			/>
-		</div>
-		<div class="space-y-4">
-			<h2>Sidebars</h2>
+		</section>
+		<section class="space-y-4">
+			<h2>Responsive Sidebars</h2>
 			<p>
 				Please be aware that sidebars have a default width of <code>auto</code>. Sidebars will automatically collapse when their contents
 				are empty or hidden. This is useful if you wish to hide the sidebar with CSS media queries via
@@ -146,7 +146,7 @@
 				<strong>Tip:</strong> Consider hiding your sidebar for smaller screens and using a Drawer component. If you wish to use the same navigation
 				lists in both, create a shared components that's inserted into both the Drawer and Sidebar slots. We use this technique on this site!
 			</Alert>
-		</div>
+		</section>
 	</svelte:fragment>
 </DocsShell>
 

@@ -61,8 +61,7 @@
 			</svelte:fragment>
 			<!-- prettier-ignore -->
 			<span>
-				This feature is currently in-developement and available as an early preview. It is not feature complete and may contain bugs. If you need a production-ready alternative,
-				see the "svelte-headless-tables" library by Bryan Lee, which may be paired with the Skeleton styles under <strong>Tailwind -> Elements -> Tables</strong>.
+				This feature currently available as an early preview. It is not feature complete and may contain bugs. If you need a production-ready alternative, see "svelte-headless-tables" by Bryan Lee. This may be paired with the Skeleton styles under <strong>Tailwind -> Elements -> Tables</strong>.
 			</span>
 			<svelte:fragment slot="trail">
 				<a href="https://svelte-headless-table.bryanmylee.com/" target="_blank" rel="noreferrer" class="btn btn-ghost">See Alternative</a>

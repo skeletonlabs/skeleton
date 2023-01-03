@@ -160,7 +160,8 @@
 			/>
 		</section>
 		<section class="space-y-4">
-			<p>Create a function to handle your Stepper's <code>on:complete</code> event.</p>
+			<h2>Completion Event</h2>
+			<p>You may optionally implement a function to handle your Stepper's <code>on:complete</code> event.</p>
 			<CodeBlock language="typescript" code={`const onComplete: any = () => { /* handle the event */ }`} />
 		</section>
 	</svelte:fragment>

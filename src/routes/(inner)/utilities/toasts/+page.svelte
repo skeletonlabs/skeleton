@@ -183,9 +183,9 @@ const t: ToastSettings = {
 			/>
 		</section>
 		<section class="space-y-4">
-			<h2>SvelteKit and SSR Warning</h2>
+			<h2>SvelteKit SSR Warning</h2>
 			<p>
-				If you're building a SvelteKit project please be aware that there are <a
+				Be aware that there are <a
 					href="https://github.com/sveltejs/kit/discussions/4339#discussioncomment-2384978"
 					target="_blank"
 					rel="noreferrer">known issues when using Svelte stores with SSR</a

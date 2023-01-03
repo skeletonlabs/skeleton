@@ -94,14 +94,14 @@
 </Breadcrumb>`}
 		/>
 		<div class="space-y-4">
-			<h2>Seperator</h2>
+			<h2>Set the Seperator</h2>
 			<p>
 				Use the <code>seperator</code> prop to define a custom seperator character. Accepts any valid HTML value, including unicode and emojii.
 			</p>
 			<CodeBlock language="html" code={`<Breadcrumb separator="&hearts;"></Breadcrumb>`} />
 		</div>
 		<div class="space-y-4">
-			<h2>Current Page</h2>
+			<h2>Define Current Page</h2>
 			<p>
 				Crumbs without a <code>href</code> attribute are treated as the <em>current</em> page. This means they render as <code>span</code> and
 				do not append a trailing separator.

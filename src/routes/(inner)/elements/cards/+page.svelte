@@ -61,26 +61,26 @@
 						</div>
 					</footer>
 				</a>
-			</div>
-			<!-- Colors -->
-			<div class="grid grid-cols-1 md:grid-cols-4 xl:grid-cols-7 gap-4 text-center text-xs font-bold">
-				<div class="card !bg-primary-500 p-4 text-on-primary-token">primary</div>
-				<div class="card !bg-secondary-500 p-4 text-on-secondary-token">secondary</div>
-				<div class="card !bg-tertiary-500 p-4 text-on-tertiary-token">tertiary</div>
-				<div class="card !bg-success-500 p-4 text-on-success-token">success</div>
-				<div class="card !bg-warning-500 p-4 text-on-warning-token">warning</div>
-				<div class="card !bg-error-500 p-4 text-on-error-token">error</div>
-				<div class="card !bg-surface-500 p-4 text-on-surface-token">surface</div>
-			</div>
-			<!-- Glass -->
-			<div class="grid grid-cols-1 md:grid-cols-4 xl:grid-cols-7 gap-4 text-center text-xs font-bold">
-				<div class="card card-glass-primary p-4">glass-primary</div>
-				<div class="card card-glass-secondary p-4">glass-secondary</div>
-				<div class="card card-glass-tertiary p-4">glass-tertiary</div>
-				<div class="card card-glass-success p-4">glass-success</div>
-				<div class="card card-glass-warning p-4">glass-warning</div>
-				<div class="card card-glass-error p-4">glass-error</div>
-				<div class="card card-glass-surface p-4">glass-surface</div>
+				<!-- Colors -->
+				<div class="grid grid-cols-1 gap-4 text-center text-xs font-bold">
+					<div class="card !bg-primary-500 p-4 text-on-primary-token">primary</div>
+					<div class="card !bg-secondary-500 p-4 text-on-secondary-token">secondary</div>
+					<div class="card !bg-tertiary-500 p-4 text-on-tertiary-token">tertiary</div>
+					<div class="card !bg-success-500 p-4 text-on-success-token">success</div>
+					<div class="card !bg-warning-500 p-4 text-on-warning-token">warning</div>
+					<div class="card !bg-error-500 p-4 text-on-error-token">error</div>
+					<div class="card !bg-surface-500 p-4 text-on-surface-token">surface</div>
+				</div>
+				<!-- Glass -->
+				<div class="grid grid-cols-1 gap-4 text-center text-xs font-bold">
+					<div class="card card-glass-primary p-4">glass-primary</div>
+					<div class="card card-glass-secondary p-4">glass-secondary</div>
+					<div class="card card-glass-tertiary p-4">glass-tertiary</div>
+					<div class="card card-glass-success p-4">glass-success</div>
+					<div class="card card-glass-warning p-4">glass-warning</div>
+					<div class="card card-glass-error p-4">glass-error</div>
+					<div class="card card-glass-surface p-4">glass-surface</div>
+				</div>
 			</div>
 		</section>
 	</svelte:fragment>

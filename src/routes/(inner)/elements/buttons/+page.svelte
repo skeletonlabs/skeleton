@@ -49,7 +49,7 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<div class="grid grid-cols-1 xl:grid-cols-[1fr_auto] gap-2">
+		<div class="grid grid-cols-1 xl:grid-cols-[1fr_300px] gap-2">
 			<!-- Example -->
 			<div class="card grid grid-rows-[1fr_auto]">
 				<div class="p-4 flex justify-center items-center">
@@ -88,10 +88,10 @@
 				<label for="">
 					<span>Size</span>
 					<RadioGroup selected={storeBtnSize} display="flex">
-						<RadioItem value="btn-sm">btn-sm</RadioItem>
-						<RadioItem value="btn-base">btn-base</RadioItem>
-						<RadioItem value="btn-lg">btn-lg</RadioItem>
-						<RadioItem value="btn-xl">btn-xl</RadioItem>
+						<RadioItem value="btn-sm">sm</RadioItem>
+						<RadioItem value="btn-base">base</RadioItem>
+						<RadioItem value="btn-lg">lg</RadioItem>
+						<RadioItem value="btn-xl">xl</RadioItem>
 					</RadioGroup>
 				</label>
 				<!-- Variant -->
@@ -171,7 +171,7 @@
 	<svelte:fragment slot="usage">
 		<!-- Buttons -->
 		<div class="space-y-4">
-			<h2>Button</h2>
+			<h2>Standard Button</h2>
 			<p>Add the <code>.btn</code> class to any button or anchor to create a button with minimal styling.</p>
 			<CodeBlock language="html" code={`<button class="btn">Button</button>\n<a href="/" class="btn">Anchor</a>`} />
 			<div class="card p-4 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">

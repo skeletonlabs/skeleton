@@ -109,7 +109,7 @@
 				<CodeBlock language="html" code={`<button use:tooltip={{ content: 'Skeleton', position: 'bottom' }}>Trigger</button>`} />
 			</div>
 			<div class="space-y-4">
-				<h2>Style Keys</h2>
+				<h2>Styling</h2>
 				<p>
 					Most styles should be handled via global CSS overrides. However, you may override styles using preset keys, similar to component
 					props.
