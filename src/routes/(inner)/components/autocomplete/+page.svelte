@@ -2,36 +2,18 @@
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
-	// Components
-	import AccordionGroup from '$lib/components/Accordion/AccordionGroup.svelte';
-	import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
-	import Avatar from '$lib/components/Avatar/Avatar.svelte';
-	// Utilities
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-
-	// @ts-expect-error sveld import
-	import sveldAccordionGroup from '$lib/components/Accordion/AccordionGroup.svelte?raw&sveld';
-	// @ts-expect-error sveld import
-	import sveldAccordionItem from '$lib/components/Accordion/AccordionItem.svelte?raw&sveld';
 	import Autocomplete from '$lib/components/Autocomplete/Autocomplete.svelte';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Component,
 		name: 'Autocomplete',
-		description: 'Divide content into collapsible sections.',
-		imports: ['AccordionGroup', 'AccordionItem'],
-		source: 'components/Accordion',
-		aria: 'https://www.w3.org/WAI/ARIA/apg/example-index/accordion/accordion',
-		components: [
-			{ label: 'AccordionGroup', sveld: sveldAccordionGroup },
-			{ label: 'AccordionItem', sveld: sveldAccordionItem, overrideProps: ['hover', 'spacing', 'padding', 'rounded'] }
-		],
-		keyboard: [
-			['<kbd>Tab</kbd>', 'Moves focus to the next focusable element.'],
-			['<kbd>Shift + Tab</kbd> ', 'Moves focus to the previous focusable element.'],
-			['<kbd>Space</kbd> or <kbd>Enter</kbd>', 'When focus is on the accordion header toggles the collapsable region open/closed.']
-		]
+		description: 'Autocomplete / Select / Typeahead component',
+		imports: ['Autocomplete'],
+		source: 'components/Autocomplete',
+		aria: 'https://www.w3.org/WAI/ARIA/apg/example-index/',
+		components: [],
+		keyboard: []
 	};
 
 	let items = [
@@ -74,13 +56,15 @@
 	let selectedColorsNamesTwo: any[] = [];
 	let selectedColorsValuesTwo: any[] = [];
 
-	async function searchMovies(keyword) {
+	async function searchMovies(keyword: string) {
 		const response = await fetch(`https://search.imdbot.workers.dev/?q=${keyword}`);
 		const data = await response.json();
 		return data.description;
 	}
 
 	$: selectedMoviesLabels = selectedMoviesItems.map((item) => item['#TITLE']);
+	$: selectedColorsNames = selectedColorsItems.map((item) => item.name);
+	$: selectedColorsNamesTwo = selectedColorsItemsTwo.map((item) => item.name);
 </script>
 
 <DocsShell {settings}>
@@ -95,14 +79,30 @@
 
 			<div class="card p-4 space-y-4">
 				<p>Multiple select autocomplete that doesn't allow duplicates:</p>
-				<Autocomplete {items} labelField={'name'} valueField={'value'} multiple={true} allowDuplicates={false} />
+				<Autocomplete
+					{items}
+					labelField={'name'}
+					valueField={'value'}
+					multiple={true}
+					allowDuplicates={false}
+					bind:selectedItems={selectedColorsItems}
+					bind:selectedValues={selectedColorsValues}
+				/>
 				<code class="block">Selected Color Items: {selectedColorsItems.length ? selectedColorsItems : 'No items selected.'}</code>
 				<code class="block">Selected Color Names: {selectedColorsNames.length ? selectedColorsNames : 'No titles selected.'}</code>
 				<code class="block">Selected Color Values: {selectedColorsValues.length ? selectedColorsValues : 'No values selected.'}</code>
 			</div>
 			<div class="card p-4 space-y-4">
 				<p>Multiple select autocomplete that allows duplicates:</p>
-				<Autocomplete {items} labelField={'name'} valueField={'value'} multiple={true} allowDuplicates={true} />
+				<Autocomplete
+					{items}
+					labelField={'name'}
+					valueField={'value'}
+					multiple={true}
+					allowDuplicates={true}
+					bind:selectedItems={selectedColorsItemsTwo}
+					bind:selectedValues={selectedColorsValuesTwo}
+				/>
 				<code class="block">Selected Color Items: {selectedColorsItemsTwo.length ? selectedColorsItemsTwo : 'No items selected.'}</code>
 				<code class="block">Selected Color Names: {selectedColorsNamesTwo.length ? selectedColorsNamesTwo : 'No titles selected.'}</code>
 				<code class="block">Selected Color Values: {selectedColorsValuesTwo.length ? selectedColorsValuesTwo : 'No values selected.'}</code>
@@ -131,31 +131,5 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<p>Autocomplete (work-in-progress)</p>
-		<CodeBlock
-			language="html"
-			code={`
-`}
-		/>
-
-		<p>
-			When you don't want an AccordionItem to auto-collapse the other AccordionItems, just set <code>collapse</code> to <code>false</code>.
-		</p>
-		<CodeBlock
-			language="html"
-			code={`
-<AccordionGroup collapse={false}>
-	<!-- Open -->
-	<AccordionItem open>
-		<svelte:fragment slot="lead">(lead)</svelte:fragment>
-		<svelte:fragment slot="summary">(summary)</svelte:fragment>
-		<svelte:fragment slot="content">(content)</svelte:fragment>
-	</AccordionItem>
-	<!-- Closed -->
-	<AccordionItem>
-		<svelte:fragment slot="summary">(summary)</svelte:fragment>
-		<svelte:fragment slot="content">(content)</svelte:fragment>
-	</AccordionItem>
-</AccordionGroup>`}
-		/>
 	</svelte:fragment>
 </DocsShell>

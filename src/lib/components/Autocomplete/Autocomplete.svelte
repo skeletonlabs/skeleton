@@ -1,9 +1,4 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte/internal';
-
-	// Event dispatcher
-	const dispatch = createEventDispatcher();
-
 	interface ListItem {
 		label: string;
 		keywords: string;
@@ -74,23 +69,28 @@
 
 	let searchInput: HTMLInputElement;
 	let inputValue: string = '';
-	let filteredItems: any[] = [];
-	let listItems: ListItem[] = [];
-	let filteredListItems: ListItem[] = [];
 
+	/* Internal List Items*/
+	let listItems: ListItem[] = [];
+	let filteredItems: any[] = [];
+	let filteredListItems: ListItem[] = [];
 	let selectedListItems: ListItem[] = [];
 
-	export let value: any = '';
+	/* Enable component consumers to bind local variables to the selected items and values */
 	export let selectedItems: any = [];
 	export let selectedValues: any = [];
 
+	/* Dropdown UI State */
 	let opened: boolean = false;
 	let loading: boolean = false;
+	let highlightIndex: any;
 
+	/* Custom Async Search State */
 	let lastRequestId: number = 0;
 	let lastResponseId: number = 0;
 	let inputDelayTimeout: NodeJS.Timeout;
 
+	/** Given an item, returns the label using provided label field, or the value of the item */
 	export let labelFunction = function (item: Record<PropertyKey, unknown>) {
 		if (item === undefined || item === null) {
 			return '';
@@ -98,6 +98,7 @@
 		return labelField ? item[labelField] : item;
 	};
 
+	/** Given an item, returns the keywords using provided keywords field, or the label */
 	export let keywordsFunction = function (item: Record<PropertyKey, unknown>) {
 		if (item === undefined || item === null) {
 			return '';
@@ -105,6 +106,7 @@
 		return keywordsField ? item[keywordsField] : labelFunction(item);
 	};
 
+	/** Given an item, returns the value using provided value field, or the label */
 	export let valueFunction = function (item: Record<PropertyKey, unknown>) {
 		if (item === undefined || item === null) {
 			return item;
@@ -112,10 +114,18 @@
 		return valueField ? item[valueField] : item;
 	};
 
+	/** Used alongside the safeString function to safely parse strings
+	 *  NOTE: This may be slightly unnecessary.
+	 */
 	export let stringFunction = function (item: any) {
 		return item.toString();
 	};
 
+	/** Search/Filter through the items with the provided input data
+	 * If a custom search function wasn't provided, will use the internal
+	 * search logic defined to filtered the array of items to display
+	 * within the dropdown.
+	 */
 	async function search() {
 		opened = true;
 
@@ -127,9 +137,9 @@
 			return;
 		}
 
-		// If no search text -> load all items
+		/** If no custom search function provided - return full list of items */
 		if (!searchFunction) {
-			// Internal Search
+			/** Internal 'search' */
 			constructListItems(items);
 			if (inputValue) {
 				listItems.forEach((item) => {
@@ -140,12 +150,12 @@
 			}
 			filteredListItems = tempItems;
 		} else {
-			// External Search
+			/** External Search */
 			lastRequestId = lastRequestId + 1;
 			const currentRequestId = lastRequestId;
 			loading = true;
 
-			// searchFunction is a generator function
+			// if searchFunction is a generator function
 			if (searchFunction.constructor.name === 'AsyncGeneratorFunction') {
 				for await (const chunk of searchFunction(currentInputValue, maxItemsToShowInList)) {
 					if (currentRequestId < lastResponseId) {
@@ -163,14 +173,14 @@
 				}
 			}
 
-			// searchFunction is a regular function
+			// If searchFunction is a regular function
 			else {
 				console.log('running search function');
 				let result = await searchFunction(currentInputValue);
 
 				// If a response to a newer request has been received
 				// while responses to this request were being loaded,
-				// then we can just throw away these outdate results.
+				// then we can just throw away these outdated results.
 				if (currentRequestId < lastResponseId) {
 					return false;
 				}
@@ -190,13 +200,23 @@
 		}
 	}
 
+	/**
+	 * Executes the given function with the provided argument and safely checks if the
+	 * function was executed successfully by catching any errors.
+	 * Returns the expected result of the function if the function was executed
+	 * successfully, otherwise returns `null`.
+	 *
+	 * @param {function} fn - The function to be executed.
+	 * @param {*} arg - The argument to be passed to the function.
+	 * @returns {*} - Returns the expected result of the function if the function was executed successfully, `null` otherwise.
+	 */
 	function safeFunction(fn: Function, arg: any) {
 		if (typeof fn !== 'function') {
 			console.error(`Not a function: ${fn}, argument: ${arg}`);
 			return undefined;
 		}
 
-		let result;
+		let result = null;
 
 		try {
 			result = fn(arg);
@@ -206,6 +226,11 @@
 		return result;
 	}
 
+	/* Used to safely parse/check for strings.
+	 * This is useful if objects may have unpredictable property names
+	 * and should prevent the app from breaking. There may be a better way to handle
+	 * this though.
+	 */
 	function safeStringFunction(fn: Function, arg: any) {
 		let result = safeFunction(fn, arg);
 		if (result === undefined || result === null) {
@@ -228,6 +253,10 @@
 		return result;
 	}
 
+	/** Constructs list items into a manageable and predictable format,
+	 * regardless if they are passed in as an array of values or an
+	 * array of objects.
+	 */
 	function constructListItems(items: any[]) {
 		if (!Array.isArray(items)) {
 			console.warn('Autocomplete must be an array, but received:', items);
@@ -249,6 +278,7 @@
 		}
 	}
 
+	/** Constructs a single list item to the internal ListItem type */
 	function constructListItem(item: any): ListItem {
 		if (typeof item === 'object') {
 			return {
@@ -302,9 +332,6 @@
 		selectedListItems = selectedListItems.filter((item, idx) => idx !== index);
 	}
 
-	// Handling input
-	let highlightIndex: any;
-
 	function prunedRestProps(): any {
 		delete $$restProps.class;
 		return $$restProps;
@@ -322,11 +349,11 @@
 
 	$: selectedItems = selectedListItems.map((item) => item.item);
 	$: selectedValues = selectedListItems.map((item) => item.value);
-	// $: console.log(selectedListItems);
-	$: console.log('Highlight Index: ', highlightIndex);
-	$: console.log('Filtered List Items: ', filteredListItems);
-	$: console.log('Selected List Items: ', selectedListItems);
 
+	/* This enables users to delete items with backspace
+	 * I believe this will require some refactoring into a single
+	 * map with the various functions triggered by its respective key.
+	 */
 	function handleKeyDown(e: KeyboardEvent) {
 		if (e.key === 'Backspace') {
 			if (inputValue === '') {
@@ -337,8 +364,8 @@
 		}
 	}
 
+	/* Handle debouncing and search for the on:input event */
 	function onInput() {
-		console.log('on input');
 		if (inputDelayTimeout) {
 			clearTimeout(inputDelayTimeout);
 		}
@@ -350,6 +377,10 @@
 		}
 	}
 
+	/* This still needs to be sharpened a bit.
+	 * There are still a few bugs that exist when certain key combinations
+	 * are pressed.
+	 */
 	function navigateDropdown(e: KeyboardEvent) {
 		if (e.key === 'ArrowDown' && highlightIndex <= filteredListItems.length - 1) {
 			highlightIndex === null ? (highlightIndex = 0) : highlightIndex++;
@@ -403,13 +434,16 @@
 			on:keydown={(e) => handleKeyDown(e)}
 			class="input-chip-field {classesInput}"
 			tabindex="0"
-			{...prunedRestProps()}
 			{placeholder}
+			{name}
+			{disabled}
+			{required}
+			{...prunedRestProps()}
 		/>
 		<ul class="autocomplete-items-list" class:autocomplete-hidden={filteredListItems.length === 0 || opened === false}>
 			{#each filteredListItems as item, i}
 				<li
-					class="autocomplete-items"
+					class="autocomplete-item"
 					class:autocomplete-active={i === highlightIndex}
 					on:click={() => setInputValue(item)}
 					on:keypress={(e) => handleKeyDown(e)}
@@ -423,60 +457,26 @@
 
 <style lang="postcss">
 	.autocomplete {
-		position: relative;
-		display: flex;
-		gap: 0;
-	}
-
-	.autocomplete:hover {
-		z-index: 1000;
-	}
-
-	.autocomplete:focus {
-		z-index: 1000;
-	}
-
-	.autocomplete:active {
-		z-index: 1000;
+		@apply relative flex gap-0;
 	}
 
 	.autocomplete-items-list {
-		position: absolute;
-		margin: 0;
-		padding: 0;
-		top: 110%;
-		right: 0;
-		width: 100%;
-
-		@apply bg-surface-500 rounded-lg p-1;
-	}
-
-	.autocomplete-items-list:hover {
+		@apply absolute m-0 p-1 top-[110%] right-0 w-full bg-surface-500 rounded-lg;
 	}
 
 	input {
 		position: relative;
 	}
 
-	li.autocomplete-items {
-		list-style: none;
-		top: 100%;
-		left: 0;
-		right: 0;
-		padding: 10px;
-		cursor: pointer;
-		background-color: inherit;
-		color: inherit;
-		position: relative;
-
-		@apply rounded-lg my-0.5;
+	li.autocomplete-item {
+		@apply relative list-none top-full left-0 right-0 p-2 cursor-pointer bg-inherit text-inherit rounded-lg my-0.5;
 	}
 
-	li.autocomplete-items {
-		@apply hover:bg-primary-500 hover:text-white !important;
+	li.autocomplete-item:hover {
+		@apply bg-primary-500 text-white !important;
 	}
 
-	li.autocomplete-items:active {
+	li.autocomplete-item:active {
 		@apply bg-primary-500 text-surface-50 !important;
 	}
 
