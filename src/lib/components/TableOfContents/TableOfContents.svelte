@@ -33,14 +33,25 @@
 	const cLabel: string = 'p-4 pt-0';
 	const cListItem: string = 'px-4 py-2 cursor-pointer';
 
+	// Types
+	type ObserverIndex = {
+		elementIndex: number;
+		tocIndex: number;
+	};
+
 	// Local
+	let allElements: HTMLElement[] = [];
 	let headingsList: HTMLElement[] = [];
 	let observer: IntersectionObserver;
-	let activeIndexes: number[] = [];
+	let activeIndexes: ObserverIndex[] = [];
 
 	function generateHeadingList(): void {
 		const elemTarget = document.querySelector(target);
 		const elemHeadersList: any = elemTarget?.querySelectorAll(allowedHeadings);
+
+		// Get all elements in our elemTarget in order, so we can check the headings positiion in the DOM later.
+		allElements = [].slice.call(elemTarget?.getElementsByTagName('*'));
+
 		// Select only relevant headings
 		elemHeadersList?.forEach((elem: HTMLElement, i: number) => {
 			// Skip if `data-toc-ignore` attribute set
@@ -76,25 +87,51 @@
 		elemTarget.scrollIntoView({ behavior: 'smooth' });
 	}
 
-	function observeElement(e: HTMLElement, headingIndex: number) {
-		observer = new IntersectionObserver((entries) => {
-			if (entries[0].isIntersecting) {
-				// if (entries[0].intersectionRatio > 0) {
-				if (activeIndexes.indexOf(headingIndex) === -1) {
-					activeIndexes = [...activeIndexes, headingIndex];
+	// function observeElement(e: HTMLElement, headingIndex: number) {
+	function observeElement(e: HTMLElement, obsIndex: ObserverIndex) {
+		observer = new IntersectionObserver(
+			(entries) => {
+				if (!entries[0].isIntersecting && obsIndex.elementIndex === 4) {
+					console.log(allElements[4]);
+					console.log('0:', entries);
 				}
-			} else {
-				activeIndexes = activeIndexes.filter((v) => v != headingIndex);
-			}
-		});
+				if (entries[0].intersectionRatio > 0) {
+					if (obsIndex.elementIndex === 4) {
+						console.log('entries[0]', entries);
+					}
+					// if (activeIndexes.indexOf(obsIndex) === -1) {
+					if (activeIndexes.findIndex((item) => item.elementIndex === obsIndex.elementIndex) === -1) {
+						activeIndexes = [...activeIndexes, obsIndex];
+					}
+				} else {
+					// const index = activeIndexes.indexOf(indexes);
+					activeIndexes = activeIndexes.filter((item) => item.elementIndex !== obsIndex.elementIndex);
+
+					// const index = activeIndexes.findIndex((item) => item.elementIndex === obsIndex.elementIndex);
+
+					// activeIndexes = activeIndexes.slice(index);
+
+					// activeIndexes = activeIndexes.filter((v) => v != headingIndex);
+				}
+			},
+			{ root: null, threshold: 0 }
+		);
 
 		observer.observe(e);
 	}
 
 	function generateObservers() {
 		headingsList.forEach((h: HTMLElement, i: number) => {
-			observeElement(h, i);
 			// get all elements between this heading and the next one and also observeit with i
+			const startIndex = allElements.indexOf(headingsList[i]);
+			const endIndex = i !== headingsList.length - 1 ? allElements.indexOf(headingsList[i + 1]) : allElements.length - 1;
+
+			observeElement(h, { elementIndex: startIndex, tocIndex: i });
+
+			for (let j = startIndex + 1; j < endIndex; j++) {
+				observeElement(allElements[j], { elementIndex: j, tocIndex: i });
+			}
+
 			// if not the last
 			// if the last then check all elements after it and observe it
 		});
@@ -119,10 +156,11 @@
 	$: classesList = `${regionList}`;
 	$: classesListItem = `${cListItem} ${text} ${hover} ${rounded}`;
 	$: setActiveClasses = (index: number): string => {
-		if (activeIndexes.indexOf(index) === -1) {
-			return '';
-		} else {
+		// if (activeIndexes.indexOf(index) === -1) {
+		if (activeIndexes.some((item) => item.tocIndex === index)) {
 			return activeText;
+		} else {
+			return '';
 		}
 	};
 </script>
