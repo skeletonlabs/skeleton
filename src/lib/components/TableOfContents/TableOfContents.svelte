@@ -17,7 +17,7 @@
 	/** Set the row text color styles. */
 	export let text: string = 'text-surface-600-300-token';
 	/** Set the active text styles. */
-	export let activeText: string = 'font-bold';
+	export let activeText: string = 'font-bold border-l-2 !rounded-none';
 	/** Set the row hover styles. */
 	export let hover: string = 'hover:bg-primary-hover-token';
 	/** Set the row border radius styles. */
@@ -44,13 +44,17 @@
 	let headingsList: HTMLElement[] = [];
 	let observer: IntersectionObserver;
 	let activeIndexes: ObserverIndex[] = [];
+	let observerThreshold: number = 0.05;
 
 	function generateHeadingList(): void {
 		const elemTarget = document.querySelector(target);
 		const elemHeadersList: any = elemTarget?.querySelectorAll(allowedHeadings);
 
-		// Get all elements in our elemTarget in order, so we can check the headings positiion in the DOM later.
+		// Get all elements in our elemTarget and convert it from HTMLCollection to an array. Filter the array, so that only the allowed headings and elements with no children are in the list.
 		allElements = [].slice.call(elemTarget?.getElementsByTagName('*'));
+		allElements = allElements.filter(
+			(item) => allowedHeadings.toLowerCase().includes(item.nodeName.toLowerCase()) || item.children.length === 0
+		);
 
 		// Select only relevant headings
 		elemHeadersList?.forEach((elem: HTMLElement, i: number) => {
@@ -87,34 +91,20 @@
 		elemTarget.scrollIntoView({ behavior: 'smooth' });
 	}
 
-	// function observeElement(e: HTMLElement, headingIndex: number) {
 	function observeElement(e: HTMLElement, obsIndex: ObserverIndex) {
 		observer = new IntersectionObserver(
 			(entries) => {
-				if (!entries[0].isIntersecting && obsIndex.elementIndex === 4) {
-					console.log(allElements[4]);
-					console.log('0:', entries);
-				}
-				if (entries[0].intersectionRatio > 0) {
-					if (obsIndex.elementIndex === 4) {
-						console.log('entries[0]', entries);
-					}
-					// if (activeIndexes.indexOf(obsIndex) === -1) {
+				if (entries[0].intersectionRatio >= observerThreshold) {
+					// Only add the observed element to the activeIndexes list if it isn't added yet.
 					if (activeIndexes.findIndex((item) => item.elementIndex === obsIndex.elementIndex) === -1) {
 						activeIndexes = [...activeIndexes, obsIndex];
 					}
 				} else {
-					// const index = activeIndexes.indexOf(indexes);
+					// Remove the observed element from the activeIndexes list if the intersection ratio is below the threshold.
 					activeIndexes = activeIndexes.filter((item) => item.elementIndex !== obsIndex.elementIndex);
-
-					// const index = activeIndexes.findIndex((item) => item.elementIndex === obsIndex.elementIndex);
-
-					// activeIndexes = activeIndexes.slice(index);
-
-					// activeIndexes = activeIndexes.filter((v) => v != headingIndex);
 				}
 			},
-			{ root: null, threshold: 0 }
+			{ root: null, threshold: observerThreshold }
 		);
 
 		observer.observe(e);
@@ -122,7 +112,7 @@
 
 	function generateObservers() {
 		headingsList.forEach((h: HTMLElement, i: number) => {
-			// get all elements between this heading and the next one and also observeit with i
+			// Find all elements between the current heading and the next one and observe them.
 			const startIndex = allElements.indexOf(headingsList[i]);
 			const endIndex = i !== headingsList.length - 1 ? allElements.indexOf(headingsList[i + 1]) : allElements.length - 1;
 
@@ -131,9 +121,6 @@
 			for (let j = startIndex + 1; j < endIndex; j++) {
 				observeElement(allElements[j], { elementIndex: j, tocIndex: i });
 			}
-
-			// if not the last
-			// if the last then check all elements after it and observe it
 		});
 	}
 
