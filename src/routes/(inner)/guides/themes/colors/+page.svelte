@@ -8,33 +8,48 @@
 
 	const cSwatch = 'w-4 aspect-square rounded-full';
 	const tableProps: TableSource = {
-		head: ['Color', 'Name', 'Class', 'Description'],
+		head: ['Color', 'ID', 'Example', 'Description'],
 		body: [
-			[`<div class="${cSwatch} bg-primary-500" />`, 'Primary', '[x]-primary-[50-900]', 'Typically your primary brand color.'],
+			[
+				`<div class="${cSwatch} bg-primary-500" />`,
+				'<code>primary</code>',
+				'[style]-primary-[50-900]',
+				'Typically your primary brand color.'
+			],
 			[
 				`<div class="${cSwatch} bg-secondary-500" />`,
-				'Secondary',
-				'[x]-secondary-[50-900]',
+				'<code>secondary</code>',
+				'[style]-secondary-[50-900]',
 				'A secondary branding color for supplementary value.'
 			],
-			[`<div class="${cSwatch} bg-tertiary-500" />`, 'Tertiary', '[x]-tertiary-[50-900]', 'A third and additional branding color.'],
+			[
+				`<div class="${cSwatch} bg-tertiary-500" />`,
+				'<code>tertiary</code>',
+				'[style]-tertiary-[50-900]',
+				'A third and additional branding color.'
+			],
 			[
 				`<div class="${cSwatch} bg-success-500" />`,
-				'Success',
-				'[x]-success-[50-900]',
+				'<code>success</code>',
+				'[style]-success-[50-900]',
 				'Used for successful or positive actions, such as a form submit alert.'
 			],
 			[
 				`<div class="${cSwatch} bg-warning-500" />`,
-				'Warning',
-				'[x]-warning-[50-900]',
+				'<code>warning</code>',
+				'[style]-warning-[50-900]',
 				'Used for negative or harmful actions, such as errors.'
 			],
-			[`<div class="${cSwatch} bg-error-500" />`, 'Error', '[x]-error-[50-900]', 'May be used for errors, alerts, and invalid inputs.'],
+			[
+				`<div class="${cSwatch} bg-error-500" />`,
+				'<code>error</code>',
+				'[style]-error-[50-900]',
+				'May be used for errors, alerts, and invalid inputs.'
+			],
 			[
 				`<div class="${cSwatch} bg-surface-500" />`,
-				'Surface',
-				'[x]-surface-[50-900]',
+				'<code>surface</code>',
+				'[style]-surface-[50-900]',
 				'The base level colors, using for your background, cards, and other layered elements.'
 			]
 		]

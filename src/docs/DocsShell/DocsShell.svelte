@@ -9,6 +9,7 @@
 	import Table from '$lib/components/Table/Table.svelte';
 	import Tab from '$lib/components/Tab/Tab.svelte';
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
+	import TableOfContents from '$lib/components/TableOfContents/TableOfContents.svelte';
 
 	// Utilities
 	import { toastStore } from '$lib/utilities/Toast/stores';
@@ -219,32 +220,43 @@
 	</header>
 
 	<!-- Tab Panels -->
-	<div class="doc-shell-tab-panels">
+	<div class="doc-shell-tab-panels relative">
 		<!-- Tab: Usage -->
 		{#if $storeActiveTab === 'usage'}
 			<div class="doc-shell-usage {classesRegionPanels}">
-				<!-- Slot: Examples Sandbox -->
-				{#if $$slots.sandbox}
-					<div>
-						<h2 class="sr-only">Examples</h2>
-						<div class="doc-shell-sandbox {spacing}">
-							<slot name="sandbox">(sandbox)</slot>
+				<div class="grid grid-cols-1 2xl:grid-cols-[1fr_240px]">
+					<!-- Content -->
+					<div class={spacing}>
+						<!-- Slot: Examples Sandbox -->
+						{#if $$slots.sandbox}
+							<div>
+								<h2 class="sr-only">Examples</h2>
+								<div class="doc-shell-sandbox {spacing}">
+									<slot name="sandbox">(sandbox)</slot>
+								</div>
+							</div>
+						{/if}
+						<div id="toc-target" class={spacing}>
+							<!-- Slot: Usage -->
+							{#if $$slots.usage}
+								<div>
+									<h2 class="sr-only">Getting Started</h2>
+									<div class="doc-shell-usage {spacing}">
+										<slot name="usage">(usage)</slot>
+									</div>
+								</div>
+							{/if}
+							<!-- Slot: Overflow -->
+							{#if $$slots.default}
+								<footer class="doc-shell-footer"><slot /></footer>
+							{/if}
 						</div>
 					</div>
-				{/if}
-				<!-- Slot: Usage -->
-				{#if $$slots.usage}
+					<!-- Table of Contents -->
 					<div>
-						<h2 class="sr-only">Usage</h2>
-						<div class="doc-shell-usage {spacing}">
-							<slot name="usage">(usage)</slot>
-						</div>
+						<TableOfContents target="#toc-target" minimumHeadings={1} class="sticky top-10 hidden 2xl:inline-block ml-4" />
 					</div>
-				{/if}
-				<!-- Slot: Overflow -->
-				{#if $$slots.default}
-					<footer class="doc-shell-footer"><slot /></footer>
-				{/if}
+				</div>
 			</div>
 		{/if}
 

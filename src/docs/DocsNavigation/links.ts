@@ -106,7 +106,8 @@ export const menuNavLinks: any = [
 			{ href: '/components/slide-toggles', label: 'Slide Toggles', keywords: 'check, checkbox, toggle, input, form' },
 			{ href: '/components/steppers', label: 'Steppers', keywords: 'intro, onboard, onboarding, form, progress' },
 			{ href: '/components/tabs', label: 'Tabs', keywords: 'select, selection, panel' },
-			{ href: '/components/tables', label: 'Tables', keywords: 'data, entry' }
+			{ href: '/components/tables', label: 'Tables', keywords: 'data, entry' },
+			{ href: '/components/table-of-contents', label: 'Table of Contents', keywords: 'page, results, links, navigation' }
 		]
 	},
 

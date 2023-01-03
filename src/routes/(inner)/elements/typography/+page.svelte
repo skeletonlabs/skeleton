@@ -34,8 +34,8 @@
 			/>
 			<div class="card p-4 space-y-6">
 				<h1>Skeleton H1</h1>
-				<h2>Skeleton H2</h2>
-				<h3>Skeleton H3</h3>
+				<h2 data-toc-ignore>Skeleton H2</h2>
+				<h3 data-toc-ignore>Skeleton H3</h3>
 				<h4>Skeleton H4</h4>
 				<h5>Skeleton H5</h5>
 				<h6>Skeleton H6</h6>

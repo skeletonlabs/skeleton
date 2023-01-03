@@ -41,7 +41,7 @@
 			<h2>Scrollbars</h2>
 			<p>Provides custom scrollbar styles in supported browsers.</p>
 			<div class="card p-4 max-h-[200px] overflow-auto space-y-4">
-				<h3>Test Scrolling Here</h3>
+				<h3 data-toc-ignore>Test Scrolling Here</h3>
 				<p>
 					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa corrupti iusto dolor. Similique quibusdam eveniet quae deleniti
 					architecto modi natus, quos ducimus! Repudiandae reiciendis totam sequi veniam necessitatibus, magni harum. Lorem ipsum, dolor sit

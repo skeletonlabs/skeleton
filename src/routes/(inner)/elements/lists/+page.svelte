@@ -31,7 +31,7 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-4">
+		<section class="grid grid-cols-1 xl:grid-cols-2 gap-4">
 			<div class="card p-4 space-y-4">
 				<p class="font-bold">Unordered</p>
 				<hr />

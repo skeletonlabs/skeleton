@@ -149,7 +149,7 @@
 			<CodeBlock language="html" code={`<ProgressBar label="Progress Bar" value={50} max={100} />`} />
 		</div>
 		<div class="space-y-4">
-			<h2>Indeterminate</h2>
+			<h2>Indeterminate Mode</h2>
 			<p>The <code>value</code> property must be removed or set to <code>undefined</code>.</p>
 			<CodeBlock language="html" code={`<ProgressBar />`} />
 		</div>

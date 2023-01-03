@@ -78,8 +78,8 @@
 		</div>
 		<!-- Links -->
 		<div class="space-y-4">
-			<h2>Logo Item Links</h2>
-			<p>Logo Items support anchor tags for links.</p>
+			<h2>Creating Links</h2>
+			<p>Usings support anchor tags for links.</p>
 			<CodeBlock
 				language="html"
 				code={`
@@ -89,7 +89,7 @@
 		</div>
 		<!-- Icons -->
 		<div class="space-y-4">
-			<h2>Logo Item Icons</h2>
+			<h2>Using Icons</h2>
 			<p>Wrap child elements in span tags and they will space as expected.</p>
 			<CodeBlock
 				language="html"

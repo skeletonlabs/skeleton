@@ -106,5 +106,15 @@
 </Alert>`}
 			/>
 		</section>
+		<section class="space-y-4">
+			<h2>Styling</h2>
+			<p>Use the <code>background</code> and <code>border</code> properties to style your alert.</p>
+			<CodeBlock
+				language="html"
+				code={`
+<Alert background="bg-primary-500/20" border="border border-primary-500">...</Alert>
+			`}
+			/>
+		</section>
 	</svelte:fragment>
 </DocsShell>

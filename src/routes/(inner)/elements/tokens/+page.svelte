@@ -15,10 +15,10 @@
 	};
 
 	// Local
-	const vColorsAll = 'primary | secondary | tertiary | success | warning | error | surface';
-	const vColorsCore = 'primary | secondary | tertiary | success | warning | error';
-	const vPairings = '50-900 | 100-800 | 200-700 | 300-600 | 400-500';
+	const vColorsAll = '<a href="/guides/themes/colors">Theme Colors</a>';
+	const vPairings = 'See pairing chart above.';
 	const vCorners = 'tl | tr | bl | br';
+	const descPairings = 'Can be 50-900 or 900-50 format.';
 
 	// Tables
 	const tableBackgrounds: TableSource = {
@@ -27,7 +27,7 @@
 			['<code>bg-[color]-backdrop-token</code>', vColorsAll, 'Background styles for modal backdrops.'],
 			['<code>bg-[color]-hover-token</code>', vColorsAll, 'Background styles for hoverable elements.'],
 			['<code>bg-[color]-active-token</code>', vColorsAll, 'Background styles for active selected elements.'],
-			['<code>bg-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, 'Pairings can be as shown or reversed (ex: 900-50).']
+			['<code>bg-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings]
 		]
 	};
 	const tableBorderRadius: TableSource = {
@@ -43,22 +43,21 @@
 		head: ['Class', 'Values', 'Description'],
 		body: [
 			['<code>border-token</code>', '', 'Implements your theme configured border size.'],
-			['<code>border-primary-[pairings]-token</code>', vPairings, 'Pairings can be as shown or reversed (ex: 900-50).']
+			['<code>border-primary-[pairings]-token</code>', vPairings, descPairings]
 		]
 	};
 	const tableFills: TableSource = {
 		head: ['Class', 'Values', 'Description'],
 		body: [
-			// ['<code>fill-[mode]-token</code>', 'base | dark', 'Implements your theme configured light or dark mode fill color.'],
 			['<code>fill-token</code>', '', 'The default responsive light/dark mode fill color.'],
-			['<code>fill-on-[color]-token</code>', vColorsCore, 'Provides an accessible foreground color.']
+			['<code>fill-on-[color]-token</code>', vColorsAll, 'Provides an accessible foreground color.']
 		]
 	};
 	const tableRings: TableSource = {
 		head: ['Class', 'Values', 'Description'],
 		body: [
 			['<code>ring-outline-token</code>', '', 'Creates a subtle transparent outline like Card elements.'],
-			['<code>ring-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, 'Pairings can be as shown or reversed (ex: 900-50).']
+			['<code>ring-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings]
 		]
 	};
 	const tableText: TableSource = {
@@ -67,8 +66,8 @@
 			['<code>font-heading-token</code>', '', 'Implements your theme configured heading text size.'],
 			['<code>font-token</code>', '', 'Implements your theme configured base text size.'],
 			['<code>text-token</code>', '', 'Implements your theme configured base text color.'],
-			['<code>text-on-[color]-token</code>', vColorsCore, 'Provides an accessible foreground color.'],
-			['<code>text-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, 'Pairings can be as shown or reversed (ex: 900-50).']
+			['<code>text-on-[color]-token</code>', vColorsAll, 'Provides an accessible foreground color.'],
+			['<code>text-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings]
 		]
 	};
 	const tableMisc: TableSource = {
