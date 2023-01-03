@@ -81,6 +81,7 @@ export const menuNavLinks: any = [
 			{ href: '/components/app-bar', label: 'App Bar' },
 			{ href: '/components/app-rail', label: 'App Rail' },
 			{ href: '/components/app-shell', label: 'App Shell' },
+            { href: '/components/autocomplete', label: 'Autocomplete'},
 			{ href: '/components/avatars', label: 'Avatars' },
 			{ href: '/components/breadcrumbs', label: 'Breadcrumbs' },
 			{ href: '/components/conic-gradients', label: 'Conic Gradients' },
