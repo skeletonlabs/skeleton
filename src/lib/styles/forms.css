@@ -44,13 +44,15 @@
 	select:not(.unstyled),
 	.input-chip {
 		/* Base */
-		@apply w-full caret-secondary-500 focus:ring-secondary-500 transition-all duration-200 hover:brightness-110;
+		@apply w-full caret-secondary-500 transition duration-200;
 		/* Text */
 		@apply text-black dark:text-white;
 		/* Background */
-		@apply bg-surface-200-700-token;
+		@apply bg-surface-200-700-token hover:brightness-110;
 		/* Border */
 		@apply border-token border-surface-400-500-token focus:border-secondary-500;
+		/* Ring - NOTE: we use border instead */
+		@apply ring-0;
 		/* Shadow */
 		@apply shadow-sm;
 		/* Theme: Rounded */
