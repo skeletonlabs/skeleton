@@ -30,12 +30,10 @@
 
 	// Input Handler
 	function onClickHandler(event: any): void {
+		if (!$$props.value) return;
+		typeof $selected === 'object' ? handleMultiSelect() : handleSingleSelect();
 		/** @event {{ event }} click - Fires when the component is clicked.  */
 		dispatch('click', event);
-		if (!$selected || !$$props.value) {
-			return;
-		}
-		typeof $selected === 'object' ? handleMultiSelect() : handleSingleSelect();
 	}
 
 	// Selection Handlers
