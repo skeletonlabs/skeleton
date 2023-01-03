@@ -52,7 +52,7 @@
 					<thead>
 						<tr>
 							<th>Property</th>
-							<th>Examples</th>
+							<th>Example</th>
 							<th>Description</th>
 						</tr>
 					</thead>
@@ -97,12 +97,9 @@
 			<CodeBlock language="html" code={`<h2 class="sr-only">Include Me!</h2>`} />
 		</section>
 		<section class="space-y-4">
-			<h2>Scroll Offset</h2>
-			<p>
-				If your app includes a fixed header, such as an App Bar, you may need to specify a scroll offset. This will prevent the heading from
-				being obscured during scroll.
-			</p>
-			<CodeBlock language="html" code={`<TableOfContents ... scrollOffset={-90} />`} />
+			<h2>Sticky Positioning</h2>
+			<!-- prettier-ignore -->
+			<p>See Tailwind's documentation on <a href="https://tailwindcss.com/docs/position#sticky-positioning-elements" target="_blank" rel="noreferrer">sticky positioning</a> if you wish to keep the Table of Contents component visible during scrolling.</p>
 		</section>
 	</svelte:fragment>
 </DocsShell>
