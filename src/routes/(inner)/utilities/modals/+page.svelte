@@ -128,7 +128,7 @@
 		const d: ModalSettings = {
 			type: 'component',
 			component: c,
-			classes: '!p-0 !bg-black !max-w-[75%]'
+			modalClasses: '!p-0 !bg-black !max-w-[75%] !overflow-visible'
 		};
 		modalStore.trigger(d);
 	}
@@ -264,7 +264,8 @@ function triggerPrompt(): void {
 const d: ModalSettings = {
 	type: 'alert',
 	// ...
-	classes: '!p-0 !bg-green-500 !max-w-[75%]'
+	backdropClasses: '!items-start'
+	modalClasses: '!p-0 !bg-green-500 !max-w-[75%]'
 };
 				`}
 			/>
