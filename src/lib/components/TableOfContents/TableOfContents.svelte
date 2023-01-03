@@ -78,18 +78,13 @@
 
 	function observeElement(e: HTMLElement, headingIndex: number) {
 		observer = new IntersectionObserver((entries) => {
-			// if (entries[0].isIntersecting) {
-			if (entries[0].intersectionRatio > 0) {
+			if (entries[0].isIntersecting) {
+				// if (entries[0].intersectionRatio > 0) {
 				if (activeIndexes.indexOf(headingIndex) === -1) {
 					activeIndexes = [...activeIndexes, headingIndex];
 				}
-			} else if (entries[0].intersectionRatio <= 0) {
-				console.log('activeIndexes:', activeIndexes, 'smaller', headingIndex);
+			} else {
 				activeIndexes = activeIndexes.filter((v) => v != headingIndex);
-				// const index = activeIndexes.indexOf(headingIndex);
-				// if (index !== -1) {
-				// 	activeIndexes = activeIndexes.slice(index);
-				// }
 			}
 		});
 
