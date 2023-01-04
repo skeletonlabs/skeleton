@@ -119,6 +119,8 @@
 	function observeElement(e: HTMLElement, obsIndex: ObserverIndex) {
 		observer = new IntersectionObserver(
 			(entries) => {
+				// console.log(entries);
+				// console.log(allElements.indexOf(entries[0].target));
 				if (entries[0].intersectionRatio >= observerThreshold) {
 					// Only add the observed element to the activeIndexes list if it isn't added yet.
 					if (activeIndexes.findIndex((item) => item.elementIndex === obsIndex.elementIndex) === -1) {
