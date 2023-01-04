@@ -465,16 +465,16 @@
 </div>
 
 <style lang="postcss">
+	.autocomplete-input:hover {
+		@apply filter-none;
+	}
+
 	.autocomplete {
 		@apply relative flex gap-0;
 	}
 
 	.autocomplete-items-list {
-		@apply absolute m-0 p-1 top-[110%] right-0 w-full bg-surface-500 rounded-lg;
-	}
-
-	input {
-		position: relative;
+		@apply absolute m-0 p-1 top-[110%] right-0 w-full bg-surface-500 rounded-lg z-10;
 	}
 
 	li.autocomplete-item {
@@ -490,7 +490,7 @@
 	}
 
 	.autocomplete-active {
-		@apply bg-primary-500 text-surface-50 !important;
+		@apply bg-primary-500 text-surface-50 z-0 !important;
 	}
 
 	.autocomplete-select {
