@@ -16,12 +16,16 @@
 	export let spacing: string = 'space-y-4';
 	/** Set the row text color styles. */
 	export let text: string = 'text-surface-600-300-token';
-	/** Set the active text styles. */
-	export let activeText: string = 'font-bold';
 	/** Set the row hover styles. */
 	export let hover: string = 'hover:bg-primary-hover-token';
 	/** Set the row border radius styles. */
 	export let rounded: string = 'rounded-token';
+	/** Set the active text styles. */
+	export let activeText: string = 'font-bold';
+	/** Highlight all headings with content visible in the viewport instead of just the top active heading. */
+	export let highlightAllActive: boolean = false;
+	/** Highlight parent headings along with the current active heading(s). */
+	export let highlightParentHeadings: boolean = true;
 
 	// Props Regions
 	/** Provide arbitrary styles for the label element. */
@@ -119,16 +123,16 @@
 					// Only add the observed element to the activeIndexes list if it isn't added yet.
 					if (activeIndexes.findIndex((item) => item.elementIndex === obsIndex.elementIndex) === -1) {
 						activeIndexes = [...activeIndexes, obsIndex];
-						activeParents = [...activeParents, ...headingsParents[obsIndex.tocIndex]];
+						// activeParents = [...activeParents, ...headingsParents[obsIndex.tocIndex]];
 					}
 				} else {
 					// Remove the observed element from the activeIndexes list if the intersection ratio is below the threshold.
 					activeIndexes = activeIndexes.filter((item) => item.elementIndex !== obsIndex.elementIndex);
 					// Remove all parents of obsIndex from the activeParents list.
-					headingsParents[obsIndex.tocIndex].forEach((parent: number) => {
-						const index = activeParents.indexOf(parent);
-						activeParents.splice(index, 1);
-					});
+					// headingsParents[obsIndex.tocIndex].forEach((parent: number) => {
+					// 	const index = activeParents.indexOf(parent);
+					// 	activeParents.splice(index, 1);
+					// });
 				}
 			},
 			{ root: null, threshold: observerThreshold }
@@ -170,12 +174,25 @@
 	$: classesLabel = `${cLabel} ${regionLabel}`;
 	$: classesList = `${regionList}`;
 	$: classesListItem = `${cListItem} ${text} ${hover} ${rounded}`;
+	$: activeHeading = Math.min(...activeIndexes.map((item) => item.tocIndex));
 	$: setActiveClasses = (index: number): string => {
-		if (activeParents.includes(index) || activeIndexes.some((item) => item.tocIndex === index)) {
+		// if (highlightParents && activeParents.includes(index)) {
+		if (highlightParentHeadings && headingsParents[activeHeading]?.includes(index)) {
 			return activeText;
-		} else {
-			return '';
 		}
+		if (highlightAllActive && activeIndexes.some((item) => item.tocIndex === index)) {
+			return activeText;
+		}
+		if (index === activeHeading) {
+			return activeText;
+		}
+
+		return '';
+		// if (activeParents.includes(index) || activeIndexes.some((item) => item.tocIndex === index)) {
+		// 	return activeText;
+		// } else {
+		// 	return '';
+		// }
 	};
 </script>
 

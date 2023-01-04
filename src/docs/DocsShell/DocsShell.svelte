@@ -258,7 +258,7 @@
 							target="#toc-target"
 							minimumHeadings={1}
 							class="sticky top-10 hidden 2xl:inline-block ml-4"
-							activeText="font-bold bg-tertiary-backdrop-token border-l-2 border-tertiary-400-500-token !rounded-none"
+							activeText="bg-primary-active-token"
 						/>
 					</div>
 				</div>
