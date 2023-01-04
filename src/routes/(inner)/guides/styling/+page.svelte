@@ -141,7 +141,8 @@
 		// prettier-ignore
 		body: [
 			[ '1.', 'Theme Stylesheet', 'Houses your themes use CSS properties for colors, border radius, etc.' ],
-			[ '2.', 'Global Stylesheet', 'Keep last so you can override the above styles. Project-specific styles go here.' ],
+			[ '2.', 'Skeleton Stylesheet(s)', 'Imports Tailwind directives, element, and components styles.' ],
+			[ '3.', 'Global Stylesheet', 'Keep last so you can override the above styles. Project-specific styles go here.' ],
 		]
 	};
 </script>
