@@ -1,5 +1,4 @@
-// Background Design Tokens
-// Generates a set of design tokens related to background styling
+// Design Tokens: Background
 // Doc: https://www.skeleton.dev/elements/tokens
 
 const settings = require('../settings.cjs');
@@ -24,7 +23,7 @@ module.exports = () => {
         // Active
         // Example: .bg-primary-active-token
         classes[`.bg-${n}-active-token`] = {
-            'background-color': `rgb(var(--color-${n}-500))`,
+            'background-color': `rgb(var(--color-${n}-500)) !important`,
             'color': `rgb(var(--on-${n}))`,
             'fill': `rgb(var(--on-${n}))`,
         };
