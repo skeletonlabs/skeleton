@@ -86,7 +86,7 @@ const config = {
 			<h3>Add the Skeleton Plugin</h3>
 			<p>
 				Add the Skeleton <a href="https://tailwindcss.com/docs/plugins#official-plugins" target="_blank" rel="noreferrer">plugin</a>. This
-				will ensure Tailwind can generate color classes based on your theme. We'll add a theme in the following guide section.
+				will ensure Tailwind can generate the appropriate color and design token classes for your project.
 			</p>
 			<CodeBlock
 				language="js"
@@ -95,7 +95,7 @@ const config = {
 	// ...
 	plugins: [
 		// Keep any existing plugins present and append the following:
-		require('@skeletonlabs/skeleton/tailwind/theme.cjs')
+		require('@skeletonlabs/skeleton/tailwind/skeleton.cjs')
 	]
 }
 `}
