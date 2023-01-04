@@ -10,6 +10,7 @@ const themeColors = require('./theme/colors.cjs');
 const tokensBackgrounds = require('./tokens/backgrounds.cjs');
 const tokensBorders = require('./tokens/borders.cjs');
 const tokensBorderRadius = require('./tokens/border-radius.cjs');
+const tokensFills = require('./tokens/fills.cjs');
 
 module.exports = plugin(({ addUtilities }) => {
 	addUtilities({
@@ -17,6 +18,7 @@ module.exports = plugin(({ addUtilities }) => {
 		...tokensBackgrounds(),
 		...tokensBorders(),
 		...tokensBorderRadius(),
+		...tokensFills(),
 	})
 },
 	{
