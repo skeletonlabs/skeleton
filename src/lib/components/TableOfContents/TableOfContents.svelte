@@ -17,7 +17,7 @@
 	/** Set the row text color styles. */
 	export let text: string = 'text-surface-600-300-token';
 	/** Set the active text styles. */
-	export let activeText: string = 'font-bold border-l-2 !rounded-none';
+	export let activeText: string = 'font-bold bg-tertiary-backdrop-token border-l-2 !rounded-none';
 	/** Set the row hover styles. */
 	export let hover: string = 'hover:bg-primary-hover-token';
 	/** Set the row border radius styles. */
@@ -42,18 +42,21 @@
 	// Local
 	let allElements: HTMLElement[] = [];
 	let headingsList: HTMLElement[] = [];
+	let headingsParents: any = {};
+	let activeParents: number[] = [];
 	let observer: IntersectionObserver;
 	let activeIndexes: ObserverIndex[] = [];
-	let observerThreshold: number = 0.05;
+	let observerThreshold: number = 0.1;
 
 	function generateHeadingList(): void {
 		const elemTarget = document.querySelector(target);
 		const elemHeadersList: any = elemTarget?.querySelectorAll(allowedHeadings);
 
-		// Get all elements in our elemTarget and convert it from HTMLCollection to an array. Filter the array, so that only the allowed headings and elements with no children are in the list.
+		// Get all elements in our elemTarget and convert it from an HTMLCollection to an array. Filter the array, so that only the allowed headings and elements with no children are in the list to avoid problems with elements that wrap around others.
+		const allowedHeadingsLowerCase = allowedHeadings.toLowerCase();
 		allElements = [].slice.call(elemTarget?.getElementsByTagName('*'));
 		allElements = allElements.filter(
-			(item) => allowedHeadings.toLowerCase().includes(item.nodeName.toLowerCase()) || item.children.length === 0
+			(item) => allowedHeadingsLowerCase.includes(item.nodeName.toLowerCase()) || item.children.length === 0
 		);
 
 		// Select only relevant headings
@@ -91,6 +94,24 @@
 		elemTarget.scrollIntoView({ behavior: 'smooth' });
 	}
 
+	function findParentIndexes(): void {
+		/** Get all parents for each heading element, by checking
+		 *  which previous headings in the list have a lower H value,
+		 *  so H1 < H2 < H3 < ...
+		 */
+		headingsList.forEach((h, i) => {
+			headingsParents[i] = [];
+			let currHeading: string = h.tagName;
+
+			for (let j = i - 1; j >= 0; j--) {
+				if (headingsList[j].tagName < currHeading) {
+					currHeading = headingsList[j].tagName;
+					headingsParents[i] = [...headingsParents[i], j];
+				}
+			}
+		});
+	}
+
 	function observeElement(e: HTMLElement, obsIndex: ObserverIndex) {
 		observer = new IntersectionObserver(
 			(entries) => {
@@ -98,10 +119,16 @@
 					// Only add the observed element to the activeIndexes list if it isn't added yet.
 					if (activeIndexes.findIndex((item) => item.elementIndex === obsIndex.elementIndex) === -1) {
 						activeIndexes = [...activeIndexes, obsIndex];
+						activeParents = [...activeParents, ...headingsParents[obsIndex.tocIndex]];
 					}
 				} else {
 					// Remove the observed element from the activeIndexes list if the intersection ratio is below the threshold.
 					activeIndexes = activeIndexes.filter((item) => item.elementIndex !== obsIndex.elementIndex);
+					// Remove all parents of obsIndex from the activeParents list.
+					headingsParents[obsIndex.tocIndex].forEach((parent: number) => {
+						const index = activeParents.indexOf(parent);
+						activeParents.splice(index, 1);
+					});
 				}
 			},
 			{ root: null, threshold: observerThreshold }
@@ -129,6 +156,7 @@
 		generateHeadingList();
 		if (activeText) {
 			// Only add observers if activeText is not empty.
+			findParentIndexes();
 			generateObservers();
 		}
 	});
@@ -143,8 +171,7 @@
 	$: classesList = `${regionList}`;
 	$: classesListItem = `${cListItem} ${text} ${hover} ${rounded}`;
 	$: setActiveClasses = (index: number): string => {
-		// if (activeIndexes.indexOf(index) === -1) {
-		if (activeIndexes.some((item) => item.tocIndex === index)) {
+		if (activeParents.includes(index) || activeIndexes.some((item) => item.tocIndex === index)) {
 			return activeText;
 		} else {
 			return '';
