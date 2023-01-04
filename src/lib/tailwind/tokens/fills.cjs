@@ -1,4 +1,4 @@
-// Design Tokens: SVG Fill Color
+// Design Tokens: SVG Fill
 // Doc: https://www.skeleton.dev/elements/tokens
 
 const settings = require('../settings.cjs');
@@ -14,7 +14,7 @@ module.exports = () => {
     settings.colorNames.forEach(n => {
         // On-X Fill Colors
         // Example: .fill-on-primary-token
-        classes[`.fill-on-${n}-token`] = { 'fill': `rgb(var(--on-primary))` };
+        classes[`.fill-on-${n}-token`] = { 'fill': `rgb(var(--on-${n}))` };
     });
     return classes;
 }

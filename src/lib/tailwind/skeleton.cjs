@@ -11,6 +11,7 @@ const tokensBackgrounds = require('./tokens/backgrounds.cjs');
 const tokensBorders = require('./tokens/borders.cjs');
 const tokensBorderRadius = require('./tokens/border-radius.cjs');
 const tokensFills = require('./tokens/fills.cjs');
+const tokensText = require('./tokens/text.cjs');
 
 module.exports = plugin(({ addUtilities }) => {
 	addUtilities({
@@ -19,6 +20,7 @@ module.exports = plugin(({ addUtilities }) => {
 		...tokensBorders(),
 		...tokensBorderRadius(),
 		...tokensFills(),
+		...tokensText(),
 	})
 },
 	{
