@@ -3,10 +3,6 @@
 
 const settings = require('../settings.cjs');
 
-// // Defaults
-// const backdropAlpha = 0.7;
-// const hoverAlpha = 0.1;
-
 module.exports = () => {
     const classes = {
         // Font Family
