@@ -47,7 +47,6 @@
 	let allElements: HTMLElement[] = [];
 	let headingsList: HTMLElement[] = [];
 	let headingsParents: any = {};
-	let activeParents: number[] = [];
 	let observer: IntersectionObserver;
 	let activeIndexes: ObserverIndex[] = [];
 	let observerThreshold: number = 0.25;
@@ -123,16 +122,10 @@
 					// Only add the observed element to the activeIndexes list if it isn't added yet.
 					if (activeIndexes.findIndex((item) => item.elementIndex === obsIndex.elementIndex) === -1) {
 						activeIndexes = [...activeIndexes, obsIndex];
-						// activeParents = [...activeParents, ...headingsParents[obsIndex.tocIndex]];
 					}
 				} else {
 					// Remove the observed element from the activeIndexes list if the intersection ratio is below the threshold.
 					activeIndexes = activeIndexes.filter((item) => item.elementIndex !== obsIndex.elementIndex);
-					// Remove all parents of obsIndex from the activeParents list.
-					// headingsParents[obsIndex.tocIndex].forEach((parent: number) => {
-					// 	const index = activeParents.indexOf(parent);
-					// 	activeParents.splice(index, 1);
-					// });
 				}
 			},
 			{ root: null, threshold: observerThreshold }
@@ -174,9 +167,10 @@
 	$: classesLabel = `${cLabel} ${regionLabel}`;
 	$: classesList = `${regionList}`;
 	$: classesListItem = `${cListItem} ${text} ${hover} ${rounded}`;
+
+	// Find active heading by looking at the lowest active index.
 	$: activeHeading = Math.min(...activeIndexes.map((item) => item.tocIndex));
 	$: setActiveClasses = (index: number): string => {
-		// if (highlightParents && activeParents.includes(index)) {
 		if (highlightParentHeadings && headingsParents[activeHeading]?.includes(index)) {
 			return activeText;
 		}
@@ -188,11 +182,6 @@
 		}
 
 		return '';
-		// if (activeParents.includes(index) || activeIndexes.some((item) => item.tocIndex === index)) {
-		// 	return activeText;
-		// } else {
-		// 	return '';
-		// }
 	};
 </script>
 
