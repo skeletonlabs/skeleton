@@ -17,7 +17,7 @@
 	/** Set the row text color styles. */
 	export let text: string = 'text-surface-600-300-token';
 	/** Set the active text styles. */
-	export let activeText: string = 'font-bold bg-tertiary-backdrop-token border-l-2 !rounded-none';
+	export let activeText: string = 'font-bold';
 	/** Set the row hover styles. */
 	export let hover: string = 'hover:bg-primary-hover-token';
 	/** Set the row border radius styles. */
@@ -46,7 +46,7 @@
 	let activeParents: number[] = [];
 	let observer: IntersectionObserver;
 	let activeIndexes: ObserverIndex[] = [];
-	let observerThreshold: number = 0.1;
+	let observerThreshold: number = 0.25;
 
 	function generateHeadingList(): void {
 		const elemTarget = document.querySelector(target);
