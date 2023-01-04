@@ -9,12 +9,14 @@ const themeColors = require('./theme/colors.cjs');
 // Skeleton Design Token Modules
 const tokensBackgrounds = require('./tokens/backgrounds.cjs');
 const tokensBorders = require('./tokens/borders.cjs');
+const tokensBorderRadius = require('./tokens/border-radius.cjs');
 
 module.exports = plugin(({ addUtilities }) => {
 	addUtilities({
 		// Implement Skeleton design token classes
 		...tokensBackgrounds(),
-		...tokensBorders()
+		...tokensBorders(),
+		...tokensBorderRadius(),
 	})
 },
 	{
