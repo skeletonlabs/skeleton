@@ -7,15 +7,15 @@ module.exports = () => {
     return {
         // Base
         '.rounded-token': { 'border-radius': 'var(--theme-rounded-base)' },
-        '.rounded-tl-token': { 'border-radius': 'var(--theme-rounded-base)' },
-        '.rounded-tr-token': { 'border-radius': 'var(--theme-rounded-base)' },
-        '.rounded-bl-token': { 'border-radius': 'var(--theme-rounded-base)' },
-        '.rounded-br-token': { 'border-radius': 'var(--theme-rounded-base)' },
+        '.rounded-tl-token': { 'bordertop-left-radius': 'var(--theme-rounded-base)' },
+        '.rounded-tr-token': { 'bordertop-right-radius': 'var(--theme-rounded-base)' },
+        '.rounded-bl-token': { 'borderbottom-left-radius': 'var(--theme-rounded-base)' },
+        '.rounded-br-token': { 'borderbottom-right-radius': 'var(--theme-rounded-base)' },
         // Container
         '.rounded-container-token': { 'border-radius': 'var(--theme-rounded-container)' },
-        '.rounded-tl-container-token': { 'border-radius': 'var(--theme-rounded-container)' },
-        '.rounded-tr-container-token': { 'border-radius': 'var(--theme-rounded-container)' },
-        '.rounded-bl-container-token': { 'border-radius': 'var(--theme-rounded-container)' },
-        '.rounded-br-container-token': { 'border-radius': 'var(--theme-rounded-container)' },
+        '.rounded-tl-container-token': { 'border-top-left-radius': 'var(--theme-rounded-container)' },
+        '.rounded-tr-container-token': { 'border-top-right-radius': 'var(--theme-rounded-container)' },
+        '.rounded-bl-container-token': { 'border-bottom-left-radius': 'var(--theme-rounded-container)' },
+        '.rounded-br-container-token': { 'border-bottom-right-radius': 'var(--theme-rounded-container)' },
     };
 }

@@ -5,9 +5,6 @@
 /* Tailwind Directives */
 @import 'tailwind.css';
 
-/* Design Tokens */
-@import 'tokens.css';
-
 /* Global Styles */
 @import 'core.css';
 
