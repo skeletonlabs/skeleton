@@ -73,7 +73,14 @@
 		<section class="space-y-4">
 			<div class="card p-4 space-y-4">
 				<p>Single select autocomplete:</p>
-				<Autocomplete items={simpleArr} labelField={'name'} valueField={'value'} bind:selectedValues={selectedFarmAnimal} />
+				<Autocomplete
+					items={simpleArr}
+					labelField={'name'}
+					valueField={'value'}
+					bind:selectedValues={selectedFarmAnimal}
+					maxItemsToShowInList={50}
+					debug={true}
+				/>
 				<code class="block">Selected Farm Animal: {selectedFarmAnimal.length ? selectedFarmAnimal : 'No items selected.'}</code>
 			</div>
 

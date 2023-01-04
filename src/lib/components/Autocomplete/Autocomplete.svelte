@@ -55,6 +55,8 @@
 	export let disabled: boolean = false;
 	/** Optionally provide a required value for the input. */
 	export let required: boolean = false;
+	/** Optionally provide an ID for the input field*/
+	export let inputId: string = '';
 
 	// Props (Select)
 	/** Optionally provide a name for the select input. */
@@ -80,10 +82,11 @@
 	export let selectedItems: any = [];
 	export let selectedValues: any = [];
 
-	/* Dropdown UI State */
+	/* UI State */
 	let opened: boolean = false;
 	let loading: boolean = false;
 	let highlightIndex: any;
+	const uniqueAutocompleteId = 'autocomplete-' + Math.floor(Math.random() * 1000);
 
 	/* Custom Async Search State */
 	let lastRequestId: number = 0;
@@ -128,11 +131,12 @@
 	 */
 	async function search() {
 		opened = true;
+		highlightIndex = null;
 
 		let tempItems: any[] = [];
 		let currentInputValue = inputValue;
 
-		if (minCharactersToSearch > 1 && currentInputValue.length < minCharactersToSearch) {
+		if (minCharactersToSearch >= 1 && currentInputValue.length < minCharactersToSearch) {
 			currentInputValue = '';
 			return;
 		}
@@ -175,7 +179,6 @@
 
 			// If searchFunction is a regular function
 			else {
-				console.log('running search function');
 				let result = await searchFunction(currentInputValue);
 
 				// If a response to a newer request has been received
@@ -305,8 +308,8 @@
 	function setInputValue(item: ListItem) {
 		filteredListItems = [];
 		highlightIndex = null;
-		searchInput.focus();
 		if (multiple) {
+			searchInput.focus();
 			inputValue = '';
 			if (!allowDuplicates) {
 				if (selectedListItems.length === 0) {
@@ -342,27 +345,8 @@
 	$: classesChip = `${chip} ${hover}`;
 	$: classesInput = `${cInput} ${ring}`;
 
-	$: if (!inputValue) {
-		filteredListItems = [];
-		highlightIndex = null;
-	}
-
 	$: selectedItems = selectedListItems.map((item) => item.item);
 	$: selectedValues = selectedListItems.map((item) => item.value);
-
-	/* This enables users to delete items with backspace
-	 * I believe this will require some refactoring into a single
-	 * map with the various functions triggered by its respective key.
-	 */
-	function handleKeyDown(e: KeyboardEvent) {
-		if (e.key === 'Backspace') {
-			if (inputValue === '') {
-				removeSelectedItem(selectedListItems.length - 1);
-			}
-		} else {
-			return navigateDropdown(e);
-		}
-	}
 
 	/* Handle debouncing and search for the on:input event */
 	function onInput() {
@@ -377,32 +361,56 @@
 		}
 	}
 
-	/* This still needs to be sharpened a bit.
-	 * There are still a few bugs that exist when certain key combinations
-	 * are pressed.
+	/* Handle dropdown list and input keydowns
 	 */
-	function navigateDropdown(e: KeyboardEvent) {
+	function onKeyDown(e: KeyboardEvent) {
 		if (e.key === 'ArrowDown' && highlightIndex <= filteredListItems.length - 1) {
 			highlightIndex === null ? (highlightIndex = 0) : highlightIndex++;
 		} else if (e.key === 'ArrowUp' && highlightIndex !== null) {
 			highlightIndex === 0 ? (highlightIndex = filteredItems.length - 1) : highlightIndex--;
 		} else if (e.key === 'Enter') {
-			console.log('hit enter key');
 			let currentItem = filteredListItems[highlightIndex];
 			setInputValue(currentItem);
 		} else if (e.key === 'Escape') {
 			opened = false;
 		} else if (e.key === 'Tab') {
-			let currentItem = filteredListItems[highlightIndex];
-			setInputValue(currentItem);
-			opened = false;
+			if (highlightIndex === null && filteredListItems.length === 1) {
+				setInputValue(filteredListItems[0]);
+			} else if (highlightIndex !== null) {
+				setInputValue(filteredListItems[highlightIndex]);
+			}
+
+			/* If multiple options are allowed, focus user back to the input,
+			 *  else default tab behavior of moving to next selectable item.
+			 */
+			if (multiple) {
+				e.preventDefault();
+				searchInput.focus();
+			}
+		} else if (e.key === 'Backspace') {
+			if (inputValue === '') {
+				removeSelectedItem(selectedListItems.length - 1);
+			}
 		} else {
 			return;
 		}
 	}
+
+	function setFilteredToAllAndOpen() {
+		if (searchFunction && listItems.length === 0) {
+			search();
+		} else {
+			constructListItems(items);
+			filteredListItems = listItems;
+			opened = true;
+		}
+	}
+
+	function onInputClick() {
+		setFilteredToAllAndOpen();
+	}
 </script>
 
-<svelte:window on:click={() => (opened = false)} />
 <div>
 	{#if label}<div class="pb-1">
 			<span class={cLabel}>
@@ -410,7 +418,7 @@
 			</span>
 		</div>
 	{/if}
-	<div class="autocomplete-input {classesBase} autocomplete">
+	<div class="autocomplete-input {classesBase} autocomplete" id={uniqueAutocompleteId}>
 		<select class="autocomplete-select" name={selectName} id={selectId} {multiple}>
 			{#each selectedListItems as item}
 				<option value={item.value} selected>{item.label}</option>
@@ -430,10 +438,11 @@
 			bind:this={searchInput}
 			bind:value={inputValue}
 			on:input={() => onInput()}
-			on:click={() => search()}
-			on:keydown={(e) => handleKeyDown(e)}
+			on:keydown={(e) => onKeyDown(e)}
+			on:click={() => onInputClick()}
 			class="input-chip-field {classesInput}"
 			tabindex="0"
+			id={inputId ? inputId : ''}
 			{placeholder}
 			{name}
 			{disabled}
@@ -441,12 +450,12 @@
 			{...prunedRestProps()}
 		/>
 		<ul class="autocomplete-items-list" class:autocomplete-hidden={filteredListItems.length === 0 || opened === false}>
-			{#each filteredListItems as item, i}
+			{#each filteredListItems as item, i (item)}
 				<li
 					class="autocomplete-item"
 					class:autocomplete-active={i === highlightIndex}
 					on:click={() => setInputValue(item)}
-					on:keypress={(e) => handleKeyDown(e)}
+					on:keydown={(e) => onKeyDown(e)}
 				>
 					{@html item.label}
 				</li>
