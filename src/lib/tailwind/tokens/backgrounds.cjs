@@ -4,14 +4,38 @@
 
 const settings = require('../settings.cjs');
 
+// Defaults
+const backdropAlpha = 0.7;
+const hoverAlpha = 0.1;
+
 module.exports = () => {
-    const tokensObj = {};
+    const classes = {};
     settings.colorNames.forEach(n => {
-        // Background Color Pairings, ex: 50-900/900-50
+
+        // Backdrops
+        // Example: .bg-primary-backdrop-token
+        classes[`.bg-${n}-backdrop-token`] = { 'background-color': `rgb(var(--color-${n}-400) / ${backdropAlpha})` };
+        classes[`.dark .bg-${n}-backdrop-token`] = { 'background-color': `rgb(var(--color-${n}-900) / ${backdropAlpha})` };
+
+        // Hover
+        // Example: .bg-primary-hover-token
+        classes[`.bg-${n}-hover-token:hover`] = { 'background-color': `rgb(var(--color-${n}-500) / ${hoverAlpha})` };
+
+        // Active
+        // Example: .bg-primary-active-token
+        classes[`.bg-${n}-active-token`] = {
+            'background-color': `rgb(var(--color-${n}-500))`,
+            'color': `rgb(var(--on-${n}))`,
+            'fill': `rgb(var(--on-${n}))`,
+        };
+
+        // Color Pairings
+        // Example: .bg-primary-50-900-token | .bg-primary-900-50-token
         settings.colorPairings.forEach(p => {
-            tokensObj[`.bg-${n}-${p.light}-${p.dark}-token`] = { 'background-color': `rgb(var(--color-${n}-${p.light}))` };
-            tokensObj[`.dark .bg-${n}-${p.light}-${p.dark}-token`] = { 'background-color': `rgb(var(--color-${n}-${p.dark}))` };
+            classes[`.bg-${n}-${p.light}-${p.dark}-token`] = { 'background-color': `rgb(var(--color-${n}-${p.light}))` };
+            classes[`.dark .bg-${n}-${p.light}-${p.dark}-token`] = { 'background-color': `rgb(var(--color-${n}-${p.dark}))` };
         });
+
     });
-    return tokensObj;
+    return classes;
 }
