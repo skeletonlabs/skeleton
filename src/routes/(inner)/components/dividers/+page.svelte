@@ -50,7 +50,7 @@
 	<svelte:fragment slot="sandbox">
 		<div class="card !bg-error-500 p-4 space-y-4">
 			<h2>Deprecated</h2>
-			<p>This component is slated to be removed. Please migrate to native HR tag styles provided by <em>core.css</em>.</p>
+			<p>This component is slated for removal. Please migrate to native HR tag styles provided by <em>core.css</em>.</p>
 			<a href="/elements/core" class="btn btn-filled">View Core Elements</a>
 		</div>
 		<section class="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-2">

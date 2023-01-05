@@ -1,0 +1,13 @@
+/* Tailwind Elements: breadcrumbs.css */
+
+@layer components {
+	.breadcrumbs {
+		@apply flex items-center space-x-4 w-full hide-scrollbar overflow-x-auto;
+	}
+	.crumb {
+		@apply flex justify-center items-center space-x-2;
+	}
+	.crumb-separator {
+		@apply flex text-surface-700-200-token w-2 opacity-50;
+	}
+}

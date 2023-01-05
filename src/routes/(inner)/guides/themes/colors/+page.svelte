@@ -1,8 +1,6 @@
 <script lang="ts">
 	import type { TableSource } from '$lib/components/Table/types';
 
-	import Breadcrumb from '$lib/components/Breadcrumb/Breadcrumb.svelte';
-	import Crumb from '$lib/components/Breadcrumb/Crumb.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import Table from '$lib/components/Table/Table.svelte';
 
@@ -58,10 +56,11 @@
 
 <div class="page-container">
 	<!-- Breadcrumbs -->
-	<Breadcrumb>
-		<Crumb href="/guides/themes">Themes</Crumb>
-		<Crumb>Colors</Crumb>
-	</Breadcrumb>
+	<ol class="breadcrumbs">
+		<li class="crumb"><a href="/guides/themes">Themes</a></li>
+		<li class="crumb-separator">&rsaquo;</li>
+		<li>Colors</li>
+	</ol>
 
 	<!-- Header -->
 	<header class="space-y-4">

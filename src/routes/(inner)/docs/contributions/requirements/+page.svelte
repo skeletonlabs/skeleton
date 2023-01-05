@@ -2,8 +2,6 @@
 	import type { TableSource } from '$lib/components/Table/types';
 
 	import Alert from '$lib/components/Alert/Alert.svelte';
-	import Breadcrumb from '$lib/components/Breadcrumb/Breadcrumb.svelte';
-	import Crumb from '$lib/components/Breadcrumb/Crumb.svelte';
 	import Table from '$lib/components/Table/Table.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
@@ -47,10 +45,11 @@
 
 <div class="page-container">
 	<!-- Breadcrumbs -->
-	<Breadcrumb>
-		<Crumb href="/docs/contributions">Contributions</Crumb>
-		<Crumb>Requirements</Crumb>
-	</Breadcrumb>
+	<ol class="breadcrumbs">
+		<li class="crumb"><a href="/docs/contributions">Contributions</a></li>
+		<li class="crumb-separator">&rsaquo;</li>
+		<li>Requirements</li>
+	</ol>
 
 	<!-- Header -->
 	<header class="space-y-4">

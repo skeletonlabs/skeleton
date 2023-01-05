@@ -2,8 +2,6 @@
 	import { writable, type Writable } from 'svelte/store';
 
 	// Components
-	import Breadcrumb from '$lib/components/Breadcrumb/Breadcrumb.svelte';
-	import Crumb from '$lib/components/Breadcrumb/Crumb.svelte';
 	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
 	import RangeSlider from '$lib/components/RangeSlider/RangeSlider.svelte';
@@ -19,10 +17,11 @@
 
 <div class="page-container">
 	<!-- Breadcrumbs -->
-	<Breadcrumb>
-		<Crumb href="/elements/forms">Forms</Crumb>
-		<Crumb>Preview</Crumb>
-	</Breadcrumb>
+	<ol class="breadcrumbs">
+		<li class="crumb"><a href="/elements/forms">Forms</a></li>
+		<li class="crumb-separator">&rsaquo;</li>
+		<li>Preview</li>
+	</ol>
 
 	<!-- Header -->
 	<header class="space-y-4">

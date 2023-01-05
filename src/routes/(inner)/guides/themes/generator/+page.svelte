@@ -1,19 +1,15 @@
 <script lang="ts">
-	// Components
-	import Breadcrumb from '$lib/components/Breadcrumb/Breadcrumb.svelte';
-	import Crumb from '$lib/components/Breadcrumb/Crumb.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-
-	// Docs
 	import DocsThemer from '$docs/DocsThemer/DocsThemer.svelte';
 </script>
 
 <div class="page-container">
 	<!-- Breadcrumbs -->
-	<Breadcrumb>
-		<Crumb href="/guides/themes">Themes</Crumb>
-		<Crumb>Generator</Crumb>
-	</Breadcrumb>
+	<ol class="breadcrumbs">
+		<li class="crumb"><a href="/guides/themes">Themes</a></li>
+		<li class="crumb-separator">&rsaquo;</li>
+		<li>Generator</li>
+	</ol>
 
 	<!-- Header -->
 	<header class="space-y-4">

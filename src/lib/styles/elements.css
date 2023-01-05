@@ -3,6 +3,7 @@
 /* Recommended as the LAST stylesheet in the set */
 
 @import 'elements/badges.css';
+@import 'elements/breadcrumbs.css';
 @import 'elements/buttons.css';
 @import 'elements/cards.css';
 @import 'elements/chips.css';

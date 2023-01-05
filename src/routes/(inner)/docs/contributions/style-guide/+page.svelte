@@ -1,15 +1,14 @@
 <script lang="ts">
-	import Breadcrumb from '$lib/components/Breadcrumb/Breadcrumb.svelte';
-	import Crumb from '$lib/components/Breadcrumb/Crumb.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 </script>
 
 <div class="page-container">
 	<!-- Breadcrumbs -->
-	<Breadcrumb>
-		<Crumb href="/docs/contributions">Contributions</Crumb>
-		<Crumb>Style Guide</Crumb>
-	</Breadcrumb>
+	<ol class="breadcrumbs">
+		<li class="crumb"><a href="/docs/contributions">Contributions</a></li>
+		<li class="crumb-separator">&rsaquo;</li>
+		<li>Style Guide</li>
+	</ol>
 
 	<!-- Header -->
 	<header class="space-y-4">

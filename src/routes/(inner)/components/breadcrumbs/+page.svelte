@@ -34,6 +34,11 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
+		<div class="card !bg-error-500 p-4 space-y-4">
+			<h2>Deprecated</h2>
+			<p>This component is slated for removal. Please migrate the breadcrumb element styles provided by <em>all.css</em>.</p>
+			<a href="/elements/breadcrumbs" class="btn btn-filled">View Breadcrumb Elements</a>
+		</div>
 		<section class="grid grid-cols-1 xl:grid-cols-2 gap-4">
 			<div class="card p-4">
 				<Breadcrumb>

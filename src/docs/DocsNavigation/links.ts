@@ -59,6 +59,7 @@ export const menuNavLinks: any = [
 		title: 'Elements',
 		list: [
 			{ href: '/elements/badges', label: 'Badges', keywords: 'sup, sub, overlay, favorite, icon' },
+			{ href: '/elements/breadcrumbs', label: 'Breadcrumbs', keywords: 'nav, navigation, seperator, hierarchy' },
 			{ href: '/elements/buttons', label: 'Buttons', keywords: 'click, anchor, icon, preload' },
 			{ href: '/elements/cards', label: 'Cards', keywords: 'header, footer, background, cell, region' },
 			{ href: '/elements/chips', label: 'Chips', keywords: 'action, select, selection, filter, filtering, interactive' },
