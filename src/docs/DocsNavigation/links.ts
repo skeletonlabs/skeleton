@@ -95,7 +95,6 @@ export const menuNavLinks: any = [
 			{ href: '/components/dividers', label: 'Dividers', keywords: 'hr, horizontal, rule, separator' },
 			{ href: '/components/file-buttons', label: 'File Buttons', keywords: 'upload, form, input, file, media' },
 			{ href: '/components/file-dropzone', label: 'File Dropzone', keywords: 'upload, form, input, file, media, drag, drop' },
-			{ href: '/components/gradient-headings', label: 'Gradient Headings', keywords: 'header, h1, h2, h3' },
 			{ href: '/components/input-chips', label: 'Input Chips', keywords: 'multi, multiple, select, tags, form, validation' },
 			{ href: '/components/listboxes', label: 'Listboxes', keywords: 'list, select, multi, multiple' },
 			{ href: '/components/paginators', label: 'Paginators', keywords: 'nav, navigation, table, data, list' },
@@ -107,7 +106,9 @@ export const menuNavLinks: any = [
 			{ href: '/components/steppers', label: 'Steppers', keywords: 'intro, onboard, onboarding, form, progress' },
 			{ href: '/components/tabs', label: 'Tabs', keywords: 'select, selection, panel' },
 			{ href: '/components/tables', label: 'Tables', keywords: 'data, entry' },
-			{ href: '/components/table-of-contents', label: 'Table of Contents', keywords: 'page, results, links, navigation' }
+			{ href: '/components/table-of-contents', label: 'Table of Contents', keywords: 'page, results, links, navigation' },
+			// Slated for Deprecation:
+			{ href: '/components/gradient-headings', label: 'Gradient Headings', keywords: 'header, h1, h2, h3' }
 		]
 	},
 

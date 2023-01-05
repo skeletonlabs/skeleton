@@ -38,6 +38,21 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
+		<div class="card !bg-error-500 p-4 space-y-4">
+			<h2>Deprecated</h2>
+			<p>This component is slated to be <u>removed</u>. We recommend the following Tailwind technique if you wish to replicate this.</p>
+			<CodeBlock language="html" code={`<h1><span class="gradient-heading">Skeleton</span></h1>`} />
+			<CodeBlock
+				language="css"
+				code={`
+.gradient-heading {
+	@apply bg-gradient-to-r from-primary-500 to-bg-secondary-500 bg-clip text-transparent box-decoration-clone
+}
+			`}
+			/>
+			<!-- prettier-ignore -->
+			<p>See the <a class="!text-error-200" href="https://tailwindcss.com/docs/gradient-color-stops" target="_blank" rel="noreferrer">Tailwind documentation</a> for additional gradient options.</p>
+		</div>
 		<section class="space-y-4 xl:space-y-0 xl:grid grid-cols-[1fr_300px] gap-2">
 			<!-- Example -->
 			<div class="card p-4 h-full flex justify-center items-center">
