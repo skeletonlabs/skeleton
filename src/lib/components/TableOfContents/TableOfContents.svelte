@@ -43,7 +43,7 @@
 	let elementToHeading: any = {};
 	let headingsParents: any = {};
 	let activeParents: number[] = [];
-	let observer: IntersectionObserver;
+	let observer: IntersectionObserver | null = null;
 	let activeIndexes: number[] = [];
 	let observerThreshold: number = 0.25;
 
@@ -189,7 +189,7 @@
 	$: classesBase = `${width} ${spacing} ${$$props.class ?? ''}`;
 	$: classesLabel = `${cLabel} ${regionLabel}`;
 	$: classesList = `${regionList}`;
-	$: classesListItem = `${cListItem} ${text} ${hover} ${rounded}`;
+	$: classesListItem = `${cListItem} ${hover} ${rounded}`;
 
 	// Find active heading by looking at the lowest active index.
 	$: activeHeading = Math.min(...activeIndexes.map((item) => elementToHeading[item]));
@@ -207,7 +207,7 @@
 			return activeText;
 		}
 
-		return '';
+		return text;
 	};
 </script>
 
