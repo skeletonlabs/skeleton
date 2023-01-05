@@ -36,6 +36,11 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
+		<div class="card !bg-error-500 p-4 space-y-4">
+			<h2>Deprecated</h2>
+			<p>This component is slated for removal. Please migrate the alert element styles provided by <em>all.css</em>.</p>
+			<a href="/elements/alerts" class="btn btn-filled">View Alerts Elements</a>
+		</div>
 		<section class="space-y-4">
 			{#if !visible}
 				<div class="card p-4 text-center"><button class="btn btn-ghost-surface" on:click={toggleVisible}>Display Alerts</button></div>

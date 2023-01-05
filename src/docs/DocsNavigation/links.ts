@@ -58,6 +58,7 @@ export const menuNavLinks: any = [
 		id: 'elements',
 		title: 'Elements',
 		list: [
+			{ href: '/elements/alerts', label: 'Alerts', keywords: 'message, notification' },
 			{ href: '/elements/badges', label: 'Badges', keywords: 'sup, sub, overlay, favorite, icon' },
 			{ href: '/elements/breadcrumbs', label: 'Breadcrumbs', keywords: 'nav, navigation, seperator, hierarchy' },
 			{ href: '/elements/buttons', label: 'Buttons', keywords: 'click, anchor, icon, preload' },
@@ -85,7 +86,7 @@ export const menuNavLinks: any = [
 		id: 'components',
 		title: 'Components',
 		list: [
-			{ href: '/components/alerts', label: 'Alerts', keywords: 'message, notification' },
+			{ href: '/components/accordions', label: 'Accordions', keywords: 'collapse' },
 			{ href: '/components/app-bar', label: 'App Bar', keywords: 'header, top, bar, title' },
 			{ href: '/components/app-rail', label: 'App Rail', keywords: 'nav, navigation, tile, sidebar' },
 			{ href: '/components/app-shell', label: 'App Shell', keywords: 'layout, header, footer, sidebar, page, content' },
@@ -106,6 +107,7 @@ export const menuNavLinks: any = [
 			{ href: '/components/tables', label: 'Tables', keywords: 'data, entry' },
 			{ href: '/components/table-of-contents', label: 'Table of Contents', keywords: 'page, results, links, navigation' },
 			// Slated for Deprecation:
+			{ href: '/components/alerts', label: 'Alerts', keywords: 'message, notification', badge: 'Deprecated' },
 			{ href: '/components/accordions', label: 'Accordions', keywords: 'collapse', badge: 'Deprecated' },
 			{ href: '/components/breadcrumbs', label: 'Breadcrumbs', keywords: 'nav, navigation, seperator, hierarchy', badge: 'Deprecated' },
 			{ href: '/components/dividers', label: 'Dividers', keywords: 'hr, horizontal, rule, separator', badge: 'Deprecated' },

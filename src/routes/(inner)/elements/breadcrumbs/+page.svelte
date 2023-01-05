@@ -40,7 +40,7 @@
 				<ol class="breadcrumbs">
 					<li class="crumb"><a href="/">Home</a></li>
 					<li class="crumb-separator">/</li>
-					<li class="crumb"><a href="/">About</a></li>
+					<li class="crumb"><a href="/">Articles</a></li>
 					<li class="crumb-separator">/</li>
 					<li>Current</li>
 				</ol>
