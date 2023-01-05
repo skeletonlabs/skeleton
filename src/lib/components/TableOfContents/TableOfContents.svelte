@@ -193,7 +193,7 @@
 
 	// Find active heading by looking at the lowest active index.
 	$: activeHeading = Math.min(...activeIndexes.map((item) => elementToHeading[item]));
-	$: setActiveClasses = (index: number): string => {
+	$: setTextClasses = (index: number): string => {
 		if (
 			highlightParentHeadings &&
 			(headingsParents[activeHeading]?.includes(index) || (highlightAllActive && activeParents.includes(index)))
@@ -219,7 +219,7 @@
 		{#each headingsList as headingElem, i}
 			<!-- prettier-ignore -->
 			<li
-				class="toc-list-item {classesListItem} {setHeadingClasses(headingElem)} {setActiveClasses(i)}"
+				class="toc-list-item {classesListItem} {setHeadingClasses(headingElem)} {setTextClasses(i)}"
 				on:click={() => { scrollToHeading(headingElem, i); }}
 				on:click
 				on:keypress
