@@ -254,12 +254,7 @@
 					</div>
 					<!-- Table of Contents -->
 					<div>
-						<TableOfContents
-							target="#toc-target"
-							minimumHeadings={1}
-							class="sticky top-10 hidden 2xl:inline-block ml-4"
-							activeText="bg-primary-active-token"
-						/>
+						<TableOfContents target="#toc-target" minimumHeadings={1} class="sticky top-10 hidden 2xl:inline-block ml-4" />
 					</div>
 				</div>
 			</div>

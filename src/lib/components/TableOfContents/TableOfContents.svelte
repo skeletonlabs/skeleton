@@ -21,7 +21,7 @@
 	/** Set the row border radius styles. */
 	export let rounded: string = 'rounded-token';
 	/** Set the active text styles. */
-	export let activeText: string = 'font-bold';
+	export let activeText: string = 'bg-primary-active-token';
 	/** Highlight all headings with content visible in the viewport instead of just the top active heading. */
 	export let highlightAllActive: boolean = false;
 	/** Highlight parent headings along with the current active heading(s). */
@@ -37,31 +37,19 @@
 	const cLabel: string = 'p-4 pt-0';
 	const cListItem: string = 'px-4 py-2 cursor-pointer';
 
-	// Types
-	type ObserverIndex = {
-		elementIndex: number;
-		tocIndex: number;
-	};
-
 	// Local
-	let allElements: HTMLElement[] = [];
 	let headingsList: HTMLElement[] = [];
+	let elementsList: HTMLElement[] = [];
+	let elementToHeading: any = {};
 	let headingsParents: any = {};
 	let activeParents: number[] = [];
 	let observer: IntersectionObserver;
-	let activeIndexes: ObserverIndex[] = [];
+	let activeIndexes: number[] = [];
 	let observerThreshold: number = 0.25;
 
 	function generateHeadingList(): void {
 		const elemTarget = document.querySelector(target);
 		const elemHeadersList: any = elemTarget?.querySelectorAll(allowedHeadings);
-
-		// Get all elements in our elemTarget and convert it from an HTMLCollection to an array. Filter the array, so that only the allowed headings and elements with no children are in the list to avoid problems with elements that wrap around others.
-		const allowedHeadingsLowerCase = allowedHeadings.toLowerCase();
-		allElements = [].slice.call(elemTarget?.getElementsByTagName('*'));
-		allElements = allElements.filter(
-			(item) => allowedHeadingsLowerCase.includes(item.nodeName.toLowerCase()) || item.children.length === 0
-		);
 
 		// Select only relevant headings
 		elemHeadersList?.forEach((elem: HTMLElement, i: number) => {
@@ -80,6 +68,14 @@
 		});
 		// Update Headings list
 		headingsList = [...headingsList];
+
+		// Get all elements in our elemTarget and convert it from an HTMLCollection to an array. Filter the array, so that only the allowed headings and elements with no children are in the list to avoid problems with elements that wrap around others.
+		const allowedHeadingsLowerCase = allowedHeadings.toLowerCase();
+		elementsList = [].slice.call(elemTarget?.getElementsByTagName('*'));
+		elementsList = elementsList.filter(
+			(item) => allowedHeadingsLowerCase.includes(item.nodeName.toLowerCase()) || item.children.length === 0
+		);
+		elementsList.splice(0, elementsList.indexOf(headingsList[0]));
 	}
 
 	// Sets the indentation amount per heading
@@ -104,57 +100,74 @@
 		 *  so H1 < H2 < H3 < ...
 		 */
 		headingsList.forEach((h, i) => {
-			headingsParents[i] = [];
+			headingsParents[i] = null;
 			let currHeading: string = h.tagName;
+
+			let parents: number[] = [];
 
 			for (let j = i - 1; j >= 0; j--) {
 				if (headingsList[j].tagName < currHeading) {
 					currHeading = headingsList[j].tagName;
-					headingsParents[i] = [...headingsParents[i], j];
+					parents = [...parents, j];
 				}
 			}
+
+			headingsParents[i] = parents.length > 0 ? parents : null;
 		});
 	}
 
-	function observeElement(e: HTMLElement, obsIndex: ObserverIndex) {
-		observer = new IntersectionObserver(
-			(entries) => {
-				// console.log(entries);
-				// console.log(allElements.indexOf(entries[0].target));
-				if (entries[0].intersectionRatio >= observerThreshold) {
-					// Only add the observed element to the activeIndexes list if it isn't added yet.
-					if (activeIndexes.findIndex((item) => item.elementIndex === obsIndex.elementIndex) === -1) {
-						activeIndexes = [...activeIndexes, obsIndex];
-						activeParents = [...activeParents, ...headingsParents[obsIndex.tocIndex]];
+	function observeElement(e: HTMLElement) {
+		if (!observer) {
+			// Create one observer, that observes all elements.
+			observer = new IntersectionObserver(
+				(entries) => {
+					for (let i = 0; i < entries.length; i++) {
+						const elementIndex = elementsList.indexOf(<HTMLElement>entries[i].target);
+						const tocIndex = elementToHeading[elementIndex];
+
+						if (entries[i].intersectionRatio >= observerThreshold) {
+							// Only add the observed element to the activeIndexes list if it isn't added yet.
+							if (activeIndexes.indexOf(elementIndex) === -1) {
+								activeIndexes = [...activeIndexes, elementIndex];
+								if (headingsParents[tocIndex]) {
+									activeParents = [...activeParents, ...headingsParents[tocIndex]];
+								}
+							}
+						} else {
+							// Remove the observed element from the activeIndexes list if the intersection ratio is below the threshold.
+							activeIndexes = activeIndexes.filter((item) => item !== elementIndex);
+
+							// Remove all parents of obsIndex from the activeParents list.
+							if (headingsParents[tocIndex]) {
+								headingsParents[tocIndex]?.forEach((parent: number) => {
+									const index = activeParents.indexOf(parent);
+									activeParents.splice(index, 1);
+								});
+							}
+						}
 					}
-				} else {
-					// Remove the observed element from the activeIndexes list if the intersection ratio is below the threshold.
-					activeIndexes = activeIndexes.filter((item) => item.elementIndex !== obsIndex.elementIndex);
-					// Remove all parents of obsIndex from the activeParents list.
-					headingsParents[obsIndex.tocIndex].forEach((parent: number) => {
-						const index = activeParents.indexOf(parent);
-						activeParents.splice(index, 1);
-					});
-				}
-			},
-			{ root: null, threshold: observerThreshold }
-		);
+				},
+				{ root: null, threshold: observerThreshold }
+			);
+		}
 
 		observer.observe(e);
 	}
 
-	function generateObservers() {
+	function createElementHeadingCorrespondence() {
 		headingsList.forEach((h: HTMLElement, i: number) => {
 			// Find all elements between the current heading and the next one and observe them.
-			const startIndex = allElements.indexOf(headingsList[i]);
-			const endIndex = i !== headingsList.length - 1 ? allElements.indexOf(headingsList[i + 1]) : allElements.length - 1;
+			const startIndex = elementsList.indexOf(headingsList[i]);
+			const endIndex = i !== headingsList.length - 1 ? elementsList.indexOf(headingsList[i + 1]) : elementsList.length;
 
-			observeElement(h, { elementIndex: startIndex, tocIndex: i });
-
-			for (let j = startIndex + 1; j < endIndex; j++) {
-				observeElement(allElements[j], { elementIndex: j, tocIndex: i });
+			for (let j = startIndex; j < endIndex; j++) {
+				elementToHeading[j] = i;
 			}
 		});
+	}
+
+	function generateObservers() {
+		elementsList.forEach((e) => observeElement(e));
 	}
 
 	// Lifecycle
@@ -163,6 +176,7 @@
 		if (activeText) {
 			// Only add observers if activeText is not empty.
 			findParentIndexes();
+			createElementHeadingCorrespondence();
 			generateObservers();
 		}
 	});
@@ -178,7 +192,7 @@
 	$: classesListItem = `${cListItem} ${text} ${hover} ${rounded}`;
 
 	// Find active heading by looking at the lowest active index.
-	$: activeHeading = Math.min(...activeIndexes.map((item) => item.tocIndex));
+	$: activeHeading = Math.min(...activeIndexes.map((item) => elementToHeading[item]));
 	$: setActiveClasses = (index: number): string => {
 		if (
 			highlightParentHeadings &&
@@ -186,7 +200,7 @@
 		) {
 			return activeText;
 		}
-		if (highlightAllActive && activeIndexes.some((item) => item.tocIndex === index)) {
+		if (highlightAllActive && activeIndexes.some((item) => elementToHeading[item] === index)) {
 			return activeText;
 		}
 		if (index === activeHeading) {
