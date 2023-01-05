@@ -108,7 +108,6 @@ export const menuNavLinks: any = [
 			{ href: '/components/table-of-contents', label: 'Table of Contents', keywords: 'page, results, links, navigation' },
 			// Slated for Deprecation:
 			{ href: '/components/alerts', label: 'Alerts', keywords: 'message, notification', badge: 'Deprecated' },
-			{ href: '/components/accordions', label: 'Accordions', keywords: 'collapse', badge: 'Deprecated' },
 			{ href: '/components/breadcrumbs', label: 'Breadcrumbs', keywords: 'nav, navigation, seperator, hierarchy', badge: 'Deprecated' },
 			{ href: '/components/dividers', label: 'Dividers', keywords: 'hr, horizontal, rule, separator', badge: 'Deprecated' },
 			{

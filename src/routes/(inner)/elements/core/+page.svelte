@@ -22,19 +22,15 @@
 		<div class="space-y-4">
 			<h2>Body Element</h2>
 			<p>Affects the body background color for both theme and dark mode settings.</p>
-			<Alert>
-				<strong>TIP:</strong> Consider pairing this with a <strong>CSS Mesh Gradient</strong> background image.
-				<svelte:fragment slot="trail">
-					<!-- FIXME: hardcoded path -->
-					<a
-						class="btn btn-ghost"
-						href="https://github.com/skeletonlabs/skeleton/blob/master/src/lib/themes/theme-skeleton.css#L80"
-						target="_blank"
-						rel="noreferrer">Reference</a
-					>
+			<aside class="alert">
+				<i class="fa-solid fa-lightbulb text-2xl" />
+				<div class="alert-message">Consider pairing this with a <strong>CSS Mesh Gradient</strong> background image.</div>
+				<div class="alert-actions">
+					<!-- prettier-ignore -->
+					<a class="btn btn-ghost" href="https://github.com/skeletonlabs/skeleton/blob/master/src/lib/themes/theme-skeleton.css#L80" target="_blank" rel="noreferrer">Reference</a>
 					<a class="btn btn-filled" href="https://csshero.org/mesher/" target="_blank" rel="noreferrer">Mesh Generator</a>
-				</svelte:fragment>
-			</Alert>
+				</div>
+			</aside>
 		</div>
 		<!-- Scrollbars -->
 		<div class="space-y-4">

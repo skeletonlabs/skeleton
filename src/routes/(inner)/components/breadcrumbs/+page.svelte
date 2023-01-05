@@ -34,11 +34,15 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<div class="card !bg-error-500 p-4 space-y-4">
-			<h2>Deprecated</h2>
-			<p>This component is slated for removal. Please migrate the breadcrumb element styles provided by <em>all.css</em>.</p>
-			<a href="/elements/breadcrumbs" class="btn btn-filled">View Breadcrumb Elements</a>
-		</div>
+		<!-- Alert -->
+		<aside class="alert alert-error">
+			<i class="fa-solid fa-triangle-exclamation text-4xl" />
+			<div class="alert-message">
+				<h3>Deprecated</h3>
+				<p>This component is slated for removal. Please migrate the element styles provided by <em>all.css</em>.</p>
+			</div>
+			<a href="/elements/breadcrumbs" class="alert-message btn btn-filled">View Elements</a>
+		</aside>
 		<section class="grid grid-cols-1 xl:grid-cols-2 gap-4">
 			<div class="card p-4">
 				<Breadcrumb>

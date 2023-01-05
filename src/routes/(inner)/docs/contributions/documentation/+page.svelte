@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Alert from '$lib/components/Alert/Alert.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 </script>
 
@@ -109,10 +108,13 @@ export let hover: string = getContext('hover');
  * @slot content - Provide the alert message text.
  */`}
 		/>
-		<Alert
-			><strong>NOTE:</strong> The leading <code>// ...</code> comment is required for Sveld to successfully parse the slot descriptions. This
-			is not optional.</Alert
-		>
+		<aside class="alert">
+			<i class="fa-solid fa-lightbulb text-2xl" />
+			<div class="alert-message">
+				<strong>NOTE:</strong> The leading <code>// ...</code> comment is required for Sveld to successfully parse the slot descriptions. This
+				is not optional.
+			</div>
+		</aside>
 	</section>
 
 	<!-- Events -->

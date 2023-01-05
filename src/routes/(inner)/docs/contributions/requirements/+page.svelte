@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { TableSource } from '$lib/components/Table/types';
 
-	import Alert from '$lib/components/Alert/Alert.svelte';
 	import Table from '$lib/components/Table/Table.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
@@ -90,7 +89,12 @@
 			<li>When ready, submit or set your pull request to the ready state. This will begin the code review process.</li>
 			<li>If your PR meets all requirements it will be merged, otherwise feedback will be provided.</li>
 		</ol>
-		<Alert>Remember to be a team player, don't be a hero! Open-source is most successful when we all work together.</Alert>
+		<aside class="alert">
+			<i class="fa-solid fa-thumbs-up text-2xl" />
+			<div class="alert-message">
+				Remember to be a team player, don't be a hero! Open-source is most successful when we all work together.
+			</div>
+		</aside>
 	</section>
 
 	<hr />

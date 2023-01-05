@@ -47,7 +47,7 @@
 					<button class="btn btn-filled-secondary" on:click={toggleVisible}>Toggle {!visible ? 'On' : 'Off'}</button>
 				</div>
 				{#if visible}
-					<aside class="alert" transition:fade={{ duration: 200 }}>
+					<aside class="alert" transition:fade|local={{ duration: 200 }}>
 						<i class="fa-solid fa-triangle-exclamation text-4xl" />
 						<div class="alert-message">
 							<h3>Warning</h3>
@@ -136,7 +136,7 @@
 			<h2>Adding Animations</h2>
 			<!-- prettier-ignore -->
 			<p><a href="https://svelte.dev/tutorial/transition" target="_blank" rel="noreferrer">Svelte Transitions</a> can provide smooth transitions when the alert state changes.</p>
-			<CodeBlock language="html" code={`<aside class="alert" transition:fade={{ duration: 200 }}>...</div>`} />
+			<CodeBlock language="html" code={`<aside class="alert" transition:fade|local={{ duration: 200 }}>...</div>`} />
 		</section>
 	</svelte:fragment>
 </DocsShell>

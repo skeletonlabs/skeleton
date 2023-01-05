@@ -6,7 +6,6 @@
 	// Components
 	import AccordionGroup from '$lib/components/Accordion/AccordionGroup.svelte';
 	import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
-	import Alert from '$lib/components/Alert/Alert.svelte';
 	import Table from '$lib/components/Table/Table.svelte';
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
 	import Tab from '$lib/components/Tab/Tab.svelte';
@@ -227,10 +226,12 @@ import '@skeletonlabs/skeleton/styles/${$storeStylesheets === 'recommended' ? 'a
 				and add required styles.
 			</p>
 		{:else if $storeFramework === 'manual'}
-			<Alert>
-				<svelte:fragment slot="lead"><span class="text-xl">⚠️</span></svelte:fragment>
-				The following step is <strong>REQUIRED</strong> to ensure your styles display properly in your application.
-			</Alert>
+			<aside class="alert">
+				<i class="fa-solid fa-triangle-exclamation text-2xl" />
+				<div class="alert-message">
+					The following step is <strong>REQUIRED</strong> to ensure your styles display properly in your application.
+				</div>
+			</aside>
 			<p>
 				SvelteKit's global stylesheet is located in <code>/src/app.postcss</code>. <strong>Svelte-Add</strong> automatically includes
 				<a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> in your

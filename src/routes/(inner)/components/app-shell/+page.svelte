@@ -142,10 +142,13 @@
 	</svelte:fragment>
 </AppShell>`}
 			/>
-			<Alert background="bg-secondary-500/20" border="border border-secondary-500">
-				<strong>Tip:</strong> Consider hiding your sidebar for smaller screens and using a Drawer component. If you wish to use the same navigation
-				lists in both, create a shared components that's inserted into both the Drawer and Sidebar slots. We use this technique on this site!
-			</Alert>
+			<aside class="alert">
+				<i class="fa-solid fa-lightbulb text-2xl" />
+				<div class="alert-message">
+					Consider hiding your sidebar for smaller screens and using a Drawer component. If you wish to use the same navigation lists in
+					both, create a shared components that's inserted into both the Drawer and Sidebar slots. We use this technique on this site!
+				</div>
+			</aside>
 		</section>
 	</svelte:fragment>
 </DocsShell>
