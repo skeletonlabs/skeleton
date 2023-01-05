@@ -25,7 +25,7 @@
 	/** Highlight all headings with content visible in the viewport instead of just the top active heading. */
 	export let highlightAllActive: boolean = false;
 	/** Highlight parent headings along with the current active heading(s). */
-	export let highlightParentHeadings: boolean = true;
+	export let highlightParentHeadings: boolean = false;
 
 	// Props Regions
 	/** Provide arbitrary styles for the label element. */
