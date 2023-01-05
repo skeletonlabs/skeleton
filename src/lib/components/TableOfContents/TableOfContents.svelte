@@ -116,39 +116,38 @@
 		});
 	}
 
+	function observerCallback(entries: IntersectionObserverEntry[]) {
+		for (let i = 0; i < entries.length; i++) {
+			const elementIndex = elementsList.indexOf(<HTMLElement>entries[i].target);
+			const tocIndex = elementToHeading[elementIndex];
+
+			if (entries[i].intersectionRatio >= observerThreshold) {
+				// Only add the observed element to the activeIndexes list if it isn't added yet.
+				if (activeIndexes.indexOf(elementIndex) === -1) {
+					activeIndexes = [...activeIndexes, elementIndex];
+					if (headingsParents[tocIndex]) {
+						activeParents = [...activeParents, ...headingsParents[tocIndex]];
+					}
+				}
+			} else {
+				// Remove the observed element from the activeIndexes list if the intersection ratio is below the threshold.
+				activeIndexes = activeIndexes.filter((item) => item !== elementIndex);
+
+				// Remove all parents of obsIndex from the activeParents list.
+				if (headingsParents[tocIndex]) {
+					headingsParents[tocIndex]?.forEach((parent: number) => {
+						const index = activeParents.indexOf(parent);
+						activeParents.splice(index, 1);
+					});
+				}
+			}
+		}
+	}
+
 	function observeElement(e: HTMLElement) {
 		if (!observer) {
 			// Create one observer, that observes all elements.
-			observer = new IntersectionObserver(
-				(entries) => {
-					for (let i = 0; i < entries.length; i++) {
-						const elementIndex = elementsList.indexOf(<HTMLElement>entries[i].target);
-						const tocIndex = elementToHeading[elementIndex];
-
-						if (entries[i].intersectionRatio >= observerThreshold) {
-							// Only add the observed element to the activeIndexes list if it isn't added yet.
-							if (activeIndexes.indexOf(elementIndex) === -1) {
-								activeIndexes = [...activeIndexes, elementIndex];
-								if (headingsParents[tocIndex]) {
-									activeParents = [...activeParents, ...headingsParents[tocIndex]];
-								}
-							}
-						} else {
-							// Remove the observed element from the activeIndexes list if the intersection ratio is below the threshold.
-							activeIndexes = activeIndexes.filter((item) => item !== elementIndex);
-
-							// Remove all parents of obsIndex from the activeParents list.
-							if (headingsParents[tocIndex]) {
-								headingsParents[tocIndex]?.forEach((parent: number) => {
-									const index = activeParents.indexOf(parent);
-									activeParents.splice(index, 1);
-								});
-							}
-						}
-					}
-				},
-				{ root: null, threshold: observerThreshold }
-			);
+			observer = new IntersectionObserver(observerCallback, { root: null, threshold: observerThreshold });
 		}
 
 		observer.observe(e);
