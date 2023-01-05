@@ -84,15 +84,12 @@ export const menuNavLinks: any = [
 		id: 'components',
 		title: 'Components',
 		list: [
-			{ href: '/components/accordions', label: 'Accordions', keywords: 'collapse' },
 			{ href: '/components/alerts', label: 'Alerts', keywords: 'message, notification' },
 			{ href: '/components/app-bar', label: 'App Bar', keywords: 'header, top, bar, title' },
 			{ href: '/components/app-rail', label: 'App Rail', keywords: 'nav, navigation, tile, sidebar' },
 			{ href: '/components/app-shell', label: 'App Shell', keywords: 'layout, header, footer, sidebar, page, content' },
 			{ href: '/components/avatars', label: 'Avatars', keywords: 'image, initial, filter' },
-			{ href: '/components/breadcrumbs', label: 'Breadcrumbs', keywords: 'nav, navigation, seperator, hierarchy' },
 			{ href: '/components/conic-gradients', label: 'Conic Gradients', keywords: 'chart, graph, circle, pie, spinner, legend' },
-			{ href: '/components/dividers', label: 'Dividers', keywords: 'hr, horizontal, rule, separator' },
 			{ href: '/components/file-buttons', label: 'File Buttons', keywords: 'upload, form, input, file, media' },
 			{ href: '/components/file-dropzone', label: 'File Dropzone', keywords: 'upload, form, input, file, media, drag, drop' },
 			{ href: '/components/input-chips', label: 'Input Chips', keywords: 'multi, multiple, select, tags, form, validation' },
@@ -108,7 +105,15 @@ export const menuNavLinks: any = [
 			{ href: '/components/tables', label: 'Tables', keywords: 'data, entry' },
 			{ href: '/components/table-of-contents', label: 'Table of Contents', keywords: 'page, results, links, navigation' },
 			// Slated for Deprecation:
-			{ href: '/components/gradient-headings', label: 'Gradient Headings', keywords: 'header, h1, h2, h3' }
+			{ href: '/components/accordions', label: 'Accordions', keywords: 'collapse', badge: 'Deprecated' },
+			{ href: '/components/breadcrumbs', label: 'Breadcrumbs', keywords: 'nav, navigation, seperator, hierarchy', badge: 'Deprecated' },
+			{ href: '/components/dividers', label: 'Dividers', keywords: 'hr, horizontal, rule, separator', badge: 'Deprecated' },
+			{
+				href: '/components/gradient-headings',
+				label: '<small>Gradient Headings</small>',
+				keywords: 'header, h1, h2, h3',
+				badge: 'Deprecated'
+			}
 		]
 	},
 

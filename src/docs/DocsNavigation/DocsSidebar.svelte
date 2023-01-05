@@ -88,7 +88,7 @@
 						{#each list as { href, label, badge }}
 							<li on:click={onListItemClick} on:keypress>
 								<a {href} class={classesActive(href)} data-sveltekit-preload-data="hover">
-									<span class="flex-auto">{label}</span>
+									<span class="flex-auto">{@html label}</span>
 									{#if badge}<span class="badge badge-filled-secondary">{badge}</span>{/if}
 								</a>
 							</li>
