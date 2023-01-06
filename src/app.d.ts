@@ -10,4 +10,8 @@ declare namespace App {
 	interface Session {}
 
 	interface Stuff {}
+
+	interface PageData {
+		theme: string;
+	}
 }

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { enhance, type SubmitFunction } from '$app/forms';
+	import { page } from '$app/stores';
 
 	// Types
 	import type { ModalSettings, ModalComponent } from '$lib/utilities/Modal/types';
@@ -20,7 +21,6 @@
 	import { modalStore } from '$lib/utilities/Modal/stores';
 
 	// Stores
-	import { storeTheme } from '$docs/stores';
 	import { drawerStore } from '$lib/utilities/Drawer/stores';
 
 	// Local
@@ -74,14 +74,11 @@
 		// { type: 'test', name: 'Test', icon: '🚧' },
 	];
 
-	const setTheme: SubmitFunction = () => {
-		return async ({ result, update }) => {
-			await update();
-			if (result.type === 'success') {
-				const theme = result.data?.theme as string;
-				storeTheme.set(theme);
-			}
-		};
+	const setTheme: SubmitFunction = ({ action }) => {
+		const theme = action.searchParams.get('theme');
+		if (theme) {
+			document.body.setAttribute('data-theme', theme);
+		}
 	};
 </script>
 
@@ -178,7 +175,8 @@
 										type="submit"
 										name="theme"
 										value={type}
-										class:bg-primary-active-token={$storeTheme === type}
+										class:bg-primary-active-token={$page.data.theme === type}
+										formaction="/?/setTheme&theme={type}&redirectTo={$page.url.pathname}"
 									>
 										<span>{icon}</span>
 										<span>{name}</span>

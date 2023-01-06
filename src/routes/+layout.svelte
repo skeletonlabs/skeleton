@@ -11,7 +11,7 @@
 	import { afterNavigate } from '$app/navigation';
 
 	// Stores
-	import { storeCurrentUrl, storeTheme } from '$docs/stores';
+	import { storeCurrentUrl } from '$docs/stores';
 	import { storePreview } from '$docs/DocsThemer/stores';
 
 	// Components & Utilities
@@ -32,17 +32,17 @@
 	// Global Stylesheets
 	import '../app.postcss';
 
-	// Theme stylesheet is loaded from LayoutServerData
-	import type { LayoutServerData } from './$types';
-	export let data: LayoutServerData;
-	$: ({ currentTheme } = data);
+	// Lazily loads all the themes
+	const modules = import.meta.glob(`$lib/themes/*.css`);
+	for (const path in modules) {
+		modules[path]().catch((err) => console.error(err));
+	}
 
 	// Set body `data-theme` based on current theme status
-	storeTheme.subscribe(setBodyThemeAttribute);
 	storePreview.subscribe(setBodyThemeAttribute);
 	function setBodyThemeAttribute(): void {
 		if (!browser) return;
-		document.body.setAttribute('data-theme', $storePreview ? 'generator' : $storeTheme);
+		if ($storePreview) document.body.setAttribute('data-theme', 'generator');
 	}
 
 	afterNavigate((params: any) => {
@@ -67,11 +67,6 @@
 	// Disable left sidebar on homepage
 	$: slotSidebarLeft = matchPathWhitelist($page.url.pathname) ? 'w-0' : 'bg-black/5 lg:w-auto';
 </script>
-
-<!-- Select Preset Theme CSS DO NOT REMOVE ESCAPES-->
-<svelte:head>
-	{@html `\<style\>${currentTheme}}\</style\>`}
-</svelte:head>
 
 <!-- Overlays -->
 <Modal />
