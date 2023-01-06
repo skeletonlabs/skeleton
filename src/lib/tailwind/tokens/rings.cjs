@@ -19,11 +19,11 @@ module.exports = () => {
         // Example: .ring-outline-token
         '.ring-outline-token': {
             ...ringOutlineShared,
-            '--tw-ring-color': 'rgb(23 23 23 / 0.05);', // neutral-900
+            '--tw-ring-color': 'rgb(23 23 23 / 0.05);', // neutral-900, 5% opacity
         },
         '.dark .ring-outline-token': {
             ...ringOutlineShared,
-            '--tw-ring-color': 'rgb(250 250 250 / 0.05)', // neutral-50
+            '--tw-ring-color': 'rgb(250 250 250 / 0.05)', // neutral-50, 5% opacity
         }
     };
     settings.colorNames.forEach(n => {
