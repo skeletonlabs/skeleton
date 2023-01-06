@@ -95,7 +95,7 @@
 		<hr />
 
 		<!-- Contributors & Sponsors -->
-		<section class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20">
+		<section class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 place-items-center">
 			<!-- Contributors -->
 			<div class="text-center space-y-6">
 				<h2>Contributors</h2>
@@ -123,15 +123,22 @@
 			<!-- Sponsors -->
 			<div class="text-center space-y-6">
 				<h2>Sponsors</h2>
-				<a class="unstyled flex flex-col items-center space-y-4" href="https://www.brainandbonesllc.com/" target="_blank" rel="noreferrer">
+				<a
+					class="unstyled card card-glass p-4 inline-flex flex-col items-center space-y-4"
+					href="https://www.brainandbonesllc.com/"
+					target="_blank"
+					rel="noreferrer"
+				>
 					<img src="https://www.brainandbonesllc.com/svg/logo.svg" alt="Brain & Bones" class="h-[32px] mx-auto invert dark:invert-0" />
 					<p class="text-sm">Brain & Bones</p>
 				</a>
+				<p>You can support us directly via:</p>
 				<div class="grid grid-col-1 gap-4 max-w-[280px] mx-auto">
-					<a class="btn btn-filled-primary" href="https://ko-fi.com/skeletonlabs" target="_blank" rel="noreferrer">Sponsor on Ko-Fi</a>
-					<a class="btn btn-filled-primary" href="https://patreon.com/user?u=83786276" target="_blank" rel="noreferrer">
-						Sponsor on Patreon
+					<a class="btn btn-filled-primary" href="https://ko-fi.com/skeletonlabs" target="_blank" rel="noreferrer"> Ko-Fi </a>
+					<a class="btn btn-filled-primary" href="https://github.com/sponsors/skeletonlabs" target="_blank" rel="noreferrer">
+						GitHub Sponsors
 					</a>
+					<a class="btn btn-filled-primary" href="https://patreon.com/user?u=83786276" target="_blank" rel="noreferrer"> Patreon </a>
 				</div>
 			</div>
 		</section>
