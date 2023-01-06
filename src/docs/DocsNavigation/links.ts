@@ -58,7 +58,9 @@ export const menuNavLinks: any = [
 		id: 'elements',
 		title: 'Elements',
 		list: [
+			{ href: '/elements/alerts', label: 'Alerts', keywords: 'message, notification' },
 			{ href: '/elements/badges', label: 'Badges', keywords: 'sup, sub, overlay, favorite, icon' },
+			{ href: '/elements/breadcrumbs', label: 'Breadcrumbs', keywords: 'nav, navigation, seperator, hierarchy' },
 			{ href: '/elements/buttons', label: 'Buttons', keywords: 'click, anchor, icon, preload' },
 			{ href: '/elements/cards', label: 'Cards', keywords: 'header, footer, background, cell, region' },
 			{ href: '/elements/chips', label: 'Chips', keywords: 'action, select, selection, filter, filtering, interactive' },
@@ -85,17 +87,13 @@ export const menuNavLinks: any = [
 		title: 'Components',
 		list: [
 			{ href: '/components/accordions', label: 'Accordions', keywords: 'collapse' },
-			{ href: '/components/alerts', label: 'Alerts', keywords: 'message, notification' },
 			{ href: '/components/app-bar', label: 'App Bar', keywords: 'header, top, bar, title' },
 			{ href: '/components/app-rail', label: 'App Rail', keywords: 'nav, navigation, tile, sidebar' },
 			{ href: '/components/app-shell', label: 'App Shell', keywords: 'layout, header, footer, sidebar, page, content' },
 			{ href: '/components/avatars', label: 'Avatars', keywords: 'image, initial, filter' },
-			{ href: '/components/breadcrumbs', label: 'Breadcrumbs', keywords: 'nav, navigation, seperator, hierarchy' },
 			{ href: '/components/conic-gradients', label: 'Conic Gradients', keywords: 'chart, graph, circle, pie, spinner, legend' },
-			{ href: '/components/dividers', label: 'Dividers', keywords: 'hr, horizontal, rule, separator' },
 			{ href: '/components/file-buttons', label: 'File Buttons', keywords: 'upload, form, input, file, media' },
 			{ href: '/components/file-dropzone', label: 'File Dropzone', keywords: 'upload, form, input, file, media, drag, drop' },
-			{ href: '/components/gradient-headings', label: 'Gradient Headings', keywords: 'header, h1, h2, h3' },
 			{ href: '/components/input-chips', label: 'Input Chips', keywords: 'multi, multiple, select, tags, form, validation' },
 			{ href: '/components/listboxes', label: 'Listboxes', keywords: 'list, select, multi, multiple' },
 			{ href: '/components/paginators', label: 'Paginators', keywords: 'nav, navigation, table, data, list' },
@@ -107,7 +105,17 @@ export const menuNavLinks: any = [
 			{ href: '/components/steppers', label: 'Steppers', keywords: 'intro, onboard, onboarding, form, progress' },
 			{ href: '/components/tabs', label: 'Tabs', keywords: 'select, selection, panel' },
 			{ href: '/components/tables', label: 'Tables', keywords: 'data, entry' },
-			{ href: '/components/table-of-contents', label: 'Table of Contents', keywords: 'page, results, links, navigation' }
+			{ href: '/components/table-of-contents', label: 'Table of Contents', keywords: 'page, results, links, navigation' },
+			// Slated for Deprecation:
+			{ href: '/components/alerts', label: 'Alerts', keywords: 'message, notification', badge: 'Deprecated' },
+			{ href: '/components/breadcrumbs', label: 'Breadcrumbs', keywords: 'nav, navigation, seperator, hierarchy', badge: 'Deprecated' },
+			{ href: '/components/dividers', label: 'Dividers', keywords: 'hr, horizontal, rule, separator', badge: 'Deprecated' },
+			{
+				href: '/components/gradient-headings',
+				label: '<small>Gradient Headings</small>',
+				keywords: 'header, h1, h2, h3',
+				badge: 'Deprecated'
+			}
 		]
 	},
 

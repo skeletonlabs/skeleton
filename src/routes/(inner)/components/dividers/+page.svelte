@@ -48,6 +48,14 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
+		<aside class="alert alert-error">
+			<i class="fa-solid fa-triangle-exclamation text-4xl" />
+			<div class="alert-message">
+				<h3>Deprecated</h3>
+				<p>This component is slated for removal. Please migrate the element styles provided by <em>core.css</em>.</p>
+			</div>
+			<a href="/elements/core" class="alert-message btn btn-filled">View Elements</a>
+		</aside>
 		<section class="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-2">
 			<!-- Example -->
 			<div class="card card-glass-surface p-4">

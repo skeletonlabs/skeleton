@@ -2,7 +2,6 @@
 	// Docs
 	import DocsLogoAnim from '$docs/DocsLogo/DocsLogoAnim.svelte';
 	// Components
-	import Alert from '$lib/components/Alert/Alert.svelte';
 	import Avatar from '$lib/components/Avatar/Avatar.svelte';
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
@@ -49,16 +48,14 @@
 	</header>
 
 	<div class="container max-w-[1200px] mx-auto px-4 py-10 md:py-20 space-y-20">
-		<!-- Alert: Beta -->
-		<Alert>
-			<svelte:fragment slot="lead">
-				<i class="fa-solid fa-triangle-exclamation text-2xl" />
-			</svelte:fragment>
-			<span>Skeleton is currently in beta. Expect breaking changes prior to v1.0. Please report bugs on GitHub.</span>
-			<svelte:fragment slot="trail">
+		<!-- Pre-Release Alert -->
+		<aside class="alert">
+			<i class="fa-solid fa-triangle-exclamation text-4xl" />
+			<div class="alert-message">Skeleton is currently in beta. Expect breaking changes prior to v1.0. Please report bugs on GitHub.</div>
+			<div class="alert-actions">
 				<a href="https://github.com/skeletonlabs/skeleton/issues" target="_blank" rel="noreferrer" class="btn btn-filled">Report Issue</a>
-			</svelte:fragment>
-		</Alert>
+			</div>
+		</aside>
 
 		<!-- Features -->
 		<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">

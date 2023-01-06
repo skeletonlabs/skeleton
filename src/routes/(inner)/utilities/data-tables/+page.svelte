@@ -8,7 +8,6 @@
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
 	// Components
-	import Alert from '$lib/components/Alert/Alert.svelte';
 	import Avatar from '$lib/components/Avatar/Avatar.svelte';
 	import Paginator from '$lib/components/Paginator/Paginator.svelte';
 	// Utilities
@@ -55,21 +54,25 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<Alert>
-			<svelte:fragment slot="lead">
-				<i class="fa-solid fa-triangle-exclamation text-2xl" />
-			</svelte:fragment>
-			<!-- prettier-ignore -->
-			<span>
-				This feature currently available as an early preview. It is not feature complete and may contain bugs. If you need a production-ready alternative, see "svelte-headless-tables" by Bryan Lee. This may be paired with the Skeleton styles under <strong>Tailwind -> Elements -> Tables</strong>.
-			</span>
-			<svelte:fragment slot="trail">
-				<a href="https://svelte-headless-table.bryanmylee.com/" target="_blank" rel="noreferrer" class="btn btn-ghost">See Alternative</a>
-				<a href="https://github.com/skeletonlabs/skeleton/issues/538" target="_blank" rel="noreferrer" class="btn btn-filled"
-					>Track Progress</a
-				>
-			</svelte:fragment>
-		</Alert>
+		<!-- Alert -->
+		<aside class="alert alert-error">
+			<i class="fa-solid fa-triangle-exclamation text-4xl animate-pulse" />
+			<div class="alert-message">
+				<h3>Experimental Feature</h3>
+				<p>
+					This feature currently available as in early access. It is not feature complete, may contain bugs, and is not ready for production
+					use. We've provided an alternative and linked the GitHub ticket if you wish to track the progress of this feature.
+				</p>
+			</div>
+			<div class="alert-message">
+				<a href="https://github.com/skeletonlabs/skeleton/issues/538" target="_blank" rel="noreferrer" class="btn btn-ghost w-full">
+					Track Progress
+				</a>
+				<a href="https://svelte-headless-table.bryanmylee.com/" target="_blank" rel="noreferrer" class="btn btn-filled w-full">
+					View Alternative
+				</a>
+			</div>
+		</aside>
 
 		<section class="card !bg-secondary-500/5">
 			<!-- Search Input -->
