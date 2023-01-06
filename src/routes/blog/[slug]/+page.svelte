@@ -62,9 +62,9 @@
 
 <div class="page-container">
 	<!-- Breadcrumbs -->
-	<ol class="breadcrumbs">
+	<ol class="breadcrumb">
 		<li class="crumb"><a href="/blog">Blog</a></li>
-		<li class="crumb-separator">&rsaquo;</li>
+		<li class="crumb-separator" aria-hidden>&rsaquo;</li>
 		<li>Article</li>
 	</ol>
 	<!-- Article -->

@@ -17,9 +17,9 @@
 
 <div class="page-container">
 	<!-- Breadcrumbs -->
-	<ol class="breadcrumbs">
+	<ol class="breadcrumb">
 		<li class="crumb"><a href="/elements/forms">Forms</a></li>
-		<li class="crumb-separator">&rsaquo;</li>
+		<li class="crumb-separator" aria-hidden>&rsaquo;</li>
 		<li>Preview</li>
 	</ol>
 

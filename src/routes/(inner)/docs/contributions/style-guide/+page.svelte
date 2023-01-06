@@ -4,9 +4,9 @@
 
 <div class="page-container">
 	<!-- Breadcrumbs -->
-	<ol class="breadcrumbs">
+	<ol class="breadcrumb">
 		<li class="crumb"><a href="/docs/contributions">Contributions</a></li>
-		<li class="crumb-separator">&rsaquo;</li>
+		<li class="crumb-separator" aria-hidden>&rsaquo;</li>
 		<li>Style Guide</li>
 	</ol>
 
