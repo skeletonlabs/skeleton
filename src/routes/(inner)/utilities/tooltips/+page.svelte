@@ -20,6 +20,7 @@
 			['<code>position</code>', 'string', 'top', 'top | bottom | left | right', 'Designates where the tooltip will appear.'],
 			['<code>inline</code>', 'boolean', 'false', 'true | false', 'Sets the wrapping element to inline or block.'],
 			['<code>state</code>', 'function', '-', 'function', 'Provide a callback function for detecting tooltip open/closed state.'],
+			['<code>disabled</code>', 'boolean', 'false', 'true | false', 'Conditionally prevent the tooltip from appearing.'],
 			['<code>background</code>', 'string', '-', 'class', 'Provide a class to set the background color.'],
 			['<code>color</code>', 'string', '-', 'class', 'Provide a class to set the text color.'],
 			['<code>width</code>', 'string', '-', 'class', 'Provide a class to set the width.'],
@@ -147,6 +148,14 @@ function stateHandler(response: { trigger: HTMLElement; state: boolean }): void 
 					the <code>data-tooltip</code> attribute via dataset, while state will be a boolean value representing <em>TRUE</em> for open and
 					<em>FALSE</em> for closed.
 				</p>
+			</div>
+			<div class="space-y-4">
+				<h2>Disable Tooltip</h2>
+				<p>
+					Set <code>disabled: true</code> to prevent the tooltip from showing. This is useful for conditionally enabling the tooltip action on
+					elements.
+				</p>
+				<CodeBlock language="html" code={`<button use:tooltip={{ content: 'Skeleton', disabled: true }}>Disabled Trigger</button>`} />
 			</div>
 		</section>
 	</svelte:fragment>

@@ -7,6 +7,8 @@ export interface ArgsTooltip {
 	position?: string;
 	/** Sets the wrapping element to be either inline or block */
 	inline?: boolean;
+	/** Conditionally prevent the tooltip from appearing. */
+	disabled?: boolean;
 	/** Provide an optional callback function to handle open/close state changes. */
 	state?: (e: { trigger: HTMLElement; state: boolean }) => void;
 
@@ -62,7 +64,7 @@ export function tooltip(node: HTMLElement, args: ArgsTooltip) {
 	// prettier-ignore
 	const createElemTooltip = (): void => {
 		elemTooltip = document.createElement('div');
-		elemTooltip.classList.add('tooltip', `tooltip-${position}`, 'hidden', regionTooltip);
+		elemTooltip.classList.add('tooltip', `tooltip-${position}`, 'hidden', regionTooltip, 'pointer-events-none');
 		if (args.background) { elemTooltip.classList.add(args.background); }
 		if (args.color) elemTooltip.classList.add(args.color);
 		if (args.width) elemTooltip.classList.add(args.width);
@@ -90,6 +92,7 @@ export function tooltip(node: HTMLElement, args: ArgsTooltip) {
 
 	// On mouse over - show the tooltip
 	const onMouseEnter = (): void => {
+		if (args.disabled) return;
 		elemTooltip.classList.remove('hidden');
 		setTimeout(() => {
 			elemTooltip.classList.add('!opacity-100');
@@ -126,6 +129,7 @@ export function tooltip(node: HTMLElement, args: ArgsTooltip) {
 	// Lifecycle
 	return {
 		update(newArgs: ArgsTooltip) {
+			if (newArgs.disabled) onMouseLeave();
 			args = newArgs;
 		},
 		destroy() {
