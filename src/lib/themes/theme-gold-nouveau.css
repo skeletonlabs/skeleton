@@ -5,7 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
 /* =~= Gold Nouveau =~= */
-:root {
+:root [data-theme='gold-nouveau'] {
 	/* =~= Theme Properties =~= */
 	--theme-font-family-base: system-ui, sans-serif;
 	--theme-font-family-heading: 'Quicksand', sans-serif;

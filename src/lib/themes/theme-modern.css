@@ -1,7 +1,7 @@
 /* https://fonts.google.com/specimen/Quicksand?query=Quicksand */
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
-:root {
+:root [data-theme='modern'] {
 	/* =~= Theme Properties =~= */
 	--theme-font-family-base: 'Quicksand', sans-serif;
 	--theme-font-family-heading: 'Quicksand', sans-serif;

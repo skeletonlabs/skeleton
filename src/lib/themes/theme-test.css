@@ -1,4 +1,4 @@
-:root {
+:root [data-theme='test'] {
 	/* =~= Theme Properties =~= */
 	--theme-font-family-base: system-ui;
 	--theme-font-family-heading: system-ui;

@@ -3,7 +3,7 @@
 /* https://fonts.google.com/noto/specimen/Noto+Sans?query=sans */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300&display=swap');
 
-:root {
+:root [data-theme='vintage'] {
 	/* =~= Theme Styles =~= */
 	--theme-font-family-base: 'Noto Sans', sans-serif;
 	--theme-font-family-heading: 'Abril Fatface', cursive;

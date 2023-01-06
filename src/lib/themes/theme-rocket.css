@@ -3,7 +3,7 @@
 /* https://fonts.google.com/specimen/Roboto?query=roboto */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-:root {
+:root [data-theme='rocket'] {
 	/* =~= Theme Properties =~= */
 	--theme-font-family-base: 'Roboto', sans-serif;
 	--theme-font-family-heading: 'Space Grotesk', sans-serif;
