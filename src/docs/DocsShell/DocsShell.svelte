@@ -240,8 +240,7 @@
 							<!-- Slot: Usage -->
 							{#if $$slots.usage}
 								<div>
-									<h2>Getting Started</h2>
-									<!-- <h2 class="sr-only">Getting Started</h2> -->
+									<h2 class="sr-only">Getting Started</h2>
 									<div class="doc-shell-usage {spacing}">
 										<slot name="usage">(usage)</slot>
 									</div>

@@ -2,7 +2,7 @@
 	import { onDestroy, onMount } from 'svelte';
 
 	// Props (settings)
-	/** The scrollable element that this component will influence. */
+	/** Query selector for the scrollable page element. */
 	export let scrollParent: string = '#page';
 	/** Query selector for the element to scan for headings. */
 	export let target: string = '#page';
