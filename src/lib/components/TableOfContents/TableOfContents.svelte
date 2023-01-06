@@ -36,15 +36,19 @@
 	const cListItem: string = 'px-4 py-2 cursor-pointer';
 
 	// Local
-	let headingsList: any = [];
 	let elemScrollParent: HTMLElement | null;
+	let allowedHeadingsList: any = [];
+	let filteredHeadingsList: HTMLElement[] = [];
 	let activeHeaderId: string;
 
-	function generateHeadingList(): void {
+	function queryAllowedHeadingsList() {
 		const elemTarget = document.querySelector(target);
-		const elemHeadersList: any = elemTarget?.querySelectorAll(allowedHeadings);
+		allowedHeadingsList = elemTarget?.querySelectorAll(allowedHeadings);
+	}
+
+	function generateHeadingList(): void {
 		// Select only relevant headings
-		elemHeadersList?.forEach((elem: HTMLElement, i: number) => {
+		allowedHeadingsList?.forEach((elem: HTMLElement, i: number) => {
 			// Skip if `data-toc-ignore` attribute set
 			if (elem.hasAttribute('data-toc-ignore')) return;
 			// Generate a unique ID if none present
@@ -56,10 +60,10 @@
 				elem.id = `${newId}-${i}`;
 			}
 			// Generate headings whitelist
-			headingsList.push(elem);
+			filteredHeadingsList.push(elem);
 		});
 		// Update Headings list
-		headingsList = [...headingsList];
+		filteredHeadingsList = [...filteredHeadingsList];
 	}
 
 	// Sets the indentation amount per heading
@@ -73,20 +77,17 @@
 
 	// Scrolls to the selected heading
 	// https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
-	function scrollToHeading(headingElem: HTMLElement, i: number): void {
+	function scrollToHeading(headingElem: HTMLElement): void {
 		const elemTarget: any = document.querySelector(`#${headingElem.id}`);
 		elemTarget.scrollIntoView({ behavior: 'smooth' });
 	}
 
 	function pageScrollHandler(): void {
 		const headingSizeThreadshold = 40; // px
-		// Query allowed headings
-		const elemTarget = document.querySelector(target);
-		const elemHeadersList: any = elemTarget?.querySelectorAll(allowedHeadings);
 		// List of visible headings
 		let visibleHeadings: HTMLElement[] = [];
 		// Loop each allowed heading from the target element
-		elemHeadersList?.forEach((header: HTMLElement, index: number) => {
+		allowedHeadingsList?.forEach((header: HTMLElement) => {
 			const scrollableTop = elemScrollParent?.getBoundingClientRect().top || 0;
 			const headerBoundTop = header.getBoundingClientRect().top;
 			const offsetTop = headerBoundTop - scrollableTop + headingSizeThreadshold;
@@ -99,11 +100,12 @@
 
 	// Lifecycle
 	onMount(() => {
+		queryAllowedHeadingsList();
 		generateHeadingList();
 		// Add Scrollable Parent Listener
 		elemScrollParent = document.querySelector(scrollParent);
 		elemScrollParent?.addEventListener('scroll', pageScrollHandler);
-		// Set initial active heading
+		// Set initial active heading on load
 		pageScrollHandler();
 	});
 	onDestroy(() => {
@@ -122,11 +124,11 @@
 <div class="toc {classesBase}">
 	<nav class="toc-list {classesList}">
 		<div class="toc-label {classesLabel}">{label}</div>
-		{#each headingsList as headingElem, i}
+		{#each filteredHeadingsList as headingElem, i}
 			<!-- prettier-ignore -->
 			<li
 				class="toc-list-item {classesListItem} {setHeadingClasses(headingElem)} {headingElem.id === activeHeaderId ? active : ''}"
-				on:click={() => { scrollToHeading(headingElem, i); }}
+				on:click={() => { scrollToHeading(headingElem); }}
 				on:click
 				on:keypress
 			>
