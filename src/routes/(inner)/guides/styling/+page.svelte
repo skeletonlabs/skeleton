@@ -45,13 +45,6 @@
 				'-'
 			],
 			[
-				'<code>tokens.css</code>',
-				'Provides utility classes based on your theme CSS custom properties.',
-				'<a href="/elements/tokens">Design Tokens</a>',
-				`<a href="${ghLibPathMaster}/styles/tokens.css" target="_blank" rel="noreferrer">tokens.css</a>`,
-				'-'
-			],
-			[
 				'<code>core.css</code>',
 				'Applies styles to body elements, scrollbars, and more.',
 				'<a href="/elements/core">Core</a>',
@@ -148,7 +141,7 @@
 		// prettier-ignore
 		body: [
 			[ '1.', 'Theme Stylesheet', 'Houses your themes use CSS properties for colors, border radius, etc.' ],
-			[ '2.', 'Skeleton Stylesheet(s)', 'Imports Tailwind directives, generates design tokens, styles elements and components.' ],
+			[ '2.', 'Skeleton Stylesheet(s)', 'Imports Tailwind directives, element, and components styles.' ],
 			[ '3.', 'Global Stylesheet', 'Keep last so you can override the above styles. Project-specific styles go here.' ],
 		]
 	};
