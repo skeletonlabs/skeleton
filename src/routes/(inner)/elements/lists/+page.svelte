@@ -31,14 +31,14 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-4">
+		<section class="grid grid-cols-1 xl:grid-cols-2 gap-4">
 			<div class="card p-4 space-y-4">
 				<p class="font-bold">Unordered</p>
 				<hr />
 				<ul class="list">
 					{#each listData as v}
 						<li>
-							<span class="badge-icon p-4 {v.class}">💀</span>
+							<span class="badge-icon p-4 {v.class}"><i class="fa-solid fa-skull" /></span>
 							<span class="flex-auto">
 								Item {v.name}
 							</span>
@@ -68,7 +68,7 @@
 				<dl class="list-dl">
 					{#each listData as v}
 						<div>
-							<span class="badge-icon p-4 {v.class}">💀</span>
+							<span class="badge-icon p-4 {v.class}"><i class="fa-solid fa-skull" /></span>
 							<span class="flex-auto">
 								<dt>Item {v.name}</dt>
 								<dd>Description for {v.name}</dd>
@@ -86,7 +86,7 @@
 						{#each listData as v}
 							<li>
 								<a href="/">
-									<span class="badge-icon p-4 {v.class}">💀</span>
+									<span class="badge-icon p-4 {v.class}"><i class="fa-solid fa-skull" /></span>
 									<span class="flex-auto">
 										Item {v.name}
 									</span>

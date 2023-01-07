@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { tailwindDefaultColors } from '$lib/tailwind/colors';
+	import { tailwindDefaultColors } from './settings';
 	import type { ConicStop } from './types';
 
 	// Props

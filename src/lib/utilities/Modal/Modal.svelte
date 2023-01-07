@@ -53,6 +53,7 @@
 
 	// Base Styles
 	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0 z-[999] flex justify-center items-center p-4';
+	const cModal = 'max-h-full overflow-y-auto overflow-x-hidden';
 	const cModalImage = 'w-full h-auto';
 
 	// Local
@@ -107,7 +108,7 @@
 
 	// Reactive
 	$: classesBackdrop = `${cBackdrop} ${regionBackdrop} ${$$props.class || ''}`;
-	$: classesModal = `${background} ${width} ${height} ${padding} ${spacing} ${rounded} ${shadow}`;
+	$: classesModal = `${cModal} ${background} ${width} ${height} ${padding} ${spacing} ${rounded} ${shadow}`;
 	// IMPORTANT: add values to pass to the children templates.
 	// There is a way to self-reference component values, but it involes svelte-internal and is not yet stable.
 	// REPL: https://svelte.dev/repl/badd0f11aa99450ca69dca6690d4d5a4?version=3.52.0
@@ -142,7 +143,7 @@
 	{#key $modalStore}
 		<!-- Backdrop -->
 		<div
-			class="modal-backdrop {classesBackdrop}"
+			class="modal-backdrop {classesBackdrop} {$modalStore[0].backdropClasses}"
 			on:mousedown={onBackdropInteraction}
 			on:touchstart={onBackdropInteraction}
 			transition:fade={{ duration }}
@@ -150,7 +151,7 @@
 		>
 			<!-- Modal -->
 			<div
-				class="modal {classesModal} {$modalStore[0].classes}"
+				class="modal {classesModal} {$modalStore[0].modalClasses}"
 				transition:fly={{ duration, opacity: 0, y: 100 }}
 				use:focusTrap={true}
 				data-testid="modal"

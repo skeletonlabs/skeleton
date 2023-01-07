@@ -1,9 +1,6 @@
 <script lang="ts">
 	import type { TableSource } from '$lib/components/Table/types';
 
-	import Alert from '$lib/components/Alert/Alert.svelte';
-	import Breadcrumb from '$lib/components/Breadcrumb/Breadcrumb.svelte';
-	import Crumb from '$lib/components/Breadcrumb/Crumb.svelte';
 	import Table from '$lib/components/Table/Table.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
@@ -47,10 +44,11 @@
 
 <div class="page-container">
 	<!-- Breadcrumbs -->
-	<Breadcrumb>
-		<Crumb href="/docs/contributions">Contributions</Crumb>
-		<Crumb>Requirements</Crumb>
-	</Breadcrumb>
+	<ol class="breadcrumb">
+		<li class="crumb"><a href="/docs/contributions">Contributions</a></li>
+		<li class="crumb-separator" aria-hidden>&rsaquo;</li>
+		<li>Requirements</li>
+	</ol>
 
 	<!-- Header -->
 	<header class="space-y-4">
@@ -91,7 +89,12 @@
 			<li>When ready, submit or set your pull request to the ready state. This will begin the code review process.</li>
 			<li>If your PR meets all requirements it will be merged, otherwise feedback will be provided.</li>
 		</ol>
-		<Alert>Remember to be a team player, don't be a hero! Open-source is most successful when we all work together.</Alert>
+		<aside class="alert">
+			<i class="fa-solid fa-thumbs-up text-2xl" />
+			<div class="alert-message">
+				Remember to be a team player, don't be a hero! Open-source is most successful when we all work together.
+			</div>
+		</aside>
 	</section>
 
 	<hr />

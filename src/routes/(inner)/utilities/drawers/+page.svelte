@@ -47,10 +47,18 @@
 			<p>Select a drawer to preview.</p>
 			<!-- prettier-ignore -->
 			<div class="flex justify-center items-center space-x-2 sm:space-x-4">
-				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('right'); }}>&larr;</button>
-				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('left'); }}>&rarr;</button>
-				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('bottom'); }}>&uarr;</button>
-				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('top'); }}>&darr;</button>
+				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('right'); }}>
+					<i class="fa-solid fa-arrow-left"></i>
+				</button>
+				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('left'); }}>
+					<i class="fa-solid fa-arrow-right"></i>
+				</button>
+				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('bottom'); }}>
+					<i class="fa-solid fa-arrow-up"></i>
+				</button>
+				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('top'); }}>
+					<i class="fa-solid fa-arrow-down"></i>
+				</button>
 				<button class="btn btn-ghost-surface" on:click={() => { triggerStyled(); }}>Styled</button>
 			</div>
 		</div>
@@ -69,9 +77,7 @@
 			<h2>Drawer Store</h2>
 			<p>This contains the drawer's current state and settings.</p>
 			<CodeBlock language="typescript" code={`import { drawerStore } from '@skeletonlabs/skeleton';`} />
-		</section>
-		<section class="space-y-4">
-			<h2>Open</h2>
+			<h3>Open</h3>
 			<p>To open the drawer, use the store's <code>open()</code> method to show the drawer.</p>
 			<CodeBlock
 				language="typescript"
@@ -81,9 +87,7 @@ function drawerOpen(): void {
 }
 			`}
 			/>
-		</section>
-		<section class="space-y-4">
-			<h2>Close</h2>
+			<h3>Close</h3>
 			<p>To close the drawer, use the store's <code>close()</code> method to hide the drawer.</p>
 			<CodeBlock
 				language="typescript"
@@ -93,9 +97,7 @@ function drawerClose(): void {
 }
 			`}
 			/>
-		</section>
-		<section class="space-y-4">
-			<h2>Handling Contents</h2>
+			<h3>Handling Contents</h3>
 			<p>If you wish to swap out the contents of your drawer, set a unique <code>id</code> per drawer instance.</p>
 			<CodeBlock
 				language="typescript"
@@ -162,9 +164,9 @@ function drawerOpenStyled(): void {
 			/>
 		</section>
 		<section class="space-y-4">
-			<h2>SvelteKit and SSR Warning</h2>
+			<h2>SvelteKit SSR Warning</h2>
 			<p>
-				If you're building a SvelteKit project please be aware that there are <a
+				Be aware that there are <a
 					href="https://github.com/sveltejs/kit/discussions/4339#discussioncomment-2384978"
 					target="_blank"
 					rel="noreferrer">known issues when using Svelte stores with SSR</a

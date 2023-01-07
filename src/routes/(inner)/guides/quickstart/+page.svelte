@@ -91,19 +91,17 @@ npm run dev
 		/>
 		<h3>Add a Component</h3>
 		<p>
-			Finally let's implement Skeleton's <a href="/components/gradient-headings">Gradient Heading</a> component. First, import the
-			component, then replace the <em>H1</em> heading on your homepage with the follow. Feel free to adjust the settings and text as you wish.
+			Finally let's implement Skeleton's <a href="/components/avatars">Avatar</a> component. First, import the component, then add it
+			anywhere within your page, we recommend within the <code>.container</code> element.
 		</p>
 		<CodeBlock
 			language="html"
 			code={`
 \<script\>
-	import { GradientHeading } from '@skeletonlabs/skeleton';
+	import { Avatar } from '@skeletonlabs/skeleton';
 \</script\>
 
-<GradientHeading tag="h1" direction="bg-gradient-to-br" from="from-primary-500" to="to-secondary-500">
-	Homepage
-</GradientHeading>
+<Avatar src="https://i.pravatar.cc/" />
 `}
 		/>
 	</section>

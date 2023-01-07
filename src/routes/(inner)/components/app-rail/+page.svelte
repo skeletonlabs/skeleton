@@ -7,7 +7,6 @@
 	// Components
 	import AppRail from '$lib/components/AppRail/AppRail.svelte';
 	import AppRailTile from '$lib/components/AppRail/AppRailTile.svelte';
-	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
@@ -43,23 +42,23 @@
 				<!-- Lead -->
 				<svelte:fragment slot="lead">
 					<AppRailTile title="Lead">
-						<SvgIcon name="skull" width="w-6" height="h-6" fill="fill-primary-500" />
+						<i class="fa-solid fa-skull text-2xl" />
 					</AppRailTile>
 				</svelte:fragment>
 				<!-- Default -->
 				<AppRailTile label="Tile 1" value={1}>
-					<SvgIcon name="cubes" width="w-6" height="h-6" />
+					<i class="fa-solid fa-cubes text-2xl" />
 				</AppRailTile>
 				<AppRailTile label="Tile 2" value={2}>
-					<SvgIcon name="cubes" width="w-6" height="h-6" />
+					<i class="fa-solid fa-cubes text-2xl" />
 				</AppRailTile>
 				<AppRailTile label="Tile 3" value={3}>
-					<SvgIcon name="cubes" width="w-6" height="h-6" />
+					<i class="fa-solid fa-cubes text-2xl" />
 				</AppRailTile>
 				<!-- Trail -->
 				<svelte:fragment slot="trail">
 					<AppRailTile tag="a" href="https://github.com/" target="_blank" title="Trail">
-						<SvgIcon name="github" width="w-6" height="h-6" />
+						<i class="fa-brands fa-github text-2xl" />
 					</AppRailTile>
 				</svelte:fragment>
 			</AppRail>

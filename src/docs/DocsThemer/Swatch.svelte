@@ -1,5 +1,4 @@
 <script lang="ts">
-	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	import { swatchColorClasses } from './settings';
 
 	/** Pass the color key name. */
@@ -18,7 +17,7 @@
 				<div class="h-full flex justify-center items-center {shadeClasses}">
 					{#if shade === '500'}
 						<div class="grid grid-cols-[auto_1fr] gap-1.5 place-items-center">
-							<SvgIcon name="skull" width="w-4" height="h-4" />
+							<i class="fa-solid fa-skull" />
 							<span class="hidden xl:inline-block">Text</span>
 						</div>
 					{/if}

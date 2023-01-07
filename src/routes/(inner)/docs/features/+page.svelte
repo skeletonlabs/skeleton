@@ -101,7 +101,7 @@
 	<section class="space-y-4">
 		<div class="flex items-center space-x-4">
 			<div class="bg-secondary-500 w-10 aspect-square flex justify-center items-center rounded-token shadow">
-				<SvgIcon name="screwdriver" fill="fill-white" width="w-5" height="h-5" />
+				<i class="fa-solid fa-screwdriver-wrench text-xl" />
 			</div>
 			<h2>Skeleton Utilities</h2>
 		</div>

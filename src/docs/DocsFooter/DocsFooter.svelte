@@ -7,7 +7,6 @@
 
 	// Components
 	import Divider from '$lib/components/Divider/Divider.svelte';
-	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
 	// Base Classes
 	const cBase = 'bg-surface-100-800-token text-xs md:text-base mx-auto px-4 py-8 md:p-10 space-y-10';
@@ -28,15 +27,15 @@
 			<div class="space-y-4">
 				<h6>About</h6>
 				<ul class="space-y-2">
-					<li><a href="/docs/contributions">Contribute</a></li>
 					<li><a href="/docs/why">Why Skeleton</a></li>
 					<li><a href="/docs/comparisons">Comparisons</a></li>
+					<li><a href="/docs/contributions">Contribute</a></li>
 				</ul>
 			</div>
 			<div class="space-y-4">
 				<h6>Community</h6>
 				<ul class="space-y-2">
-					<li><a href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer">Join Discord Community</a></li>
+					<li><a href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer">Join Discord</a></li>
 					<li><a href="https://twitter.com/SkeletonUI" target="_blank" rel="noreferrer">Follow on Twitter</a></li>
 					<li><a href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer">View Github</a></li>
 				</ul>
@@ -63,15 +62,15 @@
 		</p>
 		<div class="flex space-x-4">
 			<a class="btn bg-[#7289da] text-white" href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer">
-				<SvgIcon name="discord" fill="fill-white" />
+				<i class="fa-brands fa-discord" />
 				<span class="hidden md:inline-block ml-2">Discord</span>
 			</a>
 			<a class="btn bg-[#1da1f2] text-white" href="https://twitter.com/SkeletonUI" target="_blank" rel="noreferrer">
-				<SvgIcon name="twitter" fill="fill-white" />
+				<i class="fa-brands fa-twitter" />
 				<span class="hidden md:inline-block ml-2">Twitter</span>
 			</a>
 			<a class="btn bg-[#6e5494] text-white" href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer">
-				<SvgIcon name="github" fill="fill-white" />
+				<i class="fa-brands fa-github" />
 				<span class="hidden md:inline-block ml-2">Github</span>
 			</a>
 		</div>

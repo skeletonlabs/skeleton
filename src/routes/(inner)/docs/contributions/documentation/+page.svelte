@@ -1,16 +1,14 @@
 <script lang="ts">
-	import Alert from '$lib/components/Alert/Alert.svelte';
-	import Breadcrumb from '$lib/components/Breadcrumb/Breadcrumb.svelte';
-	import Crumb from '$lib/components/Breadcrumb/Crumb.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 </script>
 
 <div class="page-container">
 	<!-- Breadcrumbs -->
-	<Breadcrumb>
-		<Crumb href="/docs/contributions">Contributions</Crumb>
-		<Crumb>Documentation</Crumb>
-	</Breadcrumb>
+	<ol class="breadcrumb">
+		<li class="crumb"><a href="/docs/contributions">Contributions</a></li>
+		<li class="crumb-separator" aria-hidden>&rsaquo;</li>
+		<li>Documentation</li>
+	</ol>
 
 	<!-- Header -->
 	<header class="space-y-4">
@@ -110,10 +108,13 @@ export let hover: string = getContext('hover');
  * @slot content - Provide the alert message text.
  */`}
 		/>
-		<Alert
-			><strong>NOTE:</strong> The leading <code>// ...</code> comment is required for Sveld to successfully parse the slot descriptions. This
-			is not optional.</Alert
-		>
+		<aside class="alert">
+			<i class="fa-solid fa-lightbulb text-2xl" />
+			<div class="alert-message">
+				<strong>NOTE:</strong> The leading <code>// ...</code> comment is required for Sveld to successfully parse the slot descriptions. This
+				is not optional.
+			</div>
+		</aside>
 	</section>
 
 	<!-- Events -->

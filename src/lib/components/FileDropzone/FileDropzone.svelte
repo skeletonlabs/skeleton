@@ -30,7 +30,7 @@
 	const cBase = 'relative';
 	const cMessage =
 		'absolute top-0 left-0 right-0 bottom-0 z-[1] max-w-[480px] mx-auto flex justify-center items-center !pointer-events-none';
-	const cInput = '!border-2 border-dashed cursor-pointer';
+	const cInput = '!border-2 border-dashed cursor-pointer !text-transparent';
 
 	// Local
 	let elemIcon: HTMLElement;
@@ -99,9 +99,6 @@
 
 <style lang="postcss">
 	/* Hide Input:File Content */
-	input[type='file'] {
-		@apply text-transparent;
-	}
 	::-webkit-file-upload-button {
 		@apply hidden;
 	}

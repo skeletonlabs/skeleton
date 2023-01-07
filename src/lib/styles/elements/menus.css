@@ -1,4 +1,4 @@
-/* Stylesheet Add-On: menus.css */
+/* Tailwind Elements: menus.css */
 
 [data-menu] {
 	@apply absolute z-20 hidden;
