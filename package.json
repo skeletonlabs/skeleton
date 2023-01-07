@@ -5,8 +5,8 @@
 	"author": "endigo9740 <chris@skeletonlabs.dev>",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "npm run build:all && vite build",
-		"package": "node ./scripts/pre-build.js && svelte-kit sync && svelte-package && node ./scripts/post-build.js",
+		"build": "npm run build:jss && vite build",
+		"package": "node ./scripts/pre-build.js && npm run build:jss && svelte-kit sync && svelte-package && node ./scripts/post-build.js",
 		"publish": "npm publish ./package",
 		"preview": "vite preview",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
@@ -15,9 +15,9 @@
 		"format": "prettier --ignore-path .prettierignore --write --plugin-search-dir=. .",
 		"test": "vitest",
 		"coverage": "vitest run --coverage",
-		"prebuild:all": "postcss src/lib/styles/all.css --dir .temp --base src/lib/styles",
-		"build:all": "prejss-cli .temp/all.css --format commonjs",
-		"postbuild:all": "mkdir -p src/lib/tailwind/generated && mv -f .temp/all.js src/lib/tailwind/generated/allComponents.cjs"
+		"prebuild:jss": "postcss src/lib/styles/all.css --dir .temp --base src/lib/styles",
+		"build:jss": "prejss-cli .temp/all.css --format commonjs",
+		"postbuild:jss": "mkdir -p src/lib/tailwind/generated && mv -f .temp/all.js src/lib/tailwind/generated/allComponents.cjs"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^1.0.0",
