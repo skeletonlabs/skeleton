@@ -1,9 +1,11 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 
 	// Props (settings)
+	/** Query selector for the scrollable page element. */
+	export let scrollParent: string = '#page';
 	/** Query selector for the element to scan for headings. */
-	export let target: string = '#page-content';
+	export let target: string = '#page';
 	/** Query selector for the allowed headings. From H2-H6. */
 	export let allowedHeadings: string = 'h2, h3';
 	/** Set the label text. */
@@ -18,6 +20,8 @@
 	export let text: string = 'text-surface-600-300-token';
 	/** Set the row hover styles. */
 	export let hover: string = 'hover:bg-primary-hover-token';
+	/** Set the active row styles */
+	export let active: string = 'bg-primary-active-token !text-on-primary-token';
 	/** Set the row border radius styles. */
 	export let rounded: string = 'rounded-token';
 
@@ -32,13 +36,19 @@
 	const cListItem: string = 'px-4 py-2 cursor-pointer';
 
 	// Local
-	let headingsList: any = [];
+	let elemScrollParent: HTMLElement | null;
+	let allowedHeadingsList: any = [];
+	let filteredHeadingsList: HTMLElement[] = [];
+	let activeHeaderId: string;
+
+	function queryAllowedHeadingsList() {
+		const elemTarget = document.querySelector(target);
+		allowedHeadingsList = elemTarget?.querySelectorAll(allowedHeadings);
+	}
 
 	function generateHeadingList(): void {
-		const elemTarget = document.querySelector(target);
-		const elemHeadersList: any = elemTarget?.querySelectorAll(allowedHeadings);
 		// Select only relevant headings
-		elemHeadersList?.forEach((elem: HTMLElement, i: number) => {
+		allowedHeadingsList?.forEach((elem: HTMLElement, i: number) => {
 			// Skip if `data-toc-ignore` attribute set
 			if (elem.hasAttribute('data-toc-ignore')) return;
 			// Generate a unique ID if none present
@@ -50,10 +60,10 @@
 				elem.id = `${newId}-${i}`;
 			}
 			// Generate headings whitelist
-			headingsList.push(elem);
+			filteredHeadingsList.push(elem);
 		});
 		// Update Headings list
-		headingsList = [...headingsList];
+		filteredHeadingsList = [...filteredHeadingsList];
 	}
 
 	// Sets the indentation amount per heading
@@ -67,14 +77,39 @@
 
 	// Scrolls to the selected heading
 	// https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
-	function scrollToHeading(headingElem: HTMLElement, i: number): void {
+	function scrollToHeading(headingElem: HTMLElement): void {
 		const elemTarget: any = document.querySelector(`#${headingElem.id}`);
 		elemTarget.scrollIntoView({ behavior: 'smooth' });
 	}
 
+	function pageScrollHandler(): void {
+		const headingSizeThreadshold = 40; // px
+		// List of visible headings
+		let visibleHeadings: HTMLElement[] = [];
+		// Loop each allowed heading from the target element
+		allowedHeadingsList?.forEach((header: HTMLElement) => {
+			const scrollableTop = elemScrollParent?.getBoundingClientRect().top || 0;
+			const headerBoundTop = header.getBoundingClientRect().top;
+			const offsetTop = headerBoundTop - scrollableTop + headingSizeThreadshold;
+			// If heading visible, add to visibleHeadings
+			if (offsetTop >= 0) visibleHeadings.push(header);
+		});
+		// Set the top-most header as the active ID
+		activeHeaderId = visibleHeadings[0].id;
+	}
+
 	// Lifecycle
 	onMount(() => {
+		queryAllowedHeadingsList();
 		generateHeadingList();
+		// Add Scrollable Parent Listener
+		elemScrollParent = document.querySelector(scrollParent);
+		elemScrollParent?.addEventListener('scroll', pageScrollHandler);
+		// Set initial active heading on load
+		pageScrollHandler();
+	});
+	onDestroy(() => {
+		elemScrollParent?.removeEventListener('scroll', pageScrollHandler);
 	});
 
 	// Reactive
@@ -89,11 +124,11 @@
 <div class="toc {classesBase}">
 	<nav class="toc-list {classesList}">
 		<div class="toc-label {classesLabel}">{label}</div>
-		{#each headingsList as headingElem, i}
+		{#each filteredHeadingsList as headingElem, i}
 			<!-- prettier-ignore -->
 			<li
-				class="toc-list-item {classesListItem} {setHeadingClasses(headingElem)}"
-				on:click={() => { scrollToHeading(headingElem, i); }}
+				class="toc-list-item {classesListItem} {setHeadingClasses(headingElem)} {headingElem.id === activeHeaderId ? active : ''}"
+				on:click={() => { scrollToHeading(headingElem); }}
 				on:click
 				on:keypress
 			>

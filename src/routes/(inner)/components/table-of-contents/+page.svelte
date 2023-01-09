@@ -48,7 +48,7 @@
 			<h3>Key Props</h3>
 			<p>The following props are critical to how this operates.</p>
 			<div class="table-container">
-				<table class="table table-hover">
+				<table class="table">
 					<thead>
 						<tr>
 							<th>Property</th>
@@ -59,8 +59,13 @@
 					<!-- prettier-ignore -->
 					<tbody>
 						<tr>
+							<td><code>scrollParent</code></td>
+							<td>"#page"</td>
+							<td><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector" target="_blank" rel="noreferrer">Query selector</a> for the scrollable page element.</td>
+						</tr>
+						<tr>
 							<td><code>target</code></td>
-							<td>"#page-content"</td>
+							<td>"#page"</td>
 							<td><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector" target="_blank" rel="noreferrer">Query selector</a> for the element to scan for headings.</td>
 						</tr>
 						<tr>
