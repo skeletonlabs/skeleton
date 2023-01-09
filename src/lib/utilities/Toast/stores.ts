@@ -40,7 +40,6 @@ function toastService() {
 				}
 				// Merge into store
 				const tMerged = { ...toastDefaults, ...toast, id, classes };
-				console.log(tMerged);
 				tStore.push(tMerged);
 				// Handle auto-hide, if needed
 				handleAutoHide(tMerged);
