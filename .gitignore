@@ -10,4 +10,3 @@ coverage
 pnpm-lock.yaml
 .vscode
 .temp
-generated
