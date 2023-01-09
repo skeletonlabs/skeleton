@@ -1,0 +1,56 @@
+/* Tailwind Elements: badges.css */
+
+@layer components {
+	.badge {
+		/* Core */
+		@apply inline-flex justify-center items-center space-x-2 whitespace-nowrap;
+		/* Text */
+		@apply font-semibold text-xs;
+		/* Padding */
+		@apply px-2 py-1;
+		/* Theme: Rounded */
+		@apply rounded-token;
+	}
+
+	.badge-icon {
+		/* Core */
+		@apply w-5 h-5 flex justify-center items-center rounded-full;
+		/* Text */
+		@apply font-semibold text-xs;
+		/* Shadow */
+		@apply shadow;
+	}
+
+	/* === Variants === */
+
+	/* Filled */
+	.badge-filled,
+	.badge-filled-surface {
+		@apply bg-surface-400-500-token text-on-surface-token;
+	}
+	.badge-filled-primary {
+		@apply bg-primary-500 text-on-primary-token;
+	}
+	.badge-filled-secondary {
+		@apply bg-secondary-500 text-on-secondary-token;
+	}
+	.badge-filled-tertiary {
+		@apply bg-tertiary-500 text-on-tertiary-token;
+	}
+	.badge-filled-success {
+		@apply bg-success-500 text-on-success-token;
+	}
+	.badge-filled-warning {
+		@apply bg-warning-500 text-on-warning-token;
+	}
+	.badge-filled-error {
+		@apply bg-error-500 text-on-error-token;
+	}
+
+	/* Glass */
+	.badge-glass {
+		@apply bg-surface-500/20 dark:bg-surface-500/20 backdrop-blur-lg;
+		/* Ring */
+		@apply ring-[1px] ring-neutral-900/5 dark:ring-neutral-50/5 ring-inset;
+	}
+}

@@ -1,0 +1,186 @@
+/* Tailwind Elements: button.css */
+
+@layer components {
+	/* === States === */
+
+	button:disabled {
+		@apply !opacity-50 !cursor-not-allowed active:scale-100 hover:brightness-100;
+	}
+
+	/* === Button === */
+	/* Standard button/anchor tag elements. */
+
+	.btn {
+		/* Size (match base)  */
+		@apply text-base px-5 py-[9px];
+		/* Core */
+		@apply text-center whitespace-nowrap;
+		/* Flex Columns */
+		@apply inline-flex justify-center items-center space-x-2;
+		/* Hover */
+		@apply hover:brightness-110;
+		/* Transitions */
+		@apply transition-all active:scale-90;
+		/* Theme: Rounded */
+		@apply rounded-token;
+	}
+
+	/* Button: Sizes */
+	.btn-sm {
+		@apply text-sm px-3 py-1.5;
+	}
+	.btn-base {
+		@apply text-base px-5 py-[9px];
+	}
+	.btn-lg {
+		@apply text-lg px-7 py-3;
+	}
+	.btn-xl {
+		@apply text-xl px-9 py-4;
+	}
+
+	/* === Icon Button === */
+	/* A circular button meant for housing icons. */
+
+	.btn-icon {
+		/* Extend Base Button Clases */
+		@apply btn;
+		/* Size (match base) */
+		@apply text-base aspect-square w-[43px];
+		/* Rounded */
+		@apply rounded-full;
+	}
+
+	/* Icon Button: Size */
+	.btn-icon-sm {
+		@apply text-sm aspect-square w-[33px];
+	}
+	.btn-icon-base {
+		@apply text-base aspect-square w-[43px];
+	}
+	.btn-icon-lg {
+		@apply text-lg aspect-square w-[53px];
+	}
+	.btn-icon-xl {
+		@apply text-xl aspect-square w-[63px];
+	}
+
+	/* === Utilities === */
+	/* A set of utility classes that work for any kind of button. */
+
+	/* Outline */
+	.btn-outline {
+		@apply ring-2 ring-surface-900 dark:ring-surface-50 ring-inset;
+	}
+	.btn-outline-primary {
+		@apply ring-2 ring-primary-500 ring-inset;
+	}
+	.btn-outline-secondary {
+		@apply ring-2 ring-secondary-500 ring-inset;
+	}
+	.btn-outline-tertiary {
+		@apply ring-2 ring-tertiary-500 ring-inset;
+	}
+	.btn-outline-success {
+		@apply ring-2 ring-success-500 ring-inset;
+	}
+	.btn-outline-warning {
+		@apply ring-2 ring-warning-500 ring-inset;
+	}
+	.btn-outline-error {
+		@apply ring-2 ring-error-500 ring-inset;
+	}
+	.btn-outline-surface {
+		@apply ring-2 ring-surface-400-500-token ring-inset;
+	}
+
+	/* === Variants === */
+	/* A canned set of preset styles. */
+
+	/* Filled */
+	.btn-filled {
+		@apply bg-surface-900 dark:bg-surface-50 text-white dark:text-black;
+	}
+	.btn-filled-primary {
+		@apply bg-primary-500 text-on-primary-token;
+	}
+	.btn-filled-secondary {
+		@apply bg-secondary-500 text-on-secondary-token;
+	}
+	.btn-filled-tertiary {
+		@apply bg-tertiary-500 text-on-tertiary-token;
+	}
+	.btn-filled-success {
+		@apply bg-success-500 text-on-success-token;
+	}
+	.btn-filled-warning {
+		@apply bg-warning-500 text-on-warning-token;
+	}
+	.btn-filled-error {
+		@apply bg-error-500 text-on-error-token;
+	}
+	.btn-filled-surface {
+		@apply bg-surface-400-500-token;
+	}
+
+	/* Ringed */
+	.btn-ringed {
+		@apply btn-outline;
+	}
+	.btn-ringed-primary {
+		@apply btn-outline-primary;
+	}
+	.btn-ringed-secondary {
+		@apply btn-outline-secondary;
+	}
+	.btn-ringed-tertiary {
+		@apply btn-outline-tertiary;
+	}
+	.btn-ringed-success {
+		@apply btn-outline-success;
+	}
+	.btn-ringed-warning {
+		@apply btn-outline-warning;
+	}
+	.btn-ringed-error {
+		@apply btn-outline-error;
+	}
+	.btn-ringed-surface {
+		@apply btn-outline-surface;
+	}
+
+	/* Ghost */
+	.btn-ghost {
+		@apply btn-outline;
+		/* Background */
+		@apply bg-surface-900/20 dark:bg-surface-50/20;
+		/* Hover */
+		@apply hover:bg-surface-900/10 hover:dark:bg-surface-50/30;
+	}
+	.btn-ghost-primary {
+		@apply btn-outline-primary bg-primary-500/20 hover:bg-primary-500/30;
+	}
+	.btn-ghost-secondary {
+		@apply btn-outline-secondary bg-secondary-500/20 hover:bg-secondary-500/30;
+	}
+	.btn-ghost-tertiary {
+		@apply btn-outline-tertiary bg-tertiary-500/20 hover:bg-tertiary-500/30;
+	}
+	.btn-ghost-success {
+		@apply btn-outline-success bg-success-500/20 hover:bg-success-500/30;
+	}
+	.btn-ghost-warning {
+		@apply btn-outline-warning bg-warning-500/20 hover:bg-warning-500/30;
+	}
+	.btn-ghost-error {
+		@apply btn-outline-error bg-error-500/20 hover:bg-error-500/30;
+	}
+	.btn-ghost-surface {
+		@apply btn-outline-surface bg-surface-400/20 hover:bg-surface-500/30;
+	}
+
+	/* File Input Button */
+	input[type='file']:not(.file-dropzone-input)::file-selector-button {
+		@apply border-0 btn btn-filled-secondary btn-sm mr-2 text-token;
+	}
+}

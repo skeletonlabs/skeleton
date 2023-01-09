@@ -1,0 +1,179 @@
+/* Stylesheet: forms.css */
+
+@layer base {
+	/* === Fieldset === */
+
+	fieldset:not(.unstyled) {
+		@apply block;
+	}
+
+	/* === Labels === */
+
+	label:not(.unstyled) {
+		@apply block overflow-visible;
+	}
+	label:not(.unstyled) span,
+	legend:not(.unstyled) {
+		@apply block text-surface-700 dark:text-surface-300 text-sm mb-2;
+	}
+
+	/* === Inputs === */
+
+	input:disabled,
+	textarea:disabled,
+	select:disabled {
+		@apply !opacity-50 !cursor-not-allowed active:scale-100 hover:brightness-100;
+	}
+
+	/* Inputs */
+	[type='text']:not(.unstyled),
+	[type='email']:not(.unstyled),
+	[type='url']:not(.unstyled),
+	[type='password']:not(.unstyled),
+	[type='number']:not(.unstyled),
+	[type='date']:not(.unstyled),
+	[type='datetime-local']:not(.unstyled),
+	[type='month']:not(.unstyled),
+	[type='search']:not(.unstyled),
+	[type='tel']:not(.unstyled),
+	[type='time']:not(.unstyled),
+	[type='week']:not(.unstyled),
+	[type='file']:not(.unstyled),
+	[multiple]:not(.unstyled),
+	textarea:not(.unstyled),
+	select:not(.unstyled),
+	.input-chip {
+		/* Base */
+		@apply w-full caret-secondary-500 transition duration-200;
+		/* Text */
+		@apply text-black dark:text-white;
+		/* Background */
+		@apply bg-surface-200-700-token hover:brightness-110;
+		/* Border */
+		@apply border-token border-surface-400-500-token focus:border-secondary-500;
+		/* Ring - NOTE: we use border instead */
+		@apply ring-0;
+		/* Shadow */
+		@apply shadow-sm;
+		/* Theme: Rounded */
+		@apply rounded-token;
+	}
+
+	.file-dropzone-input,
+	[multiple]:not(.unstyled),
+	textarea:not(.unstyled) {
+		/* Theme: Rounded */
+		@apply rounded-container-token;
+	}
+
+	/* File */
+	[type='file']:not(.unstyled) {
+		@apply p-2;
+	}
+
+	/* Date Calendar Picker (Webkit) */
+	::-webkit-calendar-picker-indicator {
+		@apply dark:invert;
+	}
+
+	/* Checkbox */
+	[type='checkbox']:not(.unstyled),
+	[type='radio']:not(.unstyled) {
+		@apply border-surface-500 rounded text-secondary-600 focus:ring-secondary-500 w-5 h-5;
+	}
+	/* Checkbox */
+	[type='radio']:not(.unstyled) {
+		@apply rounded-token;
+	}
+
+	/* Color Picker */
+	/* https://stackoverflow.com/questions/11167281/webkit-css-to-control-the-box-around-the-color-in-an-inputtype-color */
+	input[type='color'] {
+		@apply border-none w-10 h-10 overflow-hidden rounded-token cursor-pointer;
+		/* WebKit */
+		-webkit-appearance: none;
+	}
+	input[type='color']::-webkit-color-swatch-wrapper {
+		@apply p-0;
+	}
+	input[type='color']::-webkit-color-swatch {
+		@apply border-none;
+	}
+	input[type='color']::-moz-color-swatch {
+		@apply border-none;
+	}
+
+	/* Placeholder */
+	::-moz-placeholder,
+	textarea::-moz-placeholder {
+		@apply text-surface-600 dark:text-surface-300;
+	}
+	:-ms-input-placeholder,
+	textarea:-ms-input-placeholder {
+		@apply text-surface-600 dark:text-surface-300;
+	}
+	::placeholder,
+	textarea::placeholder {
+		@apply text-surface-600 dark:text-surface-300;
+	}
+
+	/* === States === */
+	/* These are not required to use, merely an option */
+
+	/* Valid */
+	.input-valid {
+		@apply !bg-success-200 !border-success-500 !text-success-700;
+	}
+	.input-valid::-moz-placeholder,
+	textarea::-moz-placeholder {
+		@apply text-success-700;
+	}
+	.input-valid:-ms-input-placeholder,
+	textarea:-ms-input-placeholder {
+		@apply text-success-700;
+	}
+	.input-valid::placeholder,
+	textarea::placeholder {
+		@apply text-success-700;
+	}
+
+	/* Invalid */
+	.input-invalid {
+		@apply !bg-error-200 !border-error-500 !text-error-500;
+	}
+	.input-invalid::-moz-placeholder,
+	textarea::-moz-placeholder {
+		@apply text-error-500;
+	}
+	.input-invalid:-ms-input-placeholder,
+	textarea:-ms-input-placeholder {
+		@apply text-error-500;
+	}
+	.input-invalid::placeholder,
+	textarea::placeholder {
+		@apply text-error-500;
+	}
+
+	/* === Placeholders === */
+	/* Input `placeholder="x"` attribute text color. */
+
+	input::-moz-placeholder,
+	textarea::-moz-placeholder {
+		@apply text-surface-400;
+	}
+	input:-ms-input-placeholder,
+	textarea:-ms-input-placeholder {
+		@apply text-surface-400;
+	}
+	input::placeholder,
+	textarea::placeholder {
+		@apply text-surface-400;
+	}
+
+	/* === Accent Color === */
+	/* https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color */
+
+	[type='range']:not(.range-input) {
+		@apply w-full accent-secondary-500;
+	}
+}

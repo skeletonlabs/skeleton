@@ -1,0 +1,71 @@
+/* Tailwind Elements: chips.css */
+
+/* NOTE: these are a work in progress; best not to use them yet! */
+
+@layer components {
+	.chip {
+		/* Core */
+		@apply inline-flex items-center space-x-2 whitespace-nowrap cursor-pointer;
+		/* Text */
+		@apply text-xs text-token;
+		/* Padding */
+		@apply px-3 py-1.5;
+		/* Theme: Rounded */
+		@apply rounded;
+		/* Ring */
+		@apply ring-[1px] ring-surface-500-400-token ring-inset;
+		/* Background */
+		@apply hover:bg-surface-hover-token;
+	}
+
+	.chip-disabled,
+	.chip:disabled {
+		@apply !opacity-50 !cursor-not-allowed active:scale-100;
+	}
+
+	/* === Variations === */
+
+	.chip-primary {
+		@apply ring-primary-500-400-token hover:bg-primary-hover-token;
+	}
+	.chip-secondary {
+		@apply ring-secondary-500-400-token hover:bg-secondary-hover-token;
+	}
+	.chip-tertiary {
+		@apply ring-tertiary-500-400-token hover:bg-tertiary-hover-token;
+	}
+	.chip-success {
+		@apply ring-success-500-400-token hover:bg-success-hover-token;
+	}
+	.chip-warning {
+		@apply ring-warning-500-400-token hover:bg-warning-hover-token;
+	}
+	.chip-error {
+		@apply ring-error-500-400-token hover:bg-error-hover-token;
+	}
+
+	/* === States === */
+
+	.chip-active,
+	.chip-primary-active {
+		@apply !bg-primary-500 !text-on-primary-token ring-0;
+	}
+	.chip-secondary-active {
+		@apply !bg-secondary-500 !text-on-secondary-token ring-0;
+	}
+	.chip-tertiary-active {
+		@apply !bg-tertiary-500 !text-on-tertiary-token ring-0;
+	}
+	.chip-success-active {
+		@apply !bg-success-500 !text-on-success-token ring-0;
+	}
+	.chip-warning-active {
+		@apply !bg-warning-500 !text-on-warning-token ring-0;
+	}
+	.chip-error-active {
+		@apply !bg-error-500 !text-on-error-token ring-0;
+	}
+	.chip-surface-active {
+		@apply !bg-surface-500 !text-on-surface-token ring-0;
+	}
+}

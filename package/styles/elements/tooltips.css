@@ -1,0 +1,83 @@
+/* Tailwind Elements: tooltips.css */
+
+/* FIXME: adding @layer components causes visual strobing effect bug */
+
+:root {
+	--tooltip-offset: 8px;
+}
+
+.tooltip {
+	@apply text-center origin-center absolute z-[45] opacity-0 transition-opacity duration-150;
+	/* Base Design */
+	@apply bg-primary-500 w-48 p-2 shadow-xl;
+	/* Theme: Rounded */
+	@apply rounded-container-token;
+}
+
+/* === Positions === */
+/* Set based on the action param 'position' */
+
+.tooltip-top {
+	@apply top-0;
+	/* Center Horz */
+	@apply left-[50%] -translate-x-[50%];
+	/* Offset Y */
+	@apply -translate-y-[calc(100%+var(--tooltip-offset))];
+}
+
+.tooltip-bottom {
+	@apply bottom-0;
+	/* Center Horz */
+	@apply left-[50%] -translate-x-[50%];
+	/* Offset Y */
+	@apply translate-y-[calc(100%+var(--tooltip-offset))];
+}
+
+.tooltip-left {
+	@apply left-0;
+	/* Center Vert */
+	@apply top-[50%] -translate-y-[50%];
+	/* Offset X */
+	@apply -translate-x-[calc(100%+var(--tooltip-offset))];
+}
+
+.tooltip-right {
+	@apply right-0;
+	/* Center Vert */
+	@apply top-[50%] -translate-y-[50%];
+	/* Offset X */
+	@apply translate-x-[calc(100%+var(--tooltip-offset))];
+}
+
+/* === Arrow === */
+/* Set based on the action param 'position' */
+
+.tooltip-arrow {
+	@apply absolute h-2 w-2 -rotate-45 origin-center;
+	/* Base Design */
+	@apply bg-primary-500;
+}
+
+.tooltip-arrow-top {
+	@apply tooltip-arrow;
+	/* Bottom side, center horz */
+	@apply bottom-0 left-0 right-0 mx-auto translate-y-[50%];
+}
+
+.tooltip-arrow-bottom {
+	@apply tooltip-arrow;
+	/* Top side, centered horz */
+	@apply top-0 left-0 right-0 mx-auto translate-y-[-50%];
+}
+
+.tooltip-arrow-left {
+	@apply tooltip-arrow;
+	/* Right size, centered vert */
+	@apply top-0 bottom-0 right-0 my-auto translate-x-[50%];
+}
+
+.tooltip-arrow-right {
+	@apply tooltip-arrow;
+	/* Left size, centered vert */
+	@apply top-0 bottom-0 left-0 my-auto translate-x-[-50%];
+}

@@ -1,0 +1,2 @@
+// Data Table Types
+export {};

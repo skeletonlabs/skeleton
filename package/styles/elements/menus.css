@@ -1,0 +1,29 @@
+/* Tailwind Elements: menus.css */
+
+[data-menu] {
+	@apply absolute z-20 hidden;
+}
+[data-menu] a {
+	@apply focus-visible:bg-primary-500/10;
+}
+
+:root {
+	--menu-offset: 8px;
+}
+
+@layer components {
+	/* === Origins === */
+
+	.menu-tl {
+		@apply mt-[var(--menu-offset)] left-0 origin-top-left;
+	}
+	.menu-tr {
+		@apply mt-[var(--menu-offset)] right-0 origin-top-right;
+	}
+	.menu-bl {
+		@apply top-0 left-0 origin-bottom-left -translate-y-[calc(100%+var(--menu-offset))];
+	}
+	.menu-br {
+		@apply top-0 right-0 origin-bottom-right -translate-y-[calc(100%+var(--menu-offset))];
+	}
+}

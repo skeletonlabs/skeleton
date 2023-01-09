@@ -1,0 +1,12 @@
+/* Stylesheet: tailwind.css */
+
+/*
+Tailwind directives should only be included ONCE per project.
+These directives should proceed all Skeleton Tailwind Element stylesheets.
+Remove these directives from your global CSS file if you use this stylesheet.
+*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;

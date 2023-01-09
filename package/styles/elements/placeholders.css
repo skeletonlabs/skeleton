@@ -1,0 +1,17 @@
+/* Tailwind Elements: placeholders.css */
+
+@layer components {
+	/* === Base === */
+
+	.placeholder {
+		@apply bg-surface-300-600-token h-5;
+		/* Theme: Rounded */
+		@apply rounded-token;
+	}
+
+	/* === Shapes === */
+
+	.placeholder-circle {
+		@apply bg-surface-300-600-token aspect-square rounded-full;
+	}
+}
