@@ -1,3 +1,8 @@
+/* https://fonts.google.com/specimen/Abril+Fatface?query=Abril+Fatface&noto.query=Abril */
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+/* https://fonts.google.com/noto/specimen/Noto+Sans?query=sans */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300&display=swap');
+
 :root {
 	/* =~= Theme Styles =~= */
 	--theme-font-family-base: 'Noto Sans', sans-serif;
@@ -118,8 +123,3 @@
 		radial-gradient(at 100% 0%, hsla(135,34%,70%,0.14) 0px, transparent 50%),
 		radial-gradient(at 85% 100%, hsla(31,83%,50%,0.14) 0px, transparent 50%);
 }
-
-/* https://fonts.google.com/specimen/Abril+Fatface?query=Abril+Fatface&noto.query=Abril */
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
-/* https://fonts.google.com/noto/specimen/Noto+Sans?query=sans */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300&display=swap');

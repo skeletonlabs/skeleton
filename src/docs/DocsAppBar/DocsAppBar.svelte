@@ -69,8 +69,8 @@
 		{ type: 'sahara', name: 'Sahara', icon: '🏜️' },
 		{ type: 'hamlindigo', name: 'Hamlindigo', icon: '👔' },
 		{ type: 'gold-nouveau', name: 'Gold Nouveau', icon: '💫' },
-		{ type: 'crimson', name: 'Crimson', icon: '⭕' },
-		{ type: 'seasonal', name: 'Seasonal', icon: '🎆' }
+		{ type: 'crimson', name: 'Crimson', icon: '⭕' }
+		// { type: 'seasonal', name: 'Seasonal', icon: '🎆' }
 		// { type: 'test', name: 'Test', icon: '🚧' },
 	];
 
