@@ -50,7 +50,7 @@
 					language="css"
 					code={`
 .gradient-heading {
-	@apply bg-gradient-to-r from-primary-500 to-bg-secondary-500 bg-clip text-transparent box-decoration-clone
+	@apply bg-gradient-to-r from-primary-500 to-bg-secondary-500 bg-clip text-transparent box-decoration-clone;
 }
 			`}
 				/>
