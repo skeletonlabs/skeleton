@@ -1,2 +1,0 @@
-// Modal Types
-export {};

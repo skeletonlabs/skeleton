@@ -1,2 +1,0 @@
-// Pagination Types
-export {};

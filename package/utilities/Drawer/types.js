@@ -1,2 +1,0 @@
-// Drawer Types
-export {};

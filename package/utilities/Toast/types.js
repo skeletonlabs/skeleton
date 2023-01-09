@@ -1,2 +1,0 @@
-// Toast interface types
-export {};

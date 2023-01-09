@@ -1,2 +1,0 @@
-// Conic Gradient Types
-export {};
