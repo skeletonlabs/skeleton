@@ -54,12 +54,24 @@
 	<svelte:fragment slot="sandbox">
 		<!-- prettier-ignore -->
 		<section class="card">
-			<div class="p-4 max-w-[220px] mx-auto">
+			<div class="p-4 max-w-[280px] mx-auto">
 				<div class="grid grid-cols-2 gap-4 mb-4">
-					<button class="btn btn-ghost-surface w-full" data-tooltip="tooltipTop" use:tooltip={exampleTop}>&uarr;</button>
-					<button class="btn btn-ghost-surface w-full" use:tooltip={exampleBottom}>&darr;</button>
-					<button class="btn btn-ghost-surface w-full" use:tooltip={exampleLeft}>&larr;</button>
-					<button class="btn btn-ghost-surface w-full" use:tooltip={exampleRight}>&rarr;</button>
+					<button class="btn btn-ghost-surface w-full" data-tooltip="tooltipTop" use:tooltip={exampleTop}>
+						<i class="fa-solid fa-arrow-up"></i>
+						<span>Top</span>
+					</button>
+					<button class="btn btn-ghost-surface w-full" use:tooltip={exampleBottom}>
+						<i class="fa-solid fa-arrow-down"></i>
+						<span>Bottom</span>
+					</button>
+					<button class="btn btn-ghost-surface w-full" use:tooltip={exampleLeft}>
+						<i class="fa-solid fa-arrow-left"></i>
+						<span>Left</span>
+					</button>
+					<button class="btn btn-ghost-surface w-full" use:tooltip={exampleRight}>
+						<i class="fa-solid fa-arrow-right"></i>
+						<span>Right</span>
+					</button>
 				</div>
 				<button class="btn btn-ghost-surface w-full" use:tooltip={exampleHtml}>HTML Content</button>
 			</div>
@@ -97,7 +109,7 @@
 				<CodeBlock language="html" code={`<button use:tooltip={{ content: 'Skeleton', position: 'bottom' }}>Trigger</button>`} />
 			</div>
 			<div class="space-y-4">
-				<h2>Style Keys</h2>
+				<h2>Styling</h2>
 				<p>
 					Most styles should be handled via global CSS overrides. However, you may override styles using preset keys, similar to component
 					props.

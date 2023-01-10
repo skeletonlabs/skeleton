@@ -32,15 +32,15 @@
 			<!-- - -->
 			<div class="lg:col-span-2 card p-4">
 				<span class="badge badge-filled-primary">
-					<span>&hearts;</span>
+					<i class="fa-solid fa-check" />
 					<span>Complete</span>
 				</span>
 				<span class="badge badge-filled-secondary">
 					<span>Skeleton</span>
-					<span>💀</span>
+					<i class="fa-solid fa-skull" />
 				</span>
 				<span class="badge badge-filled-tertiary">
-					<span>&hearts;</span>
+					<i class="fa-solid fa-heart" />
 					<span>Favorite</span>
 				</span>
 			</div>
@@ -65,7 +65,9 @@
 					<Avatar />
 				</div>
 				<div class="relative inline-block">
-					<span class="badge-icon badge-filled-tertiary absolute -top-1 -right-1 z-10">&hearts;</span>
+					<span class="badge-icon badge-filled-tertiary absolute -top-1 -right-1 z-10">
+						<i class="fa-solid fa-heart" />
+					</span>
 					<Avatar />
 				</div>
 			</div>
@@ -94,14 +96,38 @@
 			<CodeBlock language="html" code={`<span class="badge badge-filled-surface">Skeleton</span>`} />
 			<section class="lg:col-span-3 card p-4">
 				<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-					<span class="badge badge-filled-surface">filled-surface</span>
-					<span class="badge badge-filled-primary">filled-primary</span>
-					<span class="badge badge-filled-secondary">filled-secondary</span>
-					<span class="badge badge-filled-tertiary">filled-tertiary</span>
-					<span class="badge badge-glass">glass</span>
-					<span class="badge badge-filled-success">filled-success</span>
-					<span class="badge badge-filled-warning">filled-warning</span>
-					<span class="badge badge-filled-error">filled-error</span>
+					<span class="badge badge-filled-surface">
+						<i class="fa-solid fa-skull" />
+						<span>filled-surface</span>
+					</span>
+					<span class="badge badge-filled-primary">
+						<i class="fa-solid fa-skull" />
+						<span>filled-primary</span>
+					</span>
+					<span class="badge badge-filled-secondary">
+						<i class="fa-solid fa-skull" />
+						<span>filled-secondary</span>
+					</span>
+					<span class="badge badge-filled-tertiary">
+						<i class="fa-solid fa-skull" />
+						<span>filled-tertiary</span>
+					</span>
+					<span class="badge badge-glass">
+						<i class="fa-solid fa-skull" />
+						<span>glass</span>
+					</span>
+					<span class="badge badge-filled-success">
+						<i class="fa-solid fa-skull" />
+						<span>filled-success</span>
+					</span>
+					<span class="badge badge-filled-warning">
+						<i class="fa-solid fa-skull" />
+						<span>filled-warning</span>
+					</span>
+					<span class="badge badge-filled-error">
+						<i class="fa-solid fa-skull" />
+						<span>filled-error</span>
+					</span>
 				</div>
 			</section>
 		</section>

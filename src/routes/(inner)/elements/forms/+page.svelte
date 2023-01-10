@@ -60,7 +60,7 @@ module.exports = {
 			</div>
 		</section>
 		<section class="space-y-4">
-			<h2>Usage</h2>
+			<h2>Implement</h2>
 			<p>Create form elements using native HTML markup. We recommend <em>span</em> tags for label text.</p>
 			<CodeBlock
 				language="html"

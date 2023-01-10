@@ -81,19 +81,19 @@
 				>
 					<Tab value="a">
 						<svelte:fragment slot="lead">
-							<SvgIcon name="book" fill="fill-inherit" class="!block" />
+							<i class="fa-solid fa-book" />
 						</svelte:fragment>
 						Books
 					</Tab>
 					<Tab value="b">
 						<svelte:fragment slot="lead">
-							<SvgIcon name="clapperboard" fill="fill-inherit" class="!block" />
+							<i class="fa-solid fa-clapperboard" />
 						</svelte:fragment>
 						Movies
 					</Tab>
 					<Tab value="c">
 						<svelte:fragment slot="lead">
-							<SvgIcon name="tv" fill="fill-inherit" class="!block" />
+							<i class="fa-solid fa-tv" />
 						</svelte:fragment>
 						Television
 					</Tab>

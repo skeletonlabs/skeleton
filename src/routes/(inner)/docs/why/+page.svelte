@@ -94,8 +94,8 @@
 	<section class="space-y-4">
 		<h2>Release Cycle</h2>
 		<p>
-			Skeleton receives new update every other week, typically around Tuesday (US/Central). Each release is packed with major updates, new
-			features, and bugfixes.
+			Skeleton receives new updates every other week, typically around Tuesday (US/Central). Each release is packed with new features,
+			improvements, and bugfixes.
 		</p>
 		<a class="btn btn-filled-secondary" href="https://github.com/skeletonlabs/skeleton/releases" target="_blank" rel="noreferrer">
 			View Releases

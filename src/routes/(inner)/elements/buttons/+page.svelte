@@ -49,13 +49,13 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<div class="grid grid-cols-1 xl:grid-cols-[1fr_auto] gap-2">
+		<div class="grid grid-cols-1 xl:grid-cols-[1fr_300px] gap-2">
 			<!-- Example -->
 			<div class="card grid grid-rows-[1fr_auto]">
 				<div class="p-4 flex justify-center items-center">
 					<!-- prettier-ignore -->
 					<svelte:element this={$storeTag} class="btn {btnClases}" disabled={$storeDisabled}>
-						<span>💀</span>
+						<i class="fa-solid fa-skull" />
 						<span>Skeleton</span>
 					</svelte:element>
 				</div>
@@ -88,10 +88,10 @@
 				<label for="">
 					<span>Size</span>
 					<RadioGroup selected={storeBtnSize} display="flex">
-						<RadioItem value="btn-sm">btn-sm</RadioItem>
-						<RadioItem value="btn-base">btn-base</RadioItem>
-						<RadioItem value="btn-lg">btn-lg</RadioItem>
-						<RadioItem value="btn-xl">btn-xl</RadioItem>
+						<RadioItem value="btn-sm">sm</RadioItem>
+						<RadioItem value="btn-base">base</RadioItem>
+						<RadioItem value="btn-lg">lg</RadioItem>
+						<RadioItem value="btn-xl">xl</RadioItem>
 					</RadioGroup>
 				</label>
 				<!-- Variant -->
@@ -171,7 +171,7 @@
 	<svelte:fragment slot="usage">
 		<!-- Buttons -->
 		<div class="space-y-4">
-			<h2>Button</h2>
+			<h2>Standard Button</h2>
 			<p>Add the <code>.btn</code> class to any button or anchor to create a button with minimal styling.</p>
 			<CodeBlock language="html" code={`<button class="btn">Button</button>\n<a href="/" class="btn">Anchor</a>`} />
 			<div class="card p-4 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
@@ -253,36 +253,36 @@
 			<div class="card p-4 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 				<!-- Text -->
 				<div class="grid grid-cols-1 gap-4">
-					<button class="btn-icon btn-filled">💀</button>
-					<button class="btn-icon btn-filled-primary">💀</button>
-					<button class="btn-icon btn-filled-secondary">💀</button>
-					<button class="btn-icon btn-filled-tertiary">💀</button>
-					<button class="btn-icon btn-filled-success">💀</button>
-					<button class="btn-icon btn-filled-warning">💀</button>
-					<button class="btn-icon btn-filled-error">💀</button>
-					<button class="btn-icon btn-filled-surface">💀</button>
+					<button class="btn-icon btn-filled"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-filled-primary"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-filled-secondary"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-filled-tertiary"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-filled-success"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-filled-warning"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-filled-error"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-filled-surface"><i class="fa-solid fa-skull" /></button>
 				</div>
 				<!-- Ringed -->
 				<div class="grid grid-cols-1 gap-4">
-					<button class="btn-icon btn-ringed">💀</button>
-					<button class="btn-icon btn-ringed-primary">💀</button>
-					<button class="btn-icon btn-ringed-secondary">💀</button>
-					<button class="btn-icon btn-ringed-tertiary">💀</button>
-					<button class="btn-icon btn-ringed-success">💀</button>
-					<button class="btn-icon btn-ringed-warning">💀</button>
-					<button class="btn-icon btn-ringed-error">💀</button>
-					<button class="btn-icon btn-ringed-surface">💀</button>
+					<button class="btn-icon btn-ringed"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-ringed-primary"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-ringed-secondary"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-ringed-tertiary"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-ringed-success"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-ringed-warning"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-ringed-error"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-ringed-surface"><i class="fa-solid fa-skull" /></button>
 				</div>
 				<!-- Ringed -->
 				<div class="grid grid-cols-1 gap-4">
-					<button class="btn-icon btn-ghost">💀</button>
-					<button class="btn-icon btn-ghost-primary">💀</button>
-					<button class="btn-icon btn-ghost-secondary">💀</button>
-					<button class="btn-icon btn-ghost-tertiary">💀</button>
-					<button class="btn-icon btn-ghost-success">💀</button>
-					<button class="btn-icon btn-ghost-warning">💀</button>
-					<button class="btn-icon btn-ghost-error">💀</button>
-					<button class="btn-icon btn-ghost-surface">💀</button>
+					<button class="btn-icon btn-ghost"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-ghost-primary"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-ghost-secondary"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-ghost-tertiary"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-ghost-success"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-ghost-warning"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-ghost-error"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon btn-ghost-surface"><i class="fa-solid fa-skull" /></button>
 				</div>
 			</div>
 		</div>

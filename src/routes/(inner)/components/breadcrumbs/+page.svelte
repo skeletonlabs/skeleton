@@ -4,7 +4,6 @@
 
 	import Breadcrumb from '$lib/components/Breadcrumb/Breadcrumb.svelte';
 	import Crumb from '$lib/components/Breadcrumb/Crumb.svelte';
-	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// @ts-expect-error sveld import
@@ -35,6 +34,15 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
+		<!-- Alert -->
+		<aside class="alert alert-error">
+			<i class="fa-solid fa-triangle-exclamation text-4xl" />
+			<div class="alert-message">
+				<h3>Deprecated</h3>
+				<p>This component is slated for removal. Please migrate the element styles provided by <em>all.css</em>.</p>
+			</div>
+			<a href="/elements/breadcrumbs" class="alert-message btn btn-filled">View Elements</a>
+		</aside>
 		<section class="grid grid-cols-1 xl:grid-cols-2 gap-4">
 			<div class="card p-4">
 				<Breadcrumb>
@@ -53,10 +61,10 @@
 			<div class="card p-4">
 				<Breadcrumb>
 					<Crumb href="/">
-						<SvgIcon name="house" title="house" />
+						<i class="fa-solid fa-house" />
 					</Crumb>
 					<Crumb href="/">
-						<SvgIcon name="skull" title="skull" />
+						<i class="fa-solid fa-skull" />
 					</Crumb>
 					<Crumb>Current</Crumb>
 				</Breadcrumb>
@@ -65,13 +73,13 @@
 				<Breadcrumb>
 					<Crumb href="/">
 						<svelte:fragment slot="lead">
-							<SvgIcon name="house" title="house" />
+							<i class="fa-solid fa-house" />
 						</svelte:fragment>
 						<span>Home</span>
 					</Crumb>
 					<Crumb href="/">
 						<svelte:fragment slot="lead">
-							<SvgIcon name="skull" title="skull" />
+							<i class="fa-solid fa-skull" />
 						</svelte:fragment>
 						<span>Subpage</span>
 					</Crumb>
@@ -95,14 +103,14 @@
 </Breadcrumb>`}
 		/>
 		<div class="space-y-4">
-			<h2>Seperator</h2>
+			<h2>Set the Seperator</h2>
 			<p>
 				Use the <code>seperator</code> prop to define a custom seperator character. Accepts any valid HTML value, including unicode and emojii.
 			</p>
 			<CodeBlock language="html" code={`<Breadcrumb separator="&hearts;"></Breadcrumb>`} />
 		</div>
 		<div class="space-y-4">
-			<h2>Current Page</h2>
+			<h2>Define Current Page</h2>
 			<p>
 				Crumbs without a <code>href</code> attribute are treated as the <em>current</em> page. This means they render as <code>span</code> and
 				do not append a trailing separator.

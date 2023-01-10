@@ -26,6 +26,7 @@
 	}
 
 	function setNavCategory(c: string): void {
+		if (c === 'blog') return;
 		storeCategory.set(c);
 		// prettier-ignore
 		switch($storeCategory) {
@@ -44,9 +45,7 @@
 		if (['components', 'actions'].includes(pathMatch)) pathMatch = 'svelte';
 		setNavCategory(pathMatch);
 	});
-	storeCategory.subscribe((c: string) => {
-		setNavCategory(c);
-	});
+	storeCategory.subscribe((c: string) => setNavCategory(c));
 
 	// Reactive
 	$: classesActive = (href: string) => ($storeCurrentUrl?.includes(href) ? 'bg-primary-active-token' : '');
@@ -55,12 +54,27 @@
 <div class="grid grid-cols-[auto_1fr] h-full border-r border-black/5 dark:border-white/5 backdrop-blur {$$props.class ?? ''}">
 	<!-- App Rail -->
 	<AppRail selected={storeCategory} background="bg-white/30 dark:bg-black/30">
-		<AppRailTile label="Docs" value={'docs'}><SvgIcon name="book" width="w-6" height="h-6" /></AppRailTile>
-		<AppRailTile label="Guides" value={'guides'}><SvgIcon name="cubes" width="w-6" height="h-6" /></AppRailTile>
+		<AppRailTile label="Docs" value={'docs'}>
+			<i class="fa-solid fa-sheet-plastic text-2xl" />
+		</AppRailTile>
+		<AppRailTile label="Guides" value={'guides'}>
+			<i class="fa-solid fa-book text-2xl" />
+		</AppRailTile>
 		<hr class="opacity-30" />
-		<AppRailTile label="Tailwind" value={'elements'}><SvgIcon name="tailwind" width="w-6" height="h-6" /></AppRailTile>
-		<AppRailTile label="Svelte" value={'svelte'}><SvgIcon name="svelte" width="w-6" height="h-6" /></AppRailTile>
-		<AppRailTile label="Utilities" value={'utilities'}><SvgIcon name="screwdriver" width="w-6" height="h-6" /></AppRailTile>
+		<AppRailTile label="Tailwind" value={'elements'}>
+			<SvgIcon name="tailwind" width="w-6" height="h-6" />
+		</AppRailTile>
+		<AppRailTile label="Svelte" value={'svelte'}>
+			<SvgIcon name="svelte" width="w-6" height="h-6" />
+		</AppRailTile>
+		<AppRailTile label="Utilities" value={'utilities'}>
+			<i class="fa-solid fa-screwdriver-wrench text-2xl" />
+		</AppRailTile>
+		<svelte:fragment slot="trail">
+			<AppRailTile label="Blog" tag="a" href="/blog" value={'blog'} on:click={onListItemClick} class="lg:hidden">
+				<i class="fa-solid fa-blog text-2xl" />
+			</AppRailTile>
+		</svelte:fragment>
 	</AppRail>
 	<!-- Nav Links -->
 	<section class="p-4 pb-20 space-y-4 overflow-y-auto">
@@ -73,8 +87,8 @@
 					<ul>
 						{#each list as { href, label, badge }}
 							<li on:click={onListItemClick} on:keypress>
-								<a {href} value={href} class={classesActive(href)} data-sveltekit-preload-data="hover">
-									<span class="flex-auto">{label}</span>
+								<a {href} class={classesActive(href)} data-sveltekit-preload-data="hover">
+									<span class="flex-auto">{@html label}</span>
 									{#if badge}<span class="badge badge-filled-secondary">{badge}</span>{/if}
 								</a>
 							</li>

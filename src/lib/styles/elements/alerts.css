@@ -1,0 +1,43 @@
+/* Tailwind Elements: alerts.css */
+
+@layer components {
+	.alert {
+		@apply flex flex-col items-start lg:items-center lg:flex-row p-4 space-y-4 lg:space-y-0 lg:space-x-4;
+		/* Background */
+		@apply bg-warning-500/20;
+		/* Border */
+		@apply border border-warning-500;
+		/* Rounded */
+		@apply rounded-container-token;
+	}
+	.alert-message {
+		@apply flex-auto space-y-2;
+	}
+	.alert-actions {
+		@apply flex items-center space-x-2;
+	}
+
+	/* === Variants === */
+
+	.alert-primary {
+		@apply bg-primary-500/20 border-primary-500;
+	}
+	.alert-secondary {
+		@apply bg-secondary-500/20 border-secondary-500;
+	}
+	.alert-tertiary {
+		@apply bg-tertiary-500/20 border-tertiary-500;
+	}
+	.alert-success {
+		@apply bg-success-500/20 border-success-500;
+	}
+	.alert-warning {
+		@apply bg-warning-500/20 border-warning-500;
+	}
+	.alert-error {
+		@apply bg-error-500/20 border-error-500;
+	}
+	.alert-surface {
+		@apply bg-surface-500/20 border-surface-500;
+	}
+}

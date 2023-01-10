@@ -5,7 +5,7 @@
 <script lang="ts">
 	// Props
 	/** Pass canned svg name. Slot value overrides this.*/
-	export let name = 'image';
+	export let name = 'placeholder';
 	/** Native X attribute for the svg element.*/
 	export let x = '0px';
 	/** Native Y attribute for the svg element.*/

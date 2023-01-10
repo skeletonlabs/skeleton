@@ -38,7 +38,28 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="space-y-4 xl:space-y-0 xl:grid grid-cols-[1fr_auto] gap-2">
+		<!-- Alert -->
+		<aside class="alert alert-error">
+			<div class="alert-message">
+				<h3><i class="fa-solid fa-triangle-exclamation mr-2" /> Deprecated</h3>
+				<p>
+					This component is slated to be <u>removed</u>. We recommend using the following Tailwind styles if you wish to replicate this.
+				</p>
+				<CodeBlock language="html" code={`<h1><span class="gradient-heading">Skeleton</span></h1>`} />
+				<CodeBlock
+					language="css"
+					code={`
+.gradient-heading {
+	@apply bg-gradient-to-r from-primary-500 to-bg-secondary-500 bg-clip text-transparent box-decoration-clone;
+}
+			`}
+				/>
+				<!-- prettier-ignore -->
+				<p>See the <a class="!text-error-200" href="https://tailwindcss.com/docs/gradient-color-stops" target="_blank" rel="noreferrer">Tailwind documentation</a> for additional gradient options.</p>
+			</div>
+		</aside>
+
+		<section class="space-y-4 xl:space-y-0 xl:grid grid-cols-[1fr_300px] gap-2">
 			<!-- Example -->
 			<div class="card p-4 h-full flex justify-center items-center">
 				<svelte:component this={GradientHeading} tag={props.tag} direction={props.direction} from={props.from} to={props.to}
@@ -76,30 +97,28 @@
 						<option value="bg-gradient-to-r">bg-gradient-to-r</option>
 					</select>
 				</label>
-				<div class="grid grid-cols-2 gap-4">
-					<!-- From -->
-					<label>
-						<span>From</span>
-						<select name="from" id="from" bind:value={props.from}>
-							<option value="from-primary-500">from-primary-500</option>
-							<option value="from-secondary-500">from-secondary-500</option>
-							<option value="from-tertiary-500">from-tertiary-500</option>
-							<option value="from-warning-500">from-warning-500</option>
-							<option value="from-surface-500">from-surface-500</option>
-						</select>
-					</label>
-					<!-- To -->
-					<label>
-						<span>To</span>
-						<select name="to" id="to" bind:value={props.to}>
-							<option value="to-primary-500">to-primary-500</option>
-							<option value="to-secondary-500">to-secondary-500</option>
-							<option value="to-tertiary-500">to-tertiary-500</option>
-							<option value="to-warning-500">to-warning-500</option>
-							<option value="to-surface-500">to-surface-500</option>
-						</select>
-					</label>
-				</div>
+				<!-- From -->
+				<label>
+					<span>From</span>
+					<select name="from" id="from" bind:value={props.from}>
+						<option value="from-primary-500">from-primary-500</option>
+						<option value="from-secondary-500">from-secondary-500</option>
+						<option value="from-tertiary-500">from-tertiary-500</option>
+						<option value="from-warning-500">from-warning-500</option>
+						<option value="from-surface-500">from-surface-500</option>
+					</select>
+				</label>
+				<!-- To -->
+				<label>
+					<span>To</span>
+					<select name="to" id="to" bind:value={props.to}>
+						<option value="to-primary-500">to-primary-500</option>
+						<option value="to-secondary-500">to-secondary-500</option>
+						<option value="to-tertiary-500">to-tertiary-500</option>
+						<option value="to-warning-500">to-warning-500</option>
+						<option value="to-surface-500">to-surface-500</option>
+					</select>
+				</label>
 			</div>
 		</section>
 	</svelte:fragment>

@@ -3,6 +3,8 @@
 	import type { PageData } from './$types';
 	export let data: PageData;
 
+	import { toastStore, type ToastSettings } from '@skeletonlabs/skeleton';
+
 	// Blog Utils
 	import { getBlogList, blogDateFormatter } from './blog-service';
 
@@ -13,9 +15,26 @@
 	function onNextPage(): void {
 		getBlogList(data.meta.pagination.page + 1).then((res) => (data = res));
 	}
+
+	function copyRSSToClipboard(): void {
+		navigator.clipboard.writeText('https://www.skeleton.dev/blog/rss/');
+		const t: ToastSettings = { message: 'RSS feed copied to clipboard.' };
+		toastStore.trigger(t);
+	}
 </script>
 
 <div class="page-container">
+	<header class="flex justify-between items-center">
+		<div class="space-y-4">
+			<h2>The Skeleton Blog</h2>
+			<p>Keep up with the latest news, tutorials, and releases for Skeleton.</p>
+		</div>
+		<!-- RSS Icon -->
+		<button class="btn btn-icon-sm !bg-orange-500" on:click={copyRSSToClipboard} on:keypress>
+			<i class="fa-solid fa-square-rss text-xl" />
+		</button>
+	</header>
+	<hr />
 	<!-- Blog List -->
 	<section class="blog-list space-y-8">
 		{#each data.posts as post}

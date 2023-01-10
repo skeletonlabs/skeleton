@@ -6,7 +6,6 @@
 	// Components
 	import AccordionGroup from '$lib/components/Accordion/AccordionGroup.svelte';
 	import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
-	import Alert from '$lib/components/Alert/Alert.svelte';
 	import Table from '$lib/components/Table/Table.svelte';
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
 	import Tab from '$lib/components/Tab/Tab.svelte';
@@ -42,13 +41,6 @@
 				'<u>IMPORTANT</u>: precedes all of the following stylesheets.',
 				'<a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a>',
 				`<a href="${ghLibPathMaster}/styles/tailwind.css" target="_blank" rel="noreferrer">tailwind.css</a>`,
-				'-'
-			],
-			[
-				'<code>tokens.css</code>',
-				'Provides utility classes based on your theme CSS custom properties.',
-				'<a href="/elements/tokens">Design Tokens</a>',
-				`<a href="${ghLibPathMaster}/styles/tokens.css" target="_blank" rel="noreferrer">tokens.css</a>`,
 				'-'
 			],
 			[
@@ -106,6 +98,11 @@
 				`<a href="${ghLibPathMaster}/styles/elements/cards.css" target="_blank" rel="noreferrer">cards.css</a>`,
 			],
 			[
+				'<code>elements/chips.css</code>',
+				'<a href="/elements/chips">chips</a>',
+				`<a href="${ghLibPathMaster}/styles/elements/chips.css" target="_blank" rel="noreferrer">chips.css</a>`,
+			],
+			[
 				'<code>elements/lists.css</code>',
 				'<a href="/elements/lists">lists</a>',
 				`<a href="${ghLibPathMaster}/styles/elements/lists.css" target="_blank" rel="noreferrer">lists.css</a>`,
@@ -143,7 +140,7 @@
 		// prettier-ignore
 		body: [
 			[ '1.', 'Theme Stylesheet', 'Houses your themes use CSS properties for colors, border radius, etc.' ],
-			[ '2.', 'Skeleton Stylesheet(s)', 'Imports Tailwind directives, generates design tokens, styles elements and components.' ],
+			[ '2.', 'Skeleton Stylesheet(s)', 'Imports Tailwind directives, element, and components styles.' ],
 			[ '3.', 'Global Stylesheet', 'Keep last so you can override the above styles. Project-specific styles go here.' ],
 		]
 	};
@@ -222,10 +219,12 @@ import '@skeletonlabs/skeleton/styles/${$storeStylesheets === 'recommended' ? 'a
 				and add required styles.
 			</p>
 		{:else if $storeFramework === 'manual'}
-			<Alert>
-				<svelte:fragment slot="lead"><span class="text-xl">⚠️</span></svelte:fragment>
-				The following step is <strong>REQUIRED</strong> to ensure your styles display properly in your application.
-			</Alert>
+			<aside class="alert">
+				<i class="fa-solid fa-triangle-exclamation text-2xl" />
+				<div class="alert-message">
+					The following step is <strong>REQUIRED</strong> to ensure your styles display properly in your application.
+				</div>
+			</aside>
 			<p>
 				SvelteKit's global stylesheet is located in <code>/src/app.postcss</code>. <strong>Svelte-Add</strong> automatically includes
 				<a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> in your

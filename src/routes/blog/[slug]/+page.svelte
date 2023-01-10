@@ -62,10 +62,11 @@
 
 <div class="page-container">
 	<!-- Breadcrumbs -->
-	<Breadcrumb>
-		<Crumb href="/blog">Blog</Crumb>
-		<Crumb>Article</Crumb>
-	</Breadcrumb>
+	<ol class="breadcrumb">
+		<li class="crumb"><a href="/blog">Blog</a></li>
+		<li class="crumb-separator" aria-hidden>&rsaquo;</li>
+		<li>Article</li>
+	</ol>
 	<!-- Article -->
 	<article class="blog-post">
 		<!-- Header -->

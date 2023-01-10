@@ -47,7 +47,7 @@
 		</div>
 		<!-- Element -->
 		<div class="space-y-4">
-			<h2>HTML Elements</h2>
+			<h2>Copying HTML Contents</h2>
 			<p>
 				To copy the <em>innerHTML</em> for an HTML element, we'll need to set a <code>data-clipboard</code> target, then provide the action
 				an object of
@@ -66,7 +66,7 @@
 		</div>
 		<!-- Inputs -->
 		<div class="space-y-4">
-			<h2>Form Inputs</h2>
+			<h2>Copying Input Values</h2>
 			<p>
 				To copy the <em>value</em> of a form input, we'll need to set a <code>data-clipboard</code> target, then provide the action an
 				object of

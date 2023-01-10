@@ -87,7 +87,7 @@ $: page = {
 			<CodeBlock language="html" code={`<Paginator bind:settings={page} on:page={onPageChange} on:amount={onAmountChange}></Paginator>`} />
 		</div>
 		<div class="space-y-4">
-			<h2>Utilizing Pagination</h2>
+			<h2>Reactive Slicing</h2>
 			<p>
 				Once your paginator component is setup you'll need to limit your content. This can be accomplished with the JavaScript <a
 					href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice"

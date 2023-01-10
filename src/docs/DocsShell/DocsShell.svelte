@@ -7,9 +7,9 @@
 
 	// Components
 	import Table from '$lib/components/Table/Table.svelte';
-	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	import Tab from '$lib/components/Tab/Tab.svelte';
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
+	import TableOfContents from '$lib/components/TableOfContents/TableOfContents.svelte';
 
 	// Utilities
 	import { toastStore } from '$lib/utilities/Toast/stores';
@@ -56,17 +56,6 @@
 		keyboard: []
 	};
 	const pageSettings: DocsShellSettings = { ...defaultSettings, ...settings };
-
-	function setFeatureIcon(): string {
-		const index: number = Object.values(DocsFeature).indexOf(pageSettings.feature);
-		// prettier-ignore
-		switch(index) {
-			case(0): return 'tailwind'; // Element
-			case(1): return 'svelte'; // Component
-			case(2): return 'svelte'; // Action
-			default: return 'screwdriver'; // Default
-		}
-	}
 
 	function toastCopied(noun: string): void {
 		const t: ToastSettings = { message: `Copied ${noun} to clipboard.`, timeout: 2000 };
@@ -133,32 +122,25 @@
 				<div class="flex items-center space-x-4">
 					<h1>{@html pageSettings.name}</h1>
 					<!-- Feature -->
-					<span class="badge badge-glass translate-y-1">
-						<SvgIcon width="w-4" height="h-4" name={setFeatureIcon()} />
-						<span>{@html pageSettings.feature}</span>
-					</span>
+					<span class="badge badge-glass translate-y-1">{@html pageSettings.feature}</span>
 				</div>
 				<p>{@html pageSettings.description}</p>
 			</section>
 
 			<!-- Details -->
-			<!-- TODO: replace w/ chip elements -->
 			<section class="doc-shell-details {regionDetails}">
 				<!-- Imports -->
 				{#if pageSettings.imports?.length}
 					<p class="hidden md:inline-block w-32">Import</p>
 					<div>
-						<!-- <button on:click={copyImports}>
-							<code>{formatImports()}</code>
-						</button> -->
-						<button class="chip" on:click={copyImports}>{formatImports()}</button>
+						<button class="chip chip-primary" on:click={copyImports}>{formatImports()}</button>
 					</div>
 				{/if}
 				<!-- Types -->
 				{#if pageSettings.types?.length}
 					<p class="hidden md:inline-block w-32">Types</p>
 					<div>
-						<button class="chip" on:click={copyTypes}>{formatTypes()}</button>
+						<button class="chip chip-primary" on:click={copyTypes}>{formatTypes()}</button>
 					</div>
 				{/if}
 				<!-- Stylesheets -->
@@ -169,50 +151,54 @@
 						<!-- Stylesheet Includes -->
 						{#if pageSettings.stylesheetIncludes?.length}
 							{#each pageSettings.stylesheetIncludes as si}
-								<button class="chip" on:click={() => {copyStylesheet(si)}}>{si}.css</button>
+								<button class="chip chip-primary" on:click={() => {copyStylesheet(si)}}>{si}.css</button>
 							{/each}
 						{/if}
 						<!-- Stylesheets -->
 						{#if pageSettings.stylesheets?.length}
 							{#each pageSettings.stylesheets as s}
-								<button class="chip" on:click={() => {copyStylesheet(s)}}>{s}.css</button>
+								<button class="chip chip-primary" on:click={() => {copyStylesheet(s)}}>{s}.css</button>
 							{/each}
 						{/if}
 					</div>
 				{/if}
 				<!-- Package -->
 				<p class="hidden md:inline-block w-32">Package</p>
-				<div class="flex items-end space-x-2">
-					<SvgIcon width="w-5" height="h-5" name="npm" />
+				<div class="flex items-center space-x-2">
+					<i class="fa-brands fa-npm" />
 					<a href={pageSettings.package?.url} target="_blank" rel="noreferrer">{pageSettings.package?.name}</a>
 				</div>
 				<!-- Source Code -->
 				<p class="hidden md:inline-block w-32">Source</p>
-				<div class="flex items-end space-x-2">
-					<SvgIcon width="w-4" height="h-4" class="!mr-1" name="github" />
-					<a href={`${githubSourcePath}/lib/${pageSettings.source}`} target="_blank" rel="noreferrer">View Source</a>
+				<div class="flex items-center space-x-2">
+					<i class="fa-brands fa-github" />
+					<a href={`${githubSourcePath}/lib/${pageSettings.source}`} target="_blank" rel="noreferrer">Source Code</a>
 				</div>
 				<!-- Doc Source -->
 				<p class="hidden md:inline-block w-32">Doc</p>
-				<div class="flex items-end space-x-2">
-					<SvgIcon width="w-4" height="h-4" class="!mr-1" name="pen-ruler" />
-					<a href={`${githubSourcePath}/routes/(inner)${pageSettings.docsPath}/+page.svelte`} target="_blank" rel="noreferrer"
-						>Edit This Page</a
-					>
+				<div class="flex items-center space-x-2">
+					<i class="fa-solid fa-code" />
+					<a href={`${githubSourcePath}/routes/(inner)${pageSettings.docsPath}/+page.svelte`} target="_blank" rel="noreferrer">
+						View Page Source
+					</a>
 				</div>
 				<!-- Dependencies -->
 				{#if pageSettings.dependencies?.length}
 					<p class="hidden md:inline-block w-32">Dependencies</p>
-					<div class="grid grid-cols-1 gap-2">
-						{#each pageSettings.dependencies as d}
-							<a href={d.url} target="_blank" rel="noreferrer">{d.label}</a>
-						{/each}
+					<div class="flex items-center space-x-2">
+						<i class="fa-solid fa-down-left-and-up-right-to-center" />
+						<div class="grid grid-cols-1 gap-2">
+							{#each pageSettings.dependencies as d}
+								<a href={d.url} target="_blank" rel="noreferrer">{d.label}</a>
+							{/each}
+						</div>
 					</div>
 				{/if}
 				<!-- Accessibility -->
 				{#if pageSettings.aria}
 					<p class="hidden md:inline-block w-32">WAI-ARIA</p>
-					<div class="grid grid-cols-1 gap-2">
+					<div class="flex items-center space-x-2">
+						<i class="fa-solid fa-universal-access" />
 						<a href={pageSettings.aria} target="_blank" rel="noreferrer">Accessibility Reference</a>
 					</div>
 				{/if}
@@ -234,32 +220,43 @@
 	</header>
 
 	<!-- Tab Panels -->
-	<div class="doc-shell-tab-panels">
+	<div class="doc-shell-tab-panels relative">
 		<!-- Tab: Usage -->
 		{#if $storeActiveTab === 'usage'}
 			<div class="doc-shell-usage {classesRegionPanels}">
-				<!-- Slot: Examples Sandbox -->
-				{#if $$slots.sandbox}
-					<div>
-						<h2 class="sr-only">Examples</h2>
-						<div class="doc-shell-sandbox {spacing}">
-							<slot name="sandbox">(sandbox)</slot>
+				<div class="grid grid-cols-1 2xl:grid-cols-[1fr_240px]">
+					<!-- Content -->
+					<div class={spacing}>
+						<!-- Slot: Examples Sandbox -->
+						{#if $$slots.sandbox}
+							<div>
+								<h2 class="sr-only">Examples</h2>
+								<div class="doc-shell-sandbox {spacing}">
+									<slot name="sandbox">(sandbox)</slot>
+								</div>
+							</div>
+						{/if}
+						<div id="toc-target" class={spacing}>
+							<!-- Slot: Usage -->
+							{#if $$slots.usage}
+								<div>
+									<h2 class="sr-only">Getting Started</h2>
+									<div class="doc-shell-usage {spacing}">
+										<slot name="usage">(usage)</slot>
+									</div>
+								</div>
+							{/if}
+							<!-- Slot: Overflow -->
+							{#if $$slots.default}
+								<footer class="doc-shell-footer"><slot /></footer>
+							{/if}
 						</div>
 					</div>
-				{/if}
-				<!-- Slot: Usage -->
-				{#if $$slots.usage}
+					<!-- Table of Contents -->
 					<div>
-						<h2 class="sr-only">Usage</h2>
-						<div class="doc-shell-usage {spacing}">
-							<slot name="usage">(usage)</slot>
-						</div>
+						<TableOfContents target="#toc-target" minimumHeadings={1} class="sticky top-10 hidden 2xl:inline-block ml-4" />
 					</div>
-				{/if}
-				<!-- Slot: Overflow -->
-				{#if $$slots.default}
-					<footer class="doc-shell-footer"><slot /></footer>
-				{/if}
+				</div>
 			</div>
 		{/if}
 

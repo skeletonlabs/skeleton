@@ -75,5 +75,5 @@
 	<!-- Slot: Lead -->
 	{#if $$slots.lead}<div class="tab-lead {classesLead}"><slot name="lead" /></div>{/if}
 	<!-- Slot: Default -->
-	{#if $$slots.default}<div class="tab-label {classesLabel}" {label}><slot /></div>{/if}
+	{#if $$slots.default}<div class="tab-label {classesLabel}" aria-label={label}><slot /></div>{/if}
 </li>
