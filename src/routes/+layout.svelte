@@ -8,7 +8,6 @@
 	// SvelteKit Imports
 	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
-	import { onMount } from 'svelte';
 	import { afterNavigate } from '$app/navigation';
 
 	// Stores
@@ -26,27 +25,17 @@
 	import DocsDrawer from '$docs/DocsNavigation/DocsDrawer.svelte';
 	import DocsFooter from '$docs/DocsFooter/DocsFooter.svelte';
 
-	// Themes
-	// https://vitejs.dev/guide/features.html#disabling-css-injection-into-the-page
-	import rocket from '$lib/themes/theme-rocket.css?inline';
-	import modern from '$lib/themes/theme-modern.css?inline';
-	import seafoam from '$lib/themes/theme-seafoam.css?inline';
-	import vintage from '$lib/themes/theme-vintage.css?inline';
-	import sahara from '$lib/themes/theme-sahara.css?inline';
-	import hamlindigo from '$lib/themes/theme-hamlindigo.css?inline';
-	import goldNouveau from '$lib/themes/theme-gold-nouveau.css?inline';
-	import crimson from '$lib/themes/theme-crimson.css?inline';
-	import seasonal from '$lib/themes/theme-seasonal.css?inline';
-
-	// Default Theme, injected immediately:
-	import skeleton from '$lib/themes/theme-skeleton.css';
 	// Skeleton Stylesheets
 	import '$lib/styles/all.css';
+	// The Skeleton blog stylesheet
+	import '$docs/DocsStyles/blog.css';
 	// Global Stylesheets
 	import '../app.postcss';
 
-	// List of Themes
-	const themes: any = { skeleton, rocket, modern, seafoam, vintage, sahara, hamlindigo, goldNouveau, crimson, seasonal };
+	// Theme stylesheet is loaded from LayoutServerData
+	import type { LayoutServerData } from './$types';
+	export let data: LayoutServerData;
+	$: ({ currentTheme } = data);
 
 	// Set body `data-theme` based on current theme status
 	storeTheme.subscribe(setBodyThemeAttribute);
@@ -56,15 +45,6 @@
 		document.body.setAttribute('data-theme', $storePreview ? 'generator' : $storeTheme);
 	}
 
-	// Lifecycle Events
-	onMount(() => {
-		// TEMPORARY FIX FOR: https://github.com/Brain-Bones/skeleton/issues/489
-		const lsTailwindPallete = window.localStorage.getItem('storeTailwindPalette');
-		if (lsTailwindPallete?.includes('ternary')) {
-			console.log('TEMP FIX: LocalStorage Values Cleared. This should only ever run once!');
-			window.localStorage.clear();
-		}
-	});
 	afterNavigate((params: any) => {
 		// Store current page route URL
 		storeCurrentUrl.set($page.url.pathname);
@@ -76,13 +56,21 @@
 		}
 	});
 
+	function matchPathWhitelist(pageUrlPath: string): boolean {
+		// If homepage route
+		if (pageUrlPath === '/') return true;
+		// If any blog route
+		if (pageUrlPath.includes('/blog')) return true;
+		return false;
+	}
+
 	// Disable left sidebar on homepage
-	$: slotSidebarLeft = $page.url.pathname === '/' ? 'w-0' : 'bg-black/5 lg:w-auto';
+	$: slotSidebarLeft = matchPathWhitelist($page.url.pathname) ? 'w-0' : 'bg-black/5 lg:w-auto';
 </script>
 
+<!-- Select Preset Theme CSS DO NOT REMOVE ESCAPES-->
 <svelte:head>
-	<!-- Select Preset Theme CSS -->
-	{@html `\<style\>${themes[$storeTheme]}}\</style\>`}
+	{@html `\<style\>${currentTheme}}\</style\>`}
 </svelte:head>
 
 <!-- Overlays -->

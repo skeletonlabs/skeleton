@@ -1,4 +1,4 @@
-/* Stylesheet Add-On: core.css */
+/* Stylesheet: core.css */
 
 @layer base {
 	/* === Body Styles === */
@@ -49,5 +49,8 @@
 
 	hr:not(.divider) {
 		@apply block border-t border-solid border-surface-300-600-token;
+	}
+	.divider-vertical {
+		@apply inline-block border-l border-solid border-surface-300-600-token min-h-[10px] mx-auto;
 	}
 }

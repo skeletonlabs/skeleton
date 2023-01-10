@@ -23,7 +23,7 @@
 	import Summer84 from '$lib/actions/Filters/svg-filters/Summer84.svelte';
 	import XPro from '$lib/actions/Filters/svg-filters/XPro.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldAvatar from '$lib/components/Avatar/Avatar.svelte?raw&sveld';
 
 	// Docs Shell
@@ -37,8 +37,8 @@
 	};
 
 	// Local
-	const imgPlaceholder: string = 'https://i.pravatar.cc/?img=5';
-	const borderStyles: string = 'border-4 border-surface-300-600-token hover:!border-primary-500 cursor-pointer';
+	const imgPlaceholder = 'https://i.pravatar.cc/?img=5';
+	const borderStyles = 'border-4 border-surface-300-600-token hover:!border-primary-500 cursor-pointer';
 
 	// Store
 	const storeWidth: Writable<string | undefined> = writable('w-48');
@@ -76,7 +76,7 @@
 		<section class="space-y-4">
 			<div class="grid grid-cols-1 xl:grid-cols-[1fr_auto] gap-2">
 				<!-- Example -->
-				<div class="card card-body h-full flex justify-center items-center">
+				<div class="card p-4 h-full flex justify-center items-center">
 					<svelte:component
 						this={Avatar}
 						initials={props.initials}
@@ -92,7 +92,7 @@
 					/>
 				</div>
 				<!-- Options -->
-				<div class="card card-body space-y-4">
+				<div class="card p-4 space-y-4">
 					<!-- Source -->
 					<RadioGroup selected={storeSrc} display="flex">
 						<RadioItem value={imgPlaceholder}>Image</RadioItem>
@@ -113,8 +113,8 @@
 						<span>Rounded</span>
 						<RadioGroup selected={storeRounded} display="flex">
 							<RadioItem value="rounded-full">Full</RadioItem>
-							<RadioItem value="rounded-xl">XL</RadioItem>
 							<RadioItem value="rounded-3xl">3XL</RadioItem>
+							<RadioItem value="rounded-xl">XL</RadioItem>
 							<RadioItem value="rounded-none">None</RadioItem>
 						</RadioGroup>
 					</label>
@@ -138,7 +138,7 @@
 							<span>Background</span>
 							<select name="background" id="background" bind:value={props.background}>
 								<option value="bg-primary-500">bg-primary-500</option>
-								<option value="bg-accent-500">bg-accent-500</option>
+								<option value="bg-secondary-500">bg-secondary-500</option>
 								<option value="bg-tertiary-500">bg-tertiary-500</option>
 								<option value="bg-warning-500">bg-warning-500</option>
 								<option value="bg-surface-500">bg-surface-500</option>
@@ -171,21 +171,21 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<div class="space-y-4">
-			<h2>Image</h2>
+			<h2>Using Images</h2>
 			<p>Display an image source cropped into the shape.</p>
 			<CodeBlock language="html" code={`<Avatar src="https://i.pravatar.cc/" />`} />
 		</div>
 		<div class="space-y-4">
-			<h2>Initials</h2>
+			<h2>Using Initials</h2>
 			<p>Display up to two text characters. (ex: Jane Doe would be JD)</p>
 			<CodeBlock language="html" code={`<Avatar initials="JD" />`} />
 		</div>
 		<div class="space-y-4">
-			<h2>Using Filters</h2>
+			<h2>Applying Filters</h2>
 			<p>
 				See <a href="/actions/filters">Filters</a> to learn how to import and configure the filters action and SVG filter components.
 			</p>
-			<CodeBlock language="ts" code={`import { filter, Apollo, /* ... */ } from '@brainandbones/skeleton';`} />
+			<CodeBlock language="ts" code={`import { filter, Apollo, /* ... */ } from '@skeletonlabs/skeleton';`} />
 			<p>Import the filter action reference using <code>action</code> and set <code>actionParams</code> to the desired filter id.</p>
 			<CodeBlock language="html" code={`<Avatar src="https://i.pravatar.cc/" action={filter} actionParams="Apollo" />`} />
 		</div>

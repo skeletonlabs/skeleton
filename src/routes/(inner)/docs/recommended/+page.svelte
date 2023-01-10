@@ -21,7 +21,7 @@
 			<header class="card-header">
 				<h2>Svelte Animated Counter</h2>
 			</header>
-			<div class="card-body">
+			<div class="p-4">
 				<p>Tiny animated counter library for Svelte.</p>
 			</div>
 			<!-- Byline -->
@@ -32,8 +32,11 @@
 				</a>
 				<div class="flex items-center space-x-4">
 					<a class="btn btn-ghost-surface" href="https://svelte-animated-counter.vercel.app/" target="_blank" rel="noreferrer">Website</a>
-					<a class="btn btn-filled-accent" href="https://github.com/benzara-tahar/svelte-animated-counter" target="_blank" rel="noreferrer"
-						>GitHub</a
+					<a
+						class="btn btn-filled-secondary"
+						href="https://github.com/benzara-tahar/svelte-animated-counter"
+						target="_blank"
+						rel="noreferrer">GitHub</a
 					>
 				</div>
 			</footer>
@@ -44,7 +47,7 @@
 			<header class="card-header">
 				<h2>Highlight.js</h2>
 			</header>
-			<div class="card-body">
+			<div class="p-4">
 				<p>Syntax highlighter with language auto-detection and zero dependencies.</p>
 			</div>
 			<!-- Byline -->
@@ -55,7 +58,7 @@
 				</a>
 				<div class="flex items-center space-x-4">
 					<a class="btn btn-ghost-surface" href="https://highlightjs.org/" target="_blank" rel="noreferrer">Website</a>
-					<a class="btn btn-filled-accent" href="https://github.com/highlightjs/highlight.js" target="_blank" rel="noreferrer">GitHub</a>
+					<a class="btn btn-filled-secondary" href="https://github.com/highlightjs/highlight.js" target="_blank" rel="noreferrer">GitHub</a>
 				</div>
 			</footer>
 		</div>
@@ -65,7 +68,7 @@
 			<header class="card-header">
 				<h2>Felte</h2>
 			</header>
-			<div class="card-body">
+			<div class="p-4">
 				<p>An extensible form library for Svelte.</p>
 			</div>
 			<!-- Byline -->
@@ -76,7 +79,7 @@
 				</a>
 				<div class="flex items-center space-x-4">
 					<a class="btn btn-ghost-surface" href="https://felte.dev/" target="_blank" rel="noreferrer">Website</a>
-					<a class="btn btn-filled-accent" href="https://github.com/pablo-abc/felte" target="_blank" rel="noreferrer">GitHub</a>
+					<a class="btn btn-filled-secondary" href="https://github.com/pablo-abc/felte" target="_blank" rel="noreferrer">GitHub</a>
 				</div>
 			</footer>
 		</div>
@@ -86,7 +89,7 @@
 			<header class="card-header">
 				<h2>Yup</h2>
 			</header>
-			<div class="card-body">
+			<div class="p-4">
 				<p>Dead simple Object schema form validation.</p>
 			</div>
 			<!-- Byline -->
@@ -96,7 +99,7 @@
 					<small>Jason Quense</small>
 				</a>
 				<div class="flex items-center space-x-4">
-					<a class="btn btn-filled-accent" href="https://github.com/jquense/yup" target="_blank" rel="noreferrer">GitHub</a>
+					<a class="btn btn-filled-secondary" href="https://github.com/jquense/yup" target="_blank" rel="noreferrer">GitHub</a>
 				</div>
 			</footer>
 		</div>
@@ -106,7 +109,7 @@
 			<header class="card-header">
 				<h2>Chart.js</h2>
 			</header>
-			<div class="card-body">
+			<div class="p-4">
 				<p>Simple HTML5 charts using the canvas element.</p>
 			</div>
 			<!-- Byline -->
@@ -117,7 +120,7 @@
 				</a>
 				<div class="flex items-center space-x-4">
 					<a class="btn btn-ghost-surface" href="https://www.chartjs.org/" target="_blank" rel="noreferrer">Website</a>
-					<a class="btn btn-filled-accent" href="https://github.com/chartjs/Chart.js" target="_blank" rel="noreferrer">GitHub</a>
+					<a class="btn btn-filled-secondary" href="https://github.com/chartjs/Chart.js" target="_blank" rel="noreferrer">GitHub</a>
 				</div>
 			</footer>
 		</div>
@@ -127,7 +130,7 @@
 			<header class="card-header">
 				<h2>Font Awesome</h2>
 			</header>
-			<div class="card-body">
+			<div class="p-4">
 				<p>An expansive SVG, font, and icon toolkit.</p>
 			</div>
 			<!-- Byline -->
@@ -138,7 +141,7 @@
 				</a>
 				<div class="flex items-center space-x-4">
 					<a class="btn btn-ghost-surface" href="https://fontawesome.com/" target="_blank" rel="noreferrer">Website</a>
-					<a class="btn btn-filled-accent" href="https://github.com/FortAwesome/Font-Awesome" target="_blank" rel="noreferrer">GitHub</a>
+					<a class="btn btn-filled-secondary" href="https://github.com/FortAwesome/Font-Awesome" target="_blank" rel="noreferrer">GitHub</a>
 				</div>
 			</footer>
 		</div>
@@ -151,7 +154,7 @@
 		<p>Are we missing something useful?</p>
 		<a
 			class="btn btn-ghost-surface"
-			href="https://github.com/Brain-Bones/skeleton/issues/new?assignees=&labels=feature-request&template=feature_request.yml"
+			href="https://github.com/skeletonlabs/skeleton/issues/new?assignees=&labels=feature-request&template=feature_request.yml"
 			target="_blank"
 			rel="noreferrer">Suggest a Package</a
 		>

@@ -4,10 +4,10 @@
 
 /** Svelte Action for applying sort asc/dsc classes. */
 export function tableInteraction(node: HTMLElement) {
-	const classAsc: string = 'table-sort-asc';
-	const classDsc: string = 'table-sort-dsc';
+	const classAsc = 'table-sort-asc';
+	const classDsc = 'table-sort-dsc';
 	// Click Handler
-	const onClick = (e: any) => {
+	const onClick = (e: Event) => {
 		if (!(e.target instanceof Element)) return;
 		const sortTarget = e.target;
 		// Get target state before modification

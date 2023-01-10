@@ -1,73 +1,87 @@
 <script lang="ts">
+	import { createEventDispatcher } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
 
-	// Actions
-	import { focusTrap } from '$lib/actions/FocusTrap/focusTrap';
+	// Event Handler
+	const dispatch = createEventDispatcher();
 
-	// Stores
+	import { focusTrap } from '$lib/actions/FocusTrap/focusTrap';
 	import { modalStore } from '$lib/utilities/Modal/stores';
+	import type { ModalSettings } from './types';
 
 	// Props
 	/** The open/close animation duration. Set '0' (zero) to disable. */
-	export let duration: number = 150;
+	export let duration = 150;
 
 	// Props (modal)
 	/** Provide classes to style the modal background. */
-	export let background: string = 'bg-surface-100-800-token';
+	export let background = 'bg-surface-100-800-token';
 	/** Provide classes to style the modal width. */
-	export let width: string = 'w-full max-w-[640px]';
+	export let width = 'w-full max-w-[640px]';
 	/** Provide classes to style the modal. */
-	export let height: string = 'h-auto';
+	export let height = 'h-auto';
 	/** Provide classes to style the modal padding. */
-	export let padding: string = 'p-4';
+	export let padding = 'p-4';
 	/** Provide classes to style the modal spacing. */
-	export let spacing: string = 'space-y-4';
+	export let spacing = 'space-y-4';
 	/** Provide classes to style the modal border radius. */
-	export let rounded: string = 'rounded-container-token';
+	export let rounded = 'rounded-container-token';
 	/** Provide classes to style modal box shadow. */
-	export let shadow: string = 'shadow-xl';
+	export let shadow = 'shadow-xl';
 
 	// Props (buttons)
 	/** Provide classes for neutral buttons, such as Cancel. */
-	export let buttonNeutral: string = 'btn-ghost-surface';
+	export let buttonNeutral = 'btn-ghost-surface';
 	/** Provide classes for positive actions, such as Confirm or Submit. */
-	export let buttonPositive: string = 'btn-filled-primary';
+	export let buttonPositive = 'btn-filled-primary';
 	/** Override the text for the Cancel button. */
-	export let buttonTextCancel: string = 'Cancel';
+	export let buttonTextCancel = 'Cancel';
 	/** Override the text for the Confirm button. */
-	export let buttonTextConfirm: string = 'Confirm';
+	export let buttonTextConfirm = 'Confirm';
 	/** Override the text for the Submit button. */
-	export let buttonTextSubmit: string = 'Submit';
+	export let buttonTextSubmit = 'Submit';
 
 	// Props (regions)
 	/** Provide classes to style the backdrop. */
-	export let regionBackdrop: string = 'bg-backdrop-token';
+	export let regionBackdrop = 'bg-surface-backdrop-token';
 	/** Provide arbitrary classes to modal header region. */
-	export let regionHeader: string = 'text-2xl font-bold';
+	export let regionHeader = 'text-2xl font-bold';
 	/** Provide arbitrary classes to modal body region. */
-	export let regionBody: string = 'max-h-[200px] overflow-hidden';
+	export let regionBody = 'max-h-[200px] overflow-hidden';
 	/** Provide arbitrary classes to modal footer region. */
-	export let regionFooter: string = 'flex justify-end space-x-2';
+	export let regionFooter = 'flex justify-end space-x-2';
 
 	// Base Styles
-	const cBackdrop: string = 'fixed top-0 left-0 right-0 bottom-0 z-[999] flex justify-center items-center p-4';
-	const cModalImage: string = 'w-full h-auto';
+	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0 z-[999] flex justify-center items-center p-4';
+	const cModal = 'max-h-full overflow-y-auto overflow-x-hidden';
+	const cModalImage = 'w-full h-auto';
 
 	// Local
 	let promptValue: any;
+	const buttonTextDefaults: Record<string, string> = {
+		buttonTextCancel,
+		buttonTextConfirm,
+		buttonTextSubmit
+	};
 
 	// Modal Store Subscription
-	modalStore.subscribe((dArr: any[]) => {
+	modalStore.subscribe((dArr: ModalSettings[]) => {
 		if (!dArr.length) return;
-		// Set the local modal value (for prompt)
+		// Set Prompt input value and type
 		promptValue = dArr[0].value;
+		// Override button text per instance, if available
+		buttonTextCancel = dArr[0].buttonTextCancel || buttonTextDefaults.buttonTextCancel;
+		buttonTextConfirm = dArr[0].buttonTextConfirm || buttonTextDefaults.buttonTextConfirm;
+		buttonTextSubmit = dArr[0].buttonTextSubmit || buttonTextDefaults.buttonTextSubmit;
 	});
 
 	// Event Handlers ---
 
-	function onBackdropClick(e: MouseEvent): void {
-		if (!(e.target instanceof Element)) return;
-		if (e.target.classList.contains('modal-backdrop')) onClose();
+	function onBackdropInteraction(event: MouseEvent | TouchEvent): void {
+		if (!(event.target instanceof Element)) return;
+		if (event.target.classList.contains('modal-backdrop')) onClose();
+		/** @event {{ event }} backdrop - Fires on backdrop interaction.  */
+		dispatch('backdrop', event);
 	}
 
 	function onClose(): void {
@@ -94,7 +108,7 @@
 
 	// Reactive
 	$: classesBackdrop = `${cBackdrop} ${regionBackdrop} ${$$props.class || ''}`;
-	$: classesModal = `${background} ${width} ${height} ${padding} ${spacing} ${rounded} ${shadow}`;
+	$: classesModal = `${cModal} ${background} ${width} ${height} ${padding} ${spacing} ${rounded} ${shadow}`;
 	// IMPORTANT: add values to pass to the children templates.
 	// There is a way to self-reference component values, but it involes svelte-internal and is not yet stable.
 	// REPL: https://svelte.dev/repl/badd0f11aa99450ca69dca6690d4d5a4?version=3.52.0
@@ -129,15 +143,15 @@
 	{#key $modalStore}
 		<!-- Backdrop -->
 		<div
-			class="modal-backdrop {classesBackdrop}"
-			on:click={onBackdropClick}
-			on:keydown
+			class="modal-backdrop {classesBackdrop} {$modalStore[0].backdropClasses}"
+			on:mousedown={onBackdropInteraction}
+			on:touchstart={onBackdropInteraction}
 			transition:fade={{ duration }}
 			data-testid="modal-backdrop"
 		>
 			<!-- Modal -->
 			<div
-				class="modal {classesModal} {$modalStore[0].classes}"
+				class="modal {classesModal} {$modalStore[0].modalClasses}"
 				transition:fly={{ duration, opacity: 0, y: 100 }}
 				use:focusTrap={true}
 				data-testid="modal"
@@ -154,7 +168,7 @@
 					<article class="modal-body {regionBody}">{@html $modalStore[0].body}</article>
 				{/if}
 				<!-- Image -->
-				{#if $modalStore[0]?.image}
+				{#if $modalStore[0]?.image && typeof $modalStore[0]?.image === 'string'}
 					<img class="modal-image {cModalImage}" src={$modalStore[0]?.image} alt="Modal" />
 				{/if}
 				<!-- Type -->
@@ -173,17 +187,17 @@
 				</footer>
 				{:else if $modalStore[0].type === 'prompt'}
 					<!-- Template: Prompt -->
-					<input class="modal-prompt-input" type="text" bind:value={promptValue} required />
+					<input class="modal-prompt-input" type="text" bind:value={promptValue} />
 					<!-- prettier-ignore -->
 					<footer class="modal-footer {regionFooter}">
 					<button class="btn {buttonNeutral}" on:click={onClose}>{buttonTextCancel}</button>
-					<button class="btn {buttonPositive}" on:click={onPromptSubmit}>{buttonTextSubmit}</button>
+					<button class="btn {buttonPositive}" on:click={onPromptSubmit} disabled={!promptValue}>{buttonTextSubmit}</button>
 				</footer>
 				{:else if $modalStore[0].type === 'component'}
 					<!-- Template: Component -->
 					<!-- NOTE: users are repsonsible for handling all UI, including cancel/submit buttons -->
-					<svelte:component this={$modalStore[0].component.ref} {...$modalStore[0].component.props} {parent}>
-						{@html $modalStore[0].component.slot}
+					<svelte:component this={$modalStore[0].component?.ref} {...$modalStore[0].component?.props} {parent}>
+						{@html $modalStore[0].component?.slot}
 					</svelte:component>
 				{/if}
 			</div>

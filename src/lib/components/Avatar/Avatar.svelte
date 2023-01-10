@@ -1,38 +1,38 @@
 <script lang="ts">
 	// Props
 	/** Provide classes to set background styles. */
-	export let background: string = 'bg-surface-400-500-token';
+	export let background = 'bg-surface-400-500-token';
 	/** Provide classes to set avatar width. */
-	export let width: string = 'w-12';
+	export let width = 'w-12';
 	/** Provide classes to set border styles. */
-	export let border: string = '';
+	export let border = '';
 	/** Provide classes to set rounded style. */
-	export let rounded: string = 'rounded-full';
+	export let rounded = 'rounded-full';
 	/** Provide classes to set shadow styles. */
-	export let shadow: string = '';
+	export let shadow = '';
 	/** Provide classes to set cursor styles. */
-	export let cursor: string = '';
+	export let cursor = '';
 
 	// Props (initials)
 	/** Initials only - Provide up to two text characters. */
-	export let initials: string = 'AB';
+	export let initials = 'AB';
 	/** Initials only - Provide classes to set the SVG text fill color. */
-	export let fill: string = 'fill-token';
+	export let fill = 'fill-token';
 
 	// Props (actions)
 	/** Provide the avatar image element source. */
-	export let src: string = '';
+	export let src = '';
 	/**
 	 * Image only. Provide an Svelte action reference, such as `filter`.
 	 * @type {function}
 	 */
 	export let action: any = () => {};
 	/** Image only. Provide Svelte action params, such as Apollo. */
-	export let actionParams: string = '';
+	export let actionParams = '';
 
 	// Base Classes
-	let cBase: string = 'flex aspect-square text-surface-50 font-semibold justify-center items-center overflow-hidden isolate';
-	let cImage: string = 'w-full h-full object-cover';
+	let cBase = 'flex aspect-square text-surface-50 font-semibold justify-center items-center overflow-hidden isolate';
+	let cImage = 'w-full h-full object-cover';
 
 	// Reactive Classes
 	$: classesBase = `${cBase} ${background} ${width} ${border} ${rounded} ${shadow} ${cursor} ${$$props.class ?? ''}`;

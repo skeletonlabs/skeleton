@@ -14,26 +14,34 @@
 
 	// Props (design)
 	/** Provide classes to set flexbox justification. */
-	export let justify: string = 'justify-between';
+	export let justify = 'justify-between';
 	/** Provide classes to style page info text. */
-	export let text: string = 'text-xs';
+	export let text = 'text-xs';
 	/** Provide arbitrary classes to style the select input. */
 	export let select: string | undefined = undefined;
+	/** Sets selection and buttons to disabled state on-demand. */
+	export let disabled = false;
 
-	// Props (buttons)
-	/** Provide a button variant class or any abitrary CSS class. */
-	export let buttons: string = 'btn-filled';
+	// Props (Select & Buttons)
+	/** Set the text for the amount selection input. */
+	export let amountText = 'Items';
+	/** Provide abtitrary classes to the next/previous buttons. */
+	export let buttonClasses = 'btn-icon btn-filled';
+	/** Set the text label for the Previous button. */
+	export let buttonTextPrevious = '&larr;';
+	/** Set the text label for the Next button. */
+	export let buttonTextNext = '&rarr;';
 
 	// Base Classes
-	const cBase: string = 'flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4';
-	const cLabel: string = 'w-full md:w-auto';
-	const cPageText: string = 'whitespace-nowrap';
+	const cBase = 'flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4';
+	const cLabel = 'w-full md:w-auto';
+	const cPageText = 'whitespace-nowrap';
 
 	// Functionality
 	function onChangeLength(): void {
 		settings.offset = 0;
 		/** @event {{ length: number }} amount - Fires when the amount selection input changes.  */
-		dispatch('amount', length);
+		dispatch('amount', settings.limit);
 	}
 	function onPrev(): void {
 		settings.offset--;
@@ -56,17 +64,21 @@
 <div class="paginator {classesBase}" data-testid="paginator">
 	<!-- Select Amount -->
 	<label class="paginator-label {classesLabel}">
-		<select bind:value={settings.limit} on:change={() => { onChangeLength() }} class="paginator-select {classesSelect}" aria-label="Select Amount">
-			{#each settings.amounts as amount}<option value={amount}>Show {amount}</option>{/each}
+		<select bind:value={settings.limit} on:change={() => { onChangeLength() }} class="paginator-select {classesSelect}" {disabled} aria-label="Select Amount">
+			{#each settings.amounts as amount}<option value={amount}>{amount} {amountText}</option>{/each}
 		</select>
 	</label>
 	<!-- Details -->
 	<span class="paginator-details {classesPageText}">
-		{settings.offset * settings.limit + 1} to {Math.min(settings.offset * settings.limit + settings.limit, settings.size)} <span class="opacity-50 px-2">/</span> <strong>{settings.size}</strong>
+		{settings.offset * settings.limit + 1} - {Math.min(settings.offset * settings.limit + settings.limit, settings.size)} <span class="opacity-50 px-2">/</span> <strong>{settings.size}</strong>
 	</span>
 	<!-- Arrows -->
 	<div class="paginator-arrows space-x-2">
-		<button class="btn-icon {buttons}" on:click={() => { onPrev() }} disabled={settings.offset === 0}>&larr;</button>
-		<button class="btn-icon {buttons}" on:click={() => { onNext() }} disabled={(settings.offset + 1) * settings.limit >= settings.size}>&rarr;</button>
+		<button class="{buttonClasses}" on:click={() => { onPrev() }} disabled={disabled || settings.offset === 0}>
+			{@html buttonTextPrevious}
+		</button>
+		<button class="{buttonClasses}" on:click={() => { onNext() }} disabled={disabled || (settings.offset + 1) * settings.limit >= settings.size}>
+			{@html buttonTextNext}
+		</button>
 	</div>
 </div>

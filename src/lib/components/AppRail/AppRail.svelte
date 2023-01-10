@@ -14,30 +14,33 @@
 	 */
 	export let selected: Writable<any> = writable(undefined);
 	/** Provide classes to set the background color. */
-	export let background: string = 'bg-surface-100-800-token';
-	/** Provide classes to set the selected tile background. '!' recommended. */
-	export let accent: string = '!bg-primary-500'; //
+	export let background = 'bg-surface-100-800-token';
+	/** Provide classes to set the tile active tile background. */
+	export let active = 'bg-primary-active-token';
+	/** Provide classes to set the tile hover background color. */
+	export let hover = 'bg-primary-hover-token';
 	/** Provide classes to set the width. */
-	export let width: string = 'w-[70px] sm:w-20';
+	export let width = 'w-[70px] sm:w-20';
 	/** Provide classes to set the height. */
-	export let height: string = 'h-full';
+	export let height = 'h-full';
 	/** Provide a class to set the grid gap. */
-	export let gap: string = 'gap-0';
+	export let gap = 'gap-0';
 
 	// Props (regions)
 	/** Provide arbitrary classes to the lead region. */
-	export let regionLead: string = '';
+	export let regionLead = '';
 	/** Provide arbitrary classes to the default region. */
-	export let regionDefault: string = '';
+	export let regionDefault = '';
 	/** Provide arbitrary classes to the trail region. */
-	export let regionTrail: string = '';
+	export let regionTrail = '';
 
 	// Context
 	setContext('selected', selected);
-	setContext('accent', accent);
+	setContext('active', active);
+	setContext('hover', hover);
 
 	// Base Classes
-	const cBase: string = 'grid grid-rows-[auto_1fr_auto] overflow-y-auto';
+	const cBase = 'grid grid-rows-[auto_1fr_auto] overflow-y-auto';
 
 	// Reactive
 	$: classesBase = `${cBase} ${background} ${width} ${height} ${gap} ${$$props.class || ''}`;

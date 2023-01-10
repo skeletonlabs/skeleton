@@ -9,10 +9,10 @@ describe.skip('Action: Menu', () => {
 	// Chris: Not sure why this isn't working, same pattern as filters.ts
 	it('Smoke Test', async () => {
 		// Element: Menu
-		let elemMenu: HTMLElement = document.createElement('div');
+		const elemMenu: HTMLElement = document.createElement('div');
 		elemMenu.setAttribute('data-menu', 'test');
 		// Element: Button (trigger)
-		let elemButton: HTMLElement = document.createElement('button');
+		const elemButton: HTMLElement = document.createElement('button');
 		// Run Action
 		menu(elemButton, { menu: 'test' });
 		// Expect

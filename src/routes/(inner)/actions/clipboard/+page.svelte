@@ -22,18 +22,18 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="card card-body grid grid-cols-1 md:grid-cols-2 gap-4">
+		<section class="card p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
 			<!-- Element -->
 			<div class="space-y-4">
 				<div class="bg-surface-200-700-token p-4 rounded-container-token h-20" data-clipboard="exampleElement" contenteditable>
 					This <em>div</em> is set to 'contenteditable'. Make changes then tap copy.
 				</div>
-				<button use:clipboard={{ element: 'exampleElement' }} class="btn btn-filled-accent">Copy Element Contents</button>
+				<button use:clipboard={{ element: 'exampleElement' }} class="btn btn-filled-secondary">Copy Element Contents</button>
 			</div>
 			<!-- Input -->
 			<div class="space-y-4">
 				<textarea class="h-20" data-clipboard="exampleInput">Make changes to this textarea and then tap copy.</textarea>
-				<button use:clipboard={{ input: 'exampleInput' }} class="btn btn-filled-accent">Copy Input Value</button>
+				<button use:clipboard={{ input: 'exampleInput' }} class="btn btn-filled-secondary">Copy Input Value</button>
 			</div>
 		</section>
 	</svelte:fragment>
@@ -47,9 +47,10 @@
 		</div>
 		<!-- Element -->
 		<div class="space-y-4">
-			<h2>HTML Elements</h2>
+			<h2>Copying HTML Contents</h2>
 			<p>
-				To copy the <em>innerHTML</em> for an HTML element, we'll need to set a <code>data-clipboard</code> target, then provide the action an object of
+				To copy the <em>innerHTML</em> for an HTML element, we'll need to set a <code>data-clipboard</code> target, then provide the action
+				an object of
 				<code>element: 'dataClipboardId'</code>
 			</p>
 			<CodeBlock
@@ -65,9 +66,10 @@
 		</div>
 		<!-- Inputs -->
 		<div class="space-y-4">
-			<h2>Form Inputs</h2>
+			<h2>Copying Input Values</h2>
 			<p>
-				To copy the <em>value</em> of a form input, we'll need to set a <code>data-clipboard</code> target, then provide the action an object of
+				To copy the <em>value</em> of a form input, we'll need to set a <code>data-clipboard</code> target, then provide the action an
+				object of
 				<code>input: 'dataClipboardId'</code>
 			</p>
 			<CodeBlock

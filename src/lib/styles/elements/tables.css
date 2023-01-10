@@ -22,13 +22,13 @@
 	}
 
 	.table-interactive tbody tr {
-		@apply hover:bg-hover-token even:hover:bg-hover-token cursor-pointer;
+		@apply hover:bg-primary-hover-token even:hover:bg-primary-hover-token cursor-pointer;
 	}
 
 	/* === Sort Styles ==== */
 
 	[data-sort] {
-		@apply hover:bg-hover-token cursor-pointer;
+		@apply hover:bg-primary-hover-token cursor-pointer;
 	}
 
 	.table-sort-asc {
@@ -85,7 +85,7 @@
 	/* === Rows Specific === */
 
 	.table-row-checked {
-		@apply !bg-accent-500/30;
+		@apply !bg-secondary-500/30;
 	}
 
 	/* === Cells Specific === */

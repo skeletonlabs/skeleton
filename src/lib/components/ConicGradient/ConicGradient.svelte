@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { tailwindDefaultColors } from '$lib/tailwind/colors';
+	import { tailwindDefaultColors } from './settings';
 	import type { ConicStop } from './types';
 
 	// Props
@@ -9,24 +9,24 @@
 	 */
 	export let stops: ConicStop[] = [{ color: ['neutral', 500], start: 0, end: 100 }];
 	/** Allows for automatic generation of a legend below the conic gradient. */
-	export let legend: boolean = false;
+	export let legend = false;
 	/** When enabled, the conic gradient will spin. */
-	export let spin: boolean = false;
+	export let spin = false;
 	/** Provided classes to style the conic gradient width. */
-	export let width: string = 'w-full';
+	export let width = 'w-full';
 	/** Provided classes to style the legend hover effect. */
-	export let hover: string = 'bg-hover-token';
+	export let hover = 'bg-primary-hover-token';
 
 	// Local
 	let cone: string;
 	let generatedLegendList: any[];
 
 	// Styles
-	const cBase: string = 'flex flex-col items-center space-y-4';
-	const cCaption: string = 'text-center';
-	const cCone: string = 'block aspect-square rounded-full';
-	const cLabel: string = 'text-sm w-full';
-	const cSwatch: string = 'block aspect-square bg-black w-5 rounded-full mr-2';
+	const cBase = 'flex flex-col items-center space-y-4';
+	const cCaption = 'text-center';
+	const cCone = 'block aspect-square rounded-full';
+	const cLabel = 'text-sm w-full';
+	const cSwatch = 'block aspect-square bg-black w-5 rounded-full mr-2';
 
 	// Set Color
 	function setColorValue(color: any): string {
@@ -77,7 +77,7 @@
 	{#if legend && generatedLegendList}
 		<ul class="conic-list list {cLabel}">
 			{#each generatedLegendList as { color, label, value }}
-				<li class="conic-item {hover}">
+				<li class="conic-item {hover}" on:click on:keydown on:keyup on:keypress>
 					<span class="conic-swatch {cSwatch}" style:background={color} />
 					<span class="conic-label flex-auto">{label}</span>
 					<strong class="conic-value">{value}%</strong>

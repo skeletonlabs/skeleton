@@ -45,7 +45,7 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="card card-body grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4">
+		<section class="card p-4 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4">
 			<div class="flex flex-col items-center space-y-4 overflow-hidden">
 				<img class="bg-surface-900 aspect-square w-full rounded-lg" src={imgPlaceholder} alt="example" />
 				<code>Original</code>
@@ -93,8 +93,11 @@
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<h2>Import SVG Filters</h2>
-			<p>Add within scope of your filtered element. For global scope, add the following to your app's root component. Only import the filters you plan to use.</p>
-			<CodeBlock language="javascript" code={`import { Emerald, BlueNight, /* ... */  } from '@brainandbones/skeleton';`} />
+			<p>
+				Add within scope of your filtered element. For global scope, add the following to your app's root component. Only import the filters
+				you plan to use.
+			</p>
+			<CodeBlock language="javascript" code={`import { Emerald, BlueNight, /* ... */  } from '@skeletonlabs/skeleton';`} />
 			<CodeBlock language="html" code={`<Emerald />\n<BlueNight />`} />
 		</section>
 		<section class="space-y-4">
@@ -113,28 +116,33 @@
 		<section class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0 md:space-x-4">
 			<div class="space-y-2">
 				<h2>Create a Filter</h2>
-				<p>Easily generate your own filters using this tool by <a href="https://twitter.com/rikschennink/" target="_blank" rel="noreferrer">Rik Schennink</a>.</p>
+				<p>
+					Easily generate your own filters using this tool by <a href="https://twitter.com/rikschennink/" target="_blank" rel="noreferrer"
+						>Rik Schennink</a
+					>.
+				</p>
 			</div>
-			<a class="btn btn-filled-accent" href="https://fecolormatrix.com/" target="_blank" rel="noreferrer">Create Filter</a>
+			<a class="btn btn-filled-secondary" href="https://fecolormatrix.com/" target="_blank" rel="noreferrer">Create Filter</a>
 		</section>
 		<hr />
 		<section class="space-y-4">
 			<h2>Browser Support</h2>
 			<p>
-				Please be aware that <a href="https://caniuse.com/css-filters" target="_blank" rel="noreferrer">browser support</a> varies. Some filters are not functional in Safari, while Firefox is not supported
-				at all. We recommend using progressive enhancement when using filters in non-supported browsers.
+				Please be aware that <a href="https://caniuse.com/css-filters" target="_blank" rel="noreferrer">browser support</a> varies. Some filters
+				are not functional in Safari, while Firefox is not supported at all. We recommend using progressive enhancement when using filters in
+				non-supported browsers.
 			</p>
 			<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-				<div class="card card-body !bg-emerald-500 text-white text-center">
+				<div class="card p-4 !bg-success-500 text-on-success-token text-center">
 					<h4>Chrome: Full</h4>
 				</div>
-				<div class="card card-body !bg-emerald-500 text-white text-center">
+				<div class="card p-4 !bg-success-500 text-on-success-token text-center">
 					<h4>Edge: Full</h4>
 				</div>
-				<div class="card card-body !bg-orange-500 text-white text-center">
+				<div class="card p-4 !bg-warning-500 text-on-warning-token text-center">
 					<h4>Safari: Partial</h4>
 				</div>
-				<div class="card card-body !bg-rose-500 text-white text-center">
+				<div class="card p-4 !bg-error-500 text-on-error-token text-center">
 					<h4>Firefox: None</h4>
 				</div>
 			</div>

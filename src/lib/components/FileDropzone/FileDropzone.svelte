@@ -10,22 +10,27 @@
 	 * @type {FileList}
 	 */
 	export let files: FileList;
+	/** Provided custom title.
+	 *  @type {string}
+	 */
+	export let title = 'Drop files or click to select.';
 	/** Provided additional notes or information. */
-	export let notes: string = '';
+	export let notes = '';
 	// Props (Styles)
 	/** Provide styles to set the dropzone width. */
-	export let width: string = 'w-full';
+	export let width = 'w-full';
 	/** Provide styles to set the dropzone height. */
-	export let height: string = 'h-24';
+	export let height = 'h-24';
 	/** Provide styles to set the dropzone padding. */
-	export let padding: string = 'p-4';
+	export let padding = 'p-4';
 	/** Provide styles to set the dropzone text color. */
-	export let color: string = '';
+	export let color = '';
 
 	// Classes
-	const cBase: string = 'relative';
-	const cMessage: string = 'absolute top-0 left-0 right-0 bottom-0 z-[1] max-w-[480px] mx-auto flex justify-center items-center !pointer-events-none';
-	const cInput: string = '!border-2 border-dashed cursor-pointer';
+	const cBase = 'relative';
+	const cMessage =
+		'absolute top-0 left-0 right-0 bottom-0 z-[1] max-w-[480px] mx-auto flex justify-center items-center !pointer-events-none';
+	const cInput = '!border-2 border-dashed cursor-pointer !text-transparent';
 
 	// Local
 	let elemIcon: HTMLElement;
@@ -60,7 +65,18 @@
 	}
 </script>
 
-<div class="file-dropzone {classesBase}" data-testid="file-dropzone" on:dragenter on:dragover={onDragOver} on:dragleave={onDragLeave} on:drop={onDrop}>
+<div
+	class="file-dropzone {classesBase}"
+	data-testid="file-dropzone"
+	on:dragenter
+	on:dragover={onDragOver}
+	on:dragleave={onDragLeave}
+	on:drop={onDrop}
+	on:click
+	on:keydown
+	on:keyup
+	on:keypress
+>
 	<!-- Message -->
 	<div class="file-dropzone-message {classesMessage}">
 		<!-- Slot: Default -->
@@ -71,7 +87,7 @@
 				<div class="text-4xl flex justify-center items-center" bind:this={elemIcon}>&darr;</div>
 				<!-- Text -->
 				<div class="flex flex-col justify-center items-start space-y-0">
-					<div class="text-base font-bold">Drop {$$restProps.multiple ? 'files' : 'a file'} or click to select.</div>
+					<div class="text-base font-bold">{@html title}</div>
 					{#if notes}<div class="text-sm opacity-70">{@html notes}</div>{/if}
 				</div>
 			</div>
@@ -83,9 +99,6 @@
 
 <style lang="postcss">
 	/* Hide Input:File Content */
-	input[type='file'] {
-		@apply text-transparent;
-	}
 	::-webkit-file-upload-button {
 		@apply hidden;
 	}

@@ -22,13 +22,7 @@
 			<p>
 				The first parameter <code>storeExample</code> is the local storage key name. The second parameter is the initial value of the store.
 			</p>
-			<CodeBlock
-				language="ts"
-				code={`
-import type { Writable } from 'svelte/store';
-import { localStorageStore } from '@brainandbones/skeleton';
-`}
-			/>
+			<CodeBlock language="ts" code={`import type { Writable } from 'svelte/store';`} />
 			<CodeBlock language="ts" code={`const storeExample: Writable<string> = localStorageStore('storeExample', 'initialValueHere');`} />
 			<p>
 				This operates exactly like a standard Svelte writable store but with the added benefit of automatic persistence via <a
@@ -56,7 +50,7 @@ get(storeExample);
 
 // Read value with automatic subscription
 $storeExample
-        `}
+`}
 			/>
 		</section>
 		<!-- Attribution -->

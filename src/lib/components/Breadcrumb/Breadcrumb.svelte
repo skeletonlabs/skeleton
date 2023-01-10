@@ -3,20 +3,20 @@
 
 	// Props
 	/** Accepts text or HTML and defines the crumb seperator. */
-	export let separator: string = '&rsaquo;';
+	export let separator = '&rsaquo;';
 	/** Provide classes to set text size. */
-	export let text: string = '';
+	export let text = '';
 
 	// Props (A11y)
 	/** A semantic ARIA label. */
-	export let label: string = 'breadcrumb';
+	export let label = 'breadcrumb';
 
 	// Context
 	setContext('separator', separator);
 
 	// Base Classes
-	const cBase: string = '';
-	const cList: string = 'flex align-center space-x-4';
+	const cBase = '';
+	const cList = 'flex align-center space-x-4';
 
 	// Reactive Classes
 	$: classesBase = `${cBase} ${$$props.class ?? ''}`;

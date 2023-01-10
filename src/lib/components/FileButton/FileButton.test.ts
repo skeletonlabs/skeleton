@@ -1,7 +1,6 @@
 import { render } from '@testing-library/svelte';
 import { describe, it, expect } from 'vitest';
 
-// @ts-ignore
 import FileButton from '$lib/components/FileButton/FileButton.svelte';
 
 describe('FileButton.svelte', () => {
@@ -11,9 +10,18 @@ describe('FileButton.svelte', () => {
 	});
 
 	it('Renders with all props', async () => {
+		// Create Mock FileList
+		// Reference: https://dev.to/akirakashihara/how-to-mock-filelist-on-vitest-or-jest-4494
+		const file = new File([`foo`], `foo.txt`, { type: `text/plain` });
+		const input = document.createElement(`input`);
+		input.setAttribute(`type`, `file`);
+		input.setAttribute(`name`, `file-upload`);
+		const mockFileList = Object.create(input.files);
+		mockFileList[0] = file;
+		// ---
 		const { getByTestId } = render(FileButton, {
 			props: {
-				files: [],
+				files: mockFileList,
 				name: 'testFileButtonInput',
 				accept: 'image/*',
 				multiple: false

@@ -9,13 +9,13 @@
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldProgressBar from '$lib/components/ProgressBar/ProgressBar.svelte?raw&sveld';
 
 	// Stores
 	const storeDeterminate: Writable<boolean> = writable(true);
 	const storeHeight: Writable<string> = writable('h-2');
-	const defaultTrackBg: string = 'bg-surface-200-700-token';
+	const defaultTrackBg = 'bg-surface-200-700-token';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -35,7 +35,7 @@
 		max: 100,
 		height: $storeHeight,
 		rounded: 'rounded-token',
-		meter: 'bg-accent-500',
+		meter: 'bg-secondary-500',
 		track: defaultTrackBg
 	};
 </script>
@@ -45,7 +45,7 @@
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-2">
 			<!-- Example -->
-			<div class="card card-body h-full flex justify-center items-center">
+			<div class="card p-4 h-full flex justify-center items-center">
 				<div class="py-10 w-[90%]">
 					<svelte:component
 						this={ProgressBar}
@@ -60,7 +60,7 @@
 				</div>
 			</div>
 			<!-- Options -->
-			<div class="card card-body space-y-4 w-auto lg:w-[400px]">
+			<div class="card p-4 space-y-4 w-auto lg:w-[400px]">
 				<!-- Mode -->
 				<label for="">
 					<RadioGroup selected={storeDeterminate} display="flex">
@@ -70,7 +70,16 @@
 				</label>
 				<!-- Amount -->
 				{#if props.determinate}
-					<input type="range" id="amount" name="amount" min="0" max={props.max} step="10" bind:value={props.value} aria-label="Value Amount" />
+					<input
+						type="range"
+						id="amount"
+						name="amount"
+						min="0"
+						max={props.max}
+						step="10"
+						bind:value={props.value}
+						aria-label="Value Amount"
+					/>
 				{/if}
 				<!-- Label -->
 				<label>
@@ -101,9 +110,11 @@
 					<span>Meter</span>
 					<select name="meter" id="meter" bind:value={props.meter}>
 						<option value="bg-primary-500">bg-primary-500</option>
-						<option value="bg-accent-500">bg-accent-500</option>
+						<option value="bg-secondary-500">bg-secondary-500</option>
 						<option value="bg-tertiary-500">bg-tertiary-500</option>
+						<option value="bg-success-500">bg-success-500</option>
 						<option value="bg-warning-500">bg-warning-500</option>
+						<option value="bg-error-500">bg-error-500</option>
 						<option value="bg-surface-500">bg-surface-500</option>
 					</select>
 				</label>
@@ -113,9 +124,11 @@
 					<select name="track" id="track" bind:value={props.track}>
 						<option value={defaultTrackBg}>Default</option>
 						<option value="bg-primary-500/30">bg-primary-500/30</option>
-						<option value="bg-accent-500/30">bg-accent-500/30</option>
+						<option value="bg-secondary-500/30">bg-secondary-500/30</option>
 						<option value="bg-tertiary-500/30">bg-tertiary-500/30</option>
+						<option value="bg-success-500/30">bg-success-500/30</option>
 						<option value="bg-warning-500/30">bg-warning-500/30</option>
+						<option value="bg-errror-500/30">bg-errror-500/30</option>
 						<option value="bg-surface-500/30">bg-surface-500/30</option>
 					</select>
 				</label>
@@ -127,12 +140,16 @@
 	<svelte:fragment slot="usage">
 		<div class="space-y-4">
 			<p>
-				This component is treated as a <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/progressbar_role" target="_blank" rel="noreferrer">ARIA progressbar</a>.
+				This component is treated as an <a
+					href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/progressbar_role"
+					target="_blank"
+					rel="noreferrer">ARIA progressbar</a
+				>.
 			</p>
 			<CodeBlock language="html" code={`<ProgressBar label="Progress Bar" value={50} max={100} />`} />
 		</div>
 		<div class="space-y-4">
-			<h2>Indeterminate</h2>
+			<h2>Indeterminate Mode</h2>
 			<p>The <code>value</code> property must be removed or set to <code>undefined</code>.</p>
 			<CodeBlock language="html" code={`<ProgressBar />`} />
 		</div>

@@ -19,7 +19,7 @@ describe('Stepper.svelte', () => {
 				duration: 200,
 				// Props (timeline)
 				color: 'text-white',
-				background: 'bg-accent-500 text-white',
+				background: 'bg-secondary-500 text-white',
 				// Props (buttons)
 				buttonBack: {},
 				buttonNext: {},

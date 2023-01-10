@@ -4,12 +4,14 @@ import { writable } from 'svelte/store';
 import type { ModalSettings } from './types';
 
 function modalService() {
-	const { subscribe, set, update } = writable([]);
+	const { subscribe, set, update } = writable<ModalSettings[]>([]);
 	return {
 		subscribe,
+		set,
+		update,
 		/** Append to end of queue. */
 		trigger: (modal: ModalSettings) =>
-			update((mStore: any) => {
+			update((mStore) => {
 				mStore.push(modal);
 				return mStore;
 			}),
@@ -24,4 +26,4 @@ function modalService() {
 	};
 }
 
-export const modalStore: any = modalService();
+export const modalStore = modalService();

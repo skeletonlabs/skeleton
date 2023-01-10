@@ -9,14 +9,14 @@
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldDivider from '$lib/components/Divider/Divider.svelte?raw&sveld';
 
 	// Stores
 	const storeVertical: Writable<boolean> = writable(false);
 	const storeBorderWidth: Writable<string> = writable('border-t');
 	const storeBorderStyle: Writable<string> = writable('border-solid');
-	const defaultBorderColor: string = 'border-surface-300 dark:border-surface-700';
+	const defaultBorderColor = 'border-surface-300 dark:border-surface-700';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -48,9 +48,17 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
+		<aside class="alert alert-error">
+			<i class="fa-solid fa-triangle-exclamation text-4xl" />
+			<div class="alert-message">
+				<h3>Deprecated</h3>
+				<p>This component is slated for removal. Please migrate the element styles provided by <em>core.css</em>.</p>
+			</div>
+			<a href="/elements/core" class="alert-message btn btn-filled">View Elements</a>
+		</aside>
 		<section class="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-2">
 			<!-- Example -->
-			<div class="card card-body">
+			<div class="card card-glass-surface p-4">
 				<div class="h-full min-h-[100px] max-w-[480px] mx-auto flex justify-center items-center">
 					<!-- prettier-ignore -->
 					<svelte:component
@@ -63,7 +71,7 @@
 				</div>
 			</div>
 			<!-- Options -->
-			<div class="card card-body space-y-4">
+			<div class="card p-4 space-y-4">
 				<!-- Orientation -->
 				<label for="">
 					<span>Vertical</span>
@@ -112,12 +120,12 @@
 					<select name="background" id="background" bind:value={props.borderColor}>
 						<option value={defaultBorderColor}>Inherent</option>
 						<option value="border-primary-500">border-primary-500</option>
-						<option value="border-accent-500">border-accent-500</option>
+						<option value="border-secondary-500">border-secondary-500</option>
 						<option value="border-tertiary-500">border-tertiary-500</option>
+						<option value="border-success-500">border-success-500</option>
 						<option value="border-warning-500">border-warning-500</option>
-						<option value="border-red-500">border-red-500</option>
-						<option value="border-green-500">border-green-500</option>
-						<option value="border-blue-500">border-blue-500</option>
+						<option value="border-error-500">border-error-500</option>
+						<option value="border-surface-500">border-surface-500</option>
 					</select>
 				</label>
 			</div>
@@ -131,7 +139,7 @@
 			<CodeBlock language="html" code={`<Divider />`} />
 		</section>
 		<section class="space-y-4">
-			<h2>Vertical</h2>
+			<h2>Vertical Mode</h2>
 			<CodeBlock language="html" code={`<Divider vertical={true} borderWidth="border-l" />`} />
 		</section>
 	</svelte:fragment>

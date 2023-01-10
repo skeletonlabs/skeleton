@@ -1,24 +1,21 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
 
-	import ListBox from '$lib/components/ListBox/ListBox.svelte';
-	import ListBoxItem from '$lib/components/ListBox/ListBoxItem.svelte';
+	import { ListBox, ListBoxItem, modalStore } from '@skeletonlabs/skeleton';
 
 	// Props
 	/** Exposes parent props to this component. */
 	export let parent: any;
 
-	// Stores
-	import { modalStore } from '$lib/utilities/Modal/stores';
 	const storeFlavor: Writable<string> = writable('chocolate');
 
 	function onFormSubmit(): void {
-		$modalStore[0].response($storeFlavor);
+		if ($modalStore[0].response) $modalStore[0].response($storeFlavor);
 		modalStore.close();
 	}
 
 	// Base Classes
-	const cBase: string = 'space-y-4';
+	const cBase = 'space-y-4';
 </script>
 
 <!-- @component This example creates a simple form modal. -->

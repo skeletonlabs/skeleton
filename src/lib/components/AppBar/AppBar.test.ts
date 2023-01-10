@@ -13,7 +13,7 @@ describe('AppBar.svelte', () => {
 		const { getByTestId } = render(AppBar, {
 			props: {
 				background: 'bg-primary-500',
-				border: 'border border-accent-500',
+				border: 'border border-secondary-500',
 				padding: 'p-4',
 				shadow: 'shadow',
 				space: 'space-x-2',

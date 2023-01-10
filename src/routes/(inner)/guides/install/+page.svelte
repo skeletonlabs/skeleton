@@ -1,7 +1,14 @@
 <script lang="ts">
 	import { storeFramework } from '$docs/stores';
-	import { Divider, TabGroup, Tab } from '@brainandbones/skeleton';
+	import { TabGroup, Tab, Alert } from '@skeletonlabs/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+
+	// ******** TEMPORARY FIX ********
+	// TODO: Remove this after this has run in production for a few weeks
+	// Added December 17, 2022 by Chris
+	if (!['cli', 'manual'].includes($storeFramework)) {
+		storeFramework.set('cli');
+	}
 </script>
 
 <div class="page-container">
@@ -9,10 +16,9 @@
 		<h1>Installation</h1>
 		<!-- prettier-ignore -->
 		<p>
-			Let's setup our project and install Skeleton. For best results, we recommend you have at least moderate experience
-			with <a href="https://svelte.dev/tutorial/basics" target="_blank" rel="noreferrer">Svelte</a>,
-			<a href="https://tailwindcss.com/docs/utility-first" target="_blank" rel="noreferrer">Tailwind CSS</a>, and any
-			supported frameworks listed below. If you encounter issues, please refer to our <a href="/docs/faqs">frequently asked questions</a> section.
+			Let's scaffold a new Skeleton project. For best results, we recommend you have at least moderate experience
+			with <a href="https://svelte.dev/tutorial/basics" target="_blank" rel="noreferrer">Svelte and SvelteKit</a> and
+			<a href="https://tailwindcss.com/docs/utility-first" target="_blank" rel="noreferrer">Tailwind CSS</a>. If you have questions or encounter issues please refer to our <a href="/docs/faqs">FAQ</a>.
 		</p>
 	</header>
 
@@ -20,87 +26,56 @@
 	<section class="space-y-4">
 		<!-- Tabs -->
 		<TabGroup selected={storeFramework}>
-			<Tab value="sveltekit">SvelteKit</Tab>
-			<Tab value="vite">Vite (Svelte)</Tab>
-			<Tab value="astro">Astro</Tab>
+			<Tab value="cli">Skeleton CLI</Tab>
+			<Tab value="manual">Manual Install</Tab>
 		</TabGroup>
-		<!-- Framework: SvelteKit -->
-		{#if $storeFramework === 'sveltekit'}
+		{#if $storeFramework === 'cli'}
 			<p>
-				View the <a href="https://kit.svelte.dev/docs/introduction#getting-started" target="_blank" rel="noreferrer"
-					>official documentation</a
-				> for the latest instructions.
+				We provide an interactive CLI app to scaffold a new SvelteKit project and automatically configure Skeleton. Note that PNPM and Yarn
+				are supported.
 			</p>
 			<CodeBlock
 				language="console"
 				code={`
-npm create svelte@latest sveltekit-skeleton-app
-    - Create a barebones project
-    - Enable Typescript
-cd sveltekit-skeleton-app
+npm create skeleton-app@latest my-skeleton-app
+	- Enable SvelteKit's Typescript syntax (recommended)
+cd my-skeleton-app
+npm run dev -- --open
+				`}
+			/>
+			<p>
+				Please continue through the additional guide sections to learn how the CLI has configures your app, how to set a custom theme, and
+				how to style elements.
+			</p>
+		{:else if $storeFramework === 'manual'}
+			<!-- prettier-ignore -->
+			<p>
+				If you're migrating from an existing SvelteKit project please refer to the <a href="https://kit.svelte.dev/" target="_blank" rel="noreferrer">official documentation</a> for creating a new SvelteKit project.
+			</p>
+			<CodeBlock
+				language="console"
+				code={`
+npm create svelte@latest my-skeleton-app
+cd my-skeleton-app
 npm install
-            `}
+npm run dev -- --open
+`}
 			/>
-			<!-- Framework: Vite (Svelte) -->
-		{:else if $storeFramework === 'vite'}
+			<!-- Install Skeleton -->
+			<h2>Install Skeleton</h2>
+			<!-- prettier-ignore -->
 			<p>
-				View the <a href="https://vitejs.dev/guide/#scaffolding-your-first-vite-project" target="_blank" rel="noreferrer"
-					>official documentation</a
-				> for the latest instructions.
+				Install the core <a href="https://www.npmjs.com/package/@skeletonlabs/skeleton" target="_blank" rel="noreferrer">Skeleton package</a>.
 			</p>
-			<CodeBlock
-				language="console"
-				code={`
-npm create vite@latest vite-skeleton-app -- --template svelte-ts
-cd vite-skeleton-app
-npm install
-            `}
-			/>
-			<!-- Framework: Astro -->
-		{:else if $storeFramework === 'astro'}
-			<p>
-				View the <a href="https://docs.astro.build/en/install/auto/" target="_blank" rel="noreferrer">official documentation</a> for the latest
-				instructions.
-			</p>
-			<CodeBlock
-				language="console"
-				code={`
-npm create astro@latest astro-skeleton-app
-    - Create an empty project
-    - Install all dependencies
-    - Use 'Typescript: Strict'
-cd astro-skeleton-app
-            `}
-			/>
-			<!-- Svelte -->
-			<h2>Install Svelte</h2>
-			<p>
-				Add Svelte integration via <a href="https://docs.astro.build/en/guides/integrations-guide/svelte/" target="_blank" rel="noreferrer"
-					>@astrojs/svelte</a
-				>
-			</p>
-			<CodeBlock language="console" code={`npx astro add svelte`} />
+			<CodeBlock language="console" code={`npm i @skeletonlabs/skeleton --save-dev`} />
 		{/if}
-	</section>
-
-	<!-- Install Skeleton -->
-	<section class="space-y-4">
-		<h2>Install Skeleton</h2>
-		<p>
-			Install the core Skeleton package from <a
-				href="https://www.npmjs.com/package/@brainandbones/skeleton"
-				target="_blank"
-				rel="noreferrer">NPM</a
-			>.
-		</p>
-		<CodeBlock language="console" code={`npm i @brainandbones/skeleton --save-dev`} />
 	</section>
 
 	<hr />
 
 	<!-- Next Steps -->
-	<div class="card card-body !flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-		<p>Next, let's configure Tailwind for use with Skeleton.</p>
+	<div class="card p-4 !flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+		<p>Next, let's review configuration options Skeleton and Tailwind.</p>
 		<a class="btn btn-filled-primary" href="/guides/tailwind">
 			<span>Tailwind</span>
 			<span>&rarr;</span>

@@ -5,7 +5,7 @@
 	import FileDropzone from '$lib/components/FileDropzone/FileDropzone.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldFileDropzone from '$lib/components/FileDropzone/FileDropzone.svelte?raw&sveld';
 
 	// Docs Shell
@@ -31,7 +31,7 @@
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-2">
-			<div class="card card-body grid grid-cols-1 xl:grid-cols-2 gap-4">
+			<div class="card p-4 grid grid-cols-1 xl:grid-cols-2 gap-4">
 				<label for="">
 					<span>Upload File</span>
 					<FileDropzone bind:files notes="Files should not exceed 5mb." on:change={onChange} required />
@@ -53,12 +53,17 @@
 			<CodeBlock language="html" code={`<FileDropzone bind:files />`} />
 		</div>
 		<div class="space-y-4">
-			<h3>Notes</h3>
-			<p>Use the <code>notes</code> property to provide addition text information on a second line.</p>
+			<h2>Title</h2>
+			<p>Use the <code>title</code> property to provide a custom title.</p>
+			<CodeBlock language="html" code={`<FileDropzone title="Upload your Attachment here." />`} />
+		</div>
+		<div class="space-y-4">
+			<h2>Notes</h2>
+			<p>Use the <code>notes</code> property to provide additional text information on a second line.</p>
 			<CodeBlock language="html" code={`<FileDropzone notes="Files should not exceed 5mb." />`} />
 		</div>
 		<div class="space-y-4">
-			<h3>Message</h3>
+			<h2>Message</h2>
 			<p>Use the default slot to replace the default UI entirely.</p>
 			<CodeBlock language="html" code={`<FileDropzone>(message)</FileDropzone>`} />
 		</div>

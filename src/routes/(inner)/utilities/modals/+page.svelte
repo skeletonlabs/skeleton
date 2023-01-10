@@ -8,7 +8,7 @@
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldModal from '$lib/utilities/Modal/Modal.svelte?raw&sveld';
 
 	// Modals Utils
@@ -86,6 +86,10 @@
 
 	// Custom ---
 
+	function triggerAlert(): void {
+		console.log('working!');
+	}
+
 	function modalComponentForm(): void {
 		const c: ModalComponent = { ref: ModalExampleForm };
 		const d: ModalSettings = {
@@ -95,6 +99,11 @@
 			component: c,
 			response: (r: any) => {
 				if (r) console.log('response:', r);
+			},
+			meta: {
+				foo: 'bar',
+				fizz: 'buzz',
+				fn: triggerAlert
 			}
 		};
 		modalStore.trigger(d);
@@ -119,7 +128,7 @@
 		const d: ModalSettings = {
 			type: 'component',
 			component: c,
-			classes: '!p-0 !bg-black !max-w-[75%]'
+			modalClasses: '!p-0 !bg-black !max-w-[75%] !overflow-visible'
 		};
 		modalStore.trigger(d);
 	}
@@ -129,18 +138,18 @@
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-4">
-			<div class="card card-body space-y-4">
+			<div class="card p-4 space-y-4">
 				<p class="text-center font-bold">Dialog Modals</p>
-				<div class="flex justify-center space-x-2">
+				<div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:max-w-[480px] mx-auto">
 					<button class="btn btn-ghost-surface" on:click={modalAlert}>Alert</button>
 					<button class="btn btn-ghost-surface" on:click={modalConfirm}>Confirm</button>
 					<button class="btn btn-ghost-surface" on:click={modalPrompt}>Prompt</button>
 					<button class="btn btn-ghost-surface" on:click={modalMultiple}>Multiple</button>
 				</div>
 			</div>
-			<div class="card card-body space-y-4">
+			<div class="card p-4 space-y-4">
 				<p class="text-center font-bold">Custom Component Modals</p>
-				<div class="flex justify-center space-x-2">
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:max-w-[320px] mx-auto">
 					<button class="btn btn-ghost-surface" on:click={modalComponentForm}>Form</button>
 					<button class="btn btn-ghost-surface" on:click={modalComponentList}>List</button>
 					<button class="btn btn-ghost-surface" on:click={modalComponentEmbed}>Embed</button>
@@ -155,8 +164,8 @@
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<p>
-				Import and add a single instance of the Modal component in your app's root layout. We recommend only adding this <u>ONCE</u> per app
-				since it exists in global scope.
+				Import and add a single instance of the Modal component in your app's root layout. Since this is in global scope it will be possible
+				to reuse this feature throughout your entire application.
 			</p>
 			<CodeBlock language="html" code={`<Modal />`} />
 		</section>
@@ -164,7 +173,7 @@
 		<section class="space-y-4">
 			<h2>Modal Store</h2>
 			<p>When you wish to trigger a modal, import the <code>modalStore</code>, which acts as the modal queue.</p>
-			<CodeBlock language="ts" code={`import { modalStore } from '@brainandbones/skeleton';`} />
+			<CodeBlock language="ts" code={`import { modalStore } from '@skeletonlabs/skeleton';`} />
 			<h3>Trigger</h3>
 			<p>Note that <code>title</code>, <code>body</code>, and <code>image</code> are optional for <u>all</u> modal types.</p>
 			<TabGroup selected={storeModalStandard}>
@@ -181,7 +190,9 @@ function triggerAlert(): void {
 		type: 'alert',
 		title: 'Example Alert',
 		body: 'This is an example modal.',
-		image: 'https://i.imgur.com/WOgTG96.gif'
+		image: 'https://i.imgur.com/WOgTG96.gif',
+		// Optionally override buttont text
+		buttonTextCancel: 'Cancel'
 	};
 	modalStore.trigger(alert);
 }
@@ -196,8 +207,11 @@ function triggerConfirm(): void {
 		type: 'confirm',
 		title: 'Please Confirm',
 		body: 'Are you sure you wish to proceed?',
-		// confirm = TRUE | cancel = FALSE
-		response: (r: boolean) => console.log('response:', r)
+		// TRUE if confirm pressed, FALSE if cancel pressed
+		response: (r: boolean) => console.log('response:', r),
+		// Optionally override the button text
+		buttonTextCancel: 'Cancel',
+		buttonTextConfirm: 'Confirm',
 	};
 	modalStore.trigger(confirm);
 }
@@ -216,6 +230,9 @@ function triggerPrompt(): void {
 		value: 'Skeleton',
 		// Returns the updated response value
 		response: (r: string) => console.log('response:', r)
+		// Optionally override the button text
+		buttonTextCancel: 'Cancel',
+		buttonTextSubmit: 'Submit',
 	};
 	modalStore.trigger(prompt);
 }
@@ -247,7 +264,8 @@ function triggerPrompt(): void {
 const d: ModalSettings = {
 	type: 'alert',
 	// ...
-	classes: '!p-0 !bg-green-500 !max-w-[75%]'
+	backdropClasses: '!items-start'
+	modalClasses: '!p-0 !bg-green-500 !max-w-[75%]'
 };
 				`}
 			/>
@@ -256,8 +274,8 @@ const d: ModalSettings = {
 		<!-- Component Modals -->
 		<section class="space-y-4">
 			<div class="flex items-center space-x-2">
-				<span class="badge bg-warning-500">Advanced</span>
 				<h2>Component Modals</h2>
+				<span class="badge badge-filled-warning">Advanced</span>
 			</div>
 			<p>You can create a custom modal by passing a <code>ModalComponent</code> object, which includes any Svelte component.</p>
 			<CodeBlock
@@ -275,20 +293,22 @@ function triggerCustomModal(): void {
 	};
 	const d: ModalSettings = {
 		type: 'component',
-		component: modalComponent
 		// NOTE: title, body, response, etc are supported!
+		component: modalComponent,
+		// Pass abitrary data to the component
+		meta: { foo: 'bar', fizz: 'buzz', fn: myCustomFunction }
 	};
 	modalStore.trigger(d);
 }
 				`}
 			/>
 			<p>
-				When constructing your these custom modals, you are responsible for implementing close/submit buttons, as well as triggering the
-				response method as needed. To make this process easier to understand, we have provided a few examples to demonstrate the process.
+				When constructing custom modals, you are responsible for implementing close/submit buttons, as well as triggering the response
+				method as needed. To make this process easier to understand, we have provided a few examples to demonstrate the process.
 			</p>
 			<a
-				class="btn btn-filled-accent"
-				href="https://github.com/Brain-Bones/skeleton/tree/feature/master/src/lib/utilities/Modal/examples"
+				class="btn btn-filled-secondary"
+				href="https://github.com/skeletonlabs/skeleton/tree/master/src/lib/utilities/Modal/examples"
 				target="_blank"
 				rel="noreferrer">View Example Modals</a
 			>
@@ -303,7 +323,7 @@ function triggerCustomModal(): void {
 				</li>
 				<li>
 					You can inspect the full list of <a
-						href="https://github.com/Brain-Bones/skeleton/blob/feature/master/src/lib/utilities/Modal/Modal.svelte#L95"
+						href="https://github.com/skeletonlabs/skeleton/blob/master/src/lib/utilities/Modal/Modal.svelte#L95"
 						target="_blank"
 						rel="noreferrer">available parent prop values</a
 					> in the source code.
@@ -311,6 +331,61 @@ function triggerCustomModal(): void {
 				<li>Use the <code>parent.onClose()</code> or <code>modalStore.close()</code> methods to close the modal.</li>
 				<li>Use the <code>$modalStore[0].response('myResponseDataHere');</code> method to return a response value.</li>
 			</ul>
+		</section>
+		<!-- Abitrary Data -->
+		<section class="space-y-4">
+			<div class="flex items-center space-x-2">
+				<h2>Abitrary Data</h2>
+				<span class="badge badge-filled-warning">Advanced</span>
+			</div>
+			<p>You can pass abitrary metadata to your modal via the <code>meta</code> setting. All data types are supported.</p>
+			<CodeBlock
+				language="ts"
+				code={`
+const d: ModalSettings = {
+	// ...
+	meta: { foo: 'bar', fizz: 'buzz', fn: myCustomFunction }
+};
+modalStore.trigger(d);
+				`}
+			/>
+			<p>You can retrieve the data as follows. Note the wrapping <code>#if</code> conditional to prevent console errors on modal close.</p>
+			<CodeBlock
+				language="html"
+				code={`
+{#if $modalStore[0]}
+	<pre>{$modalStore[0].meta?.foo}</pre>
+{/if}
+				`}
+			/>
+		</section>
+		<hr />
+		<!-- SSR Warning -->
+		<section class="space-y-4">
+			<h2>SvelteKit SSR Warning</h2>
+			<p>
+				Be aware that there are <a
+					href="https://github.com/sveltejs/kit/discussions/4339#discussioncomment-2384978"
+					target="_blank"
+					rel="noreferrer">known issues when using Svelte stores with SSR</a
+				>, such as our modal store. To prevent these issues please avoid the use of the modal store within any SvelteKit Load function.
+				Likewise, if you need a modal to open on route initilization we advise triggering the <code>open()</code> method after the
+				<a href="https://kit.svelte.dev/docs/modules#$app-environment" target="_blank" rel="noreferrer"
+					>SvelteKit Browser environment context</a
+				> is available.
+			</p>
+			<CodeBlock
+				language="typescript"
+				code={`
+import { browser } from '$app/environment';\n
+if (browser) modalStore.trigger({...});
+				`}
+			/>
+			<p>
+				For additional context please see this <a href="https://github.com/skeletonlabs/skeleton/pull/580" target="_blank" rel="noreferrer"
+					>thread</a
+				>.
+			</p>
 		</section>
 	</svelte:fragment>
 </DocsShell>

@@ -4,7 +4,7 @@ export interface ModalComponent {
 	/** Import and provide your component reference. */
 	ref: any;
 	/** Provide a key/value pairs of component props. */
-	props?: Record<string, string>;
+	props?: Record<string, unknown>;
 	/** Provide an HTML template literal for the default slot. */
 	slot?: string;
 }
@@ -24,6 +24,16 @@ export interface ModalSettings {
 	component?: ModalComponent;
 	/** Provide a function. Returns the repsonse value. */
 	response?: (r: any) => void;
-	/** Provide abritrary classes to apply to the Modal element. Use `!` for important. */
-	classes?: string;
+	/** Provide abitrary classes to the backdrop. */
+	backdropClasses?: string;
+	/** Provide abitrary classes to the modal window. */
+	modalClasses?: string;
+	/** Override the Cancel button label. */
+	buttonTextCancel?: string;
+	/** Override the Confirm button label. */
+	buttonTextConfirm?: string;
+	/** Override the Submit button label. */
+	buttonTextSubmit?: string;
+	/** Pass abitrary data per modal instance. */
+	meta?: any;
 }

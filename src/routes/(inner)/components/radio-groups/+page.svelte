@@ -6,12 +6,11 @@
 
 	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
-	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldRadioGroup from '$lib/components/Radio/RadioGroup.svelte?raw&sveld';
-	// @ts-ignore
+	// @ts-expect-error sveld import
 	import sveldRadioItem from '$lib/components/Radio/RadioItem.svelte?raw&sveld';
 
 	// Stores
@@ -21,14 +20,15 @@
 	// Docs Shell
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Component,
-		name: 'RadioGroup',
+		name: 'Radio Groups',
 		description: 'Capture feedback limited to a small set of options.',
 		imports: ['RadioGroup', 'RadioItem'],
 		source: 'components/Radio',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/radiobutton/',
+		restProps: 'RadioItem input',
 		components: [
 			{ label: 'RadioGroup', sveld: sveldRadioGroup },
-			{ label: 'RadioItem', sveld: sveldRadioItem, overrideProps: ['hover', 'accent', 'color', 'fill', 'rounded'] }
+			{ label: 'RadioItem', sveld: sveldRadioItem, overrideProps: ['padding', 'hover', 'accent', 'color', 'fill', 'rounded'] }
 		],
 		keyboard: [
 			['<kbd>Tab</kbd>', 'Moves focus to the next focusable RadioItem.'],
@@ -43,23 +43,23 @@
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
 			<!-- Icons -->
-			<div class="card card-body space-y-4 text-center">
+			<div class="card p-4 space-y-4 text-center">
 				<RadioGroup selected={storeJustify}>
 					<RadioItem value={0} label="Align Left">
-						<SvgIcon name="align-left" class="-translate-y-[2px]" />
+						<i class="fa-solid fa-align-left" />
 					</RadioItem>
 					<RadioItem value={1} label="Align Middle">
-						<SvgIcon name="align-justify" class="-translate-y-[2px]" />
+						<i class="fa-solid fa-align-center" />
 					</RadioItem>
 					<RadioItem value={2} label="Align Right">
-						<SvgIcon name="align-right" class="-translate-y-[2px]" />
+						<i class="fa-solid fa-align-right" />
 					</RadioItem>
 				</RadioGroup>
 				<p>Selected <code>{$storeJustify}</code></p>
 			</div>
 			<!-- Text -->
-			<div class="card card-body space-y-4 text-center">
-				<RadioGroup selected={storeLayout} accent="bg-active-token" hover="bg-hover-token">
+			<div class="card p-4 space-y-4 text-center">
+				<RadioGroup selected={storeLayout} accent="bg-primary-active-token" hover="bg-primary-hover-token">
 					<RadioItem value="horz">Horizontal</RadioItem>
 					<RadioItem value="vert">Vertical</RadioItem>
 				</RadioGroup>

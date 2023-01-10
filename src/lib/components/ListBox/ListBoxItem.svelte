@@ -10,7 +10,7 @@
 
 	// Props (a11y)
 	/** Define a unique and semantic identifier for the item. */
-	export let id: string = '';
+	export let id = '';
 
 	// Event Handler
 	const dispatch = createEventDispatcher();
@@ -23,19 +23,17 @@
 	export let hover: string = getContext('hover');
 
 	// Base Classes
-	const cBase: string = 'flex items-center space-x-4 whitespace-nowrap cursor-pointer';
+	const cBase = 'flex items-center space-x-4 whitespace-nowrap cursor-pointer -outline-offset-[3px]';
 
 	// Local
 	let elemItem: HTMLElement;
 
 	// Input Handler
 	function onClickHandler(event: any): void {
+		if (!$$props.value) return;
+		typeof $selected === 'object' ? handleMultiSelect() : handleSingleSelect();
 		/** @event {{ event }} click - Fires when the component is clicked.  */
 		dispatch('click', event);
-		if (!$selected || !$$props.value) {
-			return;
-		}
-		typeof $selected === 'object' ? handleMultiSelect() : handleSingleSelect();
 	}
 
 	// Selection Handlers
@@ -85,6 +83,8 @@
 	{id}
 	on:click={onClickHandler}
 	on:keydown={onKeyDown}
+	on:keyup
+	on:keypress
 	role="option"
 	aria-selected={isSelected}
 	tabindex="0"
