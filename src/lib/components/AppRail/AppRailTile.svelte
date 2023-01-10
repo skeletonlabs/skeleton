@@ -3,7 +3,7 @@
 	import type { Writable } from 'svelte/store';
 
 	// Event Handler
-	const dispatch = createEventDispatcher();
+	const dispatch = createEventDispatcher<{ click: MouseEvent }>();
 
 	// Props
 	/**
@@ -32,7 +32,7 @@
 	const cLabel = 'text-xs text-center';
 
 	// Input Handler
-	function onClickHandler(event: any): void {
+	function onClickHandler(event: MouseEvent): void {
 		if (!$selected || !value) return;
 		$selected = value;
 		/** @event {{ event }} click - Fires when the component is clicked.  */
