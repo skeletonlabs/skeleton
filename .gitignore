@@ -10,3 +10,4 @@ coverage
 pnpm-lock.yaml
 .vscode
 .temp
+src/lib/tailwind/generated

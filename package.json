@@ -17,7 +17,7 @@
 		"coverage": "vitest run --coverage",
 		"prebuild:jss": "postcss src/lib/styles/all.css --dir .temp --base src/lib/styles",
 		"build:jss": "prejss-cli .temp/all.css --format commonjs",
-		"postbuild:jss": "mkdir -p src/lib/tailwind/generated && mv -f .temp/all.js src/lib/tailwind/generated/allComponents.cjs"
+		"postbuild:jss": "node ./scripts/mv-generated-files.js"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^1.0.0",
