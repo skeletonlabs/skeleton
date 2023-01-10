@@ -5,7 +5,7 @@ try {
 	// makes the directory if it doesn't exist
 	mkdirSync('src/lib/tailwind/generated');
 } catch (e) {
-	console.log('Directory already exists');
+	// throws if the directory already exists
 }
 
 try {
