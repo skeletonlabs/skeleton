@@ -162,7 +162,7 @@
 				<span class="hidden md:inline-block">Theme</span>
 				<i class="fa-solid fa-caret-down opacity-50" />
 			</button>
-			<div class="card w-64 shadow-xl" data-menu="theme">
+			<div class="card w-64 shadow-xl max-w-fit sm:max-w-none" data-menu="theme">
 				<section class="flex justify-between items-center p-4">
 					<h6>Theme</h6>
 					<LightSwitch />
