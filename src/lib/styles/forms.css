@@ -59,7 +59,6 @@
 		@apply rounded-token;
 	}
 
-	.file-dropzone-input,
 	[multiple]:not(.unstyled),
 	textarea:not(.unstyled) {
 		/* Theme: Rounded */
