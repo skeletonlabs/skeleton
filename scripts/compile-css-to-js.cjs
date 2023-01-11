@@ -9,6 +9,7 @@ async function transpileCssToJs() {
 	const cssEntryPath = './src/lib/styles/all.css';
 	// Custom tailwind config so that we only use the necessities
 	const twConfig = {
+		darkMode: 'class',
 		content: ['./src/**/*.{html,js,svelte,ts}'],
 		plugins: [require('../src/lib/tailwind/skeleton.cjs')]
 	};
