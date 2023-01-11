@@ -31,7 +31,6 @@ module.exports = plugin(
 		if (process.env.NODE_ENV !== 'production') {
 			// try/catch because it will throw when allComponents.cjs isn't generated yet
 			try {
-				console.log('GENERATING ALL COMPONENTS');
 				const all = require('./generated/allComponents.cjs');
 				addComponents(all, {
 					respectImportant: true,
