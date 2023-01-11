@@ -89,7 +89,7 @@
 	<svelte:fragment slot="usage">
 		<div class="space-y-4">
 			<CodeBlock language="html" code={`<div class="card p-4">Basic</div>`} />
-			<CodeBlock language="html" code={`<a href="/" class="card p-4">Link</div>`} />
+			<CodeBlock language="html" code={`<a href="/" class="card p-4">Link</a>`} />
 		</div>
 		<div class="space-y-4">
 			<h2>Styles</h2>
