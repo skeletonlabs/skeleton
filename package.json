@@ -15,9 +15,7 @@
 		"format": "prettier --ignore-path .prettierignore --write --plugin-search-dir=. .",
 		"test": "vitest",
 		"coverage": "vitest run --coverage",
-		"prebuild:jss": "postcss src/lib/styles/all.css --dir .temp --base src/lib/styles",
-		"build:jss": "prejss-cli .temp/all.css --format commonjs",
-		"postbuild:jss": "node ./scripts/mv-generated-files.js"
+		"build:jss": "node ./scripts/generate-jss.js"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^1.0.0",
@@ -37,10 +35,9 @@
 		"highlight.js": "^11.7.0",
 		"jsdom": "^20.0.3",
 		"postcss": "^8.4.20",
-		"postcss-cli": "^10.1.0",
 		"postcss-import": "^15.0.1",
+		"postcss-js": "^4.0.0",
 		"postcss-load-config": "^4.0.1",
-		"prejss-cli": "^0.3.3",
 		"prettier": "^2.8.1",
 		"prettier-plugin-svelte": "^2.9.0",
 		"sveld": "^0.18.0",

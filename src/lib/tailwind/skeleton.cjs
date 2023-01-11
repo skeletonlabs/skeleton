@@ -31,16 +31,13 @@ module.exports = plugin(
 		if (process.env.NODE_ENV !== 'production') {
 			// try/catch because it will throw when allComponents.cjs isn't generated yet
 			try {
+				console.log('GENERATING ALL COMPONENTS');
 				const all = require('./generated/allComponents.cjs');
-				// Tokens are already loaded as utilities so we'll delete them to prevent duplicate rules
-				for (const [key, _] of Object.entries(all)) {
-					if (key.includes('token')) delete all[key];
-				}
 				addComponents(all, {
 					respectImportant: true,
 					respectPrefix: true
 				});
-			} catch { }
+			} catch {}
 		}
 	},
 	{
