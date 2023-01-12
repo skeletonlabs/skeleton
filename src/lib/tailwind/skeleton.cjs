@@ -40,7 +40,7 @@ module.exports = plugin(
 					respectImportant: true,
 					respectPrefix: true
 				});
-			} catch { }
+			} catch {}
 		}
 	},
 	{
