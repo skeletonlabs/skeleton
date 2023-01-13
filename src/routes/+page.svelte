@@ -123,15 +123,26 @@
 			<!-- Sponsors -->
 			<div class="text-center space-y-6">
 				<h2>Sponsors</h2>
-				<a
-					class="unstyled card card-glass p-4 inline-flex flex-col items-center space-y-4"
-					href="https://www.brainandbonesllc.com/"
-					target="_blank"
-					rel="noreferrer"
-				>
-					<img src="https://www.brainandbonesllc.com/svg/logo.svg" alt="Brain & Bones" class="h-[32px] mx-auto invert dark:invert-0" />
-					<p class="text-sm">Brain & Bones</p>
-				</a>
+				<div class="grid grid-cols-2 gap-4">
+					<a
+						class="unstyled card card-glass p-4 inline-flex flex-col items-center space-y-4"
+						href="https://www.brainandbonesllc.com/"
+						target="_blank"
+						rel="noreferrer"
+					>
+						<img src="https://www.brainandbonesllc.com/svg/logo.svg" alt="Brain & Bones" class="h-[48px] mx-auto invert dark:invert-0" />
+						<p class="text-sm">Brain & Bones</p>
+					</a>
+					<a
+						class="unstyled card card-glass p-4 inline-flex flex-col items-center space-y-4"
+						href="https://lukehagar.com/"
+						target="_blank"
+						rel="noreferrer"
+					>
+						<img src="https://i.imgur.com/ySBlLmQ.png" alt="Brain & Bones" class="h-[48px] mx-auto rounded-full" />
+						<p class="text-sm">Luke Hagar</p>
+					</a>
+				</div>
 				<p>You can support us directly via:</p>
 				<div class="grid grid-col-1 gap-4 max-w-[280px] mx-auto">
 					<a class="btn btn-filled-primary" href="https://ko-fi.com/skeletonlabs" target="_blank" rel="noreferrer"> Ko-Fi </a>

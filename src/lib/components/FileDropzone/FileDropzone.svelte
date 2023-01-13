@@ -30,7 +30,7 @@
 	const cBase = 'relative';
 	const cMessage =
 		'absolute top-0 left-0 right-0 bottom-0 z-[1] max-w-[480px] mx-auto flex justify-center items-center !pointer-events-none';
-	const cInput = '!border-2 border-dashed cursor-pointer !text-transparent';
+	const cInput = '!border-2 border-dashed cursor-pointer !text-transparent !rounded-container-token';
 
 	// Local
 	let elemIcon: HTMLElement;

@@ -50,9 +50,9 @@
 					language="css"
 					code={`
 .gradient-heading {
-	@apply bg-gradient-to-r from-primary-500 to-bg-secondary-500 bg-clip text-transparent box-decoration-clone;
+	@apply bg-gradient-to-r from-primary-500 to-bg-secondary-500 bg-clip-text text-transparent box-decoration-clone;
 }
-			`}
+`}
 				/>
 				<!-- prettier-ignore -->
 				<p>See the <a class="!text-error-200" href="https://tailwindcss.com/docs/gradient-color-stops" target="_blank" rel="noreferrer">Tailwind documentation</a> for additional gradient options.</p>
