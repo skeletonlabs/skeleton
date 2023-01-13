@@ -156,10 +156,6 @@
 		<DocsAppBar />
 	</svelte:fragment>
 
-	<svelte:fragment slot="pageHeader">
-		<pre>{JSON.stringify(meta, null, 2)}</pre>
-	</svelte:fragment>
-
 	<!-- Sidebar (Left) -->
 	<svelte:fragment slot="sidebarLeft">
 		<DocsSidebar class="hidden lg:grid w-[360px] overflow-hidden" />
