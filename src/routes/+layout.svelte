@@ -77,16 +77,25 @@
 		// Article
 		article: { publishTime: '', modifiedTime: '', author: '' },
 		// Twitter
-		twitter: { title: '', description: '', image: '' }
+		twitter: {
+			title: metaDefaults.title,
+			description: metaDefaults.description,
+			image: metaDefaults.image
+		}
 	};
 	let isBlogArticle = false;
 
 	// Monitor $page for changes
 	page.subscribe((page) => {
-		// Page Defaults
+		// Restore Page Defaults
 		meta.title = metaDefaults.title;
 		meta.description = metaDefaults.description;
 		meta.image = metaDefaults.image;
+		// Restore Twitter Defaults
+		meta.twitter.title = metaDefaults.title;
+		meta.twitter.description = metaDefaults.description;
+		meta.twitter.image = metaDefaults.image;
+
 		// If Blog Article
 		isBlogArticle = page.data.posts && page.data.posts.length === 1;
 		if (isBlogArticle) {
@@ -141,9 +150,9 @@
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:site" content="@SkeletonUI" />
 	<meta name="twitter:creator" content="@SkeletonUI" />
-	<meta name="twitter:title" content={meta.twitter.title || meta.title} />
-	<meta name="twitter:description" content={meta.twitter.description || meta.description} />
-	<meta name="twitter:image" content={meta.twitter.image || meta.image} />
+	<meta name="twitter:title" content={meta.twitter.title} />
+	<meta name="twitter:description" content={meta.twitter.description} />
+	<meta name="twitter:image" content={meta.twitter.image} />
 
 	<!-- Select Preset Theme CSS DO NOT REMOVE ESCAPES-->
 	{@html `\<style\>${currentTheme}}\</style\>`}
@@ -159,6 +168,11 @@
 	<!-- Header -->
 	<svelte:fragment slot="header">
 		<DocsAppBar />
+	</svelte:fragment>
+
+	<svelte:fragment slot="pageHeader">
+		<pre>twitter: {JSON.stringify(meta.twitter, null, 2)}</pre>
+		<pre>meta: {JSON.stringify(meta, null, 2)}</pre>
 	</svelte:fragment>
 
 	<!-- Sidebar (Left) -->
