@@ -65,27 +65,35 @@
 	}
 
 	// SEO Metatags
-	let isBlogArticle = false;
+	const metaDefaults = {
+		title: 'Skeleton — UI Toolkit for Svelte + Tailwind',
+		description: 'Skeleton is a fully featured UI Toolkit for building reactive interfaces quickly using Svelte and Tailwind.',
+		image: 'https://user-images.githubusercontent.com/1509726/212382766-f29b9c9a-82e3-44c2-b911-b17a9197e5b9.jpg'
+	};
 	const meta = {
-		title: '',
-		description: '',
-		image: '',
+		title: metaDefaults.title,
+		description: metaDefaults.description,
+		image: metaDefaults.image,
 		// Article
 		article: { publishTime: '', modifiedTime: '', author: '' },
 		// Twitter
 		twitter: { title: '', description: '', image: '' }
 	};
+	let isBlogArticle = false;
+
+	// Monitor $page for changes
 	page.subscribe((page) => {
 		// Page Defaults
-		meta.title = 'Skeleton — UI Toolkit for Svelte + Tailwind';
-		meta.description = 'Skeleton is a fully featured UI Toolkit for building reactive interfaces quickly using Svelte and Tailwind.';
-		meta.image = 'https://user-images.githubusercontent.com/1509726/212382766-f29b9c9a-82e3-44c2-b911-b17a9197e5b9.jpg';
+		meta.title = metaDefaults.title;
+		meta.description = metaDefaults.description;
+		meta.image = metaDefaults.image;
 		// If Blog Article
 		isBlogArticle = page.data.posts && page.data.posts.length === 1;
 		if (isBlogArticle) {
 			const post = page.data.posts[0];
+			const articleTitleLeadText = `Skeleton Blog`;
 			// Post Data
-			meta.title = `Skeleton Blog — ${post.meta_title ?? post.title}`;
+			meta.title = `${articleTitleLeadText} — ${post.meta_title ?? post.title}`;
 			meta.description = post.meta_description || post.excerpt;
 			meta.image = post.og_image || post.feature_image;
 			// Article
@@ -93,7 +101,7 @@
 			meta.article.modifiedTime = post.updated_at;
 			meta.article.author = post.primary_author.name;
 			// Twitter
-			meta.twitter.title = post.twitter_title || post.meta_title || post.title;
+			meta.twitter.title = `${articleTitleLeadText} — ${post.twitter_title || post.meta_title || post.title}`;
 			meta.twitter.description = post.twitter_description || post.meta_description || post.excerpt;
 			meta.twitter.image = post.twitter_image || post.feature_image;
 		}
@@ -118,8 +126,8 @@
 	<meta property="og:site_name" content="Skeleton" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://www.skeleton.dev{$page.url.pathname}" />
-	<meta property="og:title" content={meta.title} />
 	<meta property="og:locale" content="en_US" />
+	<meta property="og:title" content={meta.title} />
 	<meta property="og:description" content={meta.description} />
 	<meta property="og:image" content={meta.image} />
 	<meta property="og:image:secure_url" content={meta.image} />
