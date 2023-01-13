@@ -57,10 +57,10 @@
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:site" content="@SkeletonUI" />
 	<meta name="twitter:creator" content="@SkeletonUI" />
-	<meta property="og:url" content="https://www.skeleton.dev{$page.url.pathname}" />
-	<meta property="og:title" content={post.twitter_title || post.title} />
-	<meta property="og:description" content={post.twitter_description || post.excerpt} />
-	<meta property="og:image" content={post.twitter_image || post.feature_image} />
+	<meta name="twitter:url" content="https://www.skeleton.dev{$page.url.pathname}" />
+	<meta name="twitter:title" content={post.twitter_title || post.title} />
+	<meta name="twitter:description" content={post.twitter_description || post.excerpt} />
+	<meta name="twitter:image" content={post.twitter_image || post.feature_image} />
 </svelte:head>
 
 <div class="page-container">
