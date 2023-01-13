@@ -1,9 +1,11 @@
 <!-- Layout: (root) -->
 <script lang="ts">
+	import { inject } from '@vercel/analytics';
 	import hljs from 'highlight.js';
 	import '$lib/styles/highlight-js.css'; // was: 'highlight.js/styles/github-dark.css';
 	import { storeHighlightJs } from '$lib/utilities/CodeBlock/stores';
 	storeHighlightJs.set(hljs);
+	inject();
 
 	// SvelteKit Imports
 	import { browser } from '$app/environment';
@@ -34,6 +36,7 @@
 
 	// Theme stylesheet is loaded from LayoutServerData
 	import type { LayoutServerData } from './$types';
+	import type { fromJSON } from 'postcss';
 	export let data: LayoutServerData;
 	$: ({ currentTheme } = data);
 
