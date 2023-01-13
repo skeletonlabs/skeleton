@@ -37,31 +37,7 @@
 	const post = data.posts[0];
 </script>
 
-<svelte:head>
-	<title>Skeleton Blog — {post.title}</title>
-	<!-- Meta -->
-	<meta name="title" content={post.meta_title || post.title} />
-	<meta name="description" content={post.meta_description || post.excerpt} />
-	<!-- Open Graph -->
-	<meta property="og:url" content="https://www.skeleton.dev{$page.url.pathname}" />
-	<meta property="og:title" content={post.og_title || post.title} />
-	<meta property="og:description" content={post.og_description || post.excerpt} />
-	<meta property="og:image" content={post.og_image || post.feature_image} />
-	<meta property="og:type" content="image/jpeg" />
-	<!-- OG: Article -->
-	<meta property="article:published_time" content={post.created_at} />
-	<meta property="article:modified_time" content={post.updated_at} />
-	<meta property="article:author" content={post.primary_author.name} />
-	<meta property="article:tag" content={post.tags.join[',']} />
-	<!-- OG: Twitter -->
-	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:site" content="@SkeletonUI" />
-	<meta name="twitter:creator" content="@SkeletonUI" />
-	<meta name="twitter:url" content="https://www.skeleton.dev{$page.url.pathname}" />
-	<meta name="twitter:title" content={post.twitter_title || post.title} />
-	<meta name="twitter:description" content={post.twitter_description || post.excerpt} />
-	<meta name="twitter:image" content={post.twitter_image || post.feature_image} />
-</svelte:head>
+<!-- NOTE: SEO handled in root page layout -->
 
 <div class="page-container">
 	<!-- Breadcrumbs -->
