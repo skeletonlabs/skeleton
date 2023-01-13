@@ -12,8 +12,6 @@
 
 	// Components
 	import Avatar from '$lib/components/Avatar/Avatar.svelte';
-	import Breadcrumb from '$lib/components/Breadcrumb/Breadcrumb.svelte';
-	import Crumb from '$lib/components/Breadcrumb/Crumb.svelte';
 
 	// Local
 	let elemPage: HTMLElement | null;
@@ -42,22 +40,27 @@
 <svelte:head>
 	<title>Skeleton Blog — {post.title}</title>
 	<!-- Meta -->
-	<meta name="title" content={post.title} />
-	<meta name="description" content={post.excerpt} />
+	<meta name="title" content={post.meta_title || post.title} />
+	<meta name="description" content={post.meta_description || post.excerpt} />
 	<!-- Open Graph -->
-	<meta property="og:title" content={post.title} />
-	<meta property="og:description" content={post.excerpt} />
-	<meta property="og:type" content="image/jpeg" />
 	<meta property="og:url" content="https://www.skeleton.dev{$page.url.pathname}" />
-	<meta property="og:image" content={post.feature_image} />
-	<!-- Twitter -->
+	<meta property="og:title" content={post.og_title || post.title} />
+	<meta property="og:description" content={post.og_description || post.excerpt} />
+	<meta property="og:image" content={post.og_image || post.feature_image} />
+	<meta property="og:type" content="image/jpeg" />
+	<!-- OG: Article -->
+	<meta property="article:published_time" content={post.created_at} />
+	<meta property="article:modified_time" content={post.updated_at} />
+	<meta property="article:author" content={post.primary_author.name} />
+	<meta property="article:tag" content={post.tags.join[',']} />
+	<!-- OG: Twitter -->
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:site" content="@SkeletonUI" />
 	<meta name="twitter:creator" content="@SkeletonUI" />
 	<meta property="og:url" content="https://www.skeleton.dev{$page.url.pathname}" />
-	<meta property="og:title" content={post.title} />
-	<meta property="og:description" content={post.excerpt} />
-	<meta property="og:image" content={post.feature_image} />
+	<meta property="og:title" content={post.twitter_title || post.title} />
+	<meta property="og:description" content={post.twitter_description || post.excerpt} />
+	<meta property="og:image" content={post.twitter_image || post.feature_image} />
 </svelte:head>
 
 <div class="page-container">
