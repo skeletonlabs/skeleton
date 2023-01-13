@@ -136,9 +136,9 @@
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:site" content="@SkeletonUI" />
 	<meta name="twitter:creator" content="@SkeletonUI" />
-	<meta name="twitter:title" content={meta.twitter.title} />
-	<meta name="twitter:description" content={meta.twitter.description} />
-	<meta name="twitter:image" content={meta.twitter.image} />
+	<meta name="twitter:title" content={meta.twitter.title || meta.title} />
+	<meta name="twitter:description" content={meta.twitter.description || meta.description} />
+	<meta name="twitter:image" content={meta.twitter.image || meta.image} />
 
 	<!-- Select Preset Theme CSS DO NOT REMOVE ESCAPES-->
 	{@html `\<style\>${currentTheme}}\</style\>`}
