@@ -116,10 +116,7 @@
 	<!-- Meta Tags -->
 	<meta name="title" content={meta.title} />
 	<meta name="description" content={meta.description} />
-	<meta
-		name="keywords"
-		content="svelte, sveltekit, web, ui, components, responsive, reactive, accessibility, typescript, css, mobile web, open source"
-	/>
+	<meta name="keywords" content="svelte, sveltekit, web, ui, components, reactive, accessibility, typescript, css, open source" />
 	<meta name="theme-color" content="#242c46" />
 	<meta name="author" content="Skeleton Labs" />
 	<!-- Open Graph - https://ogp.me/ -->
