@@ -12,9 +12,6 @@
 
 	// Components
 	import Avatar from '$lib/components/Avatar/Avatar.svelte';
-	import Breadcrumb from '$lib/components/Breadcrumb/Breadcrumb.svelte';
-	import Crumb from '$lib/components/Breadcrumb/Crumb.svelte';
-
 	// Local
 	let elemPage: HTMLElement | null;
 

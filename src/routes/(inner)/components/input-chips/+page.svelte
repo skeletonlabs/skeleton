@@ -111,7 +111,7 @@ function isValidEmail(value: string): boolean {
 			<p>
 				Note the <code>required</code> attribute has no bearing on the validation state of this input. Instead, we recommend disabling form
 				submission if your validation conditions are not for our your source value array - such as too few or too many values. Make sure to
-				inform users of the error state using a message or <a href="/components/alerts">Alert</a>.
+				inform users of the error state using a message or <a href="/elements/alerts">Alert</a>.
 			</p>
 			<CodeBlock language="html" code={`<button type="submit" disabled={!flavors.length}>Submit</button>`} />
 			<CodeBlock language="html" code={`<button type="submit" disabled={flavors.length > 3}>Submit</button>`} />
