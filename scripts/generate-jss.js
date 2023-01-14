@@ -59,6 +59,9 @@ async function removeDuplicateClasses(cssInJs) {
 		// if it's a background color, delete it
 		if (key.includes('bg-')) delete cssInJs[key];
 
+		// if it's not a class selector, delete it (only want classes in the intellisense)
+		if (key[0] !== '.' && key) delete cssInJs[key];
+
 		// if it's a default tailwind class, delete it
 		if (twClasses[key]) delete cssInJs[key];
 	}
