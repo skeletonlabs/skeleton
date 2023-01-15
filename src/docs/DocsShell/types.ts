@@ -47,7 +47,7 @@ export interface DocsShellSettings {
 	/** The feature description */
 	description: string;
 	/** Specifiy the GitHub source path for the feature (partial) */
-	source: string;
+	source?: string;
 	/** List of import alias names. */
 	imports?: string[];
 	/** List of import Typescript interface imports. */

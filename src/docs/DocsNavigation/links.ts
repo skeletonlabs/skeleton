@@ -64,6 +64,7 @@ export const menuNavLinks: any = [
 			{ href: '/elements/buttons', label: 'Buttons', keywords: 'click, anchor, icon, preload' },
 			{ href: '/elements/cards', label: 'Cards', keywords: 'header, footer, background, cell, region' },
 			{ href: '/elements/chips', label: 'Chips', keywords: 'action, select, selection, filter, filtering, interactive' },
+			{ href: '/elements/gradient-headings', label: 'Gradient Headings', keywords: 'header, h1, h2, h3' },
 			{ href: '/elements/lists', label: 'Lists', keywords: 'unordered, ordered, description, nav, navigation, ul, ol, li, dd, dt' },
 			{ href: '/elements/logo-clouds', label: 'Logo Clouds', keywords: 'logo, brand, branding, links' },
 			{ href: '/elements/placeholders', label: 'Placeholders', keywords: 'skeleton, spacer, text, image, avatar, animate, animate' },
@@ -105,17 +106,7 @@ export const menuNavLinks: any = [
 			{ href: '/components/steppers', label: 'Steppers', keywords: 'intro, onboard, onboarding, form, progress' },
 			{ href: '/components/tabs', label: 'Tabs', keywords: 'select, selection, panel' },
 			{ href: '/components/tables', label: 'Tables', keywords: 'data, entry' },
-			{ href: '/components/table-of-contents', label: 'Table of Contents', keywords: 'page, results, links, navigation' },
-			// Slated for Deprecation:
-			{ href: '/components/alerts', label: 'Alerts', keywords: 'message, notification', badge: 'Deprecated' },
-			{ href: '/components/breadcrumbs', label: 'Breadcrumbs', keywords: 'nav, navigation, seperator, hierarchy', badge: 'Deprecated' },
-			{ href: '/components/dividers', label: 'Dividers', keywords: 'hr, horizontal, rule, separator', badge: 'Deprecated' },
-			{
-				href: '/components/gradient-headings',
-				label: '<small>Gradient Headings</small>',
-				keywords: 'header, h1, h2, h3',
-				badge: 'Deprecated'
-			}
+			{ href: '/components/table-of-contents', label: 'Table of Contents', keywords: 'page, results, links, navigation' }
 		]
 	},
 

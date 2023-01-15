@@ -44,7 +44,7 @@
 		stylesheetIncludes: [],
 		stylesheets: [],
 		package: { name: '@skeletonlabs/skeleton', url: 'https://www.npmjs.com/package/@skeletonlabs/skeleton' },
-		source: '',
+		source: undefined,
 		docsPath: $page.url.pathname,
 		aria: undefined,
 		dependencies: [],
@@ -169,11 +169,13 @@
 					<a href={pageSettings.package?.url} target="_blank" rel="noreferrer">{pageSettings.package?.name}</a>
 				</div>
 				<!-- Source Code -->
-				<p class="hidden md:inline-block w-32">Source</p>
-				<div class="flex items-center space-x-2">
-					<i class="fa-brands fa-github" />
-					<a href={`${githubSourcePath}/lib/${pageSettings.source}`} target="_blank" rel="noreferrer">Source Code</a>
-				</div>
+				{#if pageSettings.source}
+					<p class="hidden md:inline-block w-32">Source</p>
+					<div class="flex items-center space-x-2">
+						<i class="fa-brands fa-github" />
+						<a href={`${githubSourcePath}/lib/${pageSettings.source}`} target="_blank" rel="noreferrer">Source Code</a>
+					</div>
+				{/if}
 				<!-- Doc Source -->
 				<p class="hidden md:inline-block w-32">Doc</p>
 				<div class="flex items-center space-x-2">
