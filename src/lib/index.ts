@@ -46,16 +46,12 @@ export { tooltip } from './utilities/Tooltip/tooltip';
 
 export { default as AccordionGroup } from './components/Accordion/AccordionGroup.svelte';
 export { default as AccordionItem } from './components/Accordion/AccordionItem.svelte';
-export { default as Alert } from './components/Alert/Alert.svelte';
 export { default as AppBar } from './components/AppBar/AppBar.svelte';
 export { default as AppRail } from './components/AppRail/AppRail.svelte';
 export { default as AppRailTile } from './components/AppRail/AppRailTile.svelte';
 export { default as AppShell } from './components/AppShell/AppShell.svelte';
 export { default as Avatar } from './components/Avatar/Avatar.svelte';
-export { default as Breadcrumb } from './components/Breadcrumb/Breadcrumb.svelte';
-export { default as Crumb } from './components/Breadcrumb/Crumb.svelte';
 export { default as ConicGradient } from './components/ConicGradient/ConicGradient.svelte';
-export { default as Divider } from './components/Divider/Divider.svelte';
 export { default as FileButton } from './components/FileButton/FileButton.svelte';
 export { default as FileDropzone } from './components/FileDropzone/FileDropzone.svelte';
 export { default as GradientHeading } from './components/GradientHeading/GradientHeading.svelte';

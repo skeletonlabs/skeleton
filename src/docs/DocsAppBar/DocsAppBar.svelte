@@ -13,7 +13,6 @@
 
 	// Components
 	import AppBar from '$lib/components/AppBar/AppBar.svelte';
-	import Divider from '$lib/components/Divider/Divider.svelte';
 	// Utilities
 	import LightSwitch from '$lib/utilities/LightSwitch/LightSwitch.svelte';
 	import { menu } from '$lib/utilities/Menu/menu';
@@ -150,7 +149,8 @@
 			<a class="unstyled hover:bg-primary-hover-token px-4 py-2 rounded-token" href="/blog" data-sveltekit-preload-data="hover">Blog</a>
 		</section>
 
-		<Divider vertical borderWidth="hidden lg:block border-l-2 opacity-20" />
+		<!-- Divider -->
+		<span class="divider-vertical h-5" />
 
 		<!-- Theme -->
 		<div class="relative">
@@ -195,7 +195,8 @@
 			</div>
 		</div>
 
-		<Divider vertical borderWidth="border-l-2 opacity-20" />
+		<!-- Divider -->
+		<span class="divider-vertical h-5" />
 
 		<!-- Social -->
 		<section class="grid grid-cols-3 gap-6">

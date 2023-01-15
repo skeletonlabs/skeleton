@@ -5,9 +5,6 @@
 	// Logo
 	import DocsLogoIcon from '$docs/DocsLogo/DocsLogoIcon.svelte';
 
-	// Components
-	import Divider from '$lib/components/Divider/Divider.svelte';
-
 	// Base Classes
 	const cBase = 'bg-surface-100-800-token text-xs md:text-base mx-auto px-4 py-8 md:p-10 space-y-10';
 	const cRowOne = 'flex flex-col md:flex-row justify-between items-center md:items-start space-y-5 md:space-y-0';
@@ -51,7 +48,7 @@
 		</div>
 	</section>
 
-	<Divider borderStyle="border-dotted" opacity="opacity-50" />
+	<hr />
 
 	<!-- Row 2 -->
 	<section class={cRowTwo}>
