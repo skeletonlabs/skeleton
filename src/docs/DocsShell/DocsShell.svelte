@@ -25,6 +25,10 @@
 	export let regionDetails = 'overflow-x-auto whitespace-nowrap grid grid-cols-1 md:grid-cols-[128px_1fr] gap-3';
 	export let regionPanels = 'page-container';
 
+	// Props (class)
+	let klass = '';
+	export { klass as class };
+
 	// Classes
 	const cBase = '';
 
@@ -107,7 +111,7 @@
 	}
 
 	// Reactive
-	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
+	$: classesBase = `${cBase} ${klass}`;
 	$: classesRegionHeader = `${regionHeader}`;
 	$: classesRegionPanels = `${regionPanels}`;
 </script>

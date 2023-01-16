@@ -20,6 +20,10 @@
 	/** Define the Svelte transition animation duration. */
 	export let duration = 150;
 
+	// Props (class)
+	let klass = '';
+	export { klass as class };
+
 	// Props (backdrop)
 	/** Backdrop - Provide classes to set the backdrop background color */
 	export let bgBackdrop = 'bg-surface-backdrop-token';
@@ -138,7 +142,7 @@
 	// Reactive
 	$: classesWidth = width ? width : styleSettings.width;
 	$: classesHeight = height ? height : styleSettings.height;
-	$: classesBackdrop = `${cBaseBackdrop} ${styleSettings.backdrop} ${bgBackdrop} ${blur} ${$$props.class ?? ''}`;
+	$: classesBackdrop = `${cBaseBackdrop} ${styleSettings.backdrop} ${bgBackdrop} ${blur} ${klass}`;
 	$: classesDrawer = `${cBaseDrawer} ${classesWidth} ${classesHeight} ${bgDrawer} ${border} ${margin} ${rounded}`;
 </script>
 

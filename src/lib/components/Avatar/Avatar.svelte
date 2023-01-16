@@ -13,6 +13,10 @@
 	/** Provide classes to set cursor styles. */
 	export let cursor = '';
 
+	// Props (class)
+	let klass = '';
+	export { klass as class };
+
 	// Props (initials)
 	/** Initials only - Provide up to two text characters. */
 	export let initials = 'AB';
@@ -35,7 +39,7 @@
 	let cImage = 'w-full h-full object-cover';
 
 	// Reactive Classes
-	$: classesBase = `${cBase} ${background} ${width} ${border} ${rounded} ${shadow} ${cursor} ${$$props.class ?? ''}`;
+	$: classesBase = `${cBase} ${background} ${width} ${border} ${rounded} ${shadow} ${cursor} ${klass}`;
 </script>
 
 <figure class="avatar {classesBase}" data-testid="avatar" on:click on:keydown on:keyup on:keypress>

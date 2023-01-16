@@ -29,6 +29,10 @@
 	/** Provide arbitrary classes for the table foot. */
 	export let regionFoot = '';
 
+	// Props (class)
+	let klass = '';
+	export { klass as class };
+
 	// Row Click Handler
 	function onRowClick(event: MouseEvent | KeyboardEvent, rowIndex: number): void {
 		if (!interactive) return;
@@ -46,7 +50,7 @@
 	}
 
 	// Reactive
-	$: classesBase = `${$$props.class || ''}`;
+	$: classesBase = `${klass}`;
 	$: classesTable = `${element} ${text} ${color}`;
 </script>
 

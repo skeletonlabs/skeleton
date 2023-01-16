@@ -12,6 +12,10 @@
 	 */
 	export let value: any = undefined;
 
+	// Props (class)
+	let klass = '';
+	export { klass as class };
+
 	// Props (A11y)
 	/** Defines a semantic ARIA label. */
 	export let label = '';
@@ -43,12 +47,6 @@
 	$: checked = value === $selected;
 	$: classesSelected = checked ? `${accent} ${fill} ${color}` : `${hover}`;
 	$: classesLabel = `${cBase} ${classesSelected} ${padding} ${rounded}`;
-
-	// Prune $$restProps to avoid overwriting $$props.class
-	function prunedRestProps(): any {
-		delete $$restProps.class;
-		return $$restProps;
-	}
 </script>
 
 <div
@@ -56,7 +54,7 @@
 	role="radio"
 	aria-checked={checked}
 	aria-label={label}
-	{...prunedRestProps()}
+	{...$$restProps}
 	tabindex="0"
 	data-testid="radio-item"
 	on:click

@@ -13,6 +13,10 @@
 	/** The open/close animation duration. Set '0' (zero) to disable. */
 	export let duration = 150;
 
+	// Props (class)
+	let klass = '';
+	export { klass as class };
+
 	// Props (modal)
 	/** Provide classes to style the modal background. */
 	export let background = 'bg-surface-100-800-token';
@@ -107,7 +111,7 @@
 	}
 
 	// Reactive
-	$: classesBackdrop = `${cBackdrop} ${regionBackdrop} ${$$props.class || ''}`;
+	$: classesBackdrop = `${cBackdrop} ${regionBackdrop} ${klass}`;
 	$: classesModal = `${cModal} ${background} ${width} ${height} ${padding} ${spacing} ${rounded} ${shadow}`;
 	// IMPORTANT: add values to pass to the children templates.
 	// There is a way to self-reference component values, but it involes svelte-internal and is not yet stable.

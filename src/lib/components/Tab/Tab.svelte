@@ -26,6 +26,10 @@
 	 */
 	export let value: any = $selected.value;
 
+	// Props (class)
+	let klass = '';
+	export { klass as class };
+
 	// A11y
 	/** Defines a semantic label for the tab. */
 	export let label = 'tab';
@@ -55,7 +59,7 @@
 	// Reactive Classes
 	$: isSelected = value == $selected;
 	$: classesSelected = isSelected ? `${borderWidth} ${borderColor} ${color} ${fill}` : `${borderWidth} ${cBorderColor}`;
-	$: classesBase = `${cBase} ${classesSelected} ${hover} ${rounded} ${$$props.class ?? ''}`;
+	$: classesBase = `${cBase} ${classesSelected} ${hover} ${rounded} ${klass}`;
 	$: classesLead = isSelected ? `${fill}` : 'fill-token';
 	$: classesLabel = `${cBaseLabel}`;
 </script>

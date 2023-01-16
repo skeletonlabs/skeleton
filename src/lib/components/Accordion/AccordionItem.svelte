@@ -23,6 +23,10 @@
 	/** Provide arbitrary styles for the summary element region. */
 	export let regionContent = '';
 
+	// Props (class)
+	let klass = '';
+	export { klass as class };
+
 	// Context
 	/** Provide classes to set the hover background color. */
 	export let hover: string = getContext('hover');
@@ -39,7 +43,7 @@
 	const cBaseIcon = 'flex justify-center items-center w-3 fill-black dark:fill-white transition-all duration-[100ms]';
 
 	// Reactive Classes
-	$: classesDetails = `${cBaseDetails} ${spacing} ${$$props.class ?? ''}`;
+	$: classesDetails = `${cBaseDetails} ${spacing} ${klass}`;
 	$: classesSummary = `${cBaseSummary} ${padding} ${rounded} ${hover} ${regionSummary}`;
 	$: classesIconState = open ? '-rotate-180' : '';
 	$: classesIcon = `${cBaseIcon} ${classesIconState}`;

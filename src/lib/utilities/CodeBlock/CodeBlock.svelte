@@ -25,6 +25,10 @@
 	/** Provided classes to set the button styles. */
 	export let buttonCopy = 'bg-white/5 hover:bg-white/10';
 
+	// Props (class)
+	let klass = '';
+	export { klass as class };
+
 	// Base Classes
 	const cBase = 'overflow-hidden shadow';
 	const cHeader = 'text-xs uppercase flex justify-between items-center p-2 pl-4';
@@ -57,7 +61,7 @@
 	}
 
 	// Reactive
-	$: classesBase = `${cBase} ${background} ${text} ${color} ${rounded} ${$$props.class ?? ''}`;
+	$: classesBase = `${cBase} ${background} ${text} ${color} ${rounded} ${klass}`;
 </script>
 
 <!-- prettier-ignore -->

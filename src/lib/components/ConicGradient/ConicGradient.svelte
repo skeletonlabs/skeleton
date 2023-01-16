@@ -17,6 +17,10 @@
 	/** Provided classes to style the legend hover effect. */
 	export let hover = 'bg-primary-hover-token';
 
+	// Props (class)
+	let klass = '';
+	export { klass as class };
+
 	// Local
 	let cone: string;
 	let generatedLegendList: any[];
@@ -60,7 +64,7 @@
 	genLegend();
 
 	// Reactive
-	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
+	$: classesBase = `${cBase} ${klass}`;
 	$: classesCone = `${cCone} ${width}`;
 </script>
 

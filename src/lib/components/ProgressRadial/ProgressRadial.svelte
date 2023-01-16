@@ -19,6 +19,10 @@
 	/** Sets the base font size. Scales responsively. */
 	export let font = 56; // px
 
+	// Props (class)
+	let klass = '';
+	export { klass as class };
+
 	// Props (a11y)
 	/** A semantic ARIA label. */
 	export let label = '';
@@ -50,7 +54,7 @@
 	});
 
 	// Reactive
-	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
+	$: classesBase = `${cBase} ${klass}`;
 </script>
 
 <!-- https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/text-anchor -->

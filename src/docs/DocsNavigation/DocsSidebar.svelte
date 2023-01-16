@@ -14,6 +14,10 @@
 	// Props
 	export let embedded = false;
 
+	// Props (class)
+	let klass = '';
+	export { klass as class };
+
 	// Local
 	const storeCategory: Writable<string> = writable('guides'); // guides | docs | tailwind | svelte | utilities
 	let filteredMenuNavLinks: any[] = menuNavLinks;
@@ -51,7 +55,7 @@
 	$: classesActive = (href: string) => ($storeCurrentUrl?.includes(href) ? 'bg-primary-active-token' : '');
 </script>
 
-<div class="grid grid-cols-[auto_1fr] h-full border-r border-black/5 dark:border-white/5 backdrop-blur {$$props.class ?? ''}">
+<div class="grid grid-cols-[auto_1fr] h-full border-r border-black/5 dark:border-white/5 backdrop-blur {klass}">
 	<!-- App Rail -->
 	<AppRail selected={storeCategory} background="bg-white/30 dark:bg-black/30">
 		<AppRailTile label="Docs" value={'docs'}>

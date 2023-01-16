@@ -2,6 +2,10 @@
 <script lang="ts">
 	import { createEventDispatcher, onMount } from 'svelte';
 
+	// Props
+	let klass = '';
+	export { klass as class };
+
 	// Event Handler
 	const dispatch = createEventDispatcher();
 
@@ -78,7 +82,7 @@
 
 	// Reactive Classses
 	$: classesPosition = $storeLightSwitch ? 'translate-x-full' : 'translate-x-0';
-	$: classesBase = `${cTrack} ${$$props.class ?? ''}`;
+	$: classesBase = `${cTrack} ${klass}`;
 	$: classesThumb = `${cThumb} ${classesPosition}`;
 </script>
 

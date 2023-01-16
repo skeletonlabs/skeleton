@@ -17,6 +17,10 @@
 	/** Provide classes to set horizontal spacing. */
 	export let space = 'space-x-4';
 
+	// Props (class)
+	let klass = '';
+	export { klass as class };
+
 	// Props (regions)
 	/** Classes to apply to the lead slot container element */
 	export let slotLead = '';
@@ -38,7 +42,7 @@
 	const cTrail = 'flex-none flex items-center space-x-4';
 
 	// Reactive Classes
-	$: classesBase = `${cBase} ${background} ${border} ${padding} ${shadow} ${space} ${$$props.class ?? ''}`;
+	$: classesBase = `${cBase} ${background} ${border} ${padding} ${shadow} ${space} ${klass}`;
 	$: classesLead = `${cLead} ${slotLead}`;
 	$: classesCenter = `${cCenter} ${slotDefault}`;
 	$: classesTrail = `${cTrail} ${slotTrail}`;

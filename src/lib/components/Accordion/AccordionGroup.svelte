@@ -15,6 +15,10 @@
 	/** Provide classes to set summary border radius. */
 	export let rounded = 'rounded-token';
 
+	// Props (class)
+	let klass = '';
+	export { klass as class };
+
 	// Context
 	setContext('hover', hover);
 	setContext('spacing', spacing);
@@ -43,7 +47,7 @@
 	});
 
 	// Reactive
-	$: classesBase = `${cBase} ${spacing} ${$$props.class ?? ''}`;
+	$: classesBase = `${cBase} ${spacing} ${klass}`;
 </script>
 
 <!-- @component The Accordion parent element. -->

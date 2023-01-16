@@ -29,6 +29,10 @@
 	/** Provide classes to set the border radius. */
 	export let rounded = 'rounded-token';
 
+	// Props (class)
+	let klass = '';
+	export { klass as class };
+
 	// Props (a11y)
 	/** Defines a semantic ARIA label. */
 	export let label = 'radiogroup';
@@ -46,7 +50,7 @@
 	let cBaseGroup = `items-center p-1 overflow-hidden space-x-1 rounded-token`;
 
 	// Reactive
-	$: classesGroup = `${cBaseGroup} ${display} ${background} ${borderColor} ${borderWidth} ${rounded} ${$$props.class ?? ''}`;
+	$: classesGroup = `${cBaseGroup} ${display} ${background} ${borderColor} ${borderWidth} ${rounded} ${klass}`;
 </script>
 
 <div class="radio-group {classesGroup}" data-testid="radio-group" role="radiogroup" aria-label={label}>

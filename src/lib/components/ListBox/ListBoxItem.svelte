@@ -12,6 +12,10 @@
 	/** Define a unique and semantic identifier for the item. */
 	export let id = '';
 
+	// Props (class)
+	let klass = '';
+	export { klass as class };
+
 	// Event Handler
 	const dispatch = createEventDispatcher();
 
@@ -73,7 +77,7 @@
 	};
 	$: isSelected = selectionMatch() ? true : false;
 	$: classesHighlight = isSelected ? `${accent}` : `${hover}`;
-	$: classesBase = `${cBase} ${padding} ${rounded} ${classesHighlight} ${$$props.class ?? ''}`;
+	$: classesBase = `${cBase} ${padding} ${rounded} ${classesHighlight} ${klass}`;
 </script>
 
 <!-- prettier-ignore -->

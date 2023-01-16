@@ -26,6 +26,10 @@
 	/** Provide styles to set the dropzone text color. */
 	export let color = '';
 
+	// Props (class)
+	let klass = '';
+	export { klass as class };
+
 	// Classes
 	const cBase = 'relative';
 	const cMessage =
@@ -54,15 +58,9 @@
 	}
 
 	// Reactive
-	$: classesBase = `${cBase} ${width} ${$$props.class ?? ''}`;
+	$: classesBase = `${cBase} ${width} ${klass}`;
 	$: classesMessage = `${cMessage} ${color} ${height} ${padding}`;
 	$: classesInput = `${cInput} ${height} ${padding}`;
-
-	// Prune $$restProps to avoid overwriting $$props.class
-	function prunedRestProps(): any {
-		delete $$restProps.class;
-		return $$restProps;
-	}
 </script>
 
 <div
@@ -94,7 +92,7 @@
 		</slot>
 	</div>
 	<!-- Input: File -->
-	<input bind:files type="file" {...prunedRestProps()} class="file-dropzone-input {classesInput}" on:change />
+	<input bind:files type="file" {...$$restProps} class="file-dropzone-input {classesInput}" on:change />
 </div>
 
 <style lang="postcss">

@@ -37,6 +37,10 @@
 	 */
 	export let labelId: string = label?.toLowerCase().replace(' ', '-'); //AUDIT this doesn't seem to be consistently applied across Skeleton
 
+	// Props (class)
+	let klass = '';
+	export { klass as class };
+
 	// Context
 	setContext('selected', selected);
 	setContext('accent', accent);
@@ -50,7 +54,7 @@
 	const cListBox = 'list-none overflow-y-auto';
 
 	// Reactive
-	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
+	$: classesBase = `${cBase} ${klass}`;
 	$: classesLabel = `${cLabel}`;
 	$: classesListBox = `${cListBox} ${height} ${space}`;
 </script>

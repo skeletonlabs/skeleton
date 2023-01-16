@@ -34,6 +34,10 @@
 	/** Provide arbitrary classes to the trail region. */
 	export let regionTrail = '';
 
+	// Props (class)
+	let klass = '';
+	export { klass as class };
+
 	// Context
 	setContext('selected', selected);
 	setContext('active', active);
@@ -43,7 +47,7 @@
 	const cBase = 'grid grid-rows-[auto_1fr_auto] overflow-y-auto';
 
 	// Reactive
-	$: classesBase = `${cBase} ${background} ${width} ${height} ${gap} ${$$props.class || ''}`;
+	$: classesBase = `${cBase} ${background} ${width} ${height} ${gap} ${klass}`;
 </script>
 
 <!-- @component A side navigation rail component. -->

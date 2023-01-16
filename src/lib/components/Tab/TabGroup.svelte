@@ -25,6 +25,10 @@
 	/** Provide classes to set the tab border radius styles. */
 	export let rounded = 'rounded-tl-container-token rounded-tr-container-token';
 
+	// Props (class)
+	let klass = '';
+	export { klass as class };
+
 	// A11y
 	/** Provide the ID of the element that describes the group. */
 	export let labeledby = '';
@@ -60,7 +64,7 @@
 
 	// Reactive Classes
 	$: classesRail = rail ? borderWidth : 'border-0';
-	$: classesGroup = `${cBase} ${classesRail} ${justify} ${$$props.class ?? ''}`;
+	$: classesGroup = `${cBase} ${classesRail} ${justify} ${klass}`;
 </script>
 
 <!-- prettier-ignore -->

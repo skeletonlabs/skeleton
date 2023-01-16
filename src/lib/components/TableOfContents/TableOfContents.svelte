@@ -25,6 +25,10 @@
 	/** Set the row border radius styles. */
 	export let rounded: string = 'rounded-token';
 
+	// Props (class)
+	let klass = '';
+	export { klass as class };
+
 	// Props Regions
 	/** Provide arbitrary styles for the label element. */
 	export let regionLabel: string = 'font-bold';
@@ -113,7 +117,7 @@
 	});
 
 	// Reactive
-	$: classesBase = `${width} ${spacing} ${$$props.class ?? ''}`;
+	$: classesBase = `${width} ${spacing} ${klass}`;
 	$: classesLabel = `${cLabel} ${regionLabel}`;
 	$: classesList = `${regionList}`;
 	$: classesListItem = `${cListItem} ${text} ${hover} ${rounded}`;

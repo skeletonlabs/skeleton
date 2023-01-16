@@ -30,6 +30,10 @@
 	/** Provide classes to set the border box shadow. */
 	export let shadow = 'shadow-lg';
 
+	// Props (class)
+	let klass = '';
+	export { klass as class };
+
 	// Props (buttons)
 	/** Provide action button styles. */
 	export let buttonAction = 'btn-filled';
@@ -67,7 +71,7 @@
 	}
 
 	// Reactive
-	$: classesWrapper = `${cWrapper} ${cPosition} ${$$props.class || ''}`;
+	$: classesWrapper = `${cWrapper} ${cPosition} ${klass}`;
 	$: classesSnackbar = `${cSnackbar} ${cAlign} ${padding}`;
 	$: classesBase = `${cToast} ${background} ${width} ${color} ${padding} ${spacing} ${rounded} ${shadow}`;
 </script>

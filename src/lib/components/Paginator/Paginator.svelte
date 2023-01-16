@@ -32,6 +32,10 @@
 	/** Set the text label for the Next button. */
 	export let buttonTextNext = '&rarr;';
 
+	// Props (class)
+	let klass = '';
+	export { klass as class };
+
 	// Base Classes
 	const cBase = 'flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4';
 	const cLabel = 'w-full md:w-auto';
@@ -54,7 +58,7 @@
 	}
 
 	// Reactive Classes
-	$: classesBase = `${cBase} ${justify} ${$$props.class ?? ''}`;
+	$: classesBase = `${cBase} ${justify} ${klass}`;
 	$: classesLabel = `${cLabel}`;
 	$: classesSelect = `${select}`;
 	$: classesPageText = `${cPageText} ${text}`;

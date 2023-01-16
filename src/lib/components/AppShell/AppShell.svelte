@@ -24,6 +24,10 @@
 	/** Classes to apply to the <code>footer</code> slot container element */
 	export let slotFooter = '';
 
+	// Props (class)
+	let klass = '';
+	export { klass as class };
+
 	// Base Classes
 	const cBaseAppShell = 'w-full h-full flex flex-col overflow-hidden';
 	const cContentArea = 'w-full h-full flex overflow-hidden';
@@ -32,7 +36,7 @@
 	const cSidebarRight = 'flex-none overflow-x-hidden overflow-y-auto';
 
 	// Reactive Classes
-	$: classesBase = `${cBaseAppShell} ${$$props.class ?? ''}`;
+	$: classesBase = `${cBaseAppShell} ${klass}`;
 	$: classesheader = `${slotHeader}`;
 	$: classesSidebarLeft = `${cSidebarLeft} ${slotSidebarLeft}`;
 	$: classesSidebarRight = `${cSidebarRight} ${slotSidebarRight}`;

@@ -22,6 +22,10 @@
 	/** Provide abitrary classes to style the label region. */
 	export let regionLabel = '';
 
+	// Props (class)
+	let klass = '';
+	export { klass as class };
+
 	// Context
 	export let selected: Writable<any> = getContext('selected');
 	export let active: Writable<any> = getContext('active');
@@ -41,14 +45,8 @@
 
 	// Reactive
 	$: classesActive = $selected && value && $selected === value ? `${active}` : '';
-	$: classesBase = `${cBase} ${hover} ${classesActive} ${$$props.class || ''}`;
+	$: classesBase = `${cBase} ${hover} ${classesActive} ${klass}`;
 	$: classesLabel = `${cLabel} ${regionLabel}`;
-
-	// RestProps
-	function prunedRestProps(): any {
-		delete $$restProps.class;
-		return $$restProps;
-	}
 </script>
 
 <!-- @component A navigation tile for the App Rail. -->
@@ -57,7 +55,7 @@
 <!-- https://github.com/skeletonlabs/skeleton/issues/727#issuecomment-1356859261 -->
 <div on:click={onClickHandler} on:keydown on:keyup on:keypress>
 	<!-- NOTE: do not add event forwarding to <svelte:element> tags. See issue above. -->
-	<svelte:element this={tag} {...prunedRestProps()} class="app-rail-tile {classesBase}">
+	<svelte:element this={tag} {...$$restProps} class="app-rail-tile {classesBase}">
 		<!-- Slot: Default (icon) -->
 		<div class="app-rail-tile-icon {regionIcon}"><slot /></div>
 		<!-- Label -->

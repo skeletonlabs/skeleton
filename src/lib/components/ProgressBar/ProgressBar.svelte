@@ -16,6 +16,10 @@
 	/** Provide classes to set rounded styles. */
 	export let rounded = 'rounded-token';
 
+	// Props (class)
+	let klass = '';
+	export { klass as class };
+
 	// Props (elements)
 	/** Provide arbitrary classes to style the meter element. */
 	export let meter = 'bg-secondary-500';
@@ -33,7 +37,7 @@
 	$: fillPercent = value ? (100 * (value - min)) / (max - min) : 0;
 
 	// Reactive Classes
-	$: classesTrack = `${cBaseTrack} ${height} ${rounded} ${track} ${$$props.class ?? ''}`;
+	$: classesTrack = `${cBaseTrack} ${height} ${rounded} ${track} ${klass}`;
 	$: classesMeter = `${rounded} ${meter}`;
 </script>
 

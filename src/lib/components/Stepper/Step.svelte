@@ -15,6 +15,10 @@
 	/** When enabled, a lock icon appears and Next button is disabled, preventing progress. */
 	export let locked = false;
 
+	// Props (class)
+	let klass = '';
+	export { klass as class };
+
 	// Base Classes
 	const cBase = 'grid grid-cols-[32px_1fr] gap-4';
 	const cLine = 'w-1 h-full';
@@ -68,7 +72,7 @@
 	$: classCursor = isClickable ? 'cursor-pointer' : 'cursor-default';
 	$: btnTabindex = isClickable ? 0 : -1;
 	// Base
-	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
+	$: classesBase = `${cBase} ${klass}`;
 	// Timeline (line)
 	$: classesLineBackgroundColor = index < $active ? `${background}` : `${cLineBackground}`;
 	$: classesLineBackground = !isLastItem ? `${classesLineBackgroundColor}` : '';

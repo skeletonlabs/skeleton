@@ -20,6 +20,10 @@
 	/** Provide classes to set border radius styles. */
 	export let rounded = 'rounded-full';
 
+	// Props (class)
+	let klass = '';
+	export { klass as class };
+
 	// A11y
 	/** Provide a semantic label. */
 	export let label = '';
@@ -58,15 +62,9 @@
 	// Reactive Classes
 	$: classesDisabled = $$props.disabled === true ? 'opacity-50' : 'hover:brightness-[105%] dark:hover:brightness-110 cursor-pointer';
 	$: classesBase = `${cBase} ${classesDisabled}`;
-	$: classesLabel = `${cLabel} ${$$props.class ?? ''}`;
+	$: classesLabel = `${cLabel} ${klass}`;
 	$: classesTrack = `${cTrack} ${borderWidth} ${borderColor} ${rounded} ${trackSize} ${cTrackAccent}`;
 	$: classesThumb = `${cThumb} ${rounded} ${cThumbBackground} ${cThumbPos}`;
-
-	// Prune $$restProps to avoid overwriting $$props.class
-	function prunedRestProps(): any {
-		delete $$restProps.class;
-		return $$restProps;
-	}
 </script>
 
 <div
@@ -93,7 +91,7 @@
 			on:change
 			on:focus
 			on:blur
-			{...prunedRestProps()}
+			{...$$restProps}
 			disabled={$$props.disabled}
 		/>
 		<!-- Slider Track/Thumb -->

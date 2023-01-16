@@ -19,6 +19,10 @@
 	/** Allow click navigation to any visited steps. */
 	export let clickNavigation: boolean = false;
 
+	// Props (class)
+	let klass = '';
+	export { klass as class };
+
 	// Props (timeline)
 	/** Provide classes to set the numeral text color. */
 	export let color = 'text-white';
@@ -63,7 +67,7 @@
 	setContext('duration', duration);
 
 	// Reactive Classes
-	$: classesStepper = `${$$props.class ?? ''}`;
+	$: classesStepper = `${klass}`;
 </script>
 
 <div class="stepper {classesStepper}" data-testid="stepper">

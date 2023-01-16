@@ -21,6 +21,10 @@
 	/** Provide classes to set the height color.*/
 	export let height = 'h-5';
 
+	// Props (class)
+	let klass = '';
+	export { klass as class };
+
 	// A11y
 	/** Set the title element value embedded within the SVG.*/
 	export let title = '';
@@ -37,7 +41,7 @@
     xmlns="http://www.w3.org/2000/svg"
     {x} {y}
     {viewBox}
-    class="svg-icon {classesBase} {$$props.class ?? ''}"
+    class="svg-icon {classesBase} {klass}"
     focusable="false"
 	data-testid="svg-icon"
 >
