@@ -10,7 +10,8 @@
 	// DISPATCHED: document directly above the definition, like props (ex: paginator)
 
 	import { getContext } from 'svelte';
-
+	import type { CSS } from '$lib';
+	
 	// Props
 	/** Defines the default open state on page load .*/
 	export let open = false;

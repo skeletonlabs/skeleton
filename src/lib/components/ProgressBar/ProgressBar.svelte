@@ -1,4 +1,6 @@
 <script lang="ts">
+	import type { CSS } from '$lib';
+
 	// Props
 	/** Set the label text. */
 	export let label = '';
@@ -12,15 +14,15 @@
 	/** Maximum amount the bar represents. */
 	export let max = 100;
 	/** Provide classes to set track height. */
-	export let height = 'h-2';
+	export let height:CSS = 'h-2';
 	/** Provide classes to set rounded styles. */
-	export let rounded = 'rounded-token';
+	export let rounded:CSS = 'rounded-token';
 
 	// Props (elements)
 	/** Provide arbitrary classes to style the meter element. */
-	export let meter = 'bg-secondary-500';
+	export let meter:CSS = 'bg-secondary-500';
 	/** Provide arbitrary classes to style the track element. */
-	export let track = 'bg-surface-200-700-token';
+	export let track:CSS = 'bg-surface-200-700-token';
 
 	// Base Classes
 	const cBase = 'w-full';

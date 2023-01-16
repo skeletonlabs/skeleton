@@ -3,6 +3,7 @@
 
 	import type { TableSource } from '$lib/components/Table/types';
 	import { tableA11y } from '$lib/utilities/DataTable/DataTable';
+	import type { CSS } from '$lib';
 
 	const dispatch = createEventDispatcher();
 
@@ -21,13 +22,13 @@
 	/** Provide classes to set the table text size. */
 	export let text = '';
 	/** Provide classes to set the table text color. */
-	export let color = '';
+	export let color:CSS = '';
 	/** Provide arbitrary classes for the table head. */
-	export let regionHead = '';
+	export let regionHead:CSS = '';
 	/** Provide arbitrary classes for the table body. */
-	export let regionBody = '';
+	export let regionBody:CSS = '';
 	/** Provide arbitrary classes for the table foot. */
-	export let regionFoot = '';
+	export let regionFoot:CSS = '';
 
 	// Row Click Handler
 	function onRowClick(event: MouseEvent | KeyboardEvent, rowIndex: number): void {

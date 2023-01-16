@@ -1,23 +1,25 @@
 <script lang="ts">
+	import type { CSS } from '$lib';
+
 	// Props
 	/** Provide classes to set background styles. */
-	export let background = 'bg-surface-400-500-token';
+	export let background:CSS = 'bg-surface-400-500-token';
 	/** Provide classes to set avatar width. */
-	export let width = 'w-12';
+	export let width:CSS = 'w-12';
 	/** Provide classes to set border styles. */
-	export let border = '';
+	export let border:CSS = '';
 	/** Provide classes to set rounded style. */
-	export let rounded = 'rounded-full';
+	export let rounded:CSS = 'rounded-full';
 	/** Provide classes to set shadow styles. */
-	export let shadow = '';
+	export let shadow:CSS = '';
 	/** Provide classes to set cursor styles. */
-	export let cursor = '';
+	export let cursor:CSS = '';
 
 	// Props (initials)
 	/** Initials only - Provide up to two text characters. */
 	export let initials = 'AB';
 	/** Initials only - Provide classes to set the SVG text fill color. */
-	export let fill = 'fill-token';
+	export let fill:CSS = 'fill-token';
 
 	// Props (actions)
 	/** Provide the avatar image element source. */

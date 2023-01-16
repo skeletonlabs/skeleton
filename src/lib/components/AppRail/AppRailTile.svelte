@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { createEventDispatcher, getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
+	import type { CSS } from '$lib';
 
 	// Event Handler
 	const dispatch = createEventDispatcher<{ click: MouseEvent }>();
@@ -18,9 +19,9 @@
 
 	// Props (region)
 	/** Provide abitrary classes to style the icon region. */
-	export let regionIcon = '';
+	export let regionIcon:CSS = '';
 	/** Provide abitrary classes to style the label region. */
-	export let regionLabel = '';
+	export let regionLabel:CSS = '';
 
 	// Context
 	export let selected: Writable<any> = getContext('selected');

@@ -1,11 +1,12 @@
 <script lang="ts">
+	import type { CSS } from '$lib';
 	/**
 	 * Bind your file data for the file input.
 	 * @type {FileList}
 	 */
 	export let files: FileList;
 	/** Provide a button variant or other class styles. */
-	export let button = 'btn-filled-secondary';
+	export let button:CSS = 'btn-filled-secondary';
 
 	let elemFileInput: HTMLElement;
 

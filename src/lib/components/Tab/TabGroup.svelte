@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Writable } from 'svelte/store';
 	import { setContext } from 'svelte';
+	import type { CSS } from '$lib';
 
 	// Props
 	/**
@@ -11,19 +12,19 @@
 	/** Toggle display of the bottom border, below the tabs. */
 	export let rail = true;
 	/** Provide classes to set the flex justification. 'justify-start' is best for small screens. */
-	export let justify = 'justify-start';
+	export let justify:CSS = 'justify-start';
 	/** Provide classes to set the selected border size. Shared between group and tab. */
-	export let borderWidth = 'border-b-2';
+	export let borderWidth:CSS = 'border-b-2';
 	/** Provide classes to set the selected border color. */
-	export let borderColor = 'border-primary-500';
+	export let borderColor:CSS = 'border-primary-500';
 	/** Provide class to set the selected text color. */
-	export let color = 'text-primary-500';
+	export let color:CSS = 'text-primary-500';
 	/** Provide classes to set the selected SVG fill color. */
-	export let fill = 'fill-primary-500';
+	export let fill:CSS = 'fill-primary-500';
 	/** Provide classes to set the unselected hover styles. */
-	export let hover = 'bg-primary-hover-token';
+	export let hover:CSS = 'bg-primary-hover-token';
 	/** Provide classes to set the tab border radius styles. */
-	export let rounded = 'rounded-tl-container-token rounded-tr-container-token';
+	export let rounded:CSS = 'rounded-tl-container-token rounded-tr-container-token';
 
 	// A11y
 	/** Provide the ID of the element that describes the group. */

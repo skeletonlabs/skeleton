@@ -7,6 +7,7 @@
 
 	import { setContext } from 'svelte';
 	import { writable, type Writable } from 'svelte/store';
+	import type { CSS } from '$lib';
 
 	// Props
 	/** Provide a writable store to maintain navigation selection.
@@ -14,17 +15,17 @@
 	 */
 	export let selected: Writable<any> = writable(undefined);
 	/** Provide classes to set the background color. */
-	export let background = 'bg-surface-100-800-token';
+	export let background:CSS = 'bg-surface-100-800-token';
 	/** Provide classes to set the tile active tile background. */
-	export let active = 'bg-primary-active-token';
+	export let active:CSS = 'bg-primary-active-token';
 	/** Provide classes to set the tile hover background color. */
-	export let hover = 'bg-primary-hover-token';
+	export let hover:CSS = 'bg-primary-hover-token';
 	/** Provide classes to set the width. */
-	export let width = 'w-[70px] sm:w-20';
+	export let width:CSS = 'w-[70px] sm:w-20';
 	/** Provide classes to set the height. */
-	export let height = 'h-full';
+	export let height:CSS = 'h-full';
 	/** Provide a class to set the grid gap. */
-	export let gap = 'gap-0';
+	export let gap:CSS = 'gap-0';
 
 	// Props (regions)
 	/** Provide arbitrary classes to the lead region. */

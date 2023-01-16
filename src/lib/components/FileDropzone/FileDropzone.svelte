@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte/internal';
+	import type { CSS } from '$lib';
 
 	// Event Dispatcher
 	const dispatch = createEventDispatcher();
@@ -18,13 +19,13 @@
 	export let notes = '';
 	// Props (Styles)
 	/** Provide styles to set the dropzone width. */
-	export let width = 'w-full';
+	export let width:CSS = 'w-full';
 	/** Provide styles to set the dropzone height. */
-	export let height = 'h-24';
+	export let height:CSS = 'h-24';
 	/** Provide styles to set the dropzone padding. */
-	export let padding = 'p-4';
+	export let padding:CSS = 'p-4';
 	/** Provide styles to set the dropzone text color. */
-	export let color = '';
+	export let color:CSS = '';
 
 	// Classes
 	const cBase = 'relative';

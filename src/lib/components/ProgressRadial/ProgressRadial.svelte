@@ -1,6 +1,7 @@
 <!-- https://css-tricks.com/building-progress-ring-quickly/ -->
 <script lang="ts">
 	import { afterUpdate } from 'svelte';
+	import type { CSS } from '$lib';
 
 	// Props
 	/**
@@ -11,11 +12,11 @@
 	/** Sets the base stroke width. Scales responsively. */
 	export let stroke = 20; // px
 	/** Provide classes to set meter color. */
-	export let meter = 'stroke-secondary-500';
+	export let meter:CSS = 'stroke-secondary-500';
 	/** Provide classes to set track color. */
-	export let track = 'stroke-surface-200 dark:stroke-surface-700';
+	export let track:CSS = 'stroke-surface-200 dark:stroke-surface-700';
 	/** Provide classes to set the SVG text fill color. */
-	export let fill = 'fill-token';
+	export let fill:CSS = 'fill-token';
 	/** Sets the base font size. Scales responsively. */
 	export let font = 56; // px
 

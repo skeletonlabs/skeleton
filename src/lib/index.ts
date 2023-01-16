@@ -7,6 +7,9 @@ export type { DrawerSettings } from './utilities/Drawer/types';
 export type { ModalSettings, ModalComponent } from './utilities/Modal/types';
 export type { ToastSettings } from './utilities/Toast/types';
 export type { TableSource } from './components/Table/types';
+//Type alias so that we can extract props that are meant for CSS classes for the VSCode extension
+export type CSS = string;
+
 
 // Stores ---
 

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { createEventDispatcher, setContext } from 'svelte';
 	import { writable, type Writable } from 'svelte/store';
+	import type { CSS } from '$lib';
 
 	// Event Dispacher
 	const dispatch = createEventDispatcher();
@@ -15,23 +16,23 @@
 	/** Set the Svelte transition duration. */
 	export let duration: number = 200;
 	/** Provide classes to set rounded style of the step index numbers. */
-	export let rounded: string = 'rounded-token';
+	export let rounded:CSS = 'rounded-token';
 	/** Allow click navigation to any visited steps. */
 	export let clickNavigation: boolean = false;
 
 	// Props (timeline)
 	/** Provide classes to set the numeral text color. */
-	export let color = 'text-white';
+	export let color:CSS = 'text-white';
 	/** Provide classes to set the timeline background color. */
-	export let background = 'bg-secondary-500';
+	export let background:CSS = 'bg-secondary-500';
 
 	// Props (buttons)
 	/** Provide artibtary classes for the Back button. */
-	export let buttonClassesBack = 'btn-icon btn-ghost-surface';
+	export let buttonClassesBack:CSS = 'btn-icon btn-ghost-surface';
 	/** Provide artibtary classes for the Next button. */
-	export let buttonClassesNext = 'btn btn-filled-surface';
+	export let buttonClassesNext:CSS = 'btn btn-filled-surface';
 	/** Provide artibtary classes for the Complete button. */
-	export let buttonClassesComplete = 'btn btn-filled-primary';
+	export let buttonClassesComplete:CSS = 'btn btn-filled-primary';
 	/** Provide a text label for the Back button. */
 	export let buttonTextBack = '&uarr;';
 	/** Provide a text label for the Next button. */

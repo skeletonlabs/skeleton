@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte/internal';
+	import type { CSS } from '$lib';
 
 	// Event Dispatcher
 	const dispatch = createEventDispatcher();
@@ -26,15 +27,15 @@
 
 	// Props (styles)
 	/** Provide chip styles. */
-	export let chip: string = `chip-primary`;
+	export let chip:CSS = `chip-primary`;
 	/** Provide chip hover styles. */
-	export let hover: string = 'hover:chip-error';
+	export let hover:CSS = 'hover:chip-error';
 	/** Set the input padding styles. */
-	export let padding: string = 'p-3';
+	export let padding:CSS = 'p-3';
 	/** Set the input border radius styles. */
-	export let rounded: string = 'rounded-container-token';
+	export let rounded:CSS = 'rounded-container-token';
 	/** Set the input focus ring styles. */
-	export let ring: string = 'focus:ring-transparent';
+	export let ring:CSS = 'focus:ring-transparent';
 
 	// Local
 	let inputValue: string = '';

@@ -2,6 +2,7 @@
 	import { createEventDispatcher } from 'svelte';
 
 	import type { PaginationSettings } from '$lib/components/Paginator/types';
+	import type { CSS } from '$lib';
 
 	const dispatch = createEventDispatcher();
 
@@ -14,9 +15,9 @@
 
 	// Props (design)
 	/** Provide classes to set flexbox justification. */
-	export let justify = 'justify-between';
+	export let justify:CSS = 'justify-between';
 	/** Provide classes to style page info text. */
-	export let text = 'text-xs';
+	export let text:CSS = 'text-xs';
 	/** Provide arbitrary classes to style the select input. */
 	export let select: string | undefined = undefined;
 	/** Sets selection and buttons to disabled state on-demand. */
@@ -26,7 +27,7 @@
 	/** Set the text for the amount selection input. */
 	export let amountText = 'Items';
 	/** Provide abtitrary classes to the next/previous buttons. */
-	export let buttonClasses = 'btn-icon btn-filled';
+	export let buttonClasses:CSS = 'btn-icon btn-filled';
 	/** Set the text label for the Previous button. */
 	export let buttonTextPrevious = '&larr;';
 	/** Set the text label for the Next button. */

@@ -7,22 +7,23 @@
 	 * @slot pageFooter - Insert content that resides below your page content. Recommended for most layouts.
 	 * @slot footer - Insert fixed footer content. Not recommended for most layouts.
 	 */
+	import type { CSS } from '$lib';
 
 	// Props (regions)
 	/** Classes to apply to the <code>header</code> slot container element */
-	export let slotHeader = 'z-10';
+	export let slotHeader:CSS = 'z-10';
 	/** Classes to apply to the <code>sidebarLeft</code> slot container element */
-	export let slotSidebarLeft = 'w-auto';
+	export let slotSidebarLeft:CSS = 'w-auto';
 	/** Classes to apply to the <code>sidebarRight</code> slot container element */
-	export let slotSidebarRight = 'w-auto';
+	export let slotSidebarRight:CSS = 'w-auto';
 	/** Classes to apply to the <code>pageHeader</code> slot container element */
-	export let slotPageHeader = '';
+	export let slotPageHeader:CSS = '';
 	/** Classes to apply to the <code>pageContent</code> slot container element */
-	export let slotPageContent = '';
+	export let slotPageContent:CSS = '';
 	/** Classes to apply to the <code>pageFooter</code> slot container element */
-	export let slotPageFooter = '';
+	export let slotPageFooter:CSS = '';
 	/** Classes to apply to the <code>footer</code> slot container element */
-	export let slotFooter = '';
+	export let slotFooter:CSS = '';
 
 	// Base Classes
 	const cBaseAppShell = 'w-full h-full flex flex-col overflow-hidden';

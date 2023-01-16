@@ -3,17 +3,18 @@
 	// NOTE: we cannot describe the default slot.
 
 	import { onMount, setContext } from 'svelte';
-
+	import type {CSS} from '$lib';
+	
 	/** Enable auto-collapse mode. */
 	export let collapse = true;
 	/** Provide classes to set the hover background color. */
-	export let hover = 'bg-primary-hover-token';
+	export let hover:CSS = 'bg-primary-hover-token';
 	/** Provide classes to set vertical spacing. */
-	export let spacing = 'space-y-4';
+	export let spacing:CSS = 'space-y-4';
 	/** Provide classes to set padding for summary and content regions. */
-	export let padding = 'px-4 py-2';
+	export let padding:CSS = 'px-4 py-2';
 	/** Provide classes to set summary border radius. */
-	export let rounded = 'rounded-token';
+	export let rounded:CSS = 'rounded-token';
 
 	// Context
 	setContext('hover', hover);

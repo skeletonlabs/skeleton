@@ -3,6 +3,8 @@
 </script>
 
 <script lang="ts">
+	import type { CSS } from '$lib';
+
 	// Props
 	/** Pass canned svg name. Slot value overrides this.*/
 	export let name = 'placeholder';
@@ -15,11 +17,11 @@
 
 	// Props (Styles)
 	/** Provide classes to set the SVG fill color.*/
-	export let fill = 'fill-current';
+	export let fill:CSS = 'fill-current';
 	/** Provide classes to set the width color.*/
-	export let width = 'w-5';
+	export let width:CSS = 'w-5';
 	/** Provide classes to set the height color.*/
-	export let height = 'h-5';
+	export let height:CSS = 'h-5';
 
 	// A11y
 	/** Set the title element value embedded within the SVG.*/

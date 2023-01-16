@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte/internal';
+	import type { CSS } from '$lib';
 
 	// Event Handler
 	const dispatch = createEventDispatcher();
@@ -10,15 +11,15 @@
 	/** Sets the size of the component.
 	 * @type {'sm' | 'md' | 'lg'}
 	 */
-	export let size = 'md';
+	export let size:CSS = 'md';
 	/** Provide classes to set the checked state color. */
-	export let accent = 'bg-secondary-500';
+	export let accent:CSS = 'bg-secondary-500';
 	/** Provide classes to set the border width styles. */
-	export let borderWidth = 'border-0';
+	export let borderWidth:CSS = 'border-0';
 	/** Provide classes to set the border color styles. */
-	export let borderColor = 'border-surface-300-600-token';
+	export let borderColor:CSS = 'border-surface-300-600-token';
 	/** Provide classes to set border radius styles. */
-	export let rounded = 'rounded-full';
+	export let rounded:CSS = 'rounded-full';
 
 	// A11y
 	/** Provide a semantic label. */

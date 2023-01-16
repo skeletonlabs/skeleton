@@ -4,18 +4,19 @@
 	 * @slot lead - Provides content on the left end of the bar, e.g. a logo.
 	 * @slot trail - Provides content on the right end of the bar, e.g. navigation elements.
 	 */
+	import type { CSS } from '$lib';
 
 	// Props (base)
 	/** Provide classes to set background color. */
-	export let background = 'bg-surface-100-800-token';
+	export let background:CSS = 'bg-surface-100-800-token';
 	/** Provide classes to set border styles. */
-	export let border = '';
+	export let border:CSS = '';
 	/** Provide classes to set padding. */
-	export let padding = 'p-4';
+	export let padding:CSS = 'p-4';
 	/** Provide classes to define a box shadow. */
-	export let shadow = 'shadow-lg';
+	export let shadow:CSS = 'shadow-lg';
 	/** Provide classes to set horizontal spacing. */
-	export let space = 'space-x-4';
+	export let space:CSS = 'space-x-4';
 
 	// Props (regions)
 	/** Classes to apply to the lead slot container element */

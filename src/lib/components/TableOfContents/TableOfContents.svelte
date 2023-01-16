@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onDestroy, onMount } from 'svelte';
+	import type { CSS } from '$lib';
 
 	// Props (settings)
 	/** Query selector for the scrollable page element. */
@@ -13,23 +14,23 @@
 
 	// Props (styles)
 	/** Set the component width style. */
-	export let width: string = 'w-[240px]';
+	export let width:CSS = 'w-[240px]';
 	/** Set the vertical spacing styles. */
-	export let spacing: string = 'space-y-4';
+	export let spacing:CSS = 'space-y-4';
 	/** Set the row text color styles. */
-	export let text: string = 'text-surface-600-300-token';
+	export let text:CSS = 'text-surface-600-300-token';
 	/** Set the row hover styles. */
-	export let hover: string = 'hover:bg-primary-hover-token';
+	export let hover:CSS = 'hover:bg-primary-hover-token';
 	/** Set the active row styles */
-	export let active: string = 'bg-primary-active-token !text-on-primary-token';
+	export let active:CSS = 'bg-primary-active-token !text-on-primary-token';
 	/** Set the row border radius styles. */
-	export let rounded: string = 'rounded-token';
+	export let rounded:CSS = 'rounded-token';
 
 	// Props Regions
 	/** Provide arbitrary styles for the label element. */
-	export let regionLabel: string = 'font-bold';
+	export let regionLabel:CSS = 'font-bold';
 	/** Provide arbitrary styles for the list element. */
-	export let regionList: string = 'list-none';
+	export let regionList:CSS = 'list-none';
 
 	// Classes
 	const cLabel: string = 'p-4 pt-0';

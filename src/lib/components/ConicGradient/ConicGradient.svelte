@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { tailwindDefaultColors } from './settings';
 	import type { ConicStop } from './types';
+	import type { CSS } from '$lib';
 
 	// Props
 	/**
@@ -13,9 +14,9 @@
 	/** When enabled, the conic gradient will spin. */
 	export let spin = false;
 	/** Provided classes to style the conic gradient width. */
-	export let width = 'w-full';
+	export let width:CSS = 'w-full';
 	/** Provided classes to style the legend hover effect. */
-	export let hover = 'bg-primary-hover-token';
+	export let hover:CSS = 'bg-primary-hover-token';
 
 	// Local
 	let cone: string;
