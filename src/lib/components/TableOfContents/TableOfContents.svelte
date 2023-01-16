@@ -3,27 +3,27 @@
 
 	// Props (settings)
 	/** Query selector for the scrollable page element. */
-	export let scrollParent: string = '#page';
+	export let scrollParent = '#page';
 	/** Query selector for the element to scan for headings. */
-	export let target: string = '#page';
+	export let target = '#page';
 	/** Query selector for the allowed headings. From H2-H6. */
-	export let allowedHeadings: string = 'h2, h3';
+	export let allowedHeadings = 'h2, h3';
 	/** Set the label text. */
-	export let label: string = 'On This Page';
+	export let label = 'On This Page';
 
 	// Props (styles)
 	/** Set the component width style. */
-	export let width: string = 'w-[240px]';
+	export let width = 'w-[240px]';
 	/** Set the vertical spacing styles. */
-	export let spacing: string = 'space-y-4';
+	export let spacing = 'space-y-4';
 	/** Set the row text color styles. */
-	export let text: string = 'text-surface-600-300-token';
+	export let text = 'text-surface-600-300-token';
 	/** Set the row hover styles. */
-	export let hover: string = 'hover:bg-primary-hover-token';
+	export let hover = 'hover:bg-primary-hover-token';
 	/** Set the active row styles */
-	export let active: string = 'bg-primary-active-token !text-on-primary-token';
+	export let active = 'bg-primary-active-token !text-on-primary-token';
 	/** Set the row border radius styles. */
-	export let rounded: string = 'rounded-token';
+	export let rounded = 'rounded-token';
 
 	// Props (class)
 	let klass = '';
@@ -31,13 +31,13 @@
 
 	// Props Regions
 	/** Provide arbitrary styles for the label element. */
-	export let regionLabel: string = 'font-bold';
+	export let regionLabel = 'font-bold';
 	/** Provide arbitrary styles for the list element. */
-	export let regionList: string = 'list-none';
+	export let regionList = 'list-none';
 
 	// Classes
-	const cLabel: string = 'p-4 pt-0';
-	const cListItem: string = 'px-4 py-2 cursor-pointer';
+	const cLabel = 'p-4 pt-0';
+	const cListItem = 'px-4 py-2 cursor-pointer';
 
 	// Local
 	let elemScrollParent: HTMLElement | null;

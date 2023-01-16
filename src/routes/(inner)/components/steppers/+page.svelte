@@ -43,7 +43,7 @@
 
 	const storeRounded: Writable<string> = writable('rounded-token');
 	const storeClickNavigation: Writable<boolean> = writable(false);
-	let propBackground: string = 'bg-secondary-500 text-on-secondary-token';
+	let propBackground = 'bg-secondary-500 text-on-secondary-token';
 
 	$: forceRefresh = `${propBackground} ${$storeClickNavigation} ${$storeRounded}`;
 </script>

@@ -11,13 +11,13 @@
 	 */
 	export let active: Writable<number> = writable(0);
 	/** Provide a count of the total number of Steps (children). */
-	export let length: number = 0;
+	export let length = 0;
 	/** Set the Svelte transition duration. */
-	export let duration: number = 200;
+	export let duration = 200;
 	/** Provide classes to set rounded style of the step index numbers. */
-	export let rounded: string = 'rounded-token';
+	export let rounded = 'rounded-token';
 	/** Allow click navigation to any visited steps. */
-	export let clickNavigation: boolean = false;
+	export let clickNavigation = false;
 
 	// Props (class)
 	let klass = '';
