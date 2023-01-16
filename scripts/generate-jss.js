@@ -2,14 +2,14 @@
 import { generateAllTWClasses, transpileCssToJs } from './compile-css-to-js.cjs';
 import { mkdir, writeFile, rename, unlink } from 'fs/promises';
 
-const ALL_COMPONENTS_FILE_NAME = 'intellisense-classes.cjs';
+const INTELLISENSE_FILE_NAME = 'intellisense-classes.cjs';
 
 exec();
 
 async function exec() {
 	// Deletes the previously generated CSS-in-JS file. If we don't, our plugin will
 	// add duplicate classes to our newly generated CSS-in-JS file.
-	await unlink(`src/lib/tailwind/generated/${ALL_COMPONENTS_FILE_NAME}`).catch(() => {
+	await unlink(`src/lib/tailwind/generated/${INTELLISENSE_FILE_NAME}`).catch(() => {
 		// file doesn't exist, don't worry about it
 	});
 
@@ -27,7 +27,7 @@ async function exec() {
 	const purgedJSS = await removeDuplicateClasses(generatedJSS);
 
 	// Creates the generated CSS-in-JS file
-	await writeFile(`src/lib/tailwind/generated/${ALL_COMPONENTS_FILE_NAME}`, `module.exports = ${JSON.stringify(purgedJSS)}`).catch((e) =>
+	await writeFile(`src/lib/tailwind/generated/${INTELLISENSE_FILE_NAME}`, `module.exports = ${JSON.stringify(purgedJSS)}`).catch((e) =>
 		console.error(e)
 	);
 
