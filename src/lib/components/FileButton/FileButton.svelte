@@ -11,6 +11,8 @@
 	let klass = '';
 	export { klass as class };
 
+	export let disabled = false;
+
 	let elemFileInput: HTMLElement;
 
 	function onButtonClick(): void {
@@ -20,17 +22,9 @@
 
 <div class="file-button {klass}" data-testid="file-button">
 	<!-- Input: File -->
-	<input bind:this={elemFileInput} bind:files type="file" {...$$restProps} class="file-button-input hidden" on:change />
+	<input bind:this={elemFileInput} bind:files type="file" {disabled} {...$$restProps} class="file-button-input hidden" on:change />
 	<!-- Button -->
-	<button
-		class="file-button-btn btn {button}"
-		type="button"
-		disabled={$$restProps.disabled}
-		on:click={onButtonClick}
-		on:keydown
-		on:keyup
-		on:keypress
-	>
+	<button class="file-button-btn btn {button}" type="button" {disabled} on:click={onButtonClick} on:keydown on:keyup on:keypress>
 		<slot />
 	</button>
 </div>

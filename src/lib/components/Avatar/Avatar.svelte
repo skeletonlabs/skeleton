@@ -17,6 +17,9 @@
 	let klass = '';
 	export { klass as class };
 
+	// Props (A11y)
+	export let alt = '';
+
 	// Props (initials)
 	/** Initials only - Provide up to two text characters. */
 	export let initials = 'AB';
@@ -44,7 +47,7 @@
 
 <figure class="avatar {classesBase}" data-testid="avatar" on:click on:keydown on:keyup on:keypress>
 	{#if src}
-		<img class="avatar-image {cImage}" {src} alt={$$props.alt || ''} use:action={actionParams} />
+		<img class="avatar-image {cImage}" {src} {alt} use:action={actionParams} />
 	{:else}
 		<svg class="avatar-initials w-full h-full" viewBox="0 0 512 512">
 			<text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-weight="bold" font-size={150} class="avatar-text {fill}">

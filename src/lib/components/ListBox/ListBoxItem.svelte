@@ -12,6 +12,9 @@
 	/** Define a unique and semantic identifier for the item. */
 	export let id = '';
 
+	// Props
+	export let value: any = undefined;
+
 	// Props (class)
 	let klass = '';
 	export { klass as class };
@@ -34,7 +37,7 @@
 
 	// Input Handler
 	function onClickHandler(event: any): void {
-		if (!$$props.value) return;
+		if (!value) return;
 		typeof $selected === 'object' ? handleMultiSelect() : handleSingleSelect();
 		/** @event {{ event }} click - Fires when the component is clicked.  */
 		dispatch('click', event);
@@ -42,10 +45,10 @@
 
 	// Selection Handlers
 	function handleSingleSelect(): void {
-		selected.set($$props.value);
+		selected.set(value);
 	}
 	function handleMultiSelect(): void {
-		const v: any = $$props.value;
+		const v: any = value;
 		const local: any[] = $selected;
 		// Add
 		if (local.includes(v)) {
@@ -70,8 +73,8 @@
 
 	// Reactive
 	$: selectionMatch = () => {
-		if ($selected && $$props.value) {
-			return typeof $selected === 'object' ? $selected.includes($$props.value) : $selected === $$props.value;
+		if ($selected && value) {
+			return typeof $selected === 'object' ? $selected.includes(value) : $selected === value;
 		}
 		return false;
 	};

@@ -19,6 +19,7 @@
 	export let borderColor = 'border-surface-300-600-token';
 	/** Provide classes to set border radius styles. */
 	export let rounded = 'rounded-full';
+	export let disabled = false;
 
 	// Props (class)
 	let klass = '';
@@ -60,7 +61,7 @@
 	$: cThumbPos = checked ? 'translate-x-full' : '';
 
 	// Reactive Classes
-	$: classesDisabled = $$props.disabled === true ? 'opacity-50' : 'hover:brightness-[105%] dark:hover:brightness-110 cursor-pointer';
+	$: classesDisabled = disabled ? 'opacity-50' : 'hover:brightness-[105%] dark:hover:brightness-110 cursor-pointer';
 	$: classesBase = `${cBase} ${classesDisabled}`;
 	$: classesLabel = `${cLabel} ${klass}`;
 	$: classesTrack = `${cTrack} ${borderWidth} ${borderColor} ${rounded} ${trackSize} ${cTrackAccent}`;
@@ -92,11 +93,11 @@
 			on:focus
 			on:blur
 			{...$$restProps}
-			disabled={$$props.disabled}
+			{disabled}
 		/>
 		<!-- Slider Track/Thumb -->
-		<div class="slide-toggle-track {classesTrack}" class:cursor-not-allowed={$$props.disabled}>
-			<div class="slide-toggle-thumb {classesThumb}" class:cursor-not-allowed={$$props.disabled} />
+		<div class="slide-toggle-track {classesTrack}" class:cursor-not-allowed={disabled}>
+			<div class="slide-toggle-thumb {classesThumb}" class:cursor-not-allowed={disabled} />
 		</div>
 		<!-- Label -->
 		{#if $$slots.default}<div class="slide-toggle-text ml-3"><slot /></div>{/if}
