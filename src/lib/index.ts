@@ -54,7 +54,6 @@ export { default as Avatar } from './components/Avatar/Avatar.svelte';
 export { default as ConicGradient } from './components/ConicGradient/ConicGradient.svelte';
 export { default as FileButton } from './components/FileButton/FileButton.svelte';
 export { default as FileDropzone } from './components/FileDropzone/FileDropzone.svelte';
-export { default as GradientHeading } from './components/GradientHeading/GradientHeading.svelte';
 export { default as InputChip } from './components/InputChip/InputChip.svelte';
 export { default as ListBox } from './components/ListBox/ListBox.svelte';
 export { default as ListBoxItem } from './components/ListBox/ListBoxItem.svelte';
