@@ -11,3 +11,5 @@ pnpm-lock.yaml
 .vscode
 .temp
 src/lib/tailwind/generated
+# JetBrains IDEs
+.idea
