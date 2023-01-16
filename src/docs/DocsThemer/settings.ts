@@ -1,13 +1,15 @@
 // Settings used for the Theme Generator
 
-export const colorNames = ['primary', 'secondary', 'tertiary', 'success', 'warning', 'error', 'surface'];
-export const colorShades = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
+import { semanticNames, tailwindNumbers, type SemanticNames, type TailwindNumbers } from '$lib/components/ConicGradient/settings';
 
 // Generate a list of color properties for selection inputs.
 // Ex: --color-[colorName]-[colorShade]
-const colorPropsArr: any[] = [];
-colorNames.forEach((colorName) => {
-	return colorShades.forEach((colorShade) => {
+const colorPropsArr: {
+	label: string;
+	value: `var(--color-${SemanticNames}-${TailwindNumbers})`;
+}[] = [];
+semanticNames.forEach((colorName) => {
+	return tailwindNumbers.forEach((colorShade) => {
 		const colorLabel = colorName.charAt(0).toUpperCase() + colorName.slice(1);
 		colorPropsArr.push({ label: `${colorLabel} ${colorShade}`, value: `var(--color-${colorName}-${colorShade})` });
 	});
@@ -41,7 +43,7 @@ export const fontSettings: Record<string, string> = {
 };
 
 // Available Swatch Color Classes
-export const swatchColorClasses: Record<string, Record<string, string>> = {
+export const swatchColorClasses: Record<SemanticNames, Record<TailwindNumbers, string>> = {
 	primary: {
 		50: 'bg-primary-50',
 		100: 'bg-primary-100',
