@@ -123,7 +123,7 @@
 				code={`
 function triggerToast(): void {
 	const t: ToastSettings = {
-		message: '👋 Hello and welcome to Skeleton.'
+		message: '👋 Hello and welcome to Skeleton.',
 		// Optional: Presets for primary | secondary | tertiary | warning
 		preset: 'primary',
 		// Optional: The auto-hide settings
