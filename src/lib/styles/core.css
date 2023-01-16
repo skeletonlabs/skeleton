@@ -30,10 +30,10 @@
 		@apply w-2;
 	}
 	::-webkit-scrollbar-track {
-		@apply bg-surface-100-800-token px-[1px];
+		@apply !bg-surface-50-900-token px-[1px];
 	}
 	::-webkit-scrollbar-thumb {
-		@apply rounded-token bg-surface-300-600-token;
+		@apply rounded-token bg-surface-400-500-token;
 	}
 
 	/* Hide Scrollbars */
