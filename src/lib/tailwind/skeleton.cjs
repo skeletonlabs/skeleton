@@ -35,5 +35,3 @@ module.exports = plugin(
 		}
 	}
 );
-
-function ploog() {}
