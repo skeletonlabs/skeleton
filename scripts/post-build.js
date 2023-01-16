@@ -62,12 +62,19 @@ function extractJSDocBlocks() {
 function _extractJSDocBlocks(srcFile, propsObj) {
 	ts.forEachChild(srcFile, node => {
 		if (node?.jsDoc) {
+			// console.log(srcFile);
+			const jsDoc = node.jsDoc[node.jsDoc.length - 1]
+			const declaration = node.declarationList?.declarations[0];
 			switch (node.kind) {
 				case ts.SyntaxKind.FirstStatement:
-					propsObj[node.declarationList.declarations[0].name.escapedText] = node.jsDoc[node.jsDoc.length - 1].comment;
+					if (declaration.type?.typeName?.escapedText == 'CSS') {
+						propsObj[declaration.name.escapedText] = { comment: jsDoc.comment , type: 'css' };
+					} else {
+						propsObj[declaration.name.escapedText] = { comment: jsDoc.comment , type: 'prop' };
+					}
 					break;
 				case ts.SyntaxKind.ExpressionStatement:
-					propsObj[node.expression.arguments[0].text] = node.jsDoc[node.jsDoc.length - 1].tags[0].comment;
+					propsObj[node.expression.arguments[0].text] = { comment: jsDoc.tags[jsDoc.tags.length -1].comment ?? '', type: 'event' };
 					break;
 			}
 		}
@@ -95,7 +102,7 @@ function writeJSDocsToDefinitionFiles() {
 				if (endPos == -1) { endPos = line.indexOf(':'); }
 				//Lookup the prop found in the definition file on our props mapping object
 				//the 8 comes from the amount of spaces before the property begins, this is static and more efficient this way.
-				const jsdoc = filesToProps[file].props[line.slice(8,endPos)];
+				const jsdoc = filesToProps[file].props[line.slice(8,endPos)]?.comment;
 				if (jsdoc != undefined) {
 					annotatedDts.push('        /** ' + jsdoc + '*/');
 				}
@@ -108,7 +115,23 @@ function writeJSDocsToDefinitionFiles() {
 	}
 }
 
+function generateKeyWordsFromProps() {
+	let propSet = new Set()
+	for (let file in filesToProps) {
+		// console.log(`============ ${file} =============`);
+		for (let prop in filesToProps[file].props) {
+			// console.log(prop, filesToProps[file].props[prop].comment, filesToProps[file].props[prop].type);
+			if (filesToProps[file].props[prop].type == 'css') {
+				propSet.add(prop)
+			}
+		}
+	}
+	return propSet
+}
+
 extractScriptsFromComponents('src/lib/components');
 extractScriptsFromComponents('src/lib/utilities');
+// extractScriptsFromComponents('src/lib/components/Accordion');
 extractJSDocBlocks()
 writeJSDocsToDefinitionFiles();
+generateKeyWordsFromProps()
