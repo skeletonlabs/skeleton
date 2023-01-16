@@ -2,7 +2,7 @@
 import { generateAllTWClasses, transpileCssToJs } from './compile-css-to-js.cjs';
 import { mkdir, writeFile, rename, unlink } from 'fs/promises';
 
-const ALL_COMPONENTS_FILE_NAME = 'all-components.cjs';
+const ALL_COMPONENTS_FILE_NAME = 'intellisense-classes.cjs';
 
 exec();
 

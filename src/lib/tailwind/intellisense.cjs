@@ -11,7 +11,7 @@ module.exports = plugin(({ addComponents }) => {
 	if (process.env.NODE_ENV !== 'production') {
 		// try/catch because it will throw when allComponents.cjs isn't generated yet
 		try {
-			const all = require('./generated/all-components.cjs');
+			const all = require('./generated/intellisense-classes.cjs');
 			addComponents(all, {
 				respectImportant: true,
 				respectPrefix: true
