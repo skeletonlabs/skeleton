@@ -1,5 +1,7 @@
+import type { SemanticNames } from '$lib/components/ConicGradient/settings';
+
 export interface ColorSettings {
-	key: string;
+	key: SemanticNames;
 	label: string;
 	hex: string;
 	rgb: string;
