@@ -242,9 +242,10 @@ module.exports = {
 			<h2>Input Groups</h2>
 			<!-- prettier-ignore -->
 			<p>
-				Create a horizontal group of elements related to an input. Surrounding elements can be of type <em>div</em>, <em>button</em>, or
+				Create a horizontal group of elements related to an input. Surrounding elements can be a <em>div</em>, <em>button</em>, or
 				<em>anchor</em>. Use Tailwind's <a href="https://tailwindcss.com/docs/grid-template-columns#arbitrary-values" target="_blank" rel="noreferrer">abitrary column syntax</a> to define column widths. The <code>auto</code> value will fit the element's width, while <code>1fr</code> will fill all available available width.
 			</p>
+			<p>The <code>.input-group-divider</code> class is optional. Removing it will exclude the vertical divider lines.</p>
 			<CodeBlock
 				language="html"
 				code={`
