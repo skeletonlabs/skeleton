@@ -103,7 +103,7 @@
 				</div>
 				<div class="card card-body p-4 space-y-4">
 					<!-- Click Navigation -->
-					<label for="">
+					<label class="input-label" for="">
 						<span>Click Navigation</span>
 						<RadioGroup selected={storeClickNavigation} display="flex">
 							<RadioItem value={false}>Off</RadioItem>
@@ -111,7 +111,7 @@
 						</RadioGroup>
 					</label>
 					<!-- Rounded -->
-					<label for="">
+					<label class="input-label" for="">
 						<span>Rounded</span>
 						<RadioGroup selected={storeRounded} display="flex">
 							<RadioItem value="rounded-token">theme</RadioItem>
@@ -121,7 +121,7 @@
 						</RadioGroup>
 					</label>
 					<!-- Background -->
-					<label>
+					<label class="input-label">
 						<span>Background</span>
 						<select name="background" id="background" bind:value={propBackground}>
 							<option value="bg-primary-500 text-on-primary-token">bg-primary-500</option>

@@ -12,9 +12,6 @@
 	label {
 		@apply block overflow-visible;
 	}
-	label span {
-		@apply block text-surface-700 dark:text-surface-300 text-sm;
-	}
 	.input-label {
 		@apply space-y-2;
 	}

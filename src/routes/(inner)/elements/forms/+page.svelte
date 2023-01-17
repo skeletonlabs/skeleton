@@ -11,7 +11,13 @@
 		description: 'Provides theme styling to forms when paired with the Tailwind forms plugin.',
 		stylesheetIncludes: ['all', 'forms'],
 		source: 'styles/forms.css',
-		dependencies: [{ label: 'Tailwind Forms Plugin', url: 'https://github.com/tailwindlabs/tailwindcss-forms' }]
+		dependencies: [{ label: 'Tailwind Forms Plugin', url: 'https://github.com/tailwindlabs/tailwindcss-forms' }],
+		classes: [
+			['<code>input-label</code>', '', 'Sets the vertical spacing for label chidren.'],
+			['<code>input-group</code>', '', 'Creates an input group.'],
+			['<code>input-group-divider</code>', '', 'Adds vertical lines between group elements.'],
+			['<code>input-[variant]</code>', 'succes | warning | error', 'Color highlight for input for validation.']
+		]
 	};
 
 	// Local
@@ -124,38 +130,42 @@
 						<textarea rows="5" placeholder="Enter some long form content." />
 					</label>
 					<fieldset>
-						<h4 class="mb-4">Checkboxes</h4>
-						<div class="input-label">
-							<label class="unstyled flex items-center space-x-2">
-								<input type="checkbox" checked />
-								<p>Option 1</p>
-							</label>
-							<label class="unstyled flex items-center space-x-2">
-								<input type="checkbox" />
-								<p>Option 2</p>
-							</label>
-							<label class="unstyled flex items-center space-x-2">
-								<input type="checkbox" />
-								<p>Option 3</p>
-							</label>
-						</div>
+						<label class="input-label">
+							<span>Checkboxes</span>
+							<div class="space-y-2">
+								<div class="flex items-center space-x-2">
+									<input type="checkbox" checked />
+									<p>Option 1</p>
+								</div>
+								<div class="flex items-center space-x-2">
+									<input type="checkbox" />
+									<p>Option 2</p>
+								</div>
+								<div class="flex items-center space-x-2">
+									<input type="checkbox" />
+									<p>Option 3</p>
+								</div>
+							</div>
+						</label>
 					</fieldset>
 					<fieldset>
-						<h4 class="mb-4">Radio Buttons</h4>
-						<div class="input-label">
-							<label class="unstyled flex items-center space-x-2">
-								<input type="radio" checked name="radio-direct" value="1" />
-								<p>Option 1</p>
-							</label>
-							<label class="unstyled flex items-center space-x-2">
-								<input type="radio" name="radio-direct" value="2" />
-								<p>Option 2</p>
-							</label>
-							<label class="unstyled flex items-center space-x-2">
-								<input type="radio" name="radio-direct" value="3" />
-								<p>Option 3</p>
-							</label>
-						</div>
+						<label class="input-label">
+							<span>Radio Buttons</span>
+							<div class="space-y-2">
+								<div class="flex items-center space-x-2">
+									<input type="radio" checked name="radio-direct" value="1" />
+									<p>Option 1</p>
+								</div>
+								<div class="flex items-center space-x-2">
+									<input type="radio" name="radio-direct" value="2" />
+									<p>Option 2</p>
+								</div>
+								<div class="flex items-center space-x-2">
+									<input type="radio" name="radio-direct" value="3" />
+									<p>Option 3</p>
+								</div>
+							</div>
+						</label>
 					</fieldset>
 					<label class="input-label">
 						<span>Input (range)</span>
@@ -238,7 +248,7 @@ module.exports = {
 			<CodeBlock
 				language="html"
 				code={`
-<div class="input-group grid-cols-[auto_1fr_auto]">
+<div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
 	<div class="input-group-shim">(icon)</div>
 	<input type="search" placeholder="Search..." />
 	<button class="btn-filled-secondary">Submit</button>
@@ -246,7 +256,6 @@ module.exports = {
 		`}
 			/>
 			<div class="card p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-				<!-- xxx -->
 				<label class="input-label">
 					<span>Website</span>
 					<div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
@@ -254,7 +263,7 @@ module.exports = {
 						<input class="unstyled" type="text" placeholder="www.example.com" />
 					</div>
 				</label>
-				<!-- xxx -->
+				<!-- --- -->
 				<label class="input-label">
 					<span>Amount</span>
 					<div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
@@ -267,7 +276,7 @@ module.exports = {
 						</select>
 					</div>
 				</label>
-				<!-- xxx -->
+				<!-- --- -->
 				<label class="input-label">
 					<span>Username</span>
 					<div class="input-group input-group-divider grid-cols-[1fr_auto]">
@@ -275,7 +284,7 @@ module.exports = {
 						<div title="Username already taken."><i class="fa-solid fa-circle-exclamation" /></div>
 					</div>
 				</label>
-				<!-- xxx -->
+				<!-- --- -->
 				<label class="input-label">
 					<span>Search</span>
 					<div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
@@ -290,6 +299,7 @@ module.exports = {
 		<section class="space-y-4">
 			<h2>Variants</h2>
 			<p>Skeleton provides a set of variant classes that can be paired with your form validation logic.</p>
+			<CodeBlock language="html" code={`<input ... class="input-success" />`} />
 			<div class="card p-4 grid grid-cols-1 lg:grid-cols-3 gap-4">
 				<label class="space-y-3">
 					<code>.input-success</code>
@@ -311,7 +321,7 @@ module.exports = {
 				Use the <code>.unstyled</code> class to exclude and zero out styles for a single input element. However, please note any styles provided
 				by the Tailwind Forms plugin will remain in place. See the example below.
 			</p>
-			<CodeBlock language="html" code={`<input type="text" placeholder="unstyled" class="unstyled" />`} />
+			<CodeBlock language="html" code={`<input ... class="unstyled" />`} />
 			<div class="card p-4 text-center">
 				<input type="text" placeholder="unstyled" class="unstyled" />
 			</div>

@@ -78,14 +78,14 @@
 			<!-- Options -->
 			<div class="card p-4 space-y-4">
 				<!-- Tag -->
-				<label for="">
+				<label class="input-label" for="">
 					<RadioGroup selected={storeTag} display="flex">
 						<RadioItem value="button">Button</RadioItem>
 						<RadioItem value="a">Anchor</RadioItem>
 					</RadioGroup>
 				</label>
 				<!-- Size -->
-				<label for="">
+				<label class="input-label" for="">
 					<span>Size</span>
 					<RadioGroup selected={storeBtnSize} display="flex">
 						<RadioItem value="btn-sm">sm</RadioItem>
@@ -95,7 +95,7 @@
 					</RadioGroup>
 				</label>
 				<!-- Variant -->
-				<label>
+				<label class="input-label">
 					<span>Variant</span>
 					<select name="variant" id="variant" bind:value={btnValues.variant}>
 						<option value={undefined}>None</option>
@@ -126,7 +126,7 @@
 					</select>
 				</label>
 				<!-- Ring -->
-				<label>
+				<label class="input-label">
 					<span>Ring</span>
 					<select name="ring" id="ring" bind:value={btnValues.ring}>
 						<option value={undefined}>None</option>
@@ -140,7 +140,7 @@
 					</select>
 				</label>
 				<!-- Color -->
-				<label>
+				<label class="input-label">
 					<span>Color</span>
 					<select name="color" id="color" bind:value={btnValues.color}>
 						<option value={undefined}>Inherent</option>
@@ -156,7 +156,7 @@
 					</select>
 				</label>
 				<!-- Disabled -->
-				<label for="">
+				<label class="input-label" for="">
 					<span>Disabled</span>
 					<RadioGroup selected={storeDisabled} display="flex">
 						<RadioItem value={false}>Enabled</RadioItem>

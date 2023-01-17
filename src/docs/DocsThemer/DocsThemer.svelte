@@ -125,7 +125,7 @@
 			<div class="p-4 grid grid-cols-1 gap-4">
 				{#each $storeThemGenForm.colors as colorRow}
 					<div class="grid grid-cols-1 lg:grid-cols-[170px_1fr_160px] gap-2 lg:gap-4">
-						<label>
+						<label class="input-label">
 							<span>{colorRow.label}</span>
 							<div class="grid grid-cols-[auto_1fr] gap-4 place-items-end">
 								<input type="color" bind:value={colorRow.hex} disabled={!$storePreview} />
@@ -133,7 +133,7 @@
 							</div>
 						</label>
 						<Swatch color={colorRow.key} />
-						<label>
+						<label class="input-label">
 							<span>Text & Fill Color</span>
 							<select bind:value={colorRow.on} disabled={!$storePreview}>
 								{#each inputSettings.colorProps as c}<option value={c.value}>{c.label}</option>{/each}
@@ -148,13 +148,13 @@
 		<section class="card p-4 grid grid-cols-2 gap-4 col-span-2 lg:col-span-1">
 			<!-- Fonts -->
 			<h3 class="col-span-2">Fonts</h3>
-			<label>
+			<label class="input-label">
 				<span>Base</span>
 				<select bind:value={$storeThemGenForm.fontBase} disabled={!$storePreview}>
 					{#each inputSettings.fonts as f}<option value={f}>{f}</option>{/each}
 				</select>
 			</label>
-			<label>
+			<label class="input-label">
 				<span>Headings</span>
 				<select bind:value={$storeThemGenForm.fontHeadings} disabled={!$storePreview}>
 					{#each inputSettings.fonts as f}<option value={f}>{f}</option>{/each}
@@ -162,13 +162,13 @@
 			</label>
 			<!-- Text Color -->
 			<h3 class="col-span-2">Text Color</h3>
-			<label>
+			<label class="input-label">
 				<span>Light Mode</span>
 				<select bind:value={$storeThemGenForm.textColorLight} disabled={!$storePreview}>
 					{#each inputSettings.colorProps as c}<option value={c.value}>{c.label}</option>{/each}
 				</select>
 			</label>
-			<label>
+			<label class="input-label">
 				<span>Dark Mode</span>
 				<select bind:value={$storeThemGenForm.textColorDark} disabled={!$storePreview}>
 					{#each inputSettings.colorProps as c}<option value={c.value}>{c.label}</option>{/each}
@@ -176,14 +176,14 @@
 			</label>
 			<!-- Border Radius -->
 			<h3 class="col-span-2">Border Radius</h3>
-			<label>
+			<label class="input-label">
 				<span>Base</span>
 				<select bind:value={$storeThemGenForm.roundedBase} disabled={!$storePreview}>
 					{#each inputSettings.rounded as r}<option value={r}>{r}</option>{/each}
 					<option value="9999px">9999px</option>
 				</select>
 			</label>
-			<label>
+			<label class="input-label">
 				<span>Container</span>
 				<select bind:value={$storeThemGenForm.roundedContainer} disabled={!$storePreview}>
 					{#each inputSettings.rounded as r}<option value={r}>{r}</option>{/each}
@@ -191,7 +191,7 @@
 			</label>
 			<!-- Border Size -->
 			<h3 class="col-span-2">Border Size</h3>
-			<label>
+			<label class="input-label">
 				<span>Base</span>
 				<select bind:value={$storeThemGenForm.borderBase} disabled={!$storePreview}>
 					{#each inputSettings.border as b}<option value={b}>{b}</option>{/each}
