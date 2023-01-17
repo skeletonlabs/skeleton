@@ -219,7 +219,7 @@ import '@skeletonlabs/skeleton/styles/${$storeStylesheets === 'recommended' ? 'a
 				and add required styles.
 			</p>
 		{:else if $storeFramework === 'manual'}
-			<aside class="alert">
+			<aside class="alert alert-warning">
 				<i class="fa-solid fa-triangle-exclamation text-2xl" />
 				<div class="alert-message">
 					The following step is <strong>REQUIRED</strong> to ensure your styles display properly in your application.

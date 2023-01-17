@@ -54,8 +54,8 @@
 							<p>{message}</p>
 						</div>
 						<div class="alert-actions">
-							<button class="btn btn-filled-warning" on:click={triggerAction}>Action</button>
-							<button class="btn-icon btn-ghost-warning" on:click={toggleVisible}>
+							<button class="btn btn-filled" on:click={triggerAction}>Action</button>
+							<button class="btn-icon btn-ghost" on:click={toggleVisible}>
 								<i class="fa-solid fa-xmark" />
 							</button>
 						</div>
@@ -75,9 +75,9 @@
 						<h3 class="alert-message">Tertiary</h3>
 						<button class="btn btn-filled-tertiary" on:click={triggerAction}>Action</button>
 					</aside>
-					<aside class="alert alert-surface">
-						<h3 class="alert-message">Surface</h3>
-						<button class="btn btn-filled-surface" on:click={triggerAction}>Action</button>
+					<aside class="alert alert-warning">
+						<h3 class="alert-message">Warning</h3>
+						<button class="btn btn-filled-warning" on:click={triggerAction}>Action</button>
 					</aside>
 					<aside class="alert alert-success">
 						<i class="fa-solid fa-circle-check text-2xl" />
