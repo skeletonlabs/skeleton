@@ -41,10 +41,10 @@
 	<svelte:fragment slot="sandbox">
 		<div class="space-y-4">
 			<!-- Default -->
-			<div class="card p-4 space-y-4">
+			<div class="card variant-glass p-4 space-y-4">
 				<!-- Primary -->
 				<div class="text-center">
-					<button class="btn btn-filled-secondary" on:click={toggleVisible}>Toggle {!visible ? 'On' : 'Off'}</button>
+					<button class="btn variant-filled-secondary" on:click={toggleVisible}>Toggle {!visible ? 'On' : 'Off'}</button>
 				</div>
 				{#if visible}
 					<aside class="alert" transition:fade|local={{ duration: 200 }}>
@@ -54,8 +54,8 @@
 							<p>{message}</p>
 						</div>
 						<div class="alert-actions">
-							<button class="btn btn-filled" on:click={triggerAction}>Action</button>
-							<button class="btn-icon btn-ghost" on:click={toggleVisible}>
+							<button class="btn variant-filled" on:click={triggerAction}>Action</button>
+							<button class="btn-icon variant-ghost" on:click={toggleVisible}>
 								<i class="fa-solid fa-xmark" />
 							</button>
 						</div>
@@ -63,31 +63,31 @@
 				{/if}
 				<!-- Success / Error -->
 				<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-					<aside class="alert alert-primary">
+					<aside class="alert variant-ghost-primary">
 						<h3 class="alert-message">Primary</h3>
-						<button class="btn btn-filled-primary" on:click={triggerAction}>Action</button>
+						<button class="btn variant-filled-primary" on:click={triggerAction}>Action</button>
 					</aside>
-					<aside class="alert alert-secondary">
+					<aside class="alert variant-ghost-secondary">
 						<h3 class="alert-message">Secondary</h3>
-						<button class="btn btn-filled-secondary" on:click={triggerAction}>Action</button>
+						<button class="btn variant-filled-secondary" on:click={triggerAction}>Action</button>
 					</aside>
-					<aside class="alert alert-tertiary">
+					<aside class="alert variant-ghost-tertiary">
 						<h3 class="alert-message">Tertiary</h3>
-						<button class="btn btn-filled-tertiary" on:click={triggerAction}>Action</button>
+						<button class="btn variant-filled-tertiary" on:click={triggerAction}>Action</button>
 					</aside>
-					<aside class="alert alert-warning">
+					<aside class="alert variant-ghost-warning">
 						<h3 class="alert-message">Warning</h3>
-						<button class="btn btn-filled-warning" on:click={triggerAction}>Action</button>
+						<button class="btn variant-filled-warning" on:click={triggerAction}>Action</button>
 					</aside>
-					<aside class="alert alert-success">
+					<aside class="alert variant-ghost-success">
 						<i class="fa-solid fa-circle-check text-2xl" />
 						<h3 class="alert-message">Success</h3>
-						<button class="btn btn-filled-success" on:click={triggerAction}>Action</button>
+						<button class="btn variant-filled-success" on:click={triggerAction}>Action</button>
 					</aside>
-					<aside class="alert alert-error">
+					<aside class="alert variant-ghost-error">
 						<i class="fa-solid fa-circle-xmark text-2xl" />
 						<h3 class="alert-message">Error</h3>
-						<button class="btn btn-filled-error" on:click={triggerAction}>Action</button>
+						<button class="btn variant-filled-error" on:click={triggerAction}>Action</button>
 					</aside>
 				</div>
 			</div>
@@ -130,7 +130,7 @@
 			<p>
 				The alert will use <em>warning</em> colors by default. Append the <code>.alert-[color]</code> variant adjust the color styles.
 			</p>
-			<CodeBlock language="html" code={`<div class="alert alert-primary">...</div>`} />
+			<CodeBlock language="html" code={`<div class="alert variant-ghost-primary">...</div>`} />
 		</section>
 		<section class="space-y-4">
 			<h2>Adding Animations</h2>

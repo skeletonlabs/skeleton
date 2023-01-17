@@ -42,7 +42,7 @@
 		<!-- Normalize -->
 		<!-- <div class="card p-4 flex items-center gap-2">
 			<InputChip placeholder="Add tags..." bind:value={tags} />
-			<button class="btn btn-filled-primary">Submit</button>
+			<button class="btn variant-filled-primary">Submit</button>
 		</div> -->
 		<section class="space-y-4">
 			<p>Type a value then hit ENTER to apply it.</p>
@@ -127,7 +127,7 @@ function isValidEmail(value: string): boolean {
 				<h2>Chip Elements</h2>
 				<p>Interactive elements for actions, selection, or filtering.</p>
 			</div>
-			<a class="btn btn-ghost-surface" href="/elements/chips">Chip Elements &rarr;</a>
+			<a class="btn variant-ghost-surface" href="/elements/chips">Chip Elements &rarr;</a>
 		</section>
 	</svelte:fragment>
 </DocsShell>

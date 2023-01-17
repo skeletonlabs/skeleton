@@ -41,7 +41,7 @@
 					<span>Email</span>
 					<input type="email" placeholder="Enter email address..." />
 				</label>
-				<button class="btn btn-filled-primary">Submit</button>
+				<button class="btn variant-filled-primary">Submit</button>
 			</form>
 		</section>
 	</svelte:fragment>

@@ -17,7 +17,7 @@
 <div>
 	<!-- Button -->
 	{#if showButton}
-		<button class="btn-icon btn-icon-lg btn-filled {cButton}" on:click={parent.onClose} transition:fade|local>×</button>
+		<button class="btn-icon btn-icon-lg variant-filled {cButton}" on:click={parent.onClose} transition:fade|local>×</button>
 	{/if}
 	<!-- Image -->
 	<img src={$modalStore[0]?.meta.src} class={cImage} alt="Example" />

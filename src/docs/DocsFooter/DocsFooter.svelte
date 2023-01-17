@@ -18,7 +18,7 @@
 			<DocsLogoIcon />
 			<p class="!text-sm opacity-80">A fully featured UI Toolkit.</p>
 			<!-- Current Version -->
-			<span class="badge badge-filled-surface">v{pkg.version}</span>
+			<span class="badge variant-filled-surface">v{pkg.version}</span>
 		</div>
 		<div class="hidden md:grid grid-cols-[auto_auto_auto] gap-10">
 			<div class="space-y-4">

@@ -124,7 +124,7 @@
 				<h2>Input Chips</h2>
 				<p>A dedicated input component for accepting multiple values using chips.</p>
 			</div>
-			<a class="btn btn-ghost-surface" href="/components/input-chips">Input Chip &rarr;</a>
+			<a class="btn variant-ghost-surface" href="/components/input-chips">Input Chip &rarr;</a>
 		</section>
 	</svelte:fragment>
 </DocsShell>

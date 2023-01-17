@@ -36,7 +36,7 @@
 
 	// Reactive
 	$: btnValues = {
-		variant: 'btn-filled-primary',
+		variant: 'variant-filled-primary',
 		size: $storeBtnSize,
 		ring: undefined,
 		color: undefined
@@ -100,29 +100,29 @@
 					<select name="variant" id="variant" bind:value={btnValues.variant}>
 						<option value={undefined}>None</option>
 						<!-- Filled -->
-						<option value="btn-filled-primary">btn-filled-primary</option>
-						<option value="btn-filled-secondary">btn-filled-secondary</option>
-						<option value="btn-filled-tertiary">btn-filled-tertiary</option>
-						<option value="btn-filled-success">btn-filled-success</option>
-						<option value="btn-filled-warning">btn-filled-warning</option>
-						<option value="btn-filled-error">btn-filled-error</option>
-						<option value="btn-filled-surface">btn-filled-surface</option>
+						<option value="variant-filled-primary">variant-filled-primary</option>
+						<option value="variant-filled-secondary">variant-filled-secondary</option>
+						<option value="variant-filled-tertiary">variant-filled-tertiary</option>
+						<option value="variant-filled-success">variant-filled-success</option>
+						<option value="variant-filled-warning">variant-filled-warning</option>
+						<option value="variant-filled-error">variant-filled-error</option>
+						<option value="variant-filled-surface">variant-filled-surface</option>
 						<!-- Ringed -->
-						<option value="btn-ringed-primary">btn-ringed-primary</option>
-						<option value="btn-ringed-secondary">btn-ringed-secondary</option>
-						<option value="btn-ringed-tertiary">btn-ringed-tertiary</option>
-						<option value="btn-ringed-success">btn-ringed-success</option>
-						<option value="btn-ringed-warning">btn-ringed-warning</option>
-						<option value="btn-ringed-error">btn-ringed-error</option>
-						<option value="btn-ringed-surface">btn-ringed-surface</option>
+						<option value="variant-ringed-primary">variant-ringed-primary</option>
+						<option value="variant-ringed-secondary">variant-ringed-secondary</option>
+						<option value="variant-ringed-tertiary">variant-ringed-tertiary</option>
+						<option value="variant-ringed-success">variant-ringed-success</option>
+						<option value="variant-ringed-warning">variant-ringed-warning</option>
+						<option value="variant-ringed-error">variant-ringed-error</option>
+						<option value="variant-ringed-surface">variant-ringed-surface</option>
 						<!-- Ghost -->
-						<option value="btn-ghost-primary">btn-ghost-primary</option>
-						<option value="btn-ghost-secondary">btn-ghost-secondary</option>
-						<option value="btn-ghost-tertiary">btn-ghost-tertiary</option>
-						<option value="btn-ghost-success">btn-ghost-success</option>
-						<option value="btn-ghost-warning">btn-ghost-warning</option>
-						<option value="btn-ghost-error">btn-ghost-error</option>
-						<option value="btn-ghost-surface">btn-ghost-surface</option>
+						<option value="variant-ghost-primary">variant-ghost-primary</option>
+						<option value="variant-ghost-secondary">variant-ghost-secondary</option>
+						<option value="variant-ghost-tertiary">variant-ghost-tertiary</option>
+						<option value="variant-ghost-success">variant-ghost-success</option>
+						<option value="variant-ghost-warning">variant-ghost-warning</option>
+						<option value="variant-ghost-error">variant-ghost-error</option>
+						<option value="variant-ghost-surface">variant-ghost-surface</option>
 					</select>
 				</label>
 				<!-- Ring -->
@@ -202,7 +202,7 @@
 				code={`<button class="btn bg-primary-500">\n\t<span>💀</span>\n\t<span>Icons</span>\n\t<span>🦴</span>\n</button>`}
 			/>
 			<div class="card p-4 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
-				<button class="btn btn-filled-primary">
+				<button class="btn variant-filled-primary">
 					<span>💀</span>
 					<span>Icons</span>
 					<span>🦴</span>
@@ -213,76 +213,76 @@
 		<div class="space-y-4">
 			<h2>Variants</h2>
 			<p>A set of canned preset styles are available using <code>.btn-[variant]</code>. This works for both standard and icon buttons.</p>
-			<CodeBlock language="html" code={`<button class="btn btn-filled-primary">filled-primary</button>`} />
+			<CodeBlock language="html" code={`<button class="btn variant-filled-primary">filled-primary</button>`} />
 			<div class="card p-4 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 				<!-- Filled -->
 				<div class="grid grid-cols-1 gap-4">
-					<button class="btn btn-filled">filled</button>
-					<button class="btn btn-filled-primary">filled-primary</button>
-					<button class="btn btn-filled-secondary">filled-secondary</button>
-					<button class="btn btn-filled-tertiary">filled-tertiary</button>
-					<button class="btn btn-filled-success">filled-success</button>
-					<button class="btn btn-filled-warning">filled-warning</button>
-					<button class="btn btn-filled-error">filled-error</button>
-					<button class="btn btn-filled-surface">filled-surface</button>
+					<button class="btn variant-filled">filled</button>
+					<button class="btn variant-filled-primary">filled-primary</button>
+					<button class="btn variant-filled-secondary">filled-secondary</button>
+					<button class="btn variant-filled-tertiary">filled-tertiary</button>
+					<button class="btn variant-filled-success">filled-success</button>
+					<button class="btn variant-filled-warning">filled-warning</button>
+					<button class="btn variant-filled-error">filled-error</button>
+					<button class="btn variant-filled-surface">filled-surface</button>
 				</div>
 				<!-- Ringed -->
 				<div class="grid grid-cols-1 gap-4">
-					<button class="btn btn-ringed">ringed</button>
-					<button class="btn btn-ringed-primary">ringed-primary</button>
-					<button class="btn btn-ringed-secondary">ringed-secondary</button>
-					<button class="btn btn-ringed-tertiary">ringed-tertiary</button>
-					<button class="btn btn-ringed-success">ringed-success</button>
-					<button class="btn btn-ringed-warning">ringed-warning</button>
-					<button class="btn btn-ringed-error">ringed-error</button>
-					<button class="btn btn-ringed-surface">ringed-surface</button>
+					<button class="btn variant-ringed">ringed</button>
+					<button class="btn variant-ringed-primary">ringed-primary</button>
+					<button class="btn variant-ringed-secondary">ringed-secondary</button>
+					<button class="btn variant-ringed-tertiary">ringed-tertiary</button>
+					<button class="btn variant-ringed-success">ringed-success</button>
+					<button class="btn variant-ringed-warning">ringed-warning</button>
+					<button class="btn variant-ringed-error">ringed-error</button>
+					<button class="btn variant-ringed-surface">ringed-surface</button>
 				</div>
 				<!-- Ringed -->
 				<div class="grid grid-cols-1 gap-4">
-					<button class="btn btn-ghost">ghost</button>
-					<button class="btn btn-ghost-primary">ghost-primary</button>
-					<button class="btn btn-ghost-secondary">ghost-secondary</button>
-					<button class="btn btn-ghost-tertiary">ghost-tertiary</button>
-					<button class="btn btn-ghost-success">ghost-success</button>
-					<button class="btn btn-ghost-warning">ghost-warning</button>
-					<button class="btn btn-ghost-error">ghost-error</button>
-					<button class="btn btn-ghost-surface">ghost-surface</button>
+					<button class="btn variant-ghost">ghost</button>
+					<button class="btn variant-ghost-primary">ghost-primary</button>
+					<button class="btn variant-ghost-secondary">ghost-secondary</button>
+					<button class="btn variant-ghost-tertiary">ghost-tertiary</button>
+					<button class="btn variant-ghost-success">ghost-success</button>
+					<button class="btn variant-ghost-warning">ghost-warning</button>
+					<button class="btn variant-ghost-error">ghost-error</button>
+					<button class="btn variant-ghost-surface">ghost-surface</button>
 				</div>
 			</div>
-			<CodeBlock language="html" code={`<button class="btn-icon btn-filled-primary">💀</button>`} />
+			<CodeBlock language="html" code={`<button class="btn-icon variant-filled-primary">💀</button>`} />
 			<div class="card p-4 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 				<!-- Text -->
 				<div class="grid grid-cols-1 gap-4">
-					<button class="btn-icon btn-filled"><i class="fa-solid fa-skull" /></button>
-					<button class="btn-icon btn-filled-primary"><i class="fa-solid fa-skull" /></button>
-					<button class="btn-icon btn-filled-secondary"><i class="fa-solid fa-skull" /></button>
-					<button class="btn-icon btn-filled-tertiary"><i class="fa-solid fa-skull" /></button>
-					<button class="btn-icon btn-filled-success"><i class="fa-solid fa-skull" /></button>
-					<button class="btn-icon btn-filled-warning"><i class="fa-solid fa-skull" /></button>
-					<button class="btn-icon btn-filled-error"><i class="fa-solid fa-skull" /></button>
-					<button class="btn-icon btn-filled-surface"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-filled"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-filled-primary"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-filled-secondary"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-filled-tertiary"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-filled-success"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-filled-warning"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-filled-error"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-filled-surface"><i class="fa-solid fa-skull" /></button>
 				</div>
 				<!-- Ringed -->
 				<div class="grid grid-cols-1 gap-4">
-					<button class="btn-icon btn-ringed"><i class="fa-solid fa-skull" /></button>
-					<button class="btn-icon btn-ringed-primary"><i class="fa-solid fa-skull" /></button>
-					<button class="btn-icon btn-ringed-secondary"><i class="fa-solid fa-skull" /></button>
-					<button class="btn-icon btn-ringed-tertiary"><i class="fa-solid fa-skull" /></button>
-					<button class="btn-icon btn-ringed-success"><i class="fa-solid fa-skull" /></button>
-					<button class="btn-icon btn-ringed-warning"><i class="fa-solid fa-skull" /></button>
-					<button class="btn-icon btn-ringed-error"><i class="fa-solid fa-skull" /></button>
-					<button class="btn-icon btn-ringed-surface"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-ringed"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-ringed-primary"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-ringed-secondary"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-ringed-tertiary"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-ringed-success"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-ringed-warning"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-ringed-error"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-ringed-surface"><i class="fa-solid fa-skull" /></button>
 				</div>
 				<!-- Ringed -->
 				<div class="grid grid-cols-1 gap-4">
-					<button class="btn-icon btn-ghost"><i class="fa-solid fa-skull" /></button>
-					<button class="btn-icon btn-ghost-primary"><i class="fa-solid fa-skull" /></button>
-					<button class="btn-icon btn-ghost-secondary"><i class="fa-solid fa-skull" /></button>
-					<button class="btn-icon btn-ghost-tertiary"><i class="fa-solid fa-skull" /></button>
-					<button class="btn-icon btn-ghost-success"><i class="fa-solid fa-skull" /></button>
-					<button class="btn-icon btn-ghost-warning"><i class="fa-solid fa-skull" /></button>
-					<button class="btn-icon btn-ghost-error"><i class="fa-solid fa-skull" /></button>
-					<button class="btn-icon btn-ghost-surface"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-ghost"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-ghost-primary"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-ghost-secondary"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-ghost-tertiary"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-ghost-success"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-ghost-warning"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-ghost-error"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-ghost-surface"><i class="fa-solid fa-skull" /></button>
 				</div>
 			</div>
 		</div>

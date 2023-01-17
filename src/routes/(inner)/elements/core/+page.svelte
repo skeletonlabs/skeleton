@@ -29,8 +29,8 @@
 				<div class="alert-message">Consider pairing this with a <strong>CSS Mesh Gradient</strong> or other background image.</div>
 				<div class="alert-actions">
 					<!-- prettier-ignore -->
-					<a class="btn btn-ghost" href="https://github.com/skeletonlabs/skeleton/blob/master/src/lib/themes/theme-skeleton.css#L115" target="_blank" rel="noreferrer">Reference</a>
-					<a class="btn btn-filled" href="https://csshero.org/mesher/" target="_blank" rel="noreferrer">Mesh Generator</a>
+					<a class="btn variant-ghost" href="https://github.com/skeletonlabs/skeleton/blob/master/src/lib/themes/theme-skeleton.css#L115" target="_blank" rel="noreferrer">Reference</a>
+					<a class="btn variant-filled" href="https://csshero.org/mesher/" target="_blank" rel="noreferrer">Mesh Generator</a>
 				</div>
 			</aside>
 		</div>
@@ -96,7 +96,7 @@
 			<!-- prettier-ignore -->
 			<p>Use Tailwind's <a href="https://tailwindcss.com/docs/border-width" target="_blank" rel="noreferrer">Border Width Top</a> and <a href="https://tailwindcss.com/docs/divide-style" target="_blank" rel="noreferrer">Border Styles</a> to customize each divider.</p>
 			<CodeBlock language="html" code={`<hr class="!border-t-8 !border-double" />`} />
-			<div class="card card-glass p-4 space-y-4 text-center">
+			<div class="card variant-glass p-4 space-y-4 text-center">
 				<p>Sizes</p>
 				<hr />
 				<hr class="!border-t-2" />
@@ -111,7 +111,7 @@
 				For vertical dividers, use a <code>span</code> tag with the class of <code>.divider-vertical</code>. Adjust the height as desired.
 			</p>
 			<CodeBlock language="html" code={`<span class="divider-vertical h-20" />`} />
-			<div class="card card-glass p-4 grid grid-cols-3 gap-4 place-items-center">
+			<div class="card variant-glass p-4 grid grid-cols-3 gap-4 place-items-center">
 				<p>Left</p>
 				<span class="divider-vertical h-20" />
 				<p>Right</p>

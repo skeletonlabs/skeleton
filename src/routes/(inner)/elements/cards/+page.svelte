@@ -19,7 +19,7 @@
 			['<code>.card-footer</code>', '-', 'The footer region of the card.'],
 			['<code>.card-hover</code>', '-', 'Provides an animated hover effect.'],
 			[
-				'<code>.card-glass-[color]</code>',
+				'<code>.variant-glass-[color]</code>',
 				'primary | secondary | tertiary | success | warning | error | surface',
 				'A semi-transparent glass variation.'
 			]
@@ -61,25 +61,62 @@
 						</div>
 					</footer>
 				</a>
-				<!-- Colors -->
+			</div>
+			<div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+				<!-- filled -->
 				<div class="grid grid-cols-1 gap-4 text-center text-xs font-bold">
-					<div class="card !bg-primary-500 p-4 text-on-primary-token">primary</div>
-					<div class="card !bg-secondary-500 p-4 text-on-secondary-token">secondary</div>
-					<div class="card !bg-tertiary-500 p-4 text-on-tertiary-token">tertiary</div>
-					<div class="card !bg-success-500 p-4 text-on-success-token">success</div>
-					<div class="card !bg-warning-500 p-4 text-on-warning-token">warning</div>
-					<div class="card !bg-error-500 p-4 text-on-error-token">error</div>
-					<div class="card !bg-surface-500 p-4 text-on-surface-token">surface</div>
+					<p>Filled</p>
+					<div class="card variant-filled-primary p-4">primary</div>
+					<div class="card variant-filled-secondary p-4">secondary</div>
+					<div class="card variant-filled-tertiary p-4">tertiary</div>
+					<div class="card variant-filled-success p-4">success</div>
+					<div class="card variant-filled-warning p-4">warning</div>
+					<div class="card variant-filled-error p-4">error</div>
+					<div class="card variant-filled-surface p-4">surface</div>
 				</div>
-				<!-- Glass -->
+				<!-- soft -->
 				<div class="grid grid-cols-1 gap-4 text-center text-xs font-bold">
-					<div class="card card-glass-primary p-4">glass-primary</div>
-					<div class="card card-glass-secondary p-4">glass-secondary</div>
-					<div class="card card-glass-tertiary p-4">glass-tertiary</div>
-					<div class="card card-glass-success p-4">glass-success</div>
-					<div class="card card-glass-warning p-4">glass-warning</div>
-					<div class="card card-glass-error p-4">glass-error</div>
-					<div class="card card-glass-surface p-4">glass-surface</div>
+					<p>Soft</p>
+					<div class="card variant-soft-primary p-4">primary</div>
+					<div class="card variant-soft-secondary p-4">secondary</div>
+					<div class="card variant-soft-tertiary p-4">tertiary</div>
+					<div class="card variant-soft-success p-4">success</div>
+					<div class="card variant-soft-warning p-4">warning</div>
+					<div class="card variant-soft-error p-4">error</div>
+					<div class="card variant-soft-surface p-4">surface</div>
+				</div>
+				<!-- ringed -->
+				<div class="grid grid-cols-1 gap-4 text-center text-xs font-bold">
+					<p>Ringed</p>
+					<div class="card variant-ringed-primary p-4">primary</div>
+					<div class="card variant-ringed-secondary p-4">secondary</div>
+					<div class="card variant-ringed-tertiary p-4">tertiary</div>
+					<div class="card variant-ringed-success p-4">success</div>
+					<div class="card variant-ringed-warning p-4">warning</div>
+					<div class="card variant-ringed-error p-4">error</div>
+					<div class="card variant-ringed-surface p-4">surface</div>
+				</div>
+				<!-- ghost -->
+				<div class="grid grid-cols-1 gap-4 text-center text-xs font-bold">
+					<p>Ghost</p>
+					<div class="card variant-ghost-primary p-4">primary</div>
+					<div class="card variant-ghost-secondary p-4">secondary</div>
+					<div class="card variant-ghost-tertiary p-4">tertiary</div>
+					<div class="card variant-ghost-success p-4">success</div>
+					<div class="card variant-ghost-warning p-4">warning</div>
+					<div class="card variant-ghost-error p-4">error</div>
+					<div class="card variant-ghost-surface p-4">surface</div>
+				</div>
+				<!-- glass -->
+				<div class="grid grid-cols-1 gap-4 text-center text-xs font-bold">
+					<p>Glass</p>
+					<div class="card variant-glass-primary p-4">primary</div>
+					<div class="card variant-glass-secondary p-4">secondary</div>
+					<div class="card variant-glass-tertiary p-4">tertiary</div>
+					<div class="card variant-glass-success p-4">success</div>
+					<div class="card variant-glass-warning p-4">warning</div>
+					<div class="card variant-glass-error p-4">error</div>
+					<div class="card variant-glass-surface p-4">surface</div>
 				</div>
 			</div>
 		</section>
@@ -96,7 +133,7 @@
 			<p>Background color styling.</p>
 			<CodeBlock language="html" code={`<div class="card !bg-primary-500 text-on-primary-token p-4">primary</div>`} />
 			<p>Glass background styling. These are semi-transparent with a slight blur effect.</p>
-			<CodeBlock language="html" code={`<div class="card card-glass-primary p-4">glass-primary</div>`} />
+			<CodeBlock language="html" code={`<div class="card variant-glass-primary p-4">glass-primary</div>`} />
 		</div>
 		<!-- Headers and Footers -->
 		<div class="space-y-4">

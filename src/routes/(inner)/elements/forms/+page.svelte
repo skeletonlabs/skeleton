@@ -252,7 +252,7 @@ module.exports = {
 <div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
 	<div class="input-group-shim">(icon)</div>
 	<input type="search" placeholder="Search..." />
-	<button class="btn-filled-secondary">Submit</button>
+	<button class="variant-filled-secondary">Submit</button>
 </div>
 		`}
 			/>
@@ -291,7 +291,7 @@ module.exports = {
 					<div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
 						<div class="input-group-shim"><i class="fa-solid fa-search" /></div>
 						<input class="unstyled" type="search" placeholder="Search..." />
-						<button class="btn-filled-secondary">Submit</button>
+						<button class="variant-filled-secondary">Submit</button>
 					</div>
 				</label>
 			</div>
@@ -340,17 +340,17 @@ module.exports = {
 			<h2>See Also</h2>
 			<p>Skeleton provides an extended set of input components. The documentation for each of these is linked below.</p>
 			<div class="grid grid-cols-2 gap-4">
-				<div class="card p-4 card-glass-surface text-center">
-					<a class="btn btn-filled-secondary" href="/components/range-sliders">Range Slider &rarr;</a>
+				<div class="card p-4 variant-glass-surface text-center">
+					<a class="btn variant-filled-secondary" href="/components/range-sliders">Range Slider &rarr;</a>
 				</div>
-				<div class="card p-4 card-glass-surface text-center">
-					<a class="btn btn-filled-secondary" href="/components/radio-groups">Radio Group &rarr;</a>
+				<div class="card p-4 variant-glass-surface text-center">
+					<a class="btn variant-filled-secondary" href="/components/radio-groups">Radio Group &rarr;</a>
 				</div>
-				<div class="card p-4 card-glass-surface text-center">
-					<a class="btn btn-filled-secondary" href="/components/slide-toggles">Slide Toggles &rarr;</a>
+				<div class="card p-4 variant-glass-surface text-center">
+					<a class="btn variant-filled-secondary" href="/components/slide-toggles">Slide Toggles &rarr;</a>
 				</div>
-				<div class="card p-4 card-glass-surface text-center">
-					<a class="btn btn-filled-secondary" href="/components/input-chips">Input Chips &rarr;</a>
+				<div class="card p-4 variant-glass-surface text-center">
+					<a class="btn variant-filled-secondary" href="/components/input-chips">Input Chips &rarr;</a>
 				</div>
 			</div>
 		</section>

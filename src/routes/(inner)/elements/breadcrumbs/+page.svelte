@@ -27,7 +27,7 @@
 	<svelte:fragment slot="sandbox">
 		<div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
 			<!-- 1 -->
-			<div class="card card-glass p-4">
+			<div class="card variant-glass p-4">
 				<ol class="breadcrumb">
 					<li class="crumb"><a href="/">Tailwind</a></li>
 					<li class="crumb-separator" aria-hidden>&rsaquo;</li>
@@ -37,7 +37,7 @@
 				</ol>
 			</div>
 			<!-- 2 -->
-			<div class="card card-glass p-4">
+			<div class="card variant-glass p-4">
 				<ol class="breadcrumb">
 					<li class="crumb"><a href="/">Home</a></li>
 					<li class="crumb-separator" aria-hidden>/</li>
@@ -47,7 +47,7 @@
 				</ol>
 			</div>
 			<!-- 3 -->
-			<div class="card card-glass p-4">
+			<div class="card variant-glass p-4">
 				<ol class="breadcrumb">
 					<li class="crumb"><a href="/"><i class="fa-solid fa-house" /></a></li>
 					<li class="crumb-separator" aria-hidden>&rsaquo;</li>
@@ -57,7 +57,7 @@
 				</ol>
 			</div>
 			<!-- 4 -->
-			<div class="card card-glass p-4">
+			<div class="card variant-glass p-4">
 				<ol class="breadcrumb">
 					<li class="crumb">
 						<i class="fa-solid fa-house" />

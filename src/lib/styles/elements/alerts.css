@@ -4,9 +4,9 @@
 	.alert {
 		@apply flex flex-col items-start lg:items-center lg:flex-row p-4 space-y-4 lg:space-y-0 lg:space-x-4;
 		/* Background */
-		@apply bg-surface-500/20;
-		/* Border */
-		@apply border border-surface-500;
+		@apply bg-surface-500/20 dark:bg-surface-500/20 variant-outline-surface;
+		/* Ring */
+		@apply ring-2 ring-surface-500 dark:ring-surface-500 ring-inset;
 		/* Text */
 		@apply text-surface-900-50-token;
 		/* Rounded */
@@ -17,26 +17,5 @@
 	}
 	.alert-actions {
 		@apply flex items-center space-x-2;
-	}
-
-	/* === Variants === */
-
-	.alert-primary {
-		@apply bg-primary-500/20 border-primary-500 text-primary-900-50-token;
-	}
-	.alert-secondary {
-		@apply bg-secondary-500/20 border-secondary-500 text-secondary-900-50-token;
-	}
-	.alert-tertiary {
-		@apply bg-tertiary-500/20 border-tertiary-500 text-tertiary-900-50-token;
-	}
-	.alert-success {
-		@apply bg-success-500/20 border-success-500 text-success-900-50-token;
-	}
-	.alert-warning {
-		@apply bg-warning-500/20 border-warning-500 text-warning-900-50-token;
-	}
-	.alert-error {
-		@apply bg-error-500/20 border-error-500 text-error-900-50-token;
 	}
 }

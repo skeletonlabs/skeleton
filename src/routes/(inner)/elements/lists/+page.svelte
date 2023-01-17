@@ -22,9 +22,9 @@
 
 	// Local
 	const listData = [
-		{ name: 'A', class: 'btn-filled-secondary' },
-		{ name: 'B', class: 'btn-filled-secondary' },
-		{ name: 'C', class: 'btn-filled-secondary' }
+		{ name: 'A', class: 'variant-filled-secondary' },
+		{ name: 'B', class: 'variant-filled-secondary' },
+		{ name: 'C', class: 'variant-filled-secondary' }
 	];
 </script>
 

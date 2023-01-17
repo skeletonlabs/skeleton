@@ -106,7 +106,7 @@
 <svelte:head>{@html livePreviewStylesheet}</svelte:head>
 
 <div class="docs-themer space-y-4">
-	<div class="card card-glass-surface p-4 flex justify-between items-center">
+	<div class="card variant-glass-surface p-4 flex justify-between items-center">
 		<span>Live Preview Mode</span>
 		<SlideToggle size="lg" bind:checked={$storePreview} on:change={onPreviewToggle} />
 	</div>
@@ -119,7 +119,7 @@
 					<h3>Colors</h3>
 					<LightSwitch />
 				</div>
-				<button class="btn btn-ghost-surface" on:click={randomize} disabled={!$storePreview}>Randomize Colors</button>
+				<button class="btn variant-ghost-surface" on:click={randomize} disabled={!$storePreview}>Randomize Colors</button>
 			</header>
 			<hr />
 			<div class="p-4 grid grid-cols-1 gap-4">
@@ -204,12 +204,12 @@
 			<h3>Preview</h3>
 			<!-- Buttons -->
 			<div class="grid grid-cols-3 gap-4">
-				<button class="btn btn-filled-primary">primary</button>
-				<button class="btn btn-filled-secondary">secondary</button>
-				<button class="btn btn-filled-tertiary">tertiary</button>
-				<button class="btn btn-filled-success">success</button>
-				<button class="btn btn-filled-warning">warning</button>
-				<button class="btn btn-filled-error">error</button>
+				<button class="btn variant-filled-primary">primary</button>
+				<button class="btn variant-filled-secondary">secondary</button>
+				<button class="btn variant-filled-tertiary">tertiary</button>
+				<button class="btn variant-filled-success">success</button>
+				<button class="btn variant-filled-warning">warning</button>
+				<button class="btn variant-filled-error">error</button>
 			</div>
 			<hr class="opacity-50" />
 			<!-- Progress Bars -->
@@ -221,14 +221,14 @@
 			<hr class="opacity-50" />
 			<!-- Badges -->
 			<div class="grid grid-cols-4 gap-4 place-items-center">
-				<span class="badge badge-filled-surface">surface</span>
-				<span class="badge badge-filled-primary">primary</span>
-				<span class="badge badge-filled-secondary">secondary</span>
-				<span class="badge badge-filled-tertiary">tertiary</span>
+				<span class="badge variant-filled-surface">surface</span>
+				<span class="badge variant-filled-primary">primary</span>
+				<span class="badge variant-filled-secondary">secondary</span>
+				<span class="badge variant-filled-tertiary">tertiary</span>
 				<span class="badge badge-glass">glass</span>
-				<span class="badge badge-filled-success">success</span>
-				<span class="badge badge-filled-warning">warning</span>
-				<span class="badge badge-filled-error">error</span>
+				<span class="badge variant-filled-success">success</span>
+				<span class="badge variant-filled-warning">warning</span>
+				<span class="badge variant-filled-error">error</span>
 			</div>
 			<hr class="opacity-50" />
 			<!-- Slide Toggles -->
@@ -243,9 +243,9 @@
 		<!-- CSS Output -->
 		<footer class="col-span-2 space-y-4">
 			{#if showThemeCSS}<CodeBlock language="css" code={cssOutput} />{/if}
-			<div class="card card-glass-surface p-4 text-center">
+			<div class="card variant-glass-surface p-4 text-center">
 				<!-- prettier-ignore -->
-				<button class="btn btn-lg btn-filled-primary font-bold" on:click={() => { showThemeCSS = !showThemeCSS; }} disabled={!$storePreview}>
+				<button class="btn btn-lg variant-filled-primary font-bold" on:click={() => { showThemeCSS = !showThemeCSS; }} disabled={!$storePreview}>
 					{!showThemeCSS ? 'Show' : 'Hide'} Theme CSS
 				</button>
 			</div>

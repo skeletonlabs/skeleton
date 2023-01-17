@@ -18,7 +18,7 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<div class="card card-glass p-4 text-center">
+		<div class="card variant-glass p-4 text-center">
 			<h1>
 				<span class="bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent box-decoration-clone">Skeleton</span>
 			</h1>

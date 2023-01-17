@@ -20,7 +20,7 @@
 
 <div>
 	<!-- Hero -->
-	<header class="card-glass-surface border-b border-black/5 dark:border-white/5 px-4 py-10 md:py-20">
+	<header class="variant-glass-surface border-b border-black/5 dark:border-white/5 px-4 py-10 md:py-20">
 		<div class="container max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 place-items-center">
 			<!-- Text -->
 			<div class="space-y-4">
@@ -35,11 +35,11 @@
 					+ <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind CSS</a>.
 				</p>
 				<nav class="flex space-x-4">
-					<a href="/guides/install" class="btn btn-filled-primary">
+					<a href="/guides/install" class="btn variant-filled-primary">
 						<span>Get Started</span>
 						<span>&rarr;</span>
 					</a>
-					<a href="/docs/why" class="btn btn-ghost-surface">Why Skeleton</a>
+					<a href="/docs/why" class="btn variant-ghost-surface">Why Skeleton</a>
 				</nav>
 			</div>
 			<!-- Logo -->
@@ -49,18 +49,20 @@
 
 	<div class="container max-w-[1200px] mx-auto px-4 py-10 md:py-20 space-y-20">
 		<!-- Pre-Release Alert -->
-		<aside class="alert alert-warning">
+		<aside class="alert variant-ghost-warning">
 			<i class="fa-solid fa-triangle-exclamation text-4xl" />
 			<div class="alert-message">Skeleton is currently in beta. Expect breaking changes prior to v1.0. Please report bugs on GitHub.</div>
 			<div class="alert-actions">
-				<a href="https://github.com/skeletonlabs/skeleton/issues" target="_blank" rel="noreferrer" class="btn btn-filled">Report Issue</a>
+				<a href="https://github.com/skeletonlabs/skeleton/issues" target="_blank" rel="noreferrer" class="btn variant-filled"
+					>Report Issue</a
+				>
 			</div>
 		</aside>
 
 		<!-- Features -->
 		<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 			<h2 class="sr-only">Features</h2>
-			<div class="card card-glass-surface p-4 text-center space-y-4">
+			<div class="card variant-glass-surface p-4 text-center space-y-4">
 				<div class="bg-orange-500 w-20 mx-auto lg:-mt-10 aspect-square flex justify-center items-center rounded-token shadow">
 					<SvgIcon name="svelte" fill="fill-white" width="w-10" height="h-10" />
 				</div>
@@ -69,21 +71,21 @@
 					Tightly coupled support for Svelte using the <a href="https://kit.svelte.dev/" target="_blank" rel="noreferrer">SvelteKit</a> app framework.
 				</p>
 			</div>
-			<div class="card card-glass-surface p-4 text-center space-y-4">
+			<div class="card variant-glass-surface p-4 text-center space-y-4">
 				<div class="bg-sky-500 w-20 mx-auto lg:-mt-10 aspect-square flex justify-center items-center rounded-token shadow">
 					<SvgIcon name="tailwind" fill="fill-white" width="w-10" height="h-10" />
 				</div>
 				<h4>Tailwind CSS Integration</h4>
 				<p>Integrate with your design system using Tailwind utility classes to style components.</p>
 			</div>
-			<div class="card card-glass-surface p-4 text-center space-y-4">
+			<div class="card variant-glass-surface p-4 text-center space-y-4">
 				<div class="bg-primary-500 w-20 mx-auto lg:-mt-10 aspect-square flex justify-center items-center rounded-token shadow">
 					<i class="fa-solid fa-swatchbook text-3xl" />
 				</div>
 				<h4>Dynamic Themes</h4>
 				<p>Choose from a library of hand crafted preset themes or quickly generate your own in seconds.</p>
 			</div>
-			<div class="card card-glass-surface p-4 text-center space-y-4">
+			<div class="card variant-glass-surface p-4 text-center space-y-4">
 				<div class="bg-secondary-500 w-20 mx-auto lg:-mt-10 aspect-square flex justify-center items-center rounded-token shadow">
 					<i class="fa-solid fa-screwdriver-wrench text-3xl" />
 				</div>
@@ -115,7 +117,7 @@
 						{/each}
 					</div>
 				{/await}
-				<a class="btn btn-ghost-surface" href="/docs/contributions">
+				<a class="btn variant-ghost-surface" href="/docs/contributions">
 					<span>Contribution Guide</span>
 					<span>&rarr;</span>
 				</a>
@@ -125,7 +127,7 @@
 				<h2>Sponsors</h2>
 				<div class="grid grid-cols-2 gap-4">
 					<a
-						class="unstyled card card-glass p-4 inline-flex flex-col items-center space-y-4"
+						class="unstyled card variant-glass p-4 inline-flex flex-col items-center space-y-4"
 						href="https://www.brainandbonesllc.com/"
 						target="_blank"
 						rel="noreferrer"
@@ -134,7 +136,7 @@
 						<p class="text-sm">Brain & Bones</p>
 					</a>
 					<a
-						class="unstyled card card-glass p-4 inline-flex flex-col items-center space-y-4"
+						class="unstyled card variant-glass p-4 inline-flex flex-col items-center space-y-4"
 						href="https://lukehagar.com/"
 						target="_blank"
 						rel="noreferrer"
@@ -145,11 +147,11 @@
 				</div>
 				<p>You can support us directly via:</p>
 				<div class="grid grid-col-1 gap-4 max-w-[280px] mx-auto">
-					<a class="btn btn-filled-primary" href="https://ko-fi.com/skeletonlabs" target="_blank" rel="noreferrer"> Ko-Fi </a>
-					<a class="btn btn-filled-primary" href="https://github.com/sponsors/skeletonlabs" target="_blank" rel="noreferrer">
+					<a class="btn variant-filled-primary" href="https://ko-fi.com/skeletonlabs" target="_blank" rel="noreferrer"> Ko-Fi </a>
+					<a class="btn variant-filled-primary" href="https://github.com/sponsors/skeletonlabs" target="_blank" rel="noreferrer">
 						GitHub Sponsors
 					</a>
-					<a class="btn btn-filled-primary" href="https://patreon.com/user?u=83786276" target="_blank" rel="noreferrer"> Patreon </a>
+					<a class="btn variant-filled-primary" href="https://patreon.com/user?u=83786276" target="_blank" rel="noreferrer"> Patreon </a>
 				</div>
 			</div>
 		</section>
@@ -160,7 +162,7 @@
 		<section class="text-center space-y-6">
 			<h2>Meet The Team</h2>
 			<ul class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-[800px] mx-auto">
-				<li class="card card-glass-surface p-4 space-y-4">
+				<li class="card variant-glass-surface p-4 space-y-4">
 					<Avatar src="https://avatars.githubusercontent.com/u/1509726?v=4" width="w-32" class="mx-auto" />
 					<div>
 						<h3>Chris Simmons</h3>
@@ -179,7 +181,7 @@
 						</a>
 					</div>
 				</li>
-				<li class="card card-glass-surface p-4 space-y-4">
+				<li class="card variant-glass-surface p-4 space-y-4">
 					<Avatar src="https://avatars.githubusercontent.com/u/10255430?v=4" width="w-32" class="mx-auto" />
 					<div>
 						<h3>Trey Weir</h3>
@@ -197,8 +199,8 @@
 				</li>
 			</ul>
 			<div class="flex justify-center gap-4">
-				<a class="btn btn-ghost-surface" href="mailto:admin@skeleton.dev">Reach Out</a>
-				<a class="btn btn-filled-primary" href="https://www.skeletonlabs.co/" target="_blank" rel="noreferrer">
+				<a class="btn variant-ghost-surface" href="mailto:admin@skeleton.dev">Reach Out</a>
+				<a class="btn variant-filled-primary" href="https://www.skeletonlabs.co/" target="_blank" rel="noreferrer">
 					<span>Skeleton Labs</span>
 					<span>&rarr;</span>
 				</a>

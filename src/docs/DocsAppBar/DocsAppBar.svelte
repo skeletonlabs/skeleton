@@ -103,7 +103,7 @@
 
 	<!-- Search -->
 	<div class="hidden md:inline md:ml-4">
-		<button class="btn btn-ghost-surface btn-sm" on:click={triggerSearch}>
+		<button class="btn variant-ghost-surface btn-sm" on:click={triggerSearch}>
 			<i class="fa-solid fa-magnifying-glass" />
 			<span>Search</span>
 			<span class="text-[11px] font-bold opacity-60 pl-2">{isOsMac ? '⌘' : 'Ctrl'}+K</span>
@@ -190,7 +190,7 @@
 				</nav>
 				<hr />
 				<div class="p-4">
-					<a class="btn btn-ghost-surface w-full" href="/guides/themes/generator">Theme Generator</a>
+					<a class="btn variant-ghost-surface w-full" href="/guides/themes/generator">Theme Generator</a>
 				</div>
 			</div>
 		</div>

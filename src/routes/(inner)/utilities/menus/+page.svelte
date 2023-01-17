@@ -45,7 +45,7 @@
 		<section class="card p-4 flex flex-col lg:flex-row justify-center items-center space-y-4 lg:space-y-0 lg:space-x-4">
 			<!-- Dropdown 1 -->
 			<span class="relative">
-				<button class="btn btn-ghost-surface" use:menu={{ menu: 'basic' }}>Basic</button>
+				<button class="btn variant-ghost-surface" use:menu={{ menu: 'basic' }}>Basic</button>
 				<!-- on:toggled={eventLogger} -->
 				<div class="card p-4 w-64 shadow-xl" data-menu="basic">
 					<p>This menu uses default settings. The position will auto-update depending on the trigger's page location.</p>
@@ -53,21 +53,21 @@
 			</span>
 			<!-- Dropdown 2 -->
 			<span class="relative">
-				<button class="btn btn-ghost-surface" use:menu={{ menu: 'interactive', interactive: true }}>Interactive</button>
+				<button class="btn variant-ghost-surface" use:menu={{ menu: 'interactive', interactive: true }}>Interactive</button>
 				<div class="menu-tl card p-4 w-64 shadow-xl" data-menu="interactive">
 					<p>This menu will not close when clicking within the menu body due to <code>interactive: true</code>.</p>
 				</div>
 			</span>
 			<!-- Dropdown 3 -->
 			<span class="relative">
-				<button class="btn btn-ghost-surface" use:menu={{ menu: 'fixed', fixed: true }}>Fixed</button>
+				<button class="btn variant-ghost-surface" use:menu={{ menu: 'fixed', fixed: true }}>Fixed</button>
 				<div class="menu-tl card p-4 w-64 shadow-xl" data-menu="fixed">
 					<p>This menus is fixed to the top-right origin point due to <code>fixed: true</code> and <code>.menu-tl</code>.</p>
 				</div>
 			</span>
 			<!-- Dropdown 4 (note: don't add .menu-container here) -->
 			<span>
-				<button class="btn btn-ghost-surface" use:menu={{ menu: 'position', fixed: true }}>Position</button>
+				<button class="btn variant-ghost-surface" use:menu={{ menu: 'position', fixed: true }}>Position</button>
 				<div class="absolute top-2 right-2 card p-4 w-64 shadow-xl !bg-primary-500 text-on-primary-token" data-menu="position">
 					This menu is arbitrarily positioned in the top-right corner of the page. We've made it a bright color to catch you attention.
 				</div>
@@ -75,7 +75,7 @@
 			<!-- Dropdown 5 -->
 			<!-- prettier-ignore -->
 			<span class="relative">
-				<button class="btn btn-ghost-surface" use:menu={{ menu: 'navigation' }}>Navigation</button>
+				<button class="btn variant-ghost-surface" use:menu={{ menu: 'navigation' }}>Navigation</button>
 				<nav class="list-nav card p-4 w-40 shadow-xl" data-menu="navigation">
 					<ul>
 						<li><a href={exampleLink} on:click={()=>{log(1)}}>Home</a></li>
