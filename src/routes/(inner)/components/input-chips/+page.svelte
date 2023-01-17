@@ -39,6 +39,11 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
+		<!-- Normalize -->
+		<!-- <div class="card p-4 flex items-center gap-2">
+			<InputChip placeholder="Add tags..." bind:value={tags} />
+			<button class="btn btn-filled-primary">Submit</button>
+		</div> -->
 		<section class="space-y-4">
 			<p>Type a value then hit ENTER to apply it.</p>
 			<!-- Tags -->

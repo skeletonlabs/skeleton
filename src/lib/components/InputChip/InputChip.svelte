@@ -30,7 +30,7 @@
 	/** Provide chip hover styles. */
 	export let hover: string = 'hover:chip-error';
 	/** Set the input padding styles. */
-	export let padding: string = 'p-3';
+	export let padding: string = 'p-2';
 	/** Set the input border radius styles. */
 	export let rounded: string = 'rounded-container-token';
 	/** Set the input focus ring styles. */

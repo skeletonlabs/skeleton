@@ -4,7 +4,7 @@
 
 	// Props
 	/** Provide a writable store to maintain list selection.
-	 * @type {writeable(any)}
+	 * @type {Writeable(any)}
 	 */
 	export let selected: Writable<any> = writable(undefined);
 	/** Provide classes to set the display style. Use value `flex` to stretch the full width. */
@@ -17,7 +17,7 @@
 	/** Provide classes to set the border color. */
 	export let borderColor = 'border-surface-300 dark:border-surface-600';
 	/** Provide classes to set the RadioItem padding. */
-	export let padding = 'px-4 py-2';
+	export let padding = 'px-4 py-1';
 	/** Provide classes to set the hover style. */
 	export let hover = 'bg-secondary-hover-token';
 	/** Provide classes to set the highlighted accent color. */
