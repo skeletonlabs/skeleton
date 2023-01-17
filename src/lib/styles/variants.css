@@ -3,9 +3,6 @@
 
 @layer components {
 	/* Outline -- supports ringed and host variants */
-	.variant-outline {
-		@apply ring-1 ring-surface-900 dark:ring-surface-50 ring-inset;
-	}
 	.variant-outline-primary {
 		@apply ring-1 ring-primary-500 dark:ring-primary-500 ring-inset;
 	}
@@ -24,6 +21,7 @@
 	.variant-outline-error {
 		@apply ring-1 ring-error-500 dark:ring-error-500 ring-inset;
 	}
+	.variant-outline,
 	.variant-outline-surface {
 		@apply ring-1 ring-surface-500 dark:ring-surface-500 ring-inset;
 	}
@@ -83,11 +81,6 @@
 	}
 
 	/* Ghost */
-	.variant-ghost {
-		@apply variant-outline;
-		@apply bg-surface-900/20 dark:bg-surface-50/20;
-		@apply hover:bg-surface-900/10;
-	}
 	.variant-ghost-primary {
 		@apply bg-primary-500/20 dark:bg-primary-500/20 variant-outline-primary;
 	}
@@ -106,37 +99,36 @@
 	.variant-ghost-error {
 		@apply bg-error-500/20 dark:bg-error-500/20 variant-outline-error;
 	}
+	.variant-ghost,
 	.variant-ghost-surface {
 		@apply bg-surface-500/20 dark:bg-surface-500/20 variant-outline-surface;
 	}
 
 	/* Soft */
-	.variant-soft {
-		@apply bg-surface-900/20 dark:bg-surface-50/20;
-	}
 	.variant-soft-primary {
-		@apply bg-primary-500/20 dark:bg-primary-500/20;
+		@apply bg-primary-400/20 dark:bg-primary-500/20 text-primary-700-200-token !ring-0;
 	}
 	.variant-soft-secondary {
-		@apply bg-secondary-500/20 dark:bg-secondary-500/20;
+		@apply bg-secondary-400/20 dark:bg-secondary-500/20 text-secondary-700-200-token !ring-0;
 	}
 	.variant-soft-tertiary {
-		@apply bg-tertiary-500/20 dark:bg-tertiary-500/20;
+		@apply bg-tertiary-400/20 dark:bg-tertiary-500/20 text-tertiary-700-200-token !ring-0;
 	}
 	.variant-soft-success {
-		@apply bg-success-500/20 dark:bg-success-500/20;
+		@apply bg-success-400/20 dark:bg-success-500/20 text-success-700-200-token !ring-0;
 	}
 	.variant-soft-warning {
-		@apply bg-warning-500/20 dark:bg-warning-500/20;
+		@apply bg-warning-400/20 dark:bg-warning-500/20 text-warning-700-200-token !ring-0;
 	}
 	.variant-soft-error {
-		@apply bg-error-500/20 dark:bg-error-500/20;
+		@apply bg-error-400/20 dark:bg-error-500/20 text-error-700-200-token !ring-0;
 	}
+	.variant-soft,
 	.variant-soft-surface {
-		@apply bg-surface-500/20 dark:bg-surface-500/20;
+		@apply bg-surface-400/20 dark:bg-surface-500/20 text-surface-700-200-token !ring-0;
 	}
 
-	/* Class */
+	/* Glass */
 	.variant-glass-primary {
 		@apply bg-primary-500/10 dark:bg-primary-500/10 backdrop-blur-lg;
 	}

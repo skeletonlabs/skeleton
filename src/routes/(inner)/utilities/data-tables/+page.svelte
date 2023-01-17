@@ -65,7 +65,12 @@
 				</p>
 			</div>
 			<div class="alert-message">
-				<a href="https://github.com/skeletonlabs/skeleton/issues/538" target="_blank" rel="noreferrer" class="btn variant-ghost w-full">
+				<a
+					href="https://github.com/skeletonlabs/skeleton/issues/538"
+					target="_blank"
+					rel="noreferrer"
+					class="btn variant-ghost-error w-full"
+				>
 					Track Progress
 				</a>
 				<a href="https://svelte-headless-table.bryanmylee.com/" target="_blank" rel="noreferrer" class="btn variant-filled w-full">

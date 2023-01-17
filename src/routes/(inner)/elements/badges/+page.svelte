@@ -9,14 +9,13 @@
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Element,
 		name: 'Badges',
-		description: 'Provides a robust set of non-interactive badge styles',
+		description: 'Provides a robust set of non-interactive badge styles.',
 		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/badges'],
 		source: 'styles/elements/badges.css',
 		classes: [
 			['<code>badge</code>', '-', 'Provides the standard badge style.'],
-			['<code>badge-icon</code>', '-', 'Provides the icon badge style.'],
-			['<code>badge-[variant]</code>', '-', 'Preset styles for badge and badge icons.']
+			['<code>badge-icon</code>', '-', 'Provides the icon badge style.']
 		]
 	};
 </script>
@@ -24,51 +23,34 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-			<!-- - -->
-			<div class="lg:col-span-3 card variant-glass p-4">
-				<span class="badge variant-filled">Skeleton</span>
-				<span class="badge variant-filled-primary">
-					<i class="fa-solid fa-check" />
-					<span>Complete</span>
-				</span>
-				<span class="badge variant-filled-secondary">
-					<span>Skeleton</span>
-					<i class="fa-solid fa-skull" />
-				</span>
-				<span class="badge variant-filled-tertiary">
-					<i class="fa-solid fa-heart" />
-					<span>Favorite</span>
-				</span>
-			</div>
-			<!-- - -->
-			<div class="card variant-glass p-4">
-				<h4>Skeleton</h4>
-				<sup class="badge variant-filled-primary">Sup</sup>
-			</div>
-			<!-- - -->
-			<div class="card variant-glass p-4">
-				<h4>Skeleton</h4>
-				<sub class="badge variant-filled-secondary">Sub</sub>
-			</div>
-			<!-- - -->
-			<div class="card variant-glass p-4 !space-x-6">
-				<div class="relative inline-block">
-					<span class="badge variant-filled-primary absolute -top-3 -right-4 z-10">50k</span>
-					<button class="btn btn-sm variant-ghost-surface">Button</button>
+		<section class="space-y-4">
+			<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+				<div class="card variant-glass p-4 !space-x-6">
+					<div class="relative inline-block">
+						<span class="badge variant-filled absolute -top-3 -right-4 z-10">50k</span>
+						<button class="btn btn-sm variant-ghost-surface">Button</button>
+					</div>
+					<div class="relative inline-block">
+						<span class="badge-icon variant-filled-warning absolute -top-1 -right-1 z-10">2</span>
+						<Avatar />
+					</div>
+					<div class="relative inline-block">
+						<span class="badge-icon variant-filled-error absolute -top-1 -right-1 z-10">
+							<i class="fa-solid fa-heart" />
+						</span>
+						<Avatar />
+					</div>
 				</div>
-				<div class="relative inline-block">
-					<span class="badge-icon variant-filled-secondary absolute -top-1 -right-1 z-10">2</span>
-					<Avatar />
+				<div class="card variant-glass p-4">
+					<h4>Skeleton</h4>
+					<sup class="badge variant-filled-primary">Sup</sup>
 				</div>
-				<div class="relative inline-block">
-					<span class="badge-icon variant-filled-tertiary absolute -top-1 -right-1 z-10">
-						<i class="fa-solid fa-heart" />
-					</span>
-					<Avatar />
+				<div class="card variant-glass p-4">
+					<h4>Skeleton</h4>
+					<sub class="badge variant-filled-secondary">Sub</sub>
 				</div>
 			</div>
-			<div class="card variant-glass p-4 lg:col-span-3 grid grid-cols-1 md:grid-cols-5 gap-4">
+			<div class="card variant-glass p-4 grid grid-cols-1 md:grid-cols-5 gap-4">
 				<!-- filled -->
 				<div class="grid grid-cols-1 gap-4 text-center text-xs font-bold">
 					<p>Filled</p>
@@ -143,7 +125,7 @@
 		<!-- Variants -->
 		<section class="space-y-4">
 			<h2>Variants</h2>
-			<p>Variant styles are available via <code>.variant-[style]-[color]</code>.</p>
+			<p>Supports all standard variant styles via <code>.variant-[style]-[color]</code>.</p>
 			<CodeBlock language="html" code={`<span class="badge variant-filled-surface">Skeleton</span>`} />
 		</section>
 		<!-- Overlapping -->

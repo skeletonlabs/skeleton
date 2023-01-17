@@ -108,7 +108,7 @@ export let hover: string = getContext('hover');
  * @slot content - Provide the alert message text.
  */`}
 		/>
-		<aside class="alert">
+		<aside class="alert variant-ghost-warning">
 			<i class="fa-solid fa-lightbulb text-2xl" />
 			<div class="alert-message">
 				<strong>NOTE:</strong> The leading <code>// ...</code> comment is required for Sveld to successfully parse the slot descriptions. This

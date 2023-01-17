@@ -24,12 +24,12 @@
 				Your app background is automatically set for both light and dark mode via a design token class. Overwrite this to adjust as desired.
 			</p>
 			<CodeBlock language="css" code={`body { @apply bg-surface-50-900-token; }`} />
-			<aside class="alert">
+			<aside class="alert variant-ghost-warning">
 				<i class="fa-solid fa-lightbulb text-2xl" />
 				<div class="alert-message">Consider pairing this with a <strong>CSS Mesh Gradient</strong> or other background image.</div>
 				<div class="alert-actions">
 					<!-- prettier-ignore -->
-					<a class="btn variant-ghost" href="https://github.com/skeletonlabs/skeleton/blob/master/src/lib/themes/theme-skeleton.css#L115" target="_blank" rel="noreferrer">Reference</a>
+					<a class="btn variant-ghost-warning" href="https://github.com/skeletonlabs/skeleton/blob/master/src/lib/themes/theme-skeleton.css#L115" target="_blank" rel="noreferrer">Reference</a>
 					<a class="btn variant-filled" href="https://csshero.org/mesher/" target="_blank" rel="noreferrer">Mesh Generator</a>
 				</div>
 			</aside>

@@ -3,10 +3,6 @@
 @layer components {
 	.alert {
 		@apply flex flex-col items-start lg:items-center lg:flex-row p-4 space-y-4 lg:space-y-0 lg:space-x-4;
-		/* Background */
-		@apply bg-surface-500/20 dark:bg-surface-500/20 variant-outline-surface;
-		/* Ring */
-		@apply ring-2 ring-surface-500 dark:ring-surface-500 ring-inset;
 		/* Text */
 		@apply text-surface-900-50-token;
 		/* Rounded */

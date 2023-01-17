@@ -15,10 +15,9 @@
 		stylesheets: ['elements/alerts'],
 		source: 'styles/elements/alerts.css',
 		classes: [
-			['<code>alert</code>', '-', 'Provide basic alert styles to a block element.'],
-			['<code>alert-message</code>', '-', 'The message body styles, contains a title and message.'],
-			['<code>alert-actions</code>', '-', 'The message action styles, contains buttons.'],
-			['<code>alert-[color]</code>', '<a href="/guides/themes/colors">Theme Colors</a>', 'Set the alert variant styles.']
+			['<code>alert</code>', '', 'Provide basic alert styles to a block element.'],
+			['<code>alert-message</code>', '', 'The message body styles, contains a title and message.'],
+			['<code>alert-actions</code>', '', 'The message action styles, contains buttons.']
 		]
 	};
 
@@ -47,7 +46,7 @@
 					<button class="btn variant-filled-secondary" on:click={toggleVisible}>Toggle {!visible ? 'On' : 'Off'}</button>
 				</div>
 				{#if visible}
-					<aside class="alert" transition:fade|local={{ duration: 200 }}>
+					<aside class="alert variant-ghost" transition:fade|local={{ duration: 200 }}>
 						<i class="fa-solid fa-triangle-exclamation text-4xl" />
 						<div class="alert-message">
 							<h3>Warning</h3>
@@ -103,7 +102,7 @@
 				language="html"
 				code={`
 {#if visible}
-    <aside class="alert">
+    <aside class="alert variant-ghost">
         <!-- Icon -->
         <div>(icon)</div>
         <!-- Message -->
@@ -126,11 +125,9 @@
 			<CodeBlock language="html" code={`<div class="alert-actions">(buttons)</div>`} />
 		</section>
 		<section class="space-y-4">
-			<h2>Using Variants</h2>
-			<p>
-				The alert will use <em>warning</em> colors by default. Append the <code>.alert-[color]</code> variant adjust the color styles.
-			</p>
-			<CodeBlock language="html" code={`<div class="alert variant-ghost-primary">...</div>`} />
+			<h2>Variants</h2>
+			<p>Supports all standard variant styles via <code>.variant-[style]-[color]</code>.</p>
+			<CodeBlock language="html" code={`<div class="alert variant-ghost-warning">...</div>`} />
 		</section>
 		<section class="space-y-4">
 			<h2>Adding Animations</h2>

@@ -122,7 +122,7 @@
 				<div class="flex items-center space-x-4">
 					<h1>{@html pageSettings.name}</h1>
 					<!-- Feature -->
-					<span class="badge badge-glass translate-y-1">{@html pageSettings.feature}</span>
+					<span class="badge variant-filled translate-y-1">{@html pageSettings.feature}</span>
 				</div>
 				<p>{@html pageSettings.description}</p>
 			</section>
