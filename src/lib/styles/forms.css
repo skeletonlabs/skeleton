@@ -5,21 +5,24 @@
 		@apply block;
 	}
 
+	/* === Labels === */
+
+	/* legend {} */
+
 	label {
 		@apply block overflow-visible;
 	}
-
-	label span:first-of-type,
-	legend {
-		@apply block text-surface-700 dark:text-surface-300 text-sm mb-2;
+	label span {
+		@apply block text-surface-700 dark:text-surface-300 text-sm;
+	}
+	.input-label {
+		@apply space-y-2;
 	}
 
 	/* === Inputs === */
 
 	.input-cell {
 		@apply w-full rounded-token;
-		/* Text */
-		@apply bg-surface-900-50-token;
 		/* Background */
 		@apply bg-surface-200-700-token focus:brightness-105 hover:brightness-105;
 		/* Border */
@@ -28,40 +31,50 @@
 		@apply transition;
 	}
 
-	[type='text']:not(.unstyled),
-	[type='email']:not(.unstyled),
-	[type='url']:not(.unstyled),
-	[type='password']:not(.unstyled),
-	[type='number']:not(.unstyled),
-	[type='date']:not(.unstyled),
-	[type='datetime-local']:not(.unstyled),
-	[type='month']:not(.unstyled),
-	[type='search']:not(.unstyled),
-	[type='tel']:not(.unstyled),
-	[type='time']:not(.unstyled),
-	[type='week']:not(.unstyled),
-	[type='file']:not(.unstyled),
-	select[multiple]:not(.unstyled),
-	textarea:not(.unstyled),
-	select:not(.unstyled) {
+	/* Input Groups */
+	.input-group {
+		@apply input-cell overflow-hidden grid;
+		@apply focus-within:border-primary-500;
+	}
+	.input-group input,
+	.input-group select {
+		@apply bg-transparent border-0 !ring-0 w-full;
+	}
+	.input-group div,
+	.input-group button,
+	.input-group a {
+		@apply p-4 py-2 place-self-center;
+	}
+	.input-group-divider * + * {
+		@apply !border-l border-surface-400-500-token focus:border-surface-400-500-token;
+	}
+	.input-group-shim {
+		@apply bg-surface-400/10 text-surface-600-300-token;
+	}
+
+	/* Apply the input styles by default, but exclude if wrapped in `.input-group` */
+	:is(:not(.input-group)) input:not([type='checkbox']):not([type='radio']):not([type='color']):not(.unstyled),
+	:is(:not(.input-group)) select[multiple]:not(.unstyled),
+	:is(:not(.input-group)) textarea:not(.unstyled),
+	:is(:not(.input-group)) select:not(.unstyled) {
 		@apply input-cell;
 	}
 
 	/* Container Inputs */
-	select[multiple]:not(.unstyled),
-	textarea:not(.unstyled) {
+	:is(:not(.input-group)) select[multiple]:not(.unstyled),
+	:is(:not(.input-group)) textarea:not(.unstyled) {
 		@apply rounded-container-token;
 	}
 
 	/* Select (multipe) */
 	/* https://stackoverflow.com/questions/50618602/change-color-of-selected-option-in-select-multiple */
-	select[multiple] {
-		@apply p-2;
+	select[multiple]:not(.unstyled) {
+		@apply p-2 space-y-1;
 	}
-	select[multiple] option {
+	select[multiple]:not(.unstyled) option {
 		@apply p-2 rounded-token;
 	}
-	select[multiple] option:checked {
+	select[multiple]:not(.unstyled) option:checked {
 		background: rgb(var(--color-primary-500)) linear-gradient(0deg, rgb(var(--color-primary-500)) 0%, rgb(var(--color-primary-500)) 100%);
 		@apply text-on-primary-token;
 	}
@@ -82,18 +95,18 @@
 
 	/* Color Picker */
 	/* https://stackoverflow.com/questions/11167281/webkit-css-to-control-the-box-around-the-color-in-an-inputtype-color */
-	input[type='color'] {
+	input[type='color']:not(.unstyled) {
 		@apply border-none w-10 h-10 overflow-hidden rounded-token cursor-pointer;
 		/* WebKit Only */
 		-webkit-appearance: none;
 	}
-	input[type='color']::-webkit-color-swatch-wrapper {
+	input[type='color']:not(.unstyled)::-webkit-color-swatch-wrapper {
 		@apply p-0;
 	}
-	input[type='color']::-webkit-color-swatch {
+	input[type='color']:not(.unstyled)::-webkit-color-swatch {
 		@apply border-none hover:brightness-110;
 	}
-	input[type='color']::-moz-color-swatch {
+	input[type='color']:not(.unstyled)::-moz-color-swatch {
 		@apply border-none;
 	}
 
@@ -127,7 +140,7 @@
 	input[readonly],
 	textarea[readonly],
 	select[readonly] {
-		@apply !cursor-not-allowed hover:!brightness-100;
+		@apply !border-0 !cursor-not-allowed hover:!brightness-100;
 	}
 
 	/* === Vendor-Specific === */
