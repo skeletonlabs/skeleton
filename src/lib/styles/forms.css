@@ -1,31 +1,33 @@
 /* Stylesheet: forms.css */
 
 @layer base {
-	/* === Fieldset === */
-
-	fieldset:not(.unstyled) {
+	fieldset {
 		@apply block;
 	}
 
-	/* === Labels === */
-
-	label:not(.unstyled) {
+	label {
 		@apply block overflow-visible;
 	}
-	label:not(.unstyled) span,
-	legend:not(.unstyled) {
+
+	label span:first-of-type,
+	legend {
 		@apply block text-surface-700 dark:text-surface-300 text-sm mb-2;
 	}
 
 	/* === Inputs === */
 
-	input:disabled,
-	textarea:disabled,
-	select:disabled {
-		@apply !opacity-50 !cursor-not-allowed active:scale-100 hover:brightness-100;
+	.input-cell {
+		@apply w-full rounded-token;
+		/* Text */
+		@apply bg-surface-900-50-token;
+		/* Background */
+		@apply bg-surface-200-700-token focus:brightness-105 hover:brightness-105;
+		/* Border */
+		@apply ring-0 border-token border-surface-400-500-token focus:border-primary-500;
+		/* Transition */
+		@apply transition;
 	}
 
-	/* Inputs */
 	[type='text']:not(.unstyled),
 	[type='email']:not(.unstyled),
 	[type='url']:not(.unstyled),
@@ -39,48 +41,41 @@
 	[type='time']:not(.unstyled),
 	[type='week']:not(.unstyled),
 	[type='file']:not(.unstyled),
-	[multiple]:not(.unstyled),
+	select[multiple]:not(.unstyled),
 	textarea:not(.unstyled),
-	select:not(.unstyled),
-	.input-chip {
-		/* Base */
-		@apply w-full caret-secondary-500 transition duration-200;
-		/* Text */
-		@apply text-black dark:text-white;
-		/* Background */
-		@apply bg-surface-200-700-token hover:brightness-110;
-		/* Border */
-		@apply border-token border-surface-400-500-token focus:border-secondary-500;
-		/* Ring - NOTE: we use border instead */
-		@apply ring-0;
-		/* Shadow */
-		@apply shadow-sm;
-		/* Theme: Rounded */
-		@apply rounded-token;
+	select:not(.unstyled) {
+		@apply input-cell;
 	}
 
-	[multiple]:not(.unstyled),
+	/* Container Inputs */
+	select[multiple]:not(.unstyled),
 	textarea:not(.unstyled) {
-		/* Theme: Rounded */
 		@apply rounded-container-token;
 	}
 
-	/* File */
+	/* Select (multipe) */
+	/* https://stackoverflow.com/questions/50618602/change-color-of-selected-option-in-select-multiple */
+	select[multiple] {
+		@apply p-2;
+	}
+	select[multiple] option {
+		@apply p-2 rounded-token;
+	}
+	select[multiple] option:checked {
+		background: rgb(var(--color-primary-500)) linear-gradient(0deg, rgb(var(--color-primary-500)) 0%, rgb(var(--color-primary-500)) 100%);
+		@apply text-on-primary-token;
+	}
+
+	/* File Input */
 	[type='file']:not(.unstyled) {
 		@apply p-2;
 	}
 
-	/* Date Calendar Picker (Webkit) */
-	::-webkit-calendar-picker-indicator {
-		@apply dark:invert;
-	}
-
-	/* Checkbox */
+	/* Checkbox & Radio */
 	[type='checkbox']:not(.unstyled),
 	[type='radio']:not(.unstyled) {
-		@apply border-surface-500 rounded text-secondary-600 focus:ring-secondary-500 w-5 h-5;
+		@apply rounded text-secondary-600 focus:ring-secondary-500 w-5 h-5 cursor-pointer;
 	}
-	/* Checkbox */
 	[type='radio']:not(.unstyled) {
 		@apply rounded-token;
 	}
@@ -89,84 +84,29 @@
 	/* https://stackoverflow.com/questions/11167281/webkit-css-to-control-the-box-around-the-color-in-an-inputtype-color */
 	input[type='color'] {
 		@apply border-none w-10 h-10 overflow-hidden rounded-token cursor-pointer;
-		/* WebKit */
+		/* WebKit Only */
 		-webkit-appearance: none;
 	}
 	input[type='color']::-webkit-color-swatch-wrapper {
 		@apply p-0;
 	}
 	input[type='color']::-webkit-color-swatch {
-		@apply border-none;
+		@apply border-none hover:brightness-110;
 	}
 	input[type='color']::-moz-color-swatch {
 		@apply border-none;
 	}
 
-	/* Placeholder */
-	::-moz-placeholder,
-	textarea::-moz-placeholder {
-		@apply text-surface-600 dark:text-surface-300;
-	}
-	:-ms-input-placeholder,
-	textarea:-ms-input-placeholder {
-		@apply text-surface-600 dark:text-surface-300;
-	}
-	::placeholder,
-	textarea::placeholder {
-		@apply text-surface-600 dark:text-surface-300;
-	}
+	/* === Placeholder === */
 
-	/* === States === */
-	/* These are not required to use, merely an option */
-
-	/* Valid */
-	.input-valid {
-		@apply !bg-success-200 !border-success-500 !text-success-700;
+	::-moz-placeholder {
+		@apply text-surface-500-400-token;
 	}
-	.input-valid::-moz-placeholder,
-	textarea::-moz-placeholder {
-		@apply text-success-700;
+	:-ms-input-placeholder {
+		@apply text-surface-500-400-token;
 	}
-	.input-valid:-ms-input-placeholder,
-	textarea:-ms-input-placeholder {
-		@apply text-success-700;
-	}
-	.input-valid::placeholder,
-	textarea::placeholder {
-		@apply text-success-700;
-	}
-
-	/* Invalid */
-	.input-invalid {
-		@apply !bg-error-200 !border-error-500 !text-error-500;
-	}
-	.input-invalid::-moz-placeholder,
-	textarea::-moz-placeholder {
-		@apply text-error-500;
-	}
-	.input-invalid:-ms-input-placeholder,
-	textarea:-ms-input-placeholder {
-		@apply text-error-500;
-	}
-	.input-invalid::placeholder,
-	textarea::placeholder {
-		@apply text-error-500;
-	}
-
-	/* === Placeholders === */
-	/* Input `placeholder="x"` attribute text color. */
-
-	input::-moz-placeholder,
-	textarea::-moz-placeholder {
-		@apply text-surface-400;
-	}
-	input:-ms-input-placeholder,
-	textarea:-ms-input-placeholder {
-		@apply text-surface-400;
-	}
-	input::placeholder,
-	textarea::placeholder {
-		@apply text-surface-400;
+	::placeholder {
+		@apply text-surface-500-400-token;
 	}
 
 	/* === Accent Color === */
@@ -174,5 +114,70 @@
 
 	[type='range']:not(.range-input) {
 		@apply w-full accent-secondary-500;
+	}
+
+	/* === States === */
+
+	input:disabled,
+	textarea:disabled,
+	select:disabled {
+		@apply !opacity-50 !cursor-not-allowed hover:!brightness-100;
+	}
+
+	input[readonly],
+	textarea[readonly],
+	select[readonly] {
+		@apply !cursor-not-allowed hover:!brightness-100;
+	}
+
+	/* === Vendor-Specific === */
+
+	/* Date Calendar Picker (Webkit) */
+	::-webkit-calendar-picker-indicator {
+		@apply dark:invert;
+	}
+
+	/* === Utility Classes === */
+
+	/* success */
+	.input-success {
+		@apply !bg-success-200 !border-success-500 !text-success-700;
+	}
+	.input-success::-moz-placeholder {
+		@apply text-success-700;
+	}
+	.input-success:-ms-input-placeholder {
+		@apply text-success-700;
+	}
+	.input-success::placeholder {
+		@apply text-success-700;
+	}
+
+	/* warning */
+	.input-warning {
+		@apply !bg-warning-200 !border-warning-500 !text-warning-700;
+	}
+	.input-warning::-moz-placeholder {
+		@apply text-warning-700;
+	}
+	.input-warning:-ms-input-placeholder {
+		@apply text-warning-700;
+	}
+	.input-warning::placeholder {
+		@apply text-warning-700;
+	}
+
+	/* error */
+	.input-error {
+		@apply !bg-error-200 !border-error-500 !text-error-500;
+	}
+	.input-error::-moz-placeholder {
+		@apply text-error-500;
+	}
+	.input-error:-ms-input-placeholder {
+		@apply text-error-500;
+	}
+	.input-error::placeholder {
+		@apply text-error-500;
 	}
 }

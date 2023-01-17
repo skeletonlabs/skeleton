@@ -181,6 +181,6 @@
 
 	/* File Input Button */
 	input[type='file']:not(.file-dropzone-input)::file-selector-button {
-		@apply border-0 btn btn-filled-secondary btn-sm mr-2 text-token;
+		@apply border-0 btn btn-filled-secondary text-on-secondary-token btn-sm mr-2;
 	}
 }

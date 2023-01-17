@@ -31,16 +31,16 @@ module.exports = plugin(
 
 		// FIXME: this needs to be re-enabled before package and deployment!
 
-		if (process.env.NODE_ENV !== 'production') {
-			// try/catch because it will throw when allComponents.cjs isn't generated yet
-			try {
-				const all = require('./generated/allComponents.cjs');
-				addComponents(all, {
-					respectImportant: true,
-					respectPrefix: true
-				});
-			} catch { }
-		}
+		// if (process.env.NODE_ENV !== 'production') {
+		// 	// try/catch because it will throw when allComponents.cjs isn't generated yet
+		// 	try {
+		// 		const all = require('./generated/allComponents.cjs');
+		// 		addComponents(all, {
+		// 			respectImportant: true,
+		// 			respectPrefix: true
+		// 		});
+		// 	} catch {}
+		// }
 	},
 	{
 		theme: {
