@@ -3,7 +3,7 @@
 	import { swatchColorClasses } from './settings';
 
 	/** Pass the color key name. */
-	export let color: SemanticNames;
+	export let color: SemanticNames = 'primary';
 </script>
 
 <div class="grid grid-cols-11 gap-0">
