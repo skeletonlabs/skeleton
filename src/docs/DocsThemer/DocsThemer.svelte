@@ -146,7 +146,7 @@
 									{#each inputSettings.colorProps as c}<option value={c.value}>{c.label}</option>{/each}
 								</select>
 								<div
-									use:tooltip={{ content: contrastReport.report.note }}
+									use:tooltip={{ content: contrastReport.report.note, color: '!text-on-primary-token' }}
 									class="btn-icon ml-2"
 									class:btn-filled-error={contrastReport.fails}
 									class:btn-filled-secondary={contrastReport.largeAA}
