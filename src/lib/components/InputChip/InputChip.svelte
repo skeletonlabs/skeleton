@@ -26,9 +26,7 @@
 
 	// Props (styles)
 	/** Provide chip styles. */
-	export let chip: string = `chip-primary`;
-	/** Provide chip hover styles. */
-	export let hover: string = 'hover:chip-error';
+	export let chip: string = `variant-filled-primary`;
 	/** Set the input padding styles. */
 	export let padding: string = 'p-2';
 	/** Set the input border radius styles. */
@@ -91,7 +89,7 @@
 
 	// Reactive
 	$: classesBase = `${cBase} ${padding} ${rounded}`;
-	$: classesChip = `${chip} ${hover}`;
+	$: classesChip = `${chip}`;
 	$: classesInput = `${cInput} ${ring}`;
 </script>
 
