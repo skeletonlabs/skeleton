@@ -5,9 +5,6 @@
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-expect- error sveld import NOTE: remove the space between hyphen and error - this is to keep svelte-check happy
-	// import sveldComp from '$lib/.../Component.svelte?raw&sveld';
-
 	// Docs Shell
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Element,
@@ -19,6 +16,8 @@
 		classes: [
 			['<code>.table-container</code>', '-', 'Apply to a wrapping parent element to enable responsive scrolling.'],
 			['<code>.table</code>', '-', 'Apply to a native HTML table element to add table styles.'],
+			['<code>.table-compact</code>', '-', 'Apply to the native HTML element to set shorter row spacing.'],
+			['<code>.table-comfortable</code>', '-', 'Apply to the native HTML element to set taller row spacing.'],
 			['<code>.table-hover</code>', '-', 'Apply to a table element to enable a subtle hover effect on rows.'],
 			['<code>.table-interactive</code>', '-', 'Apply to a table element to enable visible hover effect and pointer cursor.'],
 			['<code>.table-sort-asc</code>', '-', 'Apply to a table heading cell to add down arrow indicating ascending sort.'],
@@ -35,11 +34,6 @@
 		{ position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
 		{ position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
 		{ position: 5, name: 'Boron', weight: 10.811, symbol: 'B' }
-		// { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-		// { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-		// { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-		// { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-		// { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' }
 	];
 	const totalWeight = tableArr.reduce((accumulator, obj) => accumulator + obj.weight, 0);
 </script>
@@ -63,7 +57,7 @@
 							<td>{row.position}</td>
 							<td>{row.name}</td>
 							<td>{row.symbol}</td>
-							<td>{row.weight}</td>
+							<td><span class="badge variant-soft-primary">{row.weight}</span></td>
 						</tr>
 					{/each}
 				</tbody>
@@ -119,9 +113,45 @@
 			/>
 		</div>
 		<hr />
-		<!-- More Options -->
+		<!-- Options -->
 		<section class="space-y-4">
-			<h2>Additional Table Options</h2>
+			<h2>Options</h2>
+			<!-- Row Spacing -->
+			<h3>Row Spacing</h3>
+			<p>
+				Apply classes <code>.table-compact</code> or <code>.table-comfortable</code> to the <em>table</em> for tighter or looser row spacing.
+			</p>
+			<CodeBlock language="html" code={`<table class="table-compact">...</table>`} />
+			<!-- Hover Styles -->
+			<h3>Hover Styles</h3>
+			<p>
+				Apply the <code>.table-hover</code> class to add a subtle hover style which can be helpful when scanning data horizontally. You can
+				also use the
+				<code>.table-interactive</code> class if the table rows is intended to be interactive on click. Avoid using both classes at the same
+				time.
+			</p>
+			<CodeBlock language="html" code={`<table class="table-interactive">...</table>`} />
+			<!-- Row Checked -->
+			<h3>Row Checked</h3>
+			<p>Apply to a table body row to indicate an active selection state.</p>
+			<CodeBlock language="html" code={`<tr class=".table-row-checked">...</tr>`} />
+			<!-- Fit Cell Width -->
+			<h3>Fit Cell Width</h3>
+			<p>
+				Use the <code>.table-cell-fit</code> class on a cell element to fit the cell to the content widths. This can be useful for small columns
+				that contain elements such as avatars or IDs. Be sure to apply to both the table header and table cell.
+			</p>
+			<CodeBlock language="html" code={`<th class="table-cell-fit">Avatar</th>`} />
+			<CodeBlock language="html" code={`<td class="table-cell-fit">(avatar)</td>`} />
+			<!-- Sorting -->
+			<h3>Sorting</h3>
+			<p>Classes for sorting ascending or descending are available. Apply these to the table head elements.</p>
+			<CodeBlock language="html" code={`<th class="table-sort-asc">Skeleton</th>`} />
+			<CodeBlock language="html" code={`<th class="table-sort-dsc">Skeleton</th>`} />
+		</section>
+		<!-- See Also -->
+		<section class="space-y-4">
+			<h2>See Also</h2>
 			<div class="card p-4 space-y-4">
 				<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 					<p>A simple data-driven table component.</p>
