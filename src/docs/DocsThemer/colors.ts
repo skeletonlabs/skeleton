@@ -198,10 +198,10 @@ export function getPassReport(textColor: string, backgroundColor: string) {
 	const largeAA = textPasses(textColor, backgroundColor, 'large', 'AA');
 	const largeAAA = textPasses(textColor, backgroundColor, 'large', 'AAA');
 	const fails = !smallAA && !smallAAA && !largeAA && !largeAAA;
-	const AAAEmoji = '❤️';
-	const AAEmoji = '👍';
-	const largeAAEmoji = '☑️';
-	const failEmoji = '👎';
+	const AAAEmoji = '<i class="fa-solid fa-face-grin-beam"></i>';
+	const AAEmoji = '<i class="fa-solid fa-face-smile"></i>';
+	const largeAAEmoji = '<i class="fa-solid fa-face-meh"></i>';
+	const failEmoji = '<i class="fa-solid fa-face-frown"></i>';
 	const report = {
 		emoji: smallAAA ? AAAEmoji : smallAA ? AAEmoji : largeAA ? largeAAEmoji : failEmoji,
 		note:
