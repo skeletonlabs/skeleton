@@ -25,7 +25,7 @@
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-4">
 			<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-				<div class="card variant-glass p-4 !space-x-6">
+				<div class="card p-4 !space-x-6">
 					<div class="relative inline-block">
 						<span class="badge variant-filled absolute -top-3 -right-4 z-10">50k</span>
 						<button class="btn btn-sm variant-ghost-surface">Button</button>
@@ -41,16 +41,36 @@
 						<Avatar />
 					</div>
 				</div>
-				<div class="card variant-glass p-4">
+				<div class="card p-4">
 					<h4>Skeleton</h4>
 					<sup class="badge variant-filled-primary">Sup</sup>
 				</div>
-				<div class="card variant-glass p-4">
+				<div class="card p-4">
 					<h4>Skeleton</h4>
 					<sub class="badge variant-filled-secondary">Sub</sub>
 				</div>
 			</div>
-			<div class="card variant-glass p-4 grid grid-cols-1 md:grid-cols-5 gap-4">
+		</section>
+	</svelte:fragment>
+
+	<!-- Slot: Usage -->
+	<svelte:fragment slot="usage">
+		<section class="space-y-4">
+			<p>Apply to any inline element, such as a <em>span</em> or <em>anchor</em> tag.</p>
+			<CodeBlock language="html" code={`<span class="badge variant-filled-primary">Skeleton</span>`} />
+		</section>
+		<!-- Icon -->
+		<section class="space-y-4">
+			<h2>Badge Icon</h2>
+			<p>A compact circular variation badge style.</p>
+			<CodeBlock language="html" code={`<span class="badge-icon variant-filled-primary">💀</span>`} />
+		</section>
+		<!-- Variants -->
+		<section class="space-y-4">
+			<h2>Variants</h2>
+			<p>Supports all standard variant styles via <code>.variant-[style]-[color]</code>.</p>
+			<CodeBlock language="html" code={`<span class="badge variant-filled-primary">Skeleton</span>`} />
+			<div class="card p-4 grid grid-cols-1 md:grid-cols-5 gap-4">
 				<!-- filled -->
 				<div class="grid grid-cols-1 gap-4 text-center text-xs font-bold">
 					<p>Filled</p>
@@ -107,26 +127,6 @@
 					<div><span class="badge variant-glass-surface">surface</span></div>
 				</div>
 			</div>
-		</section>
-	</svelte:fragment>
-
-	<!-- Slot: Usage -->
-	<svelte:fragment slot="usage">
-		<section class="space-y-4">
-			<p>Apply to any inline element, such as a <em>span</em> or <em>anchor</em> tag.</p>
-			<CodeBlock language="html" code={`<span class="badge variant-filled-primary">Skeleton</span>`} />
-		</section>
-		<!-- Icon -->
-		<section class="space-y-4">
-			<h2>Badge Icon</h2>
-			<p>A compact circular variation badge style.</p>
-			<CodeBlock language="html" code={`<span class="badge-icon variant-filled-primary">💀</span>`} />
-		</section>
-		<!-- Variants -->
-		<section class="space-y-4">
-			<h2>Variants</h2>
-			<p>Supports all standard variant styles via <code>.variant-[style]-[color]</code>.</p>
-			<CodeBlock language="html" code={`<span class="badge variant-filled-surface">Skeleton</span>`} />
 		</section>
 		<!-- Overlapping -->
 		<section class="space-y-4">

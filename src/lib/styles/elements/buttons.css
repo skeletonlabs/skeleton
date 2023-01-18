@@ -7,22 +7,24 @@
 		@apply !opacity-50 !cursor-not-allowed active:scale-100 hover:brightness-100;
 	}
 
-	/* === Button === */
-	/* Standard button/anchor tag elements. */
-
-	.btn {
+	.button-base-styles {
 		/* Size (match base)  */
 		@apply text-base px-5 py-[9px];
 		/* Core */
 		@apply text-center whitespace-nowrap;
 		/* Flex Columns */
 		@apply inline-flex justify-center items-center space-x-2;
-		/* Hover */
-		@apply hover:brightness-110;
+		/* States */
+		@apply hover:brightness-[1.15];
 		/* Transitions */
-		@apply transition-all active:scale-90;
-		/* Theme: Rounded */
-		@apply rounded-token;
+		@apply transition-all;
+	}
+
+	/* === Button === */
+	/* Standard button/anchor tag elements. */
+
+	.btn {
+		@apply button-base-styles rounded-token active:scale-[95%] active:brightness-90;
 	}
 
 	/* Button: Sizes */
@@ -68,5 +70,32 @@
 	/* File Input Button */
 	input[type='file']:not(.file-dropzone-input)::file-selector-button {
 		@apply border-0 btn variant-filled-secondary text-on-secondary-token btn-sm mr-2;
+	}
+
+	/* === Button Groups === */
+
+	.btn-group {
+		@apply inline-flex flex-row space-x-0 overflow-hidden rounded-token;
+	}
+	.btn-group-vertical {
+		@apply btn-group flex-col space-y-0 rounded-container-token;
+	}
+
+	/* Button / Anchors */
+	.btn-group button,
+	.btn-group a,
+	.btn-group-vertical button,
+	.btn-group-vertical a {
+		@apply button-base-styles hover:bg-surface-50/[3%] active:bg-surface-900/[3%];
+		/* Reset Anchor Styles */
+		@apply !no-underline !text-inherit;
+	}
+
+	/* Set Neutral Divider */
+	.btn-group * + * {
+		@apply border-t-0 border-l border-surface-500/20;
+	}
+	.btn-group-vertical * + * {
+		@apply border-t border-l-0 border-surface-500/20;
 	}
 }

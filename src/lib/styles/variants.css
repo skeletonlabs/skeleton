@@ -4,26 +4,26 @@
 @layer components {
 	/* Outline -- supports ringed and host variants */
 	.variant-outline-primary {
-		@apply ring-1 ring-primary-500 dark:ring-primary-500 ring-inset;
+		@apply ring-[1px] ring-primary-500 dark:ring-primary-500 ring-inset;
 	}
 	.variant-outline-secondary {
-		@apply ring-1 ring-secondary-500 dark:ring-secondary-500 ring-inset;
+		@apply ring-[1px] ring-secondary-500 dark:ring-secondary-500 ring-inset;
 	}
 	.variant-outline-tertiary {
-		@apply ring-1 ring-tertiary-500 dark:ring-tertiary-500 ring-inset;
+		@apply ring-[1px] ring-tertiary-500 dark:ring-tertiary-500 ring-inset;
 	}
 	.variant-outline-success {
-		@apply ring-1 ring-success-500 dark:ring-success-500 ring-inset;
+		@apply ring-[1px] ring-success-500 dark:ring-success-500 ring-inset;
 	}
 	.variant-outline-warning {
-		@apply ring-1 ring-warning-500 dark:ring-warning-500 ring-inset;
+		@apply ring-[1px] ring-warning-500 dark:ring-warning-500 ring-inset;
 	}
 	.variant-outline-error {
-		@apply ring-1 ring-error-500 dark:ring-error-500 ring-inset;
+		@apply ring-[1px] ring-error-500 dark:ring-error-500 ring-inset;
 	}
 	.variant-outline,
 	.variant-outline-surface {
-		@apply ring-1 ring-surface-500 dark:ring-surface-500 ring-inset;
+		@apply ring-[1px] ring-surface-500 dark:ring-surface-500 ring-inset;
 	}
 
 	/* ------------------------ */

@@ -21,8 +21,7 @@
 			['<code>.btn</code>', '-', 'Creates a text button using a button or anchor.'],
 			['<code>.btn-icon</code>', '-', 'Creates a text icon button using a button or anchor.'],
 			['<code>.btn-[value]</code>', 'sm | base | lg | xl', 'Canned button sizes that define padding and text sizes.'],
-			['<code>.btn-icon-[value]</code>', 'sm | base | lg | xl', 'Canned icon button sizes that define padding and text sizes.'],
-			['<code>.btn-[variant]</code>', '(see usage)', 'A set of preset class styles for buttons or icon buttons.']
+			['<code>.btn-icon-[value]</code>', 'sm | base | lg | xl', 'Canned icon button sizes that define padding and text sizes.']
 		]
 	};
 
@@ -69,7 +68,7 @@
 							btnClases +
 							`"` +
 							($storeDisabled ? ' disabled' : '') +
-							`>Skeleton</` +
+							`>\n\tSkeleton\n</` +
 							$storeTag +
 							`>`}
 					/>
@@ -171,7 +170,6 @@
 	<svelte:fragment slot="usage">
 		<!-- Buttons -->
 		<div class="space-y-4">
-			<h2>Standard Button</h2>
 			<p>Add the <code>.btn</code> class to any button or anchor to create a button with minimal styling.</p>
 			<CodeBlock language="html" code={`<button class="btn">Button</button>\n<a href="/" class="btn">Anchor</a>`} />
 			<div class="card p-4 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
@@ -199,12 +197,12 @@
 			</p>
 			<CodeBlock
 				language="html"
-				code={`<button class="btn bg-primary-500">\n\t<span>💀</span>\n\t<span>Icons</span>\n\t<span>🦴</span>\n</button>`}
+				code={`<button class="btn bg-primary-500">\n\t<span>(icon)</span>\n\t<span>Skeleton</span>\n\t<span>(icon)</span>\n</button>`}
 			/>
 			<div class="card p-4 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 				<button class="btn variant-filled-primary">
 					<span>💀</span>
-					<span>Icons</span>
+					<span>Skeleton</span>
 					<span>🦴</span>
 				</button>
 			</div>
@@ -212,48 +210,70 @@
 		<!-- Variants -->
 		<div class="space-y-4">
 			<h2>Variants</h2>
-			<p>A set of canned preset styles are available using <code>.btn-[variant]</code>. This works for both standard and icon buttons.</p>
-			<CodeBlock language="html" code={`<button class="btn variant-filled-primary">filled-primary</button>`} />
-			<div class="card p-4 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
-				<!-- Filled -->
-				<div class="grid grid-cols-1 gap-4">
-					<button class="btn variant-filled">filled</button>
-					<button class="btn variant-filled-primary">filled-primary</button>
-					<button class="btn variant-filled-secondary">filled-secondary</button>
-					<button class="btn variant-filled-tertiary">filled-tertiary</button>
-					<button class="btn variant-filled-success">filled-success</button>
-					<button class="btn variant-filled-warning">filled-warning</button>
-					<button class="btn variant-filled-error">filled-error</button>
-					<button class="btn variant-filled-surface">filled-surface</button>
+			<p>Supports all standard variant styles via <code>.variant-[style]-[color]</code>.</p>
+			<CodeBlock language="html" code={`<button class="btn variant-filled-primary">Skeleton</button>`} />
+			<div class="card p-4 grid grid-cols-1 md:grid-cols-5 gap-4">
+				<!-- filled -->
+				<div class="grid grid-cols-1 gap-4 text-center text-xs font-bold">
+					<p>Filled</p>
+					<button class="btn variant-filled-primary">primary</button>
+					<button class="btn variant-filled-secondary">secondary</button>
+					<button class="btn variant-filled-tertiary">tertiary</button>
+					<button class="btn variant-filled-success">success</button>
+					<button class="btn variant-filled-warning">warning</button>
+					<button class="btn variant-filled-error">error</button>
+					<button class="btn variant-filled-surface">surface</button>
 				</div>
-				<!-- Ringed -->
-				<div class="grid grid-cols-1 gap-4">
-					<button class="btn variant-ringed">ringed</button>
-					<button class="btn variant-ringed-primary">ringed-primary</button>
-					<button class="btn variant-ringed-secondary">ringed-secondary</button>
-					<button class="btn variant-ringed-tertiary">ringed-tertiary</button>
-					<button class="btn variant-ringed-success">ringed-success</button>
-					<button class="btn variant-ringed-warning">ringed-warning</button>
-					<button class="btn variant-ringed-error">ringed-error</button>
-					<button class="btn variant-ringed-surface">ringed-surface</button>
+				<!-- soft -->
+				<div class="grid grid-cols-1 gap-4 text-center text-xs font-bold">
+					<p>Soft</p>
+					<button class="btn variant-soft-primary">primary</button>
+					<button class="btn variant-soft-secondary">secondary</button>
+					<button class="btn variant-soft-tertiary">tertiary</button>
+					<button class="btn variant-soft-success">success</button>
+					<button class="btn variant-soft-warning">warning</button>
+					<button class="btn variant-soft-error">error</button>
+					<button class="btn variant-soft-surface">surface</button>
 				</div>
-				<!-- Ringed -->
-				<div class="grid grid-cols-1 gap-4">
-					<button class="btn variant-ghost">ghost</button>
-					<button class="btn variant-ghost-primary">ghost-primary</button>
-					<button class="btn variant-ghost-secondary">ghost-secondary</button>
-					<button class="btn variant-ghost-tertiary">ghost-tertiary</button>
-					<button class="btn variant-ghost-success">ghost-success</button>
-					<button class="btn variant-ghost-warning">ghost-warning</button>
-					<button class="btn variant-ghost-error">ghost-error</button>
-					<button class="btn variant-ghost-surface">ghost-surface</button>
+				<!-- ringed -->
+				<div class="grid grid-cols-1 gap-4 text-center text-xs font-bold">
+					<p>Ringed</p>
+					<button class="btn variant-ringed-primary">primary</button>
+					<button class="btn variant-ringed-secondary">secondary</button>
+					<button class="btn variant-ringed-tertiary">tertiary</button>
+					<button class="btn variant-ringed-success">success</button>
+					<button class="btn variant-ringed-warning">warning</button>
+					<button class="btn variant-ringed-error">error</button>
+					<button class="btn variant-ringed-surface">surface</button>
+				</div>
+				<!-- ghost -->
+				<div class="grid grid-cols-1 gap-4 text-center text-xs font-bold">
+					<p>Ghost</p>
+					<button class="btn variant-ghost-primary">primary</button>
+					<button class="btn variant-ghost-secondary">secondary</button>
+					<button class="btn variant-ghost-tertiary">tertiary</button>
+					<button class="btn variant-ghost-success">success</button>
+					<button class="btn variant-ghost-warning">warning</button>
+					<button class="btn variant-ghost-error">error</button>
+					<button class="btn variant-ghost-surface">surface</button>
+				</div>
+				<!-- glass -->
+				<div class="grid grid-cols-1 gap-4 text-center text-xs font-bold">
+					<p>Glass</p>
+					<button class="btn variant-glass-primary">primary</button>
+					<button class="btn variant-glass-secondary">secondary</button>
+					<button class="btn variant-glass-tertiary">tertiary</button>
+					<button class="btn variant-glass-success">success</button>
+					<button class="btn variant-glass-warning">warning</button>
+					<button class="btn variant-glass-error">error</button>
+					<button class="btn variant-glass-surface">surface</button>
 				</div>
 			</div>
 			<CodeBlock language="html" code={`<button class="btn-icon variant-filled-primary">💀</button>`} />
-			<div class="card p-4 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
-				<!-- Text -->
-				<div class="grid grid-cols-1 gap-4">
-					<button class="btn-icon variant-filled"><i class="fa-solid fa-skull" /></button>
+			<div class="card p-4 grid grid-cols-1 md:grid-cols-5 gap-4">
+				<!-- filled -->
+				<div class="grid grid-cols-1 gap-4 place-self-center text-center text-xs font-bold">
+					<p>Filled</p>
 					<button class="btn-icon variant-filled-primary"><i class="fa-solid fa-skull" /></button>
 					<button class="btn-icon variant-filled-secondary"><i class="fa-solid fa-skull" /></button>
 					<button class="btn-icon variant-filled-tertiary"><i class="fa-solid fa-skull" /></button>
@@ -262,9 +282,20 @@
 					<button class="btn-icon variant-filled-error"><i class="fa-solid fa-skull" /></button>
 					<button class="btn-icon variant-filled-surface"><i class="fa-solid fa-skull" /></button>
 				</div>
-				<!-- Ringed -->
-				<div class="grid grid-cols-1 gap-4">
-					<button class="btn-icon variant-ringed"><i class="fa-solid fa-skull" /></button>
+				<!-- soft -->
+				<div class="grid grid-cols-1 gap-4 place-self-center text-center text-xs font-bold">
+					<p>Soft</p>
+					<button class="btn-icon variant-soft-primary"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-soft-secondary"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-soft-tertiary"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-soft-success"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-soft-warning"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-soft-error"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-soft-surface"><i class="fa-solid fa-skull" /></button>
+				</div>
+				<!-- ringed -->
+				<div class="grid grid-cols-1 gap-4 place-self-center text-center text-xs font-bold">
+					<p>Ringed</p>
 					<button class="btn-icon variant-ringed-primary"><i class="fa-solid fa-skull" /></button>
 					<button class="btn-icon variant-ringed-secondary"><i class="fa-solid fa-skull" /></button>
 					<button class="btn-icon variant-ringed-tertiary"><i class="fa-solid fa-skull" /></button>
@@ -273,9 +304,9 @@
 					<button class="btn-icon variant-ringed-error"><i class="fa-solid fa-skull" /></button>
 					<button class="btn-icon variant-ringed-surface"><i class="fa-solid fa-skull" /></button>
 				</div>
-				<!-- Ringed -->
-				<div class="grid grid-cols-1 gap-4">
-					<button class="btn-icon variant-ghost"><i class="fa-solid fa-skull" /></button>
+				<!-- ghost -->
+				<div class="grid grid-cols-1 gap-4 place-self-center text-center text-xs font-bold">
+					<p>Ghost</p>
 					<button class="btn-icon variant-ghost-primary"><i class="fa-solid fa-skull" /></button>
 					<button class="btn-icon variant-ghost-secondary"><i class="fa-solid fa-skull" /></button>
 					<button class="btn-icon variant-ghost-tertiary"><i class="fa-solid fa-skull" /></button>
@@ -284,13 +315,94 @@
 					<button class="btn-icon variant-ghost-error"><i class="fa-solid fa-skull" /></button>
 					<button class="btn-icon variant-ghost-surface"><i class="fa-solid fa-skull" /></button>
 				</div>
+				<!-- glass -->
+				<div class="grid grid-cols-1 gap-4 place-self-center text-center text-xs font-bold">
+					<p>Glass</p>
+					<button class="btn-icon variant-glass-primary"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-glass-secondary"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-glass-tertiary"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-glass-success"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-glass-warning"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-glass-error"><i class="fa-solid fa-skull" /></button>
+					<button class="btn-icon variant-glass-surface"><i class="fa-solid fa-skull" /></button>
+				</div>
 			</div>
 		</div>
+		<!-- Button Groups -->
+		<section class="space-y-4">
+			<h2>Button Groups</h2>
+			<p>Creates a set of related buttons. Acccepts <em>buttons</em> or <em>anchors</em> and pairs with any variant style.</p>
+			<CodeBlock
+				language="html"
+				code={`
+<div class="btn-group variant-filled-primary">
+	<button>Months</button>
+	<button>Days</button>
+	<button>Years</button>
+</div>
+			`}
+			/>
+			<div class="card p-4 grid grid-cols-1 xl:grid-cols-3 gap-4 place-items-center">
+				<div>
+					<div class="btn-group variant-filled-primary">
+						<button>Months</button>
+						<button>Days</button>
+						<button>Years</button>
+					</div>
+				</div>
+				<div>
+					<div class="btn-group variant-ghost-secondary">
+						<button>Months</button>
+						<button>Days</button>
+						<button>Years</button>
+					</div>
+				</div>
+				<div>
+					<div class="btn-group variant-ringed-tertiary">
+						<button>Months</button>
+						<button>Days</button>
+						<button>Years</button>
+					</div>
+				</div>
+			</div>
+			<!-- prettier-ignore -->
+			<p>A neutral divider color is provided by default, but you can use the <a href="https://tailwindcss.com/blog/tailwindcss-v3-1#arbitrary-values-but-for-variants" target="_blank" rel="noreferrer">Tailwind's abitrary variant syntax</a> to adjust this as desired.</p>
+			<CodeBlock language="html" code={`<div class="btn-group variant-ghost-primary [&>*+*]:border-primary-900">...</div>`} />
+			<div class="card p-4 grid grid-cols-1 lg:grid-cols-2 gap-4 place-items-center">
+				<div class="text-center space-y-2">
+					<code>[&>*+*]:border-red-500</code><br />
+					<div class="btn-group variant-ghost-primary [&>*+*]:border-red-500">
+						<button>Months</button>
+						<button>Days</button>
+						<button>Years</button>
+					</div>
+				</div>
+				<div class="text-center space-y-2">
+					<code>[&>*+*]:border-primary-500</code><br />
+					<div class="btn-group variant-ghost-primary [&>*+*]:border-primary-500">
+						<button>Months</button>
+						<button>Days</button>
+						<button>Years</button>
+					</div>
+				</div>
+			</div>
+			<p>
+				Use the <code>.btn-group-vertical</code> class to set a vertical button group. This can be paired with Tailwind's responsive breakpoints.
+			</p>
+			<CodeBlock language="html" code={`<div class="btn-group-vertical variant-filled-primary">...</div>`} />
+			<div class="card p-4 text-center">
+				<div class="btn-group-vertical variant-filled-primary">
+					<button>Months</button>
+					<button>Days</button>
+					<button>Years</button>
+				</div>
+			</div>
+		</section>
 		<!-- SvelteKit Link Options -->
 		<div class="space-y-4">
 			<h2>SvelteKit Link Options</h2>
 			<p>
-				Since we use native elements, this means we can utilize <a
+				Since Skeleton uses native button elements, this means you can utilize <a
 					href="https://kit.svelte.dev/docs/link-options"
 					target="_blank"
 					rel="noreferrer">SvelteKit Link Options</a

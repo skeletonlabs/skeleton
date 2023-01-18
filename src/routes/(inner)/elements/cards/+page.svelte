@@ -62,6 +62,20 @@
 					</footer>
 				</a>
 			</div>
+		</section>
+	</svelte:fragment>
+
+	<!-- Slot: Usage -->
+	<svelte:fragment slot="usage">
+		<div class="space-y-4">
+			<p>Both block elements and anchors are supported.</p>
+			<CodeBlock language="html" code={`<div class="card p-4">Basic</div>`} />
+			<CodeBlock language="html" code={`<a href="/" class="card p-4">Link</a>`} />
+		</div>
+		<div class="space-y-4">
+			<h2>Variants</h2>
+			<p>Supports all standard variant styles via <code>.variant-[style]-[color]</code>.</p>
+			<CodeBlock language="html" code={`<div class="card variant-filled-primary p-4">Skeleton</div>`} />
 			<div class="grid grid-cols-1 md:grid-cols-5 gap-4">
 				<!-- filled -->
 				<div class="grid grid-cols-1 gap-4 text-center text-xs font-bold">
@@ -119,21 +133,6 @@
 					<div class="card variant-glass-surface p-4">surface</div>
 				</div>
 			</div>
-		</section>
-	</svelte:fragment>
-
-	<!-- Slot: Usage -->
-	<svelte:fragment slot="usage">
-		<div class="space-y-4">
-			<CodeBlock language="html" code={`<div class="card p-4">Basic</div>`} />
-			<CodeBlock language="html" code={`<a href="/" class="card p-4">Link</a>`} />
-		</div>
-		<div class="space-y-4">
-			<h2>Styles</h2>
-			<p>Background color styling.</p>
-			<CodeBlock language="html" code={`<div class="card !bg-primary-500 text-on-primary-token p-4">primary</div>`} />
-			<p>Glass background styling. These are semi-transparent with a slight blur effect.</p>
-			<CodeBlock language="html" code={`<div class="card variant-glass-primary p-4">glass-primary</div>`} />
 		</div>
 		<!-- Headers and Footers -->
 		<div class="space-y-4">
