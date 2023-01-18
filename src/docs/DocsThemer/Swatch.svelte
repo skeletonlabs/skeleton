@@ -1,8 +1,9 @@
 <script lang="ts">
+	import type { SemanticNames } from '$lib/components/ConicGradient/settings';
 	import { swatchColorClasses } from './settings';
 
 	/** Pass the color key name. */
-	export let color = 'primary';
+	export let color: SemanticNames;
 </script>
 
 <div class="grid grid-cols-11 gap-0">
