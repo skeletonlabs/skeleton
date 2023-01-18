@@ -34,7 +34,7 @@
 
 	.list-nav a,
 	.list-nav button,
-	.list-nav .option {
+	.list-option {
 		@apply flex items-center space-x-4 whitespace-nowrap;
 		/* Padding */
 		@apply px-4 py-3;
