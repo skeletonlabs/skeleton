@@ -44,7 +44,7 @@ function extractScriptsFromComponents(dir) {
 				// the first param is the filename, it is not for reading from the file, but rather for when ts reports issues
 				// it is also not creating an actual source file, but rather an AST.
 				const node = ts.createSourceFile(file.slice(leadingCharsToStrip), script, ts.ScriptTarget.Latest);
-				filesToProps[file.slice(leadingCharsToStrip)] = {node: node};
+				filesToProps[file.slice(leadingCharsToStrip)] = { node: node };
 			}
 		}
 	});
@@ -68,13 +68,13 @@ function _extractJSDocBlocks(srcFile, propsObj) {
 			switch (node.kind) {
 				case ts.SyntaxKind.FirstStatement:
 					if (declaration.type?.typeName?.escapedText == 'CSS') {
-						propsObj[declaration.name.escapedText] = { comment: jsDoc.comment , type: 'css' };
+						propsObj[declaration.name.escapedText] = { comment: jsDoc.comment, type: 'css' };
 					} else {
-						propsObj[declaration.name.escapedText] = { comment: jsDoc.comment , type: 'prop' };
+						propsObj[declaration.name.escapedText] = { comment: jsDoc.comment, type: 'prop' };
 					}
 					break;
 				case ts.SyntaxKind.ExpressionStatement:
-					propsObj[node.expression.arguments[0].text] = { comment: jsDoc.tags[jsDoc.tags.length -1].comment ?? '', type: 'event' };
+					propsObj[node.expression.arguments[0].text] = { comment: jsDoc.tags[jsDoc.tags.length - 1].comment ?? '', type: 'event' };
 					break;
 			}
 		}
@@ -102,7 +102,7 @@ function writeJSDocsToDefinitionFiles() {
 				if (endPos == -1) { endPos = line.indexOf(':'); }
 				//Lookup the prop found in the definition file on our props mapping object
 				//the 8 comes from the amount of spaces before the property begins, this is static and more efficient this way.
-				const jsdoc = filesToProps[file].props[line.slice(8,endPos)]?.comment;
+				const jsdoc = filesToProps[file].props[line.slice(8, endPos)]?.comment;
 				if (jsdoc != undefined) {
 					annotatedDts.push('        /** ' + jsdoc + '*/');
 				}
@@ -118,20 +118,17 @@ function writeJSDocsToDefinitionFiles() {
 function generateKeyWordsFromProps() {
 	let propSet = new Set()
 	for (let file in filesToProps) {
-		// console.log(`============ ${file} =============`);
 		for (let prop in filesToProps[file].props) {
-			// console.log(prop, filesToProps[file].props[prop].comment, filesToProps[file].props[prop].type);
 			if (filesToProps[file].props[prop].type == 'css') {
 				propSet.add(prop)
 			}
 		}
 	}
-	return propSet
+	writeFileSync('scripts/tw-settings.json', JSON.stringify({ "tailwindCSS.classAttributes": [...propSet] }, null, '\t'));
 }
 
 extractScriptsFromComponents('src/lib/components');
 extractScriptsFromComponents('src/lib/utilities');
-// extractScriptsFromComponents('src/lib/components/Accordion');
 extractJSDocBlocks()
 writeJSDocsToDefinitionFiles();
 generateKeyWordsFromProps()
