@@ -184,8 +184,7 @@
 			<CodeBlock language="html" code={`<button class="btn-icon">B</button>\n<a href="/" class="btn-icon">A</a>`} />
 			<div class="card p-4 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
 				<button class="btn-icon">B</button>
-				<!-- FIXME: the :not() style isn't applying here so I supplemented `.unstyled` class. Browser bug perhaps? -CHRIS -->
-				<a {href} class="btn-icon unstyled">A</a>
+				<a {href} class="btn-icon">A</a>
 			</div>
 		</div>
 		<!-- Icons -->
@@ -269,7 +268,7 @@
 					<button class="btn variant-glass-surface">surface</button>
 				</div>
 			</div>
-			<CodeBlock language="html" code={`<button class="btn-icon variant-filled-primary">💀</button>`} />
+			<CodeBlock language="html" code={`<button class="btn-icon variant-filled-primary">(icon)</button>`} />
 			<div class="card p-4 grid grid-cols-1 md:grid-cols-5 gap-4">
 				<!-- filled -->
 				<div class="grid grid-cols-1 gap-4 place-self-center text-center text-xs font-bold">

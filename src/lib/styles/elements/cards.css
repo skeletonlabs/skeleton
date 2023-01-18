@@ -1,8 +1,6 @@
 /* Tailwind Elements: cards.css */
 
 @layer components {
-	/* === Card (parent) === */
-
 	.card {
 		/* background */
 		@apply bg-surface-100-800-token;
@@ -12,7 +10,7 @@
 		@apply rounded-container-token;
 	}
 
-	/* === Card Regions (children) === */
+	/* === Regions === */
 
 	.card-header {
 		@apply p-4 pb-0;
@@ -25,7 +23,7 @@
 	/* === States === */
 
 	a.card {
-		@apply transition-all hover:brightness-110;
+		@apply transition-all hover:brightness-105;
 	}
 
 	.card-hover {
