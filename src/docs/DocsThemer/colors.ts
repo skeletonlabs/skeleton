@@ -208,14 +208,13 @@ export function getPassReport(textColor: string, backgroundColor: string) {
 			textColor +
 			' and ' +
 			backgroundColor +
-			' is ' +
 			(smallAAA
-				? 'Great contrast!'
+				? 'has great contrast!'
 				: smallAA
-				? 'AAA for larger text'
+				? 'is AAA for larger text'
 				: largeAA
-				? 'Suitable only for large text'
-				: 'Fails contrast guidelines')
+				? 'suitable only for large text'
+				: 'fails contrast guidelines')
 	};
 	return {
 		textColor,
