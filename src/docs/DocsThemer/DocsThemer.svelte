@@ -148,9 +148,9 @@
 								<div
 									use:tooltip={{ content: contrastReport.report.note, color: '!text-on-primary-token' }}
 									class="btn-icon ml-2"
-									class:btn-filled-error={contrastReport.fails}
-									class:btn-filled-secondary={contrastReport.largeAA}
-									class:btn-filled-success={contrastReport.smallAAA}
+									class:btn-ghost-error={contrastReport.fails}
+									class:btn-ghost-warning={contrastReport.largeAA}
+									class:btn-ghost-success={contrastReport.smallAAA || contrastReport.smallAA}
 								>
 									{contrastReport.report.emoji}
 								</div>
