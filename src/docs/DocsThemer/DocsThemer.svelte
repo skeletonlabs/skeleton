@@ -15,7 +15,8 @@
 	import { storePreview } from './stores';
 	import type { ColorSettings, FormTheme } from './types';
 	import { inputSettings, fontSettings } from './settings';
-	import { type Palette, generatePalette, generateA11yOnColor } from './colors';
+	import { type Palette, generatePalette, generateA11yOnColor, getPassReport } from './colors';
+	import { tooltip } from '$lib/utilities/Tooltip/tooltip';
 
 	// Stores
 	const storeThemGenForm: Writable<FormTheme> = localStorageStore('storeThemGenForm', {
@@ -123,7 +124,9 @@
 			</header>
 			<hr />
 			<div class="p-4 grid grid-cols-1 gap-4">
-				{#each $storeThemGenForm.colors as colorRow}
+				{#each $storeThemGenForm.colors as colorRow, i}
+					{@const contrastReport = getPassReport($storeThemGenForm.colors[i].hex, $storeThemGenForm.colors[i].on)}
+					{@const contrastRatio = Math.round(contrastReport.contrast * 100) / 100}
 					<div class="grid grid-cols-1 lg:grid-cols-[170px_1fr_160px] gap-2 lg:gap-4">
 						<label>
 							<span>{colorRow.label}</span>
@@ -134,10 +137,23 @@
 						</label>
 						<Swatch color={colorRow.key} />
 						<label>
-							<span>Text & Fill Color</span>
-							<select bind:value={colorRow.on} disabled={!$storePreview}>
-								{#each inputSettings.colorProps as c}<option value={c.value}>{c.label}</option>{/each}
-							</select>
+							<span>
+								Text & Fill Color ({contrastReport.textColor} on {contrastReport.backgroundColor} = {contrastRatio})
+							</span>
+							<div class="flex">
+								<select bind:value={colorRow.on} disabled={!$storePreview}>
+									{#each inputSettings.colorProps as c}<option value={c.value}>{c.label}</option>{/each}
+								</select>
+								<div
+									use:tooltip={{ content: contrastReport.report.note }}
+									class="btn-icon ml-2"
+									class:btn-filled-error={contrastReport.fails}
+									class:btn-filled-secondary={contrastReport.largeAA}
+									class:btn-filled-success={contrastReport.smallAAA}
+								>
+									{contrastReport.report.emoji}
+								</div>
+							</div>
 						</label>
 					</div>
 				{/each}
@@ -239,6 +255,15 @@
 				<SlideToggle accent="bg-tertiary-500" checked />
 			</div>
 		</section>
+
+		<!-- <section class="card !bg-transparent p-4 space-y-8 col-span-2 lg:col-span-1">
+			<h3>Contrast</h3>
+			<div class="grid grid-cols-3 gap-4">
+				{#each  as }
+
+				{/each}
+			</div>
+		</section> -->
 
 		<!-- CSS Output -->
 		<footer class="col-span-2 space-y-4">
