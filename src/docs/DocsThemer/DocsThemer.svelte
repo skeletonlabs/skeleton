@@ -139,6 +139,7 @@
 						<label>
 							<span>
 								Text & Fill Color ({contrastReport.textColor} on {contrastReport.backgroundColor} = {contrastRatio})
+								<!-- remove me before PR is merged^^^^ -->
 							</span>
 							<div class="flex">
 								<select bind:value={colorRow.on} disabled={!$storePreview}>
