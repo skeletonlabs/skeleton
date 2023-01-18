@@ -256,15 +256,6 @@
 			</div>
 		</section>
 
-		<!-- <section class="card !bg-transparent p-4 space-y-8 col-span-2 lg:col-span-1">
-			<h3>Contrast</h3>
-			<div class="grid grid-cols-3 gap-4">
-				{#each  as }
-
-				{/each}
-			</div>
-		</section> -->
-
 		<!-- CSS Output -->
 		<footer class="col-span-2 space-y-4">
 			{#if showThemeCSS}<CodeBlock language="css" code={cssOutput} />{/if}
