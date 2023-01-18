@@ -138,7 +138,8 @@
 						<Swatch color={colorRow.key} />
 						<label>
 							<span>
-								Text & Fill Color ({contrastReport.textColor} on {contrastReport.backgroundColor} = {contrastRatio})
+								Text & Fill Color
+								<!-- ({contrastReport.textColor} on {contrastReport.backgroundColor} = {contrastRatio}) -->
 								<!-- remove me before PR is merged^^^^ -->
 							</span>
 							<div class="flex">
@@ -146,13 +147,13 @@
 									{#each inputSettings.colorProps as c}<option value={c.value}>{c.label}</option>{/each}
 								</select>
 								<div
-									use:tooltip={{ content: contrastReport.report.note, color: '!text-on-primary-token' }}
-									class="btn-icon ml-2"
-									class:btn-ghost-error={contrastReport.fails}
-									class:btn-ghost-warning={contrastReport.largeAA}
-									class:btn-ghost-success={contrastReport.smallAAA || contrastReport.smallAA}
+									title={contrastReport.report.note}
+									class="badge-icon !inline-flex -top-1 -right-1 z-10"
+									class:!bg-error-500={contrastReport.fails}
+									class:!bg-warning-500={contrastReport.largeAA}
+									class:!bg-success-500={contrastReport.smallAAA || contrastReport.smallAA}
 								>
-									{contrastReport.report.emoji}
+									{@html contrastReport.report.emoji}
 								</div>
 							</div>
 						</label>
