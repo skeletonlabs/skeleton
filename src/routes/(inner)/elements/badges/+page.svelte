@@ -130,7 +130,7 @@
 		</section>
 		<!-- Overlapping -->
 		<section class="space-y-4">
-			<h2>Overlapping Icon</h2>
+			<h2>Overlapping</h2>
 			<p>Use Tailwind utility classes to create overlapping elements.</p>
 			<CodeBlock
 				language="html"

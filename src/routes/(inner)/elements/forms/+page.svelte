@@ -186,10 +186,13 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<h2>Install the Forms Plugin</h2>
+			<div class="flex items-center space-x-2">
+				<h2>Tailwind Forms Plugin</h2>
+				<span class="badge variant-filled-warning">Required</span>
+			</div>
 			<!-- prettier-ignore -->
 			<p>
-				The Tailwind Forms plugin is required if you wish to use Skeleton's form styles. It normalizes the styles, which makes them easier to style. See the <a href="https://www.youtube.com/watch?v=pONeWAzDsQg" target="_blank" rel="noreferrer">Tailwind's YouTube tutorial</a> for more information.
+				The Tailwind Forms plugin is required if you wish to use Skeleton's form styles. This plugin normalizes the styles, which makes them easier to customize. See the <a href="https://www.youtube.com/watch?v=pONeWAzDsQg" target="_blank" rel="noreferrer">Tailwind's YouTube tutorial</a> for more information.
 			</p>
 			<!-- Written -->
 			<div class="flex-auto space-y-4">
@@ -204,7 +207,7 @@
 module.exports = {
 	plugins: [
 		require('@tailwindcss/forms'),
-		// Insert above the 'skeleton.cjs' plugin
+		// NOTE: Insert above the 'skeleton.cjs' plugin
 	],
 }
 				`}
@@ -212,8 +215,11 @@ module.exports = {
 			</div>
 		</section>
 		<section class="space-y-4">
-			<h2>Use Native Elements</h2>
-			<p>Create form elements using native HTML markup. We recommend <em>span</em> tags for label text.</p>
+			<h2>Using Native Elements</h2>
+			<p>
+				Unlike other UI libraries, Skeleton relies heavily on native inputs for form fields. We feel these provide the best user experience
+				and optimal accessability. Most native inputs will work out of the box.
+			</p>
 			<CodeBlock
 				language="html"
 				code={`
@@ -236,6 +242,18 @@ module.exports = {
 </label>
 		`}
 			/>
+			<!-- Vertical Spacing -->
+			<h3>Vertical Spacing</h3>
+			<p>
+				Note that we recommend <em>span</em> tags for label text and implement a vertical spacing class on the label using
+				<code>.input-label</code>. This implements the Tailwind <code>.space-y-2</code> class by default, but feel free to override.
+			</p>
+			<!-- Browser Support -->
+			<h3>Browser Support</h3>
+			<p>
+				Please be aware that not all native HTML input styles and features are consistent across browsers or operating system. Make sure you
+				do proper cross device/OS/browser testing to ensure compability for your target audience.
+			</p>
 		</section>
 		<!-- Input Groups -->
 		<section class="space-y-4">
@@ -307,10 +325,10 @@ module.exports = {
 				</label>
 			</div>
 		</section>
-		<!-- Variants -->
+		<!-- Validation Classes -->
 		<section class="space-y-4">
-			<h2>Variants</h2>
-			<p>Skeleton provides a set of variant classes that can be paired with your form validation logic.</p>
+			<h2>Validation Classes</h2>
+			<p>Skeleton provides a set of validation classes that can be triggered with your own custom form validation logic.</p>
 			<CodeBlock language="html" code={`<input ... class="input-success" />`} />
 			<div class="card p-4 grid grid-cols-1 lg:grid-cols-3 gap-4">
 				<label class="space-y-3">
@@ -330,26 +348,18 @@ module.exports = {
 		<section class="space-y-4">
 			<h2>Excluding Styles</h2>
 			<p>
-				Use the <code>.unstyled</code> class to exclude and zero out styles for a single input element. However, please note any styles provided
-				by the Tailwind Forms plugin will remain in place. See the example below.
+				Use the <code>.unstyled</code> class to exclude and and remove Skeleton-provide styles. Please be aware that base styles provided by
+				the Tailwind Forms plugin will remain per the example below.
 			</p>
 			<CodeBlock language="html" code={`<input ... class="unstyled" />`} />
 			<div class="card p-4 text-center">
 				<input type="text" placeholder="unstyled" class="unstyled" />
 			</div>
 		</section>
-		<!-- Browser Support -->
-		<section class="space-y-4">
-			<h2>Browser Support</h2>
-			<p>
-				Please be aware that not all native HTML input styles and features are consistent across browsers or operating system. Please be
-				sure to verify your elements work as desired in all target browsers for your application.
-			</p>
-		</section>
 		<!-- See Also -->
 		<section class="space-y-4">
 			<h2>See Also</h2>
-			<p>Skeleton provides an extended set of input components. The documentation for each of these is linked below.</p>
+			<p>Skeleton provides an extended set of custom form components.</p>
 			<div class="grid grid-cols-2 gap-4">
 				<div class="card p-4 variant-glass-surface text-center">
 					<a class="btn variant-filled-secondary" href="/components/range-sliders">Range Slider &rarr;</a>

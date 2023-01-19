@@ -72,9 +72,7 @@
 </div>
 `}
 			/>
-		</section>
-		<section class="space-y-4">
-			<h2>Using Icons</h2>
+			<h3>Using Icons</h3>
 			<p>See the example below for implementing icons. Note how each element is wrapped in a <em>span</em> tag.</p>
 			<CodeBlock
 				language="html"
@@ -85,10 +83,8 @@
 </div>
 `}
 			/>
-		</section>
-		<!-- Links -->
-		<section class="space-y-4">
-			<h2>Creating Links</h2>
+			<!-- Links -->
+			<h3>Creating Links</h3>
 			<p>Usings support anchor tags for links.</p>
 			<CodeBlock
 				language="html"
@@ -96,10 +92,8 @@
 <a class="logo-item" href="/">Skeleton</a>
 `}
 			/>
-		</section>
-		<!-- Icons -->
-		<section class="space-y-4">
-			<h2>Using Icons</h2>
+			<!-- Icons -->
+			<h3>Using Icons</h3>
 			<p>Wrap child elements in span tags and they will space as expected.</p>
 			<CodeBlock
 				language="html"
