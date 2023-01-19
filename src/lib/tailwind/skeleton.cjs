@@ -15,7 +15,7 @@ const tokensText = require('./tokens/text.cjs');
 const tokensRings = require('./tokens/rings.cjs');
 
 module.exports = plugin(
-	({ addUtilities, addComponents }) => {
+	({ addUtilities }) => {
 		addUtilities({
 			// Implement Skeleton design token classes
 			...tokensBackgrounds(),
@@ -25,19 +25,6 @@ module.exports = plugin(
 			...tokensText(),
 			...tokensRings()
 		});
-		// The following will generate the non-token classes PURELY for Intellisense.
-		// These are excluded from production, which means we still need to lean into
-		// using the `all.css` stylesheet to import non-token styles.
-		if (process.env.NODE_ENV !== 'production') {
-			// try/catch because it will throw when allComponents.cjs isn't generated yet
-			try {
-				const all = require('./generated/allComponents.cjs');
-				addComponents(all, {
-					respectImportant: true,
-					respectPrefix: true
-				});
-			} catch {}
-		}
 	},
 	{
 		theme: {
