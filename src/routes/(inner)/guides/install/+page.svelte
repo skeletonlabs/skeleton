@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { storeFramework } from '$docs/stores';
-	import { TabGroup, Tab, Alert } from '@skeletonlabs/skeleton';
+	import { TabGroup, Tab } from '@skeletonlabs/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// ******** TEMPORARY FIX ********
