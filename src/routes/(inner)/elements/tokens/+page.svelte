@@ -11,7 +11,7 @@
 		name: 'Design Tokens',
 		description: 'The Skeleton Tailwind plugin provides a set of utility classes that adjust to your theme settings.',
 		// stylesheetIncludes: ['all', 'tokens'],
-		source: 'styles/tokens'
+		source: 'tailwind/tokens'
 	};
 
 	// Local
