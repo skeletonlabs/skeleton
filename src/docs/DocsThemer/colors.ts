@@ -96,12 +96,12 @@ function darken(hex: string, intensity: number, hueFraction: number): string {
 	};
 	const rotatedRgb = hslToRgb(alteredHsl.h, alteredHsl.s, alteredHsl.l);
 	const result = rgbToHex(rotatedRgb.r, rotatedRgb.g, rotatedRgb.b);
-	console.log('%c original HEX', `color: ${hex};`, hex);
-	console.log('%c original RGB', `color: rgb(${color.r} ${color.g} ${color.b})`, color);
-	console.log('%c HSL', `color: hsl(${hsl.h} ${hsl.s}% ${hsl.l}%)`, hsl);
-	console.log('%c altered HSL', `color: hsl(${alteredHsl.h} ${alteredHsl.s}% ${alteredHsl.l}%)`, alteredHsl);
-	console.log('%c changed RGB', `color: rgb(${rotatedRgb.r} ${rotatedRgb.g} ${rotatedRgb.b})`, rotatedRgb);
-	console.log('%c result HEX', `color: ${result};`, result);
+	// console.log('%c original HEX', `color: ${hex};`, hex);
+	// console.log('%c original RGB', `color: rgb(${color.r} ${color.g} ${color.b})`, color);
+	// console.log('%c HSL', `color: hsl(${hsl.h} ${hsl.s}% ${hsl.l}%)`, hsl);
+	// console.log('%c altered HSL', `color: hsl(${alteredHsl.h} ${alteredHsl.s}% ${alteredHsl.l}%)`, alteredHsl);
+	// console.log('%c changed RGB', `color: rgb(${rotatedRgb.r} ${rotatedRgb.g} ${rotatedRgb.b})`, rotatedRgb);
+	// console.log('%c result HEX', `color: ${result};`, result);
 	return result;
 }
 
