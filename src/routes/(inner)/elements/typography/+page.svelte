@@ -37,6 +37,11 @@
 			</div>
 			<p>You may then append your own styles as desired.</p>
 			<CodeBlock language="html" code={`<a href="/" class="unstyled text-orange-500">This link is orange.</a>`} />
+			<h3>Tailwind Plugin</h3>
+			<!-- prettier-ignore -->
+			<p>
+				If you're using the <a href="https://tailwindcss.com/docs/typography-plugin" target="_blank" rel="noreferrer">Tailwind Typography plugin</a>, all typography within the <code>.prose</code> class will be auto-excluded, allowing the plugin to handle most styles. Global styles like base text color will remain in effect though. See the plugin documentation for implementing overrides.
+			</p>
 		</section>
 		<!-- Headings -->
 		<div class="space-y-4">
