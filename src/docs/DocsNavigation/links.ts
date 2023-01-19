@@ -26,13 +26,7 @@ export const menuNavLinks: any = [
 			{ href: '/guides/tailwind', label: 'Tailwind CSS', keywords: 'dark, content, plugin' },
 			{ href: '/guides/themes', label: 'Themes', keywords: 'create, generate, generator, colors, tokens' },
 			{ href: '/guides/styling', label: 'Styling', keywords: 'css, import, customization, props, class, styles' },
-			{ href: '/guides/quickstart', label: 'Quickstart', keywords: 'start, setup, tutorial, guide' },
-			{
-				href: '/guides/making-a-component',
-				label: 'Making a Component',
-				keywords: 'create, component, guide, tutorial, gradient heading',
-				badge: 'New!'
-			}
+			{ href: '/guides/quickstart', label: 'Quickstart', keywords: 'start, setup, tutorial, guide' }
 		]
 	},
 

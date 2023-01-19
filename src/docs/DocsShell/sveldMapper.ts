@@ -21,56 +21,6 @@ export function sveldMapperProps(component: Component): TableSource {
 	};
 }
 
-// RegEx to catch the link that appears after `@` in the JSDoc and all of the text that appears before the closing `}`
-const linkRegex =
-	/{@(?<tag>.+?)\s+(?<link>.+?)\s(?<description>[^}]+)|@(?<modifier>.+?)\s+(?<modifierDescription>[^@|\n]+)|\[(?<markdownName>.+?)\]\((?<markdownLink>.+?)\)/g;
-
-type SupportedTags = 'link' | 'see' | 'a11y' | 'type' | 'optional' | string;
-type JSDocData = {
-	tag: SupportedTags;
-	link: string;
-	modifier: string;
-	modifierDescription: string;
-	markdownLink: string;
-	markdownName: string;
-	description: string;
-};
-
-export function getDataFromJSDoc(jsdoc: string) {
-	const results = linkRegex.exec(jsdoc);
-	if (!results) return jsdoc;
-	const groups = results.groups;
-	if (!groups) return jsdoc;
-	const assertedGroup = groups as JSDocData;
-	const fixedString = outputAsHtml(assertedGroup);
-	if (!fixedString) return jsdoc;
-	return results?.input.replace(results[0], fixedString);
-}
-
-function turnBackticksToCode(str: string) {
-	return str.replace(/`([^`]+)`/g, '<code>$1</code>');
-}
-
-export function outputAsHtml(data: JSDocData) {
-	console.log({ data });
-	const desc = data.description || data.markdownName || data.modifierDescription;
-	const link = data.link || data.markdownLink;
-	switch (data.tag) {
-		case 'link':
-		case 'see':
-			return `<a href="${link}">${turnBackticksToCode(desc)}</a>`;
-		case 'type':
-			return `<code>${turnBackticksToCode(desc)}</code>`;
-		case 'a11y':
-		case 'optional':
-		default:
-			if (data.markdownLink && data.markdownName) {
-				return `<a href="${link}">${turnBackticksToCode(desc)}</a>`;
-			}
-			return `${turnBackticksToCode(desc)}`;
-	}
-}
-
 // Mapper: Slots
 export function sveldMapperSlots(component: Component): TableSource {
 	const { slots } = component.sveld;

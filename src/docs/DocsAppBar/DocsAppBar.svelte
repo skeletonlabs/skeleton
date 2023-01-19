@@ -149,7 +149,8 @@
 			<a class="unstyled hover:bg-primary-hover-token px-4 py-2 rounded-token" href="/blog" data-sveltekit-preload-data="hover">Blog</a>
 		</section>
 
-		<span class="divider-vertical hidden lg:block border-l-2 opacity-20" />
+		<!-- Divider -->
+		<span class="divider-vertical h-5" />
 
 		<!-- Theme -->
 		<div class="relative">
@@ -194,7 +195,8 @@
 			</div>
 		</div>
 
-		<span class="divider-vertical border-l-2 opacity-20" />
+		<!-- Divider -->
+		<span class="divider-vertical h-5" />
 
 		<!-- Social -->
 		<section class="grid grid-cols-3 gap-6">

@@ -48,7 +48,7 @@
 		</div>
 	</section>
 
-	<hr class="border-dotted" />
+	<hr />
 
 	<!-- Row 2 -->
 	<section class={cRowTwo}>
