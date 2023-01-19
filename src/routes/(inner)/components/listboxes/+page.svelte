@@ -63,13 +63,13 @@
 			<h2>Single Value</h2>
 			<p>Define a writable store with a <u>singular</u> value of any type, then add a <code>value</code> prop to each child.</p>
 			<CodeBlock language="typescript" code={`import { writable, type Writable } from 'svelte/store';`} />
-			<CodeBlock language="typescript" code={`const storeSingle: Writable<number> = writable(1);`} />
+			<CodeBlock language="typescript" code={`const storeSingle: Writable<number> = writable(0);`} />
 			<CodeBlock
 				language="html"
 				code={`
 <ListBox selected="{storeSingle}" label="Single Selection">
-	<ListBoxItem value={1}>Selection Example 1</ListBoxItem>
-	<ListBoxItem value={2}>Selection Example 2</ListBoxItem>
+	<ListBoxItem value={0}>Selection Example 1</ListBoxItem>
+	<ListBoxItem value={1}>Selection Example 2</ListBoxItem>
 </ListBox>`}
 			/>
 		</section>
