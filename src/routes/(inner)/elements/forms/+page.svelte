@@ -240,17 +240,26 @@ module.exports = {
 		<!-- Input Groups -->
 		<section class="space-y-4">
 			<h2>Input Groups</h2>
-			<!-- prettier-ignore -->
-			<p>
-				Create a horizontal group of elements related to an input. Surrounding elements can be a <em>div</em>, <em>button</em>, or
-				<em>anchor</em>. Use Tailwind's <a href="https://tailwindcss.com/docs/grid-template-columns#arbitrary-values" target="_blank" rel="noreferrer">abitrary column syntax</a> to define column widths. The <code>auto</code> value will fit the element's width, while <code>1fr</code> will fill all available available width.
-			</p>
-			<p>The <code>.input-group-divider</code> class is optional. Removing it will exclude the vertical divider lines.</p>
+			<p>Create a horizontal group of elements related to an input. We've detailed a few requirements below.</p>
+			<ul class="space-y-2 list-disc list-inside">
+				<li>Groups support <em>most</em> input types and select elements.</li>
+				<!-- prettier-ignore -->
+				<li>
+					These are grid-based. Set column witdth using <a href="https://tailwindcss.com/docs/grid-template-columns#arbitrary-values" target="_blank" rel="noreferrer">Tailwind's abitrary column syntax</a>.
+				</li>
+				<li>
+					The <code>.input-group-divider</code> class is optional. This sets the vertical segment divider lines.
+				</li>
+				<li>
+					Surrounding segments (shown on the left and right) allow for <em>div</em>, <em>button</em>, and <em>anchor</em> elements.
+				</li>
+				<li>The <code>.input-group-shim</code> class will apply shading to a segment.</li>
+			</ul>
 			<CodeBlock
 				language="html"
 				code={`
 <div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
-	<div class="input-group-shim">(icon)</div>
+	<div class="input-group-shim">(segment)</div>
 	<input type="search" placeholder="Search..." />
 	<button class="variant-filled-secondary">Submit</button>
 </div>
@@ -261,7 +270,7 @@ module.exports = {
 					<span>Website</span>
 					<div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
 						<div class="input-group-shim">https://</div>
-						<input class="unstyled" type="text" placeholder="www.example.com" />
+						<input type="text" placeholder="www.example.com" />
 					</div>
 				</label>
 				<!-- --- -->
@@ -269,8 +278,8 @@ module.exports = {
 					<span>Amount</span>
 					<div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
 						<div class="input-group-shim"><i class="fa-solid fa-dollar-sign" /></div>
-						<input class="unstyled" type="text" placeholder="Amount" />
-						<select class="unstyled">
+						<input type="text" placeholder="Amount" />
+						<select>
 							<option>USD</option>
 							<option>CAD</option>
 							<option>EURO</option>
@@ -281,8 +290,10 @@ module.exports = {
 				<label class="input-label">
 					<span>Username</span>
 					<div class="input-group input-group-divider grid-cols-[1fr_auto]">
-						<input class="unstyled" type="text" placeholder="Enter Username..." />
-						<div title="Username already taken."><i class="fa-solid fa-circle-exclamation" /></div>
+						<input type="text" placeholder="Enter Username..." />
+						<div title="Username already in use.">
+							<i class="fa-solid fa-circle-exclamation text-warning-500 animate-pulse" />
+						</div>
 					</div>
 				</label>
 				<!-- --- -->
@@ -290,7 +301,7 @@ module.exports = {
 					<span>Search</span>
 					<div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
 						<div class="input-group-shim"><i class="fa-solid fa-search" /></div>
-						<input class="unstyled" type="search" placeholder="Search..." />
+						<input type="search" placeholder="Search..." />
 						<button class="variant-filled-secondary">Submit</button>
 					</div>
 				</label>

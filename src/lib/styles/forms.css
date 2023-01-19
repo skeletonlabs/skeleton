@@ -32,12 +32,12 @@
 
 	/* Input Groups */
 	.input-group {
-		@apply input-cell overflow-hidden grid;
-		@apply focus-within:border-primary-500;
+		@apply input-cell;
+		@apply overflow-hidden grid focus-within:border-primary-500;
 	}
 	.input-group input,
 	.input-group select {
-		@apply bg-transparent border-0 !ring-0 w-full;
+		@apply bg-transparent border-0 !ring-0;
 	}
 	.input-group div,
 	.input-group button,
@@ -52,60 +52,60 @@
 	}
 
 	/* Apply the input styles by default, but exclude if wrapped in `.input-group` */
-	:is(:not(.input-group)) input:not([type='checkbox']):not([type='radio']):not([type='color']):not(.unstyled),
-	:is(:not(.input-group)) select[multiple]:not(.unstyled),
-	:is(:not(.input-group)) textarea:not(.unstyled),
-	:is(:not(.input-group)) select:not(.unstyled) {
+	input:not([type='checkbox']):not([type='radio']):not([type='color']):not(.unstyled):is(:not(.input-group *)),
+	select[multiple]:not(.unstyled):is(:not(.input-group *)),
+	textarea:not(.unstyled):is(:not(.input-group *)),
+	select:not(.unstyled):is(:not(.input-group *)) {
 		@apply input-cell;
 	}
 
 	/* Container Inputs */
-	:is(:not(.input-group)) select[multiple]:not(.unstyled),
-	:is(:not(.input-group)) textarea:not(.unstyled) {
+	select[multiple]:not(.unstyled):is(:not(.input-group *)),
+	textarea:not(.unstyled):is(:not(.input-group *)) {
 		@apply rounded-container-token;
 	}
 
 	/* Select (multipe) */
 	/* https://stackoverflow.com/questions/50618602/change-color-of-selected-option-in-select-multiple */
-	select[multiple]:not(.unstyled) {
+	select[multiple]:not(.unstyled):is(:not(.input-group *)) {
 		@apply p-2 space-y-1;
 	}
-	select[multiple]:not(.unstyled) option {
+	select[multiple]:not(.unstyled):is(:not(.input-group *)) option {
 		@apply p-2 rounded-token;
 	}
-	select[multiple]:not(.unstyled) option:checked {
+	select[multiple]:not(.unstyled):is(:not(.input-group *)) option:checked {
 		background: rgb(var(--color-primary-500)) linear-gradient(0deg, rgb(var(--color-primary-500)) 0%, rgb(var(--color-primary-500)) 100%);
 		@apply text-on-primary-token;
 	}
 
 	/* File Input */
-	[type='file']:not(.unstyled) {
+	[type='file']:not(.unstyled):is(:not(.input-group *)) {
 		@apply p-1;
 	}
 
 	/* Checkbox & Radio */
-	[type='checkbox']:not(.unstyled),
-	[type='radio']:not(.unstyled) {
+	[type='checkbox']:not(.unstyled):is(:not(.input-group *)),
+	[type='radio']:not(.unstyled):is(:not(.input-group *)) {
 		@apply rounded text-secondary-600 focus:ring-secondary-500 w-5 h-5 cursor-pointer;
 	}
-	[type='radio']:not(.unstyled) {
+	[type='radio']:not(.unstyled):is(:not(.input-group *)) {
 		@apply rounded-token;
 	}
 
 	/* Color Picker */
 	/* https://stackoverflow.com/questions/11167281/webkit-css-to-control-the-box-around-the-color-in-an-inputtype-color */
-	input[type='color']:not(.unstyled) {
+	input[type='color']:not(.unstyled):is(:not(.input-group *)) {
 		@apply border-none w-10 h-10 overflow-hidden rounded-token cursor-pointer;
 		/* WebKit Only */
 		-webkit-appearance: none;
 	}
-	input[type='color']:not(.unstyled)::-webkit-color-swatch-wrapper {
+	input[type='color']:not(.unstyled):is(:not(.input-group *))::-webkit-color-swatch-wrapper {
 		@apply p-0;
 	}
-	input[type='color']:not(.unstyled)::-webkit-color-swatch {
+	input[type='color']:not(.unstyled):is(:not(.input-group *))::-webkit-color-swatch {
 		@apply border-none hover:brightness-110;
 	}
-	input[type='color']:not(.unstyled)::-moz-color-swatch {
+	input[type='color']:not(.unstyled):is(:not(.input-group *))::-moz-color-swatch {
 		@apply border-none;
 	}
 
