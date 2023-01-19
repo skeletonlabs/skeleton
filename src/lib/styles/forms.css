@@ -7,7 +7,9 @@
 
 	/* === Labels === */
 
-	/* legend {} */
+	legend {
+		@apply font-heading-token text-xl md:text-2xl;
+	}
 
 	label {
 		@apply block overflow-visible;

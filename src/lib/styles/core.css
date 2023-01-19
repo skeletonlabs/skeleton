@@ -36,6 +36,15 @@
 		@apply rounded-token bg-surface-400-500-token;
 	}
 
+	/* Firefox */
+	/* https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-color#browser_compatibility */
+	html {
+		scrollbar-color: rgba(0, 0, 0, 0.2) rgba(255, 255, 255, 0.05);
+	}
+	html.dark {
+		scrollbar-color: rgba(255, 255, 255, 0.1) rgba(0, 0, 0, 0.05);
+	}
+
 	/* Hide Scrollbars */
 	.hide-scrollbar::-webkit-scrollbar {
 		display: none;
