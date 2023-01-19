@@ -4,7 +4,7 @@ export const load: LayoutServerLoad = async ({ cookies }) => {
 	let theme = cookies.get('theme');
 	// If no theme, set theme to skeleton
 	if (!theme) {
-		cookies.set('theme', 'skeleton');
+		cookies.set('theme', 'skeleton', { path: '/' });
 		theme = 'skeleton';
 	}
 	// Imports theme as a string
