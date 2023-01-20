@@ -5,7 +5,6 @@
 	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-expect-error sveld import
 	import sveldSlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte?raw&sveld';
 
 	// Docs Shell

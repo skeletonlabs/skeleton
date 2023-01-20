@@ -11,9 +11,7 @@
 	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
 
-	// @ts-expect-error sveld import
 	import sveldStepper from '$lib/components/Stepper/Stepper.svelte?raw&sveld';
-	// @ts-expect-error sveld import
 	import sveldStep from '$lib/components/Stepper/Step.svelte?raw&sveld';
 
 	// Stores
