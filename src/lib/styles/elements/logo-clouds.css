@@ -1,8 +1,6 @@
 /* Tailwind Elements: logo-clouds.css */
 
 @layer components {
-	/* === Logo Cloud (Parent) === */
-
 	.logo-cloud {
 		@apply grid overflow-hidden;
 		/* Theme: Rounded */
@@ -16,11 +14,11 @@
 		/* Center Contents */
 		@apply flex justify-center items-center space-x-4;
 		/* Background */
-		@apply bg-surface-100-800-token;
+		@apply bg-surface-500/10 dark:bg-surface-500/20;
 		/* Text */
 		@apply text-base font-bold text-black dark:text-white;
 		/* Padding */
-		@apply py-4 md:py-10;
+		@apply py-4 md:py-8;
 	}
 
 	/* === States === */

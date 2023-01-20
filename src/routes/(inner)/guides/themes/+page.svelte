@@ -54,7 +54,7 @@
 				<h2>Theme Generator</h2>
 				<p>This tool allows you to generate a custom Skeleton theme.</p>
 			</div>
-			<a class="btn btn-filled-secondary" href="/guides/themes/generator">Create a Theme &rarr;</a>
+			<a class="btn variant-filled-secondary" href="/guides/themes/generator">Create a Theme &rarr;</a>
 		</div>
 	</div>
 
@@ -67,7 +67,7 @@
 			Use the theme picker at the top of the page to preview each option. Tap any theme automatically copy the import statement to your
 			clipboard.
 		</p>
-		<div class="card card-glass-surface p-4 space-y-4">
+		<div class="card variant-glass-surface p-4 space-y-4">
 			<nav class="grid grid-cols-1 md:grid-cols-3 gap-4">
 				{#each presets as preset}
 					<!-- prettier-ignore -->
@@ -121,15 +121,15 @@
 
 	<section class="space-y-4">
 		<h2>See Also</h2>
-		<div class="card p-4 card-glass-surface space-y-4">
+		<div class="card p-4 variant-glass-surface space-y-4">
 			<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 				<p>Learn more about Skeleton's theme color system.</p>
-				<a class="btn btn-ghost-surface" href="/guides/themes/colors">Theme Colors &rarr;</a>
+				<a class="btn variant-ghost-surface" href="/guides/themes/colors">Theme Colors &rarr;</a>
 			</div>
 			<hr class="opacity-30" />
 			<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 				<p>Learn more about Skeleton's design token sytem.</p>
-				<a class="btn btn-ghost-surface" href="/elements/tokens">Design Tokens &rarr;</a>
+				<a class="btn variant-ghost-surface" href="/elements/tokens">Design Tokens &rarr;</a>
 			</div>
 		</div>
 	</section>
@@ -139,6 +139,6 @@
 	<!-- Next Steps -->
 	<section class="card p-4 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<p>Next, let's learn more about styling Skeleton.</p>
-		<a class="btn btn-filled-primary" href="/guides/styling">Styling &rarr;</a>
+		<a class="btn variant-filled-primary" href="/guides/styling">Styling &rarr;</a>
 	</section>
 </div>

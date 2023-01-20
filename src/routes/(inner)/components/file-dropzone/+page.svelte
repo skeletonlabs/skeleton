@@ -31,11 +31,11 @@
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-2">
 			<div class="card p-4 grid grid-cols-1 xl:grid-cols-2 gap-4">
-				<label for="">
+				<label class="input-label" for="">
 					<span>Upload File</span>
 					<FileDropzone bind:files notes="Files should not exceed 5mb." on:change={onChange} required />
 				</label>
-				<label for="">
+				<label class="input-label" for="">
 					<span>Custom Message</span>
 					<FileDropzone bind:files on:change={onChange}><p>(message)</p></FileDropzone>
 				</label>

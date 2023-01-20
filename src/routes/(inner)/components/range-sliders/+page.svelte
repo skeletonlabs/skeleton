@@ -77,12 +77,12 @@
 			<!-- Options -->
 			<div class="card p-4 space-y-4">
 				<!-- Label -->
-				<label>
+				<label class="input-label">
 					<span>Label</span>
 					<input type="text" bind:value={props.label} placeholder="Label" />
 				</label>
 				<!-- Max -->
-				<label for="">
+				<label class="input-label" for="">
 					<span>Max</span>
 					<RadioGroup selected={storeMax} display="flex">
 						<RadioItem value={10}>10</RadioItem>
@@ -91,7 +91,7 @@
 					</RadioGroup>
 				</label>
 				<!-- Step -->
-				<label for="">
+				<label class="input-label" for="">
 					<span>Step</span>
 					<RadioGroup selected={storeStep} display="flex">
 						<RadioItem value={1}>1</RadioItem>
@@ -101,7 +101,7 @@
 				</label>
 				<div class="grid grid-cols-2 gap-4">
 					<!-- Ticks -->
-					<label for="">
+					<label class="input-label" for="">
 						<span>Ticks</span>
 						<RadioGroup selected={storeTicked} display="flex">
 							<RadioItem value={false}>Off</RadioItem>
@@ -109,7 +109,7 @@
 						</RadioGroup>
 					</label>
 					<!-- Accent -->
-					<label>
+					<label class="input-label">
 						<span>Accent</span>
 						<select name="accent" id="accent" bind:value={props.accent}>
 							<option value="!accent-primary-500">accent-primary-500</option>

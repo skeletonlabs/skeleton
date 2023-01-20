@@ -47,19 +47,19 @@
 			<p>Select a drawer to preview.</p>
 			<!-- prettier-ignore -->
 			<div class="flex justify-center items-center space-x-2 sm:space-x-4">
-				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('right'); }}>
+				<button class="btn-icon variant-ghost-surface" on:click={() => { trigger('right'); }}>
 					<i class="fa-solid fa-arrow-left"></i>
 				</button>
-				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('left'); }}>
+				<button class="btn-icon variant-ghost-surface" on:click={() => { trigger('left'); }}>
 					<i class="fa-solid fa-arrow-right"></i>
 				</button>
-				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('bottom'); }}>
+				<button class="btn-icon variant-ghost-surface" on:click={() => { trigger('bottom'); }}>
 					<i class="fa-solid fa-arrow-up"></i>
 				</button>
-				<button class="btn-icon btn-ghost-surface" on:click={() => { trigger('top'); }}>
+				<button class="btn-icon variant-ghost-surface" on:click={() => { trigger('top'); }}>
 					<i class="fa-solid fa-arrow-down"></i>
 				</button>
-				<button class="btn btn-ghost-surface" on:click={() => { triggerStyled(); }}>Styled</button>
+				<button class="btn variant-ghost-surface" on:click={() => { triggerStyled(); }}>Styled</button>
 			</div>
 		</div>
 	</svelte:fragment>

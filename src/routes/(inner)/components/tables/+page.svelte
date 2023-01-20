@@ -63,12 +63,13 @@
 		head: ['Symbol', 'Name', 'Weight'],
 		body: tableMapperValues(sourceData, ['symbol', 'name', 'weight']),
 		meta: tableMapperValues(sourceData, ['position', 'name', 'symbol', 'weight']),
-		foot: ['Total', '', `<code>${totalWeight}</code>`]
+		foot: ['Total', '', `<span class="badge variant-soft-primary">${totalWeight}</span>`]
 	};
+	let rowOutput = '(Tap any row above)';
 
 	// On Row Selected
 	function onSelected(meta: any): void {
-		console.log(meta.detail);
+		rowOutput = meta.detail;
 	}
 </script>
 
@@ -77,7 +78,7 @@
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-4">
 			<Table source={tableSimple} interactive={true} on:selected={onSelected} />
-			<div class="text-sm text-center">View your browser console when selecting a row above.</div>
+			<pre>{JSON.stringify(rowOutput, null, 2)}</pre>
 		</section>
 	</svelte:fragment>
 
@@ -209,7 +210,7 @@ tableCellFormatter(sourceData, 'weight', 'em', 'opacity-50');\n
 				<h2>Data Tables</h2>
 				<p>Need a fully featured data table with powerful features like selection and sort? See data tables.</p>
 			</div>
-			<a class="btn btn-filled-secondary place-self-center" href="/utilities/data-tables">Data Tables</a>
+			<a class="btn variant-filled-secondary place-self-center" href="/utilities/data-tables">Data Tables</a>
 		</section>
 	</svelte:fragment>
 </DocsShell>

@@ -98,7 +98,7 @@
 						<RadioItem value={undefined}>Initials</RadioItem>
 					</RadioGroup>
 					<!-- Width -->
-					<label for="">
+					<label class="input-label" for="">
 						<span>Width</span>
 						<RadioGroup selected={storeWidth} display="flex">
 							<RadioItem value="w-10">w-10</RadioItem>
@@ -108,7 +108,7 @@
 						</RadioGroup>
 					</label>
 					<!-- Rounded -->
-					<label for="">
+					<label class="input-label" for="">
 						<span>Rounded</span>
 						<RadioGroup selected={storeRounded} display="flex">
 							<RadioItem value="rounded-full">Full</RadioItem>
@@ -118,7 +118,7 @@
 						</RadioGroup>
 					</label>
 					<!-- Border -->
-					<label for="">
+					<label class="input-label" for="">
 						<span>Border</span>
 						<RadioGroup selected={storeBorder} display="flex">
 							<RadioItem value={borderStyles}>On</RadioItem>
@@ -128,12 +128,12 @@
 					<!-- If: Initials -->
 					{#if $storeSrc === undefined}
 						<!-- Initials -->
-						<label>
+						<label class="input-label">
 							<span>Initial Text</span>
 							<input type="text" bind:value={props.initials} maxlength="2" />
 						</label>
 						<!-- Background -->
-						<label>
+						<label class="input-label">
 							<span>Background</span>
 							<select name="background" id="background" bind:value={props.background}>
 								<option value="bg-primary-500">bg-primary-500</option>
@@ -146,7 +146,7 @@
 					{/if}
 					<!-- Filter -->
 					{#if $storeSrc !== undefined}
-						<label>
+						<label class="input-label">
 							<span>Filter</span>
 							<select name="filter" id="filter" bind:value={props.actionParams}>
 								<option value="">None</option>
