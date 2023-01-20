@@ -150,15 +150,15 @@
 							<span>Filter</span>
 							<select name="filter" id="filter" bind:value={props.actionParams}>
 								<option value="">None</option>
-								<option value="Apollo">Apollo</option>
-								<option value="BlueNight">BlueNight</option>
-								<option value="Emerald">Emerald</option>
-								<option value="GreenFall">GreenFall</option>
-								<option value="Noir">Noir</option>
-								<option value="NoirLight">NoirLight</option>
-								<option value="Rustic">Rustic</option>
-								<option value="Summer84">Summer84</option>
-								<option value="XPro">XPro</option>
+								<option value="#Apollo">Apollo</option>
+								<option value="#BlueNight">BlueNight</option>
+								<option value="#Emerald">Emerald</option>
+								<option value="#GreenFall">GreenFall</option>
+								<option value="#Noir">Noir</option>
+								<option value="#NoirLight">NoirLight</option>
+								<option value="#Rustic">Rustic</option>
+								<option value="#Summer84">Summer84</option>
+								<option value="#XPro">XPro</option>
 							</select>
 						</label>
 					{/if}
