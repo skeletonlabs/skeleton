@@ -8,7 +8,6 @@
 	// Components
 	import InputChip from '$lib/components/InputChip/InputChip.svelte';
 
-	// @ts-expect-error
 	import sveldInputChip from '$lib/components/InputChip/InputChip.svelte?raw&sveld';
 
 	// Docs Shell

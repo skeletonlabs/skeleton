@@ -8,9 +8,7 @@
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-expect-error sveld import
 	import sveldRadioGroup from '$lib/components/Radio/RadioGroup.svelte?raw&sveld';
-	// @ts-expect-error sveld import
 	import sveldRadioItem from '$lib/components/Radio/RadioItem.svelte?raw&sveld';
 
 	// Stores

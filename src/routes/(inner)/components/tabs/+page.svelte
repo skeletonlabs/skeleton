@@ -9,9 +9,7 @@
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-expect-error sveld import
 	import sveldTabGroup from '$lib/components/Tab/TabGroup.svelte?raw&sveld';
-	// @ts-expect-error sveld import
 	import sveldTab from '$lib/components/Tab/Tab.svelte?raw&sveld';
 
 	let storeOne = writable('a');
