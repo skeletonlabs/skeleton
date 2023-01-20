@@ -4,7 +4,7 @@
 	import type { TableSource } from '$lib/components/Table/types';
 
 	// Components
-	import AccordionGroup from '$lib/components/Accordion/AccordionGroup.svelte';
+	import Accordion from '$lib/components/Accordion/Accordion.svelte';
 	import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
 	import Table from '$lib/components/Table/Table.svelte';
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
@@ -269,7 +269,7 @@ import '../app.postcss';
 			<p>Learn how to customize Skeleton components and elements below.</p>
 		</div>
 		<div class="card p-4 variant-glass-surface">
-			<AccordionGroup>
+			<Accordion>
 				<AccordionItem spacing="space-y-4" open>
 					<svelte:fragment slot="summary"><h3>Via Component Props</h3></svelte:fragment>
 					<div slot="content" class="space-y-4">
@@ -331,7 +331,7 @@ import '../app.postcss';
 						</blockquote>
 					</div>
 				</AccordionItem>
-			</AccordionGroup>
+			</Accordion>
 		</div>
 	</section>
 
