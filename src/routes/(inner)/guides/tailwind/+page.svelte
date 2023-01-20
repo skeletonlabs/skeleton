@@ -95,8 +95,7 @@ const config = {
 	// ...
 	plugins: [
 		// Keep any existing plugins present and append the following:
-		require('@skeletonlabs/skeleton/tailwind/skeleton.cjs'),
-		require('@skeletonlabs/skeleton/tailwind/intellisense.cjs')
+		...require('@skeletonlabs/skeleton/tailwind/skeleton.cjs')()
 	]
 }
 `}
