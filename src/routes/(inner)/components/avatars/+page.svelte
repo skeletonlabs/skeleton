@@ -23,7 +23,6 @@
 	import Summer84 from '$lib/actions/Filters/svg-filters/Summer84.svelte';
 	import XPro from '$lib/actions/Filters/svg-filters/XPro.svelte';
 
-	// @ts-expect-error sveld import
 	import sveldAvatar from '$lib/components/Avatar/Avatar.svelte?raw&sveld';
 
 	// Docs Shell

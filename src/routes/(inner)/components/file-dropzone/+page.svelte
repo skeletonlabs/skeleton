@@ -5,7 +5,6 @@
 	import FileDropzone from '$lib/components/FileDropzone/FileDropzone.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-expect-error sveld import
 	import sveldFileDropzone from '$lib/components/FileDropzone/FileDropzone.svelte?raw&sveld';
 
 	// Docs Shell

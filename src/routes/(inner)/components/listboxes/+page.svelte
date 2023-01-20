@@ -8,9 +8,7 @@
 	import ListBox from '$lib/components/ListBox/ListBox.svelte';
 	import ListBoxItem from '$lib/components/ListBox/ListBoxItem.svelte';
 
-	// @ts-expect-error sveld import
 	import sveldListBox from '$lib/components/ListBox/ListBox.svelte?raw&sveld';
-	// @ts-expect-error sveld import
 	import sveldListBoxItem from '$lib/components/ListBox/ListBoxItem.svelte?raw&sveld';
 
 	// Stores
