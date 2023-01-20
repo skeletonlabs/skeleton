@@ -12,7 +12,7 @@
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Action,
 		name: 'Focus Trap',
-		description: 'Allows you to contain focus within elements on-demand.',
+		description: 'Allows you to contain tab focus within a target element on-demand.',
 		imports: ['focusTrap'],
 		source: 'actions/FocusTrap',
 		parameters: [['<code>(default)</code>', 'boolean', '-', '-', `When TRUE, enables focus capture.`]]
@@ -28,7 +28,7 @@
 				<SlideToggle bind:checked={isFocused}>Trap Focus</SlideToggle>
 			</div>
 			<!-- Form -->
-			<form class="border border-surface-500 p-4 space-y-4 rounded-container-token" use:focusTrap={isFocused}>
+			<form class="variant-ringed p-4 space-y-4 rounded-container-token" use:focusTrap={isFocused}>
 				<label class="input-label">
 					<span>Name</span>
 					<input type="text" placeholder="Enter name..." />
@@ -41,19 +41,41 @@
 					<span>Email</span>
 					<input type="email" placeholder="Enter email address..." />
 				</label>
-				<button class="btn variant-filled-primary">Submit</button>
+				<button class="btn variant-filled-primary">Submit Form</button>
 			</form>
 		</section>
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
-		<div class="space-y-4">
+		<section class="space-y-4">
 			<p>
-				Apply <code>use:focusTrap</code> and set the value to <code>true</code> to trap focus, and <code>false</code> to release focus. This
-				will auto-select the first focusable element when activated.
+				Apply <code>use:focusTrap</code> then set either <code>true</code> or <code>false</code> to enable or disable focus.
 			</p>
-			<CodeBlock language="html" code={`<div use:focusTrap={true}>Skeleton</div>`} />
-		</div>
+			<CodeBlock language="ts" code={`let isFocused: boolean = true;`} />
+			<CodeBlock
+				language="html"
+				code={`
+<form use:focusTrap={isFocused}>
+	<input type="text" placeholder="Name" />
+	<button class="btn variant-filled-primary">Submit</button>
+</form>
+				`}
+			/>
+		</section>
+		<section class="space-y-4">
+			<h2>Navigation</h2>
+			<p>
+				When enabled this action will auto-select the first focusable element. Press <kbd>Tab</kbd> or <kbd>Shift + Tab</kbd> to cycle through
+				focusable elements within the target region.
+			</p>
+		</section>
+		<section class="space-y-4">
+			<h2>Skeleton Overlays</h2>
+			<p>
+				Skeleton automatically enables this action for overlays such as <a href="/utilities/modals">modals</a> and
+				<a href="/utilities/drawers">drawers</a> to provide proper accessability.
+			</p>
+		</section>
 	</svelte:fragment>
 </DocsShell>
