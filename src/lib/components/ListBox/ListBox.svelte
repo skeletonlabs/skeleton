@@ -11,6 +11,8 @@
 	export let space = 'space-y-1';
 	/** Provide to set scrollable listbox region height. */
 	export let height = '';
+	/** Should the ListBox value be included in Form submissions*/
+	export let includeInFormSubmission = false;
 
 	// Props (Item)
 	/** Provide classes to set the item selected background. '!' recommended. */
@@ -63,3 +65,6 @@
 		<slot />
 	</ul>
 </div>
+{#if  includeInFormSubmission}
+<input type="hidden" name={label} value={$selected}/>
+{/if}
