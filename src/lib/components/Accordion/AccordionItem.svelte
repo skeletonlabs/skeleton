@@ -62,6 +62,7 @@
 	if (autocollapse && open) setActive();
 
 	// Reactive State
+	$: if (open && autocollapse) setActive();
 	$: openState = autocollapse ? $active === uuid : open;
 	// Reactive Classes
 	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
