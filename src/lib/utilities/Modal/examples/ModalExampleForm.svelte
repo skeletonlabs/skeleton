@@ -30,15 +30,15 @@
 	<!-- Enable for debugging: -->
 	<!-- <pre>{JSON.stringify(formData, null, 2)}</pre> -->
 	<form class="modal-form {cForm}">
-		<label>
+		<label class="input-label">
 			<span>Name</span>
 			<input type="text" bind:value={formData.name} placeholder="Enter name..." />
 		</label>
-		<label>
+		<label class="input-label">
 			<span>Phone Number</span>
 			<input type="tel" bind:value={formData.tel} placeholder="Enter phone..." />
 		</label>
-		<label>
+		<label class="input-label">
 			<span>Email</span>
 			<input type="email" bind:value={formData.email} placeholder="Enter email address..." />
 		</label>

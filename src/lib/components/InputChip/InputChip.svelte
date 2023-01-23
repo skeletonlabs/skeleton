@@ -26,11 +26,9 @@
 
 	// Props (styles)
 	/** Provide chip styles. */
-	export let chip: string = `chip-primary`;
-	/** Provide chip hover styles. */
-	export let hover: string = 'hover:chip-error';
+	export let chip: string = `variant-filled-primary`;
 	/** Set the input padding styles. */
-	export let padding: string = 'p-3';
+	export let padding: string = 'p-2';
 	/** Set the input border radius styles. */
 	export let rounded: string = 'rounded-container-token';
 	/** Set the input focus ring styles. */
@@ -41,7 +39,7 @@
 	let inputValueValid: boolean = true;
 
 	// Classes
-	const cBase = 'unstyled border-token flex flex-wrap gap-2 items-center';
+	const cBase = 'unstyled input-cell border-token flex flex-wrap gap-2 items-center';
 	const cLabel = 'unstyled w-full md:w-auto mr-2';
 	const cInput = 'unstyled flex-auto border-transparent bg-transparent text-base px-1 py-0 focus:border-transparent min-h-[30px]';
 
@@ -91,7 +89,7 @@
 
 	// Reactive
 	$: classesBase = `${cBase} ${padding} ${rounded}`;
-	$: classesChip = `${chip} ${hover}`;
+	$: classesChip = `${chip}`;
 	$: classesInput = `${cInput} ${ring}`;
 </script>
 

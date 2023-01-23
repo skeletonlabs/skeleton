@@ -106,7 +106,7 @@
 <svelte:head>{@html livePreviewStylesheet}</svelte:head>
 
 <div class="docs-themer space-y-4">
-	<div class="card card-glass-surface p-4 flex justify-between items-center">
+	<div class="card variant-glass-surface p-4 flex justify-between items-center">
 		<span>Live Preview Mode</span>
 		<SlideToggle size="lg" bind:checked={$storePreview} on:change={onPreviewToggle} />
 	</div>
@@ -119,13 +119,13 @@
 					<h3>Colors</h3>
 					<LightSwitch />
 				</div>
-				<button class="btn btn-ghost-surface" on:click={randomize} disabled={!$storePreview}>Randomize Colors</button>
+				<button class="btn variant-ghost-surface" on:click={randomize} disabled={!$storePreview}>Randomize Colors</button>
 			</header>
 			<hr />
 			<div class="p-4 grid grid-cols-1 gap-4">
 				{#each $storeThemGenForm.colors as colorRow}
 					<div class="grid grid-cols-1 lg:grid-cols-[170px_1fr_160px] gap-2 lg:gap-4">
-						<label>
+						<label class="input-label">
 							<span>{colorRow.label}</span>
 							<div class="grid grid-cols-[auto_1fr] gap-4 place-items-end">
 								<input type="color" bind:value={colorRow.hex} disabled={!$storePreview} />
@@ -133,7 +133,7 @@
 							</div>
 						</label>
 						<Swatch color={colorRow.key} />
-						<label>
+						<label class="input-label">
 							<span>Text & Fill Color</span>
 							<select bind:value={colorRow.on} disabled={!$storePreview}>
 								{#each inputSettings.colorProps as c}<option value={c.value}>{c.label}</option>{/each}
@@ -148,13 +148,13 @@
 		<section class="card p-4 grid grid-cols-2 gap-4 col-span-2 lg:col-span-1">
 			<!-- Fonts -->
 			<h3 class="col-span-2">Fonts</h3>
-			<label>
+			<label class="input-label">
 				<span>Base</span>
 				<select bind:value={$storeThemGenForm.fontBase} disabled={!$storePreview}>
 					{#each inputSettings.fonts as f}<option value={f}>{f}</option>{/each}
 				</select>
 			</label>
-			<label>
+			<label class="input-label">
 				<span>Headings</span>
 				<select bind:value={$storeThemGenForm.fontHeadings} disabled={!$storePreview}>
 					{#each inputSettings.fonts as f}<option value={f}>{f}</option>{/each}
@@ -162,13 +162,13 @@
 			</label>
 			<!-- Text Color -->
 			<h3 class="col-span-2">Text Color</h3>
-			<label>
+			<label class="input-label">
 				<span>Light Mode</span>
 				<select bind:value={$storeThemGenForm.textColorLight} disabled={!$storePreview}>
 					{#each inputSettings.colorProps as c}<option value={c.value}>{c.label}</option>{/each}
 				</select>
 			</label>
-			<label>
+			<label class="input-label">
 				<span>Dark Mode</span>
 				<select bind:value={$storeThemGenForm.textColorDark} disabled={!$storePreview}>
 					{#each inputSettings.colorProps as c}<option value={c.value}>{c.label}</option>{/each}
@@ -176,14 +176,14 @@
 			</label>
 			<!-- Border Radius -->
 			<h3 class="col-span-2">Border Radius</h3>
-			<label>
+			<label class="input-label">
 				<span>Base</span>
 				<select bind:value={$storeThemGenForm.roundedBase} disabled={!$storePreview}>
 					{#each inputSettings.rounded as r}<option value={r}>{r}</option>{/each}
 					<option value="9999px">9999px</option>
 				</select>
 			</label>
-			<label>
+			<label class="input-label">
 				<span>Container</span>
 				<select bind:value={$storeThemGenForm.roundedContainer} disabled={!$storePreview}>
 					{#each inputSettings.rounded as r}<option value={r}>{r}</option>{/each}
@@ -191,7 +191,7 @@
 			</label>
 			<!-- Border Size -->
 			<h3 class="col-span-2">Border Size</h3>
-			<label>
+			<label class="input-label">
 				<span>Base</span>
 				<select bind:value={$storeThemGenForm.borderBase} disabled={!$storePreview}>
 					{#each inputSettings.border as b}<option value={b}>{b}</option>{/each}
@@ -204,12 +204,12 @@
 			<h3>Preview</h3>
 			<!-- Buttons -->
 			<div class="grid grid-cols-3 gap-4">
-				<button class="btn btn-filled-primary">primary</button>
-				<button class="btn btn-filled-secondary">secondary</button>
-				<button class="btn btn-filled-tertiary">tertiary</button>
-				<button class="btn btn-filled-success">success</button>
-				<button class="btn btn-filled-warning">warning</button>
-				<button class="btn btn-filled-error">error</button>
+				<button class="btn variant-filled-primary">primary</button>
+				<button class="btn variant-filled-secondary">secondary</button>
+				<button class="btn variant-filled-tertiary">tertiary</button>
+				<button class="btn variant-filled-success">success</button>
+				<button class="btn variant-filled-warning">warning</button>
+				<button class="btn variant-filled-error">error</button>
 			</div>
 			<hr class="opacity-50" />
 			<!-- Progress Bars -->
@@ -221,14 +221,14 @@
 			<hr class="opacity-50" />
 			<!-- Badges -->
 			<div class="grid grid-cols-4 gap-4 place-items-center">
-				<span class="badge badge-filled-surface">surface</span>
-				<span class="badge badge-filled-primary">primary</span>
-				<span class="badge badge-filled-secondary">secondary</span>
-				<span class="badge badge-filled-tertiary">tertiary</span>
+				<span class="badge variant-filled-surface">surface</span>
+				<span class="badge variant-filled-primary">primary</span>
+				<span class="badge variant-filled-secondary">secondary</span>
+				<span class="badge variant-filled-tertiary">tertiary</span>
 				<span class="badge badge-glass">glass</span>
-				<span class="badge badge-filled-success">success</span>
-				<span class="badge badge-filled-warning">warning</span>
-				<span class="badge badge-filled-error">error</span>
+				<span class="badge variant-filled-success">success</span>
+				<span class="badge variant-filled-warning">warning</span>
+				<span class="badge variant-filled-error">error</span>
 			</div>
 			<hr class="opacity-50" />
 			<!-- Slide Toggles -->
@@ -243,9 +243,9 @@
 		<!-- CSS Output -->
 		<footer class="col-span-2 space-y-4">
 			{#if showThemeCSS}<CodeBlock language="css" code={cssOutput} />{/if}
-			<div class="card card-glass-surface p-4 text-center">
+			<div class="card variant-glass-surface p-4 text-center">
 				<!-- prettier-ignore -->
-				<button class="btn btn-lg btn-filled-primary font-bold" on:click={() => { showThemeCSS = !showThemeCSS; }} disabled={!$storePreview}>
+				<button class="btn btn-lg variant-filled-primary font-bold" on:click={() => { showThemeCSS = !showThemeCSS; }} disabled={!$storePreview}>
 					{!showThemeCSS ? 'Show' : 'Hide'} Theme CSS
 				</button>
 			</div>

@@ -3,7 +3,7 @@ import { describe, it, expect } from 'vitest';
 
 import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
-describe('SggIcon.svelte', () => {
+describe('SvgIcon.svelte', () => {
 	it('Renders with minimal props', async () => {
 		const { getByTestId } = render(SvgIcon);
 		expect(getByTestId('svg-icon')).toBeTruthy();
@@ -11,7 +11,7 @@ describe('SggIcon.svelte', () => {
 
 	it('Renders with all props', async () => {
 		const { getByTestId } = render(SvgIcon, {
-			name: 'image',
+			name: 'placeholder',
 			x: '0px',
 			y: '0px',
 			viewBox: '0 0 512 512',

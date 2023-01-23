@@ -219,7 +219,7 @@ import '@skeletonlabs/skeleton/styles/${$storeStylesheets === 'recommended' ? 'a
 				and add required styles.
 			</p>
 		{:else if $storeFramework === 'manual'}
-			<aside class="alert">
+			<aside class="alert variant-ghost-warning">
 				<i class="fa-solid fa-triangle-exclamation text-2xl" />
 				<div class="alert-message">
 					The following step is <strong>REQUIRED</strong> to ensure your styles display properly in your application.
@@ -268,7 +268,7 @@ import '../app.postcss';
 			<h2>How to Customize Styles</h2>
 			<p>Learn how to customize Skeleton components and elements below.</p>
 		</div>
-		<div class="card p-4 card-glass-surface">
+		<div class="card p-4 variant-glass-surface">
 			<AccordionGroup>
 				<AccordionItem spacing="space-y-4" open>
 					<svelte:fragment slot="summary"><h3>Via Component Props</h3></svelte:fragment>
@@ -341,20 +341,20 @@ import '../app.postcss';
 	<section class="space-y-4">
 		<h2>What's Next?</h2>
 		<p>Choose your own adventure. We recommend you review each section listed below.</p>
-		<div class="card p-4 card-glass-surface space-y-4">
+		<div class="card p-4 variant-glass-surface space-y-4">
 			<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 				<p>Learn more about Skeleton's Tailwind features.</p>
-				<a class="btn btn-ghost-surface" href="/elements/tokens">Tailwind Features &rarr;</a>
+				<a class="btn variant-ghost-surface" href="/elements/tokens">Tailwind Features &rarr;</a>
 			</div>
 			<hr class="opacity-30" />
 			<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 				<p>Learn more about Skeleton's Svelte features.</p>
-				<a class="btn btn-ghost-surface" href="/actions/clipboard">Svelte Features &rarr;</a>
+				<a class="btn variant-ghost-surface" href="/actions/clipboard">Svelte Features &rarr;</a>
 			</div>
 			<hr class="opacity-30" />
 			<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 				<p>Learn more about Skeleton's utility features.</p>
-				<a class="btn btn-ghost-surface" href="/utilities/codeblocks">Utility Features &rarr;</a>
+				<a class="btn variant-ghost-surface" href="/utilities/codeblocks">Utility Features &rarr;</a>
 			</div>
 		</div>
 	</section>

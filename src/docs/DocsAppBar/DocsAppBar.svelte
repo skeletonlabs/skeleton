@@ -13,7 +13,6 @@
 
 	// Components
 	import AppBar from '$lib/components/AppBar/AppBar.svelte';
-	import Divider from '$lib/components/Divider/Divider.svelte';
 	// Utilities
 	import LightSwitch from '$lib/utilities/LightSwitch/LightSwitch.svelte';
 	import { menu } from '$lib/utilities/Menu/menu';
@@ -104,7 +103,7 @@
 
 	<!-- Search -->
 	<div class="hidden md:inline md:ml-4">
-		<button class="btn btn-ghost-surface btn-sm" on:click={triggerSearch}>
+		<button class="btn variant-ghost-surface btn-sm" on:click={triggerSearch}>
 			<i class="fa-solid fa-magnifying-glass" />
 			<span>Search</span>
 			<span class="text-[11px] font-bold opacity-60 pl-2">{isOsMac ? '⌘' : 'Ctrl'}+K</span>
@@ -150,7 +149,8 @@
 			<a class="unstyled hover:bg-primary-hover-token px-4 py-2 rounded-token" href="/blog" data-sveltekit-preload-data="hover">Blog</a>
 		</section>
 
-		<Divider vertical borderWidth="hidden lg:block border-l-2 opacity-20" />
+		<!-- Divider -->
+		<span class="divider-vertical h-5" />
 
 		<!-- Theme -->
 		<div class="relative">
@@ -190,12 +190,13 @@
 				</nav>
 				<hr />
 				<div class="p-4">
-					<a class="btn btn-ghost-surface w-full" href="/guides/themes/generator">Theme Generator</a>
+					<a class="btn variant-ghost-surface w-full" href="/guides/themes/generator">Theme Generator</a>
 				</div>
 			</div>
 		</div>
 
-		<Divider vertical borderWidth="border-l-2 opacity-20" />
+		<!-- Divider -->
+		<span class="divider-vertical h-5" />
 
 		<!-- Social -->
 		<section class="grid grid-cols-3 gap-6">

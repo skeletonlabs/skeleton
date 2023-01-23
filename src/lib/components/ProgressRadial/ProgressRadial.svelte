@@ -83,7 +83,7 @@
 		/>
 
 		<!-- Center Text -->
-		{#if value && value >= 0 && $$slots.default}
+		{#if value != undefined && value >= 0 && $$slots.default}
 			<text
 				x="50%"
 				y="50%"

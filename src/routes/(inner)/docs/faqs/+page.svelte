@@ -71,10 +71,12 @@
 	<section class="text-center space-y-4">
 		<p>Need additional support? Reach out.</p>
 		<div class="flex justify-center space-x-2">
-			<a class="btn btn-ghost-surface" href="https://github.com/skeletonlabs/skeleton/issues" target="_blank" rel="noreferrer"
+			<a class="btn variant-ghost-surface" href="https://github.com/skeletonlabs/skeleton/issues" target="_blank" rel="noreferrer"
 				>GitHub Support</a
 			>
-			<a class="btn btn-ghost-surface" href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer">Discord Support</a>
+			<a class="btn variant-ghost-surface" href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer"
+				>Discord Support</a
+			>
 		</div>
 	</section>
 </div>

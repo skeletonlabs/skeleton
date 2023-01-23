@@ -25,7 +25,7 @@
 				</p>
 			</div>
 			<div class="place-self-end grid grid-cols-1 gap-2">
-				<a class="btn btn-filled-primary" href="https://github.com/carbon-design-system/sveld" target="_blank" rel="noreferrer"
+				<a class="btn variant-filled-primary" href="https://github.com/carbon-design-system/sveld" target="_blank" rel="noreferrer"
 					>Sveld Documentation</a
 				>
 			</div>
@@ -108,7 +108,7 @@ export let hover: string = getContext('hover');
  * @slot content - Provide the alert message text.
  */`}
 		/>
-		<aside class="alert">
+		<aside class="alert variant-ghost-warning">
 			<i class="fa-solid fa-lightbulb text-2xl" />
 			<div class="alert-message">
 				<strong>NOTE:</strong> The leading <code>// ...</code> comment is required for Sveld to successfully parse the slot descriptions. This
@@ -174,7 +174,7 @@ dispatch('dragover', event);`}
 				<p>Reference all available settings from the Typescript interface defintion.</p>
 			</div>
 			<a
-				class="btn btn-filled-secondary"
+				class="btn variant-filled-secondary"
 				href="https://github.com/skeletonlabs/skeleton/blob/dev/src/docs/DocsShell/types.ts#L42"
 				target="_blank"
 				rel="noreferrer">View Available Settings</a
