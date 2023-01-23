@@ -87,7 +87,7 @@
 <!-- NOTE: using stopPropagation to override Chrome for Windows search shortcut -->
 <svelte:window on:keydown|stopPropagation={onWindowKeydown} />
 
-<AppBar>
+<AppBar shadow="shadow">
 	<!-- Branding -->
 	<svelte:fragment slot="lead">
 		<!-- Drawer Menu -->
