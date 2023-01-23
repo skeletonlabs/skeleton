@@ -35,7 +35,6 @@
 
 	// Theme stylesheet is loaded from LayoutServerData
 	import type { LayoutServerData } from './$types';
-	import type { fromJSON } from 'postcss';
 	export let data: LayoutServerData;
 
 	if (data.vercelEnv == 'production'){
