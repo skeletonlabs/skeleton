@@ -5,7 +5,6 @@
 	import '$lib/styles/highlight-js.css'; // was: 'highlight.js/styles/github-dark.css';
 	import { storeHighlightJs } from '$lib/utilities/CodeBlock/stores';
 	storeHighlightJs.set(hljs);
-	inject();
 
 	// SvelteKit Imports
 	import { browser } from '$app/environment';
@@ -38,6 +37,11 @@
 	import type { LayoutServerData } from './$types';
 	import type { fromJSON } from 'postcss';
 	export let data: LayoutServerData;
+
+	if (data.vercelEnv == 'production'){
+		inject();
+	}
+
 	$: ({ currentTheme } = data);
 
 	// Set body `data-theme` based on current theme status
