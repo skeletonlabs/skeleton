@@ -9,19 +9,21 @@
 	 */
 
 	// Props (regions)
-	/** Classes to apply to the <code>header</code> slot container element */
+	/** Apply abitrary clases to the entire `#page` region. */
+	export let regionPage = '';
+	/** Apply abitrary clases to the <code>header</code> slot container element */
 	export let slotHeader = 'z-10';
-	/** Classes to apply to the <code>sidebarLeft</code> slot container element */
+	/** Apply abitrary clases to the <code>sidebarLeft</code> slot container element */
 	export let slotSidebarLeft = 'w-auto';
-	/** Classes to apply to the <code>sidebarRight</code> slot container element */
+	/** Apply abitrary clases to the <code>sidebarRight</code> slot container element */
 	export let slotSidebarRight = 'w-auto';
-	/** Classes to apply to the <code>pageHeader</code> slot container element */
+	/** Apply abitrary clases to the <code>pageHeader</code> slot container element */
 	export let slotPageHeader = '';
-	/** Classes to apply to the <code>pageContent</code> slot container element */
+	/** Apply abitrary clases to the <code>pageContent</code> slot container element */
 	export let slotPageContent = '';
-	/** Classes to apply to the <code>pageFooter</code> slot container element */
+	/** Apply abitrary clases to the <code>pageFooter</code> slot container element */
 	export let slotPageFooter = '';
-	/** Classes to apply to the <code>footer</code> slot container element */
+	/** Apply abitrary clases to the <code>footer</code> slot container element */
 	export let slotFooter = '';
 
 	// Base Classes
@@ -56,7 +58,7 @@
 		{/if}
 
 		<!-- Page -->
-		<div id="page" class={cPage}>
+		<div id="page" class="{regionPage} {cPage}" on:scroll>
 			<!-- Slot: Page Header -->
 			{#if $$slots.pageHeader}
 				<header id="page-header" class="flex-none {classesPageHeader}"><slot name="pageHeader">(slot:header)</slot></header>
