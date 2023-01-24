@@ -99,17 +99,18 @@
 			<a class="lg:!ml-0 w-[38px] lg:w-auto overflow-hidden" href="/" title="Go to Homepage">
 				<DocsLogoFull />
 			</a>
-			<!-- Search -->
-			<div class="md:inline md:ml-4">
-				<button class="btn btn-sm variant-ghost-surface hidden lg:inline-block" on:click={triggerSearch}>
-					<i class="fa-solid fa-magnifying-glass" />
-					<span class="hidden lg:inline-block">Search</span>
-					<span class="hidden lg:inline-block text-[11px] font-bold opacity-60 pl-2">{isOsMac ? '⌘' : 'Ctrl'}+K</span>
-				</button>
-			</div>
 		</div>
 	</svelte:fragment>
 	<svelte:fragment slot="trail">
+		<!-- Search -->
+		<div class="md:inline md:ml-4">
+			<button class="btn btn-sm variant-ghost-surface hidden lg:inline-block" on:click={triggerSearch}>
+				<i class="fa-solid fa-magnifying-glass" />
+				<span class="hidden lg:inline-block">Search</span>
+				<span class="hidden lg:inline-block text-[11px] font-bold opacity-60 pl-2">{isOsMac ? '⌘' : 'Ctrl'}+K</span>
+			</button>
+		</div>
+
 		<!-- Navigate -->
 		<div class="relative hidden lg:block">
 			<button class="btn hover:variant-soft-primary" use:menu={{ menu: 'features' }}>
@@ -195,6 +196,9 @@
 			<a class="btn-icon btn-icon-sm hover:variant-soft-primary" href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer">
 				<i class="fa-brands fa-discord text-lg" />
 			</a>
+			<!-- <a class="btn-icon btn-icon-sm hover:variant-soft-primary" href="https://twitter.com/SkeletonUI" target="_blank" rel="noreferrer">
+				<i class="fa-brands fa-twitter text-lg" />
+			</a> -->
 			<a class="btn-icon btn-icon-sm hover:variant-soft-primary" href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer">
 				<i class="fa-brands fa-github text-lg" />
 			</a>
