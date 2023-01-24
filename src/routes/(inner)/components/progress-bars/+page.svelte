@@ -9,7 +9,6 @@
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-expect-error sveld import
 	import sveldProgressBar from '$lib/components/ProgressBar/ProgressBar.svelte?raw&sveld';
 
 	// Stores
@@ -62,7 +61,7 @@
 			<!-- Options -->
 			<div class="card p-4 space-y-4 w-auto lg:w-[400px]">
 				<!-- Mode -->
-				<label for="">
+				<label class="input-label" for="">
 					<RadioGroup selected={storeDeterminate} display="flex">
 						<RadioItem value={true}>Determinate</RadioItem>
 						<RadioItem value={false}>Indeterminate</RadioItem>
@@ -82,12 +81,12 @@
 					/>
 				{/if}
 				<!-- Label -->
-				<label>
+				<label class="input-label">
 					<span>Label</span>
 					<input type="text" bind:value={props.label} placeholder="Label" />
 				</label>
 				<!-- Height -->
-				<label for="">
+				<label class="input-label" for="">
 					<span>Height</span>
 					<RadioGroup selected={storeHeight} display="flex">
 						<RadioItem value="h-1">h-1</RadioItem>
@@ -97,7 +96,7 @@
 					</RadioGroup>
 				</label>
 				<!-- Rounded -->
-				<label>
+				<label class="input-label">
 					<span>Rounded</span>
 					<select name="rounded" id="rounded" bind:value={props.rounded}>
 						<option value="rounded-token">rounded-token</option>
@@ -106,7 +105,7 @@
 					</select>
 				</label>
 				<!-- Meter -->
-				<label>
+				<label class="input-label">
 					<span>Meter</span>
 					<select name="meter" id="meter" bind:value={props.meter}>
 						<option value="bg-primary-500">bg-primary-500</option>
@@ -119,7 +118,7 @@
 					</select>
 				</label>
 				<!-- track -->
-				<label>
+				<label class="input-label">
 					<span>Track</span>
 					<select name="track" id="track" bind:value={props.track}>
 						<option value={defaultTrackBg}>Default</option>

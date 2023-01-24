@@ -21,127 +21,13 @@
 	const ghLibPathMaster = 'https://github.com/skeletonlabs/skeleton/tree/master/src/lib'; // master branch
 
 	// Tables
-	const tableStyleAll: TableSource = {
-		head: ['Stylesheet', 'Description', 'View Source'],
-		// prettier-ignore
-		body: [
-			[
-				'<code>all.css</code>',
-				'A universal stylesheet that imports all stylesheets in the optimal order.',
-				`<a href="${ghLibPathMaster}/styles/all.css" target="_blank" rel="noreferrer">all.css</a>`,
-			],
-		]
-	};
-	const tableStylesUseful: TableSource = {
-		head: ['Stylesheet', 'Description', 'Documentation', 'View Source', 'Required Plugin'],
-		// prettier-ignore
-		body: [
-			[
-				'<code>tailwind.css</code>',
-				'<u>IMPORTANT</u>: precedes all of the following stylesheets.',
-				'<a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a>',
-				`<a href="${ghLibPathMaster}/styles/tailwind.css" target="_blank" rel="noreferrer">tailwind.css</a>`,
-				'-'
-			],
-			[
-				'<code>core.css</code>',
-				'Applies styles to body elements, scrollbars, and more.',
-				'<a href="/elements/core">Core</a>',
-				`<a href="${ghLibPathMaster}/styles/core.css" target="_blank" rel="noreferrer">core.css</a>`,
-				'-'
-			],
-			[
-				'<code>typography.css</code>',
-				'Headings, paragraph, anchors, pre, code, and more.',
-				'<a href="/elements/typography">Typography</a>',
-				`<a href="${ghLibPathMaster}/styles/typography.css" target="_blank" rel="noreferrer">typography.css</a>`,
-				'-'
-			],
-			[
-				'<code>forms.css</code>',
-				'Adapts form elements to utilize the Skeleton theme.',
-				'<a href="/elements/forms">Forms</a>',
-				`<a href="${ghLibPathMaster}/styles/forms.css" target="_blank" rel="noreferrer">forms.css</a>`,
-				'<a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank" rel="noreferrer">tailwindcss-forms</a>'
-			]
-		]
-	};
-	const tableStyleElementsAll: TableSource = {
-		head: ['Stylesheet', 'Documentation', 'View Source'],
-		// prettier-ignore
-		body: [
-			[
-				'<code>elements.css</code>',
-				'Imports the full suite of Tailwind Elements.',
-				`<a href="${ghLibPathMaster}/styles/elements.css" target="_blank" rel="noreferrer">elements.css</a>`,
-			],
-		]
-	};
-	const tableStyleElements: TableSource = {
-		head: ['Stylesheet', 'Documentation', 'View Source'],
-		// prettier-ignore
-		body: [
-			// Tailwind Elements
-			[
-				'<code>elements/badges.css</code>',
-				'<a href="/elements/badges">badges</a>',
-				`<a href="${ghLibPathMaster}/styles/elements/badges.css" target="_blank" rel="noreferrer">badges.css</a>`,
-			],
-			[
-				'<code>elements/buttons.css</code>',
-				'<a href="/elements/buttons">buttons</a>',
-				`<a href="${ghLibPathMaster}/styles/elements/buttons.css" target="_blank" rel="noreferrer">buttons.css</a>`,
-			],
-			[
-				'<code>elements/cards.css</code>',
-				'<a href="/elements/cards">cards</a>',
-				`<a href="${ghLibPathMaster}/styles/elements/cards.css" target="_blank" rel="noreferrer">cards.css</a>`,
-			],
-			[
-				'<code>elements/chips.css</code>',
-				'<a href="/elements/chips">chips</a>',
-				`<a href="${ghLibPathMaster}/styles/elements/chips.css" target="_blank" rel="noreferrer">chips.css</a>`,
-			],
-			[
-				'<code>elements/lists.css</code>',
-				'<a href="/elements/lists">lists</a>',
-				`<a href="${ghLibPathMaster}/styles/elements/lists.css" target="_blank" rel="noreferrer">lists.css</a>`,
-			],
-			[
-				'<code>elements/logo-clouds.css</code>',
-				'<a href="/elements/logo-clouds">logo-clouds</a>',
-				`<a href="${ghLibPathMaster}/styles/elements/logo-clouds.css" target="_blank" rel="noreferrer">logo-clouds.css</a>`,
-			],
-			[
-				'<code>elements/placeholders.css</code>',
-				'<a href="/elements/placeholders">placeholders</a>',
-				`<a href="${ghLibPathMaster}/styles/elements/placeholders.css" target="_blank" rel="noreferrer">placeholders.css</a>`,
-			],
-			[
-				'<code>elements/tables.css</code>',
-				'<a href="/utilities/tables">tables</a>',
-				`<a href="${ghLibPathMaster}/styles/elements/tables.css" target="_blank" rel="noreferrer">tables.css</a>`,
-			],
-			// Utilities
-			[
-				'<code>elements/menus.css</code>',
-				'<a href="/utilities/menus">menus</a>',
-				`<a href="${ghLibPathMaster}/styles/elements/menus.css" target="_blank" rel="noreferrer">menus.css</a>`,
-			],
-			[
-				'<code>elements/tooltips.css</code>',
-				'<a href="/utilities/tooltips">tooltips</a>',
-				`<a href="${ghLibPathMaster}/styles/elements/tooltips.css" target="_blank" rel="noreferrer">tooltips.css</a>`,
-			],
-		]
-	};
 	const tableStylesheetOrder: TableSource = {
-		head: ['Order', 'Stylesheet', 'Reason'],
+		head: ['Order', 'Stylesheet', 'Filename', 'Reason'],
 		// prettier-ignore
 		body: [
-			[ '1.', 'Theme Stylesheet', 'Houses your themes use CSS properties for colors, border radius, etc.' ],
-			[ '2.', 'Skeleton Stylesheet(s)', 'Imports Tailwind directives, element, and components styles.' ],
-			[ '3.', 'Global Stylesheet', 'Keep last so you can override the above styles. Project-specific styles go here.' ],
+			[ '1.', 'Theme Stylesheet', '<code>theme-[name].css</code>', 'Houses your themes use CSS properties for colors, border radius, etc.' ],
+			[ '2.', 'Skeleton Stylesheet(s)', '<code>all.css</code>', 'Imports Tailwind directives and Skeleton stylesheets in the recommended order.' ],
+			[ '3.', 'Global Stylesheet', '<code>app.postcss</code>', 'Keep last so you can override styles. Your project-specific styles go here.' ],
 		]
 	};
 </script>
@@ -163,94 +49,30 @@
 			<Tab value="manual">Manual Install</Tab>
 		</TabGroup>
 		{#if $storeFramework === 'cli'}
-			<p>The CLI will automatically import <code>all.css</code> into <code>src/routes/+layout.svelte</code>.</p>
+			<p>The CLI will automatically import Skeleton's <code>all.css</code> stylesyeet into <code>src/routes/+layout.svelte</code>.</p>
 		{:else if $storeFramework === 'manual'}
-			<p>For most users we recommend importing <code>all.css</code> into <code>src/routes/+layout.svelte</code>.</p>
-		{/if}
-		<CodeBlock
-			language="typescript"
-			code={`
-import '@skeletonlabs/skeleton/styles/${$storeStylesheets === 'recommended' ? 'all' : '{stylehsheets}'}.css';
-			`}
-		/>
-		<TabGroup selected={storeStylesheets}>
-			<Tab value="recommended">Recommended</Tab>
-			<Tab value="advanced">Advanced</Tab>
-		</TabGroup>
-		{#if $storeStylesheets === 'recommended'}
+			<!-- prettier-ignore -->
 			<p>
-				We recommend <code>all.css</code> for most users. This includes everything required for Skeleton, with all imports in the correct order.
-			</p>
-			<Table source={tableStyleAll} />
-		{:else if $storeStylesheets === 'advanced'}
-			<p>
-				For advanced users ONLY. Follow the instruction below to import each stylesheet individually. Please ensure you use the order shown.
-			</p>
-			<Table source={tableStylesUseful} />
-			<!-- Elements -->
-			<TabGroup selected={storeStylesheetElements}>
-				<Tab value="combined">All Elements</Tab>
-				<Tab value="separate">Select Elements</Tab>
-			</TabGroup>
-			{#if $storeStylesheetElements === 'combined'}
-				<Table source={tableStyleElementsAll} />
-			{:else if $storeStylesheetElements === 'separate'}
-				<p>
-					Import only the Tailwind Elements you are using. Make sure you set the path to <code>.../styles/elements/*.css</code> as shown.
-				</p>
-				<Table source={tableStyleElements} />
-			{/if}
-		{/if}
-	</section>
-
-	<hr />
-
-	<!-- Global Styles -->
-	<section class="space-y-4">
-		<h2>Global Stylesheet</h2>
-		<TabGroup selected={storeFramework}>
-			<Tab value="cli">Skeleton CLI</Tab>
-			<Tab value="manual">Manual Install</Tab>
-		</TabGroup>
-		{#if $storeFramework === 'cli'}
-			<p>
-				SvelteKit's global stylesheet is located in <code>/src/app.postcss</code>. The CLI will automatically purge
-				<a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> from Svelte-Add
-				and add required styles.
-			</p>
-		{:else if $storeFramework === 'manual'}
-			<aside class="alert">
-				<i class="fa-solid fa-triangle-exclamation text-2xl" />
-				<div class="alert-message">
-					The following step is <strong>REQUIRED</strong> to ensure your styles display properly in your application.
-				</div>
-			</aside>
-			<p>
-				SvelteKit's global stylesheet is located in <code>/src/app.postcss</code>. <strong>Svelte-Add</strong> automatically includes
-				<a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> in your
-				global stylesheet. However, Skeleton imports these for you via <code>all.css</code>. Including these twice can cause issues, so
-				please remove the following from your global stylesheet.
+				Import the Skeleton <code>all.css</code> stylesheet into <code>src/routes/+layout.svelte</code> betweeen your <a href="/guides/themes">Theme stylesheet</a> and SvelteKit's global stylesheet, called <code>app.postcss</code>.
 			</p>
 			<CodeBlock
-				language="css"
+				language="typescript"
 				code={`
-/* NOTE: If present, remove the following @tailwind directives: */\n
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+	import '@skeletonlabs/skeleton/styles/${$storeStylesheets === 'recommended' ? 'all' : '{stylehsheets}'}.css';
 				`}
 			/>
 		{/if}
 	</section>
 
-	<hr />
-
 	<!-- Required Order -->
 	<section class="space-y-4">
-		<h2>Import Order</h2>
+		<div class="flex items-center space-x-2">
+			<h2>Import Order</h2>
+			<span class="badge variant-filled-warning">Important</span>
+		</div>
 		<p>Skeleton has strict requirements for stylesheet import order. We've explained the purpose of each stylesheet below.</p>
 		<Table source={tableStylesheetOrder} />
-		<p>See the reference below. Please ensure your imports conform to the following order before you continue.</p>
+		<p>Here's an example of the stylesheets using the Skeleton theme.</p>
 		<CodeBlock
 			language="ts"
 			code={`
@@ -265,10 +87,13 @@ import '../app.postcss';
 
 	<section class="space-y-4">
 		<div class="space-y-4">
-			<h2>How to Customize Styles</h2>
-			<p>Learn how to customize Skeleton components and elements below.</p>
+			<h2>Customizing Styles</h2>
+			<!-- prettier-ignore -->
+			<p>
+				Learn the basics with our quick start guide below, or view our <a href="/blog/deep-dive-skeleton-styling" target="_blank">comprehensive guide here</a>.
+			</p>
 		</div>
-		<div class="card p-4 card-glass-surface">
+		<div class="card p-4 variant-glass-surface">
 			<AccordionGroup>
 				<AccordionItem spacing="space-y-4" open>
 					<svelte:fragment slot="summary"><h3>Via Component Props</h3></svelte:fragment>
@@ -314,20 +139,20 @@ import '../app.postcss';
 				<AccordionItem spacing="space-y-4">
 					<svelte:fragment slot="summary"><h3>Global Styles Overrides</h3></svelte:fragment>
 					<div slot="content" class="space-y-4">
+						<!-- prettier-ignore -->
 						<p>
-							Tailwind Elements and Svelte Components make use of unique selector classes, such as <code>.crumb-separator</code> for the Breadcrumb
-							seperator element. Use these classes target and provide global overrides in your app's global stylesheet.
+							Skeleton components include selector classes, such as <code>.avatar-image</code> within the <a href="/components/avatars">Avatar component</a>. Selector classes are always the first listed.
 						</p>
-						<CodeBlock
-							language="html"
-							code={`<!-- Selector classes are always the first listed in the template element. -->\n<div class="crumb-separator ...">{seperator}</div>`}
-						/>
-						<p>Add the following to your global stylesheet to override the seperator's text color:</p>
-						<CodeBlock language="css" code={`.crumb-separator { @apply !text-red-500; }`} />
+						<CodeBlock language="html" code={`<img class="avatar-image ...">...</img>`} />
+						<p>
+							Use these selector classes to target and provide global style overrides to all instances of this feature in your global
+							stylesheet.
+						</p>
+						<CodeBlock language="css" code={`.avatar-image { @apply border-2 border-red-500; }`} />
 						<blockquote>
 							TIP: in some cases you may need to use <code>!</code>
-							<a href="https://tailwindcss.com/docs/configuration#important-modifier" target="_blank" rel="noreferrer">important</a> to give
-							precedence, or style both the light/dark mode variations.
+							<a href="https://tailwindcss.com/docs/configuration#important-modifier" target="_blank" rel="noreferrer">important</a> or style
+							both the light/dark mode Tailwind variants to give precedence.
 						</blockquote>
 					</div>
 				</AccordionItem>
@@ -341,20 +166,20 @@ import '../app.postcss';
 	<section class="space-y-4">
 		<h2>What's Next?</h2>
 		<p>Choose your own adventure. We recommend you review each section listed below.</p>
-		<div class="card p-4 card-glass-surface space-y-4">
+		<div class="card p-4 variant-glass-surface space-y-4">
 			<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 				<p>Learn more about Skeleton's Tailwind features.</p>
-				<a class="btn btn-ghost-surface" href="/elements/tokens">Tailwind Features &rarr;</a>
+				<a class="btn variant-ghost-surface" href="/elements/tokens">Tailwind Features &rarr;</a>
 			</div>
 			<hr class="opacity-30" />
 			<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 				<p>Learn more about Skeleton's Svelte features.</p>
-				<a class="btn btn-ghost-surface" href="/actions/clipboard">Svelte Features &rarr;</a>
+				<a class="btn variant-ghost-surface" href="/actions/clipboard">Svelte Features &rarr;</a>
 			</div>
 			<hr class="opacity-30" />
 			<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 				<p>Learn more about Skeleton's utility features.</p>
-				<a class="btn btn-ghost-surface" href="/utilities/codeblocks">Utility Features &rarr;</a>
+				<a class="btn variant-ghost-surface" href="/utilities/codeblocks">Utility Features &rarr;</a>
 			</div>
 		</div>
 	</section>

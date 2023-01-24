@@ -8,7 +8,6 @@
 	// Components
 	import InputChip from '$lib/components/InputChip/InputChip.svelte';
 
-	// @ts-expect-error
 	import sveldInputChip from '$lib/components/InputChip/InputChip.svelte?raw&sveld';
 
 	// Docs Shell
@@ -39,6 +38,11 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
+		<!-- Normalize -->
+		<!-- <div class="card p-4 flex items-center gap-2">
+			<InputChip placeholder="Add tags..." bind:value={tags} />
+			<button class="btn variant-filled-primary">Submit</button>
+		</div> -->
 		<section class="space-y-4">
 			<p>Type a value then hit ENTER to apply it.</p>
 			<!-- Tags -->
@@ -122,7 +126,7 @@ function isValidEmail(value: string): boolean {
 				<h2>Chip Elements</h2>
 				<p>Interactive elements for actions, selection, or filtering.</p>
 			</div>
-			<a class="btn btn-ghost-surface" href="/elements/chips">Chip Elements &rarr;</a>
+			<a class="btn variant-ghost-surface" href="/elements/chips">Chip Elements &rarr;</a>
 		</section>
 	</svelte:fragment>
 </DocsShell>

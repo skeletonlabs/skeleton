@@ -5,7 +5,6 @@
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-expect-error
 	import sveldTableOfContents from '$lib/components/TableOfContents/TableOfContents.svelte?raw&sveld';
 
 	// Docs Shell
@@ -40,7 +39,7 @@
 		<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
 	</div>
 </main>
-			`}
+`}
 			/>
 		</section>
 		<section class="space-y-4">

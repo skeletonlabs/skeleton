@@ -5,7 +5,6 @@
 	import AppBar from '$lib/components/AppBar/AppBar.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-expect-error sveld import
 	import sveldAppBar from '$lib/components/AppBar/AppBar.svelte?raw&sveld';
 
 	// Docs Shell

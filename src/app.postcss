@@ -8,3 +8,8 @@ body {
 .page-container {
 	@apply container mx-auto p-4 md:p-12 space-y-8 md:space-y-12;
 }
+
+/* Label Text Override */
+label:not(.unstyled) span:first-of-type:not(.unstyled) {
+	@apply text-surface-700-200-token text-sm;
+}

@@ -76,7 +76,7 @@ npm run dev -- --open
 	<!-- Next Steps -->
 	<div class="card p-4 !flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<p>Next, let's review configuration options Skeleton and Tailwind.</p>
-		<a class="btn btn-filled-primary" href="/guides/tailwind">
+		<a class="btn variant-filled-primary" href="/guides/tailwind">
 			<span>Tailwind</span>
 			<span>&rarr;</span>
 		</a>

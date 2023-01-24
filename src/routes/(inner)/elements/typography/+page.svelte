@@ -8,7 +8,7 @@
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Element,
 		name: 'Typography',
-		description: 'Provides common typographical element styles',
+		description: 'Provides a variety of globally scoped typographic styles.',
 		stylesheetIncludes: ['all', 'typography'],
 		source: 'styles/typography.css'
 	};
@@ -17,9 +17,34 @@
 <DocsShell {settings}>
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
-		<p>Use the <code>.unstyled</code> class to exclude these styles for an individual element.</p>
+		<section class="space-y-4">
+			<h2>Excluding Styles</h2>
+			<p>
+				Use the <code>.unstyled</code> class to exclude and zero out typography styles for any individual element.
+			</p>
+			<CodeBlock
+				language="html"
+				code={`
+<h2 class="unstyled">Unstyled H2</h2>
+<p class="unstyled">Unstyled paragraph element.</p>
+<a href="/" class="unstyled">Unstyled anchor element.</a>
+			`}
+			/>
+			<div class="card p-4">
+				<h2 class="unstyled" data-toc-ignore>Unstyled H2</h2>
+				<p class="unstyled">Unstyled paragraph element.</p>
+				<a href="/" class="unstyled">Unstyled anchor element.</a>
+			</div>
+			<p>You may then append your own styles as desired.</p>
+			<CodeBlock language="html" code={`<a href="/" class="unstyled text-orange-500">This link is orange.</a>`} />
+			<h3>Tailwind Plugin</h3>
+			<!-- prettier-ignore -->
+			<p>
+				If you're using the <a href="https://tailwindcss.com/docs/typography-plugin" target="_blank" rel="noreferrer">Tailwind Typography plugin</a>, all typography within the <code>.prose</code> class will be auto-excluded, allowing the plugin to handle most styles. Global styles like base text color will remain in effect though. See the plugin documentation for implementing overrides.
+			</p>
+		</section>
+		<!-- Headings -->
 		<div class="space-y-4">
-			<!-- Headings -->
 			<h2>Headings</h2>
 			<CodeBlock
 				language="html"
@@ -60,7 +85,7 @@
 			<h2>Blockquote</h2>
 			<CodeBlock language="html" code={`<blockquote>Skeleton</blockquote>`} />
 			<div class="card p-4">
-				<blockquote class="max-w-[480px] mx-auto">
+				<blockquote class="max-w-[500px] mx-auto">
 					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita cupiditate dolores dignissimos maiores doloremque fugiat,
 					dolore doloribus nisi, repellendus mollitia nostrum, commodi a minus aperiam deleniti. Velit rerum ut tempora!
 				</blockquote>
@@ -71,7 +96,7 @@
 			<h2>Pre-formatted Text</h2>
 			<CodeBlock language="html" code={`<pre>The quick brown fox jumps over the lazy dog.</pre>`} />
 			<div class="card p-4">
-				<pre class="max-w-[480px] mx-auto">The quick brown fox jumps over the lazy dog.</pre>
+				<pre class="max-w-[500px] mx-auto">The quick brown fox jumps over the lazy dog.</pre>
 			</div>
 		</div>
 		<!-- Code -->
@@ -83,15 +108,17 @@
 		<!-- Keyboard -->
 		<div class="space-y-4">
 			<h2>Keyboard</h2>
-			<CodeBlock language="html" code={`<kbd>Shift + ⌘</kbd>`} />
-			<div class="card p-4 text-center"><kbd>Shift + ⌘</kbd></div>
+			<CodeBlock language="html" code={`<p>Press <kbd>⌘ + C</kbd> to copy.</p>`} />
+			<div class="card p-4 text-center">
+				<p>Press <kbd>⌘ + C</kbd> to copy.</p>
+			</div>
 		</div>
 		<!-- Ins/Del -->
 		<div class="space-y-4">
 			<h2>Insertion / Deletion</h2>
 			<CodeBlock language="html" code={`<del><s>Always</s> Gonna Give You Up</del>`} />
 			<CodeBlock language="html" code={`<ins cite="https://youtu.be/dQw4w9WgXcQ" datetime="10-31-2022">Never Gonna Give You Up</ins>`} />
-			<div>
+			<div class="rounded overflow-hidden">
 				<del><s>Always</s> Gonna Give You Up</del>
 				<ins cite="https://youtu.be/dQw4w9WgXcQ" datetime="10-31-2022">Never Gonna Give You Up</ins>
 			</div>

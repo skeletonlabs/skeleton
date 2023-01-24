@@ -4,7 +4,7 @@
 	"description": "A SvelteKit component library.",
 	"author": "endigo9740 <chris@skeletonlabs.dev>",
 	"scripts": {
-		"dev": "npm run build:jss && vite dev",
+		"dev": "vite dev",
 		"build": "vite build",
 		"package": "node ./scripts/pre-build.js && npm run build:jss && svelte-kit sync && svelte-package && node ./scripts/post-build.js",
 		"publish": "npm publish ./package",
@@ -26,6 +26,7 @@
 		"@testing-library/svelte": "^3.2.2",
 		"@typescript-eslint/eslint-plugin": "^5.48.2",
 		"@typescript-eslint/parser": "^5.48.2",
+    		"@vercel/analytics": "^0.1.8-beta.0",
 		"autoprefixer": "^10.4.13",
 		"c8": "^7.12.0",
 		"edit-package-json": "^0.8.7",

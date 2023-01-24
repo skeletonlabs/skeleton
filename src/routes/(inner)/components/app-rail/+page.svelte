@@ -10,9 +10,7 @@
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-expect-error sveld import
 	import sveldAppRail from '$lib/components/AppRail/AppRail.svelte?raw&sveld';
-	// @ts-expect-error sveld import
 	import sveldAppRailTile from '$lib/components/AppRail/AppRailTile.svelte?raw&sveld';
 
 	// Stores
