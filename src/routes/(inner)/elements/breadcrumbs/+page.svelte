@@ -52,7 +52,7 @@
 					<li class="crumb"><a href="/" class="btn btn-sm variant-soft-primary">Users</a></li>
 					<li class="crumb-separator" aria-hidden>&rsaquo;</li>
 					<li class="crumb">
-						<a href="/"><Avatar src="https://i.pravatar.cc/?img=5" width="w-8" /></a>
+						<a href="/"><Avatar src="https://i.pravatar.cc/?img=48" width="w-8" /></a>
 					</li>
 					<li class="crumb-separator" aria-hidden>&rsaquo;</li>
 					<li>Settings</li>

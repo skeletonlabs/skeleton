@@ -27,7 +27,7 @@
 	};
 
 	// Local
-	let activeImg = 5;
+	let activeImg = 48;
 	$: imgPlaceholder = `https://i.pravatar.cc/512?img=${activeImg}`;
 
 	function setImageNumber(newNumber: number): void {
@@ -57,7 +57,7 @@ only utlize theme on this doc page.
 			<header class="flex justify-center items-center space-x-4">
 				<!-- prettier-ignore -->
 				<div class="btn-group variant-filled-primary mx-auto">
-					<button on:click={()=>{setImageNumber(5)}} class:opacity-60={activeImg !== 5}>Image 1</button>
+					<button on:click={()=>{setImageNumber(48)}} class:opacity-60={activeImg !== 48}>Image 1</button>
 					<button on:click={()=>{setImageNumber(2)}} class:opacity-60={activeImg !== 2}>Image 2</button>
 					<button on:click={()=>{setImageNumber(1)}} class:opacity-60={activeImg !== 1}>Image 3</button>
 				</div>

@@ -36,14 +36,14 @@
 	};
 
 	// Local
-	const imgPlaceholder = 'https://i.pravatar.cc/?img=5';
+	const imgPlaceholder = 'https://i.pravatar.cc/?img=48';
 	const borderStyles = 'border-4 border-surface-300-600-token hover:!border-primary-500 cursor-pointer';
 
 	// Store
-	const storeWidth: Writable<string | undefined> = writable('w-48');
+	const storeWidth: Writable<string | undefined> = writable('w-24');
 	const storeSrc: Writable<string | undefined> = writable(imgPlaceholder);
 	const storeRounded: Writable<string | undefined> = writable('rounded-full');
-	const storeBorder: Writable<string | undefined> = writable(borderStyles);
+	const storeBorder: Writable<string | undefined> = writable('');
 
 	$: props = {
 		initials: 'AB',
@@ -75,7 +75,7 @@
 		<section class="space-y-4">
 			<div class="grid grid-cols-1 xl:grid-cols-[1fr_auto] gap-2">
 				<!-- Example -->
-				<div class="card p-4 h-full flex justify-center items-center">
+				<div class="card variant-glass p-4 h-full flex justify-center items-center">
 					<svelte:component
 						this={Avatar}
 						initials={props.initials}
@@ -121,8 +121,8 @@
 					<label class="input-label" for="">
 						<span>Border</span>
 						<RadioGroup selected={storeBorder} display="flex">
-							<RadioItem value={borderStyles}>On</RadioItem>
 							<RadioItem value="">Off</RadioItem>
+							<RadioItem value={borderStyles}>On</RadioItem>
 						</RadioGroup>
 					</label>
 					<!-- If: Initials -->
@@ -150,15 +150,15 @@
 							<span>Filter</span>
 							<select name="filter" id="filter" bind:value={props.actionParams}>
 								<option value="">None</option>
-								<option value="#Apollo">Apollo</option>
-								<option value="#BlueNight">BlueNight</option>
-								<option value="#Emerald">Emerald</option>
-								<option value="#GreenFall">GreenFall</option>
-								<option value="#Noir">Noir</option>
-								<option value="#NoirLight">NoirLight</option>
-								<option value="#Rustic">Rustic</option>
-								<option value="#Summer84">Summer84</option>
-								<option value="#XPro">XPro</option>
+								<option value="#Apollo">#Apollo</option>
+								<option value="#BlueNight">#BlueNight</option>
+								<option value="#Emerald">#Emerald</option>
+								<option value="#GreenFall">#GreenFall</option>
+								<option value="#Noir">#Noir</option>
+								<option value="#NoirLight">#NoirLight</option>
+								<option value="#Rustic">#Rustic</option>
+								<option value="#Summer84">#Summer84</option>
+								<option value="#XPro">#XPro</option>
 							</select>
 						</label>
 					{/if}
@@ -180,13 +180,24 @@
 			<CodeBlock language="html" code={`<Avatar initials="JD" />`} />
 		</div>
 		<div class="space-y-4">
+			<h2>Interactive Border</h2>
+			<p>This can be accomplished using the <code>border</code> and <code>cursor</code> props.</p>
+			<CodeBlock
+				language="html"
+				code={`<Avatar ... border="border-4 border-surface-300-600-token hover:!border-primary-500" cursor="cursor-pointer" />`}
+			/>
+		</div>
+		<div class="space-y-4">
 			<h2>Applying Filters</h2>
 			<p>
 				See <a href="/actions/filters">Filters</a> to learn how to import and configure the filters action and SVG filter components.
 			</p>
-			<CodeBlock language="ts" code={`import { filter, Apollo, /* ... */ } from '@skeletonlabs/skeleton';`} />
+			<CodeBlock language="ts" code={`import { filter, Apollo } from '@skeletonlabs/skeleton';`} />
+			<h3>Via Filter Action</h3>
 			<p>Import the filter action reference using <code>action</code> and set <code>actionParams</code> to the desired filter id.</p>
-			<CodeBlock language="html" code={`<Avatar src="https://i.pravatar.cc/" action={filter} actionParams="Apollo" />`} />
+			<CodeBlock language="html" code={`<Avatar src="https://i.pravatar.cc/" action={filter} actionParams="#Apollo" />`} />
+			<h3>Via Style Attribute</h3>
+			<CodeBlock language="html" code={`<Avatar src="https://i.pravatar.cc/" style="filter: url({'#Apollo'})" />`} />
 		</div>
 	</svelte:fragment>
 </DocsShell>
