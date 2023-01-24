@@ -15,6 +15,8 @@
 	export let selected: Writable<any> = writable(undefined);
 	/** Provide classes to set the background color. */
 	export let background = 'bg-surface-100-800-token';
+	/** Provide classes to set the background color. */
+	export let border = '';
 	/** Provide classes to set the tile active tile background. */
 	export let active = 'bg-primary-active-token';
 	/** Provide classes to set the tile hover background color. */
@@ -43,10 +45,10 @@
 	const cBase = 'grid grid-rows-[auto_1fr_auto] overflow-y-auto';
 
 	// Reactive
-	$: classesBase = `${cBase} ${background} ${width} ${height} ${gap} ${$$props.class || ''}`;
+	$: classesBase = `${cBase} ${background} ${border} ${width} ${height} ${gap} ${$$props.class || ''}`;
 </script>
 
-<!-- @component A side navigation rail component. -->
+<!-- @component A vertical navigation rail component. -->
 
 <div class="app-rail {classesBase}">
 	<!-- Slot: lead -->

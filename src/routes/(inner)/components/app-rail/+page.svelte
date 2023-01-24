@@ -39,28 +39,28 @@
 			<AppRail selected={storeValue}>
 				<!-- Lead -->
 				<svelte:fragment slot="lead">
-					<AppRailTile title="Lead">
-						<i class="fa-solid fa-skull text-2xl" />
+					<AppRailTile tag="a" href="/components/app-rail" title="Lead slot tile.">
+						<i class="fa-solid fa-bars text-2xl" />
 					</AppRailTile>
 				</svelte:fragment>
 				<!-- Default -->
 				<AppRailTile label="Tile 1" value={1}>
-					<i class="fa-solid fa-cubes text-2xl" />
+					<i class="fa-solid fa-image text-2xl" />
 				</AppRailTile>
 				<AppRailTile label="Tile 2" value={2}>
-					<i class="fa-solid fa-cubes text-2xl" />
+					<i class="fa-solid fa-image text-2xl" />
 				</AppRailTile>
 				<AppRailTile label="Tile 3" value={3}>
-					<i class="fa-solid fa-cubes text-2xl" />
+					<i class="fa-solid fa-image text-2xl" />
 				</AppRailTile>
 				<!-- Trail -->
 				<svelte:fragment slot="trail">
-					<AppRailTile tag="a" href="https://github.com/" target="_blank" title="Trail">
+					<AppRailTile tag="a" href="https://github.com/" target="_blank" title="Trail slot tile.">
 						<i class="fa-brands fa-github text-2xl" />
 					</AppRailTile>
 				</svelte:fragment>
 			</AppRail>
-			<div class="grid place-content-center place-items-center"><code>Selected: {$storeValue}</code></div>
+			<div class="grid place-content-center place-items-center"><code>Selected Tile: {$storeValue}</code></div>
 		</div>
 	</svelte:fragment>
 
@@ -81,23 +81,42 @@ const storeValue: Writable<number> = writable(1);
 				language="html"
 				code={`
 <AppRail selected={storeValue}>
-	<svelte:fragment slot="lead">(lead)</svelte:fragment>
-	<!-- (AppRailTiles Here) -->
-	<svelte:fragment slot="trail">(trail)</svelte:fragment>
+	<svelte:fragment slot="lead">
+		<!-- AppRailTiles -->
+	</svelte:fragment>
+	<!-- AppRailTiles -->
+	<svelte:fragment slot="trail">
+		<!-- AppRailTiles -->
+	</svelte:fragment>
 </AppRail>
 `}
 			/>
+			<h3>Adding Tiles</h3>
+			<p>Create one or more rail tile components within your app rail's available slots.</p>
+			<CodeBlock language="html" code={`<AppRailTile label="Tile" title="Tile" value={1}>(icon)</AppRailTile>`} />
 		</div>
 		<!-- Tile -->
 		<div class="space-y-4">
-			<h2>Adding Tiles</h2>
-			<p>Create one or more rail tile components within your app rail's available slots.</p>
-			<CodeBlock language="html" code={`<AppRailTile label="Tile" title="Tile" value={1}>(icon)</AppRailTile>`} />
+			<h2>Anchor Link Tiles</h2>
 			<p>
-				You can use <code>tag="a"</code> to convert any tile to an anchor link, then append
+				Alternatively, you can use <code>tag="a"</code> to convert any tile to an anchor link, then append
 				<em>href, target, rel</em>, and other attributes as needed.
 			</p>
-			<CodeBlock language="html" code={`<AppRailTile tag="a" href="https://github.com/">(icon)</AppRailTile>`} />
+			<CodeBlock language="html" code={`<AppRailTile tag="a" href="/my/page/route">(icon)</AppRailTile>`} />
+			<!-- prettier-ignore -->
+			<p>
+				To set an active state for an anchor link, compare the tile <em>href</em> URL to the active page URL using
+				<a href="https://kit.svelte.dev/docs/modules#$app-stores-page" target="_blank" rel="noreferrer">$page.url.pathname</a>. Then set a background color or other visual indicator via the Svelte class syntax.
+			</p>
+			<CodeBlock language="ts" code={`import { page } from '$app/stores';`} />
+			<CodeBlock
+				language="html"
+				code={`
+<AppRailTile tag="a" href={tileUrl} class:bg-primary-500={tileUrl === $page.url.pathname}>
+	(icon)
+</AppRailTile>
+				`}
+			/>
 		</div>
 	</svelte:fragment>
 </DocsShell>
