@@ -49,6 +49,10 @@
 				</svelte:fragment>
 			</AppBar>
 			<!-- --- -->
+			<AppBar>
+				<h2>Title</h2>
+			</AppBar>
+			<!-- --- -->
 			<AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end">
 				<svelte:fragment slot="lead">
 					<i class="fa-solid fa-bars text-2xl" />
@@ -63,9 +67,9 @@
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
-		<p>App Bars can be generated with a number of different configurations by mixing and matching available slots and props.</p>
 		<section class="space-y-4">
 			<h2>Configurations</h2>
+			<p>App Bars can be generated with a number of different configurations by mixing and matching available slots and props.</p>
 			<h3>Two Rows and Headline</h3>
 			<CodeBlock
 				language="html"
@@ -88,7 +92,16 @@
 </AppBar>
 				`}
 			/>
-			<h3>Even Columns</h3>
+			<h3>Barebones</h3>
+			<CodeBlock language="html" code={`<AppBar>(title)</AppBar>`} />
+		</section>
+		<section class="space-y-4">
+			<h2>Using Grid Layout</h2>
+			<!-- prettier-ignore -->
+			<p>
+				The main row utilizes a grid-base layout. Utilize Tailwind's <a href="https://tailwindcss.com/docs/grid-column" target="_blank" rel="noreferrer">grid column</a> utility classes to control column width. Then use
+				<a href="https://tailwindcss.com/docs/place-content" target="_blank" rel="noreferrer">place settings</a> to adjust the placement of the slot contents.
+			</p>
 			<CodeBlock
 				language="html"
 				code={`
@@ -99,8 +112,7 @@
 </AppBar>
 				`}
 			/>
-			<h3>Barebones</h3>
-			<CodeBlock language="html" code={`<AppBar>(title)</AppBar>`} />
+			<p>The example above provides an even three columns layout with the title centered and actions right-aligned.</p>
 		</section>
 	</svelte:fragment>
 </DocsShell>
