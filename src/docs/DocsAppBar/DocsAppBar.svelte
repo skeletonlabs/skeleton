@@ -13,6 +13,7 @@
 
 	// Components
 	import AppBar from '$lib/components/AppBar/AppBar.svelte';
+	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	// Utilities
 	import LightSwitch from '$lib/utilities/LightSwitch/LightSwitch.svelte';
 	import { menu } from '$lib/utilities/Menu/menu';
@@ -87,99 +88,92 @@
 <!-- NOTE: using stopPropagation to override Chrome for Windows search shortcut -->
 <svelte:window on:keydown|stopPropagation={onWindowKeydown} />
 
-<AppBar shadow="shadow">
-	<!-- Branding -->
+<AppBar>
 	<svelte:fragment slot="lead">
-		<!-- Drawer Menu -->
-		<button on:click={drawerOpen} class="lg:!hidden btn btn-sm">
-			<i class="fa-solid fa-bars text-xl" />
-		</button>
-		<!-- Logo -->
-		<a href="/" title="Go to Homepage">
-			<span class="hidden sm:inline"><DocsLogoFull /></span>
-			<span class="inline sm:hidden"><DocsLogoIcon /></span>
-		</a>
-	</svelte:fragment>
-
-	<!-- Search -->
-	<div class="hidden md:inline md:ml-4">
-		<button class="btn variant-ghost-surface btn-sm" on:click={triggerSearch}>
-			<i class="fa-solid fa-magnifying-glass" />
-			<span>Search</span>
-			<span class="text-[11px] font-bold opacity-60 pl-2">{isOsMac ? '⌘' : 'Ctrl'}+K</span>
-		</button>
-	</div>
-
-	<!-- Navigation -->
-	<svelte:fragment slot="trail">
-		<!-- Links -->
-		<!-- prettier-ignore -->
-		<section class="hidden lg:flex">
-			<!-- Docs -->
-			<a class="unstyled hover:bg-primary-hover-token px-4 py-2 rounded-token" href="/docs/why" data-sveltekit-preload-data="hover">Docs</a>
-			<!-- Guides -->
-			<a class="unstyled hover:bg-primary-hover-token px-4 py-2 rounded-token" href="/guides/install" data-sveltekit-preload-data="hover">Guides</a>
-			<!-- Features -->
-			<div class="relative">
-				<button class="unstyled hover:bg-primary-hover-token px-4 py-2 rounded-token space-x-2" use:menu={{ menu: 'features' }}>
-					<span>Features</span>
-					<i class="fa-solid fa-caret-down opacity-50" />
+		<div class="flex items-center space-x-4">
+			<!-- Hamburger Menu -->
+			<button on:click={drawerOpen} class="btn-icon btn-icon-sm lg:!hidden">
+				<i class="fa-solid fa-bars text-xl" />
+			</button>
+			<!-- Logo -->
+			<a class="lg:!ml-0 w-[38px] lg:w-auto overflow-hidden" href="/" title="Go to Homepage">
+				<DocsLogoFull />
+			</a>
+			<!-- Search -->
+			<div class="md:inline md:ml-4">
+				<button class="btn btn-sm variant-ghost-surface hidden lg:inline-block" on:click={triggerSearch}>
+					<i class="fa-solid fa-magnifying-glass" />
+					<span class="hidden lg:inline-block">Search</span>
+					<span class="hidden lg:inline-block text-[11px] font-bold opacity-60 pl-2">{isOsMac ? '⌘' : 'Ctrl'}+K</span>
 				</button>
-				<div class="card overflow-hidden w-60 shadow-xl grid grid-cols-1" data-menu="features">
-					<!-- Tailwind -->
-					<a class="block space-y-4 p-4 hover:bg-primary-hover-token" href="/elements/core" data-sveltekit-preload-data="hover">
-						<h4>Tailwind</h4>
-						<small>Design tokens and CSS elements.</small>
-					</a>
-					<hr>
-					<!-- Svelte -->
-					<a class="block space-y-4 p-4 hover:bg-primary-hover-token" href="/actions/clipboard" data-sveltekit-preload-data="hover">
-						<h4>Svelte</h4>
-						<small>Actions and Components.</small>
-					</a>
-					<hr>
-					<!-- Utilities -->
-					<a class="block space-y-4 p-4 hover:bg-primary-hover-token" href="/utilities/codeblocks" data-sveltekit-preload-data="hover">
-						<h4>Utilities</h4>
-						<small>Powerful utility features.</small>
-					</a>
-				</div>
 			</div>
-			<!-- Blog -->
-			<a class="unstyled hover:bg-primary-hover-token px-4 py-2 rounded-token" href="/blog" data-sveltekit-preload-data="hover">Blog</a>
-		</section>
-
-		<!-- Divider -->
-		<span class="divider-vertical h-5" />
+		</div>
+	</svelte:fragment>
+	<svelte:fragment slot="trail">
+		<!-- Navigate -->
+		<div class="relative hidden lg:block">
+			<button class="btn hover:variant-soft-primary" use:menu={{ menu: 'features' }}>
+				<span>Navigate</span>
+				<i class="fa-solid fa-caret-down opacity-50" />
+			</button>
+			<!-- prettier-ignore -->
+			<div class="card p-4 w-60 shadow-xl" data-menu="features">
+				<nav class="list-nav">
+					<ul>
+						<li>
+							<a href="/docs/why">
+								<span class="w-6 text-center"><i class="fa-solid fa-sheet-plastic" /></span>
+								<span>Docs</span>
+							</a>
+							<a href="/guides/install">
+								<span class="w-6 text-center"><i class="fa-solid fa-book" /></span>
+								<span>Guides</span>
+							</a>
+							<hr class="my-4">
+							<a href="/elements/core">
+								<span class="w-6 text-center"><SvgIcon name="tailwind" width="w-5" height="h-5" /></span>
+								<span>Tailwind</span>
+							</a>
+							<a href="/actions/clipboard">
+								<span class="w-6 text-center"><SvgIcon name="svelte" width="w-6" height="h-6" /></span>
+								<span>Svelte</span>
+							</a>
+							<a href="/utilities/codeblocks">
+								<span class="w-6 text-center"><i class="fa-solid fa-screwdriver-wrench" /></span>
+								<span>Utilities</span>
+							</a>
+							<hr class="my-4">
+							<a href="/blog">
+								<span class="w-6 text-center"><i class="fa-solid fa-bullhorn" /></span>
+								<span>Blog</span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
 
 		<!-- Theme -->
 		<div class="relative">
-			<button
-				class="unstyled hover:bg-primary-hover-token px-4 py-2 rounded-token space-x-2"
-				use:menu={{ menu: 'theme', interactive: true }}
-			>
-				<i class="fa-solid fa-palette md:hidden" />
+			<button class="btn hover:variant-soft-primary" use:menu={{ menu: 'theme', fixed: true, interactive: true }}>
+				<i class="fa-solid fa-palette text-lg md:hidden" />
 				<span class="hidden md:inline-block">Theme</span>
 				<i class="fa-solid fa-caret-down opacity-50" />
 			</button>
-			<div class="card w-64 shadow-xl max-w-fit sm:max-w-none" data-menu="theme">
-				<section class="flex justify-between items-center p-4">
-					<h6>Theme</h6>
+			<!-- <div class="card w-64 shadow-xl max-w-fit menu-tr sm:max-w-none" data-menu="theme"> -->
+			<div class="card p-4 w-60 shadow-xl menu-tr " data-menu="theme">
+				<section class="flex justify-between items-center">
+					<h6>Mode</h6>
 					<LightSwitch />
 				</section>
-				<hr />
-				<nav class="list-nav p-4 max-h-64 lg:max-h-[480px] overflow-y-auto">
+				<hr class="my-4" />
+				<nav class="list-nav p-4 -m-4 max-h-64 lg:max-h-[500px] overflow-y-auto">
 					<form action="/?/setTheme" method="POST" use:enhance={setTheme}>
 						<ul>
 							{#each themes as { icon, name, type }}
 								<li>
-									<button
-										class="option w-full h-full"
-										type="submit"
-										name="theme"
-										value={type}
-										class:bg-primary-active-token={$storeTheme === type}
-									>
+									<!-- prettier-ignore -->
+									<button class="option w-full h-full" type="submit" name="theme" value={type} class:bg-primary-active-token={$storeTheme === type}>
 										<span>{icon}</span>
 										<span>{name}</span>
 									</button>
@@ -188,26 +182,21 @@
 						</ul>
 					</form>
 				</nav>
-				<hr />
-				<div class="p-4">
+				<hr class="my-4" />
+				<div>
 					<a class="btn variant-ghost-surface w-full" href="/guides/themes/generator">Theme Generator</a>
 				</div>
 			</div>
 		</div>
 
-		<!-- Divider -->
-		<span class="divider-vertical h-5" />
-
 		<!-- Social -->
-		<section class="grid grid-cols-3 gap-6">
-			<a href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer" aria-label="Discord">
-				<i class="fa-brands fa-discord" />
+		<!-- prettier-ignore -->
+		<section class="flex space-x-1">
+			<a class="btn-icon btn-icon-sm hover:variant-soft-primary" href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer">
+				<i class="fa-brands fa-discord text-lg" />
 			</a>
-			<a href="https://twitter.com/SkeletonUI" target="_blank" rel="noreferrer" aria-label="Twitter">
-				<i class="fa-brands fa-twitter" />
-			</a>
-			<a href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer" aria-label="GitHub">
-				<i class="fa-brands fa-github" />
+			<a class="btn-icon btn-icon-sm hover:variant-soft-primary" href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer">
+				<i class="fa-brands fa-github text-lg" />
 			</a>
 		</section>
 	</svelte:fragment>

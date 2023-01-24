@@ -72,7 +72,7 @@
 		</AppRailTile>
 		<svelte:fragment slot="trail">
 			<AppRailTile label="Blog" tag="a" href="/blog" value={'blog'} on:click={onListItemClick} class="lg:hidden">
-				<i class="fa-solid fa-blog text-2xl" />
+				<i class="fa-solid fa-bullhorn text-2xl" />
 			</AppRailTile>
 		</svelte:fragment>
 	</AppRail>
