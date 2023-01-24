@@ -29,19 +29,19 @@
 			</div>
 			<!-- Form -->
 			<form class="border border-surface-500 p-4 space-y-4 rounded-container-token" use:focusTrap={isFocused}>
-				<label>
+				<label class="input-label">
 					<span>Name</span>
 					<input type="text" placeholder="Enter name..." />
 				</label>
-				<label>
+				<label class="input-label">
 					<span>Phone Number</span>
 					<input type="tel" placeholder="Enter phone..." />
 				</label>
-				<label>
+				<label class="input-label">
 					<span>Email</span>
 					<input type="email" placeholder="Enter email address..." />
 				</label>
-				<button class="btn btn-filled-primary">Submit</button>
+				<button class="btn variant-filled-primary">Submit</button>
 			</form>
 		</section>
 	</svelte:fragment>

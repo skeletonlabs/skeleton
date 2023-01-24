@@ -95,7 +95,7 @@
 			if (offsetTop >= 0) visibleHeadings.push(header);
 		});
 		// Set the top-most header as the active ID
-		activeHeaderId = visibleHeadings[0].id;
+		activeHeaderId = visibleHeadings[0]?.id;
 	}
 
 	// Lifecycle

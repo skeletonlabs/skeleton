@@ -2,20 +2,9 @@
 <html lang="en" class="dark">
 
 <head>
-	<title>Skeleton — UI Toolkit for Svelte + Tailwind</title>
-
-	<!-- Meta Tags -->
 	<meta charset="utf-8" />
-	<meta name="description"
-		content="Skeleton is a fully featured Svelte UI component library that allows you to build fast and reactive web UI using Svelte + Tailwind." />
-	<meta name="keywords" content="svelte, components, svelte components, ui components, sveltekit." />
-	<meta name="theme-color" content="#22c55e" />
 
-	<!-- Open Graph - https://ogp.me/ -->
-	<meta content="Skeleton" property="og:site_name" />
-	<meta content="website" property="og:type" />
-	<meta name="og:description"
-		content="Skeleton is a fully featured Svelte UI component library that allows you to build fast and reactive web UI using Svelte + Tailwind." />
+	<!-- NOTE: SEO handled in root page layout -->
 
 	<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -24,20 +13,7 @@
 	<!-- Font Awesome -->
 	<script src="https://kit.fontawesome.com/76b174a5e9.js" crossorigin="anonymous"></script>
 </head>
-
-<body data-theme="skeleton">
-	<div class="h-full overflow-hidden">%sveltekit.body%</div>
-</body>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DXDKKB8FHC"></script>
-<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag() {
-		dataLayer.push(arguments);
-	}
-	gtag('js', new Date());
-	gtag('config', 'G-DXDKKB8FHC');
-</script>
-
+	<body data-theme="skeleton">
+		<div class="h-full overflow-hidden">%sveltekit.body%</div>
+	</body>
 </html>

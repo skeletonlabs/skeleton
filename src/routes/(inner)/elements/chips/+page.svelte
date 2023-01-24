@@ -56,11 +56,11 @@
 			<div class="card p-4 space-y-4 text-center">
                 <p>Actions</p>
                 <div class="flex justify-center space-x-2">
-                    <span class="chip" on:click={()=>{triggerToast('like')}} on:keypress>
+                    <span class="chip variant-soft" on:click={()=>{triggerToast('like')}} on:keypress>
                         <i class="fa-solid fa-heart" />
                         <span>Like</span>
                     </span>
-                    <span class="chip" on:click={()=>{triggerToast('share')}} on:keypress>
+                    <span class="chip variant-soft" on:click={()=>{triggerToast('share')}} on:keypress>
                         <i class="fa-solid fa-share" />
                         <span>Share</span>
                     </span>
@@ -71,7 +71,7 @@
                 <p>Selection</p>
                 <div class="flex justify-center space-x-2">
                     {#each ['red', 'green', 'blue'] as c}
-                        <span class="chip chip-primary" class:chip-active={ color === c } on:click={()=>{section(c)}} on:keypress>
+                        <span class="chip {color === c ? 'variant-filled-primary' : 'variant-soft-primary'}" on:click={()=>{section(c)}} on:keypress>
                             {#if color === c}<span><i class="fa-solid fa-check" /></span>{/if}
                             <span>{c}</span>
                         </span>
@@ -83,7 +83,7 @@
                 <p>Multi-Select</p>
                 <div class="flex justify-center space-x-2">
                     {#each Object.keys(flavors) as f}
-                    <span class="chip chip-secondary" class:chip-secondary-active={flavors[f]} on:click={()=>{filter(f)}} on:keypress>
+                    <span class="chip {flavors[f] ? 'variant-filled-secondary' : 'variant-ghost-secondary'}" on:click={()=>{filter(f)}} on:keypress>
                         {#if flavors[f]}<span><i class="fa-solid fa-check" /></span>{/if}
                         <span class="capitalize">{f}</span>
                     </span>
@@ -99,32 +99,75 @@
 			<p>Apply <code>.chip</code> to any inline element, such as a <em>span</em> or <em>anchor</em> tag.</p>
 			<CodeBlock language="html" code={`<span class="chip">Skeleton</span>`} />
 		</section>
+		<!-- Variants -->
 		<section class="space-y-4">
 			<h2>Variants</h2>
-			<p>Append <code>.chip-[color]</code> class to set a variant color.</p>
-			<CodeBlock language="html" code={`<span class="chip chip-primary">Skeleton</span>`} />
-			<div class="card p-4 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
-				<span class="chip chip-primary">primary</span>
-				<span class="chip chip-secondary">secondary</span>
-				<span class="chip chip-tertiary">tertiary</span>
-				<span class="chip chip-success">success</span>
-				<span class="chip chip-warning">warning</span>
-				<span class="chip chip-error">error</span>
+			<p>Supports all standard variant styles via <code>.variant-[style]-[color]</code>.</p>
+			<CodeBlock language="html" code={`<span class="chip variant-filled-primary">Skeleton</span>`} />
+			<div class="card p-4 grid grid-cols-1 md:grid-cols-5 gap-4">
+				<!-- filled -->
+				<div class="grid grid-cols-1 gap-4 text-center text-xs font-bold">
+					<p>Filled</p>
+					<div><span class="chip variant-filled-primary">primary</span></div>
+					<div><span class="chip variant-filled-secondary">secondary</span></div>
+					<div><span class="chip variant-filled-tertiary">tertiary</span></div>
+					<div><span class="chip variant-filled-success">success</span></div>
+					<div><span class="chip variant-filled-warning">warning</span></div>
+					<div><span class="chip variant-filled-error">error</span></div>
+					<div><span class="chip variant-filled-surface">surface</span></div>
+				</div>
+				<!-- soft -->
+				<div class="grid grid-cols-1 gap-4 text-center text-xs font-bold">
+					<p>Soft</p>
+					<div><span class="chip variant-soft-primary">primary</span></div>
+					<div><span class="chip variant-soft-secondary">secondary</span></div>
+					<div><span class="chip variant-soft-tertiary">tertiary</span></div>
+					<div><span class="chip variant-soft-success">success</span></div>
+					<div><span class="chip variant-soft-warning">warning</span></div>
+					<div><span class="chip variant-soft-error">error</span></div>
+					<div><span class="chip variant-soft-surface">surface</span></div>
+				</div>
+				<!-- ringed -->
+				<div class="grid grid-cols-1 gap-4 text-center text-xs font-bold">
+					<p>Ringed</p>
+					<div><span class="chip variant-ringed-primary">primary</span></div>
+					<div><span class="chip variant-ringed-secondary">secondary</span></div>
+					<div><span class="chip variant-ringed-tertiary">tertiary</span></div>
+					<div><span class="chip variant-ringed-success">success</span></div>
+					<div><span class="chip variant-ringed-warning">warning</span></div>
+					<div><span class="chip variant-ringed-error">error</span></div>
+					<div><span class="chip variant-ringed-surface">surface</span></div>
+				</div>
+				<!-- ghost -->
+				<div class="grid grid-cols-1 gap-4 text-center text-xs font-bold">
+					<p>Ghost</p>
+					<div><span class="chip variant-ghost-primary">primary</span></div>
+					<div><span class="chip variant-ghost-secondary">secondary</span></div>
+					<div><span class="chip variant-ghost-tertiary">tertiary</span></div>
+					<div><span class="chip variant-ghost-success">success</span></div>
+					<div><span class="chip variant-ghost-warning">warning</span></div>
+					<div><span class="chip variant-ghost-error">error</span></div>
+					<div><span class="chip variant-ghost-surface">surface</span></div>
+				</div>
+				<!-- glass -->
+				<div class="grid grid-cols-1 gap-4 text-center text-xs font-bold">
+					<p>Glass</p>
+					<div><span class="chip variant-glass-primary">primary</span></div>
+					<div><span class="chip variant-glass-secondary">secondary</span></div>
+					<div><span class="chip variant-glass-tertiary">tertiary</span></div>
+					<div><span class="chip variant-glass-success">success</span></div>
+					<div><span class="chip variant-glass-warning">warning</span></div>
+					<div><span class="chip variant-glass-error">error</span></div>
+					<div><span class="chip variant-glass-surface">surface</span></div>
+				</div>
 			</div>
-		</section>
-		<section class="space-y-4">
-			<h2>Active State</h2>
-			<p>Dynamically add <code>.chip-active</code> or <code>.chip-[color]-active</code> classes to show an active state.</p>
-			<CodeBlock language="ts" code={`let color: string = 'red';`} />
-			<CodeBlock language="html" code={`<span class="chip" class:chip-active={color === 'red'}>Red</span>`} />
-		</section>
-		<hr />
-		<section class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-			<div class="space-y-2">
-				<h2>Input Chips</h2>
-				<p>A dedicated input component for accepting multiple values using chips.</p>
-			</div>
-			<a class="btn btn-ghost-surface" href="/components/input-chips">Input Chip &rarr;</a>
-		</section>
-	</svelte:fragment>
+			<!-- Active State -->
+			<section class="space-y-4">
+				<h2>Active State</h2>
+				<p>Swap out variant styles to reflect changes in state.</p>
+				<CodeBlock language="ts" code={`$: chipStateClass = (someCondition) ? 'variant-filled-primary' : 'variant-soft-primary';`} />
+				<CodeBlock language="html" code={`<span class="chip {chipStateClass}">...</span>`} />
+			</section>
+		</section></svelte:fragment
+	>
 </DocsShell>

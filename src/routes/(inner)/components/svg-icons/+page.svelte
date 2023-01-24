@@ -7,7 +7,6 @@
 	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-expect-error sveld import
 	import sveldSvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte?raw&sveld';
 
 	// Local

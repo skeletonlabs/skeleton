@@ -89,7 +89,7 @@
 			<li>When ready, submit or set your pull request to the ready state. This will begin the code review process.</li>
 			<li>If your PR meets all requirements it will be merged, otherwise feedback will be provided.</li>
 		</ol>
-		<aside class="alert">
+		<aside class="alert variant-ghost-warning">
 			<i class="fa-solid fa-thumbs-up text-2xl" />
 			<div class="alert-message">
 				Remember to be a team player, don't be a hero! Open-source is most successful when we all work together.

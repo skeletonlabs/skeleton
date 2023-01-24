@@ -9,9 +9,7 @@
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-expect-error sveld import
 	import sveldAccordionGroup from '$lib/components/Accordion/AccordionGroup.svelte?raw&sveld';
-	// @ts-expect-error sveld import
 	import sveldAccordionItem from '$lib/components/Accordion/AccordionItem.svelte?raw&sveld';
 
 	// Docs Shell
