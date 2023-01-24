@@ -22,12 +22,12 @@ export interface Component {
 	/** Provide a list of props that children can override. */
 	overrideProps?: string[];
 	/** Provide the raw component Sveld doc source. */
-	sveld: Record<string, SveldObj[]>;
+	sveld:SveldJson;
 }
 
-export interface SveldObj {
-	name: string;
-	type: string;
+export interface SveldJson {
+	name?: string;
+	type?: string;
 	description?: string;
 	value?: string;
 	detail?: string;
@@ -36,7 +36,7 @@ export interface SveldObj {
 		tag: string;
 		value?: string;
 	}[];
-	[key: string]: any;
+	[key: string]: unknown;
 }
 
 export interface DocsShellSettings {
@@ -47,7 +47,7 @@ export interface DocsShellSettings {
 	/** The feature description */
 	description: string;
 	/** Specifiy the GitHub source path for the feature (partial) */
-	source: string;
+	source?: string;
 	/** List of import alias names. */
 	imports?: string[];
 	/** List of import Typescript interface imports. */

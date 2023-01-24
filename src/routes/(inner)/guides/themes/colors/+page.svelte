@@ -65,7 +65,7 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Theme Colors</h1>
-		<p>This section provides a quick references for what each avialable theme color.</p>
+		<p>This section provides a quick reference of each available theme color and their intended uses.</p>
 	</header>
 
 	<hr />

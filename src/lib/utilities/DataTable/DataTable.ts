@@ -120,7 +120,7 @@ function sortOrder<T extends Record<PropertyKey, unknown>>(order: string, store:
 		} else {
 			const a = x[key] as number;
 			const b = y[key] as number;
-			return (a < b) ? -1 : ((a > b) ? 1 : 0)
+			return a < b ? -1 : a > b ? 1 : 0;
 		}
 	});
 }

@@ -2,12 +2,14 @@
 import { generateAllTWClasses, transpileCssToJs } from './compile-css-to-js.cjs';
 import { mkdir, writeFile, rename, unlink } from 'fs/promises';
 
+const INTELLISENSE_FILE_NAME = 'intellisense-classes.cjs';
+
 exec();
 
 async function exec() {
 	// Deletes the previously generated CSS-in-JS file. If we don't, our plugin will
 	// add duplicate classes to our newly generated CSS-in-JS file.
-	await unlink('src/lib/tailwind/generated/allComponents.cjs').catch(() => {
+	await unlink(`src/lib/tailwind/generated/${INTELLISENSE_FILE_NAME}`).catch(() => {
 		// file doesn't exist, don't worry about it
 	});
 
@@ -25,7 +27,7 @@ async function exec() {
 	const purgedJSS = await removeDuplicateClasses(generatedJSS);
 
 	// Creates the generated CSS-in-JS file
-	await writeFile('src/lib/tailwind/generated/allComponents.cjs', `module.exports = ${JSON.stringify(purgedJSS)}`).catch((e) =>
+	await writeFile(`src/lib/tailwind/generated/${INTELLISENSE_FILE_NAME}`, `module.exports = ${JSON.stringify(purgedJSS)}`).catch((e) =>
 		console.error(e)
 	);
 
@@ -58,6 +60,9 @@ async function removeDuplicateClasses(cssInJs) {
 
 		// if it's a background color, delete it
 		if (key.includes('bg-')) delete cssInJs[key];
+
+		// if it's not a class selector, delete it (only want classes in the intellisense)
+		if (key[0] !== '.') delete cssInJs[key];
 
 		// if it's a default tailwind class, delete it
 		if (twClasses[key]) delete cssInJs[key];

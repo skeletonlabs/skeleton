@@ -31,9 +31,11 @@
 					<small>Benzara Tahar</small>
 				</a>
 				<div class="flex items-center space-x-4">
-					<a class="btn btn-ghost-surface" href="https://svelte-animated-counter.vercel.app/" target="_blank" rel="noreferrer">Website</a>
+					<a class="btn variant-ghost-surface" href="https://svelte-animated-counter.vercel.app/" target="_blank" rel="noreferrer"
+						>Website</a
+					>
 					<a
-						class="btn btn-filled-secondary"
+						class="btn variant-filled-secondary"
 						href="https://github.com/benzara-tahar/svelte-animated-counter"
 						target="_blank"
 						rel="noreferrer">GitHub</a
@@ -57,8 +59,10 @@
 					<small>Highlight.js</small>
 				</a>
 				<div class="flex items-center space-x-4">
-					<a class="btn btn-ghost-surface" href="https://highlightjs.org/" target="_blank" rel="noreferrer">Website</a>
-					<a class="btn btn-filled-secondary" href="https://github.com/highlightjs/highlight.js" target="_blank" rel="noreferrer">GitHub</a>
+					<a class="btn variant-ghost-surface" href="https://highlightjs.org/" target="_blank" rel="noreferrer">Website</a>
+					<a class="btn variant-filled-secondary" href="https://github.com/highlightjs/highlight.js" target="_blank" rel="noreferrer"
+						>GitHub</a
+					>
 				</div>
 			</footer>
 		</div>
@@ -78,8 +82,8 @@
 					<small>Pablo Berganza</small>
 				</a>
 				<div class="flex items-center space-x-4">
-					<a class="btn btn-ghost-surface" href="https://felte.dev/" target="_blank" rel="noreferrer">Website</a>
-					<a class="btn btn-filled-secondary" href="https://github.com/pablo-abc/felte" target="_blank" rel="noreferrer">GitHub</a>
+					<a class="btn variant-ghost-surface" href="https://felte.dev/" target="_blank" rel="noreferrer">Website</a>
+					<a class="btn variant-filled-secondary" href="https://github.com/pablo-abc/felte" target="_blank" rel="noreferrer">GitHub</a>
 				</div>
 			</footer>
 		</div>
@@ -99,7 +103,7 @@
 					<small>Jason Quense</small>
 				</a>
 				<div class="flex items-center space-x-4">
-					<a class="btn btn-filled-secondary" href="https://github.com/jquense/yup" target="_blank" rel="noreferrer">GitHub</a>
+					<a class="btn variant-filled-secondary" href="https://github.com/jquense/yup" target="_blank" rel="noreferrer">GitHub</a>
 				</div>
 			</footer>
 		</div>
@@ -119,8 +123,8 @@
 					<small>Chart.js</small>
 				</a>
 				<div class="flex items-center space-x-4">
-					<a class="btn btn-ghost-surface" href="https://www.chartjs.org/" target="_blank" rel="noreferrer">Website</a>
-					<a class="btn btn-filled-secondary" href="https://github.com/chartjs/Chart.js" target="_blank" rel="noreferrer">GitHub</a>
+					<a class="btn variant-ghost-surface" href="https://www.chartjs.org/" target="_blank" rel="noreferrer">Website</a>
+					<a class="btn variant-filled-secondary" href="https://github.com/chartjs/Chart.js" target="_blank" rel="noreferrer">GitHub</a>
 				</div>
 			</footer>
 		</div>
@@ -140,8 +144,10 @@
 					<small>Font Awesome</small>
 				</a>
 				<div class="flex items-center space-x-4">
-					<a class="btn btn-ghost-surface" href="https://fontawesome.com/" target="_blank" rel="noreferrer">Website</a>
-					<a class="btn btn-filled-secondary" href="https://github.com/FortAwesome/Font-Awesome" target="_blank" rel="noreferrer">GitHub</a>
+					<a class="btn variant-ghost-surface" href="https://fontawesome.com/" target="_blank" rel="noreferrer">Website</a>
+					<a class="btn variant-filled-secondary" href="https://github.com/FortAwesome/Font-Awesome" target="_blank" rel="noreferrer"
+						>GitHub</a
+					>
 				</div>
 			</footer>
 		</div>
@@ -153,7 +159,7 @@
 	<section class="text-center space-y-4">
 		<p>Are we missing something useful?</p>
 		<a
-			class="btn btn-ghost-surface"
+			class="btn variant-ghost-surface"
 			href="https://github.com/skeletonlabs/skeleton/issues/new?assignees=&labels=feature-request&template=feature_request.yml"
 			target="_blank"
 			rel="noreferrer">Suggest a Package</a

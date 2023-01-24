@@ -28,12 +28,12 @@
 				<div class="bg-surface-200-700-token p-4 rounded-container-token h-20" data-clipboard="exampleElement" contenteditable>
 					This <em>div</em> is set to 'contenteditable'. Make changes then tap copy.
 				</div>
-				<button use:clipboard={{ element: 'exampleElement' }} class="btn btn-filled-secondary">Copy Element Contents</button>
+				<button use:clipboard={{ element: 'exampleElement' }} class="btn variant-filled-secondary">Copy Element Contents</button>
 			</div>
 			<!-- Input -->
 			<div class="space-y-4">
 				<textarea class="h-20" data-clipboard="exampleInput">Make changes to this textarea and then tap copy.</textarea>
-				<button use:clipboard={{ input: 'exampleInput' }} class="btn btn-filled-secondary">Copy Input Value</button>
+				<button use:clipboard={{ input: 'exampleInput' }} class="btn variant-filled-secondary">Copy Input Value</button>
 			</div>
 		</section>
 	</svelte:fragment>

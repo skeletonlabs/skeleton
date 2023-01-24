@@ -21,7 +21,7 @@
 	// Props (styles)
 	export let spacing = 'space-y-8 md:space-y-12';
 	// Props (regions)
-	export let regionHeader = 'card-glass-surface border-b border-black/5 dark:border-white/5';
+	export let regionHeader = 'variant-glass-surface border-b border-black/5 dark:border-white/5';
 	export let regionDetails = 'overflow-x-auto whitespace-nowrap grid grid-cols-1 md:grid-cols-[128px_1fr] gap-3';
 	export let regionPanels = 'page-container';
 
@@ -44,7 +44,7 @@
 		stylesheetIncludes: [],
 		stylesheets: [],
 		package: { name: '@skeletonlabs/skeleton', url: 'https://www.npmjs.com/package/@skeletonlabs/skeleton' },
-		source: '',
+		source: undefined,
 		docsPath: $page.url.pathname,
 		aria: undefined,
 		dependencies: [],
@@ -122,7 +122,7 @@
 				<div class="flex items-center space-x-4">
 					<h1>{@html pageSettings.name}</h1>
 					<!-- Feature -->
-					<span class="badge badge-glass translate-y-1">{@html pageSettings.feature}</span>
+					<span class="badge variant-filled translate-y-1">{@html pageSettings.feature}</span>
 				</div>
 				<p>{@html pageSettings.description}</p>
 			</section>
@@ -133,14 +133,14 @@
 				{#if pageSettings.imports?.length}
 					<p class="hidden md:inline-block w-32">Import</p>
 					<div>
-						<button class="chip chip-primary" on:click={copyImports}>{formatImports()}</button>
+						<button class="chip variant-ghost-primary" on:click={copyImports}>{formatImports()}</button>
 					</div>
 				{/if}
 				<!-- Types -->
 				{#if pageSettings.types?.length}
 					<p class="hidden md:inline-block w-32">Types</p>
 					<div>
-						<button class="chip chip-primary" on:click={copyTypes}>{formatTypes()}</button>
+						<button class="chip variant-ghost-primary" on:click={copyTypes}>{formatTypes()}</button>
 					</div>
 				{/if}
 				<!-- Stylesheets -->
@@ -151,13 +151,13 @@
 						<!-- Stylesheet Includes -->
 						{#if pageSettings.stylesheetIncludes?.length}
 							{#each pageSettings.stylesheetIncludes as si}
-								<button class="chip chip-primary" on:click={() => {copyStylesheet(si)}}>{si}.css</button>
+								<button class="chip variant-ghost-primary" on:click={() => {copyStylesheet(si)}}>{si}.css</button>
 							{/each}
 						{/if}
 						<!-- Stylesheets -->
 						{#if pageSettings.stylesheets?.length}
 							{#each pageSettings.stylesheets as s}
-								<button class="chip chip-primary" on:click={() => {copyStylesheet(s)}}>{s}.css</button>
+								<button class="chip variant-ghost-primary" on:click={() => {copyStylesheet(s)}}>{s}.css</button>
 							{/each}
 						{/if}
 					</div>
@@ -169,11 +169,13 @@
 					<a href={pageSettings.package?.url} target="_blank" rel="noreferrer">{pageSettings.package?.name}</a>
 				</div>
 				<!-- Source Code -->
-				<p class="hidden md:inline-block w-32">Source</p>
-				<div class="flex items-center space-x-2">
-					<i class="fa-brands fa-github" />
-					<a href={`${githubSourcePath}/lib/${pageSettings.source}`} target="_blank" rel="noreferrer">Source Code</a>
-				</div>
+				{#if pageSettings.source}
+					<p class="hidden md:inline-block w-32">Source</p>
+					<div class="flex items-center space-x-2">
+						<i class="fa-brands fa-github" />
+						<a href={`${githubSourcePath}/lib/${pageSettings.source}`} target="_blank" rel="noreferrer">Source Code</a>
+					</div>
+				{/if}
 				<!-- Doc Source -->
 				<p class="hidden md:inline-block w-32">Doc</p>
 				<div class="flex items-center space-x-2">
