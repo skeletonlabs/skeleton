@@ -25,7 +25,7 @@
 	export let slotMeta = 'opacity-75';
 
 	const cBase = 'relative input-cell';
-	const cInput = 'absolute top-0 left-0 right-0 bottom-0 z-[1] opacity-0 cursor-pointer';
+	const cInput = 'absolute top-0 left-0 right-0 bottom-0 z-[1] opacity-0 disabled:!opacity-0 cursor-pointer';
 	const cInterface = 'flex justify-center items-center text-center';
 
 	// Reactive
@@ -40,7 +40,7 @@
 	}
 </script>
 
-<div class="dropzone {classesBase}">
+<div class="dropzone {classesBase}" class:opacity-50={$$restProps.disabled}>
 	<!-- Input: File (hidden) -->
 	<input
 		type="file"
