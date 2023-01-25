@@ -29,7 +29,7 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="card p-4 text-center !py-10 space-y-4">
+		<section class="card variant-glass p-4 text-center !py-10 space-y-4">
 			<FileButton bind:files accept="image/*" name="file" on:change={onChangeHandler} />
 			<p class="!text-xs text-center">Monitor your browser's console when adding files.</p>
 		</section>
@@ -38,10 +38,18 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<CodeBlock language="ts" code={`let files: FileList;`} />
-			<CodeBlock language="html" code={`<FileButton bind:files name="files">Upload File</FileButton>`} />
-			<p>Attributes such as <code>multiple</code> and <code>required</code> are supported via Svelte's <em>$$restProps</em> feature.</p>
+			<p>
+				Uses <code>input[type='file']</code> and allows for all native input features and accessibility. Including <code>multiple</code>,
+				<code>accept</code>, and <code>required</code>.
+			</p>
+			<CodeBlock language="html" code={`<FileButton name="files">Upload File</FileButton>`} />
 		</section>
+		<div class="space-y-4">
+			<h2>Binding Method</h2>
+			<p>Use a <code>FileList</code> to bind the file data.</p>
+			<CodeBlock language="ts" code={`let files: FileList;`} />
+			<CodeBlock language="html" code={`<FileButton ... bind:files />`} />
+		</div>
 		<section class="space-y-4">
 			<h2>Variant Style</h2>
 			<p>Use the <code>button</code> property to provide classes for the button, such as variant styles.</p>

@@ -20,7 +20,7 @@
 </script>
 
 <div class="file-button {$$props.class ?? ''}" data-testid="file-button">
-	<!-- Input: File -->
+	<!-- Input: File (hidden) -->
 	<input
 		type="file"
 		bind:this={elemFileInput}
