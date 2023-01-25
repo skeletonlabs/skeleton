@@ -28,6 +28,9 @@ module.exports = plugin(
 	},
 	{
 		theme: {
+			backgroundImage: {
+				'gradient-conic': 'conic-gradient(var(--tw-gradient-stops))',
+			},
 			extend: {
 				// Implement Skeleton theme colors
 				colors: themeColors()
