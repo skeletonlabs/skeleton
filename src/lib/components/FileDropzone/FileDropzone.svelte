@@ -29,7 +29,7 @@
 	const cInterface = 'flex justify-center items-center text-center';
 
 	// Reactive
-	$: classesBase = `${cBase} ${border} ${padding} ${rounded}`;
+	$: classesBase = `${cBase} ${border} ${padding} ${rounded} ${$$props.class ?? ''}`;
 	$: classesInput = `${cInput}`;
 	$: classesInterface = `${cInterface}`;
 

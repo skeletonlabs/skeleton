@@ -10,6 +10,6 @@ body {
 }
 
 /* Label Text Override */
-label:not(.unstyled) span:first-of-type:not(.unstyled) {
+label:not(.unstyled) span:first-of-type:not(.unstyled):is(:not(.input-chip *)) {
 	@apply text-surface-700-200-token text-sm;
 }

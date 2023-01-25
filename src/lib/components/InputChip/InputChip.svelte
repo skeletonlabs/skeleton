@@ -1,14 +1,15 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte/internal';
+	import { fly } from 'svelte/transition';
 
 	// Event Dispatcher
 	const dispatch = createEventDispatcher();
 
-	// Props (settings)
-	/** Optionally provide an semantic label. */
-	export let label: string = '';
-	/** Optionally provide an input placeholder. */
-	export let value: string[] = [];
+	// Props
+	/** Set a unique select input name. */
+	export let name: string;
+	/** An array of values. */
+	export let value: any[] = [];
 	/**
 	 * Provide a whitelist of accepted values.
 	 * @type {string[]}
@@ -23,94 +24,125 @@
 	 * @type {function}
 	 */
 	export let validation: (...args: any[]) => boolean = () => true;
+	/** The duration of the animated fly effect. */
+	export let duration = 200;
 
 	// Props (styles)
-	/** Provide chip styles. */
-	export let chip: string = `variant-filled-primary`;
-	/** Set the input padding styles. */
+	/** Provide classes or a variant to style the chips. */
+	export let chips: string = 'variant-filled';
+	/** Provide classes used to indicate invalid state. */
+	export let invalid: string = 'input-error';
+	/** Provide classes to set padding styles. */
 	export let padding: string = 'p-2';
-	/** Set the input border radius styles. */
+	/** Provide classes to set border radius styles. */
 	export let rounded: string = 'rounded-container-token';
-	/** Set the input focus ring styles. */
-	export let ring: string = 'focus:ring-transparent';
-
-	// Local
-	let inputValue: string = '';
-	let inputValueValid: boolean = true;
 
 	// Classes
-	const cBase = 'unstyled input-cell border-token flex flex-wrap gap-2 items-center';
-	const cLabel = 'unstyled w-full md:w-auto mr-2';
-	const cInput = 'unstyled flex-auto border-transparent bg-transparent text-base px-1 py-0 focus:border-transparent min-h-[30px]';
+	const cBase = 'input-cell cursor-pointer';
+	const cInterface = 'space-y-4';
+	const cChipList = 'flex flex-wrap gap-2';
+	const cInputField = 'unstyled bg-transparent border-0 !ring-0 p-0 w-full';
 
-	function resetValiadtionClass(): void {
-		inputValueValid = true;
-	}
+	// Local
+	let inputValue = '';
+	let inputInvalid = false;
 
-	function addChip(event: any): void {
-		event.preventDefault();
+	function validate(): boolean {
 		// Validate: custom validation
 		if (validation !== undefined && !validation(inputValue)) {
-			inputValueValid = false;
-			return;
+			inputInvalid = true;
+			return false;
 		}
 		// Validate: whitelist (if available)
 		if (whitelist.length > 0 && !whitelist.includes(inputValue)) {
-			inputValueValid = false;
-			return;
+			inputInvalid = true;
+			return false;
 		}
 		// Validate: value is unique
 		if (allowDuplicates === false && value.includes(inputValue)) {
-			inputValueValid = false;
-			return;
+			inputInvalid = true;
+			return false;
 		}
+		// All validation conditions met
+		return true;
+	}
+
+	function addChip(event: Event): void {
+		event.preventDefault();
+		// Validate
+		if (validate() === false) return;
 		// Format: trim value
 		inputValue = inputValue.trim();
 		// Format: to lowercase (if enabled)
 		inputValue = allowUpperCase ? inputValue : inputValue.toLowerCase();
-		// Append value
+		// Add to values array
 		value = [...value, inputValue];
+		/** @event {{ event: Event, chipIndex: number, chipValue: string }} add - Fires when a chip is added. */
+		dispatch('add', { event, chipIndex: value.length - 1, chipValue: inputValue });
 		// Clear input value
 		inputValue = '';
-		/** @event {{ event: KeyboardEvent }} add - When a chip is added. */
-		dispatch('add', event);
 	}
 
-	function removeChip(chipIndex: number): void {
+	function removeChip(event: Event, chipIndex: number, chipValue: string): void {
+		if ($$restProps.disabled) return;
 		value = value.filter((_, i) => i !== chipIndex);
-		/** @event {{ chipIndex: number }} remove - When a chip is removed. */
-		dispatch('remove', chipIndex);
+		/** @event {{ event: Event, chipIndex: number, chipValue: string }} remove - Fires when a chip is removed. */
+		dispatch('remove', { event, chipIndex, chipValue });
 	}
 
+	// State
+	$: classesInvalid = inputInvalid ? invalid : '';
+	// Reactive
+	$: classesBase = `${cBase} ${padding} ${rounded} ${$$props.class ?? ''} ${classesInvalid}`;
+	$: classesInterface = `${cInterface}`;
+	$: classesChipList = `${cChipList}`;
+	$: classesInputField = `${cInputField}`;
+
+	// Prune restProps
 	function prunedRestProps(): any {
 		delete $$restProps.class;
 		return $$restProps;
 	}
-
-	// Reactive
-	$: classesBase = `${cBase} ${padding} ${rounded}`;
-	$: classesChip = `${chip}`;
-	$: classesInput = `${cInput} ${ring}`;
 </script>
 
-<label class="input-chip {classesBase}">
-	{#if label}<span class={cLabel}>{label}</span>{/if}
-	{#each value as chip, i}
-		<!-- prettier-ignore -->
-		<span class="chip {classesChip}" on:click={() => {removeChip(i)}} on:keypress>
-			<span>{chip}</span>
-			<span>✕</span>
-		</span>
-	{/each}
-	<form on:submit={addChip}>
-		<input
-			type="text"
-			bind:value={inputValue}
-			class="input-chip-field {classesInput}"
-			class:input-invalid={!inputValueValid}
-			tabindex="0"
-			on:keydown={resetValiadtionClass}
-			{...prunedRestProps()}
-		/>
-	</form>
-</label>
+<div class="input-chip {classesBase}" class:opacity-50={$$restProps.disabled}>
+	<!-- Select (hidden) -->
+	<select class="hidden" bind:value {name} multiple {...prunedRestProps()} />
+	<!-- Interface -->
+	<div class="input-chip-interface {classesInterface}">
+		<!-- Input Field -->
+		<form on:submit={addChip}>
+			<input
+				type="text"
+				bind:value={inputValue}
+				placeholder={$$restProps.placeholder ?? 'Enter values...'}
+				class="input-chip-field {classesInputField}"
+				on:input={() => {
+					inputInvalid = false;
+				}}
+				on:input
+				disabled={$$restProps.disabled}
+			/>
+		</form>
+		<!-- Chip List -->
+		{#if value.length}
+			<div class="input-chip-list {classesChipList}">
+				{#each value as c, i}
+					<!-- prettier-ignore -->
+					<span
+						class="chip {chips}"
+						on:click={(e) => { removeChip(e, i, c); }}
+						on:click
+						on:keypress
+						on:keydown
+						on:keyup
+						transition:fly|local={{ duration, opacity: 0, y: 10 }}
+					>
+						<span>{c}</span>
+						<span>✕</span>
+					</span>
+				{/each}
+			</div>
+		{/if}
+	</div>
+</div>
