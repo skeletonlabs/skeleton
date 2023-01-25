@@ -98,9 +98,7 @@ const conicStops: ConicStop[] = [
 	{ label: 'Tertiary', color: 'rgb(var(--color-tertiary-500))', start: 66, end: 100 }
 ];`}
 			/>
-		</div>
-		<!-- Tailwind Colors -->
-		<div class="space-y-4">
+			<!-- Tailwind Colors -->
 			<h3>Via Tailwind Colors</h3>
 			<p>To utilize default Tailwind colors, supply an array with the format <code>[name: string, shade: number]</code>.</p>
 			<CodeBlock
@@ -112,9 +110,7 @@ const conicStops: ConicStop[] = [
 	{ label: 'Red', color: ['red', 500], start: 35, end: 100 }
 ];`}
 			/>
-		</div>
-		<!-- Custom Colors -->
-		<div class="space-y-4">
+			<!-- Custom Colors -->
 			<h3>Via Custom Colors</h3>
 			<p>
 				You can provide <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value" target="_blank" rel="noreferrer"
@@ -134,7 +130,7 @@ const conicStops: ConicStop[] = [
 		<!-- Smooth Gradients -->
 		<div class="space-y-4">
 			<h2>Smooth Gradients</h2>
-			<p>Provide gaps between when a color stop ends and when the next begins. The gradient blend will blend automatically.</p>
+			<p>Provide gaps between when a color stop ends and when the next begins. The gradient will blend automatically.</p>
 			<CodeBlock
 				language="ts"
 				code={`
