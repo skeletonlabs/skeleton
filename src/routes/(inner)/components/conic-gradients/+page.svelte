@@ -80,7 +80,7 @@ const conicStops: ConicStop[] = [
 		</div>
 		<!-- Legend -->
 		<div class="space-y-4">
-			<h2>Display a Legend</h2>
+			<h2>Legend</h2>
 			<p>By enabling the <code>legend</code> property, a small table of values will appear below the conic gradient.</p>
 			<CodeBlock language="html" code={`<ConicGradient ... legend />`} />
 		</div>
