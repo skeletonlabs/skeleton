@@ -18,7 +18,7 @@
 	/** When enabled, allows for uppercase values. */
 	export let allowUpperCase: boolean = false;
 	/** When enabled, allows for duplicate values. */
-	export let allowDuplicates: boolean = true;
+	export let allowDuplicates: boolean = false;
 	/**
 	 * Provide a custom validation function.
 	 * @type {function}

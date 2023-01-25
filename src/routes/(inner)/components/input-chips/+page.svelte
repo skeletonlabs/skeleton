@@ -110,14 +110,13 @@ function isValidEmail(value: string): boolean {
 		<section class="space-y-4">
 			<h2>Additional Settings</h2>
 			<p>
-				By default, only a single instance of each value is allowed. If you wish to allow duplicates, set <code>allowDuplicates={true}</code
-				>.
+				By default, only a single instance of each value is allowed. If you wish to allow duplicates, set <code>allowDuplicates</code>.
 			</p>
-			<CodeBlock language="html" code={`<InputChip ... allowDuplicates={true} />`} />
+			<CodeBlock language="html" code={`<InputChip ... allowDuplicates />`} />
 			<p>
-				By default, all values are trimmed and formatted lowercase. If you wish to allow uppercase, set <code>allowUpperCase={true}</code>.
+				By default, all values are trimmed and formatted lowercase. If you wish to allow uppercase, set <code>allowUpperCase</code>.
 			</p>
-			<CodeBlock language="html" code={`<InputChip ... allowUpperCase={true} />`} />
+			<CodeBlock language="html" code={`<InputChip ... allowUpperCase />`} />
 		</section>
 		<hr />
 		<!-- See Also -->
