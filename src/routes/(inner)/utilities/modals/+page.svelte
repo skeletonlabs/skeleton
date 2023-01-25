@@ -8,7 +8,6 @@
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-expect-error sveld import
 	import sveldModal from '$lib/utilities/Modal/Modal.svelte?raw&sveld';
 
 	// Modals Utils
@@ -229,7 +228,7 @@ function triggerPrompt(): void {
 		// Populates the initial input value
 		value: 'Skeleton',
 		// Returns the updated response value
-		response: (r: string) => console.log('response:', r)
+		response: (r: string) => console.log('response:', r),
 		// Optionally override the button text
 		buttonTextCancel: 'Cancel',
 		buttonTextSubmit: 'Submit',
@@ -264,10 +263,9 @@ function triggerPrompt(): void {
 const d: ModalSettings = {
 	type: 'alert',
 	// ...
-	backdropClasses: '!items-start'
+	backdropClasses: '!items-start',
 	modalClasses: '!p-0 !bg-green-500 !max-w-[75%]'
-};
-				`}
+};`}
 			/>
 			<p>Note that <code>!</code> (important) may be required to override some styles.</p>
 		</section>
@@ -299,8 +297,7 @@ function triggerCustomModal(): void {
 		meta: { foo: 'bar', fizz: 'buzz', fn: myCustomFunction }
 	};
 	modalStore.trigger(d);
-}
-				`}
+}`}
 			/>
 			<p>
 				When constructing custom modals, you are responsible for implementing close/submit buttons, as well as triggering the response

@@ -4,7 +4,6 @@
 
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-expect-error sveld import
 	import sveldCodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte?raw&sveld';
 
 	// Docs Shell

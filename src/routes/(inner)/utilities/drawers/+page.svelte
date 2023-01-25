@@ -4,7 +4,6 @@
 
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-expect-error sveld import
 	import sveldDrawer from '$lib/utilities/Drawer/Drawer.svelte?raw&sveld';
 
 	// Drawer Utils
