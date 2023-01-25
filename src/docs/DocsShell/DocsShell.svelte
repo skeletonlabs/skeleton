@@ -267,15 +267,12 @@
 			<div class="doc-shell-properties {classesRegionPanels}">
 				<!-- Supports restProps -->
 				{#if pageSettings.restProps}
-					<p>
-						This component makes use of <a
-							href="https://svelte.dev/docs#template-syntax-attributes-and-props"
-							target="_blank"
-							rel="noreferrer">restProps</a
-						>
-						for the
-						<code>{pageSettings.restProps}</code> element.
-					</p>
+					<aside class="alert variant-ghost-warning">
+						<!-- prettier-ignore -->
+						<div class="alert-message">
+							<p>This component implements <a href="https://svelte.dev/docs#template-syntax-attributes-and-props" target="_blank" rel="noreferrer">restProps</a> for the <code>{pageSettings.restProps}</code> element. It will pass down all additional attributes, even if they are not listed below.</p>
+						</div>
+					</aside>
 				{/if}
 				<!-- Tables -->
 				{#if pageSettings.components}
