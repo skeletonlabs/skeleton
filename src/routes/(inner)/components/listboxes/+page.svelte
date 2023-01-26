@@ -100,6 +100,19 @@ let source = [
 			<CodeBlock language="html" code={`<ListBox name="listbox-multiple" bind:source bind:value={valueMultiple} multiple />`} />
 		</section>
 		<section class="space-y-4">
+			<h2>Option HTML Markup</h2>
+			<p>Option labels accept template literals for HTML markup.</p>
+			<CodeBlock
+				language="typescript"
+				code={`
+let source = [
+	{ label: '<strong>Html Markup Here</strong>', value: 1 },
+	// ...
+];
+			`}
+			/>
+		</section>
+		<section class="space-y-4">
 			<h2>Native Alternatives</h2>
 			<p>
 				Consider using the native Select element with either the <code>size</code> for <code>multiple</code> attributes set to support single

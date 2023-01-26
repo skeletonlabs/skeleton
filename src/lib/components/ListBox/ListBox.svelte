@@ -107,7 +107,7 @@
 				on:keyup
 				on:keypress
 			>
-				{option.label}
+				{@html option.label}
 			</li>
 		{/each}
 	</ul>
