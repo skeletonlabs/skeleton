@@ -85,11 +85,17 @@ let source = [
 			`}
 			/>
 			<h3>Single Selection</h3>
-			<p>Add a unique <code>name</code>, bind your <code>source</code>, then optionally bind your <code>value</code>.</p>
+			<p>
+				Add a unique <code>name</code>, bind your <code>source</code>, then optionally bind your <code>value</code>. Value must be a single
+				item (string, number, etc).
+			</p>
 			<CodeBlock language="typescript" code={`let valueSingle: number = 1;`} />
 			<CodeBlock language="html" code={`<ListBox name="listbox-single" bind:source bind:value={valueSingle} />`} />
 			<h3>Multiple Selection</h3>
-			<p>Add a unique <code>name</code>, bind your <code>source</code>, then optionally bind your <code>value</code>.</p>
+			<p>
+				Add a unique <code>name</code>, bind your <code>source</code>, then optionally bind your <code>value</code>. Value must be an array
+				and the <code>multiple</code> property must be set.
+			</p>
 			<CodeBlock language="typescript" code={`let valueMultiple: any[] = [1, 2];`} />
 			<CodeBlock language="html" code={`<ListBox name="listbox-multiple" bind:source bind:value={valueMultiple} multiple />`} />
 		</section>
