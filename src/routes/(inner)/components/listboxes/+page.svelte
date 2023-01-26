@@ -91,7 +91,7 @@ let source = [
 			<h3>Multiple Selection</h3>
 			<p>Add a unique <code>name</code>, bind your <code>source</code>, then optionally bind your <code>value</code>.</p>
 			<CodeBlock language="typescript" code={`let valueMultiple: any[] = [1, 2];`} />
-			<CodeBlock language="html" code={`<ListBox name="listbox-multiple" bind:source bind:value={valueMultiple} />`} />
+			<CodeBlock language="html" code={`<ListBox name="listbox-multiple" bind:source bind:value={valueMultiple} multiple />`} />
 		</section>
 		<section class="space-y-4">
 			<h2>Native Alternatives</h2>
