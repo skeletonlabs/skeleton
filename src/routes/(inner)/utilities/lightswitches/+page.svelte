@@ -5,7 +5,6 @@
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import LightSwitch from '$lib/utilities/LightSwitch/LightSwitch.svelte';
 
-	// @ts-expect-error sveld import
 	import sveldLightSwitch from '$lib/utilities/LightSwitch/LightSwitch.svelte?raw&sveld';
 
 	// Docs Shell
