@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte/internal';
 	import { fly, scale } from 'svelte/transition';
+	import { flip } from 'svelte/animate';
 
 	// Event Dispatcher
 	const dispatch = createEventDispatcher();
@@ -54,6 +55,7 @@
 	}
 
 	function validate(): boolean {
+		if (!inputValue) return false;
 		// Custom validation
 		if (validation !== undefined && !validation(inputValue)) return false;
 		// Maxiumum
@@ -126,19 +128,23 @@
 		{#if value.length}
 			<div class="input-chip-list {classesChipList}" transition:fly|local={{ duration, opacity: 0, y: -20 }}>
 				{#each value as c, i (c)}
-					<!-- prettier-ignore -->
-					<span
-						class="chip {chips}"
-						on:click={(e) => { removeChip(e, i, c); }}
-						on:click
-						on:keypress
-						on:keydown
-						on:keyup
-						transition:scale|local = {{ duration, opacity: 0 }}
-					>
-						<span>{c}</span>
-						<span>✕</span>
-					</span>
+					<!-- Wrapping div required for FLIP animation -->
+					<div animate:flip={{ duration }}>
+						<span
+							class="chip {chips}"
+							on:click={(e) => {
+								removeChip(e, i, c);
+							}}
+							on:click
+							on:keypress
+							on:keydown
+							on:keyup
+							transition:scale|local={{ duration, opacity: 0 }}
+						>
+							<span>{c}</span>
+							<span>✕</span>
+						</span>
+					</div>
 				{/each}
 			</div>
 		{/if}
