@@ -116,6 +116,16 @@
 						</select>
 					</label>
 					<label class="input-label">
+						<span>Select (size)</span>
+						<select size="4">
+							<option>Option 1</option>
+							<option>Option 2</option>
+							<option>Option 3</option>
+							<option>Option 4</option>
+							<option>Option 5</option>
+						</select>
+					</label>
+					<label class="input-label">
 						<span>Select (multiple)</span>
 						<select multiple>
 							<option>Option 1</option>
@@ -127,7 +137,7 @@
 					</label>
 					<label class="input-label">
 						<span>Textarea</span>
-						<textarea rows="5" placeholder="Enter some long form content." />
+						<textarea rows="4" placeholder="Enter some long form content." />
 					</label>
 					<fieldset>
 						<label class="input-label">

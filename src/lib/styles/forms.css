@@ -53,6 +53,7 @@
 
 	/* Apply the input styles by default, but exclude if wrapped in `.input-group` */
 	input:not([type='checkbox']):not([type='radio']):not([type='color']):not(.unstyled):is(:not(.input-group *)),
+	select[size]:not(.unstyled):is(:not(.input-group *)),
 	select[multiple]:not(.unstyled):is(:not(.input-group *)),
 	textarea:not(.unstyled):is(:not(.input-group *)),
 	select:not(.unstyled):is(:not(.input-group *)) {
@@ -60,19 +61,26 @@
 	}
 
 	/* Container Inputs */
+	select[size]:not(.unstyled):is(:not(.input-group *)),
 	select[multiple]:not(.unstyled):is(:not(.input-group *)),
 	textarea:not(.unstyled):is(:not(.input-group *)) {
 		@apply rounded-container-token;
 	}
 
-	/* Select (multipe) */
+	/* Select (size/multipe) */
 	/* https://stackoverflow.com/questions/50618602/change-color-of-selected-option-in-select-multiple */
+	select[size]:not(.unstyled):is(:not(.input-group *)) {
+		background-image: none;
+	}
+	select[size]:not(.unstyled):is(:not(.input-group *)),
 	select[multiple]:not(.unstyled):is(:not(.input-group *)) {
 		@apply p-2 space-y-1;
 	}
+	select[size]:not(.unstyled):is(:not(.input-group *)) option,
 	select[multiple]:not(.unstyled):is(:not(.input-group *)) option {
-		@apply p-2 rounded-token;
+		@apply p-3 rounded-token;
 	}
+	select[size]:not(.unstyled):is(:not(.input-group *)) option:checked,
 	select[multiple]:not(.unstyled):is(:not(.input-group *)) option:checked {
 		background: rgb(var(--color-primary-500)) linear-gradient(0deg, rgb(var(--color-primary-500)) 0%, rgb(var(--color-primary-500)) 100%);
 		@apply text-on-primary-token;
