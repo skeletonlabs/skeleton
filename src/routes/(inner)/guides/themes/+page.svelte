@@ -103,7 +103,7 @@
 				may change this at any time.
 			</p>
 		{:else if $storeFramework === 'manual'}
-			<p>Import your desired preset into <code>/src/main.js</code> before your global stylesheet.</p>
+			<p>Import your desired preset into the root layout in <code>/src/routes/+layout.svelte</code>, just before your global stylesheet.</p>
 		{/if}
 		<CodeBlock
 			language="typescript"
