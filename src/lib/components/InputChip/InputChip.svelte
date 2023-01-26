@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte/internal';
-	import { fly } from 'svelte/transition';
+	import { fly, scale } from 'svelte/transition';
 
 	// Event Dispatcher
 	const dispatch = createEventDispatcher();
@@ -15,6 +15,8 @@
 	 * @type {string[]}
 	 */
 	export let whitelist: string[] = [];
+	/** Maximum number of chips. Set -1 to disable. */
+	export let max: number = -1;
 	/** When enabled, allows for uppercase values. */
 	export let allowUpperCase: boolean = false;
 	/** When enabled, allows for duplicate values. */
@@ -25,7 +27,7 @@
 	 */
 	export let validation: (...args: any[]) => boolean = () => true;
 	/** The duration of the animated fly effect. */
-	export let duration = 200;
+	export let duration = 3000;
 
 	// Props (styles)
 	/** Provide classes or a variant to style the chips. */
@@ -45,37 +47,35 @@
 
 	// Local
 	let inputValue = '';
-	let inputInvalid = false;
+	let inputValid = true;
+
+	function onInputHandler(): void {
+		inputValid = true;
+	}
 
 	function validate(): boolean {
-		// Validate: custom validation
-		if (validation !== undefined && !validation(inputValue)) {
-			inputInvalid = true;
-			return false;
-		}
-		// Validate: whitelist (if available)
-		if (whitelist.length > 0 && !whitelist.includes(inputValue)) {
-			inputInvalid = true;
-			return false;
-		}
-		// Validate: value is unique
-		if (allowDuplicates === false && value.includes(inputValue)) {
-			inputInvalid = true;
-			return false;
-		}
-		// All validation conditions met
+		// Custom validation
+		if (validation !== undefined && !validation(inputValue)) return false;
+		// Maxiumum
+		if (max !== -1 && value.length >= max) return false;
+		// Whitelist (if available)
+		if (whitelist.length > 0 && !whitelist.includes(inputValue)) return false;
+		// Value is unique
+		if (allowDuplicates === false && value.includes(inputValue)) return false;
+		// State is valid
 		return true;
 	}
 
 	function addChip(event: Event): void {
 		event.preventDefault();
 		// Validate
-		if (validate() === false) return;
+		inputValid = validate();
+		if (inputValid === false) return;
 		// Format: trim value
 		inputValue = inputValue.trim();
 		// Format: to lowercase (if enabled)
 		inputValue = allowUpperCase ? inputValue : inputValue.toLowerCase();
-		// Add to values array
+		// Append value to array
 		value = [...value, inputValue];
 		/** @event {{ event: Event, chipIndex: number, chipValue: string }} add - Fires when a chip is added. */
 		dispatch('add', { event, chipIndex: value.length - 1, chipValue: inputValue });
@@ -91,7 +91,7 @@
 	}
 
 	// State
-	$: classesInvalid = inputInvalid ? invalid : '';
+	$: classesInvalid = inputValid === false ? invalid : '';
 	// Reactive
 	$: classesBase = `${cBase} ${padding} ${rounded} ${$$props.class ?? ''} ${classesInvalid}`;
 	$: classesInterface = `${cInterface}`;
@@ -107,7 +107,7 @@
 
 <div class="input-chip {classesBase}" class:opacity-50={$$restProps.disabled}>
 	<!-- Select (hidden) -->
-	<select class="hidden" bind:value {name} multiple {...prunedRestProps()} />
+	<select bind:value {name} multiple {...prunedRestProps()} class="hidden" />
 	<!-- Interface -->
 	<div class="input-chip-interface {classesInterface}">
 		<!-- Input Field -->
@@ -117,17 +117,15 @@
 				bind:value={inputValue}
 				placeholder={$$restProps.placeholder ?? 'Enter values...'}
 				class="input-chip-field {classesInputField}"
-				on:input={() => {
-					inputInvalid = false;
-				}}
+				on:input={onInputHandler}
 				on:input
 				disabled={$$restProps.disabled}
 			/>
 		</form>
 		<!-- Chip List -->
 		{#if value.length}
-			<div class="input-chip-list {classesChipList}">
-				{#each value as c, i}
+			<div class="input-chip-list {classesChipList}" transition:fly|local={{ duration, opacity: 0, y: -20 }}>
+				{#each value as c, i (c)}
 					<!-- prettier-ignore -->
 					<span
 						class="chip {chips}"
@@ -136,7 +134,7 @@
 						on:keypress
 						on:keydown
 						on:keyup
-						transition:fly|local={{ duration, opacity: 0, y: 10 }}
+						transition:scale|local = {{ duration, opacity: 0 }}
 					>
 						<span>{c}</span>
 						<span>✕</span>
