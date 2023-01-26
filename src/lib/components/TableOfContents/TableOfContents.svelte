@@ -29,10 +29,11 @@
 	/** Provide arbitrary styles for the label element. */
 	export let regionLabel: string = 'font-bold';
 	/** Provide arbitrary styles for the list element. */
-	export let regionList: string = 'list-none';
+	export let regionList: string = '';
 
 	// Classes
 	const cLabel: string = 'p-4 pt-0';
+	const cList: string = 'list-none space-y-1';
 	const cListItem: string = 'px-4 py-2 cursor-pointer';
 
 	// Local
@@ -115,7 +116,7 @@
 	// Reactive
 	$: classesBase = `${width} ${spacing} ${$$props.class ?? ''}`;
 	$: classesLabel = `${cLabel} ${regionLabel}`;
-	$: classesList = `${regionList}`;
+	$: classesList = `${cList} ${regionList}`;
 	$: classesListItem = `${cListItem} ${text} ${hover} ${rounded}`;
 </script>
 

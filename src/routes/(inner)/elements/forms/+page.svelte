@@ -111,28 +111,31 @@
 					<label class="input-label">
 						<span>Select</span>
 						<select>
-							<option>Option 1</option>
-							<option>Option 2</option>
+							<option value="1">Option 1</option>
+							<option value="2">Option 2</option>
+							<option value="3">Option 3</option>
+							<option value="4">Option 4</option>
+							<option value="5">Option 5</option>
 						</select>
 					</label>
 					<label class="input-label">
 						<span>Select (size)</span>
-						<select size="4">
-							<option>Option 1</option>
-							<option>Option 2</option>
-							<option>Option 3</option>
-							<option>Option 4</option>
-							<option>Option 5</option>
+						<select size="4" value="1">
+							<option value="1">Option 1</option>
+							<option value="2">Option 2</option>
+							<option value="3">Option 3</option>
+							<option value="4">Option 4</option>
+							<option value="5">Option 5</option>
 						</select>
 					</label>
 					<label class="input-label">
 						<span>Select (multiple)</span>
-						<select multiple>
-							<option>Option 1</option>
-							<option>Option 2</option>
-							<option>Option 3</option>
-							<option>Option 4</option>
-							<option>Option 5</option>
+						<select multiple value={['1', '2']}>
+							<option value="1">Option 1</option>
+							<option value="2">Option 2</option>
+							<option value="3">Option 3</option>
+							<option value="4">Option 4</option>
+							<option value="5">Option 5</option>
 						</select>
 					</label>
 					<label class="input-label">
