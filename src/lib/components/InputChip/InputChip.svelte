@@ -27,7 +27,7 @@
 	 */
 	export let validation: (...args: any[]) => boolean = () => true;
 	/** The duration of the animated fly effect. */
-	export let duration = 3000;
+	export let duration = 150;
 
 	// Props (styles)
 	/** Provide classes or a variant to style the chips. */
