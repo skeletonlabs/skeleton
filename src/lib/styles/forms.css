@@ -19,6 +19,7 @@
 	}
 
 	/* === Inputs === */
+	/* NOTE: input styles are global; `.input-cell` is just for constructing the classes below. Do not use it directly. */
 
 	.input-cell {
 		@apply w-full rounded-token;
@@ -68,7 +69,6 @@
 	}
 
 	/* Select (size/multipe) */
-	/* https://stackoverflow.com/questions/50618602/change-color-of-selected-option-in-select-multiple */
 	select[size]:not(.unstyled):is(:not(.input-group *)) {
 		background-image: none;
 	}
@@ -76,12 +76,29 @@
 	select[multiple]:not(.unstyled):is(:not(.input-group *)) {
 		@apply p-2 space-y-1;
 	}
+	select[size]:not(.unstyled):is(:not(.input-group *)) optgroup,
+	select[multiple]:not(.unstyled):is(:not(.input-group *)) optgroup {
+		@apply space-y-1 font-bold;
+	}
+	select[size]:not(.unstyled):is(:not(.input-group *)) optgroup option:first-of-type,
+	select[multiple]:not(.unstyled):is(:not(.input-group *)) optgroup option:first-of-type {
+		@apply mt-3;
+	}
+	select[size]:not(.unstyled):is(:not(.input-group *)) optgroup option:last-child,
+	select[multiple]:not(.unstyled):is(:not(.input-group *)) optgroup option:last-child {
+		@apply !mb-3;
+	}
+	select[size]:not(.unstyled):is(:not(.input-group *)) optgroup option,
+	select[multiple]:not(.unstyled):is(:not(.input-group *)) optgroup option {
+		@apply ml-0 pl-0;
+	}
 	select[size]:not(.unstyled):is(:not(.input-group *)) option,
 	select[multiple]:not(.unstyled):is(:not(.input-group *)) option {
 		@apply p-3 rounded-token;
 	}
 	select[size]:not(.unstyled):is(:not(.input-group *)) option:checked,
 	select[multiple]:not(.unstyled):is(:not(.input-group *)) option:checked {
+		/* https://stackoverflow.com/questions/50618602/change-color-of-selected-option-in-select-multiple */
 		background: rgb(var(--color-primary-500)) linear-gradient(0deg, rgb(var(--color-primary-500)) 0%, rgb(var(--color-primary-500)) 100%);
 		@apply text-on-primary-token;
 	}
