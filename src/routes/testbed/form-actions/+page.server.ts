@@ -9,11 +9,14 @@ export const actions: Actions = {
 		const formData = await request.formData();
 		console.log('formData', formData);
 
-		const name = String(formData.get('name'));
-		const flavors = String(formData.get('flavors'));
+		const data = {
+			first_name: String(formData.get('first_name')),
+			chips: formData.getAll('chips').join(','),
+			listbox_single: String(formData.getAll('listbox-single')),
+			listbox_multi: formData.getAll('listbox-multiple').join(',')
+		};
+		console.log('data', data);
 
-		console.log('flavors', flavors);
-
-		return { success: true, name, flavors };
+		return { success: true, data };
 	}
 };
