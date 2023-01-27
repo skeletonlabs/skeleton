@@ -14,6 +14,8 @@
 	// Stores
 	const storeDeterminate: Writable<boolean> = writable(true);
 	const storeHeight: Writable<string> = writable('h-2');
+	const defaultRounded = 'rounded-token';
+	const defaultTrackMeter = 'bg-surface-900-50-token';
 	const defaultTrackBg = 'bg-surface-200-700-token';
 
 	// Docs Shell
@@ -29,12 +31,11 @@
 	// Reactive Props
 	$: props = {
 		determinate: $storeDeterminate,
-		label: 'Progress Bar',
 		value: 50,
 		max: 100,
 		height: $storeHeight,
-		rounded: 'rounded-token',
-		meter: 'bg-secondary-500',
+		rounded: defaultRounded,
+		meter: defaultTrackMeter,
 		track: defaultTrackBg
 	};
 </script>
@@ -44,11 +45,10 @@
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-2">
 			<!-- Example -->
-			<div class="card p-4 h-full flex justify-center items-center">
+			<div class="card variant-glass p-4 h-full flex justify-center items-center">
 				<div class="py-10 w-[90%]">
 					<svelte:component
 						this={ProgressBar}
-						label={props.label}
 						value={props.determinate ? props.value : undefined}
 						max={props.max}
 						height={props.height}
@@ -80,11 +80,6 @@
 						aria-label="Value Amount"
 					/>
 				{/if}
-				<!-- Label -->
-				<label class="input-label">
-					<span>Label</span>
-					<input type="text" bind:value={props.label} placeholder="Label" />
-				</label>
 				<!-- Height -->
 				<label class="input-label" for="">
 					<span>Height</span>
@@ -99,8 +94,14 @@
 				<label class="input-label">
 					<span>Rounded</span>
 					<select name="rounded" id="rounded" bind:value={props.rounded}>
-						<option value="rounded-token">rounded-token</option>
+						<option value={defaultRounded}>Default</option>
+						<option value="rounded-sm">rounded-sm</option>
 						<option value="rounded">rounded</option>
+						<option value="rounded-md">rounded-md</option>
+						<option value="rounded-lg">rounded-lg</option>
+						<option value="rounded-xl">rounded-xl</option>
+						<option value="rounded-2xl">rounded-2xl</option>
+						<option value="rounded-3xl">rounded-3xl</option>
 						<option value="rounded-full">rounded-full</option>
 					</select>
 				</label>
@@ -108,6 +109,7 @@
 				<label class="input-label">
 					<span>Meter</span>
 					<select name="meter" id="meter" bind:value={props.meter}>
+						<option value={defaultTrackMeter}>Default</option>
 						<option value="bg-primary-500">bg-primary-500</option>
 						<option value="bg-secondary-500">bg-secondary-500</option>
 						<option value="bg-tertiary-500">bg-tertiary-500</option>
@@ -137,7 +139,7 @@
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
-		<div class="space-y-4">
+		<section class="space-y-4">
 			<p>
 				This component is treated as an <a
 					href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/progressbar_role"
@@ -146,11 +148,19 @@
 				>.
 			</p>
 			<CodeBlock language="html" code={`<ProgressBar label="Progress Bar" value={50} max={100} />`} />
-		</div>
-		<div class="space-y-4">
+		</section>
+		<section class="space-y-4">
 			<h2>Indeterminate Mode</h2>
 			<p>The <code>value</code> property must be removed or set to <code>undefined</code>.</p>
 			<CodeBlock language="html" code={`<ProgressBar />`} />
-		</div>
+		</section>
+		<section class="space-y-4">
+			<h2>Native Alternative</h2>
+			<p>The native <code>progress</code> element works cross browser, but does not currently support Indeterminate mode when styled.</p>
+			<CodeBlock language="html" code={`<progress value={50} max={100} />`} />
+			<div class="card variant-glass p-4">
+				<progress value={props.value} max={props.max} />
+			</div>
+		</section>
 	</svelte:fragment>
 </DocsShell>

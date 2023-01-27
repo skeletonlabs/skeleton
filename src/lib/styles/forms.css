@@ -15,7 +15,7 @@
 		@apply block overflow-visible;
 	}
 	.input-label {
-		@apply space-y-2;
+		@apply space-y-1;
 	}
 
 	/* === Inputs === */
@@ -132,6 +132,60 @@
 	}
 	input[type='color']:not(.unstyled):is(:not(.input-group *))::-moz-color-swatch {
 		@apply border-none;
+	}
+
+	/* === Progress === */
+
+	progress {
+		webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		@apply w-full h-2 overflow-hidden rounded-token;
+		@apply bg-surface-400-500-token;
+	}
+
+	/* Webkit */
+	progress::-webkit-progress-bar {
+		@apply bg-surface-400-500-token;
+	}
+	progress::-webkit-progress-value {
+		@apply bg-surface-900-50-token;
+	}
+
+	/* Firefox */
+	::-moz-progress-bar {
+		@apply bg-surface-900-50-token;
+	}
+	:indeterminate::-moz-progress-bar {
+		width: 0;
+	}
+
+	/* =-------------------= */
+
+	progress {
+		@apply h-2 rounded-token relative overflow-hidden;
+	}
+	progress::-moz-progress-bar {
+		@apply bg-surface-500;
+	}
+	progress:indeterminate::after {
+		@apply bg-surface-500;
+	}
+	progress::-webkit-progress-bar {
+		@apply bg-surface-500 bg-opacity-20 rounded-token;
+	}
+	progress::-webkit-progress-value {
+		@apply bg-surface-900 rounded-token;
+	}
+	progress:indeterminate::after {
+		content: '';
+		@apply inset-y-0 -left-[40%] w-1/3 absolute rounded-token;
+		animation: progress-loading 5s infinite ease-in-out;
+	}
+	@keyframes progress-loading {
+		50% {
+			left: 107%;
+		}
 	}
 
 	/* === Placeholder === */
