@@ -15,8 +15,8 @@
 	const storeDeterminate: Writable<boolean> = writable(true);
 	const storeHeight: Writable<string> = writable('h-2');
 	const defaultRounded = 'rounded-token';
-	const defaultTrackMeter = 'bg-surface-900-50-token';
-	const defaultTrackBg = 'bg-surface-200-700-token';
+	const defaultMeter = 'bg-surface-900-50-token';
+	const defaultTrackBg = 'variant-glass';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -35,8 +35,8 @@
 		max: 100,
 		height: $storeHeight,
 		rounded: defaultRounded,
-		meter: defaultTrackMeter,
-		track: defaultTrackBg
+		regionMeter: defaultMeter,
+		regionTrack: defaultTrackBg
 	};
 </script>
 
@@ -53,8 +53,8 @@
 						max={props.max}
 						height={props.height}
 						rounded={props.rounded}
-						meter={props.meter}
-						track={props.track}
+						regionMeter={props.regionMeter}
+						regionTrack={props.regionTrack}
 					/>
 				</div>
 			</div>
@@ -108,8 +108,8 @@
 				<!-- Meter -->
 				<label class="input-label">
 					<span>Meter</span>
-					<select name="meter" id="meter" bind:value={props.meter}>
-						<option value={defaultTrackMeter}>Default</option>
+					<select name="meter" id="meter" bind:value={props.regionMeter}>
+						<option value={defaultMeter}>Default</option>
 						<option value="bg-primary-500">bg-primary-500</option>
 						<option value="bg-secondary-500">bg-secondary-500</option>
 						<option value="bg-tertiary-500">bg-tertiary-500</option>
@@ -122,7 +122,7 @@
 				<!-- track -->
 				<label class="input-label">
 					<span>Track</span>
-					<select name="track" id="track" bind:value={props.track}>
+					<select name="track" id="track" bind:value={props.regionTrack}>
 						<option value={defaultTrackBg}>Default</option>
 						<option value="bg-primary-500/30">bg-primary-500/30</option>
 						<option value="bg-secondary-500/30">bg-secondary-500/30</option>

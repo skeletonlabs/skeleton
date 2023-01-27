@@ -18,7 +18,7 @@
 	/** Provide arbitrary classes to style the meter element. */
 	export let regionMeter = 'bg-surface-900-50-token';
 	/** Provide arbitrary classes to style the track element. */
-	export let regionTrack = 'bg-surface-500/30';
+	export let regionTrack = 'variant-glass';
 
 	// Props A11y
 	/** Provide the ARIA labelledby value. */
