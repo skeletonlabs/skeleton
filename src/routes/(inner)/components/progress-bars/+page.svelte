@@ -16,7 +16,7 @@
 	const storeHeight: Writable<string> = writable('h-2');
 	const defaultRounded = 'rounded-token';
 	const defaultMeter = 'bg-surface-900-50-token';
-	const defaultTrackBg = 'variant-glass';
+	const defaultTrack = 'variant-glass';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -35,8 +35,8 @@
 		max: 100,
 		height: $storeHeight,
 		rounded: defaultRounded,
-		regionMeter: defaultMeter,
-		regionTrack: defaultTrackBg
+		meter: defaultMeter,
+		track: defaultTrack
 	};
 </script>
 
@@ -53,8 +53,8 @@
 						max={props.max}
 						height={props.height}
 						rounded={props.rounded}
-						regionMeter={props.regionMeter}
-						regionTrack={props.regionTrack}
+						meter={props.meter}
+						track={props.track}
 					/>
 				</div>
 			</div>
@@ -108,7 +108,7 @@
 				<!-- Meter -->
 				<label class="input-label">
 					<span>Meter</span>
-					<select name="meter" id="meter" bind:value={props.regionMeter}>
+					<select name="meter" id="meter" bind:value={props.meter}>
 						<option value={defaultMeter}>Default</option>
 						<option value="bg-primary-500">bg-primary-500</option>
 						<option value="bg-secondary-500">bg-secondary-500</option>
@@ -122,8 +122,8 @@
 				<!-- track -->
 				<label class="input-label">
 					<span>Track</span>
-					<select name="track" id="track" bind:value={props.regionTrack}>
-						<option value={defaultTrackBg}>Default</option>
+					<select name="track" id="track" bind:value={props.track}>
+						<option value={defaultTrack}>Default</option>
 						<option value="bg-primary-500/30">bg-primary-500/30</option>
 						<option value="bg-secondary-500/30">bg-secondary-500/30</option>
 						<option value="bg-tertiary-500/30">bg-tertiary-500/30</option>
@@ -140,19 +140,17 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
+			<!-- prettier-ignore -->
 			<p>
-				This component is treated as an <a
-					href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/progressbar_role"
-					target="_blank"
-					rel="noreferrer">ARIA progressbar</a
-				>.
+				This component is treated as an <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/progressbar_role" target="_blank" rel="noreferrer">ARIA progressbar</a>.
 			</p>
 			<CodeBlock language="html" code={`<ProgressBar label="Progress Bar" value={50} max={100} />`} />
 		</section>
 		<section class="space-y-4">
 			<h2>Indeterminate Mode</h2>
-			<p>The <code>value</code> property must be removed or set to <code>undefined</code>.</p>
+			<p>Remoe the <code>value</code> property or set to <code>undefined</code>.</p>
 			<CodeBlock language="html" code={`<ProgressBar />`} />
+			<CodeBlock language="html" code={`<ProgressBar value={undefined} />`} />
 		</section>
 		<section class="space-y-4">
 			<h2>Native Alternative</h2>

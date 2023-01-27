@@ -16,9 +16,9 @@
 
 	// Props (elements)
 	/** Provide arbitrary classes to style the meter element. */
-	export let regionMeter = 'bg-surface-900-50-token';
+	export let meter = 'bg-surface-900-50-token';
 	/** Provide arbitrary classes to style the track element. */
-	export let regionTrack = 'variant-glass';
+	export let track = 'variant-glass';
 
 	// Props A11y
 	/** Provide the ARIA labelledby value. */
@@ -35,8 +35,8 @@
 	$: indeterminate = value === undefined || value < 0;
 	$: classesIndterminate = indeterminate ? 'animIndeterminate' : '';
 	// Reactive Classes
-	$: classesTrack = `${cTrack} ${height} ${rounded} ${regionTrack} ${$$props.class ?? ''}`;
-	$: classesMeter = `${cMeter} ${rounded} ${classesIndterminate} ${regionMeter}`;
+	$: classesTrack = `${cTrack} ${height} ${rounded} ${track} ${$$props.class ?? ''}`;
+	$: classesMeter = `${cMeter} ${rounded} ${classesIndterminate} ${meter}`;
 </script>
 
 <!-- Track -->
