@@ -115,7 +115,7 @@ let source = [
 		<section class="space-y-4">
 			<h2>Native Alternatives</h2>
 			<p>
-				Consider using the native Select element with either the <code>size</code> for <code>multiple</code> attributes set to support single
+				Consider using the native Select element with either the <code>size</code> or <code>multiple</code> attributes set to support single
 				or multiple selection respectively. However, please be aware that Safari (macOS) does not support all style values.
 			</p>
 			<section class="grid grid-cols-1 lg:grid-cols-2 gap-4">
