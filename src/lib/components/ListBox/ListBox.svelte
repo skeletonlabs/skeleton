@@ -20,6 +20,8 @@
 	export let value: any;
 	/** Allow  multiple options can be selected in the listbox. */
 	export let multiple: boolean = false;
+	/** Set the required state for this input field. */
+	export let required: boolean = false;
 
 	// Props (styles)
 	/** xxx */
@@ -75,24 +77,20 @@
 	$: classesBase = `${$$props.class ?? ''}`; // ${cBase}
 	$: classesList = `${spacing} ${regionList}`; // ${cList}
 	$: classesOption = `${cOption} ${hover} ${padding} ${rounded} ${regionOption}`;
-
-	// Prune restProps
-	function prunedRestProps() {
-		delete $$restProps.class;
-		return $$restProps;
-	}
 </script>
 
 <div class="listbox {classesBase}" data-testid="listbox">
-	<!-- Select (hidden) - swap between single or multiple <select> -->
-	{#if multiple}
-		<select bind:value {name} multiple class="hidden">
-			<!-- NOTE: options are required! -->
-			{#each value as option}<option value={option}>{option}</option>{/each}
-		</select>
-	{:else}
-		<input bind:value {name} class="hidden" />
-	{/if}
+	<!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->
+	<div class="h-0 overflow-hidden">
+		{#if multiple}
+			<select bind:value {name} multiple {required}>
+				<!-- NOTE: options are required! -->
+				{#each value as option}<option value={option}>{option}</option>{/each}
+			</select>
+		{:else}
+			<input bind:value {name} {required} />
+		{/if}
+	</div>
 	<!-- List -->
 	<ul class="listbox-list {classesList}" role="listbox" aria-labelledby={labelledby}>
 		{#each source as option}

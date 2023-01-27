@@ -29,6 +29,8 @@
 	export let validation: (...args: any[]) => boolean = () => true;
 	/** The duration of the animated fly effect. */
 	export let duration = 150;
+	/** Set the required state for this input field. */
+	export let required: boolean = false;
 
 	// Props (styles)
 	/** Provide classes or a variant to style the chips. */
@@ -102,11 +104,13 @@
 </script>
 
 <div class="input-chip {classesBase}" class:opacity-50={$$restProps.disabled}>
-	<!-- Select (hidden) -->
-	<select bind:value {name} multiple class="hidden">
-		<!-- NOTE: options are required! -->
-		{#each value as option}<option value={option}>{option}</option>{/each}
-	</select>
+	<!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->
+	<div class="h-0 overflow-hidden">
+		<select bind:value {name} multiple {required}>
+			<!-- NOTE: options are required! -->
+			{#each value as option}<option value={option}>{option}</option>{/each}
+		</select>
+	</div>
 	<!-- Interface -->
 	<div class="input-chip-interface {classesInterface}">
 		<!-- Input Field -->
