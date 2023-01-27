@@ -27,11 +27,11 @@
 
 	// Props (buttons)
 	/** Provide artibtary classes for the Back button. */
-	export let buttonClassesBack = 'btn-icon btn-ghost-surface';
+	export let buttonClassesBack = 'btn-icon variant-ghost-surface';
 	/** Provide artibtary classes for the Next button. */
-	export let buttonClassesNext = 'btn btn-filled-surface';
+	export let buttonClassesNext = 'btn variant-filled-surface';
 	/** Provide artibtary classes for the Complete button. */
-	export let buttonClassesComplete = 'btn btn-filled-primary';
+	export let buttonClassesComplete = 'btn variant-filled-primary';
 	/** Provide a text label for the Back button. */
 	export let buttonTextBack = '&uarr;';
 	/** Provide a text label for the Next button. */

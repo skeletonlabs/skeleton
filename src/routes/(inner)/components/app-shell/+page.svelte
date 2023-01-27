@@ -6,7 +6,6 @@
 	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-expect-error sveld import
 	import sveldAppShell from '$lib/components/AppShell/AppShell.svelte?raw&sveld';
 
 	// Docs Shell
@@ -141,7 +140,7 @@
 	</svelte:fragment>
 </AppShell>`}
 			/>
-			<aside class="alert">
+			<aside class="alert variant-ghost-warning">
 				<i class="fa-solid fa-lightbulb text-2xl" />
 				<div class="alert-message">
 					Consider hiding your sidebar for smaller screens and using a Drawer component. If you wish to use the same navigation lists in

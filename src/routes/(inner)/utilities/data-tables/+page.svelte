@@ -55,7 +55,7 @@
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<!-- Alert -->
-		<aside class="alert alert-error">
+		<aside class="alert variant-ghost-error">
 			<i class="fa-solid fa-triangle-exclamation text-4xl animate-pulse" />
 			<div class="alert-message">
 				<h3>Experimental Feature</h3>
@@ -65,10 +65,15 @@
 				</p>
 			</div>
 			<div class="alert-message">
-				<a href="https://github.com/skeletonlabs/skeleton/issues/538" target="_blank" rel="noreferrer" class="btn btn-ghost w-full">
+				<a
+					href="https://github.com/skeletonlabs/skeleton/issues/538"
+					target="_blank"
+					rel="noreferrer"
+					class="btn variant-ghost-error w-full"
+				>
 					Track Progress
 				</a>
-				<a href="https://svelte-headless-table.bryanmylee.com/" target="_blank" rel="noreferrer" class="btn btn-filled w-full">
+				<a href="https://svelte-headless-table.bryanmylee.com/" target="_blank" rel="noreferrer" class="btn variant-filled w-full">
 					View Alternative
 				</a>
 			</div>
@@ -113,7 +118,7 @@
 										{row.body}
 									</td>
 									<td role="gridcell" aria-colindex={6} tabindex="0" class="table-cell-fit">
-										<button class="btn btn-ghost-surface btn-sm" on:click={()=>{console.log(row,rowIndex)}}>Console Log</button>
+										<button class="btn variant-ghost-surface btn-sm" on:click={()=>{console.log(row,rowIndex)}}>Console Log</button>
 									</td>
 								</tr>
 							{/each}
@@ -393,7 +398,7 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 				<h2>Table Components</h2>
 				<p>Looking for a simpler data-driven table component? Visit the Table documentation.</p>
 			</div>
-			<a class="btn btn-filled-secondary place-self-center" href="/components/tables">View Tables</a>
+			<a class="btn variant-filled-secondary place-self-center" href="/components/tables">View Tables</a>
 		</section>
 	</svelte:fragment>
 </DocsShell>

@@ -2,6 +2,7 @@
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
+	import Avatar from '$lib/components/Avatar/Avatar.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Docs Shell
@@ -16,15 +17,15 @@
 			['<code>.list</code>', '-', 'Class for defining a unordered or ordered list.'],
 			['<code>.list-dl</code>', '-', 'Class for defining a description list.'],
 			['<code>.list-nav</code>', '-', 'Class for defining a navigation list.'],
-			['<code>.option</code>', '-', 'Provides hover styles similar to anchors.']
+			['<code>.list-option</code>', '-', 'Provides hover styles similar to anchors.']
 		]
 	};
 
 	// Local
 	const listData = [
-		{ name: 'A', class: 'btn-filled-secondary' },
-		{ name: 'B', class: 'btn-filled-secondary' },
-		{ name: 'C', class: 'btn-filled-secondary' }
+		{ name: 'Jane', label: 'A', class: 'variant-filled-primary' },
+		{ name: 'Susan', label: 'B', class: 'variant-filled-secondary' },
+		{ name: 'Jake', label: 'C', class: 'variant-filled-tertiary' }
 	];
 </script>
 
@@ -34,14 +35,11 @@
 		<section class="grid grid-cols-1 xl:grid-cols-2 gap-4">
 			<div class="card p-4 space-y-4">
 				<p class="font-bold">Unordered</p>
-				<hr />
 				<ul class="list">
-					{#each listData as v}
+					{#each listData as v, i}
 						<li>
-							<span class="badge-icon p-4 {v.class}"><i class="fa-solid fa-skull" /></span>
-							<span class="flex-auto">
-								Item {v.name}
-							</span>
+							<Avatar src="https://i.pravatar.cc/?img={i}" width="w-8" />
+							<span class="flex-auto">{v.name}</span>
 							<span>⋮</span>
 						</li>
 					{/each}
@@ -49,13 +47,12 @@
 			</div>
 			<div class="card p-4 space-y-4">
 				<p class="font-bold">Ordered</p>
-				<hr />
 				<ol class="list">
 					{#each listData as v, i}
 						<li>
-							<span class="badge-icon p-4 {v.class}">{i + 1}</span>
+							<span class="badge-icon p-4 bg-surface-500/50">{i + 1}</span>
 							<span class="flex-auto">
-								Item {v.name}
+								Numbered Item {v.label}
 							</span>
 							<span>⋮</span>
 						</li>
@@ -64,14 +61,13 @@
 			</div>
 			<div class="card p-4 space-y-4">
 				<p class="font-bold">Description</p>
-				<hr />
 				<dl class="list-dl">
 					{#each listData as v}
 						<div>
-							<span class="badge-icon p-4 {v.class}"><i class="fa-solid fa-skull" /></span>
+							<span class="badge-icon p-4 {v.class}"><i class="fa-solid fa-book" /></span>
 							<span class="flex-auto">
-								<dt>Item {v.name}</dt>
-								<dd>Description for {v.name}</dd>
+								<dt class="font-bold">Item {v.label}</dt>
+								<dd class="text-sm opacity-50">Description for {v.label}</dd>
 							</span>
 							<span>⋮</span>
 						</div>
@@ -80,15 +76,14 @@
 			</div>
 			<div class="card p-4 space-y-4">
 				<p class="font-bold">Navigation</p>
-				<hr />
 				<nav class="list-nav">
 					<ul>
 						{#each listData as v}
 							<li>
 								<a href="/">
-									<span class="badge-icon p-4 {v.class}"><i class="fa-solid fa-skull" /></span>
+									<span class="badge-icon p-4 {v.class}"><i class="fa-solid fa-arrow-right" /></span>
 									<span class="flex-auto">
-										Item {v.name}
+										Nav Item {v.label}
 									</span>
 									<span>⋮</span>
 								</a>
@@ -104,8 +99,7 @@
 	<svelte:fragment slot="usage">
 		<div class="space-y-4">
 			<p>
-				Create semantic list HTML elements, add the <code>.list</code> class, then ensure you wrap children with <em>span</em> elements allow
-				for flex row layout styling.
+				Apply the <code>.list</code> class to the parent. Wrap children with <em>span</em> elements to allow for horizontal spacing.
 			</p>
 		</div>
 		<!-- Unordered -->
@@ -116,7 +110,7 @@
 				code={`
 <ul class="list">
 	<li>
-		<span>💀</span>
+		<span>(icon)</span>
 		<span class="flex-auto">Skeleton</span>
 	</li>
 	<!-- ... -->

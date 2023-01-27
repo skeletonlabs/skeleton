@@ -25,7 +25,7 @@
 				</p>
 			</div>
 			<div class="place-self-end grid grid-cols-1 gap-2">
-				<a class="btn btn-filled-primary" href="https://github.com/carbon-design-system/sveld" target="_blank" rel="noreferrer"
+				<a class="btn variant-filled-primary" href="https://github.com/carbon-design-system/sveld" target="_blank" rel="noreferrer"
 					>Sveld Documentation</a
 				>
 			</div>
@@ -108,7 +108,7 @@ export let hover: string = getContext('hover');
  * @slot content - Provide the alert message text.
  */`}
 		/>
-		<aside class="alert">
+		<aside class="alert variant-ghost-warning">
 			<i class="fa-solid fa-lightbulb text-2xl" />
 			<div class="alert-message">
 				<strong>NOTE:</strong> The leading <code>// ...</code> comment is required for Sveld to successfully parse the slot descriptions. This
@@ -156,7 +156,6 @@ dispatch('dragover', event);`}
 			<li>
 				Create a duplicate of your component import statement, e.g. <code>import Avatar from '$lib/components/Avatar/Avatar.svelte';</code>
 			</li>
-			<li>Implement a <code>// @ts-expect-error sveld import</code> comment above the new import to silence any warnings.</li>
 			<li>Rename the import reference using the convention: <code>Avatar</code> -> <code>sveldAvatar</code>.</li>
 			<li>Append the following URL parameters to the end of your import statement, e.g.: <code>.../Accordion.svelte?raw&sveld</code>.</li>
 			<li>
@@ -174,7 +173,7 @@ dispatch('dragover', event);`}
 				<p>Reference all available settings from the Typescript interface defintion.</p>
 			</div>
 			<a
-				class="btn btn-filled-secondary"
+				class="btn variant-filled-secondary"
 				href="https://github.com/skeletonlabs/skeleton/blob/dev/src/docs/DocsShell/types.ts#L42"
 				target="_blank"
 				rel="noreferrer">View Available Settings</a

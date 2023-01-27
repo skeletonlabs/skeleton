@@ -32,9 +32,9 @@
 
 	// Props (buttons)
 	/** Provide action button styles. */
-	export let buttonAction = 'btn-filled';
+	export let buttonAction = 'variant-filled';
 	/** Provide dismiss button styles. */
-	export let buttonDismiss = 'btn-filled';
+	export let buttonDismiss = 'variant-filled';
 
 	// Base Classes
 	const cWrapper = 'flex fixed top-0 left-0 right-0 bottom-0 z-[888] pointer-events-none';

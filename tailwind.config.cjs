@@ -10,5 +10,8 @@ module.exports = {
 			}
 		}
 	},
-	plugins: [require('@tailwindcss/forms'), require('./src/lib/tailwind/skeleton.cjs')]
+	plugins: [
+		require('@tailwindcss/forms'),
+		...require('./src/lib/tailwind/skeleton.cjs')({ intellisense: false })
+	]
 };

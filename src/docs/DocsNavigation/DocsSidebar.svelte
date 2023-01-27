@@ -32,7 +32,7 @@
 		switch($storeCategory) {
 			case('guides'): filteredMenuNavLinks = menuNavLinks.filter((linkSet: any) => linkSet.id === 'guides'); break;
 			case('docs'): filteredMenuNavLinks = menuNavLinks.filter((linkSet: any) => linkSet.id === 'docs'); break;
-			case('elements'): filteredMenuNavLinks = menuNavLinks.filter((linkSet: any) => ['tokens', 'base', 'elements'].includes(linkSet.id)); break;
+			case('elements'): filteredMenuNavLinks = menuNavLinks.filter((linkSet: any) => ['tokens', 'base', 'elements', 'presentation'].includes(linkSet.id)); break;
 			case('svelte'): filteredMenuNavLinks = menuNavLinks.filter((linkSet: any) => ['components', 'actions'].includes(linkSet.id)); break;
 			case('utilities'): filteredMenuNavLinks = menuNavLinks.filter((linkSet: any) => linkSet.id === 'utilities'); break;
 		}
@@ -89,7 +89,7 @@
 							<li on:click={onListItemClick} on:keypress>
 								<a {href} class={classesActive(href)} data-sveltekit-preload-data="hover">
 									<span class="flex-auto">{@html label}</span>
-									{#if badge}<span class="badge badge-filled-secondary">{badge}</span>{/if}
+									{#if badge}<span class="badge variant-filled-secondary">{badge}</span>{/if}
 								</a>
 							</li>
 						{/each}

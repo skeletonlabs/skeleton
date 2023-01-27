@@ -16,3 +16,6 @@
 
 /* Imports all Tailwind Elements */
 @import 'elements.css';
+
+/* Imports all Variant Styles */
+@import 'variants.css';

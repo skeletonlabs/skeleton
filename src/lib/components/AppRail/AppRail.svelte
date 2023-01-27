@@ -10,7 +10,7 @@
 
 	// Props
 	/** Provide a writable store to maintain navigation selection.
-	 * @type {writeable(any)}
+	 * @type {Writeable(any)}
 	 */
 	export let selected: Writable<any> = writable(undefined);
 	/** Provide classes to set the background color. */

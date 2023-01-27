@@ -56,24 +56,24 @@
 		<section class="card">
 			<div class="p-4 max-w-[280px] mx-auto">
 				<div class="grid grid-cols-2 gap-4 mb-4">
-					<button class="btn btn-ghost-surface w-full" data-tooltip="tooltipTop" use:tooltip={exampleTop}>
+					<button class="btn variant-ghost-surface w-full" data-tooltip="tooltipTop" use:tooltip={exampleTop}>
 						<i class="fa-solid fa-arrow-up"></i>
 						<span>Top</span>
 					</button>
-					<button class="btn btn-ghost-surface w-full" use:tooltip={exampleBottom}>
+					<button class="btn variant-ghost-surface w-full" use:tooltip={exampleBottom}>
 						<i class="fa-solid fa-arrow-down"></i>
 						<span>Bottom</span>
 					</button>
-					<button class="btn btn-ghost-surface w-full" use:tooltip={exampleLeft}>
+					<button class="btn variant-ghost-surface w-full" use:tooltip={exampleLeft}>
 						<i class="fa-solid fa-arrow-left"></i>
 						<span>Left</span>
 					</button>
-					<button class="btn btn-ghost-surface w-full" use:tooltip={exampleRight}>
+					<button class="btn variant-ghost-surface w-full" use:tooltip={exampleRight}>
 						<i class="fa-solid fa-arrow-right"></i>
 						<span>Right</span>
 					</button>
 				</div>
-				<button class="btn btn-ghost-surface w-full" use:tooltip={exampleHtml}>HTML Content</button>
+				<button class="btn variant-ghost-surface w-full" use:tooltip={exampleHtml}>HTML Content</button>
 			</div>
 		</section>
 	</svelte:fragment>

@@ -6,7 +6,6 @@
 	import type { ToastSettings } from '$lib/utilities/Toast/types';
 	import { toastStore } from '$lib/utilities/Toast/stores';
 
-	// @ts-expect-error sveld import
 	import sveldToast from '$lib/utilities/Toast/Toast.svelte?raw&sveld';
 
 	// Docs Shell
@@ -76,22 +75,22 @@
 		<div class="space-y-4">
 			<section class="card p-4">
 				<div class="grid grid-cols-1 md:grid-cols-5 gap-4 max-w-[700px] mx-auto">
-					<button class="btn btn-ghost-surface" on:click={toastBasic}>Basic</button>
-					<button class="btn btn-ghost-surface" on:click={toastParagraph}>Paragraph</button>
-					<button class="btn btn-ghost-surface" on:click={toastAction}>Action</button>
-					<button class="btn btn-ghost-surface" on:click={toastMultiple}>Multiple</button>
-					<button class="btn btn-ghost-surface" on:click={toastStyled}>Styled</button>
+					<button class="btn variant-ghost-surface" on:click={toastBasic}>Basic</button>
+					<button class="btn variant-ghost-surface" on:click={toastParagraph}>Paragraph</button>
+					<button class="btn variant-ghost-surface" on:click={toastAction}>Action</button>
+					<button class="btn variant-ghost-surface" on:click={toastMultiple}>Multiple</button>
+					<button class="btn variant-ghost-surface" on:click={toastStyled}>Styled</button>
 				</div>
 			</section>
 			<section class="card p-4">
 				<!-- prettier-ignore -->
 				<div class="grid grid-cols-1 md:grid-cols-6 gap-4 max-w-[700px] mx-auto">
-					<button class="btn btn-ghost-surface" on:click={() => {toastPreset('primary')}}>Primary</button>
-					<button class="btn btn-ghost-surface" on:click={() => {toastPreset('secondary')}}>Secondary</button>
-					<button class="btn btn-ghost-surface" on:click={() => {toastPreset('tertiary')}}>Tertiary</button>
-					<button class="btn btn-ghost-surface" on:click={() => {toastPreset('success')}}>Success</button>
-					<button class="btn btn-ghost-surface" on:click={() => {toastPreset('warning')}}>Warning</button>
-					<button class="btn btn-ghost-surface" on:click={() => {toastPreset('error')}}>Error</button>
+					<button class="btn variant-ghost-surface" on:click={() => {toastPreset('primary')}}>Primary</button>
+					<button class="btn variant-ghost-surface" on:click={() => {toastPreset('secondary')}}>Secondary</button>
+					<button class="btn variant-ghost-surface" on:click={() => {toastPreset('tertiary')}}>Tertiary</button>
+					<button class="btn variant-ghost-surface" on:click={() => {toastPreset('success')}}>Success</button>
+					<button class="btn variant-ghost-surface" on:click={() => {toastPreset('warning')}}>Warning</button>
+					<button class="btn variant-ghost-surface" on:click={() => {toastPreset('error')}}>Error</button>
 				</div>
 			</section>
 		</div>

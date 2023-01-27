@@ -8,7 +8,6 @@
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-expect-error sveld import
 	import sveldModal from '$lib/utilities/Modal/Modal.svelte?raw&sveld';
 
 	// Modals Utils
@@ -141,18 +140,18 @@
 			<div class="card p-4 space-y-4">
 				<p class="text-center font-bold">Dialog Modals</p>
 				<div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:max-w-[480px] mx-auto">
-					<button class="btn btn-ghost-surface" on:click={modalAlert}>Alert</button>
-					<button class="btn btn-ghost-surface" on:click={modalConfirm}>Confirm</button>
-					<button class="btn btn-ghost-surface" on:click={modalPrompt}>Prompt</button>
-					<button class="btn btn-ghost-surface" on:click={modalMultiple}>Multiple</button>
+					<button class="btn variant-ghost-surface" on:click={modalAlert}>Alert</button>
+					<button class="btn variant-ghost-surface" on:click={modalConfirm}>Confirm</button>
+					<button class="btn variant-ghost-surface" on:click={modalPrompt}>Prompt</button>
+					<button class="btn variant-ghost-surface" on:click={modalMultiple}>Multiple</button>
 				</div>
 			</div>
 			<div class="card p-4 space-y-4">
 				<p class="text-center font-bold">Custom Component Modals</p>
 				<div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:max-w-[320px] mx-auto">
-					<button class="btn btn-ghost-surface" on:click={modalComponentForm}>Form</button>
-					<button class="btn btn-ghost-surface" on:click={modalComponentList}>List</button>
-					<button class="btn btn-ghost-surface" on:click={modalComponentEmbed}>Embed</button>
+					<button class="btn variant-ghost-surface" on:click={modalComponentForm}>Form</button>
+					<button class="btn variant-ghost-surface" on:click={modalComponentList}>List</button>
+					<button class="btn variant-ghost-surface" on:click={modalComponentEmbed}>Embed</button>
 				</div>
 			</div>
 		</section>
@@ -229,7 +228,7 @@ function triggerPrompt(): void {
 		// Populates the initial input value
 		value: 'Skeleton',
 		// Returns the updated response value
-		response: (r: string) => console.log('response:', r)
+		response: (r: string) => console.log('response:', r),
 		// Optionally override the button text
 		buttonTextCancel: 'Cancel',
 		buttonTextSubmit: 'Submit',
@@ -264,10 +263,9 @@ function triggerPrompt(): void {
 const d: ModalSettings = {
 	type: 'alert',
 	// ...
-	backdropClasses: '!items-start'
+	backdropClasses: '!items-start',
 	modalClasses: '!p-0 !bg-green-500 !max-w-[75%]'
-};
-				`}
+};`}
 			/>
 			<p>Note that <code>!</code> (important) may be required to override some styles.</p>
 		</section>
@@ -275,7 +273,7 @@ const d: ModalSettings = {
 		<section class="space-y-4">
 			<div class="flex items-center space-x-2">
 				<h2>Component Modals</h2>
-				<span class="badge badge-filled-warning">Advanced</span>
+				<span class="badge variant-filled-warning">Advanced</span>
 			</div>
 			<p>You can create a custom modal by passing a <code>ModalComponent</code> object, which includes any Svelte component.</p>
 			<CodeBlock
@@ -299,15 +297,14 @@ function triggerCustomModal(): void {
 		meta: { foo: 'bar', fizz: 'buzz', fn: myCustomFunction }
 	};
 	modalStore.trigger(d);
-}
-				`}
+}`}
 			/>
 			<p>
 				When constructing custom modals, you are responsible for implementing close/submit buttons, as well as triggering the response
 				method as needed. To make this process easier to understand, we have provided a few examples to demonstrate the process.
 			</p>
 			<a
-				class="btn btn-filled-secondary"
+				class="btn variant-filled-secondary"
 				href="https://github.com/skeletonlabs/skeleton/tree/master/src/lib/utilities/Modal/examples"
 				target="_blank"
 				rel="noreferrer">View Example Modals</a
@@ -336,7 +333,7 @@ function triggerCustomModal(): void {
 		<section class="space-y-4">
 			<div class="flex items-center space-x-2">
 				<h2>Abitrary Data</h2>
-				<span class="badge badge-filled-warning">Advanced</span>
+				<span class="badge variant-filled-warning">Advanced</span>
 			</div>
 			<p>You can pass abitrary metadata to your modal via the <code>meta</code> setting. All data types are supported.</p>
 			<CodeBlock
