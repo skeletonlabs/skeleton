@@ -109,7 +109,11 @@
 
 <div class="input-chip {classesBase}" class:opacity-50={$$restProps.disabled}>
 	<!-- Select (hidden) -->
-	<select bind:value {name} multiple {...prunedRestProps()} class="hidden" />
+	<!-- class="hidden" -->
+	<select {name} multiple {...prunedRestProps()}>
+		<!-- FIXME: option seems to be required, but causes console errors. -->
+		{#each value as option}<option value={option} selected>{option}</option>{/each}
+	</select>
 	<!-- Interface -->
 	<div class="input-chip-interface {classesInterface}">
 		<!-- Input Field -->
