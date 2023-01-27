@@ -99,20 +99,13 @@
 	$: classesInterface = `${cInterface}`;
 	$: classesChipList = `${cChipList}`;
 	$: classesInputField = `${cInputField}`;
-
-	// Prune restProps
-	function prunedRestProps(): any {
-		delete $$restProps.class;
-		return $$restProps;
-	}
 </script>
 
 <div class="input-chip {classesBase}" class:opacity-50={$$restProps.disabled}>
 	<!-- Select (hidden) -->
-	<!-- class="hidden" -->
-	<select {name} multiple {...prunedRestProps()}>
-		<!-- FIXME: option seems to be required, but causes console errors. -->
-		{#each value as option}<option value={option} selected>{option}</option>{/each}
+	<select bind:value {name} multiple class="hidden">
+		<!-- NOTE: options are required! -->
+		{#each value as option}<option value={option}>{option}</option>{/each}
 	</select>
 	<!-- Interface -->
 	<div class="input-chip-interface {classesInterface}">
