@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { writable, type Writable } from 'svelte/store';
-
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
@@ -10,11 +8,7 @@
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	import sveldRangeSlider from '$lib/components/RangeSlider/RangeSlider.svelte?raw&sveld';
-
-	// Stores
-	const storeMax: Writable<number> = writable(50);
-	const storeStep: Writable<number> = writable(1);
-	const storeTicked: Writable<boolean> = writable(true);
+	import { tick } from 'svelte';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -39,11 +33,11 @@
 	// Reactive Props
 	$: props = {
 		label: 'Skeleton',
-		value: $storeMax / 2,
+		value: 50 / 2,
 		min: 0,
-		max: $storeMax,
-		step: $storeStep,
-		ticked: $storeTicked,
+		max: 50,
+		step: 1,
+		ticked: true,
 		accent: '!accent-secondary-500'
 	};
 </script>
@@ -75,7 +69,7 @@
 					</svelte:component>
 			</div>
 			<!-- Options -->
-			<div class="card p-4 space-y-4">
+			<div class="card p-4 space-y-4 max-w-[320px]">
 				<!-- Label -->
 				<label class="input-label">
 					<span>Label</span>
@@ -84,44 +78,42 @@
 				<!-- Max -->
 				<label class="input-label" for="">
 					<span>Max</span>
-					<RadioGroup selected={storeMax} display="flex">
-						<RadioItem value={10}>10</RadioItem>
-						<RadioItem value={50}>50</RadioItem>
-						<RadioItem value={100}>100</RadioItem>
+					<RadioGroup display="flex">
+						<RadioItem bind:group={props.max} name="max-10" value={10}>10</RadioItem>
+						<RadioItem bind:group={props.max} name="max-50" value={50}>50</RadioItem>
+						<RadioItem bind:group={props.max} name="max-100" value={100}>100</RadioItem>
 					</RadioGroup>
 				</label>
 				<!-- Step -->
 				<label class="input-label" for="">
 					<span>Step</span>
-					<RadioGroup selected={storeStep} display="flex">
-						<RadioItem value={1}>1</RadioItem>
-						<RadioItem value={5}>5</RadioItem>
-						<RadioItem value={10}>10</RadioItem>
+					<RadioGroup display="flex">
+						<RadioItem bind:group={props.step} name="step-1" value={1}>1</RadioItem>
+						<RadioItem bind:group={props.step} name="step-5" value={5}>5</RadioItem>
+						<RadioItem bind:group={props.step} name="step-10" value={10}>10</RadioItem>
 					</RadioGroup>
 				</label>
-				<div class="grid grid-cols-2 gap-4">
-					<!-- Ticks -->
-					<label class="input-label" for="">
-						<span>Ticks</span>
-						<RadioGroup selected={storeTicked} display="flex">
-							<RadioItem value={false}>Off</RadioItem>
-							<RadioItem value={true}>On</RadioItem>
-						</RadioGroup>
-					</label>
-					<!-- Accent -->
-					<label class="input-label">
-						<span>Accent</span>
-						<select name="accent" id="accent" bind:value={props.accent}>
-							<option value="!accent-primary-500">accent-primary-500</option>
-							<option value="!accent-secondary-500">accent-secondary-500</option>
-							<option value="!accent-tertiary-500">accent-tertiary-500</option>
-							<option value="!accent-success-500">accent-success-500</option>
-							<option value="!accent-warning-500">accent-warning-500</option>
-							<option value="!accent-error-500">accent-error-500</option>
-							<option value="!accent-surface-500">accent-surface-500</option>
-						</select>
-					</label>
-				</div>
+				<!-- Ticked -->
+				<label class="input-label" for="">
+					<span>Ticked</span>
+					<RadioGroup display="flex">
+						<RadioItem bind:group={props.ticked} name="ticked-off" value={false}>Off</RadioItem>
+						<RadioItem bind:group={props.ticked} name="ticked-on" value={true}>On</RadioItem>
+					</RadioGroup>
+				</label>
+				<!-- Accent -->
+				<label class="input-label">
+					<span>Accent</span>
+					<select name="accent" id="accent" bind:value={props.accent}>
+						<option value="!accent-primary-500">accent-primary-500</option>
+						<option value="!accent-secondary-500">accent-secondary-500</option>
+						<option value="!accent-tertiary-500">accent-tertiary-500</option>
+						<option value="!accent-success-500">accent-success-500</option>
+						<option value="!accent-warning-500">accent-warning-500</option>
+						<option value="!accent-error-500">accent-error-500</option>
+						<option value="!accent-surface-500">accent-surface-500</option>
+					</select>
+				</label>
 			</div>
 		</section>
 	</svelte:fragment>

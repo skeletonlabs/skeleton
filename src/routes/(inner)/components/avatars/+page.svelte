@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { writable, type Writable } from 'svelte/store';
-
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
@@ -39,21 +37,15 @@
 	const imgPlaceholder = 'https://i.pravatar.cc/?img=48';
 	const borderStyles = 'border-4 border-surface-300-600-token hover:!border-primary-500 cursor-pointer';
 
-	// Store
-	const storeWidth: Writable<string | undefined> = writable('w-24');
-	const storeSrc: Writable<string | undefined> = writable(imgPlaceholder);
-	const storeRounded: Writable<string | undefined> = writable('rounded-full');
-	const storeBorder: Writable<string | undefined> = writable('');
-
 	$: props = {
 		initials: 'AB',
-		src: $storeSrc,
+		src: imgPlaceholder,
 		alt: 'avatar',
-		width: $storeWidth,
+		width: 'w-24',
 		background: 'bg-surface-500',
 		fill: 'fill-white',
-		rounded: $storeRounded,
-		border: $storeBorder,
+		rounded: 'rounded-full',
+		border: '',
 		actionParams: ''
 	};
 </script>
@@ -93,40 +85,40 @@
 				<!-- Options -->
 				<div class="card p-4 space-y-4">
 					<!-- Source -->
-					<RadioGroup selected={storeSrc} display="flex">
-						<RadioItem value={imgPlaceholder}>Image</RadioItem>
-						<RadioItem value={undefined}>Initials</RadioItem>
+					<RadioGroup display="flex">
+						<RadioItem bind:group={props.src} name="image" value={imgPlaceholder}>Image</RadioItem>
+						<RadioItem bind:group={props.src} name="initials" value={undefined}>Initials</RadioItem>
 					</RadioGroup>
 					<!-- Width -->
 					<label class="input-label" for="">
 						<span>Width</span>
-						<RadioGroup selected={storeWidth} display="flex">
-							<RadioItem value="w-10">w-10</RadioItem>
-							<RadioItem value="w-24">w-24</RadioItem>
-							<RadioItem value="w-48">w-48</RadioItem>
-							<RadioItem value="w-56">w-56</RadioItem>
+						<RadioGroup display="flex">
+							<RadioItem bind:group={props.width} name="w-10" value="w-10">w-10</RadioItem>
+							<RadioItem bind:group={props.width} name="w-24" value="w-24">w-24</RadioItem>
+							<RadioItem bind:group={props.width} name="w-48" value="w-48">w-48</RadioItem>
+							<RadioItem bind:group={props.width} name="w-56" value="w-56">w-56</RadioItem>
 						</RadioGroup>
 					</label>
 					<!-- Rounded -->
 					<label class="input-label" for="">
 						<span>Rounded</span>
-						<RadioGroup selected={storeRounded} display="flex">
-							<RadioItem value="rounded-full">Full</RadioItem>
-							<RadioItem value="rounded-3xl">3XL</RadioItem>
-							<RadioItem value="rounded-xl">XL</RadioItem>
-							<RadioItem value="rounded-none">None</RadioItem>
+						<RadioGroup display="flex">
+							<RadioItem bind:group={props.rounded} name="rounded-full" value="rounded-full">Full</RadioItem>
+							<RadioItem bind:group={props.rounded} name="rounded-3xl" value="rounded-3xl">3XL</RadioItem>
+							<RadioItem bind:group={props.rounded} name="rounded-xl" value="rounded-xl">XL</RadioItem>
+							<RadioItem bind:group={props.rounded} name="rounded-none" value="rounded-none">None</RadioItem>
 						</RadioGroup>
 					</label>
 					<!-- Border -->
 					<label class="input-label" for="">
 						<span>Border</span>
-						<RadioGroup selected={storeBorder} display="flex">
-							<RadioItem value="">Off</RadioItem>
-							<RadioItem value={borderStyles}>On</RadioItem>
+						<RadioGroup display="flex">
+							<RadioItem bind:group={props.border} name="border-off" value="">Off</RadioItem>
+							<RadioItem bind:group={props.border} name="border-on" value={borderStyles}>On</RadioItem>
 						</RadioGroup>
 					</label>
 					<!-- If: Initials -->
-					{#if $storeSrc === undefined}
+					{#if props.src === undefined}
 						<!-- Initials -->
 						<label class="input-label">
 							<span>Initial Text</span>
@@ -145,7 +137,7 @@
 						</label>
 					{/if}
 					<!-- Filter -->
-					{#if $storeSrc !== undefined}
+					{#if props.src !== undefined}
 						<label class="input-label">
 							<span>Filter</span>
 							<select name="filter" id="filter" bind:value={props.actionParams}>

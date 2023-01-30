@@ -31,6 +31,7 @@
 	export let labelledby = '';
 
 	// Context
+	setContext('rounded', rounded);
 	setContext('padding', padding);
 	setContext('active', active);
 	setContext('hover', hover);

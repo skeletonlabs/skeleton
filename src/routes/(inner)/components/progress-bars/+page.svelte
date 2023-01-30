@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { writable, type Writable } from 'svelte/store';
-
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
@@ -11,9 +9,7 @@
 
 	import sveldProgressBar from '$lib/components/ProgressBar/ProgressBar.svelte?raw&sveld';
 
-	// Stores
-	const storeDeterminate: Writable<boolean> = writable(true);
-	const storeHeight: Writable<string> = writable('h-2');
+	// Defaults
 	const defaultRounded = 'rounded-token';
 	const defaultMeter = 'bg-surface-900-50-token';
 	const defaultTrack = 'variant-glass';
@@ -30,10 +26,10 @@
 
 	// Reactive Props
 	$: props = {
-		determinate: $storeDeterminate,
+		determinate: true,
 		value: 50,
 		max: 100,
-		height: $storeHeight,
+		height: 'h-2',
 		rounded: defaultRounded,
 		meter: defaultMeter,
 		track: defaultTrack
@@ -62,9 +58,9 @@
 			<div class="card p-4 space-y-4 w-auto lg:w-[400px]">
 				<!-- Mode -->
 				<label class="input-label" for="">
-					<RadioGroup selected={storeDeterminate} display="flex">
-						<RadioItem value={true}>Determinate</RadioItem>
-						<RadioItem value={false}>Indeterminate</RadioItem>
+					<RadioGroup display="flex">
+						<RadioItem bind:group={props.determinate} name="determinate" value={true}>Determinate</RadioItem>
+						<RadioItem bind:group={props.determinate} name="indeterminate" value={false}>Indeterminate</RadioItem>
 					</RadioGroup>
 				</label>
 				<!-- Amount -->
@@ -83,11 +79,11 @@
 				<!-- Height -->
 				<label class="input-label" for="">
 					<span>Height</span>
-					<RadioGroup selected={storeHeight} display="flex">
-						<RadioItem value="h-1">h-1</RadioItem>
-						<RadioItem value="h-2">h-2</RadioItem>
-						<RadioItem value="h-4">h-4</RadioItem>
-						<RadioItem value="h-8">h-8</RadioItem>
+					<RadioGroup display="flex">
+						<RadioItem bind:group={props.height} name="h-1" value="h-1">h-1</RadioItem>
+						<RadioItem bind:group={props.height} name="h-2" value="h-2">h-2</RadioItem>
+						<RadioItem bind:group={props.height} name="h-4" value="h-4">h-4</RadioItem>
+						<RadioItem bind:group={props.height} name="h-8" value="h-8">h-8</RadioItem>
 					</RadioGroup>
 				</label>
 				<!-- Rounded -->

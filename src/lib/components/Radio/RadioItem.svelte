@@ -14,15 +14,15 @@
 	export let label = '';
 
 	// Context
+	export let rounded: string = getContext('rounded');
 	export let padding: string = getContext('padding');
 	export let active: string = getContext('active');
 	export let hover: string = getContext('hover');
 	export let color: string = getContext('color');
 	export let fill: string = getContext('fill');
-	export let rounded: string = getContext('rounded');
 
 	// Classes
-	const cBase: string = 'flex-auto rounded-token cursor-pointer';
+	const cBase: string = 'flex-auto text-base text-center cursor-pointer';
 
 	// Local
 	let elemInput: HTMLElement;
