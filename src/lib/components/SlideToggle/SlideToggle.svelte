@@ -19,7 +19,7 @@
 	 */
 	export let size = 'md';
 	/** Provide classes to set the checked state color. */
-	export let accent = 'bg-surface-600-300-token';
+	export let accent = 'bg-surface-500-400-token';
 	/** Provide classes to set the border width styles. */
 	export let borderWidth = 'border-0';
 	/** Provide classes to set the border color styles. */
@@ -35,7 +35,7 @@
 	const cBase = 'inline-block';
 	const cLabel = 'unstyled flex items-center';
 	const cTrack = 'flex transition-all duration-[200ms] cursor-pointer';
-	const cThumb = 'w-[50%] h-full scale-[0.7] transition-all duration-[200ms] shadow';
+	const cThumb = 'w-[50%] h-full scale-[0.8] transition-all duration-[200ms] shadow';
 
 	// Set track size
 	let trackSize: string;
@@ -59,12 +59,12 @@
 
 	// Interactive
 	$: cTrackAccent = checked ? accent : 'bg-surface-200-700-token cursor-pointer';
-	$: cThumbBackground = checked ? 'bg-white' : 'bg-white/50';
+	$: cThumbBackground = checked ? 'bg-white/75' : 'bg-white';
 	$: cThumbPos = checked ? 'translate-x-full' : '';
 
 	// Reactive Classes
 	$: classesDisabled = $$props.disabled === true ? 'opacity-50' : 'hover:brightness-[105%] dark:hover:brightness-110 cursor-pointer';
-	$: classesBase = `${cBase} ${classesDisabled} ${$$props.class ?? ''}`;
+	$: classesBase = `${cBase} ${rounded} ${classesDisabled} ${$$props.class ?? ''}`;
 	$: classesLabel = `${cLabel}`;
 	$: classesTrack = `${cTrack} ${borderWidth} ${borderColor} ${rounded} ${trackSize} ${cTrackAccent}`;
 	$: classesThumb = `${cThumb} ${rounded} ${cThumbBackground} ${cThumbPos}`;
