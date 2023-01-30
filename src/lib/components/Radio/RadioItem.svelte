@@ -1,71 +1,69 @@
 <script lang="ts">
-	import type { Writable } from 'svelte/store';
-	import { createEventDispatcher, getContext } from 'svelte';
-
-	// Event Handler
-	const dispatch = createEventDispatcher();
+	import { getContext } from 'svelte';
 
 	// Props
-	/**
-	 * The item's selection value.
-	 * @type {any}
-	 */
-	export let value: any = undefined;
+	/** Set the radio group binding value. */
+	export let group: any;
+	/** Set a unique name value for the input. */
+	export let name: string;
+	/** Set the input's value. */
+	export let value: any;
 
 	// Props (A11y)
 	/** Defines a semantic ARIA label. */
 	export let label = '';
 
 	// Context
-	export let selected: Writable<any> = getContext('selected');
 	export let padding: string = getContext('padding');
+	export let active: string = getContext('active');
 	export let hover: string = getContext('hover');
-	export let accent: string = getContext('accent');
 	export let color: string = getContext('color');
 	export let fill: string = getContext('fill');
 	export let rounded: string = getContext('rounded');
 
-	// Base Classes
-	const cBase = 'font-bold text-base text-center cursor-pointer whitespace-nowrap';
+	// Classes
+	const cBase: string = 'flex-auto rounded-token cursor-pointer';
+
+	// Local
+	let elemInput: HTMLElement;
 
 	// A11y Input Handlers
 	function onKeyDown(event: any): void {
 		// Enter/Space triggers selecton event
 		if (['Enter', 'Space'].includes(event.code)) {
 			event.preventDefault();
-			/** @event {{ event }} keydown - Fires when the component is in focus and key is pressed.  */
-			dispatch('keydown', event);
-			event.target.children[0].click();
+			elemInput.click();
 		}
 	}
 
-	// Reactive Classes
-	$: checked = value === $selected;
-	$: classesSelected = checked ? `${accent} ${fill} ${color}` : `${hover}`;
-	$: classesLabel = `${cBase} ${classesSelected} ${padding} ${rounded}`;
+	// Reactive
+	$: checked = value === group;
+	$: classesActive = checked ? `${active} ${color} ${fill}` : hover;
+	$: classesBase = `${cBase} ${padding} ${rounded} ${classesActive}`;
 
-	// Prune $$restProps to avoid overwriting $$props.class
+	// RestProps
 	function prunedRestProps(): any {
 		delete $$restProps.class;
 		return $$restProps;
 	}
 </script>
 
-<div
-	class="radio-item flex-auto"
+<label
+	class="radio-item {classesBase}"
 	role="radio"
 	aria-checked={checked}
 	aria-label={label}
-	{...prunedRestProps()}
 	tabindex="0"
 	data-testid="radio-item"
 	on:click
 	on:keydown={onKeyDown}
+	on:keydown
 	on:keyup
 	on:keypress
 >
-	<label class="radio-item-label {classesLabel}">
-		<input class="radio-item-input hidden" type="radio" {value} bind:group={$selected} />
-		<slot />
-	</label>
-</div>
+	<!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->
+	<div class="h-0 w-0 overflow-hidden">
+		<input bind:this={elemInput} type="radio" bind:group {name} {value} {...prunedRestProps()} tabindex="-1" />
+	</div>
+	<slot />
+</label>
