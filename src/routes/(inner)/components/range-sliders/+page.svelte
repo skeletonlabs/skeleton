@@ -8,7 +8,6 @@
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	import sveldRangeSlider from '$lib/components/RangeSlider/RangeSlider.svelte?raw&sveld';
-	import { tick } from 'svelte';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -25,8 +24,8 @@
 			['<kbd>Left Arrow</kbd> or <kbd>Down Arrow</kbd>', 'Decrease  the value of the slider by one step.'],
 			['<kbd>Home</kbd>', 'Set the slider to the first allowed value in its range.'],
 			['<kbd>End</kbd>', 'Set the slider to the last allowed value in its range.'],
-			['<kbd>Page Up</kbd>', 'Increase the slider value by an amount larger than the step change made by <kbd>Up Arrow</kbd>.'],
-			['<kbd>Page Down</kbd>', 'Decrease  the slider value by an amount larger than the step change made by <kbd>Up Down</kbd>.']
+			['<kbd>Page Up</kbd>', 'Increase the slider value by a large amount.'],
+			['<kbd>Page Down</kbd>', 'Decrease  the slider value by a large amount.']
 		]
 	};
 
@@ -51,6 +50,7 @@
 				<!-- prettier-ignore -->
 				<svelte:component
 						this={RangeSlider}
+						name="range-slider-example"
 						label={props.label}
 						bind:value={props.value}
 						max={props.max}
@@ -60,12 +60,9 @@
 						class="w-full lg:max-w-[75%] max-auto"
 					>
 						<div class="flex justify-between items-center">
-							<div>{props.label}</div>
-							<div class="text-xs">{props.max}</div>
+							<div class="font-bold">{props.label}</div>
+							<div class="text-xs">{props.value} / {props.max}</div>
 						</div>
-						<svelte:fragment slot="trail">
-							<p class="text-center">Value <code>{props.value}</code></p>
-						</svelte:fragment>
 					</svelte:component>
 			</div>
 			<!-- Options -->
@@ -120,6 +117,23 @@
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
-		<CodeBlock language="html" code={`<RangeSlider bind:value={50} max={100} step={5} ticked>Label</RangeSlider>`} />
+		<section class="space-y-4">
+			<!-- prettier-ignore -->
+			<p>Combines a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range" target="_blank" rel="noreferrer">native range input</a> with <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range#adding_tick_marks" target="_blank" rel="noreferrer">datalist ticks</a>.</p>
+			<CodeBlock language="html" code={`<RangeSlider name="range-slider" bind:value={50} max={100} step={5} ticked>Label</RangeSlider>`} />
+		</section>
+		<section class="space-y-4">
+			<h2>Browser Support</h2>
+			<!-- prettier-ignore -->
+			<p>
+				Please be aware that <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range#browser_compatibility" target="_blank" rel="noreferrer">browser support</a> varies. Safari (macOS/iOS) does not visually display the ticks. However, the ticks are progressive enhancement feature, and Safari it will honor the <code>max</code> and <code>step</code> settings in relation to the value.
+			</p>
+			<div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
+				<div class="card p-4 variant-filled-primary"><h4>Chrome: Full</h4></div>
+				<div class="card p-4 variant-filled-primary"><h4>Edge: Full</h4></div>
+				<div class="card p-4 variant-filled-warning"><h4>Safari: Partial</h4></div>
+				<div class="card p-4 variant-filled-primary"><h4>Firefox: Full</h4></div>
+			</div>
+		</section>
 	</svelte:fragment>
 </DocsShell>
