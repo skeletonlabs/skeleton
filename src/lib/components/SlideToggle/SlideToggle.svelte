@@ -19,7 +19,7 @@
 	 */
 	export let size = 'md';
 	/** Provide classes to set the checked state color. */
-	export let accent = 'bg-secondary-500';
+	export let accent = 'bg-surface-600-300-token';
 	/** Provide classes to set the border width styles. */
 	export let borderWidth = 'border-0';
 	/** Provide classes to set the border color styles. */
@@ -35,7 +35,7 @@
 	const cBase = 'inline-block';
 	const cLabel = 'unstyled flex items-center';
 	const cTrack = 'flex transition-all duration-[200ms] cursor-pointer';
-	const cThumb = 'w-[50%] h-full scale-[0.7] transition-all duration-[200ms] shadow-lg';
+	const cThumb = 'w-[50%] h-full scale-[0.7] transition-all duration-[200ms] shadow';
 
 	// Set track size
 	let trackSize: string;

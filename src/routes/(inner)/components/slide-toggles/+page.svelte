@@ -27,10 +27,15 @@
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-			<div class="col-span-2 card variant-glass p-4 flex justify-center items-center space-x-8">
-				<SlideToggle name="slider-sm" size="sm" accent="bg-primary-500" checked label="Toggle Primary" />
-				<SlideToggle name="slider-base" checked label="Toggle Purple" />
-				<SlideToggle name="slider-large" size="lg" accent="bg-tertiary-500" checked label="Toggle Tertiary" />
+			<div class="card variant-glass p-4 flex justify-center items-center space-x-6">
+				<SlideToggle name="slider-sm" size="sm" checked label="Toggle Small" />
+				<SlideToggle name="slider-base" checked label="Toggle Default" />
+				<SlideToggle name="slider-large" size="lg" checked label="Toggle Large" />
+			</div>
+			<div class="card variant-glass p-4 flex justify-center items-center space-x-6">
+				<SlideToggle name="slider-sm" accent="bg-primary-500" checked label="Toggle Primary" />
+				<SlideToggle name="slider-base" accent="bg-secondary-500" checked label="Toggle Secondary" />
+				<SlideToggle name="slider-large" accent="bg-tertiary-500" checked label="Toggle Tertiary" />
 			</div>
 			<div class="card variant-glass p-4 flex justify-center items-center">
 				<SlideToggle name="slider-value" bind:checked={checkedValue}>
