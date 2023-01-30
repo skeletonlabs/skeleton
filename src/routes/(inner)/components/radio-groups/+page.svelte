@@ -40,9 +40,15 @@
 		<section class="grid grid-cols-2 gap-4">
 			<card class="card variant-glass p-4 text-center space-y-2">
 				<RadioGroup>
-					<RadioItem bind:group={justify} name="justify-left" value={0}><i class="fa-solid fa-align-left" /></RadioItem>
-					<RadioItem bind:group={justify} name="justify-center" value={1}><i class="fa-solid fa-align-center" /></RadioItem>
-					<RadioItem bind:group={justify} name="justify-right" value={2}><i class="fa-solid fa-align-right" /></RadioItem>
+					<RadioItem bind:group={justify} name="justify-left" value={0}>
+						<i class="fa-solid fa-align-left" />
+					</RadioItem>
+					<RadioItem bind:group={justify} name="justify-center" value={1}>
+						<i class="fa-solid fa-align-center" />
+					</RadioItem>
+					<RadioItem bind:group={justify} name="justify-right" value={2}>
+						<i class="fa-solid fa-align-right" />
+					</RadioItem>
 				</RadioGroup>
 				<div><code>selected: {justify}</code></div>
 			</card>
@@ -83,6 +89,14 @@
 			<h2>Full Width Display</h2>
 			<p>Set <em>display</em> to <code>flex</code> to stretch and fill the full width.</p>
 			<CodeBlock language="html" code={`<RadioGroup display="flex"></RadioGroup>`} />
+		</section>
+		<section class="space-y-4">
+			<h2>Radio Attributes</h2>
+			<p>
+				The Radio Item component supports Svelte's <code>$$restProps</code>, which allows for <em>required</em>, <em>disabled</em>, and any
+				other valid radio input attributes. Please note these settings are applied per item.
+			</p>
+			<CodeBlock language="html" code={`<RadioItem ... required disabled />`} />
 		</section>
 	</svelte:fragment>
 </DocsShell>

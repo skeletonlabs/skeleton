@@ -23,6 +23,7 @@
 
 	// Classes
 	const cBase: string = 'flex-auto text-base text-center cursor-pointer';
+	const cDisabled: string = 'opacity-50 cursor-not-allowed';
 
 	// Local
 	let elemInput: HTMLElement;
@@ -39,7 +40,8 @@
 	// Reactive
 	$: checked = value === group;
 	$: classesActive = checked ? `${active} ${color} ${fill}` : hover;
-	$: classesBase = `${cBase} ${padding} ${rounded} ${classesActive}`;
+	$: classesDisabled = $$props.disabled ? cDisabled : '';
+	$: classesBase = `${cBase} ${padding} ${rounded} ${classesActive} ${classesDisabled}`;
 
 	// RestProps
 	function prunedRestProps(): any {
