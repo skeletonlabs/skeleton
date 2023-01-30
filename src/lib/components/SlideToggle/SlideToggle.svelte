@@ -5,8 +5,15 @@
 	const dispatch = createEventDispatcher();
 
 	// Props
+	/**
+	 * Required. Set a unique name for the file input.
+	 * @type {string}
+	 */
+	export let name: string;
 	/** The checked state of the input element. */
 	export let checked = false;
+
+	// Props (styles)
 	/** Sets the size of the component.
 	 * @type {'sm' | 'md' | 'lg'}
 	 */
@@ -20,7 +27,7 @@
 	/** Provide classes to set border radius styles. */
 	export let rounded = 'rounded-full';
 
-	// A11y
+	// Props (a11y)
 	/** Provide a semantic label. */
 	export let label = '';
 
@@ -57,8 +64,8 @@
 
 	// Reactive Classes
 	$: classesDisabled = $$props.disabled === true ? 'opacity-50' : 'hover:brightness-[105%] dark:hover:brightness-110 cursor-pointer';
-	$: classesBase = `${cBase} ${classesDisabled}`;
-	$: classesLabel = `${cLabel} ${$$props.class ?? ''}`;
+	$: classesBase = `${cBase} ${classesDisabled} ${$$props.class ?? ''}`;
+	$: classesLabel = `${cLabel}`;
 	$: classesTrack = `${cTrack} ${borderWidth} ${borderColor} ${rounded} ${trackSize} ${cTrackAccent}`;
 	$: classesThumb = `${cThumb} ${rounded} ${cThumbBackground} ${cThumbPos}`;
 
@@ -85,6 +92,7 @@
 			type="checkbox"
 			class="slide-toggle-input hidden"
 			bind:checked
+			{name}
 			on:click
 			on:keydown
 			on:keyup
