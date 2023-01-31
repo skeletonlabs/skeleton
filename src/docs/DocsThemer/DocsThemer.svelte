@@ -137,11 +137,7 @@
 						</label>
 						<Swatch color={colorRow.key} />
 						<label>
-							<span>
-								Text & Fill Color
-								<!-- ({contrastReport.textColor} on {contrastReport.backgroundColor} = {contrastRatio}) -->
-								<!-- remove me before PR is merged^^^^ -->
-							</span>
+							<span> Text & Fill Color </span>
 							<div class="flex">
 								<select bind:value={colorRow.on} disabled={!$storePreview}>
 									{#each inputSettings.colorProps as c}<option value={c.value}>{c.label}</option>{/each}
@@ -149,12 +145,12 @@
 								<div
 									title={contrastReport.report.note}
 									class="badge-icon aspect-square relative -top-1 right-4 z-10"
-									class:!text-on-error-token={contrastReport.fails}
-									class:!bg-error-500={contrastReport.fails}
-									class:!text-on-warning-token={contrastReport.largeAA}
-									class:!bg-warning-500={contrastReport.largeAA}
-									class:!text-on-success-token={contrastReport.smallAAA || contrastReport.smallAA}
-									class:!bg-success-500={contrastReport.smallAAA || contrastReport.smallAA}
+									class:!text-stone-900={contrastReport.fails}
+									class:!bg-red-500={contrastReport.fails}
+									class:!text-zinc-900={contrastReport.largeAA}
+									class:!bg-amber-500={contrastReport.largeAA}
+									class:!text-slate-900={contrastReport.smallAAA || contrastReport.smallAA}
+									class:!bg-green-500={contrastReport.smallAAA || contrastReport.smallAA}
 								>
 									{@html contrastReport.report.emoji}
 								</div>
