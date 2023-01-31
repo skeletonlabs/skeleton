@@ -1,6 +1,8 @@
 // This script is based 'tailwindcolorshades' by Javis V. Pérez:
 // https://github.com/javisperez/tailwindcolorshades/blob/master/src/composables/colors.ts
 
+import * as easingFunctions from 'svelte/easing';
+
 export type Palette = {
 	[key: number]: {
 		/** The hex color. */
@@ -60,12 +62,14 @@ export function generateA11yOnColor(hex: string): '255 255 255' | '0 0 0' {
 	return luma < 120 ? '255 255 255' : '0 0 0'; // white | black
 }
 
-function lighten(hex: string, intensity: number, hueFraction: number): string {
+function lighten(hex: string, intensity: number, distanceFromCentre: number): string {
+	// if distanceFromCentre is 0, we want to pad it out a bit
+	distanceFromCentre = distanceFromCentre === 0 ? 0.15 : distanceFromCentre;
 	const color = hexToRgb(`#${hex}`);
 	if (!color) return '';
 	const { r, g, b } = color;
 	const hsl = rgbToHsl(r, g, b);
-	const hueDistanceToTravel = getDistanceToNearestHue(hsl.h) * hueFraction;
+	const hueDistanceToTravel = getDistanceToNearestHue(hsl.h) * easingFunctions.sineInOut(distanceFromCentre);
 	const alteredHsl = {
 		h: hsl.h + hueDistanceToTravel,
 		s: hsl.s,
@@ -76,24 +80,30 @@ function lighten(hex: string, intensity: number, hueFraction: number): string {
 	const result = rgbToHex(rotatedRgb.r, rotatedRgb.g, rotatedRgb.b);
 	// console.log('%c original HEX', `color: ${hex};`, hex);
 	// console.log('%c original RGB', `color: rgb(${color.r} ${color.g} ${color.b})`, color);
-	console.log('%c HSL', `color: hsl(${hsl.h} ${hsl.s}% ${hsl.l}%)`, hsl);
-	console.log('%c altered HSL', `color: hsl(${alteredHsl.h} ${alteredHsl.s}% ${alteredHsl.l}%)`, alteredHsl);
+	// console.log('%c HSL', `color: hsl(${hsl.h} ${hsl.s}% ${hsl.l}%)`, hsl);
+	// console.log('%c altered HSL', `color: hsl(${alteredHsl.h} ${alteredHsl.s}% ${alteredHsl.l}%)`, alteredHsl);
 	// console.log('%c changed RGB', `color: rgb(${rotatedRgb.r} ${rotatedRgb.g} ${rotatedRgb.b})`, rotatedRgb);
 	// console.log('%c result HEX', `color: ${result};`, result);
 	return result;
 }
 
-function darken(hex: string, intensity: number, hueFraction: number): string {
+function darken(hex: string, intensity: number, distanceFromCentre: number): string {
+	// if distanceFromCentre is 0, we want to pad it out a bit
+	distanceFromCentre = distanceFromCentre === 0 ? 0.2 : distanceFromCentre;
+
+	const hueFraction = distanceFromCentre + 0.25;
 	const color = hexToRgb(`#${hex}`);
 	if (!color) return '';
 	const { r, g, b } = color;
 	const hsl = rgbToHsl(r, g, b);
-	const hueDistanceToTravel = getDistanceToNearestHue(hsl.h, true) * hueFraction;
+	const hueDistanceToTravel = getDistanceToNearestHue(hsl.h, true) * easingFunctions.sineInOut(distanceFromCentre);
 	const alteredHsl = {
 		h: hsl.h + hueDistanceToTravel,
-		s: hsl.s,
-		l: hsl.l * hueFraction
+		s: Math.min(hsl.s * (1 + easingFunctions.sineIn(distanceFromCentre)), 100),
+		l: hsl.l * (1.1 - easingFunctions.linear(distanceFromCentre))
+		// l: hsl.l * (1 - distanceFromCentre)
 	};
+	console.log({ distanceFromCentre, hueDistanceToTravel, alteredHsl, func: easingFunctions.quadOut(hueFraction) });
 	const rotatedRgb = hslToRgb(alteredHsl.h, alteredHsl.s, alteredHsl.l);
 	const result = rgbToHex(rotatedRgb.r, rotatedRgb.g, rotatedRgb.b);
 	// console.log('%c original HEX', `color: ${hex};`, hex);
@@ -130,14 +140,15 @@ export function generatePalette(baseColor: string): Palette {
 	const rgb500 = hexToRgb(hex500);
 	if (!rgb500) throw new Error('Invalid color');
 	[400, 300, 200, 100, 50].forEach((level, i, arr) => {
-		const hex = lighten(hex500, intensityMap[level], i / arr.length + 0.05);
+		const hex = lighten(hex500, intensityMap[level], i / arr.length);
 		response[level] = { hex, rgb: hextoTailwindRgbString(hex), on: generateA11yOnColor(hex) };
 	});
-
-	[900, 800, 700, 600].forEach((level, i, arr) => {
-		const hex = darken(hex500, intensityMap[level], i / arr.length + 0.25);
+	console.group('%c original HEX', `color: ${hex500};`, hex500);
+	[600, 700, 800, 900].forEach((level, i, arr) => {
+		const hex = darken(hex500, intensityMap[level], i / arr.length);
 		response[level] = { hex, rgb: hextoTailwindRgbString(hex), on: generateA11yOnColor(hex) };
 	});
+	console.groupEnd();
 
 	return response as Palette;
 }
@@ -146,7 +157,7 @@ export function generatePalette(baseColor: string): Palette {
  * Converts an RGB color value to HSL. Conversion formula
  * adapted from http://en.wikipedia.org/wiki/HSL_color_space.
  * Assumes r, g, and b are contained in the set [0, 255] and
- * returns h, s, and l in the set [0, 1].
+ * returns h as [0, 360], s as [0, 100], and l as [0, 100].
  *
  * @param   number  r       The red color value
  * @param   number  g       The green color value
@@ -215,8 +226,8 @@ function getNearestHue(h: number, isDark?: boolean): number {
 }
 
 function getDistanceToNearestHue(h: number, isDark?: boolean): number {
-	// limit to 20 degrees at most so it doesn't look totally different
-	const hueDistanceLimit = 15;
+	// limit to 15 degrees at most so it doesn't look totally different
+	const hueDistanceLimit = 10;
 	const closest = getNearestHue(h, isDark);
 	// remember whether we're meant to be dealing with a negative number
 	const isGoingDown = h > closest;
