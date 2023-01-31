@@ -41,24 +41,28 @@
 	<!-- Stylesheets -->
 	<section class="space-y-4">
 		<h2>Skeleton Stylesheets</h2>
-		<TabGroup>
+		<TabGroup regionPanel="space-y-4">
+			<!-- Tabs -->
 			<Tab bind:group={$storeFramework} name="cli" value="cli">Skeleton CLI</Tab>
 			<Tab bind:group={$storeFramework} name="manu" value="manual">Manual Install</Tab>
+			<!-- Panel -->
+			<svelte:fragment slot="panel">
+				{#if $storeFramework === 'cli'}
+					<p>The CLI will automatically import Skeleton's <code>all.css</code> stylesyeet into <code>src/routes/+layout.svelte</code>.</p>
+				{:else if $storeFramework === 'manual'}
+					<!-- prettier-ignore -->
+					<p>
+						Import the Skeleton <code>all.css</code> stylesheet into <code>src/routes/+layout.svelte</code> betweeen your <a href="/guides/themes">Theme stylesheet</a> and SvelteKit's global stylesheet, called <code>app.postcss</code>.
+					</p>
+					<CodeBlock
+						language="typescript"
+						code={`
+import '@skeletonlabs/skeleton/styles/${$storeStylesheets === 'recommended' ? 'all' : '{stylehsheets}'}.css';
+						`}
+					/>
+				{/if}
+			</svelte:fragment>
 		</TabGroup>
-		{#if $storeFramework === 'cli'}
-			<p>The CLI will automatically import Skeleton's <code>all.css</code> stylesyeet into <code>src/routes/+layout.svelte</code>.</p>
-		{:else if $storeFramework === 'manual'}
-			<!-- prettier-ignore -->
-			<p>
-				Import the Skeleton <code>all.css</code> stylesheet into <code>src/routes/+layout.svelte</code> betweeen your <a href="/guides/themes">Theme stylesheet</a> and SvelteKit's global stylesheet, called <code>app.postcss</code>.
-			</p>
-			<CodeBlock
-				language="typescript"
-				code={`
-	import '@skeletonlabs/skeleton/styles/${$storeStylesheets === 'recommended' ? 'all' : '{stylehsheets}'}.css';
-				`}
-			/>
-		{/if}
 	</section>
 
 	<!-- Required Order -->

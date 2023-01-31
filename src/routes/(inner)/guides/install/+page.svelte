@@ -24,51 +24,54 @@
 
 	<!-- Frameworks -->
 	<section class="space-y-4">
-		<!-- Tabs -->
-		<TabGroup>
+		<TabGroup regionPanel="space-y-4">
+			<!-- Tabs -->
 			<Tab bind:group={$storeFramework} name="cli" value="cli">Skeleton CLI</Tab>
 			<Tab bind:group={$storeFramework} name="manu" value="manual">Manual Install</Tab>
-		</TabGroup>
-		{#if $storeFramework === 'cli'}
-			<p>
-				We provide an interactive CLI app to scaffold a new SvelteKit project and automatically configure Skeleton. Note that PNPM and Yarn
-				are supported.
-			</p>
-			<CodeBlock
-				language="console"
-				code={`
+			<!-- Panel -->
+			<svelte:fragment slot="panel">
+				{#if $storeFramework === 'cli'}
+					<p>
+						We provide an interactive CLI app to scaffold a new SvelteKit project and automatically configure Skeleton. Note that PNPM and
+						Yarn are supported.
+					</p>
+					<CodeBlock
+						language="console"
+						code={`
 npm create skeleton-app@latest my-skeleton-app
 	- Enable SvelteKit's Typescript syntax (recommended)
 cd my-skeleton-app
 npm run dev -- --open
-				`}
-			/>
-			<p>
-				Please continue through the additional guide sections to learn how the CLI has configures your app, how to set a custom theme, and
-				how to style elements.
-			</p>
-		{:else if $storeFramework === 'manual'}
-			<!-- prettier-ignore -->
-			<p>
-				If you're migrating from an existing SvelteKit project please refer to the <a href="https://kit.svelte.dev/" target="_blank" rel="noreferrer">official documentation</a> for creating a new SvelteKit project.
-			</p>
-			<CodeBlock
-				language="console"
-				code={`
+						`}
+					/>
+					<p>
+						Please continue through the additional guide sections to learn how the CLI has configures your app, how to set a custom theme,
+						and how to style elements.
+					</p>
+				{:else if $storeFramework === 'manual'}
+					<!-- prettier-ignore -->
+					<p>
+						If you're migrating from an existing SvelteKit project please refer to the <a href="https://kit.svelte.dev/" target="_blank" rel="noreferrer">official documentation</a> for creating a new SvelteKit project.
+					</p>
+					<CodeBlock
+						language="console"
+						code={`
 npm create svelte@latest my-skeleton-app
 cd my-skeleton-app
 npm install
 npm run dev -- --open
-`}
-			/>
-			<!-- Install Skeleton -->
-			<h2>Install Skeleton</h2>
-			<!-- prettier-ignore -->
-			<p>
-				Install the core <a href="https://www.npmjs.com/package/@skeletonlabs/skeleton" target="_blank" rel="noreferrer">Skeleton package</a>.
-			</p>
-			<CodeBlock language="console" code={`npm i @skeletonlabs/skeleton --save-dev`} />
-		{/if}
+		`}
+					/>
+					<!-- Install Skeleton -->
+					<h2>Install Skeleton</h2>
+					<!-- prettier-ignore -->
+					<p>
+						Install the core <a href="https://www.npmjs.com/package/@skeletonlabs/skeleton" target="_blank" rel="noreferrer">Skeleton package</a>.
+					</p>
+					<CodeBlock language="console" code={`npm i @skeletonlabs/skeleton --save-dev`} />
+				{/if}
+			</svelte:fragment>
+		</TabGroup>
 	</section>
 
 	<hr />

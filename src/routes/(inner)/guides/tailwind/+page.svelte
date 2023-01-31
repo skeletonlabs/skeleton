@@ -18,22 +18,27 @@
 
 	<!-- Tailwind Install -->
 	<section class="space-y-8">
-		<TabGroup>
+		<TabGroup regionPanel="space-y-4">
+			<!-- Tabs -->
 			<Tab bind:group={$storeFramework} name="cli" value="cli">Skeleton CLI</Tab>
 			<Tab bind:group={$storeFramework} name="manu" value="manual">Manual Install</Tab>
+			<!-- Panel -->
+			<svelte:fragment slot="panel">
+				{#if $storeFramework === 'cli'}
+					<p>
+						The CLI will automatically run <a href="https://github.com/svelte-add/tailwindcss" target="_blank" rel="noreferrer"
+							>Svelte-Add</a
+						>, which will install and configure Tailwind in your SvelteKit project.
+					</p>
+				{:else if $storeFramework === 'manual'}
+					<p>
+						<a href="https://github.com/svelte-add/tailwindcss" target="_blank" rel="noreferrer">Svelte-Add</a> makes it trivial to install and
+						setup Tailwind. Run the following command in your terminal.
+					</p>
+					<CodeBlock language="console" code={`npx svelte-add@latest tailwindcss\nnpm install`} />
+				{/if}
+			</svelte:fragment>
 		</TabGroup>
-		{#if $storeFramework === 'cli'}
-			<p>
-				The CLI will automatically run <a href="https://github.com/svelte-add/tailwindcss" target="_blank" rel="noreferrer">Svelte-Add</a>,
-				which will install and configure Tailwind in your SvelteKit project.
-			</p>
-		{:else if $storeFramework === 'manual'}
-			<p>
-				<a href="https://github.com/svelte-add/tailwindcss" target="_blank" rel="noreferrer">Svelte-Add</a> makes it trivial to install and setup
-				Tailwind. Run the following command in your terminal.
-			</p>
-			<CodeBlock language="console" code={`npx svelte-add@latest tailwindcss\nnpm install`} />
-		{/if}
 	</section>
 
 	<!-- Usage -->

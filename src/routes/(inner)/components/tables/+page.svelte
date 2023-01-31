@@ -136,7 +136,6 @@ const tableSimple: TableSource = {
 				<Tab bind:group={$storeService} name="tableMapperValues" value="tableMapperValues">Mapper Values</Tab>
 				<Tab bind:group={$storeService} name="tableSourceMapper" value="tableSourceMapper">Source Mapper</Tab>
 				<Tab bind:group={$storeService} name="tableSourceValues" value="tableSourceValues">Source Values</Tab>
-				<!-- <Tab value="tableCellFormatter">Cell Formatter</Tab> -->
 			</TabGroup>
 			<CodeBlock language="ts" code={`import { ${$storeService} } from '@skeletonlabs/skeleton';>`} />
 			{#if $storeService === 'tableMapperValues'}
@@ -187,20 +186,6 @@ tableSourceValues(sourceData);\n
 //]
 `}
 				/>
-				<!-- DISABLED: see comments in utils.ts -->
-				<!-- {else if $storeService === 'tableCellFormatter'}
-				<p>Table cells can accept HTML via template literals. This method allows wrapping HTML tags arround a particular object value.</p>
-				<CodeBlock
-					language="ts"
-					code={`
-tableCellFormatter(sourceData, 'weight', 'em', 'opacity-50');\n
-// [
-//	{ position: 1, name: 'Hydrogen', weight: '<em class="opacity-50">1.0079</em>', symbol: 'H' },
-//	{ position: 2, name: 'Helium', weight: '<em class="opacity-50">4.0026</em>', symbol: 'He' },
-//	...
-// ]
-`}
-				/> -->
 			{/if}
 		</section>
 		<hr />

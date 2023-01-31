@@ -92,18 +92,21 @@
 			</small>
 		</div>
 		<!-- Implement -->
-		<TabGroup>
+		<TabGroup regionPanel="space-y-4">
 			<Tab bind:group={$storeFramework} name="cli" value="cli">Skeleton CLI</Tab>
 			<Tab bind:group={$storeFramework} name="manu" value="manual">Manual Install</Tab>
+			<!-- Panel -->
+			<svelte:fragment slot="panel">
+				{#if $storeFramework === 'cli'}
+					<p>
+						The CLI will automatically import your selected theme into <code>src/routes/+layout.svelte</code> before your global stylesheet.
+						You may change this at any time.
+					</p>
+				{:else if $storeFramework === 'manual'}
+					<p>Import your desired preset into <code>/src/main.js</code> before your global stylesheet.</p>
+				{/if}
+			</svelte:fragment>
 		</TabGroup>
-		{#if $storeFramework === 'cli'}
-			<p>
-				The CLI will automatically import your selected theme into <code>src/routes/+layout.svelte</code> before your global stylesheet. You
-				may change this at any time.
-			</p>
-		{:else if $storeFramework === 'manual'}
-			<p>Import your desired preset into <code>/src/main.js</code> before your global stylesheet.</p>
-		{/if}
 		<CodeBlock
 			language="typescript"
 			code={`import '@skeletonlabs/skeleton/themes/theme-skeleton.css'; // <--\nimport '../app.postcss';\n`}
