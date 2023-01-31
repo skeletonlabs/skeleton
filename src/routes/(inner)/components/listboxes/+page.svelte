@@ -4,8 +4,10 @@
 
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import ListBox from '$lib/components/ListBox/ListBox.svelte';
+	import ListBoxItem from '$lib/components/ListBox/ListBoxItem.svelte';
 
 	import sveldListBox from '$lib/components/ListBox/ListBox.svelte?raw&sveld';
+	import sveldListBoxItem from '$lib/components/ListBox/ListBoxItem.svelte?raw&sveld';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -15,7 +17,10 @@
 		imports: ['ListBox', 'ListBoxItem'],
 		source: 'components/ListBox',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/listbox/',
-		components: [{ label: 'ListBox', sveld: sveldListBox }],
+		components: [
+			{ label: 'ListBox', sveld: sveldListBox },
+			{ label: 'ListBoxItem', sveld: sveldListBoxItem, overrideProps: ['rounded', 'active', 'hover', 'padding'] }
+		],
 		keyboard: [
 			['<kbd>Tab</kbd>', 'Focus the next listbox item.'],
 			['<kbd>Shift + Tab</kbd> ', 'Focus the previous listbox item.'],
@@ -24,47 +29,33 @@
 	};
 
 	// Local
-	let source = [
-		{
-			label: 'List Option 1',
-			value: 1
-		},
-		{ label: 'List Option 2', value: 2 },
-		{ label: 'List Option 3', value: 3 },
-		{ label: 'List Option 4', value: 4 }
-	];
-	let valueSingle: number = 1;
-	let valueMultiple: number[] = [1, 2];
+	let valueSingle: string = 'books';
+	let valueMultiple: string[] = ['books', 'movies'];
 </script>
 
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+		<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
 			<div class="space-y-2">
-				<div class="card variant-glass p-4">
-					<label for="listbox-single" class="input-label">
-						<span>Single</span>
-						<ListBox name="listbox-single" bind:source bind:value={valueSingle} />
-					</label>
+				<div class="card variant-glass p-4 space-y-4">
+					<ListBox>
+						<ListBoxItem bind:group={valueSingle} name="books" value="books">Books</ListBoxItem>
+						<ListBoxItem bind:group={valueSingle} name="movies" value="movies">Movies</ListBoxItem>
+						<ListBoxItem bind:group={valueSingle} name="television" value="television">Television</ListBoxItem>
+					</ListBox>
 				</div>
 				<p class="text-center">Selected: <code>{valueSingle}</code></p>
 			</div>
 			<div class="space-y-2">
 				<div class="card variant-glass p-4 space-y-4">
-					<label for="listbox-multiple" class="input-label">
-						<span>Multiple</span>
-						<ListBox
-							name="listbox-multiple"
-							active="bg-secondary-active-token"
-							hover="hover:bg-secondary-hover-token"
-							bind:source
-							bind:value={valueMultiple}
-							multiple
-						/>
-					</label>
+					<ListBox active="variant-filled-primary" hover="hover:variant-soft-primary" multiple>
+						<ListBoxItem bind:group={valueMultiple} name="books" value="books">Books</ListBoxItem>
+						<ListBoxItem bind:group={valueMultiple} name="movies" value="movies">Movies</ListBoxItem>
+						<ListBoxItem bind:group={valueMultiple} name="television" value="television">Television</ListBoxItem>
+					</ListBox>
 				</div>
-				<p class="text-center">Selected: <code>{valueMultiple.join(',')}</code></p>
+				<p class="text-center">Selected: <code>{valueMultiple.length ? valueMultiple : 'None'}</code></p>
 			</div>
 		</section>
 	</svelte:fragment>
@@ -72,43 +63,37 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<p>Provide your source data containing an array of objects with <code>label</code> and <code>value</code> keys.</p>
+			<h3>Single Selection</h3>
+			<p>By default the listbox uses a native <u>radio inputs</u> to ensure only one item is selcted at a time.</p>
+			<CodeBlock language="typescript" code={`let valueSingle: string = 'books';`} />
 			<CodeBlock
-				language="typescript"
+				language="html"
 				code={`
-let source = [
-	{ label: 'List Option 1', value: 1 },
-	{ label: 'List Option 2', value: 2 },
-	{ label: 'List Option 3', value: 3 },
-	{ label: 'List Option 4', value: 4 }
-];
+<ListBox>
+	<ListBoxItem bind:group={valueSingle} name="books" value="books">Books</ListBoxItem>
+	<ListBoxItem bind:group={valueSingle} name="movies" value="movies">Movies</ListBoxItem>
+	<ListBoxItem bind:group={valueSingle} name="television" value="television">Television</ListBoxItem>
+</ListBox>
 			`}
 			/>
-			<h3>Single Selection</h3>
-			<p>
-				Add a unique <code>name</code>, bind your <code>source</code>, then optionally bind your <code>value</code>. Value must be a single
-				item (string, number, etc).
-			</p>
-			<CodeBlock language="typescript" code={`let valueSingle: number = 1;`} />
-			<CodeBlock language="html" code={`<ListBox name="listbox-single" bind:source bind:value={valueSingle} />`} />
 			<h3>Multiple Selection</h3>
 			<p>
-				Add a unique <code>name</code>, bind your <code>source</code>, then optionally bind your <code>value</code>. Value must be an array
-				and the <code>multiple</code> property must be set.
+				By adding the <code>multiple</code> property, the component uses native <u>checkboxes inputs</u>, which allows for multi-select.
 			</p>
-			<CodeBlock language="typescript" code={`let valueMultiple: any[] = [1, 2];`} />
-			<CodeBlock language="html" code={`<ListBox name="listbox-multiple" bind:source bind:value={valueMultiple} multiple />`} />
+			<CodeBlock language="typescript" code={`let valueMultiple: string[] = ['books', 'movies'];`} />
+			<CodeBlock language="html" code={`<ListBox multiple>...</ListBox>`} />
 		</section>
 		<section class="space-y-4">
-			<h2>Option HTML Markup</h2>
-			<p>Option labels accept template literals for HTML markup.</p>
+			<h2>Lead and Trail Slots</h2>
+			<p>Each Listbox item supports a <code>lead</code> and <code>trail</code> slot, which can be useful for icons or actions.</p>
 			<CodeBlock
-				language="typescript"
+				language="html"
 				code={`
-let source = [
-	{ label: '<strong>Html Markup Here</strong>', value: 1 },
-	// ...
-];
+<ListBoxItem bind:group={valueSingle} name="books" value="books">
+	<svelte:fragment slot="lead">(icon)</svelte:fragment>
+	(label)
+	<svelte:fragment slot="trail">(icon)</svelte:fragment>
+</ListBoxItem>
 			`}
 			/>
 		</section>
