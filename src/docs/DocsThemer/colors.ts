@@ -161,9 +161,7 @@ function destringRgb(rgbString: string): Rgb {
 }
 
 function handleString(colorString: string): Rgb {
-	console.log('running handleString on "' + colorString + '"');
-
-	// it's a css variable
+	// if it's a css variable
 	if (colorString.includes('--')) {
 		colorString = colorString.replace(/var\(|\)/g, ''); // grab just the variable name
 		const cssVarHydrated = getComputedStyle(document.documentElement).getPropertyValue(colorString).trim();
@@ -180,7 +178,6 @@ function handleString(colorString: string): Rgb {
 function calculateRatio(luminance1: string | number, luminance2: string | number) {
 	const lum1 = typeof luminance1 === 'string' ? luminance(handleString(luminance1)) : luminance1;
 	const lum2 = typeof luminance2 === 'string' ? luminance(handleString(luminance2)) : luminance2;
-	console.log(lum1, lum2);
 	if (lum1 === undefined || lum2 === undefined) throw new Error('Luminance is undefined!');
 	return lum1 > lum2 ? (lum2 + 0.05) / (lum1 + 0.05) : (lum1 + 0.05) / (lum2 + 0.05);
 }
@@ -208,6 +205,7 @@ export function getPassReport(textColor: string, backgroundColor: string) {
 			textColor +
 			' and ' +
 			backgroundColor +
+			' ' +
 			(smallAAA
 				? 'has great contrast!'
 				: smallAA

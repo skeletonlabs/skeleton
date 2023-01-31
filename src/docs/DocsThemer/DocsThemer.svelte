@@ -148,7 +148,7 @@
 								</select>
 								<div
 									title={contrastReport.report.note}
-									class="badge-icon !inline-flex -top-1 -right-1 z-10"
+									class="badge-icon aspect-square relative -top-1 right-4 z-10"
 									class:!bg-error-500={contrastReport.fails}
 									class:!bg-warning-500={contrastReport.largeAA}
 									class:!bg-success-500={contrastReport.smallAAA || contrastReport.smallAA}
