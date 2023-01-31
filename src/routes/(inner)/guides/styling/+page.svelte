@@ -153,8 +153,6 @@
 		<p>This section covers best practices for stylesheet imports and overriding component styles.</p>
 	</header>
 
-	<hr />
-
 	<!-- Stylesheets -->
 	<section class="space-y-4">
 		<h2>Skeleton Stylesheets</h2>
@@ -203,8 +201,6 @@ import '@skeletonlabs/skeleton/styles/${$storeStylesheets === 'recommended' ? 'a
 		{/if}
 	</section>
 
-	<hr />
-
 	<!-- Global Styles -->
 	<section class="space-y-4">
 		<h2>Global Stylesheet</h2>
@@ -243,8 +239,6 @@ import '@skeletonlabs/skeleton/styles/${$storeStylesheets === 'recommended' ? 'a
 		{/if}
 	</section>
 
-	<hr />
-
 	<!-- Required Order -->
 	<section class="space-y-4">
 		<h2>Import Order</h2>
@@ -261,15 +255,13 @@ import '../app.postcss';
 		/>
 	</section>
 
-	<hr />
-
 	<section class="space-y-4">
 		<div class="space-y-4">
 			<h2>How to Customize Styles</h2>
 			<p>Learn how to customize Skeleton components and elements below.</p>
 		</div>
 		<div class="card p-4 variant-glass-surface">
-			<Accordion>
+			<Accordion autocollapse>
 				<AccordionItem spacing="space-y-4" open>
 					<svelte:fragment slot="summary"><h3>Via Component Props</h3></svelte:fragment>
 					<div slot="content" class="space-y-4">

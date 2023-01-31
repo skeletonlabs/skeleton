@@ -122,6 +122,15 @@
 				<nav class="list-nav">
 					<ul>
 						<li>
+							<a href="/">
+								<span class="w-6 text-center"><i class="fa-solid fa-home" /></span>
+								<span>Homepage</span>
+							</a>
+							<a href="/blog">
+								<span class="w-6 text-center"><i class="fa-solid fa-bullhorn" /></span>
+								<span>Blog</span>
+							</a>
+							<hr class="my-4">
 							<a href="/docs/why">
 								<span class="w-6 text-center"><i class="fa-solid fa-sheet-plastic" /></span>
 								<span>Docs</span>
@@ -142,11 +151,6 @@
 							<a href="/utilities/codeblocks">
 								<span class="w-6 text-center"><i class="fa-solid fa-screwdriver-wrench" /></span>
 								<span>Utilities</span>
-							</a>
-							<hr class="my-4">
-							<a href="/blog">
-								<span class="w-6 text-center"><i class="fa-solid fa-bullhorn" /></span>
-								<span>Blog</span>
 							</a>
 						</li>
 					</ul>
