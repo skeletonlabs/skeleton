@@ -18,9 +18,9 @@
 
 	<!-- Tailwind Install -->
 	<section class="space-y-8">
-		<TabGroup selected={storeFramework}>
-			<Tab value="cli">Skeleton CLI</Tab>
-			<Tab value="manual">Manual Install</Tab>
+		<TabGroup>
+			<Tab bind:group={$storeFramework} name="cli" value="cli">Skeleton CLI</Tab>
+			<Tab bind:group={$storeFramework} name="manu" value="manual">Manual Install</Tab>
 		</TabGroup>
 		{#if $storeFramework === 'cli'}
 			<p>

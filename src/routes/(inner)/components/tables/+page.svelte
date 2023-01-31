@@ -132,10 +132,10 @@ const tableSimple: TableSource = {
 		<section class="space-y-4">
 			<h2>Table Utilities</h2>
 			<p>The following utility methods allow you to format your source data for use within a Table component.</p>
-			<TabGroup selected={storeService}>
-				<Tab value="tableMapperValues">Mapper Values</Tab>
-				<Tab value="tableSourceMapper">Source Mapper</Tab>
-				<Tab value="tableSourceValues">Source Values</Tab>
+			<TabGroup>
+				<Tab bind:group={$storeService} name="tableMapperValues" value="tableMapperValues">Mapper Values</Tab>
+				<Tab bind:group={$storeService} name="tableSourceMapper" value="tableSourceMapper">Source Mapper</Tab>
+				<Tab bind:group={$storeService} name="tableSourceValues" value="tableSourceValues">Source Values</Tab>
 				<!-- <Tab value="tableCellFormatter">Cell Formatter</Tab> -->
 			</TabGroup>
 			<CodeBlock language="ts" code={`import { ${$storeService} } from '@skeletonlabs/skeleton';>`} />

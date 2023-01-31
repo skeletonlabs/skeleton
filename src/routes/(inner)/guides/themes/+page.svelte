@@ -74,7 +74,6 @@
 					<div
 						class="card p-4 text-white hover:ring-surface-500/50 cursor-pointer space-y-4"
 						style:background={preset.surface}
-						target="_blank" rel="noreferrer"
 						on:click={() => { copyThemeToClipboard(preset.file); }}
 						on:keydown={() => { copyThemeToClipboard(preset.file); }}
 					>
@@ -93,9 +92,9 @@
 			</small>
 		</div>
 		<!-- Implement -->
-		<TabGroup selected={storeFramework}>
-			<Tab value="cli">Skeleton CLI</Tab>
-			<Tab value="manual">Manual Install</Tab>
+		<TabGroup>
+			<Tab bind:group={$storeFramework} name="cli" value="cli">Skeleton CLI</Tab>
+			<Tab bind:group={$storeFramework} name="manu" value="manual">Manual Install</Tab>
 		</TabGroup>
 		{#if $storeFramework === 'cli'}
 			<p>

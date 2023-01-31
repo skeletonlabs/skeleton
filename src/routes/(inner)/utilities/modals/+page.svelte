@@ -8,7 +8,7 @@
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-expect-error sveld import
+	// Sveld
 	import sveldModal from '$lib/utilities/Modal/Modal.svelte?raw&sveld';
 
 	// Modals Utils
@@ -176,10 +176,10 @@
 			<CodeBlock language="ts" code={`import { modalStore } from '@skeletonlabs/skeleton';`} />
 			<h3>Trigger</h3>
 			<p>Note that <code>title</code>, <code>body</code>, and <code>image</code> are optional for <u>all</u> modal types.</p>
-			<TabGroup selected={storeModalStandard}>
-				<Tab value="alert">Alert</Tab>
-				<Tab value="confirm">Confirm</Tab>
-				<Tab value="prompt">Prompt</Tab>
+			<TabGroup>
+				<Tab bind:group={$storeModalStandard} name="alert" value="alert">Alert</Tab>
+				<Tab bind:group={$storeModalStandard} name="confirm" value="confirm">Confirm</Tab>
+				<Tab bind:group={$storeModalStandard} name="prompt" value="prompt">Prompt</Tab>
 			</TabGroup>
 			{#if $storeModalStandard === 'alert'}
 				<CodeBlock
