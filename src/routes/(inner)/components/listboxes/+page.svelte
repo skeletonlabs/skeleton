@@ -40,9 +40,18 @@
 			<div class="space-y-2">
 				<div class="card variant-glass p-4 space-y-4">
 					<ListBox>
-						<ListBoxItem bind:group={valueSingle} name="books" value="books">Books</ListBoxItem>
-						<ListBoxItem bind:group={valueSingle} name="movies" value="movies">Movies</ListBoxItem>
-						<ListBoxItem bind:group={valueSingle} name="television" value="television">Television</ListBoxItem>
+						<ListBoxItem bind:group={valueSingle} name="books" value="books">
+							<svelte:fragment slot="lead"><i class="fa-solid fa-book w-6 text-center" /></svelte:fragment>
+							Books
+						</ListBoxItem>
+						<ListBoxItem bind:group={valueSingle} name="movies" value="movies">
+							<svelte:fragment slot="lead"><i class="fa-solid fa-film w-6 text-center" /></svelte:fragment>
+							Movies
+						</ListBoxItem>
+						<ListBoxItem bind:group={valueSingle} name="television" value="television">
+							<svelte:fragment slot="lead"><i class="fa-solid fa-tv w-6 text-center" /></svelte:fragment>
+							Television
+						</ListBoxItem>
 					</ListBox>
 				</div>
 				<p class="text-center">Selected: <code>{valueSingle}</code></p>
@@ -50,9 +59,18 @@
 			<div class="space-y-2">
 				<div class="card variant-glass p-4 space-y-4">
 					<ListBox active="variant-filled-primary" hover="hover:variant-soft-primary" multiple>
-						<ListBoxItem bind:group={valueMultiple} name="books" value="books">Books</ListBoxItem>
-						<ListBoxItem bind:group={valueMultiple} name="movies" value="movies">Movies</ListBoxItem>
-						<ListBoxItem bind:group={valueMultiple} name="television" value="television">Television</ListBoxItem>
+						<ListBoxItem bind:group={valueMultiple} name="books" value="books">
+							<svelte:fragment slot="lead"><i class="fa-solid fa-book w-6 text-center" /></svelte:fragment>
+							Books
+						</ListBoxItem>
+						<ListBoxItem bind:group={valueMultiple} name="movies" value="movies">
+							<svelte:fragment slot="lead"><i class="fa-solid fa-film w-6 text-center" /></svelte:fragment>
+							Movies
+						</ListBoxItem>
+						<ListBoxItem bind:group={valueMultiple} name="television" value="television">
+							<svelte:fragment slot="lead"><i class="fa-solid fa-tv w-6 text-center" /></svelte:fragment>
+							Television
+						</ListBoxItem>
 					</ListBox>
 				</div>
 				<p class="text-center">Selected: <code>{valueMultiple.length ? valueMultiple : 'None'}</code></p>
