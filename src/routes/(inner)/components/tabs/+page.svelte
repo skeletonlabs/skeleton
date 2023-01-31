@@ -1,9 +1,6 @@
 <script lang="ts">
-	import { writable } from 'svelte/store';
-
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
-	import SvgIcon from '$docs/SvgIcon/SvgIcon.svelte';
 
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
 	import Tab from '$lib/components/Tab/Tab.svelte';
@@ -11,10 +8,6 @@
 
 	import sveldTabGroup from '$lib/components/Tab/TabGroup.svelte?raw&sveld';
 	import sveldTab from '$lib/components/Tab/Tab.svelte?raw&sveld';
-
-	let storeOne = writable('a');
-	let storeTwo = writable('a');
-	let storeThree = writable('a');
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -26,8 +19,17 @@
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/tabpanel/',
 		components: [
 			{ label: 'TabGroup', sveld: sveldTabGroup },
-			{ label: 'Tab', sveld: sveldTab, overrideProps: ['borderWidth', 'borderColor', 'color', 'fill', 'hover', 'rounded'] }
+			{ label: 'Tab', sveld: sveldTab, overrideProps: ['active', 'hover', 'flex', 'padding', 'rounded'] }
 		]
+	};
+
+	// Local
+	let tabsBasic: number = 0;
+	let tabsFancy: number = 0;
+	let desc = {
+		books: 'A written or printed work consisting of pages glued or sewn together along one side and bound in covers.',
+		movies: 'A story or event recorded by a camera as a set of moving images and shown in a theater or on television; a motion picture.',
+		tv: 'A system for transmitting visual images and sound to screens, chiefly for entertainment, information, and education.'
 	};
 </script>
 
@@ -35,89 +37,50 @@
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-4">
-			<h2 class="sr-only">Examples</h2>
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-				<div class="card p-4 space-y-4">
-					<TabGroup selected={storeOne}>
-						<Tab value="a">Tab A</Tab>
-						<Tab value="b">Tab B</Tab>
-						<Tab value="c">Tab C</Tab>
-					</TabGroup>
-					<div>
-						{#if $storeOne === 'a'}Content A{/if}
-						{#if $storeOne === 'b'}Content B{/if}
-						{#if $storeOne === 'c'}Content C{/if}
-					</div>
-				</div>
-				<div class="card p-4 space-y-4">
-					<TabGroup
-						selected={storeTwo}
-						justify="justify-start md:justify-end"
-						borderColor="border-secondary-500"
-						color="text-secondary-500"
-						hover="hover:bg-secondary-500/10"
-					>
-						<Tab value="a">Tab A</Tab>
-						<Tab value="b">Tab B</Tab>
-						<Tab value="c">Tab C</Tab>
-					</TabGroup>
-					<div>
-						{#if $storeTwo === 'a'}Content A{/if}
-						{#if $storeTwo === 'b'}Content B{/if}
-						{#if $storeTwo === 'c'}Content C{/if}
-					</div>
-				</div>
+			<div class="card variant-glass p-4 space-y-4">
+				<TabGroup>
+					<!-- Tabs -->
+					<Tab bind:group={tabsBasic} name="books" value={0}>Books</Tab>
+					<Tab bind:group={tabsBasic} name="movies" value={1}>Movies</Tab>
+					<Tab bind:group={tabsBasic} name="tv" value={2}>Television</Tab>
+					<!-- Panel -->
+					<svelte:fragment slot="panel">
+						{#if tabsBasic === 0}
+							<p>{desc.books}</p>
+						{:else if tabsBasic === 1}
+							<p>{desc.movies}</p>
+						{:else if tabsBasic === 2}
+							<p>{desc.tv}</p>
+						{/if}
+					</svelte:fragment>
+				</TabGroup>
 			</div>
-			<div class="card p-4 space-y-4">
-				<TabGroup
-					selected={storeThree}
-					justify="justify-start md:justify-center"
-					borderColor="border-tertiary-500"
-					fill="fill-tertiary-500"
-					color="text-tertiary-500"
-					hover="hover:bg-tertiary-500/10"
-				>
-					<Tab value="a">
-						<svelte:fragment slot="lead">
-							<i class="fa-solid fa-book" />
-						</svelte:fragment>
+			<div class="card variant-glass p-4 space-y-4">
+				<TabGroup justify="justify-center" active="border-b-4 border-primary-500" hover="hover:variant-soft-primary">
+					<!-- Tabs -->
+					<Tab bind:group={tabsFancy} name="books" value={0}>
+						<svelte:fragment slot="lead"><i class="fa-solid fa-book" /></svelte:fragment>
 						Books
 					</Tab>
-					<Tab value="b">
-						<svelte:fragment slot="lead">
-							<i class="fa-solid fa-clapperboard" />
-						</svelte:fragment>
+					<Tab bind:group={tabsFancy} name="movies" value={1}>
+						<svelte:fragment slot="lead"><i class="fa-solid fa-film" /></svelte:fragment>
 						Movies
 					</Tab>
-					<Tab value="c">
-						<svelte:fragment slot="lead">
-							<i class="fa-solid fa-tv" />
-						</svelte:fragment>
+					<Tab bind:group={tabsFancy} name="tv" value={2}>
+						<svelte:fragment slot="lead"><i class="fa-solid fa-tv" /></svelte:fragment>
 						Television
 					</Tab>
+					<!-- Panel -->
+					<svelte:fragment slot="panel">
+						{#if tabsFancy === 0}
+							<p class="text-center">{desc.books}</p>
+						{:else if tabsFancy === 1}
+							<p class="text-center">{desc.movies}</p>
+						{:else if tabsFancy === 2}
+							<p class="text-center">{desc.tv}</p>
+						{/if}
+					</svelte:fragment>
 				</TabGroup>
-				<div>
-					{#if $storeThree === 'a'}
-						<h3>Books</h3>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-						</p>
-					{/if}
-					{#if $storeThree === 'b'}
-						<h3>Movies</h3>
-						<p>
-							Nisl nunc mi ipsum faucibus vitae aliquet nec. Ac ut consequat semper viverra nam libero justo laoreet. Nec sagittis aliquam
-							malesuada.
-						</p>
-					{/if}
-					{#if $storeThree === 'c'}
-						<h3>Television</h3>
-						<p>
-							Ut sem viverra aliquet eget sit. Porttitor lacus luctus accumsan tortor posuere ac ut consequat. Vulputate enim nulla aliquet
-							porttitor.
-						</p>
-					{/if}
-				</div>
 			</div>
 		</section>
 	</svelte:fragment>
@@ -125,20 +88,59 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<CodeBlock language="typescript" code={`import { writable, type Writable } from 'svelte/store';`} />
-			<CodeBlock language="typescript" code={`const storeTab: Writable<string> = writable('a');`} />
+			<p>
+				Tabs utilize native radio groups to control state. Bind a shared <code>group</code>
+				value, then provide a unique <code>value</code> per tab.
+			</p>
+			<CodeBlock language="ts" code={`let tabSet: number = 0;`} />
 			<CodeBlock
 				language="html"
 				code={`
-<TabGroup selected={storeTab}>
-	<Tab value="a">(labelA)</Tab>
-	<Tab value="b">(labelB)</Tab>
+<TabGroup>
+	<Tab bind:group={tabSet} name="tab1" value={0}>(label)</Tab>
+	<Tab bind:group={tabSet} name="tab2" value={1}>(label)</Tab>
+	<Tab bind:group={tabSet} name="tab3" value={2}>(label)</Tab>
 </TabGroup>
-
-<!-- Conditionally display content -->
-{#if $storeTab === 'a'}Content A{/if}
-{#if $storeTab === 'b'}Content B{/if}`}
+			`}
 			/>
+		</section>
+		<section class="space-y-4">
+			<h2>Tab Panel Slot</h2>
+			<p>
+				You may optionally use the built-in <code>panel</code> slot. Use Svelte conditional blocks to display your active tab panel contents.
+			</p>
+			<CodeBlock
+				language="html"
+				code={`
+<TabGroup>
+	<!-- (list of tabs) --->
+
+	<!-- Tab Panels --->
+	<svelte:fragment slot="panel">
+		{#if tabSet === 0}
+			(tab panel 1 contents)
+		{:else if tabSet === 1}
+			(tab panel 2 contents)
+		{:else if tabSet === 2}
+			(tab panel 3 contents)
+		{/if}
+	</svelte:fragment>
+</TabGroup>
+			`}
+			/>
+		</section>
+		<section class="space-y-4">
+			<h2>Using Svelte Stores</h2>
+			<p>
+				You may optionally choose to use Svelte writable stores to control your tab group state. Note the use of the <code>$</code> sign
+				withing the <code>bind:group</code> property. Pair this with Skeleton's
+				<a href="/utlities/local-storage-store">Local Storage Store</a> for automatic persistence.
+			</p>
+			<CodeBlock
+				language="ts"
+				code={`import { writable, type Writable } from 'svelte/store';\n\nconst tabSet: Writable<number> = writable(0);`}
+			/>
+			<CodeBlock language="ts" code={`<Tab bind:group={$tabSet} name="tab1" value={0}>(label)</Tab>`} />
 		</section>
 	</svelte:fragment>
 </DocsShell>
