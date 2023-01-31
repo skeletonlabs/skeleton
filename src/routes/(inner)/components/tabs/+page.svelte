@@ -3,10 +3,10 @@
 
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
+	import SvgIcon from '$docs/SvgIcon/SvgIcon.svelte';
 
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
 	import Tab from '$lib/components/Tab/Tab.svelte';
-	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	import sveldTabGroup from '$lib/components/Tab/TabGroup.svelte?raw&sveld';

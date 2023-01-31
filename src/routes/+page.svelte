@@ -1,9 +1,9 @@
 <script lang="ts">
 	// Docs
 	import DocsLogoAnim from '$docs/DocsLogo/DocsLogoAnim.svelte';
+	import SvgIcon from '$docs/SvgIcon/SvgIcon.svelte';
 	// Components
 	import Avatar from '$lib/components/Avatar/Avatar.svelte';
-	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 
 	// Fetch HTTP Data
 	async function fetchHttpData(url: string, key?: string): Promise<any> {

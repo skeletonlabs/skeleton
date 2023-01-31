@@ -8,12 +8,11 @@
 
 	// Docs
 	import DocsLogoFull from '$docs/DocsLogo/DocsLogoFull.svelte';
-	import DocsLogoIcon from '$docs/DocsLogo/DocsLogoIcon.svelte';
 	import DocsSearch from '$docs/DocsSearch/DocsSearch.svelte';
+	import SvgIcon from '$docs/SvgIcon/SvgIcon.svelte';
 
 	// Components
 	import AppBar from '$lib/components/AppBar/AppBar.svelte';
-	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
 	// Utilities
 	import LightSwitch from '$lib/utilities/LightSwitch/LightSwitch.svelte';
 	import { menu } from '$lib/utilities/Menu/menu';
