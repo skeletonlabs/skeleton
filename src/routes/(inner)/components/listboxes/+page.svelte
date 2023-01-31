@@ -39,39 +39,45 @@
 		<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
 			<div class="space-y-2">
 				<div class="card variant-glass p-4 space-y-4">
-					<ListBox>
-						<ListBoxItem bind:group={valueSingle} name="books" value="books">
-							<svelte:fragment slot="lead"><i class="fa-solid fa-book w-6 text-center" /></svelte:fragment>
-							Books
-						</ListBoxItem>
-						<ListBoxItem bind:group={valueSingle} name="movies" value="movies">
-							<svelte:fragment slot="lead"><i class="fa-solid fa-film w-6 text-center" /></svelte:fragment>
-							Movies
-						</ListBoxItem>
-						<ListBoxItem bind:group={valueSingle} name="television" value="television">
-							<svelte:fragment slot="lead"><i class="fa-solid fa-tv w-6 text-center" /></svelte:fragment>
-							Television
-						</ListBoxItem>
-					</ListBox>
+					<label for="" class="space-y-4">
+						<span>Single Selection</span>
+						<ListBox>
+							<ListBoxItem bind:group={valueSingle} name="books" value="books">
+								<svelte:fragment slot="lead"><i class="fa-solid fa-book w-6 text-center" /></svelte:fragment>
+								Books
+							</ListBoxItem>
+							<ListBoxItem bind:group={valueSingle} name="movies" value="movies">
+								<svelte:fragment slot="lead"><i class="fa-solid fa-film w-6 text-center" /></svelte:fragment>
+								Movies
+							</ListBoxItem>
+							<ListBoxItem bind:group={valueSingle} name="television" value="television">
+								<svelte:fragment slot="lead"><i class="fa-solid fa-tv w-6 text-center" /></svelte:fragment>
+								Television
+							</ListBoxItem>
+						</ListBox>
+					</label>
 				</div>
 				<p class="text-center">Selected: <code>{valueSingle}</code></p>
 			</div>
 			<div class="space-y-2">
 				<div class="card variant-glass p-4 space-y-4">
-					<ListBox active="variant-filled-primary" hover="hover:variant-soft-primary" multiple>
-						<ListBoxItem bind:group={valueMultiple} name="books" value="books">
-							<svelte:fragment slot="lead"><i class="fa-solid fa-book w-6 text-center" /></svelte:fragment>
-							Books
-						</ListBoxItem>
-						<ListBoxItem bind:group={valueMultiple} name="movies" value="movies">
-							<svelte:fragment slot="lead"><i class="fa-solid fa-film w-6 text-center" /></svelte:fragment>
-							Movies
-						</ListBoxItem>
-						<ListBoxItem bind:group={valueMultiple} name="television" value="television">
-							<svelte:fragment slot="lead"><i class="fa-solid fa-tv w-6 text-center" /></svelte:fragment>
-							Television
-						</ListBoxItem>
-					</ListBox>
+					<label for="" class="space-y-4">
+						<span>Multiple Selection</span>
+						<ListBox active="variant-filled-primary" hover="hover:variant-soft-primary" multiple>
+							<ListBoxItem bind:group={valueMultiple} name="books" value="books">
+								<svelte:fragment slot="lead"><i class="fa-solid fa-book w-6 text-center" /></svelte:fragment>
+								Books
+							</ListBoxItem>
+							<ListBoxItem bind:group={valueMultiple} name="movies" value="movies">
+								<svelte:fragment slot="lead"><i class="fa-solid fa-film w-6 text-center" /></svelte:fragment>
+								Movies
+							</ListBoxItem>
+							<ListBoxItem bind:group={valueMultiple} name="television" value="television">
+								<svelte:fragment slot="lead"><i class="fa-solid fa-tv w-6 text-center" /></svelte:fragment>
+								Television
+							</ListBoxItem>
+						</ListBox>
+					</label>
 				</div>
 				<p class="text-center">Selected: <code>{valueMultiple.length ? valueMultiple : 'None'}</code></p>
 			</div>
