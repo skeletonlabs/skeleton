@@ -202,10 +202,7 @@ export function getPassReport(textColor: string, backgroundColor: string) {
 	const report = {
 		emoji: smallAAA ? AAAEmoji : smallAA ? AAEmoji : largeAA ? largeAAEmoji : failEmoji,
 		note:
-			textColor +
-			' and ' +
-			backgroundColor +
-			' ' +
+			`${textColor} and ${backgroundColor} ` +
 			(smallAAA
 				? 'has great contrast!'
 				: smallAA
