@@ -144,7 +144,7 @@
 								</select>
 								<div
 									title={contrastReport.report.note}
-									class="badge-icon aspect-square relative -top-1 right-4 z-10"
+									class="badge-icon aspect-square relative -top-1 right-4 z-10 hover:scale-125 transition-all"
 									class:!text-stone-900={contrastReport.fails}
 									class:!bg-red-500={contrastReport.fails}
 									class:!text-zinc-900={contrastReport.largeAA}
