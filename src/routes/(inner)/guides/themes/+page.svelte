@@ -98,16 +98,15 @@
 			<!-- Panel -->
 			<svelte:fragment slot="panel">
 				{#if $storeFramework === 'cli'}
-					<p>
-						The CLI will automatically import your selected theme into <code>src/routes/+layout.svelte</code> before your global stylesheet.
-						You may change this at any time.
-					</p>
-				{:else if $storeFramework === 'manual'}
-					<p>Import your desired preset into <code>/src/main.js</code> before your global stylesheet.</p>
-				{/if}
+			<p>
+				The CLI will automatically import your selected theme into <code>src/routes/+layout.svelte</code> before your global stylesheet. You
+				may change this at any time.
+			</p>
+		{:else if $storeFramework === 'manual'}
+			<p>Import your desired preset into the root layout in <code>/src/routes/+layout.svelte</code>, just before your global stylesheet.</p>
+		{/if}
 			</svelte:fragment>
 		</TabGroup>
-		<CodeBlock language="ts" code={`import '@skeletonlabs/skeleton/themes/theme-skeleton.css'; // <--\nimport '../app.postcss';\n`} />
 		<!-- prettier-ignore -->
 		<p>
 			Some preset themes include special styles, such as a background. To use these, set the <code>data-theme</code> attribute in

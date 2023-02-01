@@ -63,6 +63,8 @@ async function removeDuplicateClasses(cssInJs) {
 
 		// if it's not a class selector, delete it (only want classes in the intellisense)
 		if (key[0] !== '.') delete cssInJs[key];
+		// deletes the dark variant of type selectors (ex: .dark body {...})
+		if (key.startsWith('.dark') && key[6] !== '.') delete cssInJs[key];
 
 		// if it's a default tailwind class, delete it
 		if (twClasses[key]) delete cssInJs[key];

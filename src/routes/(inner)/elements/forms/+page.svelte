@@ -143,42 +143,42 @@
 						<textarea rows="4" placeholder="Enter some long form content." />
 					</label>
 					<fieldset>
-						<label class="input-label">
-							<span>Checkboxes</span>
+						<div class="input-label">
+							<strong>Checkboxes</strong>
 							<div class="space-y-2">
-								<div class="flex items-center space-x-2">
+								<label class="flex items-center space-x-2">
 									<input type="checkbox" checked />
 									<p>Option 1</p>
-								</div>
-								<div class="flex items-center space-x-2">
+								</label>
+								<label class="flex items-center space-x-2">
 									<input type="checkbox" />
 									<p>Option 2</p>
-								</div>
-								<div class="flex items-center space-x-2">
+								</label>
+								<label class="flex items-center space-x-2">
 									<input type="checkbox" />
 									<p>Option 3</p>
-								</div>
+								</label>
 							</div>
-						</label>
+						</div>
 					</fieldset>
 					<fieldset>
-						<label class="input-label">
-							<span>Radio Buttons</span>
+						<div class="input-label">
+							<strong>Radio Buttons</strong>
 							<div class="space-y-2">
-								<div class="flex items-center space-x-2">
+								<label class="flex items-center space-x-2">
 									<input type="radio" checked name="radio-direct" value="1" />
 									<p>Option 1</p>
-								</div>
-								<div class="flex items-center space-x-2">
+								</label>
+								<label class="flex items-center space-x-2">
 									<input type="radio" name="radio-direct" value="2" />
 									<p>Option 2</p>
-								</div>
-								<div class="flex items-center space-x-2">
+								</label>
+								<label class="flex items-center space-x-2">
 									<input type="radio" name="radio-direct" value="3" />
 									<p>Option 3</p>
-								</div>
+								</label>
 							</div>
-						</label>
+						</div>
 					</fieldset>
 					<label class="input-label">
 						<span>Input (range)</span>
@@ -373,18 +373,24 @@ module.exports = {
 		<section class="space-y-4">
 			<h2>See Also</h2>
 			<p>Skeleton provides an extended set of custom form components.</p>
-			<div class="grid grid-cols-2 gap-4">
+			<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
 				<div class="card p-4 variant-glass-surface text-center">
-					<a class="btn variant-filled-secondary" href="/components/range-sliders">Range Slider &rarr;</a>
+					<a class="btn variant-filled-secondary" href="/components/file-buttons">File Buttons &rarr;</a>
+				</div>
+				<div class="card p-4 variant-glass-surface text-center">
+					<a class="btn variant-filled-secondary" href="/components/file-dropzones">File Dropzones &rarr;</a>
+				</div>
+				<div class="card p-4 variant-glass-surface text-center">
+					<a class="btn variant-filled-secondary" href="/components/input-chips">Input Chips &rarr;</a>
 				</div>
 				<div class="card p-4 variant-glass-surface text-center">
 					<a class="btn variant-filled-secondary" href="/components/radio-groups">Radio Group &rarr;</a>
 				</div>
 				<div class="card p-4 variant-glass-surface text-center">
-					<a class="btn variant-filled-secondary" href="/components/slide-toggles">Slide Toggles &rarr;</a>
+					<a class="btn variant-filled-secondary" href="/components/range-sliders">Range Slider &rarr;</a>
 				</div>
 				<div class="card p-4 variant-glass-surface text-center">
-					<a class="btn variant-filled-secondary" href="/components/input-chips">Input Chips &rarr;</a>
+					<a class="btn variant-filled-secondary" href="/components/slide-toggles">Slide Toggles &rarr;</a>
 				</div>
 			</div>
 		</section>

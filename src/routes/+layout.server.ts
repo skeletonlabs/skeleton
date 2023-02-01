@@ -1,4 +1,5 @@
 import type { LayoutServerLoad } from './$types';
+import { VERCEL_ENV } from '$env/static/private';
 
 export const load: LayoutServerLoad = async ({ cookies }) => {
 	let theme = cookies.get('theme');
@@ -9,5 +10,5 @@ export const load: LayoutServerLoad = async ({ cookies }) => {
 	}
 	// Imports theme as a string
 	const modules = import.meta.glob(`$lib/themes/*.css`, { as: 'raw' });
-	return { currentTheme: modules[`/src/lib/themes/theme-${theme}.css`]() };
+	return { currentTheme: modules[`/src/lib/themes/theme-${theme}.css`](), vercelEnv: VERCEL_ENV };
 };

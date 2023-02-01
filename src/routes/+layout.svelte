@@ -1,5 +1,6 @@
 <!-- Layout: (root) -->
 <script lang="ts">
+	import { inject } from '@vercel/analytics';
 	import hljs from 'highlight.js';
 	import '$lib/styles/highlight-js.css'; // was: 'highlight.js/styles/github-dark.css';
 	import { storeHighlightJs } from '$lib/utilities/CodeBlock/stores';
@@ -35,6 +36,11 @@
 	// Theme stylesheet is loaded from LayoutServerData
 	import type { LayoutServerData } from './$types';
 	export let data: LayoutServerData;
+
+	if (data.vercelEnv == 'production'){
+		inject();
+	}
+
 	$: ({ currentTheme } = data);
 
 	// Set body `data-theme` based on current theme status

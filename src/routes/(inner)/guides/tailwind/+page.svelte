@@ -25,18 +25,27 @@
 			<!-- Panel -->
 			<svelte:fragment slot="panel">
 				{#if $storeFramework === 'cli'}
-					<p>
-						The CLI will automatically run <a href="https://github.com/svelte-add/tailwindcss" target="_blank" rel="noreferrer"
-							>Svelte-Add</a
-						>, which will install and configure Tailwind in your SvelteKit project.
-					</p>
-				{:else if $storeFramework === 'manual'}
-					<p>
-						<a href="https://github.com/svelte-add/tailwindcss" target="_blank" rel="noreferrer">Svelte-Add</a> makes it trivial to install and
-						setup Tailwind. Run the following command in your terminal.
-					</p>
-					<CodeBlock language="console" code={`npx svelte-add@latest tailwindcss\nnpm install`} />
-				{/if}
+			<p>The CLI will automatically run the required steps to configure Tailwind for your SvelteKit project.</p>
+		{:else if $storeFramework === 'manual'}
+			<div class="space-y-4">
+				<p>
+					<a href="https://github.com/svelte-add/tailwindcss" target="_blank" rel="noreferrer">Svelte-Add</a> makes it trivial to install and
+					setup Tailwind. Run the following command in your terminal.
+				</p>
+				<CodeBlock language="console" code={`npx svelte-add@latest tailwindcss\nnpm install`} />
+				<!-- prettier-ignore -->
+				<p>Then open your global stylesheet in <code>/src/app.postcss</code> and remove the following <a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> introduced by Svelte-Add. Skeleton will handle these for you.</p>
+				<CodeBlock
+					language="css"
+					code={`
+/* NOTE: Remove the following: */\n
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+					`}
+				/>
+			</div>
+		{/if}
 			</svelte:fragment>
 		</TabGroup>
 	</section>
@@ -107,6 +116,16 @@ const config = {
 }
 `}
 			/>
+			<aside class="alert variant-ghost-warning">
+				<i class="fa-solid fa-triangle-exclamation text-2xl" />
+				<div class="alert-message">
+					Please avoid mixing Skeleton with other UI library Tailwind plugins such as Flowbite or Daisy. These plugins are not designed to
+					work together. See our integration mini-guide for using select Flowbite features alongside Skeleton.
+				</div>
+				<div class="alert-actions">
+					<a href="/docs/comparisons" class="btn variant-filled">Flowbite Guide</a>
+				</div>
+			</aside>
 		</div>
 	</section>
 
