@@ -44,7 +44,7 @@ export { tooltip } from './utilities/Tooltip/tooltip';
 
 // Svelte Components ---
 
-export { default as AccordionGroup } from './components/Accordion/AccordionGroup.svelte';
+export { default as Accordion } from './components/Accordion/Accordion.svelte';
 export { default as AccordionItem } from './components/Accordion/AccordionItem.svelte';
 export { default as AppBar } from './components/AppBar/AppBar.svelte';
 export { default as AppRail } from './components/AppRail/AppRail.svelte';

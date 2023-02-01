@@ -8,7 +8,7 @@ import ListBox from '$lib/components/ListBox/ListBox.svelte';
 describe('ListBox.svelte', () => {
 	it('Renders with minimal props', async () => {
 		const { getByTestId } = render(ListBox);
-		expect(getByTestId('listbox-area')).toBeTruthy();
+		expect(getByTestId('listbox')).toBeTruthy();
 	});
 
 	it('Renders with all props', async () => {
@@ -29,19 +29,19 @@ describe('ListBox.svelte', () => {
 				labelId: 'testListId1'
 			}
 		});
-		expect(getByTestId('listbox-area')).toBeTruthy();
+		expect(getByTestId('listbox')).toBeTruthy();
 	});
 
 	it('Renders listbox, single value', async () => {
 		const { getByTestId } = render(ListBox, { props: { tag: 'nav', selected: writable('foobar') } });
-		const element = getByTestId('listbox-area');
+		const element = getByTestId('listbox');
 		expect(element).toBeTruthy();
 		expect(element.tagName).eq('DIV');
 	});
 
 	it('Renders listbox, multiple values', async () => {
 		const { getByTestId } = render(ListBox, { props: { tag: 'nav', selected: writable(['foo', 'bar']) } });
-		const element = getByTestId('listbox-area');
+		const element = getByTestId('listbox');
 		expect(element).toBeTruthy();
 		expect(element.tagName).eq('DIV');
 	});

@@ -1,4 +1,4 @@
-<!-- https://css-tricks.com/building-progress-ring-quickly/ -->
+<!-- Reference: https://css-tricks.com/building-progress-ring-quickly/ -->
 <script lang="ts">
 	import { afterUpdate } from 'svelte';
 
@@ -11,17 +11,17 @@
 	/** Sets the base stroke width. Scales responsively. */
 	export let stroke = 20; // px
 	/** Provide classes to set meter color. */
-	export let meter = 'stroke-secondary-500';
+	export let meter = 'stroke-surface-900 dark:stroke-surface-50';
 	/** Provide classes to set track color. */
-	export let track = 'stroke-surface-200 dark:stroke-surface-700';
+	export let track = 'stroke-surface-500/30';
 	/** Provide classes to set the SVG text fill color. */
 	export let fill = 'fill-token';
 	/** Sets the base font size. Scales responsively. */
 	export let font = 56; // px
 
-	// Props (a11y)
-	/** A semantic ARIA label. */
-	export let label = '';
+	// Props A11y
+	/** Provide the ARIA labelledby value. */
+	export let labelledby = '';
 
 	// Base Classes
 	const cBase = 'progress-radial relative overflow-hidden';
@@ -53,13 +53,11 @@
 	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
 </script>
 
-<!-- https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/text-anchor -->
-
 <figure
 	class="progress-radial {classesBase}"
 	data-testid="progress-radial"
 	role="meter"
-	aria-label={label}
+	aria-labelledby={labelledby}
 	aria-valuenow={value || 0}
 	aria-valuetext={value ? `${value}%` : 'Indeterminate Spinner'}
 	aria-valuemin={0}

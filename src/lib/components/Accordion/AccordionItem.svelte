@@ -1,80 +1,124 @@
 <script lang="ts">
 	// Slots:
 	/**
-	 * @slot {{}} content - Allows for an optional leading element, such as an icon.
-	 * @slot {{}} lead - Provide the summary details of each item.
-	 * @slot {{}} summary - Provide the content details of each item.
+	 * @slot {{}} lead - Allows for an optional leading element, such as an icon.
+	 * @slot {{}} summary - Provide the interactive summary of each item.
+	 * @slot {{}} content - Provide the content content of each item.
 	 */
 	// Events:
 	// FORWARDED: do not document these, breaks the type definition
 	// DISPATCHED: document directly above the definition, like props (ex: paginator)
 
 	import { getContext } from 'svelte';
+	import type { Writable } from 'svelte/store';
+	import { slide } from 'svelte/transition';
 
-	// Props
-	/** Defines the default open state on page load .*/
+	// Props (state)
 	export let open = false;
-	/** Provide semantic ID for ARIA summary element. */
-	export let summaryId = '';
-	/** Provide semantic ID for ARIA content element. */
-	export let contentId = '';
-	/** Provide arbitrary styles for the summary element region. */
-	export let regionSummary = '';
-	/** Provide arbitrary styles for the summary element region. */
-	export let regionContent = '';
 
-	// Context
-	/** Provide classes to set the hover background color. */
-	export let hover: string = getContext('hover');
-	/** Provide classes to set vertical spacing. */
-	export let spacing: string = getContext('spacing');
-	/** Provide classes to set padding for summary and content regions. */
+	// Classes
+	const cBase = '';
+	const cControl = 'text-left w-full flex items-center space-x-4';
+	const cControlCaret = 'fill-token w-3 transition-transform duration-[200ms]';
+	const cPanel = '';
+
+	// Local
+	const uuid = crypto.randomUUID();
+
+	// Context API
+	/** Set the auto-collapse mode. */
+	export let autocollapse: boolean = getContext('autocollapse');
+	/** The writable store that houses the auto-collapse active item UUID. */
+	export let active: Writable<string | null> = getContext('active');
+	/** Set the drawer animation duration. */
+	export let duration: number = getContext('duration');
+	// ---
+	/** Provide classes to set the accordion item padding styles. */
 	export let padding: string = getContext('padding');
-	/** Provide classes to set summary border radius. */
+	/** Provide classes to set the accordion item hover styles. */
+	export let hover: string = getContext('hover');
+	/** Provide classes to set the accordion item rounded styles. */
 	export let rounded: string = getContext('rounded');
+	// ---
+	/** Provide arbitrary classes to the trigger button region. */
+	export let regionControl: string = getContext('regionControl');
+	/** Provide arbitrary classes to content panel region. */
+	export let regionPanel: string = getContext('regionPanel');
+	/** Provide arbitrary classes caret icon region. */
+	export let regionCaret: string = getContext('regionCaret');
 
-	// Base Classes
-	const cBaseDetails = '';
-	const cBaseSummary = 'list-none flex items-center space-x-4 cursor-pointer';
-	const cBaseIcon = 'flex justify-center items-center w-3 fill-black dark:fill-white transition-all duration-[100ms]';
+	// Change open behavior based on auto-collapse mode
+	function setActive(): void {
+		// Set item active
+		if (autocollapse === true) {
+			active.set(uuid);
+			return;
+		}
+		// Toggle Item on click
+		open = !open;
+	}
 
+	// If auto-collapse mode enabled and item is set open, set as this item active
+	if (autocollapse && open) setActive();
+
+	// Reactive State
+	$: if (open && autocollapse) setActive();
+	$: openState = autocollapse ? $active === uuid : open;
 	// Reactive Classes
-	$: classesDetails = `${cBaseDetails} ${spacing} ${$$props.class ?? ''}`;
-	$: classesSummary = `${cBaseSummary} ${padding} ${rounded} ${hover} ${regionSummary}`;
-	$: classesIconState = open ? '-rotate-180' : '';
-	$: classesIcon = `${cBaseIcon} ${classesIconState}`;
-	$: classesContent = `${padding} ${regionContent}`;
+	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
+	$: classesControl = `${cControl} ${padding} ${hover} ${rounded} ${regionControl}`;
+	$: classesCaretState = openState ? 'rotate-180' : '';
+	$: classesControlCaret = `${cControlCaret} ${regionCaret} ${classesCaretState}`;
+	$: classesPanel = `${cPanel} ${padding} ${rounded} ${regionPanel}`;
 </script>
 
 <!-- @component The Accordion child element. -->
 
-<details bind:open class="accordion-item {classesDetails}" data-testid="accordion-item" on:click on:keydown on:keyup on:keypress on:toggle>
-	<!-- Summary -->
-	<summary id={summaryId} class="accordion-summary {classesSummary}" aria-expanded={open} aria-controls={contentId}>
-		<!-- Slot: Lead -->
-		{#if $$slots.lead}<div class="accordion-summary-lead"><slot name="lead" /></div>{/if}
-		<!-- Slot: Text -->
-		<div class="accordion-summary-text flex-auto" role="button"><slot name="summary">(summary)</slot></div>
+<div class="accordion-item {classesBase}" data-testid="accordion-item">
+	<!-- Control -->
+	<button
+		class="accordion-control {classesControl}"
+		id="accordion-control-{uuid}"
+		on:click={setActive}
+		on:click
+		on:keydown
+		on:keyup
+		on:keypress
+		on:toggle
+		aria-expanded={openState}
+		aria-controls="accordion-panel-{uuid}"
+	>
+		<!-- Lead -->
+		{#if $$slots.lead}
+			<div class="accordion-lead">
+				<slot name="lead" />
+			</div>
+		{/if}
+		<!-- Summary -->
+		<div class="accordion-summary flex-1">
+			<slot name="summary">(summary)</slot>
+		</div>
 		<!-- Caret -->
-		<div class="accordion-summary-caret {classesIcon}">
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="opacity-50">
+		<div class="accordion-summary-caret {classesControlCaret}">
+			<!-- SVG Caret -->
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
 				<path
-					d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"
+					d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
 				/>
 			</svg>
 		</div>
-	</summary>
-
-	<!-- Content -->
-	<div id={contentId} class="accordion-content {classesContent}" role="region" aria-labelledby={summaryId}>
-		<slot name="content">(content)</slot>
-	</div>
-</details>
-
-<style>
-	/* Hide the left-hande arrows for details/summary  */
-	/* Note: let's keep this localized in case users want the arrows elsewhere */
-	details summary::-webkit-details-marker {
-		display: none;
-	}
-</style>
+	</button>
+	<!-- Panel -->
+	{#if openState}
+		<div
+			class="accordion-panel {classesPanel}"
+			id="accordion-panel-{uuid}"
+			transition:slide|local={{ duration }}
+			role="region"
+			aria-hidden={!openState}
+			aria-labelledby="accordion-control-{uuid}"
+		>
+			<slot name="content">(content)</slot>
+		</div>
+	{/if}
+</div>

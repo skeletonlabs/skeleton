@@ -74,7 +74,6 @@
 					<div
 						class="card p-4 text-white hover:ring-surface-500/50 cursor-pointer space-y-4"
 						style:background={preset.surface}
-						target="_blank" rel="noreferrer"
 						on:click={() => { copyThemeToClipboard(preset.file); }}
 						on:keydown={() => { copyThemeToClipboard(preset.file); }}
 					>
@@ -93,11 +92,12 @@
 			</small>
 		</div>
 		<!-- Implement -->
-		<TabGroup selected={storeFramework}>
-			<Tab value="cli">Skeleton CLI</Tab>
-			<Tab value="manual">Manual Install</Tab>
-		</TabGroup>
-		{#if $storeFramework === 'cli'}
+		<TabGroup regionPanel="space-y-4">
+			<Tab bind:group={$storeFramework} name="cli" value="cli">Skeleton CLI</Tab>
+			<Tab bind:group={$storeFramework} name="manu" value="manual">Manual Install</Tab>
+			<!-- Panel -->
+			<svelte:fragment slot="panel">
+				{#if $storeFramework === 'cli'}
 			<p>
 				The CLI will automatically import your selected theme into <code>src/routes/+layout.svelte</code> before your global stylesheet. You
 				may change this at any time.
@@ -105,10 +105,8 @@
 		{:else if $storeFramework === 'manual'}
 			<p>Import your desired preset into the root layout in <code>/src/routes/+layout.svelte</code>, just before your global stylesheet.</p>
 		{/if}
-		<CodeBlock
-			language="typescript"
-			code={`import '@skeletonlabs/skeleton/themes/theme-skeleton.css'; // <--\nimport '../app.postcss';\n`}
-		/>
+			</svelte:fragment>
+		</TabGroup>
 		<!-- prettier-ignore -->
 		<p>
 			Some preset themes include special styles, such as a background. To use these, set the <code>data-theme</code> attribute in

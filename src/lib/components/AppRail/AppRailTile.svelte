@@ -29,7 +29,7 @@
 
 	// Base Classes
 	const cBase = 'unstyled grid place-content-center place-items-center w-full aspect-square space-y-1.5 cursor-pointer';
-	const cLabel = 'text-xs text-center';
+	const cLabel = 'font-bold text-xs text-center';
 
 	// Input Handler
 	function onClickHandler(event: MouseEvent): void {
@@ -51,16 +51,19 @@
 	}
 </script>
 
-<!-- @component A navigation tile for the App Rail. -->
+<!-- @component A navigation tile for the App Rail component. -->
 
-<!-- NOTE: avoid forwarding events on <svelte:element> tags -->
-<!-- https://github.com/skeletonlabs/skeleton/issues/727#issuecomment-1356859261 -->
 <div on:click={onClickHandler} on:keydown on:keyup on:keypress>
-	<!-- NOTE: do not add event forwarding to <svelte:element> tags. See issue above. -->
+	<!-- IMPORTANT: avoid forwarding events on <svelte:element> tags per: -->
+	<!-- https://github.com/skeletonlabs/skeleton/issues/727#issuecomment-1356859261 -->
 	<svelte:element this={tag} {...prunedRestProps()} class="app-rail-tile {classesBase}">
 		<!-- Slot: Default (icon) -->
-		<div class="app-rail-tile-icon {regionIcon}"><slot /></div>
+		{#if $$slots.default}
+			<div class="app-rail-tile-icon {regionIcon}"><slot /></div>
+		{/if}
 		<!-- Label -->
-		{#if label}<div class="app-rail-tile-label {classesLabel}">{label}</div>{/if}
+		{#if label}
+			<div class="app-rail-tile-label {classesLabel}">{label}</div>
+		{/if}
 	</svelte:element>
 </div>

@@ -1,7 +1,7 @@
 import { render } from '@testing-library/svelte';
 import { describe, it, expect } from 'vitest';
 
-import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
+import SvgIcon from './SvgIcon.svelte';
 
 describe('SvgIcon.svelte', () => {
 	it('Renders with minimal props', async () => {

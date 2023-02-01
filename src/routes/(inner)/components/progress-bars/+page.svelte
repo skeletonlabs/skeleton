@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { writable, type Writable } from 'svelte/store';
-
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
@@ -11,10 +9,10 @@
 
 	import sveldProgressBar from '$lib/components/ProgressBar/ProgressBar.svelte?raw&sveld';
 
-	// Stores
-	const storeDeterminate: Writable<boolean> = writable(true);
-	const storeHeight: Writable<string> = writable('h-2');
-	const defaultTrackBg = 'bg-surface-200-700-token';
+	// Defaults
+	const defaultRounded = 'rounded-token';
+	const defaultMeter = 'bg-surface-900-50-token';
+	const defaultTrack = 'variant-glass';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -28,14 +26,13 @@
 
 	// Reactive Props
 	$: props = {
-		determinate: $storeDeterminate,
-		label: 'Progress Bar',
+		determinate: true,
 		value: 50,
 		max: 100,
-		height: $storeHeight,
-		rounded: 'rounded-token',
-		meter: 'bg-secondary-500',
-		track: defaultTrackBg
+		height: 'h-2',
+		rounded: defaultRounded,
+		meter: defaultMeter,
+		track: defaultTrack
 	};
 </script>
 
@@ -44,11 +41,10 @@
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-2">
 			<!-- Example -->
-			<div class="card p-4 h-full flex justify-center items-center">
+			<div class="card variant-glass p-4 h-full flex justify-center items-center">
 				<div class="py-10 w-[90%]">
 					<svelte:component
 						this={ProgressBar}
-						label={props.label}
 						value={props.determinate ? props.value : undefined}
 						max={props.max}
 						height={props.height}
@@ -62,9 +58,9 @@
 			<div class="card p-4 space-y-4 w-auto lg:w-[400px]">
 				<!-- Mode -->
 				<label class="input-label" for="">
-					<RadioGroup selected={storeDeterminate} display="flex">
-						<RadioItem value={true}>Determinate</RadioItem>
-						<RadioItem value={false}>Indeterminate</RadioItem>
+					<RadioGroup display="flex">
+						<RadioItem bind:group={props.determinate} name="determinate" value={true}>Determinate</RadioItem>
+						<RadioItem bind:group={props.determinate} name="indeterminate" value={false}>Indeterminate</RadioItem>
 					</RadioGroup>
 				</label>
 				<!-- Amount -->
@@ -80,27 +76,28 @@
 						aria-label="Value Amount"
 					/>
 				{/if}
-				<!-- Label -->
-				<label class="input-label">
-					<span>Label</span>
-					<input type="text" bind:value={props.label} placeholder="Label" />
-				</label>
 				<!-- Height -->
 				<label class="input-label" for="">
 					<span>Height</span>
-					<RadioGroup selected={storeHeight} display="flex">
-						<RadioItem value="h-1">h-1</RadioItem>
-						<RadioItem value="h-2">h-2</RadioItem>
-						<RadioItem value="h-4">h-4</RadioItem>
-						<RadioItem value="h-8">h-8</RadioItem>
+					<RadioGroup display="flex">
+						<RadioItem bind:group={props.height} name="h-1" value="h-1">h-1</RadioItem>
+						<RadioItem bind:group={props.height} name="h-2" value="h-2">h-2</RadioItem>
+						<RadioItem bind:group={props.height} name="h-4" value="h-4">h-4</RadioItem>
+						<RadioItem bind:group={props.height} name="h-8" value="h-8">h-8</RadioItem>
 					</RadioGroup>
 				</label>
 				<!-- Rounded -->
 				<label class="input-label">
 					<span>Rounded</span>
 					<select name="rounded" id="rounded" bind:value={props.rounded}>
-						<option value="rounded-token">rounded-token</option>
+						<option value={defaultRounded}>Default</option>
+						<option value="rounded-sm">rounded-sm</option>
 						<option value="rounded">rounded</option>
+						<option value="rounded-md">rounded-md</option>
+						<option value="rounded-lg">rounded-lg</option>
+						<option value="rounded-xl">rounded-xl</option>
+						<option value="rounded-2xl">rounded-2xl</option>
+						<option value="rounded-3xl">rounded-3xl</option>
 						<option value="rounded-full">rounded-full</option>
 					</select>
 				</label>
@@ -108,6 +105,7 @@
 				<label class="input-label">
 					<span>Meter</span>
 					<select name="meter" id="meter" bind:value={props.meter}>
+						<option value={defaultMeter}>Default</option>
 						<option value="bg-primary-500">bg-primary-500</option>
 						<option value="bg-secondary-500">bg-secondary-500</option>
 						<option value="bg-tertiary-500">bg-tertiary-500</option>
@@ -121,7 +119,7 @@
 				<label class="input-label">
 					<span>Track</span>
 					<select name="track" id="track" bind:value={props.track}>
-						<option value={defaultTrackBg}>Default</option>
+						<option value={defaultTrack}>Default</option>
 						<option value="bg-primary-500/30">bg-primary-500/30</option>
 						<option value="bg-secondary-500/30">bg-secondary-500/30</option>
 						<option value="bg-tertiary-500/30">bg-tertiary-500/30</option>
@@ -137,20 +135,26 @@
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
-		<div class="space-y-4">
+		<section class="space-y-4">
+			<!-- prettier-ignore -->
 			<p>
-				This component is treated as an <a
-					href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/progressbar_role"
-					target="_blank"
-					rel="noreferrer">ARIA progressbar</a
-				>.
+				This component is treated as an <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/progressbar_role" target="_blank" rel="noreferrer">ARIA progressbar</a>.
 			</p>
 			<CodeBlock language="html" code={`<ProgressBar label="Progress Bar" value={50} max={100} />`} />
-		</div>
-		<div class="space-y-4">
+		</section>
+		<section class="space-y-4">
 			<h2>Indeterminate Mode</h2>
-			<p>The <code>value</code> property must be removed or set to <code>undefined</code>.</p>
+			<p>Remoe the <code>value</code> property or set to <code>undefined</code>.</p>
 			<CodeBlock language="html" code={`<ProgressBar />`} />
-		</div>
+			<CodeBlock language="html" code={`<ProgressBar value={undefined} />`} />
+		</section>
+		<section class="space-y-4">
+			<h2>Native Alternative</h2>
+			<p>The native <code>progress</code> element works cross browser, but does not currently support Indeterminate mode when styled.</p>
+			<CodeBlock language="html" code={`<progress value={50} max={100} />`} />
+			<div class="card variant-glass p-4">
+				<progress value={props.value} max={props.max} />
+			</div>
+		</section>
 	</svelte:fragment>
 </DocsShell>

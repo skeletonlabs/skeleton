@@ -15,10 +15,11 @@
 		@apply block overflow-visible;
 	}
 	.input-label {
-		@apply space-y-2;
+		@apply space-y-1;
 	}
 
 	/* === Inputs === */
+	/* NOTE: input styles are global; `.input-cell` is just for constructing the classes below. Do not use it directly. */
 
 	.input-cell {
 		@apply w-full rounded-token;
@@ -53,6 +54,7 @@
 
 	/* Apply the input styles by default, but exclude if wrapped in `.input-group` */
 	input:not([type='checkbox']):not([type='radio']):not([type='color']):not(.unstyled):is(:not(.input-group *)),
+	select[size]:not(.unstyled):is(:not(.input-group *)),
 	select[multiple]:not(.unstyled):is(:not(.input-group *)),
 	textarea:not(.unstyled):is(:not(.input-group *)),
 	select:not(.unstyled):is(:not(.input-group *)) {
@@ -60,20 +62,43 @@
 	}
 
 	/* Container Inputs */
+	select[size]:not(.unstyled):is(:not(.input-group *)),
 	select[multiple]:not(.unstyled):is(:not(.input-group *)),
 	textarea:not(.unstyled):is(:not(.input-group *)) {
 		@apply rounded-container-token;
 	}
 
-	/* Select (multipe) */
-	/* https://stackoverflow.com/questions/50618602/change-color-of-selected-option-in-select-multiple */
+	/* Select (size/multipe) */
+	select[size]:not(.unstyled):is(:not(.input-group *)) {
+		background-image: none;
+	}
+	select[size]:not(.unstyled):is(:not(.input-group *)),
 	select[multiple]:not(.unstyled):is(:not(.input-group *)) {
 		@apply p-2 space-y-1;
 	}
-	select[multiple]:not(.unstyled):is(:not(.input-group *)) option {
-		@apply p-2 rounded-token;
+	select[size]:not(.unstyled):is(:not(.input-group *)) optgroup,
+	select[multiple]:not(.unstyled):is(:not(.input-group *)) optgroup {
+		@apply space-y-1 font-bold;
 	}
+	select[size]:not(.unstyled):is(:not(.input-group *)) optgroup option:first-of-type,
+	select[multiple]:not(.unstyled):is(:not(.input-group *)) optgroup option:first-of-type {
+		@apply mt-3;
+	}
+	select[size]:not(.unstyled):is(:not(.input-group *)) optgroup option:last-child,
+	select[multiple]:not(.unstyled):is(:not(.input-group *)) optgroup option:last-child {
+		@apply !mb-3;
+	}
+	select[size]:not(.unstyled):is(:not(.input-group *)) optgroup option,
+	select[multiple]:not(.unstyled):is(:not(.input-group *)) optgroup option {
+		@apply ml-0 pl-0;
+	}
+	select[size]:not(.unstyled):is(:not(.input-group *)) option,
+	select[multiple]:not(.unstyled):is(:not(.input-group *)) option {
+		@apply px-4 py-2 rounded-token;
+	}
+	select[size]:not(.unstyled):is(:not(.input-group *)) option:checked,
 	select[multiple]:not(.unstyled):is(:not(.input-group *)) option:checked {
+		/* https://stackoverflow.com/questions/50618602/change-color-of-selected-option-in-select-multiple */
 		background: rgb(var(--color-primary-500)) linear-gradient(0deg, rgb(var(--color-primary-500)) 0%, rgb(var(--color-primary-500)) 100%);
 		@apply text-on-primary-token;
 	}
@@ -107,6 +132,60 @@
 	}
 	input[type='color']:not(.unstyled):is(:not(.input-group *))::-moz-color-swatch {
 		@apply border-none;
+	}
+
+	/* === Progress === */
+
+	progress {
+		webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		@apply w-full h-2 overflow-hidden rounded-token;
+		@apply bg-surface-400-500-token;
+	}
+
+	/* Webkit */
+	progress::-webkit-progress-bar {
+		@apply bg-surface-400-500-token;
+	}
+	progress::-webkit-progress-value {
+		@apply bg-surface-900-50-token;
+	}
+
+	/* Firefox */
+	::-moz-progress-bar {
+		@apply bg-surface-900-50-token;
+	}
+	:indeterminate::-moz-progress-bar {
+		width: 0;
+	}
+
+	/* =-------------------= */
+
+	progress {
+		@apply h-2 rounded-token relative overflow-hidden;
+	}
+	progress::-moz-progress-bar {
+		@apply bg-surface-500;
+	}
+	progress:indeterminate::after {
+		@apply bg-surface-500;
+	}
+	progress::-webkit-progress-bar {
+		@apply bg-surface-500 bg-opacity-20 rounded-token;
+	}
+	progress::-webkit-progress-value {
+		@apply bg-surface-900 rounded-token;
+	}
+	progress:indeterminate::after {
+		content: '';
+		@apply inset-y-0 -left-[40%] w-1/3 absolute rounded-token;
+		animation: progress-loading 5s infinite ease-in-out;
+	}
+	@keyframes progress-loading {
+		50% {
+			left: 107%;
+		}
 	}
 
 	/* === Placeholder === */

@@ -1,10 +1,8 @@
 <script lang="ts">
 	// Props
-	/** Set the label text. */
-	export let label = '';
 	/**
-	 * Specifies the amount completed. Indeterminate when `undefined`
-	 * @type {number}
+	 * Specifies the amount completed. Indeterminate when `undefined`.
+	 * @type {number | undefined}
 	 */
 	export let value: number | undefined = undefined;
 	/** Minimum amount the bar represents. */
@@ -18,45 +16,41 @@
 
 	// Props (elements)
 	/** Provide arbitrary classes to style the meter element. */
-	export let meter = 'bg-secondary-500';
+	export let meter = 'bg-surface-900-50-token';
 	/** Provide arbitrary classes to style the track element. */
-	export let track = 'bg-surface-200-700-token';
+	export let track = 'variant-glass';
+
+	// Props A11y
+	/** Provide the ARIA labelledby value. */
+	export let labelledby = '';
 
 	// Base Classes
-	const cBase = 'w-full';
-	const cBaseLabel = 'block text-sm mb-2';
-	const cBaseTrack = `w-full overflow-hidden`;
-	const cBaseMeterDeterminate = 'h-full';
-	const cBaseMeterIndeterminate = 'h-full w-full';
+	const cTrack = 'w-full overflow-hidden';
+	const cMeter = 'h-full';
 
 	// Fill Percent
 	$: fillPercent = value ? (100 * (value - min)) / (max - min) : 0;
 
+	// Indeterminate State
+	$: indeterminate = value === undefined || value < 0;
+	$: classesIndterminate = indeterminate ? 'animIndeterminate' : '';
 	// Reactive Classes
-	$: classesTrack = `${cBaseTrack} ${height} ${rounded} ${track} ${$$props.class ?? ''}`;
-	$: classesMeter = `${rounded} ${meter}`;
+	$: classesTrack = `${cTrack} ${height} ${rounded} ${track} ${$$props.class ?? ''}`;
+	$: classesMeter = `${cMeter} ${rounded} ${classesIndterminate} ${meter}`;
 </script>
 
+<!-- Track -->
 <div
-	class="progress-bar {cBase}"
+	class="progress-bar {classesTrack}"
 	data-testid="progress-bar"
 	role="progressbar"
-	aria-label={label}
+	aria-labelledby={labelledby}
 	aria-valuenow={value}
 	aria-valuemin={min}
 	aria-valuemax={max - min}
 >
-	<!-- Label -->
-	{#if label}<label for="progress" class="progress-bar-label {cBaseLabel}">{label}</label>{/if}
-	<!-- Track -->
-	<div class="progress-bar-track {classesTrack}">
-		<!-- Meter - Determinate / Indeterminate -->
-		{#if value !== undefined && value >= 0}
-			<div class="progress-bar-meter {cBaseMeterDeterminate} {classesMeter}" style:width="{fillPercent}%" />
-		{:else}
-			<div class="progress-bar-meter {cBaseMeterIndeterminate} {classesMeter} animIndeterminate" />
-		{/if}
-	</div>
+	<!-- Meter -->
+	<div class="progress-bar-meter {classesMeter} {classesMeter}" style:width="{indeterminate ? 100 : fillPercent}%" />
 </div>
 
 <style lang="postcss">

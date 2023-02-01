@@ -207,22 +207,20 @@
 			</section>
 
 			<!-- Tabs -->
-			<TabGroup selected={storeActiveTab} rail={false}>
-				<Tab value="usage">Usage</Tab>
-				<!-- Based on Sveld -->
-				{#if sveldCounts.props > 0}<Tab value="properties">Props</Tab>{/if}
-				{#if sveldCounts.slots > 0}<Tab value="slots">Slots</Tab>{/if}
-				{#if sveldCounts.events > 0}<Tab value="events">Events</Tab>{/if}
-				<!-- Based on Page Settings -->
-				{#if pageSettings.parameters?.length}<Tab value="parameters">Params</Tab>{/if}
-				{#if pageSettings.classes?.length}<Tab value="classes">Classes</Tab>{/if}
-				{#if pageSettings.keyboard?.length}<Tab value="keyboard">Keyboard</Tab>{/if}
+			<TabGroup borderWidth="" active="border-b-4 border-primary-500" hover="hover:variant-soft-primary">
+				<Tab bind:group={$storeActiveTab} name="usage" value="usage">Usage</Tab>
+				{#if sveldCounts.props > 0}<Tab bind:group={$storeActiveTab} name="properties" value="properties">Props</Tab>{/if}
+				{#if sveldCounts.slots > 0}<Tab bind:group={$storeActiveTab} name="slots" value="slots">Slots</Tab>{/if}
+				{#if sveldCounts.events > 0}<Tab bind:group={$storeActiveTab} name="events" value="events">Events</Tab>{/if}
+				{#if pageSettings.parameters?.length}<Tab bind:group={$storeActiveTab} name="parameters" value="parameters">Params</Tab>{/if}
+				{#if pageSettings.classes?.length}<Tab bind:group={$storeActiveTab} name="classes" value="classes">Classes</Tab>{/if}
+				{#if pageSettings.keyboard?.length}<Tab bind:group={$storeActiveTab} name="keyboard" value="keyboard">Keyboard</Tab>{/if}
 			</TabGroup>
 		</div>
 	</header>
 
 	<!-- Tab Panels -->
-	<div class="doc-shell-tab-panels relative">
+	<div class="doc-shell-tab-panels">
 		<!-- Tab: Usage -->
 		{#if $storeActiveTab === 'usage'}
 			<div class="doc-shell-usage {classesRegionPanels}">
@@ -267,15 +265,12 @@
 			<div class="doc-shell-properties {classesRegionPanels}">
 				<!-- Supports restProps -->
 				{#if pageSettings.restProps}
-					<p>
-						This component makes use of <a
-							href="https://svelte.dev/docs#template-syntax-attributes-and-props"
-							target="_blank"
-							rel="noreferrer">restProps</a
-						>
-						for the
-						<code>{pageSettings.restProps}</code> element.
-					</p>
+					<aside class="alert variant-ghost-warning">
+						<!-- prettier-ignore -->
+						<div class="alert-message">
+							<p>This component implements <a href="https://svelte.dev/docs#template-syntax-attributes-and-props" target="_blank" rel="noreferrer">restProps</a> for the <code>{pageSettings.restProps}</code> element. It will pass down all additional attributes, even if they are not listed below.</p>
+						</div>
+					</aside>
 				{/if}
 				<!-- Tables -->
 				{#if pageSettings.components}

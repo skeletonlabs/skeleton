@@ -1,11 +1,11 @@
 <script lang="ts">
 	/**
-	 * Bind your file data for the file input.
-	 * @type {FileList}
+	 * Required. Set a unique name for the file input.
+	 * @type {string}
 	 */
-	export let files: FileList;
+	export let name: string;
 	/** Provide a button variant or other class styles. */
-	export let button = 'variant-filled-secondary';
+	export let button = 'variant-filled';
 
 	let elemFileInput: HTMLElement;
 
@@ -20,18 +20,20 @@
 </script>
 
 <div class="file-button {$$props.class ?? ''}" data-testid="file-button">
-	<!-- Input: File -->
-	<input bind:this={elemFileInput} bind:files type="file" {...prunedRestProps()} class="file-button-input hidden" on:change />
+	<!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->
+	<div class="h-0 overflow-hidden">
+		<input type="file" bind:this={elemFileInput} files={$$restProps.files} {name} {...prunedRestProps()} on:change />
+	</div>
 	<!-- Button -->
 	<button
-		class="file-button-btn btn {button}"
 		type="button"
+		class="file-button-btn btn {button}"
 		disabled={$$restProps.disabled}
 		on:click={onButtonClick}
 		on:keydown
 		on:keyup
 		on:keypress
 	>
-		<slot />
+		<slot>Select a File</slot>
 	</button>
 </div>

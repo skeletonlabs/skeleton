@@ -18,10 +18,7 @@
 		restProps: 'input'
 	};
 
-	// Local
-	let files: FileList;
-
-	function onChange(e: any): void {
+	function onChangeHandler(e: any): void {
 		console.log('file data:', e);
 	}
 </script>
@@ -29,42 +26,47 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="space-y-2">
-			<div class="card p-4 grid grid-cols-1 xl:grid-cols-2 gap-4">
-				<label class="input-label" for="">
-					<span>Upload File</span>
-					<FileDropzone bind:files notes="Files should not exceed 5mb." on:change={onChange} required />
-				</label>
-				<label class="input-label" for="">
-					<span>Custom Message</span>
-					<FileDropzone bind:files on:change={onChange}><p>(message)</p></FileDropzone>
-				</label>
-			</div>
-			<div class="text-center"><code>Monitor your browser's console when adding files.</code></div>
+		<section class="card variant-glass p-4 space-y-4">
+			<FileDropzone name="files-example-one" on:change={onChangeHandler} />
+			<FileDropzone name="files-example-two" accept="image/*" on:change={onChangeHandler}>
+				<svelte:fragment slot="lead"><i class="fa-solid fa-file-arrow-up text-4xl" /></svelte:fragment>
+				<svelte:fragment slot="meta">PNG, JPG, and GIF allowed.</svelte:fragment>
+			</FileDropzone>
+			<small class="block text-center opacity-75">Monitor your browser's console log when adding files.</small>
 		</section>
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<div class="space-y-4">
-			<p>Uses <code>input[type='file']</code> to allow for all native input accessibility.</p>
+			<p>
+				Uses <code>input[type='file']</code> and allows for all native input features and accessibility. Including <code>multiple</code>,
+				<code>accept</code>, and <code>required</code>.
+			</p>
+			<CodeBlock language="html" code={`<FileDropzone name="files" />`} />
+			<p>You can override the default <code>message</code>, as well as optionally provide <code>icon</code> and <code>meta</code> slots.</p>
+			<CodeBlock
+				language="html"
+				code={`
+<FileDropzone name="files">
+	<svelte:fragment slot="lead">(icon)</svelte:fragment>
+	<svelte:fragment slot="message">(message)</svelte:fragment>
+	<svelte:fragment slot="meta">(meta)</svelte:fragment>
+</FileDropzone>
+			`}
+			/>
+		</div>
+		<div class="space-y-4">
+			<h2>Binding Method</h2>
+			<p>Use a <code>FileList</code> to bind the file data.</p>
 			<CodeBlock language="ts" code={`let files: FileList;`} />
-			<CodeBlock language="html" code={`<FileDropzone bind:files />`} />
+			<CodeBlock language="html" code={`<FileDropzone ... bind:files />`} />
 		</div>
 		<div class="space-y-4">
-			<h2>Title</h2>
-			<p>Use the <code>title</code> property to provide a custom title.</p>
-			<CodeBlock language="html" code={`<FileDropzone title="Upload your Attachment here." />`} />
-		</div>
-		<div class="space-y-4">
-			<h2>Notes</h2>
-			<p>Use the <code>notes</code> property to provide additional text information on a second line.</p>
-			<CodeBlock language="html" code={`<FileDropzone notes="Files should not exceed 5mb." />`} />
-		</div>
-		<div class="space-y-4">
-			<h2>Message</h2>
-			<p>Use the default slot to replace the default UI entirely.</p>
-			<CodeBlock language="html" code={`<FileDropzone>(message)</FileDropzone>`} />
+			<h2>On Change Event</h2>
+			<p>Use the <code>on:change</code> event to monitor file selection or changes.</p>
+			<CodeBlock language="ts" code={`function onChangeHandler(e: Event): void {\n\tconsole.log('file data:', e);\n}`} />
+			<CodeBlock language="html" code={`<FileDropzone ... on:change={onChangeHandler}>Upload</FileDropzone>`} />
 		</div>
 	</svelte:fragment>
 </DocsShell>
