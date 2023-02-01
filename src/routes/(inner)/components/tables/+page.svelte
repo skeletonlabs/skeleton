@@ -90,7 +90,7 @@
 				the former.
 			</p>
 			<CodeBlock
-				language="typescript"
+				language="ts"
 				code={`
 const sourceData = [
 	{ position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
@@ -107,7 +107,7 @@ const sourceData = [
 				in the <em>Table Utilities</em> section below.
 			</p>
 			<CodeBlock
-				language="typescript"
+				language="ts"
 				code={`
 const tableSimple: TableSource = {
 	// A list of heading labels.

@@ -73,7 +73,7 @@
 		<div class="space-y-4">
 			<CodeBlock language="ts" code={`const source = [ /* any array of objects */ ];`} />
 			<CodeBlock
-				language="typescript"
+				language="ts"
 				code={`
 $: page = {
 	offset: 0,

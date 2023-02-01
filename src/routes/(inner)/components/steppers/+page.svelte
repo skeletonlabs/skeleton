@@ -109,9 +109,9 @@
 				Create a set of Steps within the Stepper, then use the <code>on:complete</code> event to detect when all steps are complete. Since
 				horizontal space may be limited on small screens, we recommend no more than <u>five</u> steps at max.
 			</p>
-			<CodeBlock language="typescript" code={`function onCompleteHandler(e: Event): void { console.log('event:complete', e); }`} />
+			<CodeBlock language="ts" code={`function onCompleteHandler(e: Event): void { console.log('event:complete', e); }`} />
 			<CodeBlock
-				language="typescript"
+				language="ts"
 				code={`
 <Stepper on:complete={onCompleteHandler}>
 	<Step>(content)</Step>

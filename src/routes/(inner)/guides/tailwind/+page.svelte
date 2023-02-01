@@ -79,7 +79,9 @@ const config = {
 const config = {
 	// ...
 	content: [
-		// Keep existing values and append the following:
+		// NOTE: keep this line:
+		'./src/**/*.{html,js,svelte,ts}',
+		// Append the following for Skeleton:
 		require('path').join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')
 	],
 	// ...

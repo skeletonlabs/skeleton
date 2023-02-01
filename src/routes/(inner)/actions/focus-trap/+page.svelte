@@ -25,7 +25,7 @@
 		<section class="card p-4 space-y-4">
 			<!-- Toggle -->
 			<div class="text-center">
-				<SlideToggle bind:checked={isFocused}>Trap Focus</SlideToggle>
+				<SlideToggle name="trap-focus" bind:checked={isFocused}>Trap Focus</SlideToggle>
 			</div>
 			<!-- Form -->
 			<form class="variant-ringed p-4 space-y-4 rounded-container-token" use:focusTrap={isFocused}>
@@ -67,14 +67,14 @@
 			<h2>Navigation</h2>
 			<p>
 				When enabled this action will auto-select the first focusable element. Press <kbd>Tab</kbd> or <kbd>Shift + Tab</kbd> to cycle through
-				focusable elements within the target region.
+				focusable elements within the target region. When the last item is reached focus will loop to the start, and vice versa.
 			</p>
 		</section>
 		<section class="space-y-4">
-			<h2>Skeleton Overlays</h2>
+			<h2>Focusing Overlays</h2>
 			<p>
 				Skeleton automatically enables this action for overlays such as <a href="/utilities/modals">modals</a> and
-				<a href="/utilities/drawers">drawers</a> to provide proper accessability.
+				<a href="/utilities/drawers">drawers</a> to aid accessability.
 			</p>
 		</section>
 	</svelte:fragment>

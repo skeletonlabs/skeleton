@@ -80,7 +80,7 @@
 		</section>
 		<section class="space-y-4">
 			<h2>Indeterminate</h2>
-			<p>Remoe the <code>value</code> property or set to <code>undefined</code>.</p>
+			<p>Remove the <code>value</code> property or set to <code>undefined</code>.</p>
 			<CodeBlock language="html" code={`<ProgressRadial />`} />
 			<CodeBlock language="html" code={`<ProgressRadial value={undefined} />`} />
 		</section>

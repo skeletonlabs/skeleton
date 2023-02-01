@@ -76,11 +76,11 @@
 		<section class="space-y-4">
 			<h2>Drawer Store</h2>
 			<p>This contains the drawer's current state and settings.</p>
-			<CodeBlock language="typescript" code={`import { drawerStore } from '@skeletonlabs/skeleton';`} />
+			<CodeBlock language="ts" code={`import { drawerStore } from '@skeletonlabs/skeleton';`} />
 			<h3>Open</h3>
 			<p>To open the drawer, use the store's <code>open()</code> method to show the drawer.</p>
 			<CodeBlock
-				language="typescript"
+				language="ts"
 				code={`
 function drawerOpen(): void {
 	drawerStore.open();
@@ -90,7 +90,7 @@ function drawerOpen(): void {
 			<h3>Close</h3>
 			<p>To close the drawer, use the store's <code>close()</code> method to hide the drawer.</p>
 			<CodeBlock
-				language="typescript"
+				language="ts"
 				code={`
 function drawerClose(): void {
 	drawerStore.close();
@@ -100,7 +100,7 @@ function drawerClose(): void {
 			<h3>Handling Contents</h3>
 			<p>If you wish to swap out the contents of your drawer, set a unique <code>id</code> per drawer instance.</p>
 			<CodeBlock
-				language="typescript"
+				language="ts"
 				code={`
 function drawerOpen(): void {
 	const settings: DrawerSettings = { id: 'example-1' };
@@ -128,7 +128,7 @@ function drawerOpen(): void {
 				If you need to pass custom abitrary metadata use the <code>meta</code> key. Use <code>$drawerStore.meta</code> to retreive this.
 			</p>
 			<CodeBlock
-				language="typescript"
+				language="ts"
 				code={`
 function drawerOpen(): void {
 	const settings: DrawerSettings = {
@@ -148,7 +148,7 @@ function drawerOpen(): void {
 				options.
 			</p>
 			<CodeBlock
-				language="typescript"
+				language="ts"
 				code={`
 function drawerOpenStyled(): void {
 	const settings: DrawerSettings = {
@@ -177,7 +177,7 @@ function drawerOpenStyled(): void {
 				> is available.
 			</p>
 			<CodeBlock
-				language="typescript"
+				language="ts"
 				code={`
 import { browser } from '$app/environment';\n
 if (browser) drawerStore.open(settings);

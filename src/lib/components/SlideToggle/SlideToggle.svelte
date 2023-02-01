@@ -19,7 +19,7 @@
 	 */
 	export let size = 'md';
 	/** Provide classes to set the checked state color. */
-	export let accent = 'bg-surface-500-400-token';
+	export let accent = 'bg-surface-900 dark:bg-surface-300';
 	/** Provide classes to set the border width styles. */
 	export let borderWidth = 'border-0';
 	/** Provide classes to set the border color styles. */
@@ -58,7 +58,7 @@
 	}
 
 	// Interactive
-	$: cTrackAccent = checked ? accent : 'bg-surface-200-700-token cursor-pointer';
+	$: cTrackAccent = checked ? accent : 'bg-surface-400 dark:bg-surface-700 cursor-pointer';
 	$: cThumbBackground = checked ? 'bg-white/75' : 'bg-white';
 	$: cThumbPos = checked ? 'translate-x-full' : '';
 

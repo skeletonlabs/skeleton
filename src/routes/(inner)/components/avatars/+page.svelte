@@ -173,7 +173,7 @@
 		</div>
 		<div class="space-y-4">
 			<h2>Interactive Border</h2>
-			<p>This can be accomplished using the <code>border</code> and <code>cursor</code> props.</p>
+			<p>Apply the following styles using the <code>border</code> and <code>cursor</code> properties.</p>
 			<CodeBlock
 				language="html"
 				code={`<Avatar ... border="border-4 border-surface-300-600-token hover:!border-primary-500" cursor="cursor-pointer" />`}

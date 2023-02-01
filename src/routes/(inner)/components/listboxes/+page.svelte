@@ -89,7 +89,7 @@
 		<section class="space-y-4">
 			<h3>Single Selection</h3>
 			<p>By default the listbox uses a native <u>radio inputs</u> to ensure only one item is selcted at a time.</p>
-			<CodeBlock language="typescript" code={`let valueSingle: string = 'books';`} />
+			<CodeBlock language="ts" code={`let valueSingle: string = 'books';`} />
 			<CodeBlock
 				language="html"
 				code={`
@@ -104,7 +104,7 @@
 			<p>
 				By adding the <code>multiple</code> property, the component uses native <u>checkboxes inputs</u>, which allows for multi-select.
 			</p>
-			<CodeBlock language="typescript" code={`let valueMultiple: string[] = ['books', 'movies'];`} />
+			<CodeBlock language="ts" code={`let valueMultiple: string[] = ['books', 'movies'];`} />
 			<CodeBlock language="html" code={`<ListBox multiple>...</ListBox>`} />
 		</section>
 		<section class="space-y-4">

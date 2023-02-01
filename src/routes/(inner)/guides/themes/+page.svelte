@@ -107,10 +107,7 @@
 				{/if}
 			</svelte:fragment>
 		</TabGroup>
-		<CodeBlock
-			language="typescript"
-			code={`import '@skeletonlabs/skeleton/themes/theme-skeleton.css'; // <--\nimport '../app.postcss';\n`}
-		/>
+		<CodeBlock language="ts" code={`import '@skeletonlabs/skeleton/themes/theme-skeleton.css'; // <--\nimport '../app.postcss';\n`} />
 		<!-- prettier-ignore -->
 		<p>
 			Some preset themes include special styles, such as a background. To use these, set the <code>data-theme</code> attribute in

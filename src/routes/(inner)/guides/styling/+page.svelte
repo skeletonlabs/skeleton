@@ -55,7 +55,7 @@
 						Import the Skeleton <code>all.css</code> stylesheet into <code>src/routes/+layout.svelte</code> betweeen your <a href="/guides/themes">Theme stylesheet</a> and SvelteKit's global stylesheet, called <code>app.postcss</code>.
 					</p>
 					<CodeBlock
-						language="typescript"
+						language="ts"
 						code={`
 import '@skeletonlabs/skeleton/styles/${$storeStylesheets === 'recommended' ? 'all' : '{stylehsheets}'}.css';
 						`}

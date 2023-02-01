@@ -41,7 +41,7 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<div class="space-y-4">
-			<p>If your data is available in a basic type (string, integer, etc), you can provide it directly to the action.</p>
+			<p>If your data is available as a primitive data type (string, integer, etc), you can provide it directly to the action.</p>
 			<CodeBlock language="ts" code={`const exampleData: string = 'Your data here.';`} />
 			<CodeBlock language="html" code={`<button use:clipboard={exampleData}>Copy</button>`} />
 		</div>
@@ -49,8 +49,8 @@
 		<div class="space-y-4">
 			<h2>Copying HTML Contents</h2>
 			<p>
-				To copy the <em>innerHTML</em> for an HTML element, we'll need to set a <code>data-clipboard</code> data attribute on your target,
-				then provide <code>element: 'exampleElement'</code> to the action.
+				To copy the <em>innerHTML</em> for an element, set a <code>data-clipboard</code> data attribute on your target, then provide
+				<code>element</code> reference to the action.
 			</p>
 			<CodeBlock
 				language="html"
@@ -67,8 +67,8 @@
 		<div class="space-y-4">
 			<h2>Copying Input Values</h2>
 			<p>
-				To copy the <em>value</em> of a form input, we'll need to set a <code>data-clipboard</code> data attribute on your target, then
-				provide <code>input: 'dataClipboardId'</code> to the action.
+				To copy a form input <em>value</em>, set a <code>data-clipboard</code> data attribute on your target, then provide
+				<code>input</code> reference to the action.
 			</p>
 			<CodeBlock
 				language="html"

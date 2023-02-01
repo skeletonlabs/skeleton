@@ -31,7 +31,7 @@
 		imports: ['Modal', 'modalStore'],
 		types: ['ModalSettings', 'ModalComponent'],
 		source: 'utilities/Modal',
-		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/modalmodal/',
+		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/',
 		components: [{ sveld: sveldModal }],
 		keyboard: [['<kbd>Esc</kbd>', ' Dismisses the foremost modal.']]
 	};
@@ -378,7 +378,7 @@ modalStore.trigger(d);
 				> is available.
 			</p>
 			<CodeBlock
-				language="typescript"
+				language="ts"
 				code={`
 import { browser } from '$app/environment';\n
 if (browser) modalStore.trigger({...});

@@ -69,7 +69,7 @@
 				This component acts as a wrapper around native HTML radio inputs. Bind the <em>group</em>, then set <em>value</em> and <em>name</em>
 				as follows.
 			</p>
-			<CodeBlock language="typescript" code={`let alignment: string = 'horizontal';`} />
+			<CodeBlock language="ts" code={`let alignment: string = 'horizontal';`} />
 			<CodeBlock
 				language="html"
 				code={`

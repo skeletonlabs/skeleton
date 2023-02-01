@@ -2,6 +2,8 @@
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
+	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
+	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	// Actions
 	import { filter } from '$lib/actions/Filters/filter';
@@ -29,10 +31,6 @@
 	// Local
 	let activeImg = 48;
 	$: imgPlaceholder = `https://i.pravatar.cc/512?img=${activeImg}`;
-
-	function setImageNumber(newNumber: number): void {
-		activeImg = newNumber;
-	}
 </script>
 
 <!-- 
@@ -55,12 +53,12 @@ only utlize theme on this doc page.
 	<svelte:fragment slot="sandbox">
 		<section class="card p-4 space-y-4">
 			<header class="flex justify-center items-center space-x-4">
-				<!-- prettier-ignore -->
-				<div class="btn-group variant-filled-primary mx-auto">
-					<button on:click={()=>{setImageNumber(48)}} class:opacity-60={activeImg !== 48}>Image 1</button>
-					<button on:click={()=>{setImageNumber(2)}} class:opacity-60={activeImg !== 2}>Image 2</button>
-					<button on:click={()=>{setImageNumber(1)}} class:opacity-60={activeImg !== 1}>Image 3</button>
-				</div>
+				<p>Image</p>
+				<RadioGroup>
+					<RadioItem bind:group={activeImg} name="img1" value={48}>1</RadioItem>
+					<RadioItem bind:group={activeImg} name="img2" value={64}>2</RadioItem>
+					<RadioItem bind:group={activeImg} name="img3" value={30}>3</RadioItem>
+				</RadioGroup>
 			</header>
 			<div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4">
 				<div class="flex flex-col items-center space-y-4 overflow-hidden">
@@ -111,21 +109,21 @@ only utlize theme on this doc page.
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<p>
-				Add within scope of your filtered element. To use globally throughout your application, add this to your application's root layout.
-				Only import the filters you plan to use.
+				Add each filter you plan to use within scope of your filtered elements. To use globally throughout your application, add this to
+				your application's root layout. Avoid importing filters you are not using.
 			</p>
-			<CodeBlock language="javascript" code={`import { Emerald, BlueNight, /* ... */  } from '@skeletonlabs/skeleton';`} />
+			<CodeBlock language="ts" code={`import { Emerald, BlueNight /* ... */  } from '@skeletonlabs/skeleton';`} />
 			<CodeBlock language="html" code={`<Emerald />\n<BlueNight />`} />
 		</section>
 		<section class="space-y-4">
 			<h2>Applying a Filter</h2>
-			<p>Use of of the two menthods below to apply your desired filter. Be sure to include the required hash mark as shown.</p>
-			<h3>Via the Svelte Action</h3>
+			<p>Use either of the two menthods below to apply your desired filter. <u>The hash mark is required</u>.</p>
+			<h3>Via the Skeleton Action</h3>
 			<p>
 				Use the following <a href="https://svelte.dev/tutorial/actions" target="_blank" rel="noreferrer">Svelte action</a> to to filter any element.
 				Pass the filter name as the only parameter.
 			</p>
-			<CodeBlock language="javascript" code={`import { filter  } from '@skeletonlabs/skeleton';`} />
+			<CodeBlock language="ts" code={`import { filter } from '@skeletonlabs/skeleton';`} />
 			<CodeBlock language="html" code={`<img src={myImageSrc} use:filter={'#BlueNight'}>`} />
 			<h3>Via Style Attribute</h3>
 			<p>Alternatively you may apply filters using inline CSS. This is what the action is doing under the hood.</p>
@@ -152,6 +150,7 @@ only utlize theme on this doc page.
 				<span><i class="fa-solid fa-up-right-from-square" /></span>
 			</a>
 		</section>
+		<hr />
 		<section class="space-y-4">
 			<h2>Browser Support</h2>
 			<p>

@@ -53,10 +53,9 @@
 
 <!-- @component A navigation tile for the App Rail component. -->
 
-<!-- NOTE: avoid forwarding events on <svelte:element> tags -->
-<!-- https://github.com/skeletonlabs/skeleton/issues/727#issuecomment-1356859261 -->
 <div on:click={onClickHandler} on:keydown on:keyup on:keypress>
-	<!-- NOTE: do not add event forwarding to <svelte:element> tags. See issue above. -->
+	<!-- IMPORTANT: avoid forwarding events on <svelte:element> tags per: -->
+	<!-- https://github.com/skeletonlabs/skeleton/issues/727#issuecomment-1356859261 -->
 	<svelte:element this={tag} {...prunedRestProps()} class="app-rail-tile {classesBase}">
 		<!-- Slot: Default (icon) -->
 		{#if $$slots.default}

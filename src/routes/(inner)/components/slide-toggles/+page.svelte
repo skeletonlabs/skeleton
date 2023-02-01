@@ -52,7 +52,7 @@
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<p>This component provides an alternative UI for a checkbox input element.</p>
-			<CodeBlock language="typescript" code={`let valueChecked: boolean = false;`} />
+			<CodeBlock language="ts" code={`let valueChecked: boolean = false;`} />
 			<CodeBlock language="html" code={`<SlideToggle name="slider-example" bind:checked={valueChecked}>(text)</SlideToggle>`} />
 		</section>
 		<section class="space-y-4">

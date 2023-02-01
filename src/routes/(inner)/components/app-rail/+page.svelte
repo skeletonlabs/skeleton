@@ -35,7 +35,7 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<div class="card !bg-secondary-500/5 overflow-hidden h-[480px] grid grid-cols-[auto_1fr]">
+		<div class="card !bg-surface-500/5 overflow-hidden h-[480px] grid grid-cols-[auto_1fr]">
 			<AppRail selected={storeValue}>
 				<!-- Lead -->
 				<svelte:fragment slot="lead">
@@ -97,7 +97,7 @@ const storeValue: Writable<number> = writable(1);
 		</div>
 		<!-- Tile -->
 		<div class="space-y-4">
-			<h2>Anchor Link Tiles</h2>
+			<h2>Anchor Tiles</h2>
 			<p>
 				Alternatively, you can use <code>tag="a"</code> to convert any tile to an anchor link, then append
 				<em>href, target, rel</em>, and other attributes as needed.
