@@ -220,7 +220,7 @@
 	</header>
 
 	<!-- Tab Panels -->
-	<div class="doc-shell-tab-panels relative">
+	<div class="doc-shell-tab-panels">
 		<!-- Tab: Usage -->
 		{#if $storeActiveTab === 'usage'}
 			<div class="doc-shell-usage {classesRegionPanels}">

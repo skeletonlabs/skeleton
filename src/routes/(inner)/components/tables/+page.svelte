@@ -65,11 +65,10 @@
 		meta: tableMapperValues(sourceData, ['position', 'name', 'symbol', 'weight']),
 		foot: ['Total', '', `<span class="badge variant-soft-primary">${totalWeight}</span>`]
 	};
-	let rowOutput = '(Tap any row above)';
 
 	// On Row Selected
 	function onSelected(meta: any): void {
-		rowOutput = meta.detail;
+		console.log('on:selected', meta);
 	}
 </script>
 
@@ -78,7 +77,7 @@
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-4">
 			<Table source={tableSimple} interactive={true} on:selected={onSelected} />
-			<pre>{JSON.stringify(rowOutput, null, 2)}</pre>
+			<small class="block text-center">Monitor your console log when tapping a row.</small>
 		</section>
 	</svelte:fragment>
 

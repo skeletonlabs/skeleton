@@ -85,9 +85,14 @@
 			</div>
 			<!-- Bottom Nav Bar -->
 			<div class="bg-surface-100-800-token flex-1 lg:flex-0">
-				<!-- NOTE: it would be great to use `flex="flex-1 lg:flex-0"`
-					here, but Tailwind doesn seem to support breakpoint + flex? -->
-				<TabGroup justify="justify-center" active="variant-filled-primary" hover="hover:variant-soft-primary" rounded="" borderWidth="">
+				<TabGroup
+					justify="justify-center"
+					active="variant-filled-primary"
+					hover="hover:variant-soft-primary"
+					flex="flex-1 lg:flex-none"
+					rounded=""
+					borderWidth=""
+				>
 					<Tab bind:group={tabsBottomNav} name="books" value={0}>
 						<svelte:fragment slot="lead"><i class="fa-solid fa-book" /></svelte:fragment>
 						Books

@@ -20,7 +20,7 @@
 	/** Provide classes to style each tab's hover styles. */
 	export let hover: string = 'hover:variant-soft';
 	/** Provide classes to style each tab's flex styles. */
-	export let flex: string = 'flex-0';
+	export let flex: string = 'flex-none';
 	/** Provide classes to style each tab's padding styles. */
 	export let padding: string = 'px-4 py-2';
 	/** Provide classes to style each tab's box radius styles. */
