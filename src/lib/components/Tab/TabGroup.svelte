@@ -46,7 +46,7 @@
 	setContext('rounded', rounded);
 
 	// Classes
-	const cBase = 'space-y-4';
+	const cBase = 'space-y-4 overflow-x-auto hide-scrollbars';
 	const cList = 'flex';
 	const cPanel = '';
 
