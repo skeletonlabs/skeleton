@@ -12,11 +12,18 @@ describe('Accordion.svelte', () => {
 	it('Renders with all props', async () => {
 		const { getByTestId } = render(Accordion, {
 			props: {
-				collapse: true,
-				spacing: 'space-y-4'
+				autocollapse: true,
+				duration: 200,
+				spacing: 'space-y-1',
+				padding: 'py-2 px-4',
+				hover: 'hover:bg-primary-hover-token',
+				rounded: 'rounded-container-token',
+				regionControl: '',
+				regionPanel: 'space-y-4',
+				regionCaret: ''
 			}
 		});
 		expect(getByTestId('accordion')).toBeTruthy();
-		expect(getByTestId('accordion').className).to.contain('space-y-4');
+		expect(getByTestId('accordion').className).to.contain('space-y-1');
 	});
 });

@@ -64,6 +64,7 @@
 	aria-controls={controls}
 	aria-selected={selected}
 	tabindex="0"
+	data-testid="tab"
 	on:click
 	on:keypress={onKeypress}
 	on:keypress

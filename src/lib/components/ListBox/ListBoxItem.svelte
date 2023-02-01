@@ -62,7 +62,7 @@
 	}
 
 	// Reactive
-	$: selected = group.includes(value);
+	$: selected = multiple ? group.includes(value) : group === value;
 	$: classesActive = selected ? active : hover;
 	$: classesBase = `${cBase} ${rounded} ${padding} ${classesActive} ${$$props.class ?? ''}`;
 	$: classesLabel = `${cLabel}`;

@@ -16,17 +16,17 @@
 	export let regionNavigation = '';
 
 	// Context
-	const state: Writable<any> = getContext('state');
-	const dispatchParent: any = getContext('dispatchParent');
-	const stepTerm: string = getContext('stepTerm');
-	const gap: string = getContext('gap');
-	const justify: string = getContext('justify');
-	const buttonBack: string = getContext('buttonBack');
-	const buttonBackLabel: string = getContext('buttonBackLabel');
-	const buttonNext: string = getContext('buttonNext');
-	const buttonNextLabel: string = getContext('buttonNextLabel');
-	const buttonComplete: string = getContext('buttonComplete');
-	const buttonCompleteLabel: string = getContext('buttonCompleteLabel');
+	export let state: Writable<any> = getContext('state');
+	export let dispatchParent: any = getContext('dispatchParent');
+	export let stepTerm: string = getContext('stepTerm');
+	export let gap: string = getContext('gap');
+	export let justify: string = getContext('justify');
+	export let buttonBack: string = getContext('buttonBack');
+	export let buttonBackLabel: string = getContext('buttonBackLabel');
+	export let buttonNext: string = getContext('buttonNext');
+	export let buttonNextLabel: string = getContext('buttonNextLabel');
+	export let buttonComplete: string = getContext('buttonComplete');
+	export let buttonCompleteLabel: string = getContext('buttonCompleteLabel');
 
 	// Register step on init (keep these paired)
 	const stepIndex = $state.total;

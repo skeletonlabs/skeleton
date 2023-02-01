@@ -74,12 +74,11 @@
 
 <!-- @component The Accordion child element. -->
 
-<div class="accordion-item {classesBase}">
+<div class="accordion-item {classesBase}" data-testid="accordion-item">
 	<!-- Control -->
 	<button
 		class="accordion-control {classesControl}"
 		id="accordion-control-{uuid}"
-		data-testid="accordion-item"
 		on:click={setActive}
 		on:click
 		on:keydown

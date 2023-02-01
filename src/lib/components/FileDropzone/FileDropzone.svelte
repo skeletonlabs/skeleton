@@ -40,7 +40,7 @@
 	}
 </script>
 
-<div class="dropzone {classesBase}" class:opacity-50={$$restProps.disabled}>
+<div class="dropzone {classesBase}" class:opacity-50={$$restProps.disabled} data-testid="file-dropzone">
 	<!-- Input: File (hidden) -->
 	<input
 		type="file"
