@@ -26,6 +26,7 @@
 	// Local
 	let tabsBasic: number = 0;
 	let tabsFancy: number = 0;
+	let tabsBottomNav: number = 0;
 	let desc = {
 		books: 'A written or printed work consisting of pages glued or sewn together along one side and bound in covers.',
 		movies: 'A story or event recorded by a camera as a set of moving images and shown in a theater or on television; a motion picture.',
@@ -80,6 +81,23 @@
 							<p class="text-center">{desc.tv}</p>
 						{/if}
 					</svelte:fragment>
+				</TabGroup>
+			</div>
+			<!-- Bottom Nav Bar -->
+			<div class="bg-surface-100-800-token">
+				<TabGroup justify="justify-center" active="variant-filled-primary" hover="hover:variant-soft-primary" rounded="" borderWidth="">
+					<Tab bind:group={tabsBottomNav} name="books" value={0}>
+						<svelte:fragment slot="lead"><i class="fa-solid fa-book" /></svelte:fragment>
+						Books
+					</Tab>
+					<Tab bind:group={tabsBottomNav} name="movies" value={1}>
+						<svelte:fragment slot="lead"><i class="fa-solid fa-film" /></svelte:fragment>
+						Movies
+					</Tab>
+					<Tab bind:group={tabsBottomNav} name="tv" value={2}>
+						<svelte:fragment slot="lead"><i class="fa-solid fa-tv" /></svelte:fragment>
+						Television
+					</Tab>
 				</TabGroup>
 			</div>
 		</section>
