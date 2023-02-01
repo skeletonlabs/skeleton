@@ -109,8 +109,12 @@ function isValidEmail(value: string): boolean {
 		<!-- Additional Settings -->
 		<section class="space-y-4">
 			<h2>Additional Settings</h2>
-			<p>Use the <code>max</code> property to define a maximum number of chips allowed. This is disabled by default.</p>
+			<p>Use the <code>max</code> property to define a maximum number of chips allowed.</p>
 			<CodeBlock language="html" code={`<InputChip ... max={3} />`} />
+			<p>
+				Use the <code>minlength</code> and <code>maxlength</code> properties to set the minimum/maximum number of input characters respectively.
+			</p>
+			<CodeBlock language="html" code={`<InputChip ... minlength={2} maxlength={5} />`} />
 			<p>
 				By default, only a single instance of each value is allowed. If you wish to allow duplicates, set <code>allowDuplicates</code>.
 			</p>
