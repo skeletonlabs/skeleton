@@ -126,7 +126,6 @@
 			<div class="p-4 grid grid-cols-1 gap-4">
 				{#each $storeThemGenForm.colors as colorRow, i}
 					{@const contrastReport = getPassReport($storeThemGenForm.colors[i].hex, $storeThemGenForm.colors[i].on)}
-					{@const contrastRatio = Math.round(contrastReport.contrast * 100) / 100}
 					<div class="grid grid-cols-1 lg:grid-cols-[170px_1fr_160px] gap-2 lg:gap-4">
 						<label class="input-label">
 							<span>{colorRow.label}</span>
