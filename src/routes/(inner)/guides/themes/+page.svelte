@@ -12,8 +12,14 @@
 	import { toastStore } from '$lib/utilities/Toast/stores';
 	import type { ToastSettings } from '$lib/utilities/Toast/types';
 
+	// Local
+	let activeDataTheme = 'skeleton';
+
 	// Copy Theme Import to Clipboard
 	function copyThemeToClipboard(file: string): void {
+		// Set Active
+		activeDataTheme = file;
+		// Copy
 		navigator.clipboard.writeText(`import '@skeletonlabs/skeleton/themes/theme-${file.toLowerCase()}.css';`).then(
 			// Success
 			() => {
@@ -67,6 +73,26 @@
 			Use the theme picker at the top of the page to preview each option. Tap any theme automatically copy the import statement to your
 			clipboard.
 		</p>
+		<!-- Implement -->
+		<TabGroup regionPanel="space-y-4">
+			<Tab bind:group={$storeFramework} name="cli" value="cli">Skeleton CLI</Tab>
+			<Tab bind:group={$storeFramework} name="manu" value="manual">Manual Install</Tab>
+			<!-- Panel -->
+			<svelte:fragment slot="panel">
+				{#if $storeFramework === 'cli'}
+					<p>
+						The CLI will automatically import your selected theme into <code>src/routes/+layout.svelte</code>, just before your global
+						stylesheet
+						<code>app.postcss</code>.
+					</p>
+				{:else if $storeFramework === 'manual'}
+					<p>
+						Select any theme below, then import this preset into the root layout in <code>/src/routes/+layout.svelte</code>, just before
+						your global stylesheet <code>app.postcss</code>.
+					</p>
+				{/if}
+			</svelte:fragment>
+		</TabGroup>
 		<div class="card variant-glass-surface p-4 space-y-4">
 			<nav class="grid grid-cols-1 md:grid-cols-3 gap-4">
 				{#each presets as preset}
@@ -86,33 +112,23 @@
 					</div>
 				{/each}
 			</nav>
-			<!-- prettier-ignore -->
-			<small class="block text-center">
-				TIP: Want to clone and modify a preset theme? <a href="https://github.com/skeletonlabs/skeleton/tree/master/src/lib/themes" target="_blank" rel="noreferrer">View these themes on GitHub.</a>
-			</small>
 		</div>
-		<!-- Implement -->
-		<TabGroup regionPanel="space-y-4">
-			<Tab bind:group={$storeFramework} name="cli" value="cli">Skeleton CLI</Tab>
-			<Tab bind:group={$storeFramework} name="manu" value="manual">Manual Install</Tab>
-			<!-- Panel -->
-			<svelte:fragment slot="panel">
-				{#if $storeFramework === 'cli'}
-			<p>
-				The CLI will automatically import your selected theme into <code>src/routes/+layout.svelte</code> before your global stylesheet. You
-				may change this at any time.
-			</p>
-		{:else if $storeFramework === 'manual'}
-			<p>Import your desired preset into the root layout in <code>/src/routes/+layout.svelte</code>, just before your global stylesheet.</p>
-		{/if}
-			</svelte:fragment>
-		</TabGroup>
 		<!-- prettier-ignore -->
-		<p>
-			Some preset themes include special styles, such as a background. To use these, set the <code>data-theme</code> attribute in
-			your <code>app.html</code> body tag.
+		<p class="text-center">
+			Prest themes can be found on <a href="https://github.com/skeletonlabs/skeleton/tree/master/src/lib/themes" target="_blank" rel="noreferrer">GitHub</a> if you wish to clone and modify them.
 		</p>
-		<CodeBlock language="html" code={`<body data-theme="skeleton">`} />
+		<div class="flex items-center space-x-2">
+			<h3>Theme Extras</h3>
+			<span class="badge variant-filled-warning">Optional</span>
+		</div>
+		<p>
+			Preset themes include custom fonts, background gradients, and other bonus features. You may enable these by pairing with the matching <code
+				>data-theme</code
+			>
+			attribute in your
+			<code>app.html</code> body tag. Selecting a theme preset above will update the snippet below.
+		</p>
+		<CodeBlock language="html" code={`<body data-theme="` + activeDataTheme + `">`} />
 	</div>
 
 	<hr />
