@@ -39,18 +39,13 @@ export const menuNavLinks: any = [
 	},
 	{
 		id: 'base',
-		title: 'Base',
+		title: 'Globals',
 		list: [
 			{ href: '/elements/core', label: 'Core', keywords: 'body, scroll, scrollbar, hr, horizontal, rule' },
 			{
 				href: '/elements/typography',
 				label: 'Typography',
 				keywords: 'unstyled, headings, paragraph, anchor, blockquote, pre, code, keyboard, ins, del'
-			},
-			{
-				href: '/elements/forms',
-				label: 'Forms',
-				keywords: 'plugin, label, input, select, checkbox, radio, date, color, picker, slider, range'
 			}
 		]
 	},
@@ -64,6 +59,11 @@ export const menuNavLinks: any = [
 			{ href: '/elements/buttons', label: 'Buttons', keywords: 'click, anchor, icon, preload' },
 			{ href: '/elements/cards', label: 'Cards', keywords: 'header, footer, background, cell, region' },
 			{ href: '/elements/chips', label: 'Chips', keywords: 'action, select, selection, filter, filtering, interactive' },
+			{
+				href: '/elements/forms',
+				label: 'Forms & Inputs',
+				keywords: 'plugin, label, input, select, checkbox, radio, date, color, picker, slider, range, file'
+			},
 			{ href: '/elements/lists', label: 'Lists', keywords: 'unordered, ordered, description, nav, navigation, ul, ol, li, dd, dt' },
 			{ href: '/elements/logo-clouds', label: 'Logo Clouds', keywords: 'logo, brand, branding, links' },
 			{ href: '/elements/placeholders', label: 'Placeholders', keywords: 'skeleton, spacer, text, image, avatar, animate, animate' },
