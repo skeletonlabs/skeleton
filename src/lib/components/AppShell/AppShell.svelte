@@ -8,23 +8,26 @@
 	 * @slot footer - Insert fixed footer content. Not recommended for most layouts.
 	 */
 
+	// Types
+	import type { CssClasses } from '$lib';
+
 	// Props (regions)
 	/** Apply abitrary clases to the entire `#page` region. */
-	export let regionPage = '';
-	/** Apply abitrary clases to the <code>header</code> slot container element */
-	export let slotHeader = 'z-10';
-	/** Apply abitrary clases to the <code>sidebarLeft</code> slot container element */
-	export let slotSidebarLeft = 'w-auto';
-	/** Apply abitrary clases to the <code>sidebarRight</code> slot container element */
-	export let slotSidebarRight = 'w-auto';
-	/** Apply abitrary clases to the <code>pageHeader</code> slot container element */
-	export let slotPageHeader = '';
-	/** Apply abitrary clases to the <code>pageContent</code> slot container element */
-	export let slotPageContent = '';
-	/** Apply abitrary clases to the <code>pageFooter</code> slot container element */
-	export let slotPageFooter = '';
-	/** Apply abitrary clases to the <code>footer</code> slot container element */
-	export let slotFooter = '';
+	export let regionPage: CssClasses = '';
+	/** Apply abitrary clases to the `header` slot container element */
+	export let slotHeader: CssClasses = 'z-10';
+	/** Apply abitrary clases to the `sidebarLeft` slot container element */
+	export let slotSidebarLeft: CssClasses = 'w-auto';
+	/** Apply abitrary clases to the `sidebarRight` slot container element */
+	export let slotSidebarRight: CssClasses = 'w-auto';
+	/** Apply abitrary clases to the `pageHeader` slot container element */
+	export let slotPageHeader: CssClasses = '';
+	/** Apply abitrary clases to the `pageContent` slot container element */
+	export let slotPageContent: CssClasses = '';
+	/** Apply abitrary clases to the `pageFooter` slot container element */
+	export let slotPageFooter: CssClasses = '';
+	/** Apply abitrary clases to the `footer` slot container element */
+	export let slotFooter: CssClasses = '';
 
 	// Base Classes
 	const cBaseAppShell = 'w-full h-full flex flex-col overflow-hidden';

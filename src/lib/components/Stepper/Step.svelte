@@ -4,28 +4,31 @@
 	import type { Writable } from 'svelte/store';
 	import { fade } from 'svelte/transition';
 
+	// Types
+	import type { CssClasses } from '$lib';
+
 	// Props
 	export let locked: boolean = false;
 
 	// Props (regions)
 	/** Provide arbitrary classes to the step header region. */
-	export let regionHeader = '';
+	export let regionHeader: CssClasses = '';
 	/** Provide arbitrary classes to the step content region. */
-	export let regionContent = '';
+	export let regionContent: CssClasses = '';
 	/** Provide arbitrary classes to the step navigation region. */
-	export let regionNavigation = '';
+	export let regionNavigation: CssClasses = '';
 
 	// Context
 	export let state: Writable<any> = getContext('state');
 	export let dispatchParent: any = getContext('dispatchParent');
 	export let stepTerm: string = getContext('stepTerm');
-	export let gap: string = getContext('gap');
-	export let justify: string = getContext('justify');
-	export let buttonBack: string = getContext('buttonBack');
+	export let gap: CssClasses = getContext('gap');
+	export let justify: CssClasses = getContext('justify');
+	export let buttonBack: CssClasses = getContext('buttonBack');
 	export let buttonBackLabel: string = getContext('buttonBackLabel');
-	export let buttonNext: string = getContext('buttonNext');
+	export let buttonNext: CssClasses = getContext('buttonNext');
 	export let buttonNextLabel: string = getContext('buttonNextLabel');
-	export let buttonComplete: string = getContext('buttonComplete');
+	export let buttonComplete: CssClasses = getContext('buttonComplete');
 	export let buttonCompleteLabel: string = getContext('buttonCompleteLabel');
 
 	// Register step on init (keep these paired)

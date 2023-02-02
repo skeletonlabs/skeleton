@@ -3,6 +3,9 @@
 	import { fly, scale } from 'svelte/transition';
 	import { flip } from 'svelte/animate';
 
+	// Types
+	import type { CssClasses } from '$lib';
+
 	// Event Dispatcher
 	const dispatch = createEventDispatcher();
 
@@ -38,13 +41,13 @@
 
 	// Props (styles)
 	/** Provide classes or a variant to style the chips. */
-	export let chips: string = 'variant-filled';
+	export let chips: CssClasses = 'variant-filled';
 	/** Provide classes used to indicate invalid state. */
-	export let invalid: string = 'input-error';
+	export let invalid: CssClasses = 'input-error';
 	/** Provide classes to set padding styles. */
-	export let padding: string = 'p-2';
+	export let padding: CssClasses = 'p-2';
 	/** Provide classes to set border radius styles. */
-	export let rounded: string = 'rounded-container-token';
+	export let rounded: CssClasses = 'rounded-container-token';
 
 	// Classes
 	const cBase = 'input-cell cursor-pointer';
