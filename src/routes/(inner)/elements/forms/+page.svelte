@@ -34,191 +34,191 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<p>
-			Unlike other UI libraries, Skeleton relies heavily on native inputs. We feel these provide the best user experience and optimal
-			accessability. Tap the <u>View Page Source</u> button at the top of the page to view the source code for each example below.
-		</p>
-		<div class="card">
-			<!-- Card Body -->
-			<div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-				<!-- Column 1 -->
-				<div class="space-y-4">
-					<label class="label">
-						<span>Input (text)</span>
-						<input class="input" type="text" placeholder="input text" />
-					</label>
-					<label class="label">
-						<span>Input (readonly)</span>
-						<!-- NOTE: we recommend setting the tabindex as well -->
-						<input class="input" type="text" placeholder="input readonly" readonly tabindex="-1" />
-					</label>
-					<label class="label">
-						<span>Input (disabled)</span>
-						<input class="input" type="text" placeholder="input disabled" disabled />
-					</label>
-					<label class="label">
-						<span>Input (email)</span>
-						<input class="input" type="email" placeholder="john@example.com" autocomplete="email" />
-					</label>
-					<label class="label">
-						<span>Input (email, multiple)</span>
-						<input class="input" type="email" multiple placeholder="john@example.com, susy@example.com" />
-					</label>
-					<label class="label">
-						<span>Input (password)</span>
-						<input class="input" type="password" placeholder="password" />
-					</label>
-					<label class="label">
-						<span>Input (search)</span>
-						<input class="input" type="search" placeholder="Search..." />
-					</label>
-					<label class="label">
-						<span>Input (date)</span>
-						<input class="input" type="date" />
-					</label>
-					<label class="label">
-						<span>Input (datetime-local)</span>
-						<input class="input" type="datetime-local" />
-					</label>
-					<label class="label">
-						<span>Input (month)</span>
-						<input class="input" type="month" />
-					</label>
-					<label class="label">
-						<span>Input (number)</span>
-						<input class="input" type="number" />
-					</label>
-					<label class="label">
-						<span>Input (time)</span>
-						<input class="input" type="time" />
-					</label>
-					<label class="label">
-						<span>Input (week)</span>
-						<input class="input" type="week" />
-					</label>
-					<label class="label">
-						<span>Input (tel)</span>
-						<input class="input" type="tel" multiple placeholder="john@example.com" />
-					</label>
-					<label class="label">
-						<span>Input (url)</span>
-						<input class="input" type="url" multiple placeholder="john@example.com" />
-					</label>
-				</div>
-				<!-- Column 2 -->
-				<div class="space-y-4">
-					<label class="label">
-						<span>Input (file)</span>
-						<input class="input" type="file" />
-					</label>
-					<label class="label">
-						<span>Input (file, multiple)</span>
-						<input class="input" type="file" multiple />
-					</label>
-					<label class="label">
-						<span>Select</span>
-						<select class="select">
-							<option value="1">Option 1</option>
-							<option value="2">Option 2</option>
-							<option value="3">Option 3</option>
-							<option value="4">Option 4</option>
-							<option value="5">Option 5</option>
-						</select>
-					</label>
-					<label class="label">
-						<span>Select (size)</span>
-						<select class="select" size="4" value="1">
-							<option value="1">Option 1</option>
-							<option value="2">Option 2</option>
-							<option value="3">Option 3</option>
-							<option value="4">Option 4</option>
-							<option value="5">Option 5</option>
-						</select>
-					</label>
-					<label class="label">
-						<span>Select (multiple)</span>
-						<select class="select" multiple value={['1', '2']}>
-							<option value="1">Option 1</option>
-							<option value="2">Option 2</option>
-							<option value="3">Option 3</option>
-							<option value="4">Option 4</option>
-							<option value="5">Option 5</option>
-						</select>
-					</label>
-					<label class="label">
-						<span>Textarea</span>
-						<textarea class="textarea" rows="4" placeholder="Enter some long form content." />
-					</label>
-					<fieldset>
-						<div class="label">
-							<strong>Checkboxes</strong>
-							<div class="space-y-2">
-								<label class="flex items-center space-x-2">
-									<input class="checkbox" type="checkbox" checked />
-									<p>Option 1</p>
-								</label>
-								<label class="flex items-center space-x-2">
-									<input class="checkbox" type="checkbox" />
-									<p>Option 2</p>
-								</label>
-								<label class="flex items-center space-x-2">
-									<input class="checkbox" type="checkbox" />
-									<p>Option 3</p>
-								</label>
+		<section class="space-y-4">
+			<p class="text-center">Tap the <strong>View Page Source</strong> above to inspect each example provided below.</p>
+			<div class="card">
+				<!-- Card Body -->
+				<div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+					<!-- Column 1 -->
+					<div class="space-y-4">
+						<label class="label">
+							<span>Input (text)</span>
+							<input class="input" type="text" placeholder="input text" />
+						</label>
+						<label class="label">
+							<span>Input (readonly)</span>
+							<!-- NOTE: we recommend setting the tabindex to -1 as well -->
+							<input class="input" type="text" placeholder="input readonly" readonly tabindex="-1" />
+						</label>
+						<label class="label">
+							<span>Input (disabled)</span>
+							<input class="input" type="text" placeholder="input disabled" disabled />
+						</label>
+						<label class="label">
+							<span>Input (email)</span>
+							<input class="input" type="email" placeholder="john@example.com" autocomplete="email" />
+						</label>
+						<label class="label">
+							<span>Input (email, multiple)</span>
+							<input class="input" type="email" multiple placeholder="john@example.com, susy@example.com" />
+						</label>
+						<label class="label">
+							<span>Input (password)</span>
+							<input class="input" type="password" placeholder="password" />
+						</label>
+						<label class="label">
+							<span>Input (search)</span>
+							<input class="input" type="search" placeholder="Search..." />
+						</label>
+						<label class="label">
+							<span>Input (date)</span>
+							<input class="input" type="date" />
+						</label>
+						<label class="label">
+							<span>Input (datetime-local)</span>
+							<input class="input" type="datetime-local" />
+						</label>
+						<label class="label">
+							<span>Input (month)</span>
+							<input class="input" type="month" />
+						</label>
+						<label class="label">
+							<span>Input (number)</span>
+							<input class="input" type="number" />
+						</label>
+						<label class="label">
+							<span>Input (time)</span>
+							<input class="input" type="time" />
+						</label>
+						<label class="label">
+							<span>Input (week)</span>
+							<input class="input" type="week" />
+						</label>
+						<label class="label">
+							<span>Input (tel)</span>
+							<input class="input" type="tel" multiple placeholder="john@example.com" />
+						</label>
+						<label class="label">
+							<span>Input (url)</span>
+							<input class="input" type="url" multiple placeholder="john@example.com" />
+						</label>
+					</div>
+					<!-- Column 2 -->
+					<div class="space-y-4">
+						<label class="label">
+							<span>Input (file)</span>
+							<input class="input" type="file" />
+						</label>
+						<label class="label">
+							<span>Input (file, multiple)</span>
+							<input class="input" type="file" multiple />
+						</label>
+						<label class="label">
+							<span>Select</span>
+							<select class="select">
+								<option value="1">Option 1</option>
+								<option value="2">Option 2</option>
+								<option value="3">Option 3</option>
+								<option value="4">Option 4</option>
+								<option value="5">Option 5</option>
+							</select>
+						</label>
+						<label class="label">
+							<span>Select (size)</span>
+							<select class="select" size="4" value="1">
+								<option value="1">Option 1</option>
+								<option value="2">Option 2</option>
+								<option value="3">Option 3</option>
+								<option value="4">Option 4</option>
+								<option value="5">Option 5</option>
+							</select>
+						</label>
+						<label class="label">
+							<span>Select (multiple)</span>
+							<select class="select" multiple value={['1', '2']}>
+								<option value="1">Option 1</option>
+								<option value="2">Option 2</option>
+								<option value="3">Option 3</option>
+								<option value="4">Option 4</option>
+								<option value="5">Option 5</option>
+							</select>
+						</label>
+						<label class="label">
+							<span>Textarea</span>
+							<textarea class="textarea" rows="4" placeholder="Enter some long form content." />
+						</label>
+						<fieldset>
+							<div class="label">
+								<strong>Checkboxes</strong>
+								<div class="space-y-2">
+									<label class="flex items-center space-x-2">
+										<input class="checkbox" type="checkbox" checked />
+										<p>Option 1</p>
+									</label>
+									<label class="flex items-center space-x-2">
+										<input class="checkbox" type="checkbox" />
+										<p>Option 2</p>
+									</label>
+									<label class="flex items-center space-x-2">
+										<input class="checkbox" type="checkbox" />
+										<p>Option 3</p>
+									</label>
+								</div>
 							</div>
-						</div>
-					</fieldset>
-					<fieldset>
-						<div class="label">
-							<strong>Radio Buttons</strong>
-							<div class="space-y-2">
-								<label class="flex items-center space-x-2">
-									<input class="radio" type="radio" checked name="radio-direct" value="1" />
-									<p>Option 1</p>
-								</label>
-								<label class="flex items-center space-x-2">
-									<input class="radio" type="radio" name="radio-direct" value="2" />
-									<p>Option 2</p>
-								</label>
-								<label class="flex items-center space-x-2">
-									<input class="radio" type="radio" name="radio-direct" value="3" />
-									<p>Option 3</p>
-								</label>
+						</fieldset>
+						<fieldset>
+							<div class="label">
+								<strong>Radio Buttons</strong>
+								<div class="space-y-2">
+									<label class="flex items-center space-x-2">
+										<input class="radio" type="radio" checked name="radio-direct" value="1" />
+										<p>Option 1</p>
+									</label>
+									<label class="flex items-center space-x-2">
+										<input class="radio" type="radio" name="radio-direct" value="2" />
+										<p>Option 2</p>
+									</label>
+									<label class="flex items-center space-x-2">
+										<input class="radio" type="radio" name="radio-direct" value="3" />
+										<p>Option 3</p>
+									</label>
+								</div>
 							</div>
-						</div>
-					</fieldset>
-					<label class="label">
-						<span>Input (range)</span>
-						<input type="range" value="75" max="100" />
-					</label>
-					<label class="label">
-						<span>Input (color)</span>
-						<div class="grid grid-cols-[auto_1fr] gap-2">
-							<input class="input" type="color" bind:value={colorValue} />
-							<input class="input" type="text" bind:value={colorValue} readonly tabindex="-1" />
-						</div>
-					</label>
+						</fieldset>
+						<label class="label">
+							<span>Input (range)</span>
+							<input type="range" value="75" max="100" />
+						</label>
+						<label class="label">
+							<span>Input (color)</span>
+							<div class="grid grid-cols-[auto_1fr] gap-2">
+								<input class="input" type="color" bind:value={colorValue} />
+								<input class="input" type="text" bind:value={colorValue} readonly tabindex="-1" />
+							</div>
+						</label>
+					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
-		<section class="space-y-4">
+		<section class="card variant-ghost-warning p-4 space-y-4">
 			<div class="flex items-center space-x-2">
 				<h2>Tailwind Forms Plugin</h2>
 				<span class="badge variant-filled-warning">Required</span>
 			</div>
 			<!-- prettier-ignore -->
 			<p>
-				The Tailwind Forms plugin is required if you wish to use Skeleton's form styles. This plugin normalizes the styles, which makes them easier to customize. See the <a href="https://www.youtube.com/watch?v=pONeWAzDsQg" target="_blank" rel="noreferrer">Tailwind's YouTube tutorial</a> for more information.
+				The Tailwind Forms plugin normalizes the styles, which makes them easier to customize. See <a href="https://www.youtube.com/watch?v=pONeWAzDsQg" target="_blank" rel="noreferrer">Tailwind's YouTube tutorial</a>.
 			</p>
 			<!-- Written -->
 			<div class="flex-auto space-y-4">
 				<CodeBlock language="console" code={`npm install -D @tailwindcss/forms`} />
 				<p>
-					Prepend the <a href="https://tailwindcss.com/docs/plugins" target="_blank" rel="noreferrer">Tailwind Forms plugin</a> to your
+					Add the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank" rel="noreferrer">Tailwind Forms plugin</a> to
+					your
 					<code>tailwind.config.cjs</code>
 				</p>
 				<CodeBlock
@@ -234,50 +234,39 @@ module.exports = {
 				/>
 			</div>
 		</section>
+		<hr />
+		<!-- Native by Default -->
 		<section class="space-y-4">
-			<h2>Adding Styles</h2>
-			<h3>Input, Textarea, Select</h3>
+			<h2>Native by Default</h2>
+			<!-- prettier-ignore -->
 			<p>
-				Most inputs are unstyled by default - aside from what the Tailwind Forms plugin provides. To use Skeleton's styling, simply add the
-				matching class like <code>.input</code>, <code>.textarea</code>, or <code>.select</code>.
-			</p>
-			<CodeBlock
-				language="html"
-				code={`
-<label class="label">
-	<span>Name</span>
-	<input class="input" type="text" id="name" bind:value={name} minlength="2" required>
-</label>
-		`}
-			/>
-			<CodeBlock
-				language="html"
-				code={`
-<label class="label">
-	<span>Comments</span>
-	<textarea class="textarea" rows="4" placeholder="Enter your comments..." />
-</label>
-		`}
-			/>
-			<CodeBlock
-				language="html"
-				code={`
-<label class="label">
-	<span>Flavors</span>
-	<select class="select" name="flavors" id="flavors" bind:value={flavorValue}>
-		<option value="chocolate">Chocolate</option>
-		<option value="vanilla">Vanilla</option>
-		<option value="strawberry">Strawberry</option>
-	</select>
-</label>
-		`}
-			/>
+				Unlike other UI libraries, Skeleton relies heavily on native inputs. We feel this provide the best user experience and
+				accessability. Input fields are unstyled by default, aside from rudimentary styles <a href="https://tailwindcss-forms.vercel.app/" target="_blank" rel="noreferrer">provided by the Forms plugin</a>.</p>
 			<!-- Labels -->
 			<h3>Labels</h3>
 			<p>
-				For label elements, we've implemented a <code>.label</code> class which implements a style of <code>.space-y-2</code>. Feel free to
-				override as desired. Note that we favor <em>span</em> tags for the actual text label itself.
+				Apply the <code>.label</code> class which implements a style of <code>.space-y-2</code>. Note that we favor <em>span</em> tags for the
+				actual text label itself.
 			</p>
+			<CodeBlock
+				language="html"
+				code={`
+<label class="label">
+	<span>Label Text</span>
+	<!-- (input goes here) --->
+</label>
+		`}
+			/>
+			<!-- Input Fields -->
+			<h3>Input Fields</h3>
+			<p>
+				Examples of each type of input are shown below. Note that <code>input</code> styles automatically adjust based on <code>type</code>.
+			</p>
+			<CodeBlock language="html" code={`<input class="input" ...>`} />
+			<CodeBlock language="html" code={`<textarea class="textarea" ... />`} />
+			<CodeBlock language="html" code={`<select class="select">...</select>`} />
+			<CodeBlock language="html" code={`<input class="checkbox" ... />`} />
+			<CodeBlock language="html" code={`<input class="radio" ... />`} />
 		</section>
 		<!-- Input Groups -->
 		<section class="space-y-4">
@@ -349,10 +338,10 @@ module.exports = {
 				</label>
 			</div>
 		</section>
-		<!-- Validation Classes -->
+		<!-- Variants -->
 		<section class="space-y-4">
-			<h2>Validation Classes</h2>
-			<p>Skeleton provides a set of validation classes that can be triggered with your own custom form validation logic.</p>
+			<h2>Variants</h2>
+			<p>Skeleton provides a set of variant classes for use with form validation logic.</p>
 			<CodeBlock language="html" code={`<input ... class="input-success" />`} />
 			<div class="card p-4 grid grid-cols-1 lg:grid-cols-3 gap-4">
 				<label class="space-y-3">
@@ -373,8 +362,8 @@ module.exports = {
 		<section class="space-y-4">
 			<h2>Browser Support</h2>
 			<p>
-				Please be aware that not all native HTML input styles and features are consistent across browsers or operating system. Make sure you
-				do proper cross device/OS/browser testing to ensure compability for your target audience.
+				Please be aware that not all native HTML input styles and features are consistent across browsers or operating system. We strongly
+				recommend cross device/OS/browser testing to ensure compability for your target audience.
 			</p>
 		</section>
 		<!-- See Also -->

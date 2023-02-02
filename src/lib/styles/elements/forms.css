@@ -126,7 +126,15 @@
 	/* Checkbox & Radio */
 	.checkbox,
 	.radio {
-		@apply rounded text-secondary-600 focus:ring-secondary-500 w-5 h-5 cursor-pointer;
+		@apply w-5 h-5 !ring-0 rounded cursor-pointer;
+		/* Background */
+		@apply bg-surface-200-700-token focus:brightness-105 hover:brightness-105;
+		/* Border */
+		@apply border-token border-surface-400-500-token focus:border-primary-500;
+	}
+	.checkbox:checked,
+	.radio:checked {
+		@apply bg-primary-500 hover:bg-primary-500 focus:bg-primary-500 focus:ring-0;
 	}
 	.radio {
 		@apply rounded-token;
