@@ -18,7 +18,7 @@ type Rgb = {
 	b: number;
 };
 
-function hexToRgb(hex: string): Rgb | null {
+export function hexToRgb(hex: string): Rgb | null {
 	const sanitizedHex = hex.replaceAll('##', '#');
 	const colorParts = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(sanitizedHex);
 
@@ -33,7 +33,7 @@ function hexToRgb(hex: string): Rgb | null {
 	} as Rgb;
 }
 
-export function hextoTailwindRgbString(hex: string): string {
+export function hexToTailwindRgbString(hex: string): string {
 	const sanitizedHex = hex.replaceAll('##', '#');
 	const colorParts = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(sanitizedHex);
 
@@ -44,7 +44,7 @@ export function hextoTailwindRgbString(hex: string): string {
 	return `${parseInt(r, 16)} ${parseInt(g, 16)} ${parseInt(b, 16)}`;
 }
 
-function rgbToHex(r: number, g: number, b: number): string {
+export function rgbToHex(r: number, g: number, b: number): string {
 	const toHex = (c: number) => `0${c.toString(16)}`.slice(-2);
 	return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
 }
@@ -56,7 +56,7 @@ export function generateA11yOnColor(hex: string): '255 255 255' | '0 0 0' {
 		return '0 0 0';
 	}
 
-	const luma = luminance(rgbColor);
+	const luma = getLuminance(rgbColor);
 
 	return luma < 120 ? '255 255 255' : '0 0 0'; // white | black
 }
@@ -92,7 +92,7 @@ export function generatePalette(baseColor: string): Palette {
 	const hex500 = `#${baseColor}`.replace('##', '#');
 
 	const response: Palette = {
-		500: { hex: hex500, rgb: hextoTailwindRgbString(hex500), on: generateA11yOnColor(hex500) }
+		500: { hex: hex500, rgb: hexToTailwindRgbString(hex500), on: generateA11yOnColor(hex500) }
 	};
 
 	const intensityMap: { [key: number]: number } = {
@@ -109,12 +109,12 @@ export function generatePalette(baseColor: string): Palette {
 
 	[50, 100, 200, 300, 400].forEach((level) => {
 		const hex = lighten(baseColor, intensityMap[level]);
-		response[level] = { hex, rgb: hextoTailwindRgbString(hex), on: generateA11yOnColor(hex) };
+		response[level] = { hex, rgb: hexToTailwindRgbString(hex), on: generateA11yOnColor(hex) };
 	});
 
 	[600, 700, 800, 900].forEach((level) => {
 		const hex = darken(baseColor, intensityMap[level]);
-		response[level] = { hex, rgb: hextoTailwindRgbString(hex), on: generateA11yOnColor(hex) };
+		response[level] = { hex, rgb: hexToTailwindRgbString(hex), on: generateA11yOnColor(hex) };
 	});
 
 	return response as Palette;
@@ -123,7 +123,7 @@ export function generatePalette(baseColor: string): Palette {
 type ContrastLevel = 'AA' | 'AAA';
 type ContrastSize = 'small' | 'large';
 
-const contrastLevels: Record<
+export const contrastLevels: Record<
 	ContrastSize,
 	{
 		[key in ContrastLevel]: number;
@@ -142,8 +142,8 @@ const contrastLevels: Record<
 };
 
 /** Takes the RGB and returns the luminance of it */
-function luminance(r: Rgb, g?: number, b?: number): number;
-function luminance(r: number | Rgb, g?: number, b?: number) {
+export function getLuminance(r: Rgb, g?: number, b?: number): number;
+export function getLuminance(r: number | Rgb, g?: number, b?: number) {
 	const { _r, _g, _b } = typeof r === 'object' ? { _r: r.r, _g: r.g, _b: r.b } : { _r: r, _g: g, _b: b }; // I'm not really happy with this ternary, but it works
 	// we can't use !_r shorthand here because 0 is a valid value
 	if (_r === undefined || _g === undefined || _b === undefined) throw new Error('Invalid RGB value!');
@@ -154,18 +154,18 @@ function luminance(r: number | Rgb, g?: number, b?: number) {
 	return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
 }
 
-function destringRgb(rgbString: string): Rgb {
+export function destringRgb(rgbString: string): Rgb {
 	const rgb = rgbString.match(/(\d+),?\s*(\d+),?\s*(\d+)/); // matches "255, 255, 255" and "255 255 255"
 	if (!rgb) throw new Error('Invalid RGB string!');
 	return { r: parseInt(rgb[1], 10), g: parseInt(rgb[2], 10), b: parseInt(rgb[3], 10) };
 }
 
-function handleString(colorString: string): Rgb {
+export function handleStringColor(colorString: string): Rgb {
 	// if it's a css variable
 	if (colorString.includes('--')) {
 		colorString = colorString.replace(/var\(|\)/g, ''); // grab just the variable name
 		const cssVarHydrated = getComputedStyle(document.documentElement).getPropertyValue(colorString).trim();
-		return handleString(cssVarHydrated);
+		return handleStringColor(cssVarHydrated);
 	}
 	// if it has spaces, it's an rgb string
 	if (colorString.includes(' ')) return destringRgb(colorString);
@@ -175,14 +175,14 @@ function handleString(colorString: string): Rgb {
 	return rgb;
 }
 
-function calculateRatio(luminance1: string | number, luminance2: string | number) {
-	const lum1 = typeof luminance1 === 'string' ? luminance(handleString(luminance1)) : luminance1;
-	const lum2 = typeof luminance2 === 'string' ? luminance(handleString(luminance2)) : luminance2;
+export function calculateRatio(luminance1: string | number, luminance2: string | number) {
+	const lum1 = typeof luminance1 === 'string' ? getLuminance(handleStringColor(luminance1)) : luminance1;
+	const lum2 = typeof luminance2 === 'string' ? getLuminance(handleStringColor(luminance2)) : luminance2;
 	if (lum1 === undefined || lum2 === undefined) throw new Error('Luminance is undefined!');
 	return lum1 > lum2 ? (lum2 + 0.05) / (lum1 + 0.05) : (lum1 + 0.05) / (lum2 + 0.05);
 }
 
-function textPasses(textColor: string, backgroundColor: string, size: ContrastSize, level: ContrastLevel) {
+export function textPasses(textColor: string, backgroundColor: string, size: ContrastSize, level: ContrastLevel) {
 	const ratio = calculateRatio(textColor, backgroundColor);
 	return ratio <= contrastLevels[size][level];
 }
