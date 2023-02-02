@@ -29,17 +29,17 @@
 			</div>
 			<!-- Form -->
 			<form class="variant-ringed p-4 space-y-4 rounded-container-token" use:focusTrap={isFocused}>
-				<label class="input-label">
+				<label class="label">
 					<span>Name</span>
-					<input type="text" placeholder="Enter name..." />
+					<input class="input" type="text" placeholder="Enter name..." />
 				</label>
-				<label class="input-label">
+				<label class="label">
 					<span>Phone Number</span>
-					<input type="tel" placeholder="Enter phone..." />
+					<input class="input" type="tel" placeholder="Enter phone..." />
 				</label>
-				<label class="input-label">
+				<label class="label">
 					<span>Email</span>
-					<input type="email" placeholder="Enter email address..." />
+					<input class="input" type="email" placeholder="Enter email address..." />
 				</label>
 				<button class="btn variant-filled-primary">Submit Form</button>
 			</form>

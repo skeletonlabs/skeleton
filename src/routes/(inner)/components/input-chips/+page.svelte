@@ -46,7 +46,7 @@
 			</div>
 			<!-- Flavors -->
 			<div class="card p-4 space-y-4">
-				<label for="chips-example-flavors" class="input-label">
+				<label for="chips-example-flavors" class="label">
 					<span>Flavors <em>(whitelists vanilla, chocolate, strawberry)</em></span>
 					<InputChip
 						name="chips-example-flavors"
@@ -60,7 +60,7 @@
 			</div>
 			<!-- Emails -->
 			<div class="card p-4 space-y-4">
-				<label for="chips-example-emails" class="input-label">
+				<label for="chips-example-emails" class="label">
 					<span>Emails <em>(validated)</em></span>
 					<InputChip
 						name="chips-example-emails"
