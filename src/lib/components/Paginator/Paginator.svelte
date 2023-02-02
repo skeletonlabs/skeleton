@@ -17,8 +17,8 @@
 	export let justify = 'justify-between';
 	/** Provide classes to style page info text. */
 	export let text = 'text-xs';
-	/** Provide arbitrary classes to style the select input. */
-	export let select: string | undefined = undefined;
+	/** Provide classes to style the select input. */
+	export let select: string = 'select min-w-[150px]'; // FIXME: change type to `CssClasses`
 	/** Sets selection and buttons to disabled state on-demand. */
 	export let disabled = false;
 	/** Set the text for the amount selection input. */
