@@ -1,6 +1,9 @@
 <script lang="ts">
 	import { afterUpdate } from 'svelte';
 	import { tailwindDefaultColors } from './settings';
+
+	// Types
+	import type { CssClasses } from '$lib';
 	import type { ConicStop } from './types';
 
 	// Props
@@ -14,17 +17,17 @@
 	/** When enabled, the conic gradient will spin. */
 	export let spin = false;
 	/** Provided classes to style the conic gradient width. */
-	export let width = 'w-full';
+	export let width: CssClasses = 'w-full';
 	/** Provided classes to style the legend hover effect. */
-	export let hover = 'bg-primary-hover-token';
+	export let hover: CssClasses = 'bg-primary-hover-token';
 
 	// Props (regions)
 	/** Provide abitrary classes to the caption region above the gradient. */
-	export let regionCaption = '';
+	export let regionCaption: CssClasses = '';
 	/** Provide abitrary classes to the conic gradient region. */
-	export let regionCone = '';
+	export let regionCone: CssClasses = '';
 	/** Provide abitrary classes to the legend region below the gradient. */
-	export let regionLegend = '';
+	export let regionLegend: CssClasses = '';
 
 	// Local
 	let cone: string;

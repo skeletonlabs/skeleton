@@ -2,6 +2,9 @@
 <script lang="ts">
 	import { afterUpdate } from 'svelte';
 
+	// Types
+	import type { CssClasses } from '$lib';
+
 	// Props
 	/**
 	 * Set the meter fill amount. Shows as indeterminate when set `undefined`.
@@ -10,14 +13,16 @@
 	export let value: number | undefined = undefined; // %
 	/** Sets the base stroke width. Scales responsively. */
 	export let stroke = 20; // px
-	/** Provide classes to set meter color. */
-	export let meter = 'stroke-surface-900 dark:stroke-surface-50';
-	/** Provide classes to set track color. */
-	export let track = 'stroke-surface-500/30';
-	/** Provide classes to set the SVG text fill color. */
-	export let fill = 'fill-token';
 	/** Sets the base font size. Scales responsively. */
 	export let font = 56; // px
+
+	// Props (styles)
+	/** Provide classes to set meter color. */
+	export let meter: CssClasses = 'stroke-surface-900 dark:stroke-surface-50';
+	/** Provide classes to set track color. */
+	export let track: CssClasses = 'stroke-surface-500/30';
+	/** Provide classes to set the SVG text fill color. */
+	export let fill: CssClasses = 'fill-token';
 
 	// Props A11y
 	/** Provide the ARIA labelledby value. */

@@ -3,44 +3,47 @@
 	import { type Writable, writable } from 'svelte/store';
 	import { fade } from 'svelte/transition';
 
+	// Types
+	import type { CssClasses } from '$lib';
+
 	// Event Dispacher
 	const dispatchParent = createEventDispatcher();
 
 	// Props
 	/** Provide classes to style the stepper header gap. */
-	export let gap: string = 'gap-4';
+	export let gap: CssClasses = 'gap-4';
 
 	// Props (stepper)
 	/** Provide the verbiage that represents "Step". */
 	export let stepTerm: string = 'Step';
 	/** Provide classes to style the stepper header badges. */
-	export let badge: string = 'variant-filled-surface';
+	export let badge: CssClasses = 'variant-filled-surface';
 	/** Provide classes to style the stepper header active step badge. */
-	export let active: string = 'variant-filled';
+	export let active: CssClasses = 'variant-filled';
 	/** Provide classes to style the stepper header border. */
-	export let border: string = 'border-surface-400-500-token';
+	export let border: CssClasses = 'border-surface-400-500-token';
 
 	// Props (step)
 	/** Set the justification for the step navigation buttons. */
-	export let justify: string = 'justify-between';
+	export let justify: CssClasses = 'justify-between';
 	/** Provide abitrary classes to style the back button. */
-	export let buttonBack: string = 'variant-ghost';
+	export let buttonBack: CssClasses = 'variant-ghost';
 	/** Provide the HTML label content for the back button. */
 	export let buttonBackLabel: string = '&larr; Back';
 	/** Provide abitrary classes to style the next button. */
-	export let buttonNext: string = 'variant-filled';
+	export let buttonNext: CssClasses = 'variant-filled';
 	/** Provide the HTML label content for the next button. */
 	export let buttonNextLabel: string = 'Next &rarr;';
 	/** Provide abitrary classes to style the complete button. */
-	export let buttonComplete: string = 'variant-filled-primary';
+	export let buttonComplete: CssClasses = 'variant-filled-primary';
 	/** Provide the HTML label content for the complete button. */
 	export let buttonCompleteLabel: string = 'Complete';
 
 	// Props (regions)
 	/** Provide arbitrary classes to the stepper header region. */
-	export let regionHeader = '';
+	export let regionHeader: CssClasses = '';
 	/** Provide arbitrary classes to the stepper content region. */
-	export let regionContent = '';
+	export let regionContent: CssClasses = '';
 
 	// Stores
 	let state: Writable<any> = writable({ current: 0, total: 0 });

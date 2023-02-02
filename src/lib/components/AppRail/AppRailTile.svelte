@@ -2,6 +2,9 @@
 	import { createEventDispatcher, getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
 
+	// Types
+	import type { CssClasses } from '$lib';
+
 	// Event Handler
 	const dispatch = createEventDispatcher<{ click: MouseEvent }>();
 
@@ -18,14 +21,14 @@
 
 	// Props (region)
 	/** Provide abitrary classes to style the icon region. */
-	export let regionIcon = '';
+	export let regionIcon: CssClasses = '';
 	/** Provide abitrary classes to style the label region. */
-	export let regionLabel = '';
+	export let regionLabel: CssClasses = '';
 
 	// Context
-	export let selected: Writable<any> = getContext('selected');
-	export let active: Writable<any> = getContext('active');
-	export let hover: Writable<any> = getContext('hover');
+	export let selected: Writable<CssClasses> = getContext('selected');
+	export let active: Writable<CssClasses> = getContext('active');
+	export let hover: Writable<CssClasses> = getContext('hover');
 
 	// Base Classes
 	const cBase = 'unstyled grid place-content-center place-items-center w-full aspect-square space-y-1.5 cursor-pointer';

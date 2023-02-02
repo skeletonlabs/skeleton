@@ -13,6 +13,9 @@
 	import type { Writable } from 'svelte/store';
 	import { slide } from 'svelte/transition';
 
+	// Types
+	import type { CssClasses } from '$lib';
+
 	// Props (state)
 	export let open = false;
 
@@ -34,18 +37,18 @@
 	export let duration: number = getContext('duration');
 	// ---
 	/** Provide classes to set the accordion item padding styles. */
-	export let padding: string = getContext('padding');
+	export let padding: CssClasses = getContext('padding');
 	/** Provide classes to set the accordion item hover styles. */
-	export let hover: string = getContext('hover');
+	export let hover: CssClasses = getContext('hover');
 	/** Provide classes to set the accordion item rounded styles. */
-	export let rounded: string = getContext('rounded');
+	export let rounded: CssClasses = getContext('rounded');
 	// ---
 	/** Provide arbitrary classes to the trigger button region. */
-	export let regionControl: string = getContext('regionControl');
+	export let regionControl: CssClasses = getContext('regionControl');
 	/** Provide arbitrary classes to content panel region. */
-	export let regionPanel: string = getContext('regionPanel');
+	export let regionPanel: CssClasses = getContext('regionPanel');
 	/** Provide arbitrary classes caret icon region. */
-	export let regionCaret: string = getContext('regionCaret');
+	export let regionCaret: CssClasses = getContext('regionCaret');
 
 	// Change open behavior based on auto-collapse mode
 	function setActive(): void {

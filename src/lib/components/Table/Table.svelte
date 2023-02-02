@@ -1,8 +1,11 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
 
-	import type { TableSource } from '$lib/components/Table/types';
 	import { tableA11y } from '$lib/utilities/DataTable/DataTable';
+
+	// Types
+	import type { CssClasses } from '$lib';
+	import type { TableSource } from '$lib/components/Table/types';
 
 	const dispatch = createEventDispatcher();
 
@@ -17,17 +20,17 @@
 
 	// Props (styles)
 	/** Override the Tailwind Element class. Replace this for a headless UI. */
-	export let element = 'table';
+	export let element: CssClasses = 'table';
 	/** Provide classes to set the table text size. */
-	export let text = '';
+	export let text: CssClasses = '';
 	/** Provide classes to set the table text color. */
-	export let color = '';
+	export let color: CssClasses = '';
 	/** Provide arbitrary classes for the table head. */
-	export let regionHead = '';
+	export let regionHead: CssClasses = '';
 	/** Provide arbitrary classes for the table body. */
-	export let regionBody = '';
+	export let regionBody: CssClasses = '';
 	/** Provide arbitrary classes for the table foot. */
-	export let regionFoot = '';
+	export let regionFoot: CssClasses = '';
 
 	// Row Click Handler
 	function onRowClick(event: MouseEvent | KeyboardEvent, rowIndex: number): void {

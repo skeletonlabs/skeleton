@@ -5,6 +5,9 @@
 	import { writable, type Writable } from 'svelte/store';
 	import { setContext } from 'svelte';
 
+	// Types
+	import type { CssClasses } from '$lib';
+
 	// Props
 	/** Set the auto-collapse mode. */
 	export let autocollapse = false;
@@ -13,23 +16,23 @@
 
 	// Props (parent)
 	/** Provide classes to set the vertical spacing between accordion items. */
-	export let spacing = 'space-y-1';
+	export let spacing: CssClasses = 'space-y-1';
 
 	// Props (childen)
 	/** Provide classes to set the accordion item padding styles. */
-	export let padding = 'py-2 px-4';
+	export let padding: CssClasses = 'py-2 px-4';
 	/** Provide classes to set the accordion item hover styles. */
-	export let hover = 'hover:bg-primary-hover-token';
+	export let hover: CssClasses = 'hover:bg-primary-hover-token';
 	/** Provide classes to set the accordion item rounded styles. */
-	export let rounded = 'rounded-container-token';
+	export let rounded: CssClasses = 'rounded-container-token';
 
 	// Props (regions)
 	/** Provide arbitrary classes to the trigger button region. */
-	export let regionControl = '';
+	export let regionControl: CssClasses = '';
 	/** Provide arbitrary classes to content panel region. */
-	export let regionPanel = 'space-y-4';
+	export let regionPanel: CssClasses = 'space-y-4';
 	/** Provide arbitrary classes caret icon region. */
-	export let regionCaret = '';
+	export let regionCaret: CssClasses = '';
 
 	// Local
 	const active: Writable<string | null> = writable(null);

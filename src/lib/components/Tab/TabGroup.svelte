@@ -6,31 +6,34 @@
 
 	import { setContext } from 'svelte';
 
+	// Types
+	import type { CssClasses } from '$lib';
+
 	// Props (Group)
 	/** Provide classes to set the tab list flex justification. */
-	export let justify: string = 'justify-start';
+	export let justify: CssClasses = 'justify-start';
 	/** Provide classes to set the tab group border width. */
-	export let borderWidth: string = 'border-b';
+	export let borderWidth: CssClasses = 'border-b';
 	/** Provide classes to set the tab group border color. */
-	export let borderColor: string = 'border-surface-400-500-token';
+	export let borderColor: CssClasses = 'border-surface-400-500-token';
 
 	// Props (Tab)
 	/** Provide classes to style each tab's active styles. */
-	export let active: string = 'border-b-2 border-surface-900-50-token';
+	export let active: CssClasses = 'border-b-2 border-surface-900-50-token';
 	/** Provide classes to style each tab's hover styles. */
-	export let hover: string = 'hover:variant-soft';
+	export let hover: CssClasses = 'hover:variant-soft';
 	/** Provide classes to style each tab's flex styles. */
-	export let flex: string = 'flex-none';
+	export let flex: CssClasses = 'flex-none';
 	/** Provide classes to style each tab's padding styles. */
-	export let padding: string = 'px-4 py-2';
+	export let padding: CssClasses = 'px-4 py-2';
 	/** Provide classes to style each tab's box radius styles. */
-	export let rounded: string = 'rounded-tl-container-token rounded-tr-container-token';
+	export let rounded: CssClasses = 'rounded-tl-container-token rounded-tr-container-token';
 
 	// Props (regions)
 	/** Provide arbitrary classes to style the tab list region. */
-	export let regionList: string = '';
+	export let regionList: CssClasses = '';
 	/** Provide arbitrary classes to style the tab panel region. */
-	export let regionPanel: string = '';
+	export let regionPanel: CssClasses = '';
 
 	// Props (a11y)
 	/** Provide the ID of the element that labels the tab list. */
