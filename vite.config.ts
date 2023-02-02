@@ -17,11 +17,7 @@ const config: UserConfig = {
 	test: {
 		globals: true,
 		environment: 'jsdom',
-		exclude: [...configDefaults.exclude, '**/package/**', '**/build/**'],
-		setupFiles: [
-			// https://stackoverflow.com/questions/73831370/vitest-crypto-randomuuid-is-not-a-function
-			'./scripts/vitest-global-setup.js'
-		]
+		exclude: [...configDefaults.exclude, '**/package/**', '**/build/**']
 	}
 };
 
