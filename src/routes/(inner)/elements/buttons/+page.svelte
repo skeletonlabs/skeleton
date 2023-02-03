@@ -51,14 +51,14 @@
 			<!-- Options -->
 			<div class="card p-4 space-y-4">
 				<!-- Tag -->
-				<label class="input-label" for="">
+				<label class="label" for="">
 					<RadioGroup display="flex">
 						<RadioItem bind:group={props.tag} name="tag-button" value="button">Button</RadioItem>
 						<RadioItem bind:group={props.tag} name="tag-anchor" value="a">Anchor</RadioItem>
 					</RadioGroup>
 				</label>
 				<!-- Size -->
-				<label class="input-label" for="">
+				<label class="label" for="">
 					<span>Size</span>
 					<RadioGroup display="flex">
 						<RadioItem bind:group={props.size} name="btn-sm" value="btn-sm">sm</RadioItem>
@@ -68,9 +68,9 @@
 					</RadioGroup>
 				</label>
 				<!-- Variant -->
-				<label class="input-label">
+				<label class="label">
 					<span>Variant</span>
-					<select name="variant" id="variant" bind:value={props.variant}>
+					<select class="select" name="variant" id="variant" bind:value={props.variant}>
 						<option value={undefined}>None</option>
 						<!-- Filled -->
 						<option value="variant-filled-primary">variant-filled-primary</option>
@@ -99,7 +99,7 @@
 					</select>
 				</label>
 				<!-- Disabled -->
-				<label class="input-label" for="">
+				<label class="label" for="">
 					<span>Disabled</span>
 					<RadioGroup display="flex">
 						<RadioItem bind:group={props.disabled} name="enabled" value={false}>Enabled</RadioItem>

@@ -90,7 +90,7 @@
 						<RadioItem bind:group={props.src} name="initials" value={undefined}>Initials</RadioItem>
 					</RadioGroup>
 					<!-- Width -->
-					<label class="input-label" for="">
+					<label class="label" for="">
 						<span>Width</span>
 						<RadioGroup display="flex">
 							<RadioItem bind:group={props.width} name="w-10" value="w-10">w-10</RadioItem>
@@ -100,7 +100,7 @@
 						</RadioGroup>
 					</label>
 					<!-- Rounded -->
-					<label class="input-label" for="">
+					<label class="label" for="">
 						<span>Rounded</span>
 						<RadioGroup display="flex">
 							<RadioItem bind:group={props.rounded} name="rounded-full" value="rounded-full">Full</RadioItem>
@@ -110,7 +110,7 @@
 						</RadioGroup>
 					</label>
 					<!-- Border -->
-					<label class="input-label" for="">
+					<label class="label" for="">
 						<span>Border</span>
 						<RadioGroup display="flex">
 							<RadioItem bind:group={props.border} name="border-off" value="">Off</RadioItem>
@@ -120,14 +120,14 @@
 					<!-- If: Initials -->
 					{#if props.src === undefined}
 						<!-- Initials -->
-						<label class="input-label">
+						<label class="label">
 							<span>Initial Text</span>
-							<input type="text" bind:value={props.initials} maxlength="2" />
+							<input class="input" type="text" bind:value={props.initials} maxlength="2" />
 						</label>
 						<!-- Background -->
-						<label class="input-label">
+						<label class="label">
 							<span>Background</span>
-							<select name="background" id="background" bind:value={props.background}>
+							<select class="select" name="background" id="background" bind:value={props.background}>
 								<option value="bg-primary-500">bg-primary-500</option>
 								<option value="bg-secondary-500">bg-secondary-500</option>
 								<option value="bg-tertiary-500">bg-tertiary-500</option>
@@ -138,9 +138,9 @@
 					{/if}
 					<!-- Filter -->
 					{#if props.src !== undefined}
-						<label class="input-label">
+						<label class="label">
 							<span>Filter</span>
-							<select name="filter" id="filter" bind:value={props.actionParams}>
+							<select class="select" name="filter" id="filter" bind:value={props.actionParams}>
 								<option value="">None</option>
 								<option value="#Apollo">#Apollo</option>
 								<option value="#BlueNight">#BlueNight</option>

@@ -30,17 +30,17 @@
 	<!-- Enable for debugging: -->
 	<!-- <pre>{JSON.stringify(formData, null, 2)}</pre> -->
 	<form class="modal-form {cForm}">
-		<label class="input-label">
+		<label class="label">
 			<span>Name</span>
-			<input type="text" bind:value={formData.name} placeholder="Enter name..." />
+			<input class="input" type="text" bind:value={formData.name} placeholder="Enter name..." />
 		</label>
-		<label class="input-label">
+		<label class="label">
 			<span>Phone Number</span>
-			<input type="tel" bind:value={formData.tel} placeholder="Enter phone..." />
+			<input class="input" type="tel" bind:value={formData.tel} placeholder="Enter phone..." />
 		</label>
-		<label class="input-label">
+		<label class="label">
 			<span>Email</span>
-			<input type="email" bind:value={formData.email} placeholder="Enter email address..." />
+			<input class="input" type="email" bind:value={formData.email} placeholder="Enter email address..." />
 		</label>
 	</form>
 	<!-- prettier-ignore -->

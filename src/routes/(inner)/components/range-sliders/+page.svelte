@@ -68,12 +68,12 @@
 			<!-- Options -->
 			<div class="card p-4 space-y-4 max-w-[320px]">
 				<!-- Label -->
-				<label class="input-label">
+				<label class="label">
 					<span>Label</span>
-					<input type="text" bind:value={props.label} placeholder="Label" />
+					<input class="input" type="text" bind:value={props.label} placeholder="Label" />
 				</label>
 				<!-- Max -->
-				<label class="input-label" for="">
+				<label class="label" for="">
 					<span>Max</span>
 					<RadioGroup display="flex">
 						<RadioItem bind:group={props.max} name="max-10" value={10}>10</RadioItem>
@@ -82,7 +82,7 @@
 					</RadioGroup>
 				</label>
 				<!-- Step -->
-				<label class="input-label" for="">
+				<label class="label" for="">
 					<span>Step</span>
 					<RadioGroup display="flex">
 						<RadioItem bind:group={props.step} name="step-1" value={1}>1</RadioItem>
@@ -91,7 +91,7 @@
 					</RadioGroup>
 				</label>
 				<!-- Ticked -->
-				<label class="input-label" for="">
+				<label class="label" for="">
 					<span>Ticked</span>
 					<RadioGroup display="flex">
 						<RadioItem bind:group={props.ticked} name="ticked-off" value={false}>Off</RadioItem>
@@ -99,9 +99,9 @@
 					</RadioGroup>
 				</label>
 				<!-- Accent -->
-				<label class="input-label">
+				<label class="label">
 					<span>Accent</span>
-					<select name="accent" id="accent" bind:value={props.accent}>
+					<select class="select" name="accent" bind:value={props.accent}>
 						<option value="!accent-primary-500">accent-primary-500</option>
 						<option value="!accent-secondary-500">accent-secondary-500</option>
 						<option value="!accent-tertiary-500">accent-tertiary-500</option>

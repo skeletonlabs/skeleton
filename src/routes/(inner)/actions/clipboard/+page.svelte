@@ -32,7 +32,7 @@
 			</div>
 			<!-- Input -->
 			<div class="card p-4 space-y-4">
-				<textarea class="h-20" data-clipboard="exampleInput">Make changes to this textarea and then tap copy.</textarea>
+				<textarea class="textarea h-20" data-clipboard="exampleInput">Make changes to this textarea and then tap copy.</textarea>
 				<button use:clipboard={{ input: 'exampleInput' }} class="btn variant-filled-secondary">Copy Input Value</button>
 			</div>
 		</section>

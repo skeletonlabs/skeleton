@@ -129,7 +129,7 @@
 			</p>
 			<section class="grid grid-cols-1 lg:grid-cols-2 gap-4">
 				<!-- Single -->
-				<label class="input-label">
+				<label class="label">
 					<span>Select (single)</span>
 					<select size="4" value="1">
 						<option value="1">Option 1</option>
@@ -140,7 +140,7 @@
 					</select>
 				</label>
 				<!-- Multiple -->
-				<label class="input-label">
+				<label class="label">
 					<span>Select (multiple)</span>
 					<select multiple value={['1', '2']}>
 						<option value="1">Option 1</option>

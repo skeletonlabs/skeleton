@@ -22,7 +22,11 @@
 	/** Provide classes to set flexbox justification. */
 	export let justify: CssClasses = 'justify-between';
 	/** Provide classes to style page info text. */
-	export let text: CssClasses = 'text-xs';
+	export let text = 'text-xs';
+	/** Provide classes to style the select input. */
+	export let select: CssClasses = 'select min-w-[150px]';
+	/** Sets selection and buttons to disabled state on-demand. */
+	export let disabled = false;
 	/** Set the text for the amount selection input. */
 	export let amountText = 'Items';
 	/** Provide abtitrary classes to the next/previous buttons. */

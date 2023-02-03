@@ -57,7 +57,7 @@
 			<!-- Options -->
 			<div class="card p-4 space-y-4 w-auto lg:w-[400px]">
 				<!-- Mode -->
-				<label class="input-label" for="">
+				<label class="label" for="">
 					<RadioGroup display="flex">
 						<RadioItem bind:group={props.determinate} name="determinate" value={true}>Determinate</RadioItem>
 						<RadioItem bind:group={props.determinate} name="indeterminate" value={false}>Indeterminate</RadioItem>
@@ -77,7 +77,7 @@
 					/>
 				{/if}
 				<!-- Height -->
-				<label class="input-label" for="">
+				<label class="label" for="">
 					<span>Height</span>
 					<RadioGroup display="flex">
 						<RadioItem bind:group={props.height} name="h-1" value="h-1">h-1</RadioItem>
@@ -87,9 +87,9 @@
 					</RadioGroup>
 				</label>
 				<!-- Rounded -->
-				<label class="input-label">
+				<label class="label">
 					<span>Rounded</span>
-					<select name="rounded" id="rounded" bind:value={props.rounded}>
+					<select class="select" name="rounded" bind:value={props.rounded}>
 						<option value={defaultRounded}>Default</option>
 						<option value="rounded-sm">rounded-sm</option>
 						<option value="rounded">rounded</option>
@@ -102,9 +102,9 @@
 					</select>
 				</label>
 				<!-- Meter -->
-				<label class="input-label">
+				<label class="label">
 					<span>Meter</span>
-					<select name="meter" id="meter" bind:value={props.meter}>
+					<select class="select" name="meter" bind:value={props.meter}>
 						<option value={defaultMeter}>Default</option>
 						<option value="bg-primary-500">bg-primary-500</option>
 						<option value="bg-secondary-500">bg-secondary-500</option>
@@ -116,9 +116,9 @@
 					</select>
 				</label>
 				<!-- track -->
-				<label class="input-label">
+				<label class="label">
 					<span>Track</span>
-					<select name="track" id="track" bind:value={props.track}>
+					<select class="select" name="track" bind:value={props.track}>
 						<option value={defaultTrack}>Default</option>
 						<option value="bg-primary-500/30">bg-primary-500/30</option>
 						<option value="bg-secondary-500/30">bg-secondary-500/30</option>

@@ -50,7 +50,7 @@
 	export let rounded: CssClasses = 'rounded-container-token';
 
 	// Classes
-	const cBase = 'input-cell cursor-pointer';
+	const cBase = 'textarea cursor-pointer';
 	const cInterface = 'space-y-4';
 	const cChipList = 'flex flex-wrap gap-2';
 	const cInputField = 'unstyled bg-transparent border-0 !ring-0 p-0 w-full';

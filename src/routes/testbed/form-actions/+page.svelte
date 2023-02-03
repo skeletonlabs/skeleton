@@ -41,7 +41,7 @@
 	<!-- {submit} -->
 	<form method="POST" action="?/submit" use:enhance class="space-y-4">
 		<!-- First Name -->
-		<label class="input-label">
+		<label class="label">
 			<span>Input (text)</span>
 			<input type="text" id="first_name" name="first_name" placeholder="First Name" value={formData.first_name} />
 		</label>

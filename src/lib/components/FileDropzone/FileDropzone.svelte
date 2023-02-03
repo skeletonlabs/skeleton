@@ -27,7 +27,7 @@
 	/** Provide abitrary styles for meta text slot container. */
 	export let slotMeta: CssClasses = 'opacity-75';
 
-	const cBase = 'relative input-cell';
+	const cBase = 'textarea relative';
 	const cInput = 'absolute top-0 left-0 right-0 bottom-0 z-[1] opacity-0 disabled:!opacity-0 cursor-pointer';
 	const cInterface = 'flex justify-center items-center text-center';
 
