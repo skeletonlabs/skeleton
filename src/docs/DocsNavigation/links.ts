@@ -61,7 +61,7 @@ export const menuNavLinks: any = [
 			{ href: '/elements/chips', label: 'Chips', keywords: 'action, select, selection, filter, filtering, interactive' },
 			{
 				href: '/elements/forms',
-				label: 'Input Fields',
+				label: 'Forms',
 				keywords: 'plugin, label, input, select, checkbox, radio, date, color, picker, slider, range, file'
 			},
 			{ href: '/elements/lists', label: 'Lists', keywords: 'unordered, ordered, description, nav, navigation, ul, ol, li, dd, dt' },

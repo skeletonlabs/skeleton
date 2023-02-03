@@ -68,15 +68,13 @@
 	.textarea,
 	.select,
 	.input-group {
-		@apply w-full;
+		@apply w-full transition duration-200;
 		/* Background */
 		@apply bg-surface-200-700-token focus:brightness-105 hover:brightness-105;
 		/* Ring */
 		@apply !ring-0;
 		/* Border */
 		@apply border-token border-surface-400-500-token focus:border-primary-500;
-		/* Transition */
-		@apply transition duration-200;
 	}
 
 	/* Base Inputs */
@@ -250,5 +248,22 @@
 	}
 	.input-error::placeholder {
 		@apply text-error-500;
+	}
+
+	/* === Variants === */
+
+	/* Material */
+	.variant-form-material {
+		/* Border Radius */
+		@apply !rounded-tl !rounded-tr !rounded-bl-none !rounded-br-none;
+		/* Background */
+		@apply bg-surface-500/10 dark:bg-surface-500/20;
+		/* Border */
+		@apply border-0 border-b-2;
+		/* Blur */
+		@apply backdrop-blur;
+	}
+	.variant-form-material[type='file'] {
+		@apply !py-1.5;
 	}
 }

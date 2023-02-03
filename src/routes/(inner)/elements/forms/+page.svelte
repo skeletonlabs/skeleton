@@ -7,8 +7,8 @@
 	// Docs Shell
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Element,
-		name: 'Forms & Inputs',
-		description: 'Pair with the Tailwind Forms plugin to provide input styling.',
+		name: 'Forms',
+		description: 'Pair with the Tailwind Forms plugin to style various input fields.',
 		stylesheetIncludes: ['all', 'forms'],
 		source: 'styles/forms.css',
 		dependencies: [{ label: 'Tailwind Forms Plugin', url: 'https://github.com/tailwindlabs/tailwindcss-forms' }],
@@ -341,7 +341,40 @@ module.exports = {
 		<!-- Variants -->
 		<section class="space-y-4">
 			<h2>Variants</h2>
-			<p>Skeleton provides a set of variant classes for use with form validation logic.</p>
+			<p>Skeleton includes a Material Design inspired variant. Use this as a reference for build your own variant classes.</p>
+			<CodeBlock
+				language="html"
+				code={`
+<input ... class="input variant-form-material" />
+<select ... class="select variant-form-material" />
+<textarea ... class="textarea variant-form-material" />
+			`}
+			/>
+			<div class="card p-4 grid grid-cols-1 lg:grid-cols-3 gap-4">
+				<label class="label">
+					<span>Input (text)</span>
+					<input class="input variant-form-material" type="text" placeholder="input text" />
+				</label>
+				<label class="label">
+					<span>Input (password)</span>
+					<input class="input variant-form-material" type="password" placeholder="Enter password..." />
+				</label>
+				<label class="label">
+					<span>Select</span>
+					<select class="select variant-form-material">
+						<option value="1">Option 1</option>
+						<option value="2">Option 2</option>
+						<option value="3">Option 3</option>
+						<option value="4">Option 4</option>
+						<option value="5">Option 5</option>
+					</select>
+				</label>
+			</div>
+		</section>
+		<!-- Validation Classes -->
+		<section class="space-y-4">
+			<h2>Validation Classes</h2>
+			<p>Skeleton provides a set of classes for use with form validation logic.</p>
 			<CodeBlock language="html" code={`<input ... class="input-success" />`} />
 			<div class="card p-4 grid grid-cols-1 lg:grid-cols-3 gap-4">
 				<label class="space-y-3">
