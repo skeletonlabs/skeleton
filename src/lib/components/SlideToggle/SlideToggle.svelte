@@ -22,11 +22,9 @@
 	 */
 	export let size = 'md';
 	/** Provide classes to set the checked state color. */
-	export let accent: CssClasses = 'bg-surface-900 dark:bg-surface-300';
-	/** Provide classes to set the border width styles. */
-	export let borderWidth: CssClasses = 'border-0';
-	/** Provide classes to set the border color styles. */
-	export let borderColor: CssClasses = 'border-surface-300-600-token';
+	export let active: CssClasses = 'bg-surface-900 dark:bg-surface-300';
+	/** Provide classes to set the border styles. */
+	export let border: CssClasses = '';
 	/** Provide classes to set border radius styles. */
 	export let rounded: CssClasses = 'rounded-full';
 
@@ -61,7 +59,7 @@
 	}
 
 	// Interactive
-	$: cTrackAccent = checked ? accent : 'bg-surface-400 dark:bg-surface-700 cursor-pointer';
+	$: cTrackActive = checked ? active : 'bg-surface-400 dark:bg-surface-700 cursor-pointer';
 	$: cThumbBackground = checked ? 'bg-white/75' : 'bg-white';
 	$: cThumbPos = checked ? 'translate-x-full' : '';
 
@@ -69,7 +67,7 @@
 	$: classesDisabled = $$props.disabled === true ? 'opacity-50' : 'hover:brightness-[105%] dark:hover:brightness-110 cursor-pointer';
 	$: classesBase = `${cBase} ${rounded} ${classesDisabled} ${$$props.class ?? ''}`;
 	$: classesLabel = `${cLabel}`;
-	$: classesTrack = `${cTrack} ${borderWidth} ${borderColor} ${rounded} ${trackSize} ${cTrackAccent}`;
+	$: classesTrack = `${cTrack} ${border} ${rounded} ${trackSize} ${cTrackActive}`;
 	$: classesThumb = `${cThumb} ${rounded} ${cThumbBackground} ${cThumbPos}`;
 
 	// Prune $$restProps to avoid overwriting $$props.class

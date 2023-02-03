@@ -91,7 +91,7 @@
 					hover="hover:variant-soft-primary"
 					flex="flex-1 lg:flex-none"
 					rounded=""
-					borderWidth=""
+					border=""
 				>
 					<Tab bind:group={tabsBottomNav} name="books" value={0}>
 						<svelte:fragment slot="lead"><i class="fa-solid fa-book" /></svelte:fragment>
