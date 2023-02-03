@@ -67,7 +67,7 @@ function _extractJSDocBlocks(srcFile, propsObj) {
 			const declaration = node.declarationList?.declarations[0];
 			switch (node.kind) {
 				case ts.SyntaxKind.FirstStatement:
-					if (declaration.type?.typeName?.escapedText == 'CSS') {
+					if (declaration.type?.typeName?.escapedText == 'CssClasses') {
 						propsObj[declaration.name.escapedText] = { comment: jsDoc.comment, type: 'css' };
 					} else {
 						propsObj[declaration.name.escapedText] = { comment: jsDoc.comment, type: 'prop' };
@@ -116,7 +116,7 @@ function writeJSDocsToDefinitionFiles() {
 }
 
 function generateKeyWordsFromProps() {
-	let propSet = new Set()
+	let propSet = new Set(['class'])
 	for (let file in filesToProps) {
 		for (let prop in filesToProps[file].props) {
 			if (filesToProps[file].props[prop].type == 'css') {
