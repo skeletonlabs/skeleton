@@ -124,7 +124,8 @@ function generateKeyWordsFromProps() {
 			}
 		}
 	}
-	writeFileSync('scripts/tw-settings.json', JSON.stringify({ "tailwindCSS.classAttributes": [...propSet] }, null, '\t'));
+	const finalProps = Array.from(propSet).sort()
+	writeFileSync('scripts/tw-settings.json', JSON.stringify({ "tailwindCSS.classAttributes": [...finalProps] }, null, '\t'));
 }
 
 extractScriptsFromComponents('src/lib/components');
