@@ -5,33 +5,36 @@
 	 * @slot trail - Provides content on the right end of the bar, e.g. navigation elements.
 	 */
 
+	// Types
+	import type { CssClasses } from '$lib';
+
 	// Props (base)
 	/** Provide classes to set background color. */
-	export let background = 'bg-surface-100-800-token';
+	export let background: CssClasses = 'bg-surface-100-800-token';
 	/** Provide classes to set border styles. */
-	export let border = '';
+	export let border: CssClasses = '';
 	/** Provide classes to set padding. */
-	export let padding = 'p-4';
+	export let padding: CssClasses = 'p-4';
 	/** Provide classes to define a box shadow. */
-	export let shadow = '';
+	export let shadow: CssClasses = '';
 	/** Provide classes to set the vertical spacing between rows. */
-	export let space = 'space-y-4';
+	export let space: CssClasses = 'space-y-4';
 	/** Provide classes to set grid columns for the main row. */
-	export let gridColumns = 'grid-cols-[auto_1fr_auto]';
+	export let gridColumns: CssClasses = 'grid-cols-[auto_1fr_auto]';
 	/** Provide classes to set gap spacing for the main row. */
-	export let gap = 'gap-4';
+	export let gap: CssClasses = 'gap-4';
 
 	// Props (regions)
 	/** Provide abitrary classes to style the top (main) row. */
-	export let regionRowMain = '';
+	export let regionRowMain: CssClasses = '';
 	/** Provide abitrary classes to style the bottom (headline) row. */
-	export let regionRowHeadline = '';
+	export let regionRowHeadline: CssClasses = '';
 	/** Classes to apply to the lead slot container element */
-	export let slotLead = '';
+	export let slotLead: CssClasses = '';
 	/** Classes to apply to the default slot container element */
-	export let slotDefault = '';
+	export let slotDefault: CssClasses = '';
 	/** Classes to apply to the trail slot container element */
-	export let slotTrail = '';
+	export let slotTrail: CssClasses = '';
 
 	// Props (a11y)
 	/** Provide a semantic ID for the ARIA label. */

@@ -7,6 +7,9 @@
 
 	import { getContext } from 'svelte';
 
+	// Types
+	import type { CssClasses } from '$lib';
+
 	// Props
 	/** Set the radio group binding value. */
 	export let group: any;
@@ -17,10 +20,10 @@
 
 	// Context
 	export let multiple: string = getContext('multiple');
-	export let rounded: string = getContext('rounded');
-	export let active: string = getContext('active');
-	export let hover: string = getContext('hover');
-	export let padding: string = getContext('padding');
+	export let rounded: CssClasses = getContext('rounded');
+	export let active: CssClasses = getContext('active');
+	export let hover: CssClasses = getContext('hover');
+	export let padding: CssClasses = getContext('padding');
 
 	// Classes
 	const cBase: string = 'px-4 py-2 cursor-pointer';

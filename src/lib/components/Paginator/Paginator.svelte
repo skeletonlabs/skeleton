@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
 
+	// Types
+	import type { CssClasses } from '$lib';
 	import type { PaginationSettings } from '$lib/components/Paginator/types';
 
 	const dispatch = createEventDispatcher();
@@ -11,24 +13,28 @@
 	 * @type {PaginationSettings}
 	 */
 	export let settings: PaginationSettings = { offset: 0, limit: 5, size: 0, amounts: [1, 2, 5, 10] };
+	/** Sets selection and buttons to disabled state on-demand. */
+	export let disabled: boolean = false;
 
-	// Props
+	// Props (styles)
+	/** Provide arbitrary classes to style the select input. */
+	export let select: CssClasses = '';
 	/** Provide classes to set flexbox justification. */
-	export let justify = 'justify-between';
+	export let justify: CssClasses = 'justify-between';
 	/** Provide classes to style page info text. */
 	export let text = 'text-xs';
 	/** Provide classes to style the select input. */
-	export let select: string = 'select min-w-[150px]'; // FIXME: change type to `CssClasses`
+	export let select: CssClasses = 'select min-w-[150px]';
 	/** Sets selection and buttons to disabled state on-demand. */
 	export let disabled = false;
 	/** Set the text for the amount selection input. */
 	export let amountText = 'Items';
 	/** Provide abtitrary classes to the next/previous buttons. */
-	export let buttonClasses = 'variant-filled';
+	export let buttonClasses: CssClasses = 'variant-filled';
 	/** Set the text label for the Previous button. */
-	export let buttonTextPrevious = '&larr;';
+	export let buttonTextPrevious: CssClasses = '&larr;';
 	/** Set the text label for the Next button. */
-	export let buttonTextNext = '&rarr;';
+	export let buttonTextNext: CssClasses = '&rarr;';
 
 	// Base Classes
 	const cBase = 'flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4';

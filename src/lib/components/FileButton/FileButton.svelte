@@ -1,11 +1,14 @@
 <script lang="ts">
+	// Types
+	import type { CssClasses } from '$lib';
+
 	/**
 	 * Required. Set a unique name for the file input.
 	 * @type {string}
 	 */
 	export let name: string;
 	/** Provide a button variant or other class styles. */
-	export let button = 'variant-filled';
+	export let button: CssClasses = 'variant-filled';
 
 	let elemFileInput: HTMLElement;
 

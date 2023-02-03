@@ -8,6 +8,9 @@ export type { ModalSettings, ModalComponent } from './utilities/Modal/types';
 export type { ToastSettings } from './utilities/Toast/types';
 export type { TableSource } from './components/Table/types';
 
+// This type alias is to identify CSS classes within component props, which enables Tailwind IntelliSense
+export type CssClasses = string;
+
 // Stores ---
 
 export { storeHighlightJs } from './utilities/CodeBlock/stores';

@@ -6,6 +6,9 @@
 
 	import { getContext } from 'svelte';
 
+	// Types
+	import type { CssClasses } from '$lib';
+
 	// Props
 	/** Set the radio group binding value. */
 	export let group: any;
@@ -20,15 +23,15 @@
 
 	// Context
 	/** Provide classes to style each tab's active styles. */
-	export let active: string = getContext('active');
+	export let active: CssClasses = getContext('active');
 	/** Provide classes to style each tab's hover styles. */
-	export let hover: string = getContext('hover');
+	export let hover: CssClasses = getContext('hover');
 	/** Provide classes to style each tab's flex styles. */
-	export let flex: string = getContext('flex');
+	export let flex: CssClasses = getContext('flex');
 	/** Provide classes to style each tab's padding styles. */
-	export let padding: string = getContext('padding');
+	export let padding: CssClasses = getContext('padding');
 	/** Provide classes to style each tab's box radius styles. */
-	export let rounded: string = getContext('rounded');
+	export let rounded: CssClasses = getContext('rounded');
 
 	// Classes
 	const cBase = 'text-center cursor-pointer transition-colors duration-100';

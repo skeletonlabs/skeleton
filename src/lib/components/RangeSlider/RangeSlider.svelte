@@ -4,6 +4,9 @@
 
 	import { afterUpdate } from 'svelte';
 
+	// Types
+	import type { CssClasses } from '$lib';
+
 	// Props
 	/**
 	 * Required. Set a unique name for the file input.
@@ -25,8 +28,10 @@
 	export let step = 1;
 	/** Enables tick marks. See browser support below. */
 	export let ticked = false;
+
+	// Props (styles)
 	/** Provide classes to set the input accent color. */
-	export let accent = 'accent-secondary-500';
+	export let accent: CssClasses = 'accent-secondary-500';
 
 	// Props (a11y)
 	/** A semantic ARIA label. */
