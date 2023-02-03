@@ -1,23 +1,26 @@
 <script lang="ts">
 	import { setContext } from 'svelte';
 
+	// Types
+	import type { CssClasses } from '$lib';
+
 	// Props
 	/** Enable selection of multiple items. */
 	export let multiple: boolean = false;
 
 	// Props (styles)
 	/** Provide classs to set the vertical spacing style. */
-	export let spacing = `space-y-1`;
+	export let spacing: CssClasses = `space-y-1`;
 	/** Provide classes to set the listbox box radius styles. */
-	export let rounded = 'rounded-token';
+	export let rounded: CssClasses = 'rounded-token';
 
 	// Props (styles) - Item Only
 	/** Provide classes to set the listbox item active background styles. */
-	export let active = 'variant-filled';
+	export let active: CssClasses = 'variant-filled';
 	/** Provide classes to set the listbox item hover background styles. */
-	export let hover = 'hover:variant-soft';
+	export let hover: CssClasses = 'hover:variant-soft';
 	/** Provide classes to set the listbox item padding styles. */
-	export let padding = 'px-4 py-2';
+	export let padding: CssClasses = 'px-4 py-2';
 
 	// Props (a11y)
 	export let labelledby: string = '';

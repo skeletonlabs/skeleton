@@ -1,31 +1,34 @@
 <script lang="ts">
 	import { setContext } from 'svelte';
 
+	// Types
+	import type { CssClasses } from '$lib';
+
 	// Props (Group)
 	/** Provide display classes. Set `flex` to stretch full width. */
-	export let display = 'inline-flex';
+	export let display: CssClasses = 'inline-flex';
 	/** Provide classes to set the base background color. */
-	export let background = 'bg-surface-200-700-token';
+	export let background: CssClasses = 'bg-surface-200-700-token';
 	/** Provide classes to set the border width */
-	export let borderWidth = 'border-token';
+	export let borderWidth: CssClasses = 'border-token';
 	/** Provide classes to set the border color. */
-	export let borderColor = 'border-surface-400-500-token';
+	export let borderColor: CssClasses = 'border-surface-400-500-token';
 	/** Provide classes horizontal spacing between items. */
-	export let spacing = 'space-x-1';
+	export let spacing: CssClasses = 'space-x-1';
 	/** Provide classes to set the border radius. */
-	export let rounded = 'rounded-token';
+	export let rounded: CssClasses = 'rounded-token';
 
 	// Props (Item)
 	/** Provide classes to set the RadioItem padding. */
-	export let padding = 'px-4 py-1';
+	export let padding: CssClasses = 'px-4 py-1';
 	/** Provide classes to set the active item color. */
-	export let active = 'variant-filled';
+	export let active: CssClasses = 'variant-filled';
 	/** Provide classes to set the hover style. */
-	export let hover = 'hover:variant-soft';
+	export let hover: CssClasses = 'hover:variant-soft';
 	/** Provide classes to set the highlighted text color. */
-	export let color = '';
+	export let color: CssClasses = '';
 	/** Provide classes to set the highlighted SVG fill color. */
-	export let fill = '';
+	export let fill: CssClasses = '';
 
 	// Props (a11y)
 	export let labelledby = '';

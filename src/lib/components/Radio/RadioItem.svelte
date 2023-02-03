@@ -1,6 +1,9 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 
+	// Types
+	import type { CssClasses } from '$lib';
+
 	// Props
 	/** Set the radio group binding value. */
 	export let group: any;
@@ -14,12 +17,12 @@
 	export let label = '';
 
 	// Context
-	export let rounded: string = getContext('rounded');
-	export let padding: string = getContext('padding');
-	export let active: string = getContext('active');
-	export let hover: string = getContext('hover');
-	export let color: string = getContext('color');
-	export let fill: string = getContext('fill');
+	export let rounded: CssClasses = getContext('rounded');
+	export let padding: CssClasses = getContext('padding');
+	export let active: CssClasses = getContext('active');
+	export let hover: CssClasses = getContext('hover');
+	export let color: CssClasses = getContext('color');
+	export let fill: CssClasses = getContext('fill');
 
 	// Classes
 	const cBase: string = 'flex-auto text-base text-center cursor-pointer';

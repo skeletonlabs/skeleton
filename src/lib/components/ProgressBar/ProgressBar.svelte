@@ -1,4 +1,7 @@
 <script lang="ts">
+	// Types
+	import type { CssClasses } from '$lib';
+
 	// Props
 	/**
 	 * Specifies the amount completed. Indeterminate when `undefined`.
@@ -10,15 +13,15 @@
 	/** Maximum amount the bar represents. */
 	export let max = 100;
 	/** Provide classes to set track height. */
-	export let height = 'h-2';
+	export let height: CssClasses = 'h-2';
 	/** Provide classes to set rounded styles. */
-	export let rounded = 'rounded-token';
+	export let rounded: CssClasses = 'rounded-token';
 
 	// Props (elements)
 	/** Provide arbitrary classes to style the meter element. */
-	export let meter = 'bg-surface-900-50-token';
+	export let meter: CssClasses = 'bg-surface-900-50-token';
 	/** Provide arbitrary classes to style the track element. */
-	export let track = 'variant-glass';
+	export let track: CssClasses = 'variant-glass';
 
 	// Props A11y
 	/** Provide the ARIA labelledby value. */

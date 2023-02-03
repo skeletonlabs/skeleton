@@ -67,7 +67,7 @@ function _extractJSDocBlocks(srcFile, propsObj) {
 			const declaration = node.declarationList?.declarations[0];
 			switch (node.kind) {
 				case ts.SyntaxKind.FirstStatement:
-					if (declaration.type?.typeName?.escapedText == 'CSS') {
+					if (declaration.type?.typeName?.escapedText == 'CssClasses') {
 						propsObj[declaration.name.escapedText] = { comment: jsDoc.comment, type: 'css' };
 					} else {
 						propsObj[declaration.name.escapedText] = { comment: jsDoc.comment, type: 'prop' };
@@ -124,7 +124,9 @@ function generateKeyWordsFromProps() {
 			}
 		}
 	}
-	writeFileSync('scripts/tw-settings.json', JSON.stringify({ "tailwindCSS.classAttributes": [...propSet] }, null, '\t'));
+	let finalProps = Array.from(propSet).sort()
+	finalProps.unshift("class")
+	writeFileSync('scripts/tw-settings.json', JSON.stringify({ "tailwindCSS.classAttributes": [...finalProps] }, null, '\t'));
 }
 
 extractScriptsFromComponents('src/lib/components');
