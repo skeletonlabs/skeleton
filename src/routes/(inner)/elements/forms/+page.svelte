@@ -35,7 +35,7 @@
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-4">
-			<p class="text-center">Tap the <strong>View Page Source</strong> above to inspect each example provided below.</p>
+			<p class="text-center">Tap the <strong>View Page Source</strong> above to inspect each example shown below.</p>
 			<div class="card">
 				<!-- Card Body -->
 				<div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -211,14 +211,16 @@
 			</div>
 			<!-- prettier-ignore -->
 			<p>
-				The Tailwind Forms plugin normalizes the styles, which makes them easier to customize. See <a href="https://www.youtube.com/watch?v=pONeWAzDsQg" target="_blank" rel="noreferrer">Tailwind's YouTube tutorial</a>.
+				The Tailwind Forms plugin normalizes form field styles, making them easier to customize. See <a href="https://www.youtube.com/watch?v=pONeWAzDsQg" target="_blank" rel="noreferrer">Tailwind's YouTube tutorial</a>.
 			</p>
 			<!-- Written -->
 			<div class="flex-auto space-y-4">
 				<CodeBlock language="console" code={`npm install -D @tailwindcss/forms`} />
 				<p>
-					Add the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank" rel="noreferrer">Tailwind Forms plugin</a> to
-					your
+					Make sure to add the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank" rel="noreferrer"
+						>Tailwind Forms plugin</a
+					>
+					to your
 					<code>tailwind.config.cjs</code>
 				</p>
 				<CodeBlock
@@ -232,6 +234,13 @@ module.exports = {
 }
 				`}
 				/>
+				<p>
+					Once installed, input fields will remain unstyled by default, aside from rudimentary styles <a
+						href="https://tailwindcss-forms.vercel.app/"
+						target="_blank"
+						rel="noreferrer">provided by this plugin</a
+					>.
+				</p>
 			</div>
 		</section>
 		<hr />
@@ -240,27 +249,27 @@ module.exports = {
 			<h2>Native by Default</h2>
 			<!-- prettier-ignore -->
 			<p>
-				Unlike other UI libraries, Skeleton relies heavily on native inputs. We feel this provide the best user experience and
-				accessability. Input fields are unstyled by default, aside from rudimentary styles <a href="https://tailwindcss-forms.vercel.app/" target="_blank" rel="noreferrer">provided by the Forms plugin</a>.</p>
+				Unlike other UI libraries, Skeleton relies heavily on native HTML form fields. We feel this provides the best user experience and
+				optimal accessability. Form field styles are opt-in, meaning you need to append one of the classes shown below.</p>
 			<!-- Labels -->
 			<h3>Labels</h3>
 			<p>
-				Apply the <code>.label</code> class which implements a style of <code>.space-y-2</code>. Note that we favor <em>span</em> tags for the
-				actual text label itself.
+				You may optionally apply the <code>.label</code> class which implements <code>.space-y-2</code>. Note that we favor
+				<em>span</em> tags for the actual text label itself.
 			</p>
 			<CodeBlock
 				language="html"
 				code={`
 <label class="label">
 	<span>Label Text</span>
-	<!-- (input goes here) --->
+	<!-- (form field goes here) --->
 </label>
 		`}
 			/>
-			<!-- Input Fields -->
-			<h3>Input Fields</h3>
+			<!-- Form Fields -->
+			<h3>Form Fields</h3>
 			<p>
-				Examples of each type of input are shown below. Note that <code>input</code> styles automatically adjust based on <code>type</code>.
+				Examples of each type of field are shown below. Note that <code>input</code> styles automatically adjust based on <code>type</code>.
 			</p>
 			<CodeBlock language="html" code={`<input class="input" ...>`} />
 			<CodeBlock language="html" code={`<textarea class="textarea" ... />`} />
@@ -271,20 +280,20 @@ module.exports = {
 		<!-- Input Groups -->
 		<section class="space-y-4">
 			<h2>Input Groups</h2>
-			<p>Create a horizontal group of elements related to an input. We've detailed a few requirements below.</p>
+			<p>Create a horizontal group of elements related form fields.</p>
 			<ul class="space-y-2 list-disc list-inside">
 				<li>Groups support <em>most</em> input types and select elements, but not all.</li>
 				<!-- prettier-ignore -->
 				<li>
-					These are grid-based. Set column witdth using <a href="https://tailwindcss.com/docs/grid-template-columns#arbitrary-values" target="_blank" rel="noreferrer">Tailwind's abitrary column syntax</a>.
+					The column sizes are grid-based, via <a href="https://tailwindcss.com/docs/grid-template-columns#arbitrary-values" target="_blank" rel="noreferrer">Tailwind's abitrary column syntax</a>.
 				</li>
 				<li>
-					Surrounding segments (shown on the left and right) allow for <em>div</em>, <em>button</em>, and <em>anchor</em> elements.
+					Descriptive segments (allowed on either side) allow for <em>div</em>, <em>button</em>, and <em>anchor</em> elements.
 				</li>
 				<li>
 					The <code>.input-group-divider</code> is an optional class that applies vertical divider lines.
 				</li>
-				<li>The <code>.input-group-shim</code> class will apply subtle shading to a segment.</li>
+				<li>The <code>.input-group-shim</code> class will apply subtle shading to a segment to draw more attention.</li>
 			</ul>
 			<CodeBlock
 				language="html"
@@ -341,7 +350,7 @@ module.exports = {
 		<!-- Variants -->
 		<section class="space-y-4">
 			<h2>Variants</h2>
-			<p>Skeleton includes a Material Design inspired variant. Use this as a reference for build your own variant classes.</p>
+			<p>Skeleton includes a Material Design inspired variant. Use this as a reference for building your own variant classes.</p>
 			<CodeBlock
 				language="html"
 				code={`
@@ -374,7 +383,10 @@ module.exports = {
 		<!-- Validation Classes -->
 		<section class="space-y-4">
 			<h2>Validation Classes</h2>
-			<p>Skeleton provides a set of classes for use with form validation logic.</p>
+			<p>
+				Skeleton provides a set of classes for use with form validation logic. These must come last, but are compatible with the variant
+				above.
+			</p>
 			<CodeBlock language="html" code={`<input ... class="input-success" />`} />
 			<div class="card p-4 grid grid-cols-1 lg:grid-cols-3 gap-4">
 				<label class="space-y-3">
@@ -395,8 +407,8 @@ module.exports = {
 		<section class="space-y-4">
 			<h2>Browser Support</h2>
 			<p>
-				Please be aware that not all native HTML input styles and features are consistent across browsers or operating system. We strongly
-				recommend cross device/OS/browser testing to ensure compability for your target audience.
+				Please be aware that not all native HTML form fields consistent across browsers or operating system. We strongly recommend cross
+				device/OS/browser testing to ensure compability for your target audience.
 			</p>
 		</section>
 		<!-- See Also -->
