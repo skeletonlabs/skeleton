@@ -33,9 +33,9 @@
 				<SlideToggle name="slider-large" size="lg" checked label="Toggle Large" />
 			</div>
 			<div class="card variant-glass p-4 flex justify-center items-center space-x-6">
-				<SlideToggle name="slider-sm" accent="bg-primary-500" checked label="Toggle Primary" />
-				<SlideToggle name="slider-base" accent="bg-secondary-500" checked label="Toggle Secondary" />
-				<SlideToggle name="slider-large" accent="bg-tertiary-500" checked label="Toggle Tertiary" />
+				<SlideToggle name="slider-sm" active="bg-primary-500" checked label="Toggle Primary" />
+				<SlideToggle name="slider-base" active="bg-secondary-500" checked label="Toggle Secondary" />
+				<SlideToggle name="slider-large" active="bg-tertiary-500" checked label="Toggle Tertiary" />
 			</div>
 			<div class="card variant-glass p-4 flex justify-center items-center">
 				<SlideToggle name="slider-value" bind:checked={checkedValue}>

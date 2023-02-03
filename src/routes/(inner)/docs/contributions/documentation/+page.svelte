@@ -58,7 +58,7 @@
 			language="js"
 			code={`
 /** Provide classes to set vertical item spacing. */
-export let space: string = 'space-y-1';
+export let spacing: string = 'space-y-1';
 			`}
 		/>
 		<p>

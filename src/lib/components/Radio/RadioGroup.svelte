@@ -9,10 +9,8 @@
 	export let display: CssClasses = 'inline-flex';
 	/** Provide classes to set the base background color. */
 	export let background: CssClasses = 'bg-surface-200-700-token';
-	/** Provide classes to set the border width */
-	export let borderWidth: CssClasses = 'border-token';
-	/** Provide classes to set the border color. */
-	export let borderColor: CssClasses = 'border-surface-400-500-token';
+	/** Provide classes to set the border styles. */
+	export let border: CssClasses = 'border-token border-surface-400-500-token';
 	/** Provide classes horizontal spacing between items. */
 	export let spacing: CssClasses = 'space-x-1';
 	/** Provide classes to set the border radius. */
@@ -45,7 +43,7 @@
 	const cBase = 'p-1';
 
 	// Reactive
-	$: classesBase = `${cBase} ${display} ${background} ${borderWidth} ${borderColor} ${spacing} ${rounded} ${$$props.class ?? ''}`;
+	$: classesBase = `${cBase} ${display} ${background} ${border} ${spacing} ${rounded} ${$$props.class ?? ''}`;
 </script>
 
 <div class="radio-group {classesBase}" data-testid="radio-group" role="radiogroup" aria-labelledby={labelledby}>
