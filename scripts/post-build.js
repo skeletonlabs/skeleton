@@ -116,7 +116,7 @@ function writeJSDocsToDefinitionFiles() {
 }
 
 function generateKeyWordsFromProps() {
-	let propSet = new Set(['class'])
+	let propSet = new Set()
 	for (let file in filesToProps) {
 		for (let prop in filesToProps[file].props) {
 			if (filesToProps[file].props[prop].type == 'css') {
@@ -124,7 +124,8 @@ function generateKeyWordsFromProps() {
 			}
 		}
 	}
-	const finalProps = Array.from(propSet).sort()
+	let finalProps = Array.from(propSet).sort()
+	finalProps.unshift("class")
 	writeFileSync('scripts/tw-settings.json', JSON.stringify({ "tailwindCSS.classAttributes": [...finalProps] }, null, '\t'));
 }
 
