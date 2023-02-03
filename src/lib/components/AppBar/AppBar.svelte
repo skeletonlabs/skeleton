@@ -18,7 +18,7 @@
 	/** Provide classes to define a box shadow. */
 	export let shadow: CssClasses = '';
 	/** Provide classes to set the vertical spacing between rows. */
-	export let space: CssClasses = 'space-y-4';
+	export let spacing: CssClasses = 'space-y-4';
 	/** Provide classes to set grid columns for the main row. */
 	export let gridColumns: CssClasses = 'grid-cols-[auto_1fr_auto]';
 	/** Provide classes to set gap spacing for the main row. */
@@ -29,6 +29,8 @@
 	export let regionRowMain: CssClasses = '';
 	/** Provide abitrary classes to style the bottom (headline) row. */
 	export let regionRowHeadline: CssClasses = '';
+
+	// Props (slots)
 	/** Classes to apply to the lead slot container element */
 	export let slotLead: CssClasses = '';
 	/** Classes to apply to the default slot container element */
@@ -53,7 +55,7 @@
 	const cSlotTrail = 'flex-none flex items-center space-x-4';
 
 	// Reactive Classes
-	$: classesBase = `${cBase} ${background} ${border} ${space} ${padding} ${shadow} ${$$props.class ?? ''}`;
+	$: classesBase = `${cBase} ${background} ${border} ${spacing} ${padding} ${shadow} ${$$props.class ?? ''}`;
 	$: classesRowMain = `${cRowMain} ${gridColumns} ${gap} ${regionRowMain}`;
 	$: classesRowHeadline = `${cRowHeadline} ${regionRowHeadline}`;
 	$: classesSlotLead = `${cSlotLead} ${slotLead}`; // bg-red-500

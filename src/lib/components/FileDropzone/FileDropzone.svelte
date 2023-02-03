@@ -20,6 +20,8 @@
 	export let regionInterface: CssClasses = '';
 	/** Provide abitrary styles for the UI text region. */
 	export let regionInterfaceText: CssClasses = '';
+
+	// Props (slots)
 	/** Provide abitrary styles for lead slot container. */
 	export let slotLead: CssClasses = 'mb-4';
 	/** Provide abitrary styles for message slot container. */

@@ -207,7 +207,7 @@
 			</section>
 
 			<!-- Tabs -->
-			<TabGroup borderWidth="" active="border-b-4 border-primary-500" hover="hover:variant-soft-primary">
+			<TabGroup border="" active="border-b-4 border-primary-500" hover="hover:variant-soft-primary">
 				<Tab bind:group={$storeActiveTab} name="usage" value="usage">Usage</Tab>
 				{#if sveldCounts.props > 0}<Tab bind:group={$storeActiveTab} name="properties" value="properties">Props</Tab>{/if}
 				{#if sveldCounts.slots > 0}<Tab bind:group={$storeActiveTab} name="slots" value="slots">Slots</Tab>{/if}

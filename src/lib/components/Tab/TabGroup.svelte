@@ -12,10 +12,8 @@
 	// Props (Group)
 	/** Provide classes to set the tab list flex justification. */
 	export let justify: CssClasses = 'justify-start';
-	/** Provide classes to set the tab group border width. */
-	export let borderWidth: CssClasses = 'border-b';
-	/** Provide classes to set the tab group border color. */
-	export let borderColor: CssClasses = 'border-surface-400-500-token';
+	/** Provide classes to set the tab group border styles. */
+	export let border: CssClasses = 'border-b border-surface-400-500-token';
 
 	// Props (Tab)
 	/** Provide classes to style each tab's active styles. */
@@ -55,7 +53,7 @@
 
 	// Reactive
 	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
-	$: classesList = `${cList} ${justify} ${borderWidth} ${borderColor} ${regionList}`;
+	$: classesList = `${cList} ${justify} ${border} ${regionList}`;
 	$: classesPanel = `${cPanel} ${regionPanel}`;
 </script>
 
