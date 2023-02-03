@@ -1,5 +1,6 @@
 {
 	"tailwindCSS.classAttributes": [
+		"class",
 		"accent",
 		"active",
 		"amountText",
@@ -16,7 +17,6 @@
 		"buttonTextNext",
 		"buttonTextPrevious",
 		"chips",
-		"class",
 		"color",
 		"cursor",
 		"display",
