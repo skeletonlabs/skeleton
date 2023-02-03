@@ -24,7 +24,7 @@
 	/** Provide classes to style page info text. */
 	export let text: CssClasses = 'text-xs';
 	/** Set the text for the amount selection input. */
-	export let amountText: CssClasses = 'Items';
+	export let amountText = 'Items';
 	/** Provide abtitrary classes to the next/previous buttons. */
 	export let buttonClasses: CssClasses = 'variant-filled';
 	/** Set the text label for the Previous button. */
