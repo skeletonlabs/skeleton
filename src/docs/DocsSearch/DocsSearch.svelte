@@ -45,7 +45,7 @@
 	<!-- Header -->
 	<header class="docs-search-header {cHeader}">
 		<i class="fa-solid fa-magnifying-glass text-xl" />
-		<input bind:value={searchTerm} type="search" placeholder="Search..." on:input={onSearch} on:keydown={onKeyDown} />
+		<input class="input" bind:value={searchTerm} type="search" placeholder="Search..." on:input={onSearch} on:keydown={onKeyDown} />
 		<!-- prettier-ignore -->
 		<button class="btn-icon variant-filled btn-icon-sm" on:click={() => { modalStore.close(); }} tabindex="-1">
 			<i class="fa-solid fa-xmark" />

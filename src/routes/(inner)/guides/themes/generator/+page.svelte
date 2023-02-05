@@ -35,7 +35,7 @@
 			Copy and paste your theme CSS into <code>/src/theme.postcss</code>, then in<code>/src/routes/+layout.svelte</code> remove any preset theme,
 			then replace with your custom theme.
 		</p>
-		<CodeBlock language="typescript" code={`import '../theme.postcss'; // <--\nimport '../app.postcss';\n`} />
+		<CodeBlock language="ts" code={`import '../theme.postcss'; // <--\nimport '../app.postcss';\n`} />
 	</section>
 
 	<hr />

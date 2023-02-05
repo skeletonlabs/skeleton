@@ -65,11 +65,10 @@
 		meta: tableMapperValues(sourceData, ['position', 'name', 'symbol', 'weight']),
 		foot: ['Total', '', `<span class="badge variant-soft-primary">${totalWeight}</span>`]
 	};
-	let rowOutput = '(Tap any row above)';
 
 	// On Row Selected
 	function onSelected(meta: any): void {
-		rowOutput = meta.detail;
+		console.log('on:selected', meta);
 	}
 </script>
 
@@ -78,7 +77,7 @@
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-4">
 			<Table source={tableSimple} interactive={true} on:selected={onSelected} />
-			<pre>{JSON.stringify(rowOutput, null, 2)}</pre>
+			<small class="block text-center">Monitor your console log when tapping a row.</small>
 		</section>
 	</svelte:fragment>
 
@@ -91,7 +90,7 @@
 				the former.
 			</p>
 			<CodeBlock
-				language="typescript"
+				language="ts"
 				code={`
 const sourceData = [
 	{ position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
@@ -108,7 +107,7 @@ const sourceData = [
 				in the <em>Table Utilities</em> section below.
 			</p>
 			<CodeBlock
-				language="typescript"
+				language="ts"
 				code={`
 const tableSimple: TableSource = {
 	// A list of heading labels.
@@ -132,11 +131,10 @@ const tableSimple: TableSource = {
 		<section class="space-y-4">
 			<h2>Table Utilities</h2>
 			<p>The following utility methods allow you to format your source data for use within a Table component.</p>
-			<TabGroup selected={storeService}>
-				<Tab value="tableMapperValues">Mapper Values</Tab>
-				<Tab value="tableSourceMapper">Source Mapper</Tab>
-				<Tab value="tableSourceValues">Source Values</Tab>
-				<!-- <Tab value="tableCellFormatter">Cell Formatter</Tab> -->
+			<TabGroup>
+				<Tab bind:group={$storeService} name="tableMapperValues" value="tableMapperValues">Mapper Values</Tab>
+				<Tab bind:group={$storeService} name="tableSourceMapper" value="tableSourceMapper">Source Mapper</Tab>
+				<Tab bind:group={$storeService} name="tableSourceValues" value="tableSourceValues">Source Values</Tab>
 			</TabGroup>
 			<CodeBlock language="ts" code={`import { ${$storeService} } from '@skeletonlabs/skeleton';>`} />
 			{#if $storeService === 'tableMapperValues'}
@@ -187,20 +185,6 @@ tableSourceValues(sourceData);\n
 //]
 `}
 				/>
-				<!-- DISABLED: see comments in utils.ts -->
-				<!-- {else if $storeService === 'tableCellFormatter'}
-				<p>Table cells can accept HTML via template literals. This method allows wrapping HTML tags arround a particular object value.</p>
-				<CodeBlock
-					language="ts"
-					code={`
-tableCellFormatter(sourceData, 'weight', 'em', 'opacity-50');\n
-// [
-//	{ position: 1, name: 'Hydrogen', weight: '<em class="opacity-50">1.0079</em>', symbol: 'H' },
-//	{ position: 2, name: 'Helium', weight: '<em class="opacity-50">4.0026</em>', symbol: 'He' },
-//	...
-// ]
-`}
-				/> -->
 			{/if}
 		</section>
 		<hr />

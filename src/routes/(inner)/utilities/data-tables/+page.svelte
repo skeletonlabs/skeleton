@@ -79,10 +79,10 @@
 			</div>
 		</aside>
 
-		<section class="card !bg-secondary-500/5">
+		<section class="card variant-glass">
 			<!-- Search Input -->
 			<div class="card-header">
-				<input bind:value={$dataTableStore.search} type="search" placeholder="Search Table..." />
+				<input class="input" bind:value={$dataTableStore.search} type="search" placeholder="Search Table..." />
 			</div>
 			<!-- Table -->
 			<div class="p-4">

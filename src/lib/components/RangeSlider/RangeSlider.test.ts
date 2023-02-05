@@ -3,8 +3,7 @@ import { describe, it, expect } from 'vitest';
 
 import RangeSlider from '$lib/components/RangeSlider/RangeSlider.svelte';
 
-// FIXME: SKIPPED UNTIL FIXED
-describe.skip('RangeSlider.svelte', () => {
+describe('RangeSlider.svelte', () => {
 	it('Renders with minimal props', async () => {
 		const { getByTestId } = render(RangeSlider);
 		expect(getByTestId('range-slider')).toBeTruthy();
@@ -30,14 +29,14 @@ describe.skip('RangeSlider.svelte', () => {
 
 	it('Ticks enabled', async () => {
 		const { getByTestId } = render(RangeSlider, {
-			props: { ticked: true }
+			props: { name: 'testName', ticked: true }
 		});
 		expect(getByTestId('range-slider').querySelector('datalist')).toBeTruthy();
 	});
 
 	it('Disabled state', async () => {
 		const { getByTestId } = render(RangeSlider, {
-			props: { disabled: true }
+			props: { name: 'testName', disabled: true }
 		});
 		expect(getByTestId('range-slider').querySelector('input')?.disabled).eq(true);
 	});

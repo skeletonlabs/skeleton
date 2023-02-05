@@ -187,7 +187,7 @@
 				</footer>
 				{:else if $modalStore[0].type === 'prompt'}
 					<!-- Template: Prompt -->
-					<input class="modal-prompt-input" type="text" bind:value={promptValue} />
+					<input class="modal-prompt-input input" type="text" bind:value={promptValue} />
 					<!-- prettier-ignore -->
 					<footer class="modal-footer {regionFooter}">
 					<button class="btn {buttonNeutral}" on:click={onClose}>{buttonTextCancel}</button>

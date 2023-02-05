@@ -5,95 +5,99 @@
 	 * @slot trail - Positioned on the right of each row item.
 	 */
 
-	import { createEventDispatcher, getContext } from 'svelte';
-	import type { Writable } from 'svelte/store';
+	import { getContext } from 'svelte';
 
-	// Props (a11y)
-	/** Define a unique and semantic identifier for the item. */
-	export let id = '';
+	// Types
+	import type { CssClasses } from '$lib';
 
-	// Event Handler
-	const dispatch = createEventDispatcher();
+	// Props
+	/** Set the radio group binding value. */
+	export let group: any;
+	/** Set a unique name value for the input. */
+	export let name: string;
+	/** Set the input's value. */
+	export let value: any;
 
 	// Context
-	export let selected: Writable<any> = getContext('selected');
-	export let accent: string = getContext('accent');
-	export let padding: string = getContext('padding');
-	export let rounded: string = getContext('rounded');
-	export let hover: string = getContext('hover');
+	export let multiple: string = getContext('multiple');
+	export let rounded: CssClasses = getContext('rounded');
+	export let active: CssClasses = getContext('active');
+	export let hover: CssClasses = getContext('hover');
+	export let padding: CssClasses = getContext('padding');
 
-	// Base Classes
-	const cBase = 'flex items-center space-x-4 whitespace-nowrap cursor-pointer -outline-offset-[3px]';
+	// Classes
+	const cBase: string = 'px-4 py-2 cursor-pointer';
+	const cLabel: string = 'flex space-x-4';
 
 	// Local
-	let elemItem: HTMLElement;
+	let checked: boolean;
+	let elemInput: HTMLElement;
 
-	// Input Handler
-	function onClickHandler(event: any): void {
-		if (!$$props.value) return;
-		Array.isArray($selected) === true ? handleMultiSelect() : handleSingleSelect();
-		/** @event {{ event }} click - Fires when the component is clicked.  */
-		dispatch('click', event);
+	// Svelte Checkbox Bugfix
+	// GitHub: https://github.com/sveltejs/svelte/issues/2308
+	// REPL: https://svelte.dev/repl/de117399559f4e7e9e14e2fc9ab243cc?version=3.12.1
+	$: if (multiple) updateCheckbox(group);
+	$: if (multiple) updateGroup(checked);
+	function updateCheckbox(group: any) {
+		checked = group.indexOf(value) >= 0;
 	}
-
-	// Selection Handlers
-	function handleSingleSelect(): void {
-		selected.set($$props.value);
-	}
-	function handleMultiSelect(): void {
-		const v: any = $$props.value;
-		const local: any[] = $selected;
-		// Add
-		if (local.includes(v)) {
-			local.splice(local.indexOf(v), 1);
-			selected.set(local);
-		}
-		// Remove
-		else {
-			selected.set([...local, v]);
+	function updateGroup(checked: boolean) {
+		const index = group.indexOf(value);
+		if (checked) {
+			if (index < 0) {
+				group.push(value);
+				group = group;
+			}
+		} else {
+			if (index >= 0) {
+				group.splice(index, 1);
+				group = group;
+			}
 		}
 	}
 
 	// A11y Key Down Handler
 	function onKeyDown(event: KeyboardEvent): void {
-		/** @event {{ event: KeyboardEvent }} keydown - Fires when the component is focused and key is pressed.  */
-		dispatch('keydown', event);
 		if (['Enter', 'Space'].includes(event.code)) {
 			event.preventDefault();
-			elemItem.click();
+			elemInput.click();
 		}
 	}
 
 	// Reactive
-	$: selectionMatch = () => {
-		if ($selected && $$props.value) {
-			return typeof $selected === 'object' ? $selected.includes($$props.value) : $selected === $$props.value;
-		}
-		return false;
-	};
-	$: isSelected = selectionMatch() ? true : false;
-	$: classesHighlight = isSelected ? `${accent}` : `${hover}`;
-	$: classesBase = `${cBase} ${padding} ${rounded} ${classesHighlight} ${$$props.class ?? ''}`;
+	$: selected = multiple ? group.includes(value) : group === value;
+	$: classesActive = selected ? active : hover;
+	$: classesBase = `${cBase} ${rounded} ${padding} ${classesActive} ${$$props.class ?? ''}`;
+	$: classesLabel = `${cLabel}`;
 </script>
 
-<!-- prettier-ignore -->
-<li
-	bind:this={elemItem}
+<label
 	class="listbox-item {classesBase}"
-	{id}
-	on:click={onClickHandler}
-	on:keydown={onKeyDown}
-	on:keyup
-	on:keypress
 	role="option"
-	aria-selected={isSelected}
+	aria-selected={selected}
 	tabindex="0"
 	data-testid="listbox-item"
+	on:click
+	on:keydown={onKeyDown}
+	on:keydown
+	on:keyup
+	on:keypress
 >
-	<!-- Slot: Lead -->
-	{#if $$slots.lead}<span class="listbox-item-lead"><slot name="lead" /></span>{/if}
-	<!-- Slot: Default -->
-	<div class="listbox-item-content flex-1"><slot /></div>
-	<!-- Slot: Trail -->
-	{#if $$slots.trail}<span class="listbox-item-trail"><slot name="trail" /></span>{/if}
-</li>
+	<!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->
+	<div class="h-0 w-0 overflow-hidden">
+		{#if multiple}
+			<input bind:this={elemInput} type="checkbox" {name} {value} bind:checked tabindex="-1" />
+		{:else}
+			<input bind:this={elemInput} type="radio" bind:group {name} {value} tabindex="-1" />
+		{/if}
+	</div>
+	<!-- <slot /> -->
+	<div class="listbox-label {classesLabel}">
+		<!-- Slot: Lead -->
+		{#if $$slots.lead}<div class="listbox-label-lead"><slot name="lead" /></div>{/if}
+		<!-- Slot: Default -->
+		<div class="listbox-label-content flex-1"><slot /></div>
+		<!-- Slot: Trail -->
+		{#if $$slots.trail}<div class="listbox-label-trail"><slot name="trail" /></div>{/if}
+	</div>
+</label>

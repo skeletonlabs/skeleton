@@ -127,11 +127,11 @@
 				{#each $storeThemGenForm.colors as colorRow, i}
 					{@const contrastReport = getPassReport($storeThemGenForm.colors[i].hex, $storeThemGenForm.colors[i].on)}
 					<div class="grid grid-cols-1 lg:grid-cols-[170px_1fr_160px] gap-2 lg:gap-4">
-						<label class="input-label">
+						<label class="label">
 							<span>{colorRow.label}</span>
 							<div class="grid grid-cols-[auto_1fr] gap-4 place-items-end">
-								<input type="color" bind:value={colorRow.hex} disabled={!$storePreview} />
-								<input type="text" bind:value={colorRow.hex} placeholder="#BADA55" disabled={!$storePreview} />
+								<input class="input" type="color" bind:value={colorRow.hex} disabled={!$storePreview} />
+								<input class="input" type="text" bind:value={colorRow.hex} placeholder="#BADA55" disabled={!$storePreview} />
 							</div>
 						</label>
 						<Swatch color={colorRow.key} />
@@ -164,52 +164,52 @@
 		<section class="card p-4 grid grid-cols-2 gap-4 col-span-2 lg:col-span-1">
 			<!-- Fonts -->
 			<h3 class="col-span-2">Fonts</h3>
-			<label class="input-label">
+			<label class="label">
 				<span>Base</span>
-				<select bind:value={$storeThemGenForm.fontBase} disabled={!$storePreview}>
+				<select class="select" bind:value={$storeThemGenForm.fontBase} disabled={!$storePreview}>
 					{#each inputSettings.fonts as f}<option value={f}>{f}</option>{/each}
 				</select>
 			</label>
-			<label class="input-label">
+			<label class="label">
 				<span>Headings</span>
-				<select bind:value={$storeThemGenForm.fontHeadings} disabled={!$storePreview}>
+				<select class="select" bind:value={$storeThemGenForm.fontHeadings} disabled={!$storePreview}>
 					{#each inputSettings.fonts as f}<option value={f}>{f}</option>{/each}
 				</select>
 			</label>
 			<!-- Text Color -->
 			<h3 class="col-span-2">Text Color</h3>
-			<label class="input-label">
+			<label class="label">
 				<span>Light Mode</span>
-				<select bind:value={$storeThemGenForm.textColorLight} disabled={!$storePreview}>
+				<select class="select" bind:value={$storeThemGenForm.textColorLight} disabled={!$storePreview}>
 					{#each inputSettings.colorProps as c}<option value={c.value}>{c.label}</option>{/each}
 				</select>
 			</label>
-			<label class="input-label">
+			<label class="label">
 				<span>Dark Mode</span>
-				<select bind:value={$storeThemGenForm.textColorDark} disabled={!$storePreview}>
+				<select class="select" bind:value={$storeThemGenForm.textColorDark} disabled={!$storePreview}>
 					{#each inputSettings.colorProps as c}<option value={c.value}>{c.label}</option>{/each}
 				</select>
 			</label>
 			<!-- Border Radius -->
 			<h3 class="col-span-2">Border Radius</h3>
-			<label class="input-label">
+			<label class="label">
 				<span>Base</span>
-				<select bind:value={$storeThemGenForm.roundedBase} disabled={!$storePreview}>
+				<select class="select" bind:value={$storeThemGenForm.roundedBase} disabled={!$storePreview}>
 					{#each inputSettings.rounded as r}<option value={r}>{r}</option>{/each}
 					<option value="9999px">9999px</option>
 				</select>
 			</label>
-			<label class="input-label">
+			<label class="label">
 				<span>Container</span>
-				<select bind:value={$storeThemGenForm.roundedContainer} disabled={!$storePreview}>
+				<select class="select" bind:value={$storeThemGenForm.roundedContainer} disabled={!$storePreview}>
 					{#each inputSettings.rounded as r}<option value={r}>{r}</option>{/each}
 				</select>
 			</label>
 			<!-- Border Size -->
 			<h3 class="col-span-2">Border Size</h3>
-			<label class="input-label">
+			<label class="label">
 				<span>Base</span>
-				<select bind:value={$storeThemGenForm.borderBase} disabled={!$storePreview}>
+				<select class="select" bind:value={$storeThemGenForm.borderBase} disabled={!$storePreview}>
 					{#each inputSettings.border as b}<option value={b}>{b}</option>{/each}
 				</select>
 			</label>

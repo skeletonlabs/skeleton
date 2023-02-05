@@ -8,6 +8,7 @@
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
+	// Sveld
 	import sveldModal from '$lib/utilities/Modal/Modal.svelte?raw&sveld';
 
 	// Modals Utils
@@ -30,7 +31,7 @@
 		imports: ['Modal', 'modalStore'],
 		types: ['ModalSettings', 'ModalComponent'],
 		source: 'utilities/Modal',
-		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/modalmodal/',
+		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/',
 		components: [{ sveld: sveldModal }],
 		keyboard: [['<kbd>Esc</kbd>', ' Dismisses the foremost modal.']]
 	};
@@ -175,15 +176,16 @@
 			<CodeBlock language="ts" code={`import { modalStore } from '@skeletonlabs/skeleton';`} />
 			<h3>Trigger</h3>
 			<p>Note that <code>title</code>, <code>body</code>, and <code>image</code> are optional for <u>all</u> modal types.</p>
-			<TabGroup selected={storeModalStandard}>
-				<Tab value="alert">Alert</Tab>
-				<Tab value="confirm">Confirm</Tab>
-				<Tab value="prompt">Prompt</Tab>
-			</TabGroup>
-			{#if $storeModalStandard === 'alert'}
-				<CodeBlock
-					language="ts"
-					code={`
+			<TabGroup regionPanel="space-y-4">
+				<Tab bind:group={$storeModalStandard} name="alert" value="alert">Alert</Tab>
+				<Tab bind:group={$storeModalStandard} name="confirm" value="confirm">Confirm</Tab>
+				<Tab bind:group={$storeModalStandard} name="prompt" value="prompt">Prompt</Tab>
+				<!-- Panel -->
+				<svelte:fragment slot="panel">
+					{#if $storeModalStandard === 'alert'}
+						<CodeBlock
+							language="ts"
+							code={`
 function triggerAlert(): void {
 	const alert: ModalSettings = {
 		type: 'alert',
@@ -195,12 +197,12 @@ function triggerAlert(): void {
 	};
 	modalStore.trigger(alert);
 }
-				`}
-				/>
-			{:else if $storeModalStandard === 'confirm'}
-				<CodeBlock
-					language="ts"
-					code={`
+						`}
+						/>
+					{:else if $storeModalStandard === 'confirm'}
+						<CodeBlock
+							language="ts"
+							code={`
 function triggerConfirm(): void {
 	const confirm: ModalSettings = {
 		type: 'confirm',
@@ -214,12 +216,12 @@ function triggerConfirm(): void {
 	};
 	modalStore.trigger(confirm);
 }
-				`}
-				/>
-			{:else if $storeModalStandard === 'prompt'}
-				<CodeBlock
-					language="ts"
-					code={`
+						`}
+						/>
+					{:else if $storeModalStandard === 'prompt'}
+						<CodeBlock
+							language="ts"
+							code={`
 function triggerPrompt(): void {
 	const prompt: ModalSettings = {
 		type: 'prompt',
@@ -235,9 +237,11 @@ function triggerPrompt(): void {
 	};
 	modalStore.trigger(prompt);
 }
-				`}
-				/>
-			{/if}
+						`}
+						/>
+					{/if}
+				</svelte:fragment>
+			</TabGroup>
 			<!-- Close -->
 			<h3>Close</h3>
 			<p>Trigger the <code>close()</code> method to remove the first modal in the modal queue.</p>
@@ -372,7 +376,7 @@ modalStore.trigger(d);
 				> is available.
 			</p>
 			<CodeBlock
-				language="typescript"
+				language="ts"
 				code={`
 import { browser } from '$app/environment';\n
 if (browser) modalStore.trigger({...});

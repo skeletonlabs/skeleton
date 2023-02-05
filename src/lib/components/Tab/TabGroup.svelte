@@ -1,78 +1,69 @@
 <script lang="ts">
-	import type { Writable } from 'svelte/store';
+	// Slots
+	/**
+	 * @slot panel - An optional region to house tab content.
+	 */
+
 	import { setContext } from 'svelte';
 
-	// Props
-	/**
-	 * A svelte store to keep track of tab selection.
-	 * @type {Writable(any)}
-	 */
-	export let selected: Writable<any>;
-	/** Toggle display of the bottom border, below the tabs. */
-	export let rail = true;
-	/** Provide classes to set the flex justification. 'justify-start' is best for small screens. */
-	export let justify = 'justify-start';
-	/** Provide classes to set the selected border size. Shared between group and tab. */
-	export let borderWidth = 'border-b-2';
-	/** Provide classes to set the selected border color. */
-	export let borderColor = 'border-primary-500';
-	/** Provide class to set the selected text color. */
-	export let color = 'text-primary-500';
-	/** Provide classes to set the selected SVG fill color. */
-	export let fill = 'fill-primary-500';
-	/** Provide classes to set the unselected hover styles. */
-	export let hover = 'bg-primary-hover-token';
-	/** Provide classes to set the tab border radius styles. */
-	export let rounded = 'rounded-tl-container-token rounded-tr-container-token';
+	// Types
+	import type { CssClasses } from '$lib';
 
-	// A11y
-	/** Provide the ID of the element that describes the group. */
-	export let labeledby = '';
-	/** Defines a semantic label for the group. */
-	export let label = '';
+	// Props (Group)
+	/** Provide classes to set the tab list flex justification. */
+	export let justify: CssClasses = 'justify-start';
+	/** Provide classes to set the tab group border styles. */
+	export let border: CssClasses = 'border-b border-surface-400-500-token';
 
-	// Set Context
-	setContext('selected', selected);
-	setContext('borderWidth', borderWidth);
-	setContext('borderColor', borderColor);
-	setContext('color', color);
-	setContext('fill', fill);
+	// Props (Tab)
+	/** Provide classes to style each tab's active styles. */
+	export let active: CssClasses = 'border-b-2 border-surface-900-50-token';
+	/** Provide classes to style each tab's hover styles. */
+	export let hover: CssClasses = 'hover:variant-soft';
+	/** Provide classes to style each tab's flex styles. */
+	export let flex: CssClasses = 'flex-none';
+	/** Provide classes to style each tab's padding styles. */
+	export let padding: CssClasses = 'px-4 py-2';
+	/** Provide classes to style each tab's box radius styles. */
+	export let rounded: CssClasses = 'rounded-tl-container-token rounded-tr-container-token';
+
+	// Props (regions)
+	/** Provide arbitrary classes to style the tab list region. */
+	export let regionList: CssClasses = '';
+	/** Provide arbitrary classes to style the tab panel region. */
+	export let regionPanel: CssClasses = '';
+
+	// Props (a11y)
+	/** Provide the ID of the element that labels the tab list. */
+	export let labelledby: string = '';
+	/** Matches the tab aria-control value, pairs with the panel. */
+	export let panel: string = '';
+
+	// Context
+	setContext('active', active);
 	setContext('hover', hover);
+	setContext('flex', flex);
+	setContext('padding', padding);
 	setContext('rounded', rounded);
 
 	// Classes
-	const cBase = 'border-surface-300-600-token flex hide-scrollbar overflow-x-auto';
+	const cBase = 'space-y-4 overflow-x-auto hide-scrollbars';
+	const cList = 'flex';
+	const cPanel = '';
 
-	// Handle Home/End Input
-	let elemTabGroup: HTMLElement;
-
-	function keydown(event: KeyboardEvent) {
-		if (['Home', 'End'].includes(event.code)) {
-			event.preventDefault();
-			if (event.code === 'Home') {
-				(elemTabGroup.children[0] as HTMLElement).focus();
-			}
-			if (event.code === 'End') {
-				(elemTabGroup.children[elemTabGroup.children.length - 1] as HTMLElement).focus();
-			}
-		}
-	}
-
-	// Reactive Classes
-	$: classesRail = rail ? borderWidth : 'border-0';
-	$: classesGroup = `${cBase} ${classesRail} ${justify} ${$$props.class ?? ''}`;
+	// Reactive
+	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
+	$: classesList = `${cList} ${justify} ${border} ${regionList}`;
+	$: classesPanel = `${cPanel} ${regionPanel}`;
 </script>
 
-<!-- prettier-ignore -->
-<nav class="tab-group" data-testid="tab-group">
-	<ul
-		bind:this={elemTabGroup}
-		on:keydown={keydown}
-		class="tab-group-list {classesGroup}"
-		role="tablist"
-		aria-labelledby={labeledby}
-		aria-label={label}
-	>
+<div class="tab-group {classesBase}" data-testid="tab-group" on:click on:keypress on:keydown on:keyup>
+	<!-- Tab List -->
+	<div class="tab-list {classesList}" role="tablist" aria-labelledby={labelledby}>
 		<slot />
-	</ul>
-</nav>
+	</div>
+	<!-- Tab Panel -->
+	{#if $$slots.panel}
+		<div class="tab-panel {classesPanel}" role="tabpanel" aria-labelledby={panel}><slot name="panel" /></div>
+	{/if}
+</div>

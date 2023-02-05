@@ -4,7 +4,7 @@
 	import type { TableSource } from '$lib/components/Table/types';
 
 	// Components
-	import AccordionGroup from '$lib/components/Accordion/AccordionGroup.svelte';
+	import Accordion from '$lib/components/Accordion/Accordion.svelte';
 	import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
 	import Table from '$lib/components/Table/Table.svelte';
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
@@ -16,9 +16,6 @@
 	import { storeFramework } from '$docs/stores';
 	export const storeStylesheets: Writable<string> = writable('recommended');
 	export const storeStylesheetElements: Writable<string> = writable('combined');
-
-	// Local
-	const ghLibPathMaster = 'https://github.com/skeletonlabs/skeleton/tree/master/src/lib'; // master branch
 
 	// Tables
 	const tableStylesheetOrder: TableSource = {
@@ -44,24 +41,28 @@
 	<!-- Stylesheets -->
 	<section class="space-y-4">
 		<h2>Skeleton Stylesheets</h2>
-		<TabGroup selected={storeFramework}>
-			<Tab value="cli">Skeleton CLI</Tab>
-			<Tab value="manual">Manual Install</Tab>
+		<TabGroup regionPanel="space-y-4">
+			<!-- Tabs -->
+			<Tab bind:group={$storeFramework} name="cli" value="cli">Skeleton CLI</Tab>
+			<Tab bind:group={$storeFramework} name="manu" value="manual">Manual Install</Tab>
+			<!-- Panel -->
+			<svelte:fragment slot="panel">
+				{#if $storeFramework === 'cli'}
+					<p>The CLI will automatically import Skeleton's <code>all.css</code> stylesyeet into <code>src/routes/+layout.svelte</code>.</p>
+				{:else if $storeFramework === 'manual'}
+					<!-- prettier-ignore -->
+					<p>
+						Import the Skeleton <code>all.css</code> stylesheet into <code>src/routes/+layout.svelte</code> betweeen your <a href="/guides/themes">Theme stylesheet</a> and SvelteKit's global stylesheet, called <code>app.postcss</code>.
+					</p>
+					<CodeBlock
+						language="ts"
+						code={`
+import '@skeletonlabs/skeleton/styles/${$storeStylesheets === 'recommended' ? 'all' : '{stylehsheets}'}.css';
+						`}
+					/>
+				{/if}
+			</svelte:fragment>
 		</TabGroup>
-		{#if $storeFramework === 'cli'}
-			<p>The CLI will automatically import Skeleton's <code>all.css</code> stylesyeet into <code>src/routes/+layout.svelte</code>.</p>
-		{:else if $storeFramework === 'manual'}
-			<!-- prettier-ignore -->
-			<p>
-				Import the Skeleton <code>all.css</code> stylesheet into <code>src/routes/+layout.svelte</code> betweeen your <a href="/guides/themes">Theme stylesheet</a> and SvelteKit's global stylesheet, called <code>app.postcss</code>.
-			</p>
-			<CodeBlock
-				language="typescript"
-				code={`
-	import '@skeletonlabs/skeleton/styles/${$storeStylesheets === 'recommended' ? 'all' : '{stylehsheets}'}.css';
-				`}
-			/>
-		{/if}
 	</section>
 
 	<!-- Required Order -->
@@ -83,8 +84,6 @@ import '../app.postcss';
 		/>
 	</section>
 
-	<hr />
-
 	<section class="space-y-4">
 		<div class="space-y-4">
 			<h2>Customizing Styles</h2>
@@ -94,7 +93,7 @@ import '../app.postcss';
 			</p>
 		</div>
 		<div class="card p-4 variant-glass-surface">
-			<AccordionGroup>
+			<Accordion autocollapse>
 				<AccordionItem spacing="space-y-4" open>
 					<svelte:fragment slot="summary"><h3>Via Component Props</h3></svelte:fragment>
 					<div slot="content" class="space-y-4">
@@ -156,11 +155,9 @@ import '../app.postcss';
 						</blockquote>
 					</div>
 				</AccordionItem>
-			</AccordionGroup>
+			</Accordion>
 		</div>
 	</section>
-
-	<hr />
 
 	<!-- Next Steps -->
 	<section class="space-y-4">

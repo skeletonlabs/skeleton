@@ -78,7 +78,7 @@
 		<!-- List -->
 		<div class="snackbar {classesSnackbar}" transition:fly={{ x: animAxis.x, y: animAxis.y, duration }}>
 			{#each $toastStore as t, i}
-				{#if i < max + 1}
+				{#if i < max}
 					<!-- Toast -->
 					<div class="toast {classesBase} {t.classes}" role="alert" aria-live="polite" data-testid="toast">
 						<div class="text-base">{@html t.message}</div>

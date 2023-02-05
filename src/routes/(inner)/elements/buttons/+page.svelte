@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { writable, type Writable } from 'svelte/store';
-
 	// Docs
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
@@ -28,21 +26,13 @@
 	// Local:
 	const href = '/elements/buttons';
 
-	// Stores
-	const storeTag: Writable<string> = writable('button');
-	const storeDisabled: Writable<boolean> = writable(false);
-	const storeBtnSize: Writable<string> = writable('btn-base');
-
 	// Reactive
-	$: btnValues = {
+	$: props = {
+		tag: 'button',
 		variant: 'variant-filled-primary',
-		size: $storeBtnSize,
-		ring: undefined,
-		color: undefined
+		size: 'btn-base',
+		disabled: false
 	};
-	$: btnClases = Object.values(btnValues)
-		.filter((x) => x !== undefined)
-		.join(' ');
 </script>
 
 <DocsShell {settings}>
@@ -52,51 +42,35 @@
 			<!-- Example -->
 			<div class="card grid grid-rows-[1fr_auto]">
 				<div class="p-4 flex justify-center items-center">
-					<!-- prettier-ignore -->
-					<svelte:element this={$storeTag} class="btn {btnClases}" disabled={$storeDisabled}>
+					<svelte:element this={props.tag} class="btn {props.size} {props.variant}" disabled={props.disabled}>
 						<i class="fa-solid fa-skull" />
 						<span>Skeleton</span>
 					</svelte:element>
-				</div>
-				<div class="p-4">
-					<CodeBlock
-						language="html"
-						code={`<` +
-							$storeTag +
-							($storeTag === 'a' ? ' href="/"' : '') +
-							` class="btn ` +
-							btnClases +
-							`"` +
-							($storeDisabled ? ' disabled' : '') +
-							`>\n\tSkeleton\n</` +
-							$storeTag +
-							`>`}
-					/>
 				</div>
 			</div>
 			<!-- Options -->
 			<div class="card p-4 space-y-4">
 				<!-- Tag -->
-				<label class="input-label" for="">
-					<RadioGroup selected={storeTag} display="flex">
-						<RadioItem value="button">Button</RadioItem>
-						<RadioItem value="a">Anchor</RadioItem>
+				<label class="label" for="">
+					<RadioGroup display="flex">
+						<RadioItem bind:group={props.tag} name="tag-button" value="button">Button</RadioItem>
+						<RadioItem bind:group={props.tag} name="tag-anchor" value="a">Anchor</RadioItem>
 					</RadioGroup>
 				</label>
 				<!-- Size -->
-				<label class="input-label" for="">
+				<label class="label" for="">
 					<span>Size</span>
-					<RadioGroup selected={storeBtnSize} display="flex">
-						<RadioItem value="btn-sm">sm</RadioItem>
-						<RadioItem value="btn-base">base</RadioItem>
-						<RadioItem value="btn-lg">lg</RadioItem>
-						<RadioItem value="btn-xl">xl</RadioItem>
+					<RadioGroup display="flex">
+						<RadioItem bind:group={props.size} name="btn-sm" value="btn-sm">sm</RadioItem>
+						<RadioItem bind:group={props.size} name="btn-base" value="btn-base">base</RadioItem>
+						<RadioItem bind:group={props.size} name="btn-lg" value="btn-lg">lg</RadioItem>
+						<RadioItem bind:group={props.size} name="btn-xl" value="btn-xl">xl</RadioItem>
 					</RadioGroup>
 				</label>
 				<!-- Variant -->
-				<label class="input-label">
+				<label class="label">
 					<span>Variant</span>
-					<select name="variant" id="variant" bind:value={btnValues.variant}>
+					<select class="select" name="variant" id="variant" bind:value={props.variant}>
 						<option value={undefined}>None</option>
 						<!-- Filled -->
 						<option value="variant-filled-primary">variant-filled-primary</option>
@@ -124,42 +98,12 @@
 						<option value="variant-ghost-surface">variant-ghost-surface</option>
 					</select>
 				</label>
-				<!-- Ring -->
-				<label class="input-label">
-					<span>Ring</span>
-					<select name="ring" id="ring" bind:value={btnValues.ring}>
-						<option value={undefined}>None</option>
-						<option value="ring-2 ring-primary-500 ring-inset">ring-2 ring-primary-500 ring-inset</option>
-						<option value="ring-2 ring-secondary-500 ring-inset">ring-2 ring-secondary-500 ring-inset</option>
-						<option value="ring-2 ring-tertiary-500 ring-inset">ring-2 ring-tertiary-500 ring-inset</option>
-						<option value="ring-2 ring-success-500 ring-inset">ring-2 ring-success-500 ring-inset</option>
-						<option value="ring-2 ring-warning-500 ring-inset">ring-2 ring-warning-500 ring-inset</option>
-						<option value="ring-2 ring-error-500 ring-inset">ring-2 ring-error-500 ring-inset</option>
-						<option value="ring-2 ring-surface-500 ring-inset">ring-2 ring-surface-500 ring-inset</option>
-					</select>
-				</label>
-				<!-- Color -->
-				<label class="input-label">
-					<span>Color</span>
-					<select name="color" id="color" bind:value={btnValues.color}>
-						<option value={undefined}>Inherent</option>
-						<option value="text-white">text-white</option>
-						<option value="text-black">text-black</option>
-						<option value="text-primary-500">text-primary-500</option>
-						<option value="text-secondary-500">text-secondary-500</option>
-						<option value="text-tertiary-500">text-tertiary-500</option>
-						<option value="text-success-500">text-success-500</option>
-						<option value="text-warning-500">text-warning-500</option>
-						<option value="text-error-500">text-error-500</option>
-						<option value="text-surface-500">text-surface-500</option>
-					</select>
-				</label>
 				<!-- Disabled -->
-				<label class="input-label" for="">
+				<label class="label" for="">
 					<span>Disabled</span>
-					<RadioGroup selected={storeDisabled} display="flex">
-						<RadioItem value={false}>Enabled</RadioItem>
-						<RadioItem value={true}>Disabled</RadioItem>
+					<RadioGroup display="flex">
+						<RadioItem bind:group={props.disabled} name="enabled" value={false}>Enabled</RadioItem>
+						<RadioItem bind:group={props.disabled} name="disabled" value={true}>Disabled</RadioItem>
 					</RadioGroup>
 				</label>
 			</div>

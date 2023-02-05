@@ -195,7 +195,7 @@ const t: ToastSettings = {
 				> is available.
 			</p>
 			<CodeBlock
-				language="typescript"
+				language="ts"
 				code={`
 import { browser } from '$app/environment';\n
 if (browser) toastStore.trigger({...});

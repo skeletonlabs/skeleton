@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
 
+	// Types
+	import type { CssClasses } from '$lib';
 	import type { PaginationSettings } from '$lib/components/Paginator/types';
 
 	const dispatch = createEventDispatcher();
@@ -11,26 +13,24 @@
 	 * @type {PaginationSettings}
 	 */
 	export let settings: PaginationSettings = { offset: 0, limit: 5, size: 0, amounts: [1, 2, 5, 10] };
+	/** Sets selection and buttons to disabled state on-demand. */
+	export let disabled: boolean = false;
 
-	// Props (design)
+	// Props (styles)
+	/** Provide classes to style the select input. */
+	export let select: CssClasses = 'select min-w-[150px]';
 	/** Provide classes to set flexbox justification. */
-	export let justify = 'justify-between';
+	export let justify: CssClasses = 'justify-between';
 	/** Provide classes to style page info text. */
 	export let text = 'text-xs';
-	/** Provide arbitrary classes to style the select input. */
-	export let select: string | undefined = undefined;
-	/** Sets selection and buttons to disabled state on-demand. */
-	export let disabled = false;
-
-	// Props (Select & Buttons)
 	/** Set the text for the amount selection input. */
 	export let amountText = 'Items';
 	/** Provide abtitrary classes to the next/previous buttons. */
-	export let buttonClasses = 'btn-icon variant-filled';
+	export let buttonClasses: CssClasses = 'variant-filled';
 	/** Set the text label for the Previous button. */
-	export let buttonTextPrevious = '&larr;';
+	export let buttonTextPrevious: CssClasses = '&larr;';
 	/** Set the text label for the Next button. */
-	export let buttonTextNext = '&rarr;';
+	export let buttonTextNext: CssClasses = '&rarr;';
 
 	// Base Classes
 	const cBase = 'flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4';
@@ -74,10 +74,10 @@
 	</span>
 	<!-- Arrows -->
 	<div class="paginator-arrows space-x-2">
-		<button class="{buttonClasses}" on:click={() => { onPrev() }} disabled={disabled || settings.offset === 0}>
+		<button class="btn-icon {buttonClasses}" on:click={() => { onPrev() }} disabled={disabled || settings.offset === 0}>
 			{@html buttonTextPrevious}
 		</button>
-		<button class="{buttonClasses}" on:click={() => { onNext() }} disabled={disabled || (settings.offset + 1) * settings.limit >= settings.size}>
+		<button class="btn-icon {buttonClasses}" on:click={() => { onNext() }} disabled={disabled || (settings.offset + 1) * settings.limit >= settings.size}>
 			{@html buttonTextNext}
 		</button>
 	</div>

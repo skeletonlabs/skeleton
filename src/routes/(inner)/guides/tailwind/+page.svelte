@@ -18,11 +18,13 @@
 
 	<!-- Tailwind Install -->
 	<section class="space-y-8">
-		<TabGroup selected={storeFramework}>
-			<Tab value="cli">Skeleton CLI</Tab>
-			<Tab value="manual">Manual Install</Tab>
-		</TabGroup>
-		{#if $storeFramework === 'cli'}
+		<TabGroup regionPanel="space-y-4">
+			<!-- Tabs -->
+			<Tab bind:group={$storeFramework} name="cli" value="cli">Skeleton CLI</Tab>
+			<Tab bind:group={$storeFramework} name="manu" value="manual">Manual Install</Tab>
+			<!-- Panel -->
+			<svelte:fragment slot="panel">
+				{#if $storeFramework === 'cli'}
 			<p>The CLI will automatically run the required steps to configure Tailwind for your SvelteKit project.</p>
 		{:else if $storeFramework === 'manual'}
 			<div class="space-y-4">
@@ -44,6 +46,8 @@
 				/>
 			</div>
 		{/if}
+			</svelte:fragment>
+		</TabGroup>
 	</section>
 
 	<!-- Usage -->
@@ -84,7 +88,9 @@ const config = {
 const config = {
 	// ...
 	content: [
-		// Keep existing values and append the following:
+		// NOTE: keep this line:
+		'./src/**/*.{html,js,svelte,ts}',
+		// Append the following for Skeleton:
 		require('path').join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')
 	],
 	// ...

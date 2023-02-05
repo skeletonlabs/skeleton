@@ -22,7 +22,7 @@ export interface Component {
 	/** Provide a list of props that children can override. */
 	overrideProps?: string[];
 	/** Provide the raw component Sveld doc source. */
-	sveld:SveldJson;
+	sveld: any; // SveldJson; // FIXME: we need to resolve this type
 }
 
 export interface SveldJson {
