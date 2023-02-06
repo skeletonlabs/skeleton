@@ -131,7 +131,7 @@
 				<!-- Single -->
 				<label class="label">
 					<span>Select (single)</span>
-					<select size="4" value="1">
+					<select class="select" size="4" value="1">
 						<option value="1">Option 1</option>
 						<option value="2">Option 2</option>
 						<option value="3">Option 3</option>
@@ -142,7 +142,7 @@
 				<!-- Multiple -->
 				<label class="label">
 					<span>Select (multiple)</span>
-					<select multiple value={['1', '2']}>
+					<select class="select" multiple value={['1', '2']}>
 						<option value="1">Option 1</option>
 						<option value="2">Option 2</option>
 						<option value="3">Option 3</option>
