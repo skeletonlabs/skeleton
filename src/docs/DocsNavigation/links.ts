@@ -121,12 +121,6 @@ export const menuNavLinks: any = [
 		title: 'Utilities',
 		list: [
 			{ href: '/utilities/codeblocks', label: 'Code Blocks', keywords: 'highlight, syntax, code' },
-			{
-				href: '/utilities/data-tables',
-				label: 'Data Tables',
-				keywords: 'search, sort, page, pagination, async',
-				badge: 'Experimental'
-			},
 			{ href: '/utilities/drawers', label: 'Drawers', keywords: 'overlay, slide, panel, sidebar' },
 			{ href: '/utilities/lightswitches', label: 'Lightswitch', keywords: 'light, dark, toggle, prefer, color, scheme' },
 			{ href: '/utilities/local-storage-stores', label: 'Local Storage Stores', keywords: 'svelte, writable, get, cache, persist' },
@@ -138,6 +132,13 @@ export const menuNavLinks: any = [
 			},
 			{ href: '/utilities/toasts', label: 'Toasts', keywords: 'overlay, snack, snackbar, bar, action, alert, notification' },
 			{ href: '/utilities/tooltips', label: 'Tooltips', keywords: 'pop, up, popup, overlay, hover' }
+			// CHRIS: these are delisted until further notice
+			// {
+			// 	href: '/utilities/data-tables',
+			// 	label: 'Data Tables',
+			// 	keywords: 'search, sort, page, pagination, async',
+			// 	badge: 'Experimental'
+			// },
 		]
 	}
 ];

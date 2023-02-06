@@ -187,14 +187,15 @@ tableSourceValues(sourceData);\n
 				/>
 			{/if}
 		</section>
-		<hr />
+		<!-- <hr /> -->
 		<!-- Data Table Callout -->
-		<section class="grid grid-cols-[1fr_auto] gap-4">
+		<!-- CHRIS: delisted until further notice -->
+		<!-- <section class="grid grid-cols-[1fr_auto] gap-4">
 			<div class="space-y-4">
 				<h2>Data Tables</h2>
 				<p>Need a fully featured data table with powerful features like selection and sort? See data tables.</p>
 			</div>
 			<a class="btn variant-filled-secondary place-self-center" href="/utilities/data-tables">Data Tables</a>
-		</section>
+		</section> -->
 	</svelte:fragment>
 </DocsShell>
