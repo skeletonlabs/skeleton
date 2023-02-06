@@ -35,7 +35,7 @@
 	];
 
 	// Reactive
-	$: page = {
+	let page = {
 		offset: 0,
 		limit: 5,
 		size: sourceBody.length,
@@ -75,7 +75,7 @@
 			<CodeBlock
 				language="ts"
 				code={`
-$: page = {
+let page = {
 	offset: 0,
 	limit: 5,
 	size: source.length,
