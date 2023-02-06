@@ -18,7 +18,7 @@
 		description: 'Divide content into collapsible sections.',
 		imports: ['Accordion', 'AccordionItem'],
 		source: 'components/Accordion',
-		aria: 'https://www.w3.org/WAI/ARIA/apg/example-index/accordion/accordion',
+		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/accordion/',
 		components: [
 			{ label: 'Accordion', sveld: sveldAccordion },
 			{
