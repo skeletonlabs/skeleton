@@ -1,6 +1,7 @@
 <script lang="ts">
-	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
+	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
+	import DocsPreviewer from '$docs/DocsPreviewer/DocsPreviewer.svelte';
 
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
@@ -23,7 +24,7 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="card p-4 grid grid-cols-1 gap-4">
+		<section class="card variant-glass p-4 grid grid-cols-1 gap-4">
 			<CodeBlock language="html" code={`<p>Hello Skeleton<p>`} />
 			<CodeBlock language="css" code={`.skeleton { color: #bada55; }`} />
 			<CodeBlock language="ts" code={`const skeleton: string = 'awesome';`} />
@@ -41,12 +42,12 @@
 		</section>
 		<section class="space-y-4">
 			<h2>Configure Your Project</h2>
-			<p>Apply the following changes to your app's root component (ex: <code>/src/routes/+layout.svelte</code> for SvelteKit).</p>
+			<p>Apply the following changes to your app's root component in <code>/src/routes/+layout.svelte</code>.</p>
 			<CodeBlock language="ts" code={`import hljs from 'highlight.js';`} />
 			<p>
 				Import any <a href="https://github.com/highlightjs/highlight.js/tree/main/src/styles" target="_blank" rel="noreferrer"
 					>Highlight.js CSS theme</a
-				> of your choice. Skeleton has provided our custom theme near the top of this page.
+				> of your choice.
 			</p>
 			<CodeBlock language="ts" code={`import 'highlight.js/styles/github-dark.css';`} />
 			<p>Finally, import the CodeBlock's writable store and pass a referenced to Highlight.js.</p>
@@ -68,9 +69,21 @@
 		<section class="space-y-4">
 			<h2>Accessibility</h2>
 			<p>
-				Uses <code>pre-wrap</code> by default to support keyboard-only navigation. Be mindful of color contrast ratios when customizing the design
-				of this component.
+				Uses <code>pre-wrap</code> by default to support keyboard-only navigation. Please be mindful of color contrast when customizing the design.
 			</p>
 		</section>
+		<!-- <section class="space-y-4">
+			<h2>Previewer</h2>
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+			<DocsPreviewer
+				label="Button Styles"
+				html={`<button class="btn variant-filled-secondary">Skeleton</button>`}
+				css={`.foo { background: green; }`}
+				script={`let foo: string = 'bar'`}
+				svelte
+			>
+				<button class="btn variant-filled-secondary">Skeleton</button>
+			</DocsPreviewer>
+		</section> -->
 	</svelte:fragment>
 </DocsShell>

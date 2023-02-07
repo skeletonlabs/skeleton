@@ -15,19 +15,27 @@
 
 	// Props (styles)
 	/** Provided classes to set the background color. */
-	export let background = 'bg-[#141517]';
+	export let background = 'bg-neutral-900/80';
+	/** Provided classes to set the backdrop blur. */
+	export let blur = 'backdrop-blur';
 	/** Provided classes to set the text size. */
 	export let text = 'text-sm';
 	/** Provided classes to set the text color. */
 	export let color = 'text-white';
 	/** Provided classes to set the border radius. */
 	export let rounded = 'rounded-container-token';
+	/** Provided classes to set the box shadow. */
+	export let shadow = 'shadow';
 	/** Provided classes to set the button styles. */
-	export let buttonCopy = 'bg-white/5 hover:bg-white/10';
+	export let button = 'btn btn-sm variant-soft !text-white';
+	/** Provided the button label text. */
+	export let buttonLabel = 'Copy';
+	/** Provided the button label text when copied. */
+	export let buttonCopied = '👍';
 
 	// Base Classes
 	const cBase = 'overflow-hidden shadow';
-	const cHeader = 'text-xs uppercase flex justify-between items-center p-2 pl-4';
+	const cHeader = 'text-xs text-white/50 uppercase flex justify-between items-center p-2 pl-4';
 	const cPre = 'whitespace-pre-wrap break-all p-4 pt-1';
 
 	// Local
@@ -35,7 +43,7 @@
 	let displayCode: string = code;
 	let copyState = false;
 
-	// Allow shorthand 'js' alias for Javascript
+	// Allow shorthand alias, but show full text in UI
 	function languageFormatter(lang: string): string {
 		if (lang === 'js') return 'javascript';
 		if (lang === 'ts') return 'typescript';
@@ -58,19 +66,19 @@
 	}
 
 	// Reactive
-	$: classesBase = `${cBase} ${background} ${text} ${color} ${rounded} ${$$props.class ?? ''}`;
+	$: classesBase = `${cBase} ${background} ${blur} ${text} ${color} ${rounded} ${shadow} ${$$props.class ?? ''}`;
 </script>
 
 <!-- prettier-ignore -->
 {#if language && code}
 <div class="code-block {classesBase}" data-testid="code-block">
 	<!-- Header -->
-	<header class="code-block-header {cHeader} {background} sticky top-0">
+	<header class="code-block-header {cHeader}">
 		<!-- Language -->
-		<span class="code-block-language text-white/60">{languageFormatter(language)}</span>
+		<span class="code-block-language">{languageFormatter(language)}</span>
 		<!-- Copy Button -->
-		<button class="code-block-btn btn btn-sm {buttonCopy}" on:click={onCopyClick} use:clipboard={code}>
-			{!copyState ? 'Copy' : 'Copied ✓'}
+		<button class="code-block-btn {button}" on:click={onCopyClick} use:clipboard={code}>
+			{!copyState ? buttonLabel : buttonCopied}
 		</button>
 	</header>
 	<!-- Pre/Code -->
