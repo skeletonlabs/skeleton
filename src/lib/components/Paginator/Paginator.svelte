@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
-
 	// Types
 	import type { CssClasses } from '$lib';
 	import type { PaginationSettings } from '$lib/components/Paginator/types';
@@ -26,7 +25,7 @@
 	/** Set the text for the amount selection input. */
 	export let amountText = 'Items';
 	/** Provide abtitrary classes to the next/previous buttons. */
-	export let buttonClasses: CssClasses = 'variant-filled';
+	export let buttonClasses: CssClasses = 'btn-icon variant-filled';
 	/** Set the text label for the Previous button. */
 	export let buttonTextPrevious: CssClasses = '&larr;';
 	/** Set the text label for the Next button. */
@@ -74,10 +73,10 @@
 	</span>
 	<!-- Arrows -->
 	<div class="paginator-arrows space-x-2">
-		<button class="btn-icon {buttonClasses}" on:click={() => { onPrev() }} disabled={disabled || settings.offset === 0}>
+		<button class="{buttonClasses}" on:click={() => { onPrev() }} disabled={disabled || settings.offset === 0}>
 			{@html buttonTextPrevious}
 		</button>
-		<button class="btn-icon {buttonClasses}" on:click={() => { onNext() }} disabled={disabled || (settings.offset + 1) * settings.limit >= settings.size}>
+		<button class="{buttonClasses}" on:click={() => { onNext() }} disabled={disabled || (settings.offset + 1) * settings.limit >= settings.size}>
 			{@html buttonTextNext}
 		</button>
 	</div>
