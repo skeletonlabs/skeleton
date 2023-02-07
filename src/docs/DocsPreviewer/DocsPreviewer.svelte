@@ -23,9 +23,9 @@
 
 	// Classes
 	const cBase = 'space-y-4';
-	const cHeader = 'flex flex-col lg:flex-row items-center gap-4';
+	const cHeader = 'flex flex-col xl:flex-row items-center gap-4';
 	const cLabel = 'text-lg font-bold';
-	const cPreview = 'card p-4 lg:p-12 flex justify-center items-center';
+	const cPreview = 'card p-4 sm:p-12 flex justify-center items-center';
 	const cViewportMobile = 'w-[375px] mx-auto !p-4';
 
 	// Local
@@ -36,6 +36,10 @@
 		secondary: `variant-filled-secondary`,
 		tertiary: `variant-filled-tertiary`
 	};
+
+	function capitalize(text: string) {
+		return text.charAt(0).toUpperCase() + text.slice(1);
+	}
 
 	// State
 	$: hasLabel = label ? 'justify-between' : 'justify-center';
@@ -52,12 +56,12 @@
 		<!-- Label -->
 		{#if label}<span class="previewer-label {classesLabel}">{@html label}</span>{/if}
 		<!-- Radio -->
-		<div class="hidden lg:flex gap-4">
+		<div class="hidden md:flex gap-4">
 			{#if selection === 0}
 				<!-- Background -->
 				<select name="background" class="select {selectSettings}" bind:value={background}>
 					{#each Object.entries(backgroundStyles) as [bgKey, bgValue]}
-						<option value={bgKey} title={bgValue}>{bgKey}</option>
+						<option value={bgKey} title={bgValue}>{capitalize(bgKey)}</option>
 					{/each}
 				</select>
 				<!-- Viewport -->
