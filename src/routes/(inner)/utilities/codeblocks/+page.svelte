@@ -37,9 +37,6 @@
 				<CodeBlock language="css" code={`.skeleton { color: #bada55; }`} />
 				<CodeBlock language="ts" code={`const skeleton: string = 'awesome';`} />
 			</section>
-			<svelte:fragment slot="trail">
-				<small class="block text-center">Monitor your console log when selecting an option.</small>
-			</svelte:fragment>
 		</DocsPreviewer>
 	</svelte:fragment>
 
