@@ -38,6 +38,7 @@
 	// Allow shorthand 'js' alias for Javascript
 	function languageFormatter(lang: string): string {
 		if (lang === 'js') return 'javascript';
+		if (lang === 'ts') return 'typescript';
 		return lang;
 	}
 

@@ -6,7 +6,6 @@
 	import type { ToastSettings } from '$lib/utilities/Toast/types';
 	import { toastStore } from '$lib/utilities/Toast/stores';
 
-	// @ts-expect-error sveld import
 	import sveldToast from '$lib/utilities/Toast/Toast.svelte?raw&sveld';
 
 	// Docs Shell
@@ -196,7 +195,7 @@ const t: ToastSettings = {
 				> is available.
 			</p>
 			<CodeBlock
-				language="typescript"
+				language="ts"
 				code={`
 import { browser } from '$app/environment';\n
 if (browser) toastStore.trigger({...});

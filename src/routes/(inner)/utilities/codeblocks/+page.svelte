@@ -4,7 +4,6 @@
 
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-expect-error sveld import
 	import sveldCodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte?raw&sveld';
 
 	// Docs Shell
@@ -27,7 +26,7 @@
 		<section class="card p-4 grid grid-cols-1 gap-4">
 			<CodeBlock language="html" code={`<p>Hello Skeleton<p>`} />
 			<CodeBlock language="css" code={`.skeleton { color: #bada55; }`} />
-			<CodeBlock language="typescript" code={`const skeleton: string = 'awesome';`} />
+			<CodeBlock language="ts" code={`const skeleton: string = 'awesome';`} />
 		</section>
 	</svelte:fragment>
 
@@ -43,15 +42,15 @@
 		<section class="space-y-4">
 			<h2>Configure Your Project</h2>
 			<p>Apply the following changes to your app's root component (ex: <code>/src/routes/+layout.svelte</code> for SvelteKit).</p>
-			<CodeBlock language="typescript" code={`import hljs from 'highlight.js';`} />
+			<CodeBlock language="ts" code={`import hljs from 'highlight.js';`} />
 			<p>
 				Import any <a href="https://github.com/highlightjs/highlight.js/tree/main/src/styles" target="_blank" rel="noreferrer"
 					>Highlight.js CSS theme</a
 				> of your choice. Skeleton has provided our custom theme near the top of this page.
 			</p>
-			<CodeBlock language="typescript" code={`import 'highlight.js/styles/github-dark.css';`} />
+			<CodeBlock language="ts" code={`import 'highlight.js/styles/github-dark.css';`} />
 			<p>Finally, import the CodeBlock's writable store and pass a referenced to Highlight.js.</p>
-			<CodeBlock language="typescript" code={`import { storeHighlightJs } from '@skeletonlabs/skeleton';\n\nstoreHighlightJs.set(hljs);`} />
+			<CodeBlock language="ts" code={`import { storeHighlightJs } from '@skeletonlabs/skeleton';\n\nstoreHighlightJs.set(hljs);`} />
 		</section>
 		<section class="space-y-4">
 			<h2>Create a Code Block</h2>

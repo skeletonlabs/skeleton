@@ -19,6 +19,13 @@
 </script>
 
 <DocsShell {settings}>
+	<!-- Slot: Sandbox -->
+	<svelte:fragment slot="sandbox">
+		<section class="card variant-glass p-4 text-center !py-10 space-y-4 hidden 2xl:block">
+			<p>View example on <strong>page right</strong> <i class="fa-solid fa-arrow-right" /></p>
+		</section>
+	</svelte:fragment>
+
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">

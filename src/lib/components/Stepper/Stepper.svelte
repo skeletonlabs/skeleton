@@ -1,71 +1,95 @@
 <script lang="ts">
 	import { createEventDispatcher, setContext } from 'svelte';
-	import { writable, type Writable } from 'svelte/store';
+	import { type Writable, writable } from 'svelte/store';
+	import { fade } from 'svelte/transition';
+
+	// Types
+	import type { CssClasses } from '$lib';
 
 	// Event Dispacher
-	const dispatch = createEventDispatcher();
+	const dispatchParent = createEventDispatcher();
 
 	// Props
-	/** Provide a writable(number) which stores the actively selected step. Starts at 0.
-	 * @type { writable(number)}
-	 */
-	export let active: Writable<number> = writable(0);
-	/** Provide a count of the total number of Steps (children). */
-	export let length: number = 0;
-	/** Set the Svelte transition duration. */
-	export let duration: number = 200;
-	/** Provide classes to set rounded style of the step index numbers. */
-	export let rounded: string = 'rounded-token';
-	/** Allow click navigation to any visited steps. */
-	export let clickNavigation: boolean = false;
+	/** Provide classes to style the stepper header gap. */
+	export let gap: CssClasses = 'gap-4';
 
-	// Props (timeline)
-	/** Provide classes to set the numeral text color. */
-	export let color = 'text-white';
-	/** Provide classes to set the timeline background color. */
-	export let background = 'bg-secondary-500';
+	// Props (stepper)
+	/** Provide the verbiage that represents "Step". */
+	export let stepTerm: string = 'Step';
+	/** Provide classes to style the stepper header badges. */
+	export let badge: CssClasses = 'variant-filled-surface';
+	/** Provide classes to style the stepper header active step badge. */
+	export let active: CssClasses = 'variant-filled';
+	/** Provide classes to style the stepper header border. */
+	export let border: CssClasses = 'border-surface-400-500-token';
 
-	// Props (buttons)
-	/** Provide artibtary classes for the Back button. */
-	export let buttonClassesBack = 'btn-icon variant-ghost-surface';
-	/** Provide artibtary classes for the Next button. */
-	export let buttonClassesNext = 'btn variant-filled-surface';
-	/** Provide artibtary classes for the Complete button. */
-	export let buttonClassesComplete = 'btn variant-filled-primary';
-	/** Provide a text label for the Back button. */
-	export let buttonTextBack = '&uarr;';
-	/** Provide a text label for the Next button. */
-	export let buttonTextNext = 'Next &darr;';
-	/** Provide a text label for the Complete button. */
-	export let buttonTextComplete = 'Complete';
+	// Props (step)
+	/** Set the justification for the step navigation buttons. */
+	export let justify: CssClasses = 'justify-between';
+	/** Provide abitrary classes to style the back button. */
+	export let buttonBack: CssClasses = 'variant-ghost';
+	/** Provide the HTML label content for the back button. */
+	export let buttonBackLabel: string = '&larr; Back';
+	/** Provide abitrary classes to style the next button. */
+	export let buttonNext: CssClasses = 'variant-filled';
+	/** Provide the HTML label content for the next button. */
+	export let buttonNextLabel: string = 'Next &rarr;';
+	/** Provide abitrary classes to style the complete button. */
+	export let buttonComplete: CssClasses = 'variant-filled-primary';
+	/** Provide the HTML label content for the complete button. */
+	export let buttonCompleteLabel: string = 'Complete';
 
-	/** Used for deciding which steps should be clickable. */
-	let highestStepReached: Writable<number> = writable(0);
-	active.subscribe((v) => {
-		if (v > $highestStepReached) highestStepReached.set(v);
-	});
+	// Props (regions)
+	/** Provide arbitrary classes to the stepper header region. */
+	export let regionHeader: CssClasses = '';
+	/** Provide arbitrary classes to the stepper content region. */
+	export let regionContent: CssClasses = '';
+
+	// Stores
+	let state: Writable<any> = writable({ current: 0, total: 0 });
 
 	// Context
-	setContext('dispatch', dispatch);
-	setContext('active', active);
-	setContext('length', length);
-	setContext('rounded', rounded);
-	setContext('clickNavigation', clickNavigation);
-	setContext('highestStepReached', highestStepReached);
-	setContext('color', color);
-	setContext('background', background);
-	setContext('buttonClassesBack', buttonClassesBack);
-	setContext('buttonClassesNext', buttonClassesNext);
-	setContext('buttonClassesComplete', buttonClassesComplete);
-	setContext('buttonTextBack', buttonTextBack);
-	setContext('buttonTextNext', buttonTextNext);
-	setContext('buttonTextComplete', buttonTextComplete);
-	setContext('duration', duration);
+	setContext('state', state);
+	setContext('dispatchParent', dispatchParent);
+	setContext('stepTerm', stepTerm);
+	setContext('gap', gap);
+	setContext('justify', justify);
+	setContext('buttonBack', buttonBack);
+	setContext('buttonBackLabel', buttonBackLabel);
+	setContext('buttonNext', buttonNext);
+	setContext('buttonNextLabel', buttonNextLabel);
+	setContext('buttonComplete', buttonComplete);
+	setContext('buttonCompleteLabel', buttonCompleteLabel);
 
-	// Reactive Classes
-	$: classesStepper = `${$$props.class ?? ''}`;
+	// Classes
+	const cBase = 'space-y-4';
+	const cHeader = 'flex items-center border-t mt-[15px]';
+	const cHeaderStep = '-mt-[15px] transition-all duration-300';
+	const cContent = '';
+
+	// State
+	$: isActive = (step: number) => step === $state.current;
+	// Reactive
+	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
+	$: classesHeader = `${cHeader} ${border} ${gap} ${regionHeader}`;
+	$: classesHeaderStep = `${cHeaderStep}`;
+	$: classesBadge = (step: number) => (isActive(step) ? active : badge);
+	$: classesContent = `${cContent} ${regionContent}`;
 </script>
 
-<div class="stepper {classesStepper}" data-testid="stepper">
-	<slot />
+<div class="stepper {classesBase}" data-testid="stepper">
+	<!-- Header -->
+	{#if $state.total}
+		<header class="stepper-header {classesHeader}" transition:fade|local={{ duration: 100 }}>
+			{#each Array.from(Array($state.total).keys()) as step}
+				<div class="stepper-header-step {classesHeaderStep}" class:flex-1={isActive(step)}>
+					<span class="badge {classesBadge(step)}">{isActive(step) ? `${stepTerm} ${step + 1}` : step + 1}</span>
+				</div>
+			{/each}
+		</header>
+	{/if}
+	<!-- Content -->
+	<div class="stepper-content {classesContent}">
+		<slot />
+	</div>
 </div>

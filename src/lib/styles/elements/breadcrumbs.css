@@ -1,12 +1,11 @@
 /* Tailwind Elements: breadcrumbs.css */
 
 @layer components {
-	.breadcrumb {
+	.breadcrumb,
+	.breadcrumb-nonresponsive {
 		@apply flex items-center space-x-4 w-full hide-scrollbar overflow-x-auto;
 	}
-	.breadcrumb-nonresponsive {
-		@apply breadcrumb;
-	}
+
 	.crumb {
 		@apply flex justify-center items-center space-x-2;
 	}

@@ -5,6 +5,9 @@
 	 * @slot trail - Provides content at the bottom of the rail, e.g. account.
 	 */
 
+	// Types
+	import type { CssClasses } from '$lib';
+
 	import { setContext } from 'svelte';
 	import { writable, type Writable } from 'svelte/store';
 
@@ -14,25 +17,27 @@
 	 */
 	export let selected: Writable<any> = writable(undefined);
 	/** Provide classes to set the background color. */
-	export let background = 'bg-surface-100-800-token';
+	export let background: CssClasses = 'bg-surface-100-800-token';
+	/** Provide classes to set the background color. */
+	export let border: CssClasses = '';
 	/** Provide classes to set the tile active tile background. */
-	export let active = 'bg-primary-active-token';
+	export let active: CssClasses = 'bg-primary-active-token';
 	/** Provide classes to set the tile hover background color. */
-	export let hover = 'bg-primary-hover-token';
+	export let hover: CssClasses = 'bg-primary-hover-token';
 	/** Provide classes to set the width. */
-	export let width = 'w-[70px] sm:w-20';
+	export let width: CssClasses = 'w-[70px] sm:w-20';
 	/** Provide classes to set the height. */
-	export let height = 'h-full';
+	export let height: CssClasses = 'h-full';
 	/** Provide a class to set the grid gap. */
-	export let gap = 'gap-0';
+	export let gap: CssClasses = 'gap-0';
 
 	// Props (regions)
 	/** Provide arbitrary classes to the lead region. */
-	export let regionLead = '';
+	export let regionLead: CssClasses = '';
 	/** Provide arbitrary classes to the default region. */
-	export let regionDefault = '';
+	export let regionDefault: CssClasses = '';
 	/** Provide arbitrary classes to the trail region. */
-	export let regionTrail = '';
+	export let regionTrail: CssClasses = '';
 
 	// Context
 	setContext('selected', selected);
@@ -43,10 +48,10 @@
 	const cBase = 'grid grid-rows-[auto_1fr_auto] overflow-y-auto';
 
 	// Reactive
-	$: classesBase = `${cBase} ${background} ${width} ${height} ${gap} ${$$props.class || ''}`;
+	$: classesBase = `${cBase} ${background} ${border} ${width} ${height} ${gap} ${$$props.class || ''}`;
 </script>
 
-<!-- @component A side navigation rail component. -->
+<!-- @component A vertical navigation rail component. -->
 
 <div class="app-rail {classesBase}">
 	<!-- Slot: lead -->

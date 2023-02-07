@@ -54,7 +54,7 @@
 					<hr />
 					<!-- Footer -->
 					<footer class="p-4 flex justify-start items-center space-x-4">
-						<Avatar src="https://i.pravatar.cc/160?img=5" />
+						<Avatar src="https://i.pravatar.cc/160?img=48" />
 						<div class="flex-auto flex justify-between items-center">
 							<h6 class="font-bold">By Alex</h6>
 							<small>On {new Date().toLocaleDateString()}</small>

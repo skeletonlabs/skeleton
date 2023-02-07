@@ -1,5 +1,5 @@
 <script>
-	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
+	import SvgIcon from '$docs/SvgIcon/SvgIcon.svelte';
 </script>
 
 <!-- <script lang="ts"></script> -->
