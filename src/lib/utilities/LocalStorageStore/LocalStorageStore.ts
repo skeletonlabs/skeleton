@@ -1,6 +1,6 @@
 // Source: https://github.com/joshnuss/svelte-local-storage-store
 // https://github.com/joshnuss/svelte-local-storage-store/blob/master/index.ts
-// Represents version v0.3.1 (2022-08-21)
+// Represents version v0.4.0 (2023-01-18)
 
 import { writable as internal, get, type Writable } from 'svelte/store';
 
