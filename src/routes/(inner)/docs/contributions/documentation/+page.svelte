@@ -58,7 +58,7 @@
 			language="js"
 			code={`
 /** Provide classes to set vertical item spacing. */
-export let space: string = 'space-y-1';
+export let spacing: string = 'space-y-1';
 			`}
 		/>
 		<p>
@@ -156,7 +156,6 @@ dispatch('dragover', event);`}
 			<li>
 				Create a duplicate of your component import statement, e.g. <code>import Avatar from '$lib/components/Avatar/Avatar.svelte';</code>
 			</li>
-			<li>Implement a <code>// @ts-expect-error sveld import</code> comment above the new import to silence any warnings.</li>
 			<li>Rename the import reference using the convention: <code>Avatar</code> -> <code>sveldAvatar</code>.</li>
 			<li>Append the following URL parameters to the end of your import statement, e.g.: <code>.../Accordion.svelte?raw&sveld</code>.</li>
 			<li>

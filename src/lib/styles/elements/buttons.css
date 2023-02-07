@@ -28,11 +28,9 @@
 	}
 
 	/* Button: Sizes */
+	/* Note: Default values are built into `.btn` */
 	.btn-sm {
 		@apply text-sm px-3 py-1.5;
-	}
-	.btn-base {
-		@apply text-base px-5 py-[9px];
 	}
 	.btn-lg {
 		@apply text-lg px-7 py-3;
@@ -69,7 +67,7 @@
 
 	/* File Input Button */
 	input[type='file']:not(.file-dropzone-input)::file-selector-button {
-		@apply border-0 btn variant-filled-secondary text-on-secondary-token btn-sm mr-2;
+		@apply border-0 btn variant-filled btn-sm mr-2;
 	}
 
 	/* === Button Groups === */

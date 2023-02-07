@@ -25,8 +25,8 @@
 	};
 
 	// Local
-	let tags = ['tutorials', 'news', 'interviews'];
-	let flavors = ['vanilla', 'chocolate', 'strawberry'];
+	let anythingList: string[] = ['foo', 'bar', 'fizz', 'buzz'];
+	let flavorsList = ['vanilla', 'chocolate', 'strawberry'];
 	let flavorsWhitelist = ['vanilla', 'chocolate', 'strawberry', 'peach', 'rocky road'];
 	let emails = ['john@email.com', 'jane@email.com', 'sally@email.com'];
 
@@ -38,44 +38,51 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<!-- Normalize -->
-		<!-- <div class="card p-4 flex items-center gap-2">
-			<InputChip placeholder="Add tags..." bind:value={tags} />
-			<button class="btn variant-filled-primary">Submit</button>
-		</div> -->
-		<section class="space-y-4">
-			<p>Type a value then hit ENTER to apply it.</p>
-			<!-- Tags -->
+		<div class="space-y-2">
+			<!-- Names -->
 			<div class="card p-4 space-y-4">
-				<p>This input allows for any value to be entered.</p>
-				<InputChip placeholder="Add tags..." bind:value={tags} />
-				<code class="inline-block">{tags.length ? tags : 'No tags set.'}</code>
+				<InputChip name="chips-example" bind:value={anythingList} placeholder="Enter any value..." />
+				<code class="inline-block">{anythingList.length ? anythingList : 'No chips available.'}</code>
 			</div>
 			<!-- Flavors -->
 			<div class="card p-4 space-y-4">
-				<p>Flavors are whitelisted to: <em>{flavorsWhitelist.join(', ')}</em>.</p>
-				<InputChip label="Flavors" placeholder="Add flavor..." bind:value={flavors} allowDuplicates={true} whitelist={flavorsWhitelist} />
-				<code class="inline-block">{flavors.length ? flavors : 'No flavors set.'}</code>
+				<label for="chips-example-flavors" class="label">
+					<span>Flavors <em>(whitelists vanilla, chocolate, strawberry)</em></span>
+					<InputChip
+						name="chips-example-flavors"
+						bind:value={flavorsList}
+						placeholder="Enter flavors..."
+						chips="variant-filled-primary"
+						whitelist={flavorsWhitelist}
+					/>
+				</label>
+				<code class="inline-block">{flavorsList.length ? flavorsList : 'No flavors set.'}</code>
 			</div>
 			<!-- Emails -->
 			<div class="card p-4 space-y-4">
-				<p>Emails are validated to contain <code>@</code> and <code>.</code> symbols.</p>
-				<InputChip label="Emails" placeholder="Enter emails..." bind:value={emails} validation={isValidEmail} />
+				<label for="chips-example-emails" class="label">
+					<span>Emails <em>(validated)</em></span>
+					<InputChip
+						name="chips-example-emails"
+						bind:value={emails}
+						placeholder="Enter Emails..."
+						chips="variant-filled-secondary"
+						validation={isValidEmail}
+					/>
+				</label>
 				<code class="inline-block">{emails.length ? emails : 'No emails set.'}</code>
 			</div>
-		</section>
+		</div>
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<p>
-				Create an array of values, then bind these to your the <code>InputChip</code> component. As values are added or removed the array will
-				update.
-			</p>
-			<CodeBlock language="ts" code={`let flavors = ['vanilla', 'chocolate', 'strawberry'];`} />
-			<CodeBlock language="html" code={`<InputChip label="Flavors" placeholder="Add flavor..." bind:value={flavors} />`} />
+			<p>Bind an array of data to the component <code>value</code> property. Please note that only <u>string</u> values are supported.</p>
+			<CodeBlock language="ts" code={`let flavorsList = ['vanilla', 'chocolate', 'strawberry'];`} />
+			<CodeBlock language="html" code={`<InputChip name="chips" bind:value={flavorsList} />`} />
 		</section>
+		<!-- Whitelist -->
 		<section class="space-y-4">
 			<h2>Whitelist Values</h2>
 			<p>
@@ -85,6 +92,7 @@
 			<CodeBlock language="ts" code={`let flavorsWhitelist = ['vanilla', 'chocolate', 'strawberry'];`} />
 			<CodeBlock language="html" code={`<InputChip ... whitelist={flavorsWhitelist} />`} />
 		</section>
+		<!-- Custom Valiation -->
 		<section class="space-y-4">
 			<h2>Custom Validation</h2>
 			<p>You can optionally provide a function to provide custom validation. Make sure to accept a string value and return a boolean.</p>
@@ -98,33 +106,30 @@ function isValidEmail(value: string): boolean {
 			/>
 			<CodeBlock language="html" code={`<InputChip ... validation={isValidEmail} />`} />
 		</section>
+		<!-- Additional Settings -->
 		<section class="space-y-4">
 			<h2>Additional Settings</h2>
+			<p>Use the <code>max</code> property to define a maximum number of chips allowed.</p>
+			<CodeBlock language="html" code={`<InputChip ... max={3} />`} />
 			<p>
-				By default, only a single instance of each value is allowed. If you wish to allow duplicates, set <code>allowDuplicates={true}</code
-				>.
+				Use the <code>minlength</code> and <code>maxlength</code> properties to set the minimum/maximum number of input characters respectively.
 			</p>
-			<CodeBlock language="html" code={`<InputChip ... allowDuplicates={true} />`} />
+			<CodeBlock language="html" code={`<InputChip ... minlength={2} maxlength={5} />`} />
 			<p>
-				By default, all values are trimmed and formatted lowercase. If you wish to allow uppercase, set <code>allowUpperCase={true}</code>.
+				By default, only a single instance of each value is allowed. If you wish to allow duplicates, set <code>allowDuplicates</code>.
 			</p>
-			<CodeBlock language="html" code={`<InputChip ... allowUpperCase={true} />`} />
-		</section>
-		<section class="space-y-4">
-			<h2>Required Attribute</h2>
+			<CodeBlock language="html" code={`<InputChip ... allowDuplicates />`} />
 			<p>
-				Note the <code>required</code> attribute has no bearing on the validation state of this input. Instead, we recommend disabling form
-				submission if your validation conditions are not for our your source value array - such as too few or too many values. Make sure to
-				inform users of the error state using a message or <a href="/components/alerts">Alert</a>.
+				By default, all values are trimmed and formatted lowercase. If you wish to allow uppercase, set <code>allowUpperCase</code>.
 			</p>
-			<CodeBlock language="html" code={`<button type="submit" disabled={!flavors.length}>Submit</button>`} />
-			<CodeBlock language="html" code={`<button type="submit" disabled={flavors.length > 3}>Submit</button>`} />
+			<CodeBlock language="html" code={`<InputChip ... allowUpperCase />`} />
 		</section>
 		<hr />
+		<!-- See Also -->
 		<section class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 			<div class="space-y-2">
-				<h2>Chip Elements</h2>
-				<p>Interactive elements for actions, selection, or filtering.</p>
+				<h2>See Also</h2>
+				<p>Interactive chip element styles for actions, selection, or filtering.</p>
 			</div>
 			<a class="btn variant-ghost-surface" href="/elements/chips">Chip Elements &rarr;</a>
 		</section>

@@ -60,29 +60,24 @@
 			<div class="alert-message">
 				<h3>Experimental Feature</h3>
 				<p>
-					This feature currently available as in early access. It is not feature complete, may contain bugs, and is not ready for production
-					use. We've provided an alternative and linked the GitHub ticket if you wish to track the progress of this feature.
+					This feature currently delisted. It is not feature complete, contains bugs, and is not ready for production use. View the linked
+					GitHub ticket if you wish to track the progress of this feature.
 				</p>
 			</div>
 			<div class="alert-message">
-				<a
-					href="https://github.com/skeletonlabs/skeleton/issues/538"
-					target="_blank"
-					rel="noreferrer"
-					class="btn variant-ghost-error w-full"
-				>
+				<a href="https://github.com/skeletonlabs/skeleton/issues/538" target="_blank" rel="noreferrer" class="btn variant-filled w-full">
 					Track Progress
 				</a>
-				<a href="https://svelte-headless-table.bryanmylee.com/" target="_blank" rel="noreferrer" class="btn variant-filled w-full">
+				<!-- <a href="https://svelte-headless-table.bryanmylee.com/" target="_blank" rel="noreferrer" class="btn variant-filled w-full">
 					View Alternative
-				</a>
+				</a> -->
 			</div>
 		</aside>
 
-		<section class="card !bg-secondary-500/5">
+		<section class="card variant-glass">
 			<!-- Search Input -->
 			<div class="card-header">
-				<input bind:value={$dataTableStore.search} type="search" placeholder="Search Table..." />
+				<input class="input" bind:value={$dataTableStore.search} type="search" placeholder="Search Table..." />
 			</div>
 			<!-- Table -->
 			<div class="p-4">

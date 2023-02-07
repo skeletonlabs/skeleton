@@ -2,7 +2,6 @@
 
 [![npm version](https://img.shields.io/npm/v/@skeletonlabs/skeleton?logo=npm&color=cb3837)](https://www.npmjs.com/package/@skeletonlabs/skeleton)
 [![Chat](https://img.shields.io/discord/1003691521280856084?label=chat&logo=discord&color=7289da)](https://discord.gg/EXqV7W8MtY)
-[![Twitter Follow](https://img.shields.io/twitter/follow/SkeletonUI?style=social)](https://twitter.com/SkeletonUI)
 [![license](https://img.shields.io/badge/license-MIT-%23bada55)](https://github.com/skeletonlabs/skeleton/blob/master/LICENSE)
 
 # 💀 Skeleton

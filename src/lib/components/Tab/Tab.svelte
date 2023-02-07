@@ -4,76 +4,83 @@
 	 * @slot lead - Provides a leading position, which can be used for icons.
 	 */
 
-	import type { Writable } from 'svelte/store';
-	import { createEventDispatcher, getContext } from 'svelte';
+	import { getContext } from 'svelte';
 
-	// Event Handler
-	const dispatch = createEventDispatcher();
-
-	// Context
-	export let selected: Writable<any> = getContext('selected');
-	export let borderWidth: string = getContext('borderWidth');
-	export let borderColor: string = getContext('borderColor');
-	export let color: string = getContext('color');
-	export let fill: string = getContext('fill');
-	export let hover: string = getContext('hover');
-	export let rounded: string = getContext('rounded');
+	// Types
+	import type { CssClasses } from '$lib';
 
 	// Props
-	/**
-	 * The value of each tab.
-	 * @type {any}
-	 */
-	export let value: any = $selected.value;
+	/** Set the radio group binding value. */
+	export let group: any;
+	/** Set a unique name value for the input. */
+	export let name: string;
+	/** Set the input's value. */
+	export let value: any;
 
-	// A11y
-	/** Defines a semantic label for the tab. */
-	export let label = 'tab';
+	// Props (a11y)
+	/** Set the ARIA controls value to define which panel this tab controls. */
+	export let controls: string = '';
 
-	// Base Classes
-	const cBase = 'font-bold list-none py-2.5 px-4 flex items-center space-x-2 cursor-pointer';
-	const cBorderColor = 'border-transparent';
-	const cBaseLabel = 'font-bold whitespace-nowrap';
+	// Context
+	/** Provide classes to style each tab's active styles. */
+	export let active: CssClasses = getContext('active');
+	/** Provide classes to style each tab's hover styles. */
+	export let hover: CssClasses = getContext('hover');
+	/** Provide classes to style each tab's flex styles. */
+	export let flex: CssClasses = getContext('flex');
+	/** Provide classes to style each tab's padding styles. */
+	export let padding: CssClasses = getContext('padding');
+	/** Provide classes to style each tab's box radius styles. */
+	export let rounded: CssClasses = getContext('rounded');
 
-	// A11y Input Handlers
-	function onClickHandler(value: any): void {
-		/** @event {{ value }} click - Fires on tab click event.  */
-		dispatch('click', value);
-		// Update Selected
-		selected.set(value);
-	}
-	function onKeyDown(event: any): void {
-		/** @event {{ event }} keydown - Fires on tab keydown event.  */
-		dispatch('keydown', event);
+	// Classes
+	const cBase = 'text-center cursor-pointer transition-colors duration-100';
+	const cInterface = '';
+
+	// Local
+	let elemInput: HTMLElement;
+
+	function onKeypress(event: any): void {
 		// Enter/Space to toggle element
 		if (['Enter', 'Space'].includes(event.code)) {
 			event.preventDefault();
-			event.target.click();
+			elemInput.click();
 		}
 	}
 
-	// Reactive Classes
-	$: isSelected = value == $selected;
-	$: classesSelected = isSelected ? `${borderWidth} ${borderColor} ${color} ${fill}` : `${borderWidth} ${cBorderColor}`;
-	$: classesBase = `${cBase} ${classesSelected} ${hover} ${rounded} ${$$props.class ?? ''}`;
-	$: classesLead = isSelected ? `${fill}` : 'fill-token';
-	$: classesLabel = `${cBaseLabel}`;
+	// Reactive
+	$: selected = value === group;
+	$: classesActive = selected ? active : hover;
+	$: classesBase = `${cBase} ${flex} ${padding} ${rounded} ${classesActive} ${$$props.class ?? ''}`;
+	$: classesInterface = `${cInterface}`;
+
+	// RestProps
+	function prunedRestProps(): any {
+		delete $$restProps.class;
+		return $$restProps;
+	}
 </script>
 
-<li
-	class="tab ${classesBase}"
-	on:click={() => {
-		onClickHandler(value);
-	}}
-	on:keydown={onKeyDown}
-	on:keyup
-	on:keypress
+<label
+	class="tab {classesBase}"
 	role="tab"
+	aria-controls={controls}
+	aria-selected={selected}
 	tabindex="0"
 	data-testid="tab"
+	on:click
+	on:keypress={onKeypress}
+	on:keypress
+	on:keydown
+	on:keyup
 >
-	<!-- Slot: Lead -->
-	{#if $$slots.lead}<div class="tab-lead {classesLead}"><slot name="lead" /></div>{/if}
-	<!-- Slot: Default -->
-	{#if $$slots.default}<div class="tab-label {classesLabel}" aria-label={label}><slot /></div>{/if}
-</li>
+	<!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->
+	<div class="h-0 w-0 overflow-hidden">
+		<input bind:this={elemInput} type="radio" bind:group {name} {value} {...prunedRestProps()} tabindex="-1" />
+	</div>
+	<!-- Interface -->
+	<div class="tab-interface {classesInterface}">
+		{#if $$slots.lead}<div class="tab-lead"><slot name="lead" /></div>{/if}
+		<div class="tab-label"><slot /></div>
+	</div>
+</label>

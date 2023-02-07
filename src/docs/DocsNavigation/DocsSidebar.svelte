@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 	import { writable, type Writable } from 'svelte/store';
 
-	import SvgIcon from '$lib/components/SvgIcon/SvgIcon.svelte';
+	import SvgIcon from '$docs/SvgIcon/SvgIcon.svelte';
 	import { menuNavLinks } from './links';
 	import AppRail from '$lib/components/AppRail/AppRail.svelte';
 	import AppRailTile from '$lib/components/AppRail/AppRailTile.svelte';
@@ -51,9 +51,9 @@
 	$: classesActive = (href: string) => ($storeCurrentUrl?.includes(href) ? 'bg-primary-active-token' : '');
 </script>
 
-<div class="grid grid-cols-[auto_1fr] h-full border-r border-black/5 dark:border-white/5 backdrop-blur {$$props.class ?? ''}">
+<div class="grid grid-cols-[auto_1fr] h-full bg-surface-50-900-token border-r border-surface-500/30 {$$props.class ?? ''}">
 	<!-- App Rail -->
-	<AppRail selected={storeCategory} background="bg-white/30 dark:bg-black/30">
+	<AppRail selected={storeCategory} background="bg-transparent" border="border-r border-surface-500/30">
 		<AppRailTile label="Docs" value={'docs'}>
 			<i class="fa-solid fa-sheet-plastic text-2xl" />
 		</AppRailTile>
@@ -72,7 +72,7 @@
 		</AppRailTile>
 		<svelte:fragment slot="trail">
 			<AppRailTile label="Blog" tag="a" href="/blog" value={'blog'} on:click={onListItemClick} class="lg:hidden">
-				<i class="fa-solid fa-blog text-2xl" />
+				<i class="fa-solid fa-bullhorn text-2xl" />
 			</AppRailTile>
 		</svelte:fragment>
 	</AppRail>

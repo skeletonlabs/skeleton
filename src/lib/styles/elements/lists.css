@@ -37,7 +37,7 @@
 	.list-option {
 		@apply flex items-center space-x-4 whitespace-nowrap;
 		/* Padding */
-		@apply px-4 py-3;
+		@apply px-4 py-2;
 		/* Hover */
 		@apply bg-primary-hover-token;
 		/* Cursor */

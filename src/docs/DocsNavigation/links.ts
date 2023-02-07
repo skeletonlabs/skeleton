@@ -39,18 +39,13 @@ export const menuNavLinks: any = [
 	},
 	{
 		id: 'base',
-		title: 'Base',
+		title: 'Globals',
 		list: [
 			{ href: '/elements/core', label: 'Core', keywords: 'body, scroll, scrollbar, hr, horizontal, rule' },
 			{
 				href: '/elements/typography',
 				label: 'Typography',
 				keywords: 'unstyled, headings, paragraph, anchor, blockquote, pre, code, keyboard, ins, del'
-			},
-			{
-				href: '/elements/forms',
-				label: 'Forms',
-				keywords: 'plugin, label, input, select, checkbox, radio, date, color, picker, slider, range'
 			}
 		]
 	},
@@ -64,6 +59,11 @@ export const menuNavLinks: any = [
 			{ href: '/elements/buttons', label: 'Buttons', keywords: 'click, anchor, icon, preload' },
 			{ href: '/elements/cards', label: 'Cards', keywords: 'header, footer, background, cell, region' },
 			{ href: '/elements/chips', label: 'Chips', keywords: 'action, select, selection, filter, filtering, interactive' },
+			{
+				href: '/elements/forms',
+				label: 'Forms',
+				keywords: 'plugin, label, input, select, checkbox, radio, date, color, picker, slider, range, file'
+			},
 			{ href: '/elements/lists', label: 'Lists', keywords: 'unordered, ordered, description, nav, navigation, ul, ol, li, dd, dt' },
 			{ href: '/elements/logo-clouds', label: 'Logo Clouds', keywords: 'logo, brand, branding, links' },
 			{ href: '/elements/placeholders', label: 'Placeholders', keywords: 'skeleton, spacer, text, image, avatar, animate, animate' },
@@ -121,12 +121,6 @@ export const menuNavLinks: any = [
 		title: 'Utilities',
 		list: [
 			{ href: '/utilities/codeblocks', label: 'Code Blocks', keywords: 'highlight, syntax, code' },
-			{
-				href: '/utilities/data-tables',
-				label: 'Data Tables',
-				keywords: 'search, sort, page, pagination, async',
-				badge: 'Experimental'
-			},
 			{ href: '/utilities/drawers', label: 'Drawers', keywords: 'overlay, slide, panel, sidebar' },
 			{ href: '/utilities/lightswitches', label: 'Lightswitch', keywords: 'light, dark, toggle, prefer, color, scheme' },
 			{ href: '/utilities/local-storage-stores', label: 'Local Storage Stores', keywords: 'svelte, writable, get, cache, persist' },
@@ -138,6 +132,13 @@ export const menuNavLinks: any = [
 			},
 			{ href: '/utilities/toasts', label: 'Toasts', keywords: 'overlay, snack, snackbar, bar, action, alert, notification' },
 			{ href: '/utilities/tooltips', label: 'Tooltips', keywords: 'pop, up, popup, overlay, hover' }
+			// CHRIS: these are delisted until further notice
+			// {
+			// 	href: '/utilities/data-tables',
+			// 	label: 'Data Tables',
+			// 	keywords: 'search, sort, page, pagination, async',
+			// 	badge: 'Experimental'
+			// },
 		]
 	}
 ];

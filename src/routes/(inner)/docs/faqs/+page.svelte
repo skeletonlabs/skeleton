@@ -13,7 +13,7 @@
 			Typescript by default. If you wish to learn Typescript we recommend <a
 				href="https://www.totaltypescript.com/tutorials"
 				target="_blank"
-				rel="noreferrer">Totally Typescript</a
+				rel="noreferrer">Total Typescript</a
 			>.
 		</p>
 	</section>

@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { writable, type Writable } from 'svelte/store';
-
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 
@@ -36,24 +34,18 @@
 	};
 
 	// Local
-	const imgPlaceholder = 'https://i.pravatar.cc/?img=5';
+	const imgPlaceholder = 'https://i.pravatar.cc/?img=48';
 	const borderStyles = 'border-4 border-surface-300-600-token hover:!border-primary-500 cursor-pointer';
-
-	// Store
-	const storeWidth: Writable<string | undefined> = writable('w-48');
-	const storeSrc: Writable<string | undefined> = writable(imgPlaceholder);
-	const storeRounded: Writable<string | undefined> = writable('rounded-full');
-	const storeBorder: Writable<string | undefined> = writable(borderStyles);
 
 	$: props = {
 		initials: 'AB',
-		src: $storeSrc,
+		src: imgPlaceholder,
 		alt: 'avatar',
-		width: $storeWidth,
+		width: 'w-24',
 		background: 'bg-surface-500',
 		fill: 'fill-white',
-		rounded: $storeRounded,
-		border: $storeBorder,
+		rounded: 'rounded-full',
+		border: '',
 		actionParams: ''
 	};
 </script>
@@ -75,7 +67,7 @@
 		<section class="space-y-4">
 			<div class="grid grid-cols-1 xl:grid-cols-[1fr_auto] gap-2">
 				<!-- Example -->
-				<div class="card p-4 h-full flex justify-center items-center">
+				<div class="card variant-glass p-4 h-full flex justify-center items-center">
 					<svelte:component
 						this={Avatar}
 						initials={props.initials}
@@ -93,49 +85,49 @@
 				<!-- Options -->
 				<div class="card p-4 space-y-4">
 					<!-- Source -->
-					<RadioGroup selected={storeSrc} display="flex">
-						<RadioItem value={imgPlaceholder}>Image</RadioItem>
-						<RadioItem value={undefined}>Initials</RadioItem>
+					<RadioGroup display="flex">
+						<RadioItem bind:group={props.src} name="image" value={imgPlaceholder}>Image</RadioItem>
+						<RadioItem bind:group={props.src} name="initials" value={undefined}>Initials</RadioItem>
 					</RadioGroup>
 					<!-- Width -->
-					<label class="input-label" for="">
+					<label class="label" for="">
 						<span>Width</span>
-						<RadioGroup selected={storeWidth} display="flex">
-							<RadioItem value="w-10">w-10</RadioItem>
-							<RadioItem value="w-24">w-24</RadioItem>
-							<RadioItem value="w-48">w-48</RadioItem>
-							<RadioItem value="w-56">w-56</RadioItem>
+						<RadioGroup display="flex">
+							<RadioItem bind:group={props.width} name="w-10" value="w-10">w-10</RadioItem>
+							<RadioItem bind:group={props.width} name="w-24" value="w-24">w-24</RadioItem>
+							<RadioItem bind:group={props.width} name="w-48" value="w-48">w-48</RadioItem>
+							<RadioItem bind:group={props.width} name="w-56" value="w-56">w-56</RadioItem>
 						</RadioGroup>
 					</label>
 					<!-- Rounded -->
-					<label class="input-label" for="">
+					<label class="label" for="">
 						<span>Rounded</span>
-						<RadioGroup selected={storeRounded} display="flex">
-							<RadioItem value="rounded-full">Full</RadioItem>
-							<RadioItem value="rounded-3xl">3XL</RadioItem>
-							<RadioItem value="rounded-xl">XL</RadioItem>
-							<RadioItem value="rounded-none">None</RadioItem>
+						<RadioGroup display="flex">
+							<RadioItem bind:group={props.rounded} name="rounded-full" value="rounded-full">Full</RadioItem>
+							<RadioItem bind:group={props.rounded} name="rounded-3xl" value="rounded-3xl">3XL</RadioItem>
+							<RadioItem bind:group={props.rounded} name="rounded-xl" value="rounded-xl">XL</RadioItem>
+							<RadioItem bind:group={props.rounded} name="rounded-none" value="rounded-none">None</RadioItem>
 						</RadioGroup>
 					</label>
 					<!-- Border -->
-					<label class="input-label" for="">
+					<label class="label" for="">
 						<span>Border</span>
-						<RadioGroup selected={storeBorder} display="flex">
-							<RadioItem value={borderStyles}>On</RadioItem>
-							<RadioItem value="">Off</RadioItem>
+						<RadioGroup display="flex">
+							<RadioItem bind:group={props.border} name="border-off" value="">Off</RadioItem>
+							<RadioItem bind:group={props.border} name="border-on" value={borderStyles}>On</RadioItem>
 						</RadioGroup>
 					</label>
 					<!-- If: Initials -->
-					{#if $storeSrc === undefined}
+					{#if props.src === undefined}
 						<!-- Initials -->
-						<label class="input-label">
+						<label class="label">
 							<span>Initial Text</span>
-							<input type="text" bind:value={props.initials} maxlength="2" />
+							<input class="input" type="text" bind:value={props.initials} maxlength="2" />
 						</label>
 						<!-- Background -->
-						<label class="input-label">
+						<label class="label">
 							<span>Background</span>
-							<select name="background" id="background" bind:value={props.background}>
+							<select class="select" name="background" id="background" bind:value={props.background}>
 								<option value="bg-primary-500">bg-primary-500</option>
 								<option value="bg-secondary-500">bg-secondary-500</option>
 								<option value="bg-tertiary-500">bg-tertiary-500</option>
@@ -145,20 +137,20 @@
 						</label>
 					{/if}
 					<!-- Filter -->
-					{#if $storeSrc !== undefined}
-						<label class="input-label">
+					{#if props.src !== undefined}
+						<label class="label">
 							<span>Filter</span>
-							<select name="filter" id="filter" bind:value={props.actionParams}>
+							<select class="select" name="filter" id="filter" bind:value={props.actionParams}>
 								<option value="">None</option>
-								<option value="Apollo">Apollo</option>
-								<option value="BlueNight">BlueNight</option>
-								<option value="Emerald">Emerald</option>
-								<option value="GreenFall">GreenFall</option>
-								<option value="Noir">Noir</option>
-								<option value="NoirLight">NoirLight</option>
-								<option value="Rustic">Rustic</option>
-								<option value="Summer84">Summer84</option>
-								<option value="XPro">XPro</option>
+								<option value="#Apollo">#Apollo</option>
+								<option value="#BlueNight">#BlueNight</option>
+								<option value="#Emerald">#Emerald</option>
+								<option value="#GreenFall">#GreenFall</option>
+								<option value="#Noir">#Noir</option>
+								<option value="#NoirLight">#NoirLight</option>
+								<option value="#Rustic">#Rustic</option>
+								<option value="#Summer84">#Summer84</option>
+								<option value="#XPro">#XPro</option>
 							</select>
 						</label>
 					{/if}
@@ -180,13 +172,24 @@
 			<CodeBlock language="html" code={`<Avatar initials="JD" />`} />
 		</div>
 		<div class="space-y-4">
+			<h2>Interactive Border</h2>
+			<p>Apply the following styles using the <code>border</code> and <code>cursor</code> properties.</p>
+			<CodeBlock
+				language="html"
+				code={`<Avatar ... border="border-4 border-surface-300-600-token hover:!border-primary-500" cursor="cursor-pointer" />`}
+			/>
+		</div>
+		<div class="space-y-4">
 			<h2>Applying Filters</h2>
 			<p>
 				See <a href="/actions/filters">Filters</a> to learn how to import and configure the filters action and SVG filter components.
 			</p>
-			<CodeBlock language="ts" code={`import { filter, Apollo, /* ... */ } from '@skeletonlabs/skeleton';`} />
+			<CodeBlock language="ts" code={`import { filter, Apollo } from '@skeletonlabs/skeleton';`} />
+			<h3>Via Filter Action</h3>
 			<p>Import the filter action reference using <code>action</code> and set <code>actionParams</code> to the desired filter id.</p>
-			<CodeBlock language="html" code={`<Avatar src="https://i.pravatar.cc/" action={filter} actionParams="Apollo" />`} />
+			<CodeBlock language="html" code={`<Avatar src="https://i.pravatar.cc/" action={filter} actionParams="#Apollo" />`} />
+			<h3>Via Style Attribute</h3>
+			<CodeBlock language="html" code={`<Avatar src="https://i.pravatar.cc/" style="filter: url({'#Apollo'})" />`} />
 		</div>
 	</svelte:fragment>
 </DocsShell>

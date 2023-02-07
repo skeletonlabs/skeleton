@@ -2,6 +2,9 @@
 	import { createEventDispatcher, getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
 
+	// Types
+	import type { CssClasses } from '$lib';
+
 	// Event Handler
 	const dispatch = createEventDispatcher<{ click: MouseEvent }>();
 
@@ -18,18 +21,18 @@
 
 	// Props (region)
 	/** Provide abitrary classes to style the icon region. */
-	export let regionIcon = '';
+	export let regionIcon: CssClasses = '';
 	/** Provide abitrary classes to style the label region. */
-	export let regionLabel = '';
+	export let regionLabel: CssClasses = '';
 
 	// Context
-	export let selected: Writable<any> = getContext('selected');
-	export let active: Writable<any> = getContext('active');
-	export let hover: Writable<any> = getContext('hover');
+	export let selected: Writable<CssClasses> = getContext('selected');
+	export let active: Writable<CssClasses> = getContext('active');
+	export let hover: Writable<CssClasses> = getContext('hover');
 
 	// Base Classes
 	const cBase = 'unstyled grid place-content-center place-items-center w-full aspect-square space-y-1.5 cursor-pointer';
-	const cLabel = 'text-xs text-center';
+	const cLabel = 'font-bold text-xs text-center';
 
 	// Input Handler
 	function onClickHandler(event: MouseEvent): void {
@@ -51,16 +54,19 @@
 	}
 </script>
 
-<!-- @component A navigation tile for the App Rail. -->
+<!-- @component A navigation tile for the App Rail component. -->
 
-<!-- NOTE: avoid forwarding events on <svelte:element> tags -->
-<!-- https://github.com/skeletonlabs/skeleton/issues/727#issuecomment-1356859261 -->
 <div on:click={onClickHandler} on:keydown on:keyup on:keypress>
-	<!-- NOTE: do not add event forwarding to <svelte:element> tags. See issue above. -->
+	<!-- IMPORTANT: avoid forwarding events on <svelte:element> tags per: -->
+	<!-- https://github.com/skeletonlabs/skeleton/issues/727#issuecomment-1356859261 -->
 	<svelte:element this={tag} {...prunedRestProps()} class="app-rail-tile {classesBase}">
 		<!-- Slot: Default (icon) -->
-		<div class="app-rail-tile-icon {regionIcon}"><slot /></div>
+		{#if $$slots.default}
+			<div class="app-rail-tile-icon {regionIcon}"><slot /></div>
+		{/if}
 		<!-- Label -->
-		{#if label}<div class="app-rail-tile-label {classesLabel}">{label}</div>{/if}
+		{#if label}
+			<div class="app-rail-tile-label {classesLabel}">{label}</div>
+		{/if}
 	</svelte:element>
 </div>

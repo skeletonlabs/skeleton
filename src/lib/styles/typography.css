@@ -56,8 +56,8 @@
 		@apply font-mono text-base bg-[#141517] text-white p-4 whitespace-pre-wrap overflow-x-auto rounded-container-token;
 	}
 
-	code:not(.unstyled):not(.code-block code):not(article pre code):is(:not(.prose *)) {
-		@apply font-mono text-xs text-primary-700 dark:text-primary-400;
+	code:not(.unstyled):is(:not(.prose *)):is(:not(pre *)) {
+		@apply font-mono text-xs text-primary-700 dark:text-primary-400 whitespace-nowrap;
 		@apply bg-primary-500/30 dark:bg-primary-500/20;
 		@apply py-0.5 px-1 rounded;
 	}

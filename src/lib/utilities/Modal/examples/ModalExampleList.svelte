@@ -1,16 +1,16 @@
 <script lang="ts">
-	import { writable, type Writable } from 'svelte/store';
-
 	import { ListBox, ListBoxItem, modalStore } from '@skeletonlabs/skeleton';
 
 	// Props
 	/** Exposes parent props to this component. */
 	export let parent: any;
 
-	const storeFlavor: Writable<string> = writable('chocolate');
+	// Local
+	let flavor: string = 'chocolate';
 
+	// Handle Form Submission
 	function onFormSubmit(): void {
-		if ($modalStore[0].response) $modalStore[0].response($storeFlavor);
+		if ($modalStore[0].response) $modalStore[0].response(flavor);
 		modalStore.close();
 	}
 
@@ -21,11 +21,11 @@
 <!-- @component This example creates a simple form modal. -->
 
 <div class="modal-example-form {cBase}">
-	<ListBox selected={storeFlavor} regionList="border border-surface-500 p-4 rounded-container-token">
-		<ListBoxItem value="chocolate">Chocolate</ListBoxItem>
-		<ListBoxItem value="vanilla">Vanilla</ListBoxItem>
-		<ListBoxItem value="strawberry">Strawberry</ListBoxItem>
-		<ListBoxItem value="peach">Peach</ListBoxItem>
+	<ListBox class="border border-surface-500 p-4 rounded-container-token">
+		<ListBoxItem bind:group={flavor} name="chocolate" value="chocolate">Chocolate</ListBoxItem>
+		<ListBoxItem bind:group={flavor} name="vanilla" value="vanilla">Vanilla</ListBoxItem>
+		<ListBoxItem bind:group={flavor} name="strawberry" value="strawberry">Strawberry</ListBoxItem>
+		<ListBoxItem bind:group={flavor} name="peach" value="peach">Peach</ListBoxItem>
 	</ListBox>
 	<!-- prettier-ignore -->
 	<footer class="modal-footer {parent.regionFooter}">
