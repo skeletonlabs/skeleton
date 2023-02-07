@@ -3,7 +3,10 @@
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
+	export let background = 'neutral';
+	export let viewport: string = 'full';
 	export let selection: number = 0;
+
 	export let label: string | undefined = undefined;
 	export let script: string | undefined = undefined;
 	export let html: string | undefined = undefined;
@@ -19,28 +22,29 @@
 	export let scriptSettings: any = {};
 
 	// Classes
-	const cBase = 'card !bg-transparent p-4 space-y-4';
+	const cBase = 'space-y-4';
 	const cHeader = 'flex flex-col lg:flex-row items-center gap-4';
-	const cLabel = 'text-xl font-bold';
-	const cPreview = 'card p-4 lg:py-12 flex justify-center items-center';
+	const cLabel = 'text-lg font-bold';
+	const cPreview = 'card p-4 lg:p-12 flex justify-center items-center';
+	const cViewportMobile = 'w-[375px] mx-auto !p-4';
 
 	// Local
-	const backgrounds: Record<string, string> = {
+	const backgroundStyles: Record<string, string> = {
 		neutral: 'variant-soft',
 		transparent: '!bg-transparent',
 		primary: `variant-filled-primary`,
 		secondary: `variant-filled-secondary`,
 		tertiary: `variant-filled-tertiary`
 	};
-	let bgSelection = 'neutral';
 
 	// State
 	$: hasLabel = label ? 'justify-between' : 'justify-center';
+	$: viewportWidth = viewport === 'mobile' ? cViewportMobile : '';
 	// Reactive
 	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
 	$: classesHeader = `${cHeader} ${hasLabel}`;
 	$: classesLabel = `${cLabel}`;
-	$: classesPreview = `${cPreview} ${backgrounds[bgSelection]}`;
+	$: classesPreview = `${cPreview} ${backgroundStyles[background]} ${viewportWidth}`;
 </script>
 
 <div class="previewer {classesBase}">
@@ -48,12 +52,25 @@
 		<!-- Label -->
 		{#if label}<span class="previewer-label {classesLabel}">{@html label}</span>{/if}
 		<!-- Radio -->
-		<div class="flex gap-4">
-			<select name="background" class="select {selectSettings}" bind:value={bgSelection}>
-				{#each Object.entries(backgrounds) as [bgKey, bgValue]}
-					<option value={bgKey} title={bgValue}>{bgKey}</option>
-				{/each}
-			</select>
+		<div class="hidden lg:flex gap-4">
+			{#if selection === 0}
+				<!-- Background -->
+				<select name="background" class="select {selectSettings}" bind:value={background}>
+					{#each Object.entries(backgroundStyles) as [bgKey, bgValue]}
+						<option value={bgKey} title={bgValue}>{bgKey}</option>
+					{/each}
+				</select>
+				<!-- Viewport -->
+				<RadioGroup {...radiosettings}>
+					<RadioItem bind:group={viewport} name="mobile" value="mobile">
+						<i class="fa-solid text-sm fa-mobile-screen" />
+					</RadioItem>
+					<RadioItem bind:group={viewport} name="full" value="full">
+						<i class="fa-solid text-sm fa-display" />
+					</RadioItem>
+				</RadioGroup>
+			{/if}
+			<!-- Selection -->
 			<RadioGroup {...radiosettings}>
 				<RadioItem bind:group={selection} name="preview" value={0}>Preview</RadioItem>
 				{#if script || html || css}<RadioItem bind:group={selection} name="svelte" value={1}>Code</RadioItem>{/if}
@@ -68,6 +85,6 @@
 		{#if html}<CodeBlock language="html" code={html} {...htmlSettings} />{/if}
 		{#if css}<CodeBlock language="css" code={css} {...cssSettings} />{/if}
 	{/if}
-	<!-- Trail -->
-	{#if $$slots.trail}<div class="previewer-trail"><slot name="trail" /></div>{/if}
+	<!-- Slot: Trail -->
+	{#if selection === 0 && $$slots.trail}<div class="previewer-trail"><slot name="trail" /></div>{/if}
 </div>

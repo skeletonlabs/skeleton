@@ -25,18 +25,21 @@
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<DocsPreviewer
-			label="Code Blocks"
+			label="Preview"
 			html={`
 <CodeBlock language="html" code={\`<div>This is meta</div>\`}></CodeBlock>
 <CodeBlock language="css" code={\`.skeleton { color: #bada55; }\`}></CodeBlock>
 <CodeBlock language="ts" code={\`const skeleton: string = 'awesome';\`}></CodeBlock>
 			`}
 		>
-			<section class="space-y-4 w-full md:max-w-[90%]">
+			<section class="space-y-4 w-full">
 				<CodeBlock language="html" code={`<p>Hello Skeleton<p>`} />
 				<CodeBlock language="css" code={`.skeleton { color: #bada55; }`} />
 				<CodeBlock language="ts" code={`const skeleton: string = 'awesome';`} />
 			</section>
+			<svelte:fragment slot="trail">
+				<small class="block text-center">Monitor your console log when selecting an option.</small>
+			</svelte:fragment>
 		</DocsPreviewer>
 	</svelte:fragment>
 
