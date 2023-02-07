@@ -21,7 +21,7 @@
 	// Props (styles)
 	export let spacing = 'space-y-8 md:space-y-12';
 	// Props (regions)
-	export let regionHeader = 'variant-glass-surface border-b border-black/5 dark:border-white/5';
+	export let regionHeader = 'variant-soft border-b border-black/5 dark:border-white/5';
 	export let regionDetails = 'overflow-x-auto whitespace-nowrap grid grid-cols-1 md:grid-cols-[128px_1fr] gap-3';
 	export let regionPanels = 'page-container';
 

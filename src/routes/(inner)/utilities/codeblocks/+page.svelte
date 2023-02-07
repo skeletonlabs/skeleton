@@ -24,11 +24,20 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="card variant-glass p-4 grid grid-cols-1 gap-4">
-			<CodeBlock language="html" code={`<p>Hello Skeleton<p>`} />
-			<CodeBlock language="css" code={`.skeleton { color: #bada55; }`} />
-			<CodeBlock language="ts" code={`const skeleton: string = 'awesome';`} />
-		</section>
+		<DocsPreviewer
+			label="Code Blocks"
+			html={`
+<CodeBlock language="html" code={\`<div>This is meta</div>\`}></CodeBlock>
+<CodeBlock language="css" code={\`.skeleton { color: #bada55; }\`}></CodeBlock>
+<CodeBlock language="ts" code={\`const skeleton: string = 'awesome';\`}></CodeBlock>
+			`}
+		>
+			<section class="space-y-4 w-full md:max-w-[90%]">
+				<CodeBlock language="html" code={`<p>Hello Skeleton<p>`} />
+				<CodeBlock language="css" code={`.skeleton { color: #bada55; }`} />
+				<CodeBlock language="ts" code={`const skeleton: string = 'awesome';`} />
+			</section>
+		</DocsPreviewer>
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
@@ -54,17 +63,11 @@
 			<CodeBlock language="ts" code={`import { storeHighlightJs } from '@skeletonlabs/skeleton';\n\nstoreHighlightJs.set(hljs);`} />
 		</section>
 		<section class="space-y-4">
-			<h2>Create a Code Block</h2>
+			<h2>Supported Languages</h2>
+			<!-- prettier-ignore -->
 			<p>
-				Syntax highlighting will appear when a valid <a
-					href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md"
-					target="_blank"
-					rel="noreferrer">language alias</a
-				>
-				is provided to the CodeBlock's
-				<code>language</code> prop.
+				Syntax highlighting will appear when a valid <a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md" target="_blank" rel="noreferrer">language alias</a> is provided to the CodeBlock's <code>language</code> prop.
 			</p>
-			<CodeBlock code={'<CodeBlock language="html" code={`<div>This is meta</div>`}></CodeBlock>'} />
 		</section>
 		<section class="space-y-4">
 			<h2>Accessibility</h2>
@@ -72,18 +75,5 @@
 				Uses <code>pre-wrap</code> by default to support keyboard-only navigation. Please be mindful of color contrast when customizing the design.
 			</p>
 		</section>
-		<!-- <section class="space-y-4">
-			<h2>Previewer</h2>
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-			<DocsPreviewer
-				label="Button Styles"
-				html={`<button class="btn variant-filled-secondary">Skeleton</button>`}
-				css={`.foo { background: green; }`}
-				script={`let foo: string = 'bar'`}
-				svelte
-			>
-				<button class="btn variant-filled-secondary">Skeleton</button>
-			</DocsPreviewer>
-		</section> -->
 	</svelte:fragment>
 </DocsShell>

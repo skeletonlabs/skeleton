@@ -10,26 +10,27 @@
 	export let css: string | undefined = undefined;
 
 	export let radiosettings: any = {
-		// background: 'bg-transparent',
-		// border: 'border border-surface-500/30'
+		background: 'variant-soft',
+		border: 'border border-surface-500/30'
 	};
+	export let selectSettings: any = 'variant-soft !border-surface-500/30';
 	export let htmlSettings: any = {};
 	export let cssSettings: any = {};
 	export let scriptSettings: any = {};
 
 	// Classes
-	const cBase = 'card variant-glass p-3 space-y-3';
+	const cBase = 'card !bg-transparent p-4 space-y-4';
 	const cHeader = 'flex flex-col lg:flex-row items-center gap-4';
 	const cLabel = 'text-xl font-bold';
-	const cPreview = 'card p-4 py-12 flex justify-center items-center';
+	const cPreview = 'card p-4 lg:py-12 flex justify-center items-center';
 
 	// Local
 	const backgrounds: Record<string, string> = {
-		neutral: '!bg-neutral-900/80',
+		neutral: 'variant-soft',
+		transparent: '!bg-transparent',
 		primary: `variant-filled-primary`,
 		secondary: `variant-filled-secondary`,
-		tertiary: `variant-filled-tertiary`,
-		transparent: '!bg-transparent'
+		tertiary: `variant-filled-tertiary`
 	};
 	let bgSelection = 'neutral';
 
@@ -45,10 +46,10 @@
 <div class="previewer {classesBase}">
 	<header class="previewer-header {classesHeader}">
 		<!-- Label -->
-		{#if label}<span class="previewer-label {classesLabel}">{label}</span>{/if}
+		{#if label}<span class="previewer-label {classesLabel}">{@html label}</span>{/if}
 		<!-- Radio -->
 		<div class="flex gap-4">
-			<select name="background" class="select" bind:value={bgSelection}>
+			<select name="background" class="select {selectSettings}" bind:value={bgSelection}>
 				{#each Object.entries(backgrounds) as [bgKey, bgValue]}
 					<option value={bgKey} title={bgValue}>{bgKey}</option>
 				{/each}
