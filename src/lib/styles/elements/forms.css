@@ -74,7 +74,7 @@
 		/* Ring */
 		@apply !ring-0;
 		/* Border */
-		@apply border-token border-surface-400-500-token focus:border-primary-500;
+		@apply border-token border-surface-400-500-token focus-within:border-primary-500;
 	}
 
 	/* Base Inputs */
