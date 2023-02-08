@@ -35,9 +35,10 @@
 
 	// Theme stylesheet is loaded from LayoutServerData
 	import type { LayoutServerData } from './$types';
+	import { drawerStore } from '@skeletonlabs/skeleton';
 	export let data: LayoutServerData;
 
-	if (data.vercelEnv == 'production'){
+	if (data.vercelEnv == 'production') {
 		inject();
 	}
 
