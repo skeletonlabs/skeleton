@@ -30,9 +30,14 @@
 	function triggerStyled(): void {
 		const s: DrawerSettings = {
 			id: 'demo',
-			position: 'left',
-			bgDrawer: 'bg-primary-500 text-on-primary-token',
-			bgBackdrop: 'bg-primary-500/50',
+			// Property Overrides
+			position: 'right',
+			bgDrawer: 'bg-purple-900 text-white',
+			bgBackdrop: 'bg-gradient-to-tr from-indigo-500/50 via-purple-500/50 to-pink-500/50',
+			width: 'w-[280px] md:w-[480px]',
+			padding: 'p-4',
+			rounded: 'rounded-xl',
+			// Metadata
 			meta: 'Styled Drawer'
 		};
 		drawerStore.open(s);
@@ -145,7 +150,7 @@ function drawerOpen(): void {
 			</p>
 		</section>
 		<section class="space-y-4">
-			<h2>Passing Abitrary Data</h2>
+			<h2>Passing Metadata</h2>
 			<p>
 				If you need to pass abitrary metadata, create a <code>meta</code> object within <code>DrawerSettings</code>. Then use
 				<code>$drawerStore.meta</code> to retreive this.
@@ -180,9 +185,11 @@ function drawerOpenStyled(): void {
 	const settings: DrawerSettings = {
 		id: 'example-3',
 		// Provide your property overrides:
-		position: 'right',
-		bgDrawer: 'bg-primary-500 text-on-primary-token',
-		bgBackdrop: 'bg-primary-500/50',
+		bgDrawer: 'bg-purple-900 text-white',
+		bgBackdrop: 'bg-gradient-to-tr from-indigo-500/50 via-purple-500/50 to-pink-500/50',
+		width: 'w-[280px] md:w-[480px]',
+		padding: 'p-4',
+		rounded: 'rounded-xl',
 	};
 	drawerStore.open(settings);
 }
@@ -205,6 +212,11 @@ function drawerOpenStyled(): void {
 			<CodeBlock language="html" code={`<AppShell class="transition-transform {positionClasses}">...</AppShell>`} />
 			<CodeBlock language="html" code={`<main class="transition-transform {positionClasses}">...</main>`} />
 			<p>For best results, bu sure to take into account the Drawer position as well via <code>$drawerStore.position</code>.</p>
+		</section>
+		<section class="space-y-4">
+			<h2>Accessibility</h2>
+			<!-- prettier-ignore -->
+			<p>Skeleton <u>does not</u> provide a means to disable the backdrop's click to close feature, as we feel this would be harmful to accessability. We recommend viewing the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/" target="_blank" rel="noreferrer">ARIA guidelines</a> if you wish to learn more about modal accessability.</p>
 		</section>
 	</svelte:fragment>
 </DocsShell>
