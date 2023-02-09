@@ -6,13 +6,13 @@
 
 	// Props (settings)
 	/** Query selector for the scrollable page element. */
-	export let scrollParent: string = '#page';
+	export let scrollParent = '#page';
 	/** Query selector for the element to scan for headings. */
-	export let target: string = '#page';
+	export let target = '#page';
 	/** Query selector for the allowed headings. From H2-H6. */
-	export let allowedHeadings: string = 'h2, h3';
+	export let allowedHeadings = 'h2, h3';
 	/** Set the label text. */
-	export let label: string = 'On This Page';
+	export let label = 'On This Page';
 
 	// Props (styles)
 	/** Set the component width style. */
@@ -35,9 +35,9 @@
 	export let regionList: CssClasses = '';
 
 	// Classes
-	const cLabel: string = 'p-4 pt-0';
-	const cList: string = 'list-none space-y-1';
-	const cListItem: string = 'px-4 py-2 cursor-pointer';
+	const cLabel = 'p-4 pt-0';
+	const cList = 'list-none space-y-1';
+	const cListItem = 'px-4 py-2 cursor-pointer';
 
 	// Local
 	let elemScrollParent: HTMLElement | null;

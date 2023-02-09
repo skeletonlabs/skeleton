@@ -38,7 +38,7 @@
 	};
 
 	// Local
-	let locked: boolean = true;
+	let locked = true;
 
 	function onNextHandler(e: any): void {
 		console.log('event:next', e.detail);

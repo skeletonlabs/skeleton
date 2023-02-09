@@ -38,8 +38,8 @@
 	});
 
 	// Local
-	let cssOutput: string = '';
-	let showThemeCSS: boolean = false;
+	let cssOutput = '';
+	let showThemeCSS = false;
 
 	function randomize(): void {
 		$storeThemGenForm.colors.forEach((_, i: number) => {

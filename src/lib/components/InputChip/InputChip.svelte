@@ -20,15 +20,15 @@
 	 */
 	export let whitelist: string[] = [];
 	/** Maximum number of chips. Set -1 to disable. */
-	export let max: number = -1;
+	export let max = -1;
 	/** Set the minimum character length. */
-	export let minlength: number = -1;
+	export let minlength = -1;
 	/** Set the maximum character length. */
-	export let maxlength: number = -1;
+	export let maxlength = -1;
 	/** When enabled, allows for uppercase values. */
-	export let allowUpperCase: boolean = false;
+	export let allowUpperCase = false;
 	/** When enabled, allows for duplicate values. */
-	export let allowDuplicates: boolean = false;
+	export let allowDuplicates = false;
 	/**
 	 * Provide a custom validation function.
 	 * @type {function}
@@ -37,7 +37,7 @@
 	/** The duration of the animated fly effect. */
 	export let duration = 150;
 	/** Set the required state for this input field. */
-	export let required: boolean = false;
+	export let required = false;
 
 	// Props (styles)
 	/** Provide classes or a variant to style the chips. */

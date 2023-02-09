@@ -29,7 +29,7 @@
 	};
 
 	// Local
-	let valueSingle: string = 'books';
+	let valueSingle = 'books';
 	let valueMultiple: string[] = ['books', 'movies'];
 </script>
 

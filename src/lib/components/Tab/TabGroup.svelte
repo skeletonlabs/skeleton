@@ -35,9 +35,9 @@
 
 	// Props (a11y)
 	/** Provide the ID of the element that labels the tab list. */
-	export let labelledby: string = '';
+	export let labelledby = '';
 	/** Matches the tab aria-control value, pairs with the panel. */
-	export let panel: string = '';
+	export let panel = '';
 
 	// Context
 	setContext('active', active);

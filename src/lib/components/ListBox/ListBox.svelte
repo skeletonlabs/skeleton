@@ -6,7 +6,7 @@
 
 	// Props
 	/** Enable selection of multiple items. */
-	export let multiple: boolean = false;
+	export let multiple = false;
 
 	// Props (styles)
 	/** Provide classs to set the vertical spacing style. */
@@ -23,7 +23,7 @@
 	export let padding: CssClasses = 'px-4 py-2';
 
 	// Props (a11y)
-	export let labelledby: string = '';
+	export let labelledby = '';
 
 	// Context
 	setContext('multiple', multiple);
@@ -33,7 +33,7 @@
 	setContext('padding', padding);
 
 	// Classes
-	const cBase: string = 'cursor-pointer -outline-offset-[3px]';
+	const cBase = 'cursor-pointer -outline-offset-[3px]';
 
 	// Reactive
 	$: classesBase = `${cBase} ${spacing} ${rounded} ${$$props.class ?? ''}`;

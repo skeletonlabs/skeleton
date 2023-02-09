@@ -24,9 +24,9 @@
 	};
 
 	// Local
-	let tabsBasic: number = 0;
-	let tabsFancy: number = 0;
-	let tabsBottomNav: number = 0;
+	let tabsBasic = 0;
+	let tabsFancy = 0;
+	let tabsBottomNav = 0;
 	let desc = {
 		books: 'A written or printed work consisting of pages glued or sewn together along one side and bound in covers.',
 		movies: 'A story or event recorded by a camera as a set of moving images and shown in a theater or on television; a motion picture.',

@@ -19,7 +19,7 @@
 
 	// Props (a11y)
 	/** Set the ARIA controls value to define which panel this tab controls. */
-	export let controls: string = '';
+	export let controls = '';
 
 	// Context
 	/** Provide classes to style each tab's active styles. */

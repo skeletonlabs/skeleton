@@ -27,7 +27,7 @@
 	};
 
 	// Local
-	let color: string = 'red';
+	let color = 'red';
 	let flavors: Record<string, boolean> = {
 		vanilla: true,
 		chocolate: false,

@@ -15,7 +15,7 @@
 
 	// Props (stepper)
 	/** Provide the verbiage that represents "Step". */
-	export let stepTerm: string = 'Step';
+	export let stepTerm = 'Step';
 	/** Provide classes to style the stepper header badges. */
 	export let badge: CssClasses = 'variant-filled-surface';
 	/** Provide classes to style the stepper header active step badge. */
@@ -29,15 +29,15 @@
 	/** Provide abitrary classes to style the back button. */
 	export let buttonBack: CssClasses = 'variant-ghost';
 	/** Provide the HTML label content for the back button. */
-	export let buttonBackLabel: string = '&larr; Back';
+	export let buttonBackLabel = '&larr; Back';
 	/** Provide abitrary classes to style the next button. */
 	export let buttonNext: CssClasses = 'variant-filled';
 	/** Provide the HTML label content for the next button. */
-	export let buttonNextLabel: string = 'Next &rarr;';
+	export let buttonNextLabel = 'Next &rarr;';
 	/** Provide abitrary classes to style the complete button. */
 	export let buttonComplete: CssClasses = 'variant-filled-primary';
 	/** Provide the HTML label content for the complete button. */
-	export let buttonCompleteLabel: string = 'Complete';
+	export let buttonCompleteLabel = 'Complete';
 
 	// Props (regions)
 	/** Provide arbitrary classes to the stepper header region. */

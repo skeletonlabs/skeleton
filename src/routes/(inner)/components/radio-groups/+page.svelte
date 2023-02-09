@@ -30,8 +30,8 @@
 	};
 
 	// Local
-	let justify: number = 0;
-	let alignment: string = 'horizontal';
+	let justify = 0;
+	let alignment = 'horizontal';
 </script>
 
 <DocsShell {settings}>

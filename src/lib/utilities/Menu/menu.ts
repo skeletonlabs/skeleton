@@ -17,7 +17,7 @@ export function menu(node: HTMLElement, args: ArgsMenu) {
     const elemMenu: HTMLElement | null = document.querySelector(`[data-menu="${args.menu}"]`);
 	if (!elemMenu) return;
 
-	const elemWhitelist: string = 'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])';
+	const elemWhitelist = 'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])';
 	let activeFocusIdx: number;
 	let focusableElems: HTMLElement[];
 
@@ -29,7 +29,7 @@ export function menu(node: HTMLElement, args: ArgsMenu) {
 
 	// Menu States ---
 	
-	const menuOpen = (openWithFocus: boolean = false): void => {
+	const menuOpen = (openWithFocus = false): void => {
 		elemMenu.style.display = 'block';
 		stateEventHandler(true);
 

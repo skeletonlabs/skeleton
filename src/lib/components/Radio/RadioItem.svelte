@@ -25,8 +25,8 @@
 	export let fill: CssClasses = getContext('fill');
 
 	// Classes
-	const cBase: string = 'flex-auto text-base text-center cursor-pointer';
-	const cDisabled: string = 'opacity-50 cursor-not-allowed';
+	const cBase = 'flex-auto text-base text-center cursor-pointer';
+	const cDisabled = 'opacity-50 cursor-not-allowed';
 
 	// Local
 	let elemInput: HTMLElement;

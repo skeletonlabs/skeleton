@@ -8,7 +8,7 @@
 	import type { CssClasses } from '$lib';
 
 	// Props
-	export let locked: boolean = false;
+	export let locked = false;
 
 	// Props (regions)
 	/** Provide arbitrary classes to the step header region. */

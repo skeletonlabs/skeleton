@@ -26,8 +26,8 @@
 	export let padding: CssClasses = getContext('padding');
 
 	// Classes
-	const cBase: string = 'px-4 py-2 cursor-pointer';
-	const cLabel: string = 'flex space-x-4';
+	const cBase = 'px-4 py-2 cursor-pointer';
+	const cLabel = 'flex space-x-4';
 
 	// Local
 	let checked: boolean;

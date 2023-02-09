@@ -6,7 +6,7 @@
 	export let parent: any;
 
 	// Local
-	let flavor: string = 'chocolate';
+	let flavor = 'chocolate';
 
 	// Handle Form Submission
 	function onFormSubmit(): void {
