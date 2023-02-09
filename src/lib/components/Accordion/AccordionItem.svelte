@@ -84,6 +84,7 @@
 <div class="accordion-item {classesBase}" data-testid="accordion-item">
 	<!-- Control -->
 	<button
+		type="button"
 		class="accordion-control {classesControl}"
 		id="accordion-control-{id}"
 		on:click={setActive}

@@ -42,15 +42,15 @@
 					<label for="" class="space-y-4">
 						<span>Single Selection</span>
 						<ListBox>
-							<ListBoxItem bind:group={valueSingle} name="books" value="books">
+							<ListBoxItem bind:group={valueSingle} name="medium" value="books">
 								<svelte:fragment slot="lead"><i class="fa-solid fa-book w-6 text-center" /></svelte:fragment>
 								Books
 							</ListBoxItem>
-							<ListBoxItem bind:group={valueSingle} name="movies" value="movies">
+							<ListBoxItem bind:group={valueSingle} name="medium" value="movies">
 								<svelte:fragment slot="lead"><i class="fa-solid fa-film w-6 text-center" /></svelte:fragment>
 								Movies
 							</ListBoxItem>
-							<ListBoxItem bind:group={valueSingle} name="television" value="television">
+							<ListBoxItem bind:group={valueSingle} name="medium" value="television">
 								<svelte:fragment slot="lead"><i class="fa-solid fa-tv w-6 text-center" /></svelte:fragment>
 								Television
 							</ListBoxItem>
@@ -64,15 +64,15 @@
 					<label for="" class="space-y-4">
 						<span>Multiple Selection</span>
 						<ListBox active="variant-filled-primary" hover="hover:variant-soft-primary" multiple>
-							<ListBoxItem bind:group={valueMultiple} name="books" value="books">
+							<ListBoxItem bind:group={valueMultiple} name="medium" value="books">
 								<svelte:fragment slot="lead"><i class="fa-solid fa-book w-6 text-center" /></svelte:fragment>
 								Books
 							</ListBoxItem>
-							<ListBoxItem bind:group={valueMultiple} name="movies" value="movies">
+							<ListBoxItem bind:group={valueMultiple} name="medium" value="movies">
 								<svelte:fragment slot="lead"><i class="fa-solid fa-film w-6 text-center" /></svelte:fragment>
 								Movies
 							</ListBoxItem>
-							<ListBoxItem bind:group={valueMultiple} name="television" value="television">
+							<ListBoxItem bind:group={valueMultiple} name="medium" value="television">
 								<svelte:fragment slot="lead"><i class="fa-solid fa-tv w-6 text-center" /></svelte:fragment>
 								Television
 							</ListBoxItem>
@@ -94,9 +94,9 @@
 				language="html"
 				code={`
 <ListBox>
-	<ListBoxItem bind:group={valueSingle} name="books" value="books">Books</ListBoxItem>
-	<ListBoxItem bind:group={valueSingle} name="movies" value="movies">Movies</ListBoxItem>
-	<ListBoxItem bind:group={valueSingle} name="television" value="television">Television</ListBoxItem>
+	<ListBoxItem bind:group={valueSingle} name="medium" value="books">Books</ListBoxItem>
+	<ListBoxItem bind:group={valueSingle} name="medium" value="movies">Movies</ListBoxItem>
+	<ListBoxItem bind:group={valueSingle} name="medium" value="television">Television</ListBoxItem>
 </ListBox>
 			`}
 			/>
