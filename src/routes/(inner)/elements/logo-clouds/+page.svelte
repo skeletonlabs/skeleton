@@ -61,7 +61,7 @@
 				language="html"
 				code={`
 <div class="logo-cloud grid-cols-1 lg:grid-cols-4 gap-1">
-	<div class="logo-item">HR Solutions</span></div>
+	<div class="logo-item">HR Solutions</div>
 	<div class="logo-item">Acme Theaters</div>
 	<div class="logo-item">Cruisin' Cuisine</div>
 	<div class="logo-item">Arcane Security</div>
