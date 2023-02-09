@@ -1,6 +1,6 @@
 <script lang="ts">
 	// @ts-expect-error reading from vite.config.js
-	const pkg = __PACKAGE__;
+	const pkg = __PACKAGE__; // eslint-disable-line no-undef
 
 	// Logo
 	import DocsLogoIcon from '$docs/DocsLogo/DocsLogoIcon.svelte';
