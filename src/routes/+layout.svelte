@@ -37,7 +37,7 @@
 	import type { LayoutServerData } from './$types';
 	export let data: LayoutServerData;
 
-	if (data.vercelEnv == 'production'){
+	if (data.vercelEnv == 'production') {
 		inject();
 	}
 
