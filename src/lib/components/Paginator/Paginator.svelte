@@ -73,10 +73,10 @@
 	</span>
 	<!-- Arrows -->
 	<div class="paginator-arrows space-x-2">
-		<button class="{buttonClasses}" on:click={() => { onPrev() }} disabled={disabled || settings.offset === 0}>
+		<button type="button" class="{buttonClasses}" on:click={() => { onPrev() }} disabled={disabled || settings.offset === 0}>
 			{@html buttonTextPrevious}
 		</button>
-		<button class="{buttonClasses}" on:click={() => { onNext() }} disabled={disabled || (settings.offset + 1) * settings.limit >= settings.size}>
+		<button type="button" class="{buttonClasses}" on:click={() => { onNext() }} disabled={disabled || (settings.offset + 1) * settings.limit >= settings.size}>
 			{@html buttonTextNext}
 		</button>
 	</div>
