@@ -23,9 +23,9 @@
 
 	// Local
 	const listData = [
-		{ name: 'Jane', label: 'A', class: 'variant-filled-primary' },
-		{ name: 'Susan', label: 'B', class: 'variant-filled-secondary' },
-		{ name: 'Jake', label: 'C', class: 'variant-filled-tertiary' }
+		{ avatar: 48, name: 'Jane', label: 'A', class: 'variant-filled-primary' },
+		{ avatar: 64, name: 'Michael', label: 'B', class: 'variant-filled-secondary' },
+		{ avatar: 30, name: 'Susan', label: 'C', class: 'variant-filled-tertiary' }
 	];
 </script>
 
@@ -38,7 +38,7 @@
 				<ul class="list">
 					{#each listData as v, i}
 						<li>
-							<Avatar src="https://i.pravatar.cc/?img={i}" width="w-8" />
+							<Avatar src="https://i.pravatar.cc/?img={v.avatar}" width="w-8" />
 							<span class="flex-auto">{v.name}</span>
 							<span>⋮</span>
 						</li>
