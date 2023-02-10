@@ -10,8 +10,12 @@
 	// DISPATCHED: document directly above the definition, like props (ex: paginator)
 
 	import { getContext } from 'svelte';
+	import { createEventDispatcher } from 'svelte/internal';
 	import type { Writable } from 'svelte/store';
 	import { slide } from 'svelte/transition';
+
+	// Event Dispatcher
+	const dispatch = createEventDispatcher();
 
 	// Types
 	import type { CssClasses } from '$lib';
@@ -55,14 +59,22 @@
 	export let regionCaret: CssClasses = getContext('regionCaret');
 
 	// Change open behavior based on auto-collapse mode
-	function setActive(): void {
-		// Set item active
+	function setActive(event?: Event): void {
 		if (autocollapse === true) {
+			// Set item active
 			active.set(id);
-			return;
+		} else {
+			// Toggle Item on click
+			open = !open;
 		}
-		// Toggle Item on click
-		open = !open;
+		// Always fire the toggle event
+		onToggle(event);
+	}
+
+	function onToggle(event?: Event): void {
+		const currentOpenState = autocollapse ? $active === id : open;
+		/** @event {{ event: Event, id: string, open: boolean, autocollapse: boolean }} toggle - Fires when an accordion item is toggled. */
+		dispatch('toggle', { event, id: `accordion-control-${id}`, open: currentOpenState, autocollapse });
 	}
 
 	// If auto-collapse mode enabled and item is set open, set as this item active
@@ -92,7 +104,6 @@
 		on:keydown
 		on:keyup
 		on:keypress
-		on:toggle
 		aria-expanded={openState}
 		aria-controls="accordion-panel-{id}"
 	>
