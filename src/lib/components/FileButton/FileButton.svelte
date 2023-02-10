@@ -25,7 +25,7 @@
 <div class="file-button {$$props.class ?? ''}" data-testid="file-button">
 	<!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->
 	<div class="h-0 overflow-hidden">
-		<input type="file" bind:this={elemFileInput} files={$$restProps.files} {name} {...prunedRestProps()} on:change />
+		<input type="file" bind:this={elemFileInput} {name} {...prunedRestProps()} on:change />
 	</div>
 	<!-- Button -->
 	<button
