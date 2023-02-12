@@ -17,10 +17,10 @@ export { storeHighlightJs } from './utilities/CodeBlock/stores';
 export { drawerStore } from './utilities/Drawer/stores';
 export { modalStore } from './utilities/Modal/stores';
 export { toastStore } from './utilities/Toast/stores';
-export { storePrefersDarkScheme, storeLightSwitch } from './utilities/LightSwitch/stores';
 
 // Utilities ---
 
+// Data Table
 export {
 	// Types
 	type DataTableModel,
@@ -32,6 +32,22 @@ export {
 	tableInteraction,
 	tableA11y
 } from '$lib/utilities/DataTable/DataTable';
+// Lightswitch
+export {
+	// Stores
+	modeOsPrefers,
+	modeUserPrefers,
+	modeCurrent,
+	// Methods
+	getModeOsPrefers,
+	getModeUserPrefers,
+	getModeAutoPrefers,
+	setModeUserPrefers,
+	setModeCurrent,
+	setInitialClassState,
+	autoModeWatcher
+} from './utilities/LightSwitch/lightswitch';
+// Local Storage Store
 export { localStorageStore } from './utilities/LocalStorageStore/LocalStorageStore';
 // Component Utilities
 export { tableSourceMapper, tableSourceValues, tableMapperValues } from './components/Table/utils';
