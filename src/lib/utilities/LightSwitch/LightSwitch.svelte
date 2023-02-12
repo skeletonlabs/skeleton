@@ -61,12 +61,13 @@
 	on:click={onToggleHandler}
 	on:click
 	on:keydown={onKeyDown}
+	on:keydown
 	on:keyup
 	on:keypress
 	role="switch"
 	aria-label="Light Switch"
 	aria-checked={$modeCurrent}
-	title="Toggle {$modeCurrent ? 'Dark' : 'Light'} Mode"
+	title="Toggle {$modeCurrent === true ? 'Dark' : 'Light'} Mode"
 	tabindex="0"
 >
 	<!-- Thumb -->

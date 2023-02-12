@@ -24,9 +24,9 @@
 	// Local
 	let tabInterface: number = 0;
 	// prettier-ignore
-	const snippetAutoModeWatcher = '{@html `\<script\>${autoModeWatcher.toString()} autoModeWatcher();\</script\>`}';
+	const snippetAutoModeWatcher = '\<svelte:head\>{@html `\<script\>${autoModeWatcher.toString()} autoModeWatcher();\</script\>`}\</svelte:head\>';
 	// prettier-ignore
-	const snippetSetInitClass = '{@html `\<script\>${setInitialClassState.toString()} setInitialClassState();\</script\>`}';
+	const snippetSetInitClass = '\<svelte:head\>{@html `\<script\>${setInitialClassState.toString()} setInitialClassState();\</script\>`}\</svelte:head\>';
 </script>
 
 <DocsShell {settings}>
@@ -59,6 +59,7 @@
 			<CodeBlock language="ts" code={`import { autoModeWatcher } from '$lib/utilities/LightSwitch/lightswitch';`} />
 			<p>Then add the following in your layout markup.</p>
 			<CodeBlock language="html" code={snippetAutoModeWatcher} />
+			<p>Note that Mac OS will update immediately, while other operating systems may require the browser page to be refreshed manually.</p>
 		</section>
 		<hr />
 		<section class="space-y-4">
