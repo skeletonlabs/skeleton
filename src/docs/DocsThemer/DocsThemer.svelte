@@ -233,10 +233,10 @@
 			<hr class="opacity-50" />
 			<!-- Slide Toggles -->
 			<div class="grid grid-cols-4 gap-4 place-items-center">
-				<SlideToggle accent="bg-surface-500" checked />
-				<SlideToggle accent="bg-primary-500" checked />
+				<SlideToggle active="bg-surface-500" checked />
+				<SlideToggle active="bg-primary-500" checked />
 				<SlideToggle checked />
-				<SlideToggle accent="bg-tertiary-500" checked />
+				<SlideToggle active="bg-tertiary-500" checked />
 			</div>
 		</section>
 
