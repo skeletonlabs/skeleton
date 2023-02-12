@@ -58,7 +58,7 @@ export function setInitialClassState() {
 	// Conditions
 	const condLocalStroageUserPrefs: boolean = localStorage.getItem('modeUserPrefers') === 'false';
 	const condLocalStroageUserPrefsExists: boolean = !('modeUserPrefers' in localStorage);
-	const condMatchMedia: boolean = window.matchMedia('(prefers-color-scheme: light)').matches;
+	const condMatchMedia: boolean = window.matchMedia('(prefers-color-scheme: dark)').matches;
 	// Add/remove `.dark` class to HTML element
 	if (condLocalStroageUserPrefs || (condLocalStroageUserPrefsExists && condMatchMedia)) {
 		elemHtmlClasses.add('dark');
