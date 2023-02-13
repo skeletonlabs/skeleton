@@ -29,7 +29,7 @@
 	import DocsDrawer from '$docs/DocsNavigation/DocsDrawer.svelte';
 	import DocsFooter from '$docs/DocsFooter/DocsFooter.svelte';
 	// Modal Components
-	import DocsSearch from '$docs/DocsSearch/DocsSearch.svelte';
+	import DocsSearch from '$docs/DocsModals/DocsSearch.svelte';
 	import ModalExampleForm from '$docs/DocsModals/ModalExampleForm.svelte';
 	import ModalExampleList from '$docs/DocsModals/ModalExampleList.svelte';
 	import ModalExampleEmbed from '$docs/DocsModals/ModalExampleEmbed.svelte';

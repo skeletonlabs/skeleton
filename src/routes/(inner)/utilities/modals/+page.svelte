@@ -138,22 +138,22 @@
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-4">
-			<div class="card p-4 space-y-4">
-				<p class="text-center font-bold">Dialog Modals</p>
+			<div class="card variant-glass p-4 space-y-4">
+				<p class="text-center font-bold">Basic Modals</p>
 				<div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:max-w-[480px] mx-auto">
-					<button class="btn variant-ghost-surface" on:click={modalAlert}>Alert</button>
-					<button class="btn variant-ghost-surface" on:click={modalConfirm}>Confirm</button>
-					<button class="btn variant-ghost-surface" on:click={modalPrompt}>Prompt</button>
-					<button class="btn variant-ghost-surface" on:click={modalMultiple}>Multiple</button>
+					<button class="btn variant-filled" on:click={modalAlert}>Alert</button>
+					<button class="btn variant-filled" on:click={modalConfirm}>Confirm</button>
+					<button class="btn variant-filled" on:click={modalPrompt}>Prompt</button>
+					<button class="btn variant-filled" on:click={modalMultiple}>Multiple</button>
 				</div>
 			</div>
-			<div class="card p-4 space-y-4">
-				<p class="text-center font-bold">Custom Component Modals</p>
+			<div class="card variant-glass p-4 space-y-4">
+				<p class="text-center font-bold">Component Modals</p>
 				<div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:max-w-[480px] mx-auto">
-					<button class="btn variant-ghost-surface" on:click={modalComponentForm}>Form</button>
-					<button class="btn variant-ghost-surface" on:click={modalComponentList}>List</button>
-					<button class="btn variant-ghost-surface" on:click={modalComponentEmbed}>Embed</button>
-					<button class="btn variant-ghost-surface" on:click={modalComponentImage}>Image</button>
+					<button class="btn variant-filled" on:click={modalComponentForm}>Form</button>
+					<button class="btn variant-filled" on:click={modalComponentList}>List</button>
+					<button class="btn variant-filled" on:click={modalComponentEmbed}>Embed</button>
+					<button class="btn variant-filled" on:click={modalComponentImage}>Image</button>
 				</div>
 			</div>
 		</section>
