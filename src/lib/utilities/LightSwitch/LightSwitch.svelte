@@ -5,6 +5,14 @@
 	type OnKeyDownEvent = KeyboardEvent & { currentTarget: EventTarget & HTMLDivElement };
 
 	// Props
+	/** Provide classes to set the light background color. */
+	export let bgLight = 'bg-surface-50';
+	/** Provide classes to set the dark background color. */
+	export let bgDark = 'bg-surface-900';
+	/** Provide classes to set the light SVG fill color. */
+	export let fillLight = 'fill-surface-50';
+	/** Provide classes to set the dark SVG fill color. */
+	export let fillDark = 'fill-surface-900';
 	/** Provide classes to set width styles. */
 	export let width = 'w-12';
 	/** Provide classes to set height styles. Should be half of width. */
@@ -18,7 +26,7 @@
 	const cTransition = `transition-all duration-[200ms]`;
 	const cTrack = 'cursor-pointer';
 	const cThumb = 'aspect-square scale-[0.8] flex justify-center items-center';
-	const cIcon = 'block w-[70%] aspect-square';
+	const cIcon = 'w-[70%] aspect-square';
 
 	// Local
 	const svgPath = {
@@ -42,10 +50,10 @@
 	}
 
 	// State
-	$: trackBg = $modeCurrent === true ? 'bg-surface-50' : 'bg-surface-900';
-	$: thumbBg = $modeCurrent === true ? 'bg-surface-900' : 'bg-surface-50';
+	$: trackBg = $modeCurrent === true ? bgLight : bgDark;
+	$: thumbBg = $modeCurrent === true ? bgDark : bgLight;
 	$: thumbPosition = $modeCurrent === true ? 'translate-x-[100%]' : '';
-	$: iconFill = $modeCurrent === true ? 'fill-surface-50' : 'fill-surface-900';
+	$: iconFill = $modeCurrent === true ? fillLight : fillDark;
 	// Reactive
 	$: classesTrack = `${cTrack} ${cTransition} ${width} ${height} ${ring} ${rounded} ${trackBg} ${$$props.class ?? ''}`;
 	$: classesThumb = `${cThumb} ${cTransition} ${height} ${rounded} ${thumbBg} ${thumbPosition}`;

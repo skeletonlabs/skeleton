@@ -41,7 +41,7 @@
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<p>Add the following component. For best results this will be present on page load.</p>
-			<CodeBlock language="ts" code={`LightSwitch />`} />
+			<CodeBlock language="ts" code={`<LightSwitch />`} />
 		</section>
 		<hr />
 		<section class="space-y-4">
@@ -56,7 +56,7 @@
 			<p>
 				To automatically adjust the mode based on operating system preference, import the following in <code>/src/routes/+layout.svelte</code>.
 			</p>
-			<CodeBlock language="ts" code={`import { autoModeWatcher } from '$lib/utilities/LightSwitch/lightswitch';`} />
+			<CodeBlock language="ts" code={`import { autoModeWatcher } from '@skeletonlabs/skeleton';`} />
 			<p>Then add the following in your layout markup.</p>
 			<CodeBlock language="html" code={snippetAutoModeWatcher} />
 			<p>Note that Mac OS will update immediately, while other operating systems may require the browser page to be refreshed manually.</p>
@@ -79,13 +79,14 @@
 				Import and add the following to your component. This will set the <code>.dark</code> class on the root HTML element in a highly performant
 				manner.
 			</p>
-			<CodeBlock language="ts" code={`import { setInitialClassState } from '$lib/utilities/LightSwitch/lightswitch';`} />
+			<CodeBlock language="ts" code={`import { setInitialClassState } from '@skeletonlabs/skeleton';`} />
 			<CodeBlock language="html" code={snippetSetInitClass} />
 			<!-- Interface Methods -->
 			<h3>Interface Methods</h3>
 			<p>
-				Skeleton provides several options to interface with the lightswitch settings. Note that light mode is <code>true</code>, dark mode
-				is
+				Skeleton provides several options to interface with the lightswitch settings. Please be aware that light mode is represented by <code
+					>true</code
+				>, while dark mode is represented by
 				<code>false</code>.
 			</p>
 			<TabGroup regionPanel="space-y-4">
