@@ -7,14 +7,16 @@
 
 	// Base Classes
 	const cBase = 'relative w-modal-wide shadow-xl';
+	const cButton = 'absolute -top-3 -right-3 z-1 btn-icon variant-filled';
+	const cIframe = 'w-full aspect-video rounded-container-token overflow-hidden';
 </script>
 
 <!-- @component This example creates an embedded video modal. -->
 
 <div class="modal-example-form {cBase}">
-	<button class="absolute -top-4 -right-4 z-1 btn-icon variant-filled" on:click={parent.onClose}>✕</button>
+	<button class={cButton} on:click={parent.onClose}>✕</button>
 	<iframe
-		class="w-full aspect-video rounded-container-token overflow-hidden"
+		class={cIframe}
 		src="https://www.youtube.com/embed/vOGhAV-84iI"
 		title="YouTube video player"
 		frameborder="0"

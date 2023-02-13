@@ -9,6 +9,10 @@
 	import { modalStore } from '$lib/utilities/Modal/stores';
 	import type { ModalComponent, ModalSettings } from './types';
 
+	// Props
+	/** Set the modal position within the backdrop container */
+	export let position = 'items-center';
+
 	// Props (components)
 	/** Register a list of reusable component modals. */
 	export let components: Record<string, ModalComponent> = {};
@@ -63,8 +67,8 @@
 
 	// Base Styles
 	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0 z-[999]';
-	const cTransitionLayer = 'w-full h-full flex justify-center items-center p-4';
-	const cModal = 'max-h-full overflow-y-auto overflow-x-hidden';
+	const cTransitionLayer = 'w-full h-full p-4 overflow-y-auto flex justify-center';
+	const cModal = 'block'; // max-h-full overflow-y-auto overflow-x-hidden
 	const cModalImage = 'w-full h-auto';
 
 	// Local
@@ -94,6 +98,7 @@
 	function onBackdropInteraction(event: MouseEvent | TouchEvent): void {
 		if (!(event.target instanceof Element)) return;
 		if (event.target.classList.contains('modal-backdrop')) onClose();
+		if (event.target.classList.contains('modal-transition')) onClose();
 		/** @event {{ event }} backdrop - Fires on backdrop interaction.  */
 		dispatch('backdrop', event);
 	}
@@ -120,14 +125,26 @@
 		if (event.code === 'Escape') onClose();
 	}
 
+	// State
+	$: cPosition = $modalStore[0]?.position ?? position;
 	// Reactive
-	$: classesBackdrop = `${cBackdrop} ${regionBackdrop} ${$$props.class || ''}`;
-	$: classesModal = `${cModal} ${background} ${width} ${height} ${padding} ${spacing} ${rounded} ${shadow}`;
+	$: classesBackdrop = `${cBackdrop} ${regionBackdrop} ${$$props.class ?? ''} ${$modalStore[0]?.backdropClasses ?? ''}`;
+	$: classesTransitionLayer = `${cTransitionLayer} ${cPosition ?? ''}`;
+	$: classesModal = `${cModal} ${background} ${width} ${height} ${padding} ${spacing} ${rounded} ${shadow} ${
+		$modalStore[0]?.modalClasses ?? ''
+	}`;
 	// IMPORTANT: add values to pass to the children templates.
 	// There is a way to self-reference component values, but it involes svelte-internal and is not yet stable.
 	// REPL: https://svelte.dev/repl/badd0f11aa99450ca69dca6690d4d5a4?version=3.52.0
 	// Source: https://discord.com/channels/457912077277855764/1037768846855118909
 	$: parent = {
+		position,
+		// ---
+		duration,
+		flyOpacity,
+		flyX,
+		flyY,
+		// ---
 		background,
 		width,
 		height,
@@ -157,7 +174,7 @@
 	{#key $modalStore}
 		<!-- Backdrop -->
 		<div
-			class="modal-backdrop {classesBackdrop} {$modalStore[0].backdropClasses}"
+			class="modal-backdrop {classesBackdrop}"
 			data-testid="modal-backdrop"
 			on:mousedown={onBackdropInteraction}
 			on:touchstart={onBackdropInteraction}
@@ -165,11 +182,11 @@
 			use:focusTrap={true}
 		>
 			<!-- Transition Layer -->
-			<div class="modal-transition {cTransitionLayer}" transition:fly={{ duration, opacity: flyOpacity, x: flyX, y: flyY }}>
+			<div class="modal-transition {classesTransitionLayer}" transition:fly={{ duration, opacity: flyOpacity, x: flyX, y: flyY }}>
 				{#if $modalStore[0].type !== 'component'}
 					<!-- Modal: Presets -->
 					<div
-						class="modal {classesModal} {$modalStore[0].modalClasses}"
+						class="modal {classesModal}"
 						data-testid="modal"
 						role="dialog"
 						aria-modal="true"

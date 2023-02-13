@@ -3,9 +3,10 @@
 	import { modalStore } from '$lib/utilities/Modal/stores';
 
 	// Classes
-	const cBase = '';
-	const cHeader = 'bg-surface-100-800-token flex items-center space-x-4 p-4';
-	const cList = 'p-4 space-y-4 rounded-container-token max-h-[60vh] md:max-h-[75vh] overflow-y-auto';
+	const cBase =
+		'bg-surface-100/60 dark:bg-surface-800/60 backdrop-blur-lg w-modal rounded-container-token max-h-[90%] md:max-h-[75%] overflow-y-auto';
+	const cHeader = 'sticky top-0 z-10 bg-surface-100-800-token flex items-center space-x-4 p-4';
+	const cList = 'p-4 space-y-4 rounded-container-token';
 	const cCardLink = 'card bg-surface-200-700-token p-2 grid grid-cols-[auto_1fr_auto_auto] gap-4 items-center';
 	const cCardLinkFocus = 'hover:bg-primary-500 hover:text-on-primary-token focus:bg-primary-500 focus:text-on-primary-token';
 	const cHashtag = 'border-2 border-surface-300-600-token rounded w-7 aspect-square flex justify-center items-center text-xs';

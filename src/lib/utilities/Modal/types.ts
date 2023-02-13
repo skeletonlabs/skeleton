@@ -12,6 +12,8 @@ export interface ModalComponent {
 export interface ModalSettings {
 	/** Designate what type of component will display. */
 	type: 'alert' | 'confirm' | 'prompt' | 'component';
+	/** Set the modal position within the backdrop container. */
+	position?: string;
 	/** Provide the modal header content. Accepts HTML. */
 	title?: string;
 	/** Provide the modal body content. Accepts HTML. */

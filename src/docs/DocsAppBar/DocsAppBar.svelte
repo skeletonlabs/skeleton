@@ -8,7 +8,6 @@
 
 	// Docs
 	import DocsLogoFull from '$docs/DocsLogo/DocsLogoFull.svelte';
-	import DocsSearch from '$docs/DocsSearch/DocsSearch.svelte';
 	import SvgIcon from '$docs/SvgIcon/SvgIcon.svelte';
 
 	// Components
@@ -39,12 +38,10 @@
 
 	// Search
 	function triggerSearch(): void {
-		const modalComponent: ModalComponent = { ref: DocsSearch };
 		const d: ModalSettings = {
 			type: 'component',
-			component: modalComponent,
-			backdropClasses: '!items-start',
-			modalClasses: '!bg-surface-100/60 dark:!bg-surface-800/60 backdrop-blur-lg border border-surface-500/50 !p-0 xl:!max-w-[700px]'
+			component: 'modalSearch',
+			position: 'item-start'
 		};
 		modalStore.trigger(d);
 	}

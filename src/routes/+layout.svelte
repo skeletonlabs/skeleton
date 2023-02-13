@@ -28,7 +28,8 @@
 	import DocsSidebar from '$docs/DocsNavigation/DocsSidebar.svelte';
 	import DocsDrawer from '$docs/DocsNavigation/DocsDrawer.svelte';
 	import DocsFooter from '$docs/DocsFooter/DocsFooter.svelte';
-	// Modal Examples
+	// Modal Components
+	import DocsSearch from '$docs/DocsSearch/DocsSearch.svelte';
 	import ModalExampleForm from '$docs/DocsModals/ModalExampleForm.svelte';
 	import ModalExampleList from '$docs/DocsModals/ModalExampleList.svelte';
 	import ModalExampleEmbed from '$docs/DocsModals/ModalExampleEmbed.svelte';
@@ -50,6 +51,7 @@
 
 	// Registered list of Components for Modals
 	const modalComponentRegistry: Record<string, ModalComponent> = {
+		modalSearch: { ref: DocsSearch },
 		exampleForm: { ref: ModalExampleForm },
 		exampleList: { ref: ModalExampleList },
 		exampleEmbed: { ref: ModalExampleEmbed },
