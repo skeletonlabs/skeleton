@@ -74,7 +74,7 @@
 		<aside class="alert alert-message variant-ghost-warning">
 			<p>
 				This feature uses a <a href="https://en.wikipedia.org/wiki/Singleton_pattern" target="_blank" rel="noreferrer">Singleton pattern</a>. Meaning you should aim to implement a <u>single instance of the component per project</u>, but it will remain globally scoped
-				and reusable via a Svelte writable store. Do not reimplementing this component in each route page.
+				and reusable via a Svelte writable store. Do not reimplement this component for each route page.
 			</p>
 		</aside>
 		<section class="space-y-4">

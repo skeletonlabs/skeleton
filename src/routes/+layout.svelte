@@ -11,6 +11,9 @@
 	import { page } from '$app/stores';
 	import { afterNavigate } from '$app/navigation';
 
+	// Types
+	import type { ModalComponent } from '$lib/utilities/Modal/types';
+
 	// Stores
 	import { storeCurrentUrl, storeTheme } from '$docs/stores';
 	import { storePreview } from '$docs/DocsThemer/stores';
@@ -25,6 +28,11 @@
 	import DocsSidebar from '$docs/DocsNavigation/DocsSidebar.svelte';
 	import DocsDrawer from '$docs/DocsNavigation/DocsDrawer.svelte';
 	import DocsFooter from '$docs/DocsFooter/DocsFooter.svelte';
+	// Modal Examples
+	import ModalExampleForm from '$docs/DocsModals/ModalExampleForm.svelte';
+	import ModalExampleList from '$docs/DocsModals/ModalExampleList.svelte';
+	import ModalExampleEmbed from '$docs/DocsModals/ModalExampleEmbed.svelte';
+	import ModalExampleImage from '$docs/DocsModals/ModalExampleImage.svelte';
 
 	// Skeleton Stylesheets
 	import '$lib/styles/all.css';
@@ -37,10 +45,18 @@
 	import type { LayoutServerData } from './$types';
 	export let data: LayoutServerData;
 
-	if (data.vercelEnv == 'production') {
-		inject();
-	}
+	// Vercel Analytics
+	if (data.vercelEnv == 'production') inject();
 
+	// Registered list of Components for Modals
+	const modalComponentRegistry: Record<string, ModalComponent> = {
+		exampleForm: { ref: ModalExampleForm },
+		exampleList: { ref: ModalExampleList },
+		exampleEmbed: { ref: ModalExampleEmbed },
+		exampleImage: { ref: ModalExampleImage }
+	};
+
+	// Current Theme Data
 	$: ({ currentTheme } = data);
 
 	// Set body `data-theme` based on current theme status
@@ -165,7 +181,7 @@
 </svelte:head>
 
 <!-- Overlays -->
-<Modal />
+<Modal components={modalComponentRegistry} />
 <Toast />
 <DocsDrawer />
 

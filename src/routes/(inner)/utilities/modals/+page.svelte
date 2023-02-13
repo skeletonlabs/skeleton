@@ -1,9 +1,14 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
 
-	// DocShell
+	// Docs
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
+	// Modal Examples
+	import ModalExampleForm from '$docs/DocsModals/ModalExampleForm.svelte';
+	import ModalExampleList from '$docs/DocsModals/ModalExampleList.svelte';
+	import ModalExampleEmbed from '$docs/DocsModals/ModalExampleEmbed.svelte';
+	import ModalExampleImage from '$docs/DocsModals/ModalExampleImage.svelte';
 
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
@@ -14,9 +19,6 @@
 	// Modals Utils
 	import type { ModalSettings, ModalComponent } from '$lib/utilities/Modal/types';
 	import { modalStore } from '$lib/utilities/Modal/stores';
-	import ModalExampleForm from '$lib/utilities/Modal/examples/ModalExampleForm.svelte';
-	import ModalExampleList from '$lib/utilities/Modal/examples/ModalExampleList.svelte';
-	import ModalExampleEmbed from '$lib/utilities/Modal/examples/ModalExampleEmbed.svelte';
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
 	import Tab from '$lib/components/Tab/Tab.svelte';
 
@@ -86,36 +88,26 @@
 
 	// Custom ---
 
-	function triggerAlert(): void {
-		console.log('working!');
-	}
-
 	function modalComponentForm(): void {
 		const c: ModalComponent = { ref: ModalExampleForm };
 		const d: ModalSettings = {
 			type: 'component',
+			component: c,
 			title: 'Custom Form Component',
 			body: 'Complete the form below and then press submit.',
-			component: c,
 			response: (r: any) => {
 				if (r) console.log('response:', r);
-			},
-			meta: {
-				foo: 'bar',
-				fizz: 'buzz',
-				fn: triggerAlert
 			}
 		};
 		modalStore.trigger(d);
 	}
 
 	function modalComponentList(): void {
-		const c: ModalComponent = { ref: ModalExampleList };
 		const d: ModalSettings = {
 			type: 'component',
+			component: 'exampleList',
 			title: 'Custom List Component',
 			body: 'Make your selection then press submit.',
-			component: c,
 			response: (r: any) => {
 				if (r) console.log('response:', r);
 			}
@@ -124,11 +116,19 @@
 	}
 
 	function modalComponentEmbed(): void {
-		const c: ModalComponent = { ref: ModalExampleEmbed };
 		const d: ModalSettings = {
 			type: 'component',
-			component: c,
-			modalClasses: '!p-0 !bg-black !max-w-[75%] !overflow-visible'
+			component: 'exampleEmbed'
+		};
+		modalStore.trigger(d);
+	}
+
+	function modalComponentImage(): void {
+		const d: ModalSettings = {
+			type: 'component',
+			component: 'exampleImage',
+			image: 'https://i.imgur.com/rAS43RO.png',
+			meta: { source: 'https://dribbble.com/shots/20548131-And-another-Skull' }
 		};
 		modalStore.trigger(d);
 	}
@@ -149,10 +149,11 @@
 			</div>
 			<div class="card p-4 space-y-4">
 				<p class="text-center font-bold">Custom Component Modals</p>
-				<div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:max-w-[320px] mx-auto">
+				<div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:max-w-[480px] mx-auto">
 					<button class="btn variant-ghost-surface" on:click={modalComponentForm}>Form</button>
 					<button class="btn variant-ghost-surface" on:click={modalComponentList}>List</button>
 					<button class="btn variant-ghost-surface" on:click={modalComponentEmbed}>Embed</button>
+					<button class="btn variant-ghost-surface" on:click={modalComponentImage}>Image</button>
 				</div>
 			</div>
 		</section>
@@ -162,6 +163,13 @@
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
+		<!-- prettier-ignore -->
+		<aside class="alert alert-message variant-ghost-warning">
+			<p>
+				This feature uses a <a href="https://en.wikipedia.org/wiki/Singleton_pattern" target="_blank" rel="noreferrer">Singleton pattern</a>. Meaning you should aim to implement a <u>single instance of the component per project</u>, but it will remain globally scoped
+				and reusable via a Svelte writable store. Do not reimplement this component for each route page.
+			</p>
+		</aside>
 		<section class="space-y-4">
 			<p>
 				Import and add a single instance of the Modal component in your app's root layout. Since this is in global scope it will be possible
@@ -268,7 +276,7 @@ const d: ModalSettings = {
 	type: 'alert',
 	// ...
 	backdropClasses: '!items-start',
-	modalClasses: '!p-0 !bg-green-500 !max-w-[75%]'
+	modalClasses: 'w-full max-w-[75%] shadow-xl'
 };`}
 			/>
 			<p>Note that <code>!</code> (important) may be required to override some styles.</p>

@@ -62,4 +62,16 @@
 	.divider-vertical {
 		@apply inline-block border-l border-solid border-surface-300-600-token min-h-[10px] mx-auto;
 	}
+
+	/* === Modal (helpers) === */
+
+	.w-modal-slim {
+		@apply w-full max-w-[400px];
+	}
+	.w-modal {
+		@apply w-full max-w-[640px];
+	}
+	.w-modal-wide {
+		@apply w-full max-w-[80%];
+	}
 }

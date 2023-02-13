@@ -1,10 +1,12 @@
 <script lang="ts">
+	import { modalStore } from '@skeletonlabs/skeleton';
+
 	// Props
 	/** Exposes parent props to this component. */
 	export let parent: any;
 
 	// Base Classes
-	const cBase = 'relative';
+	const cBase = 'relative w-modal-wide shadow-xl';
 </script>
 
 <!-- @component This example creates an embedded video modal. -->

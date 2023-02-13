@@ -17,11 +17,11 @@ export interface ModalSettings {
 	/** Provide the modal body content. Accepts HTML. */
 	body?: string;
 	/** Provide a URL to display an image within the modal. */
-	image?: URL | string;
+	image?: string;
 	/** Prompt Only - provide a prompt value. */
 	value?: unknown;
 	/** Provide your component reference, props, and slot details. */
-	component?: ModalComponent;
+	component?: ModalComponent | string;
 	/** Provide a function. Returns the repsonse value. */
 	response?: (r: any) => void;
 	/** Provide abitrary classes to the backdrop. */
