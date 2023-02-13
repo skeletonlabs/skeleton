@@ -24,7 +24,7 @@ export interface ModalSettings {
 	value?: any;
 	/** Provide input attributes as key/value pairs. */
 	valueAttr?: Object;
-	/** Provide your component reference, props, and slot details. */
+	/** Provide your component reference key or object. */
 	component?: ModalComponent | string;
 	/** Provide a function. Returns the repsonse value. */
 	response?: (r: any) => void;

@@ -261,27 +261,26 @@ function triggerPrompt(): void {
 			<p>Use the following technique to visualize the contents of the store for debugging.</p>
 			<CodeBlock language="html" code={`<pre>queue: {JSON.stringify($modalStore, null, 2)}</pre>`} />
 		</section>
-		<!-- Customizing Modals -->
+		<!-- Modal Settings -->
 		<section class="space-y-4">
-			<h2>Customizing Modals</h2>
+			<h2>Modal Settings</h2>
+			<!-- Instance Classes -->
+			<h3>Instance Classes</h3>
 			<!-- prettier-ignore -->
 			<p>
-				For global customization, set property values on the Modal component in your root layout. For one-off customization, use the <code>backdropClasses</code> or <code>modalClasses</code> settings. Note that <code>!</code> (important) may be required to override some styles.
+				Use the <code>backdropClasses</code> or <code>modalClasses</code> settings to provide abitrary classes per component instance. Note that <code>!</code> (important) may be required to override some styles.
 			</p>
 			<CodeBlock
 				language="ts"
 				code={`
 const d: ModalSettings = {
-	type: 'alert',
-	// Optional overrides
+	// ...
 	backdropClasses: '!bg-green-500',
 	modalClasses: '!bg-red-500',
 };`}
 			/>
-		</section>
-		<!-- Abitrary Metadata -->
-		<section class="space-y-4">
-			<h2>Abitrary Metadata</h2>
+			<!-- Abitrary Metadata -->
+			<h3>Abitrary Metadata</h3>
 			<p>You can pass abitrary metadata to your modal via the <code>meta</code> setting. All data types are supported.</p>
 			<CodeBlock
 				language="ts"
@@ -302,8 +301,8 @@ modalStore.trigger(d);
 			</div>
 			<p>Use the following techniques to create custom modals using components.</p>
 			<TabGroup regionPanel="space-y-4">
-				<Tab bind:group={tabCustom} name="component-modals" value="register">Registry</Tab>
-				<Tab bind:group={tabCustom} name="component-modals" value="direct">Direct Use</Tab>
+				<Tab bind:group={tabCustom} name="component-modals" value="register">Registry Method</Tab>
+				<Tab bind:group={tabCustom} name="component-modals" value="direct">Direct Method</Tab>
 				<!-- Panel -->
 				<svelte:fragment slot="panel">
 					{#if tabCustom === 'register'}
@@ -317,7 +316,14 @@ modalStore.trigger(d);
 // import ModalComponentOne from '...';
 // import ModalComponentTwo from '...';\n
 const modalComponentRegistry: Record<string, ModalComponent> = {
-	modalComponentOne: { ref: ModalComponentOne },
+	modalComponentOne: {
+		// Pass a reference to your custom component
+		ref: ModalComponentOne,
+		// Add the component properties as key/value pairs
+		props: { background: 'bg-red-500' },
+		// Provide a template literal for the default component slot
+		slot: '<p>Skeleton</p>'
+	},
 	modalComponentTwo: { ref: ModalComponentTwo },
 	// ...
 };
@@ -349,15 +355,15 @@ function triggerCustomModal(): void {
 const modalComponent: ModalComponent = {
 	// Pass a reference to your custom component
 	ref: MyCustomComponent,
-	// Add your props as key/value pairs
+	// Add the component properties as key/value pairs
 	props: { background: 'bg-red-500' },
-	// Provide default slot content as a template literal
+	// Provide a template literal for the default component slot
 	slot: '<p>Skeleton</p>'
 };
 							`}
 						/>
 						<p>
-							When triggeing a component, pass the <code>component: ModalComponent</code> object as the value of the <code>component</code> setting.
+							When triggeing a component, pass the <code>component: ModalComponent</code> directly to <code>ModalSettings</code>.
 						</p>
 						<CodeBlock
 							language="ts"
@@ -389,7 +395,7 @@ function triggerCustomModal(): void {
 				<li>Tap the <em>Props</em> tab on this page to view a full list of <code>parent</code> props available.</li>
 				<li>Use the <code>$modalStore[0].response('myResponseDataHere');</code> method to return a response value.</li>
 				<li>Use the <code>parent.onClose()</code> or <code>modalStore.close()</code> methods to close the modal.</li>
-				<li>Use metadata via <code>$modalStore[0]?.meta.foo</code>.</li>
+				<li>Abitrary metadata is available using <code>$modalStore[0].meta?.someKey</code>.</li>
 			</ul>
 			<!-- Examples -->
 			<h3>Examples</h3>
@@ -409,34 +415,6 @@ function triggerCustomModal(): void {
 					>
 				</div>
 			</aside>
-		</section>
-		<hr />
-		<!-- SSR Warning -->
-		<section class="space-y-4">
-			<h2>SvelteKit SSR Warning</h2>
-			<p>
-				Be aware that there are <a
-					href="https://github.com/sveltejs/kit/discussions/4339#discussioncomment-2384978"
-					target="_blank"
-					rel="noreferrer">known issues when using Svelte stores with SSR</a
-				>, such as our modal store. To prevent these issues please avoid the use of the modal store within any SvelteKit Load function.
-				Likewise, if you need a modal to open on route initilization we advise triggering the <code>open()</code> method after the
-				<a href="https://kit.svelte.dev/docs/modules#$app-environment" target="_blank" rel="noreferrer"
-					>SvelteKit Browser environment context</a
-				> is available.
-			</p>
-			<CodeBlock
-				language="ts"
-				code={`
-import { browser } from '$app/environment';\n
-if (browser) modalStore.trigger({...});
-				`}
-			/>
-			<p>
-				For additional context please see this <a href="https://github.com/skeletonlabs/skeleton/pull/580" target="_blank" rel="noreferrer"
-					>thread</a
-				>.
-			</p>
 		</section>
 	</svelte:fragment>
 </DocsShell>
