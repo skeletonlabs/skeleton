@@ -5,10 +5,8 @@
 	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
 	// Modal Examples
+	// (NOTE: see other examplpes registered in root +layout.svelte)
 	import ModalExampleForm from '$docs/DocsModals/ModalExampleForm.svelte';
-	import ModalExampleList from '$docs/DocsModals/ModalExampleList.svelte';
-	import ModalExampleEmbed from '$docs/DocsModals/ModalExampleEmbed.svelte';
-	import ModalExampleImage from '$docs/DocsModals/ModalExampleImage.svelte';
 
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
@@ -68,6 +66,7 @@
 			title: 'Enter Name',
 			body: 'Provide your first name in the field below.',
 			value: 'Skeleton',
+			valueAttr: { type: 'text', minlength: 3, maxlength: 10, required: true },
 			response: (r: string) => {
 				if (r) console.log('response:', r);
 			}

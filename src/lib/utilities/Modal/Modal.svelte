@@ -80,7 +80,7 @@
 	modalStore.subscribe((modals: ModalSettings[]) => {
 		if (!modals.length) return;
 		// Set Prompt input value and type
-		promptValue = modals[0].value;
+		if (modals[0].type === 'prompt') promptValue = modals[0].value;
 		// Override button text per instance, if available
 		buttonTextCancel = modals[0].buttonTextCancel || buttonTextDefaults.buttonTextCancel;
 		buttonTextConfirm = modals[0].buttonTextConfirm || buttonTextDefaults.buttonTextConfirm;
@@ -192,21 +192,23 @@
 						{#if $modalStore[0].type === 'alert'}
 							<!-- Template: Alert -->
 							<footer class="modal-footer {regionFooter}">
-								<button class="btn {buttonNeutral}" on:click={onClose}>{buttonTextCancel}</button>
+								<button type="button" class="btn {buttonNeutral}" on:click={onClose}>{buttonTextCancel}</button>
 							</footer>
 						{:else if $modalStore[0].type === 'confirm'}
 							<!-- Template: Confirm -->
 							<footer class="modal-footer {regionFooter}">
-								<button class="btn {buttonNeutral}" on:click={onClose}>{buttonTextCancel}</button>
-								<button class="btn {buttonPositive}" on:click={onConfirm}>{buttonTextConfirm}</button>
+								<button type="button" class="btn {buttonNeutral}" on:click={onClose}>{buttonTextCancel}</button>
+								<button type="button" class="btn {buttonPositive}" on:click={onConfirm}>{buttonTextConfirm}</button>
 							</footer>
 						{:else if $modalStore[0].type === 'prompt'}
 							<!-- Template: Prompt -->
-							<input class="modal-prompt-input input" type="text" bind:value={promptValue} />
-							<footer class="modal-footer {regionFooter}">
-								<button class="btn {buttonNeutral}" on:click={onClose}>{buttonTextCancel}</button>
-								<button class="btn {buttonPositive}" on:click={onPromptSubmit} disabled={!promptValue}>{buttonTextSubmit}</button>
-							</footer>
+							<form class="space-y-4" on:submit={onPromptSubmit}>
+								<input class="modal-prompt-input input" name="prompt" type="text" bind:value={promptValue} {...$modalStore[0].valueAttr} />
+								<footer class="modal-footer {regionFooter}">
+									<button type="button" class="btn {buttonNeutral}" on:click={onClose}>{buttonTextCancel}</button>
+									<button type="submit" class="btn {buttonPositive}">{buttonTextSubmit}</button>
+								</footer>
+							</form>
 						{/if}
 					</div>
 				{:else}
