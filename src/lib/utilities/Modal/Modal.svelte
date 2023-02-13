@@ -47,7 +47,7 @@
 	/** Provide classes for neutral buttons, such as Cancel. */
 	export let buttonNeutral = 'variant-ghost-surface';
 	/** Provide classes for positive actions, such as Confirm or Submit. */
-	export let buttonPositive = 'variant-filled-primary';
+	export let buttonPositive = 'variant-filled';
 	/** Override the text for the Cancel button. */
 	export let buttonTextCancel = 'Cancel';
 	/** Override the text for the Confirm button. */
