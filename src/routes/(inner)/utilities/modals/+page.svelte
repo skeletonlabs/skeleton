@@ -389,7 +389,7 @@ function triggerCustomModal(): void {
 				<li>Tap the <em>Props</em> tab on this page to view a full list of <code>parent</code> props available.</li>
 				<li>Use the <code>$modalStore[0].response('myResponseDataHere');</code> method to return a response value.</li>
 				<li>Use the <code>parent.onClose()</code> or <code>modalStore.close()</code> methods to close the modal.</li>
-				<li>Use metadata via <code>{$modalStore[0]?.meta.foo}</code>.</li>
+				<li>Use metadata via <code>$modalStore[0]?.meta.foo</code>.</li>
 			</ul>
 			<!-- Examples -->
 			<h3>Examples</h3>
