@@ -23,7 +23,7 @@
 	export let color = '';
 	/** Provide classes to set the padding. */
 	export let padding = 'p-4';
-	/** Provide classes to set the horizontal spacing. */
+	/** Provide classes to set toast horizontal spacing. */
 	export let spacing = 'space-x-4';
 	/** Provide classes to set the border radius styles. */
 	export let rounded = 'rounded-container-token';
@@ -85,7 +85,7 @@
 					{#if i < max}
 						<!-- Toast -->
 						<div
-							class="toast {classesToast} {t.classes} {$toastStore[i]?.background ?? background}"
+							class="toast {classesToast} {$toastStore[i]?.background ?? background} {t.classes}"
 							role="alert"
 							aria-live="polite"
 							data-testid="toast"
