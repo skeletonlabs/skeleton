@@ -132,8 +132,8 @@
 		const d: ModalSettings = {
 			type: 'component',
 			component: 'exampleImage',
-			image: 'https://i.imgur.com/rAS43RO.png',
-			meta: { source: 'https://dribbble.com/shots/20548131-And-another-Skull' }
+			image: 'https://i.imgur.com/WOgTG96.gif',
+			meta: { source: 'Silly Symphonies - The Skeleton Dance' }
 		};
 		modalStore.trigger(d);
 	}
