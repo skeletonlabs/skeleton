@@ -8,6 +8,8 @@ export interface ToastSettings {
 	 * @type {'primary' | 'secondary' | 'tertiary' | 'warning' | 'success' | 'error'}
 	 */
 	preset?: 'primary' | 'secondary' | 'tertiary' | 'warning' | 'success' | 'error';
+	/** Set the background color styles */
+	background?: string;
 	/** Enables auto-hide after the timeout duration. */
 	autohide?: boolean;
 	/** Set the auto-hide timeout duration. */

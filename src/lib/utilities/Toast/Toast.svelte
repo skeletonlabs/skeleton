@@ -1,7 +1,8 @@
 <script lang="ts">
+	import { preloadCode } from '$app/navigation';
 	import { fly } from 'svelte/transition';
 
-	// Toast Store
+	import type { Toast } from './types';
 	import { toastStore } from './stores';
 
 	// Props
@@ -31,15 +32,18 @@
 	export let shadow = 'shadow-lg';
 
 	// Props (buttons)
-	/** Provide action button styles. */
-	export let buttonAction = 'variant-filled';
-	/** Provide dismiss button styles. */
-	export let buttonDismiss = 'variant-filled';
+	/** Provide styles for the action button. */
+	export let buttonAction = 'btn variant-filled';
+	/** Provide styles for the dismiss button. */
+	export let buttonDismiss = 'btn-icon btn-icon-sm variant-filled';
+	/** The button label text. */
+	export let buttonDismissLabel = '✕';
 
 	// Base Classes
 	const cWrapper = 'flex fixed top-0 left-0 right-0 bottom-0 z-[888] pointer-events-none';
 	const cSnackbar = 'flex flex-col space-y-2';
 	const cToast = 'flex justify-between items-center pointer-events-auto';
+	const cToastActions = 'flex items-center space-x-2';
 
 	// Local
 	let cPosition: string;
@@ -49,7 +53,7 @@
 	// Set Position
 	// prettier-ignore
 	switch (position) {
-		// Centered
+		// Middles
 		case('t'): cPosition = 'justify-center items-start'; cAlign = 'items-center'; animAxis = { x: 0, y: -100 }; break;
 		case('b'): cPosition = 'justify-center items-end'; cAlign = 'items-center'; animAxis = { x: 0, y: 100 }; break;
 		case('l'): cPosition = 'justify-start items-center'; cAlign = 'items-start'; animAxis = { x: -100, y: 0 }; break;
@@ -66,10 +70,12 @@
 		toastStore.close($toastStore[index].id);
 	}
 
+	// State
+	$: classesBackground = $toastStore[0]?.background ?? background;
 	// Reactive
 	$: classesWrapper = `${cWrapper} ${cPosition} ${$$props.class || ''}`;
 	$: classesSnackbar = `${cSnackbar} ${cAlign} ${padding}`;
-	$: classesBase = `${cToast} ${background} ${width} ${color} ${padding} ${spacing} ${rounded} ${shadow}`;
+	$: classesBase = `${cToast} ${classesBackground} ${width} ${color} ${padding} ${spacing} ${rounded} ${shadow}`;
 </script>
 
 {#if $toastStore.length}
@@ -83,9 +89,9 @@
 					<div class="toast {classesBase} {t.classes}" role="alert" aria-live="polite" data-testid="toast">
 						<div class="text-base">{@html t.message}</div>
 						<!-- prettier-ignore -->
-						<div class="flex items-center space-x-2">
-							{#if t.action}<button class="btn {buttonAction}" on:click={() => onAction(i)}>{@html t.action.label}</button>{/if}
-							<button class="btn-icon {buttonDismiss}" on:click={() => { toastStore.close(t.id) }}>✕</button>
+						<div class="toast-actions {cToastActions}">
+							{#if t.action}<button class="{buttonAction}" on:click={() => onAction(i)}>{@html t.action.label}</button>{/if}
+							<button class="{buttonDismiss}" on:click={() => { toastStore.close(t.id) }}>{buttonDismissLabel}</button>
 						</div>
 					</div>
 				{/if}
