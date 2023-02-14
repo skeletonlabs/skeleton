@@ -182,8 +182,9 @@ const t: ToastSettings = {
 				code={`
 const t: ToastSettings = {
 	message: 'This message will have a colorful background.',
+	background: 'bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 text-white',
 	// Add your custom classes here:
-	classes: 'bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 text-white'
+	classes: 'border-token border-purple-500'
 };
 			`}
 			/>

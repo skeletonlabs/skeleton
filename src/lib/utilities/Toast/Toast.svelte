@@ -1,8 +1,7 @@
 <script lang="ts">
-	import { preloadCode } from '$app/navigation';
 	import { fly } from 'svelte/transition';
+	import { flip } from 'svelte/animate';
 
-	import type { Toast } from './types';
 	import { toastStore } from './stores';
 
 	// Props
@@ -70,12 +69,10 @@
 		toastStore.close($toastStore[index].id);
 	}
 
-	// State
-	$: classesBackground = $toastStore[0]?.background ?? background;
 	// Reactive
 	$: classesWrapper = `${cWrapper} ${cPosition} ${$$props.class || ''}`;
 	$: classesSnackbar = `${cSnackbar} ${cAlign} ${padding}`;
-	$: classesBase = `${cToast} ${classesBackground} ${width} ${color} ${padding} ${spacing} ${rounded} ${shadow}`;
+	$: classesToast = `${cToast} ${width} ${color} ${padding} ${spacing} ${rounded} ${shadow}`;
 </script>
 
 {#if $toastStore.length}
@@ -83,18 +80,24 @@
 	<div class="snackbar-wrapper {classesWrapper}" data-testid="snackbar-wrapper">
 		<!-- List -->
 		<div class="snackbar {classesSnackbar}" transition:fly={{ x: animAxis.x, y: animAxis.y, duration }}>
-			{#each $toastStore as t, i}
-				{#if i < max}
-					<!-- Toast -->
-					<div class="toast {classesBase} {t.classes}" role="alert" aria-live="polite" data-testid="toast">
-						<div class="text-base">{@html t.message}</div>
-						<!-- prettier-ignore -->
-						<div class="toast-actions {cToastActions}">
-							{#if t.action}<button class="{buttonAction}" on:click={() => onAction(i)}>{@html t.action.label}</button>{/if}
-							<button class="{buttonDismiss}" on:click={() => { toastStore.close(t.id) }}>{buttonDismissLabel}</button>
+			{#each $toastStore as t, i (t)}
+				<div animate:flip={{ duration }}>
+					{#if i < max}
+						<!-- Toast -->
+						<div
+							class="toast {classesToast} {t.classes} {$toastStore[i]?.background ?? background}"
+							role="alert"
+							aria-live="polite"
+							data-testid="toast"
+						>
+							<div class="text-base">{@html t.message}</div>
+							<div class="toast-actions {cToastActions}">
+								{#if t.action}<button class={buttonAction} on:click={() => onAction(i)}>{@html t.action.label}</button>{/if}
+								<button class={buttonDismiss} on:click={() => toastStore.close(t.id)}>{buttonDismissLabel}</button>
+							</div>
 						</div>
-					</div>
-				{/if}
+					{/if}
+				</div>
 			{/each}
 		</div>
 	</div>
