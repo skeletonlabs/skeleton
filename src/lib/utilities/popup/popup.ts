@@ -8,7 +8,7 @@ export const storePopup: Writable<any> = writable(undefined);
 
 // Action
 export function popup(node: HTMLElement, args: PopupSettings) {
-	const { event, target, placement, middleware }: PopupSettings = args;
+	const { event = 'click', target, placement, middleware }: PopupSettings = args;
 	if (!event || !target) return;
 
 	// Local
@@ -17,9 +17,17 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 	const elemArrow: HTMLElement | null = elemPopup?.querySelector(`.arrow`) ?? null;
 	let isVisible: boolean = false;
 
+	// Local A11y Variables
+	const elemWhitelist: string = 'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])';
+	let activeFocusIdx: number;
+	let focusableElems: HTMLElement[];
+
 	// On Init (floating ui)
 	function render(): void {
 		if (!elemPopup || !computePosition) return;
+
+		// Set Focusable State
+		setFocusableState();
 
 		// Construct Middlware
 		// Note the order: https://floating-ui.com/docs/middleware#ordering
@@ -64,6 +72,19 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		});
 	}
 
+	// Set Focusable State
+	function setFocusableState(): void {
+		if (!elemPopup) return;
+		// Create array of all focusable elements, so that we can iterate through them
+		focusableElems = Array.from(elemPopup?.querySelectorAll(elemWhitelist));
+		// reset the focus index
+		activeFocusIdx = -1;
+		// Automatically focus the element if openWithFocus is true (for example if
+		// the menu was opened with Enter instead of with a click
+		activeFocusIdx = 0;
+		focusableElems[0]?.focus();
+	}
+
 	// Click Handlers
 	const onNodeClick = () => {
 		show();
@@ -99,6 +120,38 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		}, cssTransitionDuration);
 	}
 
+	// A11y Keydown Handler
+	const onWindowKeyDown = (event: KeyboardEvent): void => {
+		if (!isVisible) return;
+		// Handle keys
+		const key: string = event.key;
+		if (key === 'Escape' || (document.activeElement !== node && key === 'Tab')) {
+			event.preventDefault();
+			hide();
+			node.focus();
+			return;
+		} else if (key === 'ArrowDown') {
+			event.preventDefault();
+			if (activeFocusIdx < focusableElems.length - 1) {
+				// Move down the menu
+				activeFocusIdx += 1;
+				focusableElems[activeFocusIdx]?.focus();
+			}
+		} else if (key === 'ArrowUp') {
+			event.preventDefault();
+			if (activeFocusIdx > 0) {
+				// Move up the menu
+				activeFocusIdx -= 1;
+				focusableElems[activeFocusIdx]?.focus();
+			} else if (focusableElems.length && activeFocusIdx === -1) {
+				// Start at the bottom of the menu if first key is arrow up key
+				event.preventDefault();
+				activeFocusIdx = focusableElems.length - 1;
+				focusableElems[activeFocusIdx]?.focus();
+			}
+		}
+	};
+
 	// Auto Update
 	autoUpdate(node, elemPopup, render);
 
@@ -115,6 +168,8 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		node.addEventListener('mouseover', show, true);
 		window.addEventListener('click', onWindowClick, true);
 	}
+	// A11y Event Listeners
+	window.addEventListener('keydown', onWindowKeyDown, true);
 
 	// Lifecycle
 	return {
@@ -126,6 +181,8 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 			node.removeEventListener('click', onNodeClick, true);
 			node.removeEventListener('mouseover', onMouseOver, true);
 			node.removeEventListener('mouseout', onMouseOut, true);
+			// ---
+			window.removeEventListener('keydown', onWindowKeyDown, true);
 		}
 	};
 }

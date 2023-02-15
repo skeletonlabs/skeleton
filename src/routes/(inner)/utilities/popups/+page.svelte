@@ -13,14 +13,32 @@
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Utility,
 		name: 'Popups',
-		description: 'Create floating menus and tooltips, powered by Floating UI.',
-		imports: ['popover'],
-		// stylesheetIncludes: ['all', 'elements'],
-		// stylesheets: ['elements/menus'],
-		source: 'utilities/Popups',
+		description:
+			'Create floating menus and tooltips using <a href="https://floating-ui.com/" target="_blank" rel="noreferrer">Floating UI</a>.',
+		imports: ['popup'],
+		types: ['PopupSettings'],
+		stylesheetIncludes: ['all', 'elements'],
+		stylesheets: ['elements/popups'],
+		source: 'utilities/Popup',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/menu/',
-		// parameters: [],
-		// keyboard: [],
+		classes: [
+			['<code>[data-popup]</code>', '', `Follows Floating UI's best practices, sets hidden by default.`],
+			['<code>[data-popup] .arrow</code>', '', 'Provides base styles to the arrow element.']
+		],
+		parameters: [
+			['<code>event</code>', 'string', 'click', 'click | hover | hover-click', 'Provide the event type'],
+			['<code>target</code>', 'string', '-', '-', 'Match the popup data value of <code>[data-popup]</code>'],
+			['<code>placement</code>', 'string', '-', 'bottom', 'Set the placement position.'],
+			['<code>middleware</code>', 'object', '-', '-', 'Provide options for each middleware.']
+		],
+		keyboard: [
+			['<kbd>Enter</kbd>', 'When trigger is focused, toggles the popup open/close.'],
+			// ['<kbd>Space</kbd>', 'When trigger is focused, toggles the popup open/close.'],
+			['<kbd>Tab</kbd>', 'When trigger is focused, closes the popup.'],
+			['<kbd>Esc</kbd>', 'Closes all open popups at once.'],
+			['<kbd>↑</kbd>', 'Move upwards to the next item in the popup.'],
+			['<kbd>↓</kbd>', 'Move downwards to the next item in the popup.']
+		],
 		dependencies: [{ label: 'Floating UI', url: 'https://floating-ui.com/' }]
 	};
 
@@ -46,8 +64,8 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="card p-4 md:py-10 flex flex-col md:flex-row justify-center items-center gap-4">
-			<!-- Card -->
+		<section class="card variant-glass p-4 md:py-10 flex flex-col md:flex-row justify-center items-center gap-4">
+			<!-- Tooltip -->
 			<div>
 				<button class="btn variant-filled" use:popup={exampleTooltip}>
 					<span>Tooltip</span>
@@ -78,7 +96,7 @@
 					<span class="capitalize">{listboxValue ?? 'Combobox'}</span>
 					<i class="fa-solid fa-caret-down opacity-50" />
 				</button>
-				<div class="card variant-glass w-48 shadow-xl overflow-hidden" data-popup="exampleCombobox">
+				<div class="card w-48 shadow-xl overflow-hidden" data-popup="exampleCombobox">
 					<ListBox rounded="rounded-none">
 						<ListBoxItem bind:group={listboxValue} name="medium" value="books">Books</ListBoxItem>
 						<ListBoxItem bind:group={listboxValue} name="medium" value="movies">Movies</ListBoxItem>
@@ -188,6 +206,18 @@ let exampleSettings: PopupSettings = {
 };
 			`}
 			/>
+		</section>
+		<section class="space-y-4">
+			<h2>Accessibility</h2>
+			<p>We recommend you favor the <code>click</code> event for mobile devices, as <code>hover</code> is not well supported.</p>
+		</section>
+		<hr />
+		<section class="space-y-4">
+			<h2>Browser Support</h2>
+			<p>
+				Please be aware that there is a z-index bug for popups rendered over elements using <code>backdrop-blur</code> in some browsers. The
+				popup will appear to be rendered behind the blurred element, even with an elevated z-index.
+			</p>
 		</section>
 	</svelte:fragment>
 </DocsShell>
