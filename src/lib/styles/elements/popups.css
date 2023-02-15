@@ -4,7 +4,7 @@
 
 [data-popup] {
 	/* https://floating-ui.com/docs/computeposition#usage */
-	@apply absolute top-0 left-0 max-w-max;
+	@apply absolute top-0 left-0; /* max-w-max */
 	/* Set hidden on page load */
 	@apply hidden;
 	/* Transitions */
