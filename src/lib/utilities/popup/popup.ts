@@ -85,6 +85,7 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		if (!elemPopup) return;
 		elemPopup.style.display = 'block';
 		elemPopup.style.opacity = '1';
+		elemPopup.style.pointerEvents = 'initial';
 		isVisible = true;
 	}
 	function hide(): void {
@@ -93,6 +94,7 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		const cssTransitionDuration = parseFloat(window.getComputedStyle(elemPopup).transitionDuration.replace('s', '')) * 1000;
 		setTimeout(() => {
 			elemPopup.style.display = 'hidden';
+			elemPopup.style.pointerEvents = 'none';
 			isVisible = false;
 		}, cssTransitionDuration);
 	}
