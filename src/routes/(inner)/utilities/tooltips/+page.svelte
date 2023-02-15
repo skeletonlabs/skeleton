@@ -18,7 +18,7 @@
 		parameters: [
 			['<code>content</code>', 'string', '(tooltip)', 'HTML template literal', 'The HTML content of your tooltip.'],
 			['<code>position</code>', 'string', 'top', 'top | bottom | left | right', 'Designates where the tooltip will appear.'],
-			['<code>inline</code>', 'boolean', 'false', 'true | false', 'Sets the wrapping element to inline or block.'],
+			['<code>inline</code>', 'boolean', 'true', 'true | false', 'Sets the wrapping element to inline or block.'],
 			['<code>state</code>', 'function', '-', 'function', 'Provide a callback function for detecting tooltip open/closed state.'],
 			['<code>background</code>', 'string', '-', 'class', 'Provide a class to set the background color.'],
 			['<code>color</code>', 'string', '-', 'class', 'Provide a class to set the text color.'],
