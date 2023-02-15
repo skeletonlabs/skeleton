@@ -4,22 +4,22 @@ import { get, writable, type Writable } from 'svelte/store';
 import type { PopupSettings } from './types';
 
 // Store
-export const storePopover: Writable<any> = writable(undefined);
+export const storePopup: Writable<any> = writable(undefined);
 
 // Action
-export function popover(node: HTMLElement, args: PopupSettings) {
+export function popup(node: HTMLElement, args: PopupSettings) {
 	const { event, target, placement, middleware }: PopupSettings = args;
 	if (!event || !target) return;
 
 	// Local
-	const { computePosition, autoUpdate, flip, shift, offset, arrow } = get(storePopover);
-	const elemPopover: HTMLElement | null = document.querySelector(`[data-popover="${target}"]`);
-	const elemArrow: HTMLElement | null = elemPopover?.querySelector(`.arrow`) ?? null;
+	const { computePosition, autoUpdate, flip, shift, offset, arrow } = get(storePopup);
+	const elemPopup: HTMLElement | null = document.querySelector(`[data-popup="${target}"]`);
+	const elemArrow: HTMLElement | null = elemPopup?.querySelector(`.arrow`) ?? null;
 	let isVisible: boolean = false;
 
 	// On Init (floating ui)
 	function render(): void {
-		if (!elemPopover || !computePosition) return;
+		if (!elemPopup || !computePosition) return;
 
 		// Construct Middlware
 		// Note the order: https://floating-ui.com/docs/middleware#ordering
@@ -34,11 +34,11 @@ export function popover(node: HTMLElement, args: PopupSettings) {
 		if (arrow && elemArrow) genMiddlware.push(arrow(middleware?.arrow ?? { element: elemArrow }));
 
 		// https://floating-ui.com/docs/computePosition
-		computePosition(node, elemPopover, {
+		computePosition(node, elemPopup, {
 			placement: placement ?? 'bottom',
 			middleware: genMiddlware
 		}).then(({ x, y, placement, middlewareData }: any) => {
-			Object.assign(elemPopover.style, {
+			Object.assign(elemPopup.style, {
 				left: `${x}px`,
 				top: `${y}px`
 			});
@@ -69,7 +69,7 @@ export function popover(node: HTMLElement, args: PopupSettings) {
 		show();
 	};
 	const onWindowClick = (event: any) => {
-		if (isVisible && !elemPopover?.contains(event.target)) hide();
+		if (isVisible && !elemPopup?.contains(event.target)) hide();
 	};
 
 	// Hover Handlers
@@ -82,23 +82,23 @@ export function popover(node: HTMLElement, args: PopupSettings) {
 
 	// Visbility
 	function show(): void {
-		if (!elemPopover) return;
-		elemPopover.style.display = 'block';
-		elemPopover.style.opacity = '1';
+		if (!elemPopup) return;
+		elemPopup.style.display = 'block';
+		elemPopup.style.opacity = '1';
 		isVisible = true;
 	}
 	function hide(): void {
-		if (!elemPopover) return;
-		elemPopover.style.opacity = '0';
-		const cssTransitionDuration = parseFloat(window.getComputedStyle(elemPopover).transitionDuration.replace('s', '')) * 1000;
+		if (!elemPopup) return;
+		elemPopup.style.opacity = '0';
+		const cssTransitionDuration = parseFloat(window.getComputedStyle(elemPopup).transitionDuration.replace('s', '')) * 1000;
 		setTimeout(() => {
-			elemPopover.style.display = 'hidden';
+			elemPopup.style.display = 'hidden';
 			isVisible = false;
 		}, cssTransitionDuration);
 	}
 
 	// Auto Update
-	autoUpdate(node, elemPopover, render);
+	autoUpdate(node, elemPopup, render);
 
 	// Event Listners
 	if (event === 'click') {

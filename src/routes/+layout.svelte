@@ -8,10 +8,10 @@
 	import { storeHighlightJs } from '$lib/utilities/CodeBlock/stores';
 	storeHighlightJs.set(hljs);
 
-	// Floating UI
+	// Floating UI for Popups
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
-	import { storePopover } from '$lib/utilities/popover/popover';
-	storePopover.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
+	import { storePopup } from '$lib/utilities/popup/popup';
+	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
 	// SvelteKit Imports
 	import { browser } from '$app/environment';
