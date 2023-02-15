@@ -1,10 +1,17 @@
 <!-- Layout: (root) -->
 <script lang="ts">
 	import { inject } from '@vercel/analytics';
+
+	// Highlight JS
 	import hljs from 'highlight.js';
 	import '$lib/styles/highlight-js.css'; // was: 'highlight.js/styles/github-dark.css';
 	import { storeHighlightJs } from '$lib/utilities/CodeBlock/stores';
 	storeHighlightJs.set(hljs);
+
+	// PopperJS
+	import { createPopper } from '@popperjs/core';
+	import { storePopperJs } from '$lib/utilities/popover/popover';
+	storePopperJs.set(createPopper);
 
 	// SvelteKit Imports
 	import { browser } from '$app/environment';

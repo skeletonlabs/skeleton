@@ -74,4 +74,10 @@
 	.w-modal-wide {
 		@apply w-full max-w-[80%];
 	}
+
+	/* === Popover === */
+
+	[data-popover] {
+		@apply absolute z-10 invisible pointer-events-none opacity-0 transition-opacity duration-150;
+	}
 }

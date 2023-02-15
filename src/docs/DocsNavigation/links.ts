@@ -131,7 +131,8 @@ export const menuNavLinks: any = [
 				keywords: 'overlay, dialog, notification, alert, confirm, prompt, multiple, form, list, embed, video'
 			},
 			{ href: '/utilities/toasts', label: 'Toasts', keywords: 'overlay, snack, snackbar, bar, action, alert, notification' },
-			{ href: '/utilities/tooltips', label: 'Tooltips', keywords: 'pop, up, popup, overlay, hover' }
+			{ href: '/utilities/tooltips', label: 'Tooltips', keywords: 'pop, up, popup, overlay, hover' },
+			{ href: '/utilities/popovers', label: 'Popovers', keywords: 'menu, tooltip, overlay, dropdown, drop, down, select' }
 			// CHRIS: these are delisted until further notice
 			// {
 			// 	href: '/utilities/data-tables',
