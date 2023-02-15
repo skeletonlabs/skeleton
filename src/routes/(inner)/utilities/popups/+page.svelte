@@ -36,7 +36,7 @@
 		placement: 'top'
 	};
 	let exampleCombobox: PopupSettings = {
-		event: 'hover-click',
+		event: 'click',
 		target: 'exampleCombobox',
 		placement: 'bottom'
 	};
