@@ -1,7 +1,7 @@
 import { get, writable, type Writable } from 'svelte/store';
 
 // Store
-export const storePopperJs: Writable<any> = writable(undefined);
+export const storePopover: Writable<any> = writable(undefined);
 
 // Action
 export function popover(node: HTMLElement, args: any) {
@@ -9,23 +9,51 @@ export function popover(node: HTMLElement, args: any) {
 	if (!event || !target) return;
 
 	// Local
+	const { computePosition, autoUpdate, flip, shift, offset, arrow } = get(storePopover);
 	const elemPopover: HTMLElement | null = document.querySelector(`[data-popover="${target}"]`);
+	const elemArrow: HTMLElement | null = elemPopover?.querySelector(`.arrow`) ?? null;
 	let isVisible: boolean = false;
 
-	// On Init
-	function onInit(): void {
-		const createPopper = get(storePopperJs);
-		if (!createPopper) return;
-		createPopper(node, elemPopover, {
+	// On Init (floating ui)
+	// options?.skidding
+	function render(): void {
+		if (!elemPopover || !computePosition || !flip || !shift || !offset || !arrow) return;
+
+		// https://floating-ui.com/docs/computePosition
+		computePosition(node, elemPopover, {
 			placement: options?.placement ?? 'bottom',
-			modifiers: [
-				{
-					name: 'offset',
-					options: {
-						offset: [options?.skidding, options?.offset ?? 8]
-					}
-				}
+			middleware: [
+				// https://floating-ui.com/docs/offset
+				offset(options?.offset ?? 8),
+				// https://floating-ui.com/docs/flip
+				flip(),
+				// https://floating-ui.com/docs/shift
+				shift({ padding: 8 }),
+				// https://floating-ui.com/docs/arrow
+				arrow({ element: elemArrow })
 			]
+		}).then(({ x, y, placement, middlewareData }: any) => {
+			Object.assign(elemPopover.style, {
+				left: `${x}px`,
+				top: `${y}px`
+			});
+			if (!elemArrow) return;
+			// Accessing the data
+			const { x: arrowX, y: arrowY } = middlewareData.arrow;
+			// @ts-ignore
+			const staticSide = {
+				top: 'bottom',
+				right: 'left',
+				bottom: 'top',
+				left: 'right'
+			}[placement.split('-')[0]];
+			Object.assign(elemArrow.style, {
+				left: arrowX != null ? `${arrowX}px` : '',
+				top: arrowY != null ? `${arrowY}px` : '',
+				right: '',
+				bottom: '',
+				[staticSide]: '-4px'
+			});
 		});
 	}
 
@@ -48,24 +76,23 @@ export function popover(node: HTMLElement, args: any) {
 	// Visbility
 	function show(): void {
 		if (!elemPopover) return;
+		elemPopover.style.display = 'block';
 		elemPopover.style.opacity = '1';
-		elemPopover.style.visibility = 'visible';
-		elemPopover.style.pointerEvents = 'initial';
 		isVisible = true;
+		render();
 	}
 	function hide(): void {
 		if (!elemPopover) return;
 		elemPopover.style.opacity = '0';
 		const cssTransitionDuration = parseFloat(window.getComputedStyle(elemPopover).transitionDuration.replace('s', '')) * 1000;
 		setTimeout(() => {
-			elemPopover.style.visibility = 'hidden';
-			elemPopover.style.pointerEvents = 'none';
+			elemPopover.style.display = 'hidden';
 			isVisible = false;
 		}, cssTransitionDuration);
 	}
 
-	// Initialize
-	onInit();
+	// Auto Update
+	const cleanup = autoUpdate(node, elemPopover, render);
 
 	// Event Listners
 	if (event === 'click') {
