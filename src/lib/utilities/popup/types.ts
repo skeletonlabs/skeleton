@@ -39,4 +39,6 @@ export interface PopupSettings {
 	placement?: Placement;
 	/** Provide options for each middleware. */
 	middleware?: Middleware;
+	/** Provide an optional callback function to monitor open/close state. */
+	state?: (event: { state: boolean }) => void;
 }

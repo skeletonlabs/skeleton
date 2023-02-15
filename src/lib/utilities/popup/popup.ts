@@ -8,7 +8,7 @@ export const storePopup: Writable<any> = writable(undefined);
 
 // Action
 export function popup(node: HTMLElement, args: PopupSettings) {
-	const { event = 'click', target, placement, middleware }: PopupSettings = args;
+	const { event = 'click', target, placement, middleware, state }: PopupSettings = args;
 	if (!event || !target) return;
 
 	// Local
@@ -108,6 +108,7 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		elemPopup.style.opacity = '1';
 		elemPopup.style.pointerEvents = 'initial';
 		isVisible = true;
+		stateEventHandler(true);
 	}
 	function hide(): void {
 		if (!elemPopup) return;
@@ -117,8 +118,14 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 			elemPopup.style.display = 'hidden';
 			elemPopup.style.pointerEvents = 'none';
 			isVisible = false;
+			stateEventHandler(false);
 		}, cssTransitionDuration);
 	}
+
+	// State Handler
+	const stateEventHandler = (value: boolean): void => {
+		if (state) state({ state: value });
+	};
 
 	// A11y Keydown Handler
 	const onWindowKeyDown = (event: KeyboardEvent): void => {

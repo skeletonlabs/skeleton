@@ -29,7 +29,8 @@
 			['<code>event</code>', 'string', 'click', 'click | hover | hover-click', 'Provide the event type'],
 			['<code>target</code>', 'string', '-', '-', 'Match the popup data value of <code>[data-popup]</code>'],
 			['<code>placement</code>', 'string', '-', 'bottom', 'Set the placement position.'],
-			['<code>middleware</code>', 'object', '-', '-', 'Provide options for each middleware.']
+			['<code>middleware</code>', 'object', '-', '-', 'Provide options for each middleware.'],
+			['<code>state</code>', 'function', '-', '-', 'Provide an optional callback function to monitor open/close state.']
 		],
 		keyboard: [
 			['<kbd>Enter</kbd>', 'When trigger is focused, toggles the popup open/close.'],
@@ -51,12 +52,14 @@
 	let exampleCard: PopupSettings = {
 		event: 'click',
 		target: 'exampleCard',
-		placement: 'top'
+		placement: 'top',
+		state: (e: any) => console.log('tooltip', e)
 	};
 	let exampleCombobox: PopupSettings = {
 		event: 'click',
 		target: 'exampleCombobox',
-		placement: 'bottom'
+		placement: 'bottom',
+		state: (e: any) => console.log('tooltip', e)
 	};
 	let listboxValue: string;
 </script>
@@ -109,14 +112,15 @@
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
+		<!-- Install Floating UI -->
 		<section class="space-y-4">
-			<h2>Install Floating UI</h2>
 			<p>
 				<a href="https://floating-ui.com/" target="_blank" rel="noreferrer">Floating UI</a> is a required dependency to enable Skeleton popup
 				features.
 			</p>
 			<CodeBlock language="console" code={`npm install @floating-ui/dom`} />
 		</section>
+		<!-- Configure Your Project -->
 		<section class="space-y-4">
 			<h2>Configure Your Project</h2>
 			<p>Import Floating UI into your root layout in <code>/src/routes/+layout.svelte</code>.</p>
@@ -126,6 +130,7 @@
 			<p>Finally, pass an object containing each of the Floating UI features to the store.</p>
 			<CodeBlock language="ts" code={`storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });`} />
 		</section>
+		<!-- Create a Popup -->
 		<section class="space-y-4">
 			<h2>Create a Popup</h2>
 			<!-- prettier-ignore -->
@@ -145,9 +150,24 @@ let exampleSettings: PopupSettings = {
 			<CodeBlock language="html" code={`<button ... use:popup={exampleSettings}>Trigger</button>`} />
 			<p>Apply a <code>data-popup</code> attribute to your desired popup element.</p>
 			<CodeBlock language="html" code={`<div ... data-popup="examplePopup">(content)</div>`} />
-		</section>
-		<section class="space-y-4">
-			<h2>Placement</h2>
+			<!-- Arrow -->
+			<div class="flex items-center space-x-2">
+				<h3>Arrow</h3>
+				<span class="badge variant-ghost">Optional</span>
+			</div>
+			<p>Append an <code>.arrow</code> class element within your popup, then apply a matching background color.</p>
+			<CodeBlock
+				language="html"
+				code={`
+<div class="card variant-filled-secondary p-4" data-popup="examplePopup">
+	Popup text.
+	<!-- Append the arrow element -->
+	<div class="arrow variant-filled-secondary" />
+</div>
+			`}
+			/>
+			<!-- Placement -->
+			<h3>Placement</h3>
 			<!-- prettier-ignore -->
 			<p>
 				Reference the available <a href="https://floating-ui.com/docs/computePosition#placement" target="_blank" rel="noreferrer">placement</a> options. This setting defaults to <code>bottom</code>.
@@ -161,27 +181,21 @@ let exampleSettings: PopupSettings = {
 };
 			`}
 			/>
-		</section>
-		<section class="space-y-4">
-			<div class="flex items-center space-x-2">
-				<h2>Arrow</h2>
-				<span class="badge variant-ghost">Optional</span>
-			</div>
-			<p>Append an <code>.arrow</code> class element, then apply a matching background color.</p>
+			<!-- State Handler -->
+			<h3>State Handler</h3>
+			<p>You can optionally monitor the show and hide state of a popup using <code>state</code>.</p>
 			<CodeBlock
-				language="html"
+				language="ts"
 				code={`
-<div class="card variant-filled-secondary p-4" data-popup="examplePopup">
-	Popup text.
-	<!-- Append the arrow element -->
-	<div class="arrow variant-filled-secondary" />
-</div>
+let exampleSettings: PopupSettings = {
+	// ...
+	state: (e) => console.log(e)
+};
 			`}
 			/>
-		</section>
-		<section class="space-y-4">
+			<!-- Middleware -->
 			<div class="flex items-center space-x-2">
-				<h2>Middleware</h2>
+				<h3>Middleware</h3>
 				<span class="badge variant-filled-error">Advanced</span>
 			</div>
 			<!-- prettier-ignore -->
@@ -207,11 +221,13 @@ let exampleSettings: PopupSettings = {
 			`}
 			/>
 		</section>
+		<!-- Accessibility -->
 		<section class="space-y-4">
 			<h2>Accessibility</h2>
 			<p>We recommend you favor the <code>click</code> event for mobile devices, as <code>hover</code> is not well supported.</p>
 		</section>
 		<hr />
+		<!-- Browser Support -->
 		<section class="space-y-4">
 			<h2>Browser Support</h2>
 			<p>
