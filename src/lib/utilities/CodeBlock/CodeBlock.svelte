@@ -15,9 +15,9 @@
 
 	// Props (styles)
 	/** Provided classes to set the background color. */
-	export let background = 'bg-neutral-900/80';
+	export let background = 'bg-neutral-900/90';
 	/** Provided classes to set the backdrop blur. */
-	export let blur = 'backdrop-blur';
+	export let blur = '';
 	/** Provided classes to set the text size. */
 	export let text = 'text-sm';
 	/** Provided classes to set the text color. */

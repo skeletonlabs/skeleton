@@ -21,7 +21,7 @@
 	};
 
 	// Settings
-	const exampleOneOptions = ['click', 'exampleOne', { placement: 'top', offset: 8 }];
+	let exampleOneOptions = ['click', 'exampleOne', { placement: 'bottom', offset: 8 }];
 </script>
 
 <DocsShell {settings}>
