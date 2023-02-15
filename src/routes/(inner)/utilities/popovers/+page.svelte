@@ -27,8 +27,11 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="card p-4 variant-glass flex justify-center items-center">
-			<button class="btn variant-filled" use:popover={exampleOneOptions}>Trigger</button>
+		<section class="card p-4 py-10 variant-glass flex justify-center items-center">
+			<button class="btn variant-filled" use:popover={exampleOneOptions}>
+				<span>Trigger</span>
+				<i class="fa-solid fa-caret-down opacity-50" />
+			</button>
 			<div class="card variant-filled-secondary p-4 w-72 shadow-xl" data-popover="exampleOne">
 				<p>
 					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta amet nam hic aspernatur cum porro praesentium. Voluptates velit ex
