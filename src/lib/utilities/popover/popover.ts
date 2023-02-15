@@ -1,11 +1,14 @@
 import { get, writable, type Writable } from 'svelte/store';
 
+// Types
+import type { PopupSettings } from './types';
+
 // Store
 export const storePopover: Writable<any> = writable(undefined);
 
 // Action
-export function popover(node: HTMLElement, args: any) {
-	const [event, target, options] = args;
+export function popover(node: HTMLElement, args: PopupSettings) {
+	const { event, target, placement, middleware }: PopupSettings = args;
 	if (!event || !target) return;
 
 	// Local
@@ -15,50 +18,54 @@ export function popover(node: HTMLElement, args: any) {
 	let isVisible: boolean = false;
 
 	// On Init (floating ui)
-	// options?.skidding
 	function render(): void {
-		if (!elemPopover || !computePosition || !flip || !shift || !offset || !arrow) return;
+		if (!elemPopover || !computePosition) return;
+
+		// Construct Middlware
+		// Note the order: https://floating-ui.com/docs/middleware#ordering
+		const genMiddlware = [];
+		// https://floating-ui.com/docs/offset
+		if (offset) genMiddlware.push(offset(middleware?.offset ?? 8));
+		// https://floating-ui.com/docs/shift
+		if (shift) genMiddlware.push(shift(middleware?.shift ?? { padding: 8 }));
+		// https://floating-ui.com/docs/flip
+		if (flip) genMiddlware.push(flip(middleware?.flip));
+		// https://floating-ui.com/docs/arrow
+		if (arrow && elemArrow) genMiddlware.push(arrow(middleware?.arrow ?? { element: elemArrow }));
 
 		// https://floating-ui.com/docs/computePosition
 		computePosition(node, elemPopover, {
-			placement: options?.placement ?? 'bottom',
-			middleware: [
-				// https://floating-ui.com/docs/offset
-				offset(options?.offset ?? 8),
-				// https://floating-ui.com/docs/flip
-				flip(),
-				// https://floating-ui.com/docs/shift
-				shift({ padding: 8 }),
-				// https://floating-ui.com/docs/arrow
-				arrow({ element: elemArrow })
-			]
+			placement: placement ?? 'bottom',
+			middleware: genMiddlware
 		}).then(({ x, y, placement, middlewareData }: any) => {
 			Object.assign(elemPopover.style, {
 				left: `${x}px`,
 				top: `${y}px`
 			});
-			if (!elemArrow) return;
-			// Accessing the data
-			const { x: arrowX, y: arrowY } = middlewareData.arrow;
-			// @ts-ignore
-			const staticSide = {
-				top: 'bottom',
-				right: 'left',
-				bottom: 'top',
-				left: 'right'
-			}[placement.split('-')[0]];
-			Object.assign(elemArrow.style, {
-				left: arrowX != null ? `${arrowX}px` : '',
-				top: arrowY != null ? `${arrowY}px` : '',
-				right: '',
-				bottom: '',
-				[staticSide]: '-4px'
-			});
+			// Handle Arrow Placement:
+			// https://floating-ui.com/docs/arrow
+			if (elemArrow) {
+				const { x: arrowX, y: arrowY } = middlewareData.arrow;
+				// @ts-ignore
+				const staticSide = {
+					top: 'bottom',
+					right: 'left',
+					bottom: 'top',
+					left: 'right'
+				}[placement.split('-')[0]];
+				Object.assign(elemArrow.style, {
+					left: arrowX != null ? `${arrowX}px` : '',
+					top: arrowY != null ? `${arrowY}px` : '',
+					right: '',
+					bottom: '',
+					[staticSide]: '-4px'
+				});
+			}
 		});
 	}
 
 	// Click Handlers
-	const onNodeClick = (event: any) => {
+	const onNodeClick = () => {
 		show();
 	};
 	const onWindowClick = (event: any) => {
@@ -79,7 +86,6 @@ export function popover(node: HTMLElement, args: any) {
 		elemPopover.style.display = 'block';
 		elemPopover.style.opacity = '1';
 		isVisible = true;
-		render();
 	}
 	function hide(): void {
 		if (!elemPopover) return;
@@ -92,7 +98,7 @@ export function popover(node: HTMLElement, args: any) {
 	}
 
 	// Auto Update
-	const cleanup = autoUpdate(node, elemPopover, render);
+	autoUpdate(node, elemPopover, render);
 
 	// Event Listners
 	if (event === 'click') {

@@ -62,32 +62,4 @@
 	.divider-vertical {
 		@apply inline-block border-l border-solid border-surface-300-600-token min-h-[10px] mx-auto;
 	}
-
-	/* === Modal (helpers) === */
-
-	.w-modal-slim {
-		@apply w-full max-w-[400px];
-	}
-	.w-modal {
-		@apply w-full max-w-[640px];
-	}
-	.w-modal-wide {
-		@apply w-full max-w-[80%];
-	}
-
-	/* === Popover === */
-
-	[data-popover] {
-		/* https://floating-ui.com/docs/computeposition#usage */
-		@apply absolute top-0 left-0 max-w-max;
-		/* Set invisbile on load */
-		/* @apply invisible pointer-events-none opacity-0; */
-		@apply hidden;
-		/* Transitions */
-		@apply transition-opacity duration-150;
-	}
-
-	[data-popover] .arrow {
-		@apply absolute rotate-45 w-2 h-2;
-	}
 }

@@ -4,6 +4,7 @@
 
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import { popover } from '$lib/utilities/popover/popover';
+	import type { PopupSettings } from '$lib/utilities/popover/types';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -21,7 +22,11 @@
 	};
 
 	// Settings
-	let exampleOneOptions = ['click', 'exampleOne', { placement: 'bottom', offset: 8 }];
+	let exampleOneOptions: PopupSettings = {
+		event: 'click',
+		target: 'exampleOne',
+		placement: 'bottom'
+	};
 </script>
 
 <DocsShell {settings}>
@@ -32,14 +37,14 @@
 				<span>Trigger</span>
 				<i class="fa-solid fa-caret-down opacity-50" />
 			</button>
-			<!-- <div class="card variant-filled-secondary p-4 w-72 shadow-xl" data-popover="exampleOne">
+			<div class="card variant-filled-secondary p-4 w-72 shadow-xl" data-popover="exampleOne">
 				<p>
 					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta amet nam hic aspernatur cum porro praesentium. Voluptates velit ex
 					ad eius sit! Sit deserunt ex accusamus quod fugit enim in?
 				</p>
 				<div class="arrow variant-filled-secondary" />
-			</div> -->
-			<div class="w-72 shadow-xl !z-50" data-popover="exampleOne">
+			</div>
+			<!-- <div class="w-72 shadow-xl !z-50" data-popover="exampleOne">
 				<select class="select" size="4" value="1">
 					<option value="1">Option 1</option>
 					<option value="2">Option 2</option>
@@ -48,7 +53,7 @@
 					<option value="5">Option 5</option>
 				</select>
 				<div class="arrow bg-surface-200-700-token" />
-			</div>
+			</div> -->
 		</section>
 	</svelte:fragment>
 

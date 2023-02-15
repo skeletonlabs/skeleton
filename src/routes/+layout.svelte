@@ -8,11 +8,6 @@
 	import { storeHighlightJs } from '$lib/utilities/CodeBlock/stores';
 	storeHighlightJs.set(hljs);
 
-	// // PopperJS
-	// import { createPopper } from '@popperjs/core';
-	// import { storePopperJs } from '$lib/utilities/popover/popover';
-	// storePopperJs.set(createPopper);
-
 	// Floating UI
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
 	import { storePopover } from '$lib/utilities/popover/popover';
