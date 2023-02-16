@@ -159,7 +159,7 @@
 			<p>
 				You may optionally choose to use Svelte writable stores to control your tab group state. Note the use of the <code>$</code> sign
 				withing the <code>bind:group</code> property. Pair this with Skeleton's
-				<a href="/utlities/local-storage-store">Local Storage Store</a> for automatic persistence.
+				<a href="/utilities/local-storage-stores">Local Storage Store</a> for automatic persistence.
 			</p>
 			<CodeBlock
 				language="ts"
