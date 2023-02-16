@@ -22,7 +22,10 @@
 	// Triggers Toasts ---
 
 	function toastBasic(): void {
-		const t: ToastSettings = { message: '👋 Hello and welcome to Skeleton.' };
+		const t: ToastSettings = {
+			message: '👋 Hello and welcome to Skeleton.',
+			callback: (response) => console.log(response)
+		};
 		toastStore.trigger(t);
 	}
 
@@ -141,6 +144,8 @@ function triggerToast(): void {
 			label: 'Greeting',
 			response: () => alert('Hello, Skeleton')
 		}
+		// Optional: Set a callback method
+		callback: (response) => console.log(response)
 	};
 	toastStore.trigger(t);
 }
@@ -185,6 +190,26 @@ const t: ToastSettings = {
 	background: 'bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 text-white',
 	// Add your custom classes here:
 	classes: 'border-token border-purple-500'
+};
+			`}
+			/>
+		</section>
+		<section class="space-y-4">
+			<h2>Callbacks</h2>
+			<p>
+				You can optionally add a callback function to your <code>ToastSettings</code> to receive the unique ID assigned to each toast, as
+				well as listen for when the <code>queued</code> and <code>closed</code> lifecycle events occur for that toast message.
+			</p>
+			<CodeBlock
+				language="ts"
+				code={`
+const t: ToastSettings = {
+	// ...
+	callback: (response) => {
+		console.log(response.id);
+		if (response.status === 'queued') console.log('Toast was queued!');
+		if (response.status === 'closed') console.log('Toast was closed!');
+	}
 };
 			`}
 			/>

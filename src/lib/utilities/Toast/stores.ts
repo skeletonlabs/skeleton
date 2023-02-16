@@ -28,6 +28,8 @@ function toastService() {
 		trigger: (toast: ToastSettings) =>
 			update((tStore) => {
 				const id: string = randomUUID();
+				// Trigger Callback
+				if (toast.callback) toast.callback({ id, status: 'queued' });
 				// Merge into store
 				const tMerged = { ...toastDefaults, ...toast, id };
 				tStore.push(tMerged);
@@ -41,6 +43,10 @@ function toastService() {
 			update((tStore) => {
 				if (tStore.length > 0) {
 					const index = tStore.findIndex((t) => t.id === id);
+					// Trigger Callback
+					const selectedToast = tStore[index];
+					if (selectedToast.callback) selectedToast.callback({ id, status: 'closed' });
+					// Remove
 					tStore.splice(index, 1);
 				}
 				return tStore;
