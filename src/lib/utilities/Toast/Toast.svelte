@@ -2,6 +2,10 @@
 	import { fly } from 'svelte/transition';
 	import { flip } from 'svelte/animate';
 
+	// Types
+	import type { CssClasses } from '$lib';
+
+	// Stores
 	import { toastStore } from './stores';
 
 	// Props
@@ -16,25 +20,25 @@
 
 	// Props (styles)
 	/** Provide classes to set the background color. */
-	export let background = 'variant-filled-secondary';
+	export let background: CssClasses = 'variant-filled-secondary';
 	/** Provide classes to set width styles. */
-	export let width = 'max-w-[640px]';
+	export let width: CssClasses = 'max-w-[640px]';
 	/** Provide classes to set the text color. */
-	export let color = '';
+	export let color: CssClasses = '';
 	/** Provide classes to set the padding. */
-	export let padding = 'p-4';
+	export let padding: CssClasses = 'p-4';
 	/** Provide classes to set toast horizontal spacing. */
-	export let spacing = 'space-x-4';
+	export let spacing: CssClasses = 'space-x-4';
 	/** Provide classes to set the border radius styles. */
-	export let rounded = 'rounded-container-token';
+	export let rounded: CssClasses = 'rounded-container-token';
 	/** Provide classes to set the border box shadow. */
-	export let shadow = 'shadow-lg';
+	export let shadow: CssClasses = 'shadow-lg';
 
 	// Props (buttons)
 	/** Provide styles for the action button. */
-	export let buttonAction = 'btn variant-filled';
+	export let buttonAction: CssClasses = 'btn variant-filled';
 	/** Provide styles for the dismiss button. */
-	export let buttonDismiss = 'btn-icon btn-icon-sm variant-filled';
+	export let buttonDismiss: CssClasses = 'btn-icon btn-icon-sm variant-filled';
 	/** The button label text. */
 	export let buttonDismissLabel = '✕';
 

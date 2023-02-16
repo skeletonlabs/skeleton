@@ -4,6 +4,9 @@
 	// Event Handler
 	const dispatch = createEventDispatcher();
 
+	// Types
+	import type { CssClasses } from '$lib';
+
 	import { storeHighlightJs } from './stores';
 	import { clipboard } from '$lib/actions/Clipboard/clipboard';
 
@@ -15,19 +18,19 @@
 
 	// Props (styles)
 	/** Provided classes to set the background color. */
-	export let background = 'bg-neutral-900/90';
+	export let background: CssClasses = 'bg-neutral-900/90';
 	/** Provided classes to set the backdrop blur. */
-	export let blur = '';
+	export let blur: CssClasses = '';
 	/** Provided classes to set the text size. */
-	export let text = 'text-sm';
+	export let text: CssClasses = 'text-sm';
 	/** Provided classes to set the text color. */
-	export let color = 'text-white';
+	export let color: CssClasses = 'text-white';
 	/** Provided classes to set the border radius. */
-	export let rounded = 'rounded-container-token';
+	export let rounded: CssClasses = 'rounded-container-token';
 	/** Provided classes to set the box shadow. */
-	export let shadow = 'shadow';
+	export let shadow: CssClasses = 'shadow';
 	/** Provided classes to set the button styles. */
-	export let button = 'btn btn-sm variant-soft !text-white';
+	export let button: CssClasses = 'btn btn-sm variant-soft !text-white';
 	/** Provided the button label text. */
 	export let buttonLabel = 'Copy';
 	/** Provided the button label text when copied. */

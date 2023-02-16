@@ -5,6 +5,9 @@
 	// Event Handler
 	const dispatch = createEventDispatcher();
 
+	// Types
+	import type { CssClasses } from '$lib';
+
 	// Actions
 	import { focusTrap } from '$lib/actions/FocusTrap/focusTrap';
 
@@ -22,31 +25,31 @@
 
 	// Props (backdrop)
 	/** Backdrop - Provide classes to set the backdrop background color */
-	export let bgBackdrop = 'bg-surface-backdrop-token';
+	export let bgBackdrop: CssClasses = 'bg-surface-backdrop-token';
 	/** Backdrop - Provide classes to set the blur style. */
-	export let blur = 'backdrop-blur-xs';
+	export let blur: CssClasses = 'backdrop-blur-xs';
 	/** Drawer - Provide classes to set padding. */
-	export let padding = '';
+	export let padding: CssClasses = '';
 
 	// Props (drawer)
 	/** Drawer - Provide classes to set the drawer background color. */
-	export let bgDrawer = 'bg-surface-100-800-token';
+	export let bgDrawer: CssClasses = 'bg-surface-100-800-token';
 	/** Drawer - Provide classes to set border color. */
-	export let border = '';
+	export let border: CssClasses = '';
 	/** Drawer - Provide classes to set border radius. */
-	export let rounded = '';
+	export let rounded: CssClasses = '';
 	/** Drawer - Provide classes to set the box shadow. */
-	export let shadow = 'shadow-xl';
+	export let shadow: CssClasses = 'shadow-xl';
 	/** Drawer - Provide classes to override the width. */
-	export let width = '';
+	export let width: CssClasses = '';
 	/** Drawer - Provide classes to override the height. */
-	export let height = '';
+	export let height: CssClasses = '';
 
 	// Props (regions)
 	/** Provide abitrary classes to the backdrop region. */
-	export let regionBackdrop = '';
+	export let regionBackdrop: CssClasses = '';
 	/** Provide abitrary classes to the drawer region. */
-	export let regionDrawer = '';
+	export let regionDrawer: CssClasses = '';
 
 	// Props (a11y)
 	/** Provide an ID of the element labeling the drawer. */

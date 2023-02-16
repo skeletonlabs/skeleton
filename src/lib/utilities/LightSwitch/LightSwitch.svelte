@@ -2,25 +2,26 @@
 	import { modeCurrent, setModeUserPrefers, setModeCurrent, setInitialClassState } from './lightswitch';
 
 	// Types
+	import type { CssClasses } from '$lib';
 	type OnKeyDownEvent = KeyboardEvent & { currentTarget: EventTarget & HTMLDivElement };
 
 	// Props
 	/** Provide classes to set the light background color. */
-	export let bgLight = 'bg-surface-50';
+	export let bgLight: CssClasses = 'bg-surface-50';
 	/** Provide classes to set the dark background color. */
-	export let bgDark = 'bg-surface-900';
+	export let bgDark: CssClasses = 'bg-surface-900';
 	/** Provide classes to set the light SVG fill color. */
-	export let fillLight = 'fill-surface-50';
+	export let fillLight: CssClasses = 'fill-surface-50';
 	/** Provide classes to set the dark SVG fill color. */
-	export let fillDark = 'fill-surface-900';
+	export let fillDark: CssClasses = 'fill-surface-900';
 	/** Provide classes to set width styles. */
-	export let width = 'w-12';
+	export let width: CssClasses = 'w-12';
 	/** Provide classes to set height styles. Should be half of width. */
-	export let height = 'w-6';
+	export let height: CssClasses = 'w-6';
 	/** Provide classes to set ring styles. */
-	export let ring = 'ring-[1px] ring-surface-500/30';
+	export let ring: CssClasses = 'ring-[1px] ring-surface-500/30';
 	/** Provide classes to set border radius styles. */
-	export let rounded = 'rounded-token';
+	export let rounded: CssClasses = 'rounded-token';
 
 	// Classes
 	const cTransition = `transition-all duration-[200ms]`;

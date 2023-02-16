@@ -5,13 +5,16 @@
 	// Event Handler
 	const dispatch = createEventDispatcher();
 
+	// Types
+	import type { CssClasses } from '$lib';
+
 	import { focusTrap } from '$lib/actions/FocusTrap/focusTrap';
 	import { modalStore } from '$lib/utilities/Modal/stores';
 	import type { ModalComponent, ModalSettings } from './types';
 
 	// Props
 	/** Set the modal position within the backdrop container */
-	export let position = 'items-center';
+	export let position: CssClasses = 'items-center';
 
 	// Props (components)
 	/** Register a list of reusable component modals. */
@@ -29,41 +32,41 @@
 
 	// Props (modal)
 	/** Provide classes to style the modal background. */
-	export let background = 'bg-surface-100-800-token';
+	export let background: CssClasses = 'bg-surface-100-800-token';
 	/** Provide classes to style the modal width. */
-	export let width = 'w-modal';
+	export let width: CssClasses = 'w-modal';
 	/** Provide classes to style the modal. */
-	export let height = 'h-auto';
+	export let height: CssClasses = 'h-auto';
 	/** Provide classes to style the modal padding. */
-	export let padding = 'p-4';
+	export let padding: CssClasses = 'p-4';
 	/** Provide classes to style the modal spacing. */
-	export let spacing = 'space-y-4';
+	export let spacing: CssClasses = 'space-y-4';
 	/** Provide classes to style the modal border radius. */
-	export let rounded = 'rounded-container-token';
+	export let rounded: CssClasses = 'rounded-container-token';
 	/** Provide classes to style modal box shadow. */
-	export let shadow = 'shadow-xl';
+	export let shadow: CssClasses = 'shadow-xl';
 
 	// Props (buttons)
 	/** Provide classes for neutral buttons, such as Cancel. */
-	export let buttonNeutral = 'variant-ghost-surface';
+	export let buttonNeutral: CssClasses = 'variant-ghost-surface';
 	/** Provide classes for positive actions, such as Confirm or Submit. */
-	export let buttonPositive = 'variant-filled';
+	export let buttonPositive: CssClasses = 'variant-filled';
 	/** Override the text for the Cancel button. */
-	export let buttonTextCancel = 'Cancel';
+	export let buttonTextCancel: CssClasses = 'Cancel';
 	/** Override the text for the Confirm button. */
-	export let buttonTextConfirm = 'Confirm';
+	export let buttonTextConfirm: CssClasses = 'Confirm';
 	/** Override the text for the Submit button. */
-	export let buttonTextSubmit = 'Submit';
+	export let buttonTextSubmit: CssClasses = 'Submit';
 
 	// Props (regions)
 	/** Provide classes to style the backdrop. */
-	export let regionBackdrop = 'bg-surface-backdrop-token';
+	export let regionBackdrop: CssClasses = 'bg-surface-backdrop-token';
 	/** Provide arbitrary classes to modal header region. */
-	export let regionHeader = 'text-2xl font-bold';
+	export let regionHeader: CssClasses = 'text-2xl font-bold';
 	/** Provide arbitrary classes to modal body region. */
-	export let regionBody = 'max-h-[200px] overflow-hidden';
+	export let regionBody: CssClasses = 'max-h-[200px] overflow-hidden';
 	/** Provide arbitrary classes to modal footer region. */
-	export let regionFooter = 'flex justify-end space-x-2';
+	export let regionFooter: CssClasses = 'flex justify-end space-x-2';
 
 	// Base Styles
 	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0 z-[999]';
