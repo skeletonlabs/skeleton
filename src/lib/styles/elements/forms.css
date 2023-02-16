@@ -91,7 +91,7 @@
 
 	/* Select (size/multiple) */
 	.select {
-		@apply p-2 space-y-1;
+		@apply p-2 pr-8 space-y-1;
 	}
 	.select[size] {
 		@apply bg-none;

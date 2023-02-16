@@ -19,5 +19,12 @@
 				<span class="block">Tap outside the drawer to close.</span>
 			</div>
 		</div>
+	{:else}
+		<!-- Fallback Error -->
+		<div class="w-full h-full flex justify-center items-center">
+			<div class="text-center space-y-2">
+				<p>Invalid <code>$drawerStore.id</code> provided.</p>
+			</div>
+		</div>
 	{/if}
 </Drawer>

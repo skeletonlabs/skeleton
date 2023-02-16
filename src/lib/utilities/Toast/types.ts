@@ -7,7 +7,7 @@ export interface ToastSettings {
 	 * Applies a canned set of styles.
 	 * @type {'primary' | 'secondary' | 'tertiary' | 'warning' | 'success' | 'error'}
 	 */
-	preset?: 'primary' | 'secondary' | 'tertiary' | 'warning' | 'success' | 'error';
+	background?: string;
 	/** Enables auto-hide after the timeout duration. */
 	autohide?: boolean;
 	/** Set the auto-hide timeout duration. */
@@ -21,6 +21,8 @@ export interface ToastSettings {
 	};
 	/** Provide arbitrary CSS classes to style the toast. */
 	classes?: string;
+	/** Callback function that fires on trigger and close. */
+	callback?: (response: { id: string; status: string }) => void;
 }
 
 export interface Toast extends ToastSettings {

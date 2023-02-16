@@ -15,12 +15,15 @@
 	}
 
 	// Base Classes
-	const cBase = 'space-y-4';
+	const cBase = 'card p-4 w-modal shadow-xl space-y-4';
+	const cHeader = 'text-2xl font-bold';
 </script>
 
 <!-- @component This example creates a simple form modal. -->
 
 <div class="modal-example-form {cBase}">
+	<header class={cHeader}>{$modalStore[0]?.title ?? '(title missing)'}</header>
+	<article>{$modalStore[0]?.body ?? '(body missing)'}</article>
 	<ListBox class="border border-surface-500 p-4 rounded-container-token">
 		<ListBoxItem bind:group={flavor} name="chocolate" value="chocolate">Chocolate</ListBoxItem>
 		<ListBoxItem bind:group={flavor} name="vanilla" value="vanilla">Vanilla</ListBoxItem>

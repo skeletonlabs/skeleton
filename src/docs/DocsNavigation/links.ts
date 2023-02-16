@@ -124,14 +124,13 @@ export const menuNavLinks: any = [
 			{ href: '/utilities/drawers', label: 'Drawers', keywords: 'overlay, slide, panel, sidebar' },
 			{ href: '/utilities/lightswitches', label: 'Lightswitch', keywords: 'light, dark, toggle, prefer, color, scheme' },
 			{ href: '/utilities/local-storage-stores', label: 'Local Storage Stores', keywords: 'svelte, writable, get, cache, persist' },
-			{ href: '/utilities/menus', label: 'Menus', keywords: 'overlay, dropdown, drop, down, select' },
 			{
 				href: '/utilities/modals',
 				label: 'Modals',
 				keywords: 'overlay, dialog, notification, alert, confirm, prompt, multiple, form, list, embed, video'
 			},
 			{ href: '/utilities/toasts', label: 'Toasts', keywords: 'overlay, snack, snackbar, bar, action, alert, notification' },
-			{ href: '/utilities/tooltips', label: 'Tooltips', keywords: 'pop, up, popup, overlay, hover' }
+			{ href: '/utilities/popups', label: 'Popups', keywords: 'menu, tooltip, overlay, dropdown, combobox, drop, down, select' }
 			// CHRIS: these are delisted until further notice
 			// {
 			// 	href: '/utilities/data-tables',

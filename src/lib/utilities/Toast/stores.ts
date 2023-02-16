@@ -28,21 +28,10 @@ function toastService() {
 		trigger: (toast: ToastSettings) =>
 			update((tStore) => {
 				const id: string = randomUUID();
-				// Apply Preset Color Styles
-				let classes = toast.classes ?? '';
-				// prettier-ignore
-				switch (toast.preset) {
-					// Success/Error
-					// IMPORTANT: use full class names here. Do not construct the classes.
-					case('primary'): classes += '!bg-primary-500 text-on-primary-token'; break;
-					case('secondary'): classes += '!bg-secondary-500 text-on-secondary-token'; break;
-					case('tertiary'): classes += '!bg-tertiary-500 text-on-tertiary-token'; break;
-					case('success'): classes += '!bg-success-500 text-on-success-token'; break;
-					case('warning'): classes += '!bg-warning-500 text-on-warning-token'; break;
-					case('error'): classes += '!bg-error-500 text-on-error-token'; break;
-				}
+				// Trigger Callback
+				if (toast.callback) toast.callback({ id, status: 'queued' });
 				// Merge into store
-				const tMerged = { ...toastDefaults, ...toast, id, classes };
+				const tMerged = { ...toastDefaults, ...toast, id };
 				tStore.push(tMerged);
 				// Handle auto-hide, if needed
 				handleAutoHide(tMerged);
@@ -54,6 +43,10 @@ function toastService() {
 			update((tStore) => {
 				if (tStore.length > 0) {
 					const index = tStore.findIndex((t) => t.id === id);
+					// Trigger Callback
+					const selectedToast = tStore[index];
+					if (selectedToast.callback) selectedToast.callback({ id, status: 'closed' });
+					// Remove
 					tStore.splice(index, 1);
 				}
 				return tStore;
