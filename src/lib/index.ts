@@ -60,8 +60,6 @@ export { filter } from './actions/Filters/filter';
 export { focusTrap } from './actions/FocusTrap/focusTrap';
 // Utility Actions
 export { popup } from './utilities/popup/popup';
-export { menu } from './utilities/Menu/menu';
-export { tooltip } from './utilities/Tooltip/tooltip';
 
 // Svelte Components ---
 
