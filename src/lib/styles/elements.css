@@ -17,6 +17,3 @@
 /* Utilities */
 @import 'elements/modals.css';
 @import 'elements/popups.css';
-/* TODO: FIXME: remove the following asap: */
-@import 'elements/menus.css';
-@import 'elements/tooltips.css';

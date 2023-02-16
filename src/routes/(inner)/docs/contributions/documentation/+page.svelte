@@ -184,7 +184,6 @@ dispatch('dragover', event);`}
 			<li><a href="/elements/buttons">Buttons</a> showcases how to document Tailwind Element classes.</li>
 			<li><a href="/components/accordions">Accordion</a> makes use of most Component settings utilizing Sveld.</li>
 			<li><a href="/components/paginators">Accordion</a> uses Dipatched Event documentation.</li>
-			<li><a href="/utilities/tooltips">Tooltips</a> provides an excellent reference for Action params.</li>
 		</ul>
 		<!-- Examples -->
 		<h3>Examples</h3>
