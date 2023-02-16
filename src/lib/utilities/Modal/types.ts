@@ -23,7 +23,7 @@ export interface ModalSettings {
 	/** By default, used to provide a prompt value. */
 	value?: any;
 	/** Provide input attributes as key/value pairs. */
-	valueAttr?: Object;
+	valueAttr?: object;
 	/** Provide your component reference key or object. */
 	component?: ModalComponent | string;
 	/** Provide a function. Returns the repsonse value. */

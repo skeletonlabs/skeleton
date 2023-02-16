@@ -1,21 +1,9 @@
 // Popup Types
 // Note: these are a simple iteration based on the official docs.
 
-// Placement
-// https://floating-ui.com/docs/computePosition#placement
-type Placement =
-	| 'top'
-	| 'top-start'
-	| 'top-end'
-	| 'right'
-	| 'right-start'
-	| 'right-end'
-	| 'bottom'
-	| 'bottom-start'
-	| 'bottom-end'
-	| 'left'
-	| 'left-start'
-	| 'left-end';
+type Direction = 'top' | 'bottom' | 'left' | 'right';
+/** Placement https://floating-ui.com/docs/computePosition#placement */
+type Placement = Direction | `${Direction}-start` | `${Direction}-end`;
 
 // Middleware
 interface Middleware {
@@ -26,7 +14,7 @@ interface Middleware {
 	/** Flip options: https://floating-ui.com/docs/flip */
 	flip?: Record<string, any>;
 	/** Arrow options: https://floating-ui.com/docs/arrow */
-	arrow?: Record<string, any>;
+	arrow?: { element: string } & Record<string, any>;
 }
 
 // Action Arguments
