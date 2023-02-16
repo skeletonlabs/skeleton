@@ -52,6 +52,11 @@
 	export let rounded: CssClasses = getContext('rounded');
 	// ---
 	/** Provide arbitrary classes to the trigger button region. */
+	export let caretOpen: CssClasses = getContext('caretOpen');
+	/** Provide arbitrary classes to content panel region. */
+	export let caretClosed: CssClasses = getContext('caretClosed');
+	// ---
+	/** Provide arbitrary classes to the trigger button region. */
 	export let regionControl: CssClasses = getContext('regionControl');
 	/** Provide arbitrary classes to content panel region. */
 	export let regionPanel: CssClasses = getContext('regionPanel');
@@ -86,7 +91,7 @@
 	// Reactive Classes
 	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
 	$: classesControl = `${cControl} ${padding} ${hover} ${rounded} ${regionControl}`;
-	$: classesCaretState = openState ? 'rotate-180' : '';
+	$: classesCaretState = openState ? caretOpen : caretClosed;
 	$: classesControlCaret = `${cControlCaret} ${regionCaret} ${classesCaretState}`;
 	$: classesPanel = `${cPanel} ${padding} ${rounded} ${regionPanel}`;
 </script>
