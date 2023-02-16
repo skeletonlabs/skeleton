@@ -35,7 +35,7 @@
 		keyboard: [
 			['<kbd>Enter</kbd>', 'When trigger is focused, toggles the popup open/close.'],
 			// ['<kbd>Space</kbd>', 'When trigger is focused, toggles the popup open/close.'],
-			['<kbd>Tab</kbd>', 'When trigger is focused, closes the popup.'],
+			// ['<kbd>Tab</kbd>', 'When trigger is focused, closes the popup.'],
 			['<kbd>Esc</kbd>', 'Closes all open popups at once.'],
 			['<kbd>↑</kbd>', 'Move upwards to the next item in the popup.'],
 			['<kbd>↓</kbd>', 'Move downwards to the next item in the popup.']

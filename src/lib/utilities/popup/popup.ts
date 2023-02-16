@@ -132,7 +132,8 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		if (!isVisible) return;
 		// Handle keys
 		const key: string = event.key;
-		if (key === 'Escape' || (document.activeElement !== node && key === 'Tab')) {
+		// TODO: || (document.activeElement !== node && key === 'Tab')
+		if (key === 'Escape') {
 			event.preventDefault();
 			hide();
 			node.focus();
