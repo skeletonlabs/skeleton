@@ -14,7 +14,7 @@
 	import AppBar from '$lib/components/AppBar/AppBar.svelte';
 	// Utilities
 	import LightSwitch from '$lib/utilities/LightSwitch/LightSwitch.svelte';
-	import { popup } from '$lib/utilities/popup/popup';
+	import { popup } from '$lib/utilities/Popup/popup';
 	import { modalStore } from '$lib/utilities/Modal/stores';
 
 	// Stores

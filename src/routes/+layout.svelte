@@ -10,7 +10,7 @@
 
 	// Floating UI for Popups
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
-	import { storePopup } from '$lib/utilities/popup/popup';
+	import { storePopup } from '$lib/utilities/Popup/popup';
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
 	// SvelteKit Imports

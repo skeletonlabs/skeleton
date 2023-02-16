@@ -6,8 +6,8 @@
 	import ListBox from '$lib/components/ListBox/ListBox.svelte';
 	import ListBoxItem from '$lib/components/ListBox/ListBoxItem.svelte';
 
-	import { popup } from '$lib/utilities/popup/popup';
-	import type { PopupSettings } from '$lib/utilities/popup/types';
+	import { popup } from '$lib/utilities/Popup/popup';
+	import type { PopupSettings } from '$lib/utilities/Popup/types';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {

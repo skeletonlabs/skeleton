@@ -7,7 +7,7 @@ export type { DrawerSettings } from './utilities/Drawer/types';
 export type { ModalSettings, ModalComponent } from './utilities/Modal/types';
 export type { ToastSettings } from './utilities/Toast/types';
 export type { TableSource } from './components/Table/types';
-export type { PopupSettings } from './utilities/popup/types';
+export type { PopupSettings } from './utilities/Popup/types';
 
 // This type alias is to identify CSS classes within component props, which enables Tailwind IntelliSense
 export type CssClasses = string;
@@ -59,7 +59,7 @@ export { clipboard } from './actions/Clipboard/clipboard';
 export { filter } from './actions/Filters/filter';
 export { focusTrap } from './actions/FocusTrap/focusTrap';
 // Utility Actions
-export { popup } from './utilities/popup/popup';
+export { popup } from './utilities/Popup/popup';
 
 // Svelte Components ---
 
