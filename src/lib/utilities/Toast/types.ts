@@ -22,7 +22,7 @@ export interface ToastSettings {
 	/** Provide arbitrary CSS classes to style the toast. */
 	classes?: string;
 	/** Callback function that fires on trigger and close. */
-	callback?: (response: { id: string; status: string }) => void;
+	callback?: (response: { id: string; status: 'queued' | 'closed' }) => void;
 }
 
 export interface Toast extends ToastSettings {
