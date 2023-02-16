@@ -49,17 +49,17 @@
 		target: 'exampleTooltip',
 		placement: 'top'
 	};
-	let exampleCard: PopupSettings = {
+	let exampleMenu: PopupSettings = {
 		event: 'click',
-		target: 'exampleCard',
-		placement: 'top',
-		state: (e: any) => console.log('tooltip', e)
+		target: 'exampleMenu',
+		placement: 'top'
+		// state: (e: any) => console.log('tooltip', e)
 	};
 	let exampleCombobox: PopupSettings = {
 		event: 'click',
 		target: 'exampleCombobox',
-		placement: 'bottom',
-		state: (e: any) => console.log('tooltip', e)
+		placement: 'bottom'
+		// state: (e: any) => console.log('tooltip', e)
 	};
 	let listboxValue: string;
 </script>
@@ -81,11 +81,11 @@
 			</div>
 			<!-- Card -->
 			<div>
-				<button class="btn variant-filled" use:popup={exampleCard}>
+				<button class="btn variant-filled" use:popup={exampleMenu}>
 					<span>Menu</span>
 					<span class="badge bg-white/10 dark:bg-black/10">Tap</span>
 				</button>
-				<div class="card variant-filled-secondary p-4 w-72 shadow-xl" data-popup="exampleCard">
+				<div class="card variant-filled-secondary p-4 w-72 shadow-xl" data-popup="exampleMenu">
 					<p>
 						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta amet nam hic aspernatur cum porro praesentium. Voluptates velit
 						ex ad eius sit! Sit deserunt ex accusamus quod fugit enim in?

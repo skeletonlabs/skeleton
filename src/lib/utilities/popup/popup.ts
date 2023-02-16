@@ -90,15 +90,26 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		show();
 	};
 	const onWindowClick = (event: any) => {
-		if (isVisible && !elemPopup?.contains(event.target)) hide();
+		// Avoid race condition with onNodeClick()
+		setTimeout(() => {
+			const outsideNode = node && !node.contains(event.target);
+			const outsideMenu = elemPopup && !elemPopup.contains(event.target);
+			if (outsideNode && outsideMenu) {
+				hide();
+			}
+		}, 1);
 	};
 
 	// Hover Handlers
 	const onMouseOver = () => {
 		show();
+		isVisible = true;
+		stateEventHandler(true);
 	};
 	const onMouseOut = () => {
 		hide();
+		isVisible = false;
+		stateEventHandler(false);
 	};
 
 	// Visbility
