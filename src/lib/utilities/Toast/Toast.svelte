@@ -73,6 +73,8 @@
 	$: classesWrapper = `${cWrapper} ${cPosition} ${$$props.class || ''}`;
 	$: classesSnackbar = `${cSnackbar} ${cAlign} ${padding}`;
 	$: classesToast = `${cToast} ${width} ${color} ${padding} ${spacing} ${rounded} ${shadow}`;
+	// Filtered Toast Store
+	$: filteredToasts = Array.from($toastStore).slice(0, max);
 </script>
 
 {#if $toastStore.length}
@@ -80,23 +82,16 @@
 	<div class="snackbar-wrapper {classesWrapper}" data-testid="snackbar-wrapper">
 		<!-- List -->
 		<div class="snackbar {classesSnackbar}" transition:fly={{ x: animAxis.x, y: animAxis.y, duration }}>
-			{#each $toastStore as t, i (t)}
+			{#each filteredToasts as t, i (t)}
 				<div animate:flip={{ duration }}>
-					{#if i < max}
-						<!-- Toast -->
-						<div
-							class="toast {classesToast} {$toastStore[i]?.background ?? background} {t.classes}"
-							role="alert"
-							aria-live="polite"
-							data-testid="toast"
-						>
-							<div class="text-base">{@html t.message}</div>
-							<div class="toast-actions {cToastActions}">
-								{#if t.action}<button class={buttonAction} on:click={() => onAction(i)}>{@html t.action.label}</button>{/if}
-								<button class={buttonDismiss} on:click={() => toastStore.close(t.id)}>{buttonDismissLabel}</button>
-							</div>
+					<!-- Toast -->
+					<div class="toast {classesToast} {t.background ?? background} {t.classes}" role="alert" aria-live="polite" data-testid="toast">
+						<div class="text-base">{@html t.message}</div>
+						<div class="toast-actions {cToastActions}">
+							{#if t.action}<button class={buttonAction} on:click={() => onAction(i)}>{@html t.action.label}</button>{/if}
+							<button class={buttonDismiss} on:click={() => toastStore.close(t.id)}>{buttonDismissLabel}</button>
 						</div>
-					{/if}
+					</div>
 				</div>
 			{/each}
 		</div>
