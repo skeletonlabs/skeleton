@@ -14,7 +14,7 @@
 	import AppBar from '$lib/components/AppBar/AppBar.svelte';
 	// Utilities
 	import LightSwitch from '$lib/utilities/LightSwitch/LightSwitch.svelte';
-	import { menu } from '$lib/utilities/Menu/menu';
+	import { popup } from '$lib/utilities/popup/popup';
 	import { modalStore } from '$lib/utilities/Modal/stores';
 
 	// Stores
@@ -109,12 +109,12 @@
 
 		<!-- Navigate -->
 		<div class="relative hidden lg:block">
-			<button class="btn hover:variant-soft-primary" use:menu={{ menu: 'features' }}>
+			<button class="btn hover:variant-soft-primary" use:popup={{ event: 'click', target: 'features' }}>
 				<span>Navigate</span>
 				<i class="fa-solid fa-caret-down opacity-50" />
 			</button>
 			<!-- prettier-ignore -->
-			<div class="card p-4 w-60 shadow-xl" data-menu="features">
+			<div class="card p-4 w-60 shadow-xl" data-popup="features">
 				<nav class="list-nav">
 					<ul>
 						<li>
@@ -156,38 +156,11 @@
 
 		<!-- Theme -->
 		<div class="relative">
-			<button class="btn hover:variant-soft-primary" use:menu={{ menu: 'theme', fixed: true, interactive: true }}>
+			<button class="btn hover:variant-soft-primary" use:popup={{ event: 'click', target: 'theme' }}>
 				<i class="fa-solid fa-palette text-lg md:hidden" />
 				<span class="hidden md:inline-block">Theme</span>
 				<i class="fa-solid fa-caret-down opacity-50" />
 			</button>
-			<!-- <div class="card w-64 shadow-xl max-w-fit menu-tr sm:max-w-none" data-menu="theme"> -->
-			<div class="card p-4 w-60 shadow-xl menu-tr " data-menu="theme">
-				<section class="flex justify-between items-center">
-					<h6>Mode</h6>
-					<LightSwitch />
-				</section>
-				<hr class="my-4" />
-				<nav class="list-nav p-4 -m-4 max-h-64 lg:max-h-[500px] overflow-y-auto">
-					<form action="/?/setTheme" method="POST" use:enhance={setTheme}>
-						<ul>
-							{#each themes as { icon, name, type }}
-								<li>
-									<!-- prettier-ignore -->
-									<button class="option w-full h-full" type="submit" name="theme" value={type} class:bg-primary-active-token={$storeTheme === type}>
-										<span>{icon}</span>
-										<span>{name}</span>
-									</button>
-								</li>
-							{/each}
-						</ul>
-					</form>
-				</nav>
-				<hr class="my-4" />
-				<div>
-					<a class="btn variant-ghost-surface w-full" href="/guides/themes/generator">Theme Generator</a>
-				</div>
-			</div>
 		</div>
 
 		<!-- Social -->
@@ -204,4 +177,36 @@
 			</a>
 		</section>
 	</svelte:fragment>
+
+	<div class="card p-4 w-60 shadow-xl" data-popup="theme">
+		<section class="flex justify-between items-center">
+			<h6>Mode</h6>
+			<LightSwitch />
+		</section>
+		<hr class="my-4" />
+		<nav class="list-nav p-4 -m-4 max-h-64 lg:max-h-[500px] overflow-y-auto">
+			<form action="/?/setTheme" method="POST" use:enhance={setTheme}>
+				<ul>
+					{#each themes as { icon, name, type }}
+						<li>
+							<button
+								class="option w-full h-full"
+								type="submit"
+								name="theme"
+								value={type}
+								class:bg-primary-active-token={$storeTheme === type}
+							>
+								<span>{icon}</span>
+								<span>{name}</span>
+							</button>
+						</li>
+					{/each}
+				</ul>
+			</form>
+		</nav>
+		<hr class="my-4" />
+		<div>
+			<a class="btn variant-ghost-surface w-full" href="/guides/themes/generator">Theme Generator</a>
+		</div>
+	</div>
 </AppBar>

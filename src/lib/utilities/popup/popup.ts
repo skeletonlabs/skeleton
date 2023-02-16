@@ -171,6 +171,9 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		}
 	};
 
+	// On Init
+	render();
+
 	// Auto Update
 	autoUpdate(node, elemPopup, render);
 
