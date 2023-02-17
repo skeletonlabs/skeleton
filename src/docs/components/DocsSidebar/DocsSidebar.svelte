@@ -2,13 +2,13 @@
 	import { page } from '$app/stores';
 	import { writable, type Writable } from 'svelte/store';
 
-	import SvgIcon from '$docs/SvgIcon/SvgIcon.svelte';
-	import { menuNavLinks } from './links';
+	import DocsIcon from '$docs/components/DocsIcon/DocsIcon.svelte';
+	import { menuNavLinks } from '../../links';
 	import AppRail from '$lib/components/AppRail/AppRail.svelte';
 	import AppRailTile from '$lib/components/AppRail/AppRailTile.svelte';
 
 	// Stores
-	import { storeCurrentUrl } from '$docs/stores';
+	import { storeCurrentUrl } from '$docs/stores/stores';
 	import { drawerStore } from '$lib/utilities/Drawer/stores';
 
 	// Props
@@ -62,10 +62,10 @@
 		</AppRailTile>
 		<hr class="opacity-30" />
 		<AppRailTile label="Tailwind" value={'elements'}>
-			<SvgIcon name="tailwind" width="w-6" height="h-6" />
+			<DocsIcon name="tailwind" width="w-6" height="h-6" />
 		</AppRailTile>
 		<AppRailTile label="Svelte" value={'svelte'}>
-			<SvgIcon name="svelte" width="w-6" height="h-6" />
+			<DocsIcon name="svelte" width="w-6" height="h-6" />
 		</AppRailTile>
 		<AppRailTile label="Utilities" value={'utilities'}>
 			<i class="fa-solid fa-screwdriver-wrench text-2xl" />

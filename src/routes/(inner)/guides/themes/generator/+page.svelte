@@ -1,6 +1,6 @@
 <script lang="ts">
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-	import DocsThemer from '$docs/DocsThemer/DocsThemer.svelte';
+	import DocsThemer from '$docs/layouts/DocsThemer/DocsThemer.svelte';
 </script>
 
 <div class="page-container">

@@ -108,7 +108,7 @@
 <div class="docs-themer space-y-4">
 	<div class="card variant-glass-surface p-4 flex justify-between items-center">
 		<span>Live Preview Mode</span>
-		<SlideToggle size="lg" bind:checked={$storePreview} on:change={onPreviewToggle} />
+		<SlideToggle name="preview" size="lg" bind:checked={$storePreview} on:change={onPreviewToggle} />
 	</div>
 	<div class="grid grid-cols-2 gap-4">
 		<!-- Theme Color -->
@@ -233,10 +233,10 @@
 			<hr class="opacity-50" />
 			<!-- Slide Toggles -->
 			<div class="grid grid-cols-4 gap-4 place-items-center">
-				<SlideToggle active="bg-surface-500" checked />
-				<SlideToggle active="bg-primary-500" checked />
-				<SlideToggle checked />
-				<SlideToggle active="bg-tertiary-500" checked />
+				<SlideToggle name="exampeSliderOne" active="bg-surface-500" checked />
+				<SlideToggle name="exampeSliderTwo" active="bg-primary-500" checked />
+				<SlideToggle name="exampeSliderThree" checked />
+				<SlideToggle name="exampeSliderFour" active="bg-tertiary-500" checked />
 			</div>
 		</section>
 

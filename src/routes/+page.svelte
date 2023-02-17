@@ -1,7 +1,7 @@
 <script lang="ts">
 	// Docs
-	import DocsLogoAnim from '$docs/DocsLogo/DocsLogoAnim.svelte';
-	import SvgIcon from '$docs/SvgIcon/SvgIcon.svelte';
+	import DocsLogoAnim from '$docs/components/DocsLogos/DocsLogoAnim.svelte';
+	import DocsIcon from '$docs/components/DocsIcon/DocsIcon.svelte';
 	// Components
 	import Avatar from '$lib/components/Avatar/Avatar.svelte';
 
@@ -64,7 +64,7 @@
 			<h2 class="sr-only">Features</h2>
 			<div class="card variant-glass-surface p-4 text-center space-y-4">
 				<div class="bg-orange-500 w-20 mx-auto lg:-mt-10 aspect-square flex justify-center items-center rounded-token shadow">
-					<SvgIcon name="svelte" fill="fill-white" width="w-10" height="h-10" />
+					<DocsIcon name="svelte" fill="fill-white" width="w-10" height="h-10" />
 				</div>
 				<h4>Svelte Integration</h4>
 				<p>
@@ -73,7 +73,7 @@
 			</div>
 			<div class="card variant-glass-surface p-4 text-center space-y-4">
 				<div class="bg-sky-500 w-20 mx-auto lg:-mt-10 aspect-square flex justify-center items-center rounded-token shadow">
-					<SvgIcon name="tailwind" fill="fill-white" width="w-10" height="h-10" />
+					<DocsIcon name="tailwind" fill="fill-white" width="w-10" height="h-10" />
 				</div>
 				<h4>Tailwind CSS Integration</h4>
 				<p>Integrate with your design system using Tailwind utility classes to style components.</p>

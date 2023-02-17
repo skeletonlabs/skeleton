@@ -1,10 +1,10 @@
 <script lang="ts">
 	// Docs
-	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
+	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 	// Modal Examples
 	// (NOTE: see other examplpes registered in root +layout.svelte)
-	import ModalExampleForm from '$docs/DocsModals/ModalExampleForm.svelte';
+	import ModalExampleForm from '$docs/modals/examples/ModalExampleForm.svelte';
 
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { storeFramework } from '$docs/stores';
+	import { storeFramework } from '$docs/stores/stores';
 	// Components
 	import Tab from '$lib/components/Tab/Tab.svelte';
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
@@ -25,27 +25,27 @@
 			<!-- Panel -->
 			<svelte:fragment slot="panel">
 				{#if $storeFramework === 'cli'}
-			<p>The CLI will automatically run the required steps to configure Tailwind for your SvelteKit project.</p>
-		{:else if $storeFramework === 'manual'}
-			<div class="space-y-4">
-				<p>
-					<a href="https://github.com/svelte-add/tailwindcss" target="_blank" rel="noreferrer">Svelte-Add</a> makes it trivial to install and
-					setup Tailwind. Run the following command in your terminal.
-				</p>
-				<CodeBlock language="console" code={`npx svelte-add@latest tailwindcss\nnpm install`} />
-				<!-- prettier-ignore -->
-				<p>Then open your global stylesheet in <code>/src/app.postcss</code> and remove the following <a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> introduced by Svelte-Add. Skeleton will handle these for you.</p>
-				<CodeBlock
-					language="css"
-					code={`
+					<p>The CLI will automatically run the required steps to configure Tailwind for your SvelteKit project.</p>
+				{:else if $storeFramework === 'manual'}
+					<div class="space-y-4">
+						<p>
+							<a href="https://github.com/svelte-add/tailwindcss" target="_blank" rel="noreferrer">Svelte-Add</a> makes it trivial to install
+							and setup Tailwind. Run the following command in your terminal.
+						</p>
+						<CodeBlock language="console" code={`npx svelte-add@latest tailwindcss\nnpm install`} />
+						<!-- prettier-ignore -->
+						<p>Then open your global stylesheet in <code>/src/app.postcss</code> and remove the following <a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> introduced by Svelte-Add. Skeleton will handle these for you.</p>
+						<CodeBlock
+							language="css"
+							code={`
 /* NOTE: Remove the following: */\n
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 					`}
-				/>
-			</div>
-		{/if}
+						/>
+					</div>
+				{/if}
 			</svelte:fragment>
 		</TabGroup>
 	</section>

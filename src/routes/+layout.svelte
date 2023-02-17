@@ -22,8 +22,8 @@
 	import type { ModalComponent } from '$lib/utilities/Modal/types';
 
 	// Stores
-	import { storeCurrentUrl, storeTheme } from '$docs/stores';
-	import { storePreview } from '$docs/DocsThemer/stores';
+	import { storeCurrentUrl, storeTheme } from '$docs/stores/stores';
+	import { storePreview } from '$docs/layouts/DocsThemer/stores';
 
 	// Components & Utilities
 	import AppShell from '$lib/components/AppShell/AppShell.svelte';
@@ -31,21 +31,21 @@
 	import Toast from '$lib/utilities/Toast/Toast.svelte';
 
 	// Docs Components
-	import DocsAppBar from '$docs/DocsAppBar/DocsAppBar.svelte';
-	import DocsSidebar from '$docs/DocsNavigation/DocsSidebar.svelte';
-	import DocsDrawer from '$docs/DocsNavigation/DocsDrawer.svelte';
-	import DocsFooter from '$docs/DocsFooter/DocsFooter.svelte';
+	import DocsAppBar from '$docs/components/DocsAppBar/DocsAppBar.svelte';
+	import DocsSidebar from '$docs/components/DocsSidebar/DocsSidebar.svelte';
+	import DocsDrawer from '$docs/components/DocsDrawer/DocsDrawer.svelte';
+	import DocsFooter from '$docs/components/DocsFooter/DocsFooter.svelte';
 	// Modal Components
-	import DocsSearch from '$docs/DocsModals/DocsSearch.svelte';
-	import ModalExampleForm from '$docs/DocsModals/ModalExampleForm.svelte';
-	import ModalExampleList from '$docs/DocsModals/ModalExampleList.svelte';
-	import ModalExampleEmbed from '$docs/DocsModals/ModalExampleEmbed.svelte';
-	import ModalExampleImage from '$docs/DocsModals/ModalExampleImage.svelte';
+	import DocsSearch from '$docs/modals/DocsSearch/DocsSearch.svelte';
+	// NOTE: (forms example uses direct method)
+	import ModalExampleList from '$docs/modals/examples/ModalExampleList.svelte';
+	import ModalExampleEmbed from '$docs/modals/examples/ModalExampleEmbed.svelte';
+	import ModalExampleImage from '$docs/modals/examples/ModalExampleImage.svelte';
 
 	// Skeleton Stylesheets
 	import '$lib/styles/all.css';
 	// The Skeleton blog stylesheet
-	import '$docs/DocsStyles/blog.css';
+	import '$docs/styles/blog.css';
 	// Global Stylesheets
 	import '../app.postcss';
 
@@ -59,7 +59,6 @@
 	// Registered list of Components for Modals
 	const modalComponentRegistry: Record<string, ModalComponent> = {
 		modalSearch: { ref: DocsSearch },
-		exampleForm: { ref: ModalExampleForm },
 		exampleList: { ref: ModalExampleList },
 		exampleEmbed: { ref: ModalExampleEmbed },
 		exampleImage: { ref: ModalExampleImage }
