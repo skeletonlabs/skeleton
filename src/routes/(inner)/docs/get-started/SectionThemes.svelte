@@ -89,9 +89,4 @@
 			<a class="btn variant-filled-secondary" href="/docs/get-started/generator">Theme Generator &rarr;</a>
 		</div>
 	</div>
-
-	<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-		<p>Learn more about Skeleton's theme color system.</p>
-		<a class="btn variant-ghost-surface" href="/docs/get-started/colors">Theme Colors &rarr;</a>
-	</div>
 </section>
