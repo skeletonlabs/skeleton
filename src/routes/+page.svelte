@@ -39,7 +39,7 @@
 						<span>Get Started</span>
 						<span>&rarr;</span>
 					</a>
-					<a href="/docs/why" class="btn variant-ghost-surface">Why Skeleton</a>
+					<a href="/docs/introduction" class="btn variant-ghost-surface">Why Skeleton</a>
 				</nav>
 			</div>
 			<!-- Logo -->
