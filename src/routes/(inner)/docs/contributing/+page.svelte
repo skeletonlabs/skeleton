@@ -42,7 +42,7 @@
 	<section class="space-y-4">
 		<h2>Guides</h2>
 		<!-- Basics -->
-		<a class="card variant-glass p-4 grid grid-cols-[1fr_auto] gap-4" href="/docs/contributions/requirements">
+		<a class="card variant-glass p-4 grid grid-cols-[1fr_auto] gap-4" href="/docs/contributing/requirements">
 			<div class="space-y-4">
 				<h2>Requirements</h2>
 				<p>Ready to contribute to Skeleton? Read our requirements and recommended workflow process.</p>
@@ -50,7 +50,7 @@
 			<button class="btn variant-filled-secondary place-self-center">Read Guide</button>
 		</a>
 		<!-- Style Guide -->
-		<a class="card variant-glass p-4 grid grid-cols-[1fr_auto] gap-4" href="/docs/contributions/style-guide">
+		<a class="card variant-glass p-4 grid grid-cols-[1fr_auto] gap-4" href="/docs/contributing/style-guide">
 			<div class="space-y-4">
 				<h2>Style Guide</h2>
 				<p>Review recommended conventions for writing code, naming properties, and handling CSS styling.</p>
@@ -58,7 +58,7 @@
 			<button class="btn variant-filled-secondary place-self-center">Read Guide</button>
 		</a>
 		<!-- Docs Guide -->
-		<a class="card variant-glass p-4 grid grid-cols-[1fr_auto] gap-4" href="/docs/contributions/documentation">
+		<a class="card variant-glass p-4 grid grid-cols-[1fr_auto] gap-4" href="/docs/contributing/documentation">
 			<div class="space-y-4">
 				<h2>Documentation Guide</h2>
 				<p>Good documentation makes life easier for everyone involved, check out how easy it is with this guide.</p>

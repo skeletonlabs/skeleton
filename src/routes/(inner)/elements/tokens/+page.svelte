@@ -15,7 +15,7 @@
 	};
 
 	// Local
-	const vColorsAll = '<a href="/guides/themes/colors">Theme Colors</a>';
+	const vColorsAll = '<a href="/docs/colors">Theme Colors</a>';
 	const vPairings = 'See pairing chart above.';
 	const vCorners = 'tl | tr | bl | br';
 	const descPairings = 'Can be 50-900 or 900-50 format.';

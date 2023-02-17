@@ -10,7 +10,7 @@
 		<h1>Get Started</h1>
 		<!-- prettier-ignore -->
 		<p>
-			For best results we recommend you have at least moderate experience with <a href="https://svelte.dev/tutorial/basics" target="_blank" rel="noreferrer">Svelte and SvelteKit</a> and <a href="https://tailwindcss.com/docs/utility-first" target="_blank" rel="noreferrer">Tailwind CSS</a>.
+			We recommend you have at least moderate experience with <a href="https://svelte.dev/tutorial/basics" target="_blank" rel="noreferrer">Svelte</a>, <a href="https://learn.svelte.dev/tutorial/welcome-to-svelte" target="_blank" rel="noreferrer">SvelteKit</a>, and <a href="https://tailwindcss.com/docs/utility-first" target="_blank" rel="noreferrer">Tailwind CSS</a>.
 		</p>
 	</header>
 	<SectionInstall />

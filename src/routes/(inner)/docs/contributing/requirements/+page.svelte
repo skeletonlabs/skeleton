@@ -45,7 +45,7 @@
 <div class="page-container">
 	<!-- Breadcrumbs -->
 	<ol class="breadcrumb">
-		<li class="crumb"><a href="/docs/contributions">Contributions</a></li>
+		<li class="crumb"><a href="/docs/contributing">Contributing</a></li>
 		<li class="crumb-separator" aria-hidden>&rsaquo;</li>
 		<li>Requirements</li>
 	</ol>

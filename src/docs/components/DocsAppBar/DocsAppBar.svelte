@@ -122,18 +122,13 @@
 								<span class="w-6 text-center"><i class="fa-solid fa-home" /></span>
 								<span>Homepage</span>
 							</a>
+							<a href="/docs/get-started">
+								<span class="w-6 text-center"><i class="fa-solid fa-book" /></span>
+								<span>Docs</span>
+							</a>
 							<a href="/blog">
 								<span class="w-6 text-center"><i class="fa-solid fa-bullhorn" /></span>
 								<span>Blog</span>
-							</a>
-							<hr class="my-4">
-							<a href="/docs/why">
-								<span class="w-6 text-center"><i class="fa-solid fa-sheet-plastic" /></span>
-								<span>Docs</span>
-							</a>
-							<a href="/guides/install">
-								<span class="w-6 text-center"><i class="fa-solid fa-book" /></span>
-								<span>Guides</span>
 							</a>
 							<hr class="my-4">
 							<a href="/elements/core">
