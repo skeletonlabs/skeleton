@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
-	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import DocsPreviewer from '$docs/DocsPreviewer/DocsPreviewer.svelte';
+	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
+	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
+	import DocsPreviewer from '$docs/components/DocsPreviewer/DocsPreviewer.svelte';
 
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 

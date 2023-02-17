@@ -3,7 +3,7 @@
 	const pkg = __PACKAGE__;
 
 	// Logo
-	import DocsLogoIcon from '$docs/DocsLogo/DocsLogoIcon.svelte';
+	import DocsLogoIcon from '$docs/components/DocsLogos/DocsLogoIcon.svelte';
 
 	// Base Classes
 	const cBase = 'bg-surface-100-800-token text-xs md:text-base mx-auto px-4 py-8 md:p-10 space-y-10';

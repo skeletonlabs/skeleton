@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Drawer from '$lib/utilities/Drawer/Drawer.svelte';
-	import DocsSidebar from './DocsSidebar.svelte';
+	import DocsSidebar from '../DocsSidebar/DocsSidebar.svelte';
 	import { drawerStore } from '$lib/utilities/Drawer/stores';
 
 	$: classesDrawer = $drawerStore.id === 'doc-sidenav' ? 'lg:hidden' : '';

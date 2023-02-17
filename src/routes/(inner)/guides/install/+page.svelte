@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { storeFramework } from '$docs/stores';
+	import { storeFramework } from '$docs/stores/stores';
 	import { TabGroup, Tab } from '@skeletonlabs/skeleton';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 

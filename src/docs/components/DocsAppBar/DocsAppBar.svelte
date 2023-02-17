@@ -7,8 +7,8 @@
 	import type { DrawerSettings } from '$lib/utilities/Drawer/types';
 
 	// Docs
-	import DocsLogoFull from '$docs/DocsLogo/DocsLogoFull.svelte';
-	import SvgIcon from '$docs/SvgIcon/SvgIcon.svelte';
+	import DocsLogoFull from '$docs/components/DocsLogos/DocsLogoFull.svelte';
+	import DocsIcon from '$docs/components/DocsIcon/DocsIcon.svelte';
 
 	// Components
 	import AppBar from '$lib/components/AppBar/AppBar.svelte';
@@ -18,7 +18,7 @@
 	import { modalStore } from '$lib/utilities/Modal/stores';
 
 	// Stores
-	import { storeTheme } from '$docs/stores';
+	import { storeTheme } from '$docs/stores/stores';
 	import { drawerStore } from '$lib/utilities/Drawer/stores';
 
 	// Local
@@ -137,11 +137,11 @@
 							</a>
 							<hr class="my-4">
 							<a href="/elements/core">
-								<span class="w-6 text-center"><SvgIcon name="tailwind" width="w-5" height="h-5" /></span>
+								<span class="w-6 text-center"><DocsIcon name="tailwind" width="w-5" height="h-5" /></span>
 								<span>Tailwind</span>
 							</a>
 							<a href="/actions/clipboard">
-								<span class="w-6 text-center"><SvgIcon name="svelte" width="w-6" height="h-6" /></span>
+								<span class="w-6 text-center"><DocsIcon name="svelte" width="w-6" height="h-6" /></span>
 								<span>Svelte</span>
 							</a>
 							<a href="/utilities/codeblocks">

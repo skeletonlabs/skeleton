@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { menuNavLinks } from '$docs/DocsNavigation/links';
+	import { menuNavLinks } from '$docs/links';
 	import { modalStore } from '$lib/utilities/Modal/stores';
 
 	// Classes

@@ -1,6 +1,6 @@
 import type { Component } from './types';
 
-import type { TableSource } from './../../lib/components/Table/types';
+import type { TableSource } from '$lib/components/Table/types';
 
 // Mapper: Props
 export function sveldMapperProps(component: Component): TableSource {

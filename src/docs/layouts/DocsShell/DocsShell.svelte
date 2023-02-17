@@ -3,7 +3,7 @@
 	import { writable, type Writable } from 'svelte/store';
 
 	// Types
-	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 
 	// Components
 	import Table from '$lib/components/Table/Table.svelte';

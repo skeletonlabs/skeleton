@@ -13,7 +13,7 @@
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Stores
-	import { storeFramework } from '$docs/stores';
+	import { storeFramework } from '$docs/stores/stores';
 	export const storeStylesheets: Writable<string> = writable('recommended');
 	export const storeStylesheetElements: Writable<string> = writable('combined');
 
