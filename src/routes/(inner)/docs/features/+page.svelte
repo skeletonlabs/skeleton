@@ -5,7 +5,6 @@
 <!-- <script lang="ts"></script> -->
 
 <div class="page-container">
-	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Features</h1>
 		<p>Skeleton is a fully featured UI toolkit that includes many awesome features, so let's compare the differences between each.</p>

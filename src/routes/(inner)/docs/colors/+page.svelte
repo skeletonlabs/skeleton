@@ -55,16 +55,8 @@
 </script>
 
 <div class="page-container">
-	<!-- Breadcrumbs -->
-	<ol class="breadcrumb">
-		<li class="crumb"><a href="/guides/themes">Themes</a></li>
-		<li class="crumb-separator" aria-hidden>&rsaquo;</li>
-		<li>Colors</li>
-	</ol>
-
-	<!-- Header -->
 	<header class="space-y-4">
-		<h1>Theme Colors</h1>
+		<h1>Colors</h1>
 		<p>This section provides a quick reference of each available theme color and their intended uses.</p>
 	</header>
 

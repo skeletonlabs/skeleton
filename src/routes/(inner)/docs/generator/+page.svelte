@@ -4,14 +4,6 @@
 </script>
 
 <div class="page-container">
-	<!-- Breadcrumbs -->
-	<ol class="breadcrumb">
-		<li class="crumb"><a href="/guides/themes">Themes</a></li>
-		<li class="crumb-separator" aria-hidden>&rsaquo;</li>
-		<li>Generator</li>
-	</ol>
-
-	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Theme Generator</h1>
 		<p>
