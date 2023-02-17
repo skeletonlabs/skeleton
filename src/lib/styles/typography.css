@@ -53,7 +53,7 @@
 	/* For use outside of Skeleton's CodeBlock component */
 
 	pre:not(.unstyled):not(.code-block pre):is(:not(.prose *)) {
-		@apply font-mono text-base bg-[#141517] text-white p-4 whitespace-pre-wrap overflow-x-auto rounded-container-token;
+		@apply font-mono text-base bg-neutral-900/90 text-white p-4 whitespace-pre-wrap overflow-x-auto rounded-container-token;
 	}
 
 	code:not(.unstyled):is(:not(.prose *)):is(:not(pre *)) {
@@ -84,10 +84,10 @@
 	}
 
 	ins {
-		@apply bg-error-500 text-on-error-token;
+		@apply font-mono bg-success-500 text-on-success-token;
 	}
 	del {
-		@apply bg-success-500 text-on-success-token;
+		@apply font-mono bg-error-500 text-on-error-token;
 	}
 
 	/* === Date/Time === */

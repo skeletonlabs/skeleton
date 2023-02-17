@@ -7,26 +7,19 @@ export const menuNavLinks: any = [
 		id: 'docs',
 		title: 'Docs',
 		list: [
+			{ href: '/docs/get-started', label: 'Get Started', keywords: 'start, install, setup' },
 			{ href: '/docs/why', label: 'Why Skeleton', keywords: 'svelte, sirens, license, release' },
 			{ href: '/docs/features', label: 'Features', keywords: 'tailwind, svelte, utilities' },
 			{ href: '/docs/comparisons', label: 'Comparisons', keywords: 'mantine, flowbite, daisy, material' },
 			{ href: '/docs/faqs', label: 'FAQs', keywords: 'typescript, npm, pnpm, yarn, tutorial' },
-			{ href: '/docs/contributions', label: 'Contributions', keywords: 'branch, pr' }
+			{ href: '/docs/contributions', label: 'Contributions', keywords: 'branch, pr' },
+			{ href: '/docs/quickstart', label: 'Quickstart', keywords: 'start, setup, tutorial, guide' }
 			// { href: '/docs/recommended', label: 'Recommended', keywords: '' } // DISABLED until more complete
-		]
-	},
-
-	// Guides ---
-
-	{
-		id: 'guides',
-		title: 'Guides',
-		list: [
-			{ href: '/guides/install', label: 'Installation', keywords: 'start, install, setup' },
-			{ href: '/guides/tailwind', label: 'Tailwind CSS', keywords: 'dark, content, plugin' },
-			{ href: '/guides/themes', label: 'Themes', keywords: 'create, generate, generator, colors, tokens' },
-			{ href: '/guides/styling', label: 'Styling', keywords: 'css, import, customization, props, class, styles' },
-			{ href: '/guides/quickstart', label: 'Quickstart', keywords: 'start, setup, tutorial, guide' }
+			// --- previously Guides ---
+			// { href: '/guides/install', label: 'Installation', keywords: 'start, install, setup' },
+			// { href: '/guides/tailwind', label: 'Tailwind CSS', keywords: 'dark, content, plugin' },
+			// { href: '/guides/themes', label: 'Themes', keywords: 'create, generate, generator, colors, tokens' },
+			// { href: '/guides/styling', label: 'Styling', keywords: 'css, import, customization, props, class, styles' },
 		]
 	},
 
