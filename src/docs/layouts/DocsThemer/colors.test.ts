@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { calculateRatio, destringRgb, getLuminance, hexToRgb, hexToTailwindRgbString, rgbToHex } from './colors';
+import { calculateRatio, destringRgb, getLuminance, hexToRgb, hexToTailwindRgbString, rgbToHex, textPasses } from './colors';
 
 describe('Colors.ts', () => {
 	it('Converts between hex and RGB properly', async () => {
@@ -83,5 +83,11 @@ describe('Colors.ts', () => {
 		expect(calculateRatio(0, 0)).toEqual(1);
 		expect(calculateRatio(1, 1)).toEqual(1);
 		expect(calculateRatio(0.2126, 0.2126)).toEqual(1);
+	});
+
+	it('Calculates whether text on a background pass the AA contrast ratio', async () => {
+		expect(textPasses('0, 0, 0', '255, 255, 255', 'small', 'AA')).toEqual(true);
+		expect(textPasses('#0FBA81', '255, 255, 255', 'large', 'AA')).toEqual(false);
+		expect(textPasses('#0FBA81', '#4f46e5', 'large', 'AA')).toEqual(false);
 	});
 });
