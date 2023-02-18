@@ -1,6 +1,6 @@
 // Settings used for the Theme Generator
 
-import { semanticNames, tailwindNumbers, type SemanticNames, type TailwindNumbers } from '$lib/components/ConicGradient/settings';
+import { semanticNames, tailwindNumbers, type SemanticNames, type TailwindNumbers } from '$lib/types';
 
 // Generate a list of color properties for selection inputs.
 // Ex: --color-[colorName]-[colorShade]
