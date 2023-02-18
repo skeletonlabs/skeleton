@@ -163,7 +163,18 @@
 								>
 									{@html contrastReport.report.emoji}
 								</div>
-								<div data-popup={'popup-' + i}>{contrastReport.report.note}</div>
+								<div
+									data-popup={'popup-' + i}
+									class="card"
+									class:!text-stone-900={contrastReport.fails}
+									class:!bg-red-500={contrastReport.fails}
+									class:!text-zinc-900={contrastReport.largeAA}
+									class:!bg-amber-500={contrastReport.largeAA}
+									class:!text-slate-900={contrastReport.smallAAA || contrastReport.smallAA}
+									class:!bg-green-500={contrastReport.smallAAA || contrastReport.smallAA}
+								>
+									{contrastReport.report.note}
+								</div>
 							</div>
 						</label>
 					</div>
