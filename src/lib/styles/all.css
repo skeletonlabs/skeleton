@@ -11,8 +11,8 @@
 /* Typographical Settings */
 @import 'typography.css';
 
-/* Extends Tailwind Forms Plugin styles */
-@import 'forms.css';
-
 /* Imports all Tailwind Elements */
 @import 'elements.css';
+
+/* Imports all Variant Styles */
+@import 'variants.css';

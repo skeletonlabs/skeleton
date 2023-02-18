@@ -74,7 +74,7 @@
 		<!-- HTML Content -->
 		<div class="blog-html space-y-4">{@html post.html}</div>
 		<!-- Footer -->
-		<footer class="card p-4 card-glass-surface flex justify-between items-center mb-28">
+		<footer class="card p-4 variant-glass-surface flex justify-between items-center mb-28">
 			<!-- Tags -->
 			<div class="flex items-center space-x-4">
 				{#each post.tags as tag}
@@ -83,7 +83,7 @@
 			</div>
 			<!-- Scroll to Top -->
 			<!-- prettier-ignore -->
-			<button class="btn btn-ghost-surface" on:click={()=>{scrollToTop()}}>Scroll to Top &uarr;</button>
+			<button class="btn variant-ghost-surface" on:click={()=>{scrollToTop()}}>Scroll to Top &uarr;</button>
 		</footer>
 	</article>
 	<!-- Twitter Embed Script -->

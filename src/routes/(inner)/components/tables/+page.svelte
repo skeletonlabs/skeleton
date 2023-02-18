@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
 
-	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
+	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 
 	// Types
 	import type { TableSource } from '$lib/components/Table/types';
@@ -17,7 +17,6 @@
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-expect-error sveld import
 	import sveldTable from '$lib/components/Table/Table.svelte?raw&sveld';
 
 	// Stores
@@ -64,12 +63,12 @@
 		head: ['Symbol', 'Name', 'Weight'],
 		body: tableMapperValues(sourceData, ['symbol', 'name', 'weight']),
 		meta: tableMapperValues(sourceData, ['position', 'name', 'symbol', 'weight']),
-		foot: ['Total', '', `<code>${totalWeight}</code>`]
+		foot: ['Total', '', `<span class="badge variant-soft-primary">${totalWeight}</span>`]
 	};
 
 	// On Row Selected
 	function onSelected(meta: any): void {
-		console.log(meta.detail);
+		console.log('on:selected', meta);
 	}
 </script>
 
@@ -78,7 +77,7 @@
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-4">
 			<Table source={tableSimple} interactive={true} on:selected={onSelected} />
-			<div class="text-sm text-center">View your browser console when selecting a row above.</div>
+			<small class="block text-center">Monitor your console log when tapping a row.</small>
 		</section>
 	</svelte:fragment>
 
@@ -91,7 +90,7 @@
 				the former.
 			</p>
 			<CodeBlock
-				language="typescript"
+				language="ts"
 				code={`
 const sourceData = [
 	{ position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
@@ -108,7 +107,7 @@ const sourceData = [
 				in the <em>Table Utilities</em> section below.
 			</p>
 			<CodeBlock
-				language="typescript"
+				language="ts"
 				code={`
 const tableSimple: TableSource = {
 	// A list of heading labels.
@@ -132,11 +131,10 @@ const tableSimple: TableSource = {
 		<section class="space-y-4">
 			<h2>Table Utilities</h2>
 			<p>The following utility methods allow you to format your source data for use within a Table component.</p>
-			<TabGroup selected={storeService}>
-				<Tab value="tableMapperValues">Mapper Values</Tab>
-				<Tab value="tableSourceMapper">Source Mapper</Tab>
-				<Tab value="tableSourceValues">Source Values</Tab>
-				<!-- <Tab value="tableCellFormatter">Cell Formatter</Tab> -->
+			<TabGroup>
+				<Tab bind:group={$storeService} name="tableMapperValues" value="tableMapperValues">Mapper Values</Tab>
+				<Tab bind:group={$storeService} name="tableSourceMapper" value="tableSourceMapper">Source Mapper</Tab>
+				<Tab bind:group={$storeService} name="tableSourceValues" value="tableSourceValues">Source Values</Tab>
 			</TabGroup>
 			<CodeBlock language="ts" code={`import { ${$storeService} } from '@skeletonlabs/skeleton';>`} />
 			{#if $storeService === 'tableMapperValues'}
@@ -187,30 +185,17 @@ tableSourceValues(sourceData);\n
 //]
 `}
 				/>
-				<!-- DISABLED: see comments in utils.ts -->
-				<!-- {else if $storeService === 'tableCellFormatter'}
-				<p>Table cells can accept HTML via template literals. This method allows wrapping HTML tags arround a particular object value.</p>
-				<CodeBlock
-					language="ts"
-					code={`
-tableCellFormatter(sourceData, 'weight', 'em', 'opacity-50');\n
-// [
-//	{ position: 1, name: 'Hydrogen', weight: '<em class="opacity-50">1.0079</em>', symbol: 'H' },
-//	{ position: 2, name: 'Helium', weight: '<em class="opacity-50">4.0026</em>', symbol: 'He' },
-//	...
-// ]
-`}
-				/> -->
 			{/if}
 		</section>
-		<hr />
+		<!-- <hr /> -->
 		<!-- Data Table Callout -->
-		<section class="grid grid-cols-[1fr_auto] gap-4">
+		<!-- CHRIS: delisted until further notice -->
+		<!-- <section class="grid grid-cols-[1fr_auto] gap-4">
 			<div class="space-y-4">
 				<h2>Data Tables</h2>
 				<p>Need a fully featured data table with powerful features like selection and sort? See data tables.</p>
 			</div>
-			<a class="btn btn-filled-secondary place-self-center" href="/utilities/data-tables">Data Tables</a>
-		</section>
+			<a class="btn variant-filled-secondary place-self-center" href="/utilities/data-tables">Data Tables</a>
+		</section> -->
 	</svelte:fragment>
 </DocsShell>

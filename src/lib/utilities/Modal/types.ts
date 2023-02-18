@@ -12,16 +12,20 @@ export interface ModalComponent {
 export interface ModalSettings {
 	/** Designate what type of component will display. */
 	type: 'alert' | 'confirm' | 'prompt' | 'component';
+	/** Set the modal position within the backdrop container. */
+	position?: string;
 	/** Provide the modal header content. Accepts HTML. */
 	title?: string;
 	/** Provide the modal body content. Accepts HTML. */
 	body?: string;
 	/** Provide a URL to display an image within the modal. */
-	image?: URL | string;
-	/** Prompt Only - provide a prompt value. */
-	value?: unknown;
-	/** Provide your component reference, props, and slot details. */
-	component?: ModalComponent;
+	image?: string;
+	/** By default, used to provide a prompt value. */
+	value?: any;
+	/** Provide input attributes as key/value pairs. */
+	valueAttr?: object;
+	/** Provide your component reference key or object. */
+	component?: ModalComponent | string;
 	/** Provide a function. Returns the repsonse value. */
 	response?: (r: any) => void;
 	/** Provide abitrary classes to the backdrop. */

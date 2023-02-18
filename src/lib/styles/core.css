@@ -30,10 +30,19 @@
 		@apply w-2;
 	}
 	::-webkit-scrollbar-track {
-		@apply bg-surface-100-800-token px-[1px];
+		@apply !bg-surface-50-900-token px-[1px];
 	}
 	::-webkit-scrollbar-thumb {
-		@apply rounded-token bg-surface-300-600-token;
+		@apply rounded-token bg-surface-400-500-token;
+	}
+
+	/* Firefox */
+	/* https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-color#browser_compatibility */
+	html {
+		scrollbar-color: rgba(0, 0, 0, 0.2) rgba(255, 255, 255, 0.05);
+	}
+	html.dark {
+		scrollbar-color: rgba(255, 255, 255, 0.1) rgba(0, 0, 0, 0.05);
 	}
 
 	/* Hide Scrollbars */

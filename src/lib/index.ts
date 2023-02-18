@@ -7,6 +7,10 @@ export type { DrawerSettings } from './utilities/Drawer/types';
 export type { ModalSettings, ModalComponent } from './utilities/Modal/types';
 export type { ToastSettings } from './utilities/Toast/types';
 export type { TableSource } from './components/Table/types';
+export type { PopupSettings } from './utilities/Popup/types';
+
+// This type alias is to identify CSS classes within component props, which enables Tailwind IntelliSense
+export type CssClasses = string;
 
 // Stores ---
 
@@ -14,10 +18,10 @@ export { storeHighlightJs } from './utilities/CodeBlock/stores';
 export { drawerStore } from './utilities/Drawer/stores';
 export { modalStore } from './utilities/Modal/stores';
 export { toastStore } from './utilities/Toast/stores';
-export { storePrefersDarkScheme, storeLightSwitch } from './utilities/LightSwitch/stores';
 
 // Utilities ---
 
+// Data Table
 export {
 	// Types
 	type DataTableModel,
@@ -29,6 +33,22 @@ export {
 	tableInteraction,
 	tableA11y
 } from '$lib/utilities/DataTable/DataTable';
+// Lightswitch
+export {
+	// Stores
+	modeOsPrefers,
+	modeUserPrefers,
+	modeCurrent,
+	// Methods
+	getModeOsPrefers,
+	getModeUserPrefers,
+	getModeAutoPrefers,
+	setModeUserPrefers,
+	setModeCurrent,
+	setInitialClassState,
+	autoModeWatcher
+} from './utilities/LightSwitch/lightswitch';
+// Local Storage Store
 export { localStorageStore } from './utilities/LocalStorageStore/LocalStorageStore';
 // Component Utilities
 export { tableSourceMapper, tableSourceValues, tableMapperValues } from './components/Table/utils';
@@ -39,12 +59,11 @@ export { clipboard } from './actions/Clipboard/clipboard';
 export { filter } from './actions/Filters/filter';
 export { focusTrap } from './actions/FocusTrap/focusTrap';
 // Utility Actions
-export { menu } from './utilities/Menu/menu';
-export { tooltip } from './utilities/Tooltip/tooltip';
+export { popup } from './utilities/Popup/popup';
 
 // Svelte Components ---
 
-export { default as AccordionGroup } from './components/Accordion/AccordionGroup.svelte';
+export { default as Accordion } from './components/Accordion/Accordion.svelte';
 export { default as AccordionItem } from './components/Accordion/AccordionItem.svelte';
 export { default as AppBar } from './components/AppBar/AppBar.svelte';
 export { default as AppRail } from './components/AppRail/AppRail.svelte';

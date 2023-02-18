@@ -1,15 +1,29 @@
 // Source: https://github.com/joshnuss/svelte-local-storage-store
-// https://github.com/joshnuss/svelte-local-storage-store/blob/master/it/localStorageStore.it.ts
-// Represents version v0.3.2 (2022-12-04)
+// https://github.com/joshnuss/svelte-local-storage-store/blob/master/test/localStorageStore.test.ts
+// Represents version v0.4.0 (2023-01-18)
 
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, vitest } from 'vitest';
 import { get } from 'svelte/store';
 
-import { localStorageStore } from '$lib/utilities/LocalStorageStore/LocalStorageStore';
+import { localStorageStore } from './LocalStorageStore';
+
+beforeEach(() => localStorage.clear());
+
+// describe('localStorageStore()', () => {
+// 	it('it works, but raises deprecation warning', () => {
+// 		console.warn = vitest.fn();
+
+// 		localStorage.setItem('myKey2', '"existing"');
+
+// 		const store = localStorageStore('myKey2', 'initial');
+// 		const value = get(store);
+
+// 		expect(value).toEqual('existing');
+// 		expect(console.warn).toHaveBeenCalledWith(expect.stringMatching(/deprecated/));
+// 	});
+// });
 
 describe('localStorageStore()', () => {
-	beforeEach(() => localStorage.clear());
-
 	it('uses initial value if nothing in local storage', () => {
 		const store = localStorageStore('myKey', 123);
 		const value = get(store);
@@ -191,30 +205,29 @@ describe('localStorageStore()', () => {
 			parse: (json: string) => new Set(JSON.parse(json))
 		};
 
-		const itSet = new Set([1, 2, 3]);
+		const testSet = new Set([1, 2, 3]);
 
-		const store = localStorageStore('myKey11', itSet, { serializer });
+		const store = localStorageStore('myKey11', testSet, { serializer });
 		const value = get(store);
 
 		store.update((d) => d.add(4));
 
-		expect(value).toEqual(itSet);
-		expect(localStorage.myKey11).toEqual(serializer.stringify(itSet));
+		expect(value).toEqual(testSet);
+		expect(localStorage.myKey11).toEqual(serializer.stringify(testSet));
 	});
 
-	// FIXME: need to replace the `jest` syntax here
-	// it('lets you switch storage type', () => {
-	// 	jest.spyOn(Object.getPrototypeOf(window.sessionStorage), 'setItem');
-	// 	Object.setPrototypeOf(window.sessionStorage.setItem, jest.fn());
+	it('lets you switch storage type', () => {
+		vitest.spyOn(Object.getPrototypeOf(window.sessionStorage), 'setItem');
+		Object.setPrototypeOf(window.sessionStorage.setItem, vitest.fn());
 
-	// 	const value = 'foo';
+		const value = 'foo';
 
-	// 	const store = localStorageStore('myKey12', value, {
-	// 		storage: 'session'
-	// 	});
+		const store = localStorageStore('myKey12', value, {
+			storage: 'session'
+		});
 
-	// 	store.set('bar');
+		store.set('bar');
 
-	// 	expect(window.sessionStorage.setItem).toHaveBeenCalled();
-	// });
+		expect(window.sessionStorage.setItem).toHaveBeenCalled();
+	});
 });

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
+	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 
 	import Paginator from '$lib/components/Paginator/Paginator.svelte';
 	import Table from '$lib/components/Table/Table.svelte';
@@ -8,7 +8,6 @@
 
 	import type { PaginationSettings } from '$lib/components/Paginator/types';
 
-	// @ts-expect-error sveld import
 	import sveldPaginator from '$lib/components/Paginator/Paginator.svelte?raw&sveld';
 
 	// Docs Shell
@@ -36,7 +35,7 @@
 	];
 
 	// Reactive
-	$: page = {
+	let page = {
 		offset: 0,
 		limit: 5,
 		size: sourceBody.length,
@@ -58,49 +57,46 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="space-y-4">
+		<section class="card variant-glass p-4 space-y-4">
 			<Table
 				source={{
 					head: sourceHeaders,
 					body: sourceBodySliced
 				}}
 			/>
-			<div class="col-span-2 card p-4 space-y-4">
-				<Paginator bind:settings={page} on:page={onPageChange} on:amount={onAmountChange} />
-			</div>
+			<Paginator bind:settings={page} on:page={onPageChange} on:amount={onAmountChange} />
 		</section>
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<div class="space-y-4">
+			<CodeBlock language="ts" code={`const source = [ /* any array of objects */ ];`} />
 			<CodeBlock
-				language="typescript"
+				language="ts"
 				code={`
-$: page = {
+let page = {
 	offset: 0,
 	limit: 5,
-	size: sourceData.length,
+	size: source.length,
 	amounts: [1,2,5,10],
-};`}
+};
+				`}
 			/>
-			<CodeBlock language="html" code={`<Paginator bind:settings={page} on:page={onPageChange} on:amount={onAmountChange}></Paginator>`} />
+			<CodeBlock language="html" code={`<Paginator bind:settings={page}></Paginator>`} />
 		</div>
 		<div class="space-y-4">
-			<h2>Reactive Slicing</h2>
+			<h2>Client-Side Pagination</h2>
+			<!-- prettier-ignore -->
 			<p>
-				Once your paginator component is setup you'll need to limit your content. This can be accomplished with the JavaScript <a
-					href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice"
-					target="_blank"
-					rel="noreferrer">slice</a
-				> method. See a minimal example below.
+				Once your paginator component is setup you'll need to subdivide your local source content. This can be accomplished using Svelte's
+				reactive properties paired with the JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice" target="_blank" rel="noreferrer">slice</a> method.
 			</p>
-			<CodeBlock language="typescript" code={`const source = [ /* any array of objects */ ]`} />
 			<CodeBlock
-				language="typescript"
+				language="ts"
 				code={`
-$: sourcePaginated = source.slice(
-	page.offset * page.limit, // start
+$: paginatedSource = source.slice(
+	page.offset * page.limit,             // start
 	page.offset * page.limit + page.limit // end
 );`}
 			/>
@@ -108,11 +104,29 @@ $: sourcePaginated = source.slice(
 				language="html"
 				code={`
 <ul>
-	{#each sourcePaginated as row}
+	{#each paginatedSource as row}
 		<li>{row}</li>
 	{/each}
-</ul>`}
+</ul>
+				`}
 			/>
+		</div>
+		<div class="space-y-4">
+			<h2>Server-Side Pagination</h2>
+			<p>Use the <code>page</code> and <code>amount</code> events to notify your server of pagination updates.</p>
+			<CodeBlock
+				language="ts"
+				code={`
+function onPageChange(e: CustomEvent): void {
+	console.log('event:page', e.detail);
+}
+
+function onAmountChange(e: CustomEvent): void {
+	console.log('event:amount', e.detail);
+}
+			`}
+			/>
+			<CodeBlock language="html" code={`<Paginator ... on:page={onPageChange} on:amount={onAmountChange}></Paginator>`} />
 		</div>
 	</svelte:fragment>
 </DocsShell>

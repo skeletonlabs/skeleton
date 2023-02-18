@@ -1,65 +1,44 @@
 <script lang="ts">
 	import { setContext } from 'svelte';
-	import { writable, type Writable } from 'svelte/store';
 
-	// Props (Listbox)
-	/** Provide a writable store to maintain list selection.
-	 * @type {writeable(any) | writable(any[])}
-	 */
-	export let selected: Writable<any> = writable(undefined);
-	/** Provide classes to set vertical item spacing. */
-	export let space = 'space-y-1';
-	/** Provide to set scrollable listbox region height. */
-	export let height = '';
+	// Types
+	import type { CssClasses } from '$lib';
 
-	// Props (Item)
-	/** Provide classes to set the item selected background. '!' recommended. */
-	export let accent = '!bg-primary-active-token'; //
-	/** Provide classes to set the item padding styles. */
-	export let padding = 'px-4 py-3';
-	/** Provide classes to set the item border radius styles. */
-	export let rounded = 'rounded-token';
-	/** Provide classes to set the item hover background color. */
-	export let hover = 'bg-primary-hover-token';
+	// Props
+	/** Enable selection of multiple items. */
+	export let multiple: boolean = false;
 
-	// Props (regions)
-	/** Provide arbitrary classes to the label element. */
-	export let regionLabel = '';
-	/** Provide arbitrary classes to the scrollable listbox element. */
-	export let regionList = '';
+	// Props (styles)
+	/** Provide classs to set the vertical spacing style. */
+	export let spacing: CssClasses = `space-y-1`;
+	/** Provide classes to set the listbox box radius styles. */
+	export let rounded: CssClasses = 'rounded-token';
+
+	// Props (styles) - Item Only
+	/** Provide classes to set the listbox item active background styles. */
+	export let active: CssClasses = 'variant-filled';
+	/** Provide classes to set the listbox item hover background styles. */
+	export let hover: CssClasses = 'hover:variant-soft';
+	/** Provide classes to set the listbox item padding styles. */
+	export let padding: CssClasses = 'px-4 py-2';
 
 	// Props (a11y)
-	/** Define a semantic ARIA label. */
-	export let label = '';
-	/**
-	 * Set automatically based on the label text, but can be overwritten.
-	 * @type {string}
-	 */
-	export let labelId: string = label?.toLowerCase().replace(' ', '-'); //AUDIT this doesn't seem to be consistently applied across Skeleton
+	export let labelledby: string = '';
 
 	// Context
-	setContext('selected', selected);
-	setContext('accent', accent);
-	setContext('padding', padding);
+	setContext('multiple', multiple);
 	setContext('rounded', rounded);
+	setContext('active', active);
 	setContext('hover', hover);
+	setContext('padding', padding);
 
-	// Base Classes
-	const cBase = 'space-y-4';
-	const cLabel = 'font-bold text-lg';
-	const cListBox = 'list-none overflow-y-auto';
+	// Classes
+	const cBase: string = 'cursor-pointer -outline-offset-[3px]';
 
 	// Reactive
-	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
-	$: classesLabel = `${cLabel}`;
-	$: classesListBox = `${cListBox} ${height} ${space}`;
+	$: classesBase = `${cBase} ${spacing} ${rounded} ${$$props.class ?? ''}`;
 </script>
 
-<div class="listbox {classesBase}" data-testid="listbox-area">
-	<!-- Label -->
-	{#if label}<span class="listbox-label {classesLabel} {regionLabel}" id={labelId}>{label}</span>{/if}
-	<!-- Listbox -->
-	<ul class="listbox-list {classesListBox} {regionList}" role="listbox" aria-labelledby={labelId}>
-		<slot />
-	</ul>
+<div class="listbox {classesBase}" role="listbox" aria-labelledby={labelledby} data-testid="listbox">
+	<slot />
 </div>

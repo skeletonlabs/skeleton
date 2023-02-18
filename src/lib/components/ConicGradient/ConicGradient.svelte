@@ -1,5 +1,9 @@
 <script lang="ts">
+	import { afterUpdate } from 'svelte';
 	import { tailwindDefaultColors } from './settings';
+
+	// Types
+	import type { CssClasses } from '$lib';
 	import type { ConicStop } from './types';
 
 	// Props
@@ -13,9 +17,17 @@
 	/** When enabled, the conic gradient will spin. */
 	export let spin = false;
 	/** Provided classes to style the conic gradient width. */
-	export let width = 'w-full';
+	export let width: CssClasses = 'w-full';
 	/** Provided classes to style the legend hover effect. */
-	export let hover = 'bg-primary-hover-token';
+	export let hover: CssClasses = 'bg-primary-hover-token';
+
+	// Props (regions)
+	/** Provide abitrary classes to the caption region above the gradient. */
+	export let regionCaption: CssClasses = '';
+	/** Provide abitrary classes to the conic gradient region. */
+	export let regionCone: CssClasses = '';
+	/** Provide abitrary classes to the legend region below the gradient. */
+	export let regionLegend: CssClasses = '';
 
 	// Local
 	let cone: string;
@@ -25,7 +37,7 @@
 	const cBase = 'flex flex-col items-center space-y-4';
 	const cCaption = 'text-center';
 	const cCone = 'block aspect-square rounded-full';
-	const cLabel = 'text-sm w-full';
+	const cLegend = 'text-sm w-full';
 	const cSwatch = 'block aspect-square bg-black w-5 rounded-full mr-2';
 
 	// Set Color
@@ -56,26 +68,30 @@
 	}
 
 	// Lifecycle (on init)
-	genConicGradient();
-	genLegend();
+	afterUpdate(() => {
+		genConicGradient();
+		genLegend();
+	});
 
 	// Reactive
 	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
-	$: classesCone = `${cCone} ${width}`;
+	$: classesCaption = `${cCaption} ${regionCaption}`;
+	$: classesCone = `${cCone} ${width} ${regionCone}`;
+	$: classesLegend = `${cLegend} ${regionLegend}`;
 </script>
 
 <figure class="conic-gradient {classesBase}" data-testid="conic-gradient">
 	<!-- Label -->
 	{#if $$slots.default}
-		<figcaption class="conic-caption {cCaption}"><slot /></figcaption>
+		<figcaption class="conic-caption {classesCaption}"><slot /></figcaption>
 	{/if}
 	<!-- Conic Gradient -->
 	{#if cone}
-		<div class="concic-cone {classesCone}" class:animate-spin={spin} style:background={cone} />
+		<div class="conic-cone {classesCone}" class:animate-spin={spin} style:background={cone} />
 	{/if}
 	<!-- Legend -->
 	{#if legend && generatedLegendList}
-		<ul class="conic-list list {cLabel}">
+		<ul class="conic-list list {classesLegend}">
 			{#each generatedLegendList as { color, label, value }}
 				<li class="conic-item {hover}" on:click on:keydown on:keyup on:keypress>
 					<span class="conic-swatch {cSwatch}" style:background={color} />

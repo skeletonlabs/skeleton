@@ -75,7 +75,7 @@ function prunedRestProps(): any {
 		</ul>
 		<p>Here's a few examples:</p>
 		<CodeBlock
-			language="typescript"
+			language="ts"
 			code={`
 export let background: string = 'bg-primary-500'; // background color
 export let color: string = 'text-primary-500'; // text color
@@ -101,7 +101,7 @@ export let visible: boolean = false;
 			Any core or structural Tailwind classes can be defined as follows. Note the "c" is short for <strong>classes</strong>.
 		</p>
 		<CodeBlock
-			language="typescript"
+			language="ts"
 			code={`
 let cBase: string = 'bg-surface-500 p-4 rounded'; // parent element styles
 let cLabel: string = 'text-base'; // child element label styles
@@ -111,7 +111,7 @@ let cLabel: string = 'text-base'; // child element label styles
 		<h3>Dynamic Classes</h3>
 		<p>If you expect to set one or more styles based on the current value of a property, handle this within a function as shown below.</p>
 		<CodeBlock
-			language="typescript"
+			language="ts"
 			code={`
 // Prop for outlined state
 export let outlined: boolean;
@@ -124,7 +124,7 @@ $: classesOutlined = outlined ? 'border-2 border-primary-500' : 'border-none';
 		<h3>Reactive Classes</h3>
 		<p>Reactive classes combine all base and dynamic classes. These are applied directly to each respective element.</p>
 		<CodeBlock
-			language="typescript"
+			language="ts"
 			code={`
 $: classesTab = \`\${cBase} \${classesOutlined}\`; // parent element
 $: classesLabel = \`\${cBaseLabel}\`; // child element

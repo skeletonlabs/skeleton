@@ -1,11 +1,10 @@
 <script lang="ts">
-	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
+	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// @ts-expect-error
 	import sveldTableOfContents from '$lib/components/TableOfContents/TableOfContents.svelte?raw&sveld';
 
 	// Docs Shell
@@ -20,6 +19,13 @@
 </script>
 
 <DocsShell {settings}>
+	<!-- Slot: Sandbox -->
+	<svelte:fragment slot="sandbox">
+		<section class="card variant-glass p-4 text-center !py-10 space-y-4 hidden 2xl:block">
+			<p>View example on <strong>page right</strong> <i class="fa-solid fa-arrow-right" /></p>
+		</section>
+	</svelte:fragment>
+
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
@@ -40,7 +46,7 @@
 		<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
 	</div>
 </main>
-			`}
+`}
 			/>
 		</section>
 		<section class="space-y-4">

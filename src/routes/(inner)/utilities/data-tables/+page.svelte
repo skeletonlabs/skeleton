@@ -4,8 +4,8 @@
 	export let data: PageData;
 	const httpPosts = data.posts;
 
-	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
+	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 
 	// Components
 	import Avatar from '$lib/components/Avatar/Avatar.svelte';
@@ -55,29 +55,29 @@
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<!-- Alert -->
-		<aside class="alert alert-error">
+		<aside class="alert variant-ghost-error">
 			<i class="fa-solid fa-triangle-exclamation text-4xl animate-pulse" />
 			<div class="alert-message">
 				<h3>Experimental Feature</h3>
 				<p>
-					This feature currently available as in early access. It is not feature complete, may contain bugs, and is not ready for production
-					use. We've provided an alternative and linked the GitHub ticket if you wish to track the progress of this feature.
+					This feature currently delisted. It is not feature complete, contains bugs, and is not ready for production use. View the linked
+					GitHub ticket if you wish to track the progress of this feature.
 				</p>
 			</div>
 			<div class="alert-message">
-				<a href="https://github.com/skeletonlabs/skeleton/issues/538" target="_blank" rel="noreferrer" class="btn btn-ghost w-full">
+				<a href="https://github.com/skeletonlabs/skeleton/issues/538" target="_blank" rel="noreferrer" class="btn variant-filled w-full">
 					Track Progress
 				</a>
-				<a href="https://svelte-headless-table.bryanmylee.com/" target="_blank" rel="noreferrer" class="btn btn-filled w-full">
+				<!-- <a href="https://svelte-headless-table.bryanmylee.com/" target="_blank" rel="noreferrer" class="btn variant-filled w-full">
 					View Alternative
-				</a>
+				</a> -->
 			</div>
 		</aside>
 
-		<section class="card !bg-secondary-500/5">
+		<section class="card variant-glass">
 			<!-- Search Input -->
 			<div class="card-header">
-				<input bind:value={$dataTableStore.search} type="search" placeholder="Search Table..." />
+				<input class="input" bind:value={$dataTableStore.search} type="search" placeholder="Search Table..." />
 			</div>
 			<!-- Table -->
 			<div class="p-4">
@@ -113,7 +113,7 @@
 										{row.body}
 									</td>
 									<td role="gridcell" aria-colindex={6} tabindex="0" class="table-cell-fit">
-										<button class="btn btn-ghost-surface btn-sm" on:click={()=>{console.log(row,rowIndex)}}>Console Log</button>
+										<button class="btn variant-ghost-surface btn-sm" on:click={()=>{console.log(row,rowIndex)}}>Console Log</button>
 									</td>
 								</tr>
 							{/each}
@@ -393,7 +393,7 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 				<h2>Table Components</h2>
 				<p>Looking for a simpler data-driven table component? Visit the Table documentation.</p>
 			</div>
-			<a class="btn btn-filled-secondary place-self-center" href="/components/tables">View Tables</a>
+			<a class="btn variant-filled-secondary place-self-center" href="/components/tables">View Tables</a>
 		</section>
 	</svelte:fragment>
 </DocsShell>

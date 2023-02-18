@@ -11,7 +11,7 @@ async function transpileCssToJs() {
 	const twConfig = {
 		darkMode: 'class',
 		content: ['./src/**/*.{html,js,svelte,ts}'],
-		plugins: [require('../src/lib/tailwind/skeleton.cjs')]
+		plugins: [require('../src/lib/tailwind/core.cjs')]
 	};
 
 	const css = fs.readFileSync(cssEntryPath, 'utf8');
