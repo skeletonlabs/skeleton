@@ -86,7 +86,7 @@
 	<div class="card variant-glass p-4">
 		<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 			<p>Wish to create a custom theme? Try our theme generator tool.</p>
-			<a class="btn variant-filled-secondary" href="/docs/get-started/generator">Theme Generator &rarr;</a>
+			<a class="btn variant-filled-secondary" href="/docs/generator">Theme Generator &rarr;</a>
 		</div>
 	</div>
 </section>
