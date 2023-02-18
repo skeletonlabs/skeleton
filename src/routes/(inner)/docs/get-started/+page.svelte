@@ -15,6 +15,6 @@
 	</header>
 	<SectionInstall />
 	<SectionTailwind />
-	<SectionThemes />
 	<SectionStylesheets />
+	<SectionThemes />
 </div>
