@@ -8,14 +8,17 @@
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import LightSwitch from '$lib/utilities/LightSwitch/LightSwitch.svelte';
 	import Swatch from './Swatch.svelte';
+
 	// Utilities
 	import { localStorageStore } from '$lib/utilities/LocalStorageStore/LocalStorageStore';
+	import { popup } from '$lib/utilities/Popup/popup';
 
 	// Local Utils
 	import { storePreview } from './stores';
 	import type { ColorSettings, FormTheme } from './types';
 	import { inputSettings, fontSettings } from './settings';
 	import { type Palette, generatePalette, generateA11yOnColor, getPassReport } from './colors';
+	import type { PopupSettings } from '$lib/utilities/Popup/types';
 
 	// Stores
 	const storeThemGenForm: Writable<FormTheme> = localStorageStore('storeThemGenForm', {
@@ -74,6 +77,11 @@
 		}
 	}
 
+	const tooltipSettings: Omit<PopupSettings, 'target'> = {
+		event: 'hover',
+		placement: 'top'
+	};
+
 	// Reactive
 	$: if ($storeThemGenForm) {
 		cssOutput = `
@@ -125,6 +133,9 @@
 			<div class="p-4 grid grid-cols-1 gap-4">
 				{#each $storeThemGenForm.colors as colorRow, i}
 					{@const contrastReport = getPassReport($storeThemGenForm.colors[i].hex, $storeThemGenForm.colors[i].on)}
+					{@const popupSettings = Object.assign(tooltipSettings, {
+						target: 'popup-' + i
+					})}
 					<div class="grid grid-cols-1 lg:grid-cols-[170px_1fr_160px] gap-2 lg:gap-4">
 						<label class="label">
 							<span>{colorRow.label}</span>
@@ -141,7 +152,7 @@
 									{#each inputSettings.colorProps as c}<option value={c.value}>{c.label}</option>{/each}
 								</select>
 								<div
-									title={contrastReport.report.note}
+									use:popup={popupSettings}
 									class="badge-icon aspect-square relative -top-1 right-4 z-10 hover:scale-125 transition-all"
 									class:!text-stone-900={contrastReport.fails}
 									class:!bg-red-500={contrastReport.fails}
@@ -152,6 +163,7 @@
 								>
 									{@html contrastReport.report.emoji}
 								</div>
+								<div data-popup={'popup-' + i}>{contrastReport.report.note}</div>
 							</div>
 						</label>
 					</div>
