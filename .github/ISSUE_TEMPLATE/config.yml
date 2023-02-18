@@ -1,5 +1,8 @@
 blank_issues_enabled: true
 contact_links:
+  - name: Issue with the CLI installer ?
+    url: https://github.com/skeletonlabs/create-skeleton-app/issues/new/choose
+    about: Please report issues for the create skeleton-app installer in it's project
   - name: Get support on Discord
     url: https://discord.com/channels/1003691521280856084/1003691521721245792
     about: Get help from the maintainers on Discord

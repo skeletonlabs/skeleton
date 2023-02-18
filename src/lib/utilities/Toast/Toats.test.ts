@@ -22,4 +22,11 @@ describe('Toast.svelte', () => {
 		const { getByTestId } = render(Toast);
 		expect(getByTestId('toast')).toBeTruthy();
 	});
+
+	it('Renders only the configured max toasts at a time', async () => {
+		toastStore.trigger({ message: '1' });
+		toastStore.trigger({ message: '2' });
+		const { getAllByTestId } = render(Toast, { max: 1 });
+		expect(getAllByTestId('toast').length).toBe(1);
+	});
 });

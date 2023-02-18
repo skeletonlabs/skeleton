@@ -58,7 +58,7 @@
 								<span class="text-xs font-bold opacity-50 capitalize">{tag.slug}</span>
 							{/each}
 						</div>
-						<button class="btn btn-ghost-surface">Read Article &rarr;</button>
+						<button class="btn variant-ghost-surface">Read Article &rarr;</button>
 					</div>
 				</article>
 			</a>
@@ -71,8 +71,8 @@
 			<small class="opacity-50">Page {data.meta.pagination.page} of {data.meta.pagination.pages}</small>
 		</div>
 		<div class="flex items-center space-x-4">
-			<button class="btn-icon btn-filled" on:click={onPrevPage} disabled={!data.meta.pagination.prev}>&larr;</button>
-			<button class="btn btn-filled" on:click={onNextPage} disabled={!data.meta.pagination.next}>Next &rarr;</button>
+			<button class="btn-icon variant-filled" on:click={onPrevPage} disabled={!data.meta.pagination.prev}>&larr;</button>
+			<button class="btn variant-filled" on:click={onNextPage} disabled={!data.meta.pagination.next}>Next &rarr;</button>
 		</div>
 	</footer>
 </div>

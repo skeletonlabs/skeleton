@@ -1,23 +1,12 @@
 <script lang="ts">
-	// Props
-	/** Provide classes to set background styles. */
-	export let background = 'bg-surface-400-500-token';
-	/** Provide classes to set avatar width. */
-	export let width = 'w-12';
-	/** Provide classes to set border styles. */
-	export let border = '';
-	/** Provide classes to set rounded style. */
-	export let rounded = 'rounded-full';
-	/** Provide classes to set shadow styles. */
-	export let shadow = '';
-	/** Provide classes to set cursor styles. */
-	export let cursor = '';
+	// Types
+	import type { CssClasses } from '$lib';
 
 	// Props (initials)
 	/** Initials only - Provide up to two text characters. */
 	export let initials = 'AB';
 	/** Initials only - Provide classes to set the SVG text fill color. */
-	export let fill = 'fill-token';
+	export let fill: CssClasses = 'fill-token';
 
 	// Props (actions)
 	/** Provide the avatar image element source. */
@@ -30,6 +19,20 @@
 	/** Image only. Provide Svelte action params, such as Apollo. */
 	export let actionParams = '';
 
+	// Props (styles)
+	/** Provide classes to set background styles. */
+	export let background: CssClasses = 'bg-surface-400-500-token';
+	/** Provide classes to set avatar width. */
+	export let width: CssClasses = 'w-12';
+	/** Provide classes to set border styles. */
+	export let border: CssClasses = '';
+	/** Provide classes to set rounded style. */
+	export let rounded: CssClasses = 'rounded-full';
+	/** Provide classes to set shadow styles. */
+	export let shadow: CssClasses = '';
+	/** Provide classes to set cursor styles. */
+	export let cursor: CssClasses = '';
+
 	// Base Classes
 	let cBase = 'flex aspect-square text-surface-50 font-semibold justify-center items-center overflow-hidden isolate';
 	let cImage = 'w-full h-full object-cover';
@@ -40,10 +43,10 @@
 
 <figure class="avatar {classesBase}" data-testid="avatar" on:click on:keydown on:keyup on:keypress>
 	{#if src}
-		<img class="avatar-image {cImage}" {src} alt={$$props.alt || ''} use:action={actionParams} />
+		<img class="avatar-image {cImage}" style={$$props.style ?? ''} {src} alt={$$props.alt || ''} use:action={actionParams} />
 	{:else}
 		<svg class="avatar-initials w-full h-full" viewBox="0 0 512 512">
-			<text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-weight="bold" font-size={150} class="avatar-text {fill}">
+			<text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-weight="bold" font-size={150} class="avatar-text {fill}">
 				{String(initials).substring(0, 2).toUpperCase()}
 			</text>
 		</svg>

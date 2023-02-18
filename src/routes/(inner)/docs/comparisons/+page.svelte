@@ -1,6 +1,6 @@
 <script lang="ts">
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-	import AccordionGroup from '$lib/components/Accordion/AccordionGroup.svelte';
+	import Accordion from '$lib/components/Accordion/Accordion.svelte';
 	import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
 </script>
 
@@ -39,8 +39,8 @@
 			>. It’s relatively simple to tailor a Flowbite component to work within an existing Tailwind design system. In fact, it’s even
 			possible to pair Flowbite with Skeleton, allowing you to mix and match components, while taking advantage of Skeleton’s theme system.
 		</p>
-		<div class="card p-4 card-glass-surface">
-			<AccordionGroup>
+		<div class="card p-4 variant-glass-surface">
+			<Accordion>
 				<AccordionItem>
 					<svelte:fragment slot="summary">
 						<strong>View Flowbite integration mini-guide.</strong>
@@ -87,7 +87,7 @@
 						</div>
 					</svelte:fragment>
 				</AccordionItem>
-			</AccordionGroup>
+			</Accordion>
 		</div>
 	</section>
 

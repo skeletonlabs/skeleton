@@ -8,21 +8,26 @@
 	 * @slot footer - Insert fixed footer content. Not recommended for most layouts.
 	 */
 
+	// Types
+	import type { CssClasses } from '$lib';
+
 	// Props (regions)
-	/** Classes to apply to the <code>header</code> slot container element */
-	export let slotHeader = 'z-10';
-	/** Classes to apply to the <code>sidebarLeft</code> slot container element */
-	export let slotSidebarLeft = 'w-auto';
-	/** Classes to apply to the <code>sidebarRight</code> slot container element */
-	export let slotSidebarRight = 'w-auto';
-	/** Classes to apply to the <code>pageHeader</code> slot container element */
-	export let slotPageHeader = '';
-	/** Classes to apply to the <code>pageContent</code> slot container element */
-	export let slotPageContent = '';
-	/** Classes to apply to the <code>pageFooter</code> slot container element */
-	export let slotPageFooter = '';
-	/** Classes to apply to the <code>footer</code> slot container element */
-	export let slotFooter = '';
+	/** Apply abitrary clases to the entire `#page` region. */
+	export let regionPage: CssClasses = '';
+	/** Apply abitrary clases to the `header` slot container element */
+	export let slotHeader: CssClasses = 'z-10';
+	/** Apply abitrary clases to the `sidebarLeft` slot container element */
+	export let slotSidebarLeft: CssClasses = 'w-auto';
+	/** Apply abitrary clases to the `sidebarRight` slot container element */
+	export let slotSidebarRight: CssClasses = 'w-auto';
+	/** Apply abitrary clases to the `pageHeader` slot container element */
+	export let slotPageHeader: CssClasses = '';
+	/** Apply abitrary clases to the `pageContent` slot container element */
+	export let slotPageContent: CssClasses = '';
+	/** Apply abitrary clases to the `pageFooter` slot container element */
+	export let slotPageFooter: CssClasses = '';
+	/** Apply abitrary clases to the `footer` slot container element */
+	export let slotFooter: CssClasses = '';
 
 	// Base Classes
 	const cBaseAppShell = 'w-full h-full flex flex-col overflow-hidden';
@@ -56,7 +61,7 @@
 		{/if}
 
 		<!-- Page -->
-		<div id="page" class={cPage}>
+		<div id="page" class="{regionPage} {cPage}" on:scroll>
 			<!-- Slot: Page Header -->
 			{#if $$slots.pageHeader}
 				<header id="page-header" class="flex-none {classesPageHeader}"><slot name="pageHeader">(slot:header)</slot></header>

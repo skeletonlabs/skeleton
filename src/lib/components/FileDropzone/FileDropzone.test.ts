@@ -12,16 +12,16 @@ describe('FileDropzone.svelte', () => {
 	it('Renders with all props', async () => {
 		// Create Mock FileList
 		// Reference: https://dev.to/akirakashihara/how-to-mock-filelist-on-vitest-or-jest-4494
-		const file = new File([`foo`], `foo.txt`, { type: `text/plain` });
-		const input = document.createElement(`input`);
-		input.setAttribute(`type`, `file`);
-		input.setAttribute(`name`, `file-upload`);
-		const mockFileList = Object.create(input.files);
-		mockFileList[0] = file;
+		// const file = new File([`foo`], `foo.txt`, { type: `text/plain` });
+		// const input = document.createElement(`input`);
+		// input.setAttribute(`type`, `file`);
+		// input.setAttribute(`name`, `file-upload`);
+		// const mockFileList = Object.create(input.files);
+		// mockFileList[0] = file;
 		// ---
 		const { getByTestId } = render(FileDropzone, {
 			props: {
-				files: mockFileList,
+				// files: mockFileList,
 				name: 'testFileDropzoneInput',
 				accept: 'image/*',
 				multiple: false

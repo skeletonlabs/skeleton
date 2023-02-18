@@ -1,108 +1,78 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte/internal';
-
-	// Event Dispatcher
-	const dispatch = createEventDispatcher();
+	// Types
+	import type { CssClasses } from '$lib';
 
 	// Props
 	/**
-	 * Bind this to your form data, represents the "files" data from the input.
-	 * @type {FileList}
+	 * Required. Set a unique name for the file input.
+	 * @type {string}
 	 */
-	export let files: FileList;
-	/** Provided custom title.
-	 *  @type {string}
-	 */
-	export let title = 'Drop files or click to select.';
-	/** Provided additional notes or information. */
-	export let notes = '';
-	// Props (Styles)
-	/** Provide styles to set the dropzone width. */
-	export let width = 'w-full';
-	/** Provide styles to set the dropzone height. */
-	export let height = 'h-24';
-	/** Provide styles to set the dropzone padding. */
-	export let padding = 'p-4';
-	/** Provide styles to set the dropzone text color. */
-	export let color = '';
+	export let name: string;
+	/** Provide classes to set the border styles. */
+	export let border: CssClasses = 'border-2 border-dashed';
+	/** Provide classes to set the padding styles. */
+	export let padding: CssClasses = 'p-4 py-8';
+	/** Provide classes to set the box radius styles. */
+	export let rounded: CssClasses = 'rounded-container-token';
 
-	// Classes
-	const cBase = 'relative';
-	const cMessage =
-		'absolute top-0 left-0 right-0 bottom-0 z-[1] max-w-[480px] mx-auto flex justify-center items-center !pointer-events-none';
-	const cInput = '!border-2 border-dashed cursor-pointer !text-transparent !rounded-container-token';
+	// Props (regions)
+	/** Provide abitrary styles for the UI region. */
+	export let regionInterface: CssClasses = '';
+	/** Provide abitrary styles for the UI text region. */
+	export let regionInterfaceText: CssClasses = '';
 
-	// Local
-	let elemIcon: HTMLElement;
+	// Props (slots)
+	/** Provide abitrary styles for lead slot container. */
+	export let slotLead: CssClasses = 'mb-4';
+	/** Provide abitrary styles for message slot container. */
+	export let slotMessage: CssClasses = '';
+	/** Provide abitrary styles for meta text slot container. */
+	export let slotMeta: CssClasses = 'opacity-75';
 
-	// Drag and Drop Event Handlers
-	// Handles icon animation and passes events up
-	function onDragOver(event: DragEvent): void {
-		/** @event {{ event: DragEvent }} dragover - When a file is dragged over the component. */
-		dispatch('dragover', event);
-		elemIcon?.classList.add('animate-bounce');
-	}
-	function onDragLeave(event: DragEvent): void {
-		/** @event {{ event: DragEvent }} dragleave - When a file is dragged out off the component. */
-		dispatch('dragleave', event);
-		elemIcon?.classList.remove('animate-bounce');
-	}
-	function onDrop(event: DragEvent): void {
-		/** @event {{ event: DragEvent }} drop - When a file is dropped on the component. */
-		dispatch('drop', event);
-		elemIcon?.classList.remove('animate-bounce');
-	}
+	const cBase = 'textarea relative';
+	const cInput = 'absolute top-0 left-0 right-0 bottom-0 z-[1] opacity-0 disabled:!opacity-0 cursor-pointer';
+	const cInterface = 'flex justify-center items-center text-center';
 
 	// Reactive
-	$: classesBase = `${cBase} ${width} ${$$props.class ?? ''}`;
-	$: classesMessage = `${cMessage} ${color} ${height} ${padding}`;
-	$: classesInput = `${cInput} ${height} ${padding}`;
+	$: classesBase = `${cBase} ${border} ${padding} ${rounded} ${$$props.class ?? ''}`;
+	$: classesInput = `${cInput}`;
+	$: classesInterface = `${cInterface}`;
 
-	// Prune $$restProps to avoid overwriting $$props.class
+	// Pruned RestProps
 	function prunedRestProps(): any {
 		delete $$restProps.class;
 		return $$restProps;
 	}
 </script>
 
-<div
-	class="file-dropzone {classesBase}"
-	data-testid="file-dropzone"
-	on:dragenter
-	on:dragover={onDragOver}
-	on:dragleave={onDragLeave}
-	on:drop={onDrop}
-	on:click
-	on:keydown
-	on:keyup
-	on:keypress
->
-	<!-- Message -->
-	<div class="file-dropzone-message {classesMessage}">
-		<!-- Slot: Default -->
-		<slot>
-			<!-- Default Message -->
-			<div class="grid grid-cols-[auto_1fr] gap-4">
-				<!-- Icon -->
-				<div class="text-4xl flex justify-center items-center" bind:this={elemIcon}>&darr;</div>
-				<!-- Text -->
-				<div class="flex flex-col justify-center items-start space-y-0">
-					<div class="text-base font-bold">{@html title}</div>
-					{#if notes}<div class="text-sm opacity-70">{@html notes}</div>{/if}
-				</div>
+<div class="dropzone {classesBase}" class:opacity-50={$$restProps.disabled} data-testid="file-dropzone">
+	<!-- Input: File (hidden) -->
+	<input
+		type="file"
+		{name}
+		class="dropzone-input {classesInput}"
+		{...prunedRestProps()}
+		on:change
+		on:dragenter
+		on:dragover
+		on:dragleave
+		on:drop
+		on:click
+		on:keydown
+		on:keyup
+		on:keypress
+	/>
+	<!-- Interface -->
+	<div class="dropzone-interface {classesInterface} {regionInterface}">
+		<div class="dropzone-interface-text {regionInterfaceText}">
+			<!-- Lead -->
+			{#if $$slots.lead}<div class="dropzone-lead {slotLead}"><slot name="lead" /></div>{/if}
+			<!-- Message -->
+			<div class="dropzone-message {slotMessage}">
+				<slot name="message"><strong>Upload a file</strong> or drag and drop</slot>
 			</div>
-		</slot>
+			<!-- Meta Text -->
+			{#if $$slots.meta}<small class="dropzone-meta {slotMeta}"><slot name="meta" /></small>{/if}
+		</div>
 	</div>
-	<!-- Input: File -->
-	<input bind:files type="file" {...prunedRestProps()} class="file-dropzone-input {classesInput}" on:change />
 </div>
-
-<style lang="postcss">
-	/* Hide Input:File Content */
-	::-webkit-file-upload-button {
-		@apply hidden;
-	}
-	::file-selector-button {
-		@apply hidden;
-	}
-</style>

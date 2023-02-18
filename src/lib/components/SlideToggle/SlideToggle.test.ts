@@ -12,6 +12,7 @@ describe('SliderToggle.svelte', () => {
 	it('Renders with all props', async () => {
 		const { getByTestId } = render(SliderToggle, {
 			props: {
+				name: 'testName',
 				checked: true,
 				accent: 'bg-primary-500',
 				size: 'lg',

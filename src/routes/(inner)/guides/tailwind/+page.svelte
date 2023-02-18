@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { storeFramework } from '$docs/stores';
+	import { storeFramework } from '$docs/stores/stores';
 	// Components
 	import Tab from '$lib/components/Tab/Tab.svelte';
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
@@ -18,22 +18,36 @@
 
 	<!-- Tailwind Install -->
 	<section class="space-y-8">
-		<TabGroup selected={storeFramework}>
-			<Tab value="cli">Skeleton CLI</Tab>
-			<Tab value="manual">Manual Install</Tab>
+		<TabGroup regionPanel="space-y-4">
+			<!-- Tabs -->
+			<Tab bind:group={$storeFramework} name="cli" value="cli">Skeleton CLI</Tab>
+			<Tab bind:group={$storeFramework} name="manu" value="manual">Manual Install</Tab>
+			<!-- Panel -->
+			<svelte:fragment slot="panel">
+				{#if $storeFramework === 'cli'}
+					<p>The CLI will automatically run the required steps to configure Tailwind for your SvelteKit project.</p>
+				{:else if $storeFramework === 'manual'}
+					<div class="space-y-4">
+						<p>
+							<a href="https://github.com/svelte-add/tailwindcss" target="_blank" rel="noreferrer">Svelte-Add</a> makes it trivial to install
+							and setup Tailwind. Run the following command in your terminal.
+						</p>
+						<CodeBlock language="console" code={`npx svelte-add@latest tailwindcss\nnpm install`} />
+						<!-- prettier-ignore -->
+						<p>Then open your global stylesheet in <code>/src/app.postcss</code> and remove the following <a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> introduced by Svelte-Add. Skeleton will handle these for you.</p>
+						<CodeBlock
+							language="css"
+							code={`
+/* NOTE: Remove the following: */\n
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+					`}
+						/>
+					</div>
+				{/if}
+			</svelte:fragment>
 		</TabGroup>
-		{#if $storeFramework === 'cli'}
-			<p>
-				The CLI will automatically run <a href="https://github.com/svelte-add/tailwindcss" target="_blank" rel="noreferrer">Svelte-Add</a>,
-				which will install and configure Tailwind in your SvelteKit project.
-			</p>
-		{:else if $storeFramework === 'manual'}
-			<p>
-				<a href="https://github.com/svelte-add/tailwindcss" target="_blank" rel="noreferrer">Svelte-Add</a> makes it trivial to install and setup
-				Tailwind. Run the following command in your terminal.
-			</p>
-			<CodeBlock language="console" code={`npx svelte-add@latest tailwindcss\nnpm install`} />
-		{/if}
 	</section>
 
 	<!-- Usage -->
@@ -74,7 +88,9 @@ const config = {
 const config = {
 	// ...
 	content: [
-		// Keep existing values and append the following:
+		// NOTE: keep this line:
+		'./src/**/*.{html,js,svelte,ts}',
+		// Append the following for Skeleton:
 		require('path').join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')
 	],
 	// ...
@@ -95,11 +111,21 @@ const config = {
 	// ...
 	plugins: [
 		// Keep any existing plugins present and append the following:
-		require('@skeletonlabs/skeleton/tailwind/skeleton.cjs')
+		...require('@skeletonlabs/skeleton/tailwind/skeleton.cjs')()
 	]
 }
 `}
 			/>
+			<aside class="alert variant-ghost-warning">
+				<i class="fa-solid fa-triangle-exclamation text-2xl" />
+				<div class="alert-message">
+					Please avoid mixing Skeleton with other UI library Tailwind plugins such as Flowbite or Daisy. These plugins are not designed to
+					work together. See our integration mini-guide for using select Flowbite features alongside Skeleton.
+				</div>
+				<div class="alert-actions">
+					<a href="/docs/comparisons" class="btn variant-filled">Flowbite Guide</a>
+				</div>
+			</aside>
 		</div>
 	</section>
 
@@ -116,24 +142,24 @@ const config = {
 			them.
 		</p>
 		<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-			<div class="card p-4 card-glass-surface space-y-4 text-center">
+			<div class="card p-4 variant-glass-surface space-y-4 text-center">
 				<h3>Forms</h3>
 				<p>Provides a basic reset for form elements.</p>
-				<a class="btn btn-ghost-surface" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank" rel="noreferrer">
+				<a class="btn variant-ghost-surface" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank" rel="noreferrer">
 					View Plugin
 				</a>
 			</div>
-			<div class="card p-4 card-glass-surface space-y-4 text-center">
+			<div class="card p-4 variant-glass-surface space-y-4 text-center">
 				<h3>Typography</h3>
 				<p>Typographic defaults for HTML you don't control.</p>
-				<a class="btn btn-ghost-surface" href="https://tailwindcss.com/docs/typography-plugin" target="_blank" rel="noreferrer">
+				<a class="btn variant-ghost-surface" href="https://tailwindcss.com/docs/typography-plugin" target="_blank" rel="noreferrer">
 					View Plugin
 				</a>
 			</div>
-			<div class="card p-4 card-glass-surface space-y-4 text-center">
+			<div class="card p-4 variant-glass-surface space-y-4 text-center">
 				<h3>Line Clamp</h3>
 				<p>Provides utilities for visually truncating text.</p>
-				<a class="btn btn-ghost-surface" href="https://github.com/tailwindlabs/tailwindcss-line-clamp" target="_blank" rel="noreferrer">
+				<a class="btn variant-ghost-surface" href="https://github.com/tailwindlabs/tailwindcss-line-clamp" target="_blank" rel="noreferrer">
 					View Plugin
 				</a>
 			</div>
@@ -145,6 +171,6 @@ const config = {
 	<!-- Next Steps -->
 	<div class="card p-4 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 		<p>Next, review our options for implementing Skeleton themes.</p>
-		<a class="btn btn-filled-primary" href="/guides/themes">Themes &rarr;</a>
+		<a class="btn variant-filled-primary" href="/guides/themes">Themes &rarr;</a>
 	</div>
 </div>
