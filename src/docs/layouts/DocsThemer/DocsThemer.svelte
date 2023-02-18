@@ -164,7 +164,7 @@
 								</div>
 								<div
 									data-popup={'popup-' + i}
-									class="card p-4 max-w-xs z-50"
+									class="card p-3 max-w-xs z-50"
 									class:!text-stone-900={contrastReport.fails}
 									class:!bg-red-500={contrastReport.fails}
 									class:!text-zinc-900={contrastReport.largeAA}
