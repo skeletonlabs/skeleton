@@ -79,7 +79,7 @@
 
 	const tooltipSettings: Omit<PopupSettings, 'target'> = {
 		event: 'hover',
-		placement: 'top'
+		placement: 'left'
 	};
 
 	// Reactive
@@ -164,7 +164,7 @@
 								</div>
 								<div
 									data-popup={'popup-' + i}
-									class="card"
+									class="card p-4 max-w-xs z-50"
 									class:!text-stone-900={contrastReport.fails}
 									class:!bg-red-500={contrastReport.fails}
 									class:!text-zinc-900={contrastReport.largeAA}
