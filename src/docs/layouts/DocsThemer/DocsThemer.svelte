@@ -133,9 +133,6 @@
 			<div class="p-4 grid grid-cols-1 gap-4">
 				{#each $storeThemGenForm.colors as colorRow, i}
 					{@const contrastReport = getPassReport($storeThemGenForm.colors[i].hex, $storeThemGenForm.colors[i].on)}
-					{@const popupSettings = Object.assign(tooltipSettings, {
-						target: 'popup-' + i
-					})}
 					<div class="grid grid-cols-1 lg:grid-cols-[170px_1fr_160px] gap-2 lg:gap-4">
 						<label class="label">
 							<span>{colorRow.label}</span>
@@ -152,7 +149,9 @@
 									{#each inputSettings.colorProps as c}<option value={c.value}>{c.label}</option>{/each}
 								</select>
 								<div
-									use:popup={popupSettings}
+									use:popup={Object.assign(tooltipSettings, {
+										target: 'popup-' + i
+									})}
 									class="badge-icon aspect-square relative -top-1 right-4 z-10 hover:scale-125 transition-all"
 									class:!text-stone-900={contrastReport.fails}
 									class:!bg-red-500={contrastReport.fails}
