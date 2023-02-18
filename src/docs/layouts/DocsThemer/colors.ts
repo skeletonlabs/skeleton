@@ -136,7 +136,8 @@ export const contrastLevels: Record<
 };
 
 /** Takes the RGB and returns the luminance of it */
-export function getLuminance(r: Rgb, g?: number, b?: number): number;
+export function getLuminance(r: Rgb): number;
+export function getLuminance(r: number, g: number, b: number): number;
 export function getLuminance(r: number | Rgb, g?: number, b?: number) {
 	const { _r, _g, _b } = typeof r === 'object' ? { _r: r.r, _g: r.g, _b: r.b } : { _r: r, _g: g, _b: b }; // I'm not really happy with this ternary, but it works
 	// we can't use !_r shorthand here because 0 is a valid value
@@ -154,19 +155,31 @@ export function destringRgb(rgbString: string): Rgb {
 	return { r: parseInt(rgb[1], 10), g: parseInt(rgb[2], 10), b: parseInt(rgb[3], 10) };
 }
 
-export function handleStringColor(colorString: string): Rgb {
+// overload to specify that when there is no returnType, it will always return Rgb
+export function handleStringColor(colorString: string): Rgb;
+export function handleStringColor(colorString: string, returnType: 'rgb'): Rgb;
+export function handleStringColor(colorString: string, returnType: 'hex'): string;
+export function handleStringColor(colorString: string, returnType?: 'hex' | 'rgb'): string | Rgb;
+export function handleStringColor(colorString: string, returnType: 'hex' | 'rgb' = 'rgb'): string | Rgb {
 	// if it's a css variable
 	if (colorString.includes('--')) {
 		colorString = colorString.replace(/var\(|\)/g, ''); // grab just the variable name
 		const cssVarHydrated = getComputedStyle(document.documentElement).getPropertyValue(colorString).trim();
-		return handleStringColor(cssVarHydrated);
+		return handleStringColor(cssVarHydrated, returnType);
 	}
 	// if it has spaces, it's an rgb string
-	if (colorString.includes(' ')) return destringRgb(colorString);
+	if (colorString.includes(' ')) {
+		const rgb = destringRgb(colorString);
+		return returnType === 'hex' ? rgbToHex(rgb.r, rgb.g, rgb.b) : rgb;
+	}
 
-	const rgb = hexToRgb(colorString);
-	if (!rgb) throw new Error('Invalid hex string - ' + colorString);
-	return rgb;
+	// if it's a hex string
+	if (colorString.includes('#')) {
+		const rgb = hexToRgb(colorString);
+		if (!rgb) return '(invalid)';
+		return returnType === 'hex' ? colorString : rgb;
+	}
+	return colorString;
 }
 
 export function calculateRatio(luminance1: string | number, luminance2: string | number) {
@@ -183,11 +196,13 @@ export function textPasses(textColor: string, backgroundColor: string, size: Con
 
 /** A catch-all function to give a report on what size and level a given combination achieves.  */
 export function getPassReport(textColor: string, backgroundColor: string) {
-	const contrast = calculateRatio(textColor, backgroundColor);
-	const smallAA = textPasses(textColor, backgroundColor, 'small', 'AA');
-	const smallAAA = textPasses(textColor, backgroundColor, 'small', 'AAA');
-	const largeAA = textPasses(textColor, backgroundColor, 'large', 'AA');
-	const largeAAA = textPasses(textColor, backgroundColor, 'large', 'AAA');
+	const _textColor = handleStringColor(textColor, 'hex');
+	const _backgroundColor = handleStringColor(backgroundColor, 'hex');
+	const contrast = calculateRatio(_textColor, _backgroundColor);
+	const smallAA = textPasses(_textColor, _backgroundColor, 'small', 'AA');
+	const smallAAA = textPasses(_textColor, _backgroundColor, 'small', 'AAA');
+	const largeAA = textPasses(_textColor, _backgroundColor, 'large', 'AA');
+	const largeAAA = textPasses(_textColor, _backgroundColor, 'large', 'AAA');
 	const fails = !smallAA && !smallAAA && !largeAA && !largeAAA;
 	const AAAEmoji = '<i class="fa-solid fa-heart h-3"></i>';
 	const AAEmoji = '<i class="fa-solid fa-star h-3"></i>';
@@ -196,7 +211,7 @@ export function getPassReport(textColor: string, backgroundColor: string) {
 	const report = {
 		emoji: smallAAA ? AAAEmoji : smallAA ? AAEmoji : largeAA ? largeAAEmoji : failEmoji,
 		note:
-			`${textColor} and ${backgroundColor} ` +
+			`${_textColor} and ${_backgroundColor} ` +
 			(smallAAA
 				? 'has great contrast!'
 				: smallAA
@@ -206,8 +221,8 @@ export function getPassReport(textColor: string, backgroundColor: string) {
 				: 'fails contrast guidelines')
 	};
 	return {
-		textColor,
-		backgroundColor,
+		textColor: _textColor,
+		backgroundColor: _backgroundColor,
 		contrast,
 		report,
 		smallAA,
