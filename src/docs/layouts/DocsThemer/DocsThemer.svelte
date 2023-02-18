@@ -137,7 +137,7 @@
 						<label>
 							<span> Text & Fill Color </span>
 							<div class="flex">
-								<select bind:value={colorRow.on} disabled={!$storePreview}>
+								<select class="select" bind:value={colorRow.on} disabled={!$storePreview}>
 									{#each inputSettings.colorProps as c}<option value={c.value}>{c.label}</option>{/each}
 								</select>
 								<div
