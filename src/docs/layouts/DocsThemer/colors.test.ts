@@ -11,17 +11,21 @@ describe('Colors.ts', () => {
 		expect(hexToRgb('#FFFF00')).toEqual({ r: 255, g: 255, b: 0 });
 		expect(hexToRgb('#00FFFF')).toEqual({ r: 0, g: 255, b: 255 });
 		expect(hexToRgb('#FF00FF')).toEqual({ r: 255, g: 0, b: 255 });
+		expect(hexToRgb('#0FBA81')).toEqual({ r: 15, g: 186, b: 129 });
+		expect(hexToRgb('#4F46E5')).toEqual({ r: 79, g: 70, b: 229 });
 	});
 
 	it('Converts between RGB and hex properly', async () => {
 		expect(rgbToHex(0, 0, 0)).toEqual('#000000');
-		expect(rgbToHex(255, 255, 255)).toEqual('#FFFFFF');
-		expect(rgbToHex(255, 0, 0)).toEqual('#FF0000');
-		expect(rgbToHex(0, 255, 0)).toEqual('#00FF00');
-		expect(rgbToHex(0, 0, 255)).toEqual('#0000FF');
-		expect(rgbToHex(255, 255, 0)).toEqual('#FFFF00');
-		expect(rgbToHex(0, 255, 255)).toEqual('#00FFFF');
-		expect(rgbToHex(255, 0, 255)).toEqual('#FF00FF');
+		expect(rgbToHex(255, 255, 255)).toEqual('#ffffff');
+		expect(rgbToHex(255, 0, 0)).toEqual('#ff0000');
+		expect(rgbToHex(0, 255, 0)).toEqual('#00ff00');
+		expect(rgbToHex(0, 0, 255)).toEqual('#0000ff');
+		expect(rgbToHex(255, 255, 0)).toEqual('#ffff00');
+		expect(rgbToHex(0, 255, 255)).toEqual('#00ffff');
+		expect(rgbToHex(255, 0, 255)).toEqual('#ff00ff');
+		expect(rgbToHex(15, 186, 129)).toEqual('#0fba81');
+		expect(rgbToHex(79, 70, 229)).toEqual('#4f46e5');
 	});
 	it('Converts between hex and Tailwind RGB strings properly', async () => {
 		expect(hexToTailwindRgbString('#000000')).toEqual('0 0 0');
@@ -32,6 +36,8 @@ describe('Colors.ts', () => {
 		expect(hexToTailwindRgbString('#FFFF00')).toEqual('255 255 0');
 		expect(hexToTailwindRgbString('#00FFFF')).toEqual('0 255 255');
 		expect(hexToTailwindRgbString('#FF00FF')).toEqual('255 0 255');
+		expect(hexToTailwindRgbString('#0FBA81')).toEqual('15 186 129');
+		expect(hexToTailwindRgbString('#4F46E5')).toEqual('79 70 229');
 	});
 
 	it('Takes an RGB and returns the calculated luminance', async () => {
@@ -43,6 +49,8 @@ describe('Colors.ts', () => {
 		expect(getLuminance({ r: 255, g: 255, b: 0 })).toEqual(0.9278);
 		expect(getLuminance({ r: 0, g: 255, b: 255 })).toEqual(0.7874);
 		expect(getLuminance({ r: 255, g: 0, b: 255 })).toEqual(0.2848);
+		expect(getLuminance({ r: 15, g: 186, b: 129 })).toEqual(0.36804348374162077);
+		expect(getLuminance({ r: 79, g: 70, b: 229 })).toEqual(0.11699725241042669);
 	});
 
 	it('Destrings an RGB string that includes commas, and return an RGB object', async () => {
@@ -54,6 +62,8 @@ describe('Colors.ts', () => {
 		expect(destringRgb('255, 255, 0')).toEqual({ r: 255, g: 255, b: 0 });
 		expect(destringRgb('0, 255, 255')).toEqual({ r: 0, g: 255, b: 255 });
 		expect(destringRgb('255, 0, 255')).toEqual({ r: 255, g: 0, b: 255 });
+		expect(destringRgb('15, 186, 129')).toEqual({ r: 15, g: 186, b: 129 });
+		expect(destringRgb('79, 70, 229')).toEqual({ r: 79, g: 70, b: 229 });
 	});
 
 	it('Destrings an RGB string, and return an RGB object', async () => {
@@ -65,6 +75,8 @@ describe('Colors.ts', () => {
 		expect(destringRgb('255 255 0')).toEqual({ r: 255, g: 255, b: 0 });
 		expect(destringRgb('0 255 255')).toEqual({ r: 0, g: 255, b: 255 });
 		expect(destringRgb('255 0 255')).toEqual({ r: 255, g: 0, b: 255 });
+		expect(destringRgb('15 186 129')).toEqual({ r: 15, g: 186, b: 129 });
+		expect(destringRgb('79 70 229')).toEqual({ r: 79, g: 70, b: 229 });
 	});
 
 	it('Calculates the ratio between two luminances', async () => {
