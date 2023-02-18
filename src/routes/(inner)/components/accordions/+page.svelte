@@ -1,6 +1,6 @@
 <script lang="ts">
-	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
+	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 
 	// Components
 	import Accordion from '$lib/components/Accordion/Accordion.svelte';
@@ -18,7 +18,7 @@
 		description: 'Divide content into collapsible sections.',
 		imports: ['Accordion', 'AccordionItem'],
 		source: 'components/Accordion',
-		aria: 'https://www.w3.org/WAI/ARIA/apg/example-index/accordion/accordion',
+		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/accordion/',
 		components: [
 			{ label: 'Accordion', sveld: sveldAccordion },
 			{

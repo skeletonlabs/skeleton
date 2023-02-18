@@ -1,6 +1,6 @@
 <script lang="ts">
-	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
+	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
@@ -157,11 +157,12 @@
 					<p>A simple data-driven table component.</p>
 					<a class="btn variant-ghost-surface" href="/components/tables">Tables Component &rarr;</a>
 				</div>
-				<hr />
+				<!-- CHRIS: delisted until further notice -->
+				<!-- <hr />
 				<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 					<p>Powerful template-driven utility features for data tables.</p>
 					<a class="btn variant-ghost-surface" href="/utilities/data-tables">Data Table Utilities &rarr;</a>
-				</div>
+				</div> -->
 			</div>
 		</section>
 	</svelte:fragment>

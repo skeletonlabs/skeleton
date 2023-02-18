@@ -1,7 +1,7 @@
 <script lang="ts">
 	// Docs
-	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
+	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 	// Components
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
@@ -30,7 +30,7 @@
 	$: props = {
 		tag: 'button',
 		variant: 'variant-filled-primary',
-		size: 'btn-base',
+		size: '',
 		disabled: false
 	};
 </script>
@@ -62,7 +62,7 @@
 					<span>Size</span>
 					<RadioGroup display="flex">
 						<RadioItem bind:group={props.size} name="btn-sm" value="btn-sm">sm</RadioItem>
-						<RadioItem bind:group={props.size} name="btn-base" value="btn-base">base</RadioItem>
+						<RadioItem bind:group={props.size} name="btn-default" value="">base</RadioItem>
 						<RadioItem bind:group={props.size} name="btn-lg" value="btn-lg">lg</RadioItem>
 						<RadioItem bind:group={props.size} name="btn-xl" value="btn-xl">xl</RadioItem>
 					</RadioGroup>

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
+	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
@@ -61,7 +61,7 @@
 				language="html"
 				code={`
 <div class="logo-cloud grid-cols-1 lg:grid-cols-4 gap-1">
-	<div class="logo-item">HR Solutions</span></div>
+	<div class="logo-item">HR Solutions</div>
 	<div class="logo-item">Acme Theaters</div>
 	<div class="logo-item">Cruisin' Cuisine</div>
 	<div class="logo-item">Arcane Security</div>

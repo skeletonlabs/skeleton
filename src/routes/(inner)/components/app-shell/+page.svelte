@@ -1,6 +1,6 @@
 <script lang="ts">
-	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
+	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 
 	import AppShell from '$lib/components/AppShell/AppShell.svelte';
 	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';

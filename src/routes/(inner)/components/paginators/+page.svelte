@@ -1,6 +1,6 @@
 <script lang="ts">
-	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
+	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 
 	import Paginator from '$lib/components/Paginator/Paginator.svelte';
 	import Table from '$lib/components/Table/Table.svelte';
@@ -35,7 +35,7 @@
 	];
 
 	// Reactive
-	$: page = {
+	let page = {
 		offset: 0,
 		limit: 5,
 		size: sourceBody.length,
@@ -75,7 +75,7 @@
 			<CodeBlock
 				language="ts"
 				code={`
-$: page = {
+let page = {
 	offset: 0,
 	limit: 5,
 	size: source.length,

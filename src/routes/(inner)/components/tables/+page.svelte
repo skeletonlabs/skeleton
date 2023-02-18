@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
 
-	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
+	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 
 	// Types
 	import type { TableSource } from '$lib/components/Table/types';
@@ -187,14 +187,15 @@ tableSourceValues(sourceData);\n
 				/>
 			{/if}
 		</section>
-		<hr />
+		<!-- <hr /> -->
 		<!-- Data Table Callout -->
-		<section class="grid grid-cols-[1fr_auto] gap-4">
+		<!-- CHRIS: delisted until further notice -->
+		<!-- <section class="grid grid-cols-[1fr_auto] gap-4">
 			<div class="space-y-4">
 				<h2>Data Tables</h2>
 				<p>Need a fully featured data table with powerful features like selection and sort? See data tables.</p>
 			</div>
 			<a class="btn variant-filled-secondary place-self-center" href="/utilities/data-tables">Data Tables</a>
-		</section>
+		</section> -->
 	</svelte:fragment>
 </DocsShell>

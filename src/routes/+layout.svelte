@@ -1,19 +1,29 @@
 <!-- Layout: (root) -->
 <script lang="ts">
 	import { inject } from '@vercel/analytics';
+
+	// Highlight JS
 	import hljs from 'highlight.js';
 	import '$lib/styles/highlight-js.css'; // was: 'highlight.js/styles/github-dark.css';
 	import { storeHighlightJs } from '$lib/utilities/CodeBlock/stores';
 	storeHighlightJs.set(hljs);
+
+	// Floating UI for Popups
+	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
+	import { storePopup } from '$lib/utilities/Popup/popup';
+	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
 	// SvelteKit Imports
 	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
 	import { afterNavigate } from '$app/navigation';
 
+	// Types
+	import type { ModalComponent } from '$lib/utilities/Modal/types';
+
 	// Stores
-	import { storeCurrentUrl, storeTheme } from '$docs/stores';
-	import { storePreview } from '$docs/DocsThemer/stores';
+	import { storeCurrentUrl, storeTheme } from '$docs/stores/stores';
+	import { storePreview } from '$docs/layouts/DocsThemer/stores';
 
 	// Components & Utilities
 	import AppShell from '$lib/components/AppShell/AppShell.svelte';
@@ -21,15 +31,21 @@
 	import Toast from '$lib/utilities/Toast/Toast.svelte';
 
 	// Docs Components
-	import DocsAppBar from '$docs/DocsAppBar/DocsAppBar.svelte';
-	import DocsSidebar from '$docs/DocsNavigation/DocsSidebar.svelte';
-	import DocsDrawer from '$docs/DocsNavigation/DocsDrawer.svelte';
-	import DocsFooter from '$docs/DocsFooter/DocsFooter.svelte';
+	import DocsAppBar from '$docs/components/DocsAppBar/DocsAppBar.svelte';
+	import DocsSidebar from '$docs/components/DocsSidebar/DocsSidebar.svelte';
+	import DocsDrawer from '$docs/components/DocsDrawer/DocsDrawer.svelte';
+	import DocsFooter from '$docs/components/DocsFooter/DocsFooter.svelte';
+	// Modal Components
+	import DocsSearch from '$docs/modals/DocsSearch/DocsSearch.svelte';
+	// NOTE: (forms example uses direct method)
+	import ModalExampleList from '$docs/modals/examples/ModalExampleList.svelte';
+	import ModalExampleEmbed from '$docs/modals/examples/ModalExampleEmbed.svelte';
+	import ModalExampleImage from '$docs/modals/examples/ModalExampleImage.svelte';
 
 	// Skeleton Stylesheets
 	import '$lib/styles/all.css';
 	// The Skeleton blog stylesheet
-	import '$docs/DocsStyles/blog.css';
+	import '$docs/styles/blog.css';
 	// Global Stylesheets
 	import '../app.postcss';
 
@@ -37,10 +53,18 @@
 	import type { LayoutServerData } from './$types';
 	export let data: LayoutServerData;
 
-	if (data.vercelEnv == 'production'){
-		inject();
-	}
+	// Vercel Analytics
+	if (data.vercelEnv == 'production') inject();
 
+	// Registered list of Components for Modals
+	const modalComponentRegistry: Record<string, ModalComponent> = {
+		modalSearch: { ref: DocsSearch },
+		exampleList: { ref: ModalExampleList },
+		exampleEmbed: { ref: ModalExampleEmbed },
+		exampleImage: { ref: ModalExampleImage }
+	};
+
+	// Current Theme Data
 	$: ({ currentTheme } = data);
 
 	// Set body `data-theme` based on current theme status
@@ -165,7 +189,7 @@
 </svelte:head>
 
 <!-- Overlays -->
-<Modal />
+<Modal components={modalComponentRegistry} />
 <Toast />
 <DocsDrawer />
 

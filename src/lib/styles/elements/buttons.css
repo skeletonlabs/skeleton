@@ -28,11 +28,9 @@
 	}
 
 	/* Button: Sizes */
+	/* Note: Default values are built into `.btn` */
 	.btn-sm {
 		@apply text-sm px-3 py-1.5;
-	}
-	.btn-base {
-		@apply text-base px-5 py-[9px];
 	}
 	.btn-lg {
 		@apply text-lg px-7 py-3;

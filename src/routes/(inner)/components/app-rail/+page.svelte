@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
 
-	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
+	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 
 	// Components
 	import AppRail from '$lib/components/AppRail/AppRail.svelte';

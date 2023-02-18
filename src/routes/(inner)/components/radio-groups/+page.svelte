@@ -1,6 +1,6 @@
 <script lang="ts">
-	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
+	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 
 	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
@@ -40,13 +40,13 @@
 		<section class="grid grid-cols-2 gap-4">
 			<card class="card variant-glass p-4 text-center space-y-2">
 				<RadioGroup>
-					<RadioItem bind:group={justify} name="justify-left" value={0}>
+					<RadioItem bind:group={justify} name="justify" value={0}>
 						<i class="fa-solid fa-align-left" />
 					</RadioItem>
-					<RadioItem bind:group={justify} name="justify-center" value={1}>
+					<RadioItem bind:group={justify} name="justify" value={1}>
 						<i class="fa-solid fa-align-center" />
 					</RadioItem>
-					<RadioItem bind:group={justify} name="justify-right" value={2}>
+					<RadioItem bind:group={justify} name="justify" value={2}>
 						<i class="fa-solid fa-align-right" />
 					</RadioItem>
 				</RadioGroup>
@@ -54,8 +54,8 @@
 			</card>
 			<card class="card variant-glass p-4 text-center space-y-2">
 				<RadioGroup active="variant-filled-primary" hover="hover:variant-soft-primary">
-					<RadioItem bind:group={alignment} name="alignment-horizontal" value="horizontal">Horizontal</RadioItem>
-					<RadioItem bind:group={alignment} name="alignment-vertical" value="vertical">Vertical</RadioItem>
+					<RadioItem bind:group={alignment} name="alignment" value="horizontal">Horizontal</RadioItem>
+					<RadioItem bind:group={alignment} name="alignment" value="vertical">Vertical</RadioItem>
 				</RadioGroup>
 				<div><code>selected: {alignment}</code></div>
 			</card>
@@ -74,8 +74,8 @@
 				language="html"
 				code={`
 <RadioGroup>
-	<RadioItem bind:group={alignment} name="alignment-horizontal" value="horizontal">Horizontal</RadioItem>
-	<RadioItem bind:group={alignment} name="alignment-vertical" value="vertical">Vertical</RadioItem>
+	<RadioItem bind:group={alignment} name="alignment" value="horizontal">Horizontal</RadioItem>
+	<RadioItem bind:group={alignment} name="alignment" value="vertical">Vertical</RadioItem>
 </RadioGroup>
 				`}
 			/>
