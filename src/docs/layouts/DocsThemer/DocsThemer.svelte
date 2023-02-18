@@ -16,7 +16,6 @@
 	import type { ColorSettings, FormTheme } from './types';
 	import { inputSettings, fontSettings } from './settings';
 	import { type Palette, generatePalette, generateA11yOnColor, getPassReport } from './colors';
-	import { tooltip } from '$lib/utilities/Tooltip/tooltip';
 
 	// Stores
 	const storeThemGenForm: Writable<FormTheme> = localStorageStore('storeThemGenForm', {
