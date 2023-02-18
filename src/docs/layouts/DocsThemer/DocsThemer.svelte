@@ -165,11 +165,8 @@
 								<div
 									data-popup={'popup-' + i}
 									class="card p-3 max-w-xs z-50"
-									class:!text-stone-900={contrastReport.fails}
 									class:!variant-filled-red-500={contrastReport.fails}
-									class:!text-zinc-900={contrastReport.largeAA}
 									class:!variant-filled-amber-500={contrastReport.largeAA}
-									class:!text-slate-900={contrastReport.smallAAA || contrastReport.smallAA}
 									class:!variant-filled-green-500={contrastReport.smallAAA || contrastReport.smallAA}
 								>
 									{contrastReport.report.note}
