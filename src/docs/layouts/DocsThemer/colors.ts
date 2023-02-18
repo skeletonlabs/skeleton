@@ -50,15 +50,9 @@ export function rgbToHex(r: number, g: number, b: number): string {
 }
 
 export function generateA11yOnColor(hex: string): '255 255 255' | '0 0 0' {
-	const rgbColor = hexToRgb(hex);
-
-	if (!rgbColor) {
-		return '0 0 0';
-	}
-
-	const luma = getLuminance(rgbColor);
-
-	return luma < 120 ? '255 255 255' : '0 0 0'; // white | black
+	const black = calculateRatio(hex, '#000000');
+	const white = calculateRatio(hex, '#FFFFFF');
+	return black > white ? '0 0 0' : '255 255 255';
 }
 
 function lighten(hex: string, intensity: number): string {
