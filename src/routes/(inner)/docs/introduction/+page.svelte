@@ -33,9 +33,13 @@
 				allowfullscreen
 			/>
 		</div>
+	</section>
 
-		<!-- Problems -->
-		<h3>Why Us?</h3>
+	<hr />
+
+	<!-- Why Us? -->
+	<section class="space-y-4">
+		<h2>Why Us?</h2>
 		<p>
 			Let’s face it - creating consistent and responsive interfaces for the web can be quite a challenge. Over time this has led to the
 			emergence of UI toolkits such as <a href="https://getbootstrap.com/" target="_blank" rel="noreferrer">Bootstrap</a>,
@@ -72,7 +76,13 @@
 			Design guidelines and aesthetics. While a completely valid approach, we felt there was still room for a batteries included toolkit
 			that pairs the very best of what Svelte and Tailwind have to offer. This is the reason we've introduced Skeleton.
 		</p>
+	</section>
 
+	<hr />
+
+	<!-- Benefits -->
+	<section class="space-y-4">
+		<h2>Benefits</h2>
 		<!-- FOSS -->
 		<h3>Free and Open Source</h3>
 		<p>
@@ -82,12 +92,10 @@
 			provided under the
 			<a href="https://github.com/skeletonlabs/skeleton/blob/master/LICENSE" target="_blank" rel="noreferrer">MIT License</a>.
 		</p>
-
 		<!-- Community Owned -->
 		<h3>Community Owned</h3>
 		<!-- prettier-ignore -->
 		<p>Skeleton is maintained by a number of talented <a href="https://github.com/skeletonlabs/skeleton/graphs/contributors" target="_blank" rel="noreferrer">contributors</a>. If you wish to <a href="/docs/contributing">contribute to the project</a> you are welcome to do so. Visit the Skeleton communities on either <a href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer">GitHub</a> or <a href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer">Discord</a>.</p>
-
 		<!-- Release Schedule -->
 		<h3>Release Cycle</h3>
 		<p>
