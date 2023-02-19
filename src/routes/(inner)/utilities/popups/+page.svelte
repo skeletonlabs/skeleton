@@ -74,8 +74,8 @@
 					<span>Tooltip</span>
 					<span class="badge bg-white/10 dark:bg-black/10">Hover</span>
 				</button>
-				<div class="card variant-filled-primary p-4 w-72 shadow-xl" data-popup="exampleTooltip">
-					This is a tooltip.
+				<div class="text-xs text-center card variant-filled-primary p-2 whitespace-nowrap shadow-xl" data-popup="exampleTooltip">
+					This is a <strong>tooltip</strong> example.
 					<div class="arrow variant-filled-primary" />
 				</div>
 			</div>
@@ -85,7 +85,8 @@
 					<span>Menu</span>
 					<span class="badge bg-white/10 dark:bg-black/10">Tap</span>
 				</button>
-				<div class="card variant-filled-secondary p-4 w-72 shadow-xl" data-popup="exampleMenu">
+				<div class="card variant-filled-secondary p-4 w-72 shadow-xl space-y-4" data-popup="exampleMenu">
+					<p class="font-bold">This is a <strong>Menu</strong> example.</p>
 					<p>
 						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta amet nam hic aspernatur cum porro praesentium. Voluptates velit
 						ex ad eius sit! Sit deserunt ex accusamus quod fugit enim in?

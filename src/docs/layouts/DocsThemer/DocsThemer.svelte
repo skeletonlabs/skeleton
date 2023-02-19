@@ -149,10 +149,8 @@
 									{#each inputSettings.colorProps as c}<option value={c.value}>{c.label}</option>{/each}
 								</select>
 								<div
-									use:popup={Object.assign(tooltipSettings, {
-										target: 'popup-' + i
-									})}
-									class="badge-icon aspect-square relative -top-1 right-4 z-10 hover:scale-125 transition-all"
+									use:popup={{ ...tooltipSettings, ...{ target: 'popup-' + i } }}
+									class="badge-icon aspect-square relative -top-2 right-4 z-[1] hover:scale-125 transition-all"
 									class:!text-stone-900={contrastReport.fails}
 									class:!bg-red-500={contrastReport.fails}
 									class:!text-zinc-900={contrastReport.largeAA}
@@ -164,7 +162,7 @@
 								</div>
 								<div
 									data-popup={'popup-' + i}
-									class=" text-xs card variant-filled p-2 max-w-xs"
+									class="text-xs card variant-filled p-2 whitespace-nowrap"
 									class:!variant-filled-red-500={contrastReport.fails}
 									class:!variant-filled-amber-500={contrastReport.largeAA}
 									class:!variant-filled-green-500={contrastReport.smallAAA || contrastReport.smallAA}

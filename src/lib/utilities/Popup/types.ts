@@ -5,8 +5,8 @@ type Direction = 'top' | 'bottom' | 'left' | 'right';
 /** Placement https://floating-ui.com/docs/computePosition#placement */
 type Placement = Direction | `${Direction}-start` | `${Direction}-end`;
 
-// Middleware
-interface Middleware {
+// Options & Middlware
+interface Options {
 	/** Offset options: https://floating-ui.com/docs/offset */
 	offset?: number | Record<string, any>;
 	/** Shift options: https://floating-ui.com/docs/shift */
@@ -25,8 +25,8 @@ export interface PopupSettings {
 	target: string;
 	/** Set the placement position. Defaults 'bottom'. */
 	placement?: Placement;
-	/** Provide options for each middleware. */
-	middleware?: Middleware;
+	/** Provide additional options and middleware settings. */
+	options?: Options;
 	/** Provide an optional callback function to monitor open/close state. */
 	state?: (event: { state: boolean }) => void;
 }

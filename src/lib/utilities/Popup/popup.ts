@@ -8,7 +8,7 @@ export const storePopup: Writable<any> = writable(undefined);
 
 // Action
 export function popup(node: HTMLElement, args: PopupSettings) {
-	const { event = 'click', target, placement, middleware, state }: PopupSettings = args;
+	const { event = 'click', target, placement, options, state }: PopupSettings = args;
 	if (!event || !target) return;
 
 	// Local
@@ -26,20 +26,17 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 	function render(): void {
 		if (!elemPopup || !computePosition) return;
 
-		// Set Focusable State
-		setFocusableState();
-
 		// Construct Middlware
 		// Note the order: https://floating-ui.com/docs/middleware#ordering
 		const genMiddlware = [];
 		// https://floating-ui.com/docs/offset
-		if (offset) genMiddlware.push(offset(middleware?.offset ?? 8));
+		if (offset) genMiddlware.push(offset(options?.offset ?? 8));
 		// https://floating-ui.com/docs/shift
-		if (shift) genMiddlware.push(shift(middleware?.shift ?? { padding: 8 }));
+		if (shift) genMiddlware.push(shift(options?.shift ?? { padding: 8 }));
 		// https://floating-ui.com/docs/flip
-		if (flip) genMiddlware.push(flip(middleware?.flip));
+		if (flip) genMiddlware.push(flip(options?.flip));
 		// https://floating-ui.com/docs/arrow
-		if (arrow && elemArrow) genMiddlware.push(arrow(middleware?.arrow ?? { element: elemArrow }));
+		if (arrow && elemArrow) genMiddlware.push(arrow(options?.arrow ?? { element: elemArrow }));
 
 		// https://floating-ui.com/docs/computePosition
 		computePosition(node, elemPopup, {
@@ -70,6 +67,9 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 				});
 			}
 		});
+
+		// Set Focusable State
+		setFocusableState();
 	}
 
 	// Set Focusable State
@@ -115,6 +115,7 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 	// Visbility
 	function show(): void {
 		if (!elemPopup) return;
+		render(); // update
 		elemPopup.style.display = 'block';
 		elemPopup.style.opacity = '1';
 		elemPopup.style.pointerEvents = 'initial';
