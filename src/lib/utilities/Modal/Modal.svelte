@@ -234,7 +234,7 @@
 				{:else}
 					<!-- Modal: Components -->
 					<div
-						class="modal contents {$modalStore[0].modalClasses}"
+						class="modal-component {$modalStore[0].modalClasses ?? ''}"
 						data-testid="modal-component"
 						role="dialog"
 						aria-modal="true"

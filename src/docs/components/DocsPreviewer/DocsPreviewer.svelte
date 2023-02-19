@@ -12,11 +12,8 @@
 	export let html: string | undefined = undefined;
 	export let css: string | undefined = undefined;
 
-	export let radiosettings: any = {
-		background: 'variant-soft',
-		border: 'border border-surface-500/30'
-	};
-	export let selectSettings: any = 'variant-soft !border-surface-500/30';
+	export let radiosettings: any = { border: 'border border-surface-500/30' };
+	export let selectSettings: any = '!border-surface-500/30';
 	export let htmlSettings: any = {};
 	export let cssSettings: any = {};
 	export let scriptSettings: any = {};

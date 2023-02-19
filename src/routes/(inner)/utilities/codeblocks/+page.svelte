@@ -33,7 +33,7 @@
 			`}
 		>
 			<section class="space-y-4 w-full">
-				<CodeBlock language="html" code={`<p>Hello Skeleton<p>`} />
+				<CodeBlock language="html" code={`<div>This is meta</div>`} />
 				<CodeBlock language="css" code={`.skeleton { color: #bada55; }`} />
 				<CodeBlock language="ts" code={`const skeleton: string = 'awesome';`} />
 			</section>
