@@ -1,7 +1,5 @@
 <!-- Layout: (root) -->
 <script lang="ts">
-	import { inject } from '@vercel/analytics';
-
 	// Highlight JS
 	import hljs from 'highlight.js';
 	import '$lib/styles/highlight-js.css'; // was: 'highlight.js/styles/github-dark.css';
@@ -54,7 +52,7 @@
 	export let data: LayoutServerData;
 
 	// Vercel Analytics
-	if (data.vercelEnv == 'production') inject();
+	if (data.vercelEnv === 'production') import('@vercel/analytics').then((mod) => mod.inject());
 
 	// Registered list of Components for Modals
 	const modalComponentRegistry: Record<string, ModalComponent> = {
