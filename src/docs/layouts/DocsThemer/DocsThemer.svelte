@@ -79,7 +79,7 @@
 
 	const tooltipSettings: Omit<PopupSettings, 'target'> = {
 		event: 'hover',
-		placement: 'left'
+		placement: 'top'
 	};
 
 	// Reactive
@@ -164,12 +164,14 @@
 								</div>
 								<div
 									data-popup={'popup-' + i}
-									class="card p-3 max-w-xs z-50"
+									class=" text-xs card variant-filled p-2 max-w-xs"
 									class:!variant-filled-red-500={contrastReport.fails}
 									class:!variant-filled-amber-500={contrastReport.largeAA}
 									class:!variant-filled-green-500={contrastReport.smallAAA || contrastReport.smallAA}
 								>
 									{contrastReport.report.note}
+									<!-- Arrow -->
+									<div class="arrow variant-filled" />
 								</div>
 							</div>
 						</label>
