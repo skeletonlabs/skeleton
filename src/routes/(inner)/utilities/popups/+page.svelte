@@ -29,7 +29,7 @@
 			['<code>event</code>', 'string', 'click', 'click | hover | hover-click', 'Provide the event type'],
 			['<code>target</code>', 'string', '-', '-', 'Match the popup data value of <code>[data-popup]</code>'],
 			['<code>placement</code>', 'string', '-', 'bottom', 'Set the placement position.'],
-			['<code>middleware</code>', 'object', '-', '-', 'Provide options for each middleware.'],
+			['<code>options</code>', 'object', '-', '-', 'Provide options and middleware settings.'],
 			['<code>state</code>', 'function', '-', '-', 'Provide an optional callback function to monitor open/close state.']
 		],
 		keyboard: [
@@ -58,7 +58,8 @@
 	let exampleCombobox: PopupSettings = {
 		event: 'click',
 		target: 'exampleCombobox',
-		placement: 'bottom'
+		placement: 'bottom',
+		closeQuery: '.listbox-item'
 		// state: (e: any) => console.log('tooltip', e)
 	};
 	let listboxValue: string;
@@ -74,8 +75,9 @@
 					<span>Tooltip</span>
 					<span class="badge bg-white/10 dark:bg-black/10">Hover</span>
 				</button>
-				<div class="card variant-filled-primary p-4 w-72 shadow-xl" data-popup="exampleTooltip">
-					This is a tooltip.
+				<div class="text-xs text-center card variant-filled-primary p-2 whitespace-nowrap shadow-xl" data-popup="exampleTooltip">
+					This is a <strong>tooltip</strong> example.
+					<!-- Arrow -->
 					<div class="arrow variant-filled-primary" />
 				</div>
 			</div>
@@ -85,11 +87,14 @@
 					<span>Menu</span>
 					<span class="badge bg-white/10 dark:bg-black/10">Tap</span>
 				</button>
-				<div class="card variant-filled-secondary p-4 w-72 shadow-xl" data-popup="exampleMenu">
+				<div class="card variant-filled-secondary p-4 w-72 shadow-xl space-y-4" data-popup="exampleMenu">
+					<p class="font-bold">This is a <strong>Menu</strong> example.</p>
 					<p>
 						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta amet nam hic aspernatur cum porro praesentium. Voluptates velit
 						ex ad eius sit! Sit deserunt ex accusamus quod fugit enim in?
 					</p>
+					<button class="btn variant-filled w-full">Close Me</button>
+					<!-- Arrow -->
 					<div class="arrow variant-filled-secondary" />
 				</div>
 			</div>
@@ -193,14 +198,27 @@ let exampleSettings: PopupSettings = {
 };
 			`}
 			/>
-			<!-- Middleware -->
+			<!-- Close Query -->
+			<h3>Close Query</h3>
+			<!-- prettier-ignore -->
+			<p>When using click events, this setting uses <em>querySelectorAll</em> to select all elements within the popup that will trigger a close event. By default this is set to <code>'a[href], button'</code>, which means clicking anchor or buttons within the popup will cause it to close.</p>
+			<CodeBlock
+				language="ts"
+				code={`
+let exampleSettings: PopupSettings = {
+	// Limit to listbox items only:
+	closeQuery: '.listbox-item',
+};
+			`}
+			/>
+			<!-- Middlware -->
 			<div class="flex items-center space-x-2">
-				<h3>Middleware</h3>
+				<h3>Middlware</h3>
 				<span class="badge variant-filled-error">Advanced</span>
 			</div>
 			<!-- prettier-ignore -->
 			<p>
-				You can modify settings for select <a href="https://floating-ui.com/docs/middleware" target="_blank" rel="noreferrer">Floating UI middleware</a> within <code>PopupSettings</code>. These are passed verbatim.
+				You can provide <a href="https://floating-ui.com/docs/middleware" target="_blank" rel="noreferrer">Floating UI middleware</a> settings within <code>PopupSettings</code>. These settings are passed verbatim.
 			</p>
 			<CodeBlock
 				language="ts"
@@ -208,6 +226,7 @@ let exampleSettings: PopupSettings = {
 let exampleSettings: PopupSettings = {
 	// ...
 	middleware: {
+		// Floating UI Middlware
 		/** https://floating-ui.com/docs/offset */
 		offset: 24, // or { ... }
 		/** https://floating-ui.com/docs/shift */
