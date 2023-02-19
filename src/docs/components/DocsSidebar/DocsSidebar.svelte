@@ -30,7 +30,6 @@
 		storeCategory.set(c);
 		// prettier-ignore
 		switch($storeCategory) {
-			case('guides'): filteredMenuNavLinks = menuNavLinks.filter((linkSet: any) => linkSet.id === 'guides'); break;
 			case('docs'): filteredMenuNavLinks = menuNavLinks.filter((linkSet: any) => linkSet.id === 'docs'); break;
 			case('elements'): filteredMenuNavLinks = menuNavLinks.filter((linkSet: any) => ['tokens', 'base', 'elements', 'presentation'].includes(linkSet.id)); break;
 			case('svelte'): filteredMenuNavLinks = menuNavLinks.filter((linkSet: any) => ['components', 'actions'].includes(linkSet.id)); break;
@@ -55,9 +54,6 @@
 	<!-- App Rail -->
 	<AppRail selected={storeCategory} background="bg-transparent" border="border-r border-surface-500/30">
 		<AppRailTile label="Docs" value={'docs'}>
-			<i class="fa-solid fa-sheet-plastic text-2xl" />
-		</AppRailTile>
-		<AppRailTile label="Guides" value={'guides'}>
 			<i class="fa-solid fa-book text-2xl" />
 		</AppRailTile>
 		<hr class="opacity-30" />

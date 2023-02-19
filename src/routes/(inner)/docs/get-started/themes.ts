@@ -1,7 +1,7 @@
-// Presets
+// Preset Themes
 
 const ghPath = 'https://github.com/skeletonlabs/skeleton/blob/master/src/themes';
-export const presets: any[] = [
+export const themes: any[] = [
 	{
 		file: 'skeleton',
 		name: '💀 Skeleton',

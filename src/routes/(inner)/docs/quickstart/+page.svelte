@@ -5,7 +5,7 @@
 <div class="page-container">
 	<!-- Header -->
 	<header class="space-y-4">
-		<h1>Quickstart Guide</h1>
+		<h1>Quickstart</h1>
 		<p>This following guide will walk you through the process of creating a basic Skeleton app using SvelteKit.</p>
 	</header>
 
@@ -30,8 +30,6 @@ npm run dev
 			and <a href="/components/app-bar">App Bar</a> components in <code>/src/routes/+layout.svelte</code>.
 		</p>
 	</section>
-
-	<hr />
 
 	<section class="space-y-4">
 		<h2>Add Sidebar Navigation</h2>
@@ -61,8 +59,6 @@ npm run dev
 		/>
 	</section>
 
-	<hr />
-
 	<!-- Page -->
 	<section class="space-y-4">
 		<h2>Page Setup</h2>
@@ -76,12 +72,8 @@ npm run dev
 <div class="container mx-auto p-8 space-y-8">
 	<h1>Hello Skeleton</h1>
 	<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-	<hr />
-	<section class="card p-4">
 		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 	</section>
-	<hr />
-	<section class="flex space-x-2">
 		<a class="btn variant-filled-primary" href="https://kit.svelte.dev/" target="_blank" rel="noreferrer">SvelteKit</a>
 		<a class="btn variant-filled-secondary" href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind</a>
 		<a class="btn variant-filled-tertiary" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
@@ -105,8 +97,6 @@ npm run dev
 `}
 		/>
 	</section>
-
-	<hr />
 
 	<!-- Done -->
 	<section class="space-y-4">

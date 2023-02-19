@@ -35,11 +35,11 @@
 					+ <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind CSS</a>.
 				</p>
 				<nav class="flex space-x-4">
-					<a href="/guides/install" class="btn variant-filled-primary">
+					<a href="/docs/get-started" class="btn variant-filled-primary">
 						<span>Get Started</span>
 						<span>&rarr;</span>
 					</a>
-					<a href="/docs/why" class="btn variant-ghost-surface">Why Skeleton</a>
+					<a href="/docs/introduction" class="btn variant-ghost-surface">Why Skeleton</a>
 				</nav>
 			</div>
 			<!-- Logo -->
