@@ -8,7 +8,15 @@ export const storePopup: Writable<any> = writable(undefined);
 
 // Action
 export function popup(node: HTMLElement, args: PopupSettings) {
-	const { event = 'click', target, placement, options, state }: PopupSettings = args;
+	// prettier-ignore
+	const {
+		event = 'click',
+		target,
+		placement,
+		closeQuery = 'a[href], button',
+		middleware,
+		state 
+	}: PopupSettings = args;
 	if (!event || !target) return;
 
 	// Local
@@ -30,13 +38,13 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		// Note the order: https://floating-ui.com/docs/middleware#ordering
 		const genMiddlware = [];
 		// https://floating-ui.com/docs/offset
-		if (offset) genMiddlware.push(offset(options?.offset ?? 8));
+		if (offset) genMiddlware.push(offset(middleware?.offset ?? 8));
 		// https://floating-ui.com/docs/shift
-		if (shift) genMiddlware.push(shift(options?.shift ?? { padding: 8 }));
+		if (shift) genMiddlware.push(shift(middleware?.shift ?? { padding: 8 }));
 		// https://floating-ui.com/docs/flip
-		if (flip) genMiddlware.push(flip(options?.flip));
+		if (flip) genMiddlware.push(flip(middleware?.flip));
 		// https://floating-ui.com/docs/arrow
-		if (arrow && elemArrow) genMiddlware.push(arrow(options?.arrow ?? { element: elemArrow }));
+		if (arrow && elemArrow) genMiddlware.push(arrow(middleware?.arrow ?? { element: elemArrow }));
 
 		// https://floating-ui.com/docs/computePosition
 		computePosition(node, elemPopup, {
@@ -85,19 +93,27 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		focusableElems[0]?.focus();
 	}
 
-	// Click Handlers
-	const onNodeClick = () => {
-		show();
-	};
+	// Window Click Handler
 	const onWindowClick = (event: any) => {
-		// Avoid race condition with onNodeClick()
-		setTimeout(() => {
-			const outsideNode = node && !node.contains(event.target);
-			const outsideMenu = elemPopup && !elemPopup.contains(event.target);
-			if (outsideNode && outsideMenu) {
-				hide();
+		if (!node || !elemPopup) return;
+		// If click is within the trigger node
+		const clickTriggerNode = node.contains(event.target);
+		if (clickTriggerNode) {
+			isVisible == false ? show() : close();
+		} else {
+			// If click is outside the popup
+			const clickedOutsidePopup = elemPopup && !elemPopup.contains(event.target);
+			if (clickedOutsidePopup) {
+				close();
+			} else {
+				// If click is interactive child element within popup (ex: anchor or button)
+				const interactiveMenuElems = elemPopup?.querySelectorAll(closeQuery);
+				if (!interactiveMenuElems.length) return;
+				interactiveMenuElems.forEach((elem) => {
+					if (elem.contains(event.target)) close();
+				});
 			}
-		}, 1);
+		}
 	};
 
 	// Hover Handlers
@@ -107,7 +123,7 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		stateEventHandler(true);
 	};
 	const onMouseOut = () => {
-		hide();
+		close();
 		isVisible = false;
 		stateEventHandler(false);
 	};
@@ -122,7 +138,7 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		isVisible = true;
 		stateEventHandler(true);
 	}
-	function hide(): void {
+	function close(): void {
 		if (!elemPopup) return;
 		elemPopup.style.opacity = '0';
 		const cssTransitionDuration = parseFloat(window.getComputedStyle(elemPopup).transitionDuration.replace('s', '')) * 1000;
@@ -147,7 +163,7 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		// TODO: || (document.activeElement !== node && key === 'Tab')
 		if (key === 'Escape') {
 			event.preventDefault();
-			hide();
+			close();
 			node.focus();
 			return;
 		} else if (key === 'ArrowDown') {
@@ -181,11 +197,11 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 	// Event Listners
 	if (event === 'click') {
 		window.addEventListener('click', onWindowClick, true);
-		node.addEventListener('click', onNodeClick, true);
+		// node.addEventListener('click', onNodeClick, true);
 	}
 	if (event === 'hover') {
 		node.addEventListener('mouseover', show, true);
-		node.addEventListener('mouseout', hide, true);
+		node.addEventListener('mouseout', close, true);
 	}
 	if (event === 'hover-click') {
 		node.addEventListener('mouseover', show, true);
@@ -201,7 +217,7 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		},
 		destroy() {
 			window.removeEventListener('click', onWindowClick, true);
-			node.removeEventListener('click', onNodeClick, true);
+			// node.removeEventListener('click', onNodeClick, true);
 			node.removeEventListener('mouseover', onMouseOver, true);
 			node.removeEventListener('mouseout', onMouseOut, true);
 			// ---
