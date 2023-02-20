@@ -24,10 +24,20 @@
 	<section class="space-y-4">
 		<h2>Importing Your Theme</h2>
 		<p>
-			Copy and paste your theme CSS into <code>/src/theme.postcss</code>, then in<code>/src/routes/+layout.svelte</code> remove any preset theme,
-			then replace with your custom theme.
+			Copy and paste your theme CSS into <code>/src/theme.postcss</code>, then import the theme into your root layout in
+			<code>/src/routes/+layout.svelte</code>. Keep the order as shown.
 		</p>
-		<CodeBlock language="ts" code={`import '../theme.postcss'; // <--\nimport '../app.postcss';\n`} />
+		<CodeBlock
+			language="ts"
+			code={`
+// Your custom Skeleton theme:
+import '../theme.postcss';\n
+// This contains the bulk of Skeletons required styles:
+import '@skeletonlabs/skeleton/styles/all.css';\n
+// Finally, your application's global stylesheet (sometimes labeled 'app.css')
+import '../app.postcss';
+						`}
+		/>
 	</section>
 
 	<hr />

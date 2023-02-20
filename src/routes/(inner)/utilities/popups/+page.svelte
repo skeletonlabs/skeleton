@@ -94,9 +94,7 @@
 						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta amet nam hic aspernatur cum porro praesentium. Voluptates velit
 						ex ad eius sit! Sit deserunt ex accusamus quod fugit enim in?
 					</p>
-					<button class="btn variant-filled w-full">Close Me</button>
-					<!-- Arrow -->
-					<div class="arrow variant-filled-secondary" />
+					<button class="btn variant-filled">Close Me</button>
 				</div>
 			</div>
 			<!-- Combobox -->

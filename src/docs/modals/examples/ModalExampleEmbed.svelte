@@ -8,7 +8,7 @@
 	// Base Classes
 	const cBase = 'relative w-modal-wide shadow-xl';
 	const cButton = 'absolute -top-3 -right-3 z-1 btn-icon variant-filled';
-	const cIframe = 'w-full aspect-video rounded-container-token overflow-hidden';
+	const cIframe = 'bg-black w-full aspect-video rounded-container-token overflow-hidden';
 </script>
 
 <!-- @component This example creates an embedded video modal. -->

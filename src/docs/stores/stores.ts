@@ -11,5 +11,5 @@ export const storeCurrentUrl: Writable<string | undefined> = writable(undefined)
 // Persists select preset theme
 export const storeTheme: Writable<string> = localStorageStore('storeTheme', 'skeleton');
 
-// Persists the tab selection for the user's preferred framework
-export const storeFramework: Writable<string> = localStorageStore('storeFramework', 'sveltekit');
+// Persists the tab selection for the user's preferred onboarding method
+export const storeOnboardMethod: Writable<string> = localStorageStore('storeOnboardMethod', 'cli');

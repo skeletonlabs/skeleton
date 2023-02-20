@@ -10,7 +10,7 @@
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Stores
-	import { storeFramework } from '$docs/stores/stores';
+	import { storeOnboardMethod } from '$docs/stores/stores';
 	export const storeStylesheets: Writable<string> = writable('recommended');
 	export const storeStylesheetElements: Writable<string> = writable('combined');
 </script>
@@ -20,18 +20,18 @@
 	<h2>Stylesheets</h2>
 	<TabGroup regionPanel="space-y-4">
 		<!-- Tabs -->
-		<Tab bind:group={$storeFramework} name="cli" value="cli">Skeleton CLI</Tab>
-		<Tab bind:group={$storeFramework} name="manu" value="manual">Manual Install</Tab>
+		<Tab bind:group={$storeOnboardMethod} name="cli" value="cli">Skeleton CLI</Tab>
+		<Tab bind:group={$storeOnboardMethod} name="manu" value="manual">Manual Install</Tab>
 		<!-- Panel -->
 		<svelte:fragment slot="panel">
-			{#if $storeFramework === 'cli'}
+			{#if $storeOnboardMethod === 'cli'}
 				<p>The CLI will automatically import all required stylesheets in <code>src/routes/+layout.svelte</code>.</p>
-			{:else if $storeFramework === 'manual'}
+			{:else if $storeOnboardMethod === 'manual'}
 				<p>Ensure the following stylesheets are added to your root layout in <code>src/routes/+layout.svelte</code>.</p>
 				<aside class="alert variant-ghost-warning">
 					<i class="fa-solid fa-triangle-exclamation text-2xl" />
 					<div class="alert-message ">
-						<p>The following stylesheets are <u>required</u> and it is critical they are imported in the following order.</p>
+						<p>Make sure each of these stylesheets are present and <u>in the order shown</u>.</p>
 					</div>
 				</aside>
 				<CodeBlock

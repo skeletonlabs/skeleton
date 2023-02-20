@@ -19,8 +19,9 @@
 			Skeleton is a UI library, featuring tight integration between <a href="https://svelte.dev/" target="_blank" rel="noreferrer">Svelte</a
 			>
 			and <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind CSS</a>. In short, the library utilizes Tailwind’s
-			utility class-based design system to quickly and easily customize and extend the look and feel of each component. Paired with Svelte’s
-			powerful component architecture, Skeleton creates customized, responsive, and reactive interfaces for any size project.
+			utility class-based design system to quickly and easily customize and extend the look and feel of each Skeleton feature. Paired with
+			Svelte’s powerful component architecture, Skeleton creates customized, responsive, and reactive interfaces for projects of any scale
+			and scope.
 		</p>
 
 		<div class="card variant-soft p-4">
@@ -70,11 +71,9 @@
 			- which provides a modern and powerful component system. Along with the
 			<a href="https://kit.svelte.dev/" target="_blank" rel="noreferrer">SvelteKit</a> app framework, that provides a turnkey solution for
 			building and iterating on web projects using Svelte and next generation tooling such as
-			<a href="https://vitejs.dev/" target="_blank" rel="noreferrer">Vite</a>. However, before creating Skeleton we noticed a lack of mature
-			Svelte-focused UI component libraries. While there’s plenty of
-			<a href="https://www.youtube.com/watch?v=RkD88ARvucM" target="_blank" rel="noreferrer">options</a>, many tend to focus on Material
-			Design guidelines and aesthetics. While a completely valid approach, we felt there was still room for a batteries included toolkit
-			that pairs the very best of what Svelte and Tailwind have to offer. This is the reason we've introduced Skeleton.
+			<a href="https://vitejs.dev/" target="_blank" rel="noreferrer">Vite</a>. However, while there are some great alteranatives available
+			in the UI space, we felt there was room for a batteries included toolkit that pairs the very best of what Svelte and Tailwind have to
+			offer. This is the reason we've introduced Skeleton.
 		</p>
 	</section>
 
