@@ -82,6 +82,7 @@ export const menuNavLinks: any = [
 		title: 'Components',
 		list: [
 			{ href: '/components/accordions', label: 'Accordions', keywords: 'collapse' },
+			{ href: '/components/auto-complete', label: 'Auto Complete', keywords: 'input, filter, fuzzy, auto-complete' },
 			{ href: '/components/app-bar', label: 'App Bar', keywords: 'header, top, bar, title' },
 			{ href: '/components/app-rail', label: 'App Rail', keywords: 'nav, navigation, tile, sidebar' },
 			{ href: '/components/app-shell', label: 'App Shell', keywords: 'layout, header, footer, sidebar, page, content' },
