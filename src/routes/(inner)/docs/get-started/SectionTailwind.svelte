@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { storeFramework } from '$docs/stores/stores';
+	import { storeOnboardMethod } from '$docs/stores/stores';
 	// Components
 	import Tab from '$lib/components/Tab/Tab.svelte';
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
@@ -14,31 +14,31 @@
 	</p>
 	<TabGroup regionPanel="space-y-4">
 		<!-- Tabs -->
-		<Tab bind:group={$storeFramework} name="cli" value="cli">Skeleton CLI</Tab>
-		<Tab bind:group={$storeFramework} name="manu" value="manual">Manual Install</Tab>
+		<Tab bind:group={$storeOnboardMethod} name="cli" value="cli">Skeleton CLI</Tab>
+		<Tab bind:group={$storeOnboardMethod} name="manu" value="manual">Manual Install</Tab>
 		<!-- Panel -->
 		<svelte:fragment slot="panel">
-			{#if $storeFramework === 'cli'}
+			{#if $storeOnboardMethod === 'cli'}
 				<p>
 					The CLI will automatically run <a href="https://github.com/svelte-add/tailwindcss" target="_blank" rel="noreferrer">Svelte-Add</a>
 					to install Tailwind within your project.
 				</p>
-			{:else if $storeFramework === 'manual'}
+			{:else if $storeOnboardMethod === 'manual'}
 				<div class="space-y-4">
 					<p>
-						<a href="https://github.com/svelte-add/tailwindcss" target="_blank" rel="noreferrer">Svelte-Add</a> makes it trivial to install and
-						setup Tailwind. Run the following command in your terminal.
+						<a href="https://github.com/svelte-add/tailwindcss" target="_blank" rel="noreferrer">Svelte-Add</a> makes it easy to setup Tailwind
+						in your project. Run the following commands in your terminal.
 					</p>
 					<CodeBlock language="console" code={`npx svelte-add@latest tailwindcss\nnpm install`} />
 					<!-- prettier-ignore -->
-					<p>Then open your global stylesheet in <code>/src/app.postcss</code> and remove the following <a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> introduced by Svelte-Add. Skeleton will handle these for you.</p>
+					<p>Then open your global stylesheet in <code>/src/app.postcss</code> and remove the following three <a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> introduced by Svelte-Add. These will be redudant.</p>
 					<div class="space-y-[1px]">
 						<del>@tailwind base;</del>
 						<del>@tailwind components;</del>
 						<del>@tailwind utilities;</del>
 					</div>
 				</div>
-				<p>Apply these three changes to your <code>tailwind.config.cjs</code>, found in the root of your project.</p>
+				<p>Apply these following three changes to your <code>tailwind.config.cjs</code>, found in the root of your project.</p>
 				<CodeBlock
 					language="js"
 					code={`
@@ -71,37 +71,4 @@ module.exports = {
 			{/if}
 		</svelte:fragment>
 	</TabGroup>
-
-	<!-- Plugins -->
-	<!-- <div class="flex items-center space-x-2">
-		<h2>Tailwind Plugins</h2>
-		<span class="badge bg-surface-200-700-token">Optional</span>
-	</div>
-	<p>
-		Skeleton pairs well with all of the official Tailwind plugins. These are <u>optional</u> and should only be added if your project requires
-		them.
-	</p>
-	<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-		<div class="card p-4 variant-glass-surface space-y-4 text-center">
-			<h3>Forms</h3>
-			<p>Provides a basic reset for form elements.</p>
-			<a class="btn variant-ghost-surface" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank" rel="noreferrer">
-				View Plugin
-			</a>
-		</div>
-		<div class="card p-4 variant-glass-surface space-y-4 text-center">
-			<h3>Typography</h3>
-			<p>Typographic defaults for HTML you don't control.</p>
-			<a class="btn variant-ghost-surface" href="https://tailwindcss.com/docs/typography-plugin" target="_blank" rel="noreferrer">
-				View Plugin
-			</a>
-		</div>
-		<div class="card p-4 variant-glass-surface space-y-4 text-center">
-			<h3>Line Clamp</h3>
-			<p>Provides utilities for visually truncating text.</p>
-			<a class="btn variant-ghost-surface" href="https://github.com/tailwindlabs/tailwindcss-line-clamp" target="_blank" rel="noreferrer">
-				View Plugin
-			</a>
-		</div>
-	</div> -->
 </section>

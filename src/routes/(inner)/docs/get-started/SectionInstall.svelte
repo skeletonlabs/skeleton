@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { storeFramework } from '$docs/stores/stores';
+	import { storeOnboardMethod } from '$docs/stores/stores';
 	// Components
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
 	import Tab from '$lib/components/Tab/Tab.svelte';
@@ -9,11 +9,11 @@
 <section class="space-y-4">
 	<TabGroup regionPanel="space-y-4">
 		<!-- Tabs -->
-		<Tab bind:group={$storeFramework} name="cli" value="cli">Skeleton CLI</Tab>
-		<Tab bind:group={$storeFramework} name="manu" value="manual">Manual Install</Tab>
+		<Tab bind:group={$storeOnboardMethod} name="cli" value="cli">Skeleton CLI</Tab>
+		<Tab bind:group={$storeOnboardMethod} name="manu" value="manual">Manual Install</Tab>
 		<!-- Panel -->
 		<svelte:fragment slot="panel">
-			{#if $storeFramework === 'cli'}
+			{#if $storeOnboardMethod === 'cli'}
 				<p>We provide an interactive CLI app to scaffold a new SvelteKit project and automatically configure Skeleton.</p>
 				<CodeBlock
 					language="console"
@@ -23,10 +23,10 @@ npm create skeleton-app@latest my-skeleton-app
 cd my-skeleton-app
 						`}
 				/>
-			{:else if $storeFramework === 'manual'}
+			{:else if $storeOnboardMethod === 'manual'}
 				<!-- prettier-ignore -->
 				<p>
-					Use this option if you're migrating from an existing SvelteKit project. Otherwise use the <a href="https://kit.svelte.dev/docs/creating-a-project" target="_blank" rel="noreferrer">official documentation</a> to setup a new SvelteKit project.
+					Follow the instructions provided by the <a href="https://kit.svelte.dev/docs/creating-a-project" target="_blank" rel="noreferrer">official documentation</a> to generate a new SvelteKit project.
 				</p>
 				<CodeBlock
 					language="console"
