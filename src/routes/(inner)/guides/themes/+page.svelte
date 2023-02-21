@@ -115,7 +115,7 @@
 		</div>
 		<!-- prettier-ignore -->
 		<p class="text-center">
-			Prest themes can be found on <a href="https://github.com/skeletonlabs/skeleton/tree/master/src/lib/themes" target="_blank" rel="noreferrer">GitHub</a> if you wish to clone and modify them.
+			Preset themes can be found on <a href="https://github.com/skeletonlabs/skeleton/tree/master/src/lib/themes" target="_blank" rel="noreferrer">GitHub</a> if you wish to clone and modify them.
 		</p>
 		<div class="flex items-center space-x-2">
 			<h3>Theme Extras</h3>
