@@ -1,6 +1,8 @@
 <script lang="ts">
+	import LayoutPage from '$docs/layouts/LayoutPage/LayoutPage.svelte';
+	// Types
 	import type { TableSource } from '$lib/components/Table/types';
-
+	// Components
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import Table from '$lib/components/Table/Table.svelte';
 
@@ -54,7 +56,7 @@
 	};
 </script>
 
-<div class="page-container">
+<LayoutPage>
 	<header class="space-y-4">
 		<h1>Colors</h1>
 		<p>This section provides a quick reference of each available theme color and their intended uses.</p>
@@ -76,4 +78,4 @@
 			code={`/* Using CSS custom properties. Note that colors are RGB values! */\nbody { background: rgba(var(--color-surface-900) / 1); }`}
 		/>
 	</section>
-</div>
+</LayoutPage>

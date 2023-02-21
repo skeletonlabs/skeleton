@@ -71,7 +71,7 @@
 						on:click={() => { copyThemeToClipboard(preset.file); }}
 						on:keydown={() => { copyThemeToClipboard(preset.file); }}
 					>
-						<h3 class="text-center font-bold">{preset.name}</h3>
+						<h3 class="text-center font-bold" data-toc-ignore>{preset.name}</h3>
 						<ul class="flex justify-center items-center -space-x-1">
 							{#each preset.colors as color}
 								<li class="aspect-square w-4 xl:w-6 rounded-full" style:background={color} />

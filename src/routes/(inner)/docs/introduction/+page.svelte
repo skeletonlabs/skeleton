@@ -1,9 +1,11 @@
 <script lang="ts">
+	import LayoutPage from '$docs/layouts/LayoutPage/LayoutPage.svelte';
+	// Components
 	import Accordion from '$lib/components/Accordion/Accordion.svelte';
 	import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
 </script>
 
-<div class="page-container">
+<LayoutPage>
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Introduction</h1>
@@ -24,16 +26,14 @@
 			and scope.
 		</p>
 
-		<div class="card variant-soft p-4">
-			<iframe
-				class="w-full max-w-[1024px] aspect-video mx-auto rounded-container-token shadow"
-				src="https://www.youtube.com/embed/2OnJYCXJPK4"
-				title="YouTube video player"
-				frameborder="0"
-				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-				allowfullscreen
-			/>
-		</div>
+		<iframe
+			class="w-full aspect-video mx-auto rounded-container-token shadow"
+			src="https://www.youtube.com/embed/2OnJYCXJPK4"
+			title="YouTube video player"
+			frameborder="0"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			allowfullscreen
+		/>
 	</section>
 
 	<hr />
@@ -83,7 +83,7 @@
 	<section class="space-y-4">
 		<h2>Benefits</h2>
 		<!-- FOSS -->
-		<h3>Free and Open Source</h3>
+		<h3 data-toc-ignore>Free and Open Source</h3>
 		<p>
 			Skeleton is available as <a href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer"
 				>free and open-source software (FOSS)</a
@@ -92,11 +92,11 @@
 			<a href="https://github.com/skeletonlabs/skeleton/blob/master/LICENSE" target="_blank" rel="noreferrer">MIT License</a>.
 		</p>
 		<!-- Community Owned -->
-		<h3>Community Owned</h3>
+		<h3 data-toc-ignore>Community Owned</h3>
 		<!-- prettier-ignore -->
 		<p>Skeleton is maintained by a number of talented <a href="https://github.com/skeletonlabs/skeleton/graphs/contributors" target="_blank" rel="noreferrer">contributors</a>. If you wish to <a href="/docs/contributing">contribute to the project</a> you are welcome to do so. Visit the Skeleton communities on either <a href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer">GitHub</a> or <a href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer">Discord</a>.</p>
 		<!-- Release Schedule -->
-		<h3>Release Cycle</h3>
+		<h3 data-toc-ignore>Release Cycle</h3>
 		<p>
 			Skeleton receives new updates every other week, typically around Tuesday (US/Central). Each release is packed with new features,
 			improvements, and bugfixes.
@@ -115,7 +115,7 @@
 
 		<Accordion autocollapse class="card variant-glass p-2">
 			<AccordionItem open>
-				<svelte:fragment slot="summary"><h3>Tailwind UI</h3></svelte:fragment>
+				<svelte:fragment slot="summary"><h3 data-toc-ignore>Tailwind UI</h3></svelte:fragment>
 				<svelte:fragment slot="content">
 					<a href="https://tailwindui.com/" target="_blank" rel="noreferrer">https://tailwindui.com/</a>
 					<p>
@@ -128,7 +128,7 @@
 				</svelte:fragment>
 			</AccordionItem>
 			<AccordionItem>
-				<svelte:fragment slot="summary"><h3>Flowbite</h3></svelte:fragment>
+				<svelte:fragment slot="summary"><h3 data-toc-ignore>Flowbite</h3></svelte:fragment>
 				<svelte:fragment slot="content">
 					<a href="https://flowbite.com/" target="_blank" rel="noreferrer">https://flowbite.com/</a>
 					<p>
@@ -143,7 +143,7 @@
 				</svelte:fragment>
 			</AccordionItem>
 			<AccordionItem>
-				<svelte:fragment slot="summary"><h3>Daisy UI</h3></svelte:fragment>
+				<svelte:fragment slot="summary"><h3 data-toc-ignore>Daisy UI</h3></svelte:fragment>
 				<svelte:fragment slot="content">
 					<a href="https://daisyui.com/" target="_blank" rel="noreferrer">https://daisyui.com/</a>
 					<p>
@@ -170,7 +170,7 @@
 
 		<Accordion autocollapse class="card variant-glass p-2">
 			<AccordionItem open>
-				<svelte:fragment slot="summary"><h3>Is Typescript required?</h3></svelte:fragment>
+				<svelte:fragment slot="summary"><h3 data-toc-ignore>Is Typescript required?</h3></svelte:fragment>
 				<svelte:fragment slot="content">
 					<p>
 						No, Skeleton does not require Typescript, though we highly recommend it. Please be aware all documentation examples are written
@@ -183,7 +183,7 @@
 				</svelte:fragment>
 			</AccordionItem>
 			<AccordionItem>
-				<svelte:fragment slot="summary"><h3>What package managers are supported?</h3></svelte:fragment>
+				<svelte:fragment slot="summary"><h3 data-toc-ignore>What package managers are supported?</h3></svelte:fragment>
 				<svelte:fragment slot="content">
 					<p>
 						We support <a href="https://docs.npmjs.com/about-npm" target="_blank" rel="noreferrer">NPM (Node Package Manager)</a>. PNPM and
@@ -192,7 +192,7 @@
 				</svelte:fragment>
 			</AccordionItem>
 			<AccordionItem>
-				<svelte:fragment slot="summary"><h3>Can I use a monorepo?</h3></svelte:fragment>
+				<svelte:fragment slot="summary"><h3 data-toc-ignore>Can I use a monorepo?</h3></svelte:fragment>
 				<svelte:fragment slot="content">
 					<p>
 						Yes, but please be mindful of the <code>node_modules</code> path in your project configuration. We <u>do not</u> tailor instruction
@@ -201,7 +201,7 @@
 				</svelte:fragment>
 			</AccordionItem>
 			<AccordionItem>
-				<svelte:fragment slot="summary"><h3>Do you have a project roadmap?</h3></svelte:fragment>
+				<svelte:fragment slot="summary"><h3 data-toc-ignore>Do you have a project roadmap?</h3></svelte:fragment>
 				<svelte:fragment slot="content">
 					<p>
 						Yes, <a href="https://github.com/skeletonlabs/skeleton/discussions/503" target="_blank" rel="noreferrer">view our roadmap</a>.
@@ -210,7 +210,7 @@
 				</svelte:fragment>
 			</AccordionItem>
 			<AccordionItem>
-				<svelte:fragment slot="summary"><h3>How can I contribute?</h3></svelte:fragment>
+				<svelte:fragment slot="summary"><h3 data-toc-ignore>How can I contribute?</h3></svelte:fragment>
 				<svelte:fragment slot="content">
 					<p>
 						See the <a href="/docs/contributing">contribution guide</a>. This covers all requirements for getting started.
@@ -218,7 +218,7 @@
 				</svelte:fragment>
 			</AccordionItem>
 			<AccordionItem>
-				<svelte:fragment slot="summary"><h3>Where can I learn Svelte and SvelteKit?</h3></svelte:fragment>
+				<svelte:fragment slot="summary"><h3 data-toc-ignore>Where can I learn Svelte and SvelteKit?</h3></svelte:fragment>
 				<svelte:fragment slot="content">
 					<p>
 						We recommend the official <a href="https://svelte.dev/docs" target="_blank" rel="noreferrer">documentation</a> and
@@ -228,7 +228,7 @@
 				</svelte:fragment>
 			</AccordionItem>
 			<AccordionItem>
-				<svelte:fragment slot="summary"><h3>Where can I learn Tailwind?</h3></svelte:fragment>
+				<svelte:fragment slot="summary"><h3 data-toc-ignore>Where can I learn Tailwind?</h3></svelte:fragment>
 				<svelte:fragment slot="content">
 					<p>
 						We recommend the official <a href="https://tailwindcss.com/docs/utility-first" target="_blank" rel="noreferrer">documentation</a
@@ -240,4 +240,4 @@
 			</AccordionItem>
 		</Accordion>
 	</section>
-</div>
+</LayoutPage>

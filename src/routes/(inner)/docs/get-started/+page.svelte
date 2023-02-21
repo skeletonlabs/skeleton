@@ -1,11 +1,13 @@
 <script lang="ts">
+	import LayoutPage from '$docs/layouts/LayoutPage/LayoutPage.svelte';
+	// Section Components
 	import SectionInstall from './SectionInstall.svelte';
 	import SectionTailwind from './SectionTailwind.svelte';
 	import SectionThemes from './SectionThemes.svelte';
 	import SectionStylesheets from './SectionStylesheets.svelte';
 </script>
 
-<div class="page-container">
+<LayoutPage>
 	<header class="space-y-4">
 		<h1>Get Started</h1>
 		<!-- prettier-ignore -->
@@ -17,4 +19,4 @@
 	<SectionTailwind />
 	<SectionStylesheets />
 	<SectionThemes />
-</div>
+</LayoutPage>

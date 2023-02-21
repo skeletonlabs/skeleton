@@ -115,8 +115,8 @@
 
 <div class="docs-themer space-y-4">
 	<div class="card variant-glass-surface p-4 flex justify-between items-center">
-		<span>Live Preview Mode</span>
-		<SlideToggle name="preview" size="lg" bind:checked={$storePreview} on:change={onPreviewToggle} />
+		<h2>Enable Preview</h2>
+		<SlideToggle name="preview" bind:checked={$storePreview} on:change={onPreviewToggle} />
 	</div>
 	<div class="grid grid-cols-2 gap-4">
 		<!-- Theme Color -->
@@ -124,7 +124,6 @@
 			<!-- General Settings -->
 			<header class="p-4 col-span-2 flex justify-between items-center">
 				<div class="flex items-center space-x-4">
-					<h3>Colors</h3>
 					<LightSwitch />
 				</div>
 				<button class="btn variant-ghost-surface" on:click={randomize} disabled={!$storePreview}>Randomize Colors</button>
@@ -181,7 +180,7 @@
 		<!-- Theme Settings -->
 		<section class="card p-4 grid grid-cols-2 gap-4 col-span-2 lg:col-span-1">
 			<!-- Fonts -->
-			<h3 class="col-span-2">Fonts</h3>
+			<h3 class="col-span-2" data-toc-ignore>Fonts</h3>
 			<label class="label">
 				<span>Base</span>
 				<select class="select" bind:value={$storeThemGenForm.fontBase} disabled={!$storePreview}>
@@ -195,7 +194,7 @@
 				</select>
 			</label>
 			<!-- Text Color -->
-			<h3 class="col-span-2">Text Color</h3>
+			<h3 class="col-span-2" data-toc-ignore>Text Color</h3>
 			<label class="label">
 				<span>Light Mode</span>
 				<select class="select" bind:value={$storeThemGenForm.textColorLight} disabled={!$storePreview}>
@@ -209,7 +208,7 @@
 				</select>
 			</label>
 			<!-- Border Radius -->
-			<h3 class="col-span-2">Border Radius</h3>
+			<h3 class="col-span-2" data-toc-ignore>Border Radius</h3>
 			<label class="label">
 				<span>Base</span>
 				<select class="select" bind:value={$storeThemGenForm.roundedBase} disabled={!$storePreview}>
@@ -224,7 +223,7 @@
 				</select>
 			</label>
 			<!-- Border Size -->
-			<h3 class="col-span-2">Border Size</h3>
+			<h3 class="col-span-2" data-toc-ignore>Border Size</h3>
 			<label class="label">
 				<span>Base</span>
 				<select class="select" bind:value={$storeThemGenForm.borderBase} disabled={!$storePreview}>
@@ -235,7 +234,7 @@
 
 		<!-- Previews -->
 		<section class="card !bg-transparent p-4 space-y-8 col-span-2 lg:col-span-1">
-			<h3>Preview</h3>
+			<h3 data-toc-ignore>Preview</h3>
 			<!-- Buttons -->
 			<div class="grid grid-cols-3 gap-4">
 				<button class="btn variant-filled-primary">primary</button>
