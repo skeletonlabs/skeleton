@@ -412,7 +412,7 @@ function triggerCustomModal(): void {
 				<div class="alert-actions">
 					<a
 						class="btn variant-filled-secondary"
-						href="https://github.com/skeletonlabs/skeleton/tree/master/src/docs/DocsModals/"
+						href="https://github.com/skeletonlabs/skeleton/tree/master/src/docs/modals/examples"
 						target="_blank"
 						rel="noreferrer">View Example Modals</a
 					>

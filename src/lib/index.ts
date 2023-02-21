@@ -15,6 +15,7 @@ export type CssClasses = string;
 // Stores ---
 
 export { storeHighlightJs } from './utilities/CodeBlock/stores';
+export { storePopup } from './utilities/Popup/popup';
 export { drawerStore } from './utilities/Drawer/stores';
 export { modalStore } from './utilities/Modal/stores';
 export { toastStore } from './utilities/Toast/stores';
