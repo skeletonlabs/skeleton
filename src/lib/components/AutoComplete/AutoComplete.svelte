@@ -7,33 +7,53 @@
 	export let searchTerm: string;
 	/** Define values for the list */
 	export let values: { label: string; value: string }[];
+	/**
+	 * Provide a whitelist of accepted values.
+	 * Defaults to all values provided by the user.
+	 * @type {{ label: string, value: string }[]}
+	 */
+	export let whitelist: { label: string, value: string }[] = [...values];
+	/** Define mode for determining how filtering works: fuzzy, exclude (takes search string of CVS and excludes them from the list)*/
+	export let mode: string;
 
 	// Props (styles)
-	/** Provide classes or a variant to style the chips. */
-	export let hover: CssClasses = 'variant-soft-primary';
 	/** Provide classes to set padding styles. */
-	export let padding: CssClasses = 'p-1';
+	export let padding: CssClasses = 'p-2';
 	/** Provide classes to set border radius styles. */
 	export let rounded: CssClasses = 'rounded-container-token';
-
-	// NOTE: Temporarily here, these will go in a Css files to match conventions for skeleton
 	/** Provide classes to set max height styles. */
-	export let maxHeight: CssClasses = 'max-h-20';
+	export let maxHeight: CssClasses = 'max-h-[100px]';
+	
+	// Props (items)
+	/** Provide classes or a variant to style the hover. */
+	export let itemHover: CssClasses = 'variant-soft-primary';
 	/** Provide classes to set values background styles. */
 	export let background: CssClasses = 'variant-ringed-primary';
+	/** Provide classes to set values for overflow styles. */
+	export let overflowY: CssClasses = 'overflow-y-auto';
 
 	// Classes
 	const cBase = 'cursor-pointer';
 
 	/** Fuzzy filters values based on the search term. Case insensitive. */
 	$: filteredValues = () => {
+		const filterable = [...values];
 		if (!searchTerm) return [...values];
 
-		return [...values].filter((row) => {
-			const rowFormatted = JSON.stringify(row).toLowerCase();
-
-			if (rowFormatted.includes(searchTerm.toLowerCase())) return row;
-		});
+		if(mode === "exclude"){
+			return [...filterable.filter((row) => {
+				const rowFormatted = JSON.stringify(row).toLowerCase();
+	
+				if(!rowFormatted.includes(searchTerm.toLowerCase())) return row;
+			})];
+		}
+		else{
+			return filterable.filter((row) => {
+					const rowFormatted = JSON.stringify(row).toLowerCase();
+		
+					if (rowFormatted.includes(searchTerm.toLowerCase())) return row;
+			});
+		}
 	};
 
 	function onSelectHandler(selected: { label: string; value: string }): void {
@@ -42,13 +62,13 @@
 	}
 
 	// Reactive
-	$: classesBase = `${cBase} ${padding} ${rounded} ${$$props.class ?? ''}`;
+	$: classesBase = `${cBase} ${padding} ${rounded} ${maxHeight} ${overflowY} ${background} ${$$props.class ?? ''}`;
 </script>
 
-<div class="autocomplete {classesBase} {maxHeight} overflow-y-auto {background}">
+<div class="autocomplete list {classesBase}">
 	{#each filteredValues() as value}
 		<div
-			class="item hover:{hover} {padding}"
+			class="autocomplete-item flex-auto hover:{itemHover}"
 			on:click={() => {
 				onSelectHandler(value);
 			}}
