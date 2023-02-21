@@ -11,7 +11,7 @@ A fully featured Svelte UI toolkit for Svelte + Tailwind. Skeleton allows you to
 ## 🔗 Useful Links
 
 - [Documentation](https://skeleton.dev/)
-- [Contribution Guide](https://skeleton.dev/docs/contributions)
+- [Contribution Guide](https://skeleton.dev/docs/contributing)
 - [Project Roadmap](https://github.com/skeletonlabs/skeleton/wiki/%F0%9F%9B%A3%EF%B8%8F-The-Skeleton-Roadmap)
 
 ## 👋 Community

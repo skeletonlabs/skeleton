@@ -1,6 +1,6 @@
 <script lang="ts">
-	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
+	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 
 	import Table from '$lib/components/Table/Table.svelte';
 	import type { TableSource } from '$lib/components/Table/types';
@@ -15,7 +15,7 @@
 	};
 
 	// Local
-	const vColorsAll = '<a href="/guides/themes/colors">Theme Colors</a>';
+	const vColorsAll = '<a href="/docs/colors">Theme Colors</a>';
 	const vPairings = 'See pairing chart above.';
 	const vCorners = 'tl | tr | bl | br';
 	const descPairings = 'Can be 50-900 or 900-50 format.';

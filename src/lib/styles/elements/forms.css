@@ -74,7 +74,7 @@
 		/* Ring */
 		@apply !ring-0;
 		/* Border */
-		@apply border-token border-surface-400-500-token focus:border-primary-500;
+		@apply border-token border-surface-400-500-token focus-within:border-primary-500;
 	}
 
 	/* Base Inputs */
@@ -91,7 +91,7 @@
 
 	/* Select (size/multiple) */
 	.select {
-		@apply p-2 space-y-1;
+		@apply p-2 pr-8 space-y-1;
 	}
 	.select[size] {
 		@apply bg-none;
@@ -109,16 +109,12 @@
 		@apply !mb-3;
 	}
 	.select option {
-		@apply px-4 py-2 rounded-token;
+		@apply px-4 py-2 rounded-token cursor-pointer;
 	}
 	.select option:checked {
 		/* https://stackoverflow.com/questions/50618602/change-color-of-selected-option-in-select-multiple */
-		background: rgb(var(--color-surface-900)) linear-gradient(0deg, rgb(var(--color-surface-900)) 0%, rgb(var(--color-surface-900)) 100%);
-		@apply text-surface-50-900-token;
-	}
-	.dark .select option:checked {
-		/* https://stackoverflow.com/questions/50618602/change-color-of-selected-option-in-select-multiple */
-		background: rgb(var(--color-surface-50)) linear-gradient(0deg, rgb(var(--color-surface-50)) 0%, rgb(var(--color-surface-50)) 100%);
+		background: rgb(var(--color-primary-500)) linear-gradient(0deg, rgb(var(--color-primary-500)) 0%, rgb(var(--color-primary-500)) 100%);
+		@apply text-on-primary-token;
 	}
 
 	/* Checkbox & Radio */

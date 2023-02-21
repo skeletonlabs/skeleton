@@ -1,11 +1,10 @@
 <script>
-	import SvgIcon from '$docs/SvgIcon/SvgIcon.svelte';
+	import DocsIcon from '$docs/components/DocsIcon/DocsIcon.svelte';
 </script>
 
 <!-- <script lang="ts"></script> -->
 
 <div class="page-container">
-	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Features</h1>
 		<p>Skeleton is a fully featured UI toolkit that includes many awesome features, so let's compare the differences between each.</p>
@@ -17,7 +16,7 @@
 	<section class="space-y-4">
 		<div class="flex items-center space-x-4">
 			<div class="bg-sky-500 w-10 aspect-square flex justify-center items-center rounded-token shadow">
-				<SvgIcon name="tailwind" fill="fill-white" width="w-6" height="h-6" />
+				<DocsIcon name="tailwind" fill="fill-white" width="w-6" height="h-6" />
 			</div>
 			<h2>Tailwind</h2>
 		</div>
@@ -57,7 +56,7 @@
 	<section class="space-y-6">
 		<div class="flex items-center space-x-4">
 			<div class="bg-orange-500 w-10 aspect-square flex justify-center items-center rounded-token shadow">
-				<SvgIcon name="svelte" fill="fill-white" width="w-6" height="h-6" />
+				<DocsIcon name="svelte" fill="fill-white" width="w-6" height="h-6" />
 			</div>
 			<h2>Svelte</h2>
 		</div>

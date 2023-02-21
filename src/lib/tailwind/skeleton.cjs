@@ -1,6 +1,6 @@
 // The Skeleton Tailwind Plugin
 // Tailwind Docs: https://tailwindcss.com/docs/plugins
-// Skeleton Docs: https://www.skeleton.dev/guides/tailwind
+// Skeleton Docs: https://www.skeleton.dev/docs/get-started
 
 const intellisensePlugin = require('./intellisense.cjs');
 const corePlugin = require('./core.cjs');

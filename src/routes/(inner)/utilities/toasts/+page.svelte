@@ -1,6 +1,6 @@
 <script lang="ts">
-	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
+	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	import type { ToastSettings } from '$lib/utilities/Toast/types';
@@ -22,7 +22,10 @@
 	// Triggers Toasts ---
 
 	function toastBasic(): void {
-		const t: ToastSettings = { message: '👋 Hello and welcome to Skeleton.' };
+		const t: ToastSettings = {
+			message: '👋 Hello and welcome to Skeleton.',
+			callback: (response) => console.log(response)
+		};
 		toastStore.trigger(t);
 	}
 
@@ -49,14 +52,15 @@
 
 	function toastMultiple(): void {
 		toastStore.trigger({ message: 'Message will auto-hide after 2 seconds.', timeout: 2000 });
+		toastStore.trigger({ message: 'Message will auto-hide after 4 seconds.', timeout: 4000 });
+		toastStore.trigger({ message: 'Message will auto-hide after 6 seconds.', timeout: 6000 });
 		toastStore.trigger({ message: 'Message will remain until dismissed.', autohide: false });
-		toastStore.trigger({ message: 'Message will auto-hide after 5 seconds.' });
 	}
 
-	function toastPreset(preset: ToastSettings['preset']): void {
+	function toastPreset(background: string): void {
 		const t: ToastSettings = {
-			message: `This message uses the <u>${preset}</u> preset.`,
-			preset
+			message: `The background was set as <u>${background}</u>.`,
+			background
 		};
 		toastStore.trigger(t);
 	}
@@ -73,24 +77,24 @@
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<div class="space-y-4">
-			<section class="card p-4">
+			<section class="card variant-glass p-4">
 				<div class="grid grid-cols-1 md:grid-cols-5 gap-4 max-w-[700px] mx-auto">
-					<button class="btn variant-ghost-surface" on:click={toastBasic}>Basic</button>
-					<button class="btn variant-ghost-surface" on:click={toastParagraph}>Paragraph</button>
-					<button class="btn variant-ghost-surface" on:click={toastAction}>Action</button>
-					<button class="btn variant-ghost-surface" on:click={toastMultiple}>Multiple</button>
-					<button class="btn variant-ghost-surface" on:click={toastStyled}>Styled</button>
+					<button class="btn variant-filled" on:click={toastBasic}>Basic</button>
+					<button class="btn variant-filled" on:click={toastParagraph}>Paragraph</button>
+					<button class="btn variant-filled" on:click={toastAction}>Action</button>
+					<button class="btn variant-filled" on:click={toastMultiple}>Multiple</button>
+					<button class="btn variant-filled" on:click={toastStyled}>Styled</button>
 				</div>
 			</section>
-			<section class="card p-4">
+			<section class="card variant-glass p-4">
 				<!-- prettier-ignore -->
 				<div class="grid grid-cols-1 md:grid-cols-6 gap-4 max-w-[700px] mx-auto">
-					<button class="btn variant-ghost-surface" on:click={() => {toastPreset('primary')}}>Primary</button>
-					<button class="btn variant-ghost-surface" on:click={() => {toastPreset('secondary')}}>Secondary</button>
-					<button class="btn variant-ghost-surface" on:click={() => {toastPreset('tertiary')}}>Tertiary</button>
-					<button class="btn variant-ghost-surface" on:click={() => {toastPreset('success')}}>Success</button>
-					<button class="btn variant-ghost-surface" on:click={() => {toastPreset('warning')}}>Warning</button>
-					<button class="btn variant-ghost-surface" on:click={() => {toastPreset('error')}}>Error</button>
+					<button class="btn variant-filled" on:click={() => {toastPreset('variant-filled-primary')}}>Primary</button>
+					<button class="btn variant-filled" on:click={() => {toastPreset('variant-filled-secondary')}}>Secondary</button>
+					<button class="btn variant-filled" on:click={() => {toastPreset('variant-filled-tertiary')}}>Tertiary</button>
+					<button class="btn variant-filled" on:click={() => {toastPreset('variant-filled-success')}}>Success</button>
+					<button class="btn variant-filled" on:click={() => {toastPreset('variant-filled-warning')}}>Warning</button>
+					<button class="btn variant-filled" on:click={() => {toastPreset('variant-filled-error')}}>Error</button>
 				</div>
 			</section>
 		</div>
@@ -98,6 +102,13 @@
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
+		<!-- prettier-ignore -->
+		<aside class="alert alert-message variant-ghost-warning">
+			<p>
+				This feature uses a <a href="https://en.wikipedia.org/wiki/Singleton_pattern" target="_blank" rel="noreferrer">Singleton pattern</a>. Meaning you should aim to implement a <u>single instance of the component per project</u>, but it will remain globally scoped
+				and reusable via a Svelte writable store. Do not reimplement this component for each route page.
+			</p>
+		</aside>
 		<section class="space-y-4">
 			<p>
 				Import and add a single instance of the Toast component in your app's root layout. Since this is in global scope it will be possible
@@ -133,6 +144,8 @@ function triggerToast(): void {
 			label: 'Greeting',
 			response: () => alert('Hello, Skeleton')
 		}
+		// Optional: Set a callback method
+		callback: (response) => console.log(response)
 	};
 	toastStore.trigger(t);
 }
@@ -150,19 +163,18 @@ function triggerToast(): void {
 		<!-- Styling -->
 		<section class="space-y-4">
 			<h2>Styling</h2>
-			<h3>Presets</h3>
+			<h3>Backgrounds</h3>
 			<p>
-				We provide a quick set of preset styles for any theme colors. The <code>success</code> preset is always green, while
-				<code>error</code> is always red.
+				You can directly control the background styling for each toasting using <code>background.</code>. This accepts utility classes and
+				variant styles.
 			</p>
 			<CodeBlock
 				language="ts"
 				code={`
 const t: ToastSettings = {
 	message: 'This message will have a colorful background.',
-	// Available presets include:
-	// primary | secondary | tertiary | warning | success | error
-	preset: 'warning',
+	// Provide any background class
+	preset: 'variant-filled-warning',
 };
 			`}
 			/>
@@ -175,37 +187,32 @@ const t: ToastSettings = {
 				code={`
 const t: ToastSettings = {
 	message: 'This message will have a colorful background.',
+	background: 'bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 text-white',
 	// Add your custom classes here:
-	classes: 'bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 text-white'
+	classes: 'border-token border-purple-500'
 };
 			`}
 			/>
 		</section>
 		<section class="space-y-4">
-			<h2>SvelteKit SSR Warning</h2>
+			<h2>Callbacks</h2>
 			<p>
-				Be aware that there are <a
-					href="https://github.com/sveltejs/kit/discussions/4339#discussioncomment-2384978"
-					target="_blank"
-					rel="noreferrer">known issues when using Svelte stores with SSR</a
-				>, such as our toast store. To prevent these issues please avoid the use of the toast store within any SvelteKit Load function.
-				Likewise, if you need a toast to open on route initilization we advise triggering the <code>open()</code> method after the
-				<a href="https://kit.svelte.dev/docs/modules#$app-environment" target="_blank" rel="noreferrer"
-					>SvelteKit Browser environment context</a
-				> is available.
+				You can optionally add a callback function to your <code>ToastSettings</code> to receive the unique ID assigned to each toast, as
+				well as listen for when the <code>queued</code> and <code>closed</code> lifecycle events occur for that toast message.
 			</p>
 			<CodeBlock
 				language="ts"
 				code={`
-import { browser } from '$app/environment';\n
-if (browser) toastStore.trigger({...});
-				`}
+const t: ToastSettings = {
+	// ...
+	callback: (response) => {
+		console.log(response.id);
+		if (response.status === 'queued') console.log('Toast was queued!');
+		if (response.status === 'closed') console.log('Toast was closed!');
+	}
+};
+			`}
 			/>
-			<p>
-				For additional context please see this <a href="https://github.com/skeletonlabs/skeleton/pull/580" target="_blank" rel="noreferrer"
-					>thread</a
-				>.
-			</p>
 		</section>
 	</svelte:fragment>
 </DocsShell>

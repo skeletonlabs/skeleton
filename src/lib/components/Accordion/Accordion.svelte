@@ -26,6 +26,12 @@
 	/** Provide classes to set the accordion item rounded styles. */
 	export let rounded: CssClasses = 'rounded-container-token';
 
+	// Props (caret)
+	/** Set the rotation of the item caret in the open state. */
+	export let caretOpen: CssClasses = 'rotate-180';
+	/** Set the rotation of the item caret in the closed state. */
+	export let caretClosed: CssClasses = '';
+
 	// Props (regions)
 	/** Provide arbitrary classes to the trigger button region. */
 	export let regionControl: CssClasses = '';
@@ -44,6 +50,8 @@
 	setContext('padding', padding);
 	setContext('hover', hover);
 	setContext('rounded', rounded);
+	setContext('caretOpen', caretOpen);
+	setContext('caretClosed', caretClosed);
 	setContext('regionControl', regionControl);
 	setContext('regionPanel', regionPanel);
 	setContext('regionCaret', regionCaret);
