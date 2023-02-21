@@ -5,12 +5,12 @@
 	export let sidebar: boolean = true;
 
 	// Classes
-	const cBase = 'flex items-start gap-10 p-4 md:p-10';
-	const cColLeft = 'page-container';
+	const cBase = 'page-padding flex items-start gap-10';
+	const cColLeft = 'page-container-aside';
 	const cColRight = 'sticky top-10 hidden xl:block space-y-4 w-60';
 
 	// Reactive
-	$: classesBase = `${cBase}`;
+	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
 	$: classesColLeft = `${cColLeft}`;
 	$: classesColRight = `${cColRight}`;
 </script>

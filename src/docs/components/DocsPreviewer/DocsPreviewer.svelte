@@ -3,7 +3,7 @@
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	export let background = 'neutral';
+	export let background = 'gradient';
 	export let viewport: string = 'full';
 	export let selection: number = 0;
 
@@ -27,6 +27,7 @@
 
 	// Local
 	const backgroundStyles: Record<string, string> = {
+		gradient: 'bg-gradient-to-br from-primary-500 to-secondary-500',
 		neutral: 'variant-soft',
 		transparent: '!bg-transparent',
 		primary: `variant-filled-primary`,
