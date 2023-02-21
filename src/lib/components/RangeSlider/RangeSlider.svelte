@@ -18,13 +18,13 @@
 	 * @type {string}
 	 */
 	export let id: string = String(Math.random());
-	/** Set the input step offset. */
-	export let value = 0;
 	/** Set the input value. */
-	export let min = 0;
+	export let value = 0;
 	/** Set the input minimum range. */
-	export let max = 100;
+	export let min = 0;
 	/** Set the input maximum range. */
+	export let max = 100;
+	/** Set the input step offset. */
 	export let step = 1;
 	/** Enables tick marks. See browser support below. */
 	export let ticked = false;

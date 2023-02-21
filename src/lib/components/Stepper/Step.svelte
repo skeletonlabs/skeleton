@@ -82,9 +82,9 @@
 		<!-- Navigation -->
 		{#if $state.total > 1}
 			<div class="step-navigation {classesNavigation}" transition:fade|local={{ duration: 100 }}>
-				<button class="btn {buttonBack}" on:click={onBack} disabled={$state.current === 0}>{@html buttonBackLabel}</button>
+				<button type="button" class="btn {buttonBack}" on:click={onBack} disabled={$state.current === 0}>{@html buttonBackLabel}</button>
 				{#if stepIndex < $state.total - 1}
-					<button class="btn {buttonNext}" on:click={onNext} disabled={locked}>
+					<button type="button" class="btn {buttonNext}" on:click={onNext} disabled={locked}>
 						{#if locked}
 							<svg class="w-3 aspect-square" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
 								<path
@@ -95,7 +95,7 @@
 						<span>{@html buttonNextLabel}</span>
 					</button>
 				{:else}
-					<button class="btn {buttonComplete}" on:click={onComplete}>{@html buttonCompleteLabel}</button>
+					<button type="submit" class="btn {buttonComplete}" on:click={onComplete}>{@html buttonCompleteLabel}</button>
 				{/if}
 			</div>
 		{/if}

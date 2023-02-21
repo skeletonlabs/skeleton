@@ -24,6 +24,8 @@ export interface DrawerSettings {
 	bgBackdrop?: string;
 	/** Backdrop - Provide classes to set the blur style.*/
 	blur?: string;
+	/** Drawer - Provide classes to set padding.*/
+	padding?: string;
 
 	// --- Drawer ---
 	/** Drawer - Provide classes to set the drawer background color.*/
@@ -32,12 +34,18 @@ export interface DrawerSettings {
 	border?: string;
 	/** Drawer - Provide classes to set border radius.*/
 	rounded?: string;
+	/** Drawer - Provide classes to set box shadow.*/
+	shadow?: string;
 	/** Drawer - Provide classes to override the width.*/
 	width?: string;
 	/** Drawer - Provide classes to override the height.*/
 	height?: string;
-	/** Drawer - Provide classes to set margins.*/
-	margin?: string;
+
+	// --- Regions ---
+	/** Provide abitrary classes to the backdrop region. */
+	regionBackdrop?: string;
+	/** Provide abitrary classes to the drawer region. */
+	regionDrawer?: string;
 
 	// --- A11y ---
 	/** Provide an ID of the element labeling the drawer.*/

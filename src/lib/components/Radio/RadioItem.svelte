@@ -53,6 +53,7 @@
 	}
 </script>
 
+<!-- WARNING: avoid click handlers on <label>; will fire twice -->
 <label
 	class="radio-item {classesBase}"
 	role="radio"
@@ -60,7 +61,6 @@
 	aria-label={label}
 	tabindex="0"
 	data-testid="radio-item"
-	on:click
 	on:keydown={onKeyDown}
 	on:keydown
 	on:keyup
@@ -68,7 +68,7 @@
 >
 	<!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->
 	<div class="h-0 w-0 overflow-hidden">
-		<input bind:this={elemInput} type="radio" bind:group {name} {value} {...prunedRestProps()} tabindex="-1" />
+		<input bind:this={elemInput} type="radio" bind:group {name} {value} {...prunedRestProps()} tabindex="-1" on:click on:change />
 	</div>
 	<slot />
 </label>

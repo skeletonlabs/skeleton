@@ -117,7 +117,7 @@
 <div class="input-chip {classesBase}" class:opacity-50={$$restProps.disabled}>
 	<!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->
 	<div class="h-0 overflow-hidden">
-		<select bind:value {name} multiple {required}>
+		<select bind:value {name} multiple {required} tabindex="-1">
 			<!-- NOTE: options are required! -->
 			{#each value as option}<option value={option}>{option}</option>{/each}
 		</select>
@@ -142,7 +142,7 @@
 				{#each value as c, i (c)}
 					<!-- Wrapping div required for FLIP animation -->
 					<div animate:flip={{ duration }}>
-						<span
+						<button
 							class="chip {chips}"
 							on:click={(e) => {
 								removeChip(e, i, c);
@@ -155,7 +155,7 @@
 						>
 							<span>{c}</span>
 							<span>✕</span>
-						</span>
+						</button>
 					</div>
 				{/each}
 			</div>

@@ -1,6 +1,7 @@
 <script lang="ts">
-	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
+	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
+	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
+	import DocsPreviewer from '$docs/components/DocsPreviewer/DocsPreviewer.svelte';
 
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
@@ -23,11 +24,20 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="card p-4 grid grid-cols-1 gap-4">
-			<CodeBlock language="html" code={`<p>Hello Skeleton<p>`} />
-			<CodeBlock language="css" code={`.skeleton { color: #bada55; }`} />
-			<CodeBlock language="ts" code={`const skeleton: string = 'awesome';`} />
-		</section>
+		<DocsPreviewer
+			label="Preview"
+			html={`
+<CodeBlock language="html" code={\`<div>This is meta</div>\`}></CodeBlock>
+<CodeBlock language="css" code={\`.skeleton { color: #bada55; }\`}></CodeBlock>
+<CodeBlock language="ts" code={\`const skeleton: string = 'awesome';\`}></CodeBlock>
+			`}
+		>
+			<section class="space-y-4 w-full">
+				<CodeBlock language="html" code={`<div>This is meta</div>`} />
+				<CodeBlock language="css" code={`.skeleton { color: #bada55; }`} />
+				<CodeBlock language="ts" code={`const skeleton: string = 'awesome';`} />
+			</section>
+		</DocsPreviewer>
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
@@ -41,35 +51,28 @@
 		</section>
 		<section class="space-y-4">
 			<h2>Configure Your Project</h2>
-			<p>Apply the following changes to your app's root component (ex: <code>/src/routes/+layout.svelte</code> for SvelteKit).</p>
+			<p>Apply the following changes to your app's root component in <code>/src/routes/+layout.svelte</code>.</p>
 			<CodeBlock language="ts" code={`import hljs from 'highlight.js';`} />
 			<p>
 				Import any <a href="https://github.com/highlightjs/highlight.js/tree/main/src/styles" target="_blank" rel="noreferrer"
 					>Highlight.js CSS theme</a
-				> of your choice. Skeleton has provided our custom theme near the top of this page.
+				> of your choice.
 			</p>
 			<CodeBlock language="ts" code={`import 'highlight.js/styles/github-dark.css';`} />
 			<p>Finally, import the CodeBlock's writable store and pass a referenced to Highlight.js.</p>
 			<CodeBlock language="ts" code={`import { storeHighlightJs } from '@skeletonlabs/skeleton';\n\nstoreHighlightJs.set(hljs);`} />
 		</section>
 		<section class="space-y-4">
-			<h2>Create a Code Block</h2>
+			<h2>Supported Languages</h2>
+			<!-- prettier-ignore -->
 			<p>
-				Syntax highlighting will appear when a valid <a
-					href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md"
-					target="_blank"
-					rel="noreferrer">language alias</a
-				>
-				is provided to the CodeBlock's
-				<code>language</code> prop.
+				Syntax highlighting will appear when a valid <a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md" target="_blank" rel="noreferrer">language alias</a> is provided to the CodeBlock's <code>language</code> prop.
 			</p>
-			<CodeBlock code={'<CodeBlock language="html" code={`<div>This is meta</div>`}></CodeBlock>'} />
 		</section>
 		<section class="space-y-4">
 			<h2>Accessibility</h2>
 			<p>
-				Uses <code>pre-wrap</code> by default to support keyboard-only navigation. Be mindful of color contrast ratios when customizing the design
-				of this component.
+				Uses <code>pre-wrap</code> by default to support keyboard-only navigation. Please be mindful of color contrast when customizing the design.
 			</p>
 		</section>
 	</svelte:fragment>

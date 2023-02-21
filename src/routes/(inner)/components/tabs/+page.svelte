@@ -1,6 +1,6 @@
 <script lang="ts">
-	import DocsShell from '$docs/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings } from '$docs/DocsShell/types';
+	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
 	import Tab from '$lib/components/Tab/Tab.svelte';
@@ -159,7 +159,7 @@
 			<p>
 				You may optionally choose to use Svelte writable stores to control your tab group state. Note the use of the <code>$</code> sign
 				withing the <code>bind:group</code> property. Pair this with Skeleton's
-				<a href="/utlities/local-storage-store">Local Storage Store</a> for automatic persistence.
+				<a href="/utilities/local-storage-stores">Local Storage Store</a> for automatic persistence.
 			</p>
 			<CodeBlock
 				language="ts"
