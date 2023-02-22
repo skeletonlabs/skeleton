@@ -21,6 +21,7 @@
 	import type { PopupSettings } from '$lib/utilities/Popup/types';
 
 	// Stores
+	/* @ts-ignore */
 	const storeThemGenForm: Writable<FormTheme> = localStorageStore('storeThemGenForm', {
 		colors: [
 			{ key: 'primary', label: 'Primary', hex: '#0FBA81', rgb: '0 0 0', on: '0 0 0' },
@@ -132,7 +133,7 @@
 			<div class="p-4 grid grid-cols-1 gap-4">
 				{#each $storeThemGenForm.colors as colorRow, i}
 					{@const contrastReport = getPassReport($storeThemGenForm.colors[i].hex, $storeThemGenForm.colors[i].on)}
-					<div class="grid grid-cols-1 lg:grid-cols-[170px_1fr_160px] gap-2 lg:gap-4">
+					<div class="grid grid-cols-1 lg:grid-cols-[170px_1fr_200px] gap-2 lg:gap-4">
 						<label class="label">
 							<span>{colorRow.label}</span>
 							<div class="grid grid-cols-[auto_1fr] gap-4 place-items-end">
@@ -142,23 +143,31 @@
 						</label>
 						<Swatch color={colorRow.key} />
 						<label>
-							<span> Text & Fill Color </span>
+							<span>Text & Fill Color</span>
 							<div class="flex">
-								<select class="select" bind:value={colorRow.on} disabled={!$storePreview}>
-									{#each inputSettings.colorProps as c}<option value={c.value}>{c.label}</option>{/each}
-								</select>
-								<div
-									use:popup={{ ...tooltipSettings, ...{ target: 'popup-' + i } }}
-									class="badge-icon aspect-square relative -top-2 right-4 z-[1] hover:scale-125 transition-all"
-									class:!text-stone-900={contrastReport.fails}
-									class:!bg-red-500={contrastReport.fails}
-									class:!text-zinc-900={contrastReport.largeAA}
-									class:!bg-amber-500={contrastReport.largeAA}
-									class:!text-slate-900={contrastReport.smallAAA || contrastReport.smallAA}
-									class:!bg-green-500={contrastReport.smallAAA || contrastReport.smallAA}
-								>
-									{@html contrastReport.report.emoji}
+								<!-- Trigger -->
+								<div class="input-group input-group-divider grid-cols-[1fr_auto]">
+									<!-- Select -->
+									<select bind:value={colorRow.on} disabled={!$storePreview}>
+										{#each inputSettings.colorProps as c}<option value={c.value}>{c.label}</option>{/each}
+									</select>
+									<!-- Badge -->
+									{#if $storePreview}
+										<div
+											class="input-group-shim !px-3"
+											use:popup={{ ...tooltipSettings, ...{ target: 'popup-' + i } }}
+											class:!text-stone-900={contrastReport.fails}
+											class:!bg-red-500={contrastReport.fails}
+											class:!text-zinc-900={contrastReport.largeAA}
+											class:!bg-amber-500={contrastReport.largeAA}
+											class:!text-slate-900={contrastReport.smallAAA || contrastReport.smallAA}
+											class:!bg-green-500={contrastReport.smallAAA || contrastReport.smallAA}
+										>
+											{@html contrastReport.report.emoji}
+										</div>
+									{/if}
 								</div>
+								<!-- Popup -->
 								<div
 									data-popup={'popup-' + i}
 									class="text-xs card variant-filled p-2 whitespace-nowrap"
@@ -276,7 +285,7 @@
 		<!-- CSS Output -->
 		<footer class="col-span-2 space-y-4">
 			{#if showThemeCSS}<CodeBlock language="css" code={cssOutput} />{/if}
-			<div class="card variant-glass-surface p-4 text-center">
+			<div class="card variant-glass p-4 text-center">
 				<!-- prettier-ignore -->
 				<button class="btn btn-lg variant-filled-primary font-bold" on:click={() => { showThemeCSS = !showThemeCSS; }} disabled={!$storePreview}>
 					{!showThemeCSS ? 'Show' : 'Hide'} Theme CSS

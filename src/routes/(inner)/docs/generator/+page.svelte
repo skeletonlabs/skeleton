@@ -5,7 +5,7 @@
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 </script>
 
-<LayoutPage>
+<div class="page-container">
 	<header class="space-y-4">
 		<h1>Theme Generator</h1>
 		<p>
@@ -59,4 +59,4 @@ import '../app.postcss';
 			to convert each Hex color value to RGB in bulk with VS Code.
 		</p>
 	</section>
-</LayoutPage>
+</div>

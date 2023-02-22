@@ -7,6 +7,7 @@
 </script>
 
 <section class="space-y-4">
+	<h2>Install Skeleton</h2>
 	<TabGroup regionPanel="space-y-4">
 		<!-- Tabs -->
 		<Tab bind:group={$storeOnboardMethod} name="cli" value="cli">Skeleton CLI</Tab>

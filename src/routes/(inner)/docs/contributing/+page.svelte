@@ -59,9 +59,7 @@
 				<h3 data-toc-ignore>Requirements</h3>
 				<p>Ready to contribute to Skeleton? Read our requirements and recommended workflow process.</p>
 			</div>
-			<a class="btn variant-filled-secondary place-self-center" href="/docs/contributing/requirements" target="_blank" rel="noreferrer">
-				Read Guide
-			</a>
+			<a class="btn variant-filled-secondary place-self-center" href="/docs/contributing/requirements"> Read Guide </a>
 		</div>
 		<!-- Style Guide -->
 		<div class="card variant-glass p-4 grid grid-cols-[1fr_auto] gap-4">
@@ -69,9 +67,7 @@
 				<h3 data-toc-ignore>Style Guide</h3>
 				<p>Review recommended conventions for writing code, naming properties, and handling CSS styling.</p>
 			</div>
-			<a class="btn variant-filled-secondary place-self-center" href="/docs/contributing/style-guide" target="_blank" rel="noreferrer">
-				Read Guide
-			</a>
+			<a class="btn variant-filled-secondary place-self-center" href="/docs/contributing/style-guide"> Read Guide </a>
 		</div>
 		<!-- Docs Guide -->
 		<div class="card variant-glass p-4 grid grid-cols-[1fr_auto] gap-4">
@@ -79,9 +75,7 @@
 				<h3 data-toc-ignore>Documentation Guide</h3>
 				<p>Good documentation makes life easier for everyone involved, check out how easy it is with this guide.</p>
 			</div>
-			<a class="btn variant-filled-secondary place-self-center" href="/docs/contributing/documentation" target="_blank" rel="noreferrer">
-				Read Guide
-			</a>
+			<a class="btn variant-filled-secondary place-self-center" href="/docs/contributing/documentation"> Read Guide </a>
 		</div>
 	</section>
 
