@@ -57,12 +57,6 @@
 	<!-- Header -->
 	<Header {pageData} />
 
-	<!-- Sadbox -->
-	{#if $$slots.sandbox}
-		<!-- <DocsPreviewer label="Preview"><slot name="sandbox" /></DocsPreviewer> -->
-		<div class="bg-gradient-to-br from-primary-500 to-secondary-500 p-10 rounded-container-token"><slot name="sandbox" /></div>
-	{/if}
-
 	<!-- Tabs -->
 	<TabGroup class={classesTabs}>
 		<Tab bind:group={tabPanel} name="panels" value="usage">Usage</Tab>
@@ -77,7 +71,14 @@
 	<!-- Panels -->
 	<div id="panels" class={classesPanels}>
 		<!-- Panel: Usage -->
-		{#if tabPanel === 'usage'}<slot name="usage">(usage)</slot>{/if}
+		{#if tabPanel === 'usage'}
+			<!-- Sandbox -->
+			{#if $$slots.sandbox}
+				<div class="bg-gradient-to-br from-primary-500 to-secondary-500 p-10 rounded-container-token"><slot name="sandbox" /></div>
+			{/if}
+			<!-- Slot -->
+			<slot name="usage">(usage)</slot>
+		{/if}
 		<!-- Panel: properties -->
 		{#if tabPanel === 'properties'}<PanelProps />{/if}
 		<!-- Panel: parameters -->

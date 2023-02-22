@@ -13,6 +13,10 @@
 		return `import { ${pageData.imports?.join(', ')} } from '${pageData.package?.name}';`;
 	}
 
+	function formatTypes(): string {
+		return `import type { ${pageData.types?.join(', ')} } from '${pageData.package?.name}';`;
+	}
+
 	// Reactive
 	$: classesHeader = `${cHeader}`;
 </script>
@@ -23,9 +27,12 @@
 		<h1>{@html pageData.name}</h1>
 		<p>{@html pageData.description}</p>
 	</div>
-	<!-- Import -->
-	{#if pageData.imports?.length}
-		<CodeBlock language="ts" code={formatImports()} />
+	<!-- Imports & Types -->
+	{#if pageData.imports?.length || pageData.types?.length}
+		<div class="space-y-2">
+			{#if pageData.imports?.length}<CodeBlock language="ts" code={formatImports()} />{/if}
+			{#if pageData.types?.length}<CodeBlock language="ts" code={formatTypes()} />{/if}
+		</div>
 	{/if}
 	<div class="flex gap-2">
 		<!-- Package -->
