@@ -114,7 +114,7 @@
 <svelte:head>{@html livePreviewStylesheet}</svelte:head>
 
 <div class="docs-themer space-y-4">
-	<div class="card variant-glass-surface p-4 flex justify-between items-center">
+	<div class="card variant-glass p-4 flex justify-between items-center">
 		<h2>Enable Preview</h2>
 		<SlideToggle name="preview" bind:checked={$storePreview} on:change={onPreviewToggle} />
 	</div>
@@ -233,7 +233,7 @@
 		</section>
 
 		<!-- Previews -->
-		<section class="card !bg-transparent p-4 space-y-8 col-span-2 lg:col-span-1">
+		<section class="card variant-glass p-4 space-y-8 col-span-2 lg:col-span-1">
 			<h3 data-toc-ignore>Preview</h3>
 			<!-- Buttons -->
 			<div class="grid grid-cols-3 gap-4">
@@ -247,9 +247,9 @@
 			<hr class="opacity-50" />
 			<!-- Progress Bars -->
 			<div class="grid grid-cols-1 gap-4">
-				<ProgressBar meter="bg-primary-500" value={66} max={100} />
-				<ProgressBar meter="bg-secondary-500" value={50} max={100} />
-				<ProgressBar meter="bg-tertiary-500" value={33} max={100} />
+				<ProgressBar meter="bg-primary-500" track="bg-primary-500/20" value={66} max={100} />
+				<ProgressBar meter="bg-secondary-500" track="bg-secondary-500/20" value={50} max={100} />
+				<ProgressBar meter="bg-tertiary-500" track="bg-tertiary-500/20" value={33} max={100} />
 			</div>
 			<hr class="opacity-50" />
 			<!-- Badges -->
@@ -266,9 +266,9 @@
 			<hr class="opacity-50" />
 			<!-- Slide Toggles -->
 			<div class="grid grid-cols-4 gap-4 place-items-center">
-				<SlideToggle name="exampeSliderOne" active="bg-surface-500" checked />
-				<SlideToggle name="exampeSliderTwo" active="bg-primary-500" checked />
 				<SlideToggle name="exampeSliderThree" checked />
+				<SlideToggle name="exampeSliderOne" active="bg-primary-500" checked />
+				<SlideToggle name="exampeSliderTwo" active="bg-secondary-500" checked />
 				<SlideToggle name="exampeSliderFour" active="bg-tertiary-500" checked />
 			</div>
 		</section>

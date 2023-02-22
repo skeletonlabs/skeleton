@@ -40,12 +40,12 @@
 	<svelte:fragment slot="sandbox">
 		<div class="space-y-2">
 			<!-- Names -->
-			<div class="card p-4 space-y-4">
+			<div class="card variant-glass p-4 space-y-4">
 				<InputChip name="chips-example" bind:value={anythingList} placeholder="Enter any value..." />
 				<code class="inline-block">{anythingList.length ? anythingList : 'No chips available.'}</code>
 			</div>
 			<!-- Flavors -->
-			<div class="card p-4 space-y-4">
+			<div class="card variant-glass p-4 space-y-4">
 				<label for="chips-example-flavors" class="label">
 					<span>Flavors <em>(whitelists vanilla, chocolate, strawberry)</em></span>
 					<InputChip
@@ -59,7 +59,7 @@
 				<code class="inline-block">{flavorsList.length ? flavorsList : 'No flavors set.'}</code>
 			</div>
 			<!-- Emails -->
-			<div class="card p-4 space-y-4">
+			<div class="card variant-glass p-4 space-y-4">
 				<label for="chips-example-emails" class="label">
 					<span>Emails <em>(validated)</em></span>
 					<InputChip

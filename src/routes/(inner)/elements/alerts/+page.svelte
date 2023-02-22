@@ -40,11 +40,8 @@
 	<svelte:fragment slot="sandbox">
 		<div class="space-y-4">
 			<!-- Default -->
-			<div class="card variant-glass p-4 space-y-4">
+			<div class="space-y-4">
 				<!-- Primary -->
-				<div class="text-center">
-					<button class="btn variant-filled-secondary" on:click={toggleVisible}>Toggle {!visible ? 'On' : 'Off'}</button>
-				</div>
 				{#if visible}
 					<aside class="alert variant-ghost" transition:fade|local={{ duration: 200 }}>
 						<i class="fa-solid fa-triangle-exclamation text-4xl" />
@@ -59,6 +56,10 @@
 							</button>
 						</div>
 					</aside>
+				{:else}
+					<div class="text-center">
+						<button class="btn variant-filled-secondary" on:click={toggleVisible}>Toggle {!visible ? 'On' : 'Off'}</button>
+					</div>
 				{/if}
 				<!-- Success / Error -->
 				<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">

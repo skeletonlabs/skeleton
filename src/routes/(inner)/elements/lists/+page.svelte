@@ -33,7 +33,7 @@
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="grid grid-cols-1 xl:grid-cols-2 gap-4">
-			<div class="card p-4 space-y-4">
+			<div class="card variant-glass p-4 space-y-4">
 				<p class="font-bold">Unordered</p>
 				<ul class="list">
 					{#each listData as v, i}
@@ -45,7 +45,7 @@
 					{/each}
 				</ul>
 			</div>
-			<div class="card p-4 space-y-4">
+			<div class="card variant-glass p-4 space-y-4">
 				<p class="font-bold">Ordered</p>
 				<ol class="list">
 					{#each listData as v, i}
@@ -59,7 +59,7 @@
 					{/each}
 				</ol>
 			</div>
-			<div class="card p-4 space-y-4">
+			<div class="card variant-glass p-4 space-y-4">
 				<p class="font-bold">Description</p>
 				<dl class="list-dl">
 					{#each listData as v}
@@ -74,7 +74,7 @@
 					{/each}
 				</dl>
 			</div>
-			<div class="card p-4 space-y-4">
+			<div class="card variant-glass p-4 space-y-4">
 				<p class="font-bold">Navigation</p>
 				<nav class="list-nav">
 					<ul>

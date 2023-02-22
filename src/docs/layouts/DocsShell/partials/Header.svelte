@@ -39,7 +39,7 @@
 	{/if}
 	<!-- Element Style Tree -->
 	{#if pageData.feature === 'Tailwind' && pageData.stylesheetIncludes?.length}
-		<aside class="alert variant-ghost">
+		<aside class="alert card">
 			<div class="alert-message">
 				<p>Provide by Skeleton's <code>all.css</code> styesheet.</p>
 			</div>

@@ -151,6 +151,6 @@
 		@apply bg-surface-500/20 dark:bg-surface-500/20 backdrop-blur-xl;
 	}
 	.variant-glass {
-		@apply bg-surface-50/50 dark:bg-surface-900/50 backdrop-blur-xl;
+		@apply bg-surface-50/30 dark:bg-surface-900/30 backdrop-blur-xl;
 	}
 }

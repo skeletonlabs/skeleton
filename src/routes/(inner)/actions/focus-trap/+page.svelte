@@ -22,13 +22,13 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="card p-4 space-y-4">
+		<section class="card variant-glass p-4 space-y-4">
 			<!-- Toggle -->
-			<div class="text-center">
+			<div class="card variant-filled-primary p-4 text-center">
 				<SlideToggle name="trap-focus" bind:checked={isFocused}>Trap Focus</SlideToggle>
 			</div>
 			<!-- Form -->
-			<form class="variant-ringed p-4 space-y-4 rounded-container-token" use:focusTrap={isFocused}>
+			<form class="space-y-4" use:focusTrap={isFocused}>
 				<label class="label">
 					<span>Name</span>
 					<input class="input" type="text" placeholder="Enter name..." />
@@ -41,7 +41,7 @@
 					<span>Email</span>
 					<input class="input" type="email" placeholder="Enter email address..." />
 				</label>
-				<button class="btn variant-filled-primary">Submit Form</button>
+				<button class="btn variant-filled">Submit Form</button>
 			</form>
 		</section>
 	</svelte:fragment>

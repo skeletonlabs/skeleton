@@ -12,7 +12,7 @@
 	// Defaults
 	const defaultRounded = 'rounded-token';
 	const defaultMeter = 'bg-surface-900-50-token';
-	const defaultTrack = 'variant-glass';
+	const defaultTrack = 'bg-surface-200-700-token';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {

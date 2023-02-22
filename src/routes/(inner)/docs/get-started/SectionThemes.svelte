@@ -61,7 +61,7 @@
 	{/if}
 
 	<!-- Presets -->
-	<div class="card variant-glass-surface p-4 space-y-4">
+	<div class="card variant-glass p-4 space-y-4">
 		<nav class="grid grid-cols-1 md:grid-cols-3 gap-4">
 			{#each themes as preset}
 				<!-- prettier-ignore -->

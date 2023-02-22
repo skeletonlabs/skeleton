@@ -51,7 +51,7 @@ only utlize theme on this doc page.
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="card p-4 space-y-4">
+		<section class="card variant-glass p-4 space-y-4">
 			<header class="flex justify-center items-center space-x-4">
 				<p>Image</p>
 				<RadioGroup>
