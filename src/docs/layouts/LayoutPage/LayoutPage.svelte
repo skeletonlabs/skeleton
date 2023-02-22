@@ -24,12 +24,14 @@
 	{#if sidebar}
 		<aside class="layout-cols-aside {classesColRight}">
 			<!-- Ad Position -->
+			<!-- ***** STAGING - MAKE SURE TO REPLACE THIS ***** -->
 			<script
 				async
 				type="text/javascript"
 				src="//cdn.carbonads.com/carbon.js?serve=CVAIKKQM&placement=carbonadsnet"
 				id="_carbonads_js"
 			></script>
+			<!-- ***** / ***** -->
 			<!-- Table of Contents -->
 			<TableOfContents target=".layout-docs-content" minimumHeadings={1} />
 		</aside>
