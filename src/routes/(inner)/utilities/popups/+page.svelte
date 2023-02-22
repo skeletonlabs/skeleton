@@ -31,7 +31,7 @@
 			['<code>placement</code>', 'string', '-', 'bottom', 'Set the placement position.'],
 			['<code>closeQuery</code>', 'string', 'a[href], button', '-', 'Query list of elements that will close the popup.'],
 			['<code>middelware</code>', 'object', '-', '-', 'Provide Floating UI middleware settings.'],
-			['<code>state</code>', 'function', '-', '-', 'Provide an optional callback function to monitor open/close state.']
+			['<code>state</code>', 'function', '-', '-', 'Optional callback to monitor open/close states.']
 		],
 		keyboard: [
 			['<kbd>Enter</kbd>', 'When trigger is focused, toggles the popup open/close.'],

@@ -3,7 +3,6 @@
 
 	// Docs
 	import LayoutPage from '$docs/layouts/LayoutPage/LayoutPage.svelte';
-	import DocsPreviewer from '$docs/components/DocsPreviewer/DocsPreviewer.svelte';
 	// Components
 	import Tab from '$lib/components/Tab/Tab.svelte';
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
@@ -12,6 +11,11 @@
 	// Partials
 	import Header from '$docs/layouts/DocsShell/partials/Header.svelte';
 	import PanelProps from '$docs/layouts/DocsShell/partials/PanelProps.svelte';
+	import PanelParams from './partials/PanelParams.svelte';
+	import PanelSlots from './partials/PanelSlots.svelte';
+	import PanelClasses from './partials/PanelClasses.svelte';
+	import PanelEvents from './partials/PanelEvents.svelte';
+	import PanelKeyboard from './partials/PanelKeyboard.svelte';
 	// Utilities
 	import { docSellDefaults } from '$docs/layouts/DocsShell/defaults';
 
@@ -80,16 +84,16 @@
 			<slot name="usage">(usage)</slot>
 		{/if}
 		<!-- Panel: properties -->
-		{#if tabPanel === 'properties'}<PanelProps />{/if}
+		{#if tabPanel === 'properties'}<PanelProps {pageData} />{/if}
 		<!-- Panel: parameters -->
-		{#if tabPanel === 'parameters'}<div class="max-w-5xl mx-auto py-10">(panel-parameters)</div>{/if}
+		{#if tabPanel === 'parameters'}<PanelParams {pageData} />{/if}
 		<!-- Panel: slots -->
-		{#if tabPanel === 'slots'}<div class="max-w-5xl mx-auto py-10">(panel-slots)</div>{/if}
+		{#if tabPanel === 'slots'}<PanelSlots {pageData} />{/if}
 		<!-- Panel: classes -->
-		{#if tabPanel === 'classes'}<div class="max-w-5xl mx-auto py-10">(panel-classes)</div>{/if}
+		{#if tabPanel === 'classes'}<PanelClasses {pageData} />{/if}
 		<!-- Panel: events -->
-		{#if tabPanel === 'events'}<div class="max-w-5xl mx-auto py-10">(panel-events)</div>{/if}
+		{#if tabPanel === 'events'}<PanelEvents {pageData} />{/if}
 		<!-- Panel: keyboard -->
-		{#if tabPanel === 'keyboard'}<div class="max-w-5xl mx-auto py-10">(panel-keyboard)</div>{/if}
+		{#if tabPanel === 'keyboard'}<PanelKeyboard {pageData} />{/if}
 	</div>
 </LayoutPage>
