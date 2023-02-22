@@ -30,7 +30,7 @@
 			['<code>target</code>', 'string', '-', '-', 'Match the popup data value of <code>[data-popup]</code>'],
 			['<code>placement</code>', 'string', '-', 'bottom', 'Set the placement position.'],
 			['<code>closeQuery</code>', 'string', 'a[href], button', '-', 'Query list of elements that will close the popup.'],
-			['<code>middelware</code>', 'object', '-', '-', 'Provide Floating UI middleware settings.'],
+			['<code>middleware</code>', 'object', '-', '-', 'Provide Floating UI middleware settings.'],
 			['<code>state</code>', 'function', '-', '-', 'Provide an optional callback function to monitor open/close state.']
 		],
 		keyboard: [
