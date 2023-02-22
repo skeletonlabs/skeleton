@@ -7,7 +7,7 @@
 	// Classes
 	const cBase = 'page-padding flex items-start gap-10';
 	const cColLeft = 'page-container-aside';
-	const cColRight = 'sticky top-10 hidden xl:block space-y-4 w-60';
+	const cColRight = 'sticky top-10 hidden xl:block space-y-4 w-72';
 
 	// Reactive
 	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
@@ -24,7 +24,12 @@
 	{#if sidebar}
 		<aside class="layout-cols-aside {classesColRight}">
 			<!-- Ad Position -->
-			<div class="bg-black/50 w-full h-[100px] flex justify-center items-center rounded-container-token">(carbon)</div>
+			<script
+				async
+				type="text/javascript"
+				src="//cdn.carbonads.com/carbon.js?serve=CVAIKKQM&placement=carbonadsnet"
+				id="_carbonads_js"
+			></script>
 			<!-- Table of Contents -->
 			<TableOfContents target=".layout-docs-content" minimumHeadings={1} />
 		</aside>

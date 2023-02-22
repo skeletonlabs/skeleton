@@ -76,12 +76,12 @@
 	<div id="panels" class={classesPanels}>
 		<!-- Panel: Usage -->
 		{#if tabPanel === 'usage'}
-			<!-- Sandbox -->
-			{#if $$slots.sandbox}
-				<div class="bg-gradient-to-br from-primary-500 to-secondary-500 p-10 rounded-container-token"><slot name="sandbox" /></div>
-			{/if}
-			<!-- Slot -->
+			<!-- Slot: Sandbox -->
+			{#if $$slots.sandbox}<slot name="sandbox" />{/if}
+			<!-- Slot: Usage -->
 			<slot name="usage">(usage)</slot>
+			<!-- Slot: Default -->
+			<slot />
 		{/if}
 		<!-- Panel: properties -->
 		{#if tabPanel === 'properties'}<PanelProps {pageData} />{/if}
