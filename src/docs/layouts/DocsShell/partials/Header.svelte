@@ -41,7 +41,7 @@
 	{#if pageData.feature === 'Tailwind' && pageData.stylesheetIncludes?.length}
 		<aside class="alert card">
 			<div class="alert-message">
-				<p>Provide by Skeleton's <code>all.css</code> styesheet.</p>
+				<p>Provided by Skeleton's <code>all.css</code> styesheet.</p>
 			</div>
 			<a href="/docs/get-started" class="btn btn-sm variant-filled">Reference</a>
 		</aside>
