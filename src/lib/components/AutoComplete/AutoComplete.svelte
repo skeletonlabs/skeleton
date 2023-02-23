@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { CssClasses } from '$lib';
+	import type { Mode } from "$lib/components/AutoComplete/types";
 	import { createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
 
@@ -14,7 +15,7 @@
 	 */
 	export let whitelist: { label: string, value: string }[] = [...values];
 	/** Define mode for determining how filtering works: fuzzy, exclude (takes search string of CVS and excludes them from the list)*/
-	export let mode: string;
+	export let mode:Mode = "fuzzy";
 
 	// Props (styles)
 	/** Provide classes to set padding styles. */
@@ -35,31 +36,35 @@
 	// Classes
 	const cBase = 'cursor-pointer';
 
-	/** Fuzzy filters values based on the search term. Case insensitive. */
-	$: filteredValues = () => {
-		const filterable = [...values];
-		if (!searchTerm) return [...values];
-
-		if(mode === "exclude"){
-			return [...filterable.filter((row) => {
-				const rowFormatted = JSON.stringify(row).toLowerCase();
-	
-				if(!rowFormatted.includes(searchTerm.toLowerCase())) return row;
-			})];
-		}
-		else{
-			return filterable.filter((row) => {
-					const rowFormatted = JSON.stringify(row).toLowerCase();
-		
-					if (rowFormatted.includes(searchTerm.toLowerCase())) return row;
-			});
-		}
-	};
 
 	function onSelectHandler(selected: { label: string; value: string }): void {
 		/** @event {{ event: ClickEvent }} click - When an item is clicked. */
 		dispatch('select', { selected });
 	}
+
+	/** Fuzzy filters values based on the search term. Case insensitive. */
+	$: filteredValues = () => {
+		if (!searchTerm) return [...values];
+
+		//TODO: Want to include the ability to include "separators" ex: user enters - foo, bar, foobar: 
+		//		list only has fizz, buzz, and fizzbuzz left for the user to pick
+		if(mode === "exclude"){
+			return values.filter((row) => {
+				const rowFormatted = JSON.stringify(row).toLowerCase();
+				const whiteListFormatted = JSON.stringify(whitelist).toLowerCase();
+	
+				if(!rowFormatted.includes(searchTerm.toLowerCase()) && whiteListFormatted.includes(searchTerm.toLowerCase())) return row;
+			});
+		}
+		else{
+			return values.filter((row) => {
+					const rowFormatted = JSON.stringify(row).toLowerCase();
+					const whiteListFormatted = JSON.stringify(whitelist).toLowerCase();
+		
+					if(rowFormatted.includes(searchTerm.toLowerCase()) && whiteListFormatted.includes(searchTerm.toLowerCase())) return row;
+			});
+		}
+	};
 
 	// Reactive
 	$: classesBase = `${cBase} ${padding} ${rounded} ${maxHeight} ${overflowY} ${background} ${$$props.class ?? ''}`;

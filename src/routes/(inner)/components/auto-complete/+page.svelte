@@ -14,6 +14,8 @@
 		{ label: 'FizzBuzz', value: 'FizzBuzz' }
 	];
 
+	let whitelist = [{label: "Foo", value: "Foo"}, {label: "Bar", value: "Bar"}]
+
 	function onValueSelect(event: CustomEvent): void {
 		inputValue = event.detail.selected.label;
 	}
@@ -23,6 +25,6 @@
 	<label class="label" for="autocomplete-search">
 		<h3>Via Input</h3>
 		<input class="input" type="search" name="autocomplete-search" bind:value={inputValue} placeholder="Begin typing to filter..." />
-		<AutoComplete bind:searchTerm={inputValue} values={anythingList}  mode="exclude" on:select={onValueSelect} />
+		<AutoComplete bind:searchTerm={inputValue} values={anythingList} mode="exclude" on:select={onValueSelect} />
 	</label>
 </div>
