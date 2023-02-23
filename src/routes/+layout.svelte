@@ -104,6 +104,7 @@
 
 	// Scroll heading into view
 	function scrollHeadingIntoView(): void {
+		if (!window.location.hash) return;
 		const elemTarget: HTMLElement | null = document.querySelector(window.location.hash);
 		if (elemTarget) elemTarget.scrollIntoView({ behavior: 'smooth' });
 	}

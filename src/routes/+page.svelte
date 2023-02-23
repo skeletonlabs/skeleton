@@ -48,10 +48,6 @@
 	</header>
 
 	<div class="container max-w-[1200px] mx-auto px-4 py-10 md:py-20 space-y-20">
-		<div class="card p-4 text-center">
-			<a class="btn variant-filled" href="/components/accordions#open-on-load">Targeted scroll</a>
-		</div>
-
 		<!-- Features -->
 		<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 			<h2 class="sr-only">Features</h2>
