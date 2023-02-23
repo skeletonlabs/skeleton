@@ -1,12 +1,12 @@
 <!-- Layout: (root) -->
 <script lang="ts">
-	// Highlight JS
+	// Depedency: Highlight JS
 	import hljs from 'highlight.js';
 	import '$lib/styles/highlight-js.css'; // was: 'highlight.js/styles/github-dark.css';
 	import { storeHighlightJs } from '$lib/utilities/CodeBlock/stores';
 	storeHighlightJs.set(hljs);
 
-	// Floating UI for Popups
+	// Depedency: Floating UI
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
 	import { storePopup } from '$lib/utilities/Popup/popup';
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
@@ -47,50 +47,15 @@
 	// Global Stylesheets
 	import '../app.postcss';
 
-	// Theme stylesheet is loaded from LayoutServerData
+	// Handle Vercel Production Mode
 	import type { LayoutServerData } from './$types';
 	export let data: LayoutServerData;
-
-	// Vercel Analytics
-	if (data.vercelEnv === 'production') import('@vercel/analytics').then((mod) => mod.inject());
-
-	// Registered list of Components for Modals
-	const modalComponentRegistry: Record<string, ModalComponent> = {
-		modalSearch: { ref: DocsSearch },
-		exampleList: { ref: ModalExampleList },
-		exampleEmbed: { ref: ModalExampleEmbed },
-		exampleImage: { ref: ModalExampleImage }
-	};
-
-	// Current Theme Data
-	$: ({ currentTheme } = data);
-
-	// Set body `data-theme` based on current theme status
-	storeTheme.subscribe(setBodyThemeAttribute);
-	storePreview.subscribe(setBodyThemeAttribute);
-	function setBodyThemeAttribute(): void {
-		if (!browser) return;
-		document.body.setAttribute('data-theme', $storePreview ? 'generator' : $storeTheme);
-	}
-
-	afterNavigate((params: any) => {
-		// Store current page route URL
-		storeCurrentUrl.set($page.url.pathname);
-		// Scroll to top
-		const isNewPage: boolean = params.from && params.to && params.from.route.id !== params.to.route.id;
-		const elemPage = document.querySelector('#page');
-		if (isNewPage && elemPage !== null) {
-			elemPage.scrollTop = 0;
-		}
-	});
-
-	function matchPathWhitelist(pageUrlPath: string): boolean {
-		// If homepage route
-		if (pageUrlPath === '/') return true;
-		// If any blog route
-		if (pageUrlPath.includes('/blog')) return true;
-		return false;
-	}
+	// Pass to Store for Ad Conditionals
+	// IMPORTANT: DO NOT MODIFY THIS UNLESS YOU KNOW WHAT YOU'RE DOING
+	import { storeVercelProductionMode } from '$docs/stores/stores';
+	storeVercelProductionMode.set(data.vercelEnv === 'production');
+	// Init Vercel Analytics
+	if ($storeVercelProductionMode) import('@vercel/analytics').then((mod) => mod.inject());
 
 	// SEO Metatags
 	const metaDefaults = {
@@ -113,7 +78,49 @@
 	};
 	let isBlogArticle = false;
 
-	// Monitor $page for changes
+	// Registered list of Components for Modals
+	const modalComponentRegistry: Record<string, ModalComponent> = {
+		modalSearch: { ref: DocsSearch },
+		exampleList: { ref: ModalExampleList },
+		exampleEmbed: { ref: ModalExampleEmbed },
+		exampleImage: { ref: ModalExampleImage }
+	};
+
+	function matchPathWhitelist(pageUrlPath: string): boolean {
+		// If homepage route
+		if (pageUrlPath === '/') return true;
+		// If any blog route
+		if (pageUrlPath.includes('/blog')) return true;
+		return false;
+	}
+
+	// Set body `data-theme` based on current theme status
+	storeTheme.subscribe(setBodyThemeAttribute);
+	storePreview.subscribe(setBodyThemeAttribute);
+	function setBodyThemeAttribute(): void {
+		if (!browser) return;
+		document.body.setAttribute('data-theme', $storePreview ? 'generator' : $storeTheme);
+	}
+
+	// Scroll heading into view
+	function scrollHeadingIntoView(): void {
+		const elemTarget: HTMLElement | null = document.querySelector(window.location.hash);
+		if (elemTarget) elemTarget.scrollIntoView({ behavior: 'smooth' });
+	}
+
+	// Lifecycle
+	afterNavigate((params: any) => {
+		// Store current page route URL
+		storeCurrentUrl.set($page.url.pathname);
+		// Scroll to top
+		const isNewPage: boolean = params.from && params.to && params.from.route.id !== params.to.route.id;
+		const elemPage = document.querySelector('#page');
+		if (isNewPage && elemPage !== null) {
+			elemPage.scrollTop = 0;
+		}
+		// Scroll heading into view
+		scrollHeadingIntoView();
+	});
 	page.subscribe((page) => {
 		// Restore Page Defaults
 		meta.title = metaDefaults.title;
@@ -144,6 +151,9 @@
 		}
 	});
 
+	// Reactive
+	// Current Theme Data
+	$: ({ currentTheme } = data);
 	// Disable left sidebar on homepage
 	$: slotSidebarLeft = matchPathWhitelist($page.url.pathname) ? 'w-0' : 'bg-surface-50-900-token lg:w-auto';
 </script>

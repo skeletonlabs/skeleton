@@ -61,7 +61,7 @@
 	{/if}
 
 	<!-- Presets -->
-	<div class="card variant-glass-surface p-4 space-y-4">
+	<div class="card variant-glass p-4 space-y-4">
 		<nav class="grid grid-cols-1 md:grid-cols-3 gap-4">
 			{#each themes as preset}
 				<!-- prettier-ignore -->
@@ -71,7 +71,7 @@
 						on:click={() => { copyThemeToClipboard(preset.file); }}
 						on:keydown={() => { copyThemeToClipboard(preset.file); }}
 					>
-						<h3 class="text-center font-bold">{preset.name}</h3>
+						<h3 class="text-center font-bold" data-toc-ignore>{preset.name}</h3>
 						<ul class="flex justify-center items-center -space-x-1">
 							{#each preset.colors as color}
 								<li class="aspect-square w-4 xl:w-6 rounded-full" style:background={color} />

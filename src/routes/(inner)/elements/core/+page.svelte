@@ -39,7 +39,7 @@
 			<h2>Selection</h2>
 			<p>Selection color is also set via a token class. Try selecting the text in the card element below to preview this.</p>
 			<CodeBlock language="css" code={`::selection { @apply bg-primary-500/30; }`} />
-			<div class="card p-4 max-h-[200px] overflow-auto space-y-4 text-center">
+			<div class="card variant-glass p-4 max-h-[200px] overflow-auto space-y-4 text-center">
 				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
 			</div>
 		</div>
@@ -48,7 +48,7 @@
 			<h2>Mobile Focus</h2>
 			<p>Interactive elements on mobile will briefly show a focus style when touched. The coloring for this has been adjusted.</p>
 			<CodeBlock language="css" code={`html { -webkit-tap-highlight-color: rgba(128, 128, 128, 0.5); }`} />
-			<div class="card p-4 max-h-[200px] overflow-auto space-y-4 text-center">
+			<div class="card variant-glass p-4 max-h-[200px] overflow-auto space-y-4 text-center">
 				<button class="btn">Tap Me</button>
 			</div>
 		</div>
@@ -96,7 +96,7 @@
 			<!-- prettier-ignore -->
 			<p>Use Tailwind's <a href="https://tailwindcss.com/docs/border-width" target="_blank" rel="noreferrer">Border Width Top</a> and <a href="https://tailwindcss.com/docs/divide-style" target="_blank" rel="noreferrer">Border Styles</a> to customize each divider.</p>
 			<CodeBlock language="html" code={`<hr class="!border-t-8 !border-double" />`} />
-			<div class="card p-4 space-y-4 text-center">
+			<div class="card variant-glass p-4 space-y-4 text-center">
 				<p>Sizes</p>
 				<hr />
 				<hr class="!border-t-2" />
@@ -111,7 +111,7 @@
 				For vertical dividers, use a <code>span</code> tag with the class of <code>.divider-vertical</code>. Adjust the height as desired.
 			</p>
 			<CodeBlock language="html" code={`<span class="divider-vertical h-20" />`} />
-			<div class="card p-4 grid grid-cols-3 gap-4 place-items-center">
+			<div class="card variant-glass p-4 grid grid-cols-3 gap-4 place-items-center">
 				<p>Left</p>
 				<span class="divider-vertical h-20" />
 				<p>Right</p>

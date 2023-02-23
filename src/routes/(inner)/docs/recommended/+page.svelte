@@ -1,8 +1,9 @@
 <script>
+	import LayoutPage from '$docs/layouts/LayoutPage/LayoutPage.svelte';
 	import Avatar from '$lib/components/Avatar/Avatar.svelte';
 </script>
 
-<div class="page-container">
+<LayoutPage>
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Recommendations</h1>
@@ -165,4 +166,4 @@
 			rel="noreferrer">Suggest a Package</a
 		>
 	</section>
-</div>
+</LayoutPage>

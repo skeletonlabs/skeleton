@@ -48,16 +48,9 @@
 	</header>
 
 	<div class="container max-w-[1200px] mx-auto px-4 py-10 md:py-20 space-y-20">
-		<!-- Pre-Release Alert -->
-		<aside class="alert variant-ghost-warning">
-			<i class="fa-solid fa-triangle-exclamation text-4xl" />
-			<div class="alert-message">Skeleton is currently in beta. Expect breaking changes prior to v1.0. Please report bugs on GitHub.</div>
-			<div class="alert-actions">
-				<a href="https://github.com/skeletonlabs/skeleton/issues" target="_blank" rel="noreferrer" class="btn variant-filled"
-					>Report Issue</a
-				>
-			</div>
-		</aside>
+		<div class="card p-4 text-center">
+			<a class="btn variant-filled" href="/components/accordions#open-on-load">Targeted scroll</a>
+		</div>
 
 		<!-- Features -->
 		<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">

@@ -1,8 +1,9 @@
 <script lang="ts">
+	import LayoutPage from '$docs/layouts/LayoutPage/LayoutPage.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 </script>
 
-<div class="page-container">
+<LayoutPage>
 	<!-- Breadcrumbs -->
 	<ol class="breadcrumb">
 		<li class="crumb"><a href="/docs/contributing">Contributing</a></li>
@@ -212,4 +213,4 @@ dispatch('dragover', event);`}
 			settings.
 		</p>
 	</section>
-</div>
+</LayoutPage>

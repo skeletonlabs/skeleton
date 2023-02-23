@@ -19,10 +19,14 @@
 		<!-- Panel -->
 		<svelte:fragment slot="panel">
 			{#if $storeOnboardMethod === 'cli'}
-				<p>
-					The CLI will automatically run <a href="https://github.com/svelte-add/tailwindcss" target="_blank" rel="noreferrer">Svelte-Add</a>
-					to install Tailwind within your project.
-				</p>
+				<div class="card variant-glass p-4">
+					<p>
+						The CLI will automatically run <a href="https://github.com/svelte-add/tailwindcss" target="_blank" rel="noreferrer"
+							>Svelte-Add</a
+						>
+						to install Tailwind within your project.
+					</p>
+				</div>
 			{:else if $storeOnboardMethod === 'manual'}
 				<div class="space-y-4">
 					<p>
@@ -49,7 +53,10 @@ module.exports = {
 	content: [
 		'./src/**/*.{html,js,svelte,ts}',
 		// 2. Append the path for the Skeleton NPM package and files:
-		require('path').join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')
+		require('path').join(require.resolve(
+			'@skeletonlabs/skeleton'),
+			'../**/*.{html,js,svelte,ts}'
+		)
 	],
 	theme: {
 		extend: {},

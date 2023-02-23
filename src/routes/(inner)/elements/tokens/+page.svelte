@@ -86,14 +86,24 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<!-- prettier-ignore -->
-			<p>We recommend this <a href="https://vimeo.com/showcase/9653752/video/724689965" target="_blank" rel="noreferrer">conference talk by Brad Frost</a> if you would like to learn more about the design token concept.</p>
 			<p>
 				Skeleton utilizes a simple but powerful design token system to implement your theme settings for use in elements and components.
 				Design tokens are the default classes for elements and components, which means they auto-adapt based on your theme with minimal
 				configuration out of the box. However, we also make these available to use in your own projects, allowing you to utilize this same
 				technique your own custom components and styling.
 			</p>
+		</section>
+		<section class="space-y-4">
+			<h2>What are Design Tokens?</h2>
+			<p>We recommend this conference talk by Brad Frost if you would like to learn more about the concept.</p>
+			<iframe
+				class="w-full aspect-video mx-auto rounded-container-token shadow"
+				src="https://www.youtube.com/embed/JbxKTBvSLeY"
+				title="Creating Themeable Design Systems with BRAD FROST"
+				frameborder="0"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+				allowfullscreen
+			/>
 		</section>
 		<section class="space-y-4">
 			<h2>Theme Flow</h2>

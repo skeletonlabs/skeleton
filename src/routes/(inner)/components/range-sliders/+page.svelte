@@ -46,7 +46,7 @@
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-4 xl:space-y-0 xl:grid grid-cols-[1fr_auto] gap-2">
 			<!-- Example -->
-			<div class="card p-4 flex justify-center items-center">
+			<div class="card variant-glass p-4 flex justify-center items-center">
 				<!-- prettier-ignore -->
 				<svelte:component
 						this={RangeSlider}

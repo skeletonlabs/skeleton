@@ -1,8 +1,9 @@
 <script lang="ts">
+	import LayoutPage from '$docs/layouts/LayoutPage/LayoutPage.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 </script>
 
-<div class="page-container">
+<LayoutPage>
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Quickstart</h1>
@@ -105,4 +106,4 @@ npm run dev
 			and Utility features.
 		</p>
 	</section>
-</div>
+</LayoutPage>

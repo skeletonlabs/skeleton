@@ -43,7 +43,7 @@
 					<!-- Body -->
 					<div class="p-4 space-y-4">
 						<h6 class="text-primary-500">Announcements</h6>
-						<h3>Skeleton is Awesome!</h3>
+						<h3 data-toc-ignore>Skeleton is Awesome!</h3>
 						<article>
 							<p>
 								Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam aspernatur provident eveniet eligendi cumque consequatur
