@@ -52,7 +52,7 @@
 
 	function generateHeadingList(): void {
 		// Select only relevant headings
-		allowedHeadingsList?.forEach((elem: HTMLElement, i: number) => {
+		allowedHeadingsList?.forEach((elem: HTMLElement) => {
 			// Skip if `data-toc-ignore` attribute set
 			if (elem.hasAttribute('data-toc-ignore')) return;
 			// Generate a unique ID if none present
@@ -61,7 +61,7 @@
 					.replaceAll(/[^a-zA-Z0-9 ]/g, '')
 					.replaceAll(' ', '-')
 					.toLowerCase();
-				elem.id = `${newId}-${i}`;
+				elem.id = `${newId}`;
 			}
 			// Implement permalink
 			if (elem.querySelector('.permalink')) return;
