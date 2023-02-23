@@ -32,7 +32,7 @@
 	// Base Classes
 	const cBaseAppShell = 'w-full h-full flex flex-col overflow-hidden';
 	const cContentArea = 'w-full h-full flex overflow-hidden';
-	const cPage = 'flex-1 overflow-x-hidden overflow-y-auto flex flex-col';
+	const cPage = 'flex-1 overflow-x-hidden overflow-y-scroll flex flex-col';
 	const cSidebarLeft = 'flex-none overflow-x-hidden overflow-y-auto';
 	const cSidebarRight = 'flex-none overflow-x-hidden overflow-y-auto';
 
