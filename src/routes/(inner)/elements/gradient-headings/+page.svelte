@@ -20,13 +20,13 @@
 	<svelte:fragment slot="sandbox">
 		<div class="space-y-4">
 			<div class="card variant-glass p-4 flex justify-center space-x-2">
-				<h2>
+				<h2 data-toc-ignore>
 					<span class="bg-gradient-to-br from-blue-500 to-cyan-300 bg-clip-text text-transparent box-decoration-clone">Design.</span>
 				</h2>
-				<h2>
+				<h2 data-toc-ignore>
 					<span class="bg-gradient-to-br from-red-500 to-yellow-500 bg-clip-text text-transparent box-decoration-clone">Build.</span>
 				</h2>
-				<h2>
+				<h2 data-toc-ignore>
 					<span class="bg-gradient-to-br from-pink-500 to-violet-500 bg-clip-text text-transparent box-decoration-clone">Deploy.</span>
 				</h2>
 			</div>

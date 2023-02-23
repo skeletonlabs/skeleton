@@ -44,7 +44,7 @@
 			<!-- Basic -->
 			<div class="card variant-glass p-4">
 				<ConicGradient stops={stopsTailwind} legend>
-					<h3>Heat Map</h3>
+					<h3 data-toc-ignore>Heat Map</h3>
 				</ConicGradient>
 			</div>
 			<!-- Theme Colors -->

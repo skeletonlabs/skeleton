@@ -1,9 +1,6 @@
 <script lang="ts">
-	import TableOfContents from '$lib/components/TableOfContents/TableOfContents.svelte';
-
-	// @ts-ignore
-	// import { VERCEL_ENV } from '$env/static/private';
 	import { storeVercelProductionMode } from '$docs/stores/stores';
+	import TableOfContents from '$lib/components/TableOfContents/TableOfContents.svelte';
 
 	// Props
 	export let sidebar: boolean = true;
@@ -29,12 +26,18 @@
 		<aside class="layout-cols-aside {classesColRight}">
 			<!-- Ad Position -->
 			{#if $storeVercelProductionMode === true}
+				<!-- Production Ad -->
 				<script
 					async
 					type="text/javascript"
 					src="//cdn.carbonads.com/carbon.js?serve=CWYD627U&placement=carbonadsnet"
 					id="_carbonads_js"
 				></script>
+			{:else}
+				<!-- Staging Placeholder -->
+				<div class="bg-surface-50-900-token ring-[1px] ring-surface-500/10 w-[286px] h-[120px] flex justify-center items-center">
+					<span class="opacity-25">(ad)</span>
+				</div>
 			{/if}
 			<!-- Table of Contents -->
 			<TableOfContents target=".layout-docs-content" minimumHeadings={1} />

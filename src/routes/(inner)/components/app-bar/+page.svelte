@@ -41,7 +41,7 @@
 				<svelte:fragment slot="lead">
 					<i class="fa-solid fa-arrow-left text-2xl" />
 				</svelte:fragment>
-				<h2>Title</h2>
+				<h2 data-toc-ignore>Title</h2>
 				<svelte:fragment slot="trail">
 					<i class="fa-solid fa-paperclip text-xl" />
 					<i class="fa-regular fa-calendar text-xl" />
@@ -50,14 +50,14 @@
 			</AppBar>
 			<!-- --- -->
 			<AppBar>
-				<h2>Title</h2>
+				<h2 data-toc-ignore>Title</h2>
 			</AppBar>
 			<!-- --- -->
 			<AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end">
 				<svelte:fragment slot="lead">
 					<i class="fa-solid fa-bars text-2xl" />
 				</svelte:fragment>
-				<h2>Title</h2>
+				<h2 data-toc-ignore>Title</h2>
 				<svelte:fragment slot="trail">
 					<i class="fa-solid fa-circle-user text-3xl" />
 				</svelte:fragment>
