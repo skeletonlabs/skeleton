@@ -47,12 +47,15 @@
 	// Global Stylesheets
 	import '../app.postcss';
 
-	// Theme stylesheet is loaded from LayoutServerData
+	// Handle Vercel Production Mode
 	import type { LayoutServerData } from './$types';
 	export let data: LayoutServerData;
-
-	// Vercel Analytics
-	if (data.vercelEnv === 'production') import('@vercel/analytics').then((mod) => mod.inject());
+	// Pass to Store for Ad Conditionals
+	// IMPORTANT: DO NOT MODIFY THIS UNLESS YOU KNOW WHAT YOU'RE DOING
+	import { storeVercelProductionMode } from '$docs/stores/stores';
+	storeVercelProductionMode.set(data.vercelEnv === 'production');
+	// Init Vercel Analytics
+	if ($storeVercelProductionMode) import('@vercel/analytics').then((mod) => mod.inject());
 
 	// Registered list of Components for Modals
 	const modalComponentRegistry: Record<string, ModalComponent> = {
