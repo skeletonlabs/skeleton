@@ -60,7 +60,7 @@
 		<p>App Bars can be generated with a number of different configurations by mixing and matching available slots and props.</p>
 		<!-- Single Row and Title -->
 		<section class="space-y-4">
-			<h3>Single Row and Title</h3>
+			<h2>Single Row and Title</h2>
 			<DocsPreview background="neutral" regionViewport="!text-current">
 				<svelte:fragment slot="preview">
 					<AppBar class="w-full">
@@ -91,7 +91,7 @@
 		</section>
 		<!-- Barebones -->
 		<section class="space-y-4">
-			<h3>Barebones</h3>
+			<h2>Barebones</h2>
 			<DocsPreview background="neutral" regionViewport="!text-current">
 				<svelte:fragment slot="preview">
 					<AppBar class="w-full"><h2 data-toc-ignore>Title</h2></AppBar>
@@ -108,7 +108,6 @@
 				The main row utilizes a grid-base layout. Utilize Tailwind's <a href="https://tailwindcss.com/docs/grid-column" target="_blank" rel="noreferrer">grid column</a> utility classes to control column width. Then use
 				<a href="https://tailwindcss.com/docs/place-content" target="_blank" rel="noreferrer">place settings</a> to adjust the placement of the slot contents.
 			</p>
-
 			<DocsPreview background="neutral" regionViewport="!text-current">
 				<svelte:fragment slot="preview">
 					<AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end" class="w-full">
@@ -134,7 +133,6 @@
 					/>
 				</svelte:fragment>
 			</DocsPreview>
-
 			<p>The example above provides an even three columns layout with the title centered and actions right-aligned.</p>
 		</section>
 	</svelte:fragment>
