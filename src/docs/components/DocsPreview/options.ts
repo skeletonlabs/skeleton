@@ -2,6 +2,7 @@
 
 export const backgrounds: Record<string, string> = {
 	'bg-transparent': 'bg-transparent',
+	neutral: 'bg-white/10 dark:bg-black/10',
 	// Surfaces
 	'bg-surface-900-50-token': 'bg-surface-900-50-token text-on-surface-token',
 	'bg-surface-50-900-token': 'bg-surface-50-900-token text-on-surface-token',
@@ -25,6 +26,5 @@ export const backgrounds: Record<string, string> = {
 	'variant-soft-tertiary': 'variant-soft-tertiary',
 	'variant-soft-success': 'variant-soft-success',
 	'variant-soft-warning': 'variant-soft-warning',
-	'variant-soft-error': 'variant-soft-error',
-	'variant-soft-surface': 'variant-soft-surface'
+	'variant-soft-error': 'variant-soft-error'
 };

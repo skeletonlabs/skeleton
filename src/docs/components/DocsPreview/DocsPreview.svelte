@@ -10,7 +10,7 @@
 	/** Enable the mobile responsive settings */
 	export let responsive = false;
 	/** Force and append a custom color value. */
-	export let background = '';
+	export let background = 'primary-to-secondary';
 
 	// Props (regions)
 	/** Provide abitrary classes to the header region. */
@@ -18,19 +18,19 @@
 	/** Provide abitrary classes to the preview viewport. */
 	export let regionViewport = '';
 	/** Provide abitrary classes to the content region. */
-	export let regionContent = '';
+	export let regionPreview = '';
 	/** Provide abitrary classes to the footer region. */
 	export let regionFooter = '';
 	/** Provide abitrary classes to the source code region. */
 	export let regionSource = '';
 
 	// Classes
-	const cBase = 'ring-outline-token shadow-xl rounded-container-token overflow-hidden';
+	const cBase = 'shadow-2xl shadow-surface-500/10 dark:shadow-black/10 rounded-container-token overflow-hidden';
 	const cHeader = 'bg-surface-200-700-token p-4 flex justify-between gap-4';
 	const cSwatches = 'variant-soft p-4 grid grid-cols-8 sm:grid-cols-11 gap-2';
 	const cSwatchCell = 'ring-[1px] ring-surface-500/50 aspect-square rounded';
 	const cViewport = 'p-4 md:p-10 space-y-4';
-	const cContent = 'flex justify-center items-center space-y-4 mx-auto transition-[width] duration-200';
+	const cContent = 'flex justify-center items-center mx-auto transition-[width] duration-200';
 	const cFooter = 'variant-soft p-4';
 	const cSource = 'bg-surface-100-800-token p-4 space-y-4';
 
@@ -38,20 +38,13 @@
 	let tabView: string = 'preview';
 	let radioSize: string = 'full';
 	let swatches = false;
-	let bgActive = 'primary-to-secondary';
-
-	// Extend the background list options
-	if (background) {
-		backgrounds[background] = background;
-		bgActive = background;
-	}
 
 	function toggleSwatches(): void {
 		swatches = !swatches;
 	}
 
 	function swatchHandler(key: string): void {
-		bgActive = key;
+		background = key;
 		toggleSwatches();
 	}
 
@@ -61,8 +54,8 @@
 	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
 	$: classesHeader = `${cHeader} ${regionHeader}`;
 	$: classesSwatches = `${cSwatches}`;
-	$: classesViewport = `${cViewport} ${backgrounds[bgActive]} ${regionViewport}`;
-	$: classesContent = `${cContent} ${resizableWidth} ${regionContent}`;
+	$: classesViewport = `${cViewport} ${backgrounds[background]} ${regionViewport}`;
+	$: classesPreview = `${cContent} ${resizableWidth} ${regionPreview}`;
 	$: classesFooter = `${cFooter} ${regionFooter}`;
 	$: classesSource = `${cSource} ${regionSource}`;
 </script>
@@ -106,7 +99,7 @@
 			<!-- Slot: Lead -->
 			{#if $$slots.lead}<div class="previewer-lead"><slot name="lead" /></div>{/if}
 			<!-- Slot: Preview -->
-			<div class="previewer-resizable {classesContent}"><slot name="preview">(preview)</slot></div>
+			<div class="previewer-preview {classesPreview}"><slot name="preview">(preview)</slot></div>
 			<!-- Slot: Trail -->
 			{#if $$slots.trail}<div class="previewer-trail"><slot name="trail" /></div>{/if}
 		</div>
