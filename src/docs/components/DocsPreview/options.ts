@@ -1,8 +1,8 @@
 // Previewer Background Options
 
-export const bgList: Record<string, string> = {
+export const backgrounds: Record<string, string> = {
 	neutral: 'bg-surface-100-800-token text-on-surface-token',
-	none: '',
+	'bg-transparent': 'bg-transparent',
 	// Gradient
 	'primary-to-secondary': 'bg-gradient-to-br from-primary-500 to-secondary-500 text-on-primary-token',
 	'secondary-to-tertiary': 'bg-gradient-to-br from-secondary-500 to-tertiary-500 text-on-secondary-token',

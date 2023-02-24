@@ -3,7 +3,7 @@
 	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
 	// Settings
-	import { bgList } from './settings';
+	import { backgrounds } from './options';
 
 	// Props
 	/** Enable the mobile responsive settings */
@@ -27,8 +27,8 @@
 	const cBase = 'ring-outline-token shadow-xl rounded-container-token overflow-hidden';
 	const cHeader = 'bg-surface-200-700-token p-4 flex justify-between gap-4';
 	const cViewport = 'p-4 md:p-10 space-y-4';
-	const cContent = 'space-y-4 mx-auto transition-[width] duration-200';
-	const cFooter = 'bg-surface-200-700-token p-4 flex justify-between gap-4';
+	const cContent = 'flex justify-center items-center space-y-4 mx-auto transition-[width] duration-200';
+	const cFooter = 'bg-surface-200-700-token p-4';
 	const cSource = 'bg-surface-100-800-token p-4 space-y-4';
 
 	// Local
@@ -38,17 +38,16 @@
 
 	// Extend the background list options
 	if (background) {
-		bgList[background] = background;
+		backgrounds[background] = background;
 		bgActive = background;
 	}
 
 	// State
-	$: classesBackground = background ? background : bgList[bgActive];
 	$: resizableWidth = radioSize === 'mobile' ? 'w-[320px]' : 'w-full';
 	// Reactive
 	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
 	$: classesHeader = `${cHeader} ${regionHeader}`;
-	$: classesViewport = `${cViewport} ${classesBackground} ${regionViewport}`;
+	$: classesViewport = `${cViewport} ${backgrounds[bgActive]} ${regionViewport}`;
 	$: classesContent = `${cContent} ${resizableWidth} ${regionContent}`;
 	$: classesFooter = `${cFooter} ${regionFooter}`;
 	$: classesSource = `${cSource} ${regionSource}`;
@@ -72,8 +71,8 @@
 			{/if}
 			<!-- Background Selection -->
 			<select class="select" name="background" bind:value={bgActive}>
-				{#each Object.entries(bgList) as [bgKey, bgValue]}
-					<option value={bgKey} title={bgValue}>{bgKey}</option>
+				{#each Object.entries(backgrounds) as [k, v]}
+					<option value={k}>{k}</option>
 				{/each}
 			</select>
 		</div>
