@@ -9,6 +9,7 @@
 	const cBase = 'ring-outline-token shadow-xl rounded-container-token overflow-hidden';
 	const cHeader = 'bg-surface-200-700-token p-4 flex justify-between gap-4';
 	const cContent = 'p-10 space-y-4';
+	const cResizable = 'space-y-4 mx-auto transition-all duration-200';
 	const cFooter = 'bg-surface-200-700-token p-4 flex justify-between gap-4';
 	const cCode = 'bg-surface-100-800-token p-4 space-y-4';
 
@@ -18,10 +19,13 @@
 
 	let bgActive = 'primary-to-secondary'; // Object.keys(bgList)[0];
 
+	// State
+	$: resizableWidth = radioSize === 'mobile' ? 'w-[320px]' : 'w-full';
 	// Reactive
 	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
 	$: classesHeader = `${cHeader}`;
 	$: classesContent = `${cContent} ${bgList[bgActive]}`;
+	$: classesResiable = `${cResizable} ${resizableWidth}`;
 	$: classesFooter = `${cFooter}`;
 	$: classesCode = `${cCode}`;
 </script>
@@ -51,7 +55,7 @@
 			<!-- Slot: Lead -->
 			{#if $$slots.lead}<div class="docs-preview-lead"><slot name="lead" /></div>{/if}
 			<!-- Slot: Preview -->
-			<slot name="preview">(preview)</slot>
+			<div class="docs-preview-resizable {classesResiable}"><slot name="preview">(preview)</slot></div>
 			<!-- Slot: Trail -->
 			{#if $$slots.trail}<div class="docs-preview-trail"><slot name="trail" /></div>{/if}
 		</div>

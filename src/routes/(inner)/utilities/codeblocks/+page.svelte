@@ -36,9 +36,9 @@
 			<svelte:fragment slot="trail">
 				<p class="w-full text-center">(this is the trail slot)</p>
 			</svelte:fragment>
-			<!-- <svelte:fragment slot="footer">
+			<svelte:fragment slot="footer">
 				<p class="w-full text-center">(this is the footer slot)</p>
-			</svelte:fragment> -->
+			</svelte:fragment>
 			<svelte:fragment slot="source">
 				<CodeBlock language="html" code={`<CodeBlock language="html" code={\`<div>This is meta</div>\`}></CodeBlock>`} />
 				<CodeBlock language="html" code={`<CodeBlock language="css" code={\`.skeleton { color: #bada55; }\`}></CodeBlock>`} />
