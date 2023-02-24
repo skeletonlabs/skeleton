@@ -11,6 +11,8 @@
 	export let name: string;
 	/** Set the input's value. */
 	export let value: any;
+	/** Set the hover title. */
+	export let title: string = '';
 
 	// Props (A11y)
 	/** Defines a semantic ARIA label. */
@@ -56,6 +58,7 @@
 <!-- WARNING: avoid click handlers on <label>; will fire twice -->
 <label
 	class="radio-item {classesBase}"
+	{title}
 	role="radio"
 	aria-checked={checked}
 	aria-label={label}

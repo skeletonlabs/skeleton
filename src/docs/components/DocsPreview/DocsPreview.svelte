@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { slide } from 'svelte/transition';
 	// Components
 	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
@@ -26,14 +27,17 @@
 	// Classes
 	const cBase = 'ring-outline-token shadow-xl rounded-container-token overflow-hidden';
 	const cHeader = 'bg-surface-200-700-token p-4 flex justify-between gap-4';
+	const cSwatches = 'variant-soft p-4 grid grid-cols-8 sm:grid-cols-11 gap-2';
+	const cSwatchCell = 'ring-[1px] ring-surface-500/50 aspect-square rounded';
 	const cViewport = 'p-4 md:p-10 space-y-4';
 	const cContent = 'flex justify-center items-center space-y-4 mx-auto transition-[width] duration-200';
-	const cFooter = 'variant-soft p-4 pt-0';
+	const cFooter = 'variant-soft p-4';
 	const cSource = 'bg-surface-100-800-token p-4 space-y-4';
 
 	// Local
 	let tabView: string = 'preview';
 	let radioSize: string = 'full';
+	let swatches = false;
 	let bgActive = 'primary-to-secondary';
 
 	// Extend the background list options
@@ -42,24 +46,34 @@
 		bgActive = background;
 	}
 
+	function toggleSwatches(): void {
+		swatches = !swatches;
+	}
+
+	function swatchHandler(key: string): void {
+		bgActive = key;
+		toggleSwatches();
+	}
+
 	// State
 	$: resizableWidth = radioSize === 'mobile' ? 'w-[320px]' : 'w-full';
 	// Reactive
 	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
 	$: classesHeader = `${cHeader} ${regionHeader}`;
+	$: classesSwatches = `${cSwatches}`;
 	$: classesViewport = `${cViewport} ${backgrounds[bgActive]} ${regionViewport}`;
 	$: classesContent = `${cContent} ${resizableWidth} ${regionContent}`;
 	$: classesFooter = `${cFooter} ${regionFooter}`;
 	$: classesSource = `${cSource} ${regionSource}`;
 </script>
 
-<div class="docs-preview {classesBase}">
+<div class="previewer {classesBase}">
 	<!-- Header -->
-	<header class="docs-preview-header {classesHeader}">
+	<header class="previewer-header {classesHeader}">
 		<!-- View Toggle -->
 		<RadioGroup>
-			<RadioItem bind:group={tabView} name="view" value="preview"><i class="fa-solid fa-eye text-sm" /></RadioItem>
-			<RadioItem bind:group={tabView} name="view" value="code"><i class="fa-solid fa-code text-sm" /></RadioItem>
+			<RadioItem bind:group={tabView} name="view" value="preview" title="Preview"><i class="fa-solid fa-eye text-sm" /></RadioItem>
+			<RadioItem bind:group={tabView} name="view" value="code" title="Code"><i class="fa-solid fa-code text-sm" /></RadioItem>
 		</RadioGroup>
 		<div class="flex justify-between gap-4">
 			<!-- Responsive Settings -->
@@ -69,28 +83,37 @@
 					<RadioItem bind:group={radioSize} name="size" value="full"><i class="fa-solid fa-display text-sm" /></RadioItem>
 				</RadioGroup>
 			{/if}
-			<!-- Background Selection -->
-			<select class="select" name="background" bind:value={bgActive}>
-				{#each Object.entries(backgrounds) as [k, v]}
-					<option value={k}>{k}</option>
-				{/each}
-			</select>
+			<!-- Toggle Swatches -->
+			<button class="btn-icon {swatches ? 'variant-filled' : 'variant-soft'}" on:click={toggleSwatches}>
+				<i class="fa-solid fa-swatchbook text-sm" />
+			</button>
 		</div>
 	</header>
 	{#if tabView === 'preview'}
+		<!-- Swatches -->
+		{#if swatches}
+			<div class="previewer-swatches {classesSwatches}" transition:slide={{ duration: 200 }}>
+				{#each Object.entries(backgrounds) as [k, v], i}
+					<!-- prettier-ignore -->
+					<button type="button" class="{cSwatchCell} {v}" on:click={() => { swatchHandler(k) }} title={k}>
+						{#if i === 0}<i class="fa-regular fa-circle-xmark text-xl"></i>{/if}
+					</button>
+				{/each}
+			</div>
+		{/if}
 		<!-- Viewport -->
-		<div class="docs-preview-viewport {classesViewport}">
+		<div class="previewer-viewport {classesViewport}">
 			<!-- Slot: Lead -->
-			{#if $$slots.lead}<div class="docs-preview-lead"><slot name="lead" /></div>{/if}
+			{#if $$slots.lead}<div class="previewer-lead"><slot name="lead" /></div>{/if}
 			<!-- Slot: Preview -->
-			<div class="docs-preview-resizable {classesContent}"><slot name="preview">(preview)</slot></div>
+			<div class="previewer-resizable {classesContent}"><slot name="preview">(preview)</slot></div>
 			<!-- Slot: Trail -->
-			{#if $$slots.trail}<div class="docs-preview-trail"><slot name="trail" /></div>{/if}
+			{#if $$slots.trail}<div class="previewer-trail"><slot name="trail" /></div>{/if}
 		</div>
-		{#if $$slots.footer}<footer class="docs-preview-footer {classesFooter}"><slot name="footer" /></footer>{/if}
+		{#if $$slots.footer}<footer class="previewer-footer {classesFooter}"><slot name="footer" /></footer>{/if}
 	{:else if tabView === 'code'}
 		<!-- Source -->
-		<div class="docs-preview-source {classesSource}">
+		<div class="previewer-source {classesSource}">
 			<slot name="source">(source)</slot>
 		</div>
 	{/if}

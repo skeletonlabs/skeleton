@@ -1,14 +1,16 @@
 // Previewer Background Options
 
 export const backgrounds: Record<string, string> = {
-	neutral: 'bg-surface-100-800-token text-on-surface-token',
 	'bg-transparent': 'bg-transparent',
+	// Surfaces
+	'bg-surface-900-50-token': 'bg-surface-900-50-token text-on-surface-token',
+	'bg-surface-50-900-token': 'bg-surface-50-900-token text-on-surface-token',
 	// Gradient
 	'primary-to-secondary': 'bg-gradient-to-br from-primary-500 to-secondary-500 text-on-primary-token',
 	'secondary-to-tertiary': 'bg-gradient-to-br from-secondary-500 to-tertiary-500 text-on-secondary-token',
-	'tertiary-to-primary': 'bg-gradient-to-br from-tertiary-500 to-primary-500 text-on-secondary-token',
+	'tertiary-to-primary': 'bg-gradient-to-br from-tertiary-500 to-primary-500 text-on-tertiary-token',
+	'primary-to-surface': 'bg-gradient-to-br from-primary-500 to-surface-500 text-on-primary-token',
 	// Filled
-	'variant-filled': `variant-filled`,
 	'variant-filled-primary': `variant-filled-primary`,
 	'variant-filled-secondary': `variant-filled-secondary`,
 	'variant-filled-tertiary': `variant-filled-tertiary`,
