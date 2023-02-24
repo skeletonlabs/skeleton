@@ -136,7 +136,7 @@ const tableSimple: TableSource = {
 				<Tab bind:group={$storeService} name="tableSourceMapper" value="tableSourceMapper">Source Mapper</Tab>
 				<Tab bind:group={$storeService} name="tableSourceValues" value="tableSourceValues">Source Values</Tab>
 			</TabGroup>
-			<CodeBlock language="ts" code={`import { ${$storeService} } from '@skeletonlabs/skeleton';>`} />
+			<CodeBlock language="ts" code={`import { ${$storeService} } from '@skeletonlabs/skeleton';`} />
 			{#if $storeService === 'tableMapperValues'}
 				<!-- Table Mapper Values -->
 				<p>
