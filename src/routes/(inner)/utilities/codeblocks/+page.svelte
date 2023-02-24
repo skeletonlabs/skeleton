@@ -26,9 +26,11 @@
 	<svelte:fragment slot="sandbox">
 		<DocsPreview>
 			<svelte:fragment slot="preview">
-				<CodeBlock language="html" code={`<div>This is meta</div>`} />
-				<CodeBlock language="css" code={`.skeleton { color: #bada55; }`} />
-				<CodeBlock language="ts" code={`const skeleton: string = 'awesome';`} />
+				<div class="w-full space-y-4">
+					<CodeBlock language="html" code={`<div>This is meta</div>`} />
+					<CodeBlock language="css" code={`.skeleton { color: #bada55; }`} />
+					<CodeBlock language="ts" code={`const skeleton: string = 'awesome';`} />
+				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
 				<CodeBlock language="html" code={`<CodeBlock language="html" code={\`<div>This is meta</div>\`}></CodeBlock>`} />
