@@ -84,7 +84,7 @@
 				</RadioGroup>
 			{/if}
 			<!-- Toggle Swatches -->
-			<button class="btn-icon {swatches ? 'variant-filled' : 'variant-soft'}" on:click={toggleSwatches}>
+			<button class="btn-icon {swatches ? 'variant-filled' : 'variant-soft'}" on:click={toggleSwatches} title="Backgrounds">
 				<i class="fa-solid fa-swatchbook text-sm" />
 			</button>
 		</div>
