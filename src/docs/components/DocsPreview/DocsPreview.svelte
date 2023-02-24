@@ -45,7 +45,6 @@
 
 	function swatchHandler(key: string): void {
 		background = key;
-		toggleSwatches();
 	}
 
 	// State
