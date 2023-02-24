@@ -8,6 +8,7 @@ export const backgrounds: Record<string, string> = {
 	'secondary-to-tertiary': 'bg-gradient-to-br from-secondary-500 to-tertiary-500 text-on-secondary-token',
 	'tertiary-to-primary': 'bg-gradient-to-br from-tertiary-500 to-primary-500 text-on-secondary-token',
 	// Filled
+	'variant-filled': `variant-filled`,
 	'variant-filled-primary': `variant-filled-primary`,
 	'variant-filled-secondary': `variant-filled-secondary`,
 	'variant-filled-tertiary': `variant-filled-tertiary`,
@@ -16,6 +17,7 @@ export const backgrounds: Record<string, string> = {
 	'variant-filled-error': `variant-filled-error`,
 	'variant-filled-surface': `variant-filled-surface`,
 	// Soft
+	'variant-soft': 'variant-soft',
 	'variant-soft-primary': 'variant-soft-primary',
 	'variant-soft-secondary': 'variant-soft-secondary',
 	'variant-soft-tertiary': 'variant-soft-tertiary',

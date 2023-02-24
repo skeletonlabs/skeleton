@@ -103,7 +103,7 @@
 			<p>
 				See <a href="/actions/filters">Filters</a> to learn how to import and configure the filters action and SVG filter components.
 			</p>
-			<CodeBlock language="ts" code={`import { filter, Apollo } from '@skeletonlabs/skeleton';`} />
+			<CodeBlock language="ts" code={`import { filter, ${actionParams.replace('#', '')} } from '@skeletonlabs/skeleton';`} />
 			<DocsPreview background="variant-soft" regionFooter="text-center">
 				<svelte:fragment slot="preview">
 					<Avatar src={imgPlaceholder} action={filter} {actionParams} />

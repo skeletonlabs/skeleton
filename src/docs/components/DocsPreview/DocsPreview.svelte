@@ -28,7 +28,7 @@
 	const cHeader = 'bg-surface-200-700-token p-4 flex justify-between gap-4';
 	const cViewport = 'p-4 md:p-10 space-y-4';
 	const cContent = 'flex justify-center items-center space-y-4 mx-auto transition-[width] duration-200';
-	const cFooter = 'bg-surface-200-700-token p-4';
+	const cFooter = 'variant-soft p-4 pt-0';
 	const cSource = 'bg-surface-100-800-token p-4 space-y-4';
 
 	// Local
