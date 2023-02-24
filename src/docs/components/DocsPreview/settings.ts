@@ -8,19 +8,19 @@ export const bgList: Record<string, string> = {
 	'secondary-to-tertiary': 'bg-gradient-to-br from-secondary-500 to-tertiary-500 text-on-secondary-token',
 	'tertiary-to-primary': 'bg-gradient-to-br from-tertiary-500 to-primary-500 text-on-secondary-token',
 	// Filled
-	'filled-primary': `variant-filled-primary`,
-	'filled-secondary': `variant-filled-secondary`,
-	'filled-tertiary': `variant-filled-tertiary`,
-	'filled-success': `variant-filled-success`,
-	'filled-warning': `variant-filled-warning`,
-	'filled-error': `variant-filled-error`,
-	'filled-surface': `variant-filled-surface`,
+	'variant-filled-primary': `variant-filled-primary`,
+	'variant-filled-secondary': `variant-filled-secondary`,
+	'variant-filled-tertiary': `variant-filled-tertiary`,
+	'variant-filled-success': `variant-filled-success`,
+	'variant-filled-warning': `variant-filled-warning`,
+	'variant-filled-error': `variant-filled-error`,
+	'variant-filled-surface': `variant-filled-surface`,
 	// Soft
-	'soft-primary': 'variant-soft-primary',
-	'soft-secondary': 'variant-soft-secondary',
-	'soft-tertiary': 'variant-soft-tertiary',
-	'soft-success': 'variant-soft-success',
-	'soft-warning': 'variant-soft-warning',
-	'soft-error': 'variant-soft-error',
-	'soft-surface': 'variant-soft'
+	'variant-soft-primary': 'variant-soft-primary',
+	'variant-soft-secondary': 'variant-soft-secondary',
+	'variant-soft-tertiary': 'variant-soft-tertiary',
+	'variant-soft-success': 'variant-soft-success',
+	'variant-soft-warning': 'variant-soft-warning',
+	'variant-soft-error': 'variant-soft-error',
+	'variant-soft-surface': 'variant-soft-surface'
 };

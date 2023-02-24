@@ -25,19 +25,10 @@
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<DocsPreview>
-			<svelte:fragment slot="lead">
-				<p class="w-full text-center">(this is the lead slot)</p>
-			</svelte:fragment>
 			<svelte:fragment slot="preview">
 				<CodeBlock language="html" code={`<div>This is meta</div>`} />
 				<CodeBlock language="css" code={`.skeleton { color: #bada55; }`} />
 				<CodeBlock language="ts" code={`const skeleton: string = 'awesome';`} />
-			</svelte:fragment>
-			<svelte:fragment slot="trail">
-				<p class="w-full text-center">(this is the trail slot)</p>
-			</svelte:fragment>
-			<svelte:fragment slot="footer">
-				<p class="w-full text-center">(this is the footer slot)</p>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
 				<CodeBlock language="html" code={`<CodeBlock language="html" code={\`<div>This is meta</div>\`}></CodeBlock>`} />
