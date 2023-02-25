@@ -24,12 +24,8 @@
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-4">
-			<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-				<div class="card p-4 !space-x-6">
-					<div class="relative inline-block">
-						<span class="badge variant-filled absolute -top-3 -right-4 z-10">50k</span>
-						<button class="btn btn-sm variant-ghost-surface">Button</button>
-					</div>
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+				<div class="card variant-glass p-4 !space-x-6">
 					<div class="relative inline-block">
 						<span class="badge-icon variant-filled-warning absolute -top-1 -right-1 z-10">2</span>
 						<Avatar />
@@ -41,11 +37,17 @@
 						<Avatar />
 					</div>
 				</div>
-				<div class="card p-4">
+				<div class="card variant-glass p-4">
+					<div class="relative inline-block">
+						<span class="badge variant-filled absolute -top-3 -right-4 z-10">50k</span>
+						<button class="btn btn-sm variant-soft">Button</button>
+					</div>
+				</div>
+				<div class="card variant-glass p-4">
 					<h4>Skeleton</h4>
 					<sup class="badge variant-filled-primary">Sup</sup>
 				</div>
-				<div class="card p-4">
+				<div class="card variant-glass p-4">
 					<h4>Skeleton</h4>
 					<sub class="badge variant-filled-secondary">Sub</sub>
 				</div>

@@ -1,6 +1,8 @@
 <script lang="ts">
+	import LayoutPage from '$docs/layouts/LayoutPage/LayoutPage.svelte';
+	// Types
 	import type { TableSource } from '$lib/components/Table/types';
-
+	// Components
 	import Table from '$lib/components/Table/Table.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
@@ -42,7 +44,7 @@
 	};
 </script>
 
-<div class="page-container">
+<LayoutPage>
 	<!-- Breadcrumbs -->
 	<ol class="breadcrumb">
 		<li class="crumb"><a href="/docs/contributing">Contributing</a></li>
@@ -170,4 +172,4 @@
 		<Table source={tableProjectStructure} />
 		<Table source={tableDocs} />
 	</section>
-</div>
+</LayoutPage>

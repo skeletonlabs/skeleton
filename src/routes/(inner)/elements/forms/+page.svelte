@@ -36,7 +36,7 @@
 	<svelte:fragment slot="sandbox">
 		<section class="space-y-4">
 			<p class="text-center">Tap the <strong>View Page Source</strong> above to inspect each example shown below.</p>
-			<div class="card">
+			<div class="card variant-glass">
 				<!-- Card Body -->
 				<div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
 					<!-- Column 1 -->

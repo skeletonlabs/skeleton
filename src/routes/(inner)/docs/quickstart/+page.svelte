@@ -1,12 +1,13 @@
 <script lang="ts">
+	import LayoutPage from '$docs/layouts/LayoutPage/LayoutPage.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 </script>
 
-<div class="page-container">
+<LayoutPage>
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Quickstart</h1>
-		<p>This following guide will walk you through the process of creating a basic Skeleton app using SvelteKit.</p>
+		<p>This following guide will explain how to create a basic Skeleton app using SvelteKit.</p>
 	</header>
 
 	<hr />
@@ -105,4 +106,4 @@ npm run dev
 			and Utility features.
 		</p>
 	</section>
-</div>
+</LayoutPage>

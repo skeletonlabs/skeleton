@@ -412,12 +412,17 @@ function triggerCustomModal(): void {
 				<div class="alert-actions">
 					<a
 						class="btn variant-filled-secondary"
-						href="https://github.com/skeletonlabs/skeleton/tree/master/src/docs/DocsModals/"
+						href="https://github.com/skeletonlabs/skeleton/tree/master/src/docs/modals/examples"
 						target="_blank"
 						rel="noreferrer">View Example Modals</a
 					>
 				</div>
 			</aside>
+		</section>
+		<section class="space-y-4">
+			<h2>Accessibility</h2>
+			<!-- prettier-ignore -->
+			<p>Skeleton <u>does not</u> provide a means to disable the backdrop's click to close feature, as we feel this would be harmful to accessability. We recommend viewing the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/" target="_blank" rel="noreferrer">ARIA guidelines</a> if you wish to learn more about modal accessability.</p>
 		</section>
 	</svelte:fragment>
 </DocsShell>

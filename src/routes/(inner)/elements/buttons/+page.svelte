@@ -40,7 +40,7 @@
 	<svelte:fragment slot="sandbox">
 		<div class="grid grid-cols-1 xl:grid-cols-[1fr_300px] gap-2">
 			<!-- Example -->
-			<div class="card grid grid-rows-[1fr_auto]">
+			<div class="card variant-glass grid grid-rows-[1fr_auto]">
 				<div class="p-4 flex justify-center items-center">
 					<svelte:element this={props.tag} class="btn {props.size} {props.variant}" disabled={props.disabled}>
 						<i class="fa-solid fa-skull" />
