@@ -57,7 +57,7 @@
 		toastStore.trigger({ message: 'Message will remain until dismissed.', autohide: false });
 	}
 
-	function toastPreset(background: string): void {
+	function toastBackground(background: string): void {
 		const t: ToastSettings = {
 			message: `The background was set as <u>${background}</u>.`,
 			background
@@ -89,12 +89,12 @@
 			<section class="card variant-glass p-4">
 				<!-- prettier-ignore -->
 				<div class="grid grid-cols-1 md:grid-cols-6 gap-4 max-w-[700px] mx-auto">
-					<button class="btn variant-filled" on:click={() => {toastPreset('variant-filled-primary')}}>Primary</button>
-					<button class="btn variant-filled" on:click={() => {toastPreset('variant-filled-secondary')}}>Secondary</button>
-					<button class="btn variant-filled" on:click={() => {toastPreset('variant-filled-tertiary')}}>Tertiary</button>
-					<button class="btn variant-filled" on:click={() => {toastPreset('variant-filled-success')}}>Success</button>
-					<button class="btn variant-filled" on:click={() => {toastPreset('variant-filled-warning')}}>Warning</button>
-					<button class="btn variant-filled" on:click={() => {toastPreset('variant-filled-error')}}>Error</button>
+					<button class="btn variant-filled" on:click={() => {toastBackground('variant-filled-primary')}}>Primary</button>
+					<button class="btn variant-filled" on:click={() => {toastBackground('variant-filled-secondary')}}>Secondary</button>
+					<button class="btn variant-filled" on:click={() => {toastBackground('variant-filled-tertiary')}}>Tertiary</button>
+					<button class="btn variant-filled" on:click={() => {toastBackground('variant-filled-success')}}>Success</button>
+					<button class="btn variant-filled" on:click={() => {toastBackground('variant-filled-warning')}}>Warning</button>
+					<button class="btn variant-filled" on:click={() => {toastBackground('variant-filled-error')}}>Error</button>
 				</div>
 			</section>
 		</div>
@@ -134,8 +134,8 @@
 function triggerToast(): void {
 	const t: ToastSettings = {
 		message: '👋 Hello and welcome to Skeleton.',
-		// Optional: Presets for primary | secondary | tertiary | warning
-		preset: 'primary',
+		// Optional: Backgrounds for primary | secondary | tertiary | warning
+		background: 'primary',
 		// Optional: The auto-hide settings
 		autohide: true,
 		timeout: 5000,
@@ -174,7 +174,7 @@ function triggerToast(): void {
 const t: ToastSettings = {
 	message: 'This message will have a colorful background.',
 	// Provide any background class
-	preset: 'variant-filled-warning',
+	background: 'variant-filled-warning',
 };
 			`}
 			/>

@@ -40,11 +40,11 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="space-y-4 lg:space-y-0 lg:grid lg:grid-cols-3 gap-5">
+		<section class="space-y-4 lg:space-y-0 lg:grid lg:grid-cols-3 gap-4">
 			<!-- Basic -->
 			<div class="card variant-glass p-4">
 				<ConicGradient stops={stopsTailwind} legend>
-					<h3>Heat Map</h3>
+					<h3 data-toc-ignore>Heat Map</h3>
 				</ConicGradient>
 			</div>
 			<!-- Theme Colors -->
@@ -67,7 +67,6 @@
 				Provide one or more color stops that start with values that range from <code>0%</code> to <code>100%</code>. A stop of
 				<code>0%</code> starts at the top middle, then additional values are added in a clock-wise direction.
 			</p>
-			<CodeBlock language="ts" code={`import type { ConicStop } from '@skeletonlabs/skeleton';`} />
 			<CodeBlock
 				language="ts"
 				code={`

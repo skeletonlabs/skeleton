@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
+	// Docs
+	import LayoutPage from '$docs/layouts/LayoutPage/LayoutPage.svelte';
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	// Stores
@@ -7,12 +9,12 @@
 	export const storeStylesheetElements: Writable<string> = writable('combined');
 </script>
 
-<div class="page-container">
+<LayoutPage>
 	<header class="space-y-4">
 		<h1>Styling</h1>
 		<!-- prettier-ignore -->
 		<p>
-			The basic techniques for styling Skeleton elements and components are covered below. View our <a href="/blog/deep-dive-skeleton-styling" target="_blank">comprehensive guide to styling</a> for more information.
+			This section covers basic techniques for styling Skeleton elements and components below. View our <a href="/blog/deep-dive-skeleton-styling" target="_blank">comprehensive guide to styling</a> to learn more.
 		</p>
 	</header>
 
@@ -41,7 +43,7 @@
 		<CodeBlock language="html" code={`<ExampleComponent class="text-3xl px-10 py-5">Skeleton</ExampleComponent>`} />
 	</section>
 	<section class="space-y-4">
-		<h2>Tailwind Abitrary Variants</h2>
+		<h2>Tailwind Arbitrary Variants</h2>
 		<p>
 			If you need to target deeper than the parent element, we recommend using <a
 				href="https://tailwindcss.com/blog/tailwindcss-v3-1#arbitrary-values-but-for-variants"
@@ -69,4 +71,4 @@
 			light/dark mode Tailwind variants to give precedence.
 		</blockquote>
 	</section>
-</div>
+</LayoutPage>

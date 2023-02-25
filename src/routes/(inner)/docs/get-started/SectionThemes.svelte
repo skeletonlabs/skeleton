@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { storeFramework } from '$docs/stores/stores';
+	import { storeOnboardMethod } from '$docs/stores/stores';
 
 	import { themes } from './themes';
 
@@ -13,14 +13,16 @@
 	import type { ToastSettings } from '$lib/utilities/Toast/types';
 
 	// Local
-	let activeDataTheme = 'skeleton';
+	let activeThemeName: string = '';
+	let activeThemeStylesheet: string = '// Select a theme above';
 
 	// Copy Theme Import to Clipboard
 	function copyThemeToClipboard(file: string): void {
 		// Set Active
-		activeDataTheme = file;
+		activeThemeName = file;
+		activeThemeStylesheet = `import '@skeletonlabs/skeleton/themes/theme-${file.toLowerCase()}.css';`;
 		// Copy
-		navigator.clipboard.writeText(`import '@skeletonlabs/skeleton/themes/theme-${file.toLowerCase()}.css';`).then(
+		navigator.clipboard.writeText(activeThemeStylesheet).then(
 			// Success
 			() => {
 				const t: ToastSettings = { message: 'Import statement copied to clipboard.' };
@@ -44,22 +46,22 @@
 	</p>
 
 	<TabGroup regionPanel="space-y-4">
-		<Tab bind:group={$storeFramework} name="cli" value="cli">Skeleton CLI</Tab>
-		<Tab bind:group={$storeFramework} name="manu" value="manual">Manual Install</Tab>
+		<Tab bind:group={$storeOnboardMethod} name="cli" value="cli">Skeleton CLI</Tab>
+		<Tab bind:group={$storeOnboardMethod} name="manu" value="manual">Manual Install</Tab>
 	</TabGroup>
-	{#if $storeFramework === 'cli'}
+	{#if $storeOnboardMethod === 'cli'}
 		<p>
 			The CLI will automatically import your selected theme in <code>src/routes/+layout.svelte</code>. You can change these at any time.
 		</p>
-	{:else if $storeFramework === 'manual'}
+	{:else if $storeOnboardMethod === 'manual'}
 		<p>
-			Select a theme below, past the import statment into your root layout in <code>/src/routes/+layout.svelte</code> just before
-			<code>app.postcss</code>.
+			Select a theme, then copy the import statement into your root layout in <code>/src/routes/+layout.svelte</code>. Replace any existing
+			theme.
 		</p>
 	{/if}
 
 	<!-- Presets -->
-	<div class="card variant-glass-surface p-4 space-y-4">
+	<div class="card variant-glass p-4 space-y-4">
 		<nav class="grid grid-cols-1 md:grid-cols-3 gap-4">
 			{#each themes as preset}
 				<!-- prettier-ignore -->
@@ -69,7 +71,7 @@
 						on:click={() => { copyThemeToClipboard(preset.file); }}
 						on:keydown={() => { copyThemeToClipboard(preset.file); }}
 					>
-						<h3 class="text-center font-bold">{preset.name}</h3>
+						<h3 class="text-center font-bold" data-toc-ignore>{preset.name}</h3>
 						<ul class="flex justify-center items-center -space-x-1">
 							{#each preset.colors as color}
 								<li class="aspect-square w-4 xl:w-6 rounded-full" style:background={color} />
@@ -78,8 +80,13 @@
 					</div>
 			{/each}
 		</nav>
-		<p>To enable bonus features for preset themes, apply the following attribute in <code>app.html</code>.</p>
-		<CodeBlock language="html" code={`<body data-theme="` + activeDataTheme + `">`} />
+		{#if activeThemeName}
+			<CodeBlock language="ts" code={activeThemeStylesheet} />
+			<p>
+				To enable bonus features (ex: fonts and backgrounds) for preset themes, apply the following attribute in <code>app.html</code>.
+			</p>
+			<CodeBlock language="html" code={`<body data-theme="` + activeThemeName + `">`} />
+		{/if}
 	</div>
 
 	<!-- Generator -->

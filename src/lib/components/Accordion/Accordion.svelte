@@ -15,7 +15,7 @@
 	export let duration = 200; // ms
 
 	// Props (parent)
-	/** Provide classes to set the vertical spacing between accordion items. */
+	/** Provide classes to set the vertical spacing between items. */
 	export let spacing: CssClasses = 'space-y-1';
 
 	// Props (childen)

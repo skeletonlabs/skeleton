@@ -30,8 +30,7 @@
 	let color: string = 'red';
 	let flavors: Record<string, boolean> = {
 		vanilla: true,
-		chocolate: false,
-		strawberry: false
+		chocolate: false
 	};
 
 	function triggerToast(term: string): void {
@@ -52,8 +51,8 @@
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
 		<!-- prettier-ignore -->
-		<div class="grid grid-cols-1 xl:grid-cols-3 gap-4">
-			<div class="card p-4 space-y-4 text-center">
+		<div class="grid grid-cols-1 2xl:grid-cols-3 gap-4">
+			<div class="card variant-glass p-4 space-y-4 text-center">
                 <p>Actions</p>
                 <div class="flex justify-center space-x-2">
                     <span class="chip variant-soft" on:click={()=>{triggerToast('like')}} on:keypress>
@@ -67,10 +66,10 @@
                 </div>
             </div>
             <!-- Selection -->
-			<div class="card p-4 space-y-4 text-center">
+			<div class="card variant-glass p-4 space-y-4 text-center">
                 <p>Selection</p>
                 <div class="flex justify-center space-x-2">
-                    {#each ['red', 'green', 'blue'] as c}
+                    {#each ['red', 'blue'] as c}
                         <span class="chip {color === c ? 'variant-filled-primary' : 'variant-soft-primary'}" on:click={()=>{section(c)}} on:keypress>
                             {#if color === c}<span><i class="fa-solid fa-check" /></span>{/if}
                             <span>{c}</span>
@@ -79,7 +78,7 @@
                 </div>
             </div>
             <!-- Filters -->
-			<div class="card p-4 space-y-4 text-center">
+			<div class="card variant-glass p-4 space-y-4 text-center">
                 <p>Multi-Select</p>
                 <div class="flex justify-center space-x-2">
                     {#each Object.keys(flavors) as f}

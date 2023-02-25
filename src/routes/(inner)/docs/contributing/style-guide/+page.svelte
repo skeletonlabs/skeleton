@@ -1,8 +1,9 @@
 <script lang="ts">
+	import LayoutPage from '$docs/layouts/LayoutPage/LayoutPage.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 </script>
 
-<div class="page-container">
+<LayoutPage>
 	<!-- Breadcrumbs -->
 	<ol class="breadcrumb">
 		<li class="crumb"><a href="/docs/contributing">Contributing</a></li>
@@ -161,4 +162,4 @@ $: classesLabel = \`\${cBaseLabel}\`; // child element
 			<li>Keep Skeleton icon library agnostic. Embed SVGs or unicode instead. Consider adding a component slot if an icon is required.</li>
 		</ul>
 	</section>
-</div>
+</LayoutPage>

@@ -40,16 +40,13 @@
 	<svelte:fragment slot="sandbox">
 		<div class="space-y-4">
 			<!-- Default -->
-			<div class="card variant-glass p-4 space-y-4">
+			<div class="space-y-4">
 				<!-- Primary -->
-				<div class="text-center">
-					<button class="btn variant-filled-secondary" on:click={toggleVisible}>Toggle {!visible ? 'On' : 'Off'}</button>
-				</div>
 				{#if visible}
 					<aside class="alert variant-ghost" transition:fade|local={{ duration: 200 }}>
 						<i class="fa-solid fa-triangle-exclamation text-4xl" />
-						<div class="alert-message">
-							<h3>Warning</h3>
+						<div class="alert-message" data-toc-ignore>
+							<h3 data-toc-ignore>Warning</h3>
 							<p>{message}</p>
 						</div>
 						<div class="alert-actions">
@@ -59,33 +56,37 @@
 							</button>
 						</div>
 					</aside>
+				{:else}
+					<div class="text-center">
+						<button class="btn variant-filled-secondary" on:click={toggleVisible}>Toggle {!visible ? 'On' : 'Off'}</button>
+					</div>
 				{/if}
 				<!-- Success / Error -->
 				<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
 					<aside class="alert variant-ghost-primary">
-						<h3 class="alert-message">Primary</h3>
+						<h3 class="alert-message" data-toc-ignore>Primary</h3>
 						<button class="btn variant-filled-primary" on:click={triggerAction}>Action</button>
 					</aside>
 					<aside class="alert variant-ghost-secondary">
-						<h3 class="alert-message">Secondary</h3>
+						<h3 class="alert-message" data-toc-ignore>Secondary</h3>
 						<button class="btn variant-filled-secondary" on:click={triggerAction}>Action</button>
 					</aside>
 					<aside class="alert variant-ghost-tertiary">
-						<h3 class="alert-message">Tertiary</h3>
+						<h3 class="alert-message" data-toc-ignore>Tertiary</h3>
 						<button class="btn variant-filled-tertiary" on:click={triggerAction}>Action</button>
 					</aside>
 					<aside class="alert variant-ghost-warning">
-						<h3 class="alert-message">Warning</h3>
+						<h3 class="alert-message" data-toc-ignore>Warning</h3>
 						<button class="btn variant-filled-warning" on:click={triggerAction}>Action</button>
 					</aside>
 					<aside class="alert variant-ghost-success">
 						<i class="fa-solid fa-circle-check text-2xl" />
-						<h3 class="alert-message">Success</h3>
+						<h3 class="alert-message" data-toc-ignore>Success</h3>
 						<button class="btn variant-filled-success" on:click={triggerAction}>Action</button>
 					</aside>
 					<aside class="alert variant-ghost-error">
 						<i class="fa-solid fa-circle-xmark text-2xl" />
-						<h3 class="alert-message">Error</h3>
+						<h3 class="alert-message" data-toc-ignore>Error</h3>
 						<button class="btn variant-filled-error" on:click={triggerAction}>Action</button>
 					</aside>
 				</div>

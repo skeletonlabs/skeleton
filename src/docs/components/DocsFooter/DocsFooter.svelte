@@ -26,7 +26,7 @@
 				<ul class="space-y-2">
 					<li><a href="/docs/why">Why Skeleton</a></li>
 					<li><a href="/docs/comparisons">Comparisons</a></li>
-					<li><a href="/docs/contributions">Contribute</a></li>
+					<li><a href="/docs/contributing">Contribute</a></li>
 				</ul>
 			</div>
 			<div class="space-y-4">
