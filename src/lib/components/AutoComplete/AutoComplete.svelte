@@ -71,7 +71,7 @@
 	$: classesBase = `${cBase} ${padding} ${rounded} ${maxHeight} ${overflowY} ${background} ${$$props.class ?? ''}`;
 </script>
 
-<div class="autocomplete list {classesBase}" data-testid="auto-complete">
+<div class="autocomplete list {classesBase} hidden" data-testid="auto-complete">
 	{#each filteredValues() as value}
 		<div
 			class="autocomplete-item flex-auto hover:{itemHover}"

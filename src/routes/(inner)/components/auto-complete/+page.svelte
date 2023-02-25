@@ -16,15 +16,22 @@
 
 	let whitelist = [{label: "Foo", value: "Foo"}, {label: "Bar", value: "Bar"}]
 
-	function onValueSelect(event: CustomEvent): void {
+	function onValueSelect(event: CustomEvent) {
 		inputValue = event.detail.selected.label;
+	}
+
+	function handleFocus(event: Event){
+		const input = event.target as HTMLInputElement;
+		const list = input.querySelector(".autocomplete") as HTMLElement;
+
+		list.classList.replace("hidden", "block")
 	}
 </script>
 
 <div class="page-container">
 	<label class="label" for="autocomplete-search">
 		<h3>Via Input</h3>
-		<input class="input" type="search" name="autocomplete-search" bind:value={inputValue} placeholder="Begin typing to filter..." />
+		<input class="input" type="search" name="autocomplete-search" bind:value={inputValue} placeholder="Begin typing to filter..." on:focus={handleFocus}/>
 		<AutoComplete bind:searchTerm={inputValue} values={anythingList} mode="exclude" on:select={onValueSelect} />
 	</label>
 </div>
