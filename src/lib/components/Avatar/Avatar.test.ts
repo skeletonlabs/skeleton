@@ -91,8 +91,7 @@ describe('Avatar.svelte', () => {
 		expect(image).toHaveProperty('src', imageProps.src);
 		expect(image).toHaveProperty('alt', imageProps.alt);
 		Object.values(props).forEach((className) => expect(wrapper.className).toMatch(pattern(className)));
-		//TODO: Consider adding jest-dom to enable many more functionalities like testing styles as such:
-		//expect(image).toHaveStyle(imageProps.style)
+		expect(wrapper).toMatchSnapshot('Component, with all props')
 	});
 
 	it('Renders img when both img and initials are provided', async () => {
@@ -118,6 +117,21 @@ describe('Avatar.svelte', () => {
 
 		//Assert
 		expect(wrapper.className).toMatch(pattern(myClass));
+	});
+
+	//TODO: Add more accessibility tests
+	it('Focuses component onFocus', async () => {
+		//Arrange
+		const myClass = 'try-this-now';
+		render(Avatar, { ...props, class: myClass });
+
+		//Act
+		const wrapper = getWrapper();
+		wrapper.onfocus = vitest.fn()
+		fireEvent.focus(wrapper)
+
+		//Assert
+		expect(wrapper.onfocus).toHaveBeenCalledOnce()
 	});
 
 	//TODO: Consider adding userEvent from testing-library that makes testing events much more practical (Declarative)
@@ -170,18 +184,7 @@ describe('Avatar.svelte', () => {
 		expect(svgText.classList.value).toMatch(pattern('avatar-text'));
 		expect(svgText.classList.value).toMatch(pattern(initialsProps.fill));
 		expect(initialsSvg.classList.value).toMatch(pattern('avatar-initials w-full h-full'));
-	});
-
-	it('Renders initials', async () => {
-		//Arrange
-		const initials = 'SD';
-		render(Avatar, { initials });
-
-		//Act
-		const { svgText } = getInitialsSvg(initials);
-
-		//Assert
-		expect(svgText.textContent).toStrictEqual(initials);
+		expect(initialsSvg).toMatchSnapshot('Svg, with all props')
 	});
 
 	it('Renders initials capitalized', async () => {
@@ -213,8 +216,6 @@ describe('Avatar.svelte', () => {
 
 	/**  ------------------------  Testing  {Image} Starts ------------------------ */
 
-	//It renders custom action and ActionParam
-
 	it('Renders image', async () => {
 		//Arrange
 		render(Avatar, { ...imageProps });
@@ -227,6 +228,7 @@ describe('Avatar.svelte', () => {
 		expect(img).toHaveProperty('alt', imageProps.alt);
 		expect(img.className).toMatch(pattern('avatar-image'));
 		expect(img.className).toMatch(pattern(cImage));
+		expect(img).toMatchSnapshot('Img, with all props')
 	});
 
 	it('Renders with both action and actionParam from Skeleton', async () => {
@@ -240,8 +242,6 @@ describe('Avatar.svelte', () => {
 		//Assert
 		expect(mockedFilterFn).toHaveBeenCalled();
 		expect(mockedFilterFn).toHaveBeenCalledWith(img, imageProps.actionParams);
-
-		//TODO: Missing styles test(s), pending jest-dom
 	});
 
 	it('Renders custom action and actionParam', async () => {
@@ -256,7 +256,6 @@ describe('Avatar.svelte', () => {
 		//Assert
 		expect(mockedFilterFn).toHaveBeenCalled();
 		expect(mockedFilterFn).toHaveBeenCalledWith(img, customParams.actionParams);
-		//TODO: Missing styles test(s), pending jest-dom
 	});
 	//TODO: Missing test(s)
 	//It renders image with custom styles, pending jest-dom

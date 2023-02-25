@@ -1,0 +1,44 @@
+// Vitest Snapshot v1
+
+exports[`Avatar.svelte > Renders component with all props > Component, with all props 1`] = `
+<figure
+  class="avatar flex aspect-square text-surface-50 font-semibold justify-center items-center overflow-hidden isolate bg-surface-500 w-12  rounded-full shadow-xl cursor-pointer my-custom-class"
+  data-testid="avatar"
+>
+  <img
+    alt="Avatar image"
+    class="avatar-image w-full h-full object-cover"
+    src="https://i.pravatar.cc/512?img=48"
+    style="filter: url(\\"#Apollo\\")"
+  />
+</figure>
+`;
+
+exports[`Avatar.svelte > Renders image > Img, with all props 1`] = `
+<img
+  alt="Avatar image"
+  class="avatar-image w-full h-full object-cover"
+  src="https://i.pravatar.cc/512?img=48"
+  style="filter: url(\\"#Apollo\\")"
+/>
+`;
+
+exports[`Avatar.svelte > Renders initials with all props > Svg, with all props 1`] = `
+<svg
+  class="avatar-initials w-full h-full"
+  data-testid="avatar-initials"
+  viewBox="0 0 512 512"
+>
+  <text
+    class="avatar-text fill-slate-50"
+    dominant-baseline="middle"
+    font-size="150"
+    font-weight="bold"
+    text-anchor="middle"
+    x="50%"
+    y="50%"
+  >
+    LA
+  </text>
+</svg>
+`;
