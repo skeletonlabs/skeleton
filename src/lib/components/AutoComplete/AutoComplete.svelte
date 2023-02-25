@@ -48,6 +48,7 @@
 
 		//TODO: Want to include the ability to include "separators" ex: user enters - foo, bar, foobar: 
 		//		list only has fizz, buzz, and fizzbuzz left for the user to pick
+		//TODO: Use regex match instead of includes, this should work for the separators as well because it returns and array and I can ignore the separator value in the match
 		if(mode === "exclude"){
 			return values.filter((row) => {
 				const rowFormatted = JSON.stringify(row).toLowerCase();
