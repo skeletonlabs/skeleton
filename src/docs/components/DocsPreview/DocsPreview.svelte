@@ -27,7 +27,7 @@
 	// Classes
 	const cBase = 'shadow-2xl shadow-surface-500/10 dark:shadow-black/10 rounded-container-token overflow-hidden';
 	const cHeader = 'bg-surface-200-700-token p-4 flex justify-between gap-4';
-	const cSwatches = 'variant-soft p-4 grid grid-cols-8 sm:grid-cols-11 gap-2';
+	const cSwatches = 'variant-soft p-4 grid grid-cols-6 sm:grid-cols-12 gap-2';
 	const cSwatchCell = 'ring-[1px] ring-surface-500/50 aspect-square rounded';
 	const cViewport = 'p-4 md:p-10 space-y-4';
 	const cContent = 'flex justify-center items-center mx-auto transition-[width] duration-200';
