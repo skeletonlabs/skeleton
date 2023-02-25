@@ -43,7 +43,7 @@
 		<CodeBlock language="html" code={`<ExampleComponent class="text-3xl px-10 py-5">Skeleton</ExampleComponent>`} />
 	</section>
 	<section class="space-y-4">
-		<h2>Tailwind Abitrary Variants</h2>
+		<h2>Tailwind Arbitrary Variants</h2>
 		<p>
 			If you need to target deeper than the parent element, we recommend using <a
 				href="https://tailwindcss.com/blog/tailwindcss-v3-1#arbitrary-values-but-for-variants"
