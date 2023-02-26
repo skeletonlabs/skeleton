@@ -41,32 +41,49 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<DocsPreview regionPreview="h-[200px]">
+		<DocsPreview regionPreview="h-[280px]">
 			<svelte:fragment slot="lead">
-				<p class="w-full text-center">
-					The <span class="badge bg-surface-50/40">shaded</span> regions represent the portion of the page that scrolls vertically.
-				</p>
+				<p class="w-full text-center">The shaded regions represent the portion of the page that scrolls vertically.</p>
 			</svelte:fragment>
 			<svelte:fragment slot="preview">
-				<AppShell class="h-full">
+				<AppShell
+					class="card h-full p-1"
+					slotSidebarLeft="grid grid-cols-1"
+					slotSidebarRight="grid grid-cols-1"
+					slotPageContent="grid grid-cols-1"
+				>
 					<svelte:fragment slot="header">
-						{#if state.header}<div class={cBox}>Header</div>{/if}
+						{#if state.header}
+							<div class="card variant-soft p-2 m-0.5 flex justify-center items-center">Header</div>
+						{/if}
 					</svelte:fragment>
 					<svelte:fragment slot="sidebarLeft">
-						{#if state.sidebarLeft}<div class={cBox}>sidebarLeft</div>{/if}
+						{#if state.sidebarLeft}
+							<div class="card variant-soft p-2 m-0.5 flex justify-center items-center">sidebarLeft</div>
+						{/if}
 					</svelte:fragment>
 					<svelte:fragment slot="sidebarRight">
-						{#if state.sidebarRight}<div class={cBox}>sidebarRight</div>{/if}
+						{#if state.sidebarRight}
+							<div class="card variant-soft p-2 m-0.5 flex justify-center items-center">sidebarRight</div>
+						{/if}
 					</svelte:fragment>
 					<svelte:fragment slot="pageHeader">
-						{#if state.pageHeader}<div class="{cBox} bg-surface-50/40">pageHeader</div>{/if}
+						{#if state.pageHeader}
+							<div class="card variant-soft-primary p-2 m-0.5 flex justify-center items-center">pageHeader</div>
+						{/if}
 					</svelte:fragment>
 					<svelte:fragment slot="pageFooter">
-						{#if state.pageFooter}<div class="{cBox} bg-surface-50/40">pageFooter</div>{/if}
+						{#if state.pageFooter}
+							<div class="card variant-soft-primary p-2 m-0.5 flex justify-center items-center">pageFooter</div>
+						{/if}
 					</svelte:fragment>
-					<div class="{cBox} bg-surface-50/40">(route slot)</div>
+					<!-- --- -->
+					<div class="card variant-soft-primary p-2 m-0.5 flex justify-center items-center">(page route)</div>
+					<!-- --- -->
 					<svelte:fragment slot="footer">
-						{#if state.footer}<div class={cBox}>footer</div>{/if}
+						{#if state.footer}
+							<div class="card variant-soft p-2 m-0.5 flex justify-center items-center">footer</div>
+						{/if}
 					</svelte:fragment>
 				</AppShell>
 			</svelte:fragment>

@@ -39,11 +39,11 @@
 	<svelte:fragment slot="sandbox">
 		<DocsPreview>
 			<svelte:fragment slot="preview">
-				<div class="space-y-4 w-full">
-					<InputChip bind:value={anythingList} name="chips-example" placeholder="Enter any value..." class="text-white" />
-					<div class="text-center">
-						<span class="badge variant-soft mx-auto">{anythingList.length ? anythingList : 'No chips available.'}</span>
-					</div>
+				<InputChip bind:value={anythingList} name="chips-example" placeholder="Enter any value..." class="text-token" />
+			</svelte:fragment>
+			<svelte:fragment slot="footer">
+				<div class="text-center">
+					<code>{anythingList.length ? anythingList.join(', ') : 'No chips available.'}</code>
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
@@ -67,17 +67,17 @@
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<div class="space-y-4 w-full">
-						<InputChip
-							name="chips-example-flavors"
-							bind:value={flavorsList}
-							placeholder="Enter flavors..."
-							chips="variant-filled-primary"
-							whitelist={flavorsWhitelist}
-						/>
-						<div class="text-center">
-							<span class="badge variant-soft mx-auto">{flavorsList.length ? flavorsList.join(', ') : 'No flavors set.'}</span>
-						</div>
+					<InputChip
+						name="chips-example-flavors"
+						bind:value={flavorsList}
+						placeholder="Enter flavors..."
+						chips="variant-filled-primary"
+						whitelist={flavorsWhitelist}
+					/>
+				</svelte:fragment>
+				<svelte:fragment slot="footer">
+					<div class="text-center">
+						<code>{flavorsList.length ? flavorsList.join(', ') : 'No flavors set.'}</code>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
@@ -92,17 +92,17 @@
 			<p>You can optionally provide a function to provide custom validation. Make sure to accept a string value and return a boolean.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<div class="space-y-4 w-full">
-						<InputChip
-							name="chips-example-emails"
-							bind:value={emails}
-							placeholder="Enter Emails..."
-							chips="variant-filled-secondary"
-							validation={isValidEmail}
-						/>
-						<div class="text-center">
-							<span class="badge variant-soft mx-auto">{emails.length ? emails.join(', ') : 'No emails set.'}</span>
-						</div>
+					<InputChip
+						name="chips-example-emails"
+						bind:value={emails}
+						placeholder="Enter Emails..."
+						chips="variant-filled-secondary"
+						validation={isValidEmail}
+					/>
+				</svelte:fragment>
+				<svelte:fragment slot="footer">
+					<div class="text-center">
+						<code>{emails.length ? emails.join(', ') : 'No emails set.'}</code>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">

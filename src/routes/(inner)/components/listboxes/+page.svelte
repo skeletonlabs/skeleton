@@ -91,8 +91,8 @@
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<section class="w-full space-y-4">
-						<div class="card p-4 text-white">
-							<label for="" class="space-y-4">
+						<div class="card variant-soft p-4">
+							<label for="medium" class="space-y-4">
 								<span>Multiple Selection</span>
 								<ListBox active="variant-filled-primary" hover="hover:variant-soft-primary" multiple>
 									<ListBoxItem bind:group={valueMultiple} name="medium" value="books">

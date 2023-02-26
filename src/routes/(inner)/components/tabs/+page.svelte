@@ -120,7 +120,7 @@
 						flex="flex-1 lg:flex-none"
 						rounded=""
 						border=""
-						class="card overflow-hidden w-full"
+						class="bg-surface-100-800-token w-full"
 					>
 						<Tab bind:group={tabsBottomNav} name="books" value={0}>
 							<svelte:fragment slot="lead"><i class="fa-solid fa-book" /></svelte:fragment>
@@ -147,7 +147,7 @@
 	flex="flex-1 lg:flex-none"
 	rounded=""
 	border=""
-	class="card overflow-hidden w-full"
+	class="bg-surface-100-800-token w-full"
 >
 	<Tab bind:group={tabsBottomNav} name="books" value={0}>
 		<svelte:fragment slot="lead">(icon)</svelte:fragment>

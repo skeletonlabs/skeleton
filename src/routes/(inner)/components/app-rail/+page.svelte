@@ -37,7 +37,7 @@
 	<svelte:fragment slot="sandbox">
 		<DocsPreview regionViewport="!text-current">
 			<svelte:fragment slot="preview">
-				<div class="card variant-ringed h-[480px] grid grid-cols-[auto_1fr] w-full">
+				<div class="card bg-surface-50-900-token rounded-none h-[480px] grid grid-cols-[auto_1fr] w-full">
 					<AppRail selected={storeValue}>
 						<!-- Lead -->
 						<svelte:fragment slot="lead">

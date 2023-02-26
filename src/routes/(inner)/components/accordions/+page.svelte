@@ -44,7 +44,7 @@
 	<svelte:fragment slot="sandbox">
 		<DocsPreview>
 			<svelte:fragment slot="preview">
-				<Accordion autocollapse>
+				<Accordion autocollapse class="card p-4 text-token">
 					<AccordionItem open>
 						<svelte:fragment slot="lead"><i class="fa-solid fa-book text-xl w-6 text-center" /></svelte:fragment>
 						<svelte:fragment slot="summary"><p class="font-bold">Books</p></svelte:fragment>

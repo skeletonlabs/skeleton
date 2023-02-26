@@ -34,7 +34,7 @@
 			<svelte:fragment slot="preview">
 				<FileButton bind:files name="file" accept="image/*" on:change={onChangeHandler} />
 			</svelte:fragment>
-			<svelte:fragment slot="trail">
+			<svelte:fragment slot="footer">
 				<p class="!w-full text-center">Monitor your browser's console when adding files.</p>
 			</svelte:fragment>
 			<svelte:fragment slot="source">

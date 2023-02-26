@@ -31,16 +31,16 @@
 		[6, 'Carbon', 12.0107, 'C'],
 		[7, 'Nitrogen', 14.0067, 'N'],
 		[8, 'Oxygen', 15.9994, 'O'],
-		[9, 'Fluorine', 18.9984, 'F'],
-		[10, 'Neon', 20.1797, 'Ne']
+		[9, 'Fluorine', 18.9984, 'F']
+		// [10, 'Neon', 20.1797, 'Ne']
 	];
 
 	// Reactive
 	let page = {
 		offset: 0,
-		limit: 5,
+		limit: 3,
 		size: sourceBody.length,
-		amounts: [1, 2, 5, sourceBody.length]
+		amounts: [1, 2, 3, 5, sourceBody.length]
 	} as PaginationSettings;
 
 	// Event Handlers
