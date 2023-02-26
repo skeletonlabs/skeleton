@@ -1,11 +1,11 @@
 <script lang="ts">
 	import AutoComplete from '$lib/components/AutoComplete/AutoComplete.svelte';
-
-	type ValidValues = { label: string; value: string }[];
+	import { autoComplete } from '$lib/components/AutoComplete/autoComplete';
+	import type { AutocompleteSettings } from '$lib/components/AutoComplete/types';
 
 	// Local
 	let inputValue = '';
-	let anythingList: ValidValues = [
+	let anythingList: Record<string, unknown>[] = [
 		{ label: 'Foo', value: 'Foo' },
 		{ label: 'Bar', value: 'Bar' },
 		{ label: 'FooBar', value: 'FooBar' },
@@ -14,24 +14,33 @@
 		{ label: 'FizzBuzz', value: 'FizzBuzz' }
 	];
 
-	let whitelist = [{label: "Foo", value: "Foo"}, {label: "Bar", value: "Bar"}]
+	let actionSettings = {
+		event: 'click',
+		target: 'autocomplete'
+	} satisfies AutocompleteSettings;
 
+	let whitelist = [
+		{ label: 'Foo', value: 'Foo' },
+		{ label: 'Bar', value: 'Bar' }
+	];
+
+	//Maybe add this into the actions as well?
 	function onValueSelect(event: CustomEvent) {
 		inputValue = event.detail.selected.label;
-	}
-
-	function handleFocus(event: Event){
-		const input = event.target as HTMLInputElement;
-		const list = input.querySelector(".autocomplete") as HTMLElement;
-
-		list.classList.replace("hidden", "block")
 	}
 </script>
 
 <div class="page-container">
 	<label class="label" for="autocomplete-search">
 		<h3>Via Input</h3>
-		<input class="input" type="search" name="autocomplete-search" bind:value={inputValue} placeholder="Begin typing to filter..." on:focus={handleFocus}/>
-		<AutoComplete bind:searchTerm={inputValue} values={anythingList} mode="exclude" on:select={onValueSelect} />
+		<input
+			class="input autocomplete"
+			use:autoComplete={actionSettings}
+			type="search"
+			name="autocomplete-search"
+			bind:value={inputValue}
+			placeholder="Begin typing to filter..."
+		/>
+		<AutoComplete bind:searchTerm={inputValue} values={anythingList} mode="fuzzy" on:select={onValueSelect} />
 	</label>
 </div>
