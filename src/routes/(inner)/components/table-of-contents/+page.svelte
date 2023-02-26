@@ -41,7 +41,7 @@
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="footer">
-				<p class="w-full text-center">A simulated example is shown above.</p>
+				<p class="w-full text-center">Please note the example above is simulated.</p>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
 				<CodeBlock language="html" code={`<TableOfContents target="#toc-target" />`} />

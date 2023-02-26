@@ -38,7 +38,7 @@
 	];
 	const stopsSpinner: ConicStop[] = [
 		{ color: 'transparent', start: 0, end: 25 },
-		{ color: 'rgb(var(--color-surface-500))', start: 75, end: 100 }
+		{ color: 'rgb(var(--color-primary-500))', start: 75, end: 100 }
 	];
 </script>
 
@@ -161,7 +161,7 @@ const conicStops: ConicStop[] = [
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<ConicGradient stops={stopsSpinner} spin width="w-8">
-						<p class="text-white">Loading</p>
+						<p class="text-token">Loading</p>
 					</ConicGradient>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
@@ -170,7 +170,7 @@ const conicStops: ConicStop[] = [
 						code={`
 const conicStops: ConicStop[] = [
 	{ color: 'transparent', start: 0, end: 25 },
-	{ color: 'grey', start: 75, end: 100 }
+	{ color: 'rgb(var(--color-primary-500))', start: 75, end: 100 }
 ];
 						`}
 					/>

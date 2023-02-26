@@ -56,10 +56,10 @@
 			<p>Use the <code>button</code> property to provide classes for the button, such as variant styles.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<FileButton name="files" button="variant-ghost">Upload</FileButton>
+					<FileButton name="files" button="variant-soft-primary">Upload</FileButton>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<FileButton name="files" button="variant-ghost">Upload</FileButton>`} />
+					<CodeBlock language="html" code={`<FileButton name="files" button="variant-soft-primary">Upload</FileButton>`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>

@@ -31,7 +31,7 @@
 
 	// Props (styles)
 	/** Provide classes to set the input accent color. */
-	export let accent: CssClasses = 'accent-secondary-500';
+	export let accent: CssClasses = 'accent-surface-900 dark:accent-surface-50';
 
 	// Props (a11y)
 	/** A semantic ARIA label. */

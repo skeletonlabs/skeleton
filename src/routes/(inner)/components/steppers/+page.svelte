@@ -109,8 +109,14 @@
 					language="html"
 					code={`
 <Stepper>
-	<Step>(content)</Step>
-	<Step>(content)</Step>
+	<Step>
+		<svelte:fragment slot="header">(header)</svelte:fragment>
+		(content)
+	</Step>
+	<Step>
+		<svelte:fragment slot="header">(header)</svelte:fragment>
+		(content)
+	</Step>
 	<!-- ... -->
 </Stepper>
 			`}
@@ -125,19 +131,6 @@
 			Create a set of Steps within the Stepper, then use the <code>on:complete</code> event to detect when all steps are complete. Since
 			horizontal space may be limited on small screens, we recommend no more than <u>five</u> steps at max.
 		</p>
-		<section class="space-y-4">
-			<h2>Step Slots</h2>
-			<p>Each Step component supports a <code>header</code> and <code>default</code> (read: content) slot region.</p>
-			<CodeBlock
-				language="html"
-				code={`
-<Step>
-	<svelte:fragment slot="header">(header)</svelte:fragment>
-	(content)
-</Step>
-			`}
-			/>
-		</section>
 		<section class="space-y-4">
 			<h2>Event Handlers</h2>
 			<h3>Complete Event</h3>
