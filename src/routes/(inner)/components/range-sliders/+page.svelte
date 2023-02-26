@@ -1,12 +1,13 @@
 <script lang="ts">
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
-
+	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
+	// Components
 	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
 	import RangeSlider from '$lib/components/RangeSlider/RangeSlider.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-
+	// Sveld
 	import sveldRangeSlider from '$lib/components/RangeSlider/RangeSlider.svelte?raw&sveld';
 
 	// Docs Shell
@@ -29,98 +30,63 @@
 		]
 	};
 
-	// Reactive Props
-	$: props = {
-		label: 'Skeleton',
-		value: 50 / 2,
-		min: 0,
-		max: 50,
-		step: 1,
-		ticked: true,
-		accent: '!accent-secondary-500'
-	};
+	// Local
+	let value = 15;
+	let max = 25;
 </script>
 
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="space-y-4 xl:space-y-0 xl:grid grid-cols-[1fr_auto] gap-2">
-			<!-- Example -->
-			<div class="card variant-glass p-4 flex justify-center items-center">
-				<!-- prettier-ignore -->
-				<svelte:component
-						this={RangeSlider}
-						name="range-slider-example"
-						label={props.label}
-						bind:value={props.value}
-						max={props.max}
-						step={props.step}
-						ticked={props.ticked}
-						accent={props.accent}
-						class="w-full lg:max-w-[75%] max-auto"
-					>
-						<div class="flex justify-between items-center">
-							<div class="font-bold">{props.label}</div>
-							<div class="text-xs">{props.value} / {props.max}</div>
-						</div>
-					</svelte:component>
-			</div>
-			<!-- Options -->
-			<div class="card p-4 space-y-4 max-w-[320px]">
-				<!-- Label -->
-				<label class="label">
-					<span>Label</span>
-					<input class="input" type="text" bind:value={props.label} placeholder="Label" />
-				</label>
-				<!-- Max -->
-				<label class="label" for="">
-					<span>Max</span>
-					<RadioGroup display="flex">
-						<RadioItem bind:group={props.max} name="max-10" value={10}>10</RadioItem>
-						<RadioItem bind:group={props.max} name="max-50" value={50}>50</RadioItem>
-						<RadioItem bind:group={props.max} name="max-100" value={100}>100</RadioItem>
-					</RadioGroup>
-				</label>
-				<!-- Step -->
-				<label class="label" for="">
-					<span>Step</span>
-					<RadioGroup display="flex">
-						<RadioItem bind:group={props.step} name="step-1" value={1}>1</RadioItem>
-						<RadioItem bind:group={props.step} name="step-5" value={5}>5</RadioItem>
-						<RadioItem bind:group={props.step} name="step-10" value={10}>10</RadioItem>
-					</RadioGroup>
-				</label>
-				<!-- Ticked -->
-				<label class="label" for="">
-					<span>Ticked</span>
-					<RadioGroup display="flex">
-						<RadioItem bind:group={props.ticked} name="ticked-off" value={false}>Off</RadioItem>
-						<RadioItem bind:group={props.ticked} name="ticked-on" value={true}>On</RadioItem>
-					</RadioGroup>
-				</label>
-				<!-- Accent -->
-				<label class="label">
-					<span>Accent</span>
-					<select class="select" name="accent" bind:value={props.accent}>
-						<option value="!accent-primary-500">accent-primary-500</option>
-						<option value="!accent-secondary-500">accent-secondary-500</option>
-						<option value="!accent-tertiary-500">accent-tertiary-500</option>
-						<option value="!accent-success-500">accent-success-500</option>
-						<option value="!accent-warning-500">accent-warning-500</option>
-						<option value="!accent-error-500">accent-error-500</option>
-						<option value="!accent-surface-500">accent-surface-500</option>
-					</select>
-				</label>
-			</div>
-		</section>
+		<DocsPreview>
+			<svelte:fragment slot="preview">
+				<div class="w-full">
+					<RangeSlider name="range-slider" bind:value max={25} step={1} ticked />
+				</div>
+			</svelte:fragment>
+			<svelte:fragment slot="source">
+				<CodeBlock language="ts" code={`let value = 15;`} />
+				<CodeBlock
+					language="html"
+					code={`<RangeSlider name="range-slider" bind:value={value} max={25} step={1} ticked>Label</RangeSlider>`}
+				/>
+			</svelte:fragment>
+		</DocsPreview>
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<!-- prettier-ignore -->
-			<p>Combines a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range" target="_blank" rel="noreferrer">native range input</a> with <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range#adding_tick_marks" target="_blank" rel="noreferrer">datalist ticks</a>.</p>
-			<CodeBlock language="html" code={`<RangeSlider name="range-slider" bind:value={50} max={100} step={5} ticked>Label</RangeSlider>`} />
+			<p>Combines a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range" target="_blank" rel="noreferrer">native range input</a> with <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range#adding_tick_marks" target="_blank" rel="noreferrer">datalist ticks</a> to create a powerful range slider element.</p>
+		</section>
+		<section class="space-y-4">
+			<h2>Labeled</h2>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<div class="w-full">
+						<RangeSlider name="range-slider" bind:value max={25} step={1} ticked>
+							<div class="flex justify-between items-center">
+								<div class="font-bold">Label</div>
+								<div class="text-xs">{value} / {max}</div>
+							</div>
+						</RangeSlider>
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock language="ts" code={`let value = 15;\nlet max = 25;`} />
+					<CodeBlock
+						language="html"
+						code={`
+<RangeSlider name="range-slider" bind:value={value} max={25} step={1} ticked>
+	<div class="flex justify-between items-center">
+		<div class="font-bold">Label</div>
+		<div class="text-xs">{value} / {max}</div>
+	</div>
+</RangeSlider>`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
 		</section>
 		<section class="space-y-4">
 			<h2>Browser Support</h2>
