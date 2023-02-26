@@ -6,8 +6,8 @@ import { filter } from '$lib/actions/Filters/filter';
 
 const imgTextSrc = 'https://i.pravatar.cc/512?img=48';
 
-const cBase = 'flex aspect-square text-surface-50 font-semibold justify-center items-center overflow-hidden isolate';
-const cImage = 'w-full h-full object-cover';
+const cBase = 'flex aspect-square text-surface-50 font-semibold justify-center items-center overflow-hidden isolate'.split(' ');
+const cImage = 'w-full h-full object-cover'.split(' ');
 
 const props = {
 	background: 'bg-surface-500',
@@ -70,7 +70,7 @@ describe('Avatar.svelte', () => {
 		const [wrapper, { initialsSvg, svgText }] = [getWrapper(), getInitialsSvg('AB')];
 
 		//Assert
-		expect(wrapper.className).toMatch(cBase);
+		cBase.forEach((className) => expect(wrapper.className).toMatch(pattern(className)))
 		expect(wrapper.className).toMatch(pattern('avatar'));
 		expect(svgText.textContent).toStrictEqual('AB');
 		expect(initialsSvg.classList.value).toMatch(pattern('avatar-initials w-full h-full'));
@@ -86,7 +86,7 @@ describe('Avatar.svelte', () => {
 		const image = screen.getByAltText(imageProps.alt);
 
 		//Assert
-		expect(wrapper.className).toMatch(pattern(cBase));
+		cBase.forEach((className) => expect(wrapper.className).toMatch(pattern(className)))
 		expect(wrapper.className).toMatch(pattern('avatar'));
 		expect(image).toHaveProperty('src', imageProps.src);
 		expect(image).toHaveProperty('alt', imageProps.alt);
@@ -122,8 +122,7 @@ describe('Avatar.svelte', () => {
 	//TODO: Add more accessibility tests
 	it('Focuses component onFocus', async () => {
 		//Arrange
-		const myClass = 'try-this-now';
-		render(Avatar, { ...props, class: myClass });
+		render(Avatar, { ...props });
 
 		//Act
 		const wrapper = getWrapper();
@@ -227,7 +226,7 @@ describe('Avatar.svelte', () => {
 		expect(img).toHaveProperty('src', imageProps.src);
 		expect(img).toHaveProperty('alt', imageProps.alt);
 		expect(img.className).toMatch(pattern('avatar-image'));
-		expect(img.className).toMatch(pattern(cImage));
+		cImage.forEach((className) => expect(img.className).toMatch(pattern(className)))
 		expect(img).toMatchSnapshot('Img, with all props')
 	});
 
