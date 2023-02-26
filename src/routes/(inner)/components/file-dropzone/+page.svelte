@@ -1,10 +1,11 @@
 <script lang="ts">
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
-
+	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
+	// Components
 	import FileDropzone from '$lib/components/FileDropzone/FileDropzone.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-
+	// Sveld
 	import sveldFileDropzone from '$lib/components/FileDropzone/FileDropzone.svelte?raw&sveld';
 
 	// Docs Shell
@@ -26,14 +27,31 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="card variant-glass p-4 space-y-4">
-			<FileDropzone name="files-example-one" on:change={onChangeHandler} />
-			<FileDropzone name="files-example-two" accept="image/*" on:change={onChangeHandler}>
-				<svelte:fragment slot="lead"><i class="fa-solid fa-file-arrow-up text-4xl" /></svelte:fragment>
-				<svelte:fragment slot="meta">PNG, JPG, and GIF allowed.</svelte:fragment>
-			</FileDropzone>
-			<small class="block text-center opacity-75">Monitor your browser's console log when adding files.</small>
-		</section>
+		<DocsPreview>
+			<svelte:fragment slot="preview">
+				<div class="space-y-4 w-full">
+					<FileDropzone name="files-example-one" on:change={onChangeHandler} class="text-white" />
+					<FileDropzone name="files-example-two" accept="image/*" on:change={onChangeHandler} class="text-white">
+						<svelte:fragment slot="lead"><i class="fa-solid fa-file-arrow-up text-4xl" /></svelte:fragment>
+						<svelte:fragment slot="meta">PNG, JPG, and GIF allowed.</svelte:fragment>
+					</FileDropzone>
+				</div>
+			</svelte:fragment>
+			<svelte:fragment slot="source">
+				<CodeBlock language="html" code={`<FileDropzone name="files" />`} />
+				<p>Customize with additional <code>icon</code>, <code>message</code>, and <code>meta</code> slots.</p>
+				<CodeBlock
+					language="html"
+					code={`
+<FileDropzone name="files">
+	<svelte:fragment slot="lead">(icon)</svelte:fragment>
+	<svelte:fragment slot="message">(message)</svelte:fragment>
+	<svelte:fragment slot="meta">(meta)</svelte:fragment>
+</FileDropzone>
+				`}
+				/>
+			</svelte:fragment>
+		</DocsPreview>
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
@@ -43,18 +61,6 @@
 				Uses <code>input[type='file']</code> and allows for all native input features and accessibility. Including <code>multiple</code>,
 				<code>accept</code>, and <code>required</code>.
 			</p>
-			<CodeBlock language="html" code={`<FileDropzone name="files" />`} />
-			<p>You can override the default <code>message</code>, as well as optionally provide <code>icon</code> and <code>meta</code> slots.</p>
-			<CodeBlock
-				language="html"
-				code={`
-<FileDropzone name="files">
-	<svelte:fragment slot="lead">(icon)</svelte:fragment>
-	<svelte:fragment slot="message">(message)</svelte:fragment>
-	<svelte:fragment slot="meta">(meta)</svelte:fragment>
-</FileDropzone>
-			`}
-			/>
 		</div>
 		<div class="space-y-4">
 			<h2>Binding Method</h2>

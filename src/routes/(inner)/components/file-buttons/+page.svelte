@@ -38,8 +38,7 @@
 				<p class="!w-full text-center">Monitor your browser's console when adding files.</p>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<CodeBlock language="ts" code={`let files: FileList;`} />
-				<CodeBlock language="html" code={`<FileButton name="files" bind:files />`} />
+				<CodeBlock language="html" code={`<FileButton name="files" />`} />
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -63,6 +62,12 @@
 					<CodeBlock language="html" code={`<FileButton name="files" button="variant-ghost">Upload</FileButton>`} />
 				</svelte:fragment>
 			</DocsPreview>
+		</section>
+		<section class="space-y-4">
+			<h2>Binding Method</h2>
+			<p>Use a <code>FileList</code> to bind the file data.</p>
+			<CodeBlock language="ts" code={`let files: FileList;`} />
+			<CodeBlock language="html" code={`<FileButton ... bind:files />`} />
 		</section>
 		<section class="space-y-4">
 			<h2>On Change Event</h2>
