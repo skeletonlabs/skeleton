@@ -19,9 +19,7 @@
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<h2>Excluding Styles</h2>
-			<p>
-				Use the <code>.unstyled</code> class to exclude and zero out typography styles for any individual element.
-			</p>
+			<p>Use the <code>.unstyled</code> class to exclude and reset typography styles for individual elements.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full text-center">
@@ -46,9 +44,10 @@
 			<h3>Tailwind Prose Plugin</h3>
 			<!-- prettier-ignore -->
 			<p>
-				If you're using the <a href="https://tailwindcss.com/docs/typography-plugin" target="_blank" rel="noreferrer">Tailwind Typography plugin</a>, all typography within the <code>.prose</code> class will be auto-excluded, allowing the plugin to handle most styles. Global styles like base text color will remain in effect though. See the plugin documentation for implementing overrides.
+				If you're using the <a href="https://tailwindcss.com/docs/typography-plugin" target="_blank" rel="noreferrer">Tailwind Typography plugin</a>, all typography within the <code>.prose</code> class will be auto-excluded, allowing the plugin to handle most styles. Global styles like base text color will remain.
 			</p>
 		</section>
+		<hr />
 		<!-- Headings -->
 		<div class="space-y-4">
 			<h2>Headings</h2>
