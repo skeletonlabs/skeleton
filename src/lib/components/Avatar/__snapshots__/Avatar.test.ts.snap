@@ -25,7 +25,6 @@ exports[`Avatar.svelte > Renders image > Img, with all props 1`] = `
 exports[`Avatar.svelte > Renders initials with all props > Svg, with all props 1`] = `
 <svg
   class="avatar-initials w-full h-full"
-  data-testid="avatar-initials"
   viewBox="0 0 512 512"
 >
   <text

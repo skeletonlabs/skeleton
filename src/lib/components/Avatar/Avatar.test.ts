@@ -40,14 +40,16 @@ const imageProps = {
 
 const initialsProps = { ...props, fill: 'fill-slate-50', initials: 'LA' };
 
-const getWrapper = () => screen.getByRole('figure');
+const getWrapper = () => screen.getByRole('figure')
 
 const getInitialsSvg = (text: string) => {
+	const svgText = screen.getByText(text)
+	const initialsSvg = svgText.parentElement;
 
-	const initialsSvg = screen.getByTestId('avatar-initials');
+	expect(initialsSvg).toBeTruthy()
 	return {
-		initialsSvg,
-		svgText: within(initialsSvg).getByText(text)
+		initialsSvg: initialsSvg as HTMLElement,
+		svgText
 	}
 };
 
