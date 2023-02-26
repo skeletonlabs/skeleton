@@ -94,23 +94,14 @@
 			</p>
 		</section>
 		<section class="space-y-4">
-			<h2>Centered</h2>
+			<h2>Justify</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<TabGroup justify="justify-center" class="w-full">
 						<!-- Tabs -->
-						<Tab bind:group={tabsFancy} name="books" value={0}>
-							<svelte:fragment slot="lead"><i class="fa-solid fa-book" /></svelte:fragment>
-							Books
-						</Tab>
-						<Tab bind:group={tabsFancy} name="movies" value={1}>
-							<svelte:fragment slot="lead"><i class="fa-solid fa-film" /></svelte:fragment>
-							Movies
-						</Tab>
-						<Tab bind:group={tabsFancy} name="tv" value={2}>
-							<svelte:fragment slot="lead"><i class="fa-solid fa-tv" /></svelte:fragment>
-							Television
-						</Tab>
+						<Tab bind:group={tabsFancy} name="books" value={0}>Books</Tab>
+						<Tab bind:group={tabsFancy} name="movies" value={1}>Movies</Tab>
+						<Tab bind:group={tabsFancy} name="tv" value={2}>Television</Tab>
 					</TabGroup>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
@@ -119,7 +110,7 @@
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>Styled</h2>
+			<h2>Bottom Navigation</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<TabGroup
@@ -157,7 +148,13 @@
 	rounded=""
 	border=""
 	class="card overflow-hidden w-full"
->...<TabGroup>`}
+>
+	<Tab bind:group={tabsBottomNav} name="books" value={0}>
+		<svelte:fragment slot="lead">(icon)</svelte:fragment>
+		(label))
+	</Tab>
+	<!-- ... -->
+<TabGroup>`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
