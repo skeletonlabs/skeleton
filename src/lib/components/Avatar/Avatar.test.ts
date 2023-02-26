@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from '@testing-library/svelte';
+import { render, screen, fireEvent, isInaccessible, within } from '@testing-library/svelte';
 import { describe, it, expect, vitest, afterEach } from 'vitest';
 
 import Avatar from '$lib/components/Avatar/Avatar.svelte';
@@ -40,12 +40,18 @@ const imageProps = {
 
 const initialsProps = { ...props, fill: 'fill-slate-50', initials: 'LA' };
 
-const getWrapper = () => screen.getByTestId('avatar');
+const getWrapper = () => screen.getByRole('figure');
 
-const getInitialsSvg = (text: string) => ({
-	initialsSvg: screen.getByTestId('avatar-initials'),
-	svgText: screen.getByText(text)
-});
+const getInitialsSvg = (text: string) => {
+
+	const initialsSvg = screen.getByTestId('avatar-initials');
+	return {
+		initialsSvg,
+		svgText: within(initialsSvg).getByText(text)
+	}
+};
+
+const getImg = (name: string) => screen.getByRole('img', { name });
 
 //TODO: Consider moving into global utility functions, and add test cases to it
 const textToInitials = (text: string) => String(text).substring(0, 2).toUpperCase();
@@ -83,7 +89,7 @@ describe('Avatar.svelte', () => {
 
 		//Act
 		const wrapper = getWrapper();
-		const image = screen.getByAltText(imageProps.alt);
+		const image = getImg(imageProps.alt)
 
 		//Assert
 		cBase.forEach((className) => expect(wrapper.className).toMatch(pattern(className)))
@@ -119,19 +125,6 @@ describe('Avatar.svelte', () => {
 		expect(wrapper.className).toMatch(pattern(myClass));
 	});
 
-	//TODO: Add more accessibility tests
-	it('Focuses component onFocus', async () => {
-		//Arrange
-		render(Avatar, { ...props });
-
-		//Act
-		const wrapper = getWrapper();
-		wrapper.onfocus = vitest.fn()
-		fireEvent.focus(wrapper)
-
-		//Assert
-		expect(wrapper.onfocus).toHaveBeenCalledOnce()
-	});
 
 	//TODO: Consider adding userEvent from testing-library that makes testing events much more practical (Declarative)
 	it('Fires events properly', async () => {
@@ -220,7 +213,7 @@ describe('Avatar.svelte', () => {
 		render(Avatar, { ...imageProps });
 
 		//Act
-		const img = screen.getByAltText(imageProps.alt);
+		const img = getImg(imageProps.alt)
 
 		//Assert
 		expect(img).toHaveProperty('src', imageProps.src);
@@ -236,7 +229,7 @@ describe('Avatar.svelte', () => {
 		render(Avatar, { ...imageProps, action: mockedFilterFn });
 
 		//Act
-		const img = screen.getByAltText(imageProps.alt);
+		const img = getImg(imageProps.alt)
 
 		//Assert
 		expect(mockedFilterFn).toHaveBeenCalled();
@@ -250,7 +243,7 @@ describe('Avatar.svelte', () => {
 		render(Avatar, { ...imageProps, ...customParams });
 
 		//Act
-		const img = screen.getByAltText(imageProps.alt);
+		const img = getImg(imageProps.alt)
 
 		//Assert
 		expect(mockedFilterFn).toHaveBeenCalled();
@@ -260,4 +253,44 @@ describe('Avatar.svelte', () => {
 	//It renders image with custom styles, pending jest-dom
 
 	/**  ------------------------ Testing Image Ends ------------------------ */
+
+
+	/**  ------------------------ Testing Accessibility Starts ------------------------ */
+
+	it('Passess accessibility tests for component', async () => {
+		//Arrange
+		render(Avatar, { ...props });
+
+		//Act
+		const wrapper = getWrapper();
+
+		//Assert
+		expect(isInaccessible(wrapper)).toBeFalsy()
+	});
+
+	it('Passess accessibility tests for Initials', async () => {
+		//Arrange
+		render(Avatar, { ...props, ...initialsProps });
+
+		//Act
+		const { initialsSvg, svgText } = getInitialsSvg(initialsProps.initials)
+
+		//Assert
+		expect(isInaccessible(svgText)).toBeFalsy()
+		expect(isInaccessible(initialsSvg)).toBeFalsy()
+	});
+
+	it('Passess accessibility tests for Image', async () => {
+		//Arrange
+		render(Avatar, { ...props, ...imageProps });
+
+		//Act
+		const img = getImg(imageProps.alt)
+
+		//Assert
+		expect(isInaccessible(img)).toBeFalsy()
+	});
+
+	/**  ------------------------ Testing Accessibility Ends ------------------------ */
+
 });

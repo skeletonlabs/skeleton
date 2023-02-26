@@ -3,7 +3,6 @@
 exports[`Avatar.svelte > Renders component with all props > Component, with all props 1`] = `
 <figure
   class="avatar flex aspect-square text-surface-50 font-semibold justify-center items-center overflow-hidden isolate bg-surface-500 w-12  rounded-full shadow-xl cursor-pointer my-custom-class"
-  data-testid="avatar"
 >
   <img
     alt="Avatar image"

@@ -41,7 +41,7 @@
 	$: classesBase = `${cBase} ${background} ${width} ${border} ${rounded} ${shadow} ${cursor} ${$$props.class ?? ''}`;
 </script>
 
-<figure class="avatar {classesBase}" data-testid="avatar" on:click on:keydown on:keyup on:keypress>
+<figure class="avatar {classesBase}" on:click on:keydown on:keyup on:keypress>
 	{#if src}
 		<img class="avatar-image {cImage}" style={$$props.style ?? ''} {src} alt={$$props.alt || ''} use:action={actionParams} />
 	{:else}
