@@ -30,8 +30,8 @@
 		<DocsPreview>
 			<svelte:fragment slot="preview">
 				<div class="space-y-4 w-full">
-					<FileDropzone name="files-example-one" on:change={onChangeHandler} class="text-white" />
-					<FileDropzone name="files-example-two" accept="image/*" on:change={onChangeHandler} class="text-white">
+					<FileDropzone name="files-example-one" on:change={onChangeHandler} class="text-token" />
+					<FileDropzone name="files-example-two" accept="image/*" on:change={onChangeHandler} class="text-token">
 						<svelte:fragment slot="lead"><i class="fa-solid fa-file-arrow-up text-4xl" /></svelte:fragment>
 						<svelte:fragment slot="meta">PNG, JPG, and GIF allowed.</svelte:fragment>
 					</FileDropzone>

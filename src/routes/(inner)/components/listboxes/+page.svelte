@@ -40,7 +40,7 @@
 		<DocsPreview>
 			<svelte:fragment slot="preview">
 				<section class="w-full space-y-4">
-					<div class="card p-4 text-white">
+					<div class="card p-4 text-token">
 						<label for="" class="space-y-4">
 							<span>Single Selection</span>
 							<ListBox>
