@@ -8,10 +8,24 @@ export const menuNavLinks: any = [
 		title: 'Docs',
 		list: [
 			{ href: '/docs/introduction', label: 'Introduction', keywords: 'svelte, sirens, license, release' },
-			{ href: '/docs/get-started', label: 'Get Started', keywords: 'start, install, cli, tailwind, themes, stylesheets' },
-			{ href: '/docs/generator', label: 'Theme Generator', keywords: 'create, custom, style, css, design' },
-			{ href: '/docs/styling', label: 'Styling', keywords: 'styles, styling, props, classes, class, css' },
+			{ href: '/docs/get-started', label: 'Get Started', keywords: 'start, install, cli, tailwind, themes, stylesheets' }
+		]
+	},
+	{
+		id: 'essentials',
+		title: 'Essentials',
+		list: [
 			{ href: '/docs/colors', label: 'Colors', keywords: 'theme, colors, swatches' },
+			{ href: '/docs/styling', label: 'Styling', keywords: 'styles, styling, props, classes, class, css' },
+			{ href: '/docs/tokens', label: 'Design Tokens', keywords: 'theme, color, pairing, css, utility' },
+			{ href: '/docs/variants', label: 'Variants', keywords: 'variant, variants, presets, backgrounds, classes' }
+		]
+	},
+	{
+		id: 'resources',
+		title: 'Resources',
+		list: [
+			{ href: '/docs/generator', label: 'Theme Generator', keywords: 'create, custom, style, css, design' },
 			{ href: '/docs/quickstart', label: 'Quickstart', keywords: 'start, setup, tutorial, guide' },
 			{ href: '/docs/contributing', label: 'Contributing', keywords: 'branch, pr' }
 			// DISABLED SECTIONS
@@ -22,14 +36,6 @@ export const menuNavLinks: any = [
 
 	// Tailwind ---
 
-	{
-		id: 'tokens',
-		title: 'Info',
-		list: [
-			{ href: '/elements/tokens', label: 'Design Tokens', keywords: 'theme, color, pairing, css, utility' },
-			{ href: '/elements/variants', label: 'Variants', keywords: 'variant, variants, presets, backgrounds, classes' }
-		]
-	},
 	{
 		id: 'base',
 		title: 'Globals',
