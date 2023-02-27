@@ -25,7 +25,10 @@ export const menuNavLinks: any = [
 	{
 		id: 'tokens',
 		title: 'Info',
-		list: [{ href: '/elements/tokens', label: 'Design Tokens', keywords: 'theme, color, pairing, css, utility' }]
+		list: [
+			{ href: '/elements/tokens', label: 'Design Tokens', keywords: 'theme, color, pairing, css, utility' },
+			{ href: '/elements/variants', label: 'Variants', keywords: 'variant, variants, presets, backgrounds, classes' }
+		]
 	},
 	{
 		id: 'base',

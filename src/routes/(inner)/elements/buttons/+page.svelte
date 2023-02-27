@@ -82,7 +82,8 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<p>
-			Use <code>.btn</code> to add basic button styles to any anchor or button element. Replace with <code>.btn-icon</code> for an icon button.
+			Use <code>.btn</code> to add basic button styles to any anchor or button element. Replace with <code>.btn-icon</code> for an icon
+			button. Mix buttons with any arbitrary background color or variant style classes, such as <code>.variant-[style]-[themeColor]</code>.
 		</p>
 		<section class="space-y-4">
 			<h2>Sizes</h2>
