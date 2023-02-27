@@ -1,11 +1,12 @@
 <script lang="ts">
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
-
+	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
+	// Components
 	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-
+	// Sveld
 	import sveldRadioGroup from '$lib/components/Radio/RadioGroup.svelte?raw&sveld';
 	import sveldRadioItem from '$lib/components/Radio/RadioItem.svelte?raw&sveld';
 
@@ -37,9 +38,9 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="grid grid-cols-2 gap-4">
-			<card class="card variant-glass p-4 text-center space-y-2">
-				<RadioGroup>
+		<DocsPreview>
+			<svelte:fragment slot="preview">
+				<RadioGroup class="text-token">
 					<RadioItem bind:group={justify} name="justify" value={0}>
 						<i class="fa-solid fa-align-left" />
 					</RadioItem>
@@ -50,16 +51,24 @@
 						<i class="fa-solid fa-align-right" />
 					</RadioItem>
 				</RadioGroup>
-				<div><code>selected: {justify}</code></div>
-			</card>
-			<card class="card variant-glass p-4 text-center space-y-2">
-				<RadioGroup active="variant-filled-primary" hover="hover:variant-soft-primary">
-					<RadioItem bind:group={alignment} name="alignment" value="horizontal">Horizontal</RadioItem>
-					<RadioItem bind:group={alignment} name="alignment" value="vertical">Vertical</RadioItem>
-				</RadioGroup>
-				<div><code>selected: {alignment}</code></div>
-			</card>
-		</section>
+			</svelte:fragment>
+			<svelte:fragment slot="footer">
+				<div class="text-center"><code>selected: {justify}</code></div>
+			</svelte:fragment>
+			<svelte:fragment slot="source">
+				<CodeBlock language="ts" code={`let value: number = 0;`} />
+				<CodeBlock
+					language="html"
+					code={`
+<RadioGroup>
+	<RadioItem bind:group={value} name="justify" value={0}>(label)</RadioItem>
+	<RadioItem bind:group={value} name="justify" value={1}>(label)</RadioItem>
+	<RadioItem bind:group={value} name="justify" value={2}>(label)</RadioItem>
+</RadioGroup>
+				`}
+				/>
+			</svelte:fragment>
+		</DocsPreview>
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
@@ -69,24 +78,27 @@
 				This component acts as a wrapper around native HTML radio inputs. Bind the <em>group</em>, then set <em>value</em> and <em>name</em>
 				as follows.
 			</p>
-			<CodeBlock language="ts" code={`let alignment: string = 'horizontal';`} />
-			<CodeBlock
-				language="html"
-				code={`
-<RadioGroup>
-	<RadioItem bind:group={alignment} name="alignment" value="horizontal">Horizontal</RadioItem>
-	<RadioItem bind:group={alignment} name="alignment" value="vertical">Vertical</RadioItem>
-</RadioGroup>
-				`}
-			/>
 		</section>
 		<section class="space-y-4">
 			<h2>Variants</h2>
 			<p>The radio group supports variant styles for <code>active</code> and <code>hover</code> properties.</p>
-			<CodeBlock language="html" code={`<RadioGroup active="variant-filled-primary" hover="hover:variant-soft-primary">...</RadioGroup>`} />
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<RadioGroup active="variant-filled-primary" hover="hover:variant-soft-primary">
+						<RadioItem bind:group={alignment} name="alignment" value="horizontal">Horizontal</RadioItem>
+						<RadioItem bind:group={alignment} name="alignment" value="vertical">Vertical</RadioItem>
+					</RadioGroup>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="html"
+						code={`<RadioGroup active="variant-filled-primary" hover="hover:variant-soft-primary">...</RadioGroup>`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>Full Width Display</h2>
+			<h2>Full Width</h2>
 			<p>Set <em>display</em> to <code>flex</code> to stretch and fill the full width.</p>
 			<CodeBlock language="html" code={`<RadioGroup display="flex"></RadioGroup>`} />
 		</section>

@@ -1,10 +1,12 @@
 <script lang="ts">
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
-
+	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
 	// Utilities
+	import ListBox from '$lib/components/ListBox/ListBox.svelte';
+	import ListBoxItem from '$lib/components/ListBox/ListBoxItem.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-
+	// Sveld
 	import sveldTableOfContents from '$lib/components/TableOfContents/TableOfContents.svelte?raw&sveld';
 
 	// Docs Shell
@@ -16,39 +18,40 @@
 		source: 'components/TableOfContents',
 		components: [{ sveld: sveldTableOfContents }]
 	};
+
+	// Local
+	let value = 0;
 </script>
 
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="card variant-glass p-4 text-center !py-10 space-y-4 hidden 2xl:block">
-			<p>View example on <strong>page right</strong> <i class="fa-solid fa-arrow-right" /></p>
-		</section>
+		<DocsPreview>
+			<svelte:fragment slot="preview">
+				<div class="card p-4 text-token rounded-container-token w-96">
+					<p class="font-bold pb-4 ml-4">On This Page</p>
+					<ListBox active="variant-filled-primary" hover="hover:bg-primary-hover-token" class="pointer-events-none">
+						<ListBoxItem group={value} name="toc" value={0}>Demo</ListBoxItem>
+						<ListBoxItem group={value} name="toc" value={1}>How It Works</ListBoxItem>
+						<ListBoxItem group={value} name="toc" value={2} class="ml-4">Key Props</ListBoxItem>
+						<ListBoxItem group={value} name="toc" value={3} class="ml-4">...</ListBoxItem>
+						<ListBoxItem group={value} name="toc" value={4}>Ignore a Heading</ListBoxItem>
+						<ListBoxItem group={value} name="toc" value={5}>...</ListBoxItem>
+					</ListBox>
+				</div>
+			</svelte:fragment>
+			<svelte:fragment slot="footer">
+				<p class="w-full text-center">Please note the example above is simulated.</p>
+			</svelte:fragment>
+			<svelte:fragment slot="source">
+				<CodeBlock language="html" code={`<TableOfContents target="#toc-target" />`} />
+			</svelte:fragment>
+		</DocsPreview>
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
-		<section class="space-y-4">
-			<p>
-				Add the component to a page, set the target property, then a list of links will be auto-generated based on available HTML headings.
-			</p>
-			<CodeBlock language="html" code={`<TableOfContents target="#toc-target" />`} />
-			<CodeBlock
-				language="html"
-				code={`
-<!-- NOTE: this can be the body element, App Shell #page, etc. -->
-<main>
-	<!-- The region to scan for heading elements. -->
-	<div id="toc-target">
-		<h2>Heading<h2>
-		<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-		<h3>Subheading<h3>
-		<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-	</div>
-</main>
-`}
-			/>
-		</section>
+		<p>Add the component to a page, set the target property, then a list of links will be auto-generated based on HTML headings.</p>
 		<section class="space-y-4">
 			<h2>How It Works</h2>
 			<h3>Key Props</h3>

@@ -1,7 +1,8 @@
 <script lang="ts">
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
-
+	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
+	// Components
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
 	// Docs Shell
@@ -18,40 +19,40 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<div class="space-y-4">
-			<div class="card variant-glass p-4 flex justify-center space-x-2">
-				<h2 data-toc-ignore>
-					<span class="bg-gradient-to-br from-blue-500 to-cyan-300 bg-clip-text text-transparent box-decoration-clone">Design.</span>
-				</h2>
-				<h2 data-toc-ignore>
-					<span class="bg-gradient-to-br from-red-500 to-yellow-500 bg-clip-text text-transparent box-decoration-clone">Build.</span>
-				</h2>
-				<h2 data-toc-ignore>
-					<span class="bg-gradient-to-br from-pink-500 to-violet-500 bg-clip-text text-transparent box-decoration-clone">Deploy.</span>
-				</h2>
-			</div>
-		</div>
-	</svelte:fragment>
-
-	<!-- Slot: Usage -->
-	<svelte:fragment slot="usage">
-		<!-- prettier-ignore -->
-		<p>These presentational styles can be generated using standard <a href="https://tailwindcss.com/docs/gradient-color-stops" target="_blank" rel="noreferrer">Tailwind gradient</a> utlity classes. Skeleton is not required for this.
-		</p>
-		<section class="space-y-4">
-			<h2>Apply Inline</h2>
-			<p>Apply these classes inline in your HTML template. The <em>span</em> tag is required.</p>
-			<CodeBlock
-				language="html"
-				code={`
+		<DocsPreview background="bg-surface-900">
+			<svelte:fragment slot="preview">
+				<div class="flex justify-center space-x-2">
+					<h1 data-toc-ignore>
+						<span class="bg-gradient-to-br from-blue-500 to-cyan-300 bg-clip-text text-transparent box-decoration-clone">Design.</span>
+					</h1>
+					<h1 data-toc-ignore>
+						<span class="bg-gradient-to-br from-red-500 to-yellow-500 bg-clip-text text-transparent box-decoration-clone">Build.</span>
+					</h1>
+					<h1 data-toc-ignore>
+						<span class="bg-gradient-to-br from-pink-500 to-violet-500 bg-clip-text text-transparent box-decoration-clone">Deploy.</span>
+					</h1>
+				</div>
+			</svelte:fragment>
+			<svelte:fragment slot="source">
+				<CodeBlock
+					language="html"
+					code={`
 <h1>
 	<span class="bg-gradient-to-br from-primary-500 via-tertiary-500 to-secondary-500 bg-clip-text text-transparent box-decoration-clone">
 		Skeleton
 	</span>
 </h1>
 				`}
-			/>
-		</section>
+				/>
+			</svelte:fragment>
+		</DocsPreview>
+	</svelte:fragment>
+
+	<!-- Slot: Usage -->
+	<svelte:fragment slot="usage">
+		<!-- prettier-ignore -->
+		<p>Can be generated using standard <a href="https://tailwindcss.com/docs/gradient-color-stops" target="_blank" rel="noreferrer">Tailwind's gradient color stops</a>. Skeleton is not required.
+		</p>
 		<section class="space-y-4">
 			<h2>Using @apply</h2>
 			<p>
@@ -69,7 +70,6 @@
 }
 `}
 			/>
-			<p>Implement this class anywhere you wish for the header to be applied. The <em>span</em> tag is required.</p>
 			<CodeBlock language="html" code={`<h1><span class="gradient-heading">Skeleton</span></h1>`} />
 		</section>
 	</svelte:fragment>

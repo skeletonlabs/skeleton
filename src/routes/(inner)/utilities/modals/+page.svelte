@@ -2,13 +2,13 @@
 	// Docs
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
-	// Modal Examples
-	// (NOTE: see other examplpes registered in root +layout.svelte)
+	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
+	// Modal Examples (see also root layout)
 	import ModalExampleForm from '$docs/modals/examples/ModalExampleForm.svelte';
-
-	// Utilities
+	// Components
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-
+	import Accordion from '$lib/components/Accordion/Accordion.svelte';
+	import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
 	// Sveld
 	import sveldModal from '$lib/utilities/Modal/Modal.svelte?raw&sveld';
 
@@ -19,7 +19,6 @@
 	import Tab from '$lib/components/Tab/Tab.svelte';
 
 	// Stores
-	let tabPresets: string = 'alert';
 	let tabCustom: string = 'register';
 
 	// Docs Shell
@@ -40,14 +39,26 @@
 		]
 	};
 
-	// Standard ---
+	// Demo ---
+
+	function modalDemo(): void {
+		const d: ModalSettings = {
+			type: 'alert',
+			title: 'Hello Skeleton',
+			body: 'This modal example includes a title, body, and image.',
+			image: 'https://i.imgur.com/TykCy5e.gif'
+			// image: 'https://i.imgur.com/WOgTG96.gif'
+		};
+		modalStore.trigger(d);
+	}
+
+	// Variants ---
 
 	function modalAlert(): void {
 		const d: ModalSettings = {
 			type: 'alert',
-			title: 'Welcome to Skeleton',
-			body: 'This simple alert modal examples uses <code>type: alert</code> and makes use of the optional <code>title</code>, <code>body</code>, and <code>image</code> values.',
-			image: 'https://i.imgur.com/WOgTG96.gif'
+			title: 'Hello World!',
+			body: 'This simple alert modal uses <code>type: alert</code>.'
 		};
 		modalStore.trigger(d);
 	}
@@ -140,26 +151,15 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="space-y-4">
-			<div class="card variant-glass p-4 space-y-4">
-				<p class="text-center font-bold">Basic Modals</p>
-				<div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:max-w-[480px] mx-auto">
-					<button class="btn variant-filled" on:click={modalAlert}>Alert</button>
-					<button class="btn variant-filled" on:click={modalConfirm}>Confirm</button>
-					<button class="btn variant-filled" on:click={modalPrompt}>Prompt</button>
-					<button class="btn variant-filled" on:click={modalMultiple}>Multiple</button>
-				</div>
-			</div>
-			<div class="card variant-glass p-4 space-y-4">
-				<p class="text-center font-bold">Component Modals</p>
-				<div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:max-w-[480px] mx-auto">
-					<button class="btn variant-filled" on:click={modalComponentForm}>Form</button>
-					<button class="btn variant-filled" on:click={modalComponentList}>List</button>
-					<button class="btn variant-filled" on:click={modalComponentEmbed}>Embed</button>
-					<button class="btn variant-filled" on:click={modalComponentImage}>Image</button>
-				</div>
-			</div>
-		</section>
+		<DocsPreview>
+			<svelte:fragment slot="preview">
+				<button class="btn variant-filled" on:click={modalDemo}>Show Modal</button>
+			</svelte:fragment>
+			<svelte:fragment slot="source">
+				<p>Implement a single instance of the modal component in your app's root layout above the App Shell (if present).</p>
+				<CodeBlock language="html" code={`<Modal />\n\n<!-- <AppShell>...</AppShell> -->`} />
+			</svelte:fragment>
+		</DocsPreview>
 	</svelte:fragment>
 
 	<!-- /actions/focus-trap -->
@@ -169,88 +169,87 @@
 		<!-- prettier-ignore -->
 		<aside class="alert alert-message variant-ghost-warning">
 			<p>
-				This feature uses a <a href="https://en.wikipedia.org/wiki/Singleton_pattern" target="_blank" rel="noreferrer">Singleton pattern</a>. Meaning you should aim to implement a <u>single instance of the component per project</u>, but it will remain globally scoped
+				This feature uses a <a href="https://en.wikipedia.org/wiki/Singleton_pattern" target="_blank" rel="noreferrer">Singleton pattern</a>, meaning you should aim to implement a <u>single instance of the component per project</u>, but it will remain globally scoped
 				and reusable via a Svelte writable store. Do not reimplement this component for each route page.
 			</p>
 		</aside>
-		<section class="space-y-4">
-			<p>Import and add a single instance of the Modal component in your app's root layout.</p>
-			<CodeBlock language="html" code={`<Modal />`} />
-		</section>
-		<!-- Modal Store -->
 		<section class="space-y-4">
 			<h2>Modal Store</h2>
 			<p>When you wish to trigger a modal, import the <code>modalStore</code>, which acts as the modal queue.</p>
 			<CodeBlock language="ts" code={`import { modalStore } from '@skeletonlabs/skeleton';`} />
 			<h3>Trigger</h3>
-			<p>Note that <code>title</code>, <code>body</code>, and <code>image</code> are optional for <u>all</u> modal types.</p>
-			<TabGroup regionPanel="space-y-4">
-				<Tab bind:group={tabPresets} name="alert" value="alert">Alert</Tab>
-				<Tab bind:group={tabPresets} name="confirm" value="confirm">Confirm</Tab>
-				<Tab bind:group={tabPresets} name="prompt" value="prompt">Prompt</Tab>
-				<!-- Panel -->
-				<svelte:fragment slot="panel">
-					{#if tabPresets === 'alert'}
-						<CodeBlock
-							language="ts"
-							code={`
-function triggerAlert(): void {
-	const alert: ModalSettings = {
-		type: 'alert',
-		title: 'Example Alert',
-		body: 'This is an example modal.',
-		image: 'https://i.imgur.com/WOgTG96.gif',
-		// Optionally override buttont text
-		buttonTextCancel: 'Cancel'
-	};
-	modalStore.trigger(alert);
-}
-						`}
-						/>
-					{:else if tabPresets === 'confirm'}
-						<CodeBlock
-							language="ts"
-							code={`
-function triggerConfirm(): void {
-	const confirm: ModalSettings = {
-		type: 'confirm',
-		title: 'Please Confirm',
-		body: 'Are you sure you wish to proceed?',
-		// TRUE if confirm pressed, FALSE if cancel pressed
-		response: (r: boolean) => console.log('response:', r),
-		// Optionally override the button text
-		buttonTextCancel: 'Cancel',
-		buttonTextConfirm: 'Confirm',
-	};
-	modalStore.trigger(confirm);
-}
-						`}
-						/>
-					{:else if tabPresets === 'prompt'}
-						<CodeBlock
-							language="ts"
-							code={`
-function triggerPrompt(): void {
-	const prompt: ModalSettings = {
-		type: 'prompt',
-		title: 'Enter Name',
-		body: 'Provide your first name in the field below.',
-		// Populates the input value and attributes
-		value: 'Skeleton',
-		valueAttr: { type: 'text', minlength: 3, maxlength: 10, required: true },
-		// Returns the updated response value
-		response: (r: string) => console.log('response:', r),
-		// Optionally override the button text
-		buttonTextCancel: 'Cancel',
-		buttonTextSubmit: 'Submit',
-	};
-	modalStore.trigger(prompt);
-}
-						`}
-						/>
-					{/if}
+			<p>The <code>title</code>, <code>body</code>, and <code>image</code> are available to all modals.</p>
+			<!-- Alert -->
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<div class="flex gap-4">
+						<button class="btn variant-filled" on:click={modalAlert}>Alert Modal</button>
+						<button class="btn variant-filled" on:click={modalMultiple}>Queue Multiple</button>
+					</div>
 				</svelte:fragment>
-			</TabGroup>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="ts"
+						code={`
+const alert: ModalSettings = {
+	type: 'alert',
+	// Data
+	title: 'Example Alert',
+	body: 'This is an example modal.',
+	image: 'https://i.imgur.com/WOgTG96.gif',
+};
+modalStore.trigger(alert);
+						`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
+			<!-- Confirm -->
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<button class="btn variant-filled" on:click={modalConfirm}>Confirm Modal</button>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="ts"
+						code={`
+const confirm: ModalSettings = {
+	type: 'confirm',
+	// Data
+	title: 'Please Confirm',
+	body: 'Are you sure you wish to proceed?',
+	// TRUE if confirm pressed, FALSE if cancel pressed
+	response: (r: boolean) => console.log('response:', r),
+};
+modalStore.trigger(confirm);
+						`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
+			<!-- Prompt -->
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<button class="btn variant-filled" on:click={modalPrompt}>Prompt Modal</button>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="ts"
+						code={`
+const prompt: ModalSettings = {
+	type: 'prompt',
+	// Data
+	title: 'Enter Name',
+	body: 'Provide your first name in the field below.',
+	// Populates the input value and attributes
+	value: 'Skeleton',
+	valueAttr: { type: 'text', minlength: 3, maxlength: 10, required: true },
+	// Returns the updated response value
+	response: (r: string) => console.log('response:', r),
+};
+modalStore.trigger(prompt);
+						`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
 			<!-- Close -->
 			<h3>Close</h3>
 			<p>Trigger the <code>close()</code> method to remove the first modal in the modal queue.</p>
@@ -259,41 +258,22 @@ function triggerPrompt(): void {
 			<h3>Clear</h3>
 			<p>Trigger the <code>clear()</code> method completely empty the modal queue.</p>
 			<CodeBlock language="ts" code={`modalStore.clear();`} />
-			<!-- Debugging -->
-			<h3>Debugging the Queue</h3>
-			<p>Use the following technique to visualize the contents of the store for debugging.</p>
-			<CodeBlock language="html" code={`<pre>queue: {JSON.stringify($modalStore, null, 2)}</pre>`} />
 		</section>
 		<!-- Modal Settings -->
 		<section class="space-y-4">
 			<h2>Modal Settings</h2>
-			<!-- Instance Classes -->
-			<h3>Instance Classes</h3>
+			<p>These additional settings are available to all modals.</p>
 			<!-- prettier-ignore -->
-			<p>
-				Use the <code>backdropClasses</code> or <code>modalClasses</code> settings to provide abitrary classes per component instance. Note that <code>!</code> (important) may be required to override some styles.
-			</p>
 			<CodeBlock
 				language="ts"
 				code={`
-const d: ModalSettings = {
-	// ...
+const d: ModalSettings = {\n
+	// Provide abitrary classes to the backdrop and modal elements:
 	backdropClasses: '!bg-green-500',
-	modalClasses: '!bg-red-500',
+	modalClasses: '!bg-red-500',\n
+	// Provide arbitrary metadata to your modal instance:
+	meta: { foo: 'bar', fizz: 'buzz', fn: myCustomFunction }\n
 };`}
-			/>
-			<!-- Abitrary Metadata -->
-			<h3>Abitrary Metadata</h3>
-			<p>You can pass abitrary metadata to your modal via the <code>meta</code> setting. All data types are supported.</p>
-			<CodeBlock
-				language="ts"
-				code={`
-const d: ModalSettings = {
-	// ...
-	meta: { foo: 'bar', fizz: 'buzz', fn: myCustomFunction }
-};
-modalStore.trigger(d);
-				`}
 			/>
 		</section>
 		<!-- Component Modals -->
@@ -302,23 +282,40 @@ modalStore.trigger(d);
 				<h2>Component Modals</h2>
 				<span class="badge variant-filled-warning">Advanced</span>
 			</div>
-			<p>Use the following techniques to create custom modals using components.</p>
-			<TabGroup regionPanel="space-y-4">
-				<Tab bind:group={tabCustom} name="component-modals" value="register">Registry Method</Tab>
-				<Tab bind:group={tabCustom} name="component-modals" value="direct">Direct Method</Tab>
-				<!-- Panel -->
-				<svelte:fragment slot="panel">
-					{#if tabCustom === 'register'}
+			<p>To create custom modals, generate a new component, then pass this to the Modal system.</p>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:max-w-[480px] mx-auto">
+						<button class="btn variant-filled" on:click={modalComponentForm}>Form</button>
+						<button class="btn variant-filled" on:click={modalComponentList}>List</button>
+						<button class="btn variant-filled" on:click={modalComponentEmbed}>Embed</button>
+						<button class="btn variant-filled" on:click={modalComponentImage}>Image</button>
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="footer">
+					<div class="text-center">
 						<!-- prettier-ignore -->
-						<p>
-							Import custom components in your root layout, create a modal registry object, then pass this object to the Modal <code>components</code> property.
-						</p>
-						<CodeBlock
-							language="ts"
-							code={`
+						<a class="btn variant-ghost" href="https://github.com/skeletonlabs/skeleton/tree/master/src/docs/modals/examples" target="_blank" rel="noreferrer">View Source Code</a>
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<TabGroup regionPanel="space-y-4">
+						<Tab bind:group={tabCustom} name="component-modals" value="register">Reuasble Registry</Tab>
+						<Tab bind:group={tabCustom} name="component-modals" value="direct">Direct Method</Tab>
+						<!-- Panel -->
+						<svelte:fragment slot="panel">
+							{#if tabCustom === 'register'}
+								<!-- prettier-ignore -->
+								<p>
+									Import custom components in your root layout, create a modal registry object, then pass this object to the Modal <code>components</code> property.
+								</p>
+								<CodeBlock
+									language="ts"
+									code={`
 // import ModalComponentOne from '...';
 // import ModalComponentTwo from '...';\n
-const modalComponentRegistry: Record<string, ModalComponent> = {
+const modalComponentRegistry: Record<string, ModalComponent> = {\n
+	// Custom Modal 1
 	modalComponentOne: {
 		// Pass a reference to your custom component
 		ref: ModalComponentOne,
@@ -326,34 +323,33 @@ const modalComponentRegistry: Record<string, ModalComponent> = {
 		props: { background: 'bg-red-500' },
 		// Provide a template literal for the default component slot
 		slot: '<p>Skeleton</p>'
-	},
-	modalComponentTwo: { ref: ModalComponentTwo },
+	},\n
+	// Custom Modal 2
+	modalComponentTwo: { ref: ModalComponentTwo },\n
 	// ...
 };
-							`}
-						/>
-						<CodeBlock language="html" code={`<Modal components={modalComponentRegistry} />`} />
-						<p>When triggeing a component, pass <code>component: string</code>, where the value represents the registry object key.</p>
-						<CodeBlock
-							language="ts"
-							code={`
-function triggerCustomModal(): void {
-	const d: ModalSettings = {
-		type: 'component',
-		// The component registry reference key
-		component: 'modalComponentOne',
-	};
-	modalStore.trigger(d);
-}
-							`}
-						/>
-					{:else if tabCustom === 'direct'}
-						<p>
-							For one-off components you can create a <code>ModalComponent</code> object containing your component, props, and slot values.
-						</p>
-						<CodeBlock
-							language="ts"
-							code={`
+									`}
+								/>
+								<CodeBlock language="html" code={`<Modal components={modalComponentRegistry} />`} />
+								<p>When triggeing a component, pass <code>component: string</code>, where the value represents the registry object key.</p>
+								<CodeBlock
+									language="ts"
+									code={`
+const d: ModalSettings = {
+	type: 'component',
+	// Pass the component registry key as a string:
+	component: 'modalComponentOne',
+};
+modalStore.trigger(d);
+									`}
+								/>
+							{:else if tabCustom === 'direct'}
+								<p>
+									For one-off components you can create a <code>ModalComponent</code> object containing your component, props, and slot values.
+								</p>
+								<CodeBlock
+									language="ts"
+									code={`
 // import MyCustomComponent from '...';\n
 const modalComponent: ModalComponent = {
 	// Pass a reference to your custom component
@@ -363,66 +359,81 @@ const modalComponent: ModalComponent = {
 	// Provide a template literal for the default component slot
 	slot: '<p>Skeleton</p>'
 };
-							`}
-						/>
-						<p>
-							When triggeing a component, pass the <code>component: ModalComponent</code> directly to <code>ModalSettings</code>.
-						</p>
-						<CodeBlock
-							language="ts"
-							code={`
-function triggerCustomModal(): void {
-	const d: ModalSettings = {
-		type: 'component',
-		// Pass the ModalComponent object
-		component: modalComponent,
-	};
-	modalStore.trigger(d);
-}
-							`}
-						/>
-					{/if}
+									`}
+								/>
+								<p>
+									When triggeing a component, pass the <code>component: ModalComponent</code> directly to <code>ModalSettings</code>.
+								</p>
+								<CodeBlock
+									language="ts"
+									code={`
+const d: ModalSettings = {
+	type: 'component',
+	// Pass the component directly:
+	component: modalComponent,
+};
+modalStore.trigger(d);
+									`}
+								/>
+							{/if}
+						</svelte:fragment>
+					</TabGroup>
 				</svelte:fragment>
-			</TabGroup>
-			<!-- Best Practices -->
-			<h3>Best Practices</h3>
-			<!-- prettier-ignore -->
-			<ul class="list-disc list-inside space-y-1">
-				<li>Import and use the <code>modalStore</code> to interface directly with the active modal queue.</li>
-				<li>The visible modal uses index zero, ex: <code>$modalStore[0]</code>.</li>
-				<li>All data provided to <code>ModalSettings</code> is available via <code>$modalStore[0]</code> inside your component.</li>
-				<li>
-					The Modal component props are available via <code>parent</code> - ex: <code>parent.background</code> will provide the
-					<code>background</code> property value.
-				</li>
-				<li>Tap the <em>Props</em> tab on this page to view a full list of <code>parent</code> props available.</li>
-				<li>Use the <code>$modalStore[0].response('myResponseDataHere');</code> method to return a response value.</li>
-				<li>Use the <code>parent.onClose()</code> or <code>modalStore.close()</code> methods to close the modal.</li>
-				<li>Abitrary metadata is available using <code>$modalStore[0].meta?.someKey</code>.</li>
-			</ul>
-			<!-- Examples -->
-			<h3>Examples</h3>
-			<aside class="alert variant-ghost">
-				<div class="alert-message">
-					<p>
-						To make this process easier to understand, please review the source code for each of the examples feature at the top of this
-						page. These components are registered in <code>/src/routes/+layout.svelte</code>.
-					</p>
-				</div>
-				<div class="alert-actions">
-					<a
-						class="btn variant-filled-secondary"
-						href="https://github.com/skeletonlabs/skeleton/tree/master/src/docs/modals/examples"
-						target="_blank"
-						rel="noreferrer">View Example Modals</a
-					>
-				</div>
-			</aside>
+			</DocsPreview>
+			<p>See the additional information below to learn how to use custom component modals.</p>
+			<Accordion autocollapse class="card variant-glass p-4">
+				<AccordionItem open>
+					<svelte:fragment slot="summary"><h3 data-toc-ignore>Accessing Store Data</h3></svelte:fragment>
+					<svelte:fragment slot="content">
+						<p>
+							Import and use the <code>modalStore</code>. All provide data is available within your component via
+							<code>$modalStore[0]</code>.
+						</p>
+					</svelte:fragment>
+				</AccordionItem>
+				<AccordionItem>
+					<svelte:fragment slot="summary"><h3 data-toc-ignore>The Visible Modal</h3></svelte:fragment>
+					<svelte:fragment slot="content">
+						<p>The foremost and visible modal in your queue uses index zero <code>$modalStore[0]</code>.</p>
+					</svelte:fragment>
+				</AccordionItem>
+				<AccordionItem>
+					<svelte:fragment slot="summary"><h3 data-toc-ignore>Modal Parent Properties</h3></svelte:fragment>
+					<svelte:fragment slot="content">
+						<p>
+							The Modal component in your root layout is considered the "parent" component. Your custom modal component will be generated
+							within this. All properties for the parent component are passed down via the <code>parent</code> prop. For example
+							<code>parent.background</code> would provide the <em>background</em> property value.
+						</p>
+						<p>Tap the <em>Props</em> tab on this page to view a full list of available <code>parent</code> props.</p>
+					</svelte:fragment>
+				</AccordionItem>
+				<AccordionItem>
+					<svelte:fragment slot="summary"><h3 data-toc-ignore>Triggering a Response</h3></svelte:fragment>
+					<svelte:fragment slot="content">
+						<p>
+							Use the <code>$modalStore[0].response('myResponseDataHere');</code> trigger the response function and return a value.
+						</p>
+					</svelte:fragment>
+				</AccordionItem>
+				<AccordionItem>
+					<svelte:fragment slot="summary"><h3 data-toc-ignore>Closing a Modal</h3></svelte:fragment>
+					<svelte:fragment slot="content">
+						<p>Use the <code>parent.onClose()</code> or <code>modalStore.close()</code> methods to close the modal.</p>
+					</svelte:fragment>
+				</AccordionItem>
+				<AccordionItem>
+					<svelte:fragment slot="summary"><h3 data-toc-ignore>Accessing Metadata</h3></svelte:fragment>
+					<svelte:fragment slot="content">
+						<p>Abitrary metadata is available using <code>$modalStore[0].meta?.someKey</code>.</p>
+					</svelte:fragment>
+				</AccordionItem>
+			</Accordion>
 		</section>
 		<section class="space-y-4">
 			<h2>Accessibility</h2>
 			<!-- prettier-ignore -->
-			<p>Skeleton <u>does not</u> provide a means to disable the backdrop's click to close feature, as we feel this would be harmful to accessability. We recommend viewing the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/" target="_blank" rel="noreferrer">ARIA guidelines</a> if you wish to learn more about modal accessability.</p>
+			<p>Skeleton <u>does not</u> provide a means to disable the backdrop's click to close feature, as this would be harmful to accessability. View the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/" target="_blank" rel="noreferrer">ARIA APG guidelines</a> to learn more about modal accessability.</p>
 		</section>
 	</svelte:fragment>
 </DocsShell>

@@ -1,11 +1,10 @@
 <script lang="ts">
+	// Docs
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
-
+	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
 	// Components
 	import Avatar from '$lib/components/Avatar/Avatar.svelte';
-	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
-	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	// Actions
@@ -20,7 +19,7 @@
 	import Rustic from '$lib/actions/Filters/svg-filters/Rustic.svelte';
 	import Summer84 from '$lib/actions/Filters/svg-filters/Summer84.svelte';
 	import XPro from '$lib/actions/Filters/svg-filters/XPro.svelte';
-
+	// Sveld
 	import sveldAvatar from '$lib/components/Avatar/Avatar.svelte?raw&sveld';
 
 	// Docs Shell
@@ -35,19 +34,10 @@
 
 	// Local
 	const imgPlaceholder = 'https://i.pravatar.cc/?img=48';
-	const borderStyles = 'border-4 border-surface-300-600-token hover:!border-primary-500 cursor-pointer';
+	const borderStyles = 'border-4 border-surface-300-600-token hover:!border-primary-500';
 
-	$: props = {
-		initials: 'AB',
-		src: imgPlaceholder,
-		alt: 'avatar',
-		width: 'w-24',
-		background: 'bg-surface-500',
-		fill: 'fill-white',
-		rounded: 'rounded-full',
-		border: '',
-		actionParams: ''
-	};
+	// Reactive
+	$: actionParams = '#Apollo';
 </script>
 
 <!-- Filter SVG Components - NOTE: Keep these localized -->
@@ -64,132 +54,80 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="space-y-4">
-			<div class="grid grid-cols-1 xl:grid-cols-[1fr_auto] gap-2">
-				<!-- Example -->
-				<div class="card variant-glass p-4 h-full flex justify-center items-center">
-					<svelte:component
-						this={Avatar}
-						initials={props.initials}
-						src={props.src}
-						alt={props.alt}
-						width={props.width}
-						background={props.background}
-						fill={props.fill}
-						rounded={props.rounded}
-						border={props.border}
-						action={filter}
-						actionParams={props.actionParams}
-					/>
-				</div>
-				<!-- Options -->
-				<div class="card p-4 space-y-4">
-					<!-- Source -->
-					<RadioGroup display="flex">
-						<RadioItem bind:group={props.src} name="image" value={imgPlaceholder}>Image</RadioItem>
-						<RadioItem bind:group={props.src} name="initials" value={undefined}>Initials</RadioItem>
-					</RadioGroup>
-					<!-- Width -->
-					<label class="label" for="">
-						<span>Width</span>
-						<RadioGroup display="flex">
-							<RadioItem bind:group={props.width} name="w-10" value="w-10">w-10</RadioItem>
-							<RadioItem bind:group={props.width} name="w-24" value="w-24">w-24</RadioItem>
-							<RadioItem bind:group={props.width} name="w-48" value="w-48">w-48</RadioItem>
-							<RadioItem bind:group={props.width} name="w-56" value="w-56">w-56</RadioItem>
-						</RadioGroup>
-					</label>
-					<!-- Rounded -->
-					<label class="label" for="">
-						<span>Rounded</span>
-						<RadioGroup display="flex">
-							<RadioItem bind:group={props.rounded} name="rounded-full" value="rounded-full">Full</RadioItem>
-							<RadioItem bind:group={props.rounded} name="rounded-3xl" value="rounded-3xl">3XL</RadioItem>
-							<RadioItem bind:group={props.rounded} name="rounded-xl" value="rounded-xl">XL</RadioItem>
-							<RadioItem bind:group={props.rounded} name="rounded-none" value="rounded-none">None</RadioItem>
-						</RadioGroup>
-					</label>
-					<!-- Border -->
-					<label class="label" for="">
-						<span>Border</span>
-						<RadioGroup display="flex">
-							<RadioItem bind:group={props.border} name="border-off" value="">Off</RadioItem>
-							<RadioItem bind:group={props.border} name="border-on" value={borderStyles}>On</RadioItem>
-						</RadioGroup>
-					</label>
-					<!-- If: Initials -->
-					{#if props.src === undefined}
-						<!-- Initials -->
-						<label class="label">
-							<span>Initial Text</span>
-							<input class="input" type="text" bind:value={props.initials} maxlength="2" />
-						</label>
-						<!-- Background -->
-						<label class="label">
-							<span>Background</span>
-							<select class="select" name="background" id="background" bind:value={props.background}>
-								<option value="bg-primary-500">bg-primary-500</option>
-								<option value="bg-secondary-500">bg-secondary-500</option>
-								<option value="bg-tertiary-500">bg-tertiary-500</option>
-								<option value="bg-warning-500">bg-warning-500</option>
-								<option value="bg-surface-500">bg-surface-500</option>
-							</select>
-						</label>
-					{/if}
-					<!-- Filter -->
-					{#if props.src !== undefined}
-						<label class="label">
-							<span>Filter</span>
-							<select class="select" name="filter" id="filter" bind:value={props.actionParams}>
-								<option value="">None</option>
-								<option value="#Apollo">#Apollo</option>
-								<option value="#BlueNight">#BlueNight</option>
-								<option value="#Emerald">#Emerald</option>
-								<option value="#GreenFall">#GreenFall</option>
-								<option value="#Noir">#Noir</option>
-								<option value="#NoirLight">#NoirLight</option>
-								<option value="#Rustic">#Rustic</option>
-								<option value="#Summer84">#Summer84</option>
-								<option value="#XPro">#XPro</option>
-							</select>
-						</label>
-					{/if}
-				</div>
-			</div>
-		</section>
+		<DocsPreview>
+			<svelte:fragment slot="preview">
+				<Avatar src={imgPlaceholder} width="w-32" />
+			</svelte:fragment>
+			<svelte:fragment slot="source">
+				<CodeBlock language="html" code={`<Avatar src="${imgPlaceholder}" width="w-32" />`} />
+			</svelte:fragment>
+		</DocsPreview>
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
-		<div class="space-y-4">
-			<h2>Using Images</h2>
-			<p>Display an image source cropped into the shape.</p>
-			<CodeBlock language="html" code={`<Avatar src="https://i.pravatar.cc/" />`} />
-		</div>
-		<div class="space-y-4">
+		<section class="space-y-4">
 			<h2>Using Initials</h2>
 			<p>Display up to two text characters. (ex: Jane Doe would be JD)</p>
-			<CodeBlock language="html" code={`<Avatar initials="JD" />`} />
-		</div>
-		<div class="space-y-4">
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<Avatar initials="JD" background="bg-primary-500" />
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock language="html" code={`<Avatar initials="JD" background="bg-primary-500" />`} />
+				</svelte:fragment>
+			</DocsPreview>
+		</section>
+		<section class="space-y-4">
 			<h2>Interactive Border</h2>
 			<p>Apply the following styles using the <code>border</code> and <code>cursor</code> properties.</p>
-			<CodeBlock
-				language="html"
-				code={`<Avatar ... border="border-4 border-surface-300-600-token hover:!border-primary-500" cursor="cursor-pointer" />`}
-			/>
-		</div>
-		<div class="space-y-4">
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<Avatar border={borderStyles} cursor="cursor-pointer" />
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="html"
+						code={`
+<Avatar
+	border="${borderStyles}"
+	cursor="cursor-pointer"
+/>
+						`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
+		</section>
+		<section class="space-y-4">
 			<h2>Applying Filters</h2>
 			<p>
 				See <a href="/actions/filters">Filters</a> to learn how to import and configure the filters action and SVG filter components.
 			</p>
-			<CodeBlock language="ts" code={`import { filter, Apollo } from '@skeletonlabs/skeleton';`} />
-			<h3>Via Filter Action</h3>
-			<p>Import the filter action reference using <code>action</code> and set <code>actionParams</code> to the desired filter id.</p>
-			<CodeBlock language="html" code={`<Avatar src="https://i.pravatar.cc/" action={filter} actionParams="#Apollo" />`} />
-			<h3>Via Style Attribute</h3>
-			<CodeBlock language="html" code={`<Avatar src="https://i.pravatar.cc/" style="filter: url({'#Apollo'})" />`} />
-		</div>
+			<CodeBlock language="ts" code={`import { filter, ${actionParams.replace('#', '')} } from '@skeletonlabs/skeleton';`} />
+			<DocsPreview background="neutral" regionFooter="text-center">
+				<svelte:fragment slot="preview">
+					<Avatar src={imgPlaceholder} action={filter} {actionParams} />
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<p>Via Filter Action</p>
+					<CodeBlock language="html" code={`<Avatar src="https://i.pravatar.cc/" action={filter} actionParams="${actionParams}" />`} />
+					<p>Via Style Attribute</p>
+					<CodeBlock language="html" code={`<Avatar src="https://i.pravatar.cc/" style="filter: url({'${actionParams}'})" />`} />
+				</svelte:fragment>
+				<svelte:fragment slot="footer">
+					<select class="select w-auto" name="filter" id="filter" bind:value={actionParams}>
+						<option value="#Apollo">#Apollo</option>
+						<option value="#BlueNight">#BlueNight</option>
+						<option value="#Emerald">#Emerald</option>
+						<option value="#GreenFall">#GreenFall</option>
+						<option value="#Noir">#Noir</option>
+						<option value="#NoirLight">#NoirLight</option>
+						<option value="#Rustic">#Rustic</option>
+						<option value="#Summer84">#Summer84</option>
+						<option value="#XPro">#XPro</option>
+					</select>
+				</svelte:fragment>
+			</DocsPreview>
+		</section>
 	</svelte:fragment>
 </DocsShell>

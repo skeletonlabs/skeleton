@@ -43,7 +43,7 @@
 			<div class="alert-message">
 				<p>Provided by Skeleton's <code>all.css</code> styesheet.</p>
 			</div>
-			<a href="/docs/get-started" class="btn btn-sm variant-filled">Reference</a>
+			<a href="/docs/get-started#stylesheets" class="btn btn-sm variant-filled">Reference</a>
 		</aside>
 	{/if}
 	<!-- Metadata Chips -->

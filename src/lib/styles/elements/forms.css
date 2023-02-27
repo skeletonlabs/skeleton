@@ -109,7 +109,7 @@
 		@apply !mb-3;
 	}
 	.select option {
-		@apply px-4 py-2 rounded-token cursor-pointer;
+		@apply bg-surface-200-700-token px-4 py-2 rounded-token cursor-pointer;
 	}
 	.select option:checked {
 		/* https://stackoverflow.com/questions/50618602/change-color-of-selected-option-in-select-multiple */

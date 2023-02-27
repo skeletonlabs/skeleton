@@ -1,7 +1,9 @@
 <script lang="ts">
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
-
+	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
+	import { variants } from '$docs/components/DocsPreview/options';
+	// Components
 	import Avatar from '$lib/components/Avatar/Avatar.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
@@ -18,137 +20,73 @@
 			['<code>badge-icon</code>', '-', 'Provides the icon badge style.']
 		]
 	};
+
+	// Local
+	let currentVariant = 'variant-filled';
 </script>
 
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="space-y-4">
-			<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-				<div class="card variant-glass p-4 !space-x-6">
-					<div class="relative inline-block">
-						<span class="badge-icon variant-filled-warning absolute -top-1 -right-1 z-10">2</span>
-						<Avatar />
-					</div>
-					<div class="relative inline-block">
-						<span class="badge-icon variant-filled-error absolute -top-1 -right-1 z-10">
-							<i class="fa-solid fa-heart" />
-						</span>
-						<Avatar />
-					</div>
+		<DocsPreview>
+			<svelte:fragment slot="preview">
+				<span class="badge {currentVariant}">Badge</span>
+			</svelte:fragment>
+			<svelte:fragment slot="footer">
+				<div class="flex justify-center gap-4">
+					<select bind:value={currentVariant} class="select w-auto">
+						{#each variants as vSet}
+							<optgroup label={vSet.label}>
+								{#each vSet.list as v}
+									<option value={v}>{v}</option>
+								{/each}
+							</optgroup>
+						{/each}
+					</select>
 				</div>
-				<div class="card variant-glass p-4">
-					<div class="relative inline-block">
-						<span class="badge variant-filled absolute -top-3 -right-4 z-10">50k</span>
-						<button class="btn btn-sm variant-soft">Button</button>
-					</div>
-				</div>
-				<div class="card variant-glass p-4">
-					<h4>Skeleton</h4>
-					<sup class="badge variant-filled-primary">Sup</sup>
-				</div>
-				<div class="card variant-glass p-4">
-					<h4>Skeleton</h4>
-					<sub class="badge variant-filled-secondary">Sub</sub>
-				</div>
-			</div>
-		</section>
+			</svelte:fragment>
+			<svelte:fragment slot="source">
+				<CodeBlock language="html" code={`<span class="badge variant-filled">Badge</span>`} />
+			</svelte:fragment>
+		</DocsPreview>
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<p>Apply to any inline element, such as a <em>span</em> or <em>anchor</em> tag.</p>
-			<CodeBlock language="html" code={`<span class="badge variant-filled-primary">Skeleton</span>`} />
-		</section>
-		<!-- Icon -->
-		<section class="space-y-4">
-			<h2>Badge Icon</h2>
-			<p>A compact circular variation badge style.</p>
-			<CodeBlock language="html" code={`<span class="badge-icon variant-filled-primary">💀</span>`} />
-		</section>
-		<!-- Variants -->
-		<section class="space-y-4">
-			<h2>Variants</h2>
-			<p>Supports all standard variant styles via <code>.variant-[style]-[color]</code>.</p>
-			<CodeBlock language="html" code={`<span class="badge variant-filled-primary">Skeleton</span>`} />
-			<div class="card p-4 grid grid-cols-1 md:grid-cols-5 gap-4">
-				<!-- filled -->
-				<div class="grid grid-cols-1 gap-4 text-center text-xs font-bold">
-					<p>Filled</p>
-					<div><span class="badge variant-filled-primary">primary</span></div>
-					<div><span class="badge variant-filled-secondary">secondary</span></div>
-					<div><span class="badge variant-filled-tertiary">tertiary</span></div>
-					<div><span class="badge variant-filled-success">success</span></div>
-					<div><span class="badge variant-filled-warning">warning</span></div>
-					<div><span class="badge variant-filled-error">error</span></div>
-					<div><span class="badge variant-filled-surface">surface</span></div>
-				</div>
-				<!-- soft -->
-				<div class="grid grid-cols-1 gap-4 text-center text-xs font-bold">
-					<p>Soft</p>
-					<div><span class="badge variant-soft-primary">primary</span></div>
-					<div><span class="badge variant-soft-secondary">secondary</span></div>
-					<div><span class="badge variant-soft-tertiary">tertiary</span></div>
-					<div><span class="badge variant-soft-success">success</span></div>
-					<div><span class="badge variant-soft-warning">warning</span></div>
-					<div><span class="badge variant-soft-error">error</span></div>
-					<div><span class="badge variant-soft-surface">surface</span></div>
-				</div>
-				<!-- ringed -->
-				<div class="grid grid-cols-1 gap-4 text-center text-xs font-bold">
-					<p>Ringed</p>
-					<div><span class="badge variant-ringed-primary">primary</span></div>
-					<div><span class="badge variant-ringed-secondary">secondary</span></div>
-					<div><span class="badge variant-ringed-tertiary">tertiary</span></div>
-					<div><span class="badge variant-ringed-success">success</span></div>
-					<div><span class="badge variant-ringed-warning">warning</span></div>
-					<div><span class="badge variant-ringed-error">error</span></div>
-					<div><span class="badge variant-ringed-surface">surface</span></div>
-				</div>
-				<!-- ghost -->
-				<div class="grid grid-cols-1 gap-4 text-center text-xs font-bold">
-					<p>Ghost</p>
-					<div><span class="badge variant-ghost-primary">primary</span></div>
-					<div><span class="badge variant-ghost-secondary">secondary</span></div>
-					<div><span class="badge variant-ghost-tertiary">tertiary</span></div>
-					<div><span class="badge variant-ghost-success">success</span></div>
-					<div><span class="badge variant-ghost-warning">warning</span></div>
-					<div><span class="badge variant-ghost-error">error</span></div>
-					<div><span class="badge variant-ghost-surface">surface</span></div>
-				</div>
-				<!-- glass -->
-				<div class="grid grid-cols-1 gap-4 text-center text-xs font-bold">
-					<p>Glass</p>
-					<div><span class="badge variant-glass-primary">primary</span></div>
-					<div><span class="badge variant-glass-secondary">secondary</span></div>
-					<div><span class="badge variant-glass-tertiary">tertiary</span></div>
-					<div><span class="badge variant-glass-success">success</span></div>
-					<div><span class="badge variant-glass-warning">warning</span></div>
-					<div><span class="badge variant-glass-error">error</span></div>
-					<div><span class="badge variant-glass-surface">surface</span></div>
-				</div>
-			</div>
-		</section>
-		<!-- Overlapping -->
-		<section class="space-y-4">
-			<h2>Overlapping</h2>
-			<p>Use Tailwind utility classes to create overlapping elements.</p>
-			<CodeBlock
-				language="html"
-				code={`
+			<h2>Icon Badge</h2>
+			<p>Replace <code>.badge</code> with <code>.badge-icon</code> for an icon badge.</p>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<span class="badge-icon variant-filled"><i class="fa-solid fa-skull" /></span>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock language="html" code={`<span class="badge-icon variant-filled">(icon)</i></span>`} />
+				</svelte:fragment>
+			</DocsPreview>
+			<section class="space-y-4">
+				<h2>Overlapping</h2>
+				<p>Use Tailwind styles to overlap the icon badge over another element.</p>
+				<DocsPreview background="neutral">
+					<svelte:fragment slot="preview">
+						<div class="relative inline-block">
+							<span class="badge-icon variant-filled-warning absolute -top-0 -right-0 z-10">2</span>
+							<Avatar />
+						</div>
+					</svelte:fragment>
+					<svelte:fragment slot="source">
+						<CodeBlock
+							language="html"
+							code={`
 <div class="relative inline-block">
-	<span class="badge-icon variant-filled-primary absolute -top-1 -right-1 z-10">💀</span>
+	<span class="badge-icon variant-filled-warning absolute -top-0 -right-0 z-10">2</span>
 	<Avatar />
 </div>
-		`.trim()}
-			/>
-		</section>
-	</svelte:fragment>
+					`}
+						/>
+					</svelte:fragment>
+				</DocsPreview>
+			</section>
+		</section></svelte:fragment
+	>
 </DocsShell>
-
-<style lang="postcss">
-	.p-4 {
-		@apply flex justify-center items-center space-x-2;
-	}
-</style>

@@ -77,7 +77,10 @@
 		<!-- Panel: Usage -->
 		{#if tabPanel === 'usage'}
 			<!-- Slot: Sandbox -->
-			{#if $$slots.sandbox}<slot name="sandbox" />{/if}
+			{#if $$slots.sandbox}
+				<h2 class="sr-only">Demo</h2>
+				<slot name="sandbox" />
+			{/if}
 			<!-- Slot: Usage -->
 			<slot name="usage">(usage)</slot>
 			<!-- Slot: Default -->

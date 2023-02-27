@@ -1,7 +1,8 @@
 <script lang="ts">
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
-
+	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
+	// Components
 	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
@@ -17,6 +18,8 @@
 	import Rustic from '$lib/actions/Filters/svg-filters/Rustic.svelte';
 	import Summer84 from '$lib/actions/Filters/svg-filters/Summer84.svelte';
 	import XPro from '$lib/actions/Filters/svg-filters/XPro.svelte';
+	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
+	import Tab from '$lib/components/Tab/Tab.svelte';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -31,6 +34,7 @@
 	// Local
 	let activeImg = 48;
 	$: imgPlaceholder = `https://i.pravatar.cc/512?img=${activeImg}`;
+	let method = 0;
 </script>
 
 <!-- 
@@ -51,58 +55,69 @@ only utlize theme on this doc page.
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="card variant-glass p-4 space-y-4">
-			<header class="flex justify-center items-center space-x-4">
-				<p>Image</p>
-				<RadioGroup>
-					<RadioItem bind:group={activeImg} name="img1" value={48}>1</RadioItem>
-					<RadioItem bind:group={activeImg} name="img2" value={64}>2</RadioItem>
-					<RadioItem bind:group={activeImg} name="img3" value={30}>3</RadioItem>
-				</RadioGroup>
-			</header>
-			<div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4">
-				<div class="flex flex-col items-center space-y-4 overflow-hidden">
-					<img class="bg-surface-900 aspect-square w-full rounded-lg" src={imgPlaceholder} alt="example" />
-					<code>Original</code>
+		<DocsPreview>
+			<svelte:fragment slot="preview">
+				<section class="p-4 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4">
+					<div class="flex flex-col items-center space-y-4 overflow-hidden">
+						<img class="aspect-square w-full rounded-container-token" src={imgPlaceholder} alt="example" />
+						<span class="badge variant-soft">Original</span>
+					</div>
+					<div class="flex flex-col items-center space-y-4 overflow-hidden">
+						<img class="aspect-square w-full rounded-container-token" src={imgPlaceholder} use:filter={'#Emerald'} alt="example" />
+						<span class="badge variant-soft">Emerald</span>
+					</div>
+					<div class="flex flex-col items-center space-y-4 overflow-hidden">
+						<img class="aspect-square w-full rounded-container-token" src={imgPlaceholder} use:filter={'#BlueNight'} alt="example" />
+						<span class="badge variant-soft">BlueNight</span>
+					</div>
+					<div class="flex flex-col items-center space-y-4 overflow-hidden">
+						<img class="aspect-square w-full rounded-container-token" src={imgPlaceholder} use:filter={'#XPro'} alt="example" />
+						<span class="badge variant-soft">XPro</span>
+					</div>
+					<div class="flex flex-col items-center space-y-4 overflow-hidden">
+						<img class="aspect-square w-full rounded-container-token" src={imgPlaceholder} use:filter={'#Summer84'} alt="example" />
+						<span class="badge variant-soft">Summer84</span>
+					</div>
+					<div class="flex flex-col items-center space-y-4 overflow-hidden">
+						<img class="aspect-square w-full rounded-container-token" src={imgPlaceholder} use:filter={'#Rustic'} alt="example" />
+						<span class="badge variant-soft">Rustic</span>
+					</div>
+					<div class="flex flex-col items-center space-y-4 overflow-hidden">
+						<img class="aspect-square w-full rounded-container-token" src={imgPlaceholder} use:filter={'#Apollo'} alt="example" />
+						<span class="badge variant-soft">Apollo</span>
+					</div>
+					<div class="flex flex-col items-center space-y-4 overflow-hidden">
+						<img class="aspect-square w-full rounded-container-token" src={imgPlaceholder} use:filter={'#GreenFall'} alt="example" />
+						<span class="badge variant-soft">GreenFall</span>
+					</div>
+					<div class="flex flex-col items-center space-y-4 overflow-hidden">
+						<img class="aspect-square w-full rounded-container-token" src={imgPlaceholder} use:filter={'#Noir'} alt="example" />
+						<span class="badge variant-soft">Noir</span>
+					</div>
+					<div class="flex flex-col items-center space-y-4 overflow-hidden">
+						<img class="aspect-square w-full rounded-container-token" src={imgPlaceholder} use:filter={'#NoirLight'} alt="example" />
+						<span class="badge variant-soft">NoirLight</span>
+					</div>
+				</section>
+			</svelte:fragment>
+			<svelte:fragment slot="footer">
+				<div class="text-center">
+					<RadioGroup>
+						<RadioItem bind:group={activeImg} name="source" value={48}>1</RadioItem>
+						<RadioItem bind:group={activeImg} name="source" value={64}>2</RadioItem>
+						<RadioItem bind:group={activeImg} name="source" value={30}>3</RadioItem>
+					</RadioGroup>
 				</div>
-				<div class="flex flex-col items-center space-y-4 overflow-hidden">
-					<img class="bg-surface-900 aspect-square w-full rounded-lg" src={imgPlaceholder} use:filter={'#Emerald'} alt="example" />
-					<code>Emerald</code>
-				</div>
-				<div class="flex flex-col items-center space-y-4 overflow-hidden">
-					<img class="bg-surface-900 aspect-square w-full rounded-lg" src={imgPlaceholder} use:filter={'#BlueNight'} alt="example" />
-					<code>BlueNight</code>
-				</div>
-				<div class="flex flex-col items-center space-y-4 overflow-hidden">
-					<img class="bg-surface-900 aspect-square w-full rounded-lg" src={imgPlaceholder} use:filter={'#XPro'} alt="example" />
-					<code>XPro</code>
-				</div>
-				<div class="flex flex-col items-center space-y-4 overflow-hidden">
-					<img class="bg-surface-900 aspect-square w-full rounded-lg" src={imgPlaceholder} use:filter={'#Summer84'} alt="example" />
-					<code>Summer84</code>
-				</div>
-				<div class="flex flex-col items-center space-y-4 overflow-hidden">
-					<img class="bg-surface-900 aspect-square w-full rounded-lg" src={imgPlaceholder} use:filter={'#Rustic'} alt="example" />
-					<code>Rustic</code>
-				</div>
-				<div class="flex flex-col items-center space-y-4 overflow-hidden">
-					<img class="bg-surface-900 aspect-square w-full rounded-lg" src={imgPlaceholder} use:filter={'#Apollo'} alt="example" />
-					<code>Apollo</code>
-				</div>
-				<div class="flex flex-col items-center space-y-4 overflow-hidden">
-					<img class="bg-surface-900 aspect-square w-full rounded-lg" src={imgPlaceholder} use:filter={'#GreenFall'} alt="example" />
-					<code>GreenFall</code>
-				</div>
-				<div class="flex flex-col items-center space-y-4 overflow-hidden">
-					<img class="bg-surface-900 aspect-square w-full rounded-lg" src={imgPlaceholder} use:filter={'#Noir'} alt="example" />
-					<code>Noir</code>
-				</div>
-				<div class="flex flex-col items-center space-y-4 overflow-hidden">
-					<img class="bg-surface-900 aspect-square w-full rounded-lg" src={imgPlaceholder} use:filter={'#NoirLight'} alt="example" />
-					<code>NoirLight</code>
-				</div>
-			</div>
-		</section>
+			</svelte:fragment>
+			<svelte:fragment slot="source">
+				<p>Import the filter and each filter component you wish to use.</p>
+				<CodeBlock language="ts" code={`import { filter, Emerald, BlueNight /* ... */  } from '@skeletonlabs/skeleton';`} />
+				<p>Implement each filter component. For global scope add these to your root layout.</p>
+				<CodeBlock language="html" code={`<Emerald />\n<BlueNight />`} />
+				<p>Apply the filter to your desired element.</p>
+				<CodeBlock language="html" code={`<img ... use:filter={'#Emerald'} />`} />
+			</svelte:fragment>
+		</DocsPreview>
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
@@ -112,22 +127,28 @@ only utlize theme on this doc page.
 				Add each filter you plan to use within scope of your filtered elements. To use globally throughout your application, add this to
 				your application's root layout. Avoid importing filters you are not using.
 			</p>
-			<CodeBlock language="ts" code={`import { Emerald, BlueNight /* ... */  } from '@skeletonlabs/skeleton';`} />
-			<CodeBlock language="html" code={`<Emerald />\n<BlueNight />`} />
 		</section>
 		<section class="space-y-4">
 			<h2>Applying a Filter</h2>
 			<p>Use either of the two menthods below to apply your desired filter. <u>The hash mark is required</u>.</p>
-			<h3>Via the Skeleton Action</h3>
-			<p>
-				Use the following <a href="https://svelte.dev/tutorial/actions" target="_blank" rel="noreferrer">Svelte action</a> to to filter any element.
-				Pass the filter name as the only parameter.
-			</p>
-			<CodeBlock language="ts" code={`import { filter } from '@skeletonlabs/skeleton';`} />
-			<CodeBlock language="html" code={`<img src={myImageSrc} use:filter={'#BlueNight'}>`} />
-			<h3>Via Style Attribute</h3>
-			<p>Alternatively you may apply filters using inline CSS. This is what the action is doing under the hood.</p>
-			<CodeBlock language="html" code={`<img src={myImageSrc} style="filter: url({'#Emerald'})">`} />
+			<TabGroup regionPanel="space-y-4">
+				<Tab bind:group={method} name="method" value={0}>Via Action</Tab>
+				<Tab bind:group={method} name="method" value={1}>Via Attribute</Tab>
+				<!-- Tab Panels --->
+				<svelte:fragment slot="panel">
+					{#if method === 0}
+						<p>
+							Use the following <a href="https://svelte.dev/tutorial/actions" target="_blank" rel="noreferrer">Svelte action</a> to to filter
+							any element. Pass the filter name as the only parameter.
+						</p>
+						<CodeBlock language="ts" code={`import { filter } from '@skeletonlabs/skeleton';`} />
+						<CodeBlock language="html" code={`<img src={myImageSrc} use:filter={'#BlueNight'}>`} />
+					{:else if method === 1}
+						<p>Alternatively you may apply filters using inline CSS. This is what the action is doing under the hood.</p>
+						<CodeBlock language="html" code={`<img src={myImageSrc} style="filter: url({'#Emerald'})">`} />
+					{/if}
+				</svelte:fragment>
+			</TabGroup>
 		</section>
 		<hr />
 		<section class="space-y-4">

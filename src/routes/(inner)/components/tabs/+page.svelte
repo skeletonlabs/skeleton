@@ -1,11 +1,12 @@
 <script lang="ts">
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
-
+	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
+	// Components
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
 	import Tab from '$lib/components/Tab/Tab.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-
+	// Sveld
 	import sveldTabGroup from '$lib/components/Tab/TabGroup.svelte?raw&sveld';
 	import sveldTab from '$lib/components/Tab/Tab.svelte?raw&sveld';
 
@@ -37,109 +38,36 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="space-y-4">
-			<div class="card variant-glass p-4 space-y-4">
-				<TabGroup>
-					<!-- Tabs -->
-					<Tab bind:group={tabsBasic} name="books" value={0}>Books</Tab>
-					<Tab bind:group={tabsBasic} name="movies" value={1}>Movies</Tab>
-					<Tab bind:group={tabsBasic} name="tv" value={2}>Television</Tab>
-					<!-- Panel -->
-					<svelte:fragment slot="panel">
-						{#if tabsBasic === 0}
-							<p>{desc.books}</p>
-						{:else if tabsBasic === 1}
-							<p>{desc.movies}</p>
-						{:else if tabsBasic === 2}
-							<p>{desc.tv}</p>
-						{/if}
-					</svelte:fragment>
-				</TabGroup>
-			</div>
-			<div class="card variant-glass p-4 space-y-4">
-				<TabGroup justify="justify-center" active="border-b-4 border-primary-500" hover="hover:variant-soft-primary">
-					<!-- Tabs -->
-					<Tab bind:group={tabsFancy} name="books" value={0}>
-						<svelte:fragment slot="lead"><i class="fa-solid fa-book" /></svelte:fragment>
-						Books
-					</Tab>
-					<Tab bind:group={tabsFancy} name="movies" value={1}>
-						<svelte:fragment slot="lead"><i class="fa-solid fa-film" /></svelte:fragment>
-						Movies
-					</Tab>
-					<Tab bind:group={tabsFancy} name="tv" value={2}>
-						<svelte:fragment slot="lead"><i class="fa-solid fa-tv" /></svelte:fragment>
-						Television
-					</Tab>
-					<!-- Panel -->
-					<svelte:fragment slot="panel">
-						{#if tabsFancy === 0}
-							<p class="text-center">{desc.books}</p>
-						{:else if tabsFancy === 1}
-							<p class="text-center">{desc.movies}</p>
-						{:else if tabsFancy === 2}
-							<p class="text-center">{desc.tv}</p>
-						{/if}
-					</svelte:fragment>
-				</TabGroup>
-			</div>
-			<!-- Bottom Nav Bar -->
-			<div class="bg-surface-100-800-token flex-1 lg:flex-0">
-				<TabGroup
-					justify="justify-center"
-					active="variant-filled-primary"
-					hover="hover:variant-soft-primary"
-					flex="flex-1 lg:flex-none"
-					rounded=""
-					border=""
-				>
-					<Tab bind:group={tabsBottomNav} name="books" value={0}>
-						<svelte:fragment slot="lead"><i class="fa-solid fa-book" /></svelte:fragment>
-						Books
-					</Tab>
-					<Tab bind:group={tabsBottomNav} name="movies" value={1}>
-						<svelte:fragment slot="lead"><i class="fa-solid fa-film" /></svelte:fragment>
-						Movies
-					</Tab>
-					<Tab bind:group={tabsBottomNav} name="tv" value={2}>
-						<svelte:fragment slot="lead"><i class="fa-solid fa-tv" /></svelte:fragment>
-						Television
-					</Tab>
-				</TabGroup>
-			</div>
-		</section>
-	</svelte:fragment>
-
-	<!-- Slot: Usage -->
-	<svelte:fragment slot="usage">
-		<section class="space-y-4">
-			<p>
-				Tabs utilize native radio groups to control state. Bind a shared <code>group</code>
-				value, then provide a unique <code>value</code> per tab.
-			</p>
-			<CodeBlock language="ts" code={`let tabSet: number = 0;`} />
-			<CodeBlock
-				language="html"
-				code={`
+		<DocsPreview>
+			<svelte:fragment slot="preview">
+				<section class="w-full card p-4 text-token">
+					<TabGroup>
+						<!-- Tabs -->
+						<Tab bind:group={tabsBasic} name="books" value={0}>Books</Tab>
+						<Tab bind:group={tabsBasic} name="movies" value={1}>Movies</Tab>
+						<Tab bind:group={tabsBasic} name="tv" value={2}>Television</Tab>
+						<!-- Panel -->
+						<svelte:fragment slot="panel">
+							{#if tabsBasic === 0}
+								<p>{desc.books}</p>
+							{:else if tabsBasic === 1}
+								<p>{desc.movies}</p>
+							{:else if tabsBasic === 2}
+								<p>{desc.tv}</p>
+							{/if}
+						</svelte:fragment>
+					</TabGroup>
+				</section>
+			</svelte:fragment>
+			<svelte:fragment slot="source">
+				<CodeBlock language="ts" code={`let tabSet: number = 0;`} />
+				<CodeBlock
+					language="html"
+					code={`
 <TabGroup>
 	<Tab bind:group={tabSet} name="tab1" value={0}>(label)</Tab>
 	<Tab bind:group={tabSet} name="tab2" value={1}>(label)</Tab>
 	<Tab bind:group={tabSet} name="tab3" value={2}>(label)</Tab>
-</TabGroup>
-			`}
-			/>
-		</section>
-		<section class="space-y-4">
-			<h2>Tab Panel Slot</h2>
-			<p>
-				You may optionally use the built-in <code>panel</code> slot. Use Svelte conditional blocks to display your active tab panel contents.
-			</p>
-			<CodeBlock
-				language="html"
-				code={`
-<TabGroup>
-	<!-- (list of tabs) --->
-
 	<!-- Tab Panels --->
 	<svelte:fragment slot="panel">
 		{#if tabSet === 0}
@@ -152,7 +80,84 @@
 	</svelte:fragment>
 </TabGroup>
 			`}
-			/>
+				/>
+			</svelte:fragment>
+		</DocsPreview>
+	</svelte:fragment>
+
+	<!-- Slot: Usage -->
+	<svelte:fragment slot="usage">
+		<section class="space-y-4">
+			<p>
+				Tabs utilize native radio groups to control state. Bind a shared <code>group</code>
+				value, then provide a unique <code>value</code> per tab. Please note that using the <code>panel</code> slot is optional.
+			</p>
+		</section>
+		<section class="space-y-4">
+			<h2>Justify</h2>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<TabGroup justify="justify-center" class="w-full">
+						<!-- Tabs -->
+						<Tab bind:group={tabsFancy} name="books" value={0}>Books</Tab>
+						<Tab bind:group={tabsFancy} name="movies" value={1}>Movies</Tab>
+						<Tab bind:group={tabsFancy} name="tv" value={2}>Television</Tab>
+					</TabGroup>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock language="html" code={`<TabGroup justify="justify-center">...<TabGroup>`} />
+				</svelte:fragment>
+			</DocsPreview>
+		</section>
+		<section class="space-y-4">
+			<h2>Bottom Navigation</h2>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<TabGroup
+						justify="justify-center"
+						active="variant-filled-primary"
+						hover="hover:variant-soft-primary"
+						flex="flex-1 lg:flex-none"
+						rounded=""
+						border=""
+						class="bg-surface-100-800-token w-full"
+					>
+						<Tab bind:group={tabsBottomNav} name="books" value={0}>
+							<svelte:fragment slot="lead"><i class="fa-solid fa-book" /></svelte:fragment>
+							Books
+						</Tab>
+						<Tab bind:group={tabsBottomNav} name="movies" value={1}>
+							<svelte:fragment slot="lead"><i class="fa-solid fa-film" /></svelte:fragment>
+							Movies
+						</Tab>
+						<Tab bind:group={tabsBottomNav} name="tv" value={2}>
+							<svelte:fragment slot="lead"><i class="fa-solid fa-tv" /></svelte:fragment>
+							Television
+						</Tab>
+					</TabGroup>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="html"
+						code={`
+<TabGroup 
+	justify="justify-center"
+	active="variant-filled-primary"
+	hover="hover:variant-soft-primary"
+	flex="flex-1 lg:flex-none"
+	rounded=""
+	border=""
+	class="bg-surface-100-800-token w-full"
+>
+	<Tab bind:group={tabsBottomNav} name="books" value={0}>
+		<svelte:fragment slot="lead">(icon)</svelte:fragment>
+		(label))
+	</Tab>
+	<!-- ... -->
+<TabGroup>`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
 		</section>
 		<section class="space-y-4">
 			<h2>Using Svelte Stores</h2>

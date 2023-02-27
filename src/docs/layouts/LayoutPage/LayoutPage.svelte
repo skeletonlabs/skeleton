@@ -35,9 +35,9 @@
 				></script>
 			{:else}
 				<!-- Staging Placeholder -->
-				<div class="bg-surface-50-900-token ring-[1px] ring-surface-500/10 w-[286px] h-[120px] flex justify-center items-center">
+				<!-- <div class="bg-surface-50-900-token ring-[1px] ring-surface-500/10 w-[286px] h-[120px] flex justify-center items-center">
 					<span class="opacity-25">(ad)</span>
-				</div>
+				</div> -->
 			{/if}
 			<!-- Table of Contents -->
 			<TableOfContents target=".layout-docs-content" minimumHeadings={1} />

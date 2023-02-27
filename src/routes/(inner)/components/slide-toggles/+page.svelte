@@ -1,10 +1,11 @@
 <script lang="ts">
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
-
+	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
+	// Components
 	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-
+	// Sveld
 	import sveldSlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte?raw&sveld';
 
 	// Docs Shell
@@ -26,45 +27,50 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-			<div class="card variant-glass p-4 flex justify-center items-center space-x-6">
-				<SlideToggle name="slider-sm" size="sm" checked label="Toggle Small" />
-				<SlideToggle name="slider-base" checked label="Toggle Default" />
-				<SlideToggle name="slider-large" size="lg" checked label="Toggle Large" />
-			</div>
-			<div class="card variant-glass p-4 flex justify-center items-center space-x-6">
-				<SlideToggle name="slider-sm" active="bg-primary-500" checked label="Toggle Primary" />
-				<SlideToggle name="slider-base" active="bg-secondary-500" checked label="Toggle Secondary" />
-				<SlideToggle name="slider-large" active="bg-tertiary-500" checked label="Toggle Tertiary" />
-			</div>
-			<div class="card variant-glass p-4 flex justify-center items-center">
-				<SlideToggle name="slider-value" bind:checked={checkedValue}>
-					<code class="inline-block w-[40px] text-center">{checkedValue ? 'On' : 'Off'}</code>
-				</SlideToggle>
-			</div>
-			<div class="card variant-glass p-4 flex justify-center items-center">
-				<SlideToggle name="slider-disabled" disabled label="Toggle Disabled">Disabled</SlideToggle>
-			</div>
-		</section>
+		<DocsPreview>
+			<svelte:fragment slot="preview">
+				<SlideToggle name="slider" checked />
+			</svelte:fragment>
+			<svelte:fragment slot="source">
+				<CodeBlock language="ts" code={`let value: boolean = false;`} />
+				<CodeBlock language="html" code={`<SlideToggle name="slide" bind:checked={value} />`} />
+			</svelte:fragment>
+		</DocsPreview>
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
+		<p>This component provides an alternative UI for a checkbox input element.</p>
 		<section class="space-y-4">
-			<p>This component provides an alternative UI for a checkbox input element.</p>
-			<CodeBlock language="ts" code={`let valueChecked: boolean = false;`} />
-			<CodeBlock language="html" code={`<SlideToggle name="slider-example" bind:checked={valueChecked}>(text)</SlideToggle>`} />
+			<h2>Labeled</h2>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<div class="flex items-center gap-4">
+						<SlideToggle name="slider-label" bind:checked={checkedValue}>
+							<span class="inline-block w-[100px] text-center">Powered {checkedValue ? 'On' : 'Off'}</span>
+						</SlideToggle>
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock language="html" code={`<SlideToggle name="slider-label" checked>(label)</SlideToggle>`} />
+				</svelte:fragment>
+			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>Additional Sizes</h2>
-			<p>Slide toggles have a default base size, but you can optionally use a smaller or larger size.</p>
-			<CodeBlock
-				language="html"
-				code={`
-<SlideToggle ... size="sm" />
-<SlideToggle ... size="lg" />
-			`}
-			/>
+			<h2>Customized</h2>
+			<p>Slide toggles styles and colors can be easily customized with the <code>active</code> and <code>size</code> properties.</p>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<div class="flex items-center gap-4">
+						<SlideToggle name="slider-small" checked active="bg-primary-500" size="lg" />
+						<SlideToggle name="slider-base" checked active="bg-secondary-500" />
+						<SlideToggle name="slider-large" checked active="bg-tertiary-500" size="sm" />
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock language="html" code={`<SlideToggle name="slider-large" checked active="bg-primary-500" size="lg" />`} />
+				</svelte:fragment>
+			</DocsPreview>
 		</section>
 		<section class="space-y-4">
 			<h2>Checkbox Attributes</h2>
