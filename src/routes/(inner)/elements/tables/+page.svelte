@@ -1,9 +1,11 @@
 <script lang="ts">
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
-
-	// Utilities
+	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
+	// Components
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
+	import Tab from '$lib/components/Tab/Tab.svelte';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -28,6 +30,7 @@
 	};
 
 	// Local
+	let tabSet: number = 0;
 	const tableArr = [
 		{ position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
 		{ position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
@@ -41,47 +44,44 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<div class="table-container">
-			<table class="table table-hover">
-				<thead>
-					<tr>
-						<th>Position</th>
-						<th>Name</th>
-						<th>Symbol</th>
-						<th>Weight</th>
-					</tr>
-				</thead>
-				<tbody>
-					{#each tableArr as row}
-						<tr>
-							<td>{row.position}</td>
-							<td>{row.name}</td>
-							<td>{row.symbol}</td>
-							<td><span class="badge variant-soft-primary">{row.weight}</span></td>
-						</tr>
-					{/each}
-				</tbody>
-				<tfoot>
-					<tr>
-						<th colspan="3">Total Weight</th>
-						<td>{totalWeight}</td>
-					</tr>
-				</tfoot>
-			</table>
-		</div>
-	</svelte:fragment>
-
-	<!-- Slot: Usage -->
-	<svelte:fragment slot="usage">
-		<div class="space-y-4">
-			<p>
-				Wrap a <code>.table-container</code> element around any native HTML table with the <code>.table</code> class applied to create a responsive
-				table.
-			</p>
-			<CodeBlock
-				language="html"
-				code={`
+		<DocsPreview>
+			<svelte:fragment slot="preview">
+				<div class="table-container text-token">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Position</th>
+								<th>Name</th>
+								<th>Symbol</th>
+								<th>Weight</th>
+							</tr>
+						</thead>
+						<tbody>
+							{#each tableArr as row}
+								<tr>
+									<td>{row.position}</td>
+									<td>{row.name}</td>
+									<td>{row.symbol}</td>
+									<td><span class="badge variant-soft-primary">{row.weight}</span></td>
+								</tr>
+							{/each}
+						</tbody>
+						<tfoot>
+							<tr>
+								<th colspan="3">Total Weight</th>
+								<td>{totalWeight}</td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</svelte:fragment>
+			<svelte:fragment slot="source">
+				<CodeBlock
+					language="html"
+					code={`
+<!-- Responsive Container (recommended) -->
 <div class="table-container">
+	<!-- Native Table Element -->
 	<table class="table table-hover">
 		<thead>
 			<tr>
@@ -109,45 +109,63 @@
 		</tfoot>
 	</table>
 </div>
-`}
-			/>
-		</div>
-		<hr />
+					`}
+				/>
+			</svelte:fragment>
+		</DocsPreview>
+	</svelte:fragment>
+
+	<!-- Slot: Usage -->
+	<svelte:fragment slot="usage">
+		<p>
+			Wrap a <code>.table-container</code> element around any native HTML table with the <code>.table</code> class applied to create a responsive
+			table.
+		</p>
 		<!-- Options -->
 		<section class="space-y-4">
 			<h2>Options</h2>
-			<!-- Row Spacing -->
-			<h3>Row Spacing</h3>
-			<p>
-				Apply classes <code>.table-compact</code> or <code>.table-comfortable</code> to the <em>table</em> for tighter or looser row spacing.
-			</p>
-			<CodeBlock language="html" code={`<table class="table-compact">...</table>`} />
-			<!-- Hover Styles -->
-			<h3>Hover Styles</h3>
-			<p>
-				Apply the <code>.table-hover</code> class to add a subtle hover style which can be helpful when scanning data horizontally. You can
-				also use the
-				<code>.table-interactive</code> class if the table rows is intended to be interactive on click. Avoid using both classes at the same
-				time.
-			</p>
-			<CodeBlock language="html" code={`<table class="table-interactive">...</table>`} />
-			<!-- Row Checked -->
-			<h3>Row Checked</h3>
-			<p>Apply to a table body row to indicate an active selection state.</p>
-			<CodeBlock language="html" code={`<tr class=".table-row-checked">...</tr>`} />
-			<!-- Fit Cell Width -->
-			<h3>Fit Cell Width</h3>
-			<p>
-				Use the <code>.table-cell-fit</code> class on a cell element to fit the cell to the content widths. This can be useful for small columns
-				that contain elements such as avatars or IDs. Be sure to apply to both the table header and table cell.
-			</p>
-			<CodeBlock language="html" code={`<th class="table-cell-fit">Avatar</th>`} />
-			<CodeBlock language="html" code={`<td class="table-cell-fit">(avatar)</td>`} />
-			<!-- Sorting -->
-			<h3>Sorting</h3>
-			<p>Classes for sorting ascending or descending are available. Apply these to the table head elements.</p>
-			<CodeBlock language="html" code={`<th class="table-sort-asc">Skeleton</th>`} />
-			<CodeBlock language="html" code={`<th class="table-sort-dsc">Skeleton</th>`} />
+			<TabGroup regionPanel="space-y-4">
+				<Tab bind:group={tabSet} name="tab1" value={0}>Spacing</Tab>
+				<Tab bind:group={tabSet} name="tab2" value={1}>Hover</Tab>
+				<Tab bind:group={tabSet} name="tab3" value={2}>Selection</Tab>
+				<Tab bind:group={tabSet} name="tab3" value={3}>Fit Width</Tab>
+				<Tab bind:group={tabSet} name="tab3" value={4}>Sorting</Tab>
+				<!-- Tab Panels --->
+				<svelte:fragment slot="panel">
+					{#if tabSet === 0}
+						<!-- Spacing -->
+						<p>
+							Apply classes <code>.table-compact</code> or <code>.table-comfortable</code> to the <em>table</em> for tighter or looser row spacing.
+						</p>
+						<CodeBlock language="html" code={`<table class="table-compact">...</table>`} />
+					{:else if tabSet === 1}
+						<!-- Hover -->
+						<p>
+							Apply the <code>.table-hover</code> class to add a subtle hover style which can be helpful when scanning data horizontally.
+							You can also use the <code>.table-interactive</code> class if the table rows is intended to be interactive on click. Avoid using
+							both classes.
+						</p>
+						<CodeBlock language="html" code={`<table class="table-interactive">...</table>`} />
+					{:else if tabSet === 2}
+						<!-- Selection -->
+						<p>Apply to a table body row to indicate an active selection state.</p>
+						<CodeBlock language="html" code={`<tr class=".table-row-checked">...</tr>`} />
+					{:else if tabSet === 3}
+						<!-- Fit -->
+						<p>
+							Use the <code>.table-cell-fit</code> class on a cell element to fit the cell to the content widths. This can be useful for small
+							columns that contain elements such as avatars or IDs. Be sure to apply to both the table header and table cell.
+						</p>
+						<CodeBlock language="html" code={`<th class="table-cell-fit">Avatar</th>`} />
+						<CodeBlock language="html" code={`<td class="table-cell-fit">(avatar)</td>`} />
+					{:else if tabSet === 4}
+						<!-- Sorting -->
+						<p>Classes for sorting ascending or descending are available. Apply these to the table head elements.</p>
+						<CodeBlock language="html" code={`<th class="table-sort-asc">Skeleton</th>`} />
+						<CodeBlock language="html" code={`<th class="table-sort-dsc">Skeleton</th>`} />
+					{/if}
+				</svelte:fragment>
+			</TabGroup>
 		</section>
 		<!-- See Also -->
 		<section class="space-y-4">
@@ -157,12 +175,6 @@
 					<p>A simple data-driven table component.</p>
 					<a class="btn variant-ghost-surface" href="/components/tables">Tables Component &rarr;</a>
 				</div>
-				<!-- CHRIS: delisted until further notice -->
-				<!-- <hr />
-				<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-					<p>Powerful template-driven utility features for data tables.</p>
-					<a class="btn variant-ghost-surface" href="/utilities/data-tables">Data Table Utilities &rarr;</a>
-				</div> -->
 			</div>
 		</section>
 	</svelte:fragment>
