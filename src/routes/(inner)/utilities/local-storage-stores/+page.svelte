@@ -25,7 +25,7 @@
 			<CodeBlock language="ts" code={`import type { Writable } from 'svelte/store';`} />
 			<CodeBlock language="ts" code={`const storeExample: Writable<string> = localStorageStore('storeExample', 'initialValueHere');`} />
 			<p>
-				This operates exactly like a standard Svelte writable store but with the added benefit of automatic persistence via <a
+				Operates as a standard Svelte writable store but with the added benefit of automatic persistence via <a
 					href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage"
 					target="_blank"
 					rel="noreferrer">Local Storage</a
