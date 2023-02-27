@@ -30,11 +30,11 @@
 				</ul>
 			</div>
 			<div class="space-y-4">
-				<h6>Community</h6>
+				<h6>Features</h6>
 				<ul class="space-y-2">
-					<li><a href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer">View on Github</a></li>
-					<li><a href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer">Join Discord</a></li>
-					<li><a href="https://twitter.com/SkeletonUI" target="_blank" rel="noreferrer">Follow on Twitter</a></li>
+					<li><a href="/elements/core">Tailwind</a></li>
+					<li><a href="/actions/clipboard">Svelte</a></li>
+					<li><a href="/utilities/codeblocks">Utilities</a></li>
 				</ul>
 			</div>
 			<div class="space-y-4">
