@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { fade } from 'svelte/transition';
 	// Docs
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
+	import { variants } from '$docs/components/DocsPreview/options';
 	// Components
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
@@ -23,7 +23,7 @@
 	};
 
 	// Local
-	let currentVariant = 'variant-ghost-warning';
+	let currentVariant = 'variant-ghost-secondary';
 	let message =
 		'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi, cupiditate eveniet in neque magnam quos ad cumque quae numquam voluptatum magni atque vitae dolore voluptatibus.';
 
@@ -52,15 +52,15 @@
 				</aside>
 			</svelte:fragment>
 			<svelte:fragment slot="footer">
-				<div class="flex justify-center">
+				<div class="flex justify-center gap-4">
 					<select bind:value={currentVariant} class="select w-auto">
-						<option value="variant-ghost">variant-ghost</option>
-						<option value="variant-ghost-primary">variant-ghost-primary</option>
-						<option value="variant-ghost-secondary">variant-ghost-secondary</option>
-						<option value="variant-ghost-tertiary">variant-ghost-tertiary</option>
-						<option value="variant-ghost-warning">variant-ghost-warning</option>
-						<option value="variant-ghost-success">variant-ghost-success</option>
-						<option value="variant-ghost-error">variant-ghost-error</option>
+						{#each variants as vSet}
+							<optgroup label={vSet.label}>
+								{#each vSet.list as v}
+									<option value={v}>{v}</option>
+								{/each}
+							</optgroup>
+						{/each}
 					</select>
 				</div>
 			</svelte:fragment>

@@ -2,6 +2,7 @@
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
+	import { variants } from '$docs/components/DocsPreview/options';
 	// Components
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
@@ -18,6 +19,9 @@
 			['<code>.logo-item</code>', '-', 'Apply to each logo child element.']
 		]
 	};
+
+	// Local
+	let currentVariant = 'bg-initial';
 </script>
 
 <DocsShell {settings}>
@@ -27,20 +31,33 @@
 			<svelte:fragment slot="preview">
 				<section class="w-full">
 					<div class="logo-cloud grid-cols-1 lg:!grid-cols-3 gap-1">
-						<a class="logo-item" href="https://twitch.com/" target="_blank" rel="noreferrer">
+						<a class="logo-item {currentVariant}" href="https://twitch.com/" target="_blank" rel="noreferrer">
 							<i class="fa-brands fa-twitch text-2xl" />
 							<span>Twitch</span>
 						</a>
-						<a class="logo-item" href="https://youtube.com/" target="_blank" rel="noreferrer">
+						<a class="logo-item {currentVariant}" href="https://youtube.com/" target="_blank" rel="noreferrer">
 							<i class="fa-brands fa-youtube text-2xl" />
 							<span>YouTube</span>
 						</a>
-						<a class="logo-item" href="https://vimeo.com/" target="_blank" rel="noreferrer">
+						<a class="logo-item {currentVariant}" href="https://vimeo.com/" target="_blank" rel="noreferrer">
 							<i class="fa-brands fa-vimeo text-2xl" />
 							<span>Vimeo</span>
 						</a>
 					</div>
 				</section>
+			</svelte:fragment>
+			<svelte:fragment slot="footer">
+				<div class="flex justify-center gap-4">
+					<select bind:value={currentVariant} class="select w-auto">
+						{#each variants as vSet}
+							<optgroup label={vSet.label}>
+								{#each vSet.list as v}
+									<option value={v}>{v}</option>
+								{/each}
+							</optgroup>
+						{/each}
+					</select>
+				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
 				<CodeBlock

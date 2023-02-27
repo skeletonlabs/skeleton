@@ -2,6 +2,7 @@
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
+	import { variants } from '$docs/components/DocsPreview/options';
 	// Components
 	import Avatar from '$lib/components/Avatar/Avatar.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
@@ -26,6 +27,9 @@
 			]
 		]
 	};
+
+	// Local
+	let currentVariant = 'bg-initial';
 </script>
 
 <DocsShell {settings}>
@@ -35,14 +39,14 @@
 			<svelte:fragment slot="preview">
 				<div class="w-full text-token grid grid-cols-1 md:grid-cols-2 gap-4">
 					<!-- Minimal -->
-					<div class="card p-4 flex justify-center items-center"><span>Minimal</span></div>
+					<div class="card {currentVariant} p-4 flex justify-center items-center"><span>Minimal</span></div>
 					<!-- Detailed -->
-					<a class="card card-hover overflow-hidden" href="/elements/cards">
+					<a class="card {currentVariant} card-hover overflow-hidden" href="/elements/cards">
 						<header>
 							<img src="https://source.unsplash.com/random/1280x540?skeleton" class="bg-black/50 w-full aspect-[21/9]" alt="Post" />
 						</header>
 						<div class="p-4 space-y-4">
-							<h6 class="text-primary-500">Announcements</h6>
+							<h6>Announcements</h6>
 							<h3 data-toc-ignore>Skeleton is Awesome!</h3>
 							<article>
 								<p>
@@ -51,7 +55,7 @@
 								</p>
 							</article>
 						</div>
-						<hr />
+						<hr class="opacity-50" />
 						<footer class="p-4 flex justify-start items-center space-x-4">
 							<Avatar src="https://i.pravatar.cc/160?img=48" width="w-8" />
 							<div class="flex-auto flex justify-between items-center">
@@ -60,6 +64,19 @@
 							</div>
 						</footer>
 					</a>
+				</div>
+			</svelte:fragment>
+			<svelte:fragment slot="footer">
+				<div class="flex justify-center gap-4">
+					<select bind:value={currentVariant} class="select w-auto">
+						{#each variants as vSet}
+							<optgroup label={vSet.label}>
+								{#each vSet.list as v}
+									<option value={v}>{v}</option>
+								{/each}
+							</optgroup>
+						{/each}
+					</select>
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">

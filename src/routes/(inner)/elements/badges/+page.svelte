@@ -2,6 +2,7 @@
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
+	import { variants } from '$docs/components/DocsPreview/options';
 	// Components
 	import Avatar from '$lib/components/Avatar/Avatar.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
@@ -19,6 +20,9 @@
 			['<code>badge-icon</code>', '-', 'Provides the icon badge style.']
 		]
 	};
+
+	// Local
+	let currentVariant = 'variant-filled';
 </script>
 
 <DocsShell {settings}>
@@ -26,7 +30,20 @@
 	<svelte:fragment slot="sandbox">
 		<DocsPreview>
 			<svelte:fragment slot="preview">
-				<span class="badge variant-filled">Badge</span>
+				<span class="badge {currentVariant}">Badge</span>
+			</svelte:fragment>
+			<svelte:fragment slot="footer">
+				<div class="flex justify-center gap-4">
+					<select bind:value={currentVariant} class="select w-auto">
+						{#each variants as vSet}
+							<optgroup label={vSet.label}>
+								{#each vSet.list as v}
+									<option value={v}>{v}</option>
+								{/each}
+							</optgroup>
+						{/each}
+					</select>
+				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
 				<CodeBlock language="html" code={`<span class="badge variant-filled">Badge</span>`} />

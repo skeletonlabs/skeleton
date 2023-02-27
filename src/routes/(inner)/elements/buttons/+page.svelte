@@ -3,10 +3,9 @@
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
+	import { variants } from '$docs/components/DocsPreview/options';
 	// Components
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
-	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -25,6 +24,7 @@
 	};
 
 	// Local:
+	let currentVariant = 'variant-filled';
 	const href = '/elements/buttons';
 
 	// Reactive
@@ -42,14 +42,27 @@
 		<DocsPreview>
 			<svelte:fragment slot="preview">
 				<div class="flex gap-4">
-					<button type="button" class="btn-icon variant-filled">
+					<button type="button" class="btn-icon {currentVariant}">
 						<i class="fa-solid fa-skull" />
 					</button>
-					<button type="button" class="btn variant-filled">Button</button>
-					<button type="button" class="btn variant-filled">
+					<button type="button" class="btn {currentVariant}">Button</button>
+					<button type="button" class="btn {currentVariant}">
 						<i class="fa-solid fa-skull" />
 						<span>Button</span>
 					</button>
+				</div>
+			</svelte:fragment>
+			<svelte:fragment slot="footer">
+				<div class="flex justify-center gap-4">
+					<select bind:value={currentVariant} class="select w-auto">
+						{#each variants as vSet}
+							<optgroup label={vSet.label}>
+								{#each vSet.list as v}
+									<option value={v}>{v}</option>
+								{/each}
+							</optgroup>
+						{/each}
+					</select>
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">

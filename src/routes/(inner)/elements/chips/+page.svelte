@@ -2,6 +2,7 @@
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
+	import { variants } from '$docs/components/DocsPreview/options';
 	// Types
 	import type { ToastSettings } from '$lib/utilities/Toast/types';
 	// Components
@@ -26,6 +27,7 @@
 	};
 
 	// Local
+	let currentVariant = 'variant-filled';
 	let color: string = 'red';
 	let flavors: Record<string, boolean> = {
 		vanilla: true,
@@ -52,7 +54,20 @@
 	<svelte:fragment slot="sandbox">
 		<DocsPreview>
 			<svelte:fragment slot="preview">
-				<span class="chip variant-filled">Chip</span>
+				<span class="chip {currentVariant}">Chip</span>
+			</svelte:fragment>
+			<svelte:fragment slot="footer">
+				<div class="flex justify-center gap-4">
+					<select bind:value={currentVariant} class="select w-auto">
+						{#each variants as vSet}
+							<optgroup label={vSet.label}>
+								{#each vSet.list as v}
+									<option value={v}>{v}</option>
+								{/each}
+							</optgroup>
+						{/each}
+					</select>
+				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
 				<CodeBlock language="html" code={`<span class="chip variant-filled">Chip</span>`} />
