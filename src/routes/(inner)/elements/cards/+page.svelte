@@ -73,7 +73,7 @@
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<h2>Headers and Footers</h2>
-			<p>Segment your card using the included header and footer classes.</p>
+			<p>Segment your card using the included <code>.card-header</code> and <code>.card-footer</code> classes.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full text-token">
