@@ -195,19 +195,6 @@ let popupSettings: PopupSettings = {
 					`}
 						/>
 					{:else if tabSettings === 3}
-						<!-- Close Query -->
-						<!-- prettier-ignore -->
-						<p>When using click events, this setting uses <em>querySelectorAll</em> to select all elements within the popup that will trigger a close event. By default this is set to <code>'a[href], button'</code>, which means clicking anchor or buttons within the popup will cause it to close.</p>
-						<CodeBlock
-							language="ts"
-							code={`
-let popupSettings: PopupSettings = {
-	// Limit to listbox items only:
-	closeQuery: '.listbox-item',
-};
-					`}
-						/>
-					{:else if tabSettings === 2}
 						<!-- Middlware -->
 						<!-- prettier-ignore -->
 						<p>
@@ -228,6 +215,19 @@ let popupSettings: PopupSettings = {
 		/** https://floating-ui.com/docs/arrow */
 		arrow: { ... }
 	}
+};
+					`}
+						/>
+					{:else if tabSettings === 2}
+						<!-- Close Query -->
+						<!-- prettier-ignore -->
+						<p>Query the list of elements that will close the drawer when clicked. This is set to <code>'a[href], button'</code> by default.</p>
+						<CodeBlock
+							language="ts"
+							code={`
+let popupSettings: PopupSettings = {
+	// Limit to listbox items only:
+	closeQuery: '.listbox-item',
 };
 					`}
 						/>
