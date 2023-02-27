@@ -20,7 +20,7 @@
 	};
 
 	// Local
-	const exampleData: string = 'This text was copied by the Skeleton clipboard action.';
+	const exampleData = 'This text was copied by the Skeleton clipboard action.';
 	let copied = false;
 
 	function onClickHandler(): void {
