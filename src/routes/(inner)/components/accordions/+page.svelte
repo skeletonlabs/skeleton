@@ -99,7 +99,7 @@
 	</AccordionItem>
 	<!-- ... -->
 </Accordion>
-						`}
+`}
 				/>
 			</svelte:fragment>
 		</DocsPreview>

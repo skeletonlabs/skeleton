@@ -69,7 +69,7 @@
 	<svelte:fragment slot="message">(message)</svelte:fragment>
 	<svelte:fragment slot="meta">(meta)</svelte:fragment>
 </FileDropzone>
-					`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
