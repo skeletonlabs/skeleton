@@ -63,6 +63,57 @@
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
+		<!-- Layout -->
+		<div class="space-y-4">
+			<h2>Layout</h2>
+			<!-- prettier-ignore -->
+			<p>
+				Use the <a href="https://tailwindcss.com/docs/grid-template-columns" target="_blank" rel="noreferrer">Tailwind column and gap classes</a> to adjust column amount and gap spacing.
+			</p>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<section class="card w-full">
+						<div class="p-4 space-y-4" class:animate-pulse={animate}>
+							<div class="placeholder" />
+							<div class="grid grid-cols-3 gap-8">
+								<div class="placeholder" />
+								<div class="placeholder" />
+								<div class="placeholder" />
+							</div>
+							<div class="grid grid-cols-4 gap-4">
+								<div class="placeholder" />
+								<div class="placeholder" />
+								<div class="placeholder" />
+								<div class="placeholder" />
+							</div>
+						</div>
+					</section>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="html"
+						code={`
+<section class="card w-full">
+	<div class="p-4 space-y-4">
+		<div class="placeholder" />
+		<div class="grid grid-cols-3 gap-8">
+			<div class="placeholder" />
+			<div class="placeholder" />
+			<div class="placeholder" />
+		</div>
+		<div class="grid grid-cols-4 gap-4">
+			<div class="placeholder" />
+			<div class="placeholder" />
+			<div class="placeholder" />
+			<div class="placeholder" />
+		</div>
+	</div>
+</section>
+					`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
+		</div>
 		<!-- Circular -->
 		<div class="space-y-4">
 			<h2>Circular</h2>
