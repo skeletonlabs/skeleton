@@ -148,7 +148,7 @@
 						<CodeBlock language="html" code={`<table class="table-interactive">...</table>`} />
 					{:else if tabSet === 2}
 						<!-- Selection -->
-						<p>Apply to a table body row to indicate an active selection state.</p>
+						<p>Apply the <code>.table-row-checked</code> class to a table body row to indicate an active selection state.</p>
 						<CodeBlock language="html" code={`<tr class=".table-row-checked">...</tr>`} />
 					{:else if tabSet === 3}
 						<!-- Fit -->
@@ -160,7 +160,10 @@
 						<CodeBlock language="html" code={`<td class="table-cell-fit">(avatar)</td>`} />
 					{:else if tabSet === 4}
 						<!-- Sorting -->
-						<p>Classes for sorting ascending or descending are available. Apply these to the table head elements.</p>
+						<p>
+							Apply <code>.table-sort-asc</code> or <code>.table-sort-dsc</code> to the <em>table head</em> elements to sort by ascending or
+							descending order respectively.
+						</p>
 						<CodeBlock language="html" code={`<th class="table-sort-asc">Skeleton</th>`} />
 						<CodeBlock language="html" code={`<th class="table-sort-dsc">Skeleton</th>`} />
 					{/if}
