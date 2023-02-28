@@ -83,7 +83,7 @@
 		<div class="space-y-4">
 			<h2>Copying Input Values</h2>
 			<p>
-				To copy a form input <em>value</em>, set a <code>data-clipboard</code> data attribute on your target, then provide
+				To copy the target input <em>value</em>, set a <code>data-clipboard</code> data attribute on your target, then provide
 				an <code>input</code> reference to the action.
 			</p>
 

@@ -63,7 +63,7 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<p>
-			Apply <code>use:focusTrap</code> then the action value to either <code>true</code> or <code>false</code> to enable or disable focus.
+			Apply <code>use:focusTrap</code>and then set the action value to either <code>true</code> or <code>false</code> to enable or disable focus.
 		</p>
 		<section class="space-y-4">
 			<h2>Navigation</h2>
