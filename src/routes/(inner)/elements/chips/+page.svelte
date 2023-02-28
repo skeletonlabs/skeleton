@@ -132,7 +132,7 @@
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="ts" code={`let color: string = 'red';`} />
+					<CodeBlock language="ts" code={`let color = 'red';`} />
 					<CodeBlock
 						language="html"
 						code={`
