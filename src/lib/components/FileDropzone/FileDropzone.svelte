@@ -3,6 +3,8 @@
 	import type { CssClasses } from '$lib';
 
 	// Props
+	/** Bind FileList to the file input. */
+	export let files: FileList | undefined = undefined;
 	/**
 	 * Required. Set a unique name for the file input.
 	 * @type {string}
@@ -47,7 +49,9 @@
 
 <div class="dropzone {classesBase}" class:opacity-50={$$restProps.disabled} data-testid="file-dropzone">
 	<!-- Input: File (hidden) -->
+	<!-- NOTE: keep `bind:files` here, unlike FileButton -->
 	<input
+		bind:files
 		type="file"
 		{name}
 		class="dropzone-input {classesInput}"
