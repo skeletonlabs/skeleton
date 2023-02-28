@@ -28,7 +28,7 @@
 
 	// Local
 	let currentVariant = 'variant-filled';
-	let color: string = 'red';
+	let color = 'red';
 	let flavors: Record<string, boolean> = {
 		vanilla: true,
 		chocolate: false,
