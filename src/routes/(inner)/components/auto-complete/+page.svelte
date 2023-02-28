@@ -1,46 +1,45 @@
 <script lang="ts">
 	import AutoComplete from '$lib/components/AutoComplete/AutoComplete.svelte';
-	import { autoComplete } from '$lib/components/AutoComplete/autoComplete';
-	import type { AutocompleteSettings } from '$lib/components/AutoComplete/types';
+	// import { autoComplete } from '$lib/components/AutoComplete/autoComplete';
+	// import type { AutocompleteSettings } from '$lib/components/AutoComplete/types';
+
+	// let actionSettings = {
+	// 	event: 'click',
+	// 	target: 'autocomplete'
+	// } satisfies AutocompleteSettings;
 
 	// Local
-	let inputValue = '';
+	let searchValue = '';
 	let anythingList: Record<string, unknown>[] = [
-		{ label: 'Foo', value: 'Foo' },
-		{ label: 'Bar', value: 'Bar' },
-		{ label: 'FooBar', value: 'FooBar' },
-		{ label: 'Fizz', value: 'Fizz' },
-		{ label: 'Buzz', value: 'Buzz' },
-		{ label: 'FizzBuzz', value: 'FizzBuzz' }
+		{ label: 'Foo', value: 'foo' },
+		{ label: 'Bar', value: 'bar' },
+		{ label: 'FooBar', value: 'foobar' },
+		{ label: 'Fizz', value: 'fizz' },
+		{ label: 'Buzz', value: 'buzz' },
+		{ label: 'FizzBuzz', value: 'fizzbuzz' }
 	];
-
-	let actionSettings = {
-		event: 'click',
-		target: 'autocomplete'
-	} satisfies AutocompleteSettings;
-
 	let whitelist = [
 		{ label: 'Foo', value: 'Foo' },
 		{ label: 'Bar', value: 'Bar' }
 	];
 
-	//Maybe add this into the actions as well?
-	function onValueSelect(event: CustomEvent) {
-		inputValue = event.detail.selected.label;
+	function onSelection(event: any): void {
+		// console.log('selection', event.detail);
+		searchValue = event.detail.value;
 	}
 </script>
 
 <div class="page-container">
-	<label class="label" for="autocomplete-search">
+	<label class="label space-y-2" for="autocomplete-search">
 		<h3>Via Input</h3>
+		<!-- use:autoComplete={actionSettings} -->
 		<input
 			class="input autocomplete"
-			use:autoComplete={actionSettings}
 			type="search"
 			name="autocomplete-search"
-			bind:value={inputValue}
+			bind:value={searchValue}
 			placeholder="Begin typing to filter..."
 		/>
-		<AutoComplete bind:searchTerm={inputValue} values={anythingList} mode="fuzzy" on:select={onValueSelect} />
+		<AutoComplete bind:input={searchValue} options={anythingList} on:selection={onSelection} />
 	</label>
 </div>
