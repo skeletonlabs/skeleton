@@ -19,6 +19,9 @@
 		restProps: 'input'
 	};
 
+	// Local
+	let files: FileList;
+
 	function onChangeHandler(e: any): void {
 		console.log('file data:', e);
 	}
@@ -30,7 +33,7 @@
 		<DocsPreview>
 			<svelte:fragment slot="preview">
 				<div class="space-y-4 w-full text-token">
-					<FileDropzone name="files-example-one" on:change={onChangeHandler} />
+					<FileDropzone bind:files name="files-example-one" on:change={onChangeHandler} />
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="footer">
