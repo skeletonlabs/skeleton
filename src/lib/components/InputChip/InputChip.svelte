@@ -143,6 +143,7 @@
 					<!-- Wrapping div required for FLIP animation -->
 					<div animate:flip={{ duration }}>
 						<button
+							type="button"
 							class="chip {chips}"
 							on:click={(e) => {
 								removeChip(e, i, c);
