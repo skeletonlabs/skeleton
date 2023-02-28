@@ -96,9 +96,9 @@
 				<svelte:fragment slot="preview">
 					<div class="flex justify-center">
 						<ol class="breadcrumb mt-1">
-							<li class="crumb"><i class="fa-solid fa-house text-xl" /></li>
+							<li class="crumb"><a href="/elements/breadcrumbs"><i class="fa-solid fa-house text-xl" /></a></li>
 							<li class="crumb-separator" aria-hidden>&rsaquo;</li>
-							<li class="crumb"><i class="fa-solid fa-gear text-xl" /></li>
+							<li class="crumb"><a href="/elements/breadcrumbs"><i class="fa-solid fa-gear text-xl" /></a></li>
 							<li class="crumb-separator" aria-hidden>&rsaquo;</li>
 							<li>Current</li>
 						</ol>
@@ -109,9 +109,9 @@
 						language="html"
 						code={`
 <ol class="breadcrumb mt-1">
-	<li class="crumb">(icon)</li>
+	<li class="crumb"><a href="/elements/breadcrumbs">(icon)</a></li>
 	<li class="crumb-separator" aria-hidden>&rsaquo;</li>
-	<li class="crumb">(icon)</li>
+	<li class="crumb"><a href="/elements/breadcrumbs">(icon)</a></li>
 	<li class="crumb-separator" aria-hidden>&rsaquo;</li>
 	<li>Current</li>
 </ol>
