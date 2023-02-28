@@ -145,6 +145,7 @@
 							You can also use the <code>.table-interactive</code> class if the table rows is intended to be interactive on click. Avoid using
 							both classes.
 						</p>
+						<CodeBlock language="html" code={`<table class="table-hover">...</table>`} />
 						<CodeBlock language="html" code={`<table class="table-interactive">...</table>`} />
 					{:else if tabSet === 2}
 						<!-- Selection -->
