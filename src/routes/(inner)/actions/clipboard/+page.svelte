@@ -73,7 +73,7 @@
 <!-- Source -->
 <div data-clipboard="exampleElement">(contents)</div>\n
 <!-- Trigger -->
-<button use:clipboard={{ element: 'exampleElement' }}> Copy</button>
+<button use:clipboard={{ element: 'exampleElement' }}>Copy</button>
 `}
 					/>
 				</svelte:fragment>
