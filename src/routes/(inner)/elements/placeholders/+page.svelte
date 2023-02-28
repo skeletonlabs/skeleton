@@ -63,6 +63,9 @@
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
+		<p>
+			Apply the <code>.placeholder</code> class to any <em>div</em> element.
+		</p>
 		<!-- Layout -->
 		<div class="space-y-4">
 			<h2>Layout</h2>
