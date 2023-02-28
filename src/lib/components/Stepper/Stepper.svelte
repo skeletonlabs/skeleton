@@ -26,16 +26,28 @@
 	// Props (step)
 	/** Set the justification for the step navigation buttons. */
 	export let justify: CssClasses = 'justify-between';
+
+	// Button (back)
 	/** Provide abitrary classes to style the back button. */
 	export let buttonBack: CssClasses = 'variant-ghost';
+	/** Set the type of the back button. */
+	export let buttonBackType: 'submit' | 'reset' | 'button' = 'button';
 	/** Provide the HTML label content for the back button. */
 	export let buttonBackLabel: string = '&larr; Back';
+
+	// Button (next)
 	/** Provide abitrary classes to style the next button. */
 	export let buttonNext: CssClasses = 'variant-filled';
+	/** Set the type of the next button. */
+	export let buttonNextType: 'submit' | 'reset' | 'button' = 'button';
 	/** Provide the HTML label content for the next button. */
 	export let buttonNextLabel: string = 'Next &rarr;';
+
+	// Button (complete)
 	/** Provide abitrary classes to style the complete button. */
 	export let buttonComplete: CssClasses = 'variant-filled-primary';
+	/** Set the type of the complete button. */
+	export let buttonCompleteType: 'submit' | 'reset' | 'button' = 'button';
 	/** Provide the HTML label content for the complete button. */
 	export let buttonCompleteLabel: string = 'Complete';
 
@@ -54,11 +66,17 @@
 	setContext('stepTerm', stepTerm);
 	setContext('gap', gap);
 	setContext('justify', justify);
+	// ---
 	setContext('buttonBack', buttonBack);
+	setContext('buttonBackType', buttonBackType);
 	setContext('buttonBackLabel', buttonBackLabel);
+	// ---
 	setContext('buttonNext', buttonNext);
+	setContext('buttonNextType', buttonNextType);
 	setContext('buttonNextLabel', buttonNextLabel);
+	// ---
 	setContext('buttonComplete', buttonComplete);
+	setContext('buttonCompleteType', buttonCompleteType);
 	setContext('buttonCompleteLabel', buttonCompleteLabel);
 
 	// Classes
