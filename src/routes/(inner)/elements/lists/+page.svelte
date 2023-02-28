@@ -157,7 +157,7 @@
 							<ul>
 								{#each listData as v}
 									<li>
-										<a href="/">
+										<a href="/elements/lists">
 											<span class="badge-icon p-4 variant-soft-tertiary"><i class="fa-solid fa-arrow-right" /></span>
 											<span class="flex-auto">
 												Nav Item {v.label}
@@ -178,7 +178,7 @@
 	<!-- (optionally you can provde a label here) -->
 	<ul>
 		<li>
-			<a href="/">
+			<a href="/elements/lists">
 				<span class="badge bg-primary-500">💀</span>
 				<span class="flex-auto">Skeleton</span>
 			</a>
