@@ -112,7 +112,7 @@
 
 		<!-- Tickmarks -->
 		{#if ticked && tickmarks && tickmarks.length}
-			<datalist id="tickmarks-{id}" class="range-slider-ticks px-[0.09rem" class:labelsVertical class:labelsHorizontal = {!labelsVertical}>
+			<datalist id="tickmarks-{id}" class="range-slider-ticks px-[0.09rem]" class:labelsVertical class:labelsHorizontal = {!labelsVertical}>
 				{#each tickmarks as tm, i}
 					<option class="pt-2" value={tm} label={setLabels(tm, i)} />
 				{/each}
