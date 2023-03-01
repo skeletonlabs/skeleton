@@ -1,19 +1,17 @@
 <script lang="ts">
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
-
+	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-
-	// @ts-expect- error sveld import NOTE remove space between hyphen and error, this is to keep svelte check happy
+	// Sveld
 	// import sveldComp from '$lib/.../Component.svelte?raw&sveld';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Component,
 		name: 'Template',
-		description:
-			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, eius officia aliquid beatae libero voluptas ea reprehenderit sed, ducimus quae reiciendis esse qui repudiandae veritatis perferendis deserunt ut magnam quisquam.',
+		description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
 		imports: ['Template'],
 		types: ['Template'],
 		stylesheetIncludes: ['all', 'elements'],
@@ -36,15 +34,25 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<div class="card p-4">
-			<p class="text-center">(examples)</p>
-		</div>
+		<DocsPreview>
+			<svelte:fragment slot="preview">
+				<p>(feature)</p>
+			</svelte:fragment>
+			<svelte:fragment slot="source">
+				<CodeBlock language="html" code={`(code snippet)`} />
+			</svelte:fragment>
+		</DocsPreview>
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<h2>Title</h2>
+			<h2>Title 1</h2>
+			<p>Describe how to use the feature.</p>
+			<CodeBlock language="html" code={`(code)`} />
+		</section>
+		<section class="space-y-4">
+			<h2>Title 2</h2>
 			<p>Describe how to use the feature.</p>
 			<CodeBlock language="html" code={`(code)`} />
 		</section>
