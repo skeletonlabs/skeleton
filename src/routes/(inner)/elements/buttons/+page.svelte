@@ -104,20 +104,20 @@
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="flex items-center gap-4">
-						<button type="button" class="btn btn-sm variant-filled">Small</button>
-						<button type="button" class="btn variant-filled">Base</button>
-						<button type="button" class="btn btn-lg variant-filled">Large</button>
-						<button type="button" class="btn btn-xl variant-filled">XL</button>
+						<button type="button" class="btn btn-sm variant-filled">sm</button>
+						<button type="button" class="btn variant-filled">base</button>
+						<button type="button" class="btn btn-lg variant-filled">lg</button>
+						<button type="button" class="btn btn-xl variant-filled">xl</button>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock
 						language="html"
 						code={`
-<button type="button" class="btn btn-sm variant-filled">Small</button>
-<button type="button" class="btn variant-filled">Base</button>
-<button type="button" class="btn btn-lg variant-filled">Large</button>
-<button type="button" class="btn btn-xl variant-filled">XL</button>
+<button type="button" class="btn btn-sm variant-filled">sm</button>
+<button type="button" class="btn variant-filled">base</button>
+<button type="button" class="btn btn-lg variant-filled">lg</button>
+<button type="button" class="btn btn-xl variant-filled">xl</button>
 `}
 					/>
 					<CodeBlock
