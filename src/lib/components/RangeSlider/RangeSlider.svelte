@@ -63,7 +63,7 @@
 		if (position % labelsStep !== 0 || labels === "none") {
 			return ""
 		} else if (labels === "numbers") {
-			return value.toString()
+			return (value - 1 + min).toString()
 		} else {
 			const pos = Math.floor(position/labelsStep)
 			return labels[pos]
