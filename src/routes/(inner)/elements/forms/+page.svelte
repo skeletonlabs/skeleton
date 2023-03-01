@@ -104,7 +104,7 @@
 		<!-- prettier-ignore -->
 		<p>
 			Unlike other UI libraries, Skeleton relies heavily on native HTML form fields. This provides the best user experience and
-			optimal accessability. Note that form field styling is opt-in, which means a class must be applied to each element.
+			optimal accessibility. Note that form field styling is opt-in, which means a class must be applied to each element.
 		</p>
 		<!-- Install the Plugin -->
 		<section class="space-y-4">

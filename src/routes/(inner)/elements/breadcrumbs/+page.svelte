@@ -60,7 +60,7 @@
 		<section class="space-y-4">
 			<h2>Separators</h2>
 			<!-- prettier-ignore -->
-			<p>Replace the contents of the <code>.crumb-separator</code> element with an icon or any valid <a href="https://unicode-table.com/en/sets/arrow-symbols/#right-arrows" target="_blank" rel="noreferrer">unicode symbol</a>. For accessability, use <code>aria-hidden</code> to hide this element from screen readers.</p>
+			<p>Replace the contents of the <code>.crumb-separator</code> element with an icon or any valid <a href="https://unicode-table.com/en/sets/arrow-symbols/#right-arrows" target="_blank" rel="noreferrer">unicode symbol</a>. For accessibility, use <code>aria-hidden</code> to hide this element from screen readers.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="flex justify-center">
