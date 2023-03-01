@@ -1,22 +1,22 @@
 #!/usr/bin/env node
-import { readFileSync, unlinkSync, writeFileSync } from 'fs';
+import { readFileSync, writeFileSync } from 'fs';
 import fs from 'fs'
 import ts from "typescript";
 
 //Put the exports field back into package.json so that monorepos can work again
-let packageJson = readFileSync('package.json').toString();
-packageJson = packageJson.slice(0, packageJson.lastIndexOf('}') - 1); //strip closing }
-packageJson += `,
-	"exports": {
-		".": "./src/lib/index.ts",
-		"./themes/*": "./src/lib/themes/*",
-		"./styles/*": "./src/lib/styles/*",
-		"./tailwind/*": "./src/lib/tailwind/*"
-	}
-}`;
+// let packageJson = readFileSync('package.json').toString();
+// packageJson = packageJson.slice(0, packageJson.lastIndexOf('}') - 1); //strip closing }
+// packageJson += `,
+// 	"exports": {
+// 		".": "./src/lib/index.ts",
+// 		"./themes/*": "./src/lib/themes/*",
+// 		"./styles/*": "./src/lib/styles/*",
+// 		"./tailwind/*": "./src/lib/tailwind/*"
+// 	}
+// }`;
 
-writeFileSync('package.json', packageJson);
-unlinkSync('./package/.gitignore'); // delete .gitignore file from built package
+// writeFileSync('package.json', packageJson);
+// unlinkSync('./package/.gitignore'); // delete .gitignore file from built package
 
 
 // Adding JSDoc comments to emitted .d.ts files from the package process
@@ -88,11 +88,11 @@ function writeJSDocsToDefinitionFiles() {
 	const eventsBegin = 'events: {';
 	const blockEnd = '}';
 	// we only insert JSDocs for properties that had a JSDoc block declared for them in the component file. Some props that might be defined
-	// in the defintion file should not get a description as they are stores/context info derived from a parent component.
+	// in the definition file should not get a description as they are stores/context info derived from a parent component.
 
 	for (let file in filesToProps) {
 		let annotatedDts = [];
-		const src = readFileSync('package/' + file + '.d.ts').toString().split('\n');
+		const src = readFileSync('dist/' + file + '.d.ts').toString().split('\n');
 		let inPropsSection = false;
 		for (let line of src) {
 			if (line.indexOf(blockEnd) != -1) { annotatedDts.push(line); inPropsSection = false; continue; }
@@ -111,7 +111,7 @@ function writeJSDocsToDefinitionFiles() {
 			if (line.indexOf(eventsBegin) != -1) { inPropsSection = true; }
 			annotatedDts.push(line);
 		}
-		writeFileSync('package/' + file + '.d.ts', annotatedDts.join('\n'));
+		writeFileSync('dist/' + file + '.d.ts', annotatedDts.join('\n'));
 	}
 }
 

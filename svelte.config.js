@@ -19,12 +19,6 @@ const config = {
 			$docs: path.resolve('./src/docs')
 		}
 	},
-	package: {
-		// strip test files from packaging
-		files: (filepath) => {
-			return filepath.indexOf('test') == -1 ? true : false;
-		}
-	}
-};
+	};
 
 export default config;
