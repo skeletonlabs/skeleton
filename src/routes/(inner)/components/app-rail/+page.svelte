@@ -121,8 +121,8 @@ const storeValue: Writable<number> = writable(0);
 			<CodeBlock
 				language="html"
 				code={`
-<AppRailTile tag="a" href={tileUrl} class:bg-primary-500={tileUrl === $page.url.pathname}>
-	(icon)
+<AppRailTile tag="a" href={tileUrl} class="{tileUrl === $page.url.pathname ? '!bg-primary-500 : ''}">
+    (icon)
 </AppRailTile>
 `}
 			/>

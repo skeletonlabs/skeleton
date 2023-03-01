@@ -76,7 +76,7 @@
 			<h2>Focusing Overlays</h2>
 			<p>
 				Skeleton automatically enables this action for overlays such as <a href="/utilities/modals">modals</a> and
-				<a href="/utilities/drawers">drawers</a> to aid accessability.
+				<a href="/utilities/drawers">drawers</a> to aid accessibility.
 			</p>
 		</section>
 	</svelte:fragment>

@@ -15,63 +15,64 @@
 	};
 
 	// Local
+	const headings = ['Class', 'Values', 'Description'];
 	const vColorsAll = '<a href="/docs/colors">Theme Colors</a>';
-	const vPairings = 'See pairing chart above.';
+	const vPairings = '<a href="/docs/tokens#color-pairing-chart">Color Pairing</a>';
 	const vCorners = 'tl | tr | bl | br';
-	const descPairings = 'Can be 50-900 or 900-50 format.';
+	const descPairings = 'Pairing values can be 50-900 or 900-50 format.';
 
 	// Tables
 	const tableBackgrounds: TableSource = {
-		head: ['Class', 'Values', 'Description'],
+		head: headings,
 		body: [
-			['<code>bg-[color]-backdrop-token</code>', vColorsAll, 'Background styles for modal backdrops.'],
-			['<code>bg-[color]-hover-token</code>', vColorsAll, 'Background styles for hoverable elements.'],
-			['<code>bg-[color]-active-token</code>', vColorsAll, 'Background styles for active selected elements.'],
-			['<code>bg-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings]
+			['<code>.bg-[color]-backdrop-token</code>', vColorsAll, 'Background styles for modal backdrops.'],
+			['<code>.bg-[color]-hover-token</code>', vColorsAll, 'Background styles for hoverable elements.'],
+			['<code>.bg-[color]-active-token</code>', vColorsAll, 'Background styles for active selected elements.'],
+			['<code>.bg-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings]
 		]
 	};
 	const tableBorderRadius: TableSource = {
-		head: ['Class', 'Values', 'Description'],
+		head: headings,
 		body: [
-			['<code>rounded-token</code>', '', 'Border radius for small elements: buttons, badges, chips, etc.'],
-			['<code>rounded-[corner]-token</code>', vCorners, 'Corner border radius styles for small elements.'],
-			['<code>rounded-container-token</code>', '', 'Border radius for large elements, such as cards and textareas'],
-			['<code>rounded-[corner]-container-token</code>', vCorners, 'Corner border radius styles large small elements.']
+			['<code>.rounded-token</code>', '', 'Border radius for small elements: buttons, badges, chips, etc.'],
+			['<code>.rounded-[corner]-token</code>', vCorners, 'Corner border radius styles for small elements.'],
+			['<code>.rounded-container-token</code>', '', 'Border radius for large elements, such as cards and textareas'],
+			['<code>.rounded-[corner]-container-token</code>', vCorners, 'Corner border radius styles large small elements.']
 		]
 	};
 	const tableBorder: TableSource = {
-		head: ['Class', 'Values', 'Description'],
+		head: headings,
 		body: [
-			['<code>border-token</code>', '', 'Implements your theme configured border size.'],
-			['<code>border-primary-[pairings]-token</code>', vPairings, descPairings]
+			['<code>.border-token</code>', '', 'Implements your theme configured border size.'],
+			['<code>.border-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings]
 		]
 	};
 	const tableFills: TableSource = {
-		head: ['Class', 'Values', 'Description'],
+		head: headings,
 		body: [
-			['<code>fill-token</code>', '', 'The default responsive light/dark mode fill color.'],
-			['<code>fill-on-[color]-token</code>', vColorsAll, 'Provides an accessible foreground color.']
+			['<code>.fill-token</code>', '', 'The default responsive light/dark mode fill color.'],
+			['<code>.fill-on-[color]-token</code>', vColorsAll, 'Provides an accessible foreground color.']
 		]
 	};
 	const tableRings: TableSource = {
-		head: ['Class', 'Values', 'Description'],
+		head: headings,
 		body: [
-			['<code>ring-outline-token</code>', '', 'Creates a subtle transparent outline like Card elements.'],
-			['<code>ring-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings]
+			['<code>.ring-outline-token</code>', '', 'Creates a subtle transparent outline like Card elements.'],
+			['<code>.ring-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings]
 		]
 	};
 	const tableText: TableSource = {
-		head: ['Class', 'Values', 'Description'],
+		head: headings,
 		body: [
-			['<code>font-heading-token</code>', '', 'Implements your theme configured heading text size.'],
-			['<code>font-token</code>', '', 'Implements your theme configured base text size.'],
-			['<code>text-token</code>', '', 'Implements your theme configured base text color.'],
-			['<code>text-on-[color]-token</code>', vColorsAll, 'Provides an accessible foreground color.'],
-			['<code>text-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings]
+			['<code>.font-heading-token</code>', '', 'Implements your theme configured heading text size.'],
+			['<code>.font-token</code>', '', 'Implements your theme configured base text size.'],
+			['<code>.text-token</code>', '', 'Implements your theme configured base text color.'],
+			['<code>.text-on-[color]-token</code>', vColorsAll, 'Provides an accessible foreground color.'],
+			['<code>.text-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings]
 		]
 	};
 	const tableMisc: TableSource = {
-		head: ['Class', 'Values', 'Description'],
+		head: headings,
 		body: [
 			[
 				'<code>accent-[color]-token</code>',
@@ -82,20 +83,20 @@
 	};
 </script>
 
-<DocsShell {settings}>
+<DocsShell {settings} tabs={false}>
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
+		<hr />
 		<section class="space-y-4">
-			<p>
-				Skeleton utilizes a simple but powerful design token system to implement your theme settings for use in elements and components.
-				Design tokens are the default classes for elements and components, which means they auto-adapt based on your theme with minimal
-				configuration out of the box. However, we also make these available to use in your own projects, allowing you to utilize this same
-				technique your own custom components and styling.
+			<p class="!text-xl">
+				Skeleton utilizes a simple but powerful <strong>design token</strong> system to implement theme settings in elements and components.
+				These represent the defaults for most elements and components, which means they auto-adapt based on your theme with minimal configuration
+				out of the box. Best of all you can use these within your custom components as well.
 			</p>
 		</section>
 		<section class="space-y-4">
-			<h2>What are Design Tokens?</h2>
-			<p>We recommend this conference talk by Brad Frost if you would like to learn more about the concept.</p>
+			<h2>Learn More</h2>
+			<p>We recommend this conference talk by Brad Frost if you would like to learn more about the design token concept.</p>
 			<iframe
 				class="w-full aspect-video mx-auto rounded-container-token shadow"
 				src="https://www.youtube.com/embed/JbxKTBvSLeY"
@@ -112,13 +113,11 @@
 				construct design token classes from these, next components utilize these design token classes, then finally you construct your pages
 				with sets of elements and components.
 			</p>
-			<section class="card variant-glass-surface p-4 flex justify-center">
-				<img
-					class="rounded-container-token dark:invert"
-					src="https://user-images.githubusercontent.com/1509726/206284722-3aee216b-f2ac-4281-b3c4-fd07e8c18b0c.png"
-					alt="flow"
-				/>
-			</section>
+			<img
+				class="rounded-container-token shadow-lg"
+				src="https://user-images.githubusercontent.com/1509726/222240675-f872f5ee-0a30-444d-90af-5d428be3731c.jpg"
+				alt="flow"
+			/>
 		</section>
 		<section class="space-y-4">
 			<h2>Color Pairing Chart</h2>
@@ -129,14 +128,13 @@
 				<code>.bg-surface-50-900-token</code>
 				and <code>bg-surface-900-50-token</code> that automaticallys switch between these in light/dark mode respectively.
 			</p>
-			<section class="card variant-glass-surface p-4 flex justify-center">
-				<img
-					class="rounded-container-token dark:invert"
-					src="https://user-images.githubusercontent.com/1509726/195171203-423e5b84-8763-40f1-b3ea-4cb2b8e38108.png"
-					alt="pairings"
-				/>
-			</section>
+			<img
+				class="rounded-container-token shadow-lg"
+				src="https://user-images.githubusercontent.com/1509726/222245000-6d07cddb-c946-402e-8fd3-d969c1f02210.jpg"
+				alt="pairings"
+			/>
 		</section>
+		<hr />
 		<!-- Backgrounds -->
 		<section class="space-y-4">
 			<h2>Backgrounds</h2>
@@ -168,19 +166,10 @@
 			<h2>Text</h2>
 			<Table source={tableText} />
 		</section>
-		<!-- Misc -->
+		<!-- Accent -->
 		<section class="space-y-4">
-			<h2>Misc</h2>
-			<p>Various styles that do not fit into any of the above categories.</p>
+			<h2>Accent</h2>
 			<Table source={tableMisc} />
-		</section>
-		<!-- Misc -->
-		<section class="space-y-4">
-			<h2>Requesting New Tokens</h2>
-			<p>
-				While we've covered common use cases, we do expect the tokens to expand over time. Pull requests are welcome, as well as feature
-				requests on GitHub Issues.
-			</p>
 		</section>
 	</svelte:fragment>
 </DocsShell>

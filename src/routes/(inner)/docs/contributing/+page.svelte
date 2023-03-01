@@ -21,7 +21,7 @@
 		<a class="card variant-glass p-4 grid grid-cols-[1fr_auto] gap-4" href="/docs/contributing/requirements">
 			<div class="space-y-4">
 				<h3 data-toc-ignore>How to Contribute</h3>
-				<p>Are you new to open source? Read this helpful guide covering the basic concepts and best practices for contributing.</p>
+				<p>New to open source? Read this helpful guide covering the basic concepts and best practices.</p>
 			</div>
 			<a
 				class="btn variant-filled-secondary place-self-center"
@@ -36,7 +36,7 @@
 		<a class="card variant-glass p-4 grid grid-cols-[1fr_auto] gap-4" href="/docs/contributing/requirements">
 			<div class="space-y-4">
 				<h3 data-toc-ignore>First Contributions</h3>
-				<p>Need a guided tour? Follow a written step-by-step guide explaining the process for contributing to open source.</p>
+				<p>Need a guided tour? Follow this step-by-step guide explaining the process.</p>
 			</div>
 			<a
 				class="btn variant-filled-secondary place-self-center"
@@ -73,7 +73,7 @@
 		<div class="card variant-glass p-4 grid grid-cols-[1fr_auto] gap-4">
 			<div class="space-y-4">
 				<h3 data-toc-ignore>Documentation Guide</h3>
-				<p>Good documentation makes life easier for everyone involved, check out how easy it is with this guide.</p>
+				<p>Good documentation makes life easier for everyone involved, view our recommendations.</p>
 			</div>
 			<a class="btn variant-filled-secondary place-self-center" href="/docs/contributing/documentation"> Read Guide </a>
 		</div>
@@ -86,8 +86,8 @@
 		<!-- Testing (video) -->
 		<div class="card variant-glass p-4 grid grid-cols-[1fr_auto] gap-4">
 			<div class="space-y-4">
-				<h3 data-toc-ignore>DocumAutomated Tests</h3>
-				<p>Watch an in-depth video covering automated testing with Vitest, provided by Skeleton contributors.</p>
+				<h3 data-toc-ignore>Automated Tests</h3>
+				<p>View a video by Skeleton contributors discussing best practices for testing.</p>
 			</div>
 			<a class="btn variant-filled-secondary place-self-center" href="https://youtu.be/Ru3FtSzN128" target="_blank" rel="noreferrer">
 				Watch Video

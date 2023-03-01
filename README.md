@@ -6,13 +6,13 @@
 
 # 💀 Skeleton
 
-A fully featured Svelte UI toolkit for Svelte + Tailwind. Skeleton allows you to build fast and reactive web interfaces using the power of [Svelte](https://svelte.dev/) + [Tailwind CSS](https://tailwindcss.com/). Including official support for [SvelteKit](https://kit.svelte.dev/).
+Skeleton is an open source UI toolkit built on Svelte + Tailwind. Allowing you to create reactive web interfaces using [Svelte](https://svelte.dev/) + [Tailwind CSS](https://tailwindcss.com/).
 
 ## 🔗 Useful Links
 
 - [Documentation](https://skeleton.dev/)
 - [Contribution Guide](https://skeleton.dev/docs/contributing)
-- [Project Roadmap](https://github.com/skeletonlabs/skeleton/wiki/%F0%9F%9B%A3%EF%B8%8F-The-Skeleton-Roadmap)
+<!-- - [Project Roadmap](https://github.com/skeletonlabs/skeleton/wiki/%F0%9F%9B%A3%EF%B8%8F-The-Skeleton-Roadmap) -->
 
 ## 👋 Community
 
@@ -22,16 +22,17 @@ A fully featured Svelte UI toolkit for Svelte + Tailwind. Skeleton allows you to
 ## 👍 Sponsor the Project
 
 - [Ko-Fi](https://ko-fi.com/skeletonlabs)
+- [GitHub Sponsors](https://github.com/sponsors/skeletonlabs)
 - [Patreon](https://patreon.com/user?u=83786276)
 
 ## 🐞 Report an Issue
 
-- [Submit Issue](https://github.com/skeletonlabs/skeleton/issues/new/choose)
+- [File a Ticket](https://github.com/skeletonlabs/skeleton/issues/new/choose)
 
 ## 🛠️ Contributions
 
-We've provided a detailed [contribution guide](https://www.skeleton.dev/docs/contributions) to help you get started. Pull requests are highly encouraged. [Pick an open issue](https://github.com/skeletonlabs/skeleton/issues), review requirements with contributors, then send a PR!
+We've provided a detailed [contribution guide](https://www.skeleton.dev/docs/contributing) to help you get started. [Find an open issue](https://github.com/skeletonlabs/skeleton/issues), discuss the requirements with other contributors, then send a PR!
 
-## Core Maintainer
+## Maintainers
 
-- [Chris Simmons](https://github.com/endigo9740) (endigo9740)
+Skeleton was created by [Chris Simmons](https://github.com/endigo9740) (@endigo9740) and is currently maintained by [Skeleton Labs](https://www.skeletonlabs.co/) and the open source community.

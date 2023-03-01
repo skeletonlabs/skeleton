@@ -13,58 +13,60 @@
 
 	<!-- Header -->
 	<header class="space-y-4">
-		<div class="grid grid-cols-[1fr_auto] gap-4">
-			<div class="space-y-4">
-				<h1>Documentation</h1>
-				<p>
-					Below is an introduction to automated documentation features, using tools like <a
-						href="https://github.com/carbon-design-system/sveld"
-						target="_blank"
-						rel="noreferrer">Sveld</a
-					>. First we'll learn how to document component props, slots, and events. Then we'll cover how to provide this information to the
-					documentation pages themselves.
-				</p>
-			</div>
-			<div class="place-self-end grid grid-cols-1 gap-2">
-				<a class="btn variant-filled-primary" href="https://github.com/carbon-design-system/sveld" target="_blank" rel="noreferrer"
-					>Sveld Documentation</a
-				>
-			</div>
-		</div>
+		<h1>Documentation</h1>
+		<!-- prettier-ignore -->
+		<p>
+			Below is an introduction to automated documentation using <a href="https://github.com/carbon-design-system/sveld" target="_blank" rel="noreferrer">Sveld</a> within Skeleton. This covers the process of documenting each type of feature, then utilizing this data within the documentation pages.
+		</p>
+		<a class="btn variant-filled" href="https://github.com/carbon-design-system/sveld" target="_blank" rel="noreferrer"
+			>View the Sveld Documentation</a
+		>
 	</header>
 
 	<hr />
 
 	<!-- Intro -->
-	<section class="space-y-4">
-		<h2>Components</h2>
-		<p>
-			Sveld makes use of <a href="https://tsdoc.org" target="_blank" rel="noreferrer">TSDoc tags</a> (a superset of JSDocs) to generate
-			component documentation from the component code itself. This comes with the benefit of providing additional
-			<a href="https://code.visualstudio.com/docs/editor/intellisense" target="_blank" rel="noreferrer">Intellisense</a>
-			features to aid developers implementing Skeleton components in tools like VS Code. Tap <kbd>Ctrl/⌘ + i</kbd> in a component declaration
-			to see the extended docs come through.
-		</p>
-	</section>
+	<p class="!text-xl">
+		Sveld makes use of <a href="https://tsdoc.org" target="_blank" rel="noreferrer">TSDoc tags</a> (a superset of JSDocs) to generate
+		component documentation from the component code itself. This comes with the benefit of providing additional
+		<a href="https://code.visualstudio.com/docs/editor/intellisense" target="_blank" rel="noreferrer">Intellisense</a>
+		features to aid developers implementing Skeleton components in tools like VS Code. Tap <kbd>Ctrl/⌘ + i</kbd> within a component declaration
+		to view IntelliSense recommendations.
+	</p>
 
-	<!-- TSDocs -->
+	<!-- Generating Documentation -->
 	<section class="space-y-4">
+		<h2>Generating Documentation</h2>
 		<h3>Props</h3>
-		<p><a href="https://github.com/carbon-design-system/sveld#type" target="_blank" rel="noreferrer">Sveld Reference</a></p>
+		<a class="btn variant-soft" href="https://github.com/carbon-design-system/sveld#type" target="_blank" rel="noreferrer">
+			View Svelte Documentation
+		</a>
 		<p>
-			To document component props, simply add TSDoc description comments using the <code>/** ... */</code> format. In most use cases Sveld will
-			automatically parse all relevant information - including the prop name, type, value, and your provided description.
+			To document component properties, add TSDoc comments using the <code>/** ... */</code> format. In most use cases Sveld will automatically
+			parse relevant information - including the property name, type, value, and your description.
 		</p>
 		<CodeBlock
 			language="js"
 			code={`
-/** Provide classes to set vertical item spacing. */
-export let spacing: string = 'space-y-1';
+/** Set the preferred search method. */
+export let mode = 'fuzz';
 			`}
 		/>
 		<p>
-			For non-primitive or custom types, you may need to specify this information. This can be accomplished using the <code>@type</code> tag
-			with block-style comments. Specify the type in curly brackets immediately following the tag.
+			The <code>CssClasses</code> class denotes properties that use Tailwind utility classes. Set this to aid IntelliSense features.
+		</p>
+		<CodeBlock
+			language="js"
+			code={`
+import type { CssClasses } from '$lib';\n
+/** Provide classes to set vertical item spacing. */
+export let spacing: CssClasses = 'space-y-1';
+			`}
+		/>
+
+		<p>
+			For advanced or custom types, you may need to specify this information. This can be accomplished using the <code>@type</code> tag with
+			block-style comments. Specify the type in curly brackets immediately following the tag.
 		</p>
 		<CodeBlock
 			language="js"
@@ -77,8 +79,8 @@ export let files: FileList;
 `}
 		/>
 		<p>
-			Ensure you document Context API <code>getContext</code> values to provide Intellisense. However, we intentionally exclude these values
-			from the Props table.
+			Ensure you document Context API <code>getContext</code> values to provide Intellisense for child components. However, we intentionally
+			exclude these values from the Props table.
 		</p>
 		<CodeBlock
 			language="js"
@@ -87,18 +89,19 @@ export let files: FileList;
 export let hover: string = getContext('hover');
 `}
 		/>
-		<p>For additonal examples, look at existing components in the project.</p>
+		<p>See the Accordion component for a reference using both parent and child components.</p>
 	</section>
 
 	<!-- Slots -->
 	<section class="space-y-4">
 		<h3>Slots</h3>
-		<p><a href="https://github.com/carbon-design-system/sveld#slot" target="_blank" rel="noreferrer">Sveld Reference</a></p>
+		<a class="btn variant-soft" href="https://github.com/carbon-design-system/sveld#slot" target="_blank" rel="noreferrer">
+			View Svelte Documentation
+		</a>
 		<p>
-			Slot documentation is provided by placing a TSDoc comment block at the top (by convention) of your script block. Note that Sveld does
-			not currently support descriptions for the
-			<code>default</code> slot at this time. Instead, we recommend you opt for a Usage tab example and instructions to illustrate the use of
-			this slot.
+			Slot documentation is handle via TSDoc block comments at the top of your script tag (by convention). Note that Sveld does not
+			currently support descriptions for the <code>default</code> slot. Instead, we recommend you opt for a Usage tab example and instructions
+			to illustrate the use of this slot.
 		</p>
 		<CodeBlock
 			language="js"
@@ -112,8 +115,7 @@ export let hover: string = getContext('hover');
 		<aside class="alert variant-ghost-warning">
 			<i class="fa-solid fa-lightbulb text-2xl" />
 			<div class="alert-message">
-				<strong>NOTE:</strong> The leading <code>// ...</code> comment is required for Sveld to successfully parse the slot descriptions. This
-				is not optional.
+				The leading <code>// ...</code> comment is required for Sveld to parse the slot descriptions. This is not optional.
 			</div>
 		</aside>
 	</section>
@@ -121,7 +123,9 @@ export let hover: string = getContext('hover');
 	<!-- Events -->
 	<section class="space-y-4">
 		<h3>Events</h3>
-		<p><a href="https://github.com/carbon-design-system/sveld#event" target="_blank" rel="noreferrer">Sveld Reference</a></p>
+		<a class="btn variant-soft" href="https://github.com/carbon-design-system/sveld#event" target="_blank" rel="noreferrer">
+			View Svelte Documentation
+		</a>
 		<p>
 			Sveld will automatically document forwarded events. You should not attempt to document these. However, dispatched events may be
 			documented similar to props - with a TSDocs comment applied directly above the <code>dispatch()</code> method. Provide the event response
@@ -130,30 +134,25 @@ export let hover: string = getContext('hover');
 		<CodeBlock
 			language="js"
 			code={`
-/** @event {{ event: DragEvent }} dragover - When a file is dragged over the component. */
+/** @event {{ event: DragEvent }} dragover - When a file is dragged over. */
 dispatch('dragover', event);`}
 		/>
 	</section>
 
 	<hr />
 
-	<!-- Documentation Pages -->
+	<!-- Using Documentation -->
 	<section class="space-y-4">
-		<h2>Documentation Pages</h2>
+		<h2>Using Documentation</h2>
+		<!-- prettier-ignore -->
 		<p>
 			Now that our components are ready, it's time to create the documentation page that displays all of the information derived by Sveld.
-		</p>
-		<p>
-			We provide a boilerplate template here:<br /><code>/src/routes/(inner)/template/+page.svelte</code>.
-		</p>
-		<p>
-			Copy this to the appropriate file route location and use our recommend naming convention:<br />e.g.
-			<code>/routes/components/your-new-component/+page.svelte</code>.
+			We provide a boilerplate template in <code>/src/routes/(inner)/template/+page.svelte</code>. Copy this to the appropriate file route location and use our recommend naming convention (e.g. <code>/routes/components/your-new-component/+page.svelte</code>).
 		</p>
 		<!-- Documentation Tables -->
 		<h3>Documentation Tables</h3>
 		<p>To populate each documentation table we'll need to import our Sveld documentation data. Follow the instructions below:</p>
-		<ol class="list-decimal list-inside space-y-1">
+		<ol class="list-decimal list-outside ml-8 space-y-1">
 			<li>
 				Create a duplicate of your component import statement, e.g. <code>import Avatar from '$lib/components/Avatar/Avatar.svelte';</code>
 			</li>
@@ -169,19 +168,19 @@ dispatch('dragover', event);`}
 			We can provide settings to our DocShell component using <code>const settings: DocsShellSettings</code>. This allows you to populate
 			all relevant settings on the page.
 		</p>
-		<section class="card p-4 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+		<section class="card variant-glass p-4 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 			<div class="space-y-2">
 				<p>Reference all available settings from the Typescript interface defintion.</p>
 			</div>
 			<a
-				class="btn variant-filled-secondary"
-				href="https://github.com/skeletonlabs/skeleton/blob/dev/src/docs/DocsShell/types.ts#L42"
+				class="btn variant-filled"
+				href="https://github.com/skeletonlabs/skeleton/blob/dev/src/docs/layouts/DocsShell/types.ts"
 				target="_blank"
 				rel="noreferrer">View Available Settings</a
 			>
 		</section>
 		<p>Below are existing documentation pages we recommend you reference:</p>
-		<ul class="list-disc list-inside space-y-1">
+		<ul class="list-disc list-outside ml-8 space-y-1">
 			<li><a href="/elements/buttons">Buttons</a> showcases how to document Tailwind Element classes.</li>
 			<li><a href="/components/accordions">Accordion</a> makes use of most Component settings utilizing Sveld.</li>
 			<li><a href="/components/paginators">Accordion</a> uses Dipatched Event documentation.</li>
@@ -189,7 +188,7 @@ dispatch('dragover', event);`}
 		<!-- Examples -->
 		<h3>Examples</h3>
 		<p>When showcasing examples of new features we typically handle this by one of two methods:</p>
-		<ul class="list-disc list-inside space-y-1">
+		<ul class="list-disc list-outside ml-8 space-y-1">
 			<li>
 				<strong>Sandbox</strong> (e.g. <a href="/components/range-sliders">Range Sliders</a>) - which provide a dynamic and interactive
 				example that can be adjusted live.
@@ -208,9 +207,6 @@ dispatch('dragover', event);`}
 		</p>
 		<!-- Keyboard Interactions -->
 		<h3>Keyboard Interactions</h3>
-		<p>
-			Finally, don't forget to document any relevant keyboard interactions for accessibility. These can easily be provided via the DocShell
-			settings.
-		</p>
+		<p>Finally, don't forget to document relevant keyboard interactions for accessibility. Provide these to the DocShell settings.</p>
 	</section>
 </LayoutPage>

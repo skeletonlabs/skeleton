@@ -180,10 +180,22 @@ only utlize theme on this doc page.
 				but the image will still display, which allows for progressive enhancement.
 			</p>
 			<div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
-				<div class="card p-4 variant-filled-primary"><h4>Chrome: Full</h4></div>
-				<div class="card p-4 variant-filled-primary"><h4>Edge: Full</h4></div>
-				<div class="card p-4 variant-filled-warning"><h4>Safari: Partial</h4></div>
-				<div class="card p-4 variant-filled-error"><h4>Firefox: None</h4></div>
+				<div class="card p-2 !bg-green-500 text-black">
+					<h4>Chrome</h4>
+					<span>Full</span>
+				</div>
+				<div class="card p-2 !bg-green-500 text-black">
+					<h4>Edge</h4>
+					<span>Full</span>
+				</div>
+				<div class="card p-2 !bg-yellow-500 text-black">
+					<h4>Safari</h4>
+					<span>Partial</span>
+				</div>
+				<div class="card p-2 !bg-red-500 text-black">
+					<h4>Firefox</h4>
+					<span>None</span>
+				</div>
 			</div>
 		</section>
 	</svelte:fragment>
