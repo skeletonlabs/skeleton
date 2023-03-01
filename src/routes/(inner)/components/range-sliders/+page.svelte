@@ -95,10 +95,22 @@
 				Please be aware that <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range#browser_compatibility" target="_blank" rel="noreferrer">browser support</a> varies. Safari (macOS/iOS) does not visually display the ticks. However, the ticks are progressive enhancement feature, and Safari it will honor the <code>max</code> and <code>step</code> settings in relation to the value.
 			</p>
 			<div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
-				<div class="card p-4 variant-filled-primary"><h4>Chrome: Full</h4></div>
-				<div class="card p-4 variant-filled-primary"><h4>Edge: Full</h4></div>
-				<div class="card p-4 variant-filled-warning"><h4>Safari: Partial</h4></div>
-				<div class="card p-4 variant-filled-primary"><h4>Firefox: Full</h4></div>
+				<div class="card p-2 !bg-green-500 text-black">
+					<h4>Chrome</h4>
+					<span>Full</span>
+				</div>
+				<div class="card p-2 !bg-green-500 text-black">
+					<h4>Edge</h4>
+					<span>Full</span>
+				</div>
+				<div class="card p-2 !bg-yellow-500 text-black">
+					<h4>Safari</h4>
+					<span>Partial</span>
+				</div>
+				<div class="card p-2 !bg-green-500 text-black">
+					<h4>Firefox</h4>
+					<span>Full</span>
+				</div>
 			</div>
 		</section>
 	</svelte:fragment>
