@@ -46,7 +46,7 @@
 <h1>
 	<span class="bg-gradient-to-br from-pink-500 to-violet-500 bg-clip-text text-transparent box-decoration-clone">Deploy.</span>
 </h1>
-				`}
+`}
 				/>
 			</svelte:fragment>
 		</DocsPreview>
