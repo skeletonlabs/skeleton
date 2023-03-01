@@ -18,7 +18,7 @@ const config = {
 			'@skeletonlabs/skeleton': path.resolve('./src/lib/index.ts'),
 			$docs: path.resolve('./src/docs')
 		}
-	},
-	};
+	}
+};
 
 export default config;

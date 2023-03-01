@@ -131,6 +131,6 @@ function generateKeyWordsFromProps() {
 
 extractScriptsFromComponents('src/lib/components');
 extractScriptsFromComponents('src/lib/utilities');
-extractJSDocBlocks()
-writeJSDocsToDefinitionFiles();
-generateKeyWordsFromProps()
+extractJSDocBlocks();
+// writeJSDocsToDefinitionFiles();
+generateKeyWordsFromProps();
