@@ -112,7 +112,7 @@
 		</div>
 	</div>
 </section>
-					`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
