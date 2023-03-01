@@ -61,7 +61,7 @@
 	//Set tick labels for each label type
 	function setLabels(value: number, position: number) {
 		if (position % labelsStep !== 0 || labels === "none") {
-        		return ""
+			return ""
 		} else if (labels === "numbers") {
 			return value.toString()
 		} else {
