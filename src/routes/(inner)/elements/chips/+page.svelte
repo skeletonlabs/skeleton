@@ -28,7 +28,7 @@
 
 	// Local
 	let currentVariant = 'variant-filled';
-	let color: string = 'red';
+	let color = 'red';
 	let flavors: Record<string, boolean> = {
 		vanilla: true,
 		chocolate: false,
@@ -103,7 +103,7 @@
 	<span>(icon)</span>
 	<span>Action</span>
 </span>
-					`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -132,7 +132,7 @@
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="ts" code={`let color: string = 'red';`} />
+					<CodeBlock language="ts" code={`let color = 'red';`} />
 					<CodeBlock
 						language="html"
 						code={`
@@ -146,7 +146,7 @@
 		<span>{c}</span>
 	</span>
 {/each}
-					`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -177,7 +177,7 @@ let flavors: Record<string, boolean> = {
 	chocolate: false,
 	strawberry: false
 };
-					`}
+`}
 					/>
 					<CodeBlock
 						language="html"
@@ -192,7 +192,7 @@ let flavors: Record<string, boolean> = {
 		<span class="capitalize">{f}</span>
 	</span>
 {/each}
-					`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>

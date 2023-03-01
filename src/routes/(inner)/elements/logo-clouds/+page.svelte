@@ -74,7 +74,7 @@
 	</a>
 	<!-- ... -->
 </div>
-					`}
+`}
 				/>
 			</svelte:fragment>
 		</DocsPreview>
@@ -93,14 +93,14 @@
 				<svelte:fragment slot="preview">
 					<section class="w-full">
 						<div class="logo-cloud grid-cols-1 lg:grid-cols-4 gap-0.5">
-							<a href="/elements/logo-cloud" class="logo-item">HR Solutions</a>
-							<a href="/elements/logo-cloud" class="logo-item">Acme Theaters</a>
-							<a href="/elements/logo-cloud" class="logo-item">Cruisin' Cuisine</a>
-							<a href="/elements/logo-cloud" class="logo-item">Arcane Security</a>
-							<a href="/elements/logo-cloud" class="logo-item">Stark Industries</a>
-							<a href="/elements/logo-cloud" class="logo-item">Gekko & Co.</a>
-							<a href="/elements/logo-cloud" class="logo-item">Acme Corp.</a>
-							<a href="/elements/logo-cloud" class="logo-item">Wonka Inc.</a>
+							<a href="/elements/logo-clouds" class="logo-item">HR Solutions</a>
+							<a href="/elements/logo-clouds" class="logo-item">Acme Theaters</a>
+							<a href="/elements/logo-clouds" class="logo-item">Cruisin' Cuisine</a>
+							<a href="/elements/logo-clouds" class="logo-item">Arcane Security</a>
+							<a href="/elements/logo-clouds" class="logo-item">Stark Industries</a>
+							<a href="/elements/logo-clouds" class="logo-item">Gekko & Co.</a>
+							<a href="/elements/logo-clouds" class="logo-item">Acme Corp.</a>
+							<a href="/elements/logo-clouds" class="logo-item">Wonka Inc.</a>
 						</div>
 					</section>
 				</svelte:fragment>
@@ -109,16 +109,16 @@
 						language="html"
 						code={`
 <div class="logo-cloud grid-cols-1 lg:grid-cols-4 gap-0.5">
-	<a href="/elements/logo-cloud" class="logo-item">HR Solutions</a>
-	<a href="/elements/logo-cloud" class="logo-item">Acme Theaters</a>
-	<a href="/elements/logo-cloud" class="logo-item">Cruisin' Cuisine</a>
-	<a href="/elements/logo-cloud" class="logo-item">Arcane Security</a>
-	<a href="/elements/logo-cloud" class="logo-item">Stark Industries</a>
-	<a href="/elements/logo-cloud" class="logo-item">Gekko & Co.</a>
-	<a href="/elements/logo-cloud" class="logo-item">Acme Corp.</a>
-	<a href="/elements/logo-cloud" class="logo-item">Wonka Inc.</a>
+	<a href="/elements/logo-clouds" class="logo-item">HR Solutions</a>
+	<a href="/elements/logo-clouds" class="logo-item">Acme Theaters</a>
+	<a href="/elements/logo-clouds" class="logo-item">Cruisin' Cuisine</a>
+	<a href="/elements/logo-clouds" class="logo-item">Arcane Security</a>
+	<a href="/elements/logo-clouds" class="logo-item">Stark Industries</a>
+	<a href="/elements/logo-clouds" class="logo-item">Gekko & Co.</a>
+	<a href="/elements/logo-clouds" class="logo-item">Acme Corp.</a>
+	<a href="/elements/logo-clouds" class="logo-item">Wonka Inc.</a>
 </div>
-						`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -127,7 +127,7 @@
 		<section class="space-y-4">
 			<h2>Styling Items</h2>
 			<!-- prettier-ignore -->
-			<p>Use the <a href="https://tailwindcss.com/blog/tailwindcss-v3-1#arbitrary-values-but-for-variants" target="_blank" rel="noreferrer">Tailwind's abitrary variant syntax</a> customize the <code>.logo-item</code> styles. Tailwind classes and variants are supported.</p>
+			<p>Use <a href="https://tailwindcss.com/blog/tailwindcss-v3-1#arbitrary-values-but-for-variants" target="_blank" rel="noreferrer">Tailwind's arbitrary variant syntax</a> to customize the <code>.logo-item</code> styles. Tailwind classes and variants are supported.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<section class="w-full">
