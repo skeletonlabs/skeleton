@@ -21,6 +21,7 @@
 
 	// Props
 	export let settings: DocsShellSettings;
+	export let tabs = true;
 
 	// Classes
 	const cBase = 'relative';
@@ -62,15 +63,17 @@
 	<Header {pageData} />
 
 	<!-- Tabs -->
-	<TabGroup class={classesTabs}>
-		<Tab bind:group={tabPanel} name="panels" value="usage">Usage</Tab>
-		{#if sveldCounts.props > 0}<Tab bind:group={tabPanel} name="properties" value="properties">Props</Tab>{/if}
-		{#if pageData?.parameters?.length}<Tab bind:group={tabPanel} name="parameters" value="parameters">Params</Tab>{/if}
-		{#if sveldCounts.slots > 0}<Tab bind:group={tabPanel} name="slots" value="slots">Slots</Tab>{/if}
-		{#if pageData?.classes?.length}<Tab bind:group={tabPanel} name="classes" value="classes">Classes</Tab>{/if}
-		{#if sveldCounts.events > 0}<Tab bind:group={tabPanel} name="events" value="events">Events</Tab>{/if}
-		{#if pageData?.keyboard?.length}<Tab bind:group={tabPanel} name="keyboard" value="keyboard">Keyboard</Tab>{/if}
-	</TabGroup>
+	{#if tabs}
+		<TabGroup class={classesTabs}>
+			<Tab bind:group={tabPanel} name="panels" value="usage">Usage</Tab>
+			{#if sveldCounts.props > 0}<Tab bind:group={tabPanel} name="properties" value="properties">Props</Tab>{/if}
+			{#if pageData?.parameters?.length}<Tab bind:group={tabPanel} name="parameters" value="parameters">Params</Tab>{/if}
+			{#if sveldCounts.slots > 0}<Tab bind:group={tabPanel} name="slots" value="slots">Slots</Tab>{/if}
+			{#if pageData?.classes?.length}<Tab bind:group={tabPanel} name="classes" value="classes">Classes</Tab>{/if}
+			{#if sveldCounts.events > 0}<Tab bind:group={tabPanel} name="events" value="events">Events</Tab>{/if}
+			{#if pageData?.keyboard?.length}<Tab bind:group={tabPanel} name="keyboard" value="keyboard">Keyboard</Tab>{/if}
+		</TabGroup>
+	{/if}
 
 	<!-- Panels -->
 	<div id="panels" class={classesPanels}>

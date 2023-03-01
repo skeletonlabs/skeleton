@@ -14,9 +14,10 @@
 	};
 </script>
 
-<DocsShell {settings}>
+<DocsShell {settings} tabs={false}>
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
+		<hr />
 		<p>Available via <code>.variant-[style]-[color]</code>. Applies the appropriate text/fill "on" color automatically.</p>
 		<!-- Filled -->
 		<section class="space-y-4">
