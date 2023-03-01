@@ -23,7 +23,7 @@
 	export let padding: CssClasses = 'px-4 py-2';
 
 	// Props (a11y)
-	/** Provides aria-labelledby attribute (delegates label provider). */
+	/** Provide the ARIA labelledby value. */
 	export let labelledby: string = '';
 
 	// Context

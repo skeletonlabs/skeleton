@@ -81,12 +81,12 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<p>By default the listbox uses a native <u>radio inputs</u> to ensure only one item is selcted at a time.</p>
+			<p>By default the listbox uses a native <em>radio inputs</em> to ensure only one item is selected at a time.</p>
 		</section>
 		<section class="space-y-4">
 			<h3>Multiple Selection</h3>
 			<p>
-				By adding the <code>multiple</code> property, the component uses native <u>checkboxes inputs</u>, which allows for multi-select.
+				By adding the <code>multiple</code> property, the component uses native <em>checkbox inputs</em>, which allows for multi-select.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">

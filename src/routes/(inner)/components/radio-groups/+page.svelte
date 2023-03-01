@@ -85,8 +85,8 @@
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<RadioGroup active="variant-filled-primary" hover="hover:variant-soft-primary">
-						<RadioItem bind:group={alignment} name="alignment" value="horizontal">Horizontal</RadioItem>
-						<RadioItem bind:group={alignment} name="alignment" value="vertical">Vertical</RadioItem>
+						<RadioItem bind:group={alignment} name="alignment" value="horizontal">Hover</RadioItem>
+						<RadioItem bind:group={alignment} name="alignment" value="vertical">These</RadioItem>
 					</RadioGroup>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
@@ -100,7 +100,7 @@
 		<section class="space-y-4">
 			<h2>Full Width</h2>
 			<p>Set <em>display</em> to <code>flex</code> to stretch and fill the full width.</p>
-			<CodeBlock language="html" code={`<RadioGroup display="flex"></RadioGroup>`} />
+				<CodeBlock language="html" code={`<RadioGroup display="flex">...</RadioGroup>`} />
 		</section>
 		<section class="space-y-4">
 			<h2>Radio Attributes</h2>

@@ -95,6 +95,9 @@
 		</section>
 		<section class="space-y-4">
 			<h2>Justify</h2>
+			<p>
+				Use the <code>justify</code> property to adjust tab positions.
+			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<TabGroup justify="justify-center" class="w-full">
@@ -110,7 +113,10 @@
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>Bottom Navigation</h2>
+			<h2>Navigation</h2>
+			<p>
+				Tabs make a good choice for custom navigation bars alongside an <a href="/components/app-shell">App Shell</a> or within a page, and has flexible styling.
+			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<TabGroup

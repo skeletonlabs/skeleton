@@ -15,7 +15,7 @@
 		description: 'A sliding toggle element that can capture input from a user.',
 		imports: ['SlideToggle'],
 		source: 'components/SlideToggle',
-		aria: 'https://www.w3.org/WAI/ARIA/apg/',
+		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/switch/',
 		components: [{ sveld: sveldSlideToggle }],
 		restProps: 'input'
 	};

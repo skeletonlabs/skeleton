@@ -3,8 +3,6 @@
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
 	// Components
-	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
-	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
 	import RangeSlider from '$lib/components/RangeSlider/RangeSlider.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	// Sveld
