@@ -9,81 +9,55 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Introduction</h1>
-		<p>Learn more about what Skeleton is and what problems it can solve within your projects.</p>
+		<!-- prettier-ignore -->
+		<p>
+			A powerful UI toolkit built using <a href="https://svelte.dev/" target="_blank" rel="noreferrer">Svelte</a> and <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind CSS</a>. Create adaptive, accessible design systems for your web apps.
+		</p>
 	</header>
 
 	<hr />
 
 	<!-- Why -->
 	<section class="space-y-4">
-		<h2>What is Skeleton?</h2>
-		<p>
-			Skeleton is a UI library, featuring tight integration between <a href="https://svelte.dev/" target="_blank" rel="noreferrer">Svelte</a
-			>
-			and <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind CSS</a>. In short, the library utilizes Tailwind’s
-			utility class-based design system to quickly and easily customize and extend the look and feel of each Skeleton feature. Paired with
-			Svelte’s powerful component architecture, Skeleton creates customized, responsive, and reactive interfaces for projects of any scale
-			and scope.
+		<p class="!text-xl">
+			Skeleton utilizes Tailwind’s utility classes and design system capabilities quickly and easily create beautiful interfaces. Paired
+			with Svelte’s powerful component architecture, Skeleton creates customized, responsive, and reactive interfaces for projects of any
+			scope or scale.
 		</p>
-
-		<iframe
-			class="w-full aspect-video mx-auto rounded-container-token shadow"
-			src="https://www.youtube.com/embed/2OnJYCXJPK4"
-			title="YouTube video player"
-			frameborder="0"
-			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-			allowfullscreen
-		/>
 	</section>
 
-	<hr />
+	<iframe
+		class="w-full aspect-video mx-auto rounded-container-token shadow"
+		src="https://www.youtube.com/embed/2OnJYCXJPK4"
+		title="YouTube video player"
+		frameborder="0"
+		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+		allowfullscreen
+	/>
 
-	<!-- Why Us? -->
+	<!-- Our Vision -->
 	<section class="space-y-4">
-		<h2>Why Us?</h2>
+		<h2>Our Vision</h2>
 		<p>
-			Let’s face it - creating consistent and responsive interfaces for the web can be quite a challenge. Over time this has led to the
-			emergence of UI toolkits such as <a href="https://getbootstrap.com/" target="_blank" rel="noreferrer">Bootstrap</a>,
-			<a href="https://material.io/design" target="_blank" rel="noreferrer">Material Design</a>, and
-			<a href="https://bulma.io/" target="_blank" rel="noreferrer">Bulma</a>. These allow developers to generate a consistent UI for web
-			apps within any frontend tech stack. However, these toolkits only solve half the problem - they provide beautiful UI, but in most
-			cases lack the accompanying functionality needed to make interactive components for your preferred framework, leaving that burden on
-			you. In some cases, they may also require extra dependencies, which can introduce choice paralysis when filtering through the plethora
-			of options in modern frontend development.
+			The goal of Skeleton is to create intelligent, adaptive UI that automatically adheres to your applications unique aesthetic. Utilizing
+			native browser APIs and elements, such as form elements, when possible. While also augmenting this with powerful components built to
+			follow WAI-ARIA guidelines for accessibility.
 		</p>
 		<p>
-			This has given rise to the framework-specific component libraries such as: <a
-				href="https://material.angular.io/"
-				target="_blank"
-				rel="noreferrer">Angular Material</a
-			>
-			for Angular, <a href="https://vuetifyjs.com/en/" target="_blank" rel="noreferrer">Vuetify</a> for Vue, and
-			<a href="https://mantine.dev/" target="_blank" rel="noreferrer">Mantine</a> for React. These tools aim to be a complete solution that goes
-			beyond the surface level and allows for direct integration of framework features, while providing fully interactive components, typically
-			without the need to introduce extra packages and dependencies.
+			We're huge fans of Svelte and wish to contribute to this amazing ecosystem. We believe this only happens through contributions of high
+			quality open source projects our own. Created by the community, for the community.
 		</p>
 		<p>
-			Like many in the frontend development community, we have been impressed with the introduction of <a
-				href="https://svelte.dev/"
-				target="_blank"
-				rel="noreferrer">Svelte</a
-			>
-			- which provides a modern and powerful component system. Along with the
-			<a href="https://kit.svelte.dev/" target="_blank" rel="noreferrer">SvelteKit</a> app framework, that provides a turnkey solution for
-			building and iterating on web projects using Svelte and next generation tooling such as
-			<a href="https://vitejs.dev/" target="_blank" rel="noreferrer">Vite</a>. However, while there are some great alteranatives available
-			in the UI space, we felt there was room for a batteries included toolkit that pairs the very best of what Svelte and Tailwind have to
-			offer. This is the reason we've introduced Skeleton.
+			Finally, we aim for inclusion, whether you're a contributor to the project, a consumer, or the end user. The Skeleton core team is not
+			a faceless corporate entity, but rather a small group of individuals motivated to make accessible UI with great UX for all.
 		</p>
 	</section>
-
-	<hr />
 
 	<!-- Benefits -->
 	<section class="space-y-4">
 		<h2>Benefits</h2>
 		<!-- FOSS -->
-		<h3 data-toc-ignore>Free and Open Source</h3>
+		<h3>Free and Open Source</h3>
 		<p>
 			Skeleton is available as <a href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer"
 				>free and open-source software (FOSS)</a
@@ -92,11 +66,26 @@
 			<a href="https://github.com/skeletonlabs/skeleton/blob/master/LICENSE" target="_blank" rel="noreferrer">MIT License</a>.
 		</p>
 		<!-- Community Owned -->
-		<h3 data-toc-ignore>Community Owned</h3>
+		<h3>Community Owned</h3>
 		<!-- prettier-ignore -->
 		<p>Skeleton is maintained by a number of talented <a href="https://github.com/skeletonlabs/skeleton/graphs/contributors" target="_blank" rel="noreferrer">contributors</a>. If you wish to <a href="/docs/contributing">contribute to the project</a> you are welcome to do so. Visit the Skeleton communities on either <a href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer">GitHub</a> or <a href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer">Discord</a>.</p>
-		<!-- Release Schedule -->
-		<h3 data-toc-ignore>Release Cycle</h3>
+		<!-- Theme System -->
+		<h3>Theme System</h3>
+		<p>
+			We provide a powerful and comprehensive theme system that goes well beyond generating a color palette. Themes allow you to control
+			common settings, such as border radius, and apply that universally throughout your application. Furthermore, themes are built using
+			CSS variables, which makes theme simple to configure and reuse.
+		</p>
+		<!-- Design Tokens -->
+		<h3>Design Tokens</h3>
+		<p>
+			A special set of CSS classes that ingest your theme settings for easy reuse throughout your design system. These are used as the
+			default settings for most features within Skeleton, meaning your UI elements automatically adjust to theme adjustments. Likewise,
+			these tokens are available to you, meaning you can build custom components using the same tools we do, for a truly cohesive look and
+			feel.
+		</p>
+		<!-- Release Cycle -->
+		<h3>Release Cycle</h3>
 		<p>
 			Skeleton receives new updates every other week, typically around Tuesday (US/Central). Each release is packed with new features,
 			improvements, and bugfixes.
@@ -106,13 +95,10 @@
 		</a>
 	</section>
 
-	<hr />
-
-	<!-- Mantine -->
+	<!-- Comparisons -->
 	<section class="space-y-4">
 		<h2>Comparisons</h2>
-		<p>A quick comparison of Skeleton and other open source UI libraries.</p>
-
+		<p>A quick comparison to alternative open source UI libraries.</p>
 		<Accordion autocollapse class="card variant-glass p-2">
 			<AccordionItem open>
 				<svelte:fragment slot="summary"><h3 data-toc-ignore>Tailwind UI</h3></svelte:fragment>
@@ -162,12 +148,10 @@
 		</Accordion>
 	</section>
 
-	<hr />
-
+	<!-- FAQs -->
 	<section class="space-y-4">
 		<h2>FAQs</h2>
-		<p>A list of frequently asked questions from new users. We recommend reading these before submitting a new support request.</p>
-
+		<p>A list of frequently asked questions from our community.</p>
 		<Accordion autocollapse class="card variant-glass p-2">
 			<AccordionItem open>
 				<svelte:fragment slot="summary"><h3 data-toc-ignore>Is Typescript required?</h3></svelte:fragment>
