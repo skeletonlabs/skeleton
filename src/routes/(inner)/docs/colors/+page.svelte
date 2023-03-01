@@ -28,7 +28,7 @@
 <LayoutPage>
 	<header class="space-y-4">
 		<h1>Colors</h1>
-		<p>This section provides a quick reference of each available theme color and their intended uses.</p>
+		<p>Skeleton themes extend Tailwind's color palette and can be used anywhere within your project.</p>
 	</header>
 
 	<hr />
@@ -38,7 +38,6 @@
 	<!-- Reference -->
 	<section class="space-y-4">
 		<h2>Usage</h2>
-		<p>Skeleton themes extend Tailwind's color palette and can be used anywhere within your project. Here's a few examples:</p>
 		<CodeBlock language="html" code={`<!-- Inlined classes -->\n<div class="bg-primary-500 text-secondary-500">Skeleton</div>`} />
 		<CodeBlock language="html" code={`<!-- Tailwind opacity scale -->\n<div class="border border-primary-500/50">Skeleton</div>`} />
 		<CodeBlock language="css" code={`/* Using Tailwind @apply */\n.example { @apply text-primary-500; }`} />
