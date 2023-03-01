@@ -55,7 +55,7 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<!-- prettier-ignore -->
-		<p>Can be generated using standard <a href="https://tailwindcss.com/docs/gradient-color-stops" target="_blank" rel="noreferrer">Tailwind's gradient color stops</a>. Skeleton is not required.
+		<p>Can be generated using <a href="https://tailwindcss.com/docs/gradient-color-stops" target="_blank" rel="noreferrer">Tailwind's gradient color stops</a>. Skeleton is not required.
 		</p>
 		<section class="space-y-4">
 			<h2>Using @apply</h2>
