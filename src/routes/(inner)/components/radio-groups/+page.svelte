@@ -100,7 +100,7 @@
 		<section class="space-y-4">
 			<h2>Full Width</h2>
 			<p>Set <em>display</em> to <code>flex</code> to stretch and fill the full width.</p>
-				<CodeBlock language="html" code={`<RadioGroup display="flex">...</RadioGroup>`} />
+			<CodeBlock language="html" code={`<RadioGroup display="flex">...</RadioGroup>`} />
 		</section>
 		<section class="space-y-4">
 			<h2>Radio Attributes</h2>
