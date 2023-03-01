@@ -74,7 +74,7 @@
 	</a>
 	<!-- ... -->
 </div>
-					`}
+`}
 				/>
 			</svelte:fragment>
 		</DocsPreview>
@@ -118,7 +118,7 @@
 	<a href="/elements/logo-clouds" class="logo-item">Acme Corp.</a>
 	<a href="/elements/logo-clouds" class="logo-item">Wonka Inc.</a>
 </div>
-						`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -127,7 +127,7 @@
 		<section class="space-y-4">
 			<h2>Styling Items</h2>
 			<!-- prettier-ignore -->
-			<p>Use the <a href="https://tailwindcss.com/blog/tailwindcss-v3-1#arbitrary-values-but-for-variants" target="_blank" rel="noreferrer">Tailwind's abitrary variant syntax</a> customize the <code>.logo-item</code> styles. Tailwind classes and variants are supported.</p>
+			<p>Use <a href="https://tailwindcss.com/blog/tailwindcss-v3-1#arbitrary-values-but-for-variants" target="_blank" rel="noreferrer">Tailwind's arbitrary variant syntax</a> to customize the <code>.logo-item</code> styles. Tailwind classes and variants are supported.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<section class="w-full">
