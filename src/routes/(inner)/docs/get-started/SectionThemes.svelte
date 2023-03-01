@@ -51,12 +51,12 @@
 	</TabGroup>
 	{#if $storeOnboardMethod === 'cli'}
 		<p>
-			The CLI will automatically import your selected theme in <code>src/routes/+layout.svelte</code>. You can change these at any time.
+			The CLI will automatically import your prefer preset theme in <code>src/routes/+layout.svelte</code>. You may change this at any time.
 		</p>
 	{:else if $storeOnboardMethod === 'manual'}
+		<!-- prettier-ignore -->
 		<p>
-			Select a theme, then copy the import statement into your root layout in <code>/src/routes/+layout.svelte</code>. Replace any existing
-			theme.
+			If you wish to use another preset theme, select it from the list below to reveal the import statement. Import it in your root layout in <code>/src/routes/+layout.svelte</code>. Take care to replace any existing theme.
 		</p>
 	{/if}
 
@@ -71,10 +71,10 @@
 						on:click={() => { copyThemeToClipboard(preset.file); }}
 						on:keydown={() => { copyThemeToClipboard(preset.file); }}
 					>
-						<h3 class="text-center font-bold" data-toc-ignore>{preset.name}</h3>
+						<p class="text-center font-bold !text-lg" data-toc-ignore>{preset.name}</p>
 						<ul class="flex justify-center items-center -space-x-1">
 							{#each preset.colors as color}
-								<li class="aspect-square w-4 xl:w-6 rounded-full" style:background={color} />
+								<li class="aspect-square w-4 xl:w-5 rounded-full" style:background={color} />
 							{/each}
 						</ul>
 					</div>
@@ -82,8 +82,9 @@
 		</nav>
 		{#if activeThemeName}
 			<CodeBlock language="ts" code={activeThemeStylesheet} />
+			<!-- prettier-ignore -->
 			<p>
-				To enable bonus features (ex: fonts and backgrounds) for preset themes, apply the following attribute in <code>app.html</code>.
+				You may opt into custom fonts and backgrounds per each theme by adding this paired data attribute in <code>app.html</code>
 			</p>
 			<CodeBlock language="html" code={`<body data-theme="` + activeThemeName + `">`} />
 		{/if}
@@ -92,7 +93,7 @@
 	<!-- Generator -->
 	<div class="card variant-glass p-4">
 		<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-			<p>Wish to create a custom theme? Try our theme generator tool.</p>
+			<p>Wish to create a custom theme? Try our theme generator.</p>
 			<a class="btn variant-filled-secondary" href="/docs/generator">Theme Generator &rarr;</a>
 		</div>
 	</div>

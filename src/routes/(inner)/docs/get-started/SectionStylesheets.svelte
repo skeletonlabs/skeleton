@@ -26,14 +26,14 @@
 		<svelte:fragment slot="panel">
 			{#if $storeOnboardMethod === 'cli'}
 				<div class="card variant-glass p-4">
-					<p>The CLI will automatically import all required stylesheets in <code>src/routes/+layout.svelte</code>.</p>
+					<p>The CLI will automatically import Skeleton's <code>all.css</code> stylesheet within <code>src/routes/+layout.svelte</code>.</p>
 				</div>
 			{:else if $storeOnboardMethod === 'manual'}
 				<p>Ensure the following stylesheets are added to your root layout in <code>src/routes/+layout.svelte</code>.</p>
 				<aside class="alert variant-ghost-warning">
 					<i class="fa-solid fa-triangle-exclamation text-2xl" />
-					<div class="alert-message ">
-						<p>Make sure each of these stylesheets are present and <u>in the order shown</u>.</p>
+					<div class="alert-message">
+						<p>The order shown is critical to ensure these work as expected. Please use care when adding or modifying these.</p>
 					</div>
 				</aside>
 				<CodeBlock
