@@ -21,9 +21,9 @@
 			['<code>.table-compact</code>', '-', 'Apply to the native HTML element to set shorter row spacing.'],
 			['<code>.table-comfortable</code>', '-', 'Apply to the native HTML element to set taller row spacing.'],
 			['<code>.table-hover</code>', '-', 'Apply to a table element to enable a subtle hover effect on rows.'],
-			['<code>.table-interactive</code>', '-', 'Apply to a table element to enable visible hover effect and pointer cursor.'],
-			['<code>.table-sort-asc</code>', '-', 'Apply to a table heading cell to add down arrow indicating ascending sort.'],
-			['<code>.table-sort-dsc</code>', '-', 'Apply to a table heading cell to add up arrow indicating desending sort.'],
+			['<code>.table-interactive</code>', '-', 'Apply to a table element to enable a visible hover effect and pointer cursor.'],
+			['<code>.table-sort-asc</code>', '-', 'Apply to a table heading cell to add a down arrow indicating ascending sort.'],
+			['<code>.table-sort-dsc</code>', '-', 'Apply to a table heading cell to add an up arrow indicating desending sort.'],
 			['<code>.table-row-checked</code>', '-', 'Apply to a table body row to indicate selection state.'],
 			['<code>.table-cell-fit</code>', '-', 'Apply to a table cell to auto-fit to the content widths.']
 		]
@@ -109,7 +109,7 @@
 		</tfoot>
 	</table>
 </div>
-					`}
+`}
 				/>
 			</svelte:fragment>
 		</DocsPreview>
