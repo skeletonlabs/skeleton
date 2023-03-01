@@ -25,9 +25,9 @@
 	export let gap: CssClasses = 'gap-4';
 
 	// Props (regions)
-	/** Provide abitrary classes to style the top (main) row. */
+	/** Provide arbitrary classes to style the top (main) row. */
 	export let regionRowMain: CssClasses = '';
-	/** Provide abitrary classes to style the bottom (headline) row. */
+	/** Provide arbitrary classes to style the bottom (headline) row. */
 	export let regionRowHeadline: CssClasses = '';
 
 	// Props (slots)

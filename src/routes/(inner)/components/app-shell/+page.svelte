@@ -225,7 +225,7 @@
 function scrollHandler(event: UIEvent & { currentTarget: EventTarget & HTMLDivElement; }) {
 	console.log(event.currentTarget.scrollTop);
 }
-			`}
+`}
 			/>
 			<CodeBlock language="html" code={`<AppShell ... on:scroll={scrollHandler}>`} />
 		</section>

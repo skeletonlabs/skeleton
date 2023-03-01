@@ -18,17 +18,17 @@
 	export let rounded: CssClasses = 'rounded-container-token';
 
 	// Props (regions)
-	/** Provide abitrary styles for the UI region. */
+	/** Provide arbitrary styles for the UI region. */
 	export let regionInterface: CssClasses = '';
-	/** Provide abitrary styles for the UI text region. */
+	/** Provide arbitrary styles for the UI text region. */
 	export let regionInterfaceText: CssClasses = '';
 
 	// Props (slots)
-	/** Provide abitrary styles for lead slot container. */
+	/** Provide arbitrary styles for lead slot container. */
 	export let slotLead: CssClasses = 'mb-4';
-	/** Provide abitrary styles for message slot container. */
+	/** Provide arbitrary styles for message slot container. */
 	export let slotMessage: CssClasses = '';
-	/** Provide abitrary styles for meta text slot container. */
+	/** Provide arbitrary styles for meta text slot container. */
 	export let slotMeta: CssClasses = 'opacity-75';
 
 	const cBase = 'textarea relative flex justify-center items-center';
