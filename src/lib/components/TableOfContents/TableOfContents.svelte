@@ -52,7 +52,7 @@
 
 	function generateHeadingList(): void {
 		// Select only relevant headings
-		allowedHeadingsList?.forEach((elem: HTMLElement, i: number) => {
+		allowedHeadingsList?.forEach((elem: HTMLElement) => {
 			// Skip if `data-toc-ignore` attribute set
 			if (elem.hasAttribute('data-toc-ignore')) return;
 			// Generate a unique ID if none present
@@ -61,10 +61,15 @@
 					.replaceAll(/[^a-zA-Z0-9 ]/g, '')
 					.replaceAll(' ', '-')
 					.toLowerCase();
-				elem.id = `${newId}-${i}`;
+				elem.id = `${newId}`;
 			}
+			// Implement permalink
+			if (elem.querySelector('.permalink')) return;
+			elem.innerHTML += `<a href="#${elem.id}" class="permalink">🔗</a>`;
 			// Generate headings whitelist
 			filteredHeadingsList.push(elem);
+			// Debug
+			// elem.style.backgroundColor = 'limegreen';
 		});
 		// Update Headings list
 		filteredHeadingsList = [...filteredHeadingsList];
@@ -82,6 +87,7 @@
 	// Scrolls to the selected heading
 	// https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
 	function scrollToHeading(headingElem: HTMLElement): void {
+		console.dir(headingElem);
 		const elemTarget: any = document.querySelector(`#${headingElem.id}`);
 		elemTarget.scrollIntoView({ behavior: 'smooth' });
 	}
@@ -136,7 +142,8 @@
 				on:click
 				on:keypress
 			>
-				{headingElem.innerText}
+				<!-- {headingElem.innerText} -->
+				{headingElem.firstChild?.nodeValue}
 			</li>
 		{/each}
 	</nav>

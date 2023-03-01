@@ -12,27 +12,27 @@
 	import type { CssClasses } from '$lib';
 
 	// Props (regions)
-	/** Apply abitrary clases to the entire `#page` region. */
+	/** Apply arbitrary clases to the entire `#page` region. */
 	export let regionPage: CssClasses = '';
-	/** Apply abitrary clases to the `header` slot container element */
+	/** Apply arbitrary clases to the `header` slot container element */
 	export let slotHeader: CssClasses = 'z-10';
-	/** Apply abitrary clases to the `sidebarLeft` slot container element */
+	/** Apply arbitrary clases to the `sidebarLeft` slot container element */
 	export let slotSidebarLeft: CssClasses = 'w-auto';
-	/** Apply abitrary clases to the `sidebarRight` slot container element */
+	/** Apply arbitrary clases to the `sidebarRight` slot container element */
 	export let slotSidebarRight: CssClasses = 'w-auto';
-	/** Apply abitrary clases to the `pageHeader` slot container element */
+	/** Apply arbitrary clases to the `pageHeader` slot container element */
 	export let slotPageHeader: CssClasses = '';
-	/** Apply abitrary clases to the `pageContent` slot container element */
+	/** Apply arbitrary clases to the `pageContent` slot container element */
 	export let slotPageContent: CssClasses = '';
-	/** Apply abitrary clases to the `pageFooter` slot container element */
+	/** Apply arbitrary clases to the `pageFooter` slot container element */
 	export let slotPageFooter: CssClasses = '';
-	/** Apply abitrary clases to the `footer` slot container element */
+	/** Apply arbitrary clases to the `footer` slot container element */
 	export let slotFooter: CssClasses = '';
 
 	// Base Classes
 	const cBaseAppShell = 'w-full h-full flex flex-col overflow-hidden';
 	const cContentArea = 'w-full h-full flex overflow-hidden';
-	const cPage = 'flex-1 overflow-x-hidden overflow-y-auto flex flex-col';
+	const cPage = 'flex-1 overflow-x-hidden flex flex-col';
 	const cSidebarLeft = 'flex-none overflow-x-hidden overflow-y-auto';
 	const cSidebarRight = 'flex-none overflow-x-hidden overflow-y-auto';
 

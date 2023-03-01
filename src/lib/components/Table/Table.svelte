@@ -29,6 +29,8 @@
 	export let regionHead: CssClasses = '';
 	/** Provide arbitrary classes for the table body. */
 	export let regionBody: CssClasses = '';
+	/** Provide arbitrary classes for the table cells. */
+	export let regionCell: CssClasses = '';
 	/** Provide arbitrary classes for the table foot. */
 	export let regionFoot: CssClasses = '';
 
@@ -85,6 +87,7 @@
 						<!-- Cell -->
 						<!-- prettier-ignore -->
 						<td
+							class="{regionCell}"
 							role="gridcell"
 							aria-colindex={cellIndex + 1}
 							tabindex={cellIndex === 0 ? 0 : -1}

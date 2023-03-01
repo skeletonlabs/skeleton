@@ -1,9 +1,6 @@
 // Provides the full set of Tailwind colors via Javascript
 // https://tailwindcss.com/docs/customizing-colors#default-color-palette
 
-export const tailwindNumbers = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'] as const;
-
-export type TailwindNumbers = (typeof tailwindNumbers)[number];
 export type HexRgb = { hex: string; rgb: string };
 export type TailwindColorObject = {
 	label: string;

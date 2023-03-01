@@ -109,10 +109,12 @@
 
 		<!-- Navigate -->
 		<div class="relative hidden lg:block">
+			<!-- trigger -->
 			<button class="btn hover:variant-soft-primary" use:popup={{ event: 'click', target: 'features' }}>
 				<span>Navigate</span>
 				<i class="fa-solid fa-caret-down opacity-50" />
 			</button>
+			<!-- popup -->
 			<!-- prettier-ignore -->
 			<div class="card p-4 w-60 shadow-xl" data-popup="features">
 				<nav class="list-nav">
@@ -122,18 +124,13 @@
 								<span class="w-6 text-center"><i class="fa-solid fa-home" /></span>
 								<span>Homepage</span>
 							</a>
+							<a href="/docs/get-started">
+								<span class="w-6 text-center"><i class="fa-solid fa-book" /></span>
+								<span>Docs</span>
+							</a>
 							<a href="/blog">
 								<span class="w-6 text-center"><i class="fa-solid fa-bullhorn" /></span>
 								<span>Blog</span>
-							</a>
-							<hr class="my-4">
-							<a href="/docs/why">
-								<span class="w-6 text-center"><i class="fa-solid fa-sheet-plastic" /></span>
-								<span>Docs</span>
-							</a>
-							<a href="/guides/install">
-								<span class="w-6 text-center"><i class="fa-solid fa-book" /></span>
-								<span>Guides</span>
 							</a>
 							<hr class="my-4">
 							<a href="/elements/core">
@@ -156,11 +153,44 @@
 
 		<!-- Theme -->
 		<div class="relative">
+			<!-- trigger -->
 			<button class="btn hover:variant-soft-primary" use:popup={{ event: 'click', target: 'theme' }}>
 				<i class="fa-solid fa-palette text-lg md:hidden" />
 				<span class="hidden md:inline-block">Theme</span>
 				<i class="fa-solid fa-caret-down opacity-50" />
 			</button>
+			<!-- popup -->
+			<div class="card p-4 w-60 shadow-xl" data-popup="theme">
+				<section class="flex justify-between items-center">
+					<h6>Mode</h6>
+					<LightSwitch />
+				</section>
+				<hr class="my-4" />
+				<nav class="list-nav p-4 -m-4 max-h-64 lg:max-h-[500px] overflow-y-auto">
+					<form action="/?/setTheme" method="POST" use:enhance={setTheme}>
+						<ul>
+							{#each themes as { icon, name, type }}
+								<li>
+									<button
+										class="option w-full h-full"
+										type="submit"
+										name="theme"
+										value={type}
+										class:bg-primary-active-token={$storeTheme === type}
+									>
+										<span>{icon}</span>
+										<span>{name}</span>
+									</button>
+								</li>
+							{/each}
+						</ul>
+					</form>
+				</nav>
+				<hr class="my-4" />
+				<div>
+					<a class="btn variant-ghost-surface w-full" href="/docs/generator">Theme Generator</a>
+				</div>
+			</div>
 		</div>
 
 		<!-- Social -->
@@ -169,44 +199,9 @@
 			<a class="btn-icon btn-icon-sm hover:variant-soft-primary" href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer">
 				<i class="fa-brands fa-discord text-lg" />
 			</a>
-			<!-- <a class="btn-icon btn-icon-sm hover:variant-soft-primary" href="https://twitter.com/SkeletonUI" target="_blank" rel="noreferrer">
-				<i class="fa-brands fa-twitter text-lg" />
-			</a> -->
 			<a class="btn-icon btn-icon-sm hover:variant-soft-primary" href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer">
 				<i class="fa-brands fa-github text-lg" />
 			</a>
 		</section>
 	</svelte:fragment>
-
-	<div class="card p-4 w-60 shadow-xl" data-popup="theme">
-		<section class="flex justify-between items-center">
-			<h6>Mode</h6>
-			<LightSwitch />
-		</section>
-		<hr class="my-4" />
-		<nav class="list-nav p-4 -m-4 max-h-64 lg:max-h-[500px] overflow-y-auto">
-			<form action="/?/setTheme" method="POST" use:enhance={setTheme}>
-				<ul>
-					{#each themes as { icon, name, type }}
-						<li>
-							<button
-								class="option w-full h-full"
-								type="submit"
-								name="theme"
-								value={type}
-								class:bg-primary-active-token={$storeTheme === type}
-							>
-								<span>{icon}</span>
-								<span>{name}</span>
-							</button>
-						</li>
-					{/each}
-				</ul>
-			</form>
-		</nav>
-		<hr class="my-4" />
-		<div>
-			<a class="btn variant-ghost-surface w-full" href="/guides/themes/generator">Theme Generator</a>
-		</div>
-	</div>
 </AppBar>

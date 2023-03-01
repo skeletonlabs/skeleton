@@ -33,7 +33,9 @@
 		@apply text-base;
 	}
 
-	a:not(.unstyled):is(:not(.prose *)):not(.btn):not(.btn-icon):not(.app-bar a):not(.logo-item):not(a.card):not(.list-nav a) {
+	a:not(.unstyled):not(.permalink):is(:not(.prose *)):not(.btn):not(.btn-icon):not(.app-bar a):not(.logo-item):not(a.card):not(
+			.list-nav a
+		) {
 		@apply text-primary-700 dark:text-primary-500 hover:brightness-110 underline;
 	}
 
@@ -53,7 +55,7 @@
 	/* For use outside of Skeleton's CodeBlock component */
 
 	pre:not(.unstyled):not(.code-block pre):is(:not(.prose *)) {
-		@apply font-mono text-base bg-[#141517] text-white p-4 whitespace-pre-wrap overflow-x-auto rounded-container-token;
+		@apply font-mono text-base bg-neutral-900/90 text-white p-4 whitespace-pre-wrap overflow-x-auto rounded-container-token;
 	}
 
 	code:not(.unstyled):is(:not(.prose *)):is(:not(pre *)) {
@@ -66,28 +68,28 @@
 	/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins */
 	/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del */
 
-	ins,
-	del {
+	ins:not(.unstyled):is(:not(.prose *)),
+	del:not(.unstyled):is(:not(.prose *)) {
 		@apply block relative p-0.5 pl-5;
 		text-decoration: none;
 	}
 
-	ins::before,
-	del::before {
+	ins:not(.unstyled):is(:not(.prose *))::before,
+	del:not(.unstyled):is(:not(.prose *))::before {
 		@apply absolute left-1 font-mono;
 	}
-	ins::before {
+	ins:not(.unstyled):is(:not(.prose *))::before {
 		content: '+';
 	}
-	del::before {
+	del:not(.unstyled):is(:not(.prose *))::before {
 		content: '−';
 	}
 
-	ins {
-		@apply bg-error-500 text-on-error-token;
+	ins:not(.unstyled):is(:not(.prose *)) {
+		@apply font-mono bg-success-500 text-on-success-token;
 	}
-	del {
-		@apply bg-success-500 text-on-success-token;
+	del:not(.unstyled):is(:not(.prose *)) {
+		@apply font-mono bg-error-500 text-on-error-token;
 	}
 
 	/* === Date/Time === */

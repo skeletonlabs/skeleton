@@ -7,9 +7,15 @@
 	 * @type {string}
 	 */
 	export let name: string;
+	/** Provide classes to set the width. */
+	export let width: CssClasses = '';
 	/** Provide a button variant or other class styles. */
 	export let button: CssClasses = 'variant-filled';
 
+	// Classes
+	const cButton = 'btn';
+
+	// Local
 	let elemFileInput: HTMLElement;
 
 	function onButtonClick(): void {
@@ -20,17 +26,21 @@
 		delete $$restProps.class;
 		return $$restProps;
 	}
+
+	// Reactive
+	$: classesBase = `${$$props.class ?? ''}`;
+	$: classesButton = `${cButton} ${button} ${width}`;
 </script>
 
-<div class="file-button {$$props.class ?? ''}" data-testid="file-button">
+<div class="file-button {classesBase}" data-testid="file-button">
 	<!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->
-	<div class="h-0 overflow-hidden">
+	<div class="w-0 h-0 overflow-hidden">
 		<input type="file" bind:this={elemFileInput} {name} {...prunedRestProps()} on:change />
 	</div>
 	<!-- Button -->
 	<button
 		type="button"
-		class="file-button-btn btn {button}"
+		class="file-button-btn {classesButton}"
 		disabled={$$restProps.disabled}
 		on:click={onButtonClick}
 		on:keydown
