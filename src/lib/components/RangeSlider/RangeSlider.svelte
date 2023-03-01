@@ -28,6 +28,12 @@
 	export let step = 1;
 	/** Enables tick marks. See browser support below. */
 	export let ticked = false;
+	/** Set tick labels type or custom labels */
+	export let labels: "none" | "numbers" | string[] = "none";
+	/** Set the steps for the tick labels. */
+	export let labelsStep = 1;
+    	/** Set tick labels orientation */
+	export let labelsVertical = false
 
 	// Props (styles)
 	/** Provide classes to set the input accent color. */
@@ -40,7 +46,7 @@
 	// Base Styles
 	const cBase = 'space-y-2';
 	const cBaseLabel = '';
-	const cBaseContent = 'flex justify-center py-2';
+	const cBaseContent = 'flex justify-center py-2 flex-col';
 	const cBaseInput = 'w-full h-2';
 
 	// Local
@@ -50,6 +56,18 @@
 	function setTicks(): void {
 		if (ticked == false) return;
 		tickmarks = Array.from({ length: max - min + 1 }, (_, i) => i + 1);
+	}
+	
+	//Set tick labels for each label type
+	function setLabels(value: number, position: number) {
+		if (position % labelsStep !== 0 || labels === "none") {
+        		return ""
+		} else if (labels === "numbers") {
+			return value.toString()
+		} else {
+			const pos = Math.floor(position/labelsStep)
+			return labels[pos]
+		}
 	}
 
 	// Lifecycle
@@ -94,9 +112,9 @@
 
 		<!-- Tickmarks -->
 		{#if ticked && tickmarks && tickmarks.length}
-			<datalist id="tickmarks-{id}" class="range-slider-ticks">
-				{#each tickmarks as tm}
-					<option value={tm} label={tm} />
+			<datalist id="tickmarks-{id}" class="range-slider-ticks px-[0.09rem" class:labelsVertical class:labelsHorizontal = {!labelsVertical}>
+				{#each tickmarks as tm, i}
+					<option class="pt-2" value={tm} label={setLabels(tm, i)} />
 				{/each}
 			</datalist>
 		{/if}
@@ -105,3 +123,17 @@
 	<!-- Slot: Trail -->
 	{#if $$slots.trail}<div class="range-slider-trail"><slot name="trail" /></div>{/if}
 </div>
+
+<style>
+	.labelsHorizontal {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+	.labelsVertical {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		writing-mode: vertical-lr;
+	}
+</style>
