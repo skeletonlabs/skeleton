@@ -15,7 +15,7 @@
 		description: 'Displays a radial indicator showing the progress or completion of a task.',
 		imports: ['ProgressRadial'],
 		source: 'components/ProgressRadial',
-		aria: 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter',
+		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/meter/',
 		components: [{ sveld: sveldProgressRadial }]
 	};
 
