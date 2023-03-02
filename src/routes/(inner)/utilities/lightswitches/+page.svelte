@@ -129,7 +129,7 @@
 									<!-- Getters -->
 									<CodeBlock
 										language="ts"
-										code={`import { getModeOsPrefers, getModeUserPrefers, getAutoPrefers } from '@skeletonlabs/skeleton';`}
+										code={`import { getModeOsPrefers, getModeUserPrefers, getModeAutoPrefers } from '@skeletonlabs/skeleton';`}
 									/>
 									<div class="table-container">
 										<table class="table table-hover">
