@@ -22,19 +22,19 @@
 		</div>
 		<div class="hidden md:grid grid-cols-[auto_auto_auto] gap-10">
 			<div class="space-y-4">
-				<h6>About</h6>
+				<h6>Docs</h6>
 				<ul class="space-y-2">
-					<li><a href="/docs/why">Why Skeleton</a></li>
-					<li><a href="/docs/comparisons">Comparisons</a></li>
-					<li><a href="/docs/contributing">Contribute</a></li>
+					<li><a href="/docs/introduction">Introduction</a></li>
+					<li><a href="/docs/get-started">Get Started</a></li>
+					<li><a href="/docs/contributing">Contributing</a></li>
 				</ul>
 			</div>
 			<div class="space-y-4">
-				<h6>Community</h6>
+				<h6>Features</h6>
 				<ul class="space-y-2">
-					<li><a href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer">Join Discord</a></li>
-					<li><a href="https://twitter.com/SkeletonUI" target="_blank" rel="noreferrer">Follow on Twitter</a></li>
-					<li><a href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer">View Github</a></li>
+					<li><a href="/elements/core">Tailwind</a></li>
+					<li><a href="/actions/clipboard">Svelte</a></li>
+					<li><a href="/utilities/codeblocks">Utilities</a></li>
 				</ul>
 			</div>
 			<div class="space-y-4">

@@ -3,7 +3,7 @@
 export interface ModalComponent {
 	/** Import and provide your component reference. */
 	ref: any;
-	/** Provide a key/value pairs of component props. */
+	/** Provide component props as key/value pairs. */
 	props?: Record<string, unknown>;
 	/** Provide an HTML template literal for the default slot. */
 	slot?: string;
@@ -26,7 +26,7 @@ export interface ModalSettings {
 	valueAttr?: object;
 	/** Provide your component reference key or object. */
 	component?: ModalComponent | string;
-	/** Provide a function. Returns the repsonse value. */
+	/** Provide a function. Returns the response value. */
 	response?: (r: any) => void;
 	/** Provide abitrary classes to the backdrop. */
 	backdropClasses?: string;
@@ -38,6 +38,6 @@ export interface ModalSettings {
 	buttonTextConfirm?: string;
 	/** Override the Submit button label. */
 	buttonTextSubmit?: string;
-	/** Pass abitrary data per modal instance. */
+	/** Pass arbitrary data per modal instance. */
 	meta?: any;
 }

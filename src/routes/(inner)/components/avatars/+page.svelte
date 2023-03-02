@@ -93,7 +93,7 @@
 	border="${borderStyles}"
 	cursor="cursor-pointer"
 />
-						`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>

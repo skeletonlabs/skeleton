@@ -68,27 +68,27 @@
 	/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins */
 	/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del */
 
-	ins,
-	del {
+	ins:not(.unstyled):is(:not(.prose *)),
+	del:not(.unstyled):is(:not(.prose *)) {
 		@apply block relative p-0.5 pl-5;
 		text-decoration: none;
 	}
 
-	ins::before,
-	del::before {
+	ins:not(.unstyled):is(:not(.prose *))::before,
+	del:not(.unstyled):is(:not(.prose *))::before {
 		@apply absolute left-1 font-mono;
 	}
-	ins::before {
+	ins:not(.unstyled):is(:not(.prose *))::before {
 		content: '+';
 	}
-	del::before {
+	del:not(.unstyled):is(:not(.prose *))::before {
 		content: '−';
 	}
 
-	ins {
+	ins:not(.unstyled):is(:not(.prose *)) {
 		@apply font-mono bg-success-500 text-on-success-token;
 	}
-	del {
+	del:not(.unstyled):is(:not(.prose *)) {
 		@apply font-mono bg-error-500 text-on-error-token;
 	}
 

@@ -58,7 +58,7 @@ const conicStops: ConicStop[] = [
 	{ color: 'rgba(255,255,255,0.5)', start: 10, end: 35 },
 	{ color: 'rgba(255,255,255,0.25)', start: 35, end: 100 }
 ];
-					`}
+`}
 				/>
 				<CodeBlock language="html" code={`<ConicGradient stops={conicStops}>(caption)</ConicGradient>`} />
 			</svelte:fragment>
@@ -90,7 +90,7 @@ const conicStops: ConicStop[] = [
 	{ label: 'Secondary', color: 'rgb(var(--color-secondary-500))', start: 33, end: 66 },
 	{ label: 'Tertiary', color: 'rgb(var(--color-tertiary-500))', start: 66, end: 100 }
 ];
-						`}
+`}
 						/>
 					{:else if tabColors === 1}
 						<!-- Tailwind Colors -->
@@ -103,7 +103,7 @@ const conicStops: ConicStop[] = [
 	{ label: 'Yellow', color: ['yellow', 500], start: 10, end: 35 },
 	{ label: 'Red', color: ['red', 500], start: 35, end: 100 }
 ];
-							`}
+`}
 						/>
 					{:else if tabColors === 2}
 						<!-- Custom Colors -->
@@ -120,7 +120,7 @@ const conicStops: ConicStop[] = [
 	{ label: 'HSL', color: 'hsl(60deg 100% 50%)', start: 10, end: 35 },
 	{ label: 'Hex', color: '#bada55', start: 35, end: 100 }
 ];
-							`}
+`}
 						/>
 					{/if}
 				</svelte:fragment>
@@ -145,7 +145,7 @@ const conicStops: ConicStop[] = [
 		{ label: 'Two', color: 'rgba(255,255,255,0.5)', start: 10, end: 35 },
 		{ label: 'Three', color: 'rgba(255,255,255,0.25)', start: 35, end: 100 }
 ];
-						`}
+`}
 					/>
 					<CodeBlock language="html" code={`<ConicGradient stops={conicStops} legend>(caption)</ConicGradient>`} />
 				</svelte:fragment>
@@ -172,7 +172,7 @@ const conicStops: ConicStop[] = [
 	{ color: 'transparent', start: 0, end: 25 },
 	{ color: 'rgb(var(--color-primary-500))', start: 75, end: 100 }
 ];
-						`}
+`}
 					/>
 					<CodeBlock language="html" code={`<ConicGradient stops={conicStops} spin>Loading</CodeBlock>`} />
 				</svelte:fragment>

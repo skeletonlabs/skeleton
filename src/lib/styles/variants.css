@@ -130,27 +130,27 @@
 
 	/* Glass */
 	.variant-glass-primary {
-		@apply bg-primary-500/20 dark:bg-primary-500/20 backdrop-blur-xl;
+		@apply bg-primary-500/20 dark:bg-primary-500/20 backdrop-blur-lg;
 	}
 	.variant-glass-secondary {
-		@apply bg-secondary-500/20 dark:bg-secondary-500/20 backdrop-blur-xl;
+		@apply bg-secondary-500/20 dark:bg-secondary-500/20 backdrop-blur-lg;
 	}
 	.variant-glass-tertiary {
-		@apply bg-tertiary-500/20 dark:bg-tertiary-500/20 backdrop-blur-xl;
+		@apply bg-tertiary-500/20 dark:bg-tertiary-500/20 backdrop-blur-lg;
 	}
 	.variant-glass-success {
-		@apply bg-success-500/20 dark:bg-success-500/20 backdrop-blur-xl;
+		@apply bg-success-500/20 dark:bg-success-500/20 backdrop-blur-lg;
 	}
 	.variant-glass-warning {
-		@apply bg-warning-500/20 dark:bg-warning-500/20 backdrop-blur-xl;
+		@apply bg-warning-500/20 dark:bg-warning-500/20 backdrop-blur-lg;
 	}
 	.variant-glass-error {
-		@apply bg-error-500/20 dark:bg-error-500/20 backdrop-blur-xl;
+		@apply bg-error-500/20 dark:bg-error-500/20 backdrop-blur-lg;
 	}
 	.variant-glass-surface {
-		@apply bg-surface-500/20 dark:bg-surface-500/20 backdrop-blur-xl;
+		@apply bg-surface-500/20 dark:bg-surface-500/20 backdrop-blur-lg;
 	}
 	.variant-glass {
-		@apply bg-surface-50/30 dark:bg-surface-900/30 backdrop-blur-xl;
+		@apply bg-surface-50/30 dark:bg-surface-900/30 backdrop-blur-lg;
 	}
 }

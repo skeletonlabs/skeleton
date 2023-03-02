@@ -75,7 +75,7 @@
 	<span>(icon)</span>
 	<span>Button</span>
 </button>
-					`}
+`}
 				/>
 				<CodeBlock
 					language="html"
@@ -86,7 +86,7 @@
 	<span>(icon)</span>
 	<span>Anchor</span>
 </a>
-						`}
+`}
 				/>
 			</svelte:fragment>
 		</DocsPreview>
@@ -104,21 +104,21 @@
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="flex items-center gap-4">
-						<button type="button" class="btn btn-sm variant-filled">Small</button>
-						<!-- <button type="button" class="btn variant-filled">Base</button> -->
-						<button type="button" class="btn btn-lg variant-filled">Large</button>
-						<button type="button" class="btn btn-xl variant-filled">XL</button>
+						<button type="button" class="btn btn-sm variant-filled">sm</button>
+						<button type="button" class="btn variant-filled">base</button>
+						<button type="button" class="btn btn-lg variant-filled">lg</button>
+						<button type="button" class="btn btn-xl variant-filled">xl</button>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock
 						language="html"
 						code={`
-<button type="button" class="btn btn-sm variant-filled">Small</button>
-<button type="button" class="btn variant-filled">Base</button>
-<button type="button" class="btn btn-lg variant-filled">Large</button>
-<button type="button" class="btn btn-xl variant-filled">XL</button>
-					`}
+<button type="button" class="btn btn-sm variant-filled">sm</button>
+<button type="button" class="btn variant-filled">base</button>
+<button type="button" class="btn btn-lg variant-filled">lg</button>
+<button type="button" class="btn btn-xl variant-filled">xl</button>
+`}
 					/>
 					<CodeBlock
 						language="html"
@@ -127,7 +127,7 @@
 <button type="button" class="btn-icon variant-filled">(icon)</button>
 <button type="button" class="btn-icon btn-icon-lg variant-filled">(icon)</button>
 <button type="button" class="btn-icon btn-icon-xl variant-filled">(icon)</button>
-					`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -152,10 +152,10 @@
 	<button>Days</button>
 	<button>Years</button>
 </div>
-			`}
+`}
 					/>
 					<!-- prettier-ignore -->
-					<p>Customize the vertical dividers using <a href="https://tailwindcss.com/blog/tailwindcss-v3-1#arbitrary-values-but-for-variants" target="_blank" rel="noreferrer">Tailwind's abitrary variant syntax</a>.</p>
+					<p>Customize the vertical dividers using <a href="https://tailwindcss.com/blog/tailwindcss-v3-1#arbitrary-values-but-for-variants" target="_blank" rel="noreferrer">Tailwind's arbitrary variant syntax</a>.</p>
 					<CodeBlock language="html" code={`<div class="btn-group variant-ghost-primary [&>*+*]:border-red-500">...</div>`} />
 				</svelte:fragment>
 			</DocsPreview>
@@ -176,7 +176,7 @@
 	<button>Days</button>
 	<button>Years</button>
 </div>
-			`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>

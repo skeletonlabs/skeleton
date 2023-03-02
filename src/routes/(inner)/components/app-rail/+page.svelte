@@ -72,7 +72,7 @@
 					language="ts"
 					code={`
 const storeValue: Writable<number> = writable(0);
-				`}
+`}
 				/>
 				<CodeBlock
 					language="html"
@@ -82,7 +82,7 @@ const storeValue: Writable<number> = writable(0);
 	<AppRailTile label="Tile 2" value={1}>(icon)</AppRailTile>
 	<AppRailTile label="Tile 3" value={2}>(icon)</AppRailTile>
 </AppRail>
-				`}
+`}
 				/>
 			</svelte:fragment>
 		</DocsPreview>
@@ -121,10 +121,10 @@ const storeValue: Writable<number> = writable(0);
 			<CodeBlock
 				language="html"
 				code={`
-<AppRailTile tag="a" href={tileUrl} class:bg-primary-500={tileUrl === $page.url.pathname}>
-	(icon)
+<AppRailTile tag="a" href={tileUrl} class="{tileUrl === $page.url.pathname ? '!bg-primary-500 : ''}">
+    (icon)
 </AppRailTile>
-				`}
+`}
 			/>
 		</section>
 	</svelte:fragment>

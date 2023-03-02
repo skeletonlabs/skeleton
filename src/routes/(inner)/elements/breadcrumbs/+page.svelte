@@ -30,9 +30,9 @@
 			<svelte:fragment slot="preview">
 				<div class="card p-4 text-token flex justify-center">
 					<ol class="breadcrumb">
-						<li class="crumb"><a href="/">Skeleton</a></li>
+						<li class="crumb"><a href="/elements/breadcrumbs">Skeleton</a></li>
 						<li class="crumb-separator" aria-hidden>&rsaquo;</li>
-						<li class="crumb"><a href="/">Elements</a></li>
+						<li class="crumb"><a href="/elements/breadcrumbs">Elements</a></li>
 						<li class="crumb-separator" aria-hidden>&rsaquo;</li>
 						<li>Breadcrumbs</li>
 					</ol>
@@ -43,9 +43,9 @@
 					language="html"
 					code={`
 <ol class="breadcrumb">
-	<li class="crumb"><a href="/">Skeleton</a></li>
+	<li class="crumb"><a href="/elements/breadcrumbs">Skeleton</a></li>
 	<li class="crumb-separator" aria-hidden>&rsaquo;</li>
-	<li class="crumb"><a href="/">Elements</a></li>
+	<li class="crumb"><a href="/elements/breadcrumbs">Elements</a></li>
 	<li class="crumb-separator" aria-hidden>&rsaquo;</li>
 	<li>Breadcrumbs</li>
 </ol>
@@ -60,14 +60,14 @@
 		<section class="space-y-4">
 			<h2>Separators</h2>
 			<!-- prettier-ignore -->
-			<p>Replace the contents of the <code>.crumb-separator</code> element with an icon or any valid <a href="https://unicode-table.com/en/sets/arrow-symbols/#right-arrows" target="_blank" rel="noreferrer">unicode symbol</a>. For accessability, use <code>aria-hidden</code> to hide this element from screen readers.</p>
+			<p>Replace the contents of the <code>.crumb-separator</code> element with an icon or any valid <a href="https://unicode-table.com/en/sets/arrow-symbols/#right-arrows" target="_blank" rel="noreferrer">unicode symbol</a>. For accessibility, use <code>aria-hidden</code> to hide this element from screen readers.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="flex justify-center">
 						<ol class="breadcrumb">
-							<li class="crumb"><a href="/">Home</a></li>
+							<li class="crumb"><a href="/elements/breadcrumbs">Home</a></li>
 							<li class="crumb-separator" aria-hidden>/</li>
-							<li class="crumb"><a href="/">Blog</a></li>
+							<li class="crumb"><a href="/elements/breadcrumbs">Blog</a></li>
 							<li class="crumb-separator" aria-hidden>/</li>
 							<li>Article</li>
 						</ol>
@@ -78,9 +78,9 @@
 						language="html"
 						code={`
 <ol class="breadcrumb">
-	<li class="crumb"><a href="/">Home</a></li>
+	<li class="crumb"><a href="/elements/breadcrumbs">Home</a></li>
 	<li class="crumb-separator" aria-hidden>/</li>
-	<li class="crumb"><a href="/">Blog</a></li>
+	<li class="crumb"><a href="/elements/breadcrumbs">Blog</a></li>
 	<li class="crumb-separator" aria-hidden>/</li>
 	<li>Article</li>
 </ol>
@@ -96,9 +96,9 @@
 				<svelte:fragment slot="preview">
 					<div class="flex justify-center">
 						<ol class="breadcrumb mt-1">
-							<li class="crumb"><i class="fa-solid fa-house text-xl" /></li>
+							<li class="crumb"><a href="/elements/breadcrumbs"><i class="fa-solid fa-house text-xl" /></a></li>
 							<li class="crumb-separator" aria-hidden>&rsaquo;</li>
-							<li class="crumb"><i class="fa-solid fa-gear text-xl" /></li>
+							<li class="crumb"><a href="/elements/breadcrumbs"><i class="fa-solid fa-gear text-xl" /></a></li>
 							<li class="crumb-separator" aria-hidden>&rsaquo;</li>
 							<li>Current</li>
 						</ol>
@@ -109,9 +109,9 @@
 						language="html"
 						code={`
 <ol class="breadcrumb mt-1">
-	<li class="crumb">(icon)</li>
+	<li class="crumb"><a href="/elements/breadcrumbs">(icon)</a></li>
 	<li class="crumb-separator" aria-hidden>&rsaquo;</li>
-	<li class="crumb">(icon)</li>
+	<li class="crumb"><a href="/elements/breadcrumbs">(icon)</a></li>
 	<li class="crumb-separator" aria-hidden>&rsaquo;</li>
 	<li>Current</li>
 </ol>
@@ -127,10 +127,10 @@
 				<svelte:fragment slot="preview">
 					<div class="flex justify-center">
 						<ol class="breadcrumb">
-							<li class="crumb"><a href="/" class="btn btn-sm variant-soft-primary">Users</a></li>
+							<li class="crumb"><a href="/elements/breadcrumbs" class="btn btn-sm variant-soft-primary">Users</a></li>
 							<li class="crumb-separator" aria-hidden>&rsaquo;</li>
 							<li class="crumb">
-								<a href="/"><Avatar src="https://i.pravatar.cc/?img=48" width="w-8" /></a>
+								<a href="/elements/breadcrumbs"><Avatar src="https://i.pravatar.cc/?img=48" width="w-8" /></a>
 							</li>
 							<li class="crumb-separator" aria-hidden>&rsaquo;</li>
 							<li>Profile</li>
@@ -142,10 +142,10 @@
 						language="html"
 						code={`
 <ol class="breadcrumb">
-	<li class="crumb"><a href="/" class="btn btn-sm variant-soft-primary">Users</a></li>
+	<li class="crumb"><a href="/elements/breadcrumbs" class="btn btn-sm variant-soft-primary">Users</a></li>
 	<li class="crumb-separator" aria-hidden>&rsaquo;</li>
 	<li class="crumb">
-		<a href="/"><Avatar src="https://i.pravatar.cc/?img=48" width="w-8" /></a>
+		<a href="/elements/breadcrumbs"><Avatar src="https://i.pravatar.cc/?img=48" width="w-8" /></a>
 	</li>
 	<li class="crumb-separator" aria-hidden>&rsaquo;</li>
 	<li>Profile</li>

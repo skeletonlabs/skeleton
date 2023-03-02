@@ -49,7 +49,7 @@
 	<svelte:fragment slot="trail">(actions)</svelte:fragment>
 	<svelte:fragment slot="headline">(headline)</svelte:fragment>
 </AppBar>
-					`}
+`}
 				/>
 			</svelte:fragment>
 		</DocsPreview>
@@ -84,7 +84,7 @@
 	(title)
 	<svelte:fragment slot="trail">(actions)</svelte:fragment>
 </AppBar>
-						`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -105,7 +105,7 @@
 			<h2>Using Grid Layout</h2>
 			<!-- prettier-ignore -->
 			<p>
-				The main row utilizes a grid-base layout. Utilize Tailwind's <a href="https://tailwindcss.com/docs/grid-column" target="_blank" rel="noreferrer">grid column</a> utility classes to control column width. Then use
+				The main row utilizes a grid-based layout. Utilize Tailwind's <a href="https://tailwindcss.com/docs/grid-column" target="_blank" rel="noreferrer">grid column</a> utility classes to control column width. Then use
 				<a href="https://tailwindcss.com/docs/place-content" target="_blank" rel="noreferrer">place settings</a> to adjust the placement of the slot contents.
 			</p>
 			<DocsPreview background="neutral" regionViewport="!text-current">
@@ -129,11 +129,11 @@
 	(title)
 	<svelte:fragment slot="trail">(actions)</svelte:fragment>
 </AppBar>
-							`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
-			<p>The example above provides an even three columns layout with the title centered and actions right-aligned.</p>
+			<p>The example above provides an even three column layout with the title centered and actions right-aligned.</p>
 		</section>
 	</svelte:fragment>
 </DocsShell>

@@ -25,7 +25,7 @@
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Action,
 		name: 'Filters',
-		description: 'Apply Instagram-like filter affects to images.',
+		description: 'Apply Instagram-like filter effects to images.',
 		imports: ['filter'],
 		source: 'actions/Filters',
 		parameters: [['<code>(default)</code>', 'string', '-', '-', 'The name of the filter, such as "Apollo".']]
@@ -124,13 +124,13 @@ only utlize theme on this doc page.
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<p>
-				Add each filter you plan to use within scope of your filtered elements. To use globally throughout your application, add this to
+				Add each filter you plan to use within the scope of your filtered elements. To use globally throughout your application, add this to
 				your application's root layout. Avoid importing filters you are not using.
 			</p>
 		</section>
 		<section class="space-y-4">
 			<h2>Applying a Filter</h2>
-			<p>Use either of the two menthods below to apply your desired filter. <u>The hash mark is required</u>.</p>
+			<p>Use either of the two methods below to apply your desired filter. <u>The hash mark is required</u>.</p>
 			<TabGroup regionPanel="space-y-4">
 				<Tab bind:group={method} name="method" value={0}>Via Action</Tab>
 				<Tab bind:group={method} name="method" value={1}>Via Attribute</Tab>
@@ -138,7 +138,7 @@ only utlize theme on this doc page.
 				<svelte:fragment slot="panel">
 					{#if method === 0}
 						<p>
-							Use the following <a href="https://svelte.dev/tutorial/actions" target="_blank" rel="noreferrer">Svelte action</a> to to filter
+							Use the following <a href="https://svelte.dev/tutorial/actions" target="_blank" rel="noreferrer">Svelte action</a> to filter
 							any element. Pass the filter name as the only parameter.
 						</p>
 						<CodeBlock language="ts" code={`import { filter } from '@skeletonlabs/skeleton';`} />
@@ -163,7 +163,7 @@ only utlize theme on this doc page.
 				<h2>Create a Custom Filter</h2>
 				<!-- prettier-ignore -->
 				<p>
-					Use this tool by by <a href="https://twitter.com/rikschennink/" target="_blank" rel="noreferrer">Rik Schennink</a> to easily generate your own custom filters.
+					Use this tool by <a href="https://twitter.com/rikschennink/" target="_blank" rel="noreferrer">Rik Schennink</a> to easily generate your own custom filters.
 				</p>
 			</div>
 			<a class="btn variant-filled-secondary" href="https://fecolormatrix.com/" target="_blank" rel="noreferrer">
@@ -180,10 +180,22 @@ only utlize theme on this doc page.
 				but the image will still display, which allows for progressive enhancement.
 			</p>
 			<div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
-				<div class="card p-4 variant-filled-primary"><h4>Chrome: Full</h4></div>
-				<div class="card p-4 variant-filled-primary"><h4>Edge: Full</h4></div>
-				<div class="card p-4 variant-filled-warning"><h4>Safari: Partial</h4></div>
-				<div class="card p-4 variant-filled-error"><h4>Firefox: None</h4></div>
+				<div class="card p-2 !bg-green-500 text-black">
+					<h4>Chrome</h4>
+					<span>Full</span>
+				</div>
+				<div class="card p-2 !bg-green-500 text-black">
+					<h4>Edge</h4>
+					<span>Full</span>
+				</div>
+				<div class="card p-2 !bg-yellow-500 text-black">
+					<h4>Safari</h4>
+					<span>Partial</span>
+				</div>
+				<div class="card p-2 !bg-red-500 text-black">
+					<h4>Firefox</h4>
+					<span>None</span>
+				</div>
 			</div>
 		</section>
 	</svelte:fragment>

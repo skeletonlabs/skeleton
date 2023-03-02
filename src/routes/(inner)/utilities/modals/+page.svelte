@@ -433,7 +433,7 @@ modalStore.trigger(d);
 		<section class="space-y-4">
 			<h2>Accessibility</h2>
 			<!-- prettier-ignore -->
-			<p>Skeleton <u>does not</u> provide a means to disable the backdrop's click to close feature, as this would be harmful to accessability. View the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/" target="_blank" rel="noreferrer">ARIA APG guidelines</a> to learn more about modal accessability.</p>
+			<p>Skeleton <u>does not</u> provide a means to disable the backdrop's click to close feature, as this would be harmful to accessibility. View the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/" target="_blank" rel="noreferrer">ARIA APG guidelines</a> to learn more about modal accessibility.</p>
 		</section>
 	</svelte:fragment>
 </DocsShell>

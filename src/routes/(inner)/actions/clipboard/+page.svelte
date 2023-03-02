@@ -20,7 +20,7 @@
 	};
 
 	// Local
-	const exampleData: string = 'This text was copied by the Skeleton clipboard action.';
+	const exampleData = 'This text was copied by the Skeleton clipboard action.';
 	let copied = false;
 
 	function onClickHandler(): void {
@@ -55,7 +55,7 @@
 			<h2>Copying HTML Contents</h2>
 			<p>
 				To copy the <em>innerHTML</em> for an element, set a <code>data-clipboard</code> on your target, then provide
-				<code>element</code> reference to the action.
+				an <code>element</code> reference to the action.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -74,7 +74,7 @@
 <div data-clipboard="exampleElement">(contents)</div>\n
 <!-- Trigger -->
 <button use:clipboard={{ element: 'exampleElement' }}>Copy</button>
-						`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -83,8 +83,8 @@
 		<div class="space-y-4">
 			<h2>Copying Input Values</h2>
 			<p>
-				To copy a form input <em>value</em>, set a <code>data-clipboard</code> data attribute on your target, then provide
-				<code>input</code> reference to the action.
+				To copy the target input <em>value</em>, set a <code>data-clipboard</code> data attribute on your target, then provide
+				an <code>input</code> reference to the action.
 			</p>
 
 			<DocsPreview background="neutral">
@@ -98,11 +98,11 @@
 					<CodeBlock
 						language="html"
 						code={`
-		<!-- Source -->
-		<input type="text" value="(contents)" data-clipboard="exampleInput"></input>\n
-		<!-- Trigger -->
-		<button use:clipboard={{ input: 'exampleInput' }}>Copy</button>
-					`}
+<!-- Source -->
+<input type="text" value="(contents)" data-clipboard="exampleInput"></input>\n
+<!-- Trigger -->
+<button use:clipboard={{ input: 'exampleInput' }}>Copy</button>
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>

@@ -15,7 +15,7 @@
 		stylesheets: ['elements/lists'],
 		source: 'styles/elements/lists.css',
 		classes: [
-			['<code>.list</code>', '-', 'Class for defining a unordered or ordered list.'],
+			['<code>.list</code>', '-', 'Class for defining an unordered or ordered list.'],
 			['<code>.list-dl</code>', '-', 'Class for defining a description list.'],
 			['<code>.list-nav</code>', '-', 'Class for defining a navigation list.'],
 			['<code>.list-option</code>', '-', 'Provides hover styles similar to anchors.']
@@ -59,7 +59,7 @@
 	</li>
 	<!-- ... -->
 </ul>
-					`}
+`}
 				/>
 			</svelte:fragment>
 		</DocsPreview>
@@ -98,7 +98,7 @@
 	</li>
 	<!-- ... -->
 </ol>
-						`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -138,7 +138,7 @@
 	</div>
 	<!-- ... -->
 </dl>
-						`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -157,7 +157,7 @@
 							<ul>
 								{#each listData as v}
 									<li>
-										<a href="/">
+										<a href="/elements/lists">
 											<span class="badge-icon p-4 variant-soft-tertiary"><i class="fa-solid fa-arrow-right" /></span>
 											<span class="flex-auto">
 												Nav Item {v.label}
@@ -178,7 +178,7 @@
 	<!-- (optionally you can provde a label here) -->
 	<ul>
 		<li>
-			<a href="/">
+			<a href="/elements/lists">
 				<span class="badge bg-primary-500">💀</span>
 				<span class="flex-auto">Skeleton</span>
 			</a>
@@ -186,7 +186,7 @@
 		<!-- ... -->
 	</ul>
 </nav>
-						`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
