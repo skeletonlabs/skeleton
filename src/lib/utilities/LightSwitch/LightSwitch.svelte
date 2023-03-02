@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { modeCurrent, setInitialClassState, setModeCurrent, setModeUserPrefers } from './lightswitch';
-	
+
 	// Types
 	import type { CssClasses } from '$lib';
 	type OnKeyDownEvent = KeyboardEvent & { currentTarget: EventTarget & HTMLDivElement };
