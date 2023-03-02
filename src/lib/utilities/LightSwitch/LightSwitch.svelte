@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { modeCurrent, setInitialClassState, setModeCurrent, setModeUserPrefers } from './lightswitch';
+	import { modeCurrent, setModeUserPrefers, setModeCurrent, setInitialClassState } from './lightswitch';
 
 	// Types
 	import type { CssClasses } from '$lib';
