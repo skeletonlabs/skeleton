@@ -28,7 +28,7 @@
 	// prettier-ignore
 	const snippetAutoModeWatcher = '\<svelte:head\>{@html `\<script\>${autoModeWatcher.toString()} autoModeWatcher();\</script\>`}\</svelte:head\>';
 	// prettier-ignore
-	const snippetSetInitClass = '\<svelte:head\>{@html `\<script\>${setInitialClassState.toString()} setInitialClassState();\</script\>`}\</svelte:head\>';
+	const snippetSetInitClass = '\<svelte:head\>{@html `\<script\>(${setInitialClassState.toString()})();\</script\>`}\</svelte:head\>';
 </script>
 
 <DocsShell {settings}>

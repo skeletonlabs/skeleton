@@ -60,7 +60,8 @@
 	}
 
 	.table tbody td {
-		@apply text-sm px-3 py-4 whitespace-nowrap;
+		/* NOTE: removed this to allow wrapping */
+		@apply text-sm px-3 py-4 align-top whitespace-nowrap lg:whitespace-normal;
 	}
 
 	.table-compact tbody td {

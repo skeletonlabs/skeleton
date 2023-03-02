@@ -129,7 +129,7 @@
 	<svelte:fragment slot="usage">
 		<p>
 			Create a set of Steps within the Stepper, then use the <code>on:complete</code> event to detect when all steps are complete. Since
-			horizontal space may be limited on small screens, we recommend no more than <u>five</u> steps at max.
+			horizontal space may be limited on small screens, we recommend no more than <em>five</em> steps at max.
 		</p>
 		<section class="space-y-4">
 			<h2>Event Handlers</h2>
