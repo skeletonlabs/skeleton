@@ -161,7 +161,7 @@
 									</div>
 								{:else if tabInterface === 2}
 									<!-- Setters -->
-									<CodeBlock language="ts" code={`import { setUserPrefers, setMode } from '@skeletonlabs/skeleton';`} />
+									<CodeBlock language="ts" code={`import { setModeUserPrefers, setModeCurrent } from '@skeletonlabs/skeleton';`} />
 									<div class="table-container">
 										<table class="table table-hover">
 											<thead>
