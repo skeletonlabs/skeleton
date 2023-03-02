@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { modeCurrent, setModeUserPrefers, setModeCurrent, setInitialClassState } from './lightswitch';
-
+	import { modeCurrent, setInitialClassState, setModeCurrent, setModeUserPrefers } from './lightswitch';
 	// Types
 	import type { CssClasses } from '$lib';
 	type OnKeyDownEvent = KeyboardEvent & { currentTarget: EventTarget & HTMLDivElement };
@@ -62,7 +61,7 @@
 </script>
 
 <svelte:head>
-	{@html `<script>${setInitialClassState.toString()} setInitialClassState();</script>`}
+	{@html `<script>(${setInitialClassState.toString()})();</script>`}
 </svelte:head>
 
 <div
