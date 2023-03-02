@@ -42,9 +42,9 @@ export interface DrawerSettings {
 	height?: string;
 
 	// --- Regions ---
-	/** Provide abitrary classes to the backdrop region. */
+	/** Provide arbitrary classes to the backdrop region. */
 	regionBackdrop?: string;
-	/** Provide abitrary classes to the drawer region. */
+	/** Provide arbitrary classes to the drawer region. */
 	regionDrawer?: string;
 
 	// --- A11y ---
