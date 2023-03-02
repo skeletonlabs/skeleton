@@ -70,6 +70,7 @@
 				<CodeBlock
 					language="ts"
 					code={`
+// PaginatorSettings
 let page = {
 	offset: 0,
 	limit: 5,
@@ -111,6 +112,21 @@ $: paginatedSource = source.slice(
 </ul>
 				`}
 			/>
+			<p>
+				Or combine with the <a href="/components/tables">Table</a> component.
+			</p>
+			<CodeBlock
+				language="ts"
+				code={`
+let tableHeaders: string[] = ['Positions', 'Name', 'Weight', 'Symbol'];
+`}
+			/>
+			<CodeBlock
+				language="html"
+				code={`
+<Table source={{ head: tableHeaders, body: paginatedSource }} />
+				`}
+			/>
 		</div>
 		<div class="space-y-4">
 			<h2>Server-Side Pagination</h2>
@@ -129,5 +145,14 @@ function onAmountChange(e: CustomEvent): void {
 			/>
 			<CodeBlock language="html" code={`<Paginator ... on:page={onPageChange} on:amount={onAmountChange}></Paginator>`} />
 		</div>
+		<hr />
+		<!-- See Also -->
+		<section class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+			<div class="space-y-2">
+				<h2>See Also</h2>
+				<p>Utilize a data-driven model to create simple presentational tables.</p>
+			</div>
+			<a class="btn variant-ghost-surface" href="/components/tables">Table Component &rarr;</a>
+		</section>
 	</svelte:fragment>
 </DocsShell>
