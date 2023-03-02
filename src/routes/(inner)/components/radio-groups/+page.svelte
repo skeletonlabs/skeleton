@@ -32,7 +32,7 @@
 
 	// Local
 	let justify: number = 0;
-	let alignment: string = 'horizontal';
+	let time: string = 'months';
 </script>
 
 <DocsShell {settings}>
@@ -85,8 +85,8 @@
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<RadioGroup active="variant-filled-primary" hover="hover:variant-soft-primary">
-						<RadioItem bind:group={alignment} name="alignment" value="horizontal">Hover</RadioItem>
-						<RadioItem bind:group={alignment} name="alignment" value="vertical">These</RadioItem>
+						<RadioItem bind:group={time} name="time" value="months">Months</RadioItem>
+						<RadioItem bind:group={time} name="time" value="years">Years</RadioItem>
 					</RadioGroup>
 				</svelte:fragment>
 				<svelte:fragment slot="source">

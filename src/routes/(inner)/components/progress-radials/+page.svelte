@@ -76,10 +76,15 @@
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="footer">
-					<div class="w-48 mx-auto"><input type="range" min="20" max={strokeProps.max} step={strokeProps.step} bind:value={strokeProps.value} /></div>
+					<div class="w-48 mx-auto">
+						<input type="range" min="20" max={strokeProps.max} step={strokeProps.step} bind:value={strokeProps.value} />
+					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<ProgressRadial value={${strokeProps.value}} meter="stroke-primary-500" track="stroke-primary-500/30" />`} />
+					<CodeBlock
+						language="html"
+						code={`<ProgressRadial ... stroke={${strokeProps.value}} meter="stroke-primary-500" track="stroke-primary-500/30" />`}
+					/>
 				</svelte:fragment>
 			</DocsPreview>
 		</section>

@@ -39,9 +39,8 @@
 	<svelte:fragment slot="sandbox">
 		<DocsPreview>
 			<svelte:fragment slot="preview">
-				<div class="w-full card p-4 text-token">
+				<div class="w-full max-w-[480px] card p-4 text-token">
 					<label for="" class="space-y-4">
-						<span>Single Selection</span>
 						<ListBox>
 							<ListBoxItem bind:group={valueSingle} name="medium" value="books">
 								<svelte:fragment slot="lead"><i class="fa-solid fa-book w-6 text-center" /></svelte:fragment>
@@ -90,25 +89,20 @@
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<section class="w-full card variant-soft p-4">
-						<label for="medium" class="space-y-4">
-							<span>Multiple Selection</span>
-							<ListBox active="variant-filled-primary" hover="hover:variant-soft-primary" multiple>
-								<ListBoxItem bind:group={valueMultiple} name="medium" value="books">
-									<svelte:fragment slot="lead"><i class="fa-solid fa-book w-6 text-center" /></svelte:fragment>
-									Books
-								</ListBoxItem>
-								<ListBoxItem bind:group={valueMultiple} name="medium" value="movies">
-									<svelte:fragment slot="lead"><i class="fa-solid fa-film w-6 text-center" /></svelte:fragment>
-									Movies
-								</ListBoxItem>
-								<ListBoxItem bind:group={valueMultiple} name="medium" value="television">
-									<svelte:fragment slot="lead"><i class="fa-solid fa-tv w-6 text-center" /></svelte:fragment>
-									Television
-								</ListBoxItem>
-							</ListBox>
-						</label>
-					</section>
+					<ListBox active="variant-filled-primary" hover="hover:variant-soft-primary" multiple class="w-full max-w-[480px]">
+						<ListBoxItem bind:group={valueMultiple} name="medium" value="books">
+							<svelte:fragment slot="lead"><i class="fa-solid fa-book w-6 text-center" /></svelte:fragment>
+							Books
+						</ListBoxItem>
+						<ListBoxItem bind:group={valueMultiple} name="medium" value="movies">
+							<svelte:fragment slot="lead"><i class="fa-solid fa-film w-6 text-center" /></svelte:fragment>
+							Movies
+						</ListBoxItem>
+						<ListBoxItem bind:group={valueMultiple} name="medium" value="television">
+							<svelte:fragment slot="lead"><i class="fa-solid fa-tv w-6 text-center" /></svelte:fragment>
+							Television
+						</ListBoxItem>
+					</ListBox>
 				</svelte:fragment>
 				<svelte:fragment slot="footer">
 					<div class="text-center"><code>Selected: {valueMultiple.length ? valueMultiple : 'None'}</code></div>
@@ -150,7 +144,7 @@
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<select class="select w-full" size="4" value="1">
+					<select class="select w-full max-w-[480px]" size="4" value="1">
 						<option value="1">Option 1</option>
 						<option value="2">Option 2</option>
 						<option value="3">Option 3</option>
