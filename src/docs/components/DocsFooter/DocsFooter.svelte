@@ -6,7 +6,7 @@
 	import DocsLogoIcon from '$docs/components/DocsLogos/DocsLogoIcon.svelte';
 
 	// Base Classes
-	const cBase = 'bg-surface-100-800-token text-xs md:text-base mx-auto px-4 py-8 md:p-10 space-y-10';
+	const cBase = 'bg-neutral-50 dark:bg-neutral-900 text-xs md:text-base mx-auto px-4 py-8 md:p-10 space-y-10';
 	const cRowOne = 'flex flex-col md:flex-row justify-between items-center md:items-start space-y-5 md:space-y-0';
 	const cRowTwo = 'flex flex-col md:flex-row justify-between items-center md:items-start space-y-4 md:space-y-0';
 </script>
@@ -48,7 +48,7 @@
 		</div>
 	</section>
 
-	<hr />
+	<hr class="opacity-20" />
 
 	<!-- Row 2 -->
 	<section class={cRowTwo}>
