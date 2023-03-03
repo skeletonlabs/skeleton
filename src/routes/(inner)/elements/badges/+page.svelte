@@ -61,7 +61,7 @@
 					<span class="badge-icon variant-filled"><i class="fa-solid fa-skull" /></span>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<span class="badge-icon variant-filled"> <i class="fa-solid fa-skull" /> </span>`} />
+					<CodeBlock language="html" code={`<span class="badge-icon variant-filled"> (icon) </span>`} />
 				</svelte:fragment>
 			</DocsPreview>
 			<section class="space-y-4">
