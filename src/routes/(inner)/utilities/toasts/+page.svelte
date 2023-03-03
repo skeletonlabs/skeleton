@@ -146,7 +146,7 @@ const t: ToastSettings = {
 	message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit...',
 };
 toastStore.trigger(t);
-				`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -167,7 +167,7 @@ const t: ToastSettings = {
 	}
 };
 toastStore.trigger(t);
-				`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -190,7 +190,7 @@ const t: ToastSettings = {
 	toastStore.trigger(t);
 };
 toastStore.trigger(t);
-				`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -213,7 +213,7 @@ const t: ToastSettings = {
 	toastStore.trigger(t);
 };
 toastStore.trigger(t);
-				`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -252,7 +252,7 @@ const t: ToastSettings = {
 	// Provide any utility or variant background style:
 	background: 'variant-filled-warning',
 };
-					`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -274,7 +274,7 @@ const t: ToastSettings = {
 	// Add your custom classes here:
 	classes: 'border-4 border-purple-500'
 };
-					`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -296,7 +296,7 @@ const t: ToastSettings = {
 		if (response.status === 'closed') console.log('Toast was closed!');
 	}
 };
-			`}
+`}
 			/>
 		</section>
 	</svelte:fragment>
