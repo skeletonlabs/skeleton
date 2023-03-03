@@ -425,7 +425,7 @@ modalStore.trigger(d);
 				<AccordionItem>
 					<svelte:fragment slot="summary"><h3 data-toc-ignore>Accessing Metadata</h3></svelte:fragment>
 					<svelte:fragment slot="content">
-						<p>arbitrary metadata is available using <code>$modalStore[0].meta?.someKey</code>.</p>
+						<p>Arbitrary metadata is available using <code>$modalStore[0].meta?.someKey</code>.</p>
 					</svelte:fragment>
 				</AccordionItem>
 			</Accordion>
