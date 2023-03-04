@@ -1,16 +1,20 @@
-<div class="flex justify-center items-center gap-14">
+<div class="flex flex-col lg:flex-row justify-center items-center gap-10">
 	<div class="space-y-1">
 		<span class="block text-8xl font-bold">5k+</span>
-		<p class="block ">Weekly Downloads</p>
+		<p class="block opacity-50">Weekly Downloads</p>
 	</div>
-	<div class="border-l border-surface-500/50 h-20" />
+	<!-- --- -->
+	<div class="border-t lg:border-t-0 lg:border-l border-surface-500/50 w-20 lg:w-1 lg:h-20" />
+	<!-- --- -->
 	<div class="space-y-1">
 		<span class="block text-8xl font-bold">700+</span>
-		<p class="block ">Discord Members</p>
+		<p class="block opacity-50">Discord Members</p>
 	</div>
-	<div class="border-l border-surface-500/50 h-20" />
+	<!-- --- -->
+	<div class="border-t lg:border-t-0 lg:border-l border-surface-500/50 w-20 lg:w-1 lg:h-20" />
+	<!-- --- -->
 	<div class="space-y-1">
 		<span class="block text-8xl font-bold">1.4k+</span>
-		<p class="block ">GitHub Stars</p>
+		<p class="block opacity-50">GitHub Stars</p>
 	</div>
 </div>

@@ -32,6 +32,8 @@
 	export let padding: CssClasses = getContext('padding');
 	/** Provide classes to style each tab's box radius styles. */
 	export let rounded: CssClasses = getContext('rounded');
+	/** Provide classes to set the vertical spacing between items. */
+	export let spacing: CssClasses = getContext('spacing');
 
 	// Classes
 	const cBase = 'text-center cursor-pointer transition-colors duration-100';
@@ -52,7 +54,7 @@
 	$: selected = value === group;
 	$: classesActive = selected ? active : hover;
 	$: classesBase = `${cBase} ${flex} ${padding} ${rounded} ${classesActive} ${$$props.class ?? ''}`;
-	$: classesInterface = `${cInterface}`;
+	$: classesInterface = `${cInterface} ${spacing}`;
 
 	// RestProps
 	function prunedRestProps(): any {

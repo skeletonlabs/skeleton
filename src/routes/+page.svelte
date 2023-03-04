@@ -19,11 +19,8 @@
 	async function fetchHttpData(url: string, key?: string): Promise<any> {
 		const http = await fetch(url);
 		const res = await http.json();
-		if (http.ok) {
-			return key ? res[key] : res;
-		} else {
-			throw new Error(res);
-		}
+		if (http.ok) return key ? res[key] : res;
+		throw new Error(res);
 	}
 	let contributors: Promise<any> = fetchHttpData('https://api.github.com/repos/skeletonlabs/skeleton/contributors');
 </script>
@@ -128,8 +125,7 @@
 	/* prettier-ignore */
 	.sponsors-gradient {
 		background-image:
-		radial-gradient(at 41% 55%, rgba(var(--color-error-500) /  0.17) 0px, transparent 50%),
-		radial-gradient(at 0% 99%, rgba(var(--color-secondary-500) /  0.23) 0px, transparent 50%),
+		radial-gradient(at 0% 99%, rgba(var(--color-error-500) /  0.23) 0px, transparent 50%),
 		radial-gradient(at 100% 100%, rgba(var(--color-primary-500) /  0.19) 0px, transparent 50%);
 	}
 	/* Radial */

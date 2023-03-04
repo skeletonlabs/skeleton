@@ -2,18 +2,21 @@
 	import Avatar from '$lib/components/Avatar/Avatar.svelte';
 </script>
 
-<div class="flex justify-center items-center gap-4 md:gap-10 place-items-center">
+<div class="flex flex-col lg:flex-row justify-center items-center gap-4 md:gap-10 place-items-center">
 	<!-- Premium Sponsors -->
-	<Avatar
-		src="https://pbs.twimg.com/profile_images/1504272980687441922/pkVimygY_400x400.png"
-		width="w-full max-w-[200px]"
-		background="bg-neutral-900"
-	/>
-	<Avatar src="https://i.imgur.com/ySBlLmQ.png" width="w-full max-w-[200px]" />
+	<div class="grid grid-cols-2 gap-4 md:gap-10">
+		<Avatar
+			src="https://pbs.twimg.com/profile_images/1504272980687441922/pkVimygY_400x400.png"
+			width="w-full max-w-[180px]"
+			background="bg-neutral-900"
+			shadow="shadow-xl"
+		/>
+		<Avatar src="https://i.imgur.com/ySBlLmQ.png" width="w-full max-w-[180px]" shadow="shadow-xl" />
+	</div>
 	<!-- Info -->
-	<div class="col-span-2 space-y-4">
+	<div class="space-y-4">
 		<h2>Help Support Skeleton.</h2>
-		<p>
+		<p class="max-w-[480px]">
 			Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque dolorem provident quasi illo, nostrum autem. Culpa eius error
 			modi odit veritatis? Quaerat exercitationem repellat.
 		</p>
