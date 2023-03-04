@@ -69,7 +69,7 @@
 		<!-- Community Owned -->
 		<h3>Community Owned</h3>
 		<!-- prettier-ignore -->
-		<p>Skeleton is maintained by a number of talented <a href="https://github.com/skeletonlabs/skeleton/graphs/contributors" target="_blank" rel="noreferrer">contributors</a>. If you wish to <a href="/docs/contributing">contribute to the project</a> you are welcome to do so. Visit the Skeleton communities on either <a href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer">GitHub</a> or <a href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer">Discord</a>.</p>
+		<p>Skeleton is maintained by a number of talented <a href="https://github.com/skeletonlabs/skeleton/graphs/contributors" target="_blank" rel="noreferrer">contributors</a>. If you wish to <a href="/docs/contributing">contribute to the project</a>, you are welcome to do so. Visit the Skeleton communities on either <a href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer">GitHub</a> or <a href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer">Discord</a>.</p>
 		<!-- Theme System -->
 		<h3>Theme System</h3>
 		<p>
@@ -80,9 +80,10 @@
 		<!-- Design Tokens -->
 		<h3>Design Tokens</h3>
 		<p>
-			A special set of CSS classes that ingest your theme settings for easy reuse throughout your design system. These are used as the
-			default settings for most features within Skeleton, meaning your UI elements automatically adjust to theme changes. Likewise, these
-			tokens are available to you, meaning you can build custom components using the same tools we do, for a truly cohesive look and feel.
+			These tokens are a special set of CSS classes that ingest your theme settings for easy reuse throughout your design system. They are
+			used as the default settings for most features within Skeleton, meaning your UI elements automatically adjust to theme changes.
+			Likewise, these tokens are available to you, meaning you can build custom components using the same tools we do, for a truly cohesive
+			look and feel.
 		</p>
 		<!-- Release Cycle -->
 		<h3>Release Cycle</h3>
@@ -105,7 +106,7 @@
 				<svelte:fragment slot="content">
 					<a href="https://tailwindui.com/" target="_blank" rel="noreferrer">https://tailwindui.com/</a>
 					<p>
-						A library of UI elements created by the creators of Tailwind CSS. This provides a huge library of turnkey HTML/CSS components.
+						A library of UI elements designed by the creators of Tailwind CSS. This provides a huge library of turnkey HTML/CSS components.
 						Currently Tailwind UI supports three options: HTML, React, and Vue. This means there's no plug and play solution for Svelte. You
 						will need to generate your own components and build your own logic around these. Tailwind UI can be directly integrated with
 						Skeleton though, providing tight integration with Skeleton's theme and design token systems.
@@ -122,8 +123,8 @@
 						and opinionated design aesthetic and serves as a general purpose library, which means it can be used within any framework, while
 						providing framework-specific variations like <a href="https://flowbite-svelte.com/" target="_blank" rel="noreferrer"
 							>Flowbite Svelte</a
-						>. Flowbite's HTML/CSS elements can be directly integrated with Skeleton though, providing tight integration with Skeleton's
-						theme and design token systems.
+						>. Flowbite's HTML/CSS elements can be directly integrated with Skeleton, providing tight integration with Skeleton's theme and
+						design token systems.
 					</p>
 					<a class="btn variant-filled-secondary" href="/blog/skeleton-plus-flowbite" target="_blank"> View our Integration Guide </a>
 				</svelte:fragment>
@@ -133,11 +134,9 @@
 				<svelte:fragment slot="content">
 					<a href="https://daisyui.com/" target="_blank" rel="noreferrer">https://daisyui.com/</a>
 					<p>
-						Daisy can be compared to Skeleton due to our shared use of Tailwind CSS and highly customizable theme systems. Unfortunately,
-						Daisy themes rely on hex color values which <a
-							href="https://tailwindcss.com/docs/customizing-colors#using-css-variables"
-							target="_blank"
-							rel="noreferrer">prevents the use of the opacity modifier syntax</a
+						Like Skeleton, Daisy uses Tailwind CSS and highly customizable theme systems. Unfortunately, Daisy themes rely on hex color
+						values which <a href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank" rel="noreferrer"
+							>prevents the use of the opacity modifier syntax</a
 						>. Skeleton, on the other hand, treats utility classes as first class citizens, providing hooks to set and override Tailwind
 						classes within each component. Skeleton components also accept arbitrary classes, allowing full customization from top to
 						bottom. However, it’s worth noting that Daisy is a general purpose library available to any framework, while Skeleton focuses
