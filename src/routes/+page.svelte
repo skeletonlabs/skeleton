@@ -1,9 +1,5 @@
 <script lang="ts">
-	// Docs
-	// import DocsLogoAnim from '$docs/components/DocsLogos/DocsLogoAnim.svelte';
-	// import DocsIcon from '$docs/components/DocsIcon/DocsIcon.svelte';
 	// Components
-	import Avatar from '$lib/components/Avatar/Avatar.svelte';
 	import HomeFeatures from './home-partials/HomeFeatures.svelte';
 	// Page Partials
 	import HomeHero from './home-partials/HomeHero.svelte';
