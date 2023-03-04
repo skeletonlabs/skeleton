@@ -12,11 +12,13 @@
 	 */
 	export let value: number | undefined = undefined; // %
 	/** Sets the base stroke width. Scales responsively. */
-	export let stroke = 20; // px
+	export let stroke = 40; // px
 	/** Sets the base font size. Scales responsively. */
 	export let font = 56; // px
 
 	// Props (styles)
+	/** Provide classes to set the width. */
+	export let width: CssClasses = 'w-36';
 	/** Provide classes to set meter color. */
 	export let meter: CssClasses = 'stroke-surface-900 dark:stroke-surface-50';
 	/** Provide classes to set track color. */
@@ -55,7 +57,7 @@
 	});
 
 	// Reactive
-	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
+	$: classesBase = `${cBase} ${width} ${$$props.class ?? ''}`;
 </script>
 
 <figure

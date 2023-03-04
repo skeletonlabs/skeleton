@@ -147,8 +147,10 @@
 	.variant-glass-error {
 		@apply bg-error-500/20 dark:bg-error-500/20 backdrop-blur-lg;
 	}
-	.variant-glass,
 	.variant-glass-surface {
 		@apply bg-surface-500/20 dark:bg-surface-500/20 backdrop-blur-lg;
+	}
+	.variant-glass {
+		@apply bg-surface-50/30 dark:bg-surface-900/30 backdrop-blur-lg;
 	}
 }

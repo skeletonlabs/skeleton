@@ -1,5 +1,5 @@
 // Design Tokens: Background
-// Doc: https://www.skeleton.dev/elements/tokens
+// Doc: https://www.skeleton.dev/docs/tokens
 
 const settings = require('../settings.cjs');
 

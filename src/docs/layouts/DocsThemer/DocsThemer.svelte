@@ -8,16 +8,20 @@
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import LightSwitch from '$lib/utilities/LightSwitch/LightSwitch.svelte';
 	import Swatch from './Swatch.svelte';
+
 	// Utilities
 	import { localStorageStore } from '$lib/utilities/LocalStorageStore/LocalStorageStore';
+	import { popup } from '$lib/utilities/Popup/popup';
 
 	// Local Utils
 	import { storePreview } from './stores';
 	import type { ColorSettings, FormTheme } from './types';
 	import { inputSettings, fontSettings } from './settings';
-	import { type Palette, generatePalette, generateA11yOnColor } from './colors';
+	import { type Palette, generatePalette, generateA11yOnColor, getPassReport } from './colors';
+	import type { PopupSettings } from '$lib/utilities/Popup/types';
 
 	// Stores
+	/* @ts-ignore */
 	const storeThemGenForm: Writable<FormTheme> = localStorageStore('storeThemGenForm', {
 		colors: [
 			{ key: 'primary', label: 'Primary', hex: '#0FBA81', rgb: '0 0 0', on: '0 0 0' },
@@ -74,6 +78,11 @@
 		}
 	}
 
+	const tooltipSettings: Omit<PopupSettings, 'target'> = {
+		event: 'hover',
+		placement: 'top'
+	};
+
 	// Reactive
 	$: if ($storeThemGenForm) {
 		cssOutput = `
@@ -106,9 +115,9 @@
 <svelte:head>{@html livePreviewStylesheet}</svelte:head>
 
 <div class="docs-themer space-y-4">
-	<div class="card variant-glass-surface p-4 flex justify-between items-center">
-		<span>Live Preview Mode</span>
-		<SlideToggle name="preview" size="lg" bind:checked={$storePreview} on:change={onPreviewToggle} />
+	<div class="card variant-glass p-4 flex justify-between items-center">
+		<h2>Enable Preview</h2>
+		<SlideToggle name="preview" bind:checked={$storePreview} on:change={onPreviewToggle} />
 	</div>
 	<div class="grid grid-cols-2 gap-4">
 		<!-- Theme Color -->
@@ -116,15 +125,15 @@
 			<!-- General Settings -->
 			<header class="p-4 col-span-2 flex justify-between items-center">
 				<div class="flex items-center space-x-4">
-					<h3>Colors</h3>
 					<LightSwitch />
 				</div>
 				<button class="btn variant-ghost-surface" on:click={randomize} disabled={!$storePreview}>Randomize Colors</button>
 			</header>
 			<hr />
 			<div class="p-4 grid grid-cols-1 gap-4">
-				{#each $storeThemGenForm.colors as colorRow}
-					<div class="grid grid-cols-1 lg:grid-cols-[170px_1fr_160px] gap-2 lg:gap-4">
+				{#each $storeThemGenForm.colors as colorRow, i}
+					{@const contrastReport = getPassReport($storeThemGenForm.colors[i].hex, $storeThemGenForm.colors[i].on)}
+					<div class="grid grid-cols-1 lg:grid-cols-[170px_1fr_200px] gap-2 lg:gap-4">
 						<label class="label">
 							<span>{colorRow.label}</span>
 							<div class="grid grid-cols-[auto_1fr] gap-4 place-items-end">
@@ -133,11 +142,44 @@
 							</div>
 						</label>
 						<Swatch color={colorRow.key} />
-						<label class="label">
+						<label>
 							<span>Text & Fill Color</span>
-							<select class="select" bind:value={colorRow.on} disabled={!$storePreview}>
-								{#each inputSettings.colorProps as c}<option value={c.value}>{c.label}</option>{/each}
-							</select>
+							<div class="flex">
+								<!-- Trigger -->
+								<div class="input-group input-group-divider grid-cols-[1fr_auto]">
+									<!-- Select -->
+									<select bind:value={colorRow.on} disabled={!$storePreview}>
+										{#each inputSettings.colorProps as c}<option value={c.value}>{c.label}</option>{/each}
+									</select>
+									<!-- Badge -->
+									{#if $storePreview}
+										<div
+											class="input-group-shim !px-3"
+											use:popup={{ ...tooltipSettings, ...{ target: 'popup-' + i } }}
+											class:!text-stone-900={contrastReport.fails}
+											class:!bg-red-500={contrastReport.fails}
+											class:!text-zinc-900={contrastReport.largeAA}
+											class:!bg-amber-500={contrastReport.largeAA}
+											class:!text-slate-900={contrastReport.smallAAA || contrastReport.smallAA}
+											class:!bg-green-500={contrastReport.smallAAA || contrastReport.smallAA}
+										>
+											{@html contrastReport.report.emoji}
+										</div>
+									{/if}
+								</div>
+								<!-- Popup -->
+								<div
+									data-popup={'popup-' + i}
+									class="text-xs card variant-filled p-2 whitespace-nowrap"
+									class:!variant-filled-red-500={contrastReport.fails}
+									class:!variant-filled-amber-500={contrastReport.largeAA}
+									class:!variant-filled-green-500={contrastReport.smallAAA || contrastReport.smallAA}
+								>
+									{contrastReport.report.note}
+									<!-- Arrow -->
+									<div class="arrow variant-filled" />
+								</div>
+							</div>
 						</label>
 					</div>
 				{/each}
@@ -147,7 +189,7 @@
 		<!-- Theme Settings -->
 		<section class="card p-4 grid grid-cols-2 gap-4 col-span-2 lg:col-span-1">
 			<!-- Fonts -->
-			<h3 class="col-span-2">Fonts</h3>
+			<h3 class="col-span-2" data-toc-ignore>Fonts</h3>
 			<label class="label">
 				<span>Base</span>
 				<select class="select" bind:value={$storeThemGenForm.fontBase} disabled={!$storePreview}>
@@ -161,7 +203,7 @@
 				</select>
 			</label>
 			<!-- Text Color -->
-			<h3 class="col-span-2">Text Color</h3>
+			<h3 class="col-span-2" data-toc-ignore>Text Color</h3>
 			<label class="label">
 				<span>Light Mode</span>
 				<select class="select" bind:value={$storeThemGenForm.textColorLight} disabled={!$storePreview}>
@@ -175,7 +217,7 @@
 				</select>
 			</label>
 			<!-- Border Radius -->
-			<h3 class="col-span-2">Border Radius</h3>
+			<h3 class="col-span-2" data-toc-ignore>Border Radius</h3>
 			<label class="label">
 				<span>Base</span>
 				<select class="select" bind:value={$storeThemGenForm.roundedBase} disabled={!$storePreview}>
@@ -190,7 +232,7 @@
 				</select>
 			</label>
 			<!-- Border Size -->
-			<h3 class="col-span-2">Border Size</h3>
+			<h3 class="col-span-2" data-toc-ignore>Border Size</h3>
 			<label class="label">
 				<span>Base</span>
 				<select class="select" bind:value={$storeThemGenForm.borderBase} disabled={!$storePreview}>
@@ -200,8 +242,8 @@
 		</section>
 
 		<!-- Previews -->
-		<section class="card !bg-transparent p-4 space-y-8 col-span-2 lg:col-span-1">
-			<h3>Preview</h3>
+		<section class="card variant-glass p-4 space-y-8 col-span-2 lg:col-span-1">
+			<h3 data-toc-ignore>Preview</h3>
 			<!-- Buttons -->
 			<div class="grid grid-cols-3 gap-4">
 				<button class="btn variant-filled-primary">primary</button>
@@ -214,9 +256,9 @@
 			<hr class="opacity-50" />
 			<!-- Progress Bars -->
 			<div class="grid grid-cols-1 gap-4">
-				<ProgressBar meter="bg-primary-500" value={66} max={100} />
-				<ProgressBar meter="bg-secondary-500" value={50} max={100} />
-				<ProgressBar meter="bg-tertiary-500" value={33} max={100} />
+				<ProgressBar meter="bg-primary-500" track="bg-primary-500/20" value={66} max={100} />
+				<ProgressBar meter="bg-secondary-500" track="bg-secondary-500/20" value={50} max={100} />
+				<ProgressBar meter="bg-tertiary-500" track="bg-tertiary-500/20" value={33} max={100} />
 			</div>
 			<hr class="opacity-50" />
 			<!-- Badges -->
@@ -233,9 +275,9 @@
 			<hr class="opacity-50" />
 			<!-- Slide Toggles -->
 			<div class="grid grid-cols-4 gap-4 place-items-center">
-				<SlideToggle name="exampeSliderOne" active="bg-surface-500" checked />
-				<SlideToggle name="exampeSliderTwo" active="bg-primary-500" checked />
 				<SlideToggle name="exampeSliderThree" checked />
+				<SlideToggle name="exampeSliderOne" active="bg-primary-500" checked />
+				<SlideToggle name="exampeSliderTwo" active="bg-secondary-500" checked />
 				<SlideToggle name="exampeSliderFour" active="bg-tertiary-500" checked />
 			</div>
 		</section>
@@ -243,7 +285,7 @@
 		<!-- CSS Output -->
 		<footer class="col-span-2 space-y-4">
 			{#if showThemeCSS}<CodeBlock language="css" code={cssOutput} />{/if}
-			<div class="card variant-glass-surface p-4 text-center">
+			<div class="card variant-glass p-4 text-center">
 				<!-- prettier-ignore -->
 				<button class="btn btn-lg variant-filled-primary font-bold" on:click={() => { showThemeCSS = !showThemeCSS; }} disabled={!$storePreview}>
 					{!showThemeCSS ? 'Show' : 'Hide'} Theme CSS

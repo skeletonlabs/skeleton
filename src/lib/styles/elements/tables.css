@@ -60,15 +60,16 @@
 	}
 
 	.table tbody td {
-		@apply text-sm px-4 py-2 md:py-3 xl:py-4 whitespace-nowrap;
+		/* NOTE: removed this to allow wrapping */
+		@apply text-sm px-3 py-4 align-top whitespace-nowrap lg:whitespace-normal;
 	}
 
 	.table-compact tbody td {
-		@apply py-1 md:py-2 xl:py-3;
+		@apply !py-3;
 	}
 
 	.table-comfortable tbody td {
-		@apply py-3 md:py-4 xl:py-8;
+		@apply !py-5;
 	}
 
 	/* === Table Foot === */

@@ -1,6 +1,6 @@
 // The Skeleton Intellisense Tailwind Plugin
 // Tailwind Docs: https://tailwindcss.com/docs/plugins
-// Skeleton Docs: https://www.skeleton.dev/guides/tailwind
+// Skeleton Docs: https://www.skeleton.dev/docs/get-started
 
 const plugin = require('tailwindcss/plugin');
 
@@ -16,6 +16,6 @@ module.exports = plugin(({ addComponents }) => {
 				respectImportant: true,
 				respectPrefix: true
 			});
-		} catch {}
+		} catch { }
 	}
 });
