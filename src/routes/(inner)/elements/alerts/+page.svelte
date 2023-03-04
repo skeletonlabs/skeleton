@@ -11,7 +11,7 @@
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Element,
 		name: 'Alerts',
-		description: 'Display customizable alerts to attract attention and provide critical actions.',
+		description: 'Displays customizable alerts to attract attention and provide critical actions.',
 		stylesheetIncludes: ['all', 'elements'],
 		stylesheets: ['elements/alerts'],
 		source: 'styles/elements/alerts.css',
