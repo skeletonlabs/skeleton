@@ -122,7 +122,7 @@ let popupSettings: PopupSettings = {
 	// Provide a matching 'data-popup' value.
 	target: 'examplePopup'
 };
-			`}
+`}
 				/>
 				<p>Apply the <code>use:popup</code> action to your trigger element.</p>
 				<CodeBlock language="html" code={`<button ... use:popup={popupSettings}>Trigger</button>`} />
@@ -139,7 +139,7 @@ let popupSettings: PopupSettings = {
 	<!-- Append the arrow element -->
 	<div class="arrow variant-filled-secondary" />
 </div>
-			`}
+`}
 				/>
 			</svelte:fragment>
 		</DocsPreview>
@@ -166,7 +166,7 @@ let popupSettings: PopupSettings = {
 				<Tab bind:group={tabSettings} name="settings" value={0}>Placement</Tab>
 				<Tab bind:group={tabSettings} name="settings" value={1}>State</Tab>
 				<Tab bind:group={tabSettings} name="settings" value={2}>Close Query</Tab>
-				<Tab bind:group={tabSettings} name="settings" value={3}>Middlware</Tab>
+				<Tab bind:group={tabSettings} name="settings" value={3}>Middleware</Tab>
 				<!-- Tab Panels --->
 				<svelte:fragment slot="panel">
 					{#if tabSettings === 0}
@@ -181,7 +181,7 @@ let popupSettings: PopupSettings = {
 let popupSettings: PopupSettings = {
 	placement: 'bottom'
 };
-					`}
+`}
 						/>
 					{:else if tabSettings === 1}
 						<!-- State Handler -->
@@ -192,7 +192,7 @@ let popupSettings: PopupSettings = {
 let popupSettings: PopupSettings = {
 	state: (e) => console.log(e)
 };
-					`}
+`}
 						/>
 					{:else if tabSettings === 3}
 						<!-- Middlware -->
@@ -216,7 +216,7 @@ let popupSettings: PopupSettings = {
 		arrow: { ... }
 	}
 };
-					`}
+`}
 						/>
 					{:else if tabSettings === 2}
 						<!-- Close Query -->
@@ -229,7 +229,7 @@ let popupSettings: PopupSettings = {
 	// Limit to listbox items only:
 	closeQuery: '.listbox-item',
 };
-					`}
+`}
 						/>
 					{/if}
 				</svelte:fragment>
@@ -270,7 +270,7 @@ let popupCombobox: PopupSettings = {
 	// Close the popup when the item is clicked
 	closeQuery: '.listbox-item'
 };
-					`}
+`}
 					/>
 					<CodeBlock
 						language="html"
@@ -278,7 +278,7 @@ let popupCombobox: PopupSettings = {
 <button class="btn variant-filled w-48" use:popup={popupCombobox}>
 	{comboboxValue ?? 'Trigger'}
 </button>
-					`}
+`}
 					/>
 					<CodeBlock
 						language="html"
@@ -299,7 +299,7 @@ let popupCombobox: PopupSettings = {
 	<!-- Arrow -->
 	<div class="arrow bg-surface-100-800-token" />
 </div>
-					`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
