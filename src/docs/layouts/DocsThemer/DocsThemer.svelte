@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Writable } from 'svelte/store';
-
+	import chroma from 'chroma-js';
 	// Preview Components
 	import ProgressBar from '$lib/components/ProgressBar/ProgressBar.svelte';
 	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
@@ -47,7 +47,7 @@
 
 	function randomize(): void {
 		$storeThemGenForm.colors.forEach((_, i: number) => {
-			const randomHexCode = '#' + ((Math.random() * 0xffffff) << 0).toString(16).padStart(6, '0');
+			const randomHexCode = chroma.random().hex();
 			$storeThemGenForm.colors[i].hex = randomHexCode;
 			$storeThemGenForm.colors[i].on = generateA11yOnColor(randomHexCode);
 		});
