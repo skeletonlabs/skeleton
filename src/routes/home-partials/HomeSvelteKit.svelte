@@ -20,7 +20,7 @@
 			recusandae laudantium odit repellendus.
 		</p>
 		<!-- Options -->
-		<ListBox active="variant-filled-secondary" hover="hover:variant-soft-secondary" rounded="rounded-container-token" padding="!p-4">
+		<ListBox active="variant-filled" hover="hover:variant-soft" rounded="rounded-container-token" padding="!p-4">
 			<ListBoxItem bind:group={showcase} name="showcase" value="components">
 				<div class="space-y-2">
 					<h3>Components</h3>
