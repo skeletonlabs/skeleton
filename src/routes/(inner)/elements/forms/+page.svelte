@@ -437,13 +437,13 @@ module.exports = {
 					The column sizes are grid-based, via <a href="https://tailwindcss.com/docs/grid-template-columns#arbitrary-values" target="_blank" rel="noreferrer">Tailwind's abitrary column syntax</a>.
 				</li>
 				<li>
-					Descriptive segments (allowed on either side) allow for <code>div</code>, <code>button</code>, and anchor (<code>a</code>)
+					Descriptive segments (on either side) allow for <code>div</code>, <code>button</code>, and anchor (<code>a</code>)
 					elements.
 				</li>
 				<li>
-					The <code>.input-group-divider</code> is an optional class that applies vertical divider lines.
+					The <code>.input-group-divider</code> class applies vertical divider lines.
 				</li>
-				<li>The <code>.input-group-shim</code> class will apply subtle shading to a segment to draw more attention.</li>
+				<li>The <code>.input-group-shim</code> class applies subtle shading to a segment, to draw more attention.</li>
 			</ul>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
