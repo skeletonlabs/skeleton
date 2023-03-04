@@ -47,9 +47,10 @@
 
 	function randomize(): void {
 		$storeThemGenForm.colors.forEach((_, i: number) => {
-			const randomHexCode = chroma.random().hex();
-			$storeThemGenForm.colors[i].hex = randomHexCode;
-			$storeThemGenForm.colors[i].on = generateA11yOnColor(randomHexCode);
+			const randomColor = chroma.random().oklch();
+			const color = chroma.oklch(0.5, randomColor[1], randomColor[2]).hex();
+			$storeThemGenForm.colors[i].hex = color;
+			$storeThemGenForm.colors[i].on = generateA11yOnColor(color);
 		});
 	}
 
