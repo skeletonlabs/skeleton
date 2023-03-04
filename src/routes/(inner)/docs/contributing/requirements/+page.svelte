@@ -27,7 +27,7 @@
 		head: ['Path', 'Description'],
 		body: [
 			['<code>/src/docs</code>', 'Documentation-specific components and features, such as the theme generator.'],
-			['<code>/src/lib</code>', `Features and assets distributed with within the core library's and NPM package.`],
+			['<code>/src/lib</code>', `Features and assets distributed within the core library's and NPM package.`],
 			['<code>/src/routes</code>', 'Documentation pages for the public-facing documentation website, including this page.']
 		]
 	};
@@ -72,11 +72,11 @@
 			</li>
 			<li>Review with core contributors to define <strong>all requirements</strong> before you write your first line of code.</li>
 			<li>Follow our <strong>branch naming conventions</strong> described below.</li>
-			<li>Don't be afraid to submit a <strong>draft pull request</strong> early on to ensure your meeting our guidelines.</li>
+			<li>Don't be afraid to submit a <strong>draft pull request</strong> early on to ensure you're meeting our guidelines.</li>
 			<li>Run automated tests to confirm no regressions were introduced from your changes.</li>
 			<!-- prettier-ignore -->
 			<li>
-				Document your new ew feature or update per our <a href="/docs/contributions/documentation" target="_blank" rel="noreferrer"> documentation guidelines</a>.
+				Document your new feature or update per our <a href="/docs/contributing/documentation" target="_blank" rel="noreferrer"> documentation guidelines</a>.
 			</li>
 			<li>When ready, set your pull request to the "ready to review" state. Then be patient, we'll review asap.</li>
 			<li>If your PR meets all requirements it will be merged, otherwise feedback will be provided.</li>
