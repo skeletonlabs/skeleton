@@ -21,7 +21,7 @@
 		<div class="space-y-4">
 			<h2>Body Background</h2>
 			<p>
-				Your app background is automatically set for both light and dark mode via a design token class. Overwrite this to adjust as desired.
+				Your app's background is automatically set via a <a href="https://www.skeleton.dev/elements/tokens" target="_blank" rel="noreferrer">design token</a> class. Adjust your theme's color scheme to customize. This affects both light and dark mode.
 			</p>
 			<CodeBlock language="css" code={`body { @apply bg-surface-50-900-token; }`} />
 			<aside class="alert variant-ghost-warning">
@@ -37,7 +37,7 @@
 		<!-- Selection -->
 		<div class="space-y-4">
 			<h2>Selection</h2>
-			<p>Selection color is also set via a token class. Try selecting the text in the card element below to preview this.</p>
+			<p>Selection color is also set via a token class. Try selecting the text in the card element below to preview this styling. Notice how selection color changes depending on the background.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<p>The quick brown fox jumps over the lazy dog.</p>
@@ -53,7 +53,7 @@
 		<!-- Mobile Focus -->
 		<div class="space-y-4">
 			<h2>Mobile Focus</h2>
-			<p>Interactive elements on mobile will briefly show a focus style when touched. The coloring for this has been adjusted.</p>
+			<p>Interactive elements on mobile will briefly show a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus" target="_blank" rel="noreferrer"><code>focus</code></a> style when touched. Skeleton adjusts the coloring.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<button class="btn variant-soft">Tap Me</button>
@@ -67,8 +67,10 @@
 		<div class="space-y-4">
 			<h2>Scrollbars</h2>
 			<p>
-				Provides custom scrollbar styles in supported browsers. Use <code>.hide-scrollbar</code> to disable scrollbar styles for an element.
+				Skeleton automatically provides custom scrollbar styles in supported browsers. Use <code>.hide-scrollbar</code> to disable scrollbars.
 			</p>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
 			<div class="card p-4 max-h-[200px] overflow-auto space-y-4">
 				<h3 data-toc-ignore>Test Scrolling Here</h3>
 				<p>
@@ -97,11 +99,22 @@
 					necessitatibus, magni harum.
 				</p>
 			</div>
-		</div>
+		</svelte:fragment>
+		<svelte:fragment slot="source">
+			<CodeBlock language="html" code={`
+<div class="card p-4 max-h-[200px] overflow-auto space-y-4">
+	<h3 data-toc-ignore>Test Scrolling Here</h3>
+	<p>
+		Lorem ipsum, dolor sit...
+	</p>
+</div>			
+			`} />
+		</svelte:fragment>
+	</DocsPreview>
 		<!--Dividers -->
 		<div class="space-y-4">
 			<h2>Dividers</h2>
-			<p>Native horizontal rule elements will adapt to your theme settings automatically.</p>
+			<p>Native <code>hr</code> horizontal rule elements respect your theme settings automatically. You may make any Tailwind utility <a href="https://tailwindcss.com/docs/configuration#important-modifier" target="_blank" rel="noreferrer"> important</a> with the <code>!</code> character, as we do in this example.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full space-y-4">
@@ -130,7 +143,7 @@
 				</svelte:fragment>
 			</DocsPreview>
 			<h3>Divider Styling</h3>
-			<p>Examples of dashed / dotted / double are shown below.</p>
+			<p>Dividers may be dashed, dotted, or doubled.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full space-y-4">
@@ -151,7 +164,7 @@
 				</svelte:fragment>
 			</DocsPreview>
 			<h3>Vertical Dividers</h3>
-			<p>Use a <code>span</code> tag with the class of <code>.divider-vertical</code>. Adjust the height as desired.</p>
+			<p>Divide columns with the <code>.divider-vertical</code> class. You can apply it with a <code>span</code> tag. Adjust the <a href="https://tailwindcss.com/docs/height" target="_blank" rel="noreferrer">height</a> as desired.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full grid grid-cols-3 gap-4 place-items-center">
