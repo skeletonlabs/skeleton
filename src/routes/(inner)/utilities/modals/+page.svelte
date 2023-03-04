@@ -428,6 +428,16 @@ modalStore.trigger(d);
 						<p>Arbitrary metadata is available using <code>$modalStore[0].meta?.someKey</code>.</p>
 					</svelte:fragment>
 				</AccordionItem>
+				<AccordionItem>
+					<svelte:fragment slot="summary"><h3 data-toc-ignore>Standarize Modal Widths</h3></svelte:fragment>
+					<svelte:fragment slot="content">
+						<p>
+							View the <em>Classes</em> tab at the top of this page to view optional modal helper classes. These included
+							<code>.w-modal</code>,
+							<code>.w-modal-slim</code>, and <code>.w-modal-wide</code>, which represent standard, slim, and wide presets.
+						</p>
+					</svelte:fragment>
+				</AccordionItem>
 			</Accordion>
 		</section>
 		<section class="space-y-4">
