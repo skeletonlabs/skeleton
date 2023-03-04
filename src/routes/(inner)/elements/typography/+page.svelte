@@ -32,7 +32,6 @@
 						<p>
 							<a href="/" class="unstyled text-orange-500">This custom-styled link is orange.</a>
 						</p>
-						`
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
@@ -159,7 +158,7 @@
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<code>.myExampleClass</code>`} />
+					<CodeBlock language="html" code={`Press <kbd>⌘ + C</kbd> to copy.`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</div>
