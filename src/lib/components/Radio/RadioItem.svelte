@@ -5,9 +5,14 @@
 	import type { CssClasses } from '$lib';
 
 	// Props
-	/** Set the radio group binding value. */
+
+	/** Set the radio group binding value. 
+	 * @type {any}
+	*/
 	export let group: any;
-	/** Set a unique name value for the input. */
+	/** Set a unique name value for the input. 
+	 * @type {string}
+	*/
 	export let name: string;
 	/** Set the input's value. */
 	export let value: any;

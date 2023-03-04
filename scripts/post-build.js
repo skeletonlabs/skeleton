@@ -3,22 +3,6 @@ import { readFileSync, writeFileSync } from 'fs';
 import fs from 'fs'
 import ts from "typescript";
 
-//Put the exports field back into package.json so that monorepos can work again
-// let packageJson = readFileSync('package.json').toString();
-// packageJson = packageJson.slice(0, packageJson.lastIndexOf('}') - 1); //strip closing }
-// packageJson += `,
-// 	"exports": {
-// 		".": "./src/lib/index.ts",
-// 		"./themes/*": "./src/lib/themes/*",
-// 		"./styles/*": "./src/lib/styles/*",
-// 		"./tailwind/*": "./src/lib/tailwind/*"
-// 	}
-// }`;
-
-// writeFileSync('package.json', packageJson);
-// unlinkSync('./package/.gitignore'); // delete .gitignore file from built package
-
-
 // Adding JSDoc comments to emitted .d.ts files from the package process
 // First read in JSDocced props from the svelte components at src/lib/components/ and src/lib/utilities/ into a mapping object
 // There is some brittleness in the assumption of how many spaces are at the beginning of a line on the emitted files
@@ -132,5 +116,5 @@ function generateKeyWordsFromProps() {
 extractScriptsFromComponents('src/lib/components');
 extractScriptsFromComponents('src/lib/utilities');
 extractJSDocBlocks();
-// writeJSDocsToDefinitionFiles();
+writeJSDocsToDefinitionFiles();
 generateKeyWordsFromProps();

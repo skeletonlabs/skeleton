@@ -31,13 +31,16 @@ async function exec() {
 		console.error(e)
 	);
 
-	// A roundabout 'hack' to retrigger the tailwind extension to reload,
-	// otherwise we'd have to reload vscode manually.
-	await rename('tailwind.config.cjs', '.temp/tailwind.config.cjs');
-	// We need to sleep for a bit so that the change is detected
-	// by the extension's file watcher
-	await new Promise((resolve) => setTimeout(resolve, 3000));
-	await rename('.temp/tailwind.config.cjs', 'tailwind.config.cjs');
+	// any extra param here indicates that we are being called by the package script, otherwise argv.length is 2 by default
+	if (process.argv.length != 3) {
+		// A roundabout 'hack' to retrigger the tailwind extension to reload,
+		// otherwise we'd have to reload vscode manually.
+		await rename('tailwind.config.cjs', '.temp/tailwind.config.cjs');
+		// We need to sleep for a bit so that the change is detected
+		// by the extension's file watcher
+		await new Promise((resolve) => setTimeout(resolve, 3000));
+		await rename('.temp/tailwind.config.cjs', 'tailwind.config.cjs');
+	}
 }
 
 // Purges the generated CSS-in-JS file of duplicate TW classes
