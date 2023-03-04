@@ -39,9 +39,9 @@
 	<section class="space-y-4">
 		<h2>Our Vision</h2>
 		<p>
-			Skeleton aims to provide a seamless user experience by creating intelligent and adaptive UI elements that automatically conform to the unique aesthetic of your application.
-			It leverages native browser APIs and form elements, while also incorporating powerful components that follow WAI-ARIA guidelines for accessibility,
-			empowering developers to create user-friendly and inclusive web applications with ease.
+			Skeleton aims to provide a seamless user experience by creating intelligent and adaptive UI elements that automatically conform to the
+			unique aesthetic of your application. It leverages native browser APIs and form elements, while also incorporating powerful components
+			that follow WAI-ARIA guidelines for accessibility, empowering developers to create user-centric web applications with ease.
 		</p>
 		<p>
 			We're huge fans of Svelte and wish to contribute to this amazing ecosystem. We believe this only happens through contributions of high
@@ -49,7 +49,8 @@
 		</p>
 		<p>
 			Finally, we aim for inclusion, whether you're a contributor to the project, a consumer, or the end user. The Skeleton core team is not
-			a faceless corporate entity, but rather a small group of individuals motivated to make accessible UI with great UX (and DX!) for all.
+			a faceless corporate entity, but rather a small group of individuals motivated to make accessible UI with great UX (user experience)
+			and DX (developer experience) for all.
 		</p>
 	</section>
 
@@ -80,9 +81,8 @@
 		<h3>Design Tokens</h3>
 		<p>
 			A special set of CSS classes that ingest your theme settings for easy reuse throughout your design system. These are used as the
-			default settings for most features within Skeleton, meaning your UI elements automatically adjust to theme changes. Likewise,
-			these tokens are available to you, meaning you can build custom components using the same tools we do, for a truly cohesive look and
-			feel.
+			default settings for most features within Skeleton, meaning your UI elements automatically adjust to theme changes. Likewise, these
+			tokens are available to you, meaning you can build custom components using the same tools we do, for a truly cohesive look and feel.
 		</p>
 		<!-- Release Cycle -->
 		<h3>Release Cycle</h3>
@@ -122,8 +122,8 @@
 						and opinionated design aesthetic and serves as a general purpose library, which means it can be used within any framework, while
 						providing framework-specific variations like <a href="https://flowbite-svelte.com/" target="_blank" rel="noreferrer"
 							>Flowbite Svelte</a
-						>. Flowbite's HTML/CSS elements can be directly integrated with Skeleton though, providing tight integration with Skeleton's theme
-						and design token systems.
+						>. Flowbite's HTML/CSS elements can be directly integrated with Skeleton though, providing tight integration with Skeleton's
+						theme and design token systems.
 					</p>
 					<a class="btn variant-filled-secondary" href="/blog/skeleton-plus-flowbite" target="_blank"> View our Integration Guide </a>
 				</svelte:fragment>
@@ -206,7 +206,8 @@
 				<svelte:fragment slot="content">
 					<p>
 						We recommend the official <a href="https://svelte.dev/docs" target="_blank" rel="noreferrer">documentation</a> and
-						<a href="https://learn.svelte.dev/tutorial/welcome-to-svelte" target="_blank" rel="noreferrer">tutorial</a> for Svelte and SvelteKit. As well as the official
+						<a href="https://learn.svelte.dev/tutorial/welcome-to-svelte" target="_blank" rel="noreferrer">tutorial</a> for Svelte and
+						SvelteKit. As well as the official
 						<a href="https://kit.svelte.dev/" target="_blank" rel="noreferrer">documentation</a> for SvelteKit.
 					</p>
 				</svelte:fragment>
