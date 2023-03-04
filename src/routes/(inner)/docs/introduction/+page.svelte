@@ -39,9 +39,9 @@
 	<section class="space-y-4">
 		<h2>Our Vision</h2>
 		<p>
-			The goal of Skeleton is to create intelligent, adaptive UI that automatically adheres to your applications unique aesthetic.
-			Utilizing native browser APIs and elements, such as form elements, when possible.
-			While also augmenting this with powerful components built to follow WAI-ARIA guidelines for accessibility.
+			Skeleton aims to provide a seamless user experience by creating intelligent and adaptive UI elements that automatically conform to the unique aesthetic of your application.
+			It leverages native browser APIs and form elements, while also incorporating powerful components that follow WAI-ARIA guidelines for accessibility,
+			empowering developers to create user-friendly and inclusive web applications with ease.
 		</p>
 		<p>
 			We're huge fans of Svelte and wish to contribute to this amazing ecosystem. We believe this only happens through contributions of high
