@@ -169,7 +169,7 @@
 		<!-- prettier-ignore -->
 		<aside class="alert alert-message variant-ghost-warning">
 			<p>
-				This feature uses a <a href="https://en.wikipedia.org/wiki/Singleton_pattern" target="_blank" rel="noreferrer">Singleton pattern</a>, meaning you should aim to implement a <u>single instance of the component per project</u>, but it will remain globally scoped
+				This feature uses the <a href="https://en.wikipedia.org/wiki/Singleton_pattern" target="_blank" rel="noreferrer">Singleton pattern</a>, meaning you should aim to implement a <u>single instance of the component per project</u>, but it will remain globally scoped
 				and reusable via a Svelte writable store. Do not reimplement this component for each route page.
 			</p>
 		</aside>
@@ -199,7 +199,7 @@ const alert: ModalSettings = {
 	image: 'https://i.imgur.com/WOgTG96.gif',
 };
 modalStore.trigger(alert);
-						`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -221,7 +221,7 @@ const confirm: ModalSettings = {
 	response: (r: boolean) => console.log('response:', r),
 };
 modalStore.trigger(confirm);
-						`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -246,7 +246,7 @@ const prompt: ModalSettings = {
 	response: (r: string) => console.log('response:', r),
 };
 modalStore.trigger(prompt);
-						`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -256,7 +256,7 @@ modalStore.trigger(prompt);
 			<CodeBlock language="ts" code={`modalStore.close();`} />
 			<!-- Clear -->
 			<h3>Clear</h3>
-			<p>Trigger the <code>clear()</code> method completely empty the modal queue.</p>
+			<p>Trigger the <code>clear()</code> method to completely empty the modal queue.</p>
 			<CodeBlock language="ts" code={`modalStore.clear();`} />
 		</section>
 		<!-- Modal Settings -->
@@ -268,7 +268,7 @@ modalStore.trigger(prompt);
 				language="ts"
 				code={`
 const d: ModalSettings = {\n
-	// Provide abitrary classes to the backdrop and modal elements:
+	// Provide arbitrary classes to the backdrop and modal elements:
 	backdropClasses: '!bg-green-500',
 	modalClasses: '!bg-red-500',\n
 	// Provide arbitrary metadata to your modal instance:
@@ -331,7 +331,7 @@ const modalComponentRegistry: Record<string, ModalComponent> = {\n
 									`}
 								/>
 								<CodeBlock language="html" code={`<Modal components={modalComponentRegistry} />`} />
-								<p>When triggeing a component, pass <code>component: string</code>, where the value represents the registry object key.</p>
+								<p>When triggering a component, pass <code>component: string</code>, where the value represents the registry object key.</p>
 								<CodeBlock
 									language="ts"
 									code={`
@@ -362,7 +362,7 @@ const modalComponent: ModalComponent = {
 									`}
 								/>
 								<p>
-									When triggeing a component, pass the <code>component: ModalComponent</code> directly to <code>ModalSettings</code>.
+									When triggering a component, pass the <code>component: ModalComponent</code> directly to <code>ModalSettings</code>.
 								</p>
 								<CodeBlock
 									language="ts"
@@ -425,7 +425,17 @@ modalStore.trigger(d);
 				<AccordionItem>
 					<svelte:fragment slot="summary"><h3 data-toc-ignore>Accessing Metadata</h3></svelte:fragment>
 					<svelte:fragment slot="content">
-						<p>Abitrary metadata is available using <code>$modalStore[0].meta?.someKey</code>.</p>
+						<p>Arbitrary metadata is available using <code>$modalStore[0].meta?.someKey</code>.</p>
+					</svelte:fragment>
+				</AccordionItem>
+				<AccordionItem>
+					<svelte:fragment slot="summary"><h3 data-toc-ignore>Standarize Modal Widths</h3></svelte:fragment>
+					<svelte:fragment slot="content">
+						<p>
+							View the <em>Classes</em> tab at the top of this page to view optional modal helper classes. These included
+							<code>.w-modal</code>,
+							<code>.w-modal-slim</code>, and <code>.w-modal-wide</code>, which represent standard, slim, and wide presets.
+						</p>
 					</svelte:fragment>
 				</AccordionItem>
 			</Accordion>

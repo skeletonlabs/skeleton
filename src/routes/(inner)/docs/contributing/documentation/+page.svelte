@@ -39,7 +39,7 @@
 		<h2>Generating Documentation</h2>
 		<h3>Props</h3>
 		<a class="btn variant-soft" href="https://github.com/carbon-design-system/sveld#type" target="_blank" rel="noreferrer">
-			View Svelte Documentation
+			View Sveld Documentation
 		</a>
 		<p>
 			To document component properties, add TSDoc comments using the <code>/** ... */</code> format. In most use cases Sveld will automatically
@@ -96,7 +96,7 @@ export let hover: string = getContext('hover');
 	<section class="space-y-4">
 		<h3>Slots</h3>
 		<a class="btn variant-soft" href="https://github.com/carbon-design-system/sveld#slot" target="_blank" rel="noreferrer">
-			View Svelte Documentation
+			View Sveld Documentation
 		</a>
 		<p>
 			Slot documentation is handle via TSDoc block comments at the top of your script tag (by convention). Note that Sveld does not
@@ -124,10 +124,10 @@ export let hover: string = getContext('hover');
 	<section class="space-y-4">
 		<h3>Events</h3>
 		<a class="btn variant-soft" href="https://github.com/carbon-design-system/sveld#event" target="_blank" rel="noreferrer">
-			View Svelte Documentation
+			View Sveld Documentation
 		</a>
 		<p>
-			Sveld will automatically document forwarded events. You should not attempt to document these. However, dispatched events may be
+			Sveld will automatically document forwarded events. You should not attempt to document these! However, dispatched events may be
 			documented similar to props - with a TSDocs comment applied directly above the <code>dispatch()</code> method. Provide the event response
 			in curly brackets, followed by the event name, a dash, and then the event description.
 		</p>
@@ -183,18 +183,18 @@ dispatch('dragover', event);`}
 		<ul class="list-disc list-outside ml-8 space-y-1">
 			<li><a href="/elements/buttons">Buttons</a> showcases how to document Tailwind Element classes.</li>
 			<li><a href="/components/accordions">Accordion</a> makes use of most Component settings utilizing Sveld.</li>
-			<li><a href="/components/paginators">Accordion</a> uses Dipatched Event documentation.</li>
+			<li><a href="/components/paginators">Paginator</a> uses Dipatched Event documentation.</li>
 		</ul>
 		<!-- Examples -->
 		<h3>Examples</h3>
 		<p>When showcasing examples of new features we typically handle this by one of two methods:</p>
 		<ul class="list-disc list-outside ml-8 space-y-1">
 			<li>
-				<strong>Sandbox</strong> (e.g. <a href="/components/range-sliders">Range Sliders</a>) - which provide a dynamic and interactive
+				<strong>Sandbox</strong> (e.g. <a href="/components/app-shell">App Shell</a>) - which provide a dynamic and interactive
 				example that can be adjusted live.
 			</li>
 			<li>
-				<strong>Static</strong> (e.g. <a href="/components/accordions">Accordion</a>) - with multiple static examples displaying various
+				<strong>Static</strong> (e.g. <a href="/components/app-bar">App Bar</a>) - with multiple static examples displaying various
 				configurations.
 			</li>
 		</ul>
@@ -202,7 +202,7 @@ dispatch('dragover', event);`}
 		<!-- Usage -->
 		<h3>Usage</h3>
 		<p>
-			In addition to examples, you should provide multiple use case demonstrations using <code>CodeBlock</code> snippets to help end developers
+			In addition to examples, you should provide multiple use case demonstrations using the <code>Preview</code> component to help end developers
 			understand how to make use of your new components and features.
 		</p>
 		<!-- Keyboard Interactions -->

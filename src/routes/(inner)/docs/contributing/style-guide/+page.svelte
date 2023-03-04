@@ -25,8 +25,8 @@
 		<ul class="list-disc list-outside ml-4 space-y-1">
 			<li>Feature directories should be singular and title case: <code>../LightSwitch/..</code></li>
 			<li>Components should be singular and title case: <code>LightSwitch.svelte</code></li>
-			<li>Svelte Actions should singular, lowercase, and use Typescript: <code>clipboard.ts</code></li>
-			<li>Tailwind Element stylesheets are plural and lowercase: <code>buttons.css</code></li>
+			<li>Svelte Actions should be singular, lowercase, and use Typescript: <code>clipboard.ts</code></li>
+			<li>Tailwind Element stylesheets should be plural and lowercase: <code>buttons.css</code></li>
 			<li>Documentation should be lowercase and use dashes: <code>/routes/components/radio-groups/+page.svelte</code></li>
 			<li>
 				Tests should be suffixed with <code>*.test.ts</code> and match the feature naming convention: <code>LightSwitch.test.ts</code>
@@ -62,7 +62,7 @@
 		<!-- prettier-ignore -->
 		<p>
 			If you need to include miscellaneous attributes that were not defined as properties, use Svelte's <code>$$restProps</code>. Be careful
-			though, this can overwrite the element's <code>$$props.class</code> attribute. To avoid this, delete the <code>class</code> key from <code>$$restProps</code>. The function provided below can handle this on both in it and after any form of attribute updates.
+			though, this can overwrite the element's <code>$$props.class</code> attribute. To avoid this, delete the <code>class</code> key from <code>$$restProps</code>. The function provided below can handle this on both init and after any form of attribute updates.
 		</p>
 		<CodeBlock
 			language="js"
@@ -88,7 +88,7 @@ function prunedRestProps(): any {
 			<li>Never pass class props as arrays or objects. Strings work better (ex: <code>border border-primary-500</code>).</li>
 			<li>Always pass the full Tailwind class name. <u>Tailwind does not support contructed class names</u>.</li>
 			<li>Ensure Typescript types are provided and set relevant default values when possible.</li>
-			<li>If a new prop is added or modified then please update the documentation. End users need to know this!</li>
+			<li>If a new prop is added or modified then please consider updating the documentation with an example if necessary.</li>
 		</ul>
 		<p>Here's a few examples:</p>
 		<CodeBlock
@@ -126,7 +126,7 @@ let cLabel: string = 'text-base'; // child element label styles
 		/>
 		<!-- Dynamic Classes -->
 		<h3>Dynamic Classes</h3>
-		<p>If you expect to set one or more styles based on the current value of a property, handle this within a function as shown below.</p>
+		<p>If you expect to set one or more styles based on the current value of a property, handle this within a reactive statement as shown below.</p>
 		<CodeBlock
 			language="ts"
 			code={`
@@ -177,7 +177,7 @@ $: classesLabel = \`\${cBaseLabel}\`; // child element
 			</li>
 			<li>Do not mix script-defined and inline Tailwind classes. Doing so can have a negative impact on the readability of the code.</li>
 			<li>Avoid switch-case statements to create shorthand property values (ex: sm, md, lg). This limits customization.</li>
-			<li>Keep Skeleton icon library agnostic. Embed SVGs or unicode instead. Implement a slot if the icon is user provided.</li>
+			<li>Keep Skeleton icon library agnostic. Embed SVGs or unicode instead. Implement a slot with a default so that the user can override if necessary.</li>
 		</ul>
 	</section>
 </LayoutPage>

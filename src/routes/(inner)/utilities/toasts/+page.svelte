@@ -117,7 +117,7 @@
 		<!-- prettier-ignore -->
 		<aside class="alert alert-message variant-ghost-warning">
 			<p>
-				This feature uses a <a href="https://en.wikipedia.org/wiki/Singleton_pattern" target="_blank" rel="noreferrer">Singleton pattern</a>, meaning you should aim to implement a <u>single instance of the component per project</u>, but it will remain globally scoped
+				This feature uses the <a href="https://en.wikipedia.org/wiki/Singleton_pattern" target="_blank" rel="noreferrer">Singleton pattern</a>, meaning you should aim to implement a <u>single instance of the component per project</u>, but it will remain globally scoped
 				and reusable via a Svelte writable store. Do not reimplement this component for each route page.
 			</p>
 		</aside>
@@ -146,7 +146,7 @@ const t: ToastSettings = {
 	message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit...',
 };
 toastStore.trigger(t);
-				`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -167,7 +167,7 @@ const t: ToastSettings = {
 	}
 };
 toastStore.trigger(t);
-				`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -190,7 +190,7 @@ const t: ToastSettings = {
 	toastStore.trigger(t);
 };
 toastStore.trigger(t);
-				`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -213,7 +213,7 @@ const t: ToastSettings = {
 	toastStore.trigger(t);
 };
 toastStore.trigger(t);
-				`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -252,7 +252,7 @@ const t: ToastSettings = {
 	// Provide any utility or variant background style:
 	background: 'variant-filled-warning',
 };
-					`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -274,7 +274,7 @@ const t: ToastSettings = {
 	// Add your custom classes here:
 	classes: 'border-4 border-purple-500'
 };
-					`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -296,7 +296,7 @@ const t: ToastSettings = {
 		if (response.status === 'closed') console.log('Toast was closed!');
 	}
 };
-			`}
+`}
 			/>
 		</section>
 	</svelte:fragment>
