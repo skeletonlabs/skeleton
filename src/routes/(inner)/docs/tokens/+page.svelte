@@ -43,7 +43,7 @@
 	const tableBorder: TableSource = {
 		head: headings,
 		body: [
-			['<code>.border-token</code>', '', 'Implements your theme configured border size.'],
+			['<code>.border-token</code>', '', 'Implements your theme\'s configured border size.'],
 			['<code>.border-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings]
 		]
 	};
@@ -64,9 +64,9 @@
 	const tableText: TableSource = {
 		head: headings,
 		body: [
-			['<code>.font-heading-token</code>', '', 'Implements your theme configured heading text size.'],
-			['<code>.font-token</code>', '', 'Implements your theme configured base text size.'],
-			['<code>.text-token</code>', '', 'Implements your theme configured base text color.'],
+			['<code>.font-heading-token</code>', '', 'Implements your theme\'s configured heading text size.'],
+			['<code>.font-token</code>', '', 'Implements your theme\'s configured base text size.'],
+			['<code>.text-token</code>', '', 'Implements your theme\'s configured base text color.'],
 			['<code>.text-on-[color]-token</code>', vColorsAll, 'Provides an accessible foreground color.'],
 			['<code>.text-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings]
 		]
@@ -91,7 +91,7 @@
 			<p class="!text-xl">
 				Skeleton utilizes a simple but powerful <strong>design token</strong> system to implement theme settings in elements and components.
 				These represent the defaults for most elements and components, which means they auto-adapt based on your theme with minimal configuration
-				out of the box. Best of all you can use these within your custom components as well.
+				out of the box. Best of all you can use these within your custom components as well!
 			</p>
 		</section>
 		<section class="space-y-4">
@@ -110,7 +110,7 @@
 			<h2>Theme Flow</h2>
 			<p>
 				Below is a visualization of how Skeleton uses your theme to control your UI. We start with your theme's CSS variables, then
-				construct design token classes from these, next components utilize these design token classes, then finally you construct your pages
+				construct design token classes based on these variables, next components utilize these design token classes, then finally you construct your pages
 				with sets of elements and components.
 			</p>
 			<img

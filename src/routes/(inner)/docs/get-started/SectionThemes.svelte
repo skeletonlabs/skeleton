@@ -51,7 +51,7 @@
 	</TabGroup>
 	{#if $storeOnboardMethod === 'cli'}
 		<p>
-			The CLI will automatically import your prefer preset theme in <code>src/routes/+layout.svelte</code>. You may change this at any time.
+			The CLI will automatically import your preferred preset theme in <code>src/routes/+layout.svelte</code>. You may change this at any time.
 		</p>
 	{:else if $storeOnboardMethod === 'manual'}
 		<!-- prettier-ignore -->

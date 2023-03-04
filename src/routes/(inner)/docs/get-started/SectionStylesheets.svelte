@@ -33,7 +33,7 @@
 				<aside class="alert variant-ghost-warning">
 					<i class="fa-solid fa-triangle-exclamation text-2xl" />
 					<div class="alert-message">
-						<p>The order shown is critical to ensure these work as expected. Please use care when adding or modifying these.</p>
+						<p>The order shown is critical to ensure these work as expected. Please be careful when adding or modifying these!</p>
 					</div>
 				</aside>
 				<CodeBlock
