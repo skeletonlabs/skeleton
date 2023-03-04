@@ -108,7 +108,7 @@
 						A library of UI elements created by the creators of Tailwind CSS. This provides a huge library of turnkey HTML/CSS components.
 						Currently Tailwind UI supports three options: HTML, React, and Vue. This means there's no plug and play solution for Svelte. You
 						will need to generate your own components and build your own logic around these. Tailwind UI can be directly integrated with
-						Skeleton though, providing tight integration with Skeletons theme and design token systems.
+						Skeleton though, providing tight integration with Skeleton's theme and design token systems.
 					</p>
 					<a class="btn variant-filled-secondary" href="/blog/skeleton-plus-tailwind-ui" target="_blank"> View our Integration Guide </a>
 				</svelte:fragment>
@@ -122,7 +122,7 @@
 						and opinionated design aesthetic and serves as a general purpose library, which means it can be used within any framework, while
 						providing framework-specific variations like <a href="https://flowbite-svelte.com/" target="_blank" rel="noreferrer"
 							>Flowbite Svelte</a
-						>. Flowbite's HTML/CSS elements can be directly integrated with Skeleton though, providing tight integration with Skeletons theme
+						>. Flowbite's HTML/CSS elements can be directly integrated with Skeleton though, providing tight integration with Skeleton's theme
 						and design token systems.
 					</p>
 					<a class="btn variant-filled-secondary" href="/blog/skeleton-plus-flowbite" target="_blank"> View our Integration Guide </a>
