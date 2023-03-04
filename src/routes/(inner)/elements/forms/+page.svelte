@@ -434,7 +434,7 @@ module.exports = {
 				<li>Groups support <em>most</em> input types and select elements, but not all.</li>
 				<!-- prettier-ignore -->
 				<li>
-					The column sizes are grid-based, via <a href="https://tailwindcss.com/docs/grid-template-columns#arbitrary-values" target="_blank" rel="noreferrer">Tailwind's abitrary column syntax</a>.
+					The column sizes are grid-based, via <a href="https://tailwindcss.com/docs/grid-template-columns#arbitrary-values" target="_blank" rel="noreferrer">Tailwind's arbitrary column syntax</a>.
 				</li>
 				<li>
 					Descriptive segments (allowed on either side) allow for <em>div</em>, <em>button</em>, and <em>anchor</em> elements.

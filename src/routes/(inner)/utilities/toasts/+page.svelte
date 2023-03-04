@@ -263,7 +263,7 @@ const t: ToastSettings = {
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<p>
-						Append <code>classes</code> to your toast settings provide any abitrary classes.
+						Append <code>classes</code> to your toast settings provide any arbitrary classes.
 					</p>
 					<CodeBlock
 						language="ts"

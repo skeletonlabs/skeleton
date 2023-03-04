@@ -13,15 +13,15 @@
 	export let background = 'primary-to-secondary';
 
 	// Props (regions)
-	/** Provide abitrary classes to the header region. */
+	/** Provide arbitrary classes to the header region. */
 	export let regionHeader = '';
-	/** Provide abitrary classes to the preview viewport. */
+	/** Provide arbitrary classes to the preview viewport. */
 	export let regionViewport = '';
-	/** Provide abitrary classes to the content region. */
+	/** Provide arbitrary classes to the content region. */
 	export let regionPreview = '';
-	/** Provide abitrary classes to the footer region. */
+	/** Provide arbitrary classes to the footer region. */
 	export let regionFooter = '';
-	/** Provide abitrary classes to the source code region. */
+	/** Provide arbitrary classes to the source code region. */
 	export let regionSource = '';
 
 	// Classes
