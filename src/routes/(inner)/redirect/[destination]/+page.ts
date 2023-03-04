@@ -6,6 +6,6 @@ import { redirect } from '@sveltejs/kit';
 export const load = (({ params }) => {
 	switch (params.destination) {
 		case "appbar":
-			throw redirect(302, "/components/app-bar")
+			throw redirect(301, "/components/app-bar")
 	}
 }) satisfies PageLoad;
