@@ -88,7 +88,7 @@
 
 <style lang="postcss">
 	.section-container {
-		@apply w-full max-w-[1440px] mx-auto p-4 py-12 md:py-24;
+		@apply w-full max-w-7xl mx-auto p-4 py-12 md:py-24;
 	}
 	/* Hero Gradient */
 	/* prettier-ignore */

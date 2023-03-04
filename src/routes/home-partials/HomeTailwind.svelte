@@ -4,7 +4,7 @@
 
 	// Classes
 	const cPreview =
-		'col-span-2 bg-gradient-to-bl from-primary-500 to-secondary-500 text-on-primary-token flex justify-center items-center rounded-container-token p-4 md:p-10';
+		'col-span-2 bg-gradient-to-br from-secondary-500 to-primary-500 text-on-primary-token flex justify-center items-center rounded-container-token p-4 md:p-10';
 
 	// Local
 	let showcase: string = 'elements';
@@ -23,7 +23,7 @@
 			recusandae laudantium odit repellendus.
 		</p>
 		<!-- Options -->
-		<ListBox active="variant-filled-secondary" hover="hover:variant-soft-secondary" rounded="rounded-container-token" padding="!p-4">
+		<ListBox active="variant-filled-primary" hover="hover:variant-soft-primary" rounded="rounded-container-token" padding="!p-4">
 			<ListBoxItem bind:group={showcase} name="showcase" value="elements">
 				<div class="space-y-2">
 					<h3>Elements</h3>
