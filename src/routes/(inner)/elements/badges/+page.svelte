@@ -55,7 +55,7 @@
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<h2>Icon Badge</h2>
-			<p>Replace <code>.badge</code> with <code>.badge-icon</code> for a badge based on an icon. Use the icon library of your choice.</p>
+			<p>Replace <code>.badge</code> with <code>.badge-icon</code> for a badge based on an icon.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<span class="badge-icon variant-filled"><i class="fa-solid fa-skull" /></span>
