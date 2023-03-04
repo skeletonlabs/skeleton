@@ -19,7 +19,10 @@
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<h2>Excluding Styles</h2>
-			<p>Use the <code>.unstyled</code> class to exclude and reset Skeleton's typography styles for any individual elements. You may then apply new styles, if desired.</p>
+			<p>
+				Use the <code>.unstyled</code> class to exclude and reset Skeleton's typography styles for any individual elements. You may then apply
+				new styles, if desired.
+			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full text-center">
@@ -27,8 +30,9 @@
 						<p class="unstyled">Unstyled paragraph element.</p>
 						<a href="/" class="unstyled">Unstyled anchor element.</a>
 						<p>
-						<a href="/" class="unstyled text-orange-500">This custom-styled link is orange.</a>
-						</p>`
+							<a href="/" class="unstyled text-orange-500">This custom-styled link is orange.</a>
+						</p>
+						`
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
