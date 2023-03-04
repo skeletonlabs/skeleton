@@ -1,6 +1,7 @@
 // This script is based 'tailwindcolorshades' by Javis V. Pérez:
 // https://github.com/javisperez/tailwindcolorshades/blob/master/src/composables/colors.ts
-
+import { tailwindNumbers } from '$lib/types';
+import chroma from 'chroma-js';
 export type Palette = {
 	[key: number]: {
 		/** The hex color. */
@@ -55,30 +56,6 @@ export function generateA11yOnColor(hex: string): '255 255 255' | '0 0 0' {
 	return black < white ? '0 0 0' : '255 255 255';
 }
 
-function lighten(hex: string, intensity: number): string {
-	const color = hexToRgb(`#${hex}`);
-
-	if (!color) return '';
-
-	const r = Math.round(color.r + (255 - color.r) * intensity);
-	const g = Math.round(color.g + (255 - color.g) * intensity);
-	const b = Math.round(color.b + (255 - color.b) * intensity);
-
-	return rgbToHex(r, g, b);
-}
-
-function darken(hex: string, intensity: number): string {
-	const color = hexToRgb(hex);
-
-	if (!color) return '';
-
-	const r = Math.round(color.r * intensity);
-	const g = Math.round(color.g * intensity);
-	const b = Math.round(color.b * intensity);
-
-	return rgbToHex(r, g, b);
-}
-
 export function generatePalette(baseColor: string): Palette {
 	const hexValidation = new RegExp(/^#[0-9a-f]{6}$/i);
 	if (!hexValidation.test(baseColor)) baseColor = '#CCCCCC';
@@ -88,29 +65,21 @@ export function generatePalette(baseColor: string): Palette {
 	const response: Palette = {
 		500: { hex: hex500, rgb: hexToTailwindRgbString(hex500), on: generateA11yOnColor(hex500) }
 	};
-
-	const intensityMap: { [key: number]: number } = {
-		50: 0.85,
-		100: 0.8,
-		200: 0.75,
-		300: 0.6,
-		400: 0.3,
-		600: 0.9,
-		700: 0.75,
-		800: 0.6,
-		900: 0.49
-	};
-
-	[50, 100, 200, 300, 400].forEach((level) => {
-		const hex = lighten(baseColor, intensityMap[level]);
-		response[level] = { hex, rgb: hexToTailwindRgbString(hex), on: generateA11yOnColor(hex) };
-	});
-
-	[600, 700, 800, 900].forEach((level) => {
-		const hex = darken(baseColor, intensityMap[level]);
-		response[level] = { hex, rgb: hexToTailwindRgbString(hex), on: generateA11yOnColor(hex) };
-	});
-
+	const color = chroma(baseColor);
+	const chromaScale = chroma
+		.scale([color.brighten(4), color, color.darken(2)])
+		.correctLightness()
+		.mode('lch')
+		.classes(10);
+	for (const entry of tailwindNumbers) {
+		const number = parseInt(entry);
+		const scale = number / 1000;
+		response[entry] = {
+			rgb: hexToTailwindRgbString(chromaScale(scale).hex()),
+			hex: chromaScale(scale).hex(),
+			on: generateA11yOnColor(chromaScale(scale).hex())
+		};
+	}
 	return response as Palette;
 }
 
