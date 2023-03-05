@@ -14,7 +14,7 @@
 			text1: 'text-on-primary-token text-lg opacity-75',
 			text2: 'text-on-primary-token font-bold text-3xl',
 			text3: 'text-on-primary-token text-2xl',
-			progressTrack: 'bg-primary-900',
+			progressTrack: 'bg-primary-400',
 			progressMeter: 'bg-white',
 			footer: 'p-10 grid grid-cols-5 gap-10 place-items-center rounded-tl-3xl rounded-tr-3xl',
 			button: 'btn-icon'

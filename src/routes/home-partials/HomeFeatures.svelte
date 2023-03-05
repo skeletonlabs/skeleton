@@ -21,7 +21,7 @@
 		<!-- Loop -->
 		{#each featuers as feature}
 			<!-- Card -->
-			<div class="card variant-glass shadow dark:shadow-none p-4 md:p-10 space-y-4 text-center">
+			<div class="card variant-glass p-4 shadow-lg md:p-10 space-y-4 text-center">
 				<span class="btn-icon btn-icon-xl variant-soft-primary">
 					<i class="fa-solid {feature.icon}" />
 				</span>

@@ -74,7 +74,7 @@
 	</section>
 
 	<!-- bottom-cta -->
-	<section id="bottom-cta" class="bg-gradient-to-br from-primary-500 to-secondary-500 text-on-primary-token">
+	<section id="bottom-cta" class="bottom-cta-gradient">
 		<div class="section-container text-center space-y-4">
 			<h2>Ready to Begin?</h2>
 			<p class="!text-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -126,7 +126,10 @@
 	}
 	/* Radial */
 	/* prettier-ignore */
-	.contributors-gradient {
-		/* ... */
+	.bottom-cta-gradient {
+		@apply bg-primary-500 text-on-primary-token;
+		background-image:
+		radial-gradient(at 0% 0%, rgba(var(--color-secondary-500) /  0.75) 0px, transparent 40%),
+		radial-gradient(at 100% 100%, rgba(var(--color-secondary-500) /  0.75) 0px, transparent 40%);
 	}
 </style>

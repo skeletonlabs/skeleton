@@ -141,7 +141,7 @@
 			recusandae laudantium odit repellendus.
 		</p>
 		<!-- Options -->
-		<ListBox active="variant-filled-primary" hover="hover:variant-soft-primary" rounded="rounded-container-token" padding="!p-4">
+		<ListBox active="variant-filled" hover="hover:variant-soft" rounded="rounded-container-token" padding="!p-4">
 			<ListBoxItem bind:group={showcase} name="showcase" value="elements">
 				<div class="space-y-2">
 					<h3>Elements</h3>
