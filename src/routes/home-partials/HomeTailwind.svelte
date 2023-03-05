@@ -19,7 +19,7 @@
 				{#if showcase === 'elements'}
 					<div class="card overflow-hidden max-w-[400px] text-token">
 						<header>
-							<img src="https://source.unsplash.com/random/1280x540?skeleton" class="bg-black/50 w-full aspect-[21/9]" alt="Post" />
+							<img src="https://source.unsplash.com/vjUokUWbFOs/1280x540" class="bg-black/50 w-full aspect-[21/9]" alt="Post" />
 						</header>
 						<div class="p-4 space-y-4">
 							<h6>Announcements</h6>

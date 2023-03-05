@@ -1,20 +1,74 @@
-<script>
+<script lang="ts">
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
 	import Tab from '$lib/components/Tab/Tab.svelte';
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import ProgressBar from '$lib/components/ProgressBar/ProgressBar.svelte';
 
 	// Local
-	let theme = 'skeleton';
+	let theme = 'simple';
+	const themeStyles: any = {
+		simple: {
+			base: 'variant-soft-primary font-sans rounded-container-token',
+			header: 'bg-primary-500 p-4 grid grid-cols-3 gap-8 items-center rounded-tl-container-token rounded-tr-container-token',
+			src: 'https://source.unsplash.com/7a4U5lBG9Yw/200x200',
+			img: 'bg-black w-full aspect-square rounded-full transition-transform',
+			text1: 'text-on-primary-token text-lg opacity-75',
+			text2: 'text-on-primary-token font-bold text-3xl',
+			text3: 'text-on-primary-token text-2xl',
+			progressTrack: 'bg-primary-900',
+			progressMeter: 'bg-white',
+			footer: 'p-10 grid grid-cols-5 gap-10 place-items-center rounded-tl-3xl rounded-tr-3xl',
+			button: 'btn-icon'
+		},
+		elegant: {
+			base: 'bg-white text-black font-serif shadow',
+			header: 'bg-neutral-100 p-4 grid grid-cols-3 gap-8 items-center',
+			src: 'https://source.unsplash.com/C5NOq1BKlAk/200x200',
+			img: 'bg-black bg-black/50 w-full aspect-square scale-110 transition-transform',
+			text1: 'text-lg opacity-50',
+			text2: 'text-3xl',
+			text3: 'text-2xl',
+			progressTrack: 'bg-black/10',
+			progressMeter: 'bg-black',
+			footer: 'p-10 grid grid-cols-5 gap-10 place-items-center',
+			button: 'btn-icon rounded-none text-black ring-[1px] ring-black/5'
+		},
+		playful: {
+			base: 'bg-indigo-900 text-white font-sans rounded-3xl shadow-xl',
+			header: 'bg-indigo-800 p-4 grid grid-cols-3 gap-8 items-center rounded-tl-3xl rounded-tr-3xl',
+			src: 'https://source.unsplash.com/wzj86-5JVcM/200x200',
+			img: 'bg-black w-full aspect-square rounded-3xl scale-110 -translate-x-4 -translate-y-4 transition-transform',
+			text1: 'text-lg text-amber-300',
+			text2: 'font-bold text-3xl',
+			text3: 'text-2xl',
+			progressTrack: 'bg-black/5',
+			progressMeter: 'bg-white',
+			footer: 'p-10 grid grid-cols-5 gap-10 place-items-center rounded-tl-3xl rounded-tr-3xl',
+			button: 'btn-icon bg-amber-300 text-indigo-900'
+		},
+		brutalist: {
+			base: 'bg-black text-white font-mono overflow-hidden',
+			header: 'bg-white text-black p-4 grid grid-cols-3 gap-8 items-center',
+			src: 'https://source.unsplash.com/hTv8aaPziOQ/200x200',
+			img: 'bg-black w-full aspect-square transition-transform border-r-4 border-b-4 border-teal-300',
+			text1: 'text-lg text-teal-300',
+			text2: 'font-bold text-3xl',
+			text3: 'italic text-2xl',
+			progressTrack: 'bg-teal-300/75',
+			progressMeter: 'bg-teal-300',
+			footer: 'p-10 grid grid-cols-5 gap-10 place-items-center',
+			button: 'btn-icon rounded-none bg-teal-300 text-black ring ring-white'
+		}
+	};
 </script>
 
-<div class="grid grid-cols-1 xl:grid-cols-2 gap-4 md:gap-10">
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-4 md:gap-10 items-center">
 	<!-- Info -->
 	<div class="space-y-4 md:space-y-10">
 		<div class="space-y-4">
 			<h2>Adaptive Theming.</h2>
 			<p>
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit perspiciatis velit deserunt cupiditate aliquid, perferendis
-				recusandae laudantium odit repellendus doloribus.
+				recusandae laudantium.
 			</p>
 		</div>
 		<!-- Tabs -->
@@ -27,136 +81,49 @@
 			regionList="space-x-2"
 			padding="p-4"
 		>
-			<Tab bind:group={theme} name="theme" value="skeleton" class="space-y-4 w-24">
-				<svelte:fragment slot="lead"><i class="fa-solid fa-skull text-2xl" /></svelte:fragment>
-				Skeleton
+			<Tab bind:group={theme} name="theme" value="simple" class="space-y-4 w-24">
+				<svelte:fragment slot="lead"><i class="fa-solid fa-square text-2xl" /></svelte:fragment>
+				Simple
 			</Tab>
-			<Tab bind:group={theme} name="theme" value="modern" class="space-y-4 w-24">
-				<svelte:fragment slot="lead"><i class="fa-solid fa-robot text-2xl" /></svelte:fragment>
-				Modern
+			<Tab bind:group={theme} name="theme" value="elegant" class="space-y-4 w-24">
+				<svelte:fragment slot="lead"><i class="fa-solid fa-certificate text-2xl" /></svelte:fragment>
+				Elegant
 			</Tab>
-			<Tab bind:group={theme} name="theme" value="sahara" class="space-y-4 w-24">
-				<svelte:fragment slot="lead"><i class="fa-solid fa-sun text-2xl" /></svelte:fragment>
-				Sahara
+			<Tab bind:group={theme} name="theme" value="playful" class="space-y-4 w-24">
+				<svelte:fragment slot="lead"><i class="fa-solid fa-shapes text-2xl" /></svelte:fragment>
+				Playful
+			</Tab>
+			<Tab bind:group={theme} name="theme" value="brutalist" class="space-y-4 w-24">
+				<svelte:fragment slot="lead"><i class="fa-solid fa-diamond text-2xl" /></svelte:fragment>
+				Brutalist
 			</Tab>
 		</TabGroup>
-		<!-- Card -->
-		<div class="card overflow-hidden grid grid-cols-3 gap-4 md:gap-10">
-			<!-- https://i.pravatar.cc/?img=48 -->
-			<div class="bg-surface-200-700-token">&nbsp;</div>
-			<div class="col-span-2 p-4 space-y-4">
-				<p class="font-bold !text-2xl capitalize">{theme}</p>
-				<p>
-					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi pariatur alias, magnam expedita ad quod excepturi amet
-					laboriosam totam iusto similique consequuntur assumenda nihil tempore, at quisquam.
-				</p>
-				<button class="btn variant-filled">Button</button>
-			</div>
+	</div>
+	<!-- Card -->
+	<div>
+		<div class="max-w-[640px] mx-auto transition ease-in-out duration-200 {themeStyles[theme].base}">
+			<header class={themeStyles[theme].header}>
+				<img src={themeStyles[theme].src} class={themeStyles[theme].img} alt="Cover" />
+				<div class="col-span-2 space-y-2">
+					<div class={themeStyles[theme].text1}>Mood Booster</div>
+					<div class={themeStyles[theme].text2}>Have It Your Way</div>
+					<div class={themeStyles[theme].text3}>The Skeleton Crew</div>
+				</div>
+			</header>
+			<ProgressBar
+				value={75}
+				max={100}
+				track={themeStyles[theme].progressTrack}
+				meter={themeStyles[theme].progressMeter}
+				rounded="rounded-none"
+			/>
+			<footer class={themeStyles[theme].footer}>
+				<button class={themeStyles[theme].button}><i class="fa-solid fa-shuffle text-2xl" /></button>
+				<button class={themeStyles[theme].button}><i class="fa-solid fa-backward-fast text-2xl" /></button>
+				<button class={themeStyles[theme].button}><i class="fa-solid fa-pause text-2xl" /></button>
+				<button class={themeStyles[theme].button}><i class="fa-solid fa-forward-fast text-2xl" /></button>
+				<button class={themeStyles[theme].button}><i class="fa-solid fa-heart text-2xl" /></button>
+			</footer>
 		</div>
 	</div>
-	<!-- Codeblock -->
-	<!-- <div class="card !bg-neutral-900/90 p-4">(codeblock)</div> -->
-	<CodeBlock
-		class="max-h-[520px]"
-		language="css"
-		code={`
-:root {
-	/* =~= Theme Properties =~= */
-	--theme-font-family-base: system-ui;
-	--theme-font-family-heading: system-ui;
-	--theme-font-color-base: 0 0 0;
-	--theme-font-color-dark: 255 255 255;
-	--theme-rounded-base: 9999px;
-	--theme-rounded-container: 8px;
-	--theme-border-base: 1px;
-	/* =~= Theme On-X Colors =~= */
-	--on-primary: 0 0 0;
-	--on-secondary: 255 255 255;
-	--on-tertiary: 0 0 0;
-	--on-success: 0 0 0;
-	--on-warning: 0 0 0;
-	--on-error: 255 255 255;
-	--on-surface: 255 255 255;
-	/* =~= Theme Colors  =~= */
-	/* primary | #0FBA81 */
-	--color-primary-50: 219 245 236; /* ⬅ #dbf5ec */
-	--color-primary-100: 207 241 230; /* ⬅ #cff1e6 */
-	--color-primary-200: 195 238 224; /* ⬅ #c3eee0 */
-	--color-primary-300: 159 227 205; /* ⬅ #9fe3cd */
-	--color-primary-400: 87 207 167; /* ⬅ #57cfa7 */
-	--color-primary-500: 15 186 129; /* ⬅ #0FBA81 */
-	--color-primary-600: 14 167 116; /* ⬅ #0ea774 */
-	--color-primary-700: 11 140 97; /* ⬅ #0b8c61 */
-	--color-primary-800: 9 112 77; /* ⬅ #09704d */
-	--color-primary-900: 7 91 63; /* ⬅ #075b3f */
-	/* secondary | #4F46E5 */
-	--color-secondary-50: 229 227 251; /* ⬅ #e5e3fb */
-	--color-secondary-100: 220 218 250; /* ⬅ #dcdafa */
-	--color-secondary-200: 211 209 249; /* ⬅ #d3d1f9 */
-	--color-secondary-300: 185 181 245; /* ⬅ #b9b5f5 */
-	--color-secondary-400: 132 126 237; /* ⬅ #847eed */
-	--color-secondary-500: 79 70 229; /* ⬅ #4F46E5 */
-	--color-secondary-600: 71 63 206; /* ⬅ #473fce */
-	--color-secondary-700: 59 53 172; /* ⬅ #3b35ac */
-	--color-secondary-800: 47 42 137; /* ⬅ #2f2a89 */
-	--color-secondary-900: 39 34 112; /* ⬅ #272270 */
-	/* tertiary | #0EA5E9 */
-	--color-tertiary-50: 219 242 252; /* ⬅ #dbf2fc */
-	--color-tertiary-100: 207 237 251; /* ⬅ #cfedfb */
-	--color-tertiary-200: 195 233 250; /* ⬅ #c3e9fa */
-	--color-tertiary-300: 159 219 246; /* ⬅ #9fdbf6 */
-	--color-tertiary-400: 86 192 240; /* ⬅ #56c0f0 */
-	--color-tertiary-500: 14 165 233; /* ⬅ #0EA5E9 */
-	--color-tertiary-600: 13 149 210; /* ⬅ #0d95d2 */
-	--color-tertiary-700: 11 124 175; /* ⬅ #0b7caf */
-	--color-tertiary-800: 8 99 140; /* ⬅ #08638c */
-	--color-tertiary-900: 7 81 114; /* ⬅ #075172 */
-	/* success | #84cc16 */
-	--color-success-50: 237 247 220; /* ⬅ #edf7dc */
-	--color-success-100: 230 245 208; /* ⬅ #e6f5d0 */
-	--color-success-200: 224 242 197; /* ⬅ #e0f2c5 */
-	--color-success-300: 206 235 162; /* ⬅ #ceeba2 */
-	--color-success-400: 169 219 92; /* ⬅ #a9db5c */
-	--color-success-500: 132 204 22; /* ⬅ #84cc16 */
-	--color-success-600: 119 184 20; /* ⬅ #77b814 */
-	--color-success-700: 99 153 17; /* ⬅ #639911 */
-	--color-success-800: 79 122 13; /* ⬅ #4f7a0d */
-	--color-success-900: 65 100 11; /* ⬅ #41640b */
-	/* warning | #EAB308 */
-	--color-warning-50: 252 244 218; /* ⬅ #fcf4da */
-	--color-warning-100: 251 240 206; /* ⬅ #fbf0ce */
-	--color-warning-200: 250 236 193; /* ⬅ #faecc1 */
-	--color-warning-300: 247 225 156; /* ⬅ #f7e19c */
-	--color-warning-400: 240 202 82; /* ⬅ #f0ca52 */
-	--color-warning-500: 234 179 8; /* ⬅ #EAB308 */
-	--color-warning-600: 211 161 7; /* ⬅ #d3a107 */
-	--color-warning-700: 176 134 6; /* ⬅ #b08606 */
-	--color-warning-800: 140 107 5; /* ⬅ #8c6b05 */
-	--color-warning-900: 115 88 4; /* ⬅ #735804 */
-	/* error | #D41976 */
-	--color-error-50: 249 221 234; /* ⬅ #f9ddea */
-	--color-error-100: 246 209 228; /* ⬅ #f6d1e4 */
-	--color-error-200: 244 198 221; /* ⬅ #f4c6dd */
-	--color-error-300: 238 163 200; /* ⬅ #eea3c8 */
-	--color-error-400: 225 94 159; /* ⬅ #e15e9f */
-	--color-error-500: 212 25 118; /* ⬅ #D41976 */
-	--color-error-600: 191 23 106; /* ⬅ #bf176a */
-	--color-error-700: 159 19 89; /* ⬅ #9f1359 */
-	--color-error-800: 127 15 71; /* ⬅ #7f0f47 */
-	--color-error-900: 104 12 58; /* ⬅ #680c3a */
-	/* surface | #495a8f */
-	--color-surface-50: 228 230 238; /* ⬅ #e4e6ee */
-	--color-surface-100: 219 222 233; /* ⬅ #dbdee9 */
-	--color-surface-200: 210 214 227; /* ⬅ #d2d6e3 */
-	--color-surface-300: 182 189 210; /* ⬅ #b6bdd2 */
-	--color-surface-400: 128 140 177; /* ⬅ #808cb1 */
-	--color-surface-500: 73 90 143; /* ⬅ #495a8f */
-	--color-surface-600: 66 81 129; /* ⬅ #425181 */
-	--color-surface-700: 55 68 107; /* ⬅ #37446b */
-	--color-surface-800: 44 54 86; /* ⬅ #2c3656 */
-	--color-surface-900: 36 44 70; /* ⬅ #242c46 */
-}
-
-	`}
-	/>
 </div>
