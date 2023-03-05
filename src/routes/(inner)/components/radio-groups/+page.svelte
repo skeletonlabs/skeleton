@@ -33,7 +33,7 @@
 	// Local
 	let justify: number = 0;
 	let time: string = 'Months';
-	let timeNames = ['Months', 'Years', 'Decades', 'Centuries', 'Millennia', 'Epochs', 'Periods', 'Eras', 'Eons'];
+	let timeNames = ['Millennia', 'Epochs', 'Eras', 'Eons'];
 </script>
 
 <DocsShell {settings}>
@@ -103,44 +103,17 @@
 			<p>Set <em>display</em> to <code>flex-col</code> for a vertical layout.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<RadioGroup rounded="rounded-2xl" display="flex-col" active="variant-filled-primary" hover="hover:variant-soft-primary">
-						{#each timeNames.slice(5, -2) as name, i}
+					<RadioGroup rounded="rounded-container-token" display="flex-col">
+						{#each timeNames as name, i}
 							<RadioItem bind:group={time} label={name} {name} value={name}>{name}</RadioItem>
 						{/each}
-						<RadioItem bind:group={time} name={timeNames[7]} value={timeNames[7]}
-							>{timeNames[7]}
-							<button class="btn h-0 px-0">⚙️</button>
-						</RadioItem>
-						<RadioItem bind:group={time} name={timeNames[8]} value={timeNames[8]}
-							>{timeNames[8]}
-							<button class="btn h-0 px-0">⚙️</button>
-						</RadioItem>
 					</RadioGroup>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock
-						language="ts"
-						code={`
-let time: string = 'Months';
-let timeNames = ['Months', 'Years', 'Decades', 'Centuries', 'Millennia', 'Epochs', 'Periods', 'Eras', 'Eons']; // Code Words, Custom Words
-`}
-					/>
-					<CodeBlock
 						language="html"
 						code={`
-<RadioGroup rounded="rounded-2xl" display="flex-col" active="variant-filled-primary" hover="hover:variant-soft-primary">
-	{#each timeNames.slice(2, -2) as name, i}
-		<RadioItem bind:group={time} label={name} {name} value={i}>{name}</RadioItem>
-	{/each}
-	<RadioItem bind:group={time} name={timeNames[7]} value={timeNames[7]}
-		>{timeNames[7]}
-		<button class="btn h-0 px-0">⚙️</button>
-	</RadioItem>
-	<RadioItem bind:group={time} name={timeNames[8]} value={timeNames[8]}
-		>{timeNames[8]}
-		<button class="btn h-0 px-0">⚙️</button>
-	</RadioItem>
-</RadioGroup>
+<RadioGroup rounded="rounded-container-token" display="flex-col">...</RadioGroup>
 `}
 					/>
 				</svelte:fragment>
