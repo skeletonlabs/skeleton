@@ -2,11 +2,11 @@
 	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
-// Components
+	// Components
 	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-// Sveld
+	// Sveld
 	import sveldRadioGroup from '$lib/components/Radio/RadioGroup.svelte?raw&sveld';
 	import sveldRadioItem from '$lib/components/Radio/RadioItem.svelte?raw&sveld';
 
@@ -66,7 +66,7 @@
 	<RadioItem bind:group={value} name="justify" value={1}>(label)</RadioItem>
 	<RadioItem bind:group={value} name="justify" value={2}>(label)</RadioItem>
 </RadioGroup>
-				`}
+`}
 				/>
 			</svelte:fragment>
 		</DocsPreview>
@@ -123,7 +123,7 @@
 						code={`
 let time: string = 'Months';
 let timeNames = ['Months', 'Years', 'Decades', 'Centuries', 'Millennia', 'Epochs', 'Periods', 'Eras', 'Eons']; // Code Words, Custom Words
-					`}
+`}
 					/>
 					<CodeBlock
 						language="html"
@@ -141,7 +141,7 @@ let timeNames = ['Months', 'Years', 'Decades', 'Centuries', 'Millennia', 'Epochs
 		<button class="btn h-0 px-0">⚙️</button>
 	</RadioItem>
 </RadioGroup>
-						`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
