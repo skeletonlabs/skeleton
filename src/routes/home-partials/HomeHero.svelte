@@ -6,7 +6,7 @@
 	<!-- Info -->
 	<div class="flex flex-col items-center xl:items-start text-center xl:text-left space-y-4">
 		<DocsLogoHero />
-		<h1 class="max-w-[600px]">A powerful UI toolkit for Svete + Tailwind.</h1>
+		<h1 class="max-w-[600px]">A powerful UI toolkit for Svelte + Tailwind.</h1>
 		<p class="!text-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 		<div class="flex gap-4">
 			<a href="/docs/get-started" class="btn btn-lg variant-filled-primary">
