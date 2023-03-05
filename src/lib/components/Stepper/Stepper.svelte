@@ -23,7 +23,7 @@
 	/** Provide classes to style the stepper header border. */
 	export let border: CssClasses = 'border-surface-400-500-token';
 	/** Provide the initially selected step*/
-	export const start: number = 0;
+	export let start: number = 0;
 
 	// Props (step)
 	/** Set the justification for the step navigation buttons. */
