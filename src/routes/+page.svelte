@@ -77,10 +77,10 @@
 	<section id="bottom-cta" class="bottom-cta-gradient">
 		<div class="section-container text-center space-y-4">
 			<h2>Ready to Begin?</h2>
-			<p class="!text-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+			<p class="!text-xl max-w-[320px] sm:max-w-none mx-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 			<a href="/docs/get-started" class="btn btn-lg variant-filled">
 				<span>Get Started</span>
-				<i class="fa-solid fa-arrow-right" />
+				<i class="fa-solid fa-arrow-right-long" />
 			</a>
 		</div>
 	</section>
@@ -88,7 +88,7 @@
 
 <style lang="postcss">
 	.section-container {
-		@apply w-full max-w-7xl mx-auto p-4 py-12 md:py-24;
+		@apply w-full max-w-7xl mx-auto p-4 py-16 md:py-24;
 	}
 	/* Hero Gradient */
 	/* prettier-ignore */

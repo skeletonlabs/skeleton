@@ -35,7 +35,7 @@
 <Emerald />
 <Noir />
 
-<div class="grid grid-cols-1 xl:grid-cols-3 gap-10 items-start">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-10 items-start">
 	<!-- Info -->
 	<div class="space-y-4">
 		<h2>Designed for Svelte and SvelteKit.</h2>

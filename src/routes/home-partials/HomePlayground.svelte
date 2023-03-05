@@ -1,4 +1,6 @@
-<div class="card variant-soft-primary p-4 max-w-5xl mx-auto md:py-10 text-center flex justify-center items-center gap-4">
+<div
+	class="card variant-soft-primary p-4 md:py-10 max-w-5xl mx-auto text-center flex flex-col md:flex-row justify-center items-center gap-4"
+>
 	<p class="!text-xl">Try Skeleton right now, live in your browser.</p>
 	<a
 		class="btn variant-filled"

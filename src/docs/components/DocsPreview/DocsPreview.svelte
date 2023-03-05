@@ -72,20 +72,20 @@
 				<RadioItem bind:group={tabView} name="view" value="preview" title="Preview"><i class="fa-solid fa-eye text-sm" /></RadioItem>
 				<RadioItem bind:group={tabView} name="view" value="code" title="Code"><i class="fa-solid fa-code text-sm" /></RadioItem>
 			</RadioGroup>
+			<div class="flex justify-between gap-4">
+				<!-- Responsive Settings -->
+				{#if responsive}
+					<RadioGroup class="hidden md:flex">
+						<RadioItem bind:group={radioSize} name="size" value="mobile"><i class="fa-solid fa-mobile-screen text-sm" /></RadioItem>
+						<RadioItem bind:group={radioSize} name="size" value="full"><i class="fa-solid fa-display text-sm" /></RadioItem>
+					</RadioGroup>
+				{/if}
+				<!-- Toggle Swatches -->
+				<button class="btn-icon {swatches ? 'variant-filled' : 'variant-soft'}" on:click={toggleSwatches} title="Backgrounds">
+					<i class="fa-solid fa-swatchbook text-sm" />
+				</button>
+			</div>
 		{/if}
-		<div class="flex justify-between gap-4">
-			<!-- Responsive Settings -->
-			{#if responsive}
-				<RadioGroup class="hidden md:flex">
-					<RadioItem bind:group={radioSize} name="size" value="mobile"><i class="fa-solid fa-mobile-screen text-sm" /></RadioItem>
-					<RadioItem bind:group={radioSize} name="size" value="full"><i class="fa-solid fa-display text-sm" /></RadioItem>
-				</RadioGroup>
-			{/if}
-			<!-- Toggle Swatches -->
-			<button class="btn-icon {swatches ? 'variant-filled' : 'variant-soft'}" on:click={toggleSwatches} title="Backgrounds">
-				<i class="fa-solid fa-swatchbook text-sm" />
-			</button>
-		</div>
 	</header>
 	{#if tabView === 'preview'}
 		<!-- Swatches -->

@@ -11,10 +11,10 @@
 	let showcase: string = 'elements';
 </script>
 
-<div class="grid grid-cols-1 xl:grid-cols-3 gap-10 items-start">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-10 items-start">
 	<!-- Preview -->
 	<div class="col-span-2">
-		<DocsPreview label={showcase} regionPreview="min-h-[320px]">
+		<DocsPreview label={showcase.replace('-', ' ')} regionPreview="min-h-[320px]">
 			<svelte:fragment slot="preview">
 				{#if showcase === 'elements'}
 					<div class="card overflow-hidden max-w-[400px] text-token">
@@ -127,7 +127,7 @@
 						<div class="h-6 sm:h-8 aspect-square bg-surface-800">&nbsp;</div>
 						<div class="h-6 sm:h-8 aspect-square bg-surface-900">&nbsp;</div>
 					</div>
-				{:else if showcase === 'darkmode'}
+				{:else if showcase === 'dark-mode'}
 					<LightSwitch width="w-16" height="h-8" />
 				{/if}
 			</svelte:fragment>
@@ -154,7 +154,7 @@
 					<p class="!text-sm">Draw from an extensive set of theme colors.</p>
 				</div>
 			</ListBoxItem>
-			<ListBoxItem bind:group={showcase} name="showcase" value="darkmode">
+			<ListBoxItem bind:group={showcase} name="showcase" value="dark-mode">
 				<div class="space-y-2">
 					<h3>Dark Mode</h3>
 					<p class="!text-sm">Toggle dark mode with the flip of a switch.</p>

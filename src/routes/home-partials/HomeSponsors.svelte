@@ -22,8 +22,8 @@
 		</p>
 		<div class="flex justify-center lg:justify-start gap-4">
 			<a class="btn variant-filled" href="https://ko-fi.com/skeletonlabs" target="_blank" rel="noreferrer">Ko-Fi</a>
-			<a class="btn variant-filled" href="https://github.com/sponsors/skeletonlabs" target="_blank" rel="noreferrer">GitHub</a>
-			<a class="btn variant-filled" href="https://patreon.com/user?u=83786276" target="_blank" rel="noreferrer">Patreon</a>
+			<a class="btn variant-filled" href="https://github.com/sponsors/skeletonlabs" target="_blank" rel="noreferrer"> GitHub </a>
+			<a class="btn variant-filled" href="https://patreon.com/user?u=83786276" target="_blank" rel="noreferrer"> Patreon </a>
 		</div>
 	</div>
 </div>

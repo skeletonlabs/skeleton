@@ -1,4 +1,4 @@
-<svg class="h-[24px] md:h-[30px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 325 40">
+<svg class="h-[20px] sm:h-[24px] md:h-[30px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 325 40">
 	<g fill="none">
 		<path
 			class="fill-white"

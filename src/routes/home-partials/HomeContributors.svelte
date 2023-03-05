@@ -10,17 +10,17 @@
 		<h2>Built by Awesome People.</h2>
 		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 	</div>
-	<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center">
+	<div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-4 items-center">
 		<!-- Skeleton Labs -->
 		<div class="card variant-soft-secondary overflow-hidden">
-			<header class="variant-filled-secondary grid grid-cols-[1fr_auto] gap-4 items-center p-10">
+			<header class="variant-filled-secondary grid grid-cols-[1fr_auto] gap-4 items-center p-4 md:p-10">
 				<DocsLogoLabs />
 				<a class="btn variant-filled" href="https://skeletonlabs.co/" target="_blank" rel="noreferrer">
 					<span>Website</span>
 					<i class="fa-solid fa-arrow-up-right-from-square" />
 				</a>
 			</header>
-			<section class="grid grid-cols-2 gap-4 p-10">
+			<section class="grid grid-cols-1 lg:grid-cols-2 gap-4 p-4 md:p-10">
 				<div class="flex flex-col items-center gap-2">
 					<Avatar src="https://avatars.githubusercontent.com/u/1509726?v=4" width="w-32" />
 					<h3>Chris Simmons</h3>

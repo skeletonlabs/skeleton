@@ -12,8 +12,8 @@
 			src: 'https://source.unsplash.com/7a4U5lBG9Yw/200x200',
 			img: 'bg-black w-full aspect-square rounded-full transition-transform',
 			text1: 'text-on-primary-token text-lg opacity-75',
-			text2: 'text-on-primary-token font-bold text-3xl',
-			text3: 'text-on-primary-token text-2xl',
+			text2: 'text-on-primary-token font-bold text-xl sm:text-3xl',
+			text3: 'text-on-primary-token text-lg sm:text-2xl',
 			progressTrack: 'bg-primary-400',
 			progressMeter: 'bg-white',
 			footer: 'p-10 grid grid-cols-5 gap-10 place-items-center rounded-tl-3xl rounded-tr-3xl',
@@ -25,8 +25,8 @@
 			src: 'https://source.unsplash.com/C5NOq1BKlAk/200x200',
 			img: 'bg-black bg-black/50 w-full aspect-square scale-110 transition-transform',
 			text1: 'text-lg opacity-50',
-			text2: 'text-3xl',
-			text3: 'text-2xl',
+			text2: 'text-xl sm:text-3xl',
+			text3: 'text-lg sm:text-2xl',
 			progressTrack: 'bg-black/10',
 			progressMeter: 'bg-black',
 			footer: 'p-10 grid grid-cols-5 gap-10 place-items-center',
@@ -38,8 +38,8 @@
 			src: 'https://source.unsplash.com/wzj86-5JVcM/200x200',
 			img: 'bg-black w-full aspect-square rounded-3xl scale-110 -translate-x-4 -translate-y-4 transition-transform',
 			text1: 'text-lg text-amber-300',
-			text2: 'font-bold text-3xl',
-			text3: 'text-2xl',
+			text2: 'font-bold text-xl sm:text-3xl',
+			text3: 'text-lg sm:text-2xl',
 			progressTrack: 'bg-black/5',
 			progressMeter: 'bg-white',
 			footer: 'p-10 grid grid-cols-5 gap-10 place-items-center rounded-tl-3xl rounded-tr-3xl',
@@ -51,8 +51,8 @@
 			src: 'https://source.unsplash.com/hTv8aaPziOQ/200x200',
 			img: 'bg-black w-full aspect-square transition-transform border-r-4 border-b-4 border-teal-300',
 			text1: 'text-lg text-teal-300',
-			text2: 'font-bold text-3xl',
-			text3: 'italic text-2xl',
+			text2: 'font-bold text-xl sm:text-3xl',
+			text3: 'italic text-lg sm:text-2xl',
 			progressTrack: 'bg-teal-300/75',
 			progressMeter: 'bg-teal-300',
 			footer: 'p-10 grid grid-cols-5 gap-10 place-items-center',
@@ -61,10 +61,10 @@
 	};
 </script>
 
-<div class="grid grid-cols-1 xl:grid-cols-2 gap-4 md:gap-10 items-center">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-10 items-center">
 	<!-- Info -->
 	<div class="space-y-4 md:space-y-10">
-		<div class="space-y-4">
+		<div class="max-w-[640px] mx-auto space-y-4">
 			<h2>Adaptive Theming.</h2>
 			<p>
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit perspiciatis velit deserunt cupiditate aliquid, perferendis
@@ -78,8 +78,9 @@
 			flex="flex-1 lg:flex-none"
 			rounded="rounded-container-token"
 			border=""
-			regionList="space-x-2"
-			padding="p-4"
+			regionList="space-x-1"
+			padding="p-2 sm:p-4"
+			class="max-w-[640px] mx-auto"
 		>
 			<Tab bind:group={theme} name="theme" value="simple" class="space-y-4 w-24">
 				<svelte:fragment slot="lead"><i class="fa-solid fa-square text-2xl" /></svelte:fragment>

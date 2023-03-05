@@ -6,12 +6,12 @@
 	<!-- Info -->
 	<div class="flex flex-col items-center xl:items-start text-center xl:text-left space-y-4">
 		<DocsLogoHero />
-		<h1 class="max-w-[600px]">A powerful UI toolkit for Svelte + Tailwind.</h1>
-		<p class="!text-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+		<h1 class="max-w-[300px] md:max-w-[500px]">A powerful UI toolkit for Svelte + Tailwind.</h1>
+		<p class="!text-xl">Create adaptive, accessible UI for web apps.</p>
 		<div class="flex gap-4">
 			<a href="/docs/get-started" class="btn btn-lg variant-filled-primary">
 				<span>Get Started</span>
-				<i class="fa-solid fa-arrow-right" />
+				<i class="fa-solid fa-arrow-right-long" />
 			</a>
 			<a href="/docs/introduction" class="btn btn-lg variant-soft-primary">Learn More</a>
 		</div>
