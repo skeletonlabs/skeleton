@@ -1,14 +1,13 @@
 <script lang="ts">
 	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
-	import Accordion from '$lib/components/Accordion/Accordion.svelte';
-	import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
 	// Utilities
-	import type { ModalSettings, ModalComponent } from '$lib/utilities/Modal/types';
+	import type { ModalSettings } from '$lib/utilities/Modal/types';
 	import { modalStore } from '$lib/utilities/Modal/stores';
 	// Components
+	import Accordion from '$lib/components/Accordion/Accordion.svelte';
+	import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
 	import ListBox from '$lib/components/ListBox/ListBox.svelte';
 	import ListBoxItem from '$lib/components/ListBox/ListBoxItem.svelte';
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	// Actions
 	import { filter } from '$lib/actions/Filters/filter';
 	// Filter SVGs
@@ -18,7 +17,7 @@
 	import Noir from '$lib/actions/Filters/svg-filters/Noir.svelte';
 
 	// Local
-	let showcase: string = 'utilities';
+	let showcase: string = 'components';
 	const imgPlaceholder = `https://i.pravatar.cc/512?img=48`;
 
 	function modalDemo(): void {
@@ -36,7 +35,7 @@
 <Emerald />
 <Noir />
 
-<div class="grid grid-cols-1 xl:grid-cols-3 gap-4 md:gap-10 items-start">
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-10 items-start">
 	<!-- Info -->
 	<div class="space-y-4">
 		<h2>Designed for Svelte and SvelteKit.</h2>
