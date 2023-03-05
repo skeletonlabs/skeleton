@@ -49,11 +49,13 @@
 		$state.current++;
 		/** @event { $state } next - Fires when the NEXT button is pressed per step.  */
 		dispatchParent('next', { step: stepIndex, state: $state });
+		dispatchParent('step', { step: stepIndex, state: $state });
 	}
 	function onBack(): void {
 		$state.current--;
 		/** @event { $state } back - Fires when the BACK button is pressed per step.  */
 		dispatchParent('back', { step: stepIndex, state: $state });
+		dispatchParent('step', { step: stepIndex, state: $state });
 	}
 	function onComplete() {
 		/** @event { $state } complete - Fires when the COMPLETE button is pressed.  */

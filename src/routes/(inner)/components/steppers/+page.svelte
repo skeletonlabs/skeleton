@@ -47,6 +47,9 @@
 	function onBackHandler(e: any): void {
 		console.log('event:prev', e.detail);
 	}
+	function onStepHandler(e: any): void {
+		console.log('event:step', e.detail);
+	}
 	function onCompleteHandler(e: any): void {
 		console.log('event:complete', e.detail);
 		alert('Complete!');
@@ -59,7 +62,7 @@
 		<DocsPreview>
 			<svelte:fragment slot="preview">
 				<div class="w-full card p-4 text-token">
-					<Stepper on:next={onNextHandler} on:back={onBackHandler} on:complete={onCompleteHandler}>
+					<Stepper on:next={onNextHandler} on:back={onBackHandler} on:step={onStepHandler} on:complete={onCompleteHandler}>
 						<Step>
 							<svelte:fragment slot="header">Get Started!</svelte:fragment>
 							<p>This example Stepper will teach you how to use this component. Tap <u>next</u> to proceed to the next step.</p>
@@ -136,9 +139,15 @@
 			<h3>Complete Event</h3>
 			<CodeBlock language="ts" code={`function onCompleteHandler(e: Event): void { console.log('event:complete', e); }`} />
 			<CodeBlock language="html" code={`<Stepper on:complete={onCompleteHandler}>...</Stepper>`} />
-			<h3>Next and Previous</h3>
-			<p>Events are fired when the next or previous steps are pressed.</p>
-			<CodeBlock language="html" code={`<Stepper on:next={onNextHandler} on:back={onBackHandler}>...</Stepper>`} />
+			<h3>Next, Step and Previous</h3>
+			<p>Events are fired when the next or previous steps are pressed, step fires for both cases.</p>
+			<CodeBlock language="ts" code={`function onStepHandler(e: {step: number, state: {current: number, total: number}}): void {
+	console.log('event:step', e); 
+}`} />
+			<CodeBlock language="html" code={`<Stepper on:next={onNextHandler} on:step={onStepHandler} on:back={onBackHandler}>...</Stepper>`} />
+			<blockquote>
+				TIP: <code>e.state.current</code> contains the step shown to the user after navigation, <code>e.step</code> contains the step where navigation occured.
+			</blockquote>
 		</section>
 
 		<section class="space-y-4">
