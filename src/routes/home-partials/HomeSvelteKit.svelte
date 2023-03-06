@@ -18,7 +18,7 @@
 
 	// Local
 	let showcase: string = 'components';
-	const imgPlaceholder = `https://i.pravatar.cc/512?img=48`;
+	const imgPlaceholder = `https://source.unsplash.com/YOErFW8AfkI/200x200`;
 
 	function modalDemo(): void {
 		const d: ModalSettings = {
