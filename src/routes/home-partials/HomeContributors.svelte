@@ -7,16 +7,16 @@
 <div class="space-y-10">
 	<!-- Info -->
 	<div class="space-y-4 text-center">
-		<h2>Built by Awesome People.</h2>
-		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+		<h2>Community Owned.</h2>
+		<p>Below are a few of the people responsible for creating and maintaining the library.</p>
 	</div>
 	<div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-4 items-center">
 		<!-- Skeleton Labs -->
 		<div class="card variant-soft-secondary overflow-hidden">
-			<header class="variant-filled-secondary grid grid-cols-[1fr_auto] gap-4 items-center p-4 md:p-10">
+			<header class="variant-filled-secondary grid grid-cols-[1fr_auto] gap-4 items-center p-4 md:p-8 md:py-8">
 				<DocsLogoLabs />
 				<a class="btn variant-filled" href="https://skeletonlabs.co/" target="_blank" rel="noreferrer">
-					<span>Website</span>
+					<span>Learn More</span>
 					<i class="fa-solid fa-arrow-up-right-from-square" />
 				</a>
 			</header>
@@ -35,7 +35,7 @@
 		</div>
 		<!-- Contributors -->
 		<div class="space-y-4 text-center lg:text-left">
-			<div class="grid grid-cols-6 gap-2 max-w-[480px] mx-auto">
+			<div class="grid grid-cols-6 gap-4 max-w-[480px] mx-auto">
 				{#each contributors as c}
 					<a href={c.html_url} target="_blank" rel="noreferrer" title={c.login}>
 						<Avatar src={c.avatar_url} width="w-full" />

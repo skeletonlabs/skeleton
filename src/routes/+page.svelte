@@ -77,11 +77,22 @@
 	<section id="bottom-cta" class="bottom-cta-gradient">
 		<div class="section-container text-center space-y-4">
 			<h2>Ready to Begin?</h2>
-			<p class="!text-xl max-w-[320px] sm:max-w-none mx-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-			<a href="/docs/get-started" class="btn btn-lg variant-filled">
-				<span>Get Started</span>
-				<i class="fa-solid fa-arrow-right-long" />
-			</a>
+			<p class="!text-xl max-w-[320px] sm:max-w-none mx-auto">Select either option to begin creating your first Skeleton project.</p>
+			<div class="flex justify-center gap-4">
+				<a
+					class="btn variant-filled"
+					href="https://stackblitz.com/fork/github/skeletonlabs/repl/tree/main/welcome"
+					target="_blank"
+					rel="noreferrer"
+				>
+					<i class="fa-solid fa-bolt" />
+					<span>Via StackBlitz</span>
+				</a>
+				<a href="/docs/get-started" class="btn variant-filled">
+					<span>Install Now</span>
+					<i class="fa-solid fa-arrow-right-long" />
+				</a>
+			</div>
 		</div>
 	</section>
 </div>

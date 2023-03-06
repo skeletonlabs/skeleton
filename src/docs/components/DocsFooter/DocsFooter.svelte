@@ -17,7 +17,7 @@
 		<section class={cRowOne}>
 			<div class="grid grid-cols-1 gap-2 place-content-center place-items-center md:place-items-start">
 				<DocsLogoIcon />
-				<p class="!text-sm opacity-80">A fully featured UI Toolkit.</p>
+				<p class="!text-sm opacity-80">UI Toolkit for Svelte + Tailwind.</p>
 				<!-- Current Version -->
 				<span class="badge variant-soft">{pkg.version}</span>
 			</div>

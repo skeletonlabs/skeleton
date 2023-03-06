@@ -14,12 +14,12 @@
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-10 items-start">
 	<!-- Preview -->
 	<div class="col-span-2">
-		<DocsPreview label={showcase.replace('-', ' ')} regionPreview="min-h-[320px]">
+		<DocsPreview label={showcase.replace('-', ' ')} regionPreview="min-h-[400px]">
 			<svelte:fragment slot="preview">
 				{#if showcase === 'elements'}
-					<div class="card overflow-hidden max-w-[400px] text-token">
+					<div class="card shadow-xl overflow-hidden max-w-[400px] text-token">
 						<header>
-							<img src="https://source.unsplash.com/vjUokUWbFOs/1280x540" class="bg-black/50 w-full aspect-[21/9]" alt="Post" />
+							<img src="https://source.unsplash.com/vjUokUWbFOs/400x175" class="bg-black/50 w-full aspect-[21/9]" alt="Post" />
 						</header>
 						<div class="p-4 space-y-4">
 							<h6>Announcements</h6>
@@ -48,7 +48,7 @@
 						</footer>
 					</div>
 				{:else if showcase === 'colors'}
-					<div class="card p-2 grid grid-cols-10 gap-0.5 rounded-container-token overflow-hidden">
+					<div class="grid grid-cols-10 gap-2">
 						<!-- Primary -->
 						<div class="h-6 sm:h-8 aspect-square bg-primary-50">&nbsp;</div>
 						<div class="h-6 sm:h-8 aspect-square bg-primary-100">&nbsp;</div>
@@ -128,7 +128,7 @@
 						<div class="h-6 sm:h-8 aspect-square bg-surface-900">&nbsp;</div>
 					</div>
 				{:else if showcase === 'dark-mode'}
-					<LightSwitch width="w-16" height="h-8" />
+					<LightSwitch width="w-20" height="h-10" />
 				{/if}
 			</svelte:fragment>
 		</DocsPreview>
@@ -137,21 +137,21 @@
 	<div class="space-y-4">
 		<h2>Enhanced with Tailwind CSS.</h2>
 		<p>
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit perspiciatis velit deserunt cupiditate aliquid, perferendis
-			recusandae laudantium odit repellendus.
+			Skeleton has been built from the ground up to take full advantage of Tailwind's unique utility class approach to CSS design. Allowing
+			you to quickly create or extend your own personl design system.
 		</p>
 		<!-- Options -->
 		<ListBox active="variant-filled" hover="hover:variant-soft" rounded="rounded-container-token" padding="!p-4">
 			<ListBoxItem bind:group={showcase} name="showcase" value="elements">
 				<div class="space-y-2">
 					<h3>Elements</h3>
-					<p class="!text-sm">Create common UI using HTML + Tailwind.</p>
+					<p class="!text-sm">Provides commmon elements via HTML + CSS.</p>
 				</div>
 			</ListBoxItem>
 			<ListBoxItem bind:group={showcase} name="showcase" value="colors">
 				<div class="space-y-2">
 					<h3>Theme Colors</h3>
-					<p class="!text-sm">Draw from an extensive set of theme colors.</p>
+					<p class="!text-sm">Provides a an extensive palette of colors.</p>
 				</div>
 			</ListBoxItem>
 			<ListBoxItem bind:group={showcase} name="showcase" value="dark-mode">

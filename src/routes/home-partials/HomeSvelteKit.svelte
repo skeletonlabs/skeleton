@@ -23,8 +23,8 @@
 	function modalDemo(): void {
 		const d: ModalSettings = {
 			type: 'alert',
-			title: 'Hello Skeleton',
-			body: 'Create dynamic modals that capture focus that can display text, images, or event embed whole components.'
+			title: 'What is Pan de Muerto?',
+			body: 'The most prominent food consumed is pan de muerto, or bread of the dead, which is a yeast-based sweet egg bread. Other delicacies include calabaza en tacha (candied pumpkin), calaveras (the famous sugar skulls), tamales, atole, and spicy Mexican hot chocolate.'
 		};
 		modalStore.trigger(d);
 	}
@@ -40,27 +40,27 @@
 	<div class="space-y-4">
 		<h2>Designed for Svelte and SvelteKit.</h2>
 		<p>
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit perspiciatis velit deserunt cupiditate aliquid, perferendis
-			recusandae laudantium odit repellendus.
+			Skeleton deeply integrates Svelte components, stores, actions, and more. Offering solutions for page layouts, interactive UI, image
+			filters, and more.
 		</p>
 		<!-- Options -->
 		<ListBox active="variant-filled" hover="hover:variant-soft" rounded="rounded-container-token" padding="!p-4">
 			<ListBoxItem bind:group={showcase} name="showcase" value="components">
 				<div class="space-y-2">
 					<h3>Components</h3>
-					<p class="!text-sm">Interactive and customizable Svelte components.</p>
+					<p class="!text-sm">Interactive and customizable components.</p>
 				</div>
 			</ListBoxItem>
 			<ListBoxItem bind:group={showcase} name="showcase" value="actions">
 				<div class="space-y-2">
 					<h3>Actions</h3>
-					<p class="!text-sm">Dynamic Svelte actions DOM manipulation.</p>
+					<p class="!text-sm">Dynamic actions for filters, focus, and more.</p>
 				</div>
 			</ListBoxItem>
 			<ListBoxItem bind:group={showcase} name="showcase" value="utilities">
 				<div class="space-y-2">
 					<h3>Utilities</h3>
-					<p class="!text-sm">Powerful utilities that combine other features.</p>
+					<p class="!text-sm">Powerful utilities that extend even further.</p>
 				</div>
 			</ListBoxItem>
 		</ListBox>
@@ -70,48 +70,47 @@
 		<DocsPreview label={showcase} regionPreview="min-h-[320px]">
 			<svelte:fragment slot="preview">
 				{#if showcase === 'components'}
+					<!-- Source: https://www.oprahdaily.com/life/a37259063/day-of-the-dead-facts-history/ -->
 					<Accordion autocollapse class="card p-4 text-token">
 						<AccordionItem open>
 							<svelte:fragment slot="lead"><i class="fa-solid fa-book text-xl w-6 text-center" /></svelte:fragment>
-							<svelte:fragment slot="summary"><p class="font-bold">Books</p></svelte:fragment>
+							<svelte:fragment slot="summary"><p class="font-bold">What is Día de los Muertos?</p></svelte:fragment>
 							<svelte:fragment slot="content">
-								<p>This is the content panel for the <strong>books</strong> item.</p>
+								<!-- prettier-ignore -->
 								<p>
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit culpa maxime aut praesentium recusandae quos suscipit
-									deleniti doloribus eos sequi ratione rerum dicta, omnis amet et minus, sint explicabo nobis.
+									While Halloween and Day of the Dead occur nearly in tandem and share similar customs (candy, face painting, and community gathering), the two are not related. Halloween has ancient Celtic roots, while Day of the Dead has its own origins that date back to the Indigenous people of Mexico and Central America.
 								</p>
 							</svelte:fragment>
 						</AccordionItem>
 						<AccordionItem>
 							<svelte:fragment slot="lead"><i class="fa-solid fa-film text-xl w-6 text-center" /></svelte:fragment>
-							<svelte:fragment slot="summary"><p class="font-bold">Movies</p></svelte:fragment>
+							<svelte:fragment slot="summary"><p class="font-bold">When did it begin?</p></svelte:fragment>
 							<svelte:fragment slot="content">
-								<p>This is the content panel for the <strong>movies</strong> item.</p>
+								<!-- prettier-ignore -->
 								<p>
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit culpa maxime aut praesentium recusandae quos suscipit
-									deleniti doloribus eos sequi ratione rerum dicta, omnis amet et minus, sint explicabo nobis.
+									Roughly 3000 years ago, amongst the Aztec, Toltec, and Mayans, death and the dead were seen as a natural part of life that should be honored and celebrated, rather than mourned. In particular, the Nahua people of central Mexico believed the deceased traveled on a years-long journey to Chicunamictlán, the Land of the Dead. The living would provide supplies, such food and water, to aid them on the trek. This practice inspired the modern tradition of creating altars—known as ofrendas—at their homes, in addition to leaving offerings at the gravesites of loved ones.
 								</p>
 							</svelte:fragment>
 						</AccordionItem>
 						<AccordionItem>
 							<svelte:fragment slot="lead"><i class="fa-solid fa-tv text-xl w-6 text-center" /></svelte:fragment>
-							<svelte:fragment slot="summary"><p class="font-bold">Television</p></svelte:fragment>
+							<svelte:fragment slot="summary"><p class="font-bold">When is it Celebrated?</p></svelte:fragment>
 							<svelte:fragment slot="content">
-								<p>This is the content panel for the <strong>television</strong> item.</p>
+								<!-- prettier-ignore -->
 								<p>
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit culpa maxime aut praesentium recusandae quos suscipit
-									deleniti doloribus eos sequi ratione rerum dicta, omnis amet et minus, sint explicabo nobis.
+									Once the Spanish colonized Mexico in the 16th century, their own Catholic views on the dead influenced Mexican customs. Día de los Muertos was originally celebrated in the summer months. The holiday came to fall on November 1 and November 2 to align with All Saints Day and All Souls Day on the Catholic calendar. The first day honors children who have passed, while the second celebrates adults.
 								</p>
 							</svelte:fragment>
 						</AccordionItem>
 						<AccordionItem>
 							<svelte:fragment slot="lead"><i class="fa-solid fa-gamepad text-xl w-6 text-center" /></svelte:fragment>
-							<svelte:fragment slot="summary"><p class="font-bold">Games</p></svelte:fragment>
+							<svelte:fragment slot="summary"><p class="font-bold">What are ofrendas?</p></svelte:fragment>
 							<svelte:fragment slot="content">
-								<p>This is the content panel for the <strong>games</strong> item.</p>
+								<!-- prettier-ignore -->
 								<p>
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum eligendi quibusdam odit, temporibus ullam ab enim
-									expedita eum officia ipsum, laboriosam, nobis quasi laborum aspernatur reiciendis dignissimos optio sunt distinctio.
+									To beckon spirits back into the Land of the Living for the festivities, revelers create makeshift altars, or ofrendas, at their homes and at the gravesites of their deceased loved ones. Families gather at the site to eat, tell stories, and even clean the graves.
+
+
 								</p>
 							</svelte:fragment>
 						</AccordionItem>
@@ -136,7 +135,7 @@
 						</div>
 					</section>
 				{:else if showcase === 'utilities'}
-					<button class="btn variant-filled" on:click={modalDemo}>Show Modal</button>
+					<button class="btn variant-filled" on:click={modalDemo}>Trigger Modal</button>
 				{/if}
 			</svelte:fragment>
 		</DocsPreview>

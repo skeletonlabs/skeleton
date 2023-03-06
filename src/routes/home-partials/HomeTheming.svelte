@@ -9,7 +9,7 @@
 		simple: {
 			base: 'variant-soft-primary font-sans rounded-container-token',
 			header: 'bg-primary-500 p-4 grid grid-cols-3 gap-8 items-center rounded-tl-container-token rounded-tr-container-token',
-			src: 'https://source.unsplash.com/7a4U5lBG9Yw/200x200',
+			src: 'https://source.unsplash.com/3vj6GJ_lTa8/200x200',
 			img: 'bg-black w-full aspect-square rounded-full transition-transform',
 			text1: 'text-on-primary-token text-lg opacity-75',
 			text2: 'text-on-primary-token font-bold text-xl sm:text-3xl',
@@ -67,8 +67,8 @@
 		<div class="max-w-[640px] mx-auto space-y-4">
 			<h2>Adaptive Theming.</h2>
 			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit perspiciatis velit deserunt cupiditate aliquid, perferendis
-				recusandae laudantium.
+				Use Skeleton's design token systems to quickly genereate a theme that matches any mood. Then use Tailwind to quickly and easily
+				refine components in seconds.
 			</p>
 		</div>
 		<!-- Tabs -->
