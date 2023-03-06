@@ -111,7 +111,7 @@
 			<h2>Install the Forms Plugin</h2>
 			<!-- prettier-ignore -->
 			<p>
-				The Tailwind Forms plugin normalizes form field styles, making them easier to customize and providing some rudementary styles. See <a href="https://www.youtube.com/watch?v=pONeWAzDsQg" target="_blank" rel="noreferrer">Tailwind's video tutorial</a> for more information.
+				The Tailwind Forms plugin normalizes form field styles, making them easier to customize and providing some rudimentary styles. See <a href="https://www.youtube.com/watch?v=pONeWAzDsQg" target="_blank" rel="noreferrer">Tailwind's video tutorial</a> for more information.
 			</p>
 			<!-- Written -->
 			<div class="flex-auto space-y-4">
@@ -429,7 +429,7 @@ module.exports = {
 		<!-- Input Groups -->
 		<section class="space-y-4">
 			<h2>Input Groups</h2>
-			<p>Create a horizontal group of elements related form fields.</p>
+			<p>Create a horizontal group of related form fields.</p>
 			<ul class="space-y-2 list-disc list-inside">
 				<li>Groups support <em>most</em> input types and select elements, but not all.</li>
 				<!-- prettier-ignore -->
@@ -437,12 +437,13 @@ module.exports = {
 					The column sizes are grid-based, via <a href="https://tailwindcss.com/docs/grid-template-columns#arbitrary-values" target="_blank" rel="noreferrer">Tailwind's arbitrary column syntax</a>.
 				</li>
 				<li>
-					Descriptive segments (allowed on either side) allow for <em>div</em>, <em>button</em>, and <em>anchor</em> elements.
+					Descriptive segments (on either side) allow for <code>div</code>, <code>button</code>, and anchor (<code>a</code>)
+					elements.
 				</li>
 				<li>
-					The <code>.input-group-divider</code> is an optional class that applies vertical divider lines.
+					The <code>.input-group-divider</code> class applies vertical divider lines.
 				</li>
-				<li>The <code>.input-group-shim</code> class will apply subtle shading to a segment to draw more attention.</li>
+				<li>The <code>.input-group-shim</code> class applies subtle shading to a segment, to draw more attention.</li>
 			</ul>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -505,7 +506,10 @@ module.exports = {
 		<!-- Variants -->
 		<section class="space-y-4">
 			<h2>Variants</h2>
-			<p>Skeleton includes a Material Design inspired variant. Use this as a reference for building your own variant classes.</p>
+			<p>
+				Skeleton includes a forms variant inspired by <a href="https://m3.material.io/" target="_blank" rel="noreferrer">Material Design.</a
+				> Use this as a reference for building your own variant classes.
+			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
@@ -540,8 +544,8 @@ module.exports = {
 		<section class="space-y-4">
 			<h2>Validation Classes</h2>
 			<p>
-				Skeleton provides a set of classes for use with form validation logic. These must come last, but are compatible with the variant
-				above.
+				Skeleton provides a set of classes for indicating form validation. These must come last in a group of class values. They are
+				compatible with the variant above.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -571,8 +575,9 @@ module.exports = {
 		<section class="space-y-4">
 			<h2>Browser Support</h2>
 			<p>
-				Please be aware that not all native HTML form fields consistent across browsers or operating system. We strongly recommend cross
-				device/OS/browser testing to ensure compability for your target audience.
+				<i class="fa-solid fa-triangle-exclamation text-4xl float-left mr-4" />
+				Please be aware that not all native HTML form fields work consistently across browsers or operating systems. We strongly recommend cross-device/OS/browser
+				testing to ensure compability for your target audience.
 			</p>
 		</section>
 	</svelte:fragment>
