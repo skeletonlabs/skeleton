@@ -201,7 +201,7 @@
 
 		<!-- Search -->
 		<div class="md:inline md:ml-4">
-			<button class="btn p-2 px-4 space-x-4 variant-soft" on:click={triggerSearch}>
+			<button class="btn p-2 px-4 space-x-4 variant-soft hover:variant-soft-primary" on:click={triggerSearch}>
 				<i class="fa-solid fa-magnifying-glass" />
 				<span class="hidden md:inline-block badge variant-soft">{isOsMac ? '⌘' : 'Ctrl'}+K</span>
 			</button>
@@ -210,7 +210,10 @@
 		<!-- Sponsor -->
 		<div>
 			<!-- trigger -->
-			<button class="btn py-1.5 variant-soft hidden sm:inline-block" use:popup={{ event: 'click', target: 'sponsor' }}>
+			<button
+				class="btn py-1.5 variant-soft hover:variant-soft-primary hidden sm:inline-block"
+				use:popup={{ event: 'click', target: 'sponsor' }}
+			>
 				<i class="fa-solid fa-heart" />
 				<span class="hidden md:inline-block">Sponsor</span>
 			</button>

@@ -1,4 +1,9 @@
 <script lang="ts">
+	// HTTP response data provided by +page.ts
+	import type { PageData } from './$types';
+	export let data: PageData;
+	const contributors = data.contributors;
+
 	// Components
 	import HomeFeatures from './home-partials/HomeFeatures.svelte';
 	// Page Partials
@@ -10,15 +15,7 @@
 	import HomeTailwind from './home-partials/HomeTailwind.svelte';
 	import HomeTheming from './home-partials/HomeTheming.svelte';
 	import HomeContributors from './home-partials/HomeContributors.svelte';
-
-	// Fetch HTTP Data
-	async function fetchHttpData(url: string, key?: string): Promise<any> {
-		const http = await fetch(url);
-		const res = await http.json();
-		if (http.ok) return key ? res[key] : res;
-		throw new Error(res);
-	}
-	let contributors: Promise<any> = fetchHttpData('https://api.github.com/repos/skeletonlabs/skeleton/contributors');
+	import HomeBottomCta from './home-partials/HomeBottomCta.svelte';
 </script>
 
 <div>
@@ -64,36 +61,12 @@
 
 	<!-- contributors -->
 	<section id="contributors" class="bg-surface-50-900-token contributors-gradient">
-		<div class="section-container">
-			{#await contributors}
-				<p class="!w-full text-center">Loading contributors...</p>
-			{:then response}
-				<HomeContributors contributors={response} />
-			{/await}
-		</div>
+		<div class="section-container"><HomeContributors {contributors} /></div>
 	</section>
 
 	<!-- bottom-cta -->
 	<section id="bottom-cta" class="bottom-cta-gradient">
-		<div class="section-container text-center space-y-4">
-			<h2>Ready to Begin?</h2>
-			<p class="!text-xl max-w-[320px] sm:max-w-none mx-auto">Create your first Skeleton project in seconds.</p>
-			<div class="flex justify-center gap-4">
-				<a
-					class="btn variant-filled"
-					href="https://stackblitz.com/fork/github/skeletonlabs/repl/tree/main/welcome"
-					target="_blank"
-					rel="noreferrer"
-				>
-					<i class="fa-solid fa-bolt" />
-					<span>Via StackBlitz</span>
-				</a>
-				<a href="/docs/get-started" class="btn variant-filled">
-					<span>Install Skeleton</span>
-					<i class="fa-solid fa-arrow-right-long" />
-				</a>
-			</div>
-		</div>
+		<div class="section-container"><HomeBottomCta /></div>
 	</section>
 </div>
 
@@ -105,42 +78,42 @@
 	/* prettier-ignore */
 	.hero-gradient {
 		background-image:
-			radial-gradient(at 0% 0%, rgba(var(--color-secondary-500) /  0.33) 0px, transparent 50%),
-			radial-gradient(at 98% 1%, rgba(var(--color-error-500) /  0.33) 0px, transparent 50%);
+			radial-gradient(at 0% 0%, rgba(var(--color-secondary-500) / 0.33) 0px, transparent 50%),
+			radial-gradient(at 98% 1%, rgba(var(--color-error-500) / 0.33) 0px, transparent 50%);
 	}
 	/* SvelteKit Gradient */
 	/* prettier-ignore */
 	.sveltekit-gradient {
 		background-image:
-			radial-gradient(at 0% 100%, rgba(var(--color-secondary-500) /  0.50) 0px, transparent 50%);
+			radial-gradient(at 0% 100%, rgba(var(--color-secondary-500) / 0.50) 0px, transparent 50%);
 	}
 	/* SvelteKit Gradient */
 	/* prettier-ignore */
 	.tailwind-gradient {
 		background-image:
-			radial-gradient(at 0% 0%, rgba(var(--color-secondary-500) /  0.50) 0px, transparent 50%),
-			radial-gradient(at 100% 100%,  rgba(var(--color-primary-500) /  0.24) 0px, transparent 50%);
+			radial-gradient(at 0% 0%, rgba(var(--color-secondary-500) / 0.50) 0px, transparent 50%),
+			radial-gradient(at 100% 100%,  rgba(var(--color-primary-500) / 0.24) 0px, transparent 50%);
 	}
 	/* Features Gradient */
 	/* prettier-ignore */
 	.features-gradient {
 		background-image:
-			radial-gradient(at 0% 0%, rgba(var(--color-secondary-500) /  0.33) 0px, transparent 50%),
-			radial-gradient(at 100% 0%,  rgba(var(--color-primary-500) /  0.33) 0px, transparent 50%);
+			radial-gradient(at 0% 0%, rgba(var(--color-secondary-500) / 0.33) 0px, transparent 50%),
+			radial-gradient(at 100% 0%,  rgba(var(--color-primary-500) / 0.33) 0px, transparent 50%);
 	}
 	/* Sponsors Gradient */
 	/* prettier-ignore */
 	.sponsors-gradient {
 		background-image:
-		radial-gradient(at 0% 99%, rgba(var(--color-error-500) /  0.23) 0px, transparent 50%),
-		radial-gradient(at 100% 100%, rgba(var(--color-primary-500) /  0.19) 0px, transparent 50%);
+		radial-gradient(at 0% 99%, rgba(var(--color-error-500) / 0.23) 0px, transparent 50%),
+		radial-gradient(at 100% 100%, rgba(var(--color-primary-500) / 0.19) 0px, transparent 50%);
 	}
 	/* Radial */
 	/* prettier-ignore */
 	.bottom-cta-gradient {
 		@apply bg-primary-500 text-on-primary-token;
 		background-image:
-		radial-gradient(at 0% 0%, rgba(var(--color-secondary-500) /  0.75) 0px, transparent 40%),
-		radial-gradient(at 100% 100%, rgba(var(--color-secondary-500) /  0.75) 0px, transparent 40%);
+		radial-gradient(at 0% 0%, rgba(var(--color-secondary-500) / 0.75) 0px, transparent 40%),
+		radial-gradient(at 100% 100%, rgba(var(--color-secondary-500) / 0.75) 0px, transparent 40%);
 	}
 </style>
