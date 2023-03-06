@@ -7,16 +7,18 @@
 <div class="space-y-10">
 	<!-- Info -->
 	<div class="space-y-4 text-center">
-		<h2>Community Owned.</h2>
-		<p>Below are a few of the people responsible for creating and maintaining the library.</p>
+		<h2>Built by Awesome People.</h2>
+		<p>Here are a few of the people responsible for creating and maintaining Skeleton.</p>
 	</div>
 	<div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-4 items-center">
 		<!-- Skeleton Labs -->
 		<div class="card variant-soft-secondary overflow-hidden">
-			<header class="variant-filled-secondary grid grid-cols-[1fr_auto] gap-4 items-center p-4 md:p-8 md:py-8">
-				<DocsLogoLabs />
-				<a class="btn variant-filled" href="https://skeletonlabs.co/" target="_blank" rel="noreferrer">
-					<span>Learn More</span>
+			<header class="variant-filled-secondary grid grid-cols-[1fr_auto_auto] gap-4 items-center p-4 md:p-8 md:py-8">
+				<a href="https://skeletonlabs.co/" target="_blank" rel="noreferrer"><DocsLogoLabs /></a>
+				<a class="btn-icon variant-filled" href="mailto:admin@skeleton.dev">
+					<i class="fa-solid fa-envelope" />
+				</a>
+				<a class="btn-icon variant-filled" href="https://skeletonlabs.co/" target="_blank" rel="noreferrer">
 					<i class="fa-solid fa-arrow-up-right-from-square" />
 				</a>
 			</header>

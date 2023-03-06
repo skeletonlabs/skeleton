@@ -77,7 +77,7 @@
 	<section id="bottom-cta" class="bottom-cta-gradient">
 		<div class="section-container text-center space-y-4">
 			<h2>Ready to Begin?</h2>
-			<p class="!text-xl max-w-[320px] sm:max-w-none mx-auto">Select either option to begin creating your first Skeleton project.</p>
+			<p class="!text-xl max-w-[320px] sm:max-w-none mx-auto">Create your first Skeleton project in seconds.</p>
 			<div class="flex justify-center gap-4">
 				<a
 					class="btn variant-filled"
@@ -89,7 +89,7 @@
 					<span>Via StackBlitz</span>
 				</a>
 				<a href="/docs/get-started" class="btn variant-filled">
-					<span>Install Now</span>
+					<span>Install Skeleton</span>
 					<i class="fa-solid fa-arrow-right-long" />
 				</a>
 			</div>

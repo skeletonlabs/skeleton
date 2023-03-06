@@ -137,8 +137,8 @@
 	<div class="space-y-4">
 		<h2>Enhanced with Tailwind CSS.</h2>
 		<p>
-			Skeleton has been built from the ground up to take full advantage of Tailwind's unique utility class approach to CSS design. Allowing
-			you to quickly create or extend your own personl design system.
+			Skeleton has been designed from the ground up to take advantage of Tailwind's unique utility class approach to CSS styling. Allowing
+			you to create or extend your own personal design system.
 		</p>
 		<!-- Options -->
 		<ListBox active="variant-filled" hover="hover:variant-soft" rounded="rounded-container-token" padding="!p-4">

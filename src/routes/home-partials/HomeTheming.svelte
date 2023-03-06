@@ -67,8 +67,8 @@
 		<div class="max-w-[640px] mx-auto space-y-4">
 			<h2>Adaptive Theming.</h2>
 			<p>
-				Use Skeleton's design token systems to quickly genereate a theme that matches any mood. Then use Tailwind to quickly and easily
-				refine components in seconds.
+				Use Skeleton's design token systems quickly create a custom theme. Use Tailwind utility classses to easily refine components in
+				seconds.
 			</p>
 		</div>
 		<!-- Tabs -->

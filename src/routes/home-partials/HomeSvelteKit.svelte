@@ -23,8 +23,8 @@
 	function modalDemo(): void {
 		const d: ModalSettings = {
 			type: 'alert',
-			title: 'What is Pan de Muerto?',
-			body: 'The most prominent food consumed is pan de muerto, or bread of the dead, which is a yeast-based sweet egg bread. Other delicacies include calabaza en tacha (candied pumpkin), calaveras (the famous sugar skulls), tamales, atole, and spicy Mexican hot chocolate.'
+			title: 'What is this?',
+			body: 'A high priority dialog modal system with a dynamic queue. Allowing you to create standard alerts and implement custom designs using standard Svelte components.'
 		};
 		modalStore.trigger(d);
 	}
@@ -40,8 +40,8 @@
 	<div class="space-y-4">
 		<h2>Designed for Svelte and SvelteKit.</h2>
 		<p>
-			Skeleton deeply integrates Svelte components, stores, actions, and more. Offering solutions for page layouts, interactive UI, image
-			filters, and more.
+			Skeleton integrates directly with Svelte's best features, including components, stores, actions, and more. Offering complete page
+			layouts, interactive interfaces, image filters, and much more.
 		</p>
 		<!-- Options -->
 		<ListBox active="variant-filled" hover="hover:variant-soft" rounded="rounded-container-token" padding="!p-4">
@@ -54,7 +54,7 @@
 			<ListBoxItem bind:group={showcase} name="showcase" value="actions">
 				<div class="space-y-2">
 					<h3>Actions</h3>
-					<p class="!text-sm">Dynamic actions for filters, focus, and more.</p>
+					<p class="!text-sm">Dynamic actions for filters, tab focus, and more.</p>
 				</div>
 			</ListBoxItem>
 			<ListBoxItem bind:group={showcase} name="showcase" value="utilities">
@@ -88,17 +88,17 @@
 							<svelte:fragment slot="content">
 								<!-- prettier-ignore -->
 								<p>
-									Roughly 3000 years ago, amongst the Aztec, Toltec, and Mayans, death and the dead were seen as a natural part of life that should be honored and celebrated, rather than mourned. In particular, the Nahua people of central Mexico believed the deceased traveled on a years-long journey to Chicunamictlán, the Land of the Dead. The living would provide supplies, such food and water, to aid them on the trek. This practice inspired the modern tradition of creating altars—known as ofrendas—at their homes, in addition to leaving offerings at the gravesites of loved ones.
+									Roughly 3000 years ago, amongst the Aztec, Toltec, and Mayans, death and the dead were seen as a natural part of life that should be honored and celebrated, rather than mourned. In particular, the Nahua people of central Mexico believed the deceased traveled on a years-long journey to Chicunamictlán, the Land of the Dead. The living would provide supplies, such food and water, to aid them on the trek. This practice inspired the modern tradition of creating altars —known as ofrendas— at their homes, in addition to leaving offerings at the gravesites of loved ones.
 								</p>
 							</svelte:fragment>
 						</AccordionItem>
 						<AccordionItem>
 							<svelte:fragment slot="lead"><i class="fa-solid fa-tv text-xl w-6 text-center" /></svelte:fragment>
-							<svelte:fragment slot="summary"><p class="font-bold">When is it Celebrated?</p></svelte:fragment>
+							<svelte:fragment slot="summary"><p class="font-bold">When is it celebrated?</p></svelte:fragment>
 							<svelte:fragment slot="content">
 								<!-- prettier-ignore -->
 								<p>
-									Once the Spanish colonized Mexico in the 16th century, their own Catholic views on the dead influenced Mexican customs. Día de los Muertos was originally celebrated in the summer months. The holiday came to fall on November 1 and November 2 to align with All Saints Day and All Souls Day on the Catholic calendar. The first day honors children who have passed, while the second celebrates adults.
+									Once the Spanish colonized Mexico in the 16th century, their own Catholic views on the dead influenced Mexican customs. Día de los Muertos was originally celebrated in the summer months. The holiday came to fall on November 1 and November 2 to align with All Saints Day and All Souls Day.
 								</p>
 							</svelte:fragment>
 						</AccordionItem>
