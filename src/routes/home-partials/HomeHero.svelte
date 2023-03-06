@@ -9,7 +9,7 @@
 		<DocsLogoHero />
 		<h1 class="!text-5xl md:!text-6xl max-w-[600px]">The UI toolkit for Svelte and Tailwind.</h1>
 		<p class="!text-xl max-w-[475px]">
-			Skeleton allows enables you to create adaptive and accessible interfaces for web apps of all sizes.
+			Skeleton allows you to create adaptive and accessible interfaces for web apps of all shapes and sizes.
 		</p>
 		<div class="flex gap-4">
 			<a href="/docs/get-started" class="btn variant-filled-primary">

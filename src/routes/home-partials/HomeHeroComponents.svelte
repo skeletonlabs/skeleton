@@ -40,7 +40,7 @@
 	</div>
 	<!-- Card -->
 	<div class="anim-float-card absolute z-[1] top-[60%] left-[65%]">
-		<div class="card p-4 space-y-2">
+		<a class="block card card-hover p-4 space-y-2" href="https://twitter.com/SkeletonUI" target="_blank" rel="noreferrer">
 			<div class="flex items-center gap-4">
 				<Avatar src="https://pbs.twimg.com/profile_images/1587479781544759297/TINbbJLC_400x400.png" width="w-16" />
 				<div>
@@ -51,9 +51,9 @@
 			<p class="whitespace-nowrap">UI toolkit for Svelte and Tailwind.</p>
 			<div class="flex just gap-4">
 				<small><strong>50</strong> <span class="opacity-50">Following</span></small>
-				<small><strong>440</strong> <span class="opacity-50">Followers</span></small>
+				<small><strong>500</strong> <span class="opacity-50">Followers</span></small>
 			</div>
-		</div>
+		</a>
 	</div>
 	<!-- LightSwitch -->
 	<div class="anim-float-lightswitch anim-delay-200 absolute z-[1] top-[98%] left-[45%]">
@@ -62,8 +62,8 @@
 	<!-- Button -->
 	<div class="anim-float-button absolute z-[1] top-[78%] left-[15%]">
 		<button class="btn variant-glass-secondary">
-			<span>Launch Now</span>
-			<i class="fa-solid fa-rocket" />
+			<span>Design</span>
+			<i class="fa-solid fa-spa" />
 		</button>
 	</div>
 	<!-- Slide Toggle -->
