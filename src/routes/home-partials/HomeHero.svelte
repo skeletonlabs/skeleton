@@ -7,7 +7,7 @@
 	<!-- Info -->
 	<div class="flex flex-col items-center xl:items-start text-center xl:text-left space-y-4">
 		<DocsLogoHero />
-		<h1 class="!text-5xl md:!text-6xl">The UI toolkit for Svelte and Tailwind.</h1>
+		<h1 class="!text-5xl md:!text-6xl max-w-[600px]">The UI toolkit for Svelte and Tailwind.</h1>
 		<p class="!text-xl">Create adaptive and accessible UI for web apps.</p>
 		<div class="flex gap-4">
 			<a href="/docs/get-started" class="btn btn-lg variant-filled-primary">
@@ -19,7 +19,7 @@
 	</div>
 
 	<!-- Components -->
-	<div class="hidden xl:block">
+	<div class="hidden md:inline-block w-full max-w-[650px] mx-auto mt-20">
 		<HomeHeroComponents />
 	</div>
 </div>

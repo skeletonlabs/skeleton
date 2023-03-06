@@ -14,30 +14,32 @@
 <!-- variant-ringed-error -->
 <div class="aspect-video relative">
 	<!-- Avatar -->
-	<div class="anim-float-avatar absolute top-[35%] left-[40%]">
-		<Avatar src="https://source.unsplash.com/YOErFW8AfkI/128x128" width="w-32" />
+	<div class="anim-float-avatar absolute z-[1] top-[32%] left-[40%]">
+		<Avatar src="https://source.unsplash.com/YOErFW8AfkI/128x128" width="w-32" shadow="shadow-xl" />
 	</div>
 	<!-- Progress Radial -->
-	<div class="anim-float-progress anim-delay-200 absolute top-[0%] left-[10%]">
-		<ProgressRadial width="w-24" stroke={100} meter="stroke-tertiary-500" track="stroke-tertiary-500/30" />
+	<div class="anim-float-progress anim-delay-200 absolute z-[1] top-[0%] left-[10%]">
+		<div class="card variant-glass p-4">
+			<ProgressRadial width="w-20" stroke={150} meter="stroke-primary-500" track="stroke-primary-500/30" />
+		</div>
 	</div>
 	<!-- Search Input -->
-	<div class="anim-float-search anim-delay-200 absolute top-[-12%] left-[35%]">
+	<div class="anim-float-search anim-delay-200 absolute z-[1] top-[-12%] left-[35%]">
 		<label for="demo-search">
 			<span>Search</span>
 			<input class="input" type="search" name="demo-search" placeholder="Search..." />
 		</label>
 	</div>
 	<!-- Radio Group -->
-	<div class="anim-float-radio absolute top-[20%] left-[70%]">
-		<RadioGroup active="bg-primary-500">
+	<div class="anim-float-radio absolute z-[1] top-[20%] left-[70%]">
+		<RadioGroup active="variant-filled-secondary">
 			<RadioItem bind:group={value} name="justify" value={0}>Friendly</RadioItem>
 			<RadioItem bind:group={value} name="justify" value={1}>Adaptive</RadioItem>
 			<RadioItem bind:group={value} name="justify" value={2}>Customizable</RadioItem>
 		</RadioGroup>
 	</div>
 	<!-- Card -->
-	<div class="anim-float-card absolute top-[60%] left-[65%]">
+	<div class="anim-float-card absolute z-[1] top-[60%] left-[65%]">
 		<div class="card p-4 space-y-2">
 			<div class="flex items-center gap-4">
 				<Avatar src="https://pbs.twimg.com/profile_images/1587479781544759297/TINbbJLC_400x400.png" width="w-16" />
@@ -54,25 +56,31 @@
 		</div>
 	</div>
 	<!-- LightSwitch -->
-	<div class="anim-float-lightswitch anim-delay-200 absolute top-[100%] left-[45%]">
+	<div class="anim-float-lightswitch anim-delay-200 absolute z-[1] top-[98%] left-[45%]">
 		<LightSwitch />
 	</div>
 	<!-- Button -->
-	<div class="anim-float-button absolute top-[78%] left-[15%]">
-		<button class="btn variant-soft-secondary">
+	<div class="anim-float-button absolute z-[1] top-[78%] left-[15%]">
+		<button class="btn variant-glass-secondary">
 			<span>Launch Now</span>
 			<i class="fa-solid fa-rocket" />
 		</button>
 	</div>
 	<!-- Slide Toggle -->
-	<div class="anim-float-toggle anim-delay-200 absolute top-[58%] left-[0%]">
+	<div class="anim-float-toggle anim-delay-200 absolute z-[1] top-[55%] left-[5%]">
 		<SlideToggle name="demo-toggle" bind:checked={demoSlideToggle} active="bg-primary-500" />
 	</div>
 	<!-- Icon Badge -->
-	<div class="anim-float-badge absolute top-[45%] left-[25%]">
+	<div class="anim-float-badge absolute z-[1] top-[45%] left-[25%]">
 		<span class="badge-icon variant-filled">
 			<i class="fa-solid fa-skull" />
 		</span>
+	</div>
+	<!-- BG Circles -->
+	<div class="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] z-0">
+		<div class="w-96 aspect-square border-2 border-black/5 dark:border-white/5 rounded-full flex justify-center items-center">
+			<div class="w-[240px] aspect-square border-2 border-black/5 dark:border-white/5 rounded-full flex justify-center items-center" />
+		</div>
 	</div>
 </div>
 
