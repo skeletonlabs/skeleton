@@ -51,7 +51,8 @@
 	</TabGroup>
 	{#if $storeOnboardMethod === 'cli'}
 		<p>
-			The CLI will automatically import your preferred preset theme in <code>src/routes/+layout.svelte</code>. You may change this at any time.
+			The CLI will automatically import your preferred preset theme in <code>src/routes/+layout.svelte</code>. You may change this at any
+			time.
 		</p>
 	{:else if $storeOnboardMethod === 'manual'}
 		<!-- prettier-ignore -->
@@ -93,7 +94,7 @@
 	<!-- Generator -->
 	<div class="card variant-glass p-4">
 		<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-			<p>Wish to create a custom theme? Try our theme generator.</p>
+			<p>Want to create a custom theme? Try our theme generator.</p>
 			<a class="btn variant-filled-secondary" href="/docs/generator">Theme Generator &rarr;</a>
 		</div>
 	</div>

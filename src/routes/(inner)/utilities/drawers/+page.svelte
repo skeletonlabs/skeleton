@@ -211,5 +211,16 @@ drawerStore.open(settings);
 			<!-- prettier-ignore -->
 			<p>Skeleton <u>does not</u> provide a means to disable the backdrop's click to close feature, as this would be harmful to accessibility. View the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/" target="_blank" rel="noreferrer">ARIA APG guidelines</a> to learn more about modal accessibility.</p>
 		</section>
+		<!-- SvelteKit SSR Warning -->
+		<!-- prettier-ignore -->
+		<section class="space-y-4">
+			<h2>SvelteKit SSR Warning</h2>
+			<div class="space-y-4">
+				<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+					<p>There are known security risks when using Svelte writable stores within SvelteKit load functions.</p>
+					<a class="btn variant-filled" href="https://github.com/skeletonlabs/skeleton/wiki/SvelteKit-SSR-Warning" target="_blank" rel="noreferrer">Details &rarr;</a>
+				</div>
+			</div>
+		</section>
 	</svelte:fragment>
 </DocsShell>

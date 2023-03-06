@@ -263,7 +263,7 @@ const t: ToastSettings = {
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<p>
-						Append <code>classes</code> to your toast settings provide any abitrary classes.
+						Append <code>classes</code> to your toast settings to provide any arbitrary classes.
 					</p>
 					<CodeBlock
 						language="ts"
@@ -298,6 +298,17 @@ const t: ToastSettings = {
 };
 `}
 			/>
+		</section>
+		<!-- SvelteKit SSR Warning -->
+		<!-- prettier-ignore -->
+		<section class="space-y-4">
+			<h2>SvelteKit SSR Warning</h2>
+			<div class="space-y-4">
+				<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+					<p>There are known security risks when using Svelte writable stores within SvelteKit load functions.</p>
+					<a class="btn variant-filled" href="https://github.com/skeletonlabs/skeleton/wiki/SvelteKit-SSR-Warning" target="_blank" rel="noreferrer">Details &rarr;</a>
+				</div>
+			</div>
 		</section>
 	</svelte:fragment>
 </DocsShell>

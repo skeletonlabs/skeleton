@@ -1,6 +1,6 @@
 <script lang="ts">
 	// Slots
-	/** @slot header - Insert fixed header content, such as the <a href="/redirect/appbar">AppBar</a> component.
+	/** @slot header - Insert fixed header content, such as Skeleton's App Bar component.
 	 * @slot sidebarLeft - Hidden when empty. Allows you to set fixed left sidebar content.
 	 * @slot sidebarRight - Hidden when empty. Allows you to set fixed right sidebar content.
 	 * @slot pageHeader - Insert content that resides above your page content. Great for global alerts.
