@@ -1,0 +1,122 @@
+<script lang="ts">
+	import Avatar from '$lib/components/Avatar/Avatar.svelte';
+	import ProgressRadial from '$lib/components/ProgressRadial/ProgressRadial.svelte';
+	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
+	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
+	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
+	import LightSwitch from '$lib/utilities/LightSwitch/LightSwitch.svelte';
+
+	// Local
+	let value: number = 0;
+	let demoSlideToggle = true;
+</script>
+
+<!-- variant-ringed-error -->
+<div class="aspect-video relative">
+	<!-- Avatar -->
+	<div class="anim-float-avatar absolute top-[35%] left-[40%]">
+		<Avatar src="https://source.unsplash.com/YOErFW8AfkI/128x128" width="w-32" />
+	</div>
+	<!-- Progress Radial -->
+	<div class="anim-float-progress anim-delay-200 absolute top-[0%] left-[10%]">
+		<ProgressRadial width="w-24" stroke={100} meter="stroke-tertiary-500" track="stroke-tertiary-500/30" />
+	</div>
+	<!-- Search Input -->
+	<div class="anim-float-search anim-delay-200 absolute top-[-12%] left-[35%]">
+		<label for="demo-search">
+			<span>Search</span>
+			<input class="input" type="search" name="demo-search" placeholder="Search..." />
+		</label>
+	</div>
+	<!-- Radio Group -->
+	<div class="anim-float-radio absolute top-[20%] left-[70%]">
+		<RadioGroup active="bg-primary-500">
+			<RadioItem bind:group={value} name="justify" value={0}>Friendly</RadioItem>
+			<RadioItem bind:group={value} name="justify" value={1}>Adaptive</RadioItem>
+			<RadioItem bind:group={value} name="justify" value={2}>Customizable</RadioItem>
+		</RadioGroup>
+	</div>
+	<!-- Card -->
+	<div class="anim-float-card absolute top-[60%] left-[65%]">
+		<div class="card p-4 space-y-2">
+			<div class="flex items-center gap-4">
+				<Avatar src="https://pbs.twimg.com/profile_images/1587479781544759297/TINbbJLC_400x400.png" width="w-16" />
+				<div>
+					<p class="font-bold">Skeleton</p>
+					<small class="opacity-50">@SkeletonUI</small>
+				</div>
+			</div>
+			<p class="whitespace-nowrap">UI toolkit for Svelte and Tailwind.</p>
+			<div class="flex just gap-4">
+				<small><strong>50</strong> <span class="opacity-50">Following</span></small>
+				<small><strong>440</strong> <span class="opacity-50">Followers</span></small>
+			</div>
+		</div>
+	</div>
+	<!-- LightSwitch -->
+	<div class="anim-float-lightswitch anim-delay-200 absolute top-[100%] left-[45%]">
+		<LightSwitch />
+	</div>
+	<!-- Button -->
+	<div class="anim-float-button absolute top-[78%] left-[15%]">
+		<button class="btn variant-soft-secondary">
+			<span>Launch Now</span>
+			<i class="fa-solid fa-rocket" />
+		</button>
+	</div>
+	<!-- Slide Toggle -->
+	<div class="anim-float-toggle anim-delay-200 absolute top-[58%] left-[0%]">
+		<SlideToggle name="demo-toggle" bind:checked={demoSlideToggle} active="bg-primary-500" />
+	</div>
+	<!-- Icon Badge -->
+	<div class="anim-float-badge absolute top-[45%] left-[25%]">
+		<span class="badge-icon variant-filled">
+			<i class="fa-solid fa-skull" />
+		</span>
+	</div>
+</div>
+
+<style lang="postcss">
+	.anim-float-avatar {
+		animation: float-up 13s ease-in-out infinite;
+	}
+	.anim-float-progress {
+		animation: float-down 15s ease-in-out infinite;
+	}
+	.anim-float-search {
+		animation: float-up 14s ease-in-out infinite;
+		animation-delay: 3s;
+	}
+	.anim-float-radio {
+		animation: float-down 17s ease-in-out infinite;
+	}
+	.anim-float-card {
+		animation: float-up 12s ease-in-out infinite;
+	}
+	.anim-float-lightswitch {
+		animation: float-down 18s ease-in-out infinite;
+		animation-delay: 2s;
+	}
+	.anim-float-button {
+		animation: float-up 15s ease-in-out infinite;
+	}
+	.anim-float-toggle {
+		animation: float-down 13s ease-in-out infinite;
+		animation-delay: 5s;
+	}
+	.anim-float-badge {
+		animation: float-up 15s ease-in-out infinite;
+	}
+	/* prettier-ignore */
+	@keyframes float-up {
+		0% { transform: translatey(0px); }
+		50% { transform: translatey(-20px); }
+		100% { transform: translatey(0px); }
+	}
+	/* prettier-ignore */
+	@keyframes float-down {
+		0% { transform: translatey(0px); }
+		50% { transform: translatey(20px); }
+		100% { transform: translatey(0px); }
+	}
+</style>

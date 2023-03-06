@@ -1,13 +1,14 @@
 <script>
 	import DocsLogoHero from '$docs/components/DocsLogos/DocsLogoHero.svelte';
+	import HomeHeroComponents from './HomeHeroComponents.svelte';
 </script>
 
 <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 md:gap-10 items-center">
 	<!-- Info -->
 	<div class="flex flex-col items-center xl:items-start text-center xl:text-left space-y-4">
 		<DocsLogoHero />
-		<h1 class="max-w-[300px] md:max-w-[500px]">A powerful UI toolkit for Svelte + Tailwind.</h1>
-		<p class="!text-xl">Create adaptive, accessible UI for web apps.</p>
+		<h1 class="!text-5xl md:!text-6xl">The UI toolkit for Svelte and Tailwind.</h1>
+		<p class="!text-xl">Create adaptive and accessible UI for web apps.</p>
 		<div class="flex gap-4">
 			<a href="/docs/get-started" class="btn btn-lg variant-filled-primary">
 				<span>Get Started</span>
@@ -19,8 +20,6 @@
 
 	<!-- Components -->
 	<div class="hidden xl:block">
-		<div class="variant-soft flex justify-center items-center w-full aspect-video">
-			<span class="badge variant-soft">Components</span>
-		</div>
+		<HomeHeroComponents />
 	</div>
 </div>
