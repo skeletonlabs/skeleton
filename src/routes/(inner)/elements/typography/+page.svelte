@@ -20,8 +20,7 @@
 		<section class="space-y-4">
 			<h2>Excluding Styles</h2>
 			<p>
-				Use the <code>.unstyled</code> class to exclude and reset Skeleton's typography styles for any individual elements. You may then apply
-				new styles, if desired.
+				Use the <code>.unstyled</code> class to exclude and reset Skeleton's typography styles, then apply new styles as desired.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -29,9 +28,6 @@
 						<h2 class="unstyled" data-toc-ignore>Unstyled H2</h2>
 						<p class="unstyled">Unstyled paragraph element.</p>
 						<a href="/" class="unstyled">Unstyled anchor element.</a>
-						<p>
-							<a href="/" class="unstyled text-orange-500">This custom-styled link is orange.</a>
-						</p>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
@@ -43,8 +39,6 @@
 <a href="/" class="unstyled">Unstyled anchor element.</a>
 					`}
 					/>
-					<p>You may then append your own styles as desired.</p>
-					<CodeBlock language="html" code={`<a href="/" class="unstyled text-orange-500">This custom-styled link is orange.</a>`} />
 				</svelte:fragment>
 			</DocsPreview>
 			<h3>Tailwind Prose Plugin</h3>

@@ -129,9 +129,7 @@
 			<div class="space-y-4">
 				<h2>Dividers</h2>
 				<p>
-					Native <code>hr</code> horizontal rule elements respect your theme settings automatically. You may make any Tailwind utility
-					<a href="https://tailwindcss.com/docs/configuration#important-modifier" target="_blank" rel="noreferrer"> important</a>
-					with the <code>!</code> character, as we do in this example.
+					Native <code>hr</code> horizontal rule elements respect your theme settings automatically. Use border size to adjust the width.
 				</p>
 				<DocsPreview background="neutral">
 					<svelte:fragment slot="preview">

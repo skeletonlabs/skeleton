@@ -23,7 +23,7 @@
 	};
 
 	// Local
-	let currentVariant = 'variant-ghost-secondary';
+	let currentVariant = 'variant-filled-error';
 	const message =
 		'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi, cupiditate eveniet in neque magnam quos ad cumque quae numquam voluptatum magni atque vitae dolore voluptatibus.';
 	// Functions
@@ -91,11 +91,6 @@
 	<svelte:fragment slot="usage">
 		<p>
 			Create an element with the <code>.alert</code> class. Wrap the alert in a Svelte <code>#if</code> statement to hide it or make it visible.
-		</p>
-		<p>
-			Use <code>on:click</code>,
-			<a href="https://svelte.dev/tutorial/event-modifiers" target="_blank" rel="noreferrer">Svelte's event modifer</a>, to run a function
-			when an alert button is pressed.
 		</p>
 		<section class="space-y-4">
 			<h2>Sections</h2>

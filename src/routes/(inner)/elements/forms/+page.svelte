@@ -437,8 +437,7 @@ module.exports = {
 					The column sizes are grid-based, via <a href="https://tailwindcss.com/docs/grid-template-columns#arbitrary-values" target="_blank" rel="noreferrer">Tailwind's arbitrary column syntax</a>.
 				</li>
 				<li>
-					Descriptive segments (on either side) allow for <code>div</code>, <code>button</code>, and anchor (<code>a</code>)
-					elements.
+					Descriptive segments (on either side) allow for <code>div</code>, <code>button</code>, and anchor (<code>a</code>) elements.
 				</li>
 				<li>
 					The <code>.input-group-divider</code> class applies vertical divider lines.
@@ -575,9 +574,8 @@ module.exports = {
 		<section class="space-y-4">
 			<h2>Browser Support</h2>
 			<p>
-				<i class="fa-solid fa-triangle-exclamation text-4xl float-left mr-4" />
-				Please be aware that not all native HTML form fields work consistently across browsers or operating systems. We strongly recommend cross-device/OS/browser
-				testing to ensure compability for your target audience.
+				Please be aware that not all native HTML form fields work consistently across browsers or operating systems. We strongly recommend
+				cross-device/OS/browser testing to ensure compability for your target audience.
 			</p>
 		</section>
 	</svelte:fragment>
