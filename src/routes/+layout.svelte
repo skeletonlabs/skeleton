@@ -203,7 +203,7 @@
 <DocsDrawer />
 
 <!-- App Shell -->
-<AppShell {slotSidebarLeft} slotFooter="bg-black p-4">
+<AppShell {slotSidebarLeft} regionPage="overflow-y-scroll" slotFooter="bg-black p-4">
 	<!-- Header -->
 	<svelte:fragment slot="header">
 		<DocsAppBar />

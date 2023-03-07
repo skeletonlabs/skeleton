@@ -132,16 +132,9 @@
 
 /* Applied to body with `<body data-theme="gold-nouveau">` */
 /* Created with: https://csshero.org/mesher/ */
+/* prettier-ignore */
 [data-theme='gold-nouveau'] {
-	background: #e5dcef;
-	/* prettier-ignore */
 	background-image:
-		radial-gradient(at 92% 96%, hsla(268,37%,46%,0.25) 0px, transparent 50%),
-		radial-gradient(at 7% 0%, hsla(268,37%,46%,0.20) 0px, transparent 50%);
-}
-.dark [data-theme='gold-nouveau'] {
-	/* prettier-ignore */
-	background-image:
-		radial-gradient(at 77% 0%, hsla(37, 81%, 56%, 0.1) 0px, transparent 50%),
-		radial-gradient(at 7% 0%, hsla(37, 81%, 56%, 0) 0px, transparent 50%);
+		radial-gradient(at 0% 100%, rgba(var(--color-secondary-500) / 0.33) 0px, transparent 50%),
+		radial-gradient(at 98% 100%, rgba(var(--color-error-500) / 0.33) 0px, transparent 50%);
 }

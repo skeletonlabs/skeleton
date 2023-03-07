@@ -4,6 +4,7 @@
 
 	// Props
 	export let sidebar: boolean = true;
+	export let tocKey: any = undefined;
 
 	// Classes
 	const cBase = 'page-padding flex items-start gap-10';
@@ -35,12 +36,14 @@
 				></script>
 			{:else}
 				<!-- Staging Placeholder -->
-				<div class="bg-surface-50-900-token ring-[1px] ring-surface-500/10 w-[286px] h-[120px] flex justify-center items-center">
+				<!-- <div class="bg-surface-50-900-token ring-[1px] ring-surface-500/10 w-[286px] h-[120px] flex justify-center items-center">
 					<span class="opacity-25">(ad)</span>
-				</div>
+				</div> -->
 			{/if}
 			<!-- Table of Contents -->
-			<TableOfContents target=".layout-docs-content" minimumHeadings={1} />
+			{#key tocKey}
+				<TableOfContents target=".layout-docs-content" minimumHeadings={1} />
+			{/key}
 		</aside>
 	{/if}
 </div>

@@ -1,13 +1,12 @@
 <script lang="ts">
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
-
+	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-
 	// Components
 	import InputChip from '$lib/components/InputChip/InputChip.svelte';
-
+	// Sveld
 	import sveldInputChip from '$lib/components/InputChip/InputChip.svelte?raw&sveld';
 
 	// Docs Shell
@@ -38,49 +37,26 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<div class="space-y-2">
-			<!-- Names -->
-			<div class="card variant-glass p-4 space-y-4">
-				<InputChip name="chips-example" bind:value={anythingList} placeholder="Enter any value..." />
-				<code class="inline-block">{anythingList.length ? anythingList : 'No chips available.'}</code>
-			</div>
-			<!-- Flavors -->
-			<div class="card variant-glass p-4 space-y-4">
-				<label for="chips-example-flavors" class="label">
-					<span>Flavors <em>(whitelists vanilla, chocolate, strawberry)</em></span>
-					<InputChip
-						name="chips-example-flavors"
-						bind:value={flavorsList}
-						placeholder="Enter flavors..."
-						chips="variant-filled-primary"
-						whitelist={flavorsWhitelist}
-					/>
-				</label>
-				<code class="inline-block">{flavorsList.length ? flavorsList : 'No flavors set.'}</code>
-			</div>
-			<!-- Emails -->
-			<div class="card variant-glass p-4 space-y-4">
-				<label for="chips-example-emails" class="label">
-					<span>Emails <em>(validated)</em></span>
-					<InputChip
-						name="chips-example-emails"
-						bind:value={emails}
-						placeholder="Enter Emails..."
-						chips="variant-filled-secondary"
-						validation={isValidEmail}
-					/>
-				</label>
-				<code class="inline-block">{emails.length ? emails : 'No emails set.'}</code>
-			</div>
-		</div>
+		<DocsPreview>
+			<svelte:fragment slot="preview">
+				<InputChip bind:value={anythingList} name="chips-example" placeholder="Enter any value..." class="text-token" />
+			</svelte:fragment>
+			<svelte:fragment slot="footer">
+				<div class="text-center">
+					<code>{anythingList.length ? anythingList.join(', ') : 'No chips available.'}</code>
+				</div>
+			</svelte:fragment>
+			<svelte:fragment slot="source">
+				<CodeBlock language="ts" code={`let list: string[] = ['foo', 'bar', 'fizz', 'buzz'];`} />
+				<CodeBlock language="html" code={`<InputChip bind:value={list} name="chips" placeholder="Enter any value..." />`} />
+			</svelte:fragment>
+		</DocsPreview>
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<p>Bind an array of data to the component <code>value</code> property. Please note that only <u>string</u> values are supported.</p>
-			<CodeBlock language="ts" code={`let flavorsList = ['vanilla', 'chocolate', 'strawberry'];`} />
-			<CodeBlock language="html" code={`<InputChip name="chips" bind:value={flavorsList} />`} />
+			<p>Bind an array of data to the component <code>value</code> property. Only <u>string</u> values are supported at this time.</p>
 		</section>
 		<!-- Whitelist -->
 		<section class="space-y-4">
@@ -89,22 +65,54 @@
 				You can provide an array of strings to use as a whitelist. Only whitelisted items can be entered. Invalid or duplicate values will
 				show an error state.
 			</p>
-			<CodeBlock language="ts" code={`let flavorsWhitelist = ['vanilla', 'chocolate', 'strawberry'];`} />
-			<CodeBlock language="html" code={`<InputChip ... whitelist={flavorsWhitelist} />`} />
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<InputChip
+						name="chips-example-flavors"
+						bind:value={flavorsList}
+						placeholder="Enter flavors..."
+						chips="variant-filled-primary"
+						whitelist={flavorsWhitelist}
+					/>
+				</svelte:fragment>
+				<svelte:fragment slot="footer">
+					<div class="text-center">
+						<code>{flavorsList.length ? flavorsList.join(', ') : 'No flavors set.'}</code>
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock language="ts" code={`let flavorsWhitelist = ['vanilla', 'chocolate', 'strawberry', 'peach', 'rocky road'];`} />
+					<CodeBlock language="html" code={`<InputChip ... whitelist={flavorsWhitelist} />`} />
+				</svelte:fragment>
+			</DocsPreview>
 		</section>
 		<!-- Custom Valiation -->
 		<section class="space-y-4">
 			<h2>Custom Validation</h2>
 			<p>You can optionally provide a function to provide custom validation. Make sure to accept a string value and return a boolean.</p>
-			<CodeBlock
-				language="ts"
-				code={`
-function isValidEmail(value: string): boolean {
-	return value.includes('@') && value.includes('.');
-}
-			`}
-			/>
-			<CodeBlock language="html" code={`<InputChip ... validation={isValidEmail} />`} />
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<InputChip
+						name="chips-example-emails"
+						bind:value={emails}
+						placeholder="Enter Emails..."
+						chips="variant-filled-secondary"
+						validation={isValidEmail}
+					/>
+				</svelte:fragment>
+				<svelte:fragment slot="footer">
+					<div class="text-center">
+						<code>{emails.length ? emails.join(', ') : 'No emails set.'}</code>
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="ts"
+						code={`function isValidEmail(value: string): boolean {\n\treturn value.includes('@') && value.includes('.');\n}`}
+					/>
+					<CodeBlock language="html" code={`<InputChip ... validation={isValidEmail} />`} />
+				</svelte:fragment>
+			</DocsPreview>
 		</section>
 		<!-- Additional Settings -->
 		<section class="space-y-4">

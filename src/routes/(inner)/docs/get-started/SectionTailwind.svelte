@@ -20,11 +20,9 @@
 		<svelte:fragment slot="panel">
 			{#if $storeOnboardMethod === 'cli'}
 				<div class="card variant-glass p-4">
+					<!-- prettier-ignore -->
 					<p>
-						The CLI will automatically run <a href="https://github.com/svelte-add/tailwindcss" target="_blank" rel="noreferrer"
-							>Svelte-Add</a
-						>
-						to install Tailwind within your project.
+						The CLI uses <a href="https://github.com/svelte-add/tailwindcss" target="_blank" rel="noreferrer">Svelte-Add</a> to install and configure Tailwind within your project.
 					</p>
 				</div>
 			{:else if $storeOnboardMethod === 'manual'}
@@ -35,7 +33,7 @@
 					</p>
 					<CodeBlock language="console" code={`npx svelte-add@latest tailwindcss\nnpm install`} />
 					<!-- prettier-ignore -->
-					<p>Then open your global stylesheet in <code>/src/app.postcss</code> and remove the following three <a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> introduced by Svelte-Add. These will be redudant.</p>
+					<p>Then open your global stylesheet in <code>/src/app.postcss</code> and remove the following three <a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> introduced by Svelte-Add. These are redudant as Skeleton automatically handles these in our stylesheets for you.</p>
 					<div class="space-y-[1px]">
 						<del>@tailwind base;</del>
 						<del>@tailwind components;</del>
@@ -71,8 +69,8 @@ module.exports = {
 				<aside class="alert variant-ghost-warning">
 					<i class="fa-solid fa-triangle-exclamation text-2xl" />
 					<div class="alert-message">
-						Avoid mixing <strong>Skeleton</strong> with Tailwind plugins from other UI libraries such as <strong>Flowbite</strong> or
-						<strong>Daisy</strong>. This is not currently spported.
+						Skeleton's Tailwind plugin cannot operate alongside plugins from other UI libraries, such as <strong>Flowbite</strong> or
+						<strong>Daisy</strong>. All three plugins modify similar settings, which means they will conflict.
 					</div>
 				</aside>
 			{/if}

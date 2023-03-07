@@ -8,10 +8,24 @@ export const menuNavLinks: any = [
 		title: 'Docs',
 		list: [
 			{ href: '/docs/introduction', label: 'Introduction', keywords: 'svelte, sirens, license, release' },
-			{ href: '/docs/get-started', label: 'Get Started', keywords: 'start, install, cli, tailwind, themes, stylesheets' },
-			{ href: '/docs/generator', label: 'Theme Generator', keywords: 'create, custom, style, css, design' },
-			{ href: '/docs/styling', label: 'Styling', keywords: 'styles, styling, props, classes, class, css' },
+			{ href: '/docs/get-started', label: 'Get Started', keywords: 'start, install, cli, tailwind, themes, stylesheets' }
+		]
+	},
+	{
+		id: 'essentials',
+		title: 'Essentials',
+		list: [
 			{ href: '/docs/colors', label: 'Colors', keywords: 'theme, colors, swatches' },
+			{ href: '/docs/styling', label: 'Styling', keywords: 'styles, styling, props, classes, class, css' },
+			{ href: '/docs/tokens', label: 'Design Tokens', keywords: 'theme, color, pairing, css, utility' },
+			{ href: '/docs/variants', label: 'Variants', keywords: 'variant, variants, presets, backgrounds, classes' }
+		]
+	},
+	{
+		id: 'resources',
+		title: 'Resources',
+		list: [
+			{ href: '/docs/generator', label: 'Theme Generator', keywords: 'create, custom, style, css, design' },
 			{ href: '/docs/quickstart', label: 'Quickstart', keywords: 'start, setup, tutorial, guide' },
 			{ href: '/docs/contributing', label: 'Contributing', keywords: 'branch, pr' }
 			// DISABLED SECTIONS
@@ -23,11 +37,6 @@ export const menuNavLinks: any = [
 	// Tailwind ---
 
 	{
-		id: 'tokens',
-		title: 'Info',
-		list: [{ href: '/elements/tokens', label: 'Design Tokens', keywords: 'theme, color, pairing, css, utility' }]
-	},
-	{
 		id: 'base',
 		title: 'Globals',
 		list: [
@@ -36,6 +45,11 @@ export const menuNavLinks: any = [
 				href: '/elements/typography',
 				label: 'Typography',
 				keywords: 'unstyled, headings, paragraph, anchor, blockquote, pre, code, keyboard, ins, del'
+			},
+			{
+				href: '/elements/forms',
+				label: 'Forms',
+				keywords: 'plugin, label, input, select, checkbox, radio, date, color, picker, slider, range, file'
 			}
 		]
 	},
@@ -49,11 +63,6 @@ export const menuNavLinks: any = [
 			{ href: '/elements/buttons', label: 'Buttons', keywords: 'click, anchor, icon, preload' },
 			{ href: '/elements/cards', label: 'Cards', keywords: 'header, footer, background, cell, region' },
 			{ href: '/elements/chips', label: 'Chips', keywords: 'action, select, selection, filter, filtering, interactive' },
-			{
-				href: '/elements/forms',
-				label: 'Forms',
-				keywords: 'plugin, label, input, select, checkbox, radio, date, color, picker, slider, range, file'
-			},
 			{ href: '/elements/lists', label: 'Lists', keywords: 'unordered, ordered, description, nav, navigation, ul, ol, li, dd, dt' },
 			{ href: '/elements/logo-clouds', label: 'Logo Clouds', keywords: 'logo, brand, branding, links' },
 			{ href: '/elements/placeholders', label: 'Placeholders', keywords: 'skeleton, spacer, text, image, avatar, animate, animate' },

@@ -4,6 +4,11 @@
 
 	// Props
 	/**
+	 * Bind FileList to the file input.
+	 * @type {FileList}
+	 */
+	export let files: FileList | undefined = undefined;
+	/**
 	 * Required. Set a unique name for the file input.
 	 * @type {string}
 	 */
@@ -16,21 +21,21 @@
 	export let rounded: CssClasses = 'rounded-container-token';
 
 	// Props (regions)
-	/** Provide abitrary styles for the UI region. */
+	/** Provide arbitrary styles for the UI region. */
 	export let regionInterface: CssClasses = '';
-	/** Provide abitrary styles for the UI text region. */
+	/** Provide arbitrary styles for the UI text region. */
 	export let regionInterfaceText: CssClasses = '';
 
 	// Props (slots)
-	/** Provide abitrary styles for lead slot container. */
+	/** Provide arbitrary styles for lead slot container. */
 	export let slotLead: CssClasses = 'mb-4';
-	/** Provide abitrary styles for message slot container. */
+	/** Provide arbitrary styles for message slot container. */
 	export let slotMessage: CssClasses = '';
-	/** Provide abitrary styles for meta text slot container. */
+	/** Provide arbitrary styles for meta text slot container. */
 	export let slotMeta: CssClasses = 'opacity-75';
 
 	const cBase = 'textarea relative flex justify-center items-center';
-	const cInput = 'absolute top-0 left-0 right-0 bottom-0 z-[1] opacity-0 disabled:!opacity-0 cursor-pointer';
+	const cInput = 'w-full absolute top-0 left-0 right-0 bottom-0 z-[1] opacity-0 disabled:!opacity-0 cursor-pointer';
 	const cInterface = 'flex justify-center items-center text-center';
 
 	// Reactive
@@ -47,7 +52,9 @@
 
 <div class="dropzone {classesBase}" class:opacity-50={$$restProps.disabled} data-testid="file-dropzone">
 	<!-- Input: File (hidden) -->
+	<!-- NOTE: keep `bind:files` here, unlike FileButton -->
 	<input
+		bind:files
 		type="file"
 		{name}
 		class="dropzone-input {classesInput}"

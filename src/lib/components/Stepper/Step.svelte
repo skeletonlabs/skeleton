@@ -25,10 +25,13 @@
 	export let gap: CssClasses = getContext('gap');
 	export let justify: CssClasses = getContext('justify');
 	export let buttonBack: CssClasses = getContext('buttonBack');
+	export let buttonBackType: 'submit' | 'reset' | 'button' = getContext('buttonBackType');
 	export let buttonBackLabel: string = getContext('buttonBackLabel');
 	export let buttonNext: CssClasses = getContext('buttonNext');
+	export let buttonNextType: 'submit' | 'reset' | 'button' = getContext('buttonNextType');
 	export let buttonNextLabel: string = getContext('buttonNextLabel');
 	export let buttonComplete: CssClasses = getContext('buttonComplete');
+	export let buttonCompleteType: 'submit' | 'reset' | 'button' = getContext('buttonCompleteType');
 	export let buttonCompleteLabel: string = getContext('buttonCompleteLabel');
 
 	// Register step on init (keep these paired)
@@ -46,11 +49,13 @@
 		$state.current++;
 		/** @event { $state } next - Fires when the NEXT button is pressed per step.  */
 		dispatchParent('next', { step: stepIndex, state: $state });
+		dispatchParent('step', { step: stepIndex, state: $state });
 	}
 	function onBack(): void {
 		$state.current--;
 		/** @event { $state } back - Fires when the BACK button is pressed per step.  */
 		dispatchParent('back', { step: stepIndex, state: $state });
+		dispatchParent('step', { step: stepIndex, state: $state });
 	}
 	function onComplete() {
 		/** @event { $state } complete - Fires when the COMPLETE button is pressed.  */
@@ -82,9 +87,11 @@
 		<!-- Navigation -->
 		{#if $state.total > 1}
 			<div class="step-navigation {classesNavigation}" transition:fade|local={{ duration: 100 }}>
-				<button type="button" class="btn {buttonBack}" on:click={onBack} disabled={$state.current === 0}>{@html buttonBackLabel}</button>
+				<button type={buttonBackType} class="btn {buttonBack}" on:click={onBack} disabled={$state.current === 0}
+					>{@html buttonBackLabel}</button
+				>
 				{#if stepIndex < $state.total - 1}
-					<button type="button" class="btn {buttonNext}" on:click={onNext} disabled={locked}>
+					<button type={buttonNextType} class="btn {buttonNext}" on:click={onNext} disabled={locked}>
 						{#if locked}
 							<svg class="w-3 aspect-square" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
 								<path
@@ -95,7 +102,7 @@
 						<span>{@html buttonNextLabel}</span>
 					</button>
 				{:else}
-					<button type="submit" class="btn {buttonComplete}" on:click={onComplete}>{@html buttonCompleteLabel}</button>
+					<button type={buttonCompleteType} class="btn {buttonComplete}" on:click={onComplete}>{@html buttonCompleteLabel}</button>
 				{/if}
 			</div>
 		{/if}
