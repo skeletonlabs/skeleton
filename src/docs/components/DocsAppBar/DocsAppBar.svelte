@@ -84,7 +84,7 @@
 <!-- NOTE: using stopPropagation to override Chrome for Windows search shortcut -->
 <svelte:window on:keydown|stopPropagation={onWindowKeydown} />
 
-<AppBar shadow="shadow-lg">
+<AppBar shadow="shadow-xl">
 	<svelte:fragment slot="lead">
 		<div class="flex items-center space-x-4">
 			<!-- Hamburger Menu -->
@@ -92,26 +92,17 @@
 				<i class="fa-solid fa-bars text-xl" />
 			</button>
 			<!-- Logo -->
-			<a class="lg:!ml-0 w-[38px] lg:w-auto overflow-hidden" href="/" title="Go to Homepage">
+			<a class="lg:!ml-0 w-[32px] lg:w-auto overflow-hidden" href="/" title="Go to Homepage">
 				<DocsLogoFull />
 			</a>
 		</div>
 	</svelte:fragment>
 	<svelte:fragment slot="trail">
-		<!-- Search -->
-		<div class="md:inline md:ml-4">
-			<button class="btn btn-sm variant-ghost-surface hidden lg:inline-block" on:click={triggerSearch}>
-				<i class="fa-solid fa-magnifying-glass" />
-				<span class="hidden lg:inline-block">Search</span>
-				<span class="hidden lg:inline-block text-[11px] font-bold opacity-60 pl-2">{isOsMac ? '⌘' : 'Ctrl'}+K</span>
-			</button>
-		</div>
-
-		<!-- Navigate -->
+		<!-- Explore -->
 		<div class="relative hidden lg:block">
 			<!-- trigger -->
 			<button class="btn hover:variant-soft-primary" use:popup={{ event: 'click', target: 'features' }}>
-				<span>Navigate</span>
+				<span>Explore</span>
 				<i class="fa-solid fa-caret-down opacity-50" />
 			</button>
 			<!-- popup -->
@@ -126,7 +117,7 @@
 							</a>
 							<a href="/docs/get-started">
 								<span class="w-6 text-center"><i class="fa-solid fa-book" /></span>
-								<span>Docs</span>
+								<span>Documentation</span>
 							</a>
 							<a href="/blog">
 								<span class="w-6 text-center"><i class="fa-solid fa-bullhorn" /></span>
@@ -148,11 +139,13 @@
 						</li>
 					</ul>
 				</nav>
+				<!-- Arrow -->
+				<div class="arrow bg-surface-100-800-token" />
 			</div>
 		</div>
 
 		<!-- Theme -->
-		<div class="relative">
+		<div>
 			<!-- trigger -->
 			<button class="btn hover:variant-soft-primary" use:popup={{ event: 'click', target: 'theme' }}>
 				<i class="fa-solid fa-palette text-lg md:hidden" />
@@ -161,41 +154,43 @@
 			</button>
 			<!-- popup -->
 			<div class="card p-4 w-60 shadow-xl" data-popup="theme">
-				<section class="flex justify-between items-center">
-					<h6>Mode</h6>
-					<LightSwitch />
-				</section>
-				<hr class="my-4" />
-				<nav class="list-nav p-4 -m-4 max-h-64 lg:max-h-[500px] overflow-y-auto">
-					<form action="/?/setTheme" method="POST" use:enhance={setTheme}>
-						<ul>
-							{#each themes as { icon, name, type }}
-								<li>
-									<button
-										class="option w-full h-full"
-										type="submit"
-										name="theme"
-										value={type}
-										class:bg-primary-active-token={$storeTheme === type}
-									>
-										<span>{icon}</span>
-										<span>{name}</span>
-									</button>
-								</li>
-							{/each}
-						</ul>
-					</form>
-				</nav>
-				<hr class="my-4" />
-				<div>
-					<a class="btn variant-ghost-surface w-full" href="/docs/generator">Theme Generator</a>
+				<div class="space-y-4">
+					<section class="flex justify-between items-center">
+						<h6>Mode</h6>
+						<LightSwitch />
+					</section>
+					<nav class="list-nav p-4 -m-4 max-h-64 lg:max-h-[500px] overflow-y-auto">
+						<form action="/?/setTheme" method="POST" use:enhance={setTheme}>
+							<ul>
+								{#each themes as { icon, name, type }}
+									<li>
+										<button
+											class="option w-full h-full"
+											type="submit"
+											name="theme"
+											value={type}
+											class:bg-primary-active-token={$storeTheme === type}
+										>
+											<span>{icon}</span>
+											<span>{name}</span>
+										</button>
+									</li>
+								{/each}
+							</ul>
+						</form>
+					</nav>
+					<div>
+						<a class="btn variant-ghost-surface w-full" href="/docs/generator">Create a Theme</a>
+					</div>
 				</div>
+				<!-- Arrow -->
+				<div class="arrow bg-surface-100-800-token" />
 			</div>
 		</div>
 
 		<!-- Social -->
 		<!-- prettier-ignore -->
-		<section class="flex space-x-1">
+		<section class="hidden sm:inline-flex space-x-4">
 			<a class="btn-icon btn-icon-sm hover:variant-soft-primary" href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer">
 				<i class="fa-brands fa-discord text-lg" />
 			</a>
@@ -203,5 +198,52 @@
 				<i class="fa-brands fa-github text-lg" />
 			</a>
 		</section>
+
+		<!-- Search -->
+		<div class="md:inline md:ml-4">
+			<button class="btn p-2 px-4 space-x-4 variant-soft hover:variant-soft-primary" on:click={triggerSearch}>
+				<i class="fa-solid fa-magnifying-glass" />
+				<span class="hidden md:inline-block badge variant-soft">{isOsMac ? '⌘' : 'Ctrl'}+K</span>
+			</button>
+		</div>
+
+		<!-- Sponsor -->
+		<div>
+			<!-- trigger -->
+			<button
+				class="btn py-1.5 variant-soft hover:variant-soft-primary hidden sm:inline-block"
+				use:popup={{ event: 'click', target: 'sponsor' }}
+			>
+				<i class="fa-solid fa-heart" />
+				<span class="hidden md:inline-block">Sponsor</span>
+			</button>
+			<!-- popup -->
+			<div class="card p-4 w-60 shadow-xl" data-popup="sponsor">
+				<nav class="list-nav">
+					<ul>
+						<li>
+							<a href="https://ko-fi.com/skeletonlabs" target="_blank" rel="noreferrer">
+								<span class="w-6 text-center"><i class="fa-solid fa-mug-saucer" /></span>
+								<span>Ko-Fi</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://github.com/sponsors/skeletonlabs" target="_blank" rel="noreferrer">
+								<span class="w-6 text-center"><i class="fa-brands fa-github" /></span>
+								<span>GitHub</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://patreon.com/user?u=83786276" target="_blank" rel="noreferrer">
+								<span class="w-6 text-center"><i class="fa-brands fa-patreon" /></span>
+								<span>Patreon</span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<!-- Arrow -->
+				<div class="arrow bg-surface-100-800-token" />
+			</div>
+		</div>
 	</svelte:fragment>
 </AppBar>

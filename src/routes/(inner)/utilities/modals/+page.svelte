@@ -9,14 +9,15 @@
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import Accordion from '$lib/components/Accordion/Accordion.svelte';
 	import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
+	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
+	import Tab from '$lib/components/Tab/Tab.svelte';
+
 	// Sveld
 	import sveldModal from '$lib/utilities/Modal/Modal.svelte?raw&sveld';
 
 	// Modals Utils
 	import type { ModalSettings, ModalComponent } from '$lib/utilities/Modal/types';
 	import { modalStore } from '$lib/utilities/Modal/stores';
-	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
-	import Tab from '$lib/components/Tab/Tab.svelte';
 
 	// Stores
 	let tabCustom: string = 'register';

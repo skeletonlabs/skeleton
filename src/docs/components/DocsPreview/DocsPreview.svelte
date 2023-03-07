@@ -7,6 +7,8 @@
 	import { backgrounds } from './options';
 
 	// Props
+	/** Provide a label to replace the preview/code buttons. */
+	export let label = '';
 	/** Enable the mobile responsive settings */
 	export let responsive = false;
 	/** Force and append a custom color value. */
@@ -26,7 +28,7 @@
 
 	// Classes
 	const cBase = 'shadow-2xl shadow-surface-500/10 dark:shadow-black/10 rounded-container-token overflow-hidden';
-	const cHeader = 'bg-surface-200-700-token p-4 flex justify-between gap-4';
+	const cHeader = 'bg-surface-200-700-token p-4 flex justify-between items-center gap-4';
 	const cSwatches = 'variant-soft p-4 grid grid-cols-6 sm:grid-cols-12 gap-2';
 	const cSwatchCell = 'ring-[1px] ring-surface-500/50 aspect-square rounded';
 	const cViewport = 'p-4 md:p-10 space-y-4';
@@ -62,24 +64,28 @@
 <div class="previewer {classesBase}">
 	<!-- Header -->
 	<header class="previewer-header {classesHeader}">
-		<!-- View Toggle -->
-		<RadioGroup>
-			<RadioItem bind:group={tabView} name="view" value="preview" title="Preview"><i class="fa-solid fa-eye text-sm" /></RadioItem>
-			<RadioItem bind:group={tabView} name="view" value="code" title="Code"><i class="fa-solid fa-code text-sm" /></RadioItem>
-		</RadioGroup>
-		<div class="flex justify-between gap-4">
-			<!-- Responsive Settings -->
-			{#if responsive}
-				<RadioGroup class="hidden md:flex">
-					<RadioItem bind:group={radioSize} name="size" value="mobile"><i class="fa-solid fa-mobile-screen text-sm" /></RadioItem>
-					<RadioItem bind:group={radioSize} name="size" value="full"><i class="fa-solid fa-display text-sm" /></RadioItem>
-				</RadioGroup>
-			{/if}
-			<!-- Toggle Swatches -->
-			<button class="btn-icon {swatches ? 'variant-filled' : 'variant-soft'}" on:click={toggleSwatches} title="Backgrounds">
-				<i class="fa-solid fa-swatchbook text-sm" />
-			</button>
-		</div>
+		{#if label}
+			<span class="text-2xl font-bold capitalize">{label}</span>
+		{:else}
+			<!-- View Toggle -->
+			<RadioGroup>
+				<RadioItem bind:group={tabView} name="view" value="preview" title="Preview"><i class="fa-solid fa-eye text-sm" /></RadioItem>
+				<RadioItem bind:group={tabView} name="view" value="code" title="Code"><i class="fa-solid fa-code text-sm" /></RadioItem>
+			</RadioGroup>
+			<div class="flex justify-between gap-4">
+				<!-- Responsive Settings -->
+				{#if responsive}
+					<RadioGroup class="hidden md:flex">
+						<RadioItem bind:group={radioSize} name="size" value="mobile"><i class="fa-solid fa-mobile-screen text-sm" /></RadioItem>
+						<RadioItem bind:group={radioSize} name="size" value="full"><i class="fa-solid fa-display text-sm" /></RadioItem>
+					</RadioGroup>
+				{/if}
+				<!-- Toggle Swatches -->
+				<button class="btn-icon {swatches ? 'variant-filled' : 'variant-soft'}" on:click={toggleSwatches} title="Backgrounds">
+					<i class="fa-solid fa-swatchbook text-sm" />
+				</button>
+			</div>
+		{/if}
 	</header>
 	{#if tabView === 'preview'}
 		<!-- Swatches -->
