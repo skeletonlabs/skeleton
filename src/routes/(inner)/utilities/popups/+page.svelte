@@ -317,6 +317,5 @@ let popupCombobox: PopupSettings = {
 			<h2>Accessibility</h2>
 			<p>We recommend you favor the <code>click</code> event for mobile devices, as <code>hover</code> is not well supported.</p>
 		</section>
-		<hr />
 	</svelte:fragment>
 </DocsShell>
