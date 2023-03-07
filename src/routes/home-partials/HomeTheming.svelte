@@ -10,7 +10,7 @@
 			base: 'variant-soft-primary font-sans rounded-container-token',
 			header: 'bg-primary-500 p-4 grid grid-cols-3 gap-8 items-center rounded-tl-container-token rounded-tr-container-token',
 			src: 'https://source.unsplash.com/3vj6GJ_lTa8/200x200',
-			img: 'bg-black w-full aspect-square rounded-full transition-transform',
+			img: 'bg-black w-full aspect-square rounded-full',
 			text1: 'text-on-primary-token text-lg opacity-75',
 			text2: 'text-on-primary-token font-bold text-xl sm:text-3xl',
 			text3: 'text-on-primary-token text-lg sm:text-2xl',
@@ -27,14 +27,14 @@
 			text1: 'text-lg opacity-50',
 			text2: 'text-xl sm:text-3xl',
 			text3: 'text-lg sm:text-2xl',
-			progressTrack: 'bg-black/10',
+			progressTrack: 'bg-black/5',
 			progressMeter: 'bg-black',
 			footer: 'p-10 grid grid-cols-5 gap-10 place-items-center',
 			button: 'btn-icon rounded-none text-black ring-[1px] ring-black/5'
 		},
 		playful: {
-			base: 'bg-indigo-900 text-white font-sans rounded-3xl shadow-xl',
-			header: 'bg-indigo-800 p-4 grid grid-cols-3 gap-8 items-center rounded-tl-3xl rounded-tr-3xl',
+			base: 'bg-blue-700 text-white font-sans rounded-3xl shadow-xl',
+			header: 'bg-blue-800 p-4 grid grid-cols-3 gap-8 items-center rounded-tl-3xl rounded-tr-3xl',
 			src: 'https://source.unsplash.com/wzj86-5JVcM/200x200',
 			img: 'bg-black w-full aspect-square rounded-3xl scale-110 -translate-x-4 -translate-y-4 transition-transform',
 			text1: 'text-lg text-amber-300',
@@ -43,7 +43,7 @@
 			progressTrack: 'bg-black/5',
 			progressMeter: 'bg-white',
 			footer: 'p-10 grid grid-cols-5 gap-10 place-items-center rounded-tl-3xl rounded-tr-3xl',
-			button: 'btn-icon bg-amber-300 text-indigo-900'
+			button: 'btn-icon bg-amber-300 text-blue-900'
 		},
 		brutalist: {
 			base: 'bg-black text-white font-mono overflow-hidden',

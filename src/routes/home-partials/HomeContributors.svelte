@@ -40,7 +40,7 @@
 			<div class="grid grid-cols-6 gap-4 max-w-[480px] mx-auto">
 				{#each contributors as c}
 					<a href={c.html_url} target="_blank" rel="noreferrer" title={c.login}>
-						<Avatar src={c.avatar_url} width="w-full" />
+						<Avatar src={c.avatar_url} width="w-full" background="bg-black" />
 					</a>
 				{/each}
 			</div>
