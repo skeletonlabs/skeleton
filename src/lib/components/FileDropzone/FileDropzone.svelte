@@ -3,7 +3,10 @@
 	import type { CssClasses } from '$lib';
 
 	// Props
-	/** Bind FileList to the file input. */
+	/**
+	 * Bind FileList to the file input.
+	 * @type {FileList}
+	 */
 	export let files: FileList | undefined = undefined;
 	/**
 	 * Required. Set a unique name for the file input.
