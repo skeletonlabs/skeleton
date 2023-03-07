@@ -28,9 +28,9 @@ export interface ModalSettings {
 	component?: ModalComponent | string;
 	/** Provide a function. Returns the response value. */
 	response?: (r: any) => void;
-	/** Provide abitrary classes to the backdrop. */
+	/** Provide arbitrary classes to the backdrop. */
 	backdropClasses?: string;
-	/** Provide abitrary classes to the modal window. */
+	/** Provide arbitrary classes to the modal window. */
 	modalClasses?: string;
 	/** Override the Cancel button label. */
 	buttonTextCancel?: string;

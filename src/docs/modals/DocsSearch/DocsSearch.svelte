@@ -4,12 +4,12 @@
 
 	// Classes
 	const cBase =
-		'bg-surface-100/60 dark:bg-surface-800/60 backdrop-blur-lg w-modal rounded-container-token max-h-[90%] md:max-h-[75%] overflow-y-auto';
-	const cHeader = 'sticky top-0 z-10 bg-surface-100-800-token flex items-center space-x-4 p-4';
-	const cList = 'p-4 space-y-4 rounded-container-token';
-	const cCardLink = 'card bg-surface-200-700-token p-2 grid grid-cols-[auto_1fr_auto_auto] gap-4 items-center';
-	const cCardLinkFocus = 'hover:bg-primary-500 hover:text-on-primary-token focus:bg-primary-500 focus:text-on-primary-token';
-	const cHashtag = 'border-2 border-surface-300-600-token rounded w-7 aspect-square flex justify-center items-center text-xs';
+		'card bg-surface-100/60 dark:bg-surface-500/30 backdrop-blur-lg overflow-hidden w-full max-w-[800px] shadow-xl mt-8 mb-auto';
+	const cHeader = 'bg-surface-300-600-token flex items-center';
+	const cSearchInput = 'bg-transparent border-0 ring-0 focus:ring-0 w-full p-4 text-lg';
+	const cResults = 'overflow-x-auto max-h-[480px] hide-scrollbar';
+	const cResultAnchor = '!rounded-none justify-between hover:variant-soft focus:!variant-filled-primary outline-0';
+	const cFooter = 'hidden md:flex items-center gap-2 bg-surface-300-600-token p-4 text-xs font-bold';
 
 	// Local
 	let searchTerm = '';
@@ -34,7 +34,7 @@
 		});
 	}
 
-	function onKeyDown(event: KeyboardEvent): void {
+	function onInputKeyDown(event: KeyboardEvent): void {
 		if (['Enter', 'ArrowDown'].includes(event.code)) {
 			const queryFirstAnchorElement = elemDocSearch.querySelector('a');
 			if (queryFirstAnchorElement) queryFirstAnchorElement.focus();
@@ -42,38 +42,47 @@
 	}
 </script>
 
-<div bind:this={elemDocSearch} class="docs-search {cBase}">
+<div bind:this={elemDocSearch} class="modal-search {cBase}">
 	<!-- Header -->
-	<header class="docs-search-header {cHeader}">
-		<i class="fa-solid fa-magnifying-glass text-xl" />
-		<input class="input" bind:value={searchTerm} type="search" placeholder="Search..." on:input={onSearch} on:keydown={onKeyDown} />
-		<!-- prettier-ignore -->
-		<button class="btn-icon variant-filled btn-icon-sm" on:click={() => { modalStore.close(); }} tabindex="-1">
-			<i class="fa-solid fa-xmark" />
-		</button>
+	<header class="modal-search-header {cHeader}">
+		<i class="fa-solid fa-magnifying-glass text-xl ml-4" />
+		<input
+			class={cSearchInput}
+			bind:value={searchTerm}
+			type="search"
+			placeholder="Search..."
+			on:input={onSearch}
+			on:keydown={onInputKeyDown}
+		/>
 	</header>
-	<hr />
 	<!-- Results -->
-	<div class="docs-search-categories {cList}">
-		{#each navigation as category}
-			<div class="space-y-4">
-				<span>{category.title}</span>
-				<nav class="grid grid-cols-1 gap-4">
-					<ul class="space-y-4">
-						{#each category.list as link}
-							<li>
-								<!-- prettier-ignore -->
-								<a class="{cCardLink} {cCardLinkFocus}" href={link.href} on:click={() => { modalStore.close(); }}>
-									<div class="{cHashtag}"><i class="fa-solid fa-hashtag"></i></div>
-									<strong class="block text-lg">{link.label}</strong>
-									<small class="text-xs opacity-50">{link.href}</small>
-									<i class="fa-solid fa-angle-right text-xs opacity-30" />
-								</a>
-							</li>
-						{/each}
-					</ul>
-				</nav>
-			</div>
-		{/each}
+	<div class="modal-search-results {cResults}">
+		<nav class="list-nav">
+			<!-- Categories -->
+			{#each navigation as category}
+				<div class="text-sm font-bold p-4">{category.title}</div>
+				<ul>
+					<!-- Item -->
+					{#each category.list as link}
+						<li class="text-lg">
+							<!-- prettier-ignore -->
+							<a class={cResultAnchor} href={link.href} on:click={() => { modalStore.close(); }}>
+								<div class="flex items-center gap-4">
+									<i class="fa-regular fa-file" />
+									<span class="flex-auto font-bold opacity-75">{link.label}</span>
+								</div>
+								<span class="hidden md:block text-xs opacity-50">{link.href}</span>
+							</a>
+						</li>
+					{/each}
+				</ul>
+			{/each}
+		</nav>
 	</div>
+	<!-- Footer -->
+	<footer class="modal-search-footer {cFooter}">
+		<div><kbd>Esc</kbd> to close</div>
+		<div><kbd>Tab</kbd> to navigate</div>
+		<div><kbd>Enter</kbd> to select</div>
+	</footer>
 </div>

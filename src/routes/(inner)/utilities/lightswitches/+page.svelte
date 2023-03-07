@@ -39,8 +39,8 @@
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<p>
-				Skeleton provides multiple for toggling light and dark mode within your application. We recommend you select one method and utilize
-				that as your primary solution for your application.
+				Skeleton provides multiple methods for toggling light and dark mode within your application. We recommend you select one method and
+				utilize that as your primary solution for your application.
 			</p>
 			<TabGroup regionPanel="space-y-4">
 				<Tab bind:group={tabSection} name="section" value={0}>Lightswitch</Tab>
@@ -72,7 +72,7 @@
 						<CodeBlock language="ts" code={`import { autoModeWatcher } from '@skeletonlabs/skeleton';`} />
 						<p>Then add the following in your root layout template markup.</p>
 						<CodeBlock language="html" code={snippetAutoModeWatcher} />
-						<p>Note that Mac OS will update immediately, while other operating systems requite a browser refresh.</p>
+						<p>Note that Mac OS will update immediately, while other operating systems require a browser refresh.</p>
 					{:else if tabSection === 2}
 						<!-- Build Your Own -->
 						<p>
@@ -129,7 +129,7 @@
 									<!-- Getters -->
 									<CodeBlock
 										language="ts"
-										code={`import { getModeOsPrefers, getModeUserPrefers, getAutoPrefers } from '@skeletonlabs/skeleton';`}
+										code={`import { getModeOsPrefers, getModeUserPrefers, getModeAutoPrefers } from '@skeletonlabs/skeleton';`}
 									/>
 									<div class="table-container">
 										<table class="table table-hover">
@@ -161,7 +161,7 @@
 									</div>
 								{:else if tabInterface === 2}
 									<!-- Setters -->
-									<CodeBlock language="ts" code={`import { setUserPrefers, setMode } from '@skeletonlabs/skeleton';`} />
+									<CodeBlock language="ts" code={`import { setModeUserPrefers, setModeCurrent } from '@skeletonlabs/skeleton';`} />
 									<div class="table-container">
 										<table class="table table-hover">
 											<thead>

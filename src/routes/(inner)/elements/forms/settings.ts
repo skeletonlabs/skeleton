@@ -1,6 +1,6 @@
 // Form Field Settings
 
-export let fieldSettings: any = {
+export const fieldSettings: any = {
 	inputs: [
 		{ title: 'Input (text)', type: 'text', placeholder: 'input text' },
 		{ title: 'Input (readonly)', type: 'text', placeholder: 'input readonly', readonly: true, tabindex: '-1' },

@@ -6,7 +6,7 @@
 
 # 💀 Skeleton
 
-Skeleton is an open source UI toolkit built on Svelte + Tailwind. Allowing you to create reactive web interfaces using [Svelte](https://svelte.dev/) + [Tailwind CSS](https://tailwindcss.com/).
+Skeleton is an open source UI toolkit built with Svelte + Tailwind that allows you to create reactive web interfaces using [Svelte](https://svelte.dev/) + [Tailwind CSS](https://tailwindcss.com/).
 
 ## 🔗 Useful Links
 

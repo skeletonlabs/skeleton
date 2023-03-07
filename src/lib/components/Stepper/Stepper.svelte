@@ -22,13 +22,15 @@
 	export let active: CssClasses = 'variant-filled';
 	/** Provide classes to style the stepper header border. */
 	export let border: CssClasses = 'border-surface-400-500-token';
+	/** Provide the initially selected step*/
+	export let start: number = 0;
 
 	// Props (step)
 	/** Set the justification for the step navigation buttons. */
 	export let justify: CssClasses = 'justify-between';
 
 	// Button (back)
-	/** Provide abitrary classes to style the back button. */
+	/** Provide arbitrary classes to style the back button. */
 	export let buttonBack: CssClasses = 'variant-ghost';
 	/** Set the type of the back button. */
 	export let buttonBackType: 'submit' | 'reset' | 'button' = 'button';
@@ -36,7 +38,7 @@
 	export let buttonBackLabel: string = '&larr; Back';
 
 	// Button (next)
-	/** Provide abitrary classes to style the next button. */
+	/** Provide arbitrary classes to style the next button. */
 	export let buttonNext: CssClasses = 'variant-filled';
 	/** Set the type of the next button. */
 	export let buttonNextType: 'submit' | 'reset' | 'button' = 'button';
@@ -44,7 +46,7 @@
 	export let buttonNextLabel: string = 'Next &rarr;';
 
 	// Button (complete)
-	/** Provide abitrary classes to style the complete button. */
+	/** Provide arbitrary classes to style the complete button. */
 	export let buttonComplete: CssClasses = 'variant-filled-primary';
 	/** Set the type of the complete button. */
 	export let buttonCompleteType: 'submit' | 'reset' | 'button' = 'button';
@@ -58,7 +60,7 @@
 	export let regionContent: CssClasses = '';
 
 	// Stores
-	let state: Writable<any> = writable({ current: 0, total: 0 });
+	let state: Writable<any> = writable({ current: start, total: 0 });
 
 	// Context
 	setContext('state', state);

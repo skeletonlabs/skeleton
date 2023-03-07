@@ -35,7 +35,7 @@
 	export let background: CssClasses = 'bg-surface-100-800-token';
 	/** Provide classes to style the modal width. */
 	export let width: CssClasses = 'w-modal';
-	/** Provide classes to style the modal. */
+	/** Provide classes to style the modal height. */
 	export let height: CssClasses = 'h-auto';
 	/** Provide classes to style the modal padding. */
 	export let padding: CssClasses = 'p-4';

@@ -8,7 +8,7 @@
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Element,
 		name: 'Typography',
-		description: 'Provides a variety of globally scoped typographic styles.',
+		description: 'Provides a variety of globally scoped typographic styles. Keeps common tags styled consistently throughout an app.',
 		stylesheetIncludes: ['all', 'typography'],
 		source: 'styles/typography.css'
 	};
@@ -19,7 +19,9 @@
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<h2>Excluding Styles</h2>
-			<p>Use the <code>.unstyled</code> class to exclude and reset typography styles for individual elements.</p>
+			<p>
+				Use the <code>.unstyled</code> class to exclude and reset Skeleton's typography styles, then apply new styles as desired.
+			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full text-center">
@@ -37,8 +39,6 @@
 <a href="/" class="unstyled">Unstyled anchor element.</a>
 					`}
 					/>
-					<p>You may then append your own styles as desired.</p>
-					<CodeBlock language="html" code={`<a href="/" class="unstyled text-orange-500">This link is orange.</a>`} />
 				</svelte:fragment>
 			</DocsPreview>
 			<h3>Tailwind Prose Plugin</h3>
@@ -82,7 +82,7 @@
 			<h2>Paragraph</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<p class="w-full text-center">The quick brown fox jumps over the lazy dog</p>
+					<p class="w-full text-center">The quick brown fox jumps over the lazy dog.</p>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock language="html" code={`<p>The quick brown fox jumps over the lazy dog.</p>`} />
@@ -152,7 +152,7 @@
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<code>.myExampleClass</code>`} />
+					<CodeBlock language="html" code={`Press <kbd>⌘ + C</kbd> to copy.`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</div>
