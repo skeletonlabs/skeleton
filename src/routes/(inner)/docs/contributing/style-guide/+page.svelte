@@ -42,12 +42,12 @@
 				>event forwarding</a
 			>.
 		</p>
-		<CodeBlock language="html" code={`<button on:click on:mouseover>Skeleton</button>`} />
+		<CodeBlock language="html" code={`<button on:click on:mouseover>Skeleton</button>\n`} />
 		<p>
 			Follow conventions set by existing components when naming slots. These should be short, semantic, and agnostic. Avoid names that are
 			too specific, such as <code>name="icon"</code>.
 		</p>
-		<CodeBlock language="html" code={`{#if $$slots.lead}<slot name="lead" />{/if}`} />
+		<CodeBlock language="html" code={`{#if $$slots.lead}<slot name="lead" />{/if}\n`} />
 		<p>
 			Use caution when inlining Tailwind color classes that would clash with custom themes. Ideally use a custom component property to allow
 			for customization.
@@ -57,7 +57,7 @@
 			code={`
 ❌ <div class="bg-orange-500">Skeleton</div>
 ✅ <div class="bg-secondary-500">Skeleton</div> 
-		`.trim()}
+`}
 		/>
 		<!-- prettier-ignore -->
 		<p>
@@ -72,7 +72,7 @@ function prunedRestProps(): any {
 	return $$restProps;
 }`}
 		/>
-		<CodeBlock language="html" code={`<button class="... {$$props.class ?? ''}" {...prunedRestProps()}>Skeleton</button>`} />
+		<CodeBlock language="html" code={`<button class="... {$$props.class ?? ''}" {...prunedRestProps()}>Skeleton</button>\n`} />
 	</section>
 
 	<hr />
@@ -98,7 +98,7 @@ export let background: string = 'bg-primary-500'; // background color
 export let color: string = 'text-primary-500'; // text color
 export let rounded: string = 'rounded-xl'; // border radius
 export let visible: boolean = false;
-		`}
+`}
 		/>
 	</section>
 
@@ -122,11 +122,14 @@ export let visible: boolean = false;
 			code={`
 let cBase: string = 'bg-surface-500 p-4 rounded'; // parent element styles
 let cLabel: string = 'text-base'; // child element label styles
-		`}
+`}
 		/>
 		<!-- Dynamic Classes -->
 		<h3>Dynamic Classes</h3>
-		<p>If you expect to set one or more styles based on the current value of a property, handle this within a reactive statement as shown below.</p>
+		<p>
+			If you expect to set one or more styles based on the current value of a property, handle this within a reactive statement as shown
+			below.
+		</p>
 		<CodeBlock
 			language="ts"
 			code={`
@@ -135,7 +138,7 @@ export let outlined: boolean;
 
 // Create a reactive property that uses a tertiary statement
 $: classesOutlined = outlined ? 'border-2 border-primary-500' : 'border-none';
-		`}
+`}
 		/>
 		<!-- Reactive Classes -->
 		<h3>Reactive Classes</h3>
@@ -145,7 +148,7 @@ $: classesOutlined = outlined ? 'border-2 border-primary-500' : 'border-none';
 			code={`
 $: classesTab = \`\${cBase} \${classesOutlined}\`; // parent element
 $: classesLabel = \`\${cBaseLabel}\`; // child element
-		`}
+`}
 		/>
 		<p>Classes are applied in three ways:</p>
 		<ol class="list-decimal list-outside ml-4 space-y-1">
@@ -159,7 +162,7 @@ $: classesLabel = \`\${cBaseLabel}\`; // child element
 <div class="tab {classesTab} {$$props.classes ?? ''}">
 	<span class="tab-label {classesLabel}">Label</span>
 </div>
-		`}
+`}
 		/>
 	</section>
 

@@ -21,7 +21,7 @@
 		<section class="space-y-4">
 			<h2>Usage</h2>
 			<p>Implement using <code>.variant-[style]-[color]</code>. Automatically applies an accessible text or SVG fill color.</p>
-			<CodeBlock language="html" code={`<div class="variant-filled-primary">primary</div>`} />
+			<CodeBlock language="html" code={`<div class="variant-filled-primary">primary</div>\n`} />
 		</section>
 		<!-- Filled -->
 		<section class="space-y-4">
@@ -39,13 +39,13 @@
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<div class="variant-filled-primary">primary</div>`} />
-					<CodeBlock language="html" code={`<div class="variant-filled-secondary">secondary</div>`} />
-					<CodeBlock language="html" code={`<div class="variant-filled-tertiary">tertiary</div>`} />
-					<CodeBlock language="html" code={`<div class="variant-filled-success">success</div>`} />
-					<CodeBlock language="html" code={`<div class="variant-filled-warning">warning</div>`} />
-					<CodeBlock language="html" code={`<div class="variant-filled-error">error</div>`} />
-					<CodeBlock language="html" code={`<div class="variant-filled-surface">surface</div>`} />
+					<CodeBlock language="html" code={`<div class="variant-filled-primary">primary</div>\n`} />
+					<CodeBlock language="html" code={`<div class="variant-filled-secondary">secondary</div>\n`} />
+					<CodeBlock language="html" code={`<div class="variant-filled-tertiary">tertiary</div>\n`} />
+					<CodeBlock language="html" code={`<div class="variant-filled-success">success</div>\n`} />
+					<CodeBlock language="html" code={`<div class="variant-filled-warning">warning</div>\n`} />
+					<CodeBlock language="html" code={`<div class="variant-filled-error">error</div>\n`} />
+					<CodeBlock language="html" code={`<div class="variant-filled-surface">surface</div>\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
@@ -65,13 +65,13 @@
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<div class="variant-ghost-primary">primary</div>`} />
-					<CodeBlock language="html" code={`<div class="variant-ghost-secondary">secondary</div>`} />
-					<CodeBlock language="html" code={`<div class="variant-ghost-tertiary">tertiary</div>`} />
-					<CodeBlock language="html" code={`<div class="variant-ghost-success">success</div>`} />
-					<CodeBlock language="html" code={`<div class="variant-ghost-warning">warning</div>`} />
-					<CodeBlock language="html" code={`<div class="variant-ghost-error">error</div>`} />
-					<CodeBlock language="html" code={`<div class="variant-ghost-surface">surface</div>`} />
+					<CodeBlock language="html" code={`<div class="variant-ghost-primary">primary</div>\n`} />
+					<CodeBlock language="html" code={`<div class="variant-ghost-secondary">secondary</div>\n`} />
+					<CodeBlock language="html" code={`<div class="variant-ghost-tertiary">tertiary</div>\n`} />
+					<CodeBlock language="html" code={`<div class="variant-ghost-success">success</div>\n`} />
+					<CodeBlock language="html" code={`<div class="variant-ghost-warning">warning</div>\n`} />
+					<CodeBlock language="html" code={`<div class="variant-ghost-error">error</div>\n`} />
+					<CodeBlock language="html" code={`<div class="variant-ghost-surface">surface</div>\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
@@ -91,13 +91,13 @@
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<div class="variant-soft-primary">primary</div>`} />
-					<CodeBlock language="html" code={`<div class="variant-soft-secondary">secondary</div>`} />
-					<CodeBlock language="html" code={`<div class="variant-soft-tertiary">tertiary</div>`} />
-					<CodeBlock language="html" code={`<div class="variant-soft-success">success</div>`} />
-					<CodeBlock language="html" code={`<div class="variant-soft-warning">warning</div>`} />
-					<CodeBlock language="html" code={`<div class="variant-soft-error">error</div>`} />
-					<CodeBlock language="html" code={`<div class="variant-soft-surface">surface</div>`} />
+					<CodeBlock language="html" code={`<div class="variant-soft-primary">primary</div>\n`} />
+					<CodeBlock language="html" code={`<div class="variant-soft-secondary">secondary</div>\n`} />
+					<CodeBlock language="html" code={`<div class="variant-soft-tertiary">tertiary</div>\n`} />
+					<CodeBlock language="html" code={`<div class="variant-soft-success">success</div>\n`} />
+					<CodeBlock language="html" code={`<div class="variant-soft-warning">warning</div>\n`} />
+					<CodeBlock language="html" code={`<div class="variant-soft-error">error</div>\n`} />
+					<CodeBlock language="html" code={`<div class="variant-soft-surface">surface</div>\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
@@ -117,13 +117,13 @@
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<div class="variant-ringed-primary">primary</div>`} />
-					<CodeBlock language="html" code={`<div class="variant-ringed-secondary">secondary</div>`} />
-					<CodeBlock language="html" code={`<div class="variant-ringed-tertiary">tertiary</div>`} />
-					<CodeBlock language="html" code={`<div class="variant-ringed-success">success</div>`} />
-					<CodeBlock language="html" code={`<div class="variant-ringed-warning">warning</div>`} />
-					<CodeBlock language="html" code={`<div class="variant-ringed-error">error</div>`} />
-					<CodeBlock language="html" code={`<div class="variant-ringed-surface">surface</div>`} />
+					<CodeBlock language="html" code={`<div class="variant-ringed-primary">primary</div>\n`} />
+					<CodeBlock language="html" code={`<div class="variant-ringed-secondary">secondary</div>\n`} />
+					<CodeBlock language="html" code={`<div class="variant-ringed-tertiary">tertiary</div>\n`} />
+					<CodeBlock language="html" code={`<div class="variant-ringed-success">success</div>\n`} />
+					<CodeBlock language="html" code={`<div class="variant-ringed-warning">warning</div>\n`} />
+					<CodeBlock language="html" code={`<div class="variant-ringed-error">error</div>\n`} />
+					<CodeBlock language="html" code={`<div class="variant-ringed-surface">surface</div>\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
@@ -152,13 +152,13 @@
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<div class="variant-glass-primary">primary</div>`} />
-					<CodeBlock language="html" code={`<div class="variant-glass-secondary">secondary</div>`} />
-					<CodeBlock language="html" code={`<div class="variant-glass-tertiary">tertiary</div>`} />
-					<CodeBlock language="html" code={`<div class="variant-glass-success">success</div>`} />
-					<CodeBlock language="html" code={`<div class="variant-glass-warning">warning</div>`} />
-					<CodeBlock language="html" code={`<div class="variant-glass-error">error</div>`} />
-					<CodeBlock language="html" code={`<div class="variant-glass-surface">surface</div>`} />
+					<CodeBlock language="html" code={`<div class="variant-glass-primary">primary</div>\n`} />
+					<CodeBlock language="html" code={`<div class="variant-glass-secondary">secondary</div>\n`} />
+					<CodeBlock language="html" code={`<div class="variant-glass-tertiary">tertiary</div>\n`} />
+					<CodeBlock language="html" code={`<div class="variant-glass-success">success</div>\n`} />
+					<CodeBlock language="html" code={`<div class="variant-glass-warning">warning</div>\n`} />
+					<CodeBlock language="html" code={`<div class="variant-glass-error">error</div>\n`} />
+					<CodeBlock language="html" code={`<div class="variant-glass-surface">surface</div>\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>

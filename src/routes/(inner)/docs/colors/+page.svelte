@@ -38,12 +38,12 @@
 	<!-- Reference -->
 	<section class="space-y-4">
 		<h2>Usage</h2>
-		<CodeBlock language="html" code={`<!-- Inlined classes -->\n<div class="bg-primary-500 text-secondary-500">Skeleton</div>`} />
-		<CodeBlock language="html" code={`<!-- Tailwind opacity scale -->\n<div class="border border-primary-500/50">Skeleton</div>`} />
-		<CodeBlock language="css" code={`/* Using Tailwind @apply */\n.example { @apply text-primary-500; }`} />
+		<CodeBlock language="html" code={`<!-- Inlined classes -->\n<div class="bg-primary-500 text-secondary-500">Skeleton</div>\n`} />
+		<CodeBlock language="html" code={`<!-- Tailwind opacity scale -->\n<div class="border border-primary-500/50">Skeleton</div>\n`} />
+		<CodeBlock language="css" code={`/* Using Tailwind @apply */\n.example { @apply text-primary-500; }\n`} />
 		<CodeBlock
 			language="css"
-			code={`/* Using CSS custom properties. Note that colors are RGB values! */\nbody { background: rgba(var(--color-surface-900) / 1); }`}
+			code={`/* Using CSS custom properties. Note that colors are RGB values! */\nbody { background: rgba(var(--color-surface-900) / 1); }\n`}
 		/>
 	</section>
 </LayoutPage>

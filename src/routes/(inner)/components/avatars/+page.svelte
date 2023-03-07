@@ -59,7 +59,7 @@
 				<Avatar src={imgPlaceholder} width="w-32" />
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<CodeBlock language="html" code={`<Avatar src="${imgPlaceholder}" width="w-32" />`} />
+				<CodeBlock language="html" code={`<Avatar src="${imgPlaceholder}" width="w-32" />\n`} />
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -74,7 +74,7 @@
 					<Avatar initials="JD" background="bg-primary-500" />
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<Avatar initials="JD" background="bg-primary-500" />`} />
+					<CodeBlock language="html" code={`<Avatar initials="JD" background="bg-primary-500" />\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
@@ -103,16 +103,16 @@
 			<p>
 				See <a href="/actions/filters">Filters</a> to learn how to import and configure the filters action and SVG filter components.
 			</p>
-			<CodeBlock language="ts" code={`import { filter, ${actionParams.replace('#', '')} } from '@skeletonlabs/skeleton';`} />
+			<CodeBlock language="ts" code={`import { filter, ${actionParams.replace('#', '')} } from '@skeletonlabs/skeleton';\n`} />
 			<DocsPreview background="neutral" regionFooter="text-center">
 				<svelte:fragment slot="preview">
 					<Avatar src={imgPlaceholder} action={filter} {actionParams} />
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<p>Via Filter Action</p>
-					<CodeBlock language="html" code={`<Avatar src="https://i.pravatar.cc/" action={filter} actionParams="${actionParams}" />`} />
+					<CodeBlock language="html" code={`<Avatar src="https://i.pravatar.cc/" action={filter} actionParams="${actionParams}" />\n`} />
 					<p>Via Style Attribute</p>
-					<CodeBlock language="html" code={`<Avatar src="https://i.pravatar.cc/" style="filter: url({'${actionParams}'})" />`} />
+					<CodeBlock language="html" code={`<Avatar src="https://i.pravatar.cc/" style="filter: url({'${actionParams}'})" />\n`} />
 				</svelte:fragment>
 				<svelte:fragment slot="footer">
 					<select class="select w-auto" name="filter" id="filter" bind:value={actionParams}>

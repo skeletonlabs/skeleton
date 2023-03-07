@@ -46,7 +46,7 @@
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<CodeBlock language="ts" code={`let isFocused: boolean = true;`} />
+				<CodeBlock language="ts" code={`let isFocused: boolean = true;\n`} />
 				<CodeBlock
 					language="html"
 					code={`

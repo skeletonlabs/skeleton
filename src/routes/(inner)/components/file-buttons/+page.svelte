@@ -38,7 +38,7 @@
 				<p class="!w-full text-center">Monitor your browser's console when adding files.</p>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<CodeBlock language="html" code={`<FileButton name="files" />`} />
+				<CodeBlock language="html" code={`<FileButton name="files" />\n`} />
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -59,21 +59,21 @@
 					<FileButton name="files" button="variant-soft-primary">Upload</FileButton>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<FileButton name="files" button="variant-soft-primary">Upload</FileButton>`} />
+					<CodeBlock language="html" code={`<FileButton name="files" button="variant-soft-primary">Upload</FileButton>\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
 			<h2>Binding Method</h2>
 			<p>Use a <code>FileList</code> to bind the file data.</p>
-			<CodeBlock language="ts" code={`let files: FileList;`} />
-			<CodeBlock language="html" code={`<FileButton ... bind:files />`} />
+			<CodeBlock language="ts" code={`let files: FileList;\n`} />
+			<CodeBlock language="html" code={`<FileButton ... bind:files />\n`} />
 		</section>
 		<section class="space-y-4">
 			<h2>On Change Event</h2>
 			<p>Use the <code>on:change</code> event to monitor file selection or changes.</p>
-			<CodeBlock language="ts" code={`function onChangeHandler(e: Event): void {\n\tconsole.log('file data:', e);\n}`} />
-			<CodeBlock language="html" code={`<FileButton ... on:change={onChangeHandler}>Upload</FileButton>`} />
+			<CodeBlock language="ts" code={`function onChangeHandler(e: Event): void {\n\tconsole.log('file data:', e);\n}\n`} />
+			<CodeBlock language="html" code={`<FileButton ... on:change={onChangeHandler}>Upload</FileButton>\n`} />
 		</section>
 	</svelte:fragment>
 </DocsShell>

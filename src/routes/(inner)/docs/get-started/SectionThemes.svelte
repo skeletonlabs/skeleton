@@ -87,7 +87,7 @@
 			<p>
 				You may opt into custom fonts and backgrounds per each theme by adding this paired data attribute in <code>app.html</code>
 			</p>
-			<CodeBlock language="html" code={`<body data-theme="` + activeThemeName + `">`} />
+			<CodeBlock language="html" code={`<body data-theme="` + activeThemeName + `">\n`} />
 		{/if}
 	</div>
 

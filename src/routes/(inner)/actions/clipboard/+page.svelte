@@ -41,8 +41,8 @@
 				</button>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<CodeBlock language="ts" code={`const exampleData: string = 'This text was copied by the Skeleton clipboard action.';`} />
-				<CodeBlock language="html" code={`<button use:clipboard={exampleData}>Copy</button>`} />
+				<CodeBlock language="ts" code={`const exampleData: string = 'This text was copied by the Skeleton clipboard action.';\n`} />
+				<CodeBlock language="html" code={`<button use:clipboard={exampleData}>Copy</button>\n`} />
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -54,8 +54,8 @@
 		<div class="space-y-4">
 			<h2>Copying HTML Contents</h2>
 			<p>
-				To copy the <em>innerHTML</em> for an element, set a <code>data-clipboard</code> on your target, then provide
-				an <code>element</code> reference to the action.
+				To copy the <em>innerHTML</em> for an element, set a <code>data-clipboard</code> on your target, then provide an
+				<code>element</code> reference to the action.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -71,7 +71,8 @@
 						language="html"
 						code={`
 <!-- Source -->
-<div data-clipboard="exampleElement">(contents)</div>\n
+<div data-clipboard="exampleElement">(contents)</div>
+
 <!-- Trigger -->
 <button use:clipboard={{ element: 'exampleElement' }}>Copy</button>
 `}
@@ -83,8 +84,8 @@
 		<div class="space-y-4">
 			<h2>Copying Input Values</h2>
 			<p>
-				To copy the target input <em>value</em>, set a <code>data-clipboard</code> data attribute on your target, then provide
-				an <code>input</code> reference to the action.
+				To copy the target input <em>value</em>, set a <code>data-clipboard</code> data attribute on your target, then provide an
+				<code>input</code> reference to the action.
 			</p>
 
 			<DocsPreview background="neutral">
@@ -99,7 +100,8 @@
 						language="html"
 						code={`
 <!-- Source -->
-<input type="text" value="(contents)" data-clipboard="exampleInput"></input>\n
+<input type="text" value="(contents)" data-clipboard="exampleInput"></input>
+
 <!-- Trigger -->
 <button use:clipboard={{ input: 'exampleInput' }}>Copy</button>
 `}

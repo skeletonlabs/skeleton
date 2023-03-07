@@ -60,7 +60,7 @@ const conicStops: ConicStop[] = [
 ];
 `}
 				/>
-				<CodeBlock language="html" code={`<ConicGradient stops={conicStops}>(caption)</ConicGradient>`} />
+				<CodeBlock language="html" code={`<ConicGradient stops={conicStops}>(caption)</ConicGradient>\n`} />
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -147,7 +147,7 @@ const conicStops: ConicStop[] = [
 ];
 `}
 					/>
-					<CodeBlock language="html" code={`<ConicGradient stops={conicStops} legend>(caption)</ConicGradient>`} />
+					<CodeBlock language="html" code={`<ConicGradient stops={conicStops} legend>(caption)</ConicGradient>\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</div>
@@ -185,7 +185,7 @@ const conicStops: ConicStop[] = [
 				Use the <a href="https://tailwindcss.com/docs/rotate" target="_blank" rel="noreferrer">Tailwind rotate</a> utility clases with the
 				<code>regionCone</code> property to change the starting axis position.
 			</p>
-			<CodeBlock language="html" code={`<ConicGradient ... regionCone="rotate-90" />`} />
+			<CodeBlock language="html" code={`<ConicGradient ... regionCone="rotate-90" />\n`} />
 		</div>
 	</svelte:fragment>
 </DocsShell>

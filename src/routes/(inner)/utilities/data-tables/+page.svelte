@@ -156,7 +156,8 @@ import {
 	// Svelte Actions
 	tableInteraction,
 	tableA11y
-} from '@skeletonlabs/skeleton';`}
+} from '@skeletonlabs/skeleton';
+`}
 			/>
 			<!-- prettier-ignore -->
 			<p>
@@ -177,7 +178,8 @@ const sourceData = [
 	{ position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
 	{ position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
 	{ position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' }
-];`}
+];
+`}
 			/>
 			<p>
 				We'll make use of Skeleton's <a href="/elements/tables">table element classes</a> to provide base styles to our native HTML table element.
@@ -199,7 +201,8 @@ const sourceData = [
 			</tr>
 		</tbody>
 	</table>
-</div>`}
+</div>
+`}
 			/>
 		</section>
 		<section class="space-y-4">
@@ -225,7 +228,8 @@ const dataTableStore = createDataTableStore(
 	}
 );\n
 // This automatically handles search, sort, etc when the model updates.
-dataTableStore.subscribe((model) => dataTableHandler(model));`}
+dataTableStore.subscribe((model) => dataTableHandler(model));
+`}
 			/>
 			<p>
 				Next, we'll update our table markup to display our model data. Implement matching parent headings and body cells. We'll use an <code
@@ -252,7 +256,8 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 			<!-- ... --->
 		</tr>
 	{/each}
-</tbody>`}
+</tbody>
+`}
 			/>
 		</section>
 		<hr />
@@ -263,7 +268,7 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 				To update the content of the data table, just call the <code>dataTableStore.updateSource()</code> method and pass in your new source
 				data.
 			</p>
-			<CodeBlock language="ts" code={`dataTableStore.updateSource(newSourceData)`} />
+			<CodeBlock language="ts" code={`dataTableStore.updateSource(newSourceData)\n`} />
 		</section>
 		<!-- Search -->
 		<section class="space-y-4">
@@ -272,7 +277,7 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 				To implement search, bind <code>$dataTableStore.search</code> to any search input. You may add this anywhere as long as it has scope
 				of your table model (the store).
 			</p>
-			<CodeBlock language="html" code={`<input bind:value={$dataTableStore.search} type="search" placeholder="Search..." />`} />
+			<CodeBlock language="html" code={`<input bind:value={$dataTableStore.search} type="search" placeholder="Search..." />\n`} />
 		</section>
 		<!-- Sort -->
 		<section class="space-y-4">
@@ -281,7 +286,7 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 				We'll use the <code>dataTableStore.sort()</code> method to automatically set <code>$dataTableStore.sort</code> when a table heading
 				is tapped. Add the following click method once to your table's <code>thead</code> element.
 			</p>
-			<CodeBlock language="html" code={`<thead on:click={(e) => { dataTableStore.sort(e) }} on:keypress>`} />
+			<CodeBlock language="html" code={`<thead on:click={(e) => { dataTableStore.sort(e) }} on:keypress>\n`} />
 			<p>
 				Add a <code>data-sort="(key)"</code> attribute to each heading you wish to be sortable. Tapping a heading will set the
 				<code>$dataTableStore.sort</code>
@@ -293,7 +298,7 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 <th data-sort="position">Position</th>
 <th data-sort="name">Name</th>
 <!-- ... -->
-			`}
+`}
 			/>
 			<p>
 				While sort is working, there's currently no visual UI indicator. To handle this, implement the Svelte Action called <code
@@ -301,26 +306,26 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 				>
 				to your table element. This will toggle the appropriate CSS classes and show &uarr and &darr; sort arrows.
 			</p>
-			<CodeBlock language="html" code={`<table ... use:tableInteraction>`} />
+			<CodeBlock language="html" code={`<table ... use:tableInteraction>\n`} />
 		</section>
 		<!-- Selection -->
 		<section class="space-y-4">
 			<h2>Selection</h2>
 			<h3>Per Row</h3>
 			<p>To handle row selection, we'll add a new heading column. Keep the comment shown, as we'll replace it in a following step.</p>
-			<CodeBlock language="html" code={`<th><!-- selection --></th>`} />
+			<CodeBlock language="html" code={`<th><!-- selection --></th>\n`} />
 			<p>
 				Pair this with a matching table body cell that includes a checkbox input. Append <code>bind:checked</code> to the input to extend
 				the row object source data. When checked on/off, the <code>dataTableHandler</code> will automatically include/exclude the entire row
 				object in
 				<code>$dataTableStore.selection</code>.
 			</p>
-			<CodeBlock language="html" code={`<td><input type="checkbox" bind:checked={row.dataTableChecked} /></td>`} />
+			<CodeBlock language="html" code={`<td><input type="checkbox" bind:checked={row.dataTableChecked} /></td>\n`} />
 			<p>
 				If you wish to visually highlight the row selection, Tailwind Elements includes a semantic class for this. Append this to your table
 				body row element.
 			</p>
-			<CodeBlock language="html" code={`<tr class:table-row-checked={row.dataTableChecked}>`} />
+			<CodeBlock language="html" code={`<tr class:table-row-checked={row.dataTableChecked}>\n`} />
 			<h3>Pre-Selected</h3>
 			<p>
 				You may wish to pre-select certain table rows. We've provided a utility method to handle this. Pass in the key to query against, and
@@ -329,7 +334,7 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 			</p>
 			<CodeBlock
 				language="ts"
-				code={`// Selects all objects with a position value of 1 or 2:\ndataTableStore.select('position', [1,2]);`}
+				code={`// Selects all objects with a position value of 1 or 2:\ndataTableStore.select('position', [1,2]);\n`}
 			/>
 			<h3>Select All</h3>
 			<p>
@@ -337,7 +342,7 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 			</p>
 			<CodeBlock
 				language="html"
-				code={`<th><input type="checkbox" on:click={(e) => { dataTableStore.selectAll(e.currentTarget.checked) }} /></th>`}
+				code={`<th><input type="checkbox" on:click={(e) => { dataTableStore.selectAll(e.currentTarget.checked) }} /></th>\n`}
 			/>
 		</section>
 		<!-- Pagination -->
@@ -347,7 +352,7 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 				Please refer to the <a href="/components/paginators">Paginators component</a> to learn more about this feature. For data tables, use
 				<code>$dataTableStore.pagination</code> to ensures the model updates reactively. The wrapping <em>if</em> statement is required.
 			</p>
-			<CodeBlock language="html" code={`{#if $dataTableStore.pagination}<Paginator bind:settings={$dataTableStore.pagination} />{/if}`} />
+			<CodeBlock language="html" code={`{#if $dataTableStore.pagination}<Paginator bind:settings={$dataTableStore.pagination} />{/if}\n`} />
 		</section>
 		<!-- A11y -->
 		<section class="space-y-4">
@@ -357,12 +362,12 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 				simplified this by providing a Svelte Action called <code>tableA11y</code>. This implements the required event listeners for
 				keyboard interaction. Start by appending <em>role</em> and <em>action</em> to your <em>table</em> element.
 			</p>
-			<CodeBlock language="html" code={`<table ... role="grid" use:tableA11y>`} />
+			<CodeBlock language="html" code={`<table ... role="grid" use:tableA11y>\n`} />
 			<p>
 				Implement the <code>aria-rowindex</code> attribute. This starts at <strong>1</strong> and increments per <em>tr</em> row. We can
 				utilize the <em>#each</em> loop index value, named <code>rowIndex</code>.
 			</p>
-			<CodeBlock language="html" code={`<tr ... aria-rowindex={rowIndex + 1}>`} />
+			<CodeBlock language="html" code={`<tr ... aria-rowindex={rowIndex + 1}>\n`} />
 			<p>
 				Implement three attributes per table body <em>td</em> cell. <code>role</code> and <code>tabindex</code> are static, while
 				<code>aria-colindex</code>
@@ -373,7 +378,8 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 				code={`
 <td ... role="gridcell" aria-colindex={1} tabindex="0">...</td>
 <td ... role="gridcell" aria-colindex={2} tabindex="0">...</td>
-<!-- ... -->`}
+<!-- ... -->
+`}
 			/>
 			<p>Reference the <em>Keyboard</em> tab section at the top of this page for a list of available keyboard interactions.</p>
 		</section>

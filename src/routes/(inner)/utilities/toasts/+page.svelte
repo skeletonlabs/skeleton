@@ -107,7 +107,7 @@
 					Import and add a single instance of the Toast component in your app's root layout. Since this is in global scope it will be
 					possible to reuse this feature throughout your entire application.
 				</p>
-				<CodeBlock language="html" code={`<Toast />`} />
+				<CodeBlock language="html" code={`<Toast />\n`} />
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -125,11 +125,7 @@
 		<section class="space-y-4">
 			<h2>Toast Store</h2>
 			<p>The Modal Store acts as a queue for your toast messages.</p>
-			<CodeBlock
-				language="ts"
-				code={`import { toastStore } from '@skeletonlabs/skeleton';
-			`}
-			/>
+			<CodeBlock language="ts" code={`import { toastStore } from '@skeletonlabs/skeleton';\n`} />
 			<!-- Trigger -->
 			<h3>Trigger</h3>
 			<p>To add a message to the queue, use the <code>toastStore.trigger()</code> method and pass a toast settings object.</p>
@@ -220,7 +216,7 @@ toastStore.trigger(t);
 			<!-- Clear -->
 			<h3>Clear</h3>
 			<p>Use <code>toastStore.clear()</code> to clear the entire toast store queue.</p>
-			<CodeBlock language="ts" code={`toastStore.clear();`} />
+			<CodeBlock language="ts" code={`toastStore.clear();\n`} />
 		</section>
 		<!-- Styling -->
 		<section class="space-y-4">

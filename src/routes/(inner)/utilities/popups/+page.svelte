@@ -125,9 +125,9 @@ let popupSettings: PopupSettings = {
 `}
 				/>
 				<p>Apply the <code>use:popup</code> action to your trigger element.</p>
-				<CodeBlock language="html" code={`<button ... use:popup={popupSettings}>Trigger</button>`} />
+				<CodeBlock language="html" code={`<button ... use:popup={popupSettings}>Trigger</button>\n`} />
 				<p>Apply a <code>data-popup</code> attribute to your desired popup element.</p>
-				<CodeBlock language="html" code={`<div ... data-popup="examplePopup">(popup)</div>`} />
+				<CodeBlock language="html" code={`<div ... data-popup="examplePopup">(popup)</div>\n`} />
 				<p>
 					You may optionally append a <code>.arrow</code> element within the popup to add an arrow. Match your popup's background color!
 				</p>
@@ -153,11 +153,11 @@ let popupSettings: PopupSettings = {
 			<p>Install <a href="https://floating-ui.com/" target="_blank" rel="noreferrer">Floating UI</a> from NPM. <u>This is required.</u></p>
 			<CodeBlock language="console" code={`npm install @floating-ui/dom`} />
 			<p>Import Floating UI into your application's root layout <code>/src/routes/+layout.svelte</code>.</p>
-			<CodeBlock language="ts" code={`import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';`} />
+			<CodeBlock language="ts" code={`import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';\n`} />
 			<p>Then import <code>storePopup</code> in your root layout as well.</p>
-			<CodeBlock language="ts" code={`import { storePopup } from '@skeletonlabs/skeleton';`} />
+			<CodeBlock language="ts" code={`import { storePopup } from '@skeletonlabs/skeleton';\n`} />
 			<p>Finally, pass an object containing each of the Floating UI modules to the store.</p>
-			<CodeBlock language="ts" code={`storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });`} />
+			<CodeBlock language="ts" code={`storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });\n`} />
 		</section>
 		<!-- PopupSettings -->
 		<section class="space-y-4">
@@ -259,7 +259,7 @@ let popupSettings: PopupSettings = {
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="ts" code={`let comboboxValue: string;`} />
+					<CodeBlock language="ts" code={`let comboboxValue: string;\n`} />
 					<CodeBlock
 						language="ts"
 						code={`

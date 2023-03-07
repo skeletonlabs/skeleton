@@ -111,14 +111,14 @@
 		<section class="space-y-4">
 			<h2>Auto-Collapse Mode</h2>
 			<p>Enable the <code>autocollapse</code> setting to limit display to one accordion panel at a time.</p>
-			<CodeBlock language="html" code={`<Accordion autocollapse>...</Accordion>`} />
+			<CodeBlock language="html" code={`<Accordion autocollapse>...</Accordion>\n`} />
 		</section>
 		<section class="space-y-4">
 			<h2>Open on Load</h2>
 			<p>
 				Set the visible items on load with <code>open</code>. When using <code>autocollapse</code> mode, this is limited to a single item.
 			</p>
-			<CodeBlock language="html" code={`<AccordionItem open>...</AccordionItem>`} />
+			<CodeBlock language="html" code={`<AccordionItem open>...</AccordionItem>\n`} />
 		</section>
 	</svelte:fragment>
 </DocsShell>

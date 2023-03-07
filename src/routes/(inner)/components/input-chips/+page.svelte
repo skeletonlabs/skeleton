@@ -47,8 +47,8 @@
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<CodeBlock language="ts" code={`let list: string[] = ['foo', 'bar', 'fizz', 'buzz'];`} />
-				<CodeBlock language="html" code={`<InputChip bind:value={list} name="chips" placeholder="Enter any value..." />`} />
+				<CodeBlock language="ts" code={`let list: string[] = ['foo', 'bar', 'fizz', 'buzz'];\n`} />
+				<CodeBlock language="html" code={`<InputChip bind:value={list} name="chips" placeholder="Enter any value..." />\n`} />
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -81,8 +81,8 @@
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="ts" code={`let flavorsWhitelist = ['vanilla', 'chocolate', 'strawberry', 'peach', 'rocky road'];`} />
-					<CodeBlock language="html" code={`<InputChip ... whitelist={flavorsWhitelist} />`} />
+					<CodeBlock language="ts" code={`let flavorsWhitelist = ['vanilla', 'chocolate', 'strawberry', 'peach', 'rocky road'];\n`} />
+					<CodeBlock language="html" code={`<InputChip ... whitelist={flavorsWhitelist} />\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
@@ -108,9 +108,9 @@
 				<svelte:fragment slot="source">
 					<CodeBlock
 						language="ts"
-						code={`function isValidEmail(value: string): boolean {\n\treturn value.includes('@') && value.includes('.');\n}`}
+						code={`function isValidEmail(value: string): boolean {\n\treturn value.includes('@') && value.includes('.');\n}\n`}
 					/>
-					<CodeBlock language="html" code={`<InputChip ... validation={isValidEmail} />`} />
+					<CodeBlock language="html" code={`<InputChip ... validation={isValidEmail} />\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
@@ -118,19 +118,19 @@
 		<section class="space-y-4">
 			<h2>Additional Settings</h2>
 			<p>Use the <code>max</code> property to define a maximum number of chips allowed.</p>
-			<CodeBlock language="html" code={`<InputChip ... max={3} />`} />
+			<CodeBlock language="html" code={`<InputChip ... max={3} />\n`} />
 			<p>
 				Use the <code>minlength</code> and <code>maxlength</code> properties to set the minimum/maximum number of input characters respectively.
 			</p>
-			<CodeBlock language="html" code={`<InputChip ... minlength={2} maxlength={5} />`} />
+			<CodeBlock language="html" code={`<InputChip ... minlength={2} maxlength={5} />\n`} />
 			<p>
 				By default, only a single instance of each value is allowed. If you wish to allow duplicates, set <code>allowDuplicates</code>.
 			</p>
-			<CodeBlock language="html" code={`<InputChip ... allowDuplicates />`} />
+			<CodeBlock language="html" code={`<InputChip ... allowDuplicates />\n`} />
 			<p>
 				By default, all values are trimmed and formatted lowercase. If you wish to allow uppercase, set <code>allowUpperCase</code>.
 			</p>
-			<CodeBlock language="html" code={`<InputChip ... allowUpperCase />`} />
+			<CodeBlock language="html" code={`<InputChip ... allowUpperCase />\n`} />
 		</section>
 		<hr />
 		<!-- See Also -->

@@ -44,7 +44,7 @@
 				<p class="w-full text-center">Please note the example above is simulated.</p>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<CodeBlock language="html" code={`<TableOfContents target="#toc-target" />`} />
+				<CodeBlock language="html" code={`<TableOfContents target="#toc-target" />\n`} />
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -102,13 +102,13 @@
 				By default, the Table of Contents creates links for <em>all headings</em> within the target region. If you wish to ignore certain headings,
 				add the following data attribute to that heading.
 			</p>
-			<CodeBlock language="html" code={`<h2 data-toc-ignore>Ignore Me!</h2>`} />
+			<CodeBlock language="html" code={`<h2 data-toc-ignore>Ignore Me!</h2>\n`} />
 		</section>
 		<section class="space-y-4">
 			<h2>Screen Reader Headings</h2>
 			<!-- prettier-ignore -->
 			<p>If you wish to include a section link that's not visibly shown within the target element, use <a href="https://tailwindcss.com/docs/screen-readers#screen-reader-only-elements" target="_blank" rel="noreferrer">Screen Reader</a> <code>.sr-only</code> class from Tailwind.</p>
-			<CodeBlock language="html" code={`<h2 class="sr-only">Include Me!</h2>`} />
+			<CodeBlock language="html" code={`<h2 class="sr-only">Include Me!</h2>\n`} />
 		</section>
 		<section class="space-y-4">
 			<h2>Sticky Positioning</h2>

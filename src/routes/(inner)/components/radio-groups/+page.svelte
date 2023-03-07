@@ -56,7 +56,7 @@
 				<div class="text-center"><code>selected: {justify}</code></div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<CodeBlock language="ts" code={`let value: number = 0;`} />
+				<CodeBlock language="ts" code={`let value: number = 0;\n`} />
 				<CodeBlock
 					language="html"
 					code={`
@@ -65,7 +65,7 @@
 	<RadioItem bind:group={value} name="justify" value={1}>(label)</RadioItem>
 	<RadioItem bind:group={value} name="justify" value={2}>(label)</RadioItem>
 </RadioGroup>
-				`}
+`}
 				/>
 			</svelte:fragment>
 		</DocsPreview>
@@ -92,7 +92,7 @@
 				<svelte:fragment slot="source">
 					<CodeBlock
 						language="html"
-						code={`<RadioGroup active="variant-filled-primary" hover="hover:variant-soft-primary">...</RadioGroup>`}
+						code={`<RadioGroup active="variant-filled-primary" hover="hover:variant-soft-primary">...</RadioGroup>\n`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -100,7 +100,7 @@
 		<section class="space-y-4">
 			<h2>Full Width</h2>
 			<p>Set <em>display</em> to <code>flex</code> to stretch and fill the full width.</p>
-			<CodeBlock language="html" code={`<RadioGroup display="flex">...</RadioGroup>`} />
+			<CodeBlock language="html" code={`<RadioGroup display="flex">...</RadioGroup>\n`} />
 		</section>
 		<section class="space-y-4">
 			<h2>Radio Attributes</h2>
@@ -108,7 +108,7 @@
 				The Radio Item component supports Svelte's <code>$$restProps</code>, which allows for <em>required</em>, <em>disabled</em>, and any
 				other valid radio input attributes. Please note these settings are applied per item.
 			</p>
-			<CodeBlock language="html" code={`<RadioItem ... required disabled />`} />
+			<CodeBlock language="html" code={`<RadioItem ... required disabled />\n`} />
 		</section>
 	</svelte:fragment>
 </DocsShell>

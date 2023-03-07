@@ -62,7 +62,7 @@
 				<div class="text-center"><code>Selected: {valueSingle}</code></div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<CodeBlock language="ts" code={`let valueSingle: string = 'books';`} />
+				<CodeBlock language="ts" code={`let valueSingle: string = 'books';\n`} />
 				<CodeBlock
 					language="html"
 					code={`
@@ -71,7 +71,7 @@
 	<ListBoxItem bind:group={valueSingle} name="medium" value="movies">Movies</ListBoxItem>
 	<ListBoxItem bind:group={valueSingle} name="medium" value="tv">TV</ListBoxItem>
 </ListBox>
-			`}
+`}
 				/>
 			</svelte:fragment>
 		</DocsPreview>
@@ -108,7 +108,7 @@
 					<div class="text-center"><code>Selected: {valueMultiple.length ? valueMultiple : 'None'}</code></div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="ts" code={`let valueMultiple: string[] = ['books', 'movies'];`} />
+					<CodeBlock language="ts" code={`let valueMultiple: string[] = ['books', 'movies'];\n`} />
 					<CodeBlock
 						language="html"
 						code={`
@@ -117,7 +117,7 @@
 	<ListBoxItem bind:group={valueMultiple} name="medium" value="movies">Movies</ListBoxItem>
 	<ListBoxItem bind:group={valueMultiple} name="medium" value="tv">TV</ListBoxItem>
 </ListBox>
-			`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -133,7 +133,7 @@
 	(label)
 	<svelte:fragment slot="trail">(icon)</svelte:fragment>
 </ListBoxItem>
-			`}
+`}
 			/>
 		</section>
 		<section class="space-y-4">
@@ -163,7 +163,7 @@
 	<option value="4">Option 4</option>
 	<option value="5">Option 5</option>
 </select>
-					`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>

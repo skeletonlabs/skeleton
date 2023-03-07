@@ -31,7 +31,7 @@
 						<a href="https://github.com/svelte-add/tailwindcss" target="_blank" rel="noreferrer">Svelte-Add</a> makes it easy to setup Tailwind
 						in your project. Run the following commands in your terminal.
 					</p>
-					<CodeBlock language="console" code={`npx svelte-add@latest tailwindcss\nnpm install`} />
+					<CodeBlock language="console" code={`npx svelte-add@latest tailwindcss\nnpm install\n`} />
 					<!-- prettier-ignore -->
 					<p>Then open your global stylesheet in <code>/src/app.postcss</code> and remove the following three <a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> introduced by Svelte-Add. These are redudant as Skeleton automatically handles these in our stylesheets for you.</p>
 					<div class="space-y-[1px]">
@@ -64,7 +64,7 @@ module.exports = {
 		...require('@skeletonlabs/skeleton/tailwind/skeleton.cjs')()
 	]
 }
-			`}
+`}
 				/>
 				<aside class="alert variant-ghost-warning">
 					<i class="fa-solid fa-triangle-exclamation text-2xl" />

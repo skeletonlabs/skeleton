@@ -32,8 +32,8 @@
 				<SlideToggle name="slider" checked />
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<CodeBlock language="ts" code={`let value: boolean = false;`} />
-				<CodeBlock language="html" code={`<SlideToggle name="slide" bind:checked={value} />`} />
+				<CodeBlock language="ts" code={`let value: boolean = false;\n`} />
+				<CodeBlock language="html" code={`<SlideToggle name="slide" bind:checked={value} />\n`} />
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -52,7 +52,7 @@
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<SlideToggle name="slider-label" checked>(label)</SlideToggle>`} />
+					<CodeBlock language="html" code={`<SlideToggle name="slider-label" checked>(label)</SlideToggle>\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
@@ -68,7 +68,7 @@
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<SlideToggle name="slider-large" checked active="bg-primary-500" size="lg" />`} />
+					<CodeBlock language="html" code={`<SlideToggle name="slider-large" checked active="bg-primary-500" size="lg" />\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
@@ -78,7 +78,7 @@
 				This component supports Svelte's <code>$$restProps</code>, which allows for <em>required</em>, <em>disabled</em>, and any other
 				valid checkbox input attributes.
 			</p>
-			<CodeBlock language="html" code={`<SlideToggle ... required disabled />`} />
+			<CodeBlock language="html" code={`<SlideToggle ... required disabled />\n`} />
 		</section>
 	</svelte:fragment>
 </DocsShell>

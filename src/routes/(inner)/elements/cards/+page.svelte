@@ -80,8 +80,8 @@
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<CodeBlock language="html" code={`<div class="card p-4">Basic</div>`} />
-				<CodeBlock language="html" code={`<a href="/" class="card p-4">Link</a>`} />
+				<CodeBlock language="html" code={`<div class="card p-4">Basic</div>\n`} />
+				<CodeBlock language="html" code={`<a href="/" class="card p-4">Link</a>\n`} />
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -116,7 +116,7 @@
 	<section class="p-4">(content)</section>
 	<footer class="card-footer">(footer)</footer>
 </div>
-				`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -131,7 +131,7 @@
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<a class="block card card-hover p-4" href="/elements/cards">Hover Me!</a>`} />
+					<CodeBlock language="html" code={`<a class="block card card-hover p-4" href="/elements/cards">Hover Me!</a>\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>

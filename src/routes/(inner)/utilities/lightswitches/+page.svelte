@@ -55,7 +55,7 @@
 								<LightSwitch />
 							</svelte:fragment>
 							<svelte:fragment slot="source">
-								<CodeBlock language="ts" code={`<LightSwitch />`} />
+								<CodeBlock language="ts" code={`<LightSwitch />\n`} />
 							</svelte:fragment>
 						</DocsPreview>
 						<p>
@@ -69,7 +69,7 @@
 							of a Lightswitch component.
 						</p>
 						<p>First, import the following in <code>/src/routes/+layout.svelte</code>.</p>
-						<CodeBlock language="ts" code={`import { autoModeWatcher } from '@skeletonlabs/skeleton';`} />
+						<CodeBlock language="ts" code={`import { autoModeWatcher } from '@skeletonlabs/skeleton';\n`} />
 						<p>Then add the following in your root layout template markup.</p>
 						<CodeBlock language="html" code={snippetAutoModeWatcher} />
 						<p>Note that Mac OS will update immediately, while other operating systems require a browser refresh.</p>
@@ -84,7 +84,7 @@
 							Import and add the following to your component. This will set the <code>.dark</code> class on the root HTML element in a highly
 							performant manner.
 						</p>
-						<CodeBlock language="ts" code={`import { setInitialClassState } from '@skeletonlabs/skeleton';`} />
+						<CodeBlock language="ts" code={`import { setInitialClassState } from '@skeletonlabs/skeleton';\n`} />
 						<CodeBlock language="html" code={snippetSetInitClass} />
 						<h2>Interface Methods</h2>
 						<p>Light mode is represented by <code>true</code>, while dark mode is represented by <code>false</code>.</p>
@@ -96,7 +96,10 @@
 							<svelte:fragment slot="panel">
 								{#if tabInterface === 0}
 									<!-- Stores -->
-									<CodeBlock language="ts" code={`import { modeOsPrefers, modeUserPrefers, modeCurrent } from '@skeletonlabs/skeleton';`} />
+									<CodeBlock
+										language="ts"
+										code={`import { modeOsPrefers, modeUserPrefers, modeCurrent } from '@skeletonlabs/skeleton';\n`}
+									/>
 									<div class="table-container">
 										<table class="table table-hover">
 											<thead>
@@ -129,7 +132,7 @@
 									<!-- Getters -->
 									<CodeBlock
 										language="ts"
-										code={`import { getModeOsPrefers, getModeUserPrefers, getModeAutoPrefers } from '@skeletonlabs/skeleton';`}
+										code={`import { getModeOsPrefers, getModeUserPrefers, getModeAutoPrefers } from '@skeletonlabs/skeleton';\n`}
 									/>
 									<div class="table-container">
 										<table class="table table-hover">
@@ -161,7 +164,7 @@
 									</div>
 								{:else if tabInterface === 2}
 									<!-- Setters -->
-									<CodeBlock language="ts" code={`import { setModeUserPrefers, setModeCurrent } from '@skeletonlabs/skeleton';`} />
+									<CodeBlock language="ts" code={`import { setModeUserPrefers, setModeCurrent } from '@skeletonlabs/skeleton';\n`} />
 									<div class="table-container">
 										<table class="table table-hover">
 											<thead>

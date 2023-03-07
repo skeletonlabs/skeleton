@@ -70,7 +70,7 @@
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<CodeBlock language="html" code={`<span class="chip variant-filled">Chip</span>`} />
+				<CodeBlock language="html" code={`<span class="chip variant-filled">Chip</span>\n`} />
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -111,8 +111,8 @@
 		<section class="space-y-4">
 			<h2>State</h2>
 			<p>Dynamically modify chip classes to represent state. See the examples below using this technique.</p>
-			<CodeBlock language="ts" code={`$: chipStateClass = (someCondition) ? 'variant-filled-primary' : 'variant-soft-primary';`} />
-			<CodeBlock language="html" code={`<span class="chip {chipStateClass}">...</span>`} />
+			<CodeBlock language="ts" code={`$: chipStateClass = (someCondition) ? 'variant-filled-primary' : 'variant-soft-primary';\n`} />
+			<CodeBlock language="html" code={`<span class="chip {chipStateClass}">...</span>\n`} />
 			<!-- Single Selection -->
 			<h3>Single Selection</h3>
 			<DocsPreview background="neutral">
@@ -132,7 +132,7 @@
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="ts" code={`let color = 'red';`} />
+					<CodeBlock language="ts" code={`let color = 'red';\n`} />
 					<CodeBlock
 						language="html"
 						code={`

@@ -48,7 +48,7 @@
 				<div class="w-48 mx-auto"><input type="range" min="0" bind:value={props.value} max={props.max} step={props.step} /></div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<CodeBlock language="html" code={`<ProgressBar label="Progress Bar" value={${props.value}} max={${props.max}} />`} />
+				<CodeBlock language="html" code={`<ProgressBar label="Progress Bar" value={${props.value}} max={${props.max}} />\n`} />
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -63,8 +63,8 @@
 					<ProgressBar />
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<ProgressBar />`} />
-					<CodeBlock language="html" code={`<ProgressBar value={undefined} />`} />
+					<CodeBlock language="html" code={`<ProgressBar />\n`} />
+					<CodeBlock language="html" code={`<ProgressBar value={undefined} />\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
@@ -76,7 +76,7 @@
 					<progress value={props.value} max={props.max} />
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<progress value={props.value} max={props.max} />`} />
+					<CodeBlock language="html" code={`<progress value={props.value} max={props.max} />\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>

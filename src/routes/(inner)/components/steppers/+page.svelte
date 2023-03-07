@@ -119,7 +119,7 @@
 	</Step>
 	<!-- ... -->
 </Stepper>
-			`}
+`}
 				/>
 			</svelte:fragment>
 		</DocsPreview>
@@ -134,11 +134,11 @@
 		<section class="space-y-4">
 			<h2>Event Handlers</h2>
 			<h3>Complete Event</h3>
-			<CodeBlock language="ts" code={`function onCompleteHandler(e: Event): void { console.log('event:complete', e); }`} />
-			<CodeBlock language="html" code={`<Stepper on:complete={onCompleteHandler}>...</Stepper>`} />
+			<CodeBlock language="ts" code={`function onCompleteHandler(e: Event): void { console.log('event:complete', e); }\n`} />
+			<CodeBlock language="html" code={`<Stepper on:complete={onCompleteHandler}>...</Stepper>\n`} />
 			<h3>Next and Previous</h3>
 			<p>Events are fired when the next or previous steps are pressed.</p>
-			<CodeBlock language="html" code={`<Stepper on:next={onNextHandler} on:back={onBackHandler}>...</Stepper>`} />
+			<CodeBlock language="html" code={`<Stepper on:next={onNextHandler} on:back={onBackHandler}>...</Stepper>\n`} />
 		</section>
 
 		<section class="space-y-4">
@@ -147,8 +147,8 @@
 				Each Step can have a <code>locked</code> property set, when set to <em>TRUE</em> this locks progression for that step. For example, you
 				can lock a step until a form within it becomes valid.
 			</p>
-			<CodeBlock language="ts" code={`let lockedState: boolean = true;`} />
-			<CodeBlock language="html" code={`<Step locked={lockedState}>...</Step>`} />
+			<CodeBlock language="ts" code={`let lockedState: boolean = true;\n`} />
+			<CodeBlock language="html" code={`<Step locked={lockedState}>...</Step>\n`} />
 		</section>
 	</svelte:fragment>
 </DocsShell>

@@ -60,7 +60,7 @@
 				</section>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<CodeBlock language="ts" code={`let tabSet: number = 0;`} />
+				<CodeBlock language="ts" code={`let tabSet: number = 0;\n`} />
 				<CodeBlock
 					language="html"
 					code={`
@@ -79,7 +79,7 @@
 		{/if}
 	</svelte:fragment>
 </TabGroup>
-			`}
+`}
 				/>
 			</svelte:fragment>
 		</DocsPreview>
@@ -108,7 +108,7 @@
 					</TabGroup>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<TabGroup justify="justify-center">...<TabGroup>`} />
+					<CodeBlock language="html" code={`<TabGroup justify="justify-center">...<TabGroup>\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
@@ -161,7 +161,8 @@
 		(label))
 	</Tab>
 	<!-- ... -->
-<TabGroup>`}
+<TabGroup>
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -175,9 +176,9 @@
 			</p>
 			<CodeBlock
 				language="ts"
-				code={`import { writable, type Writable } from 'svelte/store';\n\nconst tabSet: Writable<number> = writable(0);`}
+				code={`import { writable, type Writable } from 'svelte/store';\n\nconst tabSet: Writable<number> = writable(0);\n`}
 			/>
-			<CodeBlock language="ts" code={`<Tab bind:group={$tabSet} name="tab1" value={0}>(label)</Tab>`} />
+			<CodeBlock language="ts" code={`<Tab bind:group={$tabSet} name="tab1" value={0}>(label)</Tab>\n`} />
 		</section>
 	</svelte:fragment>
 </DocsShell>

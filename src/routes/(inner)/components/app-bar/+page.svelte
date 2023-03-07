@@ -97,7 +97,7 @@
 					<AppBar class="w-full"><h2 data-toc-ignore>Title</h2></AppBar>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<AppBar>(title)</AppBar>`} />
+					<CodeBlock language="html" code={`<AppBar>(title)</AppBar>\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>

@@ -56,7 +56,7 @@
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<CodeBlock language="html" code={`<div class="placeholder" />`} />
+				<CodeBlock language="html" code={`<div class="placeholder" />\n`} />
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -126,7 +126,7 @@
 					<div class="placeholder-circle w-16" class:animate-pulse={animate} />
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<div class="placeholder-circle w-16" />`} />
+					<CodeBlock language="html" code={`<div class="placeholder-circle w-16" />\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</div>
@@ -134,7 +134,7 @@
 		<div class="space-y-4">
 			<h2>Animated</h2>
 			<p>Apply the <code>.animate-pulse</code> utility class provided by Tailwind.</p>
-			<CodeBlock language="html" code={`<div class="placeholder animate-pulse" />`} />
+			<CodeBlock language="html" code={`<div class="placeholder animate-pulse" />\n`} />
 		</div>
 	</svelte:fragment>
 </DocsShell>

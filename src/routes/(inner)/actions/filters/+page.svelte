@@ -111,11 +111,11 @@ only utlize theme on this doc page.
 			</svelte:fragment>
 			<svelte:fragment slot="source">
 				<p>Import the filter and each filter component you wish to use.</p>
-				<CodeBlock language="ts" code={`import { filter, Emerald, BlueNight /* ... */  } from '@skeletonlabs/skeleton';`} />
+				<CodeBlock language="ts" code={`import { filter, Emerald, BlueNight /* ... */  } from '@skeletonlabs/skeleton';\n`} />
 				<p>Implement each filter component. For global scope add these to your root layout.</p>
-				<CodeBlock language="html" code={`<Emerald />\n<BlueNight />`} />
+				<CodeBlock language="html" code={`<Emerald />\n<BlueNight />\n`} />
 				<p>Apply the filter to your desired element.</p>
-				<CodeBlock language="html" code={`<img ... use:filter={'#Emerald'} />`} />
+				<CodeBlock language="html" code={`<img ... use:filter={'#Emerald'} />\n`} />
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -138,14 +138,14 @@ only utlize theme on this doc page.
 				<svelte:fragment slot="panel">
 					{#if method === 0}
 						<p>
-							Use the following <a href="https://svelte.dev/tutorial/actions" target="_blank" rel="noreferrer">Svelte action</a> to filter
-							any element. Pass the filter name as the only parameter.
+							Use the following <a href="https://svelte.dev/tutorial/actions" target="_blank" rel="noreferrer">Svelte action</a> to filter any
+							element. Pass the filter name as the only parameter.
 						</p>
-						<CodeBlock language="ts" code={`import { filter } from '@skeletonlabs/skeleton';`} />
-						<CodeBlock language="html" code={`<img src={myImageSrc} use:filter={'#BlueNight'}>`} />
+						<CodeBlock language="ts" code={`import { filter } from '@skeletonlabs/skeleton';\n`} />
+						<CodeBlock language="html" code={`<img src={myImageSrc} use:filter={'#BlueNight'}>\n`} />
 					{:else if method === 1}
 						<p>Alternatively you may apply filters using inline CSS. This is what the action is doing under the hood.</p>
-						<CodeBlock language="html" code={`<img src={myImageSrc} style="filter: url({'#Emerald'})">`} />
+						<CodeBlock language="html" code={`<img src={myImageSrc} style="filter: url({'#Emerald'})">\n`} />
 					{/if}
 				</svelte:fragment>
 			</TabGroup>

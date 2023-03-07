@@ -25,7 +25,7 @@
 					>design token</a
 				> class. Adjust your theme's color scheme to customize. This affects both light and dark mode.
 			</p>
-			<CodeBlock language="css" code={`body { @apply bg-surface-50-900-token; }`} />
+			<CodeBlock language="css" code={`body { @apply bg-surface-50-900-token; }\n`} />
 			<aside class="alert variant-ghost-warning">
 				<i class="fa-solid fa-lightbulb text-2xl" />
 				<div class="alert-message">Consider pairing this with a <strong>CSS Mesh Gradient</strong> or other background image.</div>
@@ -51,7 +51,7 @@
 					<p class="w-full text-center">Try selecting the text above.</p>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="css" code={`::selection { @apply bg-primary-500/30; }`} />
+					<CodeBlock language="css" code={`::selection { @apply bg-primary-500/30; }\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</div>
@@ -70,7 +70,7 @@
 					<button class="btn variant-soft">Tap Me</button>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="css" code={`html { -webkit-tap-highlight-color: rgba(128, 128, 128, 0.5); }`} />
+					<CodeBlock language="css" code={`html { -webkit-tap-highlight-color: rgba(128, 128, 128, 0.5); }\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</div>
@@ -121,7 +121,7 @@
 		Lorem ipsum, dolor sit...
 	</p>
 </div>			
-			`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -154,7 +154,7 @@
 <hr class="!border-t-2" />
 <hr class="!border-t-4" />
 <hr class="!border-t-8" />
-					`}
+`}
 						/>
 					</svelte:fragment>
 				</DocsPreview>
@@ -175,7 +175,7 @@
 <hr class="!border-dashed" />
 <hr class="!border-dotted" />
 <hr class="!border-t-8 !border-double" />
-					`}
+`}
 						/>
 					</svelte:fragment>
 				</DocsPreview>
@@ -193,7 +193,7 @@
 						</div>
 					</svelte:fragment>
 					<svelte:fragment slot="source">
-						<CodeBlock language="html" code={`<span class="divider-vertical h-20" />`} />
+						<CodeBlock language="html" code={`<span class="divider-vertical h-20" />\n`} />
 					</svelte:fragment>
 				</DocsPreview>
 			</div>

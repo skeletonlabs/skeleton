@@ -92,7 +92,7 @@ const sourceData = [
 	{ position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
 	{ position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
 ];
-				`}
+`}
 				/>
 				<p>Create a <code>TableSource</code> object. use <code>body: tableMapperValues(sourceData)</code> to map the data.</p>
 				<CodeBlock
@@ -108,10 +108,10 @@ const tableSimple: TableSource = {
 	// Optional: A list of footer labels.
 	foot: ['Total', '', '<code>${totalWeight}</code>']
 };
-				`}
+`}
 				/>
 				<p>Finally, we pass our table source data to the component for display.</p>
-				<CodeBlock language="html" code={`<Table source={tableSimple} />`} />
+				<CodeBlock language="html" code={`<Table source={tableSimple} />\n`} />
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -124,7 +124,7 @@ const tableSimple: TableSource = {
 				Use the <code>interactive</code> to make the table interactive. When a row is clicked, <code>on:selected</code> will pass the row's
 				<code>meta</code> value.
 			</p>
-			<CodeBlock language="html" code={`<Table ... interactive={true} on:selected={mySelectionHandler} />`} />
+			<CodeBlock language="html" code={`<Table ... interactive={true} on:selected={mySelectionHandler} />\n`} />
 		</section>
 		<!-- Table Utilities -->
 		<section class="space-y-4">
@@ -135,7 +135,7 @@ const tableSimple: TableSource = {
 				<Tab bind:group={$storeService} name="tableSourceMapper" value="tableSourceMapper">Source Mapper</Tab>
 				<Tab bind:group={$storeService} name="tableSourceValues" value="tableSourceValues">Source Values</Tab>
 			</TabGroup>
-			<CodeBlock language="ts" code={`import { ${$storeService} } from '@skeletonlabs/skeleton';`} />
+			<CodeBlock language="ts" code={`import { ${$storeService} } from '@skeletonlabs/skeleton';\n`} />
 			{#if $storeService === 'tableMapperValues'}
 				<!-- Table Mapper Values -->
 				<p>
@@ -151,7 +151,7 @@ tableMapperValues(sourceData, ['name', 'symbol', 'weight'])\n
 //		['Helium', 'He', '4.0026'],
 //		...
 //	]
-				`}
+`}
 				/>
 			{:else if $storeService === 'tableSourceMapper'}
 				<!-- Source Mapper -->
@@ -165,7 +165,7 @@ tableSourceMapper(sourceData, ['name', 'symbol', 'weight']);\n
 //		{ name: 'Helium', symbol: 'He', weight: '4.0026' },
 //		...
 //]
-					`}
+`}
 				/>
 			{:else if $storeService === 'tableSourceValues'}
 				<!-- Source Values -->
@@ -176,7 +176,8 @@ tableSourceMapper(sourceData, ['name', 'symbol', 'weight']);\n
 				<CodeBlock
 					language="ts"
 					code={`
-tableSourceValues(sourceData);\n
+tableSourceValues(sourceData);
+
 //[
 //		[ 1, 'Hydrogen', '1.0079', 'H' ],
 //		[ 2, 'Helium', '4.0026', 'He' ],

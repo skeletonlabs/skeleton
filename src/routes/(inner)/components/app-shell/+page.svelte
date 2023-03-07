@@ -124,7 +124,8 @@
 	<!-- ---- / ---- -->
 	<svelte:fragment slot="pageFooter">Page Footer</svelte:fragment>
 	<svelte:fragment slot="footer">Footer</svelte:fragment>
-</AppShell>`}
+</AppShell>
+`}
 				/>
 			</svelte:fragment>
 		</DocsPreview>
@@ -149,13 +150,13 @@
 			</p>
 			<CodeBlock
 				language="html"
-				code={`<body>\n\t<div style="display: contents" class="h-full overflow-hidden">%sveltekit.body%</div>\n</body>`.trim()}
+				code={`<body>\n\t<div style="display: contents" class="h-full overflow-hidden">%sveltekit.body%</div>\n</body>\n`}
 			/>
 			<p>
 				Then update your global stylesheet with the following. This will disable overflow for <em>html</em> and <em>body</em> tags to prevent
 				duplicate scroll bars.
 			</p>
-			<CodeBlock language="css" code={`html, body { @apply h-full overflow-hidden; }`} />
+			<CodeBlock language="css" code={`html, body { @apply h-full overflow-hidden; }\n`} />
 		</section>
 		<section class="space-y-4">
 			<h2>Using an App Bar</h2>
@@ -171,7 +172,8 @@
 		<AppBar>Skeleton</AppBar>
 	</svelte:fragment>
 	<!-- ... -->
-</AppShell>`}
+</AppShell>
+`}
 			/>
 			<p>If you wish for your App Bar to scroll with the page, insert it into the <code>pageHeader</code> slot.</p>
 			<CodeBlock
@@ -182,10 +184,11 @@
 		<AppBar>Skeleton</AppBar>
 	</svelte:fragment>
 	<!-- ... -->
-</AppShell>`}
+</AppShell>
+`}
 			/>
 			<p>If you wish to have a sticky <code>pageHeader</code>, apply the following App Shell prop styles.</p>
-			<CodeBlock language="html" code={`<AppShell regionPage="relative" slotPageHeader="sticky top-0 z-10">...</AppShell>`} />
+			<CodeBlock language="html" code={`<AppShell regionPage="relative" slotPageHeader="sticky top-0 z-10">...</AppShell>\n`} />
 		</section>
 		<section class="space-y-4">
 			<h2>Responsive Sidebars</h2>
@@ -204,7 +207,8 @@
 		<!-- Hidden below Tailwind's large breakpoint -->
 		<div id="sidebar-left" class="hidden lg:block">Sidebar</div>
 	</svelte:fragment>
-</AppShell>`}
+</AppShell>
+`}
 			/>
 			<aside class="alert variant-ghost-warning">
 				<i class="fa-solid fa-lightbulb text-2xl" />
@@ -227,7 +231,7 @@ function scrollHandler(event: UIEvent & { currentTarget: EventTarget & HTMLDivEl
 }
 `}
 			/>
-			<CodeBlock language="html" code={`<AppShell ... on:scroll={scrollHandler}>`} />
+			<CodeBlock language="html" code={`<AppShell ... on:scroll={scrollHandler}>\n`} />
 		</section>
 	</svelte:fragment>
 </DocsShell>

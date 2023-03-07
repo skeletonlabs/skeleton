@@ -43,10 +43,10 @@
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<CodeBlock language="ts" code={`let value = 15;`} />
+				<CodeBlock language="ts" code={`let value = 15;\n`} />
 				<CodeBlock
 					language="html"
-					code={`<RangeSlider name="range-slider" bind:value={value} max={25} step={1} ticked>Label</RangeSlider>`}
+					code={`<RangeSlider name="range-slider" bind:value={value} max={25} step={1} ticked>Label</RangeSlider>\n`}
 				/>
 			</svelte:fragment>
 		</DocsPreview>
@@ -72,7 +72,7 @@
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="ts" code={`let value = 15;\nlet max = 25;`} />
+					<CodeBlock language="ts" code={`let value = 15;\nlet max = 25;\n`} />
 					<CodeBlock
 						language="html"
 						code={`
@@ -81,7 +81,8 @@
 		<div class="font-bold">Label</div>
 		<div class="text-xs">{value} / {max}</div>
 	</div>
-</RangeSlider>`}
+</RangeSlider>
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>

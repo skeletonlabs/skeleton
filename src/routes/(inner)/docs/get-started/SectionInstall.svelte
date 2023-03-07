@@ -25,7 +25,7 @@
 npm create skeleton-app@latest my-skeleton-app
 	- Enable SvelteKit's Typescript syntax (recommended)
 cd my-skeleton-app
-						`}
+`}
 				/>
 			{:else if $storeOnboardMethod === 'manual'}
 				<!-- prettier-ignore -->
@@ -38,14 +38,14 @@ cd my-skeleton-app
 npm create svelte@latest my-skeleton-app
 cd my-skeleton-app
 npm install
-		`}
+`}
 				/>
 				<!-- Install NPM Package -->
 				<p>
 					Install the <a href="https://www.npmjs.com/package/@skeletonlabs/skeleton" target="_blank" rel="noreferrer">Skeleton package</a> from
 					NPM.
 				</p>
-				<CodeBlock language="console" code={`npm i @skeletonlabs/skeleton --save-dev`} />
+				<CodeBlock language="console" code={`npm i @skeletonlabs/skeleton --save-dev\n`} />
 			{/if}
 		</svelte:fragment>
 	</TabGroup>

@@ -64,7 +64,7 @@
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<CodeBlock language="ts" code={`let visible: boolean = true;`} />
+				<CodeBlock language="ts" code={`let visible: boolean = true;\n`} />
 				<CodeBlock
 					language="html"
 					code={`
@@ -81,7 +81,7 @@
         <div class="alert-actions">(buttons)</div>
     </aside>
 {/if}
-            `}
+`}
 				/>
 			</svelte:fragment>
 		</DocsPreview>
@@ -96,17 +96,17 @@
 			<h2>Sections</h2>
 			<h3>Message Content</h3>
 			<p>Use the <code>.alert-message</code> to create a vertical set of text information that fills the available width of the alert.</p>
-			<CodeBlock language="html" code={`<div class="alert-message">\n\t<h3>(title)</h3>\n\t<p>{message}</p>\n</div>`} />
-			<CodeBlock language="html" code={`<h3 class="alert-message">(title)</h3>`} />
+			<CodeBlock language="html" code={`<div class="alert-message">\n\t<h3>(title)</h3>\n\t<p>{message}</p>\n</div>\n`} />
+			<CodeBlock language="html" code={`<h3 class="alert-message">(title)</h3>\n`} />
 			<h3>Action Buttons</h3>
 			<p>Use the <code>.alert-actions</code> to create a trailing area to house interactive action buttons.</p>
-			<CodeBlock language="html" code={`<div class="alert-actions">(buttons)</div>`} />
+			<CodeBlock language="html" code={`<div class="alert-actions">(buttons)</div>\n`} />
 		</section>
 		<section class="space-y-4">
 			<h2>Animation</h2>
 			<!-- prettier-ignore -->
 			<p><a href="https://svelte.dev/tutorial/transition" target="_blank" rel="noreferrer">Svelte Transitions</a> can provide smooth transition animations when the alert state changes.</p>
-			<CodeBlock language="html" code={`<aside class="alert" transition:fade|local={{ duration: 200 }}>(content)</div>`} />
+			<CodeBlock language="html" code={`<aside class="alert" transition:fade|local={{ duration: 200 }}>(content)</div>\n`} />
 		</section>
 	</svelte:fragment>
 </DocsShell>

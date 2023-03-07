@@ -22,8 +22,8 @@
 			<p>
 				The first parameter <code>storeExample</code> is the local storage key name. The second parameter is the initial value of the store.
 			</p>
-			<CodeBlock language="ts" code={`import type { Writable } from 'svelte/store';`} />
-			<CodeBlock language="ts" code={`const storeExample: Writable<string> = localStorageStore('storeExample', 'initialValueHere');`} />
+			<CodeBlock language="ts" code={`import type { Writable } from 'svelte/store';\n`} />
+			<CodeBlock language="ts" code={`const storeExample: Writable<string> = localStorageStore('storeExample', 'initialValueHere');\n`} />
 			<p>
 				Operates as a standard Svelte writable store but with the added benefit of automatic persistence via <a
 					href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage"

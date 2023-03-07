@@ -27,15 +27,15 @@
 		<DocsPreview>
 			<svelte:fragment slot="preview">
 				<div class="w-full space-y-4">
-					<CodeBlock language="html" code={`<div>This is meta</div>`} />
-					<CodeBlock language="css" code={`.skeleton { color: #bada55; }`} />
-					<CodeBlock language="ts" code={`const skeleton: string = 'awesome';`} />
+					<CodeBlock language="html" code={`<div>This is meta</div>\n`} />
+					<CodeBlock language="css" code={`.skeleton { color: #bada55; }\n`} />
+					<CodeBlock language="ts" code={`const skeleton: string = 'awesome';\n`} />
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<CodeBlock language="html" code={`<CodeBlock language="html" code={\`<div>This is meta</div>\`}></CodeBlock>`} />
-				<CodeBlock language="html" code={`<CodeBlock language="css" code={\`.skeleton { color: #bada55; }\`}></CodeBlock>`} />
-				<CodeBlock language="html" code={`<CodeBlock language="ts" code={\`const skeleton: string = 'awesome';\`}></CodeBlock>`} />
+				<CodeBlock language="html" code={`<CodeBlock language="html" code={\`<div>This is meta</div>\`}></CodeBlock>\n`} />
+				<CodeBlock language="html" code={`<CodeBlock language="css" code={\`.skeleton { color: #bada55; }\`}></CodeBlock>\n`} />
+				<CodeBlock language="html" code={`<CodeBlock language="ts" code={\`const skeleton: string = 'awesome';\`}></CodeBlock>\n`} />
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -52,15 +52,15 @@
 		<section class="space-y-4">
 			<h2>Configure Your Project</h2>
 			<p>Apply the following changes to your app's root component in <code>/src/routes/+layout.svelte</code>.</p>
-			<CodeBlock language="ts" code={`import hljs from 'highlight.js';`} />
+			<CodeBlock language="ts" code={`import hljs from 'highlight.js';\n`} />
 			<p>
 				Import any <a href="https://github.com/highlightjs/highlight.js/tree/main/src/styles" target="_blank" rel="noreferrer"
 					>Highlight.js CSS theme</a
 				> of your choice.
 			</p>
-			<CodeBlock language="ts" code={`import 'highlight.js/styles/github-dark.css';`} />
+			<CodeBlock language="ts" code={`import 'highlight.js/styles/github-dark.css';\n`} />
 			<p>Finally, import the CodeBlock's writable store and pass a referenced to Highlight.js.</p>
-			<CodeBlock language="ts" code={`import { storeHighlightJs } from '@skeletonlabs/skeleton';\n\nstoreHighlightJs.set(hljs);`} />
+			<CodeBlock language="ts" code={`import { storeHighlightJs } from '@skeletonlabs/skeleton';\n\nstoreHighlightJs.set(hljs);\n`} />
 		</section>
 		<section class="space-y-4">
 			<h2>Supported Languages</h2>

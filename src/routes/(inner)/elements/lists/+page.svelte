@@ -191,8 +191,8 @@
 				</svelte:fragment>
 			</DocsPreview>
 			<p>To highlight active state, we recommend conditionally applying a background color to the anchor tag.</p>
-			<CodeBlock language="ts" code={`$: classesActive = (href: string) => (href === $page.url.pathname ? '!bg-primary-500' : '');`} />
-			<CodeBlock language="html" code={`<a {href} class="{classesActive(href)}">Page</a>`} />
+			<CodeBlock language="ts" code={`$: classesActive = (href: string) => (href === $page.url.pathname ? '!bg-primary-500' : '');\n`} />
+			<CodeBlock language="html" code={`<a {href} class="{classesActive(href)}">Page</a>\n`} />
 		</section>
 	</svelte:fragment>
 </DocsShell>

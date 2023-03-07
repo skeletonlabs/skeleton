@@ -148,8 +148,8 @@
 					</section>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<div class="logo-cloud [&>.logo-item]:bg-red-500">...</div>`} />
-					<CodeBlock language="html" code={`<div class="logo-cloud [&>.logo-item]:variant-filled-secondary">...</div>`} />
+					<CodeBlock language="html" code={`<div class="logo-cloud [&>.logo-item]:bg-red-500">...</div>\n`} />
+					<CodeBlock language="html" code={`<div class="logo-cloud [&>.logo-item]:variant-filled-secondary">...</div>\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>

@@ -156,7 +156,7 @@
 					/>
 					<!-- prettier-ignore -->
 					<p>Customize the vertical dividers using <a href="https://tailwindcss.com/blog/tailwindcss-v3-1#arbitrary-values-but-for-variants" target="_blank" rel="noreferrer">Tailwind's arbitrary variant syntax</a>.</p>
-					<CodeBlock language="html" code={`<div class="btn-group variant-ghost-primary [&>*+*]:border-red-500">...</div>`} />
+					<CodeBlock language="html" code={`<div class="btn-group variant-ghost-primary [&>*+*]:border-red-500">...</div>\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 			<DocsPreview background="neutral">
@@ -187,7 +187,7 @@
 			<p>
 				While using native anchor elements, you can take advantage of <a href="https://kit.svelte.dev/docs/link-options" target="_blank" rel="noreferrer">SvelteKit's Link Options</a> such as a <em>prefetch</em>.
 			</p>
-			<CodeBlock language="html" code={`<a href="/" class="btn variant-filled" data-sveltekit-preload-data="hover">Button</a>`} />
+			<CodeBlock language="html" code={`<a href="/" class="btn variant-filled" data-sveltekit-preload-data="hover">Button</a>\n`} />
 		</section>
 	</svelte:fragment>
 </DocsShell>

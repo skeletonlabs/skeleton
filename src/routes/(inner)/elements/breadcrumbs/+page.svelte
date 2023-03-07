@@ -49,7 +49,7 @@
 	<li class="crumb-separator" aria-hidden>&rsaquo;</li>
 	<li>Breadcrumbs</li>
 </ol>
-				`}
+`}
 				/>
 			</svelte:fragment>
 		</DocsPreview>
@@ -84,7 +84,7 @@
 	<li class="crumb-separator" aria-hidden>/</li>
 	<li>Article</li>
 </ol>
-					`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -115,7 +115,7 @@
 	<li class="crumb-separator" aria-hidden>&rsaquo;</li>
 	<li>Current</li>
 </ol>
-					`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -150,7 +150,7 @@
 	<li class="crumb-separator" aria-hidden>&rsaquo;</li>
 	<li>Profile</li>
 </ol>
-					`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -161,7 +161,7 @@
 				Breadcrumbs are responsive by default and will auto-hide all but the last two crumb elements on small screens. If you wish to
 				disable this behavior, replace <code>.breadcrumb</code> with <code>.breadcrumb-nonresponsive</code>.
 			</p>
-			<CodeBlock language="html" code={`<ol class="breadcrumb-nonresponsive">...</ol>`} />
+			<CodeBlock language="html" code={`<ol class="breadcrumb-nonresponsive">...</ol>\n`} />
 		</section>
 		<section class="space-y-4">
 			<h2>Using #Each Loops</h2>
@@ -177,7 +177,7 @@ const myBreadcrumbs = [
 	{ label: 'Fizz', link: '/fizz' },
 	{ label: 'Buzz', link: '/buzz' }
 ];
-			`}
+`}
 			/>
 			<CodeBlock
 				language="html"
@@ -193,7 +193,7 @@ const myBreadcrumbs = [
 		{/if}
 	{/each}
 </ol>
-			`}
+`}
 			/>
 		</section>
 	</svelte:fragment>

@@ -157,7 +157,7 @@
 			</svelte:fragment>
 			<svelte:fragment slot="source">
 				<p>Implement a single instance of the modal component in your app's root layout above the App Shell (if present).</p>
-				<CodeBlock language="html" code={`<Modal />\n\n<!-- <AppShell>...</AppShell> -->`} />
+				<CodeBlock language="html" code={`<Modal />\n\n<!-- <AppShell>...</AppShell> -->\n`} />
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -176,7 +176,7 @@
 		<section class="space-y-4">
 			<h2>Modal Store</h2>
 			<p>When you wish to trigger a modal, import the <code>modalStore</code>, which acts as the modal queue.</p>
-			<CodeBlock language="ts" code={`import { modalStore } from '@skeletonlabs/skeleton';`} />
+			<CodeBlock language="ts" code={`import { modalStore } from '@skeletonlabs/skeleton';\n`} />
 			<h3>Trigger</h3>
 			<p>The <code>title</code>, <code>body</code>, and <code>image</code> are available to all modals.</p>
 			<!-- Alert -->
@@ -253,11 +253,11 @@ modalStore.trigger(prompt);
 			<!-- Close -->
 			<h3>Close</h3>
 			<p>Trigger the <code>close()</code> method to remove the first modal in the modal queue.</p>
-			<CodeBlock language="ts" code={`modalStore.close();`} />
+			<CodeBlock language="ts" code={`modalStore.close();\n`} />
 			<!-- Clear -->
 			<h3>Clear</h3>
 			<p>Trigger the <code>clear()</code> method to completely empty the modal queue.</p>
-			<CodeBlock language="ts" code={`modalStore.clear();`} />
+			<CodeBlock language="ts" code={`modalStore.clear();\n`} />
 		</section>
 		<!-- Modal Settings -->
 		<section class="space-y-4">
@@ -267,13 +267,17 @@ modalStore.trigger(prompt);
 			<CodeBlock
 				language="ts"
 				code={`
-const d: ModalSettings = {\n
+const d: ModalSettings = {
+	
 	// Provide arbitrary classes to the backdrop and modal elements:
 	backdropClasses: '!bg-green-500',
-	modalClasses: '!bg-red-500',\n
+	modalClasses: '!bg-red-500',
+	
 	// Provide arbitrary metadata to your modal instance:
-	meta: { foo: 'bar', fizz: 'buzz', fn: myCustomFunction }\n
-};`}
+	meta: { foo: 'bar', fizz: 'buzz', fn: myCustomFunction }
+	
+};
+`}
 			/>
 		</section>
 		<!-- Component Modals -->
@@ -313,8 +317,10 @@ const d: ModalSettings = {\n
 									language="ts"
 									code={`
 // import ModalComponentOne from '...';
-// import ModalComponentTwo from '...';\n
-const modalComponentRegistry: Record<string, ModalComponent> = {\n
+// import ModalComponentTwo from '...';
+
+const modalComponentRegistry: Record<string, ModalComponent> = {
+	
 	// Custom Modal 1
 	modalComponentOne: {
 		// Pass a reference to your custom component
@@ -323,14 +329,16 @@ const modalComponentRegistry: Record<string, ModalComponent> = {\n
 		props: { background: 'bg-red-500' },
 		// Provide a template literal for the default component slot
 		slot: '<p>Skeleton</p>'
-	},\n
+	},
+	
 	// Custom Modal 2
-	modalComponentTwo: { ref: ModalComponentTwo },\n
+	modalComponentTwo: { ref: ModalComponentTwo },
+	
 	// ...
 };
-									`}
+`}
 								/>
-								<CodeBlock language="html" code={`<Modal components={modalComponentRegistry} />`} />
+								<CodeBlock language="html" code={`<Modal components={modalComponentRegistry} />\n`} />
 								<p>When triggering a component, pass <code>component: string</code>, where the value represents the registry object key.</p>
 								<CodeBlock
 									language="ts"
@@ -341,7 +349,7 @@ const d: ModalSettings = {
 	component: 'modalComponentOne',
 };
 modalStore.trigger(d);
-									`}
+`}
 								/>
 							{:else if tabCustom === 'direct'}
 								<p>
@@ -350,7 +358,8 @@ modalStore.trigger(d);
 								<CodeBlock
 									language="ts"
 									code={`
-// import MyCustomComponent from '...';\n
+// import MyCustomComponent from '...';
+
 const modalComponent: ModalComponent = {
 	// Pass a reference to your custom component
 	ref: MyCustomComponent,
@@ -359,7 +368,7 @@ const modalComponent: ModalComponent = {
 	// Provide a template literal for the default component slot
 	slot: '<p>Skeleton</p>'
 };
-									`}
+`}
 								/>
 								<p>
 									When triggering a component, pass the <code>component: ModalComponent</code> directly to <code>ModalSettings</code>.
@@ -373,7 +382,7 @@ const d: ModalSettings = {
 	component: modalComponent,
 };
 modalStore.trigger(d);
-									`}
+`}
 								/>
 							{/if}
 						</svelte:fragment>

@@ -69,7 +69,7 @@
 	<span>Input</span>
 	<input class="input" type="text" placeholder="Input" />
 </label>
-				`}
+`}
 				/>
 				<CodeBlock
 					language="html"
@@ -84,7 +84,7 @@
 		<option value="5">Option 5</option>
 	</select>
 </label>
-				`}
+`}
 				/>
 				<CodeBlock
 					language="html"
@@ -93,7 +93,7 @@
 	<span>Textarea</span>
 	<textarea class="textarea" rows="4" placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit." />
 </label>
-				`}
+`}
 				/>
 			</svelte:fragment>
 		</DocsPreview>
@@ -130,7 +130,7 @@ module.exports = {
 		// NOTE: Insert above the 'skeleton.cjs' plugin
 	],
 }
-				`}
+`}
 				/>
 			</div>
 		</section>
@@ -155,7 +155,7 @@ module.exports = {
 	<span>Label</span>
 	<!-- (input here) -->
 </label>
-					`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -180,7 +180,7 @@ module.exports = {
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<input class="input" />`} />
+					<CodeBlock language="html" code={`<input class="input" />\n`} />
 					<pre>Attributes: {JSON.stringify(currentInput, null, 2)}</pre>
 				</svelte:fragment>
 			</DocsPreview>
@@ -202,8 +202,8 @@ module.exports = {
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<input class="input" type="file" />`} />
-					<CodeBlock language="html" code={`<input class="input" type="file" multiple />`} />
+					<CodeBlock language="html" code={`<input class="input" type="file" />\n`} />
+					<CodeBlock language="html" code={`<input class="input" type="file" multiple />\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
@@ -220,7 +220,7 @@ module.exports = {
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<textarea class="textarea" rows="4" placeholder="Enter some long form content." />`} />
+					<CodeBlock language="html" code={`<textarea class="textarea" rows="4" placeholder="Enter some long form content." />\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
@@ -273,7 +273,7 @@ module.exports = {
 	<option value="4">Option 4</option>
 	<option value="5">Option 5</option>
 </select>
-					`}
+`}
 					/>
 					<CodeBlock
 						language="html"
@@ -285,7 +285,7 @@ module.exports = {
 	<option value="4">Option 4</option>
 	<option value="5">Option 5</option>
 </select>
-					`}
+`}
 					/>
 					<CodeBlock
 						language="html"
@@ -297,7 +297,7 @@ module.exports = {
 	<option value="4">Option 4</option>
 	<option value="5">Option 5</option>
 </select>
-					`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -340,7 +340,7 @@ module.exports = {
 		<p>Option 3</p>
 	</label>
 </div>
-					`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -383,7 +383,7 @@ module.exports = {
 		<p>Option 3</p>
 	</label>
 </div>
-					`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -398,7 +398,7 @@ module.exports = {
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<input type="range" value="75" max="100" />`} />
+					<CodeBlock language="html" code={`<input type="range" value="75" max="100" />\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
@@ -420,7 +420,7 @@ module.exports = {
 	<input class="input" type="color" bind:value={colorValue} />
 	<input class="input" type="text" bind:value={colorValue} readonly tabindex="-1" />
 </div>
-					`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -497,7 +497,7 @@ module.exports = {
 	<input type="search" placeholder="Search..." />
 	<button class="variant-filled-secondary">Submit</button>
 </div>
-		`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -533,9 +533,9 @@ module.exports = {
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<input ... class="input variant-form-material" />`} />
-					<CodeBlock language="html" code={`<select ... class="select variant-form-material" />`} />
-					<CodeBlock language="html" code={`<textarea ... class="textarea variant-form-material" />`} />
+					<CodeBlock language="html" code={`<input ... class="input variant-form-material" />\n`} />
+					<CodeBlock language="html" code={`<select ... class="select variant-form-material" />\n`} />
+					<CodeBlock language="html" code={`<textarea ... class="textarea variant-form-material" />\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
@@ -564,9 +564,9 @@ module.exports = {
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<input ... class="input-success" />`} />
-					<CodeBlock language="html" code={`<input ... class="input-warning" />`} />
-					<CodeBlock language="html" code={`<input ... class="input-error" />`} />
+					<CodeBlock language="html" code={`<input ... class="input-success" />\n`} />
+					<CodeBlock language="html" code={`<input ... class="input-warning" />\n`} />
+					<CodeBlock language="html" code={`<input ... class="input-error" />\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>

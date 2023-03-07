@@ -66,7 +66,7 @@
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<CodeBlock language="ts" code={`const source = [ /* any array of objects */ ];`} />
+				<CodeBlock language="ts" code={`const source = [ /* any array of objects */ ];\n`} />
 				<CodeBlock
 					language="ts"
 					code={`
@@ -77,9 +77,9 @@ let page = {
 	size: source.length,
 	amounts: [1,2,5,10],
 };
-					`}
+`}
 				/>
-				<CodeBlock language="html" code={`<Paginator bind:settings={page}></Paginator>`} />
+				<CodeBlock language="html" code={`<Paginator bind:settings={page}></Paginator>\n`} />
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -100,7 +100,8 @@ let page = {
 $: paginatedSource = source.slice(
 	page.offset * page.limit,             // start
 	page.offset * page.limit + page.limit // end
-);`}
+);
+`}
 			/>
 			<CodeBlock
 				language="html"
@@ -110,7 +111,7 @@ $: paginatedSource = source.slice(
 		<li>{row}</li>
 	{/each}
 </ul>
-				`}
+`}
 			/>
 			<p>
 				Or combine with the <a href="/components/tables">Table</a> component.
@@ -125,7 +126,7 @@ let tableHeaders: string[] = ['Positions', 'Name', 'Weight', 'Symbol'];
 				language="html"
 				code={`
 <Table source={{ head: tableHeaders, body: paginatedSource }} />
-				`}
+`}
 			/>
 		</div>
 		<div class="space-y-4">
@@ -141,9 +142,9 @@ function onPageChange(e: CustomEvent): void {
 function onAmountChange(e: CustomEvent): void {
 	console.log('event:amount', e.detail);
 }
-			`}
+`}
 			/>
-			<CodeBlock language="html" code={`<Paginator ... on:page={onPageChange} on:amount={onAmountChange}></Paginator>`} />
+			<CodeBlock language="html" code={`<Paginator ... on:page={onPageChange} on:amount={onAmountChange}></Paginator>\n`} />
 		</div>
 		<hr />
 		<!-- See Also -->

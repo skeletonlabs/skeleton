@@ -35,8 +35,8 @@
 				<div class="w-48 mx-auto"><input type="range" min="0" max={props.max} step={props.step} bind:value={props.value} /></div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<CodeBlock language="ts" code={`let value: number = 50; // %`} />
-				<CodeBlock language="html" code={`<ProgressRadial {value}>{value}%</ProgressRadial>`} />
+				<CodeBlock language="ts" code={`let value: number = 50; // %\n`} />
+				<CodeBlock language="html" code={`<ProgressRadial {value}>{value}%</ProgressRadial>\n`} />
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -83,7 +83,7 @@
 				<svelte:fragment slot="source">
 					<CodeBlock
 						language="html"
-						code={`<ProgressRadial ... stroke={${strokeProps.value}} meter="stroke-primary-500" track="stroke-primary-500/30" />`}
+						code={`<ProgressRadial ... stroke={${strokeProps.value}} meter="stroke-primary-500" track="stroke-primary-500/30" />\n`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -96,8 +96,8 @@
 					<ProgressRadial width="w-28" />
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<ProgressRadial />`} />
-					<CodeBlock language="html" code={`<ProgressRadial value={undefined} />`} />
+					<CodeBlock language="html" code={`<ProgressRadial />\n`} />
+					<CodeBlock language="html" code={`<ProgressRadial value={undefined} />\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>

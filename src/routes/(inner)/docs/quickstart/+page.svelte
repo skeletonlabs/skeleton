@@ -24,7 +24,7 @@ npm create skeleton-app@latest my-skeleton-app
 	- Select the "Welcome" template
 cd my-skeleton-app
 npm run dev
-			`}
+`}
 		/>
 		<p>
 			By selecting the "Welcome" template the project will come preconfigured with both an <a href="/components/app-shell">App Shell</a>
@@ -38,7 +38,7 @@ npm run dev
 			Let's customize our App Shell's sidebar slot. Open <code>/src/routes/+layout.svelte</code> and add the following Tailwind utility
 			classes to the AppShell <code>slotSidebarLeft</code> prop.
 		</p>
-		<CodeBlock language="html" code={`<AppShell slotSidebarLeft="bg-surface-500/5 w-56 p-4">`} />
+		<CodeBlock language="html" code={`<AppShell slotSidebarLeft="bg-surface-500/5 w-56 p-4">\n`} />
 		<p>
 			Next, let's implement a <a href="/elements/lists">navigation list</a> within the App Shell's left sidebar slot. Append this slot
 			fragement alongside any other fragment within the <code>AppShell</code>.
@@ -93,7 +93,8 @@ npm run dev
 			code={`
 \<script\>
 	import { Avatar } from '@skeletonlabs/skeleton';
-\</script\>\n
+\</script\>
+
 <Avatar src="https://i.pravatar.cc/" />
 `}
 		/>

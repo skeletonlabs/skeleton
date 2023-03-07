@@ -39,7 +39,7 @@
 				<p>(feature)</p>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<CodeBlock language="html" code={`(code snippet)`} />
+				<CodeBlock language="html" code={`(code snippet)\n`} />
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -49,12 +49,12 @@
 		<section class="space-y-4">
 			<h2>Title 1</h2>
 			<p>Describe how to use the feature.</p>
-			<CodeBlock language="html" code={`(code)`} />
+			<CodeBlock language="html" code={`(code)\n`} />
 		</section>
 		<section class="space-y-4">
 			<h2>Title 2</h2>
 			<p>Describe how to use the feature.</p>
-			<CodeBlock language="html" code={`(code)`} />
+			<CodeBlock language="html" code={`(code)\n`} />
 		</section>
 	</svelte:fragment>
 </DocsShell>

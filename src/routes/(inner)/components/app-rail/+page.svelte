@@ -106,7 +106,7 @@ const storeValue: Writable<number> = writable(0);
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<AppRailTile tag="a" href="/my/page/route">(icon)</AppRailTile>`} />
+					<CodeBlock language="html" code={`<AppRailTile tag="a" href="/my/page/route">(icon)</AppRailTile>\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
@@ -117,7 +117,7 @@ const storeValue: Writable<number> = writable(0);
 				To set an active state for an anchor link, compare the tile <em>href</em> URL to the active page URL using
 				<a href="https://kit.svelte.dev/docs/modules#$app-stores-page" target="_blank" rel="noreferrer">$page.url.pathname</a>. Then set a background color or other visual indicator via the Svelte class syntax.
 			</p>
-			<CodeBlock language="ts" code={`import { page } from '$app/stores';`} />
+			<CodeBlock language="ts" code={`import { page } from '$app/stores';\n`} />
 			<CodeBlock
 				language="html"
 				code={`

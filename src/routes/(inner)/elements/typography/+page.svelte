@@ -37,7 +37,7 @@
 <h2 class="unstyled">Unstyled H2</h2>
 <p class="unstyled">Unstyled paragraph element.</p>
 <a href="/" class="unstyled">Unstyled anchor element.</a>
-					`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -72,7 +72,7 @@
 <h4>Skeleton H4</h4>
 <h5>Skeleton H5</h5>
 <h6>Skeleton H6</h6>
-						`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -85,7 +85,7 @@
 					<p class="w-full text-center">The quick brown fox jumps over the lazy dog.</p>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<p>The quick brown fox jumps over the lazy dog.</p>`} />
+					<CodeBlock language="html" code={`<p>The quick brown fox jumps over the lazy dog.</p>\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</div>
@@ -99,7 +99,7 @@
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<a href="/">Anchor</a>`} />
+					<CodeBlock language="html" code={`<a href="/">Anchor</a>\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</div>
@@ -114,7 +114,7 @@
 					</blockquote>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<blockquote>Skeleton</blockquote>`} />
+					<CodeBlock language="html" code={`<blockquote>Skeleton</blockquote>\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</div>
@@ -126,7 +126,7 @@
 					<pre class="w-full">The quick brown fox jumps over the lazy dog.</pre>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<pre>The quick brown fox jumps over the lazy dog.</pre>`} />
+					<CodeBlock language="html" code={`<pre>The quick brown fox jumps over the lazy dog.</pre>\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</div>
@@ -138,7 +138,7 @@
 					<div class="text-center"><code>.myExampleClass</code></div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<code>.myExampleClass</code>`} />
+					<CodeBlock language="html" code={`<code>.myExampleClass</code>\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</div>
@@ -152,7 +152,7 @@
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`Press <kbd>⌘ + C</kbd> to copy.`} />
+					<CodeBlock language="html" code={`Press <kbd>⌘ + C</kbd> to copy.\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</div>
@@ -167,10 +167,10 @@
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<del><s>Always</s> Gonna Give You Up</del>`} />
+					<CodeBlock language="html" code={`<del><s>Always</s> Gonna Give You Up</del>\n`} />
 					<CodeBlock
 						language="html"
-						code={`<ins cite="https://youtu.be/dQw4w9WgXcQ" datetime="10-31-2022">Never Gonna Give You Up</ins>`}
+						code={`<ins cite="https://youtu.be/dQw4w9WgXcQ" datetime="10-31-2022">Never Gonna Give You Up</ins>\n`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>

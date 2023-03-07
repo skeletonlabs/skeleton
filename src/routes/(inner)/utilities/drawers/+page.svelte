@@ -80,7 +80,7 @@
 			</svelte:fragment>
 			<svelte:fragment slot="source">
 				<p>Implement a single instance of the drawer component in your app's root layout above the App Shell (if present).</p>
-				<CodeBlock language="html" code={`<Drawer />\n\n<!-- <AppShell>...</AppShell> -->`} />
+				<CodeBlock language="html" code={`<Drawer />\n\n<!-- <AppShell>...</AppShell> -->\n`} />
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -98,9 +98,9 @@
 			<h2>Drawer Store</h2>
 			<p>Import this anywhere you wish to control the Drawer. Provides an interface to control the drawer component.</p>
 			<h3>Open</h3>
-			<CodeBlock language="ts" code={`drawerStore.open();`} />
+			<CodeBlock language="ts" code={`drawerStore.open();\n`} />
 			<h3>Close</h3>
-			<CodeBlock language="ts" code={`drawerStore.close();`} />
+			<CodeBlock language="ts" code={`drawerStore.close();\n`} />
 		</section>
 		<section class="space-y-4">
 			<h2>Passing Metadata</h2>
@@ -124,7 +124,7 @@ drawerStore.open(drawerSettings);
 `}
 					/>
 					<p>To retrieve this data, use:</p>
-					<CodeBlock language="html" code={`<div>{$drawerStore.meta}</div>`} />
+					<CodeBlock language="html" code={`<div>{$drawerStore.meta}</div>\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
@@ -198,12 +198,12 @@ drawerStore.open(settings);
 				To animate the contents behind your drawer while it's open, first create a reactive property based on the state of the Drawer. Then
 				implement a Tailwind <em>translate</em> class when the drawer is open.
 			</p>
-			<CodeBlock language="ts" code={`$: positionClasses = $drawerStore.open ? 'translate-x-[50%]' : '';`} />
+			<CodeBlock language="ts" code={`$: positionClasses = $drawerStore.open ? 'translate-x-[50%]' : '';\n`} />
 			<p>
 				Then apply this value to the proper wrapping page element, such as the <em>App Shell</em> or a <em>main</em> element.
 			</p>
-			<CodeBlock language="html" code={`<AppShell class="transition-transform {positionClasses}">...</AppShell>`} />
-			<CodeBlock language="html" code={`<main class="transition-transform {positionClasses}">...</main>`} />
+			<CodeBlock language="html" code={`<AppShell class="transition-transform {positionClasses}">...</AppShell>\n`} />
+			<CodeBlock language="html" code={`<main class="transition-transform {positionClasses}">...</main>\n`} />
 			<p>For best results, be sure to take into account the Drawer position as well via <code>$drawerStore.position</code>.</p>
 		</section>
 		<section class="space-y-4">

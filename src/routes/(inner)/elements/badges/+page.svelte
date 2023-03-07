@@ -46,7 +46,7 @@
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<CodeBlock language="html" code={`<span class="badge variant-filled">Badge</span>`} />
+				<CodeBlock language="html" code={`<span class="badge variant-filled">Badge</span>\n`} />
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -61,7 +61,7 @@
 					<span class="badge-icon variant-filled"><i class="fa-solid fa-skull" /></span>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<span class="badge-icon variant-filled"> (icon) </span>`} />
+					<CodeBlock language="html" code={`<span class="badge-icon variant-filled"> (icon) </span>\n`} />
 				</svelte:fragment>
 			</DocsPreview>
 			<section class="space-y-4">
@@ -82,7 +82,7 @@
 	<span class="badge-icon variant-filled-warning absolute -top-0 -right-0 z-10">2</span>
 	<Avatar />
 </div>
-					`}
+`}
 						/>
 					</svelte:fragment>
 				</DocsPreview>

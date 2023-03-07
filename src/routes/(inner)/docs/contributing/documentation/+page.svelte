@@ -50,7 +50,7 @@
 			code={`
 /** Set the preferred search method. */
 export let mode = 'fuzz';
-			`}
+`}
 		/>
 		<p>
 			The <code>CssClasses</code> class denotes properties that use Tailwind utility classes. Set this to aid IntelliSense features.
@@ -61,7 +61,7 @@ export let mode = 'fuzz';
 import type { CssClasses } from '$lib';\n
 /** Provide classes to set vertical item spacing. */
 export let spacing: CssClasses = 'space-y-1';
-			`}
+`}
 		/>
 
 		<p>
@@ -110,7 +110,8 @@ export let hover: string = getContext('hover');
 /**
  * @slot lead - Provide a leading element, such as an icon.
  * @slot content - Provide the alert message text.
- */`}
+ */
+`}
 		/>
 		<aside class="alert variant-ghost-warning">
 			<i class="fa-solid fa-lightbulb text-2xl" />
@@ -135,7 +136,8 @@ export let hover: string = getContext('hover');
 			language="js"
 			code={`
 /** @event {{ event: DragEvent }} dragover - When a file is dragged over. */
-dispatch('dragover', event);`}
+dispatch('dragover', event);
+`}
 		/>
 	</section>
 
@@ -190,8 +192,8 @@ dispatch('dragover', event);`}
 		<p>When showcasing examples of new features we typically handle this by one of two methods:</p>
 		<ul class="list-disc list-outside ml-8 space-y-1">
 			<li>
-				<strong>Sandbox</strong> (e.g. <a href="/components/app-shell">App Shell</a>) - which provide a dynamic and interactive
-				example that can be adjusted live.
+				<strong>Sandbox</strong> (e.g. <a href="/components/app-shell">App Shell</a>) - which provide a dynamic and interactive example that
+				can be adjusted live.
 			</li>
 			<li>
 				<strong>Static</strong> (e.g. <a href="/components/app-bar">App Bar</a>) - with multiple static examples displaying various

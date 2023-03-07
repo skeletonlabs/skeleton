@@ -137,7 +137,7 @@
 						<p>
 							Apply classes <code>.table-compact</code> or <code>.table-comfortable</code> to the <em>table</em> for tighter or looser row spacing.
 						</p>
-						<CodeBlock language="html" code={`<table class="table-compact">...</table>`} />
+						<CodeBlock language="html" code={`<table class="table-compact">...</table>\n`} />
 					{:else if tabSet === 1}
 						<!-- Hover -->
 						<p>
@@ -145,28 +145,28 @@
 							You can also use the <code>.table-interactive</code> class if the table rows is intended to be interactive on click. Avoid using
 							both classes.
 						</p>
-						<CodeBlock language="html" code={`<table class="table-hover">...</table>`} />
-						<CodeBlock language="html" code={`<table class="table-interactive">...</table>`} />
+						<CodeBlock language="html" code={`<table class="table-hover">...</table>\n`} />
+						<CodeBlock language="html" code={`<table class="table-interactive">...</table>\n`} />
 					{:else if tabSet === 2}
 						<!-- Selection -->
 						<p>Apply the <code>.table-row-checked</code> class to a table body row to indicate an active selection state.</p>
-						<CodeBlock language="html" code={`<tr class=".table-row-checked">...</tr>`} />
+						<CodeBlock language="html" code={`<tr class=".table-row-checked">...</tr>\n`} />
 					{:else if tabSet === 3}
 						<!-- Fit -->
 						<p>
 							Use the <code>.table-cell-fit</code> class on a cell element to fit the cell to the content widths. This can be useful for small
 							columns that contain elements such as avatars or IDs. Be sure to apply to both the table header and table cell.
 						</p>
-						<CodeBlock language="html" code={`<th class="table-cell-fit">Avatar</th>`} />
-						<CodeBlock language="html" code={`<td class="table-cell-fit">(avatar)</td>`} />
+						<CodeBlock language="html" code={`<th class="table-cell-fit">Avatar</th>\n`} />
+						<CodeBlock language="html" code={`<td class="table-cell-fit">(avatar)</td>\n`} />
 					{:else if tabSet === 4}
 						<!-- Sorting -->
 						<p>
 							Apply <code>.table-sort-asc</code> or <code>.table-sort-dsc</code> to the <em>table head</em> elements to sort by ascending or
 							descending order respectively.
 						</p>
-						<CodeBlock language="html" code={`<th class="table-sort-asc">Skeleton</th>`} />
-						<CodeBlock language="html" code={`<th class="table-sort-dsc">Skeleton</th>`} />
+						<CodeBlock language="html" code={`<th class="table-sort-asc">Skeleton</th>\n`} />
+						<CodeBlock language="html" code={`<th class="table-sort-dsc">Skeleton</th>\n`} />
 					{/if}
 				</svelte:fragment>
 			</TabGroup>

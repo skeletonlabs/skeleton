@@ -74,7 +74,7 @@
 }
 `}
 			/>
-			<CodeBlock language="html" code={`<h1><span class="gradient-heading">Skeleton</span></h1>`} />
+			<CodeBlock language="html" code={`<h1><span class="gradient-heading">Skeleton</span></h1>\n`} />
 		</section>
 	</svelte:fragment>
 </DocsShell>
