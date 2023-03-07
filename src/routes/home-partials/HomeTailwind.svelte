@@ -1,7 +1,6 @@
 <script lang="ts">
 	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
 	// Components
-	import Avatar from '$lib/components/Avatar/Avatar.svelte';
 	import ListBox from '$lib/components/ListBox/ListBox.svelte';
 	import ListBoxItem from '$lib/components/ListBox/ListBoxItem.svelte';
 	// Utilities
@@ -25,7 +24,7 @@
 							<h6>Announcements</h6>
 							<h3 data-toc-ignore>Skeleton is Awesome!</h3>
 							<article>
-								<p class="opacity-75">This showcases Skeleton's Card, Typography, Chips, and a Divider elements.</p>
+								<p class="opacity-75">This showcases Skeleton's Card, Typography, Chips, and Divider elements.</p>
 							</article>
 						</div>
 						<hr class="opacity-50" />
@@ -136,22 +135,22 @@
 	<!-- Info -->
 	<div class="space-y-4">
 		<h2>Enhanced with Tailwind CSS.</h2>
+		<!-- prettier-ignore -->
 		<p>
-			Skeleton has been designed from the ground up to take advantage of Tailwind's unique utility class approach to CSS styling. Allowing
-			you to create or extend your own personal design system.
+			Skeleton has been designed from the ground up to take advantage of <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind's</a> unique utility class approach to CSS styling, allowing you to create or extend your own personal design system.
 		</p>
 		<!-- Options -->
 		<ListBox active="variant-filled" hover="hover:variant-soft" rounded="rounded-container-token" padding="!p-4">
 			<ListBoxItem bind:group={showcase} name="showcase" value="elements">
 				<div class="space-y-2">
 					<h3>Elements</h3>
-					<p class="!text-sm">Provides commmon elements via HTML + CSS.</p>
+					<p class="!text-sm">Commmon UI elements via HTML + CSS.</p>
 				</div>
 			</ListBoxItem>
 			<ListBoxItem bind:group={showcase} name="showcase" value="colors">
 				<div class="space-y-2">
 					<h3>Theme Colors</h3>
-					<p class="!text-sm">Provides a an extensive palette of colors.</p>
+					<p class="!text-sm">Includes an extensive palette of colors.</p>
 				</div>
 			</ListBoxItem>
 			<ListBoxItem bind:group={showcase} name="showcase" value="dark-mode">

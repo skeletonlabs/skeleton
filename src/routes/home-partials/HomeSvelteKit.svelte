@@ -24,7 +24,7 @@
 		const d: ModalSettings = {
 			type: 'alert',
 			title: 'What is this?',
-			body: 'A high priority dialog modal system with a dynamic queue. Allowing you to create standard alerts and implement custom designs using standard Svelte components.'
+			body: 'A high priority dialog modal system with a dynamic queue. This allows you to create standard alerts and implement custom modals using standard Svelte components.'
 		};
 		modalStore.trigger(d);
 	}
@@ -39,9 +39,10 @@
 	<!-- Info -->
 	<div class="space-y-4">
 		<h2>Designed for Svelte and SvelteKit.</h2>
+		<!-- prettier-ignore -->
 		<p>
-			Skeleton integrates directly with Svelte's best features, including components, stores, actions, and more. Offering complete page
-			layouts, interactive interfaces, image filters, and much more.
+			Skeleton integrates directly with <a href="https://svelte.dev/" target="_blank" rel="noreferrer">Svelte</a> and <a href="https://kit.svelte.dev/" target="_blank" rel="noreferrer">SvelteKit's</a> best features, including components, stores, actions, and more. Offering
+			interactive components, image filters, and much more.
 		</p>
 		<!-- Options -->
 		<ListBox active="variant-filled" hover="hover:variant-soft" rounded="rounded-container-token" padding="!p-4">
@@ -71,9 +72,9 @@
 			<svelte:fragment slot="preview">
 				{#if showcase === 'components'}
 					<!-- Source: https://www.oprahdaily.com/life/a37259063/day-of-the-dead-facts-history/ -->
-					<Accordion autocollapse class="card p-4 text-token">
+					<Accordion autocollapse class="card p-4 text-token w-full">
 						<AccordionItem open>
-							<svelte:fragment slot="lead"><i class="fa-solid fa-book text-xl w-6 text-center" /></svelte:fragment>
+							<svelte:fragment slot="lead"><i class="fa-solid fa-skull text-xl w-6 text-center" /></svelte:fragment>
 							<svelte:fragment slot="summary"><p class="font-bold">What is Día de los Muertos?</p></svelte:fragment>
 							<svelte:fragment slot="content">
 								<!-- prettier-ignore -->
@@ -83,17 +84,17 @@
 							</svelte:fragment>
 						</AccordionItem>
 						<AccordionItem>
-							<svelte:fragment slot="lead"><i class="fa-solid fa-film text-xl w-6 text-center" /></svelte:fragment>
+							<svelte:fragment slot="lead"><i class="fa-solid fa-clock text-xl w-6 text-center" /></svelte:fragment>
 							<svelte:fragment slot="summary"><p class="font-bold">When did it begin?</p></svelte:fragment>
 							<svelte:fragment slot="content">
 								<!-- prettier-ignore -->
 								<p>
-									Roughly 3000 years ago, amongst the Aztec, Toltec, and Mayans, death and the dead were seen as a natural part of life that should be honored and celebrated, rather than mourned. In particular, the Nahua people of central Mexico believed the deceased traveled on a years-long journey to Chicunamictlán, the Land of the Dead. The living would provide supplies, such food and water, to aid them on the trek. This practice inspired the modern tradition of creating altars —known as ofrendas— at their homes, in addition to leaving offerings at the gravesites of loved ones.
+									Roughly 3000 years ago, amongst the Aztec, Toltec, and Mayans, death and the dead were seen as a natural part of life that should be honored and celebrated, rather than mourned. In particular, the Nahua people of central Mexico believed the deceased traveled on a years-long journey to Chicunamictlán, the Land of the Dead. The living would provide supplies, such as food and water to aid them on the trek. This practice inspired the modern tradition of creating altars —known as ofrendas— at their homes, in addition to leaving offerings at the gravesites of loved ones.
 								</p>
 							</svelte:fragment>
 						</AccordionItem>
 						<AccordionItem>
-							<svelte:fragment slot="lead"><i class="fa-solid fa-tv text-xl w-6 text-center" /></svelte:fragment>
+							<svelte:fragment slot="lead"><i class="fa-solid fa-calendar text-xl w-6 text-center" /></svelte:fragment>
 							<svelte:fragment slot="summary"><p class="font-bold">When is it celebrated?</p></svelte:fragment>
 							<svelte:fragment slot="content">
 								<!-- prettier-ignore -->
@@ -103,15 +104,21 @@
 							</svelte:fragment>
 						</AccordionItem>
 						<AccordionItem>
-							<svelte:fragment slot="lead"><i class="fa-solid fa-gamepad text-xl w-6 text-center" /></svelte:fragment>
+							<svelte:fragment slot="lead"><i class="fa-solid fa-gift text-xl w-6 text-center" /></svelte:fragment>
 							<svelte:fragment slot="summary"><p class="font-bold">What are ofrendas?</p></svelte:fragment>
 							<svelte:fragment slot="content">
 								<!-- prettier-ignore -->
 								<p>
 									To beckon spirits back into the Land of the Living for the festivities, revelers create makeshift altars, or ofrendas, at their homes and at the gravesites of their deceased loved ones. Families gather at the site to eat, tell stories, and even clean the graves.
-
-
 								</p>
+							</svelte:fragment>
+						</AccordionItem>
+						<AccordionItem>
+							<svelte:fragment slot="lead"><i class="fa-solid fa-file text-xl w-6 text-center" /></svelte:fragment>
+							<svelte:fragment slot="summary"><p class="font-bold">Source</p></svelte:fragment>
+							<svelte:fragment slot="content">
+								<!-- prettier-ignore -->
+								<p><a href="https://www.oprahdaily.com/life/a37259063/day-of-the-dead-facts-history/" target="_blank" rel="noreferrer">https://www.oprahdaily.com/life/a37259063/day-of-the-dead-facts-history/</a></p>
 							</svelte:fragment>
 						</AccordionItem>
 					</Accordion>

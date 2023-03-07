@@ -3,32 +3,32 @@
 	const featuers = [
 		{
 			title: 'Amazing DX',
-			body: 'Offers a best in class developer experience providing thourough documentation and ample examples to help you ship faster.',
+			body: 'Offers a best in class developer experience providing thorough documentation and ample examples to help you ship faster.',
 			icon: 'fa-laptop-code'
 		},
 		{
-			title: 'Accessability',
-			body: 'Components follow WAI-ARIA guidelines to implemente the required semantics, attributes, and keyboard interactions.',
+			title: 'Accessibility',
+			body: 'Components follow WAI-ARIA guidelines to implement required semantics, attributes, and keyboard interactions.',
 			icon: 'fa-universal-access'
 		},
 		{
 			title: 'Extensible',
-			body: 'Bring elements from other UI libraries such as Flowbite or Tailwind UI to expand your toolkit arsenal even further.',
+			body: `Bring elements from other UI libraries such as <a href="/blog/skeleton-plus-flowbite">Flowbite</a> or <a href="/blog/skeleton-plus-tailwind-ui">Tailwind UI</a> to expand your toolkit arsenal even further.`,
 			icon: 'fa-square-arrow-up-right'
 		},
 		{
 			title: 'Typescript',
-			body: 'Uses Typescript by default and provides direct IntelliSense feedback directly within your editor as you build your app.',
+			body: 'Uses Typescript by default and provides IntelliSense feedback as you build your application within your editor.',
 			icon: 'fa-code'
 		},
 		{
 			title: 'Integrations',
-			body: `Bring your favorite Svelte or Javascript libraries and integrate the adaptive theme system for a seamless experience.`,
+			body: `Bring your favorite Svelte or Javascript libraries and use the adaptive theme system for a seamless experience.`,
 			icon: 'fa-puzzle-piece'
 		},
 		{
 			title: 'Icon Agnostic',
-			body: 'Supports all forms of iconography, including unicode and emoji, as well as vector or SVG-based icon systems.',
+			body: 'Supports all forms of iconography for complete control, including: unicode, emoji, venctor, or SVG-based icon systems.',
 			icon: 'fa-icons'
 		}
 	];
@@ -38,7 +38,7 @@
 	<!-- Info -->
 	<div class="space-y-4 text-center">
 		<h2>And so much more...</h2>
-		<p>There's too many amazing features to list them all, but here's a few of our favorites.</p>
+		<p>There's too many amazing features to list, but here are a few of our favorites.</p>
 	</div>
 	<!-- Grid -->
 	<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
@@ -50,7 +50,7 @@
 					<i class="fa-solid {feature.icon}" />
 				</span>
 				<h3>{feature.title}</h3>
-				<p>{feature.body}</p>
+				<p>{@html feature.body}</p>
 			</div>
 		{/each}
 	</div>
