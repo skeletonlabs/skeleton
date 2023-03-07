@@ -5,11 +5,17 @@
 	import type { CssClasses } from '$lib';
 
 	// Props
-	/** Set the radio group binding value. */
-	export let group: any;
+	/**
+	 * Set the radio group binding value.
+	 * @type {any}
+	 */
+	export let group: string;
 	/** Set a unique name value for the input. */
 	export let name: string;
-	/** Set the input's value. */
+	/**
+	 * Set the input's value.
+	 * @type {any}
+	 */
 	export let value: any;
 	/** Set the hover title. */
 	export let title: string = '';
