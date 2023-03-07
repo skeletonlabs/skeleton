@@ -32,7 +32,8 @@
 
 	// Local
 	let justify: number = 0;
-	let time: string = 'Months';
+	let timeHorz: string = 'months';
+	let timeVert: string = 'Millennia';
 	let timeNames = ['Millennia', 'Epochs', 'Eras', 'Eons'];
 </script>
 
@@ -86,8 +87,8 @@
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<RadioGroup active="variant-filled-primary" hover="hover:variant-soft-primary">
-						<RadioItem bind:group={time} name="time" value="months">Months</RadioItem>
-						<RadioItem bind:group={time} name="time" value="years">Years</RadioItem>
+						<RadioItem bind:group={timeHorz} name="time" value="months">Months</RadioItem>
+						<RadioItem bind:group={timeHorz} name="time" value="years">Years</RadioItem>
 					</RadioGroup>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
@@ -105,7 +106,7 @@
 				<svelte:fragment slot="preview">
 					<RadioGroup rounded="rounded-container-token" display="flex-col">
 						{#each timeNames as name, i}
-							<RadioItem bind:group={time} label={name} {name} value={name}>{name}</RadioItem>
+							<RadioItem bind:group={timeVert} label={name} {name} value={name}>{name}</RadioItem>
 						{/each}
 					</RadioGroup>
 				</svelte:fragment>
