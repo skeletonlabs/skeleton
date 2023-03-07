@@ -24,6 +24,7 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 	const elemPopup: HTMLElement | null = document.querySelector(`[data-popup="${target}"]`);
 	const elemArrow: HTMLElement | null = elemPopup?.querySelector(`.arrow`) ?? null;
 	let isVisible: boolean = false;
+	let autoUpdateCleanup: any;
 
 	// Local A11y Variables
 	const elemWhitelist: string = 'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])';
@@ -74,10 +75,9 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 					[staticSide]: '-4px'
 				});
 			}
+			// Set Focusable State
+			setFocusableState();
 		});
-
-		// Set Focusable State
-		setFocusableState();
 	}
 
 	// Set Focusable State
@@ -137,6 +137,9 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		elemPopup.style.pointerEvents = 'initial';
 		isVisible = true;
 		stateEventHandler(true);
+		// Utilize autoUpdate ONLY when the popup is.
+		// https://floating-ui.com/docs/autoUpdate
+		autoUpdateCleanup = autoUpdate(node, elemPopup, render);
 	}
 	function close(): void {
 		if (!elemPopup) return;
@@ -148,6 +151,8 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 			isVisible = false;
 			stateEventHandler(false);
 		}, cssTransitionDuration);
+		// Cleanup autoUpdate on close (REQUIRED)
+		if (autoUpdateCleanup) autoUpdateCleanup();
 	}
 
 	// State Handler
@@ -191,13 +196,9 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 	// On Init
 	render();
 
-	// Auto Update
-	autoUpdate(node, elemPopup, render);
-
 	// Event Listners
 	if (event === 'click') {
 		window.addEventListener('click', onWindowClick, true);
-		// node.addEventListener('click', onNodeClick, true);
 	}
 	if (event === 'hover') {
 		node.addEventListener('mouseover', show, true);
@@ -216,8 +217,8 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 			args = newArgs;
 		},
 		destroy() {
+			// ---
 			window.removeEventListener('click', onWindowClick, true);
-			// node.removeEventListener('click', onNodeClick, true);
 			node.removeEventListener('mouseover', onMouseOver, true);
 			node.removeEventListener('mouseout', onMouseOut, true);
 			// ---
