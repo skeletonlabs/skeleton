@@ -1,15 +1,10 @@
 <script lang="ts">
+	import { storeOnboardMethod } from '$docs/stores/stores';
 	import AutoComplete from '$lib/components/AutoComplete/AutoComplete.svelte';
-	// import { autoComplete } from '$lib/components/AutoComplete/autoComplete';
-	// import type { AutocompleteSettings } from '$lib/components/AutoComplete/types';
-
-	// let actionSettings = {
-	// 	event: 'click',
-	// 	target: 'autocomplete'
-	// } satisfies AutocompleteSettings;
 
 	// Local
 	let searchValue = '';
+	
 	let anythingList: Record<string, unknown>[] = [
 		{ label: 'Foo', value: 'foo' },
 		{ label: 'Bar', value: 'bar' },
@@ -18,21 +13,22 @@
 		{ label: 'Buzz', value: 'buzz' },
 		{ label: 'FizzBuzz', value: 'fizzbuzz' }
 	];
+
 	let whitelist = [
-		{ label: 'Foo', value: 'Foo' },
-		{ label: 'Bar', value: 'Bar' }
+		{ label: 'Foo', value: 'foo' },
+		{ label: 'Bar', value: 'bar' }
 	];
 
 	function onSelection(event: any): void {
-		// console.log('selection', event.detail);
-		searchValue = event.detail.value;
+		console.log(event)
+		searchValue = event.detail.selection.label;
 	}
 </script>
+
 
 <div class="page-container">
 	<label class="label space-y-2" for="autocomplete-search">
 		<h3>Via Input</h3>
-		<!-- use:autoComplete={actionSettings} -->
 		<input
 			class="input autocomplete"
 			type="search"
@@ -40,6 +36,6 @@
 			bind:value={searchValue}
 			placeholder="Begin typing to filter..."
 		/>
-		<AutoComplete bind:input={searchValue} options={anythingList} on:selection={onSelection} />
+		<AutoComplete bind:input={searchValue} mode="fuzzy" options={anythingList} on:selection={onSelection} />
 	</label>
 </div>
