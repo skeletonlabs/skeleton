@@ -23,7 +23,7 @@
 	}
 </script>
 
-<div class="page-container-wide">
+<div class="page-container-wide page-padding">
 	<header class="flex justify-between items-center">
 		<div class="space-y-4">
 			<h2>The Skeleton Blog</h2>

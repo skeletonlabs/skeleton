@@ -26,6 +26,8 @@
 	export let padding: CssClasses = 'px-4 py-2';
 	/** Provide classes to style each tab's box radius styles. */
 	export let rounded: CssClasses = 'rounded-tl-container-token rounded-tr-container-token';
+	/** Provide classes to set the vertical spacing between items. */
+	export let spacing: CssClasses = 'space-y-1';
 
 	// Props (regions)
 	/** Provide arbitrary classes to style the tab list region. */
@@ -45,6 +47,7 @@
 	setContext('flex', flex);
 	setContext('padding', padding);
 	setContext('rounded', rounded);
+	setContext('spacing', spacing);
 
 	// Classes
 	const cBase = 'space-y-4 overflow-x-auto hide-scrollbars';

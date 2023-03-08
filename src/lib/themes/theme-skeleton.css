@@ -110,20 +110,9 @@
 
 /* Applied to body with `<body data-theme="skeleton">` */
 /* Created with: https://csshero.org/mesher/ */
+/* prettier-ignore */
 [data-theme='skeleton'] {
-	/* prettier-ignore */
 	background-image:
-		radial-gradient(at 73% 84%, hsla(213,80%,69%,0.20) 0px, transparent 50%),
-		radial-gradient(at 16% 79%, hsla(268,79%,73%,0.20) 0px, transparent 50%),
-		radial-gradient(at 88% 64%, hsla(290,68%,62%,0.20) 0px, transparent 50%),
-		radial-gradient(at 67% 14%, hsla(167,87%,76%,0.20) 0px, transparent 50%),
-		radial-gradient(at 70% 75%, hsla(170,71%,68%,0.20) 0px, transparent 50%),
-		radial-gradient(at 98% 62%, hsla(244,77%,60%,0.18) 0px, transparent 50%),
-		radial-gradient(at 50% 19%, hsla(322,97%,63%,0.20) 0px, transparent 50%);
-}
-.dark [data-theme='skeleton'] {
-	/* prettier-ignore */
-	background-image:
-		radial-gradient(at 36% 0%, hsla(240,73%,56%,0.25) 0px, transparent 50%),
-		radial-gradient(at 71% 4%, hsla(330,78%,46%,0.25) 0px, transparent 50%);
+			radial-gradient(at 0% 0%, rgba(var(--color-secondary-500) / 0.33) 0px, transparent 50%),
+			radial-gradient(at 98% 1%, rgba(var(--color-error-500) / 0.33) 0px, transparent 50%);
 }

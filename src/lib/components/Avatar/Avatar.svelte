@@ -23,7 +23,7 @@
 	/** Provide classes to set background styles. */
 	export let background: CssClasses = 'bg-surface-400-500-token';
 	/** Provide classes to set avatar width. */
-	export let width: CssClasses = 'w-12';
+	export let width: CssClasses = 'w-16';
 	/** Provide classes to set border styles. */
 	export let border: CssClasses = '';
 	/** Provide classes to set rounded style. */

@@ -1,13 +1,14 @@
 <script lang="ts">
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
-
+	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
+	// Components
 	import Paginator from '$lib/components/Paginator/Paginator.svelte';
 	import Table from '$lib/components/Table/Table.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-
+	// Types
 	import type { PaginationSettings } from '$lib/components/Paginator/types';
-
+	// Sveld
 	import sveldPaginator from '$lib/components/Paginator/Paginator.svelte?raw&sveld';
 
 	// Docs Shell
@@ -30,16 +31,16 @@
 		[6, 'Carbon', 12.0107, 'C'],
 		[7, 'Nitrogen', 14.0067, 'N'],
 		[8, 'Oxygen', 15.9994, 'O'],
-		[9, 'Fluorine', 18.9984, 'F'],
-		[10, 'Neon', 20.1797, 'Ne']
+		[9, 'Fluorine', 18.9984, 'F']
+		// [10, 'Neon', 20.1797, 'Ne']
 	];
 
 	// Reactive
 	let page = {
 		offset: 0,
-		limit: 5,
+		limit: 3,
 		size: sourceBody.length,
-		amounts: [1, 2, 5, sourceBody.length]
+		amounts: [1, 2, 3, 5, sourceBody.length]
 	} as PaginationSettings;
 
 	// Event Handlers
@@ -57,34 +58,35 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="card variant-glass p-4 space-y-4">
-			<Table
-				source={{
-					head: sourceHeaders,
-					body: sourceBodySliced
-				}}
-			/>
-			<Paginator bind:settings={page} on:page={onPageChange} on:amount={onAmountChange} />
-		</section>
-	</svelte:fragment>
-
-	<!-- Slot: Usage -->
-	<svelte:fragment slot="usage">
-		<div class="space-y-4">
-			<CodeBlock language="ts" code={`const source = [ /* any array of objects */ ];`} />
-			<CodeBlock
-				language="ts"
-				code={`
+		<DocsPreview>
+			<svelte:fragment slot="preview">
+				<div class="w-full space-y-4 text-token">
+					<Table source={{ head: sourceHeaders, body: sourceBodySliced }} />
+					<Paginator bind:settings={page} on:page={onPageChange} on:amount={onAmountChange} />
+				</div>
+			</svelte:fragment>
+			<svelte:fragment slot="source">
+				<CodeBlock language="ts" code={`const source = [ /* any array of objects */ ];`} />
+				<CodeBlock
+					language="ts"
+					code={`
+// PaginatorSettings
 let page = {
 	offset: 0,
 	limit: 5,
 	size: source.length,
 	amounts: [1,2,5,10],
 };
-				`}
-			/>
-			<CodeBlock language="html" code={`<Paginator bind:settings={page}></Paginator>`} />
-		</div>
+					`}
+				/>
+				<CodeBlock language="html" code={`<Paginator bind:settings={page}></Paginator>`} />
+			</svelte:fragment>
+		</DocsPreview>
+	</svelte:fragment>
+
+	<!-- Slot: Usage -->
+	<svelte:fragment slot="usage">
+		<div class="space-y-4" />
 		<div class="space-y-4">
 			<h2>Client-Side Pagination</h2>
 			<!-- prettier-ignore -->
@@ -110,6 +112,21 @@ $: paginatedSource = source.slice(
 </ul>
 				`}
 			/>
+			<p>
+				Or combine with the <a href="/components/tables">Table</a> component.
+			</p>
+			<CodeBlock
+				language="ts"
+				code={`
+let tableHeaders: string[] = ['Positions', 'Name', 'Weight', 'Symbol'];
+`}
+			/>
+			<CodeBlock
+				language="html"
+				code={`
+<Table source={{ head: tableHeaders, body: paginatedSource }} />
+				`}
+			/>
 		</div>
 		<div class="space-y-4">
 			<h2>Server-Side Pagination</h2>
@@ -128,5 +145,14 @@ function onAmountChange(e: CustomEvent): void {
 			/>
 			<CodeBlock language="html" code={`<Paginator ... on:page={onPageChange} on:amount={onAmountChange}></Paginator>`} />
 		</div>
+		<hr />
+		<!-- See Also -->
+		<section class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+			<div class="space-y-2">
+				<h2>See Also</h2>
+				<p>Utilize a data-driven model to create simple presentational tables.</p>
+			</div>
+			<a class="btn variant-ghost-surface" href="/components/tables">Table Component &rarr;</a>
+		</section>
 	</svelte:fragment>
 </DocsShell>

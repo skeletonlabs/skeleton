@@ -17,7 +17,7 @@
 	/** When enabled, the conic gradient will spin. */
 	export let spin = false;
 	/** Style the conic gradient width. */
-	export let width: CssClasses = 'w-full';
+	export let width: CssClasses = 'w-24';
 	/** Style the legend hover effect. */
 	export let hover: CssClasses = 'bg-primary-hover-token';
 
@@ -34,7 +34,7 @@
 	let generatedLegendList: any[];
 
 	// Styles
-	const cBase = 'flex flex-col items-center space-y-4';
+	const cBase = 'flex flex-col items-center space-y-4 w-';
 	const cCaption = 'text-center';
 	const cCone = 'block aspect-square rounded-full';
 	const cLegend = 'text-sm w-full';

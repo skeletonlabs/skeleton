@@ -20,9 +20,9 @@
 	export let label = '';
 
 	// Props (region)
-	/** Provide abitrary classes to style the icon region. */
+	/** Provide arbitrary classes to style the icon region. */
 	export let regionIcon: CssClasses = '';
-	/** Provide abitrary classes to style the label region. */
+	/** Provide arbitrary classes to style the label region. */
 	export let regionLabel: CssClasses = '';
 
 	// Context

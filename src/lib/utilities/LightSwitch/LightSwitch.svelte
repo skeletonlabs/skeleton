@@ -62,7 +62,7 @@
 </script>
 
 <svelte:head>
-	{@html `<script>${setInitialClassState.toString()} setInitialClassState();</script>`}
+	{@html `<script>(${setInitialClassState.toString()})();</script>`}
 </svelte:head>
 
 <div

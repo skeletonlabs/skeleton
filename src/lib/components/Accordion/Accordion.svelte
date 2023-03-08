@@ -35,9 +35,9 @@
 	// Props (regions)
 	/** Provide arbitrary classes to the trigger button region. */
 	export let regionControl: CssClasses = '';
-	/** Provide arbitrary classes to content panel region. */
+	/** Provide arbitrary classes to the content panel region. */
 	export let regionPanel: CssClasses = 'space-y-4';
-	/** Provide arbitrary classes caret icon region. */
+	/** Provide arbitrary classes to the caret icon region. */
 	export let regionCaret: CssClasses = '';
 
 	// Local
