@@ -120,7 +120,7 @@
 			role="option"
 			aria-selected={input === v.value ? true : false}
 			aria-autocomplete="list"
-			tabindex="{index}"
+			tabindex="-1"
 			on:click={()=> onSelection(v)}
 			on:keypress
 		>
