@@ -1,5 +1,6 @@
 // This script is based 'tailwindcolorshades' by Javis V. Pérez:
 // https://github.com/javisperez/tailwindcolorshades/blob/master/src/composables/colors.ts
+import type { PassReport } from "./types";
 
 export type Palette = {
 	[key: number]: {
@@ -194,8 +195,12 @@ export function textPasses(textColor: string, backgroundColor: string, size: Con
 	return ratio <= contrastLevels[size][level];
 }
 
+export function hexValueIsValid(textColor: string) {
+	return /^#[0-9A-F]{6}$/i.test(textColor);
+}
+
 /** A catch-all function to give a report on what size and level a given combination achieves.  */
-export function getPassReport(textColor: string, backgroundColor: string) {
+export function getPassReport(textColor: string, backgroundColor: string): PassReport {
 	const _textColor = handleStringColor(textColor, 'hex');
 	const _backgroundColor = handleStringColor(backgroundColor, 'hex');
 	const contrast = calculateRatio(_textColor, _backgroundColor);
