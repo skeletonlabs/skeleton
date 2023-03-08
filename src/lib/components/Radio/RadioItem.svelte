@@ -9,7 +9,7 @@
 	 * Set the radio group binding value.
 	 * @type {any}
 	 */
-	export let group: string;
+	export let group: any;
 	/** Set a unique name value for the input. */
 	export let name: string;
 	/**

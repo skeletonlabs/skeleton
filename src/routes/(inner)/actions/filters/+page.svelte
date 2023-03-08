@@ -32,7 +32,7 @@
 	};
 
 	// Local
-	let activeImg = 48;
+	let activeImg: number = 48;
 	$: imgPlaceholder = `https://i.pravatar.cc/512?img=${activeImg}`;
 	let method = 0;
 </script>
@@ -138,8 +138,8 @@ only utlize theme on this doc page.
 				<svelte:fragment slot="panel">
 					{#if method === 0}
 						<p>
-							Use the following <a href="https://svelte.dev/tutorial/actions" target="_blank" rel="noreferrer">Svelte action</a> to filter
-							any element. Pass the filter name as the only parameter.
+							Use the following <a href="https://svelte.dev/tutorial/actions" target="_blank" rel="noreferrer">Svelte action</a> to filter any
+							element. Pass the filter name as the only parameter.
 						</p>
 						<CodeBlock language="ts" code={`import { filter } from '@skeletonlabs/skeleton';`} />
 						<CodeBlock language="html" code={`<img src={myImageSrc} use:filter={'#BlueNight'}>`} />
@@ -179,7 +179,7 @@ only utlize theme on this doc page.
 				Some filters are not functional in Safari, while Firefox is not supported at all. For non-supported browsers the filter will not be present
 				but the image will still display, which allows for progressive enhancement.
 			</p>
-			<div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
+			<div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
 				<div class="card p-2 !bg-green-500 text-black">
 					<h4>Chrome</h4>
 					<span>Full</span>
