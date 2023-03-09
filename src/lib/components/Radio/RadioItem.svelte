@@ -9,7 +9,7 @@
 	 * Set the radio group binding value.
 	 * @type {any}
 	 */
-	export let group: string;
+	export let group: any;
 	/** Set a unique name value for the input. */
 	export let name: string;
 	/**
@@ -52,7 +52,7 @@
 	$: checked = value === group;
 	$: classesActive = checked ? `${active} ${color} ${fill}` : hover;
 	$: classesDisabled = $$props.disabled ? cDisabled : '';
-	$: classesBase = `${cBase} ${padding} ${rounded} ${classesActive} ${classesDisabled}`;
+	$: classesBase = `${cBase} ${padding} ${rounded} ${classesActive} ${classesDisabled} ${$$props.class ?? ''}`;
 
 	// RestProps
 	function prunedRestProps(): any {
