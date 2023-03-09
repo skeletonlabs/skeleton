@@ -20,7 +20,7 @@
 	export let element = 'select';
 	/** Set the height of the list*/
 	//export let height = 'h-36';
-	//export let size = filteredOptions().length <= 4 ? filteredOptions.length : 4;
+	//export let size = filteredOptions.length <= 4 ? filteredOptions.length : 4;
 
 	// Classes
 	const cBase = 'h-36';
@@ -37,9 +37,9 @@
 		const keys = Object.keys(obj);
 		let matched = false;
 
-		keys.forEach(key => {
-			const stringyValue = JSON.stringify(obj[key]);
-			matched = stringyValue.includes(input);
+		keys.forEach((key) => {
+			const stringyValue = JSON.stringify(obj[key]).toLowerCase();
+			matched = stringyValue.includes(input.toLowerCase());
 		});
 
 		return matched;
@@ -50,13 +50,13 @@
 			/** Searching using options instead of row, so it doesn't matter what kind of KvP naming convetion is used. */
 			if(options.some(isMatch) && whitelist.some(isMatch)){
 				/** Stringify adds "" to the start and end of the new string. Those add difficulty to the search, so we remove them. */
-				const stringyValue = JSON.stringify(row.value).replaceAll('"', "");
+				const stringyValue = JSON.stringify(row.value).replaceAll('"', "").toLowerCase();
 				/** 
 				 * Grabs the first set of chars, that match the length of the input
 				 * this prevents things like 'bar' matching 'bar' and 'foobar' when it should
 				 * only match 'bar'.
 				 */
-				if(stringyValue.substring(0, input.length) === input) return row;
+				if(stringyValue.substring(0, input.length) === input.toLowerCase()) return row;
 			}
 		});
 	}
@@ -75,7 +75,7 @@
 		});
 	}
 
-	$: filteredOptions = () =>{
+	$: filteredOptions = (() => {
 		if (!input) return [...options];
 
 		const inputFormatted = input.toLowerCase();
@@ -87,19 +87,11 @@
 			default:
 				return filterDefault(inputFormatted, whitelist);
 		}
-
-		/* 
-		TODO:
-		  - Want to include the ability to include "separators" ex: user enters - foo, bar, foobar:
-		    list only has fizz, buzz, and fizzbuzz left for the user to pick
-		  - Use regex match instead of includes, this should work for the separators as well
-		    because it returns and array and I can ignore the separator input in the match
-		*/
-	}
+	})();
 
 	// Reactive
 	$: classesBase = `${cBase} ${element} ${$$props.class ?? ''}`;
-	$: reactiveSize = filteredOptions().length < 4 ? filteredOptions.length : 4;
+	$: reactiveSize = filteredOptions.length < 4 ? filteredOptions.length : 4;
 
 	// RestProps
 	function prunedRestProps(): any {
@@ -114,7 +106,7 @@
 	role="listbox"
 	data-testid="auto-complete"
 >
-	{#each filteredOptions() as v, index}
+	{#each filteredOptions as v, index}
 		<div
 			class="autocomplete-option px-1.5 py-1 rounded-full hover:variant-filled-primary"
 			role="option"
@@ -141,7 +133,7 @@
 >
 	<option class="contents" value="default" disabled={true}></option>
 
-	{#each filteredOptions() as v}
+	{#each filteredOptions as v}
 		<option class="autocomplete-option" value={v}>{v.label}</option>
 	{/each}
 </select> -->
