@@ -33,7 +33,7 @@
 					</p>
 					<CodeBlock language="console" code={`npx svelte-add@latest tailwindcss\nnpm install`} />
 					<!-- prettier-ignore -->
-					<p>Then open your global stylesheet in <code>/src/app.postcss</code> and remove the following three <a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> introduced by Svelte-Add. These are redudant as Skeleton automatically handles these in our stylesheets for you.</p>
+					<p>Then open your global stylesheet in <code>/src/app.postcss</code> and remove the following three <a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> introduced by Svelte-Add. These are redundant as Skeleton automatically handles these in our stylesheets for you.</p>
 					<div class="space-y-[1px]">
 						<del>@tailwind base;</del>
 						<del>@tailwind components;</del>
