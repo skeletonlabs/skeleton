@@ -33,7 +33,7 @@
 	// Classes
 	const cBase = '';
 	const cControl = 'text-left w-full flex items-center space-x-4';
-	const cControlCaret = 'fill-token w-3 transition-transform duration-[200ms]';
+	const cControlCaret = 'fill-current w-3 transition-transform duration-[200ms]';
 	const cPanel = '';
 
 	// Context API

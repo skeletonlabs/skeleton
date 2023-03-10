@@ -3,10 +3,7 @@
 export interface ToastSettings {
 	/** Provide the toast message. Supports HTML. */
 	message: string;
-	/**
-	 * Applies a canned set of styles.
-	 * @type {'primary' | 'secondary' | 'tertiary' | 'warning' | 'success' | 'error'}
-	 */
+	/** Provide CSS classes to set the background color. */
 	background?: string;
 	/** Enables auto-hide after the timeout duration. */
 	autohide?: boolean;

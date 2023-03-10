@@ -1,12 +1,13 @@
 <script lang="ts">
+	import LayoutPage from '$docs/layouts/LayoutPage/LayoutPage.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 </script>
 
-<div class="page-container">
+<LayoutPage>
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Quickstart</h1>
-		<p>This following guide will explain how to create a basic Skeleton app using SvelteKit.</p>
+		<p>This guide will walk you throught the basics of creating a new Skeleton app using SvelteKit.</p>
 	</header>
 
 	<hr />
@@ -72,16 +73,17 @@ npm run dev
 <div class="container mx-auto p-8 space-y-8">
 	<h1>Hello Skeleton</h1>
 	<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-	</section>
-		<a class="btn variant-filled-primary" href="https://kit.svelte.dev/" target="_blank" rel="noreferrer">SvelteKit</a>
-		<a class="btn variant-filled-secondary" href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind</a>
-		<a class="btn variant-filled-tertiary" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+	<section>
+		<a class="btn variant-filled-primary" href="https://kit.svelte.dev/">SvelteKit</a>
+		<a class="btn variant-filled-secondary" href="https://tailwindcss.com/">Tailwind</a>
+		<a class="btn variant-filled-tertiary" href="https://github.com/">GitHub</a>
 	</section>
 </div>
 `}
 		/>
-		<h3>Add a Component</h3>
+	</section>
+	<section class="space-y-4">
+		<h2>Add a Component</h2>
 		<p>
 			Finally let's implement Skeleton's <a href="/components/avatars">Avatar</a> component. First, import the component, then add it
 			anywhere within your page, we recommend within the <code>.container</code> element.
@@ -91,8 +93,7 @@ npm run dev
 			code={`
 \<script\>
 	import { Avatar } from '@skeletonlabs/skeleton';
-\</script\>
-
+\</script\>\n
 <Avatar src="https://i.pravatar.cc/" />
 `}
 		/>
@@ -105,4 +106,4 @@ npm run dev
 			and Utility features.
 		</p>
 	</section>
-</div>
+</LayoutPage>

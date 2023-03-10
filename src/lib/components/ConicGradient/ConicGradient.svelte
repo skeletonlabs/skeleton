@@ -12,21 +12,21 @@
 	 * @type {ConicStop[]}
 	 */
 	export let stops: ConicStop[] = [{ color: ['neutral', 500], start: 0, end: 100 }];
-	/** Allows for automatic generation of a legend below the conic gradient. */
+	/** Enable a contextual legend. */
 	export let legend = false;
 	/** When enabled, the conic gradient will spin. */
 	export let spin = false;
-	/** Provided classes to style the conic gradient width. */
-	export let width: CssClasses = 'w-full';
-	/** Provided classes to style the legend hover effect. */
+	/** Style the conic gradient width. */
+	export let width: CssClasses = 'w-24';
+	/** Style the legend hover effect. */
 	export let hover: CssClasses = 'bg-primary-hover-token';
 
 	// Props (regions)
-	/** Provide abitrary classes to the caption region above the gradient. */
+	/** Style the caption region above the gradient. */
 	export let regionCaption: CssClasses = '';
-	/** Provide abitrary classes to the conic gradient region. */
+	/** Style the conic gradient region. */
 	export let regionCone: CssClasses = '';
-	/** Provide abitrary classes to the legend region below the gradient. */
+	/** Style the legend region below the gradient. */
 	export let regionLegend: CssClasses = '';
 
 	// Local
@@ -34,7 +34,7 @@
 	let generatedLegendList: any[];
 
 	// Styles
-	const cBase = 'flex flex-col items-center space-y-4';
+	const cBase = 'flex flex-col items-center space-y-4 w-';
 	const cCaption = 'text-center';
 	const cCone = 'block aspect-square rounded-full';
 	const cLegend = 'text-sm w-full';

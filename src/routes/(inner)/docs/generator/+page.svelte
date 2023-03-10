@@ -1,15 +1,17 @@
 <script lang="ts">
-	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import LayoutPage from '$docs/layouts/LayoutPage/LayoutPage.svelte';
 	import DocsThemer from '$docs/layouts/DocsThemer/DocsThemer.svelte';
+	// Components
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 </script>
 
 <div class="page-container">
 	<header class="space-y-4">
 		<h1>Theme Generator</h1>
 		<p>
-			Enable "Live Preview Mode" to begin creating a new theme. The entire documentation site will update as you progress. You can navigate
-			to different sections without losing your settings as long as you do not refresh the page. Disabling the preview will reset back to
-			your original theme.
+			Toggle the "Enable Preview" option to begin creating a new theme. The entire documentation site will update as you progress. You can
+			navigate to different sections without losing your settings as long as you do not refresh the page. Disabling the preview will reset
+			back to your original theme.
 		</p>
 	</header>
 
@@ -25,7 +27,7 @@
 		<h2>Importing Your Theme</h2>
 		<p>
 			Copy and paste your theme CSS into <code>/src/theme.postcss</code>, then import the theme into your root layout in
-			<code>/src/routes/+layout.svelte</code>. Keep the order as shown.
+			<code>/src/routes/+layout.svelte</code> instead of a premade Skeleton theme. Keep the order as shown.
 		</p>
 		<CodeBlock
 			language="ts"

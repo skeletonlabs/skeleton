@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
-	import DocsPreviewer from '$docs/components/DocsPreviewer/DocsPreviewer.svelte';
+	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
 
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
@@ -24,20 +24,20 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<DocsPreviewer
-			label="Preview"
-			html={`
-<CodeBlock language="html" code={\`<div>This is meta</div>\`}></CodeBlock>
-<CodeBlock language="css" code={\`.skeleton { color: #bada55; }\`}></CodeBlock>
-<CodeBlock language="ts" code={\`const skeleton: string = 'awesome';\`}></CodeBlock>
-			`}
-		>
-			<section class="space-y-4 w-full">
-				<CodeBlock language="html" code={`<div>This is meta</div>`} />
-				<CodeBlock language="css" code={`.skeleton { color: #bada55; }`} />
-				<CodeBlock language="ts" code={`const skeleton: string = 'awesome';`} />
-			</section>
-		</DocsPreviewer>
+		<DocsPreview>
+			<svelte:fragment slot="preview">
+				<div class="w-full space-y-4">
+					<CodeBlock language="html" code={`<div>This is meta</div>`} />
+					<CodeBlock language="css" code={`.skeleton { color: #bada55; }`} />
+					<CodeBlock language="ts" code={`const skeleton: string = 'awesome';`} />
+				</div>
+			</svelte:fragment>
+			<svelte:fragment slot="source">
+				<CodeBlock language="html" code={`<CodeBlock language="html" code={\`<div>This is meta</div>\`}></CodeBlock>`} />
+				<CodeBlock language="html" code={`<CodeBlock language="css" code={\`.skeleton { color: #bada55; }\`}></CodeBlock>`} />
+				<CodeBlock language="html" code={`<CodeBlock language="ts" code={\`const skeleton: string = 'awesome';\`}></CodeBlock>`} />
+			</svelte:fragment>
+		</DocsPreview>
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->

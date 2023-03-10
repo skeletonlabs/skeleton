@@ -42,7 +42,7 @@
 	<h2>Themes</h2>
 	<!-- prettier-ignore -->
 	<p>
-		Skeleton themes <a href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank" rel="noreferrer">integrate with Tailwind</a> and support <a href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank" rel="noreferrer">color opacity</a>, <a href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="noreferrer">dark mode</a>, and our powerful <a href="/elements/tokens">design tokens system</a>.
+		Skeleton themes <a href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank" rel="noreferrer">integrate with Tailwind</a> and support <a href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank" rel="noreferrer">color opacity</a>, <a href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="noreferrer">dark mode</a>, and our powerful <a href="/docs/tokens">design tokens system</a>.
 	</p>
 
 	<TabGroup regionPanel="space-y-4">
@@ -51,17 +51,18 @@
 	</TabGroup>
 	{#if $storeOnboardMethod === 'cli'}
 		<p>
-			The CLI will automatically import your selected theme in <code>src/routes/+layout.svelte</code>. You can change these at any time.
+			The CLI will automatically import your preferred preset theme in <code>src/routes/+layout.svelte</code>. You may change this at any
+			time.
 		</p>
 	{:else if $storeOnboardMethod === 'manual'}
+		<!-- prettier-ignore -->
 		<p>
-			Select a theme, then copy the import statement into your root layout in <code>/src/routes/+layout.svelte</code>. Replace any existing
-			theme.
+			If you wish to use another preset theme, select it from the list below to reveal the import statement. Import it in your root layout in <code>/src/routes/+layout.svelte</code>. Take care to replace any existing theme.
 		</p>
 	{/if}
 
 	<!-- Presets -->
-	<div class="card variant-glass-surface p-4 space-y-4">
+	<div class="card variant-glass p-4 space-y-4">
 		<nav class="grid grid-cols-1 md:grid-cols-3 gap-4">
 			{#each themes as preset}
 				<!-- prettier-ignore -->
@@ -71,10 +72,10 @@
 						on:click={() => { copyThemeToClipboard(preset.file); }}
 						on:keydown={() => { copyThemeToClipboard(preset.file); }}
 					>
-						<h3 class="text-center font-bold">{preset.name}</h3>
+						<p class="text-center font-bold !text-lg" data-toc-ignore>{preset.name}</p>
 						<ul class="flex justify-center items-center -space-x-1">
 							{#each preset.colors as color}
-								<li class="aspect-square w-4 xl:w-6 rounded-full" style:background={color} />
+								<li class="aspect-square w-4 xl:w-5 rounded-full" style:background={color} />
 							{/each}
 						</ul>
 					</div>
@@ -82,8 +83,9 @@
 		</nav>
 		{#if activeThemeName}
 			<CodeBlock language="ts" code={activeThemeStylesheet} />
+			<!-- prettier-ignore -->
 			<p>
-				To enable bonus features (ex: fonts and backgrounds) for preset themes, apply the following attribute in <code>app.html</code>.
+				You may opt into custom fonts and backgrounds per each theme by adding this paired data attribute in <code>app.html</code>
 			</p>
 			<CodeBlock language="html" code={`<body data-theme="` + activeThemeName + `">`} />
 		{/if}
@@ -92,7 +94,7 @@
 	<!-- Generator -->
 	<div class="card variant-glass p-4">
 		<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-			<p>Wish to create a custom theme? Try our theme generator tool.</p>
+			<p>Want to create a custom theme? Try our theme generator.</p>
 			<a class="btn variant-filled-secondary" href="/docs/generator">Theme Generator &rarr;</a>
 		</div>
 	</div>

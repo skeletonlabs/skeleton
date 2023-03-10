@@ -1,11 +1,12 @@
 <script lang="ts">
+	// Docs
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
-
+	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
+	// Components
 	import AppShell from '$lib/components/AppShell/AppShell.svelte';
-	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-
+	// Sveld
 	import sveldAppShell from '$lib/components/AppShell/AppShell.svelte?raw&sveld';
 
 	// Docs Shell
@@ -27,62 +28,88 @@
 		pageFooter: true,
 		footer: false
 	};
+
+	function toggle(key: string): void {
+		state[key] = !state[key];
+	}
 </script>
 
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<div class="space-y-4">
-			<p>
-				The <span class="badge variant-soft-primary">shaded</span> regions represent the portion of the page that scrolls vertically.
-			</p>
-			<section class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4">
-				<div class="card variant-ghost overflow-hidden flex justify-center items-center h-full">
-					<AppShell>
-						<svelte:fragment slot="header">
-							{#if state.header}<div class="boxShape">header</div>{/if}
-						</svelte:fragment>
-						<svelte:fragment slot="sidebarLeft">
-							{#if state.sidebarLeft}<div class="boxShape">sidebarLeft</div>{/if}
-						</svelte:fragment>
-						<svelte:fragment slot="sidebarRight">
-							{#if state.sidebarRight}<div class="boxShape">sidebarRight</div>{/if}
-						</svelte:fragment>
-						<svelte:fragment slot="pageHeader">
-							{#if state.pageHeader}<div class="boxShape bg-primary-500/20">pageHeader</div>{/if}
-						</svelte:fragment>
-						<svelte:fragment slot="pageFooter">
-							{#if state.pageFooter}<div class="boxShape bg-primary-500/20">pageFooter</div>{/if}
-						</svelte:fragment>
-						<div class="boxShape bg-primary-500/20">(route slot)</div>
-						<svelte:fragment slot="footer">
-							{#if state.footer}<div class="boxShape">footer</div>{/if}
-						</svelte:fragment>
-					</AppShell>
+		<DocsPreview regionPreview="h-[280px]">
+			<svelte:fragment slot="lead">
+				<p class="w-full text-center">The shaded regions represent the portion of the page that scrolls vertically.</p>
+			</svelte:fragment>
+			<svelte:fragment slot="preview">
+				<AppShell
+					class="card h-full p-1"
+					slotSidebarLeft="grid grid-cols-1"
+					slotSidebarRight="grid grid-cols-1"
+					slotPageContent="grid grid-cols-1"
+				>
+					<svelte:fragment slot="header">
+						{#if state.header}
+							<div class="card variant-soft p-2 m-0.5 flex justify-center items-center overflow-hidden text-xs">Header</div>
+						{/if}
+					</svelte:fragment>
+					<svelte:fragment slot="sidebarLeft">
+						{#if state.sidebarLeft}
+							<div class="card variant-soft p-2 m-0.5 flex justify-center items-center overflow-hidden text-xs">sidebarLeft</div>
+						{/if}
+					</svelte:fragment>
+					<svelte:fragment slot="sidebarRight">
+						{#if state.sidebarRight}
+							<div class="card variant-soft p-2 m-0.5 flex justify-center items-center overflow-hidden text-xs">sidebarRight</div>
+						{/if}
+					</svelte:fragment>
+					<svelte:fragment slot="pageHeader">
+						{#if state.pageHeader}
+							<div class="card variant-soft-primary p-2 m-0.5 flex justify-center items-center overflow-hidden text-xs">pageHeader</div>
+						{/if}
+					</svelte:fragment>
+					<svelte:fragment slot="pageFooter">
+						{#if state.pageFooter}
+							<div class="card variant-soft-primary p-2 m-0.5 flex justify-center items-center overflow-hidden text-xs">pageFooter</div>
+						{/if}
+					</svelte:fragment>
+					<!-- --- -->
+					<div class="card variant-soft-primary p-2 m-0.5 flex justify-center items-center overflow-hidden text-xs">(page route)</div>
+					<!-- --- -->
+					<svelte:fragment slot="footer">
+						{#if state.footer}
+							<div class="card variant-soft p-2 m-0.5 flex justify-center items-center overflow-hidden text-xs">footer</div>
+						{/if}
+					</svelte:fragment>
+				</AppShell>
+			</svelte:fragment>
+			<svelte:fragment slot="footer">
+				<!-- prettier-ignore -->
+				<div class="mx-auto grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-6 gap-4">
+					<button class="btn {state.header ? 'variant-filled' : 'variant-soft'}" on:click={() => { toggle('header'); }}>
+						header
+					</button>
+						<button class="btn {state.sidebarLeft ? 'variant-filled' : 'variant-soft'}" on:click={() => { toggle('sidebarLeft'); }}>
+						sidebarLeft
+					</button>
+						<button class="btn {state.sidebarRight ? 'variant-filled' : 'variant-soft'}" on:click={() => { toggle('sidebarRight'); }}>
+						sidebarRight
+					</button>
+						<button class="btn {state.pageHeader ? 'variant-filled' : 'variant-soft'}" on:click={() => { toggle('pageHeader'); }}>
+						pageHeader
+					</button>
+						<button class="btn {state.pageFooter ? 'variant-filled' : 'variant-soft'}" on:click={() => { toggle('pageFooter'); }}>
+						pageFooter
+					</button>
+						<button class="btn {state.footer ? 'variant-filled' : 'variant-soft'}" on:click={() => { toggle('footer'); }}>
+						footer
+					</button>
 				</div>
-				<div class="card p-4 flex justify-center items-center h-full">
-					<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-4">
-						<SlideToggle bind:checked={state.header}>Header</SlideToggle>
-						<SlideToggle bind:checked={state.sidebarLeft}>Left Sidebar</SlideToggle>
-						<SlideToggle bind:checked={state.sidebarRight}>Right Sidebar</SlideToggle>
-						<SlideToggle bind:checked={state.pageHeader}>Page Header</SlideToggle>
-						<SlideToggle bind:checked={state.pageFooter}>Page Footer</SlideToggle>
-						<SlideToggle bind:checked={state.footer}>Footer</SlideToggle>
-					</div>
-				</div>
-			</section>
-		</div>
-	</svelte:fragment>
-
-	<!-- Slot: Usage -->
-	<svelte:fragment slot="usage">
-		<section class="space-y-4">
-			<p>
-				Implement the App Shell in your app's root layout in <code>/src/routes/+layout.svelte</code>. Slot order does not matter.
-			</p>
-			<CodeBlock
-				language="html"
-				code={`
+			</svelte:fragment>
+			<svelte:fragment slot="source">
+				<CodeBlock
+					language="html"
+					code={`
 <AppShell>
 	<svelte:fragment slot="header">Header</svelte:fragment>
 	<svelte:fragment slot="sidebarLeft">Sidebar Left</svelte:fragment>
@@ -94,11 +121,21 @@
 	<svelte:fragment slot="pageFooter">Page Footer</svelte:fragment>
 	<svelte:fragment slot="footer">Footer</svelte:fragment>
 </AppShell>`}
-			/>
+				/>
+			</svelte:fragment>
+		</DocsPreview>
+	</svelte:fragment>
+
+	<!-- Slot: Usage -->
+	<svelte:fragment slot="usage">
+		<section class="space-y-4">
+			<p>
+				Implement the App Shell in your app's root layout in <code>/src/routes/+layout.svelte</code>. Slot order does not matter.
+			</p>
 		</section>
 		<section class="space-y-4">
 			<div class="flex items-center space-x-2">
-				<h2>Global Styles</h2>
+				<h2>Prerequisites</h2>
 				<span class="badge variant-filled-warning">Required</span>
 			</div>
 			<!-- prettier-ignore -->
@@ -184,15 +221,9 @@
 function scrollHandler(event: UIEvent & { currentTarget: EventTarget & HTMLDivElement; }) {
 	console.log(event.currentTarget.scrollTop);
 }
-			`}
+`}
 			/>
 			<CodeBlock language="html" code={`<AppShell ... on:scroll={scrollHandler}>`} />
 		</section>
 	</svelte:fragment>
 </DocsShell>
-
-<style lang="postcss">
-	.boxShape {
-		@apply border border-surface-500 p-4 text-center text-xs h-full flex justify-center items-center;
-	}
-</style>

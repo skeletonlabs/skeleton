@@ -10,7 +10,10 @@
 	const dispatch = createEventDispatcher();
 
 	// Props
-	/** Set a unique select input name. */
+	/**
+	 * Set a unique select input name.
+	 * @type {string}
+	 */
 	export let name: string;
 	/** An array of values. */
 	export let value: any[] = [];
@@ -143,6 +146,7 @@
 					<!-- Wrapping div required for FLIP animation -->
 					<div animate:flip={{ duration }}>
 						<button
+							type="button"
 							class="chip {chips}"
 							on:click={(e) => {
 								removeChip(e, i, c);

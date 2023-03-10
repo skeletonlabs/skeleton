@@ -39,7 +39,7 @@
 
 <!-- NOTE: SEO handled in root page layout -->
 
-<div class="page-container">
+<div class="blog-post">
 	<!-- Breadcrumbs -->
 	<ol class="breadcrumb">
 		<li class="crumb"><a href="/blog">Blog</a></li>
@@ -47,7 +47,7 @@
 		<li>Article</li>
 	</ol>
 	<!-- Article -->
-	<article class="blog-post">
+	<article class="space-y-8 md:space-y-12">
 		<!-- Header -->
 		<header class="space-y-4">
 			<!-- Timestamp / Read Time -->
