@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onDestroy, onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
 
 	// Types
 	import type { CssClasses } from '$lib';
@@ -52,7 +53,7 @@
 
 	function generateHeadingList(): void {
 		// Select only relevant headings
-		allowedHeadingsList?.forEach((elem: HTMLElement, i: number) => {
+		allowedHeadingsList?.forEach((elem: HTMLElement) => {
 			// Skip if `data-toc-ignore` attribute set
 			if (elem.hasAttribute('data-toc-ignore')) return;
 			// Generate a unique ID if none present
@@ -61,10 +62,15 @@
 					.replaceAll(/[^a-zA-Z0-9 ]/g, '')
 					.replaceAll(' ', '-')
 					.toLowerCase();
-				elem.id = `${newId}-${i}`;
+				elem.id = `${newId}`;
 			}
+			// Implement permalink
+			if (elem.querySelector('.permalink')) return;
+			elem.innerHTML += `<a href="#${elem.id}" class="permalink">🔗</a>`;
 			// Generate headings whitelist
 			filteredHeadingsList.push(elem);
+			// Debug
+			// elem.style.backgroundColor = 'limegreen';
 		});
 		// Update Headings list
 		filteredHeadingsList = [...filteredHeadingsList];
@@ -125,19 +131,22 @@
 
 <!-- @component Allows you to quickly navigate the hierarchy of headings for the current page. -->
 
-<div class="toc {classesBase}">
-	<nav class="toc-list {classesList}">
-		<div class="toc-label {classesLabel}">{label}</div>
-		{#each filteredHeadingsList as headingElem, i}
-			<!-- prettier-ignore -->
-			<li
-				class="toc-list-item {classesListItem} {setHeadingClasses(headingElem)} {headingElem.id === activeHeaderId ? active : ''}"
-				on:click={() => { scrollToHeading(headingElem); }}
-				on:click
-				on:keypress
-			>
-				{headingElem.innerText}
-			</li>
-		{/each}
-	</nav>
-</div>
+{#if filteredHeadingsList.length > 0}
+	<div class="toc {classesBase}" transition:fade|local={{ duration: 100 }}>
+		<nav class="toc-list {classesList}">
+			<div class="toc-label {classesLabel}">{label}</div>
+			{#each filteredHeadingsList as headingElem, i}
+				<!-- prettier-ignore -->
+				<li
+					class="toc-list-item {classesListItem} {setHeadingClasses(headingElem)} {headingElem.id === activeHeaderId ? active : ''}"
+					on:click={() => { scrollToHeading(headingElem); }}
+					on:click
+					on:keypress
+				>
+					<!-- {headingElem.innerText} -->
+					{headingElem.firstChild?.nodeValue}
+				</li>
+			{/each}
+		</nav>
+	</div>
+{/if}

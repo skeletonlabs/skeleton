@@ -21,7 +21,7 @@
 	/** Provide arbitrary classes to style the meter element. */
 	export let meter: CssClasses = 'bg-surface-900-50-token';
 	/** Provide arbitrary classes to style the track element. */
-	export let track: CssClasses = 'variant-glass';
+	export let track: CssClasses = 'bg-surface-200-700-token';
 
 	// Props A11y
 	/** Provide the ARIA labelledby value. */

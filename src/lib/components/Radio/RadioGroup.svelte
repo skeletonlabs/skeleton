@@ -29,6 +29,7 @@
 	export let fill: CssClasses = '';
 
 	// Props (a11y)
+	/** Provide the ARIA labelledby value. */
 	export let labelledby = '';
 
 	// Context

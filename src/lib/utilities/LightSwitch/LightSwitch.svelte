@@ -17,7 +17,7 @@
 	/** Provide classes to set width styles. */
 	export let width: CssClasses = 'w-12';
 	/** Provide classes to set height styles. Should be half of width. */
-	export let height: CssClasses = 'w-6';
+	export let height: CssClasses = 'h-6';
 	/** Provide classes to set ring styles. */
 	export let ring: CssClasses = 'ring-[1px] ring-surface-500/30';
 	/** Provide classes to set border radius styles. */
@@ -62,7 +62,7 @@
 </script>
 
 <svelte:head>
-	{@html `<script>${setInitialClassState.toString()} setInitialClassState();</script>`}
+	{@html `<script>(${setInitialClassState.toString()})();</script>`}
 </svelte:head>
 
 <div

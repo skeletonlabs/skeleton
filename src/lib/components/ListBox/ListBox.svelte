@@ -10,7 +10,7 @@
 
 	// Props (styles)
 	/** Provide classs to set the vertical spacing style. */
-	export let spacing: CssClasses = `space-y-1`;
+	export let spacing: CssClasses = 'space-y-1';
 	/** Provide classes to set the listbox box radius styles. */
 	export let rounded: CssClasses = 'rounded-token';
 
@@ -23,6 +23,7 @@
 	export let padding: CssClasses = 'px-4 py-2';
 
 	// Props (a11y)
+	/** Provide the ARIA labelledby value. */
 	export let labelledby: string = '';
 
 	// Context

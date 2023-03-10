@@ -23,7 +23,7 @@
 	}
 </script>
 
-<div class="page-container">
+<div class="page-container-wide page-padding">
 	<header class="flex justify-between items-center">
 		<div class="space-y-4">
 			<h2>The Skeleton Blog</h2>
@@ -38,7 +38,11 @@
 	<!-- Blog List -->
 	<section class="blog-list space-y-8">
 		{#each data.posts as post}
-			<a class="unstyled block hover:card p-4 rounded-container-token" href="/blog/{post.slug}" data-sveltekit-preload-data="hover">
+			<a
+				class="unstyled block hover:card hover:variant-soft p-4 rounded-container-token"
+				href="/blog/{post.slug}"
+				data-sveltekit-preload-data="hover"
+			>
 				<article class="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-4 lg:gap-8">
 					<!-- Featured Image -->
 					{#if post.feature_image}

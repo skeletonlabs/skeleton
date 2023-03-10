@@ -1,10 +1,11 @@
 <script lang="ts">
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
-
+	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
+	// Components
 	import FileButton from '$lib/components/FileButton/FileButton.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-
+	// Sveld
 	import sveldFileButton from '$lib/components/FileButton/FileButton.svelte?raw&sveld';
 
 	// Docs Shell
@@ -29,31 +30,44 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="card variant-glass p-4 text-center !py-10 space-y-4">
-			<FileButton bind:files accept="image/*" name="file" on:change={onChangeHandler} />
-			<p class="!text-xs text-center">Monitor your browser's console when adding files.</p>
-		</section>
+		<DocsPreview>
+			<svelte:fragment slot="preview">
+				<FileButton bind:files name="file" accept="image/*" on:change={onChangeHandler} />
+			</svelte:fragment>
+			<svelte:fragment slot="footer">
+				<p class="!w-full text-center">Monitor your browser's console when adding files.</p>
+			</svelte:fragment>
+			<svelte:fragment slot="source">
+				<CodeBlock language="html" code={`<FileButton name="files" />`} />
+			</svelte:fragment>
+		</DocsPreview>
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<p>
-				Uses <code>input[type='file']</code> and allows for all native input features and accessibility. Including <code>multiple</code>,
-				<code>accept</code>, and <code>required</code>.
+				Uses <code>FileList</code> to bind data to an <code>input[type='file']</code>. Accepts all attributes, including:
+				<code>multiple</code>, <code>accept</code>, and <code>required</code>.
 			</p>
-			<CodeBlock language="html" code={`<FileButton name="files">Upload File</FileButton>`} />
 		</section>
-		<div class="space-y-4">
+		<section class="space-y-4">
+			<h2>Variant Style</h2>
+			<p>Use the <code>button</code> property to provide classes for the button, such as variant styles.</p>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<FileButton name="files" button="variant-soft-primary">Upload</FileButton>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock language="html" code={`<FileButton name="files" button="variant-soft-primary">Upload</FileButton>`} />
+				</svelte:fragment>
+			</DocsPreview>
+		</section>
+		<section class="space-y-4">
 			<h2>Binding Method</h2>
 			<p>Use a <code>FileList</code> to bind the file data.</p>
 			<CodeBlock language="ts" code={`let files: FileList;`} />
 			<CodeBlock language="html" code={`<FileButton ... bind:files />`} />
-		</div>
-		<section class="space-y-4">
-			<h2>Variant Style</h2>
-			<p>Use the <code>button</code> property to provide classes for the button, such as variant styles.</p>
-			<CodeBlock language="html" code={`<FileButton ... button="variant-filled-primary">Upload</FileButton>`} />
 		</section>
 		<section class="space-y-4">
 			<h2>On Change Event</h2>

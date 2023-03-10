@@ -1,7 +1,8 @@
 <script lang="ts">
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
-
+	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
+	// Components
 	import Avatar from '$lib/components/Avatar/Avatar.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
@@ -25,71 +26,134 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
-			<!-- 1 -->
-			<div class="card variant-glass p-4">
-				<ol class="breadcrumb">
-					<li class="crumb"><a href="/">Tailwind</a></li>
-					<li class="crumb-separator" aria-hidden>&rsaquo;</li>
-					<li class="crumb"><a href="/">Elements</a></li>
-					<li class="crumb-separator" aria-hidden>&rsaquo;</li>
-					<li>Breadcrumbs</li>
-				</ol>
-			</div>
-			<!-- 2 -->
-			<div class="card variant-glass p-4">
-				<ol class="breadcrumb">
-					<li class="crumb"><a href="/">Home</a></li>
-					<li class="crumb-separator" aria-hidden>/</li>
-					<li class="crumb"><a href="/">Blog</a></li>
-					<li class="crumb-separator" aria-hidden>/</li>
-					<li>Article</li>
-				</ol>
-			</div>
-			<!-- 3 -->
-			<div class="card variant-glass p-4">
-				<ol class="breadcrumb">
-					<li class="crumb"><a href="/" class="btn btn-sm variant-soft-primary">Users</a></li>
-					<li class="crumb-separator" aria-hidden>&rsaquo;</li>
-					<li class="crumb">
-						<a href="/"><Avatar src="https://i.pravatar.cc/?img=48" width="w-8" /></a>
-					</li>
-					<li class="crumb-separator" aria-hidden>&rsaquo;</li>
-					<li>Settings</li>
-				</ol>
-			</div>
-			<!-- 4 -->
-			<div class="card variant-glass p-4">
-				<ol class="breadcrumb mt-1">
-					<li class="crumb"><i class="fa-solid fa-house text-xl" /></li>
-					<li class="crumb-separator" aria-hidden>&rsaquo;</li>
-					<li class="crumb"><i class="fa-solid fa-gears text-xl" /></li>
-					<li class="crumb-separator" aria-hidden>&rsaquo;</li>
-					<li>Current</li>
-				</ol>
-			</div>
-		</div>
+		<DocsPreview>
+			<svelte:fragment slot="preview">
+				<div class="card p-4 text-token flex justify-center">
+					<ol class="breadcrumb">
+						<li class="crumb"><a href="/elements/breadcrumbs">Skeleton</a></li>
+						<li class="crumb-separator" aria-hidden>&rsaquo;</li>
+						<li class="crumb"><a href="/elements/breadcrumbs">Elements</a></li>
+						<li class="crumb-separator" aria-hidden>&rsaquo;</li>
+						<li>Breadcrumbs</li>
+					</ol>
+				</div>
+			</svelte:fragment>
+			<svelte:fragment slot="source">
+				<CodeBlock
+					language="html"
+					code={`
+<ol class="breadcrumb">
+	<li class="crumb"><a href="/elements/breadcrumbs">Skeleton</a></li>
+	<li class="crumb-separator" aria-hidden>&rsaquo;</li>
+	<li class="crumb"><a href="/elements/breadcrumbs">Elements</a></li>
+	<li class="crumb-separator" aria-hidden>&rsaquo;</li>
+	<li>Breadcrumbs</li>
+</ol>
+				`}
+				/>
+			</svelte:fragment>
+		</DocsPreview>
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<p>
-				Create an ordered list, apply the <code>.breadcrumb</code> class, then set <code>.crumb</code> and <code>.crumb-separator</code>
-				to each list item.
-			</p>
-			<CodeBlock
-				language="html"
-				code={`
+			<h2>Separators</h2>
+			<!-- prettier-ignore -->
+			<p>Replace the contents of the <code>.crumb-separator</code> element with an icon or any valid <a href="https://unicode-table.com/en/sets/arrow-symbols/#right-arrows" target="_blank" rel="noreferrer">unicode symbol</a>. For accessibility, use <code>aria-hidden</code> to hide this element from screen readers.</p>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<div class="flex justify-center">
+						<ol class="breadcrumb">
+							<li class="crumb"><a href="/elements/breadcrumbs">Home</a></li>
+							<li class="crumb-separator" aria-hidden>/</li>
+							<li class="crumb"><a href="/elements/breadcrumbs">Blog</a></li>
+							<li class="crumb-separator" aria-hidden>/</li>
+							<li>Article</li>
+						</ol>
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="html"
+						code={`
 <ol class="breadcrumb">
-	<li class="crumb"><a href="/">Home</a></li>
+	<li class="crumb"><a href="/elements/breadcrumbs">Home</a></li>
+	<li class="crumb-separator" aria-hidden>/</li>
+	<li class="crumb"><a href="/elements/breadcrumbs">Blog</a></li>
+	<li class="crumb-separator" aria-hidden>/</li>
+	<li>Article</li>
+</ol>
+					`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
+		</section>
+		<section class="space-y-4">
+			<h2>Icons</h2>
+			<p>Add your icon before or after your anchor tag within the <code>.crumb</code> list item.</p>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<div class="flex justify-center">
+						<ol class="breadcrumb mt-1">
+							<li class="crumb"><a href="/elements/breadcrumbs"><i class="fa-solid fa-house text-xl" /></a></li>
+							<li class="crumb-separator" aria-hidden>&rsaquo;</li>
+							<li class="crumb"><a href="/elements/breadcrumbs"><i class="fa-solid fa-gear text-xl" /></a></li>
+							<li class="crumb-separator" aria-hidden>&rsaquo;</li>
+							<li>Current</li>
+						</ol>
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="html"
+						code={`
+<ol class="breadcrumb mt-1">
+	<li class="crumb"><a href="/elements/breadcrumbs">(icon)</a></li>
 	<li class="crumb-separator" aria-hidden>&rsaquo;</li>
-	<li class="crumb"><a href="/articles">Articles</a></li>
+	<li class="crumb"><a href="/elements/breadcrumbs">(icon)</a></li>
 	<li class="crumb-separator" aria-hidden>&rsaquo;</li>
 	<li>Current</li>
 </ol>
-			`}
-			/>
+					`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
+		</section>
+		<section class="space-y-4">
+			<h2>Mixed Media</h2>
+			<p>Mix and match buttons, avatars, and text.</p>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<div class="flex justify-center">
+						<ol class="breadcrumb">
+							<li class="crumb"><a href="/elements/breadcrumbs" class="btn btn-sm variant-soft-primary">Users</a></li>
+							<li class="crumb-separator" aria-hidden>&rsaquo;</li>
+							<li class="crumb">
+								<a href="/elements/breadcrumbs"><Avatar src="https://i.pravatar.cc/?img=48" width="w-8" /></a>
+							</li>
+							<li class="crumb-separator" aria-hidden>&rsaquo;</li>
+							<li>Profile</li>
+						</ol>
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="html"
+						code={`
+<ol class="breadcrumb">
+	<li class="crumb"><a href="/elements/breadcrumbs" class="btn btn-sm variant-soft-primary">Users</a></li>
+	<li class="crumb-separator" aria-hidden>&rsaquo;</li>
+	<li class="crumb">
+		<a href="/elements/breadcrumbs"><Avatar src="https://i.pravatar.cc/?img=48" width="w-8" /></a>
+	</li>
+	<li class="crumb-separator" aria-hidden>&rsaquo;</li>
+	<li>Profile</li>
+</ol>
+					`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
 		</section>
 		<section class="space-y-4">
 			<h2>Non-Responsive</h2>
@@ -98,32 +162,6 @@
 				disable this behavior, replace <code>.breadcrumb</code> with <code>.breadcrumb-nonresponsive</code>.
 			</p>
 			<CodeBlock language="html" code={`<ol class="breadcrumb-nonresponsive">...</ol>`} />
-		</section>
-		<section class="space-y-4">
-			<h2>Using Icons</h2>
-			<p>Add your icon before or after your anchor tag within the <code>.crumb</code> list item.</p>
-			<CodeBlock language="html" code={`<li class="crumb-separator" aria-hidden>(icon)</li>`} />
-			<CodeBlock
-				language="html"
-				code={`
-<li class="crumb">
-	<span>(icon)</span>
-	<a href="/">Home</a>
-</li>
-			`}
-			/>
-		</section>
-		<section class="space-y-4">
-			<h2>Separators</h2>
-			<!-- prettier-ignore -->
-			<p>Apply the <code>.crumb-separator</code> class to each list item containing your separator icon or <a href="https://unicode-table.com/en/sets/arrow-symbols/#right-arrows" target="_blank" rel="noreferrer">unicode symbol</a>. Per accessability, make sure to implement <code>aria-hidden</code> to hide this element from screen readers.</p>
-			<CodeBlock language="html" code={`<li class="crumb-separator" aria-hidden>&rsaquo;</li>`} />
-			<CodeBlock language="html" code={`<li class="crumb-separator" aria-hidden>(icon)</li>`} />
-		</section>
-		<section class="space-y-4">
-			<h2>Current Page</h2>
-			<p>We recommend the last item not include an anchor link, as this indicates the page the user is currently on.</p>
-			<CodeBlock language="html" code={`<li>Current</li>`} />
 		</section>
 		<section class="space-y-4">
 			<h2>Using #Each Loops</h2>

@@ -1,16 +1,44 @@
 /* Global Stylesheet */
 
+@import 'app-ads.postcss';
+
 html,
 body {
 	@apply h-full overflow-hidden;
 }
 
 /* Page Styles */
+/* Use these to define common page styles. */
 .page-container {
-	@apply container mx-auto p-4 md:p-12 space-y-8 md:space-y-12;
+	@apply container mx-auto page-padding space-y-10;
+}
+.page-container-wide {
+	@apply w-full max-w-7xl mx-auto space-y-10;
+}
+.page-container-aside {
+	@apply w-full max-w-4xl mx-auto space-y-10;
+}
+.page-padding {
+	@apply p-4 md:p-10;
+}
+.page-section {
+	@apply space-y-4;
 }
 
 /* Label Text Override */
 label:not(.unstyled) span:first-of-type:not(.unstyled):is(:not(.input-chip *)) {
 	@apply text-surface-700-200-token text-sm;
+}
+
+/* Heading Permalinks */
+.permalink {
+	@apply w-0 invisible inline-block text-base pl-2 -translate-y-1;
+}
+h1:hover .permalink,
+h2:hover .permalink,
+h3:hover .permalink,
+h4:hover .permalink,
+h5:hover .permalink,
+h6:hover .permalink {
+	@apply visible w-auto;
 }

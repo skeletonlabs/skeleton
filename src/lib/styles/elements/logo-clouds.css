@@ -14,7 +14,7 @@
 		/* Center Contents */
 		@apply flex justify-center items-center space-x-4;
 		/* Background */
-		@apply bg-surface-500/10 dark:bg-surface-500/20;
+		@apply bg-surface-100-800-token;
 		/* Text */
 		@apply text-base font-bold text-black dark:text-white;
 		/* Padding */

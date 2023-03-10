@@ -6,6 +6,9 @@ import { localStorageStore } from '$lib/utilities/LocalStorageStore/LocalStorage
 // Set within root layout, persists current SvelteKit $page.url.pathname
 export const storeCurrentUrl: Writable<string | undefined> = writable(undefined);
 
+// Set within the root layout, set TRUE if served in Vercel production mode
+export const storeVercelProductionMode: Writable<boolean> = writable(false);
+
 // Local Storage Stores ---
 
 // Persists select preset theme

@@ -1,22 +1,20 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
-
+	// Docs
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
-
+	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
 	// Types
 	import type { TableSource } from '$lib/components/Table/types';
-
 	// Utils
 	import { tableMapperValues } from '$lib/components/Table/utils';
-
 	// Components
 	import Table from '$lib/components/Table/Table.svelte';
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
 	import Tab from '$lib/components/Tab/Tab.svelte';
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-
+	// Sveld
 	import sveldTable from '$lib/components/Table/Table.svelte?raw&sveld';
 
 	// Stores
@@ -75,23 +73,18 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<section class="space-y-4">
-			<Table source={tableSimple} interactive={true} on:selected={onSelected} />
-			<small class="block text-center">Monitor your console log when tapping a row.</small>
-		</section>
-	</svelte:fragment>
-
-	<!-- Slot: Usage -->
-	<svelte:fragment slot="usage">
-		<!-- Tab: Table -->
-		<section class="space-y-4">
-			<p>
-				First we need a set of source data. This can start as either an array of objects, or an array of arrays. For this example we'll use
-				the former.
-			</p>
-			<CodeBlock
-				language="ts"
-				code={`
+		<DocsPreview>
+			<svelte:fragment slot="preview">
+				<Table source={tableSimple} interactive={true} on:selected={onSelected} text="text-token" />
+			</svelte:fragment>
+			<svelte:fragment slot="footer">
+				<p class="block text-center">Try viewing your console log when tapping a row.</p>
+			</svelte:fragment>
+			<svelte:fragment slot="source">
+				<p>First, you'll need a set of source data.</p>
+				<CodeBlock
+					language="ts"
+					code={`
 const sourceData = [
 	{ position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
 	{ position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
@@ -99,16 +92,12 @@ const sourceData = [
 	{ position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
 	{ position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
 ];
-			`}
-			/>
-			<p>
-				Create a <code>TableSource</code> object that houses all of our table information. Note we're using the
-				<code>tableMapperValues()</code> method to prune and map our data between the body and meta values. We cover the use of this method
-				in the <em>Table Utilities</em> section below.
-			</p>
-			<CodeBlock
-				language="ts"
-				code={`
+				`}
+				/>
+				<p>Create a <code>TableSource</code> object. use <code>body: tableMapperValues(sourceData)</code> to map the data.</p>
+				<CodeBlock
+					language="ts"
+					code={`
 const tableSimple: TableSource = {
 	// A list of heading labels.
 	head: ['Name', 'Symbol', 'Weight'],
@@ -119,13 +108,23 @@ const tableSimple: TableSource = {
 	// Optional: A list of footer labels.
 	foot: ['Total', '', '<code>${totalWeight}</code>']
 };
-			`}
-			/>
+				`}
+				/>
+				<p>Finally, we pass our table source data to the component for display.</p>
+				<CodeBlock language="html" code={`<Table source={tableSimple} />`} />
+			</svelte:fragment>
+		</DocsPreview>
+	</svelte:fragment>
+
+	<!-- Slot: Usage -->
+	<svelte:fragment slot="usage">
+		<section class="space-y-4">
+			<h2>Interactive Mode</h2>
 			<p>
-				Finally, we pass our table source data to the component for display. The <code>interactive</code> prop is optional, but indicates
-				the table is interactive, and will provide <code>meta</code> data via the <code>on:selected</code> event when a row is clicked clicked.
+				Use the <code>interactive</code> to make the table interactive. When a row is clicked, <code>on:selected</code> will pass the row's
+				<code>meta</code> value.
 			</p>
-			<CodeBlock language="html" code={`<Table source={tableSimple} interactive={true} on:selected={mySelectionHandler} />`} />
+			<CodeBlock language="html" code={`<Table ... interactive={true} on:selected={mySelectionHandler} />`} />
 		</section>
 		<!-- Table Utilities -->
 		<section class="space-y-4">
@@ -136,7 +135,7 @@ const tableSimple: TableSource = {
 				<Tab bind:group={$storeService} name="tableSourceMapper" value="tableSourceMapper">Source Mapper</Tab>
 				<Tab bind:group={$storeService} name="tableSourceValues" value="tableSourceValues">Source Values</Tab>
 			</TabGroup>
-			<CodeBlock language="ts" code={`import { ${$storeService} } from '@skeletonlabs/skeleton';>`} />
+			<CodeBlock language="ts" code={`import { ${$storeService} } from '@skeletonlabs/skeleton';`} />
 			{#if $storeService === 'tableMapperValues'}
 				<!-- Table Mapper Values -->
 				<p>
