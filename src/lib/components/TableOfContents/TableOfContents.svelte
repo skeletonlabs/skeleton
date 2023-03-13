@@ -64,9 +64,10 @@
 					.toLowerCase();
 				elem.id = `${newId}`;
 			}
-			// Implement permalink
-			if (elem.querySelector('.permalink')) return;
-			elem.innerHTML += `<a href="#${elem.id}" class="permalink">🔗</a>`;
+			// Implement permalink if none present
+			if (!elem.querySelector('.permalink')) {
+				elem.innerHTML += `<a href="#${elem.id}" class="permalink">🔗</a>`;
+			}
 			// Generate headings whitelist
 			filteredHeadingsList.push(elem);
 			// Debug
