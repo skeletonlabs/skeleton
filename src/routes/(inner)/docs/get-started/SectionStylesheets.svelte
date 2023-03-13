@@ -37,15 +37,19 @@
 					</div>
 				</aside>
 				<CodeBlock
-					language="ts"
+					language="html"
 					code={`
-// Your selected Skeleton theme:
-import '@skeletonlabs/skeleton/themes/theme-skeleton.css';\n
-// This contains the bulk of Skeletons required styles:
-import '@skeletonlabs/skeleton/styles/all.css';\n
-// Finally, your application's global stylesheet (sometimes labeled 'app.css')
-import '../app.postcss';
-						`}
+\<script\>
+	// Your selected Skeleton theme:
+	import '@skeletonlabs/skeleton/themes/theme-skeleton.css';\n
+	// This contains the bulk of Skeletons required styles:
+	import '@skeletonlabs/skeleton/styles/all.css';\n
+	// Finally, your application's global stylesheet (sometimes labeled 'app.css')
+	import '../app.postcss';
+\</script\>\n
+
+<slot />
+`}
 				/>
 			{/if}
 		</svelte:fragment>
