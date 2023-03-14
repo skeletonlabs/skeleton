@@ -56,11 +56,11 @@ export function setModeCurrent(value: boolean) {
 export function setInitialClassState() {
 	const elemHtmlClasses = document.documentElement.classList;
 	// Conditions
-	const condLocalStroageUserPrefs: boolean = localStorage.getItem('modeUserPrefers') === 'false';
-	const condLocalStroageUserPrefsExists: boolean = !('modeUserPrefers' in localStorage);
+	const condLocalStorageUserPrefs: boolean = localStorage.getItem('modeUserPrefers') === 'false';
+	const condLocalStorageUserPrefsExists: boolean = !('modeUserPrefers' in localStorage);
 	const condMatchMedia: boolean = window.matchMedia('(prefers-color-scheme: dark)').matches;
 	// Add/remove `.dark` class to HTML element
-	if (condLocalStroageUserPrefs || (condLocalStroageUserPrefsExists && condMatchMedia)) {
+	if (condLocalStorageUserPrefs || (condLocalStorageUserPrefsExists && condMatchMedia)) {
 		elemHtmlClasses.add('dark');
 	} else {
 		elemHtmlClasses.remove('dark');
