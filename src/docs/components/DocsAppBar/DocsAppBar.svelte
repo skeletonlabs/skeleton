@@ -3,7 +3,7 @@
 	import { enhance, type SubmitFunction } from '$app/forms';
 
 	// Types
-	import type { ModalSettings, ModalComponent } from '$lib/utilities/Modal/types';
+	import type { ModalSettings } from '$lib/utilities/Modal/types';
 	import type { DrawerSettings } from '$lib/utilities/Drawer/types';
 
 	// Docs
@@ -20,6 +20,7 @@
 	// Stores
 	import { storeTheme } from '$docs/stores/stores';
 	import { drawerStore } from '$lib/utilities/Drawer/stores';
+	import { themes } from '../../../routes/(inner)/docs/get-started/themes';
 
 	// Local
 	let isOsMac = false;
@@ -56,20 +57,6 @@
 		}
 	}
 
-	const themes = [
-		{ type: 'skeleton', name: 'Skeleton', icon: '💀' },
-		{ type: 'modern', name: 'Modern', icon: '🤖' },
-		{ type: 'rocket', name: 'Rocket', icon: '🚀' },
-		{ type: 'seafoam', name: 'Seafoam', icon: '🧜‍♀️' },
-		{ type: 'vintage', name: 'Vintage', icon: '📺' },
-		{ type: 'sahara', name: 'Sahara', icon: '🏜️' },
-		{ type: 'hamlindigo', name: 'Hamlindigo', icon: '👔' },
-		{ type: 'gold-nouveau', name: 'Gold Nouveau', icon: '💫' },
-		{ type: 'crimson', name: 'Crimson', icon: '⭕' }
-		// { type: 'seasonal', name: 'Seasonal', icon: '🎆' }
-		// { type: 'test', name: 'Test', icon: '🚧' },
-	];
-
 	const setTheme: SubmitFunction = () => {
 		return async ({ result, update }) => {
 			await update();
@@ -79,6 +66,7 @@
 			}
 		};
 	};
+	console.log(themes);
 </script>
 
 <!-- NOTE: using stopPropagation to override Chrome for Windows search shortcut -->
@@ -162,14 +150,14 @@
 					<nav class="list-nav p-4 -m-4 max-h-64 lg:max-h-[500px] overflow-y-auto">
 						<form action="/?/setTheme" method="POST" use:enhance={setTheme}>
 							<ul>
-								{#each themes as { icon, name, type }}
+								{#each themes as { icon, name, file }}
 									<li>
 										<button
 											class="option w-full h-full"
 											type="submit"
 											name="theme"
-											value={type}
-											class:bg-primary-active-token={$storeTheme === type}
+											value={file}
+											class:bg-primary-active-token={$storeTheme === file}
 										>
 											<span>{icon}</span>
 											<span>{name}</span>
