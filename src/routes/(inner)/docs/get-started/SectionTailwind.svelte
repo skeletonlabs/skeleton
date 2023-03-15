@@ -73,6 +73,16 @@ module.exports = {
 						<strong>Daisy</strong>. All three plugins modify similar settings, which means they will conflict.
 					</div>
 				</aside>
+				<p>
+					Note that your app will default to light mode. To manually set dark mode, append the following class to the HTML element within <code
+						>/src/app.html</code
+					>.
+				</p>
+				<CodeBlock language="html" code={`<html class="dark">`} />
+				<p>
+					If you wish to be able to toggle dark mode, review the <a href="/utilities/lightswitches">Lightswitch</a> utility features when you
+					complete this setup process.
+				</p>
 			{/if}
 		</svelte:fragment>
 	</TabGroup>
