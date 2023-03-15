@@ -190,8 +190,8 @@ dispatch('dragover', event);`}
 		<p>When showcasing examples of new features we typically handle this by one of two methods:</p>
 		<ul class="list-disc list-outside ml-8 space-y-1">
 			<li>
-				<strong>Sandbox</strong> (e.g. <a href="/components/app-shell">App Shell</a>) - which provide a dynamic and interactive
-				example that can be adjusted live.
+				<strong>Sandbox</strong> (e.g. <a href="/components/app-shell">App Shell</a>) - which provide a dynamic and interactive example that
+				can be adjusted live.
 			</li>
 			<li>
 				<strong>Static</strong> (e.g. <a href="/components/app-bar">App Bar</a>) - with multiple static examples displaying various

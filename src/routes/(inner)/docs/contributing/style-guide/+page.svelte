@@ -126,7 +126,10 @@ let cLabel: string = 'text-base'; // child element label styles
 		/>
 		<!-- Dynamic Classes -->
 		<h3>Dynamic Classes</h3>
-		<p>If you expect to set one or more styles based on the current value of a property, handle this within a reactive statement as shown below.</p>
+		<p>
+			If you expect to set one or more styles based on the current value of a property, handle this within a reactive statement as shown
+			below.
+		</p>
 		<CodeBlock
 			language="ts"
 			code={`

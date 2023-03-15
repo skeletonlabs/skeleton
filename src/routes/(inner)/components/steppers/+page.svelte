@@ -141,12 +141,16 @@
 			<CodeBlock language="html" code={`<Stepper on:complete={onCompleteHandler}>...</Stepper>`} />
 			<h3>Next, Step and Previous</h3>
 			<p>Events are fired when the next or previous steps are pressed, step fires for both cases.</p>
-			<CodeBlock language="ts" code={`function onStepHandler(e: {step: number, state: {current: number, total: number}}): void {
+			<CodeBlock
+				language="ts"
+				code={`function onStepHandler(e: {step: number, state: {current: number, total: number}}): void {
 	console.log('event:step', e); 
-}`} />
+}`}
+			/>
 			<CodeBlock language="html" code={`<Stepper on:next={onNextHandler} on:step={onStepHandler} on:back={onBackHandler}>...</Stepper>`} />
 			<blockquote>
-				TIP: <code>e.state.current</code> contains the step shown to the user after navigation, <code>e.step</code> contains the step where navigation occured.
+				TIP: <code>e.state.current</code> contains the step shown to the user after navigation, <code>e.step</code> contains the step where navigation
+				occured.
 			</blockquote>
 		</section>
 

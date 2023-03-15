@@ -1,6 +1,6 @@
 // This script is based 'tailwindcolorshades' by Javis V. Pérez:
 // https://github.com/javisperez/tailwindcolorshades/blob/master/src/composables/colors.ts
-import type { PassReport } from "./types";
+import type { PassReport } from './types';
 
 export type Palette = {
 	[key: number]: {
