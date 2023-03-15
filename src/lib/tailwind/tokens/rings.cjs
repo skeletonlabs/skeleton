@@ -7,7 +7,7 @@ const settings = require('../settings.cjs');
 const ringTokenTheme = {
 	'--tw-ring-offset-shadow': `var(--tw-ring-inset) 0 0 0 var(--theme-border-base) var(--tw-ring-offset-color)`,
 	'--tw-ring-shadow': `var(--tw-ring-inset) 0 0 0 calc(2px + var(--theme-border-base)) var(--tw-ring-color)`,
-	'box-shadow': `var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)`,
+	'box-shadow': `var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)`
 };
 const ringOutlineShared = {
 	// .ring-[1px]
@@ -21,7 +21,7 @@ const ringOutlineShared = {
 module.exports = () => {
 	const classes = {
 		'.ring-token': {
-			...ringTokenTheme,
+			...ringTokenTheme
 		},
 		// Ring Outline (for cards)
 		// Example: .ring-outline-token
