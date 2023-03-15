@@ -174,7 +174,7 @@ const conicStops: ConicStop[] = [
 ];
 `}
 					/>
-					<CodeBlock language="html" code={`<ConicGradient stops={conicStops} spin>Loading</CodeBlock>`} />
+					<CodeBlock language="html" code={`<ConicGradient stops={conicStops} spin>Loading</ConicGradient>`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</div>
