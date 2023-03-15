@@ -150,7 +150,7 @@
 					{:else if tabSet === 2}
 						<!-- Selection -->
 						<p>Apply the <code>.table-row-checked</code> class to a table body row to indicate an active selection state.</p>
-						<CodeBlock language="html" code={`<tr class=".table-row-checked">...</tr>`} />
+						<CodeBlock language="html" code={`<tr class="table-row-checked">...</tr>`} />
 					{:else if tabSet === 3}
 						<!-- Fit -->
 						<p>
