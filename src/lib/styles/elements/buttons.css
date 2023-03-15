@@ -74,9 +74,13 @@
 
 	.btn-group {
 		@apply inline-flex flex-row space-x-0 overflow-hidden rounded-token;
+		/* Safari: hover overflow fix for border radius */
+		isolation: isolate;
 	}
 	.btn-group-vertical {
 		@apply btn-group flex-col space-y-0 rounded-container-token;
+		/* Safari: hover overflow fix for border radius */
+		isolation: isolate;
 	}
 
 	/* Button / Anchors */

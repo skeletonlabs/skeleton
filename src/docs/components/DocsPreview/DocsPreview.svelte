@@ -90,7 +90,7 @@
 	{#if tabView === 'preview'}
 		<!-- Swatches -->
 		{#if swatches}
-			<div class="previewer-swatches {classesSwatches}" transition:slide={{ duration: 200 }}>
+			<div class="previewer-swatches {classesSwatches}" transition:slide|local={{ duration: 200 }}>
 				{#each Object.entries(backgrounds) as [k, v], i}
 					<!-- prettier-ignore -->
 					<button type="button" class="{cSwatchCell} {v}" on:click={() => { swatchHandler(k) }} title={k}>

@@ -1,7 +1,7 @@
 /* Ghost Blog Styles */
 
 .blog-post {
-	@apply max-w-5xl mx-auto px-4 md:p-12 space-y-8;
+	@apply max-w-5xl mx-auto p-4 md:p-12 space-y-8;
 }
 
 /* HTML Body Content */

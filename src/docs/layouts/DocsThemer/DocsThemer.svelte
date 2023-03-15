@@ -15,9 +15,9 @@
 
 	// Local Utils
 	import { storePreview } from './stores';
-	import type { ColorSettings, FormTheme } from './types';
+	import type { ColorSettings, FormTheme, ContrastReport } from './types';
 	import { inputSettings, fontSettings } from './settings';
-	import { type Palette, generatePalette, generateA11yOnColor, getPassReport } from './colors';
+	import { type Palette, generatePalette, generateA11yOnColor, hexValueIsValid, getPassReport } from './colors';
 	import type { PopupSettings } from '$lib/utilities/Popup/types';
 
 	// Stores
@@ -44,6 +44,7 @@
 	// Local
 	let cssOutput: string = '';
 	let showThemeCSS: boolean = false;
+	let conReports: ContrastReport[] = getContrastReports();
 
 	function randomize(): void {
 		$storeThemGenForm.colors.forEach((_, i: number) => {
@@ -78,33 +79,55 @@
 		}
 	}
 
+	function getContrastReports(): ContrastReport[] {
+		return $storeThemGenForm.colors.map((value: ColorSettings) => ({
+			...value,
+			contrastReport: getPassReport(value.hex, value.on)
+		}));
+	}
+
 	const tooltipSettings: Omit<PopupSettings, 'target'> = {
 		event: 'hover',
 		placement: 'top'
 	};
 
+	const hexValuesAreValid = (colors: ColorSettings[]) => {
+		// Check all hex values for validity.
+		let valid = true;
+		colors?.forEach((color: ColorSettings) => {
+			valid = valid && hexValueIsValid(color.hex);
+		});
+
+		return valid;
+	};
+
 	// Reactive
-	$: if ($storeThemGenForm) {
+	$: if (hexValuesAreValid($storeThemGenForm.colors)) {
+		// Update contrast reports when hex values change and when they are valid.
+		conReports = getContrastReports();
+	}
+
+	$: if ($storeThemGenForm && hexValuesAreValid($storeThemGenForm.colors)) {
 		cssOutput = `
 :root {
-    /* =~= Theme Properties =~= */
-    --theme-font-family-base: ${fontSettings[$storeThemGenForm.fontBase]};
-    --theme-font-family-heading: ${fontSettings[$storeThemGenForm.fontHeadings]};
-    --theme-font-color-base: ${$storeThemGenForm.textColorLight};
-    --theme-font-color-dark: ${$storeThemGenForm.textColorDark};
-    --theme-rounded-base: ${$storeThemGenForm.roundedBase};
-    --theme-rounded-container: ${$storeThemGenForm.roundedContainer};
-    --theme-border-base: ${$storeThemGenForm.borderBase};
-    /* =~= Theme On-X Colors =~= */
-    --on-primary: ${$storeThemGenForm.colors[0]?.on};
-    --on-secondary: ${$storeThemGenForm.colors[1]?.on};
-    --on-tertiary: ${$storeThemGenForm.colors[2]?.on};
-    --on-success: ${$storeThemGenForm.colors[3]?.on};
-    --on-warning: ${$storeThemGenForm.colors[4]?.on};
-    --on-error: ${$storeThemGenForm.colors[5]?.on};
-    --on-surface: ${$storeThemGenForm.colors[6]?.on};
-    /* =~= Theme Colors  =~= */
-    ${generateColorCSS()}
+	/* =~= Theme Properties =~= */
+	--theme-font-family-base: ${fontSettings[$storeThemGenForm.fontBase]};
+	--theme-font-family-heading: ${fontSettings[$storeThemGenForm.fontHeadings]};
+	--theme-font-color-base: ${$storeThemGenForm.textColorLight};
+	--theme-font-color-dark: ${$storeThemGenForm.textColorDark};
+	--theme-rounded-base: ${$storeThemGenForm.roundedBase};
+	--theme-rounded-container: ${$storeThemGenForm.roundedContainer};
+	--theme-border-base: ${$storeThemGenForm.borderBase};
+	/* =~= Theme On-X Colors =~= */
+	--on-primary: ${$storeThemGenForm.colors[0]?.on};
+	--on-secondary: ${$storeThemGenForm.colors[1]?.on};
+	--on-tertiary: ${$storeThemGenForm.colors[2]?.on};
+	--on-success: ${$storeThemGenForm.colors[3]?.on};
+	--on-warning: ${$storeThemGenForm.colors[4]?.on};
+	--on-error: ${$storeThemGenForm.colors[5]?.on};
+	--on-surface: ${$storeThemGenForm.colors[6]?.on};
+	/* =~= Theme Colors  =~= */
+	${generateColorCSS()}
 }`;
 	}
 
@@ -132,7 +155,6 @@
 			<hr />
 			<div class="p-4 grid grid-cols-1 gap-4">
 				{#each $storeThemGenForm.colors as colorRow, i}
-					{@const contrastReport = getPassReport($storeThemGenForm.colors[i].hex, $storeThemGenForm.colors[i].on)}
 					<div class="grid grid-cols-1 lg:grid-cols-[170px_1fr_200px] gap-2 lg:gap-4">
 						<label class="label">
 							<span>{colorRow.label}</span>
@@ -156,14 +178,14 @@
 										<div
 											class="input-group-shim !px-3"
 											use:popup={{ ...tooltipSettings, ...{ target: 'popup-' + i } }}
-											class:!text-stone-900={contrastReport.fails}
-											class:!bg-red-500={contrastReport.fails}
-											class:!text-zinc-900={contrastReport.largeAA}
-											class:!bg-amber-500={contrastReport.largeAA}
-											class:!text-slate-900={contrastReport.smallAAA || contrastReport.smallAA}
-											class:!bg-green-500={contrastReport.smallAAA || contrastReport.smallAA}
+											class:!text-stone-900={conReports[i].contrastReport.fails}
+											class:!bg-red-500={conReports[i].contrastReport.fails}
+											class:!text-zinc-900={conReports[i].contrastReport.largeAA}
+											class:!bg-amber-500={conReports[i].contrastReport.largeAA}
+											class:!text-slate-900={conReports[i].contrastReport.smallAAA || conReports[i].contrastReport.smallAA}
+											class:!bg-green-500={conReports[i].contrastReport.smallAAA || conReports[i].contrastReport.smallAA}
 										>
-											{@html contrastReport.report.emoji}
+											{@html conReports[i].contrastReport.report.emoji}
 										</div>
 									{/if}
 								</div>
@@ -171,11 +193,11 @@
 								<div
 									data-popup={'popup-' + i}
 									class="text-xs card variant-filled p-2 whitespace-nowrap"
-									class:!variant-filled-red-500={contrastReport.fails}
-									class:!variant-filled-amber-500={contrastReport.largeAA}
-									class:!variant-filled-green-500={contrastReport.smallAAA || contrastReport.smallAA}
+									class:!variant-filled-red-500={conReports[i].contrastReport.fails}
+									class:!variant-filled-amber-500={conReports[i].contrastReport.largeAA}
+									class:!variant-filled-green-500={conReports[i].contrastReport.smallAAA || conReports[i].contrastReport.smallAA}
 								>
-									{contrastReport.report.note}
+									{conReports[i].contrastReport.report.note}
 									<!-- Arrow -->
 									<div class="arrow variant-filled" />
 								</div>

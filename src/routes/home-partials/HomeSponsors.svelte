@@ -12,9 +12,9 @@
 	<!-- Premium Sponsors -->
 	<div class="grid grid-cols-2 gap-4 md:gap-10">
 		<!-- Brain & Bones -->
-		<a href="https://www.brainandbonesllc.com/" target="_blank" rel="noreferrer" use:popup={popupBrainBones}>
+		<a href="https://www.brainandbonesllc.com/" target="_blank" rel="noreferrer" use:popup={popupBrainBones} class="max-h-[180px]">
 			<Avatar
-				src="https://pbs.twimg.com/profile_images/1504272980687441922/pkVimygY_400x400.png"
+				src="https://pbs.twimg.com/profile_images/1504272980687441922/pkVimygY_200x200.png"
 				width="w-full max-w-[180px]"
 				background="bg-neutral-900"
 				shadow="shadow-xl"
@@ -27,8 +27,8 @@
 			<div class="arrow variant-filled-primary" />
 		</div>
 		<!-- Luke -->
-		<a href="https://lukehagar.com/" target="_blank" rel="noreferrer" use:popup={popupLukeHagar}>
-			<Avatar src="https://i.imgur.com/ySBlLmQ.png" width="w-full max-w-[180px]" shadow="shadow-xl" />
+		<a href="https://lukehagar.com/" target="_blank" rel="noreferrer" use:popup={popupLukeHagar} class="max-h-[180px]">
+			<Avatar src="https://i.imgur.com/u8sOah2.png" width="w-full max-w-[180px]" shadow="shadow-xl" />
 		</a>
 		<div class="text-xs text-center card variant-filled-primary p-2 whitespace-nowrap shadow-xl" data-popup="popupLukeHagar">
 			<p class="font-bold">Premium Sponsor</p>
