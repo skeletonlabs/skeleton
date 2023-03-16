@@ -79,9 +79,14 @@
 								This Step component uses the <code>locked</code> property to prevent progress. This is ideal for multi-step forms, such as registration.
 								For now we'll simulate a successful validation condition using the toggle below.
 							</p>
-							<div class="card !bg-transparent p-4 text-center">
-								<SlideToggle name="locked-state" bind:checked={locked}>This step is <u>{locked ? 'Locked' : 'Unlocked'}</u></SlideToggle>
-							</div>
+							<aside class="alert variant-ghost-warning">
+								<div class="alert-message">
+									<p>This step is <u>{locked ? 'Locked' : 'Unlocked'}</u></p>
+								</div>
+								<div class="alert-actions">
+									<SlideToggle name="locked-state" bind:checked={locked} active="bg-warning-500" />
+								</div>
+							</aside>
 						</Step>
 						<Step>
 							<svelte:fragment slot="header">Long Form Content.</svelte:fragment>
