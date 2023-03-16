@@ -102,7 +102,9 @@
 						<span>{@html buttonNextLabel}</span>
 					</button>
 				{:else}
-					<button type={buttonCompleteType} class="btn {buttonComplete}" on:click={onComplete}>{@html buttonCompleteLabel}</button>
+					<button type={buttonCompleteType} class="btn {buttonComplete}" on:click={onComplete} disabled={locked}>
+						{@html buttonCompleteLabel}
+					</button>
 				{/if}
 			</div>
 		{/if}
