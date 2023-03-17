@@ -1,6 +1,6 @@
 {
 	"name": "@skeletonlabs/skeleton",
-	"version": "v1.0.1",
+	"version": "v1.0.0",
 	"description": "A SvelteKit component library.",
 	"author": "endigo9740 <chris@skeletonlabs.dev>",
 	"scripts": {
@@ -24,6 +24,20 @@
 	"bugs": {
 		"url": "https://github.com/skeletonlabs/skeleton/issues"
 	},
+	"keywords": [
+		"cli",
+		"components",
+		"ui",
+		"component",
+		"svelte",
+		"component-library",
+		"ui-components",
+		"ui-framework",
+		"tailwind",
+		"tailwindcss",
+		"components-library",
+		"sveltekit"
+	],
 	"license": "MIT",
 	"homepage": "https://skeleton.dev/",
 	"devDependencies": {
