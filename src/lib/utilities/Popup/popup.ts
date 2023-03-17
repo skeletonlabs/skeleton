@@ -3,6 +3,7 @@ import { get, writable, type Writable } from 'svelte/store';
 // Types
 import type { PopupSettings } from './types';
 import type { Middleware } from '@floating-ui/dom';
+import { tick } from 'svelte';
 
 // Store
 type PopupStore = {
@@ -254,7 +255,22 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		// we must use mousedown instead of click because click fires after focusin, meaning isVisible would always be true
 		// if the active element (one with current focus) is the same as the node (the element with the use:popup directive),
 		// then the user clicked on the node, so we should toggle the state of the popup
-		node.addEventListener('mousedown', () => (document.activeElement?.isSameNode(node) && isVisible ? close() : open()), true);
+		node.addEventListener(
+			'mousedown',
+			async (e) => {
+				// buttons lose focus after click, this keeps the focus on the node
+				e.preventDefault();
+				if (isNode(document.activeElement)) {
+					if (!node.isSameNode(document.activeElement)) {
+						node.focus();
+						return;
+					}
+					if (isVisible) close();
+					else show();
+				}
+			},
+			true
+		);
 	}
 	// A11y Event Listeners
 	window.addEventListener('keydown', onWindowKeyDown, true);
