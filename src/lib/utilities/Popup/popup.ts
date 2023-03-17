@@ -114,7 +114,10 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		// Automatically focus the element if openWithFocus is true (for example if
 		// the menu was opened with Enter instead of with a click
 		activeFocusIdx = 0;
-		focusableElems[0]?.focus();
+		// if the popup was triggered via focus, we don't want to move that focus
+		if (event !== 'focus' && event !== 'focus-click') {
+			focusableElems[0]?.focus();
+		}
 	}
 
 	// Window Click Handler
@@ -178,6 +181,11 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		// Cleanup autoUpdate on close (REQUIRED)
 		if (autoUpdateCleanup) autoUpdateCleanup();
 	}
+	function closeOnFocusOut(e: FocusEvent) {
+		// if the focus is within the popup, or on the trigger node, do nothing
+		if (e.relatedTarget instanceof Element && (elemPopup?.contains(e.relatedTarget) || node.isSameNode(e.relatedTarget))) return;
+		close();
+	}
 
 	// State Handler
 	const stateEventHandler = (value: boolean): void => {
@@ -231,6 +239,22 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 	if (event === 'hover-click') {
 		node.addEventListener('mouseover', show, true);
 		window.addEventListener('click', onWindowClick, true);
+	}
+	if (event === 'focus' || event === 'focus-click') {
+		if (!elemPopup) return;
+		node.addEventListener('focusin', show, true);
+		node.addEventListener('focusout', closeOnFocusOut, true);
+		// if we tab into a closed popup, we will tab into the last element of any focusable element in elemPopup
+		// so we add an event listener to move the focus back to the node the `use:popup` directive is on
+		elemPopup.addEventListener('focusin', () => !isVisible && node.focus(), true);
+		// when we focus off the end of the list, close the popup
+		elemPopup.addEventListener('focusout', closeOnFocusOut, true);
+	}
+	if (event === 'focus-click') {
+		// we must use mousedown instead of click because click fires after focusin, meaning isVisible would always be true
+		// if the active element (one with current focus) is the same as the node (the element with the use:popup directive),
+		// then the user clicked on the node, so we should toggle the state of the popup
+		node.addEventListener('mousedown', () => (document.activeElement?.isSameNode(node) && isVisible ? close() : open()), true);
 	}
 	// A11y Event Listeners
 	window.addEventListener('keydown', onWindowKeyDown, true);

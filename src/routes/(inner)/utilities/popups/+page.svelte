@@ -67,7 +67,16 @@
 		event: 'click',
 		target: 'exampleMenu',
 		placement: 'bottom'
-		// state: (e: any) => console.log('tooltip', e)
+	};
+	let exampleFocus: PopupSettings = {
+		event: 'focus',
+		target: 'exampleFocus',
+		placement: 'bottom'
+	};
+	let exampleFocusClick: PopupSettings = {
+		event: 'focus-click',
+		target: 'exampleFocusClick',
+		placement: 'bottom'
 	};
 </script>
 
@@ -103,6 +112,30 @@
 								<a class="btn variant-soft w-full" href="https://twitter.com/SkeletonUI" target="_blank" rel="noreferrer">
 									View on Twitter
 								</a>
+							</div>
+							<!-- Arrow -->
+							<div class="arrow bg-surface-100-800-token" />
+						</div>
+					</div>
+					<div>
+						<button class="btn variant-filled" use:popup={exampleFocus}> Focus </button>
+						<div class="card p-4 w-72 shadow-xl" data-popup="exampleFocus">
+							<!-- NOTE: Keep this wrapper, .space-y will affect the arrow -->
+							<div class="space-y-4">
+								<span> This element will stick around until you click or focus outside of it. </span>
+								<button class="btn variant-soft w-full"> Click me </button>
+							</div>
+							<!-- Arrow -->
+							<div class="arrow bg-surface-100-800-token" />
+						</div>
+					</div>
+					<div>
+						<button class="btn variant-filled" use:popup={exampleFocusClick}> Focus-Click </button>
+						<div class="card p-4 w-72 shadow-xl" data-popup="exampleFocusClick">
+							<!-- NOTE: Keep this wrapper, .space-y will affect the arrow -->
+							<div class="space-y-4">
+								<span> This will close if you click or focus outside, or if you click the Focus-Click button again. </span>
+								<button class="btn variant-soft w-full"> Click me </button>
 							</div>
 							<!-- Arrow -->
 							<div class="arrow bg-surface-100-800-token" />
