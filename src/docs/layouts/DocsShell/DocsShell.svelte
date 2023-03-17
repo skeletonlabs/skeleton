@@ -25,7 +25,7 @@
 
 	// Classes
 	const cBase = 'relative';
-	const cTabs = 'max-w-5xl mx-auto'; // sticky top-0 z-[1]
+	const cTabs = 'max-w-5xl mx-auto hide-scrollbar'; // sticky top-0 z-[1]
 	const cPanels = 'space-y-10';
 
 	// Local
@@ -58,7 +58,7 @@
 	$: classesPanels = `${cPanels}`;
 </script>
 
-<LayoutPage class="doc-shell {classesBase}">
+<LayoutPage class="doc-shell {classesBase}" tocKey={tabPanel}>
 	<!-- Header -->
 	<Header {pageData} />
 

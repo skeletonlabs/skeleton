@@ -47,6 +47,9 @@
 	function onBackHandler(e: any): void {
 		console.log('event:prev', e.detail);
 	}
+	function onStepHandler(e: any): void {
+		console.log('event:step', e.detail);
+	}
 	function onCompleteHandler(e: any): void {
 		console.log('event:complete', e.detail);
 		alert('Complete!');
@@ -59,7 +62,7 @@
 		<DocsPreview>
 			<svelte:fragment slot="preview">
 				<div class="w-full card p-4 text-token">
-					<Stepper on:next={onNextHandler} on:back={onBackHandler} on:complete={onCompleteHandler}>
+					<Stepper on:next={onNextHandler} on:back={onBackHandler} on:step={onStepHandler} on:complete={onCompleteHandler}>
 						<Step>
 							<svelte:fragment slot="header">Get Started!</svelte:fragment>
 							<p>This example Stepper will teach you how to use this component. Tap <u>next</u> to proceed to the next step.</p>
@@ -76,9 +79,14 @@
 								This Step component uses the <code>locked</code> property to prevent progress. This is ideal for multi-step forms, such as registration.
 								For now we'll simulate a successful validation condition using the toggle below.
 							</p>
-							<div class="card !bg-transparent p-4 text-center">
-								<SlideToggle name="locked-state" bind:checked={locked}>This step is <u>{locked ? 'Locked' : 'Unlocked'}</u></SlideToggle>
-							</div>
+							<aside class="alert variant-ghost-warning">
+								<div class="alert-message">
+									<p>This step is <u>{locked ? 'Locked' : 'Unlocked'}</u></p>
+								</div>
+								<div class="alert-actions">
+									<SlideToggle name="locked-state" bind:checked={locked} active="bg-warning-500" />
+								</div>
+							</aside>
 						</Step>
 						<Step>
 							<svelte:fragment slot="header">Long Form Content.</svelte:fragment>
@@ -136,9 +144,19 @@
 			<h3>Complete Event</h3>
 			<CodeBlock language="ts" code={`function onCompleteHandler(e: Event): void { console.log('event:complete', e); }`} />
 			<CodeBlock language="html" code={`<Stepper on:complete={onCompleteHandler}>...</Stepper>`} />
-			<h3>Next and Previous</h3>
-			<p>Events are fired when the next or previous steps are pressed.</p>
-			<CodeBlock language="html" code={`<Stepper on:next={onNextHandler} on:back={onBackHandler}>...</Stepper>`} />
+			<h3>Next, Step and Previous</h3>
+			<p>Events are fired when the next or previous steps are pressed, step fires for both cases.</p>
+			<CodeBlock
+				language="ts"
+				code={`function onStepHandler(e: {step: number, state: {current: number, total: number}}): void {
+	console.log('event:step', e); 
+}`}
+			/>
+			<CodeBlock language="html" code={`<Stepper on:next={onNextHandler} on:step={onStepHandler} on:back={onBackHandler}>...</Stepper>`} />
+			<blockquote>
+				TIP: <code>e.state.current</code> contains the step shown to the user after navigation, <code>e.step</code> contains the step where navigation
+				occured.
+			</blockquote>
 		</section>
 
 		<section class="space-y-4">

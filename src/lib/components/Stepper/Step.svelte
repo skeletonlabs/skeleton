@@ -49,11 +49,13 @@
 		$state.current++;
 		/** @event { $state } next - Fires when the NEXT button is pressed per step.  */
 		dispatchParent('next', { step: stepIndex, state: $state });
+		dispatchParent('step', { step: stepIndex, state: $state });
 	}
 	function onBack(): void {
 		$state.current--;
 		/** @event { $state } back - Fires when the BACK button is pressed per step.  */
 		dispatchParent('back', { step: stepIndex, state: $state });
+		dispatchParent('step', { step: stepIndex, state: $state });
 	}
 	function onComplete() {
 		/** @event { $state } complete - Fires when the COMPLETE button is pressed.  */
@@ -100,7 +102,9 @@
 						<span>{@html buttonNextLabel}</span>
 					</button>
 				{:else}
-					<button type={buttonCompleteType} class="btn {buttonComplete}" on:click={onComplete}>{@html buttonCompleteLabel}</button>
+					<button type={buttonCompleteType} class="btn {buttonComplete}" on:click={onComplete} disabled={locked}>
+						{@html buttonCompleteLabel}
+					</button>
 				{/if}
 			</div>
 		{/if}

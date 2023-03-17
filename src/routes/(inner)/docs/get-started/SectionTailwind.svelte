@@ -33,7 +33,7 @@
 					</p>
 					<CodeBlock language="console" code={`npx svelte-add@latest tailwindcss\nnpm install`} />
 					<!-- prettier-ignore -->
-					<p>Then open your global stylesheet in <code>/src/app.postcss</code> and remove the following three <a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> introduced by Svelte-Add. These are redudant as Skeleton automatically handles these in our stylesheets for you.</p>
+					<p>Then open your global stylesheet in <code>/src/app.postcss</code> and remove the following three <a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> introduced by Svelte-Add. These are redundant as Skeleton automatically handles these in our stylesheets for you.</p>
 					<div class="space-y-[1px]">
 						<del>@tailwind base;</del>
 						<del>@tailwind components;</del>
@@ -73,6 +73,16 @@ module.exports = {
 						<strong>Daisy</strong>. All three plugins modify similar settings, which means they will conflict.
 					</div>
 				</aside>
+				<p>
+					Note that your app will default to light mode. To manually set dark mode, append the following class to the HTML element within <code
+						>/src/app.html</code
+					>.
+				</p>
+				<CodeBlock language="html" code={`<html class="dark">`} />
+				<p>
+					If you wish to be able to toggle dark mode, review the <a href="/utilities/lightswitches">Lightswitch</a> utility features when you
+					complete this setup process.
+				</p>
 			{/if}
 		</svelte:fragment>
 	</TabGroup>

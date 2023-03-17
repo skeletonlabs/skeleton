@@ -20,7 +20,7 @@
 	<!-- Why -->
 	<section class="space-y-4">
 		<p class="!text-xl">
-			Skeleton utilizes Tailwind’s utility classes and design system capabilities quickly and easily create beautiful interfaces. Paired
+			Skeleton utilizes Tailwind’s utility classes and design system capabilities to quickly and easily create beautiful interfaces. Paired
 			with Svelte’s powerful component architecture, Skeleton creates customized, responsive, and reactive interfaces for projects of any
 			scope or scale.
 		</p>
@@ -39,9 +39,9 @@
 	<section class="space-y-4">
 		<h2>Our Vision</h2>
 		<p>
-			The goal of Skeleton is to create intelligent, adaptive UI that automatically adheres to your applications unique aesthetic. Utilizing
-			native browser APIs and elements, such as form elements, when possible. While also augmenting this with powerful components built to
-			follow WAI-ARIA guidelines for accessibility.
+			Skeleton aims to provide a seamless user experience by creating intelligent and adaptive UI elements that automatically conform to the
+			unique aesthetic of your application. It leverages native browser APIs and form elements, while also incorporating powerful components
+			that follow WAI-ARIA guidelines for accessibility, empowering developers to create user-centric web applications with ease.
 		</p>
 		<p>
 			We're huge fans of Svelte and wish to contribute to this amazing ecosystem. We believe this only happens through contributions of high
@@ -49,7 +49,8 @@
 		</p>
 		<p>
 			Finally, we aim for inclusion, whether you're a contributor to the project, a consumer, or the end user. The Skeleton core team is not
-			a faceless corporate entity, but rather a small group of individuals motivated to make accessible UI with great UX for all.
+			a faceless corporate entity, but rather a small group of individuals motivated to make accessible UI with great UX (user experience)
+			and DX (developer experience) for all.
 		</p>
 	</section>
 
@@ -68,21 +69,21 @@
 		<!-- Community Owned -->
 		<h3>Community Owned</h3>
 		<!-- prettier-ignore -->
-		<p>Skeleton is maintained by a number of talented <a href="https://github.com/skeletonlabs/skeleton/graphs/contributors" target="_blank" rel="noreferrer">contributors</a>. If you wish to <a href="/docs/contributing">contribute to the project</a> you are welcome to do so. Visit the Skeleton communities on either <a href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer">GitHub</a> or <a href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer">Discord</a>.</p>
+		<p>Skeleton is maintained by a number of talented <a href="https://github.com/skeletonlabs/skeleton/graphs/contributors" target="_blank" rel="noreferrer">contributors</a>. If you wish to <a href="/docs/contributing">contribute to the project</a>, you are welcome to do so. Visit the Skeleton communities on either <a href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer">GitHub</a> or <a href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer">Discord</a>.</p>
 		<!-- Theme System -->
 		<h3>Theme System</h3>
 		<p>
 			We provide a powerful and comprehensive theme system that goes well beyond generating a color palette. Themes allow you to control
-			common settings, such as border radius, and apply that universally throughout your application. Furthermore, themes are built using
-			CSS variables, which makes theme simple to configure and reuse.
+			common settings, such as border radius, and apply those universally throughout your application. Furthermore, themes are built using
+			CSS variables, which makes themes simple to configure and reuse.
 		</p>
 		<!-- Design Tokens -->
 		<h3>Design Tokens</h3>
 		<p>
-			A special set of CSS classes that ingest your theme settings for easy reuse throughout your design system. These are used as the
-			default settings for most features within Skeleton, meaning your UI elements automatically adjust to theme adjustments. Likewise,
-			these tokens are available to you, meaning you can build custom components using the same tools we do, for a truly cohesive look and
-			feel.
+			These tokens are a special set of CSS classes that ingest your theme settings for easy reuse throughout your design system. They are
+			used as the default settings for most features within Skeleton, meaning your UI elements automatically adjust to theme changes.
+			Likewise, these tokens are available to you, meaning you can build custom components using the same tools we do, for a truly cohesive
+			look and feel.
 		</p>
 		<!-- Release Cycle -->
 		<h3>Release Cycle</h3>
@@ -105,10 +106,10 @@
 				<svelte:fragment slot="content">
 					<a href="https://tailwindui.com/" target="_blank" rel="noreferrer">https://tailwindui.com/</a>
 					<p>
-						A library of UI elements created by the creators of Tailwind CSS. This provides a huge library of turnkey HTML/CSS components.
+						A library of UI elements designed by the creators of Tailwind CSS. This provides a huge library of turnkey HTML/CSS components.
 						Currently Tailwind UI supports three options: HTML, React, and Vue. This means there's no plug and play solution for Svelte. You
-						willneed to generate your own components and build your own logic around these. Tailwind UI can be directly integrated with
-						Skeleton though, providing tight integration with Skeleton theme and design token systems.
+						will need to generate your own components and build your own logic around these. Tailwind UI can be directly integrated with
+						Skeleton though, providing tight integration with Skeleton's theme and design token systems.
 					</p>
 					<a class="btn variant-filled-secondary" href="/blog/skeleton-plus-tailwind-ui" target="_blank"> View our Integration Guide </a>
 				</svelte:fragment>
@@ -122,8 +123,8 @@
 						and opinionated design aesthetic and serves as a general purpose library, which means it can be used within any framework, while
 						providing framework-specific variations like <a href="https://flowbite-svelte.com/" target="_blank" rel="noreferrer"
 							>Flowbite Svelte</a
-						>. Flowbite's HTML/CSS elements can be directly integrated with Skeleton though, providing tight integration with Skeleton theme
-						and design token systems.
+						>. Flowbite's HTML/CSS elements can be directly integrated with Skeleton, providing tight integration with Skeleton's theme and
+						design token systems.
 					</p>
 					<a class="btn variant-filled-secondary" href="/blog/skeleton-plus-flowbite" target="_blank"> View our Integration Guide </a>
 				</svelte:fragment>
@@ -133,11 +134,9 @@
 				<svelte:fragment slot="content">
 					<a href="https://daisyui.com/" target="_blank" rel="noreferrer">https://daisyui.com/</a>
 					<p>
-						Daisy can be compared to Skeleton due to our shared use of Tailwind CSS and highly customizable theme systems. Unfortunately,
-						Daisy themes rely on hex color values which <a
-							href="https://tailwindcss.com/docs/customizing-colors#using-css-variables"
-							target="_blank"
-							rel="noreferrer">prevents the use of the opacity modifier syntax</a
+						Like Skeleton, Daisy uses Tailwind CSS and highly customizable theme systems. Unfortunately, Daisy themes rely on hex color
+						values which <a href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank" rel="noreferrer"
+							>prevents the use of the opacity modifier syntax</a
 						>. Skeleton, on the other hand, treats utility classes as first class citizens, providing hooks to set and override Tailwind
 						classes within each component. Skeleton components also accept arbitrary classes, allowing full customization from top to
 						bottom. However, it’s worth noting that Daisy is a general purpose library available to any framework, while Skeleton focuses
@@ -206,7 +205,8 @@
 				<svelte:fragment slot="content">
 					<p>
 						We recommend the official <a href="https://svelte.dev/docs" target="_blank" rel="noreferrer">documentation</a> and
-						<a href="https://svelte.dev/tutorial/basics" target="_blank" rel="noreferrer">tutorial</a> for Svelte. As well as the official
+						<a href="https://learn.svelte.dev/tutorial/welcome-to-svelte" target="_blank" rel="noreferrer">tutorial</a> for Svelte and
+						SvelteKit. As well as the official
 						<a href="https://kit.svelte.dev/" target="_blank" rel="noreferrer">documentation</a> for SvelteKit.
 					</p>
 				</svelte:fragment>

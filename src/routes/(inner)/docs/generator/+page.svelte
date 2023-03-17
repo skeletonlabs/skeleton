@@ -27,7 +27,7 @@
 		<h2>Importing Your Theme</h2>
 		<p>
 			Copy and paste your theme CSS into <code>/src/theme.postcss</code>, then import the theme into your root layout in
-			<code>/src/routes/+layout.svelte</code>. Keep the order as shown.
+			<code>/src/routes/+layout.svelte</code> instead of a premade Skeleton theme. Keep the order as shown.
 		</p>
 		<CodeBlock
 			language="ts"

@@ -69,7 +69,7 @@
 			<h2>Navigation</h2>
 			<p>
 				When enabled this action will auto-select the first focusable element. Press <kbd>Tab</kbd> or <kbd>Shift + Tab</kbd> to cycle through
-				focusable elements within the target region. When the last item is focussed, it will loop to the start, and vice versa.
+				focusable elements within the target region. When the last item is focused, it will loop to the start, and vice versa.
 			</p>
 		</section>
 		<section class="space-y-4">

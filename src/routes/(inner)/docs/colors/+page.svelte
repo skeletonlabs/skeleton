@@ -18,7 +18,7 @@
 				'[style]-success-[50-900]',
 				'Used for successful or positive actions, such as a form submit alert.'
 			],
-			[`<div class="${cSwatch} bg-warning-500" />`, '[style]-warning-[50-900]', 'Used for negative or harmful actions, such as errors.'],
+			[`<div class="${cSwatch} bg-warning-500" />`, '[style]-warning-[50-900]', 'Used for negative or harmful actions, such as warnings.'],
 			[`<div class="${cSwatch} bg-error-500" />`, '[style]-error-[50-900]', 'May be used for errors, alerts, and invalid inputs.'],
 			[`<div class="${cSwatch} bg-surface-500" />`, '[style]-surface-[50-900]', 'The base level colors, used for backgrounds.']
 		]

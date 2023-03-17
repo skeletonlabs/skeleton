@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onDestroy, onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
 
 	// Types
 	import type { CssClasses } from '$lib';
@@ -63,9 +64,10 @@
 					.toLowerCase();
 				elem.id = `${newId}`;
 			}
-			// Implement permalink
-			if (elem.querySelector('.permalink')) return;
-			elem.innerHTML += `<a href="#${elem.id}" class="permalink">🔗</a>`;
+			// Implement permalink if none present
+			if (!elem.querySelector('.permalink')) {
+				elem.innerHTML += `<a href="#${elem.id}" class="permalink">🔗</a>`;
+			}
 			// Generate headings whitelist
 			filteredHeadingsList.push(elem);
 			// Debug
@@ -87,7 +89,6 @@
 	// Scrolls to the selected heading
 	// https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
 	function scrollToHeading(headingElem: HTMLElement): void {
-		console.dir(headingElem);
 		const elemTarget: any = document.querySelector(`#${headingElem.id}`);
 		elemTarget.scrollIntoView({ behavior: 'smooth' });
 	}
@@ -131,20 +132,22 @@
 
 <!-- @component Allows you to quickly navigate the hierarchy of headings for the current page. -->
 
-<div class="toc {classesBase}">
-	<nav class="toc-list {classesList}">
-		<div class="toc-label {classesLabel}">{label}</div>
-		{#each filteredHeadingsList as headingElem, i}
-			<!-- prettier-ignore -->
-			<li
-				class="toc-list-item {classesListItem} {setHeadingClasses(headingElem)} {headingElem.id === activeHeaderId ? active : ''}"
-				on:click={() => { scrollToHeading(headingElem); }}
-				on:click
-				on:keypress
-			>
-				<!-- {headingElem.innerText} -->
-				{headingElem.firstChild?.nodeValue}
-			</li>
-		{/each}
-	</nav>
-</div>
+{#if filteredHeadingsList.length > 0}
+	<div class="toc {classesBase}" transition:fade|local={{ duration: 100 }}>
+		<nav class="toc-list {classesList}">
+			<div class="toc-label {classesLabel}">{label}</div>
+			{#each filteredHeadingsList as headingElem, i}
+				<!-- prettier-ignore -->
+				<li
+					class="toc-list-item {classesListItem} {setHeadingClasses(headingElem)} {headingElem.id === activeHeaderId ? active : ''}"
+					on:click={() => { scrollToHeading(headingElem); }}
+					on:click
+					on:keypress
+				>
+					<!-- {headingElem.innerText} -->
+					{headingElem.firstChild?.nodeValue}
+				</li>
+			{/each}
+		</nav>
+	</div>
+{/if}

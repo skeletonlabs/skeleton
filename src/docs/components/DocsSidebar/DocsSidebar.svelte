@@ -61,6 +61,12 @@
 <div class="grid grid-cols-[auto_1fr] h-full bg-surface-50-900-token border-r border-surface-500/30 {$$props.class ?? ''}">
 	<!-- App Rail -->
 	<AppRail selected={storeCategory} background="bg-transparent" border="border-r border-surface-500/30">
+		<div class="lg:hidden">
+			<AppRailTile label="Home" tag="a" href="/" value={'home'} on:click={onListItemClick}>
+				<i class="fa-solid fa-home text-2xl" />
+			</AppRailTile>
+			<hr class="opacity-30" />
+		</div>
 		<AppRailTile label="Docs" value={'docs'}>
 			<i class="fa-solid fa-book text-2xl" />
 		</AppRailTile>
@@ -74,11 +80,12 @@
 		<AppRailTile label="Utilities" value={'utilities'}>
 			<i class="fa-solid fa-screwdriver-wrench text-2xl" />
 		</AppRailTile>
-		<svelte:fragment slot="trail">
-			<AppRailTile label="Blog" tag="a" href="/blog" value={'blog'} on:click={onListItemClick} class="lg:hidden">
+		<div class="lg:hidden">
+			<hr class="opacity-30" />
+			<AppRailTile label="Blog" tag="a" href="/blog" value={'blog'} on:click={onListItemClick}>
 				<i class="fa-solid fa-bullhorn text-2xl" />
 			</AppRailTile>
-		</svelte:fragment>
+		</div>
 	</AppRail>
 	<!-- Nav Links -->
 	<section class="p-4 pb-20 space-y-4 overflow-y-auto">

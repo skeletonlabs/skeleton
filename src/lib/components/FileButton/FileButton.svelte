@@ -2,6 +2,12 @@
 	// Types
 	import type { CssClasses } from '$lib';
 
+	//Props
+	/**
+	 * Bind FileList to the file input.
+	 * @type {FileList}
+	 */
+	export let files: FileList | undefined = undefined;
 	/**
 	 * Required. Set a unique name for the file input.
 	 * @type {string}
@@ -35,7 +41,7 @@
 <div class="file-button {classesBase}" data-testid="file-button">
 	<!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->
 	<div class="w-0 h-0 overflow-hidden">
-		<input type="file" bind:this={elemFileInput} {name} {...prunedRestProps()} on:change />
+		<input type="file" bind:this={elemFileInput} bind:files {name} {...prunedRestProps()} on:change />
 	</div>
 	<!-- Button -->
 	<button

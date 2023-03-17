@@ -13,27 +13,27 @@
 	// Props
 	/** Sets a language alias for Highlight.js syntax highlighting. */
 	export let language = 'plaintext';
-	/** Provide the code to render. Be mindful to escape as needed! */
+	/** Provide the code snippet to render. Be mindful to escape as needed! */
 	export let code = '';
 
 	// Props (styles)
-	/** Provided classes to set the background color. */
+	/** Provide classes to set the background color. */
 	export let background: CssClasses = 'bg-neutral-900/90';
 	/** Provided classes to set the backdrop blur. */
 	export let blur: CssClasses = '';
-	/** Provided classes to set the text size. */
+	/** Provide classes to set the text size. */
 	export let text: CssClasses = 'text-sm';
-	/** Provided classes to set the text color. */
+	/** Provide classes to set the text color. */
 	export let color: CssClasses = 'text-white';
-	/** Provided classes to set the border radius. */
+	/** Provide classes to set the border radius. */
 	export let rounded: CssClasses = 'rounded-container-token';
-	/** Provided classes to set the box shadow. */
+	/** Provide classes to set the box shadow. */
 	export let shadow: CssClasses = 'shadow';
-	/** Provided classes to set the button styles. */
+	/** Provide classes to set the button styles. */
 	export let button: CssClasses = 'btn btn-sm variant-soft !text-white';
-	/** Provided the button label text. */
+	/** Provide the button label text. */
 	export let buttonLabel = 'Copy';
-	/** Provided the button label text when copied. */
+	/** Provide the button label text when copied. */
 	export let buttonCopied = '👍';
 
 	// Base Classes

@@ -116,7 +116,7 @@
 		<section class="space-y-4">
 			<h2>Open on Load</h2>
 			<p>
-				Set the visible items on load with <code>open</code>. When using <code>autocollapse</code> mode this is limited to a single item.
+				Set the visible items on load with <code>open</code>. When using <code>autocollapse</code> mode, this is limited to a single item.
 			</p>
 			<CodeBlock language="html" code={`<AccordionItem open>...</AccordionItem>`} />
 		</section>

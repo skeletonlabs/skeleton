@@ -5,7 +5,6 @@
 	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
 	// Components
 	import AppShell from '$lib/components/AppShell/AppShell.svelte';
-	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	// Sveld
 	import sveldAppShell from '$lib/components/AppShell/AppShell.svelte?raw&sveld';
@@ -19,9 +18,6 @@
 		source: 'components/AppShell',
 		components: [{ sveld: sveldAppShell }]
 	};
-
-	// Styles
-	const cBox = 'border border-surface-500 p-2 text-sm h-full flex justify-center items-center';
 
 	// Local
 	let state: any = {
@@ -54,42 +50,42 @@
 				>
 					<svelte:fragment slot="header">
 						{#if state.header}
-							<div class="card variant-soft p-2 m-0.5 flex justify-center items-center">Header</div>
+							<div class="card variant-soft p-2 m-0.5 flex justify-center items-center overflow-hidden text-xs">Header</div>
 						{/if}
 					</svelte:fragment>
 					<svelte:fragment slot="sidebarLeft">
 						{#if state.sidebarLeft}
-							<div class="card variant-soft p-2 m-0.5 flex justify-center items-center">sidebarLeft</div>
+							<div class="card variant-soft p-2 m-0.5 flex justify-center items-center overflow-hidden text-xs">sidebarLeft</div>
 						{/if}
 					</svelte:fragment>
 					<svelte:fragment slot="sidebarRight">
 						{#if state.sidebarRight}
-							<div class="card variant-soft p-2 m-0.5 flex justify-center items-center">sidebarRight</div>
+							<div class="card variant-soft p-2 m-0.5 flex justify-center items-center overflow-hidden text-xs">sidebarRight</div>
 						{/if}
 					</svelte:fragment>
 					<svelte:fragment slot="pageHeader">
 						{#if state.pageHeader}
-							<div class="card variant-soft-primary p-2 m-0.5 flex justify-center items-center">pageHeader</div>
+							<div class="card variant-soft-primary p-2 m-0.5 flex justify-center items-center overflow-hidden text-xs">pageHeader</div>
 						{/if}
 					</svelte:fragment>
 					<svelte:fragment slot="pageFooter">
 						{#if state.pageFooter}
-							<div class="card variant-soft-primary p-2 m-0.5 flex justify-center items-center">pageFooter</div>
+							<div class="card variant-soft-primary p-2 m-0.5 flex justify-center items-center overflow-hidden text-xs">pageFooter</div>
 						{/if}
 					</svelte:fragment>
 					<!-- --- -->
-					<div class="card variant-soft-primary p-2 m-0.5 flex justify-center items-center">(page route)</div>
+					<div class="card variant-soft-primary p-2 m-0.5 flex justify-center items-center overflow-hidden text-xs">(page route)</div>
 					<!-- --- -->
 					<svelte:fragment slot="footer">
 						{#if state.footer}
-							<div class="card variant-soft p-2 m-0.5 flex justify-center items-center">footer</div>
+							<div class="card variant-soft p-2 m-0.5 flex justify-center items-center overflow-hidden text-xs">footer</div>
 						{/if}
 					</svelte:fragment>
 				</AppShell>
 			</svelte:fragment>
 			<svelte:fragment slot="footer">
 				<!-- prettier-ignore -->
-				<div class="mx-auto grid grid-cols-3 2xl:grid-cols-6 gap-4">
+				<div class="mx-auto grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-6 gap-4">
 					<button class="btn {state.header ? 'variant-filled' : 'variant-soft'}" on:click={() => { toggle('header'); }}>
 						header
 					</button>
