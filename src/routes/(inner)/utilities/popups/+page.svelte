@@ -154,7 +154,7 @@
 					language="ts"
 					code={`
 let popupSettings: PopupSettings = {
-	// Set the event as: click | hover | hover-click
+	// Set the event as: click | hover | hover-click | focus | focus-click
 	event: 'click',
 	// Provide a matching 'data-popup' value.
 	target: 'examplePopup'
