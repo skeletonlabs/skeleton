@@ -69,12 +69,11 @@ export function generatePalette(baseColor: string): Palette {
 	};
 	const color = chroma(baseColor);
 	const chromaScale = chroma
-		.scale([color.brighten(4), color, color.darken(1.5)])
-		.correctLightness()
-		.mode('lch')
-		// because tailwindNumbers is an array of strings, we need to convert it to an array of numbers
-		// .classes([...tailwindNumbers.map((entry) => parseInt(entry) / 1000), 0.95]);
-		.classes(10);
+		.scale([color.set('lch.l', 100).set('lch.c', 10), color, color.darken(2)])
+		.domain([0.05, 0.5, 0.9])
+		.correctLightness(true)
+		.mode('lch');
+
 	for (const entry of tailwindNumbers) {
 		const number = parseInt(entry);
 		const scale = number / 1000;
