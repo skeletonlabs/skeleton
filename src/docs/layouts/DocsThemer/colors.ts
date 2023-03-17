@@ -53,9 +53,9 @@ export function rgbToHex(r: number, g: number, b: number): string {
 }
 
 export function generateA11yOnColor(hex: string): '255 255 255' | '0 0 0' {
-	const black = calculateRatio(hex, '#000000');
-	const white = calculateRatio(hex, '#FFFFFF');
-	return black < white ? '0 0 0' : '255 255 255';
+	const blackContrast = chroma.contrast(chroma(hex), chroma('#000000'));
+	const whiteContrast = chroma.contrast(chroma(hex), chroma('#FFFFFF'));
+	return blackContrast > whiteContrast ? '0 0 0' : '255 255 255';
 }
 
 export function generatePalette(baseColor: string): Palette {
@@ -69,9 +69,14 @@ export function generatePalette(baseColor: string): Palette {
 	};
 	const color = chroma(baseColor);
 	const chromaScale = chroma
-		.scale([color.set('lch.l', 100).set('lch.c', 10), color, color.darken(2)])
+		.scale([
+			color.brighten(2.5).desaturate(0.5),
+			// color.set('lch.l', 100).set('lch.c', 10),
+			color,
+			color.darken(1.7).desaturate(0.3)
+		])
 		.domain([0.05, 0.5, 0.9])
-		.correctLightness(true)
+		.correctLightness()
 		.mode('lch');
 
 	for (const entry of tailwindNumbers) {
