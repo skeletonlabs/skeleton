@@ -2,9 +2,22 @@ import { get, writable, type Writable } from 'svelte/store';
 
 // Types
 import type { PopupSettings } from './types';
+import type { Middleware } from '@floating-ui/dom';
 
 // Store
-export const storePopup: Writable<any> = writable(undefined);
+type PopupStore = {
+	computePosition: typeof import('@floating-ui/dom').computePosition;
+	autoUpdate: typeof import('@floating-ui/dom').autoUpdate;
+	flip: typeof import('@floating-ui/dom').flip;
+	shift: typeof import('@floating-ui/dom').shift;
+	offset: typeof import('@floating-ui/dom').offset;
+	arrow: typeof import('@floating-ui/dom').arrow;
+};
+export const storePopup: Writable<PopupStore | undefined> = writable(undefined);
+
+function isNode(el?: unknown): el is Node {
+	return el instanceof Node;
+}
 
 // Action
 export function popup(node: HTMLElement, args: PopupSettings) {
@@ -20,14 +33,16 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 	if (!event || !target) return;
 
 	// Local
-	const { computePosition, autoUpdate, flip, shift, offset, arrow } = get(storePopup);
+	const storeValue = get(storePopup);
+	if (!storeValue) throw Error('You need to initialise the popup store before using the popup action.');
+	const { computePosition, autoUpdate, flip, shift, offset, arrow } = storeValue;
 	const elemPopup: HTMLElement | null = document.querySelector(`[data-popup="${target}"]`);
 	const elemArrow: HTMLElement | null = elemPopup?.querySelector(`.arrow`) ?? null;
-	let isVisible: boolean = false;
-	let autoUpdateCleanup: any;
+	let isVisible = false;
+	let autoUpdateCleanup: () => void;
 
 	// Local A11y Variables
-	const elemWhitelist: string = 'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])';
+	const elemWhitelist = 'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])';
 	let activeFocusIdx: number;
 	let focusableElems: HTMLElement[];
 
@@ -37,7 +52,7 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 
 		// Construct Middlware
 		// Note the order: https://floating-ui.com/docs/middleware#ordering
-		const genMiddlware = [];
+		const genMiddlware: Middleware[] = [];
 		// https://floating-ui.com/docs/offset
 		if (offset) genMiddlware.push(offset(middleware?.offset ?? 8));
 		// https://floating-ui.com/docs/shift
@@ -45,22 +60,31 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		// https://floating-ui.com/docs/flip
 		if (flip) genMiddlware.push(flip(middleware?.flip));
 		// https://floating-ui.com/docs/arrow
-		if (arrow && elemArrow) genMiddlware.push(arrow(middleware?.arrow ?? { element: elemArrow }));
+		if (arrow && elemArrow) {
+			if (middleware?.arrow) {
+				// https://floating-ui.com/docs/arrow
+				const elemArrow = document.querySelector(middleware.arrow.element);
+				if (!elemArrow) throw Error('Arrow element not found. Please check your selector.');
+				genMiddlware.push(arrow({ element: elemArrow }));
+			} else {
+				genMiddlware.push(arrow({ element: elemArrow }));
+			}
+		}
 
 		// https://floating-ui.com/docs/computePosition
 		computePosition(node, elemPopup, {
 			placement: placement ?? 'bottom',
 			middleware: genMiddlware
-		}).then(({ x, y, placement, middlewareData }: any) => {
+		}).then(({ x, y, placement, middlewareData }) => {
 			Object.assign(elemPopup.style, {
 				left: `${x}px`,
 				top: `${y}px`
 			});
 			// Handle Arrow Placement:
 			// https://floating-ui.com/docs/arrow
-			if (elemArrow) {
+			if (elemArrow && middlewareData.arrow) {
 				const { x: arrowX, y: arrowY } = middlewareData.arrow;
-				// @ts-ignore
+
 				const staticSide = {
 					top: 'bottom',
 					right: 'left',
@@ -72,7 +96,7 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 					top: arrowY != null ? `${arrowY}px` : '',
 					right: '',
 					bottom: '',
-					[staticSide]: '-4px'
+					...(staticSide ? { [staticSide]: '-4px' } : {})
 				});
 			}
 			// Set Focusable State
@@ -94,8 +118,8 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 	}
 
 	// Window Click Handler
-	const onWindowClick = (event: any) => {
-		if (!node || !elemPopup) return;
+	const onWindowClick = (event: MouseEvent) => {
+		if (!node || !elemPopup || !isNode(event.target)) return;
 		// If click is within the trigger node
 		const clickTriggerNode = node.contains(event.target);
 		if (clickTriggerNode) {
@@ -110,7 +134,7 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 				const interactiveMenuElems = elemPopup?.querySelectorAll(closeQuery);
 				if (!interactiveMenuElems.length) return;
 				interactiveMenuElems.forEach((elem) => {
-					if (elem.contains(event.target)) close();
+					if (isNode(event.target) && elem.contains(event.target)) close();
 				});
 			}
 		}
@@ -213,7 +237,7 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 
 	// Lifecycle
 	return {
-		update(newArgs: any) {
+		update(newArgs: PopupSettings) {
 			args = newArgs;
 		},
 		destroy() {
