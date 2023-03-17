@@ -66,7 +66,12 @@
 	let exampleMenu: PopupSettings = {
 		event: 'click',
 		target: 'exampleMenu',
-		placement: 'bottom'
+		placement: 'bottom',
+		middleware: {
+			arrow: {
+				element: '#myArrow'
+			}
+		}
 	};
 	let exampleFocus: PopupSettings = {
 		event: 'focus',
@@ -113,8 +118,7 @@
 									View on Twitter
 								</a>
 							</div>
-							<!-- Arrow -->
-							<div class="arrow bg-surface-100-800-token" />
+							<div id="myArrow" class="arrow bg-surface-500" />
 						</div>
 					</div>
 					<div>
