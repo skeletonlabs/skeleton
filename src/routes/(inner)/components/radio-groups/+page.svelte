@@ -1,7 +1,7 @@
 <script lang="ts">
+	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
-	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
 	// Components
 	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
 	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
@@ -32,7 +32,9 @@
 
 	// Local
 	let justify: number = 0;
-	let alignment: string = 'horizontal';
+	let timeHorz: string = 'months';
+	let timeVert: string = 'Millennia';
+	let timeNames = ['Millennia', 'Epochs', 'Eras', 'Eons'];
 </script>
 
 <DocsShell {settings}>
@@ -65,7 +67,7 @@
 	<RadioItem bind:group={value} name="justify" value={1}>(label)</RadioItem>
 	<RadioItem bind:group={value} name="justify" value={2}>(label)</RadioItem>
 </RadioGroup>
-				`}
+`}
 				/>
 			</svelte:fragment>
 		</DocsPreview>
@@ -85,8 +87,8 @@
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<RadioGroup active="variant-filled-primary" hover="hover:variant-soft-primary">
-						<RadioItem bind:group={alignment} name="alignment" value="horizontal">Horizontal</RadioItem>
-						<RadioItem bind:group={alignment} name="alignment" value="vertical">Vertical</RadioItem>
+						<RadioItem bind:group={timeHorz} name="time" value="months">Months</RadioItem>
+						<RadioItem bind:group={timeHorz} name="time" value="years">Years</RadioItem>
 					</RadioGroup>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
@@ -98,9 +100,30 @@
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
+			<h2>Vertical</h2>
+			<p>Set <em>display</em> to <code>flex-col</code> for a vertical layout.</p>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<RadioGroup rounded="rounded-container-token" display="flex-col">
+						{#each timeNames as name, i}
+							<RadioItem bind:group={timeVert} label={name} {name} value={name}>{name}</RadioItem>
+						{/each}
+					</RadioGroup>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="html"
+						code={`
+<RadioGroup rounded="rounded-container-token" display="flex-col">...</RadioGroup>
+`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
+		</section>
+		<section class="space-y-4">
 			<h2>Full Width</h2>
 			<p>Set <em>display</em> to <code>flex</code> to stretch and fill the full width.</p>
-			<CodeBlock language="html" code={`<RadioGroup display="flex"></RadioGroup>`} />
+			<CodeBlock language="html" code={`<RadioGroup display="flex">...</RadioGroup>`} />
 		</section>
 		<section class="space-y-4">
 			<h2>Radio Attributes</h2>

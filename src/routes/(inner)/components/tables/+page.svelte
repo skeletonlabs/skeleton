@@ -78,7 +78,7 @@
 				<Table source={tableSimple} interactive={true} on:selected={onSelected} text="text-token" />
 			</svelte:fragment>
 			<svelte:fragment slot="footer">
-				<p class="block text-center">Monitor your console log when tapping a row.</p>
+				<p class="block text-center">Try viewing your console log when tapping a row.</p>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
 				<p>First, you'll need a set of source data.</p>

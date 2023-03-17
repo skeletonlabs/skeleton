@@ -5,16 +5,19 @@
 	import type { CssClasses } from '$lib';
 
 	// Props
-
-	/** Set the radio group binding value. 
+	/**
+	 * Set the radio group binding value.
 	 * @type {any}
-	*/
+	 */
 	export let group: any;
 	/** Set a unique name value for the input. 
 	 * @type {string}
 	*/
 	export let name: string;
-	/** Set the input's value. */
+	/**
+	 * Set the input's value.
+	 * @type {any}
+	 */
 	export let value: any;
 	/** Set the hover title. */
 	export let title: string = '';
@@ -51,7 +54,7 @@
 	$: checked = value === group;
 	$: classesActive = checked ? `${active} ${color} ${fill}` : hover;
 	$: classesDisabled = $$props.disabled ? cDisabled : '';
-	$: classesBase = `${cBase} ${padding} ${rounded} ${classesActive} ${classesDisabled}`;
+	$: classesBase = `${cBase} ${padding} ${rounded} ${classesActive} ${classesDisabled} ${$$props.class ?? ''}`;
 
 	// RestProps
 	function prunedRestProps(): any {

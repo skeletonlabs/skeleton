@@ -4,7 +4,7 @@ export interface DrawerSettings {
 	open?: boolean;
 	/** A unique identifier, useful for setting contents. */
 	id?: string;
-	/** Pass abitrary information for your own persona use. */
+	/** Pass arbitrary information for your own persona use. */
 	meta?: any;
 
 	// ************************************************************
@@ -42,9 +42,9 @@ export interface DrawerSettings {
 	height?: string;
 
 	// --- Regions ---
-	/** Provide abitrary classes to the backdrop region. */
+	/** Provide arbitrary classes to the backdrop region. */
 	regionBackdrop?: string;
-	/** Provide abitrary classes to the drawer region. */
+	/** Provide arbitrary classes to the drawer region. */
 	regionDrawer?: string;
 
 	// --- A11y ---

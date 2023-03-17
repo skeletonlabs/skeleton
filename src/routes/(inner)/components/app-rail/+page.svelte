@@ -30,6 +30,10 @@
 		],
 		restProps: 'AppRailTile'
 	};
+
+	function logger(): void {
+		console.log('App rail click event fired.');
+	}
 </script>
 
 <DocsShell {settings}>
@@ -41,7 +45,7 @@
 					<AppRail selected={storeValue}>
 						<!-- Lead -->
 						<svelte:fragment slot="lead">
-							<AppRailTile tag="a" href="/components/app-rail" title="Lead slot tile.">
+							<AppRailTile on:click={logger}>
 								<i class="fa-solid fa-bars text-2xl" />
 							</AppRailTile>
 						</svelte:fragment>
@@ -121,8 +125,8 @@ const storeValue: Writable<number> = writable(0);
 			<CodeBlock
 				language="html"
 				code={`
-<AppRailTile tag="a" href={tileUrl} class:bg-primary-500={tileUrl === $page.url.pathname}>
-	(icon)
+<AppRailTile tag="a" href={tileUrl} class="{tileUrl === $page.url.pathname ? '!bg-primary-500' : ''}">
+    (icon)
 </AppRailTile>
 `}
 			/>

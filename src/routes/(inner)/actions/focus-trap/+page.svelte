@@ -69,14 +69,14 @@
 			<h2>Navigation</h2>
 			<p>
 				When enabled this action will auto-select the first focusable element. Press <kbd>Tab</kbd> or <kbd>Shift + Tab</kbd> to cycle through
-				focusable elements within the target region. When the last item is focussed, it will loop to the start, and vice versa.
+				focusable elements within the target region. When the last item is focused, it will loop to the start, and vice versa.
 			</p>
 		</section>
 		<section class="space-y-4">
 			<h2>Focusing Overlays</h2>
 			<p>
 				Skeleton automatically enables this action for overlays such as <a href="/utilities/modals">modals</a> and
-				<a href="/utilities/drawers">drawers</a> to aid accessability.
+				<a href="/utilities/drawers">drawers</a> to aid accessibility.
 			</p>
 		</section>
 	</svelte:fragment>

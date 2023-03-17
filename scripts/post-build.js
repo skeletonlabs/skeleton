@@ -8,12 +8,12 @@ import ts from "typescript";
 // There is some brittleness in the assumption of how many spaces are at the beginning of a line on the emitted files
 // Also the definition files from svelte-package aren't exactly always clean either
 
-let filesToProps = {}
+let filesToProps = {};
 
 function extractScriptsFromComponents(dir) {
 	const leadingCharsToStrip = 8; //strip the src/lib/ from the filenames when adding it to the filesToProps mapping
 	const list = fs.readdirSync(dir);
-	list.forEach(file => {
+	list.forEach((file) => {
 		file = dir + '/' + file;
 		const stat = fs.statSync(file);
 		if (stat && stat.isDirectory()) {
@@ -44,10 +44,10 @@ function extractJSDocBlocks() {
 
 //Rescursive function for traversing node hierarchy to get JSDocs blocks, different node types have the information we want in different places
 function _extractJSDocBlocks(srcFile, propsObj) {
-	ts.forEachChild(srcFile, node => {
+	ts.forEachChild(srcFile, (node) => {
 		if (node?.jsDoc) {
 			// console.log(srcFile);
-			const jsDoc = node.jsDoc[node.jsDoc.length - 1]
+			const jsDoc = node.jsDoc[node.jsDoc.length - 1];
 			const declaration = node.declarationList?.declarations[0];
 			switch (node.kind) {
 				case ts.SyntaxKind.FirstStatement:
@@ -62,8 +62,8 @@ function _extractJSDocBlocks(srcFile, propsObj) {
 					break;
 			}
 		}
-		_extractJSDocBlocks(node, propsObj)
-	})
+		_extractJSDocBlocks(node, propsObj);
+	});
 }
 
 function writeJSDocsToDefinitionFiles() {
@@ -79,11 +79,17 @@ function writeJSDocsToDefinitionFiles() {
 		const src = readFileSync('dist/' + file + '.d.ts').toString().split('\n');
 		let inPropsSection = false;
 		for (let line of src) {
-			if (line.indexOf(blockEnd) != -1) { annotatedDts.push(line); inPropsSection = false; continue; }
+			if (line.indexOf(blockEnd) != -1) {
+				annotatedDts.push(line);
+				inPropsSection = false;
+				continue;
+			}
 			if (inPropsSection) {
 				//there are a few that are not declared as optional, so we test for ? or :
 				let endPos = line.indexOf('?');
-				if (endPos == -1) { endPos = line.indexOf(':'); }
+				if (endPos == -1) {
+					endPos = line.indexOf(':');
+				}
 				//Lookup the prop found in the definition file on our props mapping object
 				//the 8 comes from the amount of spaces before the property begins, this is static and more efficient this way.
 				const jsdoc = filesToProps[file].props[line.slice(8, endPos)]?.comment;
@@ -91,8 +97,12 @@ function writeJSDocsToDefinitionFiles() {
 					annotatedDts.push('        /** ' + jsdoc + '*/');
 				}
 			}
-			if (line.indexOf(propsBegin) != -1) { inPropsSection = true; }
-			if (line.indexOf(eventsBegin) != -1) { inPropsSection = true; }
+			if (line.indexOf(propsBegin) != -1) {
+				inPropsSection = true;
+			}
+			if (line.indexOf(eventsBegin) != -1) {
+				inPropsSection = true;
+			}
 			annotatedDts.push(line);
 		}
 		writeFileSync('dist/' + file + '.d.ts', annotatedDts.join('\n'));
@@ -100,21 +110,22 @@ function writeJSDocsToDefinitionFiles() {
 }
 
 function generateKeyWordsFromProps() {
-	let propSet = new Set()
+	let propSet = new Set();
 	for (let file in filesToProps) {
 		for (let prop in filesToProps[file].props) {
 			if (filesToProps[file].props[prop].type == 'css') {
-				propSet.add(prop)
+				propSet.add(prop);
 			}
 		}
 	}
-	let finalProps = Array.from(propSet).sort()
-	finalProps.unshift("class")
-	writeFileSync('scripts/tw-settings.json', JSON.stringify({ "tailwindCSS.classAttributes": [...finalProps] }, null, '\t'));
+	let finalProps = Array.from(propSet).sort();
+	finalProps.unshift('class');
+	writeFileSync('scripts/tw-settings.json', JSON.stringify({ 'tailwindCSS.classAttributes': [...finalProps] }, null, '\t'));
 }
 
 extractScriptsFromComponents('src/lib/components');
 extractScriptsFromComponents('src/lib/utilities');
+extractJSDocBlocks();
 extractJSDocBlocks();
 writeJSDocsToDefinitionFiles();
 generateKeyWordsFromProps();

@@ -16,6 +16,6 @@ module.exports = plugin(({ addComponents }) => {
 				respectImportant: true,
 				respectPrefix: true
 			});
-		} catch { }
+		} catch {}
 	}
 });

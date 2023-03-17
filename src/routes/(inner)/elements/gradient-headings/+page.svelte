@@ -7,7 +7,7 @@
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
-		feature: DocsFeature.Component,
+		feature: DocsFeature.Element,
 		name: 'Gradient Headings',
 		description: 'Create gradient-colored heading styles.',
 		// imports: ['GradientHeading'],

@@ -4,8 +4,6 @@
 	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
 	// Components
 	import ProgressBar from '$lib/components/ProgressBar/ProgressBar.svelte';
-	import RadioGroup from '$lib/components/Radio/RadioGroup.svelte';
-	import RadioItem from '$lib/components/Radio/RadioItem.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	// Sveld
 	import sveldProgressBar from '$lib/components/ProgressBar/ProgressBar.svelte?raw&sveld';
@@ -22,6 +20,7 @@
 		description: 'An indicator showing the progress or completion of a task.',
 		imports: ['ProgressBar'],
 		source: 'components/ProgressBar',
+		aria: 'https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/progressbar_role',
 		components: [{ sveld: sveldProgressBar }]
 	};
 
@@ -57,12 +56,6 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<!-- prettier-ignore -->
-			<p>
-				This component is treated as an <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/progressbar_role" target="_blank" rel="noreferrer">ARIA progressbar</a>.
-			</p>
-		</section>
-		<section class="space-y-4">
 			<h2>Indeterminate Mode</h2>
 			<p>Remove the <code>value</code> property or set value to <code>undefined</code>.</p>
 			<DocsPreview background="neutral">
@@ -86,6 +79,14 @@
 					<CodeBlock language="html" code={`<progress value={props.value} max={props.max} />`} />
 				</svelte:fragment>
 			</DocsPreview>
+		</section>
+		<hr />
+		<section class="space-y-4">
+			<h2>Accessibility</h2>
+			<!-- prettier-ignore -->
+			<p>
+				This component is treated as an <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/progressbar_role" target="_blank" rel="noreferrer">ARIA progressbar</a>.
+			</p>
 		</section>
 	</svelte:fragment>
 </DocsShell>

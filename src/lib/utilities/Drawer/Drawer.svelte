@@ -46,9 +46,9 @@
 	export let height: CssClasses = '';
 
 	// Props (regions)
-	/** Provide abitrary classes to the backdrop region. */
+	/** Provide arbitrary classes to the backdrop region. */
 	export let regionBackdrop: CssClasses = '';
-	/** Provide abitrary classes to the drawer region. */
+	/** Provide arbitrary classes to the drawer region. */
 	export let regionDrawer: CssClasses = '';
 
 	// Props (a11y)

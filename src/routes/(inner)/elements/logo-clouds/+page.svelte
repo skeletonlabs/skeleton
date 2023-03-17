@@ -30,7 +30,7 @@
 		<DocsPreview>
 			<svelte:fragment slot="preview">
 				<section class="w-full">
-					<div class="logo-cloud grid-cols-1 lg:!grid-cols-3 gap-1">
+					<div class="logo-cloud grid-cols-1 lg:!grid-cols-3 gap-0.5">
 						<a class="logo-item {currentVariant}" href="https://twitch.com/" target="_blank" rel="noreferrer">
 							<i class="fa-brands fa-twitch text-2xl" />
 							<span>Twitch</span>
@@ -92,7 +92,7 @@
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<section class="w-full">
-						<div class="logo-cloud grid-cols-1 lg:grid-cols-4 gap-0.5">
+						<div class="logo-cloud grid-cols-1 xl:grid-cols-2 2xl:grid-cols-4 gap-0.5">
 							<a href="/elements/logo-clouds" class="logo-item">HR Solutions</a>
 							<a href="/elements/logo-clouds" class="logo-item">Acme Theaters</a>
 							<a href="/elements/logo-clouds" class="logo-item">Cruisin' Cuisine</a>
@@ -108,7 +108,7 @@
 					<CodeBlock
 						language="html"
 						code={`
-<div class="logo-cloud grid-cols-1 lg:grid-cols-4 gap-0.5">
+<div class="logo-cloud grid-cols-1 xl:grid-cols-2 2xl:grid-cols-4 gap-0.5">
 	<a href="/elements/logo-clouds" class="logo-item">HR Solutions</a>
 	<a href="/elements/logo-clouds" class="logo-item">Acme Theaters</a>
 	<a href="/elements/logo-clouds" class="logo-item">Cruisin' Cuisine</a>

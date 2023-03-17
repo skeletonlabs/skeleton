@@ -90,7 +90,7 @@
 		<!-- prettier-ignore -->
 		<aside class="alert alert-message variant-ghost-warning">
 			<p>
-				This feature uses a <a href="https://en.wikipedia.org/wiki/Singleton_pattern" target="_blank" rel="noreferrer">Singleton pattern</a>, meaning you should aim to implement a <u>single instance of the component per project</u>, but it will remain globally scoped
+				This feature uses the <a href="https://en.wikipedia.org/wiki/Singleton_pattern" target="_blank" rel="noreferrer">Singleton pattern</a>, meaning you should aim to implement a <u>single instance of the component per project</u>, but it will remain globally scoped
 				and reusable via a Svelte writable store. Do not reimplement this component for each route page.
 			</p>
 		</aside>
@@ -105,7 +105,7 @@
 		<section class="space-y-4">
 			<h2>Passing Metadata</h2>
 			<p>
-				To pass abitrary metadata, create a <code>meta</code> object within <code>DrawerSettings</code>. Then use
+				To pass arbitrary metadata, create a <code>meta</code> object within <code>DrawerSettings</code>. Then use
 				<code>$drawerStore.meta</code> to retreive this.
 			</p>
 			<DocsPreview background="neutral">
@@ -121,7 +121,7 @@ const drawerSettings: DrawerdrawerSettings = {
 	meta: { foo: 'bar', fizz: 'buzz', age: 40 }
 };
 drawerStore.open(drawerSettings);
-				`}
+`}
 					/>
 					<p>To retrieve this data, use:</p>
 					<CodeBlock language="html" code={`<div>{$drawerStore.meta}</div>`} />
@@ -153,7 +153,7 @@ const drawerSettings: DrawerSettings = {
 	rounded: 'rounded-xl',
 };
 drawerStore.open(drawerSettings);
-						`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -169,7 +169,7 @@ drawerStore.open(drawerSettings);
 				code={`
 const settings: DrawerSettings = { id: 'example-1' };
 drawerStore.open(settings);
-			`}
+`}
 			/>
 			<p>
 				Within the default slot of your Drawer component, setup conditional statements based on the value of <code>$drawerStore.id</code>.
@@ -186,7 +186,7 @@ drawerStore.open(settings);
 		<!-- (fallback contents) -->
 	{/if}
 </Drawer>
-			`}
+`}
 			/>
 		</section>
 		<section class="space-y-4">
@@ -200,16 +200,27 @@ drawerStore.open(settings);
 			</p>
 			<CodeBlock language="ts" code={`$: positionClasses = $drawerStore.open ? 'translate-x-[50%]' : '';`} />
 			<p>
-				Then apply your the value for this proper to the wrapping page element, such as the <em>App Shell</em> or a <em>main</em> element.
+				Then apply this value to the proper wrapping page element, such as the <em>App Shell</em> or a <em>main</em> element.
 			</p>
 			<CodeBlock language="html" code={`<AppShell class="transition-transform {positionClasses}">...</AppShell>`} />
 			<CodeBlock language="html" code={`<main class="transition-transform {positionClasses}">...</main>`} />
-			<p>For best results, bu sure to take into account the Drawer position as well via <code>$drawerStore.position</code>.</p>
+			<p>For best results, be sure to take into account the Drawer position as well via <code>$drawerStore.position</code>.</p>
 		</section>
 		<section class="space-y-4">
 			<h2>Accessibility</h2>
 			<!-- prettier-ignore -->
-			<p>Skeleton <u>does not</u> provide a means to disable the backdrop's click to close feature, as this would be harmful to accessability. View the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/" target="_blank" rel="noreferrer">ARIA APG guidelines</a> to learn more about modal accessability.</p>
+			<p>Skeleton <u>does not</u> provide a means to disable the backdrop's click to close feature, as this would be harmful to accessibility. View the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/" target="_blank" rel="noreferrer">ARIA APG guidelines</a> to learn more about modal accessibility.</p>
+		</section>
+		<!-- SvelteKit SSR Warning -->
+		<!-- prettier-ignore -->
+		<section class="space-y-4">
+			<h2>SvelteKit SSR Warning</h2>
+			<div class="space-y-4">
+				<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+					<p>There are known security risks when using Svelte writable stores within SvelteKit load functions.</p>
+					<a class="btn variant-filled" href="https://github.com/skeletonlabs/skeleton/wiki/SvelteKit-SSR-Warning" target="_blank" rel="noreferrer">Details &rarr;</a>
+				</div>
+			</div>
 		</section>
 	</svelte:fragment>
 </DocsShell>

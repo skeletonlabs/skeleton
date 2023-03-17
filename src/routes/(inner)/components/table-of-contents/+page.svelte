@@ -99,7 +99,7 @@
 		<section class="space-y-4">
 			<h2>Ignore a Heading</h2>
 			<p>
-				By default, the Table of Contents creates links for <u>all headings</u> within the target region. If you wish to ignore certain headings,
+				By default, the Table of Contents creates links for <em>all headings</em> within the target region. If you wish to ignore certain headings,
 				add the following data attribute to that heading.
 			</p>
 			<CodeBlock language="html" code={`<h2 data-toc-ignore>Ignore Me!</h2>`} />

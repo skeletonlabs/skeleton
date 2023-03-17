@@ -69,9 +69,9 @@
 				<CodeBlock
 					language="html"
 					code={`
-<button type="button" class="btn-icon variant-filled">(icon)</button>
-<button type="button" class="btn variant-filled">Button</button>
-<button type="button" class="btn variant-filled">
+<button type="button" class="btn-icon ${currentVariant}">(icon)</button>
+<button type="button" class="btn ${currentVariant}">Button</button>
+<button type="button" class="btn ${currentVariant}">
 	<span>(icon)</span>
 	<span>Button</span>
 </button>
@@ -80,9 +80,9 @@
 				<CodeBlock
 					language="html"
 					code={`
-<a href="/" class="btn-icon variant-filled">(icon)</a>
-<a href="/" class="btn variant-filled">a</a>
-<a href="/" class="btn variant-filled">
+<a href="/" class="btn-icon ${currentVariant}">(icon)</a>
+<a href="/" class="btn ${currentVariant}">a</a>
+<a href="/" class="btn ${currentVariant}">
 	<span>(icon)</span>
 	<span>Anchor</span>
 </a>

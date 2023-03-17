@@ -14,10 +14,15 @@
 	};
 </script>
 
-<DocsShell {settings}>
+<DocsShell {settings} tabs={false}>
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
-		<p>Available via <code>.variant-[style]-[color]</code>. Applies the appropriate text/fill "on" color automatically.</p>
+		<hr />
+		<section class="space-y-4">
+			<h2>Usage</h2>
+			<p>Implement using <code>.variant-[style]-[color]</code>. Automatically applies an accessible text or SVG fill color.</p>
+			<CodeBlock language="html" code={`<div class="variant-filled-primary">primary</div>`} />
+		</section>
 		<!-- Filled -->
 		<section class="space-y-4">
 			<h2>Filled</h2>
@@ -130,7 +135,7 @@
 				<svelte:fragment slot="preview">
 					<div
 						class="w-full grid grid-cols-3 gap-4 text-center text-xs font-bold p-4 md:p-10 text-white"
-						style="background: url('https://camo.githubusercontent.com/405ec87f325f46fb3b98dff86e47a3122360532127d9ea40aa9d78ce107b9d6a/68747470733a2f2f692e696d6775722e636f6d2f4c65756836776d2e676966') top center no-repeat; background-size: cover;"
+						style="background: url('https://i.imgur.com/DdrZVb7.gif') center center no-repeat; background-size: cover;"
 					>
 						<div class="card variant-glass-primary p-4 capitalize">primary</div>
 						<div class="card variant-glass-secondary p-4 capitalize">secondary</div>
@@ -143,7 +148,7 @@
 				</svelte:fragment>
 				<svelte:fragment slot="footer">
 					<div class="text-center">
-						<a class="btn btn-sm variant-soft" href="https://github.com/Horus645/swww" target="_blank" rel="noreferrer"> Image Source </a>
+						<a class="btn btn-sm variant-soft" href="http://www.markferrari.com/" target="_blank" rel="noreferrer"> Image Source </a>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">

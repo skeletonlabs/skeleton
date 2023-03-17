@@ -117,7 +117,7 @@
 		<!-- prettier-ignore -->
 		<aside class="alert alert-message variant-ghost-warning">
 			<p>
-				This feature uses a <a href="https://en.wikipedia.org/wiki/Singleton_pattern" target="_blank" rel="noreferrer">Singleton pattern</a>, meaning you should aim to implement a <u>single instance of the component per project</u>, but it will remain globally scoped
+				This feature uses the <a href="https://en.wikipedia.org/wiki/Singleton_pattern" target="_blank" rel="noreferrer">Singleton pattern</a>, meaning you should aim to implement a <u>single instance of the component per project</u>, but it will remain globally scoped
 				and reusable via a Svelte writable store. Do not reimplement this component for each route page.
 			</p>
 		</aside>
@@ -146,7 +146,7 @@ const t: ToastSettings = {
 	message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit...',
 };
 toastStore.trigger(t);
-				`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -167,7 +167,7 @@ const t: ToastSettings = {
 	}
 };
 toastStore.trigger(t);
-				`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -190,7 +190,7 @@ const t: ToastSettings = {
 	toastStore.trigger(t);
 };
 toastStore.trigger(t);
-				`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -213,7 +213,7 @@ const t: ToastSettings = {
 	toastStore.trigger(t);
 };
 toastStore.trigger(t);
-				`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -252,7 +252,7 @@ const t: ToastSettings = {
 	// Provide any utility or variant background style:
 	background: 'variant-filled-warning',
 };
-					`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -263,7 +263,7 @@ const t: ToastSettings = {
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<p>
-						Append <code>classes</code> to your toast settings provide any abitrary classes.
+						Append <code>classes</code> to your toast settings to provide any arbitrary classes.
 					</p>
 					<CodeBlock
 						language="ts"
@@ -274,7 +274,7 @@ const t: ToastSettings = {
 	// Add your custom classes here:
 	classes: 'border-4 border-purple-500'
 };
-					`}
+`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
@@ -296,8 +296,19 @@ const t: ToastSettings = {
 		if (response.status === 'closed') console.log('Toast was closed!');
 	}
 };
-			`}
+`}
 			/>
+		</section>
+		<!-- SvelteKit SSR Warning -->
+		<!-- prettier-ignore -->
+		<section class="space-y-4">
+			<h2>SvelteKit SSR Warning</h2>
+			<div class="space-y-4">
+				<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+					<p>There are known security risks when using Svelte writable stores within SvelteKit load functions.</p>
+					<a class="btn variant-filled" href="https://github.com/skeletonlabs/skeleton/wiki/SvelteKit-SSR-Warning" target="_blank" rel="noreferrer">Details &rarr;</a>
+				</div>
+			</div>
 		</section>
 	</svelte:fragment>
 </DocsShell>
