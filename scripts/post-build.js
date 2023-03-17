@@ -122,7 +122,7 @@ function generateKeyWordsFromProps() {
 	}
 	let finalProps = Array.from(propSet).sort();
 	finalProps.unshift('class');
-	writeFileSync('scripts/tw-settings.json', JSON.stringify({ 'tailwindCSS.classAttributes': [...finalProps] }, null, '\t'));
+	writeFileSync('scripts/tw-settings.json', JSON.stringify({ "prettier.documentSelectors": ["**/*.svelte"], 'tailwindCSS.classAttributes': [...finalProps] }, null, '\t'));
 }
 
 extractScriptsFromComponents('src/lib/components');
