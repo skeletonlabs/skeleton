@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { readFileSync, writeFileSync } from 'fs';
-import fs from 'fs'
-import ts from "typescript";
+import fs from 'fs';
+import ts from 'typescript';
 
 // Adding JSDoc comments to emitted .d.ts files from the package process
 // First read in JSDocced props from the svelte components at src/lib/components/ and src/lib/utilities/ into a mapping object
@@ -76,7 +76,9 @@ function writeJSDocsToDefinitionFiles() {
 
 	for (let file in filesToProps) {
 		let annotatedDts = [];
-		const src = readFileSync('dist/' + file + '.d.ts').toString().split('\n');
+		const src = readFileSync('dist/' + file + '.d.ts')
+			.toString()
+			.split('\n');
 		let inPropsSection = false;
 		for (let line of src) {
 			if (line.indexOf(blockEnd) != -1) {

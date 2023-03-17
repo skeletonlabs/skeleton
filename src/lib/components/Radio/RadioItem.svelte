@@ -10,9 +10,9 @@
 	 * @type {any}
 	 */
 	export let group: any;
-	/** Set a unique name value for the input. 
+	/** Set a unique name value for the input.
 	 * @type {string}
-	*/
+	 */
 	export let name: string;
 	/**
 	 * Set the input's value.
