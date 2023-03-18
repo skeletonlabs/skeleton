@@ -23,13 +23,8 @@ type Rgb = {
 
 export function hexToTailwindRgbString(hex: string): string {
 	const sanitizedHex = hex.replaceAll('##', '#');
-	const colorParts = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(sanitizedHex);
-
-	if (!colorParts) return '(invalid)';
-
-	const [, r, g, b] = colorParts;
-
-	return `${parseInt(r, 16)} ${parseInt(g, 16)} ${parseInt(b, 16)}`;
+	const color = chroma(sanitizedHex).rgb();
+	return `${color[0]} ${color[1]} ${color[2]}`;
 }
 
 export function generateA11yOnColor(hex: string): '255 255 255' | '0 0 0' {
@@ -90,10 +85,10 @@ export const contrastLevels: Record<
 	}
 };
 
-export function destringRgb(rgbString: string): Rgb {
+export function destringRgb(rgbString: string) {
 	const rgb = rgbString.match(/(\d+),?\s*(\d+),?\s*(\d+)/); // matches "255, 255, 255" and "255 255 255"
 	if (!rgb) throw new Error('Invalid RGB string!');
-	return { r: parseInt(rgb[1], 10), g: parseInt(rgb[2], 10), b: parseInt(rgb[3], 10) };
+	return [parseInt(rgb[1], 10), parseInt(rgb[2], 10), parseInt(rgb[3], 10)];
 }
 
 export function handleStringColor(colorString: string): string {
@@ -106,7 +101,7 @@ export function handleStringColor(colorString: string): string {
 	// if it has spaces, it's an rgb string
 	if (colorString.includes(' ')) {
 		const rgb = destringRgb(colorString);
-		return chroma(Object.values(rgb)).hex();
+		return chroma(rgb).hex();
 	}
 
 	return chroma(colorString).hex();
