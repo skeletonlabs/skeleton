@@ -94,6 +94,7 @@
             </div>
         </div>
     </div>
+    <!-- Examples -->
     <section class="card variant-glass p-4 space-y-8 flex flex-col">
         <div class="flex justify-around">
             <div class="grid grid-cols-2 gap-4">
@@ -112,7 +113,7 @@
                 <span class={`badge variant-glass-${color.key}`}>Glass</span>
             </div>
             <span class="divider-vertical h-30" />
-            <div class="flex flex-col">
+            <div class="flex flex-col justify-around">
                 <SlideToggle name="exampeSliderThree" active={`bg-${color.key}-500`} />
                 <SlideToggle name="exampeSliderThree" active={`bg-${color.key}-500`} checked />
             </div>

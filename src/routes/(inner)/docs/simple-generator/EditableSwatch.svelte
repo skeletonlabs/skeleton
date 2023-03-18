@@ -19,7 +19,7 @@
     }
 </script>
 
-<div class="grid grid-cols-11 gap-0 min-w-[480px]">
+<div class="grid grid-cols-11 gap-0 min-w-[480]">
 	{#each Object.keys(color.palette) as shade}
 		<div class="grid grid-rows-[1fr_40px] text-center">
 			<!-- Label -->

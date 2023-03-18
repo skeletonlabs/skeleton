@@ -5,6 +5,7 @@
 	import Stepper from "$lib/components/Stepper/Stepper.svelte";    
 	import LightSwitch from "$lib/utilities/LightSwitch/LightSwitch.svelte";
 	import ColorStep from "./ColorStep.svelte";
+	import SettingStep from "./SettingStep.svelte";
 	import type { ColorSettings, FormTheme } from "./types";
 
     let theme: FormTheme = {
@@ -97,5 +98,9 @@
                 <ColorStep bind:color={color}/>
             </Step>
         {/each}
+		<Step>
+			<svelte:fragment slot="header">General Theme Settings</svelte:fragment>
+			<SettingStep bind:theme={theme}/>
+		</Step>
     </Stepper>
 </div>
