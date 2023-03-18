@@ -35,7 +35,7 @@
             <i class="fa-solid fa-dice mr-1"></i> Randomize
         </button>
         <div class="flex-1 m-4">
-            <EditableSwatch color={color}/>
+            <EditableSwatch bind:color={color}/>
         </div>
         <div class="input-group input-group-divider grid-cols-[1fr_auto] max-w-xs m-4">
             <!-- Select -->
