@@ -102,13 +102,13 @@ export const contrastLevels: Record<
 > = {
 	/** For text that is less than 18pt */
 	small: {
-		AA: 1 / 4.5,
-		AAA: 1 / 7
+		AA: 4.5,
+		AAA: 7
 	},
 	/** For text that is at or is larger than 18pt */
 	large: {
-		AA: 1 / 3,
-		AAA: 1 / 4.5
+		AA: 3,
+		AAA: 4.5
 	}
 };
 
@@ -137,7 +137,7 @@ export function handleStringColor(colorString: string): Rgb;
 export function handleStringColor(colorString: string, returnType: 'rgb'): Rgb;
 export function handleStringColor(colorString: string, returnType: 'hex'): string;
 export function handleStringColor(colorString: string, returnType?: 'hex' | 'rgb'): string | Rgb;
-export function handleStringColor(colorString: string, returnType: 'hex' | 'rgb' = 'rgb'): string | Rgb {
+export function handleStringColor(colorString: string, returnType: 'hex' | 'rgb' = 'hex'): string | Rgb {
 	// if it's a css variable
 	if (colorString.includes('--')) {
 		colorString = colorString.replace(/var\(|\)/g, ''); // grab just the variable name
@@ -147,7 +147,7 @@ export function handleStringColor(colorString: string, returnType: 'hex' | 'rgb'
 	// if it has spaces, it's an rgb string
 	if (colorString.includes(' ')) {
 		const rgb = destringRgb(colorString);
-		return returnType === 'hex' ? rgbToHex(rgb.r, rgb.g, rgb.b) : rgb;
+		return returnType === 'hex' ? chroma(Object.values(rgb)).hex() : rgb;
 	}
 
 	// if it's a hex string
@@ -159,16 +159,14 @@ export function handleStringColor(colorString: string, returnType: 'hex' | 'rgb'
 	return colorString;
 }
 
-export function calculateRatio(luminance1: string | number, luminance2: string | number) {
-	const lum1 = typeof luminance1 === 'string' ? getLuminance(handleStringColor(luminance1)) : luminance1;
-	const lum2 = typeof luminance2 === 'string' ? getLuminance(handleStringColor(luminance2)) : luminance2;
-	if (lum1 === undefined || lum2 === undefined) throw new Error('Luminance is undefined!');
-	return lum1 > lum2 ? (lum2 + 0.05) / (lum1 + 0.05) : (lum1 + 0.05) / (lum2 + 0.05);
-}
-
-export function textPasses(textColor: string, backgroundColor: string, size: ContrastSize, level: ContrastLevel) {
-	const ratio = calculateRatio(textColor, backgroundColor);
-	return ratio <= contrastLevels[size][level];
+export function textPasses(
+	textColor: string | chroma.Color,
+	backgroundColor: string | chroma.Color,
+	size: ContrastSize,
+	level: ContrastLevel
+) {
+	const ratio = chroma.contrast(chroma(textColor), chroma(backgroundColor));
+	return ratio >= contrastLevels[size][level];
 }
 
 export function hexValueIsValid(textColor: string) {
@@ -179,7 +177,7 @@ export function hexValueIsValid(textColor: string) {
 export function getPassReport(textColor: string, backgroundColor: string): PassReport {
 	const _textColor = handleStringColor(textColor, 'hex');
 	const _backgroundColor = handleStringColor(backgroundColor, 'hex');
-	const contrast = calculateRatio(_textColor, _backgroundColor);
+	const contrast = chroma.contrast(chroma(_textColor), chroma(_backgroundColor));
 	const smallAA = textPasses(_textColor, _backgroundColor, 'small', 'AA');
 	const smallAAA = textPasses(_textColor, _backgroundColor, 'small', 'AAA');
 	const largeAA = textPasses(_textColor, _backgroundColor, 'large', 'AA');
