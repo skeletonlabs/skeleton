@@ -1,10 +1,12 @@
 <script lang="ts">
-	import { generateA11yOnColor, generatePalette, getPassReport } from "$docs/layouts/DocsThemer/colors";
+	import { generateA11yOnColor, generatePalette, getPassReport, hexValueIsValid } from "$docs/layouts/DocsThemer/colors";
 	import { inputSettings } from "$docs/layouts/DocsThemer/settings";
 	import ProgressBar from "$lib/components/ProgressBar/ProgressBar.svelte";
 	import SlideToggle from "$lib/components/SlideToggle/SlideToggle.svelte";
 	import { popup } from "$lib/utilities/Popup/popup";
 	import type { PopupSettings } from "$lib/utilities/Popup/types";
+	import { toastStore } from "$lib/utilities/Toast/stores";
+	import type { ToastSettings } from "$lib/utilities/Toast/types";
 	import EditableSwatch from "./EditableSwatch.svelte";
 	import type { ColorSettings, PassReport } from "./types";
 
@@ -21,19 +23,42 @@
             color.palette = generatePalette(color.hex);
             color = color;
 	}
+    
+    const regeneratePalette = (): void => {
+        if(hexValueIsValid(color.hex)) {
+            color.on = generateA11yOnColor(color.hex);
+            color.palette = generatePalette(color.hex);
+        }
+    }
 
     const getContrastReport = (newColor: ColorSettings): PassReport => {
-        return getPassReport(newColor.hex, newColor.on);
+        return getPassReport(newColor.on, newColor.hex);
+    }
+
+    const toastMe = () => {
+        const t: ToastSettings = {
+            message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit...',
+            background: `variant-filled-${color.key}`
+        };
+        toastStore.trigger(t);
     }
 
     $: contrastReport = getContrastReport(color);
 </script>
 
 <div class="flex flex-col">
+    <p>Click singular color swatches to edit them.</p>
     <div class="flex">
         <button class="btn variant-ghost-surface m-4" on:click={randomize}>
             <i class="fa-solid fa-dice mr-1"></i> Randomize
         </button>
+        <label class="label">
+            <span>{color.label}</span>
+            <div class="grid grid-cols-[auto_1fr] gap-4 place-items-end">
+                <input class="input" type="color" bind:value={color.hex} on:change={regeneratePalette}/>
+                <input class="input" type="text" bind:value={color.hex} placeholder="#BADA55"/>
+            </div>
+        </label>
         <div class="flex-1 m-4">
             <EditableSwatch bind:color={color}/>
         </div>
@@ -95,10 +120,25 @@
             <div class={`card variant-filled-${color.key}`}>
                 <p class="m-auto">Example {color.label} Card</p>
             </div>
+            <span class="divider-vertical h-30"/>
+            <div class="flex flex-col justify-center">
+                <button class={`btn variant-filled-${color.key}`} on:click={toastMe}>Toast me!</button>
+            </div>
         </div>        
         <hr class="opacity-50" />
         <div class="grid grid-cols-1 gap-4">
             <ProgressBar meter={`bg-${color.key}-500`} track={`bg-${color.key}-500/20`} value={66} max={100} />
+            <aside class={`alert variant-filled-${color.key}`}>
+                <i class="fa-solid fa-triangle-exclamation text-4xl" />
+                <div class="alert-message">
+                    <h3>Example Alert</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+                </div>
+                <div class="alert-actions">
+                    <button class="btn variant-filled">Action</button>
+                    <button class="btn-icon variant-filled"><i class="fa-solid fa-xmark" /></button>
+                </div>
+            </aside>
         </div>
     </section>
 </div>

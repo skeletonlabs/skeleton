@@ -1,24 +1,25 @@
 <script lang="ts">
 	import { generateA11yOnColor, hexToTailwindRgbString } from '$docs/layouts/DocsThemer/colors';
-	import { swatchColorClasses } from '$docs/layouts/DocsThemer/settings';
 	import type { ColorSettings } from './types';
 
 	/** Pass the color */
 	export let color: ColorSettings;
 
-    const updateColor = (shade: number, value: string) => {
-        console.log(`shade: ${shade} value:${value}`);
-        console.log(`previous value: `, color.palette[shade]);
+    const updateColor = (shade: string, value: string) => {
         color.palette[shade] = {
             hex: value,
             rgb: hexToTailwindRgbString(value),
-            on: shade === 500 ? generateA11yOnColor(value) : color.palette[shade].on
+            on: generateA11yOnColor(value)
+        }
+        if(shade === '500') {
+            color.hex = value;
+            color.on = color.palette[shade].on;
         }
         color = color;
     }
 </script>
 
-<div class="grid grid-cols-11 gap-0">
+<div class="grid grid-cols-11 gap-0 min-w-[480px]">
 	{#each Object.keys(color.palette) as shade}
 		<div class="grid grid-rows-[1fr_40px] text-center">
 			<!-- Label -->

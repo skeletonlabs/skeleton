@@ -3,6 +3,7 @@
 	import { fontSettings } from "$docs/layouts/DocsThemer/settings";
 	import Step from "$lib/components/Stepper/Step.svelte";
 	import Stepper from "$lib/components/Stepper/Stepper.svelte";    
+	import LightSwitch from "$lib/utilities/LightSwitch/LightSwitch.svelte";
 	import ColorStep from "./ColorStep.svelte";
 	import type { ColorSettings, FormTheme } from "./types";
 
@@ -25,11 +26,6 @@
 		borderBase: '1px'
     };
     let cssOutput: string = '';
-
-    const setColor = (index: number, color: ColorSettings): void => {
-        theme.colors[index] = color;
-        theme = theme;
-    }
 
     const generateColorCSS = (): string => {
 		let newCSS = '';
@@ -84,7 +80,7 @@
 <svelte:head>{@html livePreviewStylesheet}</svelte:head>
 
 <div class="page-container">
-    <header class="space-y-4">
+    <header class="space-y-4 relative">
         <h1>Theme Wizard</h1>
         <p>
             This Wizard will guide you through Theme Generation.
@@ -92,6 +88,7 @@
         <p>
             While you are within Theme Generation, you will see a live preview of your theme.
         </p>
+		<LightSwitch class="absolute top-0 right-0"/>
     </header>
     <Stepper>
         {#each theme.colors as color, i}

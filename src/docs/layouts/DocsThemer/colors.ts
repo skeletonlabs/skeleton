@@ -3,7 +3,7 @@
 import type { PassReport } from './types';
 
 export type Palette = {
-	[key: number]: {
+	[key: string]: {
 		/** The hex color. */
 		hex: string;
 		/** The RGB color. */
