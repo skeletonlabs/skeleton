@@ -127,31 +127,20 @@ export function destringRgb(rgbString: string): Rgb {
 	return { r: parseInt(rgb[1], 10), g: parseInt(rgb[2], 10), b: parseInt(rgb[3], 10) };
 }
 
-// overload to specify that when there is no returnType, it will always return Rgb
-export function handleStringColor(colorString: string): Rgb;
-export function handleStringColor(colorString: string, returnType: 'rgb'): Rgb;
-export function handleStringColor(colorString: string, returnType: 'hex'): string;
-export function handleStringColor(colorString: string, returnType?: 'hex' | 'rgb'): string | Rgb;
-export function handleStringColor(colorString: string, returnType: 'hex' | 'rgb' = 'hex'): string | Rgb {
+export function handleStringColor(colorString: string): string {
 	// if it's a css variable
 	if (colorString.includes('--')) {
 		colorString = colorString.replace(/var\(|\)/g, ''); // grab just the variable name
 		const cssVarHydrated = getComputedStyle(document.documentElement).getPropertyValue(colorString).trim();
-		return handleStringColor(cssVarHydrated, returnType);
+		return handleStringColor(cssVarHydrated);
 	}
 	// if it has spaces, it's an rgb string
 	if (colorString.includes(' ')) {
 		const rgb = destringRgb(colorString);
-		return returnType === 'hex' ? chroma(Object.values(rgb)).hex() : rgb;
+		return chroma(Object.values(rgb)).hex();
 	}
 
-	// if it's a hex string
-	if (colorString.includes('#')) {
-		const rgb = hexToRgb(colorString);
-		if (!rgb) return '(invalid)';
-		return returnType === 'hex' ? colorString : rgb;
-	}
-	return colorString;
+	return chroma(colorString).hex();
 }
 
 export function textPasses(
@@ -170,8 +159,8 @@ export function hexValueIsValid(textColor: string) {
 
 /** A catch-all function to give a report on what size and level a given combination achieves.  */
 export function getPassReport(textColor: string, backgroundColor: string): PassReport {
-	const _textColor = handleStringColor(textColor, 'hex');
-	const _backgroundColor = handleStringColor(backgroundColor, 'hex');
+	const _textColor = handleStringColor(textColor);
+	const _backgroundColor = handleStringColor(backgroundColor);
 	const contrast = chroma.contrast(chroma(_textColor), chroma(_backgroundColor));
 	const smallAA = textPasses(_textColor, _backgroundColor, 'small', 'AA');
 	const smallAAA = textPasses(_textColor, _backgroundColor, 'small', 'AAA');
