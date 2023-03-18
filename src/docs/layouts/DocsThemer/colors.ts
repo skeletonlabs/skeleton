@@ -107,20 +107,6 @@ export const contrastLevels: Record<
 	}
 };
 
-/** Takes the RGB and returns the luminance of it */
-export function getLuminance(r: Rgb): number;
-export function getLuminance(r: number, g: number, b: number): number;
-export function getLuminance(r: number | Rgb, g?: number, b?: number) {
-	const { _r, _g, _b } = typeof r === 'object' ? { _r: r.r, _g: r.g, _b: r.b } : { _r: r, _g: g, _b: b }; // I'm not really happy with this ternary, but it works
-	// we can't use !_r shorthand here because 0 is a valid value
-	if (_r === undefined || _g === undefined || _b === undefined) throw new Error('Invalid RGB value!');
-	const a = [_r, _g, _b].map(function (v) {
-		v /= 255;
-		return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
-	});
-	return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
-}
-
 export function destringRgb(rgbString: string): Rgb {
 	const rgb = rgbString.match(/(\d+),?\s*(\d+),?\s*(\d+)/); // matches "255, 255, 255" and "255 255 255"
 	if (!rgb) throw new Error('Invalid RGB string!');
