@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { destringRgb, getLuminance, hexToRgb, hexToTailwindRgbString, rgbToHex, textPasses } from './colors';
+import { destringRgb, getLuminance, hexToRgb, hexToTailwindRgbString, textPasses } from './colors';
 
 describe('Colors.ts', () => {
 	it('Converts between hex and RGB properly', async () => {
@@ -15,18 +15,6 @@ describe('Colors.ts', () => {
 		expect(hexToRgb('#4F46E5')).toEqual({ r: 79, g: 70, b: 229 });
 	});
 
-	it('Converts between RGB and hex properly', async () => {
-		expect(rgbToHex(0, 0, 0)).toEqual('#000000');
-		expect(rgbToHex(255, 255, 255)).toEqual('#ffffff');
-		expect(rgbToHex(255, 0, 0)).toEqual('#ff0000');
-		expect(rgbToHex(0, 255, 0)).toEqual('#00ff00');
-		expect(rgbToHex(0, 0, 255)).toEqual('#0000ff');
-		expect(rgbToHex(255, 255, 0)).toEqual('#ffff00');
-		expect(rgbToHex(0, 255, 255)).toEqual('#00ffff');
-		expect(rgbToHex(255, 0, 255)).toEqual('#ff00ff');
-		expect(rgbToHex(15, 186, 129)).toEqual('#0fba81');
-		expect(rgbToHex(79, 70, 229)).toEqual('#4f46e5');
-	});
 	it('Converts between hex and Tailwind RGB strings properly', async () => {
 		expect(hexToTailwindRgbString('#000000')).toEqual('0 0 0');
 		expect(hexToTailwindRgbString('#FFFFFF')).toEqual('255 255 255');

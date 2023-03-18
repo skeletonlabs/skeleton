@@ -47,11 +47,6 @@ export function hexToTailwindRgbString(hex: string): string {
 	return `${parseInt(r, 16)} ${parseInt(g, 16)} ${parseInt(b, 16)}`;
 }
 
-export function rgbToHex(r: number, g: number, b: number): string {
-	const toHex = (c: number) => `0${c.toString(16)}`.slice(-2);
-	return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
-}
-
 export function generateA11yOnColor(hex: string): '255 255 255' | '0 0 0' {
 	const blackContrast = chroma.contrast(chroma(hex), chroma('#000000'));
 	const whiteContrast = chroma.contrast(chroma(hex), chroma('#FFFFFF'));
