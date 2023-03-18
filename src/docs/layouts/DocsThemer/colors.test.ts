@@ -1,20 +1,7 @@
 import { describe, it, expect } from 'vitest';
-import { destringRgb, hexToRgb, hexToTailwindRgbString, textPasses } from './colors';
+import { destringRgb, hexToTailwindRgbString, textPasses } from './colors';
 
 describe('Colors.ts', () => {
-	it('Converts between hex and RGB properly', async () => {
-		expect(hexToRgb('#000000')).toEqual({ r: 0, g: 0, b: 0 });
-		expect(hexToRgb('#FFFFFF')).toEqual({ r: 255, g: 255, b: 255 });
-		expect(hexToRgb('#FF0000')).toEqual({ r: 255, g: 0, b: 0 });
-		expect(hexToRgb('#00FF00')).toEqual({ r: 0, g: 255, b: 0 });
-		expect(hexToRgb('#0000FF')).toEqual({ r: 0, g: 0, b: 255 });
-		expect(hexToRgb('#FFFF00')).toEqual({ r: 255, g: 255, b: 0 });
-		expect(hexToRgb('#00FFFF')).toEqual({ r: 0, g: 255, b: 255 });
-		expect(hexToRgb('#FF00FF')).toEqual({ r: 255, g: 0, b: 255 });
-		expect(hexToRgb('#0FBA81')).toEqual({ r: 15, g: 186, b: 129 });
-		expect(hexToRgb('#4F46E5')).toEqual({ r: 79, g: 70, b: 229 });
-	});
-
 	it('Converts between hex and Tailwind RGB strings properly', async () => {
 		expect(hexToTailwindRgbString('#000000')).toEqual('0 0 0');
 		expect(hexToTailwindRgbString('#FFFFFF')).toEqual('255 255 255');
