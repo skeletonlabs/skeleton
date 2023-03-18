@@ -54,10 +54,8 @@ export function generateA11yOnColor(hex: string): '255 255 255' | '0 0 0' {
 }
 
 export function generatePalette(baseColor: string): Palette {
-	const hexValidation = new RegExp(/^#[0-9a-f]{6}$/i);
-	if (!hexValidation.test(baseColor)) baseColor = '#CCCCCC';
-
-	const hex500 = `#${baseColor}`.replace('##', '#');
+	if (!chroma.valid(baseColor)) baseColor = '#CCCCCC';
+	const hex500 = chroma(baseColor).hex();
 
 	const response: Palette = {
 		500: { hex: hex500, rgb: hexToTailwindRgbString(hex500), on: generateA11yOnColor(hex500) }
