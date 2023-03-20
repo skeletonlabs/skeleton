@@ -325,9 +325,6 @@ let popupCombobox: PopupSettings = {
 			<p>
 				Neither Skeleton nor Floating-UI will provide a Z-Index out of the box for the reasons layed out in the <a href="https://floating-ui.com/docs/misc#z-index-stacking">Floating-UI docs</a>.
 			</p>
-			<p>
-				Skeleton uses <code>z-40</code> for <a href="/utilities/drawers">Drawers</a>, <code>z-[800]</code> for <a href="/utilities/toasts">Toasts</a> and <code>z-[999]</code> for <a href="/utilities/modals">Modals</a>.
-			</p>
 		</section>
 		<!-- Browser Support -->
 		<section class="space-y-4">

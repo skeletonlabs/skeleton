@@ -45,6 +45,8 @@
 	export let rounded: CssClasses = 'rounded-container-token';
 	/** Provide classes to style modal box shadow. */
 	export let shadow: CssClasses = 'shadow-xl';
+	/** Provide a class to override the z-index */
+	export let zIndex: CssClasses = 'z-[999]';
 
 	// Props (buttons)
 	/** Provide classes for neutral buttons, such as Cancel. */
@@ -69,7 +71,7 @@
 	export let regionFooter: CssClasses = 'flex justify-end space-x-2';
 
 	// Base Styles
-	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0 z-[999]';
+	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0';
 	const cTransitionLayer = 'w-full h-full p-4 overflow-y-auto flex justify-center';
 	const cModal = 'block'; // max-h-full overflow-y-auto overflow-x-hidden
 	const cModalImage = 'w-full h-auto';
@@ -131,7 +133,7 @@
 	// State
 	$: cPosition = $modalStore[0]?.position ?? position;
 	// Reactive
-	$: classesBackdrop = `${cBackdrop} ${regionBackdrop} ${$$props.class ?? ''} ${$modalStore[0]?.backdropClasses ?? ''}`;
+	$: classesBackdrop = `${cBackdrop} ${regionBackdrop} ${zIndex} ${$$props.class ?? ''} ${$modalStore[0]?.backdropClasses ?? ''}`;
 	$: classesTransitionLayer = `${cTransitionLayer} ${cPosition ?? ''}`;
 	$: classesModal = `${cModal} ${background} ${width} ${height} ${padding} ${spacing} ${rounded} ${shadow} ${
 		$modalStore[0]?.modalClasses ?? ''

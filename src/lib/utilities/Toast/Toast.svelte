@@ -33,6 +33,8 @@
 	export let rounded: CssClasses = 'rounded-container-token';
 	/** Provide classes to set the border box shadow. */
 	export let shadow: CssClasses = 'shadow-lg';
+	/** Provide a class to override the z-index */
+	export let zIndex: CssClasses = 'z-[888]';
 
 	// Props (buttons)
 	/** Provide styles for the action button. */
@@ -43,7 +45,7 @@
 	export let buttonDismissLabel = '✕';
 
 	// Base Classes
-	const cWrapper = 'flex fixed top-0 left-0 right-0 bottom-0 z-[888] pointer-events-none';
+	const cWrapper = 'flex fixed top-0 left-0 right-0 bottom-0 pointer-events-none';
 	const cSnackbar = 'flex flex-col space-y-2';
 	const cToast = 'flex justify-between items-center pointer-events-auto';
 	const cToastActions = 'flex items-center space-x-2';
@@ -74,7 +76,7 @@
 	}
 
 	// Reactive
-	$: classesWrapper = `${cWrapper} ${cPosition} ${$$props.class || ''}`;
+	$: classesWrapper = `${cWrapper} ${cPosition} ${zIndex} ${$$props.class || ''}`;
 	$: classesSnackbar = `${cSnackbar} ${cAlign} ${padding}`;
 	$: classesToast = `${cToast} ${width} ${color} ${padding} ${spacing} ${rounded} ${shadow}`;
 	// Filtered Toast Store
