@@ -25,13 +25,13 @@
 	};
 
 	// Local
-	let popupSettings: PopupSettings = {
-		event: 'click',
-		target: 'popupAutocomplete',
-		placement: 'bottom',
-		// Close on click:
-		closeQuery: '.autocomplete-option'
-	};
+	// let popupSettings: PopupSettings = {
+	// 	event: 'click',
+	// 	target: 'popupAutocomplete',
+	// 	placement: 'bottom',
+	// 	// Close on click:
+	// 	closeQuery: '.autocomplete-option'
+	// };
 	let searchValue = '';
 	let anythingList: Record<string, unknown>[] = [
 		{ label: 'Foo', value: 'foo' },
@@ -41,10 +41,10 @@
 		{ label: 'Buzz', value: 'buzz' },
 		{ label: 'FizzBuzz', value: 'fizzbuzz' }
 	];
-	let whitelist = [
-		{ label: 'Foo', value: 'foo' },
-		{ label: 'Bar', value: 'bar' }
-	];
+	// let whitelist = [
+	// 	{ label: 'Foo', value: 'foo' },
+	// 	{ label: 'Bar', value: 'bar' }
+	// ];
 
 	function onSelection(event: any): void {
 		console.log(event);
@@ -57,20 +57,26 @@
 	<svelte:fragment slot="sandbox">
 		<DocsPreview>
 			<svelte:fragment slot="preview">
-				<div class="text-token w-[280px]">
+				<!-- IMPORTANT: remove `space` when re-enabling popup -->
+				<div class="text-token w-[280px] space-y-2">
 					<!-- Input -->
+					<!-- use:popup={popupSettings} -->
 					<input
 						class="input autocomplete"
 						type="search"
 						name="autocomplete-search"
 						bind:value={searchValue}
 						placeholder="Begin typing to filter..."
-						use:popup={popupSettings}
 					/>
 					<!-- Autocomplete -->
-					<div class="w-[280px]" data-popup="popupAutocomplete">
-						<Autocomplete bind:input={searchValue} mode="fuzzy" options={anythingList} on:selection={onSelection} />
-					</div>
+					<!-- data-popup="popupAutocomplete" -->
+					<Autocomplete
+						bind:input={searchValue}
+						mode="fuzzy"
+						options={anythingList}
+						on:selection={onSelection}
+						class="card w-[280px] p-2 max-h-48 overflow-y-auto"
+					/>
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
