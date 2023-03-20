@@ -69,6 +69,12 @@
 		placement: 'bottom'
 		// state: (e: any) => console.log('tooltip', e)
 	};
+	let interactiveMenu: PopupSettings = {
+		event: 'click',
+		target: 'interactiveMenu',
+		placement: 'right',
+		closeQuery: ''
+	};
 </script>
 
 <DocsShell {settings}>
@@ -106,6 +112,15 @@
 							</div>
 							<!-- Arrow -->
 							<div class="arrow bg-surface-100-800-token" />
+						</div>
+					</div>
+					<div>
+						<button class="btn variant-filled" use:popup={interactiveMenu}>Interactive</button>
+						<div class="text-xs text-center card variant-filled p-2 whitespace-nowrap shadow-xl flex flex-col" data-popup="interactiveMenu">
+							<p>This is an interactive example tooltip.</p>
+							<button class="btn variant-ringed-primary">I won't close the menu</button>
+							<!-- Arrow -->
+							<div class="arrow variant-filled" />
 						</div>
 					</div>
 				</div>
@@ -303,6 +318,13 @@ let popupCombobox: PopupSettings = {
 					/>
 				</svelte:fragment>
 			</DocsPreview>
+		</section>
+		<!-- Z-index -->
+		<section class="space-y-4">
+			<h2>Z-Index</h2>
+			<p>
+				Neither Skeleton nor Floating-UI will provide a Z-Index out of the box for the reasons layed out in the <a href="https://floating-ui.com/docs/misc#z-index-stacking">Floating-UI docs</a>.
+			</p>
 		</section>
 		<!-- Browser Support -->
 		<section class="space-y-4">

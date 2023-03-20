@@ -44,6 +44,8 @@
 	export let width: CssClasses = '';
 	/** Drawer - Provide classes to override the height. */
 	export let height: CssClasses = '';
+	/** Provide a class to override the z-index */
+	export let zIndex: CssClasses = 'z-40';
 
 	// Props (regions)
 	/** Provide arbitrary classes to the backdrop region. */
@@ -67,7 +69,7 @@
 	};
 
 	// Classes
-	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0 z-40 flex';
+	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0 flex';
 	const cDrawer = 'ox-border overflow-y-auto transition-transform';
 
 	// Local
@@ -147,7 +149,7 @@
 	$: classesHeight = height ? height : presets[position].height;
 	$: classesRounded = rounded ? rounded : presets[position].rounded;
 	// Reactive
-	$: classesBackdrop = `${cBackdrop} ${bgBackdrop} ${padding} ${blur} ${classesPosition} ${regionBackdrop} ${$$props.class ?? ''}`;
+	$: classesBackdrop = `${cBackdrop} ${bgBackdrop} ${padding} ${blur} ${classesPosition} ${regionBackdrop} ${zIndex} ${$$props.class ?? ''}`;
 	$: classesDrawer = `${cDrawer} ${bgDrawer} ${border} ${rounded} ${shadow} ${classesWidth} ${classesHeight} ${classesRounded} ${regionDrawer}`;
 </script>
 
