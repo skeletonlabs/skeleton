@@ -112,7 +112,7 @@
 	<section class="space-y-4">
 		<h2>Whitelist Values</h2>
 		<p>
-			You can provide an array of strings to use as a whitelist. Only whitelisted items will be matched with the items in your list. If a value is entered that is not apart of the whitelist it will not filter that item.
+			You can provide an array of key value pairs to use as a whitelist. Only whitelisted items will be matched with the items in your list. If a value is entered that is not apart of the whitelist it will not filter that item.
 		</p>
 		<DocsPreview>
 			<svelte:fragment slot="preview">
@@ -139,9 +139,9 @@
 			</svelte:fragment>
 			<svelte:fragment slot="source">
 				<CodeBlock language="ts" code={`
-				let flavorList = [ 
+				let flavorList:Record<string, unknown>[] = [ 
 	{ label: 'Strawberry', value: 'strawberry'}, 
-	{ label: 'Neopolitan', value: 'neopolitan'}
+	{ label: 'Neapolitan', value: 'neapolitan'}
 ]
 				`} />
 				<CodeBlock language="html" code={`<Autocomplete ... whitelist={flavorWhitelist} />`} />
