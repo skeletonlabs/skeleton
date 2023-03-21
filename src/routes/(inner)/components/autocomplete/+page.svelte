@@ -52,12 +52,12 @@
 		{ label: 'Vanilla', value: ' vanilla'},
 		{ label: 'Chocolate', value: 'chocolate'},
 		{ label: 'Strawberry', value: 'strawberry'},
-		{ label: 'Neopolitan', value: 'neopolitan'},
+		{ label: 'Neapolitan', value: 'neapolitan'},
 	]
 
 	let flavorWhitelist:Record<string, unknown>[] = [
 		{ label: 'Strawberry', value: 'strawberry'},
-		{ label: 'Neopolitan', value: 'neopolitan'},
+		{ label: 'Neapolitan', value: 'neapolitan'},
 	];
 
 
@@ -112,7 +112,7 @@
 	<section class="space-y-4">
 		<h2>Whitelist Values</h2>
 		<p>
-			You can provide an array of strings to use as a whitelist. Only whitelisted items will be matched with the items in your list. If a value is entered that is not appart of the whitelist it will not fitler that item.
+			You can provide an array of strings to use as a whitelist. Only whitelisted items will be matched with the items in your list. If a value is entered that is not apart of the whitelist it will not filter that item.
 		</p>
 		<DocsPreview>
 			<svelte:fragment slot="preview">
@@ -153,7 +153,7 @@
 			<h2>Fuzzy Filtering</h2>
 			<p>
 				Fuzzy filtering provides the ability for you to filter through your list of values with a case-insensitive search.
-				This is set via the <code>mode</code> by setting it to <code>fuzzy</code> or not specicfying the mode at all, as its default filtering mode is fuzzy.
+				This is set via the <code>mode</code> by setting it to <code>fuzzy</code> or not specifying the mode at all, as its default filtering mode is fuzzy.
 			</p>
 			<CodeBlock language="html" code={`
 				<Autocomplete ... mode="fuzzy"/>
