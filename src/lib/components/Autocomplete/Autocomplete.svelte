@@ -6,7 +6,10 @@
 	import type { AutocompleteOption } from './types';
 
 	// Props
-	/* Bind the input value */
+	/**
+	 * Bind the input value.
+	 * @type {unknown}
+	 */
 	export let input: unknown = undefined;
 	/**
 	 * Define values for the list
