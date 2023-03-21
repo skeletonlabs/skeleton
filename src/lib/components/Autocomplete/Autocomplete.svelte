@@ -48,11 +48,11 @@
 					switch (mode) {
 						case 'exclude':
 							/** Prevents matching when words from letters that aren't at from the start of the string to the inputs length */
-							if (value.substring(0, input.length) !== input || value.substring(input.length) !== '') matched = true;
+							if (!value.includes(input) || value.substring(input.length) !== '') matched = true;
 							break;
 						default:
 							/** Prevents matching when words from letters that aren't at from the start of the string to the inputs length */
-							if (value.substring(0, input.length) === input) matched = true;
+							if (value.includes(input)) matched = true;
 							break;
 					}
 				});

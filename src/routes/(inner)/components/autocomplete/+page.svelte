@@ -47,7 +47,6 @@
 	// ];
 
 	function onSelection(event: any): void {
-		console.log(event);
 		searchValue = event.detail.selection.label;
 	}
 </script>
@@ -80,7 +79,9 @@
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<CodeBlock language="html" code={`(code snippet)`} />
+				<CodeBlock language="html" code={`
+					<Autocomplete bind:input={searchValue} mode="fuzzy" options={anythingList} on:selection={onSelection} />
+				`} />
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -88,14 +89,24 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<h2>Title 1</h2>
-			<p>Describe how to use the feature.</p>
-			<CodeBlock language="html" code={`(code)`} />
+			<h2>Fuzzy Filtering</h2>
+			<p>
+				Fuzzy filtering provides the ability for you to filter through your list of values with a case-insensitive search.
+				This is set via the <code>mode</code> by setting it to <code>fuzzy</code> or not specicfying the mode at all, as its default filtering mode is fuzzy.
+			</p>
+			<CodeBlock language="html" code={`
+				<Autocomplete mode="fuzzy"/>
+			`} />
 		</section>
 		<section class="space-y-4">
-			<h2>Title 2</h2>
-			<p>Describe how to use the feature.</p>
-			<CodeBlock language="html" code={`(code)`} />
+			<h2>Exclude Filtering</h2>
+			<p>
+				Exclude filtering will filter out the values currently input into the <code>input</code> field and only display items currently not written in.
+				As opposed to the fuzzy filtering where it's list will shrink when matching to the item input.
+			</p>
+			<CodeBlock language="html" code={`
+				<Autocomplete mode="exclude"/>
+			`} />
 		</section>
 	</svelte:fragment>
 </DocsShell>
