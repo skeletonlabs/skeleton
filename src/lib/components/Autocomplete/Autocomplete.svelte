@@ -6,8 +6,8 @@
 	import type { AutocompleteOption } from './types';
 
 	// Props
-	/* Bind the search input value */
-	export let input: string;
+	/* Bind the input value */
+	export let input: unknown = undefined;
 	/**
 	 * Define values for the list
 	 * @type {AutocompleteOption[]}
@@ -19,10 +19,10 @@
 	 */
 	export let whitelist: unknown[] = [];
 	/**
-	 * Controls the display of filtered results.
-	 * @type {'include' | 'exclude'}
+	 * Provide blacklist values
+	 * @type {unknown[]}
 	 */
-	export let mode: 'include' | 'exclude' = 'include';
+	export let blacklist: unknown[] = [];
 	/** Provide a HTML markup to display when no match is found. */
 	export let emptyState: string = 'No Results Found.';
 	// Props (region)
@@ -34,23 +34,37 @@
 	export let regionItem: string = '';
 	/** Provide arbitrary classes to each button. */
 	export let regionButton: string = 'w-full';
+	/** Provide arbitrary classes to empty message. */
+	export let regionEmpty: string = 'text-center';
 
-	// If whitelist is populated then filter options
-	// Whitelist should include ONLY values
-	if (whitelist.length) options = options.filter((option: AutocompleteOption) => whitelist.includes(option.value));
+	// Local
+	let listedOptions = options;
 
-	function searchResults(): AutocompleteOption[] {
+	// Whitelist Options
+	function whitelistOptions(): void {
+		if (!whitelist.length) return;
+		listedOptions = [...options].filter((option: AutocompleteOption) => whitelist.includes(option.value));
+	}
+
+	// Blacklist Options
+	function blacklistOptions(): void {
+		if (!blacklist.length) return;
+		const toBlacklist = new Set(blacklist);
+		listedOptions = [...options].filter((option: AutocompleteOption) => !toBlacklist.has(option.value));
+	}
+
+	function filterOptions(): AutocompleteOption[] {
 		// Create a local copy of options
-		let _options = [...options];
+		let _options = [...listedOptions];
 		// Filter options
 		_options = _options.filter((option: AutocompleteOption) => {
 			// Format the input search value
-			const inputFormatted = input.toLowerCase().trim();
-			// Format the option object into a string of values
-			const optionsFormatted = JSON.stringify(Object.values(option).map((o) => o.toLocaleLowerCase()));
-			// Return results based on mode
-			if (mode === 'include' && optionsFormatted.includes(inputFormatted)) return option;
-			if (mode === 'exclude' && !optionsFormatted.includes(inputFormatted)) return option;
+			const inputFormatted = String(input).toLowerCase().trim();
+			// Format the option
+			let optionValues = Object.values({ label: option.label, value: option.value, keywords: option.keywords });
+			let optionFormatted = JSON.stringify(optionValues).toLowerCase();
+			// Match
+			if (optionFormatted.includes(inputFormatted)) return option;
 		});
 		return _options;
 	}
@@ -60,15 +74,17 @@
 		dispatch('selection', option);
 	}
 
-	// Filtered Options
-	$: optionsFiltered = input ? searchResults() : options;
-
+	// State
+	$: if (whitelist) whitelistOptions();
+	$: if (blacklist) blacklistOptions();
+	$: optionsFiltered = input ? filterOptions() : listedOptions;
 	// Reactive
 	$: classsesBase = `${$$props.class ?? ''}`;
 	$: classesNav = `${regionNav}`;
 	$: classesList = `${regionList}`;
 	$: classesItem = `${regionItem}`;
 	$: classesButton = `${regionButton}`;
+	$: classesEmtpy = `${regionEmpty}`;
 </script>
 
 <div class="autocomplete {classsesBase}" data-testid="autocomplete">
@@ -85,6 +101,6 @@
 			</ul>
 		</nav>
 	{:else}
-		<div>{emptyState}</div>
+		<div class="autocomplete-empty {classesEmtpy}">{emptyState}</div>
 	{/if}
 </div>

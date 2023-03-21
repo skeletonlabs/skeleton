@@ -20,36 +20,41 @@
 		types: ['AutocompleteOption'],
 		source: 'components/Autocomplete',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/',
-		components: [{ sveld: sveldAutocomplete }]
+		components: [{ sveld: sveldAutocomplete }],
+		keyboard: [
+			['<kbd>Tab</kbd>', 'Select the next autocomplete option.'],
+			['<kbd>Shift</kbd> + <kbd>Tab</kbd>', 'Select the previous autocomplete option.'],
+			['<kbd>Space</kbd> or <kbd>Enter</kbd>', 'Select the current autocomplete option.']
+		]
 	};
 
-	// Demo: Featured
-	let demoSearch = '';
-	const demoOptions: AutocompleteOption[] = [
-		{ label: 'Foo', value: 'foo' },
-		{ label: 'Bar', value: 'bar' },
-		{ label: 'FooBar', value: 'foobar' },
-		{ label: 'Fizz', value: 'fizz' },
-		{ label: 'Buzz', value: 'buzz' },
-		{ label: 'FizzBuzz', value: 'fizzbuzz' }
-	];
-
-	// Demo: Flavors
-	let flavorSearch = '';
+	// Local
+	let inputDemo = '';
+	let inputWhitelist = '';
 	const flavorOptions: AutocompleteOption[] = [
-		{ label: 'Vanilla', value: ' vanilla' },
-		{ label: 'Chocolate', value: 'chocolate' },
-		{ label: 'Strawberry', value: 'strawberry' },
-		{ label: 'Neapolitan', value: 'neapolitan' }
+		{ label: 'Vanilla', value: 'vanilla', keywords: 'plain, basic', meta: { healthy: false } },
+		{ label: 'Chocolate', value: 'chocolate', keywords: 'dark, white', meta: { healthy: false } },
+		{ label: 'Strawberry', value: 'strawberry', keywords: 'fruit', meta: { healthy: true } },
+		{ label: 'Neapolitan', value: 'neapolitan', keywords: 'mix, strawberry, chocolate, vanilla', meta: { healthy: false } },
+		{ label: 'Pineapple', value: 'pineapple', keywords: 'fruit', meta: { healthy: true } },
+		{ label: 'Peach', value: 'peach', keywords: 'fruit', meta: { healthy: true } }
 	];
-	const flavorWhitelist: string[] = ['strawberry', 'neapolitan'];
+	const flavorWhitelist: string[] = ['neapolitan', 'pineapple', 'peach'];
+	let flavorBlacklist: string[] = ['vanilla', 'chocolate'];
 
 	function onDemoSelection(event: any): void {
-		demoSearch = event.detail.label;
+		console.log(event.detail);
+		inputDemo = event.detail.label;
 	}
 
-	function onFlavorSelection(event: any): void {
-		flavorSearch = event.detail.label;
+	function onWhitelistSelect(event: any): void {
+		console.log(event.detail);
+		inputWhitelist = event.detail.label;
+	}
+
+	function onExcludeSelection(event: any): void {
+		console.log(event.detail);
+		flavorBlacklist = [event.detail.value];
 	}
 </script>
 
@@ -59,10 +64,10 @@
 		<DocsPreview>
 			<svelte:fragment slot="preview">
 				<div class="text-token w-96 space-y-2">
-					<input class="input" type="search" name="ac-demo" bind:value={demoSearch} placeholder="Search..." />
+					<input class="input" type="search" name="ac-demo" bind:value={inputDemo} placeholder="Search..." />
 					<Autocomplete
-						bind:input={demoSearch}
-						options={demoOptions}
+						bind:input={inputDemo}
+						options={flavorOptions}
 						class="card w-96 p-4 max-h-48 overflow-y-auto"
 						on:selection={onDemoSelection}
 					/>
@@ -70,18 +75,18 @@
 			</svelte:fragment>
 			<svelte:fragment slot="source">
 				<p>Create a variable to hold bind your search value.</p>
-				<CodeBlock language="ts" code={`let demoSearch = '';`} />
+				<CodeBlock language="ts" code={`let inputDemo = '';`} />
 				<p>Provide an array of objects containing <code>label</code> and <code>value</code> keys.</p>
 				<CodeBlock
 					language="ts"
 					code={`
-const demoOptions: AutocompleteOption[] = [
-	{ label: 'Foo', value: 'foo' },
-	{ label: 'Bar', value: 'bar' },
-	{ label: 'FooBar', value: 'foobar' },
-	{ label: 'Fizz', value: 'fizz' },
-	{ label: 'Buzz', value: 'buzz' },
-	{ label: 'FizzBuzz', value: 'fizzbuzz' }
+const flavorOptions: AutocompleteOption[] = [
+	{ label: 'Vanilla', value: 'vanilla' }, 
+	{ label: 'Chocolate', value: 'chocolate' }, 
+	{ label: 'Strawberry', value: 'strawberry' }, 
+	{ label: 'Neapolitan', value: 'neapolitan' }, 
+	{ label: 'Pineapple', value: 'pineapple' }, 
+	{ label: 'Peach', value: 'peach' }, 
 ];
 				`}
 				/>
@@ -90,68 +95,91 @@ const demoOptions: AutocompleteOption[] = [
 					language="ts"
 					code={`
 function onDemoSelection(event: any): void {
-	demoSearch = event.detail.selection.label;
+	inputDemo = event.detail.label;
 }
 				`}
 				/>
 				<p>Create your search input and bind the search value.</p>
 				<CodeBlock
 					language="html"
-					code={`<input class="input" type="search" name="demo" bind:value={demoSearch} placeholder="Search..." />`}
+					code={`<input class="input" type="search" name="demo" bind:value={inputDemo} placeholder="Search..." />`}
 				/>
 				<p>Implement the autocomplete component.</p>
-				<CodeBlock language="html" code={`<Autocomplete bind:input={demoSearch} options={demoOptions} on:selection={onDemoSelection} />`} />
+				<CodeBlock language="html" code={`<Autocomplete bind:input={inputDemo} options={demoOptions} on:selection={onDemoSelection} />`} />
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
-		<!-- Whitelist -->
 		<section class="space-y-4">
 			<h2>Whitelist</h2>
 			<p>Provide a list of values you wish to whitelist. Only options with a matching value will be displayed.</p>
-			<DocsPreview background="neutral">
+			<DocsPreview background="neutral" regionFooter="text-center">
 				<svelte:fragment slot="preview">
 					<div class="text-token w-96 space-y-2">
-						<input class="input autocomplete" type="search" name="autocomplete-search" bind:value={flavorSearch} placeholder="Search..." />
+						<input
+							class="input autocomplete"
+							type="search"
+							name="autocomplete-search"
+							bind:value={inputWhitelist}
+							placeholder="Search..."
+						/>
 						<Autocomplete
-							bind:input={flavorSearch}
+							bind:input={inputWhitelist}
 							options={flavorOptions}
 							whitelist={flavorWhitelist}
 							class="card w-96 p-4 max-h-48 overflow-y-auto"
-							on:selection={onFlavorSelection}
+							on:selection={onWhitelistSelect}
 						/>
 					</div>
 				</svelte:fragment>
+				<svelte:fragment slot="footer">
+					<span class="text-sm">Whitelist</span> <code>[{flavorWhitelist.join(', ')}]</code>
+				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock
-						language="ts"
-						code={`
-const flavorOptions: AutocompleteOption[] = [
-	{ label: 'Vanilla', value: ' vanilla' },
-	{ label: 'Chocolate', value: 'chocolate' },
-	{ label: 'Strawberry', value: 'strawberry' },
-	{ label: 'Neapolitan', value: 'neapolitan' }
-];
-					`}
-					/>
-					<CodeBlock language="ts" code={`const flavorWhitelist: string[] = ['strawberry', 'neapolitan'];`} />
-					<CodeBlock language="html" code={`<Autocomplete ... options={flavorOptions} whitelist={flavorWhitelist} />`} />
+					<CodeBlock language="ts" code={`const flavorWhitelist: string[] = ['neapolitan', 'pineapple', 'peach'];`} />
+					<CodeBlock language="html" code={`<Autocomplete ... whitelist={flavorWhitelist} />`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
-
 		<section class="space-y-4">
-			<h2>Mode</h2>
+			<h2>Blacklist</h2>
+			<p>Provide a list of values you wish to blacklist. Blaclisted options will be excluded from the list.</p>
+			<DocsPreview background="neutral" regionFooter="text-center">
+				<svelte:fragment slot="preview">
+					<div class="text-token w-96 space-y-2">
+						<Autocomplete
+							options={flavorOptions}
+							blacklist={flavorBlacklist}
+							class="card w-96 p-4 max-h-48 overflow-y-auto"
+							on:selection={onExcludeSelection}
+						/>
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="footer">
+					<span class="text-sm">Blacklist</span> <code>[{flavorBlacklist.join(', ')}]</code>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock language="ts" code={`let flavorBlacklist: string[] = ['vanilla', 'chocolate'];`} />
+					<CodeBlock language="html" code={`<Autocomplete ... blacklist={flavorBlacklist} />`} />
+				</svelte:fragment>
+			</DocsPreview>
+		</section>
+		<section class="space-y-4">
+			<h2>Data Structure</h2>
 			<p>
-				By default the autocomplete will filter the list of options to only those that include the search value. Use the <code>exclude</code
-				> mode to only show options which do not match the search value.
+				You may optionally append <code>keywords</code> to provide additional search terms. As well as <code>meta</code> to provide
+				arbitrary data - which is not utilizing for filtering. All data option data is returned by <code>on:selection</code>, including
+				these.
 			</p>
 			<CodeBlock
-				language="html"
+				language="ts"
 				code={`
-				<Autocomplete ... mode="exclude"/>
+const flavorOptions: AutocompleteOption[] = [
+	{ ..., keywords: 'mix, strawberry, chocolate, vanilla' },
+	{ ..., meta: { healthy: false } },
+];
 			`}
 			/>
 		</section>

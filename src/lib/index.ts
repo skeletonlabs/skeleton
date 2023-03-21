@@ -2,6 +2,7 @@
 
 // Types ---
 
+export type { AutocompleteOption } from './components/Autocomplete/types';
 export type { ConicStop } from './components/ConicGradient/types';
 export type { DrawerSettings } from './utilities/Drawer/types';
 export type { ModalSettings, ModalComponent } from './utilities/Modal/types';
@@ -70,6 +71,7 @@ export { default as AppBar } from './components/AppBar/AppBar.svelte';
 export { default as AppRail } from './components/AppRail/AppRail.svelte';
 export { default as AppRailTile } from './components/AppRail/AppRailTile.svelte';
 export { default as AppShell } from './components/AppShell/AppShell.svelte';
+export { default as Autocomplete } from './components/Autocomplete/Autocomplete.svelte';
 export { default as Avatar } from './components/Avatar/Avatar.svelte';
 export { default as ConicGradient } from './components/ConicGradient/ConicGradient.svelte';
 export { default as FileButton } from './components/FileButton/FileButton.svelte';
