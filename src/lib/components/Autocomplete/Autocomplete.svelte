@@ -35,37 +35,47 @@
 	}
 
 	function filter(input: string, whitelist: Record<string, unknown>[], mode?: string): Record<string, unknown>[] {
-		return options.filter((row) => {
-			/** Searching using options instead of row, so it doesn't matter what kind of KvP naming convetion is used. */
+		let returnRows:Record<string, unknown>[] = [];
+
+		options.forEach((row) => {
 			if (options.some(isMatch) && whitelist.some(isMatch)) {
 				const keys = Object.keys(row);
 				let matched = false;
 
-				keys.map((key) => {
+				keys.forEach((key) => {
 					/** Stringify adds "" to the start and end of the new string. Those add difficulty to the search, so we remove them. */
 					const value = JSON.stringify(row[key]).replaceAll('"', '').toLowerCase();
 
 					switch (mode) {
 						case 'exclude':
-							/** Prevents matching when words from letters that aren't at from the start of the string to the inputs length */
 							if (!value.includes(input) || value.substring(input.length) !== '') matched = true;
 							break;
 						default:
-							/** Prevents matching when words from letters that aren't at from the start of the string to the inputs length */
 							if (value.includes(input)) matched = true;
 							break;
 					}
 				});
 
-				if (matched) return row;
+				if (matched){
+					whitelist.forEach((whitelistRow) => {
+						const whitelistRowStringified = JSON.stringify(whitelistRow);
+						const rowStringified = JSON.stringify(row);
+
+						if(whitelistRowStringified === rowStringified){
+							returnRows.push(row);
+						} 
+					});
+				} 
 			}
 		});
+		return returnRows;
 	}
 
 	$: filteredOptions = () => {
 		if (!input) return [...options];
 		const inputFormatted = input.toLowerCase();
-		return filter(inputFormatted, whitelist, mode);
+		const rows = filter(inputFormatted, whitelist, mode);
+		return rows;
 	};
 
 	// Reactive
