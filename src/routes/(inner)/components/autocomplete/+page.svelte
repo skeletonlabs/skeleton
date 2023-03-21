@@ -7,8 +7,8 @@
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	// Popups
-	import { popup } from '$lib/utilities/Popup/popup';
-	import type { PopupSettings } from '$lib/utilities/Popup/types';
+	// import { popup } from '$lib/utilities/Popup/popup';
+	// import type { PopupSettings } from '$lib/utilities/Popup/types';
 	// Sveld
 	import sveldAutocomplete from '$lib/components/Autocomplete/Autocomplete.svelte?raw&sveld';
 
@@ -32,7 +32,10 @@
 	// 	// Close on click:
 	// 	closeQuery: '.autocomplete-option'
 	// };
+
+	/** Values for basic example */
 	let searchValue = '';
+
 	let anythingList: Record<string, unknown>[] = [
 		{ label: 'Foo', value: 'foo' },
 		{ label: 'Bar', value: 'bar' },
@@ -41,13 +44,30 @@
 		{ label: 'Buzz', value: 'buzz' },
 		{ label: 'FizzBuzz', value: 'fizzbuzz' }
 	];
-	// let whitelist = [
-	// 	{ label: 'Foo', value: 'foo' },
-	// 	{ label: 'Bar', value: 'bar' }
-	// ];
 
-	function onSelection(event: any): void {
+	/** Values for whitelist example */
+	let flavorSearchValue = '';
+
+	let flavorList:Record<string, unknown>[] = [
+		{ label: 'Vanilla', value: ' vanilla'},
+		{ label: 'Chocolate', value: 'chocolate'},
+		{ label: 'Strawberry', value: 'strawberry'},
+		{ label: 'Neopolitan', value: 'neopolitan'},
+	]
+
+	let flavorWhitelist:Record<string, unknown>[] = [
+		{ label: 'Strawberry', value: 'strawberry'},
+		{ label: 'Neopolitan', value: 'neopolitan'},
+	];
+
+
+	/** On selection event to set value. */
+	function onSelectionDefault(event: any): void {
 		searchValue = event.detail.selection.label;
+	}
+
+	function onSelectionFlavors(event: any): void {
+		flavorSearchValue = event.detail.selection.label;
 	}
 </script>
 
@@ -73,7 +93,7 @@
 						bind:input={searchValue}
 						mode="fuzzy"
 						options={anythingList}
-						on:selection={onSelection}
+						on:selection={onSelectionDefault}
 						class="card w-[280px] p-2 max-h-48 overflow-y-auto"
 					/>
 				</div>
@@ -88,6 +108,47 @@
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
+		<!-- Whitelist -->
+	<section class="space-y-4">
+		<h2>Whitelist Values</h2>
+		<p>
+			You can provide an array of strings to use as a whitelist. Only whitelisted items will be matched with the items in your list. If a value is entered that is not appart of the whitelist it will not fitler that item.
+		</p>
+		<DocsPreview>
+			<svelte:fragment slot="preview">
+				<!-- IMPORTANT: remove `space` when re-enabling popup -->
+				<div class="text-token w-[280px] space-y-2">
+					<!-- Input -->
+					<!-- use:popup={popupSettings} -->
+					<input
+						class="input autocomplete"
+						type="search"
+						name="autocomplete-search"
+						bind:value={flavorSearchValue}
+						placeholder="Begin typing to filter..."
+					/>
+				<Autocomplete
+						bind:input={flavorSearchValue}
+						mode="fuzzy"
+						whitelist={flavorWhitelist}
+						options={flavorList}
+						on:selection={onSelectionFlavors}
+						class="card w-[280px] p-2 max-h-48 overflow-y-auto"
+					/>
+				</div>
+			</svelte:fragment>
+			<svelte:fragment slot="source">
+				<CodeBlock language="ts" code={`
+				let flavorList = [ 
+	{ label: 'Strawberry', value: 'strawberry'}, 
+	{ label: 'Neopolitan', value: 'neopolitan'}
+]
+				`} />
+				<CodeBlock language="html" code={`<Autocomplete ... whitelist={flavorWhitelist} />`} />
+			</svelte:fragment>
+		</DocsPreview>
+		</section>
+
 		<section class="space-y-4">
 			<h2>Fuzzy Filtering</h2>
 			<p>
@@ -95,7 +156,7 @@
 				This is set via the <code>mode</code> by setting it to <code>fuzzy</code> or not specicfying the mode at all, as its default filtering mode is fuzzy.
 			</p>
 			<CodeBlock language="html" code={`
-				<Autocomplete mode="fuzzy"/>
+				<Autocomplete ... mode="fuzzy"/>
 			`} />
 		</section>
 		<section class="space-y-4">
@@ -105,7 +166,7 @@
 				As opposed to the fuzzy filtering where it's list will shrink when matching to the item input.
 			</p>
 			<CodeBlock language="html" code={`
-				<Autocomplete mode="exclude"/>
+				<Autocomplete ... mode="exclude"/>
 			`} />
 		</section>
 	</svelte:fragment>
