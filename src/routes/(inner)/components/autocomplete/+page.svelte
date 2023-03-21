@@ -2,13 +2,12 @@
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
+	// Types
+	import type { AutocompleteOption } from '$lib/components/Autocomplete/types';
 	// Components
 	import Autocomplete from '$lib/components/Autocomplete/Autocomplete.svelte';
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-	// Popups
-	// import { popup } from '$lib/utilities/Popup/popup';
-	// import type { PopupSettings } from '$lib/utilities/Popup/types';
 	// Sveld
 	import sveldAutocomplete from '$lib/components/Autocomplete/Autocomplete.svelte?raw&sveld';
 
@@ -18,25 +17,15 @@
 		name: 'Autocomplete',
 		description: 'Displays a list of suggested options.',
 		imports: ['Autocomplete'],
-		// types: ['Template'],
+		types: ['AutocompleteOption'],
 		source: 'components/Autocomplete',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/',
 		components: [{ sveld: sveldAutocomplete }]
 	};
 
-	// Local
-	// let popupSettings: PopupSettings = {
-	// 	event: 'click',
-	// 	target: 'popupAutocomplete',
-	// 	placement: 'bottom',
-	// 	// Close on click:
-	// 	closeQuery: '.autocomplete-option'
-	// };
-
-	/** Values for basic example */
-	let searchValue = '';
-
-	let anythingList: Record<string, unknown>[] = [
+	// Demo: Featured
+	let demoSearch = '';
+	const demoOptions: AutocompleteOption[] = [
 		{ label: 'Foo', value: 'foo' },
 		{ label: 'Bar', value: 'bar' },
 		{ label: 'FooBar', value: 'foobar' },
@@ -45,29 +34,22 @@
 		{ label: 'FizzBuzz', value: 'fizzbuzz' }
 	];
 
-	/** Values for whitelist example */
-	let flavorSearchValue = '';
-
-	let flavorList:Record<string, unknown>[] = [
-		{ label: 'Vanilla', value: ' vanilla'},
-		{ label: 'Chocolate', value: 'chocolate'},
-		{ label: 'Strawberry', value: 'strawberry'},
-		{ label: 'Neapolitan', value: 'neapolitan'},
-	]
-
-	let flavorWhitelist:Record<string, unknown>[] = [
-		{ label: 'Strawberry', value: 'strawberry'},
-		{ label: 'Neapolitan', value: 'neapolitan'},
+	// Demo: Flavors
+	let flavorSearch = '';
+	const flavorOptions: AutocompleteOption[] = [
+		{ label: 'Vanilla', value: ' vanilla' },
+		{ label: 'Chocolate', value: 'chocolate' },
+		{ label: 'Strawberry', value: 'strawberry' },
+		{ label: 'Neapolitan', value: 'neapolitan' }
 	];
+	const flavorWhitelist: string[] = ['strawberry', 'neapolitan'];
 
-
-	/** On selection event to set value. */
-	function onSelectionDefault(event: any): void {
-		searchValue = event.detail.selection.label;
+	function onDemoSelection(event: any): void {
+		demoSearch = event.detail.label;
 	}
 
-	function onSelectionFlavors(event: any): void {
-		flavorSearchValue = event.detail.selection.label;
+	function onFlavorSelection(event: any): void {
+		flavorSearch = event.detail.label;
 	}
 </script>
 
@@ -76,32 +58,49 @@
 	<svelte:fragment slot="sandbox">
 		<DocsPreview>
 			<svelte:fragment slot="preview">
-				<!-- IMPORTANT: remove `space` when re-enabling popup -->
-				<div class="text-token w-[280px] space-y-2">
-					<!-- Input -->
-					<!-- use:popup={popupSettings} -->
-					<input
-						class="input autocomplete"
-						type="search"
-						name="autocomplete-search"
-						bind:value={searchValue}
-						placeholder="Begin typing to filter..."
-					/>
-					<!-- Autocomplete -->
-					<!-- data-popup="popupAutocomplete" -->
+				<div class="text-token w-96 space-y-2">
+					<input class="input" type="search" name="ac-demo" bind:value={demoSearch} placeholder="Search..." />
 					<Autocomplete
-						bind:input={searchValue}
-						mode="fuzzy"
-						options={anythingList}
-						on:selection={onSelectionDefault}
-						class="card w-[280px] p-2 max-h-48 overflow-y-auto"
+						bind:input={demoSearch}
+						options={demoOptions}
+						class="card w-96 p-4 max-h-48 overflow-y-auto"
+						on:selection={onDemoSelection}
 					/>
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<CodeBlock language="html" code={`
-					<Autocomplete bind:input={searchValue} mode="fuzzy" options={anythingList} on:selection={onSelection} />
-				`} />
+				<p>Create a variable to hold bind your search value.</p>
+				<CodeBlock language="ts" code={`let demoSearch = '';`} />
+				<p>Provide an array of objects containing <code>label</code> and <code>value</code> keys.</p>
+				<CodeBlock
+					language="ts"
+					code={`
+const demoOptions: AutocompleteOption[] = [
+	{ label: 'Foo', value: 'foo' },
+	{ label: 'Bar', value: 'bar' },
+	{ label: 'FooBar', value: 'foobar' },
+	{ label: 'Fizz', value: 'fizz' },
+	{ label: 'Buzz', value: 'buzz' },
+	{ label: 'FizzBuzz', value: 'fizzbuzz' }
+];
+				`}
+				/>
+				<p>Create a selection event handler, to handle the result of the selected value.</p>
+				<CodeBlock
+					language="ts"
+					code={`
+function onDemoSelection(event: any): void {
+	demoSearch = event.detail.selection.label;
+}
+				`}
+				/>
+				<p>Create your search input and bind the search value.</p>
+				<CodeBlock
+					language="html"
+					code={`<input class="input" type="search" name="demo" bind:value={demoSearch} placeholder="Search..." />`}
+				/>
+				<p>Implement the autocomplete component.</p>
+				<CodeBlock language="html" code={`<Autocomplete bind:input={demoSearch} options={demoOptions} on:selection={onDemoSelection} />`} />
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -109,65 +108,52 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<!-- Whitelist -->
-	<section class="space-y-4">
-		<h2>Whitelist Values</h2>
-		<p>
-			You can provide an array of key value pairs to use as a whitelist. Only whitelisted items will be matched with the items in your list. If a value is entered that is not apart of the whitelist it will not filter that item.
-		</p>
-		<DocsPreview>
-			<svelte:fragment slot="preview">
-				<!-- IMPORTANT: remove `space` when re-enabling popup -->
-				<div class="text-token w-[280px] space-y-2">
-					<!-- Input -->
-					<!-- use:popup={popupSettings} -->
-					<input
-						class="input autocomplete"
-						type="search"
-						name="autocomplete-search"
-						bind:value={flavorSearchValue}
-						placeholder="Begin typing to filter..."
+		<section class="space-y-4">
+			<h2>Whitelist</h2>
+			<p>Provide a list of values you wish to whitelist. Only options with a matching value will be displayed.</p>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<div class="text-token w-96 space-y-2">
+						<input class="input autocomplete" type="search" name="autocomplete-search" bind:value={flavorSearch} placeholder="Search..." />
+						<Autocomplete
+							bind:input={flavorSearch}
+							options={flavorOptions}
+							whitelist={flavorWhitelist}
+							class="card w-96 p-4 max-h-48 overflow-y-auto"
+							on:selection={onFlavorSelection}
+						/>
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="ts"
+						code={`
+const flavorOptions: AutocompleteOption[] = [
+	{ label: 'Vanilla', value: ' vanilla' },
+	{ label: 'Chocolate', value: 'chocolate' },
+	{ label: 'Strawberry', value: 'strawberry' },
+	{ label: 'Neapolitan', value: 'neapolitan' }
+];
+					`}
 					/>
-				<Autocomplete
-						bind:input={flavorSearchValue}
-						mode="fuzzy"
-						whitelist={flavorWhitelist}
-						options={flavorList}
-						on:selection={onSelectionFlavors}
-						class="card w-[280px] p-2 max-h-48 overflow-y-auto"
-					/>
-				</div>
-			</svelte:fragment>
-			<svelte:fragment slot="source">
-				<CodeBlock language="ts" code={`
-				let flavorList:Record<string, unknown>[] = [ 
-	{ label: 'Strawberry', value: 'strawberry'}, 
-	{ label: 'Neapolitan', value: 'neapolitan'}
-]
-				`} />
-				<CodeBlock language="html" code={`<Autocomplete ... whitelist={flavorWhitelist} />`} />
-			</svelte:fragment>
-		</DocsPreview>
+					<CodeBlock language="ts" code={`const flavorWhitelist: string[] = ['strawberry', 'neapolitan'];`} />
+					<CodeBlock language="html" code={`<Autocomplete ... options={flavorOptions} whitelist={flavorWhitelist} />`} />
+				</svelte:fragment>
+			</DocsPreview>
 		</section>
 
 		<section class="space-y-4">
-			<h2>Fuzzy Filtering</h2>
+			<h2>Mode</h2>
 			<p>
-				Fuzzy filtering provides the ability for you to filter through your list of values with a case-insensitive search.
-				This is set via the <code>mode</code> by setting it to <code>fuzzy</code> or not specifying the mode at all, as its default filtering mode is fuzzy.
+				By default the autocomplete will filter the list of options to only those that include the search value. Use the <code>exclude</code
+				> mode to only show options which do not match the search value.
 			</p>
-			<CodeBlock language="html" code={`
-				<Autocomplete ... mode="fuzzy"/>
-			`} />
-		</section>
-		<section class="space-y-4">
-			<h2>Exclude Filtering</h2>
-			<p>
-				Exclude filtering will filter out the values currently input into the <code>input</code> field and only display items currently not written in.
-				As opposed to the fuzzy filtering where it's list will shrink when matching to the item input.
-			</p>
-			<CodeBlock language="html" code={`
+			<CodeBlock
+				language="html"
+				code={`
 				<Autocomplete ... mode="exclude"/>
-			`} />
+			`}
+			/>
 		</section>
 	</svelte:fragment>
 </DocsShell>

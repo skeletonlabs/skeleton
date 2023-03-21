@@ -2,109 +2,89 @@
 	import { createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
 
+	// Types
+	import type { AutocompleteOption } from './types';
+
 	// Props
-	/** The binded input value. */
+	/* Bind the search input value */
 	export let input: string;
-	/** Define values for the list */
-	export let options: Record<string, unknown>[];
-	/** Provide a whitelist of accepted options. */
-	export let whitelist: Record<string, unknown>[] = [...options];
 	/**
-	 * Define filtering mode: fuzzy, exclude.
-	 * @type 'exclude' | 'fuzzy'
+	 * Define values for the list
+	 * @type {AutocompleteOption[]}
 	 */
-	export let mode: 'exclude' | 'fuzzy' = 'fuzzy';
+	export let options: AutocompleteOption[] = [];
+	/**
+	 * Provide whitelisted values
+	 * @type {unknown[]}
+	 */
+	export let whitelist: unknown[] = [];
+	/**
+	 * Controls the display of filtered results.
+	 * @type {'include' | 'exclude'}
+	 */
+	export let mode: 'include' | 'exclude' = 'include';
+	/** Provide a HTML markup to display when no match is found. */
+	export let emptyState: string = 'No Results Found.';
+	// Props (region)
+	/** Provide arbitrary classes to nav element. */
+	export let regionNav: string = '';
+	/** Provide arbitrary classes to each list. */
+	export let regionList: string = 'list-nav';
+	/** Provide arbitrary classes to each list item. */
+	export let regionItem: string = '';
+	/** Provide arbitrary classes to each button. */
+	export let regionButton: string = 'w-full';
 
-	// Classes
-	const cBase = 'list-nav';
-	const cButton = 'w-full';
+	// If whitelist is populated then filter options
+	// Whitelist should include ONLY values
+	if (whitelist.length) options = options.filter((option: AutocompleteOption) => whitelist.includes(option.value));
 
-	function onSelection(selection: Record<string, unknown>) {
-		/** @event {{ selection: Record<string, unknown> }} selection - Fire on option select. */
-		dispatch('selection', { selection });
-	}
-
-	function isMatch(obj: Record<string, unknown>) {
-		const inputFormatted = input.toLowerCase();
-		let matched = false;
-		Object.values(obj).forEach((objValue) => {
-			const stringyValue = JSON.stringify(objValue).replaceAll('"', '').toLowerCase();
-			matched = stringyValue.includes(inputFormatted);
+	function searchResults(): AutocompleteOption[] {
+		// Create a local copy of options
+		let _options = [...options];
+		// Filter options
+		_options = _options.filter((option: AutocompleteOption) => {
+			// Format the input search value
+			const inputFormatted = input.toLowerCase().trim();
+			// Format the option object into a string of values
+			const optionsFormatted = JSON.stringify(Object.values(option).map((o) => o.toLocaleLowerCase()));
+			// Return results based on mode
+			if (mode === 'include' && optionsFormatted.includes(inputFormatted)) return option;
+			if (mode === 'exclude' && !optionsFormatted.includes(inputFormatted)) return option;
 		});
-		return matched;
+		return _options;
 	}
 
-	function filter(input: string, whitelist: Record<string, unknown>[], mode?: string): Record<string, unknown>[] {
-		let returnRows:Record<string, unknown>[] = [];
-
-		options.forEach((row) => {
-			if (options.some(isMatch) && whitelist.some(isMatch)) {
-				const keys = Object.keys(row);
-				let matched = false;
-
-				keys.forEach((key) => {
-					/** Stringify adds "" to the start and end of the new string. Those add difficulty to the search, so we remove them. */
-					const value = JSON.stringify(row[key]).replaceAll('"', '').toLowerCase();
-
-					switch (mode) {
-						case 'exclude':
-							if (!value.includes(input) || value.substring(input.length) !== '') matched = true;
-							break;
-						default:
-							if (value.includes(input)) matched = true;
-							break;
-					}
-				});
-
-				if (matched){
-					whitelist.forEach((whitelistRow) => {
-						const whitelistRowStringified = JSON.stringify(whitelistRow);
-						const rowStringified = JSON.stringify(row);
-
-						if(whitelistRowStringified === rowStringified){
-							returnRows.push(row);
-						} 
-					});
-				} 
-			}
-		});
-		return returnRows;
+	function onSelection(option: AutocompleteOption) {
+		/** @event {AutocompleteOption} selection - Fire on option select. */
+		dispatch('selection', option);
 	}
 
-	$: filteredOptions = () => {
-		if (!input) return [...options];
-		const inputFormatted = input.toLowerCase();
-		const rows = filter(inputFormatted, whitelist, mode);
-		return rows;
-	};
+	// Filtered Options
+	$: optionsFiltered = input ? searchResults() : options;
 
 	// Reactive
-	$: classesSelect = `${cBase} ${$$props.class ?? ''}`;
-	$: classesOption = `${cButton}`;
-
-	// RestProps
-	function prunedRestProps(): any {
-		delete $$restProps.class;
-		return $$restProps;
-	}
+	$: classsesBase = `${$$props.class ?? ''}`;
+	$: classesNav = `${regionNav}`;
+	$: classesList = `${regionList}`;
+	$: classesItem = `${regionItem}`;
+	$: classesButton = `${regionButton}`;
 </script>
 
-<nav class="autocomplete {classesSelect}" data-testid="autocomplete">
-	<ul role="listbox" aria-autocomplete="list">
-		{#each filteredOptions() as v}
-			<li>
-				<button
-					class="autocomplete-option {classesOption}"
-					role="option"
-					aria-selected={input === v.value}
-					tabindex="0"
-					on:click={() => onSelection(v)}
-					on:click
-					on:keypress
-				>
-					{@html v.label}
-				</button>
-			</li>
-		{/each}
-	</ul>
-</nav>
+<div class="autocomplete {classsesBase}" data-testid="autocomplete">
+	{#if optionsFiltered.length > 0}
+		<nav class="autocomplete-nav {classesNav}">
+			<ul class="autocomplete-list {classesList}">
+				{#each optionsFiltered as option}
+					<li class="autocomplete-item {classesItem}">
+						<button class="autocomplete-button {classesButton}" type="button" on:click={() => onSelection(option)} on:click on:keypress>
+							{@html option.label}
+						</button>
+					</li>
+				{/each}
+			</ul>
+		</nav>
+	{:else}
+		<div>{emptyState}</div>
+	{/if}
+</div>
