@@ -66,12 +66,7 @@
 	let exampleMenu: PopupSettings = {
 		event: 'click',
 		target: 'exampleMenu',
-		placement: 'bottom',
-		middleware: {
-			arrow: {
-				element: '#myArrow'
-			}
-		}
+		placement: 'bottom'
 	};
 	let inputPopupFocus: PopupSettings = {
 		event: 'focus',
