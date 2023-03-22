@@ -45,7 +45,7 @@
 	export let labelledby = '';
 
 	// Base Classes
-	const cBase = 'flex flex-col space-y-4';
+	const cBase = 'flex flex-col';
 	// ---
 	const cRowMain = 'grid items-center'; //  bg-blue-500
 	const cRowHeadline = ''; //  bg-green-500

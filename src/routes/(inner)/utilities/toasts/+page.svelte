@@ -183,11 +183,8 @@ toastStore.trigger(t);
 						language="ts"
 						code={`
 const t: ToastSettings = {
-	const t: ToastSettings = {
-		message: 'This message will remain until dismissed.',
-		autohide: false
-	};
-	toastStore.trigger(t);
+	message: 'This message will remain until dismissed.',
+	autohide: false
 };
 toastStore.trigger(t);
 `}
@@ -206,11 +203,8 @@ toastStore.trigger(t);
 						language="ts"
 						code={`
 const t: ToastSettings = {
-	const t: ToastSettings = {
-		message: 'This message will auto-hide after 10 seconds.',
-		timeout: 10000
-	};
-	toastStore.trigger(t);
+	message: 'This message will auto-hide after 10 seconds.',
+	timeout: 10000
 };
 toastStore.trigger(t);
 `}

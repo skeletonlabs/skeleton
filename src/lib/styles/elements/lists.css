@@ -40,6 +40,8 @@
 		@apply px-4 py-2;
 		/* Hover */
 		@apply bg-primary-hover-token;
+		/* Focus */
+		@apply focus:!variant-filled-primary outline-none;
 		/* Cursor */
 		@apply cursor-pointer;
 		/* Theme: Rounded */
