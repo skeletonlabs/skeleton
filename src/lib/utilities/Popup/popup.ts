@@ -2,22 +2,12 @@ import { get, writable, type Writable } from 'svelte/store';
 
 // Types
 import type { PopupSettings } from './types';
-import type { Middleware } from '@floating-ui/dom';
-import { tick } from 'svelte';
 
 // Store
-type PopupStore = {
-	computePosition: typeof import('@floating-ui/dom').computePosition;
-	autoUpdate: typeof import('@floating-ui/dom').autoUpdate;
-	flip: typeof import('@floating-ui/dom').flip;
-	shift: typeof import('@floating-ui/dom').shift;
-	offset: typeof import('@floating-ui/dom').offset;
-	arrow: typeof import('@floating-ui/dom').arrow;
-};
-export const storePopup: Writable<PopupStore | undefined> = writable(undefined);
+export const storePopup: Writable<any> = writable(undefined);
 
-function isNode(el?: unknown): el is Node {
-	return el instanceof Node;
+function isNode(node: unknown): node is Node {
+	return node instanceof Node;
 }
 
 // Action
@@ -34,16 +24,14 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 	if (!event || !target) return;
 
 	// Local
-	const storeValue = get(storePopup);
-	if (!storeValue) throw Error('You need to initialise the popup store before using the popup action.');
-	const { computePosition, autoUpdate, flip, shift, offset, arrow } = storeValue;
+	const { computePosition, autoUpdate, flip, shift, offset, arrow } = get(storePopup);
 	const elemPopup: HTMLElement | null = document.querySelector(`[data-popup="${target}"]`);
 	const elemArrow: HTMLElement | null = elemPopup?.querySelector(`.arrow`) ?? null;
-	let isVisible = false;
-	let autoUpdateCleanup: () => void;
+	let isVisible: boolean = false;
+	let autoUpdateCleanup: any;
 
 	// Local A11y Variables
-	const elemWhitelist = 'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])';
+	const elemWhitelist: string = 'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])';
 	let activeFocusIdx: number;
 	let focusableElems: HTMLElement[];
 
@@ -53,7 +41,7 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 
 		// Construct Middlware
 		// Note the order: https://floating-ui.com/docs/middleware#ordering
-		const genMiddlware: Middleware[] = [];
+		const genMiddlware = [];
 		// https://floating-ui.com/docs/offset
 		if (offset) genMiddlware.push(offset(middleware?.offset ?? 8));
 		// https://floating-ui.com/docs/shift
@@ -61,31 +49,22 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		// https://floating-ui.com/docs/flip
 		if (flip) genMiddlware.push(flip(middleware?.flip));
 		// https://floating-ui.com/docs/arrow
-		if (arrow && elemArrow) {
-			if (middleware?.arrow) {
-				// https://floating-ui.com/docs/arrow
-				const elemArrow = document.querySelector(middleware.arrow.element);
-				if (!elemArrow) throw Error('Arrow element not found. Please check your selector.');
-				genMiddlware.push(arrow({ element: elemArrow }));
-			} else {
-				genMiddlware.push(arrow({ element: elemArrow }));
-			}
-		}
+		if (arrow && elemArrow) genMiddlware.push(arrow(middleware?.arrow ?? { element: elemArrow }));
 
 		// https://floating-ui.com/docs/computePosition
 		computePosition(node, elemPopup, {
 			placement: placement ?? 'bottom',
 			middleware: genMiddlware
-		}).then(({ x, y, placement, middlewareData }) => {
+		}).then(({ x, y, placement, middlewareData }: any) => {
 			Object.assign(elemPopup.style, {
 				left: `${x}px`,
 				top: `${y}px`
 			});
 			// Handle Arrow Placement:
 			// https://floating-ui.com/docs/arrow
-			if (elemArrow && middlewareData.arrow) {
+			if (elemArrow) {
 				const { x: arrowX, y: arrowY } = middlewareData.arrow;
-
+				// @ts-ignore
 				const staticSide = {
 					top: 'bottom',
 					right: 'left',
@@ -97,7 +76,7 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 					top: arrowY != null ? `${arrowY}px` : '',
 					right: '',
 					bottom: '',
-					...(staticSide ? { [staticSide]: '-4px' } : {})
+					[staticSide]: '-4px'
 				});
 			}
 			// Set Focusable State
@@ -122,8 +101,8 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 	}
 
 	// Window Click Handler
-	const onWindowClick = (event: MouseEvent) => {
-		if (!node || !elemPopup || !isNode(event.target)) return;
+	const onWindowClick = (event: any) => {
+		if (!node || !elemPopup) return;
 		// If click is within the trigger node
 		const clickTriggerNode = node.contains(event.target);
 		if (clickTriggerNode) {
@@ -138,7 +117,7 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 				const interactiveMenuElems = elemPopup?.querySelectorAll(closeQuery);
 				if (!interactiveMenuElems.length) return;
 				interactiveMenuElems.forEach((elem) => {
-					if (isNode(event.target) && elem.contains(event.target)) close();
+					if (elem.contains(event.target)) close();
 				});
 			}
 		}
@@ -225,6 +204,22 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 			}
 		}
 	};
+	function onFocusClick(e: MouseEvent) {
+		e.preventDefault();
+		if (isNode(document.activeElement)) {
+			if (!node.isSameNode(document.activeElement)) {
+				node.focus();
+				return;
+			}
+			if (isVisible) close();
+			else show();
+		}
+	}
+	function moveFocusToNode() {
+		if (!isVisible) {
+			node.focus();
+		}
+	}
 
 	// On Init
 	render();
@@ -247,7 +242,7 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		node.addEventListener('focusout', closeOnFocusOut, true);
 		// if we tab into a closed popup, we will tab into the last element of any focusable element in elemPopup
 		// so we add an event listener to move the focus back to the node the `use:popup` directive is on
-		elemPopup.addEventListener('focusin', () => !isVisible && node.focus(), true);
+		elemPopup.addEventListener('focusin', moveFocusToNode, true);
 		// when we focus off the end of the list, close the popup
 		elemPopup.addEventListener('focusout', closeOnFocusOut, true);
 	}
@@ -255,29 +250,14 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		// we must use mousedown instead of click because click fires after focusin, meaning isVisible would always be true
 		// if the active element (one with current focus) is the same as the node (the element with the use:popup directive),
 		// then the user clicked on the node, so we should toggle the state of the popup
-		node.addEventListener(
-			'mousedown',
-			async (e) => {
-				// buttons lose focus after click, this keeps the focus on the node
-				e.preventDefault();
-				if (isNode(document.activeElement)) {
-					if (!node.isSameNode(document.activeElement)) {
-						node.focus();
-						return;
-					}
-					if (isVisible) close();
-					else show();
-				}
-			},
-			true
-		);
+		node.addEventListener('mousedown', onFocusClick, true);
 	}
 	// A11y Event Listeners
 	window.addEventListener('keydown', onWindowKeyDown, true);
 
 	// Lifecycle
 	return {
-		update(newArgs: PopupSettings) {
+		update(newArgs: any) {
 			args = newArgs;
 		},
 		destroy() {
