@@ -39,22 +39,22 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 	function render(): void {
 		if (!elemPopup || !computePosition) return;
 
-		// Construct Middlware
+		// Construct Middleware
 		// Note the order: https://floating-ui.com/docs/middleware#ordering
-		const genMiddlware = [];
+		const genMiddleware = [];
 		// https://floating-ui.com/docs/offset
-		if (offset) genMiddlware.push(offset(middleware?.offset ?? 8));
+		if (offset) genMiddleware.push(offset(middleware?.offset ?? 8));
 		// https://floating-ui.com/docs/shift
-		if (shift) genMiddlware.push(shift(middleware?.shift ?? { padding: 8 }));
+		if (shift) genMiddleware.push(shift(middleware?.shift ?? { padding: 8 }));
 		// https://floating-ui.com/docs/flip
-		if (flip) genMiddlware.push(flip(middleware?.flip));
+		if (flip) genMiddleware.push(flip(middleware?.flip));
 		// https://floating-ui.com/docs/arrow
-		if (arrow && elemArrow) genMiddlware.push(arrow(middleware?.arrow ?? { element: elemArrow }));
+		if (arrow && elemArrow) genMiddleware.push(arrow(middleware?.arrow ?? { element: elemArrow }));
 
 		// https://floating-ui.com/docs/computePosition
 		computePosition(node, elemPopup, {
 			placement: placement ?? 'bottom',
-			middleware: genMiddlware
+			middleware: genMiddleware
 		}).then(({ x, y, placement, middlewareData }: any) => {
 			Object.assign(elemPopup.style, {
 				left: `${x}px`,
@@ -135,7 +135,7 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		stateEventHandler(false);
 	};
 
-	// Visbility
+	// Visibility
 	function show(): void {
 		if (!elemPopup) return;
 		render(); // update
@@ -224,7 +224,7 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 	// On Init
 	render();
 
-	// Event Listners
+	// Event Listeners
 	if (event === 'click') {
 		window.addEventListener('click', onWindowClick, true);
 	}
