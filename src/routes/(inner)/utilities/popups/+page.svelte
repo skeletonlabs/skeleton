@@ -124,21 +124,18 @@
 								</a>
 							</div>
 						</div>
-						<div>
-							<button class="btn variant-filled" use:popup={interactiveMenu}>Interactive</button>
-							<div
-								class="text-xs text-center card variant-filled p-2 whitespace-nowrap shadow-xl flex flex-col"
-								data-popup="interactiveMenu"
-							>
-								<p>This is an interactive example tooltip.</p>
-								<button class="btn variant-ringed-primary">I won't close the menu</button>
-								<!-- Arrow -->
-								<div class="arrow variant-filled" />
-							</div>
+					</div>
+					<div>
+						<button class="btn variant-filled" use:popup={interactiveMenu}>Interactive</button>
+						<div class="text-xs text-center card variant-filled p-2 whitespace-nowrap shadow-xl flex flex-col" data-popup="interactiveMenu">
+							<p>This is an interactive example tooltip.</p>
+							<button class="btn variant-ringed-primary">I won't close the menu</button>
+							<!-- Arrow -->
+							<div class="arrow variant-filled" />
 						</div>
 					</div>
-				</div></svelte:fragment
-			>
+				</div>
+			</svelte:fragment>
 			<svelte:fragment slot="source">
 				<!-- prettier-ignore -->
 				<p>Create a <code>PopupSettings</code> object that maps to <a href="https://floating-ui.com/" target="_blank" rel="noreferrer">Floating UI</a> settings.</p>
@@ -268,8 +265,7 @@ let popupSettings: PopupSettings = {
 		<section class="space-y-4">
 			<h2>Combobox</h2>
 			<p>
-				By combining popups and Skeleton listboxes we can create a functional combobox element. 
-				We can use the <code>focus-click</code> event
+				By combining popups and Skeleton listboxes we can create a functional combobox element. We can use the <code>focus-click</code> event
 				so it opens for keyboard users when focussed.
 			</p>
 			<DocsPreview background="neutral">
@@ -396,9 +392,8 @@ let focusClickPopup: PopupSettings = {
 		<section class="space-y-4">
 			<h2>Z-Index</h2>
 			<p>
-				Neither Skeleton nor Floating-UI will provide a Z-Index out of the box for the reasons layed out in the <a
-					href="https://floating-ui.com/docs/misc#z-index-stacking">Floating-UI docs</a
-				>.
+				Neither Skeleton nor Floating-UI will provide a Z-Index out of the box for the reasons layed out in the
+				<a href="https://floating-ui.com/docs/misc#z-index-stacking">Floating-UI docs</a>.
 			</p>
 		</section>
 		<!-- Browser Support -->
