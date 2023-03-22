@@ -206,7 +206,7 @@ const flavorOptions: AutocompleteOption[] = [
 			<DocsPreview background="neutral" regionFooter="text-center">
 				<svelte:fragment slot="preview">
 					<div class="text-token w-full max-w-sm space-y-2">
-						<InputChip bind:input={inputChip} bind:value={inputChipList} name="chips" placeholder="Enter any value..." />
+						<InputChip bind:input={inputChip} bind:value={inputChipList} name="chips" />
 						<Autocomplete
 							bind:input={inputChip}
 							options={flavorOptions}
@@ -217,8 +217,21 @@ const flavorOptions: AutocompleteOption[] = [
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="ts" code={`let flavorBlacklist: string[] = ['vanilla', 'chocolate'];`} />
-					<CodeBlock language="html" code={`<Autocomplete ... blacklist={flavorBlacklist} />`} />
+					<CodeBlock language="ts" code={`let inputChip = '';`} />
+					<CodeBlock language="ts" code={`let inputChipList: string[] = ['vanilla', 'chocolate'];`} />
+					<CodeBlock language="html" code={`<InputChip bind:input={inputChip} bind:value={inputChipList} name="chips" />`} />
+					<CodeBlock
+						language="html"
+						code={`
+<Autocomplete
+	bind:input={inputChip}
+	options={flavorOptions}
+	blacklist={inputChipList}
+	class="card w-full max-w-sm max-h-48 p-4 overflow-y-auto"
+	on:selection={onInputChipSelect}
+/>
+					`}
+					/>
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
