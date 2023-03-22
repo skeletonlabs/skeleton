@@ -20,7 +20,7 @@
 		imports: ['Autocomplete'],
 		types: ['AutocompleteOption'],
 		source: 'components/Autocomplete',
-		aria: 'https://www.w3.org/WAI/ARIA/apg/',
+		// aria: 'https://www.w3.org/WAI/ARIA/apg/',
 		components: [{ sveld: sveldAutocomplete }],
 		keyboard: [
 			['<kbd>Tab</kbd>', 'Select the next autocomplete option.'],
