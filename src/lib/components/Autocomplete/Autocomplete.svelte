@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
+	import { slide } from 'svelte/transition';
+	import { flip } from 'svelte/animate';
 	const dispatch = createEventDispatcher();
 
 	// Types
@@ -28,6 +30,8 @@
 	export let blacklist: unknown[] = [];
 	/** Provide a HTML markup to display when no match is found. */
 	export let emptyState: string = 'No Results Found.';
+	/** Set the animation duration. Use zero to disable. */
+	export let duration: number = 200;
 	// Props (region)
 	/** Provide arbitrary classes to nav element. */
 	export let regionNav: string = '';
@@ -64,9 +68,8 @@
 			// Format the input search value
 			const inputFormatted = String(input).toLowerCase().trim();
 			// Format the option
-			let optionValues = [{ label: option.label, value: option.value, keywords: option.keywords }];
-			let optionFormatted = JSON.stringify(optionValues).toLowerCase();
-			// Match
+			let optionFormatted = JSON.stringify([option.label, option.value, option.keywords]).toLowerCase();
+			// Check Match
 			if (optionFormatted.includes(inputFormatted)) return option;
 		});
 		return _options;
@@ -94,8 +97,8 @@
 	{#if optionsFiltered.length > 0}
 		<nav class="autocomplete-nav {classesNav}">
 			<ul class="autocomplete-list {classesList}">
-				{#each optionsFiltered as option}
-					<li class="autocomplete-item {classesItem}">
+				{#each optionsFiltered as option, i (option)}
+					<li class="autocomplete-item {classesItem}" animate:flip={{ duration }} transition:slide|local={{ duration }}>
 						<button class="autocomplete-button {classesButton}" type="button" on:click={() => onSelection(option)} on:click on:keypress>
 							{@html option.label}
 						</button>
