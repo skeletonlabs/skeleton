@@ -64,7 +64,7 @@
 			// Format the input search value
 			const inputFormatted = String(input).toLowerCase().trim();
 			// Format the option
-			let optionValues = Object.values({ label: option.label, value: option.value, keywords: option.keywords });
+			let optionValues = [{ label: option.label, value: option.value, keywords: option.keywords }];
 			let optionFormatted = JSON.stringify(optionValues).toLowerCase();
 			// Match
 			if (optionFormatted.includes(inputFormatted)) return option;

@@ -145,7 +145,7 @@ function onDemoSelection(event: any): void {
 		</section>
 		<section class="space-y-4">
 			<h2>Blacklist</h2>
-			<p>Provide a list of values you wish to blacklist. Blaclisted options will be excluded from the list.</p>
+			<p>Provide a list of values you wish to blacklist. Blacklisted options will be excluded from the list.</p>
 			<DocsPreview background="neutral" regionFooter="text-center">
 				<svelte:fragment slot="preview">
 					<div class="text-token w-96 space-y-2">
