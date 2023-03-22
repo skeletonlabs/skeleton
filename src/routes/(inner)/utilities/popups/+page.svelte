@@ -52,7 +52,7 @@
 	let tabSettings: number = 0;
 	let comboboxValue: string;
 	let popupCombobox: PopupSettings = {
-		event: 'click',
+		event: 'focus-click',
 		target: 'combobox',
 		placement: 'bottom',
 		closeQuery: '.listbox-item'
@@ -73,15 +73,14 @@
 			}
 		}
 	};
-	let exampleFocus: PopupSettings = {
+	let inputPopupFocus: PopupSettings = {
 		event: 'focus',
-		target: 'exampleFocus',
-		placement: 'bottom'
+		target: 'inputPopupFocus',
+		placement: 'top'
 	};
-	let exampleFocusClick: PopupSettings = {
+	let inputPopupFocusClick: PopupSettings = {
 		event: 'focus-click',
-		target: 'exampleFocusClick',
-		placement: 'bottom'
+		target: 'inputPopupFocusClick'
 	};
 	let interactiveMenu: PopupSettings = {
 		event: 'click',
@@ -124,44 +123,22 @@
 									View on Twitter
 								</a>
 							</div>
-							<div id="myArrow" class="arrow bg-surface-500" />
 						</div>
-					</div>
-					<div>
-						<button class="btn variant-filled" use:popup={exampleFocus}> Focus </button>
-						<div class="card p-4 w-72 shadow-xl" data-popup="exampleFocus">
-							<!-- NOTE: Keep this wrapper, .space-y will affect the arrow -->
-							<div class="space-y-4">
-								<span> This element will stick around until you click or focus outside of it. </span>
-								<button class="btn variant-soft w-full"> Click me </button>
+						<div>
+							<button class="btn variant-filled" use:popup={interactiveMenu}>Interactive</button>
+							<div
+								class="text-xs text-center card variant-filled p-2 whitespace-nowrap shadow-xl flex flex-col"
+								data-popup="interactiveMenu"
+							>
+								<p>This is an interactive example tooltip.</p>
+								<button class="btn variant-ringed-primary">I won't close the menu</button>
+								<!-- Arrow -->
+								<div class="arrow variant-filled" />
 							</div>
-							<!-- Arrow -->
-							<div class="arrow bg-surface-100-800-token" />
 						</div>
 					</div>
-					<div>
-						<button class="btn variant-filled" use:popup={exampleFocusClick}> Focus-Click </button>
-						<div class="card p-4 w-72 shadow-xl" data-popup="exampleFocusClick">
-							<!-- NOTE: Keep this wrapper, .space-y will affect the arrow -->
-							<div class="space-y-4">
-								<span> This will close if you click or focus outside, or if you click the Focus-Click button again. </span>
-								<button class="btn variant-soft w-full"> Click me </button>
-							</div>
-							<!-- Arrow -->
-							<div class="arrow bg-surface-100-800-token" />
-						</div>
-					</div>
-					<div>
-						<button class="btn variant-filled" use:popup={interactiveMenu}>Interactive</button>
-						<div class="text-xs text-center card variant-filled p-2 whitespace-nowrap shadow-xl flex flex-col" data-popup="interactiveMenu">
-							<p>This is an interactive example tooltip.</p>
-							<button class="btn variant-ringed-primary">I won't close the menu</button>
-							<!-- Arrow -->
-							<div class="arrow variant-filled" />
-						</div>
-					</div>
-				</div>
-			</svelte:fragment>
+				</div></svelte:fragment
+			>
 			<svelte:fragment slot="source">
 				<!-- prettier-ignore -->
 				<p>Create a <code>PopupSettings</code> object that maps to <a href="https://floating-ui.com/" target="_blank" rel="noreferrer">Floating UI</a> settings.</p>
@@ -290,7 +267,11 @@ let popupSettings: PopupSettings = {
 		<!-- Combobox -->
 		<section class="space-y-4">
 			<h2>Combobox</h2>
-			<p>By combining popups and Skeleton listboxes we can create a functional combobox element.</p>
+			<p>
+				By combining popups and Skeleton listboxes we can create a functional combobox element. 
+				We can use the <code>focus-click</code> event
+				so it opens for keyboard users when focussed.
+			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<!-- Combobox -->
@@ -316,7 +297,7 @@ let popupSettings: PopupSettings = {
 						language="ts"
 						code={`
 let popupCombobox: PopupSettings = {
-	event: 'click',
+	event: 'focus-click',
 	target: 'combobox',
 	placement: 'bottom',
 	// Close the popup when the item is clicked
@@ -356,11 +337,68 @@ let popupCombobox: PopupSettings = {
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
+		<section class="space-y-4">
+			<h2>Focus Event</h2>
+			<p>
+				We can use the <code>focus</code> event to open the popup when the trigger is focussed. This is helpful for elements like
+				<code>input</code> since the popup will remain open while the user has their cursor in the input. <code>focus-click</code> works the
+				same, but if the popup is open and the target is clicked, it will close.
+			</p>
+			<DocsPreview>
+				<svelte:fragment slot="preview">
+					<div class="flex flex-col space-y-4">
+						<div class="text-token">
+							<input type="text" class="input" placeholder="Focus" use:popup={inputPopupFocus} />
+							<div data-popup="inputPopupFocus" class="card p-4">
+								<span> You can dismiss me by clicking or focusing outside </span>
+							</div>
+						</div>
+						<div class="text-token">
+							<input type="text" class="input" placeholder="Focus Click" use:popup={inputPopupFocusClick} />
+							<div data-popup="inputPopupFocusClick" class="card p-4">
+								<span> You can dismiss me by clicking on the input, or outside of it </span>
+							</div>
+						</div>
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="ts"
+						code={`	let focusPopup: PopupSettings = {
+	event: 'focus',
+	target: 'focus'
+};
+let focusClickPopup: PopupSettings = {
+	event: 'focus-click',
+	target: 'focusClick'
+};`}
+					/>
+					<CodeBlock
+						language="html"
+						code={`<div class="text-token">
+	<input type="text" class="input" placeholder="Focus" use:popup={focus} />
+	<div data-popup="focus" class="card p-4">
+		<span> You can dismiss me by clicking or focusing outside </span>
+	</div>
+</div>
+<div class="text-token">
+	<input type="text" class="input" placeholder="Focus Click" use:popup={focusClick} />
+	<div data-popup="focusClick" class="card p-4">
+		<span> You can dismiss me by clicking on the input, or outside of it </span>
+	</div>
+</div>
+								`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
+		</section>
 		<!-- Z-index -->
 		<section class="space-y-4">
 			<h2>Z-Index</h2>
 			<p>
-				Neither Skeleton nor Floating-UI will provide a Z-Index out of the box for the reasons layed out in the <a href="https://floating-ui.com/docs/misc#z-index-stacking">Floating-UI docs</a>.
+				Neither Skeleton nor Floating-UI will provide a Z-Index out of the box for the reasons layed out in the <a
+					href="https://floating-ui.com/docs/misc#z-index-stacking">Floating-UI docs</a
+				>.
 			</p>
 		</section>
 		<!-- Browser Support -->
