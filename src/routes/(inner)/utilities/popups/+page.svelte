@@ -117,9 +117,9 @@
 								<a class="btn variant-soft w-full" href="https://twitter.com/SkeletonUI" target="_blank" rel="noreferrer">
 									View on Twitter
 								</a>
-								<!-- Arrow -->
-								<div class="arrow variant-filled" />
 							</div>
+							<!-- Arrow -->
+							<div class="arrow bg-surface-100-800-token" />
 						</div>
 					</div>
 					<div>
