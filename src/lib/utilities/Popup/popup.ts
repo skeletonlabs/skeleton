@@ -265,6 +265,11 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 			window.removeEventListener('click', onWindowClick, true);
 			node.removeEventListener('mouseover', onMouseOver, true);
 			node.removeEventListener('mouseout', onMouseOut, true);
+			node.removeEventListener('focusin', show, true);
+			node.removeEventListener('focusout', closeOnFocusOut, true);
+			node.removeEventListener('mousedown', onFocusClick, true);
+			elemPopup?.removeEventListener('focusin', moveFocusToNode, true);
+			elemPopup?.removeEventListener('focusout', closeOnFocusOut, true);
 			// ---
 			window.removeEventListener('keydown', onWindowKeyDown, true);
 		}
