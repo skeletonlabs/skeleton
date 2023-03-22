@@ -94,6 +94,7 @@ export const menuNavLinks: any = [
 			{ href: '/components/app-bar', label: 'App Bar', keywords: 'header, top, bar, title' },
 			{ href: '/components/app-rail', label: 'App Rail', keywords: 'nav, navigation, tile, sidebar' },
 			{ href: '/components/app-shell', label: 'App Shell', keywords: 'layout, header, footer, sidebar, page, content' },
+			{ href: '/components/autocomplete', label: 'Autocomplete', keywords: 'input, filter, fuzzy, auto, complete, suggest' },
 			{ href: '/components/avatars', label: 'Avatars', keywords: 'image, initial, filter' },
 			{ href: '/components/conic-gradients', label: 'Conic Gradients', keywords: 'chart, graph, circle, pie, spinner, legend' },
 			{ href: '/components/file-buttons', label: 'File Buttons', keywords: 'upload, form, input, file, media' },

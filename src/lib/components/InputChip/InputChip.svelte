@@ -10,6 +10,8 @@
 	const dispatch = createEventDispatcher();
 
 	// Props
+	/** Bind the input value. */
+	export let input: string = '';
 	/**
 	 * Set a unique select input name.
 	 * @type {string}
@@ -59,7 +61,7 @@
 	const cInputField = 'unstyled bg-transparent border-0 !ring-0 p-0 w-full';
 
 	// Local
-	let inputValue = '';
+	// let input = '';
 	let inputValid = true;
 
 	function onInputHandler(): void {
@@ -67,19 +69,19 @@
 	}
 
 	function validate(): boolean {
-		if (!inputValue) return false;
+		if (!input) return false;
 		// Custom validation
-		if (validation !== undefined && !validation(inputValue)) return false;
+		if (validation !== undefined && !validation(input)) return false;
 		// Maxiumum
 		if (max !== -1 && value.length >= max) return false;
 		// Minimum Character Length
-		if (minlength !== -1 && inputValue.length < minlength) return false;
+		if (minlength !== -1 && input.length < minlength) return false;
 		// Maxiumum Character Length
-		if (maxlength !== -1 && inputValue.length > maxlength) return false;
+		if (maxlength !== -1 && input.length > maxlength) return false;
 		// Whitelist (if available)
-		if (whitelist.length > 0 && !whitelist.includes(inputValue)) return false;
+		if (whitelist.length > 0 && !whitelist.includes(input)) return false;
 		// Value is unique
-		if (allowDuplicates === false && value.includes(inputValue)) return false;
+		if (allowDuplicates === false && value.includes(input)) return false;
 		// State is valid
 		return true;
 	}
@@ -90,15 +92,15 @@
 		inputValid = validate();
 		if (inputValid === false) return;
 		// Format: trim value
-		inputValue = inputValue.trim();
+		input = input.trim();
 		// Format: to lowercase (if enabled)
-		inputValue = allowUpperCase ? inputValue : inputValue.toLowerCase();
+		input = allowUpperCase ? input : input.toLowerCase();
 		// Append value to array
-		value = [...value, inputValue];
+		value = [...value, input];
 		/** @event {{ event: Event, chipIndex: number, chipValue: string }} add - Fires when a chip is added. */
-		dispatch('add', { event, chipIndex: value.length - 1, chipValue: inputValue });
+		dispatch('add', { event, chipIndex: value.length - 1, chipValue: input });
 		// Clear input value
-		inputValue = '';
+		input = '';
 	}
 
 	function removeChip(event: Event, chipIndex: number, chipValue: string): void {
@@ -131,7 +133,7 @@
 		<form on:submit={addChip}>
 			<input
 				type="text"
-				bind:value={inputValue}
+				bind:value={input}
 				placeholder={$$restProps.placeholder ?? 'Enter values...'}
 				class="input-chip-field {classesInputField}"
 				on:input={onInputHandler}
