@@ -15,6 +15,7 @@ export const menuNavLinks: any = [
 		id: 'essentials',
 		title: 'Essentials',
 		list: [
+			{ href: '/docs/themes', label: 'Themes', keywords: 'theme, customize, fonts, gradient, background' },
 			{ href: '/docs/colors', label: 'Colors', keywords: 'theme, colors, swatches' },
 			{ href: '/docs/styling', label: 'Styling', keywords: 'styles, styling, props, classes, class, css' },
 			{ href: '/docs/tokens', label: 'Design Tokens', keywords: 'theme, color, pairing, css, utility' },

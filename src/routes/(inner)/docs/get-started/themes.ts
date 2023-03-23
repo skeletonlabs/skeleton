@@ -14,7 +14,12 @@ export const themes: any[] = [
 		name: '🤖 Modern',
 		colors: ['#ec4899', '#06b6d4', '#14b8a6', '#84cc16', '#eab308', '#ef4444'],
 		surface: '#313276',
-		url: `${ghPath}/theme-modern.css`
+		url: `${ghPath}/theme-modern.css`,
+		fonts: {
+			source: 'https://fonts.google.com/specimen/Quicksand?query=Quicksand',
+			name: 'Quicksand',
+			file: 'Quicksand.ttf'
+		}
 	},
 	{
 		file: 'rocket',

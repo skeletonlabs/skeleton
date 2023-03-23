@@ -1,39 +1,18 @@
 <script lang="ts">
 	import { storeOnboardMethod } from '$docs/stores/stores';
-
 	import { themes } from './themes';
-
 	// Components
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
 	import Tab from '$lib/components/Tab/Tab.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 
-	// Stores
-	import { toastStore } from '$lib/utilities/Toast/stores';
-	import type { ToastSettings } from '$lib/utilities/Toast/types';
-
 	// Local
-	let activeThemeName: string = '';
-	let activeThemeStylesheet: string = '// Select a theme above';
+	let activeThemeName: string = 'skeleton';
+	$: activeThemeStylesheet = `import '@skeletonlabs/skeleton/themes/theme-${activeThemeName}.css';`;
 
 	// Copy Theme Import to Clipboard
-	function copyThemeToClipboard(file: string): void {
-		// Set Active
+	function setActiveTheme(file: string): void {
 		activeThemeName = file;
-		activeThemeStylesheet = `import '@skeletonlabs/skeleton/themes/theme-${file.toLowerCase()}.css';`;
-		// Copy
-		navigator.clipboard.writeText(activeThemeStylesheet).then(
-			// Success
-			() => {
-				const t: ToastSettings = { message: 'Import statement copied to clipboard.' };
-				toastStore.trigger(t);
-			},
-			// Error
-			() => {
-				const t: ToastSettings = { message: 'Sorry, copy to clipboard not supported.' };
-				toastStore.trigger(t);
-			}
-		);
 	}
 </script>
 
@@ -69,8 +48,8 @@
 				<div
 						class="card p-4 text-white hover:ring-surface-500/50 cursor-pointer space-y-4"
 						style:background={preset.surface}
-						on:click={() => { copyThemeToClipboard(preset.file); }}
-						on:keydown={() => { copyThemeToClipboard(preset.file); }}
+						on:click={() => { setActiveTheme(preset.file); }}
+						on:keydown={() => { setActiveTheme(preset.file); }}
 					>
 						<p class="text-center font-bold !text-lg" data-toc-ignore>{preset.name}</p>
 						<ul class="flex justify-center items-center -space-x-1">
@@ -81,14 +60,15 @@
 					</div>
 			{/each}
 		</nav>
-		{#if activeThemeName}
-			<CodeBlock language="ts" code={activeThemeStylesheet} />
-			<!-- prettier-ignore -->
-			<p>
-				You may opt into custom fonts and backgrounds per each theme by adding this paired data attribute in <code>app.html</code>
-			</p>
-			<CodeBlock language="html" code={`<body data-theme="` + activeThemeName + `">`} />
-		{/if}
+		<CodeBlock language="ts" code={activeThemeStylesheet} />
+	</div>
+
+	<!-- Theme Customization -->
+	<div class="card variant-glass p-4">
+		<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+			<p>Learn how to add background</p>
+			<a class="btn variant-filled-secondary" href="/docs/themes">More Information &rarr;</a>
+		</div>
 	</div>
 
 	<!-- Generator -->
