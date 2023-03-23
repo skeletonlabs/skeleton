@@ -31,7 +31,7 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 	let autoUpdateCleanup: any;
 
 	// Local A11y Variables
-	const elemWhitelist: string = 'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])';
+	const elemWhitelist = ':is(a[href], button, input, textarea, select, details, [tabindex]):not([tabindex="-1"])';
 	let activeFocusIdx: number;
 	let focusableElems: HTMLElement[];
 
