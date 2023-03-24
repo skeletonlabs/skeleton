@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { storeOnboardMethod } from '$docs/stores/stores';
-	import { themes } from './themes';
+	import { themes } from '$docs/themes';
 	// Components
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
 	import Tab from '$lib/components/Tab/Tab.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import { slide } from 'svelte/transition';
 
 	// Local
 	let activeThemeName: string = 'skeleton';
@@ -43,21 +44,24 @@
 	<!-- Presets -->
 	<div class="card variant-glass p-4 space-y-4">
 		<nav class="grid grid-cols-1 md:grid-cols-3 gap-4">
-			{#each themes as preset}
-				<!-- prettier-ignore -->
+			{#each themes.slice(1, themes.length) as preset}
 				<div
-						class="card p-4 text-white hover:ring-surface-500/50 cursor-pointer space-y-4"
-						style:background={preset.surface}
-						on:click={() => { setActiveTheme(preset.file); }}
-						on:keydown={() => { setActiveTheme(preset.file); }}
-					>
-						<p class="text-center font-bold !text-lg" data-toc-ignore>{preset.name}</p>
-						<ul class="flex justify-center items-center -space-x-1">
-							{#each preset.colors as color}
-								<li class="aspect-square w-4 xl:w-5 rounded-full" style:background={color} />
-							{/each}
-						</ul>
-					</div>
+					class="card p-4 text-white hover:ring-surface-500/50 cursor-pointer space-y-4"
+					style:background={preset.surface}
+					on:click={() => {
+						setActiveTheme(preset.file);
+					}}
+					on:keydown={() => {
+						setActiveTheme(preset.file);
+					}}
+				>
+					<p class="text-center font-bold !text-lg" data-toc-ignore>{preset.name}</p>
+					<ul class="flex justify-center items-center -space-x-1">
+						{#each preset.colors as color}
+							<li class="aspect-square w-4 xl:w-5 rounded-full" style:background={color} />
+						{/each}
+					</ul>
+				</div>
 			{/each}
 		</nav>
 		<CodeBlock language="ts" code={activeThemeStylesheet} />
@@ -66,16 +70,16 @@
 	<!-- Theme Customization -->
 	<div class="card variant-glass p-4">
 		<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-			<p>Learn how to add background</p>
-			<a class="btn variant-filled-secondary" href="/docs/themes">More Information &rarr;</a>
+			<p>Learn how to extend and customize themes.</p>
+			<a class="btn variant-filled-secondary" href="/docs/themes">Themes &rarr;</a>
 		</div>
 	</div>
 
 	<!-- Generator -->
 	<div class="card variant-glass p-4">
 		<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-			<p>Want to create a custom theme? Try our theme generator.</p>
-			<a class="btn variant-filled-secondary" href="/docs/generator">Theme Generator &rarr;</a>
+			<p>Create your own custom theme.</p>
+			<a class="btn variant-filled-secondary" href="/docs/generator">Generator &rarr;</a>
 		</div>
 	</div>
 </section>
