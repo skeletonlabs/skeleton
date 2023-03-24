@@ -139,6 +139,7 @@
 			Create a set of Steps within the Stepper, then use the <code>on:complete</code> event to detect when all steps are complete. Since
 			horizontal space may be limited on small screens, we recommend no more than <em>five</em> steps at max.
 		</p>
+		<!-- Event Handlers -->
 		<section class="space-y-4">
 			<h2>Event Handlers</h2>
 			<h3>Complete Event</h3>
@@ -158,7 +159,7 @@
 				occured.
 			</blockquote>
 		</section>
-
+		<!-- Locked State -->
 		<section class="space-y-4">
 			<h2>Locked State</h2>
 			<p>
@@ -167,6 +168,26 @@
 			</p>
 			<CodeBlock language="ts" code={`let lockedState: boolean = true;`} />
 			<CodeBlock language="html" code={`<Step locked={lockedState}>...</Step>`} />
+		</section>
+		<!-- Step Term -->
+		<section class="space-y-4">
+			<h2>Step Term</h2>
+			<p>
+				Use the <code>stepTerm</code> property to override text shown in the animated section at the top of the Stepper, which is useful if you
+				need i18n support for other languages.
+			</p>
+			<CodeBlock
+				language="html"
+				code={`
+<!-- French: Marcher 1, Marcher 2, ... -->
+<Step stepTerm='Marcher'>...</Step>\n
+<!-- Spanish: Paso 1, Paso 2, ... -->
+<Step stepTerm='Paso'>...</Step>
+			`}
+			/>
+			<p>
+				This can be overwritten per each Step as well, which updates the <em>default</em> and <em>header</em> slot placeholder text.
+			</p>
 		</section>
 	</svelte:fragment>
 </DocsShell>
