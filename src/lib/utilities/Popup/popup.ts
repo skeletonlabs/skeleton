@@ -6,6 +6,10 @@ import type { PopupSettings } from './types';
 // Store
 export const storePopup: Writable<any> = writable(undefined);
 
+function isNode(node: unknown): node is Node {
+	return node instanceof Node;
+}
+
 // Action
 export function popup(node: HTMLElement, args: PopupSettings) {
 	// prettier-ignore
@@ -27,7 +31,7 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 	let autoUpdateCleanup: any;
 
 	// Local A11y Variables
-	const elemWhitelist: string = 'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])';
+	const elemWhitelist = ':is(a[href], button, input, textarea, select, details, [tabindex]):not([tabindex="-1"])';
 	let activeFocusIdx: number;
 	let focusableElems: HTMLElement[];
 
@@ -35,22 +39,22 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 	function render(): void {
 		if (!elemPopup || !computePosition) return;
 
-		// Construct Middlware
+		// Construct Middleware
 		// Note the order: https://floating-ui.com/docs/middleware#ordering
-		const genMiddlware = [];
+		const genMiddleware = [];
 		// https://floating-ui.com/docs/offset
-		if (offset) genMiddlware.push(offset(middleware?.offset ?? 8));
+		if (offset) genMiddleware.push(offset(middleware?.offset ?? 8));
 		// https://floating-ui.com/docs/shift
-		if (shift) genMiddlware.push(shift(middleware?.shift ?? { padding: 8 }));
+		if (shift) genMiddleware.push(shift(middleware?.shift ?? { padding: 8 }));
 		// https://floating-ui.com/docs/flip
-		if (flip) genMiddlware.push(flip(middleware?.flip));
+		if (flip) genMiddleware.push(flip(middleware?.flip));
 		// https://floating-ui.com/docs/arrow
-		if (arrow && elemArrow) genMiddlware.push(arrow(middleware?.arrow ?? { element: elemArrow }));
+		if (arrow && elemArrow) genMiddleware.push(arrow(middleware?.arrow ?? { element: elemArrow }));
 
 		// https://floating-ui.com/docs/computePosition
 		computePosition(node, elemPopup, {
 			placement: placement ?? 'bottom',
-			middleware: genMiddlware
+			middleware: genMiddleware
 		}).then(({ x, y, placement, middlewareData }: any) => {
 			Object.assign(elemPopup.style, {
 				left: `${x}px`,
@@ -90,7 +94,10 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		// Automatically focus the element if openWithFocus is true (for example if
 		// the menu was opened with Enter instead of with a click
 		activeFocusIdx = 0;
-		focusableElems[0]?.focus();
+		// if the popup was triggered via focus, we don't want to move that focus
+		if (event !== 'focus' && event !== 'focus-click') {
+			focusableElems[0]?.focus();
+		}
 	}
 
 	// Window Click Handler
@@ -128,7 +135,28 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		stateEventHandler(false);
 	};
 
-	// Visbility
+	// Focus Handlers
+	function onFocusIn() {
+		if (!isVisible) node.focus();
+	}
+	function onFocusOut(e: FocusEvent) {
+		// if the focus is within the popup, or on the trigger node, do nothing
+		if (e.relatedTarget instanceof Element && (elemPopup?.contains(e.relatedTarget) || node.isSameNode(e.relatedTarget))) return;
+		close();
+	}
+	function onMouseDown(e: MouseEvent) {
+		e.preventDefault();
+		if (isNode(document.activeElement)) {
+			if (!node.isSameNode(document.activeElement)) {
+				node.focus();
+				return;
+			}
+			if (isVisible) close();
+			else show();
+		}
+	}
+
+	// Visibility
 	function show(): void {
 		if (!elemPopup) return;
 		render(); // update
@@ -196,7 +224,7 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 	// On Init
 	render();
 
-	// Event Listners
+	// Event Listeners
 	if (event === 'click') {
 		window.addEventListener('click', onWindowClick, true);
 	}
@@ -208,12 +236,28 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		node.addEventListener('mouseover', show, true);
 		window.addEventListener('click', onWindowClick, true);
 	}
+	if (event === 'focus' || event === 'focus-click') {
+		if (!elemPopup) return;
+		node.addEventListener('focusin', show, true);
+		node.addEventListener('focusout', onFocusOut, true);
+		// if we tab into a closed popup, we will tab into the last element of any focusable element in elemPopup
+		// so we add an event listener to move the focus back to the node the `use:popup` directive is on
+		elemPopup.addEventListener('focusin', onFocusIn, true);
+		// when we focus off the end of the list, close the popup
+		elemPopup.addEventListener('focusout', onFocusOut, true);
+	}
+	if (event === 'focus-click') {
+		// we must use mousedown instead of click because click fires after focusin, meaning isVisible would always be true
+		// if the active element (one with current focus) is the same as the node (the element with the use:popup directive),
+		// then the user clicked on the node, so we should toggle the state of the popup
+		node.addEventListener('mousedown', onMouseDown, true);
+	}
 	// A11y Event Listeners
 	window.addEventListener('keydown', onWindowKeyDown, true);
 
 	// Lifecycle
 	return {
-		update(newArgs: any) {
+		update(newArgs: PopupSettings) {
 			args = newArgs;
 		},
 		destroy() {
@@ -221,6 +265,11 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 			window.removeEventListener('click', onWindowClick, true);
 			node.removeEventListener('mouseover', onMouseOver, true);
 			node.removeEventListener('mouseout', onMouseOut, true);
+			node.removeEventListener('focusin', show, true);
+			node.removeEventListener('focusout', onFocusOut, true);
+			node.removeEventListener('mousedown', onMouseDown, true);
+			elemPopup?.removeEventListener('focusin', onFocusIn, true);
+			elemPopup?.removeEventListener('focusout', onFocusOut, true);
 			// ---
 			window.removeEventListener('keydown', onWindowKeyDown, true);
 		}

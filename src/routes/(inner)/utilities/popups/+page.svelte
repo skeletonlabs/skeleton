@@ -30,7 +30,7 @@
 			['<code>[data-popup] .arrow</code>', '', 'Provides base styles to the arrow element.']
 		],
 		parameters: [
-			['<code>event</code>', 'string', 'click', 'click | hover | hover-click', 'Provide the event type'],
+			['<code>event</code>', 'string', 'click', 'click | hover | hover-click | focus | focus-click', 'Provide the popup event type.'],
 			['<code>target</code>', 'string', '-', '-', 'Match the popup data value of <code>[data-popup]</code>'],
 			['<code>placement</code>', 'string', '-', 'bottom', 'Set the placement position.'],
 			['<code>closeQuery</code>', 'string', 'a[href], button', '-', 'Query list of elements that will close the popup.'],
@@ -51,13 +51,6 @@
 	// Local
 	let tabSettings: number = 0;
 	let comboboxValue: string;
-	let popupCombobox: PopupSettings = {
-		event: 'click',
-		target: 'combobox',
-		placement: 'bottom',
-		closeQuery: '.listbox-item'
-		// state: (e: any) => console.log('tooltip', e)
-	};
 	let exampleTooltip: PopupSettings = {
 		event: 'hover',
 		target: 'exampleTooltip',
@@ -67,13 +60,22 @@
 		event: 'click',
 		target: 'exampleMenu',
 		placement: 'bottom'
-		// state: (e: any) => console.log('tooltip', e)
 	};
-	let interactiveMenu: PopupSettings = {
-		event: 'click',
-		target: 'interactiveMenu',
-		placement: 'right',
-		closeQuery: ''
+	let inputPopupFocus: PopupSettings = {
+		event: 'focus',
+		target: 'inputPopupFocus',
+		placement: 'top'
+	};
+	let inputPopupFocusClick: PopupSettings = {
+		event: 'focus-click',
+		target: 'inputPopupFocusClick'
+	};
+	let popupCombobox: PopupSettings = {
+		event: 'focus-click',
+		target: 'combobox',
+		placement: 'bottom',
+		closeQuery: '.listbox-item'
+		// state: (e: any) => console.log('tooltip', e)
 	};
 </script>
 
@@ -114,15 +116,6 @@
 							<div class="arrow bg-surface-100-800-token" />
 						</div>
 					</div>
-					<div>
-						<button class="btn variant-filled" use:popup={interactiveMenu}>Interactive</button>
-						<div class="text-xs text-center card variant-filled p-2 whitespace-nowrap shadow-xl flex flex-col" data-popup="interactiveMenu">
-							<p>This is an interactive example tooltip.</p>
-							<button class="btn variant-ringed-primary">I won't close the menu</button>
-							<!-- Arrow -->
-							<div class="arrow variant-filled" />
-						</div>
-					</div>
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
@@ -132,7 +125,7 @@
 					language="ts"
 					code={`
 let popupSettings: PopupSettings = {
-	// Set the event as: click | hover | hover-click
+	// Set the event as: click | hover | hover-click | focus | focus-click
 	event: 'click',
 	// Provide a matching 'data-popup' value.
 	target: 'examplePopup'
@@ -179,8 +172,8 @@ let popupSettings: PopupSettings = {
 			<h2>Popup Settings</h2>
 			<TabGroup regionPanel="space-y-4">
 				<Tab bind:group={tabSettings} name="settings" value={0}>Placement</Tab>
-				<Tab bind:group={tabSettings} name="settings" value={1}>State</Tab>
-				<Tab bind:group={tabSettings} name="settings" value={2}>Close Query</Tab>
+				<Tab bind:group={tabSettings} name="settings" value={1}>Close Query</Tab>
+				<Tab bind:group={tabSettings} name="settings" value={2}>State</Tab>
 				<Tab bind:group={tabSettings} name="settings" value={3}>Middleware</Tab>
 				<!-- Tab Panels --->
 				<svelte:fragment slot="panel">
@@ -199,13 +192,36 @@ let popupSettings: PopupSettings = {
 `}
 						/>
 					{:else if tabSettings === 1}
+						<!-- Close Query -->
+						<!-- prettier-ignore -->
+						<p>Query the list of elements that will close the drawer when clicked. This is set to <code>'a[href], button'</code> by default, but to limited to <code>.listbox-item</code> only we would use:</p>
+						<CodeBlock
+							language="ts"
+							code={`
+let popupSettings: PopupSettings = {
+	// Only listbox items will close the popup:
+	closeQuery: '.listbox-item',
+};
+`}
+						/>
+						<p>To disable any child elements from closing the popup, use the following:</p>
+						<CodeBlock
+							language="ts"
+							code={`
+let popupSettings: PopupSettings = {
+	// No chidren will close the popup:
+	closeQuery: '',
+};
+`}
+						/>
+					{:else if tabSettings === 2}
 						<!-- State Handler -->
 						<p>You can optionally monitor the show and hide state of a popup using <code>state</code>.</p>
 						<CodeBlock
 							language="ts"
 							code={`
 let popupSettings: PopupSettings = {
-	state: (e) => console.log(e)
+state: (e) => console.log(e)
 };
 `}
 						/>
@@ -213,36 +229,23 @@ let popupSettings: PopupSettings = {
 						<!-- Middlware -->
 						<!-- prettier-ignore -->
 						<p>
-						You can provide <a href="https://floating-ui.com/docs/middleware" target="_blank" rel="noreferrer">Floating UI middleware</a> settings within <code>PopupSettings</code>. These settings are passed verbatim.
-					</p>
+					You can provide <a href="https://floating-ui.com/docs/middleware" target="_blank" rel="noreferrer">Floating UI middleware</a> settings within <code>PopupSettings</code>. These settings are passed verbatim.
+				</p>
 						<CodeBlock
 							language="ts"
 							code={`
 let popupSettings: PopupSettings = {
-	middleware: {
-		// Floating UI Middlware
-		/** https://floating-ui.com/docs/offset */
-		offset: 24, // or { ... }
-		/** https://floating-ui.com/docs/shift */
-		shift: { ... },
-		/** https://floating-ui.com/docs/flip */
-		flip: { ... },
-		/** https://floating-ui.com/docs/arrow */
-		arrow: { ... }
-	}
-};
-`}
-						/>
-					{:else if tabSettings === 2}
-						<!-- Close Query -->
-						<!-- prettier-ignore -->
-						<p>Query the list of elements that will close the drawer when clicked. This is set to <code>'a[href], button'</code> by default.</p>
-						<CodeBlock
-							language="ts"
-							code={`
-let popupSettings: PopupSettings = {
-	// Limit to listbox items only:
-	closeQuery: '.listbox-item',
+middleware: {
+	// Floating UI Middlware
+	/** https://floating-ui.com/docs/offset */
+	offset: 24, // or { ... }
+	/** https://floating-ui.com/docs/shift */
+	shift: { ... },
+	/** https://floating-ui.com/docs/flip */
+	flip: { ... },
+	/** https://floating-ui.com/docs/arrow */
+	arrow: { ... }
+}
 };
 `}
 						/>
@@ -250,10 +253,71 @@ let popupSettings: PopupSettings = {
 				</svelte:fragment>
 			</TabGroup>
 		</section>
+		<!-- Focus Event -->
+		<section class="space-y-4">
+			<h2>Focus Event</h2>
+			<p>
+				Use the <code>focus</code> event to display popups while the trigger element is focused. Likewise use <code>focus-click</code> to toggle
+				the popup even when tapping the same trigger element repeatedly.
+			</p>
+			<DocsPreview>
+				<svelte:fragment slot="preview">
+					<div class="flex flex-col space-y-4">
+						<div class="text-token">
+							<input type="text" class="input" placeholder="Focus" use:popup={inputPopupFocus} />
+							<div data-popup="inputPopupFocus" class="card variant-filled p-4">Click outside to close.</div>
+						</div>
+						<div class="text-token">
+							<input type="text" class="input" placeholder="Focus Click" use:popup={inputPopupFocusClick} />
+							<div data-popup="inputPopupFocusClick" class="card variant-filled p-4">Click the input or outside to close.</div>
+						</div>
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<h3>Focus</h3>
+					<CodeBlock
+						language="ts"
+						code={`
+let focusPopup: PopupSettings = {
+	event: 'focus',
+	target: 'focus'
+};
+						`}
+					/>
+					<CodeBlock
+						language="html"
+						code={`
+<input type="text" class="input" placeholder="Focus" use:popup={focus} />
+<div data-popup="focus" class="card variant-filled p-4">Click outside to close.</div>
+						`}
+					/>
+					<h3>Focus-Click</h3>
+					<CodeBlock
+						language="ts"
+						code={`
+let focusClickPopup: PopupSettings = {
+	event: 'focus-click',
+	target: 'focusClick'
+};
+						`}
+					/>
+					<CodeBlock
+						language="html"
+						code={`
+<input type="text" class="input" placeholder="Focus Click" use:popup={focusClick} />
+<div data-popup="focusClick" class="card variant-filled p-4">Click the input or outside to close.</div>
+						`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
+		</section>
 		<!-- Combobox -->
 		<section class="space-y-4">
 			<h2>Combobox</h2>
-			<p>By combining popups and Skeleton listboxes we can create a functional combobox element.</p>
+			<p>
+				By combining popups and Skeleton listboxes we can create a functional combobox element. We can use the <code>focus-click</code> event
+				so it opens for keyboard users when focussed.
+			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<!-- Combobox -->
@@ -279,7 +343,7 @@ let popupSettings: PopupSettings = {
 						language="ts"
 						code={`
 let popupCombobox: PopupSettings = {
-	event: 'click',
+	event: 'focus-click',
 	target: 'combobox',
 	placement: 'bottom',
 	// Close the popup when the item is clicked
@@ -323,7 +387,8 @@ let popupCombobox: PopupSettings = {
 		<section class="space-y-4">
 			<h2>Z-Index</h2>
 			<p>
-				Neither Skeleton nor Floating-UI will provide a Z-Index out of the box for the reasons layed out in the <a href="https://floating-ui.com/docs/misc#z-index-stacking">Floating-UI docs</a>.
+				Neither Skeleton nor Floating-UI will provide a Z-Index out of the box for the reasons layed out in the
+				<a href="https://floating-ui.com/docs/misc#z-index-stacking">Floating-UI docs</a>.
 			</p>
 		</section>
 		<!-- Browser Support -->

@@ -20,7 +20,7 @@ interface Middlware {
 // Action Arguments
 export interface PopupSettings {
 	/** Provide the event type. */
-	event: 'click' | 'hover' | 'hover-click';
+	event: 'click' | 'hover' | 'hover-click' | 'focus' | 'focus-click';
 	/** Match the popup data value `[data-popup]="targetNameHere"` */
 	target: string;
 	/** Set the placement position. Defaults 'bottom'. */
