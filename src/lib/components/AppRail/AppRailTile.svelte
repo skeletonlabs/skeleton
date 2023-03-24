@@ -56,7 +56,7 @@
 
 <!-- @component A navigation tile for the App Rail component. -->
 
-<div on:click={onClickHandler} on:click on:keydown on:keyup on:keypress>
+<div on:click={onClickHandler} on:keydown on:keyup on:keypress>
 	<!-- IMPORTANT: avoid forwarding events on <svelte:element> tags per: -->
 	<!-- https://github.com/skeletonlabs/skeleton/issues/727#issuecomment-1356859261 -->
 	<svelte:element this={tag} {...prunedRestProps()} class="app-rail-tile {classesBase}">
