@@ -31,7 +31,7 @@
 	};
 
 	// Local
-	let inputPopupDemo = ''
+	let inputPopupDemo = '';
 	let popupSettings: PopupSettings = {
 		event: 'focus',
 		target: 'popupAutocomplete',
@@ -264,23 +264,22 @@ const flavorOptions: AutocompleteOption[] = [
 							use:popup={popupSettings}
 						/>
 						<div data-popup="popupAutocomplete" class="card w-full max-w-sm max-h-48 p-4 overflow-y-auto">
-							<Autocomplete
-								bind:input={inputPopupDemo}
-								options={flavorOptions}
-								on:selection={onPopupDemoSelect}
-							/>
+							<Autocomplete bind:input={inputPopupDemo} options={flavorOptions} on:selection={onPopupDemoSelect} />
 						</div>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="ts" code={`
+					<CodeBlock
+						language="ts"
+						code={`
 let popupSettings: PopupSettings = {
 	event: 'focus-click',
 	target: 'popupAutocomplete',
 	placement: 'bottom',
 	// Close on click
 	closeQuery: '.autocomplete-option'
-};`} />
+};`}
+					/>
 					<CodeBlock language="ts" code={`let inputPopupDemo: string = '';`} />
 					<CodeBlock
 						language="html"
