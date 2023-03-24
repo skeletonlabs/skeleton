@@ -5,15 +5,14 @@
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
 	import Tab from '$lib/components/Tab/Tab.svelte';
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
-	import { slide } from 'svelte/transition';
 
 	// Local
-	let activeThemeName: string = 'skeleton';
-	$: activeThemeStylesheet = `import '@skeletonlabs/skeleton/themes/theme-${activeThemeName}.css';`;
+	let activeTheme = themes[1];
+	$: activeThemeStylesheet = `import '@skeletonlabs/skeleton/themes/theme-${activeTheme.file}.css';`;
 
 	// Copy Theme Import to Clipboard
-	function setActiveTheme(file: string): void {
-		activeThemeName = file;
+	function setActiveTheme(theme: any): void {
+		activeTheme = theme;
 	}
 </script>
 
@@ -43,16 +42,17 @@
 
 	<!-- Presets -->
 	<div class="card variant-glass p-4 space-y-4">
-		<nav class="grid grid-cols-1 md:grid-cols-3 gap-4">
+		<nav class="grid grid-cols-1 md:grid-cols-3 gap-5">
 			{#each themes.slice(1, themes.length) as preset}
 				<div
-					class="card p-4 text-white hover:ring-surface-500/50 cursor-pointer space-y-4"
+					class="card p-4 text-white hover:ring-surface-500/50 cursor-pointer space-y-4 hover:scale-105 transition-transform"
 					style:background={preset.surface}
+					class:scale-105={preset.file === activeTheme.file}
 					on:click={() => {
-						setActiveTheme(preset.file);
+						setActiveTheme(preset);
 					}}
 					on:keydown={() => {
-						setActiveTheme(preset.file);
+						setActiveTheme(preset);
 					}}
 				>
 					<p class="text-center font-bold !text-lg" data-toc-ignore>{preset.name}</p>
@@ -70,7 +70,7 @@
 	<!-- Theme Customization -->
 	<div class="card variant-glass p-4">
 		<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-			<p>Learn how to extend and customize themes.</p>
+			<p>Learn how extend preset themes, customize backgrounds, and add custom fonts.</p>
 			<a class="btn variant-filled-secondary" href="/docs/themes">Themes &rarr;</a>
 		</div>
 	</div>
@@ -78,7 +78,7 @@
 	<!-- Generator -->
 	<div class="card variant-glass p-4">
 		<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-			<p>Create your own custom theme.</p>
+			<p>Interested in creating your own custom theme? Try the Skeleton theme generator.</p>
 			<a class="btn variant-filled-secondary" href="/docs/generator">Generator &rarr;</a>
 		</div>
 	</div>
