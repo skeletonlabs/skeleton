@@ -28,7 +28,7 @@
 		},
 		{
 			title: 'Icon Agnostic',
-			body: 'Supports all forms of iconography for complete control, including: unicode, emoji, venctor, or SVG-based icon systems.',
+			body: 'Supports all forms of iconography for complete control, including: unicode, emoji, vector, or SVG-based icon systems.',
 			icon: 'fa-icons'
 		}
 	];
