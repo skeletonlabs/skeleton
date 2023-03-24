@@ -58,7 +58,7 @@
 				<h3>Background Images</h3>
 				<p>
 					You may optionally provide a background image, including the use of CSS mesh gradients. Mix in theme color properties to create
-					create fully adaptive gradient backgrounds.
+					fully adaptive gradient backgrounds.
 				</p>
 			</div>
 			<div>
