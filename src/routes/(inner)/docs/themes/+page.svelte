@@ -86,7 +86,7 @@ body {
 		<p>
             Fonts may be installed from a local or remote source. For <a href="https://gdpr.eu/" target="_blank" rel="noreferrer">GDPR compliance</a> and optimal performance we recommend installing the fonts locally. For this guide we'll demonstrate this process using free fonts from <a href="https://fonts.google.com/" target="_blank" rel="noreferrer">Google Fonts</a>.
 		</p>
-		{#if activeTheme.fonts.length}
+		{#if activeTheme.fonts.length && activeTheme.file !== 'custom'}
 			<aside class="alert alert-message variant-ghost">
 				<p>The <strong>{activeTheme.name}</strong> theme makes use of custom fonts. You may optionally follow the steps below.</p>
 			</aside>
