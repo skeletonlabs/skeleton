@@ -432,12 +432,11 @@ modalStore.trigger(d);
 				<AccordionItem>
 					<svelte:fragment slot="summary"><h3 data-toc-ignore>Standarize Modal Widths</h3></svelte:fragment>
 					<svelte:fragment slot="content">
+						<!-- prettier-ignore -->
 						<p>
-							View the <em>Classes</em> tab at the top of this page to view optional modal helper classes. These included
-							<code>.w-modal</code>,
-							<code>.w-modal-slim</code>, and <code>.w-modal-wide</code>, which represent standard, slim, and wide presets.
-						</p>
-					</svelte:fragment>
+							Standard <em>alert</em>, <em>confirm</em>, and <em>prompt</em> modals include a <code>width</code> property to adjust the width size. If you wish to resize your custom component modals, apply the Tailwind width utility classes directly within your component markup. To help standarize modal widthes we provided three canned options: <code>.w-modal</code>, <code>.w-modal-slim</code>, and <code>.w-modal-wide</code>.
+					</svelte:fragment
+					>
 				</AccordionItem>
 			</Accordion>
 		</section>
