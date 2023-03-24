@@ -118,7 +118,8 @@
 		modalStore.close();
 	}
 
-	function onPromptSubmit(): void {
+	function onPromptSubmit(event: SubmitEvent): void {
+		event.preventDefault();
 		if ($modalStore[0].response) $modalStore[0].response(promptValue);
 		modalStore.close();
 	}
