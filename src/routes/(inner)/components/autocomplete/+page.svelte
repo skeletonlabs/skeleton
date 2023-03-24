@@ -273,7 +273,7 @@ const flavorOptions: AutocompleteOption[] = [
 						language="ts"
 						code={`
 let popupSettings: PopupSettings = {
-	event: 'focus-click',
+	event: 'focus',
 	target: 'popupAutocomplete',
 	placement: 'bottom',
 	// Close on click
