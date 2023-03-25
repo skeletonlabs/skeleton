@@ -1,20 +1,10 @@
 <script lang="ts">
 	import { inputSettings } from "$docs/layouts/DocsThemer/settings";
 	import type { FormTheme } from "$docs/layouts/DocsThemer/types";
-	import ProgressBar from "$lib/components/ProgressBar/ProgressBar.svelte";
-	import SlideToggle from "$lib/components/SlideToggle/SlideToggle.svelte";
-	import { toastStore } from "$lib/utilities/Toast/stores";
-	import type { ToastSettings } from "$lib/utilities/Toast/types";
+	import { mixedButtons, mixedBadges } from "$docs/theme-generator/mixedComponents";
+	import Preview from "$docs/theme-generator/Preview.svelte";
 
     export let theme: FormTheme;
-    
-    const toastMe = () => {
-        const t: ToastSettings = {
-            message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit...',
-            background: 'variant-filled-primary'
-        };
-        toastStore.trigger(t);
-    }
 </script>
 <section class="card p-4 grid grid-cols-2 gap-4 col-span-2 lg:col-span-1">
     <!-- Fonts -->
@@ -70,50 +60,4 @@
     </label>
 </section>
 <!-- Examples -->
-<section class="card variant-glass p-4 space-y-8 flex flex-col">
-    <div class="flex justify-around">
-        <div class="grid grid-cols-2 gap-4">
-            <button class="btn variant-filled-primary">Filled</button>
-            <button class="btn variant-ghost-secondary">Ghost</button>
-            <button class="btn variant-soft-tertiary">Soft</button>
-            <button class="btn variant-ringed-success">Ringed</button>
-            <button class="btn variant-glass-error">Glass</button>
-        </div>
-        <span class="divider-vertical h-30" />
-        <div class="grid grid-cols-2 gap-4 place-items-center">
-            <span class="badge variant-filled-primary">Filled</span>
-            <span class="badge variant-ghost-secondary">Ghost</span>
-            <span class="badge variant-soft-tertiary">Soft</span>
-            <span class="badge variant-ringed-success">Ringed</span>
-            <span class="badge variant-glass-error">Glass</span>
-        </div>
-        <span class="divider-vertical h-30" />
-        <div class="flex flex-col justify-around">
-            <SlideToggle name="exampeSliderThree" active={`bg-primary-500`} />
-            <SlideToggle name="exampeSliderThree" active={`bg-primary-500`} checked />
-        </div>
-        <span class="divider-vertical h-30" />
-        <div class="card variant-filled-primary">
-            <p class="m-auto">Example Primary Card</p>
-        </div>
-        <span class="divider-vertical h-30"/>
-        <div class="flex flex-col justify-center">
-            <button class="btn variant-filled-primary" on:click={toastMe}>Toast me!</button>
-        </div>
-    </div>        
-    <hr class="opacity-50" />
-    <div class="grid grid-cols-1 gap-4">
-        <ProgressBar meter="bg-primary-500" track="bg-primary-500/20" value={66} max={100} />
-        <aside class="alert variant-filled-primary">
-            <i class="fa-solid fa-triangle-exclamation text-4xl" />
-            <div class="alert-message">
-                <h3>Example Alert</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-            </div>
-            <div class="alert-actions">
-                <button class="btn variant-filled">Action</button>
-                <button class="btn-icon variant-filled"><i class="fa-solid fa-xmark" /></button>
-            </div>
-        </aside>
-    </div>
-</section>
+<Preview color="primary" colorLabel="Primary" buttons={mixedButtons} badges={mixedBadges} progressColors={['secondary']} alertColors={['warning']}/>

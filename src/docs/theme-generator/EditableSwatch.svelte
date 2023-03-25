@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { generateA11yOnColor, generatePalette, getPassReport, hexValueIsValid,hexToTailwindRgbString } from "$docs/layouts/DocsThemer/colors";
 	import { inputSettings, swatchColorClasses } from "$docs/layouts/DocsThemer/settings";
-	import type { ColorSettings, PassReport } from './types';
+	import type { ColorSettings, PassReport } from '../../routes/(inner)/docs/simple-generator/types';
 	import { popup } from "$lib/utilities/Popup/popup";
 	import type { PopupSettings } from "$lib/utilities/Popup/types";
 

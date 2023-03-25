@@ -21,7 +21,6 @@
 	import type { PopupSettings } from '$lib/utilities/Popup/types';
 
 	// Stores
-	/* @ts-ignore */
 	const storeThemGenForm: Writable<FormTheme> = localStorageStore('storeThemGenForm', {
 		colors: [
 			{ key: 'primary', label: 'Primary', hex: '#0FBA81', rgb: '0 0 0', on: '0 0 0' },

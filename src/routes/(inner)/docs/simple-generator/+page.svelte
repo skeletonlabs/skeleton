@@ -1,12 +1,15 @@
 <script lang="ts">
+	import { goto } from "$app/navigation";
 	import { generatePalette, hexValueIsValid } from "$docs/layouts/DocsThemer/colors";
 	import { fontSettings } from "$docs/layouts/DocsThemer/settings";
+	import { themeStore } from "$docs/stores/stores";
+	import { generateColorCSS, hexValuesAreValid } from "$docs/theme-generator/utils";
 	import Step from "$lib/components/Stepper/Step.svelte";
 	import Stepper from "$lib/components/Stepper/Stepper.svelte";    
 	import LightSwitch from "$lib/utilities/LightSwitch/LightSwitch.svelte";
 	import ColorStep from "./ColorStep.svelte";
 	import SettingStep from "./SettingStep.svelte";
-	import type { ColorSettings, FormTheme } from "./types";
+	import type { FormTheme } from "./types";
 
     let theme: FormTheme = {
         colors: [
@@ -28,29 +31,10 @@
     };
     let cssOutput: string = '';
 
-    const generateColorCSS = (): string => {
-		let newCSS = '';
-		theme.colors.forEach((color: ColorSettings, i: number) => {
-			const colorKey = color.key;
-			// The color set comment
-			newCSS += `/* ${colorKey} | ${color.palette[500].hex} */\n\t`;
-			// CSS props for shade 50-900 per each color
-			for (let [k, v] of Object.entries(color.palette)) {
-				newCSS += `--color-${colorKey}-${k}: ${v.rgb}; /* ⬅ ${v.hex} */\n\t`;
-			}
-		});
-		return newCSS;
+	const onComplete = () => {
+		$themeStore = theme;
+		goto("/docs/advanced-generator");
 	}
-
-    const hexValuesAreValid = (colors: ColorSettings[]) => {
-		// Check all hex values for validity.
-		let valid = true;
-		colors?.forEach((color: ColorSettings) => {
-			valid = valid && hexValueIsValid(color.hex);
-		});
-
-		return valid;
-	};
 
     $: if (hexValuesAreValid(theme.colors)) {
 		cssOutput = `
@@ -72,7 +56,7 @@
 	--on-error: ${theme.colors[5]?.on};
 	--on-surface: ${theme.colors[6]?.on};
 	/* =~= Theme Colors  =~= */
-	${generateColorCSS()}
+	${generateColorCSS(theme)}
 }`;
 	}
 
@@ -82,7 +66,7 @@
 
 <div class="page-container">
     <header class="space-y-4 relative">
-        <h1>Theme Wizard</h1>
+        <h2>Theme Wizard</h2>
         <p>
             This Wizard will guide you through Theme Generation.
         </p>
@@ -91,7 +75,7 @@
         </p>
 		<LightSwitch class="absolute top-0 right-0"/>
     </header>
-    <Stepper>
+    <Stepper on:complete={onComplete}>
         {#each theme.colors as color, i}
             <Step>
                 <svelte:fragment slot="header">{`Decide on a ${color.label} color`}</svelte:fragment>

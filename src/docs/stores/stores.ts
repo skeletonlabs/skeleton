@@ -1,5 +1,6 @@
 import { writable, type Writable } from 'svelte/store';
 import { localStorageStore } from '$lib/utilities/LocalStorageStore/LocalStorageStore';
+import type { FormTheme } from '../../routes/(inner)/docs/simple-generator/types';
 
 // Svelte Writable Stores ---
 
@@ -16,3 +17,5 @@ export const storeTheme: Writable<string> = localStorageStore('storeTheme', 'ske
 
 // Persists the tab selection for the user's preferred onboarding method
 export const storeOnboardMethod: Writable<string> = localStorageStore('storeOnboardMethod', 'cli');
+
+export const themeStore: Writable<FormTheme | undefined> = localStorageStore('storeThemGenForm', undefined);
