@@ -108,7 +108,7 @@
 					</TabGroup>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<TabGroup justify="justify-center">...<TabGroup>`} />
+					<CodeBlock language="html" code={`<TabGroup justify="justify-center">...</TabGroup>`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
@@ -161,7 +161,7 @@
 		(label))
 	</Tab>
 	<!-- ... -->
-<TabGroup>`}
+</TabGroup>`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
