@@ -36,8 +36,6 @@
 		event: 'focus',
 		target: 'popupAutocomplete',
 		placement: 'bottom',
-		// Close on click
-		closeQuery: '.autocomplete-option'
 	};
 
 	let inputDemo = '';
@@ -276,8 +274,6 @@ let popupSettings: PopupSettings = {
 	event: 'focus',
 	target: 'popupAutocomplete',
 	placement: 'bottom',
-	// Close on click
-	closeQuery: '.autocomplete-option'
 };`}
 					/>
 					<CodeBlock language="ts" code={`let inputPopupDemo: string = '';`} />
