@@ -9,9 +9,8 @@
 	import LightSwitch from "$lib/utilities/LightSwitch/LightSwitch.svelte";
 	import ColorStep from "./ColorStep.svelte";
 	import SettingStep from "./SettingStep.svelte";
-	import type { FormTheme } from "./types";
 
-    let theme: FormTheme = {
+    $themeStore = {
         colors: [
 			{ key: 'primary', label: 'Primary', hex: '#0FBA81', rgb: '0 0 0', on: '0 0 0', palette: generatePalette('#0FBA81') },
 			{ key: 'secondary', label: 'Secondary', hex: '#4F46E5', rgb: '0 0 0', on: '255 255 255', palette: generatePalette('#4F46E5') },
@@ -32,31 +31,30 @@
     let cssOutput: string = '';
 
 	const onComplete = () => {
-		$themeStore = theme;
 		goto("/docs/advanced-generator");
 	}
 
-    $: if (hexValuesAreValid(theme.colors)) {
+    $: if ($themeStore && hexValuesAreValid($themeStore.colors)) {
 		cssOutput = `
 :root {
 	/* =~= Theme Properties =~= */
-	--theme-font-family-base: ${fontSettings[theme.fontBase]};
-	--theme-font-family-heading: ${fontSettings[theme.fontHeadings]};
-	--theme-font-color-base: ${theme.textColorLight};
-	--theme-font-color-dark: ${theme.textColorDark};
-	--theme-rounded-base: ${theme.roundedBase};
-	--theme-rounded-container: ${theme.roundedContainer};
-	--theme-border-base: ${theme.borderBase};
+	--theme-font-family-base: ${fontSettings[$themeStore.fontBase]};
+	--theme-font-family-heading: ${fontSettings[$themeStore.fontHeadings]};
+	--theme-font-color-base: ${$themeStore.textColorLight};
+	--theme-font-color-dark: ${$themeStore.textColorDark};
+	--theme-rounded-base: ${$themeStore.roundedBase};
+	--theme-rounded-container: ${$themeStore.roundedContainer};
+	--theme-border-base: ${$themeStore.borderBase};
 	/* =~= Theme On-X Colors =~= */
-	--on-primary: ${theme.colors[0]?.on};
-	--on-secondary: ${theme.colors[1]?.on};
-	--on-tertiary: ${theme.colors[2]?.on};
-	--on-success: ${theme.colors[3]?.on};
-	--on-warning: ${theme.colors[4]?.on};
-	--on-error: ${theme.colors[5]?.on};
-	--on-surface: ${theme.colors[6]?.on};
+	--on-primary: ${$themeStore.colors[0]?.on};
+	--on-secondary: ${$themeStore.colors[1]?.on};
+	--on-tertiary: ${$themeStore.colors[2]?.on};
+	--on-success: ${$themeStore.colors[3]?.on};
+	--on-warning: ${$themeStore.colors[4]?.on};
+	--on-error: ${$themeStore.colors[5]?.on};
+	--on-surface: ${$themeStore.colors[6]?.on};
 	/* =~= Theme Colors  =~= */
-	${generateColorCSS(theme)}
+	${generateColorCSS($themeStore)}
 }`;
 	}
 
@@ -76,7 +74,7 @@
 		<LightSwitch class="absolute top-0 right-0"/>
     </header>
     <Stepper on:complete={onComplete}>
-        {#each theme.colors as color, i}
+        {#each $themeStore.colors as color, i}
             <Step>
                 <svelte:fragment slot="header">{`Decide on a ${color.label} color`}</svelte:fragment>
                 <ColorStep bind:color={color}/>
@@ -84,7 +82,7 @@
         {/each}
 		<Step>
 			<svelte:fragment slot="header">General Theme Settings</svelte:fragment>
-			<SettingStep bind:theme={theme}/>
+			<SettingStep bind:theme={$themeStore}/>
 		</Step>
     </Stepper>
 </div>

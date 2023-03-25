@@ -8,6 +8,27 @@
 	import { mixedBadges, mixedButtons } from "$docs/theme-generator/mixedComponents";
     
     let cssOutput: string = '';
+
+    if(!$themeStore) {
+        $themeStore = {
+            colors: [
+                { key: 'primary', label: 'Primary', hex: '#0FBA81', rgb: '0 0 0', on: '0 0 0', palette: generatePalette('#0FBA81') },
+                { key: 'secondary', label: 'Secondary', hex: '#4F46E5', rgb: '0 0 0', on: '255 255 255', palette: generatePalette('#4F46E5') },
+                { key: 'tertiary', label: 'Tertiary', hex: '#0EA5E9', rgb: '0 0 0', on: '0 0 0', palette: generatePalette('#0EA5E9') },
+                { key: 'success', label: 'Success', hex: '#84cc16', rgb: '0 0 0', on: '0 0 0', palette: generatePalette('#84cc16') },
+                { key: 'warning', label: 'Warning', hex: '#EAB308', rgb: '0 0 0', on: '0 0 0', palette: generatePalette('#EAB308') },
+                { key: 'error', label: 'Error', hex: '#D41976', rgb: '0 0 0', on: '255 255 255', palette: generatePalette('#D41976') },
+                { key: 'surface', label: 'Surface', hex: '#495a8f', rgb: '0 0 0', on: '255 255 255', palette: generatePalette('#495a8f') }
+            ],
+            fontBase: 'system',
+            fontHeadings: 'system',
+            textColorLight: '0 0 0',
+            textColorDark: '255 255 255',
+            roundedBase: '9999px',
+            roundedContainer: '8px',
+            borderBase: '1px'
+        };
+    }
     
     $: if ($themeStore && hexValuesAreValid($themeStore.colors)) {
 		cssOutput = `
