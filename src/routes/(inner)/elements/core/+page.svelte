@@ -21,9 +21,8 @@
 		<div class="space-y-4">
 			<h2>Body Background</h2>
 			<p>
-				Your app's background is automatically set via a <a href="https://www.skeleton.dev/elements/tokens" target="_blank" rel="noreferrer"
-					>design token</a
-				> class. Adjust your theme's color scheme to customize. This affects both light and dark mode.
+				Your app's background is automatically set via a <a href="/docs/tokens">design token</a> class.
+				Adjust your theme's color scheme to customize. This affects both light and dark mode.
 			</p>
 			<CodeBlock language="css" code={`body { @apply bg-surface-50-900-token; }`} />
 			<aside class="alert variant-ghost-warning">
