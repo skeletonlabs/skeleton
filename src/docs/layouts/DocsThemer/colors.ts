@@ -19,6 +19,16 @@ export function hexToTailwindRgbString(hex: string): string {
 	return `${color[0]} ${color[1]} ${color[2]}`;
 }
 
+export function randomizeColors(colors: ColorSettings[]) {
+	colors.forEach((_, i: number) => {
+		const randomColor = chroma.random().oklch();
+		const color = chroma.oklch(0.5, randomColor[1], randomColor[2]).hex();
+		colors[i].hex = color;
+		colors[i].on = generateA11yOnColor(color);
+	});
+	return colors;
+}
+
 export function generateA11yOnColor(hex: string): '255 255 255' | '0 0 0' {
 	const blackContrast = chroma.contrast(chroma(hex), chroma('#000000'));
 	const whiteContrast = chroma.contrast(chroma(hex), chroma('#FFFFFF'));
@@ -152,7 +162,7 @@ export function generateColorCSS(formTheme: FormTheme): string {
 	// Loop store colors
 	formTheme.colors.forEach((color: ColorSettings, i: number) => {
 		const colorKey = color.key;
-		// Generate the new color palette hex/rgb/on values
+		// Generate the new color palette hex/on values
 		newPalette[color.key] = generatePalette(formTheme.colors[i].hex);
 		// The color set comment
 		newCSS += `/* ${colorKey} | ${newPalette[colorKey][500].hex} */\n\t`;

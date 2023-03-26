@@ -17,7 +17,7 @@
 	import { storePreview } from './stores';
 	import type { ColorSettings, FormTheme, ContrastReport } from './types';
 	import { inputSettings, fontSettings } from './settings';
-	import { generateA11yOnColor, hexValueIsValid, getPassReport, generateColorCSS, generateOnSemantic } from './colors';
+	import { generateA11yOnColor, hexValueIsValid, getPassReport, generateColorCSS, generateOnSemantic, randomizeColors } from './colors';
 	import type { PopupSettings } from '$lib/utilities/Popup/types';
 
 	// Stores
@@ -45,15 +45,6 @@
 	let cssOutput: string = '';
 	let showThemeCSS: boolean = false;
 	let conReports: ContrastReport[] = getContrastReports();
-
-	function randomize(colors: ColorSettings[] = $storeThemGenForm.colors): void {
-		colors.forEach((_, i: number) => {
-			const randomColor = chroma.random().oklch();
-			const color = chroma.oklch(0.5, randomColor[1], randomColor[2]).hex();
-			colors[i].hex = color;
-			colors[i].on = generateA11yOnColor(color);
-		});
-	}
 
 	function onPreviewToggle(): void {
 		if ($storePreview === false) {
@@ -126,9 +117,13 @@
 				<div class="flex items-center space-x-4">
 					<LightSwitch />
 				</div>
-				<button class="btn variant-ghost-surface" on:click={() => randomize($storeThemGenForm.colors)} disabled={!$storePreview}
-					>Randomize Colors</button
-				>
+				<div>
+					<button
+						class="btn variant-ghost-surface"
+						on:click={() => ($storeThemGenForm.colors = randomizeColors($storeThemGenForm.colors))}
+						disabled={!$storePreview}>Randomize Colors</button
+					>
+				</div>
 			</header>
 			<hr />
 			<div class="p-4 grid grid-cols-1 gap-4">
