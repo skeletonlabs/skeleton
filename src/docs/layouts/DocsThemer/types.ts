@@ -2,9 +2,13 @@ import type { SemanticNames } from '$lib/types';
 
 export interface ColorSettings {
 	key: SemanticNames;
-	label: string;
+	label: Capitalize<SemanticNames>;
 	hex: string;
 	on: string;
+}
+
+export interface ContrastReport extends ColorSettings {
+	contrastReport: PassReport;
 }
 
 export interface FormTheme {
@@ -35,12 +39,4 @@ export interface PassReport {
 	largeAA: boolean;
 	largeAAA: boolean;
 	fails: boolean;
-}
-
-export interface ContrastReport {
-	key: SemanticNames;
-	label: string;
-	hex: string;
-	on: string;
-	contrastReport: PassReport;
 }
