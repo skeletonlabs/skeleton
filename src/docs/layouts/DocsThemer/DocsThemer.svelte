@@ -17,15 +17,7 @@
 	import { storePreview } from './stores';
 	import type { ColorSettings, FormTheme, ContrastReport } from './types';
 	import { inputSettings, fontSettings } from './settings';
-	import {
-		type Palette,
-		generatePalette,
-		generateA11yOnColor,
-		hexValueIsValid,
-		getPassReport,
-		hexToTailwindRgbString,
-		generateColorCSS
-	} from './colors';
+	import { generateA11yOnColor, hexValueIsValid, getPassReport, generateColorCSS, generateOnSemantic } from './colors';
 	import type { PopupSettings } from '$lib/utilities/Popup/types';
 
 	// Stores
@@ -109,14 +101,7 @@
 	--theme-rounded-base: ${$storeThemGenForm.roundedBase};
 	--theme-rounded-container: ${$storeThemGenForm.roundedContainer};
 	--theme-border-base: ${$storeThemGenForm.borderBase};
-	/* =~= Theme On-X Colors =~= */
-	--on-primary: ${$storeThemGenForm.colors[0]?.on};
-	--on-secondary: ${$storeThemGenForm.colors[1]?.on};
-	--on-tertiary: ${$storeThemGenForm.colors[2]?.on};
-	--on-success: ${$storeThemGenForm.colors[3]?.on};
-	--on-warning: ${$storeThemGenForm.colors[4]?.on};
-	--on-error: ${$storeThemGenForm.colors[5]?.on};
-	--on-surface: ${$storeThemGenForm.colors[6]?.on};
+	${generateOnSemantic($storeThemGenForm.colors)}
 	/* =~= Theme Colors  =~= */
 	${generateColorCSS($storeThemGenForm)}
 }`;

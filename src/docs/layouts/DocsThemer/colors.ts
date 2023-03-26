@@ -163,3 +163,13 @@ export function generateColorCSS(formTheme: FormTheme): string {
 	});
 	return newCSS;
 }
+
+export function generateOnSemantic(colors: ColorSettings[]) {
+	const string = `/* =~= Theme On-X Colors =~= */`;
+	const onColors = colors.map((color) => {
+		if (color.on)
+			return `
+	--on-${color.key}: ${color.on};`;
+	});
+	return string + onColors.join('');
+}
