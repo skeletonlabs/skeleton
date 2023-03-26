@@ -21,12 +21,18 @@ export function hexToTailwindRgbString(hex: string): string {
 
 export function randomizeColors(colors: ColorSettings[]) {
 	colors.forEach((_, i: number) => {
-		const randomColor = chroma.random().oklch();
-		const color = chroma.oklch(0.5, randomColor[1], randomColor[2]).hex();
+		// This lets the first, fourth, and sixth colors be generated randomly, with the others being generated as a complementary color
+		let color = [1, 2, 4, 5].includes(i) ? generateComplementaryColor(colors[i - 1].hex) : chroma.random().set('oklch.l', 0.5).hex();
+		if (i === colors.length - 1) color = chroma(color).set('lch.c', 20).hex(); // make the last color a bit less saturated
 		colors[i].hex = color;
 		colors[i].on = generateA11yOnColor(color);
 	});
 	return colors;
+}
+
+function generateComplementaryColor(color: string): string {
+	const complementaryColor = chroma(color).set('lch.h', '+90');
+	return complementaryColor.hex();
 }
 
 export function generateA11yOnColor(hex: string): '255 255 255' | '0 0 0' {
