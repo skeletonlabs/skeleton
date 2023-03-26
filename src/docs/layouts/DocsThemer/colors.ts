@@ -1,6 +1,6 @@
 // This script is based 'tailwindcolorshades' by Javis V. Pérez:
 // https://github.com/javisperez/tailwindcolorshades/blob/master/src/composables/colors.ts
-import type { ColorSettings, FormTheme, PassReport } from './types';
+import { contrastLevels, type ColorSettings, type FormTheme, type PassReport, type ContrastLevel, type ContrastSize } from './types';
 
 import { tailwindNumbers } from '$lib/types';
 import chroma from 'chroma-js';
@@ -59,27 +59,6 @@ export function generatePalette(baseColor: string): Palette {
 	}
 	return response as Palette;
 }
-
-type ContrastLevel = 'AA' | 'AAA';
-type ContrastSize = 'small' | 'large';
-
-export const contrastLevels: Record<
-	ContrastSize,
-	{
-		[key in ContrastLevel]: number;
-	}
-> = {
-	/** For text that is less than 18pt */
-	small: {
-		AA: 4.5,
-		AAA: 7
-	},
-	/** For text that is at or is larger than 18pt */
-	large: {
-		AA: 3,
-		AAA: 4.5
-	}
-};
 
 export function destringRgb(rgbString: string) {
 	const rgb = rgbString.match(/(\d+),?\s*(\d+),?\s*(\d+)/); // matches "255, 255, 255" and "255 255 255"

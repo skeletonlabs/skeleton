@@ -40,3 +40,24 @@ export interface PassReport {
 	largeAAA: boolean;
 	fails: boolean;
 }
+
+export type ContrastLevel = 'AA' | 'AAA';
+export type ContrastSize = 'small' | 'large';
+
+export const contrastLevels: Record<
+	ContrastSize,
+	{
+		[key in ContrastLevel]: number;
+	}
+> = {
+	/** For text that is less than 18pt */
+	small: {
+		AA: 4.5,
+		AAA: 7
+	},
+	/** For text that is at or is larger than 18pt */
+	large: {
+		AA: 3,
+		AAA: 4.5
+	}
+};
