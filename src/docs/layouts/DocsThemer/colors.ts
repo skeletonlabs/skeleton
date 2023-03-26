@@ -42,12 +42,7 @@ export function generatePalette(baseColor: string): Palette {
 	};
 	const color = chroma(baseColor);
 	const chromaScale = chroma
-		.scale([
-			color.brighten(2.5).desaturate(0.5),
-			// color.set('lch.l', 100).set('lch.c', 10),
-			color,
-			color.darken(1.7).desaturate(0.3)
-		])
+		.scale([color.set('lch.c', '*0.5').set('lch.l', 100), color, color.set('lch.l', '*0.5').set('lch.h', '+15')])
 		.domain([0.05, 0.5, 0.9])
 		.correctLightness()
 		.mode('lch');
