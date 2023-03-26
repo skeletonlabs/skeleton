@@ -35,10 +35,14 @@ function generateComplementaryColor(color: string): string {
 	return complementaryColor.hex();
 }
 
-export function generateA11yOnColor(hex: string): '255 255 255' | '0 0 0' {
+export function generateA11yHex(hex: string) {
 	const blackContrast = chroma.contrast(chroma(hex), chroma('#000000'));
 	const whiteContrast = chroma.contrast(chroma(hex), chroma('#FFFFFF'));
-	return blackContrast > whiteContrast ? '0 0 0' : '255 255 255';
+	return blackContrast > whiteContrast ? '#000000' : '#FFFFFF';
+}
+
+export function generateA11yOnColor(hex: string) {
+	return generateA11yHex(hex) === '#000000' ? '0 0 0' : '255 255 255';
 }
 
 export function generatePalette(baseColor: string): Palette {
