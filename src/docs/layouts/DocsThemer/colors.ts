@@ -8,17 +8,9 @@ export type Palette = {
 	[key: number]: {
 		/** The hex color. */
 		hex: string;
-		/** The RGB color. */
-		rgb: string;
 		/** The overlapping text/fill color. */
 		on: string;
 	};
-};
-
-type Rgb = {
-	r: number;
-	g: number;
-	b: number;
 };
 
 export function hexToTailwindRgbString(hex: string): string {
@@ -38,7 +30,7 @@ export function generatePalette(baseColor: string): Palette {
 	const hex500 = chroma(baseColor).hex();
 
 	const response: Palette = {
-		500: { hex: hex500, rgb: hexToTailwindRgbString(hex500), on: generateA11yOnColor(hex500) }
+		500: { hex: hex500, on: generateA11yOnColor(hex500) }
 	};
 	const color = chroma(baseColor);
 	const chromaScale = chroma
@@ -51,7 +43,6 @@ export function generatePalette(baseColor: string): Palette {
 		const number = parseInt(entry);
 		const scale = number / 1000;
 		response[entry] = {
-			rgb: hexToTailwindRgbString(chromaScale(scale).hex()),
 			hex: chromaScale(scale).hex(),
 			on: generateA11yOnColor(chromaScale(scale).hex())
 		};
