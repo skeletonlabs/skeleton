@@ -17,7 +17,15 @@
 	import { storePreview } from './stores';
 	import type { ColorSettings, FormTheme, ContrastReport } from './types';
 	import { inputSettings, fontSettings } from './settings';
-	import { type Palette, generatePalette, generateA11yOnColor, hexValueIsValid, getPassReport, hexToTailwindRgbString } from './colors';
+	import {
+		type Palette,
+		generatePalette,
+		generateA11yOnColor,
+		hexValueIsValid,
+		getPassReport,
+		hexToTailwindRgbString,
+		generateColorCSS
+	} from './colors';
 	import type { PopupSettings } from '$lib/utilities/Popup/types';
 
 	// Stores
@@ -46,31 +54,13 @@
 	let showThemeCSS: boolean = false;
 	let conReports: ContrastReport[] = getContrastReports();
 
-	function randomize(): void {
-		$storeThemGenForm.colors.forEach((_, i: number) => {
+	function randomize(colors: ColorSettings[] = $storeThemGenForm.colors): void {
+		colors.forEach((_, i: number) => {
 			const randomColor = chroma.random().oklch();
 			const color = chroma.oklch(0.5, randomColor[1], randomColor[2]).hex();
-			$storeThemGenForm.colors[i].hex = color;
-			$storeThemGenForm.colors[i].on = generateA11yOnColor(color);
+			colors[i].hex = color;
+			colors[i].on = generateA11yOnColor(color);
 		});
-	}
-
-	function generateColorCSS(): string {
-		let newCSS = '';
-		const newPalette: Record<string, Palette> = {};
-		// Loop store colors
-		$storeThemGenForm.colors.forEach((color: ColorSettings, i: number) => {
-			const colorKey = color.key;
-			// Generate the new color palette hex/rgb/on values
-			newPalette[color.key] = generatePalette($storeThemGenForm.colors[i].hex);
-			// The color set comment
-			newCSS += `/* ${colorKey} | ${newPalette[colorKey][500].hex} */\n\t`;
-			// CSS props for shade 50-900 per each color
-			for (let [k, v] of Object.entries(newPalette[colorKey])) {
-				newCSS += `--color-${colorKey}-${k}: ${hexToTailwindRgbString(v.hex)}; /* ⬅ ${v.hex} */\n\t`;
-			}
-		});
-		return newCSS;
 	}
 
 	function onPreviewToggle(): void {
@@ -128,7 +118,7 @@
 	--on-error: ${$storeThemGenForm.colors[5]?.on};
 	--on-surface: ${$storeThemGenForm.colors[6]?.on};
 	/* =~= Theme Colors  =~= */
-	${generateColorCSS()}
+	${generateColorCSS($storeThemGenForm)}
 }`;
 	}
 

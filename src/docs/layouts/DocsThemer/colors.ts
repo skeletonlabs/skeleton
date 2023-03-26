@@ -1,6 +1,6 @@
 // This script is based 'tailwindcolorshades' by Javis V. Pérez:
 // https://github.com/javisperez/tailwindcolorshades/blob/master/src/composables/colors.ts
-import type { PassReport } from './types';
+import type { ColorSettings, FormTheme, PassReport } from './types';
 
 import { tailwindNumbers } from '$lib/types';
 import chroma from 'chroma-js';
@@ -153,4 +153,22 @@ export function getPassReport(textColor: string, backgroundColor: string): PassR
 		largeAAA,
 		fails
 	};
+}
+
+export function generateColorCSS(formTheme: FormTheme): string {
+	let newCSS = '';
+	const newPalette: Record<string, Palette> = {};
+	// Loop store colors
+	formTheme.colors.forEach((color: ColorSettings, i: number) => {
+		const colorKey = color.key;
+		// Generate the new color palette hex/rgb/on values
+		newPalette[color.key] = generatePalette(formTheme.colors[i].hex);
+		// The color set comment
+		newCSS += `/* ${colorKey} | ${newPalette[colorKey][500].hex} */\n\t`;
+		// CSS props for shade 50-900 per each color
+		for (const [k, v] of Object.entries(newPalette[colorKey])) {
+			newCSS += `--color-${colorKey}-${k}: ${hexToTailwindRgbString(v.hex)}; /* ⬅ ${v.hex} */\n\t`;
+		}
+	});
+	return newCSS;
 }
