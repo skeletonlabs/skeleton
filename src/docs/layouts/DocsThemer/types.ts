@@ -4,7 +4,6 @@ export interface ColorSettings {
 	key: SemanticNames;
 	label: string;
 	hex: string;
-	rgb: string;
 	on: string;
 }
 
@@ -42,7 +41,6 @@ export interface ContrastReport {
 	key: SemanticNames;
 	label: string;
 	hex: string;
-	rgb: string;
 	on: string;
 	contrastReport: PassReport;
 }

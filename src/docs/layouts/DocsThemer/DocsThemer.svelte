@@ -17,20 +17,20 @@
 	import { storePreview } from './stores';
 	import type { ColorSettings, FormTheme, ContrastReport } from './types';
 	import { inputSettings, fontSettings } from './settings';
-	import { type Palette, generatePalette, generateA11yOnColor, hexValueIsValid, getPassReport } from './colors';
+	import { type Palette, generatePalette, generateA11yOnColor, hexValueIsValid, getPassReport, hexToTailwindRgbString } from './colors';
 	import type { PopupSettings } from '$lib/utilities/Popup/types';
 
 	// Stores
 	/* @ts-ignore */
 	const storeThemGenForm: Writable<FormTheme> = localStorageStore('storeThemGenForm', {
 		colors: [
-			{ key: 'primary', label: 'Primary', hex: '#0FBA81', rgb: '0 0 0', on: '0 0 0' },
-			{ key: 'secondary', label: 'Secondary', hex: '#4F46E5', rgb: '0 0 0', on: '255 255 255' },
-			{ key: 'tertiary', label: 'Tertiary', hex: '#0EA5E9', rgb: '0 0 0', on: '0 0 0' },
-			{ key: 'success', label: 'Success', hex: '#84cc16', rgb: '0 0 0', on: '0 0 0' },
-			{ key: 'warning', label: 'Warning', hex: '#EAB308', rgb: '0 0 0', on: '0 0 0' },
-			{ key: 'error', label: 'Error', hex: '#D41976', rgb: '0 0 0', on: '255 255 255' },
-			{ key: 'surface', label: 'Surface', hex: '#495a8f', rgb: '0 0 0', on: '255 255 255' }
+			{ key: 'primary', label: 'Primary', hex: '#0FBA81', on: '0 0 0' },
+			{ key: 'secondary', label: 'Secondary', hex: '#4F46E5', on: '255 255 255' },
+			{ key: 'tertiary', label: 'Tertiary', hex: '#0EA5E9', on: '0 0 0' },
+			{ key: 'success', label: 'Success', hex: '#84cc16', on: '0 0 0' },
+			{ key: 'warning', label: 'Warning', hex: '#EAB308', on: '0 0 0' },
+			{ key: 'error', label: 'Error', hex: '#D41976', on: '255 255 255' },
+			{ key: 'surface', label: 'Surface', hex: '#495a8f', on: '255 255 255' }
 		],
 		fontBase: 'system',
 		fontHeadings: 'system',
@@ -67,7 +67,7 @@
 			newCSS += `/* ${colorKey} | ${newPalette[colorKey][500].hex} */\n\t`;
 			// CSS props for shade 50-900 per each color
 			for (let [k, v] of Object.entries(newPalette[colorKey])) {
-				newCSS += `--color-${colorKey}-${k}: ${v.rgb}; /* ⬅ ${v.hex} */\n\t`;
+				newCSS += `--color-${colorKey}-${k}: ${hexToTailwindRgbString(v.hex)}; /* ⬅ ${v.hex} */\n\t`;
 			}
 		});
 		return newCSS;
