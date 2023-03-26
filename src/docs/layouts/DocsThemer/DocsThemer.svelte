@@ -141,7 +141,9 @@
 				<div class="flex items-center space-x-4">
 					<LightSwitch />
 				</div>
-				<button class="btn variant-ghost-surface" on:click={randomize} disabled={!$storePreview}>Randomize Colors</button>
+				<button class="btn variant-ghost-surface" on:click={() => randomize($storeThemGenForm.colors)} disabled={!$storePreview}
+					>Randomize Colors</button
+				>
 			</header>
 			<hr />
 			<div class="p-4 grid grid-cols-1 gap-4">
