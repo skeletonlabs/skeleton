@@ -50,7 +50,7 @@
 	}
 
 	.table thead th {
-		@apply font-bold p-4;
+		@apply font-bold px-3 py-4;
 	}
 
 	/* === Table Body === */
@@ -84,7 +84,7 @@
 
 	.table tfoot th,
 	.table tfoot td {
-		@apply p-4;
+		@apply px-3 py-4;
 	}
 
 	/* === Rows Specific === */
