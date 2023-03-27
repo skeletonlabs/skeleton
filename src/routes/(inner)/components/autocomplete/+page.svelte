@@ -9,6 +9,7 @@
 	import InputChip from '$lib/components/InputChip/InputChip.svelte';
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import { popup, type PopupSettings } from '@skeletonlabs/skeleton';
 	// Sveld
 	import sveldAutocomplete from '$lib/components/Autocomplete/Autocomplete.svelte?raw&sveld';
 
@@ -30,6 +31,13 @@
 	};
 
 	// Local
+	let inputPopupDemo = '';
+	let popupSettings: PopupSettings = {
+		event: 'focus',
+		target: 'popupAutocomplete',
+		placement: 'bottom',
+	};
+
 	let inputDemo = '';
 	let inputWhitelist = '';
 	const flavorOptions: AutocompleteOption[] = [
@@ -68,6 +76,10 @@
 			inputChipList = [...inputChipList, event.detail.value];
 			inputChip = '';
 		}
+	}
+
+	function onPopupDemoSelect(event: any): void {
+		inputPopupDemo = event.detail.label;
 	}
 </script>
 
@@ -230,6 +242,59 @@ const flavorOptions: AutocompleteOption[] = [
 	class="card w-full max-w-sm max-h-48 p-4 overflow-y-auto"
 	on:selection={onInputChipSelect}
 />
+					`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
+		</section>
+		<section class="space-y-4">
+			<h2>Popup</h2>
+			<p>We've provide a demo of using Autocomplete alongside a Skeleton popup utility below.</p>
+			<DocsPreview background="neutral" regionFooter="text-center">
+				<svelte:fragment slot="preview">
+					<div class="text-token w-full max-w-sm space-y-2">
+						<input
+							class="input autocomplete"
+							type="search"
+							name="autocomplete-search"
+							bind:value={inputPopupDemo}
+							placeholder="Search..."
+							use:popup={popupSettings}
+						/>
+						<div data-popup="popupAutocomplete" class="card w-full max-w-sm max-h-48 p-4 overflow-y-auto">
+							<Autocomplete bind:input={inputPopupDemo} options={flavorOptions} on:selection={onPopupDemoSelect} />
+						</div>
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="ts"
+						code={`
+let popupSettings: PopupSettings = {
+	event: 'focus',
+	target: 'popupAutocomplete',
+	placement: 'bottom',
+};`}
+					/>
+					<CodeBlock language="ts" code={`let inputPopupDemo: string = '';`} />
+					<CodeBlock
+						language="html"
+						code={`
+<input
+	class="input autocomplete"
+	type="search"
+	name="autocomplete-search"
+	bind:value={inputPopupDemo}
+	placeholder="Search..."
+	use:popup={popupSettings}
+/>
+<div data-popup="popupAutocomplete">
+	<Autocomplete
+		bind:input={inputPopupDemo}
+		options={flavorOptions}
+		on:selection={onPopupDemoSelect}
+	/>
+</div>
 					`}
 					/>
 				</svelte:fragment>
