@@ -1,0 +1,202 @@
+<script lang="ts">
+	import { themes } from '$docs/themes';
+	// Docs
+	import LayoutPage from '$docs/layouts/LayoutPage/LayoutPage.svelte';
+	// Components
+	import Tab from '$lib/components/Tab/Tab.svelte';
+	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
+	// Utilities
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+
+	// Local
+	let activeTheme = themes[1];
+	let tabsFontImport = 0;
+
+	// Reactive
+	$: activeFonts = activeTheme.fonts.length ? activeTheme.fonts : themes[0].fonts;
+</script>
+
+<LayoutPage>
+	<header class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4">
+		<div class="space-y-4">
+			<h1>Themes</h1>
+			<p>Learn more about customizing Skeleton themes.</p>
+		</div>
+		<label class="label w-full place-self-center">
+			<span>Which theme are you using?</span>
+			<select class="select" bind:value={activeTheme}>
+				{#each themes as theme}
+					<option value={theme}>{theme.name}</option>
+				{/each}
+			</select>
+		</label>
+	</header>
+
+	<hr />
+
+	{#if activeTheme.file !== 'custom'}
+		<section class="space-y-4">
+			<h2>Preset Extras</h2>
+			<p>
+				When using preset themes provided by Skeleton, consider implementing the <code>data-theme</code> attribute on the <em>body</em>
+				tag in <code>app.html</code>. This implements additional settings such as background gradients, header font weights, and more.
+			</p>
+			<CodeBlock language="html" code={`<body data-theme="` + activeTheme.file + `">`} />
+		</section>
+	{/if}
+
+	<section class="space-y-4">
+		<h2>Backgrounds</h2>
+		<p>
+			Your app's background is automatically set via a <a href="https://www.skeleton.dev/elements/tokens" target="_blank" rel="noreferrer"
+				>design token</a
+			> class. Adjust your theme's color scheme to customize. This affects both light and dark mode.
+		</p>
+		<CodeBlock language="css" code={`body { @apply bg-surface-50-900-token; }`} />
+		<div class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4 items-center">
+			<div class="space-y-4">
+				<h3>Background Images</h3>
+				<p>
+					You may optionally provide a background image, including the use of CSS mesh gradients. Mix in theme color properties to create
+					fully adaptive gradient backgrounds.
+				</p>
+			</div>
+			<div>
+				<a class="btn variant-filled-secondary font-bold" href="https://csshero.org/mesher/" target="_blank" rel="noreferrer">
+					<span>Create a Mesh</span>
+					<i class="fa-solid fa-arrow-up-right-from-square" />
+				</a>
+			</div>
+		</div>
+		<CodeBlock
+			language="css"
+			code={`
+body {
+	background-image:
+		radial-gradient(at 0% 0%, rgba(var(--color-secondary-500) / 0.33) 0px, transparent 50%),
+		radial-gradient(at 98% 1%, rgba(var(--color-error-500) / 0.33) 0px, transparent 50%);
+}
+		`}
+		/>
+	</section>
+
+	<section class="space-y-4">
+		<h2>Custom Fonts</h2>
+		<!-- prettier-ignore -->
+		<p>
+            Fonts may be installed from a local or remote source. For <a href="https://gdpr.eu/" target="_blank" rel="noreferrer">GDPR compliance</a> and optimal performance we recommend installing the fonts locally. For this guide we'll demonstrate this process using free fonts from <a href="https://fonts.google.com/" target="_blank" rel="noreferrer">Google Fonts</a>.
+		</p>
+		{#if activeTheme.fonts.length && activeTheme.file !== 'custom'}
+			<aside class="alert alert-message variant-ghost">
+				<p>The <strong>{activeTheme.name}</strong> theme makes use of custom fonts. You may optionally follow the steps below.</p>
+			</aside>
+		{/if}
+		<TabGroup regionPanel="space-y-4">
+			<Tab bind:group={tabsFontImport} name="tab1" value={0}>Local (recommended)</Tab>
+			<Tab bind:group={tabsFontImport} name="tab2" value={1}>Remote</Tab>
+			<!-- Tab Panels --->
+			<svelte:fragment slot="panel">
+				{#if tabsFontImport === 0}
+					<!-- 1 -->
+					<h3 data-toc-ignore>1. Download a Font</h3>
+					<p>Select a font on Google Fonts, then tap the "Download Family" button near the top-right of the page.</p>
+					<div class="card variant-glass p-4 flex justify-center items-center gap-2">
+						{#each activeFonts as f}
+							<a class="btn variant-filled-primary" href={f.url} target="_blank" rel="noreferrer">
+								<i class="fa-solid fa-download" />
+								<span>{f.name}</span>
+							</a>
+						{/each}
+					</div>
+					<!-- 2 -->
+					<h3 data-toc-ignore>2. Add the Font Files</h3>
+					<p>
+						Unzip the downloaded file, then copy the font file(s) to the <code>/static/fonts</code> directory in the root of your SvelteKit project.
+						When available, we recommend using variable fonts as these require only a single file.
+					</p>
+					{#each activeFonts as f}
+						<CodeBlock language="plaintext" code={`/static/fonts/${f.file}`} />
+					{/each}
+					<!-- 3 -->
+					<h3 data-toc-ignore>3. Apply @font-face</h3>
+					<!-- prettier-ignore -->
+					<p>At the top of your global stylesheet <code>/src/app.postcss</code> append the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face" target="_blank" rel="noreferrer">@font-face</a> settings per each font. The <code>font-family</code> assigns the font's reference name, while <code>src</code> points to the font file(s) in your <code>/static/fonts</code> directory.</p>
+					{#each activeFonts as f}
+						<CodeBlock
+							language="css"
+							code={`
+@font-face {
+	/* Reference name */
+	font-family: '${f.name}';
+	/* For multiple files use commas, ex: url(), url(), ... */
+	src: url('./fonts/${f.file}');
+}
+							`}
+						/>
+					{/each}
+					<!-- 4 -->
+					<h3 data-toc-ignore>4. Set the Font Family.</h3>
+					<p>
+						When creating a custom theme, open your theme file and provide your desired font family set for the <em>base</em> and
+						<em>heading</em> properties. Be sure to use the same reference name set above or your font <u>will not work</u>.
+					</p>
+					{#each activeFonts as f}
+						<CodeBlock
+							language="css"
+							code={`
+:root {
+    --theme-font-family-base: '${f.name}', sans-serif;
+    --theme-font-family-heading: '${f.name}', sans-serif;
+    /* ... */
+}
+                        	`}
+						/>
+					{/each}
+				{:else if tabsFontImport === 1}
+					<aside class="alert alert-message variant-ghost-warning">
+						<p><strong>Warning:</strong> please be aware that using remote imports are typically not GDPR compliant.</p>
+					</aside>
+					<!-- 1 -->
+					<h3 data-toc-ignore>1. Select a Font</h3>
+					<p>
+						Choose a font on Google Fonts, select each font weight you wish to use, then tap the "View Select Families" icon button at the
+						very top-right of the page. Under the "Use on the Web" section, choose <code>@import</code>, then copy the import statement.
+					</p>
+					<div class="card variant-glass p-4 flex justify-center items-center gap-2">
+						{#each activeFonts as f}
+							<a class="btn variant-filled-primary" href={f.url} target="_blank" rel="noreferrer">
+								<span>{f.name}</span>
+								<i class="fa-solid fa-arrow-up-right-from-square" />
+							</a>
+						{/each}
+					</div>
+					<h3 data-toc-ignore>2. Set the Import</h3>
+					<p>
+						Open your global stylesheet in <code>/src/app.postcss</code> and paste the import statement at the top of the file.
+					</p>
+					{#each activeFonts as f}
+						<CodeBlock language="css" code={`@import url('${f.import}');`} />
+					{/each}
+					<!-- 3 -->
+					<h3 data-toc-ignore>3. Set the Font Family.</h3>
+					<p>
+						Google Fonts also provides a recommend font family set. Copy the provided set, then apply this to either the <em>base</em> or
+						<em>heading</em> properties as desired.
+					</p>
+					{#each activeFonts as f}
+						<CodeBlock
+							language="css"
+							code={`
+:root {
+    --theme-font-family-base: '${f.name}', sans-serif;
+    --theme-font-family-heading: '${f.name}', sans-serif;
+    /* ... */
+}
+                        	`}
+						/>
+					{/each}
+				{/if}
+			</svelte:fragment>
+		</TabGroup>
+	</section>
+</LayoutPage>
