@@ -106,12 +106,12 @@
 					language="ts"
 					code={`
 const flavorOptions: AutocompleteOption[] = [
-	{ label: 'Vanilla', value: 'vanilla' }, 
-	{ label: 'Chocolate', value: 'chocolate' }, 
-	{ label: 'Strawberry', value: 'strawberry' }, 
-	{ label: 'Neapolitan', value: 'neapolitan' }, 
-	{ label: 'Pineapple', value: 'pineapple' }, 
-	{ label: 'Peach', value: 'peach' }, 
+	{ label: 'Vanilla', value: 'vanilla', keywords: 'plain, basic', meta: { healthy: false } },
+	{ label: 'Chocolate', value: 'chocolate', keywords: 'dark, white', meta: { healthy: false } },
+	{ label: 'Strawberry', value: 'strawberry', keywords: 'fruit', meta: { healthy: true } },
+	{ label: 'Neapolitan', value: 'neapolitan', keywords: 'mix, strawberry, chocolate, vanilla', meta: { healthy: false } },
+	{ label: 'Pineapple', value: 'pineapple', keywords: 'fruit', meta: { healthy: true } },
+	{ label: 'Peach', value: 'peach', keywords: 'fruit', meta: { healthy: true } }
 ];
 				`}
 				/>
