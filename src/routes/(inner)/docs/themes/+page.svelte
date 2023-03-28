@@ -22,17 +22,18 @@
 			<h1>Themes</h1>
 			<p>Learn more about customizing Skeleton themes.</p>
 		</div>
-		<label class="label w-full place-self-center">
-			<span>Which theme are you using?</span>
+	</header>
+
+	<section class="sticky top-4 z-10 card variant-glass p-4 space-y-4">
+		<p class="!text-center">Select your current theme to tailor the instructions below.</p>
+		<label class="max-w-md mx-auto">
 			<select class="select" bind:value={activeTheme}>
 				{#each themes as theme}
 					<option value={theme}>{theme.name}</option>
 				{/each}
 			</select>
 		</label>
-	</header>
-
-	<hr />
+	</section>
 
 	{#if activeTheme.file !== 'custom'}
 		<section class="space-y-4">
@@ -87,8 +88,17 @@ body {
             Fonts may be installed from a local or remote source. For <a href="https://gdpr.eu/" target="_blank" rel="noreferrer">GDPR compliance</a> and optimal performance we recommend installing the fonts locally. For this guide we'll demonstrate this process using free fonts from <a href="https://fonts.google.com/" target="_blank" rel="noreferrer">Google Fonts</a>.
 		</p>
 		{#if activeTheme.fonts.length && activeTheme.file !== 'custom'}
-			<aside class="alert alert-message variant-ghost">
-				<p>The <strong>{activeTheme.name}</strong> theme makes use of custom fonts. You may optionally follow the steps below.</p>
+			<aside class="alert variant-ghost-warning">
+				<i class="fa-solid fa-circle-exclamation" />
+				<div class="alert-message">
+					<p>The <code>{activeTheme.name}</code> theme makes use of custom fonts. We recommend you follow the instruction below.</p>
+				</div>
+			</aside>
+		{:else if activeTheme.file !== 'custom'}
+			<aside class="alert variant-ghost">
+				<div class="alert-message">
+					<p>The <code>{activeTheme.name}</code> theme does not make use of a custom font.</p>
+				</div>
 			</aside>
 		{/if}
 		<TabGroup regionPanel="space-y-4">
@@ -111,8 +121,9 @@ body {
 					<!-- 2 -->
 					<h3 data-toc-ignore>2. Add the Font Files</h3>
 					<p>
-						Unzip the downloaded file, then copy the font file(s) to the <code>/static/fonts</code> directory in the root of your SvelteKit project.
-						When available, we recommend using variable fonts as these require only a single file.
+						Unzip the downloaded file, then copy all font files to the <code>/static/fonts</code> directory in the root of your SvelteKit
+						project. When available we recommend using variable fonts as they require only a single file. Otherwise copy all static font
+						file assets to the <code>/static/fonts</code> directory.
 					</p>
 					{#each activeFonts as f}
 						<CodeBlock language="plaintext" code={`/static/fonts/${f.file}`} />

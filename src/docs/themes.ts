@@ -11,11 +11,11 @@ export const themes: any[] = [
 		fonts: [
 			{
 				source: 'Google Fonts',
-				url: 'https://fonts.google.com/specimen/Roboto?query=roboto',
-				name: 'Roboto',
-				file: 'Roboto.ttf',
+				url: 'https://fonts.google.com/specimen/Inter?query=inter',
+				name: 'Inter',
+				file: 'Inter-VariableFont_slnt,wght.ttf',
 				import:
-					'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap'
+					'https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100&display=swap'
 			}
 		]
 	},
@@ -39,7 +39,7 @@ export const themes: any[] = [
 				source: 'Google Fonts',
 				url: 'https://fonts.google.com/specimen/Quicksand?query=Quicksand',
 				name: 'Quicksand',
-				file: 'Quicksand.ttf',
+				file: 'Quicksand-VariableFont_wght.ttf',
 				import: 'https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap'
 			}
 		]
@@ -55,7 +55,7 @@ export const themes: any[] = [
 				source: 'Google Fonts',
 				url: 'https://fonts.google.com/specimen/Space+Grotesk',
 				name: 'Space Grotesk',
-				file: 'SpaceGrotesk.ttf',
+				file: 'SpaceGrotesk-VariableFont_wght.ttf',
 				import: 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap'
 			}
 		]
@@ -71,7 +71,7 @@ export const themes: any[] = [
 				source: 'Google Fonts',
 				url: 'https://fonts.google.com/specimen/Playfair+Display?query=playfair',
 				name: 'Playfair Display',
-				file: 'PlayfairDisplay-Italic.ttf',
+				file: 'PlayfairDisplay-Italic-VariableFont_wght.ttf',
 				import:
 					'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'
 			}
@@ -88,7 +88,7 @@ export const themes: any[] = [
 				source: 'Google Fonts',
 				url: 'https://fonts.google.com/specimen/Abril+Fatface?query=Abril+Fatface&noto.query=Abril',
 				name: 'Abril Fatface',
-				file: 'AbrilFatface.ttf',
+				file: 'AbrilFatface-Regular.ttf',
 				import: 'https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap'
 			}
 		]
@@ -120,7 +120,7 @@ export const themes: any[] = [
 				source: 'Google Fonts',
 				url: 'https://fonts.google.com/specimen/Quicksand?query=Quicksand',
 				name: 'Quicksand',
-				file: 'Quicksand.ttf',
+				file: 'Quicksand-VariableFont_wght.ttf',
 				import: 'https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap'
 			}
 		]
