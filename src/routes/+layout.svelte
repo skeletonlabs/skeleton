@@ -47,12 +47,6 @@
 	// Global Stylesheets
 	import '../app.postcss';
 
-	// Font Awesome Icons - NOTE: keep local for GDPR compliance
-	// https://fontawesome.com/docs/web/setup/host-yourself/webfonts#reference-font-awesome-in-your-project
-	import '@fortawesome/fontawesome-free/css/fontawesome.css';
-	import '@fortawesome/fontawesome-free/css/brands.css';
-	import '@fortawesome/fontawesome-free/css/solid.css';
-
 	// Handle Vercel Production Mode
 	import type { LayoutServerData } from './$types';
 	export let data: LayoutServerData;
