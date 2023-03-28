@@ -107,7 +107,8 @@ export const themes: any[] = [
 		name: '👔 Hamlindigo',
 		colors: ['#a8bef1', '#a48e5b', '#6197a3', '#47947d', '#daa93e', '#a26175'],
 		surface: '#313a50',
-		url: `${ghPath}/theme-hamlindigo.css`
+		url: `${ghPath}/theme-hamlindigo.css`,
+		fonts: []
 	},
 	{
 		file: 'gold-nouveau',
