@@ -70,6 +70,8 @@
 
 	function validate(): boolean {
 		if (!input) return false;
+		// Format: trim value
+		input = input.trim();
 		// Custom validation
 		if (validation !== undefined && !validation(input)) return false;
 		// Maxiumum
@@ -91,8 +93,6 @@
 		// Validate
 		inputValid = validate();
 		if (inputValid === false) return;
-		// Format: trim value
-		input = input.trim();
 		// Format: to lowercase (if enabled)
 		input = allowUpperCase ? input : input.toLowerCase();
 		// Append value to array
@@ -118,6 +118,8 @@
 	$: classesChipList = `${cChipList}`;
 	$: classesInputField = `${cInputField}`;
 </script>
+
+<pre>{JSON.stringify(value, null, 2)}</pre>
 
 <div class="input-chip {classesBase}" class:opacity-50={$$restProps.disabled}>
 	<!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->
