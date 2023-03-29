@@ -140,7 +140,7 @@ body {
 	/* Reference name */
 	font-family: '${f.name}';
 	/* For multiple files use commas, ex: url(), url(), ... */
-	src: url('./fonts/${f.file}');
+	src: url('/fonts/${f.file}');
 }
 							`}
 						/>
