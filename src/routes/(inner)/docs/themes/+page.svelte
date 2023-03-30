@@ -24,7 +24,7 @@
 		</div>
 	</header>
 
-	<section class="sticky top-4 z-10 card variant-glass p-4 space-y-4">
+	<section class="sticky top-4 z-[1] card variant-glass p-4 space-y-4">
 		<p class="!text-center">Select your current theme to tailor the instructions below.</p>
 		<label class="max-w-md mx-auto">
 			<select class="select" bind:value={activeTheme}>
