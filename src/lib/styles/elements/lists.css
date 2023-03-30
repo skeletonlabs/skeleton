@@ -21,6 +21,8 @@
 		@apply p-2;
 		/* Theme: Rounded */
 		@apply rounded-token;
+		/* Wrapping */
+		@apply whitespace-normal break-words;
 	}
 
 	.list-dl div {
