@@ -1,5 +1,5 @@
 // Modal Types
-
+import '../../ambient';
 export interface ModalComponent {
 	/** Import and provide your component reference. */
 	ref: any;
@@ -39,5 +39,5 @@ export interface ModalSettings {
 	/** Override the Submit button label. */
 	buttonTextSubmit?: string;
 	/** Pass arbitrary data per modal instance. */
-	meta?: any;
+	meta?: Skeleton.ModalMeta;
 }
