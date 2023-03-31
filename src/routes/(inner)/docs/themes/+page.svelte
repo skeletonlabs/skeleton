@@ -49,7 +49,7 @@
 	<section class="space-y-4">
 		<h2>Backgrounds</h2>
 		<p>
-			Your app's background is automatically set via a <a href="https://www.skeleton.dev/elements/tokens" target="_blank" rel="noreferrer"
+			Your app's background is automatically set via a <a href="https://www.skeleton.dev/docs/tokens"
 				>design token</a
 			> class. Adjust your theme's color scheme to customize. This affects both light and dark mode.
 		</p>
