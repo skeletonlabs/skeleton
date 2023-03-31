@@ -21,7 +21,7 @@
 		feature: DocsFeature.Component,
 		name: 'App Rail',
 		description: 'A side navigation rail component',
-		imports: ['AppRail'],
+		imports: ['AppRail', 'AppRailTile'],
 		source: 'components/AppRail',
 		// aria: 'https://www.w3.org/WAI/ARIA/apg/',
 		components: [
