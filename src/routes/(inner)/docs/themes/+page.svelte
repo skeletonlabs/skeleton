@@ -82,6 +82,41 @@ body {
 	</section>
 
 	<section class="space-y-4">
+		<h2>CSS Properties</h2>
+		<!-- prettier-ignore -->
+		<p>
+			If you open any existing theme, you can see they are made up of a number of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*" target="_blank" rel="noreferrer">CSS Custom Properties</a> (aka CSS Variables). Similar to Javascript variables these can be modified and overwritten as desired. For example, if you add the following snippet to your global stylesheet in <code>/src/app.postcss</code>, you can overwrite the <em>base</em> and <em>container</em> rounding styles for your current theme.
+		</p>
+		<CodeBlock
+			language="css"
+			code={`
+:root {
+	--theme-rounded-base: 20px;
+	--theme-rounded-container: 4px;
+}
+		`}
+		/>
+		<p>
+			Likewise, if you wish to implement a custom the font family for a preset theme, you can modify the <em>base</em> and
+			<em>heading</em>
+			properties as shown below.
+		</p>
+		<CodeBlock
+			language="css"
+			code={`
+:root {
+    --theme-font-family-base: 'MyCustomFont', sans-serif;
+    --theme-font-family-heading: 'MyCustomFont', sans-serif;
+}
+		`}
+		/>
+		<!-- prettier-ignore -->
+		<p>
+			<a href="https://github.com/skeletonlabs/skeleton/tree/master/src/lib/themes" target="_blank" rel="noreferrer">View any existing theme</a> for a full list of available CSS custom properties. For heavy modifications to preset themes, consider copying the theme to your local project and use it like any other custom theme.
+		</p>
+	</section>
+
+	<section class="space-y-4">
 		<h2>Custom Fonts</h2>
 		<!-- prettier-ignore -->
 		<p>
@@ -148,7 +183,7 @@ body {
 					<!-- 4 -->
 					<h3 data-toc-ignore>4. Set the Font Family.</h3>
 					<p>
-						When creating a custom theme, open your theme file and provide your desired font family set for the <em>base</em> and
+						Use CSS Property overrides or open your custom theme to set the font family for <em>base</em> and
 						<em>heading</em> properties. Be sure to use the same reference name set above or your font <u>will not work</u>.
 					</p>
 					{#each activeFonts as f}
