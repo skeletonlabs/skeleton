@@ -26,7 +26,7 @@
 			['<code>.input-group</code>', '', 'Creates a group of related inputs and information.'],
 			['<code>.input-group-divider</code>', '', 'Adds vertical lines between group segments.'],
 			['<code>.input-group-shim</code>', '', 'Provides a shaded background segment.'],
-			['<code>.input-[variant]</code>', 'succes | warning | error', 'Color highlights for input for validation states.']
+			['<code>.input-[variant]</code>', 'success | warning | error', 'Color highlights for input for validation states.']
 		]
 	};
 
@@ -57,6 +57,7 @@
 					</label>
 					<label class="label">
 						<span>Textarea</span>
+						<!-- cspell:disable-next-line -->
 						<textarea class="textarea" rows="4" placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit." />
 					</label>
 				</div>
@@ -86,6 +87,7 @@
 </label>
 				`}
 				/>
+				<!-- cspell:disable -->
 				<CodeBlock
 					language="html"
 					code={`
@@ -95,6 +97,7 @@
 </label>
 				`}
 				/>
+				<!-- cspell:enable -->
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -575,7 +578,7 @@ module.exports = {
 			<h2>Browser Support</h2>
 			<p>
 				Please be aware that not all native HTML form fields work consistently across browsers or operating systems. We strongly recommend
-				cross-device/OS/browser testing to ensure compability for your target audience.
+				cross-device/OS/browser testing to ensure compatibility for your target audience.
 			</p>
 		</section>
 	</svelte:fragment>

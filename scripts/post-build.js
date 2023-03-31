@@ -57,7 +57,7 @@ function extractJSDocBlocks() {
 	}
 }
 
-//Rescursive function for traversing node hierarchy to get JSDocs blocks, different node types have the information we want in different places
+// Recursive function for traversing node hierarchy to get JSDocs blocks, different node types have the information we want in different places
 function _extractJSDocBlocks(srcFile, propsObj) {
 	ts.forEachChild(srcFile, (node) => {
 		if (node?.jsDoc) {
@@ -87,7 +87,7 @@ function writeJSDocsToDefinitionFiles() {
 	const eventsBegin = 'events: {';
 	const blockEnd = '}';
 	// we only insert JSDocs for properties that had a JSDoc block declared for them in the component file. Some props that might be defined
-	// in the defintion file should not get a description as they are stores/context info derived from a parent component.
+	// in the definition file should not get a description as they are stores/context info derived from a parent component.
 
 	for (let file in filesToProps) {
 		let annotatedDts = [];

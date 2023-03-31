@@ -166,7 +166,7 @@
 		<section class="space-y-4">
 			<h2>Using #Each Loops</h2>
 			<p>
-				Use the following technique to ensure the <em>current</em> item is formatted properly and prevent an extra seperator at the end.
+				Use the following technique to ensure the <em>current</em> item is formatted properly and prevent an extra separator at the end.
 			</p>
 			<CodeBlock
 				language="ts"

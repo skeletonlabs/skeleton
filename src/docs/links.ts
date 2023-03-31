@@ -60,7 +60,7 @@ export const menuNavLinks: any = [
 		list: [
 			{ href: '/elements/alerts', label: 'Alerts', keywords: 'message, notification' },
 			{ href: '/elements/badges', label: 'Badges', keywords: 'sup, sub, overlay, favorite, icon' },
-			{ href: '/elements/breadcrumbs', label: 'Breadcrumbs', keywords: 'nav, navigation, seperator, hierarchy' },
+			{ href: '/elements/breadcrumbs', label: 'Breadcrumbs', keywords: 'nav, navigation, separator, hierarchy' },
 			{ href: '/elements/buttons', label: 'Buttons', keywords: 'click, anchor, icon, preload' },
 			{ href: '/elements/cards', label: 'Cards', keywords: 'header, footer, background, cell, region' },
 			{ href: '/elements/chips', label: 'Chips', keywords: 'action, select, selection, filter, filtering, interactive' },

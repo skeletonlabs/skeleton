@@ -56,7 +56,7 @@
 		</a>
 	</div>
 	<!-- LightSwitch -->
-	<div class="anim-float-lightswitch anim-delay-200 absolute z-[1] top-[98%] left-[45%]">
+	<div class="anim-float-light-switch anim-delay-200 absolute z-[1] top-[98%] left-[45%]">
 		<LightSwitch />
 	</div>
 	<!-- Button -->
@@ -101,7 +101,7 @@
 	.anim-float-card {
 		animation: float-up 12s ease-in-out infinite;
 	}
-	.anim-float-lightswitch {
+	.anim-float-light-switch {
 		animation: float-down 18s ease-in-out infinite;
 		animation-delay: 2s;
 	}
@@ -117,14 +117,14 @@
 	}
 	/* prettier-ignore */
 	@keyframes float-up {
-		0% { transform: translatey(0px); }
-		50% { transform: translatey(-20px); }
-		100% { transform: translatey(0px); }
+		0% { transform: translateY(0px); }
+		50% { transform: translateY(-20px); }
+		100% { transform: translateY(0px); }
 	}
 	/* prettier-ignore */
 	@keyframes float-down {
-		0% { transform: translatey(0px); }
-		50% { transform: translatey(20px); }
-		100% { transform: translatey(0px); }
+		0% { transform: translateY(0px); }
+		50% { transform: translateY(20px); }
+		100% { transform: translateY(0px); }
 	}
 </style>

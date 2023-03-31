@@ -175,7 +175,7 @@
 						language="html"
 						code={`
 <nav class="list-nav">
-	<!-- (optionally you can provde a label here) -->
+	<!-- (optionally you can provide a label here) -->
 	<ul>
 		<li>
 			<a href="/elements/lists">

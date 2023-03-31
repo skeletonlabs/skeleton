@@ -11,13 +11,13 @@
 	<TabGroup regionPanel="space-y-4">
 		<!-- Tabs -->
 		<Tab bind:group={$storeOnboardMethod} name="cli" value="cli">Skeleton CLI</Tab>
-		<Tab bind:group={$storeOnboardMethod} name="manu" value="manual">Manual Install</Tab>
+		<Tab bind:group={$storeOnboardMethod} name="manual" value="manual">Manual Install</Tab>
 		<!-- Panel -->
 		<svelte:fragment slot="panel">
 			{#if $storeOnboardMethod === 'cli'}
 				<p>
 					If you're creating a new project we <u>highly recommend</u> this option. The CLI will not only scaffold a new SvelteKit project for
-					you, but automatically configure Skeleton, install Tailwind, and add optional depedencies on demand.
+					you, but automatically configure Skeleton, install Tailwind, and add optional dependencies on demand.
 				</p>
 				<CodeBlock
 					language="console"

@@ -9,7 +9,7 @@
 	export let multiple: boolean = false;
 
 	// Props (styles)
-	/** Provide classs to set the vertical spacing style. */
+	/** Provide class to set the vertical spacing style. */
 	export let spacing: CssClasses = 'space-y-1';
 	/** Provide classes to set the listbox box radius styles. */
 	export let rounded: CssClasses = 'rounded-token';

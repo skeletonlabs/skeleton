@@ -32,7 +32,7 @@
 
 	// Local
 	let justify: number = 0;
-	let timeHorz: string = 'months';
+	let timeHoriz: string = 'months';
 	let timeVert: string = 'Millennia';
 	let timeNames = ['Millennia', 'Epochs', 'Eras', 'Eons'];
 </script>
@@ -87,8 +87,8 @@
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<RadioGroup active="variant-filled-primary" hover="hover:variant-soft-primary">
-						<RadioItem bind:group={timeHorz} name="time" value="months">Months</RadioItem>
-						<RadioItem bind:group={timeHorz} name="time" value="years">Years</RadioItem>
+						<RadioItem bind:group={timeHoriz} name="time" value="months">Months</RadioItem>
+						<RadioItem bind:group={timeHoriz} name="time" value="years">Years</RadioItem>
 					</RadioGroup>
 				</svelte:fragment>
 				<svelte:fragment slot="source">

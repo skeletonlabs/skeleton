@@ -26,7 +26,7 @@
 
 	<TabGroup regionPanel="space-y-4">
 		<Tab bind:group={$storeOnboardMethod} name="cli" value="cli">Skeleton CLI</Tab>
-		<Tab bind:group={$storeOnboardMethod} name="manu" value="manual">Manual Install</Tab>
+		<Tab bind:group={$storeOnboardMethod} name="manual" value="manual">Manual Install</Tab>
 	</TabGroup>
 	{#if $storeOnboardMethod === 'cli'}
 		<p>

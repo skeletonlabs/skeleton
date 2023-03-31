@@ -297,10 +297,10 @@
 			<hr class="opacity-50" />
 			<!-- Slide Toggles -->
 			<div class="grid grid-cols-4 gap-4 place-items-center">
-				<SlideToggle name="exampeSliderThree" checked />
-				<SlideToggle name="exampeSliderOne" active="bg-primary-500" checked />
-				<SlideToggle name="exampeSliderTwo" active="bg-secondary-500" checked />
-				<SlideToggle name="exampeSliderFour" active="bg-tertiary-500" checked />
+				<SlideToggle name="exampleSliderThree" checked />
+				<SlideToggle name="exampleSliderOne" active="bg-primary-500" checked />
+				<SlideToggle name="exampleSliderTwo" active="bg-secondary-500" checked />
+				<SlideToggle name="exampleSliderFour" active="bg-tertiary-500" checked />
 			</div>
 		</section>
 

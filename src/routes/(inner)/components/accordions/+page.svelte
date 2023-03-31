@@ -36,6 +36,7 @@
 
 	// Local
 	const loremIpsum =
+		// cspell:disable-next-line
 		'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum eligendi quibusdam odit, temporibus ullam ab enim expedita eum officia ipsum, laboriosam, nobis quasi laborum aspernatur reiciendis dignissimos optio sunt distinctio.';
 </script>
 
@@ -75,8 +76,10 @@
 						<svelte:fragment slot="content">
 							<p>This is the content panel for the <strong>games</strong> item.</p>
 							<p>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum eligendi quibusdam odit, temporibus ullam ab enim
-								expedita eum officia ipsum, laboriosam, nobis quasi laborum aspernatur reiciendis dignissimos optio sunt distinctio.
+								<!-- cspell:disable -->
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum eligendi quibusdam odit, temporibus ullam ab enim expedita
+								eum officia ipsum, laboriosam, nobis quasi laborum aspernatur reiciendis dignissimos optio sunt distinctio.
+								<!-- cspell:enable -->
 							</p>
 						</svelte:fragment>
 					</AccordionItem>

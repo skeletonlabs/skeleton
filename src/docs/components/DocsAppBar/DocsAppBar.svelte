@@ -24,7 +24,7 @@
 	// Local
 	let isOsMac = false;
 
-	// Set Search Shortkey Keys
+	// Set Search Keyboard Shortcut
 	if (browser) {
 		let os = navigator.userAgent;
 		isOsMac = os.search('Mac') !== -1;
