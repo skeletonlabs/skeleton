@@ -42,7 +42,7 @@
 		<h2>Help Support Skeleton.</h2>
 		<p class="max-w-[480px]">
 			Skeleton is an open source project that survives in part through your support. Consider becoming a sponsor through the following
-			services. For larger contributions please <a href="maito:admin@skeleton.dev">contact us</a>.
+			services. For larger contributions please <a href="mailto:admin@skeleton.dev">contact us</a>.
 		</p>
 		<div class="flex justify-center lg:justify-start gap-3">
 			<a class="btn variant-filled" href="https://ko-fi.com/skeletonlabs" target="_blank" rel="noreferrer">Ko-Fi</a>
