@@ -118,10 +118,6 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 			}
 		}
 	};
-	function onPopupClick(e: MouseEvent) {
-		if (!isNode(e.target)) return;
-		closeOnQueryClick(e.target);
-	}
 
 	// Hover Handlers
 	const onMouseOver = () => {
@@ -246,7 +242,7 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		// when we focus off the end of the list, close the popup
 		elemPopup.addEventListener('focusout', onFocusOut, true);
 		// when an element inside the popup is clicked, close the popup if the element matches the closeQuery
-		elemPopup.addEventListener('click', onPopupClick, true);
+		elemPopup.addEventListener('click', onWindowClick, true);
 	}
 	if (args.event === 'focus-click') {
 		// we must use mousedown instead of click because click fires after focusin, meaning isVisible would always be true
