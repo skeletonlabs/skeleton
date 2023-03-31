@@ -69,9 +69,7 @@
 			type: 'confirm',
 			title: 'Please Confirm',
 			body: 'Are you sure you wish to proceed?',
-			response: (r: boolean) => {
-				if (r) console.log('response:', r);
-			}
+			response: (r: boolean) => console.log('response:', r)
 		};
 		modalStore.trigger(d);
 	}
@@ -83,9 +81,7 @@
 			body: 'Provide your first name in the field below.',
 			value: 'Skeleton',
 			valueAttr: { type: 'text', minlength: 3, maxlength: 10, required: true },
-			response: (r: string) => {
-				if (r) console.log('response:', r);
-			}
+			response: (r: string) => console.log('response:', r)
 		};
 		modalStore.trigger(d);
 	}
@@ -110,9 +106,7 @@
 			component: c,
 			title: 'Custom Form Component',
 			body: 'Complete the form below and then press submit.',
-			response: (r: any) => {
-				if (r) console.log('response:', r);
-			}
+			response: (r: any) => console.log('response:', r)
 		};
 		modalStore.trigger(d);
 	}
@@ -123,9 +117,7 @@
 			component: 'exampleList',
 			title: 'Custom List Component',
 			body: 'Make your selection then press submit.',
-			response: (r: any) => {
-				if (r) console.log('response:', r);
-			}
+			response: (r: any) => console.log('response:', r)
 		};
 		modalStore.trigger(d);
 	}

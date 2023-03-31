@@ -91,6 +91,16 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		}
 	}
 
+	// Close popup if element matching closeQuery is clicked
+	function closeOnQueryClick(clickedEl: Node) {
+		if (!clickedEl) return;
+		const interactiveMenuElems = elemPopup?.querySelectorAll(args.closeQuery || '');
+		if (!interactiveMenuElems?.length) return;
+		interactiveMenuElems.forEach((elem) => {
+			if (elem.contains(clickedEl)) close();
+		});
+	}
+
 	// Window Click Handler
 	const onWindowClick = (event: any) => {
 		if (!node || !elemPopup) return;
@@ -104,12 +114,7 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 			if (clickedOutsidePopup) {
 				close();
 			} else {
-				// If click is interactive child element within popup (ex: anchor or button)
-				const interactiveMenuElems = elemPopup?.querySelectorAll(args.closeQuery || '');
-				if (!interactiveMenuElems.length) return;
-				interactiveMenuElems.forEach((elem) => {
-					if (elem.contains(event.target)) close();
-				});
+				closeOnQueryClick(event.target);
 			}
 		}
 	};
@@ -236,6 +241,8 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		elemPopup.addEventListener('focusin', onFocusIn, true);
 		// when we focus off the end of the list, close the popup
 		elemPopup.addEventListener('focusout', onFocusOut, true);
+		// when an element inside the popup is clicked, close the popup if the element matches the closeQuery
+		elemPopup.addEventListener('click', onWindowClick, true);
 	}
 	if (args.event === 'focus-click') {
 		// we must use mousedown instead of click because click fires after focusin, meaning isVisible would always be true
