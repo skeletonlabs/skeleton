@@ -28,7 +28,7 @@
 
 	// Props (a11y)
 	/** Set the ARIA controls value to define which panel this tab controls. */
-	export let controls = '';
+	export let controls: string = '';
 
 	// Context
 	/** Provide classes to style each tab's active styles. */
@@ -75,8 +75,10 @@
 <!-- WARNING: avoid click handlers on <label>; will fire twice -->
 <label
 	class="tab {classesBase}"
+	role="tab"
 	aria-controls={controls}
 	aria-selected={selected}
+	tabindex="0"
 	data-testid="tab"
 	on:keypress={onKeypress}
 	on:keypress

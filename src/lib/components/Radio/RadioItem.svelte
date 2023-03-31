@@ -10,9 +10,7 @@
 	 * @type {any}
 	 */
 	export let group: any;
-	/** Set a unique name value for the input.
-	 * @type {string}
-	 */
+	/** Set a unique name value for the input. */
 	export let name: string;
 	/**
 	 * Set the input's value.
@@ -20,7 +18,7 @@
 	 */
 	export let value: any;
 	/** Set the hover title. */
-	export let title = '';
+	export let title: string = '';
 
 	// Props (A11y)
 	/** Defines a semantic ARIA label. */
@@ -35,8 +33,8 @@
 	export let fill: CssClasses = getContext('fill');
 
 	// Classes
-	const cBase = 'flex-auto text-base text-center cursor-pointer';
-	const cDisabled = 'opacity-50 cursor-not-allowed';
+	const cBase: string = 'flex-auto text-base text-center cursor-pointer';
+	const cDisabled: string = 'opacity-50 cursor-not-allowed';
 
 	// Local
 	let elemInput: HTMLElement;
@@ -67,8 +65,10 @@
 <label
 	class="radio-item {classesBase}"
 	{title}
+	role="radio"
 	aria-checked={checked}
 	aria-label={label}
+	tabindex="0"
 	data-testid="radio-item"
 	on:keydown={onKeyDown}
 	on:keydown

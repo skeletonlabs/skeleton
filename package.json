@@ -1,6 +1,6 @@
 {
 	"name": "@skeletonlabs/skeleton",
-	"version": "v1.0.0",
+	"version": "v1.1.0",
 	"description": "A SvelteKit component library.",
 	"author": "endigo9740 <chris@skeletonlabs.dev>",
 	"scripts": {
@@ -41,20 +41,20 @@
 	"license": "MIT",
 	"homepage": "https://skeleton.dev/",
 	"devDependencies": {
-		"@floating-ui/dom": "^1.2.4",
+		"@floating-ui/dom": "^1.2.5",
 		"@sveltejs/adapter-auto": "^2.0.0",
-		"@sveltejs/kit": "^1.12.0",
+		"@sveltejs/kit": "^1.15.0",
 		"@sveltejs/package": "^2.0.2",
 		"@tailwindcss/forms": "^0.5.3",
-		"@testing-library/dom": "^9.0.1",
+		"@testing-library/dom": "^9.2.0",
 		"@testing-library/svelte": "^3.2.2",
-		"@typescript-eslint/eslint-plugin": "^5.55.0",
-		"@typescript-eslint/parser": "^5.55.0",
+		"@typescript-eslint/eslint-plugin": "^5.57.0",
+		"@typescript-eslint/parser": "^5.57.0",
 		"@vercel/analytics": "^0.1.11",
 		"autoprefixer": "^10.4.14",
 		"c8": "^7.13.0",
-		"eslint": "^8.36.0",
-		"eslint-config-prettier": "^8.7.0",
+		"eslint": "^8.37.0",
+		"eslint-config-prettier": "^8.8.0",
 		"eslint-plugin-svelte3": "^4.0.0",
 		"highlight.js": "^11.7.0",
 		"jsdom": "^21.1.1",
@@ -62,23 +62,23 @@
 		"postcss-import": "^15.1.0",
 		"postcss-js": "^4.0.1",
 		"postcss-load-config": "^4.0.1",
-		"prettier": "^2.8.4",
-		"prettier-plugin-svelte": "^2.9.0",
+		"prettier": "^2.8.7",
+		"prettier-plugin-svelte": "^2.10.0",
 		"sveld": "^0.18.0",
 		"svelte-check": "^3.1.4",
-		"svelte-preprocess": "^5.0.2",
+		"svelte-preprocess": "^5.0.3",
 		"svelte2tsx": "^0.6.10",
-		"tailwindcss": "^3.2.7",
+		"tailwindcss": "^3.3.1",
 		"tslib": "^2.5.0",
-		"typescript": "4.9.5",
-		"vite": "^4.2.0",
+		"typescript": "^4.9.5",
+		"vite": "^4.2.1",
 		"vite-plugin-sveld": "^1.1.0",
-		"vitest": "^0.29.3"
+		"vitest": "^0.29.8"
 	},
 	"type": "module",
 	"types": "index.d.ts",
 	"dependencies": {
-		"svelte": "^3.57.0"
+		"svelte": "^3.58.0"
 	},
 	"exports": {
 		".": {
