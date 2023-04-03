@@ -26,7 +26,7 @@
 	export let padding: CssClasses = getContext('padding');
 
 	// Classes
-	const cBase: string = 'cursor-pointer';
+	const cBase: string = 'cursor-pointer -outline-offset-[3px]';
 	const cLabel: string = 'flex space-x-4';
 
 	// Local
