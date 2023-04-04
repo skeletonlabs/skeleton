@@ -16,7 +16,7 @@
 	import { inputSettings, fontSettings } from './settings';
 	import { hexValueIsValid, getPassReport, generateColorCSS, generateOnSemantic, randomizeColors } from './colors';
 	import type { PopupSettings } from '$lib/utilities/Popup/types';
-	import { storeThemGenForm } from '$docs/stores/stores';
+	import { storeThemeGenForm } from '$docs/stores/stores';
 
 	// Stores
 
@@ -27,13 +27,13 @@
 
 	function onPreviewToggle(): void {
 		if ($storePreview === false) {
-			localStorage.removeItem('storeThemGenForm');
+			localStorage.removeItem('storeThemeGenForm');
 			location.reload(); // required
 		}
 	}
 
 	function getContrastReports(): ContrastReport[] {
-		return $storeThemGenForm.colors.map((value: ColorSettings) => ({
+		return $storeThemeGenForm.colors.map((value: ColorSettings) => ({
 			...value,
 			contrastReport: getPassReport(value.hex, value.on)
 		}));
@@ -55,25 +55,25 @@
 	};
 
 	// Reactive
-	$: if (hexValuesAreValid($storeThemGenForm.colors)) {
+	$: if (hexValuesAreValid($storeThemeGenForm.colors)) {
 		// Update contrast reports when hex values change and when they are valid.
 		conReports = getContrastReports();
 	}
 
-	$: if ($storeThemGenForm && hexValuesAreValid($storeThemGenForm.colors)) {
+	$: if ($storeThemeGenForm && hexValuesAreValid($storeThemeGenForm.colors)) {
 		cssOutput = `
 :root {
 	/* =~= Theme Properties =~= */
-	--theme-font-family-base: ${fontSettings[$storeThemGenForm.fontBase]};
-	--theme-font-family-heading: ${fontSettings[$storeThemGenForm.fontHeadings]};
-	--theme-font-color-base: ${$storeThemGenForm.textColorLight};
-	--theme-font-color-dark: ${$storeThemGenForm.textColorDark};
-	--theme-rounded-base: ${$storeThemGenForm.roundedBase};
-	--theme-rounded-container: ${$storeThemGenForm.roundedContainer};
-	--theme-border-base: ${$storeThemGenForm.borderBase};
-	${generateOnSemantic($storeThemGenForm.colors)}
+	--theme-font-family-base: ${fontSettings[$storeThemeGenForm.fontBase]};
+	--theme-font-family-heading: ${fontSettings[$storeThemeGenForm.fontHeadings]};
+	--theme-font-color-base: ${$storeThemeGenForm.textColorLight};
+	--theme-font-color-dark: ${$storeThemeGenForm.textColorDark};
+	--theme-rounded-base: ${$storeThemeGenForm.roundedBase};
+	--theme-rounded-container: ${$storeThemeGenForm.roundedContainer};
+	--theme-border-base: ${$storeThemeGenForm.borderBase};
+	${generateOnSemantic($storeThemeGenForm.colors)}
 	/* =~= Theme Colors  =~= */
-	${generateColorCSS($storeThemGenForm)}
+	${generateColorCSS($storeThemeGenForm)}
 }`;
 	}
 
@@ -99,14 +99,14 @@
 				<div>
 					<button
 						class="btn variant-ghost-surface"
-						on:click={() => ($storeThemGenForm.colors = randomizeColors($storeThemGenForm.colors))}
+						on:click={() => ($storeThemeGenForm.colors = randomizeColors($storeThemeGenForm.colors))}
 						disabled={!$storePreview}>Randomize Colors</button
 					>
 				</div>
 			</header>
 			<hr />
 			<div class="p-4 grid grid-cols-1 gap-4">
-				{#each $storeThemGenForm.colors as colorRow, i}
+				{#each $storeThemeGenForm.colors as colorRow, i}
 					<div class="grid grid-cols-1 lg:grid-cols-[170px_1fr_200px] gap-2 lg:gap-4">
 						<label class="label">
 							<span>{colorRow.label}</span>
@@ -166,13 +166,13 @@
 			<h3 class="col-span-2" data-toc-ignore>Fonts</h3>
 			<label class="label">
 				<span>Base</span>
-				<select class="select" bind:value={$storeThemGenForm.fontBase} disabled={!$storePreview}>
+				<select class="select" bind:value={$storeThemeGenForm.fontBase} disabled={!$storePreview}>
 					{#each inputSettings.fonts as f}<option value={f}>{f}</option>{/each}
 				</select>
 			</label>
 			<label class="label">
 				<span>Headings</span>
-				<select class="select" bind:value={$storeThemGenForm.fontHeadings} disabled={!$storePreview}>
+				<select class="select" bind:value={$storeThemeGenForm.fontHeadings} disabled={!$storePreview}>
 					{#each inputSettings.fonts as f}<option value={f}>{f}</option>{/each}
 				</select>
 			</label>
@@ -180,13 +180,13 @@
 			<h3 class="col-span-2" data-toc-ignore>Text Color</h3>
 			<label class="label">
 				<span>Light Mode</span>
-				<select class="select" bind:value={$storeThemGenForm.textColorLight} disabled={!$storePreview}>
+				<select class="select" bind:value={$storeThemeGenForm.textColorLight} disabled={!$storePreview}>
 					{#each inputSettings.colorProps as c}<option value={c.value}>{c.label}</option>{/each}
 				</select>
 			</label>
 			<label class="label">
 				<span>Dark Mode</span>
-				<select class="select" bind:value={$storeThemGenForm.textColorDark} disabled={!$storePreview}>
+				<select class="select" bind:value={$storeThemeGenForm.textColorDark} disabled={!$storePreview}>
 					{#each inputSettings.colorProps as c}<option value={c.value}>{c.label}</option>{/each}
 				</select>
 			</label>
@@ -194,14 +194,14 @@
 			<h3 class="col-span-2" data-toc-ignore>Border Radius</h3>
 			<label class="label">
 				<span>Base</span>
-				<select class="select" bind:value={$storeThemGenForm.roundedBase} disabled={!$storePreview}>
+				<select class="select" bind:value={$storeThemeGenForm.roundedBase} disabled={!$storePreview}>
 					{#each inputSettings.rounded as r}<option value={r}>{r}</option>{/each}
 					<option value="9999px">9999px</option>
 				</select>
 			</label>
 			<label class="label">
 				<span>Container</span>
-				<select class="select" bind:value={$storeThemGenForm.roundedContainer} disabled={!$storePreview}>
+				<select class="select" bind:value={$storeThemeGenForm.roundedContainer} disabled={!$storePreview}>
 					{#each inputSettings.rounded as r}<option value={r}>{r}</option>{/each}
 				</select>
 			</label>
@@ -209,7 +209,7 @@
 			<h3 class="col-span-2" data-toc-ignore>Border Size</h3>
 			<label class="label">
 				<span>Base</span>
-				<select class="select" bind:value={$storeThemGenForm.borderBase} disabled={!$storePreview}>
+				<select class="select" bind:value={$storeThemeGenForm.borderBase} disabled={!$storePreview}>
 					{#each inputSettings.border as b}<option value={b}>{b}</option>{/each}
 				</select>
 			</label>

@@ -18,7 +18,7 @@ export const storeTheme: Writable<string> = localStorageStore('storeTheme', 'ske
 // Persists the tab selection for the user's preferred onboarding method
 export const storeOnboardMethod: Writable<string> = localStorageStore('storeOnboardMethod', 'cli');
 
-export const storeThemGenForm: Writable<FormTheme> = localStorageStore('storeThemGenForm', {
+export const storeThemeGenForm: Writable<FormTheme> = localStorageStore('storeThemeGenForm', {
 	colors: [
 		{ key: 'primary', label: 'Primary', hex: '#0FBA81', on: '0 0 0' },
 		{ key: 'secondary', label: 'Secondary', hex: '#4F46E5', on: '255 255 255' },
