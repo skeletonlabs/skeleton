@@ -1,6 +1,4 @@
 <script lang="ts">
-	import type { Writable } from 'svelte/store';
-	import chroma from 'chroma-js';
 	// Preview Components
 	import ProgressBar from '$lib/components/ProgressBar/ProgressBar.svelte';
 	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
@@ -10,36 +8,17 @@
 	import Swatch from './Swatch.svelte';
 
 	// Utilities
-	import { localStorageStore } from '$lib/utilities/LocalStorageStore/LocalStorageStore';
 	import { popup } from '$lib/utilities/Popup/popup';
 
 	// Local Utils
 	import { storePreview } from './stores';
-	import type { ColorSettings, FormTheme, ContrastReport } from './types';
+	import type { ColorSettings, ContrastReport } from './types';
 	import { inputSettings, fontSettings } from './settings';
-	import { generateA11yOnColor, hexValueIsValid, getPassReport, generateColorCSS, generateOnSemantic, randomizeColors } from './colors';
+	import { hexValueIsValid, getPassReport, generateColorCSS, generateOnSemantic, randomizeColors } from './colors';
 	import type { PopupSettings } from '$lib/utilities/Popup/types';
+	import { storeThemGenForm } from '$docs/stores/stores';
 
 	// Stores
-	/* @ts-ignore */
-	const storeThemGenForm: Writable<FormTheme> = localStorageStore('storeThemGenForm', {
-		colors: [
-			{ key: 'primary', label: 'Primary', hex: '#0FBA81', on: '0 0 0' },
-			{ key: 'secondary', label: 'Secondary', hex: '#4F46E5', on: '255 255 255' },
-			{ key: 'tertiary', label: 'Tertiary', hex: '#0EA5E9', on: '0 0 0' },
-			{ key: 'success', label: 'Success', hex: '#84cc16', on: '0 0 0' },
-			{ key: 'warning', label: 'Warning', hex: '#EAB308', on: '0 0 0' },
-			{ key: 'error', label: 'Error', hex: '#D41976', on: '255 255 255' },
-			{ key: 'surface', label: 'Surface', hex: '#495a8f', on: '255 255 255' }
-		],
-		fontBase: 'system',
-		fontHeadings: 'system',
-		textColorLight: '0 0 0',
-		textColorDark: '255 255 255',
-		roundedBase: '9999px',
-		roundedContainer: '8px',
-		borderBase: '1px'
-	});
 
 	// Local
 	let cssOutput: string = '';
@@ -136,7 +115,7 @@
 								<input class="input" type="text" bind:value={colorRow.hex} placeholder="#BADA55" disabled={!$storePreview} />
 							</div>
 						</label>
-						<Swatch color={colorRow.key} />
+						<Swatch color={colorRow.key} hex={colorRow.hex} />
 						<label>
 							<span>Text & Fill Color</span>
 							<div class="flex">
