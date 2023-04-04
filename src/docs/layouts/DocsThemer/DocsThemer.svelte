@@ -17,6 +17,7 @@
 	import { hexValueIsValid, getPassReport, generateColorCSS, generateOnSemantic, randomizeColors } from './colors';
 	import type { PopupSettings } from '$lib/utilities/Popup/types';
 	import { storeThemeGenForm } from '$docs/stores/stores';
+	import chroma from 'chroma-js';
 
 	// Stores
 
@@ -112,7 +113,14 @@
 							<span>{colorRow.label}</span>
 							<div class="grid grid-cols-[auto_1fr] gap-4 place-items-end">
 								<input class="input" type="color" bind:value={colorRow.hex} disabled={!$storePreview} />
-								<input class="input" type="text" bind:value={colorRow.hex} placeholder="#BADA55" disabled={!$storePreview} />
+								<input
+									class="input"
+									type="text"
+									on:blur={() => (colorRow.hex = chroma(colorRow.hex).hex())}
+									bind:value={colorRow.hex}
+									placeholder="#BADA55"
+									disabled={!$storePreview}
+								/>
 							</div>
 						</label>
 						<Swatch color={colorRow.key} hex={colorRow.hex} />

@@ -103,7 +103,7 @@ export function textPasses(
 }
 
 export function hexValueIsValid(textColor: string) {
-	return /^#[0-9A-F]{6}$/i.test(textColor);
+	return chroma.valid(textColor);
 }
 
 /** A catch-all function to give a report on what size and level a given combination achieves.  */
