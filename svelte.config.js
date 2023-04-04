@@ -18,12 +18,6 @@ const config = {
 			'@skeletonlabs/skeleton': path.resolve('./src/lib/index.ts'),
 			$docs: path.resolve('./src/docs')
 		}
-	},
-	package: {
-		// strip test files from packaging
-		files: (filepath) => {
-			return filepath.indexOf('test') == -1 ? true : false;
-		}
 	}
 };
 

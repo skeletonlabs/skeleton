@@ -8,8 +8,10 @@
 	}
 
 	.button-base-styles {
-		/* Size (match base)  */
-		@apply text-base px-5 py-[9px];
+		/* Size (match base) */
+		@apply text-base;
+		/* Padding */
+		@apply px-5 py-[9px];
 		/* Core */
 		@apply text-center whitespace-nowrap;
 		/* Flex Columns */
@@ -44,7 +46,9 @@
 
 	.btn-icon {
 		/* Extend Base Button Clases */
-		@apply btn;
+		@apply button-base-styles;
+		/* Padding */
+		@apply p-0;
 		/* Size (match base) */
 		@apply text-base aspect-square w-[43px];
 		/* Rounded */

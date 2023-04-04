@@ -15,6 +15,7 @@ export const menuNavLinks: any = [
 		id: 'essentials',
 		title: 'Essentials',
 		list: [
+			{ href: '/docs/themes', label: 'Themes', keywords: 'theme, customize, fonts, gradient, background' },
 			{ href: '/docs/colors', label: 'Colors', keywords: 'theme, colors, swatches' },
 			{ href: '/docs/styling', label: 'Styling', keywords: 'styles, styling, props, classes, class, css' },
 			{ href: '/docs/tokens', label: 'Design Tokens', keywords: 'theme, color, pairing, css, utility' },
@@ -94,6 +95,7 @@ export const menuNavLinks: any = [
 			{ href: '/components/app-bar', label: 'App Bar', keywords: 'header, top, bar, title' },
 			{ href: '/components/app-rail', label: 'App Rail', keywords: 'nav, navigation, tile, sidebar' },
 			{ href: '/components/app-shell', label: 'App Shell', keywords: 'layout, header, footer, sidebar, page, content' },
+			{ href: '/components/autocomplete', label: 'Autocomplete', keywords: 'input, filter, fuzzy, auto, complete, suggest' },
 			{ href: '/components/avatars', label: 'Avatars', keywords: 'image, initial, filter' },
 			{ href: '/components/conic-gradients', label: 'Conic Gradients', keywords: 'chart, graph, circle, pie, spinner, legend' },
 			{ href: '/components/file-buttons', label: 'File Buttons', keywords: 'upload, form, input, file, media' },

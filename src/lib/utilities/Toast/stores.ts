@@ -12,9 +12,9 @@ function randomUUID(): string {
 }
 
 // If toast should auto-hide, wait X time, then close by ID
-function handleAutoHide(toast: Toast): void {
+function handleAutoHide(toast: Toast) {
 	if (toast.autohide === true) {
-		setTimeout(() => {
+		return setTimeout(() => {
 			toastStore.close(toast.id);
 		}, toast.timeout);
 	}
@@ -30,11 +30,12 @@ function toastService() {
 				const id: string = randomUUID();
 				// Trigger Callback
 				if (toast && toast.callback) toast.callback({ id, status: 'queued' });
-				// Merge into store
-				const tMerged = { ...toastDefaults, ...toast, id };
-				tStore.push(tMerged);
+				// Merge with defaults
+				const tMerged: Toast = { ...toastDefaults, ...toast, id };
 				// Handle auto-hide, if needed
-				handleAutoHide(tMerged);
+				tMerged.timeoutId = handleAutoHide(tMerged);
+				// Push into store
+				tStore.push(tMerged);
 				// Return
 				return tStore;
 			}),
@@ -43,11 +44,15 @@ function toastService() {
 			update((tStore) => {
 				if (tStore.length > 0) {
 					const index = tStore.findIndex((t) => t.id === id);
-					// Trigger Callback
 					const selectedToast = tStore[index];
-					if (selectedToast && selectedToast.callback) selectedToast.callback({ id, status: 'closed' });
-					// Remove
-					tStore.splice(index, 1);
+					if (selectedToast) {
+						// Trigger Callback
+						if (selectedToast.callback) selectedToast.callback({ id, status: 'closed' });
+						// Clear timeout
+						if (selectedToast.timeoutId) clearTimeout(selectedToast.timeoutId)
+						// Remove
+						tStore.splice(index, 1);
+					}
 				}
 				return tStore;
 			}),
