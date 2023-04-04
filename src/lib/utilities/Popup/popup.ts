@@ -93,8 +93,8 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 
 	// Close popup if element matching closeQuery is clicked
 	function closeOnQueryClick(clickedEl: Node) {
-		if (!clickedEl || !args.closeQuery) return;
-		const interactiveMenuElems = elemPopup?.querySelectorAll(args.closeQuery);
+		if (!clickedEl) return;
+		const interactiveMenuElems = elemPopup?.querySelectorAll(args.closeQuery || '');
 		if (!interactiveMenuElems?.length) return;
 		interactiveMenuElems.forEach((elem) => {
 			if (elem.contains(clickedEl)) close();
