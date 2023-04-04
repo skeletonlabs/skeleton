@@ -36,14 +36,14 @@
 
 	// Input Handler
 	function onClickHandler(event: MouseEvent): void {
-		if (!$selected || !value) return;
+		if (!String($selected) || !String(value)) return;
 		$selected = value;
 		/** @event {{ event }} click - Fires when the component is clicked.  */
 		dispatch('click', event);
 	}
 
 	// Reactive
-	$: classesActive = $selected && value && $selected === value ? `${active}` : '';
+	$: classesActive = String($selected) && String(value) && $selected === value ? `${active}` : '';
 	$: classesBase = `${cBase} ${hover} ${classesActive} ${$$props.class || ''}`;
 	$: classesLabel = `${cLabel} ${regionLabel}`;
 
