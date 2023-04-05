@@ -65,10 +65,8 @@
 <label
 	class="radio-item {classesBase}"
 	{title}
-	role="radio"
 	aria-checked={checked}
 	aria-label={label}
-	tabindex="0"
 	data-testid="radio-item"
 	on:keydown={onKeyDown}
 	on:keydown

@@ -75,10 +75,8 @@
 <!-- WARNING: avoid click handlers on <label>; will fire twice -->
 <label
 	class="tab {classesBase}"
-	role="tab"
 	aria-controls={controls}
 	aria-selected={selected}
-	tabindex="0"
 	data-testid="tab"
 	on:keypress={onKeypress}
 	on:keypress

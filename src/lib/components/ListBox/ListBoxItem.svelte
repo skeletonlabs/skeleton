@@ -74,9 +74,7 @@
 <!-- WARNING: avoid click handlers on <label>; will fire twice -->
 <label
 	class="listbox-item {classesBase}"
-	role="option"
 	aria-selected={selected}
-	tabindex="0"
 	data-testid="listbox-item"
 	on:keydown={onKeyDown}
 	on:keydown
