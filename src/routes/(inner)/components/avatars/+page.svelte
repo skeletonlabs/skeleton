@@ -21,6 +21,7 @@
 	import XPro from '$lib/actions/Filters/svg-filters/XPro.svelte';
 	// Sveld
 	import sveldAvatar from '$lib/components/Avatar/Avatar.svelte?raw&sveld';
+	import RangeSlider from '$lib/components/RangeSlider/RangeSlider.svelte';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -34,7 +35,20 @@
 
 	// Local
 	const imgPlaceholder = 'https://i.pravatar.cc/?img=48';
-	const borderStyles = 'border-4 border-surface-300-600-token hover:!border-primary-500';
+	const borderStyles = 'border-4 	border-surface-300-600-token hover:!border-primary-500';
+
+	const roundedMapping = {
+		0: 'rounded-none',
+		1: 'rounded-sm',
+		2: 'rounded',
+		3: 'rounded-md',
+		4: 'rounded-lg',
+		5: 'rounded-xl',
+		6: 'rounded-2xl',
+		7: 'rounded-3xl',
+		8: 'rounded-full'
+	};
+	let rangeSliderValue: keyof typeof roundedMapping = 8;
 
 	// Reactive
 	$: actionParams = '#Apollo';
@@ -56,10 +70,20 @@
 	<svelte:fragment slot="sandbox">
 		<DocsPreview>
 			<svelte:fragment slot="preview">
-				<Avatar src={imgPlaceholder} width="w-32" />
+				<Avatar src={imgPlaceholder} width="w-32" rounded={roundedMapping[rangeSliderValue]} />
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<CodeBlock language="html" code={`<Avatar src="${imgPlaceholder}" width="w-32" />`} />
+				<CodeBlock
+					language="html"
+					code={`<Avatar src="${imgPlaceholder}" width="w-32" ${
+						rangeSliderValue !== 8 ? `rounded="${roundedMapping[rangeSliderValue]}"` : ''
+					}/>`}
+				/>
+			</svelte:fragment>
+			<svelte:fragment slot="footer">
+				<RangeSlider bind:value={rangeSliderValue} name="range-slider" max={Object.keys(roundedMapping).length - 1} step={1} ticked
+					>{roundedMapping[rangeSliderValue]}</RangeSlider
+				>
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
