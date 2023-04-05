@@ -21,7 +21,6 @@
 	import XPro from '$lib/actions/Filters/svg-filters/XPro.svelte';
 	// Sveld
 	import sveldAvatar from '$lib/components/Avatar/Avatar.svelte?raw&sveld';
-	import RangeSlider from '$lib/components/RangeSlider/RangeSlider.svelte';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -68,22 +67,16 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<DocsPreview>
+		<DocsPreview regionFooter="grid grid-cols-[100px_1fr] gap-4 items-center">
 			<svelte:fragment slot="preview">
 				<Avatar src={imgPlaceholder} width="w-32" rounded={roundedMapping[rangeSliderValue]} />
 			</svelte:fragment>
 			<svelte:fragment slot="source">
-				<CodeBlock
-					language="html"
-					code={`<Avatar src="${imgPlaceholder}" width="w-32" ${
-						rangeSliderValue !== 8 ? `rounded="${roundedMapping[rangeSliderValue]}"` : ''
-					}/>`}
-				/>
+				<CodeBlock language="html" code={`<Avatar src="${imgPlaceholder}" width="w-32" rounded="${roundedMapping[rangeSliderValue]}" />`} />
 			</svelte:fragment>
 			<svelte:fragment slot="footer">
-				<RangeSlider bind:value={rangeSliderValue} name="range-slider" max={Object.keys(roundedMapping).length - 1} step={1} ticked
-					>{roundedMapping[rangeSliderValue]}</RangeSlider
-				>
+				<div class="text-center"><code>{roundedMapping[rangeSliderValue]}</code></div>
+				<input type="range" bind:value={rangeSliderValue} max={Object.keys(roundedMapping).length - 1} step={1} />
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
