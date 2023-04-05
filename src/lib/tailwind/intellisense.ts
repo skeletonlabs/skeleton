@@ -12,7 +12,6 @@ const intellisensePlugin = plugin(({ addComponents }) => {
 		// try/catch because it will throw when allComponents.cjs isn't generated yet
 		try {
 			import('./generated/intellisense-classes.cjs').then((all) => {
-				// @ts-ignore-next-line
 				addComponents(all , {
 					respectImportant: true,
 					respectPrefix: true

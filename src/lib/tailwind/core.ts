@@ -7,12 +7,12 @@ import plugin from 'tailwindcss/plugin';
 // Skeleton Theme Modules
 import { generateColorPalette } from './theme/colors';
 // Skeleton Design Token Modules
-import tokensBackgrounds from './tokens/backgrounds.js';
-import tokensBorders from './tokens/borders.js';
-import tokensBorderRadius from './tokens/border-radius.js';
-import tokensFills from './tokens/fills.js';
-import tokensText from './tokens/text.js';
-import tokensRings from './tokens/rings.js';
+import tokensBackgrounds from './tokens/backgrounds';
+import tokensBorders from './tokens/borders';
+import tokensBorderRadius from './tokens/border-radius';
+import tokensFills from './tokens/fills';
+import tokensText from './tokens/text';
+import tokensRings from './tokens/rings';
 
 const skeletonPlugin = plugin(
 	({ addUtilities }) => {
