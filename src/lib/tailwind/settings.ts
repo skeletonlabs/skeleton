@@ -1,8 +1,13 @@
 // Common Shared Settings and Constants
 
-module.exports = {
-	colorNames: ['primary', 'secondary', 'tertiary', 'success', 'warning', 'error', 'surface'],
-	colorShades: [50, 100, 200, 300, 400, 500, 600, 700, 800, 900],
+interface ColorPairing {
+	light: number;
+	dark: number;
+}
+
+export default {
+	colorNames: ['primary', 'secondary', 'tertiary', 'success', 'warning', 'error', 'surface'] as const,
+	colorShades: [50, 100, 200, 300, 400, 500, 600, 700, 800, 900] as const,
 	colorPairings: [
 		// forward:
 		{ light: 50, dark: 900 },
@@ -16,5 +21,5 @@ module.exports = {
 		{ light: 700, dark: 200 },
 		{ light: 600, dark: 300 },
 		{ light: 500, dark: 400 }
-	]
+	] as ColorPairing[],
 };

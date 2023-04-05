@@ -1,15 +1,19 @@
 // Design Tokens: Background
 // Doc: https://www.skeleton.dev/docs/tokens
 
-const settings = require('../settings.cjs');
+import settings from '../settings';
 
 // Defaults
 const backdropAlpha = 0.7;
 const hoverAlpha = 0.1;
 
-module.exports = () => {
-	const classes = {};
-	settings.colorNames.forEach((n) => {
+interface BackgroundClasses {
+	[key: string]: Record<string, string>;
+}
+
+export default (): BackgroundClasses => {
+	const classes: BackgroundClasses = {};
+	settings.colorNames.forEach((n: string) => {
 		// Backdrops
 		// Example: .bg-primary-backdrop-token
 		classes[`.bg-${n}-backdrop-token`] = { 'background-color': `rgb(var(--color-${n}-400) / ${backdropAlpha})` };
@@ -29,7 +33,7 @@ module.exports = () => {
 
 		// Color Pairings
 		// Example: .bg-primary-50-900-token | .bg-primary-900-50-token
-		settings.colorPairings.forEach((p) => {
+		settings.colorPairings.forEach((p: { light: number; dark: number }) => {
 			classes[`.bg-${n}-${p.light}-${p.dark}-token`] = { 'background-color': `rgb(var(--color-${n}-${p.light}))` };
 			classes[`.dark .bg-${n}-${p.light}-${p.dark}-token`] = { 'background-color': `rgb(var(--color-${n}-${p.dark}))` };
 		});

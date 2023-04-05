@@ -1,6 +1,6 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
 import forms from '@tailwindcss/forms';
-import skeleton from './src/lib/tailwind/skeleton.ts/index.js';
+import skeleton from './src/lib/tailwind/skeleton';
 import type { Config } from 'tailwindcss'
 
 export default {

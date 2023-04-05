@@ -1,9 +1,11 @@
 // Design Tokens: Border Radius
 // Doc: https://www.skeleton.dev/docs/tokens
 
-// const settings = require('../settings.cjs');
+interface BorderRadiusClasses {
+	[key: string]: Record<string, string>;
+}
 
-module.exports = () => {
+export default (): BorderRadiusClasses => {
 	return {
 		// Base
 		'.rounded-token': { 'border-radius': 'var(--theme-rounded-base)' },

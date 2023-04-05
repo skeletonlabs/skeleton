@@ -1,7 +1,11 @@
 // Design Tokens: Rings
 // Doc: https://www.skeleton.dev/docs/tokens
 
-const settings = require('../settings.cjs');
+import settings from '../settings';
+
+interface RingClasses {
+	[key: string]: Record<string, string>;
+}
 
 // Local
 const ringTokenTheme = {
@@ -18,8 +22,8 @@ const ringOutlineShared = {
 	'--tw-ring-inset': 'inset'
 };
 
-module.exports = () => {
-	const classes = {
+export default (): RingClasses => {
+	const classes: RingClasses = {
 		'.ring-token': {
 			...ringTokenTheme
 		},
@@ -34,10 +38,10 @@ module.exports = () => {
 			'--tw-ring-color': 'rgb(250 250 250 / 0.05)' // neutral-50, 5% opacity
 		}
 	};
-	settings.colorNames.forEach((n) => {
+	settings.colorNames.forEach((n: string) => {
 		// Color Pairings
 		// Example: .ring-primary-50-900-token | .ring-primary-900-50-token
-		settings.colorPairings.forEach((p) => {
+		settings.colorPairings.forEach((p: { light: number; dark: number }) => {
 			classes[`.ring-${n}-${p.light}-${p.dark}-token`] = {
 				'--tw-ring-color': `rgb(var(--color-${n}-${p.light}) / 1)`
 			};
