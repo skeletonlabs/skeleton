@@ -5,7 +5,7 @@ import FileDropzone from '$lib/components/FileDropzone/FileDropzone.svelte';
 
 describe('FileDropzone.svelte', () => {
 	it('Renders with minimal props', async () => {
-		const { getByTestId } = render(FileDropzone);
+		const { getByTestId } = render(FileDropzone, { props: { name: 'testName' } });
 		expect(getByTestId('file-dropzone')).toBeTruthy();
 	});
 
