@@ -51,8 +51,8 @@
 	// Local
 	let elemInput: HTMLElement;
 
-	function onKeypress(event: any): void {
-		// Enter/Space to toggle element
+	// A11y Key Down Handler
+	function onKeyDown(event: KeyboardEvent): void {
 		if (['Enter', 'Space'].includes(event.code)) {
 			event.preventDefault();
 			elemInput.click();
@@ -72,26 +72,28 @@
 	}
 </script>
 
-<!-- WARNING: avoid click handlers on <label>; will fire twice -->
-<label
-	class="tab {classesBase}"
-	role="tab"
-	aria-controls={controls}
-	aria-selected={selected}
-	tabindex="0"
-	data-testid="tab"
-	on:keypress={onKeypress}
-	on:keypress
-	on:keydown
-	on:keyup
->
-	<!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->
-	<div class="h-0 w-0 overflow-hidden">
-		<input bind:this={elemInput} type="radio" bind:group {name} {value} {...prunedRestProps()} tabindex="-1" on:click on:change />
-	</div>
-	<!-- Interface -->
-	<div class="tab-interface {classesInterface}">
-		{#if $$slots.lead}<div class="tab-lead"><slot name="lead" /></div>{/if}
-		<div class="tab-label"><slot /></div>
+<label>
+	<!-- A11y attributes are not allowed on <label> -->
+	<div
+		class="tab {classesBase}"
+		data-testid="tab"
+		role="tab"
+		aria-controls={controls}
+		aria-selected={selected}
+		tabindex="0"
+		on:keydown={onKeyDown}
+		on:keydown
+		on:keyup
+		on:keypress
+	>
+		<!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->
+		<div class="h-0 w-0 overflow-hidden">
+			<input bind:this={elemInput} type="radio" bind:group {name} {value} {...prunedRestProps()} tabindex="-1" on:click on:change />
+		</div>
+		<!-- Interface -->
+		<div class="tab-interface {classesInterface}">
+			{#if $$slots.lead}<div class="tab-lead"><slot name="lead" /></div>{/if}
+			<div class="tab-label"><slot /></div>
+		</div>
 	</div>
 </label>

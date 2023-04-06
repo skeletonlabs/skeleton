@@ -9,7 +9,7 @@
 
 	// Props
 	/**
-	 * Required. Set a unique name for the file input.
+	 * Required. Set a unique name for the input.
 	 * @type {string}
 	 */
 	export let name: string;

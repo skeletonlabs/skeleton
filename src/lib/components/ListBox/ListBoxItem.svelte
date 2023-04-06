@@ -71,33 +71,35 @@
 	$: classesLabel = `${cLabel}`;
 </script>
 
-<!-- WARNING: avoid click handlers on <label>; will fire twice -->
-<label
-	class="listbox-item {classesBase}"
-	role="option"
-	aria-selected={selected}
-	tabindex="0"
-	data-testid="listbox-item"
-	on:keydown={onKeyDown}
-	on:keydown
-	on:keyup
-	on:keypress
->
-	<!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->
-	<div class="h-0 w-0 overflow-hidden">
-		{#if multiple}
-			<input bind:this={elemInput} type="checkbox" {name} {value} bind:checked tabindex="-1" on:click on:change />
-		{:else}
-			<input bind:this={elemInput} type="radio" bind:group {name} {value} tabindex="-1" on:click on:change />
-		{/if}
-	</div>
-	<!-- <slot /> -->
-	<div class="listbox-label {classesLabel}">
-		<!-- Slot: Lead -->
-		{#if $$slots.lead}<div class="listbox-label-lead"><slot name="lead" /></div>{/if}
-		<!-- Slot: Default -->
-		<div class="listbox-label-content flex-1"><slot /></div>
-		<!-- Slot: Trail -->
-		{#if $$slots.trail}<div class="listbox-label-trail"><slot name="trail" /></div>{/if}
+<label>
+	<!-- A11y attributes are not allowed on <label> -->
+	<div
+		class="listbox-item {classesBase}"
+		data-testid="listbox-item"
+		role="option"
+		aria-selected={selected}
+		tabindex="0"
+		on:keydown={onKeyDown}
+		on:keydown
+		on:keyup
+		on:keypress
+	>
+		<!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->
+		<div class="h-0 w-0 overflow-hidden">
+			{#if multiple}
+				<input bind:this={elemInput} type="checkbox" {name} {value} bind:checked tabindex="-1" on:click on:change />
+			{:else}
+				<input bind:this={elemInput} type="radio" bind:group {name} {value} tabindex="-1" on:click on:change />
+			{/if}
+		</div>
+		<!-- <slot /> -->
+		<div class="listbox-label {classesLabel}">
+			<!-- Slot: Lead -->
+			{#if $$slots.lead}<div class="listbox-label-lead"><slot name="lead" /></div>{/if}
+			<!-- Slot: Default -->
+			<div class="listbox-label-content flex-1"><slot /></div>
+			<!-- Slot: Trail -->
+			{#if $$slots.trail}<div class="listbox-label-trail"><slot name="trail" /></div>{/if}
+		</div>
 	</div>
 </label>
