@@ -2,7 +2,7 @@
 	// Slots:
 	/** @slot trail - A label slot directly below the range slider. */
 
-	import { afterUpdate } from 'svelte';
+	import { afterUpdate, tick } from 'svelte';
 
 	// Types
 	import type { CssClasses } from '$lib';
@@ -53,6 +53,7 @@
 	}
 
 	// Lifecycle
+	if (ticked) setTicks();
 	afterUpdate(() => {
 		setTicks();
 	});

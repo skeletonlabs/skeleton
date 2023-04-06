@@ -5,7 +5,7 @@ import SliderToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
 
 describe('SliderToggle.svelte', () => {
 	it('Renders with minimal props', async () => {
-		const { getByTestId } = render(SliderToggle);
+		const { getByTestId } = render(SliderToggle, { props: { name: 'testName' } });
 		expect(getByTestId('slide-toggle')).toBeTruthy();
 	});
 

@@ -5,7 +5,7 @@ import RangeSlider from '$lib/components/RangeSlider/RangeSlider.svelte';
 
 describe('RangeSlider.svelte', () => {
 	it('Renders with minimal props', async () => {
-		const { getByTestId } = render(RangeSlider);
+		const { getByTestId } = render(RangeSlider, { props: { name: 'testRangeSlider' } });
 		expect(getByTestId('range-slider')).toBeTruthy();
 	});
 
