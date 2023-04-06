@@ -1,19 +1,21 @@
-const postcss = require('postcss');
-const postcssJs = require('postcss-js');
-const fs = require('fs');
-const postcssImport = require('postcss-import');
-const tailwindcss = require('tailwindcss');
+import postcss from 'postcss';
+import postcssJs from 'postcss-js';
+import fs from 'fs';
+import postcssImport from 'postcss-import';
+import tailwindcss from 'tailwindcss';
+import skeletonPlugin from '../src/lib/tailwind/core.js';
+import type { Config } from 'tailwindcss';
 
 // Transpiles all of our library's CSS to JS
-async function transpileCssToJs() {
+async function transpileCssToJs(): Promise<object> {
 	const cssEntryPath = './src/lib/styles/all.css';
 	// Custom tailwind config so that we only use the necessities
 	const twConfig = {
 		darkMode: 'class',
 		content: ['./src/**/*.{html,js,svelte,ts}'],
-		plugins: [require('../src/lib/tailwind/core.cjs')]
-	};
-
+		plugins: [skeletonPlugin]
+	} satisfies Config;
+	
 	const css = fs.readFileSync(cssEntryPath, 'utf8');
 	const result = await postcss().use(postcssImport()).use(tailwindcss(twConfig)).process(css, { from: cssEntryPath });
 	const cssInJs = postcssJs.objectify(result.root);
@@ -23,7 +25,7 @@ async function transpileCssToJs() {
 
 // Generates all of the TW classes so that we can use this to remove duplicates in our plugin.
 // Takes ~8 seconds to run.
-async function generateAllTWClasses() {
+async function generateAllTWClasses(): Promise<object> {
 	console.log("First time running, generating all tailwind classes... this may take a while... (it's only once though!)");
 	const cssEntryPath = './src/lib/styles/tailwind.css';
 
@@ -47,4 +49,4 @@ async function generateAllTWClasses() {
 	return structuredClone(cssInJs); // return as a POJO
 }
 
-module.exports = { transpileCssToJs, generateAllTWClasses };
+export { transpileCssToJs, generateAllTWClasses };

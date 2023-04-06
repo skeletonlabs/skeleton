@@ -2,7 +2,7 @@
 // Tailwind Docs: https://tailwindcss.com/docs/plugins
 // Skeleton Docs: https://www.skeleton.dev/docs/get-started
 
-import plugin from 'tailwindcss/plugin';
+import plugin from 'tailwindcss/plugin.js';
 
 const intellisensePlugin = plugin(({ addComponents }) => {
 	// The following will generate the non-token classes PURELY for Intellisense.

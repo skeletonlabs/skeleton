@@ -1,7 +1,7 @@
 // Design Tokens: Rings
 // Doc: https://www.skeleton.dev/docs/tokens
 
-import settings from '../settings';
+import settings from '../settings.js';
 
 interface RingClasses {
 	[key: string]: Record<string, string>;

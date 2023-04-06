@@ -1,7 +1,7 @@
 // Design Tokens: SVG Fill
 // Doc: https://www.skeleton.dev/docs/tokens
 
-import settings from '../settings';
+import settings from '../settings.js';
 
 interface FillClasses {
 	[key: string]: Record<string, string>;

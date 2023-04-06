@@ -1,7 +1,7 @@
 // Design Tokens: Background
 // Doc: https://www.skeleton.dev/docs/tokens
 
-import settings from '../settings';
+import settings from '../settings.js';
 
 // Defaults
 const backdropAlpha = 0.7;

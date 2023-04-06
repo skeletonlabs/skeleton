@@ -1,7 +1,7 @@
 // Design Tokens: Text
 // Doc: https://www.skeleton.dev/docs/tokens
 
-import settings from '../settings';
+import settings from '../settings.js';
 
 interface TextClasses {
 	[key: string]: Record<string, string>;

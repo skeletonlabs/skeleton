@@ -6,12 +6,24 @@ import ts from 'typescript';
 // Adding JSDoc comments to emitted .d.ts files from the package process
 // First read in JSDocced props from the svelte components at src/lib/components/ and src/lib/utilities/ into a mapping object
 // There is some brittleness in the assumption of how many spaces are at the beginning of a line on the emitted files
-// Also the definition files from svelte-package aren't exactly always clean either
+// Using the typescript api information https://github.com/microsoft/TypeScript/wiki/Using-the-Compiler-API
 
-let filesToProps = {};
+interface FileToProps {
+	[key: string]: {
+		node: ts.SourceFile;
+		props?: {
+			[key: string]: {
+				comment: string;
+				type: string;
+			};
+		};
+	};
+}
 
-function extractScriptsFromComponents(dir) {
-	const leadingCharsToStrip = 8; //strip the src/lib/ from the filenames when adding it to the filesToProps mapping
+const filesToProps: FileToProps = {};
+
+function extractScriptsFromComponents(dir: string): void {
+	const leadingCharsToStrip = 8;
 	const list = fs.readdirSync(dir);
 	list.forEach((file) => {
 		file = dir + '/' + file;
@@ -21,32 +33,27 @@ function extractScriptsFromComponents(dir) {
 		} else {
 			if (file.endsWith('svelte')) {
 				const src = readFileSync(file).toString();
-				// Split out the script block with lang='ts' section so that we can pass it to the TS compiler
-				// there can be multiple script elements e.g. context='module'
 				const begin = src.indexOf('"ts">\n') + 1;
 				const script = src.substring(begin, src.indexOf('</script>', begin));
-				// the first param is the filename, it is not for reading from the file, but rather for when ts reports issues
-				// it is also not creating an actual source file, but rather an AST.
-				const node = ts.createSourceFile(file.slice(leadingCharsToStrip), script, ts.ScriptTarget.Latest);
+				const node = ts.createSourceFile(file.slice(leadingCharsToStrip), script, ts.ScriptTarget.ESNext);
 				filesToProps[file.slice(leadingCharsToStrip)] = { node: node };
 			}
 		}
 	});
 }
 
-function extractJSDocBlocks() {
+function extractJSDocBlocks(): void {
 	for (const file in filesToProps) {
-		let propsObj = {};
+		const propsObj = {};
 		_extractJSDocBlocks(filesToProps[file].node, propsObj);
 		filesToProps[file].props = propsObj;
 	}
 }
 
 //Rescursive function for traversing node hierarchy to get JSDocs blocks, different node types have the information we want in different places
-function _extractJSDocBlocks(srcFile, propsObj) {
+function _extractJSDocBlocks(srcFile: ts.Node, propsObj: { [key: string]: { comment: string; type: string } }): void {
 	ts.forEachChild(srcFile, (node) => {
 		if (node?.jsDoc) {
-			// console.log(srcFile);
 			const jsDoc = node.jsDoc[node.jsDoc.length - 1];
 			const declaration = node.declarationList?.declarations[0];
 			switch (node.kind) {
@@ -66,37 +73,31 @@ function _extractJSDocBlocks(srcFile, propsObj) {
 	});
 }
 
-function writeJSDocsToDefinitionFiles() {
-	// these two will probably bite us in the ass later on..  but the maximum damage will be no descriptions in intellisense, can live with that.
+function writeJSDocsToDefinitionFiles(): void {
 	const propsBegin = 'props: {';
 	const eventsBegin = 'events: {';
 	const blockEnd = '}';
-	// we only insert JSDocs for properties that had a JSDoc block declared for them in the component file. Some props that might be defined
-	// in the definition file should not get a description as they are stores/context info derived from a parent component.
 
-	for (let file in filesToProps) {
-		let annotatedDts = [];
+	for (const file in filesToProps) {
+		const annotatedDts: string[] = [];
 		const src = readFileSync('dist/' + file + '.d.ts')
 			.toString()
 			.split('\n');
 		let inPropsSection = false;
-		for (let line of src) {
+		for (const line of src) {
 			if (line.indexOf(blockEnd) != -1) {
 				annotatedDts.push(line);
 				inPropsSection = false;
 				continue;
 			}
 			if (inPropsSection) {
-				//there are a few that are not declared as optional, so we test for ? or :
 				let endPos = line.indexOf('?');
 				if (endPos == -1) {
 					endPos = line.indexOf(':');
 				}
-				//Lookup the prop found in the definition file on our props mapping object
-				//the 8 comes from the amount of spaces before the property begins, this is static and more efficient this way.
 				const jsdoc = filesToProps[file].props[line.slice(8, endPos)]?.comment;
 				if (jsdoc != undefined) {
-					annotatedDts.push('        /** ' + jsdoc + '*/');
+					annotatedDts.push('        /** ' + jsdoc + ' */');
 				}
 			}
 			if (line.indexOf(propsBegin) != -1) {
@@ -111,23 +112,23 @@ function writeJSDocsToDefinitionFiles() {
 	}
 }
 
+
 function generateKeyWordsFromProps() {
-	let propSet = new Set();
-	for (let file in filesToProps) {
-		for (let prop in filesToProps[file].props) {
+	const propSet = new Set();
+	for (const file in filesToProps) {
+		for (const prop in filesToProps[file].props) {
 			if (filesToProps[file].props[prop].type == 'css') {
 				propSet.add(prop);
 			}
 		}
 	}
-	let finalProps = Array.from(propSet).sort();
+	const finalProps = Array.from(propSet).sort();
 	finalProps.unshift('class');
 	writeFileSync('scripts/tw-settings.json', JSON.stringify({ "prettier.documentSelectors": ["**/*.svelte"], 'tailwindCSS.classAttributes': [...finalProps] }, null, '\t'));
 }
 
 extractScriptsFromComponents('src/lib/components');
 extractScriptsFromComponents('src/lib/utilities');
-extractJSDocBlocks();
 extractJSDocBlocks();
 writeJSDocsToDefinitionFiles();
 generateKeyWordsFromProps();

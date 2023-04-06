@@ -2,8 +2,8 @@
 // Tailwind Docs: https://tailwindcss.com/docs/plugins
 // Skeleton Docs: https://www.skeleton.dev/docs/get-started
 
-import intellisensePlugin from './intellisense';
-import corePlugin from './core';
+import intellisensePlugin from './intellisense.js';
+import corePlugin from './core.js';
 
 interface SkeletonConfig {
 	intellisense?: boolean;

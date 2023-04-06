@@ -1,7 +1,7 @@
 // Design Tokens: Borders
 // Doc: https://www.skeleton.dev/docs/tokens
 
-import settings from '../settings';
+import settings from '../settings.js';
 
 interface BorderClasses {
 	[key: string]: Record<string, string>;

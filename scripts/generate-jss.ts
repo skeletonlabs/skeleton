@@ -1,12 +1,13 @@
 #!/usr/bin/env node
-import { generateAllTWClasses, transpileCssToJs } from './compile-css-to-js.cjs';
+//generate-jss
+import { generateAllTWClasses, transpileCssToJs } from './compile-css-to-js';
 import { mkdir, writeFile, rename, unlink } from 'fs/promises';
 
 const INTELLISENSE_FILE_NAME = 'intellisense-classes.cjs';
 
 exec();
 
-async function exec() {
+async function exec(): Promise<void> {
 	// Deletes the previously generated CSS-in-JS file. If we don't, our plugin will
 	// add duplicate classes to our newly generated CSS-in-JS file.
 	await unlink(`src/lib/tailwind/generated/${INTELLISENSE_FILE_NAME}`).catch(() => {
@@ -35,16 +36,16 @@ async function exec() {
 	if (process.argv.length != 3) {
 		// A roundabout 'hack' to retrigger the tailwind extension to reload,
 		// otherwise we'd have to reload vscode manually.
-		await rename('tailwind.config.cjs', '.temp/tailwind.config.cjs');
+		await rename('tailwind.config.ts', '.temp/tailwind.config.ts');
 		// We need to sleep for a bit so that the change is detected
 		// by the extension's file watcher
 		await new Promise((resolve) => setTimeout(resolve, 3000));
-		await rename('.temp/tailwind.config.cjs', 'tailwind.config.cjs');
+		await rename('.temp/tailwind.config.ts', 'tailwind.config.ts');
 	}
 }
 
 // Purges the generated CSS-in-JS file of duplicate TW classes
-async function removeDuplicateClasses(cssInJs) {
+async function removeDuplicateClasses(cssInJs: object): Promise<object> {
 	let twClasses;
 	try {
 		// import the cached TW classes...

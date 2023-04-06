@@ -1,7 +1,7 @@
 // Extends Tailwind with Skeleton theme-specific colors values
 // Doc: https://tailwindcss.com/docs/customizing-colors#using-css-variables
 
-import settings from '../settings';
+import settings from '../settings.js';
 
 // ex: `50: 'rgb(var(--color-primary-50) / <alpha-value>)'`
 function generatePaletteShades(colorName: string): Record<string, string> {

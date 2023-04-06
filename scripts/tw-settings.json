@@ -59,8 +59,10 @@
 		"regionDefault",
 		"regionDrawer",
 		"regionFoot",
+		"regionFootCell",
 		"regionFooter",
 		"regionHead",
+		"regionHeadCell",
 		"regionHeader",
 		"regionIcon",
 		"regionInterface",
@@ -94,6 +96,7 @@
 		"spacing",
 		"text",
 		"track",
-		"width"
+		"width",
+		"zIndex"
 	]
 }
