@@ -32,11 +32,11 @@
 	}
 
 	.table-sort-asc {
-		@apply after:opacity-50 after:!content-['↓'];
+		@apply after:opacity-50 after:!content-['↑'];
 	}
 
 	.table-sort-dsc {
-		@apply after:opacity-50 after:!content-['↑'];
+		@apply after:opacity-50 after:!content-['↓'];
 	}
 
 	/* === Table Head === */
