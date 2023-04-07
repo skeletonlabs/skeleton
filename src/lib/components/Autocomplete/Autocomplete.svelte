@@ -18,16 +18,6 @@
 	 * @type {AutocompleteOption[]}
 	 */
 	export let options: AutocompleteOption[] = [];
-	/**
-	 * Provide whitelisted values
-	 * @type {unknown[]}
-	 */
-	export let whitelist: unknown[] = [];
-	/**
-	 * Provide blacklist values
-	 * @type {unknown[]}
-	 */
-	export let blacklist: unknown[] = [];
 	/** Provide a HTML markup to display when no match is found. */
 	export let emptyState: string = 'No Results Found.';
 	/** Set the animation duration. Use zero to disable. */
@@ -44,19 +34,43 @@
 	/** Provide arbitrary classes to empty message. */
 	export let regionEmpty: string = 'text-center';
 
+	// DEPRICATED:
+	/**
+	 * DEPRICATED: use allowlist instead
+	 * @type {unknown[]}
+	 */
+	export let whitelist: unknown[] = [];
+	/**
+	 * DEPRICATED: use denylist instead
+	 * @type {unknown[]}
+	 */
+	export let blacklist: unknown[] = [];
+
+	// REPLACEMENTS:
+	/**
+	 * Provide allowlist values
+	 * @type {unknown[]}
+	 */
+	export let allowlist: unknown[] = whitelist;
+	/**
+	 * Provide denylist values
+	 * @type {unknown[]}
+	 */
+	export let denylist: unknown[] = blacklist;
+
 	// Local
 	let listedOptions = options;
 
-	// Whitelist Options
-	function whitelistOptions(): void {
-		if (!whitelist.length) return;
-		listedOptions = [...options].filter((option: AutocompleteOption) => whitelist.includes(option.value));
+	// Allowed Options
+	function filterByAllowed(): void {
+		if (!allowlist.length) return;
+		listedOptions = [...options].filter((option: AutocompleteOption) => allowlist.includes(option.value));
 	}
 
-	// Blacklist Options
-	function blacklistOptions(): void {
-		if (!blacklist.length) return;
-		const toBlacklist = new Set(blacklist);
+	// Denied Options
+	function filterByDenied(): void {
+		if (!denylist.length) return;
+		const toBlacklist = new Set(denylist);
 		listedOptions = [...options].filter((option: AutocompleteOption) => !toBlacklist.has(option.value));
 	}
 
@@ -80,9 +94,18 @@
 		dispatch('selection', option);
 	}
 
-	// State
-	$: if (whitelist) whitelistOptions();
-	$: if (blacklist) blacklistOptions();
+	// DEPRICATED:
+	$: if (whitelist) {
+		allowlist = whitelist;
+		filterByAllowed();
+	}
+	$: if (blacklist) {
+		denylist = blacklist;
+		filterByDenied();
+	}
+	// REPLACEMENTS:
+	$: if (allowlist) filterByAllowed();
+	$: if (denylist) filterByDenied();
 	$: optionsFiltered = input ? filterOptions() : listedOptions;
 	// Reactive
 	$: classsesBase = `${$$props.class ?? ''}`;
