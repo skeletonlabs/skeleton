@@ -36,12 +36,12 @@
 
 	// DEPRICATED:
 	/**
-	 * Provide whitelisted values
+	 * DEPRICATED: use allowlist instead
 	 * @type {unknown[]}
 	 */
 	export let whitelist: unknown[] = [];
 	/**
-	 * Provide blacklist values
+	 * DEPRICATED: use denylist instead
 	 * @type {unknown[]}
 	 */
 	export let blacklist: unknown[] = [];
