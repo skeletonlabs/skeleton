@@ -39,7 +39,7 @@
 	};
 
 	let inputDemo = '';
-	let inputAllowelist = '';
+	let inputAllowlist = '';
 	const flavorOptions: AutocompleteOption[] = [
 		{ label: 'Vanilla', value: 'vanilla', keywords: 'plain, basic', meta: { healthy: false } },
 		{ label: 'Chocolate', value: 'chocolate', keywords: 'dark, white', meta: { healthy: false } },
@@ -48,7 +48,7 @@
 		{ label: 'Pineapple', value: 'pineapple', keywords: 'fruit', meta: { healthy: true } },
 		{ label: 'Peach', value: 'peach', keywords: 'fruit', meta: { healthy: true } }
 	];
-	const flavorWhitelist: string[] = ['neapolitan', 'pineapple', 'peach'];
+	const flavorAllowlist: string[] = ['neapolitan', 'pineapple', 'peach'];
 	let flavorDenylist: string[] = ['vanilla', 'chocolate'];
 
 	// Input Chip
@@ -62,7 +62,7 @@
 
 	function onAllowedlistSelect(event: any): void {
 		console.log(event.detail);
-		inputAllowelist = event.detail.label;
+		inputAllowlist = event.detail.label;
 	}
 
 	function onDeniedlistSelect(event: any): void {
@@ -71,7 +71,7 @@
 	}
 
 	function onInputChipSelect(event: any): void {
-		// console.log(event.detail);
+		console.log('onInputChipSelect', event.detail);
 		if (inputChipList.includes(event.detail.value) === false) {
 			inputChipList = [...inputChipList, event.detail.value];
 			inputChip = '';
@@ -176,36 +176,36 @@ const flavorOptions: AutocompleteOption[] = [
 							class="input autocomplete"
 							type="search"
 							name="autocomplete-search"
-							bind:value={inputAllowelist}
+							bind:value={inputAllowlist}
 							placeholder="Search..."
 						/>
 						<div class="card w-full max-w-sm max-h-48 p-4 overflow-y-auto">
 							<Autocomplete
-								bind:input={inputAllowelist}
+								bind:input={inputAllowlist}
 								options={flavorOptions}
-								allowlist={flavorWhitelist}
+								allowlist={flavorAllowlist}
 								on:selection={onAllowedlistSelect}
 							/>
 						</div>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="footer">
-					<span class="text-sm">Allowed</span> <code>[{flavorWhitelist.join(', ')}]</code>
+					<span class="text-sm">Allowed</span> <code>[{flavorAllowlist.join(', ')}]</code>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="ts" code={`const flavorWhitelist: string[] = ['neapolitan', 'pineapple', 'peach'];`} />
-					<CodeBlock language="html" code={`<Autocomplete ... allowlist={flavorWhitelist} />`} />
+					<CodeBlock language="ts" code={`const flavorAllowlist: string[] = ['neapolitan', 'pineapple', 'peach'];`} />
+					<CodeBlock language="html" code={`<Autocomplete ... allowlist={flavorAllowlist} />`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
 			<h2>Denied Options</h2>
-			<p>Provide a list of values you wish to deny. Blacklisted options will be excluded from the list.</p>
+			<p>Provide a list of values you wish to deny. Denied options will be excluded from the list.</p>
 			<DocsPreview background="neutral" regionFooter="text-center">
 				<svelte:fragment slot="preview">
 					<div class="text-token w-full max-w-sm space-y-2">
 						<div class="card w-full max-w-sm max-h-48 p-4 overflow-y-auto">
-							<Autocomplete options={flavorOptions} blacklist={flavorDenylist} on:selection={onDeniedlistSelect} />
+							<Autocomplete options={flavorOptions} denylist={flavorDenylist} on:selection={onDeniedlistSelect} />
 						</div>
 					</div>
 				</svelte:fragment>
@@ -218,15 +218,19 @@ const flavorOptions: AutocompleteOption[] = [
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
+
 		<section class="space-y-4">
 			<h2>Input Chip</h2>
 			<p>We've provide a demo of using Autocomplete alongside a Skeleton Input Chip component below.</p>
+			<pre>inputChip: {JSON.stringify(inputChip, null, 2)}</pre>
+			<pre>flavorOptions: {JSON.stringify(flavorOptions, null, 2)}</pre>
+			<pre>inputChipList: {JSON.stringify(inputChipList, null, 2)}</pre>
 			<DocsPreview background="neutral" regionFooter="text-center">
 				<svelte:fragment slot="preview">
 					<div class="text-token w-full max-w-sm space-y-2">
 						<InputChip bind:input={inputChip} bind:value={inputChipList} name="chips" />
 						<div class="card w-full max-w-sm max-h-48 p-4 overflow-y-auto">
-							<Autocomplete bind:input={inputChip} options={flavorOptions} blacklist={inputChipList} on:selection={onInputChipSelect} />
+							<Autocomplete bind:input={inputChip} options={flavorOptions} denylist={inputChipList} on:selection={onInputChipSelect} />
 						</div>
 					</div>
 				</svelte:fragment>
@@ -241,7 +245,7 @@ const flavorOptions: AutocompleteOption[] = [
 	<Autocomplete
 		bind:input={inputChip}
 		options={flavorOptions}
-		blacklist={inputChipList}
+		denylist={inputChipList}
 		on:selection={onInputChipSelect}
 	/>
 </div>
@@ -250,6 +254,7 @@ const flavorOptions: AutocompleteOption[] = [
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
+
 		<section class="space-y-4">
 			<h2>Popup</h2>
 			<p>We've provide a demo of using Autocomplete alongside a Skeleton popup utility below.</p>
