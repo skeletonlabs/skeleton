@@ -18,6 +18,16 @@
 	 * @type {AutocompleteOption[]}
 	 */
 	export let options: AutocompleteOption[] = [];
+	/**
+	 * Provide allowlist values
+	 * @type {unknown[]}
+	 */
+	export let allowlist: unknown[] = [];
+	/**
+	 * Provide denylist values
+	 * @type {unknown[]}
+	 */
+	export let denylist: unknown[] = [];
 	/** Provide a HTML markup to display when no match is found. */
 	export let emptyState: string = 'No Results Found.';
 	/** Set the animation duration. Use zero to disable. */
@@ -34,17 +44,13 @@
 	/** Provide arbitrary classes to empty message. */
 	export let regionEmpty: string = 'text-center';
 
-	// NOTE: replaces white/blacklist for inclusive terms
-	/**
-	 * Provide allowlist values
-	 * @type {unknown[]}
-	 */
-	export let allowlist: unknown[] = [];
-	/**
-	 * Provide denylist values
-	 * @type {unknown[]}
-	 */
-	export let denylist: unknown[] = [];
+	// TODO: hese are slated to be removed!
+	/** DEPRECATED: replace with allowlist */
+	export let whitelist: unknown[] = [];
+	/** DEPRECATED: replace with denylist */
+	export let blacklist: unknown[] = [];
+	// Silence warning about unused props:
+	const deprecated = [whitelist, blacklist];
 
 	// Local
 	let listedOptions = options;
