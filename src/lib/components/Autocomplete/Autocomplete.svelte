@@ -34,29 +34,17 @@
 	/** Provide arbitrary classes to empty message. */
 	export let regionEmpty: string = 'text-center';
 
-	// DEPRICATED:
-	/**
-	 * DEPRICATED: use allowlist instead
-	 * @type {unknown[]}
-	 */
-	export let whitelist: unknown[] = [];
-	/**
-	 * DEPRICATED: use denylist instead
-	 * @type {unknown[]}
-	 */
-	export let blacklist: unknown[] = [];
-
-	// REPLACEMENTS:
+	// NOTE: replaces white/blacklist for inclusive terms
 	/**
 	 * Provide allowlist values
 	 * @type {unknown[]}
 	 */
-	export let allowlist: unknown[] = whitelist;
+	export let allowlist: unknown[] = [];
 	/**
 	 * Provide denylist values
 	 * @type {unknown[]}
 	 */
-	export let denylist: unknown[] = blacklist;
+	export let denylist: unknown[] = [];
 
 	// Local
 	let listedOptions = options;
@@ -70,8 +58,8 @@
 	// Denied Options
 	function filterByDenied(): void {
 		if (!denylist.length) return;
-		const toBlacklist = new Set(denylist);
-		listedOptions = [...options].filter((option: AutocompleteOption) => !toBlacklist.has(option.value));
+		const denySet = new Set(denylist);
+		listedOptions = [...options].filter((option: AutocompleteOption) => !denySet.has(option.value));
 	}
 
 	function filterOptions(): AutocompleteOption[] {
@@ -94,16 +82,7 @@
 		dispatch('selection', option);
 	}
 
-	// DEPRICATED:
-	$: if (whitelist) {
-		allowlist = whitelist;
-		filterByAllowed();
-	}
-	$: if (blacklist) {
-		denylist = blacklist;
-		filterByDenied();
-	}
-	// REPLACEMENTS:
+	// State
 	$: if (allowlist) filterByAllowed();
 	$: if (denylist) filterByDenied();
 	$: optionsFiltered = input ? filterOptions() : listedOptions;
