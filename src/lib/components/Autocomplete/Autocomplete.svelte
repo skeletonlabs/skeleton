@@ -57,15 +57,23 @@
 
 	// Allowed Options
 	function filterByAllowed(): void {
-		if (!allowlist.length) return;
-		listedOptions = [...options].filter((option: AutocompleteOption) => allowlist.includes(option.value));
+		if (allowlist.length) {
+			listedOptions = [...options].filter((option: AutocompleteOption) => allowlist.includes(option.value));
+		} else {
+			// IMPORTANT: required if the list goes from populated -> empty
+			listedOptions = [...options];
+		}
 	}
 
 	// Denied Options
 	function filterByDenied(): void {
-		if (!denylist.length) return;
-		const denySet = new Set(denylist);
-		listedOptions = [...options].filter((option: AutocompleteOption) => !denySet.has(option.value));
+		if (denylist.length) {
+			const denySet = new Set(denylist);
+			listedOptions = [...options].filter((option: AutocompleteOption) => !denySet.has(option.value));
+		} else {
+			// IMPORTANT: required if the list goes from populated -> empty
+			listedOptions = [...options];
+		}
 	}
 
 	function filterOptions(): AutocompleteOption[] {
