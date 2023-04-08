@@ -1,7 +1,7 @@
 // Action: Focus Trap
 
 export function focusTrap(node: HTMLElement, enabled: boolean) {
-	const elemWhitelist = 'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])';
+	const elemAllowlist = 'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])';
 	let elemFirst: HTMLElement;
 	let elemLast: HTMLElement;
 
@@ -24,7 +24,7 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 	const onInit = () => {
 		if (enabled === false) return;
 		// Gather all focusable elements
-		const focusableElems: HTMLElement[] = Array.from(node.querySelectorAll(elemWhitelist));
+		const focusableElems: HTMLElement[] = Array.from(node.querySelectorAll(elemAllowlist));
 		if (focusableElems.length) {
 			// Set first/last focusable elements
 			elemFirst = focusableElems[0];

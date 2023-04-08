@@ -22,7 +22,7 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 	let autoUpdateCleanup: any;
 
 	// Local A11y Variables
-	const elemWhitelist = ':is(a[href], button, input, textarea, select, details, [tabindex]):not([tabindex="-1"])';
+	const elemAllowlist = ':is(a[href], button, input, textarea, select, details, [tabindex]):not([tabindex="-1"])';
 	let activeFocusIdx: number;
 	let focusableElems: HTMLElement[];
 
@@ -79,7 +79,7 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 	function setFocusableState(): void {
 		if (!elemPopup) return;
 		// Create array of all focusable elements, so that we can iterate through them
-		focusableElems = Array.from(elemPopup?.querySelectorAll(elemWhitelist));
+		focusableElems = Array.from(elemPopup?.querySelectorAll(elemAllowlist));
 		// reset the focus index
 		activeFocusIdx = -1;
 		// Automatically focus the element if openWithFocus is true (for example if

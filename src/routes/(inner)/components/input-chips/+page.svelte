@@ -26,7 +26,7 @@
 	// Local
 	let anythingList: string[] = ['foo', 'bar', 'fizz', 'buzz'];
 	let flavorsList = ['vanilla', 'chocolate', 'strawberry'];
-	let flavorsWhitelist = ['vanilla', 'chocolate', 'strawberry', 'peach', 'rocky road'];
+	let flavorsAllowlist = ['vanilla', 'chocolate', 'strawberry', 'peach', 'rocky road'];
 	let emails = ['john@email.com', 'jane@email.com', 'sally@email.com'];
 
 	function isValidEmail(value: string): boolean {
@@ -58,11 +58,11 @@
 		<section class="space-y-4">
 			<p>Bind an array of data to the component <code>value</code> property. Only <u>string</u> values are supported at this time.</p>
 		</section>
-		<!-- Whitelist -->
+		<!-- Allowlist -->
 		<section class="space-y-4">
-			<h2>Whitelist Values</h2>
+			<h2>Allowlist Values</h2>
 			<p>
-				You can provide an array of strings to use as a whitelist. Only whitelisted items can be entered. Invalid or duplicate values will
+				You can provide an array of strings to use as a allowlist. Only allowlisted items can be entered. Invalid or duplicate values will
 				show an error state.
 			</p>
 			<DocsPreview background="neutral">
@@ -72,7 +72,7 @@
 						bind:value={flavorsList}
 						placeholder="Enter flavors..."
 						chips="variant-filled-primary"
-						whitelist={flavorsWhitelist}
+						allowlist={flavorsAllowlist}
 					/>
 				</svelte:fragment>
 				<svelte:fragment slot="footer">
@@ -81,8 +81,8 @@
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="ts" code={`let flavorsWhitelist = ['vanilla', 'chocolate', 'strawberry', 'peach', 'rocky road'];`} />
-					<CodeBlock language="html" code={`<InputChip ... whitelist={flavorsWhitelist} />`} />
+					<CodeBlock language="ts" code={`let flavorsAllowlist = ['vanilla', 'chocolate', 'strawberry', 'peach', 'rocky road'];`} />
+					<CodeBlock language="html" code={`<InputChip ... allowlist={flavorsAllowlist} />`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>

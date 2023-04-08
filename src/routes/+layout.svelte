@@ -86,7 +86,7 @@
 		exampleImage: { ref: ModalExampleImage }
 	};
 
-	function matchPathWhitelist(pageUrlPath: string): boolean {
+	function matchPathAllowlist(pageUrlPath: string): boolean {
 		// If homepage route
 		if (pageUrlPath === '/') return true;
 		// If any blog route
@@ -156,7 +156,7 @@
 	// Current Theme Data
 	$: ({ currentTheme } = data);
 	// Disable left sidebar on homepage
-	$: slotSidebarLeft = matchPathWhitelist($page.url.pathname) ? 'w-0' : 'bg-surface-50-900-token lg:w-auto';
+	$: slotSidebarLeft = matchPathAllowlist($page.url.pathname) ? 'w-0' : 'bg-surface-50-900-token lg:w-auto';
 </script>
 
 <svelte:head>

@@ -324,7 +324,7 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 			<h3>Pre-Selected</h3>
 			<p>
 				You may wish to pre-select certain table rows. We've provided a utility method to handle this. Pass in the key to query against, and
-				a whitelist of values. Any object that matches the conditions will be selected. Trigger this multiple times for multiple selection
+				a allowlist of values. Any object that matches the conditions will be selected. Trigger this multiple times for multiple selection
 				queries.
 			</p>
 			<CodeBlock

@@ -46,11 +46,11 @@
 
 	// TODO: hese are slated to be removed!
 	/** DEPRECATED: replace with allowlist */
-	export let whitelist: unknown[] = [];
+	export let allowlist: unknown[] = [];
 	/** DEPRECATED: replace with denylist */
-	export let blacklist: unknown[] = [];
+	export let blocklist: unknown[] = [];
 	// Silence warning about unused props:
-	const deprecated = [whitelist, blacklist];
+	const deprecated = [allowlist, blocklist];
 
 	// Local
 	let listedOptions = options;

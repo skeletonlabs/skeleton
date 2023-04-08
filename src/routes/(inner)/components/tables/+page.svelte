@@ -155,7 +155,7 @@ tableMapperValues(sourceData, ['name', 'symbol', 'weight'])\n
 				/>
 			{:else if $storeService === 'tableSourceMapper'}
 				<!-- Source Mapper -->
-				<p>Allows you to both whitelist object keys and map the order of display.</p>
+				<p>Allows you to both allowlist object keys and map the order of display.</p>
 				<CodeBlock
 					language="ts"
 					code={`

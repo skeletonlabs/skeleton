@@ -39,11 +39,11 @@ export function tableInteraction(node: HTMLElement) {
 
 /** Svelte Action for handling table a11y keyboard interactions. */
 export function tableA11y(node: HTMLElement) {
-	const keyWhitelist: string[] = ['ArrowRight', 'ArrowUp', 'ArrowLeft', 'ArrowDown', 'Home', 'End'];
+	const keyAllowlist: string[] = ['ArrowRight', 'ArrowUp', 'ArrowLeft', 'ArrowDown', 'Home', 'End'];
 	// on:keydown
 	const onKeyDown = (event: KeyboardEvent) => {
 		// console.log('keydown triggered');
-		if (keyWhitelist.includes(event.code)) {
+		if (keyAllowlist.includes(event.code)) {
 			event.preventDefault();
 			// prettier-ignore
 			switch (event.code) {

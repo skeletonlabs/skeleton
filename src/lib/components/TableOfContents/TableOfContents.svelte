@@ -68,7 +68,7 @@
 			if (!elem.querySelector('.permalink')) {
 				elem.innerHTML += `<a href="#${elem.id}" class="permalink">🔗</a>`;
 			}
-			// Generate headings whitelist
+			// Generate headings allowlist
 			filteredHeadingsList.push(elem);
 			// Debug
 			// elem.style.backgroundColor = 'limegreen';

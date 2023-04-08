@@ -72,23 +72,23 @@ describe('Autocomplete.svelte', () => {
 		expect(selectionHandler).toHaveBeenCalled();
 		expect(selectedOption).toEqual(options.find((o) => o.label === 'Neapolitan'));
 	});
-	describe('whitelist', () => {
-		it('only shows items in the whitelist when no search term is present', () => {
+	describe('allowlist', () => {
+		it('only shows items in the allowlist when no search term is present', () => {
 			// doesn't include 'pineapple'
-			const whitelist: Value[] = ['neapolitan', 'chocolate', 'peach', 'strawberry', 'vanilla'];
-			const { getByText, queryByText } = render(Autocomplete, { props: { options, input: '', whitelist } });
+			const allowlist: Value[] = ['neapolitan', 'chocolate', 'peach', 'strawberry', 'vanilla'];
+			const { getByText, queryByText } = render(Autocomplete, { props: { options, input: '', allowlist } });
 			options.forEach((option) => {
-				if (!whitelist.includes(option.value)) {
+				if (!allowlist.includes(option.value)) {
 					expect(queryByText(option.label)).toBeFalsy();
 				} else {
 					expect(getByText(option.label)).toBeTruthy();
 				}
 			});
 		});
-		it('only shows items in the whitelist when searching', () => {
+		it('only shows items in the allowlist when searching', () => {
 			// doesn't include 'pineapple'
-			const whitelist: Value[] = ['neapolitan', 'chocolate', 'peach', 'strawberry', 'vanilla'];
-			const { getByText, queryByText } = render(Autocomplete, { props: { options, input: 'ne', whitelist } });
+			const allowlist: Value[] = ['neapolitan', 'chocolate', 'peach', 'strawberry', 'vanilla'];
+			const { getByText, queryByText } = render(Autocomplete, { props: { options, input: 'ne', allowlist } });
 			const matchingOptions: Label[] = ['Neapolitan'];
 			const notMatchingOptions = options.filter((option) => !matchingOptions.includes(option.label));
 
@@ -99,28 +99,28 @@ describe('Autocomplete.svelte', () => {
 				expect(queryByText(option.label)).toBeFalsy();
 			});
 		});
-		it('shows the empty message if the only matching elements are not in the whitelist', () => {
-			const whitelist: Value[] = ['neapolitan', 'chocolate', 'peach', 'strawberry', 'vanilla'];
-			const { queryByText } = render(Autocomplete, { props: { options, input: 'pineapple', whitelist } });
+		it('shows the empty message if the only matching elements are not in the allowlist', () => {
+			const allowlist: Value[] = ['neapolitan', 'chocolate', 'peach', 'strawberry', 'vanilla'];
+			const { queryByText } = render(Autocomplete, { props: { options, input: 'pineapple', allowlist } });
 			expect(queryByText('No Results Found.')).toBeTruthy();
 		});
 	});
 
-	describe('blacklist', () => {
-		it('does not show items in the blacklist when no search term is present', () => {
-			const blacklist: Value[] = ['pineapple'];
-			const { getByText, queryByText } = render(Autocomplete, { props: { options, input: '', blacklist } });
+	describe('blocklist', () => {
+		it('does not show items in the blocklist when no search term is present', () => {
+			const blocklist: Value[] = ['pineapple'];
+			const { getByText, queryByText } = render(Autocomplete, { props: { options, input: '', blocklist } });
 			options.forEach((option) => {
-				if (blacklist.includes(option.value)) {
+				if (blocklist.includes(option.value)) {
 					expect(queryByText(option.label)).toBeFalsy();
 				} else {
 					expect(getByText(option.label)).toBeTruthy();
 				}
 			});
 		});
-		it('does not show items in the blacklist when searching', () => {
-			const blacklist: Value[] = ['pineapple'];
-			const { getByText, queryByText } = render(Autocomplete, { props: { options, input: 'ne', blacklist } });
+		it('does not show items in the blocklist when searching', () => {
+			const blocklist: Value[] = ['pineapple'];
+			const { getByText, queryByText } = render(Autocomplete, { props: { options, input: 'ne', blocklist } });
 			const matchingOptions: Label[] = ['Neapolitan'];
 			const notMatchingOptions = options.filter((option) => !matchingOptions.includes(option.label));
 
@@ -131,9 +131,9 @@ describe('Autocomplete.svelte', () => {
 				expect(queryByText(option.label)).toBeFalsy();
 			});
 		});
-		it('shows the empty message if the only matching options are in the blacklist', () => {
-			const blacklist: Value[] = ['pineapple'];
-			const { queryByText } = render(Autocomplete, { props: { options, input: 'pineapple', blacklist } });
+		it('shows the empty message if the only matching options are in the blocklist', () => {
+			const blocklist: Value[] = ['pineapple'];
+			const { queryByText } = render(Autocomplete, { props: { options, input: 'pineapple', blocklist } });
 			expect(queryByText('No Results Found.')).toBeTruthy();
 		});
 	});

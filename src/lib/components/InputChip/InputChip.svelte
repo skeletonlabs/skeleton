@@ -20,10 +20,10 @@
 	/** An array of values. */
 	export let value: any[] = [];
 	/**
-	 * Provide a whitelist of accepted values.
+	 * Provide a allowlist of accepted values.
 	 * @type {string[]}
 	 */
-	export let whitelist: string[] = [];
+	export let allowlist: string[] = [];
 	/** Maximum number of chips. Set -1 to disable. */
 	export let max = -1;
 	/** Set the minimum character length. */
@@ -83,8 +83,8 @@
 		if (minlength !== -1 && input.length < minlength) return false;
 		// Maximum Character Length
 		if (maxlength !== -1 && input.length > maxlength) return false;
-		// Whitelist (if available)
-		if (whitelist.length > 0 && !whitelist.includes(input)) return false;
+		// Allowlist (if available)
+		if (allowlist.length > 0 && !allowlist.includes(input)) return false;
 		// Value is unique
 		if (allowDuplicates === false && value.includes(input)) return false;
 		// State is valid
