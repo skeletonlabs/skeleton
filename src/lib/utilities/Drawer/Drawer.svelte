@@ -70,7 +70,7 @@
 
 	// Classes
 	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0 flex';
-	const cDrawer = 'ox-border overflow-y-auto transition-transform';
+	const cDrawer = 'overflow-y-auto transition-transform';
 
 	// Local
 	let elemBackdrop: HTMLElement;
