@@ -21,8 +21,8 @@
 	export let components: Record<string, ModalComponent> = {};
 
 	// Props (transitions)
-	/** The open/close animation duration. Set '0' (zero) to disable. */
-	export let duration = 150;
+	/** The open/close animation duration. Set '0' (zero) to disable, or set as Array to control In/Out duration seperately. */
+	export let duration: number | [number, number] = 150;
 	/** Set the fly transition opacity. */
 	export let flyOpacity = 0;
 	/** Set the fly transition X axis value. */
@@ -143,6 +143,9 @@
 	$: classesModal = `${cModal} ${background} ${width} ${height} ${padding} ${spacing} ${rounded} ${shadow} ${
 		$modalStore[0]?.modalClasses ?? ''
 	}`;
+	$: durationIn = Array.isArray(duration) ? duration[0] : duration;
+	$: durationOut = Array.isArray(duration) ? duration[1] : duration;
+
 	// IMPORTANT: add values to pass to the children templates.
 	// There is a way to self-reference component values, but it involes svelte-internal and is not yet stable.
 	// REPL: https://svelte.dev/repl/badd0f11aa99450ca69dca6690d4d5a4?version=3.52.0
@@ -188,11 +191,12 @@
 			data-testid="modal-backdrop"
 			on:mousedown={onBackdropInteraction}
 			on:touchstart={onBackdropInteraction}
-			transition:fade={{ duration }}
+			in:fade={{ duration: durationIn }}
+			out:fade={{ duration: durationOut }}
 			use:focusTrap={true}
 		>
 			<!-- Transition Layer -->
-			<div class="modal-transition {classesTransitionLayer}" transition:fly={{ duration, opacity: flyOpacity, x: flyX, y: flyY }}>
+			<div class="modal-transition {classesTransitionLayer}" in:fly={{ duration: durationIn, opacity: flyOpacity, x: flyX, y: flyY }} out:fly={{ duration: durationOut, opacity: flyOpacity, x: flyX, y: flyY }}>
 				{#if $modalStore[0].type !== 'component'}
 					<!-- Modal: Presets -->
 					<div
@@ -201,7 +205,8 @@
 						role="dialog"
 						aria-modal="true"
 						aria-label={$modalStore[0].title ?? ''}
-						transition:fly={{ duration, opacity: 0, y: 100 }}
+						in:fly={{ duration: durationIn, opacity: 0, y: 100 }}
+						out:fly={{ duration: durationOut, opacity: 0, y: 100 }}
 					>
 						<!-- Header -->
 						{#if $modalStore[0]?.title}
