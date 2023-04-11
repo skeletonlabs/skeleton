@@ -170,7 +170,7 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		elemPopup.style.opacity = '0';
 		const cssTransitionDuration = parseFloat(window.getComputedStyle(elemPopup).transitionDuration.replace('s', '')) * 1000;
 		setTimeout(() => {
-			elemPopup.style.display = 'hidden';
+			elemPopup.style.display = 'none';
 			elemPopup.style.pointerEvents = 'none';
 			isVisible = false;
 			stateEventHandler(false);
@@ -189,8 +189,9 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		if (!isVisible) return;
 		// Handle keys
 		const key: string = event.key;
-		// TODO: || (document.activeElement !== node && key === 'Tab')
-		if (key === 'Escape') {
+        // Tab should also close the popup, in a future version, popup will not do anything on key down or key up.
+        // that will be handled by a separate action.
+		if (key === 'Escape' || key === 'Tab') {
 			event.preventDefault();
 			close();
 			node.focus();
