@@ -191,12 +191,17 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		const key: string = event.key;
         // Tab should also close the popup, in a future version, popup will not do anything on key down or key up.
         // that will be handled by a separate action.
-		if (key === 'Escape' || key === 'Tab') {
+		if (key === 'Escape') {
 			event.preventDefault();
 			close();
 			node.focus();
 			return;
-		} else if (key === 'ArrowDown') {
+		} else if (key === 'Tab' && node instanceof HTMLInputElement){
+            event.preventDefault();
+            close();
+            node.focus();
+            return;
+        }else if (key === 'ArrowDown') {
 			event.preventDefault();
 			if (activeFocusIdx < focusableElems.length - 1) {
 				// Move down the menu
