@@ -80,7 +80,9 @@ export function createDataTableStore<T extends Record<PropertyKey, any>>(source:
 
 /** Listens for changes to `$dataTableModel` and triggers: search, selection, sort, and pagination. */
 export function dataTableHandler<T extends Record<PropertyKey, any>>(model: DataTableModel<T>): void {
+	// First create filtered list
 	searchHandler(model);
+	// Then apply selection, sort order and pagnation to filtered list
 	selectionHandler(model);
 	sortHandler(model);
 	paginationHandler(model);
@@ -98,7 +100,7 @@ function searchHandler<T extends Record<PropertyKey, unknown>>(store: DataTableM
 // Selection ---
 
 function selectionHandler<T extends Record<PropertyKey, unknown>>(store: DataTableModel<T>): void {
-	store.selection = store.base.filter((row) => row.dataTableChecked === true); // ? should this be filtered by source or filter?
+	store.selection = store.filtered.filter((row) => row.dataTableChecked === true); // ? should this be filtered by source or filter?
 }
 
 // Sort ---
@@ -111,7 +113,7 @@ function sortHandler<T extends Record<PropertyKey, unknown>>(store: DataTableMod
 
 function sortOrder<T extends Record<PropertyKey, unknown>>(order: string, store: DataTableModel<T>): void {
 	const key = store.sort;
-	store.filtered = store.base.sort((x, y) => {
+	store.filtered = store.filtered.sort((x, y) => {
 		// If descending, swap x/y
 		if (order === 'dsc') [x, y] = [y, x];
 		// Sort logic
