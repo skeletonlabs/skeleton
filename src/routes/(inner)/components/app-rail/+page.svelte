@@ -14,14 +14,14 @@
 	import sveldAppRailTile from '$lib/components/AppRail/AppRailTile.svelte?raw&sveld';
 
 	// Stores
-	const storeValue: Writable<number> = writable(1);
+	const storeValue: Writable<number> = writable(0);
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Component,
 		name: 'App Rail',
 		description: 'A side navigation rail component',
-		imports: ['AppRail'],
+		imports: ['AppRail', 'AppRailTile'],
 		source: 'components/AppRail',
 		// aria: 'https://www.w3.org/WAI/ARIA/apg/',
 		components: [
@@ -50,13 +50,13 @@
 							</AppRailTile>
 						</svelte:fragment>
 						<!-- Default -->
-						<AppRailTile label="Tile 1" value={1}>
+						<AppRailTile label="Tile 1" value={0}>
 							<i class="fa-solid fa-image text-2xl" />
 						</AppRailTile>
-						<AppRailTile label="Tile 2" value={2}>
+						<AppRailTile label="Tile 2" value={1}>
 							<i class="fa-solid fa-image text-2xl" />
 						</AppRailTile>
-						<AppRailTile label="Tile 3" value={3}>
+						<AppRailTile label="Tile 3" value={2}>
 							<i class="fa-solid fa-image text-2xl" />
 						</AppRailTile>
 						<!-- Trail -->

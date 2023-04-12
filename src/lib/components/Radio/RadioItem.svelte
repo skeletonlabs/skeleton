@@ -39,9 +39,8 @@
 	// Local
 	let elemInput: HTMLElement;
 
-	// A11y Input Handlers
-	function onKeyDown(event: any): void {
-		// Enter/Space triggers selecton event
+	// A11y Key Down Handler
+	function onKeyDown(event: KeyboardEvent): void {
 		if (['Enter', 'Space'].includes(event.code)) {
 			event.preventDefault();
 			elemInput.click();
@@ -61,23 +60,25 @@
 	}
 </script>
 
-<!-- WARNING: avoid click handlers on <label>; will fire twice -->
-<label
-	class="radio-item {classesBase}"
-	{title}
-	role="radio"
-	aria-checked={checked}
-	aria-label={label}
-	tabindex="0"
-	data-testid="radio-item"
-	on:keydown={onKeyDown}
-	on:keydown
-	on:keyup
-	on:keypress
->
-	<!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->
-	<div class="h-0 w-0 overflow-hidden">
-		<input bind:this={elemInput} type="radio" bind:group {name} {value} {...prunedRestProps()} tabindex="-1" on:click on:change />
+<label>
+	<!-- A11y attributes are not allowed on <label> -->
+	<div
+		class="radio-item {classesBase}"
+		data-testid="radio-item"
+		role="radio"
+		aria-checked={checked}
+		aria-label={label}
+		tabindex="0"
+		{title}
+		on:keydown={onKeyDown}
+		on:keydown
+		on:keyup
+		on:keypress
+	>
+		<!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->
+		<div class="h-0 w-0 overflow-hidden">
+			<input bind:this={elemInput} type="radio" bind:group {name} {value} {...prunedRestProps()} tabindex="-1" on:click on:change />
+		</div>
+		<slot />
 	</div>
-	<slot />
 </label>

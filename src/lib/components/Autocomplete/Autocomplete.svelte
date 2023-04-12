@@ -19,15 +19,15 @@
 	 */
 	export let options: AutocompleteOption[] = [];
 	/**
-	 * Provide whitelisted values
+	 * Provide allowlist values
 	 * @type {unknown[]}
 	 */
-	export let whitelist: unknown[] = [];
+	export let allowlist: unknown[] = [];
 	/**
-	 * Provide blacklist values
+	 * Provide denylist values
 	 * @type {unknown[]}
 	 */
-	export let blacklist: unknown[] = [];
+	export let denylist: unknown[] = [];
 	/** Provide a HTML markup to display when no match is found. */
 	export let emptyState: string = 'No Results Found.';
 	/** Set the animation duration. Use zero to disable. */
@@ -44,20 +44,36 @@
 	/** Provide arbitrary classes to empty message. */
 	export let regionEmpty: string = 'text-center';
 
+	// TODO: hese are slated to be removed!
+	/** DEPRECATED: replace with allowlist */
+	export let whitelist: unknown[] = [];
+	/** DEPRECATED: replace with denylist */
+	export let blacklist: unknown[] = [];
+	// Silence warning about unused props:
+	const deprecated = [whitelist, blacklist];
+
 	// Local
 	let listedOptions = options;
 
-	// Whitelist Options
-	function whitelistOptions(): void {
-		if (!whitelist.length) return;
-		listedOptions = [...options].filter((option: AutocompleteOption) => whitelist.includes(option.value));
+	// Allowed Options
+	function filterByAllowed(): void {
+		if (allowlist.length) {
+			listedOptions = [...options].filter((option: AutocompleteOption) => allowlist.includes(option.value));
+		} else {
+			// IMPORTANT: required if the list goes from populated -> empty
+			listedOptions = [...options];
+		}
 	}
 
-	// Blacklist Options
-	function blacklistOptions(): void {
-		if (!blacklist.length) return;
-		const toBlacklist = new Set(blacklist);
-		listedOptions = [...options].filter((option: AutocompleteOption) => !toBlacklist.has(option.value));
+	// Denied Options
+	function filterByDenied(): void {
+		if (denylist.length) {
+			const denySet = new Set(denylist);
+			listedOptions = [...options].filter((option: AutocompleteOption) => !denySet.has(option.value));
+		} else {
+			// IMPORTANT: required if the list goes from populated -> empty
+			listedOptions = [...options];
+		}
 	}
 
 	function filterOptions(): AutocompleteOption[] {
@@ -81,8 +97,8 @@
 	}
 
 	// State
-	$: if (whitelist) whitelistOptions();
-	$: if (blacklist) blacklistOptions();
+	$: if (allowlist) filterByAllowed();
+	$: if (denylist) filterByDenied();
 	$: optionsFiltered = input ? filterOptions() : listedOptions;
 	// Reactive
 	$: classsesBase = `${$$props.class ?? ''}`;

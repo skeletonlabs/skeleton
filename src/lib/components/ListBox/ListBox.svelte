@@ -34,7 +34,7 @@
 	setContext('padding', padding);
 
 	// Classes
-	const cBase: string = 'cursor-pointer -outline-offset-[3px]';
+	const cBase: string = '';
 
 	// Reactive
 	$: classesBase = `${cBase} ${spacing} ${rounded} ${$$props.class ?? ''}`;

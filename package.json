@@ -1,13 +1,13 @@
 {
 	"name": "@skeletonlabs/skeleton",
-	"version": "v1.1.0",
+	"version": "v1.2.0",
 	"description": "A SvelteKit component library.",
 	"author": "endigo9740 <chris@skeletonlabs.dev>",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
 		"package": "node ./scripts/pre-build.js && npm run build:jss && svelte-kit sync && svelte-package && node ./scripts/post-build.js",
-		"publish": "npm publish ./package",
+		"publish": "npm publish",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
@@ -15,7 +15,7 @@
 		"format": "prettier --ignore-path .prettierignore --write --plugin-search-dir=. .",
 		"test": "vitest",
 		"coverage": "vitest run --coverage",
-		"build:jss": "node ./scripts/generate-jss.js"
+		"build:jss": "node ./scripts/generate-jss.js --package"
 	},
 	"repository": {
 		"type": "git",
@@ -24,53 +24,87 @@
 	"bugs": {
 		"url": "https://github.com/skeletonlabs/skeleton/issues"
 	},
+	"keywords": [
+		"cli",
+		"components",
+		"ui",
+		"component",
+		"svelte",
+		"component-library",
+		"ui-components",
+		"ui-framework",
+		"tailwind",
+		"tailwindcss",
+		"components-library",
+		"sveltekit"
+	],
 	"license": "MIT",
 	"homepage": "https://skeleton.dev/",
 	"devDependencies": {
-		"@floating-ui/dom": "^1.2.1",
-		"@sveltejs/adapter-auto": "^1.0.2",
-		"@sveltejs/kit": "^1.1.3",
-		"@sveltejs/package": "1.0.2",
+		"@floating-ui/dom": "^1.2.5",
+		"@sveltejs/adapter-auto": "^2.0.0",
+		"@sveltejs/kit": "^1.15.0",
+		"@sveltejs/package": "^2.0.2",
 		"@tailwindcss/forms": "^0.5.3",
-		"@testing-library/dom": "^8.20.0",
+		"@testing-library/dom": "^9.2.0",
 		"@testing-library/svelte": "^3.2.2",
-		"@typescript-eslint/eslint-plugin": "^5.48.2",
-		"@typescript-eslint/parser": "^5.48.2",
-		"@vercel/analytics": "^0.1.8-beta.0",
-		"autoprefixer": "^10.4.13",
-		"c8": "^7.12.0",
-		"edit-package-json": "^0.8.7",
-		"eslint": "^8.32.0",
-		"eslint-config-prettier": "^8.6.0",
+		"@typescript-eslint/eslint-plugin": "^5.57.0",
+		"@typescript-eslint/parser": "^5.57.0",
+		"@vercel/analytics": "^0.1.11",
+		"autoprefixer": "^10.4.14",
+		"c8": "^7.13.0",
+		"eslint": "^8.37.0",
+		"eslint-config-prettier": "^8.8.0",
 		"eslint-plugin-svelte3": "^4.0.0",
 		"highlight.js": "^11.7.0",
-		"jsdom": "^21.0.0",
+		"jsdom": "^21.1.1",
 		"postcss": "^8.4.21",
 		"postcss-import": "^15.1.0",
-		"postcss-js": "^4.0.0",
+		"postcss-js": "^4.0.1",
 		"postcss-load-config": "^4.0.1",
-		"prettier": "^2.8.3",
-		"prettier-plugin-svelte": "^2.9.0",
+		"prettier": "^2.8.7",
+		"prettier-plugin-svelte": "^2.10.0",
 		"sveld": "^0.18.0",
-		"svelte-check": "^3.0.2",
-		"svelte-preprocess": "^5.0.0",
-		"svelte2tsx": "^0.6.0",
-		"tailwindcss": "^3.2.4",
-		"tslib": "^2.4.1",
-		"typescript": "^4.9.4",
-		"vite": "^4.0.4",
+		"svelte-check": "^3.1.4",
+		"svelte-preprocess": "^5.0.3",
+		"svelte2tsx": "^0.6.10",
+		"tailwindcss": "^3.3.1",
+		"tslib": "^2.5.0",
+		"typescript": "^4.9.5",
+		"vite": "^4.2.1",
 		"vite-plugin-sveld": "^1.1.0",
-		"vitest": "^0.27.2"
+		"vitest": "^0.29.8"
 	},
 	"type": "module",
 	"types": "index.d.ts",
 	"dependencies": {
-		"svelte": "^3.55.1"
+		"svelte": "^3.58.0"
 	},
 	"exports": {
-		".": "./src/lib/index.ts",
-		"./themes/*": "./src/lib/themes/*",
+		".": {
+			"types": "./dist/index.d.ts",
+			"svelte": "./dist/index.js",
+			"default": "./dist/index.js"
+		},
 		"./styles/*": "./src/lib/styles/*",
-		"./tailwind/*": "./src/lib/tailwind/*"
+		"./tailwind/*": "./src/lib/tailwind/*",
+		"./themes/*": "./src/lib/themes/*"
+	},
+	"files": [
+		"./dist/**/*.svelte",
+		"./dist/**/*.js",
+		"./dist/**/*.d.ts",
+		"./src/lib/styles/*",
+		"./src/lib/tailwind/*",
+		"./src/lib/themes/*",
+		"!./dist/**/*.test.*"
+	],
+	"svelte": "./dist/index.js",
+	"typesVersions": {
+		">4.0": {
+			"index": [
+				"./dist/index.d.ts"
+			]
+		}
 	}
 }

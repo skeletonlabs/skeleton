@@ -25,4 +25,6 @@ export interface ToastSettings {
 export interface Toast extends ToastSettings {
 	/** A UUID will be auto-assigned on `.trigger()`. */
 	id: string;
+	/** The id of the `setTimeout` if `autohide` is enabled  */
+	timeoutId?: ReturnType<typeof setTimeout>;
 }

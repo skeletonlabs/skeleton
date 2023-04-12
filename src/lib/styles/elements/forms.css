@@ -21,7 +21,7 @@
 	}
 
 	/* Date Calendar Picker (Webkit) */
-	::-webkit-calendar-picker-indicator {
+	input::-webkit-calendar-picker-indicator {
 		@apply dark:invert;
 	}
 

@@ -123,7 +123,7 @@
 		</section>
 		<section class="space-y-4">
 			<h2>Interactive</h2>
-			<p>Anchor cards have an inherent hover style. Add <code>.card-hover</code> to provide and additional 3D hover effect.</p>
+			<p>Anchor cards have an inherent hover style. Add <code>.card-hover</code> to provide an additional 3D hover effect.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full text-token">

@@ -102,10 +102,14 @@
 
 	function onBackdropInteraction(event: MouseEvent | TouchEvent): void {
 		if (!(event.target instanceof Element)) return;
-		if (event.target.classList.contains('modal-backdrop')) onClose();
-		if (event.target.classList.contains('modal-transition')) onClose();
-		/** @event {{ event }} backdrop - Fires on backdrop interaction.  */
-		dispatch('backdrop', event);
+		const classList = event.target.classList;
+		if (classList.contains('modal-backdrop') || classList.contains('modal-transition')) {
+			// We return `undefined` to differentiate from the cancel button
+			if ($modalStore[0].response) $modalStore[0].response(undefined);
+			modalStore.close();
+			/** @event {{ event }} backdrop - Fires on backdrop interaction.  */
+			dispatch('backdrop', event);
+		}
 	}
 
 	function onClose(): void {
@@ -245,7 +249,9 @@
 						aria-label={$modalStore[0].title ?? ''}
 					>
 						<svelte:component this={currentComponent?.ref} {...currentComponent?.props} {parent}>
-							{@html currentComponent?.slot}
+							{#if currentComponent?.slot}
+								{@html currentComponent?.slot}
+							{/if}
 						</svelte:component>
 					</div>
 				{/if}

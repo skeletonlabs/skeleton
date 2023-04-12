@@ -16,11 +16,13 @@
 
 	.list li {
 		/* @apply bg-red-500; */
-		@apply flex items-center space-x-4 whitespace-nowrap;
+		@apply flex items-center space-x-4;
 		/* Padding */
 		@apply p-2;
 		/* Theme: Rounded */
 		@apply rounded-token;
+		/* Wrapping */
+		@apply whitespace-normal break-words;
 	}
 
 	.list-dl div {
