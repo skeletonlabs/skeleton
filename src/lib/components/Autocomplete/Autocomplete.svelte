@@ -1,10 +1,13 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
+	// import { flip } from 'svelte/animate';
+	// import {slide} from 'svelte/transition';
+
 	// Types
 	import type { AutocompleteOption } from './types';
 
-    // Custom Dispatcher
-    const dispatch = createEventDispatcher();
+	// Custom Dispatcher
+	const dispatch = createEventDispatcher();
 
 	// Props
 	/**
@@ -42,7 +45,6 @@
 	export let regionButton: string = 'w-full';
 	/** Provide arbitrary classes to empty message. */
 	export let regionEmpty: string = 'text-center';
-
 	// TODO: These are slated to be removed!
 	/** DEPRECATED: replace with allowlist */
 	export let whitelist: unknown[] = [];
@@ -114,7 +116,7 @@
 		<nav class="autocomplete-nav {classesNav}">
 			<ul class="autocomplete-list {classesList}">
 				{#each optionsFiltered as option, i (option)}
-                <li class="autocomplete-item {classesItem}" >
+					<li class="autocomplete-item {classesItem}">
 						<button class="autocomplete-button {classesButton}" type="button" on:click={() => onSelection(option)} on:click on:keypress>
 							{@html option.label}
 						</button>
