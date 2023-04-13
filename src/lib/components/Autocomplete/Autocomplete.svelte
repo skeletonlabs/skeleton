@@ -32,8 +32,6 @@
 	export let denylist: unknown[] = [];
 	/** Provide a HTML markup to display when no match is found. */
 	export let emptyState: string = 'No Results Found.';
-	/** Set the animation duration. Use zero to disable. */
-	// export let duration: number = 200;
 	// Props (region)
 	/** Provide arbitrary classes to nav element. */
 	export let regionNav: string = '';
@@ -50,8 +48,10 @@
 	export let whitelist: unknown[] = [];
 	/** DEPRECATED: replace with denylist */
 	export let blacklist: unknown[] = [];
+	/** DEPRECATED: Set the animation duration. Use zero to disable. */
+	export let duration: number = 200;
 	// Silence warning about unused props:
-	const deprecated = [whitelist, blacklist];
+	const deprecated = [whitelist, blacklist, duration];
 
 	// Local
 	let listedOptions = options;
