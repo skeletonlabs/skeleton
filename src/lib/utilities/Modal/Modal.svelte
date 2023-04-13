@@ -23,7 +23,7 @@
 	// Props (transitions)
 	// Set JSDoc annotation for duration below manually so it's picked up properly by Sveld.
 	/**
- 	* Set the open/close animation duration. Set '0' (zero) to disable, or set as Array to control In/Out duration seperately.
+ 	* Set the open/close animation duration. Set '0' (zero) to disable, or set as Array to control In[0]/Out[1] duration seperately.
 	* @type {number | [number, number]} 
 	*/
 	export let duration: number | [number, number] = 150;
