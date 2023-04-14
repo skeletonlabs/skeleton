@@ -91,10 +91,13 @@ export function dataTableHandler<T extends Record<PropertyKey, any>>(model: Data
 // Search ---
 
 function searchHandler<T extends Record<PropertyKey, unknown>>(store: DataTableModel<T>): void {
-	store.filtered = store.base.filter((rowObj) => {
-		const formattedSearchTerm = store.search?.toLowerCase() || '';
-		return Object.values(rowObj).join(' ').toLowerCase().includes(formattedSearchTerm);
-	});
+	if (store.search && store.search !== '') {
+		store.filtered = store.base.filter((rowObj) => {
+			return Object.values(rowObj).join(' ').toLowerCase().includes(store.search.toLowerCase());
+		});
+	} else {
+		store.filtered = store.base;
+	}
 }
 
 // Selection ---
