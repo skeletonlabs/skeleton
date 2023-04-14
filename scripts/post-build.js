@@ -42,7 +42,7 @@ function extractJSDocBlocks() {
 	}
 }
 
-//Rescursive function for traversing node hierarchy to get JSDocs blocks, different node types have the information we want in different places
+// Recursive function for traversing node hierarchy to get JSDocs blocks, different node types have the information we want in different places
 function _extractJSDocBlocks(srcFile, propsObj) {
 	ts.forEachChild(srcFile, (node) => {
 		if (node?.jsDoc) {

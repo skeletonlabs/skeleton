@@ -18,7 +18,7 @@
 	/** Provide classes to set the vertical spacing between items. */
 	export let spacing: CssClasses = 'space-y-1';
 
-	// Props (childen)
+	// Props (children)
 	/** Provide classes to set the accordion item padding styles. */
 	export let padding: CssClasses = 'py-2 px-4';
 	/** Provide classes to set the accordion item hover styles. */

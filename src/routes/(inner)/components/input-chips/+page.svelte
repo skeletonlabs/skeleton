@@ -86,7 +86,7 @@
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
-		<!-- Custom Valiation -->
+		<!-- Custom Validation -->
 		<section class="space-y-4">
 			<h2>Custom Validation</h2>
 			<p>You can optionally provide a function to provide custom validation. Make sure to accept a string value and return a boolean.</p>

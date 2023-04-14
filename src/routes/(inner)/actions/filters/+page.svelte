@@ -40,7 +40,7 @@
 <!-- 
 NOTE:
 We keep filters localized since we
-only utlize theme on this doc page.
+only utilize theme on this doc page.
 -->
 <Apollo />
 <BlueNight />

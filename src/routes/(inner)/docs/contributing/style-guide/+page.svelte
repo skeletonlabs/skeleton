@@ -86,7 +86,7 @@ function prunedRestProps(): any {
 			<li>Color props should follow standard CSS style conventions (ex: <code>color</code> for text color).</li>
 			<li>If you need multiple words, use camel-casing (ex: <code>ringWidth</code>).</li>
 			<li>Never pass class props as arrays or objects. Strings work better (ex: <code>border border-primary-500</code>).</li>
-			<li>Always pass the full Tailwind class name. <u>Tailwind does not support contructed class names</u>.</li>
+			<li>Always pass the full Tailwind class name. <u>Tailwind does not support constructed class names</u>.</li>
 			<li>Ensure Typescript types are provided and set relevant default values when possible.</li>
 			<li>If a new prop is added or modified then please consider updating the documentation with an example if necessary.</li>
 		</ul>

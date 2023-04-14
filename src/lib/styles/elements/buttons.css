@@ -45,7 +45,7 @@
 	/* A circular button meant for housing icons. */
 
 	.btn-icon {
-		/* Extend Base Button Clases */
+		/* Extend Base Button Classes */
 		@apply button-base-styles;
 		/* Padding */
 		@apply p-0;

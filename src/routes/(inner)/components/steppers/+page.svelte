@@ -92,14 +92,16 @@
 							<svelte:fragment slot="header">Long Form Content.</svelte:fragment>
 							<p>The steps will expand to fit content of any length.</p>
 							<p>
+								<!-- cspell:disable -->
 								Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque vel expedita porro vero, saepe dicta repellendus facilis ab
-								accusamus unde, tempora ut nobis eum. Veniam, architecto corrupti. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-								Itaque vel expedita porro vero, saepe dicta repellendus facilis ab accusamus unde, tempora ut nobis eum. Veniam, architecto
-								corrupti. Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque vel expedita porro vero, saepe dicta repellendus
-								facilis ab accusamus unde, tempora ut nobis eum. Veniam, architecto corrupti. Lorem ipsum dolor sit amet consectetur
-								adipisicing elit. Itaque vel expedita porro vero, saepe dicta repellendus facilis ab accusamus unde, tempora ut nobis eum.
-								Veniam, architecto corrupti. Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque vel expedita porro vero, saepe
-								dicta repellendus facilis ab accusamus unde, tempora ut nobis eum. Veniam, architecto corrupti.
+ 								accusamus unde, tempora ut nobis eum. Veniam, architecto corrupti. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+ 								Itaque vel expedita porro vero, saepe dicta repellendus facilis ab accusamus unde, tempora ut nobis eum. Veniam, architecto
+ 								corrupti. Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque vel expedita porro vero, saepe dicta repellendus
+ 								facilis ab accusamus unde, tempora ut nobis eum. Veniam, architecto corrupti. Lorem ipsum dolor sit amet consectetur
+ 								adipisicing elit. Itaque vel expedita porro vero, saepe dicta repellendus facilis ab accusamus unde, tempora ut nobis eum.
+ 								Veniam, architecto corrupti. Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque vel expedita porro vero, saepe
+ 								dicta repellendus facilis ab accusamus unde, tempora ut nobis eum. Veniam, architecto corrupti.
+								<!-- cspell:enable -->
 							</p>
 						</Step>
 						<Step>
@@ -156,7 +158,7 @@
 			<CodeBlock language="html" code={`<Stepper on:next={onNextHandler} on:step={onStepHandler} on:back={onBackHandler}>...</Stepper>`} />
 			<blockquote>
 				TIP: <code>e.state.current</code> contains the step shown to the user after navigation, <code>e.step</code> contains the step where navigation
-				occured.
+				occurred.
 			</blockquote>
 		</section>
 		<!-- Locked State -->

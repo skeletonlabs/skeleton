@@ -46,7 +46,7 @@ export interface DocsShellSettings {
 	name: string;
 	/** The feature description */
 	description: string;
-	/** Specifiy the GitHub source path for the feature (partial) */
+	/** Specify the GitHub source path for the feature (partial) */
 	source?: string;
 	/** List of import alias names. */
 	imports?: string[];
@@ -63,9 +63,9 @@ export interface DocsShellSettings {
 		/** Package URL */
 		url: string;
 	};
-	/** Specifify the GitHub documentation source for the feature (partial) */
+	/** Specify the GitHub documentation source for the feature (partial) */
 	docsPath?: string;
-	/** Provide list of depedency links.  */
+	/** Provide list of dependency links.  */
 	dependencies?: Link[];
 	/** WAI-ARIA APG reference page URL. */
 	aria?: string;
