@@ -13,14 +13,16 @@
 
 <!-- @component This example creates an embedded video modal. -->
 
-<div class="modal-example-form {cBase}">
-	<button class={cButton} on:click={parent.onClose}>✕</button>
-	<iframe
-		class={cIframe}
-		src="https://www.youtube.com/embed/vOGhAV-84iI"
-		title="YouTube video player"
-		frameborder="0"
-		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-		allowfullscreen
-	/>
-</div>
+{#if $modalStore[0]}
+	<div class="modal-example-form {cBase}">
+		<button class={cButton} on:click={parent.onClose}>✕</button>
+		<iframe
+			class={cIframe}
+			src="https://www.youtube.com/embed/vOGhAV-84iI"
+			title="YouTube video player"
+			frameborder="0"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			allowfullscreen
+		/>
+	</div>
+{/if}
