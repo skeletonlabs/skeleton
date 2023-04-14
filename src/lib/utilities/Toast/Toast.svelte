@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { fly } from 'svelte/transition';
+	import { crossfade } from 'svelte/transition';
+	import { cubicInOut} from 'svelte/easing';
 	import { flip } from 'svelte/animate';
 
 	// Types
@@ -16,7 +17,7 @@
 	/** Maximum toasts that can show at once. */
 	export let max = 3;
 	/** The duration of the fly in/out animation. */
-	export let duration = 150;
+	export let duration = 250;
 
 	// Props (styles)
 	/** Provide classes to set the background color. */
@@ -81,15 +82,34 @@
 	$: classesToast = `${cToast} ${width} ${color} ${padding} ${spacing} ${rounded} ${shadow}`;
 	// Filtered Toast Store
 	$: filteredToasts = Array.from($toastStore).slice(0, max);
+
+	// Crossfade animation for Toasts
+	const [send, receive] = crossfade({
+		duration: d => Math.sqrt(d * duration),
+
+		fallback(node) {
+			const style = getComputedStyle(node);
+			const transform = style.transform === 'none' ? '' : style.transform;
+
+			return {
+				duration,
+				easing: cubicInOut,
+				css: (t, u) => `
+					transform: ${transform} scale(${t}) translate(${u * animAxis.x}%, ${u * animAxis.y}%);
+					opacity: ${t}
+				`
+			};
+		}
+	});
 </script>
 
 {#if $toastStore.length}
 	<!-- Wrapper -->
 	<div class="snackbar-wrapper {classesWrapper}" data-testid="snackbar-wrapper">
 		<!-- List -->
-		<div class="snackbar {classesSnackbar}" transition:fly={{ x: animAxis.x, y: animAxis.y, duration }}>
+		<div class="snackbar {classesSnackbar}" >
 			{#each filteredToasts as t, i (t)}
-				<div animate:flip={{ duration }}>
+				<div animate:flip={{ duration }} in:receive="{{key: t.id}}" out:send="{{key: t.id}}">
 					<!-- Toast -->
 					<div class="toast {classesToast} {t.background ?? background} {t.classes}" role="alert" aria-live="polite" data-testid="toast">
 						<div class="text-base">{@html t.message}</div>
