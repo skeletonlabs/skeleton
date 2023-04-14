@@ -124,6 +124,20 @@
 		<CodeBlock language="console" code={`npm run test`} />
 	</section>
 
+	<!-- Spell Checking -->
+	<section class="space-y-4">
+		<h2>Spell Checking</h2>
+		<p>
+			Skeleton uses <a href="https://cspell.org" target="_blank" rel="noreferrer">Cspell</a> to check for spelling errors. We reccomend
+			installing the
+			<a href="https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker" target="_blank" rel="noreferrer">
+				Code Spell Checker
+			</a>
+			extension for VS Code. You can add words to the dictionary using this extension, or by editing <code>cspell.json</code> at the root of
+			the repository.
+		</p>
+		<CodeBlock language="console" code={`npm exec cspell "**" --no-progress`} />
+	</section>
 	<!-- Project Structure -->
 	<section class="space-y-4">
 		<h2>Project Structure</h2>
