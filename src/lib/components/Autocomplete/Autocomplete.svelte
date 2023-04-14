@@ -1,11 +1,13 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
-	import { slide } from 'svelte/transition';
-	import { flip } from 'svelte/animate';
-	const dispatch = createEventDispatcher();
+	// import { flip } from 'svelte/animate';
+	// import {slide} from 'svelte/transition';
 
 	// Types
 	import type { AutocompleteOption } from './types';
+
+	// Custom Dispatcher
+	const dispatch = createEventDispatcher();
 
 	// Props
 	/**
@@ -30,8 +32,6 @@
 	export let denylist: unknown[] = [];
 	/** Provide a HTML markup to display when no match is found. */
 	export let emptyState: string = 'No Results Found.';
-	/** Set the animation duration. Use zero to disable. */
-	export let duration: number = 200;
 	// Props (region)
 	/** Provide arbitrary classes to nav element. */
 	export let regionNav: string = '';
@@ -43,14 +43,15 @@
 	export let regionButton: string = 'w-full';
 	/** Provide arbitrary classes to empty message. */
 	export let regionEmpty: string = 'text-center';
-
-	// TODO: hese are slated to be removed!
+	// TODO: These are slated to be removed!
 	/** DEPRECATED: replace with allowlist */
 	export let whitelist: unknown[] = [];
 	/** DEPRECATED: replace with denylist */
 	export let blacklist: unknown[] = [];
+	/** DEPRECATED: Set the animation duration. Use zero to disable. */
+	export let duration: number = 200;
 	// Silence warning about unused props:
-	const deprecated = [whitelist, blacklist];
+	const deprecated = [whitelist, blacklist, duration];
 
 	// Local
 	let listedOptions = options;
@@ -109,12 +110,13 @@
 	$: classesEmpty = `${regionEmpty}`;
 </script>
 
-<div class="autocomplete {classesBase}" data-testid="autocomplete">
+<!-- animate:flip={{ duration }} transition:slide|local={{ duration }} -->
+<div class="autocomplete {classsesBase}" data-testid="autocomplete">
 	{#if optionsFiltered.length > 0}
 		<nav class="autocomplete-nav {classesNav}">
 			<ul class="autocomplete-list {classesList}">
 				{#each optionsFiltered as option, i (option)}
-					<li class="autocomplete-item {classesItem}" animate:flip={{ duration }} transition:slide|local={{ duration }}>
+					<li class="autocomplete-item {classesItem}">
 						<button class="autocomplete-button {classesButton}" type="button" on:click={() => onSelection(option)} on:click on:keypress>
 							{@html option.label}
 						</button>
