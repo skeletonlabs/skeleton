@@ -11,6 +11,7 @@
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Component,
 		name: 'Template',
+		// cspell:disable-next-line
 		description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
 		imports: ['Template'],
 		types: ['Template'],

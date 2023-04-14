@@ -1,6 +1,5 @@
 <script lang="ts">
-	const placeholderBody = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit perspiciatis velit consectetur.';
-	const featuers = [
+	const features = [
 		{
 			title: 'Amazing DX',
 			body: 'Offers a best in class developer experience providing thorough documentation and ample examples to help you ship faster.',
@@ -43,7 +42,7 @@
 	<!-- Grid -->
 	<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
 		<!-- Loop -->
-		{#each featuers as feature}
+		{#each features as feature}
 			<!-- Card -->
 			<div class="card variant-glass p-4 shadow-lg md:p-10 space-y-4 text-center">
 				<span class="btn-icon btn-icon-xl variant-soft-primary">

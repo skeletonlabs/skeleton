@@ -109,8 +109,10 @@
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<blockquote class="w-full">
+						<!-- cspell:disable -->
 						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita cupiditate dolores dignissimos maiores doloremque fugiat,
-						dolore doloribus nisi, repellendus mollitia nostrum, commodi a minus aperiam deleniti. Velit rerum ut tempora!
+ 						dolore doloribus nisi, repellendus mollitia nostrum, commodi a minus aperiam deleniti. Velit rerum ut tempora!
+						<!-- cspell:enable -->
 					</blockquote>
 				</svelte:fragment>
 				<svelte:fragment slot="source">

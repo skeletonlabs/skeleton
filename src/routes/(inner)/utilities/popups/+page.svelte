@@ -209,7 +209,7 @@ let popupSettings: PopupSettings = {
 							language="ts"
 							code={`
 let popupSettings: PopupSettings = {
-	// No chidren will close the popup:
+	// No children will close the popup:
 	closeQuery: '',
 };
 `}
@@ -226,7 +226,7 @@ state: (e) => console.log(e)
 `}
 						/>
 					{:else if tabSettings === 3}
-						<!-- Middlware -->
+						<!-- Middleware -->
 						<!-- prettier-ignore -->
 						<p>
 					You can provide <a href="https://floating-ui.com/docs/middleware" target="_blank" rel="noreferrer">Floating UI middleware</a> settings within <code>PopupSettings</code>. These settings are passed verbatim.
@@ -236,7 +236,7 @@ state: (e) => console.log(e)
 							code={`
 let popupSettings: PopupSettings = {
 middleware: {
-	// Floating UI Middlware
+	// Floating UI Middleware
 	/** https://floating-ui.com/docs/offset */
 	offset: 24, // or { ... }
 	/** https://floating-ui.com/docs/shift */

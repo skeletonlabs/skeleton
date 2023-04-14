@@ -57,7 +57,7 @@ export function tableA11y(node: HTMLElement) {
 			}
 		}
 	};
-	// Event Listner
+	// Event Listener
 	node.addEventListener('keydown', onKeyDown);
 	// Lifecycle
 	return {

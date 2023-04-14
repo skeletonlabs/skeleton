@@ -6,7 +6,7 @@
 	// Types
 	import type { CssClasses } from '$lib';
 
-	// Event Dispacher
+	// Event Dispatcher
 	const dispatchParent = createEventDispatcher();
 
 	// Props

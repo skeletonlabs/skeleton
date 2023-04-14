@@ -101,15 +101,15 @@
 	$: if (denylist) filterByDenied();
 	$: optionsFiltered = input ? filterOptions() : listedOptions;
 	// Reactive
-	$: classsesBase = `${$$props.class ?? ''}`;
+	$: classesBase = `${$$props.class ?? ''}`;
 	$: classesNav = `${regionNav}`;
 	$: classesList = `${regionList}`;
 	$: classesItem = `${regionItem}`;
 	$: classesButton = `${regionButton}`;
-	$: classesEmtpy = `${regionEmpty}`;
+	$: classesEmpty = `${regionEmpty}`;
 </script>
 
-<div class="autocomplete {classsesBase}" data-testid="autocomplete">
+<div class="autocomplete {classesBase}" data-testid="autocomplete">
 	{#if optionsFiltered.length > 0}
 		<nav class="autocomplete-nav {classesNav}">
 			<ul class="autocomplete-list {classesList}">
@@ -123,6 +123,6 @@
 			</ul>
 		</nav>
 	{:else}
-		<div class="autocomplete-empty {classesEmtpy}">{emptyState}</div>
+		<div class="autocomplete-empty {classesEmpty}">{emptyState}</div>
 	{/if}
 </div>

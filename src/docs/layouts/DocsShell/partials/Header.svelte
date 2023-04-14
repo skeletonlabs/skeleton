@@ -79,7 +79,7 @@
 		<!-- Dependencies -->
 		{#if pageData.dependencies?.length}
 			{#each pageData.dependencies as d}
-				<a class={cChip} href={d.url} target="_blank" rel="noreferrer" title="Required Depedency">
+				<a class={cChip} href={d.url} target="_blank" rel="noreferrer" title="Required Dependency">
 					<i class="fa-solid fa-down-left-and-up-right-to-center text-[16px]" />
 					<span>{d.label}</span>
 				</a>

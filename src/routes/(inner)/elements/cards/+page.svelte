@@ -50,8 +50,10 @@
 							<h3 data-toc-ignore>Skeleton is Awesome!</h3>
 							<article>
 								<p>
+									<!-- cspell:disable -->
 									Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam aspernatur provident eveniet eligendi cumque consequatur
-									tempore sint nisi sapiente. Iste beatae laboriosam iure molestias cum expedita architecto itaque quae rem.
+ 									tempore sint nisi sapiente. Iste beatae laboriosam iure molestias cum expedita architecto itaque quae rem.
+									<!-- cspell:enable -->
 								</p>
 							</article>
 						</div>

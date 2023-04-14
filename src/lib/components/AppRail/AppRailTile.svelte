@@ -16,7 +16,7 @@
 	export let value: any | undefined = undefined;
 	/** Provide the element tag. Button or Anchor recommended. */
 	export let tag = 'button';
-	/** Provide the vislble text label. */
+	/** Provide the visible text label. */
 	export let label = '';
 
 	// Props (region)

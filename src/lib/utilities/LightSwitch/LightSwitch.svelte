@@ -43,7 +43,7 @@
 
 	// A11y Input Handlers
 	function onKeyDown(event: OnKeyDownEvent): void {
-		// Enter/Space triggers selecton event
+		// Enter/Space triggers selection event
 		if (['Enter', 'Space'].includes(event.code)) {
 			event.preventDefault();
 			event.currentTarget.click();
