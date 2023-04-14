@@ -111,7 +111,7 @@
 </script>
 
 <!-- animate:flip={{ duration }} transition:slide|local={{ duration }} -->
-<div class="autocomplete {classsesBase}" data-testid="autocomplete">
+<div class="autocomplete {classesBase}" data-testid="autocomplete">
 	{#if optionsFiltered.length > 0}
 		<nav class="autocomplete-nav {classesNav}">
 			<ul class="autocomplete-list {classesList}">
