@@ -44,7 +44,11 @@
 	const cContent = 'space-y-4';
 	const cNavigation = 'flex';
 
-	function onNext() {
+	async function onNext() {
+		// Allows any forms to submit before the Step is removed from the DOM:
+		// https://github.com/skeletonlabs/skeleton/issues/1328
+		await new Promise((resolve) => setTimeout(resolve));
+
 		if (locked) return;
 		$state.current++;
 		/** @event { $state } next - Fires when the NEXT button is pressed per step.  */
@@ -91,7 +95,7 @@
 					>{@html buttonBackLabel}</button
 				>
 				{#if stepIndex < $state.total - 1}
-					<button type={buttonNextType} class="btn {buttonNext}" on:click={async () => onNext} disabled={locked}>
+					<button type={buttonNextType} class="btn {buttonNext}" on:click={onNext} disabled={locked}>
 						{#if locked}
 							<svg class="w-3 aspect-square" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
 								<path
