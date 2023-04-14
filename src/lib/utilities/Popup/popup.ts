@@ -158,7 +158,6 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		render(); // update
 		elemPopup.style.display = 'block';
 		elemPopup.style.opacity = '1';
-		elemPopup.style.pointerEvents = 'initial';
 		isVisible = true;
 		stateEventHandler(true);
 		// Utilize autoUpdate ONLY when the popup is.
@@ -171,7 +170,6 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		const cssTransitionDuration = parseFloat(window.getComputedStyle(elemPopup).transitionDuration.replace('s', '')) * 1000;
 		setTimeout(() => {
 			elemPopup.style.display = 'none';
-			elemPopup.style.pointerEvents = 'none';
 			isVisible = false;
 			stateEventHandler(false);
 		}, cssTransitionDuration);
@@ -189,19 +187,13 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		if (!isVisible) return;
 		// Handle keys
 		const key: string = event.key;
-        // Tab should also close the popup, in a future version, popup will not do anything on key down or key up.
-        // that will be handled by a separate action.
-		if (key === 'Escape') {
+		// Handle keyboard interaction
+		if (key === 'Escape' || (document.activeElement === node && key === 'Tab')) {
 			event.preventDefault();
 			close();
 			node.focus();
 			return;
-		} else if (key === 'Tab' && node instanceof HTMLInputElement){
-            event.preventDefault();
-            close();
-            node.focus();
-            return;
-        }else if (key === 'ArrowDown') {
+		} else if (key === 'ArrowDown') {
 			event.preventDefault();
 			if (activeFocusIdx < focusableElems.length - 1) {
 				// Move down the menu
