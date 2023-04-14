@@ -6,7 +6,6 @@
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
 	import Tab from '$lib/components/Tab/Tab.svelte';
-	import type { TooltipSettings } from '$lib/utilities/Tooltip/types';
 	import { tooltip } from '$lib/utilities/Tooltip/tooltip';
 
 	// Docs Shell
@@ -14,7 +13,7 @@
 		feature: DocsFeature.Utility,
 		name: 'Tooltips',
 		description:
-			'Create floating menus and tooltips using <a href="https://floating-ui.com/" target="_blank" rel="noreferrer">Floating UI</a>.',
+			'Create tooltips using <a href="https://floating-ui.com/" target="_blank" rel="noreferrer">Floating UI</a>. Use the <a href="/utilities/popups" rel="noreferrer">Popups</a> component if you want more advanced functionality.',
 		imports: ['tooltip'],
 		types: ['TooltipSettings'],
 		stylesheetIncludes: ['all', 'elements'],

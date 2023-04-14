@@ -18,7 +18,7 @@
 		feature: DocsFeature.Utility,
 		name: 'Popups',
 		description:
-			'Create floating menus and tooltips using <a href="https://floating-ui.com/" target="_blank" rel="noreferrer">Floating UI</a>.',
+			'Create floating menus using <a href="https://floating-ui.com/" target="_blank" rel="noreferrer">Floating UI</a>. Use the <a href="/utilities/popups" rel="noreferrer">Tooltips</a> component if you just want basic tooltip functionality.',
 		imports: ['popup'],
 		types: ['PopupSettings'],
 		stylesheetIncludes: ['all', 'elements'],
