@@ -204,7 +204,17 @@ let popupSettings: PopupSettings = {
 };
 `}
 						/>
-						<p>To disable any child elements from closing the popup, use the following:</p>
+						<p>To enable any and all child elements to close the popup, use the following:</p>
+						<CodeBlock
+							language="ts"
+							code={`
+let popupSettings: PopupSettings = {
+	// Use a wildcard to represent any/all:
+	closeQuery: '*',
+};
+`}
+						/>
+						<p>To prevent any child elements from closing the popup, use the following:</p>
 						<CodeBlock
 							language="ts"
 							code={`
