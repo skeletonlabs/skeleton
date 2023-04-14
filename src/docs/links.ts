@@ -41,7 +41,7 @@ export const menuNavLinks: any = [
 		id: 'base',
 		title: 'Globals',
 		list: [
-			{ href: '/elements/core', label: 'Core', keywords: 'body, scroll, scrollbar, hr, horizontal, rule' },
+			{ href: '/elements/core', label: 'Core', keywords: 'body, scroll, scrollbar, hr, horizontal, rule, divider' },
 			{
 				href: '/elements/typography',
 				label: 'Typography',
