@@ -8,7 +8,7 @@
 	import type { CssClasses } from '$lib';
 
 	// Props
-	export let locked: boolean = false;
+	export let locked = false;
 
 	// Props (regions)
 	/** Provide arbitrary classes to the step header region. */
@@ -44,14 +44,14 @@
 	const cContent = 'space-y-4';
 	const cNavigation = 'flex';
 
-	function onNext(): void {
+	function onNext() {
 		if (locked) return;
 		$state.current++;
 		/** @event { $state } next - Fires when the NEXT button is pressed per step.  */
 		dispatchParent('next', { step: stepIndex, state: $state });
 		dispatchParent('step', { step: stepIndex, state: $state });
 	}
-	function onBack(): void {
+	function onBack() {
 		$state.current--;
 		/** @event { $state } back - Fires when the BACK button is pressed per step.  */
 		dispatchParent('back', { step: stepIndex, state: $state });
@@ -91,7 +91,7 @@
 					>{@html buttonBackLabel}</button
 				>
 				{#if stepIndex < $state.total - 1}
-					<button type={buttonNextType} class="btn {buttonNext}" on:click={onNext} disabled={locked}>
+					<button type={buttonNextType} class="btn {buttonNext}" on:click={async () => onNext} disabled={locked}>
 						{#if locked}
 							<svg class="w-3 aspect-square" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
 								<path
