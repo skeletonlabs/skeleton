@@ -126,7 +126,7 @@
 				example, the <em>surface</em> color swatch 50 is the lightest available color, so we utilize that for your light theme background
 				color. While swatch 900 is the darkest, so vice versa. These two colors form a pair. We then generate design token classes for
 				<code>.bg-surface-50-900-token</code>
-				and <code>bg-surface-900-50-token</code> that automaticallys switch between these in light/dark mode respectively.
+				and <code>bg-surface-900-50-token</code> that automatically switch between these in light/dark mode respectively.
 			</p>
 			<img
 				class="rounded-container-token shadow-lg"

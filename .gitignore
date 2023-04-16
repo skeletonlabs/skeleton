@@ -8,7 +8,6 @@ dist
 !.env.example
 coverage
 pnpm-lock.yaml
-.vscode
 .temp
 src/lib/tailwind/generated
 *.tgz

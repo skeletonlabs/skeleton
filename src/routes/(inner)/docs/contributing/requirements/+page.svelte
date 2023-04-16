@@ -89,7 +89,7 @@
 		<Table source={tableBranches} />
 		<h4>Feature Branch Conventions</h4>
 		<Table source={tableBranchNaming} />
-		<p>The wildcards (*) should be replaced with short and semantic descriptions that are lowercase and seperated by dashes.</p>
+		<p>The wildcards (*) should be replaced with short and semantic descriptions that are lowercase and separated by dashes.</p>
 		<pre>feat/my-new-component-name</pre>
 	</section>
 
@@ -97,7 +97,7 @@
 	<section class="space-y-4">
 		<h2>Third Party Dependencies</h2>
 		<p>
-			Avoid adding additional depedencies without prior consent from a core team member. Pull Requests that do not follow this
+			Avoid adding additional dependencies without prior consent from a core team member. Pull Requests that do not follow this
 			recommendation will be rejected outright.
 		</p>
 	</section>
@@ -124,6 +124,20 @@
 		<CodeBlock language="console" code={`npm run test`} />
 	</section>
 
+	<!-- Spell Checking -->
+	<section class="space-y-4">
+		<h2>Spell Checking</h2>
+		<p>
+			Skeleton uses <a href="https://cspell.org" target="_blank" rel="noreferrer">Cspell</a> to check for spelling errors. We reccomend
+			installing the
+			<a href="https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker" target="_blank" rel="noreferrer">
+				Code Spell Checker
+			</a>
+			extension for VS Code. You can add words to the dictionary using this extension, or by editing <code>cspell.json</code> at the root of
+			the repository.
+		</p>
+		<CodeBlock language="console" code={`npm exec cspell "**" --no-progress`} />
+	</section>
 	<!-- Project Structure -->
 	<section class="space-y-4">
 		<h2>Project Structure</h2>

@@ -21,7 +21,7 @@ describe('TabGroup.svelte', () => {
 				color: 'text-primary-500',
 				fill: 'fill-primary-500',
 				hover: 'hover:bg-primary-500/10',
-				labeledby: 'testTabGroupLabel1',
+				labelledby: 'testTabGroupLabel1',
 				label: 'testTabGroup1'
 			}
 		});

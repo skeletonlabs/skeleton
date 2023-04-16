@@ -28,12 +28,14 @@
 			<!-- Ad Position -->
 			{#if $storeVercelProductionMode === true}
 				<!-- Production Ad -->
+				<!-- cspell:disable -->
 				<script
 					async
 					type="text/javascript"
 					src="//cdn.carbonads.com/carbon.js?serve=CWYD627U&placement=carbonadsnet"
 					id="_carbonads_js"
 				></script>
+				<!-- cspell:enable -->
 			{:else}
 				<!-- Staging Placeholder -->
 				<!-- <div class="bg-surface-50-900-token ring-[1px] ring-surface-500/10 w-[286px] h-[120px] flex justify-center items-center">

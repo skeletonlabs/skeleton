@@ -7,7 +7,7 @@ IMPORTANT:
 Be sure to remove these directives from your global CSS stylesheet.
 
 Tailwind directives should only be included ONCE per project.
-These directives should preceed ALL Skeleton stylesheets.
+These directives should precede ALL Skeleton stylesheets.
 */
 
 @tailwind base;

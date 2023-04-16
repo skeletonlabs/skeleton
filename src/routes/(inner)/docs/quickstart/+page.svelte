@@ -7,12 +7,12 @@
 	<!-- Header -->
 	<header class="space-y-4">
 		<h1>Quickstart</h1>
-		<p>This guide will walk you throught the basics of creating a new Skeleton app using SvelteKit.</p>
+		<p>This guide will walk you through the basics of creating a new Skeleton app using SvelteKit.</p>
 	</header>
 
 	<hr />
 
-	<!-- Prereqs -->
+	<!-- Prerequisites -->
 	<section class="space-y-4">
 		<h2>Get Started</h2>
 		<p>To begin, let's scaffold our project using the Skeleton CLI. Note that we've listed a couple required options for this guide.</p>
@@ -41,7 +41,7 @@ npm run dev
 		<CodeBlock language="html" code={`<AppShell slotSidebarLeft="bg-surface-500/5 w-56 p-4">`} />
 		<p>
 			Next, let's implement a <a href="/elements/lists">navigation list</a> within the App Shell's left sidebar slot. Append this slot
-			fragement alongside any other fragment within the <code>AppShell</code>.
+			fragment alongside any other fragment within the <code>AppShell</code>.
 		</p>
 		<CodeBlock
 			language="html"
@@ -67,6 +67,7 @@ npm run dev
 			Let's add some basic content to our homepage. Open <code>/src/routes/+page.svelte</code> and replace the contents with the following.
 			This will provide multiple elements automatically styled by the <code>all.css</code> stylesheet in our root layout.
 		</p>
+		<!-- cspell:disable -->
 		<CodeBlock
 			language="html"
 			code={`
@@ -81,6 +82,7 @@ npm run dev
 </div>
 `}
 		/>
+		<!-- cspell:enable -->
 	</section>
 	<section class="space-y-4">
 		<h2>Add a Component</h2>

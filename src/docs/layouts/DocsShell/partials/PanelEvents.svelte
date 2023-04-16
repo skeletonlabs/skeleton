@@ -2,7 +2,7 @@
 	// Types
 	import type { DocsShellSettings } from '$docs/layouts/DocsShell/types';
 	// Sveld Mapper
-	import { sveldeMapperEvents } from '$docs/layouts/DocsShell/sveldMapper';
+	import { sveldMapperEvents } from '$docs/layouts/DocsShell/sveldMapper';
 	// Components
 	import Table from '$lib/components/Table/Table.svelte';
 
@@ -20,7 +20,7 @@
 	{#if pageData.components}
 		{#each pageData.components as comp}
 			{#if comp.sveld.events.length > 0}
-				{@const tableSource = sveldeMapperEvents(comp)}
+				{@const tableSource = sveldMapperEvents(comp)}
 				<section class="space-y-4">
 					{#if comp.label}<h2>{comp.label}</h2>{/if}
 					{#if comp.descEvents}<div>{@html comp.descEvents}</div>{/if}

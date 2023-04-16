@@ -94,7 +94,8 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 	// Close popup if element matching closeQuery is clicked
 	function closeOnQueryClick(clickedEl: Node) {
 		if (!clickedEl) return;
-		const interactiveMenuElems = elemPopup?.querySelectorAll(args.closeQuery || 'a[href], button');
+		const elemsCloseQuery: string = !args.closeQuery || args.closeQuery === '' ? 'a[href], button' : args.closeQuery;
+		const interactiveMenuElems = elemPopup?.querySelectorAll(elemsCloseQuery);
 		if (!interactiveMenuElems?.length) return;
 		interactiveMenuElems.forEach((elem) => {
 			if (elem.contains(clickedEl)) close();
@@ -158,7 +159,6 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		render(); // update
 		elemPopup.style.display = 'block';
 		elemPopup.style.opacity = '1';
-		elemPopup.style.pointerEvents = 'initial';
 		isVisible = true;
 		stateEventHandler(true);
 		// Utilize autoUpdate ONLY when the popup is.
@@ -170,8 +170,7 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		elemPopup.style.opacity = '0';
 		const cssTransitionDuration = parseFloat(window.getComputedStyle(elemPopup).transitionDuration.replace('s', '')) * 1000;
 		setTimeout(() => {
-			elemPopup.style.display = 'hidden';
-			elemPopup.style.pointerEvents = 'none';
+			elemPopup.style.display = 'none';
 			isVisible = false;
 			stateEventHandler(false);
 		}, cssTransitionDuration);
@@ -189,8 +188,8 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		if (!isVisible) return;
 		// Handle keys
 		const key: string = event.key;
-		// TODO: || (document.activeElement !== node && key === 'Tab')
-		if (key === 'Escape') {
+		// Handle keyboard interaction
+		if (key === 'Escape' || (document.activeElement === node && key === 'Tab')) {
 			event.preventDefault();
 			close();
 			node.focus();

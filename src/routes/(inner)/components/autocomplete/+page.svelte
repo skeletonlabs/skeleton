@@ -116,7 +116,7 @@ const flavorOptions: AutocompleteOption[] = [
 				<CodeBlock
 					language="ts"
 					code={`
-function onDemoSelection(event: any): void {
+function onFlavorSelection(event: any): void {
 	inputDemo = event.detail.label;
 }
 				`}
@@ -135,7 +135,7 @@ function onDemoSelection(event: any): void {
 					language="html"
 					code={`
 <div class="card w-full max-w-sm max-h-48 p-4 overflow-y-auto">
-	<Autocomplete bind:input={inputDemo} options={demoOptions} on:selection={onDemoSelection} />
+	<Autocomplete bind:input={inputDemo} options={flavorOptions} on:selection={onFlavorSelection} />
 </div>
 `}
 				/>

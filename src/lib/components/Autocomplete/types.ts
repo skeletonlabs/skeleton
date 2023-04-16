@@ -5,7 +5,7 @@ export interface AutocompleteOption {
 	label: string;
 	/** Provide a unique option value. */
 	value: unknown;
-	/** Provide a comma seperated list of keywords. */
+	/** Provide a comma separated list of keywords. */
 	keywords?: any;
 	/** Pass arbitrary data per option. */
 	meta?: any;

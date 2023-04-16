@@ -144,7 +144,7 @@
 		$modalStore[0]?.modalClasses ?? ''
 	}`;
 	// IMPORTANT: add values to pass to the children templates.
-	// There is a way to self-reference component values, but it involes svelte-internal and is not yet stable.
+	// There is a way to self-reference component values, but it involves svelte-internal and is not yet stable.
 	// REPL: https://svelte.dev/repl/badd0f11aa99450ca69dca6690d4d5a4?version=3.52.0
 	// Source: https://discord.com/channels/457912077277855764/1037768846855118909
 	$: parent = {
