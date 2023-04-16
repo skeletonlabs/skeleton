@@ -25,20 +25,28 @@
 	 */
 	export let whitelist: string[] = [];
 	/** Maximum number of chips. Set -1 to disable. */
-	export let max = -1;
+	export let max: number = -1;
 	/** Set the minimum character length. */
-	export let minlength = -1;
+	export let minlength: number = -1;
 	/** Set the maximum character length. */
-	export let maxlength = -1;
+	export let maxlength: number = -1;
 	/** When enabled, allows for uppercase values. */
-	export let allowUpperCase = false;
+	export let allowUpperCase: boolean = false;
 	/** When enabled, allows for duplicate values. */
-	export let allowDuplicates = false;
+	export let allowDuplicates: boolean = false;
 	/**
-	 * Provide a custom validation function.
+	 * Provide a custom validator function.
 	 * @type {function}
 	 */
 	export let validation: (...args: any[]) => boolean = () => true;
+
+	/**
+	 * Provide a custom function that exectues when
+	 * the input is invalid
+	 * @type {function}
+	 */
+	export let onInvalid: ((input: string) => any) | undefined = undefined;
+
 	/** The duration of the animated fly effect. */
 	export let duration = 150;
 	/** Set the required state for this input field. */
@@ -95,6 +103,11 @@
 		event.preventDefault();
 		// Validate
 		inputValid = validate();
+		// When the onInvalid hook is present
+		if (inputValid === false && onInvalid !== undefined) {
+			onInvalid(input);
+			return;
+		}
 		if (inputValid === false) return;
 		// Format: to lowercase (if enabled)
 		input = allowUpperCase ? input : input.toLowerCase();
