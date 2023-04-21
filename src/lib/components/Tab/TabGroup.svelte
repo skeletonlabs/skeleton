@@ -51,7 +51,7 @@
 
 	// Classes
 	const cBase = 'space-y-4';
-	const cList = 'flex overflow-x-auto hide-scrollbars';
+	const cList = 'flex overflow-x-auto hide-scrollbar';
 	const cPanel = '';
 
 	// Reactive
