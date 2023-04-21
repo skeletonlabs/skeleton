@@ -36,10 +36,10 @@
 		return value.includes('@') && value.includes('.');
 	}
 
-	function triggerInvalidToast(value: string): void {
+	function onInvalidHandler(event: any): void {
 		toastStore.trigger({
-			message: `"${value}" is an invalid input. Please try again!`,
-			background: 'variant-filled-warning'
+			message: `"${event.detail.input}" is an invalid value. Please try again!`,
+			background: 'variant-filled-error'
 		});
 	}
 </script>
@@ -125,17 +125,17 @@
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>Custom Hooks</h2>
-			<p>You can also provide an onInvalid function that executes when the input is invalid.</p>
+			<h2>Invalid Hook</h2>
+			<p>You may utilize an <code>onInvalid</code> function that executes when the input becomes invalid.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<InputChip
 						name="chips-example-onInvalid"
 						bind:value={musicalGenres}
 						placeholder="Enter Genres..."
-						onInvalid={triggerInvalidToast}
 						chips="variant-filled-tertiary"
 						whitelist={musicalGenresWhitelist}
+						on:invalid={onInvalidHandler}
 					/>
 				</svelte:fragment>
 				<svelte:fragment slot="footer">
@@ -146,9 +146,16 @@
 				<svelte:fragment slot="source">
 					<CodeBlock
 						language="ts"
-						code={`function triggerInvalidToast(value: string): void {\n\ttoastStore.trigger({\n\t\tmessage: \`"\${value}" is an invalid input. Please try again!\`,\n\t\tbackground: 'variant-filled-warning'\n\t});\n}`}
+						code={`
+function onInvalidHandler(event: any): void {
+	toastStore.trigger({
+		message: \`"\${event.detail.input}" is an invalid value. Please try again!\`,
+		background: 'variant-filled-error'
+	});
+}
+						`}
 					/>
-					<CodeBlock language="html" code={`<InputChip ... onInvalid={triggerInvalidToast} />`} />
+					<CodeBlock language="html" code={`<InputChip ... on:invalid={onInvalidHandler} />`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>

@@ -25,27 +25,20 @@
 	 */
 	export let whitelist: string[] = [];
 	/** Maximum number of chips. Set -1 to disable. */
-	export let max: number = -1;
+	export let max = -1;
 	/** Set the minimum character length. */
-	export let minlength: number = -1;
+	export let minlength = -1;
 	/** Set the maximum character length. */
-	export let maxlength: number = -1;
+	export let maxlength = -1;
 	/** When enabled, allows for uppercase values. */
-	export let allowUpperCase: boolean = false;
+	export let allowUpperCase = false;
 	/** When enabled, allows for duplicate values. */
-	export let allowDuplicates: boolean = false;
+	export let allowDuplicates = false;
 	/**
 	 * Provide a custom validator function.
 	 * @type {function}
 	 */
 	export let validation: (...args: any[]) => boolean = () => true;
-
-	/**
-	 * Provide a custom function that exectues when
-	 * the input is invalid
-	 * @type {function}
-	 */
-	export let onInvalid: ((input: string) => any) | undefined = undefined;
 
 	/** The duration of the animated fly effect. */
 	export let duration = 150;
@@ -69,7 +62,6 @@
 	const cInputField = 'unstyled bg-transparent border-0 !ring-0 p-0 w-full';
 
 	// Local
-	// let input = '';
 	let inputValid = true;
 	let chipValues: Array<{ val: (typeof value)[0]; id: number }> = value.map((val) => {
 		return { val: val, id: Math.random() };
@@ -104,11 +96,11 @@
 		// Validate
 		inputValid = validate();
 		// When the onInvalid hook is present
-		if (inputValid === false && onInvalid !== undefined) {
-			onInvalid(input);
+		if (inputValid === false) {
+			/** @event {{ event: Event, input: any  }} add - Fires when the input value is invalid. */
+			dispatch('invalid', { event, input });
 			return;
 		}
-		if (inputValid === false) return;
 		// Format: to lowercase (if enabled)
 		input = allowUpperCase ? input : input.toLowerCase();
 		// Append value to array
