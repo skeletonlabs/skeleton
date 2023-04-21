@@ -24,7 +24,7 @@
 			{
 				label: 'AccordionItem',
 				sveld: sveldAccordionItem,
-				overrideProps: ['padding', 'hover', 'rounded', 'regionControl', 'regionPanel', 'regionCaret']
+				overrideProps: ['disabled', 'padding', 'hover', 'rounded', 'regionControl', 'regionPanel', 'regionCaret']
 			}
 		],
 		keyboard: [
