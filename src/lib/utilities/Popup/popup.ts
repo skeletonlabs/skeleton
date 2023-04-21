@@ -83,10 +83,10 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		// reset the focus index
 		activeFocusIdx = -1;
 		// if the popup was triggered via focus, we don't want to move that focus
-        // we also only want to set activeFocusIdx to 0 if the popup wasn't triggered via `focus` or `focus-click`
+		// we also only want to set activeFocusIdx to 0 if the popup wasn't triggered via `focus` or `focus-click`
 		if (args.event !== 'focus' && args.event !== 'focus-click') {
-            // Automatically focus the element if the event is not `focus` or `focus-click`
-            activeFocusIdx = 0;
+			// Automatically focus the element if the event is not `focus` or `focus-click`
+			activeFocusIdx = 0;
 			focusableElems[0]?.focus();
 		}
 	}
