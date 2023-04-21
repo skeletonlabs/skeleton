@@ -97,7 +97,7 @@
 		inputValid = validate();
 		// When the onInvalid hook is present
 		if (inputValid === false) {
-			/** @event {{ event: Event, input: any  }} add - Fires when the input value is invalid. */
+			/** @event {{ event: Event, input: any  }} invalid - Fires when the input value is invalid. */
 			dispatch('invalid', { event, input });
 			return;
 		}
