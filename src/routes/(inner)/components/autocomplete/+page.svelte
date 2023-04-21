@@ -221,10 +221,10 @@ const flavorOptions: AutocompleteOption[] = [
 
 		<section class="space-y-4">
 			<h2>Input Chip</h2>
-			<p>We've provide a demo of using Autocomplete alongside a Skeleton Input Chip component below.</p>
-			<!-- <pre>inputChip: {JSON.stringify(inputChip, null, 2)}</pre> -->
-			<!-- <pre>flavorOptions: {JSON.stringify(flavorOptions, null, 2)}</pre> -->
-			<!-- <pre>inputChipList: {JSON.stringify(inputChipList, null, 2)}</pre> -->
+			<p>We've provided a demo of using Autocomplete alongside a Skeleton Input Chip component below.</p>
+			<pre>inputChip: {JSON.stringify(inputChip, null, 2)}</pre>
+			<pre>flavorOptions: {JSON.stringify(flavorOptions, null, 2)}</pre>
+			<pre>inputChipList: {JSON.stringify(inputChipList, null, 2)}</pre>
 			<DocsPreview background="neutral" regionFooter="text-center">
 				<svelte:fragment slot="preview">
 					<div class="text-token w-full max-w-sm space-y-2">

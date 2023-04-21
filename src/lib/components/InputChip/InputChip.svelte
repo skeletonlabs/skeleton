@@ -35,10 +35,11 @@
 	/** When enabled, allows for duplicate values. */
 	export let allowDuplicates = false;
 	/**
-	 * Provide a custom validation function.
+	 * Provide a custom validator function.
 	 * @type {function}
 	 */
 	export let validation: (...args: any[]) => boolean = () => true;
+
 	/** The duration of the animated fly effect. */
 	export let duration = 150;
 	/** Set the required state for this input field. */
@@ -61,7 +62,6 @@
 	const cInputField = 'unstyled bg-transparent border-0 !ring-0 p-0 w-full';
 
 	// Local
-	// let input = '';
 	let inputValid = true;
 	let chipValues: Array<{ val: (typeof value)[0]; id: number }> = value.map((val) => {
 		return { val: val, id: Math.random() };
@@ -95,7 +95,12 @@
 		event.preventDefault();
 		// Validate
 		inputValid = validate();
-		if (inputValid === false) return;
+		// When the onInvalid hook is present
+		if (inputValid === false) {
+			/** @event {{ event: Event, input: any  }} invalid - Fires when the input value is invalid. */
+			dispatch('invalid', { event, input });
+			return;
+		}
 		// Format: to lowercase (if enabled)
 		input = allowUpperCase ? input : input.toLowerCase();
 		// Append value to array
