@@ -44,6 +44,8 @@
 	/** Set the drawer animation duration. */
 	export let duration: number = getContext('duration');
 	// ---
+	/** Set the disabled state for this item. */
+	export let disabled: boolean = getContext('disabled');
 	/** Provide classes to set the accordion item padding styles. */
 	export let padding: CssClasses = getContext('padding');
 	/** Provide classes to set the accordion item hover styles. */
@@ -111,6 +113,7 @@
 		on:keypress
 		aria-expanded={openState}
 		aria-controls="accordion-panel-{id}"
+		{disabled}
 	>
 		<!-- Lead -->
 		{#if $$slots.lead}

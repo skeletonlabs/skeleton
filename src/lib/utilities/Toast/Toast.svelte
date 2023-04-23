@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { fly } from 'svelte/transition';
+	import { crossfade } from 'svelte/transition';
+	import { cubicInOut} from 'svelte/easing';
 	import { flip } from 'svelte/animate';
 
 	// Types
@@ -16,7 +17,7 @@
 	/** Maximum toasts that can show at once. */
 	export let max = 3;
 	/** The duration of the fly in/out animation. */
-	export let duration = 150;
+	export let duration = 250;
 
 	// Props (styles)
 	/** Provide classes to set the background color. */
@@ -33,6 +34,8 @@
 	export let rounded: CssClasses = 'rounded-container-token';
 	/** Provide classes to set the border box shadow. */
 	export let shadow: CssClasses = 'shadow-lg';
+	/** Provide a class to override the z-index */
+	export let zIndex: CssClasses = 'z-[888]';
 
 	// Props (buttons)
 	/** Provide styles for the action button. */
@@ -43,7 +46,7 @@
 	export let buttonDismissLabel = '✕';
 
 	// Base Classes
-	const cWrapper = 'flex fixed top-0 left-0 right-0 bottom-0 z-[888] pointer-events-none';
+	const cWrapper = 'flex fixed top-0 left-0 right-0 bottom-0 pointer-events-none';
 	const cSnackbar = 'flex flex-col space-y-2';
 	const cToast = 'flex justify-between items-center pointer-events-auto';
 	const cToastActions = 'flex items-center space-x-2';
@@ -74,20 +77,39 @@
 	}
 
 	// Reactive
-	$: classesWrapper = `${cWrapper} ${cPosition} ${$$props.class || ''}`;
+	$: classesWrapper = `${cWrapper} ${cPosition} ${zIndex} ${$$props.class || ''}`;
 	$: classesSnackbar = `${cSnackbar} ${cAlign} ${padding}`;
 	$: classesToast = `${cToast} ${width} ${color} ${padding} ${spacing} ${rounded} ${shadow}`;
 	// Filtered Toast Store
 	$: filteredToasts = Array.from($toastStore).slice(0, max);
+
+	// Crossfade animation for Toasts
+	const [send, receive] = crossfade({
+		duration: d => Math.sqrt(d * duration),
+
+		fallback(node) {
+			const style = getComputedStyle(node);
+			const transform = style.transform === 'none' ? '' : style.transform;
+
+			return {
+				duration,
+				easing: cubicInOut,
+				css: (t, u) => `
+					transform: ${transform} scale(${t}) translate(${u * animAxis.x}%, ${u * animAxis.y}%);
+					opacity: ${t}
+				`
+			};
+		}
+	});
 </script>
 
 {#if $toastStore.length}
 	<!-- Wrapper -->
 	<div class="snackbar-wrapper {classesWrapper}" data-testid="snackbar-wrapper">
 		<!-- List -->
-		<div class="snackbar {classesSnackbar}" transition:fly={{ x: animAxis.x, y: animAxis.y, duration }}>
+		<div class="snackbar {classesSnackbar}" >
 			{#each filteredToasts as t, i (t)}
-				<div animate:flip={{ duration }}>
+				<div animate:flip={{ duration }} in:receive="{{key: t.id}}" out:send="{{key: t.id}}">
 					<!-- Toast -->
 					<div class="toast {classesToast} {t.background ?? background} {t.classes}" role="alert" aria-live="polite" data-testid="toast">
 						<div class="text-base">{@html t.message}</div>

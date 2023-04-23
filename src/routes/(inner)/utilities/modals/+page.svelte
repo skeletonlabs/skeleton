@@ -69,9 +69,7 @@
 			type: 'confirm',
 			title: 'Please Confirm',
 			body: 'Are you sure you wish to proceed?',
-			response: (r: boolean) => {
-				if (r) console.log('response:', r);
-			}
+			response: (r: boolean) => console.log('response:', r)
 		};
 		modalStore.trigger(d);
 	}
@@ -83,9 +81,7 @@
 			body: 'Provide your first name in the field below.',
 			value: 'Skeleton',
 			valueAttr: { type: 'text', minlength: 3, maxlength: 10, required: true },
-			response: (r: string) => {
-				if (r) console.log('response:', r);
-			}
+			response: (r: string) => console.log('response:', r)
 		};
 		modalStore.trigger(d);
 	}
@@ -110,9 +106,7 @@
 			component: c,
 			title: 'Custom Form Component',
 			body: 'Complete the form below and then press submit.',
-			response: (r: any) => {
-				if (r) console.log('response:', r);
-			}
+			response: (r: any) => console.log('response:', r)
 		};
 		modalStore.trigger(d);
 	}
@@ -123,9 +117,7 @@
 			component: 'exampleList',
 			title: 'Custom List Component',
 			body: 'Make your selection then press submit.',
-			response: (r: any) => {
-				if (r) console.log('response:', r);
-			}
+			response: (r: any) => console.log('response:', r)
 		};
 		modalStore.trigger(d);
 	}
@@ -301,7 +293,7 @@ const d: ModalSettings = {\n
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<TabGroup regionPanel="space-y-4">
-						<Tab bind:group={tabCustom} name="component-modals" value="register">Reuasble Registry</Tab>
+						<Tab bind:group={tabCustom} name="component-modals" value="register">Reusable Registry</Tab>
 						<Tab bind:group={tabCustom} name="component-modals" value="direct">Direct Method</Tab>
 						<!-- Panel -->
 						<svelte:fragment slot="panel">
@@ -430,14 +422,13 @@ modalStore.trigger(d);
 					</svelte:fragment>
 				</AccordionItem>
 				<AccordionItem>
-					<svelte:fragment slot="summary"><h3 data-toc-ignore>Standarize Modal Widths</h3></svelte:fragment>
+					<svelte:fragment slot="summary"><h3 data-toc-ignore>Standardize Modal Widths</h3></svelte:fragment>
 					<svelte:fragment slot="content">
+						<!-- prettier-ignore -->
 						<p>
-							View the <em>Classes</em> tab at the top of this page to view optional modal helper classes. These included
-							<code>.w-modal</code>,
-							<code>.w-modal-slim</code>, and <code>.w-modal-wide</code>, which represent standard, slim, and wide presets.
-						</p>
-					</svelte:fragment>
+							Standard <em>alert</em>, <em>confirm</em>, and <em>prompt</em> modals include a <code>width</code> property to adjust the width size. If you wish to resize your custom component modals, apply the Tailwind width utility classes directly within your component markup. To help standardize modal widths we provided three canned options: <code>.w-modal</code>, <code>.w-modal-slim</code>, and <code>.w-modal-wide</code>.
+					</svelte:fragment
+					>
 				</AccordionItem>
 			</Accordion>
 		</section>

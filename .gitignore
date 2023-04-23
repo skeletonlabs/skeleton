@@ -2,12 +2,12 @@
 node_modules
 build
 .svelte-kit
-package
+dist
 .env
 .env.*
 !.env.example
 coverage
 pnpm-lock.yaml
-.vscode
 .temp
 src/lib/tailwind/generated
+*.tgz

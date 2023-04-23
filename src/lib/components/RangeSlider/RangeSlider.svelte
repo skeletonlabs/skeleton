@@ -2,14 +2,14 @@
 	// Slots:
 	/** @slot trail - A label slot directly below the range slider. */
 
-	import { afterUpdate } from 'svelte';
+	import { afterUpdate, tick } from 'svelte';
 
 	// Types
 	import type { CssClasses } from '$lib';
 
 	// Props
 	/**
-	 * Required. Set a unique name for the file input.
+	 * Required. Set a unique name for the input.
 	 * @type {string}
 	 */
 	export let name: string;
@@ -49,10 +49,11 @@
 	// Tickmarks - generate datalist options based on min/max values
 	function setTicks(): void {
 		if (ticked == false) return;
-		tickmarks = Array.from({ length: max - min + 1 }, (_, i) => i + 1);
+		tickmarks = Array.from({ length: max - min + 1 }, (_, i) => i + min);
 	}
 
 	// Lifecycle
+	if (ticked) setTicks();
 	afterUpdate(() => {
 		setTicks();
 	});

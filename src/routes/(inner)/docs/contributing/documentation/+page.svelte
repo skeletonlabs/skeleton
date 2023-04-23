@@ -170,7 +170,7 @@ dispatch('dragover', event);`}
 		</p>
 		<section class="card variant-glass p-4 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 			<div class="space-y-2">
-				<p>Reference all available settings from the Typescript interface defintion.</p>
+				<p>Reference all available settings from the Typescript interface definition.</p>
 			</div>
 			<a
 				class="btn variant-filled"
@@ -183,7 +183,7 @@ dispatch('dragover', event);`}
 		<ul class="list-disc list-outside ml-8 space-y-1">
 			<li><a href="/elements/buttons">Buttons</a> showcases how to document Tailwind Element classes.</li>
 			<li><a href="/components/accordions">Accordion</a> makes use of most Component settings utilizing Sveld.</li>
-			<li><a href="/components/paginators">Paginator</a> uses Dipatched Event documentation.</li>
+			<li><a href="/components/paginators">Paginator</a> uses Dispatched Event documentation.</li>
 		</ul>
 		<!-- Examples -->
 		<h3>Examples</h3>

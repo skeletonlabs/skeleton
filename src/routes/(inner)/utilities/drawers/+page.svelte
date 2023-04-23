@@ -106,7 +106,7 @@
 			<h2>Passing Metadata</h2>
 			<p>
 				To pass arbitrary metadata, create a <code>meta</code> object within <code>DrawerSettings</code>. Then use
-				<code>$drawerStore.meta</code> to retreive this.
+				<code>$drawerStore.meta</code> to retrieve this.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -116,7 +116,7 @@
 					<CodeBlock
 						language="ts"
 						code={`
-const drawerSettings: DrawerdrawerSettings = {
+const drawerSettings: DrawerSettings = {
 	id: 'example-2',
 	meta: { foo: 'bar', fizz: 'buzz', age: 40 }
 };

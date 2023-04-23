@@ -10,6 +10,8 @@
 	const dispatch = createEventDispatcher();
 
 	// Props
+	/** Bind the input value. */
+	export let input = '';
 	/**
 	 * Set a unique select input name.
 	 * @type {string}
@@ -23,24 +25,25 @@
 	 */
 	export let whitelist: string[] = [];
 	/** Maximum number of chips. Set -1 to disable. */
-	export let max: number = -1;
+	export let max = -1;
 	/** Set the minimum character length. */
-	export let minlength: number = -1;
+	export let minlength = -1;
 	/** Set the maximum character length. */
-	export let maxlength: number = -1;
+	export let maxlength = -1;
 	/** When enabled, allows for uppercase values. */
-	export let allowUpperCase: boolean = false;
+	export let allowUpperCase = false;
 	/** When enabled, allows for duplicate values. */
-	export let allowDuplicates: boolean = false;
+	export let allowDuplicates = false;
 	/**
-	 * Provide a custom validation function.
+	 * Provide a custom validator function.
 	 * @type {function}
 	 */
 	export let validation: (...args: any[]) => boolean = () => true;
+
 	/** The duration of the animated fly effect. */
 	export let duration = 150;
 	/** Set the required state for this input field. */
-	export let required: boolean = false;
+	export let required = false;
 
 	// Props (styles)
 	/** Provide classes or a variant to style the chips. */
@@ -59,27 +62,31 @@
 	const cInputField = 'unstyled bg-transparent border-0 !ring-0 p-0 w-full';
 
 	// Local
-	let inputValue = '';
 	let inputValid = true;
+	let chipValues: Array<{ val: (typeof value)[0]; id: number }> = value.map((val) => {
+		return { val: val, id: Math.random() };
+	});
 
 	function onInputHandler(): void {
 		inputValid = true;
 	}
 
 	function validate(): boolean {
-		if (!inputValue) return false;
+		if (!input) return false;
+		// Format: trim value
+		input = input.trim();
 		// Custom validation
-		if (validation !== undefined && !validation(inputValue)) return false;
-		// Maxiumum
+		if (validation !== undefined && !validation(input)) return false;
+		// Maximum
 		if (max !== -1 && value.length >= max) return false;
 		// Minimum Character Length
-		if (minlength !== -1 && inputValue.length < minlength) return false;
-		// Maxiumum Character Length
-		if (maxlength !== -1 && inputValue.length > maxlength) return false;
+		if (minlength !== -1 && input.length < minlength) return false;
+		// Maximum Character Length
+		if (maxlength !== -1 && input.length > maxlength) return false;
 		// Whitelist (if available)
-		if (whitelist.length > 0 && !whitelist.includes(inputValue)) return false;
+		if (whitelist.length > 0 && !whitelist.includes(input)) return false;
 		// Value is unique
-		if (allowDuplicates === false && value.includes(inputValue)) return false;
+		if (allowDuplicates === false && value.includes(input)) return false;
 		// State is valid
 		return true;
 	}
@@ -88,22 +95,32 @@
 		event.preventDefault();
 		// Validate
 		inputValid = validate();
-		if (inputValid === false) return;
-		// Format: trim value
-		inputValue = inputValue.trim();
+		// When the onInvalid hook is present
+		if (inputValid === false) {
+			/** @event {{ event: Event, input: any  }} invalid - Fires when the input value is invalid. */
+			dispatch('invalid', { event, input });
+			return;
+		}
 		// Format: to lowercase (if enabled)
-		inputValue = allowUpperCase ? inputValue : inputValue.toLowerCase();
+		input = allowUpperCase ? input : input.toLowerCase();
 		// Append value to array
-		value = [...value, inputValue];
+		value.push(input);
+		value = value;
+		chipValues.push({ val: input, id: Math.random() });
+		chipValues = chipValues;
 		/** @event {{ event: Event, chipIndex: number, chipValue: string }} add - Fires when a chip is added. */
-		dispatch('add', { event, chipIndex: value.length - 1, chipValue: inputValue });
+		dispatch('add', { event, chipIndex: value.length - 1, chipValue: input });
 		// Clear input value
-		inputValue = '';
+		input = '';
 	}
 
 	function removeChip(event: Event, chipIndex: number, chipValue: string): void {
 		if ($$restProps.disabled) return;
-		value = value.filter((_, i) => i !== chipIndex);
+		// Remove value from array
+		value.splice(chipIndex, 1);
+		value = value;
+		chipValues.splice(chipIndex, 1);
+		chipValues = chipValues;
 		/** @event {{ event: Event, chipIndex: number, chipValue: string }} remove - Fires when a chip is removed. */
 		dispatch('remove', { event, chipIndex, chipValue });
 	}
@@ -115,6 +132,10 @@
 	$: classesInterface = `${cInterface}`;
 	$: classesChipList = `${cChipList}`;
 	$: classesInputField = `${cInputField}`;
+	$: chipValues = value.map((val, i) => {
+		if (chipValues[i]?.val === val) return chipValues[i];
+		return { id: Math.random(), val: val };
+	});
 </script>
 
 <div class="input-chip {classesBase}" class:opacity-50={$$restProps.disabled}>
@@ -131,7 +152,7 @@
 		<form on:submit={addChip}>
 			<input
 				type="text"
-				bind:value={inputValue}
+				bind:value={input}
 				placeholder={$$restProps.placeholder ?? 'Enter values...'}
 				class="input-chip-field {classesInputField}"
 				on:input={onInputHandler}
@@ -140,16 +161,16 @@
 			/>
 		</form>
 		<!-- Chip List -->
-		{#if value.length}
+		{#if chipValues.length}
 			<div class="input-chip-list {classesChipList}" transition:fly|local={{ duration, opacity: 0, y: -20 }}>
-				{#each value as c, i (c)}
+				{#each chipValues as { id, val }, i (id)}
 					<!-- Wrapping div required for FLIP animation -->
 					<div animate:flip={{ duration }}>
 						<button
 							type="button"
 							class="chip {chips}"
 							on:click={(e) => {
-								removeChip(e, i, c);
+								removeChip(e, i, val);
 							}}
 							on:click
 							on:keypress
@@ -157,7 +178,7 @@
 							on:keyup
 							transition:scale|local={{ duration, opacity: 0 }}
 						>
-							<span>{c}</span>
+							<span>{val}</span>
 							<span>✕</span>
 						</button>
 					</div>

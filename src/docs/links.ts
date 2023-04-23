@@ -15,6 +15,7 @@ export const menuNavLinks: any = [
 		id: 'essentials',
 		title: 'Essentials',
 		list: [
+			{ href: '/docs/themes', label: 'Themes', keywords: 'theme, customize, fonts, gradient, background' },
 			{ href: '/docs/colors', label: 'Colors', keywords: 'theme, colors, swatches' },
 			{ href: '/docs/styling', label: 'Styling', keywords: 'styles, styling, props, classes, class, css' },
 			{ href: '/docs/tokens', label: 'Design Tokens', keywords: 'theme, color, pairing, css, utility' },
@@ -40,7 +41,7 @@ export const menuNavLinks: any = [
 		id: 'base',
 		title: 'Globals',
 		list: [
-			{ href: '/elements/core', label: 'Core', keywords: 'body, scroll, scrollbar, hr, horizontal, rule' },
+			{ href: '/elements/core', label: 'Core', keywords: 'body, scroll, scrollbar, hr, horizontal, rule, divider' },
 			{
 				href: '/elements/typography',
 				label: 'Typography',
@@ -59,7 +60,7 @@ export const menuNavLinks: any = [
 		list: [
 			{ href: '/elements/alerts', label: 'Alerts', keywords: 'message, notification' },
 			{ href: '/elements/badges', label: 'Badges', keywords: 'sup, sub, overlay, favorite, icon' },
-			{ href: '/elements/breadcrumbs', label: 'Breadcrumbs', keywords: 'nav, navigation, seperator, hierarchy' },
+			{ href: '/elements/breadcrumbs', label: 'Breadcrumbs', keywords: 'nav, navigation, separator, hierarchy' },
 			{ href: '/elements/buttons', label: 'Buttons', keywords: 'click, anchor, icon, preload' },
 			{ href: '/elements/cards', label: 'Cards', keywords: 'header, footer, background, cell, region' },
 			{ href: '/elements/chips', label: 'Chips', keywords: 'action, select, selection, filter, filtering, interactive' },
@@ -94,6 +95,7 @@ export const menuNavLinks: any = [
 			{ href: '/components/app-bar', label: 'App Bar', keywords: 'header, top, bar, title' },
 			{ href: '/components/app-rail', label: 'App Rail', keywords: 'nav, navigation, tile, sidebar' },
 			{ href: '/components/app-shell', label: 'App Shell', keywords: 'layout, header, footer, sidebar, page, content' },
+			{ href: '/components/autocomplete', label: 'Autocomplete', keywords: 'input, filter, fuzzy, auto, complete, suggest' },
 			{ href: '/components/avatars', label: 'Avatars', keywords: 'image, initial, filter' },
 			{ href: '/components/conic-gradients', label: 'Conic Gradients', keywords: 'chart, graph, circle, pie, spinner, legend' },
 			{ href: '/components/file-buttons', label: 'File Buttons', keywords: 'upload, form, input, file, media' },

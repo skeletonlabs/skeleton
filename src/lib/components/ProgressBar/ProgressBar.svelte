@@ -36,10 +36,10 @@
 
 	// Indeterminate State
 	$: indeterminate = value === undefined || value < 0;
-	$: classesIndterminate = indeterminate ? 'animIndeterminate' : '';
+	$: classesIndeterminate = indeterminate ? 'animIndeterminate' : '';
 	// Reactive Classes
 	$: classesTrack = `${cTrack} ${height} ${rounded} ${track} ${$$props.class ?? ''}`;
-	$: classesMeter = `${cMeter} ${rounded} ${classesIndterminate} ${meter}`;
+	$: classesMeter = `${cMeter} ${rounded} ${classesIndeterminate} ${meter}`;
 </script>
 
 <!-- Track -->

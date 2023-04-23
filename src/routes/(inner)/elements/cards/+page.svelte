@@ -50,8 +50,10 @@
 							<h3 data-toc-ignore>Skeleton is Awesome!</h3>
 							<article>
 								<p>
+									<!-- cspell:disable -->
 									Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam aspernatur provident eveniet eligendi cumque consequatur
-									tempore sint nisi sapiente. Iste beatae laboriosam iure molestias cum expedita architecto itaque quae rem.
+ 									tempore sint nisi sapiente. Iste beatae laboriosam iure molestias cum expedita architecto itaque quae rem.
+									<!-- cspell:enable -->
 								</p>
 							</article>
 						</div>
@@ -123,7 +125,7 @@
 		</section>
 		<section class="space-y-4">
 			<h2>Interactive</h2>
-			<p>Anchor cards have an inherent hover style. Add <code>.card-hover</code> to provide and additional 3D hover effect.</p>
+			<p>Anchor cards have an inherent hover style. Add <code>.card-hover</code> to provide an additional 3D hover effect.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full text-token">

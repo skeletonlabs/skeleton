@@ -80,7 +80,7 @@
 			<h3>Components</h3>
 			<p>
 				These are <a href="https://svelte.dev/" target="_blank" rel="noreferrer">Svelte Components</a> purpose built for the Skeleton library.
-				They can include their own UI templates, scripted logic, and mantaine their own state. These automatically update and adjust to your
+				They can include their own UI templates, scripted logic, and maintain their own state. These automatically update and adjust to your
 				custom theme and provide unique props to update and adjust settings per component.
 			</p>
 			<div class="card variant-glass-surface p-4 space-y-4">

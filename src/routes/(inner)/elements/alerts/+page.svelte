@@ -25,6 +25,7 @@
 	// Local
 	let currentVariant = 'variant-filled-error';
 	const message =
+		// cspell:disable-next-line
 		'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi, cupiditate eveniet in neque magnam quos ad cumque quae numquam voluptatum magni atque vitae dolore voluptatibus.';
 	// Functions
 	function triggerAction(): void {

@@ -5,7 +5,7 @@ import FileButton from '$lib/components/FileButton/FileButton.svelte';
 
 describe('FileButton.svelte', () => {
 	it('Renders with minimal props', async () => {
-		const { getByTestId } = render(FileButton);
+		const { getByTestId } = render(FileButton, { props: { name: 'testName' } });
 		expect(getByTestId('file-button')).toBeTruthy();
 	});
 

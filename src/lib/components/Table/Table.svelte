@@ -27,12 +27,16 @@
 	export let color: CssClasses = '';
 	/** Provide arbitrary classes for the table head. */
 	export let regionHead: CssClasses = '';
+	/** Provide arbitrary classes for the table head cells. */
+	export let regionHeadCell: CssClasses = '';
 	/** Provide arbitrary classes for the table body. */
 	export let regionBody: CssClasses = '';
 	/** Provide arbitrary classes for the table cells. */
 	export let regionCell: CssClasses = '';
 	/** Provide arbitrary classes for the table foot. */
 	export let regionFoot: CssClasses = '';
+	/** Provide arbitrary classes for the table foot cells. */
+	export let regionFootCell: CssClasses = '';
 
 	// Row Click Handler
 	function onRowClick(event: MouseEvent | KeyboardEvent, rowIndex: number): void {
@@ -69,7 +73,7 @@
 		<thead class="table-head {regionHead}">
 			<tr>
 				{#each source.head as heading }
-					<th>{@html heading}</th>
+					<th class="{regionHeadCell}">{@html heading}</th>
 				{/each}
 			</tr>
 		</thead>
@@ -103,7 +107,7 @@
 			<tfoot class="table-foot {regionFoot}">
 				<tr>
 					{#each source.foot as cell }
-						<td>{@html cell}</td>
+						<td class="{regionFootCell}">{@html cell}</td>
 					{/each}
 				</tr>
 			</tfoot>

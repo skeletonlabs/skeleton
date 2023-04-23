@@ -3,6 +3,7 @@
 	// Components
 	import Accordion from '$lib/components/Accordion/Accordion.svelte';
 	import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
+	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 </script>
 
 <LayoutPage>
@@ -150,7 +151,7 @@
 	<!-- FAQs -->
 	<section class="space-y-4">
 		<h2>FAQs</h2>
-		<p>A list of frequently asked questions from our community.</p>
+		<p>A list of common questions and issues from our community.</p>
 		<Accordion autocollapse class="card variant-glass p-2">
 			<AccordionItem open>
 				<svelte:fragment slot="summary"><h3 data-toc-ignore>Is Typescript required?</h3></svelte:fragment>
@@ -220,6 +221,23 @@
 						and
 						<a href="https://www.youtube.com/c/TailwindLabs/videos" target="_blank" rel="noreferrer">YouTube channel</a>.
 					</p>
+				</svelte:fragment>
+			</AccordionItem>
+			<AccordionItem>
+				<svelte:fragment slot="summary"><h3 data-toc-ignore>Why is VS Code reordering my imports?</h3></svelte:fragment>
+				<svelte:fragment slot="content">
+					<p>
+						VS Code an an optional opt-in feature for automatically reordering imports. This is disabled by default. If this is enabled it
+						may break your stylesheet import order, which can be cause issues. If present, set it to <code>false</code>.
+					</p>
+					<CodeBlock
+						language="json"
+						code={`
+"editor.codeActionsOnSave": {
+    "source.sortImports": false
+}
+						`}
+					/>
 				</svelte:fragment>
 			</AccordionItem>
 		</Accordion>

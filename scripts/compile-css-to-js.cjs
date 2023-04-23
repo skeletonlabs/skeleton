@@ -41,7 +41,7 @@ async function generateAllTWClasses() {
 	const result = await postcss().use(tailwindcss(twConfig)).process(css, { from: cssEntryPath });
 	const cssInJs = postcssJs.objectify(result.root);
 
-	// Caches the TW classes so we don't have to generate them again after the intial run
+	// Caches the TW classes so we don't have to generate them again after the initial run
 	fs.writeFileSync('./.temp/twClasses.cjs', `module.exports = ${JSON.stringify(cssInJs)}`);
 
 	return structuredClone(cssInJs); // return as a POJO
