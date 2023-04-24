@@ -12,9 +12,7 @@
 	import { writable, type Writable } from 'svelte/store';
 
 	// Props
-	/** Provide a writable store to maintain navigation selection.
-	 * @type {Writeable(any)}
-	 */
+	/** Provide a writable store to maintain navigation selection. */
 	export let selected: Writable<any> = writable(undefined);
 	/** Provide classes to set the background color. */
 	export let background: CssClasses = 'bg-surface-100-800-token';
