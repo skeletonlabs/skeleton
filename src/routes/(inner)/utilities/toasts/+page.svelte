@@ -275,6 +275,12 @@ const t: ToastSettings = {
 					/>
 				</svelte:fragment>
 			</DocsPreview>
+			<h3>Positioning</h3>
+			<p>
+				Skeleton takes an opinionated stance on positioning, preferring to keep toast notifications in fixed location on your page. This
+				position can be modified globally the <code>position</code> property on the Toast component. However, we do not allow you to modify this
+				per toast instance as we feel this would provide inconsistent UX.
+			</p>
 		</section>
 		<section class="space-y-4">
 			<h2>Callbacks</h2>
