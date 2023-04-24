@@ -29,7 +29,7 @@
 
 	<iframe
 		class="w-full aspect-video mx-auto rounded-container-token shadow"
-		src="https://www.youtube.com/embed/2OnJYCXJPK4"
+		src="https://www.youtube.com/embed/P_A0qQ7AuK8"
 		title="YouTube video player"
 		frameborder="0"
 		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
