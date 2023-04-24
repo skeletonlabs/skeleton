@@ -157,6 +157,8 @@
 				class="input-chip-field {classesInputField}"
 				on:input={onInputHandler}
 				on:input
+				on:focus
+				on:blur
 				disabled={$$restProps.disabled}
 			/>
 		</form>
