@@ -46,7 +46,12 @@
 		@apply border-b-2 border-surface-900;
 	}
 
-	/* === Code Blocks === */
+	/* Timestamps */
+	time:not(.unstyled) {
+		@apply text-sm text-surface-500 dark:text-surface-400;
+	}
+
+	/* === Preformatted / Code === */
 	/* For use outside of Skeleton's CodeBlock component */
 
 	pre:not(.unstyled):not(.code-block pre) {
@@ -85,13 +90,6 @@
 	}
 	del:not(.unstyled) {
 		@apply font-mono bg-error-500 text-on-error-token;
-	}
-
-	/* === Date/Time === */
-	/* Useful for displaying timestamps */
-
-	time:not(.unstyled) {
-		@apply text-sm text-surface-500 dark:text-surface-400;
 	}
 
 	/* === Tailwind Typography Plugin (prose)  ==== */
