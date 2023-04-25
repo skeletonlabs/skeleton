@@ -64,8 +64,8 @@
 	const tableText: TableSource = {
 		head: headings,
 		body: [
-			['<code>.font-heading-token</code>', '', "Implements your theme's configured heading text size."],
-			['<code>.font-token</code>', '', "Implements your theme's configured base text size."],
+			['<code>.font-heading-token</code>', '', "Implements your theme's configured heading font family."],
+			['<code>.font-token</code>', '', "Implements your theme's configured base font family."],
 			['<code>.text-token</code>', '', "Implements your theme's configured base text color."],
 			['<code>.text-on-[color]-token</code>', vColorsAll, 'Provides an accessible foreground color.'],
 			['<code>.text-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings]
