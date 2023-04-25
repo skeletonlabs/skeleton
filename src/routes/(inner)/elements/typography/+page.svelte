@@ -177,24 +177,33 @@
 
 		<!-- Tailwind Typography - Prose -->
 		<section class="space-y-4">
-			<h2>Tailwind Typography Plugin</h2>
+			<h2>Using the Tailwind Plugin</h2>
 			<!-- prettier-ignore -->
-			<p>Follow <a href="https://tailwindcss.com/docs/typography-plugin" target="_blank" rel="noreferrer">Tailwind's official documentation</a> to install and configure this plugin. Skeleton provides some default styling for elements wrapped within the <code>.prose</code> class element. However you may wish to to <a href="https://tailwindcss.com/docs/typography-plugin#element-modifiers" target="_blank" rel="noreferrer">set or adjust certain modifiers</a>. We've demonstrated two methods for this below.</p>
-			<p class="font-bold">Method 1: Inline utility class overrides:</p>
+			<p>Tailwind provides an <a href="https://tailwindcss.com/docs/typography-plugin" target="_blank" rel="noreferrer">official plugin</a> to automatically style HTML you do not control, such as CMS or blog content. Follow Tailwind's official instructions to install and configure this plugin within your project.</p>
+			<!-- prettier-ignore -->
+			<p>You may then <a href="https://tailwindcss.com/docs/typography-plugin#element-modifiers" target="_blank" rel="noreferrer">set or adjust the modifiers for each element</a>. Skeleton provides adaptive theme styles for common prose elements, such as: headings, paragraphs, and anchors. See the instruction provided below.</p>
+			<p class="font-bold">Method 1: Inline Utility Classes:</p>
 			<CodeBlock language="html" code={`<article class="prose lg:prose-xl prose-code:bg-purple-500"></article>`} />
-			<p class="font-bold">Method 2: Global overrides using <code>/src/app.postcss</code>:</p>
+			<p class="font-bold">Method 2: Global Stylesheet Overrides</p>
+			<CodeBlock language="html" code={`<article class="prose lg:prose-xl"></article>`} />
 			<CodeBlock
 				language="css"
 				code={`
+/* Set the following in /src/app.postcss */
+
 .prose {
 	/* Modifying the H1 tag modifiers */
 	@apply prose-h1:text-3xl prose-h1:md:text-5xl;
 
 	/* Modifying the CODE element modifiers */
-	/@apply prose-code:bg-purple-500;
+	@apply prose-code:bg-purple-500;
 }
 			`}
 			/>
+			<p>
+				When overriding existing styles you may need to use <code>!</code> to set <em>important</em>, such as
+				<code>prose-code:!bg-purple-500</code>
+			</p>
 		</section>
 	</svelte:fragment>
 </DocsShell>
