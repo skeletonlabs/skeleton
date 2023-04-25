@@ -18,7 +18,9 @@
 	/** Provide classes to set the vertical spacing between items. */
 	export let spacing: CssClasses = 'space-y-1';
 
-	// Props (childen)
+	// Props (children)
+	/** Set the accordion disabled state for all items. */
+	export let disabled = false;
 	/** Provide classes to set the accordion item padding styles. */
 	export let padding: CssClasses = 'py-2 px-4';
 	/** Provide classes to set the accordion item hover styles. */
@@ -47,6 +49,7 @@
 	setContext('active', active);
 	setContext('autocollapse', autocollapse);
 	setContext('duration', duration);
+	setContext('disabled', disabled);
 	setContext('padding', padding);
 	setContext('hover', hover);
 	setContext('rounded', rounded);

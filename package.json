@@ -1,6 +1,6 @@
 {
 	"name": "@skeletonlabs/skeleton",
-	"version": "v1.2.0",
+	"version": "v1.2.5",
 	"description": "A SvelteKit component library.",
 	"author": "endigo9740 <chris@skeletonlabs.dev>",
 	"scripts": {
@@ -53,6 +53,7 @@
 		"@vercel/analytics": "^0.1.11",
 		"autoprefixer": "^10.4.14",
 		"c8": "^7.13.0",
+		"cspell": "^6.31.1",
 		"eslint": "^8.37.0",
 		"eslint-config-prettier": "^8.8.0",
 		"eslint-plugin-svelte3": "^4.0.0",
@@ -99,7 +100,6 @@
 		"./src/lib/themes/*",
 		"!./dist/**/*.test.*"
 	],
-	"svelte": "./dist/index.js",
 	"typesVersions": {
 		">4.0": {
 			"index": [

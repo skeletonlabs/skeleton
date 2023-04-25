@@ -182,7 +182,7 @@ const conicStops: ConicStop[] = [
 		<div class="space-y-4">
 			<h2>Rotate Axis</h2>
 			<p>
-				Use the <a href="https://tailwindcss.com/docs/rotate" target="_blank" rel="noreferrer">Tailwind rotate</a> utility clases with the
+				Use the <a href="https://tailwindcss.com/docs/rotate" target="_blank" rel="noreferrer">Tailwind rotate</a> utility classes with the
 				<code>regionCone</code> property to change the starting axis position.
 			</p>
 			<CodeBlock language="html" code={`<ConicGradient ... regionCone="rotate-90" />`} />

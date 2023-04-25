@@ -135,7 +135,7 @@
 		<section class="space-y-4">
 			<h2>What are Data Tables?</h2>
 			<p>
-				Within the context of Skeleton, data tables are not a singular feature, but rather a collection of utilities. These utilty features
+				Within the context of Skeleton, data tables are not a singular feature, but rather a collection of utilities. These utility features
 				are opt-in, meaning you can progressively enhance any native HTML table to meet your requirements. This is one of the most complex
 				features Skeleton provides, so please read carefully.
 			</p>
@@ -344,7 +344,7 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 		<section class="space-y-4">
 			<h2>Pagination</h2>
 			<p>
-				Please refer to the <a href="/components/paginators">Paginators component</a> to learn more about this feature. For data tables, use
+				Please refer to the <a href="/components/paginators">Paginator component</a> to learn more about this feature. For data tables, use
 				<code>$dataTableStore.pagination</code> to ensures the model updates reactively. The wrapping <em>if</em> statement is required.
 			</p>
 			<CodeBlock language="html" code={`{#if $dataTableStore.pagination}<Paginator bind:settings={$dataTableStore.pagination} />{/if}`} />

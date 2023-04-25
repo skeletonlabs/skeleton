@@ -61,7 +61,7 @@
 						</AppRailTile>
 						<!-- Trail -->
 						<svelte:fragment slot="trail">
-							<AppRailTile tag="a" href="https://github.com/" target="_blank" title="Trail slot tile.">
+							<AppRailTile tag="a" value={3} href="https://github.com/" target="_blank" title="Trail slot tile.">
 								<i class="fa-brands fa-github text-2xl" />
 							</AppRailTile>
 						</svelte:fragment>

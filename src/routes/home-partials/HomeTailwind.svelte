@@ -144,7 +144,7 @@
 			<ListBoxItem bind:group={showcase} name="showcase" value="elements">
 				<div class="space-y-2">
 					<h3>Elements</h3>
-					<p class="!text-sm">Commmon UI elements via HTML + CSS.</p>
+					<p class="!text-sm">Common UI elements via HTML + CSS.</p>
 				</div>
 			</ListBoxItem>
 			<ListBoxItem bind:group={showcase} name="showcase" value="colors">

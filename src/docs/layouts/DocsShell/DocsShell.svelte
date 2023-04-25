@@ -11,13 +11,13 @@
 	// Partials
 	import Header from '$docs/layouts/DocsShell/partials/Header.svelte';
 	import PanelProps from '$docs/layouts/DocsShell/partials/PanelProps.svelte';
-	import PanelParams from './partials/PanelParams.svelte';
-	import PanelSlots from './partials/PanelSlots.svelte';
 	import PanelClasses from './partials/PanelClasses.svelte';
 	import PanelEvents from './partials/PanelEvents.svelte';
 	import PanelKeyboard from './partials/PanelKeyboard.svelte';
+	import PanelParams from './partials/PanelParams.svelte';
+	import PanelSlots from './partials/PanelSlots.svelte';
 	// Utilities
-	import { docSellDefaults } from '$docs/layouts/DocsShell/defaults';
+	import { docShellDefaults } from '$docs/layouts/DocsShell/defaults';
 
 	// Props
 	export let settings: DocsShellSettings;
@@ -34,7 +34,7 @@
 	// Page Data
 	const pageData: DocsShellSettings = {
 		// Define defaults first
-		...docSellDefaults,
+		...docShellDefaults,
 		// Local Overrides
 		...{ docsPath: $page.url.pathname },
 		// Prop Settings Values

@@ -12,21 +12,21 @@
 	import type { CssClasses } from '$lib';
 
 	// Props (regions)
-	/** Apply arbitrary clases to the entire `#page` region. */
+	/** Apply arbitrary classes to the entire `#page` region. */
 	export let regionPage: CssClasses = '';
-	/** Apply arbitrary clases to the `header` slot container element */
+	/** Apply arbitrary classes to the `header` slot container element */
 	export let slotHeader: CssClasses = 'z-10';
-	/** Apply arbitrary clases to the `sidebarLeft` slot container element */
+	/** Apply arbitrary classes to the `sidebarLeft` slot container element */
 	export let slotSidebarLeft: CssClasses = 'w-auto';
-	/** Apply arbitrary clases to the `sidebarRight` slot container element */
+	/** Apply arbitrary classes to the `sidebarRight` slot container element */
 	export let slotSidebarRight: CssClasses = 'w-auto';
-	/** Apply arbitrary clases to the `pageHeader` slot container element */
+	/** Apply arbitrary classes to the `pageHeader` slot container element */
 	export let slotPageHeader: CssClasses = '';
-	/** Apply arbitrary clases to the `pageContent` slot container element */
+	/** Apply arbitrary classes to the `pageContent` slot container element */
 	export let slotPageContent: CssClasses = '';
-	/** Apply arbitrary clases to the `pageFooter` slot container element */
+	/** Apply arbitrary classes to the `pageFooter` slot container element */
 	export let slotPageFooter: CssClasses = '';
-	/** Apply arbitrary clases to the `footer` slot container element */
+	/** Apply arbitrary classes to the `footer` slot container element */
 	export let slotFooter: CssClasses = '';
 
 	// Base Classes
@@ -38,7 +38,7 @@
 
 	// Reactive Classes
 	$: classesBase = `${cBaseAppShell} ${$$props.class ?? ''}`;
-	$: classesheader = `${slotHeader}`;
+	$: classesHeader = `${slotHeader}`;
 	$: classesSidebarLeft = `${cSidebarLeft} ${slotSidebarLeft}`;
 	$: classesSidebarRight = `${cSidebarRight} ${slotSidebarRight}`;
 	$: classesPageHeader = `${slotPageHeader}`;
@@ -50,7 +50,7 @@
 <div id="appShell" class={classesBase} data-testid="app-shell">
 	<!-- Slot: Header -->
 	{#if $$slots.header}
-		<header id="shell-header" class="flex-none {classesheader}"><slot name="header" /></header>
+		<header id="shell-header" class="flex-none {classesHeader}"><slot name="header" /></header>
 	{/if}
 
 	<!-- Content Area -->

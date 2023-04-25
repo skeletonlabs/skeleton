@@ -11,15 +11,20 @@ body:
     required: false
 - type: textarea
   attributes:
-    label: Steps To Reproduce
-    description: Steps to reproduce the behavior.
+    label: Reproduction / Steps To Reproduce
+    description: Stackblitz/Link to a repository with steps to reproduce the behavior.
     placeholder: |
+      As you can see in this code example/Stackblitz link/repostitory
       1. Using this component...
       2. With these properties...
       3. Click '...'
       4. See error...
   validations:
     required: false
+- type: markdown
+  attributes:
+    value: |
+      Bug Reports with a repository with a full reproduction or a Stackblitz can be anwswered far quicker, so please consider including as much information as possible to let us help you quicker!
 - type: textarea
   attributes:
     label: Anything else?

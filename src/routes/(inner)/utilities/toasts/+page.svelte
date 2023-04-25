@@ -40,6 +40,7 @@
 	function toastBasic(): void {
 		const t: ToastSettings = {
 			message:
+				// cspell:disable-next-line
 				'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio consequuntur, blanditiis ducimus perspiciatis minima odit repellat rem iste incidunt laborum amet culpa officia maiores eum qui asperiores.',
 			autohide: false
 		};
@@ -139,6 +140,7 @@
 					<button class="btn variant-filled" on:click={toastBasic}>Basic Toast</button>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
+					<!-- cspell:disable -->
 					<CodeBlock
 						language="ts"
 						code={`
@@ -148,6 +150,7 @@ const t: ToastSettings = {
 toastStore.trigger(t);
 `}
 					/>
+					<!-- cspell:enable -->
 				</svelte:fragment>
 			</DocsPreview>
 			<!-- Action -->
@@ -272,6 +275,12 @@ const t: ToastSettings = {
 					/>
 				</svelte:fragment>
 			</DocsPreview>
+			<h3>Positioning</h3>
+			<p>
+				Skeleton takes an opinionated stance on positioning, preferring to keep toast notifications in fixed location on your page. This
+				position can be modified globally the <code>position</code> property on the Toast component. However, we do not allow you to modify this
+				per toast instance as we feel this would provide inconsistent UX.
+			</p>
 		</section>
 		<section class="space-y-4">
 			<h2>Callbacks</h2>
