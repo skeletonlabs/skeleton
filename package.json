@@ -100,7 +100,6 @@
 		"./src/lib/themes/*",
 		"!./dist/**/*.test.*"
 	],
-	"svelte": "./dist/index.js",
 	"typesVersions": {
 		">4.0": {
 			"index": [
