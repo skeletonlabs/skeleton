@@ -41,15 +41,10 @@
 					/>
 				</svelte:fragment>
 			</DocsPreview>
-			<h3>Tailwind Prose Plugin</h3>
-			<!-- prettier-ignore -->
-			<p>
-				If you're using the <a href="https://tailwindcss.com/docs/typography-plugin" target="_blank" rel="noreferrer">Tailwind Typography plugin</a>, all typography within the <code>.prose</code> class will be auto-excluded, allowing the plugin to handle most styles. Global styles like base text color will remain.
-			</p>
 		</section>
 		<hr />
 		<!-- Headings -->
-		<div class="space-y-4">
+		<section class="space-y-4">
 			<h2>Headings</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -76,9 +71,9 @@
 					/>
 				</svelte:fragment>
 			</DocsPreview>
-		</div>
+		</section>
 		<!-- Paragraph -->
-		<div class="space-y-4">
+		<section class="space-y-4">
 			<h2>Paragraph</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -88,9 +83,9 @@
 					<CodeBlock language="html" code={`<p>The quick brown fox jumps over the lazy dog.</p>`} />
 				</svelte:fragment>
 			</DocsPreview>
-		</div>
+		</section>
 		<!-- Anchor -->
-		<div class="space-y-4">
+		<section class="space-y-4">
 			<h2>Anchor</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -102,16 +97,16 @@
 					<CodeBlock language="html" code={`<a href="/">Anchor</a>`} />
 				</svelte:fragment>
 			</DocsPreview>
-		</div>
+		</section>
 		<!-- Blockquote -->
-		<div class="space-y-4">
+		<section class="space-y-4">
 			<h2>Blockquote</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<blockquote class="w-full">
 						<!-- cspell:disable -->
-						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita cupiditate dolores dignissimos maiores doloremque fugiat,
- 						dolore doloribus nisi, repellendus mollitia nostrum, commodi a minus aperiam deleniti. Velit rerum ut tempora!
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita cupiditate dolores dignissimos maiores doloremque fugiat, dolore
+						doloribus nisi, repellendus mollitia nostrum, commodi a minus aperiam deleniti. Velit rerum ut tempora!
 						<!-- cspell:enable -->
 					</blockquote>
 				</svelte:fragment>
@@ -119,9 +114,9 @@
 					<CodeBlock language="html" code={`<blockquote>Skeleton</blockquote>`} />
 				</svelte:fragment>
 			</DocsPreview>
-		</div>
+		</section>
 		<!-- Pre -->
-		<div class="space-y-4">
+		<section class="space-y-4">
 			<h2>Pre-formatted Text</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -131,9 +126,9 @@
 					<CodeBlock language="html" code={`<pre>The quick brown fox jumps over the lazy dog.</pre>`} />
 				</svelte:fragment>
 			</DocsPreview>
-		</div>
+		</section>
 		<!-- Code -->
-		<div class="space-y-4">
+		<section class="space-y-4">
 			<h2>Code</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -143,9 +138,9 @@
 					<CodeBlock language="html" code={`<code>.myExampleClass</code>`} />
 				</svelte:fragment>
 			</DocsPreview>
-		</div>
+		</section>
 		<!-- Keyboard -->
-		<div class="space-y-4">
+		<section class="space-y-4">
 			<h2>Keyboard</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -157,9 +152,9 @@
 					<CodeBlock language="html" code={`Press <kbd>⌘ + C</kbd> to copy.`} />
 				</svelte:fragment>
 			</DocsPreview>
-		</div>
+		</section>
 		<!-- Ins/Del -->
-		<div class="space-y-4">
+		<section class="space-y-4">
 			<h2>Insertion / Deletion</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -176,6 +171,30 @@
 					/>
 				</svelte:fragment>
 			</DocsPreview>
-		</div>
+		</section>
+
+		<hr />
+
+		<!-- Tailwind Typography - Prose -->
+		<section class="space-y-4">
+			<h2>Tailwind Typography Plugin</h2>
+			<!-- prettier-ignore -->
+			<p>Follow <a href="https://tailwindcss.com/docs/typography-plugin" target="_blank" rel="noreferrer">Tailwind's official documentation</a> to install and configure this plugin. Skeleton provides some default styling for elements wrapped within the <code>.prose</code> class element. However you may wish to to <a href="https://tailwindcss.com/docs/typography-plugin#element-modifiers" target="_blank" rel="noreferrer">set or adjust certain modifiers</a>. We've demonstrated two methods for this below.</p>
+			<p class="font-bold">Method 1: Inline utility class overrides:</p>
+			<CodeBlock language="html" code={`<article class="prose lg:prose-xl prose-code:bg-purple-500"></article>`} />
+			<p class="font-bold">Method 2: Global overrides using <code>/src/app.postcss</code>:</p>
+			<CodeBlock
+				language="css"
+				code={`
+.prose {
+	/* Modifying the H1 tag modifiers */
+	@apply prose-h1:text-3xl prose-h1:md:text-5xl;
+
+	/* Modifying the CODE element modifiers */
+	/@apply prose-code:bg-purple-500;
+}
+			`}
+			/>
+		</section>
 	</svelte:fragment>
 </DocsShell>

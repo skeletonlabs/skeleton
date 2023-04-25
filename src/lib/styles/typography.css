@@ -2,49 +2,44 @@
 
 @layer base {
 	body {
-		@apply font-token text-token;
+		@apply text-base font-token text-token;
 	}
 
 	/* === Headings === */
 
-	h1:not(.unstyled):is(:not(.prose *)) {
+	h1:not(.unstyled) {
 		@apply font-heading-token text-3xl md:text-5xl;
 	}
-	h2:not(.unstyled):is(:not(.prose *)) {
+	h2:not(.unstyled) {
 		@apply font-heading-token text-2xl md:text-4xl;
 	}
-	h3:not(.unstyled):is(:not(.prose *)) {
+	h3:not(.unstyled) {
 		@apply font-heading-token text-xl md:text-2xl;
 	}
-	h4:not(.unstyled):is(:not(.prose *)) {
+	h4:not(.unstyled) {
 		@apply font-heading-token text-lg md:text-xl;
 	}
-	h5:not(.unstyled):is(:not(.prose *)) {
+	h5:not(.unstyled) {
 		@apply font-heading-token text-base md:text-lg;
 	}
-	h6:not(.unstyled):is(:not(.prose *)) {
+	h6:not(.unstyled) {
 		@apply font-heading-token text-sm md:text-base;
 	}
 
 	/* === Elements === */
 
-	p:not(.unstyled):is(:not(.prose *)) {
-		/* NOTE: do not hardcode a text color style here. It makes color overrides difficult. */
-		@apply text-base;
-	}
+	/* p { ... } */
 
-	a:not(.unstyled):not(.permalink):is(:not(.prose *)):not(.btn):not(.btn-icon):not(.app-bar a):not(.logo-item):not(a.card):not(
-			.list-nav a
-		) {
+	a:not(.unstyled):not(.permalink):not(.btn):not(.btn-icon):not(.app-bar a):not(.logo-item):not(a.card):not(.list-nav a) {
 		@apply text-primary-700 dark:text-primary-500 hover:brightness-110 underline;
 	}
 
-	blockquote:not(.unstyled):is(:not(.prose *)) {
+	blockquote:not(.unstyled) {
 		@apply text-token text-base italic border-l-8 border-l-secondary-500 px-4 pl-4;
 	}
 
 	/* Keyboard */
-	kbd:not(.unstyled):is(:not(.prose *)) {
+	kbd:not(.unstyled) {
 		@apply font-sans font-bold text-sm;
 		@apply bg-surface-300-600-token px-1.5 py-[3px] rounded;
 		@apply ring-[1px] ring-surface-900 ring-inset;
@@ -54,11 +49,11 @@
 	/* === Code Blocks === */
 	/* For use outside of Skeleton's CodeBlock component */
 
-	pre:not(.unstyled):not(.code-block pre):is(:not(.prose *)) {
+	pre:not(.unstyled):not(.code-block pre) {
 		@apply font-mono text-base bg-neutral-900/90 text-white p-4 whitespace-pre-wrap overflow-x-auto rounded-container-token;
 	}
 
-	code:not(.unstyled):is(:not(.prose *)):is(:not(pre *)) {
+	code:not(.unstyled):is(:not(pre *)) {
 		@apply font-mono text-xs text-primary-700 dark:text-primary-400 whitespace-nowrap;
 		@apply bg-primary-500/30 dark:bg-primary-500/20;
 		@apply py-0.5 px-1 rounded;
@@ -68,34 +63,70 @@
 	/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins */
 	/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del */
 
-	ins:not(.unstyled):is(:not(.prose *)),
-	del:not(.unstyled):is(:not(.prose *)) {
+	ins:not(.unstyled),
+	del:not(.unstyled) {
 		@apply block relative p-0.5 pl-5;
 		text-decoration: none;
 	}
 
-	ins:not(.unstyled):is(:not(.prose *))::before,
-	del:not(.unstyled):is(:not(.prose *))::before {
+	ins:not(.unstyled)::before,
+	del:not(.unstyled)::before {
 		@apply absolute left-1 font-mono;
 	}
-	ins:not(.unstyled):is(:not(.prose *))::before {
+	ins:not(.unstyled)::before {
 		content: '+';
 	}
-	del:not(.unstyled):is(:not(.prose *))::before {
+	del:not(.unstyled)::before {
 		content: '−';
 	}
 
-	ins:not(.unstyled):is(:not(.prose *)) {
+	ins:not(.unstyled) {
 		@apply font-mono bg-success-500 text-on-success-token;
 	}
-	del:not(.unstyled):is(:not(.prose *)) {
+	del:not(.unstyled) {
 		@apply font-mono bg-error-500 text-on-error-token;
 	}
 
 	/* === Date/Time === */
 	/* Useful for displaying timestamps */
 
-	time:not(.unstyled):is(:not(.prose *)) {
+	time:not(.unstyled) {
 		@apply text-sm text-surface-500 dark:text-surface-400;
+	}
+
+	/* === Tailwind Typography Plugin (prose)  ==== */
+	/* https://tailwindcss.com/docs/typography-plugin */
+
+	.prose {
+		@apply text-base font-token text-token;
+		/* Element Modifiers */
+		/* https://tailwindcss.com/docs/typography-plugin#element-modifiers */
+		@apply prose-headings:text-token;
+		/* @apply prose-lead:{utility}; */
+		@apply prose-h1:font-heading-token prose-h1:text-3xl prose-h1:md:text-5xl;
+		@apply prose-h2:font-heading-token prose-h1:text-2xl prose-h1:md:text-4xl;
+		@apply prose-h3:font-heading-token prose-h1:text-xl prose-h1:md:text-2xl;
+		@apply prose-h4:font-heading-token prose-h1:text-lg prose-h1:md:text-xl;
+		@apply prose-p:text-base;
+		/* @apply prose-a:{utility}; */
+		@apply prose-a:text-primary-700 prose-a:dark:text-primary-500 prose-a:hover:brightness-110 prose-a:underline;
+		/* @apply prose-blockquote:{utility}; */
+		/* @apply prose-figure:{utility}; */
+		@apply prose-figcaption:text-token prose-figcaption:!text-sm prose-figcaption:italic prose-figcaption:text-center mt-3;
+		@apply prose-strong:text-token;
+		@apply prose-em:text-token;
+		/* @apply prose-code:{utility}; */
+		/* @apply prose-pre:{utility}; */
+		/* @apply prose-ol:{utility}; */
+		/* @apply prose-ul:{utility}; */
+		/* @apply prose-li:{utility}; */
+		/* @apply prose-table:{utility}; */
+		/* @apply prose-thead:{utility}; */
+		/* @apply prose-tr:{utility}; */
+		/* @apply prose-th:{utility}; */
+		/* @apply prose-td:{utility}; */
+		/* @apply prose-img:{utility}; */
+		/* @apply prose-video:{utility}; */
+		/* @apply prose-hr:{utility}; */
 	}
 }
