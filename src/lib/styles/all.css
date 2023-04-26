@@ -1,9 +1,9 @@
 /* Stylesheet: all.css */
 
 /*
-- DEPRECATED: switch to `skeleton.css` asap
-- All available stylesheets are imported
-- All styles on-by-default (ex: typography)
+DEPRECATED:
+Switch to `skeleton.css` asap as this will
+be dropped in the next major release!
 */
 
 @import 'skeleton.css';

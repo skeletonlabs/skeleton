@@ -65,7 +65,7 @@ npm run dev
 		<h2>Page Setup</h2>
 		<p>
 			Let's add some basic content to our homepage. Open <code>/src/routes/+page.svelte</code> and replace the contents with the following.
-			This will provide multiple elements automatically styled by the <code>all.css</code> stylesheet in our root layout.
+			This will provide multiple elements automatically styled by the <code>skeleton.css</code> stylesheet in our root layout.
 		</p>
 		<!-- cspell:disable -->
 		<CodeBlock
