@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { fade, fly } from 'svelte/transition';
-	import { createEventDispatcher, onMount } from 'svelte';
+	import { createEventDispatcher } from 'svelte';
+	import { BROWSER } from 'esm-env';
 
 	// Event Handler
 	const dispatch = createEventDispatcher();
@@ -114,7 +115,7 @@
 	}
 
 	function applyAnimationSettings(): void {
-		if (window === undefined) return;
+		if (!BROWSER) return;
 		// prettier-ignore
 		switch (position) {
 			case 'top':    anim = { x: 0, y: -window.innerWidth }; break;

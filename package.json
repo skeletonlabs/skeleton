@@ -79,6 +79,7 @@
 	"type": "module",
 	"types": "index.d.ts",
 	"dependencies": {
+		"esm-env": "^1.0.0",
 		"svelte": "^3.58.0"
 	},
 	"exports": {
