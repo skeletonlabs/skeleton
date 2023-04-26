@@ -90,10 +90,7 @@
 		},
 		"./styles/*": "./dist/styles/*",
 		"./themes/*": "./dist/themes/*",
-		"./tailwind/skeleton.cjs": {
-			"default": "./dist/tailwind/skeleton.cjs",
-			"types": "./dist/tailwind/skeleton.d.cts"
-		}
+		"./tailwind/skeleton.cjs": "./dist/tailwind/skeleton.cjs"
 	},
 	"files": [
 		"./dist/**/*.svelte",
