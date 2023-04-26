@@ -88,23 +88,31 @@
 			"svelte": "./dist/index.js",
 			"default": "./dist/index.js"
 		},
-		"./styles/*": "./src/lib/styles/*",
-		"./tailwind/*": "./src/lib/tailwind/*",
-		"./themes/*": "./src/lib/themes/*"
+		"./styles/*": "./dist/styles/*",
+		"./themes/*": "./dist/themes/*",
+		"./tailwind/skeleton.cjs": {
+			"default": "./dist/tailwind/skeleton.cjs",
+			"types": "./dist/tailwind/skeleton.d.cts"
+		}
 	},
 	"files": [
 		"./dist/**/*.svelte",
 		"./dist/**/*.js",
 		"./dist/**/*.d.ts",
-		"./src/lib/styles/*",
-		"./src/lib/tailwind/*",
-		"./src/lib/themes/*",
+		"./dist/**/*.cjs",
+		"./dist/**/*.d.cts",
+		"./dist/styles/*",
+		"./dist/tailwind/*",
+		"./dist/themes/*",
 		"!./dist/**/*.test.*"
 	],
 	"typesVersions": {
 		">4.0": {
 			"index": [
 				"./dist/index.d.ts"
+			],
+			"tailwind/skeleton.cjs": [
+				"./dist/tailwind/skeleton.d.cts"
 			]
 		}
 	}
