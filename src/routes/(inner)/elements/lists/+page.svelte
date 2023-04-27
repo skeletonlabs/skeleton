@@ -25,7 +25,7 @@
 	// Local
 	const listData = [
 		{ avatar: 'YOErFW8AfkI', name: 'Celide Alcantar Casárez', label: 'A' },
-		{ avatar: 'u-Vxh9NDEBc', name: 'Adela Meléndez Ferrer', label: 'B' },
+		{ avatar: 'z_X0PxmBuIQ', name: 'Adela Meléndez Ferrer', label: 'B' },
 		{ avatar: '8vKVlNIbAc4', name: 'Anabella Madera Aguirre', label: 'C' }
 	];
 </script>

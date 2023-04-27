@@ -104,7 +104,7 @@ only utilize theme on this doc page.
 				<div class="text-center">
 					<RadioGroup>
 						<RadioItem bind:group={activeImg} name="source" value="YOErFW8AfkI">1</RadioItem>
-						<RadioItem bind:group={activeImg} name="source" value="u-Vxh9NDEBc">2</RadioItem>
+						<RadioItem bind:group={activeImg} name="source" value="z_X0PxmBuIQ">2</RadioItem>
 						<RadioItem bind:group={activeImg} name="source" value="8vKVlNIbAc4">3</RadioItem>
 					</RadioGroup>
 				</div>
