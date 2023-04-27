@@ -51,26 +51,26 @@
 	// Local
 	let tabSettings: number = 0;
 	let comboboxValue: string;
-	let exampleTooltip: PopupSettings = {
+	const exampleTooltip: PopupSettings = {
 		event: 'hover',
 		target: 'exampleTooltip',
 		placement: 'top'
 	};
-	let exampleMenu: PopupSettings = {
+	const exampleMenu: PopupSettings = {
 		event: 'click',
 		target: 'exampleMenu',
 		placement: 'bottom'
 	};
-	let inputPopupFocus: PopupSettings = {
+	const inputPopupFocus: PopupSettings = {
 		event: 'focus',
 		target: 'inputPopupFocus',
 		placement: 'top'
 	};
-	let inputPopupFocusClick: PopupSettings = {
+	const inputPopupFocusClick: PopupSettings = {
 		event: 'focus-click',
 		target: 'inputPopupFocusClick'
 	};
-	let popupCombobox: PopupSettings = {
+	const popupCombobox: PopupSettings = {
 		event: 'focus-click',
 		target: 'combobox',
 		placement: 'bottom',
@@ -305,7 +305,7 @@ const focusPopup: PopupSettings = {
 					<CodeBlock
 						language="ts"
 						code={`
-let focusClickPopup: PopupSettings = {
+const focusClickPopup: PopupSettings = {
 	event: 'focus-click',
 	target: 'focusClick'
 };
