@@ -65,7 +65,7 @@ h3:not(.unstyled):is(:not(.prose *)) {\n\t/* ... */\n}
 							</div>
 							<div class="space-y-4">
 								<p class="font-bold">v1.3+</p>
-								<small>Provided via <code>skeleton-next.css</code>.</small>
+								<small>Provided via <code>skeleton.css</code>.</small>
 								<CodeBlock
 									language="css"
 									code={`
@@ -89,7 +89,7 @@ a:not(.unstyled):not(.permalink):is(:not(.prose *)):not(.btn):not(.btn-icon):not
 							</div>
 							<div class="space-y-4">
 								<p class="font-bold">v1.3+</p>
-								<small>Provided via <code>skeleton-next.css</code>.</small>
+								<small>Provided via <code>skeleton.css</code>.</small>
 								<CodeBlock language="css" code={`.anchor { /* ... */ }`} />
 							</div>
 						</div>

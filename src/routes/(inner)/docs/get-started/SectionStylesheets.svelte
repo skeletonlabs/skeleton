@@ -44,7 +44,7 @@
 import '@skeletonlabs/skeleton/themes/theme-skeleton.css';\n
 // This contains the bulk of Skeletons required styles:
 // NOTE: this will be renamed skeleton.css in the v2.x release.
-import '@skeletonlabs/skeleton/styles/skeleton-next.css';\n
+import '@skeletonlabs/skeleton/styles/skeleton.css';\n
 // Finally, your application's global stylesheet (sometimes labeled 'app.css')
 import '../app.postcss';
 						`}
