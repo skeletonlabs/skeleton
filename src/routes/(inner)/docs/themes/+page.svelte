@@ -49,9 +49,8 @@
 	<section class="space-y-4">
 		<h2>Backgrounds</h2>
 		<p>
-			Your app's background is automatically set via a <a href="https://www.skeleton.dev/docs/tokens"
-				>design token</a
-			> class. Adjust your theme's color scheme to customize. This affects both light and dark mode.
+			Your app's background is automatically set via a <a href="https://www.skeleton.dev/docs/tokens">design token</a> class. Adjust your theme's
+			color scheme to customize. This affects both light and dark mode.
 		</p>
 		<CodeBlock language="css" code={`body { @apply bg-surface-50-900-token; }`} />
 		<div class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4 items-center">

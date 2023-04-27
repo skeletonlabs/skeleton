@@ -144,7 +144,7 @@
 	</div>
 	<div class="grid grid-cols-2 gap-4">
 		<!-- Theme Color -->
-		<section class="card col-span-2 ">
+		<section class="card col-span-2">
 			<!-- General Settings -->
 			<header class="p-4 col-span-2 flex justify-between items-center">
 				<div class="flex items-center space-x-4">

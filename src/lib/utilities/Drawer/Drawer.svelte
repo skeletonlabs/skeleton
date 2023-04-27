@@ -150,7 +150,9 @@
 	$: classesHeight = height ? height : presets[position].height;
 	$: classesRounded = rounded ? rounded : presets[position].rounded;
 	// Reactive
-	$: classesBackdrop = `${cBackdrop} ${bgBackdrop} ${padding} ${blur} ${classesPosition} ${regionBackdrop} ${zIndex} ${$$props.class ?? ''}`;
+	$: classesBackdrop = `${cBackdrop} ${bgBackdrop} ${padding} ${blur} ${classesPosition} ${regionBackdrop} ${zIndex} ${
+		$$props.class ?? ''
+	}`;
 	$: classesDrawer = `${cDrawer} ${bgDrawer} ${border} ${rounded} ${shadow} ${classesWidth} ${classesHeight} ${classesRounded} ${regionDrawer}`;
 </script>
 
