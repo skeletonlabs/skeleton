@@ -51,26 +51,26 @@
 	// Local
 	let tabSettings: number = 0;
 	let comboboxValue: string;
-	let exampleTooltip: PopupSettings = {
+	const exampleTooltip: PopupSettings = {
 		event: 'hover',
 		target: 'exampleTooltip',
 		placement: 'top'
 	};
-	let exampleMenu: PopupSettings = {
+	const exampleMenu: PopupSettings = {
 		event: 'click',
 		target: 'exampleMenu',
 		placement: 'bottom'
 	};
-	let inputPopupFocus: PopupSettings = {
+	const inputPopupFocus: PopupSettings = {
 		event: 'focus',
 		target: 'inputPopupFocus',
 		placement: 'top'
 	};
-	let inputPopupFocusClick: PopupSettings = {
+	const inputPopupFocusClick: PopupSettings = {
 		event: 'focus-click',
 		target: 'inputPopupFocusClick'
 	};
-	let popupCombobox: PopupSettings = {
+	const popupCombobox: PopupSettings = {
 		event: 'focus-click',
 		target: 'combobox',
 		placement: 'bottom',
@@ -124,7 +124,7 @@
 				<CodeBlock
 					language="ts"
 					code={`
-let popupSettings: PopupSettings = {
+const popupSettings: PopupSettings = {
 	// Set the event as: click | hover | hover-click | focus | focus-click
 	event: 'click',
 	// Provide a matching 'data-popup' value.
@@ -186,7 +186,7 @@ let popupSettings: PopupSettings = {
 						<CodeBlock
 							language="ts"
 							code={`
-let popupSettings: PopupSettings = {
+const popupSettings: PopupSettings = {
 	placement: 'bottom'
 };
 `}
@@ -198,7 +198,7 @@ let popupSettings: PopupSettings = {
 						<CodeBlock
 							language="ts"
 							code={`
-let popupSettings: PopupSettings = {
+const popupSettings: PopupSettings = {
 	// Only listbox items will close the popup:
 	closeQuery: '.listbox-item',
 };
@@ -208,7 +208,7 @@ let popupSettings: PopupSettings = {
 						<CodeBlock
 							language="ts"
 							code={`
-let popupSettings: PopupSettings = {
+const popupSettings: PopupSettings = {
 	// Use a wildcard to represent any/all:
 	closeQuery: '*',
 };
@@ -218,7 +218,7 @@ let popupSettings: PopupSettings = {
 						<CodeBlock
 							language="ts"
 							code={`
-let popupSettings: PopupSettings = {
+const popupSettings: PopupSettings = {
 	// No children will close the popup:
 	closeQuery: '',
 };
@@ -230,7 +230,7 @@ let popupSettings: PopupSettings = {
 						<CodeBlock
 							language="ts"
 							code={`
-let popupSettings: PopupSettings = {
+const popupSettings: PopupSettings = {
 state: (e) => console.log(e)
 };
 `}
@@ -244,7 +244,7 @@ state: (e) => console.log(e)
 						<CodeBlock
 							language="ts"
 							code={`
-let popupSettings: PopupSettings = {
+const popupSettings: PopupSettings = {
 middleware: {
 	// Floating UI Middleware
 	/** https://floating-ui.com/docs/offset */
@@ -288,7 +288,7 @@ middleware: {
 					<CodeBlock
 						language="ts"
 						code={`
-let focusPopup: PopupSettings = {
+const focusPopup: PopupSettings = {
 	event: 'focus',
 	target: 'focus'
 };
@@ -305,7 +305,7 @@ let focusPopup: PopupSettings = {
 					<CodeBlock
 						language="ts"
 						code={`
-let focusClickPopup: PopupSettings = {
+const focusClickPopup: PopupSettings = {
 	event: 'focus-click',
 	target: 'focusClick'
 };
@@ -352,7 +352,7 @@ let focusClickPopup: PopupSettings = {
 					<CodeBlock
 						language="ts"
 						code={`
-let popupCombobox: PopupSettings = {
+const popupCombobox: PopupSettings = {
 	event: 'focus-click',
 	target: 'combobox',
 	placement: 'bottom',
