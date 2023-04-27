@@ -20,8 +20,8 @@
 	 * @type {AutocompleteOption[]}
 	 */
 	export let options: AutocompleteOption[] = [];
-	/** Provide maxlength of autocomplete list. */
-	export let maxlength: number | undefined = undefined;
+	/** Limit the total number of suggestions. */
+	export let limit: number | undefined = undefined;
 	/**
 	 * Provide allowlist values.
 	 * @type {unknown[]}
@@ -103,7 +103,7 @@
 	$: if (allowlist) filterByAllowed();
 	$: if (denylist) filterByDenied();
 	$: optionsFiltered = input ? filterOptions() : listedOptions;
-	$: sliceMaxLength = maxlength !== undefined ? maxlength : optionsFiltered.length;
+	$: sliceLimit = limit !== undefined ? limit : optionsFiltered.length;
 	// Reactive
 	$: classesBase = `${$$props.class ?? ''}`;
 	$: classesNav = `${regionNav}`;
@@ -118,7 +118,7 @@
 	{#if optionsFiltered.length > 0}
 		<nav class="autocomplete-nav {classesNav}">
 			<ul class="autocomplete-list {classesList}">
-				{#each optionsFiltered.slice(0, sliceMaxLength) as option, i (option)}
+				{#each optionsFiltered.slice(0, sliceLimit) as option, i (option)}
 					<li class="autocomplete-item {classesItem}">
 						<button class="autocomplete-button {classesButton}" type="button" on:click={() => onSelection(option)} on:click on:keypress>
 							{@html option.label}
