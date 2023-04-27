@@ -2,7 +2,7 @@
 <script lang="ts">
 	// Dependency: Highlight JS
 	import hljs from 'highlight.js';
-	import '$docs/styles/highlight-js.css'; // was: 'highlight.js/styles/github-dark.css';
+	import '$docs/styles/highlight-js.css';
 	import { storeHighlightJs } from '$lib/utilities/CodeBlock/stores';
 	storeHighlightJs.set(hljs);
 
