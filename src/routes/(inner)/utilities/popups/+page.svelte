@@ -105,8 +105,8 @@
 								</div>
 								<p>Skeleton is a fully featured UI component library using the power of Svelte + Tailwind.</p>
 								<div class="flex gap-4">
-									<small><strong>50</strong> <span class="opacity-50">Following</span></small>
-									<small><strong>440</strong> <span class="opacity-50">Followers</span></small>
+									<small><strong>100</strong> <span class="opacity-50">Following</span></small>
+									<small><strong>1000</strong> <span class="opacity-50">Followers</span></small>
 								</div>
 								<a class="btn variant-soft w-full" href="https://twitter.com/SkeletonUI" target="_blank" rel="noreferrer">
 									View on Twitter

@@ -47,7 +47,7 @@
 				<svelte:fragment slot="preview">
 					<div class="flex items-center gap-4">
 						<SlideToggle name="slider-label" bind:checked={checkedValue}>
-							<span class="inline-block w-[100px] text-center">Powered {checkedValue ? 'On' : 'Off'}</span>
+							<span class="inline-block w-[100px] text-left">Powered {checkedValue ? 'On' : 'Off'}</span>
 						</SlideToggle>
 					</div>
 				</svelte:fragment>

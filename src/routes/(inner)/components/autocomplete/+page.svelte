@@ -1,4 +1,5 @@
 <script lang="ts">
+	// Docshell
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';

@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { faker } from '@faker-js/faker';
+	// Docshell
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
@@ -31,14 +33,9 @@
 
 	// Local
 	let tabSet: number = 0;
-	const tableArr = [
-		{ position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-		{ position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-		{ position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-		{ position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-		{ position: 5, name: 'Boron', weight: 10.811, symbol: 'B' }
-	];
-	const totalWeight = tableArr.reduce((accumulator, obj) => accumulator + obj.weight, 0);
+	const tableArr: any = Array(5)
+		.fill(undefined)
+		.map(() => faker.science.chemicalElement());
 </script>
 
 <DocsShell {settings}>
@@ -50,26 +47,24 @@
 					<table class="table table-hover">
 						<thead>
 							<tr>
-								<th>Position</th>
 								<th>Name</th>
 								<th>Symbol</th>
-								<th>Weight</th>
+								<th>Atomic Number</th>
 							</tr>
 						</thead>
 						<tbody>
 							{#each tableArr as row}
 								<tr>
-									<td>{row.position}</td>
 									<td>{row.name}</td>
 									<td>{row.symbol}</td>
-									<td><span class="badge variant-soft-primary">{row.weight}</span></td>
+									<td><span class="badge variant-soft-primary">{row.atomicNumber}</span></td>
 								</tr>
 							{/each}
 						</tbody>
 						<tfoot>
 							<tr>
-								<th colspan="3">Total Weight</th>
-								<td>{totalWeight}</td>
+								<th colspan="2">Total Elements</th>
+								<td>{tableArr.length} Elements</td>
 							</tr>
 						</tfoot>
 					</table>

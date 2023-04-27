@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { faker } from '@faker-js/faker';
+	// Docshell
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
@@ -24,9 +26,9 @@
 
 	// Local
 	const listData = [
-		{ avatar: 'YOErFW8AfkI', name: 'Celide Alcantar Casárez', label: 'A' },
-		{ avatar: 'z_X0PxmBuIQ', name: 'Adela Meléndez Ferrer', label: 'B' },
-		{ avatar: '8vKVlNIbAc4', name: 'Anabella Madera Aguirre', label: 'C' }
+		{ avatar: 'YOErFW8AfkI', name: `${faker.name.firstName('female')} ${faker.name.lastName('female')}`, label: 'A' },
+		{ avatar: 'z_X0PxmBuIQ', name: `${faker.name.firstName('female')} ${faker.name.lastName('female')}`, label: 'B' },
+		{ avatar: '8vKVlNIbAc4', name: `${faker.name.firstName('female')} ${faker.name.lastName('female')}`, label: 'C' }
 	];
 </script>
 

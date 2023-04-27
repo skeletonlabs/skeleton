@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { faker } from '@faker-js/faker';
+
 	// Docs
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
@@ -24,9 +26,7 @@
 
 	// Local
 	let currentVariant = 'variant-filled-error';
-	const message =
-		// cspell:disable-next-line
-		'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi, cupiditate eveniet in neque magnam quos ad cumque quae numquam voluptatum magni atque vitae dolore voluptatibus.';
+	const message = faker.lorem.paragraph();
 	// Functions
 	function triggerAction(): void {
 		alert('The "Action" button was pressed!');
