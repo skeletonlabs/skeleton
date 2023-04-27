@@ -156,28 +156,6 @@
 			<CodeBlock language="css" code={`html, body { @apply h-full overflow-hidden; }`} />
 		</section>
 		<section class="space-y-4">
-			<h2>Full Example</h2>
-			<p>
-				Your Routes Page content is passed through the AppShell via the standard <code>{'<slot />'}</code> tag.
-			</p>
-			<CodeBlock
-				language="html"
-				code={`
-<!-- App Shell -->
-<AppShell>
-	<svelte:fragment slot="header">Header</svelte:fragment>
-	<svelte:fragment slot="sidebarLeft">Sidebar Left</svelte:fragment>
-	<svelte:fragment slot="sidebarRight">Sidebar Right</svelte:fragment>
-	<svelte:fragment slot="pageHeader">Page Header</svelte:fragment>
-	<!-- Router Slot -->
-	<slot />
-	<!-- ---- / ---- -->
-	<svelte:fragment slot="pageFooter">Page Footer</svelte:fragment>
-	<svelte:fragment slot="footer">Footer</svelte:fragment>
-</AppShell>`}
-			/>
-		</section>
-		<section class="space-y-4">
 			<h2>Using an App Bar</h2>
 			<p>
 				If you wish for your <a href="/components/app-bar">App Bar</a> component to remain fixed at the top of the page, embed it into the

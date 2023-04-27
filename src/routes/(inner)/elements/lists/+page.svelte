@@ -24,9 +24,9 @@
 
 	// Local
 	const listData = [
-		{ avatar: 48, name: 'Jane', label: 'A' },
-		{ avatar: 64, name: 'Michael', label: 'B' },
-		{ avatar: 31, name: 'Susan', label: 'C' }
+		{ avatar: 'YOErFW8AfkI', name: 'Celide Alcantar Casárez', label: 'A' },
+		{ avatar: 'u-Vxh9NDEBc', name: 'Adela Meléndez Ferrer', label: 'B' },
+		{ avatar: '8vKVlNIbAc4', name: 'Anabella Madera Aguirre', label: 'C' }
 	];
 </script>
 
@@ -40,7 +40,7 @@
 					<ul class="list">
 						{#each listData as v, i}
 							<li>
-								<Avatar src="https://i.pravatar.cc/?img={v.avatar}" width="w-8" />
+								<Avatar src="https://source.unsplash.com/{v.avatar}/48x48" width="w-12" />
 								<span class="flex-auto">{v.name}</span>
 								<span>⋮</span>
 							</li>
