@@ -53,7 +53,7 @@
 						<div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
 							<div class="space-y-4">
 								<p class="font-bold">v1.2.5 and Lower</p>
-								<small>Provided via <code>skeleton.css</code>.</small>
+								<small>Provided via <code>all.css</code>.</small>
 								<CodeBlock
 									language="css"
 									code={`
@@ -79,7 +79,7 @@ h3:not(.unstyled):is(:not(.prose *)) {\n\t/* ... */\n}
 						<div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
 							<div class="space-y-4">
 								<p class="font-bold">v1.2.5 and Lower</p>
-								<small>Provided via <code>skeleton.css</code>.</small>
+								<small>Provided via <code>all.css</code>.</small>
 								<CodeBlock
 									language="css"
 									code={`
