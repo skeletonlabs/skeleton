@@ -2,7 +2,8 @@
 
 /*
 - Only required stylesheets are provided.
-- Optional stylessheets are not included.
+- Optional stylesheets are not included.
+- Typography using opt-in system
 */
 
 /* NOTE: The order shown below is required */
@@ -14,10 +15,11 @@
 /* === OPTIONAL STYLESHEETS === */
 
 /* Core Styles */
-/* (excluded - please add these styles yourself) */
+/* (excluded - supplied by developer) */
 
 /* Typography Settings */
-/* (excluded - please add these styles yourself) */
+@import 'partials/typography-next.css';
+/* (prose excluded - supplied by developer) */
 
 /* === REQUIRED STYLESHEETS === */
 

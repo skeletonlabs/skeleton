@@ -26,7 +26,7 @@
 				<h2>Opt-In Typography</h2>
 				<span class="badge variant-filled-warning">New in v1.3+</span>
 			</div>
-			<p>Please review the new and upcoming changes for Skeleton's typography system.</p>
+			<p>Please review the new changes for Skeleton's typography system.</p>
 			<Accordion autocollapse>
 				<AccordionItem open>
 					<svelte:fragment slot="lead"><i class="fa-solid fa-square-check text-xl w-6 text-center" /></svelte:fragment>
@@ -35,8 +35,9 @@
 					</svelte:fragment>
 					<svelte:fragment slot="content">
 						<p>
-							Starting in Skeleton <u>v1.3 or higher</u> we've introduced a new opt-in typography system. This allows you to choose which elements
-							receive Skeleton's typography via utility classes, similar to Skeleton's form styles.
+							Starting Skeleton <u>v1.3+</u> we've introduced a new opt-in typography system that will replace the on-by-default system of prior
+							versions. This allows you to choose which elements receive Skeleton's typography via utility classes, similar to Skeleton's form
+							styles.
 						</p>
 					</svelte:fragment>
 				</AccordionItem>
@@ -101,25 +102,13 @@ a:not(.unstyled):not(.permalink):is(:not(.prose *)):not(.btn):not(.btn-icon):not
 					</svelte:fragment>
 					<svelte:fragment slot="content">
 						<!-- prettier-ignore -->
-						<p>Skeleton strives for backwards compatability, and as such we've provided a stepped migration path to allow you to ease into the changes. Open your root layout <code>/src/routes/+layout.svelte</code> and replace the legacy <code>all.css</code> stylesheet with the following.</p>
-						<!-- prettier-ignore -->
-						<h4>On-By-Default Typography</h4>
-						<p>
-							This provides a 1:1 replacement for <code>all.css</code> but <u>does not</u> include the opt-in typography system. We recommend
-							using this only as a temporary solution while you migrate your applications.
-						</p>
+						<p>Skeleton strives for backwards compatability, and as such we've provided a simple migration path to allow you to ease into the changes. Open your root layout <code>/src/routes/+layout.svelte</code> and replace the legacy <code>all.css</code> stylesheet with the following.</p>
 						<CodeBlock language="js" code={`import '@skeletonlabs/skeleton/styles/skeleton.css';`} />
-						<h4>Opt-In Typography (recommended)</h4>
-						<p>
-							When ready, we recommend you move to <code>skeleton-next.css</code>, which fully supports opt-in typography.
-						</p>
-						<CodeBlock language="js" code={`import '@skeletonlabs/skeleton/styles/skeleton-next.css';`} />
 						<p>You may then begin to appending the respective class per each typographic element as shown on this page.</p>
 						<h4>Skeleton v2.x+</h4>
 						<p>
-							Starting in the next major point release, Skeleton will drop on-by-default typography in favor of the opt-in system. This
-							means <code>skeleton-next.css</code> will be folded into <code>skeleton.css</code>. To prepare for this change we recommend
-							migrating as soon as possible.
+							In the next major point release Skeleton will drop <code>all.css</code> in favor of <code>skeleton.css</code> and allow only the
+							opt-in system. To prepare for this change we recommend migrating as soon as possible.
 						</p>
 					</svelte:fragment>
 				</AccordionItem>
@@ -295,7 +284,7 @@ a:not(.unstyled):not(.permalink):is(:not(.prose *)):not(.btn):not(.btn-icon):not
 			</div>
 			<div class="alert variant-ghost-warning">
 				<!-- prettier-ignore -->
-				<p>This exemption class is only relevant when using on-by-default typography rather than the opt-in system. This is slated for deprecation and will be dropped in Skeleton v2.x or higher.</p>
+				<p>This exemption class is only relevant when using on-by-default typography rather than the opt-in system. This is slated for deprecation and will be dropped in Skeleton v2.x+.</p>
 			</div>
 			<p>
 				Use the <code>.unstyled</code> class to exclude and reset Skeleton's on-by-default typography styles, then apply new styles as desired.
