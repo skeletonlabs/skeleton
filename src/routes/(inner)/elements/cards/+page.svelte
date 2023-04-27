@@ -51,8 +51,8 @@
 							<article>
 								<p>
 									<!-- cspell:disable -->
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam aspernatur provident eveniet eligendi cumque consequatur
- 									tempore sint nisi sapiente. Iste beatae laboriosam iure molestias cum expedita architecto itaque quae rem.
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam aspernatur provident eveniet eligendi cumque consequatur tempore
+									sint nisi sapiente. Iste beatae laboriosam iure molestias cum expedita architecto itaque quae rem.
 									<!-- cspell:enable -->
 								</p>
 							</article>
