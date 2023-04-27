@@ -28,7 +28,8 @@
 
 	/* ------------------------ */
 
-	/* Filled */
+	/* === Filled === */
+
 	.variant-filled {
 		@apply bg-surface-900-50-token text-surface-50-900-token;
 	}
@@ -54,7 +55,8 @@
 		@apply bg-surface-400-500-token text-on-surface-token dark:text-on-surface-token;
 	}
 
-	/* Ringed */
+	/* === Ringed === */
+
 	.variant-ringed {
 		@apply bg-transparent dark:bg-transparent variant-outline;
 	}
@@ -80,7 +82,8 @@
 		@apply bg-transparent dark:bg-transparent variant-outline-surface;
 	}
 
-	/* Ghost */
+	/* === Ghost === */
+
 	.variant-ghost-primary {
 		@apply bg-primary-500/20 dark:bg-primary-500/20 variant-outline-primary;
 	}
@@ -104,7 +107,8 @@
 		@apply bg-surface-500/20 dark:bg-surface-500/20 variant-outline-surface;
 	}
 
-	/* Soft */
+	/* === Soft === */
+
 	.variant-soft-primary {
 		@apply bg-primary-400/20 dark:bg-primary-500/20 text-primary-700-200-token !ring-0;
 	}
@@ -128,7 +132,8 @@
 		@apply bg-surface-400/20 dark:bg-surface-500/20 text-surface-700-200-token !ring-0;
 	}
 
-	/* Glass */
+	/* === Glass === */
+
 	.variant-glass-primary {
 		@apply bg-primary-500/20 dark:bg-primary-500/20 backdrop-blur-lg;
 	}
@@ -152,5 +157,48 @@
 	}
 	.variant-glass {
 		@apply bg-surface-50/30 dark:bg-surface-900/30 backdrop-blur-lg;
+	}
+
+	/* === Gradients === */
+
+	/* Core Trio */
+	.variant-gradient-primary-secondary {
+		@apply from-primary-500 to-secondary-500 text-on-primary-token;
+	}
+	.variant-gradient-secondary-tertiary {
+		@apply from-secondary-500 to-tertiary-500 text-on-secondary-token;
+	}
+	.variant-gradient-tertiary-primary {
+		@apply from-tertiary-500 to-primary-500 text-on-tertiary-token;
+	}
+	/* Core Trio (reversed) */
+	.variant-gradient-secondary-primary {
+		@apply from-secondary-500 to-primary-500 text-on-secondary-token;
+	}
+	.variant-gradient-tertiary-secondary {
+		@apply from-tertiary-500 to-secondary-500 text-on-tertiary-token;
+	}
+	.variant-gradient-primary-tertiary {
+		@apply from-primary-500 to-tertiary-500 text-on-primary-token;
+	}
+	/* State Trio */
+	.variant-gradient-success-warning {
+		@apply from-success-500 to-warning-500 text-on-success-token;
+	}
+	.variant-gradient-warning-error {
+		@apply from-warning-500 to-error-500 text-on-secondary-token;
+	}
+	.variant-gradient-error-success {
+		@apply from-error-500 to-success-500 text-on-error-token;
+	}
+	/* State Trio (reversed) */
+	.variant-gradient-warning-success {
+		@apply from-warning-500 to-success-500 text-on-warning-token;
+	}
+	.variant-gradient-error-warning {
+		@apply from-error-500 to-warning-500 text-on-secondary-token;
+	}
+	.variant-gradient-success-error {
+		@apply from-success-500 to-error-500 text-on-success-token;
 	}
 }
