@@ -29,7 +29,7 @@
 	export let bgBackdrop: CssClasses = 'bg-surface-backdrop-token';
 	/** Backdrop - Provide classes to set the blur style. */
 	export let blur: CssClasses = 'backdrop-blur-xs';
-	/** Drawer - Provide classes to set padding. */
+	/** Backdrop - Provide classes to set padding. */
 	export let padding: CssClasses = '';
 
 	// Props (drawer)
