@@ -130,7 +130,7 @@
 							<li class="crumb"><a href="/elements/breadcrumbs" class="btn btn-sm variant-soft-primary">Users</a></li>
 							<li class="crumb-separator" aria-hidden>&rsaquo;</li>
 							<li class="crumb">
-								<a href="/elements/breadcrumbs"><Avatar src="https://i.pravatar.cc/?img=48" width="w-8" /></a>
+								<a href="/elements/breadcrumbs"><Avatar src="https://source.unsplash.com/YOErFW8AfkI/32x32" width="w-8" /></a>
 							</li>
 							<li class="crumb-separator" aria-hidden>&rsaquo;</li>
 							<li>Profile</li>
@@ -145,7 +145,7 @@
 	<li class="crumb"><a href="/elements/breadcrumbs" class="btn btn-sm variant-soft-primary">Users</a></li>
 	<li class="crumb-separator" aria-hidden>&rsaquo;</li>
 	<li class="crumb">
-		<a href="/elements/breadcrumbs"><Avatar src="https://i.pravatar.cc/?img=48" width="w-8" /></a>
+		<a href="/elements/breadcrumbs"><Avatar src="https://source.unsplash.com/YOErFW8AfkI/32x32" width="w-8" /></a>
 	</li>
 	<li class="crumb-separator" aria-hidden>&rsaquo;</li>
 	<li>Profile</li>

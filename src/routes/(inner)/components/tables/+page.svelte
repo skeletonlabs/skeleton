@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { faker } from '@faker-js/faker';
 	import { writable, type Writable } from 'svelte/store';
 	// Docs
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
@@ -42,26 +43,16 @@
 	};
 
 	// Local
-	const sourceData = [
-		{ position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-		{ position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-		{ position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-		{ position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-		{ position: 5, name: 'Boron', weight: 10.811, symbol: 'B' }
-		// { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-		// { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-		// { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-		// { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-		// { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' }
-	];
-	const totalWeight = sourceData.reduce((accumulator, obj) => accumulator + obj.weight, 0);
+	const sourceData: any = Array(5)
+		.fill(undefined)
+		.map(() => faker.science.chemicalElement());
 
 	// Table Simple
 	const tableSimple: TableSource = {
-		head: ['Symbol', 'Name', 'Weight'],
-		body: tableMapperValues(sourceData, ['symbol', 'name', 'weight']),
-		meta: tableMapperValues(sourceData, ['position', 'name', 'symbol', 'weight']),
-		foot: ['Total', '', `<span class="badge variant-soft-primary">${totalWeight}</span>`]
+		head: ['Symbol', 'Name', 'Number'],
+		body: tableMapperValues(sourceData, ['symbol', 'name', 'atomicNumber']),
+		meta: tableMapperValues(sourceData, ['name', 'symbol', 'atomicNumber']),
+		foot: ['Total Elements', '', `<span class="badge variant-soft-primary">${sourceData.length} Elements</span>`]
 	};
 
 	// On Row Selected
@@ -106,7 +97,7 @@ const tableSimple: TableSource = {
 	// Optional: The data returned when interactive is enabled and a row is clicked.
 	meta: tableMapperValues(sourceData, ['position', 'name', 'symbol', 'weight']),
 	// Optional: A list of footer labels.
-	foot: ['Total', '', '<code>${totalWeight}</code>']
+	foot: ['Total', '', '<code>${sourceData.length}</code>']
 };
 				`}
 				/>

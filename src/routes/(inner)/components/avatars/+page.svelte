@@ -33,7 +33,7 @@
 	};
 
 	// Local
-	const imgPlaceholder = 'https://i.pravatar.cc/?img=48';
+	const imgPlaceholder = 'https://source.unsplash.com/YOErFW8AfkI/128x128';
 	const borderStyles = 'border-4 	border-surface-300-600-token hover:!border-primary-500';
 
 	const roundedMapping = {

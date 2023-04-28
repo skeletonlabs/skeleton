@@ -1,4 +1,5 @@
 <script lang="ts">
+	// Docshell
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
@@ -222,9 +223,6 @@ const flavorOptions: AutocompleteOption[] = [
 		<section class="space-y-4">
 			<h2>Input Chip</h2>
 			<p>We've provided a demo of using Autocomplete alongside a Skeleton Input Chip component below.</p>
-			<pre>inputChip: {JSON.stringify(inputChip, null, 2)}</pre>
-			<pre>flavorOptions: {JSON.stringify(flavorOptions, null, 2)}</pre>
-			<pre>inputChipList: {JSON.stringify(inputChipList, null, 2)}</pre>
 			<DocsPreview background="neutral" regionFooter="text-center">
 				<svelte:fragment slot="preview">
 					<div class="text-token w-full max-w-sm space-y-2">
