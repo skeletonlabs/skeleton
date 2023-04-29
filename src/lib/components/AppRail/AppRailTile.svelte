@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher, getContext } from 'svelte';
-	import type { Writable } from 'svelte/store';
+	import type { Readable, Writable } from "svelte/store"
 
 	// Types
 	import type { CssClasses } from '$lib';
@@ -26,7 +26,7 @@
 	export let regionLabel: CssClasses = '';
 
 	// Context
-	export let selected: Writable<CssClasses> = getContext('selected');
+	export let selected: Writable<CssClasses> | Readable<CssClasses> = getContext('selected');
 	export let active: Writable<CssClasses> = getContext('active');
 	export let hover: Writable<CssClasses> = getContext('hover');
 
@@ -43,7 +43,9 @@
 	// Input Handler
 	function onClickHandler(event: MouseEvent): void {
 		if (!String($selected) || !String(value)) return;
-		selected?.set(value);
+		if ("set" in selected) {
+			selected.set(value);
+		}
 		/** @event {{ event }} click - Fires when the component is clicked.  */
 		dispatch('click', event);
 	}

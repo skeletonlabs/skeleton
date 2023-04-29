@@ -9,7 +9,7 @@
 	import type { CssClasses } from '$lib';
 
 	import { setContext } from 'svelte';
-	import { writable, type Writable, type Readable } from "svelte/store"
+	import { writable, type Readable, type Writable } from "svelte/store"
 
 	// Props
 	/** Provide a writable or readable store to maintain navigation selection.
