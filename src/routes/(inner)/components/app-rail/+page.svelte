@@ -118,16 +118,27 @@ const storeValue: Writable<number> = writable(0);
 			<h2>Page State</h2>
 			<!-- prettier-ignore -->
 			<p>
-				To set an active state for an anchor link, compare the tile <em>href</em> URL to the active page URL using
-				<a href="https://kit.svelte.dev/docs/modules#$app-stores-page" target="_blank" rel="noreferrer">$page.url.pathname</a>. Then set a background color or other visual indicator via the Svelte class syntax.
+				The simplest way to update the active anchor link is to pass a
+				<a href="https://svelte.dev/docs#run-time-svelte-store-derived">derived</a> store that takes its value from
+				<a href="https://kit.svelte.dev/docs/modules#$app-stores-page" target="_blank" rel="noreferrer">$page.url.pathname</a>.
 			</p>
-			<CodeBlock language="ts" code={`import { page } from '$app/stores';`} />
+			<p>
+				The store value will be compared to the <code>href</code> attribute of each tile if no <code>value</code> attribute is provided.
+			</p>
+			<CodeBlock language="ts" code={`
+import { page } from '$app/stores';
+import { derived } from 'svelte/store';
+
+const selected = derived(page, $page => $page.url.pathname);
+`} />
 			<CodeBlock
 				language="html"
 				code={`
-<AppRailTile tag="a" href={tileUrl} class="{tileUrl === $page.url.pathname ? '!bg-primary-500' : ''}">
-    (icon)
-</AppRailTile>
+<AppRail {selected}>
+	<AppRailTile label="Home" href="/">(icon)</AppRailTile>
+	<AppRailTile label="About" href="/about">(icon)</AppRailTile>
+	<AppRailTile label="Login" href="/login">(icon)</AppRailTile>
+</AppRail>
 `}
 			/>
 		</section>

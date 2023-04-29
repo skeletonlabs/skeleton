@@ -10,7 +10,7 @@
 
 	// Props
 	/**
-	 * Provide a unique value, active tiles will be highlighted.
+	 * Provide a unique value, active tiles will be highlighted. href will be used if no value is provided.
 	 * @type {any}
 	 */
 	export let value: any | undefined = undefined;
@@ -30,8 +30,11 @@
 	export let active: Writable<CssClasses> = getContext('active');
 	export let hover: Writable<CssClasses> = getContext('hover');
 
-	// Override tag if href is passed
-	if ($$props.href) tag = 'a';
+	if ($$props.href) {
+		tag = 'a';
+		// href overrides value if no value is provided
+		if (value === undefined) value = $$props.href;
+	}
 
 	// Base Classes
 	const cBase = 'unstyled grid place-content-center place-items-center w-full aspect-square space-y-1.5 cursor-pointer';
@@ -40,7 +43,7 @@
 	// Input Handler
 	function onClickHandler(event: MouseEvent): void {
 		if (!String($selected) || !String(value)) return;
-		$selected = value;
+		selected?.set(value);
 		/** @event {{ event }} click - Fires when the component is clicked.  */
 		dispatch('click', event);
 	}
