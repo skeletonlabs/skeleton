@@ -43,7 +43,7 @@
 	// Input Handler
 	function onClickHandler(event: MouseEvent): void {
 		if (!String($selected) || !String(value)) return;
-		if ("set" in selected) {
+		if (selected && "set" in selected) {
 			selected.set(value);
 		}
 		/** @event {{ event }} click - Fires when the component is clicked.  */
