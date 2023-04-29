@@ -119,7 +119,7 @@ const storeValue: Writable<number> = writable(0);
 			<!-- prettier-ignore -->
 			<p>
 				The simplest way to update the active anchor link is to pass a
-				<a href="https://svelte.dev/docs#run-time-svelte-store-derived">derived</a> store that takes its value from
+				<a href="https://svelte.dev/docs#run-time-svelte-store-derived" target="_blank" rel="noreferrer">derived</a> store that takes its value from
 				<a href="https://kit.svelte.dev/docs/modules#$app-stores-page" target="_blank" rel="noreferrer">$page.url.pathname</a>.
 			</p>
 			<p>
