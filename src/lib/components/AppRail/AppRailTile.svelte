@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher, getContext } from 'svelte';
-	import type { Readable, Writable } from "svelte/store"
+	import type { Readable, Writable } from 'svelte/store';
 
 	// Types
 	import type { CssClasses } from '$lib';
@@ -43,7 +43,7 @@
 	// Input Handler
 	function onClickHandler(event: MouseEvent): void {
 		if (!String($selected) || !String(value)) return;
-		if (selected && "set" in selected) {
+		if (selected && 'set' in selected) {
 			selected.set(value);
 		}
 		/** @event {{ event }} click - Fires when the component is clicked.  */

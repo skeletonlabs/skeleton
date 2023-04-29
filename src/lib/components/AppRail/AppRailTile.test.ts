@@ -1,8 +1,8 @@
 import { render } from '@testing-library/svelte';
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 
-import AppRailTile from "$lib/components/AppRail/AppRailTile.svelte";
-import { readable } from "svelte/store"
+import AppRailTile from '$lib/components/AppRail/AppRailTile.svelte';
+import { readable } from 'svelte/store';
 
 describe('AppRailTile.svelte', () => {
 	it('Renders with minimal props', async () => {
@@ -18,9 +18,9 @@ describe('AppRailTile.svelte', () => {
 				label: 'TestAppRailTile',
 				regionIcon: 'TestAppRailTile',
 				regionLabel: 'TestAppRailTile',
-				selected: readable("/"),
-				active: "bg-primary-500",
-				hover: "bg-primary-500",
+				selected: readable('/'),
+				active: 'bg-primary-500',
+				hover: 'bg-primary-500'
 			}
 		});
 		expect(getByTestId('app-rail-tile')).toBeTruthy();

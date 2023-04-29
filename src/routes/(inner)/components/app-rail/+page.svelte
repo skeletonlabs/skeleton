@@ -125,12 +125,15 @@ const storeValue: Writable<number> = writable(0);
 			<p>
 				The store value will be compared to the <code>href</code> attribute of each tile if no <code>value</code> attribute is provided.
 			</p>
-			<CodeBlock language="ts" code={`
+			<CodeBlock
+				language="ts"
+				code={`
 import { page } from '$app/stores';
 import { derived } from 'svelte/store';
 
 const selected = derived(page, $page => $page.url.pathname);
-`} />
+`}
+			/>
 			<CodeBlock
 				language="html"
 				code={`
