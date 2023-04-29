@@ -62,7 +62,7 @@
 	<!-- App Rail -->
 	<AppRail selected={storeCategory} background="bg-transparent" border="border-r border-surface-500/30">
 		<div class="lg:hidden">
-			<AppRailTile label="Home" tag="a" href="/" value={'home'} on:click={onListItemClick}>
+			<AppRailTile label="Home" href="/" value={'home'} on:click={onListItemClick}>
 				<i class="fa-solid fa-home text-2xl" />
 			</AppRailTile>
 			<hr class="opacity-30" />
@@ -82,7 +82,7 @@
 		</AppRailTile>
 		<div class="lg:hidden">
 			<hr class="opacity-30" />
-			<AppRailTile label="Blog" tag="a" href="/blog" value={'blog'} on:click={onListItemClick}>
+			<AppRailTile label="Blog" href="/blog" value={'blog'} on:click={onListItemClick}>
 				<i class="fa-solid fa-bullhorn text-2xl" />
 			</AppRailTile>
 		</div>
