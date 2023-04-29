@@ -27,8 +27,8 @@
 
 	// Context
 	export let selected: Writable<CssClasses> | Readable<CssClasses> = getContext('selected');
-	export let active: Writable<CssClasses> = getContext('active');
-	export let hover: Writable<CssClasses> = getContext('hover');
+	export let active: CssClasses = getContext('active');
+	export let hover: CssClasses = getContext('hover');
 
 	if ($$props.href) {
 		tag = 'a';
