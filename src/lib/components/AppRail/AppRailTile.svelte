@@ -30,6 +30,9 @@
 	export let active: Writable<CssClasses> = getContext('active');
 	export let hover: Writable<CssClasses> = getContext('hover');
 
+	// Override tag if href is passed
+	if ($$props.href) tag = 'a';
+
 	// Base Classes
 	const cBase = 'unstyled grid place-content-center place-items-center w-full aspect-square space-y-1.5 cursor-pointer';
 	const cLabel = 'font-bold text-xs text-center';

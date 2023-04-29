@@ -98,19 +98,19 @@ const storeValue: Writable<number> = writable(0);
 		<section class="space-y-4">
 			<h2>Anchor Tiles</h2>
 			<p>
-				Use <code>tag="a"</code> to convert any tile to an anchor link, then append
-				<em>href, target, rel</em>, and other attributes as needed.
+				Use the <code>href</code> attribute to convert any tile to an anchor link, then append
+				<em>target, rel</em>, and other attributes as needed.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="bg-surface-100-800-token overflow-hidden w-24">
-						<AppRailTile tag="a" href="/components/app-rail#anchor-tiles" label="Tile 1" class="bg-primary-hover-token text-token">
+						<AppRailTile href="/components/app-rail#anchor-tiles" label="Tile 1" class="bg-primary-hover-token text-token">
 							<i class="fa-solid fa-image text-2xl" />
 						</AppRailTile>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<AppRailTile tag="a" href="/my/page/route">(icon)</AppRailTile>`} />
+					<CodeBlock language="html" code={`<AppRailTile href="/my/page/route">(icon)</AppRailTile>`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
