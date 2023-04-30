@@ -24,7 +24,8 @@ describe('Actions: Filter', () => {
 		render(Rustic);
 		render(Apollo);
 		render(GreenFall);
-		render(NoirLight, Noir);
+		render(NoirLight);
+		render(Noir);
 		const elements: HTMLCollection = document.getElementsByClassName('filter');
 		for (let i = 0; i < elements.length; ++i) {
 			const el: any = elements[i];
