@@ -10,7 +10,9 @@
 	import { toastStore } from './stores';
 
 	// Props
-	/** Set the toast position. */
+	/** Set the toast position. 
+	 * @type {'t' | 'b' | 'l' | 'r' | 'tl' | 'tr' | 'bl' | 'br'}
+	 */
 	export let position: 't' | 'b' | 'l' | 'r' | 'tl' | 'tr' | 'bl' | 'br' = 'b';
 	/** Maximum toasts that can show at once. */
 	export let max = 3;
