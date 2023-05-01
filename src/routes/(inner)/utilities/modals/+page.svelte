@@ -184,14 +184,14 @@
 					<CodeBlock
 						language="ts"
 						code={`
-const alert: ModalSettings = {
+const modal: ModalSettings = {
 	type: 'alert',
 	// Data
 	title: 'Example Alert',
 	body: 'This is an example modal.',
 	image: 'https://i.imgur.com/WOgTG96.gif',
 };
-modalStore.trigger(alert);
+modalStore.trigger(modal);
 `}
 					/>
 				</svelte:fragment>
@@ -205,7 +205,7 @@ modalStore.trigger(alert);
 					<CodeBlock
 						language="ts"
 						code={`
-const confirm: ModalSettings = {
+const modal: ModalSettings = {
 	type: 'confirm',
 	// Data
 	title: 'Please Confirm',
@@ -213,7 +213,7 @@ const confirm: ModalSettings = {
 	// TRUE if confirm pressed, FALSE if cancel pressed
 	response: (r: boolean) => console.log('response:', r),
 };
-modalStore.trigger(confirm);
+modalStore.trigger(modal);
 `}
 					/>
 				</svelte:fragment>
@@ -227,7 +227,7 @@ modalStore.trigger(confirm);
 					<CodeBlock
 						language="ts"
 						code={`
-const prompt: ModalSettings = {
+const modal: ModalSettings = {
 	type: 'prompt',
 	// Data
 	title: 'Enter Name',
@@ -238,7 +238,7 @@ const prompt: ModalSettings = {
 	// Returns the updated response value
 	response: (r: string) => console.log('response:', r),
 };
-modalStore.trigger(prompt);
+modalStore.trigger(modal);
 `}
 					/>
 				</svelte:fragment>
