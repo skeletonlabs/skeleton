@@ -30,7 +30,7 @@
 			<p>Keep up with the latest news, tutorials, and releases for Skeleton.</p>
 		</div>
 		<!-- RSS Icon -->
-		<button class="btn btn-icon-sm !bg-orange-500" on:click={copyRSSToClipboard} on:keypress>
+		<button class="btn-icon btn-icon-sm !bg-orange-500" on:click={copyRSSToClipboard} on:keypress>
 			<i class="fa-solid fa-square-rss text-xl" />
 		</button>
 	</header>
