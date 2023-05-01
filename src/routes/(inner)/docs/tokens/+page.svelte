@@ -25,57 +25,57 @@
 	const tableBackgrounds: TableSource = {
 		head: headings,
 		body: [
-			['<code>.bg-[color]-backdrop-token</code>', vColorsAll, 'Background styles for modal backdrops.'],
-			['<code>.bg-[color]-hover-token</code>', vColorsAll, 'Background styles for hoverable elements.'],
-			['<code>.bg-[color]-active-token</code>', vColorsAll, 'Background styles for active selected elements.'],
-			['<code>.bg-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings]
+			['<code class="code">.bg-[color]-backdrop-token</code>', vColorsAll, 'Background styles for modal backdrops.'],
+			['<code class="code">.bg-[color]-hover-token</code>', vColorsAll, 'Background styles for hoverable elements.'],
+			['<code class="code">.bg-[color]-active-token</code>', vColorsAll, 'Background styles for active selected elements.'],
+			['<code class="code">.bg-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings]
 		]
 	};
 	const tableBorderRadius: TableSource = {
 		head: headings,
 		body: [
-			['<code>.rounded-token</code>', '', 'Border radius for small elements: buttons, badges, chips, etc.'],
-			['<code>.rounded-[corner]-token</code>', vCorners, 'Corner border radius styles for small elements.'],
-			['<code>.rounded-container-token</code>', '', 'Border radius for large elements, such as cards and textareas'],
-			['<code>.rounded-[corner]-container-token</code>', vCorners, 'Corner border radius styles large small elements.']
+			['<code class="code">.rounded-token</code>', '', 'Border radius for small elements: buttons, badges, chips, etc.'],
+			['<code class="code">.rounded-[corner]-token</code>', vCorners, 'Corner border radius styles for small elements.'],
+			['<code class="code">.rounded-container-token</code>', '', 'Border radius for large elements, such as cards and textareas'],
+			['<code class="code">.rounded-[corner]-container-token</code>', vCorners, 'Corner border radius styles large small elements.']
 		]
 	};
 	const tableBorder: TableSource = {
 		head: headings,
 		body: [
-			['<code>.border-token</code>', '', "Implements your theme's configured border size."],
-			['<code>.border-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings]
+			['<code class="code">.border-token</code>', '', "Implements your theme's configured border size."],
+			['<code class="code">.border-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings]
 		]
 	};
 	const tableFills: TableSource = {
 		head: headings,
 		body: [
-			['<code>.fill-token</code>', '', 'The default responsive light/dark mode fill color.'],
-			['<code>.fill-on-[color]-token</code>', vColorsAll, 'Provides an accessible foreground color.']
+			['<code class="code">.fill-token</code>', '', 'The default responsive light/dark mode fill color.'],
+			['<code class="code">.fill-on-[color]-token</code>', vColorsAll, 'Provides an accessible foreground color.']
 		]
 	};
 	const tableRings: TableSource = {
 		head: headings,
 		body: [
-			['<code>.ring-outline-token</code>', '', 'Creates a subtle transparent outline like Card elements.'],
-			['<code>.ring-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings]
+			['<code class="code">.ring-outline-token</code>', '', 'Creates a subtle transparent outline like Card elements.'],
+			['<code class="code">.ring-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings]
 		]
 	};
 	const tableText: TableSource = {
 		head: headings,
 		body: [
-			['<code>.font-heading-token</code>', '', "Implements your theme's configured heading font family."],
-			['<code>.font-token</code>', '', "Implements your theme's configured base font family."],
-			['<code>.text-token</code>', '', "Implements your theme's configured base text color."],
-			['<code>.text-on-[color]-token</code>', vColorsAll, 'Provides an accessible foreground color.'],
-			['<code>.text-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings]
+			['<code class="code">.font-heading-token</code>', '', "Implements your theme's configured heading font family."],
+			['<code class="code">.font-token</code>', '', "Implements your theme's configured base font family."],
+			['<code class="code">.text-token</code>', '', "Implements your theme's configured base text color."],
+			['<code class="code">.text-on-[color]-token</code>', vColorsAll, 'Provides an accessible foreground color.'],
+			['<code class="code">.text-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings]
 		]
 	};
 	const tableMisc: TableSource = {
 		head: headings,
 		body: [
 			[
-				'<code>accent-[color]-token</code>',
+				'<code class="code">accent-[color]-token</code>',
 				vColorsAll,
 				'Provides an input <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color" target="_blank">accent-color</a>.'
 			]
@@ -125,8 +125,8 @@
 				Below is a visualization of color pairings in Skeleton. This is how we balance light and dark mode for your themes in practice. For
 				example, the <em>surface</em> color swatch 50 is the lightest available color, so we utilize that for your light theme background
 				color. While swatch 900 is the darkest, so vice versa. These two colors form a pair. We then generate design token classes for
-				<code>.bg-surface-50-900-token</code>
-				and <code>bg-surface-900-50-token</code> that automatically switch between these in light/dark mode respectively.
+				<code class="code">.bg-surface-50-900-token</code>
+				and <code class="code">bg-surface-900-50-token</code> that automatically switch between these in light/dark mode respectively.
 			</p>
 			<img
 				class="rounded-container-token shadow-lg"

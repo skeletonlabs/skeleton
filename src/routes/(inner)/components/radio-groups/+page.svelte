@@ -55,7 +55,7 @@
 				</RadioGroup>
 			</svelte:fragment>
 			<svelte:fragment slot="footer">
-				<div class="text-center"><code>selected: {justify}</code></div>
+				<div class="text-center"><code class="code">selected: {justify}</code></div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
 				<CodeBlock language="ts" code={`let value: number = 0;`} />
@@ -83,7 +83,7 @@
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Variants</h2>
-			<p>The radio group supports variant styles for <code>active</code> and <code>hover</code> properties.</p>
+			<p>The radio group supports variant styles for <code class="code">active</code> and <code class="code">hover</code> properties.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<RadioGroup active="variant-filled-primary" hover="hover:variant-soft-primary">
@@ -101,7 +101,7 @@
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Vertical</h2>
-			<p>Set <em>display</em> to <code>flex-col</code> for a vertical layout.</p>
+			<p>Set <em>display</em> to <code class="code">flex-col</code> for a vertical layout.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<RadioGroup rounded="rounded-container-token" display="flex-col">
@@ -122,14 +122,14 @@
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Full Width</h2>
-			<p>Set <em>display</em> to <code>flex</code> to stretch and fill the full width.</p>
+			<p>Set <em>display</em> to <code class="code">flex</code> to stretch and fill the full width.</p>
 			<CodeBlock language="html" code={`<RadioGroup display="flex">...</RadioGroup>`} />
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Radio Attributes</h2>
 			<p>
-				The Radio Item component supports Svelte's <code>$$restProps</code>, which allows for <em>required</em>, <em>disabled</em>, and any
-				other valid radio input attributes. Please note these settings are applied per item.
+				The Radio Item component supports Svelte's <code class="code">$$restProps</code>, which allows for <em>required</em>,
+				<em>disabled</em>, and any other valid radio input attributes. Please note these settings are applied per item.
 			</p>
 			<CodeBlock language="html" code={`<RadioItem ... required disabled />`} />
 		</section>

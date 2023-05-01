@@ -57,7 +57,7 @@
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<h2 class="h2">Indeterminate Mode</h2>
-			<p>Remove the <code>value</code> property or set value to <code>undefined</code>.</p>
+			<p>Remove the <code class="code">value</code> property or set value to <code class="code">undefined</code>.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full space-y-10">
@@ -84,7 +84,9 @@
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Native Alternative</h2>
-			<p>The native <code>progress</code> element works cross browser, but does not currently support Indeterminate mode when styled.</p>
+			<p>
+				The native <code class="code">progress</code> element works cross browser, but does not currently support Indeterminate mode when styled.
+			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<progress value={props.value} max={props.max} />

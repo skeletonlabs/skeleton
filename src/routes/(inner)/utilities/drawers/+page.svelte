@@ -105,8 +105,8 @@
 		<section class="space-y-4">
 			<h2 class="h2">Passing Metadata</h2>
 			<p>
-				To pass arbitrary metadata, create a <code>meta</code> object within <code>DrawerSettings</code>. Then use
-				<code>$drawerStore.meta</code> to retrieve this.
+				To pass arbitrary metadata, create a <code class="code">meta</code> object within <code class="code">DrawerSettings</code>. Then use
+				<code class="code">$drawerStore.meta</code> to retrieve this.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -132,7 +132,7 @@ drawerStore.open(drawerSettings);
 			<h2 class="h2">Styling</h2>
 			<p>
 				For global styles, apply changes via props directly to the Modal component. However, you may also override styles per drawer
-				instance via the <code>DrawerSettings</code>.
+				instance via the <code class="code">DrawerSettings</code>.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -161,8 +161,9 @@ drawerStore.open(drawerSettings);
 		<section class="space-y-4">
 			<h2 class="h2">Handling Contents</h2>
 			<p>
-				Create a new <code>DrawerSettings</code> object, supply a unique <code>id</code>, then pass these settings on
-				<code>drawerStore.open()</code>.
+				Create a new <code class="code">DrawerSettings</code> object, supply a unique <code class="code">id</code>, then pass these settings
+				on
+				<code class="code">drawerStore.open()</code>.
 			</p>
 			<CodeBlock
 				language="ts"
@@ -172,7 +173,9 @@ drawerStore.open(settings);
 `}
 			/>
 			<p>
-				Within the default slot of your Drawer component, setup conditional statements based on the value of <code>$drawerStore.id</code>.
+				Within the default slot of your Drawer component, setup conditional statements based on the value of <code class="code"
+					>$drawerStore.id</code
+				>.
 			</p>
 			<CodeBlock
 				language="html"
@@ -204,7 +207,7 @@ drawerStore.open(settings);
 			</p>
 			<CodeBlock language="html" code={`<AppShell class="transition-transform {positionClasses}">...</AppShell>`} />
 			<CodeBlock language="html" code={`<main class="transition-transform {positionClasses}">...</main>`} />
-			<p>For best results, be sure to take into account the Drawer position as well via <code>$drawerStore.position</code>.</p>
+			<p>For best results, be sure to take into account the Drawer position as well via <code class="code">$drawerStore.position</code>.</p>
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Accessibility</h2>

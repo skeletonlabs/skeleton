@@ -42,8 +42,8 @@
 			View Sveld Documentation
 		</a>
 		<p>
-			To document component properties, add TSDoc comments using the <code>/** ... */</code> format. In most use cases Sveld will automatically
-			parse relevant information - including the property name, type, value, and your description.
+			To document component properties, add TSDoc comments using the <code class="code">/** ... */</code> format. In most use cases Sveld will
+			automatically parse relevant information - including the property name, type, value, and your description.
 		</p>
 		<CodeBlock
 			language="js"
@@ -53,7 +53,7 @@ export let mode = 'fuzz';
 			`}
 		/>
 		<p>
-			The <code>CssClasses</code> class denotes properties that use Tailwind utility classes. Set this to aid IntelliSense features.
+			The <code class="code">CssClasses</code> class denotes properties that use Tailwind utility classes. Set this to aid IntelliSense features.
 		</p>
 		<CodeBlock
 			language="js"
@@ -65,8 +65,9 @@ export let spacing: CssClasses = 'space-y-1';
 		/>
 
 		<p>
-			For advanced or custom types, you may need to specify this information. This can be accomplished using the <code>@type</code> tag with
-			block-style comments. Specify the type in curly brackets immediately following the tag.
+			For advanced or custom types, you may need to specify this information. This can be accomplished using the <code class="code"
+				>@type</code
+			> tag with block-style comments. Specify the type in curly brackets immediately following the tag.
 		</p>
 		<CodeBlock
 			language="js"
@@ -79,7 +80,7 @@ export let files: FileList;
 `}
 		/>
 		<p>
-			Ensure you document Context API <code>getContext</code> values to provide Intellisense for child components. However, we intentionally
+			Ensure you document Context API <code class="code">getContext</code> values to provide Intellisense for child components. However, we intentionally
 			exclude these values from the Props table.
 		</p>
 		<CodeBlock
@@ -100,8 +101,8 @@ export let hover: string = getContext('hover');
 		</a>
 		<p>
 			Slot documentation is handle via TSDoc block comments at the top of your script tag (by convention). Note that Sveld does not
-			currently support descriptions for the <code>default</code> slot. Instead, we recommend you opt for a Usage tab example and instructions
-			to illustrate the use of this slot.
+			currently support descriptions for the <code class="code">default</code> slot. Instead, we recommend you opt for a Usage tab example and
+			instructions to illustrate the use of this slot.
 		</p>
 		<CodeBlock
 			language="js"
@@ -115,7 +116,7 @@ export let hover: string = getContext('hover');
 		<aside class="alert variant-ghost-warning">
 			<i class="fa-solid fa-lightbulb text-2xl" />
 			<div class="alert-message">
-				The leading <code>// ...</code> comment is required for Sveld to parse the slot descriptions. This is not optional.
+				The leading <code class="code">// ...</code> comment is required for Sveld to parse the slot descriptions. This is not optional.
 			</div>
 		</aside>
 	</section>
@@ -128,8 +129,8 @@ export let hover: string = getContext('hover');
 		</a>
 		<p>
 			Sveld will automatically document forwarded events. You should not attempt to document these! However, dispatched events may be
-			documented similar to props - with a TSDocs comment applied directly above the <code>dispatch()</code> method. Provide the event response
-			in curly brackets, followed by the event name, a dash, and then the event description.
+			documented similar to props - with a TSDocs comment applied directly above the <code class="code">dispatch()</code> method. Provide the
+			event response in curly brackets, followed by the event name, a dash, and then the event description.
 		</p>
 		<CodeBlock
 			language="js"
@@ -147,26 +148,34 @@ dispatch('dragover', event);`}
 		<!-- prettier-ignore -->
 		<p>
 			Now that our components are ready, it's time to create the documentation page that displays all of the information derived by Sveld.
-			We provide a boilerplate template in <code>/src/routes/(inner)/template/+page.svelte</code>. Copy this to the appropriate file route location and use our recommend naming convention (e.g. <code>/routes/components/your-new-component/+page.svelte</code>).
+			We provide a boilerplate template in <code class="code">/src/routes/(inner)/template/+page.svelte</code>. Copy this to the appropriate file route location and use our recommend naming convention (e.g. <code class="code">/routes/components/your-new-component/+page.svelte</code>).
 		</p>
 		<!-- Documentation Tables -->
 		<h3 class="h3">Documentation Tables</h3>
 		<p>To populate each documentation table we'll need to import our Sveld documentation data. Follow the instructions below:</p>
 		<ol class="list-decimal list-outside ml-8 space-y-1">
 			<li>
-				Create a duplicate of your component import statement, e.g. <code>import Avatar from '$lib/components/Avatar/Avatar.svelte';</code>
+				Create a duplicate of your component import statement, e.g. <code class="code"
+					>import Avatar from '$lib/components/Avatar/Avatar.svelte';</code
+				>
 			</li>
-			<li>Rename the import reference using the convention: <code>Avatar</code> -> <code>sveldAvatar</code>.</li>
-			<li>Append the following URL parameters to the end of your import statement, e.g.: <code>.../Accordion.svelte?raw&sveld</code>.</li>
+			<li>Rename the import reference using the convention: <code class="code">Avatar</code> -> <code class="code">sveldAvatar</code>.</li>
 			<li>
-				Finally, pass the import reference to the DocShell settings like so: <code>components: [&#123; sveld: sveldAvatar &#125;]</code>
+				Append the following URL parameters to the end of your import statement, e.g.: <code class="code"
+					>.../Accordion.svelte?raw&sveld</code
+				>.
+			</li>
+			<li>
+				Finally, pass the import reference to the DocShell settings like so: <code class="code"
+					>components: [&#123; sveld: sveldAvatar &#125;]</code
+				>
 			</li>
 		</ol>
 		<!-- DocShell Settings -->
 		<h3 class="h3">DocShell Settings</h3>
 		<p>
-			We can provide settings to our DocShell component using <code>const settings: DocsShellSettings</code>. This allows you to populate
-			all relevant settings on the page.
+			We can provide settings to our DocShell component using <code class="code">const settings: DocsShellSettings</code>. This allows you
+			to populate all relevant settings on the page.
 		</p>
 		<section class="card variant-glass p-4 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 			<div class="space-y-2">
@@ -202,8 +211,8 @@ dispatch('dragover', event);`}
 		<!-- Usage -->
 		<h3 class="h3">Usage</h3>
 		<p>
-			In addition to examples, you should provide multiple use case demonstrations using the <code>Preview</code> component to help end developers
-			understand how to make use of your new components and features.
+			In addition to examples, you should provide multiple use case demonstrations using the <code class="code">Preview</code> component to help
+			end developers understand how to make use of your new components and features.
 		</p>
 		<!-- Keyboard Interactions -->
 		<h3 class="h3">Keyboard Interactions</h3>

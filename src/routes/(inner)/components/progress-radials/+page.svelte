@@ -45,7 +45,10 @@
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<h2 class="h2">Styling</h2>
-			<p>Use the <code>stroke</code> <code>meter</code> or <code>track</code>properties to style the radial.</p>
+			<p>
+				Use the <code class="code">stroke</code> <code class="code">meter</code> or <code class="code">track</code>properties to style the
+				radial.
+			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 text-center">
@@ -90,7 +93,7 @@
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Indeterminate</h2>
-			<p>Remove the <code>value</code> property or set to <code>undefined</code>.</p>
+			<p>Remove the <code class="code">value</code> property or set to <code class="code">undefined</code>.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<ProgressRadial width="w-28" />

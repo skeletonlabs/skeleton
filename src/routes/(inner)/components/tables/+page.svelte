@@ -85,7 +85,10 @@ const sourceData = [
 ];
 				`}
 				/>
-				<p>Create a <code>TableSource</code> object. use <code>body: tableMapperValues(sourceData)</code> to map the data.</p>
+				<p>
+					Create a <code class="code">TableSource</code> object. use <code class="code">body: tableMapperValues(sourceData)</code> to map the
+					data.
+				</p>
 				<CodeBlock
 					language="ts"
 					code={`
@@ -97,7 +100,7 @@ const tableSimple: TableSource = {
 	// Optional: The data returned when interactive is enabled and a row is clicked.
 	meta: tableMapperValues(sourceData, ['position', 'name', 'symbol', 'weight']),
 	// Optional: A list of footer labels.
-	foot: ['Total', '', '<code>${sourceData.length}</code>']
+	foot: ['Total', '', '<code class="code">${sourceData.length}</code>']
 };
 				`}
 				/>
@@ -112,8 +115,10 @@ const tableSimple: TableSource = {
 		<section class="space-y-4">
 			<h2 class="h2">Interactive Mode</h2>
 			<p>
-				Use the <code>interactive</code> to make the table interactive. When a row is clicked, <code>on:selected</code> will pass the row's
-				<code>meta</code> value.
+				Use the <code class="code">interactive</code> to make the table interactive. When a row is clicked,
+				<code class="code">on:selected</code>
+				will pass the row's
+				<code class="code">meta</code> value.
 			</p>
 			<CodeBlock language="html" code={`<Table ... interactive={true} on:selected={mySelectionHandler} />`} />
 		</section>
@@ -161,7 +166,8 @@ tableSourceMapper(sourceData, ['name', 'symbol', 'weight']);\n
 			{:else if $storeService === 'tableSourceValues'}
 				<!-- Source Values -->
 				<p>
-					Returns an array of array values from an array of objects. This is the desired format for <code>TableSource</code> <em>body</em>
+					Returns an array of array values from an array of objects. This is the desired format for <code class="code">TableSource</code>
+					<em>body</em>
 					and <em>meta</em>.
 				</p>
 				<CodeBlock

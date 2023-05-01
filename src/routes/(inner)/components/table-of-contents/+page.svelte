@@ -68,17 +68,17 @@
 					<!-- prettier-ignore -->
 					<tbody>
 						<tr>
-							<td><code>scrollParent</code></td>
+							<td><code class="code">scrollParent</code></td>
 							<td>"#page"</td>
 							<td><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector" target="_blank" rel="noreferrer">Query selector</a> for the scrollable page element.</td>
 						</tr>
 						<tr>
-							<td><code>target</code></td>
+							<td><code class="code">target</code></td>
 							<td>"#page"</td>
 							<td><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector" target="_blank" rel="noreferrer">Query selector</a> for the element to scan for headings.</td>
 						</tr>
 						<tr>
-							<td><code>allowedHeadings</code></td>
+							<td><code class="code">allowedHeadings</code></td>
 							<td>'h2, h3'</td>
 							<td><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector" target="_blank" rel="noreferrer">Query selector</a> for the allowed headings. From H2-H6.</td>
 						</tr>
@@ -87,13 +87,14 @@
 			</div>
 			<h3 class="h3">Heading IDs</h3>
 			<p>
-				The component will scan the target region and query all matching headings. If a heading has an <code>ID</code> set, that will be used
-				as the scroll target, otherwise an ID will be auto-generated and assigned.
+				The component will scan the target region and query all matching headings. If a heading has an <code class="code">ID</code> set, that
+				will be used as the scroll target, otherwise an ID will be auto-generated and assigned.
 			</p>
 			<h3 class="h3">Click to Scroll</h3>
 			<p>
-				When a link is clicked, the scrollable parent container will be scrolled using the JavaScript <code>scrollIntoView</code> method. This
-				will smoothly scroll the container element to the heading with the matching ID.
+				When a link is clicked, the scrollable parent container will be scrolled using the JavaScript <code class="code"
+					>scrollIntoView</code
+				> method. This will smoothly scroll the container element to the heading with the matching ID.
 			</p>
 		</section>
 		<section class="space-y-4">
@@ -107,7 +108,7 @@
 		<section class="space-y-4">
 			<h2 class="h2">Screen Reader Headings</h2>
 			<!-- prettier-ignore -->
-			<p>If you wish to include a section link that's not visibly shown within the target element, use <a href="https://tailwindcss.com/docs/screen-readers#screen-reader-only-elements" target="_blank" rel="noreferrer">Screen Reader</a> <code>.sr-only</code> class from Tailwind.</p>
+			<p>If you wish to include a section link that's not visibly shown within the target element, use <a href="https://tailwindcss.com/docs/screen-readers#screen-reader-only-elements" target="_blank" rel="noreferrer">Screen Reader</a> <code class="code">.sr-only</code> class from Tailwind.</p>
 			<CodeBlock language="html" code={`<h2 class="sr-only">Include Me!</h2>`} />
 		</section>
 		<section class="space-y-4">

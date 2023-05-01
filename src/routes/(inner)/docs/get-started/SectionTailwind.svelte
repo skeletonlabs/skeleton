@@ -33,14 +33,14 @@
 					</p>
 					<CodeBlock language="console" code={`npx svelte-add@latest tailwindcss\nnpm install`} />
 					<!-- prettier-ignore -->
-					<p>Then open your global stylesheet in <code>/src/app.postcss</code> and remove the following three <a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> introduced by Svelte-Add. These are redundant as Skeleton automatically handles these in our stylesheets for you.</p>
+					<p>Then open your global stylesheet in <code class="code">/src/app.postcss</code> and remove the following three <a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> introduced by Svelte-Add. These are redundant as Skeleton automatically handles these in our stylesheets for you.</p>
 					<div class="space-y-[1px]">
 						<del>@tailwind base;</del>
 						<del>@tailwind components;</del>
 						<del>@tailwind utilities;</del>
 					</div>
 				</div>
-				<p>Apply these following three changes to your <code>tailwind.config.cjs</code>, found in the root of your project.</p>
+				<p>Apply these following three changes to your <code class="code">tailwind.config.cjs</code>, found in the root of your project.</p>
 				<CodeBlock
 					language="js"
 					code={`
@@ -75,7 +75,7 @@ module.exports = {
 				</aside>
 				<p>
 					Note that your app will default to light mode. To manually set dark mode, append the following class to the HTML element within <code
-						>/src/app.html</code
+						class="code">/src/app.html</code
 					>.
 				</p>
 				<CodeBlock language="html" code={`<html class="dark">`} />

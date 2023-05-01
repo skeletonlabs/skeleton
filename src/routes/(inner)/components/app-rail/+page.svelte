@@ -98,7 +98,7 @@ const storeValue: Writable<number> = writable(0);
 		<section class="space-y-4">
 			<h2 class="h2">Anchor Tiles</h2>
 			<p>
-				Use <code>tag="a"</code> to convert any tile to an anchor link, then append
+				Use <code class="code">tag="a"</code> to convert any tile to an anchor link, then append
 				<em>href, target, rel</em>, and other attributes as needed.
 			</p>
 			<DocsPreview background="neutral">

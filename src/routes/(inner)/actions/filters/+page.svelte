@@ -28,7 +28,7 @@
 		description: 'Apply Instagram-like filter effects to images.',
 		imports: ['filter'],
 		source: 'actions/Filters',
-		parameters: [['<code>(default)</code>', 'string', '-', '-', 'The name of the filter, such as "Apollo".']]
+		parameters: [['<code class="code">(default)</code>', 'string', '-', '-', 'The name of the filter, such as "Apollo".']]
 	};
 
 	// Local

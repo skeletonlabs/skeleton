@@ -17,10 +17,10 @@
 		stylesheets: ['elements/lists'],
 		source: 'styles/elements/lists.css',
 		classes: [
-			['<code>.list</code>', '-', 'Class for defining an unordered or ordered list.'],
-			['<code>.list-dl</code>', '-', 'Class for defining a description list.'],
-			['<code>.list-nav</code>', '-', 'Class for defining a navigation list.'],
-			['<code>.list-option</code>', '-', 'Provides hover styles similar to anchors.']
+			['<code class="code">.list</code>', '-', 'Class for defining an unordered or ordered list.'],
+			['<code class="code">.list-dl</code>', '-', 'Class for defining a description list.'],
+			['<code class="code">.list-nav</code>', '-', 'Class for defining a navigation list.'],
+			['<code class="code">.list-option</code>', '-', 'Provides hover styles similar to anchors.']
 		]
 	};
 
@@ -69,7 +69,9 @@
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
-		<p>Apply the <code>.list</code> class to the parent. Wrap children with <em>span</em> elements to allow for horizontal spacing.</p>
+		<p>
+			Apply the <code class="code">.list</code> class to the parent. Wrap children with <em>span</em> elements to allow for horizontal spacing.
+		</p>
 		<!-- Ordered -->
 		<section class="space-y-4">
 			<h2 class="h2">Ordered List</h2>

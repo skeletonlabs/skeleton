@@ -16,12 +16,12 @@
 		stylesheets: ['elements/cards'],
 		source: 'styles/elements/cards.css',
 		classes: [
-			['<code>.card</code>', '-', 'Adds basic card styling to any block element.'],
-			['<code>.card-header</code>', '-', 'The header region of the card.'],
-			['<code>.card-footer</code>', '-', 'The footer region of the card.'],
-			['<code>.card-hover</code>', '-', 'Provides an animated hover effect.'],
+			['<code class="code">.card</code>', '-', 'Adds basic card styling to any block element.'],
+			['<code class="code">.card-header</code>', '-', 'The header region of the card.'],
+			['<code class="code">.card-footer</code>', '-', 'The footer region of the card.'],
+			['<code class="code">.card-hover</code>', '-', 'Provides an animated hover effect.'],
 			[
-				'<code>.variant-glass-[color]</code>',
+				'<code class="code">.variant-glass-[color]</code>',
 				'primary | secondary | tertiary | success | warning | error | surface',
 				'A semi-transparent glass variation.'
 			]
@@ -92,7 +92,7 @@
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<h2 class="h2">Headers and Footers</h2>
-			<p>Segment your card using the included <code>.card-header</code> and <code>.card-footer</code> classes.</p>
+			<p>Segment your card using the included <code class="code">.card-header</code> and <code class="code">.card-footer</code> classes.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full text-token">
@@ -125,7 +125,7 @@
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Interactive</h2>
-			<p>Anchor cards have an inherent hover style. Add <code>.card-hover</code> to provide an additional 3D hover effect.</p>
+			<p>Anchor cards have an inherent hover style. Add <code class="code">.card-hover</code> to provide an additional 3D hover effect.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full text-token">

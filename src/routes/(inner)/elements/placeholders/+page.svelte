@@ -15,8 +15,8 @@
 		stylesheets: ['elements/placeholders'],
 		source: 'styles/elements/placeholders.css',
 		classes: [
-			['<code>placeholder</code>', '-', 'Applies the default placeholder style.'],
-			['<code>placeholder-circle</code>', '-', 'Applies the circular placeholder style.']
+			['<code class="code">placeholder</code>', '-', 'Applies the default placeholder style.'],
+			['<code class="code">placeholder-circle</code>', '-', 'Applies the circular placeholder style.']
 		]
 	};
 
@@ -64,7 +64,7 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<p>
-			Apply the <code>.placeholder</code> class to any <em>div</em> element.
+			Apply the <code class="code">.placeholder</code> class to any <em>div</em> element.
 		</p>
 		<!-- Layout -->
 		<div class="space-y-4">
@@ -120,7 +120,7 @@
 		<!-- Circular -->
 		<div class="space-y-4">
 			<h2 class="h2">Circular</h2>
-			<p>Apply the <code>.placeholder-circle</code> class and set a width to define the diameter.</p>
+			<p>Apply the <code class="code">.placeholder-circle</code> class and set a width to define the diameter.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="placeholder-circle w-16" class:animate-pulse={animate} />
@@ -133,7 +133,7 @@
 		<!-- Animated -->
 		<div class="space-y-4">
 			<h2 class="h2">Animated</h2>
-			<p>Apply the <code>.animate-pulse</code> utility class provided by Tailwind.</p>
+			<p>Apply the <code class="code">.animate-pulse</code> utility class provided by Tailwind.</p>
 			<CodeBlock language="html" code={`<div class="placeholder animate-pulse" />`} />
 		</div>
 	</svelte:fragment>

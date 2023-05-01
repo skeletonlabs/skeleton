@@ -48,12 +48,12 @@
 					</svelte:fragment>
 					<svelte:fragment slot="content">
 						<!-- prettier-ignore -->
-						<p>The opt-in utility class approach introduces much simpler CSS selectors for each element. We no longer have to maintain <code>.unstyled</code> and <code>.prose</code> exemptions. This makes it much easier for you to target global typography overrides for each particular element in your global stylesheet.
+						<p>The opt-in utility class approach introduces much simpler CSS selectors for each element. We no longer have to maintain <code class="code">.unstyled</code> and <code class="code">.prose</code> exemptions. This makes it much easier for you to target global typography overrides for each particular element in your global stylesheet.
 						</p>
 						<div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
 							<div class="space-y-4">
 								<p class="font-bold">v1.2.5 and Lower</p>
-								<small>Provided via <code>all.css</code>.</small>
+								<small>Provided via <code class="code">all.css</code>.</small>
 								<CodeBlock
 									language="css"
 									code={`
@@ -65,7 +65,7 @@ h3:not(.unstyled):is(:not(.prose *)) {\n\t/* ... */\n}
 							</div>
 							<div class="space-y-4">
 								<p class="font-bold">v1.3+</p>
-								<small>Provided via <code>skeleton.css</code>.</small>
+								<small>Provided via <code class="code">skeleton.css</code>.</small>
 								<CodeBlock
 									language="css"
 									code={`
@@ -79,7 +79,7 @@ h3:not(.unstyled):is(:not(.prose *)) {\n\t/* ... */\n}
 						<div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
 							<div class="space-y-4">
 								<p class="font-bold">v1.2.5 and Lower</p>
-								<small>Provided via <code>all.css</code>.</small>
+								<small>Provided via <code class="code">all.css</code>.</small>
 								<CodeBlock
 									language="css"
 									code={`
@@ -89,7 +89,7 @@ a:not(.unstyled):not(.permalink):is(:not(.prose *)):not(.btn):not(.btn-icon):not
 							</div>
 							<div class="space-y-4">
 								<p class="font-bold">v1.3+</p>
-								<small>Provided via <code>skeleton.css</code>.</small>
+								<small>Provided via <code class="code">skeleton.css</code>.</small>
 								<CodeBlock language="css" code={`.anchor { /* ... */ }`} />
 							</div>
 						</div>
@@ -102,13 +102,14 @@ a:not(.unstyled):not(.permalink):is(:not(.prose *)):not(.btn):not(.btn-icon):not
 					</svelte:fragment>
 					<svelte:fragment slot="content">
 						<!-- prettier-ignore -->
-						<p>Skeleton strives for backwards compatability, and as such we've provided a simple migration path to allow you to ease into the changes. Open your root layout <code>/src/routes/+layout.svelte</code> and replace the legacy <code>all.css</code> stylesheet with the following.</p>
+						<p>Skeleton strives for backwards compatability, and as such we've provided a simple migration path to allow you to ease into the changes. Open your root layout <code class="code">/src/routes/+layout.svelte</code> and replace the legacy <code class="code">all.css</code> stylesheet with the following.</p>
 						<CodeBlock language="js" code={`import '@skeletonlabs/skeleton/styles/skeleton.css';`} />
 						<p>You may then begin to appending the respective class per each typographic element as shown on this page.</p>
 						<h4 class="h4">Skeleton v2.x+</h4>
 						<p>
-							In the next major point release Skeleton will drop <code>all.css</code> in favor of <code>skeleton.css</code> and allow only the
-							opt-in system. To prepare for this change we recommend migrating as soon as possible.
+							In the next major point release Skeleton will drop <code class="code">all.css</code> in favor of
+							<code class="code">skeleton.css</code> and allow only the opt-in system. To prepare for this change we recommend migrating as soon
+							as possible.
 						</p>
 					</svelte:fragment>
 				</AccordionItem>
@@ -272,8 +273,8 @@ a:not(.unstyled):not(.permalink):is(:not(.prose *)):not(.btn):not(.btn-icon):not
 			`}
 			/>
 			<p>
-				When overriding existing styles you may need to use <code>!</code> to set <em>important</em>, such as
-				<code>prose-code:!bg-purple-500</code>
+				When overriding existing styles you may need to use <code class="code">!</code> to set <em>important</em>, such as
+				<code class="code">prose-code:!bg-purple-500</code>
 			</p>
 		</section>
 		<hr />
@@ -287,7 +288,8 @@ a:not(.unstyled):not(.permalink):is(:not(.prose *)):not(.btn):not(.btn-icon):not
 				<p>This exemption class is only relevant when using on-by-default typography rather than the opt-in system. This is slated for deprecation and will be dropped in Skeleton v2.x+.</p>
 			</div>
 			<p>
-				Use the <code>.unstyled</code> class to exclude and reset Skeleton's on-by-default typography styles, then apply new styles as desired.
+				Use the <code class="code">.unstyled</code> class to exclude and reset Skeleton's on-by-default typography styles, then apply new styles
+				as desired.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">

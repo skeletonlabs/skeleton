@@ -15,10 +15,10 @@
 		stylesheets: ['elements/breadcrumbs'],
 		source: 'styles/elements/breadcrumbs.css',
 		classes: [
-			['<code>breadcrumb</code>', '-', 'Add to an <em>ol</em> tag element.'],
-			['<code>breadcrumb-nonresponsive</code>', '-', 'Shows all crumbs on small mobile breakpoints.'],
-			['<code>crumb</code>', '-', 'Apply to each crumb list item element.'],
-			['<code>crumb-separator</code>', '-', 'Apply to each separator list item element.']
+			['<code class="code">breadcrumb</code>', '-', 'Add to an <em>ol</em> tag element.'],
+			['<code class="code">breadcrumb-nonresponsive</code>', '-', 'Shows all crumbs on small mobile breakpoints.'],
+			['<code class="code">crumb</code>', '-', 'Apply to each crumb list item element.'],
+			['<code class="code">crumb-separator</code>', '-', 'Apply to each separator list item element.']
 		]
 	};
 </script>
@@ -60,7 +60,7 @@
 		<section class="space-y-4">
 			<h2 class="h2">Separators</h2>
 			<!-- prettier-ignore -->
-			<p>Replace the contents of the <code>.crumb-separator</code> element with an icon or any valid <a href="https://unicode-table.com/en/sets/arrow-symbols/#right-arrows" target="_blank" rel="noreferrer">unicode symbol</a>. For accessibility, use <code>aria-hidden</code> to hide this element from screen readers.</p>
+			<p>Replace the contents of the <code class="code">.crumb-separator</code> element with an icon or any valid <a href="https://unicode-table.com/en/sets/arrow-symbols/#right-arrows" target="_blank" rel="noreferrer">unicode symbol</a>. For accessibility, use <code class="code">aria-hidden</code> to hide this element from screen readers.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="flex justify-center">
@@ -91,7 +91,7 @@
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Icons</h2>
-			<p>Add your icon before or after your anchor tag within the <code>.crumb</code> list item.</p>
+			<p>Add your icon before or after your anchor tag within the <code class="code">.crumb</code> list item.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="flex justify-center">
@@ -159,7 +159,7 @@
 			<h2 class="h2">Non-Responsive</h2>
 			<p>
 				Breadcrumbs are responsive by default and will auto-hide all but the last two crumb elements on small screens. If you wish to
-				disable this behavior, replace <code>.breadcrumb</code> with <code>.breadcrumb-nonresponsive</code>.
+				disable this behavior, replace <code class="code">.breadcrumb</code> with <code class="code">.breadcrumb-nonresponsive</code>.
 			</p>
 			<CodeBlock language="html" code={`<ol class="breadcrumb-nonresponsive">...</ol>`} />
 		</section>

@@ -161,7 +161,7 @@ import {
 			<!-- prettier-ignore -->
 			<p>
 				We need data to populate the table. For simplicity, let's create this locally. In a real world app you might fetch this from an
-				external API. We demonstrate this in the <a href="https://github.com/skeletonlabs/skeleton/blob/master/src/routes/(inner)/utilities/data-tables/%2Bpage.svelte" target="_blank" rel="noreferrer">example on this page</a>. See the use of <code>PageData</code> in the source.
+				external API. We demonstrate this in the <a href="https://github.com/skeletonlabs/skeleton/blob/master/src/routes/(inner)/utilities/data-tables/%2Bpage.svelte" target="_blank" rel="noreferrer">example on this page</a>. See the use of <code class="code">PageData</code> in the source.
 			</p>
 			<CodeBlock
 				language="ts"
@@ -206,7 +206,8 @@ const sourceData = [
 			<h2 class="h2">Data Table Model</h2>
 			<p>
 				To unlock the power of our data tables, we'll need to create what we'll refer to as a <em>data table model</em>. Create a new Svelte
-				writable store with <code>createDataTableStore</code>, then pass the model of our store to the <code>dataTableHandler</code> method.
+				writable store with <code class="code">createDataTableStore</code>, then pass the model of our store to the
+				<code class="code">dataTableHandler</code> method.
 			</p>
 			<CodeBlock
 				language="ts"
@@ -231,7 +232,7 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 				Next, we'll update our table markup to display our model data. Implement matching parent headings and body cells. We'll use an <code
 					>#each</code
 				>
-				loop to generate each table row. Note we use <code>$dataTableStore.filtered</code>
+				loop to generate each table row. Note we use <code class="code">$dataTableStore.filtered</code>
 				as our loop source. This represents the data as modified by search, sort, pagination, and more.
 			</p>
 			<CodeBlock
@@ -260,8 +261,8 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 		<section class="space-y-4">
 			<h2 class="h2">Updating the Source</h2>
 			<p>
-				To update the content of the data table, just call the <code>dataTableStore.updateSource()</code> method and pass in your new source
-				data.
+				To update the content of the data table, just call the <code class="code">dataTableStore.updateSource()</code> method and pass in your
+				new source data.
 			</p>
 			<CodeBlock language="ts" code={`dataTableStore.updateSource(newSourceData)`} />
 		</section>
@@ -269,8 +270,8 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 		<section class="space-y-4">
 			<h2 class="h2">Search</h2>
 			<p>
-				To implement search, bind <code>$dataTableStore.search</code> to any search input. You may add this anywhere as long as it has scope
-				of your table model (the store).
+				To implement search, bind <code class="code">$dataTableStore.search</code> to any search input. You may add this anywhere as long as
+				it has scope of your table model (the store).
 			</p>
 			<CodeBlock language="html" code={`<input bind:value={$dataTableStore.search} type="search" placeholder="Search..." />`} />
 		</section>
@@ -278,13 +279,14 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 		<section class="space-y-4">
 			<h2 class="h2">Sort</h2>
 			<p>
-				We'll use the <code>dataTableStore.sort()</code> method to automatically set <code>$dataTableStore.sort</code> when a table heading
-				is tapped. Add the following click method once to your table's <code>thead</code> element.
+				We'll use the <code class="code">dataTableStore.sort()</code> method to automatically set
+				<code class="code">$dataTableStore.sort</code>
+				when a table heading is tapped. Add the following click method once to your table's <code class="code">thead</code> element.
 			</p>
 			<CodeBlock language="html" code={`<thead on:click={(e) => { dataTableStore.sort(e) }} on:keypress>`} />
 			<p>
-				Add a <code>data-sort="(key)"</code> attribute to each heading you wish to be sortable. Tapping a heading will set the
-				<code>$dataTableStore.sort</code>
+				Add a <code class="code">data-sort="(key)"</code> attribute to each heading you wish to be sortable. Tapping a heading will set the
+				<code class="code">$dataTableStore.sort</code>
 				value and update the UI. Tapping a heading repeatedly will toggle between <em>ascending</em> and <em>descending</em> sort order.
 			</p>
 			<CodeBlock
@@ -310,10 +312,10 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 			<p>To handle row selection, we'll add a new heading column. Keep the comment shown, as we'll replace it in a following step.</p>
 			<CodeBlock language="html" code={`<th><!-- selection --></th>`} />
 			<p>
-				Pair this with a matching table body cell that includes a checkbox input. Append <code>bind:checked</code> to the input to extend
-				the row object source data. When checked on/off, the <code>dataTableHandler</code> will automatically include/exclude the entire row
-				object in
-				<code>$dataTableStore.selection</code>.
+				Pair this with a matching table body cell that includes a checkbox input. Append <code class="code">bind:checked</code> to the input
+				to extend the row object source data. When checked on/off, the <code class="code">dataTableHandler</code> will automatically
+				include/exclude the entire row object in
+				<code class="code">$dataTableStore.selection</code>.
 			</p>
 			<CodeBlock language="html" code={`<td><input type="checkbox" bind:checked={row.dataTableChecked} /></td>`} />
 			<p>
@@ -333,7 +335,7 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 			/>
 			<h3 class="h3">Select All</h3>
 			<p>
-				If you wish to add a <em>select all</em> feature, replace <code>{`<th><!-- selection --></th>`}</code> with the following.
+				If you wish to add a <em>select all</em> feature, replace <code class="code">{`<th><!-- selection --></th>`}</code> with the following.
 			</p>
 			<CodeBlock
 				language="html"
@@ -345,7 +347,7 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 			<h2 class="h2">Pagination</h2>
 			<p>
 				Please refer to the <a href="/components/paginators">Paginator component</a> to learn more about this feature. For data tables, use
-				<code>$dataTableStore.pagination</code> to ensures the model updates reactively. The wrapping <em>if</em> statement is required.
+				<code class="code">$dataTableStore.pagination</code> to ensures the model updates reactively. The wrapping <em>if</em> statement is required.
 			</p>
 			<CodeBlock language="html" code={`{#if $dataTableStore.pagination}<Paginator bind:settings={$dataTableStore.pagination} />{/if}`} />
 		</section>
@@ -354,18 +356,19 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 			<h2 class="h2">Accessibility</h2>
 			<p>
 				Since data tables make use of native HTML table elements, you will need to implement accessibility features directly. However, we've
-				simplified this by providing a Svelte Action called <code>tableA11y</code>. This implements the required event listeners for
-				keyboard interaction. Start by appending <em>role</em> and <em>action</em> to your <em>table</em> element.
+				simplified this by providing a Svelte Action called <code class="code">tableA11y</code>. This implements the required event
+				listeners for keyboard interaction. Start by appending <em>role</em> and <em>action</em> to your <em>table</em> element.
 			</p>
 			<CodeBlock language="html" code={`<table ... role="grid" use:tableA11y>`} />
 			<p>
-				Implement the <code>aria-rowindex</code> attribute. This starts at <strong>1</strong> and increments per <em>tr</em> row. We can
-				utilize the <em>#each</em> loop index value, named <code>rowIndex</code>.
+				Implement the <code class="code">aria-rowindex</code> attribute. This starts at <strong>1</strong> and increments per <em>tr</em>
+				row. We can utilize the <em>#each</em> loop index value, named <code class="code">rowIndex</code>.
 			</p>
 			<CodeBlock language="html" code={`<tr ... aria-rowindex={rowIndex + 1}>`} />
 			<p>
-				Implement three attributes per table body <em>td</em> cell. <code>role</code> and <code>tabindex</code> are static, while
-				<code>aria-colindex</code>
+				Implement three attributes per table body <em>td</em> cell. <code class="code">role</code> and <code class="code">tabindex</code>
+				are static, while
+				<code class="code">aria-colindex</code>
 				starts at <strong>1</strong> and increments per cell.
 			</p>
 			<CodeBlock

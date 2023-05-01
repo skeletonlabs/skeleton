@@ -10,25 +10,33 @@
 	const tableBranches: TableSource = {
 		head: ['Branch', 'Description', 'Pull Requests'],
 		body: [
-			['<code>master</code>', 'Represents the production branch. Pull requests sent to this branch will be rejected.', '🚫 No'],
-			['<code>dev</code>', 'The active development branch containing bleeding edge changes. Target this branch for PRs', '✅ Yes']
+			[
+				'<code class="code">master</code>',
+				'Represents the production branch. Pull requests sent to this branch will be rejected.',
+				'🚫 No'
+			],
+			[
+				'<code class="code">dev</code>',
+				'The active development branch containing bleeding edge changes. Target this branch for PRs',
+				'✅ Yes'
+			]
 		]
 	};
 	const tableBranchNaming: TableSource = {
 		head: ['Prefix', 'Description'],
 		body: [
-			['<code>docs/*</code>', 'Updates to the documentation pages or text copy.'],
-			['<code>feat/*</code>', 'New features, components, or far-reaching updates.'],
-			['<code>chore/*</code>', 'Simple and localized updates.'],
-			['<code>bugfix/*</code>', 'Commits that address or fix issues.']
+			['<code class="code">docs/*</code>', 'Updates to the documentation pages or text copy.'],
+			['<code class="code">feat/*</code>', 'New features, components, or far-reaching updates.'],
+			['<code class="code">chore/*</code>', 'Simple and localized updates.'],
+			['<code class="code">bugfix/*</code>', 'Commits that address or fix issues.']
 		]
 	};
 	const tableProjectStructure: TableSource = {
 		head: ['Path', 'Description'],
 		body: [
-			['<code>/src/docs</code>', 'Documentation-specific components and features, such as the theme generator.'],
-			['<code>/src/lib</code>', `Features and assets distributed within the core library's and NPM package.`],
-			['<code>/src/routes</code>', 'Documentation pages for the public-facing documentation website, including this page.']
+			['<code class="code">/src/docs</code>', 'Documentation-specific components and features, such as the theme generator.'],
+			['<code class="code">/src/lib</code>', `Features and assets distributed within the core library's and NPM package.`],
+			['<code class="code">/src/routes</code>', 'Documentation pages for the public-facing documentation website, including this page.']
 		]
 	};
 </script>
@@ -133,8 +141,8 @@
 			<a href="https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker" target="_blank" rel="noreferrer">
 				Code Spell Checker
 			</a>
-			extension for VS Code. You can add words to the dictionary using this extension, or by editing <code>cspell.json</code> at the root of
-			the repository.
+			extension for VS Code. You can add words to the dictionary using this extension, or by editing <code class="code">cspell.json</code> at
+			the root of the repository.
 		</p>
 		<CodeBlock language="console" code={`npm exec cspell "**" --no-progress`} />
 	</section>

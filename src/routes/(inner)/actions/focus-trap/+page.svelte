@@ -14,7 +14,7 @@
 		description: 'Allows you to contain tab focus within a target element on-demand.',
 		imports: ['focusTrap'],
 		source: 'actions/FocusTrap',
-		parameters: [['<code>(default)</code>', 'boolean', '-', '-', `When TRUE, enables focus capture.`]]
+		parameters: [['<code class="code">(default)</code>', 'boolean', '-', '-', `When TRUE, enables focus capture.`]]
 	};
 
 	// Local
@@ -63,7 +63,8 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<p>
-			Apply <code>use:focusTrap</code>and then set the action value to either <code>true</code> or <code>false</code> to enable or disable focus.
+			Apply <code class="code">use:focusTrap</code>and then set the action value to either <code class="code">true</code> or
+			<code class="code">false</code> to enable or disable focus.
 		</p>
 		<section class="space-y-4">
 			<h2 class="h2">Navigation</h2>

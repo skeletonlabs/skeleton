@@ -28,7 +28,9 @@
 		</p>
 		<CodeBlock language="html" code={`<ExampleComponent background="bg-secondary-500 md:bg-primary-500">Skeleton</ExampleComponent>`} />
 		<blockquote class="blockquote">
-			TIP: You may provide multiple utility classes per each prop, as well as use variations such as <code>dark:bg-green-500</code>.
+			TIP: You may provide multiple utility classes per each prop, as well as use variations such as <code class="code"
+				>dark:bg-green-500</code
+			>.
 		</blockquote>
 	</section>
 
@@ -37,8 +39,8 @@
 	<section class="space-y-4">
 		<h2 class="h2">Via the Class Attribute</h2>
 		<p>
-			If a style prop is not available, you can still provide arbitrary utility classes via a standard <code>class</code> attribute. These styles
-			are always applied to the parent element in the component template.
+			If a style prop is not available, you can still provide arbitrary utility classes via a standard <code class="code">class</code> attribute.
+			These styles are always applied to the parent element in the component template.
 		</p>
 		<CodeBlock language="html" code={`<ExampleComponent class="text-3xl px-10 py-5">Skeleton</ExampleComponent>`} />
 	</section>
@@ -55,7 +57,7 @@
 			>.
 		</p>
 		<CodeBlock language="html" code={`<ExampleComponent class="[&>.foo-label]:p-4">...</ExampleComponent>`} />
-		<p>This will affect the Parent > .foo-label element and apply a Tailwind class of <code>p-4</code>.</p>
+		<p>This will affect the Parent > .foo-label element and apply a Tailwind class of <code class="code">p-4</code>.</p>
 	</section>
 
 	<hr />
@@ -63,14 +65,14 @@
 	<section class="space-y-4">
 		<h2 class="h2">Global Styles Overrides</h2>
 		<p>
-			Skeleton components include selector classes, such as <code>.avatar-image</code> within the
+			Skeleton components include selector classes, such as <code class="code">.avatar-image</code> within the
 			<a href="/components/avatars">Avatar component</a>. Please note that selector classes are always the first listed.
 		</p>
 		<CodeBlock language="html" code={`<img class="avatar-image ...">...</img>`} />
 		<p>Use these selector classes to target global style overrides to all instances of this feature in your global stylesheet.</p>
 		<CodeBlock language="css" code={`.avatar-image { @apply border-2 border-red-500; }`} />
 		<blockquote class="blockquote">
-			In some cases you may need to use <code>!</code>
+			In some cases you may need to use <code class="code">!</code>
 			<a href="https://tailwindcss.com/docs/configuration#important-modifier" target="_blank" rel="noreferrer">important</a> or style light and
 			dark mode variants to give precedence.
 		</blockquote>

@@ -18,9 +18,9 @@
 		stylesheets: ['elements/alerts'],
 		source: 'styles/elements/alerts.css',
 		classes: [
-			['<code>alert</code>', '', 'Provide basic alert styles to a block element.'],
-			['<code>alert-message</code>', '', 'The message body styles. Contains a title and message.'],
-			['<code>alert-actions</code>', '', 'The message action styles. Contains buttons.']
+			['<code class="code">alert</code>', '', 'Provide basic alert styles to a block element.'],
+			['<code class="code">alert-message</code>', '', 'The message body styles. Contains a title and message.'],
+			['<code class="code">alert-actions</code>', '', 'The message action styles. Contains buttons.']
 		]
 	};
 
@@ -91,16 +91,19 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<p>
-			Create an element with the <code>.alert</code> class. Wrap the alert in a Svelte <code>#if</code> statement to hide it or make it visible.
+			Create an element with the <code class="code">.alert</code> class. Wrap the alert in a Svelte <code class="code">#if</code> statement to
+			hide it or make it visible.
 		</p>
 		<section class="space-y-4">
 			<h2 class="h2">Sections</h2>
 			<h3 class="h3">Message Content</h3>
-			<p>Use the <code>.alert-message</code> to create a vertical set of text information that fills the available width of the alert.</p>
+			<p>
+				Use the <code class="code">.alert-message</code> to create a vertical set of text information that fills the available width of the alert.
+			</p>
 			<CodeBlock language="html" code={`<div class="alert-message">\n\t<h3 class="h3">(title)</h3>\n\t<p>{message}</p>\n</div>`} />
 			<CodeBlock language="html" code={`<h3 class="alert-message">(title)</h3>`} />
 			<h3 class="h3">Action Buttons</h3>
-			<p>Use the <code>.alert-actions</code> to create a trailing area to house interactive action buttons.</p>
+			<p>Use the <code class="code">.alert-actions</code> to create a trailing area to house interactive action buttons.</p>
 			<CodeBlock language="html" code={`<div class="alert-actions">(buttons)</div>`} />
 		</section>
 		<section class="space-y-4">

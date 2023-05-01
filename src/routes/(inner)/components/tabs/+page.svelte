@@ -89,14 +89,15 @@
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<p>
-				Tabs utilize native radio groups to control state. Bind a shared <code>group</code>
-				value, then provide a unique <code>value</code> per tab. Please note that using the <code>panel</code> slot is optional.
+				Tabs utilize native radio groups to control state. Bind a shared <code class="code">group</code>
+				value, then provide a unique <code class="code">value</code> per tab. Please note that using the <code class="code">panel</code> slot
+				is optional.
 			</p>
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Justify</h2>
 			<p>
-				Use the <code>justify</code> property to adjust tab positions.
+				Use the <code class="code">justify</code> property to adjust tab positions.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -169,8 +170,10 @@
 		<section class="space-y-4">
 			<h2 class="h2">Using Svelte Stores</h2>
 			<p>
-				You may optionally choose to use Svelte writable stores to control your tab group state. Note the use of the <code>$</code> sign
-				within the <code>bind:group</code> property. Pair this with Skeleton's
+				You may optionally choose to use Svelte writable stores to control your tab group state. Note the use of the <code class="code"
+					>$</code
+				>
+				sign within the <code class="code">bind:group</code> property. Pair this with Skeleton's
 				<a href="/utilities/local-storage-stores">Local Storage Store</a> for automatic persistence.
 			</p>
 			<CodeBlock

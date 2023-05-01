@@ -34,9 +34,9 @@
 		components: [{ sveld: sveldModal }],
 		keyboard: [['<kbd>Esc</kbd>', ' Dismisses the foremost modal.']],
 		classes: [
-			['<code>.w-modal</code>', '-', 'Sets a standard responsive width for modals.'],
-			['<code>.w-modal-slim</code>', '-', 'Create a slimmer modal. Great for small component modals.'],
-			['<code>.w-modal-wide</code>', '-', 'Create a wider modal. Great for full screen component modals.']
+			['<code class="code">.w-modal</code>', '-', 'Sets a standard responsive width for modals.'],
+			['<code class="code">.w-modal-slim</code>', '-', 'Create a slimmer modal. Great for small component modals.'],
+			['<code class="code">.w-modal-wide</code>', '-', 'Create a wider modal. Great for full screen component modals.']
 		]
 	};
 
@@ -59,7 +59,7 @@
 		const modal: ModalSettings = {
 			type: 'alert',
 			title: 'Hello World!',
-			body: 'This simple alert modal uses <code>type: alert</code>.'
+			body: 'This simple alert modal uses <code class="code">type: alert</code>.'
 		};
 		modalStore.trigger(modal);
 	}
@@ -168,10 +168,12 @@
 		</aside>
 		<section class="space-y-4">
 			<h2 class="h2">Modal Store</h2>
-			<p>When you wish to trigger a modal, import the <code>modalStore</code>, which acts as the modal queue.</p>
+			<p>When you wish to trigger a modal, import the <code class="code">modalStore</code>, which acts as the modal queue.</p>
 			<CodeBlock language="ts" code={`import { modalStore } from '@skeletonlabs/skeleton';`} />
 			<h3 class="h3">Trigger</h3>
-			<p>The <code>title</code>, <code>body</code>, and <code>image</code> are available to all modals.</p>
+			<p>
+				The <code class="code">title</code>, <code class="code">body</code>, and <code class="code">image</code> are available to all modals.
+			</p>
 			<!-- Alert -->
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -245,11 +247,11 @@ modalStore.trigger(modal);
 			</DocsPreview>
 			<!-- Close -->
 			<h3 class="h3">Close</h3>
-			<p>Trigger the <code>close()</code> method to remove the first modal in the modal queue.</p>
+			<p>Trigger the <code class="code">close()</code> method to remove the first modal in the modal queue.</p>
 			<CodeBlock language="ts" code={`modalStore.close();`} />
 			<!-- Clear -->
 			<h3 class="h3">Clear</h3>
-			<p>Trigger the <code>clear()</code> method to completely empty the modal queue.</p>
+			<p>Trigger the <code class="code">clear()</code> method to completely empty the modal queue.</p>
 			<CodeBlock language="ts" code={`modalStore.clear();`} />
 		</section>
 		<!-- Modal Settings -->
@@ -300,7 +302,7 @@ const modal: ModalSettings = {\n
 							{#if tabCustom === 'register'}
 								<!-- prettier-ignore -->
 								<p>
-									Import custom components in your root layout, create a modal registry object, then pass this object to the Modal <code>components</code> property.
+									Import custom components in your root layout, create a modal registry object, then pass this object to the Modal <code class="code">components</code> property.
 								</p>
 								<CodeBlock
 									language="ts"
@@ -324,7 +326,10 @@ const modalComponentRegistry: Record<string, ModalComponent> = {\n
 									`}
 								/>
 								<CodeBlock language="html" code={`<Modal components={modalComponentRegistry} />`} />
-								<p>When triggering a component, pass <code>component: string</code>, where the value represents the registry object key.</p>
+								<p>
+									When triggering a component, pass <code class="code">component: string</code>, where the value represents the registry
+									object key.
+								</p>
 								<CodeBlock
 									language="ts"
 									code={`
@@ -338,7 +343,8 @@ modalStore.trigger(modal);
 								/>
 							{:else if tabCustom === 'direct'}
 								<p>
-									For one-off components you can create a <code>ModalComponent</code> object containing your component, props, and slot values.
+									For one-off components you can create a <code class="code">ModalComponent</code> object containing your component, props, and
+									slot values.
 								</p>
 								<CodeBlock
 									language="ts"
@@ -355,7 +361,8 @@ const modalComponent: ModalComponent = {
 									`}
 								/>
 								<p>
-									When triggering a component, pass the <code>component: ModalComponent</code> directly to <code>ModalSettings</code>.
+									When triggering a component, pass the <code class="code">component: ModalComponent</code> directly to
+									<code class="code">ModalSettings</code>.
 								</p>
 								<CodeBlock
 									language="ts"
@@ -379,15 +386,15 @@ modalStore.trigger(modal);
 					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Accessing Store Data</h3></svelte:fragment>
 					<svelte:fragment slot="content">
 						<p>
-							Import and use the <code>modalStore</code>. All provided data is available within your component via
-							<code>$modalStore[0]</code>.
+							Import and use the <code class="code">modalStore</code>. All provided data is available within your component via
+							<code class="code">$modalStore[0]</code>.
 						</p>
 					</svelte:fragment>
 				</AccordionItem>
 				<AccordionItem>
 					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>The Visible Modal</h3></svelte:fragment>
 					<svelte:fragment slot="content">
-						<p>The foremost and visible modal in your queue uses index zero <code>$modalStore[0]</code>.</p>
+						<p>The foremost and visible modal in your queue uses index zero <code class="code">$modalStore[0]</code>.</p>
 					</svelte:fragment>
 				</AccordionItem>
 				<AccordionItem>
@@ -395,30 +402,33 @@ modalStore.trigger(modal);
 					<svelte:fragment slot="content">
 						<p>
 							The Modal component in your root layout is considered the "parent" component. Your custom modal component will be generated
-							within this. All properties for the parent component are passed down via the <code>parent</code> prop. For example
-							<code>parent.background</code> would provide the <em>background</em> property value.
+							within this. All properties for the parent component are passed down via the <code class="code">parent</code> prop. For
+							example
+							<code class="code">parent.background</code> would provide the <em>background</em> property value.
 						</p>
-						<p>Tap the <em>Props</em> tab on this page to view a full list of available <code>parent</code> props.</p>
+						<p>Tap the <em>Props</em> tab on this page to view a full list of available <code class="code">parent</code> props.</p>
 					</svelte:fragment>
 				</AccordionItem>
 				<AccordionItem>
 					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Triggering a Response</h3></svelte:fragment>
 					<svelte:fragment slot="content">
 						<p>
-							Use the <code>$modalStore[0].response('myResponseDataHere');</code> trigger the response function and return a value.
+							Use the <code class="code">$modalStore[0].response('myResponseDataHere');</code> trigger the response function and return a value.
 						</p>
 					</svelte:fragment>
 				</AccordionItem>
 				<AccordionItem>
 					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Closing a Modal</h3></svelte:fragment>
 					<svelte:fragment slot="content">
-						<p>Use the <code>parent.onClose()</code> or <code>modalStore.close()</code> methods to close the modal.</p>
+						<p>
+							Use the <code class="code">parent.onClose()</code> or <code class="code">modalStore.close()</code> methods to close the modal.
+						</p>
 					</svelte:fragment>
 				</AccordionItem>
 				<AccordionItem>
 					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Accessing Metadata</h3></svelte:fragment>
 					<svelte:fragment slot="content">
-						<p>Arbitrary metadata is available using <code>$modalStore[0].meta?.someKey</code>.</p>
+						<p>Arbitrary metadata is available using <code class="code">$modalStore[0].meta?.someKey</code>.</p>
 					</svelte:fragment>
 				</AccordionItem>
 				<AccordionItem>
@@ -426,7 +436,7 @@ modalStore.trigger(modal);
 					<svelte:fragment slot="content">
 						<!-- prettier-ignore -->
 						<p>
-							Standard <em>alert</em>, <em>confirm</em>, and <em>prompt</em> modals include a <code>width</code> property to adjust the width size. If you wish to resize your custom component modals, apply the Tailwind width utility classes directly within your component markup. To help standardize modal widths we provided three canned options: <code>.w-modal</code>, <code>.w-modal-slim</code>, and <code>.w-modal-wide</code>.
+							Standard <em>alert</em>, <em>confirm</em>, and <em>prompt</em> modals include a <code class="code">width</code> property to adjust the width size. If you wish to resize your custom component modals, apply the Tailwind width utility classes directly within your component markup. To help standardize modal widths we provided three canned options: <code class="code">.w-modal</code>, <code class="code">.w-modal-slim</code>, and <code class="code">.w-modal-wide</code>.
 					</svelte:fragment
 					>
 				</AccordionItem>

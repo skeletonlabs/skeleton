@@ -75,7 +75,7 @@
 				<CodeBlock language="html" code={`<Avatar src="${imgPlaceholder}" width="w-32" rounded="${roundedMapping[rangeSliderValue]}" />`} />
 			</svelte:fragment>
 			<svelte:fragment slot="footer">
-				<div class="text-center"><code>{roundedMapping[rangeSliderValue]}</code></div>
+				<div class="text-center"><code class="code">{roundedMapping[rangeSliderValue]}</code></div>
 				<input type="range" bind:value={rangeSliderValue} max={Object.keys(roundedMapping).length - 1} step={1} />
 			</svelte:fragment>
 		</DocsPreview>
@@ -97,7 +97,7 @@
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Interactive Border</h2>
-			<p>Apply the following styles using the <code>border</code> and <code>cursor</code> properties.</p>
+			<p>Apply the following styles using the <code class="code">border</code> and <code class="code">cursor</code> properties.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<Avatar border={borderStyles} cursor="cursor-pointer" />

@@ -16,10 +16,10 @@
 		stylesheets: ['elements/buttons'],
 		source: 'styles/elements/buttons.css',
 		classes: [
-			['<code>.btn</code>', '-', 'Creates a text button using a button or anchor.'],
-			['<code>.btn-icon</code>', '-', 'Creates a text icon button using a button or anchor.'],
-			['<code>.btn-[value]</code>', 'sm | base | lg | xl', 'Canned button sizes that define padding and text sizes.'],
-			['<code>.btn-icon-[value]</code>', 'sm | base | lg | xl', 'Canned icon button sizes that define padding and text sizes.']
+			['<code class="code">.btn</code>', '-', 'Creates a text button using a button or anchor.'],
+			['<code class="code">.btn-icon</code>', '-', 'Creates a text icon button using a button or anchor.'],
+			['<code class="code">.btn-[value]</code>', 'sm | base | lg | xl', 'Canned button sizes that define padding and text sizes.'],
+			['<code class="code">.btn-icon-[value]</code>', 'sm | base | lg | xl', 'Canned icon button sizes that define padding and text sizes.']
 		]
 	};
 
@@ -95,12 +95,14 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<p>
-			Use <code>.btn</code> to add basic button styles to any anchor or button element. Replace with <code>.btn-icon</code> for an icon
-			button. Mix buttons with any arbitrary background color or variant style classes, such as <code>.variant-[style]-[themeColor]</code>.
+			Use <code class="code">.btn</code> to add basic button styles to any anchor or button element. Replace with
+			<code class="code">.btn-icon</code>
+			for an icon button. Mix buttons with any arbitrary background color or variant style classes, such as
+			<code class="code">.variant-[style]-[themeColor]</code>.
 		</p>
 		<section class="space-y-4">
 			<h2 class="h2">Sizes</h2>
-			<p>A number of canned size presets are available via <code>.btn-[size]</code>.</p>
+			<p>A number of canned size presets are available via <code class="code">.btn-[size]</code>.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="space-y-4">

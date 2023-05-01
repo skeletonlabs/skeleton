@@ -22,12 +22,12 @@
 		// dependencies: [{ label: 'Highlight.js', url: 'https://highlightjs.org/' }],
 		// components: [{sveld: sveldComp}],
 		// classes: [
-		// 	['<code>.foo</code>', '-', '...'],
-		// 	['<code>.bar</code>', '-', '...']
+		// 	['<code class="code">.foo</code>', '-', '...'],
+		// 	['<code class="code">.bar</code>', '-', '...']
 		// ],
 		// keyboard: [
-		// 	['<code>foo</code>', '-', '-', '-', '...'],
-		// 	['<code>bar</code>', '-', '-', '-', '...']
+		// 	['<code class="code">foo</code>', '-', '-', '-', '...'],
+		// 	['<code class="code">bar</code>', '-', '-', '-', '...']
 		// ]
 	};
 </script>

@@ -179,8 +179,8 @@
 				<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Can I use a monorepo?</h3></svelte:fragment>
 				<svelte:fragment slot="content">
 					<p>
-						Yes, but please be mindful of the <code>node_modules</code> path in your project configuration. We <u>do not</u> tailor instruction
-						for this use case.
+						Yes, but please be mindful of the <code class="code">node_modules</code> path in your project configuration. We <u>do not</u> tailor
+						instruction for this use case.
 					</p>
 				</svelte:fragment>
 			</AccordionItem>
@@ -228,7 +228,7 @@
 				<svelte:fragment slot="content">
 					<p>
 						VS Code an an optional opt-in feature for automatically reordering imports. This is disabled by default. If this is enabled it
-						may break your stylesheet import order, which can be cause issues. If present, set it to <code>false</code>.
+						may break your stylesheet import order, which can be cause issues. If present, set it to <code class="code">false</code>.
 					</p>
 					<CodeBlock
 						language="json"

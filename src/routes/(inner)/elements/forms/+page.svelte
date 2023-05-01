@@ -16,17 +16,17 @@
 		source: 'styles/elements/forms.css',
 		dependencies: [{ label: 'Tailwind Forms Plugin', url: 'https://github.com/tailwindlabs/tailwindcss-forms' }],
 		classes: [
-			['<code>.legend</code>', '', 'Provides theme styles to legend elements.'],
-			['<code>.label</code>', '', 'Provides theme styles to label elements.'],
-			['<code>.input</code>', '', 'Provides theme styles to input elements.'],
-			['<code>.textarea</code>', '', 'Provides theme styles to textarea elements.'],
-			['<code>.select</code>', '', 'Provides theme styles to select elements.'],
-			['<code>.checkbox</code>', '', 'Provides theme styles to checkbox elements.'],
-			['<code>.radio</code>', '', 'Provides theme styles to radio elements.'],
-			['<code>.input-group</code>', '', 'Creates a group of related inputs and information.'],
-			['<code>.input-group-divider</code>', '', 'Adds vertical lines between group segments.'],
-			['<code>.input-group-shim</code>', '', 'Provides a shaded background segment.'],
-			['<code>.input-[variant]</code>', 'success | warning | error', 'Color highlights for input for validation states.']
+			['<code class="code">.legend</code>', '', 'Provides theme styles to legend elements.'],
+			['<code class="code">.label</code>', '', 'Provides theme styles to label elements.'],
+			['<code class="code">.input</code>', '', 'Provides theme styles to input elements.'],
+			['<code class="code">.textarea</code>', '', 'Provides theme styles to textarea elements.'],
+			['<code class="code">.select</code>', '', 'Provides theme styles to select elements.'],
+			['<code class="code">.checkbox</code>', '', 'Provides theme styles to checkbox elements.'],
+			['<code class="code">.radio</code>', '', 'Provides theme styles to radio elements.'],
+			['<code class="code">.input-group</code>', '', 'Creates a group of related inputs and information.'],
+			['<code class="code">.input-group-divider</code>', '', 'Adds vertical lines between group segments.'],
+			['<code class="code">.input-group-shim</code>', '', 'Provides a shaded background segment.'],
+			['<code class="code">.input-[variant]</code>', 'success | warning | error', 'Color highlights for input for validation states.']
 		]
 	};
 
@@ -128,7 +128,7 @@
 				<p>
 					Prepend the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank" rel="noreferrer">Tailwind Forms plugin</a>
 					to your
-					<code>tailwind.config.cjs</code>
+					<code class="code">tailwind.config.cjs</code>
 				</p>
 				<CodeBlock
 					language="js"
@@ -445,12 +445,14 @@ module.exports = {
 					The column sizes are grid-based, via <a href="https://tailwindcss.com/docs/grid-template-columns#arbitrary-values" target="_blank" rel="noreferrer">Tailwind's arbitrary column syntax</a>.
 				</li>
 				<li>
-					Descriptive segments (on either side) allow for <code>div</code>, <code>button</code>, and anchor (<code>a</code>) elements.
+					Descriptive segments (on either side) allow for <code class="code">div</code>, <code class="code">button</code>, and anchor (<code
+						class="code">a</code
+					>) elements.
 				</li>
 				<li>
-					The <code>.input-group-divider</code> class applies vertical divider lines.
+					The <code class="code">.input-group-divider</code> class applies vertical divider lines.
 				</li>
-				<li>The <code>.input-group-shim</code> class applies subtle shading to a segment, to draw more attention.</li>
+				<li>The <code class="code">.input-group-shim</code> class applies subtle shading to a segment, to draw more attention.</li>
 			</ul>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -558,15 +560,15 @@ module.exports = {
 				<svelte:fragment slot="preview">
 					<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
 						<label class="space-y-3">
-							<code>.input-success</code>
+							<code class="code">.input-success</code>
 							<input type="text" placeholder="success" class="input input-success" />
 						</label>
 						<label class="space-y-3">
-							<code>.input-warning</code>
+							<code class="code">.input-warning</code>
 							<input type="text" placeholder="warning" class="input input-warning" />
 						</label>
 						<label class="space-y-3">
-							<code>.input-error</code>
+							<code class="code">.input-error</code>
 							<input type="text" placeholder="error" class="input input-error" />
 						</label>
 					</div>

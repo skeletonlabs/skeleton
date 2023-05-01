@@ -53,7 +53,7 @@
 			</svelte:fragment>
 			<svelte:fragment slot="footer">
 				<div class="text-center">
-					<code>{anythingList.length ? anythingList.join(', ') : 'No chips available.'}</code>
+					<code class="code">{anythingList.length ? anythingList.join(', ') : 'No chips available.'}</code>
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
@@ -66,7 +66,9 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<p>Bind an array of data to the component <code>value</code> property. Only <u>string</u> values are supported at this time.</p>
+			<p>
+				Bind an array of data to the component <code class="code">value</code> property. Only <u>string</u> values are supported at this time.
+			</p>
 		</section>
 		<!-- Whitelist -->
 		<section class="space-y-4">
@@ -87,7 +89,7 @@
 				</svelte:fragment>
 				<svelte:fragment slot="footer">
 					<div class="text-center">
-						<code>{flavorsList.length ? flavorsList.join(', ') : 'No flavors set.'}</code>
+						<code class="code">{flavorsList.length ? flavorsList.join(', ') : 'No flavors set.'}</code>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
@@ -112,7 +114,7 @@
 				</svelte:fragment>
 				<svelte:fragment slot="footer">
 					<div class="text-center">
-						<code>{emails.length ? emails.join(', ') : 'No emails set.'}</code>
+						<code class="code">{emails.length ? emails.join(', ') : 'No emails set.'}</code>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
@@ -126,7 +128,7 @@
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Invalid Hook</h2>
-			<p>You may utilize an <code>onInvalid</code> function that executes when the input becomes invalid.</p>
+			<p>You may utilize an <code class="code">onInvalid</code> function that executes when the input becomes invalid.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<InputChip
@@ -140,7 +142,7 @@
 				</svelte:fragment>
 				<svelte:fragment slot="footer">
 					<div class="text-center">
-						<code>{musicalGenres.length ? musicalGenres.join(', ') : 'No genres set.'}</code>
+						<code class="code">{musicalGenres.length ? musicalGenres.join(', ') : 'No genres set.'}</code>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
@@ -162,18 +164,23 @@ function onInvalidHandler(event: any): void {
 		<!-- Additional Settings -->
 		<section class="space-y-4">
 			<h2 class="h2">Additional Settings</h2>
-			<p>Use the <code>max</code> property to define a maximum number of chips allowed.</p>
+			<p>Use the <code class="code">max</code> property to define a maximum number of chips allowed.</p>
 			<CodeBlock language="html" code={`<InputChip ... max={3} />`} />
 			<p>
-				Use the <code>minlength</code> and <code>maxlength</code> properties to set the minimum/maximum number of input characters respectively.
+				Use the <code class="code">minlength</code> and <code class="code">maxlength</code> properties to set the minimum/maximum number of input
+				characters respectively.
 			</p>
 			<CodeBlock language="html" code={`<InputChip ... minlength={2} maxlength={5} />`} />
 			<p>
-				By default, only a single instance of each value is allowed. If you wish to allow duplicates, set <code>allowDuplicates</code>.
+				By default, only a single instance of each value is allowed. If you wish to allow duplicates, set <code class="code"
+					>allowDuplicates</code
+				>.
 			</p>
 			<CodeBlock language="html" code={`<InputChip ... allowDuplicates />`} />
 			<p>
-				By default, all values are trimmed and formatted lowercase. If you wish to allow uppercase, set <code>allowUpperCase</code>.
+				By default, all values are trimmed and formatted lowercase. If you wish to allow uppercase, set <code class="code"
+					>allowUpperCase</code
+				>.
 			</p>
 			<CodeBlock language="html" code={`<InputChip ... allowUpperCase />`} />
 		</section>

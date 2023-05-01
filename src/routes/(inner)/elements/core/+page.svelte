@@ -54,7 +54,7 @@
 				Interactive elements on mobile will briefly show a <a
 					href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus"
 					target="_blank"
-					rel="noreferrer"><code>focus</code></a
+					rel="noreferrer"><code class="code">focus</code></a
 				> style when touched. Skeleton adjusts the coloring.
 			</p>
 			<DocsPreview background="neutral">
@@ -70,7 +70,8 @@
 		<div class="space-y-4">
 			<h2 class="h2">Scrollbars</h2>
 			<p>
-				Skeleton automatically provides custom scrollbar styles in supported browsers. Use <code>.hide-scrollbar</code> to disable scrollbars.
+				Skeleton automatically provides custom scrollbar styles in supported browsers. Use <code class="code">.hide-scrollbar</code> to disable
+				scrollbars.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -97,7 +98,8 @@
 			<div class="space-y-4">
 				<h2 class="h2">Dividers</h2>
 				<p>
-					Native <code>hr</code> horizontal rule elements respect your theme settings automatically. Use border size to adjust the width.
+					Native <code class="code">hr</code> horizontal rule elements respect your theme settings automatically. Use border size to adjust the
+					width.
 				</p>
 				<DocsPreview background="neutral">
 					<svelte:fragment slot="preview">
@@ -149,7 +151,8 @@
 				</DocsPreview>
 				<h3 class="h3">Vertical Dividers</h3>
 				<p>
-					Divide columns with the <code>.divider-vertical</code> class. You can apply it with a <code>span</code> tag. Adjust the
+					Divide columns with the <code class="code">.divider-vertical</code> class. You can apply it with a <code class="code">span</code>
+					tag. Adjust the
 					<a href="https://tailwindcss.com/docs/height" target="_blank" rel="noreferrer">height</a> as desired.
 				</p>
 				<DocsPreview background="neutral">

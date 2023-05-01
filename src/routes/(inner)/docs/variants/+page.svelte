@@ -20,7 +20,7 @@
 		<hr />
 		<section class="space-y-4">
 			<h2 class="h2">Usage</h2>
-			<p>Implement using <code>.variant-[style]-[color]</code>. Automatically applies an accessible text or SVG fill color.</p>
+			<p>Implement using <code class="code">.variant-[style]-[color]</code>. Automatically applies an accessible text or SVG fill color.</p>
 			<CodeBlock language="html" code={`<div class="variant-filled-primary">primary</div>`} />
 		</section>
 		<!-- Filled -->
@@ -166,7 +166,7 @@
 		<section class="space-y-4">
 			<h2 class="h2">Gradients</h2>
 			<p>
-				Provides two-toned gradient combinations. Requires a direction, such as <code>bg-gradient-to-br</code> (bottom-right).
+				Provides two-toned gradient combinations. Requires a direction, such as <code class="code">bg-gradient-to-br</code> (bottom-right).
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">

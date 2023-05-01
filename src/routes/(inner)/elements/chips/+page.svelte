@@ -18,11 +18,11 @@
 		stylesheets: ['elements/chips'],
 		source: 'styles/elements/chips.css',
 		classes: [
-			['<code>chip</code>', '', 'Provides the standard chip style.'],
-			['<code>chip-[color]</code>', '<a href="/docs/colors">Any theme color.</a>', 'Applies a variant style.'],
-			['<code>chip-active</code>', '', 'Sets the default active state.'],
-			['<code>chip-[color]-active</code>', '<a href="/docs/colors">Any theme color.</a>', 'Set a colored active state.'],
-			['<code>chip-disabled</code>', '', 'Applies disabled styling.']
+			['<code class="code">chip</code>', '', 'Provides the standard chip style.'],
+			['<code class="code">chip-[color]</code>', '<a href="/docs/colors">Any theme color.</a>', 'Applies a variant style.'],
+			['<code class="code">chip-active</code>', '', 'Sets the default active state.'],
+			['<code class="code">chip-[color]-active</code>', '<a href="/docs/colors">Any theme color.</a>', 'Set a colored active state.'],
+			['<code class="code">chip-disabled</code>', '', 'Applies disabled styling.']
 		]
 	};
 
@@ -77,7 +77,7 @@
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
-		<p>Apply <code>.chip</code> to any inline element, such as a <em>span</em> or <em>anchor</em> tag.</p>
+		<p>Apply <code class="code">.chip</code> to any inline element, such as a <em>span</em> or <em>anchor</em> tag.</p>
 		<section class="space-y-4">
 			<h2 class="h2">Action Chips</h2>
 			<p>Use chips to create small related set of actions.</p>

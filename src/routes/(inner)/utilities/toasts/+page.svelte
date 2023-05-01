@@ -133,7 +133,7 @@
 			/>
 			<!-- Trigger -->
 			<h3 class="h3">Trigger</h3>
-			<p>To add a message to the queue, use the <code>toastStore.trigger()</code> method and pass a toast settings object.</p>
+			<p>To add a message to the queue, use the <code class="code">toastStore.trigger()</code> method and pass a toast settings object.</p>
 			<!-- Basic -->
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -216,7 +216,7 @@ toastStore.trigger(t);
 			</DocsPreview>
 			<!-- Clear -->
 			<h3 class="h3">Clear</h3>
-			<p>Use <code>toastStore.clear()</code> to clear the entire toast store queue.</p>
+			<p>Use <code class="code">toastStore.clear()</code> to clear the entire toast store queue.</p>
 			<CodeBlock language="ts" code={`toastStore.clear();`} />
 		</section>
 		<!-- Styling -->
@@ -238,8 +238,8 @@ toastStore.trigger(t);
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<p>
-						You can directly control the background styling for each toasting using <code>background.</code>. Accepts utility and variant
-						classes.
+						You can directly control the background styling for each toasting using <code class="code">background.</code>. Accepts utility
+						and variant classes.
 					</p>
 					<CodeBlock
 						language="ts"
@@ -260,7 +260,7 @@ const t: ToastSettings = {
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<p>
-						Append <code>classes</code> to your toast settings to provide any arbitrary classes.
+						Append <code class="code">classes</code> to your toast settings to provide any arbitrary classes.
 					</p>
 					<CodeBlock
 						language="ts"
@@ -278,15 +278,16 @@ const t: ToastSettings = {
 			<h3 class="h3">Positioning</h3>
 			<p>
 				Skeleton takes an opinionated stance on positioning, preferring to keep toast notifications in fixed location on your page. This
-				position can be modified globally the <code>position</code> property on the Toast component. However, we do not allow you to modify this
-				per toast instance as we feel this would provide inconsistent UX.
+				position can be modified globally the <code class="code">position</code> property on the Toast component. However, we do not allow you
+				to modify this per toast instance as we feel this would provide inconsistent UX.
 			</p>
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Callbacks</h2>
 			<p>
-				You can optionally add a callback function to your <code>ToastSettings</code> to receive the unique ID assigned to each toast, as
-				well as listen for when the <code>queued</code> and <code>closed</code> lifecycle events occur for that toast message.
+				You can optionally add a callback function to your <code class="code">ToastSettings</code> to receive the unique ID assigned to each
+				toast, as well as listen for when the <code class="code">queued</code> and <code class="code">closed</code> lifecycle events occur for
+				that toast message.
 			</p>
 			<CodeBlock
 				language="ts"

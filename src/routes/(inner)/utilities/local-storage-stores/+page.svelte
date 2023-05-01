@@ -20,7 +20,8 @@
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<p>
-				The first parameter <code>storeExample</code> is the local storage key name. The second parameter is the initial value of the store.
+				The first parameter <code class="code">storeExample</code> is the local storage key name. The second parameter is the initial value of
+				the store.
 			</p>
 			<CodeBlock language="ts" code={`import type { Writable } from 'svelte/store';`} />
 			<CodeBlock language="ts" code={`const storeExample: Writable<string> = localStorageStore('storeExample', 'initialValueHere');`} />

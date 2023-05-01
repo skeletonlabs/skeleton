@@ -68,7 +68,8 @@
 		<section class="space-y-4">
 			<h2 class="h2">Using @apply</h2>
 			<p>
-				Create a new class using <code>@apply</code> in your <code>app.postcss</code> global stylesheet. Then apply the following styles.
+				Create a new class using <code class="code">@apply</code> in your <code class="code">app.postcss</code> global stylesheet. Then apply
+				the following styles.
 			</p>
 			<CodeBlock
 				language="css"

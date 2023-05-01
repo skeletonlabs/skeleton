@@ -68,7 +68,7 @@
 							Alternatively, Skeleton provides a utility method to adjust the mode based on operating system preference. Use this in place
 							of a Lightswitch component.
 						</p>
-						<p>First, import the following in <code>/src/routes/+layout.svelte</code>.</p>
+						<p>First, import the following in <code class="code">/src/routes/+layout.svelte</code>.</p>
 						<CodeBlock language="ts" code={`import { autoModeWatcher } from '@skeletonlabs/skeleton';`} />
 						<p>Then add the following in your root layout template markup.</p>
 						<CodeBlock language="html" code={snippetAutoModeWatcher} />
@@ -81,13 +81,16 @@
 						</p>
 						<h2 class="h2">Set Initial Classes</h2>
 						<p>
-							Import and add the following to your component. This will set the <code>.dark</code> class on the root HTML element in a highly
-							performant manner.
+							Import and add the following to your component. This will set the <code class="code">.dark</code> class on the root HTML element
+							in a highly performant manner.
 						</p>
 						<CodeBlock language="ts" code={`import { setInitialClassState } from '@skeletonlabs/skeleton';`} />
 						<CodeBlock language="html" code={snippetSetInitClass} />
 						<h2 class="h2">Interface Methods</h2>
-						<p>Light mode is represented by <code>true</code>, while dark mode is represented by <code>false</code>.</p>
+						<p>
+							Light mode is represented by <code class="code">true</code>, while dark mode is represented by
+							<code class="code">false</code>.
+						</p>
 						<TabGroup regionPanel="space-y-4">
 							<Tab bind:group={tabInterface} name="interface" value={0}>Stores</Tab>
 							<Tab bind:group={tabInterface} name="interface" value={1}>Getters</Tab>
@@ -108,17 +111,17 @@
 											</thead>
 											<tbody>
 												<tr>
-													<td><code>$modeOsPrefers</code></td>
+													<td><code class="code">$modeOsPrefers</code></td>
 													<td><em>true | false</em></td>
 													<td>The current operating system setting preference.</td>
 												</tr>
 												<tr>
-													<td><code>$modeUserPrefers</code></td>
+													<td><code class="code">$modeUserPrefers</code></td>
 													<td><em>true | false | undefined</em></td>
 													<td>The current user's selected preference.</td>
 												</tr>
 												<tr>
-													<td><code>$modeCurrent</code></td>
+													<td><code class="code">$modeCurrent</code></td>
 													<td><em>true | false</em></td>
 													<td>The current currently active mode setting.</td>
 												</tr>
@@ -142,17 +145,17 @@
 											</thead>
 											<tbody>
 												<tr>
-													<td><code>getModeOsPrefers()</code></td>
+													<td><code class="code">getModeOsPrefers()</code></td>
 													<td><em>true | false</em></td>
 													<td>Returns the operating system setting preference.</td>
 												</tr>
 												<tr>
-													<td><code>getModeUserPrefers()</code></td>
+													<td><code class="code">getModeUserPrefers()</code></td>
 													<td><em>true | false | undefined</em></td>
 													<td>Returns the user's selected preference.</td>
 												</tr>
 												<tr>
-													<td><code>getModeAutoPrefers()</code></td>
+													<td><code class="code">getModeAutoPrefers()</code></td>
 													<td><em>true | false</em></td>
 													<td>Returns the user preference if available, else the OS preference.</td>
 												</tr>
@@ -172,11 +175,11 @@
 											</thead>
 											<tbody>
 												<tr>
-													<td><code>setModeUserPrefers(value)</code></td>
+													<td><code class="code">setModeUserPrefers(value)</code></td>
 													<td>Set the user preference value.</td>
 												</tr>
 												<tr>
-													<td><code>setModeCurrent(value)</code></td>
+													<td><code class="code">setModeCurrent(value)</code></td>
 													<td>Set the current active mode value.</td>
 												</tr>
 											</tbody>

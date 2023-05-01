@@ -123,7 +123,7 @@ let tableHeaders: string[] = ['Positions', 'Name', 'Weight', 'Symbol'];
 		</div>
 		<div class="space-y-4">
 			<h2 class="h2">Server-Side Pagination</h2>
-			<p>Use the <code>page</code> and <code>amount</code> events to notify your server of pagination updates.</p>
+			<p>Use the <code class="code">page</code> and <code class="code">amount</code> events to notify your server of pagination updates.</p>
 			<CodeBlock
 				language="ts"
 				code={`

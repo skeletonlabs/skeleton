@@ -28,20 +28,20 @@ npm run dev
 		/>
 		<p>
 			By selecting the "Welcome" template the project will come preconfigured with both an <a href="/components/app-shell">App Shell</a>
-			and <a href="/components/app-bar">App Bar</a> components in <code>/src/routes/+layout.svelte</code>.
+			and <a href="/components/app-bar">App Bar</a> components in <code class="code">/src/routes/+layout.svelte</code>.
 		</p>
 	</section>
 
 	<section class="space-y-4">
 		<h2 class="h2">Add Sidebar Navigation</h2>
 		<p>
-			Let's customize our App Shell's sidebar slot. Open <code>/src/routes/+layout.svelte</code> and add the following Tailwind utility
-			classes to the AppShell <code>slotSidebarLeft</code> prop.
+			Let's customize our App Shell's sidebar slot. Open <code class="code">/src/routes/+layout.svelte</code> and add the following Tailwind
+			utility classes to the AppShell <code class="code">slotSidebarLeft</code> prop.
 		</p>
 		<CodeBlock language="html" code={`<AppShell slotSidebarLeft="bg-surface-500/5 w-56 p-4">`} />
 		<p>
 			Next, let's implement a <a href="/elements/lists">navigation list</a> within the App Shell's left sidebar slot. Append this slot
-			fragment alongside any other fragment within the <code>AppShell</code>.
+			fragment alongside any other fragment within the <code class="code">AppShell</code>.
 		</p>
 		<CodeBlock
 			language="html"
@@ -64,8 +64,9 @@ npm run dev
 	<section class="space-y-4">
 		<h2 class="h2">Page Setup</h2>
 		<p>
-			Let's add some basic content to our homepage. Open <code>/src/routes/+page.svelte</code> and replace the contents with the following.
-			This will provide multiple elements automatically styled by the <code>skeleton.css</code> stylesheet in our root layout.
+			Let's add some basic content to our homepage. Open <code class="code">/src/routes/+page.svelte</code> and replace the contents with
+			the following. This will provide multiple elements automatically styled by the <code class="code">skeleton.css</code> stylesheet in our
+			root layout.
 		</p>
 		<!-- cspell:disable -->
 		<CodeBlock
@@ -88,7 +89,7 @@ npm run dev
 		<h2 class="h2">Add a Component</h2>
 		<p>
 			Finally let's implement Skeleton's <a href="/components/avatars">Avatar</a> component. First, import the component, then add it
-			anywhere within your page, we recommend within the <code>.container</code> element.
+			anywhere within your page, we recommend within the <code class="code">.container</code> element.
 		</p>
 		<CodeBlock
 			language="html"

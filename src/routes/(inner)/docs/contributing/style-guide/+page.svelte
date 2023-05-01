@@ -23,13 +23,14 @@
 	<section class="space-y-4">
 		<h2 class="h2">File Name Conventions</h2>
 		<ul class="list-disc list-outside ml-4 space-y-1">
-			<li>Feature directories should be singular and title case: <code>../LightSwitch/..</code></li>
-			<li>Components should be singular and title case: <code>LightSwitch.svelte</code></li>
-			<li>Svelte Actions should be singular, lowercase, and use Typescript: <code>clipboard.ts</code></li>
-			<li>Tailwind Element stylesheets should be plural and lowercase: <code>buttons.css</code></li>
-			<li>Documentation should be lowercase and use dashes: <code>/routes/components/radio-groups/+page.svelte</code></li>
+			<li>Feature directories should be singular and title case: <code class="code">../LightSwitch/..</code></li>
+			<li>Components should be singular and title case: <code class="code">LightSwitch.svelte</code></li>
+			<li>Svelte Actions should be singular, lowercase, and use Typescript: <code class="code">clipboard.ts</code></li>
+			<li>Tailwind Element stylesheets should be plural and lowercase: <code class="code">buttons.css</code></li>
+			<li>Documentation should be lowercase and use dashes: <code class="code">/routes/components/radio-groups/+page.svelte</code></li>
 			<li>
-				Tests should be suffixed with <code>*.test.ts</code> and match the feature naming convention: <code>LightSwitch.test.ts</code>
+				Tests should be suffixed with <code class="code">*.test.ts</code> and match the feature naming convention:
+				<code class="code">LightSwitch.test.ts</code>
 			</li>
 		</ul>
 	</section>
@@ -45,7 +46,7 @@
 		<CodeBlock language="html" code={`<button on:click on:mouseover>Skeleton</button>`} />
 		<p>
 			Follow conventions set by existing components when naming slots. These should be short, semantic, and agnostic. Avoid names that are
-			too specific, such as <code>name="icon"</code>.
+			too specific, such as <code class="code">name="icon"</code>.
 		</p>
 		<CodeBlock language="html" code={`{#if $$slots.lead}<slot name="lead" />{/if}`} />
 		<p>
@@ -61,8 +62,8 @@
 		/>
 		<!-- prettier-ignore -->
 		<p>
-			If you need to include miscellaneous attributes that were not defined as properties, use Svelte's <code>$$restProps</code>. Be careful
-			though, this can overwrite the element's <code>$$props.class</code> attribute. To avoid this, delete the <code>class</code> key from <code>$$restProps</code>. The function provided below can handle this on both init and after any form of attribute updates.
+			If you need to include miscellaneous attributes that were not defined as properties, use Svelte's <code class="code">$$restProps</code>. Be careful
+			though, this can overwrite the element's <code class="code">$$props.class</code> attribute. To avoid this, delete the <code class="code">class</code> key from <code class="code">$$restProps</code>. The function provided below can handle this on both init and after any form of attribute updates.
 		</p>
 		<CodeBlock
 			language="js"
@@ -83,9 +84,9 @@ function prunedRestProps(): any {
 		<p>Follow these guidelines when creating or adding new component props.</p>
 		<ul class="list-disc list-outside ml-4 space-y-1">
 			<li>Each prop should be a single word, all lowercase, and semantic. Match Tailwind class naming conventions whenever possible.</li>
-			<li>Color props should follow standard CSS style conventions (ex: <code>color</code> for text color).</li>
-			<li>If you need multiple words, use camel-casing (ex: <code>ringWidth</code>).</li>
-			<li>Never pass class props as arrays or objects. Strings work better (ex: <code>border border-primary-500</code>).</li>
+			<li>Color props should follow standard CSS style conventions (ex: <code class="code">color</code> for text color).</li>
+			<li>If you need multiple words, use camel-casing (ex: <code class="code">ringWidth</code>).</li>
+			<li>Never pass class props as arrays or objects. Strings work better (ex: <code class="code">border border-primary-500</code>).</li>
 			<li>Always pass the full Tailwind class name. <u>Tailwind does not support constructed class names</u>.</li>
 			<li>Ensure Typescript types are provided and set relevant default values when possible.</li>
 			<li>If a new prop is added or modified then please consider updating the documentation with an example if necessary.</li>
@@ -154,7 +155,7 @@ $: classesLabel = \`\${cBaseLabel}\`; // child element
 		<ol class="list-decimal list-outside ml-4 space-y-1">
 			<li>The first class should be an "identifier" class, providing a selection target for global stylesheet overrides.</li>
 			<li>The combined set of reactive class values, which can mix base and dynamic classes.</li>
-			<li>For parent elements, add <code>$$props.classes</code> to supply additional arbitrary classes.</li>
+			<li>For parent elements, add <code class="code">$$props.classes</code> to supply additional arbitrary classes.</li>
 		</ol>
 		<CodeBlock
 			language="html"
@@ -176,7 +177,7 @@ $: classesLabel = \`\${cBaseLabel}\`; // child element
 		<ul class="list-disc list-outside ml-4 space-y-1">
 			<li>Never construct utility class names, <a href="https://tailwindcss.com/docs/content-configuration#dynamic-class-names" target="_blank" rel="noreferrer">Tailwind does not support this feature</a>.</li>
 			<li>
-				Avoid <code>style</code> blocks and <code>@apply</code> in component files. This can increase the final stylesheet bundle size.
+				Avoid <code class="code">style</code> blocks and <code class="code">@apply</code> in component files. This can increase the final stylesheet bundle size.
 			</li>
 			<li>Do not mix script-defined and inline Tailwind classes. Doing so can have a negative impact on the readability of the code.</li>
 			<li>Avoid switch-case statements to create shorthand property values (ex: sm, md, lg). This limits customization.</li>

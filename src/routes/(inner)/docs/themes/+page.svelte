@@ -39,8 +39,10 @@
 		<section class="space-y-4">
 			<h2 class="h2">Preset Extras</h2>
 			<p>
-				When using preset themes provided by Skeleton, consider implementing the <code>data-theme</code> attribute on the <em>body</em>
-				tag in <code>app.html</code>. This implements additional settings such as background gradients, header font weights, and more.
+				When using preset themes provided by Skeleton, consider implementing the <code class="code">data-theme</code> attribute on the
+				<em>body</em>
+				tag in <code class="code">app.html</code>. This implements additional settings such as background gradients, header font weights,
+				and more.
 			</p>
 			<CodeBlock language="html" code={`<body data-theme="` + activeTheme.file + `">`} />
 		</section>
@@ -84,7 +86,7 @@ body {
 		<h2 class="h2">CSS Properties</h2>
 		<!-- prettier-ignore -->
 		<p>
-			If you open any existing theme, you can see they are made up of a number of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*" target="_blank" rel="noreferrer">CSS Custom Properties</a> (aka CSS Variables). Similar to Javascript variables these can be modified and overwritten as desired. For example, if you add the following snippet to your global stylesheet in <code>/src/app.postcss</code>, you can overwrite the <em>base</em> and <em>container</em> rounding styles for your current theme.
+			If you open any existing theme, you can see they are made up of a number of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*" target="_blank" rel="noreferrer">CSS Custom Properties</a> (aka CSS Variables). Similar to Javascript variables these can be modified and overwritten as desired. For example, if you add the following snippet to your global stylesheet in <code class="code">/src/app.postcss</code>, you can overwrite the <em>base</em> and <em>container</em> rounding styles for your current theme.
 		</p>
 		<CodeBlock
 			language="css"
@@ -125,13 +127,15 @@ body {
 			<aside class="alert variant-ghost-warning">
 				<i class="fa-solid fa-circle-exclamation" />
 				<div class="alert-message">
-					<p>The <code>{activeTheme.name}</code> theme makes use of custom fonts. We recommend you follow the instruction below.</p>
+					<p>
+						The <code class="code">{activeTheme.name}</code> theme makes use of custom fonts. We recommend you follow the instruction below.
+					</p>
 				</div>
 			</aside>
 		{:else if activeTheme.file !== 'custom'}
 			<aside class="alert variant-ghost">
 				<div class="alert-message">
-					<p>The <code>{activeTheme.name}</code> theme does not make use of a custom font.</p>
+					<p>The <code class="code">{activeTheme.name}</code> theme does not make use of a custom font.</p>
 				</div>
 			</aside>
 		{/if}
@@ -155,9 +159,9 @@ body {
 					<!-- 2 -->
 					<h3 class="h3" data-toc-ignore>2. Add the Font Files</h3>
 					<p>
-						Unzip the downloaded file, then copy all font files to the <code>/static/fonts</code> directory in the root of your SvelteKit
-						project. When available we recommend using variable fonts as they require only a single file. Otherwise copy all static font
-						file assets to the <code>/static/fonts</code> directory.
+						Unzip the downloaded file, then copy all font files to the <code class="code">/static/fonts</code> directory in the root of your
+						SvelteKit project. When available we recommend using variable fonts as they require only a single file. Otherwise copy all
+						static font file assets to the <code class="code">/static/fonts</code> directory.
 					</p>
 					{#each activeFonts as f}
 						<CodeBlock language="plaintext" code={`/static/fonts/${f.file}`} />
@@ -165,7 +169,7 @@ body {
 					<!-- 3 -->
 					<h3 class="h3" data-toc-ignore>3. Apply @font-face</h3>
 					<!-- prettier-ignore -->
-					<p>At the top of your global stylesheet <code>/src/app.postcss</code> append the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face" target="_blank" rel="noreferrer">@font-face</a> settings per each font. The <code>font-family</code> assigns the font's reference name, while <code>src</code> points to the font file(s) in your <code>/static/fonts</code> directory.</p>
+					<p>At the top of your global stylesheet <code class="code">/src/app.postcss</code> append the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face" target="_blank" rel="noreferrer">@font-face</a> settings per each font. The <code class="code">font-family</code> assigns the font's reference name, while <code class="code">src</code> points to the font file(s) in your <code class="code">/static/fonts</code> directory.</p>
 					{#each activeFonts as f}
 						<CodeBlock
 							language="css"
@@ -205,7 +209,8 @@ body {
 					<h3 class="h3" data-toc-ignore>1. Select a Font</h3>
 					<p>
 						Choose a font on Google Fonts, select each font weight you wish to use, then tap the "View Select Families" icon button at the
-						very top-right of the page. Under the "Use on the Web" section, choose <code>@import</code>, then copy the import statement.
+						very top-right of the page. Under the "Use on the Web" section, choose <code class="code">@import</code>, then copy the import
+						statement.
 					</p>
 					<div class="card variant-glass p-4 flex justify-center items-center gap-2">
 						{#each activeFonts as f}
@@ -217,7 +222,7 @@ body {
 					</div>
 					<h3 class="h3" data-toc-ignore>2. Set the Import</h3>
 					<p>
-						Open your global stylesheet in <code>/src/app.postcss</code> and paste the import statement at the top of the file.
+						Open your global stylesheet in <code class="code">/src/app.postcss</code> and paste the import statement at the top of the file.
 					</p>
 					{#each activeFonts as f}
 						<CodeBlock language="css" code={`@import url('${f.import}');`} />

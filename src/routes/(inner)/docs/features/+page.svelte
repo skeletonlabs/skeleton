@@ -25,7 +25,7 @@
 		<p>Provides a set of utility classes based on your theme CSS custom property settings.</p>
 		<div class="card variant-glass-surface p-4 space-y-4">
 			<ul class="list-disc list-inside space-y-2">
-				<li>A stylesheet must be imported (ex: <code>skeleton.css</code>, <code>tokens.css</code>)</li>
+				<li>A stylesheet must be imported (ex: <code class="code">skeleton.css</code>, <code class="code">tokens.css</code>)</li>
 				<li>Can be paired with Tailwind utility classes.</li>
 			</ul>
 		</div>
@@ -33,7 +33,7 @@
 		<p>Apply default global styles, such as body, scrolling, and typography settings.</p>
 		<div class="card variant-glass-surface p-4 space-y-4">
 			<ul class="list-disc list-inside space-y-2">
-				<li>A stylesheet must be imported (ex: <code>skeleton.css</code>, <code>core.css</code>)</li>
+				<li>A stylesheet must be imported (ex: <code class="code">skeleton.css</code>, <code class="code">core.css</code>)</li>
 			</ul>
 		</div>
 		<h3 class="h3">Elements</h3>
@@ -44,7 +44,10 @@
 		<div class="card variant-glass-surface p-4 space-y-4">
 			<ul class="list-disc list-inside space-y-2">
 				<li>Use Design Tokens for default style settings.</li>
-				<li>A stylesheet must be imported (ex: <code>skeleton.css</code>, <code>elements.css</code>, <code>buttons.css</code>, etc.)</li>
+				<li>
+					A stylesheet must be imported (ex: <code class="code">skeleton.css</code>, <code class="code">elements.css</code>,
+					<code class="code">buttons.css</code>, etc.)
+				</li>
 				<li>Can be paired with Tailwind utility classes.</li>
 			</ul>
 		</div>
@@ -71,7 +74,7 @@
 			<div class="card variant-glass-surface p-4 space-y-4">
 				<ul class="list-disc list-inside space-y-2">
 					<li>Each must be imported to use.</li>
-					<li>Applied via <code>use:action="params"</code> method.</li>
+					<li>Applied via <code class="code">use:action="params"</code> method.</li>
 					<li>May not contain a visual UI, just pure logic.</li>
 				</ul>
 			</div>
