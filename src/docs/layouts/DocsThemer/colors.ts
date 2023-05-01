@@ -47,15 +47,14 @@ export function generateA11yOnColor(hex: string) {
 
 export function generatePalette(baseColor: string): Palette {
 	if (!chroma.valid(baseColor)) baseColor = '#CCCCCC';
-	const hex500 = chroma(baseColor).hex();
+	const color = chroma(baseColor);
 
 	const response: Palette = {
-		500: { hex: hex500, on: generateA11yOnColor(hex500) }
+		500: { hex: color.hex(), on: generateA11yOnColor(color.hex()) }
 	};
-	const color = chroma(baseColor);
 	const chromaScale = chroma
-		.scale([color.set('lch.c', '*0.5').set('lch.l', 100), color, color.set('lch.l', '*0.5').set('lch.h', '+15')])
-		.domain([0.05, 0.5, 0.9])
+		.scale([color.set('lch.c', '*0.5').set('lch.l', 100), color, color.set('lch.l', '*0.5').set('lch.h', '+15').set('lch.c', '*2')])
+		.domain([0.05, 0.5, 0.95])
 		.correctLightness()
 		.mode('lch');
 
