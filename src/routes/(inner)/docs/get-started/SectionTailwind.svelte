@@ -35,9 +35,9 @@
 					<!-- prettier-ignore -->
 					<p>Then open your global stylesheet in <code class="code">/src/app.postcss</code> and remove the following three <a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> introduced by Svelte-Add. These are redundant as Skeleton automatically handles these in our stylesheets for you.</p>
 					<div class="space-y-[1px]">
-						<del>@tailwind base;</del>
-						<del>@tailwind components;</del>
-						<del>@tailwind utilities;</del>
+						<del class="del">@tailwind base;</del>
+						<del class="del">@tailwind components;</del>
+						<del class="del">@tailwind utilities;</del>
 					</div>
 				</div>
 				<p>Apply these following three changes to your <code class="code">tailwind.config.cjs</code>, found in the root of your project.</p>
