@@ -121,12 +121,12 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 	};
 
 	// Hover Handlers
-	const onMouseOver = () => {
+	const onMouseEnter = () => {
 		show();
 		isVisible = true;
 		stateEventHandler(true);
 	};
-	const onMouseOut = () => {
+	const onMouseLeave = () => {
 		close();
 		isVisible = false;
 		stateEventHandler(false);
@@ -224,11 +224,11 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		window.addEventListener('click', onWindowClick, true);
 	}
 	if (args.event === 'hover') {
-		node.addEventListener('mouseover', show, true);
-		node.addEventListener('mouseout', close, true);
+		node.addEventListener('mouseenter', show, true);
+		node.addEventListener('mouseleave', close, true);
 	}
 	if (args.event === 'hover-click') {
-		node.addEventListener('mouseover', show, true);
+		node.addEventListener('mouseenter', show, true);
 		window.addEventListener('click', onWindowClick, true);
 	}
 	if (args.event === 'focus' || args.event === 'focus-click') {
@@ -261,8 +261,8 @@ export function popup(node: HTMLElement, args: PopupSettings) {
 		destroy() {
 			// ---
 			window.removeEventListener('click', onWindowClick, true);
-			node.removeEventListener('mouseover', onMouseOver, true);
-			node.removeEventListener('mouseout', onMouseOut, true);
+			node.removeEventListener('mouseenter', onMouseEnter, true);
+			node.removeEventListener('mouseleave', onMouseLeave, true);
 			node.removeEventListener('focusin', show, true);
 			node.removeEventListener('focusout', onFocusOut, true);
 			node.removeEventListener('mousedown', onMouseDown, true);
