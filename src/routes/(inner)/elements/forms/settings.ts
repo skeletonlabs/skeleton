@@ -15,7 +15,7 @@ export const fieldSettings: any = {
 		{ title: 'Input (number)', type: 'number' },
 		{ title: 'Input (time)', type: 'time' },
 		{ title: 'Input (week)', type: 'week' },
-		{ title: 'Input (tel)', type: 'tel', multiple: true, placeholder: 'john@example.com' },
-		{ title: 'Input (url)', type: 'url', multiple: true, placeholder: 'john@example.com' }
+		{ title: 'Input (tel)', type: 'tel', multiple: true, placeholder: '+61 123 456 789' },
+		{ title: 'Input (url)', type: 'url', multiple: true, placeholder: 'example.com' }
 	]
 };
