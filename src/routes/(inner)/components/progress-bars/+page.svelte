@@ -60,7 +60,21 @@
 			<p>Remove the <code>value</code> property or set value to <code>undefined</code>.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<ProgressBar />
+					<div class="w-full space-y-10">
+						<ProgressBar />
+						<div class="w-full space-y-4">
+							<ProgressBar meter="bg-primary-500" track="bg-primary-500/30" />
+							<ProgressBar meter="bg-secondary-500" track="bg-secondary-500/30" />
+							<ProgressBar meter="bg-tertiary-500" track="bg-tertiary-500/30" />
+							<ProgressBar meter="bg-success-500" track="bg-success-500/30" />
+							<ProgressBar meter="bg-warning-500" track="bg-warning-500/30" />
+							<ProgressBar meter="bg-error-500" track="bg-error-500/30" />
+						</div>
+						<!-- <ProgressBar
+							meter="bg-gradient-to-r variant-gradient-secondary-primary"
+							track="bg-gradient-to-r variant-gradient-primary-secondary"
+						/> -->
+					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock language="html" code={`<ProgressBar />`} />

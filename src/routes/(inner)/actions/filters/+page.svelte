@@ -32,8 +32,8 @@
 	};
 
 	// Local
-	let activeImg: number = 48;
-	$: imgPlaceholder = `https://i.pravatar.cc/512?img=${activeImg}`;
+	let activeImg: string = 'YOErFW8AfkI';
+	$: imgPlaceholder = `https://source.unsplash.com/${activeImg}/200x200`;
 	let method = 0;
 </script>
 
@@ -103,9 +103,9 @@ only utilize theme on this doc page.
 			<svelte:fragment slot="footer">
 				<div class="text-center">
 					<RadioGroup>
-						<RadioItem bind:group={activeImg} name="source" value={48}>1</RadioItem>
-						<RadioItem bind:group={activeImg} name="source" value={64}>2</RadioItem>
-						<RadioItem bind:group={activeImg} name="source" value={30}>3</RadioItem>
+						<RadioItem bind:group={activeImg} name="source" value="YOErFW8AfkI">1</RadioItem>
+						<RadioItem bind:group={activeImg} name="source" value="z_X0PxmBuIQ">2</RadioItem>
+						<RadioItem bind:group={activeImg} name="source" value="8vKVlNIbAc4">3</RadioItem>
 					</RadioGroup>
 				</div>
 			</svelte:fragment>

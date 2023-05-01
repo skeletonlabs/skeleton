@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { faker } from '@faker-js/faker';
+	// Docshell
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
@@ -24,9 +26,9 @@
 
 	// Local
 	const listData = [
-		{ avatar: 48, name: 'Jane', label: 'A' },
-		{ avatar: 64, name: 'Michael', label: 'B' },
-		{ avatar: 31, name: 'Susan', label: 'C' }
+		{ avatar: 'YOErFW8AfkI', name: `${faker.name.firstName('female')} ${faker.name.lastName('female')}`, label: 'A' },
+		{ avatar: 'z_X0PxmBuIQ', name: `${faker.name.firstName('female')} ${faker.name.lastName('female')}`, label: 'B' },
+		{ avatar: '8vKVlNIbAc4', name: `${faker.name.firstName('female')} ${faker.name.lastName('female')}`, label: 'C' }
 	];
 </script>
 
@@ -40,7 +42,7 @@
 					<ul class="list">
 						{#each listData as v, i}
 							<li>
-								<Avatar src="https://i.pravatar.cc/?img={v.avatar}" width="w-8" />
+								<Avatar src="https://source.unsplash.com/{v.avatar}/48x48" width="w-12" />
 								<span class="flex-auto">{v.name}</span>
 								<span>⋮</span>
 							</li>

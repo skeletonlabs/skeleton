@@ -29,6 +29,7 @@
 			{#if $storeVercelProductionMode === true}
 				<!-- Production Ad -->
 				<!-- cspell:disable -->
+				<!-- cspell:disable -->
 				<script
 					async
 					type="text/javascript"

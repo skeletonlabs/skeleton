@@ -33,6 +33,12 @@
 	// Local
 	let currentInput = fieldSettings.inputs[0];
 	let colorValue = '#bada55';
+
+	function mapInputAttributes(obj: any): any {
+		return Object.keys(obj)
+			.map((key: any) => `${key}="${obj[key]}"`)
+			.join(' ');
+	}
 </script>
 
 <DocsShell {settings}>
@@ -183,8 +189,7 @@ module.exports = {
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<input class="input" />`} />
-					<pre>Attributes: {JSON.stringify(currentInput, null, 2)}</pre>
+					<CodeBlock language="html" code={`<input class="input" ${mapInputAttributes(currentInput)} />`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>

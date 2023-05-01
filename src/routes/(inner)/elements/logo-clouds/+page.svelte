@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { faker } from '@faker-js/faker';
+	// Docshell
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
@@ -93,14 +95,14 @@
 				<svelte:fragment slot="preview">
 					<section class="w-full">
 						<div class="logo-cloud grid-cols-1 xl:grid-cols-2 2xl:grid-cols-4 gap-0.5">
-							<a href="/elements/logo-clouds" class="logo-item">HR Solutions</a>
-							<a href="/elements/logo-clouds" class="logo-item">Acme Theaters</a>
-							<a href="/elements/logo-clouds" class="logo-item">Cruisin' Cuisine</a>
-							<a href="/elements/logo-clouds" class="logo-item">Arcane Security</a>
-							<a href="/elements/logo-clouds" class="logo-item">Stark Industries</a>
-							<a href="/elements/logo-clouds" class="logo-item">Gekko & Co.</a>
-							<a href="/elements/logo-clouds" class="logo-item">Acme Corp.</a>
-							<a href="/elements/logo-clouds" class="logo-item">Wonka Inc.</a>
+							<a href="/elements/logo-clouds" class="logo-item capitalize">{faker.company.bsBuzz()}</a>
+							<a href="/elements/logo-clouds" class="logo-item capitalize">{faker.company.bsBuzz()}</a>
+							<a href="/elements/logo-clouds" class="logo-item capitalize">{faker.company.bsBuzz()}</a>
+							<a href="/elements/logo-clouds" class="logo-item capitalize">{faker.company.bsBuzz()}</a>
+							<a href="/elements/logo-clouds" class="logo-item capitalize">{faker.company.bsBuzz()}</a>
+							<a href="/elements/logo-clouds" class="logo-item capitalize">{faker.company.bsBuzz()}</a>
+							<a href="/elements/logo-clouds" class="logo-item capitalize">{faker.company.bsBuzz()}</a>
+							<a href="/elements/logo-clouds" class="logo-item capitalize">{faker.company.bsBuzz()}</a>
 						</div>
 					</section>
 				</svelte:fragment>

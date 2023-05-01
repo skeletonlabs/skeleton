@@ -379,7 +379,7 @@ modalStore.trigger(d);
 					<svelte:fragment slot="summary"><h3 data-toc-ignore>Accessing Store Data</h3></svelte:fragment>
 					<svelte:fragment slot="content">
 						<p>
-							Import and use the <code>modalStore</code>. All provide data is available within your component via
+							Import and use the <code>modalStore</code>. All provided data is available within your component via
 							<code>$modalStore[0]</code>.
 						</p>
 					</svelte:fragment>
