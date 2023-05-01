@@ -98,7 +98,7 @@
 		<h4 class="h4">Feature Branch Conventions</h4>
 		<Table source={tableBranchNaming} />
 		<p>The wildcards (*) should be replaced with short and semantic descriptions that are lowercase and separated by dashes.</p>
-		<pre>feat/my-new-component-name</pre>
+		<pre class="pre">feat/my-new-component-name</pre>
 	</section>
 
 	<!-- Dependencies -->

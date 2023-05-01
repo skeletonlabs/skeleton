@@ -125,8 +125,6 @@
 				<Paginator bind:settings={$dataTableStore.pagination} />
 			</div>
 		</section>
-		<!-- Debugging -->
-		<!-- <pre>{JSON.stringify($dataTableStore, null, 2)}</pre> -->
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
