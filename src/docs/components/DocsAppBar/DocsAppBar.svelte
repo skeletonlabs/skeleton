@@ -38,12 +38,12 @@
 
 	// Search
 	function triggerSearch(): void {
-		const d: ModalSettings = {
+		const modal: ModalSettings = {
 			type: 'component',
 			component: 'modalSearch',
 			position: 'item-start'
 		};
-		modalStore.trigger(d);
+		modalStore.trigger(modal);
 	}
 
 	// Keyboard Shortcut (CTRL/⌘+K) to Focus Search

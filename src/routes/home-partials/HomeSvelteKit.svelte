@@ -21,12 +21,12 @@
 	const imgPlaceholder = `https://source.unsplash.com/YOErFW8AfkI/200x200`;
 
 	function modalDemo(): void {
-		const d: ModalSettings = {
+		const modal: ModalSettings = {
 			type: 'alert',
 			title: 'What is this?',
 			body: 'A high priority dialog modal system with a dynamic queue. This allows you to create standard alerts and implement custom modals using standard Svelte components.'
 		};
-		modalStore.trigger(d);
+		modalStore.trigger(modal);
 	}
 </script>
 

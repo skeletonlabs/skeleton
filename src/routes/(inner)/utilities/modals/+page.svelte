@@ -43,39 +43,39 @@
 	// Demo ---
 
 	function modalDemo(): void {
-		const d: ModalSettings = {
+		const modal: ModalSettings = {
 			type: 'alert',
 			title: 'Hello Skeleton',
 			body: 'This modal example includes a title, body, and image.',
 			image: 'https://i.imgur.com/TykCy5e.gif'
 			// image: 'https://i.imgur.com/WOgTG96.gif'
 		};
-		modalStore.trigger(d);
+		modalStore.trigger(modal);
 	}
 
 	// Variants ---
 
 	function modalAlert(): void {
-		const d: ModalSettings = {
+		const modal: ModalSettings = {
 			type: 'alert',
 			title: 'Hello World!',
 			body: 'This simple alert modal uses <code>type: alert</code>.'
 		};
-		modalStore.trigger(d);
+		modalStore.trigger(modal);
 	}
 
 	function modalConfirm(): void {
-		const d: ModalSettings = {
+		const modal: ModalSettings = {
 			type: 'confirm',
 			title: 'Please Confirm',
 			body: 'Are you sure you wish to proceed?',
 			response: (r: boolean) => console.log('response:', r)
 		};
-		modalStore.trigger(d);
+		modalStore.trigger(modal);
 	}
 
 	function modalPrompt(): void {
-		const d: ModalSettings = {
+		const modal: ModalSettings = {
 			type: 'prompt',
 			title: 'Enter Name',
 			body: 'Provide your first name in the field below.',
@@ -83,17 +83,17 @@
 			valueAttr: { type: 'text', minlength: 3, maxlength: 10, required: true },
 			response: (r: string) => console.log('response:', r)
 		};
-		modalStore.trigger(d);
+		modalStore.trigger(modal);
 	}
 
 	function modalMultiple(): void {
 		[1, 2, 3].forEach((dNum: number) => {
-			const d: ModalSettings = {
+			const modal: ModalSettings = {
 				type: 'alert',
 				title: `Modal ${dNum}`,
 				body: `The modal body of ${dNum}.`
 			};
-			modalStore.trigger(d);
+			modalStore.trigger(modal);
 		});
 	}
 
@@ -101,43 +101,43 @@
 
 	function modalComponentForm(): void {
 		const c: ModalComponent = { ref: ModalExampleForm };
-		const d: ModalSettings = {
+		const modal: ModalSettings = {
 			type: 'component',
 			component: c,
 			title: 'Custom Form Component',
 			body: 'Complete the form below and then press submit.',
 			response: (r: any) => console.log('response:', r)
 		};
-		modalStore.trigger(d);
+		modalStore.trigger(modal);
 	}
 
 	function modalComponentList(): void {
-		const d: ModalSettings = {
+		const modal: ModalSettings = {
 			type: 'component',
 			component: 'exampleList',
 			title: 'Custom List Component',
 			body: 'Make your selection then press submit.',
 			response: (r: any) => console.log('response:', r)
 		};
-		modalStore.trigger(d);
+		modalStore.trigger(modal);
 	}
 
 	function modalComponentEmbed(): void {
-		const d: ModalSettings = {
+		const modal: ModalSettings = {
 			type: 'component',
 			component: 'exampleEmbed'
 		};
-		modalStore.trigger(d);
+		modalStore.trigger(modal);
 	}
 
 	function modalComponentImage(): void {
-		const d: ModalSettings = {
+		const modal: ModalSettings = {
 			type: 'component',
 			component: 'exampleImage',
 			image: 'https://i.imgur.com/WOgTG96.gif',
 			meta: { source: 'Silly Symphonies - The Skeleton Dance' }
 		};
-		modalStore.trigger(d);
+		modalStore.trigger(modal);
 	}
 </script>
 
@@ -184,14 +184,14 @@
 					<CodeBlock
 						language="ts"
 						code={`
-const alert: ModalSettings = {
+const modal: ModalSettings = {
 	type: 'alert',
 	// Data
 	title: 'Example Alert',
 	body: 'This is an example modal.',
 	image: 'https://i.imgur.com/WOgTG96.gif',
 };
-modalStore.trigger(alert);
+modalStore.trigger(modal);
 `}
 					/>
 				</svelte:fragment>
@@ -205,7 +205,7 @@ modalStore.trigger(alert);
 					<CodeBlock
 						language="ts"
 						code={`
-const confirm: ModalSettings = {
+const modal: ModalSettings = {
 	type: 'confirm',
 	// Data
 	title: 'Please Confirm',
@@ -213,7 +213,7 @@ const confirm: ModalSettings = {
 	// TRUE if confirm pressed, FALSE if cancel pressed
 	response: (r: boolean) => console.log('response:', r),
 };
-modalStore.trigger(confirm);
+modalStore.trigger(modal);
 `}
 					/>
 				</svelte:fragment>
@@ -227,7 +227,7 @@ modalStore.trigger(confirm);
 					<CodeBlock
 						language="ts"
 						code={`
-const prompt: ModalSettings = {
+const modal: ModalSettings = {
 	type: 'prompt',
 	// Data
 	title: 'Enter Name',
@@ -238,7 +238,7 @@ const prompt: ModalSettings = {
 	// Returns the updated response value
 	response: (r: string) => console.log('response:', r),
 };
-modalStore.trigger(prompt);
+modalStore.trigger(modal);
 `}
 					/>
 				</svelte:fragment>
@@ -260,7 +260,7 @@ modalStore.trigger(prompt);
 			<CodeBlock
 				language="ts"
 				code={`
-const d: ModalSettings = {\n
+const modal: ModalSettings = {\n
 	// Provide arbitrary classes to the backdrop and modal elements:
 	backdropClasses: '!bg-green-500',
 	modalClasses: '!bg-red-500',\n
@@ -328,12 +328,12 @@ const modalComponentRegistry: Record<string, ModalComponent> = {\n
 								<CodeBlock
 									language="ts"
 									code={`
-const d: ModalSettings = {
+const modal: ModalSettings = {
 	type: 'component',
 	// Pass the component registry key as a string:
 	component: 'modalComponentOne',
 };
-modalStore.trigger(d);
+modalStore.trigger(modal);
 									`}
 								/>
 							{:else if tabCustom === 'direct'}
@@ -360,12 +360,12 @@ const modalComponent: ModalComponent = {
 								<CodeBlock
 									language="ts"
 									code={`
-const d: ModalSettings = {
+const modal: ModalSettings = {
 	type: 'component',
 	// Pass the component directly:
 	component: modalComponent,
 };
-modalStore.trigger(d);
+modalStore.trigger(modal);
 									`}
 								/>
 							{/if}
