@@ -30,8 +30,8 @@
 		Sveld makes use of <a href="https://tsdoc.org" target="_blank" rel="noreferrer">TSDoc tags</a> (a superset of JSDocs) to generate
 		component documentation from the component code itself. This comes with the benefit of providing additional
 		<a href="https://code.visualstudio.com/docs/editor/intellisense" target="_blank" rel="noreferrer">Intellisense</a>
-		features to aid developers implementing Skeleton components in tools like VS Code. Tap <kbd>Ctrl/⌘ + i</kbd> within a component declaration
-		to view IntelliSense recommendations.
+		features to aid developers implementing Skeleton components in tools like VS Code. Tap <kbd class="kbd">Ctrl/⌘ + i</kbd> within a component
+		declaration to view IntelliSense recommendations.
 	</p>
 
 	<!-- Generating Documentation -->

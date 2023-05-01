@@ -23,9 +23,9 @@
 			{ label: 'ListBoxItem', sveld: sveldListBoxItem, overrideProps: ['rounded', 'active', 'hover', 'padding'] }
 		],
 		keyboard: [
-			['<kbd>Tab</kbd>', 'Focus the next listbox item.'],
-			['<kbd>Shift + Tab</kbd> ', 'Focus the previous listbox item.'],
-			['<kbd>Enter</kbd> or <kbd>Space</kbd>', 'Toggles the current listbox item selection.']
+			['<kbd class="kbd">Tab</kbd>', 'Focus the next listbox item.'],
+			['<kbd class="kbd">Shift + Tab</kbd> ', 'Focus the previous listbox item.'],
+			['<kbd class="kbd">Enter</kbd> or <kbd class="kbd">Space</kbd>', 'Toggles the current listbox item selection.']
 		]
 	};
 

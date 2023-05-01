@@ -19,7 +19,7 @@
 		source: 'utilities/LightSwitch',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/switch/',
 		components: [{ sveld: sveldLightSwitch }],
-		keyboard: [['<kbd>Space</kbd> or <kbd>Enter</kbd>', 'Toggle the switch state.']]
+		keyboard: [['<kbd class="kbd">Space</kbd> or <kbd class="kbd">Enter</kbd>', 'Toggle the switch state.']]
 	};
 
 	// Local

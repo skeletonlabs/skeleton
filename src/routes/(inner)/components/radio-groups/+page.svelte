@@ -24,9 +24,9 @@
 			{ label: 'RadioItem', sveld: sveldRadioItem, overrideProps: ['padding', 'hover', 'accent', 'color', 'fill', 'rounded'] }
 		],
 		keyboard: [
-			['<kbd>Tab</kbd>', 'Moves focus to the next focusable RadioItem.'],
-			['<kbd>Shift + Tab</kbd> ', 'Moves focus to the previous focusable RadioItem.'],
-			['<kbd>Space</kbd> or <kbd>Enter</kbd>', 'Checks the focused radio button if it is not already checked']
+			['<kbd class="kbd">Tab</kbd>', 'Moves focus to the next focusable RadioItem.'],
+			['<kbd class="kbd">Shift + Tab</kbd> ', 'Moves focus to the previous focusable RadioItem.'],
+			['<kbd class="kbd">Space</kbd> or <kbd class="kbd">Enter</kbd>', 'Checks the focused radio button if it is not already checked']
 		]
 	};
 

@@ -25,9 +25,9 @@
 		// aria: 'https://www.w3.org/WAI/ARIA/apg/',
 		components: [{ sveld: sveldAutocomplete }],
 		keyboard: [
-			['<kbd>Tab</kbd>', 'Select the next autocomplete option.'],
-			['<kbd>Shift</kbd> + <kbd>Tab</kbd>', 'Select the previous autocomplete option.'],
-			['<kbd>Space</kbd> or <kbd>Enter</kbd>', 'Select the current autocomplete option.']
+			['<kbd class="kbd">Tab</kbd>', 'Select the next autocomplete option.'],
+			['<kbd class="kbd">Shift</kbd> + <kbd class="kbd">Tab</kbd>', 'Select the previous autocomplete option.'],
+			['<kbd class="kbd">Space</kbd> or <kbd class="kbd">Enter</kbd>', 'Select the current autocomplete option.']
 		]
 	};
 

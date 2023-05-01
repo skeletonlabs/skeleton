@@ -19,12 +19,12 @@
 		components: [{ sveld: sveldRangeSlider }],
 		restProps: 'input',
 		keyboard: [
-			['<kbd>Right Arrow</kbd> or <kbd>Up Arrow</kbd>', 'Increase the value of the slider by one step.'],
-			['<kbd>Left Arrow</kbd> or <kbd>Down Arrow</kbd>', 'Decrease  the value of the slider by one step.'],
-			['<kbd>Home</kbd>', 'Set the slider to the first allowed value in its range.'],
-			['<kbd>End</kbd>', 'Set the slider to the last allowed value in its range.'],
-			['<kbd>Page Up</kbd>', 'Increase the slider value by a large amount.'],
-			['<kbd>Page Down</kbd>', 'Decrease  the slider value by a large amount.']
+			['<kbd class="kbd">Right Arrow</kbd> or <kbd class="kbd">Up Arrow</kbd>', 'Increase the value of the slider by one step.'],
+			['<kbd class="kbd">Left Arrow</kbd> or <kbd class="kbd">Down Arrow</kbd>', 'Decrease  the value of the slider by one step.'],
+			['<kbd class="kbd">Home</kbd>', 'Set the slider to the first allowed value in its range.'],
+			['<kbd class="kbd">End</kbd>', 'Set the slider to the last allowed value in its range.'],
+			['<kbd class="kbd">Page Up</kbd>', 'Increase the slider value by a large amount.'],
+			['<kbd class="kbd">Page Down</kbd>', 'Decrease  the slider value by a large amount.']
 		]
 	};
 

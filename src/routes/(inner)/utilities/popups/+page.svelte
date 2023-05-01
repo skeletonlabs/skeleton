@@ -44,12 +44,12 @@
 			['<code class="code">state</code>', 'function', '-', '-', 'Provide an optional callback function to monitor open/close state.']
 		],
 		keyboard: [
-			['<kbd>Enter</kbd>', 'When trigger is focused, toggles the popup open/close.'],
-			// ['<kbd>Space</kbd>', 'When trigger is focused, toggles the popup open/close.'],
-			// ['<kbd>Tab</kbd>', 'When trigger is focused, closes the popup.'],
-			['<kbd>Esc</kbd>', 'Closes all open popups at once.'],
-			['<kbd>↑</kbd>', 'Move upwards to the next item in the popup.'],
-			['<kbd>↓</kbd>', 'Move downwards to the next item in the popup.']
+			['<kbd class="kbd">Enter</kbd>', 'When trigger is focused, toggles the popup open/close.'],
+			// ['<kbd class="kbd">Space</kbd>', 'When trigger is focused, toggles the popup open/close.'],
+			// ['<kbd class="kbd">Tab</kbd>', 'When trigger is focused, closes the popup.'],
+			['<kbd class="kbd">Esc</kbd>', 'Closes all open popups at once.'],
+			['<kbd class="kbd">↑</kbd>', 'Move upwards to the next item in the popup.'],
+			['<kbd class="kbd">↓</kbd>', 'Move downwards to the next item in the popup.']
 		],
 		dependencies: [{ label: 'Floating UI', url: 'https://floating-ui.com/' }]
 	};

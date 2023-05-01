@@ -32,13 +32,22 @@
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/grid/',
 		components: [{ sveld: sveldTable }],
 		keyboard: [
-			['<kbd>Right Arrow</kbd>', 'Moves focus one cell to the right. If focus is on the right-most cell in the row, focus does not move.'],
-			['<kbd>Left Arrow</kbd>', 'Moves focus one cell to the left. If focus is on the left-most cell in the row, focus does not move.'],
-			['<kbd>Down Arrow</kbd>', 'Moves focus one cell down. If focus is on the bottom cell in the column, focus does not move.'],
-			['<kbd>Up Arrow</kbd>', 'Moves focus one cell Up. If focus is on the top cell in the column, focus does not move.'],
-			['<kbd>Home</kbd>', 'Moves focus to the first cell in the row that contains focus.'],
-			['<kbd>End</kbd>', ' Moves focus to the last cell in the row that contains focus.'],
-			['<kbd>Enter</kbd> or <kbd>Space</kbd>', 'Triggers the on:selected event.']
+			[
+				'<kbd class="kbd">Right Arrow</kbd>',
+				'Moves focus one cell to the right. If focus is on the right-most cell in the row, focus does not move.'
+			],
+			[
+				'<kbd class="kbd">Left Arrow</kbd>',
+				'Moves focus one cell to the left. If focus is on the left-most cell in the row, focus does not move.'
+			],
+			[
+				'<kbd class="kbd">Down Arrow</kbd>',
+				'Moves focus one cell down. If focus is on the bottom cell in the column, focus does not move.'
+			],
+			['<kbd class="kbd">Up Arrow</kbd>', 'Moves focus one cell Up. If focus is on the top cell in the column, focus does not move.'],
+			['<kbd class="kbd">Home</kbd>', 'Moves focus to the first cell in the row that contains focus.'],
+			['<kbd class="kbd">End</kbd>', ' Moves focus to the last cell in the row that contains focus.'],
+			['<kbd class="kbd">Enter</kbd> or <kbd class="kbd">Space</kbd>', 'Triggers the on:selected event.']
 		]
 	};
 

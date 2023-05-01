@@ -28,9 +28,9 @@
 			}
 		],
 		keyboard: [
-			['<kbd>Tab</kbd>', 'Focus the next accordion item.'],
-			['<kbd>Shift + Tab</kbd> ', 'Focus the previous accordion item.'],
-			['<kbd>Space</kbd> or <kbd>Enter</kbd>', 'Toggles the item panel open or closed.']
+			['<kbd class="kbd">Tab</kbd>', 'Focus the next accordion item.'],
+			['<kbd class="kbd">Shift + Tab</kbd> ', 'Focus the previous accordion item.'],
+			['<kbd class="kbd">Space</kbd> or <kbd class="kbd">Enter</kbd>', 'Toggles the item panel open or closed.']
 		]
 	};
 

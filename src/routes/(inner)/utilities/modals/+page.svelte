@@ -32,7 +32,7 @@
 		source: 'utilities/Modal',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/',
 		components: [{ sveld: sveldModal }],
-		keyboard: [['<kbd>Esc</kbd>', ' Dismisses the foremost modal.']],
+		keyboard: [['<kbd class="kbd">Esc</kbd>', ' Dismisses the foremost modal.']],
 		classes: [
 			['<code class="code">.w-modal</code>', '-', 'Sets a standard responsive width for modals.'],
 			['<code class="code">.w-modal-slim</code>', '-', 'Create a slimmer modal. Great for small component modals.'],
