@@ -2,7 +2,7 @@
 <script lang="ts">
 	// Dependency: Highlight JS
 	import hljs from 'highlight.js';
-	import '$lib/styles/highlight-js.css'; // was: 'highlight.js/styles/github-dark.css';
+	import '$docs/styles/highlight-js.css';
 	import { storeHighlightJs } from '$lib/utilities/CodeBlock/stores';
 	storeHighlightJs.set(hljs);
 
@@ -42,6 +42,8 @@
 
 	// Skeleton Stylesheets
 	import '$lib/styles/all.css';
+	// import '$lib/styles/skeleton.css';
+	// import '$lib/styles/skeleton-minimal.css';
 	// The Skeleton blog stylesheet
 	import '$docs/styles/blog.css';
 	// Global Stylesheets

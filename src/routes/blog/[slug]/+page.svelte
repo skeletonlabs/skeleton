@@ -39,54 +39,52 @@
 
 <!-- NOTE: SEO handled in root page layout -->
 
-<div class="blog-post">
+<!-- blog-post -->
+<div class="max-w-5xl mx-auto p-4 md:p-12 space-y-8">
 	<!-- Breadcrumbs -->
 	<ol class="breadcrumb">
 		<li class="crumb"><a href="/blog">Blog</a></li>
 		<li class="crumb-separator" aria-hidden>&rsaquo;</li>
 		<li>Article</li>
 	</ol>
+	<!-- Header -->
+	<header class="space-y-4">
+		<!-- Timestamp / Read Time -->
+		<div class="blog-meta flex justify-between items-center">
+			<time class="block">{blogDateFormatter(post.updated_at)}</time>
+			<span class="hidden md:block text-xs opacity-50">{post.reading_time} min read</span>
+		</div>
+		<h1>{post.title}</h1>
+		<!-- Byline -->
+		<div class="flex items-center space-x-4 py-4">
+			<Avatar src={post.primary_author.profile_image} alt={post.primary_author.slug} />
+			<div>
+				<span class="block">{post.primary_author.name}</span>
+				<a class="text-secondary-500 text-xs" href="https://twitter.com/{post.primary_author.twitter}">{post.primary_author.twitter}</a>
+			</div>
+		</div>
+		<!-- Featured Image -->
+		{#if post.feature_image}<img
+				src={post.feature_image}
+				alt={post.title}
+				class="w-full aspect-video rounded-container-token shadow-xl"
+			/>{/if}
+	</header>
 	<!-- Article -->
-	<article class="space-y-8 md:space-y-12">
-		<!-- Header -->
-		<header class="space-y-4">
-			<!-- Timestamp / Read Time -->
-			<div class="blog-meta flex justify-between items-center">
-				<time class="block">{blogDateFormatter(post.updated_at)}</time>
-				<span class="hidden md:block text-xs opacity-50">{post.reading_time} min read</span>
-			</div>
-			<h1>{post.title}</h1>
-			<!-- Byline -->
-			<div class="flex items-center space-x-4 py-4">
-				<Avatar src={post.primary_author.profile_image} alt={post.primary_author.slug} />
-				<div>
-					<div class="text-sm">{post.primary_author.name}</div>
-					<a class="text-secondary-500 text-xs" href="https://twitter.com/{post.primary_author.twitter}">{post.primary_author.twitter}</a>
-				</div>
-			</div>
-			<!-- Featured Image -->
-			{#if post.feature_image}<img
-					src={post.feature_image}
-					alt={post.title}
-					class="w-full aspect-video rounded-container-token shadow-xl"
-				/>{/if}
-		</header>
-		<!-- HTML Content -->
-		<div class="blog-html space-y-4">{@html post.html}</div>
-		<!-- Footer -->
-		<footer class="card p-4 variant-glass-surface flex justify-between items-center mb-28">
-			<!-- Tags -->
-			<div class="flex items-center space-x-4">
-				{#each post.tags as tag}
-					<span class="text-sm font-bold opacity-50 capitalize">{tag.slug}</span>
-				{/each}
-			</div>
-			<!-- Scroll to Top -->
-			<!-- prettier-ignore -->
-			<button class="btn variant-ghost-surface" on:click={()=>{scrollToTop()}}>Scroll to Top &uarr;</button>
-		</footer>
+	<article class="prose lg:prose-xl max-w-full space-y-8 md:space-y-12">
+		{@html post.html}
 	</article>
-	<!-- Twitter Embed Script -->
-	<!-- Twitter Embed Script -->
+	<!-- Footer -->
+	<footer class="card p-4 variant-glass-surface flex justify-between items-center mb-28">
+		<!-- Tags -->
+		<div class="flex items-center space-x-4">
+			{#each post.tags as tag}
+				<span class="text-sm font-bold opacity-50 capitalize">{tag.slug}</span>
+			{/each}
+		</div>
+		<!-- Scroll to Top -->
+		<!-- prettier-ignore -->
+		<button class="btn variant-ghost-surface" on:click={()=>{scrollToTop()}}>Scroll to Top &uarr;</button>
+	</footer>
 	<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>

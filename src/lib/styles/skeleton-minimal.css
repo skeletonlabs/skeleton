@@ -1,9 +1,9 @@
-/* Stylesheet: skeleton.css */
+/* Stylesheet: skeleton-minimal.css */
 
 /*
-- Will be replaced by `skeleton.css` in the next major release.
-- All available stylesheets are imported
-- Typography using on-by-default system
+- Only required stylesheets are provided.
+- Optional stylesheets are not included.
+- Typography using opt-in system
 */
 
 /* NOTE: The order shown below is required */
@@ -15,11 +15,11 @@
 /* === OPTIONAL STYLESHEETS === */
 
 /* Core Styles */
-@import 'partials/core.css';
+/* (excluded - supplied by developer) */
 
 /* Typography Settings */
-@import 'partials/typography.css';
-@import 'partials/typography-prose.css';
+@import 'partials/typography-next.css';
+/* (prose excluded - supplied by developer) */
 
 /* === REQUIRED STYLESHEETS === */
 

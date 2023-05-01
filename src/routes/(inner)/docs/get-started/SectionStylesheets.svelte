@@ -2,8 +2,6 @@
 	import { writable, type Writable } from 'svelte/store';
 
 	// Components
-	import Accordion from '$lib/components/Accordion/Accordion.svelte';
-	import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
 	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
 	import Tab from '$lib/components/Tab/Tab.svelte';
 	// Utilities
@@ -26,7 +24,10 @@
 		<svelte:fragment slot="panel">
 			{#if $storeOnboardMethod === 'cli'}
 				<div class="card variant-glass p-4">
-					<p>The CLI will automatically import Skeleton's <code>all.css</code> stylesheet within <code>src/routes/+layout.svelte</code>.</p>
+					<p>
+						The CLI will automatically import the Skeleton CSS stylesheet within
+						<code>src/routes/+layout.svelte</code>.
+					</p>
 				</div>
 			{:else if $storeOnboardMethod === 'manual'}
 				<p>Ensure the following stylesheets are added to your root layout in <code>src/routes/+layout.svelte</code>.</p>
@@ -42,7 +43,8 @@
 // Your selected Skeleton theme:
 import '@skeletonlabs/skeleton/themes/theme-skeleton.css';\n
 // This contains the bulk of Skeletons required styles:
-import '@skeletonlabs/skeleton/styles/all.css';\n
+// NOTE: this will be renamed skeleton.css in the v2.x release.
+import '@skeletonlabs/skeleton/styles/skeleton.css';\n
 // Finally, your application's global stylesheet (sometimes labeled 'app.css')
 import '../app.postcss';
 						`}

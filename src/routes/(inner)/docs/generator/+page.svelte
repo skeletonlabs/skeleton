@@ -35,7 +35,7 @@
 // Your custom Skeleton theme:
 import '../theme.postcss';\n
 // This contains the bulk of Skeletons required styles:
-import '@skeletonlabs/skeleton/styles/all.css';\n
+import '@skeletonlabs/skeleton/styles/skeleton.css';\n
 // Finally, your application's global stylesheet (sometimes labeled 'app.css')
 import '../app.postcss';
 						`}

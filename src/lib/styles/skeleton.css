@@ -1,9 +1,9 @@
 /* Stylesheet: skeleton.css */
 
 /*
-- Will be replaced by `skeleton.css` in the next major release.
+- Slated to replace `all.css` in the next major release
 - All available stylesheets are imported
-- Typography using on-by-default system
+- Typography using opt-in system
 */
 
 /* NOTE: The order shown below is required */
@@ -18,7 +18,7 @@
 @import 'partials/core.css';
 
 /* Typography Settings */
-@import 'partials/typography.css';
+@import 'partials/typography-next.css';
 @import 'partials/typography-prose.css';
 
 /* === REQUIRED STYLESHEETS === */
