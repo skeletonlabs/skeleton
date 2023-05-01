@@ -137,7 +137,7 @@
 		</section>
 		<section class="space-y-4">
 			<div class="flex items-center space-x-2">
-				<h2>Prerequisites</h2>
+				<h2 class="h2">Prerequisites</h2>
 				<span class="badge variant-filled-warning">Required</span>
 			</div>
 			<!-- prettier-ignore -->
@@ -156,7 +156,7 @@
 			<CodeBlock language="css" code={`html, body { @apply h-full overflow-hidden; }`} />
 		</section>
 		<section class="space-y-4">
-			<h2>Using an App Bar</h2>
+			<h2 class="h2">Using an App Bar</h2>
 			<p>
 				If you wish for your <a href="/components/app-bar">App Bar</a> component to remain fixed at the top of the page, embed it into the
 				top-most <code>header</code> slot.
@@ -186,7 +186,7 @@
 			<CodeBlock language="html" code={`<AppShell regionPage="relative" slotPageHeader="sticky top-0 z-10">...</AppShell>`} />
 		</section>
 		<section class="space-y-4">
-			<h2>Responsive Sidebars</h2>
+			<h2 class="h2">Responsive Sidebars</h2>
 			<p>
 				Sidebars have a default width of <code>auto</code>. This means they will automatically collapse when their contents are
 				<em>empty</em>
@@ -215,7 +215,7 @@
 			</aside>
 		</section>
 		<section class="space-y-4">
-			<h2>Tracking Scroll Position</h2>
+			<h2 class="h2">Tracking Scroll Position</h2>
 			<p>Use the <code>on:scroll</code> event to detect when the page region is scrolled vertically.</p>
 			<CodeBlock
 				language="ts"

@@ -43,7 +43,7 @@
 
 	<!-- Header -->
 	<header class="space-y-4">
-		<h1>Requirements</h1>
+		<h1 class="h1">Requirements</h1>
 		<p>If you wish to contribute to Skeleton, please ensure you have read and understand our requirements below.</p>
 	</header>
 
@@ -51,7 +51,7 @@
 
 	<!-- Roadmap -->
 	<section class="space-y-4">
-		<h2>Contribution Workflow</h2>
+		<h2 class="h2">Contribution Workflow</h2>
 		<aside class="alert variant-ghost-warning">
 			<i class="fa-solid fa-thumbs-up text-2xl" />
 			<div class="alert-message">Remember to be a team player, don't be a hero! Open-source is most successful when we work together.</div>
@@ -85,9 +85,9 @@
 
 	<!--Branches -->
 	<section class="space-y-4">
-		<h2>Branches</h2>
+		<h2 class="h2">Branches</h2>
 		<Table source={tableBranches} />
-		<h4>Feature Branch Conventions</h4>
+		<h4 class="h4">Feature Branch Conventions</h4>
 		<Table source={tableBranchNaming} />
 		<p>The wildcards (*) should be replaced with short and semantic descriptions that are lowercase and separated by dashes.</p>
 		<pre>feat/my-new-component-name</pre>
@@ -95,7 +95,7 @@
 
 	<!-- Dependencies -->
 	<section class="space-y-4">
-		<h2>Third Party Dependencies</h2>
+		<h2 class="h2">Third Party Dependencies</h2>
 		<p>
 			Avoid adding additional dependencies without prior consent from a core team member. Pull Requests that do not follow this
 			recommendation will be rejected outright.
@@ -104,7 +104,7 @@
 
 	<!-- Code Formatting -->
 	<section class="space-y-4">
-		<h2>Code Linting &amp; Formatting</h2>
+		<h2 class="h2">Code Linting &amp; Formatting</h2>
 		<p>
 			All Skeleton projects utilize <a href="https://prettier.io/" target="_blank" rel="noreferrer">Prettier</a>. To check for linting
 			issues, run:
@@ -116,7 +116,7 @@
 
 	<!-- Automated Tests -->
 	<section class="space-y-4">
-		<h2>Automated Tests</h2>
+		<h2 class="h2">Automated Tests</h2>
 		<p>
 			Tests are handled via <a href="https://vitest.dev/" target="_blank" rel="noreferrer">Vitest</a>, which is similar to Jest. Ensure
 			tests are current and passing before submitting a pull request.
@@ -126,7 +126,7 @@
 
 	<!-- Spell Checking -->
 	<section class="space-y-4">
-		<h2>Spell Checking</h2>
+		<h2 class="h2">Spell Checking</h2>
 		<p>
 			Skeleton uses <a href="https://cspell.org" target="_blank" rel="noreferrer">Cspell</a> to check for spelling errors. We reccomend
 			installing the
@@ -140,7 +140,7 @@
 	</section>
 	<!-- Project Structure -->
 	<section class="space-y-4">
-		<h2>Project Structure</h2>
+		<h2 class="h2">Project Structure</h2>
 		<Table source={tableProjectStructure} />
 	</section>
 </LayoutPage>

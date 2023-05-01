@@ -124,7 +124,7 @@
 		</aside>
 		<!-- Toast Store -->
 		<section class="space-y-4">
-			<h2>Toast Store</h2>
+			<h2 class="h2">Toast Store</h2>
 			<p>The Modal Store acts as a queue for your toast messages.</p>
 			<CodeBlock
 				language="ts"
@@ -132,7 +132,7 @@
 			`}
 			/>
 			<!-- Trigger -->
-			<h3>Trigger</h3>
+			<h3 class="h3">Trigger</h3>
 			<p>To add a message to the queue, use the <code>toastStore.trigger()</code> method and pass a toast settings object.</p>
 			<!-- Basic -->
 			<DocsPreview background="neutral">
@@ -215,15 +215,15 @@ toastStore.trigger(t);
 				</svelte:fragment>
 			</DocsPreview>
 			<!-- Clear -->
-			<h3>Clear</h3>
+			<h3 class="h3">Clear</h3>
 			<p>Use <code>toastStore.clear()</code> to clear the entire toast store queue.</p>
 			<CodeBlock language="ts" code={`toastStore.clear();`} />
 		</section>
 		<!-- Styling -->
 		<section class="space-y-4">
-			<h2>Styling</h2>
+			<h2 class="h2">Styling</h2>
 			<p>We recommend applying global styles via the Toast component props. Though you can provide styles per toast instance.</p>
-			<h3>Backgrounds</h3>
+			<h3 class="h3">Backgrounds</h3>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<!-- prettier-ignore -->
@@ -253,7 +253,7 @@ const t: ToastSettings = {
 					/>
 				</svelte:fragment>
 			</DocsPreview>
-			<h3>Custom Styles</h3>
+			<h3 class="h3">Custom Styles</h3>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<button class="btn variant-filled" on:click={toastStyled}>Styled</button>
@@ -275,7 +275,7 @@ const t: ToastSettings = {
 					/>
 				</svelte:fragment>
 			</DocsPreview>
-			<h3>Positioning</h3>
+			<h3 class="h3">Positioning</h3>
 			<p>
 				Skeleton takes an opinionated stance on positioning, preferring to keep toast notifications in fixed location on your page. This
 				position can be modified globally the <code>position</code> property on the Toast component. However, we do not allow you to modify this
@@ -283,7 +283,7 @@ const t: ToastSettings = {
 			</p>
 		</section>
 		<section class="space-y-4">
-			<h2>Callbacks</h2>
+			<h2 class="h2">Callbacks</h2>
 			<p>
 				You can optionally add a callback function to your <code>ToastSettings</code> to receive the unique ID assigned to each toast, as
 				well as listen for when the <code>queued</code> and <code>closed</code> lifecycle events occur for that toast message.
@@ -305,7 +305,7 @@ const t: ToastSettings = {
 		<!-- SvelteKit SSR Warning -->
 		<!-- prettier-ignore -->
 		<section class="space-y-4">
-			<h2>SvelteKit SSR Warning</h2>
+			<h2 class="h2">SvelteKit SSR Warning</h2>
 			<div class="space-y-4">
 				<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 					<p>There are known security risks when using Svelte writable stores within SvelteKit load functions.</p>

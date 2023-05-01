@@ -23,7 +23,7 @@
 		<!-- Opt-In -->
 		<section class="card variant-ghost-warning p-4 space-y-4">
 			<div class="flex items-center space-x-2">
-				<h2>Opt-In Typography</h2>
+				<h2 class="h2">Opt-In Typography</h2>
 				<span class="badge variant-filled-warning">New in v1.3+</span>
 			</div>
 			<p>Please review the new changes for Skeleton's typography system.</p>
@@ -31,7 +31,7 @@
 				<AccordionItem open>
 					<svelte:fragment slot="lead"><i class="fa-solid fa-square-check text-xl w-6 text-center" /></svelte:fragment>
 					<svelte:fragment slot="summary">
-						<h3 data-toc-ignore>What does opt-in mean?</h3>
+						<h3 class="h3" data-toc-ignore>What does opt-in mean?</h3>
 					</svelte:fragment>
 					<svelte:fragment slot="content">
 						<p>
@@ -44,7 +44,7 @@
 				<AccordionItem>
 					<svelte:fragment slot="lead"><i class="fa-solid fa-square-check text-xl w-6 text-center" /></svelte:fragment>
 					<svelte:fragment slot="summary">
-						<h3 data-toc-ignore>Simplified CSS Selectors</h3>
+						<h3 class="h3" data-toc-ignore>Simplified CSS Selectors</h3>
 					</svelte:fragment>
 					<svelte:fragment slot="content">
 						<!-- prettier-ignore -->
@@ -98,14 +98,14 @@ a:not(.unstyled):not(.permalink):is(:not(.prose *)):not(.btn):not(.btn-icon):not
 				<AccordionItem>
 					<svelte:fragment slot="lead"><i class="fa-solid fa-truck-moving text-xl w-6 text-center" /></svelte:fragment>
 					<svelte:fragment slot="summary">
-						<h3 data-toc-ignore>Migration Guide</h3>
+						<h3 class="h3" data-toc-ignore>Migration Guide</h3>
 					</svelte:fragment>
 					<svelte:fragment slot="content">
 						<!-- prettier-ignore -->
 						<p>Skeleton strives for backwards compatability, and as such we've provided a simple migration path to allow you to ease into the changes. Open your root layout <code>/src/routes/+layout.svelte</code> and replace the legacy <code>all.css</code> stylesheet with the following.</p>
 						<CodeBlock language="js" code={`import '@skeletonlabs/skeleton/styles/skeleton.css';`} />
 						<p>You may then begin to appending the respective class per each typographic element as shown on this page.</p>
-						<h4>Skeleton v2.x+</h4>
+						<h4 class="h4">Skeleton v2.x+</h4>
 						<p>
 							In the next major point release Skeleton will drop <code>all.css</code> in favor of <code>skeleton.css</code> and allow only the
 							opt-in system. To prepare for this change we recommend migrating as soon as possible.
@@ -117,7 +117,7 @@ a:not(.unstyled):not(.permalink):is(:not(.prose *)):not(.btn):not(.btn-icon):not
 		<hr />
 		<!-- Headings -->
 		<section class="space-y-4">
-			<h2>Headings</h2>
+			<h2 class="h2">Headings</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="text-center space-y-4">
@@ -146,7 +146,7 @@ a:not(.unstyled):not(.permalink):is(:not(.prose *)):not(.btn):not(.btn-icon):not
 		</section>
 		<!-- Paragraph -->
 		<section class="space-y-4">
-			<h2>Paragraph</h2>
+			<h2 class="h2">Paragraph</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<p class="w-full text-center">The quick brown fox jumps over the lazy dog.</p>
@@ -159,7 +159,7 @@ a:not(.unstyled):not(.permalink):is(:not(.prose *)):not(.btn):not(.btn-icon):not
 		</section>
 		<!-- Anchor -->
 		<section class="space-y-4">
-			<h2>Anchor</h2>
+			<h2 class="h2">Anchor</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="text-center">
@@ -173,7 +173,7 @@ a:not(.unstyled):not(.permalink):is(:not(.prose *)):not(.btn):not(.btn-icon):not
 		</section>
 		<!-- Blockquote -->
 		<section class="space-y-4">
-			<h2>Blockquote</h2>
+			<h2 class="h2">Blockquote</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<blockquote class="blockquote w-full">
@@ -190,7 +190,7 @@ a:not(.unstyled):not(.permalink):is(:not(.prose *)):not(.btn):not(.btn-icon):not
 		</section>
 		<!-- Pre -->
 		<section class="space-y-4">
-			<h2>Pre-formatted Text</h2>
+			<h2 class="h2">Pre-formatted Text</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<pre class="pre w-full">The quick brown fox jumps over the lazy dog.</pre>
@@ -202,7 +202,7 @@ a:not(.unstyled):not(.permalink):is(:not(.prose *)):not(.btn):not(.btn-icon):not
 		</section>
 		<!-- Code -->
 		<section class="space-y-4">
-			<h2>Code</h2>
+			<h2 class="h2">Code</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="text-center"><code class="code">.myExampleClass</code></div>
@@ -214,7 +214,7 @@ a:not(.unstyled):not(.permalink):is(:not(.prose *)):not(.btn):not(.btn-icon):not
 		</section>
 		<!-- Keyboard -->
 		<section class="space-y-4">
-			<h2>Keyboard</h2>
+			<h2 class="h2">Keyboard</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="text-center">
@@ -228,7 +228,7 @@ a:not(.unstyled):not(.permalink):is(:not(.prose *)):not(.btn):not(.btn-icon):not
 		</section>
 		<!-- Ins/Del -->
 		<section class="space-y-4">
-			<h2>Insertion / Deletion</h2>
+			<h2 class="h2">Insertion / Deletion</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full">
@@ -250,7 +250,7 @@ a:not(.unstyled):not(.permalink):is(:not(.prose *)):not(.btn):not(.btn-icon):not
 
 		<!-- Tailwind Typography - Prose -->
 		<section class="space-y-4">
-			<h2>Using the Tailwind Plugin</h2>
+			<h2 class="h2">Using the Tailwind Plugin</h2>
 			<!-- prettier-ignore -->
 			<p>Tailwind provides an <a href="https://tailwindcss.com/docs/typography-plugin" target="_blank" rel="noreferrer">official plugin</a> to automatically style HTML you do not control, such as CMS or blog content. Follow Tailwind's official instructions to install and configure this plugin within your project. You may then <a href="https://tailwindcss.com/docs/typography-plugin#element-modifiers" target="_blank" rel="noreferrer">set or adjust the modifiers for each element</a>. Skeleton provides a few default adaptive theme styles for common prose elements, such as: headings, paragraphs, and anchors. See the instruction provided below.</p>
 			<p class="font-bold">Method 1: Inline Utility Classes:</p>
@@ -279,7 +279,7 @@ a:not(.unstyled):not(.permalink):is(:not(.prose *)):not(.btn):not(.btn-icon):not
 		<hr />
 		<section class="space-y-4">
 			<div class="flex items-center space-x-2">
-				<h2>Excluding Styles</h2>
+				<h2 class="h2">Excluding Styles</h2>
 				<span class="badge variant-filled-warning">Deprecated</span>
 			</div>
 			<div class="alert variant-ghost-warning">

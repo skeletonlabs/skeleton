@@ -110,7 +110,7 @@ const tableSimple: TableSource = {
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<h2>Interactive Mode</h2>
+			<h2 class="h2">Interactive Mode</h2>
 			<p>
 				Use the <code>interactive</code> to make the table interactive. When a row is clicked, <code>on:selected</code> will pass the row's
 				<code>meta</code> value.
@@ -119,7 +119,7 @@ const tableSimple: TableSource = {
 		</section>
 		<!-- Table Utilities -->
 		<section class="space-y-4">
-			<h2>Table Utilities</h2>
+			<h2 class="h2">Table Utilities</h2>
 			<p>The following utility methods allow you to format your source data for use within a Table component.</p>
 			<TabGroup>
 				<Tab bind:group={$storeService} name="tableMapperValues" value="tableMapperValues">Mapper Values</Tab>
@@ -182,7 +182,7 @@ tableSourceValues(sourceData);\n
 		<!-- CHRIS: delisted until further notice -->
 		<!-- <section class="grid grid-cols-[1fr_auto] gap-4">
 			<div class="space-y-4">
-				<h2>Data Tables</h2>
+				<h2 class="h2">Data Tables</h2>
 				<p>Need a fully featured data table with powerful features like selection and sort? See data tables.</p>
 			</div>
 			<a class="btn variant-filled-secondary place-self-center" href="/utilities/data-tables">Data Tables</a>

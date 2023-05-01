@@ -54,7 +54,7 @@
 			<time class="block">{blogDateFormatter(post.updated_at)}</time>
 			<span class="hidden md:block text-xs opacity-50">{post.reading_time} min read</span>
 		</div>
-		<h1>{post.title}</h1>
+		<h1 class="h1">{post.title}</h1>
 		<!-- Byline -->
 		<div class="flex items-center space-x-4 py-4">
 			<Avatar src={post.primary_author.profile_image} alt={post.primary_author.slug} />

@@ -130,7 +130,7 @@ const conicStops: ConicStop[] = [
 		</div>
 		<!-- Legend -->
 		<div class="space-y-4">
-			<h2>Legend</h2>
+			<h2 class="h2">Legend</h2>
 			<p>By enabling the <code>legend</code> property, a small table of values will appear below the conic gradient.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -153,7 +153,7 @@ const conicStops: ConicStop[] = [
 		</div>
 		<!-- Animated Spinner -->
 		<div class="space-y-4">
-			<h2>Animated Spinner</h2>
+			<h2 class="h2">Animated Spinner</h2>
 			<p>
 				Add the <code>spin</code> property to implement a spinning animation automatically. Try pairing with a smooth gradient by providing gaps
 				between when a color stop ends and when the next begins. This will automatically blend.
@@ -180,7 +180,7 @@ const conicStops: ConicStop[] = [
 		</div>
 		<!-- Rotate Axis -->
 		<div class="space-y-4">
-			<h2>Rotate Axis</h2>
+			<h2 class="h2">Rotate Axis</h2>
 			<p>
 				Use the <a href="https://tailwindcss.com/docs/rotate" target="_blank" rel="noreferrer">Tailwind rotate</a> utility classes with the
 				<code>regionCone</code> property to change the starting axis position.

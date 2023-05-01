@@ -79,14 +79,14 @@
 							Finally, Skeleton provides utility methods to interface with the all settings and data the Lightswitch uses under the hood.
 							This provides a way for you to generate a custom toggle interface.
 						</p>
-						<h2>Set Initial Classes</h2>
+						<h2 class="h2">Set Initial Classes</h2>
 						<p>
 							Import and add the following to your component. This will set the <code>.dark</code> class on the root HTML element in a highly
 							performant manner.
 						</p>
 						<CodeBlock language="ts" code={`import { setInitialClassState } from '@skeletonlabs/skeleton';`} />
 						<CodeBlock language="html" code={snippetSetInitClass} />
-						<h2>Interface Methods</h2>
+						<h2 class="h2">Interface Methods</h2>
 						<p>Light mode is represented by <code>true</code>, while dark mode is represented by <code>false</code>.</p>
 						<TabGroup regionPanel="space-y-4">
 							<Tab bind:group={tabInterface} name="interface" value={0}>Stores</Tab>
@@ -185,7 +185,7 @@
 								{/if}
 							</svelte:fragment>
 						</TabGroup>
-						<h2>Reference</h2>
+						<h2 class="h2">Reference</h2>
 						<aside class="alert alert-message variant-ghost">
 							<!-- prettier-ignore -->
 							<p>View the Skeleton <a href="https://github.com/skeletonlabs/skeleton/tree/master/src/lib/utilities/LightSwitch" target="_blank" rel="noreferrer">Lightswitch component source code</a> for a detailed reference. </p>

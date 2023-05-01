@@ -157,7 +157,7 @@ const popupSettings: PopupSettings = {
 	<svelte:fragment slot="usage">
 		<!-- Getting Started -->
 		<section class="space-y-4">
-			<h2>Getting Started</h2>
+			<h2 class="h2">Getting Started</h2>
 			<p>Install <a href="https://floating-ui.com/" target="_blank" rel="noreferrer">Floating UI</a> from NPM. <u>This is required.</u></p>
 			<CodeBlock language="console" code={`npm install @floating-ui/dom`} />
 			<p>Import Floating UI into your application's root layout <code>/src/routes/+layout.svelte</code>.</p>
@@ -169,7 +169,7 @@ const popupSettings: PopupSettings = {
 		</section>
 		<!-- PopupSettings -->
 		<section class="space-y-4">
-			<h2>Popup Settings</h2>
+			<h2 class="h2">Popup Settings</h2>
 			<TabGroup regionPanel="space-y-4">
 				<Tab bind:group={tabSettings} name="settings" value={0}>Placement</Tab>
 				<Tab bind:group={tabSettings} name="settings" value={1}>Close Query</Tab>
@@ -265,7 +265,7 @@ middleware: {
 		</section>
 		<!-- Focus Event -->
 		<section class="space-y-4">
-			<h2>Focus Event</h2>
+			<h2 class="h2">Focus Event</h2>
 			<p>
 				Use the <code>focus</code> event to display popups while the trigger element is focused. Likewise use <code>focus-click</code> to toggle
 				the popup even when tapping the same trigger element repeatedly.
@@ -284,7 +284,7 @@ middleware: {
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<h3>Focus</h3>
+					<h3 class="h3">Focus</h3>
 					<CodeBlock
 						language="ts"
 						code={`
@@ -301,7 +301,7 @@ const focusPopup: PopupSettings = {
 <div data-popup="focus" class="card variant-filled p-4">Click outside to close.</div>
 						`}
 					/>
-					<h3>Focus-Click</h3>
+					<h3 class="h3">Focus-Click</h3>
 					<CodeBlock
 						language="ts"
 						code={`
@@ -323,7 +323,7 @@ const focusClickPopup: PopupSettings = {
 		</section>
 		<!-- Combobox -->
 		<section class="space-y-4">
-			<h2>Combobox</h2>
+			<h2 class="h2">Combobox</h2>
 			<p>
 				By combining popups and Skeleton listboxes we can create a functional combobox element. We can use the <code>focus-click</code> event
 				so it opens for keyboard users when focussed.
@@ -395,7 +395,7 @@ const popupCombobox: PopupSettings = {
 		</section>
 		<!-- Z-index -->
 		<section class="space-y-4">
-			<h2>Z-Index</h2>
+			<h2 class="h2">Z-Index</h2>
 			<p>
 				Neither Skeleton nor Floating-UI will provide a Z-Index out of the box for the reasons layed out in the
 				<a href="https://floating-ui.com/docs/misc#z-index-stacking">Floating-UI docs</a>.
@@ -403,7 +403,7 @@ const popupCombobox: PopupSettings = {
 		</section>
 		<!-- Browser Support -->
 		<section class="space-y-4">
-			<h2>Browser Support</h2>
+			<h2 class="h2">Browser Support</h2>
 			<p>
 				Please be aware that there is a z-index bug for popups rendered over elements using <code>backdrop-blur</code> in some browsers. The
 				popup will appear to be rendered behind the blurred element, even with an elevated z-index.
@@ -411,7 +411,7 @@ const popupCombobox: PopupSettings = {
 		</section>
 		<!-- Accessibility -->
 		<section class="space-y-4">
-			<h2>Accessibility</h2>
+			<h2 class="h2">Accessibility</h2>
 			<p>We recommend you favor the <code>click</code> event for mobile devices, as <code>hover</code> is not well supported.</p>
 		</section>
 	</svelte:fragment>

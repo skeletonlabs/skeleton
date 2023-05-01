@@ -15,7 +15,7 @@
 
 <!-- Header -->
 <section class="space-y-4">
-	<h2>Stylesheets</h2>
+	<h2 class="h2">Stylesheets</h2>
 	<TabGroup regionPanel="space-y-4">
 		<!-- Tabs -->
 		<Tab bind:group={$storeOnboardMethod} name="cli" value="cli">Skeleton CLI</Tab>

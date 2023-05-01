@@ -23,7 +23,7 @@
 			</div>
 			<div class="hidden md:grid grid-cols-3 gap-8">
 				<div class="space-y-6">
-					<h6>Explore</h6>
+					<h6 class="h6">Explore</h6>
 					<ul class="space-y-3">
 						<li><a href="/docs/introduction">Introduction</a></li>
 						<li><a href="/docs/get-started">Get Started</a></li>
@@ -31,7 +31,7 @@
 					</ul>
 				</div>
 				<div class="space-y-6">
-					<h6>Features</h6>
+					<h6 class="h6">Features</h6>
 					<ul class="space-y-3">
 						<li><a href="/elements/core">Tailwind</a></li>
 						<li><a href="/actions/clipboard">Svelte</a></li>
@@ -39,7 +39,7 @@
 					</ul>
 				</div>
 				<div class="space-y-6">
-					<h6>Project</h6>
+					<h6 class="h6">Project</h6>
 					<ul class="space-y-3">
 						<li>
 							<a href="https://github.com/skeletonlabs" target="_blank" rel="noreferrer">Github Organization</a>

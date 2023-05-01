@@ -81,7 +81,7 @@
 			<p>By default the listbox uses a native <em>radio inputs</em> to ensure only one item is selected at a time.</p>
 		</section>
 		<section class="space-y-4">
-			<h3>Multiple Selection</h3>
+			<h3 class="h3">Multiple Selection</h3>
 			<p>
 				By adding the <code>multiple</code> property, the component uses native <em>checkbox inputs</em>, which allows for multi-select.
 			</p>
@@ -121,7 +121,7 @@
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>Lead and Trail Slots</h2>
+			<h2 class="h2">Lead and Trail Slots</h2>
 			<p>Each Listbox item supports a <code>lead</code> and <code>trail</code> slot, which can be useful for icons or actions.</p>
 			<CodeBlock
 				language="html"
@@ -135,7 +135,7 @@
 			/>
 		</section>
 		<section class="space-y-4">
-			<h2>Native Alternatives</h2>
+			<h2 class="h2">Native Alternatives</h2>
 			<p>
 				Consider using the native Select element with either the <code>size</code> or <code>multiple</code> attributes set to support single
 				or multiple selection respectively. However, please be aware that Safari (macOS) does not support all styles.

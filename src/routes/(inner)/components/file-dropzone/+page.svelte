@@ -53,7 +53,7 @@
 			<code>accept</code>, and <code>required</code>.
 		</p>
 		<div class="space-y-4">
-			<h2>Customization</h2>
+			<h2 class="h2">Customization</h2>
 			<p>Customize the component with the available <code>icon</code>, <code>message</code>, and <code>meta</code> slots.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -79,13 +79,13 @@
 			</DocsPreview>
 		</div>
 		<div class="space-y-4">
-			<h2>Binding Method</h2>
+			<h2 class="h2">Binding Method</h2>
 			<p>Use a <code>FileList</code> to bind the file data.</p>
 			<CodeBlock language="ts" code={`let files: FileList;`} />
 			<CodeBlock language="html" code={`<FileDropzone ... bind:files />`} />
 		</div>
 		<div class="space-y-4">
-			<h2>On Change Event</h2>
+			<h2 class="h2">On Change Event</h2>
 			<p>Use the <code>on:change</code> event to monitor file selection or changes.</p>
 			<CodeBlock language="ts" code={`function onChangeHandler(e: Event): void {\n\tconsole.log('file data:', e);\n}`} />
 			<CodeBlock language="html" code={`<FileDropzone ... on:change={onChangeHandler}>Upload</FileDropzone>`} />

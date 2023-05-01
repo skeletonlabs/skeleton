@@ -6,7 +6,7 @@
 
 <div class="page-container">
 	<header class="space-y-4">
-		<h1>Features</h1>
+		<h1 class="h1">Features</h1>
 		<p>Skeleton is a fully featured UI toolkit that includes many awesome features, so let's compare the differences between each.</p>
 	</header>
 
@@ -18,10 +18,10 @@
 			<div class="bg-sky-500 w-10 aspect-square flex justify-center items-center rounded-token shadow">
 				<DocsIcon name="tailwind" fill="fill-white" width="w-6" height="h-6" />
 			</div>
-			<h2>Tailwind</h2>
+			<h2 class="h2">Tailwind</h2>
 		</div>
 		<p>These features require Tailwind to operate.</p>
-		<h3>Design Tokens</h3>
+		<h3 class="h3">Design Tokens</h3>
 		<p>Provides a set of utility classes based on your theme CSS custom property settings.</p>
 		<div class="card variant-glass-surface p-4 space-y-4">
 			<ul class="list-disc list-inside space-y-2">
@@ -29,14 +29,14 @@
 				<li>Can be paired with Tailwind utility classes.</li>
 			</ul>
 		</div>
-		<h3>Base Classes</h3>
+		<h3 class="h3">Base Classes</h3>
 		<p>Apply default global styles, such as body, scrolling, and typography settings.</p>
 		<div class="card variant-glass-surface p-4 space-y-4">
 			<ul class="list-disc list-inside space-y-2">
 				<li>A stylesheet must be imported (ex: <code>skeleton.css</code>, <code>core.css</code>)</li>
 			</ul>
 		</div>
-		<h3>Elements</h3>
+		<h3 class="h3">Elements</h3>
 		<p>
 			Mix native HTML elements with Skeleton-provided utility classes. Automatically adapt to your Skeleton theme and extend with Tailwind
 			utility classes.
@@ -58,11 +58,11 @@
 			<div class="bg-orange-500 w-10 aspect-square flex justify-center items-center rounded-token shadow">
 				<DocsIcon name="svelte" fill="fill-white" width="w-6" height="h-6" />
 			</div>
-			<h2>Svelte</h2>
+			<h2 class="h2">Svelte</h2>
 		</div>
 		<p>These features require Svelte to operate.</p>
 		<div class="space-y-4">
-			<h3>Actions</h3>
+			<h3 class="h3">Actions</h3>
 			<p>
 				Skeleton provides a set of unique <a href="https://svelte.dev/tutorial/actions" target="_blank" rel="noreferrer">Svelte Actions</a>,
 				also known as directives in other libraries. These provide "headless" script logic without inherent UI. These include features such
@@ -77,7 +77,7 @@
 			</div>
 		</div>
 		<div class="space-y-4">
-			<h3>Components</h3>
+			<h3 class="h3">Components</h3>
 			<p>
 				These are <a href="https://svelte.dev/" target="_blank" rel="noreferrer">Svelte Components</a> purpose built for the Skeleton library.
 				They can include their own UI templates, scripted logic, and maintain their own state. These automatically update and adjust to your
@@ -102,7 +102,7 @@
 			<div class="bg-secondary-500 w-10 aspect-square flex justify-center items-center rounded-token shadow">
 				<i class="fa-solid fa-screwdriver-wrench text-xl" />
 			</div>
-			<h2>Skeleton Utilities</h2>
+			<h2 class="h2">Skeleton Utilities</h2>
 		</div>
 		<p>
 			Skeleton utilities are complex features that combine various Skeleton features. These are powerful features such as modals, code

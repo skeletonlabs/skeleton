@@ -70,7 +70,7 @@
 		</section>
 		<!-- Whitelist -->
 		<section class="space-y-4">
-			<h2>Whitelist Values</h2>
+			<h2 class="h2">Whitelist Values</h2>
 			<p>
 				You can provide an array of strings to use as a whitelist. Only whitelisted items can be entered. Invalid or duplicate values will
 				show an error state.
@@ -98,7 +98,7 @@
 		</section>
 		<!-- Custom Validation -->
 		<section class="space-y-4">
-			<h2>Custom Validation</h2>
+			<h2 class="h2">Custom Validation</h2>
 			<p>You can optionally provide a function to provide custom validation. Make sure to accept a string value and return a boolean.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -125,7 +125,7 @@
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>Invalid Hook</h2>
+			<h2 class="h2">Invalid Hook</h2>
 			<p>You may utilize an <code>onInvalid</code> function that executes when the input becomes invalid.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -161,7 +161,7 @@ function onInvalidHandler(event: any): void {
 		</section>
 		<!-- Additional Settings -->
 		<section class="space-y-4">
-			<h2>Additional Settings</h2>
+			<h2 class="h2">Additional Settings</h2>
 			<p>Use the <code>max</code> property to define a maximum number of chips allowed.</p>
 			<CodeBlock language="html" code={`<InputChip ... max={3} />`} />
 			<p>
@@ -181,7 +181,7 @@ function onInvalidHandler(event: any): void {
 		<!-- See Also -->
 		<section class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 			<div class="space-y-2">
-				<h2>See Also</h2>
+				<h2 class="h2">See Also</h2>
 				<p>Interactive chip element styles for actions, selection, or filtering.</p>
 			</div>
 			<a class="btn variant-ghost-surface" href="/elements/chips">Chip Elements &rarr;</a>

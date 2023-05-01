@@ -53,7 +53,7 @@
 			</p>
 		</section>
 		<section class="space-y-4">
-			<h2>Variant Style</h2>
+			<h2 class="h2">Variant Style</h2>
 			<p>Use the <code>button</code> property to provide classes for the button, such as variant styles.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -65,13 +65,13 @@
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>Binding Method</h2>
+			<h2 class="h2">Binding Method</h2>
 			<p>Use a <code>FileList</code> to bind the file data.</p>
 			<CodeBlock language="ts" code={`let files: FileList;`} />
 			<CodeBlock language="html" code={`<FileButton ... bind:files />`} />
 		</section>
 		<section class="space-y-4">
-			<h2>On Change Event</h2>
+			<h2 class="h2">On Change Event</h2>
 			<p>Use the <code>on:change</code> event to monitor file selection or changes.</p>
 			<CodeBlock language="ts" code={`function onChangeHandler(e: Event): void {\n\tconsole.log('file data:', e);\n}`} />
 			<CodeBlock language="html" code={`<FileButton ... on:change={onChangeHandler}>Upload</FileButton>`} />

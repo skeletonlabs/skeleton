@@ -44,7 +44,7 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<h2>Styling</h2>
+			<h2 class="h2">Styling</h2>
 			<p>Use the <code>stroke</code> <code>meter</code> or <code>track</code>properties to style the radial.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -89,7 +89,7 @@
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>Indeterminate</h2>
+			<h2 class="h2">Indeterminate</h2>
 			<p>Remove the <code>value</code> property or set to <code>undefined</code>.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -103,7 +103,7 @@
 		</section>
 		<hr />
 		<section class="space-y-4">
-			<h2>Accessibility</h2>
+			<h2 class="h2">Accessibility</h2>
 			<!-- prettier-ignore -->
 			<p>
 				This component is treated as an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter" target="_blank" rel="noreferrer">ARIA meter</a>.

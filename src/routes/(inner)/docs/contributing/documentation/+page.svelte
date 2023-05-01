@@ -13,7 +13,7 @@
 
 	<!-- Header -->
 	<header class="space-y-4">
-		<h1>Documentation</h1>
+		<h1 class="h1">Documentation</h1>
 		<!-- prettier-ignore -->
 		<p>
 			Below is an introduction to automated documentation using <a href="https://github.com/carbon-design-system/sveld" target="_blank" rel="noreferrer">Sveld</a> within Skeleton. This covers the process of documenting each type of feature, then utilizing this data within the documentation pages.
@@ -36,8 +36,8 @@
 
 	<!-- Generating Documentation -->
 	<section class="space-y-4">
-		<h2>Generating Documentation</h2>
-		<h3>Props</h3>
+		<h2 class="h2">Generating Documentation</h2>
+		<h3 class="h3">Props</h3>
 		<a class="btn variant-soft" href="https://github.com/carbon-design-system/sveld#type" target="_blank" rel="noreferrer">
 			View Sveld Documentation
 		</a>
@@ -94,7 +94,7 @@ export let hover: string = getContext('hover');
 
 	<!-- Slots -->
 	<section class="space-y-4">
-		<h3>Slots</h3>
+		<h3 class="h3">Slots</h3>
 		<a class="btn variant-soft" href="https://github.com/carbon-design-system/sveld#slot" target="_blank" rel="noreferrer">
 			View Sveld Documentation
 		</a>
@@ -122,7 +122,7 @@ export let hover: string = getContext('hover');
 
 	<!-- Events -->
 	<section class="space-y-4">
-		<h3>Events</h3>
+		<h3 class="h3">Events</h3>
 		<a class="btn variant-soft" href="https://github.com/carbon-design-system/sveld#event" target="_blank" rel="noreferrer">
 			View Sveld Documentation
 		</a>
@@ -143,14 +143,14 @@ dispatch('dragover', event);`}
 
 	<!-- Using Documentation -->
 	<section class="space-y-4">
-		<h2>Using Documentation</h2>
+		<h2 class="h2">Using Documentation</h2>
 		<!-- prettier-ignore -->
 		<p>
 			Now that our components are ready, it's time to create the documentation page that displays all of the information derived by Sveld.
 			We provide a boilerplate template in <code>/src/routes/(inner)/template/+page.svelte</code>. Copy this to the appropriate file route location and use our recommend naming convention (e.g. <code>/routes/components/your-new-component/+page.svelte</code>).
 		</p>
 		<!-- Documentation Tables -->
-		<h3>Documentation Tables</h3>
+		<h3 class="h3">Documentation Tables</h3>
 		<p>To populate each documentation table we'll need to import our Sveld documentation data. Follow the instructions below:</p>
 		<ol class="list-decimal list-outside ml-8 space-y-1">
 			<li>
@@ -163,7 +163,7 @@ dispatch('dragover', event);`}
 			</li>
 		</ol>
 		<!-- DocShell Settings -->
-		<h3>DocShell Settings</h3>
+		<h3 class="h3">DocShell Settings</h3>
 		<p>
 			We can provide settings to our DocShell component using <code>const settings: DocsShellSettings</code>. This allows you to populate
 			all relevant settings on the page.
@@ -186,7 +186,7 @@ dispatch('dragover', event);`}
 			<li><a href="/components/paginators">Paginator</a> uses Dispatched Event documentation.</li>
 		</ul>
 		<!-- Examples -->
-		<h3>Examples</h3>
+		<h3 class="h3">Examples</h3>
 		<p>When showcasing examples of new features we typically handle this by one of two methods:</p>
 		<ul class="list-disc list-outside ml-8 space-y-1">
 			<li>
@@ -200,13 +200,13 @@ dispatch('dragover', event);`}
 		</ul>
 		<p>Dynamic examples are preferred, but remember the overall goal is to showcase how the feature operates.</p>
 		<!-- Usage -->
-		<h3>Usage</h3>
+		<h3 class="h3">Usage</h3>
 		<p>
 			In addition to examples, you should provide multiple use case demonstrations using the <code>Preview</code> component to help end developers
 			understand how to make use of your new components and features.
 		</p>
 		<!-- Keyboard Interactions -->
-		<h3>Keyboard Interactions</h3>
+		<h3 class="h3">Keyboard Interactions</h3>
 		<p>Finally, don't forget to document relevant keyboard interactions for accessibility. Provide these to the DocShell settings.</p>
 	</section>
 </LayoutPage>

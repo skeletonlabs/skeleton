@@ -58,7 +58,7 @@
 		<aside class="alert variant-ghost-error">
 			<i class="fa-solid fa-triangle-exclamation text-4xl animate-pulse" />
 			<div class="alert-message">
-				<h3>Experimental Feature</h3>
+				<h3 class="h3">Experimental Feature</h3>
 				<p>
 					This feature currently delisted. It is not feature complete, contains bugs, and is not ready for production use. View the linked
 					GitHub ticket if you wish to track the progress of this feature.
@@ -133,7 +133,7 @@
 	<svelte:fragment slot="usage">
 		<!-- Intro -->
 		<section class="space-y-4">
-			<h2>What are Data Tables?</h2>
+			<h2 class="h2">What are Data Tables?</h2>
 			<p>
 				Within the context of Skeleton, data tables are not a singular feature, but rather a collection of utilities. These utility features
 				are opt-in, meaning you can progressively enhance any native HTML table to meet your requirements. This is one of the most complex
@@ -144,7 +144,7 @@
 		<hr />
 		<!-- Getting Started -->
 		<section class="space-y-4">
-			<h2>Getting Started</h2>
+			<h2 class="h2">Getting Started</h2>
 			<p>Let's start by importing all the utility features we'll need. We'll cover each of these in greater detail below.</p>
 			<CodeBlock
 				language="ts"
@@ -203,7 +203,7 @@ const sourceData = [
 			/>
 		</section>
 		<section class="space-y-4">
-			<h2>Data Table Model</h2>
+			<h2 class="h2">Data Table Model</h2>
 			<p>
 				To unlock the power of our data tables, we'll need to create what we'll refer to as a <em>data table model</em>. Create a new Svelte
 				writable store with <code>createDataTableStore</code>, then pass the model of our store to the <code>dataTableHandler</code> method.
@@ -258,7 +258,7 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 		<hr />
 		<!-- Updating Source -->
 		<section class="space-y-4">
-			<h2>Updating the Source</h2>
+			<h2 class="h2">Updating the Source</h2>
 			<p>
 				To update the content of the data table, just call the <code>dataTableStore.updateSource()</code> method and pass in your new source
 				data.
@@ -267,7 +267,7 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 		</section>
 		<!-- Search -->
 		<section class="space-y-4">
-			<h2>Search</h2>
+			<h2 class="h2">Search</h2>
 			<p>
 				To implement search, bind <code>$dataTableStore.search</code> to any search input. You may add this anywhere as long as it has scope
 				of your table model (the store).
@@ -276,7 +276,7 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 		</section>
 		<!-- Sort -->
 		<section class="space-y-4">
-			<h2>Sort</h2>
+			<h2 class="h2">Sort</h2>
 			<p>
 				We'll use the <code>dataTableStore.sort()</code> method to automatically set <code>$dataTableStore.sort</code> when a table heading
 				is tapped. Add the following click method once to your table's <code>thead</code> element.
@@ -305,8 +305,8 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 		</section>
 		<!-- Selection -->
 		<section class="space-y-4">
-			<h2>Selection</h2>
-			<h3>Per Row</h3>
+			<h2 class="h2">Selection</h2>
+			<h3 class="h3">Per Row</h3>
 			<p>To handle row selection, we'll add a new heading column. Keep the comment shown, as we'll replace it in a following step.</p>
 			<CodeBlock language="html" code={`<th><!-- selection --></th>`} />
 			<p>
@@ -321,7 +321,7 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 				body row element.
 			</p>
 			<CodeBlock language="html" code={`<tr class:table-row-checked={row.dataTableChecked}>`} />
-			<h3>Pre-Selected</h3>
+			<h3 class="h3">Pre-Selected</h3>
 			<p>
 				You may wish to pre-select certain table rows. We've provided a utility method to handle this. Pass in the key to query against, and
 				a whitelist of values. Any object that matches the conditions will be selected. Trigger this multiple times for multiple selection
@@ -331,7 +331,7 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 				language="ts"
 				code={`// Selects all objects with a position value of 1 or 2:\ndataTableStore.select('position', [1,2]);`}
 			/>
-			<h3>Select All</h3>
+			<h3 class="h3">Select All</h3>
 			<p>
 				If you wish to add a <em>select all</em> feature, replace <code>{`<th><!-- selection --></th>`}</code> with the following.
 			</p>
@@ -342,7 +342,7 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 		</section>
 		<!-- Pagination -->
 		<section class="space-y-4">
-			<h2>Pagination</h2>
+			<h2 class="h2">Pagination</h2>
 			<p>
 				Please refer to the <a href="/components/paginators">Paginator component</a> to learn more about this feature. For data tables, use
 				<code>$dataTableStore.pagination</code> to ensures the model updates reactively. The wrapping <em>if</em> statement is required.
@@ -351,7 +351,7 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 		</section>
 		<!-- A11y -->
 		<section class="space-y-4">
-			<h2>Accessibility</h2>
+			<h2 class="h2">Accessibility</h2>
 			<p>
 				Since data tables make use of native HTML table elements, you will need to implement accessibility features directly. However, we've
 				simplified this by providing a Svelte Action called <code>tableA11y</code>. This implements the required event listeners for
@@ -380,7 +380,7 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 		<hr />
 		<!-- Reference -->
 		<section class="space-y-4">
-			<h2>View Reference</h2>
+			<h2 class="h2">View Reference</h2>
 			<p>
 				If you wish to see a complete data table, we recommend tapping the <em>Doc Source</em> link at the top of this page. This will allow
 				you to inspect how the featured example at the top of this page was constructed. This implements every available data table feature.
@@ -390,7 +390,7 @@ dataTableStore.subscribe((model) => dataTableHandler(model));`}
 		<!-- Simple Table Callout -->
 		<section class="grid grid-cols-[1fr_auto] gap-4">
 			<div class="space-y-4">
-				<h2>Table Components</h2>
+				<h2 class="h2">Table Components</h2>
 				<p>Looking for a simpler data-driven table component? Visit the Table documentation.</p>
 			</div>
 			<a class="btn variant-filled-secondary place-self-center" href="/components/tables">View Tables</a>

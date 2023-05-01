@@ -95,15 +95,15 @@
 			</p>
 		</aside>
 		<section class="space-y-4">
-			<h2>Drawer Store</h2>
+			<h2 class="h2">Drawer Store</h2>
 			<p>Import this anywhere you wish to control the Drawer. Provides an interface to control the drawer component.</p>
-			<h3>Open</h3>
+			<h3 class="h3">Open</h3>
 			<CodeBlock language="ts" code={`drawerStore.open();`} />
-			<h3>Close</h3>
+			<h3 class="h3">Close</h3>
 			<CodeBlock language="ts" code={`drawerStore.close();`} />
 		</section>
 		<section class="space-y-4">
-			<h2>Passing Metadata</h2>
+			<h2 class="h2">Passing Metadata</h2>
 			<p>
 				To pass arbitrary metadata, create a <code>meta</code> object within <code>DrawerSettings</code>. Then use
 				<code>$drawerStore.meta</code> to retrieve this.
@@ -129,7 +129,7 @@ drawerStore.open(drawerSettings);
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>Styling</h2>
+			<h2 class="h2">Styling</h2>
 			<p>
 				For global styles, apply changes via props directly to the Modal component. However, you may also override styles per drawer
 				instance via the <code>DrawerSettings</code>.
@@ -159,7 +159,7 @@ drawerStore.open(drawerSettings);
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>Handling Contents</h2>
+			<h2 class="h2">Handling Contents</h2>
 			<p>
 				Create a new <code>DrawerSettings</code> object, supply a unique <code>id</code>, then pass these settings on
 				<code>drawerStore.open()</code>.
@@ -191,7 +191,7 @@ drawerStore.open(settings);
 		</section>
 		<section class="space-y-4">
 			<div class="flex items-center space-x-2">
-				<h2>Background Animation</h2>
+				<h2 class="h2">Background Animation</h2>
 				<span class="badge variant-filled-warning">Advanced</span>
 			</div>
 			<p>
@@ -207,14 +207,14 @@ drawerStore.open(settings);
 			<p>For best results, be sure to take into account the Drawer position as well via <code>$drawerStore.position</code>.</p>
 		</section>
 		<section class="space-y-4">
-			<h2>Accessibility</h2>
+			<h2 class="h2">Accessibility</h2>
 			<!-- prettier-ignore -->
 			<p>Skeleton <u>does not</u> provide a means to disable the backdrop's click to close feature, as this would be harmful to accessibility. View the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/" target="_blank" rel="noreferrer">ARIA APG guidelines</a> to learn more about modal accessibility.</p>
 		</section>
 		<!-- SvelteKit SSR Warning -->
 		<!-- prettier-ignore -->
 		<section class="space-y-4">
-			<h2>SvelteKit SSR Warning</h2>
+			<h2 class="h2">SvelteKit SSR Warning</h2>
 			<div class="space-y-4">
 				<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 					<p>There are known security risks when using Svelte writable stores within SvelteKit load functions.</p>

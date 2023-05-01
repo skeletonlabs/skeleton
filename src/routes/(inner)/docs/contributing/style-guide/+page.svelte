@@ -13,7 +13,7 @@
 
 	<!-- Header -->
 	<header class="space-y-4">
-		<h1>Style Guide</h1>
+		<h1 class="h1">Style Guide</h1>
 		<p>If you wish to contribute to Skeleton, please review our opinionated code style guide below.</p>
 	</header>
 
@@ -21,7 +21,7 @@
 
 	<!-- File Names -->
 	<section class="space-y-4">
-		<h2>File Name Conventions</h2>
+		<h2 class="h2">File Name Conventions</h2>
 		<ul class="list-disc list-outside ml-4 space-y-1">
 			<li>Feature directories should be singular and title case: <code>../LightSwitch/..</code></li>
 			<li>Components should be singular and title case: <code>LightSwitch.svelte</code></li>
@@ -36,7 +36,7 @@
 
 	<!-- Conventions -->
 	<section class="space-y-4">
-		<h2>Conventions</h2>
+		<h2 class="h2">Conventions</h2>
 		<p>
 			Ensure relevant events bubble via <a href="https://svelte.dev/tutorial/dom-event-forwarding" target="_blank" rel="noreferrer"
 				>event forwarding</a
@@ -79,7 +79,7 @@ function prunedRestProps(): any {
 
 	<!-- Properties -->
 	<section class="space-y-4">
-		<h2>Property Conventions</h2>
+		<h2 class="h2">Property Conventions</h2>
 		<p>Follow these guidelines when creating or adding new component props.</p>
 		<ul class="list-disc list-outside ml-4 space-y-1">
 			<li>Each prop should be a single word, all lowercase, and semantic. Match Tailwind class naming conventions whenever possible.</li>
@@ -106,14 +106,14 @@ export let visible: boolean = false;
 
 	<!-- Styles -->
 	<section class="space-y-4">
-		<h2>CSS Styling Conventions</h2>
+		<h2 class="h2">CSS Styling Conventions</h2>
 		<p>
 			Skeleton utilizes a specific paradigm for handling static and dynamic Tailwind styles for components. This is accomplished by passing
 			Tailwind classes to the component as props, as well as by defining base structural classes within the component's script tag. While
 			this may feel odd at first, you will find it works really well in execution.
 		</p>
 		<!-- Base Classes -->
-		<h3>Base Classes</h3>
+		<h3 class="h3">Base Classes</h3>
 		<p>
 			Any core or structural Tailwind classes can be defined as follows. Note the "c" is short for <strong>classes</strong>.
 		</p>
@@ -125,7 +125,7 @@ let cLabel: string = 'text-base'; // child element label styles
 		`}
 		/>
 		<!-- Dynamic Classes -->
-		<h3>Dynamic Classes</h3>
+		<h3 class="h3">Dynamic Classes</h3>
 		<p>
 			If you expect to set one or more styles based on the current value of a property, handle this within a reactive statement as shown
 			below.
@@ -141,7 +141,7 @@ $: classesOutlined = outlined ? 'border-2 border-primary-500' : 'border-none';
 		`}
 		/>
 		<!-- Reactive Classes -->
-		<h3>Reactive Classes</h3>
+		<h3 class="h3">Reactive Classes</h3>
 		<p>Reactive classes combine all base and dynamic classes. These are applied directly to each respective element.</p>
 		<CodeBlock
 			language="ts"
@@ -170,7 +170,7 @@ $: classesLabel = \`\${cBaseLabel}\`; // child element
 
 	<!-- Pitfalls -->
 	<section class="space-y-4">
-		<h2>Pitfalls</h2>
+		<h2 class="h2">Pitfalls</h2>
 		<p>Below are a few pitfalls we've encountered when creating Skeleton. Do your best to avoid these whenever possible.</p>
 		<!-- prettier-ignore -->
 		<ul class="list-disc list-outside ml-4 space-y-1">

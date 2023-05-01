@@ -117,7 +117,7 @@
 		</p>
 		<!-- Install the Plugin -->
 		<section class="space-y-4">
-			<h2>Install the Forms Plugin</h2>
+			<h2 class="h2">Install the Forms Plugin</h2>
 			<!-- prettier-ignore -->
 			<p>
 				The Tailwind Forms plugin normalizes form field styles, making them easier to customize and providing some rudimentary styles. See <a href="https://www.youtube.com/watch?v=pONeWAzDsQg" target="_blank" rel="noreferrer">Tailwind's video tutorial</a> for more information.
@@ -146,7 +146,7 @@ module.exports = {
 		<hr />
 		<!-- Labels -->
 		<section class="space-y-4">
-			<h2>Labels</h2>
+			<h2 class="h2">Labels</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full">
@@ -171,7 +171,7 @@ module.exports = {
 		</section>
 		<!-- Input -->
 		<section class="space-y-4">
-			<h2>Input</h2>
+			<h2 class="h2">Input</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full space-y-4">
@@ -195,7 +195,7 @@ module.exports = {
 		</section>
 		<!-- Files -->
 		<section class="space-y-4">
-			<h2>Files</h2>
+			<h2 class="h2">Files</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full space-y-4">
@@ -217,7 +217,7 @@ module.exports = {
 		</section>
 		<!-- Textarea -->
 		<section class="space-y-4">
-			<h2>Textarea</h2>
+			<h2 class="h2">Textarea</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full space-y-4">
@@ -234,7 +234,7 @@ module.exports = {
 		</section>
 		<!-- Select -->
 		<section class="space-y-4">
-			<h2>Select</h2>
+			<h2 class="h2">Select</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full space-y-4">
@@ -312,7 +312,7 @@ module.exports = {
 		</section>
 		<!-- Checkboxes -->
 		<section class="space-y-4">
-			<h2>Checkboxes</h2>
+			<h2 class="h2">Checkboxes</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="space-y-2">
@@ -355,7 +355,7 @@ module.exports = {
 		</section>
 		<!-- Radio Groups -->
 		<section class="space-y-4">
-			<h2>Radio Groups</h2>
+			<h2 class="h2">Radio Groups</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="space-y-2">
@@ -398,7 +398,7 @@ module.exports = {
 		</section>
 		<!-- Range -->
 		<section class="space-y-4">
-			<h2>Range</h2>
+			<h2 class="h2">Range</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full">
@@ -412,7 +412,7 @@ module.exports = {
 		</section>
 		<!-- Color -->
 		<section class="space-y-4">
-			<h2>Color</h2>
+			<h2 class="h2">Color</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="grid grid-cols-[auto_1fr] gap-2">
@@ -436,7 +436,7 @@ module.exports = {
 		<hr />
 		<!-- Input Groups -->
 		<section class="space-y-4">
-			<h2>Input Groups</h2>
+			<h2 class="h2">Input Groups</h2>
 			<p>Create a horizontal group of related form fields.</p>
 			<ul class="space-y-2 list-disc list-inside">
 				<li>Groups support <em>most</em> input types and select elements, but not all.</li>
@@ -512,7 +512,7 @@ module.exports = {
 		</section>
 		<!-- Variants -->
 		<section class="space-y-4">
-			<h2>Variants</h2>
+			<h2 class="h2">Variants</h2>
 			<p>
 				Skeleton includes a forms variant inspired by <a href="https://m3.material.io/" target="_blank" rel="noreferrer">Material Design.</a
 				> Use this as a reference for building your own variant classes.
@@ -549,7 +549,7 @@ module.exports = {
 		</section>
 		<!-- Validation Classes -->
 		<section class="space-y-4">
-			<h2>Validation Classes</h2>
+			<h2 class="h2">Validation Classes</h2>
 			<p>
 				Skeleton provides a set of classes for indicating form validation. These must come last in a group of class values. They are
 				compatible with the variant above.
@@ -580,7 +580,7 @@ module.exports = {
 		</section>
 		<!-- Browser Support -->
 		<section class="space-y-4">
-			<h2>Browser Support</h2>
+			<h2 class="h2">Browser Support</h2>
 			<p>
 				Please be aware that not all native HTML form fields work consistently across browsers or operating systems. We strongly recommend
 				cross-device/OS/browser testing to ensure compatibility for your target audience.

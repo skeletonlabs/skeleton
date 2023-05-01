@@ -84,7 +84,7 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<h2>Using Initials</h2>
+			<h2 class="h2">Using Initials</h2>
 			<p>Display up to two text characters. (ex: Jane Doe would be JD)</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -96,7 +96,7 @@
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>Interactive Border</h2>
+			<h2 class="h2">Interactive Border</h2>
 			<p>Apply the following styles using the <code>border</code> and <code>cursor</code> properties.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -116,7 +116,7 @@
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>Applying Filters</h2>
+			<h2 class="h2">Applying Filters</h2>
 			<p>
 				See <a href="/actions/filters">Filters</a> to learn how to import and configure the filters action and SVG filter components.
 			</p>

@@ -26,7 +26,7 @@
 <div class="page-container-wide page-padding">
 	<header class="flex justify-between items-center">
 		<div class="space-y-4">
-			<h2>The Skeleton Blog</h2>
+			<h2 class="h2">The Skeleton Blog</h2>
 			<p>Keep up with the latest news, tutorials, and releases for Skeleton.</p>
 		</div>
 		<!-- RSS Icon -->
@@ -55,7 +55,7 @@
 					<!-- Content -->
 					<div class="space-y-4">
 						<time class="block">{blogDateFormatter(post.updated_at)}</time>
-						<h2>{post.title}</h2>
+						<h2 class="h2">{post.title}</h2>
 						<p>{post.excerpt}</p>
 						<div class="flex items-center space-x-4">
 							{#each post.tags as tag}

@@ -54,7 +54,7 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<h2>Icon Badge</h2>
+			<h2 class="h2">Icon Badge</h2>
 			<p>Replace <code>.badge</code> with <code>.badge-icon</code> for a badge based on an icon.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -65,7 +65,7 @@
 				</svelte:fragment>
 			</DocsPreview>
 			<section class="space-y-4">
-				<h2>Overlapping</h2>
+				<h2 class="h2">Overlapping</h2>
 				<p>Use Tailwind styles to overlap another element with an Icon Badge.</p>
 				<DocsPreview background="neutral">
 					<svelte:fragment slot="preview">

@@ -11,7 +11,7 @@
 
 <LayoutPage>
 	<header class="space-y-4">
-		<h1>Styling</h1>
+		<h1 class="h1">Styling</h1>
 		<!-- prettier-ignore -->
 		<p>
 			This covers basic techniques for styling Skeleton components. View our <a href="/blog/deep-dive-skeleton-styling" target="_blank">comprehensive guide</a> to learn more.
@@ -21,7 +21,7 @@
 	<hr />
 
 	<section class="space-y-4">
-		<h2>Via Component Props</h2>
+		<h2 class="h2">Via Component Props</h2>
 		<p>
 			This is the recommended manner to style most components. Each component provides a set of style <em>props</em> (read: properties) that
 			allow you to override the default style classes. See a list of available options under the "Props" tab per each feature in Skeleton.
@@ -35,7 +35,7 @@
 	<hr />
 
 	<section class="space-y-4">
-		<h2>Via the Class Attribute</h2>
+		<h2 class="h2">Via the Class Attribute</h2>
 		<p>
 			If a style prop is not available, you can still provide arbitrary utility classes via a standard <code>class</code> attribute. These styles
 			are always applied to the parent element in the component template.
@@ -46,7 +46,7 @@
 	<hr />
 
 	<section class="space-y-4">
-		<h2>Tailwind's Arbitrary Variants</h2>
+		<h2 class="h2">Tailwind's Arbitrary Variants</h2>
 		<p>
 			If you need to target deeper than the parent element, we recommend using <a
 				href="https://tailwindcss.com/blog/tailwindcss-v3-1#arbitrary-values-but-for-variants"
@@ -61,7 +61,7 @@
 	<hr />
 
 	<section class="space-y-4">
-		<h2>Global Styles Overrides</h2>
+		<h2 class="h2">Global Styles Overrides</h2>
 		<p>
 			Skeleton components include selector classes, such as <code>.avatar-image</code> within the
 			<a href="/components/avatars">Avatar component</a>. Please note that selector classes are always the first listed.

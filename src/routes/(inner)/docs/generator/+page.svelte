@@ -7,7 +7,7 @@
 
 <div class="page-container">
 	<header class="space-y-4">
-		<h1>Theme Generator</h1>
+		<h1 class="h1">Theme Generator</h1>
 		<p>
 			Toggle the "Enable Preview" option to begin creating a new theme. The entire documentation site will update as you progress. You can
 			navigate to different sections without losing your settings as long as you do not refresh the page. Disabling the preview will reset
@@ -24,7 +24,7 @@
 
 	<!-- Instructions -->
 	<section class="space-y-4">
-		<h2>Importing Your Theme</h2>
+		<h2 class="h2">Importing Your Theme</h2>
 		<p>
 			Copy and paste your theme CSS into <code>/src/theme.postcss</code>, then import the theme into your root layout in
 			<code>/src/routes/+layout.svelte</code> instead of a premade Skeleton theme. Keep the order as shown.
@@ -46,7 +46,7 @@ import '../app.postcss';
 
 	<!-- Extras -->
 	<section class="space-y-4">
-		<h2>Advanced Color Curation</h2>
+		<h2 class="h2">Advanced Color Curation</h2>
 		<p>
 			Looking for deeper customization? We recommend using <a
 				href="https://tailwind.simeongriggs.dev/blue/3B82F6"

@@ -68,7 +68,7 @@
 		</p>
 		<!-- Layout -->
 		<div class="space-y-4">
-			<h2>Layout</h2>
+			<h2 class="h2">Layout</h2>
 			<!-- prettier-ignore -->
 			<p>
 				Use the <a href="https://tailwindcss.com/docs/grid-template-columns" target="_blank" rel="noreferrer">Tailwind column and gap classes</a> to adjust column amount and gap spacing.
@@ -119,7 +119,7 @@
 		</div>
 		<!-- Circular -->
 		<div class="space-y-4">
-			<h2>Circular</h2>
+			<h2 class="h2">Circular</h2>
 			<p>Apply the <code>.placeholder-circle</code> class and set a width to define the diameter.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -132,7 +132,7 @@
 		</div>
 		<!-- Animated -->
 		<div class="space-y-4">
-			<h2>Animated</h2>
+			<h2 class="h2">Animated</h2>
 			<p>Apply the <code>.animate-pulse</code> utility class provided by Tailwind.</p>
 			<CodeBlock language="html" code={`<div class="placeholder animate-pulse" />`} />
 		</div>

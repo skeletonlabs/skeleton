@@ -41,8 +41,8 @@
 	import ModalExampleImage from '$docs/modals/examples/ModalExampleImage.svelte';
 
 	// Skeleton Stylesheets
-	import '$lib/styles/all.css';
-	// import '$lib/styles/skeleton.css';
+	// import '$lib/styles/all.css';
+	import '$lib/styles/skeleton.css';
 	// import '$lib/styles/skeleton-minimal.css';
 	// The Skeleton blog stylesheet
 	import '$docs/styles/blog.css';

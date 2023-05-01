@@ -58,7 +58,7 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<h2>Separators</h2>
+			<h2 class="h2">Separators</h2>
 			<!-- prettier-ignore -->
 			<p>Replace the contents of the <code>.crumb-separator</code> element with an icon or any valid <a href="https://unicode-table.com/en/sets/arrow-symbols/#right-arrows" target="_blank" rel="noreferrer">unicode symbol</a>. For accessibility, use <code>aria-hidden</code> to hide this element from screen readers.</p>
 			<DocsPreview background="neutral">
@@ -90,7 +90,7 @@
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>Icons</h2>
+			<h2 class="h2">Icons</h2>
 			<p>Add your icon before or after your anchor tag within the <code>.crumb</code> list item.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -121,7 +121,7 @@
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>Mixed Media</h2>
+			<h2 class="h2">Mixed Media</h2>
 			<p>Mix and match buttons, avatars, and text.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -156,7 +156,7 @@
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>Non-Responsive</h2>
+			<h2 class="h2">Non-Responsive</h2>
 			<p>
 				Breadcrumbs are responsive by default and will auto-hide all but the last two crumb elements on small screens. If you wish to
 				disable this behavior, replace <code>.breadcrumb</code> with <code>.breadcrumb-nonresponsive</code>.
@@ -164,7 +164,7 @@
 			<CodeBlock language="html" code={`<ol class="breadcrumb-nonresponsive">...</ol>`} />
 		</section>
 		<section class="space-y-4">
-			<h2>Using #each Loops</h2>
+			<h2 class="h2">Using #each Loops</h2>
 			<p>
 				Use the following technique to ensure the <em>current</em> item is formatted properly and prevent an extra separator at the end.
 			</p>

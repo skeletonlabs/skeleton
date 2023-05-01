@@ -96,7 +96,7 @@ const storeValue: Writable<number> = writable(0);
 	<svelte:fragment slot="usage">
 		<!-- Tile -->
 		<section class="space-y-4">
-			<h2>Anchor Tiles</h2>
+			<h2 class="h2">Anchor Tiles</h2>
 			<p>
 				Use <code>tag="a"</code> to convert any tile to an anchor link, then append
 				<em>href, target, rel</em>, and other attributes as needed.
@@ -115,7 +115,7 @@ const storeValue: Writable<number> = writable(0);
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>Page State</h2>
+			<h2 class="h2">Page State</h2>
 			<!-- prettier-ignore -->
 			<p>
 				To set an active state for an anchor link, compare the tile <em>href</em> URL to the active page URL using

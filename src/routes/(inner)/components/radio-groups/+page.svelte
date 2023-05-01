@@ -82,7 +82,7 @@
 			</p>
 		</section>
 		<section class="space-y-4">
-			<h2>Variants</h2>
+			<h2 class="h2">Variants</h2>
 			<p>The radio group supports variant styles for <code>active</code> and <code>hover</code> properties.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -100,7 +100,7 @@
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>Vertical</h2>
+			<h2 class="h2">Vertical</h2>
 			<p>Set <em>display</em> to <code>flex-col</code> for a vertical layout.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -121,12 +121,12 @@
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>Full Width</h2>
+			<h2 class="h2">Full Width</h2>
 			<p>Set <em>display</em> to <code>flex</code> to stretch and fill the full width.</p>
 			<CodeBlock language="html" code={`<RadioGroup display="flex">...</RadioGroup>`} />
 		</section>
 		<section class="space-y-4">
-			<h2>Radio Attributes</h2>
+			<h2 class="h2">Radio Attributes</h2>
 			<p>
 				The Radio Item component supports Svelte's <code>$$restProps</code>, which allows for <em>required</em>, <em>disabled</em>, and any
 				other valid radio input attributes. Please note these settings are applied per item.

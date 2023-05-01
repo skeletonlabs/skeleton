@@ -39,7 +39,7 @@
 	</div>
 	<!-- Info -->
 	<div class="space-y-4 text-center lg:text-left">
-		<h2>Help Support Skeleton.</h2>
+		<h2 class="h2">Help Support Skeleton.</h2>
 		<p class="max-w-[480px]">
 			Skeleton is an open source project that survives in part through your support. Consider becoming a sponsor through the following
 			services. For larger contributions please <a href="mailto:admin@skeleton.dev">contact us</a>.

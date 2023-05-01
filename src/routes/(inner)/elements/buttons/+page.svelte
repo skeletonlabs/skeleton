@@ -99,7 +99,7 @@
 			button. Mix buttons with any arbitrary background color or variant style classes, such as <code>.variant-[style]-[themeColor]</code>.
 		</p>
 		<section class="space-y-4">
-			<h2>Sizes</h2>
+			<h2 class="h2">Sizes</h2>
 			<p>A number of canned size presets are available via <code>.btn-[size]</code>.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -150,7 +150,7 @@
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>Button Groups</h2>
+			<h2 class="h2">Button Groups</h2>
 			<p>Groups related anchors or buttons. Pairs with any variant style. Horizontal and vertical options are provided.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -199,7 +199,7 @@
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>SvelteKit Link Options</h2>
+			<h2 class="h2">SvelteKit Link Options</h2>
 			<!-- prettier-ignore -->
 			<p>
 				While using native anchor elements, you can take advantage of <a href="https://kit.svelte.dev/docs/link-options" target="_blank" rel="noreferrer">SvelteKit's Link Options</a> such as a <em>prefetch</em>.

@@ -81,7 +81,7 @@ let page = {
 	<svelte:fragment slot="usage">
 		<div class="space-y-4" />
 		<div class="space-y-4">
-			<h2>Client-Side Pagination</h2>
+			<h2 class="h2">Client-Side Pagination</h2>
 			<!-- prettier-ignore -->
 			<p>
 				Once your paginator component is setup you'll need to subdivide your local source content. This can be accomplished using Svelte's
@@ -122,7 +122,7 @@ let tableHeaders: string[] = ['Positions', 'Name', 'Weight', 'Symbol'];
 			/>
 		</div>
 		<div class="space-y-4">
-			<h2>Server-Side Pagination</h2>
+			<h2 class="h2">Server-Side Pagination</h2>
 			<p>Use the <code>page</code> and <code>amount</code> events to notify your server of pagination updates.</p>
 			<CodeBlock
 				language="ts"
@@ -142,7 +142,7 @@ function onAmountChange(e: CustomEvent): void {
 		<!-- See Also -->
 		<section class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 			<div class="space-y-2">
-				<h2>See Also</h2>
+				<h2 class="h2">See Also</h2>
 				<p>Utilize a data-driven model to create simple presentational tables.</p>
 			</div>
 			<a class="btn variant-ghost-surface" href="/components/tables">Table Component &rarr;</a>

@@ -53,8 +53,8 @@
 	<svelte:fragment slot="usage">
 		<p>Add the component to a page, set the target property, then a list of links will be auto-generated based on HTML headings.</p>
 		<section class="space-y-4">
-			<h2>How It Works</h2>
-			<h3>Key Props</h3>
+			<h2 class="h2">How It Works</h2>
+			<h3 class="h3">Key Props</h3>
 			<p>The following props are critical to how this operates.</p>
 			<div class="table-container">
 				<table class="table">
@@ -85,33 +85,33 @@
 					</tbody>
 				</table>
 			</div>
-			<h3>Heading IDs</h3>
+			<h3 class="h3">Heading IDs</h3>
 			<p>
 				The component will scan the target region and query all matching headings. If a heading has an <code>ID</code> set, that will be used
 				as the scroll target, otherwise an ID will be auto-generated and assigned.
 			</p>
-			<h3>Click to Scroll</h3>
+			<h3 class="h3">Click to Scroll</h3>
 			<p>
 				When a link is clicked, the scrollable parent container will be scrolled using the JavaScript <code>scrollIntoView</code> method. This
 				will smoothly scroll the container element to the heading with the matching ID.
 			</p>
 		</section>
 		<section class="space-y-4">
-			<h2>Ignore a Heading</h2>
+			<h2 class="h2">Ignore a Heading</h2>
 			<p>
 				By default, the Table of Contents creates links for <em>all headings</em> within the target region. If you wish to ignore certain headings,
 				add the following data attribute to that heading.
 			</p>
-			<CodeBlock language="html" code={`<h2 data-toc-ignore>Ignore Me!</h2>`} />
+			<CodeBlock language="html" code={`<h2 class="h2" data-toc-ignore>Ignore Me!</h2>`} />
 		</section>
 		<section class="space-y-4">
-			<h2>Screen Reader Headings</h2>
+			<h2 class="h2">Screen Reader Headings</h2>
 			<!-- prettier-ignore -->
 			<p>If you wish to include a section link that's not visibly shown within the target element, use <a href="https://tailwindcss.com/docs/screen-readers#screen-reader-only-elements" target="_blank" rel="noreferrer">Screen Reader</a> <code>.sr-only</code> class from Tailwind.</p>
 			<CodeBlock language="html" code={`<h2 class="sr-only">Include Me!</h2>`} />
 		</section>
 		<section class="space-y-4">
-			<h2>Sticky Positioning</h2>
+			<h2 class="h2">Sticky Positioning</h2>
 			<!-- prettier-ignore -->
 			<p>See Tailwind's documentation on <a href="https://tailwindcss.com/docs/position#sticky-positioning-elements" target="_blank" rel="noreferrer">sticky positioning</a> if you wish to keep the Table of Contents component visible during scrolling.</p>
 		</section>

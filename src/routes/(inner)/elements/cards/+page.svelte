@@ -46,8 +46,8 @@
 							<img src="https://source.unsplash.com/vjUokUWbFOs/400x175" class="bg-black/50 w-full aspect-[21/9]" alt="Post" />
 						</header>
 						<div class="p-4 space-y-4">
-							<h6>Announcements</h6>
-							<h3 data-toc-ignore>Skeleton is Awesome!</h3>
+							<h6 class="h6">Announcements</h6>
+							<h3 class="h3" data-toc-ignore>Skeleton is Awesome!</h3>
 							<article>
 								<p>
 									<!-- cspell:disable -->
@@ -91,7 +91,7 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<h2>Headers and Footers</h2>
+			<h2 class="h2">Headers and Footers</h2>
 			<p>Segment your card using the included <code>.card-header</code> and <code>.card-footer</code> classes.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -124,7 +124,7 @@
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>Interactive</h2>
+			<h2 class="h2">Interactive</h2>
 			<p>Anchor cards have an inherent hover style. Add <code>.card-hover</code> to provide an additional 3D hover effect.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">

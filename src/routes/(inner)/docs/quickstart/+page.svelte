@@ -6,7 +6,7 @@
 <LayoutPage>
 	<!-- Header -->
 	<header class="space-y-4">
-		<h1>Quickstart</h1>
+		<h1 class="h1">Quickstart</h1>
 		<p>This guide will walk you through the basics of creating a new Skeleton app using SvelteKit.</p>
 	</header>
 
@@ -14,7 +14,7 @@
 
 	<!-- Prerequisites -->
 	<section class="space-y-4">
-		<h2>Get Started</h2>
+		<h2 class="h2">Get Started</h2>
 		<p>To begin, let's scaffold our project using the Skeleton CLI. Note that we've listed a couple required options for this guide.</p>
 		<CodeBlock
 			language="console"
@@ -33,7 +33,7 @@ npm run dev
 	</section>
 
 	<section class="space-y-4">
-		<h2>Add Sidebar Navigation</h2>
+		<h2 class="h2">Add Sidebar Navigation</h2>
 		<p>
 			Let's customize our App Shell's sidebar slot. Open <code>/src/routes/+layout.svelte</code> and add the following Tailwind utility
 			classes to the AppShell <code>slotSidebarLeft</code> prop.
@@ -62,7 +62,7 @@ npm run dev
 
 	<!-- Page -->
 	<section class="space-y-4">
-		<h2>Page Setup</h2>
+		<h2 class="h2">Page Setup</h2>
 		<p>
 			Let's add some basic content to our homepage. Open <code>/src/routes/+page.svelte</code> and replace the contents with the following.
 			This will provide multiple elements automatically styled by the <code>skeleton.css</code> stylesheet in our root layout.
@@ -72,7 +72,7 @@ npm run dev
 			language="html"
 			code={`
 <div class="container mx-auto p-8 space-y-8">
-	<h1>Hello Skeleton</h1>
+	<h1 class="h1">Hello Skeleton</h1>
 	<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 	<section>
 		<a class="btn variant-filled-primary" href="https://kit.svelte.dev/">SvelteKit</a>
@@ -85,7 +85,7 @@ npm run dev
 		<!-- cspell:enable -->
 	</section>
 	<section class="space-y-4">
-		<h2>Add a Component</h2>
+		<h2 class="h2">Add a Component</h2>
 		<p>
 			Finally let's implement Skeleton's <a href="/components/avatars">Avatar</a> component. First, import the component, then add it
 			anywhere within your page, we recommend within the <code>.container</code> element.

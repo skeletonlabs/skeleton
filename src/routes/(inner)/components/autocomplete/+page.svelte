@@ -151,7 +151,7 @@ function onFlavorSelection(event: any): void {
 			The Autocomplete component does not contain it's own input by default. Instead, by using input binding paired with an <code>on:selection</code> event, you may utilize this component alongside any type of input that takes in suggested values.
 		</p>
 		<section class="space-y-4">
-			<h2>Data Structure</h2>
+			<h2 class="h2">Data Structure</h2>
 			<p>
 				You may optionally append <code>keywords</code> to provide additional search terms. As well as <code>meta</code> to provide
 				arbitrary data - which is not utilizing for filtering. All data option data is returned by <code>on:selection</code>, including
@@ -168,7 +168,7 @@ const flavorOptions: AutocompleteOption[] = [
 			/>
 		</section>
 		<section class="space-y-4">
-			<h2>Allowed Options</h2>
+			<h2 class="h2">Allowed Options</h2>
 			<p>Provide a list of values you wish to allow. Only options with a matching value will be displayed.</p>
 			<DocsPreview background="neutral" regionFooter="text-center">
 				<svelte:fragment slot="preview">
@@ -200,7 +200,7 @@ const flavorOptions: AutocompleteOption[] = [
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>Denied Options</h2>
+			<h2 class="h2">Denied Options</h2>
 			<p>Provide a list of values you wish to deny. Denied options will be excluded from the list.</p>
 			<DocsPreview background="neutral" regionFooter="text-center">
 				<svelte:fragment slot="preview">
@@ -221,7 +221,7 @@ const flavorOptions: AutocompleteOption[] = [
 		</section>
 
 		<section class="space-y-4">
-			<h2>Input Chip</h2>
+			<h2 class="h2">Input Chip</h2>
 			<p>We've provided a demo of using Autocomplete alongside a Skeleton Input Chip component below.</p>
 			<DocsPreview background="neutral" regionFooter="text-center">
 				<svelte:fragment slot="preview">
@@ -254,7 +254,7 @@ const flavorOptions: AutocompleteOption[] = [
 		</section>
 
 		<section class="space-y-4">
-			<h2>Popup</h2>
+			<h2 class="h2">Popup</h2>
 			<p>We've provide a demo of using Autocomplete alongside a Skeleton popup utility below.</p>
 			<DocsPreview background="neutral" regionFooter="text-center">
 				<svelte:fragment slot="preview">

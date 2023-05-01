@@ -32,7 +32,7 @@
 			{#if comp.sveld.props.length > 0}
 				{@const tableSource = sveldMapperProps(comp)}
 				<section class="space-y-4">
-					{#if comp.label}<h2>{comp.label}</h2>{/if}
+					{#if comp.label}<h2 class="h2">{comp.label}</h2>{/if}
 					{#if comp.descProps}<div>{@html comp.descProps}</div>{/if}
 					{#if tableSource.body.length > 0}
 						<Table element="table" source={tableSource} />

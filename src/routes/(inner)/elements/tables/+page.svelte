@@ -118,7 +118,7 @@
 		</p>
 		<!-- Options -->
 		<section class="space-y-4">
-			<h2>Options</h2>
+			<h2 class="h2">Options</h2>
 			<TabGroup regionPanel="space-y-4">
 				<Tab bind:group={tabSet} name="tab1" value={0}>Spacing</Tab>
 				<Tab bind:group={tabSet} name="tab2" value={1}>Hover</Tab>
@@ -168,7 +168,7 @@
 		</section>
 		<!-- See Also -->
 		<section class="space-y-4">
-			<h2>See Also</h2>
+			<h2 class="h2">See Also</h2>
 			<div class="card p-4 space-y-4">
 				<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 					<p>A simple data-driven table component.</p>

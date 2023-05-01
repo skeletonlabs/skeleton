@@ -8,7 +8,7 @@
 
 <!-- Header -->
 <section class="space-y-4">
-	<h2>Tailwind CSS</h2>
+	<h2 class="h2">Tailwind CSS</h2>
 	<p>
 		Skeleton features tight integration with <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind CSS</a>.
 	</p>

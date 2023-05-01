@@ -22,7 +22,7 @@
 			{#if comp.sveld.events.length > 0}
 				{@const tableSource = sveldMapperEvents(comp)}
 				<section class="space-y-4">
-					{#if comp.label}<h2>{comp.label}</h2>{/if}
+					{#if comp.label}<h2 class="h2">{comp.label}</h2>{/if}
 					{#if comp.descEvents}<div>{@html comp.descEvents}</div>{/if}
 					{#if tableSource.body.length > 0}<Table source={tableSource} />{/if}
 				</section>

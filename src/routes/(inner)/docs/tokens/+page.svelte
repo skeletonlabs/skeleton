@@ -95,7 +95,7 @@
 			</p>
 		</section>
 		<section class="space-y-4">
-			<h2>Learn More</h2>
+			<h2 class="h2">Learn More</h2>
 			<p>We recommend this conference talk by Brad Frost if you would like to learn more about the design token concept.</p>
 			<iframe
 				class="w-full aspect-video mx-auto rounded-container-token shadow"
@@ -107,7 +107,7 @@
 			/>
 		</section>
 		<section class="space-y-4">
-			<h2>Theme Flow</h2>
+			<h2 class="h2">Theme Flow</h2>
 			<p>
 				Below is a visualization of how Skeleton uses your theme to control your UI. We start with your theme's CSS variables, then
 				construct design token classes based on these variables, next components utilize these design token classes, then finally you
@@ -120,7 +120,7 @@
 			/>
 		</section>
 		<section class="space-y-4">
-			<h2>Color Pairing Chart</h2>
+			<h2 class="h2">Color Pairing Chart</h2>
 			<p>
 				Below is a visualization of color pairings in Skeleton. This is how we balance light and dark mode for your themes in practice. For
 				example, the <em>surface</em> color swatch 50 is the lightest available color, so we utilize that for your light theme background
@@ -137,38 +137,38 @@
 		<hr />
 		<!-- Backgrounds -->
 		<section class="space-y-4">
-			<h2>Backgrounds</h2>
+			<h2 class="h2">Backgrounds</h2>
 			<Table source={tableBackgrounds} />
 		</section>
 		<!-- Border Radius -->
 		<section class="space-y-4">
-			<h2>Border Radius</h2>
+			<h2 class="h2">Border Radius</h2>
 			<Table source={tableBorderRadius} />
 		</section>
 		<!-- Borders -->
 		<section class="space-y-4">
-			<h2>Borders</h2>
+			<h2 class="h2">Borders</h2>
 			<Table source={tableBorder} />
 		</section>
 		<!-- Fills -->
 		<section class="space-y-4">
-			<h2>SVG Fill Color</h2>
+			<h2 class="h2">SVG Fill Color</h2>
 			<Table source={tableFills} />
 		</section>
 		<!-- Rings -->
 		<section class="space-y-4">
-			<h2>Rings</h2>
+			<h2 class="h2">Rings</h2>
 			<p>Utilities for creating outline rings with box-shadows.</p>
 			<Table source={tableRings} />
 		</section>
 		<!-- Text -->
 		<section class="space-y-4">
-			<h2>Text</h2>
+			<h2 class="h2">Text</h2>
 			<Table source={tableText} />
 		</section>
 		<!-- Accent -->
 		<section class="space-y-4">
-			<h2>Accent</h2>
+			<h2 class="h2">Accent</h2>
 			<Table source={tableMisc} />
 		</section>
 	</svelte:fragment>

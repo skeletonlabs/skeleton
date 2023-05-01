@@ -30,7 +30,7 @@
 <header class="doc-shell-header {classesHeader}">
 	<section class="space-y-4">
 		<span class="badge variant-soft translate-y-1">{@html pageData.feature}</span>
-		<h1>{pageData.name}</h1>
+		<h1 class="h1">{pageData.name}</h1>
 		<p>{@html pageData.description}</p>
 	</section>
 	<!-- Imports & Types -->

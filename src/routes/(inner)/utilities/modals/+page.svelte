@@ -167,10 +167,10 @@
 			</p>
 		</aside>
 		<section class="space-y-4">
-			<h2>Modal Store</h2>
+			<h2 class="h2">Modal Store</h2>
 			<p>When you wish to trigger a modal, import the <code>modalStore</code>, which acts as the modal queue.</p>
 			<CodeBlock language="ts" code={`import { modalStore } from '@skeletonlabs/skeleton';`} />
-			<h3>Trigger</h3>
+			<h3 class="h3">Trigger</h3>
 			<p>The <code>title</code>, <code>body</code>, and <code>image</code> are available to all modals.</p>
 			<!-- Alert -->
 			<DocsPreview background="neutral">
@@ -244,17 +244,17 @@ modalStore.trigger(modal);
 				</svelte:fragment>
 			</DocsPreview>
 			<!-- Close -->
-			<h3>Close</h3>
+			<h3 class="h3">Close</h3>
 			<p>Trigger the <code>close()</code> method to remove the first modal in the modal queue.</p>
 			<CodeBlock language="ts" code={`modalStore.close();`} />
 			<!-- Clear -->
-			<h3>Clear</h3>
+			<h3 class="h3">Clear</h3>
 			<p>Trigger the <code>clear()</code> method to completely empty the modal queue.</p>
 			<CodeBlock language="ts" code={`modalStore.clear();`} />
 		</section>
 		<!-- Modal Settings -->
 		<section class="space-y-4">
-			<h2>Modal Settings</h2>
+			<h2 class="h2">Modal Settings</h2>
 			<p>These additional settings are available to all modals.</p>
 			<!-- prettier-ignore -->
 			<CodeBlock
@@ -272,7 +272,7 @@ const modal: ModalSettings = {\n
 		<!-- Component Modals -->
 		<section class="space-y-4">
 			<div class="flex items-center space-x-2">
-				<h2>Component Modals</h2>
+				<h2 class="h2">Component Modals</h2>
 				<span class="badge variant-filled-warning">Advanced</span>
 			</div>
 			<p>To create custom modals, generate a new component, then pass this to the Modal system.</p>
@@ -376,7 +376,7 @@ modalStore.trigger(modal);
 			<p>See the additional information below to learn how to use custom component modals.</p>
 			<Accordion autocollapse class="card variant-glass p-4">
 				<AccordionItem open>
-					<svelte:fragment slot="summary"><h3 data-toc-ignore>Accessing Store Data</h3></svelte:fragment>
+					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Accessing Store Data</h3></svelte:fragment>
 					<svelte:fragment slot="content">
 						<p>
 							Import and use the <code>modalStore</code>. All provided data is available within your component via
@@ -385,13 +385,13 @@ modalStore.trigger(modal);
 					</svelte:fragment>
 				</AccordionItem>
 				<AccordionItem>
-					<svelte:fragment slot="summary"><h3 data-toc-ignore>The Visible Modal</h3></svelte:fragment>
+					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>The Visible Modal</h3></svelte:fragment>
 					<svelte:fragment slot="content">
 						<p>The foremost and visible modal in your queue uses index zero <code>$modalStore[0]</code>.</p>
 					</svelte:fragment>
 				</AccordionItem>
 				<AccordionItem>
-					<svelte:fragment slot="summary"><h3 data-toc-ignore>Modal Parent Properties</h3></svelte:fragment>
+					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Modal Parent Properties</h3></svelte:fragment>
 					<svelte:fragment slot="content">
 						<p>
 							The Modal component in your root layout is considered the "parent" component. Your custom modal component will be generated
@@ -402,7 +402,7 @@ modalStore.trigger(modal);
 					</svelte:fragment>
 				</AccordionItem>
 				<AccordionItem>
-					<svelte:fragment slot="summary"><h3 data-toc-ignore>Triggering a Response</h3></svelte:fragment>
+					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Triggering a Response</h3></svelte:fragment>
 					<svelte:fragment slot="content">
 						<p>
 							Use the <code>$modalStore[0].response('myResponseDataHere');</code> trigger the response function and return a value.
@@ -410,19 +410,19 @@ modalStore.trigger(modal);
 					</svelte:fragment>
 				</AccordionItem>
 				<AccordionItem>
-					<svelte:fragment slot="summary"><h3 data-toc-ignore>Closing a Modal</h3></svelte:fragment>
+					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Closing a Modal</h3></svelte:fragment>
 					<svelte:fragment slot="content">
 						<p>Use the <code>parent.onClose()</code> or <code>modalStore.close()</code> methods to close the modal.</p>
 					</svelte:fragment>
 				</AccordionItem>
 				<AccordionItem>
-					<svelte:fragment slot="summary"><h3 data-toc-ignore>Accessing Metadata</h3></svelte:fragment>
+					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Accessing Metadata</h3></svelte:fragment>
 					<svelte:fragment slot="content">
 						<p>Arbitrary metadata is available using <code>$modalStore[0].meta?.someKey</code>.</p>
 					</svelte:fragment>
 				</AccordionItem>
 				<AccordionItem>
-					<svelte:fragment slot="summary"><h3 data-toc-ignore>Standardize Modal Widths</h3></svelte:fragment>
+					<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Standardize Modal Widths</h3></svelte:fragment>
 					<svelte:fragment slot="content">
 						<!-- prettier-ignore -->
 						<p>
@@ -433,14 +433,14 @@ modalStore.trigger(modal);
 			</Accordion>
 		</section>
 		<section class="space-y-4">
-			<h2>Accessibility</h2>
+			<h2 class="h2">Accessibility</h2>
 			<!-- prettier-ignore -->
 			<p>Skeleton <u>does not</u> provide a means to disable the backdrop's click to close feature, as this would be harmful to accessibility. View the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/" target="_blank" rel="noreferrer">ARIA APG guidelines</a> to learn more about modal accessibility.</p>
 		</section>
 		<!-- SvelteKit SSR Warning -->
 		<!-- prettier-ignore -->
 		<section class="space-y-4">
-			<h2>SvelteKit SSR Warning</h2>
+			<h2 class="h2">SvelteKit SSR Warning</h2>
 			<div class="space-y-4">
 				<div class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 					<p>There are known security risks when using Svelte writable stores within SvelteKit load functions.</p>

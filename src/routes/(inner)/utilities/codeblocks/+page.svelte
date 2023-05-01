@@ -43,14 +43,14 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<h2>Install Highlight.js</h2>
+			<h2 class="h2">Install Highlight.js</h2>
 			<p>
 				<a href="https://highlightjs.org/" target="_blank" rel="noreferrer">Highlight.js</a> is a required dependency to enable syntax highlighting.
 			</p>
 			<CodeBlock language="console" code={`npm install highlight.js`} />
 		</section>
 		<section class="space-y-4">
-			<h2>Configure Your Project</h2>
+			<h2 class="h2">Configure Your Project</h2>
 			<p>Apply the following changes to your app's root component in <code>/src/routes/+layout.svelte</code>.</p>
 			<CodeBlock language="ts" code={`import hljs from 'highlight.js';`} />
 			<p>
@@ -63,14 +63,14 @@
 			<CodeBlock language="ts" code={`import { storeHighlightJs } from '@skeletonlabs/skeleton';\n\nstoreHighlightJs.set(hljs);`} />
 		</section>
 		<section class="space-y-4">
-			<h2>Supported Languages</h2>
+			<h2 class="h2">Supported Languages</h2>
 			<!-- prettier-ignore -->
 			<p>
 				Syntax highlighting will appear when a valid <a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md" target="_blank" rel="noreferrer">language alias</a> is provided to the CodeBlock's <code>language</code> prop.
 			</p>
 		</section>
 		<section class="space-y-4">
-			<h2>Accessibility</h2>
+			<h2 class="h2">Accessibility</h2>
 			<p>
 				Uses <code>pre-wrap</code> by default to support keyboard-only navigation. Please be mindful of color contrast when customizing the design.
 			</p>

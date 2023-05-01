@@ -55,7 +55,7 @@ $storeExample
 		</section>
 		<!-- Attribution -->
 		<section class="space-y-4">
-			<h2>Attribution</h2>
+			<h2 class="h2">Attribution</h2>
 			<p>
 				<a href="https://github.com/joshnuss/svelte-local-storage-store" target="_blank" rel="noreferrer">Source code</a> provided courtesy
 				of

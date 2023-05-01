@@ -143,11 +143,11 @@
 		</p>
 		<!-- Event Handlers -->
 		<section class="space-y-4">
-			<h2>Event Handlers</h2>
-			<h3>Complete Event</h3>
+			<h2 class="h2">Event Handlers</h2>
+			<h3 class="h3">Complete Event</h3>
 			<CodeBlock language="ts" code={`function onCompleteHandler(e: Event): void { console.log('event:complete', e); }`} />
 			<CodeBlock language="html" code={`<Stepper on:complete={onCompleteHandler}>...</Stepper>`} />
-			<h3>Next, Step and Previous</h3>
+			<h3 class="h3">Next, Step and Previous</h3>
 			<p>Events are fired when the next or previous steps are pressed, step fires for both cases.</p>
 			<CodeBlock
 				language="ts"
@@ -163,7 +163,7 @@
 		</section>
 		<!-- Locked State -->
 		<section class="space-y-4">
-			<h2>Locked State</h2>
+			<h2 class="h2">Locked State</h2>
 			<p>
 				Each Step can have a <code>locked</code> property set, when set to <em>TRUE</em> this locks progression for that step. For example, you
 				can lock a step until a form within it becomes valid.
@@ -173,7 +173,7 @@
 		</section>
 		<!-- Step Term -->
 		<section class="space-y-4">
-			<h2>Step Term</h2>
+			<h2 class="h2">Step Term</h2>
 			<p>
 				Use the <code>stepTerm</code> property to override text shown in the animated section at the top of the Stepper, which is useful if you
 				need i18n support for other languages.
