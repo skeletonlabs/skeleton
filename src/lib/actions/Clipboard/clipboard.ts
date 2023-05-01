@@ -20,7 +20,7 @@ export function clipboard(node: HTMLElement, args: any) {
 		// Handle everything else.
 		copyToClipboard(args);
 	};
-	// Event Listner
+	// Event Listener
 	node.addEventListener('click', onClick);
 	// Lifecycle
 	return {

@@ -10,3 +10,5 @@ node_modules
 pnpm-lock.yaml
 .vscode
 .github
+/static/font-awesome
+/static/fonts

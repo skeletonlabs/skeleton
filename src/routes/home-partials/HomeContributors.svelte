@@ -22,7 +22,7 @@
 					<i class="fa-solid fa-arrow-up-right-from-square" />
 				</a>
 			</header>
-			<section class="grid grid-cols-1 lg:grid-cols-2 gap-4 p-4 md:p-10">
+			<section class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 md:p-10">
 				<div class="flex flex-col items-center gap-2">
 					<Avatar src="https://avatars.githubusercontent.com/u/1509726?v=4" width="w-32" />
 					<h3>Chris Simmons</h3>

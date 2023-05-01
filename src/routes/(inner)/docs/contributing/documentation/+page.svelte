@@ -170,7 +170,7 @@ dispatch('dragover', event);`}
 		</p>
 		<section class="card variant-glass p-4 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 			<div class="space-y-2">
-				<p>Reference all available settings from the Typescript interface defintion.</p>
+				<p>Reference all available settings from the Typescript interface definition.</p>
 			</div>
 			<a
 				class="btn variant-filled"
@@ -183,15 +183,15 @@ dispatch('dragover', event);`}
 		<ul class="list-disc list-outside ml-8 space-y-1">
 			<li><a href="/elements/buttons">Buttons</a> showcases how to document Tailwind Element classes.</li>
 			<li><a href="/components/accordions">Accordion</a> makes use of most Component settings utilizing Sveld.</li>
-			<li><a href="/components/paginators">Paginator</a> uses Dipatched Event documentation.</li>
+			<li><a href="/components/paginators">Paginator</a> uses Dispatched Event documentation.</li>
 		</ul>
 		<!-- Examples -->
 		<h3>Examples</h3>
 		<p>When showcasing examples of new features we typically handle this by one of two methods:</p>
 		<ul class="list-disc list-outside ml-8 space-y-1">
 			<li>
-				<strong>Sandbox</strong> (e.g. <a href="/components/app-shell">App Shell</a>) - which provide a dynamic and interactive
-				example that can be adjusted live.
+				<strong>Sandbox</strong> (e.g. <a href="/components/app-shell">App Shell</a>) - which provide a dynamic and interactive example that
+				can be adjusted live.
 			</li>
 			<li>
 				<strong>Static</strong> (e.g. <a href="/components/app-bar">App Bar</a>) - with multiple static examples displaying various

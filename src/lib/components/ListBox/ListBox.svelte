@@ -9,7 +9,7 @@
 	export let multiple: boolean = false;
 
 	// Props (styles)
-	/** Provide classs to set the vertical spacing style. */
+	/** Provide class to set the vertical spacing style. */
 	export let spacing: CssClasses = 'space-y-1';
 	/** Provide classes to set the listbox box radius styles. */
 	export let rounded: CssClasses = 'rounded-token';
@@ -34,7 +34,7 @@
 	setContext('padding', padding);
 
 	// Classes
-	const cBase: string = 'cursor-pointer -outline-offset-[3px]';
+	const cBase: string = '';
 
 	// Reactive
 	$: classesBase = `${cBase} ${spacing} ${rounded} ${$$props.class ?? ''}`;

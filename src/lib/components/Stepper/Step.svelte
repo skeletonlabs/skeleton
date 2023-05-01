@@ -8,7 +8,7 @@
 	import type { CssClasses } from '$lib';
 
 	// Props
-	export let locked: boolean = false;
+	export let locked = false;
 
 	// Props (regions)
 	/** Provide arbitrary classes to the step header region. */
@@ -44,14 +44,18 @@
 	const cContent = 'space-y-4';
 	const cNavigation = 'flex';
 
-	function onNext(): void {
+	async function onNext() {
+		// Allows any forms to submit before the Step is removed from the DOM:
+		// https://github.com/skeletonlabs/skeleton/issues/1328
+		await new Promise((resolve) => setTimeout(resolve));
+
 		if (locked) return;
 		$state.current++;
 		/** @event { $state } next - Fires when the NEXT button is pressed per step.  */
 		dispatchParent('next', { step: stepIndex, state: $state });
 		dispatchParent('step', { step: stepIndex, state: $state });
 	}
-	function onBack(): void {
+	function onBack() {
 		$state.current--;
 		/** @event { $state } back - Fires when the BACK button is pressed per step.  */
 		dispatchParent('back', { step: stepIndex, state: $state });
@@ -102,7 +106,9 @@
 						<span>{@html buttonNextLabel}</span>
 					</button>
 				{:else}
-					<button type={buttonCompleteType} class="btn {buttonComplete}" on:click={onComplete}>{@html buttonCompleteLabel}</button>
+					<button type={buttonCompleteType} class="btn {buttonComplete}" on:click={onComplete} disabled={locked}>
+						{@html buttonCompleteLabel}
+					</button>
 				{/if}
 			</div>
 		{/if}

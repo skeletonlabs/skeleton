@@ -24,7 +24,7 @@
 	export let text = 'text-xs';
 	/** Set the text for the amount selection input. */
 	export let amountText = 'Items';
-	/** Provide abtitrary classes to the next/previous buttons. */
+	/** Provide arbitrary classes to the next/previous buttons. */
 	export let buttonClasses: CssClasses = 'btn-icon variant-filled';
 	/** Set the text label for the Previous button. */
 	export let buttonTextPrevious: CssClasses = '&larr;';

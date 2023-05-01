@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { SemanticNames } from '$lib/components/ConicGradient/settings';
+	import type { SemanticNames } from '$lib/types/tailwind';
 	import { swatchColorClasses } from './settings';
 
 	/** Pass the color key name. */

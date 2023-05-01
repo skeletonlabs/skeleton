@@ -69,9 +69,9 @@
 				<CodeBlock
 					language="html"
 					code={`
-<button type="button" class="btn-icon variant-filled">(icon)</button>
-<button type="button" class="btn variant-filled">Button</button>
-<button type="button" class="btn variant-filled">
+<button type="button" class="btn-icon ${currentVariant}">(icon)</button>
+<button type="button" class="btn ${currentVariant}">Button</button>
+<button type="button" class="btn ${currentVariant}">
 	<span>(icon)</span>
 	<span>Button</span>
 </button>
@@ -80,9 +80,9 @@
 				<CodeBlock
 					language="html"
 					code={`
-<a href="/" class="btn-icon variant-filled">(icon)</a>
-<a href="/" class="btn variant-filled">a</a>
-<a href="/" class="btn variant-filled">
+<a href="/" class="btn-icon ${currentVariant}">(icon)</a>
+<a href="/" class="btn ${currentVariant}">a</a>
+<a href="/" class="btn ${currentVariant}">
 	<span>(icon)</span>
 	<span>Anchor</span>
 </a>
@@ -103,11 +103,28 @@
 			<p>A number of canned size presets are available via <code>.btn-[size]</code>.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<div class="flex items-center gap-4">
-						<button type="button" class="btn btn-sm variant-filled">sm</button>
-						<button type="button" class="btn variant-filled">base</button>
-						<button type="button" class="btn btn-lg variant-filled">lg</button>
-						<button type="button" class="btn btn-xl variant-filled">xl</button>
+					<div class="space-y-4">
+						<div class="flex justify-center items-center gap-4">
+							<button type="button" class="btn btn-sm variant-filled">sm</button>
+							<button type="button" class="btn variant-filled">base</button>
+							<button type="button" class="btn btn-lg variant-filled">lg</button>
+							<button type="button" class="btn btn-xl variant-filled">xl</button>
+						</div>
+						<hr />
+						<div class="flex justify-center items-center gap-4">
+							<button type="button" class="btn-icon btn-icon-sm variant-filled">
+								<i class="fa-solid fa-skull" />
+							</button>
+							<button type="button" class="btn-icon variant-filled">
+								<i class="fa-solid fa-skull" />
+							</button>
+							<button type="button" class="btn-icon btn-icon-lg variant-filled">
+								<i class="fa-solid fa-skull" />
+							</button>
+							<button type="button" class="btn-icon btn-icon-xl variant-filled">
+								<i class="fa-solid fa-skull" />
+							</button>
+						</div>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">

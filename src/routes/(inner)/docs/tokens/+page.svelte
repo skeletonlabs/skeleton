@@ -43,7 +43,7 @@
 	const tableBorder: TableSource = {
 		head: headings,
 		body: [
-			['<code>.border-token</code>', '', 'Implements your theme\'s configured border size.'],
+			['<code>.border-token</code>', '', "Implements your theme's configured border size."],
 			['<code>.border-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings]
 		]
 	};
@@ -64,9 +64,9 @@
 	const tableText: TableSource = {
 		head: headings,
 		body: [
-			['<code>.font-heading-token</code>', '', 'Implements your theme\'s configured heading text size.'],
-			['<code>.font-token</code>', '', 'Implements your theme\'s configured base text size.'],
-			['<code>.text-token</code>', '', 'Implements your theme\'s configured base text color.'],
+			['<code>.font-heading-token</code>', '', "Implements your theme's configured heading font family."],
+			['<code>.font-token</code>', '', "Implements your theme's configured base font family."],
+			['<code>.text-token</code>', '', "Implements your theme's configured base text color."],
 			['<code>.text-on-[color]-token</code>', vColorsAll, 'Provides an accessible foreground color.'],
 			['<code>.text-[color]-[pairings]-token</code>', `${vColorsAll}<br>${vPairings}`, descPairings]
 		]
@@ -110,8 +110,8 @@
 			<h2>Theme Flow</h2>
 			<p>
 				Below is a visualization of how Skeleton uses your theme to control your UI. We start with your theme's CSS variables, then
-				construct design token classes based on these variables, next components utilize these design token classes, then finally you construct your pages
-				with sets of elements and components.
+				construct design token classes based on these variables, next components utilize these design token classes, then finally you
+				construct your pages with sets of elements and components.
 			</p>
 			<img
 				class="rounded-container-token shadow-lg"
@@ -126,7 +126,7 @@
 				example, the <em>surface</em> color swatch 50 is the lightest available color, so we utilize that for your light theme background
 				color. While swatch 900 is the darkest, so vice versa. These two colors form a pair. We then generate design token classes for
 				<code>.bg-surface-50-900-token</code>
-				and <code>bg-surface-900-50-token</code> that automaticallys switch between these in light/dark mode respectively.
+				and <code>bg-surface-900-50-token</code> that automatically switch between these in light/dark mode respectively.
 			</p>
 			<img
 				class="rounded-container-token shadow-lg"

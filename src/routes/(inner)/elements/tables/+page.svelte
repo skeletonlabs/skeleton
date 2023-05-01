@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { faker } from '@faker-js/faker';
+	// Docshell
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
@@ -23,7 +25,7 @@
 			['<code>.table-hover</code>', '-', 'Apply to a table element to enable a subtle hover effect on rows.'],
 			['<code>.table-interactive</code>', '-', 'Apply to a table element to enable a visible hover effect and pointer cursor.'],
 			['<code>.table-sort-asc</code>', '-', 'Apply to a table heading cell to add a down arrow indicating ascending sort.'],
-			['<code>.table-sort-dsc</code>', '-', 'Apply to a table heading cell to add an up arrow indicating desending sort.'],
+			['<code>.table-sort-dsc</code>', '-', 'Apply to a table heading cell to add an up arrow indicating descending sort.'],
 			['<code>.table-row-checked</code>', '-', 'Apply to a table body row to indicate selection state.'],
 			['<code>.table-cell-fit</code>', '-', 'Apply to a table cell to auto-fit to the content widths.']
 		]
@@ -31,14 +33,9 @@
 
 	// Local
 	let tabSet: number = 0;
-	const tableArr = [
-		{ position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-		{ position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-		{ position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-		{ position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-		{ position: 5, name: 'Boron', weight: 10.811, symbol: 'B' }
-	];
-	const totalWeight = tableArr.reduce((accumulator, obj) => accumulator + obj.weight, 0);
+	const tableArr: any = Array(5)
+		.fill(undefined)
+		.map(() => faker.science.chemicalElement());
 </script>
 
 <DocsShell {settings}>
@@ -50,26 +47,24 @@
 					<table class="table table-hover">
 						<thead>
 							<tr>
-								<th>Position</th>
 								<th>Name</th>
 								<th>Symbol</th>
-								<th>Weight</th>
+								<th>Atomic Number</th>
 							</tr>
 						</thead>
 						<tbody>
 							{#each tableArr as row}
 								<tr>
-									<td>{row.position}</td>
 									<td>{row.name}</td>
 									<td>{row.symbol}</td>
-									<td><span class="badge variant-soft-primary">{row.weight}</span></td>
+									<td><span class="badge variant-soft-primary">{row.atomicNumber}</span></td>
 								</tr>
 							{/each}
 						</tbody>
 						<tfoot>
 							<tr>
-								<th colspan="3">Total Weight</th>
-								<td>{totalWeight}</td>
+								<th colspan="2">Total Elements</th>
+								<td>{tableArr.length} Elements</td>
 							</tr>
 						</tfoot>
 					</table>
@@ -150,7 +145,7 @@
 					{:else if tabSet === 2}
 						<!-- Selection -->
 						<p>Apply the <code>.table-row-checked</code> class to a table body row to indicate an active selection state.</p>
-						<CodeBlock language="html" code={`<tr class=".table-row-checked">...</tr>`} />
+						<CodeBlock language="html" code={`<tr class="table-row-checked">...</tr>`} />
 					{:else if tabSet === 3}
 						<!-- Fit -->
 						<p>

@@ -64,9 +64,10 @@
 					.toLowerCase();
 				elem.id = `${newId}`;
 			}
-			// Implement permalink
-			if (elem.querySelector('.permalink')) return;
-			elem.innerHTML += `<a href="#${elem.id}" class="permalink">🔗</a>`;
+			// Implement permalink if none present
+			if (!elem.querySelector('.permalink')) {
+				elem.innerHTML += `<a href="#${elem.id}" class="permalink">🔗</a>`;
+			}
 			// Generate headings whitelist
 			filteredHeadingsList.push(elem);
 			// Debug
@@ -93,14 +94,14 @@
 	}
 
 	function pageScrollHandler(): void {
-		const headingSizeThreadshold = 40; // px
+		const headingSizeThreshold = 40; // px
 		// List of visible headings
 		let visibleHeadings: HTMLElement[] = [];
 		// Loop each allowed heading from the target element
 		allowedHeadingsList?.forEach((header: HTMLElement) => {
 			const scrollableTop = elemScrollParent?.getBoundingClientRect().top || 0;
 			const headerBoundTop = header.getBoundingClientRect().top;
-			const offsetTop = headerBoundTop - scrollableTop + headingSizeThreadshold;
+			const offsetTop = headerBoundTop - scrollableTop + headingSizeThreshold;
 			// If heading visible, add to visibleHeadings
 			if (offsetTop >= 0) visibleHeadings.push(header);
 		});

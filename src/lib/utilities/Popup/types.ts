@@ -5,8 +5,8 @@ type Direction = 'top' | 'bottom' | 'left' | 'right';
 /** Placement https://floating-ui.com/docs/computePosition#placement */
 type Placement = Direction | `${Direction}-start` | `${Direction}-end`;
 
-// Options & Middlware
-interface Middlware {
+// Options & Middleware
+interface Middleware {
 	/** Offset options: https://floating-ui.com/docs/offset */
 	offset?: number | Record<string, any>;
 	/** Shift options: https://floating-ui.com/docs/shift */
@@ -20,7 +20,7 @@ interface Middlware {
 // Action Arguments
 export interface PopupSettings {
 	/** Provide the event type. */
-	event: 'click' | 'hover' | 'hover-click';
+	event: 'click' | 'hover' | 'hover-click' | 'focus' | 'focus-click';
 	/** Match the popup data value `[data-popup]="targetNameHere"` */
 	target: string;
 	/** Set the placement position. Defaults 'bottom'. */
@@ -28,7 +28,7 @@ export interface PopupSettings {
 	/** Query list of elements that will close the popup. Default: `'a[href], button'`. */
 	closeQuery?: string;
 	/** Provide additional options and middleware settings. */
-	middleware?: Middlware;
+	middleware?: Middleware;
 	/** Provide an optional callback function to monitor open/close state. */
 	state?: (event: { state: boolean }) => void;
 }

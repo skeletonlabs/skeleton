@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { fade, fly } from 'svelte/transition';
-	import { createEventDispatcher, onMount } from 'svelte';
+	import { createEventDispatcher } from 'svelte';
+	import { BROWSER } from 'esm-env';
 
 	// Event Handler
 	const dispatch = createEventDispatcher();
@@ -28,7 +29,7 @@
 	export let bgBackdrop: CssClasses = 'bg-surface-backdrop-token';
 	/** Backdrop - Provide classes to set the blur style. */
 	export let blur: CssClasses = 'backdrop-blur-xs';
-	/** Drawer - Provide classes to set padding. */
+	/** Backdrop - Provide classes to set padding. */
 	export let padding: CssClasses = '';
 
 	// Props (drawer)
@@ -44,6 +45,8 @@
 	export let width: CssClasses = '';
 	/** Drawer - Provide classes to override the height. */
 	export let height: CssClasses = '';
+	/** Provide a class to override the z-index */
+	export let zIndex: CssClasses = 'z-40';
 
 	// Props (regions)
 	/** Provide arbitrary classes to the backdrop region. */
@@ -67,8 +70,8 @@
 	};
 
 	// Classes
-	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0 z-40 flex';
-	const cDrawer = 'ox-border overflow-y-auto transition-transform';
+	const cBackdrop = 'fixed top-0 left-0 right-0 bottom-0 flex';
+	const cDrawer = 'overflow-y-auto transition-transform';
 
 	// Local
 	let elemBackdrop: HTMLElement;
@@ -112,7 +115,7 @@
 	}
 
 	function applyAnimationSettings(): void {
-		if (window === undefined) return;
+		if (!BROWSER) return;
 		// prettier-ignore
 		switch (position) {
 			case 'top':    anim = { x: 0, y: -window.innerWidth }; break;
@@ -147,7 +150,9 @@
 	$: classesHeight = height ? height : presets[position].height;
 	$: classesRounded = rounded ? rounded : presets[position].rounded;
 	// Reactive
-	$: classesBackdrop = `${cBackdrop} ${bgBackdrop} ${padding} ${blur} ${classesPosition} ${regionBackdrop} ${$$props.class ?? ''}`;
+	$: classesBackdrop = `${cBackdrop} ${bgBackdrop} ${padding} ${blur} ${classesPosition} ${regionBackdrop} ${zIndex} ${
+		$$props.class ?? ''
+	}`;
 	$: classesDrawer = `${cDrawer} ${bgDrawer} ${border} ${rounded} ${shadow} ${classesWidth} ${classesHeight} ${classesRounded} ${regionDrawer}`;
 </script>
 

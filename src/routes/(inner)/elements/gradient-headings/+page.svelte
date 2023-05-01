@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { faker } from '@faker-js/faker';
+	// DocShell
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
@@ -21,15 +23,21 @@
 	<svelte:fragment slot="sandbox">
 		<DocsPreview background="bg-surface-900">
 			<svelte:fragment slot="preview">
-				<div class="flex justify-center space-x-2">
+				<div class="grid grid-cols-1 gap-2 space-x-2 text-center">
 					<h1 data-toc-ignore>
-						<span class="bg-gradient-to-br from-blue-500 to-cyan-300 bg-clip-text text-transparent box-decoration-clone">Design.</span>
+						<span class="bg-gradient-to-br from-blue-500 to-cyan-300 bg-clip-text text-transparent box-decoration-clone capitalize">
+							{faker.company.bsBuzz()}.
+						</span>
 					</h1>
 					<h1 data-toc-ignore>
-						<span class="bg-gradient-to-br from-red-500 to-yellow-500 bg-clip-text text-transparent box-decoration-clone">Build.</span>
+						<span class="bg-gradient-to-br from-red-500 to-yellow-500 bg-clip-text text-transparent box-decoration-clone capitalize">
+							{faker.company.bsBuzz()}.
+						</span>
 					</h1>
 					<h1 data-toc-ignore>
-						<span class="bg-gradient-to-br from-pink-500 to-violet-500 bg-clip-text text-transparent box-decoration-clone">Deploy.</span>
+						<span class="bg-gradient-to-br from-pink-500 to-violet-500 bg-clip-text text-transparent box-decoration-clone capitalize">
+							{faker.company.bsBuzz()}.
+						</span>
 					</h1>
 				</div>
 			</svelte:fragment>

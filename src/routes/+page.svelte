@@ -2,7 +2,7 @@
 	// HTTP response data provided by +page.ts
 	import type { PageData } from './$types';
 	export let data: PageData;
-	const contributors = data.contributors;
+	$: ({ contributors } = data);
 
 	// Components
 	import HomeFeatures from './home-partials/HomeFeatures.svelte';

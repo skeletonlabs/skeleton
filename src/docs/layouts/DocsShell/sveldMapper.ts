@@ -41,7 +41,7 @@ export function sveldMapperSlots(component: Component): TableSource {
 }
 
 // Mapper: Events
-export function sveldeMapperEvents(component: Component): TableSource {
+export function sveldMapperEvents(component: Component): TableSource {
 	const { events } = component.sveld;
 	const eventsHeadings = ['Name', 'Type', 'Element', 'Response', 'Description'];
 	return {

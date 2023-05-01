@@ -1,12 +1,12 @@
 <!-- Layout: (root) -->
 <script lang="ts">
-	// Depedency: Highlight JS
+	// Dependency: Highlight JS
 	import hljs from 'highlight.js';
 	import '$lib/styles/highlight-js.css'; // was: 'highlight.js/styles/github-dark.css';
 	import { storeHighlightJs } from '$lib/utilities/CodeBlock/stores';
 	storeHighlightJs.set(hljs);
 
-	// Depedency: Floating UI
+	// Dependency: Floating UI
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
 	import { storePopup } from '$lib/utilities/Popup/popup';
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
@@ -57,7 +57,7 @@
 	// Init Vercel Analytics
 	if ($storeVercelProductionMode) import('@vercel/analytics').then((mod) => mod.inject());
 
-	// SEO Metatags
+	// SEO Meta tags
 	const metaDefaults = {
 		title: 'Skeleton — UI Toolkit for Svelte + Tailwind',
 		description: 'Skeleton is a fully featured UI Toolkit for building reactive interfaces quickly using Svelte and Tailwind.',

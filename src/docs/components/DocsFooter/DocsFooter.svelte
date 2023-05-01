@@ -65,6 +65,10 @@
 				<a href="https://skeletonlabs.co/" target="_blank" rel="noreferrer">Skeleton Labs </a>
 			</p>
 			<div class="flex space-x-4">
+				<a class="btn variant-soft" href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer">
+					<i class="fa-brands fa-github" />
+					<span class="hidden md:inline-block ml-2">Github</span>
+				</a>
 				<a class="btn variant-soft" href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer">
 					<i class="fa-brands fa-discord" />
 					<span class="hidden md:inline-block ml-2">Discord</span>
@@ -73,9 +77,9 @@
 					<i class="fa-brands fa-twitter" />
 					<span class="hidden md:inline-block ml-2">Twitter</span>
 				</a>
-				<a class="btn variant-soft" href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer">
-					<i class="fa-brands fa-github" />
-					<span class="hidden md:inline-block ml-2">Github</span>
+				<a class="btn variant-soft" href="https://www.youtube.com/@skeletonlabs" target="_blank" rel="noreferrer">
+					<i class="fa-brands fa-youtube" />
+					<span class="hidden md:inline-block ml-2">YouTube</span>
 				</a>
 			</div>
 		</section>

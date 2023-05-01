@@ -87,5 +87,6 @@
 		</footer>
 	</article>
 	<!-- Twitter Embed Script -->
+	<!-- Twitter Embed Script -->
 	<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>

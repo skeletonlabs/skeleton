@@ -24,6 +24,7 @@
 
 	function onChangeHandler(e: any): void {
 		console.log('file data:', e);
+		console.log('files:', files);
 	}
 </script>
 

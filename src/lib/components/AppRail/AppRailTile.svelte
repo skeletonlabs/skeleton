@@ -16,7 +16,7 @@
 	export let value: any | undefined = undefined;
 	/** Provide the element tag. Button or Anchor recommended. */
 	export let tag = 'button';
-	/** Provide the vislble text label. */
+	/** Provide the visible text label. */
 	export let label = '';
 
 	// Props (region)
@@ -36,14 +36,14 @@
 
 	// Input Handler
 	function onClickHandler(event: MouseEvent): void {
-		if (!$selected || !value) return;
+		if (!String($selected) || !String(value)) return;
 		$selected = value;
 		/** @event {{ event }} click - Fires when the component is clicked.  */
 		dispatch('click', event);
 	}
 
 	// Reactive
-	$: classesActive = $selected && value && $selected === value ? `${active}` : '';
+	$: classesActive = String($selected) && String(value) && $selected === value ? `${active}` : '';
 	$: classesBase = `${cBase} ${hover} ${classesActive} ${$$props.class || ''}`;
 	$: classesLabel = `${cLabel} ${regionLabel}`;
 

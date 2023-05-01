@@ -16,11 +16,13 @@
 
 	.list li {
 		/* @apply bg-red-500; */
-		@apply flex items-center space-x-4 whitespace-nowrap;
+		@apply flex items-center space-x-4;
 		/* Padding */
 		@apply p-2;
 		/* Theme: Rounded */
 		@apply rounded-token;
+		/* Wrapping */
+		@apply whitespace-normal break-words;
 	}
 
 	.list-dl div {
@@ -40,6 +42,8 @@
 		@apply px-4 py-2;
 		/* Hover */
 		@apply bg-primary-hover-token;
+		/* Focus */
+		@apply focus:!variant-filled-primary outline-none;
 		/* Cursor */
 		@apply cursor-pointer;
 		/* Theme: Rounded */

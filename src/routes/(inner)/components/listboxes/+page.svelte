@@ -40,22 +40,20 @@
 		<DocsPreview>
 			<svelte:fragment slot="preview">
 				<div class="w-full max-w-[480px] card p-4 text-token">
-					<label for="" class="space-y-4">
-						<ListBox>
-							<ListBoxItem bind:group={valueSingle} name="medium" value="books">
-								<svelte:fragment slot="lead"><i class="fa-solid fa-book w-6 text-center" /></svelte:fragment>
-								Books
-							</ListBoxItem>
-							<ListBoxItem bind:group={valueSingle} name="medium" value="movies">
-								<svelte:fragment slot="lead"><i class="fa-solid fa-film w-6 text-center" /></svelte:fragment>
-								Movies
-							</ListBoxItem>
-							<ListBoxItem bind:group={valueSingle} name="medium" value="television">
-								<svelte:fragment slot="lead"><i class="fa-solid fa-tv w-6 text-center" /></svelte:fragment>
-								Television
-							</ListBoxItem>
-						</ListBox>
-					</label>
+					<ListBox>
+						<ListBoxItem bind:group={valueSingle} name="medium" value="books">
+							<svelte:fragment slot="lead"><i class="fa-solid fa-book w-6 text-center" /></svelte:fragment>
+							Books
+						</ListBoxItem>
+						<ListBoxItem bind:group={valueSingle} name="medium" value="movies">
+							<svelte:fragment slot="lead"><i class="fa-solid fa-film w-6 text-center" /></svelte:fragment>
+							Movies
+						</ListBoxItem>
+						<ListBoxItem bind:group={valueSingle} name="medium" value="television">
+							<svelte:fragment slot="lead"><i class="fa-solid fa-tv w-6 text-center" /></svelte:fragment>
+							Television
+						</ListBoxItem>
+					</ListBox>
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="footer">
