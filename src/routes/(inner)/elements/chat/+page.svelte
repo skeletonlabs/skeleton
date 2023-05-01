@@ -125,95 +125,86 @@
 <DocsShell {settings}>
 	<!-- Slot: Sandbox -->
 	<svelte:fragment slot="sandbox">
-		<DocsPreview background="neutral" regionViewport="!p-0">
-			<svelte:fragment slot="preview">
-				<div class="chat w-full h-full grid grid-cols-1 lg:grid-cols-[30%_1fr]">
-					<!-- Navigation -->
-					<div class="hidden lg:grid grid-rows-[auto_1fr_auto] border-r border-surface-500/30">
-						<!-- Header -->
-						<header class="border-b border-surface-500/30 p-4">
-							<input class="input" type="search" placeholder="Search..." />
-						</header>
-						<!-- List -->
-						<div class="p-4 space-y-4 overflow-y-auto">
-							<small class="opacity-50">Contacts</small>
-							<ListBox active="variant-filled-primary">
-								{#each people as person, i}
-									<ListBoxItem bind:group={currentPerson} name="people" value={person.id}>
-										<svelte:fragment slot="lead">
-											<Avatar src="https://i.pravatar.cc/?img={person.avatar}" width="w-6" />
-										</svelte:fragment>
-										{person.name}
-									</ListBoxItem>
-								{/each}
-							</ListBox>
-						</div>
-						<!-- Footer -->
-						<!-- <footer class="border-t border-surface-500/30 p-4">(footer)</footer> -->
-					</div>
-					<!-- Chat -->
-					<div class="grid grid-row-[1fr_auto]">
-						<!-- Conversation -->
-						<section bind:this={elemChat} class="max-h-[500px] p-4 overflow-y-auto space-y-4">
-							{#each messages as bubble, i}
-								{#if bubble.host === true}
-									<div class="grid grid-cols-[auto_1fr] gap-2">
-										<Avatar src="https://i.pravatar.cc/?img={bubble.avatar}" width="w-12" />
-										<div class="card p-4 variant-soft rounded-tl-none space-y-2">
-											<header class="flex justify-between items-center">
-												<p class="font-bold">{bubble.name}</p>
-												<small class="opacity-50">{bubble.timestamp}</small>
-											</header>
-											<p>{bubble.message}</p>
-										</div>
-									</div>
-								{:else}
-									<div class="grid grid-cols-[1fr_auto] gap-2">
-										<div class="card p-4 rounded-tr-none space-y-2 {bubble.color}">
-											<header class="flex justify-between items-center">
-												<p class="font-bold">{bubble.name}</p>
-												<small class="opacity-50">{bubble.timestamp}</small>
-											</header>
-											<p>{bubble.message}</p>
-											<footer class="flex items-center gap-2 -mb-4">
-												<button class="btn-icon btn-icon-sm variant-soft">+</button>
-												{#each bubble.emotes as emote, i}<span>{emote}</span>{/each}
-											</footer>
-										</div>
-										<Avatar src="https://i.pravatar.cc/?img={bubble.avatar}" width="w-12" />
-									</div>
-								{/if}
+		<section class="card">
+			<div class="chat w-full h-full grid grid-cols-1 lg:grid-cols-[30%_1fr]">
+				<!-- Navigation -->
+				<div class="hidden lg:grid grid-rows-[auto_1fr_auto] border-r border-surface-500/30">
+					<!-- Header -->
+					<header class="border-b border-surface-500/30 p-4">
+						<input class="input" type="search" placeholder="Search..." />
+					</header>
+					<!-- List -->
+					<div class="p-4 space-y-4 overflow-y-auto">
+						<small class="opacity-50">Contacts</small>
+						<ListBox active="variant-filled-primary">
+							{#each people as person, i}
+								<ListBoxItem bind:group={currentPerson} name="people" value={person.id}>
+									<svelte:fragment slot="lead">
+										<Avatar src="https://i.pravatar.cc/?img={person.avatar}" width="w-6" />
+									</svelte:fragment>
+									{person.name}
+								</ListBoxItem>
 							{/each}
-						</section>
-						<!-- Prompt -->
-						<section class="border-t border-surface-500/30 p-4">
-							<div class="input-group input-group-divider grid-cols-[auto_1fr_auto] rounded-container-token">
-								<button class="input-group-shim">+</button>
-								<textarea
-									bind:value={currentMessage}
-									class="bg-transparent border-0 ring-0"
-									name="prompt"
-									id="prompt"
-									placeholder="Write a message..."
-									rows="1"
-									on:keydown={onPromptKeydown}
-								/>
-								<button class={currentMessage ? 'variant-filled-primary' : 'input-group-shim'} on:click={addMessage}>
-									<i class="fa-solid fa-paper-plane" />
-								</button>
-							</div>
-						</section>
+						</ListBox>
 					</div>
+					<!-- Footer -->
+					<!-- <footer class="border-t border-surface-500/30 p-4">(footer)</footer> -->
 				</div>
-			</svelte:fragment>
-			<svelte:fragment slot="source">
-				<p>
-					Given the complexity of the chat interface, we'll cover each feature in detail below. Tap the "page source" button near the top of
-					the page to view how this was constructed.
-				</p>
-				<!-- <CodeBlock language="html" code={`(code snippet)`} /> -->
-			</svelte:fragment>
-		</DocsPreview>
+				<!-- Chat -->
+				<div class="grid grid-row-[1fr_auto]">
+					<!-- Conversation -->
+					<section bind:this={elemChat} class="max-h-[500px] p-4 overflow-y-auto space-y-4">
+						{#each messages as bubble, i}
+							{#if bubble.host === true}
+								<div class="grid grid-cols-[auto_1fr] gap-2">
+									<Avatar src="https://i.pravatar.cc/?img={bubble.avatar}" width="w-12" />
+									<div class="card p-4 variant-soft rounded-tl-none space-y-2">
+										<header class="flex justify-between items-center">
+											<p class="font-bold">{bubble.name}</p>
+											<small class="opacity-50">{bubble.timestamp}</small>
+										</header>
+										<p>{bubble.message}</p>
+									</div>
+								</div>
+							{:else}
+								<div class="grid grid-cols-[1fr_auto] gap-2">
+									<div class="card p-4 rounded-tr-none space-y-2 {bubble.color}">
+										<header class="flex justify-between items-center">
+											<p class="font-bold">{bubble.name}</p>
+											<small class="opacity-50">{bubble.timestamp}</small>
+										</header>
+										<p>{bubble.message}</p>
+										<footer class="flex items-center gap-2 -mb-4">
+											<button class="btn-icon btn-icon-sm variant-soft">+</button>
+											{#each bubble.emotes as emote, i}<span>{emote}</span>{/each}
+										</footer>
+									</div>
+									<Avatar src="https://i.pravatar.cc/?img={bubble.avatar}" width="w-12" />
+								</div>
+							{/if}
+						{/each}
+					</section>
+					<!-- Prompt -->
+					<section class="border-t border-surface-500/30 p-4">
+						<div class="input-group input-group-divider grid-cols-[auto_1fr_auto] rounded-container-token">
+							<button class="input-group-shim">+</button>
+							<textarea
+								bind:value={currentMessage}
+								class="bg-transparent border-0 ring-0"
+								name="prompt"
+								id="prompt"
+								placeholder="Write a message..."
+								rows="1"
+								on:keydown={onPromptKeydown}
+							/>
+							<button class={currentMessage ? 'variant-filled-primary' : 'input-group-shim'} on:click={addMessage}>
+								<i class="fa-solid fa-paper-plane" />
+							</button>
+						</div>
+					</section>
+				</div>
+			</div>
+		</section>
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
@@ -329,10 +320,7 @@
 		</section>
 		<section class="space-y-4">
 			<h2>Message Bubbles</h2>
-			<p>
-				By mixing our own custom message array, Svelte's <code>#each</code> iterator block, and Skeleton Avatar and Card features, we can create
-				our own responsive message bubbles.
-			</p>
+			<p>By mixing Skeleton features with Tailwind styling, we can iterate and create our message bubbles.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<!-- Conversation -->
@@ -412,7 +400,7 @@ let messages = [
 					<p>
 						Here's the host bubble template. Note our use of the Avatar component and Card element here. We also use <code class="code"
 							>rounded-tl-none</code
-						> to set the top-left corner to always be pointy.
+						> to ensure the top-left corner is always pointy.
 					</p>
 					<CodeBlock
 						language="html"
@@ -492,18 +480,18 @@ let messages = [
 		</section>
 		<section class="space-y-4">
 			<h2>Scroll to Bottom</h2>
-			<p>Use <code class="code">bind:this</code> to create an element binding for your scrollable chat element.</p>
+			<p>Use <code class="code">bind:this</code> to bind your scrollable chat element.</p>
 			<CodeBlock language="ts" code={`let elemChat: HTMLElement;`} />
 			<CodeBlock language="html" code={`<div bind:this={elemChat} class="overflow-y-auto">(chat)</div>`} />
 			<p>
-				You may then utilize the Javascript <a
+				use Javascript's <a
 					class="anchor"
 					href="https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollTo"
 					target="_blank"
 					rel="noreferrer">scrollTo</a
 				>
-				method to scroll to the bottom of the viewable area. Use
-				<code class="code">behavior: 'smooth'</code> to optionally enable smooth scrolling.
+				method to scroll the binded element to the bottom. Enable smooth scroll with
+				<code class="code">behavior: 'smooth'</code>.
 			</p>
 			<CodeBlock
 				language="ts"
@@ -516,7 +504,7 @@ function scrollChatBottom(behavior?: ScrollBehavior): void {
 		</section>
 		<section class="space-y-4">
 			<h2>Add a Message</h2>
-			<p>First, ensure you have a set of messsage data. We'll provide a static example below.</p>
+			<p>Ensure you have a set of messsage data. We'll provide an example below.</p>
 			<CodeBlock
 				language="ts"
 				code={`
@@ -568,7 +556,7 @@ function addMessage(): void {
 }
 					`}
 			/>
-			<p>Trigger this method using a button click or when ENTER is pressed on the textarea.</p>
+			<p>Trigger this method when the SEND button is clicked.</p>
 			<CodeBlock language="html" code={`<button ... on:click={addMessage}>Send</button>`} />
 		</section>
 	</svelte:fragment>
