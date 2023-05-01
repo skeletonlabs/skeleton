@@ -118,7 +118,7 @@
 		<section class="space-y-4">
 			<h2 class="h2">Applying Filters</h2>
 			<p>
-				See <a href="/actions/filters">Filters</a> to learn how to import and configure the filters action and SVG filter components.
+				See <a class="anchor" href="/actions/filters">Filters</a> to learn how to import and configure the filters action and SVG filter components.
 			</p>
 			<CodeBlock language="ts" code={`import { filter, ${actionParams.replace('#', '')} } from '@skeletonlabs/skeleton';`} />
 			<DocsPreview background="neutral" regionFooter="text-center">

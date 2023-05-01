@@ -31,7 +31,7 @@
 	};
 
 	// Local
-	let currentInput = fieldSettings.inputs[0];
+	let currentInput: any = fieldSettings.inputs[0];
 	let colorValue = '#bada55';
 
 	function mapInputAttributes(obj: any): any {
@@ -120,13 +120,15 @@
 			<h2 class="h2">Install the Forms Plugin</h2>
 			<!-- prettier-ignore -->
 			<p>
-				The Tailwind Forms plugin normalizes form field styles, making them easier to customize and providing some rudimentary styles. See <a href="https://www.youtube.com/watch?v=pONeWAzDsQg" target="_blank" rel="noreferrer">Tailwind's video tutorial</a> for more information.
+				The Tailwind Forms plugin normalizes form field styles, making them easier to customize and providing some rudimentary styles. See <a class="anchor" href="https://www.youtube.com/watch?v=pONeWAzDsQg" target="_blank" rel="noreferrer">Tailwind's video tutorial</a> for more information.
 			</p>
 			<!-- Written -->
 			<div class="flex-auto space-y-4">
 				<CodeBlock language="console" code={`npm install -D @tailwindcss/forms`} />
 				<p>
-					Prepend the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank" rel="noreferrer">Tailwind Forms plugin</a>
+					Prepend the <a class="anchor" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank" rel="noreferrer"
+						>Tailwind Forms plugin</a
+					>
 					to your
 					<code class="code">tailwind.config.cjs</code>
 				</p>
@@ -442,7 +444,7 @@ module.exports = {
 				<li>Groups support <em>most</em> input types and select elements, but not all.</li>
 				<!-- prettier-ignore -->
 				<li>
-					The column sizes are grid-based, via <a href="https://tailwindcss.com/docs/grid-template-columns#arbitrary-values" target="_blank" rel="noreferrer">Tailwind's arbitrary column syntax</a>.
+					The column sizes are grid-based, via <a class="anchor" href="https://tailwindcss.com/docs/grid-template-columns#arbitrary-values" target="_blank" rel="noreferrer">Tailwind's arbitrary column syntax</a>.
 				</li>
 				<li>
 					Descriptive segments (on either side) allow for <code class="code">div</code>, <code class="code">button</code>, and anchor (<code
@@ -516,7 +518,8 @@ module.exports = {
 		<section class="space-y-4">
 			<h2 class="h2">Variants</h2>
 			<p>
-				Skeleton includes a forms variant inspired by <a href="https://m3.material.io/" target="_blank" rel="noreferrer">Material Design.</a
+				Skeleton includes a forms variant inspired by <a class="anchor" href="https://m3.material.io/" target="_blank" rel="noreferrer"
+					>Material Design.</a
 				> Use this as a reference for building your own variant classes.
 			</p>
 			<DocsPreview background="neutral">

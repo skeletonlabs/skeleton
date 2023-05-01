@@ -13,7 +13,8 @@
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Component,
 		name: 'App Bar',
-		description: 'A header element for the top of your page layout. Pairs well with the <a href="/components/app-shell">App Shell</a>.',
+		description:
+			'A header element for the top of your page layout. Pairs well with the <a class="anchor" href="/components/app-shell">App Shell</a>.',
 		imports: ['AppBar'],
 		source: 'components/AppBar',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/',
@@ -105,8 +106,8 @@
 			<h2 class="h2">Using Grid Layout</h2>
 			<!-- prettier-ignore -->
 			<p>
-				The main row utilizes a grid-based layout. Utilize Tailwind's <a href="https://tailwindcss.com/docs/grid-column" target="_blank" rel="noreferrer">grid column</a> utility classes to control column width. Then use
-				<a href="https://tailwindcss.com/docs/place-content" target="_blank" rel="noreferrer">place settings</a> to adjust the placement of the slot contents.
+				The main row utilizes a grid-based layout. Utilize Tailwind's <a class="anchor" href="https://tailwindcss.com/docs/grid-column" target="_blank" rel="noreferrer">grid column</a> utility classes to control column width. Then use
+				<a class="anchor" href="https://tailwindcss.com/docs/place-content" target="_blank" rel="noreferrer">place settings</a> to adjust the placement of the slot contents.
 			</p>
 			<DocsPreview background="neutral" regionViewport="!text-current">
 				<svelte:fragment slot="preview">

@@ -14,7 +14,7 @@
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Utility,
 		name: 'Lightswitch',
-		description: `Components and utilities to toggle <a href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="noreferrer">Tailwind's dark mode</a>.`,
+		description: `Components and utilities to toggle <a class="anchor" href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="noreferrer">Tailwind's dark mode</a>.`,
 		imports: ['LightSwitch'],
 		source: 'utilities/LightSwitch',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/switch/',
@@ -191,7 +191,7 @@
 						<h2 class="h2">Reference</h2>
 						<aside class="alert alert-message variant-ghost">
 							<!-- prettier-ignore -->
-							<p>View the Skeleton <a href="https://github.com/skeletonlabs/skeleton/tree/master/src/lib/utilities/LightSwitch" target="_blank" rel="noreferrer">Lightswitch component source code</a> for a detailed reference. </p>
+							<p>View the Skeleton <a class="anchor" href="https://github.com/skeletonlabs/skeleton/tree/master/src/lib/utilities/LightSwitch" target="_blank" rel="noreferrer">Lightswitch component source code</a> for a detailed reference. </p>
 						</aside>
 					{/if}
 				</svelte:fragment>

@@ -119,7 +119,7 @@ const storeValue: Writable<number> = writable(0);
 			<!-- prettier-ignore -->
 			<p>
 				To set an active state for an anchor link, compare the tile <em>href</em> URL to the active page URL using
-				<a href="https://kit.svelte.dev/docs/modules#$app-stores-page" target="_blank" rel="noreferrer">$page.url.pathname</a>. Then set a background color or other visual indicator via the Svelte class syntax.
+				<a class="anchor" href="https://kit.svelte.dev/docs/modules#$app-stores-page" target="_blank" rel="noreferrer">$page.url.pathname</a>. Then set a background color or other visual indicator via the Svelte class syntax.
 			</p>
 			<CodeBlock language="ts" code={`import { page } from '$app/stores';`} />
 			<CodeBlock

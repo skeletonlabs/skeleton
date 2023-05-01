@@ -152,7 +152,7 @@
 			<h2 class="h2">Navigation List</h2>
 			<!-- prettier-ignore -->
 			<p>
-				While verbose, we do recommend you use all tags shown below to meet recommended <a href="https://www.w3.org/WAI/tutorials/menus/structure/" target="_blank" rel="noreferrer">accessibility guidelines</a>.
+				While verbose, we do recommend you use all tags shown below to meet recommended <a class="anchor" href="https://www.w3.org/WAI/tutorials/menus/structure/" target="_blank" rel="noreferrer">accessibility guidelines</a>.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">

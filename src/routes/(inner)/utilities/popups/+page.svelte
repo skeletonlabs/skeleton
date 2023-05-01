@@ -18,7 +18,7 @@
 		feature: DocsFeature.Utility,
 		name: 'Popups',
 		description:
-			'Create floating menus and tooltips using <a href="https://floating-ui.com/" target="_blank" rel="noreferrer">Floating UI</a>.',
+			'Create floating menus and tooltips using <a class="anchor" href="https://floating-ui.com/" target="_blank" rel="noreferrer">Floating UI</a>.',
 		imports: ['popup'],
 		types: ['PopupSettings'],
 		stylesheetIncludes: ['all', 'elements'],
@@ -126,7 +126,7 @@
 			</svelte:fragment>
 			<svelte:fragment slot="source">
 				<!-- prettier-ignore -->
-				<p>Create a <code class="code">PopupSettings</code> object that maps to <a href="https://floating-ui.com/" target="_blank" rel="noreferrer">Floating UI</a> settings.</p>
+				<p>Create a <code class="code">PopupSettings</code> object that maps to <a class="anchor" href="https://floating-ui.com/" target="_blank" rel="noreferrer">Floating UI</a> settings.</p>
 				<CodeBlock
 					language="ts"
 					code={`
@@ -165,7 +165,10 @@ const popupSettings: PopupSettings = {
 		<!-- Getting Started -->
 		<section class="space-y-4">
 			<h2 class="h2">Getting Started</h2>
-			<p>Install <a href="https://floating-ui.com/" target="_blank" rel="noreferrer">Floating UI</a> from NPM. <u>This is required.</u></p>
+			<p>
+				Install <a class="anchor" href="https://floating-ui.com/" target="_blank" rel="noreferrer">Floating UI</a> from NPM.
+				<u>This is required.</u>
+			</p>
 			<CodeBlock language="console" code={`npm install @floating-ui/dom`} />
 			<p>Import Floating UI into your application's root layout <code class="code">/src/routes/+layout.svelte</code>.</p>
 			<CodeBlock language="ts" code={`import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';`} />
@@ -188,7 +191,7 @@ const popupSettings: PopupSettings = {
 						<!-- Placement -->
 						<!-- prettier-ignore -->
 						<p>
-						Reference the available <a href="https://floating-ui.com/docs/computePosition#placement" target="_blank" rel="noreferrer">placement</a> options. This setting defaults to <code class="code">bottom</code>.
+						Reference the available <a class="anchor" href="https://floating-ui.com/docs/computePosition#placement" target="_blank" rel="noreferrer">placement</a> options. This setting defaults to <code class="code">bottom</code>.
 					</p>
 						<CodeBlock
 							language="ts"
@@ -246,7 +249,7 @@ state: (e) => console.log(e)
 						<!-- Middleware -->
 						<!-- prettier-ignore -->
 						<p>
-					You can provide <a href="https://floating-ui.com/docs/middleware" target="_blank" rel="noreferrer">Floating UI middleware</a> settings within <code class="code">PopupSettings</code>. These settings are passed verbatim.
+					You can provide <a class="anchor" href="https://floating-ui.com/docs/middleware" target="_blank" rel="noreferrer">Floating UI middleware</a> settings within <code class="code">PopupSettings</code>. These settings are passed verbatim.
 				</p>
 						<CodeBlock
 							language="ts"
@@ -406,7 +409,7 @@ const popupCombobox: PopupSettings = {
 			<h2 class="h2">Z-Index</h2>
 			<p>
 				Neither Skeleton nor Floating-UI will provide a Z-Index out of the box for the reasons layed out in the
-				<a href="https://floating-ui.com/docs/misc#z-index-stacking">Floating-UI docs</a>.
+				<a class="anchor" href="https://floating-ui.com/docs/misc#z-index-stacking">Floating-UI docs</a>.
 			</p>
 		</section>
 		<!-- Browser Support -->

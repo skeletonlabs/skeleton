@@ -41,7 +41,7 @@
 		<h2 class="h2">Designed for Svelte and SvelteKit.</h2>
 		<!-- prettier-ignore -->
 		<p>
-			Skeleton integrates directly with <a href="https://svelte.dev/" target="_blank" rel="noreferrer">Svelte</a> and <a href="https://kit.svelte.dev/" target="_blank" rel="noreferrer">SvelteKit's</a> best features, including components, stores, actions, and more. Offering
+			Skeleton integrates directly with <a class="anchor" href="https://svelte.dev/" target="_blank" rel="noreferrer">Svelte</a> and <a class="anchor" href="https://kit.svelte.dev/" target="_blank" rel="noreferrer">SvelteKit's</a> best features, including components, stores, actions, and more. Offering
 			interactive components, image filters, and much more.
 		</p>
 		<!-- Options -->
@@ -118,7 +118,7 @@
 							<svelte:fragment slot="summary"><p class="font-bold">Source</p></svelte:fragment>
 							<svelte:fragment slot="content">
 								<!-- prettier-ignore -->
-								<p><a href="https://www.oprahdaily.com/life/a37259063/day-of-the-dead-facts-history/" target="_blank" rel="noreferrer">https://www.oprahdaily.com/life/a37259063/day-of-the-dead-facts-history/</a></p>
+								<p><a class="anchor" href="https://www.oprahdaily.com/life/a37259063/day-of-the-dead-facts-history/" target="_blank" rel="noreferrer">https://www.oprahdaily.com/life/a37259063/day-of-the-dead-facts-history/</a></p>
 							</svelte:fragment>
 						</AccordionItem>
 					</Accordion>

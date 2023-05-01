@@ -23,8 +23,8 @@
 		<div class="space-y-4">
 			<h2 class="h2">Body Background</h2>
 			<p>
-				Your app's background is automatically set via a <a href="/docs/tokens">design token</a> class. Adjust your theme's color scheme to customize.
-				This affects both light and dark mode.
+				Your app's background is automatically set via a <a class="anchor" href="/docs/tokens">design token</a> class. Adjust your theme's color
+				scheme to customize. This affects both light and dark mode.
 			</p>
 			<CodeBlock language="css" code={`body { @apply bg-surface-50-900-token; }`} />
 		</div>
@@ -113,7 +113,7 @@
 					<svelte:fragment slot="footer">
 						<!-- prettier-ignore -->
 						<div class="text-center">
-						Use Tailwind's <a href="https://tailwindcss.com/docs/border-width" target="_blank" rel="noreferrer">Border Width Top</a> and <a href="https://tailwindcss.com/docs/divide-style" target="_blank" rel="noreferrer">Border Styles</a> to customize each divider.
+						Use Tailwind's <a class="anchor" href="https://tailwindcss.com/docs/border-width" target="_blank" rel="noreferrer">Border Width Top</a> and <a class="anchor" href="https://tailwindcss.com/docs/divide-style" target="_blank" rel="noreferrer">Border Styles</a> to customize each divider.
 					</div>
 					</svelte:fragment>
 					<svelte:fragment slot="source">
@@ -153,7 +153,7 @@
 				<p>
 					Divide columns with the <code class="code">.divider-vertical</code> class. You can apply it with a <code class="code">span</code>
 					tag. Adjust the
-					<a href="https://tailwindcss.com/docs/height" target="_blank" rel="noreferrer">height</a> as desired.
+					<a class="anchor" href="https://tailwindcss.com/docs/height" target="_blank" rel="noreferrer">height</a> as desired.
 				</p>
 				<DocsPreview background="neutral">
 					<svelte:fragment slot="preview">

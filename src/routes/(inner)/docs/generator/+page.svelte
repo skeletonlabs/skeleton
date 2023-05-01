@@ -49,11 +49,12 @@ import '../app.postcss';
 		<h2 class="h2">Advanced Color Curation</h2>
 		<p>
 			Looking for deeper customization? We recommend using <a
+				class="anchor"
 				href="https://tailwind.simeongriggs.dev/blue/3B82F6"
 				target="_blank"
 				rel="noreferrer">Palette Generator</a
 			>. This includes support for hue, saturation, and lightness adjustments. Pair this with the
-			<a href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba" target="_blank" rel="noreferrer"
+			<a class="anchor" href="https://marketplace.visualstudio.com/items?itemName=dakshmiglani.hex-to-rgba" target="_blank" rel="noreferrer"
 				>Hex-To-RGB extension</a
 			>
 			to convert each Hex color value to RGB in bulk with VS Code.

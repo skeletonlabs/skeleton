@@ -12,7 +12,7 @@
 		<h1 class="h1">Introduction</h1>
 		<!-- prettier-ignore -->
 		<p>
-			A powerful UI toolkit built using <a href="https://svelte.dev/" target="_blank" rel="noreferrer">Svelte</a> and <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind CSS</a>. Create adaptive, accessible design systems for your web apps.
+			A powerful UI toolkit built using <a class="anchor" href="https://svelte.dev/" target="_blank" rel="noreferrer">Svelte</a> and <a class="anchor" href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind CSS</a>. Create adaptive, accessible design systems for your web apps.
 		</p>
 	</header>
 
@@ -61,16 +61,17 @@
 		<!-- FOSS -->
 		<h3 class="h3">Free and Open Source</h3>
 		<p>
-			Skeleton is available as <a href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer"
+			Skeleton is available as <a class="anchor" href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer"
 				>free and open-source software (FOSS)</a
 			>
 			provided under the
-			<a href="https://github.com/skeletonlabs/skeleton/blob/master/LICENSE" target="_blank" rel="noreferrer">MIT License</a>.
+			<a class="anchor" href="https://github.com/skeletonlabs/skeleton/blob/master/LICENSE" target="_blank" rel="noreferrer">MIT License</a
+			>.
 		</p>
 		<!-- Community Owned -->
 		<h3 class="h3">Community Owned</h3>
 		<!-- prettier-ignore -->
-		<p>Skeleton is maintained by a number of talented <a href="https://github.com/skeletonlabs/skeleton/graphs/contributors" target="_blank" rel="noreferrer">contributors</a>. If you wish to <a href="/docs/contributing">contribute to the project</a>, you are welcome to do so. Visit the Skeleton communities on either <a href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer">GitHub</a> or <a href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer">Discord</a>.</p>
+		<p>Skeleton is maintained by a number of talented <a class="anchor" href="https://github.com/skeletonlabs/skeleton/graphs/contributors" target="_blank" rel="noreferrer">contributors</a>. If you wish to <a class="anchor" href="/docs/contributing">contribute to the project</a>, you are welcome to do so. Visit the Skeleton communities on either <a class="anchor" href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer">GitHub</a> or <a class="anchor" href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer">Discord</a>.</p>
 		<!-- Theme System -->
 		<h3 class="h3">Theme System</h3>
 		<p>
@@ -105,7 +106,7 @@
 			<AccordionItem open>
 				<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Tailwind UI</h3></svelte:fragment>
 				<svelte:fragment slot="content">
-					<a href="https://tailwindui.com/" target="_blank" rel="noreferrer">https://tailwindui.com/</a>
+					<a class="anchor" href="https://tailwindui.com/" target="_blank" rel="noreferrer">https://tailwindui.com/</a>
 					<p>
 						A library of UI elements designed by the creators of Tailwind CSS. This provides a huge library of turnkey HTML/CSS components.
 						Currently Tailwind UI supports three options: HTML, React, and Vue. This means there's no plug and play solution for Svelte. You
@@ -118,12 +119,15 @@
 			<AccordionItem>
 				<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Flowbite</h3></svelte:fragment>
 				<svelte:fragment slot="content">
-					<a href="https://flowbite.com/" target="_blank" rel="noreferrer">https://flowbite.com/</a>
+					<a class="anchor" href="https://flowbite.com/" target="_blank" rel="noreferrer">https://flowbite.com/</a>
 					<p>
 						Flowbite provides a set of turnkey HTML/CSS components built with Tailwind’s utility class system. Flowbite provides a unique
 						and opinionated design aesthetic and serves as a general purpose library, which means it can be used within any framework, while
-						providing framework-specific variations like <a href="https://flowbite-svelte.com/" target="_blank" rel="noreferrer"
-							>Flowbite Svelte</a
+						providing framework-specific variations like <a
+							class="anchor"
+							href="https://flowbite-svelte.com/"
+							target="_blank"
+							rel="noreferrer">Flowbite Svelte</a
 						>. Flowbite's HTML/CSS elements can be directly integrated with Skeleton, providing tight integration with Skeleton's theme and
 						design token systems.
 					</p>
@@ -133,11 +137,14 @@
 			<AccordionItem>
 				<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Daisy UI</h3></svelte:fragment>
 				<svelte:fragment slot="content">
-					<a href="https://daisyui.com/" target="_blank" rel="noreferrer">https://daisyui.com/</a>
+					<a class="anchor" href="https://daisyui.com/" target="_blank" rel="noreferrer">https://daisyui.com/</a>
 					<p>
 						Like Skeleton, Daisy uses Tailwind CSS and highly customizable theme systems. Unfortunately, Daisy themes rely on hex color
-						values which <a href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank" rel="noreferrer"
-							>prevents the use of the opacity modifier syntax</a
+						values which <a
+							class="anchor"
+							href="https://tailwindcss.com/docs/customizing-colors#using-css-variables"
+							target="_blank"
+							rel="noreferrer">prevents the use of the opacity modifier syntax</a
 						>. Skeleton, on the other hand, treats utility classes as first class citizens, providing hooks to set and override Tailwind
 						classes within each component. Skeleton components also accept arbitrary classes, allowing full customization from top to
 						bottom. However, it’s worth noting that Daisy is a general purpose library available to any framework, while Skeleton focuses
@@ -159,6 +166,7 @@
 					<p>
 						No, Skeleton does not require Typescript, though we highly recommend it. Please be aware all documentation examples are written
 						with Typescript by default. If you wish to learn Typescript we recommend <a
+							class="anchor"
 							href="https://www.totaltypescript.com/tutorials"
 							target="_blank"
 							rel="noreferrer">Total Typescript</a
@@ -170,8 +178,9 @@
 				<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>What package managers are supported?</h3></svelte:fragment>
 				<svelte:fragment slot="content">
 					<p>
-						We support <a href="https://docs.npmjs.com/about-npm" target="_blank" rel="noreferrer">NPM (Node Package Manager)</a>. PNPM and
-						Yarn are currently only supported for the Skeleton CLI.
+						We support <a class="anchor" href="https://docs.npmjs.com/about-npm" target="_blank" rel="noreferrer"
+							>NPM (Node Package Manager)</a
+						>. PNPM and Yarn are currently only supported for the Skeleton CLI.
 					</p>
 				</svelte:fragment>
 			</AccordionItem>
@@ -188,8 +197,9 @@
 				<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Do you have a project roadmap?</h3></svelte:fragment>
 				<svelte:fragment slot="content">
 					<p>
-						Yes, <a href="https://github.com/skeletonlabs/skeleton/discussions/503" target="_blank" rel="noreferrer">view our roadmap</a>.
-						This covers major milestones leading up to the v1.0 release.
+						Yes, <a class="anchor" href="https://github.com/skeletonlabs/skeleton/discussions/503" target="_blank" rel="noreferrer"
+							>view our roadmap</a
+						>. This covers major milestones leading up to the v1.0 release.
 					</p>
 				</svelte:fragment>
 			</AccordionItem>
@@ -197,7 +207,7 @@
 				<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>How can I contribute?</h3></svelte:fragment>
 				<svelte:fragment slot="content">
 					<p>
-						See the <a href="/docs/contributing">contribution guide</a>. This covers all requirements for getting started.
+						See the <a class="anchor" href="/docs/contributing">contribution guide</a>. This covers all requirements for getting started.
 					</p>
 				</svelte:fragment>
 			</AccordionItem>
@@ -205,10 +215,11 @@
 				<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Where can I learn Svelte and SvelteKit?</h3></svelte:fragment>
 				<svelte:fragment slot="content">
 					<p>
-						We recommend the official <a href="https://svelte.dev/docs" target="_blank" rel="noreferrer">documentation</a> and
-						<a href="https://learn.svelte.dev/tutorial/welcome-to-svelte" target="_blank" rel="noreferrer">tutorial</a> for Svelte and
-						SvelteKit. As well as the official
-						<a href="https://kit.svelte.dev/" target="_blank" rel="noreferrer">documentation</a> for SvelteKit.
+						We recommend the official <a class="anchor" href="https://svelte.dev/docs" target="_blank" rel="noreferrer">documentation</a>
+						and
+						<a class="anchor" href="https://learn.svelte.dev/tutorial/welcome-to-svelte" target="_blank" rel="noreferrer">tutorial</a> for
+						Svelte and SvelteKit. As well as the official
+						<a class="anchor" href="https://kit.svelte.dev/" target="_blank" rel="noreferrer">documentation</a> for SvelteKit.
 					</p>
 				</svelte:fragment>
 			</AccordionItem>
@@ -216,10 +227,11 @@
 				<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Where can I learn Tailwind?</h3></svelte:fragment>
 				<svelte:fragment slot="content">
 					<p>
-						We recommend the official <a href="https://tailwindcss.com/docs/utility-first" target="_blank" rel="noreferrer">documentation</a
+						We recommend the official <a class="anchor" href="https://tailwindcss.com/docs/utility-first" target="_blank" rel="noreferrer"
+							>documentation</a
 						>
 						and
-						<a href="https://www.youtube.com/c/TailwindLabs/videos" target="_blank" rel="noreferrer">YouTube channel</a>.
+						<a class="anchor" href="https://www.youtube.com/c/TailwindLabs/videos" target="_blank" rel="noreferrer">YouTube channel</a>.
 					</p>
 				</svelte:fragment>
 			</AccordionItem>

@@ -14,7 +14,7 @@
 		<h1 class="h1">Styling</h1>
 		<!-- prettier-ignore -->
 		<p>
-			This covers basic techniques for styling Skeleton components. View our <a href="/blog/deep-dive-skeleton-styling" target="_blank">comprehensive guide</a> to learn more.
+			This covers basic techniques for styling Skeleton components. View our <a class="anchor" href="/blog/deep-dive-skeleton-styling" target="_blank">comprehensive guide</a> to learn more.
 		</p>
 	</header>
 
@@ -51,6 +51,7 @@
 		<h2 class="h2">Tailwind's Arbitrary Variants</h2>
 		<p>
 			If you need to target deeper than the parent element, we recommend using <a
+				class="anchor"
 				href="https://tailwindcss.com/blog/tailwindcss-v3-1#arbitrary-values-but-for-variants"
 				target="_blank"
 				rel="noreferrer">Tailwind's arbitrary variant syntax</a
@@ -66,15 +67,15 @@
 		<h2 class="h2">Global Styles Overrides</h2>
 		<p>
 			Skeleton components include selector classes, such as <code class="code">.avatar-image</code> within the
-			<a href="/components/avatars">Avatar component</a>. Please note that selector classes are always the first listed.
+			<a class="anchor" href="/components/avatars">Avatar component</a>. Please note that selector classes are always the first listed.
 		</p>
 		<CodeBlock language="html" code={`<img class="avatar-image ...">...</img>`} />
 		<p>Use these selector classes to target global style overrides to all instances of this feature in your global stylesheet.</p>
 		<CodeBlock language="css" code={`.avatar-image { @apply border-2 border-red-500; }`} />
 		<blockquote class="blockquote">
 			In some cases you may need to use <code class="code">!</code>
-			<a href="https://tailwindcss.com/docs/configuration#important-modifier" target="_blank" rel="noreferrer">important</a> or style light and
-			dark mode variants to give precedence.
+			<a class="anchor" href="https://tailwindcss.com/docs/configuration#important-modifier" target="_blank" rel="noreferrer">important</a> or
+			style light and dark mode variants to give precedence.
 		</blockquote>
 	</section>
 </LayoutPage>

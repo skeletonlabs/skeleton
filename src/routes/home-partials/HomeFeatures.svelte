@@ -12,7 +12,7 @@
 		},
 		{
 			title: 'Extensible',
-			body: `Bring elements from other UI libraries such as <a href="/blog/skeleton-plus-flowbite">Flowbite</a> or <a href="/blog/skeleton-plus-tailwind-ui">Tailwind UI</a> to expand your toolkit arsenal even further.`,
+			body: `Bring elements from other UI libraries such as <a class="anchor" href="/blog/skeleton-plus-flowbite">Flowbite</a> or <a class="anchor" href="/blog/skeleton-plus-tailwind-ui">Tailwind UI</a> to expand your toolkit arsenal even further.`,
 			icon: 'fa-square-arrow-up-right'
 		},
 		{

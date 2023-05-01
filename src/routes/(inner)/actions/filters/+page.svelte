@@ -138,8 +138,9 @@ only utilize theme on this doc page.
 				<svelte:fragment slot="panel">
 					{#if method === 0}
 						<p>
-							Use the following <a href="https://svelte.dev/tutorial/actions" target="_blank" rel="noreferrer">Svelte action</a> to filter any
-							element. Pass the filter name as the only parameter.
+							Use the following <a class="anchor" href="https://svelte.dev/tutorial/actions" target="_blank" rel="noreferrer"
+								>Svelte action</a
+							> to filter any element. Pass the filter name as the only parameter.
 						</p>
 						<CodeBlock language="ts" code={`import { filter } from '@skeletonlabs/skeleton';`} />
 						<CodeBlock language="html" code={`<img src={myImageSrc} use:filter={'#BlueNight'}>`} />
@@ -155,7 +156,7 @@ only utilize theme on this doc page.
 			<h2 class="h2">How It Works</h2>
 			<!-- prettier-ignore -->
 			<p>
-				This feature is enabled by the use of native browser <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter" target="_blank" rel="noreferrer">SVG filters</a> via <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feColorMatrix" target="_blank" rel="noreferrer">feColorMatrix</a> transformations.
+				This feature is enabled by the use of native browser <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter" target="_blank" rel="noreferrer">SVG filters</a> via <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feColorMatrix" target="_blank" rel="noreferrer">feColorMatrix</a> transformations.
 			</p>
 		</section>
 		<section class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0 md:space-x-4">
@@ -163,7 +164,7 @@ only utilize theme on this doc page.
 				<h2 class="h2">Create a Custom Filter</h2>
 				<!-- prettier-ignore -->
 				<p>
-					Use this tool by <a href="https://twitter.com/rikschennink/" target="_blank" rel="noreferrer">Rik Schennink</a> to easily generate your own custom filters.
+					Use this tool by <a class="anchor" href="https://twitter.com/rikschennink/" target="_blank" rel="noreferrer">Rik Schennink</a> to easily generate your own custom filters.
 				</p>
 			</div>
 			<a class="btn variant-filled-secondary" href="https://fecolormatrix.com/" target="_blank" rel="noreferrer">
@@ -175,9 +176,9 @@ only utilize theme on this doc page.
 		<section class="space-y-4">
 			<h2 class="h2">Browser Support</h2>
 			<p>
-				Please be aware that <a href="https://caniuse.com/css-filters" target="_blank" rel="noreferrer">browser support</a> varies for this feature.
-				Some filters are not functional in Safari, while Firefox is not supported at all. For non-supported browsers the filter will not be present
-				but the image will still display, which allows for progressive enhancement.
+				Please be aware that <a class="anchor" href="https://caniuse.com/css-filters" target="_blank" rel="noreferrer">browser support</a> varies
+				for this feature. Some filters are not functional in Safari, while Firefox is not supported at all. For non-supported browsers the filter
+				will not be present but the image will still display, which allows for progressive enhancement.
 			</p>
 			<div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
 				<div class="card p-2 !bg-green-500 text-black">

@@ -27,8 +27,10 @@ npm run dev
 			`}
 		/>
 		<p>
-			By selecting the "Welcome" template the project will come preconfigured with both an <a href="/components/app-shell">App Shell</a>
-			and <a href="/components/app-bar">App Bar</a> components in <code class="code">/src/routes/+layout.svelte</code>.
+			By selecting the "Welcome" template the project will come preconfigured with both an <a class="anchor" href="/components/app-shell"
+				>App Shell</a
+			>
+			and <a class="anchor" href="/components/app-bar">App Bar</a> components in <code class="code">/src/routes/+layout.svelte</code>.
 		</p>
 	</section>
 
@@ -40,8 +42,8 @@ npm run dev
 		</p>
 		<CodeBlock language="html" code={`<AppShell slotSidebarLeft="bg-surface-500/5 w-56 p-4">`} />
 		<p>
-			Next, let's implement a <a href="/elements/lists">navigation list</a> within the App Shell's left sidebar slot. Append this slot
-			fragment alongside any other fragment within the <code class="code">AppShell</code>.
+			Next, let's implement a <a class="anchor" href="/elements/lists">navigation list</a> within the App Shell's left sidebar slot. Append
+			this slot fragment alongside any other fragment within the <code class="code">AppShell</code>.
 		</p>
 		<CodeBlock
 			language="html"
@@ -88,8 +90,8 @@ npm run dev
 	<section class="space-y-4">
 		<h2 class="h2">Add a Component</h2>
 		<p>
-			Finally let's implement Skeleton's <a href="/components/avatars">Avatar</a> component. First, import the component, then add it
-			anywhere within your page, we recommend within the <code class="code">.container</code> element.
+			Finally let's implement Skeleton's <a class="anchor" href="/components/avatars">Avatar</a> component. First, import the component,
+			then add it anywhere within your page, we recommend within the <code class="code">.container</code> element.
 		</p>
 		<CodeBlock
 			language="html"

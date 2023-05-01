@@ -6,7 +6,7 @@
 <LayoutPage>
 	<!-- Breadcrumbs -->
 	<ol class="breadcrumb">
-		<li class="crumb"><a href="/docs/contributing">Contributing</a></li>
+		<li class="crumb"><a class="anchor" href="/docs/contributing">Contributing</a></li>
 		<li class="crumb-separator" aria-hidden>&rsaquo;</li>
 		<li>Documentation</li>
 	</ol>
@@ -16,7 +16,7 @@
 		<h1 class="h1">Documentation</h1>
 		<!-- prettier-ignore -->
 		<p>
-			Below is an introduction to automated documentation using <a href="https://github.com/carbon-design-system/sveld" target="_blank" rel="noreferrer">Sveld</a> within Skeleton. This covers the process of documenting each type of feature, then utilizing this data within the documentation pages.
+			Below is an introduction to automated documentation using <a class="anchor" href="https://github.com/carbon-design-system/sveld" target="_blank" rel="noreferrer">Sveld</a> within Skeleton. This covers the process of documenting each type of feature, then utilizing this data within the documentation pages.
 		</p>
 		<a class="btn variant-filled" href="https://github.com/carbon-design-system/sveld" target="_blank" rel="noreferrer"
 			>View the Sveld Documentation</a
@@ -27,9 +27,9 @@
 
 	<!-- Intro -->
 	<p class="!text-xl">
-		Sveld makes use of <a href="https://tsdoc.org" target="_blank" rel="noreferrer">TSDoc tags</a> (a superset of JSDocs) to generate
-		component documentation from the component code itself. This comes with the benefit of providing additional
-		<a href="https://code.visualstudio.com/docs/editor/intellisense" target="_blank" rel="noreferrer">Intellisense</a>
+		Sveld makes use of <a class="anchor" href="https://tsdoc.org" target="_blank" rel="noreferrer">TSDoc tags</a> (a superset of JSDocs) to
+		generate component documentation from the component code itself. This comes with the benefit of providing additional
+		<a class="anchor" href="https://code.visualstudio.com/docs/editor/intellisense" target="_blank" rel="noreferrer">Intellisense</a>
 		features to aid developers implementing Skeleton components in tools like VS Code. Tap <kbd class="kbd">Ctrl/⌘ + i</kbd> within a component
 		declaration to view IntelliSense recommendations.
 	</p>
@@ -190,21 +190,21 @@ dispatch('dragover', event);`}
 		</section>
 		<p>Below are existing documentation pages we recommend you reference:</p>
 		<ul class="list-disc list-outside ml-8 space-y-1">
-			<li><a href="/elements/buttons">Buttons</a> showcases how to document Tailwind Element classes.</li>
-			<li><a href="/components/accordions">Accordion</a> makes use of most Component settings utilizing Sveld.</li>
-			<li><a href="/components/paginators">Paginator</a> uses Dispatched Event documentation.</li>
+			<li><a class="anchor" href="/elements/buttons">Buttons</a> showcases how to document Tailwind Element classes.</li>
+			<li><a class="anchor" href="/components/accordions">Accordion</a> makes use of most Component settings utilizing Sveld.</li>
+			<li><a class="anchor" href="/components/paginators">Paginator</a> uses Dispatched Event documentation.</li>
 		</ul>
 		<!-- Examples -->
 		<h3 class="h3">Examples</h3>
 		<p>When showcasing examples of new features we typically handle this by one of two methods:</p>
 		<ul class="list-disc list-outside ml-8 space-y-1">
 			<li>
-				<strong>Sandbox</strong> (e.g. <a href="/components/app-shell">App Shell</a>) - which provide a dynamic and interactive example that
-				can be adjusted live.
+				<strong>Sandbox</strong> (e.g. <a class="anchor" href="/components/app-shell">App Shell</a>) - which provide a dynamic and
+				interactive example that can be adjusted live.
 			</li>
 			<li>
-				<strong>Static</strong> (e.g. <a href="/components/app-bar">App Bar</a>) - with multiple static examples displaying various
-				configurations.
+				<strong>Static</strong> (e.g. <a class="anchor" href="/components/app-bar">App Bar</a>) - with multiple static examples displaying
+				various configurations.
 			</li>
 		</ul>
 		<p>Dynamic examples are preferred, but remember the overall goal is to showcase how the feature operates.</p>

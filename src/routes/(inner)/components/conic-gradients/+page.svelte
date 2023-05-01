@@ -114,8 +114,11 @@ const conicStops: ConicStop[] = [
 					{:else if tabColors === 2}
 						<!-- Custom Colors -->
 						<p>
-							You can provide <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value" target="_blank" rel="noreferrer"
-								>standard CSS color values</a
+							You can provide <a
+								class="anchor"
+								href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value"
+								target="_blank"
+								rel="noreferrer">standard CSS color values</a
 							> as a string, including: color names, hex, rgba, HSL, or similar.
 						</p>
 						<CodeBlock
@@ -132,7 +135,7 @@ const conicStops: ConicStop[] = [
 				</svelte:fragment>
 			</TabGroup>
 			<!-- prettier-ignore -->
-			<p>This data can be reactive, but be sure to adhere to standard Svelte requirements when <a href="https://svelte.dev/tutorial/updating-arrays-and-objects" target="_blank" rel="noreferrer">updating arrays</a>.</p>
+			<p>This data can be reactive, but be sure to adhere to standard Svelte requirements when <a class="anchor" href="https://svelte.dev/tutorial/updating-arrays-and-objects" target="_blank" rel="noreferrer">updating arrays</a>.</p>
 		</div>
 		<!-- Legend -->
 		<div class="space-y-4">
@@ -188,7 +191,8 @@ const conicStops: ConicStop[] = [
 		<div class="space-y-4">
 			<h2 class="h2">Rotate Axis</h2>
 			<p>
-				Use the <a href="https://tailwindcss.com/docs/rotate" target="_blank" rel="noreferrer">Tailwind rotate</a> utility classes with the
+				Use the <a class="anchor" href="https://tailwindcss.com/docs/rotate" target="_blank" rel="noreferrer">Tailwind rotate</a> utility
+				classes with the
 				<code class="code">regionCone</code> property to change the starting axis position.
 			</p>
 			<CodeBlock language="html" code={`<ConicGradient ... regionCone="rotate-90" />`} />

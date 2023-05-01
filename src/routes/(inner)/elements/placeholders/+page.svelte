@@ -71,7 +71,7 @@
 			<h2 class="h2">Layout</h2>
 			<!-- prettier-ignore -->
 			<p>
-				Use the <a href="https://tailwindcss.com/docs/grid-template-columns" target="_blank" rel="noreferrer">Tailwind column and gap classes</a> to adjust column amount and gap spacing.
+				Use the <a class="anchor" href="https://tailwindcss.com/docs/grid-template-columns" target="_blank" rel="noreferrer">Tailwind column and gap classes</a> to adjust column amount and gap spacing.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">

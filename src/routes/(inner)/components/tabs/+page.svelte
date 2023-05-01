@@ -116,8 +116,8 @@
 		<section class="space-y-4">
 			<h2 class="h2">Navigation</h2>
 			<p>
-				Tabs make a good choice for custom navigation bars alongside an <a href="/components/app-shell">App Shell</a> or within a page, and has
-				flexible styling.
+				Tabs make a good choice for custom navigation bars alongside an <a class="anchor" href="/components/app-shell">App Shell</a> or within
+				a page, and has flexible styling.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -174,7 +174,7 @@
 					>$</code
 				>
 				sign within the <code class="code">bind:group</code> property. Pair this with Skeleton's
-				<a href="/utilities/local-storage-stores">Local Storage Store</a> for automatic persistence.
+				<a class="anchor" href="/utilities/local-storage-stores">Local Storage Store</a> for automatic persistence.
 			</p>
 			<CodeBlock
 				language="ts"

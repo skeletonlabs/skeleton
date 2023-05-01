@@ -85,7 +85,7 @@ let page = {
 			<!-- prettier-ignore -->
 			<p>
 				Once your paginator component is setup you'll need to subdivide your local source content. This can be accomplished using Svelte's
-				reactive properties paired with the JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice" target="_blank" rel="noreferrer">slice</a> method.
+				reactive properties paired with the JavaScript <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice" target="_blank" rel="noreferrer">slice</a> method.
 			</p>
 			<CodeBlock
 				language="ts"

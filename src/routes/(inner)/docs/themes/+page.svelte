@@ -51,8 +51,8 @@
 	<section class="space-y-4">
 		<h2 class="h2">Backgrounds</h2>
 		<p>
-			Your app's background is automatically set via a <a href="https://www.skeleton.dev/docs/tokens">design token</a> class. Adjust your theme's
-			color scheme to customize. This affects both light and dark mode.
+			Your app's background is automatically set via a <a class="anchor" href="https://www.skeleton.dev/docs/tokens">design token</a> class.
+			Adjust your theme's color scheme to customize. This affects both light and dark mode.
 		</p>
 		<CodeBlock language="css" code={`body { @apply bg-surface-50-900-token; }`} />
 		<div class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4 items-center">
@@ -86,7 +86,7 @@ body {
 		<h2 class="h2">CSS Properties</h2>
 		<!-- prettier-ignore -->
 		<p>
-			If you open any existing theme, you can see they are made up of a number of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*" target="_blank" rel="noreferrer">CSS Custom Properties</a> (aka CSS Variables). Similar to Javascript variables these can be modified and overwritten as desired. For example, if you add the following snippet to your global stylesheet in <code class="code">/src/app.postcss</code>, you can overwrite the <em>base</em> and <em>container</em> rounding styles for your current theme.
+			If you open any existing theme, you can see they are made up of a number of <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*" target="_blank" rel="noreferrer">CSS Custom Properties</a> (aka CSS Variables). Similar to Javascript variables these can be modified and overwritten as desired. For example, if you add the following snippet to your global stylesheet in <code class="code">/src/app.postcss</code>, you can overwrite the <em>base</em> and <em>container</em> rounding styles for your current theme.
 		</p>
 		<CodeBlock
 			language="css"
@@ -113,7 +113,7 @@ body {
 		/>
 		<!-- prettier-ignore -->
 		<p>
-			<a href="https://github.com/skeletonlabs/skeleton/tree/master/src/lib/themes" target="_blank" rel="noreferrer">View any existing theme</a> for a full list of available CSS custom properties. For heavy modifications to preset themes, consider copying the theme to your local project and use it like any other custom theme.
+			<a class="anchor" href="https://github.com/skeletonlabs/skeleton/tree/master/src/lib/themes" target="_blank" rel="noreferrer">View any existing theme</a> for a full list of available CSS custom properties. For heavy modifications to preset themes, consider copying the theme to your local project and use it like any other custom theme.
 		</p>
 	</section>
 
@@ -121,7 +121,7 @@ body {
 		<h2 class="h2">Custom Fonts</h2>
 		<!-- prettier-ignore -->
 		<p>
-            Fonts may be installed from a local or remote source. For <a href="https://gdpr.eu/" target="_blank" rel="noreferrer">GDPR compliance</a> and optimal performance we recommend installing the fonts locally. For this guide we'll demonstrate this process using free fonts from <a href="https://fonts.google.com/" target="_blank" rel="noreferrer">Google Fonts</a>.
+            Fonts may be installed from a local or remote source. For <a class="anchor" href="https://gdpr.eu/" target="_blank" rel="noreferrer">GDPR compliance</a> and optimal performance we recommend installing the fonts locally. For this guide we'll demonstrate this process using free fonts from <a class="anchor" href="https://fonts.google.com/" target="_blank" rel="noreferrer">Google Fonts</a>.
 		</p>
 		{#if activeTheme.fonts.length && activeTheme.file !== 'custom'}
 			<aside class="alert variant-ghost-warning">
@@ -169,7 +169,7 @@ body {
 					<!-- 3 -->
 					<h3 class="h3" data-toc-ignore>3. Apply @font-face</h3>
 					<!-- prettier-ignore -->
-					<p>At the top of your global stylesheet <code class="code">/src/app.postcss</code> append the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face" target="_blank" rel="noreferrer">@font-face</a> settings per each font. The <code class="code">font-family</code> assigns the font's reference name, while <code class="code">src</code> points to the font file(s) in your <code class="code">/static/fonts</code> directory.</p>
+					<p>At the top of your global stylesheet <code class="code">/src/app.postcss</code> append the <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face" target="_blank" rel="noreferrer">@font-face</a> settings per each font. The <code class="code">font-family</code> assigns the font's reference name, while <code class="code">src</code> points to the font file(s) in your <code class="code">/static/fonts</code> directory.</p>
 					{#each activeFonts as f}
 						<CodeBlock
 							language="css"

@@ -16,8 +16,8 @@
 
 	// Local
 	const headings = ['Class', 'Values', 'Description'];
-	const vColorsAll = '<a href="/docs/colors">Theme Colors</a>';
-	const vPairings = '<a href="/docs/tokens#color-pairing-chart">Color Pairing</a>';
+	const vColorsAll = '<a class="anchor" href="/docs/colors">Theme Colors</a>';
+	const vPairings = '<a class="anchor" href="/docs/tokens#color-pairing-chart">Color Pairing</a>';
 	const vCorners = 'tl | tr | bl | br';
 	const descPairings = 'Pairing values can be 50-900 or 900-50 format.';
 
@@ -77,7 +77,7 @@
 			[
 				'<code class="code">accent-[color]-token</code>',
 				vColorsAll,
-				'Provides an input <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color" target="_blank">accent-color</a>.'
+				'Provides an input <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color" target="_blank">accent-color</a>.'
 			]
 		]
 	};

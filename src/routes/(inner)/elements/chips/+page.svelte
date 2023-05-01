@@ -19,9 +19,13 @@
 		source: 'styles/elements/chips.css',
 		classes: [
 			['<code class="code">chip</code>', '', 'Provides the standard chip style.'],
-			['<code class="code">chip-[color]</code>', '<a href="/docs/colors">Any theme color.</a>', 'Applies a variant style.'],
+			['<code class="code">chip-[color]</code>', '<a class="anchor" href="/docs/colors">Any theme color.</a>', 'Applies a variant style.'],
 			['<code class="code">chip-active</code>', '', 'Sets the default active state.'],
-			['<code class="code">chip-[color]-active</code>', '<a href="/docs/colors">Any theme color.</a>', 'Set a colored active state.'],
+			[
+				'<code class="code">chip-[color]-active</code>',
+				'<a class="anchor" href="/docs/colors">Any theme color.</a>',
+				'Set a colored active state.'
+			],
 			['<code class="code">chip-disabled</code>', '', 'Applies disabled styling.']
 		]
 	};

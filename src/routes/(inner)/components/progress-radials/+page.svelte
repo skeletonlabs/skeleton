@@ -109,7 +109,7 @@
 			<h2 class="h2">Accessibility</h2>
 			<!-- prettier-ignore -->
 			<p>
-				This component is treated as an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter" target="_blank" rel="noreferrer">ARIA meter</a>.
+				This component is treated as an <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter" target="_blank" rel="noreferrer">ARIA meter</a>.
 			</p>
 		</section>
 	</svelte:fragment>

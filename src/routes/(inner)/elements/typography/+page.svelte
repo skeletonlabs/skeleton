@@ -253,7 +253,7 @@ a:not(.unstyled):not(.permalink):is(:not(.prose *)):not(.btn):not(.btn-icon):not
 		<section class="space-y-4">
 			<h2 class="h2">Using the Tailwind Plugin</h2>
 			<!-- prettier-ignore -->
-			<p>Tailwind provides an <a href="https://tailwindcss.com/docs/typography-plugin" target="_blank" rel="noreferrer">official plugin</a> to automatically style HTML you do not control, such as CMS or blog content. Follow Tailwind's official instructions to install and configure this plugin within your project. You may then <a href="https://tailwindcss.com/docs/typography-plugin#element-modifiers" target="_blank" rel="noreferrer">set or adjust the modifiers for each element</a>. Skeleton provides a few default adaptive theme styles for common prose elements, such as: headings, paragraphs, and anchors. See the instruction provided below.</p>
+			<p>Tailwind provides an <a class="anchor" href="https://tailwindcss.com/docs/typography-plugin" target="_blank" rel="noreferrer">official plugin</a> to automatically style HTML you do not control, such as CMS or blog content. Follow Tailwind's official instructions to install and configure this plugin within your project. You may then <a class="anchor" href="https://tailwindcss.com/docs/typography-plugin#element-modifiers" target="_blank" rel="noreferrer">set or adjust the modifiers for each element</a>. Skeleton provides a few default adaptive theme styles for common prose elements, such as: headings, paragraphs, and anchors. See the instruction provided below.</p>
 			<p class="font-bold">Method 1: Inline Utility Classes:</p>
 			<CodeBlock language="html" code={`<article class="prose lg:prose-xl prose-code:bg-purple-500"></article>`} />
 			<p class="font-bold">Method 2: Global Stylesheet Overrides</p>

@@ -137,7 +137,7 @@
 		<h2 class="h2">Enhanced with Tailwind CSS.</h2>
 		<!-- prettier-ignore -->
 		<p>
-			Skeleton has been designed from the ground up to take advantage of <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind's</a> unique utility class approach to CSS styling, allowing you to create or extend your own personal design system.
+			Skeleton has been designed from the ground up to take advantage of <a class="anchor" href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind's</a> unique utility class approach to CSS styling, allowing you to create or extend your own personal design system.
 		</p>
 		<!-- Options -->
 		<ListBox active="variant-filled" hover="hover:variant-soft" rounded="rounded-container-token" padding="!p-4">

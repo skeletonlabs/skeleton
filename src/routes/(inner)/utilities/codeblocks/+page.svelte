@@ -45,7 +45,8 @@
 		<section class="space-y-4">
 			<h2 class="h2">Install Highlight.js</h2>
 			<p>
-				<a href="https://highlightjs.org/" target="_blank" rel="noreferrer">Highlight.js</a> is a required dependency to enable syntax highlighting.
+				<a class="anchor" href="https://highlightjs.org/" target="_blank" rel="noreferrer">Highlight.js</a> is a required dependency to enable
+				syntax highlighting.
 			</p>
 			<CodeBlock language="console" code={`npm install highlight.js`} />
 		</section>
@@ -54,8 +55,11 @@
 			<p>Apply the following changes to your app's root component in <code class="code">/src/routes/+layout.svelte</code>.</p>
 			<CodeBlock language="ts" code={`import hljs from 'highlight.js';`} />
 			<p>
-				Import any <a href="https://github.com/highlightjs/highlight.js/tree/main/src/styles" target="_blank" rel="noreferrer"
-					>Highlight.js CSS theme</a
+				Import any <a
+					class="anchor"
+					href="https://github.com/highlightjs/highlight.js/tree/main/src/styles"
+					target="_blank"
+					rel="noreferrer">Highlight.js CSS theme</a
 				> of your choice.
 			</p>
 			<CodeBlock language="ts" code={`import 'highlight.js/styles/github-dark.css';`} />
@@ -66,7 +70,7 @@
 			<h2 class="h2">Supported Languages</h2>
 			<!-- prettier-ignore -->
 			<p>
-				Syntax highlighting will appear when a valid <a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md" target="_blank" rel="noreferrer">language alias</a> is provided to the CodeBlock's <code class="code">language</code> prop.
+				Syntax highlighting will appear when a valid <a class="anchor" href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md" target="_blank" rel="noreferrer">language alias</a> is provided to the CodeBlock's <code class="code">language</code> prop.
 			</p>
 		</section>
 		<section class="space-y-4">

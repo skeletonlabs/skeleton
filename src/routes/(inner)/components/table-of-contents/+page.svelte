@@ -70,17 +70,17 @@
 						<tr>
 							<td><code class="code">scrollParent</code></td>
 							<td>"#page"</td>
-							<td><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector" target="_blank" rel="noreferrer">Query selector</a> for the scrollable page element.</td>
+							<td><a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector" target="_blank" rel="noreferrer">Query selector</a> for the scrollable page element.</td>
 						</tr>
 						<tr>
 							<td><code class="code">target</code></td>
 							<td>"#page"</td>
-							<td><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector" target="_blank" rel="noreferrer">Query selector</a> for the element to scan for headings.</td>
+							<td><a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector" target="_blank" rel="noreferrer">Query selector</a> for the element to scan for headings.</td>
 						</tr>
 						<tr>
 							<td><code class="code">allowedHeadings</code></td>
 							<td>'h2, h3'</td>
-							<td><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector" target="_blank" rel="noreferrer">Query selector</a> for the allowed headings. From H2-H6.</td>
+							<td><a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector" target="_blank" rel="noreferrer">Query selector</a> for the allowed headings. From H2-H6.</td>
 						</tr>
 					</tbody>
 				</table>
@@ -108,13 +108,13 @@
 		<section class="space-y-4">
 			<h2 class="h2">Screen Reader Headings</h2>
 			<!-- prettier-ignore -->
-			<p>If you wish to include a section link that's not visibly shown within the target element, use <a href="https://tailwindcss.com/docs/screen-readers#screen-reader-only-elements" target="_blank" rel="noreferrer">Screen Reader</a> <code class="code">.sr-only</code> class from Tailwind.</p>
+			<p>If you wish to include a section link that's not visibly shown within the target element, use <a class="anchor" href="https://tailwindcss.com/docs/screen-readers#screen-reader-only-elements" target="_blank" rel="noreferrer">Screen Reader</a> <code class="code">.sr-only</code> class from Tailwind.</p>
 			<CodeBlock language="html" code={`<h2 class="sr-only">Include Me!</h2>`} />
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Sticky Positioning</h2>
 			<!-- prettier-ignore -->
-			<p>See Tailwind's documentation on <a href="https://tailwindcss.com/docs/position#sticky-positioning-elements" target="_blank" rel="noreferrer">sticky positioning</a> if you wish to keep the Table of Contents component visible during scrolling.</p>
+			<p>See Tailwind's documentation on <a class="anchor" href="https://tailwindcss.com/docs/position#sticky-positioning-elements" target="_blank" rel="noreferrer">sticky positioning</a> if you wish to keep the Table of Contents component visible during scrolling.</p>
 		</section>
 	</svelte:fragment>
 </DocsShell>

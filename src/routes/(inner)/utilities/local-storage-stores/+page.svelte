@@ -9,7 +9,7 @@
 		feature: DocsFeature.Utility,
 		name: 'Local Storage Store',
 		description:
-			'An extended version of the <a href="https://svelte.dev/tutorial/writable-stores" target="_blank" rel="noreferrer">Svelte writable store</a> that includes pub/sub to local storage.',
+			'An extended version of the <a class="anchor" href="https://svelte.dev/tutorial/writable-stores" target="_blank" rel="noreferrer">Svelte writable store</a> that includes pub/sub to local storage.',
 		imports: ['localStorageStore'],
 		source: 'utilities/LocalStorageStore'
 	};
@@ -27,6 +27,7 @@
 			<CodeBlock language="ts" code={`const storeExample: Writable<string> = localStorageStore('storeExample', 'initialValueHere');`} />
 			<p>
 				Operates as a standard Svelte writable store but with the added benefit of automatic persistence via <a
+					class="anchor"
 					href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage"
 					target="_blank"
 					rel="noreferrer">Local Storage</a
@@ -58,10 +59,10 @@ $storeExample
 		<section class="space-y-4">
 			<h2 class="h2">Attribution</h2>
 			<p>
-				<a href="https://github.com/joshnuss/svelte-local-storage-store" target="_blank" rel="noreferrer">Source code</a> provided courtesy
-				of
-				<a href="https://github.com/joshnuss" target="_blank" rel="noreferrer">Joshua Nussbaum</a>. Please consider
-				<a href="https://github.com/sponsors/joshnuss" target="_blank" rel="noreferrer">sponsoring his work</a>.
+				<a class="anchor" href="https://github.com/joshnuss/svelte-local-storage-store" target="_blank" rel="noreferrer">Source code</a>
+				provided courtesy of
+				<a class="anchor" href="https://github.com/joshnuss" target="_blank" rel="noreferrer">Joshua Nussbaum</a>. Please consider
+				<a class="anchor" href="https://github.com/sponsors/joshnuss" target="_blank" rel="noreferrer">sponsoring his work</a>.
 			</p>
 		</section>
 	</svelte:fragment>

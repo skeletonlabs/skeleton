@@ -30,9 +30,9 @@
 			<svelte:fragment slot="preview">
 				<div class="card p-4 text-token flex justify-center">
 					<ol class="breadcrumb">
-						<li class="crumb"><a href="/elements/breadcrumbs">Skeleton</a></li>
+						<li class="crumb"><a class="anchor" href="/elements/breadcrumbs">Skeleton</a></li>
 						<li class="crumb-separator" aria-hidden>&rsaquo;</li>
-						<li class="crumb"><a href="/elements/breadcrumbs">Elements</a></li>
+						<li class="crumb"><a class="anchor" href="/elements/breadcrumbs">Elements</a></li>
 						<li class="crumb-separator" aria-hidden>&rsaquo;</li>
 						<li>Breadcrumbs</li>
 					</ol>
@@ -43,9 +43,9 @@
 					language="html"
 					code={`
 <ol class="breadcrumb">
-	<li class="crumb"><a href="/elements/breadcrumbs">Skeleton</a></li>
+	<li class="crumb"><a class="anchor" href="/elements/breadcrumbs">Skeleton</a></li>
 	<li class="crumb-separator" aria-hidden>&rsaquo;</li>
-	<li class="crumb"><a href="/elements/breadcrumbs">Elements</a></li>
+	<li class="crumb"><a class="anchor" href="/elements/breadcrumbs">Elements</a></li>
 	<li class="crumb-separator" aria-hidden>&rsaquo;</li>
 	<li>Breadcrumbs</li>
 </ol>
@@ -60,14 +60,14 @@
 		<section class="space-y-4">
 			<h2 class="h2">Separators</h2>
 			<!-- prettier-ignore -->
-			<p>Replace the contents of the <code class="code">.crumb-separator</code> element with an icon or any valid <a href="https://unicode-table.com/en/sets/arrow-symbols/#right-arrows" target="_blank" rel="noreferrer">unicode symbol</a>. For accessibility, use <code class="code">aria-hidden</code> to hide this element from screen readers.</p>
+			<p>Replace the contents of the <code class="code">.crumb-separator</code> element with an icon or any valid <a class="anchor" href="https://unicode-table.com/en/sets/arrow-symbols/#right-arrows" target="_blank" rel="noreferrer">unicode symbol</a>. For accessibility, use <code class="code">aria-hidden</code> to hide this element from screen readers.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="flex justify-center">
 						<ol class="breadcrumb">
-							<li class="crumb"><a href="/elements/breadcrumbs">Home</a></li>
+							<li class="crumb"><a class="anchor" href="/elements/breadcrumbs">Home</a></li>
 							<li class="crumb-separator" aria-hidden>/</li>
-							<li class="crumb"><a href="/elements/breadcrumbs">Blog</a></li>
+							<li class="crumb"><a class="anchor" href="/elements/breadcrumbs">Blog</a></li>
 							<li class="crumb-separator" aria-hidden>/</li>
 							<li>Article</li>
 						</ol>
@@ -78,9 +78,9 @@
 						language="html"
 						code={`
 <ol class="breadcrumb">
-	<li class="crumb"><a href="/elements/breadcrumbs">Home</a></li>
+	<li class="crumb"><a class="anchor" href="/elements/breadcrumbs">Home</a></li>
 	<li class="crumb-separator" aria-hidden>/</li>
-	<li class="crumb"><a href="/elements/breadcrumbs">Blog</a></li>
+	<li class="crumb"><a class="anchor" href="/elements/breadcrumbs">Blog</a></li>
 	<li class="crumb-separator" aria-hidden>/</li>
 	<li>Article</li>
 </ol>
@@ -96,9 +96,9 @@
 				<svelte:fragment slot="preview">
 					<div class="flex justify-center">
 						<ol class="breadcrumb mt-1">
-							<li class="crumb"><a href="/elements/breadcrumbs"><i class="fa-solid fa-house text-xl" /></a></li>
+							<li class="crumb"><a class="anchor" href="/elements/breadcrumbs"><i class="fa-solid fa-house text-xl" /></a></li>
 							<li class="crumb-separator" aria-hidden>&rsaquo;</li>
-							<li class="crumb"><a href="/elements/breadcrumbs"><i class="fa-solid fa-gear text-xl" /></a></li>
+							<li class="crumb"><a class="anchor" href="/elements/breadcrumbs"><i class="fa-solid fa-gear text-xl" /></a></li>
 							<li class="crumb-separator" aria-hidden>&rsaquo;</li>
 							<li>Current</li>
 						</ol>
@@ -109,9 +109,9 @@
 						language="html"
 						code={`
 <ol class="breadcrumb mt-1">
-	<li class="crumb"><a href="/elements/breadcrumbs">(icon)</a></li>
+	<li class="crumb"><a class="anchor" href="/elements/breadcrumbs">(icon)</a></li>
 	<li class="crumb-separator" aria-hidden>&rsaquo;</li>
-	<li class="crumb"><a href="/elements/breadcrumbs">(icon)</a></li>
+	<li class="crumb"><a class="anchor" href="/elements/breadcrumbs">(icon)</a></li>
 	<li class="crumb-separator" aria-hidden>&rsaquo;</li>
 	<li>Current</li>
 </ol>
@@ -186,7 +186,7 @@ const myBreadcrumbs = [
 	{#each myBreadcrumbs as crumb, i}
 		<!-- If crumb index is less than the breadcrumb length minus 1 -->
 		{#if i < myBreadcrumbs.length - 1}
-			<li class="crumb"><a href={crumb.link}>{crumb.label}</a></li>
+			<li class="crumb"><a class="anchor" href={crumb.link}>{crumb.label}</a></li>
 			<li class="crumb-separator" aria-hidden>&rsaquo;</li>
 		{:else}
 			<li class="crumb">{crumb.label}</li>

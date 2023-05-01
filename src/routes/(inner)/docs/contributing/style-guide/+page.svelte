@@ -6,7 +6,7 @@
 <LayoutPage>
 	<!-- Breadcrumbs -->
 	<ol class="breadcrumb">
-		<li class="crumb"><a href="/docs/contributing">Contributing</a></li>
+		<li class="crumb"><a class="anchor" href="/docs/contributing">Contributing</a></li>
 		<li class="crumb-separator" aria-hidden>&rsaquo;</li>
 		<li>Style Guide</li>
 	</ol>
@@ -39,8 +39,11 @@
 	<section class="space-y-4">
 		<h2 class="h2">Conventions</h2>
 		<p>
-			Ensure relevant events bubble via <a href="https://svelte.dev/tutorial/dom-event-forwarding" target="_blank" rel="noreferrer"
-				>event forwarding</a
+			Ensure relevant events bubble via <a
+				class="anchor"
+				href="https://svelte.dev/tutorial/dom-event-forwarding"
+				target="_blank"
+				rel="noreferrer">event forwarding</a
 			>.
 		</p>
 		<CodeBlock language="html" code={`<button on:click on:mouseover>Skeleton</button>`} />
@@ -175,7 +178,7 @@ $: classesLabel = \`\${cBaseLabel}\`; // child element
 		<p>Below are a few pitfalls we've encountered when creating Skeleton. Do your best to avoid these whenever possible.</p>
 		<!-- prettier-ignore -->
 		<ul class="list-disc list-outside ml-4 space-y-1">
-			<li>Never construct utility class names, <a href="https://tailwindcss.com/docs/content-configuration#dynamic-class-names" target="_blank" rel="noreferrer">Tailwind does not support this feature</a>.</li>
+			<li>Never construct utility class names, <a class="anchor" href="https://tailwindcss.com/docs/content-configuration#dynamic-class-names" target="_blank" rel="noreferrer">Tailwind does not support this feature</a>.</li>
 			<li>
 				Avoid <code class="code">style</code> blocks and <code class="code">@apply</code> in component files. This can increase the final stylesheet bundle size.
 			</li>

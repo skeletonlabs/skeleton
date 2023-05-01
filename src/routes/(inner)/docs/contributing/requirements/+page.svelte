@@ -44,7 +44,7 @@
 <LayoutPage>
 	<!-- Breadcrumbs -->
 	<ol class="breadcrumb">
-		<li class="crumb"><a href="/docs/contributing">Contributing</a></li>
+		<li class="crumb"><a class="anchor" href="/docs/contributing">Contributing</a></li>
 		<li class="crumb-separator" aria-hidden>&rsaquo;</li>
 		<li>Requirements</li>
 	</ol>
@@ -66,17 +66,23 @@
 		</aside>
 		<ol class="list-decimal list-inside space-y-1">
 			<li>
-				<a href="https://github.com/skeletonlabs/skeleton/issues" target="_blank" rel="noreferrer">Select an issue</a>
+				<a class="anchor" href="https://github.com/skeletonlabs/skeleton/issues" target="_blank" rel="noreferrer">Select an issue</a>
 				or
-				<a href="https://github.com/skeletonlabs/skeleton/wiki/%F0%9F%9B%A3%EF%B8%8F-The-Skeleton-Roadmap" target="_blank" rel="noreferrer"
-					>roadmap task</a
+				<a
+					class="anchor"
+					href="https://github.com/skeletonlabs/skeleton/wiki/%F0%9F%9B%A3%EF%B8%8F-The-Skeleton-Roadmap"
+					target="_blank"
+					rel="noreferrer">roadmap task</a
 				> you wish to contribute to.
 			</li>
 			<li>
-				Leave a comment, join the <a href="https://github.com/skeletonlabs/skeleton/discussions/79" target="_blank" rel="noreferrer"
-					>roadmap discussion</a
+				Leave a comment, join the <a
+					class="anchor"
+					href="https://github.com/skeletonlabs/skeleton/discussions/79"
+					target="_blank"
+					rel="noreferrer">roadmap discussion</a
 				>, or
-				<a href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer">reach out on Discord</a>.
+				<a class="anchor" href="https://discord.gg/EXqV7W8MtY" target="_blank" rel="noreferrer">reach out on Discord</a>.
 			</li>
 			<li>Review with core contributors to define <strong>all requirements</strong> before you write your first line of code.</li>
 			<li>Follow our <strong>branch naming conventions</strong> described below.</li>
@@ -84,7 +90,7 @@
 			<li>Run automated tests to confirm no regressions were introduced from your changes.</li>
 			<!-- prettier-ignore -->
 			<li>
-				Document your new feature or update per our <a href="/docs/contributing/documentation" target="_blank" rel="noreferrer"> documentation guidelines</a>.
+				Document your new feature or update per our <a class="anchor" href="/docs/contributing/documentation" target="_blank" rel="noreferrer"> documentation guidelines</a>.
 			</li>
 			<li>When ready, set your pull request to the "ready to review" state. Then be patient, we'll review asap.</li>
 			<li>If your PR meets all requirements it will be merged, otherwise feedback will be provided.</li>
@@ -114,8 +120,8 @@
 	<section class="space-y-4">
 		<h2 class="h2">Code Linting &amp; Formatting</h2>
 		<p>
-			All Skeleton projects utilize <a href="https://prettier.io/" target="_blank" rel="noreferrer">Prettier</a>. To check for linting
-			issues, run:
+			All Skeleton projects utilize <a class="anchor" href="https://prettier.io/" target="_blank" rel="noreferrer">Prettier</a>. To check
+			for linting issues, run:
 		</p>
 		<CodeBlock language="console" code={`npm run lint`} />
 		<p>To automatically apply formatting, run:</p>
@@ -126,8 +132,8 @@
 	<section class="space-y-4">
 		<h2 class="h2">Automated Tests</h2>
 		<p>
-			Tests are handled via <a href="https://vitest.dev/" target="_blank" rel="noreferrer">Vitest</a>, which is similar to Jest. Ensure
-			tests are current and passing before submitting a pull request.
+			Tests are handled via <a class="anchor" href="https://vitest.dev/" target="_blank" rel="noreferrer">Vitest</a>, which is similar to
+			Jest. Ensure tests are current and passing before submitting a pull request.
 		</p>
 		<CodeBlock language="console" code={`npm run test`} />
 	</section>
@@ -136,9 +142,14 @@
 	<section class="space-y-4">
 		<h2 class="h2">Spell Checking</h2>
 		<p>
-			Skeleton uses <a href="https://cspell.org" target="_blank" rel="noreferrer">Cspell</a> to check for spelling errors. We reccomend
-			installing the
-			<a href="https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker" target="_blank" rel="noreferrer">
+			Skeleton uses <a class="anchor" href="https://cspell.org" target="_blank" rel="noreferrer">Cspell</a> to check for spelling errors. We
+			reccomend installing the
+			<a
+				class="anchor"
+				href="https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker"
+				target="_blank"
+				rel="noreferrer"
+			>
 				Code Spell Checker
 			</a>
 			extension for VS Code. You can add words to the dictionary using this extension, or by editing <code class="code">cspell.json</code> at

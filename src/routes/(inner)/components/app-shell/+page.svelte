@@ -144,7 +144,7 @@
 			<!-- prettier-ignore -->
 			<p>
 				The App Shell will need to expand to fill all available space within your app's <em>body</em> tag. Open <code class="code">/src/app.html</code> and add the following classes.
-				<a href="https://github.com/sveltejs/kit/issues/6244#issuecomment-1226600661" target="_blank" rel="noreferrer">This wrapping element is required</a> and the style of <code class="code">display: contents</code> should remain.
+				<a class="anchor" href="https://github.com/sveltejs/kit/issues/6244#issuecomment-1226600661" target="_blank" rel="noreferrer">This wrapping element is required</a> and the style of <code class="code">display: contents</code> should remain.
 			</p>
 			<CodeBlock
 				language="html"
@@ -159,8 +159,8 @@
 		<section class="space-y-4">
 			<h2 class="h2">Using an App Bar</h2>
 			<p>
-				If you wish for your <a href="/components/app-bar">App Bar</a> component to remain fixed at the top of the page, embed it into the
-				top-most <code class="code">header</code> slot.
+				If you wish for your <a class="anchor" href="/components/app-bar">App Bar</a> component to remain fixed at the top of the page,
+				embed it into the top-most <code class="code">header</code> slot.
 			</p>
 			<CodeBlock
 				language="html"
@@ -193,7 +193,9 @@
 				<em>empty</em>
 				or
 				<em>hidden</em>. Use this to remove the sidebar with CSS media queries via
-				<a href="https://tailwindcss.com/docs/responsive-design" target="_blank" rel="noreferrer">Tailwind's responsive breakpoints</a>.
+				<a class="anchor" href="https://tailwindcss.com/docs/responsive-design" target="_blank" rel="noreferrer"
+					>Tailwind's responsive breakpoints</a
+				>.
 			</p>
 			<CodeBlock
 				language="html"

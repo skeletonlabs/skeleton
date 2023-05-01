@@ -56,7 +56,7 @@
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<!-- prettier-ignore -->
-			<p>Combines a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range" target="_blank" rel="noreferrer">native range input</a> with <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range#adding_tick_marks" target="_blank" rel="noreferrer">datalist ticks</a> to create a powerful range slider element.</p>
+			<p>Combines a <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range" target="_blank" rel="noreferrer">native range input</a> with <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range#adding_tick_marks" target="_blank" rel="noreferrer">datalist ticks</a> to create a powerful range slider element.</p>
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Labeled</h2>
@@ -90,7 +90,7 @@
 			<h2 class="h2">Browser Support</h2>
 			<!-- prettier-ignore -->
 			<p>
-				Please be aware that <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range#browser_compatibility" target="_blank" rel="noreferrer">browser support</a> varies. Safari (macOS/iOS) does not visually display the ticks. However, the ticks are progressive enhancement feature, and Safari it will honor the <code class="code">max</code> and <code class="code">step</code> settings in relation to the value.
+				Please be aware that <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range#browser_compatibility" target="_blank" rel="noreferrer">browser support</a> varies. Safari (macOS/iOS) does not visually display the ticks. However, the ticks are progressive enhancement feature, and Safari it will honor the <code class="code">max</code> and <code class="code">step</code> settings in relation to the value.
 			</p>
 			<div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
 				<div class="card p-2 !bg-green-500 text-black">
