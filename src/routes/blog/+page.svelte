@@ -39,7 +39,7 @@
 	<section class="blog-list space-y-8">
 		{#each data.posts as post}
 			<a
-				class="unstyled block hover:card hover:variant-soft p-4 rounded-container-token"
+				class="block hover:card hover:variant-soft p-4 rounded-container-token"
 				href="/blog/{post.slug}"
 				data-sveltekit-preload-data="hover"
 			>

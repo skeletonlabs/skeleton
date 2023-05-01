@@ -7,7 +7,7 @@
 
 	// Classes
 	const cHeader = 'space-y-10';
-	const cChip = 'unstyled chip variant-soft hover:variant-filled';
+	const cChip = 'chip variant-soft hover:variant-filled';
 
 	// Local
 	const githubSourcePath = 'https://github.com/skeletonlabs/skeleton/tree/master/src'; // FIXME: hardcoded path
