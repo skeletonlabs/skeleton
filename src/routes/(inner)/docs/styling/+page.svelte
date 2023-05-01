@@ -27,7 +27,7 @@
 			allow you to override the default style classes. See a list of available options under the "Props" tab per each feature in Skeleton.
 		</p>
 		<CodeBlock language="html" code={`<ExampleComponent background="bg-secondary-500 md:bg-primary-500">Skeleton</ExampleComponent>`} />
-		<blockquote>
+		<blockquote class="blockquote">
 			TIP: You may provide multiple utility classes per each prop, as well as use variations such as <code>dark:bg-green-500</code>.
 		</blockquote>
 	</section>
@@ -69,7 +69,7 @@
 		<CodeBlock language="html" code={`<img class="avatar-image ...">...</img>`} />
 		<p>Use these selector classes to target global style overrides to all instances of this feature in your global stylesheet.</p>
 		<CodeBlock language="css" code={`.avatar-image { @apply border-2 border-red-500; }`} />
-		<blockquote>
+		<blockquote class="blockquote">
 			In some cases you may need to use <code>!</code>
 			<a href="https://tailwindcss.com/docs/configuration#important-modifier" target="_blank" rel="noreferrer">important</a> or style light and
 			dark mode variants to give precedence.

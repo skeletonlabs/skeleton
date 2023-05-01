@@ -156,7 +156,7 @@
 }`}
 			/>
 			<CodeBlock language="html" code={`<Stepper on:next={onNextHandler} on:step={onStepHandler} on:back={onBackHandler}>...</Stepper>`} />
-			<blockquote>
+			<blockquote class="blockquote">
 				TIP: <code>e.state.current</code> contains the step shown to the user after navigation, <code>e.step</code> contains the step where navigation
 				occurred.
 			</blockquote>
