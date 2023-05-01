@@ -1,8 +1,8 @@
 import type { Actions } from "@sveltejs/kit";
 
 export const actions: Actions = {
-    default: async () => {
-        console.log("action reached");
+    default: async ({request}) => {
+        console.log(await request.formData());
         return { success: true }
     }
 };

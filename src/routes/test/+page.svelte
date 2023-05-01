@@ -4,6 +4,6 @@
 </script>
 
 <form method="post" use:enhance>
-    <InputChip name="test" required />
+    <InputChip name="test" required value={['some', 'default', 'values']} restToInitialValue={true} />
     <button>Submit</button>
 </form>

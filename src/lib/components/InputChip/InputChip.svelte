@@ -67,17 +67,17 @@
 		return { val: val, id: Math.random() };
 	});
 
+	// Reset Form
 	function resetFormHandler() {
 		value = [];
 	}
-
 	onMount(() => {
-		const inputElement: HTMLInputElement | null = document.querySelector('.phantom-input') as HTMLInputElement | null;
+		const selectElement: HTMLSelectElement | null = document.querySelector('.select') as HTMLSelectElement | null;
 
-		// Verify input element AND external form are present
-		if (!inputElement || !inputElement.form) return;
+		// Verify select element AND external form are present
+		if (!selectElement || !selectElement.form) return;
 
-		const externalForm: HTMLFormElement = inputElement.form;
+		const externalForm: HTMLFormElement = selectElement.form;
 
 		// Attach reset event listener to external form
 		externalForm.addEventListener('reset', resetFormHandler);
@@ -159,13 +159,10 @@
 	});
 </script>
 
-<!-- Hidden input used to select external form -->
-<input class="hidden phantom-input"/>
-
 <div class="input-chip {classesBase}" class:opacity-50={$$restProps.disabled}>
 	<!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->
 	<div class="h-0 overflow-hidden">
-		<select bind:value {name} multiple {required} tabindex="-1">
+		<select class="select" bind:value {name} multiple {required} tabindex="-1">
 			<!-- NOTE: options are required! -->
 			{#each value as option}<option value={option}>{option}</option>{/each}
 		</select>
