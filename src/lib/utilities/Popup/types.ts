@@ -1,8 +1,7 @@
 // Popup Types
-// Note: these are a simple iteration based on the official docs.
 
-type Direction = 'top' | 'bottom' | 'left' | 'right';
 /** Placement https://floating-ui.com/docs/computePosition#placement */
+type Direction = 'top' | 'bottom' | 'left' | 'right';
 type Placement = Direction | `${Direction}-start` | `${Direction}-end`;
 
 // Options & Middleware
@@ -17,18 +16,17 @@ interface Middleware {
 	arrow?: { element: string } & Record<string, any>;
 }
 
-// Action Arguments
 export interface PopupSettings {
 	/** Provide the event type. */
-	event: 'click' | 'hover' | 'hover-click' | 'focus' | 'focus-click';
-	/** Match the popup data value `[data-popup]="targetNameHere"` */
+	event: 'click' | 'hover' | 'focus-blur' | 'focus-click';
+	/** Match the popup data value `data-popup="targetNameHere"` */
 	target: string;
 	/** Set the placement position. Defaults 'bottom'. */
 	placement?: Placement;
-	/** Query list of elements that will close the popup. Default: `'a[href], button'`. */
+	/** Query elements that close the popup when clicked. Defaults `'a[href], button'`. */
 	closeQuery?: string;
-	/** Provide additional options and middleware settings. */
-	middleware?: Middleware;
-	/** Provide an optional callback function to monitor open/close state. */
+	/** Optional callback function that reports state change. */
 	state?: (event: { state: boolean }) => void;
+	/** Provide Floating UI middleware settings. */
+	middleware?: Middleware;
 }
