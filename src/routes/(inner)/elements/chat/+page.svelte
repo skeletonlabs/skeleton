@@ -521,8 +521,8 @@ let messageFeed = [
 		<section class="space-y-4">
 			<h2 class="h2">Scroll to Bottom</h2>
 			<p>
-				Chat windows are typically remain fixed at the bottom of the scrollable pane. This can be triggered on page load and when a new
-				message is added.
+				Chat windows typically remain fixed at the bottom of the scrollable pane. This can be triggered on page load and when a new message
+				is added.
 			</p>
 			<p>Use <code class="code">bind:this</code> to bind your scrollable feed element.</p>
 			<CodeBlock language="ts" code={`let elemChat: HTMLElement;`} />
