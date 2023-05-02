@@ -220,7 +220,7 @@
 		</p>
 
 		<section class="space-y-4">
-			<h2>Layout Columns</h2>
+			<h2 class="h2">Layout Columns</h2>
 			<!-- prettier-ignore -->
 			<p>
 				We recommend using <a class="anchor" href="https://tailwindcss.com/docs/grid-template-columns" target="_blank" rel="noreferrer">Tailwind's grid column utility classes</a> to define horizontal columns for your layout.
@@ -242,7 +242,7 @@
 				<svelte:fragment slot="source">
 					<p>
 						For a fix column width, replace <code class="code">auto</code> with a specific amount, such as
-						<code class="code">320px</code>, then <code>1fr</code> will fill remaining space.
+						<code class="code">320px</code>, then <code class="code">1fr</code> will fill remaining space.
 					</p>
 					<p class="font-bold">Three Column Layout</p>
 					<CodeBlock
@@ -270,7 +270,7 @@
 		</section>
 
 		<section class="space-y-4">
-			<h2>Layout Rows</h2>
+			<h2 class="h2">Layout Rows</h2>
 			<!-- prettier-ignore -->
 			<p>
 				We recommend using <a class="anchor" href="https://tailwindcss.com/docs/grid-template-rows" target="_blank" rel="noreferrer">Tailwind's grid row utility classes</a> to define vertical layout rows for your layout.
@@ -306,8 +306,9 @@
 					/>
 					<p class="font-bold">Two Row Layout</p>
 					<p>
-						Note that we've set <a href="https://tailwindcss.com/docs/overflow" target="_blank" rel="noreferrer">overflow-y-auto</a> for the
-						chat feed element to enable vertical scrolling.
+						Note that we've set <a class="anchor" href="https://tailwindcss.com/docs/overflow" target="_blank" rel="noreferrer"
+							>overflow-y-auto</a
+						> for the chat feed element to enable vertical scrolling.
 					</p>
 					<CodeBlock
 						language="html"
@@ -323,7 +324,7 @@
 		</section>
 
 		<section class="space-y-4">
-			<h2>Message Feed</h2>
+			<h2 class="h2">Message Feed</h2>
 			<p>
 				Within our feed element, we'll generate a feed of messages. Note that we'll replace the <em>pre</em> tags in the next section.
 			</p>
@@ -394,7 +395,7 @@ let messageFeed = [
 		</section>
 
 		<section class="space-y-4">
-			<h2>Message Bubbles</h2>
+			<h2 class="h2">Message Bubbles</h2>
 			<p>By mixing Skeleton features with Tailwind styling, we can provided message bubble interfaces for each type of feed post.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -473,9 +474,9 @@ let messageFeed = [
 		</section>
 
 		<section class="space-y-4">
-			<h2>Prompt</h2>
+			<h2 class="h2">Prompt</h2>
 			<p>
-				We can utlize a Skeleton <a href="/elements/forms" class="anchor">Input Group</a> to create a custom text prompt.
+				We can utlize a Skeleton <a class="anchor" href="/elements/forms">Input Group</a> to create a custom text prompt.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -518,7 +519,7 @@ let messageFeed = [
 		<hr />
 
 		<section class="space-y-4">
-			<h2>Scroll to Bottom</h2>
+			<h2 class="h2">Scroll to Bottom</h2>
 			<p>
 				Chat windows are typically remain fixed at the bottom of the scrollable pane. This can be triggered on page load and when a new
 				message is added.
@@ -546,7 +547,7 @@ function scrollChatBottom(behavior?: ScrollBehavior): void {
 			/>
 		</section>
 		<section class="space-y-4">
-			<h2>Add a Message</h2>
+			<h2 class="h2">Add a Message</h2>
 			<p>Below we'll cover how to append the message feed with a new message from the host user.</p>
 			<p>Per our above examples, we'll use the same <code class="code">messageFeed</code> data structure.</p>
 			<CodeBlock language="ts" code={`let messageFeed = [ /* ...*/ ];`} />
