@@ -10,22 +10,35 @@
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	import ListBox from '$lib/components/ListBox/ListBox.svelte';
 	import ListBoxItem from '$lib/components/ListBox/ListBoxItem.svelte';
-	// Sveld
-	// import sveldComp from '$lib/.../Component.svelte?raw&sveld';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Element,
 		name: 'Chat',
-		description: 'Create a custom chat or AI prompt interface using Skeleton features paired with Tailwind styling.'
+		description: 'Create a custom chat feed or AI prompt interface using features provided by Skeleton and Tailwind.'
 	};
 
+	// Types
+	interface Person {
+		id: number;
+		avatar: number;
+		name: string;
+	}
+	interface MessageFeed {
+		id: number;
+		host: boolean;
+		avatar: number;
+		name: string;
+		timestamp: string;
+		message: string;
+		color: string;
+	}
+
 	let elemChat: HTMLElement;
-	const lorem =
-		'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem, itaque omnis, vel eos minima exercitationem ipsa obcaecati cum veritatis debitis, quia officiis. Temporibus omnis saepe non natus.';
+	const lorem = faker.lorem.paragraph();
 
 	// Navigation List
-	const people: any = [
+	const people: Person[] = [
 		{ id: 0, avatar: 14, name: 'Michael' },
 		{ id: 1, avatar: 40, name: 'Janet' },
 		{ id: 2, avatar: 31, name: 'Susan' },
@@ -33,10 +46,10 @@
 		{ id: 4, avatar: 24, name: 'Lara' },
 		{ id: 5, avatar: 9, name: 'Melissa' }
 	];
-	let currentPerson: number = 0;
+	let currentPerson: Person = people[0];
 
 	// Messages
-	let messages: any = [
+	let messageFeed: MessageFeed[] = [
 		{
 			id: 0,
 			host: true,
@@ -44,7 +57,6 @@
 			name: 'Jane',
 			timestamp: 'Yesterday @ 2:30pm',
 			message: lorem,
-			emotes: [],
 			color: 'variant-soft-primary'
 		},
 		{
@@ -54,7 +66,6 @@
 			name: 'Michael',
 			timestamp: 'Yesterday @ 2:45pm',
 			message: lorem,
-			emotes: [],
 			color: 'variant-soft-primary'
 		},
 		{
@@ -64,7 +75,6 @@
 			name: 'Jane',
 			timestamp: 'Yesterday @ 2:50pm',
 			message: lorem,
-			emotes: [],
 			color: 'variant-soft-primary'
 		},
 		{
@@ -74,7 +84,6 @@
 			name: 'Michael',
 			timestamp: 'Yesterday @ 2:52pm',
 			message: lorem,
-			emotes: ['🚀', '👍'],
 			color: 'variant-soft-primary'
 		}
 	];
@@ -90,33 +99,33 @@
 
 	function addMessage(): void {
 		const newMessage = {
-			id: messages.length,
+			id: messageFeed.length,
 			host: true,
 			avatar: 48,
 			name: 'Jane',
 			timestamp: `Today @ ${getCurrentTimestamp()}`,
 			message: currentMessage,
-			emotes: [],
 			color: 'variant-soft-primary'
 		};
-		// Update messages array
-		messages = [...messages, newMessage];
+		// Update the message feed
+		messageFeed = [...messageFeed, newMessage];
 		// Clear prompt
 		currentMessage = '';
-		// Scroll to bottom
+		// Smooth scroll to bottom
+		// Timeout prevents race condition
 		setTimeout(() => {
 			scrollChatBottom('smooth');
 		}, 0);
 	}
 
-	function onPromptKeydown(event: any): void {
+	function onPromptKeydown(event: KeyboardEvent): void {
 		if (['Enter'].includes(event.code)) {
 			event.preventDefault();
 			addMessage();
 		}
 	}
 
-	// Lifecycle
+	// When DOM mounted, scroll to bottom
 	onMount(() => {
 		scrollChatBottom();
 	});
@@ -138,9 +147,9 @@
 						<small class="opacity-50">Contacts</small>
 						<ListBox active="variant-filled-primary">
 							{#each people as person, i}
-								<ListBoxItem bind:group={currentPerson} name="people" value={person.id}>
+								<ListBoxItem bind:group={currentPerson} name="people" value={person}>
 									<svelte:fragment slot="lead">
-										<Avatar src="https://i.pravatar.cc/?img={person.avatar}" width="w-6" />
+										<Avatar src="https://i.pravatar.cc/?img={person.avatar}" width="w-8" />
 									</svelte:fragment>
 									{person.name}
 								</ListBoxItem>
@@ -154,7 +163,7 @@
 				<div class="grid grid-row-[1fr_auto]">
 					<!-- Conversation -->
 					<section bind:this={elemChat} class="max-h-[500px] p-4 overflow-y-auto space-y-4">
-						{#each messages as bubble, i}
+						{#each messageFeed as bubble, i}
 							{#if bubble.host === true}
 								<div class="grid grid-cols-[auto_1fr] gap-2">
 									<Avatar src="https://i.pravatar.cc/?img={bubble.avatar}" width="w-12" />
@@ -174,10 +183,6 @@
 											<small class="opacity-50">{bubble.timestamp}</small>
 										</header>
 										<p>{bubble.message}</p>
-										<footer class="flex items-center gap-2 -mb-4">
-											<button class="btn-icon btn-icon-sm variant-soft">+</button>
-											{#each bubble.emotes as emote, i}<span>{emote}</span>{/each}
-										</footer>
 									</div>
 									<Avatar src="https://i.pravatar.cc/?img={bubble.avatar}" width="w-12" />
 								</div>
@@ -210,34 +215,34 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<p>
-			To view how we constructed the above example, tap the <em>Page Source</em> button near the top of this page. We'll cover how each portion
-			of this was setup below.
+			If you wish to reivew the source for the complete example above, please tap the <em>Page Source</em> button near the top of the page. We'll
+			cover each core principle in the sections below.
 		</p>
+
 		<section class="space-y-4">
 			<h2>Layout Columns</h2>
 			<!-- prettier-ignore -->
 			<p>
-				We recommend using <a class="anchor" href="https://tailwindcss.com/docs/grid-template-columns" target="_blank" rel="noreferrer">Tailwind's grid column styling</a> to define horzontal layout columns.
+				We recommend using <a class="anchor" href="https://tailwindcss.com/docs/grid-template-columns" target="_blank" rel="noreferrer">Tailwind's grid column utility classes</a> to define horizontal columns for your layout.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full space-y-4">
 						<div class="w-full grid grid-cols-[auto_1fr_auto] gap-1">
 							<div class="bg-surface-500/30 p-4">(nav)</div>
-							<div class="bg-surface-500/30 p-4">(chat)</div>
+							<div class="bg-surface-500/30 p-4">(feed)</div>
 							<div class="bg-surface-500/30 p-4">(online)</div>
 						</div>
 						<div class="w-full grid grid-cols-[auto_1fr] gap-1">
 							<div class="bg-surface-500/30 p-4">(nav)</div>
-							<div class="bg-surface-500/30 p-4">(chat)</div>
+							<div class="bg-surface-500/30 p-4">(feed)</div>
 						</div>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<p>
-						For a fix column width, replace <code class="code">auto</code> with the amount, such as
-						<code class="code">320px</code>. Then <code>1fr</code> will fill remaining space. In the featured example at the top of the page
-						we dropped the <code class="code">gap</code> size and implemented a right border on the navigation column.
+						For a fix column width, replace <code class="code">auto</code> with a specific amount, such as
+						<code class="code">320px</code>, then <code>1fr</code> will fill remaining space.
 					</p>
 					<p class="font-bold">Three Column Layout</p>
 					<CodeBlock
@@ -245,7 +250,7 @@
 						code={`
 <div class="w-full grid grid-cols-[auto_1fr_auto] gap-1">
 	<div class="bg-surface-500/30 p-4">(nav)</div>
-	<div class="bg-surface-500/30 p-4">(chat)</div>
+	<div class="bg-surface-500/30 p-4">(feed)</div>
 	<div class="bg-surface-500/30 p-4">(online)</div>
 </div>
 					`}
@@ -256,18 +261,19 @@
 						code={`
 <div class="w-full grid grid-cols-[auto_1fr] gap-1">
 	<div class="bg-surface-500/30 p-4">(nav)</div>
-	<div class="bg-surface-500/30 p-4">(chat)</div>
+	<div class="bg-surface-500/30 p-4">(feed)</div>
 </div>
 					`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
+
 		<section class="space-y-4">
 			<h2>Layout Rows</h2>
 			<!-- prettier-ignore -->
 			<p>
-				We recommend using <a class="anchor" href="https://tailwindcss.com/docs/grid-template-rows" target="_blank" rel="noreferrer">Tailwind's grid row styling</a> to define vertical layout rows.
+				We recommend using <a class="anchor" href="https://tailwindcss.com/docs/grid-template-rows" target="_blank" rel="noreferrer">Tailwind's grid row utility classes</a> to define vertical layout rows for your layout.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -279,7 +285,7 @@
 						</div>
 						<div class="h-[240px] grid grid-rows-[1fr_auto] gap-1">
 							<div class="bg-surface-500/30 p-4 space-y-4 overflow-y-auto">
-								<p>(chat)</p>
+								<p>(feed)</p>
 								<p>{faker.lorem.paragraph(10)}</p>
 							</div>
 							<div class="bg-surface-500/30 p-4">(prompt)</div>
@@ -287,9 +293,6 @@
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<p>
-						Similar to columns you can use <code class="code">auto</code> or a fixed amount and optionally exclude the <code>gap</code>.
-					</p>
 					<p class="font-bold">Three Row Layout</p>
 					<CodeBlock
 						language="html"
@@ -303,14 +306,14 @@
 					/>
 					<p class="font-bold">Two Row Layout</p>
 					<p>
-						Note that we've set <a href="https://tailwindcss.com/docs/overflow" target="_blank" rel="noreferrer">overflow-y-auto</a> on the chat
-						region to enable vertical scrolling.
+						Note that we've set <a href="https://tailwindcss.com/docs/overflow" target="_blank" rel="noreferrer">overflow-y-auto</a> for the
+						chat feed element to enable vertical scrolling.
 					</p>
 					<CodeBlock
 						language="html"
 						code={`
 <div class="h-full grid grid-rows-[1fr_auto] gap-1">
-	<div class="bg-surface-500/30 p-4 overflow-y-auto">(chat)</div>
+	<div class="bg-surface-500/30 p-4 overflow-y-auto">(feed)</div>
 	<div class="bg-surface-500/30 p-4">(prompt)</div>
 </div>
 					`}
@@ -318,14 +321,86 @@
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
+
+		<section class="space-y-4">
+			<h2>Message Feed</h2>
+			<p>
+				Within our feed element, we'll generate a feed of messages. Note that we'll replace the <em>pre</em> tags in the next section.
+			</p>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<section class="w-full max-h-[400px] p-4 overflow-y-auto space-y-4">
+						{#each messageFeed.slice(0, 2) as bubble, i}
+							{#if bubble.host === true}
+								<pre>host: {JSON.stringify(bubble, null, 2)}</pre>
+							{:else}
+								<pre>guest: {JSON.stringify(bubble, null, 2)}</pre>
+							{/if}
+						{/each}
+					</section>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<p>
+						First, we need source data to work with. The following represents a trivial examlpe with some preformatted fields, such as
+						timestamps. In a real world example you might fetch this data from a server.
+					</p>
+					<CodeBlock
+						language="ts"
+						code={`
+let messageFeed = [
+	{
+		id: 0,
+		host: true,
+		avatar: 48,
+		name: 'Jane',
+		timestamp: 'Yesterday @ 2:30pm',
+		message: 'Some message text.',
+		color: 'variant-soft-primary'
+	},
+	{
+		id: 1,
+		host: false,
+		avatar: 14,
+		name: 'Michael',
+		timestamp: 'Yesterday @ 2:45pm',
+		message: 'Some message text.',
+		color: 'variant-soft-primary'
+	}
+];
+					`}
+					/>
+					<p>
+						We'll then iterate through our message feed, using a conditional to determine who is the host (read: you) and who is the guest
+						you are speaking to. In this simple example we'll use a boolean value called <code class="code">host</code> to determine this.
+					</p>
+					<CodeBlock
+						language="html"
+						code={`
+<section class="w-full max-h-[400px] p-4 overflow-y-auto space-y-4">
+	{#each messageFeed as bubble, i}
+		{#if bubble.host === true}
+			<!-- Host Message Bubble -->
+			<pre>host: {JSON.stringify(bubble, null, 2)}</pre>
+		{:else}
+			<!-- Guest Message Bubble -->
+			<pre>guest: {JSON.stringify(bubble, null, 2)}</pre>
+		{/if}
+	{/each}
+</section>
+					`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
+		</section>
+
 		<section class="space-y-4">
 			<h2>Message Bubbles</h2>
-			<p>By mixing Skeleton features with Tailwind styling, we can iterate and create our message bubbles.</p>
+			<p>By mixing Skeleton features with Tailwind styling, we can provided message bubble interfaces for each type of feed post.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<!-- Conversation -->
-					<section bind:this={elemChat} class="max-h-[500px] p-4 overflow-y-auto space-y-4">
-						{#each messages.slice(0, 2) as bubble, i}
+					<section class="max-h-[500px] p-4 overflow-y-auto space-y-4">
+						{#each messageFeed.slice(0, 2) as bubble, i}
 							{#if bubble.host === true}
 								<div class="grid grid-cols-[auto_1fr] gap-2">
 									<Avatar src="https://i.pravatar.cc/?img={bubble.avatar}" width="w-12" />
@@ -353,54 +428,10 @@
 					</section>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<p>First, we need source data to work with. You might fetch this from a remote server in a real world application.</p>
-					<CodeBlock
-						language="ts"
-						code={`
-let messages = [
-	{
-		id: 0,
-		host: true,
-		avatar: 48,
-		name: 'Jane',
-		timestamp: 'Yesterday @ 2:30pm',
-		message: lorem,
-		color: 'variant-soft-primary'
-	},
-	{
-		id: 1,
-		host: false,
-		avatar: 14,
-		name: 'Michael',
-		timestamp: 'Yesterday @ 2:45pm',
-		message: lorem,
-		color: 'variant-soft-primary'
-	}
-];
-					`}
-					/>
+					<p class="font-bold">Host Bubble Template</p>
 					<p>
-						Next, we'll iterate through our message and provide a unique template per either the <em>host</em> user or <em>guest</em> user.
-						Obviously you may need to tailor this logic based on your data structure, as you may not have a <code class="code">host</code> key.
-					</p>
-					<CodeBlock
-						language="html"
-						code={`
-<section bind:this={elemChat} class="h-full p-4 overflow-y-auto space-y-4">
-	{#each messages as bubble, i}
-		{#if bubble.host === true}
-			<!-- host bubble here -->
-		{:else}
-			<!-- guest bubble here -->
-		{/if}
-	{/each}
-</section>
-					`}
-					/>
-					<p>
-						Here's the host bubble template. Note our use of the Avatar component and Card element here. We also use <code class="code"
-							>rounded-tl-none</code
-						> to ensure the top-left corner is always pointy.
+						Note our use of the Avatar component and Card element here. We also use <code class="code">rounded-tl-none</code> to ensure the top-left
+						corner is pointing at the avatar. This card uses a neutral background color.
 					</p>
 					<CodeBlock
 						language="html"
@@ -417,7 +448,11 @@ let messages = [
 </div>
 					`}
 					/>
-					<p>Here's the guest bubble template. We flip the Avatar to appear on the right and set a different pointy corner.</p>
+					<p class="font-bold">Guest Bubble Template</p>
+					<p>
+						We move the avatar to apepear on the right and alter the the matching corner border radius style. This card utilizes the color
+						class provided from the message data.
+					</p>
 					<CodeBlock
 						language="html"
 						code={`
@@ -436,10 +471,11 @@ let messages = [
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
+
 		<section class="space-y-4">
 			<h2>Prompt</h2>
 			<p>
-				We can utlize Skeleton's <a href="/elements/forms" class="anchor">Input Group</a> element to create a custom text prompt.
+				We can utlize a Skeleton <a href="/elements/forms" class="anchor">Input Group</a> to create a custom text prompt.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -478,19 +514,26 @@ let messages = [
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
+
+		<hr />
+
 		<section class="space-y-4">
 			<h2>Scroll to Bottom</h2>
-			<p>Use <code class="code">bind:this</code> to bind your scrollable chat element.</p>
+			<p>
+				Chat windows are typically remain fixed at the bottom of the scrollable pane. This can be triggered on page load and when a new
+				message is added.
+			</p>
+			<p>Use <code class="code">bind:this</code> to bind your scrollable feed element.</p>
 			<CodeBlock language="ts" code={`let elemChat: HTMLElement;`} />
 			<CodeBlock language="html" code={`<div bind:this={elemChat} class="overflow-y-auto">(chat)</div>`} />
 			<p>
-				use Javascript's <a
+				Then use Javascript's <a
 					class="anchor"
 					href="https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollTo"
 					target="_blank"
 					rel="noreferrer">scrollTo</a
 				>
-				method to scroll the binded element to the bottom. Enable smooth scroll with
+				method to scroll the binded element to the bottom on demand. You may also set smooth scrolling via
 				<code class="code">behavior: 'smooth'</code>.
 			</p>
 			<CodeBlock
@@ -504,25 +547,10 @@ function scrollChatBottom(behavior?: ScrollBehavior): void {
 		</section>
 		<section class="space-y-4">
 			<h2>Add a Message</h2>
-			<p>Ensure you have a set of messsage data. We'll provide an example below.</p>
-			<CodeBlock
-				language="ts"
-				code={`
-let messages = [
-	{
-		id: 0,
-		host: true,
-		avatar: 48,
-		name: 'Jane',
-		timestamp: 'Yesterday @ 2:30pm',
-		message: lorem,
-		color: 'variant-soft-primary'
-	},
-	// ...
-];
-					`}
-			/>
-			<p>Bind to your prompt textarea to be able to capture the contents on demand.</p>
+			<p>Below we'll cover how to append the message feed with a new message from the host user.</p>
+			<p>Per our above examples, we'll use the same <code class="code">messageFeed</code> data structure.</p>
+			<CodeBlock language="ts" code={`let messageFeed = [ /* ...*/ ];`} />
+			<p>Then bind to the textarea for your prompt in order to capture any message typed by the user.</p>
 			<CodeBlock language="ts" code={`let currentMessage = '';`} />
 			<CodeBlock
 				language="html"
@@ -533,7 +561,7 @@ let messages = [
 />
 					`}
 			/>
-			<p>Use the following function to append a new message to the <code class="code">messages</code> array.</p>
+			<p>Here's an example of how we might append a new message to the <code class="code">messageFeed</code> array.</p>
 			<CodeBlock
 				language="ts"
 				code={`
@@ -547,16 +575,16 @@ function addMessage(): void {
 		message: currentMessage,
 		color: 'variant-soft-primary'
 	};
-	// Append the new message to the messages array
+	// Append the new message to the message feed
 	messages = [...messages, newMessage];
-	// Clear prompt textarea
+	// Clear the textarea message
 	currentMessage = '';
-	// Trigger scroll to bottom
+	// Smoothly scroll to the bottom of the feed
 	setTimeout(() => { scrollChatBottom('smooth'); }, 0);
 }
 					`}
 			/>
-			<p>Trigger this method when the SEND button is clicked.</p>
+			<p>This can be triggered when the prompt's SEND button is clicked.</p>
 			<CodeBlock language="html" code={`<button ... on:click={addMessage}>Send</button>`} />
 		</section>
 	</svelte:fragment>

@@ -27,7 +27,7 @@
 
 	// Classes
 	const cBase: string = 'cursor-pointer -outline-offset-[3px]';
-	const cLabel: string = 'flex space-x-4';
+	const cLabel: string = 'flex items-center space-x-4';
 
 	// Local
 	let checked: boolean;
