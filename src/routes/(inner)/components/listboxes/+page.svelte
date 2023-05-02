@@ -23,9 +23,9 @@
 			{ label: 'ListBoxItem', sveld: sveldListBoxItem, overrideProps: ['rounded', 'active', 'hover', 'padding'] }
 		],
 		keyboard: [
-			['<kbd>Tab</kbd>', 'Focus the next listbox item.'],
-			['<kbd>Shift + Tab</kbd> ', 'Focus the previous listbox item.'],
-			['<kbd>Enter</kbd> or <kbd>Space</kbd>', 'Toggles the current listbox item selection.']
+			['<kbd class="kbd">Tab</kbd>', 'Focus the next listbox item.'],
+			['<kbd class="kbd">Shift + Tab</kbd> ', 'Focus the previous listbox item.'],
+			['<kbd class="kbd">Enter</kbd> or <kbd class="kbd">Space</kbd>', 'Toggles the current listbox item selection.']
 		]
 	};
 
@@ -57,7 +57,7 @@
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="footer">
-				<div class="text-center"><code>Selected: {valueSingle}</code></div>
+				<div class="text-center"><code class="code">Selected: {valueSingle}</code></div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
 				<CodeBlock language="ts" code={`let valueSingle: string = 'books';`} />
@@ -81,9 +81,10 @@
 			<p>By default the listbox uses a native <em>radio inputs</em> to ensure only one item is selected at a time.</p>
 		</section>
 		<section class="space-y-4">
-			<h3>Multiple Selection</h3>
+			<h3 class="h3">Multiple Selection</h3>
 			<p>
-				By adding the <code>multiple</code> property, the component uses native <em>checkbox inputs</em>, which allows for multi-select.
+				By adding the <code class="code">multiple</code> property, the component uses native <em>checkbox inputs</em>, which allows for
+				multi-select.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -103,7 +104,7 @@
 					</ListBox>
 				</svelte:fragment>
 				<svelte:fragment slot="footer">
-					<div class="text-center"><code>Selected: {valueMultiple.length ? valueMultiple : 'None'}</code></div>
+					<div class="text-center"><code class="code">Selected: {valueMultiple.length ? valueMultiple : 'None'}</code></div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock language="ts" code={`let valueMultiple: string[] = ['books', 'movies'];`} />
@@ -121,8 +122,11 @@
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>Lead and Trail Slots</h2>
-			<p>Each Listbox item supports a <code>lead</code> and <code>trail</code> slot, which can be useful for icons or actions.</p>
+			<h2 class="h2">Lead and Trail Slots</h2>
+			<p>
+				Each Listbox item supports a <code class="code">lead</code> and <code class="code">trail</code> slot, which can be useful for icons or
+				actions.
+			</p>
 			<CodeBlock
 				language="html"
 				code={`
@@ -135,10 +139,10 @@
 			/>
 		</section>
 		<section class="space-y-4">
-			<h2>Native Alternatives</h2>
+			<h2 class="h2">Native Alternatives</h2>
 			<p>
-				Consider using the native Select element with either the <code>size</code> or <code>multiple</code> attributes set to support single
-				or multiple selection respectively. However, please be aware that Safari (macOS) does not support all styles.
+				Consider using the native Select element with either the <code class="code">size</code> or <code class="code">multiple</code> attributes
+				set to support single or multiple selection respectively. However, please be aware that Safari (macOS) does not support all styles.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">

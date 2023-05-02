@@ -43,7 +43,7 @@
 <div class="max-w-5xl mx-auto p-4 md:p-12 space-y-8">
 	<!-- Breadcrumbs -->
 	<ol class="breadcrumb">
-		<li class="crumb"><a href="/blog">Blog</a></li>
+		<li class="crumb"><a class="anchor" href="/blog">Blog</a></li>
 		<li class="crumb-separator" aria-hidden>&rsaquo;</li>
 		<li>Article</li>
 	</ol>
@@ -51,16 +51,18 @@
 	<header class="space-y-4">
 		<!-- Timestamp / Read Time -->
 		<div class="blog-meta flex justify-between items-center">
-			<time class="block">{blogDateFormatter(post.updated_at)}</time>
+			<time class="time block">{blogDateFormatter(post.updated_at)}</time>
 			<span class="hidden md:block text-xs opacity-50">{post.reading_time} min read</span>
 		</div>
-		<h1>{post.title}</h1>
+		<h1 class="h1">{post.title}</h1>
 		<!-- Byline -->
 		<div class="flex items-center space-x-4 py-4">
 			<Avatar src={post.primary_author.profile_image} alt={post.primary_author.slug} />
 			<div>
 				<span class="block">{post.primary_author.name}</span>
-				<a class="text-secondary-500 text-xs" href="https://twitter.com/{post.primary_author.twitter}">{post.primary_author.twitter}</a>
+				<a class="anchor text-secondary-500 text-xs" href="https://twitter.com/{post.primary_author.twitter}"
+					>{post.primary_author.twitter}</a
+				>
 			</div>
 		</div>
 		<!-- Featured Image -->

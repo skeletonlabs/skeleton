@@ -45,7 +45,7 @@ export const menuNavLinks: any = [
 			{
 				href: '/elements/typography',
 				label: 'Typography',
-				keywords: 'unstyled, headings, paragraph, anchor, blockquote, pre, code, keyboard, ins, del'
+				keywords: 'headings, paragraph, anchor, blockquote, pre, code, keyboard, ins, del'
 			},
 			{
 				href: '/elements/forms',

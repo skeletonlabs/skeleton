@@ -44,8 +44,11 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<h2>Styling</h2>
-			<p>Use the <code>stroke</code> <code>meter</code> or <code>track</code>properties to style the radial.</p>
+			<h2 class="h2">Styling</h2>
+			<p>
+				Use the <code class="code">stroke</code> <code class="code">meter</code> or <code class="code">track</code>properties to style the
+				radial.
+			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 text-center">
@@ -89,8 +92,8 @@
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>Indeterminate</h2>
-			<p>Remove the <code>value</code> property or set to <code>undefined</code>.</p>
+			<h2 class="h2">Indeterminate</h2>
+			<p>Remove the <code class="code">value</code> property or set to <code class="code">undefined</code>.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<ProgressRadial width="w-28" />
@@ -103,10 +106,10 @@
 		</section>
 		<hr />
 		<section class="space-y-4">
-			<h2>Accessibility</h2>
+			<h2 class="h2">Accessibility</h2>
 			<!-- prettier-ignore -->
 			<p>
-				This component is treated as an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter" target="_blank" rel="noreferrer">ARIA meter</a>.
+				This component is treated as an <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter" target="_blank" rel="noreferrer">ARIA meter</a>.
 			</p>
 		</section>
 	</svelte:fragment>

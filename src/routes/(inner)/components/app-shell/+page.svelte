@@ -132,18 +132,19 @@
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
 			<p>
-				Implement the App Shell in your app's root layout in <code>/src/routes/+layout.svelte</code>. Slot order does not matter.
+				Implement the App Shell in your app's root layout in <code class="code">/src/routes/+layout.svelte</code>. Slot order does not
+				matter.
 			</p>
 		</section>
 		<section class="space-y-4">
 			<div class="flex items-center space-x-2">
-				<h2>Prerequisites</h2>
+				<h2 class="h2">Prerequisites</h2>
 				<span class="badge variant-filled-warning">Required</span>
 			</div>
 			<!-- prettier-ignore -->
 			<p>
-				The App Shell will need to expand to fill all available space within your app's <em>body</em> tag. Open <code>/src/app.html</code> and add the following classes.
-				<a href="https://github.com/sveltejs/kit/issues/6244#issuecomment-1226600661" target="_blank" rel="noreferrer">This wrapping element is required</a> and the style of <code>display: contents</code> should remain.
+				The App Shell will need to expand to fill all available space within your app's <em>body</em> tag. Open <code class="code">/src/app.html</code> and add the following classes.
+				<a class="anchor" href="https://github.com/sveltejs/kit/issues/6244#issuecomment-1226600661" target="_blank" rel="noreferrer">This wrapping element is required</a> and the style of <code class="code">display: contents</code> should remain.
 			</p>
 			<CodeBlock
 				language="html"
@@ -156,10 +157,10 @@
 			<CodeBlock language="css" code={`html, body { @apply h-full overflow-hidden; }`} />
 		</section>
 		<section class="space-y-4">
-			<h2>Using an App Bar</h2>
+			<h2 class="h2">Using an App Bar</h2>
 			<p>
-				If you wish for your <a href="/components/app-bar">App Bar</a> component to remain fixed at the top of the page, embed it into the
-				top-most <code>header</code> slot.
+				If you wish for your <a class="anchor" href="/components/app-bar">App Bar</a> component to remain fixed at the top of the page,
+				embed it into the top-most <code class="code">header</code> slot.
 			</p>
 			<CodeBlock
 				language="html"
@@ -171,7 +172,7 @@
 	<!-- ... -->
 </AppShell>`}
 			/>
-			<p>If you wish for your App Bar to scroll with the page, insert it into the <code>pageHeader</code> slot.</p>
+			<p>If you wish for your App Bar to scroll with the page, insert it into the <code class="code">pageHeader</code> slot.</p>
 			<CodeBlock
 				language="html"
 				code={`
@@ -182,17 +183,19 @@
 	<!-- ... -->
 </AppShell>`}
 			/>
-			<p>If you wish to have a sticky <code>pageHeader</code>, apply the following App Shell prop styles.</p>
+			<p>If you wish to have a sticky <code class="code">pageHeader</code>, apply the following App Shell prop styles.</p>
 			<CodeBlock language="html" code={`<AppShell regionPage="relative" slotPageHeader="sticky top-0 z-10">...</AppShell>`} />
 		</section>
 		<section class="space-y-4">
-			<h2>Responsive Sidebars</h2>
+			<h2 class="h2">Responsive Sidebars</h2>
 			<p>
-				Sidebars have a default width of <code>auto</code>. This means they will automatically collapse when their contents are
+				Sidebars have a default width of <code class="code">auto</code>. This means they will automatically collapse when their contents are
 				<em>empty</em>
 				or
 				<em>hidden</em>. Use this to remove the sidebar with CSS media queries via
-				<a href="https://tailwindcss.com/docs/responsive-design" target="_blank" rel="noreferrer">Tailwind's responsive breakpoints</a>.
+				<a class="anchor" href="https://tailwindcss.com/docs/responsive-design" target="_blank" rel="noreferrer"
+					>Tailwind's responsive breakpoints</a
+				>.
 			</p>
 			<CodeBlock
 				language="html"
@@ -215,8 +218,8 @@
 			</aside>
 		</section>
 		<section class="space-y-4">
-			<h2>Tracking Scroll Position</h2>
-			<p>Use the <code>on:scroll</code> event to detect when the page region is scrolled vertically.</p>
+			<h2 class="h2">Tracking Scroll Position</h2>
+			<p>Use the <code class="code">on:scroll</code> event to detect when the page region is scrolled vertically.</p>
 			<CodeBlock
 				language="ts"
 				code={`

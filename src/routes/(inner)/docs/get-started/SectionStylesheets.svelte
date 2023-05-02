@@ -15,7 +15,7 @@
 
 <!-- Header -->
 <section class="space-y-4">
-	<h2>Stylesheets</h2>
+	<h2 class="h2">Stylesheets</h2>
 	<TabGroup regionPanel="space-y-4">
 		<!-- Tabs -->
 		<Tab bind:group={$storeOnboardMethod} name="cli" value="cli">Skeleton CLI</Tab>
@@ -26,11 +26,11 @@
 				<div class="card variant-glass p-4">
 					<p>
 						The CLI will automatically import the Skeleton CSS stylesheet within
-						<code>src/routes/+layout.svelte</code>.
+						<code class="code">src/routes/+layout.svelte</code>.
 					</p>
 				</div>
 			{:else if $storeOnboardMethod === 'manual'}
-				<p>Ensure the following stylesheets are added to your root layout in <code>src/routes/+layout.svelte</code>.</p>
+				<p>Ensure the following stylesheets are added to your root layout in <code class="code">src/routes/+layout.svelte</code>.</p>
 				<aside class="alert variant-ghost-warning">
 					<i class="fa-solid fa-triangle-exclamation text-2xl" />
 					<div class="alert-message">

@@ -17,8 +17,8 @@
 		stylesheets: ['elements/logo-clouds'],
 		source: 'styles/elements/logo-clouds.css',
 		classes: [
-			['<code>.logo-cloud</code>', '-', 'Apply to a wrapping block element around a set of logos.'],
-			['<code>.logo-item</code>', '-', 'Apply to each logo child element.']
+			['<code class="code">.logo-cloud</code>', '-', 'Apply to a wrapping block element around a set of logos.'],
+			['<code class="code">.logo-item</code>', '-', 'Apply to each logo child element.']
 		]
 	};
 
@@ -86,10 +86,10 @@
 	<svelte:fragment slot="usage">
 		<!-- Styling -->
 		<section class="space-y-4">
-			<h2>Multiple Rows</h2>
+			<h2 class="h2">Multiple Rows</h2>
 			<!-- prettier-ignore -->
 			<p>
-				Use the <a href="https://tailwindcss.com/docs/grid-template-columns" target="_blank" rel="noreferrer">Tailwind column and gap classes</a> to adjust column amount and gap spacing.
+				Use the <a class="anchor" href="https://tailwindcss.com/docs/grid-template-columns" target="_blank" rel="noreferrer">Tailwind column and gap classes</a> to adjust column amount and gap spacing.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -127,9 +127,9 @@
 		</section>
 		<!-- Styling -->
 		<section class="space-y-4">
-			<h2>Styling Items</h2>
+			<h2 class="h2">Styling Items</h2>
 			<!-- prettier-ignore -->
-			<p>Use <a href="https://tailwindcss.com/blog/tailwindcss-v3-1#arbitrary-values-but-for-variants" target="_blank" rel="noreferrer">Tailwind's arbitrary variant syntax</a> to customize the <code>.logo-item</code> styles. Tailwind classes and variants are supported.</p>
+			<p>Use <a class="anchor" href="https://tailwindcss.com/blog/tailwindcss-v3-1#arbitrary-values-but-for-variants" target="_blank" rel="noreferrer">Tailwind's arbitrary variant syntax</a> to customize the <code class="code">.logo-item</code> styles. Tailwind classes and variants are supported.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<section class="w-full">

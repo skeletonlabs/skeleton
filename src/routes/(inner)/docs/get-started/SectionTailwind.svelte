@@ -8,9 +8,11 @@
 
 <!-- Header -->
 <section class="space-y-4">
-	<h2>Tailwind CSS</h2>
+	<h2 class="h2">Tailwind CSS</h2>
 	<p>
-		Skeleton features tight integration with <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind CSS</a>.
+		Skeleton features tight integration with <a class="anchor" href="https://tailwindcss.com/" target="_blank" rel="noreferrer"
+			>Tailwind CSS</a
+		>.
 	</p>
 	<TabGroup regionPanel="space-y-4">
 		<!-- Tabs -->
@@ -22,25 +24,25 @@
 				<div class="card variant-glass p-4">
 					<!-- prettier-ignore -->
 					<p>
-						The CLI uses <a href="https://github.com/svelte-add/tailwindcss" target="_blank" rel="noreferrer">Svelte-Add</a> to install and configure Tailwind within your project.
+						The CLI uses <a class="anchor" href="https://github.com/svelte-add/tailwindcss" target="_blank" rel="noreferrer">Svelte-Add</a> to install and configure Tailwind within your project.
 					</p>
 				</div>
 			{:else if $storeOnboardMethod === 'manual'}
 				<div class="space-y-4">
 					<p>
-						<a href="https://github.com/svelte-add/tailwindcss" target="_blank" rel="noreferrer">Svelte-Add</a> makes it easy to setup Tailwind
-						in your project. Run the following commands in your terminal.
+						<a class="anchor" href="https://github.com/svelte-add/tailwindcss" target="_blank" rel="noreferrer">Svelte-Add</a> makes it easy
+						to setup Tailwind in your project. Run the following commands in your terminal.
 					</p>
 					<CodeBlock language="console" code={`npx svelte-add@latest tailwindcss\nnpm install`} />
 					<!-- prettier-ignore -->
-					<p>Then open your global stylesheet in <code>/src/app.postcss</code> and remove the following three <a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> introduced by Svelte-Add. These are redundant as Skeleton automatically handles these in our stylesheets for you.</p>
+					<p>Then open your global stylesheet in <code class="code">/src/app.postcss</code> and remove the following three <a class="anchor" href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noreferrer">@tailwind directives</a> introduced by Svelte-Add. These are redundant as Skeleton automatically handles these in our stylesheets for you.</p>
 					<div class="space-y-[1px]">
-						<del>@tailwind base;</del>
-						<del>@tailwind components;</del>
-						<del>@tailwind utilities;</del>
+						<del class="del">@tailwind base;</del>
+						<del class="del">@tailwind components;</del>
+						<del class="del">@tailwind utilities;</del>
 					</div>
 				</div>
-				<p>Apply these following three changes to your <code>tailwind.config.cjs</code>, found in the root of your project.</p>
+				<p>Apply these following three changes to your <code class="code">tailwind.config.cjs</code>, found in the root of your project.</p>
 				<CodeBlock
 					language="js"
 					code={`
@@ -75,13 +77,13 @@ module.exports = {
 				</aside>
 				<p>
 					Note that your app will default to light mode. To manually set dark mode, append the following class to the HTML element within <code
-						>/src/app.html</code
+						class="code">/src/app.html</code
 					>.
 				</p>
 				<CodeBlock language="html" code={`<html class="dark">`} />
 				<p>
-					If you wish to be able to toggle dark mode, review the <a href="/utilities/lightswitches">Lightswitch</a> utility features when you
-					complete this setup process.
+					If you wish to be able to toggle dark mode, review the <a class="anchor" href="/utilities/lightswitches">Lightswitch</a> utility features
+					when you complete this setup process.
 				</p>
 			{/if}
 		</svelte:fragment>

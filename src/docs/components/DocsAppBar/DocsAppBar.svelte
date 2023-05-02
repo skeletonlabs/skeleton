@@ -157,7 +157,7 @@
 		<div>
 			<!-- trigger -->
 			<button class="btn hover:variant-soft-primary" use:popup={{ event: 'click', target: 'theme' }}>
-				<i class="fa-solid fa-palette text-lg md:hidden" />
+				<i class="fa-solid fa-palette text-lg md:!hidden" />
 				<span class="hidden md:inline-block">Theme</span>
 				<i class="fa-solid fa-caret-down opacity-50" />
 			</button>
@@ -165,7 +165,7 @@
 			<div class="card p-4 w-60 shadow-xl" data-popup="theme">
 				<div class="space-y-4">
 					<section class="flex justify-between items-center">
-						<h6>Mode</h6>
+						<h6 class="h6">Mode</h6>
 						<LightSwitch />
 					</section>
 					<nav class="list-nav p-4 -m-4 max-h-64 lg:max-h-[500px] overflow-y-auto">

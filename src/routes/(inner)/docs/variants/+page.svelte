@@ -19,13 +19,13 @@
 	<svelte:fragment slot="usage">
 		<hr />
 		<section class="space-y-4">
-			<h2>Usage</h2>
-			<p>Implement using <code>.variant-[style]-[color]</code>. Automatically applies an accessible text or SVG fill color.</p>
+			<h2 class="h2">Usage</h2>
+			<p>Implement using <code class="code">.variant-[style]-[color]</code>. Automatically applies an accessible text or SVG fill color.</p>
 			<CodeBlock language="html" code={`<div class="variant-filled-primary">primary</div>`} />
 		</section>
 		<!-- Filled -->
 		<section class="space-y-4">
-			<h2>Filled</h2>
+			<h2 class="h2">Filled</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full grid grid-cols-3 gap-4 text-center text-xs font-bold">
@@ -51,7 +51,7 @@
 		</section>
 		<!-- Ghost -->
 		<section class="space-y-4">
-			<h2>Ghost</h2>
+			<h2 class="h2">Ghost</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full grid grid-cols-3 gap-4 text-center text-xs font-bold">
@@ -77,7 +77,7 @@
 		</section>
 		<!-- Soft -->
 		<section class="space-y-4">
-			<h2>Soft</h2>
+			<h2 class="h2">Soft</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full grid grid-cols-3 gap-4 text-center text-xs font-bold">
@@ -103,7 +103,7 @@
 		</section>
 		<!-- Ringed -->
 		<section class="space-y-4">
-			<h2>Ringed</h2>
+			<h2 class="h2">Ringed</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full grid grid-cols-3 gap-4 text-center text-xs font-bold">
@@ -129,7 +129,7 @@
 		</section>
 		<!-- Glass -->
 		<section class="space-y-4">
-			<h2>Glass</h2>
+			<h2 class="h2">Glass</h2>
 			<p>Adds a frosted glass style effect. Perfect for overlapping busy or animated backgrounds.</p>
 			<DocsPreview background="neutral" regionViewport="!p-0">
 				<svelte:fragment slot="preview">
@@ -164,9 +164,9 @@
 		</section>
 		<!-- Gradients -->
 		<section class="space-y-4">
-			<h2>Gradients</h2>
+			<h2 class="h2">Gradients</h2>
 			<p>
-				Provides two-toned gradient combinations. Requires a direction, such as <code>bg-gradient-to-br</code> (bottom-right).
+				Provides two-toned gradient combinations. Requires a direction, such as <code class="code">bg-gradient-to-br</code> (bottom-right).
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">

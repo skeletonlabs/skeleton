@@ -18,11 +18,15 @@
 		stylesheets: ['elements/chips'],
 		source: 'styles/elements/chips.css',
 		classes: [
-			['<code>chip</code>', '', 'Provides the standard chip style.'],
-			['<code>chip-[color]</code>', '<a href="/docs/colors">Any theme color.</a>', 'Applies a variant style.'],
-			['<code>chip-active</code>', '', 'Sets the default active state.'],
-			['<code>chip-[color]-active</code>', '<a href="/docs/colors">Any theme color.</a>', 'Set a colored active state.'],
-			['<code>chip-disabled</code>', '', 'Applies disabled styling.']
+			['<code class="code">chip</code>', '', 'Provides the standard chip style.'],
+			['<code class="code">chip-[color]</code>', '<a class="anchor" href="/docs/colors">Any theme color.</a>', 'Applies a variant style.'],
+			['<code class="code">chip-active</code>', '', 'Sets the default active state.'],
+			[
+				'<code class="code">chip-[color]-active</code>',
+				'<a class="anchor" href="/docs/colors">Any theme color.</a>',
+				'Set a colored active state.'
+			],
+			['<code class="code">chip-disabled</code>', '', 'Applies disabled styling.']
 		]
 	};
 
@@ -77,9 +81,9 @@
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
-		<p>Apply <code>.chip</code> to any inline element, such as a <em>span</em> or <em>anchor</em> tag.</p>
+		<p>Apply <code class="code">.chip</code> to any inline element, such as a <em>span</em> or <em>anchor</em> tag.</p>
 		<section class="space-y-4">
-			<h2>Action Chips</h2>
+			<h2 class="h2">Action Chips</h2>
 			<p>Use chips to create small related set of actions.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -109,12 +113,12 @@
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>State</h2>
+			<h2 class="h2">State</h2>
 			<p>Dynamically modify chip classes to represent state. See the examples below using this technique.</p>
 			<CodeBlock language="ts" code={`$: chipStateClass = (someCondition) ? 'variant-filled-primary' : 'variant-soft-primary';`} />
 			<CodeBlock language="html" code={`<span class="chip {chipStateClass}">...</span>`} />
 			<!-- Single Selection -->
-			<h3>Single Selection</h3>
+			<h3 class="h3">Single Selection</h3>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="flex justify-center space-x-2">
@@ -151,7 +155,7 @@
 				</svelte:fragment>
 			</DocsPreview>
 			<!-- Multiple Selection -->
-			<h3>Multiple Selection</h3>
+			<h3 class="h3">Multiple Selection</h3>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="flex justify-center space-x-2">

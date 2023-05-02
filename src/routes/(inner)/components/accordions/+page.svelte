@@ -28,9 +28,9 @@
 			}
 		],
 		keyboard: [
-			['<kbd>Tab</kbd>', 'Focus the next accordion item.'],
-			['<kbd>Shift + Tab</kbd> ', 'Focus the previous accordion item.'],
-			['<kbd>Space</kbd> or <kbd>Enter</kbd>', 'Toggles the item panel open or closed.']
+			['<kbd class="kbd">Tab</kbd>', 'Focus the next accordion item.'],
+			['<kbd class="kbd">Shift + Tab</kbd> ', 'Focus the previous accordion item.'],
+			['<kbd class="kbd">Space</kbd> or <kbd class="kbd">Enter</kbd>', 'Toggles the item panel open or closed.']
 		]
 	};
 
@@ -125,14 +125,15 @@
 	<svelte:fragment slot="usage">
 		<section class="space-y-4" />
 		<section class="space-y-4">
-			<h2>Auto-Collapse Mode</h2>
-			<p>Enable the <code>autocollapse</code> setting to limit display to one accordion panel at a time.</p>
+			<h2 class="h2">Auto-Collapse Mode</h2>
+			<p>Enable the <code class="code">autocollapse</code> setting to limit display to one accordion panel at a time.</p>
 			<CodeBlock language="html" code={`<Accordion autocollapse>...</Accordion>`} />
 		</section>
 		<section class="space-y-4">
-			<h2>Open on Load</h2>
+			<h2 class="h2">Open on Load</h2>
 			<p>
-				Set the visible items on load with <code>open</code>. When using <code>autocollapse</code> mode, this is limited to a single item.
+				Set the visible items on load with <code class="code">open</code>. When using <code class="code">autocollapse</code> mode, this is limited
+				to a single item.
 			</p>
 			<CodeBlock language="html" code={`<AccordionItem open>...</AccordionItem>`} />
 		</section>

@@ -96,9 +96,9 @@ const storeValue: Writable<number> = writable(0);
 	<svelte:fragment slot="usage">
 		<!-- Tile -->
 		<section class="space-y-4">
-			<h2>Anchor Tiles</h2>
+			<h2 class="h2">Anchor Tiles</h2>
 			<p>
-				Use <code>tag="a"</code> to convert any tile to an anchor link, then append
+				Use <code class="code">tag="a"</code> to convert any tile to an anchor link, then append
 				<em>href, target, rel</em>, and other attributes as needed.
 			</p>
 			<DocsPreview background="neutral">
@@ -115,11 +115,11 @@ const storeValue: Writable<number> = writable(0);
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>Page State</h2>
+			<h2 class="h2">Page State</h2>
 			<!-- prettier-ignore -->
 			<p>
 				To set an active state for an anchor link, compare the tile <em>href</em> URL to the active page URL using
-				<a href="https://kit.svelte.dev/docs/modules#$app-stores-page" target="_blank" rel="noreferrer">$page.url.pathname</a>. Then set a background color or other visual indicator via the Svelte class syntax.
+				<a class="anchor" href="https://kit.svelte.dev/docs/modules#$app-stores-page" target="_blank" rel="noreferrer">$page.url.pathname</a>. Then set a background color or other visual indicator via the Svelte class syntax.
 			</p>
 			<CodeBlock language="ts" code={`import { page } from '$app/stores';`} />
 			<CodeBlock

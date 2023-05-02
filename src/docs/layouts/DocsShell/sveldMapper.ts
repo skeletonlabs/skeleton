@@ -16,7 +16,7 @@ export function sveldMapperProps(component: Component): TableSource {
 	return {
 		head: propsHeadings,
 		body: propsFiltered.map((p: any) => {
-			return [`<code>${p.name}<?code>`, `<em>${p.type}</em>`, cleanValue(p.value), p.description ? p?.description : '-'];
+			return [`<code class="code">${p.name}<?code>`, `<em>${p.type}</em>`, cleanValue(p.value), p.description ? p?.description : '-'];
 		})
 	};
 }
@@ -30,7 +30,7 @@ export function sveldMapperSlots(component: Component): TableSource {
 		body: slots.map((s: any) => {
 			// prettier-ignore
 			return [
-				`<code>${s.name.replaceAll('__', '')}</code>`,
+				`<code class="code">${s.name.replaceAll('__', '')}</code>`,
 				s.default ? '&check;' : '-',
 				s.fallback ? '&check;' : '-',
 				// s.slot_props ? s.slot_props : '-', // NOTE: we don't currently use this
@@ -49,7 +49,7 @@ export function sveldMapperEvents(component: Component): TableSource {
 		body: events.map((e: any) => {
 			// prettier-ignore
 			return [
-				`<code>on:${e.name}</code>`,
+				`<code class="code">on:${e.name}</code>`,
 				`<em>${e.type}</em>`,
 				e.element ? escapeHtml(`<${e.element}>`) : '-',
 				e.detail ? e.detail : '-',

@@ -42,7 +42,7 @@
 	<svelte:fragment slot="usage">
 		<p>This component provides an alternative UI for a checkbox input element.</p>
 		<section class="space-y-4">
-			<h2>Labeled</h2>
+			<h2 class="h2">Labeled</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="flex items-center gap-4">
@@ -57,8 +57,11 @@
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>Customized</h2>
-			<p>Slide toggles styles and colors can be easily customized with the <code>active</code> and <code>size</code> properties.</p>
+			<h2 class="h2">Customized</h2>
+			<p>
+				Slide toggles styles and colors can be easily customized with the <code class="code">active</code> and
+				<code class="code">size</code> properties.
+			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="flex items-center gap-4">
@@ -73,10 +76,10 @@
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>Checkbox Attributes</h2>
+			<h2 class="h2">Checkbox Attributes</h2>
 			<p>
-				This component supports Svelte's <code>$$restProps</code>, which allows for <em>required</em>, <em>disabled</em>, and any other
-				valid checkbox input attributes.
+				This component supports Svelte's <code class="code">$$restProps</code>, which allows for <em>required</em>, <em>disabled</em>, and
+				any other valid checkbox input attributes.
 			</p>
 			<CodeBlock language="html" code={`<SlideToggle ... required disabled />`} />
 		</section>
