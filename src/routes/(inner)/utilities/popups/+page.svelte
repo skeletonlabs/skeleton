@@ -26,17 +26,11 @@
 		source: 'utilities/Popup',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/menu/',
 		classes: [
-			['<code class="code">[data-popup]</code>', '', `Follows Floating UI's best practices, sets hidden by default.`],
+			['<code class="code">[data-popup]</code>', '', `Follows Floating UI's best practices. Sets hidden by default.`],
 			['<code class="code">[data-popup] .arrow</code>', '', 'Provides base styles to the arrow element.']
 		],
 		parameters: [
-			[
-				'<code class="code">event</code>',
-				'string',
-				'click',
-				'click | hover | hover-click | focus | focus-click',
-				'Provide the popup event type.'
-			],
+			['<code class="code">event</code>', 'string', '-', 'click | hover | focus-blur | focus-click', 'Provide the popup event type.'],
 			['<code class="code">target</code>', 'string', '-', '-', 'Match the popup data value of <code class="code">[data-popup]</code>'],
 			['<code class="code">placement</code>', 'string', '-', 'bottom', 'Set the placement position.'],
 			['<code class="code">closeQuery</code>', 'string', 'a[href], button', '-', 'Query list of elements that will close the popup.'],
@@ -45,7 +39,6 @@
 		],
 		keyboard: [
 			['<kbd class="kbd">Enter</kbd>', 'When trigger is focused, toggles the popup open/close.'],
-			// ['<kbd class="kbd">Space</kbd>', 'When trigger is focused, toggles the popup open/close.'],
 			// ['<kbd class="kbd">Tab</kbd>', 'When trigger is focused, closes the popup.'],
 			['<kbd class="kbd">Esc</kbd>', 'Closes all open popups at once.'],
 			['<kbd class="kbd">↑</kbd>', 'Move upwards to the next item in the popup.'],
@@ -144,12 +137,15 @@ const popupFeatured: PopupSettings = {
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
-		<!-- Getting Started -->
+		<!-- Installation -->
 		<section class="space-y-4">
-			<h2 class="h2">Getting Started</h2>
+			<div class="flex items-center space-x-2">
+				<h2 class="h2">Installation</h2>
+				<span class="badge variant-filled-warning">Required</span>
+			</div>
 			<p>
-				Install <a class="anchor" href="https://floating-ui.com/" target="_blank" rel="noreferrer">Floating UI</a> from NPM.
-				<u>This is required.</u>
+				To begin, install <a class="anchor" href="https://floating-ui.com/" target="_blank" rel="noreferrer">Floating UI</a> from NPM. This
+				is <u>required</u> for popups to function.
 			</p>
 			<CodeBlock language="console" code={`npm install @floating-ui/dom`} />
 			<p>Import Floating UI into your application's root layout <code class="code">/src/routes/+layout.svelte</code>.</p>
@@ -159,6 +155,8 @@ const popupFeatured: PopupSettings = {
 			<p>Finally, pass an object containing each of the Floating UI modules to the store.</p>
 			<CodeBlock language="ts" code={`storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });`} />
 		</section>
+
+		<hr />
 
 		<!-- Events -->
 		<section class="space-y-4">
