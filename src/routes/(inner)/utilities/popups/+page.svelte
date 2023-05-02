@@ -144,7 +144,23 @@ const popupFeatured: PopupSettings = {
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
-		<!-- Click -->
+		<!-- Getting Started -->
+		<section class="space-y-4">
+			<h2 class="h2">Getting Started</h2>
+			<p>
+				Install <a class="anchor" href="https://floating-ui.com/" target="_blank" rel="noreferrer">Floating UI</a> from NPM.
+				<u>This is required.</u>
+			</p>
+			<CodeBlock language="console" code={`npm install @floating-ui/dom`} />
+			<p>Import Floating UI into your application's root layout <code class="code">/src/routes/+layout.svelte</code>.</p>
+			<CodeBlock language="ts" code={`import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';`} />
+			<p>Then import <code class="code">storePopup</code> in your root layout as well.</p>
+			<CodeBlock language="ts" code={`import { storePopup } from '@skeletonlabs/skeleton';`} />
+			<p>Finally, pass an object containing each of the Floating UI modules to the store.</p>
+			<CodeBlock language="ts" code={`storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });`} />
+		</section>
+
+		<!-- Events -->
 		<section class="space-y-4">
 			<h2 class="h2">Events</h2>
 			<p>The open and close state of the popup can be controlled by the <code class="code">event</code> setting.</p>
