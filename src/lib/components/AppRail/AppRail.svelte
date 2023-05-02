@@ -53,7 +53,7 @@
 
 <!-- @component A vertical navigation rail component. -->
 
-<div class="app-rail {classesBase}">
+<div class="app-rail {classesBase}" data-testid="app-rail">
 	<!-- Slot: lead -->
 	<div class="app-bar-lead {regionLead}"><slot name="lead" /></div>
 	<!-- Slot: Default -->
