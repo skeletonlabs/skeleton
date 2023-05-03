@@ -215,7 +215,7 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<p>
-			If you wish to reivew the source for the complete example above, please tap the <em>Page Source</em> button near the top of the page. We'll
+			If you wish to review the source for the complete example above, please tap the <em>Page Source</em> button near the top of the page. We'll
 			cover each core principle in the sections below.
 		</p>
 
@@ -451,8 +451,8 @@ let messageFeed = [
 					/>
 					<p class="font-bold">Guest Bubble Template</p>
 					<p>
-						We move the avatar to apepear on the right and alter the the matching corner border radius style. This card utilizes the color
-						class provided from the message data.
+						We move the avatar to appear on the right and alter the matching corner border radius style. This card utilizes the color class
+						provided from the message data.
 					</p>
 					<CodeBlock
 						language="html"
