@@ -16,8 +16,14 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 	let focusablePoupupElements: HTMLElement[];
 	const documentationLink = 'https://www.skeleton.dev/utilities/popups';
 	// Elements
-	const elemPopup: HTMLElement | null = document.querySelector(`[data-popup="${args.target}"]`);
-	const elemArrow: HTMLElement | null = elemPopup?.querySelector(`.arrow`) ?? null;
+	let elemPopup: HTMLElement;
+	let elemArrow: HTMLElement;
+
+	function setDomElements(): void {
+		elemPopup = document.querySelector(`[data-popup="${args.target}"]`) ?? new HTMLElement();
+		elemArrow = elemPopup?.querySelector(`.arrow`) ?? new HTMLElement();
+	}
+	setDomElements(); // init
 
 	// Render Floating UI Popup
 	function render(): void {
@@ -104,7 +110,7 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 		// Focus the first focusable element within the popup
 		focusablePoupupElements = Array.from(elemPopup?.querySelectorAll(focusableAllowedList));
 	}
-	function close(): void {
+	function close(callback?: any): void {
 		if (!elemPopup) return;
 		// Set transition duration
 		const cssTransitionDuration = parseFloat(window.getComputedStyle(elemPopup).transitionDuration.replace('s', '')) * 1000;
@@ -116,9 +122,11 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 			// Update the DOM
 			elemPopup.style.opacity = '0';
 			elemPopup.style.pointerEvents = 'none';
+			// Cleanup Floating UI autoUpdate (close only)
+			if (popupState.autoUpdateCleanup) popupState.autoUpdateCleanup();
+			// Trigger callback
+			if (callback) callback();
 		}, cssTransitionDuration);
-		// Cleanup Floating UI autoUpdate (close only)
-		if (popupState.autoUpdateCleanup) popupState.autoUpdateCleanup();
 	}
 
 	// Event Handlers
@@ -192,8 +200,11 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 	// Lifecycle
 	return {
 		update(newArgs: PopupSettings) {
-			args = newArgs;
-			render();
+			close(() => {
+				args = newArgs;
+				render();
+				setDomElements();
+			});
 		},
 		destroy() {
 			// Trigger Events
