@@ -43,7 +43,7 @@
 		/* Hover */
 		@apply bg-primary-hover-token;
 		/* Focus */
-		@apply focus:!variant-ringed-primary outline-none;
+		@apply focus:!variant-ringed-primary focus:text-token outline-none;
 		/* Cursor */
 		@apply cursor-pointer;
 		/* Theme: Rounded */
