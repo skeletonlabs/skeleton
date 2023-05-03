@@ -251,7 +251,7 @@ const popupClick: PopupSettings = {
 			<DocsPreview background="neutral" regionPreview="text-token">
 				<svelte:fragment slot="preview">
 					<button class="btn variant-filled [&>*]:pointer-events-none" use:popup={popupHover}>
-						<i class="fa-solid fa-square" />
+						<i class="fa-solid fa-skull" />
 						<span>Hover</span>
 					</button>
 					<div class="card p-4 variant-filled-secondary" data-popup="popupHover">
@@ -270,12 +270,18 @@ const popupHover: PopupSettings = {
 };
 					`}
 					/>
-					<p>
-						TIP: use <code class="code">[&>*]:pointer-events-none</code>, to prevent child elements (ex: icons) from closing the popup.
-					</p>
+					<blockquote class="blockquote">
+						TIP: apply <code class="code">[&>*]:pointer-events-none</code> to your trigger element, to prevent child elements (ex: icons) from
+						breaking the hover state and closing the popup early.
+					</blockquote>
 					<CodeBlock
 						language="html"
-						code={`<button class="btn variant-filled [&>*]:pointer-events-none" use:popup={popupHover}>Hover</button>`}
+						code={`
+<button class="btn variant-filled [&>*]:pointer-events-none" use:popup={popupHover}>
+	<span>(icon)</span>
+	<span>Hover</span>
+</button>
+						`}
 					/>
 					<CodeBlock
 						language="html"
