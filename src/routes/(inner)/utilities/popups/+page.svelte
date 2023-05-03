@@ -4,11 +4,9 @@
 	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
 	// Components
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
+	import Avatar from '$lib/components/Avatar/Avatar.svelte';
 	import ListBox from '$lib/components/ListBox/ListBox.svelte';
 	import ListBoxItem from '$lib/components/ListBox/ListBoxItem.svelte';
-	import Avatar from '$lib/components/Avatar/Avatar.svelte';
-	import TabGroup from '$lib/components/Tab/TabGroup.svelte';
-	import Tab from '$lib/components/Tab/Tab.svelte';
 	// Popups
 	import { popup } from '$lib/utilities/Popup/popup';
 	import type { PopupSettings } from '$lib/utilities/Popup/types';
@@ -48,14 +46,11 @@
 	};
 
 	// Local
-	// let tabSettings: number = 0;
-	// let comboboxValue: string;
 
 	const popupFeatured: PopupSettings = {
 		event: 'click',
 		target: 'popupFeatured',
 		placement: 'bottom'
-		// state: (e: any) => console.log('popupFeatured state:', e)
 	};
 	// ---
 	const popupClick: PopupSettings = {
@@ -77,6 +72,38 @@
 		event: 'focus-click',
 		target: 'popupFocusClick',
 		placement: 'top'
+	};
+	// ---
+	let currentPosition: 'top' | 'bottom' | 'left' | 'right' = 'bottom';
+	$: popupPlacement = {
+		event: 'click',
+		target: 'popupPlacement',
+		placement: currentPosition
+	} satisfies PopupSettings;
+	const popupCloseQuery: PopupSettings = {
+		event: 'click',
+		target: 'popupCloseQuery',
+		placement: 'bottom'
+	};
+	const popupState: PopupSettings = {
+		event: 'click',
+		target: 'popupState',
+		placement: 'bottom',
+		state: (e: any) => console.log(e)
+	};
+	const popupMiddlware: PopupSettings = {
+		event: 'click',
+		target: 'popupMiddlware',
+		placement: 'bottom',
+		middleware: { offset: 24 }
+	};
+	// ---
+	let comboboxValue: string;
+	const popupCombobox: PopupSettings = {
+		event: 'focus-click',
+		target: 'popupCombobox',
+		placement: 'bottom',
+		closeQuery: '.listbox-item'
 	};
 </script>
 
@@ -163,7 +190,9 @@ const popupFeatured: PopupSettings = {
 			<h2 class="h2">Events</h2>
 			<p>The open and close state of the popup can be controlled by the <code class="code">event</code> setting.</p>
 			<h3 class="h3">Click</h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+			<p>
+				Tap the trigger element to open the popup, then outside to close it. Supports the <code class="code">closeQuery</code> feature.
+			</p>
 			<DocsPreview background="neutral" regionPreview="text-token">
 				<svelte:fragment slot="preview">
 					<button class="btn variant-filled" use:popup={popupClick}>Click</button>
@@ -197,7 +226,7 @@ const popupClick: PopupSettings = {
 			</DocsPreview>
 			<!-- Hover -->
 			<h3 class="h3">Hover</h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+			<p>The popup shows while hovering the trigger element. Useful for creating tooltips.</p>
 			<DocsPreview background="neutral" regionPreview="text-token">
 				<svelte:fragment slot="preview">
 					<button class="btn variant-filled" use:popup={popupHover}>Hover</button>
@@ -231,7 +260,7 @@ const popupHover: PopupSettings = {
 			</DocsPreview>
 			<!-- Focus-Blur -->
 			<h3 class="h3">Focus-Blur</h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+			<p>Shows the popup only while the trigger element has focus. Useful for showing tooltips while focusing an input.</p>
 			<DocsPreview background="neutral" regionPreview="text-token">
 				<svelte:fragment slot="preview">
 					<div class="w-full max-w-sm mx-auto">
@@ -267,13 +296,15 @@ const popupFocusBlur: PopupSettings = {
 			</DocsPreview>
 			<!-- Focus-Click -->
 			<h3 class="h3">Focus-Click</h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+			<p>
+				Shows the popup when the trigger is focused, hides when clicking outside. Supports the <code class="code">closeQuery</code> feature.
+			</p>
 			<DocsPreview background="neutral" regionPreview="text-token">
 				<svelte:fragment slot="preview">
 					<div class="w-full max-w-sm mx-auto">
 						<input type="text" class="input" placeholder="Focus-Click" use:popup={popupFocusClick} />
 						<div class="card p-4 variant-filled" data-popup="popupFocusClick">
-							<p>Shows on focus, hides on click.</p>
+							<p>Shows on focus, hides on an outside click.</p>
 							<div class="arrow variant-filled" />
 						</div>
 					</div>
@@ -312,13 +343,184 @@ const popupFocusClick: PopupSettings = {
 				Each popup requires their own unique <code class="code">popupSettings</code>, which allow you to configure the following.
 			</p>
 			<h3 class="h3">Placement</h3>
-			<p>(TODO)</p>
+			<p>The popup can be set to appear in any of the four cardinal directions. This will flip when near the edge of the screen.</p>
+			<DocsPreview background="neutral" regionPreview="text-token py-10">
+				<svelte:fragment slot="preview">
+					<button class="btn variant-filled" use:popup={popupPlacement}>Show Popup</button>
+					<div class="card p-4 variant-filled" data-popup="popupPlacement">
+						<p>Shown on the {currentPosition}</p>
+						<div class="arrow variant-filled" />
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="footer">
+					<div class="flex justify-center gap-4">
+						<select bind:value={currentPosition} class="select w-auto">
+							{#each ['top', 'bottom', 'left', 'right'] as p}
+								<option value={p}>{p}</option>
+							{/each}
+						</select>
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="ts"
+						code={`
+const popupPlacement: PopupSettings = {
+	// ...
+	placement: '${currentPosition}'
+};
+					`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
 			<h3 class="h3">Close Query</h3>
-			<p>(TODO)</p>
+			<p>
+				Use the <code class="code">closeQuery</code> setting to indicate what popup child items will close the popup when clicked. This is
+				set to
+				<code class="code">'a[href], button'</code> by default. Pass an empty string <code class="code">''</code> to disable.
+			</p>
+			<DocsPreview background="neutral" regionPreview="text-token">
+				<svelte:fragment slot="preview">
+					<button class="btn variant-filled" use:popup={popupCloseQuery}>Show Popup</button>
+					<div class="card p-4" data-popup="popupCloseQuery">
+						<div class="space-y-4">
+							<p>Tap the button to close popup.</p>
+							<button class="btn variant-soft w-full">Close Popup</button>
+						</div>
+						<div class="arrow bg-surface-100-800-token" />
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="ts"
+						code={`
+const popupCloseQuery: PopupSettings = {
+	// ...
+	closeQuery: 'button'
+};
+					`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
 			<h3 class="h3">State Callback</h3>
-			<p>(TODO)</p>
+			<p>Provide a callback function to the <code class="code">state</code> setting to be notified when the popup is opened or closed.</p>
+			<DocsPreview background="neutral" regionPreview="text-token">
+				<svelte:fragment slot="preview">
+					<button class="btn variant-filled" use:popup={popupState}>Show Popup</button>
+					<div class="card p-4" data-popup="popupState">
+						<p>Check your console log to view the value.</p>
+						<div class="arrow bg-surface-100-800-token" />
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="ts"
+						code={`
+const popupState: PopupSettings = {
+	// ...
+	state: (e: any) => console.log(e)
+};
+					`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
 			<h3 class="h3">Middlware</h3>
-			<p>(TODO)</p>
+			<!-- prettier-ignore -->
+			<p>
+				Allows you to configure various <a href="https://floating-ui.com/docs/middleware" target="_blank" rel="noreferrer" class="anchor">Floating UI middleware settings</a> such as shift, offset, and more.
+			</p>
+			<DocsPreview background="neutral" regionPreview="text-token">
+				<svelte:fragment slot="preview">
+					<button class="btn variant-filled" use:popup={popupMiddlware}>Show Popup</button>
+					<div class="card p-4" data-popup="popupMiddlware">
+						<p>This popup has an offset of 24 px.</p>
+						<div class="arrow bg-surface-100-800-token" />
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="ts"
+						code={`
+let popupMiddlware: PopupSettings = {
+	// ...
+	middleware: {
+		// https://floating-ui.com/docs/offset
+		offset: 24, // or { ... }
+		// https://floating-ui.com/docs/shift
+		// shift: { ... },
+		// https://floating-ui.com/docs/flip
+		// flip: { ... },
+		// https://floating-ui.com/docs/arrow
+		// arrow: { ... }
+	}
+};
+					`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
+		</section>
+
+		<hr />
+
+		<!-- Combobox -->
+		<section class="space-y-4">
+			<h2 class="h2">Combobox</h2>
+			<p>
+				The goal of Skeleton is to combine primative elements and components to build more complex UI. For example, by combining a Button,
+				Popup, and ListBox you can create a highly customizable combobox.
+			</p>
+			<DocsPreview background="neutral" regionPreview="text-token">
+				<svelte:fragment slot="preview">
+					<button class="btn variant-filled w-48 justify-between" use:popup={popupCombobox}>
+						<span class="capitalize">{comboboxValue ?? 'Trigger'}</span>
+						<i class="fa-solid fa-caret-down opacity-50" />
+					</button>
+					<div class="card w-48 shadow-xl py-2" data-popup="popupCombobox">
+						<ListBox rounded="rounded-none">
+							<ListBoxItem bind:group={comboboxValue} name="medium" value="books">Books</ListBoxItem>
+							<ListBoxItem bind:group={comboboxValue} name="medium" value="movies">Movies</ListBoxItem>
+							<ListBoxItem bind:group={comboboxValue} name="medium" value="television">TV</ListBoxItem>
+						</ListBox>
+						<div class="arrow bg-surface-100-800-token" />
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="ts"
+						code={`
+let comboboxValue: string;\n
+const popupCombobox: PopupSettings = {
+	event: 'focus-click',
+	target: 'popupCombobox',
+	placement: 'bottom',
+	closeQuery: '.listbox-item'
+};
+				`}
+					/>
+					<CodeBlock
+						language="html"
+						code={`
+<button class="btn variant-filled w-48 justify-between" use:popup={popupCombobox}>
+	<span class="capitalize">{comboboxValue ?? 'Trigger'}</span>
+	<span>↓</span>
+</button>
+					`}
+					/>
+					<CodeBlock
+						language="html"
+						code={`
+<div class="card w-48 shadow-xl py-2" data-popup="popupCombobox">
+	<ListBox rounded="rounded-none">
+		<ListBoxItem bind:group={comboboxValue} name="medium" value="books">Books</ListBoxItem>
+		<ListBoxItem bind:group={comboboxValue} name="medium" value="movies">Movies</ListBoxItem>
+		<ListBoxItem bind:group={comboboxValue} name="medium" value="television">TV</ListBoxItem>
+	</ListBox>
+	<div class="arrow bg-surface-100-800-token" />
+</div>
+					`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
 		</section>
 
 		<hr />
@@ -328,7 +530,7 @@ const popupFocusClick: PopupSettings = {
 			<h2 class="h2">Z-Index Stacking</h2>
 			<!-- prettier-ignore -->
 			<p>
-				Please note Floating-UI <a class="anchor" href="https://floating-ui.com/docs/misc#z-index-stacking">does not define a default z-index</a>. You can, however, specify this for your <code class="code">data-popup</code> element.
+				Please note that neither Skelton nor Floating-UI <a class="anchor" href="https://floating-ui.com/docs/misc#z-index-stacking">define a default z-index</a> for popups.
 			</p>
 		</section>
 
@@ -337,7 +539,7 @@ const popupFocusClick: PopupSettings = {
 			<h2 class="h2">Accessibility</h2>
 			<!-- prettier-ignore -->
 			<p>
-				Use <code class="code">click</code> or <code class="code">focus</code> events when targeting mobile. Touch screens provide suboptimal support for <code class="code">hover</code>.
+				Use <code class="code">click</code> or <code class="code">focus</code> events when targeting mobile. Touch screens do not fully support <code class="code">hover</code>.
 			</p>
 		</section>
 	</svelte:fragment>

@@ -12,6 +12,8 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 		open: false,
 		autoUpdateCleanup: () => {}
 	};
+	const focusableAllowedList = ':is(a[href], button, input, textarea, select, details, [tabindex]):not([tabindex="-1"])';
+	let focusablePoupupElements: HTMLElement[];
 	const documentationLink = 'https://www.skeleton.dev/utilities/popups';
 	// Elements
 	const elemPopup: HTMLElement | null = document.querySelector(`[data-popup="${args.target}"]`);
@@ -85,6 +87,8 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 		// Trigger Floating UI autoUpdate (open only)
 		// https://floating-ui.com/docs/autoUpdate
 		popupState.autoUpdateCleanup = autoUpdate(triggerNode, elemPopup, render);
+		// Focus the first focusable element within the popup
+		focusablePoupupElements = Array.from(elemPopup?.querySelectorAll(focusableAllowedList));
 	}
 	function close(): void {
 		if (!elemPopup) return;
@@ -145,7 +149,11 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 			close();
 			return;
 		}
-		// TODO: On Arrow Down key
+		// On Arrow Down key
+		if (popupState.open && document.activeElement === triggerNode && key === 'ArrowDown') {
+			event.preventDefault();
+			if (focusableAllowedList.length > 0) focusablePoupupElements[0].focus();
+		}
 		// TODO: On Arrow Up key
 	};
 

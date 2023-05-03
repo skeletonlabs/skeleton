@@ -101,13 +101,12 @@
 		<!-- Explore -->
 		<div class="relative hidden lg:block">
 			<!-- trigger -->
-			<!-- use:popup={{ event: 'click', target: 'features' }} -->
-			<button class="btn hover:variant-soft-primary">
+			<button class="btn hover:variant-soft-primary" use:popup={{ event: 'click', target: 'features' }}>
 				<span>Explore</span>
 				<i class="fa-solid fa-caret-down opacity-50" />
 			</button>
 			<!-- popup -->
-			<!-- <div class="card p-4 w-60 shadow-xl" data-popup="features">
+			<div class="card p-4 w-60 shadow-xl" data-popup="features">
 				<nav class="list-nav">
 					<ul>
 						<li>
@@ -150,20 +149,19 @@
 					</ul>
 				</nav>
 				<div class="arrow bg-surface-100-800-token" />
-			</div> -->
+			</div>
 		</div>
 
 		<!-- Theme -->
 		<div>
 			<!-- trigger -->
-			<!-- use:popup={{ event: 'click', target: 'theme' }} -->
-			<button class="btn hover:variant-soft-primary">
+			<button class="btn hover:variant-soft-primary" use:popup={{ event: 'click', target: 'theme' }}>
 				<i class="fa-solid fa-palette text-lg md:!hidden" />
 				<span class="hidden md:inline-block">Theme</span>
 				<i class="fa-solid fa-caret-down opacity-50" />
 			</button>
 			<!-- popup -->
-			<!-- <div class="card p-4 w-60 shadow-xl" data-popup="theme">
+			<div class="card p-4 w-60 shadow-xl" data-popup="theme">
 				<div class="space-y-4">
 					<section class="flex justify-between items-center">
 						<h6 class="h6">Mode</h6>
@@ -194,7 +192,7 @@
 					</div>
 				</div>
 				<div class="arrow bg-surface-100-800-token" />
-			</div> -->
+			</div>
 		</div>
 
 		<!-- Social -->
@@ -219,13 +217,15 @@
 		<!-- Sponsor -->
 		<div>
 			<!-- trigger -->
-			<!-- use:popup={{ event: 'click', target: 'sponsor' }} -->
-			<button class="btn py-1.5 variant-soft hover:variant-soft-primary hidden sm:inline-block">
+			<button
+				class="btn py-1.5 variant-soft hover:variant-soft-primary hidden sm:inline-block"
+				use:popup={{ event: 'click', target: 'sponsor' }}
+			>
 				<i class="fa-solid fa-heart" />
 				<span class="hidden md:inline-block">Sponsor</span>
 			</button>
 			<!-- popup -->
-			<!-- <div class="card p-4 w-60 shadow-xl" data-popup="sponsor">
+			<div class="card p-4 w-60 shadow-xl" data-popup="sponsor">
 				<nav class="list-nav">
 					<ul>
 						<li>
@@ -249,7 +249,7 @@
 					</ul>
 				</nav>
 				<div class="arrow bg-surface-100-800-token" />
-			</div> -->
+			</div>
 		</div>
 	</svelte:fragment>
 </AppBar>
