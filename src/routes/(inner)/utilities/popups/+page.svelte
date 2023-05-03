@@ -81,7 +81,8 @@
 	const popupCloseQuery: PopupSettings = {
 		event: 'click',
 		target: 'popupCloseQuery',
-		placement: 'top'
+		placement: 'top',
+		closeQuery: 'button'
 	};
 	const popupState: PopupSettings = {
 		event: 'click',
@@ -133,31 +134,48 @@
 				<!-- --- -->
 			</svelte:fragment>
 			<svelte:fragment slot="source">
+				<p>Use <code class="code">popupSettings</code> to define your popup's unique settings.</p>
 				<CodeBlock
 					language="ts"
 					code={`
 const popupFeatured: PopupSettings = {
+	// Represents the type of event that opens/closed the popup
 	event: 'click',
+	// Matches the data-popup value on your popup element
 	target: 'popupFeatured',
+	// Defines which side of your trigger the popup will appear
 	placement: 'bottom',
 };
 					`}
 				/>
+				<p>
+					Append the <code class="code">use:popup</code> action on your trigger element, such as a button or input, then pass the
+					<code class="code">popupSettings</code>.
+				</p>
 				<CodeBlock
 					language="html"
 					code={`
 <button class="btn variant-filled" use:popup={popupFeatured}>Show Popup</button>
 				`}
 				/>
+				<p>
+					Finally, create your popup using any type of element. Then append a <code class="code">data-popup</code> attribute that contains a
+					unique identifier. This should match the value provided to your <code class="code">target</code> in the
+					<code class="code">popupSettings</code>.
+				</p>
 				<CodeBlock
 					language="html"
 					code={`
 <div class="card p-4 w-72 shadow-xl" data-popup="popupFeatured">
-	<p>Demo Content</p>
+	<div><p>Demo Content</p></div>
 	<div class="arrow bg-surface-100-800-token" />
 </div>
 					`}
 				/>
+				<p>
+					Note the <code class="code">.arrow</code> element is optional, but will create and position an arrow automatically when available.
+					Just make sure the background color amtches your popup element's background color!
+				</p>
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
@@ -232,7 +250,10 @@ const popupClick: PopupSettings = {
 			<p>The popup shows while hovering the trigger element. Useful for creating tooltips.</p>
 			<DocsPreview background="neutral" regionPreview="text-token">
 				<svelte:fragment slot="preview">
-					<button class="btn variant-filled" use:popup={popupHover}>Hover</button>
+					<button class="btn variant-filled [&>*]:pointer-events-none" use:popup={popupHover}>
+						<i class="fa-solid fa-square" />
+						<span>Hover</span>
+					</button>
 					<div class="card p-4 variant-filled-secondary" data-popup="popupHover">
 						<p>Hover Content</p>
 						<div class="arrow variant-filled-secondary" />
@@ -249,7 +270,13 @@ const popupHover: PopupSettings = {
 };
 					`}
 					/>
-					<CodeBlock language="html" code={`<button class="btn variant-filled" use:popup={popupHover}>Hover</button>`} />
+					<p>
+						TIP: use <code class="code">[&>*]:pointer-events-none</code>, to prevent child elements (ex: icons) from closing the popup.
+					</p>
+					<CodeBlock
+						language="html"
+						code={`<button class="btn variant-filled [&>*]:pointer-events-none" use:popup={popupHover}>Hover</button>`}
+					/>
 					<CodeBlock
 						language="html"
 						code={`
