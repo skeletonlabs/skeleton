@@ -37,10 +37,8 @@
 		],
 		keyboard: [
 			['<kbd class="kbd">Enter</kbd>', 'When trigger is focused, toggles the popup open/close.'],
-			// ['<kbd class="kbd">Tab</kbd>', 'When trigger is focused, closes the popup.'],
-			['<kbd class="kbd">Esc</kbd>', 'Closes all open popups at once.'],
-			['<kbd class="kbd">↑</kbd>', 'Move upwards to the next item in the popup.'],
-			['<kbd class="kbd">↓</kbd>', 'Move downwards to the next item in the popup.']
+			['<kbd class="kbd">Tab</kbd> or <kbd class="kbd">↓</kbd>', 'When trigger focused, places focus on first focusable popup child.'],
+			['<kbd class="kbd">Esc</kbd>', 'Closes all open popups at once.']
 		],
 		dependencies: [{ label: 'Floating UI', url: 'https://floating-ui.com/' }]
 	};

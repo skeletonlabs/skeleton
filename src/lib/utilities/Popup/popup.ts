@@ -148,27 +148,19 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 		if (popupState.open === false) return;
 		// Handle keys
 		const key: string = event.key;
-		// On ESC key
+		// On Esc key
 		if (key === 'Escape') {
 			event.preventDefault();
 			triggerNode.focus();
 			close();
 			return;
 		}
-		// On TAB key
-		if (document.activeElement === triggerNode && key === 'Tab') {
-			if (args.event === 'focus-blur') return;
-			event.preventDefault();
-			triggerNode.focus();
-			close();
-			return;
-		}
-		// On Arrow Down key
-		if (popupState.open && document.activeElement === triggerNode && key === 'ArrowDown') {
+		// On Tab or ArrowDown key
+		const triggerMenuFocused: boolean = popupState.open && document.activeElement === triggerNode;
+		if (triggerMenuFocused && (key === 'ArrowDown' || key === 'Tab')) {
 			event.preventDefault();
 			if (focusableAllowedList.length > 0) focusablePoupupElements[0].focus();
 		}
-		// TODO: On Arrow Up key
 	};
 
 	// Event Listeners

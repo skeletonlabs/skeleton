@@ -8,8 +8,8 @@
 
 	// Dependency: Floating UI
 	import { storePopup } from '$lib/utilities/Popup/popup';
-	import { computePosition, autoUpdate, offset, shift, flip, arrow, size, autoPlacement, hide, inline } from '@floating-ui/dom';
-	storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow, size, autoPlacement, hide, inline });
+	import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';
+	storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
 
 	// SvelteKit Imports
 	import { browser } from '$app/environment';
