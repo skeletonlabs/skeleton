@@ -83,19 +83,21 @@
 	const popupCloseQuery: PopupSettings = {
 		event: 'click',
 		target: 'popupCloseQuery',
-		placement: 'bottom'
+		placement: 'top'
 	};
 	const popupState: PopupSettings = {
 		event: 'click',
 		target: 'popupState',
-		placement: 'bottom',
+		placement: 'top',
 		state: (e: any) => console.log(e)
 	};
 	const popupMiddlware: PopupSettings = {
 		event: 'click',
 		target: 'popupMiddlware',
-		placement: 'bottom',
-		middleware: { offset: 24 }
+		placement: 'top',
+		middleware: {
+			offset: 24
+		}
 	};
 	// ---
 	let comboboxValue: string;
@@ -176,11 +178,14 @@ const popupFeatured: PopupSettings = {
 			</p>
 			<CodeBlock language="console" code={`npm install @floating-ui/dom`} />
 			<p>Import Floating UI into your application's root layout <code class="code">/src/routes/+layout.svelte</code>.</p>
-			<CodeBlock language="ts" code={`import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';`} />
+			<CodeBlock language="ts" code={`import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';`} />
 			<p>Then import <code class="code">storePopup</code> in your root layout as well.</p>
 			<CodeBlock language="ts" code={`import { storePopup } from '@skeletonlabs/skeleton';`} />
-			<p>Finally, pass an object containing each of the Floating UI modules to the store.</p>
-			<CodeBlock language="ts" code={`storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });`} />
+			<p>Finally, pass an object containing each of the required Floating UI modules to the store.</p>
+			<CodeBlock language="ts" code={`storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });`} />
+			<p>Popups also support a number of optional Floating UI modules. These are only required if you use this middlware.</p>
+			<CodeBlock language="ts" code={`import { /* ... */ size, autoPlacement, hide, inline } from '@floating-ui/dom';`} />
+			<CodeBlock language="ts" code={`storePopup.set({ /* ... */ size, autoPlacement, hide, inline });`} />
 		</section>
 
 		<hr />
@@ -445,13 +450,21 @@ let popupMiddlware: PopupSettings = {
 	// ...
 	middleware: {
 		// https://floating-ui.com/docs/offset
-		offset: 24, // or { ... }
+		offset: 24, // or { ... }\n
 		// https://floating-ui.com/docs/shift
-		// shift: { ... },
+		// shift: { ... },\n
 		// https://floating-ui.com/docs/flip
-		// flip: { ... },
+		// flip: { ... },\n
 		// https://floating-ui.com/docs/arrow
-		// arrow: { ... }
+		// arrow: { ... },\n
+		// https://floating-ui.com/docs/size
+		// size: { ... },\n
+		// https://floating-ui.com/docs/autoPlacement
+		// autoPlacement: { ... },\n
+		// https://floating-ui.com/docs/hide
+		// hide: { ... },\n
+		// https://floating-ui.com/docs/inline
+		// inline: { ... }
 	}
 };
 					`}

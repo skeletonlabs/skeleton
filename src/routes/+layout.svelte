@@ -7,9 +7,9 @@
 	storeHighlightJs.set(hljs);
 
 	// Dependency: Floating UI
-	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
 	import { storePopup } from '$lib/utilities/Popup/popup';
-	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
+	import { computePosition, autoUpdate, offset, shift, flip, arrow, size, autoPlacement, hide, inline } from '@floating-ui/dom';
+	storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow, size, autoPlacement, hide, inline });
 
 	// SvelteKit Imports
 	import { browser } from '$app/environment';

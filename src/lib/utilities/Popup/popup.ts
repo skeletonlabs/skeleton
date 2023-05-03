@@ -1,12 +1,12 @@
 import { get, writable, type Writable } from 'svelte/store';
-import type { PopupSettings } from './types';
+import type { Middleware, PopupSettings } from './types';
 
 // Use a store to pass the Floating UI import references
 export const storePopup: Writable<any> = writable(undefined);
 
 export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 	// Floating UI Modules
-	const { computePosition, autoUpdate, flip, shift, offset, arrow } = get(storePopup);
+	const { computePosition, autoUpdate, offset, shift, flip, arrow, size, autoPlacement, hide, inline } = get(storePopup);
 	// Local State
 	let popupState = {
 		open: false,
@@ -21,13 +21,25 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 
 	// Render Floating UI Popup
 	function render(): void {
-		// Error Handling
+		// Error handling for required Floating UI modules
 		if (!elemPopup) throw new Error(`The data-popup="${args.target}" element was not found. ${documentationLink}`);
 		if (!computePosition) throw new Error(`Floating UI 'computePosition' not found for data-popup="${args.target}". ${documentationLink}`);
 		if (!offset) throw new Error(`Floating UI 'offset' not found for data-popup="${args.target}". ${documentationLink}`);
 		if (!shift) throw new Error(`Floating UI 'shift' not found for data-popup="${args.target}". ${documentationLink}`);
 		if (!flip) throw new Error(`Floating UI 'flip' not found for data-popup="${args.target}". ${documentationLink}`);
 		if (!arrow) throw new Error(`Floating UI 'arrow' not found for data-popup="${args.target}". ${documentationLink}`);
+
+		// Bundle optional middlware
+		const optionalMiddlware = [];
+		// https://floating-ui.com/docs/size
+		if (size) optionalMiddlware.push(size(args.middleware?.size));
+		// https://floating-ui.com/docs/autoPlacement
+		if (autoPlacement) optionalMiddlware.push(autoPlacement(args.middleware?.autoPlacement));
+		// https://floating-ui.com/docs/hide
+		if (hide) optionalMiddlware.push(hide(args.middleware?.hide));
+		// https://floating-ui.com/docs/inline
+		if (inline) optionalMiddlware.push(inline(args.middleware?.inline));
+
 		// Floating UI Compute Position
 		// https://floating-ui.com/docs/computePosition
 		computePosition(triggerNode, elemPopup, {
@@ -42,7 +54,9 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 				// https://floating-ui.com/docs/flip
 				flip(args.middleware?.flip),
 				// https://floating-ui.com/docs/arrow
-				arrow(args.middleware?.arrow ?? { element: elemArrow || null })
+				arrow(args.middleware?.arrow ?? { element: elemArrow || null }),
+				// Implement optional middlware
+				...optionalMiddlware
 			]
 		}).then(({ x, y, placement, middlewareData }: any) => {
 			Object.assign(elemPopup.style, {

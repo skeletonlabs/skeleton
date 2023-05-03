@@ -5,15 +5,25 @@ type Direction = 'top' | 'bottom' | 'left' | 'right';
 type Placement = Direction | `${Direction}-start` | `${Direction}-end`;
 
 // Options & Middleware
-interface Middleware {
-	/** Offset options: https://floating-ui.com/docs/offset */
+export interface Middleware {
+	// Required ---
+	/** Offset middleware settings: https://floating-ui.com/docs/offset */
 	offset?: number | Record<string, any>;
-	/** Shift options: https://floating-ui.com/docs/shift */
+	/** Shift middleware settings: https://floating-ui.com/docs/shift */
 	shift?: Record<string, any>;
-	/** Flip options: https://floating-ui.com/docs/flip */
+	/** Flip middleware settings: https://floating-ui.com/docs/flip */
 	flip?: Record<string, any>;
-	/** Arrow options: https://floating-ui.com/docs/arrow */
+	/** Arrow middleware settings: https://floating-ui.com/docs/arrow */
 	arrow?: { element: string } & Record<string, any>;
+	// Optional ---
+	/** Size middleware settings: https://floating-ui.com/docs/size */
+	size?: Record<string, any>;
+	/** Auto Placement middleware settings: https://floating-ui.com/docs/autoPlacement */
+	autoPlacement?: Record<string, any>;
+	/** Hide middleware settings: https://floating-ui.com/docs/hide */
+	hide?: Record<string, any>;
+	/** Inline middleware settings: https://floating-ui.com/docs/inline */
+	inline?: Record<string, any>;
 }
 
 export interface PopupSettings {
