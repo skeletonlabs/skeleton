@@ -32,13 +32,22 @@
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/grid/',
 		components: [{ sveld: sveldTable }],
 		keyboard: [
-			['<kbd>Right Arrow</kbd>', 'Moves focus one cell to the right. If focus is on the right-most cell in the row, focus does not move.'],
-			['<kbd>Left Arrow</kbd>', 'Moves focus one cell to the left. If focus is on the left-most cell in the row, focus does not move.'],
-			['<kbd>Down Arrow</kbd>', 'Moves focus one cell down. If focus is on the bottom cell in the column, focus does not move.'],
-			['<kbd>Up Arrow</kbd>', 'Moves focus one cell Up. If focus is on the top cell in the column, focus does not move.'],
-			['<kbd>Home</kbd>', 'Moves focus to the first cell in the row that contains focus.'],
-			['<kbd>End</kbd>', ' Moves focus to the last cell in the row that contains focus.'],
-			['<kbd>Enter</kbd> or <kbd>Space</kbd>', 'Triggers the on:selected event.']
+			[
+				'<kbd class="kbd">Right Arrow</kbd>',
+				'Moves focus one cell to the right. If focus is on the right-most cell in the row, focus does not move.'
+			],
+			[
+				'<kbd class="kbd">Left Arrow</kbd>',
+				'Moves focus one cell to the left. If focus is on the left-most cell in the row, focus does not move.'
+			],
+			[
+				'<kbd class="kbd">Down Arrow</kbd>',
+				'Moves focus one cell down. If focus is on the bottom cell in the column, focus does not move.'
+			],
+			['<kbd class="kbd">Up Arrow</kbd>', 'Moves focus one cell Up. If focus is on the top cell in the column, focus does not move.'],
+			['<kbd class="kbd">Home</kbd>', 'Moves focus to the first cell in the row that contains focus.'],
+			['<kbd class="kbd">End</kbd>', ' Moves focus to the last cell in the row that contains focus.'],
+			['<kbd class="kbd">Enter</kbd> or <kbd class="kbd">Space</kbd>', 'Triggers the on:selected event.']
 		]
 	};
 
@@ -85,7 +94,10 @@ const sourceData = [
 ];
 				`}
 				/>
-				<p>Create a <code>TableSource</code> object. use <code>body: tableMapperValues(sourceData)</code> to map the data.</p>
+				<p>
+					Create a <code class="code">TableSource</code> object. use <code class="code">body: tableMapperValues(sourceData)</code> to map the
+					data.
+				</p>
 				<CodeBlock
 					language="ts"
 					code={`
@@ -97,7 +109,7 @@ const tableSimple: TableSource = {
 	// Optional: The data returned when interactive is enabled and a row is clicked.
 	meta: tableMapperValues(sourceData, ['position', 'name', 'symbol', 'weight']),
 	// Optional: A list of footer labels.
-	foot: ['Total', '', '<code>${sourceData.length}</code>']
+	foot: ['Total', '', '<code class="code">${sourceData.length}</code>']
 };
 				`}
 				/>
@@ -110,16 +122,18 @@ const tableSimple: TableSource = {
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<h2>Interactive Mode</h2>
+			<h2 class="h2">Interactive Mode</h2>
 			<p>
-				Use the <code>interactive</code> to make the table interactive. When a row is clicked, <code>on:selected</code> will pass the row's
-				<code>meta</code> value.
+				Use the <code class="code">interactive</code> to make the table interactive. When a row is clicked,
+				<code class="code">on:selected</code>
+				will pass the row's
+				<code class="code">meta</code> value.
 			</p>
 			<CodeBlock language="html" code={`<Table ... interactive={true} on:selected={mySelectionHandler} />`} />
 		</section>
 		<!-- Table Utilities -->
 		<section class="space-y-4">
-			<h2>Table Utilities</h2>
+			<h2 class="h2">Table Utilities</h2>
 			<p>The following utility methods allow you to format your source data for use within a Table component.</p>
 			<TabGroup>
 				<Tab bind:group={$storeService} name="tableMapperValues" value="tableMapperValues">Mapper Values</Tab>
@@ -161,7 +175,8 @@ tableSourceMapper(sourceData, ['name', 'symbol', 'weight']);\n
 			{:else if $storeService === 'tableSourceValues'}
 				<!-- Source Values -->
 				<p>
-					Returns an array of array values from an array of objects. This is the desired format for <code>TableSource</code> <em>body</em>
+					Returns an array of array values from an array of objects. This is the desired format for <code class="code">TableSource</code>
+					<em>body</em>
 					and <em>meta</em>.
 				</p>
 				<CodeBlock
@@ -182,7 +197,7 @@ tableSourceValues(sourceData);\n
 		<!-- CHRIS: delisted until further notice -->
 		<!-- <section class="grid grid-cols-[1fr_auto] gap-4">
 			<div class="space-y-4">
-				<h2>Data Tables</h2>
+				<h2 class="h2">Data Tables</h2>
 				<p>Need a fully featured data table with powerful features like selection and sort? See data tables.</p>
 			</div>
 			<a class="btn variant-filled-secondary place-self-center" href="/utilities/data-tables">Data Tables</a>

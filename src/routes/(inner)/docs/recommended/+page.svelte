@@ -6,7 +6,7 @@
 <LayoutPage>
 	<!-- Header -->
 	<header class="space-y-4">
-		<h1>Recommendations</h1>
+		<h1 class="h1">Recommendations</h1>
 		<p>
 			The following is a curated list of open source packages that pair well with Skeleton. Use these to extend your project and add
 			additional functionality.
@@ -20,7 +20,7 @@
 		<!-- svelte-animated-counter -->
 		<div class="card">
 			<header class="card-header">
-				<h2>Svelte Animated Counter</h2>
+				<h2 class="h2">Svelte Animated Counter</h2>
 			</header>
 			<div class="p-4">
 				<p>Tiny animated counter library for Svelte.</p>
@@ -48,7 +48,7 @@
 		<!-- Highlight.js -->
 		<div class="card">
 			<header class="card-header">
-				<h2>Highlight.js</h2>
+				<h2 class="h2">Highlight.js</h2>
 			</header>
 			<div class="p-4">
 				<p>Syntax highlighter with language auto-detection and zero dependencies.</p>
@@ -71,7 +71,7 @@
 		<!-- Felte -->
 		<div class="card">
 			<header class="card-header">
-				<h2>Felte</h2>
+				<h2 class="h2">Felte</h2>
 			</header>
 			<div class="p-4">
 				<p>An extensible form library for Svelte.</p>
@@ -92,7 +92,7 @@
 		<!-- Yup -->
 		<div class="card">
 			<header class="card-header">
-				<h2>Yup</h2>
+				<h2 class="h2">Yup</h2>
 			</header>
 			<div class="p-4">
 				<p>Dead simple Object schema form validation.</p>
@@ -112,7 +112,7 @@
 		<!-- Chart.js -->
 		<div class="card">
 			<header class="card-header">
-				<h2>Chart.js</h2>
+				<h2 class="h2">Chart.js</h2>
 			</header>
 			<div class="p-4">
 				<p>Simple HTML5 charts using the canvas element.</p>
@@ -133,7 +133,7 @@
 		<!-- Font Awesome -->
 		<div class="card">
 			<header class="card-header">
-				<h2>Font Awesome</h2>
+				<h2 class="h2">Font Awesome</h2>
 			</header>
 			<div class="p-4">
 				<p>An expansive SVG, font, and icon toolkit.</p>

@@ -96,10 +96,10 @@ const storeValue: Writable<number> = writable(0);
 	<svelte:fragment slot="usage">
 		<!-- Tile -->
 		<section class="space-y-4">
-			<h2>Anchor Tiles</h2>
+			<h2 class="h2">Anchor Tiles</h2>
 			<p>
-				Use the <code>href</code> attribute to convert any tile to an anchor link, then append
-				<em>target, rel</em>, and other attributes as needed.
+				Use <code class="code">tag="a"</code> to convert any tile to an anchor link, then append
+				<em>href, target, rel</em>, and other attributes as needed.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -115,12 +115,12 @@ const storeValue: Writable<number> = writable(0);
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>Page State</h2>
+			<h2 class="h2">Page State</h2>
 			<!-- prettier-ignore -->
 			<p>
 				The simplest way to update the active anchor link is to pass a
-				<a href="https://svelte.dev/docs#run-time-svelte-store-derived" target="_blank" rel="noreferrer">derived</a> store that takes its value from
-				<a href="https://kit.svelte.dev/docs/modules#$app-stores-page" target="_blank" rel="noreferrer">$page.url.pathname</a>.
+				<a class="anchor" href="https://svelte.dev/docs#run-time-svelte-store-derived" target="_blank" rel="noreferrer">derived</a> store that takes its value from
+				<a class="anchor" href="https://kit.svelte.dev/docs/modules#$app-stores-page" target="_blank" rel="noreferrer">$page.url.pathname</a>.
 			</p>
 			<p>
 				The store value will be compared to the <code>href</code> attribute of each tile if no <code>value</code> attribute is provided.

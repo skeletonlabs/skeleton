@@ -1,31 +1,5 @@
 /* Ghost Blog Styles */
 
-.blog-post {
-	@apply max-w-5xl mx-auto p-4 md:p-12 space-y-8;
-}
-
-/* HTML Body Content */
-.blog-html {
-	@apply space-y-8;
-}
-
-/* === Typography === */
-
-.blog-html ul,
-.blog-html ol {
-	@apply space-y-4 list-inside;
-}
-.blog-html ul {
-	@apply list-disc;
-}
-.blog-html ol {
-	@apply list-decimal;
-}
-
-.blog-html figcaption {
-	@apply text-xs italic text-center mt-3;
-}
-
 /* === Embeds === */
 
 /* YouTube */
@@ -135,11 +109,11 @@
 	border-radius: var(--theme-rounded-container);
 }
 .kg-bookmark-container {
-	@apply !text-black dark:!text-white !no-underline;
+	@apply !text-token !no-underline;
 	@apply grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4;
 }
 .kg-bookmark-content {
-	@apply flex flex-col justify-between space-y-4  p-4;
+	@apply flex flex-col justify-between space-y-0  p-4;
 }
 .kg-bookmark-title {
 	@apply font-bold;
@@ -160,7 +134,7 @@
 	@apply text-xs opacity-50;
 }
 .kg-bookmark-thumbnail {
-	@apply bg-black h-56 md:h-full w-full md:w-48 text-center;
+	@apply bg-surface-50-900-token h-56 md:h-full w-full md:w-48 text-center;
 }
 .kg-bookmark-thumbnail img {
 	@apply w-full h-full md:max-h-40 object-cover overflow-hidden;

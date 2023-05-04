@@ -18,7 +18,7 @@
 		feature: DocsFeature.Utility,
 		name: 'Popups',
 		description:
-			'Create floating menus and tooltips using <a href="https://floating-ui.com/" target="_blank" rel="noreferrer">Floating UI</a>.',
+			'Create floating menus and tooltips using <a class="anchor" href="https://floating-ui.com/" target="_blank" rel="noreferrer">Floating UI</a>.',
 		imports: ['popup'],
 		types: ['PopupSettings'],
 		stylesheetIncludes: ['all', 'elements'],
@@ -26,24 +26,30 @@
 		source: 'utilities/Popup',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/menu/',
 		classes: [
-			['<code>[data-popup]</code>', '', `Follows Floating UI's best practices, sets hidden by default.`],
-			['<code>[data-popup] .arrow</code>', '', 'Provides base styles to the arrow element.']
+			['<code class="code">[data-popup]</code>', '', `Follows Floating UI's best practices, sets hidden by default.`],
+			['<code class="code">[data-popup] .arrow</code>', '', 'Provides base styles to the arrow element.']
 		],
 		parameters: [
-			['<code>event</code>', 'string', 'click', 'click | hover | hover-click | focus | focus-click', 'Provide the popup event type.'],
-			['<code>target</code>', 'string', '-', '-', 'Match the popup data value of <code>[data-popup]</code>'],
-			['<code>placement</code>', 'string', '-', 'bottom', 'Set the placement position.'],
-			['<code>closeQuery</code>', 'string', 'a[href], button', '-', 'Query list of elements that will close the popup.'],
-			['<code>middleware</code>', 'object', '-', '-', 'Provide Floating UI middleware settings.'],
-			['<code>state</code>', 'function', '-', '-', 'Provide an optional callback function to monitor open/close state.']
+			[
+				'<code class="code">event</code>',
+				'string',
+				'click',
+				'click | hover | hover-click | focus | focus-click',
+				'Provide the popup event type.'
+			],
+			['<code class="code">target</code>', 'string', '-', '-', 'Match the popup data value of <code class="code">[data-popup]</code>'],
+			['<code class="code">placement</code>', 'string', '-', 'bottom', 'Set the placement position.'],
+			['<code class="code">closeQuery</code>', 'string', 'a[href], button', '-', 'Query list of elements that will close the popup.'],
+			['<code class="code">middleware</code>', 'object', '-', '-', 'Provide Floating UI middleware settings.'],
+			['<code class="code">state</code>', 'function', '-', '-', 'Provide an optional callback function to monitor open/close state.']
 		],
 		keyboard: [
-			['<kbd>Enter</kbd>', 'When trigger is focused, toggles the popup open/close.'],
-			// ['<kbd>Space</kbd>', 'When trigger is focused, toggles the popup open/close.'],
-			// ['<kbd>Tab</kbd>', 'When trigger is focused, closes the popup.'],
-			['<kbd>Esc</kbd>', 'Closes all open popups at once.'],
-			['<kbd>↑</kbd>', 'Move upwards to the next item in the popup.'],
-			['<kbd>↓</kbd>', 'Move downwards to the next item in the popup.']
+			['<kbd class="kbd">Enter</kbd>', 'When trigger is focused, toggles the popup open/close.'],
+			// ['<kbd class="kbd">Space</kbd>', 'When trigger is focused, toggles the popup open/close.'],
+			// ['<kbd class="kbd">Tab</kbd>', 'When trigger is focused, closes the popup.'],
+			['<kbd class="kbd">Esc</kbd>', 'Closes all open popups at once.'],
+			['<kbd class="kbd">↑</kbd>', 'Move upwards to the next item in the popup.'],
+			['<kbd class="kbd">↓</kbd>', 'Move downwards to the next item in the popup.']
 		],
 		dependencies: [{ label: 'Floating UI', url: 'https://floating-ui.com/' }]
 	};
@@ -120,7 +126,7 @@
 			</svelte:fragment>
 			<svelte:fragment slot="source">
 				<!-- prettier-ignore -->
-				<p>Create a <code>PopupSettings</code> object that maps to <a href="https://floating-ui.com/" target="_blank" rel="noreferrer">Floating UI</a> settings.</p>
+				<p>Create a <code class="code">PopupSettings</code> object that maps to <a class="anchor" href="https://floating-ui.com/" target="_blank" rel="noreferrer">Floating UI</a> settings.</p>
 				<CodeBlock
 					language="ts"
 					code={`
@@ -132,12 +138,13 @@ const popupSettings: PopupSettings = {
 };
 `}
 				/>
-				<p>Apply the <code>use:popup</code> action to your trigger element.</p>
+				<p>Apply the <code class="code">use:popup</code> action to your trigger element.</p>
 				<CodeBlock language="html" code={`<button ... use:popup={popupSettings}>Trigger</button>`} />
-				<p>Apply a <code>data-popup</code> attribute to your desired popup element.</p>
+				<p>Apply a <code class="code">data-popup</code> attribute to your desired popup element.</p>
 				<CodeBlock language="html" code={`<div ... data-popup="examplePopup">(popup)</div>`} />
 				<p>
-					You may optionally append a <code>.arrow</code> element within the popup to add an arrow. Match your popup's background color!
+					You may optionally append a <code class="code">.arrow</code> element within the popup to add an arrow. Match your popup's background
+					color!
 				</p>
 				<CodeBlock
 					language="html"
@@ -157,19 +164,22 @@ const popupSettings: PopupSettings = {
 	<svelte:fragment slot="usage">
 		<!-- Getting Started -->
 		<section class="space-y-4">
-			<h2>Getting Started</h2>
-			<p>Install <a href="https://floating-ui.com/" target="_blank" rel="noreferrer">Floating UI</a> from NPM. <u>This is required.</u></p>
+			<h2 class="h2">Getting Started</h2>
+			<p>
+				Install <a class="anchor" href="https://floating-ui.com/" target="_blank" rel="noreferrer">Floating UI</a> from NPM.
+				<u>This is required.</u>
+			</p>
 			<CodeBlock language="console" code={`npm install @floating-ui/dom`} />
-			<p>Import Floating UI into your application's root layout <code>/src/routes/+layout.svelte</code>.</p>
+			<p>Import Floating UI into your application's root layout <code class="code">/src/routes/+layout.svelte</code>.</p>
 			<CodeBlock language="ts" code={`import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';`} />
-			<p>Then import <code>storePopup</code> in your root layout as well.</p>
+			<p>Then import <code class="code">storePopup</code> in your root layout as well.</p>
 			<CodeBlock language="ts" code={`import { storePopup } from '@skeletonlabs/skeleton';`} />
 			<p>Finally, pass an object containing each of the Floating UI modules to the store.</p>
 			<CodeBlock language="ts" code={`storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });`} />
 		</section>
 		<!-- PopupSettings -->
 		<section class="space-y-4">
-			<h2>Popup Settings</h2>
+			<h2 class="h2">Popup Settings</h2>
 			<TabGroup regionPanel="space-y-4">
 				<Tab bind:group={tabSettings} name="settings" value={0}>Placement</Tab>
 				<Tab bind:group={tabSettings} name="settings" value={1}>Close Query</Tab>
@@ -181,7 +191,7 @@ const popupSettings: PopupSettings = {
 						<!-- Placement -->
 						<!-- prettier-ignore -->
 						<p>
-						Reference the available <a href="https://floating-ui.com/docs/computePosition#placement" target="_blank" rel="noreferrer">placement</a> options. This setting defaults to <code>bottom</code>.
+						Reference the available <a class="anchor" href="https://floating-ui.com/docs/computePosition#placement" target="_blank" rel="noreferrer">placement</a> options. This setting defaults to <code class="code">bottom</code>.
 					</p>
 						<CodeBlock
 							language="ts"
@@ -194,7 +204,7 @@ const popupSettings: PopupSettings = {
 					{:else if tabSettings === 1}
 						<!-- Close Query -->
 						<!-- prettier-ignore -->
-						<p>Query the list of elements that will close the drawer when clicked. This is set to <code>'a[href], button'</code> by default, but to limited to <code>.listbox-item</code> only we would use:</p>
+						<p>Query the list of elements that will close the drawer when clicked. This is set to <code class="code">'a[href], button'</code> by default, but to limited to <code class="code">.listbox-item</code> only we would use:</p>
 						<CodeBlock
 							language="ts"
 							code={`
@@ -226,7 +236,7 @@ const popupSettings: PopupSettings = {
 						/>
 					{:else if tabSettings === 2}
 						<!-- State Handler -->
-						<p>You can optionally monitor the show and hide state of a popup using <code>state</code>.</p>
+						<p>You can optionally monitor the show and hide state of a popup using <code class="code">state</code>.</p>
 						<CodeBlock
 							language="ts"
 							code={`
@@ -239,7 +249,7 @@ state: (e) => console.log(e)
 						<!-- Middleware -->
 						<!-- prettier-ignore -->
 						<p>
-					You can provide <a href="https://floating-ui.com/docs/middleware" target="_blank" rel="noreferrer">Floating UI middleware</a> settings within <code>PopupSettings</code>. These settings are passed verbatim.
+					You can provide <a class="anchor" href="https://floating-ui.com/docs/middleware" target="_blank" rel="noreferrer">Floating UI middleware</a> settings within <code class="code">PopupSettings</code>. These settings are passed verbatim.
 				</p>
 						<CodeBlock
 							language="ts"
@@ -265,10 +275,10 @@ middleware: {
 		</section>
 		<!-- Focus Event -->
 		<section class="space-y-4">
-			<h2>Focus Event</h2>
+			<h2 class="h2">Focus Event</h2>
 			<p>
-				Use the <code>focus</code> event to display popups while the trigger element is focused. Likewise use <code>focus-click</code> to toggle
-				the popup even when tapping the same trigger element repeatedly.
+				Use the <code class="code">focus</code> event to display popups while the trigger element is focused. Likewise use
+				<code class="code">focus-click</code> to toggle the popup even when tapping the same trigger element repeatedly.
 			</p>
 			<DocsPreview>
 				<svelte:fragment slot="preview">
@@ -284,7 +294,7 @@ middleware: {
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<h3>Focus</h3>
+					<h3 class="h3">Focus</h3>
 					<CodeBlock
 						language="ts"
 						code={`
@@ -301,7 +311,7 @@ const focusPopup: PopupSettings = {
 <div data-popup="focus" class="card variant-filled p-4">Click outside to close.</div>
 						`}
 					/>
-					<h3>Focus-Click</h3>
+					<h3 class="h3">Focus-Click</h3>
 					<CodeBlock
 						language="ts"
 						code={`
@@ -323,10 +333,11 @@ const focusClickPopup: PopupSettings = {
 		</section>
 		<!-- Combobox -->
 		<section class="space-y-4">
-			<h2>Combobox</h2>
+			<h2 class="h2">Combobox</h2>
 			<p>
-				By combining popups and Skeleton listboxes we can create a functional combobox element. We can use the <code>focus-click</code> event
-				so it opens for keyboard users when focussed.
+				By combining popups and Skeleton listboxes we can create a functional combobox element. We can use the <code class="code"
+					>focus-click</code
+				> event so it opens for keyboard users when focussed.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -395,24 +406,26 @@ const popupCombobox: PopupSettings = {
 		</section>
 		<!-- Z-index -->
 		<section class="space-y-4">
-			<h2>Z-Index</h2>
+			<h2 class="h2">Z-Index</h2>
 			<p>
 				Neither Skeleton nor Floating-UI will provide a Z-Index out of the box for the reasons layed out in the
-				<a href="https://floating-ui.com/docs/misc#z-index-stacking">Floating-UI docs</a>.
+				<a class="anchor" href="https://floating-ui.com/docs/misc#z-index-stacking">Floating-UI docs</a>.
 			</p>
 		</section>
 		<!-- Browser Support -->
 		<section class="space-y-4">
-			<h2>Browser Support</h2>
+			<h2 class="h2">Browser Support</h2>
 			<p>
-				Please be aware that there is a z-index bug for popups rendered over elements using <code>backdrop-blur</code> in some browsers. The
-				popup will appear to be rendered behind the blurred element, even with an elevated z-index.
+				Please be aware that there is a z-index bug for popups rendered over elements using <code class="code">backdrop-blur</code> in some browsers.
+				The popup will appear to be rendered behind the blurred element, even with an elevated z-index.
 			</p>
 		</section>
 		<!-- Accessibility -->
 		<section class="space-y-4">
-			<h2>Accessibility</h2>
-			<p>We recommend you favor the <code>click</code> event for mobile devices, as <code>hover</code> is not well supported.</p>
+			<h2 class="h2">Accessibility</h2>
+			<p>
+				We recommend you favor the <code class="code">click</code> event for mobile devices, as <code class="code">hover</code> is not well supported.
+			</p>
 		</section>
 	</svelte:fragment>
 </DocsShell>

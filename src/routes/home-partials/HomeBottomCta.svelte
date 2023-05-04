@@ -1,6 +1,6 @@
 <div class="text-center space-y-4">
 	<!-- Info -->
-	<h2>Ready to Begin?</h2>
+	<h2 class="h2">Ready to Begin?</h2>
 	<p class="!text-xl max-w-[320px] sm:max-w-none mx-auto">Create your first Skeleton project in seconds.</p>
 	<!-- CTA Buttons -->
 	<div class="flex justify-center gap-4">

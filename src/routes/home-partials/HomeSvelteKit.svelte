@@ -21,12 +21,12 @@
 	const imgPlaceholder = `https://source.unsplash.com/YOErFW8AfkI/200x200`;
 
 	function modalDemo(): void {
-		const d: ModalSettings = {
+		const modal: ModalSettings = {
 			type: 'alert',
 			title: 'What is this?',
 			body: 'A high priority dialog modal system with a dynamic queue. This allows you to create standard alerts and implement custom modals using standard Svelte components.'
 		};
-		modalStore.trigger(d);
+		modalStore.trigger(modal);
 	}
 </script>
 
@@ -38,29 +38,29 @@
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-10 items-start">
 	<!-- Info -->
 	<div class="space-y-4">
-		<h2>Designed for Svelte and SvelteKit.</h2>
+		<h2 class="h2">Designed for Svelte and SvelteKit.</h2>
 		<!-- prettier-ignore -->
 		<p>
-			Skeleton integrates directly with <a href="https://svelte.dev/" target="_blank" rel="noreferrer">Svelte</a> and <a href="https://kit.svelte.dev/" target="_blank" rel="noreferrer">SvelteKit's</a> best features, including components, stores, actions, and more. Offering
+			Skeleton integrates directly with <a class="anchor" href="https://svelte.dev/" target="_blank" rel="noreferrer">Svelte</a> and <a class="anchor" href="https://kit.svelte.dev/" target="_blank" rel="noreferrer">SvelteKit's</a> best features, including components, stores, actions, and more. Offering
 			interactive components, image filters, and much more.
 		</p>
 		<!-- Options -->
 		<ListBox active="variant-filled" hover="hover:variant-soft" rounded="rounded-container-token" padding="!p-4">
 			<ListBoxItem bind:group={showcase} name="showcase" value="components">
 				<div class="space-y-2">
-					<h3>Components</h3>
+					<h3 class="h3">Components</h3>
 					<p class="!text-sm">Interactive and customizable components.</p>
 				</div>
 			</ListBoxItem>
 			<ListBoxItem bind:group={showcase} name="showcase" value="actions">
 				<div class="space-y-2">
-					<h3>Actions</h3>
+					<h3 class="h3">Actions</h3>
 					<p class="!text-sm">Dynamic actions for filters, tab focus, and more.</p>
 				</div>
 			</ListBoxItem>
 			<ListBoxItem bind:group={showcase} name="showcase" value="utilities">
 				<div class="space-y-2">
-					<h3>Utilities</h3>
+					<h3 class="h3">Utilities</h3>
 					<p class="!text-sm">Powerful utilities that extend even further.</p>
 				</div>
 			</ListBoxItem>
@@ -72,7 +72,7 @@
 			<svelte:fragment slot="preview">
 				{#if showcase === 'components'}
 					<!-- Source: https://www.oprahdaily.com/life/a37259063/day-of-the-dead-facts-history/ -->
-					<Accordion autocollapse class="card p-4 text-token w-full">
+					<Accordion autocollapse class="card p-4 text-token">
 						<AccordionItem open>
 							<svelte:fragment slot="lead"><i class="fa-solid fa-skull text-xl w-6 text-center" /></svelte:fragment>
 							<svelte:fragment slot="summary"><p class="font-bold">What is Día de los Muertos?</p></svelte:fragment>
@@ -118,7 +118,7 @@
 							<svelte:fragment slot="summary"><p class="font-bold">Source</p></svelte:fragment>
 							<svelte:fragment slot="content">
 								<!-- prettier-ignore -->
-								<p><a href="https://www.oprahdaily.com/life/a37259063/day-of-the-dead-facts-history/" target="_blank" rel="noreferrer">https://www.oprahdaily.com/life/a37259063/day-of-the-dead-facts-history/</a></p>
+								<p><a class="anchor" href="https://www.oprahdaily.com/life/a37259063/day-of-the-dead-facts-history/" target="_blank" rel="noreferrer">https://www.oprahdaily.com/life/a37259063/day-of-the-dead-facts-history/</a></p>
 							</svelte:fragment>
 						</AccordionItem>
 					</Accordion>

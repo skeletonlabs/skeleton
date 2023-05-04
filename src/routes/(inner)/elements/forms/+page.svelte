@@ -16,22 +16,22 @@
 		source: 'styles/elements/forms.css',
 		dependencies: [{ label: 'Tailwind Forms Plugin', url: 'https://github.com/tailwindlabs/tailwindcss-forms' }],
 		classes: [
-			['<code>.legend</code>', '', 'Provides theme styles to legend elements.'],
-			['<code>.label</code>', '', 'Provides theme styles to label elements.'],
-			['<code>.input</code>', '', 'Provides theme styles to input elements.'],
-			['<code>.textarea</code>', '', 'Provides theme styles to textarea elements.'],
-			['<code>.select</code>', '', 'Provides theme styles to select elements.'],
-			['<code>.checkbox</code>', '', 'Provides theme styles to checkbox elements.'],
-			['<code>.radio</code>', '', 'Provides theme styles to radio elements.'],
-			['<code>.input-group</code>', '', 'Creates a group of related inputs and information.'],
-			['<code>.input-group-divider</code>', '', 'Adds vertical lines between group segments.'],
-			['<code>.input-group-shim</code>', '', 'Provides a shaded background segment.'],
-			['<code>.input-[variant]</code>', 'success | warning | error', 'Color highlights for input for validation states.']
+			['<code class="code">.legend</code>', '', 'Provides theme styles to legend elements.'],
+			['<code class="code">.label</code>', '', 'Provides theme styles to label elements.'],
+			['<code class="code">.input</code>', '', 'Provides theme styles to input elements.'],
+			['<code class="code">.textarea</code>', '', 'Provides theme styles to textarea elements.'],
+			['<code class="code">.select</code>', '', 'Provides theme styles to select elements.'],
+			['<code class="code">.checkbox</code>', '', 'Provides theme styles to checkbox elements.'],
+			['<code class="code">.radio</code>', '', 'Provides theme styles to radio elements.'],
+			['<code class="code">.input-group</code>', '', 'Creates a group of related inputs and information.'],
+			['<code class="code">.input-group-divider</code>', '', 'Adds vertical lines between group segments.'],
+			['<code class="code">.input-group-shim</code>', '', 'Provides a shaded background segment.'],
+			['<code class="code">.input-[variant]</code>', 'success | warning | error', 'Color highlights for input for validation states.']
 		]
 	};
 
 	// Local
-	let currentInput = fieldSettings.inputs[0];
+	let currentInput: any = fieldSettings.inputs[0];
 	let colorValue = '#bada55';
 
 	function mapInputAttributes(obj: any): any {
@@ -117,18 +117,20 @@
 		</p>
 		<!-- Install the Plugin -->
 		<section class="space-y-4">
-			<h2>Install the Forms Plugin</h2>
+			<h2 class="h2">Install the Forms Plugin</h2>
 			<!-- prettier-ignore -->
 			<p>
-				The Tailwind Forms plugin normalizes form field styles, making them easier to customize and providing some rudimentary styles. See <a href="https://www.youtube.com/watch?v=pONeWAzDsQg" target="_blank" rel="noreferrer">Tailwind's video tutorial</a> for more information.
+				The Tailwind Forms plugin normalizes form field styles, making them easier to customize and providing some rudimentary styles. See <a class="anchor" href="https://www.youtube.com/watch?v=pONeWAzDsQg" target="_blank" rel="noreferrer">Tailwind's video tutorial</a> for more information.
 			</p>
 			<!-- Written -->
 			<div class="flex-auto space-y-4">
 				<CodeBlock language="console" code={`npm install -D @tailwindcss/forms`} />
 				<p>
-					Prepend the <a href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank" rel="noreferrer">Tailwind Forms plugin</a>
+					Prepend the <a class="anchor" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank" rel="noreferrer"
+						>Tailwind Forms plugin</a
+					>
 					to your
-					<code>tailwind.config.cjs</code>
+					<code class="code">tailwind.config.cjs</code>
 				</p>
 				<CodeBlock
 					language="js"
@@ -146,7 +148,7 @@ module.exports = {
 		<hr />
 		<!-- Labels -->
 		<section class="space-y-4">
-			<h2>Labels</h2>
+			<h2 class="h2">Labels</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full">
@@ -171,7 +173,7 @@ module.exports = {
 		</section>
 		<!-- Input -->
 		<section class="space-y-4">
-			<h2>Input</h2>
+			<h2 class="h2">Input</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full space-y-4">
@@ -195,7 +197,7 @@ module.exports = {
 		</section>
 		<!-- Files -->
 		<section class="space-y-4">
-			<h2>Files</h2>
+			<h2 class="h2">Files</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full space-y-4">
@@ -217,7 +219,7 @@ module.exports = {
 		</section>
 		<!-- Textarea -->
 		<section class="space-y-4">
-			<h2>Textarea</h2>
+			<h2 class="h2">Textarea</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full space-y-4">
@@ -234,7 +236,7 @@ module.exports = {
 		</section>
 		<!-- Select -->
 		<section class="space-y-4">
-			<h2>Select</h2>
+			<h2 class="h2">Select</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full space-y-4">
@@ -312,7 +314,7 @@ module.exports = {
 		</section>
 		<!-- Checkboxes -->
 		<section class="space-y-4">
-			<h2>Checkboxes</h2>
+			<h2 class="h2">Checkboxes</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="space-y-2">
@@ -355,7 +357,7 @@ module.exports = {
 		</section>
 		<!-- Radio Groups -->
 		<section class="space-y-4">
-			<h2>Radio Groups</h2>
+			<h2 class="h2">Radio Groups</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="space-y-2">
@@ -398,7 +400,7 @@ module.exports = {
 		</section>
 		<!-- Range -->
 		<section class="space-y-4">
-			<h2>Range</h2>
+			<h2 class="h2">Range</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full">
@@ -412,7 +414,7 @@ module.exports = {
 		</section>
 		<!-- Color -->
 		<section class="space-y-4">
-			<h2>Color</h2>
+			<h2 class="h2">Color</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="grid grid-cols-[auto_1fr] gap-2">
@@ -436,21 +438,23 @@ module.exports = {
 		<hr />
 		<!-- Input Groups -->
 		<section class="space-y-4">
-			<h2>Input Groups</h2>
+			<h2 class="h2">Input Groups</h2>
 			<p>Create a horizontal group of related form fields.</p>
 			<ul class="space-y-2 list-disc list-inside">
 				<li>Groups support <em>most</em> input types and select elements, but not all.</li>
 				<!-- prettier-ignore -->
 				<li>
-					The column sizes are grid-based, via <a href="https://tailwindcss.com/docs/grid-template-columns#arbitrary-values" target="_blank" rel="noreferrer">Tailwind's arbitrary column syntax</a>.
+					The column sizes are grid-based, via <a class="anchor" href="https://tailwindcss.com/docs/grid-template-columns#arbitrary-values" target="_blank" rel="noreferrer">Tailwind's arbitrary column syntax</a>.
 				</li>
 				<li>
-					Descriptive segments (on either side) allow for <code>div</code>, <code>button</code>, and anchor (<code>a</code>) elements.
+					Descriptive segments (on either side) allow for <code class="code">div</code>, <code class="code">button</code>, and anchor (<code
+						class="code">a</code
+					>) elements.
 				</li>
 				<li>
-					The <code>.input-group-divider</code> class applies vertical divider lines.
+					The <code class="code">.input-group-divider</code> class applies vertical divider lines.
 				</li>
-				<li>The <code>.input-group-shim</code> class applies subtle shading to a segment, to draw more attention.</li>
+				<li>The <code class="code">.input-group-shim</code> class applies subtle shading to a segment, to draw more attention.</li>
 			</ul>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -512,9 +516,10 @@ module.exports = {
 		</section>
 		<!-- Variants -->
 		<section class="space-y-4">
-			<h2>Variants</h2>
+			<h2 class="h2">Variants</h2>
 			<p>
-				Skeleton includes a forms variant inspired by <a href="https://m3.material.io/" target="_blank" rel="noreferrer">Material Design.</a
+				Skeleton includes a forms variant inspired by <a class="anchor" href="https://m3.material.io/" target="_blank" rel="noreferrer"
+					>Material Design.</a
 				> Use this as a reference for building your own variant classes.
 			</p>
 			<DocsPreview background="neutral">
@@ -549,7 +554,7 @@ module.exports = {
 		</section>
 		<!-- Validation Classes -->
 		<section class="space-y-4">
-			<h2>Validation Classes</h2>
+			<h2 class="h2">Validation Classes</h2>
 			<p>
 				Skeleton provides a set of classes for indicating form validation. These must come last in a group of class values. They are
 				compatible with the variant above.
@@ -558,15 +563,15 @@ module.exports = {
 				<svelte:fragment slot="preview">
 					<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
 						<label class="space-y-3">
-							<code>.input-success</code>
+							<code class="code">.input-success</code>
 							<input type="text" placeholder="success" class="input input-success" />
 						</label>
 						<label class="space-y-3">
-							<code>.input-warning</code>
+							<code class="code">.input-warning</code>
 							<input type="text" placeholder="warning" class="input input-warning" />
 						</label>
 						<label class="space-y-3">
-							<code>.input-error</code>
+							<code class="code">.input-error</code>
 							<input type="text" placeholder="error" class="input input-error" />
 						</label>
 					</div>
@@ -580,7 +585,7 @@ module.exports = {
 		</section>
 		<!-- Browser Support -->
 		<section class="space-y-4">
-			<h2>Browser Support</h2>
+			<h2 class="h2">Browser Support</h2>
 			<p>
 				Please be aware that not all native HTML form fields work consistently across browsers or operating systems. We strongly recommend
 				cross-device/OS/browser testing to ensure compatibility for your target audience.

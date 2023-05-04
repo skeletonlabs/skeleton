@@ -22,7 +22,7 @@
 			{#if comp.sveld.slots.length > 0}
 				{@const tableSource = sveldMapperSlots(comp)}
 				<section class="space-y-4">
-					{#if comp.label}<h2>{comp.label}</h2>{/if}
+					{#if comp.label}<h2 class="h2">{comp.label}</h2>{/if}
 					{#if comp.descSlots}<div>{@html comp.descSlots}</div>{/if}
 					{#if tableSource.body.length > 0}<Table source={tableSource} />{/if}
 				</section>

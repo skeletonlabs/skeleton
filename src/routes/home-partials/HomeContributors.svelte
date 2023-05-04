@@ -7,7 +7,7 @@
 <div class="space-y-10">
 	<!-- Info -->
 	<div class="space-y-4 text-center">
-		<h2>Built by Awesome People.</h2>
+		<h2 class="h2">Built by Awesome People.</h2>
 		<p>Here are a few of the people responsible for creating and maintaining Skeleton.</p>
 	</div>
 	<div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-4 items-center">
@@ -25,12 +25,12 @@
 			<section class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 md:p-10">
 				<div class="flex flex-col items-center gap-2">
 					<Avatar src="https://avatars.githubusercontent.com/u/1509726?v=4" width="w-32" />
-					<h3>Chris Simmons</h3>
+					<h3 class="h3">Chris Simmons</h3>
 					<p class="!text-sm">Co-founder and core maintainer.</p>
 				</div>
 				<div class="flex flex-col items-center gap-2">
 					<Avatar src="https://avatars.githubusercontent.com/u/10255430?v=4" width="w-32" />
-					<h3>Trey Weir</h3>
+					<h3 class="h3">Trey Weir</h3>
 					<p class="!text-sm">Co-founder and business relations.</p>
 				</div>
 			</section>

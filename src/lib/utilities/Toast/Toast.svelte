@@ -13,7 +13,7 @@
 	/** Set the toast position.
 	 * @type {'t' | 'b' | 'l' | 'r' | 'tl' | 'tr' | 'bl' | 'br'}
 	 */
-	export let position = 'b';
+	export let position: 't' | 'b' | 'l' | 'r' | 'tl' | 'tr' | 'bl' | 'br' = 'b';
 	/** Maximum toasts that can show at once. */
 	export let max = 3;
 	/** The duration of the fly in/out animation. */

@@ -7,7 +7,7 @@
 
 	// Classes
 	const cHeader = 'space-y-10';
-	const cChip = 'unstyled chip variant-soft hover:variant-filled';
+	const cChip = 'chip variant-soft hover:variant-filled';
 
 	// Local
 	const githubSourcePath = 'https://github.com/skeletonlabs/skeleton/tree/master/src'; // FIXME: hardcoded path
@@ -30,7 +30,7 @@
 <header class="doc-shell-header {classesHeader}">
 	<section class="space-y-4">
 		<span class="badge variant-soft translate-y-1">{@html pageData.feature}</span>
-		<h1>{pageData.name}</h1>
+		<h1 class="h1">{pageData.name}</h1>
 		<p>{@html pageData.description}</p>
 	</section>
 	<!-- Imports & Types -->
@@ -39,9 +39,9 @@
 	{/if}
 	<!-- Element Style Tree -->
 	{#if pageData.feature === 'Tailwind' && pageData.stylesheetIncludes?.length}
-		<aside class="alert card">
+		<aside class="alert card variant-glass">
 			<div class="alert-message">
-				<p>Provided by Skeleton's <code>all.css</code> stylesheet.</p>
+				<p>Provided by Skeleton's <code class="code">skeleton.css</code> stylesheet.</p>
 			</div>
 			<a href="/docs/get-started#stylesheets" class="btn btn-sm variant-filled">Reference</a>
 		</aside>

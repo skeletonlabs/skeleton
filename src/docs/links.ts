@@ -45,7 +45,7 @@ export const menuNavLinks: any = [
 			{
 				href: '/elements/typography',
 				label: 'Typography',
-				keywords: 'unstyled, headings, paragraph, anchor, blockquote, pre, code, keyboard, ins, del'
+				keywords: 'headings, paragraph, anchor, blockquote, pre, code, keyboard, ins, del'
 			},
 			{
 				href: '/elements/forms',
@@ -71,9 +71,12 @@ export const menuNavLinks: any = [
 		]
 	},
 	{
-		id: 'presentation',
-		title: 'Presentation',
-		list: [{ href: '/elements/gradient-headings', label: 'Gradient Headings', keywords: 'header, h1, h2, h3' }]
+		id: 'blocks',
+		title: 'Blocks',
+		list: [
+			{ href: '/elements/chat', label: 'Chat', keywords: 'message, conversation, prompt, ai' },
+			{ href: '/elements/gradient-headings', label: 'Gradient Headings', keywords: 'header, h1, h2, h3' }
+		]
 	},
 
 	// Svelte ---

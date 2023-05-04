@@ -22,12 +22,12 @@
 		// dependencies: [{ label: 'Highlight.js', url: 'https://highlightjs.org/' }],
 		// components: [{sveld: sveldComp}],
 		// classes: [
-		// 	['<code>.foo</code>', '-', '...'],
-		// 	['<code>.bar</code>', '-', '...']
+		// 	['<code class="code">.foo</code>', '-', '...'],
+		// 	['<code class="code">.bar</code>', '-', '...']
 		// ],
 		// keyboard: [
-		// 	['<code>foo</code>', '-', '-', '-', '...'],
-		// 	['<code>bar</code>', '-', '-', '-', '...']
+		// 	['<code class="code">foo</code>', '-', '-', '-', '...'],
+		// 	['<code class="code">bar</code>', '-', '-', '-', '...']
 		// ]
 	};
 </script>
@@ -48,12 +48,12 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<h2>Title 1</h2>
+			<h2 class="h2">Title 1</h2>
 			<p>Describe how to use the feature.</p>
 			<CodeBlock language="html" code={`(code)`} />
 		</section>
 		<section class="space-y-4">
-			<h2>Title 2</h2>
+			<h2 class="h2">Title 2</h2>
 			<p>Describe how to use the feature.</p>
 			<CodeBlock language="html" code={`(code)`} />
 		</section>

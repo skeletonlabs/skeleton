@@ -15,6 +15,8 @@
 	export let duration = 200; // ms
 
 	// Props (parent)
+	/** Provide classes to set the accordion width. */
+	export let width: CssClasses = 'w-full';
 	/** Provide classes to set the vertical spacing between items. */
 	export let spacing: CssClasses = 'space-y-1';
 
@@ -60,7 +62,7 @@
 	setContext('regionCaret', regionCaret);
 
 	// Reactive
-	$: classesBase = `${spacing} ${$$props.class ?? ''}`;
+	$: classesBase = `${width} ${spacing} ${$$props.class ?? ''}`;
 </script>
 
 <!-- @component The Accordion parent element. -->

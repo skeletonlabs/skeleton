@@ -21,8 +21,8 @@
 							<img src="https://source.unsplash.com/vjUokUWbFOs/400x175" class="bg-black/50 w-full aspect-[21/9]" alt="Post" />
 						</header>
 						<div class="p-4 space-y-4">
-							<h6>Announcements</h6>
-							<h3 data-toc-ignore>Skeleton is Awesome!</h3>
+							<h6 class="h6">Announcements</h6>
+							<h3 class="h3">Skeleton is Awesome!</h3>
 							<article>
 								<p class="opacity-75">This showcases Skeleton's Card, Typography, Chips, and Divider elements.</p>
 							</article>
@@ -134,28 +134,28 @@
 	</div>
 	<!-- Info -->
 	<div class="space-y-4">
-		<h2>Enhanced with Tailwind CSS.</h2>
+		<h2 class="h2">Enhanced with Tailwind CSS.</h2>
 		<!-- prettier-ignore -->
 		<p>
-			Skeleton has been designed from the ground up to take advantage of <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind's</a> unique utility class approach to CSS styling, allowing you to create or extend your own personal design system.
+			Skeleton has been designed from the ground up to take advantage of <a class="anchor" href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind's</a> unique utility class approach to CSS styling, allowing you to create or extend your own personal design system.
 		</p>
 		<!-- Options -->
 		<ListBox active="variant-filled" hover="hover:variant-soft" rounded="rounded-container-token" padding="!p-4">
 			<ListBoxItem bind:group={showcase} name="showcase" value="elements">
 				<div class="space-y-2">
-					<h3>Elements</h3>
+					<h3 class="h3">Elements</h3>
 					<p class="!text-sm">Common UI elements via HTML + CSS.</p>
 				</div>
 			</ListBoxItem>
 			<ListBoxItem bind:group={showcase} name="showcase" value="colors">
 				<div class="space-y-2">
-					<h3>Theme Colors</h3>
+					<h3 class="h3">Theme Colors</h3>
 					<p class="!text-sm">Includes an extensive palette of colors.</p>
 				</div>
 			</ListBoxItem>
 			<ListBoxItem bind:group={showcase} name="showcase" value="dark-mode">
 				<div class="space-y-2">
-					<h3>Dark Mode</h3>
+					<h3 class="h3">Dark Mode</h3>
 					<p class="!text-sm">Toggle dark mode with the flip of a switch.</p>
 				</div>
 			</ListBoxItem>

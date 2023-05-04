@@ -65,10 +65,10 @@
 	<!-- Info -->
 	<div class="space-y-4 md:space-y-10">
 		<div class="max-w-[640px] mx-auto space-y-4">
-			<h2>Adaptive Theming.</h2>
+			<h2 class="h2">Adaptive Theming.</h2>
 			<!-- prettier-ignore -->
 			<p>
-				Use Skeleton's <a href="/docs/tokens">design token system</a>, <a href="/docs/variants">variant styles</a>, and Tailwind utility classes to create custom components that match your overall theme and aesthetic.
+				Use Skeleton's <a class="anchor" href="/docs/tokens">design token system</a>, <a class="anchor" href="/docs/variants">variant styles</a>, and Tailwind utility classes to create custom components that match your overall theme and aesthetic.
 			</p>
 		</div>
 		<!-- Tabs -->

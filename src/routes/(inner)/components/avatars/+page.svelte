@@ -75,7 +75,7 @@
 				<CodeBlock language="html" code={`<Avatar src="${imgPlaceholder}" width="w-32" rounded="${roundedMapping[rangeSliderValue]}" />`} />
 			</svelte:fragment>
 			<svelte:fragment slot="footer">
-				<div class="text-center"><code>{roundedMapping[rangeSliderValue]}</code></div>
+				<div class="text-center"><code class="code">{roundedMapping[rangeSliderValue]}</code></div>
 				<input type="range" bind:value={rangeSliderValue} max={Object.keys(roundedMapping).length - 1} step={1} />
 			</svelte:fragment>
 		</DocsPreview>
@@ -84,7 +84,7 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<h2>Using Initials</h2>
+			<h2 class="h2">Using Initials</h2>
 			<p>Display up to two text characters. (ex: Jane Doe would be JD)</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -96,8 +96,8 @@
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>Interactive Border</h2>
-			<p>Apply the following styles using the <code>border</code> and <code>cursor</code> properties.</p>
+			<h2 class="h2">Interactive Border</h2>
+			<p>Apply the following styles using the <code class="code">border</code> and <code class="code">cursor</code> properties.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<Avatar border={borderStyles} cursor="cursor-pointer" />
@@ -116,9 +116,9 @@
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>Applying Filters</h2>
+			<h2 class="h2">Applying Filters</h2>
 			<p>
-				See <a href="/actions/filters">Filters</a> to learn how to import and configure the filters action and SVG filter components.
+				See <a class="anchor" href="/actions/filters">Filters</a> to learn how to import and configure the filters action and SVG filter components.
 			</p>
 			<CodeBlock language="ts" code={`import { filter, ${actionParams.replace('#', '')} } from '@skeletonlabs/skeleton';`} />
 			<DocsPreview background="neutral" regionFooter="text-center">

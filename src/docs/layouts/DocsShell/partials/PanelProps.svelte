@@ -22,7 +22,7 @@
 		<aside class="alert variant-ghost-warning">
 			<!-- prettier-ignore -->
 			<div class="alert-message">
-				<p>This component implements <a href="https://svelte.dev/docs#template-syntax-attributes-and-props" target="_blank" rel="noreferrer">restProps</a>. This passes all extra attributes to the component's <code>{pageData.restProps}</code> elements.</p>
+				<p>This component implements <a class="anchor" href="https://svelte.dev/docs#template-syntax-attributes-and-props" target="_blank" rel="noreferrer">restProps</a>. This passes all extra attributes to the component's <code class="code">{pageData.restProps}</code> elements.</p>
 			</div>
 		</aside>
 	{/if}
@@ -32,7 +32,7 @@
 			{#if comp.sveld.props.length > 0}
 				{@const tableSource = sveldMapperProps(comp)}
 				<section class="space-y-4">
-					{#if comp.label}<h2>{comp.label}</h2>{/if}
+					{#if comp.label}<h2 class="h2">{comp.label}</h2>{/if}
 					{#if comp.descProps}<div>{@html comp.descProps}</div>{/if}
 					{#if tableSource.body.length > 0}
 						<Table element="table" source={tableSource} />

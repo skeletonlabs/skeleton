@@ -14,7 +14,7 @@
 		description: 'Allows you to contain tab focus within a target element on-demand.',
 		imports: ['focusTrap'],
 		source: 'actions/FocusTrap',
-		parameters: [['<code>(default)</code>', 'boolean', '-', '-', `When TRUE, enables focus capture.`]]
+		parameters: [['<code class="code">(default)</code>', 'boolean', '-', '-', `When TRUE, enables focus capture.`]]
 	};
 
 	// Local
@@ -63,20 +63,22 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<p>
-			Apply <code>use:focusTrap</code>and then set the action value to either <code>true</code> or <code>false</code> to enable or disable focus.
+			Apply <code class="code">use:focusTrap</code>and then set the action value to either <code class="code">true</code> or
+			<code class="code">false</code> to enable or disable focus.
 		</p>
 		<section class="space-y-4">
-			<h2>Navigation</h2>
+			<h2 class="h2">Navigation</h2>
 			<p>
-				When enabled this action will auto-select the first focusable element. Press <kbd>Tab</kbd> or <kbd>Shift + Tab</kbd> to cycle through
-				focusable elements within the target region. When the last item is focused, it will loop to the start, and vice versa.
+				When enabled this action will auto-select the first focusable element. Press <kbd class="kbd">Tab</kbd> or
+				<kbd class="kbd">Shift + Tab</kbd> to cycle through focusable elements within the target region. When the last item is focused, it will
+				loop to the start, and vice versa.
 			</p>
 		</section>
 		<section class="space-y-4">
-			<h2>Focusing Overlays</h2>
+			<h2 class="h2">Focusing Overlays</h2>
 			<p>
-				Skeleton automatically enables this action for overlays such as <a href="/utilities/modals">modals</a> and
-				<a href="/utilities/drawers">drawers</a> to aid accessibility.
+				Skeleton automatically enables this action for overlays such as <a class="anchor" href="/utilities/modals">modals</a> and
+				<a class="anchor" href="/utilities/drawers">drawers</a> to aid accessibility.
 			</p>
 		</section>
 	</svelte:fragment>

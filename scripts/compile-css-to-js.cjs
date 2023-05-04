@@ -6,7 +6,7 @@ const tailwindcss = require('tailwindcss');
 
 // Transpiles all of our library's CSS to JS
 async function transpileCssToJs() {
-	const cssEntryPath = './src/lib/styles/all.css';
+	const cssEntryPath = './src/lib/styles/skeleton.css';
 	// Custom tailwind config so that we only use the necessities
 	const twConfig = {
 		darkMode: 'class',

@@ -34,7 +34,7 @@
 				filteredMenuNavLinks = menuNavLinks.filter((linkSet: any) => ['docs', 'essentials', 'resources'].includes(linkSet.id));
 				break;
 			case('elements'):
-				filteredMenuNavLinks = menuNavLinks.filter((linkSet: any) => ['tokens', 'base', 'elements', 'presentation'].includes(linkSet.id));
+				filteredMenuNavLinks = menuNavLinks.filter((linkSet: any) => ['tokens', 'base', 'elements', 'blocks'].includes(linkSet.id));
 				break;
 			case('svelte'):
 				filteredMenuNavLinks = menuNavLinks.filter((linkSet: any) => ['components', 'actions'].includes(linkSet.id));

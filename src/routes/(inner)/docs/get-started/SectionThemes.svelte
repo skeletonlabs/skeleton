@@ -18,10 +18,10 @@
 
 <!-- Header -->
 <section class="space-y-4">
-	<h2>Themes</h2>
+	<h2 class="h2">Themes</h2>
 	<!-- prettier-ignore -->
 	<p>
-		Skeleton themes <a href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank" rel="noreferrer">integrate with Tailwind</a> and support <a href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank" rel="noreferrer">color opacity</a>, <a href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="noreferrer">dark mode</a>, and our powerful <a href="/docs/tokens">design tokens system</a>.
+		Skeleton themes <a class="anchor" href="https://tailwindcss.com/docs/customizing-colors#using-css-variables" target="_blank" rel="noreferrer">integrate with Tailwind</a> and support <a class="anchor" href="https://tailwindcss.com/docs/background-color#changing-the-opacity" target="_blank" rel="noreferrer">color opacity</a>, <a class="anchor" href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="noreferrer">dark mode</a>, and our powerful <a class="anchor" href="/docs/tokens">design tokens system</a>.
 	</p>
 
 	<TabGroup regionPanel="space-y-4">
@@ -30,13 +30,13 @@
 	</TabGroup>
 	{#if $storeOnboardMethod === 'cli'}
 		<p>
-			The CLI will automatically import your preferred preset theme in <code>src/routes/+layout.svelte</code>. You may change this at any
-			time.
+			The CLI will automatically import your preferred preset theme in <code class="code">src/routes/+layout.svelte</code>. You may change
+			this at any time.
 		</p>
 	{:else if $storeOnboardMethod === 'manual'}
 		<!-- prettier-ignore -->
 		<p>
-			If you wish to use another preset theme, select it from the list below to reveal the import statement. Import it in your root layout in <code>/src/routes/+layout.svelte</code>. Take care to replace any existing theme.
+			If you wish to use another preset theme, select it from the list below to reveal the import statement. Import it in your root layout in <code class="code">/src/routes/+layout.svelte</code>. Take care to replace any existing theme.
 		</p>
 	{/if}
 

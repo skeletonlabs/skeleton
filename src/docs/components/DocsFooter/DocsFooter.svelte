@@ -23,32 +23,32 @@
 			</div>
 			<div class="hidden md:grid grid-cols-3 gap-8">
 				<div class="space-y-6">
-					<h6>Explore</h6>
+					<h6 class="h6">Explore</h6>
 					<ul class="space-y-3">
-						<li><a href="/docs/introduction">Introduction</a></li>
-						<li><a href="/docs/get-started">Get Started</a></li>
-						<li><a href="/blog">Blog</a></li>
+						<li><a class="anchor" href="/docs/introduction">Introduction</a></li>
+						<li><a class="anchor" href="/docs/get-started">Get Started</a></li>
+						<li><a class="anchor" href="/blog">Blog</a></li>
 					</ul>
 				</div>
 				<div class="space-y-6">
-					<h6>Features</h6>
+					<h6 class="h6">Features</h6>
 					<ul class="space-y-3">
-						<li><a href="/elements/core">Tailwind</a></li>
-						<li><a href="/actions/clipboard">Svelte</a></li>
-						<li><a href="/utilities/codeblocks">Utilities</a></li>
+						<li><a class="anchor" href="/elements/core">Tailwind</a></li>
+						<li><a class="anchor" href="/actions/clipboard">Svelte</a></li>
+						<li><a class="anchor" href="/utilities/codeblocks">Utilities</a></li>
 					</ul>
 				</div>
 				<div class="space-y-6">
-					<h6>Project</h6>
+					<h6 class="h6">Project</h6>
 					<ul class="space-y-3">
 						<li>
-							<a href="https://github.com/skeletonlabs" target="_blank" rel="noreferrer">Github Organization</a>
+							<a class="anchor" href="https://github.com/skeletonlabs" target="_blank" rel="noreferrer">Github Organization</a>
 						</li>
 						<li>
-							<a href="https://www.npmjs.com/org/skeletonlabs" target="_blank" rel="noreferrer">NPM Organization</a>
+							<a class="anchor" href="https://www.npmjs.com/org/skeletonlabs" target="_blank" rel="noreferrer">NPM Organization</a>
 						</li>
 						<li>
-							<a href="https://www.npmjs.com/package/@skeletonlabs/skeleton" target="_blank" rel="noreferrer">NPM Package</a>
+							<a class="anchor" href="https://www.npmjs.com/package/@skeletonlabs/skeleton" target="_blank" rel="noreferrer">NPM Package</a>
 						</li>
 					</ul>
 				</div>
@@ -59,10 +59,12 @@
 
 		<!-- Row 2 -->
 		<section class={cRowTwo}>
-			<p class="text-xs">
-				<a href="https://github.com/skeletonlabs/skeleton/blob/master/LICENSE" target="_blank" rel="noreferrer"> MIT License </a>
+			<p>
+				<a class="anchor" href="https://github.com/skeletonlabs/skeleton/blob/master/LICENSE" target="_blank" rel="noreferrer">
+					MIT License
+				</a>
 				<span class="opacity-10 mx-2">|</span>
-				<a href="https://skeletonlabs.co/" target="_blank" rel="noreferrer">Skeleton Labs </a>
+				<a class="anchor" href="https://skeletonlabs.co/" target="_blank" rel="noreferrer">Skeleton Labs </a>
 			</p>
 			<div class="flex space-x-4">
 				<a class="btn variant-soft" href="https://github.com/skeletonlabs/skeleton" target="_blank" rel="noreferrer">
@@ -85,9 +87,3 @@
 		</section>
 	</div>
 </div>
-
-<style lang="postcss">
-	a {
-		@apply !no-underline;
-	}
-</style>

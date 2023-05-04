@@ -13,7 +13,8 @@
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Component,
 		name: 'App Bar',
-		description: 'A header element for the top of your page layout. Pairs well with the <a href="/components/app-shell">App Shell</a>.',
+		description:
+			'A header element for the top of your page layout. Pairs well with the <a class="anchor" href="/components/app-shell">App Shell</a>.',
 		imports: ['AppBar'],
 		source: 'components/AppBar',
 		aria: 'https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/',
@@ -36,7 +37,7 @@
 						<i class="fa-solid fa-circle-user text-xl" />
 					</svelte:fragment>
 					<svelte:fragment slot="headline">
-						<h1>Headline</h1>
+						<h1 class="h1">Headline</h1>
 					</svelte:fragment>
 				</AppBar>
 			</svelte:fragment>
@@ -60,14 +61,14 @@
 		<p>App Bars can be generated with a number of different configurations by mixing and matching available slots and props.</p>
 		<!-- Single Row and Title -->
 		<section class="space-y-4">
-			<h2>Single Row and Title</h2>
+			<h2 class="h2">Single Row and Title</h2>
 			<DocsPreview background="neutral" regionViewport="!text-current">
 				<svelte:fragment slot="preview">
 					<AppBar class="w-full">
 						<svelte:fragment slot="lead">
 							<i class="fa-solid fa-arrow-left text-2xl" />
 						</svelte:fragment>
-						<h2 data-toc-ignore>Title</h2>
+						<h2 class="h2" data-toc-ignore>Title</h2>
 						<svelte:fragment slot="trail">
 							<i class="fa-solid fa-paperclip text-xl" />
 							<i class="fa-regular fa-calendar text-xl" />
@@ -91,10 +92,10 @@
 		</section>
 		<!-- Barebones -->
 		<section class="space-y-4">
-			<h2>Barebones</h2>
+			<h2 class="h2">Barebones</h2>
 			<DocsPreview background="neutral" regionViewport="!text-current">
 				<svelte:fragment slot="preview">
-					<AppBar class="w-full"><h2 data-toc-ignore>Title</h2></AppBar>
+					<AppBar class="w-full"><h2 class="h2" data-toc-ignore>Title</h2></AppBar>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock language="html" code={`<AppBar>(title)</AppBar>`} />
@@ -102,11 +103,11 @@
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>Using Grid Layout</h2>
+			<h2 class="h2">Using Grid Layout</h2>
 			<!-- prettier-ignore -->
 			<p>
-				The main row utilizes a grid-based layout. Utilize Tailwind's <a href="https://tailwindcss.com/docs/grid-column" target="_blank" rel="noreferrer">grid column</a> utility classes to control column width. Then use
-				<a href="https://tailwindcss.com/docs/place-content" target="_blank" rel="noreferrer">place settings</a> to adjust the placement of the slot contents.
+				The main row utilizes a grid-based layout. Utilize Tailwind's <a class="anchor" href="https://tailwindcss.com/docs/grid-column" target="_blank" rel="noreferrer">grid column</a> utility classes to control column width. Then use
+				<a class="anchor" href="https://tailwindcss.com/docs/place-content" target="_blank" rel="noreferrer">place settings</a> to adjust the placement of the slot contents.
 			</p>
 			<DocsPreview background="neutral" regionViewport="!text-current">
 				<svelte:fragment slot="preview">
@@ -114,7 +115,7 @@
 						<svelte:fragment slot="lead">
 							<i class="fa-solid fa-bars text-2xl" />
 						</svelte:fragment>
-						<h2 data-toc-ignore>Title</h2>
+						<h2 class="h2" data-toc-ignore>Title</h2>
 						<svelte:fragment slot="trail">
 							<i class="fa-solid fa-circle-user text-3xl" />
 						</svelte:fragment>
