@@ -117,28 +117,26 @@
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2 class="h2">Fallback Options</h2>
+			<h2 class="h2">Handling Fallbacks</h2>
 			<p>
-				Use the <code class="code">fallback</code> property to specify a fallbackfor images that fail to load, or leave it blank to fallback
-				to initials.
+				Use the <code class="code">fallback</code> property to specify a fallback when images fail to load, or supply the user's initials.
 			</p>
-
 			<DocsPreview background="neutral" regionFooter="text-center">
 				<svelte:fragment slot="preview">
 					{#key fallback}
-						<Avatar src="invalidink" {fallback} />
+						<Avatar src="invalid-image.jpg" {fallback} />
 					{/key}
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<p>Falling Back to Default Image</p>
-					<CodeBlock language="html" code={`<Avatar src="invalidink" fallback="DefaultUserImage.jpeg" />`} />
-					<p>Falling Back to Initials</p>
-					<CodeBlock language="html" code={`<Avatar src="invalidink" initials="AB" />`} />
+					<p>Provide a fallback image to display when the primary <code class="code">src</code> image fails.</p>
+					<CodeBlock language="html" code={`<Avatar src="invalid-image.jpg" fallback="fallback-image.jpg" />`} />
+					<p>Optionally you can also set initials to show when the primary <code class="code">src</code> image fails.</p>
+					<CodeBlock language="html" code={`<Avatar src="invalid-image.jpg" initials="AB" />`} />
 				</svelte:fragment>
 				<svelte:fragment slot="footer">
 					<select class="select w-auto" name="fallback" id="fallback" bind:value={fallback}>
-						<option value="">Initials</option>
 						<option value={`${imgPlaceholder}`}>Fallback Image</option>
+						<option value="">Fallback Initials</option>
 					</select>
 				</svelte:fragment>
 			</DocsPreview>
