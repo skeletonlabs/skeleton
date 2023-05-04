@@ -148,7 +148,6 @@
 						</li>
 					</ul>
 				</nav>
-				<!-- Arrow -->
 				<div class="arrow bg-surface-100-800-token" />
 			</div>
 		</div>
@@ -192,7 +191,6 @@
 						<a class="btn variant-ghost-surface w-full" href="/docs/generator">Create a Theme</a>
 					</div>
 				</div>
-				<!-- Arrow -->
 				<div class="arrow bg-surface-100-800-token" />
 			</div>
 		</div>
@@ -250,7 +248,6 @@
 						</li>
 					</ul>
 				</nav>
-				<!-- Arrow -->
 				<div class="arrow bg-surface-100-800-token" />
 			</div>
 		</div>

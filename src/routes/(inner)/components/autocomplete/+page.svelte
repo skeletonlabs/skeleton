@@ -34,7 +34,7 @@
 	// Local
 	let inputPopupDemo = '';
 	let popupSettings: PopupSettings = {
-		event: 'focus',
+		event: 'focus-click',
 		target: 'popupAutocomplete',
 		placement: 'bottom'
 	};
