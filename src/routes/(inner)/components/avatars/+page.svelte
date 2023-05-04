@@ -21,6 +21,7 @@
 	import XPro from '$lib/actions/Filters/svg-filters/XPro.svelte';
 	// Sveld
 	import sveldAvatar from '$lib/components/Avatar/Avatar.svelte?raw&sveld';
+	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
@@ -48,6 +49,8 @@
 		8: 'rounded-full'
 	};
 	let rangeSliderValue: keyof typeof roundedMapping = 8;
+	let fallback = '';
+	$: console.log(fallback);
 
 	// Reactive
 	$: actionParams = '#Apollo';
@@ -112,6 +115,33 @@
 />
 `}
 					/>
+				</svelte:fragment>
+			</DocsPreview>
+		</section>
+		<section class="space-y-4">
+			<h2 class="h2">Fallback Options</h2>
+			<p>
+				Use the <code class="code">fallback</code> property to specify a fallbackfor images that fail to load, or leave it blank to fallback
+				to initials.
+			</p>
+
+			<DocsPreview background="neutral" regionFooter="text-center">
+				<svelte:fragment slot="preview">
+					{#key fallback}
+						<Avatar src="invalidink" {fallback} />
+					{/key}
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<p>Falling Back to Default Image</p>
+					<CodeBlock language="html" code={`<Avatar src="invalidink" fallback="DefaultUserImage.jpeg" />`} />
+					<p>Falling Back to Initials</p>
+					<CodeBlock language="html" code={`<Avatar src="invalidink" initials="AB" />`} />
+				</svelte:fragment>
+				<svelte:fragment slot="footer">
+					<select class="select w-auto" name="fallback" id="fallback" bind:value={fallback}>
+						<option value="">Initials</option>
+						<option value={`${imgPlaceholder}`}>Fallback Image</option>
+					</select>
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
