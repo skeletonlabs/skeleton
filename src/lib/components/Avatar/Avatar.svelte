@@ -10,7 +10,9 @@
 
 	// Props (actions)
 	/** Provide the avatar image element source. */
-	export let src = '';
+	export let src: string = '';
+	/** Provide the fallback image element source. */
+	export let fallback: string = '';
 	/**
 	 * Image only. Provide an Svelte action reference, such as `filter`.
 	 * @type {function}
@@ -55,6 +57,7 @@
 			{src}
 			alt={$$props.alt || ''}
 			use:action={actionParams}
+			on:error={() => (src = fallback)}
 			{...prunedRestProps()}
 		/>
 	{:else}

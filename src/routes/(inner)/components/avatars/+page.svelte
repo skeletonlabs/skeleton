@@ -48,6 +48,7 @@
 		8: 'rounded-full'
 	};
 	let rangeSliderValue: keyof typeof roundedMapping = 8;
+	let fallback = '';
 
 	// Reactive
 	$: actionParams = '#Apollo';
@@ -112,6 +113,31 @@
 />
 `}
 					/>
+				</svelte:fragment>
+			</DocsPreview>
+		</section>
+		<section class="space-y-4">
+			<h2 class="h2">Handling Fallbacks</h2>
+			<p>
+				Use the <code class="code">fallback</code> property to specify a fallback when images fail to load, or supply the user's initials.
+			</p>
+			<DocsPreview background="neutral" regionFooter="text-center">
+				<svelte:fragment slot="preview">
+					{#key fallback}
+						<Avatar src="invalid-image.jpg" {fallback} />
+					{/key}
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<p>Provide a fallback image to display when the primary <code class="code">src</code> image fails.</p>
+					<CodeBlock language="html" code={`<Avatar src="invalid-image.jpg" fallback="fallback-image.jpg" />`} />
+					<p>Optionally you can also set initials to show when the primary <code class="code">src</code> image fails.</p>
+					<CodeBlock language="html" code={`<Avatar src="invalid-image.jpg" initials="AB" />`} />
+				</svelte:fragment>
+				<svelte:fragment slot="footer">
+					<select class="select w-auto" name="fallback" id="fallback" bind:value={fallback}>
+						<option value={`${imgPlaceholder}`}>Fallback Image</option>
+						<option value="">Fallback Initials</option>
+					</select>
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
