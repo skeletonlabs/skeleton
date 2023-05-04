@@ -21,7 +21,6 @@
 	import XPro from '$lib/actions/Filters/svg-filters/XPro.svelte';
 	// Sveld
 	import sveldAvatar from '$lib/components/Avatar/Avatar.svelte?raw&sveld';
-	import SlideToggle from '$lib/components/SlideToggle/SlideToggle.svelte';
 
 	// Docs Shell
 	const settings: DocsShellSettings = {
