@@ -49,7 +49,6 @@
 	};
 	let rangeSliderValue: keyof typeof roundedMapping = 8;
 	let fallback = '';
-	$: console.log(fallback);
 
 	// Reactive
 	$: actionParams = '#Apollo';
