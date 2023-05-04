@@ -175,10 +175,11 @@ only utilize theme on this doc page.
 		<hr />
 		<section class="space-y-4">
 			<h2 class="h2">Browser Support</h2>
+			<!-- prettier-ignore -->
 			<p>
-				Please be aware that <a class="anchor" href="https://caniuse.com/css-filters" target="_blank" rel="noreferrer">browser support</a> varies
-				for this feature. Some filters are not functional in Safari, while Firefox is not supported at all. For non-supported browsers the filter
-				will not be present but the image will still display, which allows for progressive enhancement.
+				Please be aware that <strong>SVG filters</strong> have limited support in Safari, while Firefox is not supported at all. We're aware that <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/CSS/filter#browser_compatibility" target="_blank" rel="noreferrer">MDN</a> and
+				<a class="anchor" href="https://caniuse.com/css-filters" target="_blank" rel="noreferrer">caniuse.com</a> both list this as fully supported in Firefox, but in practice the <code class="code">filter: url()</code> effects <u>do not appear</u>. Given this, we've opted to
+				excluded support for Firefox for the time being. If support changes, we will gladly revert this.
 			</p>
 			<div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
 				<div class="card p-2 !bg-green-500 text-black">
@@ -195,7 +196,7 @@ only utilize theme on this doc page.
 				</div>
 				<div class="card p-2 !bg-red-500 text-black">
 					<h4 class="h4">Firefox</h4>
-					<span>None</span>
+					<span>Excluded</span>
 				</div>
 			</div>
 		</section>
