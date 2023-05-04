@@ -82,13 +82,13 @@
 		event: 'click',
 		target: 'popupCloseQuery',
 		placement: 'top',
-		closeQuery: 'button'
+		closeQuery: '#will-close'
 	};
 	const popupState: PopupSettings = {
 		event: 'click',
 		target: 'popupState',
 		placement: 'top',
-		state: (e: any) => console.log(e)
+		state: (e: Record<string, boolean>) => console.log(e)
 	};
 	const popupMiddlware: PopupSettings = {
 		event: 'click',
@@ -195,13 +195,17 @@ const popupFeatured: PopupSettings = {
 			<CodeBlock language="console" code={`npm install @floating-ui/dom`} />
 			<p>Import Floating UI into your application's root layout <code class="code">/src/routes/+layout.svelte</code>.</p>
 			<CodeBlock language="ts" code={`import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';`} />
-			<p>Then import <code class="code">storePopup</code> in your root layout as well.</p>
-			<CodeBlock language="ts" code={`import { storePopup } from '@skeletonlabs/skeleton';`} />
-			<p>Finally, pass an object containing each of the required Floating UI modules to the store.</p>
-			<CodeBlock language="ts" code={`storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });`} />
-			<p>Popups also support a number of optional Floating UI modules. These are only required if you use this middlware.</p>
-			<CodeBlock language="ts" code={`import { /* ... */ size, autoPlacement, hide, inline } from '@floating-ui/dom';`} />
-			<CodeBlock language="ts" code={`storePopup.set({ /* ... */ size, autoPlacement, hide, inline });`} />
+			<p>
+				Import <code class="code">storePopup</code> in your root layout, then pass an object containing the required Floating UI modules shown
+				below.
+			</p>
+			<CodeBlock
+				language="ts"
+				code={`
+import { storePopup } from '@skeletonlabs/skeleton';
+storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
+			`}
+			/>
 		</section>
 
 		<hr />
@@ -209,7 +213,9 @@ const popupFeatured: PopupSettings = {
 		<!-- Events -->
 		<section class="space-y-4">
 			<h2 class="h2">Events</h2>
-			<p>The open and close state of the popup can be controlled by the <code class="code">event</code> setting.</p>
+			<p>
+				You can control how the popup is opened and closed by using the <code class="code">event</code> setting.
+			</p>
 			<h3 class="h3">Click</h3>
 			<p>
 				Tap the trigger element to open the popup, then outside to close it. Supports the <code class="code">closeQuery</code> feature.
@@ -247,7 +253,7 @@ const popupClick: PopupSettings = {
 			</DocsPreview>
 			<!-- Hover -->
 			<h3 class="h3">Hover</h3>
-			<p>The popup shows while hovering the trigger element. Useful for creating tooltips.</p>
+			<p>The popup shows only while hovering the trigger element. Great for creating tooltips.</p>
 			<DocsPreview background="neutral" regionPreview="text-token">
 				<svelte:fragment slot="preview">
 					<button class="btn variant-filled [&>*]:pointer-events-none" use:popup={popupHover}>
@@ -333,7 +339,9 @@ const popupFocusBlur: PopupSettings = {
 			<!-- Focus-Click -->
 			<h3 class="h3">Focus-Click</h3>
 			<p>
-				Shows the popup when the trigger is focused, hides when clicking outside. Supports the <code class="code">closeQuery</code> feature.
+				Show the popup on focus, closed when clicking outside. Useful for autocomplete popups. Supports the <code class="code"
+					>closeQuery</code
+				> feature.
 			</p>
 			<DocsPreview background="neutral" regionPreview="text-token">
 				<svelte:fragment slot="preview">
@@ -376,10 +384,10 @@ const popupFocusClick: PopupSettings = {
 		<section class="space-y-4">
 			<h2 class="h2">Settings</h2>
 			<p>
-				Each popup requires their own unique <code class="code">popupSettings</code>, which allow you to configure the following.
+				In addition to <code class="code">event</code>, let's explore what other <code class="code">popupSettings</code> are available.
 			</p>
 			<h3 class="h3">Placement</h3>
-			<p>The popup can be set to appear in any of the four cardinal directions. This will flip when near the edge of the screen.</p>
+			<p>Defines which side of the trigger the popup will appear. This will automatically flip when near the edge of the screen.</p>
 			<DocsPreview background="neutral" regionPreview="text-token py-10">
 				<svelte:fragment slot="preview">
 					<button class="btn variant-filled" use:popup={popupPlacement}>Show Popup</button>
@@ -411,35 +419,48 @@ const popupPlacement: PopupSettings = {
 			</DocsPreview>
 			<h3 class="h3">Close Query</h3>
 			<p>
-				Use the <code class="code">closeQuery</code> setting to indicate what popup child items will close the popup when clicked. This is
-				set to
-				<code class="code">'a[href], button'</code> by default. Pass an empty string <code class="code">''</code> to disable.
+				Use the <code class="code">closeQuery</code> setting to indicate what child elements within the popup can trigger the popup to
+				close. By default this uses
+				<code class="code">'a[href], button'</code> to denote anchors and buttons. You may provide a custom query or set
+				<code class="code">''</code> to disable this feature.
 			</p>
 			<DocsPreview background="neutral" regionPreview="text-token">
 				<svelte:fragment slot="preview">
 					<button class="btn variant-filled" use:popup={popupCloseQuery}>Show Popup</button>
 					<div class="card p-4" data-popup="popupCloseQuery">
-						<div class="space-y-4">
-							<p>Tap the button to close popup.</p>
-							<button class="btn variant-soft w-full">Close Popup</button>
+						<div class="grid grid-cols-1 gap-2">
+							<button id="wont-close" class="btn variant-filled-error">#wont-close</button>
+							<button id="will-close" class="btn variant-filled-success">#will-close</button>
 						</div>
 						<div class="arrow bg-surface-100-800-token" />
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock
+						language="html"
+						code={`
+<div class="card p-4 max-w-sm" data-popup="popupCloseQuery">
+	<div class="grid grid-cols-1 gap-2">
+		<button id="wont-close" class="btn variant-filled-error">#wont-close</button>
+		<button id="will-close" class="btn variant-filled-success">#will-close</button>
+	</div>
+	<div class="arrow bg-surface-100-800-token" />
+</div>
+					`}
+					/>
+					<CodeBlock
 						language="ts"
 						code={`
 const popupCloseQuery: PopupSettings = {
 	// ...
-	closeQuery: 'button'
+	closeQuery: '#will-close'
 };
 					`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
 			<h3 class="h3">State Callback</h3>
-			<p>Provide a callback function to the <code class="code">state</code> setting to be notified when the popup is opened or closed.</p>
+			<p>Provide a callback function to be notified when a particular popup is opened or closed.</p>
 			<DocsPreview background="neutral" regionPreview="text-token">
 				<svelte:fragment slot="preview">
 					<button class="btn variant-filled" use:popup={popupState}>Show Popup</button>
@@ -454,16 +475,16 @@ const popupCloseQuery: PopupSettings = {
 						code={`
 const popupState: PopupSettings = {
 	// ...
-	state: (e: any) => console.log(e)
+	state: (e: Record<string, boolean>) => console.log(e)
 };
 					`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
-			<h3 class="h3">Middlware</h3>
+			<h3 class="h3">Middleware</h3>
 			<!-- prettier-ignore -->
 			<p>
-				Allows you to configure various <a href="https://floating-ui.com/docs/middleware" target="_blank" rel="noreferrer" class="anchor">Floating UI middleware settings</a> such as shift, offset, and more.
+				Use <code class="code">middleware</code> to configure <a href="https://floating-ui.com/docs/middleware" target="_blank" rel="noreferrer" class="anchor">Floating UI middleware</a> such as shift, offset, and more.
 			</p>
 			<DocsPreview background="neutral" regionPreview="text-token">
 				<svelte:fragment slot="preview">
@@ -477,7 +498,7 @@ const popupState: PopupSettings = {
 					<CodeBlock
 						language="ts"
 						code={`
-let popupMiddlware: PopupSettings = {
+	let popupMiddlware: PopupSettings = {
 	// ...
 	middleware: {
 		// https://floating-ui.com/docs/offset
@@ -488,6 +509,7 @@ let popupMiddlware: PopupSettings = {
 		// flip: { ... },\n
 		// https://floating-ui.com/docs/arrow
 		// arrow: { ... },\n
+		// Optional Middlware ---\n
 		// https://floating-ui.com/docs/size
 		// size: { ... },\n
 		// https://floating-ui.com/docs/autoPlacement
@@ -497,11 +519,18 @@ let popupMiddlware: PopupSettings = {
 		// https://floating-ui.com/docs/inline
 		// inline: { ... }
 	}
-};
+	};
 					`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
+			<p>
+				This includes support for the optional Floating UI middleware shown below. To use these, import the Floating UI modules and pass
+				them to the <code class="code">storePopup</code> in your root layout as shown below. Note that these may alter the default behavior
+				of your popups. <u>We recommend these only for advanced users</u>.
+			</p>
+			<CodeBlock language="ts" code={`import { /* ... */ size, autoPlacement, hide, inline } from '@floating-ui/dom';`} />
+			<CodeBlock language="ts" code={`storePopup.set({ /* ... */ size, autoPlacement, hide, inline });`} />
 		</section>
 
 		<hr />
