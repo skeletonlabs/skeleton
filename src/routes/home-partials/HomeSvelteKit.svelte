@@ -72,7 +72,7 @@
 			<svelte:fragment slot="preview">
 				{#if showcase === 'components'}
 					<!-- Source: https://www.oprahdaily.com/life/a37259063/day-of-the-dead-facts-history/ -->
-					<Accordion autocollapse class="card p-4 text-token w-full">
+					<Accordion autocollapse class="card p-4 text-token">
 						<AccordionItem open>
 							<svelte:fragment slot="lead"><i class="fa-solid fa-skull text-xl w-6 text-center" /></svelte:fragment>
 							<svelte:fragment slot="summary"><p class="font-bold">What is Día de los Muertos?</p></svelte:fragment>
