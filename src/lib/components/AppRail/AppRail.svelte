@@ -9,13 +9,13 @@
 	import type { CssClasses } from '$lib';
 
 	import { setContext } from 'svelte';
-	import { writable, type Writable } from 'svelte/store';
+	import { writable, type Readable, type Writable } from 'svelte/store';
 
 	// Props
-	/** Provide a writable store to maintain navigation selection.
-	 * @type {Writeable(any)}
+	/** Provide a writable or readable store to maintain navigation selection.
+	 * @type {Writable(any) | Readable(any)}
 	 */
-	export let selected: Writable<any> = writable(undefined);
+	export let selected: Writable<any> | Readable<any> = writable(undefined);
 	/** Provide classes to set the background color. */
 	export let background: CssClasses = 'bg-surface-100-800-token';
 	/** Provide classes to set the background color. */
@@ -53,7 +53,7 @@
 
 <!-- @component A vertical navigation rail component. -->
 
-<div class="app-rail {classesBase}">
+<div class="app-rail {classesBase}" data-testid="app-rail">
 	<!-- Slot: lead -->
 	<div class="app-bar-lead {regionLead}"><slot name="lead" /></div>
 	<!-- Slot: Default -->
