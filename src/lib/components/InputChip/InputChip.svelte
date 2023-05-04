@@ -161,7 +161,7 @@
 <div class="input-chip {classesBase}" class:opacity-50={$$restProps.disabled}>
 	<!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->
 	<div class="h-0 overflow-hidden">
-		<select class="select" bind:this={selectElement} bind:value {name} multiple {required} tabindex="-1">
+		<select bind:this={selectElement} bind:value {name} multiple {required} tabindex="-1">
 			<!-- NOTE: options are required! -->
 			{#each value as option}<option value={option}>{option}</option>{/each}
 		</select>
