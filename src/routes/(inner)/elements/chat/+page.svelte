@@ -333,9 +333,9 @@
 					<section class="w-full max-h-[400px] p-4 overflow-y-auto space-y-4">
 						{#each messageFeed.slice(0, 2) as bubble, i}
 							{#if bubble.host === true}
-								<pre>host: {JSON.stringify(bubble, null, 2)}</pre>
+								<pre class="pre">host: {JSON.stringify(bubble, null, 2)}</pre>
 							{:else}
-								<pre>guest: {JSON.stringify(bubble, null, 2)}</pre>
+								<pre class="pre">guest: {JSON.stringify(bubble, null, 2)}</pre>
 							{/if}
 						{/each}
 					</section>
