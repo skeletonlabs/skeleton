@@ -73,7 +73,7 @@
 
 	$: if (lineNumbers) {
 		displayCode = displayCode.replace(/^/gm, () => {
-			return '<span class="line"></span>';
+			return '<span class="line"></span>\t';
 		});
 	}
 

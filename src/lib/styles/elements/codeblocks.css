@@ -10,7 +10,7 @@
 	}
 
 	.codeblock code.lineNumbers > span.line::before {
-		content: counter(line);
-		@apply inline-block w-9 opacity-50;
+		content: counter(line) '';
+		@apply opacity-50;
 	}
 }
