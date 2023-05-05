@@ -37,9 +37,9 @@
 
 	// Props (a11y)
 	/** Provide the ID of the element that labels the tab list. */
-	export let labelledby: string = '';
+	export let labelledby = '';
 	/** Matches the tab aria-control value, pairs with the panel. */
-	export let panel: string = '';
+	export let panel = '';
 
 	// Context
 	setContext('active', active);
@@ -67,6 +67,8 @@
 	</div>
 	<!-- Tab Panel -->
 	{#if $$slots.panel}
-		<div class="tab-panel {classesPanel}" role="tabpanel" aria-labelledby={panel}><slot name="panel" /></div>
+		<div class="tab-panel {classesPanel}" role="tabpanel" aria-labelledby={panel} tabindex="0">
+			<slot name="panel" />
+		</div>
 	{/if}
 </div>

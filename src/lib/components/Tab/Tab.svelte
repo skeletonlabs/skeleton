@@ -28,7 +28,7 @@
 
 	// Props (a11y)
 	/** Set the ARIA controls value to define which panel this tab controls. */
-	export let controls: string = '';
+	export let controls = '';
 
 	// Context
 	/** Provide classes to style each tab's active styles. */
@@ -56,6 +56,38 @@
 		if (['Enter', 'Space'].includes(event.code)) {
 			event.preventDefault();
 			elemInput.click();
+		} else if (event.code === 'ArrowRight') {
+			const tabList = elemInput.closest('.tab-list');
+			if (!tabList) return;
+			const tabs = Array.from(tabList.querySelectorAll('.tab'));
+
+			const currTab = elemInput.closest('.tab');
+			if (!currTab) return;
+
+			const currIndex = tabs.indexOf(currTab);
+			const nextIndex = currIndex + 1 >= tabs.length ? 0 : currIndex + 1;
+			const nextTab = tabs[nextIndex];
+			const nextTabInput = nextTab?.querySelector('input');
+			if (nextTab && nextTabInput) {
+				nextTabInput.click();
+				(nextTab as HTMLElement).focus();
+			}
+		} else if (event.code === 'ArrowLeft') {
+			const tabList = elemInput.closest('.tab-list');
+			if (!tabList) return;
+			const tabs = Array.from(tabList.querySelectorAll('.tab'));
+
+			const currTab = elemInput.closest('.tab');
+			if (!currTab) return;
+
+			const currIndex = tabs.indexOf(currTab);
+			const nextIndex = currIndex - 1 < 0 ? tabs.length - 1 : currIndex - 1;
+			const nextTab = tabs[nextIndex];
+			const nextTabInput = nextTab?.querySelector('input');
+			if (nextTab && nextTabInput) {
+				nextTabInput.click();
+				(nextTab as HTMLElement).focus();
+			}
 		}
 	}
 
@@ -80,7 +112,7 @@
 		role="tab"
 		aria-controls={controls}
 		aria-selected={selected}
-		tabindex="0"
+		tabindex={selected ? 0 : -1}
 		on:keydown={onKeyDown}
 		on:keydown
 		on:keyup
