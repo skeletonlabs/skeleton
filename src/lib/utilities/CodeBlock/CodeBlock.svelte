@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
-	import './CodeBlock.css';
 
 	// Event Handler
 	const dispatch = createEventDispatcher();
@@ -73,8 +72,7 @@
 	}
 
 	$: if (lineNumbers) {
-		let line = 1;
-		displayCode = displayCode.replace(/^/gm, function () {
+		displayCode = displayCode.replace(/^/gm, () => {
 			return '<span class="line"></span>';
 		});
 	}
@@ -85,17 +83,17 @@
 
 <!-- prettier-ignore -->
 {#if language && code}
-<div class="code-block {classesBase}" data-testid="code-block">
+<div class="codeblock {classesBase}" data-testid="codeblock">
 	<!-- Header -->
-	<header class="code-block-header {cHeader}">
+	<header class="codeblock-header {cHeader}">
 		<!-- Language -->
-		<span class="code-block-language">{languageFormatter(language)}</span>
+		<span class="codeblock-language">{languageFormatter(language)}</span>
 		<!-- Copy Button -->
-		<button class="code-block-btn {button}" on:click={onCopyClick} use:clipboard={code}>
+		<button class="codeblock-btn {button}" on:click={onCopyClick} use:clipboard={code}>
 			{!copyState ? buttonLabel : buttonCopied}
 		</button>
 	</header>
 	<!-- Pre/Code -->
-	<pre class="code-block-pre {cPre}"><code class="code-block-code language-{language} lineNumbers">{#if formatted}{@html displayCode}{:else}{code.trim()}{/if}</code></pre>
+	<pre class="codeblock-pre {cPre}"><code class="codeblock-code language-{language} lineNumbers">{#if formatted}{@html displayCode}{:else}{code.trim()}{/if}</code></pre>
 </div>
 {/if}
