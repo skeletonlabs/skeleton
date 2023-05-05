@@ -1,29 +1,26 @@
 // Popup Types
-
-/** Placement https://floating-ui.com/docs/computePosition#placement */
-type Direction = 'top' | 'bottom' | 'left' | 'right';
-type Placement = Direction | `${Direction}-start` | `${Direction}-end`;
+import type { HideOptions, Placement, ArrowOptions, FlipOptions, ShiftOptions, OffsetOptions, AutoPlacementOptions, InlineOptions, SizeOptions } from '@floating-ui/dom';
 
 // Options & Middleware
 export interface Middleware {
 	// Required ---
 	/** Offset middleware settings: https://floating-ui.com/docs/offset */
-	offset?: number | Record<string, any>;
+	offset?: Partial<OffsetOptions>;
 	/** Shift middleware settings: https://floating-ui.com/docs/shift */
-	shift?: Record<string, any>;
+	shift?: Partial<ShiftOptions>;
 	/** Flip middleware settings: https://floating-ui.com/docs/flip */
-	flip?: Record<string, any>;
+	flip?: Partial<FlipOptions>;
 	/** Arrow middleware settings: https://floating-ui.com/docs/arrow */
-	arrow?: { element: string } & Record<string, any>;
+	arrow?: Partial<ArrowOptions>;
 	// Optional ---
 	/** Size middleware settings: https://floating-ui.com/docs/size */
-	size?: Record<string, any>;
+	size?: Partial<SizeOptions>;
 	/** Auto Placement middleware settings: https://floating-ui.com/docs/autoPlacement */
-	autoPlacement?: Record<string, any>;
+	autoPlacement?: Partial<AutoPlacementOptions>;
 	/** Hide middleware settings: https://floating-ui.com/docs/hide */
-	hide?: Record<string, any>;
+	hide?: Partial<HideOptions>;
 	/** Inline middleware settings: https://floating-ui.com/docs/inline */
-	inline?: Record<string, any>;
+	inline?: Partial<InlineOptions>;
 }
 
 export interface PopupSettings {

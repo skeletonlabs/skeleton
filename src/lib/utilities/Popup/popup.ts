@@ -1,5 +1,6 @@
 import { get, writable, type Writable } from 'svelte/store';
-import type { Middleware, PopupSettings } from './types';
+import type { Placement } from '@floating-ui/dom';
+import type { PopupSettings } from './types';
 
 // Use a store to pass the Floating UI import references
 export const storePopup: Writable<any> = writable(undefined);
@@ -19,11 +20,16 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 	let elemPopup: HTMLElement;
 	let elemArrow: HTMLElement;
 
+  let memoPlacement: Placement | undefined = args.placement;
+
 	function setDomElements(): void {
 		elemPopup = document.querySelector(`[data-popup="${args.target}"]`) ?? new HTMLElement();
 		elemArrow = elemPopup?.querySelector(`.arrow`) ?? new HTMLElement();
-	}
-	setDomElements(); // init
+
+    if(memoPlacement) elemPopup?.classList.add(memoPlacement);
+  }
+
+  setDomElements(); // init
 
 	// Render Floating UI Popup
 	function render(): void {
@@ -65,11 +71,27 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 				...optionalMiddlware
 			]
 		}).then(({ x, y, placement, middlewareData }: any) => {
-			Object.assign(elemPopup.style, {
+      if(middlewareData.hide && (middlewareData.hide.referenceHidden || middlewareData.hide.escaped)) {
+        elemPopup.classList.add('!hidden')
+      } else {
+        elemPopup.classList.remove('!hidden')
+      }
+
+      Object.assign(elemPopup.style, {
 				left: `${x}px`,
 				top: `${y}px`
 			});
-			// Handle Arrow Placement:
+
+      // Add placement as a classname for custom styling
+      if(memoPlacement && placement !== memoPlacement) {
+        elemPopup.classList.replace(memoPlacement, placement);
+      } else {
+        elemPopup.classList.add(placement);
+      }
+
+      memoPlacement = placement;
+
+      // Handle Arrow Placement:
 			// https://floating-ui.com/docs/arrow
 			if (elemArrow) {
 				const { x: arrowX, y: arrowY } = middlewareData.arrow;
@@ -91,37 +113,48 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 		});
 	}
 
+  // Set transition duration
+  const cssTransitionDuration = parseFloat(window.getComputedStyle(elemPopup).transitionDuration.replace('s', '')) * 1000;
+
 	// State Handlers
 	function open(): void {
-		if (!elemPopup) return;
-		// Set open state to on
-		popupState.open = true;
-		// Return the current state
-		if (args.state) args.state({ state: popupState.open });
+		if (!elemPopup || elemPopup?.classList.contains('block')) return;
+    elemPopup.classList.remove('!hidden');
+
 		// Update render settings
 		render();
-		// Update the DOM
-		elemPopup.style.display = 'block';
-		elemPopup.style.opacity = '1';
-		elemPopup.style.pointerEvents = 'auto';
-		// Trigger Floating UI autoUpdate (open only)
-		// https://floating-ui.com/docs/autoUpdate
-		popupState.autoUpdateCleanup = autoUpdate(triggerNode, elemPopup, render);
-		// Focus the first focusable element within the popup
-		focusablePoupupElements = Array.from(elemPopup?.querySelectorAll(focusableAllowedList));
+
+    // Update the DOM
+    elemPopup.classList.remove('!opacity-0');
+    elemPopup.classList.add('!block');
+    elemPopup.classList.add('!opacity-100');
+
+    setTimeout(() => {
+      // Set open state to on
+		  popupState.open = true;
+      // Return the current state
+  		if (args.state) args.state({ state: popupState.open });
+      // Trigger Floating UI autoUpdate (open only)
+      // https://floating-ui.com/docs/autoUpdate
+      popupState.autoUpdateCleanup = autoUpdate(triggerNode, elemPopup, render);
+      // Focus the first focusable element within the popup
+      focusablePoupupElements = Array.from(elemPopup?.querySelectorAll(focusableAllowedList));
+    }, cssTransitionDuration);
 	}
 	function close(callback?: any): void {
-		if (!elemPopup) return;
-		// Set transition duration
-		const cssTransitionDuration = parseFloat(window.getComputedStyle(elemPopup).transitionDuration.replace('s', '')) * 1000;
+		if (!elemPopup || elemPopup?.classList.contains('opacity-0')) return;
+
+    elemPopup.classList.remove('!opacity-100');
+    elemPopup.classList.add('!opacity-0');
+
 		setTimeout(() => {
 			// Set open state to off
 			popupState.open = false;
 			// Return the current state
 			if (args.state) args.state({ state: popupState.open });
 			// Update the DOM
-			elemPopup.style.opacity = '0';
-			elemPopup.style.pointerEvents = 'none';
+      elemPopup.classList.remove('!block');
+      elemPopup.classList.add('!hidden');
 			// Cleanup Floating UI autoUpdate (close only)
 			if (popupState.autoUpdateCleanup) popupState.autoUpdateCleanup();
 			// Trigger callback
