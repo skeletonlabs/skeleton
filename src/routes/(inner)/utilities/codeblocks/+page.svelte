@@ -67,6 +67,30 @@
 			<CodeBlock language="ts" code={`import { storeHighlightJs } from '@skeletonlabs/skeleton';\n\nstoreHighlightJs.set(hljs);`} />
 		</section>
 		<section class="space-y-4">
+			<h2>Line Numbers</h2>
+			<!-- prettier-ignore -->
+			<p>
+				Adding the <code>lineNumbers</code> property will add line numbers to the displayed code.
+			</p>
+			<CodeBlock
+				lineNumbers
+				language="html"
+				code={`<p>\n	Adding the <code>lineNumbers</code> property will add line numbers to the displayed code.\n</p>`}
+			/>
+		</section>
+		<section class="space-y-4">
+			<h2>Line Numbers</h2>
+			<!-- prettier-ignore -->
+			<p>
+				Adding the <code>lineNumbers</code> property will add line numbers to the displayed code.
+			</p>
+			<CodeBlock
+				lineNumbers
+				language="html"
+				code={`<p>\n	Adding the <code>lineNumbers</code> property will add line numbers to the displayed code.\n</p>`}
+			/>
+		</section>
+		<section class="space-y-4">
 			<h2 class="h2">Supported Languages</h2>
 			<!-- prettier-ignore -->
 			<p>

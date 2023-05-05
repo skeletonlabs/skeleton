@@ -1,0 +1,11 @@
+pre {
+	counter-reset: line;
+}
+
+code.lineNumbers > span.line {
+	counter-increment: line;
+}
+
+code.lineNumbers > span.line::before {
+	content: counter(line) '    ';
+}

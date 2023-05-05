@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
+	import './CodeBlock.css';
 
 	// Event Handler
 	const dispatch = createEventDispatcher();
@@ -15,6 +16,9 @@
 	export let language = 'plaintext';
 	/** Provide the code snippet to render. Be mindful to escape as needed! */
 	export let code = '';
+
+	/** Specify if line numbers should be added to the code block*/
+	export let lineNumbers: boolean = false;
 
 	// Props (styles)
 	/** Provide classes to set the background color. */
@@ -68,6 +72,13 @@
 		formatted = true;
 	}
 
+	$: if (lineNumbers) {
+		let line = 1;
+		displayCode = displayCode.replace(/^/gm, function () {
+			return '<span class="line"></span>';
+		});
+	}
+
 	// Reactive
 	$: classesBase = `${cBase} ${background} ${blur} ${text} ${color} ${rounded} ${shadow} ${$$props.class ?? ''}`;
 </script>
@@ -85,6 +96,6 @@
 		</button>
 	</header>
 	<!-- Pre/Code -->
-	<pre class="code-block-pre {cPre}"><code class="code-block-code language-{language}">{#if formatted}{@html displayCode}{:else}{code.trim()}{/if}</code></pre>
+	<pre class="code-block-pre {cPre}"><code class="code-block-code language-{language} lineNumbers">{#if formatted}{@html displayCode}{:else}{code.trim()}{/if}</code></pre>
 </div>
 {/if}
