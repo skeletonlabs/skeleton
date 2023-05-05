@@ -16,6 +16,9 @@
 	/** Provide the code snippet to render. Be mindful to escape as needed! */
 	export let code = '';
 
+	/** Specify if line numbers should be added to the code block*/
+	export let lineNumbers: boolean = false;
+
 	// Props (styles)
 	/** Provide classes to set the background color. */
 	export let background: CssClasses = 'bg-neutral-900/90';
@@ -68,23 +71,29 @@
 		formatted = true;
 	}
 
+	$: if (lineNumbers) {
+		displayCode = displayCode.replace(/^/gm, () => {
+			return '<span class="line"></span>';
+		});
+	}
+
 	// Reactive
 	$: classesBase = `${cBase} ${background} ${blur} ${text} ${color} ${rounded} ${shadow} ${$$props.class ?? ''}`;
 </script>
 
 <!-- prettier-ignore -->
 {#if language && code}
-<div class="code-block {classesBase}" data-testid="code-block">
+<div class="codeblock {classesBase}" data-testid="codeblock">
 	<!-- Header -->
-	<header class="code-block-header {cHeader}">
+	<header class="codeblock-header {cHeader}">
 		<!-- Language -->
-		<span class="code-block-language">{languageFormatter(language)}</span>
+		<span class="codeblock-language">{languageFormatter(language)}</span>
 		<!-- Copy Button -->
-		<button class="code-block-btn {button}" on:click={onCopyClick} use:clipboard={code}>
+		<button class="codeblock-btn {button}" on:click={onCopyClick} use:clipboard={code}>
 			{!copyState ? buttonLabel : buttonCopied}
 		</button>
 	</header>
 	<!-- Pre/Code -->
-	<pre class="code-block-pre {cPre}"><code class="code-block-code language-{language}">{#if formatted}{@html displayCode}{:else}{code.trim()}{/if}</code></pre>
+	<pre class="codeblock-pre {cPre}"><code class="codeblock-code language-{language} lineNumbers">{#if formatted}{@html displayCode}{:else}{code.trim()}{/if}</code></pre>
 </div>
 {/if}

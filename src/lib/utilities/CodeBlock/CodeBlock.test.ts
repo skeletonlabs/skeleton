@@ -11,7 +11,7 @@ describe('CodeBlock.svelte', () => {
 				code: '<p>Hello World</p>'
 			}
 		});
-		expect(getByTestId('code-block')).toBeTruthy();
+		expect(getByTestId('codeblock')).toBeTruthy();
 	});
 
 	it('Renders with all props', async () => {
@@ -22,6 +22,6 @@ describe('CodeBlock.svelte', () => {
 				background: 'bg-slate-800'
 			}
 		});
-		expect(getByTestId('code-block')).toBeTruthy();
+		expect(getByTestId('codeblock')).toBeTruthy();
 	});
 });
