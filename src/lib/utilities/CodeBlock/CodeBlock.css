@@ -8,4 +8,5 @@ code.lineNumbers > span.line {
 
 code.lineNumbers > span.line::before {
 	content: counter(line) '    ';
+	opacity: 0.4;
 }
