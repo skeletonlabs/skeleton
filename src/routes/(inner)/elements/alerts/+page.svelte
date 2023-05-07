@@ -110,7 +110,7 @@
 			<h2 class="h2">Animation</h2>
 			<!-- prettier-ignore -->
 			<p><a class="anchor" href="https://svelte.dev/tutorial/transition" target="_blank" rel="noreferrer">Svelte Transitions</a> can provide smooth transition animations when the alert state changes.</p>
-			<CodeBlock language="html" code={`<aside class="alert" transition:fade|local={{ duration: 200 }}>(content)</div>`} />
+			<CodeBlock language="html" code={`<aside class="alert" transition:fade|local={{ duration: 200 }}>(content)</aside>`} />
 		</section>
 	</svelte:fragment>
 </DocsShell>
