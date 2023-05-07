@@ -239,7 +239,7 @@
 				<svelte:fragment slot="summary"><h3 class="h3" data-toc-ignore>Why is VS Code reordering my imports?</h3></svelte:fragment>
 				<svelte:fragment slot="content">
 					<p>
-						VS Code an an optional opt-in feature for automatically reordering imports. This is disabled by default. If this is enabled it
+						VS Code has an optional opt-in feature for automatically reordering imports. This is disabled by default. If this is enabled it
 						may break your stylesheet import order, which can be cause issues. If present, set it to <code class="code">false</code>.
 					</p>
 					<CodeBlock
