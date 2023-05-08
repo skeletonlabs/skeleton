@@ -18,6 +18,10 @@
 	export let tag = 'button';
 	/** Provide the visible text label. */
 	export let label = '';
+	/** Provide classes to set the width. */
+	export let width: CssClasses = 'w-full';
+	/** Provide classes to set the height. */
+	export let height: CssClasses = 'aspect-square';
 
 	// Props (region)
 	/** Provide arbitrary classes to style the icon region. */
@@ -37,7 +41,7 @@
 	}
 
 	// Base Classes
-	const cBase = 'unstyled grid place-content-center place-items-center w-full aspect-square space-y-1.5 cursor-pointer';
+	const cBase = 'unstyled grid place-content-center place-items-center space-y-1.5 cursor-pointer';
 	const cLabel = 'font-bold text-xs text-center';
 
 	// Input Handler
@@ -52,7 +56,7 @@
 
 	// Reactive
 	$: classesActive = String($selected) && String(value) && $selected === value ? `${active}` : '';
-	$: classesBase = `${cBase} ${hover} ${classesActive} ${$$props.class || ''}`;
+	$: classesBase = `${cBase} ${width} ${height} ${hover} ${classesActive} ${$$props.class || ''}`;
 	$: classesLabel = `${cLabel} ${regionLabel}`;
 
 	// RestProps
