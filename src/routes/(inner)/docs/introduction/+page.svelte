@@ -27,14 +27,45 @@
 		</p>
 	</section>
 
-	<iframe
-		class="w-full aspect-video mx-auto rounded-container-token shadow"
-		src="https://www.youtube.com/embed/P_A0qQ7AuK8"
-		title="YouTube video player"
-		frameborder="0"
-		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-		allowfullscreen
-	/>
+	<!-- Video -->
+	<section class="space-y-4">
+		<!-- Embed -->
+		<iframe
+			class="w-full aspect-video mx-auto rounded-container-token shadow"
+			src="https://www.youtube.com/embed/tHzVyChDuyo"
+			title="YouTube video player"
+			frameborder="0"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			allowfullscreen
+		/>
+		<!-- Thumbnails -->
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+			<a href="https://youtu.be/P_A0qQ7AuK8" target="_blank" rel="noreferrer">
+				<img
+					class="w-full aspect-video shadow"
+					src="https://i.ytimg.com/vi/P_A0qQ7AuK8/hq720.jpg?sqp=-oaymwEnCPYBEIoBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIHBACGAYgATgB&rs=AOn4CLAzhVXc-QnHxLUDEJriSQ5dM0vt8w"
+					alt="Huntabyte"
+					Title="Huntabyte"
+				/>
+			</a>
+			<a href="https://www.youtube.com/watch?v=O0mNU0maItY" target="_blank" rel="noreferrer">
+				<img
+					class="w-full aspect-video shadow"
+					src="https://i.ytimg.com/vi/O0mNU0maItY/hq720.jpg?sqp=-oaymwEmCKgBEF5IWvKriqkDGQgBFQAAiEIYAdgBAeIBCggcEAIYBiABOAE=&rs=AOn4CLB9xc89PYlMU6piBYxcV6Vf_G7DqQ"
+					alt="Joy of Code"
+					Title="Joy of Code"
+				/>
+			</a>
+			<a href="https://www.youtube.com/watch?v=2OnJYCXJPK4" target="_blank" rel="noreferrer">
+				<img
+					class="w-full aspect-video shadow"
+					src="https://i.ytimg.com/vi/2OnJYCXJPK4/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIHBACGAYgATgB&rs=AOn4CLAOSpZL64fmARG9DXogNjK-0IsREA"
+					alt="Svelte Sirens"
+					Title="Svelte Sirens"
+				/>
+			</a>
+		</div>
+	</section>
 
 	<!-- Our Vision -->
 	<section class="space-y-4">
