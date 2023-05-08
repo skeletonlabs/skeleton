@@ -58,6 +58,6 @@
 	<div class="app-bar-lead {regionLead}"><slot name="lead" /></div>
 	<!-- Slot: Default -->
 	<div class="app-bar-default {regionDefault}"><slot /></div>
-	<!-- Slot: lead -->
+	<!-- Slot: trail -->
 	<div class="app-bar-trail {regionTrail}"><slot name="trail" /></div>
 </div>
