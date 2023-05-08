@@ -24,7 +24,7 @@
 		<section class="card variant-ghost-warning p-4 space-y-4">
 			<div class="flex items-center space-x-2">
 				<h2 class="h2">Opt-In Typography</h2>
-				<span class="badge variant-filled-warning">New in v1.3+</span>
+				<span class="badge variant-filled-warning">New in v1.5+</span>
 			</div>
 			<p>Please review the new changes for Skeleton's typography system.</p>
 			<Accordion autocollapse>
@@ -35,7 +35,7 @@
 					</svelte:fragment>
 					<svelte:fragment slot="content">
 						<p>
-							Starting Skeleton <u>v1.3+</u> we've introduced a new opt-in typography system that will replace the on-by-default system of prior
+							Starting Skeleton <u>v1.5+</u> we've introduced a new opt-in typography system that will replace the on-by-default system of prior
 							versions. This allows you to choose which elements receive Skeleton's typography via utility classes, similar to Skeleton's form
 							styles.
 						</p>
@@ -64,7 +64,7 @@ h3:not(.unstyled):is(:not(.prose *)) {\n\t/* ... */\n}
 								/>
 							</div>
 							<div class="space-y-4">
-								<p class="font-bold">v1.3+</p>
+								<p class="font-bold">v1.5+</p>
 								<small>Provided via <code class="code">skeleton.css</code>.</small>
 								<CodeBlock
 									language="css"
@@ -88,7 +88,7 @@ a:not(.unstyled):not(.permalink):is(:not(.prose *)):not(.btn):not(.btn-icon):not
 								/>
 							</div>
 							<div class="space-y-4">
-								<p class="font-bold">v1.3+</p>
+								<p class="font-bold">v1.5+</p>
 								<small>Provided via <code class="code">skeleton.css</code>.</small>
 								<CodeBlock language="css" code={`.anchor { /* ... */ }`} />
 							</div>
