@@ -21,7 +21,7 @@
 	/* Mobile tap highlight */
 	/* https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-tap-highlight-color */
 	html {
-		-webkit-tap-highlight-color: rgba(128, 128, 128, 0.5);
+		-webkit-tap-highlight-color: transparent;
 	}
 
 	/* === Scrollbars === */
