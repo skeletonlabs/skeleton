@@ -7,11 +7,13 @@
 	// Components
 	import AppRail from '$lib/components/AppRail/AppRail.svelte';
 	import AppRailTile from '$lib/components/AppRail/AppRailTile.svelte';
+	import HorizontalAppRail from '$lib/components/AppRail/HorizontalAppRail.svelte';
 	// Utilities
 	import CodeBlock from '$lib/utilities/CodeBlock/CodeBlock.svelte';
 	// Sveld
 	import sveldAppRail from '$lib/components/AppRail/AppRail.svelte?raw&sveld';
 	import sveldAppRailTile from '$lib/components/AppRail/AppRailTile.svelte?raw&sveld';
+	import sveldHorizontalAppRail from '$lib/components/AppRail/HorizontalAppRail.svelte?raw&sveld';
 
 	// Stores
 	const storeValue: Writable<number> = writable(0);
@@ -20,13 +22,14 @@
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Component,
 		name: 'App Rail',
-		description: 'A side navigation rail component',
-		imports: ['AppRail', 'AppRailTile'],
+		description: 'A navigation rail component.',
+		imports: ['AppRail', 'AppRailTile', 'HorizontalAppRail'],
 		source: 'components/AppRail',
 		// aria: 'https://www.w3.org/WAI/ARIA/apg/',
 		components: [
 			{ label: 'AppRail', sveld: sveldAppRail },
-			{ label: 'AppRailTile', sveld: sveldAppRailTile }
+			{ label: 'AppRailTile', sveld: sveldAppRailTile },
+			{ label: 'HorizontalAppRail', sveld: sveldHorizontalAppRail }
 		],
 		restProps: 'AppRailTile'
 	};
@@ -144,6 +147,72 @@ const selected = derived(page, $page => $page.url.pathname);
 </AppRail>
 `}
 			/>
+		</section>
+		<section class="space-y-4">
+			<h2 class="h2">Horizontal App Rail</h2>
+			<p>
+				The horizontal version of the component is used similarly to the sidebar version. Use tiles with
+				<code class="code">height="h-full"</code>
+				to override the default square aspect ratio and take up the available width.
+			</p>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<div class="card bg-surface-50-900-token rounded-none h-[480px] grid grid-rows-[auto_1fr] w-full">
+						<HorizontalAppRail selected={storeValue}>
+							<!-- Lead -->
+							<svelte:fragment slot="lead">
+								<AppRailTile height="h-full" width="w-16 sm:w-18" on:click={logger}>
+									<i class="fa-solid fa-bars text-2xl" />
+								</AppRailTile>
+							</svelte:fragment>
+							<!-- Default -->
+							<AppRailTile height="h-full" label="Tile 1" value={0}>
+								<i class="fa-solid fa-image text-2xl" />
+							</AppRailTile>
+							<AppRailTile height="h-full" label="Tile 2" value={1}>
+								<i class="fa-solid fa-image text-2xl" />
+							</AppRailTile>
+							<AppRailTile height="h-full" label="Tile 3" value={2}>
+								<i class="fa-solid fa-image text-2xl" />
+							</AppRailTile>
+							<!-- Trail -->
+							<svelte:fragment slot="trail">
+								<AppRailTile
+									height="h-full"
+									width="w-16 sm:w-18"
+									value={3}
+									href="https://github.com/"
+									target="_blank"
+									title="Trail slot tile."
+								>
+									<i class="fa-brands fa-github text-2xl" />
+								</AppRailTile>
+							</svelte:fragment>
+						</HorizontalAppRail>
+						<div class="grid place-content-center place-items-center">
+							<span class="badge variant-soft">Selected Tile: {$storeValue}</span>
+						</div>
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="ts"
+						code={`
+const storeValue: Writable<number> = writable(0);
+`}
+					/>
+					<CodeBlock
+						language="html"
+						code={`
+<HorizontalAppRail selected={storeValue}>
+	<AppRailTile height="h-full" label="Tile 1" value={0}>(icon)</AppRailTile>
+	<AppRailTile height="h-full" label="Tile 2" value={1}>(icon)</AppRailTile>
+	<AppRailTile height="h-full" label="Tile 3" value={2}>(icon)</AppRailTile>
+</AppRail>
+`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
 		</section>
 	</svelte:fragment>
 </DocsShell>
