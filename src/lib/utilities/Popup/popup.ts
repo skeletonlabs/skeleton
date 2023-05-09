@@ -20,8 +20,8 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 	let elemArrow: HTMLElement;
 
 	function setDomElements(): void {
-		elemPopup = document.querySelector(`[data-popup="${args.target}"]`) ?? new HTMLElement();
-		elemArrow = elemPopup?.querySelector(`.arrow`) ?? new HTMLElement();
+		elemPopup = document.querySelector(`[data-popup="${args.target}"]`) ?? document.createElement('div');
+		elemArrow = elemPopup?.querySelector(`.arrow`) ?? document.createElement('div');
 	}
 	setDomElements(); // init
 
