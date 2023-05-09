@@ -27,8 +27,8 @@ describe('Actions: Filter', () => {
 		render(NoirLight);
 		render(Noir);
 		const elements: HTMLCollection = document.getElementsByClassName('filter');
-		for (let i = 0; i < elements.length; ++i) {
-			const el: any = elements[i];
+		for (const element of elements) {
+			const el: any = element;
 			expect(el.getAttribute('class').includes('filter'));
 		}
 	});

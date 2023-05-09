@@ -1,5 +1,5 @@
 <!-- Emerald: `filter: url(#Emerald)` -->
-<svg id="svg-filter-emerald" class="hidden">
+<svg id="svg-filter-emerald" class="filter absolute -left-full w-0 h-0">
 	<filter id="Emerald" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 		<!-- RGB, RGB, RGB, Opacity -->
 		<feColorMatrix

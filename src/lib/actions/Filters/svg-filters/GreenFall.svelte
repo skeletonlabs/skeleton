@@ -1,5 +1,5 @@
 <!-- GreenFall: `filter: url(#GreenFall)` -->
-<svg id="svg-filter-greenfall" class="filter hidden">
+<svg id="svg-filter-greenfall" class="filter absolute -left-full w-0 h-0">
 	<filter
 		id="GreenFall"
 		x="-20%"

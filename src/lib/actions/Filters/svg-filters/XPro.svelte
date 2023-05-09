@@ -1,5 +1,5 @@
 <!-- XPro: `filter: url(#XPro)` -->
-<svg id="svg-filter-xpro" class="hidden">
+<svg id="svg-filter-xpro" class="filter absolute -left-full w-0 h-0">
 	<filter id="XPro" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 		<feColorMatrix
 			type="matrix"

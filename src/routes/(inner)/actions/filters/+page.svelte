@@ -177,9 +177,7 @@ only utilize theme on this doc page.
 			<h2 class="h2">Browser Support</h2>
 			<!-- prettier-ignore -->
 			<p>
-				Please be aware that <strong>SVG filters</strong> have limited support in Safari, while Firefox is not supported at all. We're aware that <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/CSS/filter#browser_compatibility" target="_blank" rel="noreferrer">MDN</a> and
-				<a class="anchor" href="https://caniuse.com/css-filters" target="_blank" rel="noreferrer">caniuse.com</a> both list this as fully supported in Firefox, but in practice the <code class="code">filter: url()</code> effects <u>do not appear</u>. Given this, we've opted to
-				excluded support for Firefox for the time being. If support changes, we will gladly revert this.
+				Please be aware that <strong>SVG filters</strong> have limited support in Safari.
 			</p>
 			<div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
 				<div class="card p-2 !bg-green-500 text-black">
@@ -190,13 +188,13 @@ only utilize theme on this doc page.
 					<h4 class="h4">Edge</h4>
 					<span>Full</span>
 				</div>
+				<div class="card p-2 !bg-green-500 text-black">
+					<h4 class="h4">Firefox</h4>
+					<span>Full</span>
+				</div>
 				<div class="card p-2 !bg-yellow-500 text-black">
 					<h4 class="h4">Safari</h4>
 					<span>Partial</span>
-				</div>
-				<div class="card p-2 !bg-red-500 text-black">
-					<h4 class="h4">Firefox</h4>
-					<span>Excluded</span>
 				</div>
 			</div>
 		</section>
