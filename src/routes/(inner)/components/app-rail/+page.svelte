@@ -157,7 +157,10 @@ const selected = derived(page, $page => $page.url.pathname);
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<div class="card bg-surface-50-900-token rounded-none h-[480px] grid grid-rows-[auto_1fr] w-full">
+					<div class="card bg-surface-50-900-token rounded-none h-[480px] grid grid-rows-[1fr_auto] w-full">
+						<div class="grid place-content-center place-items-center">
+							<span class="badge variant-soft">Selected Tile: {$storeValue}</span>
+						</div>
 						<HorizontalAppRail selected={storeValue}>
 							<!-- Lead -->
 							<svelte:fragment slot="lead">
@@ -189,9 +192,6 @@ const selected = derived(page, $page => $page.url.pathname);
 								</AppRailTile>
 							</svelte:fragment>
 						</HorizontalAppRail>
-						<div class="grid place-content-center place-items-center">
-							<span class="badge variant-soft">Selected Tile: {$storeValue}</span>
-						</div>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
