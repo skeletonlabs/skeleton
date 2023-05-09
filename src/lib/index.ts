@@ -69,6 +69,7 @@ export { default as Accordion } from './components/Accordion/Accordion.svelte';
 export { default as AccordionItem } from './components/Accordion/AccordionItem.svelte';
 export { default as AppBar } from './components/AppBar/AppBar.svelte';
 export { default as AppRail } from './components/AppRail/AppRail.svelte';
+export { default as HorizontalAppRail } from './components/AppRail/HorizontalAppRail.svelte';
 export { default as AppRailTile } from './components/AppRail/AppRailTile.svelte';
 export { default as AppShell } from './components/AppShell/AppShell.svelte';
 export { default as Autocomplete } from './components/Autocomplete/Autocomplete.svelte';
