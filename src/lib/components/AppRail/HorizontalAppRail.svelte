@@ -27,7 +27,7 @@
 	/** Provide classes to set the width. */
 	export let width: CssClasses = 'w-full';
 	/** Provide classes to set the height. */
-	export let height: CssClasses = 'h-14 sm:h-18';
+	export let height: CssClasses = 'h-16 sm:h-18';
 	/** Provide a class to set the grid gap. */
 	export let gap: CssClasses = 'gap-0';
 
