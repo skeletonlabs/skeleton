@@ -10,7 +10,9 @@
 
 	// Props (actions)
 	/** Provide the avatar image element source. */
-	export let src = '';
+	export let src: string = '';
+	/** Provide the fallback image element source. */
+	export let fallback: string = '';
 	/**
 	 * Image only. Provide an Svelte action reference, such as `filter`.
 	 * @type {function}
@@ -49,7 +51,15 @@
 
 <figure class="avatar {classesBase}" data-testid="avatar" on:click on:keydown on:keyup on:keypress>
 	{#if src}
-		<img class="avatar-image {cImage}" style={$$props.style ?? ''} {src} alt={$$props.alt || ''} use:action={actionParams} {...prunedRestProps()} />
+		<img
+			class="avatar-image {cImage}"
+			style={$$props.style ?? ''}
+			{src}
+			alt={$$props.alt || ''}
+			use:action={actionParams}
+			on:error={() => (src = fallback)}
+			{...prunedRestProps()}
+		/>
 	{:else}
 		<svg class="avatar-initials w-full h-full" viewBox="0 0 512 512">
 			<text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-weight="bold" font-size={150} class="avatar-text {fill}">

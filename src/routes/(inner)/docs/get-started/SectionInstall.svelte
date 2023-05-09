@@ -7,7 +7,7 @@
 </script>
 
 <section class="space-y-4">
-	<h2>Install Skeleton</h2>
+	<h2 class="h2">Install Skeleton</h2>
 	<TabGroup regionPanel="space-y-4">
 		<!-- Tabs -->
 		<Tab bind:group={$storeOnboardMethod} name="cli" value="cli">Skeleton CLI</Tab>
@@ -30,7 +30,7 @@ cd my-skeleton-app
 			{:else if $storeOnboardMethod === 'manual'}
 				<!-- prettier-ignore -->
 				<p>
-					If you have an existing SvelteKit application, skip to installing the Skeleton package from NPM. Otherwise let's begin by creating a new <a href="https://kit.svelte.dev/docs/creating-a-project" target="_blank" rel="noreferrer">SvelteKit project</a>.
+					If you have an existing SvelteKit application, skip to installing the Skeleton package from NPM. Otherwise let's begin by creating a new <a class="anchor" href="https://kit.svelte.dev/docs/creating-a-project" target="_blank" rel="noreferrer">SvelteKit project</a>.
 				</p>
 				<CodeBlock
 					language="console"
@@ -42,8 +42,9 @@ npm install
 				/>
 				<!-- Install NPM Package -->
 				<p>
-					Install the <a href="https://www.npmjs.com/package/@skeletonlabs/skeleton" target="_blank" rel="noreferrer">Skeleton package</a> from
-					NPM.
+					Install the <a class="anchor" href="https://www.npmjs.com/package/@skeletonlabs/skeleton" target="_blank" rel="noreferrer"
+						>Skeleton package</a
+					> from NPM.
 				</p>
 				<CodeBlock language="console" code={`npm i @skeletonlabs/skeleton --save-dev`} />
 			{/if}

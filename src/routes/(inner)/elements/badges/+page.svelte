@@ -16,8 +16,8 @@
 		stylesheets: ['elements/badges'],
 		source: 'styles/elements/badges.css',
 		classes: [
-			['<code>badge</code>', '-', 'Provides the standard Badge style.'],
-			['<code>badge-icon</code>', '-', 'Provides the Icon Badge style.']
+			['<code class="code">badge</code>', '-', 'Provides the standard Badge style.'],
+			['<code class="code">badge-icon</code>', '-', 'Provides the Icon Badge style.']
 		]
 	};
 
@@ -54,8 +54,8 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<h2>Icon Badge</h2>
-			<p>Replace <code>.badge</code> with <code>.badge-icon</code> for a badge based on an icon.</p>
+			<h2 class="h2">Icon Badge</h2>
+			<p>Replace <code class="code">.badge</code> with <code class="code">.badge-icon</code> for a badge based on an icon.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<span class="badge-icon variant-filled"><i class="fa-solid fa-skull" /></span>
@@ -65,7 +65,7 @@
 				</svelte:fragment>
 			</DocsPreview>
 			<section class="space-y-4">
-				<h2>Overlapping</h2>
+				<h2 class="h2">Overlapping</h2>
 				<p>Use Tailwind styles to overlap another element with an Icon Badge.</p>
 				<DocsPreview background="neutral">
 					<svelte:fragment slot="preview">

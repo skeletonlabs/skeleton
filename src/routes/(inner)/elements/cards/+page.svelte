@@ -16,12 +16,12 @@
 		stylesheets: ['elements/cards'],
 		source: 'styles/elements/cards.css',
 		classes: [
-			['<code>.card</code>', '-', 'Adds basic card styling to any block element.'],
-			['<code>.card-header</code>', '-', 'The header region of the card.'],
-			['<code>.card-footer</code>', '-', 'The footer region of the card.'],
-			['<code>.card-hover</code>', '-', 'Provides an animated hover effect.'],
+			['<code class="code">.card</code>', '-', 'Adds basic card styling to any block element.'],
+			['<code class="code">.card-header</code>', '-', 'The header region of the card.'],
+			['<code class="code">.card-footer</code>', '-', 'The footer region of the card.'],
+			['<code class="code">.card-hover</code>', '-', 'Provides an animated hover effect.'],
 			[
-				'<code>.variant-glass-[color]</code>',
+				'<code class="code">.variant-glass-[color]</code>',
 				'primary | secondary | tertiary | success | warning | error | surface',
 				'A semi-transparent glass variation.'
 			]
@@ -43,23 +43,23 @@
 					<!-- Detailed -->
 					<a class="card {currentVariant} card-hover overflow-hidden" href="/elements/cards">
 						<header>
-							<img src="https://source.unsplash.com/random/1280x540?skeleton" class="bg-black/50 w-full aspect-[21/9]" alt="Post" />
+							<img src="https://source.unsplash.com/vjUokUWbFOs/400x175" class="bg-black/50 w-full aspect-[21/9]" alt="Post" />
 						</header>
 						<div class="p-4 space-y-4">
-							<h6>Announcements</h6>
-							<h3 data-toc-ignore>Skeleton is Awesome!</h3>
+							<h6 class="h6">Announcements</h6>
+							<h3 class="h3" data-toc-ignore>Skeleton is Awesome!</h3>
 							<article>
 								<p>
 									<!-- cspell:disable -->
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam aspernatur provident eveniet eligendi cumque consequatur
- 									tempore sint nisi sapiente. Iste beatae laboriosam iure molestias cum expedita architecto itaque quae rem.
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam aspernatur provident eveniet eligendi cumque consequatur tempore
+									sint nisi sapiente. Iste beatae laboriosam iure molestias cum expedita architecto itaque quae rem.
 									<!-- cspell:enable -->
 								</p>
 							</article>
 						</div>
 						<hr class="opacity-50" />
 						<footer class="p-4 flex justify-start items-center space-x-4">
-							<Avatar src="https://i.pravatar.cc/160?img=48" width="w-8" />
+							<Avatar src="https://source.unsplash.com/YOErFW8AfkI/32x32" width="w-8" />
 							<div class="flex-auto flex justify-between items-center">
 								<h6 class="font-bold">By Alex</h6>
 								<small>On {new Date().toLocaleDateString()}</small>
@@ -91,8 +91,8 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<h2>Headers and Footers</h2>
-			<p>Segment your card using the included <code>.card-header</code> and <code>.card-footer</code> classes.</p>
+			<h2 class="h2">Headers and Footers</h2>
+			<p>Segment your card using the included <code class="code">.card-header</code> and <code class="code">.card-footer</code> classes.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full text-token">
@@ -124,8 +124,8 @@
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>Interactive</h2>
-			<p>Anchor cards have an inherent hover style. Add <code>.card-hover</code> to provide an additional 3D hover effect.</p>
+			<h2 class="h2">Interactive</h2>
+			<p>Anchor cards have an inherent hover style. Add <code class="code">.card-hover</code> to provide an additional 3D hover effect.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full text-token">

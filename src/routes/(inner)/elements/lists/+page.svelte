@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { faker } from '@faker-js/faker';
+	// Docshell
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
@@ -15,18 +17,18 @@
 		stylesheets: ['elements/lists'],
 		source: 'styles/elements/lists.css',
 		classes: [
-			['<code>.list</code>', '-', 'Class for defining an unordered or ordered list.'],
-			['<code>.list-dl</code>', '-', 'Class for defining a description list.'],
-			['<code>.list-nav</code>', '-', 'Class for defining a navigation list.'],
-			['<code>.list-option</code>', '-', 'Provides hover styles similar to anchors.']
+			['<code class="code">.list</code>', '-', 'Class for defining an unordered or ordered list.'],
+			['<code class="code">.list-dl</code>', '-', 'Class for defining a description list.'],
+			['<code class="code">.list-nav</code>', '-', 'Class for defining a navigation list.'],
+			['<code class="code">.list-option</code>', '-', 'Provides hover styles similar to anchors.']
 		]
 	};
 
 	// Local
 	const listData = [
-		{ avatar: 48, name: 'Jane', label: 'A' },
-		{ avatar: 64, name: 'Michael', label: 'B' },
-		{ avatar: 31, name: 'Susan', label: 'C' }
+		{ avatar: 'YOErFW8AfkI', name: `${faker.name.firstName('female')} ${faker.name.lastName('female')}`, label: 'A' },
+		{ avatar: 'z_X0PxmBuIQ', name: `${faker.name.firstName('female')} ${faker.name.lastName('female')}`, label: 'B' },
+		{ avatar: '8vKVlNIbAc4', name: `${faker.name.firstName('female')} ${faker.name.lastName('female')}`, label: 'C' }
 	];
 </script>
 
@@ -40,7 +42,7 @@
 					<ul class="list">
 						{#each listData as v, i}
 							<li>
-								<Avatar src="https://i.pravatar.cc/?img={v.avatar}" width="w-8" />
+								<Avatar src="https://source.unsplash.com/{v.avatar}/48x48" width="w-12" />
 								<span class="flex-auto">{v.name}</span>
 								<span>⋮</span>
 							</li>
@@ -67,10 +69,12 @@
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
-		<p>Apply the <code>.list</code> class to the parent. Wrap children with <em>span</em> elements to allow for horizontal spacing.</p>
+		<p>
+			Apply the <code class="code">.list</code> class to the parent. Wrap children with <em>span</em> elements to allow for horizontal spacing.
+		</p>
 		<!-- Ordered -->
 		<section class="space-y-4">
-			<h2>Ordered List</h2>
+			<h2 class="h2">Ordered List</h2>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="w-full text-token card p-4 space-y-4">
@@ -105,7 +109,7 @@
 		</section>
 		<!-- Description -->
 		<section class="space-y-4">
-			<h2>Description List</h2>
+			<h2 class="h2">Description List</h2>
 			<p>Note we insert an extra <em>div</em> element to control flex layout and aid with vertical list item spacing.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -145,10 +149,10 @@
 		</section>
 		<!-- Navigation -->
 		<section class="space-y-4">
-			<h2>Navigation List</h2>
+			<h2 class="h2">Navigation List</h2>
 			<!-- prettier-ignore -->
 			<p>
-				While verbose, we do recommend you use all tags shown below to meet recommended <a href="https://www.w3.org/WAI/tutorials/menus/structure/" target="_blank" rel="noreferrer">accessibility guidelines</a>.
+				While verbose, we do recommend you use all tags shown below to meet recommended <a class="anchor" href="https://www.w3.org/WAI/tutorials/menus/structure/" target="_blank" rel="noreferrer">accessibility guidelines</a>.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">

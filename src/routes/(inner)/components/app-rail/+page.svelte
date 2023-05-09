@@ -61,7 +61,7 @@
 						</AppRailTile>
 						<!-- Trail -->
 						<svelte:fragment slot="trail">
-							<AppRailTile tag="a" value={3} href="https://github.com/" target="_blank" title="Trail slot tile.">
+							<AppRailTile value={3} href="https://github.com/" target="_blank" title="Trail slot tile.">
 								<i class="fa-brands fa-github text-2xl" />
 							</AppRailTile>
 						</svelte:fragment>
@@ -96,38 +96,52 @@ const storeValue: Writable<number> = writable(0);
 	<svelte:fragment slot="usage">
 		<!-- Tile -->
 		<section class="space-y-4">
-			<h2>Anchor Tiles</h2>
+			<h2 class="h2">Anchor Tiles</h2>
 			<p>
-				Use <code>tag="a"</code> to convert any tile to an anchor link, then append
+				Use <code class="code">tag="a"</code> to convert any tile to an anchor link, then append
 				<em>href, target, rel</em>, and other attributes as needed.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="bg-surface-100-800-token overflow-hidden w-24">
-						<AppRailTile tag="a" href="/components/app-rail#anchor-tiles" label="Tile 1" class="bg-primary-hover-token text-token">
+						<AppRailTile href="/components/app-rail#anchor-tiles" label="Tile 1" class="bg-primary-hover-token text-token">
 							<i class="fa-solid fa-image text-2xl" />
 						</AppRailTile>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<AppRailTile tag="a" href="/my/page/route">(icon)</AppRailTile>`} />
+					<CodeBlock language="html" code={`<AppRailTile href="/my/page/route">(icon)</AppRailTile>`} />
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>Page State</h2>
+			<h2 class="h2">Page State</h2>
 			<!-- prettier-ignore -->
 			<p>
-				To set an active state for an anchor link, compare the tile <em>href</em> URL to the active page URL using
-				<a href="https://kit.svelte.dev/docs/modules#$app-stores-page" target="_blank" rel="noreferrer">$page.url.pathname</a>. Then set a background color or other visual indicator via the Svelte class syntax.
+				The simplest way to update the active anchor link is to pass a
+				<a class="anchor" href="https://svelte.dev/docs#run-time-svelte-store-derived" target="_blank" rel="noreferrer">derived</a> store that takes its value from
+				<a class="anchor" href="https://kit.svelte.dev/docs/modules#$app-stores-page" target="_blank" rel="noreferrer">$page.url.pathname</a>.
 			</p>
-			<CodeBlock language="ts" code={`import { page } from '$app/stores';`} />
+			<p>
+				The store value will be compared to the <code>href</code> attribute of each tile if no <code>value</code> attribute is provided.
+			</p>
+			<CodeBlock
+				language="ts"
+				code={`
+import { page } from '$app/stores';
+import { derived } from 'svelte/store';
+
+const selected = derived(page, $page => $page.url.pathname);
+`}
+			/>
 			<CodeBlock
 				language="html"
 				code={`
-<AppRailTile tag="a" href={tileUrl} class="{tileUrl === $page.url.pathname ? '!bg-primary-500' : ''}">
-    (icon)
-</AppRailTile>
+<AppRail {selected}>
+	<AppRailTile label="Home" href="/">(icon)</AppRailTile>
+	<AppRailTile label="About" href="/about">(icon)</AppRailTile>
+	<AppRailTile label="Login" href="/login">(icon)</AppRailTile>
+</AppRail>
 `}
 			/>
 		</section>

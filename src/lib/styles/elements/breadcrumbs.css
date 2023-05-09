@@ -1,6 +1,16 @@
 /* Tailwind Elements: breadcrumbs.css */
 
 @layer components {
+	/* Hide Scrollbars */
+	/* Duplicated from core.css to support `skeleton-minimal.css` */
+	.hide-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+	.hide-scrollbar {
+		-ms-overflow-style: none; /* IE/Edge */
+		scrollbar-width: none; /* Firefox */
+	}
+
 	.breadcrumb,
 	.breadcrumb-nonresponsive {
 		@apply flex items-center space-x-4 w-full hide-scrollbar overflow-x-auto;

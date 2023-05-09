@@ -49,7 +49,7 @@ function toastService() {
 						// Trigger Callback
 						if (selectedToast.callback) selectedToast.callback({ id, status: 'closed' });
 						// Clear timeout
-						if (selectedToast.timeoutId) clearTimeout(selectedToast.timeoutId)
+						if (selectedToast.timeoutId) clearTimeout(selectedToast.timeoutId);
 						// Remove
 						tStore.splice(index, 1);
 					}

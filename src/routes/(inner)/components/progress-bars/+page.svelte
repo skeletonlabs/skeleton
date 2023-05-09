@@ -56,11 +56,25 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<h2>Indeterminate Mode</h2>
-			<p>Remove the <code>value</code> property or set value to <code>undefined</code>.</p>
+			<h2 class="h2">Indeterminate Mode</h2>
+			<p>Remove the <code class="code">value</code> property or set value to <code class="code">undefined</code>.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<ProgressBar />
+					<div class="w-full space-y-10">
+						<ProgressBar />
+						<div class="w-full space-y-4">
+							<ProgressBar meter="bg-primary-500" track="bg-primary-500/30" />
+							<ProgressBar meter="bg-secondary-500" track="bg-secondary-500/30" />
+							<ProgressBar meter="bg-tertiary-500" track="bg-tertiary-500/30" />
+							<ProgressBar meter="bg-success-500" track="bg-success-500/30" />
+							<ProgressBar meter="bg-warning-500" track="bg-warning-500/30" />
+							<ProgressBar meter="bg-error-500" track="bg-error-500/30" />
+						</div>
+						<!-- <ProgressBar
+							meter="bg-gradient-to-r variant-gradient-secondary-primary"
+							track="bg-gradient-to-r variant-gradient-primary-secondary"
+						/> -->
+					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock language="html" code={`<ProgressBar />`} />
@@ -69,8 +83,10 @@
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
-			<h2>Native Alternative</h2>
-			<p>The native <code>progress</code> element works cross browser, but does not currently support Indeterminate mode when styled.</p>
+			<h2 class="h2">Native Alternative</h2>
+			<p>
+				The native <code class="code">progress</code> element works cross browser, but does not currently support Indeterminate mode when styled.
+			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<progress value={props.value} max={props.max} />
@@ -82,10 +98,10 @@
 		</section>
 		<hr />
 		<section class="space-y-4">
-			<h2>Accessibility</h2>
+			<h2 class="h2">Accessibility</h2>
 			<!-- prettier-ignore -->
 			<p>
-				This component is treated as an <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/progressbar_role" target="_blank" rel="noreferrer">ARIA progressbar</a>.
+				This component is treated as an <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/progressbar_role" target="_blank" rel="noreferrer">ARIA progressbar</a>.
 			</p>
 		</section>
 	</svelte:fragment>

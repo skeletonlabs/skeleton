@@ -70,8 +70,9 @@ const conicStops: ConicStop[] = [
 		<!-- Color Stops -->
 		<div class="space-y-4">
 			<p>
-				Provide one or more color stops that start with values that range from <code>0%</code> to <code>100%</code>. A stop of
-				<code>0%</code> starts at the top middle, then additional values are added in a clock-wise direction.
+				Provide one or more color stops that start with values that range from <code class="code">0%</code> to
+				<code class="code">100%</code>. A stop of
+				<code class="code">0%</code> starts at the top middle, then additional values are added in a clock-wise direction.
 			</p>
 			<TabGroup regionPanel="space-y-4">
 				<Tab bind:group={tabColors} name="tab1" value={0}>Theme Colors</Tab>
@@ -81,7 +82,10 @@ const conicStops: ConicStop[] = [
 				<svelte:fragment slot="panel">
 					{#if tabColors === 0}
 						<!-- Theme Colors --->
-						<p>Provide a theme color CSS custom property <code>var(--color-primary-500)</code> wrapped in <code>rgb()</code>.</p>
+						<p>
+							Provide a theme color CSS custom property <code class="code">var(--color-primary-500)</code> wrapped in
+							<code class="code">rgb()</code>.
+						</p>
 						<CodeBlock
 							language="ts"
 							code={`
@@ -94,7 +98,9 @@ const conicStops: ConicStop[] = [
 						/>
 					{:else if tabColors === 1}
 						<!-- Tailwind Colors -->
-						<p>To utilize default Tailwind colors, supply an array with the format <code>[name: string, shade: number]</code>.</p>
+						<p>
+							To utilize default Tailwind colors, supply an array with the format <code class="code">[name: string, shade: number]</code>.
+						</p>
 						<CodeBlock
 							language="ts"
 							code={`
@@ -108,8 +114,11 @@ const conicStops: ConicStop[] = [
 					{:else if tabColors === 2}
 						<!-- Custom Colors -->
 						<p>
-							You can provide <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value" target="_blank" rel="noreferrer"
-								>standard CSS color values</a
+							You can provide <a
+								class="anchor"
+								href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value"
+								target="_blank"
+								rel="noreferrer">standard CSS color values</a
 							> as a string, including: color names, hex, rgba, HSL, or similar.
 						</p>
 						<CodeBlock
@@ -126,12 +135,12 @@ const conicStops: ConicStop[] = [
 				</svelte:fragment>
 			</TabGroup>
 			<!-- prettier-ignore -->
-			<p>This data can be reactive, but be sure to adhere to standard Svelte requirements when <a href="https://svelte.dev/tutorial/updating-arrays-and-objects" target="_blank" rel="noreferrer">updating arrays</a>.</p>
+			<p>This data can be reactive, but be sure to adhere to standard Svelte requirements when <a class="anchor" href="https://svelte.dev/tutorial/updating-arrays-and-objects" target="_blank" rel="noreferrer">updating arrays</a>.</p>
 		</div>
 		<!-- Legend -->
 		<div class="space-y-4">
-			<h2>Legend</h2>
-			<p>By enabling the <code>legend</code> property, a small table of values will appear below the conic gradient.</p>
+			<h2 class="h2">Legend</h2>
+			<p>By enabling the <code class="code">legend</code> property, a small table of values will appear below the conic gradient.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<ConicGradient stops={stopsLegend} legend>Heat Map</ConicGradient>
@@ -153,10 +162,10 @@ const conicStops: ConicStop[] = [
 		</div>
 		<!-- Animated Spinner -->
 		<div class="space-y-4">
-			<h2>Animated Spinner</h2>
+			<h2 class="h2">Animated Spinner</h2>
 			<p>
-				Add the <code>spin</code> property to implement a spinning animation automatically. Try pairing with a smooth gradient by providing gaps
-				between when a color stop ends and when the next begins. This will automatically blend.
+				Add the <code class="code">spin</code> property to implement a spinning animation automatically. Try pairing with a smooth gradient by
+				providing gaps between when a color stop ends and when the next begins. This will automatically blend.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -180,10 +189,11 @@ const conicStops: ConicStop[] = [
 		</div>
 		<!-- Rotate Axis -->
 		<div class="space-y-4">
-			<h2>Rotate Axis</h2>
+			<h2 class="h2">Rotate Axis</h2>
 			<p>
-				Use the <a href="https://tailwindcss.com/docs/rotate" target="_blank" rel="noreferrer">Tailwind rotate</a> utility classes with the
-				<code>regionCone</code> property to change the starting axis position.
+				Use the <a class="anchor" href="https://tailwindcss.com/docs/rotate" target="_blank" rel="noreferrer">Tailwind rotate</a> utility
+				classes with the
+				<code class="code">regionCone</code> property to change the starting axis position.
 			</p>
 			<CodeBlock language="html" code={`<ConicGradient ... regionCone="rotate-90" />`} />
 		</div>

@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { faker } from '@faker-js/faker';
+	// Docshell
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
@@ -15,8 +17,8 @@
 		stylesheets: ['elements/logo-clouds'],
 		source: 'styles/elements/logo-clouds.css',
 		classes: [
-			['<code>.logo-cloud</code>', '-', 'Apply to a wrapping block element around a set of logos.'],
-			['<code>.logo-item</code>', '-', 'Apply to each logo child element.']
+			['<code class="code">.logo-cloud</code>', '-', 'Apply to a wrapping block element around a set of logos.'],
+			['<code class="code">.logo-item</code>', '-', 'Apply to each logo child element.']
 		]
 	};
 
@@ -84,23 +86,23 @@
 	<svelte:fragment slot="usage">
 		<!-- Styling -->
 		<section class="space-y-4">
-			<h2>Multiple Rows</h2>
+			<h2 class="h2">Multiple Rows</h2>
 			<!-- prettier-ignore -->
 			<p>
-				Use the <a href="https://tailwindcss.com/docs/grid-template-columns" target="_blank" rel="noreferrer">Tailwind column and gap classes</a> to adjust column amount and gap spacing.
+				Use the <a class="anchor" href="https://tailwindcss.com/docs/grid-template-columns" target="_blank" rel="noreferrer">Tailwind column and gap classes</a> to adjust column amount and gap spacing.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<section class="w-full">
 						<div class="logo-cloud grid-cols-1 xl:grid-cols-2 2xl:grid-cols-4 gap-0.5">
-							<a href="/elements/logo-clouds" class="logo-item">HR Solutions</a>
-							<a href="/elements/logo-clouds" class="logo-item">Acme Theaters</a>
-							<a href="/elements/logo-clouds" class="logo-item">Cruisin' Cuisine</a>
-							<a href="/elements/logo-clouds" class="logo-item">Arcane Security</a>
-							<a href="/elements/logo-clouds" class="logo-item">Stark Industries</a>
-							<a href="/elements/logo-clouds" class="logo-item">Gekko & Co.</a>
-							<a href="/elements/logo-clouds" class="logo-item">Acme Corp.</a>
-							<a href="/elements/logo-clouds" class="logo-item">Wonka Inc.</a>
+							<a href="/elements/logo-clouds" class="logo-item capitalize">{faker.company.bsBuzz()}</a>
+							<a href="/elements/logo-clouds" class="logo-item capitalize">{faker.company.bsBuzz()}</a>
+							<a href="/elements/logo-clouds" class="logo-item capitalize">{faker.company.bsBuzz()}</a>
+							<a href="/elements/logo-clouds" class="logo-item capitalize">{faker.company.bsBuzz()}</a>
+							<a href="/elements/logo-clouds" class="logo-item capitalize">{faker.company.bsBuzz()}</a>
+							<a href="/elements/logo-clouds" class="logo-item capitalize">{faker.company.bsBuzz()}</a>
+							<a href="/elements/logo-clouds" class="logo-item capitalize">{faker.company.bsBuzz()}</a>
+							<a href="/elements/logo-clouds" class="logo-item capitalize">{faker.company.bsBuzz()}</a>
 						</div>
 					</section>
 				</svelte:fragment>
@@ -125,9 +127,9 @@
 		</section>
 		<!-- Styling -->
 		<section class="space-y-4">
-			<h2>Styling Items</h2>
+			<h2 class="h2">Styling Items</h2>
 			<!-- prettier-ignore -->
-			<p>Use <a href="https://tailwindcss.com/blog/tailwindcss-v3-1#arbitrary-values-but-for-variants" target="_blank" rel="noreferrer">Tailwind's arbitrary variant syntax</a> to customize the <code>.logo-item</code> styles. Tailwind classes and variants are supported.</p>
+			<p>Use <a class="anchor" href="https://tailwindcss.com/blog/tailwindcss-v3-1#arbitrary-values-but-for-variants" target="_blank" rel="noreferrer">Tailwind's arbitrary variant syntax</a> to customize the <code class="code">.logo-item</code> styles. Tailwind classes and variants are supported.</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<section class="w-full">

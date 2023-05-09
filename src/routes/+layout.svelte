@@ -2,14 +2,14 @@
 <script lang="ts">
 	// Dependency: Highlight JS
 	import hljs from 'highlight.js';
-	import '$lib/styles/highlight-js.css'; // was: 'highlight.js/styles/github-dark.css';
+	import '$docs/styles/highlight-js.css';
 	import { storeHighlightJs } from '$lib/utilities/CodeBlock/stores';
 	storeHighlightJs.set(hljs);
 
 	// Dependency: Floating UI
-	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
 	import { storePopup } from '$lib/utilities/Popup/popup';
-	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
+	import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';
+	storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
 
 	// SvelteKit Imports
 	import { browser } from '$app/environment';
@@ -41,7 +41,9 @@
 	import ModalExampleImage from '$docs/modals/examples/ModalExampleImage.svelte';
 
 	// Skeleton Stylesheets
-	import '$lib/styles/all.css';
+	// import '$lib/styles/all.css';
+	import '$lib/styles/skeleton.css';
+	// import '$lib/styles/skeleton-minimal.css';
 	// The Skeleton blog stylesheet
 	import '$docs/styles/blog.css';
 	// Global Stylesheets

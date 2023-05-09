@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { modeCurrent, setModeUserPrefers, setModeCurrent, setInitialClassState } from './lightswitch';
+	import { onMount } from 'svelte';
+	import { modeCurrent, setModeUserPrefers, setModeCurrent, setInitialClassState, getModeOsPrefers } from './lightswitch';
 
 	// Types
 	import type { CssClasses } from '$lib';
@@ -50,6 +51,14 @@
 		}
 	}
 
+	// Lifecycle
+	onMount(() => {
+		// Sync lightswitch with the theme
+		if (!('modeCurrent' in localStorage)) {
+			setModeCurrent(getModeOsPrefers());
+		}
+	});
+
 	// State
 	$: trackBg = $modeCurrent === true ? bgLight : bgDark;
 	$: thumbBg = $modeCurrent === true ? bgDark : bgLight;
@@ -62,7 +71,7 @@
 </script>
 
 <svelte:head>
-	{@html `<script>(${setInitialClassState.toString()})();</script>`}
+	{@html `<script nonce="%sveltekit.nonce%">(${setInitialClassState.toString()})();</script>`}
 </svelte:head>
 
 <div

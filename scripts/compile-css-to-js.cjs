@@ -6,12 +6,12 @@ const tailwindcss = require('tailwindcss');
 
 // Transpiles all of our library's CSS to JS
 async function transpileCssToJs() {
-	const cssEntryPath = './src/lib/styles/all.css';
+	const cssEntryPath = './src/lib/styles/skeleton.css';
 	// Custom tailwind config so that we only use the necessities
 	const twConfig = {
 		darkMode: 'class',
 		content: ['./src/**/*.{html,js,svelte,ts}'],
-		plugins: [require('../src/lib/tailwind/core.cjs')]
+		plugins: [require('@tailwindcss/typography'), require('../src/lib/tailwind/core.cjs')]
 	};
 
 	const css = fs.readFileSync(cssEntryPath, 'utf8');
@@ -25,7 +25,7 @@ async function transpileCssToJs() {
 // Takes ~8 seconds to run.
 async function generateAllTWClasses() {
 	console.log("First time running, generating all tailwind classes... this may take a while... (it's only once though!)");
-	const cssEntryPath = './src/lib/styles/tailwind.css';
+	const cssEntryPath = './src/lib/styles/partials/tailwind.css';
 
 	// Special tailwind config so that all TW classes are included
 	const twConfig = {

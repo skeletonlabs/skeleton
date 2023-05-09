@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { faker } from '@faker-js/faker';
+	// Docshell
 	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
 	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
 	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
@@ -21,19 +23,10 @@
 		components: [{ sveld: sveldPaginator }]
 	};
 	// Local
-	const sourceHeaders: string[] = ['Positions', 'Name', 'Weight', 'Symbol'];
-	const sourceBody: any = [
-		[1, 'Hydrogen', 1.0079, 'H'],
-		[2, 'Helium', 4.0026, 'He'],
-		[3, 'Lithium', 6.941, 'Li'],
-		[4, 'Beryllium', 9.0122, 'Be'],
-		[5, 'Boron', 10.811, 'B'],
-		[6, 'Carbon', 12.0107, 'C'],
-		[7, 'Nitrogen', 14.0067, 'N'],
-		[8, 'Oxygen', 15.9994, 'O'],
-		[9, 'Fluorine', 18.9984, 'F']
-		// [10, 'Neon', 20.1797, 'Ne']
-	];
+	const sourceHeaders: string[] = ['Name', 'Symbol', 'atomic Number'];
+	const sourceBody: any = Array(27)
+		.fill(undefined)
+		.map(() => Object.values(faker.science.chemicalElement()));
 
 	// Reactive
 	let page = {
@@ -88,11 +81,11 @@ let page = {
 	<svelte:fragment slot="usage">
 		<div class="space-y-4" />
 		<div class="space-y-4">
-			<h2>Client-Side Pagination</h2>
+			<h2 class="h2">Client-Side Pagination</h2>
 			<!-- prettier-ignore -->
 			<p>
 				Once your paginator component is setup you'll need to subdivide your local source content. This can be accomplished using Svelte's
-				reactive properties paired with the JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice" target="_blank" rel="noreferrer">slice</a> method.
+				reactive properties paired with the JavaScript <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice" target="_blank" rel="noreferrer">slice</a> method.
 			</p>
 			<CodeBlock
 				language="ts"
@@ -129,8 +122,8 @@ let tableHeaders: string[] = ['Positions', 'Name', 'Weight', 'Symbol'];
 			/>
 		</div>
 		<div class="space-y-4">
-			<h2>Server-Side Pagination</h2>
-			<p>Use the <code>page</code> and <code>amount</code> events to notify your server of pagination updates.</p>
+			<h2 class="h2">Server-Side Pagination</h2>
+			<p>Use the <code class="code">page</code> and <code class="code">amount</code> events to notify your server of pagination updates.</p>
 			<CodeBlock
 				language="ts"
 				code={`
@@ -149,7 +142,7 @@ function onAmountChange(e: CustomEvent): void {
 		<!-- See Also -->
 		<section class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
 			<div class="space-y-2">
-				<h2>See Also</h2>
+				<h2 class="h2">See Also</h2>
 				<p>Utilize a data-driven model to create simple presentational tables.</p>
 			</div>
 			<a class="btn variant-ghost-surface" href="/components/tables">Table Component &rarr;</a>

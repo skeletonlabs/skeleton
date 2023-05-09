@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { crossfade } from 'svelte/transition';
-	import { cubicInOut} from 'svelte/easing';
+	import { cubicInOut } from 'svelte/easing';
 	import { flip } from 'svelte/animate';
 
 	// Types
@@ -13,7 +13,7 @@
 	/** Set the toast position.
 	 * @type {'t' | 'b' | 'l' | 'r' | 'tl' | 'tr' | 'bl' | 'br'}
 	 */
-	export let position = 'b';
+	export let position: 't' | 'b' | 'l' | 'r' | 'tl' | 'tr' | 'bl' | 'br' = 'b';
 	/** Maximum toasts that can show at once. */
 	export let max = 3;
 	/** The duration of the fly in/out animation. */
@@ -85,7 +85,7 @@
 
 	// Crossfade animation for Toasts
 	const [send, receive] = crossfade({
-		duration: d => Math.sqrt(d * duration),
+		duration: (d) => Math.sqrt(d * duration),
 
 		fallback(node) {
 			const style = getComputedStyle(node);
@@ -107,9 +107,9 @@
 	<!-- Wrapper -->
 	<div class="snackbar-wrapper {classesWrapper}" data-testid="snackbar-wrapper">
 		<!-- List -->
-		<div class="snackbar {classesSnackbar}" >
+		<div class="snackbar {classesSnackbar}">
 			{#each filteredToasts as t, i (t)}
-				<div animate:flip={{ duration }} in:receive="{{key: t.id}}" out:send="{{key: t.id}}">
+				<div animate:flip={{ duration }} in:receive={{ key: t.id }} out:send={{ key: t.id }}>
 					<!-- Toast -->
 					<div class="toast {classesToast} {t.background ?? background} {t.classes}" role="alert" aria-live="polite" data-testid="toast">
 						<div class="text-base">{@html t.message}</div>

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher, getContext } from 'svelte';
-	import type { Writable } from 'svelte/store';
+	import type { Readable, Writable } from 'svelte/store';
 
 	// Types
 	import type { CssClasses } from '$lib';
@@ -10,7 +10,7 @@
 
 	// Props
 	/**
-	 * Provide a unique value, active tiles will be highlighted.
+	 * Provide a unique value, active tiles will be highlighted. href will be used if no value is provided.
 	 * @type {any}
 	 */
 	export let value: any | undefined = undefined;
@@ -26,9 +26,15 @@
 	export let regionLabel: CssClasses = '';
 
 	// Context
-	export let selected: Writable<CssClasses> = getContext('selected');
-	export let active: Writable<CssClasses> = getContext('active');
-	export let hover: Writable<CssClasses> = getContext('hover');
+	export let selected: Writable<CssClasses> | Readable<CssClasses> = getContext('selected');
+	export let active: CssClasses = getContext('active');
+	export let hover: CssClasses = getContext('hover');
+
+	if ($$props.href) {
+		tag = 'a';
+		// href overrides value if no value is provided
+		if (value === undefined) value = $$props.href;
+	}
 
 	// Base Classes
 	const cBase = 'unstyled grid place-content-center place-items-center w-full aspect-square space-y-1.5 cursor-pointer';
@@ -37,7 +43,9 @@
 	// Input Handler
 	function onClickHandler(event: MouseEvent): void {
 		if (!String($selected) || !String(value)) return;
-		$selected = value;
+		if (selected && 'set' in selected) {
+			selected.set(value);
+		}
 		/** @event {{ event }} click - Fires when the component is clicked.  */
 		dispatch('click', event);
 	}
@@ -56,7 +64,7 @@
 
 <!-- @component A navigation tile for the App Rail component. -->
 
-<div on:click={onClickHandler} on:keydown on:keyup on:keypress>
+<div on:click={onClickHandler} on:keydown on:keyup on:keypress data-testid="app-rail-tile">
 	<!-- IMPORTANT: avoid forwarding events on <svelte:element> tags per: -->
 	<!-- https://github.com/skeletonlabs/skeleton/issues/727#issuecomment-1356859261 -->
 	<svelte:element this={tag} {...prunedRestProps()} class="app-rail-tile {classesBase}">

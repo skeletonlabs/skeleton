@@ -81,8 +81,8 @@
 	</div>
 	<!-- Footer -->
 	<footer class="modal-search-footer {cFooter}">
-		<div><kbd>Esc</kbd> to close</div>
-		<div><kbd>Tab</kbd> to navigate</div>
-		<div><kbd>Enter</kbd> to select</div>
+		<div><kbd class="kbd">Esc</kbd> to close</div>
+		<div><kbd class="kbd">Tab</kbd> to navigate</div>
+		<div><kbd class="kbd">Enter</kbd> to select</div>
 	</footer>
 </div>

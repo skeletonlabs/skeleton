@@ -1,0 +1,99 @@
+/* Stylesheet: typography.css */
+
+/*
+This represents the ON-BY-DEFAULT typography styles.
+IMPORTANT: take care to maintain parity with typography-next.css!
+*/
+
+@layer base {
+	body {
+		@apply text-base font-token text-token;
+	}
+
+	/* === Headings === */
+
+	h1:not(.unstyled) {
+		@apply font-heading-token text-3xl md:text-5xl;
+	}
+	h2:not(.unstyled) {
+		@apply font-heading-token text-2xl md:text-4xl;
+	}
+	h3:not(.unstyled) {
+		@apply font-heading-token text-xl md:text-2xl;
+	}
+	h4:not(.unstyled) {
+		@apply font-heading-token text-lg md:text-xl;
+	}
+	h5:not(.unstyled) {
+		@apply font-heading-token text-base md:text-lg;
+	}
+	h6:not(.unstyled) {
+		@apply font-heading-token text-sm md:text-base;
+	}
+
+	/* === Elements === */
+
+	/* p { ... } */
+
+	a:not(.unstyled):not(.permalink):not(.btn):not(.btn-icon):not(.app-bar a):not(.logo-item):not(a.card):not(.list-nav a) {
+		@apply text-primary-700 dark:text-primary-500 hover:brightness-110 underline;
+	}
+
+	blockquote:not(.unstyled) {
+		@apply text-token text-base italic border-l-8 border-secondary-500 px-4 pl-4;
+	}
+
+	/* Keyboard */
+	kbd:not(.unstyled) {
+		@apply font-sans font-bold text-sm;
+		@apply bg-surface-300-600-token px-1.5 py-[3px] rounded;
+		@apply ring-[1px] ring-surface-900 ring-inset;
+		@apply border-b-2 border-surface-900;
+	}
+
+	/* Timestamps */
+	time:not(.unstyled) {
+		@apply text-sm text-surface-500 dark:text-surface-400;
+	}
+
+	/* === Preformatted / Code === */
+	/* For use outside of Skeleton's CodeBlock component */
+
+	pre:not(.unstyled):not(.code-block pre) {
+		@apply font-mono text-base bg-neutral-900/90 text-white p-4 whitespace-pre-wrap overflow-x-auto rounded-container-token;
+	}
+
+	code:not(.unstyled):is(:not(pre *)) {
+		@apply font-mono text-xs text-primary-700 dark:text-primary-400 whitespace-nowrap;
+		@apply bg-primary-500/30 dark:bg-primary-500/20;
+		@apply py-0.5 px-1 rounded;
+	}
+
+	/* === Insertions / Deletions  ==== */
+	/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins */
+	/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del */
+
+	ins:not(.unstyled),
+	del:not(.unstyled) {
+		@apply block relative p-0.5 pl-5;
+		text-decoration: none;
+	}
+
+	ins:not(.unstyled)::before,
+	del:not(.unstyled)::before {
+		@apply absolute left-1 font-mono;
+	}
+	ins:not(.unstyled)::before {
+		content: '+';
+	}
+	del:not(.unstyled)::before {
+		content: '−';
+	}
+
+	ins:not(.unstyled) {
+		@apply font-mono bg-success-500 text-on-success-token;
+	}
+	del:not(.unstyled) {
+		@apply font-mono bg-error-500 text-on-error-token;
+	}
+}

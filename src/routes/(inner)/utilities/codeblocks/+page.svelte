@@ -43,19 +43,23 @@
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
 		<section class="space-y-4">
-			<h2>Install Highlight.js</h2>
+			<h2 class="h2">Install Highlight.js</h2>
 			<p>
-				<a href="https://highlightjs.org/" target="_blank" rel="noreferrer">Highlight.js</a> is a required dependency to enable syntax highlighting.
+				<a class="anchor" href="https://highlightjs.org/" target="_blank" rel="noreferrer">Highlight.js</a> is a required dependency to enable
+				syntax highlighting.
 			</p>
 			<CodeBlock language="console" code={`npm install highlight.js`} />
 		</section>
 		<section class="space-y-4">
-			<h2>Configure Your Project</h2>
-			<p>Apply the following changes to your app's root component in <code>/src/routes/+layout.svelte</code>.</p>
+			<h2 class="h2">Configure Your Project</h2>
+			<p>Apply the following changes to your app's root component in <code class="code">/src/routes/+layout.svelte</code>.</p>
 			<CodeBlock language="ts" code={`import hljs from 'highlight.js';`} />
 			<p>
-				Import any <a href="https://github.com/highlightjs/highlight.js/tree/main/src/styles" target="_blank" rel="noreferrer"
-					>Highlight.js CSS theme</a
+				Import any <a
+					class="anchor"
+					href="https://github.com/highlightjs/highlight.js/tree/main/src/styles"
+					target="_blank"
+					rel="noreferrer">Highlight.js CSS theme</a
 				> of your choice.
 			</p>
 			<CodeBlock language="ts" code={`import 'highlight.js/styles/github-dark.css';`} />
@@ -63,16 +67,25 @@
 			<CodeBlock language="ts" code={`import { storeHighlightJs } from '@skeletonlabs/skeleton';\n\nstoreHighlightJs.set(hljs);`} />
 		</section>
 		<section class="space-y-4">
-			<h2>Supported Languages</h2>
+			<h2 class="h2">Line Numbers</h2>
 			<!-- prettier-ignore -->
 			<p>
-				Syntax highlighting will appear when a valid <a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md" target="_blank" rel="noreferrer">language alias</a> is provided to the CodeBlock's <code>language</code> prop.
+				Adding the <code class="code">lineNumbers</code> property will add line numbers to the displayed code. Supports up to 1000 lines of code.
+			</p>
+			<CodeBlock lineNumbers language="html" code={`<p>\n\tThe quick brown fox jumped over the lazy dog.\n</p>`} />
+		</section>
+		<section class="space-y-4">
+			<h2 class="h2">Supported Languages</h2>
+			<!-- prettier-ignore -->
+			<p>
+				Syntax highlighting will appear when a valid <a class="anchor" href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md" target="_blank" rel="noreferrer">language alias</a> is provided to the CodeBlock's <code class="code">language</code> prop.
 			</p>
 		</section>
 		<section class="space-y-4">
-			<h2>Accessibility</h2>
+			<h2 class="h2">Accessibility</h2>
 			<p>
-				Uses <code>pre-wrap</code> by default to support keyboard-only navigation. Please be mindful of color contrast when customizing the design.
+				Uses <code class="code">pre-wrap</code> by default to support keyboard-only navigation. Please be mindful of color contrast when customizing
+				the design.
 			</p>
 		</section>
 	</svelte:fragment>

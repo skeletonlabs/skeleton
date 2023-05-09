@@ -1,34 +1,42 @@
 // Popup Types
-// Note: these are a simple iteration based on the official docs.
 
-type Direction = 'top' | 'bottom' | 'left' | 'right';
 /** Placement https://floating-ui.com/docs/computePosition#placement */
+type Direction = 'top' | 'bottom' | 'left' | 'right';
 type Placement = Direction | `${Direction}-start` | `${Direction}-end`;
 
 // Options & Middleware
-interface Middleware {
-	/** Offset options: https://floating-ui.com/docs/offset */
+export interface Middleware {
+	// Required ---
+	/** Offset middleware settings: https://floating-ui.com/docs/offset */
 	offset?: number | Record<string, any>;
-	/** Shift options: https://floating-ui.com/docs/shift */
+	/** Shift middleware settings: https://floating-ui.com/docs/shift */
 	shift?: Record<string, any>;
-	/** Flip options: https://floating-ui.com/docs/flip */
+	/** Flip middleware settings: https://floating-ui.com/docs/flip */
 	flip?: Record<string, any>;
-	/** Arrow options: https://floating-ui.com/docs/arrow */
+	/** Arrow middleware settings: https://floating-ui.com/docs/arrow */
 	arrow?: { element: string } & Record<string, any>;
+	// Optional ---
+	/** Size middleware settings: https://floating-ui.com/docs/size */
+	size?: Record<string, any>;
+	/** Auto Placement middleware settings: https://floating-ui.com/docs/autoPlacement */
+	autoPlacement?: Record<string, any>;
+	/** Hide middleware settings: https://floating-ui.com/docs/hide */
+	hide?: Record<string, any>;
+	/** Inline middleware settings: https://floating-ui.com/docs/inline */
+	inline?: Record<string, any>;
 }
 
-// Action Arguments
 export interface PopupSettings {
 	/** Provide the event type. */
-	event: 'click' | 'hover' | 'hover-click' | 'focus' | 'focus-click';
-	/** Match the popup data value `[data-popup]="targetNameHere"` */
+	event: 'click' | 'hover' | 'focus-blur' | 'focus-click';
+	/** Match the popup data value `data-popup="targetNameHere"` */
 	target: string;
 	/** Set the placement position. Defaults 'bottom'. */
 	placement?: Placement;
-	/** Query list of elements that will close the popup. Default: `'a[href], button'`. */
+	/** Query elements that close the popup when clicked. Defaults `'a[href], button'`. */
 	closeQuery?: string;
-	/** Provide additional options and middleware settings. */
-	middleware?: Middleware;
-	/** Provide an optional callback function to monitor open/close state. */
+	/** Optional callback function that reports state change. */
 	state?: (event: { state: boolean }) => void;
+	/** Provide Floating UI middleware settings. */
+	middleware?: Middleware;
 }

@@ -38,12 +38,12 @@
 
 	// Search
 	function triggerSearch(): void {
-		const d: ModalSettings = {
+		const modal: ModalSettings = {
 			type: 'component',
 			component: 'modalSearch',
 			position: 'item-start'
 		};
-		modalStore.trigger(d);
+		modalStore.trigger(modal);
 	}
 
 	// Keyboard Shortcut (CTRL/⌘+K) to Focus Search
@@ -106,7 +106,6 @@
 				<i class="fa-solid fa-caret-down opacity-50" />
 			</button>
 			<!-- popup -->
-			<!-- prettier-ignore -->
 			<div class="card p-4 w-60 shadow-xl" data-popup="features">
 				<nav class="list-nav">
 					<ul>
@@ -115,23 +114,33 @@
 								<span class="w-6 text-center"><i class="fa-solid fa-home" /></span>
 								<span>Homepage</span>
 							</a>
+						</li>
+						<li>
 							<a href="/docs/get-started">
 								<span class="w-6 text-center"><i class="fa-solid fa-book" /></span>
 								<span>Documentation</span>
 							</a>
+						</li>
+						<li>
 							<a href="/blog">
 								<span class="w-6 text-center"><i class="fa-solid fa-bullhorn" /></span>
 								<span>Blog</span>
 							</a>
-							<hr class="my-4">
+						</li>
+						<hr class="!my-4" />
+						<li>
 							<a href="/elements/core">
 								<span class="w-6 text-center"><DocsIcon name="tailwind" width="w-5" height="h-5" /></span>
 								<span>Tailwind</span>
 							</a>
+						</li>
+						<li>
 							<a href="/actions/clipboard">
 								<span class="w-6 text-center"><DocsIcon name="svelte" width="w-6" height="h-6" /></span>
 								<span>Svelte</span>
 							</a>
+						</li>
+						<li>
 							<a href="/utilities/codeblocks">
 								<span class="w-6 text-center"><i class="fa-solid fa-screwdriver-wrench" /></span>
 								<span>Utilities</span>
@@ -139,7 +148,6 @@
 						</li>
 					</ul>
 				</nav>
-				<!-- Arrow -->
 				<div class="arrow bg-surface-100-800-token" />
 			</div>
 		</div>
@@ -148,7 +156,7 @@
 		<div>
 			<!-- trigger -->
 			<button class="btn hover:variant-soft-primary" use:popup={{ event: 'click', target: 'theme' }}>
-				<i class="fa-solid fa-palette text-lg md:hidden" />
+				<i class="fa-solid fa-palette text-lg md:!hidden" />
 				<span class="hidden md:inline-block">Theme</span>
 				<i class="fa-solid fa-caret-down opacity-50" />
 			</button>
@@ -156,7 +164,7 @@
 			<div class="card p-4 w-60 shadow-xl" data-popup="theme">
 				<div class="space-y-4">
 					<section class="flex justify-between items-center">
-						<h6>Mode</h6>
+						<h6 class="h6">Mode</h6>
 						<LightSwitch />
 					</section>
 					<nav class="list-nav p-4 -m-4 max-h-64 lg:max-h-[500px] overflow-y-auto">
@@ -183,7 +191,6 @@
 						<a class="btn variant-ghost-surface w-full" href="/docs/generator">Create a Theme</a>
 					</div>
 				</div>
-				<!-- Arrow -->
 				<div class="arrow bg-surface-100-800-token" />
 			</div>
 		</div>
@@ -241,7 +248,6 @@
 						</li>
 					</ul>
 				</nav>
-				<!-- Arrow -->
 				<div class="arrow bg-surface-100-800-token" />
 			</div>
 		</div>

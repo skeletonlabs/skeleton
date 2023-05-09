@@ -32,7 +32,6 @@
 		<header class={cHeader}>{$modalStore[0].title ?? '(title missing)'}</header>
 		<article>{$modalStore[0].body ?? '(body missing)'}</article>
 		<!-- Enable for debugging: -->
-		<!-- <pre>{JSON.stringify(formData, null, 2)}</pre> -->
 		<form class="modal-form {cForm}">
 			<label class="label">
 				<span>Name</span>
