@@ -1,8 +1,8 @@
 <script lang="ts">
 	// Slots
 	/**
-	 * @slot lead - Provides content at the top of the rail, e.g. a logo.
-	 * @slot trail - Provides content at the bottom of the rail, e.g. account.
+	 * @slot lead - Provides content to the left of the rail.
+	 * @slot trail - Provides content to the right of the rail.
 	 */
 
 	// Types
@@ -25,9 +25,9 @@
 	/** Provide classes to set the tile hover background color. */
 	export let hover: CssClasses = 'bg-primary-hover-token';
 	/** Provide classes to set the width. */
-	export let width: CssClasses = 'w-[70px] sm:w-20';
+	export let width: CssClasses = 'w-full';
 	/** Provide classes to set the height. */
-	export let height: CssClasses = 'h-full';
+	export let height: CssClasses = 'h-[70px] sm:h-20';
 	/** Provide a class to set the grid gap. */
 	export let gap: CssClasses = 'gap-0';
 
@@ -45,19 +45,21 @@
 	setContext('hover', hover);
 
 	// Base Classes
-	const cBase = 'grid grid-rows-[auto_1fr_auto] overflow-y-auto';
+	const cBase = 'grid grid-cols-[auto_1fr_auto] overflow-x-auto';
+	const cRegionDefault = 'flex';
 
 	// Reactive
 	$: classesBase = `${cBase} ${background} ${border} ${width} ${height} ${gap} ${$$props.class || ''}`;
+	$: classesRegionDefault = `${cRegionDefault} ${regionDefault}`;
 </script>
 
-<!-- @component A vertical navigation rail component. -->
+<!-- @component A horizontal navigation rail component. -->
 
 <div class="app-rail {classesBase}" data-testid="app-rail">
 	<!-- Slot: lead -->
 	<div class="app-bar-lead {regionLead}"><slot name="lead" /></div>
 	<!-- Slot: Default -->
-	<div class="app-bar-default {regionDefault}"><slot /></div>
+	<div class="app-bar-default {classesRegionDefault}"><slot /></div>
 	<!-- Slot: trail -->
 	<div class="app-bar-trail {regionTrail}"><slot name="trail" /></div>
 </div>
