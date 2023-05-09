@@ -151,9 +151,9 @@ const selected = derived(page, $page => $page.url.pathname);
 		<section class="space-y-4">
 			<h2 class="h2">Horizontal App Rail</h2>
 			<p>
-				The horizontal version of the component is used similarly to the sidebar version. Use tiles with
+				The Horizontal App Rail is used similarly to the standard App Rail component. Use tiles with
 				<code class="code">height="h-full"</code>
-				to override the default square aspect ratio and take up the available width.
+				to override the default square aspect ratio and take up all available horizontal space.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
