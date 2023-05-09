@@ -55,8 +55,9 @@
 	}
 
 	// Reactive
+	$: classesDiv = `${width} ${height}`;
 	$: classesActive = String($selected) && String(value) && $selected === value ? `${active}` : '';
-	$: classesBase = `${cBase} ${width} ${height} ${hover} ${classesActive} ${$$props.class || ''}`;
+	$: classesBase = `${cBase} ${hover} ${classesActive} ${$$props.class || ''}`;
 	$: classesLabel = `${cLabel} ${regionLabel}`;
 
 	// RestProps
@@ -68,7 +69,7 @@
 
 <!-- @component A navigation tile for the App Rail component. -->
 
-<div on:click={onClickHandler} on:keydown on:keyup on:keypress data-testid="app-rail-tile">
+<div class={classesDiv} on:click={onClickHandler} on:keydown on:keyup on:keypress data-testid="app-rail-tile">
 	<!-- IMPORTANT: avoid forwarding events on <svelte:element> tags per: -->
 	<!-- https://github.com/skeletonlabs/skeleton/issues/727#issuecomment-1356859261 -->
 	<svelte:element this={tag} {...prunedRestProps()} class="app-rail-tile {classesBase}">
