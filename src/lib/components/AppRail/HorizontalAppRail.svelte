@@ -55,7 +55,7 @@
 
 <!-- @component A horizontal navigation rail component. -->
 
-<div class="app-rail {classesBase}" data-testid="app-rail">
+<div class="horizontal-app-rail {classesBase}" data-testid="horizontal-app-rail">
 	<!-- Slot: lead -->
 	<div class="app-bar-lead {regionLead}"><slot name="lead" /></div>
 	<!-- Slot: Default -->
