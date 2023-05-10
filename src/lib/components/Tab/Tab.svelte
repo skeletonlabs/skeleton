@@ -104,10 +104,10 @@
 	}
 </script>
 
-<label>
+<label class={classesBase}>
 	<!-- A11y attributes are not allowed on <label> -->
 	<div
-		class="tab {classesBase}"
+		class="tab"
 		data-testid="tab"
 		role="tab"
 		aria-controls={controls}
