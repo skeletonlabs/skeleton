@@ -30,6 +30,10 @@
 	/** Set the ARIA controls value to define which panel this tab controls. */
 	export let controls = '';
 
+	// Props (regions)
+	/** Provide arbitrary classes to style the tab region. */
+	export let regionTab: CssClasses = '';
+
 	// Context
 	/** Provide classes to style each tab's active styles. */
 	export let active: CssClasses = getContext('active');
@@ -96,6 +100,7 @@
 	$: classesActive = selected ? active : hover;
 	$: classesBase = `${cBase} ${flex} ${padding} ${rounded} ${classesActive} ${$$props.class ?? ''}`;
 	$: classesInterface = `${cInterface} ${spacing}`;
+	$: classesTab = `${regionTab}`;
 
 	// RestProps
 	function prunedRestProps(): any {
@@ -104,10 +109,10 @@
 	}
 </script>
 
-<label>
+<label class={classesBase}>
 	<!-- A11y attributes are not allowed on <label> -->
 	<div
-		class="tab {classesBase}"
+		class="tab {classesTab}"
 		data-testid="tab"
 		role="tab"
 		aria-controls={controls}
