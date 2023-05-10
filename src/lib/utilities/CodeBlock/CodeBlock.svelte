@@ -75,6 +75,7 @@
 		displayCode = displayCode.replace(/^/gm, () => {
 			return '<span class="line"></span>\t';
 		});
+		formatted = true;
 	}
 
 	// Reactive
