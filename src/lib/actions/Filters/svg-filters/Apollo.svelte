@@ -1,5 +1,5 @@
 <!-- Apollo: `filter: url(#Apollo)` -->
-<svg id="svg-filter-apollo" class="hidden">
+<svg id="svg-filter-apollo" class="filter absolute -left-full w-0 h-0">
 	<filter id="Apollo" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 		<feColorMatrix
 			values="0.8 0.6 -0.4 0.1 0,

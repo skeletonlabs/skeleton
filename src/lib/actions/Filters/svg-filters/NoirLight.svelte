@@ -1,5 +1,5 @@
 <!-- NoirLight: `filter: url(#NoirLight)` -->
-<svg id="svg-filter-noirlight" class="hidden">
+<svg id="svg-filter-noirlight" class="filter absolute -left-full w-0 h-0">
 	<filter
 		id="NoirLight"
 		x="-20%"
