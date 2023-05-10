@@ -194,7 +194,7 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 	}
 	window.addEventListener('keydown', onWindowKeyDown, true);
 
-	// Render popup on initilization
+	// Render popup on initialization
 	render();
 
 	// Lifecycle
