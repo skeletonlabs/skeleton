@@ -8,12 +8,12 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 	// Floating UI Modules
 	const { computePosition, autoUpdate, offset, shift, flip, arrow, size, autoPlacement, hide, inline } = get(storePopup);
 	// Local State
-	let popupState = {
+	const popupState = {
 		open: false,
 		autoUpdateCleanup: () => {}
 	};
 	const focusableAllowedList = ':is(a[href], button, input, textarea, select, details, [tabindex]):not([tabindex="-1"])';
-	let focusablePoupupElements: HTMLElement[];
+	let focusablePopupElements: HTMLElement[];
 	const documentationLink = 'https://www.skeleton.dev/utilities/popups';
 	// Elements
 	let elemPopup: HTMLElement;
@@ -35,16 +35,16 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 		if (!flip) throw new Error(`Floating UI 'flip' not found for data-popup="${args.target}". ${documentationLink}`);
 		if (!arrow) throw new Error(`Floating UI 'arrow' not found for data-popup="${args.target}". ${documentationLink}`);
 
-		// Bundle optional middlware
-		const optionalMiddlware = [];
+		// Bundle optional middleware
+		const optionalMiddleware = [];
 		// https://floating-ui.com/docs/size
-		if (size) optionalMiddlware.push(size(args.middleware?.size));
+		if (size) optionalMiddleware.push(size(args.middleware?.size));
 		// https://floating-ui.com/docs/autoPlacement
-		if (autoPlacement) optionalMiddlware.push(autoPlacement(args.middleware?.autoPlacement));
+		if (autoPlacement) optionalMiddleware.push(autoPlacement(args.middleware?.autoPlacement));
 		// https://floating-ui.com/docs/hide
-		if (hide) optionalMiddlware.push(hide(args.middleware?.hide));
+		if (hide) optionalMiddleware.push(hide(args.middleware?.hide));
 		// https://floating-ui.com/docs/inline
-		if (inline) optionalMiddlware.push(inline(args.middleware?.inline));
+		if (inline) optionalMiddleware.push(inline(args.middleware?.inline));
 
 		// Floating UI Compute Position
 		// https://floating-ui.com/docs/computePosition
@@ -61,8 +61,8 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 				flip(args.middleware?.flip),
 				// https://floating-ui.com/docs/arrow
 				arrow(args.middleware?.arrow ?? { element: elemArrow || null }),
-				// Implement optional middlware
-				...optionalMiddlware
+				// Implement optional middleware
+				...optionalMiddleware
 			]
 		}).then(({ x, y, placement, middlewareData }: any) => {
 			Object.assign(elemPopup.style, {
@@ -108,7 +108,7 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 		// https://floating-ui.com/docs/autoUpdate
 		popupState.autoUpdateCleanup = autoUpdate(triggerNode, elemPopup, render);
 		// Focus the first focusable element within the popup
-		focusablePoupupElements = Array.from(elemPopup?.querySelectorAll(focusableAllowedList));
+		focusablePopupElements = Array.from(elemPopup?.querySelectorAll(focusableAllowedList));
 	}
 	function close(callback?: any): void {
 		if (!elemPopup) return;
@@ -167,7 +167,7 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 		const triggerMenuFocused: boolean = popupState.open && document.activeElement === triggerNode;
 		if (triggerMenuFocused && (key === 'ArrowDown' || key === 'Tab')) {
 			event.preventDefault();
-			if (focusableAllowedList.length > 0) focusablePoupupElements[0].focus();
+			if (focusableAllowedList.length > 0) focusablePopupElements[0].focus();
 		}
 	};
 
