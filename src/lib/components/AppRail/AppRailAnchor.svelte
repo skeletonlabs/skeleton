@@ -44,7 +44,16 @@
 	}
 </script>
 
-<a class="app-rail-tile app-rail-anchor {classesBase}" href={$$props.href} {...prunedRestProps()} on:click on:keydown on:keyup on:keypress>
+<a
+	class="app-rail-anchor {classesBase}"
+	href={$$props.href}
+	{...prunedRestProps()}
+	on:click
+	on:keydown
+	on:keyup
+	on:keypress
+	data-testid="app-rail-anchor"
+>
 	<div class="app-rail-wrapper {classesWrapper}">
 		{#if $$slots.lead}<div class="app-rail-lead {classesLead}"><slot name="lead" /></div>{/if}
 		<div class="app-rail-label {classesLabel}"><slot /></div>
