@@ -185,5 +185,12 @@
 `}
 			/>
 		</section>
+		<section class="space-y-4">
+			<h2 class="h2">Horizontal Orientation</h2>
+			<!-- prettier-ignore -->
+			<p>
+				The App Rail is intended for vertical orientations only. For mobile interfaces, considering using a <a class="anchor" href="/components/tabs#navigation">navigation tab component</a>.
+			</p>
+		</section>
 	</svelte:fragment>
 </DocsShell>
