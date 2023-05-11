@@ -6,6 +6,7 @@
 	import { menuNavLinks } from '../../links';
 	import AppRail from '$lib/components/AppRail/AppRail.svelte';
 	import AppRailTile from '$lib/components/AppRail/AppRailTile.svelte';
+	import AppRailAnchor from '$lib/components/AppRail/AppRailAnchor.svelte';
 
 	// Stores
 	import { storeCurrentUrl } from '$docs/stores/stores';
@@ -15,7 +16,7 @@
 	export let embedded = false;
 
 	// Local
-	const storeCategory: Writable<string> = writable('guides'); // guides | docs | tailwind | svelte | utilities
+	const storeCategory: Writable<string> = writable('guides'); // 'guides' | 'docs' | 'tailwind' | 'elements' | 'svelte' | 'utilities'
 	let filteredMenuNavLinks: any[] = menuNavLinks;
 
 	// ListItem Click Handler
@@ -60,32 +61,34 @@
 
 <div class="grid grid-cols-[auto_1fr] h-full bg-surface-50-900-token border-r border-surface-500/30 {$$props.class ?? ''}">
 	<!-- App Rail -->
-	<AppRail selected={storeCategory} background="bg-transparent" border="border-r border-surface-500/30">
-		<div class="lg:hidden">
-			<AppRailTile label="Home" href="/" value={'home'} on:click={onListItemClick}>
-				<i class="fa-solid fa-home text-2xl" />
-			</AppRailTile>
-			<hr class="opacity-30" />
-		</div>
-		<AppRailTile label="Docs" value={'docs'}>
-			<i class="fa-solid fa-book text-2xl" />
+	<AppRail background="bg-transparent" border="border-r border-surface-500/30">
+		<!-- Mobile Only -->
+		<AppRailAnchor href="/" on:click={onListItemClick} class="lg:hidden">
+			<svelte:fragment slot="lead"><i class="fa-solid fa-home text-2xl" /></svelte:fragment>
+			<span>Home</span>
+		</AppRailAnchor>
+		<AppRailAnchor href="/blog" on:click={onListItemClick} class="lg:hidden">
+			<svelte:fragment slot="lead"><i class="fa-solid fa-bullhorn text-2xl" /></svelte:fragment>
+			<span>Blog</span>
+		</AppRailAnchor>
+		<!-- --- / --- -->
+		<AppRailTile bind:group={$storeCategory} name="docs" value={'docs'}>
+			<svelte:fragment slot="lead"><i class="fa-solid fa-book text-2xl" /></svelte:fragment>
+			<span>Docs</span>
 		</AppRailTile>
 		<hr class="opacity-30" />
-		<AppRailTile label="Tailwind" value={'elements'}>
-			<DocsIcon name="tailwind" width="w-6" height="h-6" />
+		<AppRailTile bind:group={$storeCategory} name="elements" value={'elements'}>
+			<svelte:fragment slot="lead"><DocsIcon name="tailwind" width="w-6" height="h-6" /></svelte:fragment>
+			<span>Tailwind</span>
 		</AppRailTile>
-		<AppRailTile label="Svelte" value={'svelte'}>
-			<DocsIcon name="svelte" width="w-6" height="h-6" />
+		<AppRailTile bind:group={$storeCategory} name="svelte" value={'svelte'}>
+			<svelte:fragment slot="lead"><DocsIcon name="svelte" width="w-6" height="h-6" /></svelte:fragment>
+			<span>Svelte</span>
 		</AppRailTile>
-		<AppRailTile label="Utilities" value={'utilities'}>
-			<i class="fa-solid fa-screwdriver-wrench text-2xl" />
+		<AppRailTile bind:group={$storeCategory} name="utilities" value={'utilities'}>
+			<svelte:fragment slot="lead"><i class="fa-solid fa-screwdriver-wrench text-2xl" /></svelte:fragment>
+			<span>Utilities</span>
 		</AppRailTile>
-		<div class="lg:hidden">
-			<hr class="opacity-30" />
-			<AppRailTile label="Blog" href="/blog" value={'blog'} on:click={onListItemClick}>
-				<i class="fa-solid fa-bullhorn text-2xl" />
-			</AppRailTile>
-		</div>
 	</AppRail>
 	<!-- Nav Links -->
 	<section class="p-4 pb-20 space-y-4 overflow-y-auto">
