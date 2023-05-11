@@ -111,7 +111,12 @@
 			{#each filteredToasts as t, i (t)}
 				<div animate:flip={{ duration }} in:receive={{ key: t.id }} out:send={{ key: t.id }}>
 					<!-- Toast -->
-					<div class="toast {classesToast} {t.background ?? background} {t.classes}" role="alert" aria-live="polite" data-testid="toast">
+					<div
+						class="toast {classesToast} {t.background ?? background} {t.classes ?? ''}"
+						role="alert"
+						aria-live="polite"
+						data-testid="toast"
+					>
 						<div class="text-base">{@html t.message}</div>
 						<div class="toast-actions {cToastActions}">
 							{#if t.action}<button class={buttonAction} on:click={() => onAction(i)}>{@html t.action.label}</button>{/if}
