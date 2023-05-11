@@ -115,11 +115,11 @@
 		<!-- Tile -->
 		<section class="space-y-4">
 			<h2 class="h2">Tiles</h2>
-			<p>We provide two tiles are visually similar, contain the same style properties, but operate in manners.</p>
+			<p>We offer two types of tiles below. Consider mixing and matching these as needed.</p>
 			<h3 class="h3">AppRailTile</h3>
 			<p>
-				These tiles control state, using an embedded <code class="code">checkbox</code> inputs. Use these when you wish to monitor a selection
-				state, such as querying submenu results like our documentation site left sidebar.
+				These tiles are intended to maintain state using an embedded <code class="code">checkbox</code> input. Use these within forms or to query
+				submenus, similar to the Skeleton documentation sidebar.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -131,6 +131,8 @@
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
+					<p>The tile will show an active state when the group and tile <code class="code">value</code> match.</p>
+					<CodeBlock language="ts" code={`let currentTile: number = 0;`} />
 					<CodeBlock
 						language="html"
 						code={`
@@ -144,8 +146,8 @@
 			</DocsPreview>
 			<h3 class="h3">AppRailAnchor</h3>
 			<p>
-				These tiles operate as wrappers for standard <code class="code">anchor</code> tags, supporting <em>href, target, rel</em>, and other
-				attributes relevant attributes. Use these when you wish to link to a page when choosing the tile.
+				These tiles operate as <code class="code">anchor</code> tags, supporting <em>href, target, rel</em>, and more. Use these when you
+				wish to link to a new page when this tile is clicked.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
@@ -158,7 +160,10 @@
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock language="html" code={`<AppRailAnchor href="/" target="_blank" title="Account">(icon)</AppRailAnchor>`} />
-					<p>To enable the <em>active</em> state, supply a boolean condition to the <code class="code">selected</code> property.</p>
+					<p>
+						Unlike <code class="code">AppRailTile</code> you must explicitly set the active state via the <code class="code">selected</code>
+						property.
+					</p>
 					<CodeBlock language="html" code={`<AppRailAnchor ... selected={true}>(icon)</AppRailAnchor>`} />
 				</svelte:fragment>
 			</DocsPreview>
@@ -176,7 +181,6 @@
 <AppRail>
 	<AppRailTile href="/" selected={$page.url.pathname === '/'}>(icon)</AppRailTile>
 	<AppRailTile href="/about" selected={$page.url.pathname === '/about'}>(icon)</AppRailTile>
-	<AppRailTile href="/login" selected={$page.url.pathname === '/about'}>(icon)</AppRailTile>
 </AppRail>
 `}
 			/>
