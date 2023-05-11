@@ -61,6 +61,7 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 		},
 		destroy() {
 			onCleanUp();
+			observer.disconnect();
 		}
 	};
 }
