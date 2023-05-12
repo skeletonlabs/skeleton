@@ -105,8 +105,10 @@
 		const classList = event.target.classList;
 		if (classList.contains('modal-backdrop') || classList.contains('modal-transition')) {
 			// We return `undefined` to differentiate from the cancel button
-			if ($modalStore[0].response) $modalStore[0].response(undefined);
-			modalStore.close();
+			if ($modalStore[0].disableBackdropClick !== true) {
+				if ($modalStore[0].response) $modalStore[0].response(undefined);
+				modalStore.close();
+			}
 			/** @event {{ event }} backdrop - Fires on backdrop interaction.  */
 			dispatch('backdrop', event);
 		}
