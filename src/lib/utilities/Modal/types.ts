@@ -30,6 +30,8 @@ export interface ModalSettings {
 	response?: (r: any) => void;
 	/** Provide arbitrary classes to the backdrop. */
 	backdropClasses?: string;
+	/** Stop closing modal on backdrop click */
+	disableBackdropClick?: boolean;
 	/** Provide arbitrary classes to the modal window. */
 	modalClasses?: string;
 	/** Override the Cancel button label. */
