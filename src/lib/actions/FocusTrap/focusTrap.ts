@@ -1,5 +1,4 @@
 // Action: Focus Trap
-
 export function focusTrap(node: HTMLElement, enabled: boolean) {
 	const elemWhitelist = 'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])';
 	let elemFirst: HTMLElement;
@@ -21,7 +20,7 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 		}
 	}
 
-	const onInit = () => {
+	const onScanElements = (fromObserver: boolean) => {
 		if (enabled === false) return;
 		// Gather all focusable elements
 		const focusableElems: HTMLElement[] = Array.from(node.querySelectorAll(elemWhitelist));
@@ -29,28 +28,40 @@ export function focusTrap(node: HTMLElement, enabled: boolean) {
 			// Set first/last focusable elements
 			elemFirst = focusableElems[0];
 			elemLast = focusableElems[focusableElems.length - 1];
-			// Auto-focus first focusable element
-			elemFirst.focus();
+			// Auto-focus first focusable element only when not called from observer
+			if (!fromObserver) elemFirst.focus();
 			// Listen for keydown on first & last element
 			elemFirst.addEventListener('keydown', onFirstElemKeydown);
 			elemLast.addEventListener('keydown', onLastElemKeydown);
 		}
 	};
-	onInit();
+	onScanElements(false);
 
-	function onDestroy(): void {
+	function onCleanUp(): void {
 		if (elemFirst) elemFirst.removeEventListener('keydown', onFirstElemKeydown);
 		if (elemLast) elemLast.removeEventListener('keydown', onLastElemKeydown);
 	}
+
+	// When children of node are changed (added or removed)
+	const onObservationChange = (mutationRecords: MutationRecord[], observer: MutationObserver) => {
+		if (mutationRecords.length) {
+			onCleanUp();
+			onScanElements(true);
+		}
+		return observer;
+	};
+	const observer = new MutationObserver(onObservationChange);
+	observer.observe(node, { childList: true, subtree: true });
 
 	// Lifecycle
 	return {
 		update(newArgs: boolean) {
 			enabled = newArgs;
-			newArgs ? onInit() : onDestroy();
+			newArgs ? onScanElements(false) : onCleanUp();
 		},
 		destroy() {
-			onDestroy();
+			onCleanUp();
+			observer.disconnect();
 		}
 	};
 }
