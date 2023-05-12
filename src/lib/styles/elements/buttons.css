@@ -53,6 +53,8 @@
 		@apply text-base aspect-square w-[43px];
 		/* Rounded */
 		@apply rounded-full;
+		/* Active */
+		@apply active:scale-[95%] active:brightness-90;
 	}
 
 	/* Icon Button: Size */
