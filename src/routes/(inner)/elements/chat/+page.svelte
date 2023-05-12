@@ -342,7 +342,7 @@
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<p>
-						First, we need source data to work with. The following represents a trivial examlpe with some preformatted fields, such as
+						First, we need source data to work with. The following represents a trivial example with some preformatted fields, such as
 						timestamps. In a real world example you might fetch this data from a server.
 					</p>
 					<CodeBlock
@@ -476,7 +476,7 @@ let messageFeed = [
 		<section class="space-y-4">
 			<h2 class="h2">Prompt</h2>
 			<p>
-				We can utlize a Skeleton <a class="anchor" href="/elements/forms">Input Group</a> to create a custom text prompt.
+				We can utilize a Skeleton <a class="anchor" href="/elements/forms">Input Group</a> to create a custom text prompt.
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
