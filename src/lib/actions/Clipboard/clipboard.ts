@@ -43,6 +43,9 @@ async function copyToClipboard(data: any, mimeType = 'text/plain') {
 			new ClipboardItem({
 				[mimeType]: new Blob([data], {
 					type: mimeType
+				}),
+				['text/plain']: new Blob([data], {
+					type: 'text/plain'
 				})
 			})
 		]);
