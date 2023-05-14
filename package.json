@@ -7,7 +7,7 @@
 		"preinstall": "npx only-allow pnpm",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"getall": "node scripts/checkout.cjs",
-		"postinstall": "pnpm -r gen:alias && pnpm getall",
+		"postinstall": "pnpm -r gen:alias",
 		"site": "create-skeleton-app --types=typescript --prettier --eslint --playwright=false --vitest=false --codeblocks=true --popups=true --typography=false --forms=false -t=skeleton --skeletontemplate=welcome -p=sites --monorepo"
 	},
 	"license": "MIT",
