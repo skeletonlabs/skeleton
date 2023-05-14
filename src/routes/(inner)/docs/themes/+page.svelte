@@ -98,9 +98,8 @@ body {
 		`}
 		/>
 		<p>
-			Likewise, if you wish to implement a custom the font family for a preset theme, you can modify the <em>base</em> and
-			<em>heading</em>
-			properties as shown below.
+			Likewise, if you wish to implement a custom font family for a preset theme, you can modify the <em>base</em> and <em>heading</em> properties
+			as shown below.
 		</p>
 		<CodeBlock
 			language="css"
