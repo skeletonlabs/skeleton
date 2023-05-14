@@ -8,4 +8,5 @@ dist
 !.env.example
 coverage
 .temp
+src/lib/tailwind/generated
 *.tgz
