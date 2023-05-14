@@ -8,8 +8,5 @@ dist
 !.env.example
 coverage
 .temp
+src/lib/tailwind/generated
 *.tgz
-/packages/*
-!/packages/skeleton
-/sites/*
-!/sites/skeleton.dev
