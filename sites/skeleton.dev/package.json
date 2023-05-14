@@ -22,7 +22,7 @@
 	"devDependencies": {
 		"@faker-js/faker": "^7.6.0",
 		"@floating-ui/dom": "^1.2.5",
-		"@sveltejs/adapter-auto": "^2.0.0",
+		"@sveltejs/adapter-vercel": "^2.4.3",
 		"@sveltejs/kit": "^1.15.0",
 		"@tailwindcss/forms": "^0.5.3",
 		"@tailwindcss/typography": "^0.5.9",
