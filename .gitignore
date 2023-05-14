@@ -9,3 +9,5 @@ dist
 coverage
 .temp
 *.tgz
+/packages/*
+!/packages/skeleton
