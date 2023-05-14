@@ -4,8 +4,11 @@
 	"description": "",
 	"private": true,
 	"scripts": {
+		"preinstall": "npx only-allow pnpm",
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"postinstall": "pnpm -r gen:alias"
+		"getall": "node scripts/checkout.cjs",
+		"postinstall": "pnpm -r gen:alias",
+		"site": "create-skeleton-app --types=typescript --prettier --eslint --playwright=false --vitest=false --codeblocks=true --popups=true --typography=false --forms=false -t=skeleton --skeletontemplate=welcome -p=sites"
 	},
 	"license": "MIT",
 	"homepage": "https://skeleton.dev/",
@@ -16,22 +19,10 @@
 	"bugs": {
 		"url": "https://github.com/skeletonlabs/skeleton/issues"
 	},
-	"keywords": [
-		"cli",
-		"components",
-		"ui",
-		"component",
-		"svelte",
-		"component-library",
-		"ui-components",
-		"ui-framework",
-		"tailwind",
-		"tailwindcss",
-		"components-library",
-		"sveltekit"
-	],
 	"devDependencies": {
-		"cspell": "^6.31.1"
+		"create-skeleton-app": "workspace:^",
+		"cspell": "^6.31.1",
+		"shelljs": "^0.8.5"
 	},
 	"packageManager": "pnpm@7.30.3"
 }
