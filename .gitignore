@@ -11,3 +11,5 @@ coverage
 *.tgz
 /packages/*
 !/packages/skeleton
+/sites/*
+!/sites/skeleton.dev
