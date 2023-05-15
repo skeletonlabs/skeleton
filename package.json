@@ -39,7 +39,7 @@
 	},
 	"packageManager": "pnpm@7.30.3",
 	"engines": {
-		"pnpm": "^7.0.0"
+		"pnpm": ">=7"
 	},
 	"type": "module"
 }
