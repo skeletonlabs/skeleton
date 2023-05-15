@@ -1,0 +1,14 @@
+.DS_Store
+node_modules
+/build
+/.svelte-kit
+/package
+.env
+.env.*
+!.env.example
+/coverage
+pnpm-lock.yaml
+.vscode
+.github
+/static/font-awesome
+/static/fonts

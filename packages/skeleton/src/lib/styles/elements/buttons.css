@@ -1,0 +1,109 @@
+/* Tailwind Elements: button.css */
+
+@layer components {
+	/* === States === */
+
+	button:disabled {
+		@apply !opacity-50 !cursor-not-allowed active:scale-100 hover:brightness-100;
+	}
+
+	.button-base-styles {
+		/* Size (match base) */
+		@apply text-base;
+		/* Padding */
+		@apply px-5 py-[9px];
+		/* Core */
+		@apply text-center whitespace-nowrap;
+		/* Flex Columns */
+		@apply inline-flex justify-center items-center space-x-2;
+		/* States */
+		@apply hover:brightness-[1.15];
+		/* Transitions */
+		@apply transition-all;
+	}
+
+	/* === Button === */
+	/* Standard button/anchor tag elements. */
+
+	.btn {
+		@apply button-base-styles rounded-token active:scale-[95%] active:brightness-90;
+	}
+
+	/* Button: Sizes */
+	/* Note: Default values are built into `.btn` */
+	.btn-sm {
+		@apply text-sm px-3 py-1.5;
+	}
+	.btn-lg {
+		@apply text-lg px-7 py-3;
+	}
+	.btn-xl {
+		@apply text-xl px-9 py-4;
+	}
+
+	/* === Icon Button === */
+	/* A circular button meant for housing icons. */
+
+	.btn-icon {
+		/* Extend Base Button Classes */
+		@apply button-base-styles;
+		/* Padding */
+		@apply p-0;
+		/* Size (match base) */
+		@apply text-base aspect-square w-[43px];
+		/* Rounded */
+		@apply rounded-full;
+		/* Active */
+		@apply active:scale-[95%] active:brightness-90;
+	}
+
+	/* Icon Button: Size */
+	.btn-icon-sm {
+		@apply text-sm aspect-square w-[33px];
+	}
+	.btn-icon-base {
+		@apply text-base aspect-square w-[43px];
+	}
+	.btn-icon-lg {
+		@apply text-lg aspect-square w-[53px];
+	}
+	.btn-icon-xl {
+		@apply text-xl aspect-square w-[63px];
+	}
+
+	/* File Input Button */
+	input[type='file']:not(.file-dropzone-input)::file-selector-button {
+		@apply border-0 btn variant-filled btn-sm mr-2;
+	}
+
+	/* === Button Groups === */
+
+	.btn-group {
+		@apply inline-flex flex-row space-x-0 overflow-hidden rounded-token;
+		/* Safari: hover overflow fix for border radius */
+		isolation: isolate;
+	}
+	.btn-group-vertical {
+		@apply btn-group flex-col space-y-0 rounded-container-token;
+		/* Safari: hover overflow fix for border radius */
+		isolation: isolate;
+	}
+
+	/* Button / Anchors */
+	.btn-group button,
+	.btn-group a,
+	.btn-group-vertical button,
+	.btn-group-vertical a {
+		@apply button-base-styles hover:bg-surface-50/[3%] active:bg-surface-900/[3%];
+		/* Reset Anchor Styles */
+		@apply !no-underline !text-inherit;
+	}
+
+	/* Set Neutral Divider */
+	.btn-group * + * {
+		@apply border-t-0 border-l border-surface-500/20;
+	}
+	.btn-group-vertical * + * {
+		@apply border-t border-l-0 border-surface-500/20;
+	}
+}
