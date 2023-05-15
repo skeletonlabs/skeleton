@@ -11,3 +11,8 @@ coverage
 src/lib/tailwind/generated
 *.tgz
 vite.config.ts.timestamp-**.mjs
+
+/packages/*
+!/packages/skeleton
+/sites/*
+!/sites/skeleton.dev
