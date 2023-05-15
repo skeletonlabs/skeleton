@@ -2,25 +2,25 @@
 
 // Types ---
 
-export type { AutocompleteOption } from './components/Autocomplete/types';
-export type { ConicStop } from './components/ConicGradient/types';
-export type { DrawerSettings } from './utilities/Drawer/types';
-export type { ModalSettings, ModalComponent } from './utilities/Modal/types';
-export type { ToastSettings } from './utilities/Toast/types';
-export type { TableSource } from './components/Table/types';
-export type { PaginationSettings } from './components/Paginator/types';
-export type { PopupSettings } from './utilities/Popup/types';
+export type { AutocompleteOption } from './components/Autocomplete/types.js';
+export type { ConicStop } from './components/ConicGradient/types.js';
+export type { DrawerSettings } from './utilities/Drawer/types.js';
+export type { ModalSettings, ModalComponent } from './utilities/Modal/types.js';
+export type { ToastSettings } from './utilities/Toast/types.js';
+export type { TableSource } from './components/Table/types.js';
+export type { PaginationSettings } from './components/Paginator/types.js';
+export type { PopupSettings } from './utilities/Popup/types.js';
 
 // This type alias is to identify CSS classes within component props, which enables Tailwind IntelliSense
 export type CssClasses = string;
 
 // Stores ---
 
-export { storeHighlightJs } from './utilities/CodeBlock/stores';
-export { storePopup } from './utilities/Popup/popup';
-export { drawerStore } from './utilities/Drawer/stores';
-export { modalStore } from './utilities/Modal/stores';
-export { toastStore } from './utilities/Toast/stores';
+export { storeHighlightJs } from './utilities/CodeBlock/stores.js';
+export { storePopup } from './utilities/Popup/popup.js';
+export { drawerStore } from './utilities/Drawer/stores.js';
+export { modalStore } from './utilities/Modal/stores.js';
+export { toastStore } from './utilities/Toast/stores.js';
 
 // Utilities ---
 
@@ -28,14 +28,20 @@ export { toastStore } from './utilities/Toast/stores';
 export {
 	// Types
 	type DataTableModel,
-	type DataTableOptions,
-	// Utilities
+	type DataTableOptions
+} from './utilities/DataTable/types.js';
+
+// Data Table Utilities
+export {
 	createDataTableStore,
-	dataTableHandler,
-	// Svelte Actions
+	dataTableHandler
+} from './utilities/DataTable/DataTable.js';
+// Data Table Svelte Actions
+export {
 	tableInteraction,
 	tableA11y
-} from './utilities/DataTable/DataTable';
+} from './utilities/DataTable/actions.js';
+
 // Lightswitch
 export {
 	// Stores
@@ -50,19 +56,19 @@ export {
 	setModeCurrent,
 	setInitialClassState,
 	autoModeWatcher
-} from './utilities/LightSwitch/lightswitch';
+} from './utilities/LightSwitch/lightswitch.js';
 // Local Storage Store
-export { localStorageStore } from './utilities/LocalStorageStore/LocalStorageStore';
+export { localStorageStore } from './utilities/LocalStorageStore/LocalStorageStore.js';
 // Component Utilities
-export { tableSourceMapper, tableSourceValues, tableMapperValues } from './components/Table/utils';
+export { tableSourceMapper, tableSourceValues, tableMapperValues } from './components/Table/utils.js';
 
 // Svelte Actions ---
 
-export { clipboard } from './actions/Clipboard/clipboard';
-export { filter } from './actions/Filters/filter';
-export { focusTrap } from './actions/FocusTrap/focusTrap';
+export { clipboard } from './actions/Clipboard/clipboard.js';
+export { filter } from './actions/Filters/filter.js';
+export { focusTrap } from './actions/FocusTrap/focusTrap.js';
 // Utility Actions
-export { popup } from './utilities/Popup/popup';
+export { popup } from './utilities/Popup/popup.js';
 
 // Svelte Components ---
 
