@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { menuNavLinks } from '$docs/links';
+	import { menuNavLinks, type List } from '$docs/links';
 	import { modalStore } from '@skeletonlabs/skeleton';
 
 	// Classes
@@ -13,28 +13,28 @@
 
 	// Local
 	let searchTerm = '';
-	let navigationOriginal = Object.values(menuNavLinks);
-	let navigation = navigationOriginal;
+	let resultsCopy = [...menuNavLinks['/docs'], ...menuNavLinks['/elements'], ...menuNavLinks['/svelte'], ...menuNavLinks['/utilities']];
+	let results = resultsCopy;
 
 	// Elements
 	let elemDocSearch: HTMLElement;
 
-	function filterList(list: any[]): any[] {
-		return list.filter((rowObj: any) => {
+	function filterList(list: List) {
+		return list.filter((rowObj) => {
 			const formattedSearchTerm = searchTerm.toLowerCase() || '';
 			return Object.values(rowObj).join(' ').toLowerCase().includes(formattedSearchTerm);
 		});
 	}
 
-	function onSearch(): void {
-		let navDeepCopy = JSON.parse(JSON.stringify(navigationOriginal));
-		navigation = navDeepCopy.filter((category: any) => {
+	function onInput(): void {
+		let resultsDeepCopy = structuredClone(resultsCopy);
+		results = resultsDeepCopy.filter((category) => {
 			category.list = filterList(category.list);
 			if (category.list.length) return category;
 		});
 	}
 
-	function onInputKeyDown(event: KeyboardEvent): void {
+	function onKeyDown(event: KeyboardEvent): void {
 		if (['Enter', 'ArrowDown'].includes(event.code)) {
 			const queryFirstAnchorElement = elemDocSearch.querySelector('a');
 			if (queryFirstAnchorElement) queryFirstAnchorElement.focus();
@@ -46,27 +46,23 @@
 	<!-- Header -->
 	<header class="modal-search-header {cHeader}">
 		<i class="fa-solid fa-magnifying-glass text-xl ml-4" />
-		<input
-			class={cSearchInput}
-			bind:value={searchTerm}
-			type="search"
-			placeholder="Search..."
-			on:input={onSearch}
-			on:keydown={onInputKeyDown}
-		/>
+		<input class={cSearchInput} bind:value={searchTerm} type="search" placeholder="Search..." on:input={onInput} on:keydown={onKeyDown} />
 	</header>
 	<!-- Results -->
-	<div class="modal-search-results {cResults}">
-		<nav class="list-nav">
-			<!-- Categories -->
-			{#each navigation as category}
+	{#if results.length > 0}
+		<nav class="list-nav {cResults}">
+			{#each results as category}
 				<div class="text-sm font-bold p-4">{category.title}</div>
 				<ul>
-					<!-- Item -->
 					{#each category.list as link}
 						<li class="text-lg">
-							<!-- prettier-ignore -->
-							<a class={cResultAnchor} href={link.href} on:click={() => { modalStore.close(); }}>
+							<a
+								class={cResultAnchor}
+								href={link.href}
+								on:click={() => {
+									modalStore.close();
+								}}
+							>
 								<div class="flex items-center gap-4">
 									<i class="fa-regular fa-file" />
 									<span class="flex-auto font-bold opacity-75">{link.label}</span>
@@ -78,7 +74,11 @@
 				</ul>
 			{/each}
 		</nav>
-	</div>
+	{:else}
+		<div class="p-4">
+			<p>No Results found for <code class="code">{searchTerm}</code>.</p>
+		</div>
+	{/if}
 	<!-- Footer -->
 	<footer class="modal-search-footer {cFooter}">
 		<div><kbd class="kbd">Esc</kbd> to close</div>

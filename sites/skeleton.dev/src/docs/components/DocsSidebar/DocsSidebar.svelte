@@ -1,113 +1,89 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { writable, type Writable } from 'svelte/store';
 
 	import DocsIcon from '$docs/components/DocsIcon/DocsIcon.svelte';
-	import { menuNavLinks } from '../../links';
-	import { AppRail, AppRailTile } from '@skeletonlabs/skeleton';
-
-	// Stores
-	import { storeCurrentUrl } from '$docs/stores/stores';
+	import { AppRail, AppRailTile, AppRailAnchor } from '@skeletonlabs/skeleton';
 	import { drawerStore } from '@skeletonlabs/skeleton';
-
-	// Props
-	export let embedded = false;
+	import { menuNavLinks } from '$docs/links';
 
 	// Local
-	const storeCategory: Writable<string> = writable('guides'); // guides | docs | tailwind | svelte | utilities
-	let filteredMenuNavLinks = menuNavLinks;
+	let currentRailCategory: keyof typeof menuNavLinks | undefined = undefined;
 
-	// ListItem Click Handler
-	function onListItemClick(): void {
-		// On Drawer embed Only:
-		if (!embedded) return;
+	function onClickAnchor(): void {
+		currentRailCategory = undefined;
 		drawerStore.close();
 	}
 
-	function setNavCategory(c: string): void {
-		if (c === 'blog') return;
-		storeCategory.set(c);
-		// prettier-ignore
-		switch($storeCategory) {
-			case('docs'):
-				filteredMenuNavLinks = menuNavLinks.filter((linkSet) => ['docs', 'essentials', 'resources'].includes(linkSet.id));
-				break;
-			case('elements'):
-				filteredMenuNavLinks = menuNavLinks.filter((linkSet) => ['tokens', 'base', 'elements', 'blocks'].includes(linkSet.id));
-				break;
-			case('svelte'):
-				filteredMenuNavLinks = menuNavLinks.filter((linkSet) => ['components', 'actions'].includes(linkSet.id));
-				break;
-			case('utilities'):
-				filteredMenuNavLinks = menuNavLinks.filter((linkSet) => linkSet.id === 'utilities');
-				break;
-		}
-	}
-
 	// Lifecycle
-	page.subscribe((p) => {
-		let pathMatch: string = p.url.pathname.split('/')[1];
-		if (!pathMatch) return;
-		if (['components', 'actions'].includes(pathMatch)) pathMatch = 'svelte';
-		setNavCategory(pathMatch);
+	page.subscribe((page) => {
+		// ex: /basePath/...
+		let basePath: string = page.url.pathname.split('/')[1];
+		if (!basePath) return;
+		// Translate base path to link section
+		if (['docs', 'essentials', 'resources'].includes(basePath)) currentRailCategory = '/docs';
+		if (['tokens', 'base', 'elements', 'blocks'].includes(basePath)) currentRailCategory = '/elements';
+		if (['components', 'actions'].includes(basePath)) currentRailCategory = '/svelte';
+		if (['utilities'].includes(basePath)) currentRailCategory = '/utilities';
 	});
-	storeCategory.subscribe((c: string) => setNavCategory(c));
 
 	// Reactive
-	$: classesActive = (href: string) => ($storeCurrentUrl?.includes(href) ? 'bg-primary-active-token' : '');
+	$: submenu = menuNavLinks[currentRailCategory ?? '/docs'];
+	$: listboxItemActive = (href: string) => ($page.url.pathname?.includes(href) ? 'bg-primary-active-token' : '');
 </script>
 
 <div class="grid grid-cols-[auto_1fr] h-full bg-surface-50-900-token border-r border-surface-500/30 {$$props.class ?? ''}">
 	<!-- App Rail -->
-	<AppRail selected={storeCategory} background="bg-transparent" border="border-r border-surface-500/30">
-		<div class="lg:hidden">
-			<AppRailTile label="Home" href="/" value={'home'} on:click={onListItemClick}>
-				<i class="fa-solid fa-home text-2xl" />
-			</AppRailTile>
-			<hr class="opacity-30" />
-		</div>
-		<AppRailTile label="Docs" value={'docs'}>
-			<i class="fa-solid fa-book text-2xl" />
+	<AppRail background="bg-transparent" border="border-r border-surface-500/30">
+		<!-- Mobile Only -->
+		<!-- prettier-ignore -->
+		<AppRailAnchor href="/" class="lg:hidden" on:click={() => { onClickAnchor() }}>
+			<svelte:fragment slot="lead"><i class="fa-solid fa-home text-2xl" /></svelte:fragment>
+			<span>Home</span>
+		</AppRailAnchor>
+		<!-- prettier-ignore -->
+		<AppRailAnchor href="/blog" class="lg:hidden" on:click={() => { onClickAnchor() }}>
+			<svelte:fragment slot="lead"><i class="fa-solid fa-bullhorn text-2xl" /></svelte:fragment>
+			<span>Blog</span>
+		</AppRailAnchor>
+		<!-- --- / --- -->
+		<AppRailTile bind:group={currentRailCategory} name="docs" value={'/docs'}>
+			<svelte:fragment slot="lead"><i class="fa-solid fa-book text-2xl" /></svelte:fragment>
+			<span>Docs</span>
 		</AppRailTile>
 		<hr class="opacity-30" />
-		<AppRailTile label="Tailwind" value={'elements'}>
-			<DocsIcon name="tailwind" width="w-6" height="h-6" />
+		<AppRailTile bind:group={currentRailCategory} name="elements" value={'/elements'}>
+			<svelte:fragment slot="lead"><DocsIcon name="tailwind" width="w-6" height="h-6" /></svelte:fragment>
+			<span>Tailwind</span>
 		</AppRailTile>
-		<AppRailTile label="Svelte" value={'svelte'}>
-			<DocsIcon name="svelte" width="w-6" height="h-6" />
+		<AppRailTile bind:group={currentRailCategory} name="svelte" value={'/svelte'}>
+			<svelte:fragment slot="lead"><DocsIcon name="svelte" width="w-6" height="h-6" /></svelte:fragment>
+			<span>Svelte</span>
 		</AppRailTile>
-		<AppRailTile label="Utilities" value={'utilities'}>
-			<i class="fa-solid fa-screwdriver-wrench text-2xl" />
+		<AppRailTile bind:group={currentRailCategory} name="utilities" value={'/utilities'}>
+			<svelte:fragment slot="lead"><i class="fa-solid fa-screwdriver-wrench text-2xl" /></svelte:fragment>
+			<span>Utilities</span>
 		</AppRailTile>
-		<div class="lg:hidden">
-			<hr class="opacity-30" />
-			<AppRailTile label="Blog" href="/blog" value={'blog'} on:click={onListItemClick}>
-				<i class="fa-solid fa-bullhorn text-2xl" />
-			</AppRailTile>
-		</div>
 	</AppRail>
 	<!-- Nav Links -->
 	<section class="p-4 pb-20 space-y-4 overflow-y-auto">
-		{#each filteredMenuNavLinks as { id, title, list }, i}
-			{#if list.length > 0}
-				<!-- Title -->
-				<div {id} class="text-primary-700 dark:text-primary-500 font-bold uppercase px-4">{title}</div>
-				<!-- Navigation List -->
-				<nav class="list-nav">
-					<ul>
-						{#each list as { href, label, badge }}
-							<li on:click={onListItemClick} on:keypress>
-								<a {href} class={classesActive(href)} data-sveltekit-preload-data="hover">
-									<span class="flex-auto">{@html label}</span>
-									{#if badge}<span class="badge variant-filled-secondary">{badge}</span>{/if}
-								</a>
-							</li>
-						{/each}
-					</ul>
-				</nav>
-				<!-- Divider -->
-				{#if i + 1 < filteredMenuNavLinks.length}<hr class="!my-6 opacity-50" />{/if}
-			{/if}
+		{#each submenu as segment, i}
+			<!-- Title -->
+			<p class="font-bold pl-4 text-2xl">{segment.title}</p>
+			<!-- Nav List -->
+			<nav class="list-nav">
+				<ul>
+					{#each segment.list as { href, label, badge }}
+						<li on:keypress on:click={drawerStore.close}>
+							<a {href} class={listboxItemActive(href)} data-sveltekit-preload-data="hover">
+								<span class="flex-auto">{@html label}</span>
+								{#if badge}<span class="badge variant-filled-secondary">{badge}</span>{/if}
+							</a>
+						</li>
+					{/each}
+				</ul>
+			</nav>
+			<!-- Divider -->
+			{#if i + 1 < submenu.length}<hr class="!my-6 opacity-50" />{/if}
 		{/each}
 	</section>
 </div>

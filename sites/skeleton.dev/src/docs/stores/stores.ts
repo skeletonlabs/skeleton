@@ -3,9 +3,6 @@ import { localStorageStore } from '@skeletonlabs/skeleton';
 
 // Svelte Writable Stores ---
 
-// Set within root layout, persists current SvelteKit $page.url.pathname
-export const storeCurrentUrl: Writable<string | undefined> = writable(undefined);
-
 // Set within the root layout, set TRUE if served in Vercel production mode
 export const storeVercelProductionMode: Writable<boolean> = writable(false);
 

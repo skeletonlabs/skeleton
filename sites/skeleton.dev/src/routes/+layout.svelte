@@ -20,7 +20,7 @@
 	import type { ModalComponent } from '@skeletonlabs/skeleton';
 
 	// Stores
-	import { storeCurrentUrl, storeTheme } from '$docs/stores/stores';
+	import { storeTheme } from '$docs/stores/stores';
 	import { storePreview } from '$docs/layouts/DocsThemer/stores';
 
 	// Components & Utilities
@@ -111,8 +111,6 @@
 
 	// Lifecycle
 	afterNavigate((params: any) => {
-		// Store current page route URL
-		storeCurrentUrl.set($page.url.pathname);
 		// Scroll to top
 		const isNewPage: boolean = params.from && params.to && params.from.route.id !== params.to.route.id;
 		const elemPage = document.querySelector('#page');

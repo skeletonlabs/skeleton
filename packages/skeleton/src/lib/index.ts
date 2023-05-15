@@ -71,6 +71,7 @@ export { default as AccordionItem } from './components/Accordion/AccordionItem.s
 export { default as AppBar } from './components/AppBar/AppBar.svelte';
 export { default as AppRail } from './components/AppRail/AppRail.svelte';
 export { default as AppRailTile } from './components/AppRail/AppRailTile.svelte';
+export { default as AppRailAnchor } from './components/AppRail/AppRailAnchor.svelte';
 export { default as AppShell } from './components/AppShell/AppShell.svelte';
 export { default as Autocomplete } from './components/Autocomplete/Autocomplete.svelte';
 export { default as Avatar } from './components/Avatar/Avatar.svelte';
