@@ -10,4 +10,3 @@ coverage
 .temp
 src/lib/tailwind/generated
 *.tgz
-vite.config.ts.timestamp-**.mjs
