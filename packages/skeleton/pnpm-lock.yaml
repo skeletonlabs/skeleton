@@ -21,6 +21,9 @@ devDependencies:
   '@sveltejs/package':
     specifier: ^2.0.2
     version: 2.0.2(svelte@3.58.0)(typescript@4.9.5)
+  '@tailwindcss/forms':
+    specifier: ^0.5.3
+    version: 0.5.3(tailwindcss@3.3.1)
   '@tailwindcss/typography':
     specifier: ^0.5.9
     version: 0.5.9(tailwindcss@3.3.1)
@@ -86,7 +89,7 @@ devDependencies:
     version: 4.9.5
   vite:
     specifier: ^4.2.1
-    version: 4.2.1(@types/node@20.1.4)
+    version: 4.2.1
   vitest:
     specifier: ^0.31.0
     version: 0.31.0(jsdom@21.1.1)
@@ -494,7 +497,7 @@ packages:
       svelte: 3.58.0
       tiny-glob: 0.2.9
       undici: 5.21.0
-      vite: 4.2.1(@types/node@20.1.4)
+      vite: 4.2.1
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -528,10 +531,19 @@ packages:
       magic-string: 0.30.0
       svelte: 3.58.0
       svelte-hmr: 0.15.1(svelte@3.58.0)
-      vite: 4.2.1(@types/node@20.1.4)
+      vite: 4.2.1
       vitefu: 0.2.4(vite@4.2.1)
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@tailwindcss/forms@0.5.3(tailwindcss@3.3.1):
+    resolution: {integrity: sha512-y5mb86JUoiUgBjY/o6FJSFZSEttfb3Q5gllE4xoKjAAD+vBrnIhE4dViwUuow3va8mpH4s9jyUbUbrRGoRdc2Q==}
+    peerDependencies:
+      tailwindcss: '>=3.0.0 || >= 3.0.0-alpha.1'
+    dependencies:
+      mini-svg-data-uri: 1.4.4
+      tailwindcss: 3.3.1(postcss@8.4.21)
     dev: true
 
   /@tailwindcss/typography@0.5.9(tailwindcss@3.3.1):
@@ -2275,6 +2287,11 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
+  /mini-svg-data-uri@1.4.4:
+    resolution: {integrity: sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==}
+    hasBin: true
+    dev: true
+
   /minimatch@3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
     dependencies:
@@ -3325,6 +3342,39 @@ packages:
       - terser
     dev: true
 
+  /vite@4.2.1:
+    resolution: {integrity: sha512-7MKhqdy0ISo4wnvwtqZkjke6XN4taqQ2TBaTccLIpOKv7Vp2h4Y+NpmWCnGDeSvvn45KxvWgGyb0MkHvY1vgbg==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': '>= 14'
+      less: '*'
+      sass: '*'
+      stylus: '*'
+      sugarss: '*'
+      terser: ^5.4.0
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      less:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      terser:
+        optional: true
+    dependencies:
+      esbuild: 0.17.19
+      postcss: 8.4.21
+      resolve: 1.22.2
+      rollup: 3.21.7
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: true
+
   /vite@4.2.1(@types/node@20.1.4):
     resolution: {integrity: sha512-7MKhqdy0ISo4wnvwtqZkjke6XN4taqQ2TBaTccLIpOKv7Vp2h4Y+NpmWCnGDeSvvn45KxvWgGyb0MkHvY1vgbg==}
     engines: {node: ^14.18.0 || >=16.0.0}
@@ -3367,7 +3417,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 4.2.1(@types/node@20.1.4)
+      vite: 4.2.1
     dev: true
 
   /vitest@0.31.0(jsdom@21.1.1):

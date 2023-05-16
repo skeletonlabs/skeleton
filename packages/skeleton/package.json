@@ -46,6 +46,7 @@
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/kit": "^1.15.0",
 		"@sveltejs/package": "^2.0.2",
+		"@tailwindcss/forms": "^0.5.3",
 		"@tailwindcss/typography": "^0.5.9",
 		"@testing-library/dom": "^9.2.0",
 		"@testing-library/svelte": "^3.2.2",
@@ -101,7 +102,7 @@
 	"types": "./src/lib/index.ts",
 	"exports": {
 		".": {
-			"types": "./src/lib/index.d.ts",
+			"types": "./src/lib/index.ts",
 			"svelte": "./src/lib/index.ts",
 			"default": "./src/lib/index.ts"
 		},
@@ -121,7 +122,7 @@
 	"typesVersions": {
 		">4.0": {
 			"index": [
-				"./src/lib/index.d.ts"
+				"./src/lib/index.ts"
 			]
 		}
 	}
