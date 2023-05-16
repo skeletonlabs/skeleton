@@ -148,7 +148,7 @@
 				</svelte:fragment>
 				<svelte:fragment slot="footer">
 					<div class="text-center">
-						<a class="btn btn-sm variant-soft" href="http://www.markferrari.com/" target="_blank" rel="noreferrer"> Image Source </a>
+						<a class="btn btn-sm variant-soft" href="https://www.markferrari.com/" target="_blank" rel="noreferrer"> Image Source </a>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
