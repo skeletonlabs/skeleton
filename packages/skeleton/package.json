@@ -76,6 +76,7 @@
 		"svelte": "^3.58.0"
 	},
 	"publishConfig": {
+		"types": "./dist/index.d.ts",
 		"exports": {
 			".": {
 				"types": "./dist/index.d.ts",
@@ -97,6 +98,7 @@
 			}
 		}
 	},
+	"types": "./src/lib/index.d.ts",
 	"exports": {
 		".": {
 			"types": "./src/lib/index.d.ts",
