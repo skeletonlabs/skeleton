@@ -53,9 +53,8 @@ export function generatePalette(baseColor: string): Palette {
 		500: { hex: color.hex(), on: generateA11yOnColor(color.hex()) }
 	};
 	const chromaScale = chroma
-		.scale([color.set('lch.c', '*0.5').set('lch.l', 100), color, color.set('lch.l', '*0.5').set('lch.h', '+15').set('lch.c', '*2')])
+		.scale([color.set('lch.c', '*0.5').set('lch.l', 100), color, color.set('lch.l', '5').set('lch.h', '+15').set('lch.c', '*2')])
 		.domain([0.05, 0.5, 0.95])
-		.correctLightness()
 		.mode('lch');
 
 	for (const entry of tailwindNumbers) {
@@ -66,7 +65,7 @@ export function generatePalette(baseColor: string): Palette {
 			on: generateA11yOnColor(chromaScale(scale).hex())
 		};
 	}
-	return response as Palette;
+	return response;
 }
 
 export function destringRgb(rgbString: string) {
