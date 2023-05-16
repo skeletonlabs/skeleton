@@ -255,7 +255,7 @@ const popupClick: PopupSettings = {
 			<h3 class="h3">Hover</h3>
 			<p>The popup shows only while hovering the trigger element. Great for creating tooltips.</p>
 			<blockquote class="blockquote">
-				Be sure to disable pointer events for children within your trigger element (ex: icons). These may cause the popup to flash or close
+				Be sure to disable pointer events for children (ex: icons) within your trigger element. These may cause the popup to flash or close
 				early. We recommend applying <code class="code">[&>*]:pointer-events-none</code> to your trigger element to resolve this.
 			</blockquote>
 			<DocsPreview background="neutral" regionPreview="text-token">
