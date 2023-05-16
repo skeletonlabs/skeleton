@@ -1,0 +1,53 @@
+{
+	"name": "create-skeleton-app",
+	"version": "0.0.38",
+	"description": "Use this CLI app to setup a new Skeleton application in a new SvelteKit project.",
+	"keywords": [
+		"skeleton",
+		"svelte",
+		"sveltekit",
+		"svelte-kit"
+	],
+	"homepage": "https://www.skeleton.dev",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/skeletonlabs/skeleton",
+		"directory": "packages/create-skeleton-app/"
+	},
+	"license": "MIT",
+	"author": "Skeleton Admin <admin@skeletonlabs.co>",
+	"type": "module",
+	"main": "./src/index.js",
+	"bin": "./src/index.js",
+	"files": [
+		"src/**",
+		"templates/**"
+	],
+	"engines": {
+		"node": ">=14.16"
+	},
+	"scripts": {
+		"dev": "node src/index.js",
+		"long": "node src/index.js --types=typescript --prettier --eslint --playwright=false --vitest=false --codeblocks=true --popups=true --typography=false --forms=false -t crimson --skeletontemplate=welcome",
+		"pub:beta": "npm publish --tag beta",
+		"pub:next": "npm publish --tag next",
+		"pub:release": "npm publish",
+		"release": "npm publish",
+		"lint": "prettier --plugin-search-dir . --check . && eslint .",
+		"format": "prettier --plugin-search-dir . --write ."
+	},
+	"dependencies": {
+		"@clack/prompts": "^0.6.3",
+		"create-svelte": "^4.2.0",
+		"fs-extra": "^11.1.1",
+		"got": "^12.6.0",
+		"kleur": "^4.1.5",
+		"mri": "^1.2.0",
+		"semver": "^7.5.1"
+	},
+	"devDependencies": {
+		"eslint": "^8.40.0",
+		"prettier": "^2.8.8",
+		"svelte": "^3.59.1"
+	}
+}
