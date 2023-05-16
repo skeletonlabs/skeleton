@@ -13,25 +13,47 @@ export type Palette = {
 	};
 };
 
+const colorSchemes = {
+	analogous: {
+		distance: '+30'
+	},
+	// 150 + 210, needs to have some more logic
+	// 'split complementary': {
+	// 	distance: '+150'
+	// },
+	triadic: {
+		distance: '+120'
+	},
+	tetradic: {
+		distance: '+90'
+	}
+};
+
 export function hexToTailwindRgbString(hex: string): string {
 	const sanitizedHex = hex.replaceAll('##', '#');
 	const color = chroma(sanitizedHex).rgb();
 	return `${color[0]} ${color[1]} ${color[2]}`;
 }
 
-export function randomizeColors(colors: ColorSettings[]) {
+function random(min: number, max: number) {
+	return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+export function randomizeColors(colors: ColorSettings[], scheme: keyof typeof colorSchemes = 'tetradic') {
 	colors.forEach((_, i: number) => {
 		// This lets the first, fourth, and sixth colors be generated randomly, with the others being generated as a complementary color
-		let color = [1, 2, 4, 5].includes(i) ? generateComplementaryColor(colors[i - 1].hex) : chroma.random().set('oklab.l', 0.5).hex();
-		if (i === colors.length - 1) color = chroma(color).set('lch.c', 20).hex(); // make the last color a bit less saturated
+		let color = [1, 2, 4, 5].includes(i)
+			? generateComplementaryColor(colors[i - 1].hex, colorSchemes[scheme].distance)
+			: chroma.random().set('oklab.l', 0.5).hex();
+		if (i === colors.length - 1) color = chroma(color).set('lch.c', random(15, 40)).set('lch.l', random(30, 60)).hex(); // make the last color a bit less saturated
 		colors[i].hex = color;
 		colors[i].on = generateA11yOnColor(color);
 	});
 	return colors;
 }
 
-function generateComplementaryColor(color: string): string {
-	const complementaryColor = chroma(color).set('lch.h', '+90');
+function generateComplementaryColor(color: string, distance = '+90'): string {
+	const complementaryColor = chroma(color).set('lch.h', distance);
 	return complementaryColor.hex();
 }
 
