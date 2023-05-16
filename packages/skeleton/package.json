@@ -98,7 +98,7 @@
 			}
 		}
 	},
-	"types": "./src/lib/index.d.ts",
+	"types": "./src/lib/index.ts",
 	"exports": {
 		".": {
 			"types": "./src/lib/index.d.ts",
