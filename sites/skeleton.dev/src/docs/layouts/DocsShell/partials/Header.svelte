@@ -10,7 +10,7 @@
 	const cChip = 'chip variant-soft hover:variant-filled';
 
 	// Local
-	const githubSourcePath = 'https://github.com/skeletonlabs/skeleton/tree/master/src'; // FIXME: hardcoded path
+	const githubSourcePath = 'https://github.com/skeletonlabs/skeleton/tree/master/packages/skeleton/src'; // FIXME: hardcoded path
 
 	function formatImportSnippet(): string {
 		let snippet = ``;
