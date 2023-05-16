@@ -250,6 +250,10 @@ const popupClick: PopupSettings = {
 			<!-- Hover -->
 			<h3 class="h3">Hover</h3>
 			<p>The popup shows only while hovering the trigger element. Great for creating tooltips.</p>
+			<blockquote class="blockquote">
+				Be sure to disable pointer events for children (ex: icons) within your trigger element. These may cause the popup to flash or close
+				early. We recommend applying <code class="code">[&>*]:pointer-events-none</code> to your trigger element to resolve this.
+			</blockquote>
 			<DocsPreview background="neutral" regionPreview="text-token">
 				<svelte:fragment slot="preview">
 					<button class="btn variant-filled [&>*]:pointer-events-none" use:popup={popupHover}>
@@ -272,10 +276,6 @@ const popupHover: PopupSettings = {
 };
 					`}
 					/>
-					<blockquote class="blockquote">
-						TIP: apply <code class="code">[&>*]:pointer-events-none</code> to your trigger element, to prevent child elements (ex: icons) from
-						breaking the hover state and closing the popup early.
-					</blockquote>
 					<CodeBlock
 						language="html"
 						code={`
