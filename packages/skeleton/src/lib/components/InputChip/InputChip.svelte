@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte/internal';
+	import { createEventDispatcher, onMount } from 'svelte/internal';
 	import { fly, scale } from 'svelte/transition';
 	import { flip } from 'svelte/animate';
 
@@ -65,6 +65,26 @@
 	let inputValid = true;
 	let chipValues: Array<{ val: (typeof value)[0]; id: number }> = value.map((val) => {
 		return { val: val, id: Math.random() };
+	});
+
+	// Reset Form
+	function resetFormHandler() {
+		value = [];
+	}
+	let selectElement: HTMLSelectElement;
+	onMount(() => {
+		// Verify external form is present
+		if (!selectElement.form) return;
+
+		const externalForm = selectElement.form as HTMLFormElement;
+		
+		// Attach reset event listener to external form
+		externalForm.addEventListener('reset', resetFormHandler);
+
+		// Return onDestroy handler that will remove the event listener from the external form
+		return () => { 
+			externalForm.removeEventListener('reset', resetFormHandler);
+		}
 	});
 
 	function onInputHandler(): void {
@@ -141,7 +161,7 @@
 <div class="input-chip {classesBase}" class:opacity-50={$$restProps.disabled}>
 	<!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->
 	<div class="h-0 overflow-hidden">
-		<select bind:value {name} multiple {required} tabindex="-1">
+		<select bind:this={selectElement} bind:value {name} multiple {required} tabindex="-1">
 			<!-- NOTE: options are required! -->
 			{#each value as option}<option value={option}>{option}</option>{/each}
 		</select>
