@@ -13,7 +13,7 @@ export type Palette = {
 	};
 };
 
-const colorSchemes = {
+export const colorSchemes = {
 	analogous: {
 		distance: '+30'
 	},

@@ -28,6 +28,7 @@ export const storeThemeGenForm: Writable<FormTheme> = localStorageStore('storeTh
 		{ key: 'error', label: 'Error', hex: '#D41976', on: '255 255 255' },
 		{ key: 'surface', label: 'Surface', hex: '#495a8f', on: '255 255 255' }
 	],
+	scheme: 'tetradic',
 	fontBase: 'system',
 	fontHeadings: 'system',
 	textColorLight: '0 0 0',

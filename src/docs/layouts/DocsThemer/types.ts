@@ -1,4 +1,5 @@
 import type { SemanticNames } from '$lib/types';
+import type { colorSchemes } from './colors';
 
 export interface ColorSettings {
 	key: SemanticNames;
@@ -14,6 +15,7 @@ export interface ContrastReport extends ColorSettings {
 export interface FormTheme {
 	// Colors
 	colors: ColorSettings[];
+	scheme?: keyof typeof colorSchemes;
 	// Form
 	fontHeadings: string;
 	fontBase: string;

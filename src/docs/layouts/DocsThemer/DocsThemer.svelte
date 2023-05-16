@@ -14,7 +14,7 @@
 	import { storePreview } from './stores';
 	import type { ColorSettings, ContrastReport } from './types';
 	import { inputSettings, fontSettings } from './settings';
-	import { hexValueIsValid, getPassReport, generateColorCSS, generateOnSemantic, randomizeColors } from './colors';
+	import { hexValueIsValid, getPassReport, generateColorCSS, generateOnSemantic, randomizeColors, colorSchemes } from './colors';
 	import type { PopupSettings } from '$lib/utilities/Popup/types';
 	import { storeThemeGenForm } from '$docs/stores/stores';
 	import chroma from 'chroma-js';
@@ -91,16 +91,19 @@
 	</div>
 	<div class="grid grid-cols-2 gap-4">
 		<!-- Theme Color -->
-		<section class="card col-span-2 ">
+		<section class="card col-span-2">
 			<!-- General Settings -->
 			<header class="p-4 col-span-2 flex justify-between items-center">
 				<div class="flex items-center space-x-4">
 					<LightSwitch />
 				</div>
-				<div>
+				<div class="input-group w-min input-group-divider grid-cols-[1fr_auto]">
+					<select class="w-min" bind:value={$storeThemeGenForm.scheme} disabled={!$storePreview}>
+						{#each Object.keys(colorSchemes) as scheme}<option value={scheme}>{scheme}</option>{/each}
+					</select>
 					<button
 						class="btn variant-ghost-surface"
-						on:click={() => ($storeThemeGenForm.colors = randomizeColors($storeThemeGenForm.colors))}
+						on:click={() => ($storeThemeGenForm.colors = randomizeColors($storeThemeGenForm.colors, $storeThemeGenForm.scheme))}
 						disabled={!$storePreview}>Randomize Colors</button
 					>
 				</div>
@@ -123,7 +126,7 @@
 								/>
 							</div>
 						</label>
-						<Swatch color={colorRow.key} hex={colorRow.hex} />
+						<Swatch color={colorRow.key} />
 						<label>
 							<span>Text & Fill Color</span>
 							<div class="flex">
