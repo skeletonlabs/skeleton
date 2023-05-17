@@ -4,7 +4,7 @@ import sveld from 'vite-plugin-sveld';
 
 // Import package.json version
 import { readFileSync } from 'fs';
-const json = readFileSync('package.json', 'utf8');
+const json = readFileSync('../../packages/skeleton/package.json', 'utf8');
 const pkg = JSON.parse(json);
 
 const config: UserConfig = {
