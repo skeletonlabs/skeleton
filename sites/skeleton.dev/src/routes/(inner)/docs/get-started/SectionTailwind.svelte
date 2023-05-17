@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { storeOnboardMethod } from '$docs/stores/stores';
+	import { storeOnboardMethod } from '$lib/stores/stores';
 	// Components
 	import { Tab, TabGroup, CodeBlock } from '@skeletonlabs/skeleton';
 </script>

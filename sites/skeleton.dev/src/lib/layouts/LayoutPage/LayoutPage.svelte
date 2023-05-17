@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { storeVercelProductionMode } from '$docs/stores/stores';
+	import { storeVercelProductionMode } from '$lib/stores/stores';
 	import { TableOfContents } from '@skeletonlabs/skeleton';
 
 	// Props
@@ -28,6 +28,7 @@
 			<!-- Ad Position -->
 			{#if $storeVercelProductionMode === true}
 				<!-- Production Ad -->
+				<!-- cspell:disable -->
 				<!-- cspell:disable -->
 				<!-- cspell:disable -->
 				<!-- cspell:disable -->

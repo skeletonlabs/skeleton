@@ -1,6 +1,6 @@
 <script lang="ts">
-	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
+	import DocsShell from '$lib/layouts/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
 
 	import { CodeBlock } from '@skeletonlabs/skeleton';
 

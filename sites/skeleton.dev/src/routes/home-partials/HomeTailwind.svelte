@@ -1,5 +1,5 @@
 <script lang="ts">
-	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
+	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	// Components
 	import { ListBox, ListBoxItem } from '@skeletonlabs/skeleton';
 	// Utilities

@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { faker } from '@faker-js/faker';
 	// DocShell
-	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
-	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
+	import DocsShell from '$lib/layouts/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
+	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	import { CodeBlock } from '@skeletonlabs/skeleton';
 
 	// Docs Shell

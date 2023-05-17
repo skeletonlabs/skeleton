@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { DocsShellSettings } from '$docs/layouts/DocsShell/types';
+	import type { DocsShellSettings } from '$lib/layouts/DocsShell/types';
 	import { CodeBlock } from '@skeletonlabs/skeleton';
 
 	// Props

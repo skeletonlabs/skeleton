@@ -1,5 +1,5 @@
 <script lang="ts">
-	import LayoutPage from '$docs/layouts/LayoutPage/LayoutPage.svelte';
+	import LayoutPage from '$lib/layouts/LayoutPage/LayoutPage.svelte';
 	// Section Components
 	import SectionInstall from './SectionInstall.svelte';
 	import SectionTailwind from './SectionTailwind.svelte';

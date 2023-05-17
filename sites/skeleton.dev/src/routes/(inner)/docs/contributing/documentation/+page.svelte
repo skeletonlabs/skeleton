@@ -1,5 +1,5 @@
 <script lang="ts">
-	import LayoutPage from '$docs/layouts/LayoutPage/LayoutPage.svelte';
+	import LayoutPage from '$lib/layouts/LayoutPage/LayoutPage.svelte';
 	import { CodeBlock } from '@skeletonlabs/skeleton';
 </script>
 

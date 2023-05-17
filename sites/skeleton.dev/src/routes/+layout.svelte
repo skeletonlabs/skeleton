@@ -2,7 +2,7 @@
 <script lang="ts">
 	// Dependency: Highlight JS
 	import hljs from 'highlight.js';
-	import '$docs/styles/highlight-js.css';
+	import '$lib/styles/highlight-js.css';
 	import { storeHighlightJs } from '@skeletonlabs/skeleton';
 	storeHighlightJs.set(hljs);
 
@@ -20,30 +20,30 @@
 	import type { ModalComponent } from '@skeletonlabs/skeleton';
 
 	// Stores
-	import { storeTheme } from '$docs/stores/stores';
-	import { storePreview } from '$docs/layouts/DocsThemer/stores';
+	import { storeTheme } from '$lib/stores/stores';
+	import { storePreview } from '$lib/layouts/DocsThemer/stores';
 
 	// Components & Utilities
 	import { AppShell, Modal, Toast } from '@skeletonlabs/skeleton';
 
 	// Docs Components
-	import DocsAppBar from '$docs/components/DocsAppBar/DocsAppBar.svelte';
-	import DocsSidebar from '$docs/components/DocsSidebar/DocsSidebar.svelte';
-	import DocsDrawer from '$docs/components/DocsDrawer/DocsDrawer.svelte';
-	import DocsFooter from '$docs/components/DocsFooter/DocsFooter.svelte';
+	import DocsAppBar from '$lib/components/DocsAppBar/DocsAppBar.svelte';
+	import DocsSidebar from '$lib/components/DocsSidebar/DocsSidebar.svelte';
+	import DocsDrawer from '$lib/components/DocsDrawer/DocsDrawer.svelte';
+	import DocsFooter from '$lib/components/DocsFooter/DocsFooter.svelte';
 	// Modal Components
-	import DocsSearch from '$docs/modals/DocsSearch/DocsSearch.svelte';
+	import DocsSearch from '$lib/modals/DocsSearch/DocsSearch.svelte';
 	// NOTE: (forms example uses direct method)
-	import ModalExampleList from '$docs/modals/examples/ModalExampleList.svelte';
-	import ModalExampleEmbed from '$docs/modals/examples/ModalExampleEmbed.svelte';
-	import ModalExampleImage from '$docs/modals/examples/ModalExampleImage.svelte';
+	import ModalExampleList from '$lib/modals/examples/ModalExampleList.svelte';
+	import ModalExampleEmbed from '$lib/modals/examples/ModalExampleEmbed.svelte';
+	import ModalExampleImage from '$lib/modals/examples/ModalExampleImage.svelte';
 
 	// Skeleton Stylesheets
 	// import '@skeletonlabs/skeleton/styles/all.css';
 	import '@skeletonlabs/skeleton/styles/skeleton.css';
 	// import '@skeletonlabs/skeleton/styles/skeleton-minimal.css';
 	// The Skeleton blog stylesheet
-	import '$docs/styles/blog.css';
+	import '$lib/styles/blog.css';
 	// Global Stylesheets
 	import '../app.postcss';
 
@@ -52,7 +52,7 @@
 	export let data: LayoutServerData;
 	// Pass to Store for Ad Conditionals
 	// IMPORTANT: DO NOT MODIFY THIS UNLESS YOU KNOW WHAT YOU'RE DOING
-	import { storeVercelProductionMode } from '$docs/stores/stores';
+	import { storeVercelProductionMode } from '$lib/stores/stores';
 	storeVercelProductionMode.set(data.vercelEnv === 'production');
 	// Init Vercel Analytics
 	if ($storeVercelProductionMode) import('@vercel/analytics').then((mod) => mod.inject());

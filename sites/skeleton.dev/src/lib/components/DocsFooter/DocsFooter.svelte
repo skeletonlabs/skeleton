@@ -4,7 +4,7 @@
 	const pkg = __PACKAGE__;
 
 	// Logo
-	import DocsLogoIcon from '$docs/components/DocsLogos/DocsLogoIcon.svelte';
+	import DocsLogoIcon from '$lib/components/DocsLogos/DocsLogoIcon.svelte';
 
 	// Base Classes
 	const cBase = 'bg-surface-50 dark:bg-surface-900 border-t border-surface-500/10 text-xs md:text-base';

@@ -2,10 +2,10 @@
 	import { faker } from '@faker-js/faker';
 
 	// Docs
-	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
-	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
-	import { variants } from '$docs/components/DocsPreview/options';
+	import DocsShell from '$lib/layouts/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
+	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
+	import { variants } from '$lib/components/DocsPreview/options';
 	// Components
 	import { CodeBlock } from '@skeletonlabs/skeleton';
 

@@ -1,6 +1,6 @@
 <script lang="ts">
 	// Types
-	import type { DocsShellSettings } from '$docs/layouts/DocsShell/types';
+	import type { DocsShellSettings } from '$lib/layouts/DocsShell/types';
 	// Components
 	import { Table } from '@skeletonlabs/skeleton';
 
@@ -12,14 +12,14 @@
 
 	// Local
 	const source = {
-		head: ['Keys', 'Description'],
-		body: pageData.keyboard ?? []
+		head: ['Prop', 'Type', 'Default', 'Values', 'Description'],
+		body: pageData.parameters ?? []
 	};
 
 	// Reactive
 	$: classesBase = `${cBase}`;
 </script>
 
-<div class="doc-shell-keyboard {classesBase}">
+<div class="doc-shell-parameters {classesBase}">
 	<Table {source} />
 </div>

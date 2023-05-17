@@ -1,5 +1,5 @@
 <script lang="ts">
-	import DocsThemer from '$docs/layouts/DocsThemer/DocsThemer.svelte';
+	import DocsThemer from '$lib/layouts/DocsThemer/DocsThemer.svelte';
 	// Components
 	import { CodeBlock } from '@skeletonlabs/skeleton';
 </script>

@@ -1,4 +1,4 @@
-import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
+import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
 
 export let docShellDefaults: DocsShellSettings = {
 	// Heading

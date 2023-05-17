@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { writable, type Writable } from 'svelte/store';
 	// Docs
-	import LayoutPage from '$docs/layouts/LayoutPage/LayoutPage.svelte';
+	import LayoutPage from '$lib/layouts/LayoutPage/LayoutPage.svelte';
 	// Utilities
 	import { CodeBlock } from '@skeletonlabs/skeleton';
 	// Stores

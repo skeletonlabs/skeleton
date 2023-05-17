@@ -1,8 +1,8 @@
 <script lang="ts">
 	// Types
-	import type { DocsShellSettings } from '$docs/layouts/DocsShell/types';
+	import type { DocsShellSettings } from '$lib/layouts/DocsShell/types';
 	// Sveld Mapper
-	import { sveldMapperProps } from '$docs/layouts/DocsShell/sveldMapper';
+	import { sveldMapperProps } from '$lib/layouts/DocsShell/sveldMapper';
 	// Components
 	import { Table } from '@skeletonlabs/skeleton';
 

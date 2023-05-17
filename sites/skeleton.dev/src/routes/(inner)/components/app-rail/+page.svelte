@@ -1,8 +1,8 @@
 <script lang="ts">
 	// Docs
-	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
-	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
+	import DocsShell from '$lib/layouts/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
+	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	// Components
 	import { AppRail, AppRailTile, CodeBlock, AppRailAnchor } from '@skeletonlabs/skeleton';
 	// Sveld

@@ -4,8 +4,8 @@
 	export let data: PageData;
 	const httpPosts = data.posts;
 
-	import DocsShell from '$docs/layouts/DocsShell/DocsShell.svelte';
-	import { DocsFeature, type DocsShellSettings } from '$docs/layouts/DocsShell/types';
+	import DocsShell from '$lib/layouts/DocsShell/DocsShell.svelte';
+	import { DocsFeature, type DocsShellSettings } from '$lib/layouts/DocsShell/types';
 
 	// Components
 	import { Avatar, Paginator, CodeBlock } from '@skeletonlabs/skeleton';

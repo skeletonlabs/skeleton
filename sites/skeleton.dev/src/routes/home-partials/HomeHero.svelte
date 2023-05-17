@@ -1,5 +1,5 @@
 <script>
-	import DocsLogoHero from '$docs/components/DocsLogos/DocsLogoHero.svelte';
+	import DocsLogoHero from '$lib/components/DocsLogos/DocsLogoHero.svelte';
 	import HomeHeroComponents from './HomeHeroComponents.svelte';
 </script>
 

@@ -2,21 +2,21 @@
 	import { page } from '$app/stores';
 
 	// Docs
-	import LayoutPage from '$docs/layouts/LayoutPage/LayoutPage.svelte';
+	import LayoutPage from '$lib/layouts/LayoutPage/LayoutPage.svelte';
 	// Components
 	import { Tab, TabGroup } from '@skeletonlabs/skeleton';
 	// Types
-	import type { DocsShellSettings } from '$docs/layouts/DocsShell/types';
+	import type { DocsShellSettings } from '$lib/layouts/DocsShell/types';
 	// Partials
-	import Header from '$docs/layouts/DocsShell/partials/Header.svelte';
-	import PanelProps from '$docs/layouts/DocsShell/partials/PanelProps.svelte';
+	import Header from '$lib/layouts/DocsShell/partials/Header.svelte';
+	import PanelProps from '$lib/layouts/DocsShell/partials/PanelProps.svelte';
 	import PanelClasses from './partials/PanelClasses.svelte';
 	import PanelEvents from './partials/PanelEvents.svelte';
 	import PanelKeyboard from './partials/PanelKeyboard.svelte';
 	import PanelParams from './partials/PanelParams.svelte';
 	import PanelSlots from './partials/PanelSlots.svelte';
 	// Utilities
-	import { docShellDefaults } from '$docs/layouts/DocsShell/defaults';
+	import { docShellDefaults } from '$lib/layouts/DocsShell/defaults';
 
 	// Props
 	export let settings: DocsShellSettings;

@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 
-	import DocsIcon from '$docs/components/DocsIcon/DocsIcon.svelte';
+	import DocsIcon from '$lib/components/DocsIcon/DocsIcon.svelte';
 	import { AppRail, AppRailTile, AppRailAnchor } from '@skeletonlabs/skeleton';
 	import { drawerStore } from '@skeletonlabs/skeleton';
-	import { menuNavLinks } from '$docs/links';
+	import { menuNavLinks } from '$lib/links';
 
 	// Local
 	let currentRailCategory: keyof typeof menuNavLinks | undefined = undefined;

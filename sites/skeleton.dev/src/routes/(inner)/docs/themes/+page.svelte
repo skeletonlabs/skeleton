@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { themes } from '$docs/themes';
+	import { themes } from '$lib/themes';
 	// Docs
-	import LayoutPage from '$docs/layouts/LayoutPage/LayoutPage.svelte';
+	import LayoutPage from '$lib/layouts/LayoutPage/LayoutPage.svelte';
 	// Components
 	import { Tab, TabGroup, CodeBlock } from '@skeletonlabs/skeleton';
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { menuNavLinks, type List } from '$docs/links';
+	import { menuNavLinks, type List } from '$lib/links';
 	import { modalStore } from '@skeletonlabs/skeleton';
 
 	// Classes

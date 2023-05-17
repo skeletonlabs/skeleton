@@ -6,14 +6,14 @@
 	import type { ModalSettings, DrawerSettings } from '@skeletonlabs/skeleton';
 
 	// Docs
-	import DocsLogoFull from '$docs/components/DocsLogos/DocsLogoFull.svelte';
-	import DocsIcon from '$docs/components/DocsIcon/DocsIcon.svelte';
+	import DocsLogoFull from '$lib/components/DocsLogos/DocsLogoFull.svelte';
+	import DocsIcon from '$lib/components/DocsIcon/DocsIcon.svelte';
 
 	// Components & Utilities
 	import { AppBar, LightSwitch, popup, modalStore } from '@skeletonlabs/skeleton';
 
 	// Stores
-	import { storeTheme } from '$docs/stores/stores';
+	import { storeTheme } from '$lib/stores/stores';
 	import { drawerStore } from '@skeletonlabs/skeleton';
 
 	// Local

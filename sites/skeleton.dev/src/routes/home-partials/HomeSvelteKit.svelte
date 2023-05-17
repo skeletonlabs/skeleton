@@ -1,5 +1,5 @@
 <script lang="ts">
-	import DocsPreview from '$docs/components/DocsPreview/DocsPreview.svelte';
+	import DocsPreview from '$lib/components/DocsPreview/DocsPreview.svelte';
 	// Utilities
 	import { modalStore, type ModalSettings } from '@skeletonlabs/skeleton';
 	// Components

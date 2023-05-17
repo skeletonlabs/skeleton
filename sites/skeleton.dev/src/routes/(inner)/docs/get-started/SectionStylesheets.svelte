@@ -5,7 +5,7 @@
 	import { TabGroup, Tab, CodeBlock } from '@skeletonlabs/skeleton';
 
 	// Stores
-	import { storeOnboardMethod } from '$docs/stores/stores';
+	import { storeOnboardMethod } from '$lib/stores/stores';
 	export const storeStylesheets: Writable<string> = writable('recommended');
 	export const storeStylesheetElements: Writable<string> = writable('combined');
 </script>

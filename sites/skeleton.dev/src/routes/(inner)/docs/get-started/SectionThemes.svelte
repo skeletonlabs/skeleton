@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { storeOnboardMethod } from '$docs/stores/stores';
-	import { themes } from '$docs/themes';
+	import { storeOnboardMethod } from '$lib/stores/stores';
+	import { themes } from '$lib/themes';
 	// Components
 	import { TabGroup, Tab, CodeBlock } from '@skeletonlabs/skeleton';
 
