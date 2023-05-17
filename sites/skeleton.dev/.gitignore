@@ -10,3 +10,4 @@ coverage
 .temp
 src/lib/tailwind/generated
 *.tgz
+.vercel
