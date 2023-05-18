@@ -8,7 +8,8 @@
 		"preinstall": "npx only-allow pnpm",
 		"getall": "node scripts/checkout.cjs && pnpm i",
 		"postinstall": "pnpm -r sync",
-		"csa": "node ./packages/create-skeleton-app/src/index.js --types=typescript --prettier --eslint --playwright=false --vitest=false --codeblocks=true --popups=true --typography=false --forms=false -t=skeleton --skeletontemplate=welcome -p=sites --monorepo"
+		"csa": "node ./packages/create-skeleton-app/src/index.js --types=typescript --prettier --eslint --playwright=false --vitest=false --codeblocks=true --popups=true --typography=false --forms=false -t=skeleton --skeletontemplate=welcome -p=sites --monorepo",
+		"templategen": "node ./scripts/template-gen.js"
 	},
 	"license": "MIT",
 	"homepage": "https://skeleton.dev/",
@@ -35,7 +36,8 @@
 	],
 	"devDependencies": {
 		"cspell": "^6.31.1",
-		"shelljs": "^0.8.5"
+		"shelljs": "^0.8.5",
+		"create-skeleton-app": "workspace:*"
 	},
 	"packageManager": "pnpm@8.5.0",
 	"engines": {
