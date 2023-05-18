@@ -1,9 +1,6 @@
 lockfileVersion: '6.0'
 
 devDependencies:
-  create-skeleton-app:
-    specifier: workspace:*
-    version: link:packages/create-skeleton-app
   cspell:
     specifier: ^6.31.1
     version: 6.31.1
