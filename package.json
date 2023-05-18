@@ -36,8 +36,7 @@
 	],
 	"devDependencies": {
 		"cspell": "^6.31.1",
-		"shelljs": "^0.8.5",
-		"create-skeleton-app": "workspace:*"
+		"shelljs": "^0.8.5"
 	},
 	"packageManager": "pnpm@8.5.0",
 	"engines": {
