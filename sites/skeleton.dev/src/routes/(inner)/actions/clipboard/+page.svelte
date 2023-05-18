@@ -99,7 +99,7 @@
 						language="html"
 						code={`
 <!-- Source -->
-<input type="text" value="(contents)" data-clipboard="exampleInput"></input>\n
+<input type="text" value="(contents)" data-clipboard="exampleInput" />\n
 <!-- Trigger -->
 <button use:clipboard={{ input: 'exampleInput' }}>Copy</button>
 `}
