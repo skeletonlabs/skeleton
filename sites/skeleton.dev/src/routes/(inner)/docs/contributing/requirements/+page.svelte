@@ -31,9 +31,8 @@
 	const tableProjectStructure: TableSource = {
 		head: ['Path', 'Description'],
 		body: [
-			['<code class="code">/src/docs</code>', 'Documentation-specific components and features, such as the theme generator.'],
-			['<code class="code">/src/lib</code>', `Features and assets distributed within the core library's and NPM package.`],
-			['<code class="code">/src/routes</code>', 'Documentation pages for the public-facing documentation website, including this page.']
+			['<code class="code">/packages/skeleton</code>', 'The Skeleton library that has the Tailwind plugin, CSS and Svelte components'],
+			['<code class="code">/sites/skeleton.dev</code>', `A Svelte-Kit project that hosts the Skeleton documentation website.`]
 		]
 	};
 </script>
@@ -93,6 +92,20 @@
 			<li>If your PR meets all requirements it will be merged, otherwise feedback will be provided.</li>
 		</ol>
 	</section>
+	<!-- Project Structure -->
+	<section class="space-y-4">
+		<h2 class="h2">Project Structure</h2>
+		<p>
+			Please note that Skeleton is setup using a hybrid monorepo and multi-repo approach and uses <code class="code">pnpm</code> to provide the workspace functionality. The monorepo portion contains the core component library and the documentation site. Due to different publishing requirements, the create-skeleton-app project is a separate repository, but it can still be pulled in using <code class="code">pnpm getall</code> from the root.
+		</p>
+		<p>
+			To work on Skeleton, you will typically launch <code class="code">pnpm dev</code> from the <code class="code">/sites/skeleton.dev</code> folder and make changes to the components in <code class="code">/packages/skeleton</code> that are then viewed in the doc site via HMR.
+		</p>
+		<p>
+			The main advantage of this approach is that you can just as easily have your own site in the<code class="code">/sites</code> folder while you are building out a component and testing it's functionality.  In fact, there is even a <code class="code">pnpm csa yoursitename</code> command that when run from the root, will set up a fresh website for you to start working on.  Or you can even just import your repo under the sites folder and import <code class="code">@skeletonlabs/skeleton</code> as a workspace reference.
+		</p>
+		<Table source={tableProjectStructure} />
+	</section>
 
 	<!--Branches -->
 	<section class="space-y-4">
@@ -120,9 +133,9 @@
 			All Skeleton projects utilize <a class="anchor" href="https://prettier.io/" target="_blank" rel="noreferrer">Prettier</a>. To check
 			for linting issues, run:
 		</p>
-		<CodeBlock language="console" code={`npm run lint`} />
+		<CodeBlock language="console" code={`pnpm lint`} />
 		<p>To automatically apply formatting, run:</p>
-		<CodeBlock language="console" code={`npm run format`} />
+		<CodeBlock language="console" code={`pnpm format`} />
 	</section>
 
 	<!-- Automated Tests -->
@@ -132,7 +145,7 @@
 			Tests are handled via <a class="anchor" href="https://vitest.dev/" target="_blank" rel="noreferrer">Vitest</a>, which is similar to
 			Jest. Ensure tests are current and passing before submitting a pull request.
 		</p>
-		<CodeBlock language="console" code={`npm run test`} />
+		<CodeBlock language="console" code={`pnpm test`} />
 	</section>
 
 	<!-- Spell Checking -->
@@ -152,11 +165,7 @@
 			extension for VS Code. You can add words to the dictionary using this extension, or by editing <code class="code">cspell.json</code> at
 			the root of the repository.
 		</p>
-		<CodeBlock language="console" code={`npm exec cspell "**" --no-progress`} />
+		<CodeBlock language="console" code={`pnpm cspell "**" --no-progress`} />
 	</section>
-	<!-- Project Structure -->
-	<section class="space-y-4">
-		<h2 class="h2">Project Structure</h2>
-		<Table source={tableProjectStructure} />
-	</section>
+	
 </LayoutPage>
