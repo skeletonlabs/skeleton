@@ -1,0 +1,129 @@
+{
+	"name": "@skeletonlabs/skeleton",
+	"version": "1.5.1",
+	"description": "A SvelteKit component library.",
+	"author": "endigo9740 <chris@skeletonlabs.dev>",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"package": "node ./scripts/pre-build.js && pnpm build:jss && svelte-kit sync && svelte-package && node ./scripts/post-build.js",
+		"publish": "npm publish",
+		"preview": "vite preview",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"lint": "prettier --ignore-path .prettierignore --check --plugin-search-dir=. . && eslint --fix --ignore-path .gitignore .",
+		"format": "prettier --ignore-path .prettierignore --write --plugin-search-dir=. .",
+		"test": "vitest",
+		"coverage": "vitest run --coverage",
+		"sync": "svelte-kit sync",
+		"build:jss": "node ./scripts/generate-jss.js --package"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/skeletonlabs/skeleton.git"
+	},
+	"bugs": {
+		"url": "https://github.com/skeletonlabs/skeleton/issues"
+	},
+	"keywords": [
+		"cli",
+		"components",
+		"ui",
+		"component",
+		"svelte",
+		"component-library",
+		"ui-components",
+		"ui-framework",
+		"tailwind",
+		"tailwindcss",
+		"components-library",
+		"sveltekit"
+	],
+	"license": "MIT",
+	"homepage": "https://skeleton.dev/",
+	"devDependencies": {
+		"@floating-ui/dom": "1.2.5",
+		"@sveltejs/adapter-auto": "2.0.0",
+		"@sveltejs/kit": "1.15.0",
+		"@sveltejs/package": "2.0.2",
+		"@tailwindcss/forms": "0.5.3",
+		"@tailwindcss/typography": "0.5.9",
+		"@testing-library/dom": "9.2.0",
+		"@testing-library/svelte": "3.2.2",
+		"@typescript-eslint/eslint-plugin": "5.57.0",
+		"@typescript-eslint/parser": "5.57.0",
+		"@vitest/coverage-c8": "0.31.0",
+		"autoprefixer": "10.4.14",
+		"eslint": "8.37.0",
+		"eslint-config-prettier": "8.8.0",
+		"eslint-plugin-svelte3": "4.0.0",
+		"jsdom": "21.1.1",
+		"postcss": "8.4.21",
+		"postcss-import": "15.1.0",
+		"postcss-js": "4.0.1",
+		"postcss-load-config": "4.0.1",
+		"prettier": "2.8.7",
+		"prettier-plugin-svelte": "2.10.0",
+		"svelte-check": "3.1.4",
+		"tailwindcss": "3.3.1",
+		"tslib": "2.5.0",
+		"typescript": "4.9.5",
+		"vite": "4.2.1",
+		"vitest": "0.31.0"
+	},
+	"type": "module",
+	"dependencies": {
+		"esm-env": "1.0.0",
+		"svelte": "3.58.0"
+	},
+	"publishConfig": {
+		"types": "./dist/index.d.ts",
+		"exports": {
+			".": {
+				"types": "./dist/index.d.ts",
+				"svelte": "./dist/index.js",
+				"default": "./dist/index.js"
+			},
+			"./styles/*": "./dist/styles/*",
+			"./themes/*": "./dist/themes/*",
+			"./tailwind/skeleton.cjs": "./dist/tailwind/skeleton.cjs"
+		},
+		"typesVersions": {
+			">4.0": {
+				"index": [
+					"./dist/index.d.ts"
+				],
+				"tailwind/skeleton.cjs": [
+					"./dist/tailwind/skeleton.d.cts"
+				]
+			}
+		}
+	},
+	"types": "./src/lib/index.ts",
+	"exports": {
+		".": {
+			"types": "./src/lib/index.ts",
+			"svelte": "./src/lib/index.ts",
+			"default": "./src/lib/index.ts"
+		},
+		"./*": "./src/lib/*"
+	},
+	"files": [
+		"./dist/**/*.svelte",
+		"./dist/**/*.js",
+		"./dist/**/*.d.ts",
+		"./dist/**/*.cjs",
+		"./dist/**/*.d.cts",
+		"./dist/styles/*",
+		"./dist/tailwind/*",
+		"./dist/themes/*",
+		"!./dist/**/*.test.*"
+	],
+	"typesVersions": {
+		">4.0": {
+			"index": [
+				"./src/lib/index.ts"
+			]
+		}
+	}
+}
