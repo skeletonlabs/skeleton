@@ -69,10 +69,18 @@
 			</div>
 			<a class="btn variant-filled-secondary place-self-center" href="/docs/contributing/style-guide"> Read Guide </a>
 		</div>
-		<!-- Docs Guide -->
+		<!-- Sveld for Components -->
 		<div class="card variant-glass p-4 grid grid-cols-[1fr_auto] gap-4">
 			<div class="space-y-4">
-				<h3 class="h3" data-toc-ignore>Documentation Guide</h3>
+				<h3 class="h3" data-toc-ignore>Sveld for Components</h3>
+				<p>Learn how we use Sveld to automatically document components.</p>
+			</div>
+			<a class="btn variant-filled-secondary place-self-center" href="/docs/contributing/sveld"> Read Guide </a>
+		</div>
+		<!-- Documentation Pages -->
+		<div class="card variant-glass p-4 grid grid-cols-[1fr_auto] gap-4">
+			<div class="space-y-4">
+				<h3 class="h3" data-toc-ignore>Documentation Pages</h3>
 				<p>Learn how to properly document features within Skeleton.</p>
 			</div>
 			<a class="btn variant-filled-secondary place-self-center" href="/docs/contributing/documentation"> Read Guide </a>

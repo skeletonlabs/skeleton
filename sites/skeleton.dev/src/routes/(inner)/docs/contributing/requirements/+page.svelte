@@ -4,6 +4,21 @@
 	import { Table, CodeBlock, type TableSource } from '@skeletonlabs/skeleton';
 
 	// Tables
+	const tableBranches: TableSource = {
+		head: ['Branch', 'Description', 'Pull Requests'],
+		body: [
+			[
+				'<code class="code">master</code>',
+				'Represents the production branch. All pull requests submitted to this branch will be rejected.',
+				'🚫 NEVER'
+			],
+			[
+				'<code class="code">dev</code>',
+				'The active development branch containing bleeding edge changes. Target this branch for PRs',
+				'✅ Yes'
+			]
+		]
+	};
 	const tableProjectStructure: TableSource = {
 		head: ['Path', 'Description'],
 		body: [
@@ -64,6 +79,12 @@
 			<li>When ready, set your pull request to the "ready to review" state. Then be patient. We'll review asap.</li>
 			<li>If your PR meets all requirements it will be merged, otherwise feedback and guidance will be provided.</li>
 		</ol>
+	</section>
+
+	<!-- Branches -->
+	<section class="space-y-4">
+		<h2 class="h2">Branches</h2>
+		<Table source={tableBranches} />
 	</section>
 
 	<!-- Monorepo -->
