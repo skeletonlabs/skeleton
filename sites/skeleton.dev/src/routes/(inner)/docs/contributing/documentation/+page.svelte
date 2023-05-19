@@ -16,7 +16,7 @@
 		<h1 class="h1">Documenting Pages</h1>
 		<p>
 			We provide a starter template for new documentation pages in <code class="code">/src/routes/(inner)/template/+page.svelte</code>. This
-			implements our the
+			implements our
 			<a
 				class="anchor"
 				href="https://github.com/skeletonlabs/skeleton/tree/dev/sites/skeleton.dev/src/lib/layouts/DocsShell"
