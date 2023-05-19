@@ -165,9 +165,9 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 		}
 		// On Tab or ArrowDown key
 		const triggerMenuFocused: boolean = popupState.open && document.activeElement === triggerNode;
-		if (triggerMenuFocused && (key === 'ArrowDown' || key === 'Tab')) {
+		if (triggerMenuFocused && (key === 'ArrowDown' || key === 'Tab') && focusableAllowedList.length > 0 && focusablePopupElements.length > 0) {
 			event.preventDefault();
-			if (focusableAllowedList.length > 0) focusablePopupElements[0].focus();
+			focusablePopupElements[0].focus();
 		}
 	};
 
