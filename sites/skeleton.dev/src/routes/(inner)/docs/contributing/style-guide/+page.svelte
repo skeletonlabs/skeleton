@@ -81,7 +81,7 @@
 		<!-- prettier-ignore -->
 		<p>
 			If you need to include miscellaneous attributes that were not defined as properties, use Svelte's <code class="code">$$restProps</code>. Be careful
-			though, this can overwrite the element's <code class="code">$$props.class</code> attribute. To avoid this, delete the <code class="code">class</code> key from <code class="code">$$restProps</code>. We recommend introducing a <code class="code">restProps</code> function as shown below.
+			though, this can overwrite the element's <code class="code">$$props.class</code> attribute. To avoid this, delete the <code class="code">class</code> key from <code class="code">$$restProps</code>. We recommend introducing a <code class="code">prunedRestProps</code> function as shown below.
 		</p>
 		<CodeBlock
 			language="js"
