@@ -267,6 +267,30 @@ const modal: ModalSettings = {\n
 };`}
 			/>
 		</section>
+		<!-- Async Await -->
+		<section class="space-y-4">
+			<h2 class="h2">Async Await</h2>
+			<!-- prettier-ignore -->
+			<p>You may await a modal response by wrapping it in a <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="noreferrer">Javascript Promise</a>, which resolves when the response is triggered.</p>
+			<CodeBlock
+				language="ts"
+				code={`
+new Promise<boolean>((resolve) => {
+	const modal: ModalSettings = {
+		type: 'confirm',
+		title: 'Please Confirm',
+		body: 'Are you sure you wish to proceed?',
+		response: (r: boolean) => {
+			resolve(r);
+		}
+	};
+	modalStore.trigger(modal);
+}).then((r: any) => {
+	console.log('resolved response:', r);
+});
+	`}
+			/>
+		</section>
 		<!-- Component Modals -->
 		<section class="space-y-4">
 			<div class="flex items-center space-x-2">
