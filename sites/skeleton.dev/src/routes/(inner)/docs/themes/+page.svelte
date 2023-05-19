@@ -198,6 +198,26 @@ body {
                         	`}
 						/>
 					{/each}
+					<!-- 5 -->
+					<h3 class="h3" data-toc-ignore>5. Preloading Fonts.</h3>
+					<p>
+						To avoid your page flickering during hydration, consider preloading fonts within the <code class="code">head</code>
+						tag in <code class="code">app.html</code>
+					</p>
+					{#each activeFonts as f}
+						<CodeBlock
+							language="html"
+							code={`
+<link
+	rel="preload"
+	href="%sveltekit.assets%/fonts/${f.file}"
+	as="font"
+	type="font/ttf"
+	crossorigin
+/>
+                        	`}
+						/>
+					{/each}
 				{:else if tabsFontImport === 1}
 					<aside class="alert alert-message variant-ghost-warning">
 						<p><strong>Warning:</strong> please be aware that using remote imports are typically not GDPR compliant.</p>
