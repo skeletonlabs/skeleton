@@ -10,8 +10,8 @@
 	const cChip = 'chip variant-soft hover:variant-filled';
 
 	// Local
-	const githubSourcePath = 'https://github.com/skeletonlabs/skeleton/tree/dev/packages/skeleton/src';
-	const githubDocSourcePath = 'https://github.com/skeletonlabs/skeleton/blob/dev/sites/skeleton.dev/src';
+	const githubSourcePath = 'https://github.com/skeletonlabs/skeleton/tree/master/packages/skeleton/src';
+	const githubDocSourcePath = 'https://github.com/skeletonlabs/skeleton/blob/master/sites/skeleton.dev/src';
 
 	function formatImportSnippet(): string {
 		let snippet = ``;
