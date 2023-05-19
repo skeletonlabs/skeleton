@@ -250,27 +250,6 @@ modalStore.trigger(modal);
 			<p>Trigger the <code class="code">clear()</code> method to completely empty the modal queue.</p>
 			<CodeBlock language="ts" code={`modalStore.clear();`} />
 		</section>
-		<!-- Awaiting a Modal-->
-		<section class="space-y-4">
-			<h2 class="h2">Awaiting a Modal</h2>
-			<p>A Confirm Modal (or a Custom Modal with a callback) can be awaited by wrapping it in a Promise.</p>
-			<CodeBlock
-				language="ts"
-				code={`
-function triggerAwaitableConfirm(): Promise<boolean> {
-	return new Promise<boolean>((resolve) => {
-		const d: ModalSettings = {
-			type: 'confirm',
-			title: 'Please Confirm',
-			body: 'Are you sure you wish to proceed?',
-			response: (r: boolean) => {
-				resolve(r);
-			}
-		};
-		modalStore.trigger(d);
-	})
-}`}/>
-		</section>
 		<!-- Modal Settings -->
 		<section class="space-y-4">
 			<h2 class="h2">Modal Settings</h2>
@@ -286,6 +265,30 @@ const modal: ModalSettings = {\n
 	// Provide arbitrary metadata to your modal instance:
 	meta: { foo: 'bar', fizz: 'buzz', fn: myCustomFunction }\n
 };`}
+			/>
+		</section>
+		<!-- Async Await -->
+		<section class="space-y-4">
+			<h2 class="h2">Async Await</h2>
+			<!-- prettier-ignore -->
+			<p>You may await a modal response by wrapping it in a <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="noreferrer">Javascript Promise</a>, which resolves when the response is triggered.</p>
+			<CodeBlock
+				language="ts"
+				code={`
+new Promise<boolean>((resolve) => {
+	const modal: ModalSettings = {
+		type: 'confirm',
+		title: 'Please Confirm',
+		body: 'Are you sure you wish to proceed?',
+		response: (r: boolean) => {
+			resolve(r);
+		}
+	};
+	modalStore.trigger(modal);
+}).then((r: any) => {
+	console.log('resolved response:', r);
+});
+	`}
 			/>
 		</section>
 		<!-- Component Modals -->
