@@ -199,13 +199,22 @@ body {
 						/>
 					{/each}
 					<!-- 5 -->
-					<h3 class="h3" data-toc-ignore>5. Preload the Font to avoid flickering</h3>
-					<p>To avoid your page flickering during hydration, you should consider preloading your font in your <code class="code">head</code> tag in your <code class="code">app.html</code></p>
+					<h3 class="h3" data-toc-ignore>5. Preloading Fonts.</h3>
+					<p>
+						To avoid your page flickering during hydration, consider preloading fonts within the <code class="code">head</code>
+						tag in <code class="code">app.html</code>
+					</p>
 					{#each activeFonts as f}
 						<CodeBlock
 							language="html"
 							code={`
-<link rel="preload" href="%sveltekit.assets%/fonts/${f.file}" as="font" type="font/ttf" crossorigin />
+<link
+	rel="preload"
+	href="%sveltekit.assets%/fonts/${f.file}"
+	as="font"
+	type="font/ttf"
+	crossorigin
+/>
                         	`}
 						/>
 					{/each}
