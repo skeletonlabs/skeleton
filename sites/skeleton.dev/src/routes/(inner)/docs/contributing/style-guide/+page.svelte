@@ -1,6 +1,32 @@
 <script lang="ts">
 	import LayoutPage from '$lib/layouts/LayoutPage/LayoutPage.svelte';
-	import { CodeBlock } from '@skeletonlabs/skeleton';
+	import { CodeBlock, Table, type TableSource } from '@skeletonlabs/skeleton';
+
+	// Tables
+	const tableBranches: TableSource = {
+		head: ['Branch', 'Description', 'Pull Requests'],
+		body: [
+			[
+				'<code class="code">master</code>',
+				'Represents the production branch. All pull requests submitted to this branch will be rejected.',
+				'🚫 No'
+			],
+			[
+				'<code class="code">dev</code>',
+				'The active development branch containing bleeding edge changes. Target this branch for PRs',
+				'✅ Yes'
+			]
+		]
+	};
+	const tableBranchNaming: TableSource = {
+		head: ['Prefix', 'Description'],
+		body: [
+			['<code class="code">docs/*</code>', 'Updates to the documentation pages or text copy.'],
+			['<code class="code">feat/*</code>', 'New features, components, or far-reaching updates.'],
+			['<code class="code">chore/*</code>', 'Simple and localized updates.'],
+			['<code class="code">bugfix/*</code>', 'Commits that address or fix issues.']
+		]
+	};
 </script>
 
 <LayoutPage>
@@ -18,6 +44,16 @@
 	</header>
 
 	<hr />
+
+	<!--Branches -->
+	<section class="space-y-4">
+		<h2 class="h2">Branches</h2>
+		<Table source={tableBranches} />
+		<h4 class="h4">Feature Branch Conventions</h4>
+		<Table source={tableBranchNaming} />
+		<p>Each wildcard (*) should be replaced with short and semantic descriptions using kebab-case.</p>
+		<pre class="pre">feat/my-new-component-name</pre>
+	</section>
 
 	<!-- File Names -->
 	<section class="space-y-4">
