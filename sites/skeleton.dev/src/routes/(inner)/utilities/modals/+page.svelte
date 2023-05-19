@@ -250,6 +250,27 @@ modalStore.trigger(modal);
 			<p>Trigger the <code class="code">clear()</code> method to completely empty the modal queue.</p>
 			<CodeBlock language="ts" code={`modalStore.clear();`} />
 		</section>
+		<!-- Awaiting a Modal-->
+		<section class="space-y-4">
+			<h2 class="h2">Awaiting a Modal</h2>
+			<p>A Confirm Modal (or a Custom Modal with a callback) can be awaited by wrapping it in a Promise.</p>
+			<CodeBlock
+				language="ts"
+				code={`
+function triggerAwaitableConfirm(): Promise<boolean> {
+	return new Promise<boolean>((resolve) => {
+		const d: ModalSettings = {
+			type: 'confirm',
+			title: 'Please Confirm',
+			body: 'Are you sure you wish to proceed?',
+			response: (r: boolean) => {
+				resolve(r);
+			}
+		};
+		modalStore.trigger(d);
+	})
+}`}/>
+		</section>
 		<!-- Modal Settings -->
 		<section class="space-y-4">
 			<h2 class="h2">Modal Settings</h2>
