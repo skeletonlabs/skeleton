@@ -149,7 +149,7 @@ export let rounded: CssClasses = 'rounded-xl'; // border radius
 	<section class="space-y-4">
 		<h2 class="h2">CSS Styling Conventions</h2>
 		<p>
-			Skeleton utilitizes a opinionated set of conventions for defining structural and component props for CSS utility classes within
+			Skeleton utilizes an opinionated set of conventions for defining structural and component props for CSS utility classes within
 			components. Please review existing components for examples of this in practice.
 		</p>
 		<!-- Base Classes -->
