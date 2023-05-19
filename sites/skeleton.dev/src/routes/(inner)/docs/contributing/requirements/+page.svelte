@@ -72,7 +72,7 @@
 				Follow our recommended <strong>branch naming convention</strong> defined in our <a class="anchor" href="/docs/contributing/style-guide">style guide</a>.
 			</li>
 			<li>Submit your pull request as a <strong>DRAFT</strong> as early as possible. Peer review is critical to this process.</li>
-			<li>Run automated tests with <code class="code">npm run test</code> to verify that no regressions were introduced.</li>
+			<li>Run automated tests with <code class="code">pnpm test</code> to verify that no regressions were introduced.</li>
 			<li>
 				Be sure to follow our recommended <a class="anchor" href="/docs/contributing/documentation" target="_blank" rel="noreferrer"> documentation guidelines</a> before requesting a review.
 			</li>
