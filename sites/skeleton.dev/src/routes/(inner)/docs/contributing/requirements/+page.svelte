@@ -116,10 +116,7 @@
 		</ol>
 		<h3 class="h3">Adding New Projects</h3>
 		<p>
-			If you wish to add a new project, run <code class="code">pnpm csa yoursitename</code> from the root of the monorepo. This will
-			generate a brand new Skeleton project via
-			<a class="anchor" href="https://github.com/skeletonlabs/create-skeleton-app" target="_blank" rel="noreferrer">create-skeleton-app</a>
-			in the <code class="code">/sites</code> directory.
+			If you wish to add a new project, first run <code class="code">pnpm getall</code> from the root of the monorepo. This will clone <a class="anchor" href="https://github.com/skeletonlabs/create-skeleton-app" target="_blank" rel="noreferrer">create-skeleton-app</a> into your project under <code class="code">packages/create-skeleton-app</code>. Next run <code class="code">pnpm csa yoursitename</code>. This will generate a brand new Skeleton project in the <code class="code">/sites</code> directory.
 		</p>
 		<h3 class="h3">Importing Skeleton</h3>
 		<p>To import Skeleton features (ex: components) within each monorepo project, use the following structure:</p>
