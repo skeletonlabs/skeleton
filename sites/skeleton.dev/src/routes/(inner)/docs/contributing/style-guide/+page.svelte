@@ -111,7 +111,7 @@ export let parameters: Record<string, string> = { foo: 'bar' };
 		<ul class="list-disc list-outside ml-4 space-y-1">
 			<li>Each prop should be a single word, all lowercase, and semantic. Match Tailwind class names if possible.</li>
 			<li>If you need multiple words, use camel-casing (ex: <code class="code">ringWidth</code>).</li>
-			<li>Typescript will automatically handle primative types, such as <em>string</em>, <em>number</em>, or <em>boolean</em>.</li>
+			<li>Typescript will automatically handle primitive types that can be trivially inferred, such as <em>string</em>, <em>number</em>, or <em>boolean</em>.</li>
 			<li>Make sure to set relevant default values when possible.</li>
 			<li>When an existing prop is modified, consider documenting an example if relevant.</li>
 		</ul>
