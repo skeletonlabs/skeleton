@@ -8,7 +8,7 @@
 		"preinstall": "npx only-allow pnpm",
 		"getall": "node scripts/checkout.cjs && pnpm i",
 		"postinstall": "pnpm -r sync",
-		"csa": "node ./packages/create-skeleton-app/src/index.js --types=typescript --prettier --eslint --playwright=false --vitest=false --codeblocks=true --popups=true --typography=true --forms=true -t=skeleton --skeletontemplate=welcome -p=sites --monorepo --inspector=true",
+		"csa": "node ./packages/create-skeleton-app/src/index.js --types=typescript --prettier --eslint --playwright --vitest=false --codeblocks --popups --typography --forms -t=skeleton --skeletontemplate=welcome -p=sites --monorepo --inspector --library",
 		"templategen": "node ./scripts/template-gen.js"
 	},
 	"license": "MIT",
