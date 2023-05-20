@@ -11,12 +11,14 @@
 	 * @type {PaginationSettings}
 	 */
 	export let settings: PaginationSettings = { offset: 0, limit: 5, size: 0, amounts: [1, 2, 5, 10] };
-	/** Sets selection and buttons to disabled state on-demand. */
+	/** Sets selection, page input and buttons to disabled state on-demand. */
 	export let disabled = false;
 
 	// Props (styles)
 	/** Provide classes to style the select input. */
 	export let select: CssClasses = 'select min-w-[150px]';
+	/** Provide classes to style the page input. */
+	export let pageInputClasses: CssClasses = 'input min-w-[150px]';
 	/** Provide classes to set flexbox justification. */
 	export let justify: CssClasses = 'justify-between';
 	/** Provide classes to style page info text. */
@@ -45,9 +47,22 @@
 		/** @event {{ length: number }} amount - Fires when the amount selection input changes.  */
 		dispatch('amount', settings.limit);
 	}
+	function onChangePage(event: Event): void {
+		const target = event.target as HTMLInputElement;
+		if (isNaN(target.valueAsNumber) || target.valueAsNumber < 0) {
+			settings.offset = 0;
+		} else if (target.valueAsNumber >= settings.size / settings.limit) {
+			settings.offset = settings.size / settings.limit - 1;
+		} else {
+			settings.offset = target.valueAsNumber;
+		}
+		target.valueAsNumber = settings.offset;
+
+		/** @event {{ offset: number }} page Fires when the next/back buttons are pressed or the page input value changed. */
+		dispatch('page', settings.offset);
+	}
 	function onPrev(): void {
 		settings.offset--;
-		/** @event {{ offset: number }} page Fires when the next/back buttons are pressed. */
 		dispatch('page', settings.offset);
 	}
 	function onNext(): void {
@@ -67,6 +82,7 @@
 	$: classesBase = `${cBase} ${justify} ${$$props.class ?? ''}`;
 	$: classesLabel = `${cLabel}`;
 	$: classesSelect = `${select}`;
+	$: classesPageInput = `${pageInputClasses}`;
 	$: classesPageText = `${cPageText} ${text}`;
 </script>
 
@@ -82,6 +98,10 @@
 	<span class="paginator-details {classesPageText}">
 		{settings.offset * settings.limit + 1} - {Math.min(settings.offset * settings.limit + settings.limit, settings.size)} <span class="opacity-50 px-2">/</span> <strong>{settings.size}</strong>
 	</span>
+	<!-- Page Input -->
+	<label class="paginator-label {classesLabel}">
+		<input type="number" max="{settings.size / settings.limit - 1}" min="0" value={settings.offset} on:change={(event) => { onChangePage(event) }} class="paginator-input {classesPageInput}" {disabled} aria-label="Page Input" />
+	</label>
 	<!-- Arrows -->
 	<div class="paginator-arrows space-x-2">
 		<button type="button" class="{buttonClasses}" on:click={() => { onFirst() }} disabled={disabled || settings.offset === 0}>
