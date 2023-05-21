@@ -4,6 +4,7 @@
 
 	import { writable, type Writable } from 'svelte/store';
 	import { setContext } from 'svelte';
+	import { slide, type TransitionConfig } from 'svelte/transition';
 
 	// Types
 	import type { CssClasses } from '../..';
@@ -11,8 +12,23 @@
 	// Props
 	/** Set the auto-collapse mode. */
 	export let autocollapse = false;
-	/** Set the drawer animation duration in milliseconds. */
+	/** DEPRECATED: use transition or transitionIn, transitionOut instead. */
 	export let duration = 200; // ms
+	/**
+	 * Set the In/Out transition with it's params.
+	 * @type {[(...args:any[]) => TransitionConfig, {}]}
+	 */
+	export let transition: [(...args: any[]) => TransitionConfig, {}] = [slide, { duration: 200 }];
+	/**
+	 * Overrides the In transition with it's params.
+	 * @type {[(...args:any[]) => TransitionConfig, {}]|undefined}
+	 */
+	export let transitionIn: [(...args: any[]) => TransitionConfig, {}] | undefined = undefined;
+	/**
+	 * Overrides the Out transition with it's params.
+	 * @type {[(...args:any[]) => TransitionConfig, {}]|undefined}
+	 */
+	export let transitionOut: [(...args: any[]) => TransitionConfig, {}] | undefined = undefined;
 
 	// Props (parent)
 	/** Provide classes to set the accordion width. */
@@ -44,6 +60,9 @@
 	/** Provide arbitrary classes to the caret icon region. */
 	export let regionCaret: CssClasses = '';
 
+	// Silence warning about unused props:
+	const deprecated = [duration];
+
 	// Local
 	const active: Writable<string | null> = writable(null);
 
@@ -51,6 +70,9 @@
 	setContext('active', active);
 	setContext('autocollapse', autocollapse);
 	setContext('duration', duration);
+	setContext('transition', transition);
+	setContext('transitionIn', transitionIn);
+	setContext('transitionOut', transitionOut);
 	setContext('disabled', disabled);
 	setContext('padding', padding);
 	setContext('hover', hover);

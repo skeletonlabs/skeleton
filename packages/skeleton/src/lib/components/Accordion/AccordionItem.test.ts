@@ -1,11 +1,14 @@
 import { render } from '@testing-library/svelte';
 import { describe, it, expect } from 'vitest';
+import { slide } from 'svelte/transition';
 
 import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
 
 describe('AccordionItem.svelte', () => {
 	it('Renders with minimal props', async () => {
-		const { getByTestId } = render(AccordionItem);
+		const { getByTestId } = render(AccordionItem, {
+			transition: [slide, { duration: 200 }]
+		});
 		expect(getByTestId('accordion-item')).toBeTruthy();
 	});
 
@@ -17,7 +20,8 @@ describe('AccordionItem.svelte', () => {
 			rounded: 'rounded-container-token',
 			regionControl: '',
 			regionPanel: 'space-y-4',
-			regionCaret: ''
+			regionCaret: '',
+			transition: [slide, { duration: 200 }]
 		});
 		expect(getByTestId('accordion-item')).toBeTruthy();
 		expect(getByTestId('accordion-item').querySelector('.accordion-control')?.className).to.contain('py-2 px-4');

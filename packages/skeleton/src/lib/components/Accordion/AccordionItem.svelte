@@ -12,7 +12,7 @@
 	import { getContext } from 'svelte';
 	import { createEventDispatcher } from 'svelte/internal';
 	import type { Writable } from 'svelte/store';
-	import { slide } from 'svelte/transition';
+	import type { TransitionConfig } from 'svelte/transition';
 
 	// Event Dispatcher
 	const dispatch = createEventDispatcher();
@@ -41,8 +41,14 @@
 	export let autocollapse: boolean = getContext('autocollapse');
 	/** The writable store that houses the auto-collapse active item UUID. */
 	export let active: Writable<string | null> = getContext('active');
-	/** Set the drawer animation duration. */
+	/** DEPRECATED: use transition or transitionIn, transitionOut instead. */
 	export let duration: number = getContext('duration');
+	/** Set the In/Out transition. */
+	export let transition: [(...args: any[]) => TransitionConfig, {}] = getContext('transition');
+	/** Overrides the In transition with it's params. */
+	export let transitionIn: [(...args: any[]) => TransitionConfig, {}] = getContext('transitionIn');
+	/** Overrides the Out transition with it's params. */
+	export let transitionOut: [(...args: any[]) => TransitionConfig, {}] = getContext('transitionOut');
 	// ---
 	/** Set the disabled state for this item. */
 	export let disabled: boolean = getContext('disabled');
@@ -64,6 +70,9 @@
 	export let regionPanel: CssClasses = getContext('regionPanel');
 	/** Provide arbitrary classes caret icon region. */
 	export let regionCaret: CssClasses = getContext('regionCaret');
+
+	// Silence warning about unused props:
+	const deprecated = [duration];
 
 	// Change open behavior based on auto-collapse mode
 	function setActive(event?: Event): void {
@@ -90,6 +99,11 @@
 	// Reactive State
 	$: if (open && autocollapse) setActive();
 	$: openState = autocollapse ? $active === id : open;
+	// Reactive transition
+	$: trIn = transitionIn === undefined ? transition[0] : transitionIn[0];
+	$: trInParams = transitionIn === undefined ? transition[1] : transitionIn[1];
+	$: trOut = transitionOut === undefined ? transition[0] : transitionOut[0];
+	$: trOutParams = transitionOut === undefined ? transition[1] : transitionOut[1];
 	// Reactive Classes
 	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
 	$: classesControl = `${cControl} ${padding} ${hover} ${rounded} ${regionControl}`;
@@ -140,7 +154,8 @@
 		<div
 			class="accordion-panel {classesPanel}"
 			id="accordion-panel-{id}"
-			transition:slide|local={{ duration }}
+			in:trIn|local={{ ...trInParams }}
+			out:trOut|local={{ ...trOutParams }}
 			role="region"
 			aria-hidden={!openState}
 			aria-labelledby="accordion-control-{id}"
