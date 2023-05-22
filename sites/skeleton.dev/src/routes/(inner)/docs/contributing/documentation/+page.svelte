@@ -76,7 +76,7 @@ const settings: DocsShellSettings = {
 		<!-- prettier-ignore -->
 		<p>
 			Make sure to provide at least one featured example at the top of the page within the <code class="code">sandbox</code> slot. Feature examples
-			can be presented using the <a href="https://github.com/skeletonlabs/skeleton/tree/dev/sites/skeleton.dev/src/lib/components/DocsPreview" class="anchor" target="_blank" rel="noreferrer">DocsPreview</a> component, which provides a number slots and properties.
+			can be presented using the <a href="https://github.com/skeletonlabs/skeleton/tree/dev/sites/skeleton.dev/src/lib/components/DocsPreview" class="anchor" target="_blank" rel="noreferrer">DocsPreview</a> component, which provides a number of slots and properties.
 		</p>
 		<CodeBlock
 			language="html"
