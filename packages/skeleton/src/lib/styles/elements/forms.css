@@ -193,7 +193,7 @@
 	}
 	.input-group input,
 	.input-group select {
-		@apply border-0 ring-0 bg-transparent;
+		@apply border-0 !ring-0 bg-transparent;
 	}
 	.input-group select option {
 		@apply bg-surface-200-700-token;
