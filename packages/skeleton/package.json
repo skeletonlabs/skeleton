@@ -7,7 +7,6 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"package": "node ./scripts/pre-build.js && pnpm build:jss && svelte-kit sync && svelte-package && node ./scripts/post-build.js",
-		"publish": "npm publish",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
