@@ -15,7 +15,7 @@
 	<header class="space-y-4">
 		<h1 class="h1">Sveld for Components</h1>
 		<!-- prettier-ignore -->
-		<p>Skeleton implements <a class="anchor" href="https://github.com/carbon-design-system/sveld" target="_blank" rel="noreferrer">Svelte</a> to automatically document props, events, and slots from within each component. This is handled by appending <a class="anchor" href="https://tsdoc.org" target="_blank" rel="noreferrer">TSDoc</a> comments - a superset of JSDoc. This also enables <a class="anchor" href="https://code.visualstudio.com/docs/editor/intellisense" target="_blank" rel="noreferrer">IntelliSense</a> for end users.</p>
+		<p>Skeleton implements <a class="anchor" href="https://github.com/carbon-design-system/sveld" target="_blank" rel="noreferrer">Sveld</a> to automatically document props, events, and slots from within each component. This is handled by appending <a class="anchor" href="https://tsdoc.org" target="_blank" rel="noreferrer">TSDoc</a> comments - a superset of JSDoc. This also enables <a class="anchor" href="https://code.visualstudio.com/docs/editor/intellisense" target="_blank" rel="noreferrer">IntelliSense</a> for end users.</p>
 		<a class="btn variant-filled" href="https://github.com/carbon-design-system/sveld" target="_blank" rel="noreferrer">
 			Sveld Documentation
 		</a>
