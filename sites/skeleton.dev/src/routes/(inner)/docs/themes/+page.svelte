@@ -110,7 +110,7 @@ body {
 		/>
 		<!-- prettier-ignore -->
 		<p>
-			<a class="anchor" href="https://github.com/skeletonlabs/skeleton/tree/master/src/lib/themes" target="_blank" rel="noreferrer">View any existing theme</a> for a full list of available CSS custom properties. For heavy modifications to preset themes, consider copying the theme to your local project and use it like any other custom theme.
+			<a class="anchor" href="https://github.com/skeletonlabs/skeleton/tree/master/packages/skeleton/src/lib/themes" target="_blank" rel="noreferrer">View any existing theme</a> for a full list of available CSS custom properties. For heavy modifications to preset themes, consider copying the theme to your local project and use it like any other custom theme.
 		</p>
 	</section>
 

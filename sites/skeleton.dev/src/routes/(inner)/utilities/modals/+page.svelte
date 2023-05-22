@@ -310,7 +310,7 @@ new Promise<boolean>((resolve) => {
 				<svelte:fragment slot="footer">
 					<div class="text-center">
 						<!-- prettier-ignore -->
-						<a class="btn variant-ghost" href="https://github.com/skeletonlabs/skeleton/tree/master/src/docs/modals/examples" target="_blank" rel="noreferrer">View Source Code</a>
+						<a class="btn variant-ghost" href="https://github.com/skeletonlabs/skeleton/tree/master/sites/skeleton.dev/src/lib/modals/examples" target="_blank" rel="noreferrer">View Source Code</a>
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">

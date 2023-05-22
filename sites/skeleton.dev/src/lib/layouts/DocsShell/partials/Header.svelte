@@ -10,7 +10,8 @@
 	const cChip = 'chip variant-soft hover:variant-filled';
 
 	// Local
-	const githubSourcePath = 'https://github.com/skeletonlabs/skeleton/tree/master/packages/skeleton/src'; // FIXME: hardcoded path
+	const githubSourcePath = 'https://github.com/skeletonlabs/skeleton/tree/master/packages/skeleton/src';
+	const githubDocSourcePath = 'https://github.com/skeletonlabs/skeleton/blob/master/sites/skeleton.dev/src';
 
 	function formatImportSnippet(): string {
 		let snippet = ``;
@@ -64,7 +65,7 @@
 		{/if}
 		<!-- Doc Source -->
 		{#if pageData.docsPath}
-			<a class={cChip} href={`${githubSourcePath}/routes/(inner)${pageData.docsPath}/+page.svelte`} target="_blank" rel="noreferrer">
+			<a class={cChip} href={`${githubDocSourcePath}/routes/(inner)${pageData.docsPath}/+page.svelte`} target="_blank" rel="noreferrer">
 				<i class="fa-solid fa-code" />
 				<span>Page Source</span>
 			</a>
