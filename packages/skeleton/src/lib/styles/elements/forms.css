@@ -1,0 +1,283 @@
+/* Stylesheet: forms.css */
+
+@layer base {
+	/* === Resets === */
+
+	fieldset,
+	legend,
+	label {
+		@apply block;
+	}
+
+	/* Placeholders */
+	::-moz-placeholder {
+		@apply text-surface-500-400-token;
+	}
+	:-ms-input-placeholder {
+		@apply text-surface-500-400-token;
+	}
+	::placeholder {
+		@apply text-surface-500-400-token;
+	}
+
+	/* Date Calendar Picker (Webkit) */
+	input::-webkit-calendar-picker-indicator {
+		@apply dark:invert;
+	}
+
+	/* Search Input "X" Cancel Button (Webkit) */
+	/* Source: https://stackoverflow.com/a/64267916 */
+	input[type='search']::-webkit-search-cancel-button {
+		-webkit-appearance: none;
+		background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z'/%3E%3C/svg%3E")
+			no-repeat 50% 50%;
+		@apply h-4 w-4 rounded-full bg-contain opacity-0 pointer-events-none;
+	}
+	input[type='search']:focus::-webkit-search-cancel-button {
+		@apply opacity-100 pointer-events-auto;
+	}
+	input[type='search']::-webkit-search-cancel-button {
+		@apply dark:invert;
+	}
+
+	/* Progress Bar */
+	progress {
+		webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		@apply w-full h-2 overflow-hidden rounded-token;
+		@apply bg-surface-400-500-token;
+	}
+	progress::-webkit-progress-bar {
+		@apply bg-surface-400-500-token;
+	}
+	progress::-webkit-progress-value {
+		@apply bg-surface-900-50-token;
+	}
+	::-moz-progress-bar {
+		@apply bg-surface-900-50-token;
+	}
+	:indeterminate::-moz-progress-bar {
+		width: 0;
+	}
+
+	/* Range Input */
+	/* https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color */
+	[type='range'] {
+		@apply w-full accent-surface-900 dark:accent-surface-50;
+	}
+
+	/* === Text Labeling === */
+
+	.legend {
+		@apply font-heading-token text-xl md:text-2xl;
+	}
+
+	.label {
+		@apply space-y-1;
+	}
+
+	/* === Core Styles === */
+
+	.input,
+	.textarea,
+	.select,
+	.input-group {
+		@apply w-full transition duration-200;
+		/* Background */
+		@apply bg-surface-200-700-token focus:brightness-105 hover:brightness-105;
+		/* Ring */
+		@apply !ring-0;
+		/* Border */
+		@apply border-token border-surface-400-500-token focus-within:border-primary-500;
+	}
+
+	/* Base Inputs */
+	.input,
+	.input-group {
+		@apply rounded-token;
+	}
+
+	/* Container Inputs */
+	.textarea,
+	.select {
+		@apply rounded-container-token;
+	}
+
+	/* Select (size/multiple) */
+	.select {
+		@apply p-2 pr-8 space-y-1;
+	}
+	.select[size] {
+		@apply bg-none;
+	}
+	.select optgroup {
+		@apply space-y-1 font-bold;
+	}
+	.select optgroup option {
+		@apply ml-0 pl-0;
+	}
+	.select optgroup option:first-of-type {
+		@apply mt-3;
+	}
+	.select optgroup option:last-child {
+		@apply !mb-3;
+	}
+	.select option {
+		@apply bg-surface-200-700-token px-4 py-2 rounded-token cursor-pointer;
+	}
+	.select option:checked {
+		/* https://stackoverflow.com/questions/50618602/change-color-of-selected-option-in-select-multiple */
+		background: rgb(var(--color-primary-500)) linear-gradient(0deg, rgb(var(--color-primary-500)) 0%, rgb(var(--color-primary-500)) 100%);
+		@apply text-on-primary-token;
+	}
+
+	/* Checkbox & Radio */
+	.checkbox,
+	.radio {
+		@apply w-5 h-5 !ring-0 rounded cursor-pointer;
+		/* Background */
+		@apply bg-surface-200-700-token focus:brightness-105 hover:brightness-105;
+		/* Border */
+		@apply border-token border-surface-400-500-token focus:border-primary-500;
+	}
+	.checkbox:checked,
+	.radio:checked {
+		@apply bg-primary-500 hover:bg-primary-500 focus:bg-primary-500 focus:ring-0;
+	}
+	.radio {
+		@apply rounded-token;
+	}
+
+	/* === Specialized === */
+
+	/* File Inputs */
+	.input[type='file'] {
+		@apply p-1;
+	}
+
+	/* Color Picker */
+	/* https://stackoverflow.com/questions/11167281/webkit-css-to-control-the-box-around-the-color-in-an-inputtype-color */
+	.input[type='color'] {
+		@apply border-none w-10 h-10 overflow-hidden rounded-token cursor-pointer;
+		-webkit-appearance: none; /* WebKit Only */
+	}
+	.input[type='color']::-webkit-color-swatch-wrapper {
+		@apply p-0;
+	}
+	.input[type='color']::-webkit-color-swatch {
+		@apply border-none hover:brightness-110;
+	}
+	.input[type='color']::-moz-color-swatch {
+		@apply border-none;
+	}
+
+	/* === States === */
+
+	.input:disabled,
+	.textarea:disabled,
+	.select:disabled {
+		@apply !opacity-50 !cursor-not-allowed hover:!brightness-100;
+	}
+
+	.input[readonly],
+	.textarea[readonly],
+	.select[readonly] {
+		@apply !border-0 !cursor-not-allowed hover:!brightness-100;
+	}
+
+	/* === Input Groups === */
+
+	.input-group {
+		@apply grid overflow-hidden;
+	}
+	.input-group input,
+	.input-group select {
+		@apply border-0 !ring-0 bg-transparent;
+	}
+	.input-group select option {
+		@apply bg-surface-200-700-token;
+	}
+	.input-group div,
+	.input-group a,
+	.input-group button {
+		@apply px-4 flex justify-between items-center;
+	}
+	.input-group-divider input,
+	.input-group-divider select,
+	.input-group-divider div,
+	.input-group-divider a {
+		@apply border-l border-surface-400-500-token focus:border-surface-400-500-token;
+		/* Disable Ring */
+		@apply !ring-0;
+		/* Prevent buttons from being squished */
+		@apply !min-w-fit;
+	}
+	.input-group-divider *:first-child {
+		@apply !border-l-0;
+	}
+	.input-group-shim {
+		@apply bg-surface-400/10 text-surface-600-300-token;
+	}
+
+	/* === Variants === */
+
+	/* success */
+	.input-success {
+		@apply !bg-success-200 !border-success-500 !text-success-700;
+	}
+	.input-success::-moz-placeholder {
+		@apply text-success-700;
+	}
+	.input-success:-ms-input-placeholder {
+		@apply text-success-700;
+	}
+	.input-success::placeholder {
+		@apply text-success-700;
+	}
+
+	/* warning */
+	.input-warning {
+		@apply !bg-warning-200 !border-warning-500 !text-warning-700;
+	}
+	.input-warning::-moz-placeholder {
+		@apply text-warning-700;
+	}
+	.input-warning:-ms-input-placeholder {
+		@apply text-warning-700;
+	}
+	.input-warning::placeholder {
+		@apply text-warning-700;
+	}
+
+	/* error */
+	.input-error {
+		@apply !bg-error-200 !border-error-500 !text-error-500;
+	}
+	.input-error::-moz-placeholder {
+		@apply text-error-500;
+	}
+	.input-error:-ms-input-placeholder {
+		@apply text-error-500;
+	}
+	.input-error::placeholder {
+		@apply text-error-500;
+	}
+
+	/* === Variants === */
+
+	/* Material */
+	.variant-form-material {
+		/* Border Radius */
+		@apply !rounded-tl !rounded-tr !rounded-bl-none !rounded-br-none;
+		/* Background */
+		@apply bg-surface-500/10 dark:bg-surface-500/20;
+		/* Border */
+		@apply border-0 border-b-2;
+		/* Blur */
+		@apply backdrop-blur;
+	}
+	.variant-form-material[type='file'] {
+		@apply !py-1.5;
+	}
+}
