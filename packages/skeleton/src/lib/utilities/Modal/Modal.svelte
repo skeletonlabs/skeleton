@@ -8,7 +8,8 @@
 	// Types
 	import type { CssClasses } from '../..';
 
-	import { focusTrap, modalStore } from '../..';
+	import { modalStore } from './stores';
+	import { focusTrap } from '../../actions/FocusTrap/focusTrap';
 	import type { ModalComponent, ModalSettings } from './types';
 
 	// Props
