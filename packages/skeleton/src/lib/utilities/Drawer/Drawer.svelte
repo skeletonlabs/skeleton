@@ -10,7 +10,7 @@
 	import type { CssClasses } from '../..';
 
 	// Actions
-	import { focusTrap } from '../..';
+	import { focusTrap } from '../../actions/FocusTrap/focusTrap';
 
 	// Drawer Utils
 	import type { DrawerSettings } from './types';
