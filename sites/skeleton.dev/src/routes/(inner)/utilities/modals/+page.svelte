@@ -267,9 +267,9 @@ const modal: ModalSettings = {\n
 };`}
 			/>
 		</section>
-		<!-- Async Await -->
+		<!-- Async Response -->
 		<section class="space-y-4">
-			<h2 class="h2">Async Await</h2>
+			<h2 class="h2">Async Response</h2>
 			<!-- prettier-ignore -->
 			<p>You may await a modal response by wrapping it in a <a class="anchor" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="noreferrer">Javascript Promise</a>, which resolves when the response is triggered.</p>
 			<CodeBlock

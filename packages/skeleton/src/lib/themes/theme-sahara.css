@@ -116,10 +116,18 @@
 	background-image:
 		radial-gradient(at 100% 36%, hsla(37,81%,56%,0.15) 0px, transparent 50%),
 		radial-gradient(at 7% 0%, hsla(37,81%,56%,0.20) 0px, transparent 50%);
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 .dark [data-theme='sahara'] {
 	/* prettier-ignore */
 	background-image:
 		radial-gradient(at 100% 36%, hsla(37,81%,56%,0.15) 0px, transparent 50%),
 		radial-gradient(at 7% 0%, hsla(37,81%,56%,0.20) 0px, transparent 50%);
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }

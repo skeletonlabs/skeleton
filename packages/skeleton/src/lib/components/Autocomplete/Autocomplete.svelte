@@ -56,7 +56,7 @@
 	const deprecated = [whitelist, blacklist, duration];
 
 	// Local
-	let listedOptions = options;
+	$: listedOptions = options;
 
 	// Allowed Options
 	function filterByAllowed(): void {

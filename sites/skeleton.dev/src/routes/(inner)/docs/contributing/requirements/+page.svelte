@@ -107,7 +107,7 @@
 			<li>Install <a class="anchor" href="https://pnpm.io/" target="_blank" rel="noreferrer">pnpm</a> globally using <code class="code">npm install -g pnpm</code>. Confirm via <code class="code">pnpm --version</code> in your terminal.</li>
 			<li>Run <code class="code">git clone https://github.com/skeletonlabs/skeleton.git</code> to clone the monorepo project.</li>
 			<li>Run <code class="code">cd skeleton</code> to move into the cloned monorepo project.</li>
-			<li>Run <code class="code">pnpm i</code> to install depedencies for all projects.</li>
+			<li>Delete your <code class="code">node_modules</code> directory, then run <code class="code">pnpm i</code> to install depedencies for all projects.</li>
 			<li>Run <code class="code">cd sites/skeleton.dev</code> to move into the Skeleton documentation project.</li>
 			<li>Run <code class="code">code .</code> to open the current project directory in VS Code.</li>
 			<li>Run <code class="code">pnpm dev</code> to start a local dev server. You may see a warning the first time.</li>
@@ -116,7 +116,11 @@
 		</ol>
 		<h3 class="h3">Adding New Projects</h3>
 		<p>
-			If you wish to add a new project, first run <code class="code">pnpm getall</code> from the root of the monorepo. This will clone <a class="anchor" href="https://github.com/skeletonlabs/create-skeleton-app" target="_blank" rel="noreferrer">create-skeleton-app</a> into your project under <code class="code">packages/create-skeleton-app</code>. Next run <code class="code">pnpm csa yoursitename</code>. This will generate a brand new Skeleton project in the <code class="code">/sites</code> directory.
+			If you wish to add a new project, first run <code class="code">pnpm getall</code> from the root of the monorepo. This will clone
+			<a class="anchor" href="https://github.com/skeletonlabs/create-skeleton-app" target="_blank" rel="noreferrer">create-skeleton-app</a>
+			into your project under <code class="code">packages/create-skeleton-app</code>. Next run
+			<code class="code">pnpm csa yoursitename</code>. This will generate a brand new Skeleton project in the
+			<code class="code">/sites</code> directory.
 		</p>
 		<h3 class="h3">Importing Skeleton</h3>
 		<p>To import Skeleton features (ex: components) within each monorepo project, use the following structure:</p>

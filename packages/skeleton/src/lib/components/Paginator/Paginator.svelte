@@ -29,6 +29,10 @@
 	export let buttonTextPrevious: CssClasses = '&larr;';
 	/** Set the text label for the Next button. */
 	export let buttonTextNext: CssClasses = '&rarr;';
+	/** Set the text label for the First button. */
+	export let buttonTextFirst: CssClasses = '&laquo;';
+	/** Set the text label for the Last button. */
+	export let buttonTextLast: CssClasses = '&raquo;';
 
 	// Base Classes
 	const cBase = 'flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4';
@@ -48,6 +52,14 @@
 	}
 	function onNext(): void {
 		settings.offset++;
+		dispatch('page', settings.offset);
+	}
+	function onFirst(): void {
+		settings.offset = 0;
+		dispatch('page', settings.offset);
+	}
+	function onLast(): void {
+		settings.offset = settings.size / settings.limit - 1;
 		dispatch('page', settings.offset);
 	}
 
@@ -72,11 +84,17 @@
 	</span>
 	<!-- Arrows -->
 	<div class="paginator-arrows space-x-2">
+		<button type="button" class="{buttonClasses}" on:click={() => { onFirst() }} disabled={disabled || settings.offset === 0}>
+			{@html buttonTextFirst}
+		</button>
 		<button type="button" class="{buttonClasses}" on:click={() => { onPrev() }} disabled={disabled || settings.offset === 0}>
 			{@html buttonTextPrevious}
 		</button>
 		<button type="button" class="{buttonClasses}" on:click={() => { onNext() }} disabled={disabled || (settings.offset + 1) * settings.limit >= settings.size}>
 			{@html buttonTextNext}
+		</button>
+		<button type="button" class="{buttonClasses}" on:click={() => { onLast() }} disabled={disabled || (settings.offset + 1) * settings.limit >= settings.size}>
+			{@html buttonTextLast}
 		</button>
 	</div>
 </div>

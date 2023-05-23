@@ -31,7 +31,7 @@ Skeleton is an open source UI toolkit built with Svelte + Tailwind that allows y
 
 ## 🛠️ Contributions
 
-We've provided a detailed [contribution guide](https://www.skeleton.dev/docs/contributing) to help you get started. [Find an open issue](https://github.com/skeletonlabs/skeleton/issues), discuss the requirements with other contributors, then send a PR!
+We have provided a detailed [contribution guide](https://www.skeleton.dev/docs/contributing) to help you get started. [Find an open issue](https://github.com/skeletonlabs/skeleton/issues), discuss the requirements with other contributors, then send a PR!
 
 ## Maintainers
 
