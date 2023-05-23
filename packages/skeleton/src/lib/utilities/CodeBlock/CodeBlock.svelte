@@ -8,7 +8,7 @@
 	import type { CssClasses } from '../..';
 
 	import { storeHighlightJs } from './stores';
-	import { clipboard } from '../..';
+	import { clipboard } from '../../actions/Clipboard/clipboard';
 
 	// Props
 	/** Sets a language alias for Highlight.js syntax highlighting. */
