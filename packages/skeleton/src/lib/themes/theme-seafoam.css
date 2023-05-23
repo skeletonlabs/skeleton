@@ -114,7 +114,15 @@
 /* Created with: https://csshero.org/mesher/ */
 [data-theme='seafoam'] {
 	background: linear-gradient(0deg, rgba(203, 221, 254, 0.75) 0%, rgba(163, 209, 206, 0.75) 100%);
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 .dark [data-theme='seafoam'] {
 	background: linear-gradient(0deg, rgba(33, 50, 83, 1) 0%, rgba(8, 132, 124, 1) 100%);
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
