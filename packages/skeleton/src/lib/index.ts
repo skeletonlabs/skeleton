@@ -1,4 +1,5 @@
 // This file defines the short path imports for the package (ex: @skeletonlabs/skeleton/*)
+import type { TransitionConfig, slide } from 'svelte/transition';
 
 // Types ---
 
@@ -13,6 +14,11 @@ export type { PopupSettings } from './utilities/Popup/types';
 
 // This type alias is to identify CSS classes within component props, which enables Tailwind IntelliSense
 export type CssClasses = string;
+
+export interface TransitionSettings {
+	transition: (...args: Parameters<typeof slide>) => TransitionConfig;
+	params: object;
+}
 
 // Stores ---
 

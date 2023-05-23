@@ -4,31 +4,29 @@
 
 	import { writable, type Writable } from 'svelte/store';
 	import { setContext } from 'svelte';
-	import { slide, type TransitionConfig } from 'svelte/transition';
+	import { slide } from 'svelte/transition';
 
 	// Types
-	import type { CssClasses } from '../..';
+	import type { CssClasses, TransitionSettings } from '../..';
 
 	// Props
 	/** Set the auto-collapse mode. */
 	export let autocollapse = false;
-	/** DEPRECATED: use transition or transitionIn, transitionOut instead. */
-	export let duration = 200; // ms
 	/**
-	 * Set the In/Out transition with it's params.
-	 * @type {[(...args:any[]) => TransitionConfig, {}]}
+	 * Set the In/Out transition with its params.
+	 * @type {TransitionSettings}
 	 */
-	export let transition: [(...args: any[]) => TransitionConfig, {}] = [slide, { duration: 200 }];
+	export let transition: TransitionSettings = { transition: slide, params: { duration: 200 } };
 	/**
-	 * Overrides the In transition with it's params.
-	 * @type {[(...args:any[]) => TransitionConfig, {}]|undefined}
+	 * Overrides the In transition with its params.
+	 * @type {TransitionSettings | undefined}
 	 */
-	export let transitionIn: [(...args: any[]) => TransitionConfig, {}] | undefined = undefined;
+	export let transitionIn: TransitionSettings | undefined = undefined;
 	/**
-	 * Overrides the Out transition with it's params.
-	 * @type {[(...args:any[]) => TransitionConfig, {}]|undefined}
+	 * Overrides the Out transition with its params.
+	 * @type {TransitionSettings | undefined}
 	 */
-	export let transitionOut: [(...args: any[]) => TransitionConfig, {}] | undefined = undefined;
+	export let transitionOut: TransitionSettings | undefined = undefined;
 
 	// Props (parent)
 	/** Provide classes to set the accordion width. */
@@ -60,6 +58,8 @@
 	/** Provide arbitrary classes to the caret icon region. */
 	export let regionCaret: CssClasses = '';
 
+	/** DEPRECATED: use transition or transitionIn, transitionOut instead. */
+	export let duration = 200; // ms
 	// Silence warning about unused props:
 	const deprecated = [duration];
 

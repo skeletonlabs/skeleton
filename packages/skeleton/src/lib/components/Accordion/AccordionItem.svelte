@@ -12,13 +12,12 @@
 	import { getContext } from 'svelte';
 	import { createEventDispatcher } from 'svelte/internal';
 	import type { Writable } from 'svelte/store';
-	import type { TransitionConfig } from 'svelte/transition';
 
 	// Event Dispatcher
 	const dispatch = createEventDispatcher();
 
 	// Types
-	import type { CssClasses } from '../..';
+	import type { CssClasses, TransitionSettings } from '../..';
 
 	// Props (state)
 	/** Set open by default on load. */
@@ -41,14 +40,12 @@
 	export let autocollapse: boolean = getContext('autocollapse');
 	/** The writable store that houses the auto-collapse active item UUID. */
 	export let active: Writable<string | null> = getContext('active');
-	/** DEPRECATED: use transition or transitionIn, transitionOut instead. */
-	export let duration: number = getContext('duration');
-	/** Set the In/Out transition. */
-	export let transition: [(...args: any[]) => TransitionConfig, {}] = getContext('transition');
-	/** Overrides the In transition with it's params. */
-	export let transitionIn: [(...args: any[]) => TransitionConfig, {}] = getContext('transitionIn');
-	/** Overrides the Out transition with it's params. */
-	export let transitionOut: [(...args: any[]) => TransitionConfig, {}] = getContext('transitionOut');
+	/** Set the In/Out transition with its params. */
+	export let transition: TransitionSettings = getContext('transition');
+	/** Overrides the In transition with its params. */
+	export let transitionIn: TransitionSettings = getContext('transitionIn');
+	/** Overrides the Out transition with its params. */
+	export let transitionOut: TransitionSettings = getContext('transitionOut');
 	// ---
 	/** Set the disabled state for this item. */
 	export let disabled: boolean = getContext('disabled');
@@ -70,9 +67,15 @@
 	export let regionPanel: CssClasses = getContext('regionPanel');
 	/** Provide arbitrary classes caret icon region. */
 	export let regionCaret: CssClasses = getContext('regionCaret');
-
+	// ---
+	/** DEPRECATED: use transition or transitionIn, transitionOut instead. */
+	export let duration: number = getContext('duration');
 	// Silence warning about unused props:
 	const deprecated = [duration];
+
+	// Locals
+	const { transition: trIn, params: trInParams } = transitionIn ?? transition;
+	const { transition: trOut, params: trOutParams } = transitionOut ?? transition;
 
 	// Change open behavior based on auto-collapse mode
 	function setActive(event?: Event): void {
@@ -99,11 +102,6 @@
 	// Reactive State
 	$: if (open && autocollapse) setActive();
 	$: openState = autocollapse ? $active === id : open;
-	// Reactive transition
-	$: trIn = transitionIn === undefined ? transition[0] : transitionIn[0];
-	$: trInParams = transitionIn === undefined ? transition[1] : transitionIn[1];
-	$: trOut = transitionOut === undefined ? transition[0] : transitionOut[0];
-	$: trOutParams = transitionOut === undefined ? transition[1] : transitionOut[1];
 	// Reactive Classes
 	$: classesBase = `${cBase} ${$$props.class ?? ''}`;
 	$: classesControl = `${cControl} ${padding} ${hover} ${rounded} ${regionControl}`;
