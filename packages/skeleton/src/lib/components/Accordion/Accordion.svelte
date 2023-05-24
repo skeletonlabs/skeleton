@@ -13,20 +13,15 @@
 	/** Set the auto-collapse mode. */
 	export let autocollapse = false;
 	/**
-	 * Set the In/Out transition with its params.
+	 * Provide the transition to use when values move in.
 	 * @type {TransitionSettings}
 	 */
-	export let transition: TransitionSettings = { transition: slide, params: { duration: 200 } };
+	export let transitionIn: TransitionSettings = { transition: slide, params: { duration: 200 } };
 	/**
-	 * Overrides the In transition with its params.
-	 * @type {TransitionSettings | undefined}
+	 * Provide the transition to use when values move out.
+	 * @type {TransitionSettings}
 	 */
-	export let transitionIn: TransitionSettings | undefined = undefined;
-	/**
-	 * Overrides the Out transition with its params.
-	 * @type {TransitionSettings | undefined}
-	 */
-	export let transitionOut: TransitionSettings | undefined = undefined;
+	export let transitionOut: TransitionSettings = { transition: slide, params: { duration: 200 } };
 
 	// Props (parent)
 	/** Provide classes to set the accordion width. */
@@ -70,7 +65,6 @@
 	setContext('active', active);
 	setContext('autocollapse', autocollapse);
 	setContext('duration', duration);
-	setContext('transition', transition);
 	setContext('transitionIn', transitionIn);
 	setContext('transitionOut', transitionOut);
 	setContext('disabled', disabled);

@@ -40,11 +40,9 @@
 	export let autocollapse: boolean = getContext('autocollapse');
 	/** The writable store that houses the auto-collapse active item UUID. */
 	export let active: Writable<string | null> = getContext('active');
-	/** Set the In/Out transition with its params. */
-	export let transition: TransitionSettings = getContext('transition');
-	/** Overrides the In transition with its params. */
+	/** Provide the transition to use when values move in. */
 	export let transitionIn: TransitionSettings = getContext('transitionIn');
-	/** Overrides the Out transition with its params. */
+	/** Provide the transition to use when values move out. */
 	export let transitionOut: TransitionSettings = getContext('transitionOut');
 	// ---
 	/** Set the disabled state for this item. */
@@ -73,9 +71,9 @@
 	// Silence warning about unused props:
 	const deprecated = [duration];
 
-	// Locals
-	const { transition: trIn, params: trInParams } = transitionIn ?? transition;
-	const { transition: trOut, params: trOutParams } = transitionOut ?? transition;
+	// Local
+	const { transition: trIn, params: trInParams } = transitionIn;
+	const { transition: trOut, params: trOutParams } = transitionOut;
 
 	// Change open behavior based on auto-collapse mode
 	function setActive(event?: Event): void {

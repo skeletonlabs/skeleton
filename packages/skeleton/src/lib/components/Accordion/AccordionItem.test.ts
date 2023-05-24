@@ -7,7 +7,8 @@ import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
 describe('AccordionItem.svelte', () => {
 	it('Renders with minimal props', async () => {
 		const { getByTestId } = render(AccordionItem, {
-			transition: { transition: slide, params: { duration: 200 } }
+			transitionIn: { transition: slide, params: { duration: 200 } },
+			transitionOut: { transition: slide, params: { duration: 200 } }
 		});
 		expect(getByTestId('accordion-item')).toBeTruthy();
 	});
@@ -21,7 +22,8 @@ describe('AccordionItem.svelte', () => {
 			regionControl: '',
 			regionPanel: 'space-y-4',
 			regionCaret: '',
-			transition: { transition: slide, params: { duration: 200 } }
+			transitionIn: { transition: slide, params: { duration: 200 } },
+			transitionOut: { transition: slide, params: { duration: 200 } }
 		});
 		expect(getByTestId('accordion-item')).toBeTruthy();
 		expect(getByTestId('accordion-item').querySelector('.accordion-control')?.className).to.contain('py-2 px-4');
