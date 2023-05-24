@@ -9,7 +9,7 @@
 	/** Provide the array of values to tick through. */
 	export let values: any[] = [];
 	/** Bind to the current value of the counter. */
-	export let currentValue: any = undefined;
+	export let currentValue: any = '';
 	/** Specify the values array should tick backwards. */
 	export let direction: 'forward' | 'backward' | 'random' = 'forward';
 	/** Select items by index from the values array. */
