@@ -63,6 +63,12 @@
 		tOut = fly;
 		tOutProps = { y: -100, duration: 100 };
 
+		if (transition) {
+			tIn = transition.transition;
+			tInProps = transition.props;
+			tOut = transition.transition;
+			tOutProps = transition.props;
+		}
 		if (transitionIn) {
 			tIn = transitionIn.transition;
 			tInProps = transitionIn.props;
@@ -70,12 +76,6 @@
 		if (transitionOut) {
 			tOut = transitionOut.transition;
 			tOutProps = transitionOut.props;
-		}
-		if (transition) {
-			tIn = transition.transition;
-			tInProps = transition.props;
-			tOut = transition.transition;
-			tOutProps = transition.props;
 		}
 	}
 
