@@ -38,6 +38,7 @@
 	let direction: 'forward' | 'backward' | 'random' = 'forward';
 	let mainIndex: number;
 	let randomIndex: number;
+	let currentValue: any;
 </script>
 
 <DocsShell {settings}>
@@ -45,7 +46,7 @@
 	<svelte:fragment slot="sandbox">
 		<DocsPreview regionFooter="grid grid-cols-[100px_1fr] gap-4 items-center">
 			<svelte:fragment slot="preview">
-				<Counter bind:index={mainIndex} {direction} values={monthValues} />
+				<Counter bind:index={mainIndex} bind:currentValue {direction} values={monthValues} />
 			</svelte:fragment>
 			<svelte:fragment slot="source">
 				<CodeBlock language="html" code={`<Counter values={monthValues} direction="${direction}" />`} />
@@ -53,6 +54,7 @@
 			<svelte:fragment slot="footer">
 				<div class="flex flex-row justify-center col-span-4 gap-8">
 					<div class="card p-4 variant-filled w-fit">Index: {mainIndex}</div>
+					<div class="card p-4 variant-filled w-fit">Current Value: {currentValue}</div>
 					<select class="select w-fit" bind:value={direction}>
 						<option value="forward">Forward</option>
 						<option value="backward">Backward</option>

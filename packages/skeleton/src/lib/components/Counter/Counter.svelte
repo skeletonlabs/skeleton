@@ -9,7 +9,7 @@
 	/** Provide the array of values to tick through. */
 	export let values: any[] = [];
 	/** Bind to the current value of the counter. */
-	export let currentValue: any;
+	export let currentValue: any = undefined;
 	/** Specify the values array should tick backwards. */
 	export let direction: 'forward' | 'backward' | 'random' = 'forward';
 	/** Select items by index from the values array. */
@@ -19,11 +19,11 @@
 
 	// Props (transitions)
 	/** Provide the svelte transition to use when values move in. */
-	export let transition: Transition | undefined;
+	export let transition: Transition | undefined = undefined;
 	/** Provide the svelte transition to use when values move in. */
-	export let transitionIn: Transition | undefined;
+	export let transitionIn: Transition | undefined = undefined;
 	/** Provide the svelte transition to use when values move out. */
-	export let transitionOut: Transition | undefined;
+	export let transitionOut: Transition | undefined = undefined;
 
 	// Props (styles)
 	/** Provide classes to set background styles. */
