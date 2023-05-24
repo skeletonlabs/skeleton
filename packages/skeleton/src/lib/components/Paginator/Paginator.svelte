@@ -59,7 +59,7 @@
 		dispatch('page', settings.offset);
 	}
 	function onLast(): void {
-		settings.offset = settings.size / settings.limit - 1;
+		settings.offset = Math.ceil(settings.size / settings.limit - 1);
 		dispatch('page', settings.offset);
 	}
 
