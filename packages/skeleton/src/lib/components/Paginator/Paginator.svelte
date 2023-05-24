@@ -13,6 +13,8 @@
 	export let settings: PaginationSettings = { offset: 0, limit: 5, size: 0, amounts: [1, 2, 5, 10] };
 	/** Sets selection and buttons to disabled state on-demand. */
 	export let disabled = false;
+	/** Show First and Last buttons. */
+	export let showFirstLastButtons = false;
 
 	// Props (styles)
 	/** Provide classes to style the select input. */
@@ -59,7 +61,7 @@
 		dispatch('page', settings.offset);
 	}
 	function onLast(): void {
-		settings.offset = settings.size / settings.limit - 1;
+		settings.offset = Math.ceil(settings.size / settings.limit - 1);
 		dispatch('page', settings.offset);
 	}
 
@@ -84,17 +86,21 @@
 	</span>
 	<!-- Arrows -->
 	<div class="paginator-arrows space-x-2">
+		{#if showFirstLastButtons}
 		<button type="button" class="{buttonClasses}" on:click={() => { onFirst() }} disabled={disabled || settings.offset === 0}>
 			{@html buttonTextFirst}
 		</button>
+		{/if}
 		<button type="button" class="{buttonClasses}" on:click={() => { onPrev() }} disabled={disabled || settings.offset === 0}>
 			{@html buttonTextPrevious}
 		</button>
 		<button type="button" class="{buttonClasses}" on:click={() => { onNext() }} disabled={disabled || (settings.offset + 1) * settings.limit >= settings.size}>
 			{@html buttonTextNext}
 		</button>
+		{#if showFirstLastButtons}
 		<button type="button" class="{buttonClasses}" on:click={() => { onLast() }} disabled={disabled || (settings.offset + 1) * settings.limit >= settings.size}>
 			{@html buttonTextLast}
 		</button>
+		{/if}
 	</div>
 </div>
