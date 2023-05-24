@@ -77,14 +77,14 @@
 		if (!selectElement.form) return;
 
 		const externalForm = selectElement.form as HTMLFormElement;
-		
+
 		// Attach reset event listener to external form
 		externalForm.addEventListener('reset', resetFormHandler);
 
 		// Return onDestroy handler that will remove the event listener from the external form
-		return () => { 
+		return () => {
 			externalForm.removeEventListener('reset', resetFormHandler);
-		}
+		};
 	});
 
 	function onInputHandler(): void {
