@@ -14,6 +14,21 @@ export type { PopupSettings } from './utilities/Popup/types';
 // This type alias is to identify CSS classes within component props, which enables Tailwind IntelliSense
 export type CssClasses = string;
 
+// Transition Animation Types
+export type EasingFunction = (t: number) => number;
+export interface TransitionConfig {
+	delay?: number;
+	duration?: number;
+	easing?: EasingFunction;
+	css?: (t: number, u: number) => string;
+	tick?: (t: number, u: number) => void;
+}
+export type TransitionFunction = (node: HTMLElement, opts: any) => TransitionConfig;
+export type Transition = {
+	transition: TransitionFunction;
+	props: any;
+};
+
 // Stores ---
 
 export { storeHighlightJs } from './utilities/CodeBlock/stores';
@@ -76,6 +91,7 @@ export { default as AppShell } from './components/AppShell/AppShell.svelte';
 export { default as Autocomplete } from './components/Autocomplete/Autocomplete.svelte';
 export { default as Avatar } from './components/Avatar/Avatar.svelte';
 export { default as ConicGradient } from './components/ConicGradient/ConicGradient.svelte';
+export { default as Counter } from './components/Counter/Counter.svelte';
 export { default as FileButton } from './components/FileButton/FileButton.svelte';
 export { default as FileDropzone } from './components/FileDropzone/FileDropzone.svelte';
 export { default as InputChip } from './components/InputChip/InputChip.svelte';
