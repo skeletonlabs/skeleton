@@ -1,6 +1,7 @@
 <script lang="ts">
 	// Types
 	import type { CssClasses } from '../..';
+	import type { Action } from 'svelte/action';
 
 	// Props (initials)
 	/** Initials only - Provide up to two text characters. */
@@ -16,13 +17,7 @@
 	/**
 	 * Image only. Provide an Svelte action reference, such as `filter`.
 	 */
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	export let action = <T extends HTMLElement>(node: T, params: typeof actionParams) => {
-		return {
-			update: () => {},
-			destroy: () => {}
-		};
-	};
+	export let action: Action = () => {};
 	/** Image only. Provide Svelte action params, such as Apollo. */
 	export let actionParams = '';
 
