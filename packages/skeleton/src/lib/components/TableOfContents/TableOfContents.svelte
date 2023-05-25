@@ -42,7 +42,7 @@
 
 	// Local
 	let elemScrollParent: HTMLElement | null;
-	let allowedHeadingsList: any = [];
+	let allowedHeadingsList: NodeListOf<HTMLElement> | undefined;
 	let filteredHeadingsList: HTMLElement[] = [];
 	let activeHeaderId: string;
 
