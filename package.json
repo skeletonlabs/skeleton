@@ -14,6 +14,8 @@
 		"ci:publish": "changeset publish",
 		"ci:package": "pnpm -r package",
 		"ci:release": "pnpm ci:package && pnpm ci:publish",
+		"ci:lint": "pnpm -F \"./packages/skeleton\" lint",
+		"ci:check": "pnpm -F \"./packages/skeleton\" check",
 		"cs": "changeset"
 	},
 	"license": "MIT",
