@@ -1,11 +1,11 @@
 // Drawer Types
 
-export interface DrawerSettings {
+export interface DrawerSettings<T = never> {
 	open?: boolean;
 	/** A unique identifier, useful for setting contents. */
 	id?: string;
-	/** Pass arbitrary information for your own persona use. */
-	meta?: any;
+	/** Pass arbitrary information for your own personal use. */
+	meta?: T;
 
 	// ************************************************************
 	// NOTE: the following must stay in sync with the drawer props.
