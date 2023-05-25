@@ -14,3 +14,4 @@ pnpm-lock.yaml
 /static/fonts
 /.temp
 /dist
+/scripts/tw-settings.json
