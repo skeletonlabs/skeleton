@@ -1,0 +1,102 @@
+/* Elements: tables.css */
+
+@layer components {
+	.table-container {
+		@apply overflow-x-auto w-full rounded-container-token;
+	}
+
+	.table {
+		@apply w-full overflow-hidden table-auto;
+		/* background */
+		@apply bg-surface-100-800-token;
+		/* Theme: Rounded */
+		@apply rounded-container-token;
+	}
+
+	/* === Hover Styles ==== */
+
+	.table-hover tbody tr {
+		@apply hover:bg-surface-500/20 even:hover:bg-surface-500/20;
+	}
+
+	.table-interactive tbody tr {
+		@apply hover:bg-primary-hover-token even:hover:bg-primary-hover-token cursor-pointer;
+	}
+
+	/* === Sort Styles ==== */
+
+	[data-sort] {
+		@apply hover:bg-primary-hover-token cursor-pointer;
+		/* Sort Icon - invisible by default */
+		@apply after:opacity-0 after:!ml-2 after:!content-['↓'];
+	}
+
+	.table-sort-asc {
+		@apply after:opacity-50 after:!content-['↑'];
+	}
+
+	.table-sort-dsc {
+		@apply after:opacity-50 after:!content-['↓'];
+	}
+
+	/* === Table Head === */
+
+	.table thead {
+		@apply bg-surface-200-700-token border-b border-surface-500/20;
+	}
+
+	.table thead tr {
+		@apply capitalize text-left;
+	}
+
+	.table thead th {
+		@apply font-bold p-4;
+	}
+
+	/* === Table Body === */
+
+	.table tbody tr {
+		@apply border-b border-surface-500/20 even:bg-surface-500/5;
+	}
+
+	.table tbody td {
+		/* NOTE: removed this to allow wrapping */
+		@apply text-sm px-3 py-4 align-top whitespace-nowrap lg:whitespace-normal;
+	}
+
+	.table-compact tbody td {
+		@apply !py-3;
+	}
+
+	.table-comfortable tbody td {
+		@apply !py-5;
+	}
+
+	/* === Table Foot === */
+
+	.table tfoot {
+		@apply bg-surface-100-800-token;
+	}
+
+	.table tfoot tr {
+		@apply capitalize text-left;
+	}
+
+	.table tfoot th,
+	.table tfoot td {
+		@apply p-4;
+	}
+
+	/* === Rows Specific === */
+
+	.table-row-checked {
+		@apply !bg-secondary-500/20;
+	}
+
+	/* === Cells Specific === */
+
+	/* Source: https://stackoverflow.com/questions/11267154/fit-cell-width-to-content */
+	.table-cell-fit {
+		@apply w-[1%] whitespace-nowrap;
+	}
+}

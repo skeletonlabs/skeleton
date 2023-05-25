@@ -1,0 +1,51 @@
+/* Tailwind Elements: button.css */
+
+@layer components {
+	/* === Lists (Parents) === */
+
+	.list,
+	.list-dl,
+	.list-nav ul {
+		/* List Style */
+		@apply list-none;
+		/* Spacing */
+		@apply space-y-1;
+	}
+
+	/* === List Items (Children) === */
+
+	.list li {
+		/* @apply bg-red-500; */
+		@apply flex items-center space-x-4;
+		/* Padding */
+		/* @apply p-2; */
+		/* Theme: Rounded */
+		@apply rounded-token;
+		/* Wrapping */
+		@apply whitespace-normal break-words;
+	}
+	.list-dl div {
+		/* @apply bg-blue-500; */
+		@apply flex items-center space-x-4 whitespace-nowrap;
+		/* Padding */
+		@apply p-2;
+		/* Theme: Rounded */
+		@apply rounded-token;
+	}
+
+	.list-nav a,
+	.list-nav button,
+	.list-option {
+		@apply flex items-center space-x-4 whitespace-nowrap;
+		/* Padding */
+		@apply px-4 py-2;
+		/* Hover */
+		@apply bg-primary-hover-token;
+		/* Focus */
+		@apply focus:variant-soft-primary outline-none;
+		/* Cursor */
+		@apply cursor-pointer;
+		/* Theme: Rounded */
+		@apply rounded-token;
+	}
+}

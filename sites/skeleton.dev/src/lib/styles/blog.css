@@ -1,0 +1,166 @@
+/* Ghost Blog Styles */
+
+/* === Embeds === */
+
+/* YouTube */
+.kg-embed-card iframe {
+	@apply w-full h-full aspect-video shadow-xl;
+	border-radius: var(--theme-rounded-container);
+}
+
+/* Gif */
+.kg-image-card {
+	@apply text-center;
+}
+.kg-image-card img {
+	@apply mx-auto max-w-full shadow-xl;
+	border-radius: var(--theme-rounded-container);
+}
+
+/* Callout */
+.kg-callout-card {
+	@apply bg-surface-500/30 border border-surface-500 grid grid-cols-[auto_1fr] gap-4 p-4 rounded-xl;
+}
+.kg-callout-card-grey {
+	@apply bg-neutral-500/30 border-neutral-500;
+}
+.kg-callout-card-white {
+	@apply bg-white/30 border-white;
+}
+.kg-callout-card-blue {
+	@apply bg-blue-500/30 border-blue-500;
+}
+.kg-callout-card-green {
+	@apply bg-green-500/30 border-green-500;
+}
+.kg-callout-card-yellow {
+	@apply bg-yellow-500/30 border-yellow-500;
+}
+.kg-callout-card-red {
+	@apply bg-red-500/30 border-red-500;
+}
+.kg-callout-card-pink {
+	@apply bg-pink-500/30 border-pink-500;
+}
+.kg-callout-card-purple {
+	@apply bg-purple-500/30 border-purple-500;
+}
+.kg-callout-card-secondary {
+	@apply bg-secondary-500/30 border-secondary-500;
+}
+
+/* File */
+.kg-file-card-container {
+	@apply bg-secondary-500/5 border border-surface-100 dark:border-surface-800 grid grid-cols-[1fr_auto] gap-4 p-4 shadow !no-underline hover:brightness-110;
+	border-radius: var(--theme-rounded-container);
+}
+.kg-file-card-contents {
+	@apply text-black dark:text-white;
+}
+.kg-file-card-title {
+	@apply hidden;
+}
+.kg-file-card-metadata {
+	@apply space-y-1;
+}
+.kg-file-card-filename {
+	@apply font-bold;
+}
+.kg-file-card-filesize {
+	@apply text-sm opacity-75;
+}
+.kg-file-card-icon {
+	@apply bg-secondary-500 p-3 flex justify-center items-center;
+	border-radius: var(--theme-rounded-base);
+}
+.kg-file-card-icon svg {
+	@apply !text-white w-8 aspect-square;
+}
+
+/* Codepen */
+.kg-embed-card iframe {
+	@apply shadow-xl;
+}
+
+/* Button */
+.kg-align-center {
+	@apply text-center;
+}
+.kg-button-card a,
+.kg-header-card a {
+	@apply !no-underline;
+	@apply bg-secondary-500 !text-surface-50 font-bold;
+	@apply text-base px-5 py-[9px];
+	@apply text-center whitespace-nowrap;
+	@apply inline-flex justify-center items-center space-x-2;
+	@apply hover:brightness-110;
+	@apply transition-all active:scale-90;
+	border-radius: var(--theme-rounded-base);
+}
+
+/* Twitter */
+.kg-embed-card:has(.twitter-tweet) {
+	@apply flex justify-center p-4 overflow-x-auto;
+}
+
+/* Bookmark */
+.kg-bookmark-card {
+	@apply bg-secondary-500/5 border border-surface-100 dark:border-surface-800 shadow hover:brightness-110 overflow-hidden;
+	border-radius: var(--theme-rounded-container);
+}
+.kg-bookmark-container {
+	@apply !text-token !no-underline;
+	@apply grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4;
+}
+.kg-bookmark-content {
+	@apply flex flex-col justify-between space-y-0  p-4;
+}
+.kg-bookmark-title {
+	@apply font-bold;
+}
+.kg-bookmark-description {
+	@apply text-sm opacity-50;
+}
+.kg-bookmark-metadata {
+	@apply flex items-center space-x-3;
+}
+.kg-bookmark-icon {
+	@apply w-6 h-6;
+}
+.kg-bookmark-author {
+	@apply text-sm;
+}
+.kg-bookmark-publisher {
+	@apply text-xs opacity-50;
+}
+.kg-bookmark-thumbnail {
+	@apply bg-surface-50-900-token h-56 md:h-full w-full md:w-48 text-center;
+}
+.kg-bookmark-thumbnail img {
+	@apply w-full h-full md:max-h-40 object-cover overflow-hidden;
+}
+
+/* Headers */
+.kg-header-card {
+	@apply bg-secondary-500/5 border border-surface-100 dark:border-surface-800;
+	@apply px-4 text-center space-y-2;
+	border-radius: var(--theme-rounded-container);
+}
+.kg-size-small {
+	@apply py-4;
+}
+.kg-size-medium {
+	@apply py-12;
+}
+.kg-size-large {
+	@apply py-20;
+}
+.kg-header-card h2 {
+	@apply text-4xl;
+}
+.kg-header-card h3 {
+	@apply text-base;
+}
+.kg-header-card a {
+	@apply inline-block;
+}

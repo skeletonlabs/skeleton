@@ -1,0 +1,62 @@
+/* Global Stylesheet */
+
+/* Ad Styles */
+@import 'app-ads.postcss';
+
+/* Google Fonts */
+@font-face {
+	font-family: 'Quicksand';
+	src: url('/fonts/Quicksand.ttf');
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Space Grotesk';
+	src: url('/fonts/SpaceGrotesk.ttf');
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Playfair Display';
+	src: url('/fonts/PlayfairDisplay-Italic.ttf');
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Abril Fatface';
+	src: url('/fonts/AbrilFatface.ttf');
+	font-display: swap;
+}
+
+html,
+body {
+	@apply h-full overflow-hidden;
+}
+
+/* Page Styles */
+/* Use these to define common page styles. */
+.page-container {
+	@apply container mx-auto page-padding space-y-10;
+}
+.page-container-wide {
+	@apply w-full max-w-7xl mx-auto space-y-10;
+}
+.page-container-aside {
+	@apply w-full max-w-4xl mx-auto space-y-10;
+}
+.page-padding {
+	@apply p-4 md:p-10;
+}
+.page-section {
+	@apply space-y-4;
+}
+
+/* Heading Permalinks */
+.permalink {
+	@apply w-0 invisible inline-block text-base pl-2 -translate-y-1;
+}
+h1:hover .permalink,
+h2:hover .permalink,
+h3:hover .permalink,
+h4:hover .permalink,
+h5:hover .permalink,
+h6:hover .permalink {
+	@apply visible w-auto;
+}
