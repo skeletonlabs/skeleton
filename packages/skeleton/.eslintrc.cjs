@@ -25,6 +25,9 @@ module.exports = {
 		'@typescript-eslint/no-restricted-imports': [
 			'error',
 			{ patterns: [{ group: ['$lib/*', '$lib', '!./*', '!../*'], message: 'Please only use RELATIVE import paths instead.' }] }
-		]
+		],
+
+		'no-empty-function': 'off',
+		'@typescript-eslint/no-empty-function': ['error', { allow: ['arrowFunctions'] }]
 	}
 };
