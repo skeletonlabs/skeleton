@@ -24,14 +24,10 @@
 	</div>
 	<!-- Aside -->
 	{#if sidebar}
+		<!-- Ad Position -->
 		<aside class="layout-cols-aside {classesColRight}">
-			<!-- Ad Position -->
+			<!-- Production Ad -->
 			{#if $storeVercelProductionMode === true}
-				<!-- Production Ad -->
-				<!-- cspell:disable -->
-				<!-- cspell:disable -->
-				<!-- cspell:disable -->
-				<!-- cspell:disable -->
 				<script
 					async
 					type="text/javascript"
