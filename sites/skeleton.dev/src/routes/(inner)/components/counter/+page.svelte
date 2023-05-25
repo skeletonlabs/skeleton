@@ -36,7 +36,7 @@
 	];
 
 	let direction: 'forward' | 'backward' | 'random' = 'forward';
-	let index: number;
+	let index: any;
 	let indexValue: any;
 </script>
 
@@ -94,6 +94,7 @@
 				</svelte:fragment>
 				<svelte:fragment slot="footer">
 					<div class="flex flex-row justify-center col-span-4 gap-8">
+						{console.log({ index, indexValue })}
 						<div class="card p-4 variant-filled w-fit">Current Value: {indexValue}</div>
 						<div class="card p-4 variant-filled w-fit">Index: {index}</div>
 					</div>
@@ -102,7 +103,11 @@
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Content Formatting</h2>
-			<p>Adjusting the <code class="code">interval</code> property changes how long until it stays on each item</p>
+			<p>
+				Utilizing <a class="anchor" href="https://svelte.dev/docs#template-syntax-slot">slots</a> and
+				<a class="anchor" href="https://svelte.dev/docs#template-syntax-slot-slot-key-value">slot keys</a> you can format the data in the scroller
+				however you like
+			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<Counter values={monthValues} let:currentValue>

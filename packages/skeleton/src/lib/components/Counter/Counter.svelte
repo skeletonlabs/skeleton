@@ -112,6 +112,10 @@
 
 <div class={classesBase} {...prunedRestProps()}>
 	{#key currentValue}
-		<p class="text-center" in:tIn={tInProps} out:tOut={tOutProps}><slot {currentValue}>{currentValue}</slot></p>
+		<div in:tIn={tInProps} out:tOut={tOutProps}>
+			<slot {currentValue}>
+				<p class="text-center">{currentValue}</p>
+			</slot>
+		</div>
 	{/key}
 </div>
