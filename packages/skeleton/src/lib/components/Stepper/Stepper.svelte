@@ -5,10 +5,10 @@
 
 	// Types
 	import type { CssClasses } from '../..';
-	import type { StepperButton, StepperState } from './types';
+	import type { StepperButton, StepperDispatchParent, StepperState } from './types';
 
 	// Event Dispatcher
-	const dispatchParent = createEventDispatcher();
+	const dispatchParent: StepperDispatchParent = createEventDispatcher();
 
 	// Props
 	/** Provide classes to style the stepper header gap. */
