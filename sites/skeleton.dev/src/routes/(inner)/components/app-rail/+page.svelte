@@ -174,8 +174,8 @@
 				language="html"
 				code={`
 <AppRail>
-	<AppRailTile href="/" selected={$page.url.pathname === '/'}>(icon)</AppRailTile>
-	<AppRailTile href="/about" selected={$page.url.pathname === '/about'}>(icon)</AppRailTile>
+	<AppRailAnchor href="/" selected={$page.url.pathname === '/'}>(icon)</AppRailAnchor>
+	<AppRailAnchor href="/about" selected={$page.url.pathname === '/about'}>(icon)</AppRailAnchor>
 </AppRail>
 `}
 			/>
