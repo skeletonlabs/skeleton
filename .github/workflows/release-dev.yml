@@ -11,6 +11,7 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 jobs:
   dev-release:
     name: Build & Publish @dev Release
+    if: github.repository == 'skeletonlabs/skeleton'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
