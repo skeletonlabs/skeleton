@@ -94,7 +94,7 @@
 	// NOTE: these must stay in sync with the props implemented above.
 	function applyPropSettings(settings: DrawerSettings): void {
 		position = settings.position || propDefaults.position;
-		duration = settings.duration || propDefaults.duration;
+		duration = settings.duration ?? propDefaults.duration;
 		// Backdrop
 		bgBackdrop = settings.bgBackdrop || propDefaults.bgBackdrop;
 		blur = settings.blur || propDefaults.blur;
