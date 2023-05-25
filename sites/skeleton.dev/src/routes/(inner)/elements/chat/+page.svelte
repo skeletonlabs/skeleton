@@ -86,6 +86,8 @@
 	];
 	let currentMessage = '';
 
+	// For some reason, eslint thinks ScrollBehavior is undefined...
+	// eslint-disable-next-line no-undef
 	function scrollChatBottom(behavior?: ScrollBehavior): void {
 		elemChat.scrollTo({ top: elemChat.scrollHeight, behavior });
 	}
