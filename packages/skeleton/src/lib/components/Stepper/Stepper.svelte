@@ -5,7 +5,7 @@
 
 	// Types
 	import type { CssClasses } from '../..';
-	import type { StepperState } from './types';
+	import type { StepperButton, StepperState } from './types';
 
 	// Event Dispatcher
 	const dispatchParent = createEventDispatcher();
@@ -34,7 +34,7 @@
 	/** Provide arbitrary classes to style the back button. */
 	export let buttonBack: CssClasses = 'variant-ghost';
 	/** Set the type of the back button. */
-	export let buttonBackType: 'submit' | 'reset' | 'button' = 'button';
+	export let buttonBackType: StepperButton = 'button';
 	/** Provide the HTML label content for the back button. */
 	export let buttonBackLabel: string = '&larr; Back';
 
@@ -42,7 +42,7 @@
 	/** Provide arbitrary classes to style the next button. */
 	export let buttonNext: CssClasses = 'variant-filled';
 	/** Set the type of the next button. */
-	export let buttonNextType: 'submit' | 'reset' | 'button' = 'button';
+	export let buttonNextType: StepperButton = 'button';
 	/** Provide the HTML label content for the next button. */
 	export let buttonNextLabel: string = 'Next &rarr;';
 
@@ -50,7 +50,7 @@
 	/** Provide arbitrary classes to style the complete button. */
 	export let buttonComplete: CssClasses = 'variant-filled-primary';
 	/** Set the type of the complete button. */
-	export let buttonCompleteType: 'submit' | 'reset' | 'button' = 'button';
+	export let buttonCompleteType: StepperButton = 'button';
 	/** Provide the HTML label content for the complete button. */
 	export let buttonCompleteLabel: string = 'Complete';
 
