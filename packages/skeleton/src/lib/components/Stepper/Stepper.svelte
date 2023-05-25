@@ -5,6 +5,7 @@
 
 	// Types
 	import type { CssClasses } from '../..';
+	import type { StepperState } from './types';
 
 	// Event Dispatcher
 	const dispatchParent = createEventDispatcher();
@@ -60,7 +61,7 @@
 	export let regionContent: CssClasses = '';
 
 	// Stores
-	let state: Writable<any> = writable({ current: start, total: 0 });
+	let state: Writable<StepperState> = writable({ current: start, total: 0 });
 
 	// Context
 	setContext('state', state);
