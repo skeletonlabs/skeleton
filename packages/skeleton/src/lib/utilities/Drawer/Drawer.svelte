@@ -127,12 +127,12 @@
 	}
 
 	// Input Handlers
-	function onBackdropInteraction(event: any): void {
+	function onBackdropInteraction(event: MouseEvent | TouchEvent): void {
 		if (event.target === elemBackdrop) drawerStore.close();
 		/** @event {{ event }} backdrop - Fires on backdrop interaction.  */
 		dispatch('backdrop', event);
 	}
-	function onKeydownWindow(event: any): void {
+	function onKeydownWindow(event: KeyboardEvent): void {
 		if (!$drawerStore) return;
 		if (event.code === 'Escape') drawerStore.close();
 	}
