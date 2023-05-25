@@ -1,4 +1,4 @@
-name: Skeleton Dev Release
+name: Publish Skeleton @dev Release
 on:
   push:
     branches:
@@ -10,8 +10,8 @@ on:
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
-  release:
-    name: Build & Publish a dev release
+  dev-release:
+    name: Build & Publish @dev Release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
