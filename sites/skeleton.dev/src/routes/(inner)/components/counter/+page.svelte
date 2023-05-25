@@ -37,7 +37,7 @@
 
 	let direction: 'forward' | 'backward' | 'random' = 'forward';
 	let index: number;
-	let currentValue: any;
+	let indexValue: any;
 </script>
 
 <DocsShell {settings}>
@@ -87,16 +87,33 @@
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<Counter bind:currentValue bind:index values={monthValues} />
+					<Counter bind:currentValue={indexValue} bind:index values={monthValues} />
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock language="html" code={`<Counter bind:currentValue bind:index values={monthValues} />`} />
 				</svelte:fragment>
 				<svelte:fragment slot="footer">
 					<div class="flex flex-row justify-center col-span-4 gap-8">
-						<div class="card p-4 variant-filled w-fit">Current Value: {currentValue}</div>
+						<div class="card p-4 variant-filled w-fit">Current Value: {indexValue}</div>
 						<div class="card p-4 variant-filled w-fit">Index: {index}</div>
 					</div>
+				</svelte:fragment>
+			</DocsPreview>
+		</section>
+		<section class="space-y-4">
+			<h2 class="h2">Content Formatting</h2>
+			<p>Adjusting the <code class="code">interval</code> property changes how long until it stays on each item</p>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<Counter values={monthValues} let:currentValue>
+						<div>{currentValue.toUpperCase()}</div>
+					</Counter>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock
+						language="html"
+						code={`<Counter values={monthValues} let:currentValue>\n	<div>{currentValue.toUpperCase()}</div>\n</Counter>`}
+					/>
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
