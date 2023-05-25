@@ -1,10 +1,12 @@
 // Toast interface types
 
+import type { CssClasses } from '../../../lib';
+
 export interface ToastSettings {
 	/** Provide the toast message. Supports HTML. */
 	message: string;
 	/** Provide CSS classes to set the background color. */
-	background?: string;
+	background?: CssClasses;
 	/** Enables auto-hide after the timeout duration. */
 	autohide?: boolean;
 	/** Set the auto-hide timeout duration. */
@@ -17,7 +19,7 @@ export interface ToastSettings {
 		response: () => void;
 	};
 	/** Provide arbitrary CSS classes to style the toast. */
-	classes?: string;
+	classes?: CssClasses;
 	/** Callback function that fires on trigger and close. */
 	callback?: (response: { id: string; status: 'queued' | 'closed' }) => void;
 }
