@@ -4,7 +4,6 @@ on:
     branches:
       - dev
     paths:
-      - ".changeset/**"
       - "packages/skeleton/**"
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
