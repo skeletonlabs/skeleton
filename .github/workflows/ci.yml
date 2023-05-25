@@ -42,3 +42,5 @@ jobs:
       
       - name: Run svelte-check
         run: pnpm ci:check
+        env:
+          VERCEL_ENV: dev
