@@ -15,9 +15,14 @@
 	export let fallback = '';
 	/**
 	 * Image only. Provide an Svelte action reference, such as `filter`.
-	 * @type {function}
 	 */
-	export let action: any = () => {};
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	export let action = <T extends HTMLElement>(node: T, params: typeof actionParams) => {
+		return {
+			update: () => {},
+			destroy: () => {}
+		};
+	};
 	/** Image only. Provide Svelte action params, such as Apollo. */
 	export let actionParams = '';
 
@@ -43,7 +48,7 @@
 	$: classesBase = `${cBase} ${background} ${width} ${border} ${rounded} ${shadow} ${cursor} ${$$props.class ?? ''}`;
 
 	// Utility Functions
-	function prunedRestProps(): any {
+	function prunedRestProps() {
 		delete $$restProps.class;
 		return $$restProps;
 	}
