@@ -87,7 +87,7 @@
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<Counter bind:currentValue={indexValue} bind:index values={monthValues} />
+					<Counter bind:index bind:currentValue={indexValue} values={monthValues} />
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock language="html" code={`<Counter bind:currentValue bind:index values={monthValues} />`} />
@@ -136,3 +136,9 @@
 		</section>
 	</svelte:fragment>
 </DocsShell>
+
+<div class="flex flex-row justify-center col-span-4 gap-8">
+	{console.log({ index, indexValue })}
+	<div class="card p-4 variant-filled w-fit">Current Value: {indexValue}</div>
+	<div class="card p-4 variant-filled w-fit">Index: {index}</div>
+</div>
