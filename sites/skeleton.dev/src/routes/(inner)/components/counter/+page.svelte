@@ -45,15 +45,13 @@
 	<svelte:fragment slot="sandbox">
 		<DocsPreview regionFooter="grid grid-cols-[100px_1fr] gap-4 items-center">
 			<svelte:fragment slot="preview">
-				<Counter bind:currentValue {direction} values={monthValues} />
+				<Counter {direction} values={monthValues} />
 			</svelte:fragment>
 			<svelte:fragment slot="source">
 				<CodeBlock language="html" code={`<Counter values={monthValues} direction="${direction}" />`} />
 			</svelte:fragment>
 			<svelte:fragment slot="footer">
 				<div class="flex flex-row justify-center col-span-4 gap-8">
-					<div class="card p-4 variant-filled w-fit">Current Value: {currentValue}</div>
-
 					<select class="select w-fit" bind:value={direction}>
 						<option value="forward">Forward</option>
 						<option value="backward">Backward</option>
@@ -69,18 +67,34 @@
 		<section class="space-y-4">
 			<h2 class="h2">Random Order</h2>
 			<p>
-				Setting the <code class="code">direction</code> property to <code class="code">random</code> specifies the items with iterate in random
+				Setting the <code class="code">direction</code> property to <code class="code">random</code> specifies the items will iterate in random
 				order
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<Counter direction="random" bind:index values={monthValues} />
+					<Counter direction="random" values={monthValues} />
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock language="html" code={`<Counter direction="random" values={monthValues} />`} />
 				</svelte:fragment>
+			</DocsPreview>
+		</section>
+		<section class="space-y-4">
+			<h2 class="h2">Data Binding</h2>
+			<p>
+				You can utilize svelte binding on the <code class="code">index</code> and <code class="code">currentValue</code> properties, and reference
+				these values externally
+			</p>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<Counter bind:currentValue bind:index values={monthValues} />
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock language="html" code={`<Counter bind:currentValue bind:index values={monthValues} />`} />
+				</svelte:fragment>
 				<svelte:fragment slot="footer">
 					<div class="flex flex-row justify-center col-span-4 gap-8">
+						<div class="card p-4 variant-filled w-fit">Current Value: {currentValue}</div>
 						<div class="card p-4 variant-filled w-fit">Index: {index}</div>
 					</div>
 				</svelte:fragment>
