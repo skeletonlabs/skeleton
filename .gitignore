@@ -13,6 +13,7 @@ src/lib/tailwind/generated
 vite.config.ts.timestamp-**.mjs
 
 /packages/*
+!/packages/create-skeleton-app
 !/packages/skeleton
 /sites/*
 !/sites/skeleton.dev

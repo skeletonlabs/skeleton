@@ -5,7 +5,7 @@ import { writable, type Writable } from 'svelte/store';
 
 import Step from '$lib/components/Stepper/Step.svelte';
 
-let mockState: Writable<any> = writable({ current: 1, total: 1 }); // NOTE: current/total must match!
+const mockState: Writable<any> = writable({ current: 1, total: 1 }); // NOTE: current/total must match!
 
 describe('Step.svelte', () => {
 	it('Renders with mininal props', async () => {

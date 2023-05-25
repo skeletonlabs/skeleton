@@ -1,0 +1,61 @@
+name: Publish Skeleton @dev Release
+on:
+  push:
+    branches:
+      - dev
+    paths:
+      - "packages/skeleton/**"
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  dev-release:
+    name: Build & Publish @dev Release
+    if: github.repository == 'skeletonlabs/skeleton'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Use PNPM v8
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Use Node v18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      
+      # PNPM Store cache setup
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: |
+          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Bump version to dev release
+        run: node scripts/dev-version.js
+
+      - name: Packaging
+        run: pnpm ci:package
+
+      - name: Authenticate to NPM & Publish
+        run: |
+          cat << EOF > "$HOME/.npmrc"
+            //registry.npmjs.org/:_authToken=$NPM_TOKEN
+          EOF
+          pnpm publish packages/skeleton --access public --tag dev --no-git-checks
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
