@@ -101,7 +101,7 @@
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
-		<section class="space-y-4">
+		<!-- <section class="space-y-4">
 			<h2 class="h2">Content Formatting</h2>
 			<p>
 				Utilizing <a class="anchor" href="https://svelte.dev/docs#template-syntax-slot">slots</a> and
@@ -133,7 +133,7 @@
 					<CodeBlock language="html" code={`<Counter interval={500} values={monthValues} />`} />
 				</svelte:fragment>
 			</DocsPreview>
-		</section>
+		</section> -->
 	</svelte:fragment>
 </DocsShell>
 
