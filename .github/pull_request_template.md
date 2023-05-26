@@ -8,7 +8,7 @@ Closes #{issueNumber}
 
 ## Changsets
 
-Changesets automated our changelog. If you modify files in `/package/skeleton`, run `pnpm changeset`, follow the prompts, then commit the markdown file. Changes that add features should be `minor` while bugfixes should be `patch`. Please prefix the changeset message with `feat:`, `bugfix:` or `chore:`.
+Changesets automate our changelog. If you modify files in `/package/skeleton`, run `pnpm changeset`, follow the prompts, then commit the markdown file. Changes that add features should be `minor` while chores and bugfixes should be `patch`. Please prefix the changeset message with `feat:`, `bugfix:` or `chore:`.
 
 ## Checklist
 
