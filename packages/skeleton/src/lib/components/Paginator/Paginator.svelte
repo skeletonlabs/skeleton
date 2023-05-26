@@ -13,41 +13,46 @@
 	export let settings: PaginationSettings = { offset: 0, limit: 5, size: 0, amounts: [1, 2, 5, 10] };
 	/** Sets selection and buttons to disabled state on-demand. */
 	export let disabled = false;
+	/** Show Previous and Next buttons. */
+	export let showPreviousNextButtons = true;
 	/** Show First and Last buttons. */
 	export let showFirstLastButtons = false;
-	/** Show page controls */
-	export let showPageControls = false;
-
-	// Props (styles)
-	/** Provide classes to style the select input. */
-	export let select: CssClasses = 'select min-w-[150px]';
+	/** Displays a numeric row of page buttons. */
+	export let showNumericRow = false;
 	/** Provide classes to set flexbox justification. */
 	export let justify: CssClasses = 'justify-between';
-	/** Provide classes to style page info text. */
-	export let text = 'text-xs';
+
+	// Props (select)
+	/** Provide classes to style the select input. */
+	export let select: CssClasses = 'select min-w-[150px]';
 	/** Set the text for the amount selection input. */
 	export let amountText = 'Items';
-	/** Provide arbitrary classes to the controls. */
-	export let controlsClasses: CssClasses = 'flex space-x-1';
-	/** Provide arbitrary classes to the next/previous buttons. */
-	export let buttonClasses: CssClasses = 'btn-icon btn-icon-sm variant-filled';
-	/** Provide arbitrary classes to the page buttons group. */
-	export let pageButtonsGroupClasses: CssClasses = 'btn-group variant-filled h-8';
+
+	// Props (control)
+	/** Set the base classes for the control element. */
+	export let regionControl: CssClasses = 'btn-group';
+	/** Provide variant style for the control button group. */
+	export let controlVariant: CssClasses = 'variant-filled';
+	/** Provide separator style for the control button group.  */
+	export let controlSeparator: CssClasses = '';
+
+	// Props (buttons)
 	/** Provide arbitrary classes to the active page buttons. */
-	export let activePageButtonClasses: CssClasses = 'bg-primary-600 pointer-events-none';
-	/** Set the text label for the Previous button. */
+	export let active: CssClasses = 'variant-filled-primary';
+	/*** Set the base button classes. */
+	export let buttonClasses: CssClasses = '!px-3 !py-1.5';
+	/** Set the label for the Previous button. */
 	export let buttonTextPrevious: CssClasses = '&larr;';
-	/** Set the text label for the Next button. */
+	/** Set the label for the Next button. */
 	export let buttonTextNext: CssClasses = '&rarr;';
-	/** Set the text label for the First button. */
+	/** Set the label for the First button. */
 	export let buttonTextFirst: CssClasses = '&laquo;';
-	/** Set the text label for the Last button. */
+	/** Set the label for the Last button. */
 	export let buttonTextLast: CssClasses = '&raquo;';
 
 	// Base Classes
 	const cBase = 'flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4';
 	const cLabel = 'w-full md:w-auto';
-	const cPageText = 'whitespace-nowrap';
 
 	// Local
 	let lastPage = Math.ceil(settings.size / settings.limit - 1);
@@ -69,7 +74,7 @@
 		controlPages = getControlPages();
 	}
 	function getControlPages() {
-		const maxPagesToShow = 5;
+		const maxPagesToShow = 3;
 		const pages = [];
 
 		if (lastPage <= maxPagesToShow) {
@@ -103,54 +108,101 @@
 		return pages;
 	}
 
+	// State
+	$: classesButtonActive = (page: number) => {
+		return page === settings.offset ? `${active} pointer-events-none` : '';
+	};
 	// Reactive Classes
 	$: classesBase = `${cBase} ${justify} ${$$props.class ?? ''}`;
 	$: classesLabel = `${cLabel}`;
 	$: classesSelect = `${select}`;
-	$: classesPageText = `${cPageText} ${text}`;
-	$: classesControls = `${controlsClasses}`;
-	$: classesPageButtons = `${pageButtonsGroupClasses}`;
+	$: classesControls = `${regionControl} ${controlVariant} ${controlSeparator}`;
 </script>
 
-<!-- prettier-ignore -->
 <div class="paginator {classesBase}" data-testid="paginator">
 	<!-- Select Amount -->
-	<label class="paginator-label {classesLabel}">
-		<select bind:value={settings.limit} on:change={() => { onChangeLength() }} class="paginator-select {classesSelect}" {disabled} aria-label="Select Amount">
-			{#each settings.amounts as amount}<option value={amount}>{amount} {amountText}</option>{/each}
-		</select>
-	</label>
-	<!-- Details -->
-	<span class="paginator-details {classesPageText}">
-		{settings.offset * settings.limit + 1} - {Math.min(settings.offset * settings.limit + settings.limit, settings.size)} <span class="opacity-50 px-2">/</span> <strong>{settings.size}</strong>
-	</span>
+	{#if settings.amounts.length}
+		<label class="paginator-label {classesLabel}">
+			<select
+				bind:value={settings.limit}
+				on:change={onChangeLength}
+				class="paginator-select {classesSelect}"
+				{disabled}
+				aria-label="Select Amount"
+			>
+				{#each settings.amounts as amount}<option value={amount}>{amount} {amountText}</option>{/each}
+			</select>
+		</label>
+	{/if}
 	<!-- Controls -->
 	<div class="paginator-controls {classesControls}">
+		<!-- Button: First -->
 		{#if showFirstLastButtons}
-		<button type="button" class="{buttonClasses}" on:click={() => { gotoPage(0) }} disabled={disabled || settings.offset === 0}>
-			{@html buttonTextFirst}
-		</button>
+			<button
+				type="button"
+				class={buttonClasses}
+				on:click={() => {
+					gotoPage(0);
+				}}
+				disabled={disabled || settings.offset === 0}
+			>
+				{@html buttonTextFirst}
+			</button>
 		{/if}
-		<button type="button" class="{buttonClasses}" on:click={() => { gotoPage(settings.offset - 1) }} disabled={disabled || settings.offset === 0}>
-			{@html buttonTextPrevious}
-		</button>
-		{#if showPageControls}
-		<div class={classesPageButtons}>
+		<!-- Button: Back -->
+		{#if showPreviousNextButtons}
+			<button
+				type="button"
+				class={buttonClasses}
+				on:click={() => {
+					gotoPage(settings.offset - 1);
+				}}
+				disabled={disabled || settings.offset === 0}
+			>
+				{@html buttonTextPrevious}
+			</button>
+		{/if}
+		<!-- Center -->
+		{#if showNumericRow === false}
+			<!-- Details -->
+			<button type="button" class="{buttonClasses} pointer-events-none !text-sm">
+				{settings.offset * settings.limit + 1}-{Math.min(settings.offset * settings.limit + settings.limit, settings.size)}&nbsp;<span
+					class="opacity-50">of {settings.size}</span
+				>
+			</button>
+		{:else}
+			<!-- Numeric Row -->
 			{#each controlPages as page}
-				<button type='button' class={page === settings.offset ? activePageButtonClasses : page < 0 ? 'pointer-events-none' : ''} 
-					on:click={() => gotoPage(page)}>
-					{page >= 0 ? page : '...'}
+				<button type="button" class="{buttonClasses} {classesButtonActive(page)}" on:click={() => gotoPage(page)}>
+					{page >= 0 ? page + 1 : '...'}
 				</button>
 			{/each}
-		</div>
 		{/if}
-		<button type="button" class="{buttonClasses}" on:click={() => { gotoPage(settings.offset + 1) }} disabled={disabled || (settings.offset + 1) * settings.limit >= settings.size}>
-			{@html buttonTextNext}
-		</button>
+		<!-- Button: Next -->
+		{#if showPreviousNextButtons}
+			<button
+				type="button"
+				class={buttonClasses}
+				on:click={() => {
+					gotoPage(settings.offset + 1);
+				}}
+				disabled={disabled || (settings.offset + 1) * settings.limit >= settings.size}
+			>
+				{@html buttonTextNext}
+			</button>
+		{/if}
+		<!-- Button: last -->
 		{#if showFirstLastButtons}
-		<button type="button" class="{buttonClasses}" on:click={() => { gotoPage(lastPage) }} disabled={disabled || (settings.offset + 1) * settings.limit >= settings.size}>
-			{@html buttonTextLast}
-		</button>
+			<button
+				type="button"
+				class={buttonClasses}
+				on:click={() => {
+					gotoPage(lastPage);
+				}}
+				disabled={disabled || (settings.offset + 1) * settings.limit >= settings.size}
+			>
+				{@html buttonTextLast}
+			</button>
 		{/if}
 	</div>
 </div>

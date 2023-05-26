@@ -33,7 +33,7 @@
 		amounts: [1, 2, 3, 5, sourceBody.length]
 	} as PaginationSettings;
 
-	// Options
+	// Demo options
 	let state = {
 		firstLast: false,
 		previousNext: true
