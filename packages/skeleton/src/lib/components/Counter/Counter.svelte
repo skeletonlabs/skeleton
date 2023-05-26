@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
-	import { backOut, elasticInOut } from 'svelte/easing';
+	import { elasticInOut } from 'svelte/easing';
 	import { onDestroy } from 'svelte';
 
 	// Types
