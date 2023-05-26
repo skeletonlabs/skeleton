@@ -12,3 +12,6 @@ pnpm-lock.yaml
 .github
 /static/font-awesome
 /static/fonts
+/.temp
+/dist
+/scripts/tw-settings.json
