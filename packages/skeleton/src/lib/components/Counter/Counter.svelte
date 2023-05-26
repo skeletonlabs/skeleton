@@ -8,7 +8,7 @@
 
 	// Props (actions)
 	/** Provide the array of values to tick through. */
-	export let values: any[] = [];
+	export let values: any[] = Array.from({ length: 100 }, (_, i) => new String(i));
 	/** Bind to the current value of the counter. */
 	export let currentValue: any = '';
 	/** Specify the values array should tick backwards. */

@@ -20,7 +20,6 @@
 	};
 
 	// Local
-	const numbers = Array.from({ length: 100 }, (_, i) => new String(i));
 	const monthValues = [
 		'January',
 		'Feburary',
@@ -46,7 +45,7 @@
 		<DocsPreview regionFooter="grid grid-cols-[100px_1fr] gap-4 items-center">
 			<svelte:fragment slot="preview">
 				<p>
-					I can count to <Counter {direction} values={numbers} />
+					I can count to <Counter {direction} />
 				</p>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
