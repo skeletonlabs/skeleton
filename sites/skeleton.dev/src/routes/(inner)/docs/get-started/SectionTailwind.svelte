@@ -7,11 +7,7 @@
 <!-- Header -->
 <section class="space-y-4">
 	<h2 class="h2">Tailwind CSS</h2>
-	<p>
-		Skeleton features tight integration with <a class="anchor" href="https://tailwindcss.com/" target="_blank" rel="noreferrer"
-			>Tailwind CSS</a
-		>.
-	</p>
+	<p>	Skeleton features tight integration with <a class="anchor" href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind CSS</a>.</p>
 	<TabGroup regionPanel="space-y-4">
 		<!-- Tabs -->
 		<Tab bind:group={$storeOnboardMethod} name="cli" value="cli">Skeleton CLI</Tab>
@@ -22,7 +18,7 @@
 				<div class="card variant-glass p-4">
 					<!-- prettier-ignore -->
 					<p>
-						The CLI uses <a class="anchor" href="https://github.com/svelte-add/tailwindcss" target="_blank" rel="noreferrer">Svelte-Add</a> to install and configure Tailwind within your project.
+						The CLI will automatically install and configure Tailwind and PostCSS within your project.
 					</p>
 				</div>
 			{:else if $storeOnboardMethod === 'manual'}
@@ -64,7 +60,7 @@ module.exports = {
 		...require('@skeletonlabs/skeleton/tailwind/skeleton.cjs')()
 	]
 }
-			`}
+`}
 				/>
 				<aside class="alert variant-ghost-warning">
 					<i class="fa-solid fa-triangle-exclamation text-2xl" />
