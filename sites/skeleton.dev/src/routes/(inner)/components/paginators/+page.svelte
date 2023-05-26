@@ -75,7 +75,42 @@ let page = {
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
-		<div class="space-y-4" />
+		<div class="space-y-4">
+			<h2 class="h2">Pagination Controls</h2>
+			<DocsPreview>
+				<svelte:fragment slot="preview">
+					<div class="w-full space-y-4 text-token">
+						<Table source={{ head: sourceHeaders, body: sourceBodySliced }} />
+						<Paginator
+							bind:settings={page}
+							on:page={onPageChange}
+							on:amount={onAmountChange}
+							showFirstLastButtons={true}
+							showPageControls={true}
+						/>
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock language="ts" code={`const source = [ /* any array of objects */ ];`} />
+					<CodeBlock
+						language="ts"
+						code={`
+	// PaginatorSettings
+	let page = {
+		offset: 0,
+		limit: 5,
+		size: source.length,
+		amounts: [1,2,5,10],
+	};
+						`}
+					/>
+					<CodeBlock
+						language="html"
+						code={`<Paginator showFirstLastButtons={true} showPageControls={true} bind:settings={page}></Paginator>`}
+					/>
+				</svelte:fragment>
+			</DocsPreview>
+		</div>
 		<div class="space-y-4">
 			<h2 class="h2">Client-Side Pagination</h2>
 			<!-- prettier-ignore -->
