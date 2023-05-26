@@ -50,13 +50,12 @@
 	// Reactive Classes
 	$: classesBase = `${cBase} ${padding} ${height} ${width} ${border} ${rounded} ${shadow} ${$$props.class ?? ''}`;
 	$: classesInner = `${cInner}`;
-	// $: classesContent = `${background}`;
 
 	let transitionInterval: any,
 		tIn: TransitionFunction = fly,
-		tInProps: any = { y: 100, duration: 100, delay: 100, easing: elasticInOut },
+		tInProps: any = { y: 100, duration: 150, delay: 150, easing: elasticInOut },
 		tOut: TransitionFunction = fly,
-		tOutProps: any = { y: -100, duration: 100, easing: elasticInOut };
+		tOutProps: any = { y: -100, duration: 150, easing: elasticInOut };
 
 	$: currentValue = values[index];
 	$: {

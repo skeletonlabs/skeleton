@@ -82,6 +82,27 @@
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
+			<h2 class="h2">Multi-line</h2>
+			<p>Usage in a multi-line string</p>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<p class="prose">
+						<Counter
+							height="h-24"
+							values={[
+								"This is an exceptionally long string, Like Super Duper Long. I don't think you can truly understand how long this string is.",
+								'Its pretty long',
+								'But it still works'
+							]}
+						/>
+					</p>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock language="html" code={`<Counter direction="random" values={monthValues} />`} />
+				</svelte:fragment>
+			</DocsPreview>
+		</section>
+		<section class="space-y-4">
 			<h2 class="h2">Data Binding</h2>
 			<p>
 				You can utilize svelte binding on the <code class="code">index</code> and <code class="code">currentValue</code> properties, and reference
