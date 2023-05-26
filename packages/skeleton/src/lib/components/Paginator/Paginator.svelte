@@ -79,8 +79,8 @@
 			return pages;
 		}
 
-		const isWithinLeftSection = settings.offset < maxPagesToShow - 2;
-		const isWithinRightSection = settings.offset > lastPage - (maxPagesToShow - 2);
+		const isWithinLeftSection = settings.offset < maxPagesToShow - 1;
+		const isWithinRightSection = settings.offset > lastPage - (maxPagesToShow - 1);
 		pages.push(0);
 		if (!isWithinLeftSection) {
 			pages.push(-1);
