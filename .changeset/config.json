@@ -8,7 +8,7 @@
 	"fixed": [],
 	"linked": [],
 	"access": "public",
-	"baseBranch": "master",
+	"baseBranch": "dev",
 	"updateInternalDependencies": "patch",
 	"ignore": []
 }

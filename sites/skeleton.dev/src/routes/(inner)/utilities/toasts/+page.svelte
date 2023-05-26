@@ -124,7 +124,7 @@
 		<!-- Toast Store -->
 		<section class="space-y-4">
 			<h2 class="h2">Toast Store</h2>
-			<p>The Modal Store acts as a queue for your toast messages.</p>
+			<p>The Toast Store acts as a queue for your toast messages.</p>
 			<CodeBlock
 				language="ts"
 				code={`import { toastStore } from '@skeletonlabs/skeleton';
