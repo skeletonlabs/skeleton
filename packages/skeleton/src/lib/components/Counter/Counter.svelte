@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
-	import { onDestroy, onMount } from 'svelte';
+	import { backOut, elasticInOut } from 'svelte/easing';
+	import { onDestroy } from 'svelte';
 
 	// Types
 	import type { CssClasses, Transition, TransitionFunction } from '../..';
@@ -27,42 +28,38 @@
 
 	// Props (styles)
 	/** Provide classes to set background styles. */
-	export let background: CssClasses = 'bg-surface-400-500-token';
+	export let background: CssClasses = '';
 	/** Provide classes to set counter height. */
-	export let height: CssClasses = 'h-8';
+	export let height: CssClasses = 'h-6';
 	/** Provide classes to set counter width. */
-	export let width: CssClasses = 'w-24';
+	export let width: CssClasses = '';
+	/** Provide classes to set padding style. */
+	export let padding: CssClasses = '';
 	/** Provide classes to set border styles. */
 	export let border: CssClasses = '';
 	/** Provide classes to set rounded style. */
-	export let rounded: CssClasses = 'rounded-token';
+	export let rounded: CssClasses = '';
+
 	/** Provide classes to set shadow styles. */
 	export let shadow: CssClasses = '';
-	/** Provide classes to set cursor styles. */
-	export let cursor: CssClasses = '';
 
 	// Base Classes
-	let cBase = 'flex flex-col text-surface-50 font-semibold justify-center items-center overflow-hidden isolate';
+	let cBase = `inline-block ${background}`;
+	let cInner = 'overflow-hidden flex flex-col';
 
 	// Reactive Classes
-	$: classesBase = `${cBase} ${background} ${height} ${width} ${border} ${rounded} ${shadow} ${cursor} ${$$props.class ?? ''}`;
+	$: classesBase = `${cBase} ${padding} ${height} ${width} ${border} ${rounded} ${shadow} ${$$props.class ?? ''}`;
+	$: classesInner = `${cInner}`;
+	// $: classesContent = `${background}`;
 
-	// Utility Functions
-	function prunedRestProps(): any {
-		delete $$restProps.class;
-		return $$restProps;
-	}
-
-	let transitionInterval: any, tIn: TransitionFunction, tInProps: any, tOut: TransitionFunction, tOutProps: any;
+	let transitionInterval: any,
+		tIn: TransitionFunction = fly,
+		tInProps: any = { y: 100, duration: 100, delay: 100, easing: elasticInOut },
+		tOut: TransitionFunction = fly,
+		tOutProps: any = { y: -100, duration: 100, easing: elasticInOut };
 
 	$: currentValue = values[index];
-
 	$: {
-		tIn = fly;
-		tInProps = { y: 100, duration: 100, delay: 100 };
-		tOut = fly;
-		tOutProps = { y: -100, duration: 100 };
-
 		if (transition) {
 			tIn = transition.transition;
 			tInProps = transition.props;
@@ -79,43 +76,41 @@
 		}
 	}
 
-	onMount(() => {
-		transitionInterval = setInterval(() => {
-			switch (direction) {
-				case 'forward':
-					if (index === values.length - 1 || index > values.length - 1) {
-						index = 0;
-					} else {
-						index = index + 1;
-					}
-					break;
+	transitionInterval = setInterval(() => {
+		switch (direction) {
+			case 'forward':
+				if (index === values.length - 1 || index > values.length - 1) {
+					index = 0;
+				} else {
+					index = index + 1;
+				}
+				break;
 
-				case 'backward':
-					if (index === 0 || index < 0) {
-						index = values.length - 1;
-					} else {
-						index = index - 1;
-					}
-					break;
+			case 'backward':
+				if (index === 0 || index < 0) {
+					index = values.length - 1;
+				} else {
+					index = index - 1;
+				}
+				break;
 
-				case 'random':
-					index = Math.floor(Math.random() * (values.length - 1));
-					break;
-			}
-		}, interval);
-	});
+			case 'random':
+				index = Math.floor(Math.random() * (values.length - 1));
+				break;
+		}
+	}, interval);
 
-	onDestroy(() => {
-		clearInterval(transitionInterval);
-	});
+	onDestroy(() => clearInterval(transitionInterval));
 </script>
 
-<div class={classesBase} {...prunedRestProps()}>
-	{#key currentValue}
-		<div in:tIn={tInProps} out:tOut={tOutProps}>
-			<slot {currentValue}>
-				<p class="text-center">{currentValue}</p>
-			</slot>
-		</div>
-	{/key}
-</div>
+<span class={classesBase}>
+	<span class={classesInner}>
+		{#key currentValue}
+			<span in:tIn={tInProps} out:tOut={tOutProps}>
+				<slot {currentValue}>
+					{currentValue}
+				</slot>
+			</span>
+		{/key}
+	</span>
+</span>

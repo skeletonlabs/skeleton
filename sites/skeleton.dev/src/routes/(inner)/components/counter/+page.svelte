@@ -20,6 +20,7 @@
 	};
 
 	// Local
+	const numbers = Array.from({ length: 100 }, (_, i) => new String(i));
 	const monthValues = [
 		'January',
 		'Feburary',
@@ -36,8 +37,7 @@
 	];
 
 	let direction: 'forward' | 'backward' | 'random' = 'forward';
-	let index: any;
-	let indexValue: any;
+	let currentValue: any;
 </script>
 
 <DocsShell {settings}>
@@ -45,7 +45,9 @@
 	<svelte:fragment slot="sandbox">
 		<DocsPreview regionFooter="grid grid-cols-[100px_1fr] gap-4 items-center">
 			<svelte:fragment slot="preview">
-				<Counter {direction} values={monthValues} />
+				<p>
+					I can count to <Counter {direction} values={numbers} />
+				</p>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
 				<CodeBlock language="html" code={`<Counter values={monthValues} direction="${direction}" />`} />
@@ -72,7 +74,7 @@
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<Counter direction="random" values={monthValues} />
+					<Counter height="h-8" width="w-28" direction="random" values={monthValues} />
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock language="html" code={`<Counter direction="random" values={monthValues} />`} />
@@ -85,23 +87,22 @@
 				You can utilize svelte binding on the <code class="code">index</code> and <code class="code">currentValue</code> properties, and reference
 				these values externally
 			</p>
+
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<Counter bind:index bind:currentValue={indexValue} values={monthValues} />
+					<Counter bind:currentValue values={monthValues} />
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<Counter bind:currentValue bind:index values={monthValues} />`} />
+					<CodeBlock language="html" code={`<Counter bind:currentValue values={monthValues} />`} />
 				</svelte:fragment>
 				<svelte:fragment slot="footer">
 					<div class="flex flex-row justify-center col-span-4 gap-8">
-						{console.log({ index, indexValue })}
-						<div class="card p-4 variant-filled w-fit">Current Value: {indexValue}</div>
-						<div class="card p-4 variant-filled w-fit">Index: {index}</div>
+						<div class="card p-4 variant-filled w-fit">Current Value: {currentValue}</div>
 					</div>
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
-		<!-- <section class="space-y-4">
+		<section class="space-y-4">
 			<h2 class="h2">Content Formatting</h2>
 			<p>
 				Utilizing <a class="anchor" href="https://svelte.dev/docs#template-syntax-slot">slots</a> and
@@ -110,35 +111,42 @@
 			</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<Counter values={monthValues} let:currentValue>
-						<div>{currentValue.toUpperCase()}</div>
-					</Counter>
+					<p>
+						My favorite month is <Counter values={monthValues} let:currentValue>
+							{currentValue.toLowerCase()}
+						</Counter>
+					</p>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
 					<CodeBlock
 						language="html"
-						code={`<Counter values={monthValues} let:currentValue>\n	<div>{currentValue.toUpperCase()}</div>\n</Counter>`}
+						code={`<p>\n	My favorite month is <Counter values={monthValues} let:currentValue>\n		{currentValue.toLowerCase()}\n	</Counter>\n</p>`}
 					/>
 				</svelte:fragment>
 			</DocsPreview>
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Variable Interval</h2>
-			<p>Adjusting the <code class="code">interval</code> property changes how long until it stays on each item</p>
+			<p>Adjusting the <code class="code">interval</code> property changes how long it stays on each value</p>
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
-					<Counter interval={500} values={monthValues} />
+					<p>
+						Party like <Counter
+							background="bg-success-backdrop-token"
+							padding="px-3"
+							rounded="rounded-token"
+							interval={2000}
+							values={["it's 1999", "it's the end of the world", "it's ya birthday", 'a rockstar']}
+						/>
+					</p>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<Counter interval={500} values={monthValues} />`} />
+					<CodeBlock
+						language="html"
+						code={`<p>\n	Party like <Counter\n		background="bg-tertiary-backdrop-token"\n		padding="px-3"\n		rounded="rounded-xl"\n		interval={2000}\n		values={["it's 1999", "it's the end of the world", "it's ya birthday", 'a rockstar']}\n	/>\n</p>`}
+					/>
 				</svelte:fragment>
 			</DocsPreview>
-		</section> -->
+		</section>
 	</svelte:fragment>
 </DocsShell>
-
-<div class="flex flex-row justify-center col-span-4 gap-8">
-	{console.log({ index, indexValue })}
-	<div class="card p-4 variant-filled w-fit">Current Value: {indexValue}</div>
-	<div class="card p-4 variant-filled w-fit">Index: {index}</div>
-</div>
