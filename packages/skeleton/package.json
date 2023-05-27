@@ -117,12 +117,5 @@
 		"./dist/tailwind/*",
 		"./dist/themes/*",
 		"!./dist/**/*.test.*"
-	],
-	"typesVersions": {
-		">4.0": {
-			"index": [
-				"./src/lib/index.ts"
-			]
-		}
-	}
+	]
 }
