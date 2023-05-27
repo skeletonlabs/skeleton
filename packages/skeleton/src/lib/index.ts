@@ -1,5 +1,5 @@
 // This file defines the short path imports for the package (ex: @skeletonlabs/skeleton/*)
-import type { TransitionConfig, slide } from 'svelte/transition';
+import type { BlurParams, FadeParams, FlyParams, ScaleParams, SlideParams, TransitionConfig } from 'svelte/transition';
 
 // Types ---
 
@@ -15,9 +15,20 @@ export type { PopupSettings } from './utilities/Popup/types';
 // This type alias is to identify CSS classes within component props, which enables Tailwind IntelliSense
 export type CssClasses = string;
 
+export type DefaultTransitionParams = (BlurParams | FadeParams | FlyParams | SlideParams | ScaleParams) & AdditionalTransitionProps;
+export type TransitionParams = (DefaultTransitionParams | Record<string, unknown>);
+interface AdditionalTransitionProps {
+	/** Disable the transition completely. */
+	disabled?: boolean;
+	/**
+	 * By default, animations will be disabled if the media query `prefers-reduced-motion` is present.
+	 * There are many reasons why you might want to override this behavior, such as for minor animations.
+	 */
+	ignoreReducedMotion?: boolean;
+}
 export interface TransitionSettings {
-	transition: (...args: Parameters<typeof slide>) => TransitionConfig;
-	params: object;
+	transition: (node: Element, params?: TransitionParams) => TransitionConfig;
+	params?: TransitionParams;
 }
 
 // Stores ---
