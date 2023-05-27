@@ -6,11 +6,11 @@
 	const dispatch = createEventDispatcher();
 
 	// Types
-	import type { CssClasses } from '../..';
+	import type { CssClasses } from '../../index.js';
 
-	import { modalStore } from './stores';
-	import { focusTrap } from '../../actions/FocusTrap/focusTrap';
-	import type { ModalComponent, ModalSettings } from './types';
+	import { modalStore } from './stores.js';
+	import { focusTrap } from '../../actions/FocusTrap/focusTrap.js';
+	import type { ModalComponent, ModalSettings } from './types.js';
 
 	// Props
 	/** Set the modal position within the backdrop container */

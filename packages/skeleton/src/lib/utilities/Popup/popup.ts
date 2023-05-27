@@ -1,5 +1,5 @@
 import { get, writable, type Writable } from 'svelte/store';
-import type { PopupSettings } from './types';
+import type { PopupSettings } from './types.js';
 
 // Use a store to pass the Floating UI import references
 export const storePopup: Writable<any> = writable(undefined);

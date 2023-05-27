@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
 	// Types
-	import type { CssClasses, PaginationSettings } from '../..';
+	import type { CssClasses, PaginationSettings } from '../../index.js';
 
 	const dispatch = createEventDispatcher();
 

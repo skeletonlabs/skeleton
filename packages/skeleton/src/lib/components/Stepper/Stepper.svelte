@@ -4,7 +4,7 @@
 	import { fade } from 'svelte/transition';
 
 	// Types
-	import type { CssClasses } from '../..';
+	import type { CssClasses } from '../../index.js';
 
 	// Event Dispatcher
 	const dispatchParent = createEventDispatcher();

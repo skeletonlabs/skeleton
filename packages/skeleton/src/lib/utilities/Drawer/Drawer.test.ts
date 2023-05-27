@@ -2,7 +2,7 @@ import { render } from '@testing-library/svelte';
 import { describe, it, expect } from 'vitest';
 
 import Drawer from '$lib/utilities/Drawer/Drawer.svelte';
-import { drawerStore } from '$lib/utilities/Drawer/stores';
+import { drawerStore } from '$lib/utilities/Drawer/stores.js';
 
 describe('Drawer.svelte', () => {
 	it('Drawer hidden on load', async () => {
