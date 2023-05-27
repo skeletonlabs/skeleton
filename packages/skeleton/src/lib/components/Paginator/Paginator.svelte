@@ -19,6 +19,8 @@
 	export let showFirstLastButtons = false;
 	/** Displays a numeric row of page buttons. */
 	export let showNumericRow = false;
+	/** Maximum number of active page siblings in the numeric row.*/
+	export let maxNumericSiblings = 1;
 	/** Provide classes to set flexbox justification. */
 	export let justify: CssClasses = 'justify-between';
 
@@ -68,43 +70,48 @@
 		controlPages = getControlPages();
 	}
 	function gotoPage(page: number) {
+		if (page < 0) return;
+
 		settings.offset = page;
 		/** @event {{ offset: number }} page Fires when the next/back buttons are pressed. */
 		dispatch('page', settings.offset);
 		controlPages = getControlPages();
 	}
 	function getControlPages() {
-		const maxPagesToShow = 3;
 		const pages = [];
 
-		if (lastPage <= maxPagesToShow) {
+		if (lastPage <= maxNumericSiblings * 2 + 1) {
 			for (let index = 0; index <= lastPage; index++) {
 				pages.push(index);
 			}
 			return pages;
 		}
 
-		const isWithinLeftSection = settings.offset < maxPagesToShow - 1;
-		const isWithinRightSection = settings.offset > lastPage - (maxPagesToShow - 1);
+		const isWithinLeftSection = settings.offset < maxNumericSiblings + 2;
+		const isWithinRightSection = settings.offset > lastPage - (maxNumericSiblings + 2);
+
 		pages.push(0);
 		if (!isWithinLeftSection) {
 			pages.push(-1);
 		}
+
 		if (!isWithinLeftSection && !isWithinRightSection) {
-			for (let i = settings.offset - 1; i <= settings.offset + 1; i++) {
+			for (let i = settings.offset - maxNumericSiblings; i <= settings.offset + maxNumericSiblings; i++) {
 				pages.push(i);
 			}
 		} else {
-			const start = isWithinLeftSection ? 1 : lastPage - (maxPagesToShow - 1);
-			const end = isWithinRightSection ? lastPage - 1 : maxPagesToShow - 1;
+			const start = isWithinLeftSection ? 1 : lastPage - (maxNumericSiblings + 2);
+			const end = isWithinRightSection ? lastPage - 1 : maxNumericSiblings + 2;
 			for (let i = start; i <= end; i++) {
 				pages.push(i);
 			}
 		}
+
 		if (!isWithinRightSection) {
 			pages.push(-1);
 		}
 		pages.push(lastPage);
+
 		return pages;
 	}
 
@@ -112,6 +119,7 @@
 	$: classesButtonActive = (page: number) => {
 		return page === settings.offset ? `${active} pointer-events-none` : '';
 	};
+	$: maxNumericSiblings, onChangeLength();
 	// Reactive Classes
 	$: classesBase = `${cBase} ${justify} ${$$props.class ?? ''}`;
 	$: classesLabel = `${cLabel}`;
