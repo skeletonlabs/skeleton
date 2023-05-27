@@ -128,9 +128,15 @@ let page = {
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<Paginator ... showNumericRow></Paginator>`} />
+					<CodeBlock language="html" code={`<Paginator ... showNumericRow maxNumericSiblings={1}></Paginator>`} />
 				</svelte:fragment>
 			</DocsPreview>
+			<aside class="alert alert-message variant-ghost-warning">
+				<p>
+					If you plan to support small screens (e.g. mobile), then make sure to choose a small number for the <b>maxNumericSiblings</b> prop,
+					so it fits on small screens.
+				</p>
+			</aside>
 		</section>
 		<section class="space-y-4">
 			<h2 class="h2">Client-Side Pagination</h2>
