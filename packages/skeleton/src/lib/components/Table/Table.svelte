@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
 
-	import { tableA11y } from '../..';
+	import { tableA11y } from '../../utilities/DataTable/actions';
 
 	// Types
 	import type { CssClasses, TableSource } from '../..';

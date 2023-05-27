@@ -20,7 +20,9 @@ describe('AppRailTile.svelte', () => {
 				regionLabel: 'TestAppRailTile',
 				selected: readable('/'),
 				active: 'bg-primary-500',
-				hover: 'bg-primary-500'
+				hover: 'bg-primary-500',
+				group: 'testGroup',
+				name: 'test'
 			}
 		});
 		expect(getByTestId('app-rail-tile')).toBeTruthy();
@@ -29,7 +31,10 @@ describe('AppRailTile.svelte', () => {
 	it('Overrides tag when href is passed', async () => {
 		const { getByTestId } = render(AppRailTile, {
 			props: {
-				href: '/about'
+				href: '/about',
+				group: 'testGroup',
+				name: 'test tile',
+				value: 'some value'
 			}
 		});
 		expect(getByTestId('app-rail-tile').querySelector('a')).toBeTruthy();

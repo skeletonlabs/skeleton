@@ -23,6 +23,8 @@
 		"buttonPositive",
 		"buttonTextCancel",
 		"buttonTextConfirm",
+		"buttonTextFirst",
+		"buttonTextLast",
 		"buttonTextNext",
 		"buttonTextPrevious",
 		"buttonTextSubmit",

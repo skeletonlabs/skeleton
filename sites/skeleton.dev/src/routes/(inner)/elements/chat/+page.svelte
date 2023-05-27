@@ -86,6 +86,8 @@
 	];
 	let currentMessage = '';
 
+	// For some reason, eslint thinks ScrollBehavior is undefined...
+	// eslint-disable-next-line no-undef
 	function scrollChatBottom(behavior?: ScrollBehavior): void {
 		elemChat.scrollTo({ top: elemChat.scrollHeight, behavior });
 	}
@@ -565,7 +567,7 @@ function scrollChatBottom(behavior?: ScrollBehavior): void {
 				code={`
 function addMessage(): void {
 	const newMessage = {
-		id: messages.length,
+		id: messageFeed.length,
 		host: true,
 		avatar: 48,
 		name: 'Jane',
@@ -574,7 +576,7 @@ function addMessage(): void {
 		color: 'variant-soft-primary'
 	};
 	// Append the new message to the message feed
-	messages = [...messages, newMessage];
+	messageFeed = [...messageFeed, newMessage];
 	// Clear the textarea message
 	currentMessage = '';
 	// Smoothly scroll to the bottom of the feed
