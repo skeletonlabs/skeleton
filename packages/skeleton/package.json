@@ -92,6 +92,9 @@
 		},
 		"typesVersions": {
 			">4.0": {
+				"index.d.ts": [
+					"./dist/index.d.ts"
+				],
 				"tailwind/skeleton.cjs": [
 					"./dist/tailwind/skeleton.d.cts"
 				]
