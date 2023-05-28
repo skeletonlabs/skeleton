@@ -12,12 +12,13 @@
 	import { getContext } from 'svelte';
 	import { createEventDispatcher } from 'svelte/internal';
 	import type { Writable } from 'svelte/store';
+	import { prefersReducedMotion } from '../../stores';
 
 	// Event Dispatcher
 	const dispatch = createEventDispatcher();
 
 	// Types
-	import type { CssClasses, TransitionSettings } from '../..';
+	import { disabledTransition, type CssClasses, type TransitionSettings } from '../..';
 
 	// Props (state)
 	/** Set open by default on load. */
@@ -72,8 +73,14 @@
 	const deprecated = [duration];
 
 	// Local
-	const { transition: trIn, params: trInParams } = transitionIn;
-	const { transition: trOut, params: trOutParams } = transitionOut;
+	let { transition: trIn, params: trInParams } = transitionIn;
+	let { transition: trOut, params: trOutParams } = transitionOut;
+	if(trInParams?.disabled || ($prefersReducedMotion && !trInParams?.ignoreReducedMotion)) {
+		trIn = disabledTransition;
+	}
+	if(trOutParams?.disabled || ($prefersReducedMotion && !trInParams?.ignoreReducedMotion)) {
+		trOut = disabledTransition;
+	}
 
 	// Change open behavior based on auto-collapse mode
 	function setActive(event?: Event): void {

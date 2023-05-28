@@ -16,7 +16,7 @@ export type { PopupSettings } from './utilities/Popup/types';
 export type CssClasses = string;
 
 export type DefaultTransitionParams = (BlurParams | FadeParams | FlyParams | SlideParams | ScaleParams) & AdditionalTransitionProps;
-export type TransitionParams = DefaultTransitionParams | Record<string, any>;
+export type TransitionParams = (DefaultTransitionParams | Record<string, any>);
 interface AdditionalTransitionProps {
 	/** Disable the transition completely. */
 	disabled?: boolean;
@@ -29,6 +29,9 @@ interface AdditionalTransitionProps {
 export interface TransitionSettings {
 	transition: (node: Element, params?: TransitionParams) => TransitionConfig;
 	params?: TransitionParams;
+}
+export function disabledTransition(): TransitionConfig {
+	return {duration: 0, css: () => ``};
 }
 
 // Stores ---
