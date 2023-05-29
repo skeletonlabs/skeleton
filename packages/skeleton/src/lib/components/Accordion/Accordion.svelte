@@ -13,15 +13,15 @@
 	/** Set the auto-collapse mode. */
 	export let autocollapse = false;
 	/**
-	 * Provide the transition to use when values move in.
-	 * @type {TransitionSettings}
+	 * Provide the transition to use when values move in. Set false to disable the transition.
+	 * @type {TransitionSettings | false}
 	 */
-	export let transitionIn: TransitionSettings = { transition: slide, params: { duration: 200 } };
+	export let transitionIn: TransitionSettings | false = { transition: slide, params: { duration: 200 } };
 	/**
-	 * Provide the transition to use when values move out.
-	 * @type {TransitionSettings}
+	 * Provide the transition to use when values move out. Set false to disable the transition.
+	 * @type {TransitionSettings | false}
 	 */
-	export let transitionOut: TransitionSettings = { transition: slide, params: { duration: 200 } };
+	export let transitionOut: TransitionSettings | false = { transition: slide, params: { duration: 200 } };
 
 	// Props (parent)
 	/** Provide classes to set the accordion width. */

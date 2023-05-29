@@ -15,11 +15,10 @@ export type { PopupSettings } from './utilities/Popup/types';
 // This type alias is to identify CSS classes within component props, which enables Tailwind IntelliSense
 export type CssClasses = string;
 
-export type DefaultTransitionParams = (BlurParams | FadeParams | FlyParams | SlideParams | ScaleParams) & AdditionalTransitionProps;
-export type TransitionParams = (DefaultTransitionParams | Record<string, any>);
+export type TransitionParams = (BlurParams | FadeParams | FlyParams | SlideParams | ScaleParams) &
+	Record<string, unknown> &
+	AdditionalTransitionProps;
 interface AdditionalTransitionProps {
-	/** Disable the transition completely. */
-	disabled?: boolean;
 	/**
 	 * By default, animations will be disabled if the media query `prefers-reduced-motion` is present.
 	 * There are many reasons why you might want to override this behavior, such as for minor animations.
@@ -31,7 +30,7 @@ export interface TransitionSettings {
 	params?: TransitionParams;
 }
 export function disabledTransition(): TransitionConfig {
-	return {duration: 0, css: () => ``};
+	return { duration: 0, css: () => `` };
 }
 
 // Stores ---

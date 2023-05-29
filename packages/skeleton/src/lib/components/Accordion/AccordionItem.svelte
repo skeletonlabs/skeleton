@@ -41,10 +41,10 @@
 	export let autocollapse: boolean = getContext('autocollapse');
 	/** The writable store that houses the auto-collapse active item UUID. */
 	export let active: Writable<string | null> = getContext('active');
-	/** Provide the transition to use when values move in. */
-	export let transitionIn: TransitionSettings = getContext('transitionIn');
-	/** Provide the transition to use when values move out. */
-	export let transitionOut: TransitionSettings = getContext('transitionOut');
+	/** Provide the transition to use when values move in. Set false to disable the transition.*/
+	export let transitionIn: TransitionSettings | false = getContext('transitionIn');
+	/** Provide the transition to use when values move out. Set false to disable the transition.*/
+	export let transitionOut: TransitionSettings | false = getContext('transitionOut');
 	// ---
 	/** Set the disabled state for this item. */
 	export let disabled: boolean = getContext('disabled');
@@ -72,13 +72,13 @@
 	// Silence warning about unused props:
 	const deprecated = [duration];
 
-	// Local
-	let { transition: trIn, params: trInParams } = transitionIn;
-	let { transition: trOut, params: trOutParams } = transitionOut;
-	if(trInParams?.disabled || ($prefersReducedMotion && !trInParams?.ignoreReducedMotion)) {
+	// Transition
+	let { transition: trIn, params: trInParams } = transitionIn as TransitionSettings;
+	let { transition: trOut, params: trOutParams } = transitionOut as TransitionSettings;
+	if (transitionIn === false || ($prefersReducedMotion && !trInParams?.ignoreReducedMotion)) {
 		trIn = disabledTransition;
 	}
-	if(trOutParams?.disabled || ($prefersReducedMotion && !trInParams?.ignoreReducedMotion)) {
+	if (transitionOut === false || ($prefersReducedMotion && !trInParams?.ignoreReducedMotion)) {
 		trOut = disabledTransition;
 	}
 
