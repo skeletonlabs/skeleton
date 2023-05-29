@@ -7,7 +7,11 @@
 <!-- Header -->
 <section class="space-y-4">
 	<h2 class="h2">Tailwind CSS</h2>
-	<p>	Skeleton features tight integration with <a class="anchor" href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind CSS</a>.</p>
+	<p>
+		Skeleton features tight integration with <a class="anchor" href="https://tailwindcss.com/" target="_blank" rel="noreferrer"
+			>Tailwind CSS</a
+		>.
+	</p>
 	<TabGroup regionPanel="space-y-4">
 		<!-- Tabs -->
 		<Tab bind:group={$storeOnboardMethod} name="cli" value="cli">Skeleton CLI</Tab>
