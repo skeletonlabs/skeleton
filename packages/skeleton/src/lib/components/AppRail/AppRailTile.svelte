@@ -25,7 +25,7 @@
 	 * @type {any}
 	 * */
 	export let value: any;
-	/** Provides a tooltip for the tile */
+	/** Provide a hoverable title attribute for the tile. */
 	export let title: string = '';
 
 	// Props (region)
