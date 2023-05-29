@@ -42,7 +42,7 @@
 
 	// Local
 	let elemScrollParent: HTMLElement | null;
-	let allowedHeadingsList: any = [];
+	let allowedHeadingsList: NodeListOf<HTMLElement> | undefined;
 	let filteredHeadingsList: HTMLElement[] = [];
 	let activeHeaderId: string;
 
@@ -89,8 +89,8 @@
 	// Scrolls to the selected heading
 	// https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
 	function scrollToHeading(headingElem: HTMLElement): void {
-		const elemTarget: any = document.querySelector(`#${headingElem.id}`);
-		elemTarget.scrollIntoView({ behavior: 'smooth' });
+		const elemTarget = document.querySelector(`#${headingElem.id}`);
+		if (elemTarget) elemTarget.scrollIntoView({ behavior: 'smooth' });
 	}
 
 	function pageScrollHandler(): void {

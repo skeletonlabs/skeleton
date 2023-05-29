@@ -163,6 +163,8 @@ export function popup(triggerNode: HTMLElement, args: PopupSettings) {
 			close();
 			return;
 		}
+		// Update focusable elements (important for Autocomplete)
+		focusablePopupElements = Array.from(elemPopup?.querySelectorAll(focusableAllowedList));
 		// On Tab or ArrowDown key
 		const triggerMenuFocused: boolean = popupState.open && document.activeElement === triggerNode;
 		if (
