@@ -25,6 +25,8 @@
 	 * @type {any}
 	 * */
 	export let value: any;
+	/** Provide a hoverable title attribute for the tile. */
+	export let title: string = '';
 
 	// Props (region)
 	/** Provide arbitrary classes to style the lead region. */
@@ -62,7 +64,7 @@
 	}
 </script>
 
-<label class="app-rail-tile {classesBase}" data-testid="app-rail-tile">
+<label class="app-rail-tile {classesBase}" data-testid="app-rail-tile" {title}>
 	<!-- A11y attributes are not allowed on <label> -->
 	<div class="app-rail-wrapper {classesWrapper}" on:keydown on:keyup on:keypress>
 		<!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->
