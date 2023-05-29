@@ -257,7 +257,7 @@ Problems? Open an issue on ${cyan('https://github.com/skeletonlabs/skeleton/issu
 				parsedChoices.push({
 					position,
 					label,
-					description,
+					hint: description,
 					value: dir,
 				});
 			}

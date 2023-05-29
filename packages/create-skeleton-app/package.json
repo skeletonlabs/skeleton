@@ -29,6 +29,7 @@
 	"scripts": {
 		"dev": "node src/index.js",
 		"long": "node src/index.js --types=typescript --prettier --eslint --playwright=false --vitest=false --codeblocks=true --popups=true --typography=false --forms=false -t crimson --skeletontemplate=welcome",
+		"prepublish": "node scripts/prepare-templates.mjs",
 		"pub:beta": "npm publish --tag beta",
 		"pub:next": "npm publish --tag next",
 		"pub:release": "npm publish",

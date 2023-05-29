@@ -132,7 +132,7 @@ export async function createSkeleton(opts) {
 async function createVSCodeSettings() {
 	try {
 		mkdirp('.vscode');
-		const data = await got('https://raw.githubusercontent.com/skeletonlabs/skeleton/master/scripts/tw-settings.json').text();
+		const data = await got('https://raw.githubusercontent.com/skeletonlabs/skeleton/master/packages/skeleton/scripts/tw-settings.json').text();
 		return data;
 	} catch (error) {
 		console.error(
