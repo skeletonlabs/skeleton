@@ -5,9 +5,10 @@
 
 	// Types
 	import type { CssClasses } from '../..';
+	import type { StepperButton, StepperDispatchParent, StepperState } from './types';
 
 	// Event Dispatcher
-	const dispatchParent = createEventDispatcher();
+	const dispatchParent: StepperDispatchParent = createEventDispatcher();
 
 	// Props
 	/** Provide classes to style the stepper header gap. */
@@ -33,7 +34,7 @@
 	/** Provide arbitrary classes to style the back button. */
 	export let buttonBack: CssClasses = 'variant-ghost';
 	/** Set the type of the back button. */
-	export let buttonBackType: 'submit' | 'reset' | 'button' = 'button';
+	export let buttonBackType: StepperButton = 'button';
 	/** Provide the HTML label content for the back button. */
 	export let buttonBackLabel = '&larr; Back';
 
@@ -41,7 +42,7 @@
 	/** Provide arbitrary classes to style the next button. */
 	export let buttonNext: CssClasses = 'variant-filled';
 	/** Set the type of the next button. */
-	export let buttonNextType: 'submit' | 'reset' | 'button' = 'button';
+	export let buttonNextType: StepperButton = 'button';
 	/** Provide the HTML label content for the next button. */
 	export let buttonNextLabel = 'Next &rarr;';
 
@@ -49,7 +50,7 @@
 	/** Provide arbitrary classes to style the complete button. */
 	export let buttonComplete: CssClasses = 'variant-filled-primary';
 	/** Set the type of the complete button. */
-	export let buttonCompleteType: 'submit' | 'reset' | 'button' = 'button';
+	export let buttonCompleteType: StepperButton = 'button';
 	/** Provide the HTML label content for the complete button. */
 	export let buttonCompleteLabel = 'Complete';
 
@@ -60,7 +61,7 @@
 	export let regionContent: CssClasses = '';
 
 	// Stores
-	let state: Writable<any> = writable({ current: start, total: 0 });
+	let state: Writable<StepperState> = writable({ current: start, total: 0 });
 
 	// Context
 	setContext('state', state);

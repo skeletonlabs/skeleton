@@ -6,6 +6,7 @@
 
 	// Types
 	import type { CssClasses } from '../..';
+	import type { StepperDispatchParent, StepperState } from './types';
 
 	// Props
 	export let locked = false;
@@ -19,8 +20,8 @@
 	export let regionNavigation: CssClasses = '';
 
 	// Context
-	export let state: Writable<any> = getContext('state');
-	export let dispatchParent: any = getContext('dispatchParent');
+	export let state: Writable<StepperState> = getContext('state');
+	export let dispatchParent: StepperDispatchParent = getContext('dispatchParent');
 	export let stepTerm: string = getContext('stepTerm');
 	export let gap: CssClasses = getContext('gap');
 	export let justify: CssClasses = getContext('justify');
