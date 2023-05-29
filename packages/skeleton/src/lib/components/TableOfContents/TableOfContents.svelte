@@ -42,6 +42,8 @@
 
 	// Local
 	let elemScrollParent: HTMLElement | null;
+	// this has a type error that shouldn't exist
+	// eslint-disable-next-line
 	let allowedHeadingsList: NodeListOf<HTMLElement> | undefined;
 	let filteredHeadingsList: HTMLElement[] = [];
 	let activeHeaderId: string;
