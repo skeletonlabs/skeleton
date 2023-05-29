@@ -85,7 +85,7 @@
 			<h2 class="h2">Binding Method</h2>
 			<p>Use a <code class="code">FileList</code> to bind the file data.</p>
 			<CodeBlock language="ts" code={`let files: FileList;`} />
-			<CodeBlock language="html" code={`<FileDropzone ... bind:files />`} />
+			<CodeBlock language="html" code={`<FileDropzone ... bind:files={files} />`} />
 		</div>
 		<div class="space-y-4">
 			<h2 class="h2">On Change Event</h2>
