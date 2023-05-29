@@ -188,7 +188,7 @@
 						<h2 class="h2">Reference</h2>
 						<aside class="alert alert-message variant-ghost">
 							<!-- prettier-ignore -->
-							<p>View the Skeleton <a class="anchor" href="https://github.com/skeletonlabs/skeleton/tree/master/src/lib/utilities/LightSwitch" target="_blank" rel="noreferrer">Lightswitch component source code</a> for a detailed reference. </p>
+							<p>View the Skeleton <a class="anchor" href="https://github.com/skeletonlabs/skeleton/tree/master/packages/skeleton/src/lib/utilities/LightSwitch" target="_blank" rel="noreferrer">Lightswitch component source code</a> for a detailed reference. </p>
 						</aside>
 					{/if}
 				</svelte:fragment>
