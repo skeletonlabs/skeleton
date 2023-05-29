@@ -1,11 +1,7 @@
 name: 📗 Report Docs Issue
-description: See a typo? Outdated or incorrect information? Let us know!
-title: "<title>"
+description: Use this to report a typo or incorrect information.
 labels: [documentation]
 body:
-- type: markdown
-  attributes:
-    value: Sometimes something slips through the cracks, and the documentation is not quite right. Thanks for letting us know!
 - type: input
   id: link
   attributes:
@@ -13,11 +9,4 @@ body:
 - type: textarea
   id: quote
   attributes:
-    label: Describe the Issue
-- type: dropdown
-  id: participate
-  attributes:
-    label: Are you able to create a Pull Request with the fix?
-    options:
-      - 'Yes'
-      - 'No'
+    label: Describe the Issue (screenshots encouraged!)

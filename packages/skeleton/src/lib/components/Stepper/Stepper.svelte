@@ -15,7 +15,7 @@
 
 	// Props (stepper)
 	/** Provide the verbiage that represents "Step". */
-	export let stepTerm: string = 'Step';
+	export let stepTerm = 'Step';
 	/** Provide classes to style the stepper header badges. */
 	export let badge: CssClasses = 'variant-filled-surface';
 	/** Provide classes to style the stepper header active step badge. */
@@ -23,7 +23,7 @@
 	/** Provide classes to style the stepper header border. */
 	export let border: CssClasses = 'border-surface-400-500-token';
 	/** Provide the initially selected step*/
-	export let start: number = 0;
+	export let start = 0;
 
 	// Props (step)
 	/** Set the justification for the step navigation buttons. */
@@ -35,7 +35,7 @@
 	/** Set the type of the back button. */
 	export let buttonBackType: 'submit' | 'reset' | 'button' = 'button';
 	/** Provide the HTML label content for the back button. */
-	export let buttonBackLabel: string = '&larr; Back';
+	export let buttonBackLabel = '&larr; Back';
 
 	// Button (next)
 	/** Provide arbitrary classes to style the next button. */
@@ -43,7 +43,7 @@
 	/** Set the type of the next button. */
 	export let buttonNextType: 'submit' | 'reset' | 'button' = 'button';
 	/** Provide the HTML label content for the next button. */
-	export let buttonNextLabel: string = 'Next &rarr;';
+	export let buttonNextLabel = 'Next &rarr;';
 
 	// Button (complete)
 	/** Provide arbitrary classes to style the complete button. */
@@ -51,7 +51,7 @@
 	/** Set the type of the complete button. */
 	export let buttonCompleteType: 'submit' | 'reset' | 'button' = 'button';
 	/** Provide the HTML label content for the complete button. */
-	export let buttonCompleteLabel: string = 'Complete';
+	export let buttonCompleteLabel = 'Complete';
 
 	// Props (regions)
 	/** Provide arbitrary classes to the stepper header region. */
