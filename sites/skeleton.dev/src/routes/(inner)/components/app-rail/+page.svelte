@@ -48,15 +48,15 @@
 							</AppRailAnchor>
 						</svelte:fragment>
 						<!-- Default -->
-						<AppRailTile bind:group={currentTile} name="tile-1" value={0}>
+						<AppRailTile bind:group={currentTile} name="tile-1" value={0} title="tile-1">
 							<svelte:fragment slot="lead"><i class="fa-solid fa-image text-2xl" /></svelte:fragment>
 							<span>Tile 1</span>
 						</AppRailTile>
-						<AppRailTile bind:group={currentTile} name="tile-2" value={1}>
+						<AppRailTile bind:group={currentTile} name="tile-2" value={1} title="tile-2">
 							<svelte:fragment slot="lead"><i class="fa-solid fa-image text-2xl" /></svelte:fragment>
 							<span>Tile 2</span>
 						</AppRailTile>
-						<AppRailTile bind:group={currentTile} name="tile-3" value={2}>
+						<AppRailTile bind:group={currentTile} name="tile-3" value={2} title="tile-3">
 							<svelte:fragment slot="lead"><i class="fa-solid fa-image text-2xl" /></svelte:fragment>
 							<span>Tile 3</span>
 						</AppRailTile>
@@ -82,15 +82,15 @@
 		<AppRailAnchor href="/" >(icon)</AppRailAnchor>
 	</svelte:fragment>
 	<!-- --- -->
-	<AppRailTile bind:group={currentTile} name="tile-1" value={0}>
+	<AppRailTile bind:group={currentTile} name="tile-1" value={0} title="tile-1">
 		<svelte:fragment slot="lead">(icon)</svelte:fragment>
 		<span>Tile 1</span>
 	</AppRailTile>
-	<AppRailTile bind:group={currentTile} name="tile-2" value={1}>
+	<AppRailTile bind:group={currentTile} name="tile-2" value={1} title="tile-2">
 		<svelte:fragment slot="lead">(icon)</svelte:fragment>
 		<span>Tile 2</span>
 	</AppRailTile>
-	<AppRailTile bind:group={currentTile} name="tile-3" value={2}>
+	<AppRailTile bind:group={currentTile} name="tile-3" value={2} title="tile-3">
 		<svelte:fragment slot="lead">(icon)</svelte:fragment>
 		<span>Tile 3</span>
 	</AppRailTile>
@@ -119,7 +119,7 @@
 			<DocsPreview background="neutral">
 				<svelte:fragment slot="preview">
 					<div class="bg-surface-100-800-token overflow-hidden w-24">
-						<AppRailTile bind:group={currentTile} name="tile-4" value={4} hover="hover:bg-primary-hover-token">
+						<AppRailTile bind:group={currentTile} name="tile-4" value={4} hover="hover:bg-primary-hover-token" title="tile-1">
 							<svelte:fragment slot="lead"><i class="fa-solid fa-image text-2xl" /></svelte:fragment>
 							<span>Tile</span>
 						</AppRailTile>
@@ -131,7 +131,7 @@
 					<CodeBlock
 						language="html"
 						code={`
-<AppRailTile bind:group={currentTile} name="tile-1" value={0}>
+<AppRailTile bind:group={currentTile} name="tile-1" value={0} title="tile-1>
 	<svelte:fragment slot="lead">(icon)</svelte:fragment>
 	<span>Tile 1</span>
 </AppRailTile>
@@ -154,12 +154,26 @@
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="source">
-					<CodeBlock language="html" code={`<AppRailAnchor href="/" target="_blank" title="Account">(icon)</AppRailAnchor>`} />
+					<CodeBlock
+						language="html"
+						code={`
+<AppRailAnchor href="/" target="_blank" title="Account">
+	<svelte:fragment slot="lead">(icon)</svelte:fragment>
+	<span>Anchor</span>
+</AppRailAnchor>`}
+					/>
 					<p>
 						Unlike <code class="code">AppRailTile</code> you must explicitly set the active state via the <code class="code">selected</code>
 						property.
 					</p>
-					<CodeBlock language="html" code={`<AppRailAnchor ... selected={true}>(icon)</AppRailAnchor>`} />
+					<CodeBlock
+						language="html"
+						code={`
+<AppRailAnchor ... selected={true}>
+	<svelte:fragment slot="lead">(icon)</svelte:fragment>
+	<span>Anchor</span>
+</AppRailAnchor>`}
+					/>
 				</svelte:fragment>
 			</DocsPreview>
 		</section>

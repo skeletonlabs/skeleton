@@ -37,11 +37,14 @@
 	export let active: CssClasses = 'bg-primary-active-token';
 	/** Tile: Provide classes to set the tile vertical spacing. */
 	export let spacing: CssClasses = 'space-y-1';
+	/** Adds a tooltip with the title text */
+	export let title: string = '';
 
 	// Context
 	setContext('active', active);
 	setContext('hover', hover);
 	setContext('spacing', spacing);
+	setContext('title', title);
 
 	// Base Classes
 	const cBase = 'grid grid-rows-[auto_1fr_auto] overflow-y-auto';

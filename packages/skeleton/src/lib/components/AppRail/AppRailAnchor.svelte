@@ -15,7 +15,7 @@
 
 	// Props (region)
 	/** Provide arbitrary classes to style the lead region. */
-	export let regionLead: CssClasses = '';
+	export let regionLead: CssClasses = 'flex justify-center items-center';
 	/** Provide arbitrary classes to style the label region. */
 	export let regionLabel: CssClasses = '';
 

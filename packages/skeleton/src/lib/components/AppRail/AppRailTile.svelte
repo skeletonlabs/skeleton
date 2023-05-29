@@ -36,6 +36,7 @@
 	export let hover: CssClasses = getContext('hover');
 	export let active: CssClasses = getContext('active');
 	export let spacing: CssClasses = getContext('spacing');
+	export let title: string = getContext('title');
 
 	// Classes
 	const cBase = 'cursor-pointer';
@@ -62,7 +63,7 @@
 	}
 </script>
 
-<label class="app-rail-tile {classesBase}" data-testid="app-rail-tile">
+<label class="app-rail-tile {classesBase}" data-testid="app-rail-tile" {title}>
 	<!-- A11y attributes are not allowed on <label> -->
 	<div class="app-rail-wrapper {classesWrapper}" on:keydown on:keyup on:keypress>
 		<!-- NOTE: Don't use `hidden` as it prevents `required` from operating -->
