@@ -2,4 +2,4 @@
 "skeleton.dev": patch
 ---
 
-docs: removed shorthand prop defintions
+docs: removed shorthand prop definitions
