@@ -25,6 +25,8 @@
 	 * @type {any}
 	 * */
 	export let value: any;
+	/** Provides a tooltip for the tile */
+	export let title: string = '';
 
 	// Props (region)
 	/** Provide arbitrary classes to style the lead region. */
@@ -36,7 +38,6 @@
 	export let hover: CssClasses = getContext('hover');
 	export let active: CssClasses = getContext('active');
 	export let spacing: CssClasses = getContext('spacing');
-	export let title: string = getContext('title');
 
 	// Classes
 	const cBase = 'cursor-pointer';
