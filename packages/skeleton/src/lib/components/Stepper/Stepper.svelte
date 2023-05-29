@@ -4,8 +4,8 @@
 	import { fade } from 'svelte/transition';
 
 	// Types
-	import type { CssClasses } from '../..';
-	import type { StepperButton, StepperDispatchParent, StepperState } from './types';
+	import type { CssClasses } from '../../index.js';
+	import type { StepperButton, StepperDispatchParent, StepperState } from './types.js';
 
 	// Event Dispatcher
 	const dispatchParent: StepperDispatchParent = createEventDispatcher();

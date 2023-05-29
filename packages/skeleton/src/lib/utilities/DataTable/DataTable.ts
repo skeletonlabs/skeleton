@@ -2,12 +2,12 @@
 // A set of utility features for local template-driven data tables.
 
 import { writable } from 'svelte/store';
-import type { DataTableModel, DataTableOptions } from './types';
+import type { DataTableModel, DataTableOptions } from './types.js';
 
 // Exports
 
-export * from './types';
-export * from './actions';
+export * from './types.js';
+export * from './actions.js';
 
 /** Creates the writeable store for the data table */
 export function createDataTableStore<T extends Record<PropertyKey, any>>(source: T[], options: DataTableOptions<T> = {}) {

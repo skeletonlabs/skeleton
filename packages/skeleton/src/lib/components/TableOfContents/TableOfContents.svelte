@@ -3,7 +3,7 @@
 	import { fade } from 'svelte/transition';
 
 	// Types
-	import type { CssClasses } from '../..';
+	import type { CssClasses } from '../../index.js';
 
 	// Props (settings)
 	/** Query selector for the scrollable page element. */
@@ -42,6 +42,8 @@
 
 	// Local
 	let elemScrollParent: HTMLElement | null;
+	// this has a type error that shouldn't exist
+	// eslint-disable-next-line
 	let allowedHeadingsList: NodeListOf<HTMLElement> | undefined;
 	let filteredHeadingsList: HTMLElement[] = [];
 	let activeHeaderId: string;

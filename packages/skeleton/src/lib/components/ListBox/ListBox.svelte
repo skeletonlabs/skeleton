@@ -2,7 +2,7 @@
 	import { setContext } from 'svelte';
 
 	// Types
-	import type { CssClasses } from '../..';
+	import type { CssClasses } from '../../index.js';
 
 	// Props
 	/** Enable selection of multiple items. */

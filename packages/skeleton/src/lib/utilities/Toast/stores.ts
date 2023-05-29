@@ -1,7 +1,7 @@
 // Toast Store Queue
 
 import { writable } from 'svelte/store';
-import type { ToastSettings, Toast } from './types';
+import type { ToastSettings, Toast } from './types.js';
 
 const toastDefaults: ToastSettings = { message: 'Missing Toast Message', autohide: true, timeout: 5000 };
 

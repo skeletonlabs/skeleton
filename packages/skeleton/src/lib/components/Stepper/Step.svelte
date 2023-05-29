@@ -5,8 +5,8 @@
 	import { fade } from 'svelte/transition';
 
 	// Types
-	import type { CssClasses } from '../..';
-	import type { StepperDispatchParent, StepperState } from './types';
+	import type { CssClasses } from '../../index.js';
+	import type { StepperDispatchParent, StepperState } from './types.js';
 
 	// Props
 	export let locked = false;

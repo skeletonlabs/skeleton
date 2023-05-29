@@ -1,6 +1,6 @@
 // Data Table Types
 
-import type { PaginationSettings } from '../..';
+import type { PaginationSettings } from '../../index.js';
 
 export interface DataTableModel<T extends Record<PropertyKey, unknown>> {
 	/** The original source data. */
