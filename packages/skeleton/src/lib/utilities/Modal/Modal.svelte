@@ -194,10 +194,10 @@
 		<div
 			class="modal-backdrop {classesBackdrop}"
 			data-testid="modal-backdrop"
-			on:mousedown|preventDefault={onBackdropInteractionBegin}
-			on:mouseup|preventDefault={onBackdropInteractionEnd}
-			on:touchstart|preventDefault
-			on:touchend|preventDefault
+			on:mousedown={onBackdropInteractionBegin}
+			on:mouseup={onBackdropInteractionEnd}
+			on:touchstart
+			on:touchend
 			transition:fade={{ duration }}
 			use:focusTrap={true}
 		>
