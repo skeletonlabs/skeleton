@@ -11,7 +11,7 @@
 		name: 'Typography',
 		description: 'Provides a variety of globally scoped typographic styles. Keeps common tags styled consistently throughout an app.',
 		stylesheetIncludes: ['all', 'typography'],
-		source: 'styles/typography.css'
+		source: '/styles/partials/typography.css'
 	};
 </script>
 
