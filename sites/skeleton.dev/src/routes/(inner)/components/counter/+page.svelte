@@ -13,7 +13,7 @@
 	const settings: DocsShellSettings = {
 		feature: DocsFeature.Component,
 		name: 'Counter',
-		description: 'A scrolling list component',
+		description: 'A scrolling list component.',
 		imports: ['Counter'],
 		source: 'components/Counter',
 		components: [{ sveld: sveldCounter }]

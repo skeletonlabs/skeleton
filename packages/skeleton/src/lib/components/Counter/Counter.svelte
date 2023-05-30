@@ -47,18 +47,22 @@
 	let cBase = `inline-block ${background}`;
 	let cInner = 'overflow-hidden flex flex-col';
 
+	let transitionInterval: any;
+
 	// Reactive Classes
 	$: classesBase = `${cBase} ${padding} ${height} ${width} ${border} ${rounded} ${shadow} ${$$props.class ?? ''}`;
 	$: classesInner = `${cInner}`;
 
-	let transitionInterval: any,
-		tIn: TransitionFunction = fly,
-		tInProps: any = { y: 100, duration: 150, delay: 150, easing: elasticInOut },
-		tOut: TransitionFunction = fly,
-		tOutProps: any = { y: -100, duration: 150, easing: elasticInOut };
-
+	// Reactive Values
 	$: currentValue = values[index];
 	$: {
+		//Assign default values
+		let tIn: TransitionFunction = fly,
+			tInProps: any = { y: 100, duration: 150, delay: 150, easing: elasticInOut },
+			tOut: TransitionFunction = fly,
+			tOutProps: any = { y: -100, duration: 150, easing: elasticInOut };
+
+		//Handle property precedence
 		if (transition) {
 			tIn = transition.transition;
 			tInProps = transition.props;
@@ -102,7 +106,7 @@
 	onDestroy(() => clearInterval(transitionInterval));
 </script>
 
-<span class={classesBase}>
+<span data-testid="counter" class={classesBase}>
 	<span class={classesInner}>
 		{#key currentValue}
 			<span in:tIn={tInProps} out:tOut={tOutProps}>
