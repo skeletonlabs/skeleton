@@ -10,8 +10,8 @@
 		feature: DocsFeature.Element,
 		name: 'Typography',
 		description: 'Provides a variety of globally scoped typographic styles. Keeps common tags styled consistently throughout an app.',
-		stylesheetIncludes: ['all', 'typography'],
-		source: 'styles/typography.css'
+		stylesheetIncludes: ['skeleton', 'typography'],
+		source: 'styles/partials/typography.css'
 	};
 </script>
 
