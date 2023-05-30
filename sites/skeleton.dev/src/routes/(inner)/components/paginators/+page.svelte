@@ -18,6 +18,7 @@
 		source: 'components/Paginator',
 		components: [{ sveld: sveldPaginator }]
 	};
+
 	// Local
 	const sourceHeaders: string[] = ['Name', 'Symbol', 'atomic Number'];
 	const sourceBody = Array(27)
@@ -31,6 +32,15 @@
 		size: sourceBody.length,
 		amounts: [1, 2, 3, 5, sourceBody.length]
 	} as PaginationSettings;
+
+	// Demo options
+	let state = {
+		firstLast: false,
+		previousNext: true
+	};
+	function toggle(key: keyof typeof state): void {
+		state[key] = !state[key];
+	}
 
 	// Event Handlers
 	function onPageChange(e: CustomEvent): void {
@@ -51,7 +61,13 @@
 			<svelte:fragment slot="preview">
 				<div class="w-full space-y-4 text-token">
 					<Table source={{ head: sourceHeaders, body: sourceBodySliced }} />
-					<Paginator bind:settings={page} on:page={onPageChange} on:amount={onAmountChange} />
+					<Paginator
+						bind:settings={page}
+						on:page={onPageChange}
+						on:amount={onAmountChange}
+						showFirstLastButtons={state.firstLast}
+						showPreviousNextButtons={state.previousNext}
+					/>
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="source">
@@ -68,15 +84,58 @@ let page = {
 };
 					`}
 				/>
-				<CodeBlock language="html" code={`<Paginator bind:settings={page}></Paginator>`} />
+				<CodeBlock
+					language="html"
+					code={`
+<Paginator
+	bind:settings={page}
+	showFirstLastButtons="{${state.firstLast}}"
+	showPreviousNextButtons="{${state.previousNext}}"
+/>
+`}
+				/>
+			</svelte:fragment>
+			<svelte:fragment slot="footer">
+				<!-- prettier-ignore -->
+				<div class="flex justify-center gap-4">
+					<button
+						class="btn btn-sm {state.firstLast ? 'variant-filled' : 'variant-soft'}"
+						on:click={() => { toggle('firstLast'); }}
+					>
+						First &amp; Last
+					</button>
+					<button
+						class="btn btn-sm {state.previousNext ? 'variant-filled' : 'variant-soft'}"
+						on:click={() => { toggle('previousNext'); }}
+					>
+						Previous &amp; Next
+					</button>
+				</div>
 			</svelte:fragment>
 		</DocsPreview>
 	</svelte:fragment>
 
 	<!-- Slot: Usage -->
 	<svelte:fragment slot="usage">
-		<div class="space-y-4" />
-		<div class="space-y-4">
+		<section class="space-y-4">
+			<h2 class="h2">Numeric Row</h2>
+			<!-- prettier-ignore -->
+			<p>
+				Use <code class="code">showNumerals</code> to replace the text information with a row of buttons that allow you to quickly navigate pages. We recommend a small <code class="code">maxNumerals</code> amount if you plan to support mobile devices with limited screen real estate.
+			</p>
+			<DocsPreview background="neutral">
+				<svelte:fragment slot="preview">
+					<div class="w-full space-y-4 text-token">
+						<Table source={{ head: sourceHeaders, body: sourceBodySliced }} />
+						<Paginator bind:settings={page} on:page={onPageChange} on:amount={onAmountChange} showNumerals />
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="source">
+					<CodeBlock language="html" code={`<Paginator ... showNumerals maxNumerals={1}></Paginator>`} />
+				</svelte:fragment>
+			</DocsPreview>
+		</section>
+		<section class="space-y-4">
 			<h2 class="h2">Client-Side Pagination</h2>
 			<!-- prettier-ignore -->
 			<p>
@@ -116,8 +175,8 @@ let tableHeaders: string[] = ['Positions', 'Name', 'Weight', 'Symbol'];
 <Table source={{ head: tableHeaders, body: paginatedSource }} />
 				`}
 			/>
-		</div>
-		<div class="space-y-4">
+		</section>
+		<section class="space-y-4">
 			<h2 class="h2">Server-Side Pagination</h2>
 			<p>Use the <code class="code">page</code> and <code class="code">amount</code> events to notify your server of pagination updates.</p>
 			<CodeBlock
@@ -133,7 +192,7 @@ function onAmountChange(e: CustomEvent): void {
 			`}
 			/>
 			<CodeBlock language="html" code={`<Paginator ... on:page={onPageChange} on:amount={onAmountChange}></Paginator>`} />
-		</div>
+		</section>
 		<hr />
 		<!-- See Also -->
 		<section class="!flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">

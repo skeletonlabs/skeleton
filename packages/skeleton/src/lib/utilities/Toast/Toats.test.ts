@@ -1,8 +1,8 @@
 import { render } from '@testing-library/svelte';
 import { describe, it, expect } from 'vitest';
 
-import { toastStore } from '$lib/utilities/Toast/stores';
-import type { ToastSettings } from './types';
+import { toastStore } from '$lib/utilities/Toast/stores.js';
+import type { ToastSettings } from './types.js';
 import Toast from '$lib/utilities/Toast/Toast.svelte';
 
 // Toast Payload

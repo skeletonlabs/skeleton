@@ -9,7 +9,7 @@
 	 */
 
 	// Types
-	import type { CssClasses } from '../..';
+	import type { CssClasses } from '../../index.js';
 
 	// Props (regions)
 	/** Apply arbitrary classes to the entire `#page` region. */

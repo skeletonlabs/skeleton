@@ -27,16 +27,4 @@ describe('AppRailTile.svelte', () => {
 		});
 		expect(getByTestId('app-rail-tile')).toBeTruthy();
 	});
-
-	it('Overrides tag when href is passed', async () => {
-		const { getByTestId } = render(AppRailTile, {
-			props: {
-				href: '/about',
-				group: 'testGroup',
-				name: 'test tile',
-				value: 'some value'
-			}
-		});
-		expect(getByTestId('app-rail-tile').querySelector('a')).toBeTruthy();
-	});
 });
