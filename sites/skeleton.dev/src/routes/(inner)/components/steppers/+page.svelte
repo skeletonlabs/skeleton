@@ -38,16 +38,16 @@
 	// Local
 	let locked = true;
 
-	function onNextHandler(e: any): void {
+	function onNextHandler(e: CustomEvent): void {
 		console.log('event:next', e.detail);
 	}
-	function onBackHandler(e: any): void {
+	function onBackHandler(e: CustomEvent): void {
 		console.log('event:prev', e.detail);
 	}
-	function onStepHandler(e: any): void {
+	function onStepHandler(e: CustomEvent): void {
 		console.log('event:step', e.detail);
 	}
-	function onCompleteHandler(e: any): void {
+	function onCompleteHandler(e: CustomEvent): void {
 		console.log('event:complete', e.detail);
 		alert('Complete!');
 	}
@@ -150,7 +150,7 @@
 			<CodeBlock
 				language="ts"
 				code={`function onStepHandler(e: {step: number, state: {current: number, total: number}}): void {
-	console.log('event:step', e); 
+	console.log('event:step', e);
 }`}
 			/>
 			<CodeBlock language="html" code={`<Stepper on:next={onNextHandler} on:step={onStepHandler} on:back={onBackHandler}>...</Stepper>`} />

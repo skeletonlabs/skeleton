@@ -105,9 +105,10 @@
 		<!-- prettier-ignore -->
 		<ol class="list-decimal list-inside space-y-2">
 			<li>Install <a class="anchor" href="https://pnpm.io/" target="_blank" rel="noreferrer">pnpm</a> globally using <code class="code">npm install -g pnpm</code>. Confirm via <code class="code">pnpm --version</code> in your terminal.</li>
-			<li>Run <code class="code">git clone https://github.com/skeletonlabs/skeleton.git</code> to clone the monorepo project.</li>
+			<li>Go to our <a href="https://github.com/skeletonlabs/skeleton" class="anchor" >repo</a> and press the Fork button in the top right.</li>
+			<li>Click the Code button in Github to clone down a copy of your fork to your local machine</li>
 			<li>Run <code class="code">cd skeleton</code> to move into the cloned monorepo project.</li>
-			<li>Delete your <code class="code">node_modules</code> directory, then run <code class="code">pnpm i</code> to install depedencies for all projects.</li>
+			<li>Delete your <code class="code">node_modules</code> directory, then run <code class="code">pnpm i</code> to install dependencies for all projects.</li>
 			<li>Run <code class="code">cd sites/skeleton.dev</code> to move into the Skeleton documentation project.</li>
 			<li>Run <code class="code">code .</code> to open the current project directory in VS Code.</li>
 			<li>Run <code class="code">pnpm dev</code> to start a local dev server. You may see a warning the first time.</li>
@@ -125,6 +126,60 @@
 		<h3 class="h3">Importing Skeleton</h3>
 		<p>To import Skeleton features (ex: components) within each monorepo project, use the following structure:</p>
 		<CodeBlock language="typescript" code={`import { Avatar } from '@skeletonlabs/skeleton';`} />
+	</section>
+
+	<!-- Changesets -->
+	<section class="space-y-4">
+		<h2 class="h2">Changesets</h2>
+		<p>
+			<!-- prettier-ignore -->
+			Once you have a PR that is ready, it'll be time to add a
+			<a class="anchor" href="https://github.com/changesets/changesets" target="_blank" rel="noreferrer">Changeset</a>. We use changesets to help
+			automate our versioning, changelogs, and releases.
+		</p>
+		<p>
+			We will be creating changesets using the Changeset CLI. The CLI will walk us through the process by having us select the packages and
+			their respective version bumps. Version bumps are how we increment the versions for our packages and they come in 3 flavors:
+			<code class="code">major</code>,
+			<code class="code">minor</code>, and <code class="code">patch</code>.
+		</p>
+		<p>
+			Generally, new features are <code class="code">minor</code> bumps while bugfixes and chores are <code class="code">patch</code> bumps.
+			When writing the summary for the changeset, be sure to <u>prefix</u> the message with either
+			<code class="code">feat:</code>,
+			<code class="code">bugfix:</code>, or <code class="code">chore:</code>.
+		</p>
+		<Table
+			source={{
+				head: ['Prefix', 'When to use', 'Version Bump'],
+				body: [
+					['<code class="code">feat:</code>', 'For when a new feature is added', '<code class="code">minor</code>'],
+					['<code class="code">bugfix:</code>', 'For bug fixes', '<code class="code">patch</code>'],
+					['<code class="code">chore:</code>', 'For dependency and general project management', '<code class="code">patch</code>']
+				]
+			}}
+		/>
+		<!-- prettier-ignore -->
+		<h3 class="h3">Adding a Changeset</h3>
+		<ol class="list-decimal list-inside space-y-2">
+			<li>Navigate to the root directory of the monorepo.</li>
+			<li>Run <code class="code">pnpm changeset</code> to run the Changeset CLI.</li>
+			<li>
+				Press <kbd class="kbd">Space</kbd> to select the package(s) you would like to add a changeset for. Once selected, press
+				<kbd class="kbd">Enter</kbd>.
+			</li>
+			<li>
+				Now it's time to select a version bump. If it's the version bump you desire, press
+				<kbd class="kbd">Space</kbd>
+				to select the package(s) that it will apply to, and press <kbd class="kbd">Enter</kbd>
+				to submit. Otherwise, press <kbd class="kbd">Enter</kbd> to move on to the next version bump option.
+			</li>
+			<li>
+				You will now be prompted to write a summary. <u>Prefix</u> your summary with either <code class="code">feat:</code>,
+				<code class="code">bugfix:</code>, or <code class="code">chore:</code>. Then briefly describe the change you implemented.
+			</li>
+			<li>Confirm the changes and commit the newly generated markdown file.</li>
+		</ol>
 	</section>
 
 	<!-- Tooling -->

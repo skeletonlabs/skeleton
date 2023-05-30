@@ -1,7 +1,7 @@
 // Drawer Stores
 
 import { writable } from 'svelte/store';
-import type { DrawerSettings } from './types';
+import type { DrawerSettings } from './types.js';
 
 function drawerService() {
 	const { subscribe, set, update } = writable<DrawerSettings>({});

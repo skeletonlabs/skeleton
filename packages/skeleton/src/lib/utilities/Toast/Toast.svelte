@@ -4,10 +4,10 @@
 	import { flip } from 'svelte/animate';
 
 	// Types
-	import type { CssClasses } from '../..';
+	import type { CssClasses } from '../../index.js';
 
 	// Stores
-	import { toastStore } from './stores';
+	import { toastStore } from './stores.js';
 
 	// Props
 	/** Set the toast position.
@@ -47,7 +47,7 @@
 
 	// Base Classes
 	const cWrapper = 'flex fixed top-0 left-0 right-0 bottom-0 pointer-events-none';
-	const cSnackbar = 'flex flex-col space-y-2';
+	const cSnackbar = 'flex flex-col gap-y-2';
 	const cToast = 'flex justify-between items-center pointer-events-auto';
 	const cToastActions = 'flex items-center space-x-2';
 

@@ -6,7 +6,7 @@
 	 */
 
 	// Types
-	import type { CssClasses } from '../..';
+	import type { CssClasses } from '../../index.js';
 
 	// Props (base)
 	/** Provide classes to set background color. */
